@@ -47,24 +47,22 @@ app.views.Post.SmallFrame = app.views.Post.extend({
 
   colorClass : function() {
     var text = this.model.get("text")
-      , baseClass = $.trim(text).length == 0 ? "no-text" : 'has-text';
+      , baseClass = $.trim(text).length == 0 ? "no-text" : "has-text";
+
+    if(this.model.get("photos").length > 0 || this.model.get("o_embed_cache"))
+      baseClass += " has-media";
 
     if(baseClass == "no-text" || this.model.get("photos").length > 0 || this.model.get("o_embed_cache")) { return baseClass }
 
     var randomColor = _.first(_.shuffle(['cyan', 'green', 'yellow', 'purple', 'lime-green', 'orange', 'red', 'turquoise', 'sand']));
 
-    var textClass;
-    if(text.length > 240) {
-      textClass = "blog-text x2 width"
-    } else if(text.length > 140) {
-      textClass = randomColor
-    } else if(text.length > 40) {
-      textClass = randomColor
-    } else {
-      textClass =  "big-text " + randomColor
+    var textClass = randomColor;
+
+    if(text.length < 40) {
+      textClass += " big-text"
     }
 
-    return [baseClass, textClass, "sticky-note"].join(" ")
+    return [baseClass, textClass].join(" ")
   },
 
   dimensionsClass : function() {

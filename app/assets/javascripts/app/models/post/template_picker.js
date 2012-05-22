@@ -9,11 +9,11 @@ _.extend(app.models.Post.TemplatePicker.prototype, {
     var frameName
 
     if(this.isNewspaper()){
-      frameName = "Newspaper"
+      frameName = "Typist"
     } else if(this.isWallpaper()) {
       frameName =  "Wallpaper"
     } else {
-      frameName = "Day"
+      frameName = "Vanilla"
     }
 
     return frameName

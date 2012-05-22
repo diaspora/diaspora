@@ -54,8 +54,8 @@ Feature: Creating a new post
     Then it should be a wallpaper small frame with the background "button.gif"
     Then I should see "This is hella customized" in the framer preview
 
-    When I select the mood "Newspaper"
-    Then the post's mood should be "Newspaper"
+    When I select the mood "Typist"
+    Then the post's mood should be "Typist"
     And "button.gif" should be in the post's small frame
 
     And I should see "This is hella customized" in the framer preview
@@ -63,7 +63,7 @@ Feature: Creating a new post
     And I go back to the composer
     And I write "It sure is a beautiful Day"
     And I start the framing process
-    Then the post's mood should be "Newspaper"
+    Then the post's mood should be "Typist"
     And I should see "It sure is a beautiful Day" in the framer preview
 
     When I finalize my frame
@@ -72,7 +72,7 @@ Feature: Creating a new post
     When I click into the "It sure is a beautiful Day" post
 
     #on show page
-    And the post's mood should still be "Newspaper"
+    And the post's mood should still be "Typist"
 
   Scenario: The Wallpaper mood
     When I write "This is a pithy status" with body "And this is a long body"

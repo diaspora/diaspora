@@ -59,9 +59,14 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
   headlineLimit : 118,
 
   frameMoods : [
-    "Day",
-    "Night",
+ //   "Day",
+ //   "Night",
     "Wallpaper",
-    "Newspaper"
+ //   "Newspaper",
+
+    // NEW SHIT
+    "Vanilla",
+    "Typist",
+    "Fridge"
   ]
 });
