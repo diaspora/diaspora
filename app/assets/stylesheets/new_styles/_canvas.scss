@@ -374,11 +374,13 @@
   .background {
     @include box-shadow(-2px, 0, 7px, rgba(0,0,0,0.8));
     position : fixed;
-    background-color : cyan;
     height : 100%;
     width : 100%;
 
-    background-color : #333;
+    background : {
+      color : #333;
+      image : image_url("hatched-bg-dark.png");
+    }
   }
 
 }
