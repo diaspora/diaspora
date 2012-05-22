@@ -63,7 +63,6 @@ app.views.Canvas = app.views.InfScroll.extend({
   },
 
   reLayout : function(){
-    console.log("relaying out")
     this.$el.isotope("reLayout")
   }
 });

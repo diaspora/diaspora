@@ -26,7 +26,7 @@ describe("app.views.Feedback", function(){
 
   describe(".render", function(){
     beforeEach(function(){
-      this.link = function(){ return this.view.$(".like_action"); }
+      this.link = function(){ return this.view.$("a.like"); }
       this.view.render();
     })
 
@@ -83,14 +83,13 @@ describe("app.views.Feedback", function(){
       })
 
       it("shows a reshare_action link", function(){
-        expect($(this.view.el).html()).toContain('reshare_action')
+        expect(this.view.$("a.reshare")).toExist()
       });
 
       it("does not show a reshare_action link if the original post has been deleted", function(){
         this.post.set({post_type : "Reshare", root : null})
         this.view.render();
-
-        expect($(this.view.el).html()).not.toContain('reshare_action');
+        expect(this.view.$("a.reshare")).not.toExist()
       })
     })
 
@@ -106,7 +105,7 @@ describe("app.views.Feedback", function(){
       })
 
       it("does not show a reshare_action link", function(){
-        expect($(this.view.el).html()).not.toContain('reshare_action');
+        expect(this.view.$("a.reshare")).not.toExist()
       });
     })
 
@@ -119,7 +118,7 @@ describe("app.views.Feedback", function(){
       it("does not display a reshare_action link", function(){
         this.post.attributes.public = false
         this.view.render();
-        expect($(this.view.el).html()).not.toContain('reshare_action')
+        expect(this.view.$("a.reshare")).not.toExist()
       })
     })
   })
@@ -133,14 +132,14 @@ describe("app.views.Feedback", function(){
 
     it("displays a confirmation dialog", function(){
       spyOn(window, "confirm")
-      this.view.$(".reshare_action").first().click();
+      this.view.$("a.reshare").first().click();
       expect(window.confirm).toHaveBeenCalled();
     })
 
     it("reshares the model", function(){
       spyOn(window, "confirm").andReturn(true);
       spyOn(this.view.model.reshare(), "save").andReturn(new $.Deferred)
-      this.view.$(".reshare_action").first().click();
+      this.view.$("a.reshare").first().click();
       expect(this.view.model.reshare().save).toHaveBeenCalled();
     })
   })

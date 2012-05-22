@@ -31,15 +31,12 @@ app.views.Post.CanvasFrame = app.views.Post.SmallFrame.extend({
   },
 
   presenter : function(){
-    console.log("here")
-
     return _.extend(this.smallFramePresenter(), {
       adjustedImageHeight : this.adjustedImageHeight()
     })
   },
 
   favoritePost : function(evt) {
-    console.log("in favorite post")
     if(evt) {
       /* follow links instead of faving the targeted post */
       if($(evt.target).is('a')) { return }

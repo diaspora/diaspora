@@ -29,11 +29,14 @@ app.views.Post.SmallFrame = app.views.Post.extend({
   },
 
   initialize : function() {
-    this.$el.addClass([this.dimensionsClass(), this.colorClass(), this.frameClass()].join(' '))
-    return this;
+    this.addStylingClasses()
   },
 
   postRenderTemplate : function() {
+    this.addStylingClasses()
+  },
+
+  addStylingClasses : function() {
     this.$el.addClass([this.dimensionsClass(), this.colorClass(), this.frameClass()].join(' '))
   },
 
