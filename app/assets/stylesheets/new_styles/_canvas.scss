@@ -387,8 +387,15 @@
   .stream-frame {
     margin-bottom : 40px;
 
-    .info {
-      display : none;
+    .stream-frame-feedback {
+      float : right;
+      margin-top : 8px;
+    }
+
+    .canvas-frame {
+      .info {
+        display : none;
+      }
     }
 
     /* a media box object */
