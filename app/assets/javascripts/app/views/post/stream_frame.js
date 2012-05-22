@@ -1,5 +1,4 @@
 app.views.Post.StreamFrame = app.views.Base.extend({
-
   className : "stream-frame",
 
   templateName : "stream-frame",
@@ -8,18 +7,19 @@ app.views.Post.StreamFrame = app.views.Base.extend({
     ".small-frame" : "smallFrameView"
   },
 
-  initialize : function() {
-    this.smallFrameView = new app.views.Post.SmallFrame({model : this.model})
+  initialize : function(options) {
+    this.stream = options.stream
+    this.smallFrameView = new app.views.Post.SmallFrame({model : this.model, stream: this.stream})
   },
 
   events : _.extend({
     'click .content' : 'triggerInteracted'
   }, app.views.Post.SmallFrame.prototype.events),
 
+
   triggerInteracted : function() {
-    app.page.trigger("frame:interacted", this.model)
+    this.stream.trigger("frame:interacted", this.model)
   },
 
-  // this is some gross shit.
   goToPost : $.noop
 });

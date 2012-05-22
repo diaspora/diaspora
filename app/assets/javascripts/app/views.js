@@ -122,7 +122,7 @@ app.views.InfScroll = app.views.Base.extend({
   },
 
   createPostView : function(post){
-    var postView = new this.postClass({ model: post });
+    var postView = new this.postClass({ model: post, stream: this.stream });
     this.postViews.push(postView)
     return postView
   },

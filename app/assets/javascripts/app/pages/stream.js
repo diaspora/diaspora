@@ -22,7 +22,7 @@ app.pages.Stream = app.views.Base.extend({
     this.streamView = new app.views.NewStream({ model : this.stream })
     var interactions = this.interactionsView = new app.views.StreamInteractions()
 
-    this.on("frame:interacted", function(post){
+    this.stream.on("frame:interacted", function(post){
       interactions.setInteractions(post)
     })
   }
