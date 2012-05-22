@@ -1,3 +1,9 @@
+html,
+body {
+  /* hack to ensure fixed elements at height: 100%; are in relation to the window */
+  max-height : 100%;
+}
+
 body {
   background-image : image_url("pattern.png");
   padding : none;

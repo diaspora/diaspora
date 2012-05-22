@@ -313,7 +313,9 @@
 /* stream specific wrapper */
 #stream-interactions {
   position : fixed;
-  width : 420px;
+  top : 0;
+  bottom : 0;
+  overflow-y : auto;
 
   #post-info {
     text-align : left;
