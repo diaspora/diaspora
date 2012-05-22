@@ -246,6 +246,7 @@ en:
         tag_feature: "feature"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
         email_feedback: "%{link} your feedback, if you prefer"
+        email_link: "Email"
       cubbies:
         heading: "Connect to Cubbi.es"
         explanation: "Cubbi.es is the first Diaspora application under development."
