@@ -41,8 +41,11 @@ connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
 connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
 puts "done!"
 
-
+print "making Bob an admin and beta... "
+Role.add_beta(bob.person)
+Role.add_admin(bob.person)
 puts "done!"
+
 
 require File.join(File.dirname(__FILE__), '..', 'spec', 'support', 'fake_resque')
 require File.join(File.dirname(__FILE__), '..', 'spec', 'support', 'user_methods')
