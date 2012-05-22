@@ -84,6 +84,14 @@ app.views.Base = Backbone.View.extend({
       }
       return memo
     }
+  },
+
+  destroyModel: function(evt) {
+    evt && evt.preventDefault();
+    if (confirm(Diaspora.I18n.t("confirm_dialog"))) {
+      this.model.destroy();
+      this.remove();
+    }
   }
 });
 

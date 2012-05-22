@@ -1,5 +1,4 @@
-//= require ./stream_object_view
-app.views.LikesInfo = app.views.StreamObject.extend({
+app.views.LikesInfo = app.views.Base.extend({
 
   templateName : "likes-info",
 
