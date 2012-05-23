@@ -38,6 +38,10 @@ Diaspora::Application.routes.draw do
     resources :likes, :only => [:create, :destroy, :index]
   end
 
+  # Cryptography
+  mount Scrypto::Engine, :at => "/scrypto"
+  get "/person_ids" => "people#by_contact_id", :as => "lookup_ids"
+  
   # Streams
   get "participate" => "streams#activity", :as => "activity_stream" # legacy
   get "explore" => "streams#multi", :as => "stream"                 # legacy

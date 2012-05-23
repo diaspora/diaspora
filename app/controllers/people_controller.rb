@@ -80,6 +80,19 @@ class PeopleController < ApplicationController
     }
   end
 
+  def by_contact_id
+    @person_ids = []
+
+    Contact.where(:id => params[:contacts].split(",")).each do |contact|
+      id_strings = { "local" => contact.person.id, "global" => contact.person.guid } 
+      @person_ids.push(id_strings)
+    end
+    
+    respond_to do |format|
+      format.json { render json: @person_ids }
+    end
+  end
+  
   def show
     @person = Person.find_from_guid_or_username(params)
 

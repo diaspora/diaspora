@@ -31,6 +31,8 @@ class Person < ActiveRecord::Base
   xml_attr :profile, :as => Profile
   xml_attr :exported_key
 
+  has_one :key_ring, :class_name => "Scrypto::KeyRing", :as => :owner
+  
   has_one :profile, :dependent => :destroy
   delegate :last_name, :image_url, :tag_string, :bio, :location,
            :gender, :birthday, :formatted_birthday, :tags, :searchable,
@@ -241,6 +243,14 @@ class Person < ActiveRecord::Base
     serialized_public_key = new_key
   end
 
+  def encryption_key
+    self.key_ring.nil? ? nil : self.key_ring.encryption
+  end
+  
+  def verification_key
+    self.key_ring.nil? ? nil : self.key_ring.verification
+  end
+  
   #database calls
   def self.by_account_identifier(identifier)
     identifier = identifier.strip.downcase.gsub('acct:', '')
@@ -265,10 +275,19 @@ class Person < ActiveRecord::Base
     new_person.url = hcard[:url]
     new_person.assign_new_profile_from_hcard(hcard)
     new_person.save!
+    new_person.assign_new_key_ring_from_profile(profile)
     new_person.profile.save!
     new_person
   end
 
+  def assign_new_key_ring_from_profile(profile)
+    unless profile.encryption_key.nil? || profile.verification_key.nil?
+      self.key_ring = Scrypto::KeyRing.new(:encryption => profile.encryption_key, :verification => profile.verification_key)
+      self.key_ring.owner_id = self.id
+      self.key_ring.save!
+    end
+  end
+  
   def assign_new_profile_from_hcard(hcard)
     self.profile = Profile.new(:first_name => hcard[:given_name],
                               :last_name  => hcard[:family_name],

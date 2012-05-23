@@ -18,6 +18,8 @@
       .right
         = link_to t('.new_message'), new_conversation_path, :class => 'button', :rel => 'facebox'
       = t('.inbox')
+    .scrypto-entropy{ "data-require_decryption_key" => "true" }
+    .scrypto-passphrase{ "data-require_decryption_key" => "true", "data-hidden" => "true" }
 
   #conversation_inbox
     .stream.conversations

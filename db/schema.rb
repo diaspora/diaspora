@@ -351,6 +351,19 @@ ActiveRecord::Schema.define(:version => 20120909053122) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "scrypto_key_rings", :force => true do |t|
+    t.text     "secured_decryption"
+    t.text     "encryption"
+    t.text     "secured_signing"
+    t.text     "verification"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "scrypto_key_rings", ["owner_id"], :name => "index_scrypto_key_rings_on_owner_id", :unique => true
+
   create_table "services", :force => true do |t|
     t.string   "type",          :limit => 127, :null => false
     t.integer  "user_id",                      :null => false

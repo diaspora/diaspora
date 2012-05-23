@@ -373,6 +373,7 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.6)
     subexec (0.2.2)
     thin (1.4.1)
       daemons (>= 1.0.9)
@@ -479,6 +480,7 @@ DEPENDENCIES
   rspec-rails (= 2.11.0)
   ruby-oembed (= 0.8.7)
   sass-rails (= 3.2.5)
+  scrypto (~> 0.0.17)!
   selenium-webdriver (= 2.25.0)
   spork (= 1.0.0rc3)
   thin (= 1.4.1)

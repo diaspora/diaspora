@@ -1,5 +1,5 @@
 class WebfingerProfile
-  attr_accessor :webfinger_profile, :account, :links, :hcard, :guid, :public_key, :seed_location
+  attr_accessor :webfinger_profile, :account, :links, :hcard, :guid, :public_key, :encryption_key, :verification_key, :seed_location
 
   def initialize(account, webfinger_profile)
     @account = account
@@ -42,6 +42,15 @@ class WebfingerProfile
       @public_key = Base64.decode64 pubkey
     rescue => e
       Rails.logger.info("event => :invalid_profile, :identifier => #{@account}")
+    end
+    
+    begin
+      encryption = text_of_attribute( doc.at('Link[rel=scrypto-encryption-key]'), 'href')
+      @encryption_key = encryption
+      verification = text_of_attribute( doc.at('Link[rel=scrypto-verification-key]'), 'href')
+      @verification_key = verification
+    rescue => e
+      Rails.logger.info("event => :nil_keys, :identifier => #{@account}")
     end
   end
 

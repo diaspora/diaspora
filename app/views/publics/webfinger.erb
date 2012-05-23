@@ -10,4 +10,6 @@
   <Link rel="http://schemas.google.com/g/2010#updates-from" type="application/atom+xml" href="<%=@person.public_url%>.atom"/>
 
   <Link rel="diaspora-public-key" type = 'RSA' href="<%=Base64.strict_encode64(@person.exported_key)%>"/>
+  <Link rel="scrypto-encryption-key" type='text/html' href="<%= @person.encryption_key %>">
+  <Link rel="scrypto-verification-key" type='text/html' href="<%= @person.verification_key %>">
 </XRD>
