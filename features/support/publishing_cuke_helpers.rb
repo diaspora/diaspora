@@ -38,11 +38,11 @@ module PublishingCukeHelpers
   end
 
   def frame_numbers_content(position)
-    find(".canvas-frame:nth-child(#{position}) .content")
+    find(".stream-frame:nth-child(#{position}) .content")
   end
 
   def find_frame_by_text(text)
-    find(".canvas-frame:contains('#{text}')")
+    find(".stream-frame:contains('#{text}')")
   end
 
   def stream_element_numbers_content(position)
