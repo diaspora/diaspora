@@ -15,7 +15,7 @@
               </label>
 
               <div class="controls">
-                <%= f.text_field :username, :required => true, :pattern => "[A-Za-z0-9_]+", :autocapitalize => "off", :autocorrect => "off" %>
+                <%= f.text_field :username, :required => true, :pattern => "[A-Za-z0-9_.@\-]+", :autocapitalize => "off", :autocorrect => "off" %>
               </div>
           </div>
 
