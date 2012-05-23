@@ -14,7 +14,8 @@ body {
 }
 
 /* new link color */
-a { color : rgb(42,156,235)  }
+$link-blue : rgb(42,156,235);
+a { color : $link-blue  }
 
 /* bootstrap extentions */
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }

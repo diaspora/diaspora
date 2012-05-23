@@ -3,7 +3,7 @@
     {{#each services}}
         <input id="services[{{name}}]" type="checkbox" name="services[{{name}}]" class="services" value="{{name}}" {{#if checked}}checked="checked"{{/if}}/>
         <label for="services[{{name}}]">
-            <img class="legacy-provider-image" src="/assets/social_media_logos/{{name}}-32x32.png" data-provider="{{name}}" data-url="/auth/{{name}}" title="Share on {{name}}" />
+            <img class="legacy-provider-image" src="/assets/buttons/{{name}}_hov@2x.png" data-provider="{{name}}" data-url="/auth/{{name}}" title="Share on {{name}}" />
         </label>
     {{/each}}
 </form>

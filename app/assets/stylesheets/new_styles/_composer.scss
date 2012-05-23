@@ -44,7 +44,8 @@
   }
 
   .template-picker {
-    margin-bottom : 1em;
+    float : left;
+    margin-left : 20px;
 
     input {
       display : none;
@@ -53,6 +54,8 @@
     label {
       @include transition(background-color);
       @include border-radius();
+
+      display : inline-block;
 
       cursor : pointer;
 
@@ -63,13 +66,37 @@
       line-height: 2em;
 
       &:hover {
-        background-color: #222;
-        text-decoration: none;
+        img {
+          border : 4px solid rgba(255,255,255,1);
+        }
       }
+
+      .template-name {
+        text-align : center;
+        text-transform : uppercase;
+      }
+
+      img {
+        @include border-radius(5px);
+        @include transition(border);
+
+        border : 4px solid transparent;
+        background-color : #ddd;
+
+        height : 54px;
+        width : 54px;
+      }
+
     }
 
     input:checked + label {
-      background-color: #222;
+      .template-name {
+        color : $link-blue;
+      }
+
+      img {
+        border : 4px solid $link-blue;
+      }
     }
   }
 
@@ -133,10 +160,11 @@
 
     img {
       @include transition(opacity);
+      @include box-shadow(0,0,0,0);
 
       cursor : pointer;
-      height : 28px;
-      width : 28px;
+      height : 70px;
+      width : 54px;
     }
 
     input:not(:checked) + label {
@@ -174,8 +202,8 @@ input[type="image"] {
 
 .new_photo .photo{
   display: inline;
-  max-width: 200px;
-  max-height: 75px;
+  max-width: 240px;
+  max-height: 240px;
   padding: 2px;
 }
 

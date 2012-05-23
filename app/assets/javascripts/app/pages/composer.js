@@ -16,7 +16,9 @@ app.pages.Composer = app.views.Base.extend({
 
   initialize : function(){
     app.frame = this.model = this.model || new app.models.StatusMessage();
-    this.postForm = new app.forms.Post({model : this.model});
+
+    /* add class to make this smaller than the default framer */
+    this.postForm = new app.forms.Post({model : this.model, className : "span4 offset1"});
     this.composerControls = new app.views.ComposerControls({model : this.model});
   },
 

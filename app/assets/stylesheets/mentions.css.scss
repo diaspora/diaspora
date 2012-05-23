@@ -2,6 +2,8 @@
 @import '_mixins.css.scss';
 
 .mentions-input-box {
+  @include border-radius(3px);
+
   background: #fff;
   position: relative;
 
