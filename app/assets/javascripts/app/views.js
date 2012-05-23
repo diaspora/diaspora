@@ -80,7 +80,7 @@ app.views.Base = Backbone.View.extend({
       if(attribute.slice("-2") === "[]") {
         memo[attribute.slice(0, attribute.length - 2)] = _.pluck(this.$el.find(selector).serializeArray(), "value")
       } else {
-        memo[attribute] = this.$el.find(selector).val();
+        memo[attribute] = this.$el.find(selector).val() || this.$el.find(selector).text();
       }
       return memo
     }

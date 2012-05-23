@@ -86,7 +86,6 @@
         height : 54px;
         width : 54px;
       }
-
     }
 
     input:checked + label {
@@ -96,6 +95,20 @@
 
       img {
         border : 4px solid $link-blue;
+      }
+    }
+  }
+
+  .preview {
+    .content {
+      cursor : auto;
+
+      &:active {
+        -webkit-transform : none;
+      }
+
+      .info {
+        display : none;
       }
     }
   }

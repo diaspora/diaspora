@@ -31,7 +31,6 @@ describe("app.pages.Framer", function(){
     })
   })
 
-
   describe("rendering", function(){
     beforeEach(function(){
       this.page.render();

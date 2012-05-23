@@ -1,3 +1,5 @@
+//= require ../views/post/small_frame
+
 app.pages.Framer = app.views.Base.extend({
   templateName : "flow",
 
@@ -62,7 +64,7 @@ app.views.framerContent = app.views.Base.extend({
   },
 
   smallFrameView : function() {
-    return new app.views.Post.SmallFrame({model : this.model})
+    return new app.views.Post.EditableSmallFrame({model : this.model})
   },
 
   presenter : function() {
@@ -77,6 +79,20 @@ app.views.framerContent = app.views.Base.extend({
         }
       })
     })
+  }
+});
+
+app.views.Post.EditableSmallFrame = app.views.Post.SmallFrame.extend({
+  events : {
+    "keyup [contentEditable]" : "setFormAttrs"
+  },
+
+  formAttrs : {
+    ".text-content p" : "text"
+  },
+
+  postRenderTemplate : function(){
+    this.$(".text-content p").attr("contentEditable", true)
   }
 });
 
