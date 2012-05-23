@@ -42,9 +42,33 @@ describe InvitationsController do
   end
 
   describe '#email' do
+
     it 'succeeds' do
       get :email, :invitation_code => "anycode"
       response.should be_success
+    end
+
+    context 'legacy invite tokens' do
+      def get_email
+        get :email, :invitation_token => @invitation_token
+      end
+
+      context 'invalid token' do
+        @invitation_token = "invalidtoken"
+
+        it 'redirects and flashes if the invitation token is invalid' do
+          get_email
+
+          response.should be_redirect
+          response.should redirect_to root_url
+        end
+
+        it 'flashes an error if the invitation token is invalid' do
+          get_email
+
+          flash[:error].should == I18n.t("invitations.check_token.not_found")
+        end
+      end
     end
   end
 

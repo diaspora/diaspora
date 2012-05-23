@@ -26,27 +26,37 @@ class InvitationsController < ApplicationController
   end
 
   def email
-    if params[:invitation_token]
-      # this is  for legacy invites.
-      user = User.find_by_invitation_token(params[:invitation_token])
-      @invitation_code = user.ugly_accept_invitation_code
+    @invitation_code =
+      if params[:invitation_token]
+        # this is  for legacy invites.
+        user = User.find_by_invitation_token(params[:invitation_token])
+
+        user.ugly_accept_invitation_code if user
+      else
+        params[:invitation_code]
+      end
+
+    if @invitation_code.present?
+      render 'notifier/invite', :layout => false
     else
-      @invitation_code = params[:invitation_code]
+      flash[:error] = t('invitations.check_token.not_found')
+
+      redirect_to root_url
     end
-    render 'notifier/invite', :layout => false
   end
 
   def create
     inviter = EmailInviter.new(params[:email_inviter][:emails], current_user, params[:email_inviter])
     inviter.send!
+
     redirect_to :back, :notice => "Great! Invites were sent off to #{inviter.emails.join(', ')}" 
   end
 
   def check_if_invites_open
     unless AppConfig[:open_invitations]
       flash[:error] = I18n.t 'invitations.create.no_more'
+
       redirect_to :back
-      return
     end
   end
 end
