@@ -3,6 +3,8 @@
 # the COPYRIGHT file.
 #hack to allow us to access app config, rather than putting in enviroments/production.rb
 
+require 'rack/piwik'
+
 if Rails.env == 'production'
   Diaspora::Application.configure do
     if AppConfig[:piwik_url].present?
