@@ -1,6 +1,56 @@
+<div id="header">
+    <div class="container" style="position:relative;">
+
+        <div id="top-right-nav">
+            {{#if current_user.guid}}
+                <a href="/notifications" title="Notifications" id="notifications-button">
+                    <span class="label label-inverse">
+                        {{current_user.notifications_count}}
+                    </span>
+                </a>
+
+                <a href="/people/{{current_user.guid}}?ex=true" id="profile-button">
+                    <span class="label label-inverse">
+                        <i class="icon-user icon-white"></i>
+                        <span>
+                            PROFILE
+                        </span>
+                    </span>
+                </a>
+
+                <a href="/" id="home-button">
+                    <span class="label label-inverse">
+                        <i class="icon-home icon-white"></i>
+                        <span>
+                            HOME
+                        </span>
+                    </span>
+                </a>
+
+                <a href="/users/sign_out" title="Log out" id="logout-button">
+                    <span class="label label-inverse">
+                        <i class="icon-off icon-white"></i>
+                    </span>
+                </a>
+            {{else}}
+                <a href="/" id="home-button">
+                    <span class="label label-inverse">
+                        <span>
+                            DIASPORA
+                        </span>
+                    </span>
+                </a>
+            {{/if}}
+        </div>
+
+        <h1>
+            DIASPORA
+        </h1>
+    </div>
+</div>
+
 <div id="stream">
     <div class="container">
-
         <div class="row">
             <div class="background offset5"></div>
         </div>

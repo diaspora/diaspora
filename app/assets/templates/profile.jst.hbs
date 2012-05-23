@@ -4,17 +4,6 @@
 
 <div class="container">
     <div id="top-right-nav">
-        {{#if showFollowButton}}
-            <a href="#" onClick="alert('Not yet implemented!')" id="follow-button">
-                <span class="label label-inverse">
-                    <i class="icon-plus icon-white"></i>
-                    <span>
-                        FOLLOW
-                    </span>
-                </span>
-            </a>
-        {{/if}}
-
         {{#if current_user.guid}}
             <a href="/" id="home-button">
                 <span class="label label-inverse">
@@ -24,20 +13,18 @@
                     </span>
                 </span>
             </a>
+
+            <a href="/users/sign_out" title="Log out" id="logout-button">
+                <span class="label label-inverse">
+                    <i class="icon-off icon-white"></i>
+                </span>
+            </a>
         {{else}}
             <a href="/" id="home-button">
                 <span class="label label-inverse">
                     <span>
                         DIASPORA
                     </span>
-                </span>
-            </a>
-        {{/if}}
-
-        {{#if is_own_profile}}
-            <a href="/users/sign_out" title="Log out" id="logout-button">
-                <span class="label label-inverse">
-                    <i class="icon-off icon-white"></i>
                 </span>
             </a>
         {{/if}}

@@ -8,21 +8,17 @@ app.views.Post.StreamFrame = app.views.Base.extend({
     '.stream-frame-feedback' : 'feedbackView'
   },
 
-
   initialize : function(options) {
     this.stream = options.stream
     this.smallFrameView = new app.views.Post.SmallFrame({model : this.model})
     this.feedbackView =  new app.views.FeedbackActions({ model: this.model })
   },
 
-  events : _.extend({
+  events : {
     'click .content' : 'triggerInteracted'
-  }, app.views.Post.SmallFrame.prototype.events),
-
+  },
 
   triggerInteracted : function() {
     this.stream.trigger("frame:interacted", this.model)
-  },
-
-  goToPost : $.noop
+  }
 });

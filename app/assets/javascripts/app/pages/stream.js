@@ -25,5 +25,9 @@ app.pages.Stream = app.views.Base.extend({
     this.stream.on("frame:interacted", function(post){
       interactions.setInteractions(post)
     })
+  },
+
+  postRenderTemplate : function() {
+    this.$("#header").css("background-image", "url(" + app.currentUser.get("wallpaper") + ")")
   }
 });
