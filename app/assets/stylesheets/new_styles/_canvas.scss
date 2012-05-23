@@ -2,6 +2,15 @@
   width : $two-column-width + px;
 }
 
+a.logo{
+text-decoration: none;
+color: white;
+  &:hover{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+  }
+}
 .no-post-message {
   text-align: center;
   margin-top: 50px;
