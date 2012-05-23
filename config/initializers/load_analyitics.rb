@@ -6,6 +6,7 @@
 if Rails.env == 'production'
   Diaspora::Application.configure do
     if AppConfig[:piwik_url].present?
+      require 'rack/piwik'
       config.gem 'rack-piwik', :lib => 'rack/piwik'
       config.middleware.use Rack::Piwik, :piwik_url => AppConfig[:piwik_url], :piwik_id => AppConfig[:piwik_id]
     end
