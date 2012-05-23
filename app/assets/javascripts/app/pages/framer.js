@@ -67,7 +67,7 @@ app.views.framerContent = app.views.Base.extend({
 
   presenter : function() {
     var selectedFrame = this.model.get("frame_name")
-      , templates = app.models.Post.frameMoods;
+      , templates = this.model.applicableTemplates();  //new app.models.Post.TemplatePicker(this.model).frameMoods;
 
     return _.extend(this.defaultPresenter(), {
       templates : _.map(templates, function(template) {

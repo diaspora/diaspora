@@ -41,4 +41,16 @@ describe("app.models.Post.TemplatePicker", function(){
       })
     })
   })
+
+  describe("applicableTemplates", function(){
+    it("includes wallpaper if isWallpaper is true", function(){
+      spyOn(this.templatePicker, "isWallpaper").andReturn(true)
+      expect(_.include(this.templatePicker.applicableTemplates(), "Wallpaper")).toBeTruthy()
+    })
+
+    it("does not include wallpaper if isWallpaper is false", function(){
+      spyOn(this.templatePicker, "isWallpaper").andReturn(false)
+      expect(_.include(this.templatePicker.applicableTemplates(), "Wallpaper")).toBeFalsy()
+    })
+  })
 })

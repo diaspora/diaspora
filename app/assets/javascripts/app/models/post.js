@@ -19,6 +19,10 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
     this.set({frame_name : new app.models.Post.TemplatePicker(this).getFrameName()})
   },
 
+  applicableTemplates: function() {
+    return new app.models.Post.TemplatePicker(this).applicableTemplates()
+  },
+
   interactedAt : function() {
     return this.timeOf("interacted_at");
   },
@@ -59,12 +63,7 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
   headlineLimit : 118,
 
   frameMoods : [
- //   "Day",
- //   "Night",
     "Wallpaper",
- //   "Newspaper",
-
-    // NEW SHIT
     "Vanilla",
     "Typist",
     "Fridge"
