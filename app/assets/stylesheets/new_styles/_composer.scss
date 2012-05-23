@@ -43,6 +43,36 @@
     padding : 10px;
   }
 
+  .template-picker {
+    margin-bottom : 1em;
+
+    input {
+      display : none;
+    }
+
+    label {
+      @include transition(background-color);
+      @include border-radius();
+
+      cursor : pointer;
+
+      margin-right: 11px;
+      padding: 7px;
+      color: #999;
+      font-size: 14px;
+      line-height: 2em;
+
+      &:hover {
+        background-color: #222;
+        text-decoration: none;
+      }
+    }
+
+    input:checked + label {
+      background-color: #222;
+    }
+  }
+
   .flow-controls {
     padding: 20px 0;
     max-height: 68px;
@@ -84,45 +114,12 @@
     }
 
     .service-selector {
-      margin-left: 100px;
       display : inline-block;
     }
 
     .dropdown-menu {
       text-align: left;
     }
-
-    .template-picker {
-      margin-bottom : 1em;
-
-      input {
-        display : none;
-      }
-
-      label {
-        @include transition(background-color);
-        @include border-radius();
-
-        cursor : pointer;
-
-        display: inline;
-        margin-right: 11px;
-        padding: 7px;
-        color: #999;
-        font-size: 14px;
-        line-height: 2em;
-
-        &:hover {
-          background-color: #222;
-          text-decoration: none;
-        }
-      }
-
-      input:checked + label {
-        background-color: #222;
-      }
-    }
-
   }
 
   // this is about the service toggle icons, there is a jasmine test that tests this in service_selector spec
@@ -171,7 +168,7 @@ input[type="image"] {
   }
 }
 
-#controls-wrapper {
+.flow-controls {
   text-align : center;
 }
 

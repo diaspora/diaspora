@@ -4,7 +4,7 @@ app.pages.Framer = app.views.Base.extend({
   id : "post-content",
 
   subviews : {
-    ".flow-content" : "postView",
+    ".flow-content" : "framerContent",
     ".flow-controls .controls" : "framerControls"
   },
 
@@ -13,18 +13,14 @@ app.pages.Framer = app.views.Base.extend({
     if(!this.model.get("frame_name")) this.model.setFrameName()
 
     this.model.authorIsCurrentUser = function(){ return true }
-    this.model.bind("change:frame_name", this.render, this)
     this.model.bind("sync", this.navigateNext, this)
 
+    this.framerContent = new app.views.framerContent({model : this.model})
     this.framerControls = new app.views.framerControls({model : this.model})
   },
 
   unbind : function(){
     this.model.off()
-  },
-
-  postView : function(){
-    return new app.views.Post.SmallFrame({model : this.model})
   },
 
   navigateNext : function(){
@@ -45,6 +41,45 @@ app.pages.Framer = app.views.Base.extend({
   }
 });
 
+app.views.framerContent = app.views.Base.extend({
+  templateName : "framer-content",
+
+  events : {
+    "change input" : "setFormAttrs"
+  },
+
+  subviews : {
+    ".preview" : "smallFrameView",
+    ".template-picker" : 'templatePicker'
+  },
+
+  formAttrs : {
+    "input.mood:checked" : "frame_name"
+  },
+
+  initialize : function(){
+    this.model.bind("change:frame_name", this.render, this)
+  },
+
+  smallFrameView : function() {
+    return new app.views.Post.SmallFrame({model : this.model})
+  },
+
+  presenter : function() {
+    var selectedFrame = this.model.get("frame_name")
+      , templates = app.models.Post.frameMoods;
+
+    return _.extend(this.defaultPresenter(), {
+      templates : _.map(templates, function(template) {
+        return {
+          name : template,
+          checked : selectedFrame === template
+        }
+      })
+    })
+  }
+});
+
 app.views.framerControls = app.views.Base.extend({
   templateName : 'framer-controls',
 
@@ -55,13 +90,11 @@ app.views.framerControls = app.views.Base.extend({
   },
 
   subviews:{
-    ".template-picker":'templatePicker',
-    ".aspect-selector":"aspectsDropdown",
-    ".service-selector":"servicesSelector"
+    ".aspect-selector" : "aspectsDropdown",
+    ".service-selector" : "servicesSelector"
   },
 
   formAttrs : {
-    "input.mood:checked" : "frame_name",
     "input.aspect_ids" : "aspect_ids[]",
     "input.services" : "services[]"
   },
@@ -69,19 +102,6 @@ app.views.framerControls = app.views.Base.extend({
   initialize : function(){
     this.aspectsDropdown = new app.views.AspectsDropdown({model:this.model});
     this.servicesSelector = new app.views.ServicesSelector({model:this.model});
-  },
-
-  presenter : function() {
-    var selectedFrame = this.model.get("frame_name")
-      , templates = app.models.Post.frameMoods //subtract re-implemented templates
-    return _.extend(this.defaultPresenter(), {
-      templates :_.map(templates, function(template) {
-        return {
-          name : template,
-          checked : selectedFrame === template
-        }
-      })
-    })
   },
 
   saveFrame : function(){

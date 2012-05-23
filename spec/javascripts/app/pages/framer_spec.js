@@ -8,10 +8,6 @@ describe("app.pages.Framer", function(){
     expect(this.model).toBe(app.frame) //uses global state of app.frame :/
   });
 
-  it("passes the model down to the post view", function(){
-    expect(this.page.postView().model).toBe(app.frame)
-  });
-
   describe("navigation on save", function(){
     it("navigates to the current user's profile page", function(){
       spyOn(app.router, "navigate")

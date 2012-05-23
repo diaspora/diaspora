@@ -1,16 +1,4 @@
-<div>
-    <div class='template-picker'>
-        {{#each templates}}
-            <input id='frame_name_{{name}}' name="frame_name" type="radio" class="mood" value={{name}} {{#if checked}}checked=checked{{/if}} />
-            <label for='frame_name_{{name}}'>{{name}}</label>
-        {{/each}}
-    </div>
-
-    <div class="aspect-selector"/>
-    <div class="service-selector"/>
-</div>
-
-<div id='controls-wrapper'>
-    <input type="image" src="{{imageUrl "buttons/back_hov@2x.png"}}" class="back"/>
-    <input type="image" src="{{imageUrl "buttons/done_hov@2x.png"}}" class="done" />
-</div>
+<input type="image" src="{{imageUrl "buttons/back_hov@2x.png"}}" class="back" />
+<div class="aspect-selector"/>
+<div class="service-selector"/>
+<input type="image" src="{{imageUrl "buttons/done_hov@2x.png"}}" class="done" />
