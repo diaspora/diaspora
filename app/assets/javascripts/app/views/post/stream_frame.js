@@ -5,7 +5,7 @@ app.views.Post.StreamFrame = app.views.Base.extend({
 
   subviews : {
     ".small-frame" : "smallFrameView",
-    '.stream-frame-feedback' : 'feedbackView'
+    ".stream-frame-feedback" : "feedbackView"
   },
 
   initialize : function(options) {
@@ -15,10 +15,15 @@ app.views.Post.StreamFrame = app.views.Base.extend({
   },
 
   events : {
-    'click .content' : 'triggerInteracted'
+    'click .content' : 'triggerInteracted',
+    "click a.permalink" : "goToPost"
   },
 
   triggerInteracted : function() {
     this.stream.trigger("frame:interacted", this.model)
+  },
+
+  goToPost : function(evt) {
+    this.smallFrameView.goToPost(evt)
   }
 });
