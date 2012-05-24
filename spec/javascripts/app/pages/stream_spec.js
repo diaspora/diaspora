@@ -6,6 +6,21 @@ describe("app.Pages.Stream", function(){
     expect(this.post).toBeTruthy()
   })
 
+
+  describe('postRenderTemplate', function(){
+    it("sets the background-image of #header", function(){
+      this.page.render()
+      console.log(this.page.$('#header').css('background-image'))
+      expect(this.page.$('#header').css('background-image')).toBeTruthy()
+    })
+
+    it('calls setUpHashChangeOnStreamLoad', function(){
+      spyOn(this.page, 'setUpHashChangeOnStreamLoad')
+      this.page.render();
+      expect(this.page.setUpHashChangeOnStreamLoad).toHaveBeenCalled()
+    })
+  })
+
   describe("rendering", function(){
     beforeEach(function(){
       this.page.render()
