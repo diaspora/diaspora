@@ -36,7 +36,9 @@ app.pages.Stream = app.views.Base.extend({
     var self = this;
     this.streamView.on('loadMore', function(){
       var post = this.stream.items.last();
-      self.navigateToPost(post)
+      if(post){
+        self.navigateToPost(post)
+      }
     });
   },
 
