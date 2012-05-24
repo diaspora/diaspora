@@ -52,6 +52,8 @@ describe RegistrationsController do
     end
   end
 
+
+
   describe "#create" do
     context "with valid parameters" do
       before do
@@ -89,18 +91,6 @@ describe RegistrationsController do
         Role.add_beta(bob.person)
         get :create, @valid_params.merge(:invite => {:token => bob.invitation_code.token})
         User.last.should be_beta
-      end
-
-      it 'with an invite code from a beta users, does not seed aspects' do
-        Role.add_beta(bob.person)
-
-        user = Factory(:user)
-        user.aspects.delete_all
-
-        User.any_instance.stub(:create).and_return(user)
-
-        get :create, @valid_params.merge(:invite => {:token => bob.invitation_code.token})
-        user.aspects.should be_empty
       end
     end
 
