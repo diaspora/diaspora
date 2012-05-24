@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def new_bookmarklet
-    raw_bookmarklet(520, 720, true)
+    raw_bookmarklet(520, 980, true)
   end
 
   def raw_bookmarklet( height = 250, width = 620, new=false)

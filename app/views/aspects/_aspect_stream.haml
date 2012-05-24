@@ -9,7 +9,7 @@
   = link_to "Make something", "#composer", :rel => "facebox", :class => "button primary", :style => "display: block; margin: 20px 10px; margin-bottom: 30px; padding: 10px; text-align:center; font-weight: bold;"
 
   #composer{:style => "display:none;"}
-    %iframe{:src => '/posts/new', :height => 500, :width => 700, :style => "border:none;"}
+    %iframe{:src => '/posts/new', :height => 500, :width => 980, :style => "border:none;"}
 
 - else
   = render 'shared/publisher', :selected_aspects => stream.aspects, :aspect_ids => stream.aspect_ids, :for_all_aspects => stream.for_all_aspects?, :aspect => stream.aspect
