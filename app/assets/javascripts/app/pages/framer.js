@@ -83,6 +83,8 @@ app.views.framerContent = app.views.Base.extend({
 });
 
 app.views.Post.EditableSmallFrame = app.views.Post.SmallFrame.extend({
+  className : "canvas-frame editable",
+
   events : {
     "keyup [contentEditable]" : "setFormAttrs"
   },

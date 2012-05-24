@@ -271,6 +271,7 @@ color: white;
     }
   }
 
+  &.editable,
   &.big-text {
     .text-content {
       display : table;
@@ -287,6 +288,11 @@ color: white;
         text-align : center;
       }
     }
+  }
+
+  &.editable p {
+    min-width : 225px;
+    min-height : 225px;
   }
 
   &.x2.big-text .text-content {
