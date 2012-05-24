@@ -271,7 +271,7 @@ color: white;
     }
   }
 
-  &.editable,
+  &.editable:not(.has-media),
   &.big-text {
     .text-content {
       display : table;
@@ -290,7 +290,7 @@ color: white;
     }
   }
 
-  &.editable p {
+  &.editable:not(.has-media) p {
     min-width : 225px;
     min-height : 225px;
   }
