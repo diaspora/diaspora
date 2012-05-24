@@ -49,7 +49,7 @@ color: white;
     @include transition(-webkit-transform);
     @include box-shadow(0, 8px, 50px, rgba(0,0,0,0.9));
 
-    background-image : image_url("paper-texture-1.jpg");
+    background-image : image_url("texture/paper.jpg");
 
     &:hover {
       .info {
@@ -332,7 +332,7 @@ color: white;
   &.typist {
     .content {
       background : {
-        image : image_url("typist_texture.png");
+        image : image_url("texture/typist.png");
         color : transparent;
       }
     }
@@ -361,6 +361,13 @@ color: white;
   }
 
   &.vanilla {
+    .content {
+      background :{
+        color : #fff;
+        image : image_url("texture/vanilla.jpg");
+      }
+    }
+
     .background-color {
       display : none;
     }
@@ -383,14 +390,11 @@ color: white;
 
   .background {
     @include box-shadow(-2px, 0, 7px, rgba(0,0,0,0.8));
+    @include dark-hatched-bg();
+
     position : fixed;
     height : 100%;
     width : 100%;
-
-    background : {
-      color : #333;
-      image : image_url("hatched-bg-dark.png");
-    }
   }
 
 
