@@ -123,9 +123,16 @@ app.views.framerControls = app.views.Base.extend({
   },
 
   saveFrame : function(){
-    this.$('input').prop('disabled', 'disabled')
     this.setFormAttrs()
+    if(this.inValidFrame()) {
+      return false;
+    } 
+    this.$('input').prop('disabled', 'disabled')
     this.model.save()
+  },
+
+  inValidFrame : function(){
+    return (this.model.get('text').trim().length == 0)  && (this.model.get('photos').length == 0)
   },
 
   editFrame : function(){
