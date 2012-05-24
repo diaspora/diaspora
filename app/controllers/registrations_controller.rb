@@ -13,15 +13,16 @@ class RegistrationsController < Devise::RegistrationsController
 
     if @user.save
       flash[:notice] = I18n.t 'registrations.create.success'
-      @user.seed_aspects
-      Role.add_beta(@user.person) if invite.present? && invite.beta?
+      if invite.present? && invite.beta?
+        Role.add_beta(@user.person)
+      else
+        @user.seed_aspects
+      end
       sign_in_and_redirect(:user, @user)
-      Rails.logger.info("event=registration status=successful user=#{@user.diaspora_handle}")
     else
       @user.errors.delete(:person)
       
       flash[:error] = @user.errors.full_messages.join(";")
-      Rails.logger.info("event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'")
       render :new
     end
   end
