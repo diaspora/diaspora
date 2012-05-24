@@ -81,7 +81,7 @@ describe Stream::Tag do
 
     it 'returns posts regardless of the tag case' do
       stream = Stream::Tag.new(nil, "newhere")
-      stream.posts.should == [@post_lc, @post_uc, @post_cp]
+      stream.posts.should =~ [@post_lc, @post_uc, @post_cp]
     end
   end
 
