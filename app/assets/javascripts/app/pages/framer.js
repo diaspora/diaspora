@@ -123,7 +123,7 @@ app.views.framerControls = app.views.Base.extend({
   },
 
   saveFrame : function(){
-    this.$('button').prop('disabled', 'disabled').addClass('disabled')
+    this.$('input').prop('disabled', 'disabled')
     this.setFormAttrs()
     this.model.save()
   },

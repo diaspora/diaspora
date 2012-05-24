@@ -14,7 +14,6 @@ describe("app.pages.Framer", function(){
       this.page.model.trigger("sync")
       expect(app.router.navigate).toHaveBeenCalled()
     })
-
     // want a spec here for the bookmarklet case
   })
 
@@ -36,7 +35,7 @@ describe("app.pages.Framer", function(){
       this.page.render();
     });
 
-    it("saves the model when you click done",function(){
+    it("saves the model when you click done", function(){
       spyOn(app.frame, "save");
       this.page.$("input.done").click();
       expect(app.frame.save).toHaveBeenCalled();

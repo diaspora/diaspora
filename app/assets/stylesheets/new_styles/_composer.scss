@@ -41,6 +41,10 @@
     margin-top: 5px;
   }
 
+  input[disabled] {
+      background: inherit;
+  }
+
   textarea#post_text{
     height: 100px;
     padding : 10px;
@@ -54,6 +58,7 @@
     input {
       display : none;
     }
+
 
     label {
       @include transition(background-color);
