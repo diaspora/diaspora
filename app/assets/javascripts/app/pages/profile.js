@@ -28,23 +28,34 @@ app.pages.Profile = app.views.Base.extend({
 
     this.model = this.model || app.models.Profile.preloadOrFetch(this.personGUID)
     this.stream = options && options.stream || new app.models.Stream()
+    this.stream.preloadOrFetch()
 
-    this.stream.preloadOrFetch().done(_.bind(this.pulsateNewPostControl, this));
+    this.initViews()
+
+    /* binds */
     this.stream.items.bind("remove", this.pulsateNewPostControl, this)
+    $(window).on("keydown", _.bind(this.closeComposer, this))
+  },
 
-    /* this needs to be fixed... used to be bound by this.model change event.
-    *  will most likely result in spontaneous results :(
-    *
-    *  note: defer to make sure the call stack is emptied before calling this, buying us a little more time */
-    _.defer(_.bind(this.setPageTitleAndBackground, this))
-
+  initViews : function(){
     this.canvasView = new app.views.Canvas({ model : this.stream })
     this.wallpaperForm = new app.forms.Wallpaper()
     this.profileInfo = new app.views.ProfileInfo({ model : this.model })
     this.composerView = new app.pages.Composer();
+  },
 
-    /* binds */
-    $(window).on("keydown", _.bind(this.closeComposer, this))
+  render :function () {
+    var self = this;
+    this.model.deferred
+      .done(function () {
+        self.setPageTitleAndBackground()
+        app.views.Base.prototype.render.call(self)
+      })
+      .done(function () {
+        self.stream.deferred.done(_.bind(self.pulsateNewPostControl, self));
+      })
+
+    return self
   },
 
   presenter : function(){
@@ -63,6 +74,7 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   setPageTitleAndBackground : function() {
+    console.log(this.model.attributes)
     if(this.model.get("name")) {
       document.title = this.model.get("name")
       this.$el.css("background-image", "url(" + this.model.get("wallpaper") + ")")
