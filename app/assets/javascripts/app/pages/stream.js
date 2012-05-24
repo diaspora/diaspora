@@ -29,5 +29,18 @@ app.pages.Stream = app.views.Base.extend({
 
   postRenderTemplate : function() {
     this.$("#header").css("background-image", "url(" + app.currentUser.get("wallpaper") + ")")
-  }
+    this.setUpHashChangeOnStreamLoad()
+  },
+
+  setUpHashChangeOnStreamLoad : function(){
+    var self = this;
+    this.streamView.on('loadMore', function(){
+      var post = this.stream.items.last();
+      self.navigateToPost(post)
+    });
+  },
+
+  navigateToPost : function(post){
+    app.router.navigate(location.pathname + "?ex=true&max_time=" + post.createdAt(), {replace: true})
+  },
 });
