@@ -64,6 +64,7 @@ app.models.Stream = Backbone.Collection.extend({
 
   preload : function(){
     this.items.reset(app.parsePreload("stream"))
+    this.deferred = $.when(true)
     this.trigger("fetched")
   }
 });

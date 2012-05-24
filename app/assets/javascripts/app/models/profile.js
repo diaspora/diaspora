@@ -3,16 +3,18 @@ app.models.Profile = Backbone.Model.extend({
 }, {
 
   preloadOrFetch : function(id){
-    if(app.hasPreload("person")) {
-      return new app.models.Profile(app.parsePreload("person"))
-    } else {
-      return this.findByGuid(id)
-    }
+    return app.hasPreload("person") ? this.preload() : this.findByGuid(id)
+  },
+
+  preload : function(){
+    var person = new app.models.Profile(app.parsePreload("person"))
+    person.deferred = $.when(true)
+    return person
   },
 
   findByGuid : function(personId){
     var person =  new app.models.Profile({ id : personId})
-    person.fetch()
+    person.deferred = person.fetch()
     return person
   }
 });
