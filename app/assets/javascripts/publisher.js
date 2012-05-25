@@ -210,7 +210,7 @@ var Publisher = {
       Publisher.hiddenInput().val(Publisher.input().val());
     }
 
-    Publisher.input().autoResize({'extraSpace' : 10});
+    Publisher.input().autoResize({ 'extraSpace' : 10, 'maxHeight' : Infinity });
     Publisher.input().bind('textchange', Publisher.textChange);
   }
 };
