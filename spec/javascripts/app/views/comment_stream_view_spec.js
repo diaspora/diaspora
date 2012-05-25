@@ -38,4 +38,20 @@ describe("app.views.CommentStream", function(){
       expect(comment.set).toHaveBeenCalled()
     })
   })
+
+  describe("expandComments", function() {
+    it("refills the comment textbox on success", function() {
+      jasmine.Ajax.useMock();
+
+      this.view.render();
+
+      this.view.$("textarea").val("great post!");
+
+      this.view.expandComments();
+
+      mostRecentAjaxRequest().response({ comments : [] });
+
+      expect(this.view.$("textarea").val()).toEqual("great post!");
+    })
+  })
 })
