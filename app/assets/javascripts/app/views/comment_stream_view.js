@@ -61,16 +61,20 @@ app.views.CommentStream = app.views.Base.extend({
   expandComments: function(evt){
     if(evt){ evt.preventDefault(); }
 
-    var self = this;
+    var localCommentValue = this.$("textarea").val(),
+      self = this;
+
     this.model.comments.fetch({
       success : function(resp){
         self.model.set({
           comments : resp.models,
           all_comments_loaded : true
         })
+
         self.model.trigger("commentsExpanded", self)
+
+        self.$("textarea").val(localCommentValue).focus()
       }
     });
   }
-
 });
