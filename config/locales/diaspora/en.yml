@@ -864,7 +864,7 @@ en:
       publishing_to: "publishing to: "
       discard_post: "Discard post"
       new_user_prefill:
-        newhere: "newhere"
+        newhere: "NewHere"
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}. "
         invited_by: "Thanks for the invite, "
