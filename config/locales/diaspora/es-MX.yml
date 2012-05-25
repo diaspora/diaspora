@@ -51,7 +51,32 @@ es-MX:
     correlations:
       correlations_count: "Correlaciones con el conteo de inicio de sesión:"
     stats:
+      2weeks: "Bisemanal"
+      50_most: "Las 50 etiquetas más populares"
+      comments:
+        one: "Un comentario"
+        other: "%{count} comentarios"
+        zero: "%{count} comentarios"
+      current_segment: "Este segmento tiente un promedio de <b>%{post_yest}</b> publicaciones por usuario, desde <b>%{post_day}</b>"
+      daily: "Diario"
+      display_results: "Mostrando los resultados del segmento <b>%{segment}</b>"
       go: "ir"
+      month: "Mes"
+      posts:
+        one: "Una publicación"
+        other: "%{count} publicaciones"
+        zero: "%{count} publicaciones"
+      shares:
+        one: "Compartida una vez"
+        other: "Compartida %{count} veces"
+        zero: "Compartida %{count} veces"
+      tag_name: "Nombre de la etiqueta: <b>%{name_tag}</b> Conteo: <b>%{count_tag}</b>"
+      usage_statistic: "Estadísticas de uso"
+      users:
+        one: "Un usuario"
+        other: "%{count} usuarios"
+        zero: "%{count} usuarios"
+      week: "Semana"
     user_search:
       add_invites: "añadir invitaciones"
       email_to: "Mandar invitación por correo electrónico a"
@@ -125,11 +150,12 @@ es-MX:
       donate: "Donar"
       handle_explanation: "Esta es tu dirección de Diaspora. Como una dirección de correo electrónico, puedes dársela a la gente para que te encuentre."
       help:
-        do_you: "¿Tal vez:"
+        do_you: "Tal vez:"
         email_feedback: "Si lo prefieres, envíanos tus opiniones a este %{link}."
-        feature_suggestion: "… sugieres una %{link}?"
-        find_a_bug: "… encontraste un %{link}?"
-        have_a_question: "… tienes una %{link}?"
+        email_link: "Correo electrónico"
+        feature_suggestion: "• Sugieras una %{link}."
+        find_a_bug: "• Encontraste un %{link}."
+        have_a_question: "• Tienes una %{link}."
         here_to_help: "¡La comunidad de Diaspora está aquí!"
         need_help: "¿Necesitas ayuda?"
         tag_bug: "error"
@@ -255,8 +281,8 @@ es-MX:
       success: "Conversación eliminada exitosamente"
     helper:
       new_messages:
-        one: "1 nuevo mensaje"
-        other: "%{count} nuevos mensajes"
+        one: "Un mensaje nuevo"
+        other: "%{count} mensajes nuevos"
         zero: "No hay mensajes nuevos"
     index:
       create_a_new_message: "crear un nuevo mensaje"
@@ -424,7 +450,7 @@ es-MX:
   notifier:
     a_post_you_shared: "una publicación."
     accept_invite: "¡Acepta tu invitación de Diaspora*!"
-    click_here: "Haz click aquí"
+    click_here: "Haz clic aquí"
     comment_on_post:
       reply: "Responder o ver la publicación de %{name} >"
     confirm_email:
@@ -438,9 +464,9 @@ es-MX:
 
           ¡Has sido invitado a unirte a Diaspora*!
 
-          Haz click en este enlace para comenzar
+          Haz clic en este enlace para comenzar.
 
-          %{invite_url}
+          %{invite_url}[1]
 
 
           Saludos.
@@ -592,16 +618,16 @@ es-MX:
       update_profile: "Actualizar perfil"
       you_are_nsfw: "Has marcado tu perfil como no apto para todo público, tu contenido no se mostrará a las personas que han optado por no ver publicaciones con contenido indeseable."
       you_are_safe_for_work: "Has marcado tu perfil como apto para todo público, esto significa que aceptas que el contenido que publiques estará de acuerdo con las normas de la comunidad."
-      your_bio: "Tu biografía"
-      your_birthday: "Tu cumpleaños"
-      your_gender: "Tu género"
-      your_location: "Tu ubicación"
+      your_bio: "Biografía"
+      your_birthday: "Cumpleaños"
+      your_gender: "Género"
+      your_location: "Ubicación"
       your_name: "Tu nombre"
-      your_photo: "Tu foto"
+      your_photo: "Foto"
       your_private_profile: "Tu perfil privado"
-      your_public_profile: "Tu perfil público"
+      your_public_profile: "Perfil público"
       your_tags: "Descríbete en 5 palabras"
-      your_tags_placeholder: "por ejemplo #películas #gatitos #viajes #profesora #monterrey"
+      your_tags_placeholder: "como #películas #gatos #viajes #profesora #méxico"
     update:
       failed: "Error al actualizar el perfil"
       updated: "Perfil actualizado"
@@ -631,7 +657,7 @@ es-MX:
       enter_password: "Elige una contraseña (mínimo seis caracteres)"
       enter_password_again: "Ingresa de nuevo la misma contraseña"
       enter_username: "Elige un nombre de usuario (solo letras, números o guiones bajos)"
-      hey_make: "¡EY! , <br/> HAZ <br/> ALGO."
+      hey_make: "EH,<br/>HAZ<br/>ALGO."
       join_the_movement: "¡Únete al movimiento!"
       password: "CONTRASEÑA"
       sign_up: "REGISTRARSE"
@@ -680,7 +706,7 @@ es-MX:
     failure:
       error: "hubo un error al conectarse a ese servicio"
     finder:
-      fetching_contacts: "Diaspora está importando a tus contactos de %{service}, por favor vuelve en unos minutos."
+      fetching_contacts: "Diaspora está importando a tus contactos de %{service}, por favor compruébalo en unos minutos."
       no_friends: "No se encontraron contactos de Facebook."
       service_friends: "Contactos de %{service}"
     index:
@@ -726,17 +752,18 @@ es-MX:
     invitations:
       by_email: "Por correo electrónico"
       dont_have_now: "No tienes ninguna invitación ahora, ¡pero pronto llegarán más!"
-      from_facebook: "Desde Facebook"
+      from_facebook: "De Facebook"
       invitations_left: "%{count} restantes"
       invite_someone: "Invita a alguien"
       invite_your_friends: "Invita a tus amigos"
       invites: "Invitaciones"
       invites_closed: "Las invitaciones en este servidor de Diaspora están actualmente cerradas."
+      share_this: "¡Comparte este enlace a través de correo electrónico, blog o tu red social favorita!"
     notification:
       new: "Nuevo %{type} de %{from}"
     public_explain:
       atom_feed: "canal Atom"
-      control_your_audience: "Controla tu público"
+      control_your_audience: "Controla tu audiencia"
       logged_in: "conectado a %{service}"
       manage: "gestionar servicios conectados"
       new_user_welcome_message: "Utiliza #etiquetas para clasificar tus publicaciones y encontrar gente que comparta tus intereses. Llama a gente asombrosa usando las @Menciones"
@@ -750,10 +777,10 @@ es-MX:
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       new_user_prefill:
-        hello: "Hola a todos, soy #%{new_user_tag}. "
-        i_like: "Estoy interesado en %{tags}. "
+        hello: "#%{new_user_tag}, acabo de llegar aquí. "
+        i_like: "Tengo interés en %{tags}. "
         invited_by: "Gracias por la invitación, "
-        newhere: "NuevoAquí"
+        newhere: "Hola"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando…"
       publishing_to: "publicar en: "
@@ -873,15 +900,15 @@ es-MX:
       wrong_password: "La contraseña introducida no coincide con tu contraseña actual."
     edit:
       also_commented: "…alguien también comenta en la publicación de tu contacto?"
-      auto_follow_aspect: "Selecciona el aspecto al que se incuirán los usuarios a quienes sigues automáticamente:"
+      auto_follow_aspect: "Aspecto para los usuarios que sigues automáticamente:"
       auto_follow_back: "Seguir automáticamente a quien empiece a seguirte"
-      change: "Modificar"
+      change: "Cambiar"
       change_email: "Cambiar correo electrónico"
       change_language: "Cambiar idioma"
       change_password: "Cambiar contraseña"
       character_minimum_expl: "debe tener al menos seis caracteres"
       close_account:
-        dont_go: "¡Eh, por favor no te vayas!"
+        dont_go: "¡Eh, no te vayas!"
         if_you_want_this: "Si realmente es lo que deseas, ingresa tu contraseña debajo y pulsa «Eliminar cuenta»."
         lock_username: "Esto bloqueará tu nombre de usuario si decides volver a registrarte."
         locked_out: "Cerrarás tu sesión y tu cuenta será bloqueada."
@@ -893,8 +920,8 @@ es-MX:
       comment_on_post: "…alguien comenta en tu publicación?"
       current_password: "Contraseña actual"
       current_password_expl: "con la que inicias sesión…"
-      download_photos: "descargar mis fotos"
-      download_xml: "descargar mi XML"
+      download_photos: "Descargar mis fotos"
+      download_xml: "Descargar mi XML"
       edit_account: "Editar cuenta"
       email_awaiting_confirmation: "Te hemos enviado un enlace de activación a %{unconfirmed_email}. Hasta que sigas este enlace y actives la nueva dirección, continuaremos usando tu dirección original %{email}."
       export_data: "Exportar datos"

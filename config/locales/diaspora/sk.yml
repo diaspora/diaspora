@@ -50,6 +50,37 @@ sk:
       weekly_user_stats: "Štatistiky používateľa za týždeň"
     correlations:
       correlations_count: "Závislosti s počtom prihlásených:"
+    stats:
+      2weeks: "2. týždeň"
+      50_most: "50 najpopulárnejších značiek"
+      comments:
+        few: "%{count} komentáre"
+        one: "%{count} komentár"
+        other: "%{count} komentárov"
+        zero: "%{count} komentárov"
+      current_segment: "Aktuálny segment má od <b>%{post_day}</b> v priemere <b>%{post_yest}</b> príspevkov na používateľa"
+      daily: "Denne"
+      display_results: "Sú zobrazené výsledky z(o) <b>%{segment}</b> segmentov"
+      go: "prejsť"
+      month: "Mesiac"
+      posts:
+        few: "%{count} príspevky"
+        one: "%{count} príspevok"
+        other: "%{count} príspevkov"
+        zero: "%{count} príspevkov"
+      shares:
+        few: "%{count} ľudia sa podelili"
+        one: "%{count} človek sa podelil"
+        other: "%{count} ľudí sa podelilo"
+        zero: "%{count} ľudí sa podelilo"
+      tag_name: "Názov značky: <b>%{name_tag}</b> Početnosť: <b>%{count_tag}</b>"
+      usage_statistic: "Štatistiky používania"
+      users:
+        few: "%{count} používatelia"
+        one: "%{count} používateľ"
+        other: "%{count} používateľov"
+        zero: "%{count} používateľov"
+      week: "Týždeň"
     user_search:
       add_invites: "pridať pozvánky"
       email_to: "Napíšte e-mail a pozvite"
@@ -126,6 +157,7 @@ sk:
       help:
         do_you: "Povedzte:"
         email_feedback: "Ak vám to viac vyhovuje, svoje podnety nám môžete poslať na %{link}"
+        email_link: "E-mail"
         feature_suggestion: "... máte nápad na novú %{link}?"
         find_a_bug: "... našli ste %{link}?"
         have_a_question: "... máte %{link}?"
@@ -202,9 +234,9 @@ sk:
       failure: "Ignorovanie tohto používateľa sa nepodarilo zrušiť.  #evasion"
       success: "Pozrime sa, čo hovoria! #sayhello"
   bookmarklet:
-    explanation: "Píšte na Diasporu z hocikiaľ tak, že si pridáte do záložiek %{link}."
+    explanation: "Píšte na Diasporu z hocikiaľ cez tento odkaz, ktorý si môžete pridať do záložiek => %{link}."
     heading: "Bookmarklet"
-    post_something: "Pošlite niečo na Diasporu"
+    post_something: "Príspevok na Diasporu"
     post_success: "Odoslané! Zatvára sa!"
   cancel: "Zrušiť"
   comments:
@@ -470,9 +502,11 @@ sk:
           %{invite_url}
           <%= invite_code_url(@invitation_code)%>
 
-          S pozdravom,
+          S pozdravom
 
           e-mailový robot Diaspory*!
+
+          [1]: %{invite_url}
     invited_you: "%{name} Vás pozval(a) na Diasporu*"
     liked:
       liked: "%{name} označil(a), že sa mu (jej) páči váš príspevok"
@@ -652,13 +686,20 @@ sk:
       update: "Aktualizovať"
     invalid_invite: "Odkaz na pozvánku, ktorý ste zadali, už nie je platný!"
     new:
+      continue: "Pokračovať"
       create_my_account: "Založte si účet!"
+      diaspora: "<3 Diaspora*"
+      email: "E-MAIL"
       enter_email: "Zadajte e-mail"
-      enter_password: "Zadajte heslo"
+      enter_password: "Zadajte heslo (minimálne šesť znakov)"
       enter_password_again: "Zadajte rovnaké heslo ako predtým"
       enter_username: "Zadajte používateľské meno (iba písmená, číslice  a podčiarkovníky)"
+      hey_make: "HEJ,<br/>UROB<br/>NIEČO."
       join_the_movement: "Pripojte sa k hnutiu!"
+      password: "HESLO"
+      sign_up: "ZAREGISTROVAŤ SA"
       sign_up_message: "Prepojenie cez sociálne siete s ♥"
+      username: "POUŽÍVATEĽSKÉ MENO"
   requests:
     create:
       sending: "Posiela sa"
@@ -763,6 +804,7 @@ sk:
       invite_your_friends: "Pozvite svojich priateľov"
       invites: "Pozvánky"
       invites_closed: "Pozývanie je na tomto serveri Diaspory momentálne pozastavené"
+      share_this: "Podeľte sa o tento odkaz cez e-mail, blog alebo obľúbenú sociálnu sieť!"
     notification:
       new: "Nový %{type} od použ. %{from}"
     public_explain:

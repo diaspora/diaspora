@@ -1,0 +1,121 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+sr:
+  _applications: "Апликације"
+  _comments: "Коментари"
+  _contacts: "Контакти"
+  _home: "Почетна"
+  _photos: "Фотографије"
+  _services: "Услуге"
+  account: "Налог"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "мора бити јединствено за све корисникове контакте."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "је већ заузето."
+        request:
+          attributes:
+            from_id:
+              taken: "је дупликат већ постојећег захтева."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Добро је, а?  Већ сте поделили ту објаву!"
+        user:
+          attributes:
+            email:
+              taken: "је већ заузето."
+            person:
+              invalid: "је неисправно."
+            username:
+              invalid: "је неисправно. Дозвољени су само слова, бројеви и доње црте."
+              taken: "је већ заузето."
+  ago: "пре %{time}"
+  all_aspects: "Сви погледи"
+  application:
+    helper:
+      diaspora_alpha: "ДИЈАСПОРА* АЛФА"
+      unknown_person: "непозната особа"
+      video_title:
+        unknown: "непознат наслов видеа"
+  are_you_sure: "Јесте ли сигурни?"
+  are_you_sure_delete_account: "Јесте ли сигурни да желите да затворите налог? Ово се не може повратити!"
+  aspects:
+    aspect_contacts:
+      done_editing: "Готово уређивање"
+    aspect_listings:
+      add_an_aspect: "+ Додај поглед"
+      deselect_all: "Не означи ни један"
+      edit_aspect: "Измени %{name}"
+      select_all: "Означи све"
+    contacts_not_visible: "Контакти у овом погледу неће моћи да виде једни друге."
+    contacts_visible: "Контакти у овом погледу ће моћи да виде једни друге."
+    edit:
+      add_existing: "Додај постојећи контакт"
+      aspect_list_is_not_visible: "списак погледа је невидљив осталима у погледу"
+      aspect_list_is_visible: "списак погледа је видљив осталима у погледу"
+      confirm_remove_aspect: "Јесте ли сигурни да желите да обришете овај поглед?"
+      done: "Готово"
+      make_aspect_list_visible: "Учини контакте у овом погледу видљиве једне другима?"
+      remove_aspect: "Обриши овај поглед"
+      rename: "Преименуј"
+      update: "Ажурирај"
+      updating: "ажурирање"
+    few: "%{count} погледа"
+    many: "%{count} погледа"
+    no_contacts_message:
+      community_spotlight: "заједницом"
+      or_spotlight: "Или можеш поделити са %{link}"
+      try_adding_some_more_contacts: "Можеш тражити или позвати још контаката."
+      you_should_add_some_more_contacts: "Требало би да додаш контакте!"
+    no_posts_message:
+      start_talking: "Још нико ништа није рекао!"
+    one: "један поглед"
+    other: "%{count} погледа"
+    selected_contacts:
+      view_all_community_spotlight: "Погледај целу заједницу"
+    show:
+      edit_aspect: "Измени поглед"
+    two: "%{count} погледа"
+    zero: "нема погледа"
+  back: "Назад"
+  cancel: "Откажи"
+  delete: "Уклони"
+  email: "Имејл"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Исправи следеће грешке и покушај поново."
+      invalid_fields: "Погрешно попуњена поља"
+  fill_me_out: "Испуни ме"
+  find_people: "Тражи људе или #тагове"
+  hide: "Сакриј"
+  limited: "Ограничено"
+  more: "Још"
+  next: "следеће"
+  no_results: "Нема резултата"
+  nsfw: "Није пригодно за посао"
+  ok: "У реду"
+  or: "или"
+  password: "Лозинка"
+  password_confirmation: "Понови лозинку"
+  previous: "претходно"
+  privacy: "Приватност"
+  privacy_policy: "Политика приватности"
+  profile: "Профил"
+  public: "Јавно"
+  search: "Претрага"
+  settings: "Подешавања"
+  terms_and_conditions: "Услови коришћења"
+  undo: "Врати?"
+  username: "Корисничко име"
+  welcome: "Добородошли!"

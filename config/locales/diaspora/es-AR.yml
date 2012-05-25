@@ -51,7 +51,32 @@ es-AR:
     correlations:
       correlations_count: "Correlaciones con el conteo de inicio de sesión:"
     stats:
+      2weeks: "2 Semanas"
+      50_most: "Las 50 etiquetas más populares"
+      comments:
+        one: "%{count} comentario"
+        other: "%{count} comentarios"
+        zero: "%{count} comentarios"
+      current_segment: "Este período tiente un promedio de <b>%{post_yest}</b> publicaciones por usuario, desde <b>%{post_day}</b>"
+      daily: "Diario"
+      display_results: "Mostrando los resultados del período <b>%{segment}</b>"
       go: "Ir"
+      month: "Mes"
+      posts:
+        one: "%{count} publicación"
+        other: "%{count} publicaciones"
+        zero: "%{count} publicaciones"
+      shares:
+        one: "Compartido %{count} vez"
+        other: "Compartido %{count} veces"
+        zero: "Compartido %{count} veces"
+      tag_name: "Nombre de la etiqueta: <b>%{name_tag}</b> Cantidad: <b>%{count_tag}</b>"
+      usage_statistic: "Estadísticas de uso"
+      users:
+        one: "%{count} usuario"
+        other: "%{count} usuarios"
+        zero: "%{count} usuarios"
+      week: "Semana"
     user_search:
       add_invites: "Añadir invitaciones"
       email_to: "Mandar invitación por correo electrónico a"
@@ -126,21 +151,22 @@ es-AR:
       handle_explanation: "Ésta es tu identificación de Diáspora*. Es como una dirección de correo electrónico, podes dársela a la gente para que te encuentren."
       help:
         do_you: "Tal vez:"
-        email_feedback: "%{link} tu feedback, si preferís"
-        feature_suggestion: "...tiene una %{link} sugerencia?"
-        find_a_bug: "...encontró un %{link}?"
-        have_a_question: "...tiene una %{link}?"
-        here_to_help: "¡La comunidad de Diáspora está acá!"
+        email_feedback: "Si lo prefieres, enviá tus comentarios a este %{link}."
+        email_link: "Correo electrónico"
+        feature_suggestion: "...tengas una %{link} o sugerencia?"
+        find_a_bug: "...encontraste un %{link}?"
+        have_a_question: "...tengas una %{link}?"
+        here_to_help: "La comunidad de Diaspora* está aquí para ayudarte."
         need_help: "¿Necesitás ayuda?"
         tag_bug: "error"
         tag_feature: "idea"
         tag_question: "pregunta"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki, noticias."
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki y noticias."
       introduce_yourself: "Este es tu stream.  Zambullite en el y presentate."
       keep_diaspora_running: "¡Haz que el desarrollo de Diaspora vaya más rápido con una donación mensual!"
       keep_pod_running: "¡Haz que %{pod} siga corriendo rápido, y compra a nuestros servidores su dosis de café con una donación mensual!"
       new_here:
-        follow: "Sigue %{link} y da la bienvenida a los nuevos usuarios de Diaspora*!"
+        follow: "Sigue la etiqueta %{link} y da la bienvenida a los nuevos usuarios de Diaspora*!"
         learn_more: "Más información"
         title: "Bienvenida"
       no_contacts: "No hay contactos"
@@ -203,9 +229,9 @@ es-AR:
       failure: "No se pudo dejar de ignorar a ese usuario.  #evasion"
       success: "¡Veamos que tiene que decir! #dihola"
   bookmarklet:
-    explanation: "Publicá algo en Diáspora* desde donde quieras agregando %{link} a tus marcadores."
+    explanation: "Publicá en Diaspora* desde cualquier página agregando a tus marcadores este enlace: %{link}"
     heading: "Marcador"
-    post_something: "Publicá algo en Diáspora*"
+    post_something: "Publicar en Diaspora*"
     post_success: "¡Publicado! Cerrando."
   cancel: "Cancelar"
   comments:
@@ -796,6 +822,7 @@ es-AR:
       invite_your_friends: "Invitá a tus contactos"
       invites: "Invitaciones"
       invites_closed: "Las invitaciones en este servidor Diáspora* están cerradas actualmente"
+      share_this: "¡Comparte este enlace a través de correo electrónico, blog o tu red social favorita!"
     notification:
       new: "Nueva %{type} de %{from}"
     public_explain:

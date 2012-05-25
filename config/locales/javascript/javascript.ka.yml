@@ -74,9 +74,9 @@ ka:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
-        other: "<%= count %> Likes"
+        other: "<%= count %> მოწონება"
         two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        zero: "<%= count %> მოწონება"
       limited: "შეზღუდული"
       more_comments:
         few: "Show <%= count %> more comments"

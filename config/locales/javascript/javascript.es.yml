@@ -29,12 +29,12 @@ es:
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     delete: "Eliminar"
-    failed_to_like: "¡No se pudo marcar como «Me gusta»!"
+    failed_to_like: "\"Me gusta\" no ha funcionado."
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
       hey: "¡Hola, <%= name %>!"
-      no_tags: "¡Eih, aún no sigues ninguna etiqueta! ¿Quieres continuar de todas formas?"
+      no_tags: "¡Eh, aún no sigues ninguna etiqueta! ¿Quieres continuar de todas formas?"
       preparing_your_stream: "Preparando tus novedades personalizadas..."
     header:
       admin: "Administrar"

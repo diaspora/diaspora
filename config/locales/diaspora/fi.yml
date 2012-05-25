@@ -44,6 +44,7 @@ fi:
     admin_bar:
       correlations: "Vastaavuudet"
       pages: "Sivut"
+      pod_stats: "Podin tilastot"
       user_search: "Käyttäjähaku"
       weekly_user_stats: "Viikottaiset käyttäjätiedot"
     stats:
@@ -63,7 +64,7 @@ fi:
       diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "tuntematon henkilö"
       video_title:
-        unknown: "Videon Otsikko Tuntematon"
+        unknown: "Videon otsikko tuntematon"
   are_you_sure: "Oletko varma?"
   are_you_sure_delete_account: "Haluatko varmasti sulkea tilisi? Tätä ei voi kumota!"
   aspect_memberships:
@@ -88,7 +89,7 @@ fi:
     contacts_not_visible: "Kontaktit tässä näkymässä eivät voi nähdä toisiaan."
     contacts_visible: "Kontaktit tässä näkymässä voivat nähdä toisensa."
     create:
-      failure: "Näkymän luonti epäonnistui."
+      failure: "Näkymän luominen epäonnistui."
       success: "Uusi näkymäsi, %{name}, on luotu"
     destroy:
       failure: "%{name} ei ole tyhjä, eikä sitä voida poistaa."
@@ -99,7 +100,7 @@ fi:
       aspect_list_is_visible: "näkymälista näkyy muille näkymässä oleville"
       confirm_remove_aspect: "Oletko varma, että haluat poistaa tämän näkymän?"
       done: "Valmis"
-      make_aspect_list_visible: "tee näkymälistasta näkyvä?"
+      make_aspect_list_visible: "salli näkymän kontaktien nähdä toisensa?"
       remove_aspect: "Poista näkymä"
       rename: "nimeä uudelleen"
       update: "päivitä"
@@ -298,7 +299,7 @@ fi:
       already_contacts: "Olet jo yhteydessä tähän henkilöön"
       already_sent: "Olet jo kutsunut tämän henkilön."
       no_more: "Sinulla ei ole enempää kutsuja."
-      own_address: "Et voi lähettää kutsua omaan osoitteeseen."
+      own_address: "Et voi lähettää kutsua omaan osoitteeseesi."
       rejected: "Seuraavissa sähköpostiosoitteissa oli ongelmia: "
       sent: "Kutsut on lähetetty seuraaviin osoitteisiin:"
     edit:
@@ -534,7 +535,7 @@ fi:
       no_results: "Hei! Sinun tulisi etsiä jotakin."
       results_for: "hakutulokset kohteelle"
       searching: "etsitään, ole hyvä ja odota..."
-    last_post: "Viimeinen viesti"
+    last_post: "Viimeisin viesti"
     many: "%{count} ihmistä"
     one: "1 ihminen"
     other: "%{count} ihmistä"
@@ -687,7 +688,7 @@ fi:
       username: "KÄYTTÄJÄNIMI"
   requests:
     create:
-      sending: "Lähetetään..."
+      sending: "Lähetetään"
       sent: "Olet lähettänyt käyttäjälle %{name} pyynnön jakaa kanssasi. Hänen pitäisi nähdä se kirjautuessaan seuraavan kerran Diasporaan."
     destroy:
       error: "Valitse näkymä!"
@@ -787,6 +788,7 @@ fi:
       invite_your_friends: "Kutsu kavereitasi"
       invites: "Kutsut"
       invites_closed: "Kutsut on toistaiseksi suljettu tällä Diaspora-palvelimella"
+      share_this: "Jaa tämä linkki sähköpostilla, blogissa tai haluamassasi yhteisöpalvelussa!"
     notification:
       new: "Uusi %{type} henkilöltä %{from}"
     public_explain:
@@ -887,7 +889,7 @@ fi:
     public:
       title: "Julkinen toiminta"
     tags:
-      contacts_title: "Näistä tageista pitävät ihmiset"
+      contacts_title: "Tästä tagista pitävät ihmiset"
       tag_prefill_text: "Puhuttaessa asiasta %{tag_name}, olen sitä mieltä että... "
   tag_followings:
     create:

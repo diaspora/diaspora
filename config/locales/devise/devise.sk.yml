@@ -28,7 +28,7 @@ sk:
         confirm: "Potvrdiť svoj účet"
         subject: "Pokyny na potvrdenie"
         you_can_confirm: "Svoj účet môžete potvrdiť kliknutím na tento odkaz:"
-      hello: "Ahoj, %{email}!"
+      hello: "Ahoj %{email}!"
       invitation_instructions:
         accept: "Prijať pozvanie"
         arrived: "Sociálna sieť, na ktorú ste čakali, je tu. %{strong_diaspora} je vylepšená, bezpečnejšia, zábavnejšia a&nbsp;pripravená pomôcť vám deliť sa s&nbsp;ostatnými a&nbsp;skúmať web úplne inak."
@@ -73,7 +73,7 @@ sk:
         click_to_unlock: "Kliknite na tento odkaz a váš účet sa odomkne:"
         subject: "Pokyny na odomknutie účtu"
         unlock: "Odomknúť môj účet"
-      welcome: "Vitajte, %{email}!"
+      welcome: "Vitajte %{email}!"
     passwords:
       edit:
         change_password: "Zmeniť moje heslo"

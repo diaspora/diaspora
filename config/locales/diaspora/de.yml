@@ -48,6 +48,25 @@ de:
       resque_overview: "Resque Übersicht"
       user_search: "Benutzer Suche"
       weekly_user_stats: "Wöchentliche Benutzerstatistik"
+    stats:
+      50_most: "Die 50 populärsten Tags"
+      comments:
+        one: "%{count} Kommentar"
+        other: "%{count} Kommentare"
+        zero: "%{count} Kommentare"
+      daily: "täglich"
+      month: "Monat"
+      posts:
+        one: "%{count} Post"
+        other: "%{count} Posts"
+        zero: "%{count} Posts"
+      tag_name: "Tag Name: <b>%{name_tag}</b> Anzahl: <b>%{count_tag}</b>"
+      usage_statistic: "Nutzungsstatistik"
+      users:
+        one: "%{count} Benutzer"
+        other: "%{count} Benutzer"
+        zero: "%{count} Benutzer"
+      week: "Woche"
     user_search:
       add_invites: "Einladungen hinzufügen"
       users:
@@ -122,6 +141,7 @@ de:
       help:
         do_you: "Hast du:"
         email_feedback: "Dein Feedback für Diaspora per %{link}"
+        email_link: "Email"
         feature_suggestion: "… eine Idee für eine %{link}?"
         find_a_bug: "… ein %{link}?"
         have_a_question: "… eine %{link}?"
@@ -670,13 +690,18 @@ de:
       update: "Aktualisieren"
     invalid_invite: "Der von dir erstellte Einladungs-Link ist nicht mehr gültig!"
     new:
+      continue: "Weiter"
       create_my_account: "Konto erstellen!"
+      email: "EMAIL"
       enter_email: "Gib eine E-Mail-Adresse an"
       enter_password: "Gib ein Kennwort ein (mindestens sechs Zeichen)"
       enter_password_again: "Gib das gleiche Kennwort wie zuvor ein"
       enter_username: "Wähle einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
       join_the_movement: "Tritt der Bewegung bei!"
+      password: "PASSWORT"
+      sign_up: "REGISTRIEREN"
       sign_up_message: "Soziales Netzwerken mit ♥"
+      username: "BENUTZERNAME"
   requests:
     create:
       sending: "Senden …"
@@ -781,6 +806,7 @@ de:
       invite_your_friends: "Lade deine Freunde ein"
       invites: "Einladungen"
       invites_closed: "Einladungen sind auf diesem Diaspora-Pod derzeit nicht verfügbar."
+      share_this: "Teile diesen Link per Email, Blog oder deinem beliebtesten sozialen Netzwerk!"
     notification:
       new: "Neue %{type} von %{from}"
     public_explain:

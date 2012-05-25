@@ -51,7 +51,32 @@ sv:
     correlations:
       correlations_count: "Korrelationer med antalet inloggningar:"
     stats:
+      2weeks: "Två veckor"
+      50_most: "De 50 populäraste taggarna"
+      comments:
+        one: "En kommentar"
+        other: "%{count} kommentarer"
+        zero: "Inga kommentarer"
+      current_segment: "Medelantalet inlägg per användare för segmentet <b>%{post_day}</b> är <b>%{post_yest}</b>"
+      daily: "Dagligen"
+      display_results: "Visar resultat från segmentet <b>%{segment}</b>"
       go: "gå"
+      month: "Månad"
+      posts:
+        one: "Ett inlägg"
+        other: "%{count} inlägg"
+        zero: "Inga inlägg"
+      shares:
+        one: "En delning"
+        other: "%{count} delningar"
+        zero: "Inga delningar"
+      tag_name: "Taggnamn: <b>%{name_tag}</b> Antal: <b>%{count_tag}</b>"
+      usage_statistic: "Användningsstatistik"
+      users:
+        one: "En användare"
+        other: "%{count} användare"
+        zero: "Ingen användare"
+      week: "Vecka"
     user_search:
       add_invites: "lägg till inbjudningar"
       email_to: "Skicka ett e-brev för att bjuda in"
@@ -127,6 +152,7 @@ sv:
       help:
         do_you: "Har du:"
         email_feedback: "%{link}a din respons, om du föredrar det"
+        email_link: "E-posta"
         feature_suggestion: "... ett %{link}-förslag?"
         find_a_bug: "... hittat en %{link}?"
         have_a_question: "... en %{link}?"
@@ -445,16 +471,18 @@ sv:
       message: |-
           Hej!
 
-          Du har blivit inbjuden till Diaspora*.
+          Du har fått en inbjudan till Diaspora*!
 
-          Klicka på länken nedan för att börja.
+          Tryck på länken för att börja
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           Med vänlig hälsning,
 
-          Diasporas e-postrobot.
+          Diasporas e-postrobot!
+
+          [1]: %{invite_url}
     invited_you: "%{name} har bjudt in dig till Diaspora*."
     liked:
       liked: "%{name} gillar ditt inlägg "
@@ -633,13 +661,20 @@ sv:
       update: "Uppdatera"
     invalid_invite: "Den angivna inbjudningslänken gäller inte längre."
     new:
+      continue: "Fortsätt"
       create_my_account: "Skapa mitt konto!"
+      diaspora: "<3 Diaspora*"
+      email: "E-POST"
       enter_email: "Ange en e-postadress"
       enter_password: "Skriv in ett lösenord, åtminstone sex tecken långt"
       enter_password_again: "Skriv in samma lösenord som tidigare"
       enter_username: "Välj ett användarnamn (endast bokstäver, nummer och understreck)"
+      hey_make: "HALLÅ,<br/>GÖR<br/>NÅGONTING."
       join_the_movement: "Gå med i rörelsen!"
+      password: "LÖSENORD"
+      sign_up: "REGISTRERA"
       sign_up_message: "Socialt nätverkande med ♥"
+      username: "ANVÄNDARENAMN"
   requests:
     create:
       sending: "Skickar"
@@ -738,6 +773,7 @@ sv:
       invite_your_friends: "Bjud in dina vänner"
       invites: "Inbjudningar"
       invites_closed: "För närvarande är inbjudningar avstängda på denna Diasporaserver"
+      share_this: "Dela med dig av länken via e-post, din blog eller din favorit bland de sociala nätverken!"
     notification:
       new: "Ny %{type} från %{from}"
     public_explain:

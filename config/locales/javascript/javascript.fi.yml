@@ -47,7 +47,7 @@ fi:
       notifications: "Ilmoitukset"
       profile: "Profiili"
       recent_notifications: "Tuoreet ilmoitukset"
-      search: "Etsi ihmisiä tai #tageja"
+      search: "Etsi"
       settings: "Asetukset"
       view_all: "Näytä kaikki"
     ignore: "Sivuuta"

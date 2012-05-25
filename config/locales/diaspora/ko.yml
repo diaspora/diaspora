@@ -50,6 +50,28 @@ ko:
       weekly_user_stats: "주간 사용자 통계"
     correlations:
       correlations_count: "로그인 횟수와의 상관 관계"
+    stats:
+      2weeks: "두 주"
+      50_most: "가장 인기있는 태그 50개"
+      comments:
+        other: "댓글 %{count}개"
+        zero: "댓글 없음"
+      current_segment: "<b>%{post_day}</b>, 현재 분기는 사용자당 게시물 <b>%{post_yest}</b>개로 추정하고 있습니다"
+      daily: "매일"
+      display_results: "%{segment} 분기 결과 표시"
+      month: "한 달"
+      posts:
+        other: "게시물 %{count}개"
+        zero: "게시물 없음"
+      shares:
+        other: "재공유 %{count}개"
+        zero: "재공유 없음"
+      tag_name: "태그: <b>%{name_tag}</b> 갯수: <b>%{count_tag}</b>"
+      usage_statistic: "사용 통계"
+      users:
+        other: "사용자 %{count}명"
+        zero: "사용자 없음"
+      week: "한 주"
     user_search:
       add_invites: "초대 추가"
       email_to: "이메일 초대"
@@ -124,6 +146,7 @@ ko:
       help:
         do_you: "해시태그:"
         email_feedback: "%{link}: 이메일로 보낼 수도 있습니다"
+        email_link: "이메일"
         feature_suggestion: "%{link}: 제안해주세요!"
         find_a_bug: "%{link}: 버그를 보고해주세요!"
         have_a_question: "%{link}: 물어보세요!"
@@ -791,6 +814,7 @@ ko:
       invite_your_friends: "친구들을 초대하세요"
       invites: "초대"
       invites_closed: "이 디아스포라는 초대가 닫혀있습니다."
+      share_this: "이 링크를 이메일, 블로그, 또는 즐겨쓰는 소셜 네트워크를 통해 공유하세요"
     notification:
       new: "%{from}님의 새 %{type}"
     public_explain:

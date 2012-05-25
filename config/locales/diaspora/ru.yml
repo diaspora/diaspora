@@ -51,7 +51,40 @@ ru:
     correlations:
       correlations_count: "Связь с числом входов:"
     stats:
+      2weeks: "2 недели"
+      50_most: "50 самых популярных меток"
+      comments:
+        few: "%{count} комментария"
+        many: "%{count} комментариев"
+        one: "%{count} комментарий"
+        other: "%{count} комментариев"
+        zero: "%{count} комментариев"
+      current_segment: "Текущий сегмент содержит в среднем <b>%{post_yest}</b> записей на пользователя, с <b>%{post_day}</b>"
+      daily: "Ежедневно"
+      display_results: "Показ результатов сегмента <b>%{segment}</b>"
       go: "перейти"
+      month: "Месяц"
+      posts:
+        few: "%{count} записи"
+        many: "%{count} записей"
+        one: "%{count} запись"
+        other: "%{count} записей"
+        zero: "%{count} записей"
+      shares:
+        few: "%{count} поделившихся"
+        many: "%{count} поделившихся"
+        one: "%{count} поделившийся"
+        other: "%{count} поделившихся"
+        zero: "%{count} поделившихся"
+      tag_name: "Имя метки: <b>%{name_tag}</b> Число: <b>%{count_tag}</b>"
+      usage_statistic: "Статистика использования"
+      users:
+        few: "%{count} пользователя"
+        many: "%{count} пользователей"
+        one: "%{count} пользователь"
+        other: "%{count} пользователей"
+        zero: "%{count} пользователей"
+      week: "Неделя"
     user_search:
       add_invites: "добавить приглашения"
       email_to: "Адрес для пришлашения"
@@ -129,6 +162,7 @@ ru:
       help:
         do_you: "Вы:"
         email_feedback: "%{link}: еще один способ связи с нами."
+        email_link: "Email"
         feature_suggestion: "... хотите предложить что-то новое (%{link})?"
         find_a_bug: "... нашли ошибку (%{link})?"
         have_a_question: "... хотите задать вопрос (%{link})?"
@@ -493,14 +527,16 @@ ru:
 
           Вас пригласили присоединиться к сети Диаспора*!
 
-          Для начала, перейдите по этой ссылке
+          Чтобы начать, перейдите по этой ссылке:
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           С любовью,
 
           почтовый робот Диаспоры*!
+
+          [1]: %{invite_url}
     invited_you: "%{name} пригласил(а) вас в Диаспору*"
     liked:
       liked: "%{name} понравилась ваша запись"
@@ -682,13 +718,20 @@ ru:
       update: "Обновить"
     invalid_invite: "Это приглашение уже недействительно!"
     new:
+      continue: "Продолжить"
       create_my_account: "Создать мой аккаунт!"
+      diaspora: "<3 Диаспора*"
+      email: "ПОЧТА"
       enter_email: "Введите email"
       enter_password: "Введите пароль (не меньше шести символов)"
       enter_password_again: "Повторите пароль"
       enter_username: "Выберите имя пользователя (разрешены только латинские буквы, цифры и подчеркивание)"
+      hey_make: "ПРИВЕТ,<br/>СОЗДАЙТЕ<br/>ЧТО-ТО."
       join_the_movement: "Присоединяйтесь к движению!"
+      password: "ПАРОЛЬ"
+      sign_up: "РЕГИСТРАЦИЯ"
       sign_up_message: "Социальная сеть с ♥"
+      username: "ИМЯ ПОЛЬЗОВАТЕЛЯ"
   requests:
     create:
       sending: "Отправка"
@@ -793,6 +836,7 @@ ru:
       invite_your_friends: "Пригласить друзей"
       invites: "Приглашения"
       invites_closed: "В данный момент возможность приглашений закрыта на этом сервере Диаспоры"
+      share_this: "Поделитесь этой ссылкой по почте, через блог или социальную сеть!"
     notification:
       new: "Новый %{type} из %{from}"
     public_explain:

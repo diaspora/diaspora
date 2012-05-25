@@ -51,7 +51,28 @@ hu:
     correlations:
       correlations_count: "Belépések számával való korrelációk:"
     stats:
+      2weeks: "2 hét"
+      50_most: "50 legnépszerűbb címke"
+      comments:
+        other: "%{count} megjegyzés"
+        zero: "%{count} megjegyzés"
+      current_segment: "A jelenlegi szegmens átlaga <b>%{post_yest}</b> bejegyzés felhasználóként (<b>%{post_day}</b> óta)"
+      daily: "napi"
+      display_results: "Ezek a <b>%{segment}</b> szegmensből származó eredmények"
       go: "mehet"
+      month: "hónap"
+      posts:
+        other: "%{count} bejegyzés"
+        zero: "%{count} bejegyzés"
+      shares:
+        other: "%{count} megosztás"
+        zero: "%{count} megosztás"
+      tag_name: "címke neve: <b>%{name_tag}</b> előfordulása: <b>%{count_tag}</b>"
+      usage_statistic: "használati statisztika"
+      users:
+        other: "%{count} felhasználó"
+        zero: "%{count} felhasználó"
+      week: "hét"
     user_search:
       add_invites: "meghívók hozzáadása"
       email_to: "a meghívandó személy email címe"
@@ -126,6 +147,7 @@ hu:
       help:
         do_you: "Mit szeretnél?"
         email_feedback: "Küldd el %{link}-ben a visszajelzésed"
+        email_link: "E-mail"
         feature_suggestion: "...felötlött benned egy fejlesztési %{link}?"
         find_a_bug: "...feltűnt egy %{link}?"
         have_a_question: "...eszedbe jutott egy %{link}?"
@@ -796,6 +818,7 @@ hu:
       invite_your_friends: "Hívd meg a barátaidat"
       invites: "Meghívók"
       invites_closed: "A meghívás jelenleg szünetel erre a Diaspora* kiszolgálóra."
+      share_this: "Oszd meg ezt a linket emailben, blogon vagy közösségi hálón!"
     notification:
       new: "Új %{type} %{from}-tól/től"
     public_explain:

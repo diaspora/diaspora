@@ -38,6 +38,7 @@ sk:
       preparing_your_stream: "Pripravuje sa vaša upravená nástenka..."
     header:
       admin: "Administrátor"
+      close: "zatvoriť"
       contacts: "Kontakty"
       home: "Úvodná stránka"
       log_out: "Odhlásiť sa"
@@ -121,6 +122,7 @@ sk:
     viewer:
       comment: "Komentár"
       follow_post: "Sledovať príspevok"
+      home: "ÚVODNÁ STRÁNKA"
       like: "Páči sa mi to"
       reshare: "Ukázať príspevok priateľom"
       reshared: "Znova ukázané"

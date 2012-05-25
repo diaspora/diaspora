@@ -1,0 +1,118 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+sr:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "Додај контакт"
+      all_aspects: "Сви погледи"
+      error: "Немогуће делити са <%= name %>.  Да ли игноришете корисника?"
+      select_aspects: "Изабери погледе"
+      started_sharing_with: "Почињеш да делиш са <%= name %>!"
+      stopped_sharing_with: "Више не делиш са <%= name %>."
+      toggle:
+        few: "У <%= count %> погледа"
+        many: "У <%= count %> погледа"
+        one: "У <%= count %> погледу"
+        other: "У <%= count %> погледа"
+        zero: "Изабери погледе"
+    aspect_navigation:
+      deselect_all: "Не означи ниједан"
+      no_aspects: "Ниједан поглед није означен"
+      select_all: "Означи све"
+    comments:
+      hide: "сакриј коментаре"
+      show: "прикажи све коментаре"
+    confirm_dialog: "Јесте ли сигурни?"
+    delete: "Уклони"
+    failed_to_like: "Свиђање није успело!"
+    failed_to_post_message: "Слање поруке није успело!"
+    getting_started:
+      alright_ill_wait: "Важи, сачекаћу."
+      hey: "Хеј, <%= name %>!"
+      no_tags: "Хеј не пратиш ни један таг!  Настави свакако?"
+      preparing_your_stream: "Припремам твоје личне вести..."
+    header:
+      admin: "Администратор"
+      contacts: "Контакти"
+      home: "Почетна"
+      log_out: "Одјави се"
+      mark_all_as_read: "Означи све прочитано"
+      messages: "Поруке"
+      notifications: "Обавештења"
+      profile: "Профил"
+      recent_notifications: "Најновија обавештења"
+      search: "Претрага"
+      settings: "Подешавања"
+      view_all: "Погледај све"
+    ignore: "Игнориши"
+    infinite_scroll:
+      no_more: "Нема више објава."
+    my_activity: "Моје активности"
+    my_stream: "Вести"
+    photo_uploader:
+      looking_good: "Човече, изгледаш одлично!"
+    publisher:
+      at_least_one_aspect: "Мораш објавити бар једном погледу"
+      limited: "Ограничено - твоју објаву ће видети само људи са којима је делиш"
+      public: "Јавно - твоју објаву ће видети сви и биће је могуће тражити путем претраживача"
+    reshares:
+      duplicate: "Добро је, а? Већ сте објавили ово!"
+    search_for: "Тражи"
+    show_more: "прикажи још"
+    stream:
+      comment: "Коментар"
+      follow: "Прати"
+      hide: "Сакриј"
+      hide_nsfw_posts: "Сакриј #нпзп објаве"
+      like: "Свиђа ми се"
+      likes:
+        few: "<%= count %> свиђања"
+        many: "<%= count %> свиђања"
+        one: "<%= count %> свиђање"
+        other: "<%= count %> свиђања"
+        zero: "<%= count %> свиђања"
+      limited: "Ограничено"
+      more_comments:
+        few: "Прикажи још <%= count %> коментара"
+        many: "Прикажи још <%= count %> коментара"
+        one: "Прикажи још <%= count %> коментар"
+        other: "Прикажи још <%= count %> коментара"
+        zero: "Прикажи још <%= count %> коментара"
+      original_post_deleted: "Оригиналну објаву обрисао аутор"
+      public: "Јавно"
+      reshare: "Подели даље"
+      reshares:
+        few: "<%= count %> дељења"
+        many: "<%= count %> дељења"
+        one: "<%= count %> дељење"
+        other: "<%= count %> дељења"
+        zero: "<%= count %> дељења"
+      show_nsfw_post: "Прикажи објаву"
+      show_nsfw_posts: "Прикажи све"
+      unfollow: "Не прати"
+      unlike: "Не свиђа ми се"
+    tags:
+      wasnt_that_interesting: "Добро, изгледа да те #<%= tagName %> не занима толико..."
+    timeago:
+      day: "један дан"
+      days: "%d дана"
+      hour: "око један час"
+      hours: "око %d часова"
+      minute: "око минут"
+      minutes: "%d минута"
+      month: "око један месец"
+      months: "%d месеци"
+      prefixAgo: "Пре"
+      prefixFromNow: ""
+      seconds: "мање од минута"
+      suffixAgo: ""
+      suffixFromNow: "од овог тренутка"
+      year: "око једну годину"
+      years: "%d година"
+    videos:
+      unknown: "Непозната врста видеа"
+      watch: "Погледај овај видео на"

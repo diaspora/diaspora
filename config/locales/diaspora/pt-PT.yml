@@ -44,8 +44,47 @@ pt-PT:
     admin_bar:
       correlations: "Correlações"
       pages: "Páginas"
-      user_search: "Pesquisa do utilizador"
-      weekly_user_stats: "Estatísticas Semanais"
+      pod_stats: "Estatísticas do Pod"
+      resque_overview: "Visão Global do Resque"
+      user_search: "Pesquisar Utilizador"
+      weekly_user_stats: "Estatísticas Semanais de Utilizador"
+    correlations:
+      correlations_count: "Correlações com Contagem de Inícios de Sessão"
+    stats:
+      2weeks: "2 Semanas"
+      50_most: "50 Etiquetas Mais Populares"
+      comments:
+        one: "%{count} comentário"
+        other: "%{count} comentários"
+        zero: "%{count} comentários"
+      current_segment: "O segmento actual tem uma média de <b>%{post_yest}</b> publicações por utilizador, desde <b>%{post_day}</b>"
+      daily: "Diário"
+      display_results: "Exibindo resultados do segmento <b>%{segment}</b>"
+      go: "ir"
+      month: "Mês"
+      posts:
+        one: "%{count} publicação"
+        other: "%{count} publicações"
+        zero: "%{count} publicações"
+      shares:
+        one: "%{count} partilha"
+        other: "%{count} partilhas"
+        zero: "%{count} partilhas"
+      tag_name: "Nome da Etiqueta: <b>%{name_tag}</b> Contagem: <b>%{count_tag}</b>"
+      usage_statistic: "Estatísticas de Utilização"
+      users:
+        one: "%{count} utilizador"
+        other: "%{count} utilizadores"
+        zero: "%{count} utilizadores"
+      week: "Semana"
+    user_search:
+      add_invites: "adicionar convites"
+      email_to: "Email para Convite"
+      users:
+        one: "%{count} utilizador encontrado"
+        other: "%{count} utilizadores encontrados"
+        zero: "%{count} utilizadores encontrados"
+      you_currently: "actualmente tem %{user_invitation} convites restantes %{link}"
   ago: "Há %{time} atrás"
   all_aspects: "Todos os grupos"
   application:
@@ -113,6 +152,7 @@ pt-PT:
       help:
         do_you: "Quer:"
         email_feedback: "%{link} o seu feedback, se preferires"
+        email_link: "Email"
         feature_suggestion: "... uma sugestão de %{link}?"
         find_a_bug: "... um %{link} para relatar?"
         have_a_question: "... uma %{link}?"
@@ -124,6 +164,7 @@ pt-PT:
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriais, Como Fazer e Notícias desenvolvidos pela comunidade"
       introduce_yourself: "Este é o seu fluxo. Venha daí e apresente-se."
       keep_diaspora_running: "Mantenha o desenvolvimento do Diaspora rápido com uma doação mensal!"
+      keep_pod_running: "Mantenha %{pod} a funcionar rápido e a comprar o café dos servidores com uma doação mensal!"
       new_here:
         follow: "Siga %{link} e dê as boas-vindas aos novos utilizadores ao Diaspora*!"
         learn_more: "Saiba mais"
@@ -177,19 +218,20 @@ pt-PT:
       revoke_access: "Revogar o acesso"
     new:
       authorize: "Autorizar"
+      cubbies_will: "Cubbies será capaz de publicar fotografias em seu nome"
       nope: "Não"
   back: "Voltar"
   blocks:
     create:
-      failure: "Eu não poderia ignorar esse utilizador.  #evasão"
-      success: "Tudo bem, não verá novamente este utilizador no seu Stream. #silêncio!"
+      failure: "Eu não consegui ignorar esse utilizador.  #evasão"
+      success: "Tudo bem, não verá novamente este utilizador no seu Fluxo. #silêncio!"
     destroy:
       failure: "Eu não poderia deixar de ignorar esse utilizador. #evasão"
       success: "Vejamos o que eles têm para dizer! #dizolá"
   bookmarklet:
     explanation: "Publique no Diaspora em qualquer sítio adicionando %{link} aos Favoritos."
     heading: "Bookmarklet"
-    post_something: "Publique qualquer coisa no Diaspora"
+    post_something: "Publique no Diaspora"
     post_success: "Publicado! A fechar!"
   cancel: "Cancelar"
   comments:
@@ -216,7 +258,7 @@ pt-PT:
       my_contacts: "Os meus contactos"
       no_contacts: "Parece que precisa de adicionar alguns contactos."
       no_contacts_message: "Verifique %{community_spotlight}"
-      no_contacts_message_with_aspect: "Verifiquea %{community_spotlight} ou %{add_to_aspect_link}"
+      no_contacts_message_with_aspect: "Verifique %{community_spotlight} ou %{add_to_aspect_link}"
       only_sharing_with_me: "Apenas a partilhar comigo"
       remove_person_from_aspect: "Remover %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Iniciar um conversa"
@@ -279,7 +321,7 @@ pt-PT:
   find_people: "Encontrar pessoas ou #etiquetas"
   hide: "Esconder"
   invitation_codes:
-    excited: "%{name} está contente por ver-te aqui."
+    excited: "%{name} está contente por o ver aqui."
   invitations:
     a_facebook_user: "Um utilizador do Facebook"
     check_token:
@@ -298,6 +340,10 @@ pt-PT:
       already_invited: "As pessoas seguintes não aceitaram o seu convite:"
       aspect: "Grupo"
       check_out_diaspora: "Descubra a Diaspora*!"
+      codes_left:
+        one: "%{count} convite restante neste código"
+        other: "%{count} convites restantes neste código"
+        zero: "%{count} convites restantes neste código"
       comma_separated_plz: "Pode introduzir vários endereços de email separados por vírgulas."
       if_they_accept_info: "se aceitarem, serão adicionados ao grupo para o qual os convidou."
       invite_someone_to_join: "Convide alguém para se juntar ao Diaspora!"
@@ -387,7 +433,7 @@ pt-PT:
         two: "e %{count} outros"
         zero: "e mais ninguém"
       mark_all_as_read: "Marcar Tudo como Lido"
-      mark_unread: "Marcar não lida"
+      mark_unread: "Marcar como não lida"
       notifications: "Notificações"
     liked:
       few: "%{actors} gostaram do seu %{post_link}."
@@ -490,7 +536,7 @@ pt-PT:
   password_confirmation: "Confirmação de palavra-passe"
   people:
     add_contact:
-      invited_by: "foste convidado por"
+      invited_by: "foi convidado por"
     add_contact_small:
       add_contact_from_tag: "adicionar contacto pela etiqueta"
     aspect_list:
@@ -638,15 +684,22 @@ pt-PT:
       password_to_confirm: "(necessitamos da sua palavra-passe atual para confirmar as modificações)"
       unhappy: "Descontente?"
       update: "Atualizar"
-    invalid_invite: "O link com o convite não é mais válido."
+    invalid_invite: "A ligação com o convite fornecida já não é válida."
     new:
+      continue: "Continuar"
       create_my_account: "Criar a minha conta!"
+      diaspora: "<3 Diaspora*"
+      email: "EMAIL"
       enter_email: "Introduza um endereço de email"
-      enter_password: "Introduza uma palavra-passe"
+      enter_password: "Introduza uma palavra-passe (mínimo 6 caracteres)"
       enter_password_again: "Introduza de novo a mesma palavra-passe"
       enter_username: "Escolha um nome de utilizador (apenas letras, números e 'underscores')"
+      hey_make: "HEY,<br/>FAÇA<br/>ALGO."
       join_the_movement: "Junte-se ao movimento!"
-      sign_up_message: "A Rede Social com <3"
+      password: "PALAVRA-PASSE"
+      sign_up: "REGISTAR"
+      sign_up_message: "A Rede Social com ♥"
+      username: "NOME DE UTILIZADOR"
   requests:
     create:
       sending: "A enviar"
@@ -751,6 +804,7 @@ pt-PT:
       invite_your_friends: "Convide os seus amigos"
       invites: "Convites"
       invites_closed: "De momento, os convites estão encerrados neste pod do Diaspora"
+      share_this: "Partilhe esta ligação via email, blog, ou rede social favorita!"
     notification:
       new: "Novo %{type} de %{from}"
     public_explain:
@@ -913,6 +967,7 @@ pt-PT:
       close_account_text: "Fechar conta"
       comment_on_post: "...alguém comenta as suas publicações?"
       current_password: "Palavra-passe atual"
+      current_password_expl: "aquela que utiliza para iniciar sessão..."
       download_photos: "descarregar as minhas fotografias"
       download_xml: "descarregar o meu xml"
       edit_account: "Editar conta"

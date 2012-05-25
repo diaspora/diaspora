@@ -32,9 +32,10 @@ pt-PT:
       alright_ill_wait: "Tudo bem, eu esperarei."
       hey: "Ei, {{name}}!"
       no_tags: "Ei, não está a seguir nenhuma etiqueta! Continuar mesmo assim?"
-      preparing_your_stream: "A preparar o seu Stream personalizado..."
+      preparing_your_stream: "A preparar o seu fluxo personalizado..."
     header:
       admin: "Administrador"
+      close: "fechar"
       contacts: "Contactos "
       home: "Inicio "
       log_out: "Sair"
@@ -61,6 +62,8 @@ pt-PT:
       public: "Público - A sua publicação será visível para todos e encontrada por motores de busca"
     reshares:
       duplicate: "Que bom, hein? Você já republicou essa mensagem!"
+      post: "Repartilhar a publicação de <%= name %>?"
+      successful: "A publicação foi repartilhada com sucesso!"
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
     stream:
@@ -116,6 +119,7 @@ pt-PT:
     viewer:
       comment: "Comentário"
       follow_post: "Seguir a publicação"
+      home: "INÍCIO"
       like: "Gostar"
       reshare: "Repartilhar"
       reshared: "Repartilhado"

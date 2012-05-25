@@ -51,7 +51,32 @@ fr:
     correlations:
       correlations_count: "Corrélations avec le nombre d'inscrits :"
     stats:
+      2weeks: "Deux semaines"
+      50_most: "50 tags les plus populaires"
+      comments:
+        one: "%{count} commentaire"
+        other: "%{count} commentaires"
+        zero: "Aucun commentaire"
+      current_segment: "La catégorie considérée a une moyenne de <b>%{post_yest}</b> messages par utilisateur, depuis <b>%{post_day}</b>"
+      daily: "Quotidienne"
+      display_results: "Affichage des résultats pour la période <b>%{segment}</b>"
       go: "exécuter"
+      month: "Mois"
+      posts:
+        one: "%{count} message"
+        other: "%{count} messages"
+        zero: "Aucun message"
+      shares:
+        one: "%{count} repartage"
+        other: "%{count} repartages"
+        zero: "Aucun repartage"
+      tag_name: "Nom du tag : <b>%{name_tag}</b> Nombre : <b>%{count_tag}</b>"
+      usage_statistic: "Statistiques d'utilisation"
+      users:
+        one: "%{count} utilisateur"
+        other: "%{count} utilisateurs"
+        zero: "Aucun utilisateur"
+      week: "Hebdomadaire"
     user_search:
       add_invites: "ajouter des invitations"
       email_to: "Adresse e-mail de la personne à inviter"
@@ -127,6 +152,7 @@ fr:
       help:
         do_you: "Avez-vous :"
         email_feedback: "Envoyez vos impressions par %{link} , si vous préférez."
+        email_link: "Courriel"
         feature_suggestion: "... une %{link} ?"
         find_a_bug: "... trouvé un %{link} ?"
         have_a_question: "... une %{link} ?"
@@ -795,6 +821,7 @@ fr:
       invite_your_friends: "Invitez vos amis"
       invites: "Invitations"
       invites_closed: "Les invitations sont actuellement fermées sur ce pod Diaspora"
+      share_this: "Partagez ce lien par e-mail, blog ou via votre réseau social favori !"
     notification:
       new: "Nouveau/nouvelle %{type} de %{from}"
     public_explain:
@@ -816,7 +843,7 @@ fr:
         hello: "Bonjour tout le monde, je suis #%{new_user_tag}. "
         i_like: "Je suis intéressé par %{tags}."
         invited_by: "Merci pour l'invitation, "
-        newhere: "NouveauIci"
+        newhere: "nouveauici"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
       publishing_to: "publication vers : "

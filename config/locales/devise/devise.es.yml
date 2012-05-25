@@ -73,7 +73,7 @@ es:
         click_to_unlock: "Pulsa en el enlace de abajo para desbloquear tu cuenta:"
         subject: "Instrucciones para desbloquear tu cuenta"
         unlock: "Desbloquear mi cuenta"
-      welcome: "¡Bienvenido %{email}!"
+      welcome: "¡Bienvenid@ %{email}!"
     passwords:
       edit:
         change_password: "Cambiar mi contraseña"
@@ -85,7 +85,7 @@ es:
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
-      signed_up: "Te has registrado con éxito. En cuanto se valide el registro recibirás un mensaje de confirmación en tu dirección de correo electrónico."
+      signed_up: "Te has registrado con éxito. Si está habilitado, un mensaje de confirmación ha sido enviado a tu correo electrónico."
       updated: "Has actualizado tu cuenta con éxito."
     sessions:
       new:
@@ -99,7 +99,7 @@ es:
         sign_in: "Acceder"
         username: "Usuario"
       signed_in: "Accediste con éxito. A navegar libre..."
-      signed_out: "Saliste con éxito."
+      signed_out: "Saliste con éxito. Hasta luego..."
     shared:
       links:
         forgot_your_password: "¿Olvidaste tu contraseña?"

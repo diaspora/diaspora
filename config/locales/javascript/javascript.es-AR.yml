@@ -21,7 +21,7 @@ es-AR:
         two: "En {{count}} aspectos"
         zero: "Seleccionar aspectos"
     aspect_navigation:
-      deselect_all: "De-seleccionar todo"
+      deselect_all: "Deseleccionar todo"
       no_aspects: "No hay aspectos seleccionados"
       select_all: "Seleccionar todo"
     comments:

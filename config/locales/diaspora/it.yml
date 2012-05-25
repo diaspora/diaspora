@@ -51,7 +51,32 @@ it:
     correlations:
       correlations_count: "Correlazioni con il numero di login"
     stats:
+      2weeks: "2 settimane"
+      50_most: "I 50 tag più popolari"
+      comments:
+        one: "%{count} commento"
+        other: "%{count} commenti"
+        zero: "%{count} commenti"
+      current_segment: "L'intervallo attuale ha una media di <b>%{post_yest}</b> post per utente, dal <b>%{post_day}</b>"
+      daily: "1 giorno"
+      display_results: "Risultati sull'intervallo di <b>%{segment}</b>"
       go: "vai"
+      month: "1 mese"
+      posts:
+        one: "%{count} post"
+        other: "%{count} post"
+        zero: "%{count} post"
+      shares:
+        one: "%{count} condivisione"
+        other: "%{count} condivisioni"
+        zero: "%{count} condivisioni"
+      tag_name: "Tag: <b>%{name_tag}</b> Usato: <b>%{count_tag}</b> volte"
+      usage_statistic: "Statistiche d'uso"
+      users:
+        one: "%{count} utente"
+        other: "%{count} utenti"
+        zero: "%{count} utenti"
+      week: "1 settimana"
     user_search:
       add_invites: "aggiungi inviti"
       email_to: "Email da invitare"
@@ -127,6 +152,7 @@ it:
       help:
         do_you: "Vuoi..."
         email_feedback: "Se preferisci, manda un feedback a %{link}"
+        email_link: "Email"
         feature_suggestion: "...proporre un'%{link}?"
         find_a_bug: "...segnalare un %{link}?"
         have_a_question: "...fare una %{link}?"
@@ -780,6 +806,7 @@ it:
       invite_your_friends: "Invita i tuoi amici"
       invites: "Inviti"
       invites_closed: "Al momento non è permesso spedire inviti per questo pod Diaspora."
+      share_this: "Condividi questo link tramite email, blog, o su altri social network!"
     notification:
       new: "Nuovo %{type} da %{from}"
     public_explain:

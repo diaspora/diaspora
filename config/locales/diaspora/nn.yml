@@ -45,7 +45,22 @@ nn:
       pages: "Sidar"
       user_search: "Brukarsøk"
     stats:
+      daily: "Dagleg"
       go: "gå"
+      posts:
+        one: "eit innlegg"
+        other: "%{count} innlegg"
+        zero: "inga innlegg"
+      shares:
+        one: "ein deling"
+        other: "%{count} delingar"
+        zero: "ingen delingar"
+      usage_statistic: "Bruksstatistikk"
+      users:
+        one: "ein brukar"
+        other: "%{count} brukarar"
+        zero: "ingen brukarar"
+      week: "Veke"
     user_search:
       users:
         one: "ein brukar funne"
@@ -118,6 +133,7 @@ nn:
       help:
         do_you: "Har du:"
         email_feedback: "%{link} attendemeldingane dine, om du vil"
+        email_link: "E-post"
         feature_suggestion: "eit %{link}forslag?"
         find_a_bug: "funne ein %{link}?"
         have_a_question: "eit %{link}?"
@@ -179,6 +195,9 @@ nn:
     index:
       no_applications: "Du har enno ikkje registrert nokon applikasjonar."
       revoke_access: "Trekk attende tilgangen"
+    new:
+      cubbies_will: "Cubbies vil kunne legge ut bilete på vegne av deg"
+      nope: "Nei"
   back: "Attende"
   blocks:
     create:
@@ -297,6 +316,7 @@ nn:
         one: "%{count} invitasjon igjen på denne koden"
         other: "%{count} invitasjonar igjen på denne koden"
         zero: "Ingen invitasjonar igjen på denne koden"
+      comma_separated_plz: "Du kan skriva fleire e-postadresser om du skil dei med komma."
       if_they_accept_info: "om dei godtek, vil dei verta lagde til aspektet du inviterte dei til."
       invite_someone_to_join: "Inviter nokon til å bli med Diaspora!"
       language: "Språk"
@@ -318,7 +338,7 @@ nn:
       admin: "Admin"
       blog: "blogg"
       code: "kode"
-      login: "logg på"
+      login: "Logg på"
       logout: "Logg ut"
       profile: "Profil"
       recent_notifications: "Nylege varsel"
@@ -629,7 +649,7 @@ nn:
     two: "%{count} reactions"
     zero: "0 reactions"
   registrations:
-    closed: "Kan ikkje oppretta brukarar på denne Diaspora-tenaren."
+    closed: "Kan ikkje oppretta brukarar på denne Diaspora-poden."
     create:
       success: "Du er vorten med i Diaspora."
     edit:
@@ -640,13 +660,19 @@ nn:
       unhappy: "Ulukkeleg?"
       update: "Oppdater"
     new:
+      continue: "Vidare"
       create_my_account: "Lag kontoen min."
+      diaspora: "♥ Diaspora*"
+      email: "E-POST"
       enter_email: "Skriv ei e-postadresse"
       enter_password: "Skriv eit passord (minst seks teikn)"
       enter_password_again: "Skriv passordet éin gong til"
       enter_username: "Vel eit brukarnamn (berre bokstavar, tal og understrekingsteikn)"
       join_the_movement: "Vert med i rørsla!"
+      password: "PASSORD"
+      sign_up: "PÅMELDING"
       sign_up_message: "Sosialt nettverk med eit ♥"
+      username: "BRUKARNAMN"
   requests:
     create:
       sending: "Sender"
@@ -667,7 +693,7 @@ nn:
       existing: "Eksisterande kontaktar"
       manage_within: "Handsam kontaktane i"
     new_request_to_person:
-      sent: "sendt"
+      sent: "sendt!"
   reshares:
     comment_email_subject: "%{resharer} si deling av %{author} sitt innlegg"
     create:
@@ -750,6 +776,7 @@ nn:
       invite_your_friends: "Inviter venene dine"
       invites: "Invitasjonar"
       invites_closed: "Denne Diaspora-noden gjev for tida ikkje ut invitasjonar"
+      share_this: "Del denne lenkja via e-post, bloggen din eller eit sosialt nettverk."
     notification:
       new: "Ny %{type} frå %{from}"
     public_explain:
