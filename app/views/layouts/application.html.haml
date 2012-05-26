@@ -35,7 +35,7 @@
     = jquery_include_tag
 
     - unless @landing_page
-      = javascript_include_tag :main, :templates
+      = javascript_include_tag :main, :templates, :tk
       = load_javascript_locales
 
     = set_asset_host
@@ -58,6 +58,7 @@
       - if @aspect == :getting_started
         = yield
       - else
+        #tk
         .span-24.last
           = yield
 
