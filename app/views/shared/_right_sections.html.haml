@@ -42,7 +42,7 @@
     %p
       != t('aspects.index.help.tutorials_wiki_and_forum', :tutorial => link_to("Diasporial" , "http://diasporial.com/tutorials", :target => '_blank'), :wiki => link_to('Wiki','http://github.com/diaspora/diaspora/wiki', :target => '_blank'), :forum => link_to("Forum", "http://www.diasporaforum.org/", :target => '_blank'))
     %p
-      != t('aspects.index.help.email_feedback', :link => link_to(t('.email_link'), "mailto:feedback@joindiaspora.com"))
+      != t('aspects.index.help.email_feedback', :link => link_to(t('aspects.index.help.email_link'), "mailto:feedback@joindiaspora.com"))
 
 - unless AppConfig.configured_services.blank? || all_services_connected?
   .section
