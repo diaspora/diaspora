@@ -97,7 +97,7 @@ defaults: &defaults
   ## Set this to true if you don't want your users to follow the
   ## diasporahq@joindiaspora.com account on account creation.
   ## The diasporahq account helps users start with some activity in
-  ## their stream and get news about Diaspora, but if you don't want
+  ## their stream and get news about Diaspora, but if you want
   ## your server to contact joindiaspora.com, set this to false:
   no_follow_diasporahq: false
 
