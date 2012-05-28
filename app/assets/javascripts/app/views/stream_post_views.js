@@ -96,7 +96,7 @@ app.views.StreamPost = app.views.Post.extend({
       }
     })
 
-    this.slideAndRemove();
+    this.remove();
   },
 
   focusCommentTextarea: function(evt){
