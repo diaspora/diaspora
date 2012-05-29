@@ -2,7 +2,7 @@
     {{#if photos}}
         <div class="image-container">
             {{#each photos}}
-                <img src="{{sizes.large}}" {{#if ../../adjustedImageHeight}}style="height:{{../../adjustedImageHeight}}px;"{{/if}} />
+                <img src="{{sizes.small}}" {{#if ../../adjustedImageHeight}}style="height:{{../../adjustedImageHeight}}px;"{{/if}} data-preload=true id="{{guid}}" />
             {{/each}}
         </div>
     {{/if}}
@@ -10,7 +10,7 @@
     {{#if object_url}}
         <div class="image-container">
             <a href="{{object_url}}" class="stream-photo-link">
-                <img src="{{image_url}}" data-small-photo="{{image_url}}" data-full-photo="{{image_url}}" class="stream-photo" />
+                <img src="{{image_url}}" class="stream-photo" />
             </a>
         </div>
     {{/if}}
