@@ -35,28 +35,6 @@ app.views.Post.SmallFrame = app.views.Post.extend({
 
   postRenderTemplate : function() {
     this.addStylingClasses()
-    this.loadHighResImage()
-  },
-
-  /* preload high-res images; small res are loaded initially in the template
-   * to help with initial load times (see: facebook mobile, soundcloud's new desktop webapp, etc) */
-  loadHighResImage : function() {
-    if(this.model.get("photos").length == 0) { return }
-    var self = this;
-
-    _.each(this.$("img[data-preload=true]"), function(element){
-
-      /* compensate for multiple photo postings */
-      _.find(self.model.get("photos"), function(photo){
-        if(photo.guid == $(element).attr("id")){
-
-          /* create a new image tag here and wait for the load() callback to switch */
-          $("<img>").attr({src : photo.sizes.large}).load(function(){
-            $(element).attr("src", photo.sizes.large)
-          })
-        }
-      })
-    })
   },
 
   addStylingClasses : function() {
