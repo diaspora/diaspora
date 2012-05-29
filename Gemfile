@@ -29,7 +29,7 @@ gem 'twitter', '2.0.2'
 
 # mail
 
-gem 'markerb', '~> 1.0.0'
+gem 'markerb', :git => 'git://github.com/plataformatec/markerb.git'
 gem 'messagebus_ruby_api', '1.0.3'
 gem 'airbrake'
 gem 'newrelic_rpm'
