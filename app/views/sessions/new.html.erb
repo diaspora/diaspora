@@ -11,7 +11,7 @@
         <fieldset>
           <div class="control-group">
               <label class="control-label" for="user_username">
-                USERNAME
+                <%= t('registrations.new.username') %>
               </label>
 
               <div class="controls">
@@ -21,7 +21,7 @@
 
           <div class="control-group">
             <label class="control-label" for="user_password">
-                PASSWORD
+                <%= t('registrations.new.password') %>
             </label>
 
             <div class="controls">
@@ -30,7 +30,7 @@
           </div>
         </fieldset>
 
-        <%= f.submit "Sign In", :class => "new-btn" %>
+        <%= f.submit t('devise.sessions.new.sign_in'), :class => "new-btn" %>
   <% end %>
 
   <% if display_password_reset_link? %>
