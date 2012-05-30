@@ -15,7 +15,7 @@ module AnalyticsHelper
     end
   end
 
-  def mixpanel_guid_block
+  def include_mixpanel_guid
     return unless current_user
     include_analytics "mixpanel" do
       javascript_tag do
