@@ -5,6 +5,11 @@
 
 if Rails.env == 'production'
   Diaspora::Application.configure do
+    if AppConfig[:google_a_site].present?
+      config.gem 'rack-google-analytics', :lib => 'rack/google-analytics'
+      config.middleware.use Rack::GoogleAnalytics, :tracker => AppConfig[:google_a_site]
+    end
+
     if AppConfig[:piwik_url].present?
       require 'rack/piwik'
       config.gem 'rack-piwik', :lib => 'rack/piwik'

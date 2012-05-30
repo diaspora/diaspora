@@ -85,6 +85,10 @@ defaults: &defaults
   ## Chartbeat tracking
   chartbeat_uid:
 
+  ## Mixpanel event tracking
+  mixpanel_uid:
+
+
   ######################################################
   # General Pod Settings
   ######################################################

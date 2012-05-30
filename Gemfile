@@ -40,6 +40,9 @@ group :production do # we don't install these on travis to speed up test runs
   gem 'fastercsv', '1.5.4', :require => false
   gem 'rack-ssl', :require => 'rack/ssl'
   gem 'rack-rewrite', '~> 1.2.1', :require => false
+
+  # analytics
+  gem 'rack-google-analytics', :require => 'rack/google-analytics'
   gem 'rack-piwik', :require => 'rack/piwik', :require => false
 end
 
