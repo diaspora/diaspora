@@ -54,6 +54,9 @@ app.views.Post.CanvasFrame = app.views.Post.SmallFrame.extend({
     app.page.stream.trigger("reLayout")
     //trigger moar relayouts in the case of images WHOA GROSS HAX
     _.delay(function(){app.page.stream.trigger("reLayout")}, 200)
+
+    // track the action
+    app.track("track", "Resize Frame")
   },
 
   killPost : function(){

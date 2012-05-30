@@ -67,6 +67,12 @@ var app = {
       delete window.preloads[prop] //prevent dirty state across navigates
 
       return(preload)
+  },
+
+  /* mixpanel wrapper function */
+  track : function() {
+    if(!window.mixpanel) { return }
+    window.mixpanel[arguments[0]](_.toArray(arguments).slice(1))
   }
 };
 
