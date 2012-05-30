@@ -20,7 +20,7 @@ module AnalyticsHelper
     include_analytics "mixpanel" do
       javascript_tag do
         <<-JS.html_safe
-          mixpanel.name_tag(#{current_user.guid});
+          mixpanel.name_tag("#{current_user.guid}");
         JS
       end
     end
