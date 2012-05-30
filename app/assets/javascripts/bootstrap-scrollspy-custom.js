@@ -109,8 +109,6 @@
         active = $(selector)
           .addClass('active')
 
-        console.log(active)
-
         active.trigger('activate')
       }
 

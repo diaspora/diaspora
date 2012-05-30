@@ -28,6 +28,8 @@ app.pages.Stream = app.views.Base.extend({
     this.streamView = new app.views.NewStream({ model : this.stream })
     var interactions = this.interactionsView = new app.views.StreamInteractions()
 
+    this.setUpThrottledInteractionScroll();
+
     this.stream.on("frame:interacted", function(post){
       interactions.setInteractions(post)
     })
@@ -35,9 +37,20 @@ app.pages.Stream = app.views.Base.extend({
 
   postRenderTemplate : function() {
     this.$("#header").css("background-image", "url(" + app.currentUser.get("wallpaper") + ")")
-    $('body').scrollspy({target : '.stream-frame-wrapper'})
-    setTimeout(_.bind(this.refreshScrollSpy, this), 2000)
+
+   _.defer(function(){$('body').scrollspy({target : '.stream-frame-wrapper', offset : 50})})
+
+
     this.setUpHashChangeOnStreamLoad()
+  },
+
+  setUpThrottledInteractionScroll : function(){
+    this.focusedPost = undefined;
+    var self = this;
+    this.updateInteractions = _.throttle(function(){
+          console.log("firing for " + self.focusedPost.get('id'));
+          self.interactionsView.setInteractions(self.focusedPost)
+        }, 1000)
   },
 
   setUpHashChangeOnStreamLoad : function(){
@@ -47,6 +60,7 @@ app.pages.Stream = app.views.Base.extend({
       if(post){
         self.navigateToPost(post)
       }
+      self.refreshScrollSpy()
     });
   },
 
@@ -55,16 +69,18 @@ app.pages.Stream = app.views.Base.extend({
   },
 
 
-  },
-
   triggerInteractionLoad : function(evt){
-    var post = this.stream.items.get($(evt.target).data("id"))
-    this.interactionsView.setInteractions(post)
+    var id = $(evt.target).data("id");
+    console.log("calling triggerInteractiosns for: " + id)
+    this.focusedPost = this.stream.items.get(id)
+    this.updateInteractions()
   },
 
   //on active guid => this guid
   // fire interacted from stream collection w/guid
   refreshScrollSpy : function(){
-    $('body').scrollspy('refresh')
+    setTimeout(function(){
+      $('body').scrollspy('refresh')
+    }, 2000)
   }
 });
