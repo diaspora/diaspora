@@ -27,6 +27,7 @@
    * ========================== */
 
   function ScrollSpy( element, options) {
+
     var process = $.proxy(this.process, this)
       , $element = $(element).is('body') ? $(window) : $(element)
       , href
@@ -34,7 +35,8 @@
     this.$scrollElement = $element.on('scroll.scroll.data-api', process)
     this.selector = (this.options.target
       || ((href = $(element).attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
-      || '') + ' .nav li > a'
+      || '')
+
     this.$body = $('body')
     this.refresh()
     this.process()
@@ -57,6 +59,7 @@
             var $el = $(this)
               , href = $el.data('target') || $el.attr('href')
               , $href = /^#\w/.test(href) && $(href)
+
             return ( $href
               && href.length
               && [[ $href.position().top, href ]] ) || null
@@ -66,7 +69,7 @@
             self.offsets.push(this[0])
             self.targets.push(this[1])
           })
-      }
+    }
 
     , process: function () {
         var scrollTop = this.$scrollElement.scrollTop() + this.options.offset
@@ -97,7 +100,6 @@
         this.activeTarget = target
 
         $(this.selector)
-          .parent('.active')
           .removeClass('active')
 
         selector = this.selector
@@ -105,12 +107,7 @@
           + this.selector + '[href="' + target + '"]'
 
         active = $(selector)
-          .parent('li')
           .addClass('active')
-
-        if (active.parent('.dropdown-menu'))  {
-          active = active.closest('li.dropdown').addClass('active')
-        }
 
         active.trigger('activate')
       }
