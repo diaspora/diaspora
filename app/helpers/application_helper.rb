@@ -3,6 +3,10 @@
 #   the COPYRIGHT file.
 
 module ApplicationHelper
+  def pod_name
+    AppConfig[:pod_name].present? ? AppConfig[:pod_name] : "DIASPORA*"
+  end
+
   def how_long_ago(obj)
     timeago(obj.created_at)
   end

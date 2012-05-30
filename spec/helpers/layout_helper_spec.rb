@@ -5,6 +5,7 @@
 require 'spec_helper'
 
 describe LayoutHelper do
+  include ApplicationHelper
   before do
     @user = alice
   end
@@ -18,7 +19,7 @@ describe LayoutHelper do
 
     context "passed blank text" do
       it "returns Diaspora*" do
-        page_title.should == "Diaspora*"
+        page_title.should == pod_name
       end
     end
 

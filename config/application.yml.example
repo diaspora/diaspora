@@ -89,6 +89,9 @@ defaults: &defaults
   # General Pod Settings
   ######################################################
 
+  ## Name of your pod
+  pod_name: "Diaspora*"
+
   ## Set this to true to prevent people from signing up for your pod
   ## without an invitation. Note that this needs to be true even for
   ## the first registration (you).
@@ -103,11 +106,6 @@ defaults: &defaults
 
   #the 'admin' account for your pod... ie for jd.com, this is diasporahq
   admin_account: ''
-
-  ## Here, you can turn specific users into admins
-  admins:
-  #- 'admin'
-  #- 'me'
 
   ## Settings about invitations
 
