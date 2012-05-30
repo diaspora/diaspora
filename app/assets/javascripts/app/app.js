@@ -1,8 +1,12 @@
 //= require_self
 //= require_tree ./helpers
+
 //= require ./router
 //= require ./models
+
 //= require ./views
+//= require ./views/infinite_stream_view
+
 //= require_tree ./models
 //= require_tree ./pages
 //= require_tree ./collections

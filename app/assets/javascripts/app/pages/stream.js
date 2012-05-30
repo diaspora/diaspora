@@ -7,8 +7,6 @@ app.views.NewStream = app.views.InfScroll.extend({
   }
 });
 
-/*--------------------*/
-
 app.pages.Stream = app.views.Base.extend({
   templateName : "stream",
 
@@ -23,64 +21,48 @@ app.pages.Stream = app.views.Base.extend({
 
   initialize : function(){
     this.stream = this.model = new app.models.Stream()
-    this.stream.preloadOrFetch();
+    this.stream.preloadOrFetch()
 
     this.streamView = new app.views.NewStream({ model : this.stream })
     var interactions = this.interactionsView = new app.views.StreamInteractions()
 
-    this.setUpThrottledInteractionScroll();
-
     this.stream.on("frame:interacted", function(post){
       interactions.setInteractions(post)
     })
+
+    this.streamView.on('loadMore', this.updateUrlState, this);
+    this.stream.on("fetched", this.refreshScrollSpy, this)
   },
 
   postRenderTemplate : function() {
     this.$("#header").css("background-image", "url(" + app.currentUser.get("wallpaper") + ")")
-
    _.defer(function(){$('body').scrollspy({target : '.stream-frame-wrapper', offset : 50})})
-
-
-    this.setUpHashChangeOnStreamLoad()
   },
 
-  setUpThrottledInteractionScroll : function(){
-    this.focusedPost = undefined;
-    var self = this;
-    this.updateInteractions = _.throttle(function(){
-          console.log("firing for " + self.focusedPost.get('id'));
-          self.interactionsView.setInteractions(self.focusedPost)
-        }, 1000)
-  },
-
-  setUpHashChangeOnStreamLoad : function(){
-    var self = this;
-    this.streamView.on('loadMore', function(){
-      var post = this.stream.items.last();
-      if(post){
-        self.navigateToPost(post)
-      }
-      self.refreshScrollSpy()
-    });
+  updateUrlState : function(){
+    var post = this.stream.items.last();
+    if(post){
+      this.navigateToPost(post)
+    }
   },
 
   navigateToPost : function(post){
     app.router.navigate(location.pathname + "?ex=true&max_time=" + post.createdAt(), {replace: true})
   },
 
-
   triggerInteractionLoad : function(evt){
     var id = $(evt.target).data("id");
-    console.log("calling triggerInteractiosns for: " + id)
     this.focusedPost = this.stream.items.get(id)
-    this.updateInteractions()
+
+    this._throttledInteractions = this._throttledInteractions || _.bind(_.throttle(this.updateInteractions, 1000), this)
+    this._throttledInteractions()
   },
 
-  //on active guid => this guid
-  // fire interacted from stream collection w/guid
+  updateInteractions: function () {
+    this.interactionsView.setInteractions(this.focusedPost)
+  },
+
   refreshScrollSpy : function(){
-    setTimeout(function(){
-      $('body').scrollspy('refresh')
-    }, 2000)
+    _.defer($('body').scrollspy('refresh'))
   }
 });

@@ -6,17 +6,10 @@ describe("app.Pages.Stream", function(){
     expect(this.post).toBeTruthy()
   })
 
-
   describe('postRenderTemplate', function(){
     it("sets the background-image of #header", function(){
       this.page.render()
       expect(this.page.$('#header').css('background-image')).toBeTruthy()
-    })
-
-    it('calls setUpHashChangeOnStreamLoad', function(){
-      spyOn(this.page, 'setUpHashChangeOnStreamLoad')
-      this.page.render();
-      expect(this.page.setUpHashChangeOnStreamLoad).toHaveBeenCalled()
     })
   })
 
@@ -34,21 +27,13 @@ describe("app.Pages.Stream", function(){
     })
   })
 
-  describe("setUpHashChangeOnStreamLoad", function(){
-    it('calls navigateToPost on the loadMore event', function(){
-      spyOn(this.page, 'navigateToPost')
-      this.page.setUpHashChangeOnStreamLoad()
-      this.page.streamView.trigger('loadMore')
-      expect(this.page.navigateToPost).toHaveBeenCalled()
-    })
-  })
-
-  describe("navigateToPost", function(){
-    it("sets the max time of the url to the created at time of a post", function(){
+  context("when more posts are loaded", function(){
+    it("navigates to the last post in the stream's max_time", function(){
       spyOn(app.router, 'navigate')
-      this.page.navigateToPost(this.post)
       var url = location.pathname + "?ex=true&max_time=" + this.post.createdAt()
-      var options =  {replace: true}
+        , options =  {replace: true}
+
+      this.page.streamView.trigger('loadMore')
       expect(app.router.navigate).toHaveBeenCalledWith(url, options)
     })
   })
