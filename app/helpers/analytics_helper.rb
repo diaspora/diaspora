@@ -23,8 +23,8 @@ module AnalyticsHelper
   def include_chartbeat
     include_analytics "chartbeat" do |service_uid|
       javascript_tag do
-        <<-JS
-          var _sf_async_config = { uid: #{AppConfig[:mixpanel_uid]}, domain: '#{AppConfig[:pod_uri].host}' };
+        <<-JS.html_safe
+          var _sf_async_config = { uid: "#{AppConfig[:mixpanel_uid]}", domain: "#{AppConfig[:pod_uri].host}" };
           (function() {
             function loadChartbeat() {
               window._sf_endpt = (new Date()).getTime();
