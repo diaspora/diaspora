@@ -74,9 +74,9 @@ var app = {
   },
 
   /* mixpanel wrapper function */
-  instrument : function() {
+  instrument : function(type, name, object, callback) {
     if(!window.mixpanel) { return }
-    window.mixpanel[arguments[0]](_.toArray(arguments).slice(1))
+    window.mixpanel[type](name, object, callback)
   }
 };
 
