@@ -412,6 +412,9 @@ color: white;
 
 #stream-content {
   .stream-frame {
+    .stream-frame-wrapper {
+      position: relative; //interactions scroll spy gets confused about div height when there are images without this line.
+    }
     margin-bottom : 40px;
 
     .stream-frame-feedback {
@@ -439,8 +442,10 @@ color: white;
       }
     }
 
-    .active {
-      border: 10px solid red;
+    .selected-frame {
+      .content {
+        border: 10px solid red;
+      }
     }
   }
 

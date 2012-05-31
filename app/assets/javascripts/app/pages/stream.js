@@ -15,19 +15,22 @@ app.pages.Stream = app.views.Base.extend({
     this.stream.preloadOrFetch()
 
     this.streamView = new app.pages.Stream.InfiniteScrollView({ model : this.stream })
-    var interactions = this.interactionsView = new app.views.StreamInteractions()
-
-    this.stream.on("frame:interacted", function(post){
-      interactions.setInteractions(post)
-    })
+    this.interactionsView = new app.views.StreamInteractions()
 
     this.streamView.on('loadMore', this.updateUrlState, this);
     this.stream.on("fetched", this.refreshScrollSpy, this)
+    this.stream.on("frame:interacted", this.selectFrame, this)
   },
 
   postRenderTemplate : function() {
     this.$("#header").css("background-image", "url(" + app.currentUser.get("wallpaper") + ")")
-   _.defer(function(){$('body').scrollspy({target : '.stream-frame-wrapper', offset : 50})})
+   _.defer(function(){$('body').scrollspy({target : '.stream-frame-wrapper', offset : 205})})
+  },
+
+  selectFrame : function(post){
+    this.$(".stream-frame-wrapper").removeClass("selected-frame")
+    this.$(".stream-frame-wrapper[data-id=" + post.id +"]").addClass("selected-frame")
+    this.interactionsView.setInteractions(post)
   },
 
   updateUrlState : function(){
@@ -42,15 +45,11 @@ app.pages.Stream = app.views.Base.extend({
   },
 
   triggerInteractionLoad : function(evt){
-    var id = $(evt.target).data("id");
-    this.focusedPost = this.stream.items.get(id)
+    this._throttledInteractions = this._throttledInteractions || _.bind(_.throttle(function(id){
+      this.selectFrame(this.stream.items.get(id))
+    }, 500), this)
 
-    this._throttledInteractions = this._throttledInteractions || _.bind(_.throttle(this.updateInteractions, 1000), this)
-    this._throttledInteractions()
-  },
-
-  updateInteractions: function () {
-    this.interactionsView.setInteractions(this.focusedPost)
+    this._throttledInteractions($(evt.target).data("id"))
   },
 
   refreshScrollSpy : function(){
