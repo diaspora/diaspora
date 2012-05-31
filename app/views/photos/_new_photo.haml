@@ -32,7 +32,7 @@
         Publisher.wrapper().addClass("with_attachments");
         $('#photodropzone').append(
           "<li class='publisher_photo loading' style='position:relative;'>" +
-            "<img src='/images/ajax-loader2.gif' />" +
+            "#{escape_javascript(image_tag('ajax-loader2.gif'))}" +
           "</li>"
           );
        },
