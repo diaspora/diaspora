@@ -74,7 +74,7 @@ var app = {
   },
 
   /* mixpanel wrapper function */
-  track : function() {
+  instrument : function() {
     if(!window.mixpanel) { return }
     window.mixpanel[arguments[0]](_.toArray(arguments).slice(1))
   }

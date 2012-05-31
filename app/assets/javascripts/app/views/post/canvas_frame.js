@@ -56,7 +56,7 @@ app.views.Post.CanvasFrame = app.views.Post.SmallFrame.extend({
     _.delay(function(){app.page.stream.trigger("reLayout")}, 200)
 
     // track the action
-    app.track("track", "Resize Frame")
+    app.instrument("track", "Resize Frame")
   },
 
   killPost : function(){

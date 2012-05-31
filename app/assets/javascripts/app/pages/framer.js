@@ -136,7 +136,7 @@ app.views.framerControls = app.views.Base.extend({
   trackPost : function() {
     var model = this.model
 
-    app.track("Posted", {
+    app.instrument("track", "Posted", {
       text : model.hasText(),
       photos : model.hasPhotos(),
       template : model.get("frame_name")
