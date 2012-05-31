@@ -129,6 +129,18 @@ app.views.framerControls = app.views.Base.extend({
     } 
     this.$('input').prop('disabled', 'disabled')
     this.model.save()
+
+    this.trackPost()
+  },
+
+  trackPost : function() {
+    var model = this.model
+
+    app.track("Posted", {
+      text : model.hasText(),
+      photos : model.hasPhotos(),
+      template : model.get("frame_name")
+    })
   },
 
   inValidFrame : function(){

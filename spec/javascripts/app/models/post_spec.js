@@ -36,4 +36,28 @@ describe("app.models.Post", function() {
       expect(this.post.createdAt()).toEqual(+date);
     });
   });
+
+  describe("hasPhotos", function(){
+    it('returns true if the model has more than one photo', function(){
+      this.post.set({photos : [1,2]})
+      expect(this.post.hasPhotos()).toBeTruthy()
+    })
+
+    it('returns false if the model does not have any photos', function(){
+      this.post.set({photos : []})
+      expect(this.post.hasPhotos()).toBeFalsy()
+    })
+  });
+
+  describe("hasText", function(){
+    it('returns true if the model has text', function(){
+      this.post.set({text : "hella"})
+      expect(this.post.hasText()).toBeTruthy()
+    })
+
+    it('returns false if the model does not have text', function(){
+      this.post.set({text : "    "})
+      expect(this.post.hasText()).toBeFalsy()
+    })
+  });
 });
