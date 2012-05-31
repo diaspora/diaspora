@@ -28,9 +28,12 @@ app.pages.Stream = app.views.Base.extend({
   },
 
   selectFrame : function(post){
+    if(this.selectedPost == post) { return }
+    this.selectedPost = post
+    
     this.$(".stream-frame-wrapper").removeClass("selected-frame")
-    this.$(".stream-frame-wrapper[data-id=" + post.id +"]").addClass("selected-frame")
-    this.interactionsView.setInteractions(post)
+    this.$(".stream-frame-wrapper[data-id=" + this.selectedPost.id +"]").addClass("selected-frame")
+    this.interactionsView.setInteractions(this.selectedPost)
   },
 
   updateUrlState : function(){
