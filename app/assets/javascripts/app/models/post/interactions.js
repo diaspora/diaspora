@@ -64,6 +64,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
       self.trigger("change")
       self.set({"likes_count" : self.get("likes_count") + 1})
     }})
+
+    app.instrument("track", "Like")
   },
 
   unlike : function() {
@@ -72,6 +74,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
       self.trigger('change')
       self.set({"likes_count" : self.get("likes_count") - 1})
     }});
+
+    app.instrument("track", "Unlike")
   },
 
   comment : function (text) {
@@ -84,6 +88,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
     });
 
     this.trigger("change") //updates count in an eager manner
+
+    app.instrument("track", "Comment")
   },
 
   reshare : function(){
@@ -103,6 +109,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
       }).done(function(){
         interactions.trigger("change")
       });
+
+    app.instrument("track", "Reshare")
   },
 
   userCanReshare : function(){
