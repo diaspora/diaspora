@@ -854,6 +854,9 @@ nn:
     aspects:
       title: "Your Aspects"
     aspects_stream: "Aspektar"
+    followed_tag:
+      add_a_tag: "Legg til ein tag"
+      follow: "Følg"
     followed_tags_stream: "Følgde tags"
     mentioned_stream: "@Nemningar"
     mentions:

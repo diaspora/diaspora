@@ -495,7 +495,7 @@ es:
   notifier:
     a_post_you_shared: "una publicación."
     accept_invite: "¡Acepta tu invitación a Diaspora*!"
-    click_here: "pulsa aquí"
+    click_here: "clic aquí"
     comment_on_post:
       reply: "Responder o ver los comentarios de %{name} >"
     confirm_email:
@@ -509,14 +509,14 @@ es:
 
           ¡Has recibido una invitación para unirte a Diaspora*!
 
-          Haz click en este enlace para dar tus primeros pasos
+          Sigue este enlace para comenzar
 
           [%{invite_url}][1]
 
 
-          Paz,
+          Saludos,
 
-          ¡El robot de correo automático de Diaspora*!
+          ¡El generador de correo automático de Diaspora*!
 
           [1]: %{invite_url}
     invited_you: "¡%{name} te ha invitado a Diaspora*!"
@@ -776,7 +776,7 @@ es:
       no_services: "Aún no has conectado ningún servicio."
       really_disconnect: "¿Desconectar %{service}?"
     inviter:
-      click_link_to_accept_invitation: "Sigue este enlace para aceptar la invitación"
+      click_link_to_accept_invitation: "Sigue este enlace para aceptar tu invitación"
       join_me_on_diaspora: "Nos vemos en DIASPORA*."
     remote_friend:
       invite: "invitar"
@@ -972,7 +972,7 @@ es:
       character_minimum_expl: "debe tener al menos seis caracteres"
       close_account:
         dont_go: "¡Eh, no te vayas!"
-        if_you_want_this: "Si realmente quieres eliminarla, teclea tu contraseña debajo y haz click en 'Eliminar Cuenta'"
+        if_you_want_this: "Si realmente quieres eliminarla, teclea tu contraseña debajo y haz clic en 'Eliminar Cuenta'"
         lock_username: "Esto bloquerá tu nombre de usuario si decides volver a registrarte."
         locked_out: "Saldrás y eliminarás tu cuenta."
         make_diaspora_better: "Queremos que nos ayudes a hacer Diaspora mejor, podrías hacerlo. Si te vas, queremos que sepas que pasa después."
@@ -983,7 +983,7 @@ es:
       comment_on_post: "...alguien comenta en tu publicación?"
       current_password: "Contraseña actual"
       current_password_expl: "con la que inicias sesión..."
-      download_photos: "descargar mis fotos"
+      download_photos: "Descargar mis fotos"
       download_xml: "Descargar mi XML"
       edit_account: "Editar cuenta"
       email_awaiting_confirmation: "Te hemos enviado un enlace de activación a %{unconfirmed_email}. Hasta que no sigas este enlace y actives la nueva dirección, continuaremos usando tu dirección original %{email}."

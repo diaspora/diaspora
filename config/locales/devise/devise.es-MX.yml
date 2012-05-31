@@ -70,7 +70,7 @@ es-MX:
         wont_change: "Tu contraseña no cambiará hasta que accedas al enlace anterior y crees una nueva."
       unlock_instructions:
         account_locked: "Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos de ingreso fallidos."
-        click_to_unlock: "Haz clic en siguiente enlace para desbloquear tu cuenta:"
+        click_to_unlock: "Haz clic en el siguiente enlace para desbloquear tu cuenta:"
         subject: "Instrucciones de desbloqueo"
         unlock: "Desbloquear mi cuenta"
       welcome: "¡Bienvenido/a %{email}!"

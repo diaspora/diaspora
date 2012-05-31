@@ -152,7 +152,7 @@ sv:
       help:
         do_you: "Har du:"
         email_feedback: "%{link}a din respons, om du föredrar det"
-        email_link: "E-posta"
+        email_link: "E-post"
         feature_suggestion: "... ett %{link}-förslag?"
         find_a_bug: "... hittat en %{link}?"
         have_a_question: "... en %{link}?"
@@ -473,7 +473,7 @@ sv:
 
           Du har fått en inbjudan till Diaspora*!
 
-          Tryck på länken för att börja
+          Tryck på länken nedanför för att börja
 
           [%{invite_url}][1]
 
@@ -669,7 +669,7 @@ sv:
       enter_password: "Skriv in ett lösenord, åtminstone sex tecken långt"
       enter_password_again: "Skriv in samma lösenord som tidigare"
       enter_username: "Välj ett användarnamn (endast bokstäver, nummer och understreck)"
-      hey_make: "HALLÅ,<br/>GÖR<br/>NÅGONTING."
+      hey_make: "HALLÅ,<br/>SKAPA<br/>NÅGONTING."
       join_the_movement: "Gå med i rörelsen!"
       password: "LÖSENORD"
       sign_up: "REGISTRERA"
@@ -808,7 +808,7 @@ sv:
     stream_element:
       connect_to_comment: "Anslut till den här användaren för att kunna kommentera deras inlägg"
       currently_unavailable: "det går för närvarande inte att kommentera"
-      dislike: "Ogilla"
+      dislike: "Sluta gilla"
       hide_and_mute: "Dölj och ignorera"
       ignore_user: "Ignorera %{name}"
       ignore_user_description: "Ignorera och ta bort användaren från alla aspekter?"

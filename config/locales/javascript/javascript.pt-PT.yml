@@ -71,7 +71,7 @@ pt-PT:
       follow: "Seguir"
       hide: "Ocultar"
       hide_nsfw_posts: "Ocultar publicações #nsfw"
-      like: "Gosto"
+      like: "Gostar"
       likes:
         one: "<%= count %> gosto"
         other: "<%= count %> gostos"
@@ -94,7 +94,7 @@ pt-PT:
       show_nsfw_post: "Mostrar publicação"
       show_nsfw_posts: "Mostrar todos"
       unfollow: "Não seguir"
-      unlike: "Não gosto"
+      unlike: "Não gostar"
     tags:
       wasnt_that_interesting: "OK, suponho que #{{tagName}} não era assim tão interessante..."
     timeago:
@@ -106,10 +106,10 @@ pt-PT:
       minutes: "%d minutos"
       month: "cerca de um mês"
       months: "%d meses"
-      prefixAgo: "javascripts:timeago:prefixAgo"
-      prefixFromNow: "javascripts:timeago:prefixFromNow"
+      prefixAgo: "Há"
+      prefixFromNow: ""
       seconds: "menos de um minuto"
-      suffixAgo: "atrás"
+      suffixAgo: ""
       suffixFromNow: "a partir de agora"
       year: "cerca de um ano"
       years: "%d anos"

@@ -9,9 +9,9 @@ es:
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
-      error: "No podrás compartir con <%= name %>. ¿Vas a ignonarle?"
+      error: "No podrás compartir con <%= name %>. ¿Estás ignorándole?"
       select_aspects: "Elige los aspectos"
-      started_sharing_with: "¡Ahora sigues los mensajes públicos de <%= name %>!"
+      started_sharing_with: "¡Has empezado a compartir con <%= name %>!"
       stopped_sharing_with: "Ya no compartes más con <%= name %>."
       toggle:
         few: "En <%= count %> aspectos"

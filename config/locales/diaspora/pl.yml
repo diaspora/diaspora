@@ -463,10 +463,8 @@ pl:
       zero: "%{actors} polubiło Twój usunięty wpis."
     mentioned:
       few: "%{actors} wspomnieli o Tobie we %{post_link}."
-      many: "%{actors} wspomnieli o Tobie w %{post_link}."
       one: "%{actors} wspomniał(a) o Tobie we %{post_link}."
       other: "%{actors} wspomnieli o Tobie we %{post_link}."
-      two: "%{actors} wspomnieli o Tobie w %{post_link}."
       zero: "%{actors} wspomnia@{m:ł|f:ła|n:ł} o Tobie we %{post_link}."
     mentioned_deleted:
       few: "%{actors} wspomnieli o tobie w już usuniętym wpisie."
@@ -475,7 +473,7 @@ pl:
       other: "%{actors} wspomniał o tobie w usuniętym już wpisie."
       two: "%{actors}  wspomniało o tobie w usuniętym już wpisie."
       zero: "%{actors} wspomniał o tobie w usuniętym wpisie."
-    post: "wpisie"
+    post: "wpis"
     private_message:
       few: "%{actors} wysłali ci wiadomość."
       many: "%{actors} wysłali ci wiadomość."

@@ -94,7 +94,7 @@ pt-PT:
       video_title:
         unknown: "Vídeo com título desconhecido"
   are_you_sure: "Tem a certeza?"
-  are_you_sure_delete_account: "Você tem a certeza que deseja fechar a sua conta? Isso não pode ser anulado!"
+  are_you_sure_delete_account: "Você tem a certeza que deseja encerrar a sua conta? Isso não pode ser anulado!"
   aspect_memberships:
     destroy:
       failure: "Erro ao remover a pessoa do grupo"
@@ -150,11 +150,11 @@ pt-PT:
       donate: "Doar"
       handle_explanation: "Esta é a sua identificação na Diaspora. Tal como um endereço de email, pode dá-la a quem desejar que o contacte."
       help:
-        do_you: "Quer:"
-        email_feedback: "%{link} o seu feedback, se preferires"
+        do_you: "Tem:"
+        email_feedback: "%{link} o seu feedback, se preferir"
         email_link: "Email"
         feature_suggestion: "... uma sugestão de %{link}?"
-        find_a_bug: "... um %{link} para relatar?"
+        find_a_bug: "... um %{link} para reportar?"
         have_a_question: "... uma %{link}?"
         here_to_help: "A comunidade do Diaspora está aqui!"
         need_help: "Precisa de ajuda?"
@@ -174,8 +174,8 @@ pt-PT:
       people_sharing_with_you: "Pessoas a partilhar consigo"
       post_a_message: "publicar uma mensagem >>"
       services:
-        content: "Pode conectar os seguintes serviços ao Diaspora:"
-        heading: "Conectar serviços"
+        content: "Pode ligar os seguintes serviços ao Diaspora:"
+        heading: "Ligar serviços"
       unfollow_tag: "Deixar de seguir #%{tag}"
       welcome_to_diaspora: "Bem-vindo ao Diaspora, %{name}!"
     many: "%{count} grupos"
@@ -229,7 +229,7 @@ pt-PT:
       failure: "Eu não poderia deixar de ignorar esse utilizador. #evasão"
       success: "Vejamos o que eles têm para dizer! #dizolá"
   bookmarklet:
-    explanation: "Publique no Diaspora em qualquer sítio adicionando %{link} aos Favoritos."
+    explanation: "Publique no Diaspora a partir de qualquer sítio adicionando esta hiperligação aos Favoritos => %{link}"
     heading: "Bookmarklet"
     post_something: "Publique no Diaspora"
     post_success: "Publicado! A fechar!"
@@ -261,7 +261,7 @@ pt-PT:
       no_contacts_message_with_aspect: "Verifique %{community_spotlight} ou %{add_to_aspect_link}"
       only_sharing_with_me: "Apenas a partilhar comigo"
       remove_person_from_aspect: "Remover %{person_name} de \"%{aspect_name}\""
-      start_a_conversation: "Iniciar um conversa"
+      start_a_conversation: "Iniciar uma conversa"
       title: "Contactos"
       your_contacts: "Os seus contactos"
     many: "%{count} contactos"
@@ -348,7 +348,7 @@ pt-PT:
       if_they_accept_info: "se aceitarem, serão adicionados ao grupo para o qual os convidou."
       invite_someone_to_join: "Convide alguém para se juntar ao Diaspora!"
       language: "Linguagem"
-      paste_link: "Partilhe este link com os seus amigos para os convidar para o Diaspora*, ou envie um email com o link diretamente para eles"
+      paste_link: "Partilhe esta hiperligação com os seus amigos para os convidar para o Diaspora*, ou envie um email com a hiperligação diretamente para eles"
       personal_message: "Mensagem pessoal"
       resend: "Reenviar"
       send_an_invitation: "Envie um convite"
@@ -498,9 +498,9 @@ pt-PT:
       message: |-
           Olá!
 
-          Foi convidado para se juntar ao Diaspora*!
+          Foi convidado para aderir ao Diaspora*!
 
-          Clique nesta ligação para começar
+          Clique nesta hiperligação para começar
 
           %{invite_url}
 
@@ -549,7 +549,7 @@ pt-PT:
       couldnt_find_them_send_invite: "Não conseguiu encontrá-los? Envie um convite!"
       looking_for: "À procura de publicações com a etiqueta %{tag_link}?"
       no_one_found: "...e ninguém foi encontrado."
-      no_results: "Hei! Precisa pesquisar por alguma coisa."
+      no_results: "Ei! Precisa pesquisar por alguma coisa."
       results_for: "resultados da pesquisa para"
       searching: "a pesquisar, por favor aguarde..."
     last_post: "Última publicação"
@@ -592,7 +592,7 @@ pt-PT:
     two: "%{count} pessoas"
     webfinger:
       fail: "Lamentamos muito, não conseguimos encontrar %{handle}."
-    zero: "não há pessoas"
+    zero: "ninguém"
   photos:
     comment_email_subject: "foto de %{name}"
     create:
@@ -684,7 +684,7 @@ pt-PT:
       password_to_confirm: "(necessitamos da sua palavra-passe atual para confirmar as modificações)"
       unhappy: "Descontente?"
       update: "Atualizar"
-    invalid_invite: "A ligação com o convite fornecida já não é válida."
+    invalid_invite: "A hiperligação com o convite fornecida já não é válida."
     new:
       continue: "Continuar"
       create_my_account: "Criar a minha conta!"
@@ -694,7 +694,7 @@ pt-PT:
       enter_password: "Introduza uma palavra-passe (mínimo 6 caracteres)"
       enter_password_again: "Introduza de novo a mesma palavra-passe"
       enter_username: "Escolha um nome de utilizador (apenas letras, números e 'underscores')"
-      hey_make: "HEY,<br/>FAÇA<br/>ALGO."
+      hey_make: "EI,<br/>FAÇA<br/>ALGO."
       join_the_movement: "Junte-se ao movimento!"
       password: "PALAVRA-PASSE"
       sign_up: "REGISTAR"
@@ -762,7 +762,7 @@ pt-PT:
       no_services: "Ainda não conectou quaisquer serviços."
       really_disconnect: "desligar do %{service}?"
     inviter:
-      click_link_to_accept_invitation: "Siga esta ligação para aceitar o seu convite"
+      click_link_to_accept_invitation: "Siga esta hiperligação para aceitar o seu convite"
       join_me_on_diaspora: "Junte-se a mim no DIASPORA*"
     remote_friend:
       invite: "convite"
@@ -804,7 +804,7 @@ pt-PT:
       invite_your_friends: "Convide os seus amigos"
       invites: "Convites"
       invites_closed: "De momento, os convites estão encerrados neste pod do Diaspora"
-      share_this: "Partilhe esta ligação via email, blog, ou rede social favorita!"
+      share_this: "Partilhe esta hiperligação via email, blog, ou rede social favorita!"
     notification:
       new: "Novo %{type} de %{from}"
     public_explain:
@@ -826,7 +826,7 @@ pt-PT:
         hello: "Olá a todos, o meu nome é #%{new_user_tag}. "
         i_like: "Estou interessado em %{tags}."
         invited_by: "Obrigado(a) pelo convite,"
-        newhere: "NovoPorAqui"
+        newhere: "NovoAqui"
       post_a_message_to: "Publicar uma mensagem em %{aspect}"
       posting: "A publicar..."
       publishing_to: "publicando para:"
@@ -839,7 +839,7 @@ pt-PT:
     stream_element:
       connect_to_comment: "Ligue-se a este utilizador para comentar o seu post"
       currently_unavailable: "comentários atualmente indisponíveis"
-      dislike: "Não gosto"
+      dislike: "Não Gosto"
       hide_and_mute: "Ocultar e silenciar a publicação"
       ignore_user: "Ignorar %{name}"
       ignore_user_description: "Ignorar e remover o utilizador de todos os grupos?"
@@ -941,7 +941,7 @@ pt-PT:
       email_confirmed: "Email %{email} ativado"
       email_not_confirmed: "O email não pode ser ativado. Hiperligação errada?"
     destroy:
-      no_password: "Por favor digite a sua palavra-passe atual para fechar a sua conta."
+      no_password: "Por favor digite a sua palavra-passe atual para encerrar a sua conta."
       success: |-
           A sua conta foi bloqueada. Poderá demorar 20 minutos até que nós terminemos de fechar a sua conta.
           Obrigado por experimentar Diaspora.
@@ -954,17 +954,17 @@ pt-PT:
       change_email: "Mudar de email"
       change_language: "Mudar de idioma"
       change_password: "Alterar a palavra-passe"
-      character_minimum_expl: "tem que ter no mínimo seis caracteres"
+      character_minimum_expl: "mínimo seis caracteres"
       close_account:
         dont_go: "Ei, por favor não vá!"
-        if_you_want_this: "Se realmente quer isto, digite a seguir a sua palavra-passe e clique em 'Fechar Conta'"
+        if_you_want_this: "Se realmente quer isto, digite a seguir a sua palavra-passe e clique em 'Encerrar Conta'"
         lock_username: "Isto irá bloquear o seu nome de utilizador se decidir registar-se de novo."
         locked_out: "A sua sessão vai ser terminada e a sua conta bloqueada."
         make_diaspora_better: "Queremos que nos ajude a fazer o Diaspora melhor, logo deveria ajudar-nos em vez de se ir embora. Se nos quer deixars, nós queremos que saiba o que acontece depois."
         mr_wiggles: "Mr Wiggles ficará triste de o(a) ver partir"
         no_turning_back: "Atualmente, não há como voltar atrás."
         what_we_delete: "Iremos apagar todas as suas publicações, os dados do perfil, logo que seja humanamente possível. Os seus comentários permanecerão por cá, mas serão associados ao seu nome de utilizador da Diaspora."
-      close_account_text: "Fechar conta"
+      close_account_text: "Encerrar conta"
       comment_on_post: "...alguém comenta as suas publicações?"
       current_password: "Palavra-passe atual"
       current_password_expl: "aquela que utiliza para iniciar sessão..."
@@ -982,7 +982,7 @@ pt-PT:
       private_message: "...recebe uma mensagem privada?"
       receive_email_notifications: "Receber notificações por email quando..."
       reshared: "...alguém repartilha a sua publicação?"
-      show_community_spotlight: "Mostrar destaque da comunidade em fluxo?"
+      show_community_spotlight: "Mostrar Destaques da Comunidade no Fluxo?"
       show_getting_started: "Reativar Como começar"
       started_sharing: "...alguém começa a partilhar consigo?"
       stream_preferences: "Preferências de luxo"

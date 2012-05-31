@@ -70,7 +70,7 @@ it:
         one: "%{count} condivisione"
         other: "%{count} condivisioni"
         zero: "%{count} condivisioni"
-      tag_name: "Tag: <b>%{name_tag}</b> Usato: <b>%{count_tag}</b> volte"
+      tag_name: "Tag: <b>%{name_tag}</b> Usato: <b>%{count_tag} volte</b>"
       usage_statistic: "Statistiche d'uso"
       users:
         one: "%{count} utente"
