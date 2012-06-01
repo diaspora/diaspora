@@ -50,4 +50,4 @@
       .clearfix
 
       .bottom_submit_section
-        = conversation.submit t('.send'), :disable_with => t('.sending'), :class => 'button creation'
+        = conversation.submit t('.send'), 'data-disable-with' => t('.sending'), :class => 'button creation'
