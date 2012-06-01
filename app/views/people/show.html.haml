@@ -7,6 +7,8 @@
   = javascript_include_tag :people
   :javascript
     Mentions.options.prefillMention = #{@person.to_json};
+    app.instrument("track_pageview", "Profile")
+
 
 - content_for :page_title do
   = @person.name

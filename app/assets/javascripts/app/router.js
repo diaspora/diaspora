@@ -34,6 +34,7 @@ app.Router = Backbone.Router.extend({
   },
 
   newProfile : function(personId) {
+    app.instrument("track_pageview", "Profile")
     this.renderPage(function(){ return new app.pages.Profile({ personId : personId })});
   },
 
