@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'bundler', '> 1.1.0'
 ruby '1.9.3' if ENV['HEROKU']
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.5'
 
 gem 'foreman', '0.41'
 
@@ -103,7 +103,7 @@ gem 'typhoeus'
 
 # views
 
-gem 'haml'
+gem 'haml', '3.1.6.rc.1'
 gem 'mobile-fu'
 
 gem 'will_paginate'
