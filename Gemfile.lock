@@ -197,7 +197,7 @@ GEM
     guard-spork (0.8.0)
       guard (>= 0.10.0)
       spork (>= 0.8.4)
-    haml (3.1.5)
+    haml (3.1.6.rc.1)
     handlebars_assets (0.4.4)
       execjs (>= 1.2.9)
       sprockets (>= 2.0.3)
@@ -486,7 +486,7 @@ DEPENDENCIES
   guard-cucumber
   guard-rspec
   guard-spork
-  haml
+  haml (= 3.1.6.rc.1)
   handlebars_assets
   heroku
   heroku_san (= 3.0.1)
