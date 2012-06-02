@@ -200,6 +200,9 @@ defaults: &defaults
   facebook_app_id:  ''
   facebook_app_secret: ''
 
+  #this will be the namespace for your object, it should be configured in your FB app
+  open_graph_namespace: ''
+
 
   ## OAuth credentials for Twitter:
   twitter_consumer_key: ''
