@@ -78,6 +78,7 @@ Spork.prefork do
     config.include Devise::TestHelpers, :type => :controller
     config.mock_with :rspec
 
+    config.render_views
     config.use_transactional_fixtures = true
 
     config.before(:each) do
@@ -89,9 +90,7 @@ Spork.prefork do
       Postzord::Dispatcher::Private.any_instance.stub(:deliver_to_remote)
     end
 
-    config.before(:each, :type => :controller) do
-      self.class.render_views
-    end
+
 
     config.after(:all) do
       `rm -rf #{Rails.root}/tmp/uploads/*`

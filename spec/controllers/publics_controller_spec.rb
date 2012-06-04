@@ -5,7 +5,6 @@
 require 'spec_helper'
 
 describe PublicsController do
-  render_views
   let(:fixture_path) { File.join(Rails.root, 'spec', 'fixtures')}
   before do
     @user = alice
