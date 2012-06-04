@@ -166,7 +166,7 @@ end
 
 group :test, :development do
   gem 'debugger', :platforms => :mri_19
-  gem "rspec-rails", "~> 2.9.0" 
+  gem "rspec-rails", "~> 2.10" 
   gem 'ruby-debug', :platforms => :mri_18
 end
 
