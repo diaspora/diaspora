@@ -152,10 +152,7 @@ group :test do
   gem 'factory_girl_rails', '1.7.0'
   gem 'fixture_builder', '0.3.3'
   gem 'fuubar', '>= 1.0'
-  gem 'rspec', '>= 2.0.0'
-  gem 'rspec-core', '~> 2.9.0'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
-  gem "rspec-rails", "~> 2.9.0" 
   gem 'selenium-webdriver', '2.22.1'
 
   gem 'webmock', '~> 1.7', :require => false
@@ -169,6 +166,7 @@ end
 
 group :test, :development do
   gem 'debugger', :platforms => :mri_19
+  gem "rspec-rails", "~> 2.9.0" 
   gem 'ruby-debug', :platforms => :mri_18
 end
 

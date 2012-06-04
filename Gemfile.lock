@@ -524,8 +524,6 @@ DEPENDENCIES
   resque-timeout (= 1.0.0)
   roxml!
   rpm_contrib (~> 2.1.7)
-  rspec (>= 2.0.0)
-  rspec-core (~> 2.9.0)
   rspec-instafail (>= 0.1.7)
   rspec-rails (~> 2.9.0)
   ruby-debug
