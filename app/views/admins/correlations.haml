@@ -6,7 +6,11 @@
 .span-24.last
   %h1
     = t('.correlations_count')
-  %ul
+  %table#metrics
+    %tr
+      %th Metric
+      %th Result
     - @correlations_hash.keys.each do |k|
-      %li
-        = "#{k.to_s}, #{@correlations_hash[k]}"
+      %tr
+        %td= k.to_s.gsub('_', ' ').split(' ').each{|word| word.capitalize!}.join(' ') 
+        %td= @correlations_hash[k]

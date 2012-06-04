@@ -12,6 +12,13 @@ class AdminsController < ApplicationController
     end
     params[:user].delete_if {|key, value| value.blank? }
     @users = params[:user].empty? ? [] : User.where("username LIKE ? and email LIKE ?", username, email)
+    @users.each do |user|
+      user.attributes.each do |att|
+        if att.blank? 
+          att = "N/A"
+        end
+      end
+    end
   end
 
   def admin_inviter 

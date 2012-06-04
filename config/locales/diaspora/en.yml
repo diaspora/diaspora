@@ -82,9 +82,10 @@ en:
 
   admins:
     admin_bar:
+      rails_admin: "Admin"
       pages: "Pages"
       user_search: "User Search"
-      weekly_user_stats: "Weekly User Stats"
+      weekly_user_stats: "User Stats"
       pod_stats: "Pod Stats"
       correlations: "Correlations"
       resque_overview: "Resque Overview"

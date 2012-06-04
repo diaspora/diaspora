@@ -1,3 +1,6 @@
+- content_for :head do
+  = stylesheet_link_tag :expand
+  = javascript_include_tag :expand
 
 .span-24
   = render :partial => 'admins/admin_bar.haml'
@@ -28,4 +31,6 @@
   = t('.users', :count => @users.count)
   %br
   %br
-  = render :partial => 'admins/user.html.erb', :collection => @users
+  #listContainer
+    %ul#expList
+      = render :partial => 'admins/user.html.erb', :collection => @users
