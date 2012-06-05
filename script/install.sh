@@ -36,7 +36,7 @@ BINARIES="git ruby gem bundle sed mktemp"       # required programs
 
 D_GIT_CLONE_PATH="/srv/diaspora"     # path for diaspora
 
-D_REMOTE_REPO_URL="git://github.com/diaspora/diaspora.git"
+D_REMOTE_REPO_URL="https://github.com/diaspora/diaspora.git"
 
 D_INSTALL_SCRIPT_URL="https://raw.github.com/diaspora/diaspora/master/script/install.sh"
 
