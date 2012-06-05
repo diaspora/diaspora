@@ -549,7 +549,7 @@ en:
 
   notifier:
     a_post_you_shared: "a post."
-    email_sent_by_diaspora: "This email was sent by %{pod_name}.  If you'd like to stop getting emails like this,"
+    email_sent_by_diaspora: "This email was sent by %{pod_name}. If you'd like to stop getting emails like this,"
     click_here: "click here"
     hello: "Hello %{name}!"
     thanks: "Thanks,"
