@@ -35,7 +35,7 @@ module AnalyticsHelper
     include_analytics "chartbeat" do
       javascript_tag do
         <<-JS.html_safe
-          var _sf_async_config = { uid: "#{AppConfig[:chartbeat_uid]}", domain: "#{AppConfig[:pod_uri].host}" };
+          var _sf_async_config = { uid: #{AppConfig[:chartbeat_uid]}, domain: "#{AppConfig[:pod_uri].host}" };
           (function() {
             function loadChartbeat() {
               window._sf_endpt = (new Date()).getTime();
