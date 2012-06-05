@@ -1,22 +1,23 @@
 //= require ../feedback_view
-app.views.PostViewerFeedback = app.views.Feedback.extend({
 
+app.views.PostViewerFeedback = app.views.Feedback.extend({
   id : "user-controls",
   className : "",
 
   templateName: "post-viewer/feedback",
 
-  events : {
-    "click *[rel='auth-required']" : "requireAuth",
-
-    "click .like" : "toggleLike",
-    "click .reshare" : "resharePost",
-
-    "click *[rel='invoke-interaction-pane']" : "invokePane",
-    "click *[rel='hide-interaction-pane']" : "hidePane"
+  subviews : {
+    ".feedback-actions" : "feedbackActions"
   },
 
-  tooltipSelector : ".label, .home-button",
+  events :_.extend({}, app.views.Feedback.prototype.events, {
+    "click *[rel='invoke-interaction-pane']" : "invokePane",
+    "click *[rel='hide-interaction-pane']" : "hidePane"
+  }),
+
+  initViews : function(){
+    this.feedbackActions = new app.views.FeedbackActions({model : this.model})
+  },
 
   postRenderTemplate : function() {
     this.sneakyVisiblity()
@@ -30,11 +31,4 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
 
   invokePane : function(evt){ this.trigger("invokePane") },
   hidePane : function(evt){ this.trigger("hidePane") },
-
-  requireAuth : function(evt) {
-    if( app.currentUser.authenticated() ) { return }
-    alert("you must be logged in to do that!")
-    return false;
-  }
-
 });

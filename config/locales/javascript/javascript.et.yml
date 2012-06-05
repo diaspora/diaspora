@@ -6,13 +6,74 @@
 
 et:
   javascripts:
+    aspect_dropdown:
+      add_to_aspect: "Lisa kontakt"
+      all_aspects: "Kõik aspektid."
+      select_aspects: "Vali aspektid."
+    aspect_navigation:
+      deselect_all: "Eemalda kõik valikust"
+      select_all: "Vali kõik"
+    comments:
+      hide: "peida kommentaarid"
+      show: "näita kõiki kommentaare"
     confirm_dialog: "Kas oled kindel?"
     delete: "Kustuta"
+    failed_to_post_message: "Sõnumi saatmine ebaõnnestus!"
     getting_started:
       alright_ill_wait: "Olgu, ma ootan."
+      hey: "Hõissa, <%= name %>!"
+      preparing_your_stream: "Valimistame ette sinu personaalse voo..."
+    header:
+      admin: "Admin"
+      contacts: "Kontaktid"
+      home: "Avaleht"
+      log_out: "Logi välja"
+      mark_all_as_read: "Märgi kõik loetuks"
+      messages: "Sõnumid"
+      notifications: "Teatised"
+      profile: "Profiil"
+      recent_notifications: "Äsjased teatised"
+      search: "Otsi"
+      settings: "Seaded"
+      view_all: "Näita kõiki"
     ignore: "Eira"
+    infinite_scroll:
+      no_more: "Rohkem postitusi pole."
     my_activity: "Minu tegevused"
     my_stream: "Voog"
+    photo_uploader:
+      looking_good: "OMG, sa näed vinge välja!"
+    publisher:
+      at_least_one_aspect: "Sa pead avaldama vähemalt ühe aspekti."
+      limited: "Piiratud - sinu postitust näidatakse vaid neile inimestele kellega sa oled seda jaganud"
+      public: "Avalik - sinu postitus on nähtav kõigile ja leitav otsingumootorite poolt"
+    search_for: "Otsi <%= name %>"
+    show_more: "näita veel"
+    stream:
+      comment: "Kommenteeri"
+      follow: "Jälgi"
+      hide: "Peida"
+      hide_nsfw_posts: "Peida #nsfw postitused"
+      like: "Meeldib"
+      likes:
+        one: "<%= count %> meeldimine"
+        other: "<%= count %> meeldimist"
+      limited: "Piiratud"
+      more_comments:
+        one: "Näita veel <%= count %> kommentaari"
+        other: "Näita veel <%= count %> kommentaari"
+      original_post_deleted: "Postitus on autori poolt eemaldatud."
+      public: "Avalik"
+      reshare: "Jaga edasi"
+      reshares:
+        one: "<%= count %> edasijagamine"
+        other: "<%= count %> edasijagamist"
+      show_nsfw_post: "Näita postitust"
+      show_nsfw_posts: "Näita kõiki"
+      unfollow: "Lõpeta jälgimine"
+      unlike: "Ei meeldi"
+    tags:
+      wasnt_that_interesting: "Oki, ma arvan, et <%= tagName %> polnud siiski nii huvitav..."
     timeago:
       day: "üks päev"
       days: "%d päeva"
@@ -20,7 +81,7 @@ et:
       hours: "umbes %d tundi"
       minute: "umbes üks minut"
       minutes: "%d minutit"
-      month: "umbes kuu aega"
+      month: "umbes üks kuu"
       months: "%d kuud"
       prefixAgo: ""
       prefixFromNow: ""
@@ -29,3 +90,6 @@ et:
       suffixFromNow: "hiljem"
       year: "umbes üks aasta"
       years: "%d aastat"
+    videos:
+      unknown: "Tundmatu videoformaat"
+      watch: "Vaata seda videot <%= provider %>"

@@ -101,6 +101,15 @@ Spork.each_run do
   end
 end
 
+# give firefox more time to complete requests
+# http://ihswebdesign.com/knowledge-base/fixing-selenium-timeouterror/
+After do |scenario|
+  if scenario.exception.is_a? Timeout::Error
+    # restart Selenium driver
+    Capybara.send(:session_pool).delete_if { |key, value| key =~ /selenium/i }
+  end
+end
+
 # # https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
 # require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "deferred_garbage_collection")
 # Before do

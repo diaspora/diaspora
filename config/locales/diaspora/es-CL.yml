@@ -177,7 +177,6 @@ es-CL:
       success: "Veamos que tienen para decir! #dihola"
   bookmarklet:
     explanation: "%{link} donde sea agregando a marcadores este link."
-    explanation_link_text: "Postea en Diaspora"
     heading: "Diaspora en tus marcadores"
     post_something: "Postea algo en Diaspora"
     post_success: "Posteado! Cerrando!"
@@ -260,20 +259,6 @@ es-CL:
   fill_me_out: "Complétame"
   find_people: "Buscar personas o #tags"
   hide: "Ocultar"
-  home:
-    show:
-      already_account: "¿Ya tienes una cuenta?"
-      choice: "Opción"
-      choice_explanation: "Diaspora te permite organizar conexiones en grupos llamados aspectos. En Diaspora, los aspectos aseguran que tus fotos, historias y bromas sean compartidas sólo con la gente que tu quieras."
-      learn_about_host: "Aprende como hostear tu propio servidor Diaspora."
-      login_here: "iniciar sesión aquí"
-      ownership: "Propiedad"
-      ownership_explanation: "Eres dueño de tus imágenes, y no deberías tener que cederlas sólo para compartirlas. Tú mantienes la propiedad sobre todo lo que compartas en Diaspora, dándote control total sobre lo que es distribuido."
-      share_what_you_want: "Comparte lo que quieras, con quien quieras."
-      simplicity: "Simpleza"
-      simplicity_explanation: "Diaspora hace que compartir sea transparente y fácil - y esto va por privacidad también. Inherentemente privado, Diaspora no te hace ir a través de configuraciones y opciones solo para mantener tu perfil seguro."
-      tagline_first_half: "Comparte lo que quieras,"
-      tagline_second_half: "con los que quiera."
   invitations:
     a_facebook_user: "Un usuario de Facebook"
     check_token:

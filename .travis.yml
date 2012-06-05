@@ -1,12 +1,10 @@
 branches:
   only:
     - 'master'
-    - 'rails3.2'
     
 language: ruby
 rvm:
-  - ree
-  - 1.9.2
+  - 1.9.3
 
 env:
   - DB=postgres BUILD_TYPE=other

@@ -9,9 +9,9 @@ es:
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
-      error: "No podrás compartir con <%= name %>. ¿Vas a ignonarle?"
+      error: "No podrás compartir con <%= name %>. ¿Estás ignorándole?"
       select_aspects: "Elige los aspectos"
-      started_sharing_with: "¡Ahora sigues los mensajes públicos de <%= name %>!"
+      started_sharing_with: "¡Has empezado a compartir con <%= name %>!"
       stopped_sharing_with: "Ya no compartes más con <%= name %>."
       toggle:
         few: "En <%= count %> aspectos"
@@ -29,15 +29,16 @@ es:
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     delete: "Eliminar"
-    failed_to_like: "¡No se pudo marcar como «Me gusta»!"
+    failed_to_like: "\"Me gusta\" no ha funcionado."
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
       hey: "¡Hola, <%= name %>!"
-      no_tags: "¡Eih, aún no sigues ninguna etiqueta! ¿Quieres continuar de todas formas?"
+      no_tags: "¡Eh, aún no sigues ninguna etiqueta! ¿Quieres continuar de todas formas?"
       preparing_your_stream: "Preparando tus novedades personalizadas..."
     header:
       admin: "Administrar"
+      close: "cerrar"
       contacts: "Contactos"
       home: "Inicio"
       log_out: "Salir"
@@ -65,7 +66,7 @@ es:
     reshares:
       duplicate: "Que bien, ¿eh? ¡Has compartido esa publicación!"
       post: "¿Compartir la publicación de <%= name %>?"
-      successful: "¡La publicación se compartió correctamente!"
+      successful: "¡Publicación compartida con éxito!"
     search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
     stream:

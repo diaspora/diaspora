@@ -2,9 +2,7 @@
   position : absolute;
   top : 0;
   left : 0;
-  margin-top : 200px;
-  //background-color : #afc652;
-  min-height : 100%;
+  padding-top : 200px;
   min-width : 100%;
 
   //color : #fff;
@@ -20,5 +18,11 @@
     font-size : 200px;
     color : #ddd;
     text-shadow : 0 1px 0 #fff;
+  }
+
+  #forgot_password_link {
+    margin : 40px;
+    color : #999;
+    clear : all;
   }
 }

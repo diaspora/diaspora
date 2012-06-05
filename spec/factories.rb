@@ -180,25 +180,6 @@ FactoryGirl.define do
     public true
   end
 
-  factory(:app, :class => OAuth2::Provider.client_class) do
-    sequence(:name) { |token| "Chubbies#{token}" }
-    sequence(:application_base_url) { |token| "http://chubbi#{token}.es/" }
-
-    description "The best way to chub on the ne"
-    icon_url "/assets/chubbies48.png"
-    permissions_overview "I will use the permissions this way!"
-    sequence(:public_key) {|n| OpenSSL::PKey::RSA.new(2048) }
-  end
-
-  factory(:oauth_authorization, :class => OAuth2::Provider.authorization_class) do
-    association(:client, :factory => :app)
-    association(:resource_owner, :factory => :user)
-  end
-
-  factory(:oauth_access_token, :class => OAuth2::Provider.access_token_class) do
-    association(:authorization, :factory => :oauth_authorization)
-  end
-
   factory(:tag, :class => ActsAsTaggableOn::Tag) do
     name "partytimeexcellent"
   end
@@ -224,12 +205,6 @@ FactoryGirl.define do
   end
 
   #templates
-  factory(:multi_photo, :parent => :status_message_with_photo) do
-    after_build do |sm|
-      2.times{ Factory(:photo, :author => sm.author, :status_message => sm, :pending => false, :public => public)}
-    end
-  end
-
   factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
 
   factory(:photo_backdrop, :parent => :status_message_with_photo) do
@@ -238,10 +213,6 @@ FactoryGirl.define do
 
   factory(:note, :parent => :status_message) do
     text SecureRandom.hex(1000)
-  end
-
-  factory(:rich_media, :parent => :status_message) do
-    association(:o_embed_cache)
   end
 
   factory(:status, :parent => :status_message)

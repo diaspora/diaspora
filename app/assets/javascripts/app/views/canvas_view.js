@@ -1,35 +1,34 @@
-app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMixin,  {
+app.views.Canvas = app.views.InfScroll.extend({
   initialize: function(){
     this.stream = this.model
     this.collection = this.stream.items
-    this.postClass = app.views.SmallFrame
+    this.postClass = app.views.Post.CanvasFrame
+    this.postViews = []
     this.setupInfiniteScroll()
     this.stream.bind("reLayout", this.reLayout, this)
     this.stream.bind("fetched", this.triggerRelayoutAfterImagesLoaded, this)
   },
 
   renderTemplate : function() {
-    this.$el.empty()
+    this.stream.deferred.done(_.bind(function(){
+      if(this.stream.items.isEmpty()){
+        var message
+          , person = app.page.model
+        if(person.get("is_own_profile")){
+          message = "Make something to start the magic."
+        } else {
+          var name = person.get("name") || ""
+          message = name + " hasn't posted anything yet."
+        }
 
-    if(this.stream.items.isEmpty()){
-      var message
-        , person = app.page.model
-      if(person.get("is_own_profile")){
-        message = "Make something to start the magic."
+        this.$el.html("<p class='no-post-message'>" + message + "</p>")
       } else {
-        var name = person.get("name") || ""
-        message = name + " hasn't posted anything yet."
+        this.renderInitialPosts()
       }
 
-      this.$el.html("<p class='no-post-message'>" + message + "</p>")
-    } else {
-      this.stream.items.each(_.bind(function(post){
-        this.$el.append(this.createPostView(post).render().el);
-      }, this))
-    }
-
-    //needs to be deferred so it happens after html rendering finishes
-    _.defer(_.bind(this.mason, this))
+      //needs to be deferred so it happens after html rendering finishes
+      _.defer(_.bind(this.mason, this))
+    }, this))
   },
 
   addPostView : function(post) {
@@ -38,8 +37,17 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
 
   mason : function() {
     var el = this.$el;
-    el.imagesLoaded(function(){
-      el.isotope({
+
+    /* make two calls to isotope
+       1) on dom ready
+       2) on images ready
+     */
+    triggerIsotope(el) && el.imagesLoaded(_.bind(function(){
+      this.reLayout()
+    },this))
+
+    function triggerIsotope(element) {
+      return element.isotope({
         itemSelector : '.canvas-frame',
         visibleStyle : {scale : 1},
         hiddenStyle : {scale : 0.001},
@@ -48,14 +56,15 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
           columnWidth : 292.5
         }
       })
-    })
+    }
   },
 
   triggerRelayoutAfterImagesLoaded : function(){
+    //event apparently only fires once
     this.$el.imagesLoaded(_.bind(this.reLayout, this))
   },
 
   reLayout : function(){
     this.$el.isotope("reLayout")
   }
-}));
+});

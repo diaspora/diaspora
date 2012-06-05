@@ -11,14 +11,9 @@ app.models.StatusMessage = app.models.Post.extend({
   toJSON : function(){
     return {
       status_message : _.clone(this.attributes),
-      aspect_ids : this.get("aspect_ids") && this.get("aspect_ids").split(","),
+      aspect_ids : this.get("aspect_ids"),
       photos : this.photos && this.photos.pluck("id"),
-      services : mungeServices(this.get("services"))
-    }
-
-    function mungeServices (values) {
-      if(!values) { return; }
-      return values.length > 1 ?  values :  [values]
+      services : this.get("services")
     }
   }
 });

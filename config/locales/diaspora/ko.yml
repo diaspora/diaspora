@@ -50,10 +50,35 @@ ko:
       weekly_user_stats: "주간 사용자 통계"
     correlations:
       correlations_count: "로그인 횟수와의 상관 관계"
+    stats:
+      2weeks: "두 주"
+      50_most: "가장 인기있는 태그 50개"
+      comments:
+        other: "댓글 %{count}개"
+        zero: "댓글 없음"
+      current_segment: "<b>%{post_day}</b>, 현재 분기는 사용자당 게시물 <b>%{post_yest}</b>개로 추정하고 있습니다"
+      daily: "매일"
+      display_results: "%{segment} 분기 결과 표시"
+      month: "한 달"
+      posts:
+        other: "게시물 %{count}개"
+        zero: "게시물 없음"
+      shares:
+        other: "재공유 %{count}개"
+        zero: "재공유 없음"
+      tag_name: "태그: <b>%{name_tag}</b> 갯수: <b>%{count_tag}</b>"
+      usage_statistic: "사용 통계"
+      users:
+        other: "사용자 %{count}명"
+        zero: "사용자 없음"
+      week: "한 주"
     user_search:
+      add_invites: "초대 추가"
+      email_to: "이메일 초대"
       users:
         other: "사용자 %{count}명을 찾았습니다"
         zero: "사용자를 찾을 수 없습니다"
+      you_currently: "현재 %{user_invitation} 초대가 남았습니다 %{link}"
   ago: "%{time} 전"
   all_aspects: "모든 애스펙"
   application:
@@ -121,6 +146,7 @@ ko:
       help:
         do_you: "해시태그:"
         email_feedback: "%{link}: 이메일로 보낼 수도 있습니다"
+        email_link: "이메일"
         feature_suggestion: "%{link}: 제안해주세요!"
         find_a_bug: "%{link}: 버그를 보고해주세요!"
         have_a_question: "%{link}: 물어보세요!"
@@ -186,6 +212,7 @@ ko:
       revoke_access: "접속권한 취소"
     new:
       authorize: "허가"
+      cubbies_will: "Cubbies가 나를 대신하여 사진을 게시할 수 있게 됩니다"
       nope: "아니오"
   back: "돌아가기"
   blocks:
@@ -195,8 +222,7 @@ ko:
     destroy:
       failure: "해당 사용자를 무시하기를 멈출 수 없었습니다.  #evasion"
   bookmarklet:
-    explanation: "%{link}를 북마크로 추가하면 어디서든 디아스포라에 게시할 수 있습니다."
-    explanation_link_text: "이 링크"
+    explanation: "이 링크를 북마크로 추가하면 어디서든 디아스포라에 게시할 수 있습니다 => %{link}"
     heading: "북마클릿"
     post_something: "디아스포라에 게시하기"
     post_success: "올렸습니다! 닫힙니다!"
@@ -287,20 +313,6 @@ ko:
   fill_me_out: "채워주세요"
   find_people: "사람이나 #태그 를 찾아보세요"
   hide: "숨기기"
-  home:
-    show:
-      already_account: "이미 계정을 가지고 있습니까?"
-      choice: "선택"
-      choice_explanation: "디아스포라에서는 애스펙이라는 그룹으로 관계를 관리합니다. 디아스포라만의 독특함인 애스펙은 나의 사진, 이야기, 농담이 내가 의도한 사람들과만 공유되도록 보장합니다."
-      learn_about_host: "디아스포라 서버를 직접 운영하는 방법"
-      login_here: "여기서 로그인하세요"
-      ownership: "소유권"
-      ownership_explanation: "내 사진을 내가 소유합니다. 공유하기 위해 소유권을 포기하지 않아도 됩니다. 어떻게 배포될지를 온전히 제어함으로서 디아스포라에서 공유한 모든 것들의 소유권을 유지합니다."
-      share_what_you_want: "원하는 사람들과 원하는 걸 공유하자"
-      simplicity: "간편함"
-      simplicity_explanation: "디아스포라에서는 깨끗하고 쉽게 공유합니다. 개인정보도 마친가지입니다. 본래 개인적인 디아스포라에서는 프로필 보안을 유지하기 위해 여러 페이지에 걸친 설정과 옵션을 힘겹게 거치지 않아도 됩니다."
-      tagline_first_half: "원하는 사람들과"
-      tagline_second_half: "원하는 걸 공유하자."
   invitation_codes:
     excited: "%{name}님이 나를 기다리고 있습니다."
   invitations:
@@ -497,11 +509,13 @@ ko:
 
           이 링크를 클릭해서 시작하세요.
 
-          %{invite_url}
-          <%=invite_code_url(@invitation_code)%>
+          [%{invite_url}][1]
 
+          Love,
 
           디아스포라* 이메일 로봇 보냄!
+
+          [1]: %{invite_url}
     invited_you: "%{name}님이 나를 디아스포라*로 초대했습니다."
     liked:
       liked: "%{name}님이 내 게시물을 좋아합니다:"
@@ -683,13 +697,19 @@ ko:
       update: "갱신하기"
     invalid_invite: "내가 제공한 초대 링크가 더 이상 유효하지 않습니다!"
     new:
+      continue: "계속"
       create_my_account: "내 계정 만들기!"
+      diaspora: "♥ 디아스포라*"
+      email: "이메일"
       enter_email: "이메일 주소를 입력하세요"
-      enter_password: "암호를 입력하세요"
+      enter_password: "암호를 입력하세요 (최소 여섯 자)"
       enter_password_again: "암호를 다시 입력하세요"
       enter_username: "사용자명을 선택하세요 (로마자, 아라비아 숫자, 언더스코어만)"
       join_the_movement: "합류하세요!"
+      password: "암호"
+      sign_up: "가입"
       sign_up_message: "소셜 네트워크♡"
+      username: "사용자명"
   requests:
     create:
       sending: "공유를 요청하고 있습니다."
@@ -794,6 +814,7 @@ ko:
       invite_your_friends: "친구들을 초대하세요"
       invites: "초대"
       invites_closed: "이 디아스포라는 초대가 닫혀있습니다."
+      share_this: "이 링크를 이메일, 블로그, 또는 즐겨쓰는 소셜 네트워크를 통해 공유하세요"
     notification:
       new: "%{from}님의 새 %{type}"
     public_explain:

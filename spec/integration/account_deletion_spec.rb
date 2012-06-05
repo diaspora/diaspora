@@ -48,7 +48,6 @@ describe 'deleteing your account' do
       @block = @bob2.blocks.create!(:person => eve.person)
 
       #authorization
-      @authorization = Factory(:oauth_authorization, :resource_owner => @bob2)
 
       AccountDeleter.new(@bob2.person.diaspora_handle).perform!
       @bob2.reload
@@ -87,9 +86,6 @@ describe 'deleteing your account' do
       @bob2.contacts.should be_empty
     end
 
-    it 'deletes all the authorizations' do
-      OAuth2::Provider.authorization_class.where(:id => @authorization.id).should be_empty
-    end
     
     it "clears the account fields" do 
       @bob2.send(:clearable_fields).each do |field|

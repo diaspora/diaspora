@@ -18,7 +18,7 @@ app.views.PostViewerInteractions = app.views.Base.extend({
   },
 
   initViews : function() {
-    this.reactionsView = new app.views.PostViewerReactions({ model : this.model })
+    this.reactionsView = new app.views.PostViewerReactions({ model : this.model.interactions })
 
     /* subviews that require user */
     this.feedbackView = new app.views.PostViewerFeedback({ model : this.model })

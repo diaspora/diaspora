@@ -6,7 +6,7 @@ end
 When /^I try to sign in$/ do
   @me ||= Factory(:user_with_aspect, :getting_started => false)
   page.driver.visit(new_integration_sessions_path(:user_id => @me.id))
-  step %(I press "Login")
+  click_button "Login"
   # To save time as compared to:
   #step %(I go to the new user session page)
   #step %(I fill in "Username" with "#{@me.username}")
@@ -15,10 +15,13 @@ When /^I try to sign in$/ do
 end
 
 When /^I try to sign in manually$/ do
-  step %(I go to the new user session page)
-  step %(I fill in "Username" with "#{@me.username}")
-  step %(I fill in "Password" with "#{@me.password}")
-  step %(I press "Sign in")
+  visit login_page
+  login_as @me.username, @me.password
+end
+
+When /^I (?:sign|log) in manually as "([^"]*)" with password "([^"]*)"$/ do |username, password|
+  visit login_page
+  login_as username, password
 end
 
 When /^I (?:sign|log) in as "([^"]*)"$/ do |email|

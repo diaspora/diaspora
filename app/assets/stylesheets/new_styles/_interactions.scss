@@ -227,6 +227,7 @@
   }
 }
 
+.permalink-wrapper,
 #user-controls {
   height: 30px;
 
@@ -236,10 +237,9 @@
     width: 27px;
   }
 
-  .label {
+  a {
     @include opacity(0.6);
     @include transition(opacity, 0.3s);
-    @include box-shadow(0, 0, 2px, rgba(255,255,255,0.9));
 
     position: relative;
 
@@ -257,8 +257,12 @@
       margin: 0;
     }
 
-    background-color: #000;
     color: #fff;
+
+    &.label {
+      @include box-shadow(0, 0, 2px, rgba(255,255,255,0.9));
+      background-color: #000;
+    }
 
     &.comment {
       padding-right: 5px;
@@ -307,4 +311,29 @@
   position: absolute;
   right: 8px;
   top: 8px;
+}
+
+
+/* stream specific wrapper */
+#stream-interactions {
+  position : fixed;
+  top : 0;
+  bottom : 0;
+  overflow-y : auto;
+
+  #post-info {
+    text-align : left;
+    margin-top : 10px;
+  }
+
+  #user-controls {
+    padding : 7px;
+  }
+}
+
+.permalink-wrapper {
+  float : right;
+  margin-top : 9px;
+  margin-right : -5px;
+  margin-left : 4px;
 }

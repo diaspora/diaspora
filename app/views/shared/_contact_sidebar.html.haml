@@ -11,6 +11,3 @@
     - if AppConfig[:community_spotlight]
       %li{:class => ("active" if @spotlight)}
         = link_to t('contacts.spotlight.community_spotlight'), community_spotlight_path, :class => "element_selector"
-    %li{:class => ("active" if @finder)}
-      = link_to "Facebook Friends", friend_finder_path('facebook'), :class => "element_selector"
-

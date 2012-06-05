@@ -59,8 +59,6 @@ class User < ActiveRecord::Base
 
   has_many :notifications, :foreign_key => :recipient_id
 
-  has_many :authorizations, :class_name => 'OAuth2::Provider::Models::ActiveRecord::Authorization', :foreign_key => :resource_owner_id
-  has_many :applications, :through => :authorizations, :source => :client
 
   before_save :guard_unconfirmed_email,
               :save_person!
@@ -107,7 +105,7 @@ class User < ActiveRecord::Base
   end
 
   def beta?
-    Role.is_beta?(self.person)
+    @beta ||= Role.is_beta?(self.person)
   end
 
   #@deprecated

@@ -24,7 +24,7 @@ looking to contribute to D*.  This script assumes you have [a basic Rails setup 
 
 ### Step 1: Run the script and follow the on screen instructions.
 ```
-  curl https://raw.github.com/diaspora/diaspora/master/script/install.sh | /bin/sh
+  bash <(curl https://raw.github.com/diaspora/diaspora/master/script/install.sh)
 ```
 
 
@@ -39,6 +39,9 @@ then visit 'http://localhost:3000' in your browser.
 ```
   rake
 ```
+
+### Step 4 (for everyone): Party.
+
 
 ### Want a production setup? Having trouble with install script? Want to install D* the slow way?
   Look to more specific install guides [here](https://github.com/diaspora/diaspora/wiki/Installation-Guides).

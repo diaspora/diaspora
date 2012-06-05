@@ -13,7 +13,7 @@ describe Pubsubhubbub do
       body = {'hub.url' => feed, 'hub.mode' => 'publish'}
 
       stub_request(:post, "http://hubzord.com/").to_return(:status => [202, 'you are awesome'])
-      Pubsubhubbub.new(hub).publish(feed).code.should == 202
+      Pubsubhubbub.new(hub).publish(feed).should be_success
     end
   end
 end

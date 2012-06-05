@@ -50,6 +50,29 @@ hu:
       weekly_user_stats: "Heti statisztika"
     correlations:
       correlations_count: "Belépések számával való korrelációk:"
+    stats:
+      2weeks: "2 hét"
+      50_most: "50 legnépszerűbb címke"
+      comments:
+        other: "%{count} megjegyzés"
+        zero: "%{count} megjegyzés"
+      current_segment: "A jelenlegi szegmens átlaga <b>%{post_yest}</b> bejegyzés felhasználóként (<b>%{post_day}</b> óta)"
+      daily: "napi"
+      display_results: "Ezek a <b>%{segment}</b> szegmensből származó eredmények"
+      go: "mehet"
+      month: "hónap"
+      posts:
+        other: "%{count} bejegyzés"
+        zero: "%{count} bejegyzés"
+      shares:
+        other: "%{count} megosztás"
+        zero: "%{count} megosztás"
+      tag_name: "címke neve: <b>%{name_tag}</b> előfordulása: <b>%{count_tag}</b>"
+      usage_statistic: "használati statisztika"
+      users:
+        other: "%{count} felhasználó"
+        zero: "%{count} felhasználó"
+      week: "hét"
     user_search:
       add_invites: "meghívók hozzáadása"
       email_to: "a meghívandó személy email címe"
@@ -124,6 +147,7 @@ hu:
       help:
         do_you: "Mit szeretnél?"
         email_feedback: "Küldd el %{link}-ben a visszajelzésed"
+        email_link: "E-mail"
         feature_suggestion: "...felötlött benned egy fejlesztési %{link}?"
         find_a_bug: "...feltűnt egy %{link}?"
         have_a_question: "...eszedbe jutott egy %{link}?"
@@ -200,10 +224,9 @@ hu:
       failure: "Nem tudtam kikapcsolni annak a felhasználónak a figyelmen kívül hagyását. #elkerülés"
       success: "Lássuk mit akarnak mondani! #sayhello"
   bookmarklet:
-    explanation: "Küldj bejegyzést a Diaspora-ra bárhonnan, csak mentsd el könyvjelzőként %{link}."
-    explanation_link_text: "ezt a linket"
-    heading: "Könyvjelzők"
-    post_something: "Írj valamit a Diasporára"
+    explanation: "Küldj bejegyzést a Diaspora-ra bárhonnan, csak mentsd el könyvjelzőként ezt a linket => %{link}."
+    heading: "Könyvjelző"
+    post_something: "Üzenj a Diasporára"
     post_success: "Elküldve! Bezárás!"
   cancel: "Mégsem"
   comments:
@@ -292,20 +315,6 @@ hu:
   fill_me_out: "Töltsd ki"
   find_people: "Emberek vagy #címkék keresése"
   hide: "Elrejt"
-  home:
-    show:
-      already_account: "már van fiókod?"
-      choice: "Szabadság"
-      choice_explanation: "A Diaspora* lehetővé teszi, hogy tetszőleges szempontok alapján Csoportokba rendezd a kapcsolataidat. Így mindig a megfelelő emberekkel oszthatod meg a történeteidet, vicceidet, képeidet."
-      learn_about_host: "Így indíthatsz el saját Diaspora* szervert."
-      login_here: "Jelentkezz be"
-      ownership: "Biztonság"
-      ownership_explanation: "A képeid a sajátjaid, és ezt nem kell feladnod, hogy megoszthasd őket másokkal. Minden megosztás felett teljes irányításod van a Diaspora* közösségi oldalon."
-      share_what_you_want: "Ossz meg bármit... akivel szeretnél!"
-      simplicity: "Egyszerűség"
-      simplicity_explanation: "A Diaspora megkönnyíti és átláthatóvá teszi a megosztást - és ez a személyes dolgaidra is vonatkozik. Nem kell hosszú beállító oldalakon átvergődnöd, hogy biztonságban tudd a profilodat."
-      tagline_first_half: "Ossz meg bármit..."
-      tagline_second_half: "akivel akarod!"
   invitation_codes:
     excited: "%{name} alig várja, hogy üdvözölhessen nálunk."
   invitations:
@@ -502,12 +511,14 @@ hu:
 
           Kattints erre a linkre a kezdéshez:
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           üdv:
 
           a Diaspora* levélküldő automatája
+
+          [1]: %{invite_url}
     invited_you: "%{name} meghívott a Diaspora-ra"
     liked:
       liked: "%{name} kedveli a bejegyzésedet"
@@ -689,13 +700,20 @@ hu:
       update: "Frissítés"
     invalid_invite: "Ez a meghívó többé nem érvényes!"
     new:
+      continue: "tovább"
       create_my_account: "Fiók létrehozása!"
+      diaspora: "Diaspora*"
+      email: "E-MAIL"
       enter_email: "Írd be az e-mail címed"
-      enter_password: "Írj be egy jelszót"
+      enter_password: "Adj meg egy jelszót (legalább hat karakterből álljon)"
       enter_password_again: "Ugyanazt a jelszót írd amit az előbb"
       enter_username: "Válassz egy felhasználónevet (csak angol betű, szám és aláhúzás engedett)"
+      hey_make: "GYERÜNK,<br/>CSINÁLJ<br/>VALAMIT!"
       join_the_movement: "Csatlakozz!"
+      password: "JELSZÓ"
+      sign_up: "REGISZTRÁLJ"
       sign_up_message: "Közösségi Hálózat <3"
+      username: "AZONOSÍTÓ"
   requests:
     create:
       sending: "Küldés"
@@ -747,7 +765,7 @@ hu:
     finder:
       fetching_contacts: "A Diaspora keresi a %{service} ismerőseidet, nézz vissza néhány perc múlva."
       no_friends: "Nincs Facebook ismerősöd"
-      service_friends: "%{service} ismerős"
+      service_friends: "%{service} ismerősök"
     index:
       connect_to_facebook: "Csatlakozás a Facebook-hoz"
       connect_to_tumblr: "Csatlakozás a Tumblr-hez"
@@ -800,6 +818,7 @@ hu:
       invite_your_friends: "Hívd meg a barátaidat"
       invites: "Meghívók"
       invites_closed: "A meghívás jelenleg szünetel erre a Diaspora* kiszolgálóra."
+      share_this: "Oszd meg ezt a linket emailben, blogon vagy közösségi hálón!"
     notification:
       new: "Új %{type} %{from}-tól/től"
     public_explain:
@@ -958,14 +977,14 @@ hu:
       character_minimum_expl: "legalább hat karakter legyen"
       close_account:
         dont_go: "Hé, kérlek ne menj!"
-        if_you_want_this: "Ha tényleg ezt akarod, írd be a jelszavad és kattints a \"Fiók bezárása\" gombra."
+        if_you_want_this: "Ha tényleg ezt akarod, írd be a jelszavad és kattints a \"Fiók törlése\" gombra."
         lock_username: "Le tudod védeni a felhasználóneved, ha esetleg mégis úgy döntenél, hogy újra regisztrálsz."
         locked_out: "Ki fogunk léptetni és kizárunk a fiókodból."
         make_diaspora_better: "Azt szeretnénk, ha segítenél hogy jobbá tehessük a Diaspora-t, így a távozásod helyett szívesebben vennénk ha közreműködnél. Ám ha el akarod hagyni az oldalt, kérlek olvasd el mi fog következni."
         mr_wiggles: "Vuk szomorú lesz, ha távozni lát."
         no_turning_back: "Nincs visszaút."
         what_we_delete: "Töröljük az összes bejegyzésedet és profil adataidat amint tudjuk. A kommentjeid megmaradnak."
-      close_account_text: "Fiók bezárása"
+      close_account_text: "Fiók törlése"
       comment_on_post: "...valaki hozzászólt egy bejegyzésedhez?"
       current_password: "Jelenlegi jelszó"
       current_password_expl: "amelyikkel bejelentkezel..."

@@ -15,8 +15,8 @@ module LanguageHelper
       defaults.deep_merge!(translations)
     end
     
-    defaults['pluralization_rule'] = I18n.t 'i18n.plural.js_rule', :locale => language
-    
+    defaults['pluralization_rule'] = I18n.t('i18n.plural.js_rule', :locale => language)
+    defaults['pod_name'] = pod_name
     defaults
   end
 
@@ -26,6 +26,6 @@ module LanguageHelper
   end
 
   def rtl?
-    @rtl ||= RTL_LANGUAGES.include? I18n.locale.to_s
+    @rtl ||= RTL_LANGUAGES.include?(I18n.locale.to_s)
   end
 end

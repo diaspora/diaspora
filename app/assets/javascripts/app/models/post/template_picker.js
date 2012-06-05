@@ -9,11 +9,11 @@ _.extend(app.models.Post.TemplatePicker.prototype, {
     var frameName
 
     if(this.isNewspaper()){
-      frameName = "Newspaper"
+      frameName = "Typist"
     } else if(this.isWallpaper()) {
       frameName =  "Wallpaper"
     } else {
-      frameName = "Day"
+      frameName = "Vanilla"
     }
 
     return frameName
@@ -25,5 +25,11 @@ _.extend(app.models.Post.TemplatePicker.prototype, {
 
   isWallpaper : function(){
     return this.model.get("photos").length == 1
+  },
+
+  applicableTemplates : function(){
+    /* don't show the wallpaper option if there is no image */
+    var moods = app.models.Post.frameMoods;
+    return (!this.isWallpaper() ? _.without(moods, "Wallpaper") : moods)
   }
 });

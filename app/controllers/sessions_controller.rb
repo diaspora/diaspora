@@ -4,14 +4,6 @@
 
 class SessionsController < Devise::SessionsController
 
-  after_filter :enqueue_update, :only => :create
+  layout "post", :only => [:new]
 
-  protected
-  def enqueue_update
-    if current_user
-      current_user.services.each do |s|
-        Resque.enqueue(Jobs::UpdateServiceUsers, s.id) if s.respond_to? :save_friends
-      end
-    end
-  end
 end

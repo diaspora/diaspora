@@ -118,7 +118,6 @@ ja:
   back: "前へ"
   bookmarklet:
     explanation: "このリンクをお気に入りに登録すると、どこからでも%{link}できます。"
-    explanation_link_text: "ダイアスポラに投稿"
     heading: "Diaspora Bookmarklet"
     post_something: "ダイアスポラに投稿"
     post_success: "投稿完了！ウィンドウを閉じます。"
@@ -186,20 +185,6 @@ ja:
   fill_me_out: "記入して"
   find_people: "Find people"
   hide: "隠す"
-  home:
-    show:
-      already_account: "アカウントは既にお持ちですか。"
-      choice: "自由"
-      choice_explanation: "ダイアスポラ＊で連絡先をアスペクトと呼ばれる集団に分けることができます。アスペクトはダイアスポラ＊独特の機能で、これによってあなたの写真、話、冗談などが目的の知り合いだけに共有されることが保証されます。"
-      learn_about_host: "ダイアスポラ＊サーバーの立ち上げ方をお教えします。"
-      login_here: "ここからログイン"
-      ownership: "所有"
-      ownership_explanation: "写真は自分の持ち物で、シェアしたいからと言って権利を譲る必要はありません。ダイアスポラでシェアしたものでも所有権は保全されますので、自由に配給などを制御することができます。"
-      share_what_you_want: "好きなものだけを、好きな人だけに。"
-      simplicity: "平易"
-      simplicity_explanation: "ダイアスポラ＊は簡潔に共有を可能にしながら、プライバシーも簡潔にします。ダイアスポラ＊は根本的なプライバシー主義で、プロフィールを保護するために何ページもの複雑な設定を使いこなす必要はありません。"
-      tagline_first_half: "好きなことだけ共有する"
-      tagline_second_half: "好きな人に。"
   invitations:
     check_token:
       not_found: "招待トークンが見つかりません。"

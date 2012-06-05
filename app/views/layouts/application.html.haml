@@ -20,6 +20,7 @@
       = page_title yield(:page_title)
 
     = chartbeat_head_block
+    = include_mixpanel
 
     = include_base_css_framework
     = stylesheet_link_tag 'login', 'application', 'default'
@@ -42,7 +43,6 @@
     = set_current_user_in_javascript
     = translation_missing_warnings
     = current_user_atom_tag
-    = include_google_analytics
 
     = yield(:head)
     = csrf_meta_tag
@@ -78,3 +78,4 @@
         = image_tag 'branding/powered_by_diaspora.png', :height => "11px", :width => "145px"
 
     = include_chartbeat
+    = include_mixpanel_guid

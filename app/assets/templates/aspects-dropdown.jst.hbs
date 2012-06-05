@@ -3,14 +3,23 @@
         <span class="text"></span> <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-        <li><a href="#" class="public" data-aspect-id="public" data-visibility="public"><i class='icon-ok'/><span>Public</span></a></li>
-        <li><a href="#" class="all-aspects" data-aspect-id="all_aspects" data-visibility="all-aspects"><i class='icon-ok'/><span>All Aspects</span></a></li>
+        <form class="necessaryForJS">
+        <li>
+            <input id="aspect_ids_public" type="checkbox" name="Public" class="aspect_ids public" value="public" {{#if public}}checked="checked"{{/if}}/>
+            <label for="aspect_ids_public"><i class='icon-ok'/><span>Public</span></label></li>
+        <li>
+            <input id="aspect_ids_all_aspects" type="checkbox" name="All Aspects" class="aspect_ids all_aspects" value="all_aspects" {{#if all-aspects}}checked="checked"{{/if}}/>
+            <label for="aspect_ids_all_aspects"><i class='icon-ok'/><span>All Aspects</span></label></li>
+        </li>
 
         <li class="divider"></li>
-        {{#each current_user.aspects}}
-            <li><a href="#" data-aspect-id="{{id}}"  data-visibility="custom"><i class='icon-ok'/><span>{{name}}</span></a></li>
+        {{#each aspects}}
+            <li>
+                <input id="aspect_ids_{{id}}" type="checkbox" name="{{name}}" class="aspect_ids" value="{{id}}" {{#if checked}}checked="checked"{{/if}}/>
+                <label for="aspect_ids_{{id}}"><i class='icon-ok'/><span>{{name}}</span></label>
+            </li>
         {{/each}}
-
+        </form>
     </ul>
 </div>
 

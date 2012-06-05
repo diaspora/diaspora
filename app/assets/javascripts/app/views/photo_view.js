@@ -1,5 +1,4 @@
-//= require ./stream_object_view
-app.views.Photo = app.views.StreamObject.extend({
+app.views.Photo = app.views.Base.extend({
 
   templateName: "photo",
 

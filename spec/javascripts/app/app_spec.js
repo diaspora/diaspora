@@ -15,4 +15,4 @@ describe("app", function() {
       expect(app.user().get("name")).toEqual("alice");
     });
   });
-})
+});

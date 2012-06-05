@@ -8,13 +8,7 @@
 
     this.animateMessages = function() {
       var flashMessages = $("#flash_notice, #flash_error, #flash_alert");
-      flashMessages.animate({
-        top: 0
-      }, 400).delay(4000).animate({
-        top: -100
-      }, 400, function(){
-        $(this).remove();
-      });
+      flashMessages.addClass("expose")
     };
 
     this.render = function(result) {

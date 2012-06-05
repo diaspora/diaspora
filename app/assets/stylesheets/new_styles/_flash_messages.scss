@@ -1,0 +1,48 @@
+/* animations */
+@-webkit-keyframes expose {
+	0%   { top : -100px; }
+	15%  { top : 0; }
+	85%  { top : 0; }
+	100% { top : -100px; }
+}
+@-moz-keyframes expose {
+	0%   { top : -100px; }
+	15%  { top : 0; }
+	85%  { top : 0; }
+	100% { top : -100px; }
+}
+@-ms-keyframes expose {
+	0%   { top : -100px; }
+	15%  { top : 0; }
+	85%  { top : 0; }
+	100% { top : -100px; }
+}
+
+/* styles */
+#flash_alert,
+#flash_notice,
+#flash_alert {
+  position : fixed;
+  top : -100px;
+  left : 0;
+  width : 100%;
+
+  text-align : center;
+
+  &.expose {
+    @include animation(expose, 4s)
+  }
+
+  .message {
+    @include border-radius(6px);
+    @include box-shadow(0, 1px, 4px, rgba(0,0,0,0.8));
+
+    display : inline-block;
+    padding : 10px 20px 8px 20px;
+    margin-top : 10px;
+    background-color : rgba(0,0,0,0.8);
+    color : #fff;
+
+    border : 1px solid rgba(255,255,255,0.7);
+  }
+}

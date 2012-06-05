@@ -9,7 +9,7 @@ describe("app.views.Feedback", function(){
       'limited' : "Limted"
     }})
 
-    var posts = $.parseJSON(spec.readFixture("stream_json"))["posts"];
+    var posts = $.parseJSON(spec.readFixture("stream_json"));
 
     this.post = new app.models.Post(posts[0]);
     this.view = new app.views.Feedback({model: this.post});
@@ -19,28 +19,30 @@ describe("app.views.Feedback", function(){
   describe("triggers", function() {
     it('re-renders when the model triggers feedback', function(){
       spyOn(this.view, "postRenderTemplate")
-      this.view.model.trigger("interacted")
+      this.view.model.interactions.trigger("change")
       expect(this.view.postRenderTemplate).toHaveBeenCalled()
     })
   })
 
   describe(".render", function(){
     beforeEach(function(){
-      this.link = function(){ return this.view.$(".like_action"); }
+      this.link = function(){ return this.view.$("a.like"); }
       this.view.render();
     })
 
     context("likes", function(){
       it("calls 'toggleLike' on the target post", function(){
+        loginAs(this.post.interactions.likes.models[0].get("author"))
         this.view.render();
-        spyOn(this.post, "toggleLike");
-
+        spyOn(this.post.interactions, "toggleLike");
         this.link().click();
-        expect(this.post.toggleLike).toHaveBeenCalled();
+        expect(this.post.interactions.toggleLike).toHaveBeenCalled();
       })
 
       context("when the user likes the post", function(){
         it("the like action should be 'Unlike'", function(){
+          spyOn(this.post.interactions, "userLike").andReturn(factory.like());
+          this.view.render()
           expect(this.link().text()).toContain(Diaspora.I18n.t('stream.unlike'))
         })
       })
@@ -81,14 +83,13 @@ describe("app.views.Feedback", function(){
       })
 
       it("shows a reshare_action link", function(){
-        expect($(this.view.el).html()).toContain('reshare_action')
+        expect(this.view.$("a.reshare")).toExist()
       });
 
       it("does not show a reshare_action link if the original post has been deleted", function(){
         this.post.set({post_type : "Reshare", root : null})
         this.view.render();
-
-        expect($(this.view.el).html()).not.toContain('reshare_action');
+        expect(this.view.$("a.reshare")).not.toExist()
       })
     })
 
@@ -104,7 +105,7 @@ describe("app.views.Feedback", function(){
       })
 
       it("does not show a reshare_action link", function(){
-        expect($(this.view.el).html()).not.toContain('reshare_action');
+        expect(this.view.$("a.reshare")).not.toExist()
       });
     })
 
@@ -117,7 +118,7 @@ describe("app.views.Feedback", function(){
       it("does not display a reshare_action link", function(){
         this.post.attributes.public = false
         this.view.render();
-        expect($(this.view.el).html()).not.toContain('reshare_action')
+        expect(this.view.$("a.reshare")).not.toExist()
       })
     })
   })
@@ -131,14 +132,14 @@ describe("app.views.Feedback", function(){
 
     it("displays a confirmation dialog", function(){
       spyOn(window, "confirm")
-      this.view.$(".reshare_action").first().click();
+      this.view.$("a.reshare").first().click();
       expect(window.confirm).toHaveBeenCalled();
     })
 
     it("reshares the model", function(){
       spyOn(window, "confirm").andReturn(true);
-      spyOn(this.view.model.reshare(), "save")
-      this.view.$(".reshare_action").first().click();
+      spyOn(this.view.model.reshare(), "save").andReturn(new $.Deferred)
+      this.view.$("a.reshare").first().click();
       expect(this.view.model.reshare().save).toHaveBeenCalled();
     })
   })

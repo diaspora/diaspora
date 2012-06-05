@@ -69,7 +69,7 @@ defaults: &defaults
   ## Include jQuery from Google's CDN
   ## This potentially saves you some traffic and speeds up
   ## load time since most clients already have this one cached
-  jquery_cdn: true
+  jquery_cdn: false
 
   ## Provide a key to enable tracking by Google Analytics 
   google_a_site: false
@@ -85,9 +85,16 @@ defaults: &defaults
   ## Chartbeat tracking
   chartbeat_uid:
 
+  ## Mixpanel event tracking
+  mixpanel_uid:
+
+
   ######################################################
   # General Pod Settings
   ######################################################
+
+  ## Name of your pod
+  pod_name: "Diaspora*"
 
   ## Set this to true to prevent people from signing up for your pod
   ## without an invitation. Note that this needs to be true even for
@@ -97,17 +104,12 @@ defaults: &defaults
   ## Set this to true if you don't want your users to follow the
   ## diasporahq@joindiaspora.com account on account creation.
   ## The diasporahq account helps users start with some activity in
-  ## their stream and get news about Diaspora, but if you don't want
+  ## their stream and get news about Diaspora, but if you want
   ## your server to contact joindiaspora.com, set this to false:
   no_follow_diasporahq: false
 
   #the 'admin' account for your pod... ie for jd.com, this is diasporahq
   admin_account: ''
-
-  ## Here, you can turn specific users into admins
-  admins:
-  #- 'admin'
-  #- 'me'
 
   ## Settings about invitations
 
@@ -198,6 +200,9 @@ defaults: &defaults
   facebook_app_id:  ''
   facebook_app_secret: ''
 
+  #this will be the namespace for your object, it should be configured in your FB app
+  open_graph_namespace: ''
+
 
   ## OAuth credentials for Twitter:
   twitter_consumer_key: ''
@@ -235,6 +240,7 @@ development:
 
 production:
   <<: *defaults
+  jquery_cdn: true 
 
 ##################################################
 # FEDERATION LOGGER ##############################

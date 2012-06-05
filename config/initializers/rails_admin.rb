@@ -1,6 +1,12 @@
 # RailsAdmin config file. Generated on March 24, 2012 15:34
 # See github.com/sferik/rails_admin for more informations
-unless Rails.env.production?
+if Rails.env.production?
+# Recommended way to deal with Kaminari vs. WillPaginate issues
+if defined?(WillPaginate)
+  Kaminari.configure do |config|
+    config.page_method_name = :per_page_kaminari
+  end
+end
 RailsAdmin.config do |config|
    config.authorize_with do 
     redirect_to main_app.root_path unless current_user.try(:admin?)
@@ -34,7 +40,7 @@ RailsAdmin.config do |config|
 
   #  ==> Included models
   # Add all excluded models here:
-  config.excluded_models = [ActivityStreams::Photo, AspectMembership, AspectVisibility, ShareVisibility, ConversationVisibility,  NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, Reshare, ServiceUser, Services::Facebook, Services::Tumblr, Services::Twitter,  UserPreference]
+  config.excluded_models = [ActivityStreams::Photo, AspectMembership, AspectVisibility, ShareVisibility, ConversationVisibility,  NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, Reshare, Services::Facebook, Services::Tumblr, Services::Twitter,  UserPreference]
 
   # Add models here if you want to go 'whitelist mode':
   # config.included_models = [AccountDeletion, ActivityStreams::Photo, ActsAsTaggableOn::Tag, Aspect, AspectMembership, AspectVisibility, Block, Comment, Contact, Conversation, ConversationVisibility, Invitation, InvitationCode, Like, Mention, Message, Notification, NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, OEmbedCache, Participation, Person, Photo, Pod, Post, Profile, Reshare, Service, ServiceUser, Services::Facebook, Services::Tumblr, Services::Twitter, ShareVisibility, StatusMessage, TagFollowing, User, UserPreference]
@@ -876,31 +882,6 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
-  # config.model ServiceUser do
-  #   # Found associations:
-  #     configure :service, :belongs_to_association 
-  #     configure :person, :belongs_to_association 
-  #     configure :contact, :belongs_to_association 
-  #     configure :invitation, :belongs_to_association   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :uid, :string 
-  #     configure :name, :string 
-  #     configure :photo_url, :string 
-  #     configure :service_id, :integer         # Hidden 
-  #     configure :person_id, :integer         # Hidden 
-  #     configure :contact_id, :integer         # Hidden 
-  #     configure :request_id, :integer 
-  #     configure :invitation_id, :integer         # Hidden 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :username, :string   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
   # config.model Services::Facebook do
   #   # Found associations:
   #     configure :user, :belongs_to_association 
@@ -1127,18 +1108,5 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
-end
-if defined?(WillPaginate)
-  module WillPaginate
-    module ActiveRecord
-      module RelationMethods
-        def per(value = nil) per_page(value) end
-        def total_count() count end
-      end
-    end
-    module CollectionMethods
-      alias_method :num_pages, :total_pages
-    end
-  end
 end
 end

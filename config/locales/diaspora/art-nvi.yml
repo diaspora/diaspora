@@ -19,6 +19,9 @@ art-nvi:
           attributes:
             person:
               invalid: "lu kxeyey"
+  admins:
+    stats:
+      go: "salew"
   ago: "%{time} kam"
   all_aspects: "Nìwotx Aypongu"
   application:
@@ -80,7 +83,7 @@ art-nvi:
       add_a_new_aspect: "Ngop ponguti amip"
       all_contacts: "Nìwotx Eylan"
       my_contacts: "Oeyä Eylan"
-      start_a_conversation: "Nga sngä'i tìpängkxoti"
+      start_a_conversation: "Ngal sngä'i tìpängkxoti"
       title: "Eylan"
       your_contacts: "Ngeyä Eylan"
   conversations:
@@ -185,6 +188,7 @@ art-nvi:
       edit: "Latem %{name}it"
       unhappy: "Nga lu keftxo srak?"
     new:
+      continue: "Salew"
       sign_up_message: "Tsenge eylanìri tsnì zamunge ♥"
   requests:
     create:

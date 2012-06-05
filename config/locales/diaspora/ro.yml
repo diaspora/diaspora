@@ -125,7 +125,6 @@ ro:
   back: "Înapoi"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
     post_something: "Publicati ceva catre Diaspora"
     post_success: "Publicat! Inchidere!"
@@ -194,18 +193,6 @@ ro:
   fill_me_out: "Umple-mă"
   find_people: "Find people"
   hide: "Ascunde"
-  home:
-    show:
-      already_account: "ai deja cont?"
-      choice: "Alegere"
-      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
-      learn_about_host: "Learn about how to host your own Diaspora server"
-      login_here: "intrarea e aici"
-      ownership: "Proprietate"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
-      share_what_you_want: "Impartaseste ce doresti, cu cine doresti."
-      simplicity: "Simplitate"
-      simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
   invitations:
     a_facebook_user: "Un utilizator Facebook"
     check_token:

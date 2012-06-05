@@ -19,7 +19,7 @@ describe("app.views.StreamPost", function(){
         }
       }})
 
-      var posts = $.parseJSON(spec.readFixture("stream_json"))["posts"];
+      var posts = $.parseJSON(spec.readFixture("stream_json"));
 
       this.collection = new app.collections.Posts(posts);
       this.statusMessage = this.collection.models[0];

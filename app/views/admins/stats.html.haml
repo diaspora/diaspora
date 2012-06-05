@@ -1,32 +1,29 @@
 
 .span-24
-  = render :partial => 'admins/admin_bar.haml'
+  = render :partial => 'admins/admin_bar'
 %br
 %br
 
 .span-24.last
   %h1
-    Usage Statistics
+    = t('.usage_statistic')
     %div{:style => "float:right;"}
       = form_tag('/admins/stats', :method => 'get') do
         %select{:name => 'range'}
           %option{:value => 'daily', :selected => ('selected' if params[:range] == 'daily')}
-            Daily
+            = t('.daily')
           %option{:value => 'week', :selected => ('selected' if params[:range] == 'week')}
-            Week
+            = t('.week')
           %option{:value => '2weeks', :selected => ('selected' if params[:range] == '2weeks')}
-            2 Weeks
+            = t('.2weeks')
           %option{:value => 'month', :selected => ('selected' if params[:range] == 'month')}
-            Month
+            = t('.month')
 
-        = submit_tag 'go'
+        = submit_tag t('.go')
   %br
   %h3
-    Displaying results from the
-    %b
-      = @segment
-    segment
-  
+    != t('.display_results', :segment => @segment)
+    
   %br
   %br
   %br
@@ -38,11 +35,16 @@
   - [:posts, :comments, :aspect_memberships, :users].each do |name|
     - model = eval("@#{name.to_s}")
     - if name == :aspect_memberships
-      - name = :shares
+      - name = t('.shares', :count => model[:yesterday])
+    - if name == :posts
+      - name = t('.posts', :count => model[:yesterday])
+    - if name == :comments
+      - name = t('.comments', :count => model[:yesterday])
+    - if name == :users
+      - name = t('.users', :count => model[:yesterday])
 
-    .span-6{:class => ('last' if name == :users)}
+    .span-6{:class => ('last' if name == t('.users', :count => model[:yesterday]))}
       %h2{:style => 'font-weight:bold;'}
-        = model[:yesterday]
         = name.to_s
       %h4
         = model[:day_before]
@@ -54,21 +56,12 @@
   %br
   %hr
 
-
   %p{:style => "text-align:center;"}
-    The current segment is averaging
-    %b
-      #{@posts[:yesterday]/@user_count.to_f}
-    posts per user, from
-    %b
-      #{@posts[:day_before]/@user_count.to_f}
+    != t('.current_segment', :post_yest => @posts[:yesterday]/@user_count.to_f, :post_day => @posts[:day_before]/@user_count.to_f)
 
 .span-24.last
   %h3
-    50 Most Popular Tags
+    = t('.50_most')
   - @popular_tags.each do |name,count|
-    Tag Name:
-    %b= name
-    Count:
-    %b= count
+    != t('.tag_name', :name_tag => name, :count_tag => count)
     %br

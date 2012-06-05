@@ -173,7 +173,6 @@ da:
       success: "Se hvad de har at sige! #sayhello"
   bookmarklet:
     explanation: "Skriv indlæg på Diaspora fra hvor som helst ved at bookmarke %{link}."
-    explanation_link_text: "dette link"
     post_something: "Post noget til Diaspora"
     post_success: "Posted! Lukker!"
   cancel: "Annullér"
@@ -259,20 +258,6 @@ da:
   fill_me_out: "Udfyld mig"
   find_people: "Find venner eller #tags"
   hide: "Skjul"
-  home:
-    show:
-      already_account: "har du allerede en konto?"
-      choice: "Vælg"
-      choice_explanation: "Diaspora lader dig sortere dine kontakter i grupper kaldet aspekter. Diaspora er unik idet aspekter sikrer at dine billeder, historier og vittigheder kun er delt med dem du vil. "
-      learn_about_host: "Se hvordan man hoster sin egen Diaspora server."
-      login_here: "log ind her"
-      ownership: "Ejerskab"
-      ownership_explanation: "Du ejer dine billeder, og burde ikke opgive rettighederne over dem bare for at dele dem. Du beholder ejerskab over alt du deler på Diaspora, hvilket giver dig fuld kontrol over hvordan det bliver distribueret."
-      share_what_you_want: "Del hvad du vil med hvem du vil."
-      simplicity: "Enkelhed"
-      simplicity_explanation: "Diaspora gør deling enkelt og ligetil - især for dit privatliv. Ved at være grundlæggende privat, undgår Diaspora at du skal bladre gennem sider med indstillinger og valgmuligheder for at holde din profil sikker og efter dit hovede."
-      tagline_first_half: "Del hvad du vil,"
-      tagline_second_half: "med hvem du vil."
   invitations:
     a_facebook_user: "En Facebook-bruger"
     check_token:

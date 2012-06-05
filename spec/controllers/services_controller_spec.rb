@@ -47,18 +47,6 @@ describe ServicesController do
         }.to change(@user.services, :count).by(1)
       end
 
-      it 'redirects to getting started if the user is getting started' do
-        @user.getting_started = true
-        post :create, :provider => 'twitter'
-        response.should redirect_to getting_started_path
-      end
-
-      it 'redirects to services url if user is not getting started' do
-        @user.getting_started = false
-        post :create, :provider => 'twitter'
-        response.should redirect_to services_url
-      end
-
       it 'creates a twitter service' do
         Service.delete_all
         @user.getting_started = false
@@ -119,28 +107,4 @@ describe ServicesController do
     end
   end
 
-  describe '#finder' do
-    before do
-      @service1 = Services::Facebook.new
-      @user.services << @service1
-      @person = Factory(:person)
-      @user.services.stub!(:where).and_return([@service1])
-      @service_users = [ ServiceUser.create(:contact => @user.contact_for(bob.person), :name => "Robert Bobson", :photo_url => "cdn1.fb.com/pic1.jpg",
-                                  :service => @service1, :uid => "321" ).tap{|su| su.stub!(:person).and_return(bob.person)},
-                ServiceUser.create(:name => "Eve Doe", :photo_url => "cdn1.fb.com/pic1.jpg", :person => eve.person, :service => @service1,
-                                   :uid => 'sdfae').tap{|su| su.stub!(:person).and_return(eve.person)},
-                ServiceUser.create(:name => "Robert Bobson", :photo_url => "cdn1.fb.com/pic1.jpg", :service => @service1, :uid => "dsfasdfas")]
-      @service1.should_receive(:finder).and_return(@service_users)
-    end
-
-    it 'calls the finder method for the service for that user' do
-      get :finder, :provider => @service1.provider
-      response.should be_success
-    end
-
-    it 'has no translations missing' do
-      get :finder, :provider => @service1.provider
-      Nokogiri(response.body).css('.translation_missing').should be_empty
-    end
-  end
 end

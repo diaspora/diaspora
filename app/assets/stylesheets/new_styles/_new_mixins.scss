@@ -61,7 +61,7 @@ $night-text-color : #999;
 
 @mixin dark-hatched-bg() {
   background-color: #444;
-  background-image: image-url("hatched-bg-dark.png");
+  background-image: image-url("texture/hatched-dark.png");
 }
 
 @mixin photo-shadow() {

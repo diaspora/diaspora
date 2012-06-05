@@ -17,7 +17,7 @@
   <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;color:#999; padding-top:10px; margin-top:10px; border-top: 1px solid #ddd;">
     <tr>
       <td>
-        <%= t('notifier.email_sent_by_diaspora') %>
+        <%= t('notifier.email_sent_by_diaspora', :pod_name => pod_name) %>
         <a href="<%=edit_user_url%>">
           <%= t('notifier.click_here') %>
         </a>

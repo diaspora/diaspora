@@ -1,15 +1,27 @@
+{{#if canRemove}}
+<div class="controls">
+    <a href="#" class="delete comment_delete" title="{{t "delete"}}">
+        <img alt="Deletelabel" src="{{imageUrl "deletelabel.png"}}" />
+        <a/>
+</div>
+{{/if}}
+
 <div class="img">
-  {{#linkToPerson author}}
-    {{{personImage this "small" "small"}}}
-  {{/linkToPerson}}
+    {{#linkToPerson author}}
+        <div class="profile-image-container smaller" style="background-image : url('{{avatar.large}}')"></div>
+    {{/linkToPerson}}
 </div>
 
 <div class="bd">
-  {{#linkToPerson author}}
-    {{name}}
-  {{/linkToPerson}}
+    <a href="/people/{{author.guid}}" class="author author-name">
+        {{author.name}}
+    </a>
 
-  <div class="comment-content">
-    {{{text}}}
-  </div>
+    <div class="collapsible comment-content">
+        {{{text}}}
+    </div>
+
+    <div class="info">
+        <time class="timeago" datetime="{{created_at}}"/>
+    </div>
 </div>

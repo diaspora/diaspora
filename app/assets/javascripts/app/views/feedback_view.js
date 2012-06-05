@@ -1,56 +1,48 @@
 app.views.Feedback = app.views.Base.extend({
-
   templateName: "feedback",
 
   className : "info",
 
   events: {
-    "click .like_action" : "toggleLike",
-    "click .reshare_action" : "resharePost"
+    "click *[rel='auth-required']" : "requireAuth",
+    "click .like" : "toggleLike",
+    "click .reshare" : "resharePost"
   },
 
+  tooltipSelector : ".label",
+
   initialize : function() {
-    this.model.bind('interacted', this.render, this);
+    this.model.interactions.on('change', this.render, this);
+    this.initViews && this.initViews() // I don't know why this was failing with $.noop... :(
   },
 
   presenter : function() {
-    return _.extend(this.defaultPresenter(), {
-      userCanReshare : this.userCanReshare()
+    var interactions = this.model.interactions
+
+    return _.extend(this.defaultPresenter(),{
+      commentsCount : interactions.commentsCount(),
+      likesCount : interactions.likesCount(),
+      resharesCount : interactions.resharesCount(),
+      userCanReshare : interactions.userCanReshare(),
+      userLike : interactions.userLike(),
+      userReshare : interactions.userReshare()
     })
   },
 
   toggleLike: function(evt) {
     if(evt) { evt.preventDefault(); }
-    this.model.toggleLike();
+    this.model.interactions.toggleLike();
   },
 
   resharePost : function(evt) {
     if(evt) { evt.preventDefault(); }
     if(!window.confirm(Diaspora.I18n.t("reshares.post", {name: this.model.reshareAuthor().name}))) { return }
-    var reshare = this.model.reshare()
-    var model = this.model
-
-    reshare.save({}, {
-      url: this.model.createReshareUrl,
-      success : function(resp){
-        var flash = new Diaspora.Widgets.FlashMessages;
-        flash.render({
-          success: true,
-          notice: Diaspora.I18n.t("reshares.successful")
-        });
-        model.trigger("interacted")
-      }
-    });
+    this.model.interactions.reshare();
   },
 
-  userCanReshare : function() {
-    var isReshare = this.model.get("post_type") == "Reshare"
-    var rootExists = (isReshare ? this.model.get("root") : true)
-
-    var publicPost = this.model.get("public");
-    var userIsNotAuthor = this.model.get("author").diaspora_id != app.currentUser.get("diaspora_id");
-    var userIsNotRootAuthor = rootExists && (isReshare ? this.model.get("root").author.diaspora_id != app.currentUser.get("diaspora_id") : true)
-
-    return publicPost && app.currentUser.authenticated() && userIsNotAuthor && userIsNotRootAuthor;
+  requireAuth : function(evt) {
+    if( app.currentUser.authenticated() ) { return }
+    alert("you must be logged in to do that!")
+    return false;
   }
 });

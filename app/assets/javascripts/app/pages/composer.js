@@ -7,19 +7,26 @@ app.pages.Composer = app.views.Base.extend({
   },
 
   events : {
-    "click button.next" : "navigateNext"
+    "click .next" : "navigateNext"
   },
 
   formAttrs : {
-    "textarea#text_with_markup" : "text",
-    "input.aspect_ids" : "aspect_ids",
-    "input.service:checked" : "services"
+    "textarea#text_with_markup" : "text"
   },
 
   initialize : function(){
-    app.frame = this.model = new app.models.StatusMessage();
-    this.postForm = new app.forms.Post({model : this.model});
+    app.frame = this.model = this.model || new app.models.StatusMessage();
+
+    /* add class to make this smaller than the default framer */
+    this.postForm = new app.forms.Post({model : this.model, className : "span4 offset1"});
     this.composerControls = new app.views.ComposerControls({model : this.model});
+  },
+
+  unbind : function(){
+    this.model.off()
+    if(this.model.photos) {
+      this.model.photos.off()
+    }
   },
 
   navigateNext : function(){
@@ -40,36 +47,13 @@ app.pages.Composer = app.views.Base.extend({
   },
 
   setModelAttributes : function(overrides){
-    var form = this.$el;
-    this.model.set(_.inject(this.formAttrs, setValueFromField, {}))
+    this.setFormAttrs()
     this.model.photos = this.postForm.pictureForm.photos
     this.model.set({"photos": this.model.photos.toJSON() })
     this.model.set(overrides)
-
-    function setValueFromField(memo, attribute, selector){
-      var selectors = form.find(selector);
-      if(selectors.length > 1) {
-        memo[attribute] = _.map(selectors, function(selector){
-          return this.$(selector).val()
-        })
-      } else {
-        memo[attribute] = selectors.val();
-      }
-      return memo
-    }
   }
 });
 
 app.views.ComposerControls = app.views.Base.extend({
-  templateName : 'composer-controls',
-
-  subviews : {
-    ".aspect-selector" : "aspectsDropdown",
-    ".service-selector" : "servicesSelector"
-  },
-
-  initialize : function() {
-    this.aspectsDropdown = new app.views.AspectsDropdown();
-    this.servicesSelector = new app.views.ServicesSelector();
-  }
+  templateName : 'composer-controls'
 })

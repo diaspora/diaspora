@@ -7,7 +7,7 @@ app.forms.Post = app.views.Base.extend({
    },
 
   initialize : function() {
-    this.pictureForm = new app.forms.Picture();
+    this.pictureForm = new app.forms.Picture({model: this.model});
   },
 
   postRenderTemplate : function() {

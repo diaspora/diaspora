@@ -71,72 +71,27 @@ app.views.Base = Backbone.View.extend({
 
   removeTooltips : function() {
     $(".tooltip").remove();
+  },
+
+  setFormAttrs : function(){
+    this.model.set(_.inject(this.formAttrs, _.bind(setValueFromField, this), {}))
+
+    function setValueFromField(memo, attribute, selector){
+      if(attribute.slice("-2") === "[]") {
+        memo[attribute.slice(0, attribute.length - 2)] = _.pluck(this.$el.find(selector).serializeArray(), "value")
+      } else {
+        memo[attribute] = this.$el.find(selector).val() || this.$el.find(selector).text();
+      }
+      return memo
+    }
+  },
+
+  destroyModel: function(evt) {
+    evt && evt.preventDefault();
+    if (confirm(Diaspora.I18n.t("confirm_dialog"))) {
+      this.model.destroy();
+      this.remove();
+    }
   }
 });
 
-// Mixin to render a collection that fetches more via infinite scroll, for a view that has no template.
-//  Requires:
-//    a stream model, bound as this.stream
-//    a stream's posts, bound as this.collection
-//    a postClass to be declared
-//    a #paginate div in the layout
-//    a call to setupInfiniteScroll
-
-app.views.infiniteScrollMixin = {
-  setupInfiniteScroll : function() {
-    this.postViews = this.postViews || []
-
-    this.bind("loadMore", this.fetchAndshowLoader, this)
-    this.stream.bind("fetched", this.hideLoader, this)
-    this.stream.bind("allItemsLoaded", this.unbindInfScroll, this)
-
-    this.collection.bind("add", this.addPostView, this);
-
-    var throttledScroll = _.throttle(_.bind(this.infScroll, this), 200);
-    $(window).scroll(throttledScroll);
-  },
-
-  postRenderTemplate : function() {
-    if(this.stream.isFetching()) { this.showLoader() }
-  },
-
-  createPostView : function(post){
-    var postView = new this.postClass({ model: post });
-    this.postViews.push(postView)
-    return postView
-  },
-
-  addPostView : function(post) {
-    var placeInStream = (this.collection.at(0).id == post.id) ? "prepend" : "append";
-    this.$el[placeInStream](this.createPostView(post).render().el);
-  },
-
-  unbindInfScroll : function() {
-    $(window).unbind("scroll");
-  },
-
-  fetchAndshowLoader : function(){
-    if(this.stream.isFetching()) { return false }
-    this.stream.fetch()
-    this.showLoader()
-  },
-
-  showLoader: function(){
-    $("#paginate .loader").removeClass("hidden")
-  },
-
-  hideLoader: function() {
-      $("#paginate .loader").addClass("hidden")
-  },
-
-  infScroll : function() {
-    var $window = $(window)
-      , distFromTop = $window.height() + $window.scrollTop()
-      , distFromBottom = $(document).height() - distFromTop
-      , bufferPx = 500;
-
-    if(distFromBottom < bufferPx) {
-      this.trigger("loadMore")
-    }
-  }
-};

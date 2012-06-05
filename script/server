@@ -96,8 +96,8 @@ fi
 if [ ! -e 'public/assets/default.css' ]; then
     if [ "$RAILS_ENV" == 'production' ]; then
         echo "INFO: If you want further performance improvements," >&2
-        echo "after the first request to the page after each git pull, run:" >&2
-        echo "bundle exec jammit" >&2
+        echo "after each git pull before you restart the application, run:" >&2
+        echo "bundle exec rake assets:precompile" >&2
     fi
 fi
 

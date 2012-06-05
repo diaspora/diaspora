@@ -50,6 +50,37 @@ pl:
       weekly_user_stats: "Tygodniowe statystyki użytkownika"
     correlations:
       correlations_count: "Współzależności z licznikiem logowań:"
+    stats:
+      2weeks: "2 tygodnie"
+      50_most: "50 najpopularniejszych znaczników"
+      comments:
+        few: "%{count} komentarze"
+        one: "%{count} komentarz"
+        other: "%{count} komentarzy"
+        zero: "Brak komentarzy"
+      current_segment: "Obecny segment jest średnio <b>%{post_yest}</b> wpisów na użytkownika, z <b>%{post_day}</b>."
+      daily: "Dziennie"
+      display_results: "Wyświetlanie wyników z segmentu <b>%{segment}</b>"
+      go: "idź"
+      month: "Miesiąc"
+      posts:
+        few: "%{count} wpisach"
+        one: "%{count} wpisie"
+        other: "%{count} wpisach"
+        zero: "Brak wpisów"
+      shares:
+        few: "%{count} udostępnienia"
+        one: "%{count} udostępnienie"
+        other: "%{count} udostępnień"
+        zero: "Nie udostępniono"
+      tag_name: "Nazwa znacznika: <b>%{name_tag}</b> Licznik: <b>%{count_tag}</b>"
+      usage_statistic: "Statystyki"
+      users:
+        few: "%{count} użytkownicy"
+        one: "%{count} użytkownik"
+        other: "%{count} użytkowników"
+        zero: "Żaden użytkownik"
+      week: "Tydzień"
     user_search:
       add_invites: "dodaj zaproszenia"
       email_to: "Zaproś przez e-mail"
@@ -126,6 +157,7 @@ pl:
       help:
         do_you: "Czy:"
         email_feedback: "Wyślij %{link}, jeśli wolisz"
+        email_link: "E-mail"
         feature_suggestion: "... masz propozycję (%{link})?"
         find_a_bug: "... znal@{m:azłeś|f:azłaś|n:eziono} %{link}?"
         have_a_question: "... masz %{link}?"
@@ -202,10 +234,9 @@ pl:
       failure: "Nie mogę przestać ignorować tego użytkownika.  #evasion"
       success: "Zobaczmy co mają do powiedzenia! #sayhello"
   bookmarklet:
-    explanation: "Publikuj w Disporze z każdego miejsca dodając do zakładek %{link}."
-    explanation_link_text: "te łącze"
+    explanation: "Publikuj w Diasporze z dowolnego miejsca, dodając ten link do zakładek => %{link}"
     heading: "Bookmarklet"
-    post_something: "Opublikuj coś w Diasporze"
+    post_something: "Opublikuj w Diasporze"
     post_success: "Wpis został opublikowany! Okno zostanie zamknięte!"
   cancel: "Anuluj"
   comments:
@@ -294,20 +325,6 @@ pl:
   fill_me_out: "Wypełnij mnie"
   find_people: "Znajdź osoby lub #znaczniki"
   hide: "Ukryj"
-  home:
-    show:
-      already_account: "masz już konto?"
-      choice: "Wybór"
-      choice_explanation: "Diaspora pozwala Ci przypisać znajomych do grup zwanych Aspektami. Aspekty, dostępne wyłącznie w Diasporze, gwarantują, że zdjęcia, wpisy i wiadomości są widoczne wyłącznie dla osób które wybierzesz."
-      learn_about_host: "Dowiedz się, jak założyć własny serwer Diaspory."
-      login_here: "zaloguj się tutaj"
-      ownership: "Własność"
-      ownership_explanation: "Twoje zdjęcia są należą tylko do Ciebie i nie musisz zrzekać się tego prawa, aby się nimi dzielić. Zarządzasz prawem własności w stosunku do wszystkich materiałów umieszczanych w Diasporze, dzięki czemu masz kontrolę nad sposobem ich rozpowszechniania."
-      share_what_you_want: "Udostępniaj co chcesz i komu chcesz."
-      simplicity: "Prostota"
-      simplicity_explanation: "Diaspora sprawia, że dzielenie się ze znajomymi jest miłe, łatwe i przyjemne, zwłaszcza w odniesieniu do ochrony prywatności. Dbając o prywatność Dispora nie każe Ci korzystać z mnóstwa stron ustawień czy opcji, przez które trzeba się przedzierać, aby zabezpieczyć profil."
-      tagline_first_half: "Dziel się czym chcesz,"
-      tagline_second_half: "i z kim chcesz."
   invitation_codes:
     excited: "%{name} cieszy się, że Cię tutaj widzi."
   invitations:
@@ -428,6 +445,7 @@ pl:
         two: "i %{count} innych"
         zero: "i nikt więcej"
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
+      mark_unread: ""
       notifications: "Powiadomienia"
     liked:
       few: "%{actors} polubiło Twój %{post_link}."
@@ -444,12 +462,10 @@ pl:
       two: "%{actors} polubili Twój usunięty wpis."
       zero: "%{actors} polubiło Twój usunięty wpis."
     mentioned:
-      few: "%{actors} wspomnieli o Tobie w %{post_link}."
-      many: "%{actors} wspomnieli o Tobie w %{post_link}."
-      one: "%{actors} wspomniał(a) o Tobie w %{post_link}."
-      other: "%{actors} wspomnieli o Tobie w %{post_link}."
-      two: "%{actors} wspomnieli o Tobie w %{post_link}."
-      zero: "%{actors} wspomnia@{m:ł|f:ła|n:ł} o Tobie w %{post_link}."
+      few: "%{actors} wspomnieli o Tobie we %{post_link}."
+      one: "%{actors} wspomniał(a) o Tobie we %{post_link}."
+      other: "%{actors} wspomnieli o Tobie we %{post_link}."
+      zero: "%{actors} wspomnia@{m:ł|f:ła|n:ł} o Tobie we %{post_link}."
     mentioned_deleted:
       few: "%{actors} wspomnieli o tobie w już usuniętym wpisie."
       many: "%{actors} wspomnieli o tobie w już usuniętym wpisie."
@@ -501,16 +517,18 @@ pl:
       message: |-
           Cześć!
 
-          Ktoś zaprosił Cię do dołączenia do Diaspory*!
+          Zaproszono Cię do dołączenia do Diaspory*!
 
-          Kliknij to łącze, aby rozpocząć
+          Kliknij poniższe łącze, aby rozpocząć
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
-          Z poważaniem,
+          Z poważaniem
 
-          Robot e-mail projektu Diaspora*!
+          Robot e-mail Diaspory*!
+
+          [1]: %{invite_url}
     invited_you: "%{name} zaprasza Cię do Diaspory*"
     liked:
       liked: "%{name} polubi@{m:ł|f:ła|n:ł/ła} Twój wpis"
@@ -692,13 +710,20 @@ pl:
       update: "Aktualizacja"
     invalid_invite: "Podane łącze do zaproszenia jest nieważne!"
     new:
+      continue: "Kontynuuj"
       create_my_account: "Utwórz konto!"
+      diaspora: "<3 Diaspora*"
+      email: "E-MAIL"
       enter_email: "Wpisz adres e-mail"
-      enter_password: "Wprowadź hasło"
+      enter_password: "Podaj hasło (maks. 6 znaków)"
       enter_password_again: "Wprowadź ponownie to samo hasło"
       enter_username: "Wybierz nazwę użytkownika (możliwe litery, cyfry i podkreślniki)"
+      hey_make: "HEJ ,<br/>ZRÓB<br/>COŚ."
       join_the_movement: "Dołącz do ruchu!"
+      password: "HASŁO"
+      sign_up: "REJESTRACJA"
       sign_up_message: "Social Networking z ♥"
+      username: "NAZWA UŻYTKOWNIKA"
   requests:
     create:
       sending: "Wysyłanie"
@@ -803,6 +828,7 @@ pl:
       invite_your_friends: "Zaproś swoich znajomych"
       invites: "Zaproszenia"
       invites_closed: "Wysyłanie zaproszeń jest obecnie wyłączony na tym podzie Diaspory"
+      share_this: "Udostępnij to łącze przez e-mail, na blogu lub w ulubionej sieci społecznościowej!"
     notification:
       new: "Nowy(-a,-e) %{type} od %{from}"
     public_explain:
@@ -824,7 +850,7 @@ pl:
         hello: "Witajcie wszyscy, jestem tutaj nowy/a! #%{new_user_tag}. "
         i_like: "Interesują mnie %{tags}."
         invited_by: "Dzięki za zaproszenie,"
-        newhere: "NowiTutaj"
+        newhere: "TutajOdNiedawna"
       post_a_message_to: "Wyślij wiadomość do %{aspect}"
       posting: "Publikowanie..."
       publishing_to: "publikuj na:"

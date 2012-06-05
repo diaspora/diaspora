@@ -1,0 +1,34 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+et:
+  _applications: "Rakendused"
+  _photos: "pildid"
+  _services: "Teenused"
+  account: "Konto"
+  ago: "%{time} tagasi"
+  are_you_sure: "Oled kindel?"
+  are_you_sure_delete_account: "Oled kindel, et soovid oma konto kustutada? Kontot ei saa taastada!"
+  back: "Tagasi"
+  cancel: "Tühista"
+  delete: "Eemalda"
+  email: "E-mail"
+  find_people: "Otsi inimesi või #silte"
+  hide: "Peida"
+  limited: "Piiratud"
+  ok: "Oki"
+  or: "või"
+  password: "Salasõna"
+  password_confirmation: "Salasõna kinnitus"
+  privacy: "Privaatsus"
+  privacy_policy: "Privaatsuspoliis"
+  profile: "Profiil"
+  public: "Avalik"
+  search: "Otsi"
+  settings: "Seaded"
+  terms_and_conditions: "Kasutajatingimused"
+  undo: "Võta tagasi?"
+  username: "Kasutajanimi"

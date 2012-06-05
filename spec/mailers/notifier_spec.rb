@@ -325,4 +325,13 @@ describe Notifier do
       end
     end
   end
+
+  describe 'hashtags' do
+    it 'escapes hashtags' do
+      mails = Notifier.admin("#Welcome to bureaucracy!", [bob])
+      mails.length.should == 1
+      mail = mails.first
+      mail.body.encoded.should match "<p><a href=\"http://localhost:9887/tags/welcome\">#Welcome</a> to bureaucracy!</p>"
+    end
+  end
 end

@@ -11,7 +11,7 @@
 <div class="comments"> </div>
 
 {{#if loggedIn}}
-  <div class="comment no-border media new_comment_form_wrapper {{#unless comments_count}} hidden {{/unless}}">
+  <div class="comment no-border media new_comment_form_wrapper {{#unless commentsCount}} hidden {{/unless}}">
     {{#with current_user}}
       <a href="/people/{{guid}}" class="img">
         {{{personImage this}}}

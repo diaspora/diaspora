@@ -43,7 +43,7 @@ es:
         get_connected: "Conéctate"
         get_connected_paragraph: "Un movimiento mundial que comparte la visión de conseguir una red mejor, la primera característica de %{strong_diaspora} es su comunidad. Conoce gente nueva, conecta con amigos y únete a la fiesta."
         have_fun: "Diviértete"
-        have_fun_paragraph: "%{strong_diaspora} trata de descubrir tanto nueva e interesante información como gente conectada. %{Link}, la primera aplicación de %{strong_diaspora} en el mundo es solo el principio. Colecciona y comparte la red en todo su esplendor."
+        have_fun_paragraph: "Con %{strong_diaspora} descubrirás información y gente nueva e interesante. %{link}, la primera aplicación de %{strong_diaspora} del mundo es sólo el principio. Colecciona y comparte la red en todo su esplendor."
         help_fund: "ayuda a financiar Diaspora*"
         here: "aquí"
         ignore: "Si no quieres aceptar la invitación, ignora este email."
@@ -70,10 +70,10 @@ es:
         wont_change: "Tu contraseña no cambiará hasta que accedas al enlace anterior y crees una nueva."
       unlock_instructions:
         account_locked: "Tu cuenta ha sido bloqueada debido a una excesiva cantidad de intentos de ingreso fallidos."
-        click_to_unlock: "Pulsa en el enlace de abajo para desbloquear tu cuenta:"
+        click_to_unlock: "Sigue el siguiente enlace para desbloquear tu cuenta:"
         subject: "Instrucciones para desbloquear tu cuenta"
         unlock: "Desbloquear mi cuenta"
-      welcome: "¡Bienvenido %{email}!"
+      welcome: "¡Bienvenid@ %{email}!"
     passwords:
       edit:
         change_password: "Cambiar mi contraseña"
@@ -85,7 +85,7 @@ es:
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
-      signed_up: "Te has registrado con éxito. Un mensaje de confirmación ha sido enviado a tu email."
+      signed_up: "Te has registrado con éxito. Si está habilitado, un mensaje de confirmación ha sido enviado a tu correo electrónico."
       updated: "Has actualizado tu cuenta con éxito."
     sessions:
       new:
@@ -99,7 +99,7 @@ es:
         sign_in: "Acceder"
         username: "Usuario"
       signed_in: "Accediste con éxito. A navegar libre..."
-      signed_out: "Saliste con éxito."
+      signed_out: "Saliste con éxito. Hasta luego..."
     shared:
       links:
         forgot_your_password: "¿Olvidaste tu contraseña?"

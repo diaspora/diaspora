@@ -172,7 +172,6 @@ bg:
       success: "Какво ли ще кажат! #sayhello"
   bookmarklet:
     explanation: "Публикувайте в Diaspora от където и да е, запаметявайки %{link} като отметка."
-    explanation_link_text: "тази връзка"
     post_something: "Публикуване в Diaspora"
     post_success: "Публикувано!"
   cancel: "Отказ"
@@ -260,20 +259,6 @@ bg:
   fill_me_out: "Попълнете ме"
   find_people: "Намерете хора или #марки"
   hide: "Скриване"
-  home:
-    show:
-      already_account: "вече имате акаунт?"
-      choice: "Избор"
-      choice_explanation: "Diaspora предоставя възможност за сортиране на контактите в групи, наречени аспекти. Уникални за Diaspora, те позволяват споделянето на снимки, истории и шеги само с хората, за които са предвидени.\n"
-      learn_about_host: "Научете как да стартирате Diaspora на собствен сървър."
-      login_here: "впишете се от тук"
-      ownership: "Собственост"
-      ownership_explanation: "Вие притежавате снимките си и не е необходимо да се отказвате от това си право само за да ги споделите. Запазвате собственост върху всичко, което споделяте в Diaspora и контролирате разпространението."
-      share_what_you_want: "Споделяйте каквото желаете, с когото пожелаете."
-      simplicity: "Леснота"
-      simplicity_explanation: "Споделянето чрез Diaspora е просто и лесно. Характерно за Diaspora е, че запазва личния ви живот поверителен без нужда от настройване на различни страници с безброй опции."
-      tagline_first_half: "Споделете каквото желаете,"
-      tagline_second_half: "с когото пожелаете."
   invitations:
     a_facebook_user: "Потребител на Facebook"
     check_token:

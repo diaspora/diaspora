@@ -30,7 +30,7 @@ es-AR:
         reshare:
           attributes:
             root_guid:
-              taken: "¡Has vuelto a compartir esa publicación!"
+              taken: "Está bueno, ¿eh? Ya habías compartido esa publicación!"
         user:
           attributes:
             email:
@@ -50,6 +50,33 @@ es-AR:
       weekly_user_stats: "Estadísticas semanales de usuario"
     correlations:
       correlations_count: "Correlaciones con el conteo de inicio de sesión:"
+    stats:
+      2weeks: "2 Semanas"
+      50_most: "Las 50 etiquetas más populares"
+      comments:
+        one: "%{count} comentario"
+        other: "%{count} comentarios"
+        zero: "%{count} comentarios"
+      current_segment: "Este período tiente un promedio de <b>%{post_yest}</b> publicaciones por usuario, desde <b>%{post_day}</b>"
+      daily: "Diario"
+      display_results: "Mostrando los resultados del período <b>%{segment}</b>"
+      go: "Ir"
+      month: "Mes"
+      posts:
+        one: "%{count} publicación"
+        other: "%{count} publicaciones"
+        zero: "%{count} publicaciones"
+      shares:
+        one: "Compartido %{count} vez"
+        other: "Compartido %{count} veces"
+        zero: "Compartido %{count} veces"
+      tag_name: "Nombre de la etiqueta: <b>%{name_tag}</b> Cantidad: <b>%{count_tag}</b>"
+      usage_statistic: "Estadísticas de uso"
+      users:
+        one: "%{count} usuario"
+        other: "%{count} usuarios"
+        zero: "%{count} usuarios"
+      week: "Semana"
     user_search:
       add_invites: "Añadir invitaciones"
       email_to: "Mandar invitación por correo electrónico a"
@@ -62,7 +89,7 @@ es-AR:
   all_aspects: "Todos los aspectos"
   application:
     helper:
-      diaspora_alpha: "DIÁSPORA* ALFA"
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "persona desconocida"
       video_title:
         unknown: "Título de video desconocido"
@@ -81,12 +108,12 @@ es-AR:
       done_editing: "aceptar"
     aspect_listings:
       add_an_aspect: "+ Agregar un aspecto"
-      deselect_all: "De-seleccionar todo"
+      deselect_all: "Deseleccionar todo"
       edit_aspect: "Editar %{name}"
       select_all: "Seleccionar todo"
     aspect_stream:
       stay_updated: "Mantenete actualizado"
-      stay_updated_explanation: "En tu stream principal aparecen las publicaciones de tus contactos, más las de tus tags seguidos, y si lo deseas, las de algunos miembros creativos de la comunidad."
+      stay_updated_explanation: "En tu stream principal aparecen las publicaciones de tus contactos, más las de las etiquetas que sigues, y si lo deseas, las de algunos miembros creativos de la comunidad."
     contacts_not_visible: "Los contactos en este aspecto no van a poder verse entre ellos."
     contacts_visible: "Los contactos en este aspecto van a poder verse entre ellos."
     create:
@@ -124,25 +151,26 @@ es-AR:
       handle_explanation: "Ésta es tu identificación de Diáspora*. Es como una dirección de correo electrónico, podes dársela a la gente para que te encuentren."
       help:
         do_you: "Tal vez:"
-        email_feedback: "%{link} tu feedback, si preferís"
-        feature_suggestion: "...tiene una %{link}?"
-        find_a_bug: "...encontró un %{link}?"
-        have_a_question: "...tiene una %{link}?"
-        here_to_help: "La comunidad de Diáspora está acá!"
-        need_help: "Necesitás ayuda?"
+        email_feedback: "Si lo prefieres, enviá tus comentarios a este %{link}."
+        email_link: "Correo electrónico"
+        feature_suggestion: "...tengas una %{link} o sugerencia?"
+        find_a_bug: "...encontraste un %{link}?"
+        have_a_question: "...tengas una %{link}?"
+        here_to_help: "La comunidad de Diaspora* está aquí para ayudarte."
+        need_help: "¿Necesitás ayuda?"
         tag_bug: "error"
         tag_feature: "idea"
         tag_question: "pregunta"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki, noticias."
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki y noticias."
       introduce_yourself: "Este es tu stream.  Zambullite en el y presentate."
       keep_diaspora_running: "¡Haz que el desarrollo de Diaspora vaya más rápido con una donación mensual!"
       keep_pod_running: "¡Haz que %{pod} siga corriendo rápido, y compra a nuestros servidores su dosis de café con una donación mensual!"
       new_here:
-        follow: "Sigue %{link} y da la bienvenida a los nuevos miembros de Diaspora*!"
+        follow: "Sigue la etiqueta %{link} y da la bienvenida a los nuevos usuarios de Diaspora*!"
         learn_more: "Más información"
         title: "Bienvenida"
       no_contacts: "No hay contactos"
-      no_tags: "+ Encuentra un tag para seguir"
+      no_tags: "+ Encuentra una etiqueta para seguir"
       people_sharing_with_you: "Comparten con vos"
       post_a_message: "publicar un mensaje >>"
       services:
@@ -162,9 +190,9 @@ es-AR:
       community_spotlight: "comunidad creativa"
       or_spotlight: "O lo podés compartir con %{link}"
       try_adding_some_more_contacts: "Podés buscar o invitar más contactos."
-      you_should_add_some_more_contacts: "Deberías agregar más contactos!"
+      you_should_add_some_more_contacts: "¡Deberías agregar más contactos!"
     no_posts_message:
-      start_talking: "Nadie dijo nada todavía. ¡Inicia la conversación!"
+      start_talking: "Nadie dijo nada todavía. ¡Inicia una conversación!"
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed:
@@ -201,10 +229,9 @@ es-AR:
       failure: "No se pudo dejar de ignorar a ese usuario.  #evasion"
       success: "¡Veamos que tiene que decir! #dihola"
   bookmarklet:
-    explanation: "Publicá algo en Diáspora* desde donde quieras agregando %{link} a tus marcadores."
-    explanation_link_text: "este enlace"
+    explanation: "Publicá en Diaspora* desde cualquier página agregando a tus marcadores este enlace: %{link}"
     heading: "Marcador"
-    post_something: "Publicá algo en Diáspora*"
+    post_something: "Publicar en Diaspora*"
     post_success: "¡Publicado! Cerrando."
   cancel: "Cancelar"
   comments:
@@ -227,9 +254,9 @@ es-AR:
       add_to_aspect_link: "Agregar contactos a %{name}"
       all_contacts: "Todos los Contactos"
       community_spotlight: "Lo más destacado de la comunidad"
-      many_people_are_you_sure: "Estás seguro que querés comenzar una conversación privada con más de  %{suggested_limit} contactos? Publicando a este aspecto puede ser una mejor manera de contactarlos."
+      many_people_are_you_sure: "Estás seguro que querés comenzar una conversación privada con más de  %{suggested_limit} contactos? Publicando en este aspecto puede ser una mejor manera de contactarlos."
       my_contacts: "Mis Contactos"
-      no_contacts: "Parece que necesitás agregar algunos contactos!"
+      no_contacts: "¡Parece que necesitás agregar algunos contactos!"
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"
       no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Compartiendo solo conmigo"
@@ -248,7 +275,7 @@ es-AR:
     zero: "contactos"
   conversations:
     create:
-      fail: "Mensaje invalido"
+      fail: "Mensaje inválido"
       sent: "Mensaje enviado"
     destroy:
       success: "La conversación se eliminó"
@@ -263,12 +290,12 @@ es-AR:
     index:
       create_a_new_message: "crear un nuevo mensaje"
       inbox: "Mensajes"
-      message_inbox: "Buzón de entrada"
-      new_message: "Nuevo"
+      message_inbox: "Bandeja de entrada"
+      new_message: "Nuevo mensaje"
       no_conversation_selected: "ninguna conversación seleccionada"
       no_messages: "no hay mensajes"
     new:
-      abandon_changes: "Abandonar los cambios?"
+      abandon_changes: "¿Descartar los cambios?"
       send: "Enviar"
       sending: "Enviando..."
       subject: "asunto"
@@ -291,22 +318,8 @@ es-AR:
       correct_the_following_errors_and_try_again: "Corregí los siguientes errores e intentá de nuevo."
       invalid_fields: "Campos inválidos"
   fill_me_out: "Completame"
-  find_people: "Encontrá gente o #tags"
+  find_people: "Encontrá gente o #etiquetas"
   hide: "Ocultar"
-  home:
-    show:
-      already_account: "¿Ya tenés una cuenta?"
-      choice: "Elección"
-      choice_explanation: "Diáspora* te permite organizar conexiones en grupos llamados aspectos. Algo único de Diáspora*, los aspectos permiten que tus fotos, historias y bromas sean compartidas sólo con quien vos quieras."
-      learn_about_host: "Aprendé cómo hospedar tu propio servidor Diáspora*."
-      login_here: "conectate acá"
-      ownership: "Propiedad"
-      ownership_explanation: "Sos dueño de tus foto, y no deberías tener que cederlas sólo para compartirlas. Vos mantenés los derechos de cualquier cosa que compartas en Diáspora*, dándote control completo sobre cómo se distribuye."
-      share_what_you_want: "Compartí lo que quieras, con quien quieras."
-      simplicity: "Simplicidad"
-      simplicity_explanation: "Diáspora* hace que compartir sea fácil y transparente —y esto incluye la privacidad. Inherentemente privado, Diáspora* no te hace navegar en páginas de configuración y opciones sólo para mantener tu perfil seguro."
-      tagline_first_half: "Compartí lo que quieras,"
-      tagline_second_half: "con quien vos quieras."
   invitation_codes:
     excited: "%{name} está encantado de verte por aquí."
   invitations:
@@ -691,13 +704,20 @@ es-AR:
       update: "Actualizar"
     invalid_invite: "¡El enlace de la invitación ya no es válido!"
     new:
+      continue: "Continuar"
       create_my_account: "¡Crear mi cuenta!"
+      diaspora: "<3 Diaspora*"
+      email: "CORREO ELECTRONICO"
       enter_email: "Ingresá un correo electrónico"
-      enter_password: "Elegí una contraseña"
+      enter_password: "Ingresa una contraseña (seis caracteres mínimo)"
       enter_password_again: "Repetí la misma contraseña"
       enter_username: "Elegí un nombre de usuario (sólo letras, números y guión bajo)"
+      hey_make: "HEY,<br/>HAZ<br/>ALGO."
       join_the_movement: "Unite al movimiento!"
+      password: "CONTRASEÑA"
+      sign_up: "REGISTRARSE"
       sign_up_message: "Redes Sociales con un <3"
+      username: "NOMBRE DE USUARIO"
   requests:
     create:
       sending: "Enviando"
@@ -802,6 +822,7 @@ es-AR:
       invite_your_friends: "Invitá a tus contactos"
       invites: "Invitaciones"
       invites_closed: "Las invitaciones en este servidor Diáspora* están cerradas actualmente"
+      share_this: "¡Comparte este enlace a través de correo electrónico, blog o tu red social favorita!"
     notification:
       new: "Nueva %{type} de %{from}"
     public_explain:
@@ -816,7 +837,7 @@ es-AR:
       visibility_dropdown: "Usa este menú para cambiar la visibilidad de tu publicación.  (Sugerimos hacer público el primero.)"
     publisher:
       all: "todo"
-      all_contacts: "agregar contactos"
+      all_contacts: "todos los contactos"
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       new_user_prefill:
@@ -832,7 +853,7 @@ es-AR:
       upload_photos: "Subir fotos"
       whats_on_your_mind: "¿Qué tenés en mente?"
     reshare:
-      reshare: "Republicar"
+      reshare: "Compartir"
     stream_element:
       connect_to_comment: "Conecta con este usuario para comentar en su publicación"
       currently_unavailable: "Comentar no está actualmente disponible"
@@ -884,11 +905,11 @@ es-AR:
       title: "Posts Comentados"
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
-      add_a_tag: "Añade un tag"
-      contacts_title: "Personas que usaron estos tags"
+      add_a_tag: "Añade una etiqueta"
+      contacts_title: "Personas que usaron estas etiquetas"
       follow: "Seguir"
-      title: "#Tags"
-    followed_tags_stream: "#Tags"
+      title: "#Etiquetas que sigues"
+    followed_tags_stream: "#Etiquetas que sigues"
     like_stream:
       contacts_title: "Personas de las que te gustan mensajes"
       title: "Tus preferidos"
@@ -903,7 +924,7 @@ es-AR:
       contacts_title: "Autores recientes"
       title: "Actividad Pública"
     tags:
-      contacts_title: "Gente que usó ese tag"
+      contacts_title: "Personas que usaron esta etiqueta"
       tag_prefill_text: "Sobre %{tag_name}... "
       title: "Mensajes tagueados: %{tags}"
   tag_followings:

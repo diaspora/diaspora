@@ -4,17 +4,6 @@
 
 <div class="container">
     <div id="top-right-nav">
-        {{#if showFollowButton}}
-            <a href="#" onClick="alert('Not yet implemented!')" id="follow-button">
-                <span class="label label-inverse">
-                    <i class="icon-plus icon-white"></i>
-                    <span>
-                        FOLLOW
-                    </span>
-                </span>
-            </a>
-        {{/if}}
-
         {{#if current_user.guid}}
             <a href="/" id="home-button">
                 <span class="label label-inverse">
@@ -22,6 +11,12 @@
                     <span>
                         HOME
                     </span>
+                </span>
+            </a>
+
+            <a href="/users/sign_out" title="Log out" id="logout-button">
+                <span class="label label-inverse">
+                    <i class="icon-off icon-white"></i>
                 </span>
             </a>
         {{else}}
@@ -33,32 +28,20 @@
                 </span>
             </a>
         {{/if}}
-
-        {{#if is_own_profile}}
-            <a href="/users/sign_out" title="Log out" id="logout-button">
-                <span class="label label-inverse">
-                    <i class="icon-off icon-white"></i>
-                </span>
-            </a>
-        {{/if}}
     </div>
 
     <section id="profile-info"/>
 
     <section id="profile-controls">
         {{#if is_own_profile}}
-            <a href="#composer" id="composer-button" class="control small" rel="facebox">
-                <img src='{{imageUrl "buttons/pub@2x.png"}}' title="New Post" rel="tooltip"/>
-            </a>
-            <a href="#" id="edit-mode-toggle" class="control small">
-                <img src='{{imageUrl "buttons/edit@2x.png"}}' title="Edit Posts" rel="tooltip"/>
-            </a>
+            <div id="composer" class="hidden"></div>
 
-            <!-- only load up this iframe if the current user is on their own page.
-                 this should be ajax'ed in, regardless. -->
-            <div id="composer" style="display:none;">
-                <iframe src="/posts/new" height=500 width=700 style="border:none;"></iframe>
-            </div>
+            <a href="#" id="composer-button" class="control small label label-inverse">
+                MAKE
+            </a>
+            <a href="#" id="edit-mode-toggle" class="control small label label-inverse" title="Edit Posts" rel="tooltip">
+                <img src='{{imageUrl "buttons/edit2@2x.png"}}'/>
+            </a>
         {{/if}}
     </section>
 

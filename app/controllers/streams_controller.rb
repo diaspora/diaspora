@@ -36,7 +36,13 @@ class StreamsController < ApplicationController
   end
 
   def multi
-    stream_responder(Stream::Multi)
+    if params[:ex] && flag.new_stream?
+      @stream = Stream::Multi.new(current_user, :max_time => max_time)
+      gon.stream = PostPresenter.collection_json(@stream.stream_posts, current_user)
+      render :nothing => true, :layout => "post"
+    else
+      stream_responder(Stream::Multi)
+    end
   end
 
   def commented
@@ -65,7 +71,7 @@ class StreamsController < ApplicationController
     respond_with do |format|
       format.html { render 'layouts/main_stream' }
       format.mobile { render 'layouts/main_stream' }
-      format.json {render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
+      format.json { render :json => @stream.stream_posts.map {|p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
     end
   end
 

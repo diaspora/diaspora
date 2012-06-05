@@ -178,7 +178,6 @@ eo:
       success: "Ni vidu kion ili emas diri! #sayhello"
   bookmarklet:
     explanation: "Vi povas afiŝi al DIASPORA* el ĉie per paĝosigno montranta al %{link}."
-    explanation_link_text: "ĉi tiu ligilo"
     heading: "Legosigneto"
     post_something: "Afiŝi ion al DIASPORA*"
     post_success: "Afiŝita! Fermanta!"
@@ -261,20 +260,6 @@ eo:
   fill_me_out: "Kompletu min"
   find_people: "Trovi homojn aŭ #etikedojn"
   hide: "Kaŝi"
-  home:
-    show:
-      already_account: "ĉu vi jam havas konton?"
-      choice: "Elekto"
-      choice_explanation: "DIASPORA* ebligas vin klasigi viajn kontaktojn en grupojn, kiuj nomiĝas „aspektoj“. Unike al DIASPORA*, aspektoj certigas, ke vi nur konigas viajn bildojn, rakontojn, kaj ŝercojn al homojal kiuj vi tion intencas."
-      learn_about_host: "Lernu pri kiel starigi propran Diaspora-servilon."
-      login_here: "ensalutu ĉi tie"
-      ownership: "Proprieto"
-      ownership_explanation: "Vi posedas viajn bildojn, kaj vi ne devus rezigni tiun, por konigi ilin. Vi ankoraŭ havas proprieton de ĉio, kiun vi konigas per Diaspora, donante al vi kompletan administradon pri kiel aĵoj disdoniĝas."
-      share_what_you_want: "Konigu kion vi volas, al kiu vi volas."
-      simplicity: "Simpleco"
-      simplicity_explanation: "DIASPORA* purigas kaj faciligas konigadon – kaj ankaŭ privatecon. DIASPORA* ne direktas tra multaj paĝoj de agordoj kaj opcioj por sekurigi vian profilon ĉar ĝi estas planita por privateco."
-      tagline_first_half: "Dividu kion vi volas,"
-      tagline_second_half: "kun kiu vi volas."
   invitations:
     a_facebook_user: "Facebook uzanto"
     check_token:

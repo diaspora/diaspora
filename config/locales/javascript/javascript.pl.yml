@@ -38,6 +38,7 @@ pl:
       preparing_your_stream: "Przygotowanie spersonalizowanego strumienia..."
     header:
       admin: "Administrator"
+      close: "zamknij"
       contacts: "Kontakty"
       home: "Strona główna"
       log_out: "Wyloguj"
@@ -127,6 +128,7 @@ pl:
     viewer:
       comment: "Skomentuj"
       follow_post: "Obserwuj wpis"
+      home: "GŁÓWNA"
       like: "Lubię to!"
       reshare: "Przekaż dalej"
       reshared: "Przekazano dalej"

@@ -29,11 +29,17 @@ module NavigationHelpers
         edit_user_path
       when /^my new profile page$/
         person_path(@me.person,  :ex => true)
+      when /^the new stream$/
+        stream_path(:ex => true)
       when /^"(\/.*)"/
         $1
       else
         raise "Can't find mapping from \"#{page_name}\" to a path."
     end
+  end
+
+  def login_page
+    path_to "the new user session page"
   end
 end
 

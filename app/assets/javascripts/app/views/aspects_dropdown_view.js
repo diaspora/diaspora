@@ -1,55 +1,60 @@
 app.views.AspectsDropdown = app.views.Base.extend({
   templateName : "aspects-dropdown",
   events : {
-    "click .dropdown-menu a" : "setVisibility"
+    "change .dropdown-menu input" : "setVisibility"
+  },
+
+  presenter : function(){
+    var selectedAspects = this.model.get("aspect_ids")
+      , parsedIds = _.map(selectedAspects, parseInt)
+
+    return {
+      aspects : _.map(app.currentUser.get('aspects'), function(aspect){
+        return _.extend({}, aspect, {checked :_.include(parsedIds, aspect.id) })
+      }),
+
+      public :_.include(selectedAspects, "public"),
+      'all-aspects' :_.include(selectedAspects, "all_aspects")
+    }
   },
 
   postRenderTemplate : function(){
-    this.setVisibility({target : this.$("a[data-visibility='public']").first()})
+    if(this.model.get("aspect_ids")) {
+      this.setDropdownText()
+    } else {
+      this.setVisibility({target : this.$("input[value='public']").first()})
+    }
   },
 
   setVisibility : function(evt){
-    var self = this
-      , link = $(evt.target).closest("a")
+    var input = $(evt.target).closest("input")
 
-    if(_.include(['public', 'all-aspects'], link.data('visibility'))) {
-      deselectAll()
-      link.parents("li").addClass("selected")
-      self.setDropdownText(link.text())
+    if(_.include(['public', 'all_aspects'], input.val())) {
+      this.$("input").attr("checked", false)
+      input.attr("checked", "checked")
     } else {
-      deselectOverrides()
-      link.parents("li").toggleClass("selected")
-      evt.stopImmediatePropagation(); //stop dropdown from going awaay
-
-      var selectedAspects = this.$("li.selected")
-      if(selectedAspects.length > 1) {
-        self.setDropdownText("In " + this.$("li.selected").length + " aspects")
-      } else {
-        self.setDropdownText(selectedAspects.text() || "Private")
-      }
+      this.$("input.public, input.all_aspects").attr("checked", false)
     }
 
-    this.setAspectIds()
-
-    function deselectOverrides() {
-      self.$("a.public, a.all-aspects").parent().removeClass("selected")
-    }
-
-    function deselectAll() {
-      self.$("li.selected").removeClass("selected")
-    }
+    this.setDropdownText()
   },
 
-  setDropdownText : function(text){
+  setDropdownText : function(){
+    var selected = this.$("input").serializeArray()
+      , text;
+
+    switch (selected.length) {
+      case 0:
+        text = "Private"
+        break
+      case 1:
+        text = selected[0].name
+        break
+      default:
+        text = ["In", selected.length, "aspects"].join(" ")
+        break
+    }
+
     $.trim(this.$(".dropdown-toggle .text").text(text))
-  },
-
-  setAspectIds : function(){
-    var selectedAspects = this.$("li.selected a")
-    var aspectIds = _.map(selectedAspects, function(aspect){
-      return $(aspect).data("aspect-id")}
-    )
-
-    this.$("input.aspect_ids").val(aspectIds)
   }
-})
+});

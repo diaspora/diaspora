@@ -1,14 +1,17 @@
 //= require ./content_view
 app.views.Comment = app.views.Content.extend({
-
   templateName: "comment",
-
   className : "comment media",
 
   events : function() {
-    return _.extend(app.views.Content.prototype.events, {
+    return _.extend({}, app.views.Content.prototype.events, {
       "click .comment_delete": "destroyModel"
     });
+  },
+
+  initialize : function(options){
+    this.templateName = options.templateName || this.templateName
+    this.model.on("change", this.render, this)
   },
 
   presenter : function() {

@@ -1,5 +1,13 @@
 <div class="container">
     <section class="photo_viewer"></section>
+
+    <!--Temp hacks-->
+    {{#if o_embed_cache}}
+        {{#if o_embed_cache.data}}
+            {{{o_embed_cache.data.html}}}
+        {{/if}}
+    {{/if}}
+
     <header>{{{headline}}}</header>
     <section class="body">{{{body}}}</section>
 </div>

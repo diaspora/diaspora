@@ -10,8 +10,8 @@ describe("app.models.Post.TemplatePicker", function(){
         this.post.set({text : window.hipsterIpsumFourParagraphs })
       })
 
-      it("returns Wallpaper", function(){
-        expect(this.templatePicker.getFrameName()).toBe("Newspaper")
+      it("returns Typist", function(){
+        expect(this.templatePicker.getFrameName()).toBe("Typist")
       })
     })
 
@@ -31,14 +31,26 @@ describe("app.models.Post.TemplatePicker", function(){
           this.post.set({photos : [factory.photoAttrs(), factory.photoAttrs()]})
         })
 
-        it("returns Day", function(){
-          expect(this.templatePicker.getFrameName()).toBe("Day")
+        it("returns Vanilla", function(){
+          expect(this.templatePicker.getFrameName()).toBe("Vanilla")
         })
       })
 
-      it("returns 'Day' by default", function(){
-        expect(this.templatePicker.getFrameName()).toBe("Day")
+      it("returns 'Vanilla' by default", function(){
+        expect(this.templatePicker.getFrameName()).toBe("Vanilla")
       })
+    })
+  })
+
+  describe("applicableTemplates", function(){
+    it("includes wallpaper if isWallpaper is true", function(){
+      spyOn(this.templatePicker, "isWallpaper").andReturn(true)
+      expect(_.include(this.templatePicker.applicableTemplates(), "Wallpaper")).toBeTruthy()
+    })
+
+    it("does not include wallpaper if isWallpaper is false", function(){
+      spyOn(this.templatePicker, "isWallpaper").andReturn(false)
+      expect(_.include(this.templatePicker.applicableTemplates(), "Wallpaper")).toBeFalsy()
     })
   })
 })

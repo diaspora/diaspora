@@ -38,28 +38,53 @@ es:
             person:
               invalid: "no es válido."
             username:
-              invalid: "no es válido. Solo se permiten letras, números y guiones bajos"
+              invalid: "es invalido. Sólo permitimos letras, numeros y guiones bajos."
               taken: "ya está ocupado."
   admins:
     admin_bar:
       correlations: "Similitudes"
       pages: "Páginas"
-      pod_stats: "Estadísticas del Pod o Servidor"
+      pod_stats: "Estadísticas del Servidor"
       resque_overview: "Información de Resque"
       user_search: "Buscar usuario"
       weekly_user_stats: "Estadísticas Semanales del Usuario"
     correlations:
       correlations_count: "Cuentas similares:"
     stats:
-      go: "aceptar"
+      2weeks: "2 Semanas"
+      50_most: "Las 50 etiquetas más leídas."
+      comments:
+        one: "%{count} comentario"
+        other: "%{count} comentarios"
+        zero: "%{count} comentarios"
+      current_segment: "El período actual tiene un promedio de <b>%{post_yest}</b> publicaciones por usuario, de <b>%{post_day}</b>"
+      daily: "Diario"
+      display_results: "Mostrando resultados del período <b>%{segment}</b>"
+      go: "adelante"
+      month: "Mes"
+      posts:
+        one: "%{count} publicación"
+        other: "%{count} publicaciones"
+        zero: "%{count} publicaciones"
+      shares:
+        one: "%{count} compartida"
+        other: "%{count} compartidas"
+        zero: "%{count} compartidas"
+      tag_name: "Etiqueta: <b>%{name_tag}</b> Veces: <b>%{count_tag}</b>"
+      usage_statistic: "Estadísticas de Uso"
+      users:
+        one: "%{count} usuario"
+        other: "%{count} usuarios"
+        zero: "%{count} usuarios"
+      week: "Semana"
     user_search:
       add_invites: "añadir invitaciones"
-      email_to: "Dirección de correo electrónico a invitar"
+      email_to: "Correo electrónico a invitar"
       users:
         one: "%{count} usuario encontrado"
         other: "%{count} usuarios encontrados"
         zero: "%{count} usuarios encontrados"
-      you_currently: "Actualmente tienes %{user_invitation} invitaciones para enviar %{link}"
+      you_currently: "Te quedan %{user_invitation} invitaciones %{link}"
   ago: "Hace %{time}"
   all_aspects: "Todos los aspectos"
   application:
@@ -127,6 +152,7 @@ es:
       help:
         do_you: "Tal vez:"
         email_feedback: "Si lo prefieres, envía tus comentarios a este %{link}."
+        email_link: "Correo Electrónico"
         feature_suggestion: "- Sugieras alguna %{link}."
         find_a_bug: "- Encuentres algún %{link}."
         have_a_question: "- Realices alguna %{link}."
@@ -159,7 +185,7 @@ es:
       success: "El contacto fue movido al nuevo aspecto"
     new:
       create: "Crear"
-      name: "Nombre (solo tú puedes verlo)"
+      name: "Nombre (sólo tu lo puedes ver)"
     no_contacts_message:
       community_spotlight: "comunidad creativa"
       or_spotlight: "O tu puedes compartir con %{link}"
@@ -203,10 +229,9 @@ es:
       failure: "No podría dejar de ignorar a esa persona.  #evasion"
       success: "¡Vamos a ver qué tiene que decir! #sayhello"
   bookmarklet:
-    explanation: "Publica en Diaspora* desde donde quieras agregando a tus marcadores %{link}."
-    explanation_link_text: "este enlace"
+    explanation: "Publica en Diaspora* desde cualquier página agregando a tus marcadores este enlace => %{link}."
     heading: "Marcador"
-    post_something: "Publica algo en Diaspora"
+    post_something: "Publicar en Diaspora*"
     post_success: "¡Publicado! ¡Cerrando!"
   cancel: "Cancelar"
   comments:
@@ -287,7 +312,7 @@ es:
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B "
   delete: "Eliminar"
-  email: "correo electrónico"
+  email: "Correo Electrónico"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
@@ -295,20 +320,6 @@ es:
   fill_me_out: "Complétame"
   find_people: "Encuentra gente o #etiquetas"
   hide: "Ocultar publicación"
-  home:
-    show:
-      already_account: "¿Ya tienes una cuenta?"
-      choice: "Elección"
-      choice_explanation: "Diaspora* te permite organizar conexiones en grupos llamados aspectos. En Diaspora*, los aspectos aseguran que tus fotos, historias y bromas sean compartidas sólo con la gente que tu quieras."
-      learn_about_host: "Aprende cómo hospedar tu propio servidor de Diaspora."
-      login_here: "accede aquí"
-      ownership: "Propiedad"
-      ownership_explanation: "Eres dueño de tus propias imágenes, y no tendrías porqué renunciar a eso solo para compartirlas. En Diaspora mantienes la propiedad de todo lo que compartes, dándote total control acerca de cómo se distribuye."
-      share_what_you_want: "Comparte lo que quieras, con quien quieras."
-      simplicity: "Simplicidad"
-      simplicity_explanation: "Diaspora* hace que compartir sea transparente y fácil — y esto también va por la privacidad. Inheréntemente privado, Diaspora* no te hace ir a través de configuraciones y opciones solo para mantener tu perfil seguro."
-      tagline_first_half: "Comparte lo que quieras,"
-      tagline_second_half: "con quien tú quieras."
   invitation_codes:
     excited: "%{name} está encantado de verte por aquí."
   invitations:
@@ -409,11 +420,8 @@ es:
       zero: "%{actors} comentó tu %{post_link}."
     helper:
       new_notifications:
-        few: "%{count} nuevas notificaciones"
-        many: "%{count} nuevas notificaciones"
-        one: "1 nueva notificación"
-        other: "%{count} nuevas notificaciones"
-        two: "%{count} notificaciones nuevas"
+        one: "1 notificación nueva"
+        other: "%{count} notificaciones nuevas"
         zero: "No hay notificaciones nuevas"
     index:
       and: "y"
@@ -487,7 +495,7 @@ es:
   notifier:
     a_post_you_shared: "una publicación."
     accept_invite: "¡Acepta tu invitación a Diaspora*!"
-    click_here: "pulsa aquí"
+    click_here: "clic aquí"
     comment_on_post:
       reply: "Responder o ver los comentarios de %{name} >"
     confirm_email:
@@ -499,16 +507,18 @@ es:
       message: |-
           ¡Hola!
 
-          ¡Has sido invitado a unirte a Diaspora*!
+          ¡Has recibido una invitación para unirte a Diaspora*!
 
-          Sigue este enlace para empezar
+          Sigue este enlace para comenzar
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           Saludos,
 
-          ¡El correo automático de Diaspora*!
+          ¡El generador de correo automático de Diaspora*!
+
+          [1]: %{invite_url}
     invited_you: "¡%{name} te ha invitado a Diaspora*!"
     liked:
       liked: "A %{name} le gustó tu publicación"
@@ -593,7 +603,7 @@ es:
     two: "%{count} personas"
     webfinger:
       fail: "Perdona, no pudimos encontrar %{handle}"
-    zero: "0 personas"
+    zero: "no gente"
   photos:
     comment_email_subject: "fotografía de %{name}"
     create:
@@ -690,13 +700,20 @@ es:
       update: "Actualizar"
     invalid_invite: "¡El enlace de la invitación ya no es válido!"
     new:
+      continue: "Continuar"
       create_my_account: "¡Crear mi cuenta!"
+      diaspora: "<3 Diaspora*"
+      email: "CORREO ELECTRÓNICO"
       enter_email: "Escribe un correo"
-      enter_password: "Escribe una contraseña"
+      enter_password: "Escribe una contraseña (seis caracteres como mínimo)"
       enter_password_again: "Escribe la misma contraseña como antes"
       enter_username: "Elige un nombre de usuario (letras, números o guiones bajos)"
+      hey_make: "EH,<br/>HAZ<br/>ALGO."
       join_the_movement: "¡Únete al movimiento!"
+      password: "CONTRASEÑA"
+      sign_up: "REGISTRARSE"
       sign_up_message: "Redes Sociales con un ♥"
+      username: "NOMBRE"
   requests:
     create:
       sending: "Enviando"
@@ -759,7 +776,7 @@ es:
       no_services: "Aún no has conectado ningún servicio."
       really_disconnect: "¿Desconectar %{service}?"
     inviter:
-      click_link_to_accept_invitation: "Sigue este enlace para aceptar la invitación"
+      click_link_to_accept_invitation: "Sigue este enlace para aceptar tu invitación"
       join_me_on_diaspora: "Nos vemos en DIASPORA*."
     remote_friend:
       invite: "invitar"
@@ -790,7 +807,7 @@ es:
       logged_in_as: "accediste como %{name}"
       your_aspects: "tus aspectos"
     invitations:
-      by_email: "Por correo"
+      by_email: "Por correo electrónico"
       dont_have_now: "No tienes invitaciones ahora mismo pero, ¡pronto llegarán más!"
       from_facebook: "Por Facebook"
       invitations_left: "%{count} restantes"
@@ -798,6 +815,7 @@ es:
       invite_your_friends: "Invita a tus contactos"
       invites: "Invitaciones"
       invites_closed: "Las invitaciones en este servidor Diaspora* están actualmente cerradas."
+      share_this: "Comparte este link por mail, blog o red social favorita!"
     notification:
       new: "Nuevo %{type} de %{from}"
     public_explain:
@@ -938,7 +956,7 @@ es:
   users:
     confirm_email:
       email_confirmed: "Correo %{email} activado"
-      email_not_confirmed: "El email no pudo ser activado. ¿Enlace erróneo?"
+      email_not_confirmed: "El correo no pudo ser activado. ¿Enlace erróneo?"
     destroy:
       no_password: "Por favor, introduce tu contraseña actual para cerrar tu cuenta."
       success: "Tu cuenta ha sido bloqueda.  Tomará unos 20 minutos cerrarla y destruirla.  Gracias por probar Diaspora."
@@ -953,8 +971,8 @@ es:
       change_password: "Cambiar contraseña"
       character_minimum_expl: "debe tener al menos seis caracteres"
       close_account:
-        dont_go: "¡Eih, por favor no te vayas!"
-        if_you_want_this: "Si realmente quieres eliminarla, teclea tu contraseña debajo y haz click en 'Eliminar Cuenta'"
+        dont_go: "¡Eh, no te vayas!"
+        if_you_want_this: "Si realmente quieres eliminarla, teclea tu contraseña debajo y haz clic en 'Eliminar Cuenta'"
         lock_username: "Esto bloquerá tu nombre de usuario si decides volver a registrarte."
         locked_out: "Saldrás y eliminarás tu cuenta."
         make_diaspora_better: "Queremos que nos ayudes a hacer Diaspora mejor, podrías hacerlo. Si te vas, queremos que sepas que pasa después."
@@ -965,7 +983,7 @@ es:
       comment_on_post: "...alguien comenta en tu publicación?"
       current_password: "Contraseña actual"
       current_password_expl: "con la que inicias sesión..."
-      download_photos: "descargar mis fotos"
+      download_photos: "Descargar mis fotos"
       download_xml: "Descargar mi XML"
       edit_account: "Editar cuenta"
       email_awaiting_confirmation: "Te hemos enviado un enlace de activación a %{unconfirmed_email}. Hasta que no sigas este enlace y actives la nueva dirección, continuaremos usando tu dirección original %{email}."
@@ -989,12 +1007,12 @@ es:
       awesome_take_me_to_diaspora: "¡Increíble! Llévame a Diaspora*"
       community_welcome: "¡La comunidad de Diaspora está feliz de tenerte a bordo!"
       hashtag_explanation: "Las etiquetas te permiten hablar sobre tus intereses así como seguirlos. Además es una forma genial de encontrar gente nueva en Diaspora. "
-      hashtag_suggestions: "Prueba a seguir etiquetas como #arte, #cine, #activismo, #geek, etc."
+      hashtag_suggestions: "Prueba a seguir etiquetas como #arte, #cine, #activismo, #libros, etc."
       hooking_up_fb: "conectando tu cuenta de Facebook"
       saved: "¡Guardado!"
       we_can_speed_things_up: "Podemos acelerar un poco las cosas"
       well_hello_there: "Bueno, ¿qué tal?"
-      what_are_you_in_to: "¿En qué estás?"
+      what_are_you_in_to: "¿Qué te atrae?"
       what_facebook_does: "a Diaspora. Esto traerá tu nombre y foto, y habilitará publicaciones cruzadas."
       who_are_you: "¿Quién eres?"
     privacy_settings:

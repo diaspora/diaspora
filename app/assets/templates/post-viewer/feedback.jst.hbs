@@ -1,36 +1,4 @@
-<a href="#" rel="auth-required" class="label like" title="{{#if user_like}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
-  {{#if user_like}}
-    <i class="icon-heart icon-red"></i>
-  {{else}}
-    <i class="icon-heart icon-white"></i>
-  {{/if}}
-  {{likes_count}}
-</a>
-
-{{#if userCanReshare}}
-  <a href="#" rel="auth-required" class="label reshare" title="{{#if user_reshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
-    {{#if user_reshare}}
-      <i class="icon-retweet icon-blue"></i>
-    {{else}}
-      <i class="icon-retweet icon-white"></i>
-    {{/if}}
-    {{reshares_count}}
-  </a>
-{{else}}
-  <a class="label reshare-viewonly" title="{{#if user_reshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
-    {{#if user_reshare}}
-      <i class="icon-retweet icon-blue"></i>
-    {{else}}
-      <i class="icon-retweet icon-white"></i>
-    {{/if}}
-    {{reshares_count}}
-   </a>
-{{/if}}
-
-<a href="#" class="label comment" rel="invoke-interaction-pane" title="{{t "viewer.comment"}}">
-  <i class="icon-comment icon-white"></i>
-  {{comments_count}}
-</a>
+<div class="feedback-actions"/>
 
 <!-- this acts as a dock underlay -->
 <div id="post-info-sneaky" class="passive">

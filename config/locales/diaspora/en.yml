@@ -103,7 +103,44 @@ en:
         many: "%{count} users found"
         other: "%{count} users found"
     stats:
-      go: go
+      week: "Week"
+      2weeks: "2 Week"
+      month: "Month"
+      daily: "Daily"
+      usage_statistic: "Usage Statistics"
+      go: "go"
+      display_results: "Displaying results from the <b>%{segment}</b> segment"
+      posts:
+        zero: "%{count} posts"
+        one: "%{count} post"
+        two: "%{count} posts"
+        few: "%{count} posts"
+        many: "%{count} posts"
+        other: "%{count} posts"
+      comments:
+        zero: "%{count} comments"
+        one: "%{count} comment"
+        two: "%{count} comments"
+        few: "%{count} comments"
+        many: "%{count} comments"
+        other: "%{count} comments"
+      shares:
+        zero: "%{count} shares"
+        one: "%{count} share"
+        two: "%{count} shares"
+        few: "%{count} shares"
+        many: "%{count} shares"
+        other: "%{count} shares"
+      users:
+        zero: "%{count} users"
+        one: "%{count} user"
+        two: "%{count} users"
+        few: "%{count} users"
+        many: "%{count} users"
+        other: "%{count} users"
+      current_segment: "The current segment is averaging <b>%{post_yest}</b> posts per user, from <b>%{post_day}</b>"
+      50_most: "50 Most Popular Tags"
+      tag_name: "Tag Name: <b>%{name_tag}</b> Count: <b>%{count_tag}</b>"
   application:
     helper:
       unknown_person: "unknown person"
@@ -210,6 +247,7 @@ en:
         tag_feature: "feature"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
         email_feedback: "%{link} your feedback, if you prefer"
+        email_link: "Email"
       cubbies:
         heading: "Connect to Cubbi.es"
         explanation: "Cubbi.es is the first Diaspora application under development."
@@ -225,6 +263,7 @@ en:
     aspect_stream:
       stay_updated: "Stay Updated"
       stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
+      make_something: "Make something"
 
   aspect_memberships:
     destroy:
@@ -235,9 +274,8 @@ en:
   bookmarklet:
     heading: "Bookmarklet"
     post_success: "Posted! Closing!"
-    post_something: "Post something to Diaspora"
-    explanation: "Post to Diaspora from anywhere by bookmarking %{link}."
-    explanation_link_text: "this link"
+    post_something: "Post to Diaspora"
+    explanation: "Post to Diaspora from anywhere by bookmarking this link => %{link}."
 
   comments:
     zero: "no comments"
@@ -327,21 +365,6 @@ en:
       fullmonth_day: "%B %d"
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
-
-  home:
-    show:
-      share_what_you_want: "Share what you want, with whom you want."
-      tagline_first_half: "Share what you want,"
-      tagline_second_half: "with whom you want."
-      already_account: "already have an account?"
-      login_here: "log in here"
-      choice: "Choice"
-      choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
-      ownership: "Ownership"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
-      simplicity: "Simplicity"
-      simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
-      learn_about_host: "Learn about how to host your own Diaspora server."
 
   invitation_codes:
     excited: "%{name} is excited to see you here."
@@ -527,7 +550,7 @@ en:
 
   notifier:
     a_post_you_shared: "a post."
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    email_sent_by_diaspora: "This email was sent by %{pod_name}. If you'd like to stop getting emails like this,"
     click_here: "click here"
     hello: "Hello %{name}!"
     thanks: "Thanks,"
@@ -565,13 +588,14 @@ en:
         
         Click this link to get started
         
-        %{invite_url}
+        [%{invite_url}][1]
         
         
         Love,
         
         The Diaspora* email robot!
-  
+        
+        [1]: %{invite_url}
   people:
     zero: "no people"
     one: "1 person"
@@ -724,6 +748,13 @@ en:
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       enter_password: "Enter a password (six character minimum)"
       enter_password_again: "Enter the same password as before"
+      hey_make: "HEY,<br/>MAKE<br/>SOMETHING."
+      diaspora: "<3 Diaspora*"
+      sign_up: "SIGN UP"
+      email: "EMAIL"
+      username: "USERNAME"
+      password: "PASSWORD"
+      continue: "Continue"
     create:
       success: "You've joined Diaspora!"
     edit:
@@ -796,7 +827,7 @@ en:
       join_me_on_diaspora: "Join me on DIASPORA*"
       click_link_to_accept_invitation: "Follow this link to accept your invitation"
     finder:
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+      fetching_contacts: "Diaspora is populating your %{service} friends, please check back in a few minutes."
       service_friends: "%{service} Friends"
       no_friends: "No Facebook friends found."
     remote_friend:
@@ -855,6 +886,7 @@ en:
       invite_your_friends: "Invite your friends"
       from_facebook: "From Facebook"
       by_email: "By email"
+      share_this: "Share this link via email, blog, or favorite social network!"
     reshare:
       reshare: "Reshare"
     public_explain:

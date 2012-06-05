@@ -1,0 +1,243 @@
+/* animations */
+@-webkit-keyframes fly-in {
+	0%   { @include opacity(0); margin-top : -600px; }
+	100% { @include opacity(1); margin-top : 0; }
+}
+@-moz-keyframes fly-in {
+	0%   { @include opacity(0); margin-top : -600px; }
+	100% { @include opacity(1); margin-top : 0; }
+}
+@-ms-keyframes fly-in {
+	0%   { @include opacity(0); margin-top : -600px; }
+	100% { @include opacity(1); margin-top : 0; }
+}
+
+@-webkit-keyframes fly-out {
+	0%   { @include opacity(1); margin-top : 0; }
+    50%  { @include opacity(0); }
+	100% { @include opacity(0); margin-top : 500px; }
+}
+@-moz-keyframes fly-out {
+	0%   { @include opacity(1); margin-top : 0; }
+	50%  { @include opacity(0); }
+	100% { @include opacity(0); margin-top : 500px; }
+}
+@-ms-keyframes fly-out {
+	0%   { @include opacity(1); margin-top : 0; }
+	50%  { @include opacity(0); }
+	100% { @include opacity(0); margin-top : 500px; }
+}
+
+/* le declarations */
+#landing {
+  overflow : hidden;
+  position : absolute;
+  min-height : 100%;
+  width : 100%;
+  top : 0;
+  left : 0;
+
+  color : #fff;
+
+  background : {
+    color : #2b2b2b;
+    image : image_url('landing/background.jpg');
+    size : cover;
+    position : center;
+  }
+
+  #banner {
+    @include box-shadow(0, 2px, 40px, rgba(0,0,0,0.8));
+
+    position : relative;
+    z-index : 8;
+
+    text-align : center;
+    font-family : Roboto-Light;
+    padding : 50px 0;
+    margin-bottom : 30px;
+    background-color : rgba(0,0,0,0.6);
+
+    h1, h3 { font-weight : 200; }
+
+    h1 {
+      font-size : 80px;
+      line-height : 80px;
+    }
+
+    h3 {
+      font-size : 24px;
+      line-height : 24px;
+      color : rgb(42,156,235);
+    }
+
+    #controls,
+    .fb-like {
+      z-index : 10;
+      position : absolute;
+      top : 10px;
+    }
+
+    .fb-like {
+      left : 40px;
+    }
+
+    #controls {
+      right : 10px;
+
+      a:hover {
+        text-decoration : none;
+      }
+
+      .label {
+        @include transition(background-color);
+        padding : 5px 4px;
+        padding-bottom : 4px;
+        margin-left : 8px;
+      }
+
+
+      .twitter-bird,
+      .github-octocat {
+        height : 20px;
+        width : 20px;
+        margin-top : -5px;
+        margin-right : -2px;
+      }
+    }
+  }
+
+  #screens {
+    /* hardware acceleration */
+    -webkit-transform : translateZ(0);
+
+    text-align : center;
+
+    #s_container {
+      display : inline-block;
+      position : relative;
+      height : 417px;
+      width : 516px;
+
+      img {
+        position : absolute;
+        z-index : 1;
+        left : 0;
+        top : 0;
+
+        height : 417px;
+        width : 516px;
+
+        &:nth-child(1) {
+          -webkit-animation : fly-in 1.2s;
+             -moz-animation : fly-in 1.2s;
+              -ms-animation : fly-in 1.2s;
+        }
+
+        &:nth-child(2) {
+          -webkit-animation : fly-in 1s;
+             -moz-animation : fly-in 1s;
+              -ms-animation : fly-in 1s;
+        }
+
+        &:nth-child(3) {
+          -webkit-animation : fly-in 0.8s;
+             -moz-animation : fly-in 0.8s;
+              -ms-animation : fly-in 0.8s;
+        }
+
+        &:nth-child(4) {
+          -webkit-animation : fly-in 0.6s;
+             -moz-animation : fly-in 0.6s;
+              -ms-animation : fly-in 0.6s;
+        }
+      }
+
+      &.outtatime {
+        img {
+          &:nth-child(1) {
+            -webkit-animation : fly-out 1.2s;
+               -moz-animation : fly-out 1.2s;
+                -ms-animation : fly-out 0.6s;
+          }
+
+          &:nth-child(2) {
+            -webkit-animation : fly-out 1s;
+               -moz-animation : fly-out 1s;
+                -ms-animation : fly-out 1s;
+
+          }
+
+          &:nth-child(3) {
+            -webkit-animation : fly-out 0.8s;
+               -moz-animation : fly-out 0.8s;
+                -ms-animation : fly-out 0.8s;
+          }
+
+          &:nth-child(4) {
+            -webkit-animation : fly-out 0.6s;
+               -moz-animation : fly-out 0.6s;
+                -ms-animation : fly-out 0.6s;
+          }
+        }
+      }
+    }
+  }
+
+  #sign_up {
+    position : relative;
+    z-index : 20;
+
+    padding-top : 100px;
+    color : rgb(255, 77, 54);
+
+    h4 {
+      font-size : 20px;
+      line-height : 24px;
+    }
+
+    h2 {
+      font-family : Roboto-Bold;
+      font-size : 40px;
+      line-height : 40px;
+    }
+
+    form {
+      label.control-label { width : 50px !important; }
+      .controls { margin-left : 70px; }
+
+      input[type='submit'] {
+        @include transition(background);
+        @include box-shadow(0,0,0,0);
+
+        background : rgb(255, 77, 54);
+        color : #fff;
+        text-shadow : none;
+        border : 1px solid #000;
+
+        &:hover {
+          background : desaturate(rgb(255, 77, 54), 15%);
+        }
+
+        &:active {
+          @include box-shadow(0,0,0,0);
+          background : darken(rgb(255, 77, 54), 2%);
+        }
+      }
+    }
+  }
+
+  #invites {
+    margin : 20px 0;
+  }
+
+  #footer {
+    position : absolute;
+    bottom : 0;
+    left : 0;
+    width : 100%;
+    padding : 10px 0;
+    color : #333;
+    text-align : center;
+  }
+}

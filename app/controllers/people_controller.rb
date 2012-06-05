@@ -91,8 +91,7 @@ class PeopleController < ApplicationController
     @aspect = :profile
     @share_with = (params[:share_with] == 'true')
 
-    @stream = Stream::Person.new(current_user, @person,
-                                 :max_time => max_time)
+    @stream = Stream::Person.new(current_user, @person, :max_time => max_time)
 
     @profile = @person.profile
 
@@ -120,14 +119,15 @@ class PeopleController < ApplicationController
         if params[:ex]
           @page = :experimental
           gon.person = PersonPresenter.new(@person, current_user)
-          gon.stream = @stream.stream_posts.as_api_response(:backbone)
+          gon.stream = PostPresenter.collection_json(@stream.stream_posts, current_user)
 
           render :nothing => true, :layout => 'post'
         else
           respond_with @person, :locals => {:post_type => :all}
         end
       end
-      format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
+
+      format.json { render :json => @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
     end
   end
 
