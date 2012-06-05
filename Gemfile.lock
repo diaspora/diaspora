@@ -208,7 +208,7 @@ GEM
       rubyzip
     heroku-api (0.2.4)
       excon (~> 0.14.0)
-    heroku_san (3.0.1)
+    heroku_san (3.0.2)
       activesupport
       heroku (>= 2)
       heroku-api (>= 0.1.2)
