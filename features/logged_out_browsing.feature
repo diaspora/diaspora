@@ -21,3 +21,9 @@ Feature: Browsing Diaspora as a logged out user
     Scenario: Visiting a post show page
       When I view "bob@bob.bob"'s first post
       Then I should see "public stuff" within "body"
+
+    Scenario: Visiting a non-public post
+      Given "bob@bob.bob" has a non public post with text "my darkest secrets"
+      When I open the show page of the "my darkest secrets" post
+      Then I should see the "post not public" message
+      And I should not see "my darkest secrets"

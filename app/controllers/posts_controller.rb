@@ -6,7 +6,7 @@ require Rails.root.join("app", "presenters", "post_presenter")
 
 class PostsController < ApplicationController
   include PostsHelper
-  
+
   before_filter :authenticate_user!, :except => [:show, :iframe, :oembed, :interactions]
   before_filter :set_format_if_malformed_from_status_net, :only => :show
   before_filter :find_post, :only => [:show, :next, :previous, :interactions]
@@ -17,6 +17,13 @@ class PostsController < ApplicationController
              :mobile,
              :json,
              :xml
+
+  rescue_from Diaspora::NonPublic do |exception|
+    respond_to do |format|
+      format.html { render :template=>'errors/not_public', :status=>404 }
+      format.all { render :nothing=>true, :status=>404 }
+    end
+  end
 
   def new
     @feature_flag = FeatureFlagger.new(current_user, current_user.person) #I should be a global before filter so @feature_flag is accessible

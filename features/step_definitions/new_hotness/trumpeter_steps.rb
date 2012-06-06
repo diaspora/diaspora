@@ -32,6 +32,10 @@ def go_to_framer
   find(".next").click()
 end
 
+def go_to_post_by_text post_text
+  visit post_path_by_content(post_text)
+end
+
 def finalize_frame
   find(".done").click()
 end
@@ -176,4 +180,8 @@ end
 
 When /^I go back to the composer$/ do
   find(".back").click()
+end
+
+When /^I open the show page of the "([^"]*)" post$/ do |post_text|
+  go_to_post_by_text post_text
 end
