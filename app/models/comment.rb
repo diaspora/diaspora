@@ -81,7 +81,7 @@ class Comment < ActiveRecord::Base
     end
 
     def initialize(person, target, text)
-      @text = text
+      @text = text.strip		# remove leading and trailing whitespace now, otherwise it can cause signature issues
       super(person, target)
     end
 
