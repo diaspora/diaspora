@@ -183,10 +183,26 @@ describe 'a user receives a post' do
           receive_with_zord(eve, alice.person, xml)
 
           comment = eve.comment!(@post, 'tada')
+          # Note: eve.comment! has already initialized comment.parent_author_signature. Writing to it again
+          # here causes the test to be different than the way the system actually runs
           comment.parent_author_signature = comment.sign_with_key(alice.encryption_key)
           @xml = comment.to_diaspora_xml
           comment.delete
+
+          comment_with_whitespace = alice.comment!(@post, '   I cannot lift my thumb from the spacebar  ')
+          @xml_with_whitespace = comment_with_whitespace.to_diaspora_xml
+          @guid_with_whitespace = comment_with_whitespace.guid
+          comment_with_whitespace.delete
         end
+      end
+
+      it 'should receive a relayed comment with leading whitespace' do
+        eve.reload.visible_shareables(Post).size.should == 1
+        post_in_db = StatusMessage.find(@post.id)
+        post_in_db.comments.should == []
+        receive_with_zord(eve, alice.person, @xml_with_whitespace)
+
+        post_in_db.comments(true).first.guid.should == @guid_with_whitespace
       end
 
       it 'should correctly attach the user already on the pod' do
