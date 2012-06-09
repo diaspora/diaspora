@@ -75,13 +75,17 @@ class Comment < ActiveRecord::Base
     self.post = parent
   end
 
+  def text= text
+     self[:text] = text.to_s.strip #to_s if for nil, for whatever reason
+  end
+
   class Generator < Federated::Generator
     def self.federated_class
       Comment
     end
 
     def initialize(person, target, text)
-      @text = text.strip		# remove leading and trailing whitespace now, otherwise it can cause signature issues
+      @text = text
       super(person, target)
     end
 
