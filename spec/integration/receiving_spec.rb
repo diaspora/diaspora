@@ -183,8 +183,8 @@ describe 'a user receives a post' do
           receive_with_zord(eve, alice.person, xml)
 
           comment = eve.comment!(@post, 'tada')
-          # Note: eve.comment! has already initialized comment.parent_author_signature. Writing to it again
-          # here causes the test to be different than the way the system actually runs
+          # After Eve creates her comment, it gets sent to Alice, who signs it with her private key
+          # before relaying it out to the contacts on the top-level post
           comment.parent_author_signature = comment.sign_with_key(alice.encryption_key)
           @xml = comment.to_diaspora_xml
           comment.delete
