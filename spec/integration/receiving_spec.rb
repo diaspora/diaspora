@@ -183,10 +183,26 @@ describe 'a user receives a post' do
           receive_with_zord(eve, alice.person, xml)
 
           comment = eve.comment!(@post, 'tada')
+          # After Eve creates her comment, it gets sent to Alice, who signs it with her private key
+          # before relaying it out to the contacts on the top-level post
           comment.parent_author_signature = comment.sign_with_key(alice.encryption_key)
           @xml = comment.to_diaspora_xml
           comment.delete
+
+          comment_with_whitespace = alice.comment!(@post, '   I cannot lift my thumb from the spacebar  ')
+          @xml_with_whitespace = comment_with_whitespace.to_diaspora_xml
+          @guid_with_whitespace = comment_with_whitespace.guid
+          comment_with_whitespace.delete
         end
+      end
+
+      it 'should receive a relayed comment with leading whitespace' do
+        eve.reload.visible_shareables(Post).size.should == 1
+        post_in_db = StatusMessage.find(@post.id)
+        post_in_db.comments.should == []
+        receive_with_zord(eve, alice.person, @xml_with_whitespace)
+
+        post_in_db.comments(true).first.guid.should == @guid_with_whitespace
       end
 
       it 'should correctly attach the user already on the pod' do
