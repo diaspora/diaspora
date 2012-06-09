@@ -75,6 +75,10 @@ class Comment < ActiveRecord::Base
     self.post = parent
   end
 
+  def text= text
+     self[:text] = text.to_s.strip #to_s if for nil, for whatever reason
+  end
+
   class Generator < Federated::Generator
     def self.federated_class
       Comment
