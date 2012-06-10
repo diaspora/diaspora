@@ -22,7 +22,7 @@ gl:
   or: "ou"
   ago: "Hai %{time}"
   username: "Nome de usuario"
-  email: "correo electrónico"
+  email: "correo"
   password: "Contrasinal"
   password_confirmation: "Confirmación do contrasinal"
   are_you_sure: "Está seguro?"
@@ -91,7 +91,44 @@ gl:
     correlations:
       correlations_count: "Correlación entre contas:"
     stats:
+      week: "Semana"
+      2weeks: "2 semanas"
+      month: "Mens"
+      daily: "Diario"
+      usage_statistic: "Estatísticas de uso"
       go: "Ir"
+      display_results: "Resultados do segmento <b>%{segment}</b>."
+      posts:
+        zero: "%{count} publicacións."
+        one: "%{count} publicación."
+        two: "%{count} publicacións."
+        few: "%{count} publicacións."
+        many: "%{count} publicacións."
+        other: "%{count} publicacións."
+      comments:
+        zero: "%{count} comentarios."
+        one: "%{count} comment"
+        two: "%{count} comments"
+        few: "%{count} comments"
+        many: "%{count} comments"
+        other: "%{count} comments"
+      shares:
+        zero: "%{count} comentarios."
+        one: "%{count} comentario."
+        two: "%{count} comentarios."
+        few: "%{count} comentarios."
+        many: "%{count} comentarios."
+        other: "%{count} comentarios."
+      users:
+        zero: "%{count} usuarios."
+        one: "%{count} usuario."
+        two: "%{count} usuarios."
+        few: "%{count} usuarios."
+        many: "%{count} usuarios."
+        other: "%{count} usuarios."
+      current_segment: "O segmento actual ten unha media de <b>%{post_yest}</b> publicacións por usuario, desde <b>%{post_day}</b>"
+      50_most: "50 etiquetas máis populares"
+      tag_name: "Nome da etiqueta: <b>%{name_tag}</b>. Aparicións: <b>%{count_tag}</b>."
       
   application:
     helper:
@@ -176,7 +213,7 @@ gl:
       keep_diaspora_running: "Axuda a acelerar o desenvolvemento de Diaspora cunha doazón mensual!"
       no_tags: "Atope unha etiqueta que seguir"
       unfollow_tag: "Deixar se seguir #%{tag}"
-      handle_explanation: "Este é o seu identificador de Diaspora. É coma un enderezo electrónico, pode darllo á xente para que o atopen."
+      handle_explanation: "Este é o seu identificador de Diaspora. É coma un enderezo, pode darllo á xente para que o atopen."
       no_contacts: "Non ten contactos."
       post_a_message: "Publicar unha mensaxe: "
       people_sharing_with_you: "Xente compartindo con vostede"
@@ -185,8 +222,8 @@ gl:
       introduce_yourself: "Esta é a túa onda. Veña, preséntate!"
 
       new_here:
-        title: "Dálle a benvida aos novos"
-        follow: "Segue %{link} e dálle a benvida aos novos usuarios de Diaspora*!"
+        title: "Déalle a benvida aos novos"
+        follow: "Siga %{link} e déalle a benvida aos novos usuarios de Diaspora*!"
         learn_more: "Informarse"
 
       help:
@@ -201,6 +238,7 @@ gl:
         tag_feature: "funcionalidade"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki}, %{forum}… Recursos de aprendizaxe, manuais e novas, todo da man a comunidade!"
         email_feedback: "Ademais, sempre lle quedará mandarnos un %{link}."
+        email_link: "Correo"
       cubbies:
         heading: "Conectarse a Cubbi.es"
         explanation: "Cubbi.es é o primeiro aplicativo en desenvolverse para Diaspora."
@@ -216,6 +254,7 @@ gl:
     aspect_stream:
       stay_updated: "Estea ao día"
       stay_updated_explanation: "Na súa onda atopará a todos so seus contactos, etiquetas, e publicacións dalgunhas estrelas da comunidade."
+      make_something: "Fai algo"
 
   aspect_memberships:
     destroy:
@@ -226,9 +265,8 @@ gl:
   bookmarklet:
     heading: "Marcador de publicación"
     post_success: "Publicado! Pechando…"
-    post_something: "Publicar algo en Diaspora"
-    explanation: "Engada a ligazón «%{link}» aos seus marcadores e publique desde calquera páxina."
-    explanation_link_text: "Publicar en Diaspora"
+    post_something: "Publicar en Diaspora"
+    explanation: "Publique en Diaspora desde calquera parte engadindo esta ligazón aos seus marcadores: %{link}."
 
   comments:
     zero: "Non hai comentarios."
@@ -319,27 +357,12 @@ gl:
       birthday: "%d de %B"
       birthday_with_year: "%d de %B do %Y"
 
-  home:
-    show:
-      share_what_you_want: "Comparta o que queira, con quen queira."
-      tagline_first_half: "Comparta o que queira,"
-      tagline_second_half: "con quen queira."
-      already_account: "Xa ten conta?"
-      login_here: "Acceda desde aquí"
-      choice: "Escolla"
-      choice_explanation: "Diaspora permítelle clasificar os seus contactos en grupos, “aspectos”. Os aspectos permítenlle compartir as súas fotos, anécdotas e bromas exclusivamente coas persoas ás que realmente van dirixidos."
-      ownership: "Propiedade"
-      ownership_explanation: "As súas imaxes son súas e de ninguén máis, e non debería ter que renunciar a iso só para poder compartilas. Todo canto comparta en Diaspora seguirá sendo seu, e terá pleno control sobre a súa distribución."
-      simplicity: "Simplicidade"
-      simplicity_explanation: "Diaspora fai de compartir algo simple e doado, e iso aplícase tamén á protección da intimidade. Privada por definición, Diaspora non lle fará percorrer interminábeis páxinas de configuración para manter o seu perfil seguro."
-      learn_about_host: "Infórmese sobre como aloxar o seu propio servidor de Diaspora (en inglés)."
-
   invitation_codes:
     excited: "%{name} devece por verte por aquí."
   invitations:
     create:
       sent: "Enviáronse invitacións a: "
-      rejected: "Os seguintes enderezos de correo electrónico deron problemas: "
+      rejected: "Os seguintes enderezos de correo deron problemas: "
       no_more: "Non lle quedan invitacións."
       already_sent: "Xa invitou a esta persoa."
       already_contacts: "Xa está conectado con esta persoa."
@@ -354,7 +377,7 @@ gl:
       personal_message: "Mensaxe persoal"
       send_an_invitation: "Enviar unha invitación"
       send_invitation: "Enviar a invitación"
-      paste_link: "Comparte esta ligazón cos teus amigos para invitalos a Diaspora*, ou envíallela directamente por correo electrónico."
+      paste_link: "Comparte esta ligazón cos teus amigos para invitalos a Diaspora*, ou envíallela directamente por correo."
       codes_left:
         zero:  "Non quedan invitacións neste código."
         one:  "Queda unha invitación neste código."
@@ -518,7 +541,7 @@ gl:
         other: "Hai %{count} notificacións novas."
   notifier:
     a_post_you_shared: "unha publicación."
-    email_sent_by_diaspora: "Este correo electrónico envíao Diaspora. Se non quere volver recibir unha mensaxe coma esta,"
+    email_sent_by_diaspora: "Este correo envíao %{pod_name}. Se non quere volver recibir unha mensaxe coma esta,"
     click_here: "prema aquí"
     hello: "Ola %{name}!"
     thanks: "Grazas,"
@@ -544,8 +567,8 @@ gl:
       reshared: "%{name} repetiu a súa publicación"
       view_post: "Ver a publicación"
     confirm_email:
-      subject: "Active o seu novo enderezo de correo electrónico, «%{unconfirmed_email}»."
-      click_link: "Para activar o seu novo enderezo de correo electrónico, «%{unconfirmed_email}», prema a seguinte ligazón:"
+      subject: "Active o seu novo enderezo de correo, «%{unconfirmed_email}»."
+      click_link: "Para activar o seu novo enderezo de correo, «%{unconfirmed_email}», prema a seguinte ligazón:"
     accept_invite: "Accept Your Diaspora* invite!"
     invited_you: "%{name} invited you to Diaspora*"
     invite:
@@ -711,10 +734,17 @@ gl:
       join_the_movement: "Unirse ao movemento!"
       sign_up_message: "A rede social feita con ♥"
 
-      enter_email: "Escriba un enderezo de correo electrónico"
+      enter_email: "Escriba un enderezo de correo"
       enter_username: "Escolla un nome de usuario (só letras, números e guións baixos)"
       enter_password: "Escriba un contrasinal (seis ou máis caracteres)"
       enter_password_again: "Repita o contrasinal"
+      hey_make: "Eh,<br/><strong>fai</strong><br/><strong>algo</strong>."
+      diaspora: "♥ Diaspora*"
+      sign_up: "Rexistrarse"
+      email: "Correo"
+      username: "Usuario"
+      password: "Contrasinal"
+      continue: "Continuar"
     create:
       success: "Xa está en Diaspora!"
     edit:
@@ -837,7 +867,7 @@ gl:
       your_diaspora_username_is: "O seu nome de usuario de Diaspora é «%{diaspora_handle}»."
       create_request: "Buscar por enderezo de Diaspora"
       diaspora_handle: "diaspora@servidor.org"
-      know_email: "Se sabe os seus enderezos de correo electrónico, debería convidalos."
+      know_email: "Se sabe os seus enderezos de correo, debería convidalos."
       add_new_contact: "Engadir un novo contacto"
     invitations:
       invites: "Invitacións"
@@ -847,7 +877,8 @@ gl:
       invites_closed: "Este servidor de Diaspora non conta con invitacións nestes momentos."
       invite_your_friends: "Convide aos seus contactos"
       from_facebook: "Convidar a contactos de Facebook"
-      by_email: "Convidar a contactos por correo electrónico"
+      by_email: "Convidar a contactos por correo"
+      share_this: "Compártao por correo, nun blog, ou na súa rede social preferida!"
     reshare:
       reshare: "Repetir"
     public_explain:
@@ -1008,7 +1039,7 @@ gl:
       close_account_text: "Pechar a conta"
       change_language: "Cambiar a lingua"
       change_password: "Cambiar o contrasinal"
-      change_email: "Cambiar o enderezo de correo electrónico"
+      change_email: "Cambiar o enderezo de correo"
       new_password: "Contrasinal novo"
       current_password: "Contrasinal actual"
       current_password_expl: "Contrasinal co que accedeu a Diaspora."
@@ -1016,9 +1047,9 @@ gl:
       download_xml: "Descargar o ficheiro XML"
       download_photos: "Descargar as imaxes"
       your_handle: "Enderezo de Diaspora"
-      your_email: "Correo electrónico"
+      your_email: "Correo"
       edit_account: "Modificar a conta"
-      receive_email_notifications: "Motivos de notificación por correo electrónico"
+      receive_email_notifications: "Motivos de notificación por correo"
       also_commented: "Comentarios nas publicacións dos contactos."
       comment_on_post: "Comentarios nas publicacións propias."
       mentioned: "Mencións en publicacións."
@@ -1082,16 +1113,16 @@ gl:
       settings_updated: "Actualizouse a configuración."
       settings_not_updated: "Non se puido actualizar a configuración."
 
-      email_notifications_changed: "Modificáronse as notificacións por correo electrónico."
-      unconfirmed_email_changed: "Cambiouse o enderezo de correo electrónico, resta activar o novo."
-      unconfirmed_email_not_changed: "Non se puido cambiar o enderezo de correo electrónico."
+      email_notifications_changed: "Modificáronse as notificacións por correo."
+      unconfirmed_email_changed: "Cambiouse o enderezo de correo, resta activar o novo."
+      unconfirmed_email_not_changed: "Non se puido cambiar o enderezo de correo."
       follow_settings_changed: "Cambiouse a configuración de seguimento."
       follow_settings_not_changed: "Non se puido cambiar a configuración de seguimento."
     public:
       does_not_exist: "O usuario «%{username}» non existe!"
     confirm_email:
-      email_confirmed: "Activouse o enderezo de correo electrónico «%{email}»."
-      email_not_confirmed: "Non se puido activar o enderezo de correo electrónico. Confundiuse de ligazón?"
+      email_confirmed: "Activouse o enderezo de correo «%{email}»."
+      email_not_confirmed: "Non se puido activar o enderezo de correo. Confundiuse de ligazón?"
 
   will_paginate:
     previous_label: "← Anterior"
