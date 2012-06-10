@@ -1,37 +1,30 @@
 desc 'Seeds Admins'
-task :admin => :environment do
+task :create_admin, [:username, :password] => :environment  do |t, args|
   require 'factory_girl_rails'
-  admin_yml = YAML.load(File.open(File.join(Rails.root, 'config', 'admin.yml')))
 
-  admin_yml.each do |name, attributes|
-
-    puts "making #{name}"
-    user = make_user_with_atts(attributes['name'], attributes['username'],attributes['password'])
-    puts "giving #{name} admin access"
-    flag = make_admin(user)
-    if flag
-      puts "success"
-    else
-      puts "fail"
-    end
-    
+  puts "making #{args[:username]}"
+  user = make_user_with_atts(args[:username], args[:password])
+  puts "giving #{args[:username]} admin access"
+  flag = make_admin(user)
+  if flag
+    puts "success"
+  else
+    puts "fail"
   end
+    
 end
 
-def make_user_with_atts(name, username, password)
-  first, last = name.split
-  puts first, last
+def make_user_with_atts(username, password)
   user =  User.find_by_username(username)
   return user if user.present?
   puts Person.all.inspect
-  person = Factory.build(:person, :diaspora_handle => "#{first}@diaspora.dev")
+  person = Factory.build(:person, :diaspora_handle => "#{username}@diaspora.dev")
   person.save!
-  profile = Factory(:profile, :first_name => first, :last_name => last, :person => person)
+  profile = Factory(:profile, :first_name => username, :last_name => 'admin', :person => person)
 
 
-  user = Factory.build(:user, :username => first)
+  user = Factory.build(:user, :username => username)
   user.person = person
-  user.username = username
   user.password = password
   user.password_confirmation = password
   person.save!

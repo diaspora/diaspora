@@ -1,9 +1,0 @@
-admin1:
-  name: "James Brown"
-  username: "james"
-  password: "123456"
-  
-admin2:
-  name: "Diaspora Admin"
-  username: "diaspora"
-  password: "diaspora"
