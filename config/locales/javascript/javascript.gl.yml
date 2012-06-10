@@ -132,6 +132,7 @@ gl:
       recent_notifications: "Últimas notificacións"
       mark_all_as_read: "Marcalas todas como lidas"
       view_all: "Velas todas"
+      close: "Pechar"
 
     viewer:
       stop_following_post: "Deixar de seguir"
