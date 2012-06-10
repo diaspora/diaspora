@@ -79,6 +79,8 @@ en:
     helper:
       invalid_fields: "Invalid Fields"
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+    post_not_public: "The post you are trying to view is not public!"
+    login_try_again: "Please <a href='%{login_link}'>login</a> and try again."
 
   admins:
     admin_bar:

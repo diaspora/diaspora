@@ -13,6 +13,8 @@ end
 
 # Load the rails application
 require File.expand_path('../application', __FILE__)
+require File.join(Rails.root, "lib", "exceptions")
+
 Haml::Template.options[:format] = :html5
 Haml::Template.options[:escape_html] = true
 
@@ -22,7 +24,7 @@ USERNAME_BLACKLIST = ['admin', 'administrator', 'hostmaster', 'info', 'postmaste
 
 # Initialize the rails application
 Diaspora::Application.initialize!
-require File.join(Rails.root, 'lib/federation_logger')
+require File.join(Rails.root, 'lib', 'federation_logger')
 
 # allow token auth only for posting activitystream photos
 module Devise

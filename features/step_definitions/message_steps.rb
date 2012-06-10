@@ -9,6 +9,8 @@ Then /^I should see the "(.*)" message$/ do |message|
              I18n.translate('profiles.edit.you_are_safe_for_work')
            when 'you are nsfw'
              I18n.translate('profiles.edit.you_are_nsfw')
+           when 'post not public'
+             I18n.translate('error_messages.post_not_public')
            else
              raise "muriel, you don't have that message key, add one here"
            end

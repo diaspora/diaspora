@@ -150,8 +150,11 @@ class Post < ActiveRecord::Base
     post = if user
              user.find_visible_shareable_by_id(Post, id, :key => key)
            else
-             Post.where(key => id, :public => true).includes(:author, :comments => :author).first
+             Post.where(key => id).includes(:author, :comments => :author).first
            end
+
+    # is that a private post?
+    raise(Diaspora::NonPublic) unless user || post.public?
 
     post || raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}"))
   end
