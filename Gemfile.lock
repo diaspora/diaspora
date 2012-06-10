@@ -504,7 +504,7 @@ DEPENDENCIES
   http_accept_language (~> 1.0.2)
   i18n-inflector-rails (~> 1.0)
   jasmine!
-  jquery-rails (>= 1.0.3)
+  jquery-rails
   json
   linecache (= 0.46)
   markerb!

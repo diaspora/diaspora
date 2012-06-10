@@ -11,7 +11,7 @@ class AdminsController < ApplicationController
       email = "%" +params[:user][:email] +"%"
     end
     params[:user].delete_if {|key, value| value.blank? }
-    @users = params[:user].empty? ? [] : User.where("username LIKE ? and email LIKE ?", username, email)
+    @users = params[:user].empty? ? [] : User.user_search(username, email)
     @users.each do |user|
       user.attributes.each do |att|
         if att.blank? 
