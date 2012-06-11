@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/Empact/roxml.git
+  remote: https://github.com/Empact/roxml.git
   revision: 7ea9a9ffd2338aaef5b04cb792060ae8c98f346a
   ref: 7ea9a9ffd2338aaef5b0
   specs:
@@ -8,20 +8,20 @@ GIT
       nokogiri (>= 1.3.3)
 
 GIT
-  remote: git://github.com/binarylogic/settingslogic.git
+  remote: https://github.com/binarylogic/settingslogic.git
   revision: 4884d455bf18d92723cb8190cfd2dbf87f3aafd5
   specs:
     settingslogic (2.0.8)
 
 GIT
-  remote: git://github.com/mbleigh/acts-as-taggable-on.git
+  remote: https://github.com/mbleigh/acts-as-taggable-on.git
   revision: d9b66b70e90352605e6f767e7c2b7a8859050655
   specs:
     acts-as-taggable-on (2.3.1)
       rails (~> 3.0)
 
 GIT
-  remote: git://github.com/pivotal/jasmine-gem.git
+  remote: https://github.com/pivotal/jasmine-gem.git
   revision: 1e075fbf5a69812fcc914c453f002ecf5bed38ab
   specs:
     jasmine (1.2.0)
@@ -31,7 +31,7 @@ GIT
       selenium-webdriver (>= 0.1.3)
 
 GIT
-  remote: git://github.com/plataformatec/markerb.git
+  remote: https://github.com/plataformatec/markerb.git
   revision: 93b1e8bea9b8fa89ef930f78ba562f596c022198
   specs:
     markerb (1.0.0)

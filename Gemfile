@@ -29,7 +29,7 @@ gem 'twitter', '2.0.2'
 
 # mail
 
-gem 'markerb', :git => 'git://github.com/plataformatec/markerb.git'
+gem 'markerb', :git => 'https://github.com/plataformatec/markerb.git'
 gem 'messagebus_ruby_api', '1.0.3'
 gem 'airbrake'
 gem 'newrelic_rpm'
@@ -53,7 +53,7 @@ group :heroku do
   gem 'unicorn', '~> 4.3.0', :require => false
 end
 
-gem 'settingslogic', :git => 'git://github.com/binarylogic/settingslogic.git'
+gem 'settingslogic', :git => 'https://github.com/binarylogic/settingslogic.git'
 # database
 
 gem "activerecord-import", "~> 0.2.9"
@@ -82,7 +82,7 @@ gem 'rails-i18n'
 
 gem 'nokogiri', '1.5.2'
 gem 'redcarpet', "2.1.1"
-gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
+gem 'roxml', :git => 'https://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'ruby-oembed', '~> 0.8.7'
 
 # queue
@@ -93,7 +93,7 @@ gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
 # tags
 
-gem 'acts-as-taggable-on', :git => "git://github.com/mbleigh/acts-as-taggable-on.git"
+gem 'acts-as-taggable-on', :git => "https://github.com/mbleigh/acts-as-taggable-on.git"
 
 # URIs and HTTP
 
@@ -138,7 +138,7 @@ gem 'faraday'
 gem 'faraday_middleware'
 
 
-gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git'
+gem 'jasmine', :git => 'https://github.com/pivotal/jasmine-gem.git'
 ### GROUPS ####
 
 group :test do
