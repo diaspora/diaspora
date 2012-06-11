@@ -1,8 +1,8 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-require File.join(Rails.root, 'app', 'models', 'acts_as_taggable_on', 'tag')
-require File.join(Rails.root, 'lib', 'stream', 'tag')
+require Rails.root.join('app', 'models', 'acts_as_taggable_on', 'tag')
+require Rails.root.join('lib', 'stream', 'tag')
 
 class TagsController < ApplicationController
   skip_before_filter :set_grammatical_gender

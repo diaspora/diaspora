@@ -1,4 +1,4 @@
-require File.join(Rails.root, "lib", "publisher")
+require Rails.root.join("lib", "publisher")
 class Stream::Base
   TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
 

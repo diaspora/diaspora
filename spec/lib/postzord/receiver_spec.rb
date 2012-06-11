@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-require File.join(Rails.root, 'lib/postzord/receiver')
+require Rails.root.join('lib', 'postzord', 'receiver')
 
 describe Postzord::Receiver do
   before do

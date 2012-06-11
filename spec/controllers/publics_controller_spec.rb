@@ -5,7 +5,7 @@
 require 'spec_helper'
 
 describe PublicsController do
-  let(:fixture_path) { File.join(Rails.root, 'spec', 'fixtures')}
+  let(:fixture_path) { Rails.root.join('spec', 'fixtures') }
   before do
     @user = alice
     @person = Factory(:person)

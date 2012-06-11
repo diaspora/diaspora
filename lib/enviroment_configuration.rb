@@ -9,7 +9,7 @@ module EnviromentConfiguration
   end
 
   def self.secret_token_initializer_is_not_present?
-    !File.exists?( File.join(Rails.root, 'config', 'initializers', 'secret_token.rb'))
+    !File.exists?( Rails.root.join('config', 'initializers', 'secret_token.rb'))
   end
 
   def self.prevent_fetching_community_spotlight?
@@ -27,7 +27,7 @@ module EnviromentConfiguration
       Rails.application.config.secret_token = ENV['SECRET_TOKEN'] 
     elsif secret_token_initializer_is_not_present?
       `rake generate:secret_token`
-      require  File.join(Rails.root, 'config', 'initializers', 'secret_token.rb')
+      require  Rails.root.join('config', 'initializers', 'secret_token.rb')
     else
       #do nothing
     end

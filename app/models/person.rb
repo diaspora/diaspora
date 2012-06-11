@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'uri'
-require File.join(Rails.root, 'lib/hcard')
+require Rails.root.join('lib', 'hcard')
 
 class Person < ActiveRecord::Base
   include ROXML

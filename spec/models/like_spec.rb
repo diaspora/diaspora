@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.join(Rails.root, "spec", "shared_behaviors", "relayable")
+require Rails.root.join("spec", "shared_behaviors", "relayable")
 
 describe Like do
   before do

@@ -49,8 +49,8 @@ Spork.prefork do
   require File.join(File.dirname(__FILE__), "integration_sessions_controller")
   require File.join(File.dirname(__FILE__), "poor_mans_webmock")
 
-  require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
-  require File.join(File.dirname(__FILE__), "..", "..", "spec", "support","user_methods")
+  require Rails.root.join('spec', 'helper_methods')
+  require Rails.root.join('spec', 'support', 'user_methods')
   include HelperMethods
 
   # require 'webmock/cucumber'
@@ -61,7 +61,7 @@ Spork.prefork do
     AppConfig[:configured_services] << 'facebook'
   end
 
-  require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_resque")
+  require Rails.root.join('spec', 'support', 'fake_resque')
 
   require File.join(File.dirname(__FILE__), 'run_resque_in_process')
 

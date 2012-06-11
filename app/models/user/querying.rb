@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib', 'evil_query')
+require Rails.root.join('lib', 'evil_query')
 
 
 #TODO: THIS FILE SHOULD NOT EXIST, EVIL SQL SHOULD BE ENCAPSULATED IN EvilQueries,

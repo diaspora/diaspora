@@ -6,7 +6,7 @@ def load_config_yaml filename
   YAML.load(ERB.new(File.read(filename)).result)
 end
 
-oauth_keys_file = "#{Rails.root}/config/oauth_keys.yml"
+oauth_keys_file = Rails.root.join('config', 'oauth_keys.yml').to_s
 
 
 SERVICES = load_config_yaml("#{oauth_keys_file}.example")

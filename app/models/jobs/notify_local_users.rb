@@ -6,7 +6,7 @@ module Jobs
   class NotifyLocalUsers < Base
     @queue = :receive_local
 
-    require File.join(Rails.root, 'app/models/notification')
+    require Rails.root.join('app', 'models', 'notification')
 
     def self.perform(user_ids, object_klass, object_id, person_id)
 

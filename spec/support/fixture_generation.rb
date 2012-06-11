@@ -1,10 +1,10 @@
 module JasmineFixtureGeneration
   # Saves the markup to a fixture file using the given name
   def save_fixture(markup, name, fixture_path=nil )
-    fixture_path = File.join(Rails.root, 'tmp', 'js_dom_fixtures') unless fixture_path
+    fixture_path = Rails.root.join('tmp', 'js_dom_fixtures') unless fixture_path
     Dir.mkdir(fixture_path) unless File.exists?(fixture_path)
 
-    fixture_file = File.join(fixture_path, "#{name}.fixture.html")
+    fixture_file = fixture_path.join("#{name}.fixture.html")
     File.open(fixture_file, 'w') do |file|
       file.puts(markup)
     end

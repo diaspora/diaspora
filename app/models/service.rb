@@ -27,5 +27,5 @@ class Service < ActiveRecord::Base
   end
 
 end
-require File.join(Rails.root, 'app/models/services/facebook')
-require File.join(Rails.root, 'app/models/services/twitter')
+require Rails.root.join('app', 'models', 'services', 'facebook')
+require Rails.root.join('app', 'models', 'services', 'twitter')

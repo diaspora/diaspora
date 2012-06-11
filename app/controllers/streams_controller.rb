@@ -2,13 +2,13 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, "lib", "stream", "aspect")
-require File.join(Rails.root, "lib", "stream", "multi")
-require File.join(Rails.root, "lib", "stream", "comments")
-require File.join(Rails.root, "lib", "stream", "likes")
-require File.join(Rails.root, "lib", "stream", "mention")
-require File.join(Rails.root, "lib", "stream", "followed_tag")
-require File.join(Rails.root, "lib", "stream", "activity")
+require Rails.root.join("lib", "stream", "aspect")
+require Rails.root.join("lib", "stream", "multi")
+require Rails.root.join("lib", "stream", "comments")
+require Rails.root.join("lib", "stream", "likes")
+require Rails.root.join("lib", "stream", "mention")
+require Rails.root.join("lib", "stream", "followed_tag")
+require Rails.root.join("lib", "stream", "activity")
 
 
 class StreamsController < ApplicationController

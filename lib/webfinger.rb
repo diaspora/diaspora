@@ -1,5 +1,5 @@
-require File.join(Rails.root, 'lib/hcard')
-require File.join(Rails.root, 'lib/webfinger_profile')
+require Rails.root.join('lib', 'hcard')
+require Rails.root.join('lib', 'webfinger_profile')
 
 class Webfinger
   attr_accessor :host_meta_xrd, :webfinger_profile_xrd, 
