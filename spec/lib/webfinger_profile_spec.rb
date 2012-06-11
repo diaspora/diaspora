@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe WebfingerProfile do
-  let(:webfinger_profile){File.open(File.join(Rails.root, "spec/fixtures/finger_xrd")).read.strip}
-  let(:not_diaspora_webfinger){File.open(File.join(Rails.root, "spec/fixtures/nonseed_finger_xrd")).read.strip}
+  let(:webfinger_profile){File.open(Rails.root.join("spec", "fixtures", "finger_xrd")).read.strip}
+  let(:not_diaspora_webfinger){File.open(Rails.root.join("spec", "fixtures", "nonseed_finger_xrd")).read.strip}
 
   let(:account){"tom@tom.joindiaspora.com"}
   let(:profile){ WebfingerProfile.new(account, webfinger_profile) }

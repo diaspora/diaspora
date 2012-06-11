@@ -7,7 +7,7 @@ module Jobs
     @queue = :http_service
 
     def self.perform(sender_public_url)
-      require File.join(Rails.root, 'lib/pubsubhubbub')
+      require Rails.root.join('lib', 'pubsubhubbub')
       atom_url = sender_public_url + '.atom'
       Pubsubhubbub.new(AppConfig[:pubsub_server]).publish(atom_url)
     end

@@ -14,7 +14,7 @@ class ShareVisibility < ActiveRecord::Base
   belongs_to :contact
 end
 
-require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'share_visibility_converter')
+require Rails.root.join('lib', 'share_visibility_converter')
 
 class MoveRecentlyHiddenPostsToUser < ActiveRecord::Migration
   def self.up

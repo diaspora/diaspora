@@ -2,4 +2,4 @@
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
 
-require File.join(Rails.root, 'app', 'models', 'app_config')
+require Rails.root.join('app', 'models', 'app_config')

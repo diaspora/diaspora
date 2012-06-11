@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib/postzord/receiver/public')
+require Rails.root.join('lib', 'postzord', 'receiver', 'public')
 
 module Jobs
   class ReceiveUnencryptedSalmon < Base

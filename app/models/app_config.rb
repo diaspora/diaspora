@@ -3,7 +3,7 @@
 # the COPYRIGHT file.
 
 require 'uri'
-require File.join(Rails.root, 'lib', 'enviroment_configuration')
+require Rails.root.join('lib', 'enviroment_configuration')
 
 class AppConfig < Settingslogic
   def self.source_file_name
@@ -11,9 +11,9 @@ class AppConfig < Settingslogic
       puts "using remote application.yml"
       return ENV['application_yml']
     end
-    config_file = File.join(Rails.root, "config", "application.yml")
+    config_file = Rails.root.join("config", "application.yml")
     if !File.exists?(config_file) && (Rails.env == 'test' || Rails.env.include?("integration") || EnviromentConfiguration.heroku?)
-      config_file = File.join(Rails.root, "config", "application.yml.example")
+      config_file = Rails.root.join("config", "application.yml.example")
     end
     config_file
   end
@@ -96,7 +96,7 @@ HELP
   end
 
   def self.have_old_config_file?
-    File.exists?(File.join(Rails.root, "config", "app.yml")) || (File.exists?(File.join(Rails.root, "config", "app_config.yml")))
+    File.exists?(Rails.root.join("config", "app.yml")) || (File.exists?(Rails.root.join("config", "app_config.yml")))
   end
 
   def self.new_relic_app_name

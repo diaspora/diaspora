@@ -1,7 +1,7 @@
 desc 'Seeds cool users'
 task :cool => :environment do
   require 'factory_girl_rails'
-  cool_people_yml = YAML.load(File.open(File.join(Rails.root, 'config', 'cool_people.yml')))
+  cool_people_yml = YAML.load(File.open(Rails.root.join('config', 'cool_people.yml')))
 
   cool_people_yml.each do |name, attributes|
 

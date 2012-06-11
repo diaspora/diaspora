@@ -30,8 +30,8 @@ namespace :ci do
     puts "Stopping virtual display..."
     `sh -e /etc/init.d/xvfb stop`
     puts "Cleaning up..."
-    FileUtils.rm_rf("#{Rails.root}/public/uploads/images")
-    FileUtils.rm_rf("#{Rails.root}/public/uploads/tmp")
+    FileUtils.rm_rf(Rails.root.join('public', 'uploads', 'images'))
+    FileUtils.rm_rf(Rails.root.join('public', 'uploads', 'tmp'))
     raise "tests failed!" unless exit_status == 0
     puts "All tests passed!"
   end

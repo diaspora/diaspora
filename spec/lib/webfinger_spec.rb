@@ -5,9 +5,9 @@
 require 'spec_helper'
 
 describe Webfinger do
-  let(:host_meta_xrd) { File.open(File.join(Rails.root, 'spec', 'fixtures', 'host-meta.fixture.html')).read }
-  let(:webfinger_xrd) { File.open(File.join(Rails.root, 'spec', 'fixtures', 'webfinger.fixture.html')).read }
-  let(:hcard_xml) { File.open(File.join(Rails.root, 'spec', 'fixtures', 'hcard.fixture.html')).read }
+  let(:host_meta_xrd) { File.open(Rails.root.join('spec', 'fixtures', 'host-meta.fixture.html')).read }
+  let(:webfinger_xrd) { File.open(Rails.root.join('spec', 'fixtures', 'webfinger.fixture.html')).read }
+  let(:hcard_xml) { File.open(Rails.root.join('spec', 'fixtures', 'hcard.fixture.html')).read }
   let(:account){'foo@bar.com'}
   let(:account_in_fixtures){"alice@localhost:9887"}
   let(:finger){Webfinger.new(account)}

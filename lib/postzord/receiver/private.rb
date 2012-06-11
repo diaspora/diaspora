@@ -2,8 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib/webfinger')
-require File.join(Rails.root, 'lib/diaspora/parser')
+require Rails.root.join('lib', 'webfinger')
+require Rails.root.join('lib', 'diaspora', 'parser')
 
 class Postzord::Receiver::Private < Postzord::Receiver
 

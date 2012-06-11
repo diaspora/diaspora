@@ -3,11 +3,11 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.join(Rails.root, 'lib/rake_helpers.rb')
+require Rails.root.join('lib', 'rake_helpers')
 include RakeHelpers
 describe RakeHelpers do
   before do
-    @csv = File.join(Rails.root, 'spec/fixtures/test.csv')
+    @csv = Rails.root.join('spec', 'fixtures', 'test.csv')
   end
   describe '#process_emails' do
     before do
