@@ -41,6 +41,11 @@ module NavigationHelpers
   def login_page
     path_to "the new user session page"
   end
+
+  def post_path_by_content text
+    p = Post.find_by_text(text)
+    post_path(p)
+  end
 end
 
 World(NavigationHelpers)
