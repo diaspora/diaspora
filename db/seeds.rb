@@ -10,9 +10,9 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => citie
 
-require File.join(File.dirname(__FILE__), "..", "config", "environment")
+require Rails.root.join('config', 'environment')
 require 'factory_girl_rails'
-require File.join(File.dirname(__FILE__), "..", "spec", "helper_methods")
+require Rails.root.join('spec', 'helper_methods')
 include HelperMethods
 
 alice = Factory(:user_with_aspect, :username => "alice", :password => 'evankorth')
@@ -47,8 +47,8 @@ Role.add_admin(bob.person)
 puts "done!"
 
 
-require File.join(File.dirname(__FILE__), '..', 'spec', 'support', 'fake_resque')
-require File.join(File.dirname(__FILE__), '..', 'spec', 'support', 'user_methods')
+require Rails.root.join('spec', 'support', 'fake_resque')
+require Rails.root.join('spec', 'support', 'user_methods')
 
 print "Seeding post data..."
 time_interval = 1000

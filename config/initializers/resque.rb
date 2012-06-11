@@ -36,6 +36,6 @@ end
 
 if AppConfig[:mount_resque_web]
   require 'resque/server'
-  require File.join(Rails.root, 'lib/admin_rack')
+  require Rails.root.join('lib', 'admin_rack')
   Resque::Server.use AdminRack
 end

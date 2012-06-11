@@ -24,7 +24,7 @@ describe AppConfig do
       context "with old-style application.yml" do
         before do
           @original_source = AppConfig.source
-          AppConfig.source(File.join(Rails.root, "spec", "fixtures", "config", "old_style_app.yml"))
+          AppConfig.source(Rails.root.join("spec", "fixtures", "config", "old_style_app.yml"))
         end
         after do
           AppConfig.source(@original_source)
@@ -42,8 +42,8 @@ describe AppConfig do
       context "when source config file (i.e. config/application.yml) does not exist" do
         before do
           application_yml = AppConfig.source_file_name
-          @app_yml = File.join(Rails.root, "config", "app.yml")
-          @app_config_yml = File.join(Rails.root, "config", "app_config.yml")
+          @app_yml = Rails.root.join("config", "app.yml")
+          @app_config_yml = Rails.root.join("config", "app_config.yml")
           File.should_receive(:exists?).with(application_yml).at_least(:once).and_return(false)
         end
         after do

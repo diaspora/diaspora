@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 #NOTE;why is it not auto loadeded?
-require File.join(Rails.root, 'lib', 'publisher')
+require Rails.root.join('lib', 'publisher')
 
 describe Publisher do
   before do

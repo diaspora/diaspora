@@ -4,7 +4,7 @@
 
 module Jobs
   class Base
-    Dir["#{Rails.root}/app/models/jobs/mail/*.rb"].each {|file| require file }
+    Dir[Rails.root.join('app', 'models', 'jobs', 'mail', '*.rb')].each {|file| require file }
     
     #TODO these should be subclassed real exceptions
     DUMB_ERROR_MESSAGES = [

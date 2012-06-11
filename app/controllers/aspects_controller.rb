@@ -91,7 +91,7 @@ class AspectsController < ApplicationController
     @contacts = @contacts_in_aspect + @contacts_not_in_aspect
 
     unless @aspect
-      render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
+      render :file => Rails.root.join('public', '404.html').to_s, :layout => false, :status => 404
     else
       @aspect_ids = [@aspect.id]
       @aspect_contacts_count = @aspect.contacts.size

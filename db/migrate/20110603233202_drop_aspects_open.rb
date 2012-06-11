@@ -1,5 +1,5 @@
 class DropAspectsOpen < ActiveRecord::Migration
-  require File.join(Rails.root, "db", "migrate", "20110202015222_add_open_to_aspects")
+  require Rails.root.join("db", "migrate", "20110202015222_add_open_to_aspects")
   def self.up
     AddOpenToAspects.down
   end

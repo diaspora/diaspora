@@ -2,7 +2,7 @@
  #licensed under the Affero General Public License version 3 or later.  See
  #the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib', 'enviroment_configuration')
+require Rails.root.join('lib', 'enviroment_configuration')
 
 namespace :heroku do
   HEROKU_CONFIG_ADD_COMMAND = "heroku config:add"

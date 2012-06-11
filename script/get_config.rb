@@ -4,10 +4,11 @@
 # the COPYRIGHT file.
 
 require 'rubygems'
+require 'pathname'
 
 class Rails
   def self.root
-    File.expand_path(File.join(File.dirname(__FILE__), ".."))
+    @@root ||= Pathname.new(File.expand_path(File.join(File.dirname(__FILE__), "..")))
   end
 
   def self.env
@@ -22,7 +23,7 @@ if ARGV.length >= 1
   setting_name = ARGV[0]
   if Rails.env == 'script_server' # load from the special script_server_config.yml file
     require 'yaml'
-    script_server_config_file = File.join(Rails.root, 'config', 'script_server.yml')
+    script_server_config_file = Rails.root.join('config', 'script_server.yml')
     begin
       print YAML.load_file(script_server_config_file)['script_server'][setting_name]
     rescue
@@ -34,7 +35,7 @@ if ARGV.length >= 1
     require 'active_support/core_ext/class/attribute_accessors'
     require 'active_support/core_ext/object/blank'
     require 'settingslogic'
-    require File.join(Rails.root, 'app', 'models', 'app_config')
+    require Rails.root.join('app', 'models', 'app_config')
     setting_name = setting_name.to_sym
     if (!AppConfig.respond_to?(setting_name) || AppConfig.send(setting_name).nil?) && AppConfig[setting_name].nil?
       $stderr.puts "Could not find setting #{ARGV[0]} for environment #{Rails.env}."

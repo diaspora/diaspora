@@ -2,8 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib/salmon/salmon')
-require File.join(Rails.root, 'lib/postzord/dispatcher')
+require Rails.root.join('lib', 'salmon', 'salmon')
+require Rails.root.join('lib', 'postzord', 'dispatcher')
 
 class User < ActiveRecord::Base
   include Encryptor::Private

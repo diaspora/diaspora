@@ -2,11 +2,11 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib', 'stream', 'public')
+require Rails.root.join('lib', 'stream', 'public')
 class PublicsController < ApplicationController
-  require File.join(Rails.root, '/lib/diaspora/parser')
-  require File.join(Rails.root, '/lib/postzord/receiver/public')
-  require File.join(Rails.root, '/lib/postzord/receiver/private')
+  require Rails.root.join('lib', 'diaspora', 'parser')
+  require Rails.root.join('lib', 'postzord', 'receiver', 'public')
+  require Rails.root.join('lib', 'postzord', 'receiver', 'private')
   include Diaspora::Parser
 
   # We use newrelic_ignore to prevent artifical RPM bloat; however,
