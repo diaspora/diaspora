@@ -1,6 +1,6 @@
 Given /^configuration parameter (\w+) is ([^ ]+)$/ do |key, value|
   require Rails.root.join('config',  "initializers", "_load_app_config.rb")
-  app_value = AppConfig[ key.to_sym]
+  app_value = AppConfig[key.to_sym]
   assert_equal value, app_value,
      "You must set #{key} to #{value} and kill running server"
 end

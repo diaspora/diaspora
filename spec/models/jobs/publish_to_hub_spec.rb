@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require "#{Rails.root}/lib/pubsubhubbub"
+require Rails.root.join('lib', 'pubsubhubbub')
 
 describe Jobs::PublishToHub do
   describe '.perform' do

@@ -1,9 +1,9 @@
-require File.join(Rails.root, 'lib', 'statistics' )
+require Rails.root.join('lib', 'statistics' )
 
 namespace :stats do
   desc 'Emails recent engagement statistics the admins'
   task :save_retention => :environment do
-    require File.join(Rails.root, 'app', 'mailers', 'notifier' )
+    require Rails.root.join('app', 'mailers', 'notifier' )
 
     return unless AppConfig[:admins].present? 
 
@@ -17,7 +17,7 @@ namespace :stats do
       end
     end
 
-    File.open(File.join(Rails.root, "tmp", "retention_stats_#{Time.now.strftime("%Y-%m-%d-%H:%M:%S-%Z")}.txt"), "w") do |file|
+    File.open(Rails.root.join("tmp", "retention_stats_#{Time.now.strftime("%Y-%m-%d-%H:%M:%S-%Z")}.txt"), "w") do |file|
       file << string
     end
   end
@@ -35,6 +35,6 @@ namespace :stats do
       end
     end
 
-    File.open("#{Rails.root}/tmp/top_actives.csv", 'w') {|f| f.write(string) }
+    File.open(Rails.root.join('tmp', 'top_actives.csv'), 'w') {|f| f.write(string) }
   end
 end

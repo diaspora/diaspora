@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-require File.join(Rails.root, 'lib/postzord/dispatcher')
+require Rails.root.join('lib', 'postzord', 'dispatcher')
 
 describe Postzord::Dispatcher do
   before do

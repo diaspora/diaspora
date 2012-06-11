@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'uri'
-require File.join(Rails.root, 'lib/hydra_wrapper')
+require Rails.root.join('lib', 'hydra_wrapper')
 
 module Jobs
   class HttpMulti < Base

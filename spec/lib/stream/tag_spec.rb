@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.join(Rails.root, 'spec', 'shared_behaviors', 'stream')
+require Rails.root.join('spec', 'shared_behaviors', 'stream')
 
 describe Stream::Tag do
   context 'with a user' do

@@ -6,7 +6,7 @@ namespace :migrations do
 
   desc 'copy all hidden share visibilities from share_visibilities to users. Can be run with the site still up.'
   task :copy_hidden_share_visibilities_to_users => [:environment] do
-    require File.join(Rails.root, 'lib', 'share_visibility_converter')
+    require Rails.root.join('lib', 'share_visibility_converter')
     ShareVisibilityConverter.copy_hidden_share_visibilities_to_users
   end
 

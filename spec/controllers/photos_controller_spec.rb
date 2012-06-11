@@ -19,7 +19,7 @@ describe PhotosController do
       @params = {
         :photo => {:aspect_ids => "all"},
         :qqfile => Rack::Test::UploadedFile.new(
-          File.join( Rails.root, "spec/fixtures/button.png" ),
+          Rails.root.join("spec", "fixtures", "button.png").to_s,
           "image/png"
         )
       }

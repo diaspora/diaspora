@@ -1,7 +1,7 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-require File.join(Rails.root, 'lib/messagebus/mailer')
+require Rails.root.join('lib', 'messagebus', 'mailer')
 
 Diaspora::Application.configure do
   config.action_mailer.default_url_options = {:protocol => AppConfig[:pod_uri].scheme,

@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, "lib", 'stream', "person")
+require Rails.root.join("lib", 'stream', "person")
 
 class PeopleController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :last_post]
@@ -13,7 +13,7 @@ class PeopleController < ApplicationController
   respond_to :js, :only => [:tag_index]
 
   rescue_from ActiveRecord::RecordNotFound do
-    render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
+    render :file => Rails.root.join('public', '404.html').to_s, :layout => false, :status => 404
   end
 
   helper_method :search_query
