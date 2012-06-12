@@ -85,8 +85,8 @@ module Diaspora
 
     # Stylesheets
     config.assets.precompile += [ "blueprint.css", "bootstrap.css", "bootstrap-complete.css",
-      "bootstrap-responsive.css", "default.css", "login.css", "mobile.css", "new-templates.css",
-      "rtl.css" ]
+      "bootstrap-responsive.css", "default.css", "error_pages.css", "login.css", "mobile.css",
+      "new-templates.css", "rtl.css" ]
 
     # Rails Admin - these assets need to be added here since the Engine initializer
     # doesn't run with initialize_on_precompile disabled. This list is taken
