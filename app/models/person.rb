@@ -71,7 +71,8 @@ class Person < ActiveRecord::Base
   # @note user is passed in here defensively
   scope :all_from_aspects, lambda { |aspect_ids, user|
     joins(:contacts => :aspect_memberships).
-         where(:contacts => {:user_id => user.id}, :aspect_memberships => {:aspect_id => aspect_ids})
+         where(:contacts => {:user_id => user.id}).
+         where(:aspect_memberships => {:aspect_id => aspect_ids})
   }
 
   scope :unique_from_aspects, lambda{ |aspect_ids, user|
@@ -81,10 +82,10 @@ class Person < ActiveRecord::Base
   #not defensive
   scope :in_aspects, lambda { |aspect_ids|
     joins(:contacts => :aspect_memberships).
-        where(:contacts => { :aspect_memberships => {:aspect_id => aspect_ids}})
+        where(:aspect_memberships => {:aspect_id => aspect_ids})
   }
 
-  scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:profile => {:tags => {:name => tag_name}}).where('profiles.searchable IS TRUE') }
+  scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:tags => {:name => tag_name}).where('profiles.searchable IS TRUE') }
 
   scope :who_have_reshared_a_users_posts, lambda{|user|
     joins(:posts).where(:posts => {:root_guid => StatusMessage.guids_for_author(user.person), :type => 'Reshare'} )
