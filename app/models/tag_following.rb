@@ -5,7 +5,7 @@ class TagFollowing < ActiveRecord::Base
   validates_uniqueness_of :tag_id, :scope => :user_id
 
   def self.user_is_following?(user, tagname)
-    tagname.nil? ? false : joins(:tag).where(:tags => {:name => tagname.downcase}, :user_id => user.id).exists?
+    tagname.nil? ? false : joins(:tag).where(:tags => {:name => tagname.downcase}).where(:user_id => user.id).exists?
   end
 
 end
