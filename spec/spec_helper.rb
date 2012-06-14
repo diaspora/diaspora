@@ -17,8 +17,8 @@ Spork.prefork do
 
   ENV["RAILS_ENV"] ||= 'test'
   require File.join(File.dirname(__FILE__), '..', 'config', 'environment') unless defined?(Rails)
-  require 'helper_methods'
-  require 'spec-doc'
+  require Rails.root.join('spec', 'helper_methods')
+  require Rails.root.join('spec', 'spec-doc')
   require 'rspec/rails'
   require 'webmock/rspec'
   require 'factory_girl'
