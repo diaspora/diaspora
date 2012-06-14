@@ -10,7 +10,7 @@
         %b= service.provider
         = t('services.index.logged_in_as')
         %b= service.nickname
-        = link_to t('services.index.disconnect'), service_path(service), :confirm => t('services.index.really_disconnect', :service => service.provider), :method => :delete
+        = link_to t('services.index.disconnect'), service_path(service), :data => { :confirm => t('services.index.really_disconnect', :service => service.provider) }, :method => :delete
   - else
     = t('services.index.no_services')
 

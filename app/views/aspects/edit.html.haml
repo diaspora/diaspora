@@ -20,7 +20,7 @@
   %br
   .bottom_submit_section
     .left
-      = button_to t('delete'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect'), :class => 'button delete'
+      = button_to t('delete'), @aspect, :method => "delete", :data => { :confirm => t('.confirm_remove_aspect') }, :class => 'button delete'
       - if @aspect.contacts_visible
         = link_to image_tag('icons/padlock-open.png', :height => 16, :width => 16, :id => "contact_visibility_padlock", :class => 'open', :title => t('.aspect_list_is_visible')),
                   aspect_toggle_contact_visibility_path(@aspect), :method => :put, :remote => true
