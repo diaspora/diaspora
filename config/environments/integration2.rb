@@ -32,7 +32,7 @@ Diaspora::Application.configure do
         "<#{self.class.name} - tooooo long>"
       end
     end
-    [ActionController::Base, ActionDispatch::RemoteIp::RemoteIpGetter, OmniAuth::Strategy, Warden::Proxy].each do |klazz|
+    [ActionController::Base, OmniAuth::Strategy, Warden::Proxy].each do |klazz|
       klazz.send(:include, SmallInspect)
     end
   end
