@@ -38,7 +38,7 @@ ko:
             person:
               invalid: ": 유효하지 않습니다."
             username:
-              invalid: ": 유효하지 않은 사용자명입니다. 로마자, 아라비아 숫자, 밑줄 문자(_)만 쓸 수 있습니다"
+              invalid: ": 유효하지 않은 사용자 이름입니다. 로마자, 아라비아 숫자, 밑줄 문자(_)만 쓸 수 있습니다"
               taken: ": 이미 쓰이고 있습니다."
   admins:
     admin_bar:
@@ -222,7 +222,7 @@ ko:
     destroy:
       failure: "해당 사용자를 무시하기를 멈출 수 없었습니다.  #evasion"
   bookmarklet:
-    explanation: "이 링크를 북마크로 추가하면 어디서든 디아스포라에 게시할 수 있습니다 => %{link}"
+    explanation: "이 링크를 북마크로 추가하면 어디서든 디아스포라에 게시할 수 있습니다 => %{link}."
     heading: "북마클릿"
     post_something: "디아스포라에 게시하기"
     post_success: "올렸습니다! 닫힙니다!"
@@ -499,7 +499,7 @@ ko:
     confirm_email:
       click_link: "새 이메일 주소 %{unconfirmed_email} 를 활성화하려면 이 링크를 따라가시기 바랍니다:"
       subject: "새 이메일 주소 %{unconfirmed_email} 를 활성화해주세요"
-    email_sent_by_diaspora: "디아스포라가 보낸 이메일입니다. 앞으로 받고싶지 않다면, 내 알림 설정을 바꾸기 위해"
+    email_sent_by_diaspora: "이 메일은 %{pod_name}팟에서 보냈습니다. 이런 메일을 받고싶지 않다면"
     hello: "%{name}님!"
     invite:
       message: |-
@@ -704,12 +704,12 @@ ko:
       enter_email: "이메일 주소를 입력하세요"
       enter_password: "암호를 입력하세요 (최소 여섯 자)"
       enter_password_again: "암호를 다시 입력하세요"
-      enter_username: "사용자명을 선택하세요 (로마자, 아라비아 숫자, 언더스코어만)"
+      enter_username: "사용자 이름을 고르세요 (로마자, 아라비아 숫자, 밑줄 문자_ 만)"
       join_the_movement: "합류하세요!"
       password: "암호"
       sign_up: "가입"
       sign_up_message: "소셜 네트워크♡"
-      username: "사용자명"
+      username: "사용자 이름"
   requests:
     create:
       sending: "공유를 요청하고 있습니다."
@@ -759,7 +759,7 @@ ko:
     failure:
       error: "서비스 연결중 에러가 발생했습니다."
     finder:
-      fetching_contacts: "디아스포라가 %{service} 서비스의 친구들을 채우고 있습니다. 몇 분 뒤에 다시 확인하시기 바랍니다."
+      fetching_contacts: "디아스포라가 %{service} 친구들을 채우고 있습니다. 몇 분 뒤에 다시 확인해주세요."
       no_friends: "페이스북 친구를 찾을 수 없습니다."
       service_friends: "%{service} 친구"
     index:
@@ -788,9 +788,9 @@ ko:
       add_new_contact: "새 컨택 추가"
       create_request: "디아스포라 아이디로 찾기"
       diaspora_handle: "diaspora@pod.org"
-      enter_a_diaspora_username: "디아스포라 사용자명을 입력하세요:"
+      enter_a_diaspora_username: "디아스포라 사용자 이름을 입력하세요:"
       know_email: "이메일 주소를 알면 초대할 수 있습니다!"
-      your_diaspora_username_is: "내 디아스포라 핸들: %{diaspora_handle}"
+      your_diaspora_username_is: "내 디아스포라 사용자 이름: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "컨택 추가"
       toggle:
@@ -951,7 +951,7 @@ ko:
       via: "(%{link}에서)"
       what_is_cubbies: "Cubbi.es 는 세계 최초의 디아스포라 애플리케이션입니다. 온라인으로 사진을 모을 수 있는 가장 좋은 방법이기도 합니다."
   undo: "돌이키겠습니까?"
-  username: "사용자명"
+  username: "사용자 이름"
   users:
     confirm_email:
       email_confirmed: "%{email} 이메일이 활성화되었습니다"
@@ -972,7 +972,7 @@ ko:
       close_account:
         dont_go: "제발 가지 마세요!"
         if_you_want_this: "정말로 없애고 싶다면 암호를 입력한 뒤 아래의 '계정 없애기'를 클릭하세요."
-        lock_username: "다시 가입할 때를 위해 사용자명을 잠급니다."
+        lock_username: "다시 가입할 때를 위해 사용자 이름을 잠급니다."
         locked_out: "로그아웃 된 뒤 내 계정이 잠깁니다."
         make_diaspora_better: "떠나는 것 대신 더 나은 디아스포라를 만들 수 있도록 도와주십시오. 떠나고 싶다면, 다음에 무슨 일이 일어나는지 알려드리겠습니다."
         mr_wiggles: "Mr Wiggles님이 내가 떠나는 걸 슬퍼할거에요"

@@ -8,7 +8,7 @@ zh-TW:
   _applications: "應用程式"
   _comments: "意見"
   _contacts: "聯絡人"
-  _home: "首頁"
+  _home: "我家"
   _photos: "相片"
   _services: "服務"
   account: "帳號"
@@ -40,6 +40,46 @@ zh-TW:
             username:
               invalid: "不被接受. 只能夠使用字母, 數字, 以及底線符號."
               taken: "已經被使用了."
+  admins:
+    admin_bar:
+      correlations: "關聯性"
+      pages: "分頁"
+      pod_stats: "Pod統計資料"
+      resque_overview: "Resque 狀態概要"
+      user_search: "使用者搜尋"
+      weekly_user_stats: "使用者統計週報"
+    correlations:
+      correlations_count: "與登入次數間的關聯"
+    stats:
+      2weeks: "兩個禮拜"
+      50_most: "最夯的50個標籤"
+      comments:
+        other: "%{count}個意見"
+        zero: "%{count}個意見"
+      current_segment: "目前時間區間在<b>%{post_day}</b>天中, 平均每個使用者有<b>%{post_yest}</b>則貼文"
+      daily: "一天"
+      display_results: "顯示時間區間<b>%{segment}</b>內的結果"
+      go: "衝"
+      month: "一個月"
+      posts:
+        other: "%{count}篇貼文"
+        zero: "%{count}篇貼文"
+      shares:
+        other: "分享%{count}次"
+        zero: "分享%{count}次"
+      tag_name: "標籤名: <b>%{name_tag}</b> 數目: <b>%{count_tag}</b>"
+      usage_statistic: "使用狀況統計"
+      users:
+        other: "%{count}個使用者"
+        zero: "%{count}個使用者"
+      week: "一個禮拜"
+    user_search:
+      add_invites: "增加邀請次數"
+      email_to: "寄電子郵件邀請"
+      users:
+        other: "找到%{count}個使用者"
+        zero: "找到%{count}個使用者"
+      you_currently: "你目前還可以邀請%{user_invitation}次 %{link}"
   ago: "%{time}前"
   all_aspects: "所有面向"
   application:
@@ -49,7 +89,7 @@ zh-TW:
       video_title:
         unknown: "影片標題不明"
   are_you_sure: "你確定嗎?"
-  are_you_sure_delete_account: "你確定要關閉帳號嗎? 沒辦法復原喔!"
+  are_you_sure_delete_account: "你確定要關帳號嗎? 沒辦法復原喔!"
   aspect_memberships:
     destroy:
       failure: "從面向中移除聯絡人失敗"
@@ -73,10 +113,10 @@ zh-TW:
     contacts_visible: "此面向中的聯絡人可以看見彼此."
     create:
       failure: "創造面向失敗."
-      success: "新的面向 %{name} 已經造出來了"
+      success: "新的面向%{name}已經造出來了"
     destroy:
-      failure: "無法刪除 %{name} 因為它不是空的."
-      success: "成功刪除 %{name} 了."
+      failure: "無法刪除%{name}, 因為它不是空的."
+      success: "成功刪除%{name}了."
     edit:
       add_existing: "加入既有聯絡人"
       aspect_list_is_not_visible: "面向中的其他人無法看見聯絡人列表"
@@ -102,11 +142,12 @@ zh-TW:
         content_1: "你的 Diaspora 識別碼是:"
         content_2: "把它給任何人,讓他/她們可以在 Diaspora 找到你."
         heading: "Diaspora 識別碼"
-      donate: "捐獻"
-      handle_explanation: "這是你的 diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
+      donate: "捐助"
+      handle_explanation: "這是你的 Diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
       help:
         do_you: "你是否:"
         email_feedback: "也可以%{link}你的意見來"
+        email_link: "寄信"
         feature_suggestion: "...想建議 %{link}?"
         find_a_bug: "...找到一隻 %{link}?"
         have_a_question: "...有個 %{link}?"
@@ -117,9 +158,11 @@ zh-TW:
         tag_question: "問題"
         tutorials_wiki_and_forum: "%{tutorial} 和 %{wiki} 和 %{forum}: 社群運作的入門, 指南, 與新聞網站"
       introduce_yourself: "這是你的流水帳. 跳進來介紹你自己吧."
+      keep_diaspora_running: "每月固定捐助讓 Diaspora 快速研發!"
+      keep_pod_running: "讓 %{pod} 高速運轉, 現在就開始固定每月捐助, 來供應伺服器的咖啡耗材吧!"
       new_here:
         follow: "追蹤 %{link} 來歡迎 Diaspora* 的新使用者!"
-        learn_more: "了解詳情"
+        learn_more: "進一步了解"
         title: "歡迎新使用者"
       no_contacts: "沒有任何聯絡人"
       no_tags: "+ 找個標籤來追蹤"
@@ -161,13 +204,17 @@ zh-TW:
       edit_aspect: "編輯面向"
     two: "%{count}個面向"
     update:
-      failure: "你的面向 %{name} 因名稱太長了無法儲存."
-      success: "你的面向 %{name} 已經編輯完成了."
+      failure: "你的面向%{name}因名稱太長了無法儲存."
+      success: "你的面向%{name}已經編輯完成了."
     zero: "沒有面向"
   authorizations:
     index:
       no_applications: "還沒註冊任何應用程式."
       revoke_access: "撤銷存取權"
+    new:
+      authorize: "授權"
+      cubbies_will: "Cubbies 將可以以你的身份發表相片"
+      nope: "不要"
   back: "後退"
   blocks:
     create:
@@ -177,9 +224,9 @@ zh-TW:
       failure: "我無法停止忽視這個使用者.  #藉口"
       success: "看看他們要說什麼吧! #打招呼"
   bookmarklet:
-    explanation: "%{link}加入書籤後可對任何網站使用."
+    explanation: "把這個可以貼任何網頁到 Diaspora 的連結加入書籤 => %{link}."
     heading: "書籤小程式"
-    post_something: "貼些東西到 Diaspora"
+    post_something: "貼到 Diaspora"
     post_success: "貼好了! 關掉中!"
   cancel: "取消"
   comments:
@@ -188,7 +235,7 @@ zh-TW:
     new_comment:
       comment: "發表意見"
       commenting: "意見發表中..."
-    one: "1則意見"
+    one: "1個意見"
     other: "%{count}則意見"
     two: "%{count}個意見"
     zero: "沒有意見"
@@ -199,10 +246,14 @@ zh-TW:
     index:
       add_a_new_aspect: "加入新面向"
       add_to_aspect: "加聯絡人到%{name}"
+      add_to_aspect_link: "加聯絡人到%{name}"
       all_contacts: "所有聯絡人"
+      community_spotlight: "社群焦點"
       many_people_are_you_sure: "你確定要進行跟%{suggested_limit}個聯絡人的私人對話? 貼文到該面向可能是跟他們聯絡比較好的方式."
       my_contacts: "我的聯絡人"
       no_contacts: "你好像應該要多加點聯絡人!"
+      no_contacts_message: "來看看 %{community_spotlight}"
+      no_contacts_message_with_aspect: "來看看 %{community_spotlight} 或是 %{add_to_aspect_link}"
       only_sharing_with_me: "和我分享的人"
       remove_person_from_aspect: "將 %{person_name} 從\"%{aspect_name}\"中移除"
       start_a_conversation: "開始對話"
@@ -254,7 +305,7 @@ zh-TW:
     formats:
       birthday_with_year: "%Y %B %d"
   delete: "刪除"
-  email: "電子郵件"
+  email: "電子信箱"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "修正以下錯誤後再試一次."
@@ -262,6 +313,8 @@ zh-TW:
   fill_me_out: "填寫我"
   find_people: "找人或 #標籤"
   hide: "隱藏"
+  invitation_codes:
+    excited: "%{name} 看到你來覺得很興奮."
   invitations:
     a_facebook_user: "Facebook 使用者"
     check_token:
@@ -279,9 +332,15 @@ zh-TW:
     new:
       already_invited: "這些人還沒接受你的邀請:"
       aspect: "面向"
+      check_out_diaspora: "來 Diaspora 看看吧!"
+      codes_left:
+        other: "還可以邀請%{count}個人"
+        zero: "不能邀請更多人了"
+      comma_separated_plz: "可以用逗號分隔來輸入多個電子信箱."
       if_they_accept_info: "如果他們接受, 就會被加入至你所邀請的面向中."
       invite_someone_to_join: "邀請某人來加入 Diaspora!"
       language: "語言"
+      paste_link: "將這個連結分享給你的朋友, 來邀請他們加入 Diaspora*, 或者也可以直接用電子郵件寄給他們."
       personal_message: "個人訊息"
       resend: "重寄"
       send_an_invitation: "寄出邀請函"
@@ -289,6 +348,7 @@ zh-TW:
       to: "收件人"
   layouts:
     application:
+      back_to_top: "回最上面"
       powered_by: "強力配置 DIASPORA*"
       public_feed: "%{name} 的 Diaspora 公開資訊源"
       toggle: "行動切換"
@@ -301,7 +361,7 @@ zh-TW:
       login: "登入"
       logout: "登出"
       profile: "個人檔案"
-      recent_notifications: "最近消息"
+      recent_notifications: "最新消息"
       settings: "設定"
       view_all: "檢視全部"
   likes:
@@ -317,9 +377,9 @@ zh-TW:
         few: "有%{count}個讚"
         many: "有%{count}個讚"
         one: "有%{count}個讚"
-        other: "有%{count}個讚"
+        other: "有%{count}個人說讚"
         two: "%{count}個讚"
-        zero: "沒有讚"
+        zero: "沒人說讚"
       people_like_this_comment:
         few: "有%{count}個人說讚"
         many: "有%{count}個人說讚"
@@ -371,6 +431,7 @@ zh-TW:
         two: "以及其他%{count}個"
         zero: "以外沒有其他人"
       mark_all_as_read: "全部標示為看過了"
+      mark_unread: "標示為沒看過"
       notifications: "消息"
     liked:
       few: "%{actors} 說你的%{post_link}很讚."
@@ -383,9 +444,9 @@ zh-TW:
       few: "%{actors}說你刪掉了的貼文很讚."
       many: "%{actors}說你刪掉了的貼文很讚."
       one: "%{actors}說你刪掉了的貼文很讚."
-      other: "%{actors}說你刪掉了的貼文很讚."
+      other: "%{actors} 說你刪掉了的貼文很讚."
       two: "%{actors} 說你刪掉的貼文很讚."
-      zero: "%{actors}說你刪掉了的貼文很讚."
+      zero: "%{actors} 說你刪掉了的貼文很讚."
     mentioned:
       few: "%{actors} 在%{post_link}中點到了你."
       many: "%{actors} 在%{post_link}中點到了你."
@@ -405,9 +466,9 @@ zh-TW:
       few: "%{actors}寫了訊息給你."
       many: "%{actors}寫了訊息給你."
       one: "%{actors}寫了訊息給你."
-      other: "%{actors}寫了訊息給你."
+      other: "%{actors} 寫了訊息給你."
       two: "%{actors} 送了一則訊息給你."
-      zero: "%{actors}寫了訊息給你."
+      zero: "%{actors} 寫了訊息給你."
     reshared:
       few: "%{actors} 轉貼了你的%{post_link}."
       many: "%{actors} 轉貼了你的%{post_link}."
@@ -430,15 +491,33 @@ zh-TW:
       two: "%{actors} 開始和你分享了."
       zero: "%{actors}開始跟你分享了."
   notifier:
-    a_post_you_shared: "一則貼文."
+    a_post_you_shared: "一篇貼文."
+    accept_invite: "接受 Diaspora* 的邀請吧!"
     click_here: "按這裡"
     comment_on_post:
       reply: "回或看 %{name} 的貼文 >"
     confirm_email:
-      click_link: "請使用以下連結, 來啟用你新的電子郵件信箱 %{unconfirmed_email}:"
+      click_link: "請使用以下連結, 來啟用你新的電子信箱 %{unconfirmed_email}:"
       subject: "請啟用你新的電子信箱 %{unconfirmed_email}"
-    email_sent_by_diaspora: "這封電子郵件是從 Diaspora 寄出. 如果你不想再收到這類的信件,"
-    hello: "%{name}你好!"
+    email_sent_by_diaspora: "這封電子郵件是從 %{pod_name} 寄出. 如果你不想再收到這類的信件,"
+    hello: "%{name} 你好!"
+    invite:
+      message: |-
+          嗨!
+
+          你被邀請加入 Diaspora* 了!
+
+          請按這個連結來開始使用吧
+
+          [%{invite_url}][1]
+
+
+          祝順利!
+
+          Diaspora* 電郵機器人敬上.
+
+          [1]: %{invite_url}
+    invited_you: "%{name} 邀請你來用 Diaspora*"
     liked:
       liked: "%{name} 說你的貼文很讚"
       view_post: "看貼文 >"
@@ -459,11 +538,14 @@ zh-TW:
       view_profile: "看 %{name} 的個人檔案"
     thanks: "謝謝,"
     to_change_your_notification_settings: "來更改消息通知的設定"
+  nsfw: "NSFW(上班時不宜)"
   ok: "好了"
   or: "或是"
   password: "密碼"
   password_confirmation: "密碼確認"
   people:
+    add_contact:
+      invited_by: "邀請你的使用者"
     add_contact_small:
       add_contact_from_tag: "從標籤新增聯絡人"
     aspect_list:
@@ -478,6 +560,8 @@ zh-TW:
       no_one_found: "...找不到任何東西."
       no_results: "嘿! 搜尋要有目標."
       results_for: "搜尋結果:"
+      searching: "搜尋中, 請耐心等待..."
+    last_post: "最近貼文"
     many: "%{count}個聯絡人"
     one: "1個聯絡人"
     other: "%{count}個聯絡人"
@@ -504,12 +588,12 @@ zh-TW:
       mention: "指指點點"
       message: "送訊息"
       not_connected: "你不跟這個人分享"
-      recent_posts: "最近貼文"
-      recent_public_posts: "最近公開貼文"
+      recent_posts: "最新貼文"
+      recent_public_posts: "最新公開貼文"
       return_to_aspects: "回你的面向主頁"
       see_all: "看全部"
       start_sharing: "開始分享"
-      to_accept_or_ignore: "接受或不管它."
+      to_accept_or_ignore: "接受或不理它."
     sub_header:
       add_some: "加入一些"
       edit: "編輯"
@@ -553,17 +637,20 @@ zh-TW:
       error: "相片編輯失敗."
       notice: "相片更新成功."
   posts:
+    presenter:
+      title: "來自 %{name} 的貼文"
     show:
       destroy: "刪除"
-      not_found: "抱歉,找不到該則貼文."
+      not_found: "抱歉, 找不到該篇貼文."
       permalink: "靜態連結"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
+        other: "%{author} 拍的%{count}張相片"
         two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        zero: "沒有 %{author} 拍的相片"
+      reshare_by: "%{author} 轉貼"
   previous: "前面"
   privacy: "隱私"
   privacy_policy: "隱私方案"
@@ -575,6 +662,8 @@ zh-TW:
       first_name: "名字(前)"
       last_name: "名字(後)"
       update_profile: "更新個人檔案"
+      you_are_nsfw: "你將自己標記為上班時不宜了, 如果有人選擇要過濾掉爭議性的內容, 你所發表的東西將不會出現在他們的流水帳中."
+      you_are_safe_for_work: "你將自己標記為上班時適宜了, 表示你同意你發表的內容符合社群共識."
       your_bio: "你的自我介紹"
       your_birthday: "你的生日"
       your_gender: "你的性別"
@@ -607,21 +696,27 @@ zh-TW:
       password_to_confirm: "(我們需要你目前的密碼以確認你要變更)"
       unhappy: "不滿意?"
       update: "更新"
+    invalid_invite: "你提供的邀請連結已經失效了!"
     new:
+      continue: "繼續"
       create_my_account: "開我的帳號!"
+      email: "電子信箱"
       enter_email: "輸入電子信箱"
-      enter_password: "輸入密碼"
+      enter_password: "輸入密碼(至少六個字)"
       enter_password_again: "輸入與前面相同的密碼"
       enter_username: "選個使用者名稱(名稱只能包含拉丁字母,數字,以及底線字元)"
       join_the_movement: "參加這個行動!"
+      password: "密碼"
+      sign_up: "註冊"
       sign_up_message: "有♥的社交網路"
+      username: "使用者名稱"
   requests:
     create:
       sending: "傳送中"
       sent: "你已經要求要和 %{name} 分享了. 他們下次登入 Diaspora 時就會看見."
     destroy:
       error: "請選一個面向!"
-      ignore: "忽略建立聯繫的請求."
+      ignore: "不理會建立聯繫的請求."
       success: "你們現在互相分享了."
     helper:
       new_requests:
@@ -718,9 +813,11 @@ zh-TW:
       invite_your_friends: "邀請你的朋友"
       invites: "邀請"
       invites_closed: "目前本 Diaspora pod 不開放邀請功能"
+      share_this: "用這個連結來分享在電子郵件, 部落格, 或其他你喜愛的社交網站上!"
     notification:
       new: "%{from} 有新的%{type}"
     public_explain:
+      atom_feed: "Atom 資訊源"
       control_your_audience: "控制你的聽眾"
       logged_in: "已登入至 %{service}"
       manage: "管理已連線的服務"
@@ -756,10 +853,13 @@ zh-TW:
       ignore_user: "忽視 %{name}"
       ignore_user_description: "是否要忽視該使用者, 並將其從所有面向中移除?"
       like: "讚"
+      nsfw: "這篇貼文被作者標示為 NSFW (上班時不宜). %{link}"
       shared_with: "分享給: %{aspect_names}"
+      show: "顯示"
       unlike: "收回讚"
       via: "經由%{link}"
-      viewable_to_anyone: "任何網頁使用者都能看到這則貼文"
+      via_mobile: "經由行動裝置"
+      viewable_to_anyone: "任何上網的人都能看到這篇貼文"
   status_messages:
     create:
       success: "成功推薦了: %{names}"
@@ -782,10 +882,12 @@ zh-TW:
       few: "顯示另外 %{count} 個意見"
       many: "顯示另外 %{count} 個意見"
       one: "顯示另外一個意見"
-      other: "顯示另外 %{count} 個意見"
+      other: "顯示另外%{count}個意見"
       two: "顯示另外兩個意見"
       zero: "沒有其它意見"
   streams:
+    activity:
+      title: "我的活動"
     aspects:
       title: "你的面向"
     aspects_stream: "面向"
@@ -801,7 +903,7 @@ zh-TW:
     followed_tags_stream: "#追蹤中的標籤"
     like_stream:
       contacts_title: "你說讚的貼文作者"
-      title: "按讚流水帳"
+      title: "讚的流水帳"
     mentioned_stream: "@指指點點"
     mentions:
       contacts_title: "對你指指點點過的人"
@@ -847,14 +949,14 @@ zh-TW:
       typical_userpage: "典型的 cubbi.es 個人頁面"
       via: "(經由%{link})"
       what_is_cubbies: "Cubbi.es 是世界上第一個 Diaspora 應用程式. 它也是收集線上照片的最佳方式."
-  undo: "復原?"
+  undo: "要復原?"
   username: "使用者名稱"
   users:
     confirm_email:
-      email_confirmed: "E-Mail %{email} 已經啟用了"
-      email_not_confirmed: "無法啟用E-Mail. 連結有誤嗎?"
+      email_confirmed: "電子信箱 %{email} 已經啟用了"
+      email_not_confirmed: "無法啟用電子信箱. 連結有誤嗎?"
     destroy:
-      no_password: "請輸入你目前的密碼來關閉帳號."
+      no_password: "請輸入你目前的密碼來關帳號."
       success: "你的帳號已經鎖定了. 完成關閉帳號大約還需要 20 分鐘的時間. 感謝你試用 Diaspora."
       wrong_password: "輸入的密碼與你目前的密碼不符."
     edit:
@@ -862,18 +964,27 @@ zh-TW:
       auto_follow_aspect: "給被自動追蹤的使用者的面向:"
       auto_follow_back: "當有人追蹤你時自動反追蹤回去"
       change: "更改"
-      change_email: "更改E-Mail"
+      change_email: "更改電子信箱"
       change_language: "更改語言"
       change_password: "更改密碼"
+      character_minimum_expl: "至少要六個字"
       close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      close_account_text: "關閉帳號"
+        dont_go: "啊, 請不要走!"
+        if_you_want_this: "如果你真的這麼希望, 請在下面輸入你的密碼, 然而按'關帳號'"
+        lock_username: "你的使用者名稱會被鎖定, 不能重註冊."
+        locked_out: "接下來你會被登出, 帳號會被關掉."
+        make_diaspora_better: "希望你能幫助我們讓 Diaspora 更好, 而不是選擇離開. 如果你還是想走, 我們也想讓你知道以後的發展."
+        mr_wiggles: "Mr Wiggles 看到你走會很難過"
+        no_turning_back: "現在已經不能回頭了."
+        what_we_delete: "我們會儘快刪掉你的貼文和個人檔案. 你發表的意見會繼續跟著原來的 Diaspora 識別碼而留著."
+      close_account_text: "關帳號"
       comment_on_post: "...當有人對你的貼文發表意見時?"
       current_password: "目前密碼"
+      current_password_expl: "登入時那一個..."
       download_photos: "下載我的相片"
       download_xml: "下載我的 xml"
       edit_account: "編輯帳號"
-      email_awaiting_confirmation: "我們已經將啟用連結寄到 %{unconfirmed_email} 給你. 在你使用該連結啟用新的位址之前, 我們還會繼續使用你原來的位址, 也就是 %{email}."
+      email_awaiting_confirmation: "我們已經將啟用連結寄到 %{unconfirmed_email} 給你. 在你使用該連結啟用新的信箱之前, 我們還會繼續使用你原來的信箱, 也就是 %{email}."
       export_data: "資料匯出"
       following: "追蹤設定"
       getting_started: "新使用者偏好設定"
@@ -918,8 +1029,8 @@ zh-TW:
       password_not_changed: "密碼更改失敗"
       settings_not_updated: "設定更新失敗"
       settings_updated: "設定更新了"
-      unconfirmed_email_changed: "E-Mail更改了. 必須要啟動使用."
-      unconfirmed_email_not_changed: "E-Mail更改失敗"
+      unconfirmed_email_changed: "電子信箱更改了. 必須要啟動使用."
+      unconfirmed_email_not_changed: "電子信箱更改失敗"
   webfinger:
     fetch_failed: "擷取 %{profile_url} 的 webfinger 個人檔案失敗"
     hcard_fetch_failed: "擷取 %{account} 的 hcard 資料時發生錯誤"
@@ -927,3 +1038,6 @@ zh-TW:
     not_enabled: "%{account} 的主機似乎沒有啟用 webfinger"
     xrd_fetch_failed: "從 %{account} 這個帳號取得 xrd 時發生錯誤"
   welcome: "歡迎光臨!"
+  will_paginate:
+    next_label: "後面 &raquo;"
+    previous_label: "&laquo; 前面"

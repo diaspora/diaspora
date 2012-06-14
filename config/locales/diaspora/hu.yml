@@ -107,6 +107,7 @@ hu:
       edit_aspect: "Szerkesztés %{name}"
       select_all: "Mindent kijelöl"
     aspect_stream:
+      make_something: "Csinálj valamit"
       stay_updated: "Légy naprakész!"
       stay_updated_explanation: "A Hírfolyamodban megjelennek az ismerőseid bejegyzései, követett címkéid és a Reflektorfényben szereplő személyek bejegyzései."
     contacts_not_visible: "A csoporttagok nem láthatják egymást."
@@ -501,7 +502,7 @@ hu:
     confirm_email:
       click_link: "Ahhoz, hogy aktiváld az új email címedet (%{unconfirmed_email}), kattints erre a linkre:"
       subject: "Kérlek aktiváld az új email címedet: %{unconfirmed_email}"
-    email_sent_by_diaspora: "Ezt az emailt a Diaspora küldte. Ha nem szeretnél ilyen leveleket kapni,"
+    email_sent_by_diaspora: "Ezt az emailt a %{pod_name} küldte. Ha nem szeretnél ilyen leveleket kapni,"
     hello: "Szia %{name}!"
     invite:
       message: |-

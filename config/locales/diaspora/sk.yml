@@ -117,6 +117,7 @@ sk:
       edit_aspect: "Upraviť %{name}"
       select_all: "Označiť všetky"
     aspect_stream:
+      make_something: "Urobte niečo"
       stay_updated: "Buďte v obraze"
       stay_updated_explanation: "Na svojej hlavnej nástenke nájdete všetky svoje kontakty, značky, ktoré sledujete,  a príspevky od niektorých tvorivých členov komunity."
     contacts_not_visible: "Kontakty v tejto kategórii sa nebudú môcť navzájom vidieť."

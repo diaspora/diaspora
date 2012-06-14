@@ -112,6 +112,7 @@ es-AR:
       edit_aspect: "Editar %{name}"
       select_all: "Seleccionar todo"
     aspect_stream:
+      make_something: "Haz algo"
       stay_updated: "Mantenete actualizado"
       stay_updated_explanation: "En tu stream principal aparecen las publicaciones de tus contactos, más las de las etiquetas que sigues, y si lo deseas, las de algunos miembros creativos de la comunidad."
     contacts_not_visible: "Los contactos en este aspecto no van a poder verse entre ellos."
@@ -507,7 +508,7 @@ es-AR:
     confirm_email:
       click_link: "Para activar tu nueva dirección de correo %{unconfirmed_email}, por favor seguí este enlace::"
       subject: "Por favor, activá tu nueva dirección de correo %{unconfirmed_email}"
-    email_sent_by_diaspora: "Este correo fue enviado por Diáspora.  Si querés dejar de recibir correos como este,"
+    email_sent_by_diaspora: "Este correo electrónico fue enviado por %{pod_name}. Si quieres dejar de recibir correos como este,"
     hello: "¡Hola %{name}!"
     invite:
       message: |-
@@ -767,7 +768,7 @@ es-AR:
     failure:
       error: "hubo un error al conectar al servicio"
     finder:
-      fetching_contacts: "Diaspora está tomando sus contactos de %{service} por favor volvé en unos minutos."
+      fetching_contacts: "Diaspora está trasladando tus contactos de %{service}, por favor regresa en unos minutos."
       no_friends: "No se han encontrado contactos de Facebook."
       service_friends: "%{service} Amigos"
     index:

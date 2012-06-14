@@ -38,6 +38,7 @@ nl:
       preparing_your_stream: "Je gepersonaliseerde stream klaarmaken..."
     header:
       admin: "Beheer"
+      close: "sluit"
       contacts: "Contacten"
       home: "Home"
       log_out: "Uitloggen"
@@ -54,6 +55,8 @@ nl:
       no_more: "Geen berichten meer."
     my_activity: "Mijn activiteit"
     my_stream: "Stream"
+    people:
+      not_found: "en niemand is gevonden..."
     photo_uploader:
       looking_good: "Wow, wat ben je knap!"
     publisher:
@@ -62,6 +65,8 @@ nl:
       public: "Openbaar - je post is zichtbaar voor iedereen en kan gevonden worden door zoekmachines"
     reshares:
       duplicate: "Je hebt dit bericht al doorgegeven! Is hij echt zo goed?"
+      post: "Deel <%= name %>'s bericht?"
+      successful: "Het bericht is gedeeld!"
     search_for: "Zoek naar <%= name %>"
     show_more: "laat meer zien"
     stream:
@@ -117,6 +122,7 @@ nl:
     viewer:
       comment: "Reageren"
       follow_post: "Volgen"
+      home: "HOME"
       like: "Vind ik leuk"
       reshare: "Doorgeven"
       reshared: "Doorgegeven"

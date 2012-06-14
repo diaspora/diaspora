@@ -117,6 +117,7 @@ pl:
       edit_aspect: "Edycja %{name}"
       select_all: "Zaznacz wszystkie"
     aspect_stream:
+      make_something: "Zrób coś"
       stay_updated: "Bądź na bieżąco"
       stay_updated_explanation: "Główny strumień jest wypełniony przez wszystkie Twoje kontakty, znaczniki które obserwujesz i wpisy które niektórych bardziej kreatywnych członków społeczności."
     contacts_not_visible: "Kontakty z tego aspektu nie będą dla siebie widoczne."
@@ -462,10 +463,10 @@ pl:
       two: "%{actors} polubili Twój usunięty wpis."
       zero: "%{actors} polubiło Twój usunięty wpis."
     mentioned:
-      few: "%{actors} wspomnieli o Tobie we %{post_link}."
-      one: "%{actors} wspomniał(a) o Tobie we %{post_link}."
-      other: "%{actors} wspomnieli o Tobie we %{post_link}."
-      zero: "%{actors} wspomnia@{m:ł|f:ła|n:ł} o Tobie we %{post_link}."
+      few: "%{actors} wspomnieli o Tobie we %{post_link}ie."
+      one: "%{actors} wspomniał(a) o Tobie we %{post_link}ie."
+      other: "%{actors} wspomnieli o Tobie we %{post_link}ie."
+      zero: "%{actors} wspomnia@{m:ł|f:ła|n:ł} o Tobie we %{post_link}ie."
     mentioned_deleted:
       few: "%{actors} wspomnieli o tobie w już usuniętym wpisie."
       many: "%{actors} wspomnieli o tobie w już usuniętym wpisie."
@@ -511,7 +512,7 @@ pl:
     confirm_email:
       click_link: "Aby aktywować nowy adres e-mail %{unconfirmed_email}, kliknij te łącze:"
       subject: "Aktywuj nowy adres e-mail %{unconfirmed_email}"
-    email_sent_by_diaspora: "Ta wiadomość została wysłana przez Diasporę. Jeśli nie chcesz otrzymywać takich wiadomości,"
+    email_sent_by_diaspora: "Ta wiadomość została wysłana przez %{pod_name}. Jeśli nie chcesz otrzymywać takich wiadomości,"
     hello: "Cześć %{name}!"
     invite:
       message: |-

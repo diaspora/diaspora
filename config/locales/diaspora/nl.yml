@@ -40,6 +40,37 @@ nl:
             username:
               invalid: "is ongeldig. We staan alleen letters, nummers, en underscores toe."
               taken: "is al in gebruik."
+  admins:
+    admin_bar:
+      pages: "Pagina's"
+      pod_stats: "Pod Statistieken"
+      user_search: "Gebruiker Zoeken"
+      weekly_user_stats: "Wekelijkse Gebruiker Statistieken"
+    stats:
+      2weeks: "2 Weken"
+      50_most: "50 Meest Populaire Tags"
+      comments:
+        one: "%{count} reactie"
+        other: "%{count} reacties"
+        zero: "%{count} reacties"
+      daily: "Dagelijks"
+      go: "gaan"
+      month: "Maand"
+      posts:
+        one: "%{count} bericht"
+        other: "%{count} berichten"
+        zero: "%{count} berichten"
+      tag_name: "Tag Naam: <b>%{name_tag}</b> Count: <b>%{count_tag}</b>"
+      usage_statistic: "Verbruiks Statistieken"
+      users:
+        one: "%{count} gebruiker"
+        other: "%{count} gebruikers"
+        zero: "%{count} gebruikers"
+      week: "Week"
+    user_search:
+      users:
+        one: "%{count} gebruiker gevonden"
+        other: "%{count} gebruikers gevonden"
   ago: "%{time} geleden"
   all_aspects: "Alle Aspecten"
   application:
@@ -67,6 +98,7 @@ nl:
       edit_aspect: "Bewerk %{name}"
       select_all: "Selecteer alles"
     aspect_stream:
+      make_something: "Schrijf iets"
       stay_updated: "Blijf up-to-date"
       stay_updated_explanation: "Je standaard stream is gevuld met al je contacten, tags die je volgt, en berichten van een aantal creatieve leden van de community."
     contacts_not_visible: "Contacten in dit aspect zullen elkaar niet kunnen zien."
@@ -107,6 +139,7 @@ nl:
       help:
         do_you: "Heb je:"
         email_feedback: "%{link} jouw feedback, als dat jou voorkeur heeft."
+        email_link: "E-mail"
         feature_suggestion: "... een %{link} suggestie?"
         find_a_bug: "... een %{link} gevonden?"
         have_a_question: "... een %{link}?"
@@ -117,6 +150,7 @@ nl:
         tag_question: "vraag"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-gedreven tutorials, instructies, en nieuws."
       introduce_yourself: "Dit is jouw Stream.  Spring erin en introduceer jezelf."
+      keep_diaspora_running: "Houdt de Diaspora ontwikkeling snel met een maandelijkse bijdrage!"
       new_here:
         follow: "Volg %{link} en verwelkom nieuwe Diaspora* gebruikers!"
         learn_more: "Meer informatie"
@@ -168,6 +202,10 @@ nl:
     index:
       no_applications: "Je hebt nog geen applicaties geregistreerd."
       revoke_access: "Toegang Terugdraaien"
+    new:
+      authorize: "Machtigen"
+      cubbies_will: "Cubbies is gemachtigd om foto's te plaatsen namens jou"
+      nope: "Nee"
   back: "Terug"
   blocks:
     create:
@@ -265,6 +303,8 @@ nl:
   fill_me_out: "Vul me in!"
   find_people: "Vind mensen of #tags"
   hide: "Verbergen"
+  invitation_codes:
+    excited: "%{name} is blij je hier te zien."
   invitations:
     a_facebook_user: "Een Facebook gebruiker"
     check_token:
@@ -283,6 +323,7 @@ nl:
       already_invited: "De volgende mensen hebben je uitnodiging niet geaccepteerd:"
       aspect: "Aspect"
       check_out_diaspora: "Kijk eens naar Diaspora!"
+      comma_separated_plz: "Je kan meerdere e-mail adressen toevoegen door ze te scheiden door komma's"
       if_they_accept_info: "als hij of zij accepteert zal hij of zij toegevoegd worden aan het aspect waarvoor je hem of haar uitgenodigd hebt."
       invite_someone_to_join: "Nodig iemand uit om lid te worden op Diaspora!"
       language: "Taal"
@@ -376,6 +417,7 @@ nl:
         two: "en %{count} anderen"
         zero: "en niemand anders"
       mark_all_as_read: "Markeer alles gelezen"
+      mark_unread: "Markeer ongelezen"
       notifications: "Notificaties"
     liked:
       one: "%{actors} vind jou %{post_link} leuk."
@@ -427,6 +469,7 @@ nl:
       zero: "%{actors} deelt nu met jou."
   notifier:
     a_post_you_shared: "een bericht."
+    accept_invite: "Accepteer Jouw Diaspora* uitnodiging!"
     click_here: "klik hier"
     comment_on_post:
       reply: "Reageer of bekijk %{name}'s bericht >"
@@ -435,6 +478,22 @@ nl:
       subject: "Activeer je nieuwe e-mailadres alstublieft %{unconfirmed_email}"
     email_sent_by_diaspora: "Deze mail is gestuurd door Diaspora.  Als je dit soort email's niet meer wilt ontvangen,"
     hello: "Hoi %{name}!"
+    invite:
+      message: |-
+          Hallo!
+
+          Je bent uitgenodigd om lid te worden van Diaspora*!
+
+          Click op deze link om te starten
+
+          [%{invite_url}][1]
+
+          Liefs,
+
+          De Diaspora* email robot!
+
+          [1]: %{invite_url}
+    invited_you: "%{name} heeft je uitgenodigd voor Diaspora*"
     liked:
       liked: "%{name} vind jou post leuk"
       view_post: "Bekijk bericht >"
@@ -461,6 +520,8 @@ nl:
   password: "Wachtwoord"
   password_confirmation: "Wachtwoordbevestiging"
   people:
+    add_contact:
+      invited_by: "Je bent uitgenodigd door"
     add_contact_small:
       add_contact_from_tag: "contact toevoegen van tag"
     aspect_list:
@@ -475,6 +536,8 @@ nl:
       no_one_found: "...en je hebt niemand gevonden."
       no_results: "Heey! Je moet wel ergens naar zoeken."
       results_for: "zoekresultaten voor"
+      searching: "zoeken, even geduld..."
+    last_post: "Laatste Bericht"
     many: "%{count} mensen"
     one: "1 persoon"
     other: "%{count} mensen"
@@ -550,6 +613,8 @@ nl:
       error: "Foto veranderen niet gelukt."
       notice: "Foto succesvol veranderd."
   posts:
+    presenter:
+      title: "Een bericht van %{name}"
     show:
       destroy: "Verwijder"
       not_found: "Sorry, dat bericht konden we niet vinden."
@@ -608,13 +673,20 @@ nl:
       unhappy: "Ontevreden?"
       update: "Bijwerken"
     new:
+      continue: "Ga door"
       create_my_account: "Maak mijn account aan!"
+      diaspora: "<3 Diaspora*"
+      email: "E-MAIL"
       enter_email: "Vul een e-mailadres in"
-      enter_password: "Vul een wachtwoord in"
+      enter_password: "Vul een wachtwoord in (zes karakters minimaal)"
       enter_password_again: "Vul hetzelfde wachtwoord nogmaals in"
       enter_username: "Kies een gebruikersnaam (alleen letters, nummers, en underscores)"
+      hey_make: "HEEY,<br/>MAAK<br/>IETS"
       join_the_movement: "Sluit je aan!"
+      password: "WACHTWOORD"
+      sign_up: "AANMELDEN"
       sign_up_message: "Social Networking met een ♥"
+      username: "GEBRUIKERSNAAM"
   requests:
     create:
       sending: "Versturen..."
@@ -716,6 +788,7 @@ nl:
       invite_your_friends: "Nodig je vrienden uit"
       invites: "Uitnodigingen"
       invites_closed: "Uitnodigingen zijn momenteel gesloten voor deze Diaspora pod"
+      share_this: "Deel deze link via e-mail, blog, of favoriet sociaal netwerk"
     notification:
       new: "Nieuw %{type} van %{from}"
     public_explain:
@@ -760,6 +833,7 @@ nl:
       show: "laat zien"
       unlike: "vind ik niet meer leuk"
       via: "via %{link}"
+      via_mobile: "via mobiel"
       viewable_to_anyone: "Deze post is zichtbaar voor iedereen op het internet"
   status_messages:
     create:
@@ -868,6 +942,7 @@ nl:
       change_email: "Verander e-mailadres"
       change_language: "Taal wijzigen"
       change_password: "Verander wachtwoord"
+      character_minimum_expl: "moet ten minste zes karakters bevatten"
       close_account:
         dont_go: "Hey, ga alsjeblieft niet weg!"
         if_you_want_this: "Als je dit echt wilt, typ je wachtwoord onder in en klik 'Sluit Account'"

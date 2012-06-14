@@ -9,12 +9,12 @@ eo:
     confirmations:
       confirmed: "Via konto estis sukcese konfirmita. Vi nun estas ensalutinta."
       new:
-        resend_confirmation: "Resendi instruojn por konfirmi"
+        resend_confirmation: "Resendi instrukciojn por konfirmi"
       send_instructions: "Vi post kelkaj minutoj ricevos instrukciojn pri kiel konfirmi vian konton."
     failure:
       inactive: "Via konto ankoraŭ ne konfirmiĝis."
       invalid: "Nevalida uzantnomo aŭ pasvorto."
-      invalid_token: "Malvalida aŭtentiga ĵetono."
+      invalid_token: "Malvalida identiga ĵetono."
       locked: "Via konto estas ŝlosita."
       timeout: "Via seanco senvalidiĝis. Bonvolu ree ensaluti por daŭrigi."
       unauthenticated: "Vi devas ensaluti aŭ enskribiĝi antaŭ ol daŭrigi."
@@ -31,31 +31,42 @@ eo:
       hello: "Saluton, %{email}!"
       invitation_instructions:
         accept: "Akcepti inviton"
-        be_yourself_paragraph: "La interreto keris unikajn rimedojn por sin esprimi. %{strong_diaspora} kapabligas vin esti vi mem kaj komunigi kiel vi volas, kun aŭ sen via vera nomo."
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        arrived: "La socia reto, kiun vi atendadis, fine alvenis. Renovigita, pli sekura kaj pli amuza, %{strong_diaspora} estas preta por helpi vin konigi aferojn al aliaj kaj esplori la interreton en tute nova maniero."
+        be_yourself: "Estu vi mem"
+        be_yourself_paragraph: "La interreto kreis unikajn rimedojn por sin esprimi. %{strong_diaspora} kapabligas vin esti vi mem kaj konigi al aliaj kiel vi volas, kun aŭ sen via vera nomo."
+        cubbies: "Cubbi.es-programeto"
+        displaying_correctly: "Ĉu la retmesaĝo ne estas ĝuste montrata? %{link}"
+        email_address: "questions@joindiaspora.com"
+        email_us: "Por ĝeneralaj demandoj aŭ subteno por via Diaspora-konto bv. retmesaĝi al ni per %{email}."
         finally: "Finfine - ĝi alvenis"
         friends_saying: "Kion viaj amikoj diras..."
         get_connected: "Konektiĝu"
+        get_connected_paragraph: "Kiel internacia movado kun komuna vizio pri pli bona interreto la ĉefa trajto de %{strong_diaspora} estas ĝia komuneco. Renkontu novajn homojn, konektiĝu kun amikoj kaj partoprenu en la plezuro."
         have_fun: "Amuziĝu"
-        help_fund: "subteni Diaspora"
+        have_fun_paragraph: "%{strong_diaspora} estas por malkovri mirigajn novajn informojn kaj homojn enrete. %{link}, la tutmonde unua %{strong_diaspora}-programo estas nur la komenco. Kolektiĝu kaj konigu la reton en sia tuta gloro."
+        help_fund: "subteni al Diaspora"
         here: "ĉi tie"
         ignore: "Se vi ne volas akcepti tiun inviton, bonvolu ignori ĉi tiun retpoŝton"
-        join_team: "Angiu nian teamon"
+        join_team: "Aniĝu al nia teamo"
         love: "Amo,"
         made_by_people: "%{strong_diaspora} kreiĝis de homoj kiuj amas la interreton same kiel vi. %{jointeam}, aŭ %{helpfund}!"
+        more_people: "Eĉ pli da homoj estas ekscititaj vidi vin!"
         no_account_till: "Via konto ne kreiĝos ĝis vi iras al la supra ligilo kaj enskribiĝas."
         or: "aŭ"
         sign_up_now: "Enskribiĝi nun &rarr;"
         subject: "Vi invitiĝis aniĝi al DIASPORA*!"
-        view_in: "Rigardi en"
+        team_diaspora: "Teamo de DIASPORA"
+        unsubscribe: "Por malaboni bv. klaki %{link}."
+        view_in: "Rigardi tion en via retumilo."
       inviter:
         accept_at: "ĉe %{url}, vi povas akcepti ĝin per la suba ligilo."
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} invitis vin aniĝi je DIASPORA*"
       reset_password_instructions:
         change: "Ŝanĝi mian pasvorton"
-        ignore: "Se vi ne petis ĉi tiun, bonvolu ignori ĉi tiun retpoŝton."
+        ignore: "Se vi ne petis ĉi tion, bonvolu ignori ĉi tiun retpoŝton."
         someone_requested: "Iu petis ligilon por ŝanĝi vian pasvorton, kaj vi povas fari tiun per la suba ligilo."
-        subject: "Instruoj por restartigi pasvorton"
+        subject: "Instrukcioj por restartigi pasvorton"
         wont_change: "Via pasvorto ne ŝanĝiĝos ĝis vi eniros la supran ligilon kaj kreos novan pasvorton."
       unlock_instructions:
         account_locked: "Via konto estas ŝlosita pro tro da malsukcesaj ensalutprovoj."
@@ -68,8 +79,8 @@ eo:
         change_password: "Ŝanĝi mian pasvorton"
       new:
         forgot_password: "Ĉu vi forgesis vian pasvorton?"
-        no_account: "Ne ekzistas konto kun ĉi tiu retpoŝtadreso. Se vi atendas invito, ni plej rapide sendos ilin"
-        send_password_instructions: "Sendi al mi instrukcioj por restartigi pasvorton"
+        no_account: "Ne ekzistas konto kun ĉi tiu retpoŝtadreso. Se vi atendas inviton, ni plej rapide sendos ilin"
+        send_password_instructions: "Sendi al mi instrukciojn por restartigi pasvorton"
       send_instructions: "Post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel restartigi vian pasvorton."
       updated: "Vi sukcese ŝanĝis vian pasvorton. Vi nun estas ensalutinta."
     registrations:
@@ -79,10 +90,10 @@ eo:
     sessions:
       new:
         alpha_software: "Vi estas uzonta alfaprogramaron."
-        bugs_and_feedback: "Memoru, vi trovos erarojn. Bonvolu uzi la „Feedback“ butonon dekstre por informi nin pri iuj ajn eraroj!  Ni tre rapide laboros, por ke ni riparu la erarojn, pri kiuj vi informis nin."
+        bugs_and_feedback: "Memoru, vi trovos erarojn. Bonvolu uzi la „Feedback“/rimarko-butonon dekstre por informi nin pri iuj ajn eraroj!  Ni laboros tiel rapide kiel eblas, por ke ni riparu la erarojn, pri kiuj vi informis nin."
         bugs_and_feedback_mobile: "Memoru, vi trovos erarojn.  Bonvolu informi nin pri iuj ajn eraroj!  Ni tre rapide laboros, por ke ni riparu la erarojn, pri kiuj vi informis nin."
-        login: "Kontonomo"
-        modern_browsers: "nur funkcias per modernaj retumiloj"
+        login: "Ensaluti"
+        modern_browsers: "funkcias nur per modernaj retumiloj"
         password: "Pasvorto"
         remember_me: "Memori min"
         sign_in: "Ensaluti"
@@ -92,8 +103,8 @@ eo:
     shared:
       links:
         forgot_your_password: "Ĉu vi forgesis vian pasvorton?"
-        receive_confirmation: "Ĉu vi ne ricevis instruojn por konfirmi?"
-        receive_unlock: "Ĉu vi ne ricevis instruojn por malŝlosi?"
+        receive_confirmation: "Ĉu vi ne ricevis instrukciojn por konfirmi?"
+        receive_unlock: "Ĉu vi ne ricevis instrukciojn por malŝlosi?"
         sign_in: "Ensaluti"
         sign_up: "Enskribiĝi"
         sign_up_closed: "Nun ne estas libera registrado."
@@ -101,8 +112,8 @@ eo:
         sign_up_for_an_invite: "Petu inviton!"
     unlocks:
       new:
-        resend_unlock: "Resendu instruojn por malŝlosi"
-      send_instructions: "Vi ricevos retpoŝton, kiu enhavos instruojn pri kiel malŝlosi vian konton, post kelkaj minutoj."
+        resend_unlock: "Resendu instrukciojn por malŝlosi"
+      send_instructions: "Vi ricevos retpoŝton, kiu enhavos instrukciojn pri kiel malŝlosi vian konton, post kelkaj minutoj."
       unlocked: "Via konto sukcese malŝlosiĝis. Vi nun estas ensalutinta."
   errors:
     messages:

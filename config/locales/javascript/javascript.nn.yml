@@ -16,8 +16,8 @@ nn:
       toggle:
         few: "I {{count}} aspekt"
         many: "I {{count}} aspekt"
-        one: "I {{count}} aspekt"
-        other: "I {{count}} aspekt"
+        one: "I %= count %<%= count %> aspekt"
+        other: "I %= count %<%= count %> aspekt"
         two: "I {{count}} aspekt"
         zero: "Vel aspekt"
     aspect_navigation:

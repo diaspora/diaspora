@@ -112,6 +112,7 @@ it:
       edit_aspect: "Modifica %{name}"
       select_all: "Seleziona tutti"
     aspect_stream:
+      make_something: "Crea qualcosa"
       stay_updated: "Segui lo stream"
       stay_updated_explanation: "Lo stream è popolato da tutti i tuoi contatti, dai tag che segui e dai post dei membri più creativi della comunità."
     contacts_not_visible: "I contatti in questo aspetto non potranno vedersi tra loro."
@@ -492,7 +493,7 @@ it:
     confirm_email:
       click_link: "Per attivare la nuova email %{unconfirmed_email} vai a questo indirizzo:"
       subject: "Per favore attiva il tuo nuovo indirizzo email %{unconfirmed_email}"
-    email_sent_by_diaspora: "Questo messaggio è stato spedito da Diaspora. Se non vuoi ricevere questo tipo di email,"
+    email_sent_by_diaspora: "Questo messaggio è stato spedito da %{pod_name}. Se non vuoi ricevere questo tipo di email,"
     hello: "Ciao %{name}!"
     invite:
       message: |-

@@ -112,6 +112,7 @@ fr:
       edit_aspect: "Éditer %{name}"
       select_all: "Tout sélectionner"
     aspect_stream:
+      make_something: "Faites quelque chose"
       stay_updated: "Restez informé"
       stay_updated_explanation: "Votre flux principal est complété par vos contacts, vos tags suivis, et les messages de certains membres de la communauté."
     contacts_not_visible: "Les contacts dans cet aspect ne se verront pas les uns les autres."
@@ -507,7 +508,7 @@ fr:
     confirm_email:
       click_link: "Pour activer votre nouvelle adresse électronique %{unconfirmed_email}, merci de suivre ce lien :"
       subject: "Merci d'activer votre nouvelle adresse électronique %{unconfirmed_email}"
-    email_sent_by_diaspora: "Ce courriel a été envoyé par Diaspora. Si vous ne souhaitez plus recevoir des courriels de ce genre,"
+    email_sent_by_diaspora: "Ce courriel a été envoyé par %{pod_name}. Si vous ne souhaitez plus recevoir des courriels de ce genre,"
     hello: "Bonjour %{name} !"
     invite:
       message: |-
@@ -766,7 +767,7 @@ fr:
     failure:
       error: "une erreur s'est produite lors de la connexion avec ce service"
     finder:
-      fetching_contacts: "Diaspora est en train de peupler vos amis %{service}. Revenez vérifier dans quelques minutes."
+      fetching_contacts: "Diaspora est en train d'importer vos amis %{service}. Revenez dans quelques minutes."
       no_friends: "Aucun ami Facebook trouvé."
       service_friends: "Amis %{service}"
     index:
