@@ -28,7 +28,7 @@ looking to contribute to D*.  This script assumes you have [a basic Rails setup 
 ```
 
 
-### Step 2: Run the the development server
+### Step 2: Run the development server
 ```
   rails s
 ```
