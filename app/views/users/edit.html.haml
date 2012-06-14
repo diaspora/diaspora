@@ -224,4 +224,4 @@
               = f.label :close_account_password, t('.current_password'), :for => :close_account_password
               = f.password_field :current_password, :id => :close_account_password
             %p
-              = f.submit t('.close_account_text'), :confirm => t('are_you_sure_delete_account')
+              = f.submit t('.close_account_text'), :data => { :confirm => t('are_you_sure_delete_account') }
