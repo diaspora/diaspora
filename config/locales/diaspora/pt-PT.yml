@@ -112,6 +112,7 @@ pt-PT:
       edit_aspect: "Alterar %{name}"
       select_all: "Selecionar todos"
     aspect_stream:
+      make_something: "Invente algo"
       stay_updated: "Mantenha-se atualizado"
       stay_updated_explanation: "No seu fluxo geral pode encontrar todos os seus contactos, as etiquetas que segue e as publicações de alguns membros criativos da comunidade."
     contacts_not_visible: "Contactos neste grupo não se verão uns aos outros."
@@ -492,7 +493,7 @@ pt-PT:
     confirm_email:
       click_link: "Para ativar o seu novo endereço de email %{unconfirmed_email}, por favor siga esta hiperligação:"
       subject: "Por favor ative o seu novo endereço de email %{unconfirmed_email}"
-    email_sent_by_diaspora: "Este email foi enviado pelo Diaspora. Se deseja deixar de receber emails deste tipo,"
+    email_sent_by_diaspora: "Este email foi enviado por %{pod_name}. Se deseja deixar de receber emails deste tipo,"
     hello: "Olá %{name}!"
     invite:
       message: |-
@@ -694,7 +695,7 @@ pt-PT:
       enter_password: "Introduza uma palavra-passe (mínimo 6 caracteres)"
       enter_password_again: "Introduza de novo a mesma palavra-passe"
       enter_username: "Escolha um nome de utilizador (apenas letras, números e 'underscores')"
-      hey_make: "EI,<br/>FAÇA<br/>ALGO."
+      hey_make: "EI,<br/>INVENTE<br/>ALGO."
       join_the_movement: "Junte-se ao movimento!"
       password: "PALAVRA-PASSE"
       sign_up: "REGISTAR"
@@ -749,7 +750,7 @@ pt-PT:
     failure:
       error: "ocorreu um erro ao ligar a esse serviço"
     finder:
-      fetching_contacts: "O Diaspora está a povoar de amigos o seu %{service}, por favor verifique novamente dentro de alguns minutos."
+      fetching_contacts: "O Diaspora está a povoar os seus amigos de %{service}, por favor volte daqui a alguns minutos."
       no_friends: "Não foi encontrado nenhum amigo do Facebook."
       service_friends: "Amigos do %{service}"
     index:
@@ -823,7 +824,7 @@ pt-PT:
       discard_post: "Rejeitar a publicação"
       make_public: "tornar público"
       new_user_prefill:
-        hello: "Olá a todos, o meu nome é #%{new_user_tag}. "
+        hello: "Olá a todos, sou #%{new_user_tag}. "
         i_like: "Estou interessado em %{tags}."
         invited_by: "Obrigado(a) pelo convite,"
         newhere: "NovoAqui"
@@ -952,7 +953,7 @@ pt-PT:
       auto_follow_back: "Seguir automaticamente quem o seguir a si"
       change: "Alterar"
       change_email: "Mudar de email"
-      change_language: "Mudar de idioma"
+      change_language: "Alterar idioma"
       change_password: "Alterar a palavra-passe"
       character_minimum_expl: "mínimo seis caracteres"
       close_account:
@@ -960,7 +961,7 @@ pt-PT:
         if_you_want_this: "Se realmente quer isto, digite a seguir a sua palavra-passe e clique em 'Encerrar Conta'"
         lock_username: "Isto irá bloquear o seu nome de utilizador se decidir registar-se de novo."
         locked_out: "A sua sessão vai ser terminada e a sua conta bloqueada."
-        make_diaspora_better: "Queremos que nos ajude a fazer o Diaspora melhor, logo deveria ajudar-nos em vez de se ir embora. Se nos quer deixars, nós queremos que saiba o que acontece depois."
+        make_diaspora_better: "Queremos que nos ajude a fazer o Diaspora melhor, logo deveria ajudar-nos em vez de se ir embora. Se nos quer deixar, queremos que saiba o que acontece depois."
         mr_wiggles: "Mr Wiggles ficará triste de o(a) ver partir"
         no_turning_back: "Atualmente, não há como voltar atrás."
         what_we_delete: "Iremos apagar todas as suas publicações, os dados do perfil, logo que seja humanamente possível. Os seus comentários permanecerão por cá, mas serão associados ao seu nome de utilizador da Diaspora."

@@ -71,11 +71,7 @@ ka:
       hide_nsfw_posts: "#nsfw პოსტების დამალვა"
       like: "მომწონს"
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
         other: "<%= count %> მოწონება"
-        two: "<%= count %> Likes"
         zero: "<%= count %> მოწონება"
       limited: "შეზღუდული"
       more_comments:

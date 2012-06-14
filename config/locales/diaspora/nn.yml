@@ -43,8 +43,14 @@ nn:
   admins:
     admin_bar:
       pages: "Sidar"
+      pod_stats: "Pod-statistikk"
       user_search: "Brukarsøk"
     stats:
+      50_most: "50 mest populære tags"
+      comments:
+        one: "ein kommentar"
+        other: "%{count} kommentarar"
+        zero: "ingen kommentarar"
       daily: "Dagleg"
       go: "gå"
       posts:
@@ -62,10 +68,12 @@ nn:
         zero: "ingen brukarar"
       week: "Veke"
     user_search:
+      add_invites: "legg til invitasjonar"
       users:
         one: "ein brukar funne"
         other: "%{count} brukarar funne"
         zero: "ingen brukarar funne"
+      you_currently: "du har %{user_invitation} igjen %{link}"
   ago: "for %{time} sida"
   all_aspects: "Alle aspekta"
   application:
@@ -93,6 +101,7 @@ nn:
       edit_aspect: "Endra %{name}"
       select_all: "Vel alle"
     aspect_stream:
+      make_something: "Lag noko"
       stay_updated: "Hald deg oppdatert"
       stay_updated_explanation: "Hovudstraumen din er sett saman av kontaktane dine, tags du følgjer og innlegg frå nokre kreative medlemmar på D*"
     contacts_not_visible: "Kontaktar i dette aspektet vil ikkje kunna sjå kvarandre."
@@ -168,6 +177,7 @@ nn:
       create: "Lag"
       name: "Namn (berre du kan sjå det)"
     no_contacts_message:
+      community_spotlight: "kreative medlemer"
       or_spotlight: "Eller du kan dele med %{link}"
       try_adding_some_more_contacts: "Du kan søkja etter eller invitera fleire kontaktar."
       you_should_add_some_more_contacts: "Du bør leggja til nokre fleire kontaktar."
@@ -183,6 +193,7 @@ nn:
     selected_contacts:
       manage_your_aspects: "Handsam aspekta dine."
       no_contacts: "Du har ingen kontaktar her enno."
+      view_all_community_spotlight: "Sjå alle kreative medlemer"
       view_all_contacts: "Syn alle kontaktane"
     show:
       edit_aspect: "endra aspektet"
@@ -208,6 +219,7 @@ nn:
       success: "Det vert spanande å sjå kva h*n har å sei!"
   bookmarklet:
     explanation: "Legg ut på Diaspora frå kor som helst ved å lagra %{link} som bokmerke."
+    heading: "Bookmarklet"
     post_something: "Legg ut på Diaspora*"
     post_success: "Sendt. Lukkar."
   cancel: "Avbryt"
@@ -230,6 +242,7 @@ nn:
       add_to_aspect: "legg kontaktar til %{name}"
       add_to_aspect_link: "legg kontaktar til i %{name}"
       all_contacts: "Alle kontaktane"
+      community_spotlight: "Kreative medlemer"
       many_people_are_you_sure: "Er du sikker på at du vil starte ein privat samtale med meir enn %{suggested_limit} kontaktar? Å dele dette i eit aspekt kan vere ein betre måte å kontakte dei på."
       my_contacts: "Kontaktane mine"
       no_contacts: "Du må leggja til nokre kontaktar."
@@ -245,6 +258,8 @@ nn:
     other: "%{count} kontaktar"
     sharing:
       people_sharing: "Personar som deler med deg:"
+    spotlight:
+      community_spotlight: "Kreative medlemer"
     two: "%{count} kontaktar"
     zero: "kontaktar"
   conversations:
@@ -464,7 +479,7 @@ nn:
     confirm_email:
       click_link: "Du tek i bruk den nye e-postadressa %{unconfirmed_email} ved å klikka på denne lenkja:"
       subject: "Ta i bruk den nye e-postadressa di %{unconfirmed_email}"
-    email_sent_by_diaspora: "Diaspora sende denne e-postmeldinga.  Om du ikkje lenger ønskjer å få slike meldingar,"
+    email_sent_by_diaspora: "%{pod_name} sende denne e-postmeldinga.  Om du ikkje lenger ønskjer å få slike meldingar, kan du endre innstillingane her:"
     hello: "Hei %{name}!"
     invite:
       message: |-
@@ -854,9 +869,11 @@ nn:
     aspects:
       title: "Your Aspects"
     aspects_stream: "Aspektar"
+    community_spotlight_stream: "Kreative Medlemer"
     followed_tag:
       add_a_tag: "Legg til ein tag"
       follow: "Følg"
+      title: "Følgde tags"
     followed_tags_stream: "Følgde tags"
     mentioned_stream: "@Nemningar"
     mentions:
@@ -882,6 +899,7 @@ nn:
   tags:
     show:
       follow: "Følg #%{tag}"
+      followed_by: "følgt av"
       following: "Følgjer #%{tag}"
       nobody_talking: "Det er enno ingen som taler om %{tag}."
       people_tagged_with: "Personar som er merka med %{tag}"
@@ -937,6 +955,7 @@ nn:
       edit_account: "Endra kontoen"
       email_awaiting_confirmation: "Vi har sendt ei aktiveringslenkje til %{unconfirmed_email}. Vi vil halda fram med å senda til originaladressa di, %{email}, fram til du følgjer lenkja og tek i bruk den nye."
       export_data: "Eksporter data"
+      following: "Følgje-innstillingar"
       liked: "… nokon liker innlegget ditt?"
       mentioned: "… du er nemnt i eit innlegg?"
       new_password: "Nytt passord"
@@ -944,6 +963,7 @@ nn:
       private_message: "… du mottek ei privat melding?"
       receive_email_notifications: "Få e-postvarsel når …"
       reshared: "… nokon deler innlegget ditt vidare?"
+      show_community_spotlight: "Vil du sjå kreative medlemer i straumen din?"
       started_sharing: "… nokon byrjar å dela med deg?"
       your_email: "E-posten din"
       your_handle: "Diaspora-ID-en din"
@@ -979,3 +999,4 @@ nn:
   welcome: "Velkomen!"
   will_paginate:
     next_label: "neste »"
+    previous_label: "« førre"

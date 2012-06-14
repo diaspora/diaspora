@@ -126,4 +126,11 @@ eu:
       unknown: "Bideo mota ezezaguna"
       watch: "Ikusi bideo hau <%= provider %>(e)n"
     viewer:
+      comment: ""
+      follow_post: ""
       home: "HASIERA"
+      like: ""
+      reshare: ""
+      reshared: ""
+      stop_following_post: ""
+      unlike: ""

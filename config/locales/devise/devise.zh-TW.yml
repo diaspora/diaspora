@@ -13,7 +13,7 @@ zh-TW:
       send_instructions: "幾分鐘內你會收到一封說明如何確認帳號的信件."
     failure:
       inactive: "你的帳號尚未開通。"
-      invalid: "用戶名稱或密碼有誤。"
+      invalid: "使用者名稱或密碼無效."
       invalid_token: "認證信物無效。"
       locked: "你的帳號已鎖定。"
       timeout: "工作階段已逾時, 若要繼續請重新登入。"
@@ -39,12 +39,12 @@ zh-TW:
         finally: "終於 - 來了"
         friends_saying: "你的朋友怎麼說..."
         get_connected: "來聯繫"
-        get_connected_paragraph: "這個社群, 是一個對更好的網路環境有共同願景的國際性運動, 是 %{strong_diaspora} 的最大特色. 來和新面孔相遇, 和朋友保持聯繫, 和大家一起玩吧."
+        get_connected_paragraph: "%{strong_diaspora} 的最大特色是它的社群, 這是一個對更好的網路環境有共同願景的國際性運動. 來和新面孔相遇, 和朋友保持聯繫, 和大家一起玩吧."
         have_fun: "盡情玩"
         have_fun_paragraph: "%{strong_diaspora} 就是用來探索線上令人驚奇的新事物與人物. %{link}, 這個世界上第一個 %{strong_diaspora} 應用程式, 只是個開始. 在榮耀的網路上收集並分享它的一切吧."
         help_fund: "贊助 Diaspora"
         here: "這裡"
-        ignore: "如果你不想接受邀請,請不用管這封信."
+        ignore: "如果你不想接受邀請, 請不用管這封信."
         join_team: "加入我們的團隊"
         love: "愛你的,"
         made_by_people: "%{strong_diaspora} 是由和你一樣熱愛網際網路的人所創作的. %{jointeam}, 或是%{helpfund}吧!"
@@ -61,13 +61,13 @@ zh-TW:
         have_invited_you: "%{names} 邀請你加入 Diaspora"
       reset_password_instructions:
         change: "更改密碼"
-        ignore: "如果你沒請求過, 請忽略這封信件."
+        ignore: "如果你沒請求過, 請不用管這封信."
         someone_requested: "有人要求更改你的密碼, 若確定要這麼做, 請使用以下連結."
         subject: "密碼重設步驟"
         wont_change: "在使用以上連結設定新的密碼後, 你的密碼才會改變."
       unlock_instructions:
         account_locked: "你的帳號因為登入失敗太多次而被鎖定了."
-        click_to_unlock: "點一下以下連結以將你的帳號解鎖:"
+        click_to_unlock: "點一下以下連結來將你的帳號解鎖:"
         subject: "解鎖步驟"
         unlock: "帳號解鎖"
       welcome: "歡迎你, %{email}!"
@@ -94,7 +94,7 @@ zh-TW:
         password: "密碼"
         remember_me: "記住我"
         sign_in: "登入"
-        username: "用戶名稱"
+        username: "使用者名稱"
       signed_in: "登入成功."
       signed_out: "登出成功."
     shared:
@@ -103,7 +103,7 @@ zh-TW:
         receive_confirmation: "沒收到確認步驟?"
         receive_unlock: "沒收到解鎖步驟?"
         sign_in: "登入"
-        sign_up: "登記"
+        sign_up: "註冊"
         sign_up_closed: "目前不開放公開登記."
       mail_signup_form:
         sign_up_for_an_invite: "邀請函登記!"
@@ -115,5 +115,5 @@ zh-TW:
   errors:
     messages:
       already_confirmed: "已確認"
-      not_found: "沒找到"
+      not_found: "找不到"
       not_locked: "沒鎖定"

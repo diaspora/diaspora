@@ -28,6 +28,7 @@ uk:
       hide: "приховати коментарі"
       show: "Показати усі коментарі"
     confirm_dialog: "Ви упевнені?"
+    delete: "Видалити"
     failed_to_like: "Не вдалося!"
     failed_to_post_message: "Не вдалося відправити повідомлення!"
     getting_started:
@@ -36,9 +37,26 @@ uk:
       no_tags: "Ви не стежите ні за однією міткою! Все одно продовжити?"
       preparing_your_stream: "Підготовка вашого особистого потоку..."
     header:
+      admin: "Керування"
+      close: "закрити"
+      contacts: "Контакти"
+      home: "На головну"
+      log_out: "Вийти"
+      mark_all_as_read: "Позначити все як прочитане"
+      messages: "Новини"
+      notifications: "Повідомлення"
+      profile: "Профіль"
+      recent_notifications: "Останнє повідомлення"
       search: "Find people or #tags"
+      settings: "Налаштування"
+      view_all: "Показати все"
+    ignore: "Iгнорувати"
     infinite_scroll:
       no_more: "Повідомлень більше немає."
+    my_activity: "Моя активність"
+    my_stream: "Мій потік"
+    people:
+      not_found: "нікого не знайдено..."
     photo_uploader:
       looking_good: "Боже мій, ви виглядаєте приголомшливо!"
     publisher:
@@ -50,6 +68,11 @@ uk:
     search_for: "Шукати {{name}}"
     show_more: "показати більше"
     stream:
+      comment: "Коментувати"
+      follow: "Слідкувати"
+      hide: "Приховати"
+      hide_nsfw_posts: "приховати NSFW повідомлення"
+      like: "Мені це подобається"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -57,6 +80,7 @@ uk:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "Обмежений"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
@@ -64,6 +88,9 @@ uk:
         other: "Show <%= count %> more comments"
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      original_post_deleted: "Початкове повідомлення було видалене автором."
+      public: "Публічна"
+      reshare: "Поділитись"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -71,6 +98,10 @@ uk:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "Переглянути запис"
+      show_nsfw_posts: "Показати все"
+      unfollow: "Не слідкувати"
+      unlike: "Мені це не подобається"
     tags:
       wasnt_that_interesting: "OK, мабуть, стежити за міткою #{{tagName}} було не так вже цікаво..."
     timeago:
@@ -92,3 +123,11 @@ uk:
     videos:
       unknown: "Невідомий відеоформат"
       watch: "Дивитися це відео на {{provider}}"
+    viewer:
+      comment: "Коментувати"
+      follow_post: "Слідкувати за записом"
+      like: "Мені подобається"
+      reshare: "Поділитися"
+      reshared: "Поділилися"
+      stop_following_post: "Не слідкувати за записом"
+      unlike: "Не подобається"

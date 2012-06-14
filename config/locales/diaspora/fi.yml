@@ -48,7 +48,24 @@ fi:
       user_search: "Käyttäjähaku"
       weekly_user_stats: "Viikottaiset käyttäjätiedot"
     stats:
+      50_most: "50 suosituinta tagia"
+      comments:
+        one: "%{count} kommentti"
+        other: "%{count} kommenttia"
+        zero: "%{count} kommenttia"
       go: "mene"
+      posts:
+        one: "%{count} viesti"
+        other: "%{count} viestiä"
+        zero: "%{count} viestiä"
+      shares:
+        one: "%{count} jako"
+        other: "%{count} jakoa"
+        zero: "%{count} jakoa"
+      users:
+        one: "%{count} käyttäjä"
+        other: "%{count} käyttäjää"
+        zero: "%{count} käyttäjää"
     user_search:
       add_invites: "lisää kutsuja"
       email_to: "Lähetä sähköpostia kutsuaksesi"
@@ -136,6 +153,7 @@ fi:
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Yhteisön laatimia oppaita, ohjeita ja uutisia"
       introduce_yourself: "Tämä on virtasi. Hyppää sekaan ja esittele itsesi."
       keep_diaspora_running: "Pidä Diasporan kehitys nopeana kuukausittaisten lahjoitusten avulla!"
+      keep_pod_running: "Pidä %{pod} vauhdissa tarjoamalla palvelimille kupponen kahvia kuukausittaisella lahjoituksella!"
       new_here:
         follow: "Seuraa tagia %{link} ja toivota uudet käyttäjät tervetulleiksi Diasporaan!"
         learn_more: "Lue lisää"
@@ -482,16 +500,18 @@ fi:
       message: |-
           Hei!
 
-          Sinut on kutsuttu liittymään Diaspora*:an!
+          Sinut on kutsuttu liittymään Diasporaan!
 
-          Klikkaa tätä linkkiä aloittaaksesi.
+          Klikkaa tätä linkkiä aloittaaksesi
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           Rakkaudella,
 
-          Diaspora*:n sähköpostirobotti!
+          Diasporan sähköpostirobotti!
+
+          [1]: %{invite_url}
     invited_you: "%{name} kutsui sinut Diaspora*:an"
     liked:
       liked: "%{name} tykkäsi kirjoituksestasi"
@@ -727,7 +747,7 @@ fi:
   search: "Haku"
   services:
     create:
-      already_authorized: "Käyttäjä %{diaspora_id} on jo ottanut käyttöön %{service_name} nimisen käyttäjätilin."
+      already_authorized: "Käyttäjä, jonka Diaspora-ID on %{diaspora_id}, on jo ottanut käyttöön kyseisen %{service_name}-käyttäjätilin."
       failure: "Tunnistautuminen epäonnistui."
       success: "Tunnistus onnistui."
     destroy:
@@ -735,6 +755,7 @@ fi:
     failure:
       error: "palvelun yhdistämisessä tapahtui virhe"
     finder:
+      fetching_contacts: "Diaspora etsii %{service}-ystäviäsi. Katso uudelleen muutaman minuutin kuluttua."
       no_friends: "Facebook-kavereita ei löytynyt."
       service_friends: "%{service}-kaverit"
     index:

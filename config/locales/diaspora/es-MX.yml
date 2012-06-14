@@ -112,6 +112,7 @@ es-MX:
       edit_aspect: "Editar %{name}"
       select_all: "Marcar todos"
     aspect_stream:
+      make_something: "Haz algo"
       stay_updated: "Mantente actualizado"
       stay_updated_explanation: "Tu entrada principal esta formada por todos tus contactos, las etiquetas que sigues, y publicaciones de algunos miembros creativos de la comunidad."
     contacts_not_visible: "Los contactos en este aspecto no podrán verse entre ellos."
@@ -456,7 +457,7 @@ es-MX:
     confirm_email:
       click_link: "Para activar tu nueva dirección de correo electrónico %{unconfirmed_email}, por favor sigue este enlace:"
       subject: "Por favor, activa tu nueva dirección de correo electrónico %{unconfirmed_email}"
-    email_sent_by_diaspora: "Este correo electrónico fue enviado por Diaspora. Si quieres dejar de recibir correos como este,"
+    email_sent_by_diaspora: "Este correo electrónico fue enviado por %{pod_name}. Si quieres dejar de recibir correos como este,"
     hello: "¡Hola %{name}!"
     invite:
       message: |-

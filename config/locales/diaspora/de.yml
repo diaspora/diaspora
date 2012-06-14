@@ -49,6 +49,7 @@ de:
       user_search: "Benutzer Suche"
       weekly_user_stats: "Wöchentliche Benutzerstatistik"
     stats:
+      2weeks: "2 Wochen"
       50_most: "Die 50 populärsten Tags"
       comments:
         one: "%{count} Kommentar"

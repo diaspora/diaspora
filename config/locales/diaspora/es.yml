@@ -112,6 +112,7 @@ es:
       edit_aspect: "Editar %{name}"
       select_all: "Marcar todos"
     aspect_stream:
+      make_something: "Haz algo"
       stay_updated: "Mantente Actualizad@"
       stay_updated_explanation: "Tu entrada principal la forman todos tus contactos, las etiquetas que sigues, y si lo deseas, las publicaciones de diferentes miembros creativos de la comunidad."
     contacts_not_visible: "Los contactos de este aspecto no podrán verse."
@@ -501,7 +502,7 @@ es:
     confirm_email:
       click_link: "Para activar tu nueva dirección de correo %{unconfirmed_email}, sigue este enlace:"
       subject: "Por favor activa tu nueva dirección de correo %{unconfirmed_email}"
-    email_sent_by_diaspora: "Este correo electrónico fue enviado por Diaspora. Si quieres dejar de recibir correos como este,"
+    email_sent_by_diaspora: "Este correo electrónico fue enviado por %{pod_name}. Si quieres dejar de recibir correos como este,"
     hello: "¡Hola %{name}!"
     invite:
       message: |-
@@ -603,7 +604,7 @@ es:
     two: "%{count} personas"
     webfinger:
       fail: "Perdona, no pudimos encontrar %{handle}"
-    zero: "no gente"
+    zero: "0 personas"
   photos:
     comment_email_subject: "fotografía de %{name}"
     create:
@@ -763,7 +764,7 @@ es:
     failure:
       error: "hubo un error conectando ese servicio"
     finder:
-      fetching_contacts: "Diaspora está trasladando a tus contactos de %{service}, por favor compruébalo de nuevo en unos minutos."
+      fetching_contacts: "Diaspora está trasladando a tus contactos de %{service}, por favor compruébalo en unos minutos."
       no_friends: "No se han encontrados contactos en Facebook."
       service_friends: "Contactos de %{service}"
     index:
@@ -815,7 +816,7 @@ es:
       invite_your_friends: "Invita a tus contactos"
       invites: "Invitaciones"
       invites_closed: "Las invitaciones en este servidor Diaspora* están actualmente cerradas."
-      share_this: "Comparte este link por mail, blog o red social favorita!"
+      share_this: "Comparte este enlace por correo, blog o red social favorita!"
     notification:
       new: "Nuevo %{type} de %{from}"
     public_explain:
@@ -931,7 +932,7 @@ es:
   tags:
     show:
       follow: "Seguir #%{tag}"
-      followed_by: "seguido por"
+      followed_by: "es seguido por"
       following: "Siguiendo #%{tag}"
       nobody_talking: "Nadie esta hablando sobre %{tag} todavía."
       none: "¡La etiqueta vacía no existe!"
