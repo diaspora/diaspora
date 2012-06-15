@@ -2,12 +2,12 @@ require Rails.root.join('lib', 'hcard')
 require Rails.root.join('lib', 'webfinger_profile')
 
 class Webfinger
-  attr_accessor :host_meta_xrd, :webfinger_profile_xrd, 
-                :webfinger_profile, :hcard, :hcard_xrd, :person, 
+  attr_accessor :host_meta_xrd, :webfinger_profile_xrd,
+                :webfinger_profile, :hcard, :hcard_xrd, :person,
                 :account, :ssl
 
   def initialize(account)
-    self.account = account 
+    self.account = account
     self.ssl = true
   end
 
@@ -56,7 +56,7 @@ class Webfinger
     else
       person = make_person_from_webfinger
     end
-    FEDERATION_LOGGER.info("successfully webfingered#{@account}") if person
+    FEDERATION_LOGGER.info("successfully webfingered #{@account}") if person
     person
   end
 
@@ -95,7 +95,7 @@ class Webfinger
 
   def webfinger_profile_xrd
     @webfinger_profile_xrd ||= get(webfinger_profile_url)
-    FEDERATION_LOGGER.info "#{@account} doesn't exists anymore" if @webfinger_profile_xrd == false
+    FEDERATION_LOGGER.warn "#{@account} doesn't exists anymore" if @webfinger_profile_xrd == false
     @webfinger_profile_xrd
   end
 
