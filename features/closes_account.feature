@@ -15,8 +15,7 @@ Feature: Close Account
 
     When I try to sign in manually
     Then I should be on the new user session page
-    When I wait for the ajax to finish
-    Then I should see "Invalid email or password"
+    And I should see a flash message containing "Invalid email or password"
 
   Scenario: post display should not throw error when mention is removed for the user whose account is closed
     Given a user named "Bob Jones" with email "bob@bob.bob"
