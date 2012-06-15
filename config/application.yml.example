@@ -108,7 +108,12 @@ defaults: &defaults
   ## your server to contact joindiaspora.com, set this to false:
   no_follow_diasporahq: false
 
-  #the 'admin' account for your pod... ie for jd.com, this is diasporahq
+  ## the 'admin' account for your pod... ie for jd.com, this is diasporahq.
+  ## (This is not about privileges, but e.g. to determine the sender for
+  ## emails sent from the admin panel. If you want to configure an actual
+  ## admin accout, use roles instead. See
+  ## https://github.com/diaspora/diaspora/wiki/FAQ-for-Pod-Maintainers
+  ## "What are roles and how do I use them?")
   admin_account: ''
 
   ## Settings about invitations
@@ -129,7 +134,12 @@ defaults: &defaults
   ## Community Spotlight
   ## The community spotlight gives new users a starting point on who
   ## could be interesting Diasporas community.
-  community_spotlight:
+  ## --------
+  ## DEPRECATED - use roles instead, see
+  ## https://github.com/diaspora/diaspora/wiki/FAQ-for-Pod-Maintainers
+  ## "What are roles and how do I use them?"
+  ## --------
+  #community_spotlight:
   #list:
   #- 'diasporahq@joindiaspora.com'
   #- 'me@example.org'
