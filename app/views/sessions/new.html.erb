@@ -1,10 +1,10 @@
 <% content_for :page_title do %>
-    <%= "Diaspora* / #{t('devise.sessions.new.sign_in')}" %>
+    <%= "#{AppConfig[:pod_name]} / #{t('devise.sessions.new.sign_in')}" %>
 <% end %>
 
 <div id="login">
   <h1 id="huge-text">
-    DIASPORA
+    <%= AppConfig[:pod_name] %>
   </h1>
 
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal block-form"}, :autocomplete => 'off') do |f| %>
