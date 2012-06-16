@@ -22,5 +22,5 @@ Handlebars.registerHelper('personImage', function(person, size, imageClass) {
   size = (typeof(size) != "string" ? "small" : size);
   imageClass = (typeof(imageClass) != "string" ? size : imageClass);
 
-  return "<img src=\"" + person.avatar[size] +"\" class=\"avatar " + imageClass + "\" title=\"" + person.name +"\" />";
+  return "<img src=\"" + person.avatar[size] +"\" class=\"avatar " + imageClass + "\" title=\"" + _.escape(person.name) +"\" />";
 })
