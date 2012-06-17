@@ -70,7 +70,8 @@ class Photo < ActiveRecord::Base
   end
 
   def self.diaspora_initialize(params = {})
-    photo = self.new params.to_hash
+    params = ActiveSupport::HashWithIndifferentAccess.new(params.to_hash)
+    photo = self.new params.slice(*accessible_attributes)
     photo.author = params[:author]
     photo.public = params[:public] if params[:public]
     photo.pending = params[:pending] if params[:pending]

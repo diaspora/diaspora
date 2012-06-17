@@ -9,6 +9,15 @@ class Notification < ActiveRecord::Base
   belongs_to :target, :polymorphic => true
 
   attr_accessor :note_html
+
+  attr_accessible :target,
+                  :target_id,
+                  :target_type,
+                  :type,
+                  :unread,
+                  :actors,
+                  :recipient,
+                  :recipient_id
  
   def self.for(recipient, opts={})
     self.where(opts.merge!(:recipient_id => recipient.id)).order('updated_at desc')

@@ -26,7 +26,7 @@ describe User do
     describe '#save_person!' do
       it 'saves the corresponding user if it has changed' do
         alice.person.url = "http://stuff.com"
-        Person.any_instance.should_receive(:save)
+        Person.any_instance.should_receive(:save).at_least(:once)
         alice.save
       end
 
@@ -126,10 +126,10 @@ describe User do
                       }
           }
           params[:id] = alice.id
-      new_user = User.build(params)
+      expect { new_user = User.build(params)
       new_user.save
       new_user.persisted?.should be_true
-      new_user.id.should_not == alice.id
+      new_user.id.should_not == alice.id }.should raise_error ActiveModel::MassAssignmentSecurity::Error
     end
   end
 
@@ -143,8 +143,9 @@ describe User do
         user.person.should_not be_valid
         user.should_not be_valid
 
-        user.errors.full_messages.count.should == 1
+        user.errors.full_messages.count.should == 2
         user.errors.full_messages.first.should =~ /Person is invalid/i
+        user.errors.full_messages.last.should =~ /Person serialized public key can't be blank/i
       end
     end
 
@@ -440,7 +441,7 @@ describe User do
     end
 
     it 'dispatches the profile when tags are set' do
-      @params = {:tags => '#what #hey'}
+      @params = {:tag_string => '#what #hey'}
       mailman = Postzord::Dispatcher.build(alice, Profile.new)
       Postzord::Dispatcher.should_receive(:build).and_return(mailman)
       alice.update_profile(@params).should be_true

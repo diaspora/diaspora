@@ -140,7 +140,9 @@ describe PhotosController do
     it "doesn't overwrite random attributes" do
       new_user = FactoryGirl.create(:user)
       params = { :text => "now with lasers!", :author_id => new_user.id }
-      put :update, :id => @alices_photo.id, :photo => params
+      expect {
+        put :update, :id => @alices_photo.id, :photo => params
+      }.should raise_error ActiveModel::MassAssignmentSecurity::Error
       @alices_photo.reload.author_id.should == alice.person.id
     end
 
