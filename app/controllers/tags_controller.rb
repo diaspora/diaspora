@@ -35,7 +35,7 @@ class TagsController < ApplicationController
     @stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
 
     respond_with do |format|
-      format.json{ render :json => PostPresenter.collection_json(@stream.stream_posts, current_user) }
+      format.json { render :json => @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
     end
   end
 
