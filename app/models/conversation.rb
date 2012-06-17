@@ -14,6 +14,12 @@ class Conversation < ActiveRecord::Base
 
   belongs_to :author, :class_name => 'Person'
 
+  validate :max_participants
+
+  def max_participants
+    errors.add(:max_participants, "too many participants") if participants.count > 20
+  end
+
   accepts_nested_attributes_for :messages
 
   def recipients
