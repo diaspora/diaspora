@@ -8,6 +8,10 @@ And /^I submit the form$/ do
   click_button :submit
 end
 
+Then /^the "([^"]*)" field should have a validation error$/ do |field|
+  find_field(field).has_xpath?(".//ancestor::div[contains(@class, 'control-group')]/div[contains(@class, 'field_with_errors')]")
+end
+
 And /^I expand the publisher$/ do
  click_publisher
 end
