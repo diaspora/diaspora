@@ -42,6 +42,7 @@ module UserCukeHelpers
     login_as @me.username, @me.password
   end
 
+  # checks the page content to see, if the login was successful
   def confirm_login
     wait_until { page.has_content?("#{@me.first_name} #{@me.last_name}") }
   end
@@ -50,6 +51,11 @@ module UserCukeHelpers
   def logout
     $browser.delete_cookie('_session', 'path=/') if $browser
     $browser.delete_all_visible_cookies if $browser
+  end
+
+  def manual_logout
+    find("#user_menu li:first-child a").click
+    find("#user_menu li:last-child a").click
   end
 end
 
