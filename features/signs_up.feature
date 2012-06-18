@@ -36,3 +36,26 @@ Feature: new user registration
     And I wait for 3 seconds
     And I go to the home page
     Then I should not see "Welcome to Diaspora"
+
+  Scenario: user fills in bogus data - client side validation
+    When I log out manually
+    And I go to the new user registration page
+    And I fill in "user_username" with "§$%&(/&%$&/=)(/"
+    And I press "Continue"
+
+    Then the "user_username" field should have a validation error
+    And the "user_email" field should have a validation error
+    And the "user_password" field should have a validation error
+
+    When I fill in "user_username" with "valid_user"
+    And I fill in "user_email" with "this is not a valid email $%&/()("
+    And I press "Continue"
+
+    Then the "user_email" field should have a validation error
+    And the "user_password" field should have a validation error
+
+    When I fill in "user_email" with "valid@email.com"
+    And I fill in "user_password" with "1"
+    And I press "Continue"
+
+    Then the "user_password" field should have a validation error
