@@ -62,9 +62,9 @@ app.pages.PostViewer = app.views.Base.extend({
       if($(evt.target).is("textarea")) { return }
 
       switch(evt.keyCode) {
-        case 37:
+        case KEYCODES.LEFT:
           app.router.navigate(model.get("next_post"), true); break;
-        case 39:
+        case KEYCODES.RIGHT:
           app.router.navigate(model.get("previous_post"), true); break;
         default:
           break;
@@ -78,19 +78,25 @@ app.pages.PostViewer = app.views.Base.extend({
 
   commentAnywhere : function(evt) {
     /* ignore enter, space bar, arrow keys */
-    if(_.include([13, 32, 37, 38, 39, 40], evt.keyCode)) { return }
+    if(_.include([KEYCODES.RETURN, KEYCODES.SPACE, KEYCODES.LEFT,
+                  KEYCODES.UP, KEYCODES.RIGHT, KEYCODES.DOWN], evt.keyCode) ||
+        this.modifierPressed(evt) ) { return }
 
     this.interactionsView.invokePane();
     $('#new-post-comment textarea').focus();
   },
 
   invokePane : function(evt) {
-    if(evt.keyCode != 32) { return }
+    if(evt.keyCode != KEYCODES.SPACE) { return }
     this.interactionsView.invokePane();
   },
 
   closePane : function(evt) {
-    if(evt.keyCode != 27) { return }
+    if(evt.keyCode != KEYCODES.ESC) { return }
     this.interactionsView.hidePane();
+  },
+
+  modifierPressed: function(evt) {
+    return (evt.altKey || evt.ctrlKey || evt.shiftKey);
   }
 });
