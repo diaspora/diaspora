@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
   before_filter :set_grammatical_gender
-  before_filter :tablet_device_falback
+  before_filter :tablet_device_fallback
 
   inflection_method :grammatical_gender => :gender
 
@@ -106,7 +106,7 @@ class ApplicationController < ActionController::Base
     @grammatical_gender || nil
   end
 
-  def tablet_device_falback
+  def tablet_device_fallback
     # we currently don't have any special tablet views...
     request.format = :html if is_tablet_device?
   end
