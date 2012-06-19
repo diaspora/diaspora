@@ -208,7 +208,7 @@ GEM
       rubyzip
     heroku-api (0.2.4)
       excon (~> 0.14.0)
-    heroku_san (3.0.2)
+    heroku_san (3.0.3)
       activesupport
       heroku (>= 2)
       heroku-api (>= 0.1.2)
@@ -500,7 +500,7 @@ DEPENDENCIES
   haml (= 3.1.6.rc.1)
   handlebars_assets
   heroku
-  heroku_san (= 3.0.2)
+  heroku_san (= 3.0.3)
   http_accept_language (~> 1.0.2)
   i18n-inflector-rails (~> 1.0)
   jasmine!
