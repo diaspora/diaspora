@@ -5,7 +5,7 @@ ruby '1.9.3' if ENV['HEROKU']
 
 gem 'rails', '3.2.6'
 
-gem 'foreman', '0.46'
+gem 'foreman', '0.47'
 
 gem 'thin', '~> 1.3.1',    :require => false
 gem 'rails_autolink'
@@ -30,7 +30,7 @@ gem 'twitter', '2.0.2'
 # mail
 
 gem 'markerb', :git => 'https://github.com/plataformatec/markerb.git'
-gem 'messagebus_ruby_api', '1.0.3'
+gem 'messagebus_ruby_api', '1.0.11'
 gem 'airbrake'
 gem 'newrelic_rpm'
 gem "rpm_contrib", "~> 2.1.7"
@@ -146,7 +146,7 @@ group :test do
 
   gem 'capybara', '~> 1.1.2'
   gem 'cucumber-rails', '1.3.0', :require => false
-  gem 'database_cleaner', '0.7.1'
+  gem 'database_cleaner', '0.8.0'
 
   gem 'timecop'
   gem 'factory_girl_rails', '1.7.0'
@@ -172,7 +172,7 @@ end
 
 group :development do
   gem 'heroku'
-  gem 'heroku_san', '3.0.2', :platforms => :mri_19
+  gem 'heroku_san', '3.0.3', :platforms => :mri_19
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', :require => false
