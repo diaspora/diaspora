@@ -39,7 +39,6 @@ $(document).ready(function(){
       return false;
     }
   });
-
   resize();
   $(window).resize(function(){
     resize();

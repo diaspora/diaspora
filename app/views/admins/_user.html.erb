@@ -1,0 +1,63 @@
+<li>username: <%= user.username%>
+<ul>
+<li>user id: <%= user.id %></li>
+<li>email: <%= user.email %>, sending emails disabled: <%= user.disable_mail %></li>
+<li>language: <%= user.language %></li>
+<li>tutorial active: <%= user.getting_started%></li>
+<li>invitation token: <%= user.invitation_token %>, sent at <%= user.invitation_sent_at %> </li>
+<li>last reset password token: <%= user.reset_password_token %></li>
+<li>remember token: <%= user.remember_token %>, created at: <%= user.remember_created_at %></li>
+<li>times signed in: <%= user.sign_in_count %></li>
+<li>current sign in at: <%= user.current_sign_in_at %>, with ip: <%= user.current_sign_in_ip %></li>
+<li>last sign in at: <%= user.last_sign_in_at %>, with ip: <%= user.last_sign_in_ip %></li>
+<li>account created at: <%= user.created_at %> and last edited at: <%= user.updated_at %></li>
+<li>invitation service: <%= user.invitation_service %>, with identifier: <%= user.invitation_identifier %></li>
+<li>invitation limit: <%= user.invitation_limit %></li>
+<li>invited by: (id = <%= user.invited_by_id%>, type = <%= user.invited_by_type%>)</li>
+<li>authentication token: <%= user.authentication_token %></li>
+<li>unconfirmed email: <%= user.unconfirmed_email %>, confirmation token: <%= user.confirm_email_token %></li>
+<li>locked at: <%= user.locked_at %></li>
+<li>show community spotlight: <%= user.show_community_spotlight_in_stream %></li>
+<li>automaticaly follow back: <%= user.auto_follow_back %> for aspects <%= user.auto_follow_back_aspect_id ? Aspect.find(user.auto_follow_back_aspect_id) : "none" %></li>
+
+
+<% if user.person %>
+  <li>Person id: <%= user.person.id %>
+    <ul>
+  <li>guid: <%= user.person.guid %></li>
+  <li>url: <%= user.person.url %></li>
+  <li>diaspora handle: <%= user.person.diaspora_handle %></li>
+  <li>id of the owner (user): <%= user.person.owner_id %></li>
+  <li>closed account: <%= user.person.closed_account %></li>
+  <li>person created at: <%= user.person.created_at %> and last edited at: <%= user.person.updated_at %></li>
+</ul>
+  </li>
+  
+
+  <% if user.person.profile %>
+    <li>Profile id: <%= user.person.profile.id %>
+      <ul>
+    <li>diaspora handle: <%= user.person.profile.diaspora_handle %></li>
+    <li>firstname: <%= user.person.profile.first_name %></li>
+    <li>lastname: <%= user.person.profile.last_name %></li>
+    <li>profile picture url: <%= user.person.profile.image_url %>, small: <%= user.person.profile.image_url_small %>, medium: <%= user.person.profile.image_url_medium %></li>
+    <li>birthday: <%= user.person.profile.birthday %></li>
+    <li>gender: <%= user.person.profile.gender %></li>
+    <li>description/bio: <%= user.person.profile.bio %></li>
+    <li>appears in search: <%= user.person.profile.searchable %></li>
+    <li>belongs to person with id: <%= user.person.profile.person_id %></li>
+    <li>location: <%= user.person.profile.location %></li>
+    <li>full name: <%= user.person.profile.full_name %></li>
+    <li>not suitable for work (NSFW): <%= user.person.profile.nsfw %></li>
+    <li>wallpaper: <%= user.person.profile.wallpaper %></li>
+    <li>profile created at: <%= user.person.profile.created_at %> and last edited at: <%= user.person.profile.updated_at %></li>
+  </ul>
+</li>
+  <%end%>
+<%end%>
+<%= "invite token: #{invite_code_url(user.invited_by.invite_code)}" if user.invited_by.present? %>
+<%= link_to "add_invites", add_invites_path(user.invitation_code)%>
+</ul>
+</li>
+<br>
+<br>

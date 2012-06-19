@@ -1,3 +1,6 @@
+- content_for :head do
+  = stylesheet_link_tag :expand
+  = javascript_include_tag :expand
 
 .span-24
   = render :partial => 'admins/admin_bar'
@@ -28,17 +31,6 @@
   = t('.users', :count => @users.count)
   %br
   %br
-  - @users.each do |user|
-    = user.inspect
-    %br
-    - if user.person
-      = user.person.inspect
-      %br
-      - if user.person.profile
-        = user.person.profile.inspect
-      %br
-    = "invite token: #{invite_code_url(user.invited_by.invite_code)}" if user.invited_by.present?
-    = link_to "add_invites", add_invites_path(user.invitation_code)
-    %br
-    %br
-    %br
+  #listContainer
+    %ul#expList
+      = render :partial => 'admins/user.html.erb', :collection => @users

@@ -6,8 +6,19 @@ class AdminsController < ApplicationController
 
   def user_search
     params[:user] ||= {}
+    if !params[:user].empty?
+      username ="%" +params[:user][:username] +"%"
+      email = "%" +params[:user][:email] +"%"
+    end
     params[:user].delete_if {|key, value| value.blank? }
-    @users = params[:user].empty? ? [] : User.where(params[:user])
+    @users = params[:user].empty? ? [] : User.user_search(username, email)
+    @users.each do |user|
+      user.attributes.each do |att|
+        if att.blank? 
+          att = "N/A"
+        end
+      end
+    end
   end
 
   def admin_inviter 
