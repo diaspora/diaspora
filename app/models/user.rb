@@ -63,8 +63,9 @@ class User < ActiveRecord::Base
   before_save :guard_unconfirmed_email,
               :save_person!
 
-
-  attr_accessible :getting_started,
+  attr_accessible :username,
+                  :email,
+                  :getting_started,
                   :password,
                   :password_confirmation,
                   :language,
@@ -73,7 +74,8 @@ class User < ActiveRecord::Base
                   :invitation_identifier,
                   :show_community_spotlight_in_stream,
                   :auto_follow_back,
-                  :auto_follow_back_aspect_id
+                  :auto_follow_back_aspect_id,
+                  :remember_me
 
 
   def self.all_sharing_with_person(person)
