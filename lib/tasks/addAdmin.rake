@@ -4,15 +4,21 @@ task :create_admin, [:username, :password] => :environment  do |t, args|
 
   puts "making #{args[:username]}"
   user = make_user_with_atts(args[:username], args[:password])
-  if user
+  puts "giving #{args[:username]} admin access"
+  if Role.add_admin(user.person)
     puts "success"
+  else
+    puts "fail"
   end
     
 end
 
 def make_user_with_atts(username, password)
   user =  User.find_by_username(username)
-  return user if user.present?
+  if user.present?
+    puts "user exists"
+    return user
+  end
   person = Factory.build(:person, :diaspora_handle => "#{username}@diaspora.dev")
   person.save!
   profile = Factory(:profile, :first_name => username, :last_name => 'admin', :person => person)
@@ -29,13 +35,6 @@ def make_user_with_atts(username, password)
   profile.person_id = person.id
   profile.save! 
 
-  puts "giving #{username} admin access"
-  if Role.add_admin(person)
-    puts "success"
-  else
-    puts "fail"
-  end
-
-  user.save(:validate => false)
+  puts "success" if user.save(:validate => false)
   user
 end
