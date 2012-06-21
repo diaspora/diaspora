@@ -50,8 +50,8 @@ cs:
     ignore: "Ignorovat"
     infinite_scroll:
       no_more: "Žádné další příspěvky."
-    my_activity: "Moje aktivity"
-    my_stream: "Proud"
+    my_activity: "Moje aktivita"
+    my_stream: "Stream"
     photo_uploader:
       looking_good: "Tedy, vypadáte úžasně!"
     publisher:

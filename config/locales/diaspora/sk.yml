@@ -30,7 +30,7 @@ sk:
         reshare:
           attributes:
             root_guid:
-              taken: "To je dobré, čo? Tento príspevok ste sa už raz znova zdieľali!"
+              taken: "To je dobré, čo? Tento príspevok ste už raz znova zdieľali!"
         user:
           attributes:
             email:

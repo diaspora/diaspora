@@ -7,6 +7,7 @@
 te:
   javascripts:
     aspect_dropdown:
+      add_to_aspect: "పరిచయాన్ని జతచేయి"
       error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."
@@ -18,21 +19,43 @@ te:
         two: "In <%= count %> aspects"
         zero: "Select aspects"
     aspect_navigation:
+      deselect_all: "ఎంపిక మొత్తం రద్దుచేయి"
       select_all: "అన్నిటినీ ఎంచుకో"
     comments:
       hide: "వ్యాఖ్యలను దాచు"
       show: "అన్ని వ్యాఖ్యలను చూపించు"
+    delete: "తొలగించు"
+    failed_to_like: "ఇష్టపడుటలో విఫలమైంది!"
+    failed_to_post_message: "సందేశాన్ని పోస్టుచేయుటలో విఫలమైంది!"
     getting_started:
       hey: "ఓయ్, {{name}}!"
     header:
-      search: "Find people or #tags"
+      admin: "నిర్వాహకుడు"
+      close: "మూసివేయి"
+      contacts: "పరిచయాలు"
+      home: "నివాసము"
+      log_out: "నిష్క్రమించు"
+      messages: "సందేశాలు"
+      notifications: "గమనికలు"
+      profile: "ప్రవర"
+      recent_notifications: "ఇటీవలి గమనికలు"
+      search: "వెతుకు"
+      settings: "అమరికలు"
+      view_all: "అన్నీ వీక్షించండి"
+    ignore: "విస్మరించు"
     infinite_scroll:
       no_more: "ఇంక టపాలు లేవు."
+    my_activity: "నా క్రియాశీలత"
+    my_stream: "ప్రవాహం"
     reshares:
       duplicate: "ఓహో, అది బాగుందా?  ఆ టపాని మీరు ఇప్పటికే పంచుకున్నారు!"
     search_for: "{{name}} కోసం వెతకండి"
     show_more: "మరిన్ని చూపించు"
     stream:
+      comment: "వ్యాఖ్య"
+      follow: "అనుసరించు"
+      hide: "దాచు"
+      like: "ఇష్టం"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -40,6 +63,7 @@ te:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "పరిమితం"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
@@ -47,6 +71,8 @@ te:
         other: "Show <%= count %> more comments"
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      public: "బహిరంగం"
+      reshare: "మరలపంచుకొను"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -54,6 +80,9 @@ te:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "టపాను చూపించు"
+      show_nsfw_posts: "అన్నీ చూపించు"
+      unlike: "అయిష్టం"
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:
@@ -69,8 +98,14 @@ te:
       prefixFromNow: ""
       seconds: "కొన్ని క్షణాల"
       suffixAgo: "క్రితం"
-      suffixFromNow: ""
+      suffixFromNow: "ఇప్పటి నుండి"
       year: "దాదాపు సంవత్సరం"
       years: "%d సంవత్సరాల"
     videos:
+      unknown: "తెలియని వీడియో రకం"
       watch: "ఈ వీడియోని {{provider}}లో చూడండి"
+    viewer:
+      comment: "వ్యాఖ్య"
+      home: "నివాసం"
+      like: "ఇష్టం"
+      unlike: "అయిష్టం"

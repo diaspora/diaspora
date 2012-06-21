@@ -18,9 +18,9 @@ pt-PT:
       locked: "A sua conta foi bloqueada."
       timeout: "A sua sessão expirou, por favor inicie a sessão novamente para continuar."
       unauthenticated: "É necessário iniciar sessão ou registar-se antes de continuar."
-      unconfirmed: "Precisa de confirmar a sua conta antes de continuar."
+      unconfirmed: "É necessário confirmar a sua conta antes de continuar."
     invitations:
-      invitation_token_invalid: "A nossas desculpas! Esse código de convite não é válido!"
+      invitation_token_invalid: "As nossas desculpas! Esse código de convite não é válido!"
       send_instructions: "O seu convite foi enviado."
       updated: "A sua palavra-passe foi definida com sucesso. A sessão foi iniciada."
     mailer:
@@ -33,7 +33,7 @@ pt-PT:
         accept: "Aceitar o convite"
         arrived: "A rede social de que estava à espera chegou. Renovada, mais segura e mais divertida, %{strong_diaspora} está pronta para o(a) ajudar a partilhar e explorar a Web de forma totalmente nova."
         be_yourself: "Seja você mesmo"
-        be_yourself_paragraph: "A Internet criou novas e únicas formas de nos expressar. %{strong_diaspora} permite que seja você mesmo e partilhar o que quiser, com ou sem o seu nome real."
+        be_yourself_paragraph: "A Internet criou novas e únicas formas de nos expressarmos. %{strong_diaspora} permite que seja você mesmo e que partilhe o que quiser, com ou sem o seu nome real."
         cubbies: "Cubbi.es"
         displaying_correctly: "O email não é apresentado corretamente? %{link}"
         email_address: "questions@joindiaspora.com"
@@ -70,7 +70,7 @@ pt-PT:
         wont_change: "A sua palavra-passe não será alterada até que aceda à hiperligação em cima e crie uma nova palavra-passe."
       unlock_instructions:
         account_locked: "A sua conta foi bloqueada devido a um número excessivo de tentativas de início de sessão falhadas."
-        click_to_unlock: "Clique seguinte hiperligação para desbloquear a sua conta:"
+        click_to_unlock: "Clique na seguinte hiperligação para desbloquear a sua conta:"
         subject: "Instruções de desbloqueio"
         unlock: "Desbloquear a minha conta"
       welcome: "Bem-vindo(a) %{email}!"
@@ -89,7 +89,7 @@ pt-PT:
       updated: "Atualizou a sua conta com sucesso."
     sessions:
       new:
-        alpha_software: "Está prestes a utilizar software em versão \"alfa\"."
+        alpha_software: "Está prestes a utilizar a versão experimental do programa"
         bugs_and_feedback: "Tenha em conta que irão ocorrer erros. Encorajamo-lo a usar o botão de Feedback na margem direita do seu navegador para reportar quaisquer anomalias! Trabalharemos o mais rapidamente possível para resolver os problemas que reportar."
         bugs_and_feedback_mobile: "Tenha em conta que irão ocorrer erros.  Encorajamo-lo a relatar quaisquer anomalias!  Trabalharemos tão rapidamente quanto possível para resolver quaisquer problemas que relate."
         login: "Iniciar sessão"

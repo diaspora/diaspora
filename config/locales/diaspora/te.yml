@@ -12,6 +12,39 @@ te:
   _photos: "ఫొటోలు"
   _services: "సేవలు"
   account: "ఖాతా"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            person:
+              invalid: "చెల్లనిది."
+  admins:
+    admin_bar:
+      pages: "పుటలు"
+    stats:
+      2weeks: "2 వారాలు"
+      50_most: "50 ప్రజాదరణ పొందిన కొసలు"
+      comments:
+        one: "%{count} వ్యాఖ్య"
+        other: "%{count} వ్యాఖ్యలు"
+        zero: "%{count} వ్యాఖ్యలు"
+      go: "వెళ్లు"
+      month: "నెల"
+      posts:
+        one: "%{count} టపా"
+        other: "%{count} టపాలు"
+        zero: "%{count} టపాలు"
+      users:
+        one: "%{count} వాడుకరి"
+        other: "%{count} వాడుకరులు"
+        zero: "%{count} వాడుకరులు"
+      week: "వారం"
+    user_search:
+      users:
+        one: "%{count} వాడుకరి కనబడ్డారు"
+        other: "%{count} వాడుకరులు కనబడ్డారు"
+        zero: "%{count} వాడుకరులు కనబడ్డారు"
   ago: "%{time} క్రితం"
   all_aspects: "అన్ని కోణాలు"
   application:
@@ -21,20 +54,38 @@ te:
       video_title:
         unknown: "తెలియని వీడియో శీర్షిక"
   aspects:
+    aspect_contacts:
+      done_editing: "సవరణ పూర్తయింది"
+    aspect_listings:
+      deselect_all: "ఎంపిక మొత్తం రద్దుచేయి"
+      edit_aspect: "%{name} సవరించు"
+      select_all: "అన్నీ ఎంపికచేయి"
     edit:
       done: "పూర్తయ్యింది"
       rename: "పేరుమార్చు"
+      update: "నవీకరించు"
+      updating: "నవీకరిస్తున్నాము"
     few: "%{count} aspects"
+    helper:
+      remove: "తీసివేయి"
     index:
       cubbies:
         learn_more: "మరింత తెలుసుకోండి"
+      donate: "విరాలమివ్వండి"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       help:
+        email_link: "ఈమెయిల్"
         need_help: "సహాయం కావాలా?"
+        tag_bug: "లోపం"
+        tag_question: "ప్రశ్న"
       new_here:
         learn_more: "మరింత తెలుసుకోండి"
+        title: "కొత్త వాడుకరులకు స్వాగతం"
+      no_contacts: "పరిచయాలేమీ లేవు"
+      post_a_message: "ఒక సందేశాన్ని పోస్టుచేయండి >>"
     many: "%{count} aspects"
     new:
+      create: "సృష్టించు"
       name: "పేరు (మీకు మాత్రమే కనిపిస్తుంది)"
     one: "1 aspect"
     other: "%{count} aspects"
@@ -42,14 +93,40 @@ te:
       family: "కుటుంబం"
       friends: "స్నేహితులు"
       work: "సహోద్యోగులు"
+    selected_contacts:
+      view_all_contacts: "అన్ని పరిచయాలను వీక్షించండి"
     two: "%{count} aspects"
     zero: "no aspects"
+  back: "వెనుకకు"
   cancel: "రద్దుచేయి"
+  comments:
+    few: "%{count} వ్యాఖ్యలు"
+    many: "%{count} వ్యాఖ్యలు"
+    new_comment:
+      comment: "వ్యాఖ్య"
+    one: "1 వ్యాఖ్య"
+    other: "%{count} వ్యాఖ్యలు"
+    two: "%{count} వ్యాఖ్యలు"
+    zero: "వ్యాక్యలేమీ లేవు"
   contacts:
+    create:
+      failure: "పరిచయాన్ని సృష్టించుటలో విఫలమైంది"
     few: "%{count} పరిచయాలు"
     index:
+      all_contacts: "అన్ని పరిచయాలు"
+      my_contacts: "నా పరిచయాలు"
+      start_a_conversation: "సంభాషణను ప్రారంభించండి"
+      title: "పరిచయాలు"
       your_contacts: "మీ పరిచయాలు"
+    many: "%{count} పరిచయాలు"
+    one: "1 పరిచయం"
+    other: "%{count} పరిచయాలు"
+    two: "%{count} పరిచయాలు"
+    zero: "పరిచయాలు"
   conversations:
+    create:
+      fail: "చెల్లని సందేశం"
+      sent: "సందేశం పంపబడింది"
     helper:
       new_messages:
         few: "%{count} కొత్త సందేశాలు"
@@ -58,9 +135,23 @@ te:
         other: "%{count} కొత్త సందేశాలు"
         two: "%{count} కొత్త సందేశాలు"
         zero: "కొత్త సందేశాలు లేవు"
+    index:
+      create_a_new_message: "ఒక కొత్త సందేశాన్ని సృష్టించండి"
+      new_message: "కొత్త సందేశం"
+      no_messages: "సందేశాలేమి లేవు"
     new:
+      send: "పంపండి"
+      sending: "పంపుతున్నాము..."
       subject: "విషయం"
+    new_message:
+      fail: "చెల్లని సందేశం"
+  date:
+    formats:
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "తొలగించు"
+  email: "ఈమెయిల్"
   fill_me_out: "పూరించండి"
   hide: "దాచు"
   invitations:
@@ -69,10 +160,18 @@ te:
       no_more: "మీకు ఆహ్వానాలేమీ లేవు."
     new:
       language: "భాష"
+      personal_message: "వ్యక్తిగత సందేశం"
+      send_an_invitation: "ఒక ఆహ్వానాన్ని పంపండి"
+      send_invitation: "సందేశాన్ని పంపండి"
   layouts:
     header:
       blog: "బ్లాగు"
+      login: "ప్రవేశించండి"
+      logout: "నిష్క్రమించండి"
+      profile: "ప్రవర"
+      recent_notifications: "ఇటీవలి గమనికలు"
       settings: "అమరికలు"
+      view_all: "అన్నీ వీక్షించండి"
   likes:
     likes:
       people_dislike_this:
@@ -97,6 +196,9 @@ te:
         two: "%{count} likes"
         zero: "no likes"
   limited: "పరిమితం"
+  more: "మరిన్ని"
+  next: "తరువాత"
+  no_results: "ఎటువంటి ఫలితాలు కనపడలేదు"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -194,6 +296,11 @@ te:
       zero: "%{actors} started sharing with you."
   notifier:
     click_here: "ఇక్కడ నొక్కండి"
+    liked:
+      view_post: "టపాను చూడండి >"
+    reshared:
+      view_post: "టపాను చూడండి >"
+    thanks: "ధన్యవాదములు,"
   ok: "సరే"
   or: "లేదా"
   password: "సంకేతపదం"
@@ -204,17 +311,26 @@ te:
     one: "1 person"
     other: "%{count} people"
     person:
+      add_contact: "పరిచయాన్ని జతచేయండి"
       thats_you: "అది మీరే!"
     profile_sidebar:
       born: "పుట్టిన రోజు"
+      edit_my_profile: "నా ప్రవరను సవరించు"
       gender: "లింగం"
       location: "ప్రాంతం"
+      remove_contact: "పరిచయాన్ని తీసివేయి"
     show:
+      message: "సందేశం"
       recent_posts: "ఇటీవలి టపాలు"
       recent_public_posts: "ఇటీవలి బహిరంగ టపాలు"
       see_all: "అందరినీ చూడండి"
+    sub_header:
+      edit: "సవరించు"
     two: "%{count} people"
     zero: "no people"
+  photos:
+    destroy:
+      notice: "ఛాయాచిత్రం తొలగించబడింది"
   posts:
     show:
       destroy: "తొలగించు"
@@ -226,16 +342,24 @@ te:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
+  previous: "మునుపటి"
   privacy: "అంతరంగికత"
   privacy_policy: "అంతరంగికత విధానం"
+  profile: "ప్రవర"
   profiles:
     edit:
+      edit_profile: "ప్రవరను సవరించు"
       first_name: "మొదటి పేరు"
+      last_name: "ఇంటి పేరు"
+      update_profile: "ప్రవరను నవీకరించండి"
       your_birthday: "మీ పుట్టినరోజు"
       your_gender: "మీ లింగం"
       your_location: "మీ ప్రాంతం"
       your_name: "మీ పేరు"
       your_photo: "మీ ఫొటో"
+      your_public_profile: "మీ బహిరంగ ప్రవర"
+    update:
+      updated: "ప్రవర నవీకరించబడింది"
   public: "బహిరంగం"
   reactions:
     few: "%{count} reactions"
@@ -247,6 +371,12 @@ te:
   registrations:
     edit:
       cancel_my_account: "నా ఖాతాను రద్దుచేయి"
+    new:
+      continue: "కొనసాగు"
+      create_my_account: "నా ఖాతాను సృష్టించు!"
+      email: "ఈమెయిల్"
+      password: "సంకేతపదం"
+      username: "వాడుకరిపేరు"
   requests:
     helper:
       new_requests:
@@ -256,6 +386,8 @@ te:
         other: "%{count} new requests!"
         two: "%{count} new requests!"
         zero: "no new requests"
+    new_request_to_person:
+      sent: "పంపబడింది!"
   reshares:
     reshare:
       reshare:
@@ -265,10 +397,15 @@ te:
         other: "%{count} పంచుకోళ్ళు"
         two: "%{count} పంచుకోళ్ళు"
         zero: "Reshare"
+      show_original: "అసలుని చూపించు"
   search: "వెతుకు"
+  services:
+    remote_friend:
+      invite: "ఆహ్వానించండి"
   settings: "అమరికలు"
   shared:
     add_contact:
+      add_new_contact: "ఒక కొత్త పరిచయాన్ని జతచేయండి"
       your_diaspora_username_is: "మీ డయస్పోరా వాడుకరి పేరు: %{diaspora_handle}"
     aspect_dropdown:
       toggle:
@@ -278,8 +415,18 @@ te:
         other: "In %{count} aspects"
         two: "In %{count} aspects"
         zero: "Add contact"
+    contact_list:
+      all_contacts: "అన్ని పరిచయాలు"
+    publisher:
+      all: "అన్నీ"
+      new_user_prefill:
+        invited_by: "ఆహ్వానం పంపినందుకు ధన్యవాదములు, "
+      upload_photos: "ఛాయాచిత్రాలను ఎక్కించండి"
     stream_element:
+      like: "ఇష్టం"
       show: "చూపించు"
+      unlike: "అయిష్టం"
+      via_mobile: "మొబైల్ ద్వారా"
   status_messages:
     too_long:
       few: "please make your status messages less than %{count} characters"
@@ -297,21 +444,36 @@ te:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
+    activity:
+      title: "నా క్రియాశీలత"
     aspects:
       title: "Your Aspects"
+    followed_tag:
+      follow: "అనుసరించు"
+    multi:
+      title: "ప్రవాహం"
   terms_and_conditions: "నియమాలు మరియు నిబంధనలు"
+  undo: "రద్దుచేయాలా?"
+  username: "వాడుకరిపేరు"
   users:
     edit:
       change: "మార్చు"
+      change_email: "ఈమెయిల్ మార్చండి"
       change_language: "భాష మార్పు"
       change_password: "సంకేతపదం మార్పు"
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       close_account_text: "ఖాతా మూసివేత"
       current_password: "ప్రస్తుత సంకేతపదం"
+      download_photos: "నా ఛాయాచిత్రాలను దింపుము"
+      edit_account: "ఖాతాను సవరించు"
+      getting_started: "కొత్త వాడుకరి ప్రాధాన్యతలు"
       new_password: "కొత్త సంకేతపదం"
+      stream_preferences: "ప్రవాహపు ప్రాధాన్యతలు"
       your_email: "మీ ఈమెయిలు"
       your_handle: "మీ డయస్పోరా గుర్తింపు"
+    getting_started:
+      saved: "భద్రపరచబడింది!"
     privacy_settings:
       title: "అంతరంగికత అమరికలు"
     public:

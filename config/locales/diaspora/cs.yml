@@ -40,6 +40,36 @@ cs:
             username:
               invalid: "je neplatné. Povolené znaky jsou pouze písmena, číslice a podtržítko."
               taken: "je již obsazeno."
+  admins:
+    stats:
+      50_most: "Top 50 štítků"
+      comments:
+        few: "%{count} komentáře"
+        one: "%{count} komentář"
+        other: "%{count} komentářů"
+        zero: "%{count} komentářů"
+      posts:
+        few: "%{count} příspěvky"
+        one: "%{count} příspěvek"
+        other: "%{count} příspěvků"
+        zero: "%{count} příspěvků"
+      shares:
+        few: "%{count} sdílení"
+        one: "%{count} sdílení"
+        other: "%{count} sdílení"
+        zero: "%{count} sdílení"
+      users:
+        few: "%{count} uživatelé"
+        one: "%{count} uživatel"
+        other: "%{count} uživatelů"
+        zero: "%{count} uživatelů"
+    user_search:
+      email_to: "Pozvat Emailem"
+      users:
+        few: "%{count} uživatelé nalezeni"
+        one: "%{count} uživatel nalezen"
+        other: "%{count} uživatelů nalezeno"
+        zero: "%{count} uživatelů nalezeno"
   ago: "před %{time}"
   all_aspects: "Všechny aspekty"
   application:
@@ -66,6 +96,8 @@ cs:
       deselect_all: "Zrušit výběr"
       edit_aspect: "Upravit %{name}"
       select_all: "Vybrat vše"
+    aspect_stream:
+      make_something: "Udělejte něco"
     contacts_not_visible: "Kontakty v tomto aspektu se vzájemně neuvidí."
     contacts_visible: "Kontakty v tomto aspektu se budou moci vzájemně vidět."
     create:
@@ -98,10 +130,12 @@ cs:
       diaspora_id:
         content_1: "Vaše Diaspora ID je:"
         content_2: "Dejte to někomu a bude vás moci najít na Diaspoře."
+        heading: "Diaspora ID"
       donate: "Přispějte"
       handle_explanation: "Toto je vaše Diaspora ID. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
       help:
         email_feedback: "Můžete také %{link} vaši zpětnou vazbu, pokud tomu dáváte přednost."
+        email_link: "Email"
         feature_suggestion: "… vymyslel jste novou %{link}?"
         find_a_bug: "… našli jste %{link}?"
         have_a_question: "… máte nějakou %{link}?"
@@ -168,7 +202,7 @@ cs:
       success: "Tak ať tedy řekne, co má na srdci!  #pozdrav"
   bookmarklet:
     explanation: "Pište na Diasporu odkudkoliv pomocí %{link}."
-    post_something: "Poslat něco na Diasporu"
+    post_something: "Sdílet na Diaspoře"
     post_success: "Odesláno! Zavírám!"
   cancel: "Zrušit"
   comments:
@@ -391,7 +425,7 @@ cs:
       other: "%{actors} s vámi začali sdílet."
       zero: "%{actors} s vámi začali sdílet."
   notifier:
-    a_post_you_shared: "příspěvek"
+    a_post_you_shared: "příspěvek."
     click_here: "klikněte zde"
     comment_on_post:
       reply: "Zobrazit zprávu od %{name} nebo na ni odpovědět »"
@@ -439,6 +473,7 @@ cs:
       no_one_found: "… a nikdo nebyl nalezen."
       no_results: "Hej! Musíte něco hledat."
       results_for: "výsledky hledání"
+      searching: "vyhledávání, prosím čekejte..."
     last_post: "Poslední příspěvek"
     many: "%{count} lidí"
     one: "1 člověk"
@@ -568,9 +603,11 @@ cs:
       unhappy: "Nešťastný?"
       update: "Aktualizovat"
     new:
+      continue: "Pokračovat"
       create_my_account: "Vytvořte mi účet!"
+      diaspora: "<3 Diaspora*"
       enter_email: "Zadejte e-mail"
-      enter_password: "Zadejte heslo"
+      enter_password: "Zadejte heslo (min. 6 znaků)"
       enter_password_again: "Zadejte stejné heslo jako předtím"
       enter_username: "Vyberte si uživatelské jméno (pouze písmena, číslice a podtržítka)"
       join_the_movement: "Připojte se k nám!"
@@ -680,7 +717,7 @@ cs:
       outside: "Veřejné příspěvky budou dostupné i pro ostatní mimo Diasporu."
       share: "Sdílet"
       title: "Nastavit související služby"
-      visibility_dropdown: "Použijte tuto roletku pro změnu viditelnosti vašeho příspěvku.   (Váš první příspěvek doporučujeme udělat veřejný.)"
+      visibility_dropdown: "Použijte toto menu pro změnu viditelnosti vašeho příspěvku.   (Váš první příspěvek doporučujeme udělat veřejný.)"
     publisher:
       all: "všechny"
       all_contacts: "všechny kontakty"
@@ -708,6 +745,7 @@ cs:
       shared_with: "Sdíleno s: %{aspect_names}"
       unlike: "to se mi už nelíbí"
       via: "skrz %{link}"
+      via_mobile: "přes mobilní telefon"
       viewable_to_anyone: "Tento příspěvek je viditelný komukoli na webu"
   status_messages:
     create:
@@ -733,6 +771,8 @@ cs:
       two: "Zobrazit 2 další komentáře"
       zero: "Žádné další komentáře"
   streams:
+    activity:
+      title: "Moje aktivita"
     aspects:
       title: "Moje aspekty"
     aspects_stream: "Aspekty"
@@ -792,8 +832,8 @@ cs:
       email_not_confirmed: "E-mail nemohl být aktivován. Špatný odkaz?"
     destroy:
       no_password: "Prosím zadejte své současné heslo, aby váš účet mohl být uzavřen."
-      success: "Váš účet byl uzamčen.  Uzavření vašeho účtu nám může trvat až 20 minut.  Děkujeme za vyzkoušení Diaspory."
-      wrong_password: "Zadané heslo není vaše současné heslo."
+      success: "Váš účet byl uzamčen.  Uzavření vašeho účtu může trvat až 20 minut.  Děkujeme za vyzkoušení Diaspory."
+      wrong_password: "Zadané heslo nesouhlasí s vaším současným heslem."
     edit:
       also_commented: "…někdo komentoval příspěvek vašeho kontaktu?"
       auto_follow_back: "Automaticky sledovat toho, kdo sleduje vás"
@@ -818,7 +858,7 @@ cs:
       edit_account: "Upravit účet"
       email_awaiting_confirmation: "Na adresu %{unconfirmed_email} byl zaslán aktivační odkaz. Dokud tento odkaz neotevřete a svou novou adresu neaktivujete, budeme vás kontaktovat na vaší staré adrese %{email}."
       export_data: "Exportovat data"
-      getting_started: "Nastavení nového uživatele"
+      getting_started: "Předvolby nového uživatele"
       liked: "…někomu se zalíbí váš příspěvek?"
       mentioned: "…někdo vás zmíní v příspěvku?"
       new_password: "Nové heslo"
@@ -841,6 +881,7 @@ cs:
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "Kdo jste?"
     privacy_settings:
+      ignored_users: "Ignorovaní uživatelé"
       title: "Nastavení soukromí"
     public:
       does_not_exist: "Uživatel %{username} neexistuje!"

@@ -89,13 +89,13 @@ eo:
       updated: "Vi sukcese ĝisdatigis vian konton."
     sessions:
       new:
-        alpha_software: "Vi estas uzonta alfaprogramaron."
+        alpha_software: "Vi estas uzonta alfasoftvaron."
         bugs_and_feedback: "Memoru, vi trovos erarojn. Bonvolu uzi la „Feedback“/rimarko-butonon dekstre por informi nin pri iuj ajn eraroj!  Ni laboros tiel rapide kiel eblas, por ke ni riparu la erarojn, pri kiuj vi informis nin."
         bugs_and_feedback_mobile: "Memoru, vi trovos erarojn.  Bonvolu informi nin pri iuj ajn eraroj!  Ni tre rapide laboros, por ke ni riparu la erarojn, pri kiuj vi informis nin."
         login: "Ensaluti"
         modern_browsers: "funkcias nur per modernaj retumiloj"
         password: "Pasvorto"
-        remember_me: "Memori min"
+        remember_me: "Memoru min"
         sign_in: "Ensaluti"
         username: "Uzantnomo"
       signed_in: "Sukcese ensalutis."
