@@ -74,9 +74,10 @@ describe NotificationsHelper do
 
       it 'includes the boilerplate translation' do
         output = object_link(@notification, notification_people_link(@notification))
-        output.should include t("#{@notification.popup_translation_key}.two",
-                                :actors => notification_people_link(@notification),
-                                :post_link => "<a href=\"#{post_path(@post)}\" class=\"hard_object_link\" data-ref=\"#{@post.id}\">#{t('notifications.post')}</a>")
+        output.should include I18n.t("#{@notification.popup_translation_key}",
+                                     :actors => notification_people_link(@notification),
+                                     :count => @notification.actors.count,
+                                     :post_link => "<a href=\"#{post_path(@post)}\" class=\"hard_object_link\" data-ref=\"#{@post.id}\">#{t('notifications.post')}</a>")
       end
 
       context 'when post is deleted' do
