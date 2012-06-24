@@ -48,9 +48,6 @@ en:
       toggle:
         zero: "Select aspects"
         one: "In <%= count %> aspect"
-        two: "In <%= count %> aspects"
-        few: "In <%= count %> aspects"
-        many: "In <%= count %> aspects"
         other: "In <%= count %> aspects"
     show_more: "show more"
     failed_to_like: "Failed to like!"
@@ -96,25 +93,16 @@ en:
       likes:
         zero: "<%= count %> Likes"
         one: "<%= count %> Like"
-        two: "<%= count %> Likes"
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
         other: "<%= count %> Likes"
 
       reshares:
         zero: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
-        two: "<%= count %> Reshares"
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
         other: "<%= count %> Reshares"
 
       more_comments:
         zero: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
-        two: "Show <%= count %> more comments"
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
         other: "Show <%= count %> more comments"
 
     header:

@@ -99,9 +99,6 @@ en:
       users: 
         zero: "%{count} users found"
         one: "%{count} user found"
-        two: "%{count} users found"
-        few: "%{count} users found"
-        many: "%{count} users found"
         other: "%{count} users found"
     weekly_user_stats:
       current_server: "Current server date is %{date}"
@@ -120,30 +117,18 @@ en:
       posts:
         zero: "%{count} posts"
         one: "%{count} post"
-        two: "%{count} posts"
-        few: "%{count} posts"
-        many: "%{count} posts"
         other: "%{count} posts"
       comments:
         zero: "%{count} comments"
         one: "%{count} comment"
-        two: "%{count} comments"
-        few: "%{count} comments"
-        many: "%{count} comments"
         other: "%{count} comments"
       shares:
         zero: "%{count} shares"
         one: "%{count} share"
-        two: "%{count} shares"
-        few: "%{count} shares"
-        many: "%{count} shares"
         other: "%{count} shares"
       users:
         zero: "%{count} users"
         one: "%{count} user"
-        two: "%{count} users"
-        few: "%{count} users"
-        many: "%{count} users"
         other: "%{count} users"
       current_segment: "The current segment is averaging <b>%{post_yest}</b> posts per user, from <b>%{post_day}</b>"
       50_most: "50 Most Popular Tags"
@@ -298,9 +283,6 @@ en:
   reactions:
     zero: "0 reactions"
     one: "1 reaction"
-    two: "%{count} reactions"
-    few: "%{count} reactions"
-    many: "%{count} reactions"
     other: "%{count} reactions"
 
   contacts:
@@ -355,9 +337,6 @@ en:
       new_messages:
         zero: "No new messages"
         one: "1 new messages"
-        two: "%{count} new messages"
-        few: "%{count} new messages"
-        many: "%{count} new messages"
         other: "%{count} new messages"
     create:
       sent: "Message sent"
@@ -397,9 +376,6 @@ en:
       codes_left:
         zero:  "No invites left on this code"
         one:  "One invite left on this code"
-        two:  "%{count} invites left on this code"
-        few:  "%{count} invites left on this code"
-        many:  "%{count} invites left on this code"
         other:  "%{count} invites left on this code"
       aspect: "Aspect"
       already_invited: "The following people have not accepted your invitation:"
@@ -436,103 +412,61 @@ en:
       people_like_this:
         zero: "no likes"
         one: "%{count} like"
-        two: "%{count} likes"
-        few: "%{count} likes"
-        many: "%{count} likes"
         other: "%{count} likes"
       people_like_this_comment:
         zero: "no likes"
         one: "%{count} like"
-        two: "%{count} likes"
-        few: "%{count} likes"
-        many: "%{count} likes"
         other: "%{count} likes"
       people_dislike_this:
         zero: "no dislikes"
         one: "%{count} dislike"
-        two: "%{count} dislikes"
-        few: "%{count} dislikes"
-        many: "%{count} dislikes"
         other: "%{count} dislikes"
 
   notifications:
     started_sharing:
       zero: "%{actors} started sharing with you."
       one: "%{actors} started sharing with you."
-      two: "%{actors} started sharing with you."
-      few: "%{actors} started sharing with you."
-      many: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
     private_message:
       zero: "%{actors} sent you a message."
       one: "%{actors} sent you a message."
-      two: "%{actors} sent you a message."
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
     comment_on_post:
       zero: "%{actors} commented on your %{post_link}."
       one: "%{actors} commented on your %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
       other: "%{actors} commented on your %{post_link}."
     also_commented:
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
       one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors} also commented on %{post_author}'s %{post_link}."
     mentioned:
       zero: "%{actors} have mentioned you in a %{post_link}."
       one: "%{actors} has mentioned you in a %{post_link}."
-      two: "%{actors} have mentioned you in a %{post_link}."
-      few: "%{actors} have mentioned you in a %{post_link}."
-      many: "%{actors} have mentioned you in a %{post_link}."
       other: "%{actors} have mentioned you in a %{post_link}."
     liked:
       zero: "%{actors} have liked your %{post_link}."
       one: "%{actors} has liked your %{post_link}."
-      two: "%{actors} have liked your %{post_link}."
-      few: "%{actors} have liked your %{post_link}."
-      many: "%{actors} have liked your %{post_link}."
       other: "%{actors} have liked your %{post_link}."
     reshared:
       zero: "%{actors} have reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
-      two: "%{actors} have reshared your %{post_link}."
-      few: "%{actors} have reshared your %{post_link}."
-      many: "%{actors} have reshared your %{post_link}."
       other: "%{actors} have reshared your %{post_link}."
     post: "post"
     also_commented_deleted:
       zero: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
-      two: "%{actors} commented on a deleted post."
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
     liked_post_deleted:
       zero: "%{actors} liked your deleted post."
       one: "%{actors} liked your deleted post."
-      two: "%{actors} liked your deleted post."
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
       other: "%{actors} liked your deleted post."
     reshared_post_deleted:
       zero: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
     mentioned_deleted:
       zero: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
     index:
       notifications: "Notifications"
@@ -541,18 +475,12 @@ en:
       and_others:
         zero: "and nobody else"
         one: "and one more"
-        two: "and %{count} others"
-        few: "and %{count} others"
-        many: "and %{count} others"
         other: "and %{count} others"
       and: 'and'
     helper:
       new_notifications:
         zero: "No new notifications"
         one: "1 new notification"
-        two: "%{count} new notifications"
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
         other: "%{count} new notifications"
 
   notifier:
@@ -708,9 +636,6 @@ en:
       photos_by:
         zero: "No photos by %{author}"
         one: "One photo by %{author}"
-        two: "Two photos by %{author}"
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
         other: "%{count} photos by %{author}"
       reshare_by: "Reshare by %{author}"
 
@@ -791,9 +716,6 @@ en:
       new_requests:
         zero: "no new requests"
         one: "new request!"
-        two: "%{count} new requests!"
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
         other: "%{count} new requests!"
   reshares:
     reshare:
@@ -802,9 +724,6 @@ en:
       reshare:
         zero: "Reshare"
         one: "1 reshare"
-        two: "%{count} reshares"
-        few: "%{count} reshares"
-        many: "%{count} reshares"
         other: "%{count} reshares"
       show_original: "Show original"
       reshare_confirmation: "Reshare %{author}'s post?"
@@ -856,9 +775,6 @@ en:
       toggle:
         zero: "Add contact"
         one: "In %{count} aspect"
-        two: "In %{count} aspects"
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
         other: "In %{count} aspects"
     publisher:
       posting: "Posting..."
@@ -940,18 +856,12 @@ en:
     too_long:
       zero: "please make your status messages less than %{count} characters"
       one: "please make your status messages less than %{count} character"
-      two: "please make your status messages less than %{count} characters"
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
       other: "please make your status messages less than %{count} characters"
 
   stream_helper:
     show_comments:
       zero: "No more comments"
       one: "Show one more comment"
-      two: "Show two more comments"
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
       other: "Show %{count} more comments"
     hide_comments: "Hide all comments"
 
