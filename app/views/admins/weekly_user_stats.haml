@@ -6,13 +6,13 @@
 
 .span-24.last
   %h2
-    = "Current server date is: #{Time.now.to_date}) "
+    = "#{t('.current_server')}: #{Time.now.to_date}"
 
 = form_tag('/admins/weekly_user_stats', :method => 'get') do
   = select_tag(:week, options_for_select(@created_users_by_week.keys))
-  = submit_tag 'go'
+  = submit_tag t('admins.stats.go')
 
-amount of new users this week:
+= t('.amount_of')
 = @counter
 %br
 - @created_users_by_week[(params[:week])].each do |m|
