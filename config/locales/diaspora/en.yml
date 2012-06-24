@@ -104,8 +104,11 @@ en:
         many: "%{count} users found"
         other: "%{count} users found"
     weekly_user_stats:
-      current_server: "Current server date is"
-      amount_of: "amount of new users this week:"
+      current_server: "Current server date is %{date}"
+      amount_of:
+        zero: "amount of new users this week: none"
+        one: "amount of new users this week: %{count}"
+        other: "amount of new users this week: %{count}"
     stats:
       week: "Week"
       2weeks: "2 Week"

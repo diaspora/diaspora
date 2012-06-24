@@ -6,14 +6,13 @@
 
 .span-24.last
   %h2
-    = "#{t('.current_server')}: #{Time.now.to_date}"
+    = t('.current_server', :date => Time.now.to_date)
 
 = form_tag('/admins/weekly_user_stats', :method => 'get') do
   = select_tag(:week, options_for_select(@created_users_by_week.keys))
   = submit_tag t('admins.stats.go')
 
-= t('.amount_of')
-= @counter
+= t('.amount_of', :count => @counter)
 %br
 - @created_users_by_week[(params[:week])].each do |m|
   = link_to m, "/u/#{m}"
