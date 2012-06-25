@@ -1844,14 +1844,15 @@ ul#press_logos
     .oembed
       :background image-url('ajax-loader2.gif') no-repeat center center
       :float left
-      :max-width 100%
+      :width 100%
 
       .thumb
         :position relative
         :cursor pointer
         @include video-overlay()
 
-
+      iframe, .thumb img
+        :width 100%
 
 
 .conversation_participants
