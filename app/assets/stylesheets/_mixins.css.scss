@@ -98,19 +98,66 @@ $default-border-radius: 3px;
 
 @mixin video-overlay(){
   .video-overlay {
-    @include opacity(0.6);
-
     background : {
+      color: rgba(0,0,0, .65);
       image : image-url('buttons/playbtn.png');
       repeat : no-repeat;
-      position : center center;
+      position : 10px center;
       size : 60px 60px;
     }
 
+    @include border-radius(70px, 10px, 10px, 70px);
+    @include box-shadow(0, 0, 32px, rgba(255,255,255,.5));
+
     position : absolute;
-    top : 0;
-    left : 0;
-    right : 0;
-    bottom : 0;
+    top : 50%;
+    left : 10%;
+    right : 10%;
+    
+    height: 60px;
+    margin-top: -40px;
+    padding: 10px 7px 10px 80px;
+    overflow: hidden;
+
+    line-height: 60px;
+
+    & > div {
+      display: inline-block;
+      vertical-align: middle;
+      max-width: 100%;
+    }
+
+    & > div > div {
+      @include opacity(1.0);
+      overflow: hidden;
+      text-shadow: -1px -1px 0 #000, 0 0 7px #111;
+      color: #F0F0F0;
+      font-size: 0.9em;
+      text-overflow: ellipsis;
+    }
+
+    .title {
+      font-weight: bold;
+      white-space: nowrap;
+      line-height: .95em;
+    }
+    .meta {
+      font-size: .94em;
+      line-height: 1.3em;
+      white-space: nowrap;
+      @include opacity(.9);
+
+      a {
+        color: lighten($blue, 25%);
+      }
+      a:visited {
+        color: $blue;
+      }
+    }
+    .desc {
+      font-size: .91em;
+      line-height: .97em;
+      max-height: 35px;
+    }
   }
 }
