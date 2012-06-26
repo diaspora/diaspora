@@ -38,7 +38,7 @@ class Services::Twitter < Service
     twitter_key = SERVICES['twitter']['consumer_key']
     twitter_consumer_secret = SERVICES['twitter']['consumer_secret']
 
-    if twitter_consumer_secret.blank? || twitter_consumer_secret.blank?
+    if twitter_key.blank? || twitter_consumer_secret.blank?
       Rails.logger.info "you have a blank twitter key or secret.... you should look into that"
     end
 
