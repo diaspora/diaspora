@@ -87,7 +87,8 @@ app.views.OEmbed = app.views.Base.extend({
     })
   },
 
-  showOembedContent : function () {
+  showOembedContent : function (evt) {
+    if( $(evt.target).is('a') ) return;
     var insertHTML = $(app.helpers.oEmbed.html(this.model.get("o_embed_cache")));
     var paramSeparator = ( /\?/.test(insertHTML.attr("src")) ) ? "&" : "?";
     insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1");
