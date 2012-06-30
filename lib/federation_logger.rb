@@ -46,7 +46,7 @@ class Formatter
   end
 
   def random
-    @random ||= COLORS['FG'].keys[Random.rand(8)]
+    @random ||= COLORS['FG'].keys[3]
   end
 
   def colors?

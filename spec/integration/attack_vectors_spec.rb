@@ -13,6 +13,14 @@ def receive(post, opts)
   zord.perform!
 end
 
+def receive_public(post, opts)
+  sender = opts.fetch(:from)
+  salmon_xml = Salmon::Slap.create_by_user_and_activity(sender, post.to_diaspora_xml).xml_for(nil)
+  post.destroy
+  zord = Postzord::Receiver::Public.new(salmon_xml)
+  zord.perform!
+end
+
 def temporary_user(&block)
   user = Factory(:user)
   block_return_value = yield user
@@ -27,11 +35,14 @@ def temporary_post(user, &block)
   block_return_value
 end
 
-def expect_error(partial_message, &block)
+def expect_error(partial_message, &block)# DOES NOT REQUIRE ERROR!!
   begin 
     yield
   rescue => e
     e.message.should match partial_message
+
+  ensure
+    raise "no error occured where expected" unless e.present?
   end
 end
 
@@ -118,6 +129,14 @@ describe "attack vectors" do
             receive(profile, :from => alice, :by => bob)
           end
         }.should_not change(eve.profile, :first_name) 
+      end
+    end
+
+
+    it 'public stuff should not be spoofed from another author' do
+      post = Factory(:status_message, :public => true, :author => eve.person)
+      expect_error /Author does not match XML author/ do
+        receive_public(post, :from => alice)
       end
     end
   end

@@ -107,8 +107,6 @@ ActiveRecord::Schema.define(:version => 20120521191429) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "conversations", ["author_id"], :name => "conversations_author_id_fk"
-
   create_table "invitation_codes", :force => true do |t|
     t.string   "token"
     t.integer  "user_id"
@@ -146,7 +144,6 @@ ActiveRecord::Schema.define(:version => 20120521191429) do
     t.string   "target_type",             :limit => 60,                   :null => false
   end
 
-  add_index "likes", ["author_id"], :name => "likes_author_id_fk"
   add_index "likes", ["guid"], :name => "index_likes_on_guid", :unique => true
   add_index "likes", ["target_id", "author_id", "target_type"], :name => "index_likes_on_target_id_and_author_id_and_target_type", :unique => true
   add_index "likes", ["target_id"], :name => "index_likes_on_post_id"
@@ -172,7 +169,6 @@ ActiveRecord::Schema.define(:version => 20120521191429) do
   end
 
   add_index "messages", ["author_id"], :name => "index_messages_on_author_id"
-  add_index "messages", ["conversation_id"], :name => "messages_conversation_id_fk"
 
   create_table "notification_actors", :force => true do |t|
     t.integer  "notification_id"
@@ -204,7 +200,7 @@ ActiveRecord::Schema.define(:version => 20120521191429) do
     t.text   "data",                 :null => false
   end
 
-  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url"
 
   create_table "participations", :force => true do |t|
     t.string   "guid"
