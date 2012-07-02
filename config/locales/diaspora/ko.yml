@@ -55,30 +55,35 @@ ko:
       50_most: "가장 인기있는 태그 50개"
       comments:
         other: "댓글 %{count}개"
-        zero: "댓글 없음"
+        zero: "댓글 %{count}개"
       current_segment: "<b>%{post_day}</b>, 현재 분기는 사용자당 게시물 <b>%{post_yest}</b>개로 추정하고 있습니다"
       daily: "매일"
       display_results: "%{segment} 분기 결과 표시"
       month: "한 달"
       posts:
         other: "게시물 %{count}개"
-        zero: "게시물 없음"
+        zero: "게시물 %{count}개"
       shares:
-        other: "재공유 %{count}개"
-        zero: "재공유 없음"
+        other: "재공유 %{count}번"
+        zero: "재공유 %{count}번"
       tag_name: "태그: <b>%{name_tag}</b> 갯수: <b>%{count_tag}</b>"
       usage_statistic: "사용 통계"
       users:
         other: "사용자 %{count}명"
-        zero: "사용자 없음"
+        zero: "사용자 %{count}명"
       week: "한 주"
     user_search:
       add_invites: "초대 추가"
       email_to: "이메일 초대"
       users:
-        other: "사용자 %{count}명을 찾았습니다"
-        zero: "사용자를 찾을 수 없습니다"
+        other: "%{count}명의 사용자를 찾았습니다"
+        zero: "%{count}명의 사용자를 찾았습니다"
       you_currently: "현재 %{user_invitation} 초대가 남았습니다 %{link}"
+    weekly_user_stats:
+      amount_of:
+        other: "이번 주 새 사용자 수: %{count}"
+        zero: "이번 주 새 사용자 수: 없음"
+      current_server: "현재 서버 날짜는 %{date}입니다."
   ago: "%{time} 전"
   all_aspects: "모든 애스펙"
   application:
@@ -334,7 +339,7 @@ ko:
       aspect: "애스펙"
       check_out_diaspora: "디아스포라를 써보세요!"
       codes_left:
-        other: "이 코드에 초대장 %{count}개가 남았습니다"
+        other: "이 코드에 초대장 %{count}개 남았습니다"
         zero: "이 코드에 남은 초대장이 없습니다"
       comma_separated_plz: "쉼표로 구분하여 여러 이메일 주소를 넣을 수 있습니다."
       if_they_accept_info: "수락한 친구는 초대했던 애스펙에 추가됩니다."
@@ -372,21 +377,21 @@ ko:
         one: "한 명이 싫어합니다"
         other: "%{count}명이 싫어합니다"
         two: "싪어요 %{count}개"
-        zero: "아무도 싫어하지 않습니다"
+        zero: "싫어요 없음"
       people_like_this:
         few: "%{count}명이 좋아합니다"
         many: "%{count}명이 좋아합니다"
         one: "한 명이 좋아합니다"
         other: "%{count}명이 좋아합니다"
         two: "%{count}명이 좋아합니다"
-        zero: "아무도 좋아하지 않습니다"
+        zero: "좋아요 없음"
       people_like_this_comment:
         few: "%{count}명이 좋아합니다"
         many: "%{count}명이 좋아합니다"
         one: "한 명이 좋아합니다"
         other: "%{count}명이 좋아합니다"
         two: "좋아요 %{count}개"
-        zero: "아무도 좋아하지 않습니다"
+        zero: "좋아요 없음"
   limited: "제한됨"
   more: "더"
   next: "다음"
@@ -403,14 +408,14 @@ ko:
       few: "%{actors}님이 지운 게시물에 댓글을 달았습니다."
       many: "%{actors}님이 내가 지운 게시물을 좋아합니다."
       one: "%{actors}님이 지운 게시물에 댓글을 달았습니다."
-      other: "%{actors}님이 지운 게시물에 댓글을 달았습니다."
+      other: "%{actors}님이 지워진 게시물에 댓글을 달았습니다."
       two: "%{actors}님이 지워진 게시물에 댓글을 달았습니다."
-      zero: "%{actors}님이 지운 게시물에 댓글을 달았습니다."
+      zero: "%{actors}님이 지워진 게시물에 댓글을 달았습니다."
     comment_on_post:
       few: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
       many: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
       one: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
-      other: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
+      other: "%{actors}님이 내 %{post_link}에 댓글을 달았습니다."
       two: "%{actors}님이 내 %{post_link} 게시물에 댓글을 달았습니다."
       zero: "%{actors}님이 내 %{post_link}에 댓글을 달았습니다."
     helper:
@@ -473,9 +478,9 @@ ko:
       few: "%{actors}님이 내 %{post_link} 게시물을 제공유했습니다."
       many: "%{actors}님이 내 %{post_link} 게시물을 제공유했습니다."
       one: "%{actors}님이 내 %{post_link} 게시물을 제공유했습니다."
-      other: "%{actors}님이 내 %{post_link} 게시물을 제공유했습니다."
+      other: "%{actors}님이 내 %{post_link}을 재공유했습니다."
       two: "%{actors}님이 내 %{post_link} 게시물을 재공유했습니다."
-      zero: "%{actors}님이 내 %{post_link} 게시물을 제공유했습니다."
+      zero: "%{actors}님이 내 %{post_link}을 재공유했습니다."
     reshared_post_deleted:
       few: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
       many: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
@@ -797,7 +802,7 @@ ko:
         few: "애스펙 %{count}개 안에 있어요"
         many: "애스펙 %{count}개 안에 있어요"
         one: "애스펙 한 개 안에 있어요"
-        other: "애스펙 %{count}개 안에 있어요"
+        other: "애스펙 %{count}개"
         two: "애스펙 %{count}개"
         zero: "컨택 추가"
     contact_list:
@@ -874,9 +879,9 @@ ko:
       few: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
       many: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
       one: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
-      other: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
+      other: "상태 메시지를 %{count}자보다 적게 줄여주세요"
       two: "내 상태 메시지가 %{count}자 보다 적어야 합니다"
-      zero: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
+      zero: "상태 메시지를 %{count}자보다 적게 줄여주세요"
   stream_helper:
     hide_comments: "모든 댓글 숨기기"
     show_comments:

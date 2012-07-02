@@ -85,6 +85,12 @@ sv:
         other: "%{count} användare hittades"
         zero: "Inga användare hittades"
       you_currently: "du har %{user_invitation} inbjudningar kvar %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "antalet nya användare denna vecka: en enda"
+        other: "antalet nya användare denna vecka: %{count}"
+        zero: "antalet nya användare denna vecka: inga"
+      current_server: "Det aktuella serverdatumet är %{date}"
   ago: "%{time} sedan"
   all_aspects: "Alla aspekter"
   application:
@@ -112,6 +118,7 @@ sv:
       edit_aspect: "Ändra %{name}"
       select_all: "Markera alla"
     aspect_stream:
+      make_something: "Skapa någonting"
       stay_updated: "Håll dig uppdaterad"
       stay_updated_explanation: "Din huvudström innefattar alla dina kontakter, de taggar du följer och inlägg från några kreativa medlemmar i gemenskapen."
     contacts_not_visible: "Kontakterna i den här aspekten kommer inte att kunna se varandra."
@@ -283,7 +290,7 @@ sv:
       new_messages:
         few: "%{count} nya meddelanden"
         many: "%{count} nya meddelanden"
-        one: "1 nytt meddelande"
+        one: "Ett nytt meddelande"
         other: "%{count} nya meddelanden"
         two: "%{count} nya meddelanden"
         zero: "Inga nya meddelanden"
@@ -317,6 +324,8 @@ sv:
     helper:
       correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
       invalid_fields: "Ogiltiga uppgifter"
+    login_try_again: "Var god %{login_link}<a href='%{login_link}'>logga in</a> och försök igen."
+    post_not_public: "Du försöker läsa ett inlägg som inte är publikt."
   fill_me_out: "Fyll i mig"
   find_people: "Hitta personer eller #taggar"
   hide: "Göm"

@@ -14,7 +14,7 @@ es-MX:
       started_sharing_with: "¡Has comenzado a compartir con <%= name %>!"
       stopped_sharing_with: "Has dejado de compartir con <%= name %>."
       toggle:
-        one: "En <%= count %> aspecto"
+        one: "En un aspecto"
         other: "En <%= count %> aspectos"
         zero: "Elige los aspectos"
     aspect_navigation:
@@ -73,19 +73,19 @@ es-MX:
       hide_nsfw_posts: "Ocultar publicaciones no aptas para todo público"
       like: "Me gusta"
       likes:
-        one: "Le gusta a <%= count %> persona"
+        one: "Le gusta a una persona"
         other: "Le gusta a <%= count %> personas"
         zero: "Le gusta a <%= count %> personas"
       limited: "Limitado"
       more_comments:
-        one: "Mostrar <%= count %> comentario más"
+        one: "Mostrar un comentario más"
         other: "Mostrar <%= count %> comentarios más"
         zero: "Mostrar <%= count %> comentarios más"
       original_post_deleted: "La publicación original fue eliminada por el autor"
       public: "Público"
       reshare: "Volver a compartir"
       reshares:
-        one: "Compartido <%= count %> vez"
+        one: "Compartido una vez"
         other: "Compartido <%= count %> veces"
         zero: "Compartido <%= count %> veces"
       show_nsfw_post: "Mostrar publicación"

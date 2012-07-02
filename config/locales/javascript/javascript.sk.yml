@@ -14,10 +14,10 @@ sk:
       started_sharing_with: "<%= name %> bol(a) pridaný (-á) do vašich kontaktov!"
       stopped_sharing_with: "<%= name %> bol(a) vymazaný (-á) z vašich kontaktov."
       toggle:
-        few: "V(o) <%= count %> kategóriách"
+        few: "V <%= count %> kategóriách"
         many: "V(o) <%= count %> kategóriách"
         one: "V <%= count %> kategórii"
-        other: "V(o) <%= count %> kategóriách"
+        other: "V(o) <%= count %>kategóriách"
         two: "V(o) <%= count %> kategóriách"
         zero: "Vyberte si kategórie"
     aspect_navigation:
@@ -76,14 +76,14 @@ sk:
       hide_nsfw_posts: "Schovať príspevky #nsfw"
       like: "Páči sa mi to"
       likes:
-        few: "<%= count %> ľuďom sa to páči"
-        one: "<%= count %> človeku sa to páči"
-        other: "<%= count %> ľuďom sa to páči"
-        zero: "<%= count %> ľuďom sa to páči"
+        few: "<%= count %> sa to páči"
+        one: "<%= count %> sa to páči"
+        other: "<%= count %> sa to páči"
+        zero: "<%= count %> sa to páči"
       limited: "Súkromný"
       more_comments:
         few: "Zobraziť ďalšie <%= count %> komentáre"
-        one: "Zobraziť ďalší <%= count %> komentár"
+        one: "Zobraziť ešte <%= count %> komentár"
         other: "Zobraziť ďalších <%= count %> komentárov"
         zero: "Zobraziť ďalších <%= count %> komentárov"
       original_post_deleted: "Pôvodný príspevok odstránil autor."

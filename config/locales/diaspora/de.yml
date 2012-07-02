@@ -56,11 +56,17 @@ de:
         other: "%{count} Kommentare"
         zero: "%{count} Kommentare"
       daily: "täglich"
+      display_results: "Zeige Ergebnisse vom <b>%{segment}</b> segment"
+      go: "los"
       month: "Monat"
       posts:
-        one: "%{count} Post"
-        other: "%{count} Posts"
-        zero: "%{count} Posts"
+        one: "Ein Beitrag"
+        other: "%{count} Beiträge"
+        zero: "Kein Beitrag"
+      shares:
+        one: "Ein Beitrag"
+        other: "%{count} Beiträge"
+        zero: "Kein Beitrag"
       tag_name: "Tag Name: <b>%{name_tag}</b> Anzahl: <b>%{count_tag}</b>"
       usage_statistic: "Nutzungsstatistik"
       users:
@@ -70,11 +76,18 @@ de:
       week: "Woche"
     user_search:
       add_invites: "Einladungen hinzufügen"
+      email_to: "Email zum Einladen"
       users:
         one: "%{count} Benutzer gefunden"
         other: "%{count} Benutzer gefunden"
         zero: "%{count} Benutzer gefunden"
       you_currently: "du hast noch %{user_invitation} Einladungen übrig %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "Anzahl neuer Benutzer diese Woche: Einer"
+        other: "Anzahl neuer Benutzer diese Woche: %{count}"
+        zero: "Anzahl neuer Benutzer diese Woche: Keiner"
+      current_server: "Das aktuelle Serverdatum ist %{date}"
   ago: "Vor %{time}"
   all_aspects: "Alle Aspekte"
   application:
@@ -102,6 +115,7 @@ de:
       edit_aspect: "Bearbeite %{name}"
       select_all: "Alle auswählen"
     aspect_stream:
+      make_something: "Mache etwas"
       stay_updated: "Bleibe auf dem Laufenden"
       stay_updated_explanation: "Dein Stream ist gefüllt mit all deinen Kontakten, Tags, denen du folgst, sowie Beiträgen einiger kreativer Mitglieder der Gemeinschaft."
     contacts_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
@@ -154,6 +168,7 @@ de:
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Von der Gemeinschaft erstellte Tutorials, Anleitungen und Nachrichten"
       introduce_yourself: "Das ist dein Stream. Leg' los und stell dich vor."
       keep_diaspora_running: "Die Entwicklung von Diaspora bleibt schnell, wenn Du monatlich spendest!"
+      keep_pod_running: "Helfen Sie, %{pod} schnell zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
       new_here:
         follow: "Folge %{link} und begrüße neue Benutzer bei Diaspora*!"
         learn_more: "mehr erfahren"
@@ -207,6 +222,7 @@ de:
       revoke_access: "Zugriff widerrufen"
     new:
       authorize: "Authorisieren"
+      cubbies_will: "Cubbies wird in deinem Namen Fotos posten können"
       nope: "Nein"
   back: "Zurück"
   blocks:
@@ -304,6 +320,8 @@ de:
     helper:
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
       invalid_fields: "Ungültige Felder"
+    login_try_again: "Bitte <a href='%{login_link}'>log dich ein</a> und versuche es erneut."
+    post_not_public: "Dieser Beitrag ist nicht öffentlich!"
   fill_me_out: "Füll’ mich aus"
   find_people: "Leute oder #Tags finden"
   hide: "Ausblenden"
@@ -494,7 +512,7 @@ de:
     confirm_email:
       click_link: "Um deine neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicke bitte auf diesen Link:"
       subject: "Bitte aktiviere deine neue E-Mail-Adresse %{unconfirmed_email}"
-    email_sent_by_diaspora: "Diese E-Mail wurde von Diaspora verschickt. Falls du solche E-Mails nicht mehr erhalten willst,"
+    email_sent_by_diaspora: "Diese E-Mail wurde von %{pod_name} verschickt. Falls du solche E-Mails nicht mehr erhalten willst,"
     hello: "Hallo %{name}!"
     invite:
       message: |-
@@ -693,11 +711,13 @@ de:
     new:
       continue: "Weiter"
       create_my_account: "Konto erstellen!"
+      diaspora: "<3 Diaspora*"
       email: "EMAIL"
       enter_email: "Gib eine E-Mail-Adresse an"
       enter_password: "Gib ein Kennwort ein (mindestens sechs Zeichen)"
       enter_password_again: "Gib das gleiche Kennwort wie zuvor ein"
       enter_username: "Wähle einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
+      hey_make: "HEY,<br/>MACHE<br/>ETWAS."
       join_the_movement: "Tritt der Bewegung bei!"
       password: "PASSWORT"
       sign_up: "REGISTRIEREN"
@@ -904,6 +924,7 @@ de:
       title: "@Erwähnungen"
     multi:
       contacts_title: "Personen in deinem Stream"
+      title: "Stream"
     public:
       contacts_title: "Aktuelle Poster"
       title: "Öffentliche Aktivität"

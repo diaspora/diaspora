@@ -79,7 +79,7 @@ hu:
         few: "<%= count %> kedveli"
         many: "<%= count %> kedveli"
         one: "<%= count %> kedveli"
-        other: "<%= count %> kedveli"
+        other: "<%= count %> ember kedveli"
         two: "<%= count %> kedveli"
         zero: "<%= count %> kedveli"
       limited: "Korlátozott"

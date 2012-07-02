@@ -80,6 +80,11 @@ zh-TW:
         other: "找到%{count}個使用者"
         zero: "找到%{count}個使用者"
       you_currently: "你目前還可以邀請%{user_invitation}次 %{link}"
+    weekly_user_stats:
+      amount_of:
+        other: "本週新使用者數目: %{count}"
+        zero: "本週新使用者數目: 沒有"
+      current_server: "伺服器現在的日期是%{date}"
   ago: "%{time}前"
   all_aspects: "所有面向"
   application:
@@ -310,6 +315,8 @@ zh-TW:
     helper:
       correct_the_following_errors_and_try_again: "修正以下錯誤後再試一次."
       invalid_fields: "欄位無效"
+    login_try_again: "請<a href='%{login_link}'>登入</a>後再試一次."
+    post_not_public: "你要看的貼文沒有公開!"
   fill_me_out: "填寫我"
   find_people: "找人或 #標籤"
   hide: "隱藏"
@@ -374,18 +381,10 @@ zh-TW:
         two: "%{count}個遜"
         zero: "沒有遜"
       people_like_this:
-        few: "有%{count}個讚"
-        many: "有%{count}個讚"
-        one: "有%{count}個讚"
         other: "有%{count}個人說讚"
-        two: "%{count}個讚"
         zero: "沒人說讚"
       people_like_this_comment:
-        few: "有%{count}個人說讚"
-        many: "有%{count}個人說讚"
-        one: "有%{count}個人說讚"
         other: "有%{count}個人說讚"
-        two: "%{count}個讚"
         zero: "沒人說讚"
   limited: "限制"
   more: "更多"
@@ -441,11 +440,7 @@ zh-TW:
       two: "%{actors} 說你的%{post_link}很讚."
       zero: "%{actors} 說你的%{post_link}很讚."
     liked_post_deleted:
-      few: "%{actors}說你刪掉了的貼文很讚."
-      many: "%{actors}說你刪掉了的貼文很讚."
-      one: "%{actors}說你刪掉了的貼文很讚."
       other: "%{actors} 說你刪掉了的貼文很讚."
-      two: "%{actors} 說你刪掉的貼文很讚."
       zero: "%{actors} 說你刪掉了的貼文很讚."
     mentioned:
       few: "%{actors} 在%{post_link}中點到了你."
@@ -463,11 +458,7 @@ zh-TW:
       zero: "%{actors} 在已刪掉的貼文中點到了你."
     post: "貼文"
     private_message:
-      few: "%{actors}寫了訊息給你."
-      many: "%{actors}寫了訊息給你."
-      one: "%{actors}寫了訊息給你."
       other: "%{actors} 寫了訊息給你."
-      two: "%{actors} 送了一則訊息給你."
       zero: "%{actors} 寫了訊息給你."
     reshared:
       few: "%{actors} 轉貼了你的%{post_link}."
@@ -644,11 +635,7 @@ zh-TW:
       not_found: "抱歉, 找不到該篇貼文."
       permalink: "靜態連結"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
         other: "%{author} 拍的%{count}張相片"
-        two: "Two photos by %{author}"
         zero: "沒有 %{author} 拍的相片"
       reshare_by: "%{author} 轉貼"
   previous: "前面"
@@ -879,11 +866,7 @@ zh-TW:
   stream_helper:
     hide_comments: "隱藏所有意見"
     show_comments:
-      few: "顯示另外 %{count} 個意見"
-      many: "顯示另外 %{count} 個意見"
-      one: "顯示另外一個意見"
       other: "顯示另外%{count}個意見"
-      two: "顯示另外兩個意見"
       zero: "沒有其它意見"
   streams:
     activity:

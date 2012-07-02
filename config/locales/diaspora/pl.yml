@@ -90,6 +90,13 @@ pl:
         other: "%{count} znalezieni użytkownicy"
         zero: "Nikogo nie znaleziono"
       you_currently: "Pozostało Ci jeszcze %{user_invitation} zaproszeń %{link}"
+    weekly_user_stats:
+      amount_of:
+        few: "liczba nowych użytkowników w tym tygodniu: %{count}"
+        one: "liczba nowych użytkowników w tym tygodniu: %{count}"
+        other: "liczba nowych użytkowników w tym tygodniu: %{count}"
+        zero: "liczba nowych użytkowników w tym tygodniu: brak"
+      current_server: "Aktualna data na serwerze to %{date}"
   ago: "%{time} temu"
   all_aspects: "Wszystkie aspekty"
   application:
@@ -323,6 +330,8 @@ pl:
     helper:
       correct_the_following_errors_and_try_again: "Popraw poniższe błędy i spróbuj ponownie."
       invalid_fields: "Pola z błędami"
+    login_try_again: "<a href='%{login_link}'>Zaloguj się</a> i spróbuj ponownie."
+    post_not_public: "Wpis, który chcesz wyświetlić nie jest dostępny publicznie!"
   fill_me_out: "Wypełnij mnie"
   find_people: "Znajdź osoby lub #znaczniki"
   hide: "Ukryj"

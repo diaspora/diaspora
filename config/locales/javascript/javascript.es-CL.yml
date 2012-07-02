@@ -35,6 +35,7 @@ es-CL:
       preparing_your_stream: "Preparando tu entrada personalizada..."
     header:
       admin: "Administración"
+      close: "Cerrar"
       contacts: "Contactos"
       home: "Inicio"
       log_out: "Cerrar sesión"
@@ -93,8 +94,8 @@ es-CL:
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "hace menos de un minuto"
-      suffixAgo: ""
-      suffixFromNow: ""
+      suffixAgo: "hace"
+      suffixFromNow: "desde ahora"
       year: "alrededor de un año"
       years: "%d años"
     videos:
@@ -102,4 +103,6 @@ es-CL:
       watch: "Mira este video en <%= provider %>"
     viewer:
       follow_post: "Seguir esta publicación"
+      like: "Me gusta"
       stop_following_post: "Dejar de seguir esta publicación"
+      unlike: "No me gusta"

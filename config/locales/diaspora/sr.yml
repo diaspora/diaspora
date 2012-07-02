@@ -51,6 +51,9 @@ sr:
   are_you_sure: "Јесте ли сигурни?"
   are_you_sure_delete_account: "Јесте ли сигурни да желите да затворите налог? Ово се не може повратити!"
   aspects:
+    add_to_aspect:
+      failure: "Неуспешно додавање особе у поглед."
+      success: "Особа успешно додата у поглед."
     aspect_contacts:
       done_editing: "Готово уређивање"
     aspect_listings:
@@ -58,8 +61,16 @@ sr:
       deselect_all: "Не означи ни један"
       edit_aspect: "Измени %{name}"
       select_all: "Означи све"
+    aspect_stream:
+      stay_updated: "Буди у току"
     contacts_not_visible: "Контакти у овом погледу неће моћи да виде једни друге."
     contacts_visible: "Контакти у овом погледу ће моћи да виде једни друге."
+    create:
+      failure: "Неуспешно прављење погледа."
+      success: "Твој нови поглед %{name} је направљен."
+    destroy:
+      failure: "%{name} није празан и не може се уклонити."
+      success: "Поглед %{name} је успешно уклоњен."
     edit:
       add_existing: "Додај постојећи контакт"
       aspect_list_is_not_visible: "списак погледа је невидљив осталима у погледу"
@@ -72,7 +83,55 @@ sr:
       update: "Ажурирај"
       updating: "ажурирање"
     few: "%{count} погледа"
+    helper:
+      are_you_sure: "Да ли сигурно желиш да обришеш овај поглед?"
+      aspect_not_empty: "Поглед није празан"
+      remove: "уклони"
+    index:
+      cubbies:
+        explanation: "Cubbi.es је прва апликација у развоју на Дијаспори"
+        heading: "Повежи се на Cubbi.es"
+        learn_more: "Сазнај више"
+      diaspora_id:
+        content_1: "Твој Дијаспора ИД је:"
+        content_2: "Дај га било коме и моћи ће да те нађе на Дијаспори."
+        heading: "Дијаспора ИД"
+      donate: "Донирај"
+      handle_explanation: "Ово је твој Дијаспора ИД. Можеш га дати људима као и имејл адресу, да могу да те нађу."
+      help:
+        do_you: "Да ли:"
+        email_feedback: "Ако више волиш, пошаљи нам %{link}"
+        feature_suggestion: "...имаш %{link}?"
+        find_a_bug: "...сте нашли %{link}?"
+        have_a_question: "...имаш %{link}?"
+        here_to_help: "Заједница Дијаспоре је овде!"
+        need_help: "Треба ти помоћ?"
+        tag_bug: "грешку"
+        tag_feature: "предлог"
+        tag_question: "питање"
+        tutorials_wiki_and_forum: "%{tutorial} и %{wiki} и %{forum}: туторијали, вики и вести које пише Заједница"
+      introduce_yourself: "Ово је твој ток.  Упадај и представи се."
+      new_here:
+        follow: "Прати %{link} и поздрављај нове кориснике Дијаспоре*!"
+        learn_more: "Научи више"
+        title: "Поздрави нове кориснике"
+      no_contacts: "Нема контаката"
+      no_tags: "+ Нађи ознаке за праћење"
+      people_sharing_with_you: "Људи који деле са тобом"
+      post_a_message: "објави поруку >>"
+      services:
+        content: "Можеш повезати следеће сајтове са Дијаспором:"
+        heading: "Повежи сајтове"
+      unfollow_tag: "Не прати више #%{tag}"
+      welcome_to_diaspora: "Добродошли на Дијаспору, %{name}!"
     many: "%{count} погледа"
+    move_contact:
+      error: "Грешка приликом премештања особе: %{inspect}"
+      failure: "није успело: %{inspect}"
+      success: "Особа премештена у нови поглед."
+    new:
+      create: "Направи"
+      name: "Име (видљиво само теби)"
     no_contacts_message:
       community_spotlight: "заједницом"
       or_spotlight: "Или можеш поделити са %{link}"
@@ -82,11 +141,22 @@ sr:
       start_talking: "Још нико ништа није рекао!"
     one: "један поглед"
     other: "%{count} погледа"
+    seed:
+      acquaintances: "Познаници"
+      family: "Породица"
+      friends: "Пријатељи"
+      work: "Посао"
     selected_contacts:
+      manage_your_aspects: "Уреди своје погледе."
+      no_contacts: "Још немаш контаката."
       view_all_community_spotlight: "Погледај целу заједницу"
+      view_all_contacts: "Види све контакте"
     show:
       edit_aspect: "Измени поглед"
     two: "%{count} погледа"
+    update:
+      failure: "Твој поглед, %{name}, има предугачак назив да би се сачувао."
+      success: "Твој поглед, %{name}, је успешно измењен."
     zero: "нема погледа"
   back: "Назад"
   cancel: "Откажи"

@@ -65,8 +65,8 @@ de:
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares:
       duplicate: "Du hast diesen Beitrag bereits weitergesagt!"
-      post: "<%= name %>s Beitrag teilen?"
-      successful: "Der Beitrag wurde erfolgreich geteilt!"
+      post: "<%= name %>s Beitrag weitersagen?"
+      successful: "Der Beitrag wurde erfolgreich weitergesagt!"
     search_for: "Nach <%= name %> suchen"
     show_more: "Mehr zeigen"
     stream:

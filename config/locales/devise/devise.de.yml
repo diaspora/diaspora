@@ -116,5 +116,5 @@ de:
   errors:
     messages:
       already_confirmed: "wurde bereits bestätigt"
-      not_found: "wurde nicht gefunden"
+      not_found: "nicht gefunden"
       not_locked: "war nicht gesperrt"

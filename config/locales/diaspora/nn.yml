@@ -44,15 +44,19 @@ nn:
     admin_bar:
       pages: "Sidar"
       pod_stats: "Pod-statistikk"
+      resque_overview: "Resque-overblikk"
       user_search: "Brukarsøk"
     stats:
+      2weeks: "2 veker"
       50_most: "50 mest populære tags"
       comments:
         one: "ein kommentar"
         other: "%{count} kommentarar"
         zero: "ingen kommentarar"
       daily: "Dagleg"
+      display_results: "VIsar resultat frå <b>%{segment}</b>-segmentet"
       go: "gå"
+      month: "Månad"
       posts:
         one: "eit innlegg"
         other: "%{count} innlegg"
@@ -74,6 +78,12 @@ nn:
         other: "%{count} brukarar funne"
         zero: "ingen brukarar funne"
       you_currently: "du har %{user_invitation} igjen %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "Mengd nye brukarar denne veka: %{count}"
+        other: "Mengd nye brukarar denne veka: %{count}"
+        zero: "Mengd nye brukarar denne veka: ingen"
+      current_server: "Noverande dato på serveren er %{date}"
   ago: "for %{time} sida"
   all_aspects: "Alle aspekta"
   application:
@@ -306,6 +316,8 @@ nn:
     helper:
       correct_the_following_errors_and_try_again: "Rett opp desse feila og prøv på nytt."
       invalid_fields: "Ugyldige felt"
+    login_try_again: "Ver ven og <a href='%{login_link}'>logg på</a> og prøv att."
+    post_not_public: "Innlegget du prøvar å sjå er ikkje offentleg!"
   fill_me_out: "Fyll meg ut"
   find_people: "Finn personar eller #grindmerke"
   hide: "Gøym"
@@ -371,17 +383,17 @@ nn:
       people_like_this:
         few: "%{count} likes"
         many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
+        one: "%{count} likar dette"
+        other: "%{count} likar dette"
         two: "%{count} likes"
-        zero: "no likes"
+        zero: "ingen likar dette"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
+        one: "%{count} likar dette"
+        other: "%{count} likar dette"
         two: "%{count} likes"
-        zero: "no likes"
+        zero: "ingen likar dette"
   limited: "Avgrensa"
   more: "Meir"
   next: "neste"
@@ -390,7 +402,7 @@ nn:
     also_commented:
       one: "%{actors} kommenterte òg %{post_author} sitt %{post_link}."
       other: "%{actors} kommenterte òg %{post_author} sitt %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      zero: "%{actors} kommenterte òg %{post_author} sitt %{post_link}."
     also_commented_deleted:
       few: "%{actors} kommenterte eit sletta innlegg."
       many: "%{actors} kommenterte eit sletta innlegg."
@@ -565,7 +577,7 @@ nn:
       has_not_shared_with_you_yet: "%{name} har enno ikkje delt noko innlegg med deg."
       ignoring: "Du ser ikkje innlegg frå %{name} lengjer."
       incoming_request: "%{name} ønskjer å dela med deg"
-      mention: "Omtale"
+      mention: "Nemn"
       message: "Melding"
       not_connected: "Du deler ikkje med denne personen"
       recent_posts: "Nylege innlegg"
@@ -626,12 +638,14 @@ nn:
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
+        one: "Eitt bilete av %{author}"
+        other: "%{count} bilete av %{author}"
         two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        zero: "Inga bilete av %{author}"
       reshare_by: "Deling av %{author}"
   previous: "førre"
+  privacy: "Personvern"
+  privacy_policy: "Retningsline for personvern"
   profile: "Profil"
   profiles:
     edit:
@@ -659,10 +673,10 @@ nn:
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
+    one: "1 reaksjon"
+    other: "%{count} reaksjonar"
     two: "%{count} reactions"
-    zero: "0 reactions"
+    zero: "ingen reaksjonar"
   registrations:
     closed: "Kan ikkje oppretta brukarar på denne Diaspora-poden."
     create:
@@ -674,6 +688,7 @@ nn:
       password_to_confirm: "(vi treng det gjeldande passordet ditt for å kunna stadfesta endringane)"
       unhappy: "Ulukkeleg?"
       update: "Oppdater"
+    invalid_invite: "Invitasjonslenkja du nytta er ikkje lengjer gyldig!"
     new:
       continue: "Vidare"
       create_my_account: "Lag kontoen min."
@@ -683,6 +698,7 @@ nn:
       enter_password: "Skriv eit passord (minst seks teikn)"
       enter_password_again: "Skriv passordet éin gong til"
       enter_username: "Vel eit brukarnamn (berre bokstavar, tal og understrekingsteikn)"
+      hey_make: "HEI,<br/>LAG<br/>NOKO."
       join_the_movement: "Vert med i rørsla!"
       password: "PASSORD"
       sign_up: "PÅMELDING"
@@ -718,8 +734,8 @@ nn:
       reshare:
         few: "%{count} reshares"
         many: "%{count} reshares"
-        one: "1 reshare"
-        other: "%{count} reshares"
+        one: "1 deling"
+        other: "%{count} delingar"
         two: "%{count} reshares"
         zero: "Del vidare"
       reshare_confirmation: "Vil du dele %{author} sitt innlegg?"
@@ -859,16 +875,19 @@ nn:
     show_comments:
       few: "Show %{count} more comments"
       many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
+      one: "Syn ein kommentar til"
+      other: "Syn %{count} kommentarar til"
       two: "Show two more comments"
-      zero: "No more comments"
+      zero: "Ikkje fleire kommentarar"
   streams:
     activity:
       title: "Min aktivitet"
     aspects:
       title: "Your Aspects"
     aspects_stream: "Aspektar"
+    comment_stream:
+      contacts_title: "Folk som du har kommentert innlegga til"
+      title: "Kommenterte innlegg"
     community_spotlight_stream: "Kreative Medlemer"
     followed_tag:
       add_a_tag: "Legg til ein tag"
@@ -902,6 +921,7 @@ nn:
       followed_by: "følgt av"
       following: "Følgjer #%{tag}"
       nobody_talking: "Det er enno ingen som taler om %{tag}."
+      none: "Det finnast ikkje tomme tags!"
       people_tagged_with: "Personar som er merka med %{tag}"
       posts_tagged_with: "Meldingar som er merka med #%{tag}"
       stop_following: "Følg ikkje #%{tag} lenger"
@@ -964,7 +984,9 @@ nn:
       receive_email_notifications: "Få e-postvarsel når …"
       reshared: "… nokon deler innlegget ditt vidare?"
       show_community_spotlight: "Vil du sjå kreative medlemer i straumen din?"
+      show_getting_started: "Ta i bruk \"Kom igang\" igjen"
       started_sharing: "… nokon byrjar å dela med deg?"
+      stream_preferences: "Innstillingar for straumen"
       your_email: "E-posten din"
       your_handle: "Diaspora-ID-en din"
     getting_started:
@@ -982,10 +1004,13 @@ nn:
     privacy_settings:
       ignored_users: "Oversedde brukarar"
       stop_ignoring: "Ikkje oversjå lengre"
+      title: "Innstillingar for personvern"
     public:
       does_not_exist: "Brukaren %{username} finst ikkje."
     update:
       email_notifications_changed: "E-postvarsla er endra"
+      follow_settings_changed: "Innstillingane for kva du følgjer er endra"
+      follow_settings_not_changed: "Det gjekk ikkje å endra innstillingane for kva du følgjer."
       language_changed: "Språket er endra"
       language_not_changed: "Klarte ikkje å endra språket"
       password_changed: "Passordet er endra. Du kan no logga på med det nye passordet ditt."
@@ -995,6 +1020,7 @@ nn:
       unconfirmed_email_changed: "E-postadresse er endra. Treng å verta teken i bruk."
       unconfirmed_email_not_changed: "Klarte ikkje å endra e-postkontoen"
   webfinger:
+    hcard_fetch_failed: "det var eit problem med å hente hcard for %{account}"
     no_person_constructed: "Klarte ikkje å laga nokon person frå hcard-fila."
   welcome: "Velkomen!"
   will_paginate:

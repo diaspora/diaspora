@@ -30,7 +30,7 @@ sk:
         reshare:
           attributes:
             root_guid:
-              taken: "To je dobré, čo? Tento príspevok ste už raz znova zdieľali!"
+              taken: "To je dobré, čo?  Tento príspevok ste už raz znova zdieľali!"
         user:
           attributes:
             email:
@@ -90,6 +90,13 @@ sk:
         other: "našlo sa %{count} používateľov"
         zero: "našlo sa %{count} používateľov"
       you_currently: "momentálne vám ostalo %{user_invitation} pozvánok %{link}"
+    weekly_user_stats:
+      amount_of:
+        few: "počet nových používateľov tento týždeň: %{count}"
+        one: "počet nových používateľov tento týždeň: %{count}"
+        other: "počet nových používateľov tento týždeň: %{count}"
+        zero: "počet nových používateľov tento týždeň: žiaden"
+      current_server: "Aktuálny dátum na serveri je %{date}"
   ago: "%{time}"
   all_aspects: "Všetky kategórie"
   application:
@@ -323,6 +330,8 @@ sk:
     helper:
       correct_the_following_errors_and_try_again: "Opravte nasledujúce chyby a skúste znova."
       invalid_fields: "Neplatné polia"
+    login_try_again: "Prosím, <a href='%{login_link}'>prihláste sa</a> a skúste to znova."
+    post_not_public: "Príspevok, ktorý sa snažíte zobraziť, nie je verejný!"
   fill_me_out: "Vyplňte, prosím, formulár"
   find_people: "Nájsť ľudí alebo #značky"
   hide: "Schovať"
@@ -387,21 +396,21 @@ sk:
         one: "%{count} človeku sa to nepáči"
         other: "%{count} ľuďom sa to nepáči"
         two: "%{count} ľuďom sa to nepáči"
-        zero: "nie sú takí, ktorým sa to nepáči"
+        zero: "nikto neoznačil, že sa mu to nepáči"
       people_like_this:
-        few: "%{count} likes"
+        few: "%{count} sa to páči"
         many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
+        one: "%{count} sa to páči"
+        other: "%{count} sa to páči"
         two: "%{count} likes"
-        zero: "no likes"
+        zero: "nikomu sa to nepáči"
       people_like_this_comment:
         few: "%{count} ľuďom sa to páči"
         many: "%{count} ľuďom sa to páči"
         one: "%{count} človeku sa to páči"
         other: "%{count} ľuďom sa to páči"
         two: "%{count} ľuďom sa to páči"
-        zero: "žiadne ohlasy"
+        zero: "nikomu sa to nepáči"
   limited: "Vyhradený"
   more: "Viac"
   next: "ďalej"
@@ -729,12 +738,12 @@ sk:
     reshare:
       deleted: "Pôvodný príspevok vymazal(a) jeho autor(ka)."
       reshare:
-        few: "%{count} ľudia ukázali príspevok priateľom"
+        few: "%{count} ľudia znova ukázali príspevok priateľom"
         many: "%{count} opätovných zdieľaní"
-        one: "1 opätovné zdieľanie"
-        other: "%{count} opätovných zdieľaní"
+        one: "1 človek znova ukázal príspevok svojim priateľom"
+        other: "%{count} ľudí znova ukázalo príspevok priateľom"
         two: "%{count} opätovné zdieľania"
-        zero: "Znova zdieľať"
+        zero: "Znova ukázať príspevok"
       reshare_confirmation: "Chcete sa znova podeliť o príspevok použ. %{author}?"
       reshare_original: "Originál ukázať priateľom "
       reshared_via: "znova sa niekto podelil cez"
@@ -785,12 +794,12 @@ sk:
     aspect_dropdown:
       add_to_aspect: "Pridať kontakt"
       toggle:
-        few: "V(o) %{count} kategóriách"
+        few: "V %{count} kategóriách"
         many: "V(o) %{count} kategóriách"
         one: "V %{count} kategórii"
         other: "V(o) %{count} kategóriách"
         two: "Vo %{count} kategóriách"
-        zero: "Pridať kontakt"
+        zero: "Pridajte kontakt"
     contact_list:
       all_contacts: "Všetky kontakty"
     footer:
@@ -862,12 +871,12 @@ sk:
     new:
       mentioning: "Spomína sa: %{person}"
     too_long:
-      few: "prosím, skráťte svoje správy  v statuse na menej ako %{count} znakov"
+      few: "prosím, skráťte svoje správy v statuse na menej ako %{count} znakov"
       many: "prosím, skráťte svoje správy  v statuse na menej ako %{count} znakov"
-      one: "prosím, skráťte svoje správy  v statusoch na menej ako %{count} znak"
-      other: "prosím, skráťte svoje správy  v statuse na menej ako %{count} znakov"
+      one: "prosím, skráťte svoje správy v statusoch na menej ako %{count} znak"
+      other: "prosím, skráťte svoje správy v statuse na menej ako %{count} znakov"
       two: "prosím, upravte svoje správy  v statusoch na menej ako %{count} znakov"
-      zero: "prosím, skráťte svoje správy  v statusoch na menej ako %{count} znakov"
+      zero: "prosím, skráťte svoje správy v statusoch na menej ako %{count} znakov"
   stream_helper:
     hide_comments: "schovať komentáre"
     show_comments:

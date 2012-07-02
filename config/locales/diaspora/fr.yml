@@ -85,6 +85,12 @@ fr:
         other: "%{count} utilisateurs trouvés"
         zero: "aucun utilisateur trouvé"
       you_currently: "Il vous reste actuellement %{user_invitation} invitations %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "nombre de nouveaux utilisateurs cette semaine: %{count}"
+        other: "nombre de nouveaux utilisateurs cette semaine: %{count}"
+        zero: "nombre de nouveaux utilisateurs cette semaine: aucun"
+      current_server: "La date actuelle du serveur est %{date}"
   ago: "Il y a %{time}"
   all_aspects: "Tous les aspects"
   application:
@@ -318,6 +324,8 @@ fr:
     helper:
       correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
       invalid_fields: "Champs invalides"
+    login_try_again: "Merci de vous <a href='%{login_link}'>connecter</a> et d'essayer de nouveau."
+    post_not_public: "Le message que vous essayez de voir n'est pas public !"
   fill_me_out: "Remplissez-moi"
   find_people: "Rechercher des personnes ou des #tags"
   hide: "Masquer"
@@ -383,19 +391,13 @@ fr:
         two: "%{count} n'aiment pas"
         zero: "Personne n'aime pas"
       people_like_this:
-        few: "%{count} personnes aiment"
-        many: "%{count} personnes aiment"
         one: "%{count} personne aime"
         other: "%{count} personnes aiment"
-        two: "%{count} aiment"
         zero: "Personne n'aime ça"
       people_like_this_comment:
-        few: "%{count} aiment"
-        many: "%{count} aiment"
-        one: "%{count} aime"
-        other: "%{count} aiment"
-        two: "%{count} aiment"
-        zero: "personne n'aime"
+        one: "%{count} personne aime"
+        other: "%{count} personnes aiment"
+        zero: "Personne n'aime ça"
   limited: "Limité"
   more: "Plus"
   next: "suivant"
@@ -888,11 +890,8 @@ fr:
   stream_helper:
     hide_comments: "Masquer tous les commentaires"
     show_comments:
-      few: "Montrer %{count} commentaires supplémentaires"
-      many: "Montrer %{count} commentaires supplémentaires"
       one: "Montrer un commentaire supplémentaire"
       other: "Montrer %{count} commentaires supplémentaires"
-      two: "Montrer deux commentaires supplémentaires"
       zero: "Plus de commentaire."
   streams:
     activity:

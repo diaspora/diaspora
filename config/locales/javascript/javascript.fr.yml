@@ -86,10 +86,10 @@ fr:
       more_comments:
         few: "Montrer <%= count %> commentaires en plus"
         many: "Montrer <%= count %> commentaires en plus"
-        one: "Montrer <%= count %> commentaire en plus"
-        other: "Montrer <%= count %> commentaires en plus"
+        one: "Montrer <%= count %> commentaire supplémentaire"
+        other: "Montrer <%= count %> commentaires supplémentaires"
         two: "Montrer <%= count %> commentaires en plus"
-        zero: "Montrer <%= count %> commentaires en plus"
+        zero: "Montrer <%= count %> commentaires supplémentaires"
       original_post_deleted: "Le message original a été effacé par son auteur."
       public: "Public"
       reshare: "Repartager"
