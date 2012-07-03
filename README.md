@@ -4,6 +4,7 @@ Diaspora is a privacy-aware, personally-controlled, do-it-all open source social
 
 [![Build Status](https://secure.travis-ci.org/diaspora/diaspora.png)](http://travis-ci.org/diaspora/diaspora)
 [![Dependency Status](https://gemnasium.com/diaspora/diaspora.png?travis)](https://gemnasium.com/diaspora/diaspora)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/diaspora/diaspora)
 
 ************************
 Diaspora is currently going through a huge refactoring push, the code is changing fast!
