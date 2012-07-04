@@ -82,21 +82,39 @@ namespace :migrations do
     puts "found #{evil_tags.count} tags to convert..."
 
     evil_tags.each_with_index do |tag, i|
-      good_tag = ActsAsTaggableOn::Tag.find_or_create_by_name(tag.name.downcase)
+      good_tag = ActsAsTaggableOn::Tag.find_or_create_by_name(tag.name.mb_chars.downcase)
       puts "++ '#{tag.name}' has #{tag.taggings.count} records attached"
+
+      taggings = tag.taggings
       deleteme = []
 
-      tag.taggings.each do |tagging|
-        deleteme << tagging
-      end
+      taggings.each do |tagging|
+        if good_tag.taggings.where(:taggable_id => tagging.taggable_id).count > 0
+          # the same taggable is already tagged with the correct tag
+          # just delete the obsolete tagging it
+          deleteme << tagging
+          next
+        end
 
-      deleteme.each do |tagging|
-        #tag.taggings.delete(tagging)
+        # the tagging exists only for the wrong tag, move it to the 'good tag'
         good_tag.taggings << tagging
       end
 
-      puts "-- converted '#{tag.name}' to '#{good_tag.name}' with #{deleteme.count} records"
-      puts "\n## #{i} tags processed\n\n" if (i % 50 == 0)
+      deleteme.each do |tagging|
+        tagging.destroy
+      end
+
+      rest = tag.taggings(true) # force reload
+      if rest.count > 0
+        puts "-- the tag #{tag.name} still has some taggings - aborting!"
+        break
+      end
+
+      # no more taggings left, delete the tag
+      tag.destroy
+
+      puts "-- converted '#{tag.name}' to '#{good_tag.name}'"
+      puts "\n## #{i+1} tags processed\n\n" if ((i+1) % 50 == 0)
     end
   end
 
