@@ -16,7 +16,9 @@ end
 # Single process-mode hooks using Resque.inline
 if AppConfig.single_process_mode?
   if Rails.env == 'production'
-    puts "WARNING: You are running Diaspora in production without Resque workers turned on.  Please don't do this."
+    puts "WARNING: You are running Diaspora in production without Resque"
+    puts "  workers turned on.  Please set single_process_mode to false in"
+    puts "  config/application.yml."
   end
   Resque.inline = true
 end
