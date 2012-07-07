@@ -67,9 +67,9 @@ es:
         other: "%{count} publicaciones"
         zero: "%{count} publicaciones"
       shares:
-        one: "se ha compartido %{count} vez"
-        other: "se ha compartido %{count} veces"
-        zero: "se ha compartido %{count} veces"
+        one: "%{count} compartida"
+        other: "%{count} compartidas"
+        zero: "%{count} compartidas"
       tag_name: "Etiqueta: <b>%{name_tag}</b> Veces: <b>%{count_tag}</b>"
       usage_statistic: "Estadísticas de Uso"
       users:
@@ -409,10 +409,10 @@ es:
     also_commented:
       few: "%{actors} también comentaron la %{post_link} de %{post_author}."
       many: "%{actors} también comentaron la %{post_link} de %{post_author}."
-      one: "%{actors} ha comentado también en %{post_link} de %{post_author}."
-      other: "%{actors} han comentado también en %{post_link} de %{post_author}."
+      one: "%{actors} también ha comentado en la %{post_link} de %{post_author}."
+      other: "%{actors} también han comentado en la %{post_link} de %{post_author}."
       two: "%{actors} también comentaron la %{post_link} de %{post_author}."
-      zero: "%{actors} han comentado también en %{post_link} de %{post_author}."
+      zero: "%{actors} también han comentado en la %{post_link} de %{post_author}."
     also_commented_deleted:
       few: "%{actors} comentaron una publicación eliminada."
       many: "%{actors} comentaron una publicación eliminada."
@@ -423,10 +423,10 @@ es:
     comment_on_post:
       few: "%{actors} comentaron tu %{post_link}."
       many: "%{actors} comentaron tu %{post_link}."
-      one: "%{actors} ha comentado en %{post_link}."
-      other: "%{actors} han comentado en %{post_link}."
+      one: "%{actors} ha comentado tu %{post_link}."
+      other: "%{actors} han comentado tu %{post_link}."
       two: "%{actors} comentaron tu %{post_link}."
-      zero: "%{actors} han comentado en %{post_link}."
+      zero: "%{actors} han comentado tu %{post_link}."
     helper:
       new_notifications:
         one: "1 notificación nueva"
@@ -497,10 +497,10 @@ es:
     started_sharing:
       few: "%{actors} ahora siguen tus mensajes públicos."
       many: "%{actors} ahora siguen tus mensajes públicos."
-      one: "Tú y %{actors} estáis ahora en contacto."
-      other: "Tú y %{actors} estáis ahora en contacto."
+      one: "%{actors} ha empezado a compartir contigo."
+      other: "%{actors} ha empezado a compartir contigo."
       two: "%{actors} empezó a compatir contigo."
-      zero: "Tú y %{actors} estáis en contacto."
+      zero: "%{actors} ha empezado a compartir contigo."
   notifier:
     a_post_you_shared: "una publicación."
     accept_invite: "¡Acepta tu invitación a Diaspora*!"
@@ -883,10 +883,10 @@ es:
     too_long:
       few: "Demasiados caracteres, intenta que sea menor a %{count} caracteres"
       many: "Demasiados caracteres, intenta que sea menor a %{count} caracteres"
-      one: "escribe un estado que tenga menos de %{count} carácter"
-      other: "escribe un estado que tenga menos de %{count} caracteres"
+      one: "por favor, haz tu mensaje con menos de %{count} carácter"
+      other: "por favor, haz tu mensaje con menos de %{count} caracteres"
       two: "Demasiados caracteres, intenta que sea menor a %{count} caracteres"
-      zero: "escribe un estado que tenga menos de %{count} caracteres"
+      zero: "por favor, haz tu mensaje con menos de %{count} caracteres"
   stream_helper:
     hide_comments: "Ocultar comentarios"
     show_comments:

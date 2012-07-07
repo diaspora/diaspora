@@ -47,7 +47,7 @@ el:
       notifications: "Ειδοποιήσεις"
       profile: "Προφίλ"
       recent_notifications: "Πρόσφατες Ειδοποιήσεις"
-      search: "Find people or #tags"
+      search: "Αναζήτηση"
       settings: "Ρυθμίσεις"
       view_all: "Προβολή όλων"
     ignore: "Αγνόησε:"
@@ -125,6 +125,7 @@ el:
       unknown: "Άγνωστος τύπος βίντεο"
       watch: "Δείτε το βίντεο στο {{provider}}"
     viewer:
+      comment: "Σχόλιο"
       home: "ΑΡΧΙΚΗ"
       like: "Μου αρέσει"
       reshare: "Επαναμοιράσου"

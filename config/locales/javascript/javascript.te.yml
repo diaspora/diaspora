@@ -59,10 +59,10 @@ te:
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
+        one: "<%= count %> ఇష్టం"
+        other: "<%= count %> ఇష్టాలు"
         two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        zero: "<%= count %> ఇష్టాలు"
       limited: "పరిమితం"
       more_comments:
         few: "Show <%= count %> more comments"

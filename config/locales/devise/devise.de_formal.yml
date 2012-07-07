@@ -31,10 +31,16 @@ de_formal:
       hello: "Hallo %{email}!"
       invitation_instructions:
         accept: "Einladung annehmen"
+        be_yourself: "Seien Sie Sie-selbst"
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        get_connected: "Verbinden Sie sich"
+        have_fun: "Haben Sie Spaß"
+        help_fund: "Helfen Sie, Diaspora zu finanzieren"
         ignore: "Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail einfach."
+        join_team: "Treten Sie unserem Team bei"
         no_account_till: "Ihr Konto wird nicht erstellt solange Sie sich nicht über den oberen Link registrieren."
         subject: "Sie wurden zu Diaspora eingeladen!"
+        team_diaspora: "Diaspora-Team"
         view_in: "View in"
       inviter:
         accept_at: "unter %{url}, können Sie sie über den untenstehenden Link akzeptieren."

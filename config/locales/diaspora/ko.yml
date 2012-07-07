@@ -315,6 +315,8 @@ ko:
     helper:
       correct_the_following_errors_and_try_again: "아래의 에러를 정정한 뒤 다시 시도하십시오."
       invalid_fields: "유효하지 않은 항목"
+    login_try_again: "<a href='%{login_link}'>로그인</a> 뒤 다시 시도해주세요."
+    post_not_public: "공개 게시물이 아닙니다!"
   fill_me_out: "채워주세요"
   find_people: "사람이나 #태그 를 찾아보세요"
   hide: "숨기기"

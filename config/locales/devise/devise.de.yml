@@ -36,6 +36,7 @@ de:
         be_yourself_paragraph: "Das Internet hat einzigartige Möglichkeiten entwickelt, um uns auszudrücken. %{strong_diaspora} lässt dich du selbst sein und teilen, was du möchtest, mit oder ohne deinem echten Namen."
         cubbies: "Cubbi.es"
         displaying_correctly: "E-Mail-Darstellung nicht lesbar? %{link}"
+        email_address: ""
         email_us: "Für allgemeine Anfragen oder Unterstützung für dein Diaspora-Konto, schreibe uns ein E-Mail an %{email}."
         finally: "Endlich - Es ist da"
         friends_saying: "Was deine Freunde sagen..."
@@ -59,7 +60,8 @@ de:
         view_in: "In deinem Webbrowser anzeigen"
       inviter:
         accept_at: "unter %{url}, kannst du sie über den untenstehenden Link akzeptieren."
-        have_invited_you: "%{names} hat Dich eingeladen Diaspora beizutreten"
+        has_invited_you: ""
+        have_invited_you: "%{names} haben Dich eingeladen Diaspora beizutreten"
       reset_password_instructions:
         change: "Mein Kennwort ändern"
         ignore: "Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail."

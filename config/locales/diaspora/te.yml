@@ -184,10 +184,10 @@ te:
       people_like_this:
         few: "%{count} likes"
         many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
+        one: "%{count} ఇష్టం"
+        other: "%{count} ఇష్టాలు"
         two: "%{count} likes"
-        zero: "no likes"
+        zero: "ఇష్టాలు లేవు"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
