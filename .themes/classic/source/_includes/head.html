@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <meta name="author" content="{{ site.author }}">
+
+  {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
+  <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
+  {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' }}{% endif %}{% endcapture %}
+  <link rel="canonical" href="{{ canonical }}">
+  <link href="{{ root_url }}/favicon.png" rel="icon">
+  <link href="{{ root_url }}/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="{{ root_url }}/javascripts/modernizr-2.0.js"></script>
+  <script src="{{ root_url }}/javascripts/ender.js"></script>
+  <script src="{{ root_url }}/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{site.title}}" type="application/atom+xml">
+  {% include custom/head.html %}
+  {% include google_analytics.html %}
+</head>

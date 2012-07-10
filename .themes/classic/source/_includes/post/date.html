@@ -1,0 +1,15 @@
+{% capture date %}{{ page.date }}{{ post.date }}{% endcapture %}
+{% capture date_formatted %}{{ page.date_formatted }}{{ post.date_formatted }}{% endcapture %}
+{% capture has_date %}{{ date | size }}{% endcapture %}
+
+{% capture updated %}{{ page.updated }}{{ post.updated }}{% endcapture %}
+{% capture updated_formatted %}{{ page.updated_formatted }}{{ post.updated_formatted }}{% endcapture %}
+{% capture was_updated %}{{ updated | size }}{% endcapture %}
+
+{% if has_date != '0' %}
+  {% capture time %}<time datetime="{{ date | datetime | date_to_xmlschema }}" pubdate{% if updated %} data-updated="true"{% endif %}>{{ date_formatted }}</time>{% endcapture %}
+{% endif %}
+
+{% if was_updated != '0' %}
+  {% capture updated %}<time datetime="{{ updated | datetime | date_to_xmlschema }}" class="updated">Updated {{ updated_formatted }}</time>{% endcapture %}
+{% else %}{% assign updated = false %}{% endif %}

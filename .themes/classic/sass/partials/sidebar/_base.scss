@@ -1,0 +1,106 @@
+.side-shadow-border {
+  @include box-shadow(lighten($sidebar-bg, 5) 0 1px);
+}
+aside.sidebar {
+  overflow: hidden;
+  color: $sidebar-color;
+  text-shadow: lighten($sidebar-bg, 8) 0 1px;
+  a { @extend .force-wrap; }
+  section {
+    @extend .sans;
+    font-size: .8em;
+    line-height: 1.4em;
+    margin-bottom: 1.5em;
+    h1 {
+      margin: 1.5em 0 0;
+      padding-bottom: .2em;
+      border-bottom: 1px solid $sidebar-border;
+      @extend .side-shadow-border;
+      + p {
+        padding-top: .4em;
+      }
+    }
+  }
+  img {
+    @extend .flex-content;
+    @extend .basic-alignment;
+    @include shadow-box($border: #fff .3em solid);
+  }
+  ul {
+    margin-bottom: 0.5em;
+    margin-left: 0;
+  }
+  li {
+    list-style: none;
+    padding: .5em 0;
+    margin: 0;
+    border-bottom: 1px solid $sidebar-border;
+    @extend .side-shadow-border;
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+  a {
+    color: inherit;
+    @include transition(color .5s);
+  }
+  &:hover a {
+    color: $sidebar-link-color;
+    &:hover { color: $sidebar-link-color-hover; }
+  }
+}
+.aside-alt-link {
+  color: $sidebar-link-color-subdued;
+  &:hover {
+    color: $sidebar-link-color-subdued-hover;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .toggle-sidebar {
+    outline: none;
+    position: absolute; right: -10px; top: 0; bottom: 0;
+    display: inline-block;
+    text-decoration: none;
+    color: mix($text-color-light, $sidebar-bg);
+    width: 9px;
+    cursor: pointer;
+    &:hover {
+      background: mix($sidebar-border, $sidebar-bg);
+      @include background(linear-gradient(left, rgba($sidebar-border, .5), rgba($sidebar-border, 0)));
+    }
+    &:after {
+      position: absolute; right: -11px; top: 0;
+      width: 20px;
+      font-size: 1.2em;
+      line-height: 1.1em;
+      padding-bottom: .15em;
+      @include border-bottom-right-radius(.3em);
+      text-align: center;
+      background: $main-bg $noise-bg;
+      border-bottom: 1px solid $sidebar-border;
+      border-right: 1px solid $sidebar-border;
+      content: "\00BB";
+      text-indent: -1px;
+    }
+    .collapse-sidebar & {
+      text-indent: 0px;
+      right: -20px;
+      width: 19px;
+      &:hover {
+        background: mix($sidebar-border, $sidebar-bg);
+      }
+      &:after {
+        border-left: 1px solid $sidebar-border;
+        text-shadow: #fff 0 1px;
+        content: "\00AB";
+        left: 0px; right: 0;
+        text-align: center;
+        text-indent: 0;
+        border: 0;
+        border-right-width: 0;
+        background: none;
+      }
+    }
+  }
+}

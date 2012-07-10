@@ -1,0 +1,192 @@
+$max-width: 1200px !default;
+
+// Padding used for layout margins
+$pad-min: 18px !default;
+$pad-narrow: 25px !default;
+$pad-medium: 35px !default;
+$pad-wide: 55px !default;
+
+// Sidebar widths used in media queries
+$sidebar-width-medium: 240px !default;
+$sidebar-pad-medium: 15px !default;
+$sidebar-pad-wide: 20px !default;
+$sidebar-width-wide: 300px !default;
+
+$indented-lists: false !default;
+
+$header-font-size: 1em !default;
+$header-padding-top: 1.5em !default;
+$header-padding-bottom: 1.5em !default;
+
+.group { @include pie-clearfix; }
+
+@mixin collapse-sidebar {
+  float: none;
+  width: auto;
+  clear: left;
+  margin: 0;
+  padding: 0 $pad-medium 1px;
+  background-color: lighten($sidebar-bg, 2);
+  border-top: 1px solid lighten($sidebar-border, 4);
+  section {
+    &.odd, &.even { float: left; width: 48%; }
+    &.odd { margin-left: 0; }
+    &.even { margin-left: 4%; }
+  }
+  &.thirds section {
+    width: 30%;
+    margin-left: 5%;
+    &.first {
+      margin-left: 0;
+      clear: both;
+    }
+  }
+}
+
+body {
+  -webkit-text-size-adjust: none;
+  max-width: $max-width;
+  position: relative;
+  margin: 0 auto;
+  > header, > nav, > footer, #content > article, #content > div > article, #content > div > section {
+    @extend .group;
+    padding-left: $pad-min;
+    padding-right: $pad-min;
+    @media only screen and (min-width: 480px) {
+      padding-left: $pad-narrow;
+      padding-right: $pad-narrow;
+    }
+    @media only screen and (min-width: 768px) {
+      padding-left: $pad-medium;
+      padding-right: $pad-medium;
+    }
+    @media only screen and (min-width: 992px) {
+      padding-left: $pad-wide;
+      padding-right: $pad-wide;
+    }
+  }
+  div.pagination {
+    @extend .group;
+    margin-left: $pad-min;
+    margin-right: $pad-min;
+    @media only screen and (min-width: 480px) {
+      margin-left: $pad-narrow;
+      margin-right: $pad-narrow;
+    }
+    @media only screen and (min-width: 768px) {
+      margin-left: $pad-medium;
+      margin-right: $pad-medium;
+    }
+    @media only screen and (min-width: 992px) {
+      margin-left: $pad-wide;
+      margin-right: $pad-wide;
+    }
+  }
+  > header {
+    font-size: $header-font-size;
+    padding-top: $header-padding-top;
+    padding-bottom: $header-padding-bottom;
+  }
+}
+
+#content {
+  overflow: hidden;
+  > div, > article { width: 100%; }
+}
+
+aside.sidebar {
+  float: none;
+  padding: 0 $pad-min 1px;
+  background-color: lighten($sidebar-bg, 2);
+  border-top: 1px solid $sidebar-border;
+  @extend .group;
+}
+
+.flex-content { max-width: 100%; height: auto; }
+
+.basic-alignment {
+  &.left { float: left; margin-right: 1.5em; }
+  &.right { float: right; margin-left: 1.5em; }
+  &.center { display:block; margin: 0 auto 1.5em; }
+  &.left, &.right { margin-bottom: .8em; }
+}
+
+.toggle-sidebar { &, .no-sidebar & { display: none; }}
+
+body.sidebar-footer {
+  @media only screen and (min-width: 750px) {
+    aside.sidebar{ @include collapse-sidebar; }
+  }
+  #content { margin-right: 0px; }
+  .toggle-sidebar { display: none; }
+}
+
+@media only screen and (min-width: 550px) {
+  body > header { font-size: $header-font-size; }
+}
+@media only screen and (min-width: 750px) {
+  aside.sidebar { @include collapse-sidebar; }
+}
+#main, #content, .sidebar {
+  @extend .group;
+}
+@media only screen and (min-width: 768px) {
+  body { -webkit-text-size-adjust: auto; }
+  body > header { font-size: $header-font-size * 1.2; }
+  #main {
+    padding: 0;
+    margin: 0 auto;
+  }
+  #content {
+    overflow: visible;
+    margin-right: $sidebar-width-medium;
+    position: relative;
+    .no-sidebar & { margin-right: 0; border-right: 0; }
+    .collapse-sidebar & { margin-right: 20px; }
+    > div, > article {
+      padding-top: $pad-medium/2;
+      padding-bottom: $pad-medium/2;
+      float: left;
+    }
+  }
+  aside.sidebar {
+    width: $sidebar-width-medium - $sidebar-pad-medium*2;
+    padding: 0 $sidebar-pad-medium $sidebar-pad-medium;
+    background: none;
+    clear: none;
+    float: left;
+    margin: 0 -100% 0 0;
+    section {
+      width: auto; margin-left: 0;
+      &.odd, &.even { float: none; width: auto; margin-left: 0; }
+    }
+    .collapse-sidebar & {
+      @include collapse-sidebar;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  body > header { font-size: $header-font-size * 1.3; }
+  #content { margin-right: $sidebar-width-wide; }
+  #content {
+    > div, > article {
+      padding-top: $pad-wide/2;
+      padding-bottom: $pad-wide/2;
+    }
+  }
+  aside.sidebar {
+    width: $sidebar-width-wide - $sidebar-pad-wide*2;
+    padding: 1.2em $sidebar-pad-wide $sidebar-pad-wide;
+    .collapse-sidebar & {
+      padding: { left: $pad-wide; right: $pad-wide; }
+    }
+  }
+}
+
+@if $indented-lists == false {
+  @media only screen and (min-width: 768px) {
+    ul, ol { margin-left: 0; }
+  }
+}
+

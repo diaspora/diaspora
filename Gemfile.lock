@@ -40,6 +40,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    RedCloth (4.2.9)
     SystemTimer (1.2.3)
     actionmailer (3.2.6)
       actionpack (= 3.2.6)
@@ -79,12 +80,15 @@ GEM
     airbrake (3.1.0)
       activesupport
       builder
+    albino (1.3.3)
+      posix-spawn (>= 0.3.6)
     arel (3.0.2)
     asset_sync (0.4.2)
       activemodel
       fog
     bbenezech-nested_form (0.0.6)
     bcrypt-ruby (3.0.1)
+    blankslate (2.1.2.4)
     bootstrap-sass (2.0.3.1)
     builder (3.0.0)
     capistrano (2.12.0)
@@ -108,6 +112,8 @@ GEM
       activesupport (>= 3.2.0)
     childprocess (0.3.2)
       ffi (~> 1.0.6)
+    classifier (1.3.3)
+      fast-stemmer (>= 1.0.0)
     client_side_validations (3.1.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -141,6 +147,7 @@ GEM
       orm_adapter (~> 0.0.3)
       warden (~> 1.1)
     diff-lcs (1.1.3)
+    directory_watcher (1.4.1)
     erubis (2.7.0)
     eventmachine (0.12.10)
     excon (0.14.2)
@@ -155,6 +162,7 @@ GEM
       multipart-post (~> 1.1)
     faraday_middleware (0.8.7)
       faraday (>= 0.7.4, < 0.9)
+    fast-stemmer (1.0.1)
     fastercsv (1.5.5)
     ffi (1.0.11)
     fixture_builder (0.3.3)
@@ -228,6 +236,13 @@ GEM
       i18n-inflector (~> 2.6)
       railties (~> 3.0)
     jasmine-core (1.2.0)
+    jekyll (0.11.2)
+      albino (~> 1.3)
+      classifier (~> 1.3)
+      directory_watcher (~> 1.1)
+      kramdown (~> 0.13)
+      liquid (~> 2.3)
+      maruku (~> 0.5)
     journey (1.0.4)
     jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
@@ -241,12 +256,14 @@ GEM
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
     kgio (2.7.4)
+    kramdown (0.13.6)
     launchy (2.1.0)
       addressable (~> 2.2.6)
     libwebsocket (0.1.3)
       addressable
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
+    liquid (2.3.0)
     listen (0.4.2)
       rb-fchange (~> 0.0.5)
       rb-fsevent (~> 0.9.1)
@@ -255,6 +272,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    maruku (0.6.0)
+      syntax (>= 1.0.0)
     messagebus_ruby_api (1.0.3)
     mime-types (1.19)
     mini_magick (3.4)
@@ -302,6 +321,9 @@ GEM
     orm_adapter (0.0.7)
     pg (0.13.2)
     polyglot (0.3.3)
+    posix-spawn (0.3.6)
+    pygments.rb (0.2.12)
+      rubypython (~> 0.5.3)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -361,6 +383,7 @@ GEM
     rb-inotify (0.8.8)
       ffi (>= 0.5.0)
     rbx-require-relative (0.0.9)
+    rdiscount (1.6.8)
     rdoc (3.12)
       json (~> 1.4)
     redcarpet (2.1.1)
@@ -402,6 +425,10 @@ GEM
     ruby-hmac (0.4.0)
     ruby-oembed (0.8.7)
     ruby-progressbar (0.0.10)
+    rubypants (0.2.0)
+    rubypython (0.5.3)
+      blankslate (>= 2.1.2.3)
+      ffi (~> 1.0.7)
     rubyzip (0.9.9)
     sass (3.1.19)
     sass-rails (3.2.5)
@@ -424,7 +451,9 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    stringex (1.4.0)
     subexec (0.2.2)
+    syntax (1.0.0)
     thin (1.3.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -466,6 +495,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth (~> 4.2.9)
   SystemTimer (= 1.2.3)
   activerecord-import (~> 0.2.9)
   acts-as-taggable-on!
@@ -505,9 +535,11 @@ DEPENDENCIES
   http_accept_language (~> 1.0.2)
   i18n-inflector-rails (~> 1.0)
   jasmine!
+  jekyll (~> 0.11.2)
   jquery-rails
   json
   linecache (= 0.46)
+  liquid (~> 2.3.0)
   markerb!
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.4)
@@ -521,6 +553,7 @@ DEPENDENCIES
   omniauth-tumblr
   omniauth-twitter
   pg
+  pygments.rb (~> 0.2.12)
   rack-cors (~> 0.2.4)
   rack-google-analytics
   rack-piwik
@@ -530,6 +563,8 @@ DEPENDENCIES
   rails-i18n
   rails_admin (~> 0.0.3)
   rails_autolink
+  rb-fsevent (~> 0.9)
+  rdiscount (~> 1.6.8)
   redcarpet (= 2.1.1)
   remotipart (~> 1.0)
   resque (= 1.20.0)
@@ -540,10 +575,13 @@ DEPENDENCIES
   rspec-rails (~> 2.10)
   ruby-debug
   ruby-oembed (~> 0.8.7)
+  rubypants (~> 0.2.0)
   sass-rails (= 3.2.5)
   selenium-webdriver (~> 2.22.1)
   settingslogic!
+  sinatra (~> 1.3.2)
   spork (~> 1.0rc2)
+  stringex (~> 1.4.0)
   thin (~> 1.3.1)
   timecop
   twitter (= 2.0.2)
