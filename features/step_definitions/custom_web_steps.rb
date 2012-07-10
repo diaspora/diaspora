@@ -38,8 +38,9 @@ Then /^the publisher should be expanded$/ do
 end
 
 When /^I append "([^"]*)" to the publisher$/ do |stuff|
-  previous_value = page.find("#status_message_fake_text").value
-  fill_in "status_message_fake_text", :with => previous_value +  " " + stuff
+  elem = find('#status_message_fake_text')
+  elem.native.send_keys ' ' + stuff
+
   wait_until do
     page.find("#status_message_text").value.match(/#{stuff}/)
   end
