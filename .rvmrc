@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #!/bin/bash
 if [ -e '.rvmrc.local' ]; then
   source .rvmrc.local;
@@ -11,6 +10,3 @@ fi
 if [ "$(gem --version)" != "1.8.17" ]; then
   rvm rubygems 1.8.17
 fi
-=======
-rvm use 1.9.2
->>>>>>> f5b6df5a576da5524b29f9f1956c7d7befbc4825
