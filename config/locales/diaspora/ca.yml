@@ -83,6 +83,8 @@ ca:
     helper:
       invalid_fields: "Camps invàlids"
       correct_the_following_errors_and_try_again: "Corregiu els errors següents i torneu-ho a provar."
+    post_not_public: "La publicació que esteu intentant veure no és pública!"
+    login_try_again: "<a href='%{login_link}'>Entreu</a> i torneu-ho a provar."
 
 
   admins:
@@ -95,7 +97,49 @@ ca:
       resque_overview: "Resum del resque"
     correlations:
       correlations_count: "Correlacions amb el compte d'autenticacions"
+    user_search:
+      you_currently: "actualment teniu %{user_invitation} invitacions %{link}"
+      add_invites: "afegiu invitacions"
+      email_to: "Correu a convidar"
+      users:
+        zero: "%{count} usuaris trobats"
+        one: "%{count} usuari trobat"
+        other: "%{count} usuaris trobats"
+    weekly_user_stats:
+      current_server: "La data actual del servidor és %{date}"
+      amount_of:
+        zero: "nombre de nous usuaris aquesta setmana: cap"
+        one: "nombre de nous usuaris aquesta setmana: %{count}"
+        other: "nombre de nous usuaris aquesta setmana: %{count}"
+    stats:
+      week: "Setmanals"
+      2weeks: "Quinzenals"
+      month: "Mensuals"
+      daily: "Diàries"
+      usage_statistic: "Estadístiques d'ús"
+      go: "vés"
+      display_results: "S'estan mostrant els resultats per al segment <b>%{segment}</b>"
+      posts:
+        zero: "%{count} publicacions"
+        one: "%{count} publicació"
+        other: "%{count} publicacions"
+      comments:
+        zero: "%{count} comentaris"
+        one: "%{count} comentari"
+        other: "%{count} comentaris"
+      shares:
+        zero: "%{count} comparticions"
+        one: "%{count} compartició"
+        other: "%{count} comparticions"
+      users:
+        zero: "%{count} usuaris"
+        one: "%{count} usuari"
+        other: "%{count} usuaris"
+      current_segment: "El segment actual té una mitjana de <b>%{post_yest}</b> publicacions per usuari, des de <b>%{post_day}</b>"
+      50_most: "Les 50 etiquetes més populars"
+      tag_name: "Nom de l'etiqueta: <b>%{name_tag}</b> Nombre: <b>%{count_tag}</b>"
 
+      
 
   application:
     helper:
@@ -205,6 +249,7 @@ ca:
         tag_feature: "millora"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} i %{forum}: Tutorials, guies i notícies mantinguts per la comunitat"
         email_feedback: "Envieu per %{link} els vostres comentaris, si ho preferiu"
+        email_link: "correu electrònic"
       cubbies:
         heading: "Connecteu a Cubbi.es"
         explanation: "Cubbi.es és la primera aplicació Diàspora sota desenvolupament."
@@ -220,6 +265,7 @@ ca:
     aspect_stream:
       stay_updated: "Mantingueu-vos informat/da"
       stay_updated_explanation: "El vostre flux principal s'alimenta dels vostres contactes, les etiquetes que seguiu i les publicacions d'alguns membres creatius de la comunitat."
+      make_something: "Feu alguna cosa"
 
 
   aspect_memberships:
@@ -233,9 +279,8 @@ ca:
     # XXX: Miniaplicació enllaçada és simplement horrible (TERMCAT). jm
     heading: "Miniaplicació enllaçada"
     post_success: "S'ha publicat! S'està tancant!"
-    post_something: "Publiqueu alguna cosa al Diàspora"
-    explanation: "%{link} des de qualsevol lloc afegint aquest enllaç a les adreces d'interès."
-    explanation_link_text: "Publiqueu al Diàspora"
+    post_something: "Publiqueu al Diàspora"
+    explanation: "Publiqueu al Diàspora des de qualsevol lloc afegint aquest enllaç a les adreces d'interès → %{link}."
 
 
   comments:
@@ -253,9 +298,6 @@ ca:
   reactions:
     zero: "Cap reacció"
     one: "1 reacció"
-    two: "%{count} reaccions"
-    few: "%{count} reaccions"
-    many: "%{count} reaccions"
     other: "%{count} reaccions"
 
 
@@ -312,9 +354,6 @@ ca:
       new_messages:
         zero: "Cap missatge nou"
         one: "1 missatge nou"
-        two: "%{count} missatges nous"
-        few: "%{count} missatges nous"
-        many: "%{count} missatges nous"
         other: "%{count} missatges nous"
     create:
       sent: "S'ha enviat el missatge"
@@ -330,22 +369,6 @@ ca:
       fullmonth_day: "%B %d"
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
-
-
-  home:
-    show:
-      share_what_you_want: "Compartiu el que vulgueu, amb qui vulgueu."
-      tagline_first_half: "Compartiu el que vulgueu,"
-      tagline_second_half: "amb qui vulgueu."
-      already_account: "ja teniu un compte?"
-      login_here: "Identifiqueu-vos aquí"
-      choice: "Elecció"
-      choice_explanation: "El Diàspora us permet ordenar les vostres connexions en grups anomenats aspectes. Únics al Diàspora, els aspectes asseguren que les vostres fotos, històries i acudits només són compartits amb les persones que vosaltres voleu."
-      ownership: "Pertinença"
-      ownership_explanation: "Les vostres imatges us pertanyen, i no hauríeu de renunciar a això només per poder compartir-les. Conserveu la propietat de tot el que compartiu al Diàspora, i això us dona control total sobre la seva distribució."
-      simplicity: "Simplicitat"
-      simplicity_explanation: "El Diàspora fa que compartir siga net i fàcil – i això també s'aplica a la privacitat. Inherentment privat, el Diàspora no fa que us hagueu de perdre entre pàgines de paràmetres i opcions només per mantenir el vostre perfil segur."
-      learn_about_host: "Aprengueu com hostatjar el vostre servidor de Diàspora propi."
 
 
   invitation_codes:
@@ -372,9 +395,6 @@ ca:
       codes_left:
         zero: "No queda cap invitació per a aquest codi"
         one: "Queda una invitació per a aquest codi"
-        two: "Queden %{count} invitacions per a aquest codi"
-        few: "Queden %{count} invitacions per a aquest codi"
-        many: "Queden %{count} invitacions per a aquest codi"
         other: "Queden %{count} invitacions per a aquest codi"
       aspect: "Aspecte"
       already_invited: "Les persones següents no han acceptat la vostra invitació:"
@@ -413,23 +433,14 @@ ca:
       people_like_this:
         zero: "a cap persona li agrada"
         one: "li agrada a 1 persona"
-        two: "li agrada a %{count} persones"
-        few: "li agrada a %{count} persones"
-        many: "li agrada a %{count} persones"
         other: "li agrada a %{count} persones"
       people_like_this_comment:
         zero: "a cap persona li agrada"
         one: "li agrada a 1 persona"
-        two: "li agrada a %{count} persones"
-        few: "li agrada a %{count} persones"
-        many: "li agrada a %{count} persones"
         other: "li agrada a %{count} persones"
       people_dislike_this:
         zero: "a cap persona li desagrada"
         one: "li desagrada a 1 persona"
-        two: "li desagrada a %{count} persones"
-        few: "li desagrada a %{count} persones"
-        many: "li desagrada a %{count} persones"
         other: "li desagrada a %{count} persones"
 
 
@@ -437,80 +448,47 @@ ca:
     started_sharing:
       zero: "%{actors} han començat a compartir amb vosaltres."
       one: "%{actors} ha començat a compartir amb vosaltres."
-      two: "%{actors} ha començat a compartir amb vosaltres."
-      few: "%{actors} ha començat a compartir amb vosaltres."
-      many: "%{actors} ha començat a compartir amb vosaltres."
       other: "%{actors} ha començat a compartir amb vosaltres."
     private_message:
       zero: "%{actors} t'han enviat un missatge."
       one: "%{actors} t'ha enviat un missatge."
-      two: "%{actors} t'han enviat un missatge."
-      few: "%{actors} t'han enviat un missatge."
-      many: "%{actors} t'han enviat un missatge."
       other: "%{actors} t'han enviat un missatge."
     comment_on_post:
       zero: "%{actors} han comentat la vostra %{post_link}."
       one: "%{actors} ha comentat la vostra %{post_link}."
-      two: "%{actors} han comentat la vostra %{post_link}."
-      few: "%{actors} han comentat la vostra %{post_link}."
-      many: "%{actors} han comentat la vostra %{post_link}."
       other: "%{actors} han comentat la vostra %{post_link}."
     also_commented:
       zero: "%{actors} també han comentat la %{post_link} de %{post_author}."
       one: "%{actors} també ha comentat la %{post_link} de %{post_author}."
-      two: "%{actors} també han comentat la %{post_link} de %{post_author}."
-      few: "%{actors} també han comentat la %{post_link} de %{post_author}."
-      many: "%{actors} també han comentat la %{post_link} de %{post_author}."
       other: "%{actors} també han comentat la %{post_link} de %{post_author}."
     mentioned:
       zero: "%{actors} us han mencionat en una %{post_link}."
       one: "%{actors} us ha mencionat en una %{post_link}."
-      two: "%{actors} us han mencionat en una %{post_link}."
-      few: "%{actors} us han mencionat en una %{post_link}."
-      many: "%{actors} us han mencionat en una %{post_link}."
       other: "%{actors} us han mencionat en una %{post_link}."
     liked:
       zero: "A %{actors} els ha agradat la vostra %{post_link}."
       one: "A %{actors} li ha agradat la vostra %{post_link}."
-      two: "A %{actors} els ha agradat la vostra %{post_link}."
-      few: "A %{actors} els ha agradat la vostra %{post_link}."
-      many: "A %{actors} els ha agradat la vostra %{post_link}."
       other: "A %{actors} els ha agradat la vostra %{post_link}."
     reshared:
       zero: "%{actors} han tornat a compartir la vostra %{post_link}."
       one: "%{actors} ha tornat a compartir la vostra %{post_link}."
-      two: "%{actors} han tornat a compartir la vostra %{post_link}."
-      few: "%{actors} han tornat a compartir la vostra %{post_link}."
-      many: "%{actors} han tornat a compartir la vostra %{post_link}."
       other: "%{actors} han tornat a compartir la vostra %{post_link}."
     post: "publicació"
     also_commented_deleted:
       zero: "%{actors} han comentat una publicació suprimida."
       one: "%{actors} ha comentat una publicació suprimida."
-      two: "%{actors} han comentat una publicació suprimida."
-      few: "%{actors} han comentat una publicació suprimida."
-      many: "%{actors} han comentat una publicació suprimida."
       other: "%{actors} han comentat una publicació suprimida."
     liked_post_deleted:
       zero: "A %{actors} els agradava la vostra publicació suprimida."
       one: "A %{actors} li agradava la vostra publicació suprimida."
-      two: "A %{actors} els agradava la vostra publicació suprimida."
-      few: "A %{actors} els agradava la vostra publicació suprimida."
-      many: "A %{actors} els agradava la vostra publicació suprimida."
       other: "A %{actors} els agradava la vostra publicació suprimida."
     reshared_post_deleted:
       zero: "%{actors} han tornat a compartir la vostra publicació suprimida."
       one: "%{actors} ha tornat a compartir la vostra publicació suprimida."
-      two: "%{actors} han tornat a compartir la vostra publicació suprimida."
-      few: "%{actors} han tornat a compartir la vostra publicació suprimida."
-      many: "%{actors} han tornat a compartir la vostra publicació suprimida."
       other: "%{actors} han tornat a compartir la vostra publicació suprimida."
     mentioned_deleted:
       zero: "%{actors} us han mencionat en una publicació suprimida."
       one: "%{actors} us ha mencionat en una publicació suprimida."
-      two: "%{actors} us han mencionat en una publicació suprimida."
-      few: "%{actors} us han mencionat en una publicació suprimida."
-      many: "%{actors} us han mencionat en una publicació suprimida."
       other: "%{actors} us han mencionat en una publicació suprimida."
     index:
       notifications: "Notificacions"
@@ -519,24 +497,18 @@ ca:
       and_others:
         zero: "i ningú més"
         one: "i una més"
-        two: "i %{count} més"
-        few: "i %{count} més"
-        many: "i %{count} més"
         other: "i %{count} més"
       and: "i"
     helper:
       new_notifications:
         zero: "Cap notificació nova"
         one: "1 notificació nova"
-        two: "%{count} notificacions noves"
-        few: "%{count} notificacions noves"
-        many: "%{count} notificacions noves"
         other: "%{count} notificacions noves"
 
 
   notifier:
     a_post_you_shared: "una publicació."
-    email_sent_by_diaspora: "Aquest correu electrònic ha sigut enviat per Diàspora. Si voleu deixar de rebre correus com aquest,"
+    email_sent_by_diaspora: "Aquest correu electrònic ha sigut enviat per %{pod_name}. Si voleu deixar de rebre correus com aquest,"
     click_here: "feu clic aquí"
     hello: "Hola %{name}!"
     thanks: "Gràcies,"
@@ -688,9 +660,6 @@ ca:
       photos_by:
         zero: "Cap foto per %{author}"
         one: "Una foto per %{author}"
-        two: "Dos fotos per %{author}"
-        few: "%{count} fotos per %{author}"
-        many: "%{count} fotos per %{author}"
         other: "%{count} fotos per %{author}"
       reshare_by: "Tornat a compartir per %{author}"
 
@@ -735,8 +704,15 @@ ca:
 
       enter_email: "Introduïu una adreça de correu electrònic"
       enter_username: "Trieu un nom d'usuari (només amb lletres, números i subratllats)"
-      enter_password: "Introduïu una contrasenya"
+      enter_password: "Introduïu una contrasenya (mínim sis caràcters)"
       enter_password_again: "Introduïu la mateixa contrasenya de nou"
+      hey_make: "EI,<br/>FEU<br/>ALGUNA COSA."
+      diaspora: "♥ Diaspora*"
+      sign_up: "APUNTEU-VOS"
+      email: "CORREU ELECTRÒNIC"
+      username: "NOM D'USUARI"
+      password: "CONTRASENYA"
+      continue: "Continua"
     create:
       success: "Us heu unit al Diàspora!"
     edit:
@@ -767,9 +743,6 @@ ca:
       new_requests:
         zero: "no hi ha peticions noves"
         one: "1 petició nova!"
-        two: "%{count} peticions noves!"
-        few: "%{count} peticions noves!"
-        many: "%{count} peticions noves!"
         other: "%{count} peticions noves!"
 
 
@@ -780,9 +753,6 @@ ca:
       reshare:
         zero: "Torna a compartir"
         one: "1 vegada tornat a compartir"
-        two: "%{count} vegades tornat a compartir"
-        few: "%{count} vegades tornat a compartir"
-        many: "%{count} vegades tornat a compatir"
         other: "%{count} vegades tornat a compatir"
       show_original: "Mostra l'original"
       reshare_confirmation: "Voleu tornar a compartir la publicació de %{author}?"
@@ -837,9 +807,6 @@ ca:
       toggle:
         zero: "Afegeix el contacte"
         one: "En %{count} aspecte"
-        two: "En %{count} aspectes"
-        few: "En %{count} aspectes"
-        many: "En %{count} aspectes"
         other: "En %{count} aspectes"
     publisher:
       posting: "S'està publicant…"
@@ -854,7 +821,7 @@ ca:
       publishing_to: "s'està publicant a: "
       discard_post: "Descarta la publicació"
       new_user_prefill:
-        newhere: "nouaqui"
+        newhere: "NouAqui"
         hello: "Hola a tothom, sóc #%{new_user_tag}. "
         i_like: "M'interessa %{tags}. "
         invited_by: "Gràcies per la invitació, "
@@ -874,6 +841,7 @@ ca:
       invite_your_friends: "Convideu els vostres amics"
       from_facebook: "Des del Facebook"
       by_email: "Per correu electrònic"
+      share_this: "Compartiu aquest enllaç a través del correu, bloc o xarxa social preferida!"
     reshare:
       reshare: "Torna a compartir"
     public_explain:
@@ -922,9 +890,6 @@ ca:
     too_long:
       zero: "Feu el vostre missatge d'estat menor que %{count} caràcters"
       one: "Feu el vostre missatge d'estat menor que %{count} caràcter"
-      two: "Feu el vostre missatge d'estat menor que %{count} caràcters"
-      few: "Feu el vostre missatge d'estat menor que %{count} caràcters"
-      many: "Feu el vostre missatge d'estat menor que %{count} caràcters"
       other: "Feu el vostre missatge d'estat menor que %{count} caràcters"
 
 
@@ -932,9 +897,6 @@ ca:
     show_comments:
       zero: "Mostra %{count} comentaris més"
       one: "Mostra %{count} comentari més"
-      two: "Mostra %{count} comentaris més"
-      few: "Mostra %{count} comentaris més"
-      many: "Mostra %{count} comentaris més"
       other: "Mostra %{count} comentaris més"
     hide_comments: "Amaga els comentaris"
 
@@ -1021,7 +983,6 @@ ca:
       title: "La meva activitat"
 
   users:
-    logged_out: "Heu sortit del Diàspora*"
     edit:
       export_data: "Exporta les dades"
       photo_export_unavailable: "L'exportació de les fotos no és disponible ara mateix"
