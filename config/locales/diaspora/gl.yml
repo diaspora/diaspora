@@ -102,7 +102,7 @@ gl:
         two: "Atopáronse dous usuarios."
         other: "Atopáronse %{count} usuarios."
     weekly_user_stats:
-      current_server:"A data actual do servidor é %{date}."
+      current_server: "A data actual do servidor é %{date}."
       amount_of:
         zero: "Non se rexistrou ningún usuario novo esta semana."
         one: "Rexistrouse un usuario novo esta semana."
