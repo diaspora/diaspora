@@ -207,6 +207,7 @@ fi:
       revoke_access: "Estä pääsy"
     new:
       authorize: "Valtuuta"
+      cubbies_will: "Cubbies pystyy julkaisemaan kuvia sinun tililläsi"
       nope: "Ei"
   back: "Takaisin"
   blocks:
@@ -305,6 +306,8 @@ fi:
     helper:
       correct_the_following_errors_and_try_again: "Korjaa seuraavat virheet ja yritä uudelleen."
       invalid_fields: "Vialliset arvot"
+    login_try_again: "<a href='%{login_link}'>Kirjaudu sisään</a> ja yritä uudelleen."
+    post_not_public: "Viesti, jota yrität lukea, ei ole julkinen!"
   fill_me_out: "Täytä tiedot"
   find_people: "Etsi ihmisiä tai #tageja"
   hide: "Piilota"
@@ -453,7 +456,7 @@ fi:
       few: "%{actors} mainitsi sinut poistetussa viestissä."
       many: "%{actors} mainitsi sinut poistetussa viestissä."
       one: "%{actors} mainitsi sinut poistetussa viestissä."
-      other: "%{actors} mainitsi sinut poistetussa viestissä."
+      other: "%{actors} mainitsivat sinut poistetussa viestissä."
       two: "%{actors} mainitsivat sinut poistetussa viestissä."
       zero: "%{actors} mainitsi sinut poistetussa viestissä."
     post: "viesti"
@@ -461,7 +464,7 @@ fi:
       few: "%{actors} lähetti sinulle viestin."
       many: "%{actors} lähetti sinulle viestin."
       one: "%{actors} lähetti sinulle viestin."
-      other: "%{actors} lähetti sinulle viestin."
+      other: "%{actors} lähettivät sinulle viestin."
       two: "%{actors} lähettivät sinulle viestin."
       zero: "%{actors} lähetti sinulle viestin."
     reshared:
@@ -641,10 +644,10 @@ fi:
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
+        one: "Yksi kuva käyttäjältä %{author}"
+        other: "%{count} kuvaa käyttäjältä %{author}"
         two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        zero: "Ei kuvia käyttäjältä %{author}"
       reshare_by: "Uudelleenjaettu käyttäjältä %{author}"
   previous: "edellinen"
   privacy: "Yksityisyys"

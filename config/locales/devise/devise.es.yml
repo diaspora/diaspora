@@ -7,12 +7,12 @@
 es:
   devise:
     confirmations:
-      confirmed: "Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta."
+      confirmed: "Hemos confirmado tu cuenta correctamente. ¡Ya estás dentro!"
       new:
         resend_confirmation: "Reenviar las instrucciones de confirmación"
-      send_instructions: "Recibirás un correo con instrucciones para confirmar tu cuenta en pocos minutos."
+      send_instructions: "Recibirás un correo con instrucciones para confirmar tu cuenta en unos minutos."
     failure:
-      inactive: "Tu cuenta aún no ha sido activada."
+      inactive: "Tu cuenta no se ha activado todavía."
       invalid: "Nombre de usuario o contraseña incorrectos."
       invalid_token: "Identificador de autenticación incorrecto."
       locked: "Tu cuenta está bloqueada."
@@ -22,7 +22,7 @@ es:
     invitations:
       invitation_token_invalid: "¡Discúlpanos! Ese identificador de invitación no es valido."
       send_instructions: "Tu invitación se ha enviado."
-      updated: "Tu contraseña ha sido establecida con éxito. Ahora has accedido."
+      updated: "Has establecido tu contraseña correctamente. ¡Ya estás dentro!"
     mailer:
       confirmation_instructions:
         confirm: "Confirmar mi cuenta"
@@ -78,14 +78,14 @@ es:
       edit:
         change_password: "Cambiar mi contraseña"
       new:
-        forgot_password: "¿Olvidaste tu contraseña?"
+        forgot_password: "¿Has olvidado tu contraseña?"
         no_account: "No existe una cuenta con ese correo. Si estás esperando una invitación, las haremos llegar tan pronto como nos sea posible."
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
-      send_instructions: "Recibirás un correo con instrucciones para cambiar tu contraseña en pocos minutos."
-      updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
+      send_instructions: "Recibirás un correo con instrucciones para cambiar tu contraseña en unos minutos."
+      updated: "Has modificado tu contraseña. ¡Ya estás dentro!"
     registrations:
-      destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
-      signed_up: "Te has registrado con éxito. Si está habilitado, un mensaje de confirmación ha sido enviado a tu correo electrónico."
+      destroyed: "¡Adiós! Hemos cancelado tu cuenta. Esperamos volver a verte pronto."
+      signed_up: "Te has registrado con éxito. Si tu registro está activado, recibirás un mensaje de confirmación en tu correo electrónico."
       updated: "Has actualizado tu cuenta con éxito."
     sessions:
       new:
@@ -114,9 +114,9 @@ es:
       new:
         resend_unlock: "Volver a enviar las instrucciones de desbloqueo."
       send_instructions: "Recibirás un correo con instrucciones para desbloquear tu cuenta en pocos minutos."
-      unlocked: "Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta."
+      unlocked: "Tu cuenta se ha desbloqueado. ¡Ya estás dentro!"
   errors:
     messages:
-      already_confirmed: "ya ha sido confirmada"
+      already_confirmed: "Se ha confirmado"
       not_found: "no se ha encontrado"
-      not_locked: "no fue bloqueado"
+      not_locked: "no estaba bloqueado"

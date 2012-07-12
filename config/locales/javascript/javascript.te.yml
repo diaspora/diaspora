@@ -82,6 +82,7 @@ te:
         zero: "<%= count %> Reshares"
       show_nsfw_post: "టపాను చూపించు"
       show_nsfw_posts: "అన్నీ చూపించు"
+      unfollow: "అనుసరించవద్దు"
       unlike: "అయిష్టం"
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."

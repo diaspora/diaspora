@@ -111,6 +111,7 @@ ko:
       edit_aspect: "%{name} 고치기"
       select_all: "모두 선택"
     aspect_stream:
+      make_something: "뭔가 만들어보세요"
       stay_updated: "최신으로 유지하기"
       stay_updated_explanation: "내 주 스트림은 내 컨택, 내가 팔로우한 태그, 그리고 디아스포라 커뮤니티의 독창적인 구성원들이 공유한 게시물로 채워집니다."
     contacts_not_visible: "이 애스펙에 있는 사람들이 서로를 볼 수 없습니다."
@@ -712,6 +713,7 @@ ko:
       enter_password: "암호를 입력하세요 (최소 여섯 자)"
       enter_password_again: "암호를 다시 입력하세요"
       enter_username: "사용자 이름을 고르세요 (로마자, 아라비아 숫자, 밑줄 문자_ 만)"
+      hey_make: "자,<br/>뭔가<br/>만들어보세요."
       join_the_movement: "합류하세요!"
       password: "암호"
       sign_up: "가입"
