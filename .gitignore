@@ -2,7 +2,6 @@
 app/views/home/_show.*
 app/assets/images/custom/*
 
-
 # Configuration files
 config/app_config.yml
 config/app.yml
@@ -70,3 +69,10 @@ dump.rdb
 # Ignore precompiled assets
 # Heroku or Capistrano can and should regenerate them on every deploy
 public/assets
+
+# Ignored Octopress Files
+.sass-cache
+.gist-cache
+.pygments-cache
+_deploy
+source

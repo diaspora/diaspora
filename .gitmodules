@@ -1,3 +1,6 @@
 [submodule "pkg"]
 	path = pkg
 	url = http://github.com/diaspora/diaspora-packages.git
+[submodule ".themes/bootstrap"]
+	path = .themes/bootstrap
+	url = git@github.com:hfase01/octopress-diaspora-theme.git

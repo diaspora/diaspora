@@ -10,3 +10,7 @@ ci-*
 config/deploy
 config/ci
 config/environments/integration*
+plugins
+sass
+source
+
