@@ -1,5 +1,6 @@
 @import 'ui.css.sass'
 @import '_mixins.css.scss'
+@import '_flash_messages.scss'
 @import 'new_styles/_spinner'
 
 /* ====== media ====== */
@@ -83,49 +84,6 @@ ul > li
     :color #fff
   :border 1px solid #ccc
   :height 100%
-
-#flash_notice,
-#flash_error,
-#flash_alert
-  :z-index 999
-  :position fixed
-  :color #666
-  :top -100px
-
-  :left 0
-
-  :width 100%
-
-  :font
-    :weight bold
-  :text
-    :align center
-
-  .message
-    @include border-radius(6px)
-    @include box-shadow(0, 1px, 5px, rgba(0,0,0,0.4))
-    :display inline-block
-    :min-width 400px
-    :max-width 800px
-    :padding
-      :top 45px
-      :bottom 8px
-      :left 12px
-      :right 12px
-
-#flash_notice
-  .message
-    :background
-      :color #F4F899
-    :border 1px solid darken(#F4F899, 40%)
-
-#flash_error,
-#flash_alert
-  .message
-    :color #fff
-    :background
-      :color #CA410B
-    :border 1px solid darken(#CA410B, 10%)
 
 .login_error,
 .login_alert
