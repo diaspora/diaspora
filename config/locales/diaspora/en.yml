@@ -96,7 +96,7 @@ en:
       you_currently: "you currently have %{user_invitation} invites left %{link}"
       add_invites: "add invites"
       email_to: "Email to Invite"
-      users: 
+      users:
         zero: "%{count} users found"
         one: "%{count} user found"
         other: "%{count} users found"
@@ -406,6 +406,7 @@ en:
       public_feed: "Public Diaspora Feed for %{name}"
       your_aspects: "your aspects"
       back_to_top: "Back to top"
+      source_package: "download the source code package"
 
   likes:
     likes:
