@@ -6,6 +6,8 @@ require Rails.root.join('lib', 'email_inviter')
 
 class InvitationsController < ApplicationController
 
+  before_filter :authenticate_user!, :only => [:new, :create]
+
   def new
     @invite_code = current_user.invitation_code
     respond_to do |format|
@@ -15,7 +17,7 @@ class InvitationsController < ApplicationController
     end
   end
 
-  # this is  for legacy invites.  We try to look the person who sent them the 
+  # this is  for legacy invites.  We try to look the person who sent them the
   # invite, and use their new invite code
   # owe will be removing this eventually
   # @depreciated
@@ -49,7 +51,7 @@ class InvitationsController < ApplicationController
     inviter = EmailInviter.new(params[:email_inviter][:emails], current_user, params[:email_inviter])
     inviter.send!
 
-    redirect_to :back, :notice => "Great! Invites were sent off to #{inviter.emails.join(', ')}" 
+    redirect_to :back, :notice => "Great! Invites were sent off to #{inviter.emails.join(', ')}"
   end
 
   def check_if_invites_open
