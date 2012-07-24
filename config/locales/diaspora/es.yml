@@ -288,11 +288,8 @@ es:
       success: "Conversación eliminada con éxito"
     helper:
       new_messages:
-        few: "%{count} nuevos mensajes"
-        many: "%{count} nuevos mensajes"
         one: "1 mensaje nuevo"
         other: "%{count} mensajes nuevos"
-        two: "%{count} mensajes nuevos"
         zero: "No hay mensajes nuevos"
     index:
       create_a_new_message: "crear un nuevo mensaje"
@@ -388,18 +385,12 @@ es:
         other: "A %{count} personas no les gusta"
         zero: "A nadie le disgusta"
       people_like_this:
-        few: "A %{count} les gusta"
-        many: "A %{count} les gusta"
         one: "Le gusta a %{count} persona"
         other: "Le gusta a %{count} personas"
-        two: "A %{count} personas les gusta"
         zero: "A nadie le gusta"
       people_like_this_comment:
-        few: "A %{count} personas les gusta"
-        many: "A %{count} personas les gusta"
         one: "Le gusta a %{count} persona"
         other: "Le gusta a %{count} personas"
-        two: "A %{count} personas les gusta"
         zero: "A nadie le gusta"
   limited: "Limitado"
   more: "Más"
@@ -407,25 +398,16 @@ es:
   no_results: "No hay resultados"
   notifications:
     also_commented:
-      few: "%{actors} también comentaron la %{post_link} de %{post_author}."
-      many: "%{actors} también comentaron la %{post_link} de %{post_author}."
       one: "%{actors} también ha comentado la %{post_link} de %{post_author}."
       other: "%{actors} también han comentado la %{post_link} de %{post_author}."
-      two: "%{actors} también comentaron la %{post_link} de %{post_author}."
       zero: "%{actors} también han comentado la %{post_link} de %{post_author}."
     also_commented_deleted:
-      few: "%{actors} comentaron una publicación eliminada."
-      many: "%{actors} comentaron una publicación eliminada."
       one: "%{actors} ha comentado en una publicación eliminada."
       other: "%{actors} han comentado en una publicación eliminada."
-      two: "%{actors} comentaron una publicación eliminada."
       zero: "%{actors} han comentado en una publicación eliminada."
     comment_on_post:
-      few: "%{actors} comentaron tu %{post_link}."
-      many: "%{actors} comentaron tu %{post_link}."
       one: "%{actors} ha comentado tu %{post_link}."
       other: "%{actors} han comentado tu %{post_link}."
-      two: "%{actors} comentaron tu %{post_link}."
       zero: "%{actors} han comentado tu %{post_link}."
     helper:
       new_notifications:
@@ -435,71 +417,44 @@ es:
     index:
       and: "y"
       and_others:
-        few: "y %{count} más "
-        many: "y %{count} más "
         one: "y uno más"
         other: "y %{count} más"
-        two: "y a %{count} más"
         zero: "y nadie más"
       mark_all_as_read: "Marcar todo como leído"
       mark_unread: "Marcar como no leído"
       notifications: "Notificaciones"
     liked:
-      few: "A %{actors} les gustó tu %{post_link}."
-      many: "A %{actors} les gustó tu %{post_link}."
       one: "A %{actors} le ha gustado tu %{post_link}."
       other: "A %{actors} les ha gustado tu %{post_link}."
-      two: "A %{actors} les gustó tu %{post_link}."
       zero: "A %{actors} les ha gustado tu %{post_link}."
     liked_post_deleted:
-      few: "%{actors} les gustó una publicación eliminada."
-      many: "%{actors} les gustó una publicación eliminada."
       one: "A %{actors} le ha gustado una publicación eliminada."
       other: "A %{actors} les ha gustado una publicación eliminada."
-      two: "%{actors} le gusta tu publicación eliminada."
       zero: "A %{actors} les ha gustado una publicación eliminada."
     mentioned:
-      few: "%{actors} te han mencionado en una %{post_link}."
-      many: "%{actors} te han mencionado en una %{post_link}."
       one: "%{actors} te ha mencionado en %{post_link}."
       other: "%{actors} te han mencionado en %{post_link}."
-      two: "%{actors} te ha mencionado en una %{post_link}."
       zero: "%{actors} te han mencionado en %{post_link}."
     mentioned_deleted:
-      few: "%{actors} te mencionaron en una publicación eliminada."
-      many: "%{actors} te mencionaron en una publicación eliminada."
       one: "%{actors} te ha mencionado en una publicación eliminada."
       other: "%{actors} te han mencionado en una publicación eliminada."
-      two: "%{actors} te mencionaron en una publicación eliminada."
       zero: "%{actors} te han mencionado en una publicación eliminada."
     post: "publicación"
     private_message:
-      few: "%{actors} te enviaron un mensaje."
-      many: "%{actors} te enviaron un mensaje."
       one: "%{actors} te ha escrito"
       other: "%{actors} te han escrito."
-      two: "%{actors} te enviaron un mensaje."
       zero: "%{actors} te han escrito."
     reshared:
-      few: "%{actors} compartió tu %{post_link}."
-      many: "%{actors} compartió tu %{post_link}."
       one: "%{actors} ha compartido tu %{post_link}."
       other: "%{actors} han compartido tu %{post_link}."
-      two: "%{actors} compartió tu %{post_link}."
       zero: "%{actors} han compartido tu %{post_link}."
     reshared_post_deleted:
-      few: "%{actors} compartió tu publicación eliminada."
-      many: "%{actors} compartió tu publicación eliminada."
       one: "%{actors} ha compartido tu publicación eliminada."
       other: "%{actors} han compartido tu publicación eliminada."
-      two: "%{actors} compartió tu publicación eliminada."
       zero: "%{actors} han compartido tu publicación eliminada."
     started_sharing:
-      few: "%{actors} ahora siguen tus mensajes públicos."
-      many: "%{actors} ahora siguen tus mensajes públicos."
       one: "%{actors} ha empezado a compartir contigo."
       other: "%{actors} ha empezado a compartir contigo."
-      two: "%{actors} empezó a compatir contigo."
       zero: "%{actors} ha empezado a compartir contigo."
   notifier:
     a_post_you_shared: "una publicación."
@@ -655,11 +610,8 @@ es:
       not_found: "Lo sentimos, no podemos encontrar ese comentario."
       permalink: "enlace permanente"
       photos_by:
-        few: "%{count} fotos por %{author}"
-        many: "%{count} fotos por %{author}"
         one: "Una foto por %{author}"
         other: "%{count} fotos por %{author}"
-        two: "Dos fotos por %{author}"
         zero: "Ninguna foto por %{author}"
       reshare_by: "Vuelto a compartir por %{author}"
   previous: "anterior"
@@ -690,11 +642,8 @@ es:
       updated: "Perfil actualizado"
   public: "Público"
   reactions:
-    few: "%{count} reacciones"
-    many: "%{count} reacciones"
     one: "1 reacción"
     other: "%{count} reacciones"
-    two: "%{count} reacciones"
     zero: "0 reacciones"
   registrations:
     closed: "Los registros están cerrados en este servidor de Diaspora."
@@ -733,11 +682,8 @@ es:
       success: "Ahora estás compartiendo."
     helper:
       new_requests:
-        few: "¡%{count} nuevas solicitudes!"
-        many: "¡%{count} nuevas solicitudes!"
         one: "¡nueva solicitud!"
         other: "¡%{count} solicitudes nuevas!"
-        two: "¡%{count} nuevas solicitudes!"
         zero: "no hay nuevas solicitudes"
     manage_aspect_contacts:
       existing: "Contactos existentes"
@@ -751,11 +697,8 @@ es:
     reshare:
       deleted: "La publicación original fue eliminada por su autor."
       reshare:
-        few: "Compartido %{count} veces"
-        many: "Compartido %{count} veces"
         one: "Se ha compartido 1 vez"
         other: "Se ha compartido %{count} veces"
-        two: "Compartido %{count} veces"
         zero: "Compartir"
       reshare_confirmation: "¿Compartir la publicación de %{author}?"
       reshare_original: "Compartir original"
@@ -881,20 +824,14 @@ es:
     new:
       mentioning: "Menciones: %{person}"
     too_long:
-      few: "Demasiados caracteres, intenta que sea menor a %{count} caracteres"
-      many: "Demasiados caracteres, intenta que sea menor a %{count} caracteres"
       one: "por favor, escribe tu mensaje con menos de %{count} carácter"
       other: "por favor, escribe tu mensaje con menos de %{count} caracteres"
-      two: "Demasiados caracteres, intenta que sea menor a %{count} caracteres"
       zero: "por favor, escribe tu mensaje con menos de %{count} caracteres"
   stream_helper:
     hide_comments: "Ocultar comentarios"
     show_comments:
-      few: "Mostrar %{count} comentarios más"
-      many: "Mostrar %{count} comentarios más"
       one: "Mostrar un comentario más"
       other: "Mostrar %{count} comentarios más"
-      two: "Mostrar 2 comentarios más"
       zero: "No hay más comentarios"
   streams:
     activity:

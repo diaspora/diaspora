@@ -14,7 +14,7 @@ nn:
     failure:
       inactive: "Kontoen din var ikkje teken i bruk."
       invalid: "Brukarnamnet eller passordet er ugyldig."
-      invalid_token: "Ugyldig autentisering."
+      invalid_token: "Ugyldig aktiveringkode"
       locked: "Kontoen din er låst."
       timeout: "Økta finst ikkje lenger. Logg deg på att."
       unauthenticated: "Du må logga deg på eller melda deg inn før du kan halda fram."
@@ -31,6 +31,7 @@ nn:
       hello: "Hei %{email}."
       invitation_instructions:
         accept: "Godta invitasjonen"
+        arrived: "Det sosiale nettverket du har venta på er her. %{strong_diaspora} er klar for å hjelpe deg med å dele og utforske nettet på ein heilt ny måte som er sikrare og meir morosamt :)"
         be_yourself: "Ver deg sjølv"
         be_yourself_paragraph: "Verdsveven har laga nye, unike vegar for korleis me kan uttrykka oss. %{strong_diaspora} lar deg vere deg sjølv og dele på den måten du ynskjer, både med eller utan det ekte namnet ditt."
         cubbies: "Cubbi.es"
@@ -89,8 +90,8 @@ nn:
     sessions:
       new:
         alpha_software: "Du er på veg til å ta i bruk alfa-program."
-        bugs_and_feedback: "Ver merksam på at du vil oppleva feil. Vi ber deg om å rapportera dei til oss ved å nytta tilbakemeldingsknappen på nettlesaren si høgre side. Så skal vi prøva å ordna dei så fort råd er."
-        bugs_and_feedback_mobile: "Ver merksam på at du vil oppleva feil. Vi ber deg om å rapportera dei til oss. Så skal vi prøva å ordna dei så fort råd er."
+        bugs_and_feedback: "Ver merksam på at du vil oppleva feil. Vi ber deg om å rapportera dei til oss ved å nytta attendemeldingsknappen på nettlesaren si høgre side, så skal vi prøva å ordna dei så fort råd er."
+        bugs_and_feedback_mobile: "Ver merksam på at du vil oppleva feil. Vi ber deg om å rapportera dei til oss, så skal vi prøva å ordna dei så fort råd er."
         login: "Logg på"
         modern_browsers: "kan berre nytta moderne nettlesarar."
         password: "Passord"

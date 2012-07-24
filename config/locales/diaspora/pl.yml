@@ -295,10 +295,8 @@ pl:
     helper:
       new_messages:
         few: "Nowe wiadomości: %{count}"
-        many: "Nowe wiadomości: %{count}"
         one: "1 nowa wiadomość"
         other: "Nowe wiadomości: %{count}"
-        two: "Nowe wiadomości %{count}"
         zero: "Brak nowych wiadomości"
     index:
       create_a_new_message: "utwórz nową wiadomość"
@@ -392,24 +390,18 @@ pl:
     likes:
       people_dislike_this:
         few: "%{count} os. tego nie lubi"
-        many: "%{count} os. tego nie lubi"
         one: "1 osoba tego nie lubi"
         other: "%{count} os. tego nie lubi"
-        two: "%{count} os. tego nie lubi"
         zero: "nikt tego nie nielubi"
       people_like_this:
         few: "%{count} os. to lubi"
-        many: "%{count} os. to lubi"
         one: "%{count} os. to lubi"
         other: "%{count} os. to lubi"
-        two: "%{count} os. to lubią"
         zero: "nikt nie lubi"
       people_like_this_comment:
         few: "%{count} os. to lubi"
-        many: "%{count} os. to lubi"
         one: "%{count} osoba to lubi"
         other: "%{count} os. to lubi"
-        two: "%{count} ososby to lubią"
         zero: "nikt nie lubi"
   limited: "Ograniczone"
   more: "Więcej"
@@ -418,58 +410,44 @@ pl:
   notifications:
     also_commented:
       few: "%{actors} także skomentowali %{post_link} użytkownika %{post_author} ."
-      many: "%{actors} także skomentowały %{post_link} użytkownika %{post_author} ."
       one: "%{actors} także skomentowali %{post_link} użytkownika %{post_author} ."
       other: "%{actors} także skomentowali %{post_link} użytkownika %{post_author} ."
-      two: "%{actors} także skomentowało %{post_author} użytkownika %{post_link}."
       zero: "%{actors} także skomentowali %{post_link} użytkownika %{post_author} ."
     also_commented_deleted:
       few: "%{actors} skomentowali już usunięty wpis."
-      many: "%{actors} skomentował twój usunięty wpis."
       one: "%{actors} skomentował już usunięty wpis."
       other: "%{actors} skomentował już usunięty wpis."
-      two: "%{actors} skomentowało już usunięty wpis."
       zero: "%{actors} skomentował już usunięty wpis."
     comment_on_post:
       few: "%{actors} skomentowali twój %{post_link}."
-      many: "%{actors} skomentowali twój %{post_link}."
       one: "%{actors} skomentował(a) twój %{post_link}."
       other: "%{actors} skomentowali twój %{post_link}."
-      two: "%{actors} skomenotowało twój %{post_link}."
       zero: "%{actors} skomentował twój %{post_link}."
     helper:
       new_notifications:
         few: "%{count} nowe powiadomienia"
-        many: "%{count} nowych powiadomień"
         one: "1 nowe powiadomienie"
         other: "%{count} nowych powiadomień"
-        two: "%{count} nowe powiadomienia"
         zero: "Brak nowych powiadomień"
     index:
       and: "i"
       and_others:
         few: "i %{count} innych"
-        many: "i %{count} innych"
         one: "i jeszcze jedna osoba"
         other: "i %{count} innych"
-        two: "i %{count} innych"
         zero: "i nikt więcej"
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
       mark_unread: ""
       notifications: "Powiadomienia"
     liked:
       few: "%{actors} polubiło Twój %{post_link}."
-      many: "%{actors} polubiło Twój %{post_link}."
       one: "%{actors} polubi@{m:ł|f:ła|n:ł/ła} Twój %{post_link}."
       other: "%{actors} polubili Twój %{post_link}."
-      two: "%{actors} polubiło Twój %{post_link}."
       zero: "%{actors} polibi@{m:ł|f:ła|n:ł/ła} Twój wpis."
     liked_post_deleted:
       few: "%{actors} polubiło Twój usunięty wpis."
-      many: "%{actors} polubiło Twój usunięty wpis."
       one: "%{actors} polubi@{m:ł|f:ła|n:ł/ła} Twój usunięty wpis."
       other: "%{actors} polubi@{m:ł|f:ła|n:ł/ła} Twój usunięty wpis."
-      two: "%{actors} polubili Twój usunięty wpis."
       zero: "%{actors} polubiło Twój usunięty wpis."
     mentioned:
       few: "%{actors} wspomnieli o Tobie we %{post_link}ie."
@@ -478,39 +456,29 @@ pl:
       zero: "%{actors} wspomnia@{m:ł|f:ła|n:ł} o Tobie we %{post_link}ie."
     mentioned_deleted:
       few: "%{actors} wspomnieli o tobie w już usuniętym wpisie."
-      many: "%{actors} wspomnieli o tobie w już usuniętym wpisie."
       one: "%{actors} wspomniał(a) o tobie w już usuniętym wpisie."
       other: "%{actors} wspomniał o tobie w usuniętym już wpisie."
-      two: "%{actors}  wspomniało o tobie w usuniętym już wpisie."
       zero: "%{actors} wspomniał o tobie w usuniętym wpisie."
     post: "wpis"
     private_message:
       few: "%{actors} wysłali ci wiadomość."
-      many: "%{actors} wysłali ci wiadomość."
       one: "%{actors} wysłał ci wiadomość."
       other: "%{actors} wysłali ci wiadomość."
-      two: "%{actors} wysłało ci wiadomość."
       zero: "%{actors} wysłał ci wiadomość."
     reshared:
       few: "%{actors} przekazali dalej Twój %{post_link}."
-      many: "%{actors} przekazali dalej Twój %{post_link}."
       one: "%{actors} podzielił się twoim wpisem %{post_link}."
       other: "%{actors} przekazali dalej Twój %{post_link}."
-      two: "%{actors} przekazali dalej Twój %{post_link}."
       zero: "%{actors} przekazał dalej Twój %{post_link}."
     reshared_post_deleted:
       few: "%{actors} przekazali dalej Twój usunięty wpis."
-      many: "%{actors} przekazali dalej Twój usunięty wpis."
       one: "%{actors} przekaza@{m:ł|f:ła|n:ło} dalej Twój usunięty wpis."
       other: "%{actors} przekazali ponownie Twój usunięty wpis."
-      two: "%{actors} przekazali dalej Twój usunięty wpis."
       zero: "%{actors} przekazali dalej Twój usunięty wpis."
     started_sharing:
       few: "%{actors} zaczęli Ci udostępniać."
-      many: "%{actors} zaczęli Ci udostępniać."
       one: "%{actors} zacz@{m:ął|f:ęła|n:ęło} Ci udostępniać"
       other: "%{actors} zaczęli Ci udostępniać."
-      two: "%{actors} zaczęli Ci udostępniać"
       zero: "%{actors} zaczęli Ci udostępniać."
   notifier:
     a_post_you_shared: "wpis."
@@ -667,10 +635,8 @@ pl:
       permalink: "permalink"
       photos_by:
         few: "%{count} zdjęcia od %{author}"
-        many: "%{count} zdjęć od %{author}"
         one: "Jedno zdjęcie od %{author}"
         other: "%{count} zdjęcia od %{author}"
-        two: "Dwa zdjęcia od %{author}"
         zero: "Brak zdjęć od %{author}"
       reshare_by: "Przekazane dalej przez %{author}"
   previous: "poprzedni"
@@ -702,10 +668,8 @@ pl:
   public: "Publiczny"
   reactions:
     few: "Reakcje: %{count}"
-    many: "Reakcje: %{count}"
     one: "1 reakcja"
     other: "Reakcje: %{count}"
-    two: "Reakcje: %{count}"
     zero: "0 reakcji"
   registrations:
     closed: "Na tym podzie Diaspory rejestracja jest zamknięta."
@@ -745,10 +709,8 @@ pl:
     helper:
       new_requests:
         few: "Nowe zaproszenia: %{count}"
-        many: "Nowe zaproszenia: %{count}"
         one: "Nowe zaproszenie!"
         other: "Nowe zaproszenia: %{count}"
-        two: "Nowe odpowiedzi: %{count}"
         zero: "brak nowych zaproszeń"
     manage_aspect_contacts:
       existing: "Istniejące kontakty"
@@ -763,10 +725,8 @@ pl:
       deleted: "Oryginał został usunięty przez autora."
       reshare:
         few: "Przekazano dalej: %{count}"
-        many: "Przekazano dalej: %{count}"
         one: "Przekazano dalej: 1"
         other: "Przekazano dalej: %{count}"
-        two: "Przekazano dalej: %{count}"
         zero: "Przekaż dalej"
       reshare_confirmation: "Przekazać dalej wpis użytkownika %{author}?"
       reshare_original: "Przekaż dalej oryginał"
@@ -819,10 +779,8 @@ pl:
       add_to_aspect: "Dodaj kontakt"
       toggle:
         few: "W aspektach: %{count}"
-        many: "W aspektach: %{count}"
         one: "W aspektach: %{count}"
         other: "W aspektach: %{count}"
-        two: "W aspektach: %{count}"
         zero: "Dodaj kontakt"
     contact_list:
       all_contacts: "Wszystkie kontakty"
@@ -896,19 +854,15 @@ pl:
       mentioning: "Wspominasz o: %{person}"
     too_long:
       few: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
-      many: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
       one: "skróć swoje wiadomości statusowe do mniej niż %{count} znaku"
       other: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
-      two: "skróć długość swojego wpisu do %{count} znaków"
       zero: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
   stream_helper:
     hide_comments: "Ukryj wszystkie komentarze"
     show_comments:
       few: "Wyświetl %{count} więcej komentarzy"
-      many: "Wyświetl %{count} więcej komentarzy"
       one: "Wyświetl jeden komentarz więcej"
       other: "Wyświetl %{count} więcej komentarzy"
-      two: "Wyświetl dwa komentarze więcej"
       zero: "Nie ma więcej komentarzy"
   streams:
     activity:

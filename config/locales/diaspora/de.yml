@@ -79,7 +79,7 @@ de:
       week: "Woche"
     user_search:
       add_invites: "Einladungen hinzufügen"
-      email_to: "Email zum Einladen"
+      email_to: "E-Mail zum Einladen"
       users:
         one: "%{count} Benutzer gefunden"
         other: "%{count} Benutzer gefunden"

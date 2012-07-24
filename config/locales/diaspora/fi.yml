@@ -453,19 +453,13 @@ fi:
       two: "%{actors} ovat maininneet sinut %{post_link}ssä."
       zero: "%{actors} on maininnut sinut %{post_link}ssä."
     mentioned_deleted:
-      few: "%{actors} mainitsi sinut poistetussa viestissä."
-      many: "%{actors} mainitsi sinut poistetussa viestissä."
       one: "%{actors} mainitsi sinut poistetussa viestissä."
       other: "%{actors} mainitsivat sinut poistetussa viestissä."
-      two: "%{actors} mainitsivat sinut poistetussa viestissä."
       zero: "%{actors} mainitsi sinut poistetussa viestissä."
     post: "viesti"
     private_message:
-      few: "%{actors} lähetti sinulle viestin."
-      many: "%{actors} lähetti sinulle viestin."
       one: "%{actors} lähetti sinulle viestin."
       other: "%{actors} lähettivät sinulle viestin."
-      two: "%{actors} lähettivät sinulle viestin."
       zero: "%{actors} lähetti sinulle viestin."
     reshared:
       few: "%{actors} ovat jakaneet %{post_link}si uudelleen."
@@ -642,11 +636,8 @@ fi:
       not_found: "Valitettavasti viestiä ei löytynyt."
       permalink: "pysyvä linkki"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
         one: "Yksi kuva käyttäjältä %{author}"
         other: "%{count} kuvaa käyttäjältä %{author}"
-        two: "Two photos by %{author}"
         zero: "Ei kuvia käyttäjältä %{author}"
       reshare_by: "Uudelleenjaettu käyttäjältä %{author}"
   previous: "edellinen"

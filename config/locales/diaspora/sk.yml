@@ -392,24 +392,18 @@ sk:
     likes:
       people_dislike_this:
         few: "%{count} ľuďom sa to nepáči"
-        many: "%{count} ľuďom sa to nepáči"
         one: "%{count} človeku sa to nepáči"
         other: "%{count} ľuďom sa to nepáči"
-        two: "%{count} ľuďom sa to nepáči"
         zero: "nikto neoznačil, že sa mu to nepáči"
       people_like_this:
         few: "%{count} sa to páči"
-        many: "%{count} likes"
         one: "%{count} sa to páči"
         other: "%{count} sa to páči"
-        two: "%{count} likes"
         zero: "nikomu sa to nepáči"
       people_like_this_comment:
         few: "%{count} ľuďom sa to páči"
-        many: "%{count} ľuďom sa to páči"
         one: "%{count} človeku sa to páči"
         other: "%{count} ľuďom sa to páči"
-        two: "%{count} ľuďom sa to páči"
         zero: "nikomu sa to nepáči"
   limited: "Vyhradený"
   more: "Viac"
@@ -739,10 +733,8 @@ sk:
       deleted: "Pôvodný príspevok vymazal(a) jeho autor(ka)."
       reshare:
         few: "%{count} ľudia znova ukázali príspevok priateľom"
-        many: "%{count} opätovných zdieľaní"
         one: "1 človek znova ukázal príspevok svojim priateľom"
         other: "%{count} ľudí znova ukázalo príspevok priateľom"
-        two: "%{count} opätovné zdieľania"
         zero: "Znova ukázať príspevok"
       reshare_confirmation: "Chcete sa znova podeliť o príspevok použ. %{author}?"
       reshare_original: "Originál ukázať priateľom "
@@ -795,10 +787,8 @@ sk:
       add_to_aspect: "Pridať kontakt"
       toggle:
         few: "V %{count} kategóriách"
-        many: "V(o) %{count} kategóriách"
         one: "V %{count} kategórii"
         other: "V(o) %{count} kategóriách"
-        two: "Vo %{count} kategóriách"
         zero: "Pridajte kontakt"
     contact_list:
       all_contacts: "Všetky kontakty"
@@ -872,10 +862,8 @@ sk:
       mentioning: "Spomína sa: %{person}"
     too_long:
       few: "prosím, skráťte svoje správy v statuse na menej ako %{count} znakov"
-      many: "prosím, skráťte svoje správy  v statuse na menej ako %{count} znakov"
       one: "prosím, skráťte svoje správy v statusoch na menej ako %{count} znak"
       other: "prosím, skráťte svoje správy v statuse na menej ako %{count} znakov"
-      two: "prosím, upravte svoje správy  v statusoch na menej ako %{count} znakov"
       zero: "prosím, skráťte svoje správy v statusoch na menej ako %{count} znakov"
   stream_helper:
     hide_comments: "schovať komentáre"

@@ -42,10 +42,14 @@ nn:
               taken: "er allereie i bruk."
   admins:
     admin_bar:
+      correlations: "Korrelasjonar"
       pages: "Sidar"
       pod_stats: "Pod-statistikk"
       resque_overview: "Resque-overblikk"
       user_search: "Brukarsøk"
+      weekly_user_stats: "Brukarstatistikk per veke"
+    correlations:
+      correlations_count: "Correlations with Sign In Count:"
     stats:
       2weeks: "2 veker"
       50_most: "50 mest populære tags"
@@ -53,6 +57,7 @@ nn:
         one: "ein kommentar"
         other: "%{count} kommentarar"
         zero: "ingen kommentarar"
+      current_segment: "Segmentet har i snitt <b>%{post_yest}</b> innlegg per brukar, frå <b>%{post_day}</b>"
       daily: "Dagleg"
       display_results: "VIsar resultat frå <b>%{segment}</b>-segmentet"
       go: "gå"
@@ -65,6 +70,7 @@ nn:
         one: "ein deling"
         other: "%{count} delingar"
         zero: "ingen delingar"
+      tag_name: "Tag-namn: <b>%{name_tag}</b> Antall: <b>%{count_tag}</b>"
       usage_statistic: "Bruksstatistikk"
       users:
         one: "ein brukar"
@@ -73,6 +79,7 @@ nn:
       week: "Veke"
     user_search:
       add_invites: "legg til invitasjonar"
+      email_to: "Send e-post for å invitere"
       users:
         one: "ein brukar funne"
         other: "%{count} brukarar funne"
@@ -217,6 +224,7 @@ nn:
       no_applications: "Du har enno ikkje registrert nokon applikasjonar."
       revoke_access: "Trekk attende tilgangen"
     new:
+      authorize: "Autoriser"
       cubbies_will: "Cubbies vil kunne legge ut bilete på vegne av deg"
       nope: "Nei"
   back: "Attende"
@@ -325,6 +333,8 @@ nn:
     excited: "%{name} er glad for å sjå deg her!"
   invitations:
     a_facebook_user: "Ein Facebook-brukar"
+    check_token:
+      not_found: "Fann ikkje invitasjonskoda"
     create:
       already_contacts: "Du er allereie knytt til denne personen"
       already_sent: "Du har allereie invitert denne personen."
@@ -381,18 +391,12 @@ nn:
         two: "%{count} dislikes"
         zero: "no dislikes"
       people_like_this:
-        few: "%{count} likes"
-        many: "%{count} likes"
         one: "%{count} likar dette"
         other: "%{count} likar dette"
-        two: "%{count} likes"
         zero: "ingen likar dette"
       people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
         one: "%{count} likar dette"
         other: "%{count} likar dette"
-        two: "%{count} likes"
         zero: "ingen likar dette"
   limited: "Avgrensa"
   more: "Meir"
@@ -636,11 +640,8 @@ nn:
       not_found: "Vi klarte dessverre ikkje å finna innlegget."
       permalink: "permlenkje"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
         one: "Eitt bilete av %{author}"
         other: "%{count} bilete av %{author}"
-        two: "Two photos by %{author}"
         zero: "Inga bilete av %{author}"
       reshare_by: "Deling av %{author}"
   previous: "førre"
@@ -671,11 +672,8 @@ nn:
       updated: "Profilen vart oppdatert"
   public: "Offentleg"
   reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
     one: "1 reaksjon"
     other: "%{count} reaksjonar"
-    two: "%{count} reactions"
     zero: "ingen reaksjonar"
   registrations:
     closed: "Kan ikkje oppretta brukarar på denne Diaspora-poden."
@@ -732,11 +730,8 @@ nn:
     reshare:
       deleted: "Forfattaren har sletta originalinnlegget."
       reshare:
-        few: "%{count} reshares"
-        many: "%{count} reshares"
         one: "1 deling"
         other: "%{count} delingar"
-        two: "%{count} reshares"
         zero: "Del vidare"
       reshare_confirmation: "Vil du dele %{author} sitt innlegg?"
       reshare_original: "Del originalen vidare"
@@ -746,6 +741,7 @@ nn:
   services:
     create:
       already_authorized: "En brukar med Diaspora* ID %{diaspora_id} har allereie teke i bruk den %{service_name}kontoen."
+      failure: "Feila autentisering"
       success: "Vellukka autentisering."
     destroy:
       success: "Sletta autentiseringa."
@@ -873,17 +869,14 @@ nn:
   stream_helper:
     hide_comments: "Gøym alle kommentarane"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
       one: "Syn ein kommentar til"
       other: "Syn %{count} kommentarar til"
-      two: "Show two more comments"
       zero: "Ikkje fleire kommentarar"
   streams:
     activity:
       title: "Min aktivitet"
     aspects:
-      title: "Your Aspects"
+      title: "Aspekta mine"
     aspects_stream: "Aspektar"
     comment_stream:
       contacts_title: "Folk som du har kommentert innlegga til"
@@ -891,9 +884,13 @@ nn:
     community_spotlight_stream: "Kreative Medlemer"
     followed_tag:
       add_a_tag: "Legg til ein tag"
+      contacts_title: "Folk som lik denne tagen"
       follow: "Følg"
       title: "Følgde tags"
     followed_tags_stream: "Følgde tags"
+    like_stream:
+      contacts_title: "Dei du likar innlegga til"
+      title: "Lik-straum"
     mentioned_stream: "@Nemningar"
     mentions:
       contacts_title: "Folk som har nemnd deg"
@@ -902,6 +899,7 @@ nn:
       contacts_title: "Folk i straumen din"
       title: "Straum"
     public:
+      contacts_title: "Brukarar som nyleg har lagt ut noko"
       title: "Offentleg aktivitet"
     tags:
       contacts_title: "Personar som elskar denne etiketten"
@@ -951,7 +949,7 @@ nn:
     edit:
       also_commented: "… nokon òg kommenterer kontakten din sitt innlegg?"
       auto_follow_aspect: "Automatisk følgde brukarar vert lagt til i dette aspektet:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
+      auto_follow_back: "Automatisk følg tilbake om nokon følgjer deg"
       change: "Endra"
       change_email: "Endra e-posten"
       change_language: "Endra språket"
@@ -963,19 +961,20 @@ nn:
         lock_username: "Dette vil fryse brukarnamnet ditt om du vel å registrera deg igjen."
         locked_out: "Du vert logga ut og stengd ute frå kontoen din."
         make_diaspora_better: "Me treng deg for å gjera Diaspora* betre, så om du kan hjelpe oss i staden for å forlate oss vert me veldig takksame. Om du faktisk vil forlate oss, så skal du vite kva som skjer."
-        mr_wiggles: "Denne pusekatten vert særs vonbråten om du gjer dette"
+        mr_wiggles: "Kattepusen vert særs vonbråten om du gjer dette"
         no_turning_back: "Det er for tida inga veg attende."
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+        what_we_delete: "Me slettar all infoen me har om deg og alle innlegga dine så fort som mogleg. Kommentarane dine vert ståande og lenka saman med Diaspora-ID-en din."
       close_account_text: "Lukk konto"
       comment_on_post: "… nokon kommenterer innlegget ditt?"
       current_password: "Gjeldande passord"
       current_password_expl: "det du loggar på med..."
-      download_photos: "last ned bileta mine"
-      download_xml: "last ned xml-en min"
+      download_photos: "Last ned bileta mine"
+      download_xml: "Last ned xml-en min"
       edit_account: "Endra kontoen"
       email_awaiting_confirmation: "Vi har sendt ei aktiveringslenkje til %{unconfirmed_email}. Vi vil halda fram med å senda til originaladressa di, %{email}, fram til du følgjer lenkja og tek i bruk den nye."
       export_data: "Eksporter data"
       following: "Følgje-innstillingar"
+      getting_started: "Innstillingar for nye brukarar"
       liked: "… nokon liker innlegget ditt?"
       mentioned: "… du er nemnt i eit innlegg?"
       new_password: "Nytt passord"
@@ -993,7 +992,7 @@ nn:
       awesome_take_me_to_diaspora: "Kult! Ta meg med til Diaspora*"
       community_welcome: "Diaspora* sin fellesskap er glade for å ha deg ombord!"
       hashtag_explanation: "Grindmerke (#) gjer at du kan tala om og følgja interessene dine. Dei er òg ein fin måte å finna nye Diaspora-brukarar på."
-      hashtag_suggestions: "Prøv å følgje tags som #kunst, #filmar, #åtgaum, etc."
+      hashtag_suggestions: "Prøv å følgje tags som #kunst, #film, #åtgaum, #katt, etc."
       hooking_up_fb: "kopla til Facebook-kontoen din"
       saved: "Lagra!"
       we_can_speed_things_up: "Ting kan kome litt raskare i gang ved å"
@@ -1020,8 +1019,11 @@ nn:
       unconfirmed_email_changed: "E-postadresse er endra. Treng å verta teken i bruk."
       unconfirmed_email_not_changed: "Klarte ikkje å endra e-postkontoen"
   webfinger:
+    fetch_failed: "fekk ikkje til å hente webfingerprofilen for %{profile_url}"
     hcard_fetch_failed: "det var eit problem med å hente hcard for %{account}"
     no_person_constructed: "Klarte ikkje å laga nokon person frå hcard-fila."
+    not_enabled: "webfinger latar ikkje til å vere slått på for %{account} sin konto"
+    xrd_fetch_failed: "det var eit problem med å få tak i xrd'en til kontoen %{account}"
   welcome: "Velkomen!"
   will_paginate:
     next_label: "neste »"

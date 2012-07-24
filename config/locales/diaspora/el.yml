@@ -48,12 +48,18 @@ el:
       resque_overview: "Επισκόπηση Resque"
       user_search: "Αναζήτηση χρηστών"
       weekly_user_stats: "Εβδομαδιαία  στατιστηκά χρηστών"
+    correlations:
+      correlations_count: "Συσχετίσεις με Είσοδος:"
     stats:
       2weeks: "2 εβδομάδες"
+      50_most: "Τα 50 πιο διαδεδομένα μαρκαρίσματα"
       comments:
         one: "%{count} σχόλιο"
         other: "%{count} σχόλια"
         zero: "%{count} σχόλια"
+      current_segment: "Το τωρινό αποτέλεσμα είναι κατά μέσο όρο <b>%{post_yest}</b> διμοσιευσης ανά χρήστη, από <b>%{post_day}</b>"
+      daily: "Ημερήσιο"
+      display_results: "εμφάνιση αποτελεσμάτων <b>%{segment}</b>"
       go: "Μετάβαση"
       month: "Μήνας"
       posts:
@@ -64,6 +70,8 @@ el:
         one: "%{count} μοίρασμα"
         other: "%{count} μοιράσματα"
         zero: "%{count} μοιράσματα"
+      tag_name: "Όνομα μαρκαρίσματος: <b>%{name_tag}</b> Μετρητής: <b>%{count_tag}</b>"
+      usage_statistic: "Στατιστικά χρήσης"
       users:
         one: "%{count} χρήστης"
         other: "%{count} χρήστες"
@@ -158,12 +166,12 @@ el:
         here_to_help: "Η κοινότητα του Diaspora είναι εδώ για να σας βοηθήσει!"
         need_help: "Χρειάζεστε βοήθεια;"
         tag_bug: "bug"
-        tag_feature: "feature"
+        tag_feature: "χαρακτηριστικά"
         tag_question: "question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Οδηγοί από την κοινότητα του Diaspora, how-to, και νέα"
       introduce_yourself: "Αυτή είναι η Ροή σας. Μπείτε και συστηθείτε."
       keep_diaspora_running: "Κρατήστε το Diaspora σε γρήγορη ανάπτυξη με μηνιαία δωρεά!"
-      keep_pod_running: "Διατηρείστε τη καλή λειτουργία του %{pod}, παρέχοντας στους servers μας τη καφεΐνη τους με μια μηνιαία δωρεά!"
+      keep_pod_running: "Διατηρείστε τη καλή λειτουργία του %{pod}, παρέχοντας στους servers μας τη μηνιαία δωρεά σου!"
       new_here:
         follow: "Ακολουθήστε τη %{link} και καλωσορίστε νέους χρήστες στο Diaspora*!"
         learn_more: "Μάθετε περισσότερα"
@@ -523,7 +531,7 @@ el:
 
           Με Αγάπη,
 
-          Το ρομπότ αυτόματης αποστολής e-mail του Diaspora*!
+          Η αυτόματης αποστολή e-mail του Diaspora*!
 
           [1]: %{invite_url}
     invited_you: "O/H %{name} σε προσκάλεσε στο Diaspora*"
@@ -653,12 +661,9 @@ el:
       not_found: "Λυπούμαστε, δεν καταφέραμε να βρούμε αυτή την ανάρτηση."
       permalink: "Μόνιμος σύνδεσμος:"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        one: "Μια φωτογραφεία του/της %{author}"
+        other: "%{count} φωτογραφίες του/της %{author}"
+        zero: "Δεν υπάρχουν φωτογραφίες για τον/την %{author}"
       reshare_by: "Επαναμοίραση από %{author}"
   previous: "προηγούμενο"
   privacy: "Απόρρητο"
@@ -829,6 +834,7 @@ el:
     notification:
       new: "Νέο %{type} από τον χρήστη %{from}"
     public_explain:
+      atom_feed: ""
       control_your_audience: "Ελέγξτε το Κοινό σας"
       logged_in: "συνδεδεμένος/η στο %{service}"
       manage: "διαχείριση συναφών υπηρεσιών"
@@ -972,7 +978,7 @@ el:
       wrong_password: "Ο κωδικός που εισάγατε δεν ταιριάζει με τον τωρινό κωδικό σας."
     edit:
       also_commented: "...κάποιος επίσης σχολίασε σε δημοσίευση επαφής σας;"
-      auto_follow_aspect: "Πτυχή για αυτόματη ακολούθηση"
+      auto_follow_aspect: "Πτυχή για αυτόματη Παρακολούθησης"
       auto_follow_back: "Αυτόματη ακολούθηση αν κάποιος σας ακουλουθήσει"
       change: "Αλλαγή"
       change_email: "Αλλαγή διεύθυνσης ηλεκτρονικού ταχυδρομείου"
@@ -997,7 +1003,7 @@ el:
       edit_account: "Επεξεργασία λογαριασμού"
       email_awaiting_confirmation: "Σας στείλαμε έναν σύνδεσμο ενεργοποίησης στο %{unconfirmed_email}. Μέχρι να ακολουθήσετε αυτόν τον σύνδεσμο και να ενεργοποιήσετε τη νέα διεύθυνση, θα συνεχίσουμε να χρησιμοποιούμε την αρχική σας %{email}."
       export_data: "Εξαγωγή Δεδομένων"
-      following: "Ρυθμίσεις Ακολούθησης"
+      following: "Ρυθμίσεις Παρακολούθησης"
       getting_started: "Προτιμήσεις Νέου Χρήστη"
       liked: "...σε κάποιον αρέσει η δημοσίευση σας;"
       mentioned: "...επισημανθήκατε σε μία φωτογραφία;"
@@ -1032,8 +1038,8 @@ el:
       does_not_exist: "Ο χρήστης %{username} δεν υπάρχει!"
     update:
       email_notifications_changed: "Αλλαγή ειδοποιήσεων ηλεκτρονικού ταχυδρομείου,επιτυχής"
-      follow_settings_changed: "Οι ρυθμίσεις ακολούθησης έχουν αλλάξει"
-      follow_settings_not_changed: "Η αλλαγή ρυθμίσεων ακολούθησης απέτυχε."
+      follow_settings_changed: "Οι ρυθμίσεις παρακολούθησης έχουν αλλάξει"
+      follow_settings_not_changed: "Η αλλαγή ρυθμίσεων παρακολουθήσεις απέτυχε."
       language_changed: "Αλλαγή Γλώσσας επιτυχής"
       language_not_changed: "Η αλλαγή γλώσσας απέτυχε"
       password_changed: "Ο κωδικός σας άλλαξε. Μπορείτε τώρα να συνδεθείτε με τον νέο κωδικό. "

@@ -45,6 +45,24 @@ vi:
       pages: "Trang"
       user_search: "Tìm người dùng"
       weekly_user_stats: "Thống kê người dùng hàng tuần"
+    stats:
+      2weeks: "2 tuần"
+      50_most: "50 thẻ phổ biến nhất"
+      comments:
+        other: "%{count} bình luận"
+        zero: "Không có bình luận"
+      daily: "Hàng ngày"
+      month: "Tháng"
+      posts:
+        other: "%{count} bài đăng"
+        zero: "Không có bài đăng"
+      shares:
+        other: "%{count} lượt chia sẻ"
+        zero: "Không có ai chia sẻ"
+      users:
+        other: "%{count} người dùng"
+        zero: "Không có người dùng"
+      week: "Tuần"
     user_search:
       add_invites: "thêm lời mời"
       email_to: "Địa chỉ được mời"
@@ -52,6 +70,11 @@ vi:
         other: "Tìm thấy %{count} người dùng"
         zero: "Không tìm thấy ai"
       you_currently: "hiện bạn còn lại %{user_invitation} thư mời %{link}"
+    weekly_user_stats:
+      amount_of:
+        other: "số người dùng mới của tuần này: %{count}"
+        zero: "tuần này không có người dùng mới"
+      current_server: "Ngày hiện tại của máy chủ là %{date}"
   ago: "%{time} trước"
   all_aspects: "Tất cả mối quan hệ"
   application:
@@ -119,6 +142,7 @@ vi:
       help:
         do_you: "Bạn:"
         email_feedback: "%{link} phản hồi hoặc góp ý"
+        email_link: "Thư điện tử"
         feature_suggestion: "... có một đề nghị %{link}?"
         find_a_bug: "... tìm thấy lỗi %{link}?"
         have_a_question: "... có một %{link}?"
@@ -283,6 +307,7 @@ vi:
     helper:
       correct_the_following_errors_and_try_again: "Sửa những lỗi sau và thử lại."
       invalid_fields: "Trường không hợp lệ"
+    login_try_again: "Vui lòng <a href='%{login_link}'>đăng nhập</a> và thử lại."
   fill_me_out: "Điền đầy đủ"
   find_people: "Tìm người hoặc #tags"
   hide: "Ẩn"
@@ -347,10 +372,10 @@ vi:
         two: "%{count} người không thích"
         zero: "chưa có người không thích"
       people_like_this:
-        other: "%{count} lượt thích"
+        other: "%{count} người thích"
         zero: "không có ai thích"
       people_like_this_comment:
-        other: "%{count} lượt thích"
+        other: "%{count} người thích"
         zero: "không có ai thích"
   limited: "Giới hạn"
   more: "Thêm nữa"
@@ -358,19 +383,11 @@ vi:
   no_results: "Không có kết quả"
   notifications:
     also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} cũng bình luận tin %{post_link} của %{post_author}."
+      zero: "Không có ai bình luận tin %{post_link} của %{post_author}."
     also_commented_deleted:
-      few: "%{actors} bình luận vào một tin đã bị xoá."
-      many: "%{actors} bình luận vào một tin đã bị xoá."
-      one: "%{actors} bình luận vào một tin đã bị xoá."
-      other: "%{actors} bình luận vào một tin đã bị xoá."
-      two: "%{actors} bình luận vào một tin đã bị xoá."
-      zero: "%{actors} bình luận vào một tin đã bị xoá."
+      other: "%{actors} bình luận vào một bài đăng đã bị xoá."
+      zero: "Không có ai bình luận vào một bài đăng đã bị xóa."
     comment_on_post:
       few: "%{actors} đã bình luận tin %{post_link} của bạn."
       many: "%{actors} đã bình luận tin %{post_link} của bạn."
@@ -389,53 +406,33 @@ vi:
     index:
       and: "và"
       and_others:
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        two: "and %{count} others"
-        zero: "và không có ai khác"
+        other: "và %{count} người khác"
+        zero: "và không còn ai khác"
       mark_all_as_read: "Đánh dấu tất cả là đã đọc"
       mark_unread: "Đánh dấu là chưa đọc"
       notifications: "Thông báo"
     liked:
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
+      other: "%{actors} vừa mới thích bài đăng %{post_link} của bạn."
+      zero: "Không ai thích bài đăng %{post_link} của bạn."
     liked_post_deleted:
-      other: "%{actors} người thích bài đã bị xóa của bạn."
-      zero: "Không có ai thích bài đã xoá của bạn."
+      other: "%{actors} người thích bài đăng đã bị xóa của bạn."
+      zero: "Không có ai thích bài đăng đã bị xoá của bạn."
     mentioned:
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} đã nhắc đến bạn trong %{post_link}."
+      zero: "Không có ai nhắc đến bạn trong %{post_link}."
     mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} nhắc đến bạn trong một bài đăng đã bị xóa."
+      zero: "Không có ai nhắc đến bạn trong một bài đăng đã bị xóa."
     post: "bài đăng"
     private_message:
       other: "%{actors} đã gửi cho bạn một tin nhắn."
       zero: "Không có ai gửi tin nhắn cho bạn."
     reshared:
-      few: "%{actors} đã chia sẻ lại tin %{post_link}."
-      many: "%{actors} đã chia sẻ lại tin %{post_link}."
-      one: "%{actors} đã chia sẻ lại %{post_link}."
-      other: "%{actors} đã chia sẻ lại tin %{post_link}."
-      two: "%{actors} đã chia sẻ lại tin %{post_link}."
-      zero: "%{actors} đã chia sẻ lại tin %{post_link}."
+      other: "%{actors} đã chia sẻ lại bài đăng %{post_link} của bạn."
+      zero: "Không có ai chia sẻ lại bài đăng %{post_link} của bạn."
     reshared_post_deleted:
-      other: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
-      zero: "Không có ai chia sẻ lại tin đã xóa của bạn."
+      other: "%{actors} đã chia sẻ lại bài đăng đã bị xóa của bạn."
+      zero: "Không có ai chia sẻ lại bài đăng đã bị xóa của bạn."
     started_sharing:
       few: "%{actors} đã bắt đầu chia sẻ với bạn."
       many: "%{actors} đã bắt đầu chia sẻ với bạn."
@@ -452,7 +449,7 @@ vi:
     confirm_email:
       click_link: "Để kích hoạt địa chỉ thư điện tử mới của bạn - %{unconfirmed_email}, hãy vào liên kết này:"
       subject: "Vui lòng kích hoạt địa chỉ thư điện tử %{unconfirmed_email} của bạn"
-    email_sent_by_diaspora: "Thư này được gửi bởi Diaspora.  Nếu bạn không muốn nhận những thư như thế này,"
+    email_sent_by_diaspora: "Thư này được gửi bởi %{pod_name}.  Nếu bạn không muốn nhận những thư như thế này,"
     hello: "Xin chào %{name}!"
     invite:
       message: |-
@@ -462,11 +459,13 @@ vi:
 
           Nhấn vào liên kết sau để bắt đầu
 
-          %{invite_url}
+          [%{invite_url}][1] 
 
           Thân,
 
           Máy phát thư Diaspora*!
+
+          [1]: %{invite_url}
     invited_you: "%{name} đã mời bạn tham gia Diaspora*"
     liked:
       liked: "%{name} vừa thích bài đăng của bạn"
@@ -626,12 +625,8 @@ vi:
       updated: "Đã cập nhật hồ sơ"
   public: "Công khai"
   reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
+    other: "%{count} phản hồi"
+    zero: "Không có phản hồi"
   registrations:
     create:
       success: "Bạn đã tham gia vào Diaspora!"
@@ -644,13 +639,19 @@ vi:
       update: "Cập nhật"
     invalid_invite: "Liên kết mời bạn cung cấp không còn hợp lệ!"
     new:
+      continue: "Tiếp tục"
       create_my_account: "Tạo tài khoản"
+      diaspora: "<3 Diaspora*"
+      email: "THƯ ĐIỆN TỬ"
       enter_email: "Nhập địa chỉ thư điện tử"
-      enter_password: "Nhập mật khẩu"
+      enter_password: "Nhập mật khẩu (ít nhất sáu kí tự)"
       enter_password_again: "Nhập lại mật khẩu"
       enter_username: "Tên người dùng (chỉ gồm chữ cái, số và dấu gạch dưới _)"
       join_the_movement: "Tham gia chuyển đổi!"
+      password: "MẬT KHẨU"
+      sign_up: "ĐĂNG KÍ"
       sign_up_message: "Social Networking with a <3"
+      username: "TÊN NGƯỜI DÙNG"
   requests:
     create:
       sending: "Gửi"
@@ -726,12 +727,8 @@ vi:
     aspect_dropdown:
       add_to_aspect: "Thêm liên lạc"
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add contact"
+        other: "Trong %{count} mối quan hệ"
+        zero: "Thêm liên lạc"
     contact_list:
       all_contacts: "Tất cả liên lạc"
     footer:
@@ -745,6 +742,7 @@ vi:
       invite_someone: "Mời vài người"
       invite_your_friends: "Mời bạn"
       invites: "Mời"
+      share_this: "Chia sẻ liên kết này qua thư, blog, hay mạng xã hội!"
     public_explain:
       atom_feed: "Nguồn tin"
       logged_in: "đã đăng nhập vào %{service}"
@@ -798,21 +796,13 @@ vi:
     new:
       mentioning: "Đang nhắc đến: %{person}"
     too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+      other: "trạng thái của bạn phải có ít hơn %{count} kí tự"
+      zero: "trạng thái của bạn phải có ít hơn %{count} kí tự"
   stream_helper:
     hide_comments: "Ẩn tất cả bình luận"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      other: "Hiện thêm %{count} bình luận"
+      zero: "Không còn bình luận"
   streams:
     activity:
       title: "Hoạt động của tôi"
@@ -896,6 +886,7 @@ vi:
       character_minimum_expl: "ít nhất phải có sáu kí tự"
       close_account:
         dont_go: "Đừng đi!"
+        if_you_want_this: "Nếu bạn muốn, nhập mật khẩu và nhấn 'Đóng tài khoản'"
         locked_out: "Bạn sẽ bị đăng xuất và khoá tài khoản."
         make_diaspora_better: "Chúng tôi muốn bạn cùng phát triển Diaspora tốt hơn, vì vậy bạn nên giúp đỡ thay vì rời đi. Nếu bạn không muốn ở lại, chúng tôi muốn biết chuyện gì sẽ xảy ra tiếp theo."
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."

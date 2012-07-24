@@ -288,11 +288,8 @@ sv:
       success: "Konversationen har tagits bort nu"
     helper:
       new_messages:
-        few: "%{count} nya meddelanden"
-        many: "%{count} nya meddelanden"
         one: "Ett nytt meddelande"
         other: "%{count} nya meddelanden"
-        two: "%{count} nya meddelanden"
         zero: "Inga nya meddelanden"
     index:
       create_a_new_message: "skapa ett nytt meddelande"
@@ -324,7 +321,7 @@ sv:
     helper:
       correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
       invalid_fields: "Ogiltiga uppgifter"
-    login_try_again: "Var god %{login_link}<a href='%{login_link}'>logga in</a> och försök igen."
+    login_try_again: "Var god <a href='%{login_link}'>logga in</a> och försök igen."
     post_not_public: "Du försöker läsa ett inlägg som inte är publikt."
   fill_me_out: "Fyll i mig"
   find_people: "Hitta personer eller #taggar"
@@ -474,7 +471,7 @@ sv:
     confirm_email:
       click_link: "För att aktivera din nya e-postadress %{unconfirmed_email}, klicka här:"
       subject: "Var vänlig och aktivera din nya e-postadress %{unconfirmed_email}"
-    email_sent_by_diaspora: "Detta e-brev har skickats av Diaspora. Vill du inte har några mer liknade e-brev,"
+    email_sent_by_diaspora: "Detta e-brev har skickats av %{pod_name}. Vill du inte få några fler liknade e-brev,"
     hello: "Hej %{name}!"
     invite:
       message: |-
@@ -727,7 +724,7 @@ sv:
     failure:
       error: "det blev något fel vid anslutning till tjänsten"
     finder:
-      fetching_contacts: "Diaspora fyller listan med dina %{service}-vänner. Var god titta till igen litet senare."
+      fetching_contacts: "Diaspora fyller listan med dina %{service}-vänner. Var god och titta tillbaka igen litet senare."
       no_friends: "Hittade inga vänner från Facebook."
       service_friends: "%{service}-vänner"
     index:
@@ -839,7 +836,7 @@ sv:
     new:
       mentioning: "Nämner: %{person}"
     too_long:
-      one: "ditt statusmeddelande får inte vara längre än ${count} bokstav"
+      one: "ditt statusmeddelande får inte vara längre än en bokstav"
       other: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
       zero: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
   stream_helper:

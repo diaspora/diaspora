@@ -377,18 +377,10 @@ hu:
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} személy nem kedveli"
-        many: "%{count} személy nem kedveli"
-        one: "nem kedveli"
         other: "%{count} ember nem kedveli"
-        two: "%{count} embernek nem tetszik"
         zero: "nincs negatív visszajelzés"
       people_like_this:
-        few: "%{count} személy kedveli"
-        many: "%{count} személy kedveli"
-        one: "1 személy kedveli"
         other: "%{count} ember kedveli"
-        two: "%{count} ember kedveli"
         zero: "senki nem kedveli"
       people_like_this_comment:
         few: "%{count} kedveli"
@@ -425,20 +417,12 @@ hu:
       zero: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
     helper:
       new_notifications:
-        few: "%{count} új értesítés"
-        many: "%{count} új értesítés"
-        one: "1 új értesítés"
         other: "%{count} új értesítés"
-        two: "%{count} új értesítés"
         zero: "nincs új értesítés"
     index:
       and: "és"
       and_others:
-        few: "és %{count} másik"
-        many: "és %{count} másik"
-        one: "és még egy"
         other: "és %{count} másik személy"
-        two: "és %{count} másik"
         zero: "és senki más"
       mark_all_as_read: "Mind megjelölése olvasottként"
       mark_unread: "olvasatlannak jelöl"
@@ -689,11 +673,7 @@ hu:
       updated: "Profil frissítve"
   public: "Nyilvános"
   reactions:
-    few: "%{count} visszajelzés"
-    many: "%{count} visszajelzés"
-    one: "1 visszajelzés"
     other: "%{count} visszajelzés"
-    two: "%{count} visszajelzés"
     zero: "nincs visszajelzés"
   registrations:
     closed: "A regisztráció zárolva van ezen a Diaspora kiszolgálón."

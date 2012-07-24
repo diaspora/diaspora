@@ -86,8 +86,8 @@ sv:
       more_comments:
         few: "Visa <%= count %> till kommentarer"
         many: "Visa <%= count %> till kommentarer"
-        one: "Visa en till kommentar"
-        other: "Visa <%= count %> till kommentarer"
+        one: "Visa en kommentar till"
+        other: "Visa <%= count %> kommentarer till"
         two: "Visa <%= count %> till kommentarer"
         zero: "Visa inga fler kommentarer"
       original_post_deleted: "Det ursprungliga inlägget har blivit borttaget av författaren."

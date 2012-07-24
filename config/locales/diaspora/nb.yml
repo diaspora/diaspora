@@ -385,11 +385,8 @@ nb:
       two: "%{actors} delte din slettede post."
       zero: "%{actors} har delt innlegget du slettet."
     started_sharing:
-      few: "%{actors} har begynt å dele med deg."
-      many: "%{actors} har begynt å dele med deg."
       one: "%{actors} har begynt å dele med deg."
-      other: "%{actors} started sharing with you."
-      two: "%{actors} begynte å dele med deg."
+      other: "%{actors} har begynt å dele med deg."
       zero: "%{actors} har begynt å dele med deg."
   notifier:
     click_here: "klikk her"

@@ -384,25 +384,16 @@ es-AR:
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} les disguta"
-        many: "%{count} les disgusta"
         one: "a %{count} le disgusta esto"
         other: "a %{count} les disgusta esto"
-        two: "a %{count} no les gusta"
         zero: "a nadie le disgusta esto"
       people_like_this:
-        few: "%{count} les gusta"
-        many: "%{count} les gusta"
         one: "a %{count} le gusta esto"
         other: "a %{count} les gusta esto"
-        two: "a %{count} les gusta"
         zero: "a nadie le gusta esto"
       people_like_this_comment:
-        few: "a %{count} le gusta"
-        many: "a %{count} le gusta"
         one: "a %{count} le gusta este comentario"
         other: "a %{count} les gusta este comentario"
-        two: "a %{count} les gusta"
         zero: "a nadie le gusta este comentario"
   limited: "Limitado"
   more: "Más"
@@ -451,11 +442,8 @@ es-AR:
       mark_unread: "Marcar como no leído"
       notifications: "Notificaciones"
     liked:
-      few: "A %{actors} les gustó tu %{post_link}."
-      many: "A %{actors} les gustó tu %{post_link}."
       one: "A %{actors} le gustó tu %{post_link}."
       other: "A %{actors} les gustó tu %{post_link}."
-      two: "A %{actors} les gustó tu %{post_link}."
       zero: "A %{actors} le gustó tu %{post_link}."
     liked_post_deleted:
       few: "A %{actors} les gusta tu publicación eliminada."
@@ -465,11 +453,8 @@ es-AR:
       two: "a %{actors} le gustó tu publicación eliminada."
       zero: "A %{actors} le gusta tu publicación eliminada."
     mentioned:
-      few: "%{actors} te mencionaron en una %{post_link}."
-      many: "%{actors} te mencionaron en una %{post_link}."
       one: "%{actors} te mencionó en una %{post_link}."
       other: "%{actors} te mencionaron en una %{post_link}."
-      two: "%{actors} te mencionaron en una %{post_link}."
       zero: "%{actors} te mencionó en una %{post_link}."
     mentioned_deleted:
       few: "%{actors} te mencionaron en una publicación eliminada."
@@ -487,18 +472,12 @@ es-AR:
       two: "%{actors} te envió un mensaje."
       zero: "%{actors} te envió un mensaje."
     reshared:
-      few: "%{actors} han compartido tu %{post_link}."
-      many: "%{actors} han compartido tu %{post_link}."
       one: "%{actors} compartió tu %{post_link}."
       other: "%{actors} han compartido tu %{post_link}."
-      two: "%{actors} han compartido tu %{post_link}."
       zero: "%{actors} compartió tu %{post_link}."
     reshared_post_deleted:
-      few: "%{actors} compartió tu publicación eliminada."
-      many: "%{actors} compartió tu publicación eliminada."
       one: "%{actors} compartió tu publicación eliminada."
-      other: "%{actors} compartió tu publicación eliminada."
-      two: "%{actors} compartió tu mensaje eliminado."
+      other: "%{actors} compartieron tu publicación eliminada."
       zero: "%{actors} compartió tu publicación eliminada."
     started_sharing:
       few: "%{actors} comparten con vos."
@@ -659,12 +638,9 @@ es-AR:
       not_found: "No se pudo encontrar la publicación."
       permalink: "Enlace permanente"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        one: "Una foto de %{author}"
+        other: "%{count} fotos de %{author}"
+        zero: "Ninguna foto de %{author}"
       reshare_by: "Compartido por %{author}"
   previous: "anterior"
   privacy: "Privacidad"
@@ -755,12 +731,9 @@ es-AR:
     reshare:
       deleted: "La publicación original fue eliminada por su autor."
       reshare:
-        few: "Compartido %{count} veces"
-        many: "%{count} Re-compartido"
         one: "Compartido 1 vez"
         other: "Compartido %{count} veces"
-        two: "%{count} compartidos"
-        zero: "Compartir"
+        zero: "No compartido"
       reshare_confirmation: "¿Compartir publicación de %{author}?"
       reshare_original: "Compartir orignial"
       reshared_via: "compartido a través de"
@@ -811,12 +784,9 @@ es-AR:
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       toggle:
-        few: "En %{count} aspectos"
-        many: "En %{count} aspectos"
         one: "En %{count} aspecto"
         other: "En %{count} aspectos"
-        two: "En %{count} aspectos"
-        zero: "Añadir aspecto"
+        zero: "Añadir contacto"
     contact_list:
       all_contacts: "Todos los contactos"
     footer:
@@ -888,12 +858,9 @@ es-AR:
     new:
       mentioning: "Mencionar a: %{person}"
     too_long:
-      few: "Por favor, hacé tu mensaje de estado tenga menos de %{count} caracteres"
-      many: "Por favor, hacé tu mensaje de estado tenga menos de %{count} caracteres"
-      one: "Por favor, hacé tu mensaje de estado tenga menos de %{count} carácter"
-      other: "Por favor, hacé tu mensaje de estado tenga menos de %{count} caracteres"
-      two: "por favor escribí tus mensajes de estado con menos de %{count} caracteres"
-      zero: "Por favor, hacé tu mensaje de estado tenga menos de %{count} caracteres"
+      one: "Por favor, hacé que tu mensaje de estado tenga menos de %{count} caracter"
+      other: "Por favor, hacé que tu mensaje de estado tenga menos de %{count} caracteres"
+      zero: "Por favor, hacé que tu mensaje de estado tenga menos de %{count} caracteres"
   stream_helper:
     hide_comments: "Ocultar comentarios"
     show_comments:

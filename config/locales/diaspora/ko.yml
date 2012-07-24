@@ -375,25 +375,13 @@ ko:
   likes:
     likes:
       people_dislike_this:
-        few: "%{count}명이 싫어합니다"
-        many: "%{count}명이 싫어합니다"
-        one: "한 명이 싫어합니다"
         other: "%{count}명이 싫어합니다"
-        two: "싪어요 %{count}개"
         zero: "싫어요 없음"
       people_like_this:
-        few: "%{count}명이 좋아합니다"
-        many: "%{count}명이 좋아합니다"
-        one: "한 명이 좋아합니다"
         other: "%{count}명이 좋아합니다"
-        two: "%{count}명이 좋아합니다"
         zero: "좋아요 없음"
       people_like_this_comment:
-        few: "%{count}명이 좋아합니다"
-        many: "%{count}명이 좋아합니다"
-        one: "한 명이 좋아합니다"
         other: "%{count}명이 좋아합니다"
-        two: "좋아요 %{count}개"
         zero: "좋아요 없음"
   limited: "제한됨"
   more: "더"
@@ -401,25 +389,13 @@ ko:
   no_results: "결과 없음"
   notifications:
     also_commented:
-      few: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
-      many: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
-      one: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
       other: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
-      two: "%{actors}님도 %{post_author}님의 %{post_link} 게시물에 댓글을 달았습니다."
       zero: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
     also_commented_deleted:
-      few: "%{actors}님이 지운 게시물에 댓글을 달았습니다."
-      many: "%{actors}님이 내가 지운 게시물을 좋아합니다."
-      one: "%{actors}님이 지운 게시물에 댓글을 달았습니다."
       other: "%{actors}님이 지워진 게시물에 댓글을 달았습니다."
-      two: "%{actors}님이 지워진 게시물에 댓글을 달았습니다."
       zero: "%{actors}님이 지워진 게시물에 댓글을 달았습니다."
     comment_on_post:
-      few: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
-      many: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
-      one: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
       other: "%{actors}님이 내 %{post_link}에 댓글을 달았습니다."
-      two: "%{actors}님이 내 %{post_link} 게시물에 댓글을 달았습니다."
       zero: "%{actors}님이 내 %{post_link}에 댓글을 달았습니다."
     helper:
       new_notifications:
@@ -432,12 +408,7 @@ ko:
     index:
       and: "그리고"
       and_others:
-        few: "+ %{count}명"
-        many: "+ %{count}명"
-        one: "+ 한 명"
         other: "+ %{count}명"
-        two: "과 %{count}명"
-        zero: "and nobody else"
       mark_all_as_read: "모두 읽음으로 표시"
       mark_unread: "읽지 않음으로 표시"
       notifications: "알림"
@@ -449,11 +420,7 @@ ko:
       two: "%{actors}님이 %{post_link} 게시물을 좋아합니다."
       zero: "%{actors}님이 내 %{post_link}을 좋아합니다"
     liked_post_deleted:
-      few: "%{actors}님이 내가 지운 게시물을 좋아합니다."
-      many: "%{actors}님이 내가 지운 게시물을 좋아합니다."
-      one: "%{actors}님이 내가 지운 게시물을 좋아합니다."
       other: "%{actors}님이 내가 지운 게시물을 좋아합니다."
-      two: "%{actors}님이 내가 지운 게시물을 좋아합니다."
       zero: "%{actors}님이 내가 지운 게시물을 좋아합니다."
     mentioned:
       few: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
@@ -478,11 +445,7 @@ ko:
       two: "%{actors}님이 내게 쪽지를 보냈습니다."
       zero: "%{actors}님이 쪽지를 보냈습니다."
     reshared:
-      few: "%{actors}님이 내 %{post_link} 게시물을 제공유했습니다."
-      many: "%{actors}님이 내 %{post_link} 게시물을 제공유했습니다."
-      one: "%{actors}님이 내 %{post_link} 게시물을 제공유했습니다."
       other: "%{actors}님이 내 %{post_link}을 재공유했습니다."
-      two: "%{actors}님이 내 %{post_link} 게시물을 재공유했습니다."
       zero: "%{actors}님이 내 %{post_link}을 재공유했습니다."
     reshared_post_deleted:
       few: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
@@ -803,11 +766,7 @@ ko:
     aspect_dropdown:
       add_to_aspect: "컨택 추가"
       toggle:
-        few: "애스펙 %{count}개 안에 있어요"
-        many: "애스펙 %{count}개 안에 있어요"
-        one: "애스펙 한 개 안에 있어요"
         other: "애스펙 %{count}개"
-        two: "애스펙 %{count}개"
         zero: "컨택 추가"
     contact_list:
       all_contacts: "모든 컨택"
@@ -880,11 +839,7 @@ ko:
     new:
       mentioning: "%{person}님을 멘션합니다"
     too_long:
-      few: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
-      many: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
-      one: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
       other: "상태 메시지를 %{count}자보다 적게 줄여주세요"
-      two: "내 상태 메시지가 %{count}자 보다 적어야 합니다"
       zero: "상태 메시지를 %{count}자보다 적게 줄여주세요"
   stream_helper:
     hide_comments: "모든 댓글 숨기기"
