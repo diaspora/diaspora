@@ -78,4 +78,18 @@ describe InvitationsController do
       get :new
     end
   end
+
+  describe 'redirect logged out users to the sign in page' do
+    it 'redriects #new' do
+      get :new
+      response.should be_redirect
+      response.should redirect_to new_user_session_path
+    end
+
+    it 'redirects #create' do
+      post :create
+      response.should be_redirect
+      response.should redirect_to new_user_session_path
+    end
+  end
 end
