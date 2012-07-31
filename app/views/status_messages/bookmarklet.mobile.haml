@@ -2,20 +2,20 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= javascript_include_tag :jquery
-= javascript_include_tag :mobile
+= render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
 
 :javascript
-  $(document).ready(function() 
-    {
-    var contents = "#{params[:title]} - #{params[:url]}";
-    if ("#{params[:notes]}".length > 0){
-      contents = contents + " - #{params[:notes]}";
-    }
+  var contents = "#{escape_javascript params[:title]} - #{escape_javascript params[:url]}";
+  var notes    = "#{escape_javascript params[:notes]}";
+  if (notes.length > 0){
+    contents = contents + " - " + notes;
+  }
+
+  $(document).ready(function() {
     if (contents.length > 0) {
       $("#status_message_text").val(contents);
     }
   });
 
-= render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
-
+- content_for(:head) do
+  = javascript_include_tag :mobile
