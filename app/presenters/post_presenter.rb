@@ -20,6 +20,7 @@ class PostPresenter
         :public => @post.public,
         :created_at => @post.created_at,
         :interacted_at => @post.interacted_at,
+        :reshares_count => @post.reshares_count,
         :provider_display_name => @post.provider_display_name,
         :post_type => @post.post_type,
         :image_url => @post.image_url,
