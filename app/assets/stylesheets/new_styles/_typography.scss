@@ -1,19 +1,22 @@
 /* Roboto */
 @font-face {
   font-family : Roboto;
-  src : image-url('fonts/Roboto-Regular.ttf');
+  src :  url('https://themes.googleusercontent.com/font?kit=grlryt2bdKIyfMSOhzd1eA') format('woff'),
+        image-url('fonts/Roboto-Regular.ttf');
   weight : normal;
 }
 
 @font-face {
   font-family : Roboto-Bold;
-  src : image-url('fonts/Roboto-Bold.ttf');
+  src :  url('https://themes.googleusercontent.com/font?kit=vxNK-E6B13CyehuDCmvQvw') format('woff'),
+
+      image-url('fonts/Roboto-Bold.ttf');
   weight : normal;
 }
 
 @font-face {
   font-family : Roboto-Light;
-  src : image-url('fonts/Roboto-Light.ttf');
+  src :  url('https://themes.googleusercontent.com/font?kit=vxNK-E6B13CyehuDCmvQvw') format('woff'), image-url('fonts/Roboto-Light.ttf');
   weight : normal;
 }
 
