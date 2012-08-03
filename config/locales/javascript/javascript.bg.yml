@@ -14,11 +14,8 @@ bg:
       started_sharing_with: "Започнахте да споделяте с <%= name %>!"
       stopped_sharing_with: "Престанахте да споделяте с <%= name %>."
       toggle:
-        few: "В <%= count %> аспекта"
-        many: "В <%= count %> аспекта"
         one: "В <%= count %> аспекта"
         other: "В <%= count %> аспекта"
-        two: "В <%= count %> аспекта"
         zero: "В <%= count %> аспект"
     aspect_navigation:
       deselect_all: "Никой"
@@ -68,11 +65,8 @@ bg:
       hide: "Скриване"
       like: "Харесва ми"
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
         one: "Харесана <%= count %> пъти"
         other: "Харесана <%= count %> пъти"
-        two: "<%= count %> Likes"
         zero: "Харесана <%= count %> път"
       limited: "Ограничено"
       more_comments:
@@ -86,11 +80,8 @@ bg:
       public: "Публично"
       reshare: "Споделяне"
       reshares:
-        few: "<%= count %> споделяния"
-        many: "<%= count %> споделяния"
         one: "Споделена <%= count %> пъти"
         other: "Споделена  <%= count %> пъти"
-        two: "<%= count %> Reshares"
         zero: "Споделена <%= count %> път"
       unlike: "Не ми харесва"
     tags:

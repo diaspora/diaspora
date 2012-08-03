@@ -28,6 +28,7 @@ nb:
       hide: "skjul kommentarer"
       show: "vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
+    delete: "Slett"
     failed_to_like: "Klarte ikke å like!"
     failed_to_post_message: "Klarte ikke å publisere post!"
     getting_started:
@@ -36,9 +37,18 @@ nb:
       no_tags: "Hei, du har ikke fulgt noen tagger! Fortsett likevel?"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
+      admin: "Admin"
+      contacts: "Kontakter"
+      home: "Hjem"
+      log_out: "Logg ut"
+      notifications: "Varsler"
+      profile: "Profil"
       search: "Find people or #tags"
+      settings: "Innstillinger"
+    ignore: "Ignorer"
     infinite_scroll:
       no_more: "Ingen flere innlegg."
+    my_activity: "Min aktivitet"
     photo_uploader:
       looking_good: "Wow, du ser fantastisk ut!"
     publisher:
@@ -50,20 +60,25 @@ nb:
     search_for: "Søk etter {{name}}"
     show_more: "vis mer"
     stream:
+      comment: "Kommenter"
+      hide: "Skjul"
+      like: "Liker"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
+        one: "<%= count %> liker dette"
+        other: "<%= count %> liker dette"
         two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        zero: "<%= count %> liker dette"
+      limited: "Begrenset"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
+        one: "Vis <%= count %> kommentar til"
+        other: "Vis <%= count %> komentarer til"
         two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        zero: "Ikke flere kommentarer"
+      public: "Offentlig"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -71,6 +86,9 @@ nb:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "Vis innlegg"
+      show_nsfw_posts: "Vis alle"
+      unlike: "Liker ikke"
     tags:
       wasnt_that_interesting: "OK, jeg skjønner at #{{tagName}} ikke var så spennende likevel..."
     timeago:

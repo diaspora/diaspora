@@ -71,6 +71,9 @@ te:
     index:
       cubbies:
         learn_more: "మరింత తెలుసుకోండి"
+      diaspora_id:
+        content_1: "మీ డయాస్పోరా గుచి:"
+        heading: "డయస్పోరా గుచి"
       donate: "విరాలమివ్వండి"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       help:
@@ -152,6 +155,9 @@ te:
       fullmonth_day: "%B %d"
   delete: "తొలగించు"
   email: "ఈమెయిల్"
+  error_messages:
+    helper:
+      invalid_fields: "చెల్లని క్షేత్రాలు"
   fill_me_out: "పూరించండి"
   hide: "దాచు"
   invitations:
@@ -182,12 +188,9 @@ te:
         two: "%{count} dislikes"
         zero: "no dislikes"
       people_like_this:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
+        one: "%{count} ఇష్టం"
+        other: "%{count} ఇష్టాలు"
+        zero: "ఇష్టాలు లేవు"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"

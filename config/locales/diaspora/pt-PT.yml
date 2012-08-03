@@ -85,6 +85,12 @@ pt-PT:
         other: "%{count} utilizadores encontrados"
         zero: "%{count} utilizadores encontrados"
       you_currently: "actualmente tem %{user_invitation} convites restantes %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "quantidade de novos utilizadores esta semana: %{count}"
+        other: "quantidade de novos utilizadores esta semana: %{count}"
+        zero: "quantidade de novos utilizadores esta semana: nenhum"
+      current_server: "A data atual do servidor é %{date}"
   ago: "Há %{time} atrás"
   all_aspects: "Todos os grupos"
   application:
@@ -318,6 +324,8 @@ pt-PT:
     helper:
       correct_the_following_errors_and_try_again: "Corrija os seguintes erros e volte a tentar."
       invalid_fields: "Campos inválidos"
+    login_try_again: "Por favor <a href='%{login_link}'>inicie sessão</a> e tente novamente."
+    post_not_public: "A publicação que está a tentar visualizar não é pública!"
   fill_me_out: "Informe-me"
   find_people: "Encontrar pessoas ou #etiquetas"
   hide: "Esconder"

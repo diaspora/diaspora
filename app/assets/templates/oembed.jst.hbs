@@ -2,7 +2,19 @@
     {{#if o_embed_cache.data.thumbnail_url}}
         <div class="thumb">
             <img src="{{o_embed_cache.data.thumbnail_url}}" />
-            <div class="video-overlay"/>
+            <div class="video-overlay">
+              <div class="video-info">
+                <div class="title">{{o_embed_cache.data.title}}</div>
+                <div class="meta">
+                  <a href="{{o_embed_cache.data.author_url}}" target="_blank">{{o_embed_cache.data.author_name}}</a>
+                  -
+                  <a href="{{o_embed_cache.data.provider_url}}" target="_blank">{{o_embed_cache.data.provider_name}}</a>
+                </div>
+                {{#if o_embed_cache.data.description}}
+                <div class="desc">{{o_embed_cache.data.description}}</div>
+                {{/if}}
+              </div>
+            </div>
         </div>
     {{else}}
         {{{o_embed_html}}}

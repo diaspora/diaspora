@@ -42,7 +42,7 @@ class AdminsController < ApplicationController
       # @segment = "#{@created_users_by_week[(params[:week])]}" 
       @counter = "#{@created_users_by_week[(params[:week])].count}"
     else
-      @segment = "date not found"
+      @counter = ""
     end
   end
 

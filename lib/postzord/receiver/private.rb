@@ -62,6 +62,17 @@ class Postzord::Receiver::Private < Postzord::Receiver
     @salmon ||= Salmon::EncryptedSlap.from_xml(@salmon_xml, @user)
   end
 
+  def validate_object
+    raise "Contact required unless request" if contact_required_unless_request
+    raise "Relayable object, but no parent object found" if relayable_without_parent?
+
+    assign_sender_handle_if_request
+
+    raise "Author does not match XML author" if author_does_not_match_xml_author?
+
+    @object
+  end
+
   def xml_author
     if @object.respond_to?(:relayable?)
       #if A and B are friends, and A sends B a comment from C, we delegate the validation to the owner of the post being commented on
@@ -73,16 +84,6 @@ class Postzord::Receiver::Private < Postzord::Receiver
     xml_author
   end
 
-  def validate_object
-    raise "Contact required unless request" if contact_required_unless_request
-    raise "Relayable object, but no parent object found" if relayable_without_parent?
-
-    assign_sender_handle_if_request
-
-    raise "Author does not match XML author" if author_does_not_match_xml_author?
-
-    @object
-  end
 
   def set_author!
     return unless @author
@@ -96,13 +97,6 @@ class Postzord::Receiver::Private < Postzord::Receiver
   def relayable_without_parent?
     if @object.respond_to?(:relayable?) && @object.parent.nil?
       FEDERATION_LOGGER.error("event=receive status=abort reason='received a comment but no corresponding post' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{@object.class})")
-      return true
-    end
-  end
-
-  def author_does_not_match_xml_author?
-    if (@author.diaspora_handle != xml_author)
-      FEDERATION_LOGGER.error("event=receive status=abort reason='author in xml does not match retrieved person' payload_type=#{@object.class} recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
       return true
     end
   end

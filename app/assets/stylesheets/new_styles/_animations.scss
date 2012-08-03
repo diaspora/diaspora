@@ -40,3 +40,23 @@
 	0%     { @include opacity(1); -ms-transform : scale(1); }
 	100%   { @include opacity(0); -ms-transform : scale(1.3); }
 }
+
+/* flash message animations */
+@-webkit-keyframes expose {
+        0%   { top : -100px; }
+        15%  { top : 0; }
+        85%  { top : 0; }
+        100% { top : -100px; }
+}
+@-moz-keyframes expose {
+        0%   { top : -100px; }
+        15%  { top : 0; }
+        85%  { top : 0; }
+        100% { top : -100px; }
+}
+@-ms-keyframes expose {
+        0%   { top : -100px; }
+        15%  { top : 0; }
+        85%  { top : 0; }
+        100% { top : -100px; }
+}

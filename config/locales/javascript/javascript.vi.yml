@@ -34,6 +34,7 @@ vi:
       preparing_your_stream: "Đang chuẩn bị luồng cho bạn..."
     header:
       admin: "Quản trị"
+      close: "đóng"
       contacts: "Liên lạc"
       home: "Trang chủ"
       log_out: "Đăng xuất"
@@ -71,7 +72,7 @@ vi:
       hide_nsfw_posts: "Ẩn bài đăng #nsfw"
       like: "Thích"
       likes:
-        other: "<%= count %> lượt thích"
+        other: "<%= count %> người thích"
         zero: "không ai thích"
       limited: "Giới hạn"
       more_comments:

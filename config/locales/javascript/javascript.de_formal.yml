@@ -86,7 +86,7 @@ de_formal:
       prefixFromNow: "in"
       seconds: "wenigen Sekunden"
       suffixAgo: ""
-      suffixFromNow: ""
+      suffixFromNow: "ab jetzt"
       year: "etwa einem Jahr"
       years: "%d Jahren"
     videos:

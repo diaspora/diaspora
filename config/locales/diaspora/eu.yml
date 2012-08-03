@@ -51,7 +51,32 @@ eu:
     correlations:
       correlations_count: "Korrelazioak Sarpen Zenbakiekin:"
     stats:
+      2weeks: "2 aste"
+      50_most: "50 Etiketa Erabilienak"
+      comments:
+        one: "iruzkin %{count}"
+        other: "%{count} iruzkin"
+        zero: "iruzkinik ez"
+      current_segment: "Uneko zatiak <b>%{post_yest}</b> batezbestekoa erabiltzen du erabiltzaile bakoitzeko, <b>%{post_day}</b>(e)tik"
+      daily: "Eguna"
+      display_results: "<b>%{segment}</b> zatirako emaitzak erakusten"
       go: "jarraitu"
+      month: "Hilabetea"
+      posts:
+        one: "mezu %{count}"
+        other: "%{count} mezu"
+        zero: "mezurik ez"
+      shares:
+        one: "birpartekatze %{count}"
+        other: "%{count} birpartekatze"
+        zero: "birpartekatzerik ez"
+      tag_name: "Etiketaren Izena: <b>%{name_tag}</b> Zenbatekoa: <b>%{count_tag}</b>"
+      usage_statistic: "Erabilpen estatistikak"
+      users:
+        one: "erabiltzaile %{count}"
+        other: "%{count} erabiltzaile"
+        zero: "erabiltzailerik ez"
+      week: "Astea"
     user_search:
       add_invites: "gonbidapenak gehitu"
       email_to: "Gonbidatzeko Emaila"
@@ -60,8 +85,14 @@ eu:
         other: "%{count} erabiltzaile aurkitu dira"
         zero: "erabiltzailerik ez da aurkitu"
       you_currently: "oraindik %{user_invitation} gonbidapen dituzu %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "erabiltzaile berriak azken astean: %{count}"
+        other: "erabiltzaile berriak azken astean: %{count}"
+        zero: "erabiltzaile berririk ez azken astean"
+      current_server: "Uneko zerbitzariaren data %{date} da"
   ago: "%{time}"
-  all_aspects: "Alderdi guztiak"
+  all_aspects: "Arlo guztiak"
   application:
     helper:
       diaspora_alpha: "DIASPORA ALPHA*"
@@ -82,11 +113,12 @@ eu:
     aspect_contacts:
       done_editing: "aldaketak gauzatu"
     aspect_listings:
-      add_an_aspect: "+ Alderdi berria sortu"
+      add_an_aspect: "+ Arlo berria sortu"
       deselect_all: "Guztiak deshautatu"
       edit_aspect: "Aldatu %{name}"
       select_all: "Guztiak hautatu"
     aspect_stream:
+      make_something: "Sortu zerbait"
       stay_updated: "Eguneratuta Mantendu"
       stay_updated_explanation: "Zure kronologia zure lagunek, jarraitzen dituzun etiketek, eta komunitateko pertsona nabarmenduen mezuek osatzen dute."
     contacts_not_visible: "Arlo honetako lagunak nor dagoen bere arloan ezingo dute ikusi."
@@ -104,14 +136,14 @@ eu:
       confirm_remove_aspect: "Ziur al zaude arlo hau ezabatu nahi duzunaz?"
       done: "Ados"
       make_aspect_list_visible: "arlo honetako lagunak ikusgarriak egin bata bestearekiko?"
-      remove_aspect: "Alderdi hau ezabatu"
+      remove_aspect: "Arlo hau ezabatu"
       rename: "berrizendatu"
       update: "eguneratu"
       updating: "eguneratzen"
     few: "%{count} arlo"
     helper:
       are_you_sure: "Ziur al zaude arlo hau ezabatu nahi duzunaz?"
-      aspect_not_empty: "Alderdi ez hutsa"
+      aspect_not_empty: "Arlo ez hutsa"
       remove: "ezabatu"
     index:
       cubbies:
@@ -127,6 +159,7 @@ eu:
       help:
         do_you: "Zuk:"
         email_feedback: "%{link} zure feedbacka, nahiago baduzu"
+        email_link: "E-posta"
         feature_suggestion: "... %{link} iradokizun bat duzu?"
         find_a_bug: "... %{link} bat aurkitu?"
         have_a_question: "... %{link} bat duzu?"
@@ -223,12 +256,12 @@ eu:
       failure: "Akatsa lagun berria sortzean"
     few: "%{count} lagun"
     index:
-      add_a_new_aspect: "Alderdi berria gehitu"
+      add_a_new_aspect: "Arlo berria gehitu"
       add_to_aspect: "Adiskideak gehitu %{name}(e)n"
       add_to_aspect_link: "gehitu lagunak %{name}(e)ra"
       all_contacts: "Adiskide Guztiak"
       community_spotlight: "Komunitateko nabarmenduak"
-      many_people_are_you_sure: "Ziur al zaude elkarrizketa pribatu bat hasi nahi duzula %{suggested_limit} baino lagun gehiagorekin? Alderdi horretan mezu bat bidaltzea beharbada haiekin harremanetan egoteko modu hobea izan daiteke."
+      many_people_are_you_sure: "Ziur al zaude elkarrizketa pribatu bat hasi nahi duzula %{suggested_limit} baino lagun gehiagorekin? Arlo horretan mezu bat bidaltzea beharbada haiekin harremanetan egoteko modu hobea izan daiteke."
       my_contacts: "Nire Adiskideak"
       no_contacts: "Badirudi lagun batzuk gehitu behar dituzula!"
       no_contacts_message: "Ikus ezazu %{community_spotlight}"
@@ -291,6 +324,8 @@ eu:
     helper:
       correct_the_following_errors_and_try_again: "Zuzendu honako akatsak eta saiatu berriro."
       invalid_fields: "Eremu akasdunak"
+    login_try_again: "Mesedez <a href='%{login_link}'>sartu</a> eta saiatu berriz."
+    post_not_public: "Ikusten saiatzen ari zaren mezua ez da publikoa!"
   fill_me_out: "Bete nazazu"
   find_people: "Jendea edo #etiketak aurkitu"
   hide: "Ezkutatu"
@@ -312,7 +347,7 @@ eu:
       your_account_awaits: "Zure kontuak itxaroten du!"
     new:
       already_invited: "Pertsona hauek ez dute zure gonbidapena onartu:"
-      aspect: "Alderdia"
+      aspect: "Arloa"
       check_out_diaspora: "Probatu Diaspora!"
       codes_left:
         one: "Gonbidapen bat geratzen zaizu kode honekin"
@@ -699,7 +734,7 @@ eu:
       sending: "Bidaltzen"
       sent: "%{name}(r)ekin harremanetan hasi nahi duzu. Diasporara sartzen diren hurrengo aldian ikusiko dute eskaera."
     destroy:
-      error: "Alderdi bat aukeratu, mesedez!"
+      error: "Arlo bat aukeratu, mesedez!"
       ignore: "Adiskide eskaera baztertua."
       success: "Orain lagun zarete."
     helper:
@@ -778,11 +813,8 @@ eu:
     aspect_dropdown:
       add_to_aspect: "Adiskidea gehitu"
       toggle:
-        few: "%{count} arlotan"
-        many: "%{count} arlotan"
-        one: "Alderdi %{count}ean"
+        one: "Arlo %{count}en"
         other: "%{count} arlotan"
-        two: "%{count} arlo"
         zero: "Adiskidea gehitu"
     contact_list:
       all_contacts: "Adiskide Guztiak"
@@ -798,6 +830,7 @@ eu:
       invite_your_friends: "Zure lagunak gonbidatu"
       invites: "Gonbidapenak"
       invites_closed: "Gonbidapenak itxita daude orain Diaspora zerbitzari hontan"
+      share_this: "Partekatu ezazu esteka hau email, blog, edo sare sozial gogokoenen bidez!"
     notification:
       new: "%{type} berria %{from}(r)en eskutik"
     public_explain:
@@ -873,8 +906,8 @@ eu:
     activity:
       title: "Nire Jarduera"
     aspects:
-      title: "Zure Alderdiak"
-    aspects_stream: "Alderdiak"
+      title: "Zure Arloak"
+    aspects_stream: "Arloak"
     comment_stream:
       contacts_title: "Iruzkindu dituzun mezuen egileak"
       title: "Mezu Iruzkinduak"

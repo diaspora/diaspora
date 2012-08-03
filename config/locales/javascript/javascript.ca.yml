@@ -49,9 +49,6 @@ ca:
       toggle:
         zero: "Selecciona els aspectes"
         one: "En <%= count %> aspecte"
-        two: "En <%= count %> aspectes"
-        few: "En <%= count %> aspectes"
-        many: "En <%= count %> aspectes"
         other: "En <%= count %> aspectes"
     show_more: "mostra'n més"
     failed_to_like: "No s'ha pogut comunicar que us agrada!"
@@ -61,6 +58,8 @@ ca:
       hide: "amaga els comentaris"
     reshares:
       duplicate: "És bona, oi? Ja heu tornat a compartir aquesta publicació!"
+      successful: "S'ha tornat a compartir la publicació amb èxit!"
+      post: "Voleu tornar a compartir la publicació de <%= name %>?"
     aspect_navigation:
       select_all: "Selecciona'ls tots"
       deselect_all: "Desselecciona'ls tots"
@@ -95,25 +94,16 @@ ca:
       likes:
         zero: "a cap persona li agrada"
         one: "li agrada a <%= count %> persona"
-        two: "li agrada a <%= count %> persones"
-        few: "li agrada a <%= count %> persones"
-        many: "li agrada a <%= count %> persones"
         other: "li agrada a <%= count %> persones"
 
       reshares:
         zero: "Torna a compartir"
         one: "<%= count %> vegada tornat a compartir"
-        two: "<%= count %> vegades tornat a compartir"
-        few: "<%= count %> vegades tornat a compartir"
-        many: "<%= count %> vegades tornat a compatir"
         other: "<%= count %> vegades tornat a compatir"
 
       more_comments:
         zero: "Mostra <%= count %> comentaris més"
         one: "Mostra <%= count %> comentari més"
-        two: "Mostra <%= count %> comentaris més"
-        few: "Mostra <%= count %> comentaris més"
-        many: "Mostra <%= count %> comentaris més"
         other: "Mostra <%= count %> comentaris més"
 
     header:
@@ -132,6 +122,7 @@ ca:
       recent_notifications: "Notificacions recents"
       mark_all_as_read: "Marca'ls tots com llegits"
       view_all: "Visualitza'ls tots"
+      close: "tanca"
 
     viewer:
       stop_following_post: "Deixa de seguir la publicació"
@@ -141,3 +132,4 @@ ca:
       reshare: "Torna a compartir"
       reshared: "Tornat a compartir"
       comment: "Comenta"
+      home: "INICI"

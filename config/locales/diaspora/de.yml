@@ -48,6 +48,8 @@ de:
       resque_overview: "Resque Übersicht"
       user_search: "Benutzer Suche"
       weekly_user_stats: "Wöchentliche Benutzerstatistik"
+    correlations:
+      correlations_count: "Korrelationen mit Anzahl der Anmeldungen:"
     stats:
       2weeks: "2 Wochen"
       50_most: "Die 50 populärsten Tags"
@@ -55,12 +57,19 @@ de:
         one: "%{count} Kommentar"
         other: "%{count} Kommentare"
         zero: "%{count} Kommentare"
+      current_segment: "Das aktuelle Segment hat durchschnittlich <b>%{post_yest}</b> Beiträge pro Benutzer, seit <b>%{post_day}</b>"
       daily: "täglich"
+      display_results: "Zeige Ergebnisse aus Segment <b>%{segment}</b>"
+      go: "los"
       month: "Monat"
       posts:
-        one: "%{count} Post"
-        other: "%{count} Posts"
-        zero: "%{count} Posts"
+        one: "Ein Beitrag"
+        other: "%{count} Beiträge"
+        zero: "Kein Beitrag"
+      shares:
+        one: "Ein Beitrag"
+        other: "%{count} Beiträge"
+        zero: "Kein Beitrag"
       tag_name: "Tag Name: <b>%{name_tag}</b> Anzahl: <b>%{count_tag}</b>"
       usage_statistic: "Nutzungsstatistik"
       users:
@@ -70,11 +79,18 @@ de:
       week: "Woche"
     user_search:
       add_invites: "Einladungen hinzufügen"
+      email_to: "E-Mail zum Einladen"
       users:
         one: "%{count} Benutzer gefunden"
         other: "%{count} Benutzer gefunden"
         zero: "%{count} Benutzer gefunden"
       you_currently: "du hast noch %{user_invitation} Einladungen übrig %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "Anzahl neuer Benutzer diese Woche: Einer"
+        other: "Anzahl neuer Benutzer diese Woche: %{count}"
+        zero: "Anzahl neuer Benutzer diese Woche: Keiner"
+      current_server: "Das aktuelle Serverdatum ist %{date}"
   ago: "Vor %{time}"
   all_aspects: "Alle Aspekte"
   application:
@@ -84,7 +100,7 @@ de:
       video_title:
         unknown: "Unbekannter Videotitel"
   are_you_sure: "Bist du sicher?"
-  are_you_sure_delete_account: "Möchtest du deinen Account wirklich schließen? Dieser Schritt kann nicht Rückgängig gemacht werden!"
+  are_you_sure_delete_account: "Möchtest du dein Konto wirklich schließen? Dieser Schritt kann nicht rückgängig gemacht werden!"
   aspect_memberships:
     destroy:
       failure: "Die Person konnte nicht aus dem Aspekt entfernt werden"
@@ -102,6 +118,7 @@ de:
       edit_aspect: "Bearbeite %{name}"
       select_all: "Alle auswählen"
     aspect_stream:
+      make_something: "Mache etwas"
       stay_updated: "Bleibe auf dem Laufenden"
       stay_updated_explanation: "Dein Stream ist gefüllt mit all deinen Kontakten, Tags, denen du folgst, sowie Beiträgen einiger kreativer Mitglieder der Gemeinschaft."
     contacts_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
@@ -148,12 +165,13 @@ de:
         have_a_question: "… eine %{link}?"
         here_to_help: "Die Diaspora-Gemeinschaft ist für dich da!"
         need_help: "Benötigst du Hilfe?"
-        tag_bug: "problem"
-        tag_feature: "verbesserung"
-        tag_question: "frage"
+        tag_bug: "Problem"
+        tag_feature: "Verbesserung"
+        tag_question: "Frage"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Von der Gemeinschaft erstellte Tutorials, Anleitungen und Nachrichten"
-      introduce_yourself: "Das ist dein Stream. Leg' los und stell dich vor."
+      introduce_yourself: "Das ist dein Stream. Leg los und stell dich vor."
       keep_diaspora_running: "Die Entwicklung von Diaspora bleibt schnell, wenn Du monatlich spendest!"
+      keep_pod_running: "Helfen Sie, %{pod} schnell zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
       new_here:
         follow: "Folge %{link} und begrüße neue Benutzer bei Diaspora*!"
         learn_more: "mehr erfahren"
@@ -207,6 +225,7 @@ de:
       revoke_access: "Zugriff widerrufen"
     new:
       authorize: "Authorisieren"
+      cubbies_will: "Cubbies wird in deinem Namen Fotos posten können"
       nope: "Nein"
   back: "Zurück"
   blocks:
@@ -218,6 +237,7 @@ de:
       success: "Mal sehen was sie zu sagen haben! #sayhello"
   bookmarklet:
     explanation: "Erstelle von überall einen Beitrag in Diaspora, indem du %{link} als Lesezeichen speicherst."
+    heading: "Lesezeichen"
     post_something: "Erstelle einen Beitrag in Diaspora"
     post_success: "Erstellt! Schließen …"
   cancel: "Abbrechen"
@@ -304,7 +324,9 @@ de:
     helper:
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
       invalid_fields: "Ungültige Felder"
-  fill_me_out: "Füll’ mich aus"
+    login_try_again: "Bitte <a href='%{login_link}'>melde dich neu an</a> und versuche es erneut."
+    post_not_public: "Dieser Beitrag ist nicht öffentlich!"
+  fill_me_out: "Füll mich aus"
   find_people: "Leute oder #Tags finden"
   hide: "Ausblenden"
   invitation_codes:
@@ -494,7 +516,7 @@ de:
     confirm_email:
       click_link: "Um deine neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicke bitte auf diesen Link:"
       subject: "Bitte aktiviere deine neue E-Mail-Adresse %{unconfirmed_email}"
-    email_sent_by_diaspora: "Diese E-Mail wurde von Diaspora verschickt. Falls du solche E-Mails nicht mehr erhalten willst,"
+    email_sent_by_diaspora: "Diese E-Mail wurde von %{pod_name} verschickt. Falls du solche E-Mails nicht mehr erhalten willst,"
     hello: "Hallo %{name}!"
     invite:
       message: |-
@@ -655,8 +677,8 @@ de:
       first_name: "Vorname"
       last_name: "Nachname"
       update_profile: "Profil aktualisieren"
-      you_are_nsfw: "Du hast dich selbst als unpassend für den Arbeitsplatz (NSFW) markiert, was bedeutet, dass deine Beiträge bei Personen, die anstößige Inhalte automatisch ausblenden, standardmäßig ausgeblendet werden."
-      you_are_safe_for_work: "Du hast dich als passend für den Arbeitsplatz markiert, wodurch du dich damit einverstanden erklärst, dass deine Beiträge, soweit nicht anders angegeben, den Community-Richtlinien entsprechen."
+      you_are_nsfw: "Du hast dich selbst als unpassend für den Arbeitsplatz (NSFW - \"not safe for work\") markiert, was bedeutet, dass deine Beiträge bei Personen, die anstößige Inhalte automatisch ausblenden, standardmäßig ausgeblendet werden."
+      you_are_safe_for_work: "Du hast dich als passend für den Arbeitsplatz (NSFW - \"not safe for work\") markiert, wodurch du dich damit einverstanden erklärst, dass deine Beiträge, soweit nicht anders angegeben, den Community-Richtlinien entsprechen."
       your_bio: "Deine Beschreibung"
       your_birthday: "Dein Geburtstag"
       your_gender: "Dein Geschlecht"
@@ -693,11 +715,13 @@ de:
     new:
       continue: "Weiter"
       create_my_account: "Konto erstellen!"
+      diaspora: "<3 Diaspora*"
       email: "EMAIL"
       enter_email: "Gib eine E-Mail-Adresse an"
       enter_password: "Gib ein Kennwort ein (mindestens sechs Zeichen)"
       enter_password_again: "Gib das gleiche Kennwort wie zuvor ein"
       enter_username: "Wähle einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
+      hey_make: "HEY,<br/>MACHE<br/>ETWAS."
       join_the_movement: "Tritt der Bewegung bei!"
       password: "PASSWORT"
       sign_up: "REGISTRIEREN"
@@ -904,6 +928,7 @@ de:
       title: "@Erwähnungen"
     multi:
       contacts_title: "Personen in deinem Stream"
+      title: "Stream"
     public:
       contacts_title: "Aktuelle Poster"
       title: "Öffentliche Aktivität"

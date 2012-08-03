@@ -16,9 +16,13 @@ describe Postzord::Receiver::Public do
 
   context 'round trips works with' do
     it 'a comment' do
-      comment = bob.build_comment(:text => 'yo', :post => Factory(:status_message))
+      sm = Factory(:status_message, :author => alice.person)
+
+      comment = bob.build_comment(:text => 'yo', :post => sm)
       comment.save
+      #bob signs his comment, and then sends it up
       xml = Salmon::Slap.create_by_user_and_activity(bob, comment.to_diaspora_xml).xml_for(nil)
+      bob.destroy
       comment.destroy
       expect{
         receiver = Postzord::Receiver::Public.new(xml) 

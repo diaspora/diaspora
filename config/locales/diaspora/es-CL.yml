@@ -40,6 +40,15 @@ es-CL:
             username:
               invalid: "es invalido. Solo se permiten letras, números y guiones bajos"
               taken: "Ya está siendo ocupado."
+  admins:
+    admin_bar:
+      pages: "Páginas"
+      user_search: "Buscar usuario"
+    stats:
+      2weeks: "2 Semanas"
+      50_most: "50 etiquetas más populares"
+      month: "Mes"
+      week: "Semana"
   ago: "hace %{time}"
   all_aspects: "Todos los Aspectos"
   application:
@@ -256,6 +265,7 @@ es-CL:
     helper:
       correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
       invalid_fields: "Campos Inválidos"
+    post_not_public: "¡La publicación que estás tratando de ver no es publica!"
   fill_me_out: "Complétame"
   find_people: "Buscar personas o #tags"
   hide: "Ocultar"
@@ -375,6 +385,7 @@ es-CL:
         two: "y %{count} más"
         zero: "y nadie más"
       mark_all_as_read: "Marcar todo como leido"
+      mark_unread: "Marcar como no leído"
       notifications: "Notificaciones"
     liked:
       few: "A %{actors} les gustó tu %{post_link}."
@@ -444,6 +455,20 @@ es-CL:
       subject: "Por favor activa tu nueva dirección de email %{unconfirmed_email}"
     email_sent_by_diaspora: "Este email fue enviado por Diaspora.  Si no quieres seguir recibiendo emails como este, "
     hello: "¡Hola %{name}!"
+    invite:
+      message: |-
+          ¡Hola!
+
+          ¡Has sido invitado a unirte a Diaspora*!
+
+          Haz click en este enlace para comenzar
+
+          %{invite_url}
+
+
+          Saludos,
+
+          ¡El generador de correo automático de Diaspora*!
     liked:
       liked: "A %{name} le gustó tu post"
       view_post: "Ver post >"
@@ -470,6 +495,8 @@ es-CL:
   password: "Contraseña"
   password_confirmation: "Confirmar contraseña"
   people:
+    add_contact:
+      invited_by: "fuiste invitado por"
     add_contact_small:
       add_contact_from_tag: "agrega un contacto desde una etiqueta"
     aspect_list:
@@ -484,6 +511,7 @@ es-CL:
       no_one_found: "...y nadie fue encontrado."
       no_results: "¡Oye! Tienes que buscar algo."
       results_for: "resultados de búsqueda para"
+      searching: "Buscando, por favor sé paciente..."
     many: "%{count} personas"
     one: "1 persona"
     other: "%{count} personas"
@@ -617,13 +645,16 @@ es-CL:
       unhappy: "¿Triste?"
       update: "Actualizar"
     new:
+      continue: "Continuar"
       create_my_account: "¡Crear mi cuenta!"
       enter_email: "Ingresa un email"
       enter_password: "Ingresar contraseña"
       enter_password_again: "Ingresa la misma contraseña anterior"
       enter_username: "Escoge un nick (solo letras, números, y guión bajo)"
       join_the_movement: "Unete al movimiento!"
+      password: "Contraseña"
       sign_up_message: "Redes Sociales con un ♥"
+      username: "Nombre de usuario"
   requests:
     create:
       sending: "Enviando"
@@ -728,6 +759,7 @@ es-CL:
       invite_your_friends: "Invita a tus contactos"
       invites: "Invitaciones"
       invites_closed: "Las invitaciones están temporalmente cerradas en este servidor de Diaspora"
+      share_this: "¡Compartir este enlace a través de email, blog o red social favorita!"
     notification:
       new: "Nuevo %{type} de %{from}"
     public_explain:
@@ -881,6 +913,8 @@ es-CL:
       change_password: "Cambiar Contraseña"
       close_account:
         dont_go: "¡Oye, por favor no te vayas!"
+        if_you_want_this: "Si tu quieres realmente esto, escribe tu contraseña a continuación y has click en \"Cerrar Cuenta\""
+        locked_out: "Va a cerrar su sesión y bloquear su cuenta."
         make_diaspora_better: "Nos gustaría que nos ayudaras a hacer mejor a Diaspora, así que deberías ayudarnos en vez de irte. Si de verdad quieres irte, queremos que sepas lo que se viene después."
         mr_wiggles: "El gatito estará triste por verte partir."
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
@@ -926,6 +960,8 @@ es-CL:
       does_not_exist: "¡El usuario %{username} no existe!"
     update:
       email_notifications_changed: "Notificaciones por email cambiadas"
+      follow_settings_changed: "Configuración modificada"
+      follow_settings_not_changed: "Configuración no modificada"
       language_changed: "Idioma Cambiado"
       language_not_changed: "Error al cambiar de idioma"
       password_changed: "Contraseña Cambiada. Ahora puedes conectarte con la nueva contraseña."

@@ -648,3 +648,27 @@ display: inline-block;
     width: 28px;
 }
 
+
+#conversation_inbox .message_count {
+  border-radius: 5px;
+
+  float: right;
+  right: 0px;
+  margin: 5px 5px auto;
+  padding: 5px;
+  position: relative;
+  background-color: #999;
+  color: #eee;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.conversation_participants img.avatar{
+	height:35px;
+	width:35px;
+	margin: 5px 0 5px 2px;
+}
+form#new_message.new_message input.button.creation{
+	float: right;
+	margin: 0 5px 5px;
+}

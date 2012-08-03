@@ -81,10 +81,16 @@ es-MX:
       add_invites: "añadir invitaciones"
       email_to: "Mandar invitación por correo electrónico a"
       users:
-        one: "%{count} usuario encontrado"
+        one: "Un usuario encontrado"
         other: "%{count} usuarios encontrados"
         zero: "Ningún usuario encontrado"
       you_currently: "Actuamente tienes %{user_invitation} invitaciones para enviar %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "cantidad de usuarios nuevos esta semana: %{count}"
+        other: "cantidad de usuarios nuevos esta semana: %{count}"
+        zero: "cantidad de usuarios nuevos esta semana: ninguno"
+      current_server: "La fecha actual del servidor es %{date}"
   ago: "hace %{time}"
   all_aspects: "Todos los aspectos"
   application:
@@ -315,6 +321,8 @@ es-MX:
     helper:
       correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
       invalid_fields: "Campos inválidos"
+    login_try_again: "Por favor %{login_link}<a href='%{login_link}'>accede</a> e inténtalo de nuevo."
+    post_not_public: "¡La publicación que estás tratando de ver no es pública!"
   fill_me_out: "Complétame"
   find_people: "Encuentra gente o #etiquetas"
   hide: "Ocultar"
@@ -403,7 +411,7 @@ es-MX:
       zero: "%{actors} comentó en tu %{post_link}."
     helper:
       new_notifications:
-        one: "1 nueva notificación"
+        one: "Una nueva notificación"
         other: "%{count} nuevas notificaciones"
         zero: "No hay notificaciones nuevas"
     index:
@@ -634,9 +642,9 @@ es-MX:
       updated: "Perfil actualizado"
   public: "Público"
   reactions:
-    one: "1 reacción"
+    one: "Una reacción"
     other: "%{count} reacciones"
-    zero: "0 reacciones"
+    zero: "Ninguna reacción"
   registrations:
     closed: "Los registros están cerrados en este servidor de Diaspora."
     create:
@@ -691,7 +699,7 @@ es-MX:
       reshare:
         one: "Compartido una vez"
         other: "Compartido %{count} veces"
-        zero: "Compartir"
+        zero: "Volver a compartir"
       reshare_confirmation: "¿Compartir la publicación de %{author}?"
       reshare_original: "Compartir el original"
       reshared_via: "compartido vía"
@@ -742,7 +750,7 @@ es-MX:
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       toggle:
-        one: "En %{count} aspecto"
+        one: "En un aspecto"
         other: "En %{count} aspectos"
         zero: "Añadir contacto"
     contact_list:
@@ -816,9 +824,9 @@ es-MX:
     new:
       mentioning: "Mencionar a: %{person}"
     too_long:
-      one: "por favor, haz que tu mensaje de estado tenga menos de %{count} carácter"
-      other: "por favor, haz que tu mensaje de estado tenga menos de %{count} caracteres"
-      zero: "por favor, haz que tu mensaje de estado tenga menos de %{count} caracteres"
+      one: "por favor, haz que tu mensaje de estado tenga un carácter menos"
+      other: "por favor, haz que tu mensaje de estado tenga %{count} caracteres menos"
+      zero: "por favor, haz que tu mensaje de estado tenga %{count} caracteres menos"
   stream_helper:
     hide_comments: "Ocultar todos los comentarios"
     show_comments:

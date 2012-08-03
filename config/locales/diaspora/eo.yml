@@ -320,9 +320,6 @@ eo:
   fill_me_out: "Kompletigu min"
   find_people: "Trovi homojn aŭ #etikedojn"
   hide: "Kaŝi"
-  home:
-    show:
-      ownership_explanation: "Vi posedas viajn bildojn kaj vi ne devus rezigni tion por konigi ilin. Vi tenas la proprieton de ĉio, kion vi konigas per Diaspora, gardante por vi kompletan administradon pri kiel aĵoj disdoniĝas."
   invitation_codes:
     excited: "%{name} estas ĝojega vidi vin ĉi tie."
   invitations:
@@ -392,11 +389,8 @@ eo:
         two: "%{count} ŝatadoj"
         zero: "neniuj ŝatantoj"
       people_like_this_comment:
-        few: "%{count} ŝatadoj"
-        many: "%{count} ŝatadoj"
         one: "%{count} ŝato"
         other: "%{count} ŝatoj"
-        two: "%{count} ŝatadoj"
         zero: "neniu ŝato"
   limited: "Limigita"
   more: "Pli"
@@ -411,11 +405,8 @@ eo:
       two: "%{actors} ankaŭ komentis pri la %{post_link} de %{post_author}."
       zero: "%{actors} ankaŭ komentis pri %{post_link} de %{post_author}."
     also_commented_deleted:
-      few: "%{actors} komentis pri forigitan afiŝon."
-      many: "%{actors} komentis pri forigitan afiŝon."
       one: "%{actors} komentis pri forigita afiŝo."
       other: "%{actors} komentis pri forigita afiŝo."
-      two: "%{actors} komentis pri forita afiŝo."
       zero: "%{actors} komentis pri forigita afiŝo."
     comment_on_post:
       few: "%{actors} komentis pri via %{post_link}."
@@ -435,21 +426,15 @@ eo:
     index:
       and: "kaj"
       and_others:
-        few: "kaj %{count} aliaj"
-        many: "kaj %{count} aliaj"
         one: "kaj unu plia"
         other: "kaj %{count} aliaj"
-        two: "kaj %{count} aliaj"
         zero: "kaj neniu alia"
       mark_all_as_read: "Marki ĉiujn kvazaŭ legitaj"
       mark_unread: "Marku kiel nelegita"
       notifications: "Sciigoj"
     liked:
-      few: "%{actors} ĵus ŝatis vian %{post_link}."
-      many: "%{actors} ĵus ŝatis vian %{post_link}."
       one: "%{actors} ŝatas vian %{post_link}."
       other: "%{actors} ŝatas vian %{post_link}."
-      two: "%{actors} ĵus ŝatis vian %{post_link}."
       zero: "%{actors} ŝatas vian %{post_link}."
     liked_post_deleted:
       few: "%{actors} ŝatis vian forigitan afiŝon."
@@ -481,11 +466,8 @@ eo:
       two: "%{actors} poŝtis al vi poŝton."
       zero: "%{actors} sendis al vi poŝton."
     reshared:
-      few: "%{actors} rekonigis vian %{post_link}n."
-      many: "%{actors} rekonigis vian %{post_link}."
       one: "%{actors} rekonigis vian %{post_link}-n."
       other: "%{actors} rekonigis vian %{post_link}-n."
-      two: "%{actors} rekonigis vian %{post_link}n."
       zero: "%{actors} rekonigis vian %{post_link}-n."
     reshared_post_deleted:
       few: "%{actors} rekonigis vian forviŝitan afiŝon."
@@ -495,11 +477,8 @@ eo:
       two: "%{actors} rekonigis vian forviŝitan afiŝon."
       zero: "%{actors} rekonigis vian forviŝitan afiŝon."
     started_sharing:
-      few: "%{actors} komencis konigi kun vi."
-      many: "%{actors} komencis konigi kun vi."
       one: "%{actors} komencis konigi al vi."
       other: "%{actors} komencis konigi al vi."
-      two: "%{actors} komenis partopreni kun vi."
       zero: "%{actors} komencis konigi al vi."
   notifier:
     a_post_you_shared: "afiŝo."
@@ -690,11 +669,8 @@ eo:
       updated: "Profilo ĝisdatigita"
   public: "Publika"
   reactions:
-    few: "%{count} reakcioj"
-    many: "%{count} reakcioj"
     one: "1 reago"
     other: "%{count} reagoj"
-    two: "%{count} reakcioj"
     zero: "0 reagoj"
   registrations:
     closed: "Registrado estas fermita ĉe tiu ĉi DIASPORA* 'pod' (servilo)."
@@ -884,11 +860,8 @@ eo:
     new:
       mentioning: "Mencianta: %{person}"
     too_long:
-      few: "bonvolu farigi viajn afiŝojn malpli longajn ol %{count} signoj"
-      many: "bonvolu farigi viajn afiŝojn malpli longajn ol %{count} signoj"
       one: "bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj"
       other: "bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj"
-      two: "bonvolu igi viajn afiŝon malpli longan ol %{count} signoj"
       zero: "bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj"
   stream_helper:
     hide_comments: "kaŝi ĉiujn komentojn"

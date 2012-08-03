@@ -1,0 +1,50 @@
+
+@import 'new_styles/animations';
+
+#flash_notice,
+#flash_alert,
+#flash_error {
+  position : fixed;
+  z-index: 999;
+  top : -100px;
+  left : 0;
+  width : 100%;
+
+  text-align : center;
+  font-weight: bold;
+  color: #666;
+
+  &.expose {
+    @include animation(expose, 5s)
+  }
+
+  .message {
+    @include border-radius(6px);
+    @include box-shadow(0, 1px, 4px, rgba(0,0,0,0.8));
+
+    display : inline-block;
+    padding: 45px 12px 8px;
+    min-width: 400px;
+    max-width: 800px;
+
+    color : #fff;
+    background-color : rgba(0,0,0,0.8);
+    border : 1px solid rgba(255,255,255,0.7);
+  }
+}
+
+#flash_notice {
+  .message {
+    color: #666;
+    background-color: #F4F899;
+    border-color: darken(#F4F899, 40%);
+  }
+}
+
+#flash_error,
+#flash_alert {
+  .message {
+    background-color: #CA410B;
+    border-color: darken(#CA410B, 10%);
+  }
+}

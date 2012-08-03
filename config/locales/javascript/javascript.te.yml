@@ -59,10 +59,10 @@ te:
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
+        one: "<%= count %> ఇష్టం"
+        other: "<%= count %> ఇష్టాలు"
         two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        zero: "<%= count %> ఇష్టాలు"
       limited: "పరిమితం"
       more_comments:
         few: "Show <%= count %> more comments"
@@ -82,6 +82,7 @@ te:
         zero: "<%= count %> Reshares"
       show_nsfw_post: "టపాను చూపించు"
       show_nsfw_posts: "అన్నీ చూపించు"
+      unfollow: "అనుసరించవద్దు"
       unlike: "అయిష్టం"
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."

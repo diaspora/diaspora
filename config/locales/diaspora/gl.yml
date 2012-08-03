@@ -79,6 +79,8 @@ gl:
     helper:
       invalid_fields: "Campos incorrectos"
       correct_the_following_errors_and_try_again: "Corrixa os seguintes erros e vólvao intentar."
+      post_not_public: "Esa publicación non é pública!"
+      login_try_again: "<a href='%{login_link}'>Acceda</a> e vólvao intentar."
 
   admins:
     admin_bar:
@@ -90,6 +92,22 @@ gl:
       resque_overview: "Información de Resque"
     correlations:
       correlations_count: "Correlación entre contas:"
+    user_search:
+      you_currently: "Quédanlle  %{user_invitation} invitacións: %{link}"
+      add_invites: "Engadir invitacións"
+      email_to: "Correo para invitar"
+      users: 
+        zero: "Non se atopou ningún usuario."
+        one: "Atopouse un usuario."
+        two: "Atopáronse dous usuarios."
+        other: "Atopáronse %{count} usuarios."
+    weekly_user_stats:
+      current_server: "A data actual do servidor é %{date}."
+      amount_of:
+        zero: "Non se rexistrou ningún usuario novo esta semana."
+        one: "Rexistrouse un usuario novo esta semana."
+        two: "Rexistráronse dous usuarios novos esta semana."
+        other: "Rexistráronse %{count} usuarios novos esta semana."
     stats:
       week: "Semana"
       2weeks: "2 semanas"

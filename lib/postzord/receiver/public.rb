@@ -21,6 +21,8 @@ class Postzord::Receiver::Public < Postzord::Receiver
   # @return [void]
   def receive!
     return false unless verified_signature?
+    # return false unless account_deletion_is_from_author
+
     return false unless save_object
 
     FEDERATION_LOGGER.info("received a #{@object.inspect}")
@@ -50,6 +52,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def save_object
     @object = Diaspora::Parser::from_xml(@salmon.parsed_data)
     raise "Object is not public" if object_can_be_public_and_it_is_not?
+    raise "Author does not match XML author" if author_does_not_match_xml_author?
     @object.save!  if @object
   end
 
@@ -58,7 +61,22 @@ class Postzord::Receiver::Public < Postzord::Receiver
     User.all_sharing_with_person(@author).select('users.id').map!{ |u| u.id }
   end
 
+  def xml_author
+    if @object.respond_to?(:relayable?)
+      #this is public, so it would only be owners sending us other people comments etc
+       @object.parent.author.local? ? @object.diaspora_handle : @object.parent.diaspora_handle
+    else
+      @object.diaspora_handle
+    end
+  end
+
   private
+
+  def account_deletion_is_from_author
+    return true unless @object.is_a?(AccountDeletion)
+    return false if @object.diaspora_handle != @author.diaspora_handle
+    return true
+  end
 
   # @return [Boolean]
   def object_can_be_public_and_it_is_not?

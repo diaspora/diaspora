@@ -84,10 +84,10 @@ pl:
         zero: "<%= count %> polubień"
       limited: "Ograniczone"
       more_comments:
-        few: "Wyświetl <%= count %> więcej komentarzy"
+        few: "Wyświetl <%= count %> komentarze więcej"
         many: "Wyświetl <%= count %> więcej komentarzy"
         one: "Wyświetl <%= count %> komentarz więcej"
-        other: "Wyświetl <%= count %> więcej komentarzy"
+        other: "Wyświetl <%= count %> komentarzy więcej"
         two: "Wyświetl <%= count %> komentarze więcej"
         zero: "Wyświetl <%= count %> komentarzy więcej"
       original_post_deleted: "Oryginalny wpis został usunięty przez autora."

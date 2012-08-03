@@ -9,7 +9,7 @@ sr:
     aspect_dropdown:
       add_to_aspect: "Додај контакт"
       all_aspects: "Сви погледи"
-      error: "Немогуће делити са <%= name %>.  Да ли игноришете корисника?"
+      error: "Немогуће делити са <%= name %>.  Да ли игноришеш корисника?"
       select_aspects: "Изабери погледе"
       started_sharing_with: "Почињеш да делиш са <%= name %>!"
       stopped_sharing_with: "Више не делиш са <%= name %>."
@@ -61,10 +61,10 @@ sr:
       public: "Јавно - твоју објаву ће видети сви и биће је могуће тражити путем претраживача"
     reshares:
       duplicate: "Добро је, а? Већ сте објавили ово!"
-    search_for: "Тражи"
+    search_for: "Тражи <%= name %>"
     show_more: "прикажи још"
     stream:
-      comment: "Коментар"
+      comment: "Коментариши"
       follow: "Прати"
       hide: "Сакриј"
       hide_nsfw_posts: "Сакриј #нпзп објаве"

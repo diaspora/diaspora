@@ -48,6 +48,7 @@ de_formal:
       video_title:
         unknown: "Unbekannter Videotitel"
   are_you_sure: "Sind Sie sicher?"
+  are_you_sure_delete_account: "Möchten Sie Ihr Konto wirklich schließen? Dieser Schritt kann nicht rückgängig gemacht werden!"
   aspect_memberships:
     destroy:
       failure: "Die Person konnte nicht aus dem Aspekt entfernt werden"
@@ -199,6 +200,7 @@ de_formal:
       many_people_are_you_sure: "Sind Sie sich sicher, dass Sie eine private Unterhaltung mit mehr als %{suggested_limit} Kontakten beginnen möchten? Einen Beitrag in diesen Aspekt zu schreiben könnte ein besserer Weg sein, um sie zu kontaktieren."
       my_contacts: "Meine Kontakte"
       no_contacts: "Sieht so aus als müssten Sie einige Kontakte hinzufügen!"
+      no_contacts_message_with_aspect: "Schauen Sie in den %{community_spotlight} oder %{add_to_aspect_link}"
       only_sharing_with_me: "Nur mit Ihnen Teilende"
       remove_person_from_aspect: "Entferne %{person_name} aus \"%{aspect_name}\""
       start_a_conversation: "Starten Sie eine Unterhaltung"

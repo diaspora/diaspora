@@ -80,6 +80,11 @@ hu:
         other: "%{count} felhasználó található"
         zero: "nem található felhasználó"
       you_currently: "jelenleg %{user_invitation} meghívó áll még rendelkezésedre %{link}"
+    weekly_user_stats:
+      amount_of:
+        other: "az új felhasználók száma ezen a héten: %{count}"
+        zero: "az új felhasználók száma ezen a héten: %{count}"
+      current_server: "A jelenlegi szerverdátum: %{date}"
   ago: "ezelőtt"
   all_aspects: "Összes csoport"
   application:
@@ -313,6 +318,8 @@ hu:
     helper:
       correct_the_following_errors_and_try_again: "Javítsd a következő hibákat, és próbáld újra."
       invalid_fields: "Érvénytelen adatok"
+    login_try_again: "Kérlek <a href='%{login_link}'>jelentkezz be</a> és próbáld meg újra."
+    post_not_public: "A megtekinteni kívánt bejegyzés nem nyilvános!"
   fill_me_out: "Töltsd ki"
   find_people: "Emberek vagy #címkék keresése"
   hide: "Elrejt"
@@ -370,18 +377,10 @@ hu:
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} személy nem kedveli"
-        many: "%{count} személy nem kedveli"
-        one: "nem kedveli"
-        other: "%{count} nem kedveli"
-        two: "%{count} embernek nem tetszik"
+        other: "%{count} ember nem kedveli"
         zero: "nincs negatív visszajelzés"
       people_like_this:
-        few: "%{count} személy kedveli"
-        many: "%{count} személy kedveli"
-        one: "1 személy kedveli"
-        other: "%{count} személy kedveli"
-        two: "%{count} ember kedveli"
+        other: "%{count} ember kedveli"
         zero: "senki nem kedveli"
       people_like_this_comment:
         few: "%{count} kedveli"
@@ -418,20 +417,12 @@ hu:
       zero: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
     helper:
       new_notifications:
-        few: "%{count} új értesítés"
-        many: "%{count} új értesítés"
-        one: "1 új értesítés"
-        other: "%{count} új értesítések"
-        two: "%{count} új értesítés"
+        other: "%{count} új értesítés"
         zero: "nincs új értesítés"
     index:
       and: "és"
       and_others:
-        few: "és %{count} másik"
-        many: "és %{count} másik"
-        one: "és még egy"
-        other: "és %{count} másik"
-        two: "és %{count} másik"
+        other: "és %{count} másik személy"
         zero: "és senki más"
       mark_all_as_read: "Mind megjelölése olvasottként"
       mark_unread: "olvasatlannak jelöl"
@@ -682,12 +673,8 @@ hu:
       updated: "Profil frissítve"
   public: "Nyilvános"
   reactions:
-    few: "%{count} visszajelzés"
-    many: "%{count} visszajelzés"
-    one: "1 visszajelzés"
     other: "%{count} visszajelzés"
-    two: "%{count} visszajelzés"
-    zero: "0 visszajelzés"
+    zero: "nincs visszajelzés"
   registrations:
     closed: "A regisztráció zárolva van ezen a Diaspora kiszolgálón."
     create:
