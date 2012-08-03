@@ -63,6 +63,7 @@ factory = {
       "o_embed_cache" : null,
       "photos" : [],
       "text" : "jasmine is bomb",
+      "reshares_count" : 0,
       "id" : this.id.next(),
       "object_url" : null,
       "root" : null,
