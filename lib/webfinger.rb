@@ -1,3 +1,7 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
 require Rails.root.join('lib', 'hcard')
 require Rails.root.join('lib', 'webfinger_profile')
 
