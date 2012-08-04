@@ -24,6 +24,8 @@
     window.setTimeout(window.close, 2000, true);
   });
 
+  // this has to happen after the publisher has finished loading, otherwise
+  // the textarea is cleared again by the initialization of the mentions plugin
   $(function(){
     $("#publisher #status_message_fake_text").val(contents);
     $("#publisher #status_message_text").val(contents);
