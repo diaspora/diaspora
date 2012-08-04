@@ -2,61 +2,37 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-!!!
-%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
-  %head
-    %meta{:charset => 'utf-8'}
+#new_status_message_pane
+  .span-15.last
+    %h4
+      =t('bookmarklet.post_something')
+    = render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
 
-    %title
-      = page_title yield(:page_title)
+:javascript
+  Publisher.bookmarklet = true;
+  app.publisher = new app.views.Publisher();
 
-    %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
-    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+  var contents = "#{escape_javascript params[:title]} - #{escape_javascript params[:url]}";
+  var notes    = "#{escape_javascript params[:notes]}";
+  if (notes.length > 0){
+    contents = contents + " - " + notes;
+  }
 
-    %link{:rel => 'shortcut icon', :href => '/favicon.png'}
-    %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
+  $("#publisher").bind('ajax:success', function(){
+    $('h4').text("#{t('bookmarklet.post_success')}");
+    app.publisher.close();
+    window.setTimeout(window.close, 2000, true);
+  });
 
-    = csrf_meta_tag
+  // this has to happen after the publisher has finished loading, otherwise
+  // the textarea is cleared again by the initialization of the mentions plugin
+  $(function(){
+    $("#publisher #status_message_fake_text").val(contents);
+    $("#publisher #status_message_text").val(contents);
+    $('input.button')[0].removeAttribute('disabled');
+  });
 
-    = jquery_include_tag
-    = javascript_include_tag :main, :templates, :home
-    :javascript
-      Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
-    
-    = stylesheet_link_tag "blueprint", :media => 'screen'
-    = stylesheet_link_tag :default, :media => 'all'
-    = stylesheet_link_tag :application, :media => 'all'
-    :css
-      body { margin: 0; padding: 0; }
-      #new_status_message_pane { margin: 1em 0 0; }
-      #new_status_message_pane h4 { margin: 0 0 0 1em; }
-
-  %body
-    #new_status_message_pane
-      .span-15.last
-        %h4
-          =t('bookmarklet.post_something')
-        = render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
-
-    :javascript
-      Publisher.bookmarklet = true;
-      app.publisher = new app.views.Publisher();
-      
-      $("#publisher").bind('ajax:success', function(){
-        $('h4').text("#{t('bookmarklet.post_success')}");
-        app.publisher.close();
-        window.setTimeout(window.close, 2000, true);
-      });
-
-      $(document).ready(function(){
-        var contents = "#{escape_javascript params[:title]} - #{escape_javascript params[:url]}";
-        var notes    = "#{escape_javascript params[:notes]}";
-        if (notes.length > 0){
-          contents = contents + " - " + notes;
-        }
-
-        $("#publisher #status_message_fake_text").val(contents);
-        $("#publisher #status_message_text").val(contents);
-        $('input.button')[0].removeAttribute('disabled');
-      });
-
+- content_for(:head) do
+  :css
+    #new_status_message_pane { margin: 1em 0 0; }
+    #new_status_message_pane h4 { margin: 0 0 0 1em; }
