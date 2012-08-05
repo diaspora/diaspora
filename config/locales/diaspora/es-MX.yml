@@ -365,6 +365,7 @@ es-MX:
       back_to_top: "Volver al principio"
       powered_by: "IMPULSADO POR DIASPORA*"
       public_feed: "Canal público de Diaspora para %{name}"
+      source_package: "descargar el paquete del código fuente"
       toggle: "Cambiar a sitio móvil"
       whats_new: "¿Qué hay de nuevo?"
       your_aspects: "tus aspectos"

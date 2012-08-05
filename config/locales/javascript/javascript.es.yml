@@ -88,9 +88,9 @@ es:
       public: "Público"
       reshare: "Compartir"
       reshares:
-        one: "Se ha compartido <%= count %> vez"
-        other: "Se ha compartido <%= count %> veces"
-        zero: "Se ha compartido <%= count %> veces"
+        one: "Compartido <%= count %> vez"
+        other: "Compartido <%= count %> veces"
+        zero: "Compartido <%= count %> veces"
       show_nsfw_post: "Mostrar publicación"
       show_nsfw_posts: "Mostrar todas las publicaciones"
       unfollow: "Dejar de seguir"

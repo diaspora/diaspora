@@ -67,9 +67,9 @@ de:
         other: "%{count} Beiträge"
         zero: "Kein Beitrag"
       shares:
-        one: "Ein Beitrag"
-        other: "%{count} Beiträge"
-        zero: "Kein Beitrag"
+        one: "Ein mal geteilt."
+        other: "%{count} mal geteilt."
+        zero: "Kein mal geteilt."
       tag_name: "Tag Name: <b>%{name_tag}</b> Anzahl: <b>%{count_tag}</b>"
       usage_statistic: "Nutzungsstatistik"
       users:
@@ -79,7 +79,7 @@ de:
       week: "Woche"
     user_search:
       add_invites: "Einladungen hinzufügen"
-      email_to: "E-Mail zum Einladen"
+      email_to: "per E-Mail einladen"
       users:
         one: "%{count} Benutzer gefunden"
         other: "%{count} Benutzer gefunden"
@@ -171,7 +171,7 @@ de:
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Von der Gemeinschaft erstellte Tutorials, Anleitungen und Nachrichten"
       introduce_yourself: "Das ist dein Stream. Leg los und stell dich vor."
       keep_diaspora_running: "Die Entwicklung von Diaspora bleibt schnell, wenn Du monatlich spendest!"
-      keep_pod_running: "Helfen Sie, %{pod} schnell zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
+      keep_pod_running: "Helfen Sie %{pod} schnell zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
       new_here:
         follow: "Folge %{link} und begrüße neue Benutzer bei Diaspora*!"
         learn_more: "mehr erfahren"
@@ -368,6 +368,7 @@ de:
       back_to_top: "Zurück zum Anfang"
       powered_by: "BETRIEBEN MIT DIASPORA*"
       public_feed: "Öffentlicher Diaspora Feed von %{name}"
+      source_package: "Quelltext runterladen"
       toggle: "Mobile Ansicht umschalten"
       whats_new: "Was gibt's Neues?"
       your_aspects: "Deine Aspekte"

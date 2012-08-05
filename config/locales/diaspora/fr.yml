@@ -368,6 +368,7 @@ fr:
       back_to_top: "Retour en haut"
       powered_by: "MIS EN SERVICE PAR DIASPORA*"
       public_feed: "Flux Diaspora public pour %{name}"
+      source_package: "téléchargez le code source"
       toggle: "activer/désactiver la version mobile"
       whats_new: "Quoi de neuf ?"
       your_aspects: "vos aspects"

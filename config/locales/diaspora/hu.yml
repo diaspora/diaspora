@@ -361,6 +361,7 @@ hu:
       back_to_top: "Vissza az elejére"
       powered_by: "DIASPORA* fordította ADAMEX"
       public_feed: "Nyílvános Diaspora hírfolyam neki: %{name}"
+      source_package: "forráskódcsomag letöltése"
       toggle: "mobil változat"
       whats_new: "belépés"
       your_aspects: "csoportjaid"

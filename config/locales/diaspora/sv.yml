@@ -365,6 +365,7 @@ sv:
       back_to_top: "Åter till början"
       powered_by: "DRIVS AV DIASPORA*"
       public_feed: "Offentligt Diasporaflöde för %{name}"
+      source_package: "ladda ned källkodspaketet"
       toggle: "byt mobilanpassning"
       whats_new: "vad är nytt?"
       your_aspects: "dina aspekter"

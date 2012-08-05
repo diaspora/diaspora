@@ -117,6 +117,6 @@ es:
       unlocked: "Tu cuenta se ha desbloqueado. ¡Ya estás dentro!"
   errors:
     messages:
-      already_confirmed: "Se ha confirmado"
+      already_confirmed: "ya fue confirmada"
       not_found: "no se ha encontrado"
-      not_locked: "no estaba bloqueado"
+      not_locked: "no estaba bloqueada"

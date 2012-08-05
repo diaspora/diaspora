@@ -67,9 +67,9 @@ es:
         other: "%{count} publicaciones"
         zero: "%{count} publicaciones"
       shares:
-        one: "%{count} compartida"
-        other: "%{count} compartidas"
-        zero: "%{count} compartidas"
+        one: "%{count} vez compartido"
+        other: "%{count} veces compartido"
+        zero: "%{count} veces compartido"
       tag_name: "Etiqueta: <b>%{name_tag}</b> Veces: <b>%{count_tag}</b>"
       usage_statistic: "Estadísticas de Uso"
       users:
@@ -365,6 +365,7 @@ es:
       back_to_top: "Volver arriba"
       powered_by: "IMPULSADO POR DIASPORA*"
       public_feed: "Canal público de %{name} "
+      source_package: "descargar el paquete del código fuente"
       toggle: "cambiar al sitio móvil"
       whats_new: "Novedades en Diaspora*"
       your_aspects: "tus aspectos"
@@ -402,9 +403,9 @@ es:
       other: "%{actors} también han comentado la %{post_link} de %{post_author}."
       zero: "%{actors} también han comentado la %{post_link} de %{post_author}."
     also_commented_deleted:
-      one: "%{actors} ha comentado en una publicación eliminada."
-      other: "%{actors} han comentado en una publicación eliminada."
-      zero: "%{actors} han comentado en una publicación eliminada."
+      one: "%{actors} ha comentado una publicación eliminada."
+      other: "%{actors} han comentado una publicación eliminada."
+      zero: "%{actors} han comentado una publicación eliminada."
     comment_on_post:
       one: "%{actors} ha comentado tu %{post_link}."
       other: "%{actors} han comentado tu %{post_link}."

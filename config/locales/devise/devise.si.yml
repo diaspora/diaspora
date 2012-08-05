@@ -1,0 +1,59 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+si:
+  devise:
+    failure:
+      inactive: "ඔබගේ ගිණුම තවම සක්‍රිය කර නැත."
+      invalid: "පරිශීලක නාමය හා මුරපදය වැරදියි."
+      locked: "ඔබගේ ගිණුමට අගුලු දමා ඇත."
+      timeout: "ඔබගේ වාරය අවසානයි, ඉදිරියට යාම සදහා කරුණාකර නැවත sign in කරන්න."
+    invitations:
+      send_instructions: "ඔබගේ ආරාධනාව යැවුවා."
+    mailer:
+      hello: "කොහොමද %{email}!"
+      invitation_instructions:
+        cubbies: "Cubbi.es"
+        email_address: "questions@joindiaspora.com"
+        finally: "අන්තිමට - එය මෙතන"
+        get_connected: "සම්බන්ධ වෙනවා"
+        have_fun: "විනෝද වන්න"
+        here: "මෙතන"
+        join_team: "අපේ කණ්ඩායමට සම්බන්ධ වන්න"
+        love: "ආදරයෙන්,"
+        or: "හො"
+        team_diaspora: "ඩයස්පෝරා කණ්‌ඩායම"
+        view_in: "එය ඔබගේ වෙබ් බ්‍රවුසරයෙන් බලන්න."
+      reset_password_instructions:
+        change: "මගේ මුරපදය මාරු කරන්න"
+        subject: "මුරපදය නැවත සකසන උපදෙස්"
+      welcome: "ආයුබෝවන් %{email}!"
+    passwords:
+      edit:
+        change_password: "මගේ මුරපදය මාරු කරන්න"
+      new:
+        forgot_password: "ඔබේ මුරපදය මතක නැත්ද?"
+        send_password_instructions: "මුරපදය යළි පිහිටුවීමට අදාළ උපදෙස් මට එවන්න"
+    registrations:
+      updated: "ඔබ ඔබගේ ගිණුම සාර්ථකව යාවත්කාලීන කළා."
+    sessions:
+      new:
+        alpha_software: "ඔබ භාවිතා කරන්නේ සංවර්ධනයවන වැඩසටහනයි."
+        login: "අතුල්වන්න"
+        modern_browsers: "සහාය දක්වන්නේ නවීන browsers වලට පමණි."
+        password: "මුරපදය"
+        remember_me: "මාව මතක තබාගන්න"
+        sign_in: "අත්සන් කරන්න"
+        username: "පරිශීලක නාමය"
+      signed_in: "අත්සන් තැබීම සාර්ථකයි."
+      signed_out: "ඉවත්වීම සාර්ථකයි."
+    unlocks:
+      unlocked: "ඔබගේ ගිණුම සාර්ථකව අගුලු හැරියා. ඔබ දැන් අත්සන් තැබුවා."
+  errors:
+    messages:
+      already_confirmed: "දැනටමත් සම්මත කර ඇත"
+      not_found: "සොයා ගත නොහැක."
+      not_locked: "අගුලු දමා නැත"

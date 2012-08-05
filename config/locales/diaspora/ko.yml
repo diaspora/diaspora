@@ -359,6 +359,7 @@ ko:
       back_to_top: "맨 위로 돌아가기"
       powered_by: "디아스포라* 제공"
       public_feed: "%{name}님의 공개 디아스포라 피드"
+      source_package: "소스코드 패키지 다운로드"
       toggle: "모바일"
       whats_new: "새로운 점"
       your_aspects: "내 애스펙"
