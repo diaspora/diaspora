@@ -379,7 +379,7 @@ gl:
     excited: "%{name} devece por verte por aquí."
   invitations:
     create:
-      sent: "Enviáronse invitacións a: "
+      sent: "Enviáronse invitacións a: %{emails}."
       rejected: "Os seguintes enderezos de correo deron problemas: "
       no_more: "Non lle quedan invitacións."
       already_sent: "Xa invitou a esta persoa."
@@ -432,6 +432,7 @@ gl:
       public_feed: "Comentarios públicos de %{name}"
       your_aspects: "Aspectos"
       back_to_top: "Volver ao principio"
+      source_package: "Descargar o paquete co código fonte"
 
   likes:
     likes:
