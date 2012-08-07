@@ -33,7 +33,7 @@ describe("bookmarklet", function() {
       _.defer(function() {
         expect($("#publisher #status_message_fake_text").val() == "").toBeFalsy();
         expect($("#publisher #status_message_text").val() == "").toBeFalsy();
-      };
+      });
     });
   });
 
