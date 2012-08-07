@@ -53,6 +53,30 @@
       return text;
     });
 
+    // make nice little utf-8 symbols
+    converter.hooks.chain("preConversion", function(text) {
+      var input_strings = [
+        "<->", "->", "<-",
+        "(c)", "(r)", "(tm)",
+        "<3"
+      ];
+      var output_symbols = [
+        "↔", "→", "←",
+        "©", "®", "™",
+        "♥"
+      ];
+      // quote function from: http://stackoverflow.com/a/494122
+      var quote = function(str) {
+        return str.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
+      };
+
+      _.each(input_strings, function(str, idx) {
+        var r = new RegExp(quote(str), "gi");
+        text = text.replace(r, output_symbols[idx]);
+      });
+      return text;
+    });
+
     converter.hooks.chain("postConversion", function (text) {
       return text.replace(/(\"(?:(?:http|https):\/\/)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(?:\/\S*)?\")(\>)/g, '$1 target="_blank">')
     });

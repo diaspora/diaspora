@@ -46,6 +46,35 @@ describe("app.helpers.textFormatter", function(){
       })
     });
 
+    context("symbol conversion", function() {
+      beforeEach(function() {
+        this.input_strings = [
+          "->", "<-", "<->",
+          "(c)", "(r)", "(tm)",
+          "<3"
+        ];
+        this.output_symbols = [
+          "→", "←", "↔",
+          "©", "®", "™",
+          "♥"
+        ];
+      });
+
+      it("correctly converts the input strings to their corresponding output symbol", function() {
+        _.each(this.input_strings, function(str, idx) {
+          var text = this.formatter.markdownify(str);
+          expect(text).toContain(this.output_symbols[idx]);
+        }, this);
+      });
+
+      it("converts all symbols at once", function() {
+        var text = this.formatter.markdownify(this.input_strings.join(" "));
+        _.each(this.output_symbols, function(sym) {
+          expect(text).toContain(sym);
+        });
+      });
+    });
+
     context("non-ascii url", function() {
       beforeEach(function() {
         this.evilUrls = [
