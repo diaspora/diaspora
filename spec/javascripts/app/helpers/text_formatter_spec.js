@@ -46,10 +46,10 @@ describe("app.helpers.textFormatter", function(){
       })
     });
 
-    context("non-ascii urls", function() {
+    context("non-ascii url", function() {
       beforeEach(function() {
         this.evilUrls = [
-          "http://www.bürgerentscheid-krankenhäuser.de", // example from issue #2665 
+          "http://www.bürgerentscheid-krankenhäuser.de", // example from issue #2665
           "http://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
           "http://موقع.وزارة-الاتصالات.مصر/", // example from #3082
           "http:///scholar.google.com/citations?view_op=top_venues",
@@ -64,14 +64,14 @@ describe("app.helpers.textFormatter", function(){
         ];
       });
 
-      it("correctly encode to punycode", function() {
+      it("correctly encodes to punycode", function() {
         _.each(this.evilUrls, function(url, num) {
           var text = this.formatter.markdownify( "<" + url + ">" );
           expect(text).toContain(this.asciiUrls[num]);
         }, this);
       });
 
-      it("don't break link texts", function() {
+      it("doesn't break link texts", function() {
         var linkText = "check out this awesome link!";
         var text = this.formatter.markdownify( "["+linkText+"]("+this.evilUrls[0]+")" );
 
@@ -79,7 +79,7 @@ describe("app.helpers.textFormatter", function(){
         expect(text).toContain(linkText);
       });
 
-      it("don't break reference style links", function() {
+      it("doesn't break reference style links", function() {
         var postContent = "blabla blab [my special link][1] bla blabla\n\n[1]: "+this.evilUrls[0]+" and an optional title)";
         var text = this.formatter.markdownify(postContent);
 
@@ -89,10 +89,20 @@ describe("app.helpers.textFormatter", function(){
 
       it("can be used as img src", function() {
         var postContent = "![logo]("+ this.evilUrls[1] +")";
-        var niceImg = '"'+ this.asciiUrls[1] +'"'; // the "" are from src=""
+        var niceImg = 'src="'+ this.asciiUrls[1] +'"'; // the "" are from src=""
         var text = this.formatter.markdownify(postContent);
 
         expect(text).toContain(niceImg);
+      });
+
+      it("doesn't break linked images", function() {
+        var postContent = "I am linking an image here [![some-alt-text]("+this.evilUrls[1]+")]("+this.evilUrls[3]+")";
+        var text = this.formatter.markdownify(postContent);
+        var linked_image = 'src="'+this.asciiUrls[1]+'"';
+        var image_link = 'href="'+this.asciiUrls[3]+'"';
+
+        expect(text).toContain(linked_image);
+        expect(text).toContain(image_link);
       });
 
     });
