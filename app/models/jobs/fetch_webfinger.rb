@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -7,7 +7,10 @@ module Jobs
     @queue = :socket_webfinger
 
     def self.perform(account)
-      Webfinger.new(account).fetch
+      person = Webfinger.new(account).fetch
+
+      # also, schedule to fetch a few public posts from that person
+      Resque.enqueue(Jobs::FetchPublicPosts, person.diaspora_handle) unless person.nil?
     end
   end
 end
