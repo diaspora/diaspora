@@ -26,11 +26,16 @@ describe("app.helpers.textFormatter", function(){
     // This test will fail if our join is just (" ") -- an edge case that should be addressed.
 
     it("autolinks", function(){
-      var links = ["http://google.com",
+      var links = [
+        "http://google.com",
         "https://joindiaspora.com",
         "http://www.yahooligans.com",
         "http://obama.com",
-        "http://japan.co.jp"]
+        "http://japan.co.jp",
+        "www.mygreat-example-website.de",
+        "www.jenseitsderfenster.de",  // from issue #3468
+        "www.google.com"
+      ];
 
       // The join that would make this particular test fail:
       //
@@ -40,7 +45,7 @@ describe("app.helpers.textFormatter", function(){
       var wrapper = $("<div>").html(formattedText);
 
       _.each(links, function(link) {
-        var linkElement = wrapper.find("a[href='" + link + "']");
+        var linkElement = wrapper.find("a[href*='" + link + "']");
         expect(linkElement.text()).toContain(link);
         expect(linkElement.attr("target")).toContain("_blank");
       })
