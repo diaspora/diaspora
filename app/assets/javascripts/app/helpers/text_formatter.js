@@ -26,9 +26,11 @@
 
       // process links
       // regex copied from: https://code.google.com/p/pagedown/source/browse/Markdown.Converter.js#1198 (and slightly expanded)
-      var linkRegex = /(\[.*\]:\s)?(<|\()((https?|ftp):\/\/[^\/'">\s][^'">\s]+?)(>|\))/gi;
+      var linkRegex = /(\[.*\]:\s)?(<|\()((?:(https?|ftp):\/\/[^\/'">\s]|www)[^'">\s]+?)(>|\))/gi;
       text = text.replace(linkRegex, function() {
         var unicodeUrl = arguments[3];
+        unicodeUrl = ( unicodeUrl.match(/^www/) ) ? ('http://' + unicodeUrl) : unicodeUrl;
+
         var addr = parse_url(unicodeUrl);
         if( !addr.host ) addr.host = ""; // must not be 'undefined'
 
