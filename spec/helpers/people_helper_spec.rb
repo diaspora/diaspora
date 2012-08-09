@@ -32,7 +32,7 @@ describe PeopleHelper do
 
   describe '#person_link' do
     before do
-    @person = Factory(:person)
+      @person = Factory(:person)
     end
 
     it 'includes the name of the person if they have a first name' do
@@ -57,6 +57,21 @@ describe PeopleHelper do
       @person.profile.first_name = "I'm <h1>Evil"
       @person.profile.last_name = "I'm <h1>Evil"
       person_link(@person).should_not include("<h1>")
+    end
+  end
+
+  describe '#last_post_link' do
+    before do
+      @person = Factory(:person)
+    end
+
+    it "doesn't show a link, if the person has no posts" do
+      last_post_link(@person).should be_blank
+    end
+
+    it "shows the link, if the person has at leas one post" do
+      post = Factory(:status_message, :author => @person)
+      last_post_link(@person).should include last_post_person_path(@person.to_param)
     end
   end
 
