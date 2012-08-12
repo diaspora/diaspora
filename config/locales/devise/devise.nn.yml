@@ -107,7 +107,7 @@ nn:
         receive_unlock: "Fekk du ikkje nullstillingsrettleiinga?"
         sign_in: "Logg på"
         sign_up: "Påmelding"
-        sign_up_closed: "Du kan ikkje melda deg på no."
+        sign_up_closed: "Du kan ikkje melda deg på nett no."
       mail_signup_form:
         sign_up_for_an_invite: "Meld deg på for å få ein invitasjon."
     unlocks:

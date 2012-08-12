@@ -41,14 +41,19 @@ nb:
       contacts: "Kontakter"
       home: "Hjem"
       log_out: "Logg ut"
+      mark_all_as_read: "Merk alle som lest"
+      messages: "Meldinger"
       notifications: "Varsler"
       profile: "Profil"
+      recent_notifications: "Nylige varsel"
       search: "Find people or #tags"
       settings: "Innstillinger"
+      view_all: "Vis alle"
     ignore: "Ignorer"
     infinite_scroll:
       no_more: "Ingen flere innlegg."
     my_activity: "Min aktivitet"
+    my_stream: "Stream"
     photo_uploader:
       looking_good: "Wow, du ser fantastisk ut!"
     publisher:
@@ -61,7 +66,9 @@ nb:
     show_more: "vis mer"
     stream:
       comment: "Kommenter"
+      follow: "Følg"
       hide: "Skjul"
+      hide_nsfw_posts: "Gjem #nsfw-posts"
       like: "Liker"
       likes:
         few: "<%= count %> Likes"
@@ -78,16 +85,19 @@ nb:
         other: "Vis <%= count %> komentarer til"
         two: "Show <%= count %> more comments"
         zero: "Ikke flere kommentarer"
+      original_post_deleted: "Den opprinnelige posten er slettet av forfatteren."
       public: "Offentlig"
+      reshare: "Del"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
+        one: "<%= count %> deling"
+        other: "<%= count %> delinger"
         two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+        zero: "<%= count %> delinger"
       show_nsfw_post: "Vis innlegg"
       show_nsfw_posts: "Vis alle"
+      unfollow: "Ikke følg"
       unlike: "Liker ikke"
     tags:
       wasnt_that_interesting: "OK, jeg skjønner at #{{tagName}} ikke var så spennende likevel..."
@@ -104,7 +114,7 @@ nb:
       prefixFromNow: "om"
       seconds: "under ett minutt"
       suffixAgo: "siden"
-      suffixFromNow: ""
+      suffixFromNow: "fra nå"
       year: "ca. et år"
       years: "%d år"
     videos:

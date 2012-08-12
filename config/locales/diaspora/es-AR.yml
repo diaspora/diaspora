@@ -368,6 +368,7 @@ es-AR:
       back_to_top: "Volver al inicio"
       powered_by: "IMPULSADO POR DIÁSPORA*"
       public_feed: "Canal público para %{name}"
+      source_package: "descargar el paquete del código fuente"
       toggle: "Cambiar a celular"
       whats_new: "¿Qué hay de nuevo?"
       your_aspects: "tus aspectos"

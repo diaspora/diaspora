@@ -9,10 +9,10 @@ nn:
     aspect_dropdown:
       add_to_aspect: "Legg til kontakt"
       all_aspects: "Alle aspekta"
-      error: "Klarte ikkje å byrja å dela med {{name}}.  Ignorerer du dei?"
+      error: "Klarte ikkje å byrja å dela med <%= name %>.  Ignorerer du dei?"
       select_aspects: "Vel aspekt"
-      started_sharing_with: "Du har byrja å dela med {{name}}."
-      stopped_sharing_with: "Du deler ikkje lenger med {{name}}."
+      started_sharing_with: "Du har byrja å dela med <%= name %>"
+      stopped_sharing_with: "Du deler ikkje lenger med <%= name %>."
       toggle:
         one: "I <%= count %> aspekt"
         other: "I <%= count %> aspekt"
@@ -102,7 +102,7 @@ nn:
       unfollow: "Ikkje følg"
       unlike: "Lik ikkje lenger"
     tags:
-      wasnt_that_interesting: "Greitt, #{{tagName}} var vel kanskje ikkje så interessant …"
+      wasnt_that_interesting: "Greitt, #<%= tagName %> var vel kanskje ikkje så interessant …"
     timeago:
       day: "i går"
       days: "%d dagar"

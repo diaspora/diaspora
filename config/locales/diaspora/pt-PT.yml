@@ -368,6 +368,7 @@ pt-PT:
       back_to_top: "Voltar ao topo"
       powered_by: "PRODUZIDO POR DIASPORA*"
       public_feed: "Fonte pública do Diaspora para %{name}"
+      source_package: "baixando o pacote de código fonte"
       toggle: "ligar modo móvel"
       whats_new: "O que há de novo?"
       your_aspects: "os seus grupos"

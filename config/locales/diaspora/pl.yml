@@ -373,6 +373,7 @@ pl:
       back_to_top: "Powrót na górę"
       powered_by: "NAPĘDZANE PRZEZ DIASPORĘ*"
       public_feed: "Publiczny kanał Diaspory użytkownika %{name}"
+      source_package: "pobierz pakiet z kodem źródłowym"
       toggle: "przełącz widok mobilny"
       whats_new: "co nowego?"
       your_aspects: "twoje aspekty"

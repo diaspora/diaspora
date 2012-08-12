@@ -44,6 +44,7 @@ nb:
   all_aspects: "Alle aspekter"
   application:
     helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "ukjent person"
       video_title:
         unknown: "Ukjent Videotittel"
@@ -62,6 +63,7 @@ nb:
     aspect_listings:
       add_an_aspect: "+ Lag et nytt aspekt"
       edit_aspect: "Rediger %{name}"
+      select_all: "Velg alle"
     aspect_stream:
       stay_updated: "Hold deg oppdatert"
       stay_updated_explanation: "Din hovedstrøm viser alle kontaktene dine, tags du følger, og innlegg fra noen kreative medlemmer i felleskapet. "
@@ -96,10 +98,15 @@ nb:
         learn_more: "Lær mer"
       diaspora_id:
         content_1: "Diaspora-ID-en din er:"
+        content_2: "Gi det til noen, og de vil kunne finne deg på Diaspora."
         heading: "Diaspora-ID"
       donate: "Doner"
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       help:
+        do_you: "Har du:"
+        feature_suggestion: "et %{link}-forslag?"
+        find_a_bug: "funnet en %{link}?"
+        have_a_question: "et %{link}?"
         here_to_help: "Diaspora community is here to help!"
         need_help: "Trenger du hjelp?"
         tag_bug: "#bug"
@@ -115,6 +122,7 @@ nb:
       services:
         content: "Du kan koble følgende tjenester til Diaspora:"
         heading: "Koble til tjenester"
+      unfollow_tag: "Slutt å følge #%{tag}"
       welcome_to_diaspora: "Velkommen til Diaspora, %{name}!"
     many: "%{count} aspekter"
     move_contact:
@@ -125,12 +133,14 @@ nb:
       create: "Opprett"
       name: "Navn"
     no_contacts_message:
+      community_spotlight: "kreative medlemmer"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
       start_talking: "Ingen har sagt noe enda!"
     one: "1 aspekt"
     other: "%{count} aspekter"
     seed:
+      acquaintances: "Bekjente"
       family: "Familie"
       friends: "Venner"
       work: "Jobb"
@@ -173,10 +183,14 @@ nb:
     index:
       add_a_new_aspect: "Legg til nytt aspekt"
       add_to_aspect: "Add contacts to %{name}"
+      add_to_aspect_link: "Legg kontakter til i %{name}"
       all_contacts: "Alle kontakter"
+      community_spotlight: "Kreative Medlemmer"
       many_people_are_you_sure: "Er du sikker på at du vil starte en privat samtale med flere enn %{suggested_limit} kontakter? Det kan være bedre å poste dette som et innlegg til dette aspektet. "
       my_contacts: "Mine kontakter"
       no_contacts: "Ingen kontakter."
+      no_contacts_message: "Sjekk ut %{community_spotlight}"
+      no_contacts_message_with_aspect: "Sjekk ut %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Deler bare med meg "
       remove_person_from_aspect: "Fjern %{person_name} fra \"%{aspect_name}\""
       start_a_conversation: "Start en samtale"
@@ -187,6 +201,8 @@ nb:
     other: "%{count} kontakter"
     sharing:
       people_sharing: "Folk som deler med deg:"
+    spotlight:
+      community_spotlight: "kreative medlemmer"
     two: "%{count} kontakter"
     zero: "ingen kontakter"
   conversations:
@@ -211,6 +227,7 @@ nb:
       no_conversation_selected: "ingen samtaler valgt"
       no_messages: "ingen meldinger"
     new:
+      send: "Send"
       subject: "emne"
       to: "til"
     new_message:
@@ -219,6 +236,11 @@ nb:
       delete: "slett og blokkér samtalen"
       reply: "svar"
       replying: "Svarer..."
+  date:
+    formats:
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Slett"
   email: "Epost"
   error_messages:
@@ -229,6 +251,7 @@ nb:
   find_people: "Find people"
   hide: "Skjul"
   invitations:
+    a_facebook_user: "En Facebook-bruker"
     create:
       already_contacts: "Du er allerede tilknyttet denne personen"
       already_sent: "Du har allerede invitert denne personen."
@@ -241,6 +264,7 @@ nb:
     new:
       already_invited: "Allerede innvitert"
       aspect: "Aspekt"
+      check_out_diaspora: "Sjekk ut Diaspora!"
       if_they_accept_info: "Hvis de aksepterer, vil de bli lagt til i aspektet du valgte."
       invite_someone_to_join: "Inviter noen til Diaspora!"
       language: "Språk"
@@ -251,6 +275,7 @@ nb:
       to: "Til"
   layouts:
     application:
+      back_to_top: "Til toppen"
       powered_by: "DREVET AV DIASPORA*"
       public_feed: "Offentlig Diaspora feed for %{name}"
       toggle: "vis mobilsiden"
@@ -333,14 +358,15 @@ nb:
         two: "og %{count} andre"
         zero: "og ingen andre"
       mark_all_as_read: "Merk alle som leste"
+      mark_unread: "Merk som ulest"
       notifications: "Varsler"
     liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
+      one: "%{actors} liker din %{post_link}."
+      other: "%{actors} liker din %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
+      zero: "%{actors} liker din %{post_link}."
     liked_post_deleted:
       few: "%{actors} likte ditt innlegg du har slettet."
       many: "%{actors} likte ditt innlegg du har slettet."
@@ -352,9 +378,9 @@ nb:
       few: "%{actors} har nevnt deg i en %{post_link}."
       many: "%{actors} har nevnt deg i et %{post_link}."
       one: "%{actors} har nevnt deg i en %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} har nevnt deg i en %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
+      zero: "%{actors} har nevnt deg i en %{post_link}."
     mentioned_deleted:
       few: "%{actors} nevnte deg i en slettet post."
       many: "%{actors} nevnte deg i en slettet post."
@@ -374,9 +400,9 @@ nb:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} har delt din %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} har delt din %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} har delt din %{post_link}."
     reshared_post_deleted:
       few: "%{actors} har delt innlegget du slettet."
       many: "%{actors} har delt innlegget du slettet."
@@ -389,6 +415,8 @@ nb:
       other: "%{actors} har begynt å dele med deg."
       zero: "%{actors} har begynt å dele med deg."
   notifier:
+    a_post_you_shared: "en post"
+    accept_invite: "Godta Diaspora*-invitasjonen din."
     click_here: "klikk her"
     comment_on_post:
       reply: "Svar eller se %{name}'s innlegg >"
@@ -397,6 +425,23 @@ nb:
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
     email_sent_by_diaspora: "Denne e-posten er sendt av Diaspora. Hvis du ikke vil motta flere e-poster som denne, "
     hello: "Hei %{name}!"
+    invite:
+      message: |-
+          Hei!
+
+          Du har blitt invitert til å bruke Diaspora*!
+
+          Klikk på denne linken for å sette i gang
+
+          [%{invite_url}][1]
+
+
+          Hjertelig hilsen,
+
+          Diaspora*s mail-robot!
+
+          [1]: %{invite_url}
+    invited_you: "%{name} har invitert deg til Diaspora*"
     liked:
       liked: "%{name} has just liked your post: "
       view_post: "Se innlegg >"
@@ -417,6 +462,8 @@ nb:
       view_profile: "Se %{name}'s profil"
     thanks: "Takk,"
     to_change_your_notification_settings: "for å endre innstilliger for varsler"
+  nsfw: "NSFW"
+  ok: "OK"
   or: "eller"
   password: "Passord"
   password_confirmation: "Passord bekreftelse"
@@ -511,10 +558,10 @@ nb:
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
+        one: "Et bilde av %{author}"
+        other: "%{count} bilder av %{author}"
         two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        zero: "Ingen bilder av %{author}"
   previous: "forrige"
   privacy: "Personvern"
   profile: "Profil"
@@ -593,8 +640,8 @@ nb:
       reshare:
         few: "%{count} Reshares"
         many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
+        one: "1 deling"
+        other: "%{count} delinger"
         two: "%{count} delinger"
         zero: "Del igjen"
       reshare_confirmation: "Reshare %{author} - %{text}?"
@@ -647,7 +694,7 @@ nb:
         one: "I %{count} aspekt"
         other: "I %{count} aspekter"
         two: "I %{count} aspekter"
-        zero: "Add to aspect"
+        zero: "Lag et aspekt"
     contact_list:
       all_contacts: "Alle kontakter"
     footer:
@@ -721,10 +768,10 @@ nb:
     show_comments:
       few: "Vis %{count} flere kommentarer"
       many: "Vis %{count} flere kommentarer"
-      one: "Vis ett kommentar til"
+      one: "Vis en kommentar til"
       other: "Vis %{count} flere kommentarer"
       two: "Show two more comments"
-      zero: "No more comments"
+      zero: "Ingen kommentarer"
   streams:
     aspects:
       title: "Your Aspects"

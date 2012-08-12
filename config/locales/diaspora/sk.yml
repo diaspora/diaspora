@@ -105,8 +105,8 @@ sk:
       unknown_person: "neznámy človek"
       video_title:
         unknown: "Neznámy názov videa"
-  are_you_sure: "Ste si istý?"
-  are_you_sure_delete_account: "Určite chcete zrušiť svoj účet? Táto operácia sa nedá vrátiť späť!"
+  are_you_sure: "Si si istý (-á)?"
+  are_you_sure_delete_account: "Určite chceš zrušiť svoj účet? Táto operácia sa nedá vrátiť späť!"
   aspect_memberships:
     destroy:
       failure: "Nepodarilo sa odstrániť kontakt z kategórie"
@@ -130,16 +130,16 @@ sk:
     contacts_not_visible: "Kontakty v tejto kategórii sa nebudú môcť navzájom vidieť."
     contacts_visible: "Kontakty v tejto kategórii sa budú môcť navzájom vidieť."
     create:
-      failure: "Nepodarilo sa vytvoriť kategóriu."
-      success: "Vaša nová kategória %{name} bola vytvorená"
+      failure: "Kategóriu sa nepodarilo vytvoriť."
+      success: "Nová kategória %{name} bola vytvorená"
     destroy:
-      failure: "Kategória %{name} nie je prázdna,  a tak sa nemohla odstrániť."
+      failure: "Kategória %{name} nie je prázdna,  a tak sa nedá odstrániť."
       success: "Použ. %{name} bol úspešne odstránený."
     edit:
       add_existing: "Pridať existujúci kontakt"
       aspect_list_is_not_visible: "zoznam z kategórie ostatní v kategórii nevidia"
       aspect_list_is_visible: "zoznam z kategórie ostatní v kategórii uvidia"
-      confirm_remove_aspect: "Ste si istý, že chcete zmazať túto kategóriu?"
+      confirm_remove_aspect: "Si si istý (-á), že chceš zmazať túto kategóriu?"
       done: "Hotovo"
       make_aspect_list_visible: "majú sa ľudia v kontaktoch  v tejto kategórii navzájom vidieť?"
       remove_aspect: "Zmazať túto kategóriu"
@@ -148,7 +148,7 @@ sk:
       updating: "aktualizuje sa"
     few: "%{count} kategórií"
     helper:
-      are_you_sure: "Ste si istý, že chcete zmazať túto kategóriu?"
+      are_you_sure: "Si si istý (-á), že chceš zmazať túto kategóriu?"
       aspect_not_empty: "Kategória nie je prázdna"
       remove: "odstrániť"
     index:
@@ -161,7 +161,7 @@ sk:
         content_2: "Dajte ho hocikomu a bude vás môcť nájsť na Diaspore."
         heading: "ID na Diasporu"
       donate: "Prispieť"
-      handle_explanation: "Toto je vaše ID na Diasporu. Môžete ho dať ostatným ľuďom ako e-mailovú adresu, aby sa s vami mohli spojiť."
+      handle_explanation: "Toto je tvoje ID na Diasporu. Môžeš ho dať ostatným ľuďom ako e-mailovú adresu, aby sa s tebou mohli spojiť."
       help:
         do_you: "Povedzte:"
         email_feedback: "Ak vám to viac vyhovuje, svoje podnety nám môžete poslať na %{link}"
@@ -183,14 +183,14 @@ sk:
         learn_more: "Zistiť viac"
         title: "Privítajte nových používateľov"
       no_contacts: "Žiadne kontakty"
-      no_tags: "+ Nájdite značku, ktorú chcete sledovať"
-      people_sharing_with_you: "Ľudia, s ktorými ste v kontakte"
+      no_tags: "+ Nájdi značku, ktorú chceš sledovať"
+      people_sharing_with_you: "Ľudia, s ktorými si v kontakte"
       post_a_message: "Poslať správu >>"
       services:
         content: "S Diasporou môžete prepojiť tieto služby:"
         heading: "Pripojiť sa k službám"
       unfollow_tag: "Prestať sledovať #%{tag}"
-      welcome_to_diaspora: "Vitajte na Diaspore, %{name}!"
+      welcome_to_diaspora: "Vitaj na Diaspore, %{name}!"
     many: "%{count} kategórií"
     move_contact:
       error: "Chyba pri presúvaní kontaktu: %{inspect}"
@@ -198,12 +198,12 @@ sk:
       success: "Kontakt bol presunutý do novej kategórie"
     new:
       create: "Vytvoriť"
-      name: "Meno (uvidíte ho len vy)"
+      name: "Meno (uvidíš ho iba ty)"
     no_contacts_message:
       community_spotlight: "v centre pozornosti komunity"
-      or_spotlight: "Alebo si do kontaktov môžete pridať používateľov %{link}"
-      try_adding_some_more_contacts: "Môžete vyhľadať alebo pozvať viac ľudí."
-      you_should_add_some_more_contacts: "Mali by ste ešte pridať pár kontaktov!"
+      or_spotlight: "Alebo si do kontaktov môžeš pridať používateľov %{link}"
+      try_adding_some_more_contacts: "Môžeš nájsť alebo pozvať viac ľudí."
+      you_should_add_some_more_contacts: "Mal(a) by si ešte pridať pár kontaktov!"
     no_posts_message:
       start_talking: "Nikto ešte nič nepovedal!"
     one: "1 kategória"
@@ -214,16 +214,16 @@ sk:
       friends: "Kamaráti"
       work: "Práca"
     selected_contacts:
-      manage_your_aspects: "Upravte svoje kategórie."
-      no_contacts: "Nemáte tu ešte žiadne kontakty."
+      manage_your_aspects: "Uprav si kategórie."
+      no_contacts: "Nemáš tu ešte žiadne kontakty."
       view_all_community_spotlight: "Zobraziť všetky aktuality z komunity"
       view_all_contacts: "Zobraziť všetky kontakty"
     show:
       edit_aspect: "upraviť kategóriu"
     two: "%{count} kategórie"
     update:
-      failure: "Vaša kategória %{name} má príliš dlhý názov."
-      success: "Úspešne ste upravili svoju kategóriu %{name}."
+      failure: "Tvoja kategória %{name} má príliš dlhý názov."
+      success: "Úspešne si upravil(a) kategóriu %{name}."
     zero: "žiadne kategórie"
   authorizations:
     index:
@@ -332,7 +332,7 @@ sk:
       invalid_fields: "Neplatné polia"
     login_try_again: "Prosím, <a href='%{login_link}'>prihláste sa</a> a skúste to znova."
     post_not_public: "Príspevok, ktorý sa snažíte zobraziť, nie je verejný!"
-  fill_me_out: "Vyplňte, prosím, formulár"
+  fill_me_out: "Vyplň formulár, prosím"
   find_people: "Nájsť ľudí alebo #značky"
   hide: "Schovať"
   invitation_codes:
@@ -375,6 +375,7 @@ sk:
       back_to_top: "Späť nahor"
       powered_by: "PREVÁDZKUJE DIASPORA*"
       public_feed: "Verejný kanál Diaspory pre %{name}"
+      source_package: "stiahnuť balík so zdrojovým kódom"
       toggle: "prepnúť na stránku pre mobil"
       whats_new: "Čo je nové?"
       your_aspects: "Vaše kategórie"

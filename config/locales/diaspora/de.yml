@@ -171,7 +171,7 @@ de:
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Von der Gemeinschaft erstellte Tutorials, Anleitungen und Nachrichten"
       introduce_yourself: "Das ist dein Stream. Leg los und stell dich vor."
       keep_diaspora_running: "Die Entwicklung von Diaspora bleibt schnell, wenn Du monatlich spendest!"
-      keep_pod_running: "Helfen Sie %{pod} schnell zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
+      keep_pod_running: "Hilf %{pod} schnell zu arbeiten und kauf unseren Servern ihren monatlichen Schuss Kaffee!"
       new_here:
         follow: "Folge %{link} und begrüße neue Benutzer bei Diaspora*!"
         learn_more: "mehr erfahren"

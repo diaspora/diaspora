@@ -98,6 +98,8 @@ cs:
       select_all: "Vybrat vše"
     aspect_stream:
       make_something: "Udělejte něco"
+      stay_updated: "Zůstaňte v kontaktu"
+      stay_updated_explanation: "Stream je tvořen příspěvky vašich kontaktů, tagů které sledujete a příspěvků některých aktivních členů komunity."
     contacts_not_visible: "Kontakty v tomto aspektu se vzájemně neuvidí."
     contacts_visible: "Kontakty v tomto aspektu se budou moci vzájemně vidět."
     create:
@@ -222,6 +224,7 @@ cs:
     index:
       add_a_new_aspect: "Přidat nový aspekt"
       add_to_aspect: "Přidat kontakty do %{name}"
+      add_to_aspect_link: "přidat kontakty do %{name}"
       all_contacts: "Všechny kontakty"
       many_people_are_you_sure: "Jste si jisti, že chcete začít soukromý rozhovor s více než %{suggested_limit} kontakty? Posílání zpráv do tohoto aspektu může být lepší způsob, jak s nimi spojit."
       my_contacts: "Moje kontakty"
@@ -240,6 +243,7 @@ cs:
     zero: "žádné kontakty"
   conversations:
     create:
+      fail: "Chybná zpráva"
       sent: "Zpráva byla odeslána"
     destroy:
       success: "Konverzace úspěšně odstraněna"
@@ -264,6 +268,8 @@ cs:
       sending: "Posílám..."
       subject: "předmět"
       to: "pro"
+    new_message:
+      fail: "Chybná zpráva"
     show:
       delete: "smazat a blokovat konverzaci"
       reply: "odpověď"
@@ -561,6 +567,7 @@ cs:
         one: "Jedna fotka uživatele %{author}"
         other: "%{count} fotek uživatele %{author}"
         zero: "Žádné fotky uživatele %{author}"
+      reshare_by: "Sdílel %{author}"
   previous: "předchozí"
   privacy: "Soukromí"
   privacy_policy: "Ochrana osobních údajů"
@@ -572,6 +579,8 @@ cs:
       first_name: "Jméno"
       last_name: "Příjmení"
       update_profile: "Aktualizovat profil"
+      you_are_nsfw: "Označili jste se jako závadní. Váš obsah bude skryt uživatelům, kteří si vypnuli zobrazování závadného obsahu."
+      you_are_safe_for_work: "Označili jste se jako nezávadní. To znamená že souhlasíte, že vámi zveřejňovaný obsah nebude odporovat směrnicím komunity."
       your_bio: "Něco o vás"
       your_birthday: "Vaše narozeniny"
       your_gender: "Vaše pohlaví"
@@ -634,6 +643,7 @@ cs:
     new_request_to_person:
       sent: "odesláno!"
   reshares:
+    comment_email_subject: "%{resharer} sdílel příspěvek uživatele %{author}"
     create:
       failure: "Při sdílení tohoto příspěvku došlo k chybě."
     reshare:
@@ -678,6 +688,9 @@ cs:
       not_on_diaspora: "Ještě není na Diaspoře"
       resend: "přeposlat"
   settings: "Nastavení"
+  share_visibilites:
+    update:
+      post_hidden_and_muted: "Příspěvky uživatele %{name} byly skryty a upozornění vypnuta."
   shared:
     add_contact:
       add_new_contact: "Přidat nový kontakt"
@@ -738,11 +751,14 @@ cs:
     reshare:
       reshare: "Sdílet jinam"
     stream_element:
+      currently_unavailable: "komentování je aktuálně nedostupné"
       dislike: "to se mi nelíbí"
       hide_and_mute: "Skrýt a nasadit roubík"
       ignore_user: "Ignorovat %{name}"
+      ignore_user_description: "Ignorovat, nebo uživatele odstranit po všech stránkách?"
       like: "to se mi líbí"
       shared_with: "Sdíleno s: %{aspect_names}"
+      show: "zobrazit"
       unlike: "to se mi už nelíbí"
       via: "skrz %{link}"
       via_mobile: "přes mobilní telefon"
@@ -858,6 +874,7 @@ cs:
       edit_account: "Upravit účet"
       email_awaiting_confirmation: "Na adresu %{unconfirmed_email} byl zaslán aktivační odkaz. Dokud tento odkaz neotevřete a svou novou adresu neaktivujete, budeme vás kontaktovat na vaší staré adrese %{email}."
       export_data: "Exportovat data"
+      following: "Nastavení sledování"
       getting_started: "Předvolby nového uživatele"
       liked: "…někomu se zalíbí váš příspěvek?"
       mentioned: "…někdo vás zmíní v příspěvku?"
@@ -878,10 +895,12 @@ cs:
       saved: "Uloženo!"
       we_can_speed_things_up: "Můžeme pár věcí urychlit"
       well_hello_there: "Jé, ahojte!"
+      what_are_you_in_to: "Co vás zajímá?"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "Kdo jste?"
     privacy_settings:
       ignored_users: "Ignorovaní uživatelé"
+      stop_ignoring: "Přestat ignorovat"
       title: "Nastavení soukromí"
     public:
       does_not_exist: "Uživatel %{username} neexistuje!"
