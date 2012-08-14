@@ -105,12 +105,14 @@ Then /^(?:|I )should see JSON:$/ do |expected_json|
   expected.should == actual
 end
 
-Then /^(?:|I )should see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
-  with_scope(selector) do
-    if page.respond_to? :should
-      page.should have_content(text)
-    else
-      assert page.has_content?(text)
+Then /^(?:|I )should see (\".+?\"[\s]*)(?:[\s]+within[\s]* "([^"]*)")?$/ do |vars,selector|
+  vars.scan(/"([^"]+?)"/).flatten.each do |text|
+    with_scope(selector) do
+      if page.respond_to? :should
+        page.should have_content(text)
+      else
+        assert page.has_content?(text)
+      end
     end
   end
 end
@@ -126,12 +128,14 @@ Then /^(?:|I )should see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, select
   end
 end
 
-Then /^(?:|I )should not see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
-  with_scope(selector) do
-    if page.respond_to? :should
-      page.should have_no_content(text)
-    else
-      assert page.has_no_content?(text)
+Then /^(?:|I )should not see (\".+?\"[\s]*)(?:[\s]+within[\s]* "([^"]*)")?$/ do |vars,selector|
+  vars.scan(/"([^"]+?)"/).flatten.each do |text|
+    with_scope(selector) do
+      if page.respond_to? :should
+        page.should have_no_content(text)
+      else
+        assert page.has_no_content?(text)
+      end
     end
   end
 end
