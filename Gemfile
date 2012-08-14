@@ -99,7 +99,7 @@ gem 'acts-as-taggable-on', :git => "https://github.com/mbleigh/acts-as-taggable-
 
 gem 'addressable', '~> 2.2', :require => 'addressable/uri'
 gem 'http_accept_language', '~> 1.0.2'
-gem 'typhoeus'
+gem 'typhoeus', '~> 0.4.2'
 
 # views
 
