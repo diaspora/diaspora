@@ -54,6 +54,8 @@ to make sure all contributions are submitted smoothly.
 
 Documentation is available on our [wiki](https://github.com/diaspora/diaspora/wiki)
 
+Also, feel free to jump in and check things that need to be done in our [Community Pivotal Tracker](https://www.pivotaltracker.com/projects/61641#)
+
 Before submitting code, please sign our [Contributor License Agreement](https://github.com/diaspora/diaspora/wiki/New-CLA--12-13-10) [Sign Here](https://spreadsheets.google.com/a/joindiaspora.com/spreadsheet/viewform?formkey=dFdRTnY0TGtfaklKQXZNUndsMlJ2eGc6MQ)
 
 ## More Resources:
