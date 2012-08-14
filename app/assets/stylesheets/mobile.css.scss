@@ -648,19 +648,20 @@ display: inline-block;
     width: 28px;
 }
 
+#conversation_inbox {
+  margin: 10px 0 0 10px;
+}
 
-#conversation_inbox .message_count {
-  border-radius: 5px;
-
+.message_count {
+  border-radius: 2px 2px 2px 2px;
   float: right;
-  right: 0px;
-  margin: 5px 5px auto;
-  padding: 5px;
+  margin: 2px 2px 1px 5px;
+  padding: 0 2px 1px;
   position: relative;
   background-color: #999;
   color: #eee;
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
 }
 
 .conversation_participants img.avatar{
@@ -668,6 +669,35 @@ display: inline-block;
 	width:35px;
 	margin: 5px 0 5px 2px;
 }
+
+.unread_message_count {
+  border-radius: 2px 2px 2px 2px;
+  float: right;
+  margin: 2px 2px 1px 5px;
+  padding: 0 2px 1px;
+  position: relative;
+  background-color: #B11;
+  color: #EEE;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.last_author {
+  position: relative;
+  margin: 10px 5px 2px;
+  float: right;
+  font-size: 12px;
+  color: #777;
+}
+
+.timestamp {
+  position: relative;
+  float: right;
+  margin-left: 5px;
+  font-weight: normal;
+  color: #3F8FBA;
+}
+
 form#new_message.new_message input.button.creation{
 	float: right;
 	margin: 0 5px 5px;
