@@ -8,9 +8,7 @@ Feature: new user registration
     And I fill in "user_password" with "secret"
     And I press "Continue"
     Then I should be on the getting started page
-    And I should see "Well, hello there!"
-    And I should see "Who are you?"
-    And I should see "What are you into?"
+    And I should see "Well, hello there!" and "Who are you?" and "What are you into?"
 
   Scenario: new user goes through the setup wizard
     When I fill in the following:
