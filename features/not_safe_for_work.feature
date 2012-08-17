@@ -29,8 +29,7 @@ Scenario: Toggling nsfw state
   And I sign in as "laura@officeworkers.com"
   Then I should not see "I love 0bj3ction4bl3 c0nt3nt!"
   When I toggle nsfw posts
-  Then I should see "I love 0bj3ction4bl3 c0nt3nt!"
-  And I should see "Sexy Senators Gone Wild!"
+  Then I should see "I love 0bj3ction4bl3 c0nt3nt!" and "Sexy Senators Gone Wild!"
 
   #cookies
   #When I refresh the page
@@ -39,8 +38,7 @@ Scenario: Toggling nsfw state
 
   #hiding
   When I toggle nsfw posts
-  Then I should not see "I love 0bj3ction4bl3 c0nt3nt!"
-  And I should not see "Sexy Senators Gone Wild!"
+  Then I should not see "I love 0bj3ction4bl3 c0nt3nt!" and "Sexy Senators Gone Wild!"
 
 Scenario: Resharing an nsfw post
   Given a nsfw user with email "tommy@pr0nking.com"
