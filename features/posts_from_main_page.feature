@@ -174,16 +174,14 @@ Feature: posting from the main page
 
       And I am on the aspects page
       And I select only "PostingTo" aspect
-      Then I should see "I am eating a yogurt"
-      Then I should see "And cornflakes also"
+      Then I should see "I am eating a yogurt" and "And cornflakes also"
       When I am on the aspects page
       And I select only "Besties" aspect
       Then I should not see "I am eating a yogurt"
       Then I should see "And cornflakes also"
       When I am on the aspects page
       And I select only "NotPostingThingsHere" aspect
-      Then I should not see "I am eating a yogurt"
-      Then I should not see "And cornflakes also"
+      Then I should not see "I am eating a yogurt" and "And cornflakes also"
 
     # (NOTE) make this a jasmine spec
     Scenario: reject deletion one of my posts
