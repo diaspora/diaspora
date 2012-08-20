@@ -688,7 +688,7 @@ display: inline-block;
   margin: 10px 5px 2px;
   float: right;
   font-size: 12px;
-  color: #777;
+  color: #444;
 }
 
 .timestamp {
@@ -702,6 +702,27 @@ display: inline-block;
 form#new_message.new_message input.button.creation{
 	float: right;
 	margin: 0 5px 5px;
+}
+
+h3.ltr {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: bold;
+}
+
+.ltr  {
+  border: 0 none;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 15px 15px;
+  vertical-align: baseline;
+}
+
+textarea#message_text {
+  margin: 10px 0 10px;
 }
 
 form#new_conversation.new_conversation {
