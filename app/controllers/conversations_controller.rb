@@ -1,7 +1,7 @@
 class ConversationsController < ApplicationController
   before_filter :authenticate_user!
 
-  respond_to :html, :json, :js
+  respond_to :html, :mobile, :json, :js
 
   def index
     @conversations = Conversation.joins(:conversation_visibilities).where(
@@ -82,7 +82,10 @@ class ConversationsController < ApplicationController
     elsif params[:aspect_id]
       @contact_ids = current_user.aspects.find(params[:aspect_id]).contacts.map{|c| c.id}.join(',')
     end
+    if session[:mobile_view] == true && request.format.html?
+    render :layout => true
+    elsif
     render :layout => false
+    end
   end
-
 end
