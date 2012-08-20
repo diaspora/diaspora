@@ -6,6 +6,7 @@
 //= require mbp-modernizr-custom
 //= require mbp-respond.min
 //= require mbp-helper
+//= require jquery.autoSuggest.custom
 $(document).ready(function(){
 
   $('.shield a').click(function(){
