@@ -1,6 +1,7 @@
 @import 'bootstrap';
 @import 'bootstrap-responsive';
 @import "_mixins.css.scss";
+@import 'vendor/autoSuggest';
 
 $blue: #3f8fba;
 
@@ -701,4 +702,53 @@ display: inline-block;
 form#new_message.new_message input.button.creation{
 	float: right;
 	margin: 0 5px 5px;
+}
+
+form#new_conversation.new_conversation {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #999999;
+    box-shadow: 0 2px 3px #999999;
+    margin: 5px 20px;
+    padding: 5px;
+}
+
+.span-2 {
+   margin: 5px 5px;
+   text-transform: uppercase;
+}
+  
+.span-10 {
+  width: 100%;
+}
+
+textarea#conversation_text {
+  border: 0.2s;
+  border-radius: 0 0 0 0;
+  font-size: larger;
+  left: 0;
+  margin: 10px 0;
+  width: 218px;
+  padding: 0;
+}
+
+.bottom_submit_section {
+    display: block;
+    position: relative;
+    text-align: right;
+}
+
+.button.creation {
+  color: #333;
+  text-decoration: none;
+  background-color: #E6E6E6;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -webkit-transition-property: background-position;
+  -webkit-transition-duration: 0.1s;
+  -webkit-transition-timing-function: linear;
+  -webkit-transition-delay: initial;
+  -moz-transition: background-position 0.1s linear;
+  -ms-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
 }
