@@ -86,12 +86,6 @@ describe RegistrationsController do
         response.should be_redirect
         response.location.should match /^#{root_url}\??$/
       end
-
-      it 'with an invite code from a beta users, make the user beta' do
-        Role.add_beta(bob.person)
-        get :create, @valid_params.merge(:invite => {:token => bob.invitation_code.token})
-        User.last.should be_beta
-      end
     end
 
     context "with invalid parameters" do
