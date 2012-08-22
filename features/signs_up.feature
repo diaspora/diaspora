@@ -43,20 +43,23 @@ Feature: new user registration
         | user_username        | $%&(/&%$&/=)(/    |
     And I press "Continue"
 
-    Then the "user_username" field should have a validation error
-    And the "user_email" field should have a validation error
-    And the "user_password" field should have a validation error
+	  Then following fields should have validation errors:
+		    | user_username |
+		    | user_email    |
+		    | user_password |
 
     When I fill in the following:
         | user_username     | valid_user                        |
         | user_email        | this is not a valid email $%&/()( |
     And I press "Continue"
 
-    Then the "user_email" field should have a validation error
-    And the "user_password" field should have a validation error
+	  Then following fields should have validation errors:
+		    | user_email |
+		    | user_password |
 
     When I fill in the following:
         | user_email        | valid@email.com        |
         | user_password     | 1                      |
     And I press "Continue"
-    Then the "user_password" field should have a validation error
+	  Then following field should have validation error:
+		    | user_password |

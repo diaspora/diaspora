@@ -5,8 +5,10 @@ Feature: posting
   I want to see what humanity is saying about particular tags
 
   Background:
-    Given a user with username "bob"
-    And a user with username "alice"
+    Given following users exist:
+      | username   | 
+      | bob        |
+      | alice      |
 
     When I sign in as "bob@bob.bob"
     And I post a status with the text "I am da #boss"
