@@ -15,7 +15,8 @@ Feature: commenting
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"
     When I focus the comment field
-    And I fill in "text" with "is that a poodle?"
+    And I fill in the following:
+        | text            | is that a poodle?    |
     And I press "Comment"
     Then I should see "is that a poodle?" within ".comment"
     And I should see "less than a minute ago" within ".comment time"
@@ -25,7 +26,8 @@ Feature: commenting
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"
     When I focus the comment field
-    And I fill in "text" with "is that a poodle?"
+    And I fill in the following:
+        | text            | is that a poodle?    |
     And I press "Comment"
     And I wait for the ajax to finish
     When I hover over the ".comment"

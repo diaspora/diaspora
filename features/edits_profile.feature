@@ -4,13 +4,14 @@ Feature: editing your profile
     Given I am signed in
     And I go to the edit profile page
 
-    When I fill in "profile_gender" with "Fearless"
-    And I fill in "profile_first_name" with "Boba"
-    And I fill in "profile_last_name" with "Fett"
-    And I fill in "profile_bio" with "This is a bio"
+    When I fill in the following:
+      | profile_gender             | Fearless        |
+      | profile_first_name         | Boba            |
+      | profile_last_name          | Fett            |
+      | profile_bio                | This is a bio   |
     And I select "1986" from "profile_date_year"
-    And I select "November" from "profile_date_month"
     And I select "30" from "profile_date_day"
+    And I select "November" from "profile_date_month"
 
     And I press "Update Profile"
 
