@@ -17,7 +17,8 @@ Feature: posting from the main page
 
     Scenario: post a text-only message to all aspects
       Given I expand the publisher
-      When I fill in "status_message_fake_text" with "I am eating yogurt"
+      When I fill in the following:
+          | status_message_fake_text    | I am eating yogurt    |
       And I press "Share"
       And I wait for the ajax to finish
 
@@ -33,8 +34,9 @@ Feature: posting from the main page
     Scenario: post a text-only message to just one aspect
       When I select only "PostingTo" aspect
       And I expand the publisher
-      And I fill in "status_message_fake_text" with "I am eating a yogurt"
-
+      And I fill in the following:
+          | status_message_fake_text    | I am eating a yogurt    |
+      
       And I press "Share"
       And I wait for the ajax to finish
 
@@ -49,7 +51,8 @@ Feature: posting from the main page
     Scenario: post a photo with text
       Given I expand the publisher
       When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
-      And I fill in "status_message_fake_text" with "Look at this dog"
+      When I fill in the following:
+          | status_message_fake_text    | Look at this dog    |
       And I press "Share"
       And I wait for the ajax to finish
       And I go to the aspects page
@@ -87,7 +90,8 @@ Feature: posting from the main page
     Scenario: back out of uploading a picture to a post with text
       Given I expand the publisher
       And I have turned off jQuery effects
-      When I fill in "status_message_fake_text" with "I am eating a yogurt"
+      When I fill in the following:
+          | status_message_fake_text    | I am eating a yogurt    |
       And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
       And I wait for the ajax to finish
       And I click to delete the first uploaded photo
@@ -98,7 +102,8 @@ Feature: posting from the main page
     Scenario: back out of uploading a picture when another has been attached
       Given I expand the publisher
       And I have turned off jQuery effects
-      When I fill in "status_message_fake_text" with "I am eating a yogurt"
+      When I fill in the following:
+          | status_message_fake_text    | I am eating a yogurt    |
       And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
       And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
       And I wait for the ajax to finish
@@ -110,7 +115,8 @@ Feature: posting from the main page
     @wip
     Scenario: hide a contact's post
       Given I expand the publisher
-      When I fill in "status_message_fake_text" with "Here is a post for you to hide"
+      When I fill in the following:
+          | status_message_fake_text    | Here is a post for you to hide    |
       And I press "Share"
       And I wait for the ajax to finish
 
@@ -131,7 +137,8 @@ Feature: posting from the main page
 
     Scenario: delete one of my posts
       Given I expand the publisher
-      When I fill in "status_message_fake_text" with "I am eating a yogurt"
+      When I fill in the following:
+          | status_message_fake_text    | I am eating a yogurt    |
       And I press "Share"
       And I wait for the ajax to finish
       And I go to the aspects page
@@ -186,7 +193,8 @@ Feature: posting from the main page
     # (NOTE) make this a jasmine spec
     Scenario: reject deletion one of my posts
       When I expand the publisher
-      And I fill in "status_message_fake_text" with "I am eating a yogurt"
+      When I fill in the following:
+          | status_message_fake_text    | I am eating a yogurt    |
       And I press "Share"
       And I wait for the ajax to finish
 

@@ -9,7 +9,8 @@ Feature: viewing the photo lightbox
 
     Given I expand the publisher
     And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
-    And I fill in "status_message_fake_text" with "Look at this dog"
+    And I fill in the following:
+        | status_message_fake_text    | Look at this dog    |
     And I press "Share"
     And I wait for the ajax to finish
 

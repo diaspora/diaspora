@@ -11,7 +11,8 @@ Feature: following and being followed
 
     When I am on the home page
     And I expand the publisher
-    And I fill in "status_message_fake_text" with "I am following you"
+    And I fill in the following:
+        | status_message_fake_text    | I am following you    |
     And I press "Share"
     Then I go to the destroy user session page
 
@@ -27,7 +28,8 @@ Feature: following and being followed
     Given I sign in as "alice@alice.alice"
     And I am on the home page
     And I expand the publisher
-    And I fill in "status_message_fake_text" with "I am ALICE"
+    And I fill in the following:
+        | status_message_fake_text    | I am ALICE    |
     And I press the first ".toggle" within "#publisher"
     And I press the first ".public" within "#publisher"
     And I press "Share"

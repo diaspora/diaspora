@@ -3,9 +3,10 @@ Feature: new user registration
 
   Background:
     When I go to the new user registration page
-    And I fill in "user_username" with "ohai"
-    And I fill in "user_email" with "ohai@example.com"
-    And I fill in "user_password" with "secret"
+    And I fill in the following:
+        | user_username     |     ohai              |
+        | user_email        |   ohai@example.com    |
+        | user_password     |     secret            |
     And I press "Continue"
     Then I should be on the getting started page
     And I should see "Well, hello there!" and "Who are you?" and "What are you into?"
@@ -38,22 +39,24 @@ Feature: new user registration
   Scenario: user fills in bogus data - client side validation
     When I log out manually
     And I go to the new user registration page
-    And I fill in "user_username" with "§$%&(/&%$&/=)(/"
+    And I fill in the following:
+        | user_username        | $%&(/&%$&/=)(/    |
     And I press "Continue"
 
     Then the "user_username" field should have a validation error
     And the "user_email" field should have a validation error
     And the "user_password" field should have a validation error
 
-    When I fill in "user_username" with "valid_user"
-    And I fill in "user_email" with "this is not a valid email $%&/()("
+    When I fill in the following:
+        | user_username     | valid_user                        |
+        | user_email        | this is not a valid email $%&/()( |
     And I press "Continue"
 
     Then the "user_email" field should have a validation error
     And the "user_password" field should have a validation error
 
-    When I fill in "user_email" with "valid@email.com"
-    And I fill in "user_password" with "1"
+    When I fill in the following:
+        | user_email        | valid@email.com        |
+        | user_password     | 1                      |
     And I press "Continue"
-
     Then the "user_password" field should have a validation error
