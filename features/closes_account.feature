@@ -18,8 +18,10 @@ Feature: Close Account
     And I should see a flash message containing "Invalid email or password"
 
   Scenario: post display should not throw error when mention is removed for the user whose account is closed
-    Given a user named "Bob Jones" with email "bob@bob.bob"
-    And a user named "Alice Smith" with email "alice@alice.alice"
+    Given following users exist:
+      | username    | email             |
+      | Bob Jones   | bob@bob.bob       |
+      | Alice Smith | alice@alice.alice |
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And Alice has a post mentioning Bob
 

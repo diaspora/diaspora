@@ -1,8 +1,10 @@
 @javascript
 Feature: Blocking a user from the stream
   Background:
-    Given a user named "Bob Jones" with email "bob@bob.bob"
-    And a user named "Alice Smith" with email "alice@alice.alice"
+    Given following users exist:
+      | username    | email             |
+      | Bob Jones   | bob@bob.bob       |
+      | Alice Smith | alice@alice.alice |
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And Alice has a post mentioning Bob
     And I sign in as "bob@bob.bob"

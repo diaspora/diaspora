@@ -5,8 +5,10 @@ Feature: commenting
   I want to comment on her post
 
   Background:
-    Given a user named "Bob Jones" with email "bob@bob.bob"
-    And a user named "Alice Smith" with email "alice@alice.alice"
+    Given following users exist:
+      | username    | email             |
+      | Bob Jones   | bob@bob.bob       |
+      | Alice Smith | alice@alice.alice |
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     When "alice@alice.alice" has posted a status message with a photo
 

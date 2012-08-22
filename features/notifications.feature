@@ -5,9 +5,11 @@ Feature: Notifications
   I want to get notifications
 
   Background:
-    Given a user with email "bob@bob.bob"
-    And a user with email "alice@alice.alice"
-
+    Given That following users:
+      | email             |
+      | bob@bob.bob       |
+      | alice@alice.alice |
+    
   Scenario: someone shares with me
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
