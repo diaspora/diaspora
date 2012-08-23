@@ -5,7 +5,9 @@ Feature: oembed
   I want the links in my posts be replaced by their oEmbed representation
 
   Background:
-    Given a user named "Alice Smith" with email "alice@alice.alice"
+    Given following user exists:
+      | username    | email             | 
+      | Alice Smith | alice@alice.alice |
     And I have several oEmbed data in cache
     When I sign in as "alice@alice.alice"
     And I am on the home page

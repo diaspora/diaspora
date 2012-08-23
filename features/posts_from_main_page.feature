@@ -5,12 +5,15 @@ Feature: posting from the main page
     I want to tell the world I am eating a yogurt
 
     Background:
-      Given a user with username "bob"
-      And a user with username "alice"
+      Given following users exist:
+        | username   |
+        | bob        |
+        | alice      |
       And I sign in as "bob@bob.bob"
       And a user with username "bob" is connected with "alice"
-      And I have an aspect called "PostingTo"
-      And I have an aspect called "NotPostingThingsHere"
+      Given I have following aspects:
+        | PostingTo            |
+        | NotPostingThingsHere |
       And I have user with username "alice" in an aspect called "PostingTo"
       And I have user with username "alice" in an aspect called "NotPostingThingsHere"
       And I am on the home page

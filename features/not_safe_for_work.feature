@@ -2,7 +2,9 @@
 Feature: Not safe for work
 
 Scenario: Setting not safe for work
-  Given a user named "pr0n king" with email "tommy@pr0n.xxx"
+  Given following users exist:
+    | username    | email             | 
+    | pr0n king   | tommy@pr0n.xxx    |
   And I sign in as "tommy@pr0n.xxx"
   When I go to the edit profile page
   And I should see the "you are safe for work" message

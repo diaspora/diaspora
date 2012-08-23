@@ -2,9 +2,11 @@
 Feature: following and being followed
 
   Background:
-    Given a user with email "bob@bob.bob"
-    And a user with email "alice@alice.alice"
-
+    Given following users exist:
+      | email             |
+      | bob@bob.bob       |
+      | alice@alice.alice |
+    
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     And I add the person to my "Besties" aspect

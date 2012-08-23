@@ -25,6 +25,20 @@ Given /^a nsfw user with email "([^\"]*)"$/ do |email|
   user.profile.update_attributes(:nsfw => true)
 end
 
+
+Given /^(?:|[tT]hat )?following user[s]?(?: exist[s]?)?:$/ do |table|
+  table.hashes.each do |hash|
+    if hash.has_key? "username" and hash.has_key? "email"
+      step %{a user named "#{hash['username']}" with email "#{hash['email']}"}
+    elsif hash.has_key? "username"
+      step %{a user with username "#{hash['username']}"} 
+    elsif hash.has_key? "email"
+      step %{a user with email "#{hash['email']}"}
+    end
+  end
+end
+
+
 Given /^I have been invited by an admin$/ do
   admin = Factory(:user)
   admin.invitation_code
@@ -50,6 +64,12 @@ end
 Given /^I have an aspect called "([^\"]*)"$/ do |aspect_name|
   @me.aspects.create!(:name => aspect_name)
   @me.reload
+end
+
+Given /^I have following aspect[s]?:$/ do |fields|
+  fields.raw.each do |field|
+    step %{I have an aspect called "#{field[0]}"}
+  end
 end
 
 When /^I have user with username "([^"]*)" in an aspect called "([^"]*)"$/ do |username, aspect|

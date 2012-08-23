@@ -6,13 +6,16 @@ Feature: mentioning a contact from their profile page
 
     Background:
       Given I am on the home page
-      And a user with username "bob"
-      And a user with username "alice"
+      And following users exist:
+        | username   |
+        | bob        |
+        | alice      |
 
       When I sign in as "bob@bob.bob"
       And a user with username "bob" is connected with "alice"
-      And I have an aspect called "PostingTo"
-      And I have an aspect called "NotPostingThingsHere"
+      And I have following aspects:
+        | PostingTo            |
+        | NotPostingThingsHere |
       And I have user with username "alice" in an aspect called "PostingTo"
       And I have user with username "alice" in an aspect called "NotPostingThingsHere"
 
