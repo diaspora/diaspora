@@ -105,7 +105,7 @@ fi
 # Start Diaspora
 
 if [ "$(bundle exec ruby ./script/get_config.rb 'single_process_mode?')" != "true" ]; then
-    QUEUE=* bundle exec rake resque:work&
+    PIDFILE=tmp/pids/resque.pid BACKGROUND=yes QUEUE=* bundle exec rake resque:work
 fi
 
 if [ "$(./script/get_config.rb enable_thin script_server)" = "true" ]; then
