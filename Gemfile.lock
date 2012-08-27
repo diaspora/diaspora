@@ -441,7 +441,8 @@ GEM
       multi_json (~> 1.0)
       simple_oauth (~> 0.1)
     typhoeus (0.4.2)
-      mime-types
+      ffi (~> 1.0)
+      mime-types (~> 1.18)
     tzinfo (0.3.33)
     uglifier (1.2.4)
       execjs (>= 0.3.0)
