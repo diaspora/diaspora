@@ -5,11 +5,10 @@
 - content_for :page_title do
   = t('search')
 
-
 %div{:style => 'text-align:center;'}
   = form_tag(people_path, :method => 'get') do
     %div{:data => {:role => 'fieldcontain', :inline => 'true'}}
-      = search_field_tag :q
+      = search_field_tag :q, nil, :placeholder => t('find_people')
       = submit_tag t('search'), 'data-inline' => 'true'
 
 
