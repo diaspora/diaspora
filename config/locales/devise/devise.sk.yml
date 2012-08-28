@@ -22,7 +22,7 @@ sk:
     invitations:
       invitation_token_invalid: "Ospravedlňujeme sa. Táto pozývacia značka nie je platná."
       send_instructions: "Tvoja pozvánka bola odoslaná."
-      updated: "Tvoje heslo bolo úspešné zmenené. Teraz si prihlásený (-á)."
+      updated: "Tvoje heslo bolo úspešné nastavené. Teraz si prihlásený (-á)."
     mailer:
       confirmation_instructions:
         confirm: "Potvrdiť svoj účet"
@@ -31,7 +31,7 @@ sk:
       hello: "Ahoj %{email}!"
       invitation_instructions:
         accept: "Prijať pozvanie"
-        arrived: "Sociálna sieť, na ktorú ste čakali, je tu. %{strong_diaspora} je vylepšená, bezpečnejšia, zábavnejšia a&nbsp;pripravená pomôcť vám deliť sa s&nbsp;ostatnými a&nbsp;skúmať web úplne inak."
+        arrived: "Sociálna sieť, na ktorú si čakal(a), je tu. %{strong_diaspora} je vylepšená, bezpečnejšia, zábavnejšia a&nbsp;pripravená pomôcť ti deliť sa s&nbsp;ostatnými a&nbsp;skúmať web úplne inak."
         be_yourself: "Buď sám/sama sebou"
         be_yourself_paragraph: "Internet vytvoril jedinečné nové spôsoby na sebaprezentáciu.  %{strong_diaspora} ti umožňuje, aby si bol(a) sám/sama sebou a podelil(a) sa s priateľmi o hocičo, o čo chceš, a to pod svojím skutočným menom alebo bez neho."
         cubbies: "Cubbi.es"
@@ -39,18 +39,18 @@ sk:
         email_address: "questions@joindiaspora.com"
         email_us: "So všeobecnými otázkami alebo žiadosťami o technickú podporu svojho účtu na Diaspore nám, prosím, napíš na %{email}."
         finally: "Napokon – je to tu"
-        friends_saying: "Čo hovoria vaši priatelia..."
+        friends_saying: "Čo hovoria tvoji priatelia..."
         get_connected: "Pripoj sa"
         get_connected_paragraph: "Keďže je to medzinárodná aktivita so&nbsp;spoločnou víziou za lepší internet, Najsilnejšou stránkou siete %{strong_diaspora} je jej komunita. Zoznám sa s&nbsp;novými ľuďmi, spoj sa s&nbsp;priateľmi a&nbsp;bav sa tiež."
         have_fun: "Bav sa"
-        have_fun_paragraph: "%{strong_diaspora} je o objavovaní úžasného obsahu a úžasných ľudí online. %{link}, prvá aplikácia na sieti %{strong_diaspora} na svete je len začiatok. Skúmaj a podeľ sa o web v celej jeho sláve."
+        have_fun_paragraph: "%{strong_diaspora} je o objavovaní úžasného obsahu a úžasných ľudí online. %{link}, prvá aplikácia na sieti %{strong_diaspora} na svete je len začiatok. Zbieraj zaujímavosti a podeľ sa o web v celej jeho sláve."
         help_fund: "pomôž financovať Diasporu"
         here: "sem"
         ignore: "Ak nechceš prijať toto pozvanie, ignoruj tento e-mail, prosím."
         join_team: "Pridaj sa k nášmu tímu"
         love: "S pozdravom"
         made_by_people: "%{strong_diaspora} vznikla vďaka ľuďom, ktorí majú radi internet tak ako ty. %{jointeam} alebo %{helpfund}!"
-        more_people: "Ešte viac ľudí vás chce stretnúť!"
+        more_people: "Ešte viac ľudí ťa chce stretnúť!"
         no_account_till: "Tvoj účet sa nevytvorí, kým neklikneš na odkaz a nezaregistruješ sa."
         or: "alebo"
         sign_up_now: "Zaregistruj sa teraz &rarr;"
@@ -59,7 +59,7 @@ sk:
         unsubscribe: "Ak už nechceš dostávať e-maily, klikni %{link}."
         view_in: "Pozri si ho vo svojom internetovom prehliadači."
       inviter:
-        accept_at: "Kliknutím na odkaz na stránku %{url} ho môžeš prijať."
+        accept_at: "Kliknutím na odkaz na stránku %{url} ju môžeš prijať."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} ťa pozvali na Diasporu"
       reset_password_instructions:
@@ -67,7 +67,7 @@ sk:
         ignore: "Ak si o to nežiadal(a), tento e-mail, prosím, ignoruj."
         someone_requested: "Požiadal(a) si o zmenu hesla; môžeš to urobiť kliknutím na tento odkaz."
         subject: "Pokyny na zmenu hesla"
-        wont_change: "Tvoje heslo sa nedá zmeniť, kým neklikneš na uvedený odkaz a nevytvoríš si nové."
+        wont_change: "Tvoje heslo sa nezmení, kým neklikneš na odkaz, ktorý je napísaný vyššie, a nevytvoríš si nové."
       unlock_instructions:
         account_locked: "Tvoj účet bol zablokovaný kvôli vysokému počtu neúspešných prihlásení."
         click_to_unlock: "Klikni na tento odkaz a tvoj účet sa odomkne:"
@@ -79,7 +79,7 @@ sk:
         change_password: "Zmeniť moje heslo"
       new:
         forgot_password: "Zabudol (-la) si heslo?"
-        no_account: "Takúto e-mailovú adresu nemá žiaden účet. Ak čakáš na pozvánku, mala by ti prísť každú chvíľu."
+        no_account: "Účet s takouto e-mailovou adresou neexistuje.  Ak čakáš na pozvánku, pošleme ti ju, hneď ako to bude možné."
         send_password_instructions: "Pošlite mi pokyny na zmenu hesla"
       send_instructions: "O niekoľko minút dostaneš e-mail s pokynmi, ako si zmeniť heslo."
       updated: "Tvoje heslo bolo úspešne zmenené. Teraz si prihlásený (-á)."
@@ -102,7 +102,7 @@ sk:
       signed_out: "Úspešne si sa odhlásil(a)."
     shared:
       links:
-        forgot_your_password: "Zabudli ste heslo?"
+        forgot_your_password: "Zabudol (-la) si heslo?"
         receive_confirmation: "Nedostal(a) si pokyny na potvrdenie?"
         receive_unlock: "Nedostal(a) si pokyny na odomknutie účtu?"
         sign_in: "Prihlásiť sa"

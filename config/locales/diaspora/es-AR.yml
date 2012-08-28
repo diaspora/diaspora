@@ -118,7 +118,7 @@ es-AR:
       edit_aspect: "Editar %{name}"
       select_all: "Seleccionar todo"
     aspect_stream:
-      make_something: "Haz algo"
+      make_something: "Siente la libertad"
       stay_updated: "Mantenete actualizado"
       stay_updated_explanation: "En tu stream principal aparecen las publicaciones de tus contactos, más las de las etiquetas que sigues, y si lo deseas, las de algunos miembros creativos de la comunidad."
     contacts_not_visible: "Los contactos en este aspecto no van a poder verse entre ellos."
@@ -698,7 +698,7 @@ es-AR:
       enter_password: "Ingresa una contraseña (seis caracteres mínimo)"
       enter_password_again: "Repetí la misma contraseña"
       enter_username: "Elegí un nombre de usuario (sólo letras, números y guión bajo)"
-      hey_make: "HEY,<br/>HAZ<br/>ALGO."
+      hey_make: "HEY,<br/>SIENTE LA<br/>LIBERTAD."
       join_the_movement: "Unite al movimiento!"
       password: "CONTRASEÑA"
       sign_up: "REGISTRARSE"
@@ -813,7 +813,7 @@ es-AR:
       new_user_welcome_message: "Usa #hashtags para clasificar tus publicaciones y encontrar gente que comparte tus intereses.  Llama a gente interesante usando las @Menciones"
       outside: "Las publicaciones para \"el mundo\" podrán verse fuera de Diáspora*."
       share: "Comparte"
-      title: "Gesstioná los servicios conectados"
+      title: "Gestioná los servicios conectados"
       visibility_dropdown: "Usa este menú para cambiar la visibilidad de tu publicación.  (Sugerimos hacer público el primero.)"
     publisher:
       all: "todo"

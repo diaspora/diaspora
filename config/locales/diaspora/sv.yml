@@ -384,7 +384,7 @@ sv:
       people_dislike_this:
         one: "en person ogillar det här"
         other: "%{count} personer ogillar det här"
-        zero: "inga personer ogillar det här"
+        zero: "inga ogillar det här"
       people_like_this:
         one: "en person gillar det här"
         other: "%{count} personer gillar det här"

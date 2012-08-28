@@ -97,7 +97,7 @@ vi:
     aspect_contacts:
       done_editing: "đã chỉnh sửa xong"
     aspect_listings:
-      add_an_aspect: "+ Thêm một mối quan hệ"
+      add_an_aspect: "+ Thêm mối quan hệ"
       deselect_all: "Bỏ chọn tất cả"
       edit_aspect: "Sửa %{name}"
       select_all: "Chọn tất cả"
@@ -349,7 +349,7 @@ vi:
       back_to_top: "Cuộn lên trên"
       powered_by: "ĐƯỢC HỖ TRỢ BỞI DIASPORA*"
       public_feed: "Nguồn tin Diaspora công khai cho %{name}"
-      toggle: "chuyển sang di động"
+      toggle: "bật/tắt di động"
       whats_new: "có gì mới?"
       your_aspects: "các mối quan hệ"
     header:
@@ -593,9 +593,9 @@ vi:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
+        other: "%{count} ảnh của %{author}"
         two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        zero: "Không có ảnh của %{author}"
       reshare_by: "Chia sẻ lại từ %{author}"
   previous: "trước"
   privacy: "Bảo mật"
@@ -680,7 +680,7 @@ vi:
         zero: "Không có ai chia sẻ lại"
       reshare_confirmation: "Chia sẻ lại bài đăng của %{author}?"
       reshare_original: "Chia sẻ lại bài gốc"
-      reshared_via: "chia sẻ lại qua"
+      reshared_via: "chia sẻ lại bởi"
       show_original: "Hiện bài đăng gốc"
   search: "Tìm"
   services:

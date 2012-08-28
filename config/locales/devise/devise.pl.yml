@@ -95,7 +95,7 @@ pl:
         login: "Zaloguj się"
         modern_browsers: "obsługuje wyłącznie nowoczesne przeglądarki."
         password: "Hasło"
-        remember_me: "Zapamiętaj mnie"
+        remember_me: "Pamiętaj mnie"
         sign_in: "Zaloguj się"
         username: "Nazwa użytkownika"
       signed_in: "Zalogowano pomyślnie."

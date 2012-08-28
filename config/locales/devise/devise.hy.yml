@@ -1,0 +1,38 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+hy:
+  devise:
+    failure:
+      invalid: "Սխալ գորժանուն կամ ծածկագիր:"
+      invalid_token: "Սխալ իսկությունը ստուգելու նշան:"
+      locked: "Ձեր հաշիվը կողպված է:"
+      timeout: "Ձեր նիստի ժամկետն անցել է, խնդրում ենք կրկին մուտք գործեք որ շարունակեք:"
+      unauthenticated: "Դուք պետք է մուտք գործեք կամ գրանցվեք մինչև շարունակելը:"
+      unconfirmed: "Դուք պետք է հաստատեք ձեր հաշիվը մինչև շարունակելը:"
+    mailer:
+      hello: "Ողջույն %{email}"
+      invitation_instructions:
+        or: "կամ"
+      welcome: "Բարի գալուստ %{email}"
+    passwords:
+      new:
+        forgot_password: ""
+      send_instructions: "Դուք կստանաք ցուցումներով էլ.նամակ, թե ինչպես վերականգնել Ձեր գաղտնաբառը մի քանի րոպեների ընթացքում:"
+    sessions:
+      new:
+        login: "Մուտք գործել"
+        password: "Ծածկագիր"
+        remember_me: "Հիշիր ինձ"
+        sign_in: "Մուտք գործել"
+        username: "Գորժանուն"
+      signed_in: "Հաջող մուտք գործեցիք:"
+      signed_out: "Հաջող ելք գործեցիք:"
+  errors:
+    messages:
+      already_confirmed: "արդեն հաստատվել է"
+      not_found: "չգտնվեց"
+      not_locked: "կողպված չե"

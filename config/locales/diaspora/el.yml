@@ -158,22 +158,22 @@ el:
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora (ID). Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να σας βρουν."
       help:
         do_you: "Μήπως.."
-        email_feedback: "%{link} το σχόλιό σας, αν το προτιμάτε"
-        email_link: "Στείλτε με ηλεκτρονικό ταχυδρομείο"
+        email_feedback: "Αν θέλετε, μπορείτε να στείλετε τα σχόλιά σας με %{link}."
+        email_link: "ηλεκτρονικό ταχυδρομείο"
         feature_suggestion: "... έχετε να προτείνετε μία δυνατότητα %{link} ;"
         find_a_bug: "... βρήκατε ένα σφάλμα %{link} ;"
         have_a_question: "... έχετε μία ερώτηση %{link} ;"
         here_to_help: "Η κοινότητα του Diaspora είναι εδώ για να σας βοηθήσει!"
         need_help: "Χρειάζεστε βοήθεια;"
         tag_bug: "bug"
-        tag_feature: "χαρακτηριστικά"
+        tag_feature: "feature"
         tag_question: "question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Οδηγοί από την κοινότητα του Diaspora, how-to, και νέα"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Οδηγοί από την κοινότητα του Diaspora, how-to, και νέα."
       introduce_yourself: "Αυτή είναι η Ροή σας. Μπείτε και συστηθείτε."
       keep_diaspora_running: "Κρατήστε το Diaspora σε γρήγορη ανάπτυξη με μηνιαία δωρεά!"
-      keep_pod_running: "Διατηρείστε τη καλή λειτουργία του %{pod}, παρέχοντας στους servers μας τη μηνιαία δωρεά σου!"
+      keep_pod_running: "Διατηρείστε τη καλή λειτουργία του %{pod}, παρέχοντας στους servers μας τη μηνιαία δωρεά σας!"
       new_here:
-        follow: "Ακολουθήστε τη %{link} και καλωσορίστε νέους χρήστες στο Diaspora*!"
+        follow: "Ακολουθήστε την ετικέτα %{link} και καλωσορίστε νέους χρήστες στο Diaspora*!"
         learn_more: "Μάθετε περισσότερα"
         title: "Καλωσήλθατε Νέοι Χρήστες"
       no_contacts: "Καμία επαφή"
@@ -217,7 +217,7 @@ el:
     two: "%{count} πτυχές"
     update:
       failure: "Η πτυχή σας, %{name}, έχει πολύ μεγάλο όνομα για να αποθηκευτεί."
-      success: "Έγινε επιτυχώς η επεξεργασία της πτυχής σας,% {name}."
+      success: "Έγινε επιτυχώς η επεξεργασία της πτυχής σας, %{name}."
     zero: "καμία πτυχή"
   authorizations:
     index:
@@ -236,9 +236,9 @@ el:
       failure: "Δεν μπόρεσα να σταματήσω να αγνοώ αυτό το χρήστη. #evasion"
       success: "Για να δούμε τι έχουν να πουν! #sayhello"
   bookmarklet:
-    explanation: "Δημοσιεύστε στο Diaspora από οπουδήποτε προσθέτοντας %{link}."
-    heading: "Σελιδοδείκτης"
-    post_something: "Αναρτήστε κάτι στο Diaspora"
+    explanation: "Αναρτήστε στο Diaspora από οπουδήποτε προσθέτοντας αυτό τον σύνδεσμο => %{link}."
+    heading: "Εφαρμογή σελιδοδείκτη"
+    post_something: "Αναρτήστε στο Diaspora"
     post_success: "Αναρτήθηκε! Κλείνει!"
   cancel: "Ακύρωση"
   comments:
@@ -368,6 +368,7 @@ el:
       back_to_top: "Πίσω στην αρχή"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Δημόσια ανατροφοδότηση (feed) του Diaspora για τον χρήστη %{name}"
+      source_package: "κατεβάστε τον πηγαίο κώδικα του πακέτου"
       toggle: "εναλλαγή σε κινητό"
       whats_new: "Τι νέα?"
       your_aspects: "οι πτυχές σας"
@@ -531,7 +532,7 @@ el:
 
           Με Αγάπη,
 
-          Η αυτόματης αποστολή e-mail του Diaspora*!
+          Το e-mail ρομπότ του Diaspora*!
 
           [1]: %{invite_url}
     invited_you: "O/H %{name} σε προσκάλεσε στο Diaspora*"
@@ -934,7 +935,7 @@ el:
     tags:
       contacts_title: "Άτομα που τους αρέσει αυτή ή ετικέτα"
       tag_prefill_text: "Αυτό που σκέφτομαι για %{tag_name} είναι... "
-      title: "Δημοσιοποιήσεις με ετικέτα: %{tags}"
+      title: "Δημοσιοποιήσατε με ετικέτα: %{tags}"
   tag_followings:
     create:
       failure: "Η προσπάθεια σας να ακολουθήσετε την ετικέτα #%{name} απέτυχε. Μήπως την ακολουθείτε ήδη;"

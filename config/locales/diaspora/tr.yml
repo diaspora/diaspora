@@ -40,6 +40,28 @@ tr:
             username:
               invalid: "geçersiz. Sadece harf, sayı ve alt çizgi"
               taken: "önceden alınmış."
+  admins:
+    admin_bar:
+      pages: "Sayfalar"
+      user_search: "Kullanıcı Arama"
+    stats:
+      2weeks: "2 Hafta"
+      daily: "Günlük"
+      go: "git"
+      month: "Ay"
+      usage_statistic: "Kullanıcı İstatistikleri"
+      users:
+        other: "%{count} kişi"
+        zero: "%{count} kişi"
+      week: "Hafta"
+    user_search:
+      add_invites: "davetiye ekle"
+      email_to: "E-posta ile Davet"
+      users:
+        other: "%{count} kullanıcı bulundu"
+        zero: "%{count} kullanıcı bulundu"
+    weekly_user_stats:
+      current_server: "Mevcut sunucu tarihi %{date}"
   ago: "%{time} önce"
   all_aspects: "Tüm Yönler"
   application:
@@ -67,6 +89,7 @@ tr:
       edit_aspect: "Düzenle %{name}"
       select_all: "Tümünü seç"
     aspect_stream:
+      make_something: "Bir şeyler yapın"
       stay_updated: "Güncel Kalın"
       stay_updated_explanation: "Ana akışınızda takip ettiğiniz kişiler, takip ettiğiniz etiketler ve topluluk üyelerinin gönderileri bulunur."
     contacts_not_visible: "Kişilerin bu yönde birbirlerini görmesi mümkün olmayacaktır."
@@ -107,6 +130,7 @@ tr:
       help:
         do_you: "Seçim:"
         email_feedback: "%{link} ile yolla mesajını, bu yolu tercih ediyorsan"
+        email_link: "E-posta"
         feature_suggestion: "... bir %{link} önerin var mı?"
         find_a_bug: "... bulduğun %{link} mı var?"
         have_a_question: "... bir %{link} mu sormak istiyorsun?"
@@ -120,7 +144,7 @@ tr:
       new_here:
         follow: "%{link} unsurunu izle ve yeni Diaspora* kullanıcılarını karşıla!"
         learn_more: "Daha fazla bilgi"
-        title: "Yenilere Hoş Geldin De"
+        title: "Yeni Kişilerle Tanış"
       no_contacts: "Kişi yok"
       no_tags: "+ Takip etmek için bir etiket bul"
       people_sharing_with_you: "Seninle paylaşımda bulunanlar"
@@ -168,6 +192,9 @@ tr:
     index:
       no_applications: "Henüz kayıtlı bir uygulama yok."
       revoke_access: "Erişimi Kaldır"
+    new:
+      authorize: "Onayla"
+      nope: "Hayır"
   back: "Geri"
   blocks:
     create:
@@ -179,7 +206,7 @@ tr:
   bookmarklet:
     explanation: "Diaspora'ya istediğin her yerden gönderi yapmak için %{link} yer imleri çubuğuna sürükle."
     heading: "Diaspora yer işareti"
-    post_something: "Diaspora için birşey gönder"
+    post_something: "Diaspora için bir şey gönder"
     post_success: "Gönderildi! Kapatılıyor!"
   cancel: "İptal Et"
   comments:
@@ -254,12 +281,19 @@ tr:
       delete: "iletişimi sil ya da engelle"
       reply: "yanıtla"
       replying: "Yanıtlanıyor..."
+  date:
+    formats:
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Sil"
   email: "E-posta"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Alttaki yanlıșları düzeltin ve tekrar deneyin."
       invalid_fields: "Geçersiz Alanlar"
+    login_try_again: "Lütfen <a href='%{login_link}'>giriş yapın</a> ve tekrar deneyin!"
+    post_not_public: "Görüntülemeye çalıştığınız gönderi genel değildir!"
   fill_me_out: "Beni doldur"
   find_people: "Kişi ve #tag bul"
   hide: "Gizle"
@@ -281,6 +315,7 @@ tr:
       already_invited: "Aşağıdaki kişiler davetinizi kabul etmedi:"
       aspect: "Yön"
       check_out_diaspora: "Diaspora'yı deneyin!"
+      comma_separated_plz: ""
       if_they_accept_info: "kabul ederseler, yönünüze eklenecekler."
       invite_someone_to_join: "Diaspora'ya birilerini davet et!"
       language: "Dil"
@@ -294,11 +329,13 @@ tr:
       back_to_top: "Sayfa başına dön"
       powered_by: "GELİŞTİRİCİ DIASPORA*"
       public_feed: " %{name} için Genel Diaspora Beslemesi"
+      source_package: "kaynak kod paketini indir"
       toggle: "mobil site"
       whats_new: "neler yeni?"
       your_aspects: "sizin yönleriniz"
     header:
       admin: "yönetici"
+      blog: "blog"
       code: "kod"
       login: "giriş yap"
       logout: "Çıkış yap"
@@ -373,6 +410,7 @@ tr:
         two: "ve %{count} diğer kişi"
         zero: "ve başka hiç kimse"
       mark_all_as_read: "Tümünü okundu olarak işaretle"
+      mark_unread: "Okunmadı olarak işaretle"
       notifications: "Bildirimler"
     liked:
       few: "%{actors} senin %{post_link} unsurunu iğneledi."
@@ -433,14 +471,32 @@ tr:
       zero: "%{actors} sizinle paylaşıma başladı."
   notifier:
     a_post_you_shared: "gönderi"
+    accept_invite: "Diaspora* davetini kabul et"
     click_here: "buraya"
     comment_on_post:
       reply: "Yanıtla ya da %{name} gönderisini görüntüle >"
     confirm_email:
-      click_link: "Yeni e-mail adresini %{unconfirmed_email} etkinleştirmek için şu bağlantıyı tıkla:"
+      click_link: "Yeni e-mail adresini %{unconfirmed_email} etkinleştirmek için şu bağlantıya tıkla:"
       subject: "Lütfen yeni e-mail adresini %{unconfirmed_email} etkinleştir"
-    email_sent_by_diaspora: "Bu e-posta Diaspora tarafından gönderildi. Bu gibi e-postalar almak istemiyorsanız,"
+    email_sent_by_diaspora: "Bu e-posta %{pod_name} tarafından gönderildi. Bu gibi e-postalar almak istemiyorsanız,"
     hello: "Merhaba %{name}!"
+    invite:
+      message: |-
+          Merhaba!
+
+          Diaspora*'ya davet edildiniz!
+
+          Başlamak için bu kısayolu tıklayınız
+
+          [%{invite_url}][1]
+
+
+          Sevgilerle,
+
+          Diaspora* e-posta robotu!
+
+          [1]: %{invite_url}
+    invited_you: "%{name} sizi Diasporaya* davet etti."
     liked:
       liked: "%{name} gönderini iğneledi."
       view_post: "Gönderiyi görüntüle >"
@@ -461,11 +517,14 @@ tr:
       view_profile: "%{name} kişisinin profilini görüntüle"
     thanks: "Teşekkürler,"
     to_change_your_notification_settings: "tıklayarak bildirim ayarlarınızı değiştirebilirsiniz"
+  nsfw: "NSFW"
   ok: "Tamam"
   or: "ya da"
   password: "Parola"
   password_confirmation: "Parola doğrulama"
   people:
+    add_contact:
+      invited_by: "tarafından davet edildin"
     add_contact_small:
       add_contact_from_tag: "kişi etiketle"
     aspect_list:
@@ -480,6 +539,8 @@ tr:
       no_one_found: "...ve hiç kimse bulunamadı."
       no_results: "Hey! Bir şeyi araman lazım."
       results_for: "arama sonuçları"
+      searching: "aranıyor, biraz sabırlı olun..."
+    last_post: "Son Gönderi"
     many: "%{count} kişi"
     one: "1 kişi"
     other: "%{count} kişi"
@@ -555,6 +616,8 @@ tr:
       error: "Fotoğraf düzeltme başarısız oldu."
       notice: "Fotoğraf başarıyla güncellendi."
   posts:
+    presenter:
+      title: "%{name} 'den bir gönderi"
     show:
       destroy: "Sil"
       not_found: "Üzgünüz, bu gönderi bulamadı."
@@ -611,13 +674,20 @@ tr:
       unhappy: "Mutsuz?"
       update: "Güncelle"
     new:
+      continue: "Devam"
       create_my_account: "Hesabımı oluştur!"
+      diaspora: "<3 Diaspora*"
+      email: "E-POSTA"
       enter_email: "Bir e-posta girin"
       enter_password: "Bir parola girin"
       enter_password_again: "Daha önce olduğu gibi aynı parolayı girin."
       enter_username: "Bir kullanıcı adı seçin (sadece harfler, rakamlar ve alt çizgi)"
+      hey_make: "HEY,<br/>BİR ŞEY<br/>YAP"
       join_the_movement: "Harekete katılın!"
+      password: "PAROLA"
+      sign_up: "KAYDOL"
       sign_up_message: "♥ ile Sosyal Ağ"
+      username: "KULLANICI ADI"
   requests:
     create:
       sending: "Gönderiliyor..."
@@ -695,6 +765,7 @@ tr:
     add_contact:
       add_new_contact: "Yeni kişi ekle"
       create_request: "Diaspora ID ile bul"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Diaspora kullanıcı adınızı giriniz:"
       know_email: "E-posta adresini biliyor musun? O zaman onu davet et"
       your_diaspora_username_is: "Diaspora kullanıcı adın: %{diaspora_handle}"
@@ -721,6 +792,7 @@ tr:
       invite_your_friends: "Arkadaşlarını davet et"
       invites: "Davetiyeler"
       invites_closed: "Bu Diaspora'da davet kapalı görünüyor"
+      share_this: "Bu e-posta yoluyla bağlantı, blog ya da favori sosyal ağını paylaş!"
     notification:
       new: "%{from}'den yeni %{type}"
     public_explain:
@@ -765,6 +837,7 @@ tr:
       show: "göster"
       unlike: "Beğenme"
       via: "%{link} ile"
+      via_mobile: "mobil ile"
       viewable_to_anyone: "Bu gönderi web üzerindeki herkes tarafından görünebilir."
   status_messages:
     create:
@@ -792,6 +865,8 @@ tr:
       two: "İki yorum daha göster"
       zero: "Daha fazla yorum yok"
   streams:
+    activity:
+      title: "Aktivitelerim"
     aspects:
       title: "Yönlerin"
     aspects_stream: "Yönler"
@@ -871,6 +946,7 @@ tr:
       change_email: "E-posta değiştir"
       change_language: "Dili değiştir"
       change_password: "Parolamı değiştir"
+      character_minimum_expl: "en az 6 karakter olmalı"
       close_account:
         dont_go: "Hey, gitme lütfen!"
         if_you_want_this: "Bunu yapmak istediğinden eminsen, aşağıda parolanı gir ve 'Hesabı Kapat' düğmesini tıkla"
