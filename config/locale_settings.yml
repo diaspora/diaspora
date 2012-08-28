@@ -21,6 +21,7 @@ available:
   es: "Castellano"
   es-AR: "Castellano - Argentina"
   es-CL: "Castellano - Chile"
+  es-VE: "Castellano - Venezuela"
   es-MX: "Español, México"
   et: "Eesti"
   eu: "Euskara"
@@ -90,6 +91,8 @@ fallbacks:
   es-CL:
     - "es"
   es-MX:
+    - "es"
+  es-VE:
     - "es"
   gl:
     - "gl-ES"
