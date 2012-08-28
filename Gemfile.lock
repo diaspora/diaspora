@@ -1,4 +1,22 @@
 GIT
+  remote: git://github.com/halida/rails_admin.git
+  revision: 590dceb10812a9207e42dbccecd5d1031715ae80
+  specs:
+    rails_admin (0.0.3)
+      bbenezech-nested_form (~> 0.0.6)
+      bootstrap-sass (~> 2.0, >= 2.0.3)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      haml (~> 3.1)
+      jquery-rails (>= 1.0.17)
+      jquery-ui-rails (~> 0.2.2)
+      kaminari (~> 0.12)
+      rack-pjax (~> 0.5)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      sass-rails (~> 3.1)
+
+GIT
   remote: https://github.com/Empact/roxml.git
   revision: 7ea9a9ffd2338aaef5b04cb792060ae8c98f346a
   ref: 7ea9a9ffd2338aaef5b0
@@ -331,19 +349,6 @@ GEM
       railties (= 3.2.6)
     rails-i18n (0.6.5)
       i18n (~> 0.5)
-    rails_admin (0.0.3)
-      bbenezech-nested_form (~> 0.0.6)
-      bootstrap-sass (~> 2.0)
-      builder (~> 3.0)
-      coffee-rails (~> 3.1)
-      haml (~> 3.1)
-      jquery-rails (>= 1.0.17)
-      jquery-ui-rails (~> 0.2.2)
-      kaminari (~> 0.12)
-      rack-pjax (~> 0.5)
-      rails (~> 3.1)
-      remotipart (~> 1.0)
-      sass-rails (~> 3.1)
     rails_autolink (1.0.9)
       rails (~> 3.1)
     railties (3.2.6)
@@ -528,7 +533,7 @@ DEPENDENCIES
   rack-ssl
   rails (= 3.2.6)
   rails-i18n
-  rails_admin (~> 0.0.3)
+  rails_admin!
   rails_autolink
   redcarpet (= 2.1.1)
   remotipart (~> 1.0)
