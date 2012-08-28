@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 Diaspora::Application.routes.draw do
-  if Rails.env.production?
+  if Rails.env.production? && !ENV['RAILS_ADMIN']
     mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
   end
 
