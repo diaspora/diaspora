@@ -773,3 +773,9 @@ textarea#conversation_text {
   -o-transition: background-position 0.1s linear;
   transition: background-position 0.1s linear;
 }
+
+.registrations_error,
+.registrations_notice {
+  color: #DF0101;
+  text-shadow: 1px 1px 5px #666; 
+}
