@@ -33,6 +33,15 @@ class RelayableRetraction < SignedRetraction
     true
   end
 
+  def perform receiving_user
+    Rails.logger.debug "Performing relayable retraction for #{target_guid}"
+    if not self.parent_author_signature.nil? or self.parent.author.remote?
+      # Don't destroy a relayable unless the top-level owner has received it, otherwise it may not get relayed
+      self.target.destroy
+      Rails.logger.info("event=relayable_retraction status =complete target_type=#{self.target_type} guid =#{self.target_guid}")
+    end
+  end
+
   def receive(recipient, sender)
     if self.target.nil?
       Rails.logger.info("event=retraction status=abort reason='no post found' sender=#{sender.diaspora_handle} target_guid=#{target_guid}")
