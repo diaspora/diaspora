@@ -110,8 +110,9 @@ body {
 
 .login_error,
 .login_alert {
-  color: rgb(208, 49, 43);
-  text-shadow: 1px 1px 20px rgb(208, 49, 43); }
+  color: #DF0101;
+  text-shadow: 1px 1px 5px #666;
+}
 
 .login_notice {
   color: rgb(10, 150, 10);
