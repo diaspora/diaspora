@@ -12,13 +12,13 @@ zh-CN:
         resend_confirmation: "重送发送帐号确认邮件"
       send_instructions: "您会在几分钟内收到一封邮件，它将指引您完成帐号确认步骤。"
     failure:
-      inactive: "你的帐号尚未激活。"
+      inactive: "您的帐号尚未激活。"
       invalid: "邮箱或密码有误。"
       invalid_token: "验证信息不合法。"
       locked: "您的帐号已锁定。"
       timeout: "会话超时。若要继续，请重新登录。"
       unauthenticated: "请您登录或注册。"
-      unconfirmed: "你必须先验证帐号才能继续。"
+      unconfirmed: "您必须先验证帐号才能继续。"
     invitations:
       invitation_token_invalid: "邀请码验证失败。"
       send_instructions: "邀请发送成功。"
@@ -27,12 +27,12 @@ zh-CN:
       confirmation_instructions:
         confirm: "确认帐号"
         subject: "帐号确认步骤"
-        you_can_confirm: "你可以点击下面的链接确认帐号："
+        you_can_confirm: "您可以点击下面的链接确认帐号："
       hello: "您好, %{email}!"
       invitation_instructions:
         accept: "接收请求"
         be_yourself: "就做你自己"
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        displaying_correctly: "邮件没有正常显示？请在您的网页浏览器中访问 %{link}"
         friends_saying: "大家正在说...."
         get_connected: "已连接"
         ignore: "如果您不想接收这个邀请，请忽略这封邮件。"
@@ -67,9 +67,9 @@ zh-CN:
       updated: "帐号更新成功。"
     sessions:
       new:
-        alpha_software: "你即将使用处于开发初期的功能。"
-        bugs_and_feedback: "给您一个提醒, 你将可能遇到bug。 遇到任何问题，都请您点击浏览器右边的\"反馈\"按钮向我们反馈！ 我们会尽快处理您反馈的任何问题。"
-        bugs_and_feedback_mobile: "给您一个提醒, 你将可能遇到bug。 遇到任何问题都请你向我们反馈! 我们会尽快处理你反馈的任何问题."
+        alpha_software: "您即将使用处于开发初期的功能。"
+        bugs_and_feedback: "友情提示：您将可能遇到bug。 遇到任何问题，都请您点击浏览器右边的\"反馈\"按钮向我们反馈！ 我们会尽快处理您反馈的任何问题。"
+        bugs_and_feedback_mobile: "友情提示：您将可能遇到bug。 遇到任何问题都请您向我们反馈! 我们会尽快处理您反馈的任何问题。"
         login: "登录"
         modern_browsers: "只支持较新的浏览器。"
         password: "密码"
@@ -92,7 +92,7 @@ zh-CN:
       new:
         resend_unlock: "重新发送解锁步骤"
       send_instructions: "几分钟后您将收到一封邮件，它将指引您解锁您的帐号。"
-      unlocked: "帐号解锁成功。你已经登录。"
+      unlocked: "帐号解锁成功。您已经登录。"
   errors:
     messages:
       already_confirmed: "已确认"
