@@ -7,17 +7,17 @@
 br:
   devise:
     confirmations:
-      confirmed: "Ho kont zo bet kadarnaet. Emaoc'h luget."
+      confirmed: "Ho kont zo bet kadarnaet. Kennasket oc'h."
       new:
-        resend_confirmation: "Kas titouroù-kadarnaat en dro"
+        resend_confirmation: "Kas titour kadarnaat en-dro"
       send_instructions: "Emaoc'h o vont da reseviñ ur postel gant titouroù a-benn goût penaos kadarnaat ho kont a-benn nebeut."
     failure:
       inactive: "N'eo ket bet lakaet ho kont war-elum."
-      invalid: "Fazi zo gant ar postel pe gant ar ger-kuzh."
-      invalid_token: "Fazi zo gant ar bilhed gwiriañ."
+      invalid: "Direizh eo ar postel pe ar ger-kuzh."
+      invalid_token: "Direizh ar bilhed gwiriañ."
       locked: "Prennet eo ho kont."
       timeout: "Diamzeret eo hoc'h abadenn, dav eo deoc'h mont e-barzh en dro a-benn kendalc'hen."
-      unauthenticated: "Dav eo deoc'h mont e-barzh pe lakaat hoc'h anv a-raok kendalc'hen ganti."
+      unauthenticated: "Dav eo deoc'h mont e-barzh pe lakaat hoc'h anv a-raok kendelc'her ganti."
       unconfirmed: "Dav eo deoc'h kadarnaat ho kont a-raok mont pelloc'h."
     invitations:
       invitation_token_invalid: "Ar bilhed-pediñ kaset deoc'h zo divalav!"
@@ -26,12 +26,33 @@ br:
     mailer:
       confirmation_instructions:
         confirm: "Kadarnaat ma c'hont"
-        subject: "Titouroù-kadarnaat"
+        subject: "Titour kadarnaat"
         you_can_confirm: "Moaien zo deoc'h kadarnaat ho kont gant al liamm dindan:"
       hello: "Demat, %{email}!"
       invitation_instructions:
+        accept: "Asantiñ d'ar gouviadenn"
+        be_yourself: "Bezit c'hwi hoc'h-unan"
+        cubbies: "Cubbi.es"
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        view_in: "View in"
+        finally: "Evelato  - Amañ emañ"
+        friends_saying: "Ar pezh a gont ho mignoned"
+        get_connected: "Kennaskit"
+        have_fun: "Plijadur deoc'h !"
+        help_fund: "skoazellañ Diaspora da gaout arc'hant."
+        here: "amañ"
+        ignore: "Mar ne fell ket deoc'h asantiñ d'ar gouviadenn, na daolit ket pled ouzh ar postel-mañ mar plij."
+        join_team: "Deuit en hor skipailh."
+        love: "A galon,"
+        made_by_people: "%{strong_diaspora} a zo graet gant tud hag a blij dezhe ar Genrouedad kement hag e plij deoc'h. %{jointeam} pe %{helpfund} !"
+        or: "pe"
+        sign_up_now: "Lakait hoc'h anv →"
+        subject: "Kouviet oc'h da zont da Diaspora"
+        team_diaspora: "Skipailh Diaspora"
+        unsubscribe: "Evit dilemel hoc'h anv, klikit war al liamm %{link} mar plij."
+        view_in: "Diskwel en ho merdeer"
+      inviter:
+        has_invited_you: "%{name}"
+        have_invited_you: "Pedet oc'h gant %{names} da lakaat hoc'h anv e Diaspora."
       reset_password_instructions:
         change: "Cheñch ma ger-kuzh"
         ignore: "M'ho peus ket goulennet an dra-se n'ho peus ket nemet leuskel an dra-se a-gostez."
@@ -41,35 +62,35 @@ br:
       unlock_instructions:
         account_locked: "Prennet eo bet ho kont abalamour m'ho peus klasket mont e-barzh en un ober re a daolioù-gwenn."
         click_to_unlock: "Klikit war al liamm dindan a-benn dibrennañ ho kont:"
-        subject: "Dibrennañ Titouroù"
+        subject: "Titour dibrennañ"
         unlock: "Dibrennañ ma c'hont"
-      welcome: "Degemer mat, %{email}!"
+      welcome: "Donemat deoc'h, %{email}!"
     passwords:
       edit:
         change_password: "Cheñch ma ger-kuzh"
       new:
-        forgot_password: "Disoñjet ho ker-kuzh ganeoc'h?"
+        forgot_password: "Ankouaet ho ker-kuzh ganeoc'h?"
         no_account: "N'eus kont ebet gant ar postel-mañ. M'emaoc'h o c'hortoz da vezañ pedet, deoc'h da c'hoût e klaskomp astennañ ar pedadennoù da'n abretañ ar gwellañ"
         send_password_instructions: "Kasit din titouroù evit nulañ ar ger-kuzh"
       send_instructions: "Emaoc'h o vont da reseviñ ur postel gant titouroù evit goût penaos nulañ ho ker-kuzh a-benn nebeut."
-      updated: "Cheñchet mat ho ker-kuzh. Emaoc'h luget."
+      updated: "Cheñchet eo bet ho ker-kuzh. Kennasket oc'h bremañ."
     registrations:
       destroyed: "Kenavo! Ho kont zo bet nullet. Emichañs e voc'h gwelet en dro a-benn nebeut."
       signed_up: "Enskrivet hoc'h bet mat. M'ho peus dibabet e vo kaset deoc'h ur postel-kadarnaat."
       updated: "Adnevezet eo bet ho kont ganeoc'h."
     sessions:
       new:
-        alpha_software: "Emaoc'h o vont da implij ar meziant alpha."
+        alpha_software: "Emaoc'h o vont da implij ur meziant en e stumm alfa."
         bugs_and_feedback: "Deoc'h da c'hoût e vo kavet vioù-koukoug ganeoc'h. Reiñ a reomp ton deoc'h evit implij ar boton Feedback a zo e tu dehoù ar bajenn a-benn kelaouiñ ac'hanomp ma vez fazioù! Labourat a rimp ar buanañ a c'hellomp evit diluziañ ar c'hudennoù bet meneget ganeoc'h."
         bugs_and_feedback_mobile: "Deoc'h da c'hoût e vo kavet vioù-koukoug ganeoc'h. Reiñ a reomp ton deoc'h evit kelaouiñ ac'hanomp pep gwech ma vo kavet fazioù ganeoc'h! Labourat a rimp ar buanañ a c'hellomp evit diluziañ pep kudenn a vo disklaeriet ganeoc'h."
-        login: "Mont e-barzh"
-        modern_browsers: "ne c'hell mont en dro gant merdeidi modern nemetken."
+        login: "Kennaskañ"
+        modern_browsers: "ne c'hell mont en-dro gant merdeidi modern nemetken."
         password: "Ger-kuzh"
-        remember_me: "Dalc'hen soñj deus ma fenn"
-        sign_in: "Mont e-barzh"
-        username: "Anv-implijer"
-      signed_in: "Luget mat."
-      signed_out: "Diluget mat."
+        remember_me: "Delc'her soñj ac'hanon"
+        sign_in: "Lakait hoc'h anv"
+        username: "Anv implijer"
+      signed_in: "Kennasket oc'h bremañ."
+      signed_out: "Digennasket oc'h bremañ."
     shared:
       links:
         forgot_your_password: "Disoñjet ho ker-kuzh ganeoc'h?"

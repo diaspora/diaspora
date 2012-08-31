@@ -30,7 +30,7 @@ es:
     confirm_dialog: "¿Estás seguro?"
     delete: "Eliminar"
     failed_to_like: "\"Me gusta\" no ha funcionado."
-    failed_to_post_message: "¡Fallo al publicar el mensaje!"
+    failed_to_post_message: "¡Error al publicar el mensaje!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
       hey: "¡Hola, <%= name %>!"
@@ -109,7 +109,7 @@ es:
       prefixAgo: "Hace"
       prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
-      suffixAgo: ""
+      suffixAgo: "hace"
       suffixFromNow: ""
       year: "un año aproximadamente"
       years: "%d años"

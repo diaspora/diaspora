@@ -1,0 +1,110 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ia:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "Adder contacto"
+      all_aspects: "Tote le aspectos"
+      error: "Impossibile comenciar a divider con <%= name %>. Esque tu ignora iste persona?"
+      select_aspects: "Seliger aspectos"
+      started_sharing_with: "Tu ha comenciate a divider con <%= name %>!"
+      stopped_sharing_with: "Tu ha cessate de divider con <%= name %>."
+      toggle:
+        human: "Selige aspectos"
+        po: "In <%= count %> aspecto"
+        yml: "In <%= count %> aspectos"
+    aspect_navigation:
+      deselect_all: "Deseliger totes"
+      no_aspects: "Nulle aspecto seligite"
+      select_all: "Seliger totes"
+    comments:
+      hide: "celar commentos"
+      show: "revelar tote le commentos"
+    confirm_dialog: "Es tu secur?"
+    delete: "Deler"
+    failed_to_like: "Appreciation fallite!"
+    failed_to_post_message: "Publication del entrata fallite!"
+    getting_started:
+      alright_ill_wait: "Ben, io attendera."
+      hey: "Hallo, <%= name %>!"
+      no_tags: "Tu non ha sequite alcun etiquetta! Continuar in omne caso?"
+      preparing_your_stream: "Fluxo personalisate in preparation..."
+    header:
+      admin: "Administration"
+      contacts: "Contactos"
+      home: "Initio"
+      log_out: "Clauder session"
+      mark_all_as_read: "Marcar totes como legite"
+      messages: "Messages"
+      notifications: "Notificationes"
+      profile: "Profilo"
+      recent_notifications: "Notificationes recente"
+      search: "Cercar"
+      settings: "Configuration"
+      view_all: "Vider totes"
+    ignore: "Ignorar"
+    infinite_scroll:
+      no_more: "Nulle messages restante."
+    my_activity: "Mi activitate"
+    my_stream: "Fluxo"
+    photo_uploader:
+      looking_good: "Oh, tu es incredibile!"
+    publisher:
+      at_least_one_aspect: "Le publication debe esser includite in al minus un aspecto"
+      limited: "Limitate: le message es visibile solmente pro le personas con qui tu lo divide"
+      public: "Public: le message es visibile pro tote le mundo e trovabile pro motores de recerca"
+    reshares:
+      duplicate: "Tu ha jam repetite iste entrata."
+    search_for: "Cercar <%= name %>"
+    show_more: "monstrar plus"
+    stream:
+      comment: "Commentar"
+      follow: "Sequer"
+      hide: "Celar"
+      hide_nsfw_posts: "Celar entratas #nsfw"
+      like: "Appreciar"
+      likes:
+        human: "Zero appreciationes"
+        po: "<%= count %> appreciation"
+        yml: "<%= count %> appreciationes"
+      limited: "Limitate"
+      more_comments:
+        human: "Il non ha altere commentos a monstrar"
+        po: "Monstrar <%= count %> altere commento"
+        yml: "Monstrar <%= count %> altere commentos"
+      original_post_deleted: "Le entrata original ha essite delite per le autor."
+      public: "Public"
+      reshare: "Repeter"
+      reshares:
+        human: "Zero repetitiones"
+        po: "<%= count %> repetition"
+        yml: "<%= count %> repetitiones"
+      show_nsfw_post: "Monstrar entrata"
+      show_nsfw_posts: "Monstrar totes"
+      unfollow: "Non plus sequer"
+      unlike: "Non plus appreciar"
+    tags:
+      wasnt_that_interesting: "OK, io suppone que #<%= tagName %> non es si interessante..."
+    timeago:
+      day: "un die"
+      days: "%d dies"
+      hour: "circa un hora"
+      hours: "circa %d horas"
+      minute: "circa un minuta"
+      minutes: "%d minutas"
+      month: "circa un mense"
+      months: "%d menses"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "minus de un minuta"
+      suffixAgo: "retro"
+      suffixFromNow: "ab ora"
+      year: "circa un anno"
+      years: "%d annos"
+    videos:
+      unknown: "Typo de video incognite"
+      watch: "Spectar iste video sur <%= provider %>"

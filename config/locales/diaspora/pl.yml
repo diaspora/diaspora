@@ -58,7 +58,7 @@ pl:
         one: "%{count} komentarz"
         other: "%{count} komentarzy"
         zero: "Brak komentarzy"
-      current_segment: "Obecny segment jest średnio <b>%{post_yest}</b> wpisów na użytkownika, z <b>%{post_day}</b>."
+      current_segment: "Obecny segment ma średnio <b>%{post_yest}</b> wpisów na użytkownika, z <b>%{post_day}</b>."
       daily: "Dziennie"
       display_results: "Wyświetlanie wyników z segmentu <b>%{segment}</b>"
       go: "idź"
@@ -126,12 +126,12 @@ pl:
     aspect_stream:
       make_something: "Zrób coś"
       stay_updated: "Bądź na bieżąco"
-      stay_updated_explanation: "Główny strumień jest wypełniony przez wszystkie Twoje kontakty, znaczniki które obserwujesz i wpisy które niektórych bardziej kreatywnych członków społeczności."
+      stay_updated_explanation: "Główny strumień jest wypełniony przez wszystkie Twoje kontakty, znaczniki które obserwujesz i wpisy niektórych bardziej kreatywnych członków społeczności."
     contacts_not_visible: "Kontakty z tego aspektu nie będą dla siebie widoczne."
     contacts_visible: "Kontakty z tego aspektu będą widziały się nawzajem."
     create:
       failure: "Nie udało się utworzyć aspektu."
-      success: "Nowy aspekt, on nazwie %{name}, został utworzony"
+      success: "Nowy aspekt, o nazwie %{name}, został utworzony"
     destroy:
       failure: "%{name} nie jest pusty i nie może być usunięty."
       success: "%{name} został usunięty."
@@ -169,7 +169,7 @@ pl:
         feature_suggestion: "... masz propozycję (%{link})?"
         find_a_bug: "... znal@{m:azłeś|f:azłaś|n:eziono} %{link}?"
         have_a_question: "... masz %{link}?"
-        here_to_help: "Społeczności Diaspory jest tutaj!"
+        here_to_help: "Społeczność Diaspory jest tutaj!"
         need_help: "Potrzebujesz pomocy?"
         tag_bug: "błąd"
         tag_feature: "funkcja"
@@ -420,10 +420,10 @@ pl:
       other: "%{actors} skomentował już usunięty wpis."
       zero: "%{actors} skomentował już usunięty wpis."
     comment_on_post:
-      few: "%{actors} skomentowali twój %{post_link}."
-      one: "%{actors} skomentował(a) twój %{post_link}."
-      other: "%{actors} skomentowali twój %{post_link}."
-      zero: "%{actors} skomentował twój %{post_link}."
+      few: "%{actors} skomentowali Twój %{post_link}."
+      one: "%{actors} skomentował(a) Twój %{post_link}."
+      other: "%{actors} skomentowali Twój %{post_link}."
+      zero: "%{actors} skomentował Twój %{post_link}."
     helper:
       new_notifications:
         few: "%{count} nowe powiadomienia"
@@ -438,7 +438,7 @@ pl:
         other: "i %{count} innych"
         zero: "i nikt więcej"
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
-      mark_unread: ""
+      mark_unread: "Oznacz jako nieprzeczytane"
       notifications: "Powiadomienia"
     liked:
       few: "%{actors} polubiło Twój %{post_link}."
@@ -462,10 +462,10 @@ pl:
       zero: "%{actors} wspomniał o tobie w usuniętym wpisie."
     post: "wpis"
     private_message:
-      few: "%{actors} wysłali ci wiadomość."
-      one: "%{actors} wysłał ci wiadomość."
-      other: "%{actors} wysłali ci wiadomość."
-      zero: "%{actors} wysłał ci wiadomość."
+      few: "%{actors} wysłali Ci wiadomość."
+      one: "%{actors} wysłał Ci wiadomość."
+      other: "%{actors} wysłali Ci wiadomość."
+      zero: "%{actors} wysłał Ci wiadomość."
     reshared:
       few: "%{actors} przekazali dalej Twój %{post_link}."
       one: "%{actors} podzielił się twoim wpisem %{post_link}."
@@ -488,7 +488,7 @@ pl:
     comment_on_post:
       reply: "Odpowiedz lub wyświetl wpis użytkownika %{name} >"
     confirm_email:
-      click_link: "Aby aktywować nowy adres e-mail %{unconfirmed_email}, kliknij te łącze:"
+      click_link: "Aby aktywować nowy adres e-mail %{unconfirmed_email}, kliknij to łącze:"
       subject: "Aktywuj nowy adres e-mail %{unconfirmed_email}"
     email_sent_by_diaspora: "Ta wiadomość została wysłana przez %{pod_name}. Jeśli nie chcesz otrzymywać takich wiadomości,"
     hello: "Cześć %{name}!"
@@ -617,7 +617,7 @@ pl:
     photo:
       view_all: "wyświetl wszystkie zdjęcia należące do: %{name}"
     show:
-      collection_permalink: "permalink kolekcji"
+      collection_permalink: "link bezpośredni do kolekcji"
       delete_photo: "Usuń zdjęcie"
       edit: "edycja"
       edit_delete_photo: "Edycja opisu zdjęcia / usuwanie zdjęcia"
@@ -633,7 +633,7 @@ pl:
     show:
       destroy: "Usuń"
       not_found: "Nie można odnaleźć wskazanego wpisu."
-      permalink: "permalink"
+      permalink: "link bezpośredni"
       photos_by:
         few: "%{count} zdjęcia od %{author}"
         one: "Jedno zdjęcie od %{author}"
@@ -757,7 +757,7 @@ pl:
       no_services: "Żadne usługi nie zostały jeszcze połączone."
       really_disconnect: "odłączyć %{service}?"
     inviter:
-      click_link_to_accept_invitation: "Kliknij te łącze, aby przyjąć zaproszenie"
+      click_link_to_accept_invitation: "Kliknij to łącze, aby przyjąć zaproszenie"
       join_me_on_diaspora: "Dołącz do mnie w serwisie DIASPORA*"
     remote_friend:
       invite: "zaproś"
@@ -796,7 +796,7 @@ pl:
       invite_someone: "Zaproś kogoś"
       invite_your_friends: "Zaproś swoich znajomych"
       invites: "Zaproszenia"
-      invites_closed: "Wysyłanie zaproszeń jest obecnie wyłączony na tym podzie Diaspory"
+      invites_closed: "Wysyłanie zaproszeń jest obecnie wyłączone na tym podzie Diaspory"
       share_this: "Udostępnij to łącze przez e-mail, na blogu lub w ulubionej sieci społecznościowej!"
     notification:
       new: "Nowy(-a,-e) %{type} od %{from}"
@@ -895,7 +895,7 @@ pl:
       contacts_title: "Ostatnio dodawali"
       title: "Działalność publiczna"
     tags:
-      contacts_title: "Osoby, które wykopały te tagi"
+      contacts_title: "Osoby, które wykopały ten znacznik"
       tag_prefill_text: "Rzecz o %{tag_link} jest..."
       title: "Oznaczone wpisy: %{tags}"
   tag_followings:
@@ -922,7 +922,7 @@ pl:
       connect_to_cubbies: "Połącz z Cubbi.es"
       connecting_is_simple: "Połączenie Twojego konta na Diasporze jest proste! Po prostu wpisz Identyfikator Diaspory (<b>%{diaspora_id}</b>) ze <a href='%{href_link}'>strony ustawień</a> cubbies i kliknij \"Połącz\"."
       daniels_account: "Konto Daniela na Diasporze"
-      love_to_try: "Zapraszamy cię do wypróbowania!"
+      love_to_try: "Zapraszamy Cię do wypróbowania!"
       making_the_connection: "Dokonywanie połączenia"
       screenshot_explanation: "%{link1}. Ten konkretny cubby jest połączony z %{link2}."
       sign_up_today: "Zarejestruj się już dziś!"
@@ -940,7 +940,7 @@ pl:
       success: "Konto zostało zablokowane. Zakończenie zamykania konta może zająć do 20 minut. Dziękujemy za wypróbowanie Diaspory."
       wrong_password: "Wprowadzone hasło nie jest zgodne z aktualnym hasłem."
     edit:
-      also_commented: "...ktoś także skomentuje wpis jednego z z moich kontaktów"
+      also_commented: "...ktoś także skomentuje wpis jednego z moich kontaktów"
       auto_follow_aspect: "Aspekt dla automatycznie obserwowanych użytkowników:"
       auto_follow_back: "Automatycznie zacznij obserwować, gdy ktoś zaczyna obserwować mnie"
       change: "Zmień"
@@ -953,7 +953,7 @@ pl:
         if_you_want_this: "Jeśli naprawdę tego chcesz, wpisz swoje hasło poniżej i kliknij \"Zamknij konto\"."
         lock_username: "Nazwa użytkownika zostanie zablokowana, jeśli zdecydujesz się wrócić."
         locked_out: "Zostaniesz wylogowa@{m:ny|f:na|n:ny(na)} i konto zostanie zablokowane."
-        make_diaspora_better: "Pomóż nam uczynić Diasporę jeszcze lepszą, zamiast nas opuszczać. Jeśli chcesz odejść, chcielibyśmy się dowiedzieć dlaczego."
+        make_diaspora_better: "Pomóż nam uczynić Diasporę jeszcze lepszą, zamiast nas opuszczać. Jeśli naprawdę odchodzisz, chcemy poinformować Cię o tym, co się stanie."
         mr_wiggles: "Pan Łaskotka będzie niepocieszony, widząc, że odchodzisz"
         no_turning_back: "Aktualnie, nie ma odwrotu."
         what_we_delete: "Usuniemy wszystkie Twoje wpisy i dane profilu, najszybciej jak tylko człowiek jest w stanie to zrobić. Twoje komentarze pozostaną tam gdzie były, ale będą skojarzone bezpośrednio z Twoim Identyfikatorem Diaspory."
@@ -964,7 +964,7 @@ pl:
       download_photos: "pobierz moje zdjęcia"
       download_xml: "pobierz mój xml"
       edit_account: "Edycja konta"
-      email_awaiting_confirmation: "Łącze aktywacyjne zostało wysłany na adres \"%{unconfirmed_email}\". Do momentu kliknięcia łącza i aktywacji nowego adresu, nadal będziemy korzystać z obecnego \"%{email}\"."
+      email_awaiting_confirmation: "Łącze aktywacyjne zostało wysłane na adres \"%{unconfirmed_email}\". Do momentu kliknięcia łącza i aktywacji nowego adresu, nadal będziemy korzystać z obecnego \"%{email}\"."
       export_data: "Eksport danych"
       following: "Ustawienia obserwowania"
       getting_started: "Preferencje nowego użytkownika"
@@ -983,15 +983,15 @@ pl:
       your_handle: "Twój Identyfikator Diaspory"
     getting_started:
       awesome_take_me_to_diaspora: "Świetnie! Zabierz mnie do Diaspory*"
-      community_welcome: "Społeczności Diaspory cieszy się, że ​​jesteś na pokładzie!"
+      community_welcome: "Społeczność Diaspory cieszy się, że ​​jesteś na pokładzie!"
       hashtag_explanation: "Znaczniki pozwalają łatwo odnaleźć interesujące Cię tematy. Są także świetnym sposobem na nawiązywanie znajomości na Diasporze."
       hashtag_suggestions: "Spróbuj obserwować znaczniki takie jak #sztuka, #filmy, #gif, itd."
-      hooking_up_fb: "podpinanie Twojego konta na Facebooku"
+      hooking_up_fb: "podłączeniu Twojego konta na Facebooku"
       saved: "Zapisano!"
       we_can_speed_things_up: "Możemy przyspieszyć nieco dzięki"
       well_hello_there: "No, witam!"
       what_are_you_in_to: "Czym się interesujesz?"
-      what_facebook_does: "do diaspory. Zostanie pobrane imię i nazwiskiem , zdjęcie oraz włączone wzajemne publikowanie."
+      what_facebook_does: "do Diaspory. Zostanie pobrane Twoje imię i nazwisko, zdjęcie oraz włączone wzajemne publikowanie."
       who_are_you: "Kim jesteś?"
     privacy_settings:
       ignored_users: "Ignorowani użytkownicy"

@@ -69,7 +69,7 @@ de:
       shares:
         one: "Ein mal geteilt."
         other: "%{count} mal geteilt."
-        zero: "Kein mal geteilt."
+        zero: "Noch nicht geteilt."
       tag_name: "Tag Name: <b>%{name_tag}</b> Anzahl: <b>%{count_tag}</b>"
       usage_statistic: "Nutzungsstatistik"
       users:
@@ -368,7 +368,7 @@ de:
       back_to_top: "Zurück zum Anfang"
       powered_by: "BETRIEBEN MIT DIASPORA*"
       public_feed: "Öffentlicher Diaspora Feed von %{name}"
-      source_package: "Quelltext runterladen"
+      source_package: "Quelltextpaket runterladen"
       toggle: "Mobile Ansicht umschalten"
       whats_new: "Was gibt's Neues?"
       your_aspects: "Deine Aspekte"

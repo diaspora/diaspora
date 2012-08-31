@@ -38,6 +38,7 @@ nb:
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       admin: "Admin"
+      close: "lukk"
       contacts: "Kontakter"
       home: "Hjem"
       log_out: "Logg ut"
@@ -120,3 +121,8 @@ nb:
     videos:
       unknown: "Ukjent videotype"
       watch: "Se denne videoen på {{provider}}"
+    viewer:
+      comment: "Kommenter"
+      follow_post: "Følg post"
+      home: "HJEM"
+      stop_following_post: "Slutt å følge post"

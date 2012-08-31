@@ -28,7 +28,7 @@ es:
         confirm: "Confirmar mi cuenta"
         subject: "Instrucciones de confirmación"
         you_can_confirm: "Puedes confirmar tu cuenta a través del siguiente enlace:"
-      hello: "Hola %{email}!"
+      hello: "¡Hola %{email}!"
       invitation_instructions:
         accept: "Aceptar invitación"
         arrived: "La red social que has estado esperando ha llegado. Renovada, más segura y divertida, %{strong_diaspora} está lista para ayudarte a compartir y explorar la red de una forma totalmente nueva."
@@ -41,7 +41,7 @@ es:
         finally: "Por fin - Está aquí"
         friends_saying: "Lo que tus amigos están diciendo..."
         get_connected: "Conéctate"
-        get_connected_paragraph: "Un movimiento mundial que comparte la visión de conseguir una red mejor, la primera característica de %{strong_diaspora} es su comunidad. Conoce gente nueva, conecta con amigos y únete a la fiesta."
+        get_connected_paragraph: "Un movimiento internacional que comparte la visión de una red mejor, la principal característica de %{strong_diaspora} es su comunidad. Conoce gente nueva, conéctate con amigos, y únete a la diversión."
         have_fun: "Diviértete"
         have_fun_paragraph: "Con %{strong_diaspora} descubrirás información y gente nueva e interesante. %{link}, la primera aplicación de %{strong_diaspora} del mundo es sólo el principio. Colecciona y comparte la red en todo su esplendor."
         help_fund: "ayuda a financiar Diaspora*"

@@ -7,26 +7,58 @@
 id:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: "Add to aspect"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      add_to_aspect: "Tambahkan kontak"
+      all_aspects: "Semua Hal"
+      error: "Tidak bisa berbagi dengan <%= name %>. Apakah anda mengabaikan mereka ?"
+      select_aspects: "Tentukan salah satu Hal"
+      started_sharing_with: "Anda mulai berbagi dengan <%= name %> !"
+      stopped_sharing_with: "Anda berhenti berbagi dengan <%= name %>"
       toggle:
         few: "In {{count}} aspects"
         many: "In {{count}} aspects"
         one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
+        other: "Dalam <%= count %> Hal"
         two: "In <%= count %> aspects"
-        zero: "Add to aspect"
+        zero: "Dalam <%= count %> Hal"
+    aspect_navigation:
+      deselect_all: "Batalkan semua pilihan"
+      no_aspects: "Tak ada apapun yang di pilih"
+      select_all: "Pilih semua"
+    comments:
+      hide: "sembunyikan komentar"
+      show: "tampilkan semua komentar"
+    confirm_dialog: "Anda yakin ?"
+    delete: "Menghapus"
+    failed_to_like: "Gagal untuk 'like'!"
+    failed_to_post_message: "Gagal memposting pesan!"
     getting_started:
+      alright_ill_wait: "Baiklah, Saya akan menunggu"
       hey: "Hey, {{name}}!"
-      preparing_your_stream: "Preparing your personialized stream..."
+      no_tags: "Hey, anda belum mengikuti 'tags' apapun! Lanjutkan ?"
+      preparing_your_stream: "Mempersiapkan 'stream' personalisasi anda"
     header:
-      search: "Find people or #tags"
+      search: "Temukan nama orang atau #tags"
+    ignore: "Abaikan"
+    infinite_scroll:
+      no_more: "Tidak ada lagi data"
+    my_activity: "Aktifitas Saya"
+    my_stream: "Stream"
+    photo_uploader:
+      looking_good: "Oh Tuhan, anda terlihat luar biasa!"
+    publisher:
+      at_least_one_aspect: "Anda harus mempublikasi, setidaknya satu hal"
+      limited: "Di Limitasi - Apa yang anda publikasi hanya dapat di lihat oleh orang-orang yang berbagi dengan anda."
+      public: "Publik - Apa yang anda publikasi dapat di lihat oleh siapa saja dan dapat di temukan oleh mesin pencari."
     reshares:
-      duplicate: "You've already reshared that post!"
-    search_for: "Search for {{name}}"
+      duplicate: "Menarik ? Anda telah membagikan ulang posting tersebut!"
+    search_for: "Mencari <%= name %>"
+    show_more: "Tampilkan lebih banyak lagi"
     stream:
+      comment: "Komentar"
+      follow: "Ikuti ('Follow')"
+      hide: "Sembunyikan"
+      hide_nsfw_posts: "Sembunyikan #nsfw"
+      like: "Suka"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -34,13 +66,17 @@ id:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "Terbatas"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
+        other: "Tampilkan <%= count %> komentar"
         two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        zero: "Tampilkan <%= count %> komentar"
+      original_post_deleted: "Posting asli di hapus oleh penulis."
+      public: "Publik"
+      reshare: "Sebarkan/Bagikan Lagi"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -48,8 +84,12 @@ id:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "Tampilkan"
+      show_nsfw_posts: "Tampilkan semua"
+      unfollow: "Jangan ikuti ('Unfollow')"
+      unlike: "Tidak Suka"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, sepertinya #<%= tagName %> tidak terlalu menarik..."
     timeago:
       day: "sehari"
       days: "%d hari"
@@ -67,4 +107,5 @@ id:
       year: "sekitar setahun"
       years: "%d tahun"
     videos:
-      watch: "Watch this video on {{provider}}"
+      unknown: "Tipe video tidak di kenal"
+      watch: "Lihat video ini di <%= provider %>"

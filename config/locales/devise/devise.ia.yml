@@ -1,0 +1,122 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ia:
+  devise:
+    confirmations:
+      confirmed: "Conto confirmate con successo. Tu ha aperite session."
+      new:
+        resend_confirmation: "Reinviar instructiones pro confirmar"
+      send_instructions: "Tu recipera in pauc minutas un message de e-mail con instructiones pro confirmar tu conto."
+    failure:
+      inactive: "Tu conto non ha ancora essite activate."
+      invalid: "Nomine de usator o contrasigno invalide."
+      invalid_token: "Indicio de authentication invalide."
+      locked: "Tu conto es blocate."
+      timeout: "Le session ha expirate. Per favor aperi session de novo pro continuar."
+      unauthenticated: "Tu debe aperir session o crear un conto ante de continuar."
+      unconfirmed: "Tu debe confirmar tu conto ante de continuar."
+    invitations:
+      invitation_token_invalid: "Excusa nos! Iste indicio de invitation non es valide."
+      send_instructions: "Le invitation ha essite inviate."
+      updated: "Contrasigno definite con successo. Tu ha aperite session."
+    mailer:
+      confirmation_instructions:
+        confirm: "Confirmar mi conto"
+        subject: "Instructiones pro confirmar"
+        you_can_confirm: "Tu pote confirmar tu conto per le ligamine sequente:"
+      hello: "Salute, %{email}!"
+      invitation_instructions:
+        accept: "Acceptar invitation"
+        arrived: "Le rete social que tu ha attendite ha arrivate. Renovate, plus secur, e plus amusante, %{strong_diaspora} es preste pro adjutar te a divider e explorar le web de un maniera totalmente nove."
+        be_yourself: "Sia tu mesme"
+        be_yourself_paragraph: "Internet ha create manieras totalmente nove de exprimer se. %{strong_diaspora} te lassa esser tu mesme e communicar del maniera de tu preferentia, con o sin nomine real."
+        cubbies: "Cubbi.es"
+        displaying_correctly: "Le message non se presenta correctemente? %{link}"
+        email_address: "questions@joindiaspora.com"
+        email_us: "Pro questiones general o supporto con tu conto de Diaspora, per favor invia nos un message a %{email}."
+        finally: "Finalmente, illo ha arrivate"
+        friends_saying: "Lo que tu amicos dice..."
+        get_connected: "Connecte te"
+        get_connected_paragraph: "Un movimento international con un vision commun pro un melior web, le characteristica principal de %{strong_diaspora} es su communitate. Cognosce nove personas, connecte te con amicos, e veni amusar te."
+        have_fun: "Amusa te"
+        have_fun_paragraph: "%{strong_diaspora} es pro discoperir nove contento interessante e cognoscer nove personas in linea. %{link}, le prime application de %{strong_diaspora} in le mundo, es solmente le initio. Collige e divide le web in tote su gloria."
+        help_fund: "adjuta a financiar Diaspora"
+        here: "hic"
+        ignore: "Si tu non vole acceptar le invitation, per favor ignora iste message."
+        join_team: "Uni te a nostre equipa"
+        love: "Amicalmente,"
+        made_by_people: "%{strong_diaspora} es facite per personas qui ama Internet tanto como tu. %{jointeam} o %{helpfund}!"
+        more_people: "Mesmo plus personas es incantate de vider te!"
+        no_account_till: "Tu conto essera create solmente si tu clicca sur le ligamine precedente e te inscribe."
+        or: "o"
+        sign_up_now: "Crea un conto ora &rarr;"
+        subject: "Tu ha essite invitate a unir te a Diaspora!"
+        team_diaspora: "Le equipa de Diaspora"
+        unsubscribe: "Pro cancellar le subscription, clicca %{link}."
+        view_in: "Leger lo in tu navigator."
+      inviter:
+        accept_at: "a %{url}, tu pote acceptar lo per le ligamine sequente."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} te ha invitate a unir te a Diaspora"
+      reset_password_instructions:
+        change: "Cambiar mi contrasigno"
+        ignore: "Si tu non ha demandate isto, per favor ignora iste message."
+        someone_requested: "Qualcuno ha demandate un ligamine pro cambiar tu contrasigno. Tu pote facer isto per le ligamine sequente."
+        subject: "Instructiones pro reinitialisar contrasigno"
+        wont_change: "Le contrasigno non cambiara si tu non clicca sur le ligamine precedente e specifica un nove."
+      unlock_instructions:
+        account_locked: "Tu conto ha essite blocate a causa de un numero excessive de tentativas fallite de accesso a tu conto."
+        click_to_unlock: "Clicca sur le ligamine sequente pro disblocar tu conto:"
+        subject: "Instructiones pro disblocar"
+        unlock: "Disblocar mi conto"
+      welcome: "Benvenite, %{email}!"
+    passwords:
+      edit:
+        change_password: "Cambiar mi contrasigno"
+      new:
+        forgot_password: "Contrasigno oblidate?"
+        no_account: "Nulle conto con iste adresse de e-mail existe. Si tu attende un invitation, nos te lo inviara le plus tosto possibile."
+        send_password_instructions: "Inviar me instructiones pro reinitialisar mi contrasigno"
+      send_instructions: "Tu recipera in pauc minutas un message de e-mail con instructiones pro reinitialisar le contrasigno."
+      updated: "Le contrasigno ha essite cambiate con successo. Tu ha aperite session."
+    registrations:
+      destroyed: "A revider! Tu conto ha essite cancellate. Nos spera revider te bentosto."
+      signed_up: "Conto create con successo. Si applicabile, un confirmation ha essite inviate a tu adresse de e-mail."
+      updated: "Conto actualisate con successo."
+    sessions:
+      new:
+        alpha_software: "Tu es sur le puncto de usar software in stadio alpha."
+        bugs_and_feedback: "Sia informate que il occurrera errores. Nos te invita a usar le button Feedback al dextra in tu navigator pro signalar omne defectos! Nos laborara tanto rapidemente como possibile pro resolver omne problemas que tu reporta."
+        bugs_and_feedback_mobile: "Sia informate que il occurrera errores. Nos te invita a signalar omne defectos! Nos laborara tanto rapidemente como possibile pro resolver omne problemas que tu reporta."
+        login: "Aperir session"
+        modern_browsers: "supporta solmente le navigatores moderne."
+        password: "Contrasigno"
+        remember_me: "Memorar me"
+        sign_in: "Aperir session"
+        username: "Nomine de usator"
+      signed_in: "Session aperite con successo."
+      signed_out: "Session claudite con successo."
+    shared:
+      links:
+        forgot_your_password: "Contrasigno oblidate?"
+        receive_confirmation: "Instructiones pro confirmar non recipite?"
+        receive_unlock: "Instructiones pro disblocar non recipite?"
+        sign_in: "Aperir session"
+        sign_up: "Crear un conto"
+        sign_up_closed: "Le creation public de contos es claudite in iste momento."
+      mail_signup_form:
+        sign_up_for_an_invite: "Inscribe te pro un invitation!"
+    unlocks:
+      new:
+        resend_unlock: "Reinviar instructiones pro disblocar"
+      send_instructions: "Tu recipera in pauc minutas un message de e-mail con instructiones pro disblocar tu conto."
+      unlocked: "Conto disblocate con successo. Tu ha aperite session."
+  errors:
+    messages:
+      already_confirmed: "ha jam essite confirmate"
+      not_found: "non trovate"
+      not_locked: "non ha essite blocate"

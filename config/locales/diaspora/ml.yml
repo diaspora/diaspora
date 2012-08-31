@@ -40,6 +40,25 @@ ml:
             username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "നേരത്തേ എടുത്തിട്ടുണ്ട്."
+  admins:
+    admin_bar:
+      pages: "താളുകൾ"
+    stats:
+      2weeks: "2 ആഴ്ച"
+      comments:
+        one: "%{count} അഭിപ്രായം"
+        other: "%{count} അഭിപ്രായങ്ങൾ"
+        zero: "%{count} അഭിപ്രായങ്ങൾ"
+      daily: "ദിവസേന"
+      go: "പോവുക"
+      month: "മാസം"
+      posts:
+        one: "%{count} കുറിപ്പ്"
+        other: "%{count} കുറിപ്പുകൾ"
+        zero: "%{count} കുറിപ്പുകൾ"
+      week: "ആഴ്ച"
+    user_search:
+      add_invites: "ക്ഷണങ്ങള്‍ കൂട്ടുക"
   ago: "%{time} മുന്‍പ്"
   all_aspects: "എല്ലാം"
   application:
@@ -168,6 +187,9 @@ ml:
     index:
       no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
+    new:
+      authorize: "അധികാരപ്പെടുത്തുക"
+      nope: "ഇല്ല"
   back: "പിന്നോട്ട്"
   blocks:
     create:
@@ -379,6 +401,7 @@ ml:
         two: "and %{count} others"
         zero: "and nobody else"
       mark_all_as_read: "എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്തുക"
+      mark_unread: "\"വായിച്ചിട്ടില്ല\" എന്ന് രേഖപ്പെടുത്തുക"
       notifications: "അറിയിപ്പുകള്‍"
     liked:
       few: "%{actors} has just liked your %{post_link}."
@@ -439,6 +462,7 @@ ml:
       zero: "%{actors} started sharing with you."
   notifier:
     a_post_you_shared: "a post."
+    accept_invite: "താങ്കളുടെ ഡയസ്പോറ* ക്ഷണം സ്വീകരിക്കുക!"
     click_here: "click here"
     comment_on_post:
       reply: "Reply or view %{name}'s post >"
@@ -447,6 +471,23 @@ ml:
       subject: "Please activate your new email address %{unconfirmed_email}"
     email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "നമസ്‌കാരം %{name}!"
+    invite:
+      message: |-
+          നമസ്കാരം 
+           
+          താങ്കൾ ഡയസ്പോറ*യിലേക്ക്  ക്ഷണിക്കപ്പെട്ടിരിക്കുന്നു*! 
+           
+          തുടങ്ങാനായി ഈ കണ്ണിയില്‍ അമർത്തുക
+           
+          %{invite_url}[1] 
+           
+           
+          സസ്നേഹം, 
+           
+          ഡയസ്പോറ* ഈ-മെയില്‍ യന്ത്രം
+           
+          [1]:%{invite_url}
+    invited_you: "%{name} താങ്കളെ ഡയസ്പോറ*യിലേക്ക് ക്ഷണിച്ചിരിക്കുന്നു"
     liked:
       liked: "%{name} just liked your post"
       view_post: "View post >"
@@ -473,6 +514,8 @@ ml:
   password: "അടയാളവാക്ക്"
   password_confirmation: "അടയാളവാക്ക് തിര്‍ച്ചപ്പെടുത്തുക"
   people:
+    add_contact:
+      invited_by: "താങ്കളെ ക്ഷണിച്ചത്"
     add_contact_small:
       add_contact_from_tag: "ടാഗില്‍ നിന്ന് സമ്പര്‍ക്കം ചേര്‍ക്കുക"
     aspect_list:
@@ -487,6 +530,8 @@ ml:
       no_one_found: "...പക്ഷേ, ഒരാളെയും കണ്ടുപിടിച്ചില്ല."
       no_results: "താങ്കള്‍ എന്തിനെങ്കിലും വേണ്ടി തിരയേണ്ടതുണ്ട്."
       results_for: "വിവരങ്ങള്‍ക്കായി തെരയുക"
+      searching: "തിരഞ്ഞുകൊണ്ടിരിക്കുന്നു, ദയവായി ക്ഷമിക്കുക..."
+    last_post: "അവസാനത്തെ കുറിപ്പ്"
     many: "%{count} ആളുകള്‍"
     one: "ഒരാള്‍"
     other: "%{count} ആളുകള്‍"
@@ -562,6 +607,8 @@ ml:
       error: "ചിത്രം പുതുക്കാന്‍ പറ്റുന്നില്ല.."
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
   posts:
+    presenter:
+      title: "%{name}ല്‍ നിന്നുള്ള കുറിപ്പ്"
     show:
       destroy: "Delete"
       not_found: "Sorry, we couldn't find that post."
@@ -621,11 +668,14 @@ ml:
       update: "പുതുക്കു"
     new:
       create_my_account: "Create my account"
+      diaspora: "<3 ഡയസ്പോറ"
       enter_email: "Enter an email"
       enter_password: "അടയാളവാക്ക് നല്‍കുക"
       enter_password_again: "അടയാളവാക്ക് വീണ്ടും നല്‍കുക"
       enter_username: "ഉപഭാക്തൃ നാമം തിരഞ്ഞെടുക്കുക (അക്ഷരങ്ങളും സംഖ്യകളും അണ്ടര്‍ സ്കോറും മാത്രം)"
       join_the_movement: "Join the movement!"
+      password: "രഹസ്യവാക്ക്"
+      sign_up: "അംഗത്വമേടുക്കുക"
       sign_up_message: "Social Networking with a ♥"
   requests:
     create:
@@ -883,6 +933,7 @@ ml:
       change_email: "Change email"
       change_language: "ഭാഷ മാറ്റു"
       change_password: "അടയാളവാക്ക് മാറ്റു"
+      character_minimum_expl: "കുറഞ്ഞത് ആറ് അക്ഷരങ്ങള്‍ വേണം"
       close_account:
         dont_go: "Hey, please don't go!"
         if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"

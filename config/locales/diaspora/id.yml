@@ -11,19 +11,38 @@ id:
   activerecord:
     errors:
       models:
+        contact:
+          attributes:
+            person_id:
+              taken: "harus unik dari kontak lain"
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "sudah dipakai"
+        request:
+          attributes:
+            from_id:
+              taken: "ada duplikasi dengan permintaan sebelumnya."
         reshare:
           attributes:
             root_guid:
               taken: "You've already reshared that post!"
         user:
           attributes:
+            email:
+              taken: "sudah di pakai"
+            person:
+              invalid: "TIdak Valid"
             username:
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "tidak valid. Hanya boleh huruf, angka dan garis bawah."
+              taken: "sudah dipakai"
   ago: "%{time} yang lalu"
   all_aspects: "All aspects"
   application:
     helper:
       unknown_person: "orang tak dikenal"
+  are_you_sure: "Anda yakin?"
+  are_you_sure_delete_account: "Anda yakin akan menghapus akun anda? ini tidak dapat di batalkan!"
   aspects:
     add_to_aspect:
       failure: "Failed to add friend to aspect."
@@ -90,6 +109,7 @@ id:
       correct_the_following_errors_and_try_again: "Perbaiki kesalahan berikut dan coba lagi."
       invalid_fields: "Field tidak valid"
   find_people: "Find people"
+  hide: "Sembunyikan"
   invitations:
     check_token:
       not_found: "Token undangan tidak ditemukan"
@@ -408,6 +428,7 @@ id:
   tokens:
     show:
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+  undo: "Batalkan?"
   users:
     confirm_email:
       email_confirmed: "E-Mail %{email} activated"
@@ -437,3 +458,4 @@ id:
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger:
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
+  welcome: "Selamat Datang!"

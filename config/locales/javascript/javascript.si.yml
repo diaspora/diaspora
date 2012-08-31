@@ -6,10 +6,61 @@
 
 si:
   javascripts:
+    comments:
+      hide: "comments සගවන්න"
+      show: "සියලු comments පෙන්නන්න"
+    confirm_dialog: "ඔබට විශ්වාසද ?"
     delete: "මකන්න"
+    getting_started:
+      alright_ill_wait: "හොදයි, මම ඉන්නම්."
+      hey: "හලෝ, <%= name %>!"
+    header:
+      close: "වසන්න"
+      home: "නිවහන"
+      profile: "Profile එක"
+      search: "සෙවීම"
+      settings: "සැකසුම්"
+      view_all: "සියල්ල පෙන්වන්න"
     ignore: "මඟහරින්න"
+    my_activity: "මගේ ක්‍රියාව"
+    photo_uploader:
+      looking_good: "මාරයි, ඔයා නියමයි!"
+    search_for: "<%= name %> සදහා සොයා බලන්න"
+    show_more: "තවත් පෙන්නන්න"
+    stream:
+      hide: "සගවන්න"
+      like: "කැමතියි"
+      likes:
+        one: "<%= count %> කෙනෙක් කැමතියි  "
+        other: "<%= count %> කැමතියි  "
+        zero: "<%= count %> කැමතියි  "
+      limited: "සීමිතයි"
+      public: "පොදු"
+      reshare: "නැවත share කරන්න"
+      reshares:
+        one: "<%= count %>කෙනෙක් නැවත share කරා "
+        other: "<%= count %> නැවත share කරා "
+        zero: "<%= count %> නැවත share කරා "
+      show_nsfw_posts: "සියල්ල පෙන්වන්න"
+      unlike: "අකැමතියි"
     timeago:
+      day: "දවසක්"
+      days: "දවස් %d"
+      hour: "පැයකින් පමණ"
+      hours: "පැය %d පමණ"
+      minute: "විනාඩියකින් පමණ"
+      minutes: "විනාඩි %d"
+      month: "මාසයකින් පමණ"
+      months: "මාස %d"
       prefixAgo: ""
       prefixFromNow: ""
-      suffixAgo: ""
-      suffixFromNow: ""
+      seconds: "විනාඩියකට අඩු කාලයකින්"
+      suffixAgo: "පෙර"
+      suffixFromNow: "මෙතැන් සිට"
+      year: "අවුරුද්දකින් පමණ"
+      years: "අවුරුදු %d"
+    videos:
+      unknown: "දන්නේ නැති විඩියෝ type එකක්"
+      watch: "මෙම විඩියෝ එක <%= provider %> එකෙන් බලන්න"
+    viewer:
+      home: "නිවස"

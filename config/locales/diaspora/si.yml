@@ -1,0 +1,273 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+si:
+  _home: "නිවස"
+  _services: "සේවාවන්"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "දැනටමත් ලබාගෙන ඇත."
+            person:
+              invalid: "වලංගු නැත"
+            username:
+              invalid: "වලංගු නැත. අපි ඉඩදෙන්නේ අකුරු, ඉලක්කම් සහ යටි ඉර \"_\" වලට පමණි."
+              taken: "දැනටමත් ලබාගෙන ඇත."
+  admins:
+    admin_bar:
+      pages: "පිටු"
+    stats:
+      2weeks: "සති 2 ක්"
+      daily: "දවස් පතා"
+      go: "යන්න"
+      month: "මාසය"
+  application:
+    helper:
+      diaspora_alpha: "සංවර්ධනය වෙමින් පවතින DIASPORA*"
+      unknown_person: "නාඳුනන කෙනෙක්"
+      video_title:
+        unknown: "නාඳුනන වීඩියෝ මාතෘකාවකි"
+  are_you_sure: "ඔබට විශ්වාසද ?"
+  aspects:
+    aspect_contacts:
+      done_editing: "සංස්කරණය හරි"
+    aspect_listings:
+      add_an_aspect: "+ අංගයන් එක් කරන්න"
+      edit_aspect: "%{name} සංස්කරණය කරන්න"
+      select_all: "සියල්ල තෝරන්න"
+    create:
+      failure: "අංගය සැදීම අසාර්ථකයි"
+      success: "ඔබගේ නව අංගයන් %{name} සාදන ලදී"
+    destroy:
+      failure: "%{name} හිස්ව නොපවතී සහ ඉවත් කිරීමට නොහැක."
+      success: "%{name} සාර්ථකව ඉවත් කරන ලදී."
+    edit:
+      done: "හරි"
+      remove_aspect: "මෙම අංගය මකාදමන්න"
+      rename: "නැවත නම් කරන්න"
+      update: "යාවත්කාල කරන්න"
+      updating: "යාවත්කාල වෙමින් පවතී"
+    few: "අංගයන් %{count}"
+    helper:
+      aspect_not_empty: "අංගය හිස්ව නැත"
+      remove: "ඉවත්කරන්න"
+    index:
+      cubbies:
+        learn_more: "තව දැනගන්න"
+      diaspora_id:
+        content_1: "මෙය ඔබගේ ඩයස්පෝරා ID එකයි:"
+        heading: "ඩයස්පෝරා ID එක"
+      donate: "පරිත්‍යාග කරන්න"
+      help:
+        here_to_help: "ඩයස්පෝරා ප්‍රජාව මෙතැනයි !"
+        need_help: "උදවුවක් ඕනෙද?"
+        tag_bug: "දෝෂය"
+        tag_feature: "විශේෂාංගය"
+        tag_question: "ප්‍රශ්නය"
+      new_here:
+        learn_more: "තව දැනගන්න"
+        title: "නව පරිශීලකයන්ට ආයුබෝවන්"
+      services:
+        content: "ඔබට පහත සේවාවන් Diaspora සමග සම්බන්ධ කරන්න පුළුවන්:"
+        heading: "සේවාවන් සම්බන්ධ කරන්න"
+      welcome_to_diaspora: "ඩයස්පොරා වෙතින් ආයුබොවන්, %{name}!"
+    many: "අංගයන් %{count}"
+    move_contact:
+      success: "පුද්ගලයා නව අංගයට මාරු කරන ලදී"
+    new:
+      create: "සාදන්න"
+      name: "නම (ඔබට පමණක් පෙනෙන)"
+    one: "එක අංගයක්"
+    seed:
+      acquaintances: "	ඇඳුනුම්කම්"
+      family: "පවුල"
+      friends: "යහළුවන්"
+      work: "රැකියාව"
+    selected_contacts:
+      manage_your_aspects: "ඔබගේ අංගයන් කලමනාකරණය කරන්න"
+    show:
+      edit_aspect: "අංගය සංස්කරණය කරන්න"
+    two: "අංගයන් %{count}"
+    update:
+      failure: "ඔබගේ අංගය, %{name}, හි නම save කිරීමට දිග වැඩියි."
+      success: "ඔබගේ අංගය, %{name}, සාර්ථකව නැවත සකසන ලදී."
+    zero: "අංගයන් නැත"
+  back: "ආපස්සට"
+  bookmarklet:
+    heading: "පොත් සලකුණ"
+  contacts:
+    index:
+      only_sharing_with_me: "මා සමග පමණක් share කර ඇත"
+  conversations:
+    new:
+      subject: "විෂයය"
+  date:
+    formats:
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
+  delete: "මකන්න"
+  email: "විද්‍යුත් තැපෑල"
+  find_people: "පුද්ගයින් සෙවීම හෝ #tags"
+  hide: "සගවන්න"
+  invitations:
+    a_facebook_user: "Facebook පරිශීලකයෙක්"
+    create:
+      already_contacts: "ඔබ දැනටමත් මෙම පුද්ගලයා සමග සම්බන්ධ වී සිටි."
+      already_sent: "ඔබ දැනටමත් මෙම පුද්ගලයාට ආරාධනා කොට ඇත."
+      no_more: "ඔබ සතුව තවත් අරාධනාවන් නැත."
+      own_address: "ඔබට ඔබගේම ලිපිනයට අරාධනා යැවිය නොහැක."
+    new:
+      aspect: "අංගය"
+      invite_someone_to_join: "කාට හරි ආරාධනා කරන්න ඩයසපෝරා සමග සම්බන්ධවන්න!"
+      language: "භාෂාව"
+      personal_message: "පුද්ගලික පණිවිඩය"
+      resend: "නැවත යවන්න"
+      send_an_invitation: "ආරාධනාවක් යවන්න"
+      send_invitation: "ආරාධනාවක් යවන්න"
+      to: "වෙත"
+  layouts:
+    application:
+      back_to_top: "නැවත ඉහලට යන්න"
+      whats_new: "අලුතින් මොනවද?"
+    header:
+      blog: "බ්ලොගය"
+      code: "කේතය"
+      view_all: "සියල්ල පෙන්වන්න"
+  likes:
+    likes:
+      people_dislike_this:
+        one: "%{count} අකමැත්තක්"
+        other: "අකමැති %{count} "
+        zero: "අකමැති නැත"
+      people_like_this:
+        one: "%{count} කැමැත්තක් "
+        other: "කැමැති %{count}"
+        zero: "කැමැති නැත"
+      people_like_this_comment:
+        one: "%{count} කැමැත්තක් "
+        other: "කැමැති %{count}"
+        zero: "කැමැති නැත"
+  limited: "සීමිතයි"
+  more: "තවත්..."
+  next: "ඊළගට"
+  no_results: "කිසිදු ප්‍රතිඵලයක් හමු නොවුණි."
+  notifier:
+    click_here: "මෙතන click කරන්න"
+    hello: "හෙලෝ %{name}!"
+    thanks: "ස්තුතියි,"
+  nsfw: "NSFW"
+  ok: "හරි"
+  or: "හෝ"
+  password: "මුර පදය"
+  people:
+    few: "පුද්ගලයින් %{count}"
+    index:
+      no_results: "හලෝ! ඔයාට මොකක් හරි සෙවීමට අවශ්‍යද ?"
+      results_for: "සෙවුම් ප්‍රතිඵල සඳහා"
+    many: "පුද්ගලයින් %{count}"
+    one: "එක පුද්ගලයෙක්"
+    other: "පුද්ගලයින් %{count}"
+    person:
+      thats_you: "ඒ ඔබයි!"
+    profile_sidebar:
+      born: "උපන්දිනය"
+      gender: "ලිංගභේදය"
+      location: "ස්ථානය"
+    two: "පුද්ගලයින් %{count}"
+    zero: "පුද්ගලයින් නැත"
+  photos:
+    destroy:
+      notice: "පින්තූරය ඉවත් කරන ලදී."
+    new:
+      back_to_list: "නැවත ලැයිස්තුව වෙත"
+      new_photo: "අලුත් පින්තුරයක්"
+    show:
+      delete_photo: "පින්තුරය ඉවත්කරන්න"
+      update_photo: "පින්තුරය යාවත්කාලීන කරන්න"
+    update:
+      notice: "පින්තූරය සාර්ථකව යාවත්කාලීන වන ලදී."
+  posts:
+    show:
+      destroy: "ඉවත් කරන්න"
+  privacy: "පෞද්ගලිකත්වය"
+  privacy_policy: "පෞද්ගලික ප්‍රතිපත්තිය"
+  profiles:
+    edit:
+      first_name: "මුල් නම"
+      your_birthday: "ඔබගේ උපන් දිනය"
+      your_gender: "ඔබගේ ලිංගිකත්වය"
+      your_location: "ඔබගේ ස්ථානය"
+      your_name: "ඔබගේ නම"
+      your_photo: "ඔබගේ පින්තූරය"
+      your_tags: "ඔබ ගැන වචන 5 කින් විස්තර කරන්න"
+  public: "පොදු"
+  reactions:
+    one: "එක ප්‍රතිචාරයක් "
+    other: "ප්‍රතිචාර %{count} "
+    zero: "ප්‍රතිචාර නැත"
+  registrations:
+    edit:
+      unhappy: "අසතුටෙන්ද ?"
+    new:
+      enter_email: "email එක ඇතුලත් කරන්න"
+      enter_password: "මුර පදයක් ඇතුලත් කරන්න ( අවම වශයෙන්වත් අකුරු 6 ක් )"
+      enter_username: "පරිශීලක නාමයක් තෝරා ගන්න (අකුරු, ඉලක්කම් සහ යටි ඉර \"_\" පමණි)"
+      username: "පරිශීලක නාමය"
+  search: "සෙවීම"
+  services:
+    finder:
+      no_friends: "Facebook යහළුවන් සොයා ගත නොහැක."
+      service_friends: "%{service} යහළුවන්"
+    index:
+      connect_to_facebook: "Facebook සමග සම්බන්ධ කරන්න."
+      connect_to_tumblr: "Tumblr සමග සම්බන්ධ කරන්න."
+      connect_to_twitter: "Twitter සමග සම්බන්ධ කරන්න."
+      disconnect: "විසන්ධි කරන්න"
+      edit_services: "සේවාවන් නැවත සකසන්න"
+      really_disconnect: "%{service} විසන්ධි කරන්නද?"
+    remote_friend:
+      invite: "ආරාධනා කරන්න"
+      not_on_diaspora: "තවම Diaspora තුල නැත"
+      resend: "නැවත යවන්න"
+  settings: "සැකසුම්"
+  shared:
+    invitations:
+      from_facebook: "Facebook එකෙන්"
+    public_explain:
+      manage: "සම්බන්ධ සේවාවන් කළමනාකරණය කරන්න"
+    stream_element:
+      dislike: "කමති නැත"
+      like: "කැමතියි"
+      show: "පෙන්වන්න"
+      unlike: "අකැමතියි"
+  terms_and_conditions: "කොන්දේසි සහ තත්ත්වයන්"
+  username: "පරිශ්‍රීලක නම"
+  users:
+    edit:
+      change: "වෙනස් කරන්න"
+      change_email: "email වෙනස්කරන්න"
+      change_language: "භාෂාව වෙනස්කරන්න"
+      change_password: "මුරපදය වෙනස්කරන්න"
+      close_account:
+        dont_go: "හලෝ, කරුණාකර යන්න එපා!"
+      current_password: "දැනට පවතින මුරපදය"
+      download_photos: "මගේ පින්තූර භාගත කරන්න"
+      download_xml: "මගේ xml එක භාගත කරන්න"
+      getting_started: "නව පරිශීලකගේ අභිරුචියන්"
+      new_password: "නව මුරපදය"
+      your_email: "ඔබගේ email"
+      your_handle: "ඔබගේ ඩයස්පෝරා ID"
+    getting_started:
+      who_are_you: "ඔබ කවුරුන්ද?"
+    privacy_settings:
+      ignored_users: "ප්‍රතික්ෂේපිත පරිශීලකයන්"
+      stop_ignoring: "ප්‍රතික්ෂේප කිරීම නවත්වන්න"
+      title: "පෞද්ගලිකත්ව සැකසුම්"
+  welcome: "ආයුබෝවන්!"

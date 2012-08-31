@@ -62,6 +62,7 @@ ml:
       public: "Public - your post will be visible to everyone and found by search engines"
     reshares:
       duplicate: "You've already reshared that post!"
+      successful: "ഈ കുറിപ്പ് വിജയകരമായി വീണ്ടും പങ്കുവെയ്ക്കപ്പെട്ടു!"
     search_for: "{{name}}നായി തിരയുക"
     show_more: "show more"
     stream:
@@ -120,3 +121,12 @@ ml:
     videos:
       unknown: "അജ്ഞാതമായ തരം വീഡിയോ"
       watch: "ഈ വീഡിയോ {{provider}}ല്‍ കാണുക"
+    viewer:
+      comment: "അഭിപ്രായം"
+      follow_post: "കുറിപ്പിനെ പിന്തുടരുക"
+      home: "ഭവനം"
+      like: "ഇഷ്ടപ്പെടുക"
+      reshare: "വീണ്ടും പങ്കുവെയ്ക്കുക"
+      reshared: "വീണ്ടും പങ്കുവെയ്ക്കപ്പെട്ടത്"
+      stop_following_post: "കുറിപ്പിനെ പിന്തുടരുന്നത് നിർത്തുക"
+      unlike: "നീരസപ്പെടുക"

@@ -8,7 +8,9 @@ br:
   javascripts:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
+      all_aspects: "An holl weloù"
       error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      select_aspects: "Dilenn gweloù"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle:
@@ -18,39 +20,79 @@ br:
         other: "In {{count}} aspects"
         two: "In <%= count %> aspects"
         zero: "Add to aspect"
+    aspect_navigation:
+      deselect_all: "Dizilenn pep tra"
+      no_aspects: "N'hoc'h eus dilennet gwel ebet"
+      select_all: "Dilenn pep tra"
+    comments:
+      hide: "Kuzhat an evezhiadennoù"
+      show: "Diskwel an holl evezhiadennoù"
     confirm_dialog: "Emaoc'h sur?"
+    delete: "Dilemel"
     getting_started:
+      alright_ill_wait: "Ma, me zo o vont da c'hortoz."
       hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
+      admin: "Merañ"
+      contacts: "Darempredoù"
+      home: "Degemer"
+      log_out: "Digennaskañ"
+      mark_all_as_read: "Merkit pep tra evel lennet"
+      messages: "Kemennadennoù"
+      notifications: "Kemennoù"
+      profile: "Profil"
+      recent_notifications: "Kemennoù nevez"
       search: "Find people or #tags"
+      settings: "Arventennoù"
+      view_all: "Gwelet pep tra"
+    infinite_scroll:
+      no_more: "Kemennadenn all ebet"
+    my_activity: "Ma c'heleier"
+    my_stream: "Gwazh"
+    photo_uploader:
+      looking_good: "Biskoazh kement-all ! Tres brav zo ganeoc'h !"
     publisher:
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
     reshares:
       duplicate: "You've already reshared that post!"
     search_for: "Klask war-lerc'h {{name}}"
+    show_more: "Gwelet muioc'h"
     stream:
+      comment: "Ober un evezhiadenn"
+      follow: "Heuliañ"
+      hide: "Kuzhat"
+      hide_nsfw_posts: "Kuzhat ar c'hemennadennoù #nsfw"
+      like: "Plijout a ra din"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
+        one: "<%= count %> Plijet"
+        other: "<%= count %> Plijet"
         two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        zero: "<%= count %> Plijet"
+      limited: "Bevennet"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
+        one: "Diskwel <%= count %> evezhiadenn ouzhpenn"
+        other: "Diskwel <%= count %> evezhiadenn ouzhpenn"
         two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        zero: "Diskwel <%= count %> evezhiadenn ouzhpenn"
+      original_post_deleted: "Dilamet eo bet ar gemennadenn orin gant hec'h aozer."
+      public: "Boutin"
+      reshare: "Rannañ en-dro"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
+        one: "<%= count %> Adrannerezh"
+        other: "<%= count %> Adrannerezh"
         two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+        zero: "<%= count %> Adrannerezh"
+      show_nsfw_post: "Diskouez ar gemennadenn"
+      show_nsfw_posts: "Diskouez pep tra"
+      unfollow: "Chom hep heuliañ"
+      unlike: "Ne blij ket din ken"
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:

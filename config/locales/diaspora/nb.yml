@@ -40,6 +40,40 @@ nb:
             username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "er allerede tatt."
+  admins:
+    admin_bar:
+      pages: "Sider"
+      user_search: "Brukersøk"
+      weekly_user_stats: "Ukentlig brukerstatistikk"
+    stats:
+      2weeks: "To uker"
+      comments:
+        one: "%{count} kommentarer"
+        other: "%{count} kommentarer"
+        zero: "%{count} kommentarer"
+      daily: "Daglig"
+      month: "Måned"
+      posts:
+        one: "%{count} post"
+        other: "%{count} poster"
+        zero: "%{count} poster"
+      usage_statistic: "Bruksstatistikk"
+      users:
+        one: "%{count} bruker"
+        other: "%{count} brukere"
+        zero: "%{count} brukere"
+      week: "Uke"
+    user_search:
+      users:
+        one: "%{count} bruker funnet"
+        other: "%{count} brukere funnet"
+        zero: "%{count} brukere funnet"
+      you_currently: "Du har nå %{user_invitation} invitasjoner igjen %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "Antall nye brukere denne uken: %{count}"
+        other: "Antall nye brukere denne uken: %{count}"
+        zero: "Antall nye brukere denne uken: ingen"
   ago: "%{time} siden"
   all_aspects: "Alle aspekter"
   application:
@@ -158,8 +192,15 @@ nb:
     zero: "ingen aspekter"
   authorizations:
     index:
+      no_applications: "Du har ikke registrert noen applikasjoner ennå."
       revoke_access: "Trekk tilbake tilgangen"
+    new:
+      authorize: "Autoriser"
+      nope: "Nei"
   back: "Tilbake"
+  blocks:
+    destroy:
+      success: "La oss se hva de har å si! #sihallo"
   bookmarklet:
     explanation: "%{link} fra hvor som helst ved å bokmerke denne linken."
     heading: "Diaspora Bookmarklet"
@@ -228,6 +269,7 @@ nb:
       no_messages: "ingen meldinger"
     new:
       send: "Send"
+      sending: "Sender..."
       subject: "emne"
       to: "til"
     new_message:
@@ -278,6 +320,7 @@ nb:
       back_to_top: "Til toppen"
       powered_by: "DREVET AV DIASPORA*"
       public_feed: "Offentlig Diaspora feed for %{name}"
+      source_package: "Last ned kildekodepakken"
       toggle: "vis mobilsiden"
       whats_new: "hva er nytt?"
       your_aspects: "dine aspekt"
@@ -468,6 +511,8 @@ nb:
   password: "Passord"
   password_confirmation: "Passord bekreftelse"
   people:
+    add_contact:
+      invited_by: "du ble invitert av"
     add_contact_small:
       add_contact_from_tag: "legg til kontakt fra tag"
     aspect_list:
@@ -482,6 +527,8 @@ nb:
       no_one_found: "...og ingen ble funnet."
       no_results: "Hei! Du må søke etter noe."
       results_for: "søkeresultater for"
+      searching: "Søker. Vennligst vent..."
+    last_post: "Siste post"
     many: "%{count} personer"
     one: "1 person"
     other: "%{count} personer"
@@ -547,11 +594,14 @@ nb:
       edit: "rediger"
       edit_delete_photo: "Rediger bildebeskrivelse / slett bilde"
       make_profile_photo: "gjør til profilbilde"
+      show_original_post: "Vis originalpost"
       update_photo: "Oppdater Bilde"
     update:
       error: "Greide ikke å endre bildet."
       notice: "Bildet er oppdatert."
   posts:
+    presenter:
+      title: "En post fra %{name}"
     show:
       destroy: "Slett"
       not_found: "Beklager, vi fant ikke det inlegget. "
@@ -605,12 +655,15 @@ nb:
       unhappy: "Ulykkelig?"
       update: "Oppdater"
     new:
+      continue: "Fortsett"
       create_my_account: "Create my account"
       enter_email: "Skriv en e-post"
       enter_password: "Skriv inn et passord"
       enter_password_again: "Skriv inn samme passord som før"
       enter_username: "Velg et brukernavn (kun bokstaver, nummer og understreker)"
+      password: "PASSORD"
       sign_up_message: "Social Networking with a <3"
+      username: "BRUKERNAVN"
   requests:
     create:
       sending: "Sending..."
@@ -658,6 +711,7 @@ nb:
       error: "feil under tilkobling av tjenesten"
     finder:
       fetching_contacts: "Diaspora finner dine %{service} venner, vær så snill og sjekk igjen om noen få minutter."
+      service_friends: "%{service} Venner"
     index:
       connect_to_facebook: "Koble til facebook"
       connect_to_tumblr: "Koble til Tumblr"
@@ -727,6 +781,7 @@ nb:
       new_user_prefill:
         hello: "Hei alle sammen, jeg er #%{new_user_tag}. "
         i_like: "Jeg er interessert i %{tags}."
+        invited_by: "Takk for invitasjonen,  "
       post_a_message_to: "Post et innlegg til %{aspect}"
       posting: "Poster..."
       publishing_to: "publiserer til:"
@@ -745,7 +800,9 @@ nb:
       ignore_user_description: "Ignorér og fjern bruker fra alle aspekter?"
       like: "Liker"
       shared_with: "Delt med: %{aspect_names}"
+      show: "vis"
       unlike: "Liker ikke"
+      via_mobile: "via mobil"
       viewable_to_anyone: "Denne posten er synlig for alle på Internett"
   status_messages:
     create:
@@ -773,10 +830,13 @@ nb:
       two: "Show two more comments"
       zero: "Ingen kommentarer"
   streams:
+    activity:
+      title: "Min aktivitet"
     aspects:
       title: "Your Aspects"
     comment_stream:
       contacts_title: "Personer hvis poster du har kommentert"
+      title: "Kommenterte poster"
     followed_tag:
       follow: "Følg"
     like_stream:
@@ -784,6 +844,8 @@ nb:
     mentions:
       contacts_title: "Folk som har nevnt deg"
       title: "Your Mentions"
+    multi:
+      title: "Strøm"
     public:
       title: "Offentlig aktivitet"
     tags:
@@ -834,7 +896,9 @@ nb:
       change_language: "Endre Språk"
       change_password: "Endre Passord"
       close_account:
+        lock_username: "Dette vil reservere brukernavnet ditt hvis du bestemmer deg for å registrere deg igjen."
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Avslutt konto"
       comment_on_post: " noen kommenterer på dine innlegg?"
       current_password: "Nåverende passord"
       download_photos: "last ned mine bilder"
@@ -862,6 +926,7 @@ nb:
       hooking_up_fb: "koble til din Facebook-konto"
       saved: "Lagret!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+      who_are_you: "Hvem er du?"
     privacy_settings:
       ignored_users: "Ignorerte brukere"
       stop_ignoring: "Slutt å ignorere"
@@ -884,3 +949,6 @@ nb:
     not_enabled: "det virker ikke som webfinger er aktivert for % {account}'s vert"
     xrd_fetch_failed: "kunne ikke få xrd fra kontoen %{account}"
   welcome: "Velkommen!"
+  will_paginate:
+    next_label: "neste &raquo;"
+    previous_label: "&laquo; forrige"

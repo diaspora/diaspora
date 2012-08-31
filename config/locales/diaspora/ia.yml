@@ -1,0 +1,195 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ia:
+  _applications: "Applicationes"
+  _comments: "Commentos"
+  _contacts: "Contactos"
+  _home: "Initio"
+  _services: "Servicios"
+  account: "Conto"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "debe esser unic inter le contactos de iste usator."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "es jam in uso."
+        request:
+          attributes:
+            from_id:
+              taken: "es un duplicato de un requesta pre-existente."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Tu ha jam repetite iste message."
+        user:
+          attributes:
+            email:
+              taken: "es jam in uso."
+            person:
+              invalid: "es invalide."
+            username:
+              invalid: "es invalide. Nos permitte solmente litteras, numeros e tractos de sublineamento."
+              taken: "es jam in uso."
+  ago: "%{time} retro"
+  all_aspects: "Tote le aspectos"
+  application:
+    helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
+      unknown_person: "persona incognite"
+      video_title:
+        unknown: "Titulo de video incognite"
+  are_you_sure: "Es tu secur?"
+  are_you_sure_delete_account: "Es tu secur de voler clauder tu conto? Isto non pote esser disfacite!"
+  aspect_memberships:
+    destroy:
+      failure: "Le remotion del persona del aspecto ha fallite"
+      no_membership: "Impossibile trovar le persona seligite in ille aspecto"
+      success: "Persona removite del aspecto con successo"
+  aspects:
+    add_to_aspect:
+      failure: "Le addition del contacto al aspecto ha fallite."
+      success: "Le contacto ha essite addite al aspecto con successo."
+    aspect_contacts:
+      done_editing: "modification finite"
+    aspect_listings:
+      add_an_aspect: "+ Adder un aspecto"
+      deselect_all: "Deseliger totes"
+      edit_aspect: "Modificar %{name}"
+      select_all: "Seliger totes"
+    aspect_stream:
+      stay_updated: "Tene te al currente"
+      stay_updated_explanation: "Le fluxo principal es plenate con tote le contactos tue, le etiquettas que tu seque, e messages de alcun membros creative del communitate."
+    contacts_not_visible: "Le contactos in iste aspecto non potera vider le unes le alteres."
+    contacts_visible: "Le contactos in iste aspecto potera vider le unes le alteres."
+    create:
+      failure: "Le creation del aspecto ha fallite."
+      success: "Tu nove aspecto %{name} ha essite create"
+    destroy:
+      failure: "%{name} non es vacue e non pote esser removite."
+      success: "%{name} ha essite removite con successo."
+    edit:
+      add_existing: "Adder un contacto existente"
+      aspect_list_is_not_visible: "le lista de aspectos es celate pro alteres in iste aspecto"
+      aspect_list_is_visible: "le lista de aspectos es visibile pro alteres in iste aspecto"
+      confirm_remove_aspect: "Es tu secur de voler deler iste aspecto?"
+      done: "Finite"
+      make_aspect_list_visible: "render contactos in iste aspecto visibile le unes pro le alteres?"
+      remove_aspect: "Deler iste aspecto"
+      rename: "renominar"
+      update: "actualisar"
+      updating: "actualisation in curso"
+    few: "%{count} aspectos"
+    helper:
+      are_you_sure: "Es tu secur de voler deler iste aspecto?"
+      aspect_not_empty: "Aspecto non vacue"
+      remove: "remover"
+    index:
+      cubbies:
+        explanation: "Cubbi.es es le prime application de Diaspora in disveloppamento."
+        heading: "Connecter a Cubbi.es"
+        learn_more: "Leger plus"
+      diaspora_id:
+        content_1: "Tu identitate in Diaspora es:"
+        content_2: "Da lo a alteres e illes potera trovar te in Diaspora."
+        heading: "Identitate in Diaspora"
+      donate: "Donar"
+      handle_explanation: "Isto es tu identitate in Diaspora. Como un adresse de e-mail, tu pote dar isto a personas pro attinger te."
+      help:
+        do_you: "Esque tu:"
+        email_feedback: "%{link} tu commentario, si tu lo prefere"
+        feature_suggestion: "... ha un suggestion de %{link}?"
+        find_a_bug: "... ha trovate un %{link}?"
+        have_a_question: "... ha un %{link}?"
+        here_to_help: "Le communitate de Diaspora es a tu disposition!"
+        need_help: "Require adjuta?"
+        tag_bug: "defecto"
+        tag_feature: "functionalitate"
+        tag_question: "question"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, guidas e actualitates mantenite per le communitate"
+      introduce_yourself: "Isto es tu fluxo. Avante, presenta te."
+      new_here:
+        follow: "Seque %{link} e da le benvenita a nove usatores in Diaspora*!"
+        learn_more: "Leger plus"
+        title: "Dar le benvenita a nove usatores"
+      no_contacts: "Nulle contacto"
+      no_tags: "+ Cercar un etiquetta a sequer"
+      people_sharing_with_you: "Personas qui divide con te"
+      post_a_message: "publicar un message >>"
+      services:
+        content: "Tu pote connecter le sequente servicios a Diaspora:"
+        heading: "Connecter servicios"
+      unfollow_tag: "Cessar de sequer #%{tag}"
+      welcome_to_diaspora: "Benvenite a Diaspora, %{name}!"
+    many: "%{count} aspectos"
+    move_contact:
+      error: "Error durante le displaciamento del contacto: %{inspect}"
+      failure: "non functionava %{inspect}"
+      success: "Persona displaciate a un nove aspecto"
+    new:
+      create: "Crear"
+      name: "Nomine (visibile solmente pro te)"
+    no_contacts_message:
+      community_spotlight: "usatores in evidentia"
+      or_spotlight: "O tu pote divider con %{link}"
+      try_adding_some_more_contacts: "Tu pote cercar o invitar plus contactos."
+      you_should_add_some_more_contacts: "Tu deberea adder plus contactos!"
+    no_posts_message:
+      start_talking: "Nemo ha ancora dicite qualcosa!"
+    one: "1 aspecto"
+    other: "%{count} aspectos"
+    seed:
+      acquaintances: "Cognoscitos"
+      family: "Familia"
+      friends: "Amicos"
+      work: "Labor"
+    selected_contacts:
+      manage_your_aspects: "Gerer tu aspectos."
+      no_contacts: "Tu non ha ancora contactos hic."
+      view_all_community_spotlight: "Vider tote le usatores in evidentia"
+      view_all_contacts: "Vider tote le contactos"
+    show:
+      edit_aspect: "modificar aspecto"
+    two: "%{count} aspectos"
+    update:
+      failure: "Tu aspecto, %{name}, ha un nomine troppo longe e non pote esser salveguardate."
+      success: "Tu aspecto, %{name}, ha essite modificate con successo."
+    zero: "nulle aspecto"
+  back: "Retornar"
+  cancel: "Cancellar"
+  delete: "Deler"
+  email: "E-mail"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Corrige le sequente errores e proba de novo."
+      invalid_fields: "Campos invalide"
+  fill_me_out: "Plena me"
+  find_people: "Cercar personas o #etiquettas"
+  hide: "Celar"
+  limited: "Limitate"
+  more: "Plus"
+  next: "sequente"
+  no_results: "Nulle resultato trovate"
+  ok: "OK"
+  or: "o"
+  password: "Contrasigno"
+  password_confirmation: "Confirmation del contrasigno"
+  previous: "precedente"
+  privacy: "Confidentialitate"
+  privacy_policy: "Politica de confidentialitate"
+  profile: "Profilo"
+  public: "Public"
+  search: "Cercar"
+  settings: "Configuration"
+  terms_and_conditions: "Terminos e conditiones"
+  undo: "Disfacer?"
+  username: "Nomine de usator"
+  welcome: "Benvenite!"
