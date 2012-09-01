@@ -84,8 +84,6 @@ class PeopleController < ApplicationController
 
     raise(ActiveRecord::RecordNotFound) if remote_profile_with_no_user_session?
     return redirect_to :back, :notice => t("people.show.closed_account") if @person.closed_account?
-    return redirect_to person_path(@person) if cant_experimental
-    return redirect_to person_path(@person, :ex => true) if needs_experimental
 
     @post_type = :all
     @aspect = :profile
@@ -194,14 +192,6 @@ class PeopleController < ApplicationController
 
   def flag
      @flag ||= FeatureFlagger.new(current_user, @person)
-  end
-
-  def cant_experimental
-    params[:ex] && !flag.new_profile?
-  end
-
-  def needs_experimental
-    !params[:ex] && flag.new_profile? && flag.new_hotness? && request.format == "text/html"
   end
 
   def remote_profile_with_no_user_session?

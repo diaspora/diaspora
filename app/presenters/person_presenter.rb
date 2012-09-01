@@ -7,7 +7,6 @@ class PersonPresenter
   def as_json(options={})
     attrs = @person.as_api_response(:backbone).merge(
         {
-            :wallpaper => @person.profile.wallpaper.url,
             :is_own_profile => is_own_profile
         })
 

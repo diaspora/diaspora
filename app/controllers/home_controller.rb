@@ -6,9 +6,6 @@ class HomeController < ApplicationController
   def show
     if current_user
       flag = FeatureFlagger.new(current_user, current_user.person)
-
-      if flag.new_profile? && flag.following_enabled?
-        redirect_to person_path(current_user.person.guid)
       else
         redirect_to stream_path
       end
