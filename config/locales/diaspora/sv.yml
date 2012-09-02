@@ -681,7 +681,7 @@ sv:
       password: "LÖSENORD"
       sign_up: "REGISTRERA"
       sign_up_message: "Socialt nätverkande med ♥"
-      username: "ANVÄNDARENAMN"
+      username: "ANVÄNDARNAMN"
   requests:
     create:
       sending: "Skickar"
