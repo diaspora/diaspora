@@ -43,7 +43,7 @@ describe UsersController do
     it 'renders xml if atom is requested' do
       sm = Factory(:status_message, :public => true, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
-      response.body.should include(sm.text)
+      response.body.should include(sm.raw_message)
     end
 
     it 'renders xml if atom is requested with clickalbe urls' do
