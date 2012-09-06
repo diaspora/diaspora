@@ -283,7 +283,7 @@ STR
     it 'serializes the escaped, unprocessed message' do
       text = "[url](http://example.org)<script> alert('xss should be federated');</script>"
       @message.text = text
-      @message.to_xml.to_s.should include text.to_xs
+      @message.to_xml.to_s.should include Builder::XChar.encode(text)
     end
     
     it 'serializes the message' do
