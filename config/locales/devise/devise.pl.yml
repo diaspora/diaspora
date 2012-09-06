@@ -17,7 +17,7 @@ pl:
       invalid_token: "Nieprawidłowy token uwierzytelnienia."
       locked: "Twoje konto jest zablokowane."
       timeout: "Sesja wygasła, aby kontynuować zaloguj się ponownie."
-      unauthenticated: "Przed kontynuacją musisz się zalogować lub zarejestrować."
+      unauthenticated: "Aby kontynuować zaloguj się lub zarejestruj."
       unconfirmed: "Musisz aktywować swoje konto."
     invitations:
       invitation_token_invalid: "Token zaproszenia jest nieprawidłowy!"
@@ -25,7 +25,7 @@ pl:
       updated: "Hasło zostało pomyślnie zmienione. Zalogowano."
     mailer:
       confirmation_instructions:
-        confirm: "Aktywuj konto"
+        confirm: "Aktywuj moje konto"
         subject: "Instrukcja aktywacji"
         you_can_confirm: "Możesz aktywować swoje konto klikając poniższe łącze:"
       hello: "Cześć %{email}!"

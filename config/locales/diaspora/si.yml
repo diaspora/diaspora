@@ -27,6 +27,7 @@ si:
       daily: "දවස් පතා"
       go: "යන්න"
       month: "මාසය"
+      week: "සතිය"
   application:
     helper:
       diaspora_alpha: "සංවර්ධනය වෙමින් පවතින DIASPORA*"
@@ -159,6 +160,7 @@ si:
   next: "ඊළගට"
   no_results: "කිසිදු ප්‍රතිඵලයක් හමු නොවුණි."
   notifier:
+    accept_invite: "ඔබගේ ඩයස්පෝරා* ආරාධානව අනුමත කරන්න!"
     click_here: "මෙතන click කරන්න"
     hello: "හෙලෝ %{name}!"
     thanks: "ස්තුතියි,"
@@ -214,7 +216,9 @@ si:
     zero: "ප්‍රතිචාර නැත"
   registrations:
     edit:
+      edit: "%{name} සංස්කරණය කරන්න"
       unhappy: "අසතුටෙන්ද ?"
+      update: "යාවත්කාලීන කරන්න"
     new:
       enter_email: "email එක ඇතුලත් කරන්න"
       enter_password: "මුර පදයක් ඇතුලත් කරන්න ( අවම වශයෙන්වත් අකුරු 6 ක් )"
@@ -238,15 +242,36 @@ si:
       resend: "නැවත යවන්න"
   settings: "සැකසුම්"
   shared:
+    add_contact:
+      create_request: "ඩයස්පෝරා ID එකෙන් සොයාගන්න"
+      enter_a_diaspora_username: "ඩයස්පෝරා පරිශීලක නාමය ඇතුලත් කරන්න:"
+      your_diaspora_username_is: "මෙය ඔබගේ ඩයස්පෝරා පරිශීලක නාමයයි : %{diaspora_handle}"
     invitations:
+      by_email: "email එකකින්"
       from_facebook: "Facebook එකෙන්"
+      invitations_left: "%{count} ඉතුරුයි"
+      invite_someone: "කාටහරි ආරාධනා කරන්න"
+      invite_your_friends: "ඔබේ මිතුරන්ට ආරාධනා කරන්න"
+      invites: "ආරාධනා කළා"
     public_explain:
       manage: "සම්බන්ධ සේවාවන් කළමනාකරණය කරන්න"
+    publisher:
+      all: "සියල්ල"
+      new_user_prefill:
+        invited_by: "ආරාධනා කලාට ස්තුතියි, "
     stream_element:
       dislike: "කමති නැත"
       like: "කැමතියි"
       show: "පෙන්වන්න"
       unlike: "අකැමතියි"
+      via_mobile: "ජංගම දුරකථනය හරහා"
+  status_messages:
+    create:
+      success: "සාර්ථක ලෙස සදහන්කරා: %{names}"
+    helper:
+      no_message_to_display: "පෙන්වීමට කිසිදු පනිවිඩයක් නැත."
+    new:
+      mentioning: "සදහන්කරන්න: %{person}"
   terms_and_conditions: "කොන්දේසි සහ තත්ත්වයන්"
   username: "පරිශ්‍රීලක නම"
   users:

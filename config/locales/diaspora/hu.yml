@@ -215,7 +215,7 @@ hu:
     zero: "nincs csoport"
   authorizations:
     index:
-      no_applications: "Még nem regisztráltál egyetlen alkalmazást sem."
+      no_applications: "Még nem kezdtél el használni egyetlen alkalmazást sem."
       revoke_access: "Hozzáférés visszavonása"
     new:
       authorize: "engedélyezés"
@@ -677,7 +677,7 @@ hu:
     other: "%{count} visszajelzés"
     zero: "nincs visszajelzés"
   registrations:
-    closed: "A regisztráció zárolva van ezen a Diaspora kiszolgálón."
+    closed: "A feliratkozási lehetőség zárolva van ezen a Diaspora kiszolgálón."
     create:
       success: "Csatlakoztál a Diaspora-hoz!"
     edit:
@@ -700,7 +700,7 @@ hu:
       hey_make: "GYERÜNK,<br/>CSINÁLJ<br/>VALAMIT!"
       join_the_movement: "Csatlakozz!"
       password: "JELSZÓ"
-      sign_up: "REGISZTRÁLJ"
+      sign_up: "Iratkozz fel!"
       sign_up_message: "Közösségi Hálózat <3"
       username: "AZONOSÍTÓ"
   requests:
@@ -941,7 +941,7 @@ hu:
       love_to_try: "Szeretnénk, ha kipróbálnád."
       making_the_connection: "Kapcsolat létrehozása"
       screenshot_explanation: "%{link1}.  Ez a cubby ehhez van linkelve: %{link2}."
-      sign_up_today: "Regisztrálj még ma!"
+      sign_up_today: "Iratkozz fel még ma!"
       typical_userpage: "Tipikus 'cubbi.es' oldal"
       via: "(forrás: %{link})"
       what_is_cubbies: "Cubbi.es a világ első Diaspora* alkalmazása. Egyben a legjobb mód az online fotógyűjtésre!"
@@ -967,7 +967,7 @@ hu:
       close_account:
         dont_go: "Hé, kérlek ne menj!"
         if_you_want_this: "Ha tényleg ezt akarod, írd be a jelszavad és kattints a \"Fiók törlése\" gombra."
-        lock_username: "Le tudod védeni a felhasználóneved, ha esetleg mégis úgy döntenél, hogy újra regisztrálsz."
+        lock_username: "Le tudod védeni a felhasználóneved, ha esetleg mégis úgy döntenél, hogy újra feliratkozol."
         locked_out: "Ki fogunk léptetni és kizárunk a fiókodból."
         make_diaspora_better: "Azt szeretnénk, ha segítenél hogy jobbá tehessük a Diaspora-t, így a távozásod helyett szívesebben vennénk ha közreműködnél. Ám ha el akarod hagyni az oldalt, kérlek olvasd el mi fog következni."
         mr_wiggles: "Vuk szomorú lesz, ha távozni lát."

@@ -10,10 +10,10 @@ nl:
       confirmed: "Je account is geactiveerd. Je bent nu ingelogd."
       new:
         resend_confirmation: "Stuur bevestigingsinstructies nogmaals"
-      send_instructions: "Je ontvangt een e-mail met instructies om je account te activeren."
+      send_instructions: "Je ontvangt binnen enkele minuten een e-mail met instructies om je account te activeren."
     failure:
       inactive: "Je account is nog niet geactiveerd."
-      invalid: "De gebruikersnaam of het wachtwoord is ongeldig."
+      invalid: "Gebruikersnaam of wachtwoord ongeldig."
       invalid_token: "Ongeldig authenticatietoken."
       locked: "Je account is geblokkeerd."
       timeout: "Je sessie is verlopen. Log opnieuw in om verder te gaan."
@@ -81,17 +81,17 @@ nl:
         forgot_password: "Wachtwoord vergeten?"
         no_account: "Er bestaat geen account met dit e-mailadres.  Mocht je op een uitnodiging wachten; deze komen zo snel mogelijk beschikbaar."
         send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
-      send_instructions: "Je ontvangt een e-mail met instructies om je wachtwoord opnieuw in te stellen."
+      send_instructions: "Je ontvangt binnen enkele minuten een e-mail met instructies om je wachtwoord opnieuw in te stellen."
       updated: "Je wachtwoord is veranderd. Je bent nu ingelogd."
     registrations:
       destroyed: "Tot ziens! Je account is succesvol verwijderd. We hopen je snel terug te zien."
-      signed_up: "Je bent succesvol geregistreerd. Indien geactiveerd, ontvang je een bevestigingsmail."
+      signed_up: "Je bent succesvol geregistreerd. Indien aangevinkt is er een bevestiging naar je e-mail gestuurd."
       updated: "Je account is succesvol geüpdate."
     sessions:
       new:
         alpha_software: "Je staat op het punt om alpha-software te gebruiken."
-        bugs_and_feedback: "In dit stadium zul je waarschijnlijk nog bugs tegenkomen. We raden je aan de Feedback-button aan de rechterzijde van je browser te gebruiken om deze bugs te melden (in het Engels)!  Vervolgens zullen wij zo hard mogelijk werken om deze op te lossen."
-        bugs_and_feedback_mobile: "Wees je ervan bewust dat je zeker weten bugs zult tegenkomen.  We raden je aan deze vooral te rapporteren!  We doen onze uiterste best om deze problemen zo snel mogelijk op te lossen."
+        bugs_and_feedback: "Wees je ervan bewust dat je bugs tegen zult komen.  Gebruik de Feedback-button aan de rechterzijde van je browser om alle problemen melden (in het Engels)!  We doen ons uiterste best om problemen zo snel mogelijk op te lossen."
+        bugs_and_feedback_mobile: "Wees je ervan bewust dat je bugs tegen zult komen.  We vragen je alle problemen vooral te melden!  We doen ons uiterste best om problemen zo snel mogelijk op te lossen."
         login: "Inloggen"
         modern_browsers: "ondersteunt alleen moderne browsers."
         password: "Wachtwoord"
@@ -113,7 +113,7 @@ nl:
     unlocks:
       new:
         resend_unlock: "Stuur ontgrendelinstructies nogmaals"
-      send_instructions: "Je ontvangt een e-mail met instructies om je account te deblokkeren."
+      send_instructions: "Je ontvangt binnen enkele minuten een e-mail met instructies om je account te deblokkeren."
       unlocked: "Je account is succesvol gedeblokkeerd. Je bent nu ingelogd."
   errors:
     messages:

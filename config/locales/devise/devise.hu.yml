@@ -14,10 +14,10 @@ hu:
     failure:
       inactive: "A fiókod nem aktiváltad még."
       invalid: "Érvénytelen felhasználónév vagy jelszó."
-      invalid_token: "Érvénytelen hitelesítési token."
+      invalid_token: "Érvénytelen hitelesítési jel."
       locked: "A fiókod zárolva van."
       timeout: "A munkamenet lejárt, kérjük jelentkezz be újra."
-      unauthenticated: "Be kell jelentkezned, vagy regisztrálj."
+      unauthenticated: "A továbblépéshez jelentkezz be vagy iratkozz fel."
       unconfirmed: "Előbb meg kell erősítened fiókodat."
     invitations:
       invitation_token_invalid: "Sajnáljuk, de a meghívás nem érvényes."
@@ -51,9 +51,9 @@ hu:
         love: "Szeretettel,"
         made_by_people: "A %{strong_diaspora} olyan emberek munkája, akik annyira szeretik az Internetet, mint te magad. %{jointeam}, vagy %{helpfund}!"
         more_people: "És még sokan mások is kíváncsian várnak rád!"
-        no_account_till: "A fiókod addig nem készül el amíg be nem lépsz a megadott linkkel és be nem regisztrálsz."
+        no_account_till: "A fiókod addig nem készül el amíg be nem lépsz a megadott linkkel és nem iratkozol fel."
         or: "vagy"
-        sign_up_now: "Regisztrálj most &rarr;"
+        sign_up_now: "Iratkozz fel most &rarr;"
         subject: "Meghívtak, hogy csatlakozz a Diaspora* közösségi hálóhoz."
         team_diaspora: "A Diaspora* csapat"
         unsubscribe: "Leiratkozáshoz kattints %{link}."
@@ -79,13 +79,13 @@ hu:
         change_password: "Megváltoztatom a jelszavamat"
       new:
         forgot_password: "Elfelejtetted a jelszavad?"
-        no_account: "Ehhez az emailhez nincs fiók regisztrálva. Ha meghívóra vársz, akkor légy türelmes. Hamarosan osztogatunk."
-        send_password_instructions: "Küldd el nekem jelszó alaphelyzetbe állításához szükséges utasítások"
-      send_instructions: "Néhány perc múlva kapni fog egy e-mailt arról, hogy miként állítsa alaphelyzetbe a jelszavát."
+        no_account: "Ehhez az e-mail címhez nem tartozik fiók."
+        send_password_instructions: "Küldd el nekem a jelszó alaphelyzetbe állításához szükséges utasításokat"
+      send_instructions: "Néhány perc múlva kapsz egy e-mailt arról, hogyan állíthatod alaphelyzetbe a jelszavadat."
       updated: "A jelszavad megváltozott. Be vagy jelentkezve vele."
     registrations:
       destroyed: "Viszlát! A fiókod törölve. Reméljük hamarosan újra látunk. =)"
-      signed_up: "Sikeresen regisztráltál. Ha engedélyezve van, akkor egy megerősítő e-mailt küldünk."
+      signed_up: "Sikeresen feliratkoztál. Ha engedélyezve van, akkor egy megerősítő e-mailt küldünk."
       updated: "Fiókod frissítve."
     sessions:
       new:
@@ -106,8 +106,8 @@ hu:
         receive_confirmation: "Nem kaptál megerősítési utasítást?"
         receive_unlock: "Nem kaptad meg feloldási utasítást?"
         sign_in: "Bejelentkezés"
-        sign_up: "Regisztrálj"
-        sign_up_closed: "Nincs nyílt regisztráció jelenleg."
+        sign_up: "Feliratkozás"
+        sign_up_closed: "Nincs nyílt feliratkozási lehetőség jelenleg."
       mail_signup_form:
         sign_up_for_an_invite: "Iratkozz fel egy meghívóra!"
     unlocks:

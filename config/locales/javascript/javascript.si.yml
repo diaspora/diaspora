@@ -64,3 +64,5 @@ si:
       watch: "මෙම විඩියෝ එක <%= provider %> එකෙන් බලන්න"
     viewer:
       home: "නිවස"
+      like: "කැමතියි"
+      unlike: "අකැමතියි"

@@ -711,7 +711,7 @@ nb:
       error: "feil under tilkobling av tjenesten"
     finder:
       fetching_contacts: "Diaspora finner dine %{service} venner, vær så snill og sjekk igjen om noen få minutter."
-      service_friends: "%{service} Venner"
+      service_friends: "%{service}-venner"
     index:
       connect_to_facebook: "Koble til facebook"
       connect_to_tumblr: "Koble til Tumblr"
