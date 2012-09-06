@@ -103,17 +103,26 @@ class PublicFetcher
 
         FEDERATION_LOGGER.debug post.to_s[0..250]
 
+        # disable some stuff we don't want for bulk inserts
+        StatusMessage.skip_callback :create, :set_guid
+
         entry = StatusMessage.diaspora_initialize(
           :author => @person,
-          :public => true,
+          :public => true
+        )
+        entry.assign_attributes({
           :guid => post['guid'],
           :text => post['text'],
           :provider_display_name => post['provider_display_name'],
-          :created_at => ActiveSupport::TimeZone.new('UTC').parse(post['created_at']),
-          :interacted_at => ActiveSupport::TimeZone.new('UTC').parse(post['interacted_at']),
+          :created_at => ActiveSupport::TimeZone.new('UTC').parse(post['created_at']).to_datetime,
+          :interacted_at => ActiveSupport::TimeZone.new('UTC').parse(post['interacted_at']).to_datetime,
           :frame_name => post['frame_name']
-        )
+        }, :without_protection => true)
         entry.save
+
+        # re-enable everything we disabled before
+        StatusMessage.set_callback :create, :set_guid
+
       end
       set_fetch_status PublicFetcher::Status_Processed
     end

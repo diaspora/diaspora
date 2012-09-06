@@ -76,6 +76,33 @@ describe PublicFetcher do
       @person.fetch_status.should_not eql(PublicFetcher::Status_Initial)
       @person.fetch_status.should eql(PublicFetcher::Status_Processed)
     end
+
+    context 'created post' do
+      before do
+        @data = JSON.parse(@fixture).select { |item| item['post_type'] == 'StatusMessage' }
+
+        #save posts to db
+        @fetcher.instance_eval {
+          process_posts
+        }
+      end
+      
+      it 'applies the date from JSON to the record' do
+        @data.each do |post|
+          date = ActiveSupport::TimeZone.new('UTC').parse(post['created_at'])
+
+          entry = StatusMessage.find_by_guid(post['guid'])
+          entry.created_at.should eql(date)
+        end
+      end
+
+      it 'copied the text correctly' do
+        @data.each do |post|
+          entry = StatusMessage.find_by_guid(post['guid'])
+          entry.raw_message.should eql(post['text'])
+        end
+      end
+    end
   end
 
   context "private methods" do
