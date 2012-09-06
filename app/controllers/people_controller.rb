@@ -13,7 +13,8 @@ class PeopleController < ApplicationController
   respond_to :js, :only => [:tag_index]
 
   rescue_from ActiveRecord::RecordNotFound do
-    render :file => Rails.root.join('public', '404.html').to_s, :layout => false, :status => 404
+    render :file => Rails.root.join('public', '404').to_s,
+           :format => :html, :layout => false, :status => 404
   end
 
   helper_method :search_query
