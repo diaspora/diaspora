@@ -8,7 +8,7 @@ describe Jobs::Mail::Mentioned do
   describe '#perfom' do
     it 'should call .deliver on the notifier object' do
       user = alice
-      sm = Factory(:status_message)
+      sm = FactoryGirl.build(:status_message)
       m = Mention.new(:person => user.person, :post=> sm)
 
       mail_mock = mock()

@@ -35,7 +35,7 @@ describe Contact do
     end
 
     it 'validates uniqueness' do
-      person = Factory(:person)
+      person = FactoryGirl.create(:person)
 
       contact2 = alice.contacts.create(:person=>person)
       contact2.should be_valid
@@ -46,7 +46,7 @@ describe Contact do
     end
 
     it "validates that the person's account is not closed" do
-      person = Factory(:person, :closed_account => true)
+      person = FactoryGirl.create(:person, :closed_account => true)
 
       contact = alice.contacts.new(:person=>person)
 
@@ -59,8 +59,8 @@ describe Contact do
     describe 'sharing' do
       it 'returns contacts with sharing true' do
         lambda {
-          alice.contacts.create!(:sharing => true, :person => Factory(:person))
-          alice.contacts.create!(:sharing => false, :person => Factory(:person))
+          alice.contacts.create!(:sharing => true, :person => FactoryGirl.create(:person))
+          alice.contacts.create!(:sharing => false, :person => FactoryGirl.create(:person))
         }.should change{
           Contact.sharing.count
         }.by(1)
@@ -70,8 +70,8 @@ describe Contact do
     describe 'receiving' do
       it 'returns contacts with sharing true' do
         lambda {
-          alice.contacts.create!(:receiving => true, :person => Factory(:person))
-          alice.contacts.create!(:receiving => false, :person => Factory(:person))
+          alice.contacts.create!(:receiving => true, :person => FactoryGirl.build(:person))
+          alice.contacts.create!(:receiving => false, :person => FactoryGirl.build(:person))
         }.should change{
           Contact.receiving.count
         }.by(1)
@@ -81,10 +81,10 @@ describe Contact do
     describe 'only_sharing' do
       it 'returns contacts with sharing true and receiving false' do
         lambda {
-          alice.contacts.create!(:receiving => true, :sharing => true, :person => Factory(:person))
-          alice.contacts.create!(:receiving => false, :sharing => true, :person => Factory(:person))
-          alice.contacts.create!(:receiving => false, :sharing => true, :person => Factory(:person))
-          alice.contacts.create!(:receiving => true, :sharing => false, :person => Factory(:person))
+          alice.contacts.create!(:receiving => true, :sharing => true, :person => FactoryGirl.build(:person))
+          alice.contacts.create!(:receiving => false, :sharing => true, :person => FactoryGirl.build(:person))
+          alice.contacts.create!(:receiving => false, :sharing => true, :person => FactoryGirl.build(:person))
+          alice.contacts.create!(:receiving => true, :sharing => false, :person => FactoryGirl.build(:person))
         }.should change{
           Contact.receiving.count
         }.by(2)
@@ -93,9 +93,9 @@ describe Contact do
     
     describe "all_contacts_of_person" do
       it 'returns all contacts where the person is the passed in person' do
-        person = Factory(:person)
-        contact1 = Factory(:contact, :person => person)
-        contact2 = Factory(:contact)
+        person = FactoryGirl.create(:person)
+        contact1 = FactoryGirl.create(:contact, :person => person)
+        contact2 = FactoryGirl.create(:contact)
         contacts = Contact.all_contacts_of_person(person)
         contacts.should == [contact1]
       end
@@ -117,12 +117,12 @@ describe Contact do
       @people2 = []
 
       1.upto(5) do
-        person = Factory(:person)
+        person = FactoryGirl.build(:person)
         @bob.contacts.create(:person => person, :aspects => [@original_aspect])
         @people1 << person
       end
       1.upto(5) do
-        person = Factory(:person)
+        person = FactoryGirl.build(:person)
         @bob.contacts.create(:person => person, :aspects => [@new_aspect])
         @people2 << person
       end
@@ -166,8 +166,8 @@ describe Contact do
   context 'requesting' do
     before do
       @contact = Contact.new
-      @user = Factory(:user)
-      @person = Factory(:person)
+      @user = FactoryGirl.build(:user)
+      @person = FactoryGirl.build(:person)
 
       @contact.user = @user
       @contact.person = @person

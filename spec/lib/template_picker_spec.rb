@@ -61,7 +61,7 @@ describe TemplatePicker do
     TemplatePicker::TEMPLATES.each do |template|
       describe "#{template} factory" do
         it 'works' do
-          post = Factory.build(template.to_sym, :author => alice.person)
+          post = FactoryGirl.build(template.to_sym, :author => alice.person)
           template_name = TemplatePicker.new(post).template_name.gsub('-', '_')
           template_name.should == template
         end

@@ -11,7 +11,7 @@ end
 
 describe EvilQuery::Participation do
   before do
-    @status_message = Factory(:status_message, :author => bob.person)
+    @status_message = FactoryGirl.create(:status_message, :author => bob.person)
   end
 
   it "includes posts liked by the user" do
@@ -30,11 +30,11 @@ describe EvilQuery::Participation do
 
   describe "ordering" do
     before do
-      @status_messageA = Factory(:status_message, :author => bob.person)
-      @status_messageB = Factory(:status_message, :author => bob.person)
-      @photoC = Factory(:activity_streams_photo, :author => bob.person)
-      @status_messageD = Factory(:status_message, :author => bob.person)
-      @status_messageE = Factory(:status_message, :author => bob.person)
+      @status_messageA = FactoryGirl.create(:status_message, :author => bob.person)
+      @status_messageB = FactoryGirl.create(:status_message, :author => bob.person)
+      @photoC = FactoryGirl.create(:activity_streams_photo, :author => bob.person)
+      @status_messageD = FactoryGirl.create(:status_message, :author => bob.person)
+      @status_messageE = FactoryGirl.create(:status_message, :author => bob.person)
 
       time = Time.now
 

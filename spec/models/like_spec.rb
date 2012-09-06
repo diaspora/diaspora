@@ -11,7 +11,7 @@ describe Like do
   end
 
   it 'has a valid factory' do
-    Factory(:like).should be_valid
+    FactoryGirl.build(:like).should be_valid
   end
 
   describe '#notification_type' do
@@ -40,7 +40,7 @@ describe Like do
     end
 
     it 'increments the counter cache on its comment' do
-      comment = Factory(:comment, :post => @status)
+      comment = FactoryGirl.create(:comment, :post => @status)
       lambda {
         alice.like!(comment)
       }.should change{ comment.reload.likes_count }.by(1)
@@ -51,7 +51,7 @@ describe Like do
     before do
       alices_aspect = alice.aspects.first
 
-      @liker = Factory(:user)
+      @liker = FactoryGirl.create(:user)
       @liker_aspect = @liker.aspects.create(:name => "dummies")
       connect_users(alice, alices_aspect, @liker, @liker_aspect)
       @post = alice.post(:status_message, :text => "huhu", :to => alices_aspect.id)
@@ -80,7 +80,7 @@ describe Like do
   describe 'it is relayable' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @remote_parent = Factory(:status_message, :author => @remote_raphael)
+      @remote_parent = FactoryGirl.create(:status_message, :author => @remote_raphael)
       @local_parent = @local_luke.post :status_message, :text => "foobar", :to => @local_luke.aspects.first
 
       @object_by_parent_author = @local_luke.like!(@local_parent)

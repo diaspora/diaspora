@@ -30,24 +30,24 @@ FactoryGirl.define do
     sequence(:diaspora_handle) { |n| "bob-person-#{n}#{r_str}@example.net" }
     sequence(:url)  { |n| AppConfig[:pod_url] }
     serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
-    after_build do |person|
-      person.profile = Factory.build(:profile, :person => person) unless person.profile.first_name.present?
+    after(:build) do |person|
+      person.profile = FactoryGirl.build(:profile, :person => person) unless person.profile.first_name.present?
     end
-    after_create do |person|
+    after(:create) do |person|
       person.profile.save
     end
   end
 
   factory :account_deletion do
     association :person
-    after_build do |delete|
+    after(:build) do |delete|
       delete.diaspora_handle = delete.person.diaspora_handle
     end
   end
 
   factory :searchable_person, :parent => :person do
-    after_build do |person|
-      person.profile = Factory.build(:profile, :person => person, :searchable => true)
+    after(:build) do |person|
+      person.profile = FactoryGirl.build(:profile, :person => person, :searchable => true)
     end
   end
 
@@ -63,46 +63,46 @@ FactoryGirl.define do
     password "bluepin7"
     password_confirmation { |u| u.password }
     serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
-    after_build do |u|
-      u.person = Factory.build(:person, :profile => Factory.build(:profile),
+    after(:build) do |u|
+      u.person = FactoryGirl.build(:person, :profile => FactoryGirl.build(:profile),
                                   :owner_id => u.id,
                                   :serialized_public_key => u.encryption_key.public_key.export,
                                   :diaspora_handle => "#{u.username}#{User.diaspora_id_host}")
     end
-    after_create do |u|
+    after(:create) do |u|
       u.person.save
       u.person.profile.save
     end
   end
 
   factory :user_with_aspect, :parent => :user do
-    after_create { |u| Factory(:aspect, :user => u) }
+    after(:create) { |u|  FactoryGirl.create(:aspect, :user => u) }
   end
 
   factory :aspect do
     name "generic"
-    association :user
+    user
   end
 
   factory(:status_message) do
     sequence(:text) { |n| "jimmy's #{n} whales" }
     association :author, :factory => :person
-    after_build do |sm|
+    after(:build) do |sm|
       sm.diaspora_handle = sm.author.diaspora_handle
     end
   end
 
   factory(:status_message_with_photo, :parent => :status_message) do
     sequence(:text) { |n| "There are #{n} ninjas in this photo." }
-    after_build do |sm|
-      Factory(:photo, :author => sm.author, :status_message => sm, :pending => false, :public => public)
+    after(:build) do |sm|
+      FactoryGirl.create(:photo, :author => sm.author, :status_message => sm, :pending => false, :public => sm.public)
     end
   end
 
   factory(:photo) do
     sequence(:random_string) {|n| SecureRandom.hex(10) }
     association :author, :factory => :person
-    after_build do |p|
+    after(:build) do |p|
       p.unprocessed_image.store! File.open(File.join(File.dirname(__FILE__), 'fixtures', 'button.png'))
       p.update_remote_path
     end
@@ -125,7 +125,7 @@ FactoryGirl.define do
     service "email"
     identifier "bob.smith@smith.com"
     association :sender, :factory => :user_with_aspect
-    after_build do |i|
+    after(:build) do |i|
       i.aspect = i.sender.aspects.first
     end
   end
@@ -163,8 +163,8 @@ FactoryGirl.define do
     association :target, :factory => :comment
     type 'Notifications::AlsoCommented'
 
-    after_build do |note|
-      note.actors << Factory.build(:person)
+    after(:build) do |note|
+      note.actors << FactoryGirl.build(:person)
     end
   end
 

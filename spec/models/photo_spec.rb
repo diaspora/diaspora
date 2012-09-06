@@ -29,12 +29,12 @@ describe Photo do
   describe "protected attributes" do
     it "doesn't allow mass assignment of person" do
       @photo.save!
-      @photo.update_attributes(:author => Factory(:person))
+      @photo.update_attributes(:author => FactoryGirl.build(:person))
       @photo.reload.author.should == @user.person
     end
     it "doesn't allow mass assignment of person_id" do
       @photo.save!
-      @photo.update_attributes(:author_id => Factory(:person).id)
+      @photo.update_attributes(:author_id => FactoryGirl.build(:person).id)
       @photo.reload.author.should == @user.person
     end
     it 'allows assignment of text' do
@@ -202,7 +202,7 @@ describe Photo do
 
     it 'should set the remote_photo on marshalling' do
       #security hax
-      user2 = Factory(:user)
+      user2 = FactoryGirl.create(:user)
       aspect2 = user2.aspects.create(:name => "foobars")
       connect_users(@user, @aspect, user2, aspect2)
 

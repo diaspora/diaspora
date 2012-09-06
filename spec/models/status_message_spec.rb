@@ -23,9 +23,9 @@ describe StatusMessage do
         @bo = bob.person
         @test_string = "@{Daniel; #{@bo.diaspora_handle}} can mention people like Raph"
 
-       Factory(:status_message, :text => @test_string )
-       Factory(:status_message, :text => @test_string )
-       Factory(:status_message)
+       FactoryGirl.create(:status_message, :text => @test_string )
+       FactoryGirl.create(:status_message, :text => @test_string )
+       FactoryGirl.create(:status_message)
 
        StatusMessage.where_person_is_mentioned(@bo).count.should == 2
       end
@@ -33,10 +33,10 @@ describe StatusMessage do
 
     context "tag_streams" do
       before do
-        @sm1 = Factory(:status_message, :text => "#hashtag" , :public => true)
-        @sm2 = Factory(:status_message, :text => "#hashtag" )
-        @sm3 = Factory(:status_message, :text => "hashtags are #awesome", :public => true )
-        @sm4 = Factory(:status_message, :text => "hashtags are #awesome" )
+        @sm1 = FactoryGirl.create(:status_message, :text => "#hashtag" , :public => true)
+        @sm2 = FactoryGirl.create(:status_message, :text => "#hashtag" )
+        @sm3 = FactoryGirl.create(:status_message, :text => "hashtags are #awesome", :public => true )
+        @sm4 = FactoryGirl.create(:status_message, :text => "hashtags are #awesome" )
 
         @tag_id = ActsAsTaggableOn::Tag.where(:name => "hashtag").first.id
       end
@@ -68,8 +68,8 @@ describe StatusMessage do
 
   describe ".guids_for_author" do
     it 'returns an array of the status_message guids' do
-      sm1 = Factory(:status_message, :author => alice.person)
-      sm2 = Factory(:status_message, :author => bob.person)
+      sm1 = FactoryGirl.create(:status_message, :author => alice.person)
+      sm2 = FactoryGirl.create(:status_message, :author => bob.person)
       guids = StatusMessage.guids_for_author(alice.person)
       guids.should == [sm1.guid]
     end
@@ -77,7 +77,7 @@ describe StatusMessage do
 
   describe '.before_create' do
     it 'calls build_tags' do
-      status = Factory.build(:status_message)
+      status = FactoryGirl.build(:status_message)
       status.should_receive(:build_tags)
       status.save
     end
@@ -85,7 +85,7 @@ describe StatusMessage do
 
   describe '.after_create' do
     it 'calls create_mentions' do
-      status = Factory.build(:status_message)
+      status = FactoryGirl.build(:status_message)
       status.should_receive(:create_mentions)
       status.save
     end
@@ -93,14 +93,14 @@ describe StatusMessage do
 
   describe '#diaspora_handle=' do
     it 'sets #author' do
-      person = Factory(:person)
-      post = Factory(:status_message, :author => @user.person)
+      person = FactoryGirl.create(:person)
+      post = FactoryGirl.build(:status_message, :author => @user.person)
       post.diaspora_handle = person.diaspora_handle
       post.author.should == person
     end
   end
   it "should have either a message or at least one photo" do
-    n = Factory.build(:status_message, :text => nil)
+    n = FactoryGirl.build(:status_message, :text => nil)
 #    n.valid?.should be_false
 
 #    n.text = ""
@@ -127,7 +127,7 @@ describe StatusMessage do
 
   it 'should require status messages not be more than 65535 characters long' do
     message = 'a' * (65535+1)
-    status_message = Factory.build(:status_message, :text => message)
+    status_message = FactoryGirl.build(:status_message, :text => message)
     status_message.should_not be_valid
   end
 
@@ -138,7 +138,7 @@ describe StatusMessage do
 @{Raphael; #{@people[0].diaspora_handle}} can mention people like Raphael @{Ilya; #{@people[1].diaspora_handle}}
 can mention people like Raphaellike Raphael @{Daniel; #{@people[2].diaspora_handle}} can mention people like Raph
 STR
-      @sm = Factory(:status_message, :text => @test_string )
+      @sm = FactoryGirl.create(:status_message, :text => @test_string )
     end
 
     describe '#format_mentions' do
@@ -151,7 +151,7 @@ STR
 
       context 'with :plain_text option' do
         it 'removes the mention syntax and displays the unformatted name' do
-          status  = Factory(:status_message, :text => "@{Barack Obama; barak@joindiaspora.com } is so cool @{Barack Obama; barak@joindiaspora.com } ")
+          status  = FactoryGirl.build(:status_message, :text => "@{Barack Obama; barak@joindiaspora.com } is so cool @{Barack Obama; barak@joindiaspora.com } ")
           status.format_mentions(status.raw_message, :plain_text => true).should == 'Barack Obama is so cool Barack Obama '
         end
       end
@@ -230,18 +230,18 @@ STR
       end
 
       it 'returns false if the person was not mentioned' do
-        @sm.mentions?(Factory(:person)).should be_false
+        @sm.mentions?(FactoryGirl.build(:person)).should be_false
       end
     end
 
     describe "#nsfw" do
       it 'returns MatchObject (true) if the post contains #nsfw (however capitalised)' do
-         status  = Factory(:status_message, :text => "This message is #nSFw")
+         status  = FactoryGirl.build(:status_message, :text => "This message is #nSFw")
          status.nsfw.should be_true
       end
 
       it 'returns nil (false) if the post does not contain #nsfw' do
-         status  = Factory(:status_message, :text => "This message is #sFW")
+         status  = FactoryGirl.build(:status_message, :text => "This message is #sFW")
          status.nsfw.should be_false
       end
     end
@@ -256,16 +256,16 @@ STR
 
   describe 'tags' do
     before do
-      @object = Factory.build(:status_message)
+      @object = FactoryGirl.build(:status_message)
     end
     it_should_behave_like 'it is taggable'
 
     it 'associates different-case tags to the same tag entry' do
       assert_equal ActsAsTaggableOn.force_lowercase, true
 
-      msg_lc = Factory.build(:status_message, :text => '#newhere')
-      msg_uc = Factory.build(:status_message, :text => '#NewHere')
-      msg_cp = Factory.build(:status_message, :text => '#NEWHERE')
+      msg_lc = FactoryGirl.build(:status_message, :text => '#newhere')
+      msg_uc = FactoryGirl.build(:status_message, :text => '#NewHere')
+      msg_cp = FactoryGirl.build(:status_message, :text => '#NEWHERE')
 
       msg_lc.save; msg_uc.save; msg_cp.save
 
@@ -277,7 +277,7 @@ STR
 
   describe "XML" do
     before do
-      @message = Factory(:status_message, :text => "I hate WALRUSES!", :author => @user.person)
+      @message = FactoryGirl.build(:status_message, :text => "I hate WALRUSES!", :author => @user.person)
       @xml = @message.to_xml.to_s
     end
     it 'serializes the escaped, unprocessed message' do
@@ -343,14 +343,14 @@ STR
     end
 
     it 'should queue a GatherOembedData if it includes a link' do
-      sm = Factory.build(:status_message, :text => @message_text)
+      sm = FactoryGirl.build(:status_message, :text => @message_text)
       Resque.should_receive(:enqueue).with(Jobs::GatherOEmbedData, instance_of(Fixnum), instance_of(String))
       sm.save
     end
 
     describe '#contains_oembed_url_in_text?' do
       it 'returns the oembed urls found in the raw message' do
-        sm = Factory(:status_message, :text => @message_text)
+        sm = FactoryGirl.build(:status_message, :text => @message_text)
         sm.contains_oembed_url_in_text?.should_not be_nil
         sm.oembed_url.should == @youtube_url
       end

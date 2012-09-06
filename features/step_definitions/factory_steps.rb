@@ -11,14 +11,14 @@ module FactoryMethods
              else
                table.hashes
              end
-    klass = Factory.factories[factory_name].class_name.to_s.classify.constantize
+    klass = FactoryGirl.factories[factory_name].class_name.to_s.classify.constantize
     @they = hashes.map do |hash|
       hash = hash.merge(extra).inject({}) do |h,(k,v)|
         k = k.gsub(/\W+/,'_')
         v = v.split(/\s*,\s*/) if klass.serialized_attributes[k] == Array
         h.update(k.to_sym => v)
       end
-      object = Factory.build(factory_name, hash)
+      object = FactoryGirl.build(factory_name, hash)
       yield object if block_given?
       object.save!
       object

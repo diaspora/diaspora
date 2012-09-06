@@ -13,7 +13,7 @@ describe Invitation do
   end
   describe 'validations' do
     before do
-      @invitation = Factory.build(:invitation, :sender => user, :recipient => nil, :aspect => user.aspects.first, :language => "de")
+      @invitation = FactoryGirl.build(:invitation, :sender => user, :recipient => nil, :aspect => user.aspects.first, :language => "de")
     end
 
     it 'is valid' do
@@ -25,25 +25,25 @@ describe Invitation do
     end
 
     it 'ensures the sender is placing the recipient into one of his aspects' do
-      @invitation.aspect = Factory(:aspect)
+      @invitation.aspect = FactoryGirl.build(:aspect)
       @invitation.should_not be_valid
     end
   end
 
   describe '#language' do  
     it 'returns the correct language if the language is set' do
-      @invitation = Factory.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first, :language => "de")
+      @invitation = FactoryGirl.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first, :language => "de")
       @invitation.language.should == "de"
     end  
 
     it 'returns en if no language is set' do
-      @invitation = Factory.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first)
+      @invitation = FactoryGirl.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first)
       @invitation.language.should == "en"
     end
   end
 
   it 'has a message' do
-    @invitation = Factory.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first, :language => user.language)
+    @invitation = FactoryGirl.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first, :language => user.language)
     @invitation.message = "!"
     @invitation.message.should == "!"
   end
@@ -62,7 +62,7 @@ describe Invitation do
     end
 
     it 'shares with people who are already on the pod' do
-      Factory(:user, :email => @emails.first)
+      FactoryGirl.create(:user, :email => @emails.first)
       invites = nil
       expect{
         invites = Invitation.batch_invite(@emails, @opts)

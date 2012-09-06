@@ -39,7 +39,7 @@ describe User do
 
   describe 'hidden_shareables' do
     before do
-      @sm = Factory(:status_message)
+      @sm = FactoryGirl.create(:status_message)
       @sm_id = @sm.id.to_s
       @sm_class = @sm.class.base_class.to_s
     end
@@ -55,7 +55,7 @@ describe User do
       end
 
       it 'handles having multiple posts' do
-        sm2 = Factory(:status_message)
+        sm2 = FactoryGirl.build(:status_message)
         alice.add_hidden_shareable(@sm_class, @sm_id)
         alice.add_hidden_shareable(sm2.class.base_class.to_s, sm2.id.to_s)
 
@@ -63,7 +63,7 @@ describe User do
       end
 
       it 'handles having multiple shareable types' do
-        photo = Factory(:photo)
+        photo = FactoryGirl.create(:photo)
         alice.add_hidden_shareable(photo.class.base_class.to_s, photo.id.to_s)
         alice.add_hidden_shareable(@sm_class, @sm_id)
 
@@ -94,13 +94,13 @@ describe User do
 
     describe '#is_shareable_hidden?' do
       it 'returns true if the shareable is hidden' do
-        post = Factory(:status_message)
+        post = FactoryGirl.create(:status_message)
         bob.toggle_hidden_shareable(post)
         bob.is_shareable_hidden?(post).should be_true
       end
 
       it 'returns false if the shareable is not present' do
-        post = Factory(:status_message)
+        post = FactoryGirl.create(:status_message)
         bob.is_shareable_hidden?(post).should be_false
       end
     end
@@ -110,7 +110,7 @@ describe User do
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
       lambda {
-        new_user = Factory(:user, :id => alice.id)
+        new_user = FactoryGirl.create(:user, :id => alice.id)
       }.should raise_error ActiveRecord::StatementInvalid
     end
 
@@ -160,14 +160,14 @@ describe User do
       end
 
       it 'requires uniqueness also amount Person objects with diaspora handle' do
-        p = Factory(:person, :diaspora_handle => "jimmy#{User.diaspora_id_host}")
+        p = FactoryGirl.create(:person, :diaspora_handle => "jimmy#{User.diaspora_id_host}")
         alice.username = 'jimmy'
         alice.should_not be_valid
 
       end
 
       it "downcases username" do
-        user = Factory.build(:user, :username => "WeIrDcAsE")
+        user = FactoryGirl.build(:user, :username => "WeIrDcAsE")
         user.should be_valid
         user.username.should == "weirdcase"
       end
@@ -178,7 +178,7 @@ describe User do
       end
 
       it "strips leading and trailing whitespace" do
-        user = Factory.build(:user, :username => "      janie   ")
+        user = FactoryGirl.build(:user, :username => "      janie   ")
         user.should be_valid
         user.username.should == "janie"
       end
@@ -338,7 +338,7 @@ describe User do
     end
 
     describe "with malicious params" do
-      let(:person) {Factory :person}
+      let(:person) {FactoryGirl.create :person}
       before do
         @invalid_params = {:username => "ohai",
                   :email => "ohai@example.com",
@@ -384,7 +384,7 @@ describe User do
   describe '#process_invite_acceptence' do
     it 'sets the inviter on user' do
       inv = InvitationCode.create(:user => bob)
-      user = Factory(:user)
+      user = FactoryGirl.build(:user)
       user.process_invite_acceptence(inv)
       user.invited_by_id.should == bob.id
     end
@@ -503,7 +503,7 @@ describe User do
 
   describe '#notify_if_mentioned' do
     before do
-      @post = Factory(:status_message, :author => bob.person)
+      @post = FactoryGirl.build(:status_message, :author => bob.person)
     end
 
     it 'notifies the user if the incoming post mentions them' do
@@ -521,7 +521,7 @@ describe User do
     end
 
     it 'does not notify the user if the post author is not a contact' do
-      @post = Factory(:status_message, :author => eve.person)
+      @post = FactoryGirl.build(:status_message, :author => eve.person)
       @post.stub(:mentions?).and_return(true)
       @post.should_not_receive(:notify_person)
 
@@ -532,7 +532,7 @@ describe User do
   describe 'account deletion' do
     describe '#destroy' do
       it 'removes invitations from the user' do
-        Factory(:invitation, :sender => alice)
+        FactoryGirl.create(:invitation, :sender => alice)
         lambda {
           alice.destroy
         }.should change {alice.invitations_from_me(true).count }.by(-1)
@@ -769,7 +769,7 @@ describe User do
   describe '#retract' do
     before do
       @retraction = mock
-      @post = Factory(:status_message, :author => bob.person, :public => true)
+      @post = FactoryGirl.build(:status_message, :author => bob.person, :public => true)
     end
 
     context "posts" do
@@ -787,8 +787,8 @@ describe User do
       end
 
       it 'adds resharers of target post as additional subsctibers' do
-        person = Factory(:person)
-        reshare = Factory(:reshare, :root => @post, :author => person)
+        person = FactoryGirl.create(:person)
+        reshare = FactoryGirl.create(:reshare, :root => @post, :author => person)
         @post.reshares << reshare
 
         dispatcher = mock
@@ -816,7 +816,7 @@ describe User do
     end
 
     it "queues up a job to send the reset password instructions" do
-      user = Factory :user
+      user = FactoryGirl.create :user
       Resque.should_receive(:enqueue).with(Jobs::ResetPassword, user.id)
       user.send_reset_password_instructions
     end
@@ -867,7 +867,7 @@ describe User do
 
     describe "#clearable_attributes" do
       it 'returns the clearable fields' do
-        user = Factory :user
+        user = FactoryGirl.create :user
         user.send(:clearable_fields).sort.should == %w{
           language
           invitation_token

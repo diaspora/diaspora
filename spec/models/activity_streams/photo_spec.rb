@@ -29,7 +29,7 @@ JSON
 
   describe 'serialization' do
     before do
-      @photo = Factory(:activity_streams_photo)
+      @photo = FactoryGirl.build(:activity_streams_photo)
       xml = @photo.to_diaspora_xml.to_s
       @marshalled = Diaspora::Parser.from_xml(xml)
     end

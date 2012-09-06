@@ -8,23 +8,23 @@ describe Profile do
   describe 'validation' do
     describe "of first_name" do
       it "strips leading and trailing whitespace" do
-        profile = Factory.build(:profile, :first_name => "     Shelly    ")
+        profile = FactoryGirl.build(:profile, :first_name => "     Shelly    ")
         profile.should be_valid
         profile.first_name.should == "Shelly"
       end
 
       it "can be 32 characters long" do
-        profile = Factory.build(:profile, :first_name => "Hexagoooooooooooooooooooooooooon")
+        profile = FactoryGirl.build(:profile, :first_name => "Hexagoooooooooooooooooooooooooon")
         profile.should be_valid
       end
 
       it "cannot be 33 characters" do
-        profile = Factory.build(:profile, :first_name => "Hexagooooooooooooooooooooooooooon")
+        profile = FactoryGirl.build(:profile, :first_name => "Hexagooooooooooooooooooooooooooon")
         profile.should_not be_valid
       end
 
       it 'cannot have ;' do
-        profile = Factory.build(:profile, :first_name => "Hex;agon")
+        profile = FactoryGirl.build(:profile, :first_name => "Hex;agon")
         profile.should_not be_valid
       end
     end
@@ -54,7 +54,7 @@ describe Profile do
 
     describe '#contruct_full_name' do
       it 'generates a full name given only first name' do
-        profile = Factory(:person).profile
+        profile = FactoryGirl.build(:person).profile
         profile.first_name = "casimiro"
         profile.last_name = nil
 
@@ -64,7 +64,7 @@ describe Profile do
       end
 
       it 'generates a full name given only last name' do
-        profile = Factory(:person).profile
+        profile = FactoryGirl.build(:person).profile
         profile.first_name = nil
         profile.last_name = "grippi"
 
@@ -74,7 +74,7 @@ describe Profile do
       end
 
       it 'generates a full name given first and last names' do
-        profile = Factory(:person).profile
+        profile = FactoryGirl.build(:person).profile
         profile.first_name = "casimiro"
         profile.last_name = "grippi"
 
@@ -86,27 +86,27 @@ describe Profile do
 
     describe "of last_name" do
       it "strips leading and trailing whitespace" do
-        profile = Factory.build(:profile, :last_name => "     Ohba    ")
+        profile = FactoryGirl.build(:profile, :last_name => "     Ohba    ")
         profile.should be_valid
         profile.last_name.should == "Ohba"
       end
 
       it "can be 32 characters long" do
-        profile = Factory.build(:profile, :last_name => "Hexagoooooooooooooooooooooooooon")
+        profile = FactoryGirl.build(:profile, :last_name => "Hexagoooooooooooooooooooooooooon")
         profile.should be_valid
       end
 
       it "cannot be 33 characters" do
-        profile = Factory.build(:profile, :last_name => "Hexagooooooooooooooooooooooooooon")
+        profile = FactoryGirl.build(:profile, :last_name => "Hexagooooooooooooooooooooooooooon")
         profile.should_not be_valid
       end
 
       it 'cannot have ;' do
-        profile = Factory.build(:profile, :last_name => "Hex;agon")
+        profile = FactoryGirl.build(:profile, :last_name => "Hex;agon")
         profile.should_not be_valid
       end
       it 'disallows ; with a newline in the string' do
-        profile = Factory.build(:profile, :last_name => "H\nex;agon")
+        profile = FactoryGirl.build(:profile, :last_name => "H\nex;agon")
         profile.should_not be_valid
       end
     end
@@ -114,7 +114,7 @@ describe Profile do
 
   describe '#image_url=' do
     before do
-      @profile = Factory.build(:profile)
+      @profile = FactoryGirl.build(:profile)
       @profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
       @pod_url = (AppConfig[:pod_url][-1,1] == '/' ? AppConfig[:pod_url].chop : AppConfig[:pod_url])
     end
@@ -136,7 +136,7 @@ describe Profile do
 
   describe '#from_xml' do
     it 'should make a valid profile object' do
-      @profile = Factory.build(:profile)
+      @profile = FactoryGirl.build(:profile)
       @profile.tag_string = '#big #rafi #style'
       xml = @profile.to_xml
 
@@ -147,7 +147,7 @@ describe Profile do
   end
   
   describe 'serialization' do
-    let(:person) {Factory(:person,:diaspora_handle => "foobar" )}
+    let(:person) {FactoryGirl.build(:person,:diaspora_handle => "foobar" )}
 
     it 'should include persons diaspora handle' do
       xml = person.profile.to_diaspora_xml
@@ -172,7 +172,7 @@ describe Profile do
 
   describe '#image_url' do
     before do
-      @profile = Factory.build(:profile)
+      @profile = FactoryGirl.build(:profile)
     end
 
     it 'returns a default rather than nil' do
@@ -197,7 +197,7 @@ describe Profile do
   end
 
   describe 'date=' do
-    let(:profile) { Factory.build(:profile) }
+    let(:profile) { FactoryGirl.build(:profile) }
 
     it 'accepts form data' do
       profile.birthday = nil
@@ -244,7 +244,7 @@ describe Profile do
 
   describe 'tags' do
     before do
-      person = Factory(:person)
+      person = FactoryGirl.build(:person)
       @object = person.profile
     end
     it 'allows 5 tags' do
@@ -265,7 +265,7 @@ describe Profile do
 
   describe '#formatted_birthday' do
     before do
-      @profile = Factory.build(:profile)
+      @profile = FactoryGirl.build(:profile)
       @profile_hash =  { 'year' => '2000', 'month' => '01', 'day' => '01' }
       @profile.date = @profile_hash
     end
@@ -290,7 +290,7 @@ describe Profile do
   describe '#receive' do
     it 'updates the profile in place' do
       local_luke, local_leia, remote_raphael = set_up_friends
-      new_profile = Factory.build :profile
+      new_profile = FactoryGirl.build :profile
       lambda{
         new_profile.receive(local_leia, remote_raphael)
       }.should_not change(Profile, :count)
@@ -321,7 +321,7 @@ describe Profile do
 
   describe "#clearable_fields" do
     it 'returns the current profile fields' do
-      profile = Factory.build :profile
+      profile = FactoryGirl.build :profile
       profile.send(:clearable_fields).sort.should == 
       ["diaspora_handle",
       "first_name",

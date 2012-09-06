@@ -143,7 +143,7 @@ describe ProfilesController do
 
     context 'mass assignment' do
       before do
-        new_person = Factory(:person)
+        new_person = FactoryGirl.create(:person)
         @profile_params = {:profile =>{ :person_id => new_person.id,
                                     :diaspora_handle => 'abc@a.com'}}
       end
