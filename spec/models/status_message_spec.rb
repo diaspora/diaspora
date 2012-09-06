@@ -280,10 +280,12 @@ STR
       @message = Factory(:status_message, :text => "I hate WALRUSES!", :author => @user.person)
       @xml = @message.to_xml.to_s
     end
-    it 'serializes the unescaped, unprocessed message' do
-      @message.text = "<script> alert('xss should be federated');</script>"
-      @message.to_xml.to_s.should include @message.text
+    it 'serializes the escaped, unprocessed message' do
+      text = "[url](http://example.org)<script> alert('xss should be federated');</script>"
+      @message.text = text
+      @message.to_xml.to_s.should include text.to_xs
     end
+    
     it 'serializes the message' do
       @xml.should include "<raw_message>I hate WALRUSES!</raw_message>"
     end

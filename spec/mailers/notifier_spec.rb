@@ -229,7 +229,7 @@ describe Notifier do
       end
 
       it 'SUBJECT: has a snippet of the post contents' do
-        comment_mail.subject.should == "Re: #{truncate(commented_post.text, :length => 70)}"
+        comment_mail.subject.should == "Re: #{truncate(commented_post.raw_message, :length => 70)}"
       end
 
       context 'BODY' do
@@ -270,7 +270,7 @@ describe Notifier do
       end
 
       it 'SUBJECT: has a snippet of the post contents' do
-        comment_mail.subject.should == "Re: #{truncate(commented_post.text, :length => 70)}"
+        comment_mail.subject.should == "Re: #{truncate(commented_post.raw_message, :length => 70)}"
       end
 
       context 'BODY' do
