@@ -124,7 +124,7 @@ describe LikesController do
           like_count = Like.count
           expect {
             delete :destroy, :format => :json, id_field => like2.target_id, :id => like2.id
-          }.should raise_error(ActiveRecord::RecordNotFound)
+          }.to raise_error(ActiveRecord::RecordNotFound)
 
           Like.count.should == like_count
 

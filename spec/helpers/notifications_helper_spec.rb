@@ -83,7 +83,7 @@ describe NotificationsHelper do
       context 'when post is deleted' do
         it 'works' do
           @post.destroy
-          expect{ object_link(@notification, notification_people_link(@notification))}.should_not raise_error
+          expect{ object_link(@notification, notification_people_link(@notification))}.to_not raise_error
         end
 
         it 'displays that the post was deleted' do

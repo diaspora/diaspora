@@ -139,7 +139,7 @@ describe Reshare do
           
           expect{
             reshare.destroy
-          }.should_not raise_error
+          }.to_not raise_error
         end
       end
 

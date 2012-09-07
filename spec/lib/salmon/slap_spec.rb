@@ -51,7 +51,7 @@ describe Salmon::Slap do
       parsed_salmon.author_id = 'tom@tom.joindiaspora.com'
       expect {
         parsed_salmon.author.public_key
-      }.should raise_error "did you remember to async webfinger?"
+      }.to raise_error "did you remember to async webfinger?"
     end
   end
 
