@@ -322,7 +322,7 @@ GEM
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-cors (0.2.6)
+    rack-cors (0.2.7)
       rack
     rack-google-analytics (0.10.0)
     rack-mobile-detect (0.4.0)
