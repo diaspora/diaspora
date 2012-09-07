@@ -8,17 +8,17 @@
   body{ padding: 10px; margin: 0px 10px;}
   legend{ background-image: url(/assets/header-bg-long.jpg); color: #939393;}
   #flash_alert .message{ min-width: 200px; max-width: 400px;}
-  footer{ padding-top: 0;}
+  footer { padding-top: 0;}
   .landing {padding: 20px; margin: -10px -20px 10px -20px; background-color:#4b4b4b; box-shadow: 0 3px 40px rgba(0,0,0,0.8); z-index: 10; position: relative; text-align: center;}
   h1 {font-size: 40px; font-weight: 200;}
 
 .landing
   %h1
     = "#{pod_name}"
-
 #main_stream.stream
   - flash.each do |name, msg|
     %p{:class => "login_#{name}"}= msg
+
   #login_form
     .login-container
       = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
