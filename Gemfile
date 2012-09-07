@@ -103,7 +103,7 @@ gem 'typhoeus', '~> 0.3.3'
 
 # views
 
-gem 'haml', '3.1.6.rc.1'
+gem 'haml', '3.1.7'
 gem 'mobile-fu'
 
 gem 'will_paginate'
