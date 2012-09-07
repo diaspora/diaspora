@@ -87,7 +87,7 @@ gem 'ruby-oembed', '~> 0.8.7'
 
 # queue
 
-gem 'resque', '1.20.0'
+gem 'resque', '1.22.0'
 gem 'resque-timeout', '1.0.0'
 gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
