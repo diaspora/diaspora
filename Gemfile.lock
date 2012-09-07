@@ -197,7 +197,7 @@ GEM
       rspec (~> 2.0)
       rspec-instafail (~> 0.2.0)
       ruby-progressbar (~> 0.0.10)
-    gherkin (2.11.0)
+    gherkin (2.11.2)
       json (>= 1.4.6)
     gon (4.0.0)
       actionpack (>= 2.3.0)
