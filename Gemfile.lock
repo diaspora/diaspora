@@ -104,7 +104,7 @@ GEM
     bbenezech-nested_form (0.0.6)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.0.3.1)
-    builder (3.0.1)
+    builder (3.0.3)
     capistrano (2.12.0)
       highline
       net-scp (>= 1.0.0)
@@ -175,7 +175,7 @@ GEM
       faraday (>= 0.7.4, < 0.9)
     fastercsv (1.5.5)
     ffi (1.1.5)
-    fixture_builder (0.3.3)
+    fixture_builder (0.3.4)
       activerecord (>= 2)
       activesupport (>= 2)
     fog (1.4.0)
@@ -493,7 +493,7 @@ DEPENDENCIES
   faraday
   faraday_middleware
   fastercsv (= 1.5.5)
-  fixture_builder (= 0.3.3)
+  fixture_builder (= 0.3.4)
   fog
   foreigner (~> 1.2.1)
   foreman (= 0.57)
