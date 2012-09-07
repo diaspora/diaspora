@@ -49,7 +49,7 @@ end
 # configuration
 
 group :heroku do
-  gem 'pg'
+  gem 'pg', '0.14.1'
   gem 'unicorn', '~> 4.3.0', :require => false
 end
 
@@ -59,7 +59,7 @@ gem 'settingslogic', :git => 'https://github.com/binarylogic/settingslogic.git'
 gem "activerecord-import", "~> 0.2.9"
 gem 'foreigner', '~> 1.2.1'
 gem 'mysql2', '0.3.11' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
-gem 'pg' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
+gem 'pg', '0.14.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 
 # file uploading
