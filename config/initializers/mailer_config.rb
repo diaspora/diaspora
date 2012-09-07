@@ -7,6 +7,7 @@ Diaspora::Application.configure do
   config.action_mailer.default_url_options = {:protocol => AppConfig[:pod_uri].scheme,
                                               :host => AppConfig[:pod_uri].authority }
   config.action_mailer.asset_host = AppConfig[:pod_uri].to_s
+  config.action_mailer.perform_deliveries = AppConfig[:mailer_on]
 
   unless Rails.env == 'test' || AppConfig[:mailer_on] != true
     if AppConfig[:mailer_method] == 'messagebus'
