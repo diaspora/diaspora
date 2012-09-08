@@ -2,6 +2,11 @@
 -# licensed under the Affero General Public License version 3 or later. See
 -# the COPYRIGHT file.
 
+- if in_mobile_view?
+  :css
+    #big-number{ font-size: 120px;}
+    #content{ font-size: 13px;}
+
 - content_for :head do
   = stylesheet_link_tag :error_pages, :media => 'all'
 
