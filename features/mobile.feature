@@ -7,5 +7,4 @@ Feature: Navigate mobile site
 
   Scenario: Show mobile site
     And I visit the mobile aspects page 
-    Then I should see "Log in"
-
+    Then I should see "LOG IN"
