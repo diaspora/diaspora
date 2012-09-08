@@ -111,10 +111,14 @@ ul.as-selections li.as-original input {
 	border: none;
 	outline: none;
 	font-size: 13px;
-	width: 120px;
+	width: auto;
 	height: 14px;
 	padding: 0;
   margin: 0;
+}
+
+ul.as-selections li.as-original.as-original{
+	width: auto;
 }
 
 ul.as-list {
