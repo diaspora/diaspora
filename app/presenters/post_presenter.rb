@@ -55,7 +55,7 @@ class PostPresenter
   end
 
   def title
-    @post.text.present? ? @post.text(:plain_text => true) : I18n.translate('posts.presenter.title', :name => @post.author.name)
+    @post.text.present? ? @post.text(:plain_text => true) : I18n.translate('posts.presenter.title', :name => @post.author_name)
   end
 
   def template_name #kill me, lol, I should be client side

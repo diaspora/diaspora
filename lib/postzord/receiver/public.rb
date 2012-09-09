@@ -38,9 +38,9 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   # @return [Object]
   def receive_relayable
-    if @object.parent.author.local?
+    if @object.parent_author.local?
       # receive relayable object only for the owner of the parent object
-      @object.receive(@object.parent.author.owner, @author)
+      @object.receive(@object.parent_author.owner, @author)
     end
     # notify everyone who can see the parent object
     receiver = Postzord::Receiver::LocalBatch.new(@object, self.recipient_user_ids)
@@ -64,7 +64,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def xml_author
     if @object.respond_to?(:relayable?)
       #this is public, so it would only be owners sending us other people comments etc
-       @object.parent.author.local? ? @object.diaspora_handle : @object.parent.diaspora_handle
+       @object.parent_author.local? ? @object.diaspora_handle : @object.parent_diaspora_handle
     else
       @object.diaspora_handle
     end

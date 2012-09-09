@@ -17,7 +17,7 @@
       %dl.entity_family_name
         %dt Family name
         %dd
-          %span.family_name= @person.profile.last_name
+          %span.family_name= @person.last_name
 
       %dl.entity_fn
         %dt Full name
@@ -32,19 +32,19 @@
       %dl.entity_photo
         %dt Photo
         %dd
-          %img.photo.avatar{:src=>@person.profile.image_url, :width=>'300px', :height=>'300px'}
+          %img.photo.avatar{:src=>@person.image_url, :width=>'300px', :height=>'300px'}
 
       %dl.entity_photo_medium
         %dt Photo
         %dd
-          %img.photo.avatar{:src=>@person.profile.image_url(:thumb_medium), :width=>'100px', :height=>'100px'}
+          %img.photo.avatar{:src=>@person.image_url(:thumb_medium), :width=>'100px', :height=>'100px'}
 
       %dl.entity_photo_small
         %dt Photo
         %dd
-          %img.photo.avatar{:src=>@person.profile.image_url(:thumb_small), :width=>'50px', :height=>'50px'}
+          %img.photo.avatar{:src=>@person.image_url(:thumb_small), :width=>'50px', :height=>'50px'}
 
       %dl.entity_searchable
         %dt Searchable
         %dd
-          %span.searchable= @person.profile.searchable
+          %span.searchable= @person.searchable

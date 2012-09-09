@@ -18,7 +18,7 @@
     = last_post_link person
 
   .description
-    - if !person.profile.tag_string.blank? && user_signed_in?
+    - if !person.tag_string.blank? && user_signed_in?
       = Diaspora::Taggable.format_tags(person.profile.tag_string)
       - if user_signed_in? && person == current_user.person
         %span.hover_edit

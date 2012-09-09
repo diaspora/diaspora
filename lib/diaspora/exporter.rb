@@ -14,7 +14,7 @@ module Diaspora
     module XML
       def execute(user)
         builder = Nokogiri::XML::Builder.new do |xml|
-          user_person_id = user.person.id
+          user_person_id = user.person_id
           xml.export {
             xml.user {
               xml.username user.username
@@ -50,7 +50,7 @@ module Diaspora
               xml.contact {
                 xml.user_id contact.user_id
                 xml.person_id contact.person_id
-                xml.person_guid contact.person.guid
+                xml.person_guid contact.person_guid
 
                 xml.aspects {
                   contact.aspects.each do |aspect|

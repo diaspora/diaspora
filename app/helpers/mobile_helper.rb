@@ -8,11 +8,11 @@ module MobileHelper
     if (post.public? || reshare?(post)) && (user_signed_in? && post.author != current_user.person)
       root = reshare?(post) ? post.root : post
 
-      if root.author != current_user.person.id
-        reshare = Reshare.where(:author_id => current_user.person.id,
+      if root.author != current_user.person_id
+        reshare = Reshare.where(:author_id => current_user.person_id,
                                 :root_guid => root.guid).first
         klass = reshare.present? ? "active" : "inactive"
-        link_to '', reshares_path(:root_guid => root.guid), :title => t('reshares.reshare.reshare_confirmation', :author => root.author.name), :class => "image_link reshare_action #{klass}"
+        link_to '', reshares_path(:root_guid => root.guid), :title => t('reshares.reshare.reshare_confirmation', :author => root.author_name), :class => "image_link reshare_action #{klass}"
       end
     end
   end
