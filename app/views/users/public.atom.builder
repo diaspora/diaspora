@@ -11,10 +11,10 @@ atom_feed({'xmlns:thr' => 'http://purl.org/syndication/thread/1.0',
   feed.tag! :generator, 'Diaspora', :uri => "#{AppConfig[:pod_url]}"
   feed.title "#{@user.name}'s Public Feed"
   feed.subtitle "Updates from #{@user.name} on Diaspora"
-  feed.logo "#{@user.person.profile.image_url(:thumb_small)}"
+  feed.logo "#{@user.image_url(:thumb_small)}"
   feed.updated @posts[0].created_at if @posts.length > 0
   feed.tag! :link, :rel => 'avatar', :type => 'image/jpeg', 'media:width' => '100',
-	    'media:height' => '100', :href => "#{@user.profile.image_url}"
+	    'media:height' => '100', :href => "#{@user.image_url}"
   feed.tag! :link, :href => "#{AppConfig[:pubsub_server]}", :rel => 'hub'
 
   feed.author do |author|
@@ -23,13 +23,13 @@ atom_feed({'xmlns:thr' => 'http://purl.org/syndication/thread/1.0',
 
     author.tag! 'activity:object-type', 'http://activitystrea.ms/schema/1.0/person'
     author.tag! 'poco:preferredUsername', @user.username
-    author.tag! 'poco:displayName', @user.person.name
+    author.tag! 'poco:displayName', @user.name
   end
 
 
   @posts.each do |post|
-    feed.entry post, :url => "#{@user.person.url}p/#{post.id}",
-      :id => "#{@user.person.url}p/#{post.id}" do |entry|
+    feed.entry post, :url => "#{@user.url}p/#{post.id}",
+      :id => "#{@user.url}p/#{post.id}" do |entry|
 
       entry.title truncate(post.formatted_message(:plain_text => true), :length => 50)
       entry.content auto_link(post.formatted_message(:plain_text => true)), :type => 'html'

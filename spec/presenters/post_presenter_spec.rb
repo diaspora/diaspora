@@ -75,7 +75,7 @@ describe PostPresenter do
     context 'with posts without text' do
       it ' displays a messaage with the post class' do
 
-        @sm = stub(:text => "", :author => bob.person)
+        @sm = stub(:text => "", :author => bob.person, :author_name => bob.person.name)
         @presenter.post = @sm
         @presenter.title.should == "A post from #{@sm.author.name}"
       end

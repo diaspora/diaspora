@@ -32,7 +32,9 @@ class Person < ActiveRecord::Base
   xml_attr :exported_key
 
   has_one :profile, :dependent => :destroy
-  delegate :last_name, :image_url, :to => :profile
+  delegate :last_name, :image_url, :tag_string, :bio, :location,
+           :gender, :birthday, :formatted_birthday, :tags, :searchable,
+           to: :profile
   accepts_nested_attributes_for :profile
 
   before_validation :downcase_diaspora_handle

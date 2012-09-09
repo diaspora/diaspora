@@ -1,5 +1,5 @@
-<%= @notification.sender.name %> <%= t('.sharing') %>
+<%= @notification.sender_name %> <%= t('.sharing') %>
 
-[<%= t('.view_profile', :name => @notification.sender.first_name) %>][1]
+[<%= t('.view_profile', :name => @notification.sender_first_name) %>][1]
 
 [1]: <%= local_or_remote_person_path(@notification.sender, :absolute => true) %>

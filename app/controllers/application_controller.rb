@@ -86,7 +86,7 @@ class ApplicationController < ActionController::Base
 
   def set_grammatical_gender
     if (user_signed_in? && I18n.inflector.inflected_locale?)
-      gender = current_user.profile.gender.to_s.tr('!()[]"\'`*=|/\#.,-:', '').downcase
+      gender = current_user.gender.to_s.tr('!()[]"\'`*=|/\#.,-:', '').downcase
       unless gender.empty?
         i_langs = I18n.inflector.inflected_locales(:gender)
         i_langs.delete  I18n.locale

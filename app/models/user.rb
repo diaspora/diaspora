@@ -33,7 +33,10 @@ class User < ActiveRecord::Base
   serialize :hidden_shareables, Hash
 
   has_one :person, :foreign_key => :owner_id
-  delegate :guid, :public_key, :posts, :photos, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :participations, :to => :person
+  delegate :guid, :public_key, :posts, :photos, :owns?, :image_url,
+           :diaspora_handle, :name, :public_url, :profile, :url,
+           :first_name, :last_name, :gender, :participations, to: :person
+  delegate :id, :guid, to: :person, prefix: true
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
@@ -372,7 +375,7 @@ class User < ActiveRecord::Base
       params[:image_url_small] = photo.url(:thumb_small)
     end
 
-    if self.person.profile.update_attributes(params)
+    if self.profile.update_attributes(params)
       Postzord::Dispatcher.build(self, profile).post
       true
     else
