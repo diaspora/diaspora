@@ -32,13 +32,6 @@ GIT
     settingslogic (2.0.8)
 
 GIT
-  remote: https://github.com/mbleigh/acts-as-taggable-on.git
-  revision: d9b66b70e90352605e6f767e7c2b7a8859050655
-  specs:
-    acts-as-taggable-on (2.3.1)
-      rails (~> 3.0)
-
-GIT
   remote: https://github.com/pivotal/jasmine-gem.git
   revision: 1e075fbf5a69812fcc914c453f002ecf5bed38ab
   specs:
@@ -89,6 +82,8 @@ GEM
     activesupport (3.2.8)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    acts-as-taggable-on (2.3.3)
+      rails (~> 3.0)
     acts_as_api (0.4)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -471,7 +466,7 @@ PLATFORMS
 DEPENDENCIES
   SystemTimer (= 1.2.3)
   activerecord-import (~> 0.2.9)
-  acts-as-taggable-on!
+  acts-as-taggable-on (= 2.3.3)
   acts_as_api
   addressable (~> 2.2)
   airbrake

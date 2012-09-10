@@ -93,7 +93,7 @@ gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
 # tags
 
-gem 'acts-as-taggable-on', :git => "https://github.com/mbleigh/acts-as-taggable-on.git"
+gem 'acts-as-taggable-on', '2.3.3'
 
 # URIs and HTTP
 
