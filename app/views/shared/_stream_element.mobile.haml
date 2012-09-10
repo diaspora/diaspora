@@ -3,11 +3,12 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:data=>{:guid=>post.id}}
-  - if post.respond_to?(:nsfw?) && post.nsfw?
+  - if post.respond_to?(:nsfw) && post.nsfw
     .shield_wrapper
       .shield
-        = t("javascripts.stream.nsfw")
-        = link_to t('javascripts.stream.show'), '#'
+        %strong #NSFW 
+        | 
+        = link_to t('javascripts.stream.show_nsfw_post'), '#'
   
 
   - if post.is_a?(Reshare)
