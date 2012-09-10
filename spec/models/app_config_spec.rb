@@ -32,7 +32,7 @@ describe AppConfig do
         it "prints an error message and exits" do
           expect {
             AppConfig.load!
-          }.should raise_error SystemExit
+          }.to raise_error SystemExit
 
           $stderr.rewind
           $stderr.string.chomp.should_not be_blank
@@ -57,7 +57,7 @@ describe AppConfig do
 
             expect {
               AppConfig.load!
-            }.should raise_error SystemExit
+            }.to raise_error SystemExit
 
             $stderr.rewind
             $stderr.string.should include("haven't set up")
@@ -69,7 +69,7 @@ describe AppConfig do
 
             expect {
               AppConfig.load!
-            }.should raise_error SystemExit
+            }.to raise_error SystemExit
 
             $stderr.rewind
             $stderr.string.should include("file format has changed")
@@ -82,7 +82,7 @@ describe AppConfig do
 
             expect {
               AppConfig.load!
-            }.should raise_error SystemExit
+            }.to raise_error SystemExit
 
             $stderr.rewind
             $stderr.string.should include("file format has changed")

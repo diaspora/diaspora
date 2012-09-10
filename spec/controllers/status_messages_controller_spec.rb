@@ -226,7 +226,7 @@ describe StatusMessagesController do
       alice.save
       expect{
         @controller.remove_getting_started
-      }.should change{
+      }.to change{
         alice.reload.getting_started
       }.from(true).to(false)
     end
@@ -234,7 +234,7 @@ describe StatusMessagesController do
     it 'does nothing for returning users' do
       expect{
         @controller.remove_getting_started
-      }.should_not change{
+      }.to_not change{
         alice.reload.getting_started
       }
     end

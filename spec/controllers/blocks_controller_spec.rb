@@ -9,7 +9,7 @@ describe BlocksController do
     it "creates a block" do
       expect {
         post :create, :block => {:person_id => eve.person.id}
-      }.should change { alice.blocks.count }.by(1)
+      }.to change { alice.blocks.count }.by(1)
     end
 
     it "redirects back" do
@@ -43,7 +43,7 @@ describe BlocksController do
     it "removes a block" do
       expect {
         delete :destroy, :id => @block.id
-      }.should change { alice.blocks.count }.by(-1)
+      }.to change { alice.blocks.count }.by(-1)
     end
   end
 

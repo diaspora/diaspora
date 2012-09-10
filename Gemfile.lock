@@ -32,13 +32,6 @@ GIT
     settingslogic (2.0.8)
 
 GIT
-  remote: https://github.com/mbleigh/acts-as-taggable-on.git
-  revision: d9b66b70e90352605e6f767e7c2b7a8859050655
-  specs:
-    acts-as-taggable-on (2.3.1)
-      rails (~> 3.0)
-
-GIT
   remote: https://github.com/pivotal/jasmine-gem.git
   revision: 1e075fbf5a69812fcc914c453f002ecf5bed38ab
   specs:
@@ -89,11 +82,13 @@ GEM
     activesupport (3.2.8)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    acts-as-taggable-on (2.3.3)
+      rails (~> 3.0)
     acts_as_api (0.4)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
-    addressable (2.2.8)
+    addressable (2.3.2)
     airbrake (3.1.0)
       activesupport
       builder
@@ -104,7 +99,7 @@ GEM
     bbenezech-nested_form (0.0.6)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.0.3.1)
-    builder (3.0.0)
+    builder (3.0.3)
     capistrano (2.12.0)
       highline
       net-scp (>= 1.0.0)
@@ -145,13 +140,13 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
-    daemons (1.1.8)
-    database_cleaner (0.7.1)
-    debugger (1.1.3)
+    daemons (1.1.9)
+    database_cleaner (0.8.0)
+    debugger (1.2.0)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.1.1)
-      debugger-ruby_core_source (~> 1.1.2)
-    debugger-linecache (1.1.1)
+      debugger-ruby_core_source (~> 1.1.3)
+    debugger-linecache (1.1.2)
       debugger-ruby_core_source (>= 1.1.1)
     debugger-ruby_core_source (1.1.3)
     devise (1.5.3)
@@ -161,7 +156,7 @@ GEM
     diff-lcs (1.1.3)
     erubis (2.7.0)
     eventmachine (0.12.10)
-    excon (0.14.2)
+    excon (0.14.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (2.6.4)
@@ -175,7 +170,7 @@ GEM
       faraday (>= 0.7.4, < 0.9)
     fastercsv (1.5.5)
     ffi (1.1.5)
-    fixture_builder (0.3.3)
+    fixture_builder (0.3.4)
       activerecord (>= 2)
       activesupport (>= 2)
     fog (1.4.0)
@@ -188,18 +183,18 @@ GEM
       net-ssh (>= 2.1.3)
       nokogiri (~> 1.5.0)
       ruby-hmac
-    foreigner (1.1.6)
+    foreigner (1.2.1)
       activerecord (>= 3.0.0)
-    foreman (0.46.0)
+    foreman (0.57.0)
       thor (>= 0.13.6)
     formatador (0.2.3)
     fuubar (1.0.0)
       rspec (~> 2.0)
       rspec-instafail (~> 0.2.0)
       ruby-progressbar (~> 0.0.10)
-    gherkin (2.11.0)
+    gherkin (2.11.2)
       json (>= 1.4.6)
-    gon (3.0.4)
+    gon (4.0.0)
       actionpack (>= 2.3.0)
       json
     guard (1.1.1)
@@ -213,21 +208,21 @@ GEM
     guard-spork (0.8.0)
       guard (>= 0.10.0)
       spork (>= 0.8.4)
-    haml (3.1.6.rc.1)
+    haml (3.1.7)
     handlebars_assets (0.4.4)
       execjs (>= 1.2.9)
       sprockets (>= 2.0.3)
       tilt
     hashie (1.2.0)
-    heroku (2.26.5)
-      heroku-api (~> 0.2.4)
+    heroku (2.28.12)
+      heroku-api (~> 0.2.8)
       launchy (>= 0.3.2)
-      netrc (~> 0.7.2)
+      netrc (~> 0.7.5)
       rest-client (~> 1.6.1)
       rubyzip
-    heroku-api (0.2.4)
-      excon (~> 0.14.0)
-    heroku_san (3.0.2)
+    heroku-api (0.2.8)
+      excon (~> 0.14.3)
+    heroku_san (3.0.4)
       activesupport
       heroku (>= 2)
       heroku-api (>= 0.1.2)
@@ -259,10 +254,9 @@ GEM
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
     kgio (2.7.4)
-    launchy (2.1.0)
-      addressable (~> 2.2.6)
+    launchy (2.1.2)
+      addressable (~> 2.3)
     libwebsocket (0.1.5)
-      addressable
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
     listen (0.4.2)
@@ -290,7 +284,7 @@ GEM
     net-ssh (2.5.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    netrc (0.7.2)
+    netrc (0.7.7)
     newrelic_rpm (3.3.5)
     nokogiri (1.5.2)
     oauth (0.4.6)
@@ -301,7 +295,7 @@ GEM
     oink (0.9.3)
       activerecord
       hodel_3000_compliant_logger
-    omniauth (1.0.3)
+    omniauth (1.1.1)
       hashie (~> 1.2)
       rack
     omniauth-facebook (1.3.0)
@@ -318,17 +312,17 @@ GEM
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
     orm_adapter (0.0.7)
-    pg (0.13.2)
+    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-cors (0.2.6)
+    rack-cors (0.2.7)
       rack
-    rack-google-analytics (0.10.0)
+    rack-google-analytics (0.11.0)
     rack-mobile-detect (0.4.0)
       rack
-    rack-piwik (0.1.2)
+    rack-piwik (0.1.3)
     rack-pjax (0.5.9)
       hpricot (~> 0.8.6)
       rack (~> 1.3)
@@ -369,13 +363,13 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     redcarpet (2.1.1)
-    redis (2.2.2)
-    redis-namespace (1.0.3)
-      redis (< 3.0.0)
+    redis (3.0.1)
+    redis-namespace (1.2.1)
+      redis (~> 3.0.0)
     remotipart (1.0.2)
-    resque (1.20.0)
+    resque (1.22.0)
       multi_json (~> 1.0)
-      redis-namespace (~> 1.0.2)
+      redis-namespace (~> 1.0)
       sinatra (>= 0.9.2)
       vegas (~> 0.1.2)
     resque-timeout (1.0.0)
@@ -385,20 +379,20 @@ GEM
     rpm_contrib (2.1.11)
       newrelic_rpm (>= 3.1.1)
       newrelic_rpm (>= 3.1.1)
-    rspec (2.10.0)
-      rspec-core (~> 2.10.0)
-      rspec-expectations (~> 2.10.0)
-      rspec-mocks (~> 2.10.0)
-    rspec-core (2.10.1)
-    rspec-expectations (2.10.0)
+    rspec (2.11.0)
+      rspec-core (~> 2.11.0)
+      rspec-expectations (~> 2.11.0)
+      rspec-mocks (~> 2.11.0)
+    rspec-core (2.11.1)
+    rspec-expectations (2.11.3)
       diff-lcs (~> 1.1.3)
     rspec-instafail (0.2.4)
-    rspec-mocks (2.10.1)
-    rspec-rails (2.10.1)
+    rspec-mocks (2.11.2)
+    rspec-rails (2.11.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
-      rspec (~> 2.10.0)
+      rspec (~> 2.11.0)
     ruby-debug (0.10.4)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.4.0)
@@ -419,7 +413,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip
     simple_oauth (0.1.8)
-    sinatra (1.3.2)
+    sinatra (1.3.3)
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
@@ -429,13 +423,13 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     subexec (0.2.2)
-    thin (1.3.1)
+    thin (1.4.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     thor (0.16.0)
     tilt (1.3.3)
-    timecop (0.3.5)
+    timecop (0.4.6)
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
@@ -447,9 +441,9 @@ GEM
     typhoeus (0.3.3)
       mime-types
     tzinfo (0.3.33)
-    uglifier (1.2.4)
+    uglifier (1.3.0)
       execjs (>= 0.3.0)
-      multi_json (>= 1.0.2)
+      multi_json (~> 1.0, >= 1.0.2)
     unicorn (4.3.1)
       kgio (~> 2.6)
       rack
@@ -472,7 +466,7 @@ PLATFORMS
 DEPENDENCIES
   SystemTimer (= 1.2.3)
   activerecord-import (~> 0.2.9)
-  acts-as-taggable-on!
+  acts-as-taggable-on (= 2.3.3)
   acts_as_api
   addressable (~> 2.2)
   airbrake
@@ -486,26 +480,26 @@ DEPENDENCIES
   carrierwave (= 0.6.2)
   client_side_validations
   cucumber-rails (= 1.3.0)
-  database_cleaner (= 0.7.1)
+  database_cleaner (= 0.8)
   debugger
   devise (= 1.5.3)
   factory_girl_rails (= 1.7.0)
   faraday
   faraday_middleware
   fastercsv (= 1.5.5)
-  fixture_builder (= 0.3.3)
+  fixture_builder (= 0.3.4)
   fog
-  foreigner (~> 1.1.0)
-  foreman (= 0.46)
+  foreigner (~> 1.2.1)
+  foreman (= 0.57)
   fuubar (>= 1.0)
-  gon
+  gon (~> 4.0)
   guard-cucumber
   guard-rspec
   guard-spork
-  haml (= 3.1.6.rc.1)
+  haml (= 3.1.7)
   handlebars_assets
   heroku
-  heroku_san (= 3.0.2)
+  heroku_san (= 3.0.4)
   http_accept_language (~> 1.0.2)
   i18n-inflector-rails (~> 1.0)
   jasmine!
@@ -520,11 +514,11 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri (= 1.5.2)
   oink
-  omniauth (= 1.0.3)
+  omniauth (= 1.1.1)
   omniauth-facebook
   omniauth-tumblr
   omniauth-twitter
-  pg
+  pg (= 0.14.1)
   rack-cors (~> 0.2.4)
   rack-google-analytics
   rack-piwik
@@ -536,7 +530,7 @@ DEPENDENCIES
   rails_autolink
   redcarpet (= 2.1.1)
   remotipart (~> 1.0)
-  resque (= 1.20.0)
+  resque (= 1.22.0)
   resque-timeout (= 1.0.0)
   roxml!
   rpm_contrib (~> 2.1.7)
@@ -548,7 +542,7 @@ DEPENDENCIES
   selenium-webdriver (~> 2.25)
   settingslogic!
   spork (~> 1.0rc2)
-  thin (~> 1.3.1)
+  thin (~> 1.4.1)
   timecop
   twitter (= 2.0.2)
   typhoeus (~> 0.3.3)

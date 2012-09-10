@@ -205,7 +205,7 @@ STR
 
         expect{
           @sm.create_mentions
-        }.should_not raise_error
+        }.to_not raise_error
       end
     end
     describe '#mentioned_people' do
