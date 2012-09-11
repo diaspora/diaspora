@@ -10,7 +10,7 @@ pt-BR:
       confirmed: "Sua conta foi confirmada com sucesso. Seja bem-vindo(a)!"
       new:
         resend_confirmation: "Reenviar as instruções de confirmação."
-      send_instructions: "Em poucos minutos, você receberá um email com as instruções sobre como confirmar a sua conta."
+      send_instructions: "Em poucos minutos você receberá um email com as instruções para confirmar a sua conta."
     failure:
       inactive: "Sua conta ainda não foi ativada."
       invalid: "Nome de usuário ou senha inválidos."
@@ -113,8 +113,8 @@ pt-BR:
     unlocks:
       new:
         resend_unlock: "Reenviar instruções de desbloqueio"
-      send_instructions: "Você receberá em breve um email com as instruções sobre como desbloquear a sua conta."
-      unlocked: "Sua conta foi desbloqueada com sucesso. Seja bem-vindo!"
+      send_instructions: "Você receberá em breve um email com as instruções para desbloquear a sua conta."
+      unlocked: "Sua conta foi desbloqueada com sucesso. Seja bem-vindo(a)!"
   errors:
     messages:
       already_confirmed: "já foi confirmado"
