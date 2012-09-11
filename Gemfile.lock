@@ -456,87 +456,87 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-import (~> 0.2.9)
+  activerecord-import (= 0.2.9)
   acts-as-taggable-on (= 2.3.3)
-  acts_as_api
-  addressable (~> 2.2)
-  airbrake
-  asset_sync
-  bootstrap-sass (~> 2.0.2)
+  acts_as_api (= 0.4)
+  addressable (= 2.3.2)
+  airbrake (= 3.1.0)
+  asset_sync (= 0.4.2)
+  bootstrap-sass (= 2.0.3.1)
   bundler (> 1.1.0)
-  capistrano
-  capistrano-ext
-  capistrano_colors
-  capybara (~> 1.1.2)
+  capistrano (= 2.12.0)
+  capistrano-ext (= 1.2.1)
+  capistrano_colors (= 0.5.5)
+  capybara (= 1.1.2)
   carrierwave (= 0.6.2)
-  client_side_validations
+  client_side_validations (= 3.1.4)
   cucumber-rails (= 1.3.0)
   database_cleaner (= 0.8)
-  debugger
+  debugger (= 1.2.0)
   devise (= 2.1.2)
   factory_girl_rails (= 4.0.0)
-  faraday
-  faraday_middleware
+  faraday (= 0.8.1)
+  faraday_middleware (= 0.8.7)
   fastercsv (= 1.5.5)
   fixture_builder (= 0.3.4)
-  fog
-  foreigner (~> 1.2.1)
+  fog (= 1.4.0)
+  foreigner (= 1.2.1)
   foreman (= 0.57)
-  fuubar (>= 1.0)
-  gon (~> 4.0)
-  guard-cucumber
-  guard-rspec
-  guard-spork
+  fuubar (= 1.0.0)
+  gon (= 4.0.0)
+  guard-cucumber (= 1.0.0)
+  guard-rspec (= 0.7.3)
+  guard-spork (= 0.8.0)
   haml (= 3.1.7)
-  handlebars_assets
-  heroku
+  handlebars_assets (= 0.4.4)
+  heroku (= 2.28.12)
   heroku_san (= 3.0.4)
-  http_accept_language (~> 1.0.2)
+  http_accept_language (= 1.0.2)
   i18n-inflector-rails (~> 1.0)
   jasmine!
-  jquery-rails
-  json
+  jquery-rails (= 2.0.2)
+  json (= 1.7.5)
   markerb!
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.4)
-  mobile-fu
+  mobile-fu (= 1.1.0)
   mysql2 (= 0.3.11)
-  newrelic_rpm
+  newrelic_rpm (= 3.3.5)
   nokogiri (= 1.5.2)
-  oink
+  oink (= 0.9.3)
   omniauth (= 1.1.1)
-  omniauth-facebook
-  omniauth-tumblr
-  omniauth-twitter
+  omniauth-facebook (= 1.3.0)
+  omniauth-tumblr (= 1.0)
+  omniauth-twitter (= 0.0.11)
   pg (= 0.14.1)
-  rack-cors (~> 0.2.4)
-  rack-google-analytics
-  rack-piwik
-  rack-rewrite (~> 1.2.1)
-  rack-ssl
+  rack-cors (= 0.2.7)
+  rack-google-analytics (= 0.11.0)
+  rack-piwik (= 0.1.3)
+  rack-rewrite (= 1.2.1)
+  rack-ssl (= 1.3.2)
   rails (= 3.2.8)
   rails-i18n
   rails_admin!
-  rails_autolink
+  rails_autolink (= 1.0.9)
   redcarpet (= 2.1.1)
-  remotipart (~> 1.0)
+  remotipart (= 1.0.2)
   resque (= 1.22.0)
   resque-timeout (= 1.0.0)
   roxml!
-  rpm_contrib (~> 2.1.7)
-  rspec-instafail (>= 0.1.7)
-  rspec-rails (~> 2.10)
-  ruby-oembed (~> 0.8.7)
+  rpm_contrib (= 2.1.11)
+  rspec-instafail (= 0.2.4)
+  rspec-rails (= 2.11.0)
+  ruby-oembed (= 0.8.7)
   sass-rails (= 3.2.5)
-  selenium-webdriver (~> 2.25)
+  selenium-webdriver (= 2.25.0)
   settingslogic!
-  spork (~> 1.0rc2)
-  thin (~> 1.4.1)
+  spork (= 1.0.0rc3)
+  thin (= 1.4.1)
   timecop
   twitter (= 2.0.2)
-  typhoeus (~> 0.3.3)
-  uglifier
-  unicorn (~> 4.3.0)
-  webmock (~> 1.7)
-  will_paginate
-  yard
+  typhoeus (= 0.3.3)
+  uglifier (= 1.3.0)
+  unicorn (= 4.3.1)
+  webmock (= 1.8.7)
+  will_paginate (= 3.0.3)
+  yard (= 0.8.1)
