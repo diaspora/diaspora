@@ -246,13 +246,13 @@ describe Photo do
     it 'is deleted with parent status message' do
       expect {
         @status_message.destroy
-      }.should change(Photo, :count).by(-1)
+      }.to change(Photo, :count).by(-1)
     end
 
     it 'will delete parent status message if message is otherwise empty' do
       expect {
         @photo2.destroy
-      }.should change(StatusMessage, :count).by(-1)
+      }.to change(StatusMessage, :count).by(-1)
     end
 
     it 'will not delete parent status message if message had other content' do
@@ -263,7 +263,7 @@ describe Photo do
       expect {
         @photo2.status_message.reload
         @photo2.destroy
-      }.should_not change(StatusMessage, :count)
+      }.to_not change(StatusMessage, :count)
     end
   end
 end

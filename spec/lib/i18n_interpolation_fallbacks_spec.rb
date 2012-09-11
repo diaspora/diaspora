@@ -23,7 +23,7 @@ describe "i18n interpolation fallbacks" do
         I18n.t('ago').should == "%{time} ago"
       end
       it "raises a MissingInterpolationArgument when arguments are wrong" do
-        expect { I18n.t('ago', :not_time => "2 months") }.should raise_exception(I18n::MissingInterpolationArgument)
+        expect { I18n.t('ago', :not_time => "2 months") }.to raise_exception(I18n::MissingInterpolationArgument)
       end
     end
     context "current locale falls back to English" do
@@ -55,7 +55,7 @@ describe "i18n interpolation fallbacks" do
         describe "when the English translation does not work" do
           it "raises a MissingInterpolationArgument" do
             I18n.backend.store_translations('en', {"nonexistant_key" => "%{random_key} also required, so this will fail"})
-            expect { I18n.t('nonexistant_key', :hey => "what") }.should raise_exception(I18n::MissingInterpolationArgument)
+            expect { I18n.t('nonexistant_key', :hey => "what") }.to raise_exception(I18n::MissingInterpolationArgument)
           end
         end
       end

@@ -18,7 +18,7 @@ describe User do
 
       expect{
         user.reload.encryption_key
-      }.should_not raise_error
+      }.to_not raise_error
     end
   end
 
