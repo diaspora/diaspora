@@ -184,7 +184,7 @@ pt-BR:
         content: "Você pode conectar e seguir estes serviços no Diaspora:"
         heading: "Conectar Serviços"
       unfollow_tag: "Parar de seguir #%{tag}"
-      welcome_to_diaspora: "Bem vindo ao Diaspora, %{name}!"
+      welcome_to_diaspora: "Bem-vindo(a) ao Diaspora, %{name}!"
     many: "%{count} grupos"
     move_contact:
       error: "Não foi possível mover o contato: %{inspect}"
@@ -1053,7 +1053,7 @@ pt-BR:
     no_person_constructed: "Não foi possível construir uma pessoa a partir deste hcard."
     not_enabled: "O webfinger parece não estar habilitado para o servidor %{account}"
     xrd_fetch_failed: "Ocorreu um problema ao obter o xrd da conta %{account}"
-  welcome: "Bem vindo!"
+  welcome: "Bem-vindo(a)!"
   will_paginate:
     next_label: "Próximo &raquo;"
     previous_label: "&laquo; Anterior"
