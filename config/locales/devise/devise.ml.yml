@@ -14,7 +14,7 @@ ml:
     failure:
       inactive: "താങ്കളുടെ അക്കൌണ്ട് ഇതുവരെ ഉപയോഗപ്രദമാക്കിയിട്ടില്ല."
       invalid: "ഇമെയില്‍ അല്ലെങ്കില്‍ രഹസ്യവാക്ക് സാധുവല്ല."
-      invalid_token: "Invalid authentication token."
+      invalid_token: "അധികാരപ്പെടുത്തലിന്റെ ടോക്കണ്‍ സാധുവല്ല."
       locked: "നിങ്ങളുടെ അക്കൌണ്ട് പൂട്ടിയിരിക്കുന്നു."
       timeout: "അനുവദിച്ചിരിക്കുന്ന സമയം തീര്‍ന്നിരിക്കുന്നു. തുടരുന്നതിനായി വീണ്ടും പ്രവേശിക്കുക."
       unauthenticated: "തുടരുന്നതിന് മുമ്പ് നിങ്ങള്‍ അകത്ത് പ്രവേശിക്കുകയോ അംഗത്വം എടുക്കുകയോ ചെയ്യണം."
@@ -80,7 +80,7 @@ ml:
       new:
         forgot_password: "താങ്കളുടെ രഹസ്യവാക്ക് മറന്നോ?"
         no_account: "No account with this email exists.  If you are waiting for an invite, we are rolling them out as soon as possible"
-        send_password_instructions: "Send me reset password instructions"
+        send_password_instructions: "രഹസ്യവാക്ക് പുനഃക്രമീകരിക്കാനുള്ള നിര്ദ്ദേശങ്ങള്‍ എനിക്ക് അയച്ചു തരിക"
       send_instructions: "രഹസ്യവാക്ക് മാറ്റുന്നതിനെ സംബന്ധിച്ചുള്ള നിർദ്ദേശങ്ങൾ അടങ്ങിയ ഇ മെയിൽ സന്ദേശം കുറച്ചു നിമിഷങ്ങൾക്കകം താങ്കൾക്ക് ലഭിക്കുന്നതായിരിക്കും."
       updated: "താങ്കളുടെ രഹസ്യവാക്ക് വിജയകരമായി മാറ്റിയിരിക്കുന്നു. താങ്കൾ ഇപ്പോൾ അകത്ത് പ്രവേശിച്ചിരിക്കുകയാണ്."
     registrations:
@@ -92,10 +92,10 @@ ml:
         alpha_software: "താങ്കൾ ആൽഫാ സോഫ്റ്റ്വെയർ ഉപയോഗിക്കാൻ പോവുകയാണ്."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        login: "പ്രവേശിക്കൂ"
+        login: "പ്രവേശിക്കൂക"
         modern_browsers: "ആധുനിക ബ്രൌസറുകള്‍ മാത്രം പിന്‍തുണയ്ക്കുന്നു."
         password: "രഹസ്യവാക്ക്"
-        remember_me: "ഓര്‍മ്മിക്കൂ‍"
+        remember_me: "ഓര്‍മ്മിക്കൂ"
         sign_in: "പ്രവേശിക്കൂ"
         username: "ഉപയോക്തനാമം"
       signed_in: "വിജയകരമായി പ്രവേശിച്ചിരിക്കുന്നു."

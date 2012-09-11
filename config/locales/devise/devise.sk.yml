@@ -118,5 +118,5 @@ sk:
   errors:
     messages:
       already_confirmed: "už bol potvrdený"
-      not_found: "nenašli sa"
+      not_found: "nenašlo sa"
       not_locked: "nebol zamknutý"

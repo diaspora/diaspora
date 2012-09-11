@@ -84,7 +84,7 @@ pt-BR:
         one: "%{count} usuários encontrados"
         other: "%{count} usuários encontrados"
         zero: "%{count} usuário encontrado."
-      you_currently: "você tem atualmente %{user_invitation} convites para enviar %{link}"
+      you_currently: "você atualmente tem %{user_invitation} convites para enviar %{link}"
     weekly_user_stats:
       amount_of:
         one: "Quantidade de novos usuários esta semana: %{count}"
@@ -159,7 +159,7 @@ pt-BR:
       help:
         do_you: "Você:"
         email_feedback: "%{link} seu feedback, se você preferir"
-        email_link: "e-mail"
+        email_link: "E-mail"
         feature_suggestion: "... tem uma sugestão de %{link}?"
         find_a_bug: "... encontrar um %{link}?"
         have_a_question: "... Tem um %{link}?"
@@ -184,7 +184,7 @@ pt-BR:
         content: "Você pode conectar e seguir estes serviços no Diaspora:"
         heading: "Conectar Serviços"
       unfollow_tag: "Parar de seguir #%{tag}"
-      welcome_to_diaspora: "Bem vindo ao Diaspora, %{name}!"
+      welcome_to_diaspora: "Bem-vindo(a) ao Diaspora, %{name}!"
     many: "%{count} grupos"
     move_contact:
       error: "Não foi possível mover o contato: %{inspect}"
@@ -368,6 +368,7 @@ pt-BR:
       back_to_top: "Voltar ao topo"
       powered_by: "PRODUZIDO POR DIASPORA*"
       public_feed: "Feed público de Diaspora para %{name}"
+      source_package: "baixar o pacote do código-fonte"
       toggle: "Versão para celular"
       whats_new: "O que há de novo?"
       your_aspects: "Seus grupos"
@@ -717,17 +718,17 @@ pt-BR:
       continue: "Continue"
       create_my_account: "Criar minha conta!"
       diaspora: "<3 Diaspora*"
-      email: "E-mail"
+      email: "E-MAIL"
       enter_email: "Digite teu email"
       enter_password: "Digite tua senha"
       enter_password_again: "Digite novamente a tua senha"
       enter_username: "Escolha um nome de usuário (use somente letras, números e sublinhados)"
       hey_make: "HEY,<br/>FAÇA<br/>ALGO."
       join_the_movement: "Junte-se ao movimento!"
-      password: "Senha"
-      sign_up: "Inscrever"
+      password: "SENHA"
+      sign_up: "INSCREVER"
       sign_up_message: "Rede social com um <3"
-      username: "Apelido"
+      username: "APELIDO"
   requests:
     create:
       sending: "Enviando"
@@ -1053,7 +1054,7 @@ pt-BR:
     no_person_constructed: "Não foi possível construir uma pessoa a partir deste hcard."
     not_enabled: "O webfinger parece não estar habilitado para o servidor %{account}"
     xrd_fetch_failed: "Ocorreu um problema ao obter o xrd da conta %{account}"
-  welcome: "Bem vindo!"
+  welcome: "Bem-vindo(a)!"
   will_paginate:
-    next_label: "Próximo &raquo;"
-    previous_label: "&laquo; Anterior"
+    next_label: "próximo &raquo;"
+    previous_label: "&laquo; anterior"

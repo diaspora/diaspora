@@ -27,3 +27,6 @@ hi:
         username: "उपयोक्तानाम"
       signed_in: "आप सफलतापूर्वक साइन इन कर चुके हैं"
       signed_out: "आप सफलतापूर्वक साइन आउट कर चुके हैं"
+  errors:
+    messages:
+      not_found: "नहीं मिला"

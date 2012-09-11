@@ -7,20 +7,29 @@
 hy:
   devise:
     failure:
+      inactive: "Քո հաշիվը դեռ չի ակտիվացվել:"
       invalid: "Սխալ գորժանուն կամ ծածկագիր:"
       invalid_token: "Սխալ իսկությունը ստուգելու նշան:"
       locked: "Ձեր հաշիվը կողպված է:"
       timeout: "Ձեր նիստի ժամկետն անցել է, խնդրում ենք կրկին մուտք գործեք որ շարունակեք:"
       unauthenticated: "Դուք պետք է մուտք գործեք կամ գրանցվեք մինչև շարունակելը:"
       unconfirmed: "Դուք պետք է հաստատեք ձեր հաշիվը մինչև շարունակելը:"
+    invitations:
+      send_instructions: "Քո հրավերը ուղարկված է:"
     mailer:
+      confirmation_instructions:
+        confirm: "Հաստատել իմ հաշիվը:"
       hello: "Ողջույն %{email}"
       invitation_instructions:
         or: "կամ"
+      reset_password_instructions:
+        change: "Փոխել գաղտնաբառը:"
       welcome: "Բարի գալուստ %{email}"
     passwords:
+      edit:
+        change_password: "Փոխել գաղտնաբառը:"
       new:
-        forgot_password: ""
+        forgot_password: "Մոռացե՞լ ես գաղտնաբառդ:"
       send_instructions: "Դուք կստանաք ցուցումներով էլ.նամակ, թե ինչպես վերականգնել Ձեր գաղտնաբառը մի քանի րոպեների ընթացքում:"
     sessions:
       new:

@@ -50,7 +50,7 @@ ml:
         other: "%{count} അഭിപ്രായങ്ങൾ"
         zero: "%{count} അഭിപ്രായങ്ങൾ"
       daily: "ദിവസേന"
-      go: "പോവുക"
+      go: "പോകൂ"
       month: "മാസം"
       posts:
         one: "%{count} കുറിപ്പ്"
@@ -58,7 +58,7 @@ ml:
         zero: "%{count} കുറിപ്പുകൾ"
       week: "ആഴ്ച"
     user_search:
-      add_invites: "ക്ഷണങ്ങള്‍ കൂട്ടുക"
+      add_invites: "കുടുതല്‍ ക്ഷണിക്കുക"
   ago: "%{time} മുന്‍പ്"
   all_aspects: "എല്ലാം"
   application:
@@ -199,9 +199,9 @@ ml:
       failure: "I couldn't stop ignoring that user.  #evasion"
       success: "Let's see what they have to say! #sayhello"
   bookmarklet:
-    explanation: "Post to Diaspora from anywhere by bookmarking %{link}."
+    explanation: "എവിടെ നിന്നും ഡയസ്പോറയിലേക്ക് കുറിക്കുവാനായി ഈ ലിങ്ക് ബുക്ക്മാര്‍ക്ക് ചെയ്യുക => %{link}."
     heading: "Bookmarklet"
-    post_something: "ഡയസ്പോറയിലേക്ക് എന്തെങ്കിലും കുറിക്കുക"
+    post_something: "ഡയസ്പോറയിലേക്ക് കുറിക്കുക"
     post_success: "കുറിച്ചു! അടയ്ക്കുന്നു!"
   cancel: "റദ്ദാക്കുക"
   comments:
@@ -342,21 +342,21 @@ ml:
         one: "ഒരാള്‍ ഇതിഷ്ടപ്പെടുന്നില്ല."
         other: "%{count} പേര്‍ ഇത് ഇഷ്ടപ്പെടുന്നില്ല"
         two: "%{count} dislikes"
-        zero: "ആരും ഇത് ഇഷ്ടപ്പെടുന്നില്ല"
+        zero: "ഇത് ഇഷ്ടപ്പെടാത്തതാരുമില്ല"
       people_like_this:
         few: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
         many: "%{count} ആളുകള്‍ ഇത് ഇഷ്ട്പ്പെടുന്നു"
         one: "ഒരാള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
         other: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
         two: "%{count} likes"
-        zero: "ആരും ഇതു ഇഷ്ടപ്പെടുന്നില്ല."
+        zero: "ആരും ഇത് ഇഷ്ടപ്പെടുന്നില്ല."
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
+        one: "%{count} ഇഷ്ട്ടപ്പെടല്‍"
+        other: "%{count} ഇഷ്ട്ടപ്പെടലുകള്‍"
         two: "%{count} likes"
-        zero: "no likes"
+        zero: "ഇഷ്ട്ടപ്പെടലുകളില്ല"
   limited: "Limited"
   more: "കൂടുതല്‍"
   next: "അടുത്തത്"
@@ -530,7 +530,7 @@ ml:
       no_one_found: "...പക്ഷേ, ഒരാളെയും കണ്ടുപിടിച്ചില്ല."
       no_results: "താങ്കള്‍ എന്തിനെങ്കിലും വേണ്ടി തിരയേണ്ടതുണ്ട്."
       results_for: "വിവരങ്ങള്‍ക്കായി തെരയുക"
-      searching: "തിരഞ്ഞുകൊണ്ടിരിക്കുന്നു, ദയവായി ക്ഷമിക്കുക..."
+      searching: "തിരഞ്ഞുകൊണ്ടിരിക്കുന്നു, ദയവായി കാത്തിരിക്കുക..."
     last_post: "അവസാനത്തെ കുറിപ്പ്"
     many: "%{count} ആളുകള്‍"
     one: "ഒരാള്‍"
@@ -651,10 +651,10 @@ ml:
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
+    one: "ഒരു പ്രതികരണം"
+    other: "%{count} പ്രതികരണങ്ങള്‍"
     two: "%{count} reactions"
-    zero: "0 reactions"
+    zero: "0 പ്രതികരണങ്ങള്‍"
   registrations:
     closed: "ഈ ഡയസ്പോറ പോഡില്‍ ചേരുന്നത് അടച്ചിരിക്കുന്നു."
     create:
@@ -668,14 +668,14 @@ ml:
       update: "പുതുക്കു"
     new:
       create_my_account: "Create my account"
-      diaspora: "<3 ഡയസ്പോറ"
+      diaspora: "<3 ഡയസ്പോറ*"
       enter_email: "Enter an email"
       enter_password: "അടയാളവാക്ക് നല്‍കുക"
       enter_password_again: "അടയാളവാക്ക് വീണ്ടും നല്‍കുക"
       enter_username: "ഉപഭാക്തൃ നാമം തിരഞ്ഞെടുക്കുക (അക്ഷരങ്ങളും സംഖ്യകളും അണ്ടര്‍ സ്കോറും മാത്രം)"
       join_the_movement: "Join the movement!"
       password: "രഹസ്യവാക്ക്"
-      sign_up: "അംഗത്വമേടുക്കുക"
+      sign_up: "അംഗത്വമെടുക്കുക"
       sign_up_message: "Social Networking with a ♥"
   requests:
     create:
