@@ -10,7 +10,7 @@
 $(document).ready(function(){
 
   $('.shield a').click(function(){
-    $(this).parents('.shield_wrapper').remove();
+    $(this).parents('.shield_wrapper').hide(800);
     return false;
   });
   var showLoader = function(link){
