@@ -7,8 +7,8 @@ require 'spec_helper'
 describe Jobs::NotifyLocalUsers do
   describe '#perfom' do
     it 'should call Notification.notify for each participant user' do
-      person = Factory :person
-      post = Factory :status_message
+      person = FactoryGirl.create :person
+      post = FactoryGirl.create :status_message
 
       StatusMessage.should_receive(:find_by_id).with(post.id).and_return(post)
       #User.should_receive(:where).and_return([alice, eve])

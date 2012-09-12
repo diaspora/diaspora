@@ -16,7 +16,7 @@ describe RegistrationsController do
       :password_confirmation => "password"
       }
     }
-    Webfinger.stub_chain(:new, :fetch).and_return(Factory(:person))
+    Webfinger.stub_chain(:new, :fetch).and_return(FactoryGirl.create(:person))
   end
 
   describe '#check_registrations_open!' do
@@ -61,7 +61,7 @@ describe RegistrationsController do
       end
 
       before do
-        user = Factory.build(:user)
+        user = FactoryGirl.build(:user)
         User.stub!(:build).and_return(user)
       end
 

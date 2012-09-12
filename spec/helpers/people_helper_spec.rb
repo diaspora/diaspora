@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PeopleHelper do
  before do
     @user = alice
-    @person = Factory(:person)
+    @person = FactoryGirl.create(:person)
   end
 
  describe "#person_image_link" do
@@ -32,7 +32,7 @@ describe PeopleHelper do
 
   describe '#person_link' do
     before do
-      @person = Factory(:person)
+      @person = FactoryGirl.create(:person)
     end
 
     it 'includes the name of the person if they have a first name' do
@@ -62,7 +62,7 @@ describe PeopleHelper do
 
   describe '#last_post_link' do
     before do
-      @person = Factory(:person)
+      @person = FactoryGirl.create(:person)
     end
 
     it "doesn't show a link, if the person has no posts" do
@@ -70,7 +70,7 @@ describe PeopleHelper do
     end
 
     it "shows the link, if the person has at leas one post" do
-      post = Factory(:status_message, :author => @person)
+      post = FactoryGirl.create(:status_message, :author => @person)
       last_post_link(@person).should include last_post_person_path(@person.to_param)
     end
   end
@@ -91,7 +91,7 @@ describe PeopleHelper do
 
   describe '#local_or_remote_person_path' do
     before do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
     end
 
     it "links by id if there is a period in the user's username" do

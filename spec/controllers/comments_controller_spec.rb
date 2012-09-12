@@ -46,7 +46,7 @@ describe CommentsController do
       end
 
       it "doesn't overwrite author_id" do
-        new_user = Factory(:user)
+        new_user = FactoryGirl.create(:user)
         comment_hash[:author_id] = new_user.person.id.to_s
         post :create, comment_hash
         Comment.find_by_text(comment_hash[:text]).author_id.should == alice.person.id

@@ -8,7 +8,7 @@ describe Person do
 
   before do
     @user = bob
-    @person = Factory(:person)
+    @person = FactoryGirl.create(:person)
   end
 
   it 'always has a profile' do
@@ -92,8 +92,8 @@ describe Person do
 
     describe ".who_have_reshared a user's posts" do
       it 'pulls back users who reshared the status message of a user' do
-        sm = Factory(:status_message, :author => alice.person, :public => true)
-        reshare = Factory(:reshare, :root => sm)
+        sm = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
+        reshare = FactoryGirl.create(:reshare, :root => sm)
         Person.who_have_reshared_a_users_posts(alice).should == [reshare.author]
       end
     end
@@ -109,17 +109,17 @@ describe Person do
 
   describe "vaild url" do
     it 'should allow for https urls' do
-      person = Factory(:person, :url => "https://example.com")
+      person = FactoryGirl.build(:person, :url => "https://example.com")
       person.should be_valid
     end
 
     it 'should always return the correct receive url' do
-      person = Factory(:person, :url => "https://example.com/a/bit/messed/up")
+      person = FactoryGirl.build(:person, :url => "https://example.com/a/bit/messed/up")
       person.receive_url.should == "https://example.com/receive/users/#{person.guid}/"
     end
 
     it 'should allow ports in the url' do
-      person = Factory(:person, :url => "https://example.com:3000/")
+      person = FactoryGirl.build(:person, :url => "https://example.com:3000/")
       person.url.should == "https://example.com:3000/"
     end
   end
@@ -148,12 +148,12 @@ describe Person do
 
     describe 'validation' do
       it 'is unique' do
-        person_two = Factory.build(:person, :diaspora_handle => @person.diaspora_handle)
+        person_two = FactoryGirl.build(:person, :diaspora_handle => @person.diaspora_handle)
         person_two.should_not be_valid
       end
 
       it 'is case insensitive' do
-        person_two = Factory.build(:person, :diaspora_handle => @person.diaspora_handle.upcase)
+        person_two = FactoryGirl.build(:person, :diaspora_handle => @person.diaspora_handle.upcase)
         person_two.should_not be_valid
       end
     end
@@ -221,8 +221,8 @@ describe Person do
   end
 
   it '#owns? posts' do
-    person_message = Factory(:status_message, :author => @person)
-    person_two = Factory(:person)
+    person_message = FactoryGirl.create(:status_message, :author => @person)
+    person_two = FactoryGirl.create(:person)
 
     @person.owns?(person_message).should be true
     person_two.owns?(person_message).should be false
@@ -230,7 +230,7 @@ describe Person do
 
   describe "disconnecting" do
     before do
-      @user2 = Factory(:user)
+      @user2 = FactoryGirl.create(:user)
       @aspect = @user.aspects.create(:name => "Dudes")
       @aspect2 = @user2.aspects.create(:name => "Abscence of Babes")
     end
@@ -268,16 +268,16 @@ describe Person do
   describe '.search' do
     before do
       Person.delete_all
-      @user = Factory(:user_with_aspect)
+      @user = FactoryGirl.create(:user_with_aspect)
       user_profile = @user.person.profile
       user_profile.first_name = "aiofj"
       user_profile.last_name = "asdji"
       user_profile.save
 
-      @robert_grimm = Factory(:searchable_person)
-      @eugene_weinstein = Factory(:searchable_person)
-      @yevgeniy_dodis = Factory(:searchable_person)
-      @casey_grippi = Factory(:searchable_person)
+      @robert_grimm = FactoryGirl.build(:searchable_person)
+      @eugene_weinstein = FactoryGirl.build(:searchable_person)
+      @yevgeniy_dodis = FactoryGirl.build(:searchable_person)
+      @casey_grippi = FactoryGirl.build(:searchable_person)
 
       @robert_grimm.profile.first_name = "Robert"
       @robert_grimm.profile.last_name = "Grimm"
@@ -348,7 +348,7 @@ describe Person do
     end
 
     it 'only displays searchable people' do
-      invisible_person = Factory(:person, :profile => Factory.build(:profile, :searchable => false, :first_name => "johnson"))
+      invisible_person = FactoryGirl.build(:person, :profile => FactoryGirl.build(:profile, :searchable => false, :first_name => "johnson"))
       Person.search("johnson", @user).should_not include invisible_person
       Person.search("", @user).should_not include invisible_person
     end
@@ -379,8 +379,8 @@ describe Person do
   end
 
   context 'people finders for webfinger' do
-    let(:user) { Factory(:user) }
-    let(:person) { Factory(:person) }
+    let(:user) { FactoryGirl.create(:user) }
+    let(:person) { FactoryGirl.create(:person) }
 
     describe '.by_account_identifier' do
       it 'should find a local users person' do
@@ -399,28 +399,28 @@ describe Person do
       end
 
       it "finds a local person with a mixed-case username" do
-        user = Factory(:user, :username => "SaMaNtHa")
+        user = FactoryGirl.create(:user, :username => "SaMaNtHa")
         person = Person.by_account_identifier(user.person.diaspora_handle)
         person.should == user.person
       end
 
       it "is case insensitive" do
-        user1 = Factory(:user, :username => "SaMaNtHa")
+        user1 = FactoryGirl.create(:user, :username => "SaMaNtHa")
         person = Person.by_account_identifier(user1.person.diaspora_handle.upcase)
         person.should == user1.person
       end
 
       it 'should only find people who are exact matches (1/2)' do
-        user = Factory(:user, :username => "SaMaNtHa")
-        person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
+        user = FactoryGirl.create(:user, :username => "SaMaNtHa")
+        person = FactoryGirl.create(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
         user.person.diaspora_handle = "tom@tom.joindiaspora.com"
         user.person.save
         Person.by_account_identifier("tom@tom.joindiaspora.com").diaspora_handle.should == "tom@tom.joindiaspora.com"
       end
 
       it 'should only find people who are exact matches (2/2)' do
-        person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
-        person1 = Factory(:person, :diaspora_handle => "tom@tom.joindiaspora.comm")
+        person = FactoryGirl.create(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
+        person1 = FactoryGirl.create(:person, :diaspora_handle => "tom@tom.joindiaspora.comm")
         f = Person.by_account_identifier("tom@tom.joindiaspora.com")
         f.should be nil
       end
@@ -522,7 +522,7 @@ describe Person do
 
   describe "#clear_profile!!" do
     before do
-      @person = Factory(:person)
+      @person = FactoryGirl.build(:person)
     end
 
     it 'calls Profile#tombstone!' do

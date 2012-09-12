@@ -68,7 +68,7 @@ describe Comment do
 
   describe 'xml' do
     before do
-      @commenter = Factory(:user)
+      @commenter = FactoryGirl.create(:user)
       @commenter_aspect = @commenter.aspects.create(:name => "bruisers")
       connect_users(alice, @alices_aspect, @commenter, @commenter_aspect)
       @post = alice.post :status_message, :text => "hello", :to => @alices_aspect.id
@@ -102,7 +102,7 @@ describe Comment do
   describe 'it is relayable' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @remote_parent = Factory(:status_message, :author => @remote_raphael)
+      @remote_parent = FactoryGirl.build(:status_message, :author => @remote_raphael)
       @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
 
       @object_by_parent_author = @local_luke.comment!(@local_parent, "yo")
@@ -118,7 +118,7 @@ describe Comment do
 
   describe 'tags' do
     before do
-      @object = Factory.build(:comment)
+      @object = FactoryGirl.build(:comment)
     end
     it_should_behave_like 'it is taggable'
   end

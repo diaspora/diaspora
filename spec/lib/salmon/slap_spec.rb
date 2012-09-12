@@ -68,7 +68,7 @@ describe Salmon::Slap do
     end
 
     it 'verifies the signature for the sender' do
-      parsed_salmon.verified_for_key?(Factory(:person).public_key).should be_false
+      parsed_salmon.verified_for_key?(FactoryGirl.create(:person).public_key).should be_false
     end
 
     it 'contains the original data' do

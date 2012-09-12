@@ -13,10 +13,10 @@ describe PeopleController do
 
   describe '#index (search)' do
     before do
-      @eugene = Factory(:person,
-                        :profile => Factory.build(:profile, :first_name => "Eugene", :last_name => "w"))
-      @korth = Factory(:person,
-                       :profile => Factory.build(:profile, :first_name => "Evan", :last_name => "Korth"))
+      @eugene = FactoryGirl.create(:person,
+                        :profile => FactoryGirl.build(:profile, :first_name => "Eugene", :last_name => "w"))
+      @korth = FactoryGirl.create(:person,
+                       :profile => FactoryGirl.build(:profile, :first_name => "Evan", :last_name => "Korth"))
     end
 
     describe 'via json' do
@@ -39,8 +39,8 @@ describe PeopleController do
     describe 'via html' do
       context 'query is a diaspora ID' do
         before do
-          @unsearchable_eugene = Factory(:person, :diaspora_handle => "eugene@example.org",
-                                         :profile => Factory.build(:profile, :first_name => "Eugene",
+          @unsearchable_eugene = FactoryGirl.create(:person, :diaspora_handle => "eugene@example.org",
+                                         :profile => FactoryGirl.build(:profile, :first_name => "Eugene",
                                                                    :last_name => "w", :searchable => false))
         end
         it 'finds people even if they have searchable off' do
@@ -93,8 +93,8 @@ describe PeopleController do
         end
 
         it "assigns people" do
-          eugene2 = Factory(:person,
-                            :profile => Factory.build(:profile, :first_name => "Eugene",
+          eugene2 = FactoryGirl.create(:person,
+                            :profile => FactoryGirl.build(:profile, :first_name => "Eugene",
                                                       :last_name => "w"))
           get :index, :q => "Eug"
           assigns[:people].map { |x| x.id }.should =~ [@eugene.id, eugene2.id]
@@ -123,8 +123,8 @@ describe PeopleController do
         end
 
         it "excludes people who have searchable off" do
-          eugene2 = Factory(:person,
-                            :profile => Factory.build(:profile, :first_name => "Eugene",
+          eugene2 = FactoryGirl.create(:person,
+                            :profile => FactoryGirl.build(:profile, :first_name => "Eugene",
                                                       :last_name => "w", :searchable => false))
           get :index, :q => "Eug"
           assigns[:people].should_not =~ [eugene2]
@@ -140,7 +140,7 @@ describe PeopleController do
     end
 
     it 'returns awesome people who have that tag' do
-      f = Factory(:person)
+      f = FactoryGirl.create(:person)
       f.profile.tag_string = "#seeded"
       f.profile.save
       get :tag_index, :name => 'seeded', :format => :js
@@ -154,7 +154,7 @@ describe PeopleController do
       @posts = []
       @users = []
       8.times do |n|
-        user = Factory(:user)
+        user = FactoryGirl.create(:user)
         @users << user
         aspect = user.aspects.create(:name => 'people')
         connect_users(@user, @user.aspects.first, user, aspect)
@@ -192,7 +192,7 @@ describe PeopleController do
     end
 
     it 'redirects home for closed account' do
-      @person = Factory(:person, :closed_account => true)
+      @person = FactoryGirl.create(:person, :closed_account => true)
       get :show, :id => @person.to_param
       response.should be_redirect
       flash[:notice].should_not be_blank
@@ -271,7 +271,7 @@ describe PeopleController do
         end
 
         it "posts include reshares" do
-          reshare = @user.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
+          reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspects)
           get :show, :id => @user.person.to_param
           assigns[:stream].posts.map { |x| x.id }.should include(reshare.id)
         end
@@ -288,7 +288,7 @@ describe PeopleController do
       end
 
       it 'throws 404 if the person is remote' do
-        p = Factory(:person)
+        p = FactoryGirl.create(:person)
 
         get :show, :id => p.to_param
         response.status.should == 404
@@ -326,7 +326,7 @@ describe PeopleController do
       end
 
       it "posts include reshares" do
-        reshare = @user.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
+        reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspects)
         get :show, :id => @user.person.to_param
         assigns[:stream].posts.map { |x| x.id }.should include(reshare.id)
       end
@@ -359,7 +359,7 @@ describe PeopleController do
       end
 
       it "posts include reshares" do
-        reshare = @user.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
+        reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspects)
         get :show, :id => @user.person.to_param
         assigns[:stream].posts.map { |x| x.id }.should include(reshare.id)
       end
@@ -370,10 +370,10 @@ describe PeopleController do
 
   describe '#refresh_search ' do
     before(:each)do
-      @eugene = Factory(:person,
-                      :profile => Factory.build(:profile, :first_name => "Eugene", :last_name => "w"))
-      @korth = Factory(:person,
-                     :profile => Factory.build(:profile, :first_name => "Evan", :last_name => "Korth"))
+      @eugene = FactoryGirl.create(:person,
+                      :profile => FactoryGirl.build(:profile, :first_name => "Eugene", :last_name => "w"))
+      @korth = FactoryGirl.create(:person,
+                     :profile => FactoryGirl.build(:profile, :first_name => "Evan", :last_name => "Korth"))
     end
 
     describe 'via json' do
