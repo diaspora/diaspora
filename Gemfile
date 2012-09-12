@@ -122,7 +122,7 @@ group :assets do
 
   # gem 'therubyracer', :platform => :ruby
 
-  gem 'handlebars_assets', '0.4.4'
+  gem 'handlebars_assets', '0.6.5'
   gem 'uglifier', '1.3.0'
 
   # asset_sync is required as needed by application.rb
@@ -137,7 +137,8 @@ gem 'faraday', '0.8.1'
 gem 'faraday_middleware', '0.8.7'
 
 
-gem 'jasmine', :git => 'https://github.com/pivotal/jasmine-gem.git'
+gem 'jasmine', '1.2.1'
+
 ### GROUPS ####
 
 group :test do
