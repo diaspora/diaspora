@@ -4,9 +4,11 @@ if [ -e '.rvmrc.local' ]; then
 elif [ -e '.rvmrc_custom' ] ; then
   source .rvmrc_custom;
 else
-  rvm --create use ruby-1.9.3-p125@diaspora
+  rvm --create use ruby-1.9.3-p194@diaspora
 fi
 
-if [ "$(gem --version)" != "1.8.17" ]; then
-  rvm rubygems 1.8.17
+rubygems_version="1.8.24"
+
+if [ "$(gem --version)" != "$rubygems_version" ]; then
+  rvm rubygems "$rubygems_version"
 fi
