@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Jobs::FetchProfilePhoto do
   before do
    @user = alice
-   @service = Factory(:service, :user => alice)
+   @service = FactoryGirl.build(:service, :user => alice)
 
    @url = "https://service.com/user/profile_image"
 

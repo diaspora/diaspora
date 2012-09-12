@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe Notification do
   before do
-    @sm = Factory(:status_message)
-    @person = Factory(:person)
+    @sm = FactoryGirl.create(:status_message)
+    @person = FactoryGirl.create(:person)
     @user = alice
     @user2 = eve
     @aspect  = @user.aspects.create(:name => "dudes")
@@ -26,7 +26,7 @@ describe Notification do
 
   describe '.for' do
     it 'returns all of a users notifications' do
-      user2 = Factory(:user)
+      user2 = FactoryGirl.create(:user)
       4.times do
         Notification.create(@opts)
       end
@@ -89,20 +89,20 @@ describe Notification do
 
       context 'multiple likes' do
         it 'concatinates the like notifications' do
-          p = Factory(:status_message, :author => @user.person)
-          person2 = Factory(:person)
-          notification = Notification.notify(@user, Factory(:like, :author => @person, :target => p), @person)
-          notification2 =  Notification.notify(@user, Factory(:like, :author => person2, :target => p), person2)
+          p = FactoryGirl.build(:status_message, :author => @user.person)
+          person2 = FactoryGirl.build(:person)
+          notification = Notification.notify(@user, FactoryGirl.build(:like, :author => @person, :target => p), @person)
+          notification2 =  Notification.notify(@user, FactoryGirl.build(:like, :author => person2, :target => p), person2)
           notification.id.should == notification2.id
         end
       end
 
       context 'multiple comments' do
         it 'concatinates the comment notifications' do
-          p = Factory(:status_message, :author => @user.person)
-          person2 = Factory(:person)
-          notification = Notification.notify(@user, Factory(:comment, :author => @person, :post => p), @person)
-          notification2 =  Notification.notify(@user, Factory(:comment, :author => person2, :post => p), person2)
+          p = FactoryGirl.build(:status_message, :author => @user.person)
+          person2 = FactoryGirl.build(:person)
+          notification = Notification.notify(@user, FactoryGirl.build(:comment, :author => @person, :post => p), @person)
+          notification2 =  Notification.notify(@user, FactoryGirl.build(:comment, :author => person2, :post => p), person2)
           notification.id.should == notification2.id
         end
       end

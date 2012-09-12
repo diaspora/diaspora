@@ -10,7 +10,7 @@ module UserCukeHelpers
         :getting_started => false
     }
 
-    user = Factory(:user, default_attrs.merge(overrides))
+    user = FactoryGirl.create(:user, default_attrs.merge(overrides))
     add_standard_aspects(user)
     user
   end
@@ -31,7 +31,7 @@ module UserCukeHelpers
   # create a new @me user, if not present, and log in using the
   # integration_sessions controller (automatic)
   def automatic_login
-    @me ||= Factory(:user_with_aspect, :getting_started => false)
+    @me ||= FactoryGirl.create(:user_with_aspect, :getting_started => false)
     page.driver.visit(new_integration_sessions_path(:user_id => @me.id))
     click_button "Login"
   end

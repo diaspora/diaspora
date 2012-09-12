@@ -8,9 +8,9 @@ require Rails.root.join('lib', 'postzord', 'dispatcher')
 
 describe Postzord::Dispatcher do
   before do
-    @sm = Factory(:status_message, :public => true, :author => alice.person)
+    @sm = FactoryGirl.create(:status_message, :public => true, :author => alice.person)
     @subscribers = []
-    5.times{@subscribers << Factory(:person)}
+    5.times{@subscribers << FactoryGirl.create(:person)}
     @sm.stub(:subscribers).and_return(@subscribers)
     @xml = @sm.to_diaspora_xml
   end
@@ -31,7 +31,7 @@ describe Postzord::Dispatcher do
       end
 
       it 'accepts additional subscribers from opts' do
-        new_person = Factory(:person)
+        new_person = FactoryGirl.create(:person)
 
         @sm.should_receive(:subscribers).and_return(@subscribers)
         zord = Postzord::Dispatcher.build(alice, @sm, :additional_subscribers => new_person)
@@ -130,7 +130,7 @@ describe Postzord::Dispatcher do
 
         context "remote raphael" do
           before do
-            @comment = Factory.build(:comment, :author => @remote_raphael, :post => @post)
+            @comment = FactoryGirl.create(:comment, :author => @remote_raphael, :post => @post)
             @comment.save
             @mailman = Postzord::Dispatcher.build(@local_luke, @comment)
           end
@@ -177,7 +177,7 @@ describe Postzord::Dispatcher do
 
       context "remote raphael's post is commented on by local luke" do
         before do
-          @post = Factory(:status_message, :author => @remote_raphael)
+          @post = FactoryGirl.create(:status_message, :author => @remote_raphael)
           @comment = @local_luke.build_comment :text => "yo", :post => @post
           @comment.save
           @mailman = Postzord::Dispatcher.build(@local_luke, @comment)
@@ -244,28 +244,28 @@ describe Postzord::Dispatcher do
 
     describe '#object_should_be_processed_as_public?' do
       it 'returns true with a comment on a public post' do
-        f = Factory(:comment, :post => Factory(:status_message, :public => true))
+        f = FactoryGirl.create(:comment, :post => FactoryGirl.build(:status_message, :public => true))
         Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_true
       end
 
       it 'returns false with a comment on a private post' do
-        f = Factory(:comment, :post => Factory(:status_message, :public => false))
+        f = FactoryGirl.create(:comment, :post => FactoryGirl.build(:status_message, :public => false))
         Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
       end
 
       it 'returns true with a like on a comment on a public post' do
-        f = Factory(:like, :target => Factory(:comment, :post => Factory(:status_message, :public => true)))
+        f = FactoryGirl.create(:like, :target => FactoryGirl.build(:comment, :post => FactoryGirl.build(:status_message, :public => true)))
         Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_true
       end
 
       it 'returns false with a like on a comment on a private post' do
-        f = Factory(:like, :target => Factory(:comment, :post => Factory(:status_message, :public => false)))
+        f = FactoryGirl.create(:like, :target => FactoryGirl.build(:comment, :post => FactoryGirl.build(:status_message, :public => false)))
         Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
       end
 
       it 'returns false for a relayable_retraction' do
         f = RelayableRetraction.new
-        f.target = Factory(:status_message, :public => true)
+        f.target = FactoryGirl.create(:status_message, :public => true)
         Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
       end
     end
@@ -285,7 +285,7 @@ describe Postzord::Dispatcher do
       end
 
       it 'does not push to hub for non-public posts' do
-       @sm     = Factory(:status_message)
+       @sm     = FactoryGirl.create(:status_message)
        mailman = Postzord::Dispatcher.build(alice, @sm, :url => "http://joindiaspora.com/p/123")
 
        mailman.should_not_receive(:deliver_to_hub)
@@ -293,11 +293,11 @@ describe Postzord::Dispatcher do
       end
 
       it 'only pushes to specified services' do
-       @s1 = Factory(:service, :user_id => alice.id)
+       @s1 = FactoryGirl.create(:service, :user_id => alice.id)
        alice.services << @s1
-       @s2 = Factory(:service, :user_id => alice.id)
+       @s2 = FactoryGirl.create(:service, :user_id => alice.id)
        alice.services << @s2
-       mailman = Postzord::Dispatcher.build(alice, Factory(:status_message), :url => "http://joindiaspora.com/p/123", :services => [@s1])
+       mailman = Postzord::Dispatcher.build(alice, FactoryGirl.create(:status_message), :url => "http://joindiaspora.com/p/123", :services => [@s1])
 
        Resque.stub!(:enqueue).with(Jobs::PublishToHub, anything)
        Resque.stub!(:enqueue).with(Jobs::HttpMulti, anything, anything, anything)
@@ -306,7 +306,7 @@ describe Postzord::Dispatcher do
       end
 
       it 'does not push to services if none are specified' do
-       mailman = Postzord::Dispatcher.build(alice, Factory(:status_message), :url => "http://joindiaspora.com/p/123")
+       mailman = Postzord::Dispatcher.build(alice, FactoryGirl.create(:status_message), :url => "http://joindiaspora.com/p/123")
 
        Resque.stub!(:enqueue).with(Jobs::PublishToHub, anything)
        Resque.should_not_receive(:enqueue).with(Jobs::PostToService, anything, anything, anything)

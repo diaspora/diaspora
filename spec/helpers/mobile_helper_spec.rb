@@ -10,7 +10,7 @@ describe MobileHelper do
     it "adds an all option to the list of aspects" do
       # options_from_collection_for_select(@aspects, "id", "name", @aspect.id)
       
-      n = Factory(:aspect)
+      n = FactoryGirl.create(:aspect)
       
       options = aspect_select_options([n], n).split('\n')
       options.first.should =~ /All/

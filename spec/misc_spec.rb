@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe 'making sure the spec runner works' do
   it 'factory creates a user with a person saved' do
-    user = Factory(:user)
+    user = FactoryGirl.create(:user)
     loaded_user = User.find(user.id)
     loaded_user.person.owner_id.should == user.id
   end

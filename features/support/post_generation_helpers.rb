@@ -5,7 +5,7 @@ module PostGenerationHelpers
 
     TemplatePicker::TEMPLATES.each do |template|
       Timecop.travel time += 1.minute
-      Factory(template, :author => user.person)
+      FactoryGirl.create(template, :author => user.person)
     end
 
     Timecop.return

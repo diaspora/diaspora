@@ -25,7 +25,7 @@ describe Stream::Base do
       before do
         bob.post(:status_message, :text => "sup", :to => bob.aspects.first.id)
         @liked_status = bob.posts.last
-        @like = Factory(:like, :target => @liked_status, :author => alice.person)
+        @like = FactoryGirl.create(:like, :target => @liked_status, :author => alice.person)
       end
 
       it "marks the posts as liked" do
@@ -36,33 +36,33 @@ describe Stream::Base do
 
   describe '.can_comment?' do
     before do
-      @person = Factory(:person)
+      @person = FactoryGirl.create(:person)
       @stream.stub(:people).and_return([bob.person, eve.person, @person])
     end
 
     it 'allows me to comment on my local contacts post' do
-      post = Factory(:status_message, :author => bob.person)
+      post = FactoryGirl.create(:status_message, :author => bob.person)
       @stream.can_comment?(post).should be_true
     end
 
     it 'allows me to comment on my own post' do
-      post = Factory(:status_message, :author => alice.person)
+      post = FactoryGirl.create(:status_message, :author => alice.person)
       @stream.can_comment?(post).should be_true
     end
 
     it 'allows me to comment on any local public post' do
-      post = Factory(:status_message, :author => eve.person)
+      post = FactoryGirl.create(:status_message, :author => eve.person)
       @stream.can_comment?(post).should be_true
     end
 
     it 'allows me to comment on a remote contacts post' do
       Contact.create!(:user => @stream.user, :person => @person)
-      post = Factory(:status_message, :author => @person)
+      post = FactoryGirl.create(:status_message, :author => @person)
       @stream.can_comment?(post).should be_true
     end
 
     it 'returns false if person is remote and not a contact' do
-      post = Factory(:status_message, :author => @person)
+      post = FactoryGirl.create(:status_message, :author => @person)
       @stream.can_comment?(post).should be_false
     end
   end

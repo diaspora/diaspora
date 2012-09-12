@@ -8,13 +8,13 @@ describe User::Connecting do
 
   let(:aspect) { alice.aspects.first }
   let(:aspect1) { alice.aspects.create(:name => 'other') }
-  let(:person) { Factory(:person) }
+  let(:person) { FactoryGirl.create(:person) }
 
   let(:aspect2) { eve.aspects.create(:name => "aspect two") }
 
-  let(:person_one) { Factory :person }
-  let(:person_two) { Factory :person }
-  let(:person_three) { Factory :person }
+  let(:person_one) { FactoryGirl.create :person }
+  let(:person_two) { FactoryGirl.create :person }
+  let(:person_three) { FactoryGirl.create :person }
 
   describe 'disconnecting' do
     describe '#remove_contact' do
@@ -78,7 +78,7 @@ describe User::Connecting do
 
   describe '#register_share_visibilities' do
     it 'creates post visibilites for up to 100 posts' do
-      Post.stub_chain(:where, :limit).and_return([Factory(:status_message)])
+      Post.stub_chain(:where, :limit).and_return([FactoryGirl.create(:status_message)])
       c = Contact.create!(:user_id => alice.id, :person_id => eve.person.id)
       expect{
         alice.register_share_visibilities(c)
@@ -155,7 +155,7 @@ describe User::Connecting do
     end
 
     it "should mark the corresponding notification as 'read'" do
-      notification = Factory(:notification, :target => eve.person)
+      notification = FactoryGirl.create(:notification, :target => eve.person)
 
       Notification.where(:target_id => eve.person.id).first.unread.should be_true
       alice.share_with(eve.person, aspect)

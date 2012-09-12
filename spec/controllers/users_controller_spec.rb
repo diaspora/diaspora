@@ -41,13 +41,13 @@ describe UsersController do
 
   describe '#public' do
     it 'renders xml if atom is requested' do
-      sm = Factory(:status_message, :public => true, :author => @user.person)
+      sm = FactoryGirl.create(:status_message, :public => true, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
       response.body.should include(sm.raw_message)
     end
 
     it 'renders xml if atom is requested with clickalbe urls' do
-      sm = Factory(:status_message, :public => true, :author => @user.person)
+      sm = FactoryGirl.create(:status_message, :public => true, :author => @user.person)
       @user.person.posts.each do |p|
         p.text = "Goto http://diasporaproject.org/ now!"
         p.save

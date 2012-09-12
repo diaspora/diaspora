@@ -11,7 +11,7 @@ describe Jobs::HttpMulti do
   end
 
   before do
-    @people = [Factory(:person), Factory(:person)]
+    @people = [FactoryGirl.create(:person), FactoryGirl.create(:person)]
     @post_xml = Base64.encode64("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH")
 
     @hydra = Typhoeus::Hydra.new
