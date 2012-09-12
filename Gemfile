@@ -148,7 +148,7 @@ group :test do
   gem 'database_cleaner', '0.8'
 
   gem 'timecop'
-  gem 'factory_girl_rails', '4.0.0'
+  gem 'factory_girl_rails', '4.1.0'
   gem 'fixture_builder', '0.3.4'
   gem 'fuubar', '1.0.0'
   gem 'rspec-instafail', '0.2.4', :require => false
