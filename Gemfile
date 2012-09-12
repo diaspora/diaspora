@@ -89,7 +89,6 @@ gem 'ruby-oembed', '~> 0.8.7'
 
 gem 'resque', '1.22.0'
 gem 'resque-timeout', '1.0.0'
-gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
 # tags
 
@@ -165,18 +164,16 @@ group :test do
 end
 
 group :test, :development do
-  gem 'debugger', :platforms => :mri_19
+  gem 'debugger'
   gem "rspec-rails", "~> 2.10" 
-  gem 'ruby-debug', :platforms => :mri_18
 end
 
 group :development do
   gem 'heroku'
-  gem 'heroku_san', '3.0.4', :platforms => :mri_19
+  gem 'heroku_san', '3.0.4'
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', :require => false
-  gem 'linecache', '0.46', :platforms => :mri_18
   gem 'yard', :require => false
 
   # for tracing AR object instantiation and memory usage per request
