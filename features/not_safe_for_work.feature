@@ -55,5 +55,6 @@ Scenario: Resharing an nsfw post
   And I wait for the ajax to finish
   And I go to the home page
   #if this is failing on travis throw a random wait in here :/
+  And I wait for the ajax to finish
   Then I should not see "Sexy Senators Gone Wild!"
   And I should have 2 nsfw posts

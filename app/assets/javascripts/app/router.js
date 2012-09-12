@@ -1,15 +1,11 @@
 app.Router = Backbone.Router.extend({
   routes: {
     //new hotness
-    "stream?ex=true:params": 'newStream',
-    "stream?ex=true": 'newStream',
-    "people/:id?ex=true": "newProfile",
     "posts/new" : "composer",
     "posts/:id": "singlePost",
     "posts/:id/next": "siblingPost",
     "posts/:id/previous": "siblingPost",
     "p/:id": "singlePost",
-    "framer": "framer",
 
     //oldness
     "activity": "stream",
@@ -25,24 +21,12 @@ app.Router = Backbone.Router.extend({
     "tags/:name": "stream",
     "people/:id/photos": "photos",
 
-    "people/:id": "profile",
-    "u/:name": "profile"
-  },
-
-  newStream : function() {
-    this.renderPage(function(){ return new app.pages.Stream()});
-  },
-
-  newProfile : function(personId) {
-    this.renderPage(function(){ return new app.pages.Profile({ personId : personId })});
+    "people/:id": "stream",
+    "u/:name": "stream"
   },
 
   composer : function(){
     this.renderPage(function(){ return new app.pages.Composer()});
-  },
-
-  framer : function(){
-    this.renderPage(function(){ return new app.pages.Framer()});
   },
 
   singlePost : function(id) {
@@ -78,10 +62,6 @@ app.Router = Backbone.Router.extend({
 
     $("#main_stream").html(app.page.render().el);
     $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
-  },
-
-  profile : function(page) {
-    this.stream()
   },
 
   photos : function() {

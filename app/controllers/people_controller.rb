@@ -115,15 +115,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.all do
-        if params[:ex]
-          @page = :experimental
-          gon.person = PersonPresenter.new(@person, current_user)
-          gon.stream = PostPresenter.collection_json(@stream.stream_posts, current_user)
-
-          render :nothing => true, :layout => 'post'
-        else
-          respond_with @person, :locals => {:post_type => :all}
-        end
+        respond_with @person, :locals => {:post_type => :all}
       end
 
       format.json { render :json => @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}

@@ -6,13 +6,6 @@ describe("app.Pages.Stream", function(){
     expect(this.post).toBeTruthy()
   })
 
-  describe('postRenderTemplate', function(){
-    it("sets the background-image of #header", function(){
-      this.page.render()
-      expect(this.page.$('#header').css('background-image')).toBeTruthy()
-    })
-  })
-
   describe("rendering", function(){
     beforeEach(function(){
       this.page.render()
@@ -30,7 +23,7 @@ describe("app.Pages.Stream", function(){
   context("when more posts are loaded", function(){
     it("navigates to the last post in the stream's max_time", function(){
       spyOn(app.router, 'navigate')
-      var url = location.pathname + "?ex=true&max_time=" + this.post.createdAt()
+      var url = location.pathname + "?max_time=" + this.post.createdAt()
         , options =  {replace: true}
 
       this.page.streamView.trigger('loadMore')
