@@ -9,7 +9,7 @@ if !AppConfig.single_process_mode?
                       :passsword => uri.password }
   elsif ENV['RAILS_ENV']== 'integration2'
     redis_options = { :host => 'localhost', :port => 6380 }
-  elsif AppConfig[:redis_url]
+  elsif AppConfig[:redis_url].present?
     redis_options = { :url => AppConfig[:redis_url], :port => 6379 }
   end
   
