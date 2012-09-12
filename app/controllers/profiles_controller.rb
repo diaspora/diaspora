@@ -64,30 +64,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def upload_wallpaper_image
-    unless params[:photo].present?
-      respond_to do |format|
-        format.json { render :json => {"success" => false} }
-      end
-      return
-    end
-
-    if remotipart_submitted?
-      profile = current_user.person.profile
-
-      profile.wallpaper.store! params[:photo][:user_file]
-      if profile.save
-        respond_to do |format|
-          format.json { render :json => {"success" => true, "data" => {"wallpaper" => profile.wallpaper.url}} }
-        end
-      else
-        respond_to do |format|
-          format.json { render :json => {"success" => false} }
-        end
-      end
-    end
-  end
-
   protected
 
   def munge_tag_string
