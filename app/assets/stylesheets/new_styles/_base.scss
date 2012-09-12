@@ -1,0 +1,327 @@
+html,
+body {
+  /* hack to ensure fixed elements at height: 100%; are in relation to the window */
+  max-height : 100%;
+}
+
+body {
+  background-image : image_url("texture/light-bg.png");
+  padding : none;
+
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+/* new link color */
+$link-blue : rgb(42,156,235);
+a { color : $link-blue  }
+
+/* bootstrap extentions */
+.icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
+.icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
+
+.avatar {
+  &.micro {
+    height: 20px;
+    width: 20px;
+  }
+
+  &.small {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.author-name {
+  font-family : Roboto;
+  color: inherit;
+}
+
+#author-info {
+  position : absolute;
+  z-index : 300;
+
+  .author-name {
+    color: #555;
+  }
+
+  .bd {
+    margin-top : 5px;
+    display: inline-block;
+  }
+
+  .post-time,
+  .icon-retweet {
+    color: #555;
+    @include opacity(0.5);
+  }
+}
+
+#post-author {
+  margin : 0;
+  padding : 10px;
+
+  &.status-with-photo-backdrop,
+  &.Wallpaper {
+    .author-name {
+      color : #fff;
+    }
+
+    .post-time,
+    .icon-retweet {
+      color: #fff;
+      @include opacity(0.5);
+    }
+  }
+}
+
+.post-view {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+#post-content {
+  display: table;
+  position: absolute;
+
+  height: 100%;
+  width: 100%;
+
+  img,
+  iframe {
+    @include photo-shadow();
+  }
+
+  iframe {
+    width: 857px;
+    height: 480px;
+    max-width: 100%;
+  }
+}
+
+article { //mood posts
+  //default frame show styles
+  $big-text-size : 2.5em;
+  $medium-text-size : 1.5em;
+  $small-text-size: 1em;
+  width: 960px;
+  margin: 0 auto;
+
+  img {
+    max-height: 70%;
+    border : 10px solid #fff;
+  }
+
+  .photo_viewer {
+    margin-bottom : 20px;
+  }
+
+  @include centered-frame();
+  .container {
+    padding: 70px 0;
+    max-width: 85%;
+  }
+
+  header {
+    padding : 0 100px;
+  }
+
+  header, header p{
+  //big text
+    @include media-text();
+    font-size: $big-text-size;
+    line-height: 1.5em;
+  }
+
+  section.body{
+    p { font-size: $small-text-size; }
+
+    &.short_body{
+      p{
+        font-size: $medium-text-size;
+        margin-top: .5em;
+      }
+    }
+  }
+
+  &.night{
+    background-color : $night-background-color;
+    color : $night-text-color;
+
+    #author-info {
+      color : $night-text-color;
+    }
+  }
+
+  &.newspaper {
+    @include newspaper-type();
+
+    text-align: left;
+
+    .container {
+      max-width: 600px;
+    }
+
+    .photo_viewer {
+      float: right;
+      margin-left: 20px;
+      max-width: 320px;
+    }
+
+    header {
+      margin-bottom: 1em;
+      line-height: 1.2em;
+    }
+
+    .body p {
+      @include newspaper-type();
+      font-size: 1.2em;
+      line-height: 1.7em;
+      margin-bottom: 1.2em;
+    }
+  }
+
+  &.wallpaper{
+    color : #fff;
+  }
+
+  .img-bounding-box {
+    margin : 10px;
+    display : inline-block;
+    text-align : left;
+  }
+
+  img {
+    max-height: 400px;
+    max-width: 400px;
+  }
+}
+
+.status-with-photo-backdrop {
+  p {
+    color: #fff;
+
+    a {
+      @include transition(background-color, 0.3s);
+
+      color: #000;
+      background-color: #fff;
+      background-color: rgba(255,255,255,0.7);
+      padding: 0 5px;
+
+      &:hover {
+        text-decoration: none;
+        background-color: #fff;
+        background-color: rgba(255,255,255,1);
+      }
+    }
+  }
+}
+
+.darken {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.3);
+
+  display: table;
+
+  .darken-content {
+    @include centered-frame();
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.photo-fill {
+  @include background-cover();
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.photo-backdrop {
+  p {
+    color: #fff;
+    z-index: 2;
+  }
+
+  img {
+    position: relative;
+  }
+
+  .photo-fill {
+    @include opacity(0.2)
+  }
+}
+
+$bring-dark-accent-forward-color: #DDD;
+
+#top-right-nav {
+  z-index: 10;
+  position : absolute;
+  right : 10px;
+  top : 10px;
+
+  & > a {
+    @include transition(opacity);
+    @include opacity(0.4);
+
+    margin-left : 5px;
+
+    &:hover {
+      @include opacity(0.75);
+      text-decoration : none;
+    }
+  }
+}
+
+#header {
+  position : fixed;
+  top : 0;
+  width : 100%;
+  padding : 15px;
+  z-index : 30;
+
+  -webkit-box-shadow : inset 0 -10px 10px -8px rgba(0,0,0,0.8);
+  -moz-box-shadow : inset 0 -10px 10px -8px rgba(0,0,0,0.8);
+
+  border-bottom : 1px solid #333;
+
+  color : #fff;
+  background : {
+    color : #333;
+    size : cover;
+    attachment : fixed;
+  }
+
+  h1 {
+    @include opacity(0.4);
+  }
+}
+
+/* bootstrap label fixes for Roboto */
+.label {
+  padding : 2px 5px;
+  padding-bottom : 3px;
+
+  span {
+    display : inline-block;
+    position : relative;
+    top : 1px;
+    font-family : Roboto-Bold;
+  }
+}
+
+/* responsive */
+@media (max-width: 767px) {
+  body {
+    padding : 0;
+ }
+}

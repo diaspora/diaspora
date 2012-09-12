@@ -1,0 +1,42 @@
+#registration {
+  position : absolute;
+  top : 0;
+  left : 0;
+  background-color : #afc652;
+  min-height : 100%;
+  min-width : 100%;
+
+  color : #fff;
+
+  .container {
+    margin-top : 100px;
+  }
+
+  #create-something-text {
+    font-family : Roboto-Light;
+    font-size : 100px;
+    line-height : 100px;
+    white-space : nowrap;
+  }
+
+  #diaspora-hearts {
+    font-family : Roboto-Light;
+    font-size : 24px;
+    margin-top : 0.2em;
+    margin-bottom : 1em;
+    white-space : nowrap;
+  }
+
+  #sign-up-text {
+    font-family : Roboto-Bold;
+    color : #7f9448;
+    margin-bottom : 0.5em;
+  }
+
+  #collage {
+    width : 344px;
+    height : auto;
+
+    max-width : 95%;
+  }
+}

@@ -1,0 +1,112 @@
+/* autocomplete colors */
+input:-webkit-autofill{
+  background-color: #fff !important;
+  background-image: none !important;
+}
+
+
+form.block-form {
+  display : inline-block;
+
+  label {
+    color : #555;
+  }
+
+  input {
+    &:invalid,
+    &:invalid:required,
+    &:invalid:required:focus {
+      -webkit-box-shadow : none;
+      -moz-box-shadow : none;
+      box-shadow : none;
+      box-shadow : none;
+
+      border : none;
+      color : #555;
+    }
+  }
+
+  fieldset {
+    @include border-radius(5px);
+
+    -webkit-box-shadow : inset 0 1px 1px rgba(0,0,0,0.2), 0 1px 2px rgba(255,255,255,0.7);
+
+    margin-bottom : 1em;
+
+    background-color : #fff;
+
+    border : 1px solid #888;
+
+    input[type=text],
+    input[type=email],
+    input[type=password] {
+      @include box-shadow(0,0,0,0);
+      @include border-radius(0);
+
+      background : transparent;
+
+      padding : 10px;
+
+      margin-bottom : 0;
+      border : none;
+    }
+
+  /* mainly bootstrap overrides */
+    .control-group {
+      margin : 0;
+      border-bottom : 1px solid #ddd;
+
+      .control-label,
+      input[type=text],
+      input[type=password],
+      .field_with_errors label {
+        padding : 10px;
+        margin : 0;
+      }
+
+      .controls { margin-left : 100px; position : relative; }
+      .control-label { width : 80px; }
+
+      .controls .field_with_errors input {
+        background : {
+          image : image-url('invalid_fat@2x.png');
+          repeat : no-repeat;
+          position : 197px;
+          size: 20px 20px;
+        }
+      }
+    }
+  }
+
+  input[type=submit] {
+    text-align : center;
+    display : block;
+    width : 100%;
+    padding : 8px 0;
+  }
+}
+
+
+/* buttons to be extracted? */
+.new-btn {
+  @include transition(box-shadow);
+  @include border-radius(5px);
+  @include linear-gradient(#fff, rgb(233,233,233));
+  @include box-shadow(0, 1px, 2px, rgba(0,0,0,0));
+
+  background-color : rgb(233,233,233);
+  color : #888;
+  border : 1px solid #888;
+
+  //font-family : Roboto-Bold;
+  font-size : 14px;
+  text-shadow : 0 1px 2px #eee;
+
+  &:hover {
+    @include box-shadow(0, 1px, 2px, rgba(0,0,0,0.3));
+  }
+
+  &:active {
+    box-shadow : inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.7);
+  }
+}
