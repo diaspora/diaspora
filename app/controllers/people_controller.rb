@@ -191,10 +191,6 @@ class PeopleController < ApplicationController
 
   protected
 
-  def flag
-     @flag ||= FeatureFlagger.new(current_user, @person)
-  end
-
   def remote_profile_with_no_user_session?
     @person.try(:remote?) && !user_signed_in?
   end

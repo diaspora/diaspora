@@ -266,11 +266,6 @@ describe UsersController do
       it "redirects to getting started if the user has getting started set to true" do
         @controller.after_sign_in_path_for(eve).should == getting_started_path
       end
-
-      it "does not redirect to getting started if the user is beta" do
-        Role.add_beta(eve.person)
-        @controller.after_sign_in_path_for(eve).should == person_path(eve.person)
-      end
     end
   end
 end

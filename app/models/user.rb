@@ -106,10 +106,6 @@ class User < ActiveRecord::Base
     ConversationVisibility.sum(:unread, :conditions => "person_id = #{self.person.id}")
   end
 
-  def beta?
-    @beta ||= Role.is_beta?(self.person)
-  end
-
   #@deprecated
   def ugly_accept_invitation_code
     begin
@@ -435,11 +431,6 @@ class User < ActiveRecord::Base
 
   def admin?
     Role.is_admin?(self.person)
-  end
-
-  def role_name
-    role = Role.find_by_person_id_and_name(self.person.id, 'beta')
-    role ? role.name : 'user'
   end
 
   def guard_unconfirmed_email

@@ -37,7 +37,6 @@ class StreamsController < ApplicationController
 
   def multi
       stream_responder(Stream::Multi)
-    end
   end
 
   def commented

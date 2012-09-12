@@ -57,12 +57,3 @@ app.forms.Picture = app.forms.PictureBase.extend({
     })
   }
 });
-
-/* wallpaper uploader */
-app.forms.Wallpaper = app.forms.PictureBase.extend({
-  templateName : "wallpaper-form",
-
-  uploadSuccess : function(resp) {
-    $("#profile").css("background-image", "url(" + resp.data.wallpaper + ")")
-  }
-});

@@ -56,13 +56,10 @@ Diaspora::Application.routes.draw do
   end
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
-  get 'new_bookmarklet' => 'status_messages#new_bookmarklet'
 
   resources :photos, :except => [:index] do
     put :make_profile_photo
   end
-
-  post "upload_wallpaper" => 'profiles#upload_wallpaper_image'
 
   # ActivityStreams routes
   scope "/activity_streams", :module => "activity_streams", :as => "activity_streams" do

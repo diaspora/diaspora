@@ -161,24 +161,4 @@ describe ProfilesController do
       end
     end
   end
-
-  describe '#upload_wallpaper_image' do
-    it 'returns a success=false response if the photo param is not present' do
-      post :upload_wallpaper_image, :format => :json
-      JSON.parse(response.body).should include("success" => false)
-    end
-
-    it 'stores the wallpaper for the current_user' do
-      # we should have another test here asserting that the wallpaper is set... i was having problems testing
-      # this behavior though :(
-      
-      @controller.stub!(:current_user).and_return(eve)
-      @controller.stub!(:remotipart_submitted?).and_return(true)
-      @controller.stub!(:file_handler).and_return(uploaded_photo)
-      @params = {:photo => {:user_file => uploaded_photo} }
-
-      eve.person.profile.wallpaper.should_receive(:store!)
-      post :upload_wallpaper_image, @params.merge(:format => :json)
-    end
-  end
 end

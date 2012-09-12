@@ -11,7 +11,7 @@ class StatusMessagesController < ApplicationController
              :mobile,
              :json
 
-  layout 'blank', :only => [ :bookmarklet, :new_bookmarklet ]
+  layout 'blank', :only => [ :bookmarklet ]
 
   # Called when a user clicks "Mention" on a profile page
   # @param person_id [Integer] The id of the person to be mentioned
@@ -36,9 +36,6 @@ class StatusMessagesController < ApplicationController
   def bookmarklet
     @aspects = current_user.aspects
     @aspect_ids = @aspects.map{|x| x.id}
-  end
-
-  def new_bookmarklet
   end
 
   def create

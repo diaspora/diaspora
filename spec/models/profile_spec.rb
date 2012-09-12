@@ -335,8 +335,7 @@ describe Profile do
       "searchable",
       "nsfw",
       "location",
-      "full_name",
-      "wallpaper"].sort
+      "full_name"].sort
     end
   end
 end

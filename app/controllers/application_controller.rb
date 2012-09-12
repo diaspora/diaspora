@@ -125,14 +125,9 @@ class ApplicationController < ActionController::Base
     params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now + 1
   end
 
-  def flag
-    @flag ||= FeatureFlagger.new(current_user)
-  end
-
   private
 
   def current_user_redirect_path
-    return person_path(current_user.person) if current_user.beta?
     current_user.getting_started? ? getting_started_path : root_path
   end
 end
