@@ -42,7 +42,8 @@ Feature: invitation acceptance
       Given a user with email "bob@bob.bob"
       When I sign in as "bob@bob.bob"
       And I follow "By email"
-      And I fill in "email_inviter_emails" with "alex@example.com"
+      And I fill in the following:
+        | email_inviter_emails         | alex@example.com    |
       And I press "Send an invitation"
       Then I should have 1 Devise email delivery
       And I should not see "change your notification settings" in the last sent email

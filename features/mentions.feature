@@ -4,9 +4,11 @@ Feature: Mentions
   I want to mention another user and have a link to them
   To show people that this person exsists.
 
-  Scenario: A user mentions another user and it displays correctly 
-    Given a user named "Bob Jones" with email "bob@bob.bob"
-    And a user named "Alice Smith" with email "alice@alice.alice"
+  Scenario: A user mentions another user and it displays correctly
+    Given following users exist:
+      | username     | email             |
+      | Bob Jones    | bob@bob.bob       |
+      | Alice Smith  | alice@alice.alice |
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And Alice has a post mentioning Bob
     When I sign in as "alice@alice.alice"

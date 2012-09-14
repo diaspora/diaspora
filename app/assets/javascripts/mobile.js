@@ -6,10 +6,12 @@
 //= require mbp-modernizr-custom
 //= require mbp-respond.min
 //= require mbp-helper
+//= require jquery.autoSuggest.custom
 $(document).ready(function(){
 
   $('.shield a').click(function(){
     $(this).parents('.shield_wrapper').remove();
+    return false;
   });
   var showLoader = function(link){
     link.addClass('loading');

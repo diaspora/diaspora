@@ -51,7 +51,7 @@ describe Salmon::Slap do
       parsed_salmon.author_id = 'tom@tom.joindiaspora.com'
       expect {
         parsed_salmon.author.public_key
-      }.should raise_error "did you remember to async webfinger?"
+      }.to raise_error "did you remember to async webfinger?"
     end
   end
 
@@ -68,7 +68,7 @@ describe Salmon::Slap do
     end
 
     it 'verifies the signature for the sender' do
-      parsed_salmon.verified_for_key?(Factory(:person).public_key).should be_false
+      parsed_salmon.verified_for_key?(FactoryGirl.create(:person).public_key).should be_false
     end
 
     it 'contains the original data' do

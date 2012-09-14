@@ -5,11 +5,16 @@ Resque::Plugins::Timeout.timeout = 300
 if !AppConfig.single_process_mode?
   if redis_to_go = ENV["REDISTOGO_URL"]
     uri = URI.parse(redis_to_go)
-    Resque.redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+    redis_options = { :host => uri.host, :port => uri.port,
+                      :passsword => uri.password }
   elsif ENV['RAILS_ENV']== 'integration2'
-    Resque.redis = Redis.new(:host => 'localhost', :port => 6380)
-  elsif AppConfig[:redis_url]
-    Resque.redis = Redis.new(:host => AppConfig[:redis_url], :port => 6379)
+    redis_options = { :host => 'localhost', :port => 6380 }
+  elsif AppConfig[:redis_url].present?
+    redis_options = { :url => AppConfig[:redis_url], :port => 6379 }
+  end
+  
+  if redis_options
+    Resque.redis = Redis.new(redis_options.merge(:thread_safe => true))
   end
 end
 

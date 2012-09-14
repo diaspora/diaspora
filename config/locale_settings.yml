@@ -21,6 +21,7 @@ available:
   es: "Castellano"
   es-AR: "Castellano - Argentina"
   es-CL: "Castellano - Chile"
+  es-VE: "Castellano - Venezuela"
   es-MX: "Español, México"
   et: "Eesti"
   eu: "Euskara"
@@ -31,6 +32,7 @@ available:
   gl: "Galego"
   he: "עברית"
   hu: "magyar nyelv"
+  ia: "Interlingua"
   id: "Bahasa Indonesia"
   is: "íslenska"
   it: "Italiano"
@@ -50,6 +52,7 @@ available:
   pt-BR: "Português (Brasil)"
   ro: "Română"
   ru: "Русский"
+  si: "සිංහල"
   sk: "Slovenčina"
   sl: "Slovenščina"
   sq: "gjuha shqipe"
@@ -90,6 +93,8 @@ fallbacks:
   es-CL:
     - "es"
   es-MX:
+    - "es"
+  es-VE:
     - "es"
   gl:
     - "gl-ES"

@@ -20,14 +20,17 @@
       // regex copied from: http://daringfireball.net/2010/07/improved_regex_for_matching_urls (slightly modified)
       var urlRegex = /(^|\s)\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/gi;
       text = text.replace(urlRegex, function(wholematch, space, url) {
+        if( url.match(/^[^\w]/) ) return wholematch; // evil witchcraft, noop
         return space+"<"+url+">";
       });
 
       // process links
       // regex copied from: https://code.google.com/p/pagedown/source/browse/Markdown.Converter.js#1198 (and slightly expanded)
-      var linkRegex = /(\[.*\]:\s)?(<|\()((https?|ftp):\/\/[^\/'">\s][^'">\s]+)(>|\))/gi;
+      var linkRegex = /(\[.*\]:\s)?(<|\()((?:(https?|ftp):\/\/[^\/'">\s]|www)[^'">\s]+?)(>|\))/gi;
       text = text.replace(linkRegex, function() {
         var unicodeUrl = arguments[3];
+        unicodeUrl = ( unicodeUrl.match(/^www/) ) ? ('http://' + unicodeUrl) : unicodeUrl;
+
         var addr = parse_url(unicodeUrl);
         if( !addr.host ) addr.host = ""; // must not be 'undefined'
 
@@ -49,6 +52,30 @@
         }
       });
 
+      return text;
+    });
+
+    // make nice little utf-8 symbols
+    converter.hooks.chain("preConversion", function(text) {
+      var input_strings = [
+        "<->", "->", "<-",
+        "(c)", "(r)", "(tm)",
+        "<3"
+      ];
+      var output_symbols = [
+        "↔", "→", "←",
+        "©", "®", "™",
+        "♥"
+      ];
+      // quote function from: http://stackoverflow.com/a/494122
+      var quote = function(str) {
+        return str.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
+      };
+
+      _.each(input_strings, function(str, idx) {
+        var r = new RegExp(quote(str), "gi");
+        text = text.replace(r, output_symbols[idx]);
+      });
       return text;
     });
 

@@ -10,22 +10,22 @@
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal block-form"}, :autocomplete => 'off') do |f| %>
         <fieldset>
           <div class="control-group">
-              <label class="control-label" for="user_username">
+              <label class="control-label" for="user_username" style="width: 40%; text-align: center; padding: 10px 0; overflow: hidden">            
                 <%= t('registrations.new.username') %>
               </label>
 
               <div class="controls">
-                <%= f.text_field :username, :required => true, :pattern => "[A-Za-z0-9_.@\-]+", :autocapitalize => "off", :autocorrect => "off", :autofocus => true %>
+                <%= f.text_field :username, :required => true, :pattern => "[A-Za-z0-9_.@\-]+", :autocapitalize => "off", :autocorrect => "off", :autofocus => true, :style => "width: 60%;" %>
               </div>
           </div>
 
           <div class="control-group">
-            <label class="control-label" for="user_password">
+            <label class="control-label" for="user_password" style="width: 40%; text-align: center; padding: 10px 0; overflow: hidden">
                 <%= t('registrations.new.password') %>
             </label>
 
             <div class="controls">
-                <%= f.password_field :password, :placeholder => "••••••••", :required => true, :pattern => "......+" %>
+                <%= f.password_field :password, :placeholder => "••••••••", :required => true, :pattern => "......+", :style => "width: 60%;" %>
             </div>
           </div>
         </fieldset>

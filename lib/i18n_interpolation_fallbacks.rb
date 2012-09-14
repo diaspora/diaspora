@@ -2,7 +2,7 @@ module I18n
   module Backend
     module InterpolationFallbacks
       def translate(locale, key, options = {})
-        default = extract_string_or_lambda_default!(options) if options[:default]
+        default = extract_non_symbol_default!(options) if options[:default]
         options.merge!(:default => default) if default
 
         I18n.fallbacks[locale].each do |fallback|

@@ -44,6 +44,7 @@ nl:
     admin_bar:
       pages: "Pagina's"
       pod_stats: "Pod Statistieken"
+      resque_overview: "Resque Overzicht"
       user_search: "Gebruiker Zoeken"
       weekly_user_stats: "Wekelijkse Gebruiker Statistieken"
     stats:
@@ -53,7 +54,9 @@ nl:
         one: "%{count} reactie"
         other: "%{count} reacties"
         zero: "%{count} reacties"
+      current_segment: "Het huidige segment heeft gemiddeld <b>%{post_yest}</b> berichten per gebruiker sinds <b>%{post_day}</b>"
       daily: "Dagelijks"
+      display_results: "Resultaten uit het <b>%{segment}</b>-segment"
       go: "gaan"
       month: "Maand"
       posts:
@@ -68,9 +71,18 @@ nl:
         zero: "%{count} gebruikers"
       week: "Week"
     user_search:
+      add_invites: "voeg uitnodigingen toe"
+      email_to: "E-mail om uit te nodigen"
       users:
         one: "%{count} gebruiker gevonden"
         other: "%{count} gebruikers gevonden"
+      you_currently: "je hebt nog %{user_invitation} uitnodiging(en) over %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "aantal nieuwe gebruikers deze week: %{count}"
+        other: "aantal nieuwe gebruikers deze week: %{count}"
+        zero: "aantal nieuwe gebruikers deze week: geen"
+      current_server: "Huidige server datum is %{date}"
   ago: "%{time} geleden"
   all_aspects: "Alle Aspecten"
   application:
@@ -151,6 +163,7 @@ nl:
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-gedreven tutorials, instructies, en nieuws."
       introduce_yourself: "Dit is jouw Stream.  Spring erin en introduceer jezelf."
       keep_diaspora_running: "Houdt de Diaspora ontwikkeling snel met een maandelijkse bijdrage!"
+      keep_pod_running: "Hou %{pod} draaiend en koop een cafeïneshot voor de servers met een maandelijkse donatie."
       new_here:
         follow: "Volg %{link} en verwelkom nieuwe Diaspora* gebruikers!"
         learn_more: "Meer informatie"
@@ -300,6 +313,8 @@ nl:
     helper:
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
       invalid_fields: "Ongeldige velden"
+    login_try_again: "<a href='%{login_link}'>Log in</a> en probeer het opnieuw."
+    post_not_public: "Het bericht dat je probeert de bekijken is niet openbaar!"
   fill_me_out: "Vul me in!"
   find_people: "Vind mensen of #tags"
   hide: "Verbergen"
@@ -323,10 +338,15 @@ nl:
       already_invited: "De volgende mensen hebben je uitnodiging niet geaccepteerd:"
       aspect: "Aspect"
       check_out_diaspora: "Kijk eens naar Diaspora!"
+      codes_left:
+        one: "Nog een uitnodiging over op deze code"
+        other: "Nog %{count} uitnodigingen over op deze code"
+        zero: "Geen uitnodigingen over op deze code"
       comma_separated_plz: "Je kan meerdere e-mail adressen toevoegen door ze te scheiden door komma's"
       if_they_accept_info: "als hij of zij accepteert zal hij of zij toegevoegd worden aan het aspect waarvoor je hem of haar uitgenodigd hebt."
       invite_someone_to_join: "Nodig iemand uit om lid te worden op Diaspora!"
       language: "Taal"
+      paste_link: "Deel deze link met je vrienden om ze uit te nodigen voor Diaspora*, of e-mail ze de link direct."
       personal_message: "Persoonlijk bericht"
       resend: "Stuur opnieuw"
       send_an_invitation: "Stuur een uitnodiging"
@@ -337,6 +357,7 @@ nl:
       back_to_top: "Terug naar top"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Publieke Diaspora Feed van %{name}"
+      source_package: "download het broncode pakket"
       toggle: "switch mobiele versie"
       whats_new: "wat is nieuw op Diaspora?"
       your_aspects: "jouw aspecten"
@@ -369,10 +390,10 @@ nl:
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
+        one: "%{count} persoon vindt dit leuk"
+        other: "%{count} mensen vinden dit leuk"
         two: "%{count} leuk"
-        zero: "geen likes"
+        zero: "niemand vindt dit leuk"
   limited: "Beperkt"
   more: "Meer"
   next: "volgende"
@@ -384,7 +405,7 @@ nl:
       one: "%{actors} heeft ook op %{post_author} zijn %{post_link} gereageerd."
       other: "%{actors} hebben ook op %{post_author} zijn %{post_link} gereageerd."
       two: "%{actors} hebben ook gereageerd op %{post_author}'s %{post_link}."
-      zero: "%{actors} heeft ook %{post_author} zijn %{post_link} gereageerd."
+      zero: "%{actors} heeft ook op %{post_author} zijn %{post_link} gereageerd."
     also_commented_deleted:
       few: "%{actors} hebben gereageerd op een verwijderd bericht."
       many: "%{actors} heeft gereageerd op een verwijderde post."
@@ -448,7 +469,7 @@ nl:
       one: "%{actors} heeft je een bericht gestuurd."
       other: "%{actors} hebben je een bericht gestuurd."
       two: "%{actors} hebben je een bericht gestuurd."
-      zero: "%{actors} heeft jou een bericht gestuurd."
+      zero: "%{actors} heeft je een bericht gestuurd."
     reshared:
       few: "%{actors} hebben jouw %{post_link} doorgegeven."
       many: "%{actors} hebben jouw %{post_link} doorgegeven."
@@ -672,6 +693,7 @@ nl:
       password_to_confirm: "(we hebben je huidige wachtwoord nodig om de wijzigingen te bevestigen)"
       unhappy: "Ontevreden?"
       update: "Bijwerken"
+    invalid_invite: "De uitnodigingslink die je gebruikt is niet langer geldig!"
     new:
       continue: "Ga door"
       create_my_account: "Maak mijn account aan!"

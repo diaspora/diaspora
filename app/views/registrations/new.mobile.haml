@@ -4,39 +4,47 @@
 
 = javascript_include_tag "validation"
 
+= stylesheet_link_tag :mobile
+
+:css
+  div.navbar.navbar-fixed-top{ display:none;}
+  body{ padding: 10px;}
+  legend{ background-image: url(/assets/header-bg-long.jpg); color: #939393;}
+
 .stream
+  - flash.each do |name, msg|
+    %p{:class => "registrations_#{name}"}= msg
   #login_form
     .login-container
       = form_for(resource, :as => resource_name, :html => {:class => 'new_user_form'}, :url => registration_path(resource_name), :validate => true) do |f|
         %fieldset
           %legend
-            = t('welcome')
+            = image_tag('branding/header-logo2x.png', :height => 40, :width => 40)
+            = t('aspects.aspect_stream.make_something').upcase
 
           .control-group
-            = f.label :username, t('username')
+            = f.label :username, t('username').upcase
             .controls
-              = f.text_field :username
-              %span.host_uri
-                = diaspora_id_host
+              = f.text_field :username, :placeholder => "jedi_guy"
 
             .control-group
-              = f.label :email, t('email')
+              = f.label :email, t('email').upcase
               .controls
-                = f.text_field :email
+                = f.text_field :email, :placeholder => "luke@hoth.net"
 
             .control-group
-              = f.label :password, t('password')
+              = f.label :password, t('password').upcase
               .controls
-                = f.password_field :password
+                = f.password_field :password, :placeholder => "••••••••"
  
             .control-group
-              = f.label :password_confirmation, t('password_confirmation')
+              = f.label :password_confirmation, t('password_confirmation').upcase
               .controls
-                = f.password_field :password_confirmation
+                = f.password_field :password_confirmation, :placeholder => "••••••••"
 
             .controls
               = f.submit t('registrations.new.create_my_account'), :class => 'btn primary'
-              = link_to t('devise.sessions.new.sign_in'), new_user_session_path()
+              = link_to t('devise.sessions.new.sign_in'), new_user_session_path(), :class => 'btn primary', :style => "float: right;"
 
 %footer
   = link_to t('layouts.application.toggle'), toggle_mobile_path

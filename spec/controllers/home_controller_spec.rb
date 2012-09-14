@@ -12,7 +12,7 @@ describe HomeController do
       response.should_not be_redirect
     end
 
-    context 'redirection'
+    context 'redirection' do
       before do
         sign_in alice
       end
@@ -28,13 +28,7 @@ describe HomeController do
         get :show, :home => true
         response.should redirect_to(person_path(alice.person))
       end
-
-      it "points to the root_path if a user is an admin without contacts" do
-        alice.contacts.destroy_all
-        Role.add_beta(alice.person)
-        get :show, :home => true
-        response.should redirect_to(person_path(alice.person))
-      end
+    end
   end
 
   describe '#toggle_mobile' do

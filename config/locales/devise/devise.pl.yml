@@ -17,7 +17,7 @@ pl:
       invalid_token: "Nieprawidłowy token uwierzytelnienia."
       locked: "Twoje konto jest zablokowane."
       timeout: "Sesja wygasła, aby kontynuować zaloguj się ponownie."
-      unauthenticated: "Przed kontynuacją musisz się zalogować lub zarejestrować."
+      unauthenticated: "Aby kontynuować zaloguj się lub zarejestruj."
       unconfirmed: "Musisz aktywować swoje konto."
     invitations:
       invitation_token_invalid: "Token zaproszenia jest nieprawidłowy!"
@@ -25,7 +25,7 @@ pl:
       updated: "Hasło zostało pomyślnie zmienione. Zalogowano."
     mailer:
       confirmation_instructions:
-        confirm: "Aktywuj konto"
+        confirm: "Aktywuj moje konto"
         subject: "Instrukcja aktywacji"
         you_can_confirm: "Możesz aktywować swoje konto klikając poniższe łącze:"
       hello: "Cześć %{email}!"
@@ -48,9 +48,9 @@ pl:
         here: "tutaj"
         ignore: "Zignoruj tę wiadomość jeśli nie chcesz zaakceptować tego zaproszenia."
         join_team: "Dołącz do naszego zespołu"
-        love: "Pozdrawiam,"
+        love: "Pozdrawiamy,"
         made_by_people: "%{strong_diaspora} została stworzona przez ludzi kochających internet tak samo jak Ty. %{jointeam} lub %{helpfund}!"
-        more_people: "Jeszcze więcej osób, nie może się doczekać, aby Cię zobaczyć!"
+        more_people: "Jeszcze więcej osób nie może się doczekać, aby Cię zobaczyć!"
         no_account_till: "Konto nie zostanie utworzone dopóki nie zalogujesz się na stronie powyżej."
         or: "lub"
         sign_up_now: "Zarejestruj się teraz →"
@@ -80,8 +80,8 @@ pl:
       new:
         forgot_password: "Nie pamiętasz hasła?"
         no_account: "Konto z przypisanym podanym adresem e-mail nie istnieje. Jeżeli czekasz na nowe zaproszenia, wysyłamy je tak szybko, jak to tylko możliwe."
-        send_password_instructions: "Wyślij mi instrukcje resetowania hasła"
-      send_instructions: "W ciągu kilku minut otrzymasz e-maila zawierającego instrukcjie dotyczące zresetowania hasła."
+        send_password_instructions: "Wyślij mi instrukcję resetowania hasła"
+      send_instructions: "W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję resetowania hasła."
       updated: "Hasło zostało zmienione. Zalogowano pomyślnie."
     registrations:
       destroyed: "Do widzenia! Konto zostało pomyślnie zamknięte. Mamy nadzieję, że wkrótce zobaczymy Cię ponownie!"
@@ -95,7 +95,7 @@ pl:
         login: "Zaloguj się"
         modern_browsers: "obsługuje wyłącznie nowoczesne przeglądarki."
         password: "Hasło"
-        remember_me: "Zapamiętaj mnie"
+        remember_me: "Pamiętaj mnie"
         sign_in: "Zaloguj się"
         username: "Nazwa użytkownika"
       signed_in: "Zalogowano pomyślnie."
@@ -112,7 +112,7 @@ pl:
         sign_up_for_an_invite: "Zgłoś się po zaproszenie!"
     unlocks:
       new:
-        resend_unlock: "Wyślij ponownie instrukcje odblokowywania"
+        resend_unlock: "Wyślij ponownie instrukcję odblokowywania"
       send_instructions: "W ciągu kilku minut otrzymasz wiadomość z instrukcją odblokowania konta."
       unlocked: "Konto zostało pomyślnie odblokowane. Pomyślnie zalogowano."
   errors:

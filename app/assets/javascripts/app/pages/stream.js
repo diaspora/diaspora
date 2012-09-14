@@ -22,11 +22,6 @@ app.pages.Stream = app.views.Base.extend({
     this.stream.on("frame:interacted", this.selectFrame, this)
   },
 
-  postRenderTemplate : function() {
-    this.$("#header").css("background-image", "url(" + app.currentUser.get("wallpaper") + ")")
-   _.defer(function(){$('body').scrollspy({target : '.stream-frame-wrapper', offset : 205})})
-  },
-
   selectFrame : function(post){
     if(this.selectedPost == post) { return }
     this.selectedPost = post
@@ -44,7 +39,7 @@ app.pages.Stream = app.views.Base.extend({
   },
 
   navigateToPost : function(post){
-    app.router.navigate(location.pathname + "?ex=true&max_time=" + post.createdAt(), {replace: true})
+    app.router.navigate(location.pathname + "?max_time=" + post.createdAt(), {replace: true})
   },
 
   triggerInteractionLoad : function(evt){

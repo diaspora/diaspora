@@ -9,33 +9,33 @@ sk:
     aspect_dropdown:
       add_to_aspect: "Pridať kontakt"
       all_aspects: "Všetky kategórie"
-      error: "<%= name %> sa nedá pridať do vašich kontaktov. Neignorujete ho (ju)?"
-      select_aspects: "Vyberte si kategórie"
-      started_sharing_with: "<%= name %> bol(a) pridaný (-á) do vašich kontaktov!"
-      stopped_sharing_with: "<%= name %> bol(a) vymazaný (-á) z vašich kontaktov."
+      error: "<%= name %> sa nedá pridať do tvojich kontaktov. Neignoruješ ho (ju)?"
+      select_aspects: "Vyber si kategórie"
+      started_sharing_with: "<%= name %> bol(a) pridaný (-á) do tvojich kontaktov!"
+      stopped_sharing_with: "<%= name %> bol(a) vymazaný (-á) z tvojich kontaktov."
       toggle:
         few: "V <%= count %> kategóriách"
         many: "V(o) <%= count %> kategóriách"
         one: "V <%= count %> kategórii"
         other: "V(o) <%= count %>kategóriách"
         two: "V(o) <%= count %> kategóriách"
-        zero: "Vyberte si kategórie"
+        zero: "Vyber si kategórie"
     aspect_navigation:
       deselect_all: "Odznačiť všetky"
-      no_aspects: "Nevybrali ste žiadne kategórie"
+      no_aspects: "Nevybral(a) si žiadne kategórie"
       select_all: "Označiť všetky"
     comments:
       hide: "Skryť komentáre"
       show: "Zobraziť všetky komentáre"
     confirm_dialog: "Určite?"
     delete: "Odstrániť"
-    failed_to_like: "Nepodarilo sa označiť, že sa vám to páči!"
+    failed_to_like: "Nepodarilo sa označiť, že sa ti to páči!"
     failed_to_post_message: "Správu sa nepodarilo poslať!"
     getting_started:
       alright_ill_wait: "V poriadku, počkám."
       hey: "Hej, <%= name %>!"
-      no_tags: "Hej, nesledujete žiadne značky!  Chcete aj tak pokračovať?"
-      preparing_your_stream: "Pripravuje sa vaša upravená nástenka..."
+      no_tags: "Hej, nesleduješ žiadne značky!  Chceš aj tak pokračovať?"
+      preparing_your_stream: "Pripravuje sa tvoja upravená nástenka..."
     header:
       admin: "Administrátor"
       close: "zatvoriť"
@@ -47,7 +47,7 @@ sk:
       notifications: "Oznamy"
       profile: "Profil"
       recent_notifications: "Najnovšie oznamy"
-      search: "Nájsť ľudí alebo #značky"
+      search: "Vyhľadať"
       settings: "Nastavenia"
       view_all: "Zobraziť všetko"
     ignore: "Ignorovať"
@@ -60,13 +60,13 @@ sk:
     photo_uploader:
       looking_good: "No teda, vyzeráš super!"
     publisher:
-      at_least_one_aspect: "Musíte publikovať aspoň jednu kategóriu"
-      limited: "Vyhradený – váš príspevok uvidia len ľudia, s ktorými sa oň podelíte"
-      public: "Verejný – váš príspevok pomocou vyhľadávačov uvidí a nájde každý"
+      at_least_one_aspect: "Musíš publikovať aspoň jednu kategóriu"
+      limited: "Vyhradený – tvoj príspevok uvidia len ľudia, s ktorými sa oň podelíš"
+      public: "Verejný – tvoj príspevok pomocou vyhľadávačov uvidí a nájde každý"
     reshares:
-      duplicate: "Je to dobré, čo? O tento príspevok ste sa už raz znova podelili!"
+      duplicate: "Je to dobré, čo? O tento príspevok si sa už raz znova podelil(a)!"
       post: "Znova ukázať priateľom príspevok, ktorý napísal(a) <%= name %>?"
-      successful: "Tento príspevok ste úspešne znova ukázali priateľom!"
+      successful: "Tento príspevok si úspešne znova ukázal(a) priateľom!"
     search_for: "Hľadať <%= name %>"
     show_more: "Zobraziť viac"
     stream:
@@ -76,19 +76,19 @@ sk:
       hide_nsfw_posts: "Schovať príspevky #nsfw"
       like: "Páči sa mi to"
       likes:
-        few: "<%= count %> sa to páči"
-        one: "<%= count %> sa to páči"
-        other: "<%= count %> sa to páči"
-        zero: "<%= count %> sa to páči"
+        few: "<%= count %> ľuďom sa to páči"
+        one: "<%= count %> človeku sa to páči"
+        other: "<%= count %> ľuďom sa to páči"
+        zero: "<%= count %> ľuďom sa to páči"
       limited: "Súkromný"
       more_comments:
         few: "Zobraziť ďalšie <%= count %> komentáre"
         one: "Zobraziť ešte <%= count %> komentár"
         other: "Zobraziť ďalších <%= count %> komentárov"
         zero: "Zobraziť ďalších <%= count %> komentárov"
-      original_post_deleted: "Pôvodný príspevok odstránil autor."
+      original_post_deleted: "Pôvodný príspevok odstránil jeho autor."
       public: "Verejný"
-      reshare: "Znova zdieľať"
+      reshare: "Znova sa podeliť"
       reshares:
         few: "<%= count %> opätovné zdieľania"
         one: "<%= count %> opätovné zdieľanie"
@@ -99,7 +99,7 @@ sk:
       unfollow: "Nesledovať"
       unlike: "Už sa mi to nepáči"
     tags:
-      wasnt_that_interesting: "OK, značka #<%= tagName %> asi vôbec nebola veľmi zaujímavá."
+      wasnt_that_interesting: "OK, značka #<%= tagName %> asi vôbec nebola zaujímavá."
     timeago:
       day: "včera"
       days: "pred %d dňami"
@@ -118,7 +118,7 @@ sk:
       years: "pred %d rokmi"
     videos:
       unknown: "Neznámy typ videa"
-      watch: "Sledujte toto video na <%= provider %>"
+      watch: "Sleduj toto video na <%= provider %>"
     viewer:
       comment: "Komentár"
       follow_post: "Sledovať príspevok"

@@ -41,13 +41,13 @@ describe UsersController do
 
   describe '#public' do
     it 'renders xml if atom is requested' do
-      sm = Factory(:status_message, :public => true, :author => @user.person)
+      sm = FactoryGirl.create(:status_message, :public => true, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
-      response.body.should include(sm.text)
+      response.body.should include(sm.raw_message)
     end
 
     it 'renders xml if atom is requested with clickalbe urls' do
-      sm = Factory(:status_message, :public => true, :author => @user.person)
+      sm = FactoryGirl.create(:status_message, :public => true, :author => @user.person)
       @user.person.posts.each do |p|
         p.text = "Goto http://diasporaproject.org/ now!"
         p.save
@@ -265,11 +265,6 @@ describe UsersController do
 
       it "redirects to getting started if the user has getting started set to true" do
         @controller.after_sign_in_path_for(eve).should == getting_started_path
-      end
-
-      it "does not redirect to getting started if the user is beta" do
-        Role.add_beta(eve.person)
-        @controller.after_sign_in_path_for(eve).should == person_path(eve.person)
       end
     end
   end

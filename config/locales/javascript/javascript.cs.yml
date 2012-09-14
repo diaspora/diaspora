@@ -66,6 +66,7 @@ cs:
       comment: "Okomentovat"
       follow: "Sledovat"
       hide: "Skrýt"
+      hide_nsfw_posts: "Skrýt příspěvky #nsfw"
       like: "To se mi líbí"
       likes:
         few: "<%= count %> uživatelům se to líbí"

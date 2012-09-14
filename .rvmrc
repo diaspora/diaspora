@@ -1,12 +1,24 @@
 #!/bin/bash
+
+rubygems_version="1.8.24"
+ruby_version="1.9.3-p194"
+gemset="diaspora"
+
 if [ -e '.rvmrc.local' ]; then
   source .rvmrc.local;
 elif [ -e '.rvmrc_custom' ] ; then
   source .rvmrc_custom;
 else
-  rvm --create use ruby-1.9.3-p125@diaspora
+  if rvm list strings | grep -q "$ruby_version" ; then
+    rvm --create use "$ruby_version@$gemset"
+  else
+    echo -e "\e[00;31mPLEASE INSTALL RUBY $ruby_version WITH \`rvm install $ruby_version\`"
+    echo -e "Don't forget to run \`cd .. && cd -\` afterwards!\e[00m"
+    return 1
+  fi
 fi
 
-if [ "$(gem --version)" != "1.8.17" ]; then
-  rvm rubygems 1.8.17
+
+if [ "$(gem --version)" != "$rubygems_version" ]; then
+  rvm rubygems "$rubygems_version"
 fi

@@ -61,10 +61,14 @@
                   .badge_count
                     = current_user.unread_notifications.count
               .badge{:class => "badge-inverse", :id => "conversations_badge"}            
-                = link_to(image_tag('icons/mail_grey.png', :height => 16, :width => 16), conversations_path)
+                = link_to(image_tag('icons/mail_grey.png', :height => 11, :width => 17), conversations_path)
                 - if current_user.unread_message_count > 0
                   .badge_count
-                    = current_user.unread_message_count                   
+                    = current_user.unread_message_count
+              .badge{:class => "badge-inverse", :id => "people_badge"}            
+                = link_to(image_tag('icons/search_grey.png', :height => 14, :width => 14), people_path)      
+              .badge{:class => "badge-inverse", :id => "contacts_badge"}            
+                = link_to(image_tag('icons/user_grey.png', :height => 16, :width => 16), contacts_path)                   
 
           - if user_signed_in?
             .right

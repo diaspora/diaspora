@@ -7,7 +7,7 @@ describe ResharesController do
     }
 
     before do
-      @post_guid = Factory(:status_message, :public => true).guid
+      @post_guid = FactoryGirl.create(:status_message, :public => true).guid
     end
 
     it 'requires authentication' do
@@ -29,7 +29,7 @@ describe ResharesController do
       it 'creates a reshare' do
         expect{
           post_request!
-        }.should change(Reshare, :count).by(1)
+        }.to change(Reshare, :count).by(1)
       end
 
       it 'after save, calls add to streams' do

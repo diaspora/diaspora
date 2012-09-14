@@ -58,6 +58,7 @@ tmp/*
 *.swo
 *.swp
 *~
+*#
 bin/*
 nbproject
 patches-*

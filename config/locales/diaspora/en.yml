@@ -356,7 +356,7 @@ en:
     excited: "%{name} is excited to see you here."
   invitations:
     create:
-      sent: "Invitations have been sent to: "
+      sent: "Invitations have been sent to: %{emails}"
       rejected: "The following email addresses had problems: "
       no_more: "You have no more invitations."
       already_sent: "You already invited this person."

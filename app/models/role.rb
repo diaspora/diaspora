@@ -6,14 +6,6 @@ class Role < ActiveRecord::Base
     find_by_person_id_and_name(person.id, 'admin')
   end
 
-  def self.is_beta?(person)
-    find_by_person_id_and_name(person.id, 'beta').present?
-  end
-
-  def self.add_beta(person)
-    find_or_create_by_person_id_and_name(person.id, 'beta')
-  end
-
   def self.add_admin(person)
     find_or_create_by_person_id_and_name(person.id, 'admin')
   end

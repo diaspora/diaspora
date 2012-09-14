@@ -22,11 +22,6 @@ class DeferredGarbageCollection
 
     if (percent_used = self.memory_threshold)
       running_out_of_memory = percent_used > 90
-
-      # just for info, as soon as we got some numbers remove it
-      swap_percent_used = @mem[19].to_i / (@mem[18].to_i/100) rescue 0
-      puts "percent memory used #{percent_used} (#{@mem[8]} of #{@mem[7]})"
-      puts "percent swap used   #{swap_percent_used} (#{@mem[19]} of #{@mem[18]})"
     else
       running_out_of_memory = false
     end

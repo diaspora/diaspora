@@ -14,7 +14,6 @@ cd $(dirname $realpath)/..
 
 # Check if script_server.yml exists
 if [ ! -e 'config/script_server.yml' ]; then
-    echo "INFO: config/script_server_config.yml has been renamed to config/script_server.yml" >&2
     echo 'FATAL: config/script_server.yml is missing! Copy over config/script_server.yml.example to config/script_server.yml and edit it properly!' >&2
     exit 69
 fi

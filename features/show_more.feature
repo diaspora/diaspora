@@ -5,7 +5,9 @@ Feature: collapsing and expanding long posts
     I want long posts to be collapsed and expand on click
 
     Background:
-      Given a user with username "bob"
+      Given that following user exists:
+        | username |
+        | bob      |
       And I sign in as "bob@bob.bob"
       And I am on the home page
 

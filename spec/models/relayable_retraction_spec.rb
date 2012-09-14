@@ -8,7 +8,7 @@ require Rails.root.join("spec", "shared_behaviors", "relayable")
 describe RelayableRetraction do
   before do
     @local_luke, @local_leia, @remote_raphael = set_up_friends
-    @remote_parent = Factory(:status_message, :author => @remote_raphael)
+    @remote_parent = FactoryGirl.build(:status_message, :author => @remote_raphael)
     @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
   end
 

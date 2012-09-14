@@ -100,7 +100,7 @@ sv:
       show_nsfw_post: "Visa inlägg"
       show_nsfw_posts: "Visa alla"
       unfollow: "Sluta följ"
-      unlike: "Ogillar"
+      unlike: "Sluta gilla"
     tags:
       wasnt_that_interesting: "Ok, jag antar att #<%= tagName %> inte var så intressant..."
     timeago:

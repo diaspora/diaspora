@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe Diaspora::Encryptable do
   before do
-    @comment = Factory(:comment, :author => bob.person)
+    @comment = FactoryGirl.create(:comment, :author => bob.person)
   end
   describe '#sign_with_key' do
     it 'signs the object with RSA256 signature' do

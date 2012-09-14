@@ -317,8 +317,8 @@ database_question() {
       PgSQL )
         D_DB="postgres"
         # replace default with postgres
-        run_or_error "sed -i'' -r 's/(<<: \*mysql)/#\1/g' \"$D_DB_CONFIG_FILE\""
-        run_or_error "sed -i'' -r 's/(#(<<: \*postgres))/\2/g' \"$D_DB_CONFIG_FILE\""
+        run_or_error "sed -i'' -e 's/\(<<: \*mysql\)/#\1/g' \"$D_DB_CONFIG_FILE\""
+        run_or_error "sed -i'' -e 's/\(#\(<<: \*postgres\)\)/\2/g' \"$D_DB_CONFIG_FILE\""
         break
         ;;
     esac
@@ -331,9 +331,9 @@ database_credentials() {
   read -e -p "username: " D_DB_USER
   read -e -p "password: " D_DB_PASS
 
-  run_or_error "sed -i'' -r \"s/(host:)[^\n]*/\1 $D_DB_HOST/g\" \"$D_DB_CONFIG_FILE\""
-  run_or_error "sed -i'' -r \"s/(username:)[^\n]*/\1 $D_DB_USER/g\" \"$D_DB_CONFIG_FILE\""
-  run_or_error "sed -i'' -r \"s/(password:)[^\n]*/\1 $D_DB_PASS/g\" \"$D_DB_CONFIG_FILE\""
+  run_or_error "sed -i'' -e \"s/\(host:\)[^\n]*/\1 $D_DB_HOST/g\" \"$D_DB_CONFIG_FILE\""
+  run_or_error "sed -i'' -e \"s/\(username:\)[^\n]*/\1 $D_DB_USER/g\" \"$D_DB_CONFIG_FILE\""
+  run_or_error "sed -i'' -e \"s/\(password:\)[^\n]*/\1 $D_DB_PASS/g\" \"$D_DB_CONFIG_FILE\""
 }
 
 # setup database

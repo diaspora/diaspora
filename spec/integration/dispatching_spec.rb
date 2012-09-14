@@ -5,7 +5,7 @@ describe "Dispatching" do
     it "should trigger a private dispatch" do
       luke, leia, raph = set_up_friends
       # Luke has a public post and comments on it
-      post = Factory(:status_message, :public => true, :author => luke.person)
+      post = FactoryGirl.create(:status_message, :public => true, :author => luke.person)
 
       fantasy_resque do
         comment = luke.comment!(post, "awesomesauseum")

@@ -29,12 +29,12 @@ describe Photo do
   describe "protected attributes" do
     it "doesn't allow mass assignment of person" do
       @photo.save!
-      @photo.update_attributes(:author => Factory(:person))
+      @photo.update_attributes(:author => FactoryGirl.build(:person))
       @photo.reload.author.should == @user.person
     end
     it "doesn't allow mass assignment of person_id" do
       @photo.save!
-      @photo.update_attributes(:author_id => Factory(:person).id)
+      @photo.update_attributes(:author_id => FactoryGirl.build(:person).id)
       @photo.reload.author.should == @user.person
     end
     it 'allows assignment of text' do
@@ -202,7 +202,7 @@ describe Photo do
 
     it 'should set the remote_photo on marshalling' do
       #security hax
-      user2 = Factory(:user)
+      user2 = FactoryGirl.create(:user)
       aspect2 = user2.aspects.create(:name => "foobars")
       connect_users(@user, @aspect, user2, aspect2)
 
@@ -246,13 +246,13 @@ describe Photo do
     it 'is deleted with parent status message' do
       expect {
         @status_message.destroy
-      }.should change(Photo, :count).by(-1)
+      }.to change(Photo, :count).by(-1)
     end
 
     it 'will delete parent status message if message is otherwise empty' do
       expect {
         @photo2.destroy
-      }.should change(StatusMessage, :count).by(-1)
+      }.to change(StatusMessage, :count).by(-1)
     end
 
     it 'will not delete parent status message if message had other content' do
@@ -263,7 +263,7 @@ describe Photo do
       expect {
         @photo2.status_message.reload
         @photo2.destroy
-      }.should_not change(StatusMessage, :count)
+      }.to_not change(StatusMessage, :count)
     end
   end
 end

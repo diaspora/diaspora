@@ -64,7 +64,7 @@ describe PhotosController do
 
   describe '#index' do
     it "succeeds without any available pictures" do
-      get :index, :person_id => Factory(:person).guid.to_s
+      get :index, :person_id => FactoryGirl.create(:person).guid.to_s
 
       response.should be_success
     end
@@ -138,7 +138,7 @@ describe PhotosController do
     end
 
     it "doesn't overwrite random attributes" do
-      new_user = Factory(:user)
+      new_user = FactoryGirl.create(:user)
       params = { :text => "now with lasers!", :author_id => new_user.id }
       put :update, :id => @alices_photo.id, :photo => params
       @alices_photo.reload.author_id.should == alice.person.id

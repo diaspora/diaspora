@@ -20,14 +20,12 @@ class PostsController < ApplicationController
 
   rescue_from Diaspora::NonPublic do |exception|
     respond_to do |format|
-      format.html { render :template=>'errors/not_public', :status=>404 }
-      format.all { render :nothing=>true, :status=>404 }
+      format.all { render :template=>'errors/not_public', :status=>404 }
     end
   end
 
   def new
-    @feature_flag = FeatureFlagger.new(current_user, current_user.person) #I should be a global before filter so @feature_flag is accessible
-    redirect_to "/stream" and return unless @feature_flag.new_publisher?
+    redirect_to "/stream" and return
     render :text => "", :layout => true
   end
 

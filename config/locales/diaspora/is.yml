@@ -47,6 +47,7 @@ is:
       video_title:
         unknown: "Óþekktur vídeótitill"
   are_you_sure: "Ertu viss?"
+  are_you_sure_delete_account: "Ertu viss að þú viljir loka aðganginum þínum?  Þetta er óafturkræf aðgerð!"
   aspect_memberships:
     destroy:
       failure: "Ekki tókst að fjarlægja persónu af ásýnd"
@@ -77,14 +78,18 @@ is:
       aspect_not_empty: "Ásýnd er ekki tóm"
       remove: "fjarlægja"
     index:
+      donate: "Styrkja"
       handle_explanation: "Þetta er netfangið þitt hjá Díaspora. Eins og með venjulegt netfang, geturðu gefið fólki það svo þau geti haft samband við þig. "
       help:
         here_to_help: "Diaspora community is here to help!"
+        need_help: "Vantar aðstoð?"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
       no_contacts: "Engir tengiliðir"
       no_tags: "No tags"
+      unfollow_tag: "Hætta að fylgjast með #%{tag}"
+      welcome_to_diaspora: "Velkomin í Diaspora %{name}!"
     many: "%{count} aspects"
     move_contact:
       error: "Villa við að breyta tengiliði: %{inspect}"
@@ -94,13 +99,19 @@ is:
       name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      you_should_add_some_more_contacts: "Þú ættir að bæta við tengiliðum!"
     no_posts_message:
       start_talking: "Enginn hefur sagt neitt enn.  Byrjaðu umræðurnar!"
     one: "1 aspect"
     other: "%{count} aspects"
     seed:
+      acquaintances: "Kunningjar"
       family: "Fjölskylda"
+      friends: "Vinir"
       work: "Vinna"
+    selected_contacts:
+      no_contacts: "Þú ert ekki enn með neina tengiliði hér."
+      view_all_contacts: "Sjá alla tengiliði"
     show:
       edit_aspect: "Breyta ásýndum"
     two: "%{count} aspects"
@@ -130,6 +141,8 @@ is:
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
+      title: "Tengiliðir"
+      your_contacts: "Þínir tegiliðir"
   conversations:
     helper:
       new_messages:
@@ -575,6 +588,7 @@ is:
     destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
+  terms_and_conditions: "Skilmálar"
   tokens:
     show:
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."

@@ -16,7 +16,7 @@ nb:
       invalid: "Ugyldig e-postadresse eller passord."
       invalid_token: "Ugyldig aktiveringskode."
       locked: "Brukeren din er låst."
-      timeout: "Økta har løpt ut, logg inn igjen for å fortsette."
+      timeout: "Økten har løpt ut, logg inn igjen for å fortsette."
       unauthenticated: "Du må logge inn eller lage en bruker før du kan fortsette."
       unconfirmed: "Du må bekrefte brukeren din før du kan fortsette."
     invitations:
@@ -54,6 +54,7 @@ nb:
         or: "eller"
         sign_up_now: "Registrer deg nå &rarr;"
         subject: "Du har blitt invitert til Diaspora!"
+        team_diaspora: "Team Diaspora"
         unsubscribe: "For å avregistrere deg klikk på %{link}."
         view_in: "Se i"
       inviter:
@@ -114,6 +115,6 @@ nb:
       unlocked: "Brukeren din er nå låst opp, og du er logga in."
   errors:
     messages:
-      already_confirmed: "er allerede bekrefta"
+      already_confirmed: "er allerede bekreftet"
       not_found: "ble ikke funnet"
       not_locked: "er ikke låst"

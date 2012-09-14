@@ -13,7 +13,7 @@ sv:
       send_instructions: "Du kommer att få ett e-brev med instruktioner för att verifiera ditt konto inom några minuter."
     failure:
       inactive: "Ditt konto är inte aktiverat."
-      invalid: "Felaktigt användarnamn eller lösenord."
+      invalid: "Fel användarnamn eller lösenord."
       invalid_token: "Ogiltig identifiering."
       locked: "Ditt konto är låst."
       timeout: "Din session är avslutad, var vänlig logga in igen."

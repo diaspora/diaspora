@@ -31,6 +31,8 @@ module NavigationHelpers
         person_path(@me.person,  :ex => true)
       when /^the new stream$/
         stream_path(:ex => true)
+      when /^forgot password page$/
+          new_user_password_path
       when /^"(\/.*)"/
         $1
       else

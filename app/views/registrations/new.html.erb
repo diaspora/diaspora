@@ -27,7 +27,7 @@
                     </label>
 
                     <div class="controls">
-                        <%= f.email_field :email, :validate => {:presence => true}, :placeholder => "luke@hoth.net", :title => t('registrations.new.enter_email'), :required => true %>
+                        <%= f.email_field :email, :placeholder => "luke@hoth.net", :title => t('registrations.new.enter_email'), :required => true %>
                     </div>
                   </div>
 
@@ -37,7 +37,7 @@
                       </label>
 
                       <div class="controls">
-                        <%= f.text_field :username, :validate => {:presence => true}, :placeholder => "jedi_guy", :title => t('registrations.new.enter_username'), :required => true, :pattern => "[A-Za-z0-9_]+" %>
+                        <%= f.text_field :username, :placeholder => "jedi_guy", :title => t('registrations.new.enter_username'), :required => true, :pattern => "[A-Za-z0-9_]+" %>
                       </div>
                   </div>
 
@@ -47,7 +47,7 @@
                     </label>
 
                     <div class="controls">
-                        <%= f.password_field :password, :validate => {:presence => true}, :placeholder => "••••••••", :title => t('registrations.new.enter_password'), :required => true, :pattern => "......+" %>
+                        <%= f.password_field :password, :placeholder => "••••••••", :title => t('registrations.new.enter_password'), :required => true, :pattern => "......+" %>
                     </div>
                   </div>
                   <%= invite_hidden_tag(invite) %>

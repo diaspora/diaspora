@@ -6,7 +6,7 @@
 - content_for :head do
   = javascript_include_tag :home
 
-- if current_user.getting_started? && !current_user.beta?
+- if current_user.getting_started?
   #welcome-to-diaspora
     .container{:style => "position: relative;"}
       .right

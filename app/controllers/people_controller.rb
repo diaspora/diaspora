@@ -13,7 +13,8 @@ class PeopleController < ApplicationController
   respond_to :js, :only => [:tag_index]
 
   rescue_from ActiveRecord::RecordNotFound do
-    render :file => Rails.root.join('public', '404.html').to_s, :layout => false, :status => 404
+    render :file => Rails.root.join('public', '404').to_s,
+           :format => :html, :layout => false, :status => 404
   end
 
   helper_method :search_query
@@ -84,8 +85,6 @@ class PeopleController < ApplicationController
 
     raise(ActiveRecord::RecordNotFound) if remote_profile_with_no_user_session?
     return redirect_to :back, :notice => t("people.show.closed_account") if @person.closed_account?
-    return redirect_to person_path(@person) if cant_experimental
-    return redirect_to person_path(@person, :ex => true) if needs_experimental
 
     @post_type = :all
     @aspect = :profile
@@ -116,15 +115,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.all do
-        if params[:ex]
-          @page = :experimental
-          gon.person = PersonPresenter.new(@person, current_user)
-          gon.stream = PostPresenter.collection_json(@stream.stream_posts, current_user)
-
-          render :nothing => true, :layout => 'post'
-        else
-          respond_with @person, :locals => {:post_type => :all}
-        end
+        respond_with @person, :locals => {:post_type => :all}
       end
 
       format.json { render :json => @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
@@ -191,18 +182,6 @@ class PeopleController < ApplicationController
   end
 
   protected
-
-  def flag
-     @flag ||= FeatureFlagger.new(current_user, @person)
-  end
-
-  def cant_experimental
-    params[:ex] && !flag.new_profile?
-  end
-
-  def needs_experimental
-    !params[:ex] && flag.new_profile? && flag.new_hotness? && request.format == "text/html"
-  end
 
   def remote_profile_with_no_user_session?
     @person.try(:remote?) && !user_signed_in?

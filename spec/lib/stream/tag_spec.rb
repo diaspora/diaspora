@@ -28,7 +28,7 @@ describe Stream::Tag do
    end
 
    it 'displays a public post that was sent to no one' do
-     stranger = Factory(:user_with_aspect)
+     stranger = FactoryGirl.create(:user_with_aspect)
      stranger_post = stranger.post(:status_message, :text => "#what", :public => true, :to => 'all')
      @stream.posts.should == [stranger_post]
    end
@@ -36,7 +36,7 @@ describe Stream::Tag do
     it 'displays a post with a comment containing the tag search' do
       pending "this code is way too slow. need to re-implement in a way that doesn't suck"
       other_post = bob.post(:status_message, :text => "sup y'all", :to => 'all')
-      Factory(:comment, :text => "#what", :post => other_post)
+      FactoryGirl.create(:comment, :text => "#what", :post => other_post)
       @stream.posts.should == [other_post]
     end
   end
@@ -87,7 +87,7 @@ describe Stream::Tag do
 
   describe 'shared behaviors' do
     before do
-      @stream = Stream::Tag.new(Factory(:user), "test")
+      @stream = Stream::Tag.new(FactoryGirl.create(:user), "test")
     end
     it_should_behave_like 'it is a stream'
   end

@@ -34,7 +34,9 @@ tr:
         arrived: "Beklediğiniz sosyal ağ sonunda geldi. Yenilenmiş, daha güvenli ve daha eğlenceli, %{strong_diaspora} yepyeni bir şekilde İnternet'i paylaşmanıza ve keşfetmenize yardımcı olmaya hazırdır."
         be_yourself: "Kendiniz Olun"
         be_yourself_paragraph: "İnternet bize kendimizi ifade etmek için benzersiz yeni yollar yarattı. % {Strong_diaspora}, ister gerçek isminizle ister bir rumuzla kendiniz olmanıza ve istediğiniz gibi paylaşma yapmanıza imkân sağlar."
+        cubbies: "Cubbi.es"
         displaying_correctly: "E-mail doğru görüntülenmemiş mi? %{link} tarayıcınızda"
+        email_address: "questions@joindiaspora.com"
         email_us: "Diaspora hesabınızla ilgili destek veya sorularınız için lütfen iletişime geçiniz: %{email}"
         finally: "Sonunda - o burada!"
         friends_saying: "Arkadaşların ne diyor..."
@@ -58,6 +60,7 @@ tr:
         view_in: "Tarayıcınızda görüntüleyin."
       inviter:
         accept_at: "%{url}, aşağıdaki bağlantıya tıklayarak bunu kabul edebilirsiniz."
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} Diaspora'ya katılmanız için davet edildiniz"
       reset_password_instructions:
         change: "Parolamı değiştir"
@@ -70,7 +73,7 @@ tr:
         click_to_unlock: "Hesabınızın kilidini açmak için aşağıdaki bağlantıya tıklayın:"
         subject: "Kilit Açma Yönergeleri"
         unlock: "Hesabımın kilidini aç"
-      welcome: "Hoş geldiniz %{email}!"
+      welcome: "Hoş geldin%{email}!"
     passwords:
       edit:
         change_password: "Parola değiştirme"

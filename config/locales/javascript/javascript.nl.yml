@@ -83,7 +83,7 @@ nl:
       more_comments:
         few: "Toon nog <%= count %> reacties"
         many: "Toon nog <%= count %> reacties"
-        one: "Toon nog <%= count %> reacties"
+        one: "Toon nog <%= count %> reactie"
         other: "Toon nog <%= count %> reacties"
         two: "Toon nog <%= count %> reacties"
         zero: "Toon nog <%= count %> reacties"
@@ -91,9 +91,9 @@ nl:
       public: "Openbaar"
       reshare: "Doorgeven"
       reshares:
-        one: "<%= count %>x gedeeld"
-        other: "<%= count %>x gedeeld"
-        zero: "<%= count %>x gedeeld"
+        one: "<%= count %>keer opnieuw gedeeld"
+        other: "<%= count %>keer opnieuw gedeeld"
+        zero: "<%= count %>keer opnieuw gedeeld"
       show_nsfw_post: "Toon bericht"
       show_nsfw_posts: "Toon alles"
       unfollow: "Niet meer volgen"

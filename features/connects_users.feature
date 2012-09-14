@@ -2,16 +2,19 @@
 Feature: following and being followed
 
   Background:
-    Given a user with email "bob@bob.bob"
-    And a user with email "alice@alice.alice"
-
+    Given following users exist:
+      | email             |
+      | bob@bob.bob       |
+      | alice@alice.alice |
+    
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     And I add the person to my "Besties" aspect
 
     When I am on the home page
     And I expand the publisher
-    And I fill in "status_message_fake_text" with "I am following you"
+    And I fill in the following:
+        | status_message_fake_text    | I am following you    |
     And I press "Share"
     Then I go to the destroy user session page
 
@@ -27,7 +30,8 @@ Feature: following and being followed
     Given I sign in as "alice@alice.alice"
     And I am on the home page
     And I expand the publisher
-    And I fill in "status_message_fake_text" with "I am ALICE"
+    And I fill in the following:
+        | status_message_fake_text    | I am ALICE    |
     And I press the first ".toggle" within "#publisher"
     And I press the first ".public" within "#publisher"
     And I press "Share"
@@ -86,8 +90,7 @@ Feature: following and being followed
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
 
-    Then I should see "Besties"
-    Then I should see "Mention"
+    Then I should see "Besties" and "Mention"  
     Then I should not see "Message" within "#profile"
 
   Scenario: interacting with the profile page of someone who follows you but who you do not follow
@@ -95,8 +98,7 @@ Feature: following and being followed
     And I am on "bob@bob.bob"'s page
 
     Then I should see "Add contact"
-    Then I should not see "Mention" within "#profile"
-    Then I should not see "Message" within "#profile"
+    Then I should not see "Mention" and "Message" within "#profile"
 
   Scenario: interacting with the profile page of someone you follow who also follows you
     Given I sign in as "alice@alice.alice"
@@ -108,6 +110,4 @@ Feature: following and being followed
     And I wait for the ajax to finish
 
     When I go to "bob@bob.bob"'s page
-    Then I should see "All Aspects"
-    And I should see "Mention"
-    And I should see "Message"
+    Then I should see "All Aspects" and "Mention" and "Message"
