@@ -5,7 +5,7 @@
 -if publisher_explain
   :javascript
     $(document).ready(function() {
-        Publisher.triggerGettingStarted();
+        if( app.publisher ) app.publisher.triggerGettingStarted();
       });
 
 #publisher{:class => ((aspect == :profile || publisher_open) ? "mention_popup" : "closed")}
