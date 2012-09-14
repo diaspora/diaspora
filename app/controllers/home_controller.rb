@@ -4,12 +4,8 @@
 
 class HomeController < ApplicationController
   def show
-    if current_user
-      if current_user.admin?
-        redirect_to person_path(current_user.person)
-      else
-        redirect_to stream_path
-      end
+    if user_signed_in?
+      redirect_to stream_path
     elsif is_mobile_device?
       unless(File.exist?(Rails.root.join('app', 'views', 'home', '_show.mobile.erb')))
         redirect_to user_session_path

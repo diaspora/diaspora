@@ -21,13 +21,6 @@ describe HomeController do
         get :show, :home => true
         response.should redirect_to(stream_path)
       end
-
-      it "points to a user's profile page if a user is an admin without contacts" do
-        alice.contacts.destroy_all
-        Role.add_admin(alice.person)
-        get :show, :home => true
-        response.should redirect_to(person_path(alice.person))
-      end
     end
   end
 
