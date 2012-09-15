@@ -97,7 +97,7 @@ GEM
       fog
     bbenezech-nested_form (0.0.6)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.0.3.1)
+    bootstrap-sass (2.1.0.0)
     builder (3.0.3)
     capistrano (2.12.0)
       highline
@@ -462,7 +462,7 @@ DEPENDENCIES
   addressable (= 2.3.2)
   airbrake (= 3.1.0)
   asset_sync (= 0.4.2)
-  bootstrap-sass (= 2.0.3.1)
+  bootstrap-sass (= 2.1.0.0)
   bundler (> 1.1.0)
   capistrano (= 2.12.0)
   capistrano-ext (= 1.2.1)

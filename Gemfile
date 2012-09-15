@@ -112,7 +112,7 @@ gem 'gon', '4.0.0'
 # assets
 
 group :assets do
-  gem 'bootstrap-sass', '2.0.3.1'
+  gem 'bootstrap-sass', '2.1.0.0'
   gem 'sass-rails', '3.2.5'
 
   # Windows and OSX have an execjs compatible runtime built-in, Linux users should
