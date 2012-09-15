@@ -5,7 +5,7 @@ ruby '1.9.3' if ENV['HEROKU']
 
 gem 'rails', '3.2.8'
 
-gem 'foreman', '0.57'
+gem 'foreman', '0.59'
 
 gem 'thin', '1.4.1',    :require => false
 gem 'rails_autolink', '1.0.9'
