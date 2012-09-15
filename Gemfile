@@ -133,8 +133,8 @@ gem 'jquery-rails', '2.0.2'
 
 # web
 
-gem 'faraday', '0.8.1'
-gem 'faraday_middleware', '0.8.7'
+gem 'faraday', '0.8.4'
+gem 'faraday_middleware', '0.8.8'
 
 
 gem 'jasmine', :git => 'https://github.com/pivotal/jasmine-gem.git'
