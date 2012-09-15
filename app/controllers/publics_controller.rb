@@ -13,7 +13,7 @@ class PublicsController < ApplicationController
   # I am commenting this line out for the time being to debug some apparent
   # issues on Heroku.
   #
-  # newrelic_ignore if EnviromentConfiguration.using_new_relic?
+  # newrelic_ignore if EnvironmentConfiguration.using_new_relic?
 
   skip_before_filter :set_header_data
   skip_before_filter :set_grammatical_gender

@@ -1,1 +1,1 @@
-EnviromentConfiguration.ensure_secret_token!
+EnvironmentConfiguration.ensure_secret_token!

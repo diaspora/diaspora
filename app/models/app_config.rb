@@ -3,7 +3,7 @@
 # the COPYRIGHT file.
 
 require 'uri'
-require Rails.root.join('lib', 'enviroment_configuration')
+require Rails.root.join('lib', 'environment_configuration')
 
 class AppConfig < Settingslogic
   def self.source_file_name
@@ -12,7 +12,7 @@ class AppConfig < Settingslogic
       return ENV['application_yml']
     end
     config_file = Rails.root.join("config", "application.yml")
-    if !File.exists?(config_file) && (Rails.env == 'test' || Rails.env.include?("integration") || EnviromentConfiguration.heroku?)
+    if !File.exists?(config_file) && (Rails.env == 'test' || Rails.env.include?("integration") || EnvironmentConfiguration.heroku?)
       config_file = Rails.root.join("config", "application.yml.example")
     end
     config_file
@@ -21,7 +21,7 @@ class AppConfig < Settingslogic
   namespace Rails.env
 
   def self.load!
-    unless EnviromentConfiguration.heroku?
+    unless EnvironmentConfiguration.heroku?
       if no_config_file? && !have_old_config_file?
         $stderr.puts <<-HELP
 ******** You haven't set up your Diaspora settings file. **********
@@ -57,7 +57,7 @@ Please do the following:
       Process.exit(1)
     end
 
-    if !EnviromentConfiguration.heroku? && no_cert_file_in_prod?
+    if !EnvironmentConfiguration.heroku? && no_cert_file_in_prod?
       $stderr.puts <<-HELP
 ******** Diaspora does not know where your SSL-CA-Certificates file is. **********
   Please add the root certificate bundle (this is operating system specific) to application.yml. Defaults:

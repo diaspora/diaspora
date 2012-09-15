@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-if EnviromentConfiguration.cache_git_version?
+if EnvironmentConfiguration.cache_git_version?
 	git_cmd = `git log -1 --pretty="format:%H %ci"`
 	if git_cmd =~ /^([\d\w]+?)\s(.+)$/
 	  AppConfig[:git_revision] = $1
