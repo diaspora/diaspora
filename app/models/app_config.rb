@@ -130,7 +130,7 @@ HELP
         end
       end
     end
-  ende
+  end
 
   def deprecate_hoptoad_api_key
     if self[:hoptoad_api_key].present?
