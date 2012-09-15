@@ -35,6 +35,7 @@ class PostPresenter
         :title => title,
         :next_post => next_post_path,
         :previous_post => previous_post_path,
+        :user_reshare => user_reshare,
 
         :interactions => {
             :likes => [user_like].compact,
