@@ -3,19 +3,7 @@ require 'resque'
 Resque::Plugins::Timeout.timeout = 300
 
 if !AppConfig.single_process_mode?
-  if redis_to_go = ENV["REDISTOGO_URL"]
-    uri = URI.parse(redis_to_go)
-    redis_options = { :host => uri.host, :port => uri.port,
-                      :passsword => uri.password }
-  elsif ENV['RAILS_ENV']== 'integration2'
-    redis_options = { :host => 'localhost', :port => 6380 }
-  elsif AppConfig[:redis_url].present?
-    redis_options = { :url => AppConfig[:redis_url], :port => 6379 }
-  end
-  
-  if redis_options
-    Resque.redis = Redis.new(redis_options.merge(:thread_safe => true))
-  end
+  Resque.redis = AppConfig.get_redis_instance
 end
 
 # Single process-mode hooks using Resque.inline

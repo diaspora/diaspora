@@ -130,7 +130,7 @@ HELP
         end
       end
     end
-  end
+  ende
 
   def deprecate_hoptoad_api_key
     if self[:hoptoad_api_key].present?
@@ -169,5 +169,25 @@ HELP
   
   def self.single_process_mode?
     (ENV['SINGLE_PROCESS'] == "true" || ENV['SINGLE_PROCESS_MODE'] == "true" || self[:single_process_mode]) ? true : false
+  end
+  
+  def self.get_redis_instance
+    if ENV["REDISTOGO_URL"].present?
+      puts "WARNING: using the REDISTOGO_URL environment variable is deprecated, please use REDIS_URL now."
+      ENV['REDIS_URL'] = ENV["REDISTOGO_URL"]
+    end
+    
+    redis_options = {}
+    
+    if ENV['REDIS_URL'].present?
+      redis_options = { :url => ENV['REDIS_URL'] }
+    elsif ENV['RAILS_ENV']== 'integration2'
+      redis_options = { :host => 'localhost', :port => 6380 }
+    elsif AppConfig[:redis_url].present?
+      puts "WARNING: You're redis_url doesn't start with redis://" unless AppConfig[:redis_url].start_with?("redis://")
+      redis_options = { :url => AppConfig[:redis_url] }
+    end
+  
+    Redis.new(redis_options.merge(:thread_safe => true))
   end
 end

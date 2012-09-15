@@ -47,12 +47,7 @@ after_fork do |server, worker|
 
   # copy pasta from resque.rb because i'm a bad person
   if !AppConfig.single_process_mode?
-    if redis_to_go = ENV["REDISTOGO_URL"]
-      uri = URI.parse(redis_to_go)
-      Resque.redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
-    elsif AppConfig[:redis_url]
-      Resque.redis = Redis.new(:host => AppConfig[:redis_url], :port => 6379)
-    end
+    Resque.redis = AppConfig.get_redis_instance
   end
 
   # Enable this line to have the workers run as different user/group

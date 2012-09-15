@@ -24,10 +24,13 @@ defaults: &defaults
   ## Examples, uncomment one or add your own:
   ca_file: '/etc/pki/tls/certs/ca-bundle.crt'
 
-  ## URL for a remote redis, on the default port.
+  ## Redis URL for a remote redis.
   ## Don't forget to restrict IP access!
-  ## Leave it empty for the default (localhost)
-  redis_url: ''
+  ## Leave it empty for the default ('redis://localhost:6379/0')
+  ## You can specify a username and password in it, for example
+  ## redis://user:password@remote_host:6379/0
+  ## You can also specify a unix socket URL like unix://tmp/redis.sock
+  redis_url:
 
   ## Serve static assets via the appserver.
   ## This is highly not recommended for production use,
