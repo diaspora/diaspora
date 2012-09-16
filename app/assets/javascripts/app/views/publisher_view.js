@@ -3,12 +3,14 @@
  *   the COPYRIGHT file.
  */
 
-// TODO: split this up in modules:
-// - base
-// - services
-// - aspect selector
-// - getting started
-app.views.Publisher = Backbone.View.extend({
+//= require ./publisher/services
+//= require ./publisher/aspects_selector
+//= require ./publisher/getting_started
+
+app.views.Publisher = Backbone.View.extend(_.extend(
+  app.views.PublisherServices,
+  app.views.PublisherAspectsSelector,
+  app.views.PublisherGettingStarted, {
 
   el : "#publisher",
 
@@ -42,9 +44,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // this has to be here, otherwise for some reason the callback for the
     // textchange event won't be called in Backbone...
-    this.el_input.bind('textchange', function(ev){
-      //console.log(ev);
-    });
+    this.el_input.bind('textchange', $.noop);
 
     return this;
   },
@@ -137,45 +137,6 @@ app.views.Publisher = Backbone.View.extend({
     return (!onlyWhitespaces || isPhotoAttached);
   },
 
-  toggleService: function(evt) {
-    var el = $(evt.target);
-    var provider = el.attr('id');
-
-    el.toggleClass("dim");
-
-    this._createCounter();
-    this._toggleServiceField(provider);
-  },
-
-  // keep track of character count
-  _createCounter: function() {
-    // remove obsolete counter
-    this.$('.counter').remove();
-
-    // create new counter
-    var min = 40000;
-    var a = this.$('.service_icon:not(.dim)');
-    if(a.length > 0){
-      $.each(a, function(index, value){
-        var num = parseInt($(value).attr('maxchar'));
-        if (min > num) { min = num; }
-      });
-      this.el_input.charCount({allowed: min, warning: min/10 });
-    }
-  },
-
-  // add or remove the input containing the selected service
-  _toggleServiceField: function(provider) {
-    var hidden_field = this.$('input[name="services[]"][value="'+provider+'"]');
-    if(hidden_field.length > 0){
-      hidden_field.remove();
-    } else {
-      var uid = _.uniqueId('services_');
-      this.$(".content_creation form").append(
-      '<input id="'+uid+'" name="services[]" type="hidden" value="'+provider+'">');
-    }
-  },
-
   handleTextchange: function() {
     var self = this;
 
@@ -183,110 +144,9 @@ app.views.Publisher = Backbone.View.extend({
     this.el_input.mentionsInput("val", function(value){
       self.el_hiddenInput.val(value);
     });
-  },
-
-  triggerGettingStarted: function() {
-    this._addPopover(this.el_input, {
-      trigger: 'manual',
-      offset: 30,
-      id: 'first_message_explain',
-      placement: 'right',
-      html: true
-    }, 600);
-    this._addPopover(this.$('.dropdown'), {
-      trigger: 'manual',
-      offset: 10,
-      id: 'message_visibility_explain',
-      placement: 'bottom',
-      html: true
-    }, 1000);
-    this._addPopover($('#gs-shim'), {
-      trigger: 'manual',
-      offset: -5,
-      id: 'stream_explain',
-      placement: 'left',
-      html: true
-    }, 1400);
-
-    // hide some popovers when a post is created
-    this.$('.button.creation').click(function() {
-      this.$('.dropdown').popover('hide');
-      this.el_input.popover('hide');
-    });
-  },
-
-  _addPopover: function(el, opts, timeout) {
-    el.popover(opts);
-    el.click(function() {
-      el.popover('hide');
-    });
-
-    // show the popover after the given timeout
-    setTimeout(function() {
-      el.popover('show');
-
-      // disable 'getting started' when the last popover is closed
-      var popup = el.data('popover').$tip[0];
-      var close = $(popup).find('.close');
-
-      close.click(function() {
-        if( $('.popover').length==1 ) {
-          $.get('/getting_started_completed');
-        }
-        el.popover('hide');
-      });
-    }, timeout);
-  },
-
-  toggleAspect: function(evt) {
-    var el = $(evt.target);
-    var btn = el.parent('.dropdown').find('.button');
-
-    // visually toggle the aspect selection
-    if( el.is('.radio') ) {
-      AspectsDropdown.toggleRadio(el);
-    } else {
-      AspectsDropdown.toggleCheckbox(el);
-    }
-
-    // update the selection summary
-    AspectsDropdown.updateNumber(
-      el.closest(".dropdown_list"),
-      null,
-      el.parent().find('li.selected').length,
-      ''
-    );
-
-    this._updateSelectedAspectIds();
-  },
-
-  _updateSelectedAspectIds: function() {
-    var self = this;
-
-    // remove previous selection
-    this.$('input[name="aspect_ids[]"]').remove();
-
-    // create fields for current selection
-    this.$('.dropdown .dropdown_list li.selected').each(function() {
-      var el = $(this);
-      var aspectId = el.data('aspect_id');
-
-      self._addHiddenAspectInput(aspectId);
-
-      // close the dropdown when a radio item was selected
-      if( el.is('.radio') ) {
-        el.closest('.dropdown').removeClass('active');
-      }
-    });
-  },
-
-  _addHiddenAspectInput: function(id) {
-    var uid = _.uniqueId('aspect_ids_');
-    this.$('.content_creation form').append(
-      '<input id="'+uid+'" name="aspect_ids[]" type="hidden" value="'+id+'">'
-    );
   }
-});
+
+}));
 
 // jQuery helper for serializing a <form> into JSON
 $.fn.serializeObject = function()
