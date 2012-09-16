@@ -22,8 +22,8 @@ describe ApplicationController do
   describe '#set_git_headers' do
     context 'with git info' do
       before do
-        AppConfig[:git_update] = 'yesterday'
-        AppConfig[:git_revision] = '02395'
+        AppConfig.git_update = 'yesterday'
+        AppConfig.git_revision = '02395'
       end
 
       it 'sets the git header if there is git info' do

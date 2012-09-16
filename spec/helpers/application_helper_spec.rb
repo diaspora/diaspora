@@ -30,7 +30,7 @@ describe ApplicationHelper do
 
   describe "#all_services_connected?" do
     before do
-      AppConfig[:configured_services] = [1, 2, 3]
+      AppConfig,configured_services = [1, 2, 3]
 
       def current_user
         @current_user
@@ -52,7 +52,7 @@ describe ApplicationHelper do
   describe "#jquery_include_tag" do
     describe "with google cdn" do
       before do
-        AppConfig[:jquery_cdn] = true
+        AppConfig.privacy.jquery_cdn = true
       end
 
       it 'inclues jquery.js from google cdn' do
@@ -66,7 +66,7 @@ describe ApplicationHelper do
 
     describe "without google cdn" do
       before do
-        AppConfig[:jquery_cdn] = false
+        AppConfig.privacy.jquery_cdnf = false
       end
 
       it 'includes jquery.js from asset pipeline' do
@@ -90,10 +90,10 @@ describe ApplicationHelper do
     end
 
     it 'displays the supplied AppConfig[:pod_name] if it is set' do
-      old_name = AppConfig[:pod_name]
-      AppConfig[:pod_name] = "Catspora"
+      old_name = AppConfig.settings.pod_name
+      AppConfig.settings.pod_name = "Catspora"
       pod_name.should == "Catspora"
-      AppConfig[:pod_name] = old_name
+      AppConfig.settings.pod_name = old_name
     end
   end
 end

@@ -21,16 +21,17 @@ module Configuration
     #
     # @param setting [#to_s] settings should be underscore_case,
     #   nested settings should be seperated by a dot
+    # @param *args further args passed to the provider
     # @raise [SettingNotFoundError] instead of returning nil if a
     #   setting is not found an exception is raised
     # @return [Array,String,Boolean,nil] whatever the provider provides
     #   is casted to a string, except for some special values
-    def lookup(setting)
+    def lookup(setting, *args)
       setting = setting.to_s
       
       @provider.each do |provider|
         begin
-          return special_value_or_string(provider.lookup(setting))
+          return special_value_or_string(provider.lookup(setting, *args))
         rescue SettingNotFoundError; end
       end
       

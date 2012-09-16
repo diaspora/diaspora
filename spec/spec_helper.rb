@@ -98,12 +98,6 @@ Spork.prefork do
   end
 end
 
-Spork.each_run do
-  # This code will be run each time you run your specs.
-  AppConfig.load!
-  AppConfig.setup!
-end
-
 # https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
 RSpec.configure do |config|
   config.before(:all) do

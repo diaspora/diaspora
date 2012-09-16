@@ -16,6 +16,22 @@ module Configuration
       @pod_url
     end
     
+    def bare_pod_uri
+      pod_uri.authority.gsub('www.', '')
+    end
+    
+    def configured_services
+      return @configured_services unless @configured_services.nil?
+      
+      @configured_services = []
+      [:twitter, :tumblr, :facebook].each do |service|
+        @configured_services << service if services.send(service).enable?
+      end
+      
+      @configured_services
+    end
+    attr_writer :configured_services
+    
     alias_method :prevent_fetching_community_spotlight?, :heroku?
     
     def release?
@@ -27,11 +43,13 @@ module Configuration
       get_git_info if expose_git_info?
       @git_revision
     end
+    attr_writer :git_revision
     
     def git_update
       get_git_info if expose_git_info?
       @git_update
     end
+    attr_writer :git_update
     
     def rails_asset_id
       (git_revision || version)[0..8]

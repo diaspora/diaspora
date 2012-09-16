@@ -56,11 +56,6 @@ Spork.prefork do
   # require 'webmock/cucumber'
   # WebMock.disable_net_connect!(:allow_localhost => true)
 
-  silence_warnings do
-    SERVICES['facebook'] = {'app_id' => :fake, 'app_secret' => 'sdoigjosdfijg'}
-    AppConfig[:configured_services] << 'facebook'
-  end
-
   require Rails.root.join('spec', 'support', 'fake_resque')
 
   require File.join(File.dirname(__FILE__), 'run_resque_in_process')
@@ -75,14 +70,11 @@ end
 
 Spork.each_run do
   Before do
-    @no_follow_diaspora_hq_setting = AppConfig[:no_follow_diasporahq]
-    AppConfig[:no_follow_diasporahq] = true
     DatabaseCleaner.clean
     Devise.mailer.deliveries = []
   end
 
   After do
-    AppConfig[:no_follow_diasporahq] = @no_follow_diaspora_hq_setting
     if Capybara.current_session.driver.respond_to?(:browser)
       Capybara.reset_sessions!
       # Capybara.current_session.driver.browser.manage.delete_all_cookies

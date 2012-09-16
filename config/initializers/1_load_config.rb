@@ -15,6 +15,7 @@ unless File.exists?(config_dir.join("diaspora.yml"))
 end
 
 AppConfig = Configuration::Settings.new do
+  add_provider Configuration::Provider::Dynamicw
   add_provider Configuration::Provider::Env
   add_provider Configuration::Provider::YAML,
                config_dir.join("diaspora.yml"),

@@ -12,12 +12,12 @@ describe RakeHelpers do
   describe '#process_emails' do
     before do
       Devise.mailer.deliveries = []
-      @old_admin = AppConfig[:admin_account]
-      AppConfig[:admin_account] = FactoryGirl.create(:user).username
+      @old_admin = AppConfig.admins.account.get
+      AppConfig.admins.account = FactoryGirl.create(:user).username
     end
 
     after do
-      AppConfig[:admin_account] = @old_admin
+      AppConfig.admins.account = @old_admin
     end
 
     it 'should send emails to each email' do

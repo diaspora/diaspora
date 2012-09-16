@@ -21,7 +21,7 @@ module Configuration::Provider
     end
     
     
-    def lookup_path(settings_path)
+    def lookup_path(settings_path, *args)
       lookup_in_hash(settings_path, @settings)
     end
     

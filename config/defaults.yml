@@ -27,6 +27,7 @@ defaults:
       host:
       site_id:
   settings:
+    pod_name: "Diaspora*"
     enable_registrations: true
     follow_diasporahq: true
     invitations:
@@ -68,6 +69,7 @@ defaults:
       exim_fix: false
     message_bus_api_key:
   admins:
+    account:
     inline_resque_web: true
     monitoring:
        airbrake_api_key:
@@ -99,6 +101,11 @@ test:
     follow_diasporahq: false
     invitations:
       open: true
+  services:
+    facebook:
+      enable: true
+      app_id: 'fake'
+      secret: 'sdoigjosdfijg'
 integration1:
   environment:
     url: "http://localhost:45789/"
