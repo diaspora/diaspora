@@ -1,7 +1,7 @@
 class User
   include Rails.application.routes.url_helpers
   def default_url_options
-    {:host => AppConfig.environment.pod_url}
+    {:host => AppConfig.environment.url}
   end
 
   alias_method :share_with_original, :share_with

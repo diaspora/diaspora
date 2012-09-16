@@ -49,10 +49,10 @@ namespace :migrations do
 
   task :upload_photos_to_s3 do
     require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
-    puts AppConfig[:s3_key]
+    puts AppConfig.environment.s3.key
 
-    connection = Aws::S3.new( AppConfig[:s3_key], AppConfig[:s3_secret])
-    bucket = connection.bucket('joindiaspora')
+    connection = Aws::S3.new( AppConfig.environment.s3.key, AppConfig.environment.s3.secret)
+    bucket = connection.bucket(AppConfig.environment.s3.bucket)
     dir_name = File.dirname(__FILE__) + "/../../public/uploads/images/"
 
     count = Dir.foreach(dir_name).count

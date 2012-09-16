@@ -16,7 +16,7 @@ module Configuration
     def get
       @lookup_chain.lookup(@setting[1..-1].chomp("?"))
     end
-    delegate :to_str, :to_s, :present?, :blank?, :nil?, :each,
+    delegate :to_str, :to_s, :present?, :blank?, :nil?, :each, :try,
              :==, :=~, :gsub, :start_with?, :end_with?  to: :get
   end
 end

@@ -77,6 +77,10 @@ module Configuration
     
     private
     
+    def git_info_present?
+      @git_revision || @git_update
+    end
+    
     def get_git_info
       return if git_info_present? || !git_available?
       
@@ -85,10 +89,6 @@ module Configuration
         @git_revision = $1
         @git_update = $2.strip
       end
-    end
-    
-    def git_info_present?
-      @git_revision || @git_update
     end
     
     def git_available?

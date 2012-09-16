@@ -26,6 +26,8 @@ defaults:
       enable: false
       host:
       site_id:
+    mixpanel_uid:
+    chartbeat_uid:
   settings:
     pod_name: "Diaspora*"
     enable_registrations: true
@@ -43,6 +45,7 @@ defaults:
       enable: false
       app_id:
       secret:
+      open_graph_namespace: 'joindiaspora'
     twitter:
       enable: false
       key:

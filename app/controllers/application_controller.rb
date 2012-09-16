@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :ensure_http_referer_is_set
   before_filter :set_locale
-  before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
+  before_filter :set_diaspora_header
   before_filter :set_grammatical_gender
   before_filter :mobile_switch
 
@@ -61,9 +61,13 @@ class ApplicationController < ActionController::Base
     params[:page] = params[:page] ? params[:page].to_i : 1
   end
 
-  def set_git_header
-    headers['X-Git-Update'] = AppConfig[:git_update] if AppConfig[:git_update].present?
-    headers['X-Git-Revision'] = AppConfig[:git_revision] if AppConfig[:git_revision].present?
+  def set_diaspora_header
+    if AppConfig.release?
+      headers['X-Diaspora-Version'] = AppConfig.version
+    else 
+      headers['X-Git-Update'] = AppConfig.git_update if AppConfig.git_update.present?
+      headers['X-Git-Revision'] = AppConfig.git_revision if AppConfig.git_revision.present?
+    end
   end
 
   def set_locale

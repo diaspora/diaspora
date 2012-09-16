@@ -132,11 +132,11 @@ describe Person do
       end
 
       it 'does not include www if it is set in app config' do
-        old_url = AppConfig.environment.pod_url
-        AppConfig.environment.pod_url = 'https://www.foobar.com/'
+        old_url = AppConfig.environment.url
+        AppConfig.environment.url = 'https://www.foobar.com/'
         new_person = User.build(:username => "foo123", :email => "foo123@example.com", :password => "password", :password_confirmation => "password").person
         new_person.diaspora_handle.should == "foo123@foobar.com"
-        AppConfig.environment.pod_url = old_url
+        AppConfig.environment.url = old_url
       end
     end
 

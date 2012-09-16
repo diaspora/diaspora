@@ -112,6 +112,12 @@ configuration:
       #enable: true
       #host: 'stats.example.org'
       #site_id: 1
+    
+    ## Mixpanel event tracking
+    #mixpanel_uid:
+    
+    ## Chartbeat tracking
+    #chartbeat_uid:
   
   ## General settings
   settings:
@@ -222,6 +228,9 @@ configuration:
       #enable: true
       #app_id: 'abcdef'
       #secret: 'changeme'
+      ## this will be the namespace for your object,
+      ## it should be configured in your FB app
+      #open_graph_namespace: 
     
     ## OAuth credentials for Twitter:
     twitter:
