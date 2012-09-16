@@ -15,10 +15,24 @@ unless File.exists?(config_dir.join("diaspora.yml"))
 end
 
 AppConfig = Configuration::Settings.new do
-  add_provider Configuration::Provider::Env.new
-  add_provider Configuration::Provider::YAML.new config_dir.join("diaspora.yml"), namespace: Rails.env
-  add_provider Configuration::Provider::YAML.new config_dir.join("diaspora.yml"), namespace: "configuration"
-  add_provider Configuration::Provider::YAML.new config_dir.join("defaults.yml"), namespace: Rails.env
-  add_provider Configuration::Provider::YAML.new config_dir.join("defaults.yml"), namespace: "defaults"
+  add_provider Configuration::Provider::Env
+  add_provider Configuration::Provider::YAML,
+               config_dir.join("diaspora.yml"),
+               namespace: Rails.env, required: false
+  add_provider Configuration::Provider::YAML,
+               config_dir.join("diaspora.yml"),
+               namespace: "configuration", required: false
+  add_provider Configuration::Provider::YAML,
+               config_dir.join("defaults.yml"),
+               namespace: Rails.env
+  add_provider Configuration::Provider::YAML,
+               config_dir.join("defaults.yml"),
+               namespace: "defaults"
+  
   extend Configuration::Methods
+  
+  if environment.certificate_authorities.blank? || !File.exists?(environment.certificate_authorities)
+    $stderr.puts "FATAL: Diaspora doesn't know where your certificate authorities are. Please ensure they are set to a valid path in diaspora.yml"
+    Process.exit(1)
+  end
 end

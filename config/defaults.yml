@@ -3,6 +3,7 @@
 #######################################################################
 
 defaults:
+  version: "0.0.1.0"
   environment:
     url: "http://localhost:3000/"
     certificate_authorities:
@@ -11,6 +12,7 @@ defaults:
     disable_ssl_requirement: false
     single_process_mode: false
     s3:
+      enable: false
       key:
       secret:
       bucket:
@@ -19,8 +21,9 @@ defaults:
     pubsub_server: 'https://pubsubhubbub.appspot.com/'
   privacy:
     jquery_cdn: true
-    google_analytics_key: false
+    google_analytics_key:
     piwik:
+      enable: false
       host:
       site_id:
   settings:
@@ -36,12 +39,15 @@ defaults:
       suggest_email:
   services:
     facebook:
+      enable: false
       app_id:
       secret:
     twitter:
+      enable: false
       key:
       secret:
     tumblr:
+      enable: false
       key:
       secret:
   mail:
@@ -62,11 +68,11 @@ defaults:
       exim_fix: false
     message_bus_api_key:
   admins:
-    list:
     inline_resque_web: true
     monitoring:
        airbrake_api_key:
        new_relic:
+        enable: false
         app_name:
         license_key:
     cloudfiles:
@@ -81,11 +87,13 @@ development:
   environment:
     serve_static_assets: true
     single_process_mode: true
+    disable_ssl_requirement: true
   settings:
     follow_diasporahq: false
 production:
 test:
   environment:
+    disable_ssl_requirement: true
     serve_static_assets: true
   settings:
     follow_diasporahq: false
@@ -95,7 +103,10 @@ integration1:
   environment:
     url: "http://localhost:45789/"
     serve_static_assets: true
+    disable_ssl_requirement: true
+    
 integration2:
   environment:
     url: "http://localhost:34658/"
     serve_static_assets: true
+    disable_ssl_requirement: true

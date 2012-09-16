@@ -1,5 +1,5 @@
 module Configuration
-  class Proxy < String
+  class Proxy
     def initialize(lookup_chain)
       @lookup_chain = lookup_chain
       @setting = ""
@@ -8,13 +8,15 @@ module Configuration
     def method_missing(setting, *args, &block)
       @setting << "."
       @setting << setting
-      self
+      
+      return self.get if setting.end_with?("?")
+      return self.dup
     end
     
-    def to_s
-      @lookup_chain.lookup(@setting[1..-1])
+    def get
+      @lookup_chain.lookup(@setting[1..-1].chomp("?"))
     end
-    alias_method :to_str, :to_s
-    alias_method :get, :to_s
+    delegate :to_str, :to_s, :present?, :blank?, :nil?, :each,
+             :==, :=~, :gsub, :start_with?, :end_with?  to: :get
   end
 end

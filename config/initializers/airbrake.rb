@@ -3,8 +3,8 @@
 # the COPYRIGHT file.
 
 Airbrake.configure do |config|
-  if AppConfig[:airbrake_api_key].present?
-    config.api_key = AppConfig[:airbrake_api_key] 
+  if AppConfig.admins.monitoring.airbrake_api_key.present?
+    config.api_key = AppConfig.admins.monitoring.airbrake_api_key
   else
     # creative way to disable Airbrake, should be replaced once the gem provides a proper way
     config.development_environments << Rails.env

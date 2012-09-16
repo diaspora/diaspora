@@ -4,6 +4,8 @@ module Configuration::Provider
   class YAML < Base
     def initialize(file, opts = {})
       @settings = ::YAML.load_file(file)
+      required = opts.delete(:required)
+      required ||= true
       
       namespace = opts.delete(:namespace)
       unless namespace.nil?
@@ -11,11 +13,11 @@ module Configuration::Provider
         unless actual_settings.nil?
           @settings = actual_settings
         else
-          raise ArgumentError, "Namespace #{namespace} not found in #{file}"
+          raise ArgumentError, "Namespace #{namespace} not found in #{file}" if required
         end
     rescue Errno::ENOENT => e
-      puts "WARNING: configuration file #{file} not found, ensure it's present"
-      raise e
+      $stderr.puts "WARNING: configuration file #{file} not found, ensure it's present"
+      raise e if required
     end
     
     

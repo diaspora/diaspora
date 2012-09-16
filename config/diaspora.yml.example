@@ -2,7 +2,7 @@
 ## - All comments start with a double #
 ## - All settings are by default commented out with a single #
 ##   You need to uncomment them in order to work.
-## - Take care to keep proper identation, that is keeping the identation
+## - Take care to keep proper indentation, that is keeping the indentation
 ##   of the original #, with no additional space before the settings
 ##   name.
 ## - Take care to keep proper quoting. All ' should have a matching ' at
@@ -10,6 +10,14 @@
 ## - Lists need the space after the -
 ## - true, false and numbers should have no quoting.
 ##   Single words could have none, but doesn't do any harm to them.
+##
+## You can set and/or override all this settings through environment variables
+## with the following conversion rules:
+## - Strip the top level namespace (configuration, production, etc.)
+## - Build the path to the setting, for example environment.s3.enable
+## - Replace the dots with underscores: environment_s3_enable
+  ^## - Upcase everything: ENVIRONMENT_S3_ENABLE
+## - Specify lists/arrays as comma separated values
 
 configuration:
   
@@ -23,7 +31,7 @@ configuration:
     ## the URL the proxy listens on.
     ## DO NOT CHNANGE THIS AFTER INITIAL SETUP
     ## UNLESS YOU KNOW WHAT YOU'RE DOING!
-    ## However changing http to https is okay and has no consquences.
+    ## However changing http to https is okay and has no consequences.
     ## If you do change it you have to start over as it's hardcoded into
     ## the database.
     #url: "https://example.org/"
@@ -68,6 +76,7 @@ configuration:
     ## Use Amazon S3 instead of your local filesystem
     ## to handle uploaded pictures.
     s3:
+      #enable: true
       #key: 'changeme'
       #secret: 'changeme'
       #bucket: 'my_photos'
@@ -81,7 +90,7 @@ configuration:
     #image_redirect_url: 'https://images.example.org'
     
     ## Diaspora is only tested against this default pubsub server.
-    ## You probably don't want to change this.
+    ## You likely don't want to change this.
     #pubsub_server: 'https://pubsubhubbub.appspot.com/'
   
   
@@ -94,12 +103,13 @@ configuration:
     #jquery_cdn: true
     
     ## Provide a key to enable tracking by Google Analytics 
-    #google_analytics_key: ''
+    #google_analytics_key:
     
     ## Piwik Tracking
     ## Provide a site ID and the host piwik is running on to enable
     ## tracking through Piwik.
     piwik:
+      #enable: true
       #host: 'stats.example.org'
       #site_id: 1
   
@@ -163,6 +173,8 @@ configuration:
     ## Ignore if method isn't 'smtp'
     smtp:
       ## Host and port of the smtp server handling outgoing mail.
+      ## This should match the common name of the certificate
+      ## the SMTP server sends. If he sends one.
       #host: 'smtp.example.org'
       #port: 587
       
@@ -179,10 +191,7 @@ configuration:
       ## Automatically enable TLS? Ignored if authentication is set to none
       #starttls_auto: true
       
-      ## Domain of smtp server.
-      ## This should match the common name of the certificate
-      ## the SMTP server sends. If he sends one.
-      ## Usually this matches the address.
+      ## The domain for the HELO command if needed
       #domain: 'smtp.example.org'
       
       ## OpenSSL verify mode used when connecting to a
@@ -206,29 +215,27 @@ configuration:
   services:
     ## OAuth credentials for Facebook:
     facebook:
+      #enable: true
       #app_id: 'abcdef'
       #secret: 'changeme'
     
     ## OAuth credentials for Twitter:
     twitter:
+      #enable: true
       #key: 'abcdef'
       #secret: 'changeme'
     
     ## OAuth credentials for Tumblr
     tumblr:
+      #enable: true
       #key: 'abcdef'
       #secret: 'changeme'
   
   ## Settings relevant to administrators
   admins:
     
-    ## Define who is an admin
-    #list:
-      #- 'admin'
-      #- 'me'
-    
-    ## Resque is the background processing sysem used by Diaspora
-    ## Resque web is an admin tool for it. This settings decides wheter
+    ## Resque is the background processing system used by Diaspora
+    ## Resque web is an admin tool for it. This settings decides whether
     ## or not to inline it into Diaspora.
     #inline_resque_web: true
   
@@ -238,6 +245,7 @@ configuration:
       
       ## If you use NewRelic provide your credentials here:
       new_relic:
+        #enable: true
         #app_name: 'foo'
         #license_key: 'abcdef'
     

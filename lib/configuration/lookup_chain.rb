@@ -8,10 +8,11 @@ module Configuration
     # they are added, so the order is important.
     #
     # @param provider [#lookup]
+    # @param *args the arguments passed to the providers constructor
     # @return [void]
-    def add_provider(provider)
+    def add_provider(provider, *args)
       raise ArgumentError, "the given provider does not respond to lookup" unless provider.responds_to?(:lookup)
-      @provider << provider
+      @provider << provider.new(*args)
     end
     
     
@@ -22,17 +23,41 @@ module Configuration
     #   nested settings should be seperated by a dot
     # @raise [SettingNotFoundError] instead of returning nil if a
     #   setting is not found an exception is raised
-    # @return [String] whatever the provider provides is casted to a string
+    # @return [Array,String,Boolean,nil] whatever the provider provides
+    #   is casted to a string, except for some special values
     def lookup(setting)
       setting = setting.to_s
       
       @provider.each do |provider|
         begin
-          return provider.lookup(setting).to_s
+          return special_value_or_string(provider.lookup(setting))
         rescue SettingNotFoundError; end
       end
       
       raise SettingNotFoundError, "The setting #{setting} was not found"
+    end
+    
+    private 
+    
+    def special_value_or_string(value)
+      if [TrueClass, FalseClass, NilClass, Array, Hash].include?(value.class)
+        return value
+      elsif value.is_a?(String)
+        if value.include?(",")
+          return value.split(",")
+        else
+          return case value.strip
+            when "true" then true
+            when "false" then false
+            when "", "nil" then nil
+            else value
+          end
+        end
+      elsif value.respond_to?(:to_s)
+        return value.to_s
+      else
+        return value
+      end
     end
   end
 end
