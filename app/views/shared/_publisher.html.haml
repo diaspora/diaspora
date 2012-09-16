@@ -61,7 +61,7 @@
                 %li.public.radio{"data-aspect_id" => "public", :class => ("selected" if publisher_public)}
                   = t('public')
 
-                %li.divider.all_aspects.radio{:style => "border-bottom: 1px solid #ddd;", "data-aspect_id" => "all_aspects", :class => ("selected" if (!publisher_public && all_aspects_selected?(selected_aspects)))}
+                %li.divider.all_aspects.radio{:style => "padding-bottom: 5px; border-bottom: 1px solid #ddd;", "data-aspect_id" => "all_aspects", :class => ("selected" if (!publisher_public && all_aspects_selected?(selected_aspects)))}
                   = t('all_aspects')
 
                 - for aspect in all_aspects
