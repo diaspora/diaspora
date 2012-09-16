@@ -1,0 +1,101 @@
+#######################################################################
+############### DO NOT TOUCH ANYTHING BELOW THIS ######################
+#######################################################################
+
+defaults:
+  environment:
+    url: "http://localhost:3000/"
+    certificate_authorities:
+    redis:
+    serve_static_assets: false
+    disable_ssl_requirement: false
+    single_process_mode: false
+    s3:
+      key:
+      secret:
+      bucket:
+      region:
+    image_redirect_url:
+    pubsub_server: 'https://pubsubhubbub.appspot.com/'
+  privacy:
+    jquery_cdn: true
+    google_analytics_key: false
+    piwik:
+      host:
+      site_id:
+  settings:
+    enable_registrations: true
+    follow_diasporahq: true
+    invitations:
+      open: true
+      count: 25
+    paypal_hosted_button_id:
+    community_spotlight:
+      list:
+        - 'diasporahq@joindiaspora.com'
+      suggest_email:
+  services:
+    facebook:
+      app_id:
+      secret:
+    twitter:
+      key:
+      secret:
+    tumblr:
+      key:
+      secret:
+  mail:
+    enable: false
+    sender_address: 'no-reply@example.org'
+    method: 'smtp'
+    smtp:
+      host: 'localhost'
+      port: 587
+      authentication: 'plain'
+      username:
+      password:
+      starttls_auto: true
+      openssl_verify_mode:
+      domain:
+    sendmail:
+      location: '/usr/sbin/sendmail'
+      exim_fix: false
+    message_bus_api_key:
+  admins:
+    list:
+    inline_resque_web: true
+    monitoring:
+       airbrake_api_key:
+       new_relic:
+        app_name:
+        license_key:
+    cloudfiles:
+      username:
+      api_key:
+      db_container: 'Database Backup'
+      images_container: 'Image Backup'
+      retention_days: 3
+
+
+development:
+  environment:
+    serve_static_assets: true
+    single_process_mode: true
+  settings:
+    follow_diasporahq: false
+production:
+test:
+  environment:
+    serve_static_assets: true
+  settings:
+    follow_diasporahq: false
+    invitations:
+      open: true
+integration1:
+  environment:
+    url: "http://localhost:45789/"
+    serve_static_assets: true
+integration2:
+  environment:
+    url: "http://localhost:34658/"
+    serve_static_assets: true

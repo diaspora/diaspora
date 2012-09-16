@@ -53,7 +53,6 @@ group :heroku do
   gem 'unicorn', '4.3.1', :require => false
 end
 
-gem 'settingslogic', :git => 'https://github.com/binarylogic/settingslogic.git'
 # database
 
 gem "activerecord-import", "0.2.9"
