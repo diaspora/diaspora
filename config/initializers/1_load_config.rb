@@ -4,18 +4,18 @@ require Rails.root.join('lib', 'configuration', 'methods')
 config_dir = Rails.root.join("config")
 
 if File.exists?(config_dir.join("application.yml"))
-  puts "ATTENTION: There's a new configuration system, please remove your"
-  puts "           application.yml and migrate your settings."
+  $stderr.puts "ATTENTION: There's a new configuration system, please remove your"
+  $stderr.puts "           application.yml and migrate your settings."
 end
 
 unless File.exists?(config_dir.join("diaspora.yml"))
-  puts "FATAL: Configuration not found. Copy over diaspora.yml.example"
-  puts "       to diaspora.yml and edit it to your needs."
+  $stderr.puts "FATAL: Configuration not found. Copy over diaspora.yml.example"
+  $stderr.puts "       to diaspora.yml and edit it to your needs."
   Process.exit(1)
 end
 
 AppConfig = Configuration::Settings.new do
-  add_provider Configuration::Provider::Dynamicw
+  add_provider Configuration::Provider::Dynamic
   add_provider Configuration::Provider::Env
   add_provider Configuration::Provider::YAML,
                config_dir.join("diaspora.yml"),

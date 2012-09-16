@@ -16,7 +16,7 @@
 ## - Strip the top level namespace (configuration, production, etc.)
 ## - Build the path to the setting, for example environment.s3.enable
 ## - Replace the dots with underscores: environment_s3_enable
-  ^## - Upcase everything: ENVIRONMENT_S3_ENABLE
+## - Upcase everything: ENVIRONMENT_S3_ENABLE
 ## - Specify lists/arrays as comma separated values
 
 configuration:

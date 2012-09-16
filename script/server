@@ -27,8 +27,8 @@ fi
 
 
 # Check if application.yml exists
-if [ ! -e 'config/application.yml' ]; then
-    echo 'FATAL: config/application.yml is missing! Copy over config/application.yml.example to config/application.yml and edit it properly!' >&2
+if [ ! -e 'config/diaspora.yml' ]; then
+    echo 'FATAL: config/diaspora.yml is missing! Copy over config/diaspora.yml.example to config/diaspora.yml and edit it properly!' >&2
     exit 70
 fi
 
@@ -91,19 +91,19 @@ if [ ! -e public/source.tar.gz ]; then
 fi
 
 
-# Jammit notice
 if [ ! -e 'public/assets/default.css' ]; then
     if [ "$RAILS_ENV" == 'production' ]; then
-        echo "INFO: If you want further performance improvements," >&2
-        echo "after each git pull before you restart the application, run:" >&2
+        echo "FATAL: You're running in production mode without having assets precompiled." >&2
+        echo "Now and after each git pull before you restart the application, run:" >&2
         echo "bundle exec rake assets:precompile" >&2
+        exit 71
     fi
 fi
 
 
 # Start Diaspora
 
-if [ "$(bundle exec ruby ./script/get_config.rb 'single_process_mode?')" != "true" ]; then
+if [ "$(bundle exec ruby ./script/get_config.rb 'environment.single_process_mode?')" != "true" ]; then
     QUEUE=* bundle exec rake resque:work&
 fi
 
