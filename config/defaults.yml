@@ -1,0 +1,121 @@
+#######################################################################
+############### DO NOT TOUCH ANYTHING BELOW THIS ######################
+#######################################################################
+
+defaults:
+  version:
+    number: "0.0.1.0"
+    release: false # Do not touch unless in a merge conflict on doing a release, master should have a commit setting this to true which is not backported to the develop branch.
+  heroku: false
+  environment:
+    url: "http://localhost:3000/"
+    certificate_authorities:
+    redis:
+    serve_static_assets: false
+    require_ssl: true
+    single_process_mode: false
+    s3:
+      enable: false
+      key:
+      secret:
+      bucket:
+      region:
+    image_redirect_url:
+    pubsub_server: 'https://pubsubhubbub.appspot.com/'
+  privacy:
+    jquery_cdn: true
+    google_analytics_key:
+    piwik:
+      enable: false
+      host:
+      site_id:
+    mixpanel_uid:
+    chartbeat_uid:
+  settings:
+    pod_name: "Diaspora*"
+    enable_registrations: true
+    follow_diasporahq: true
+    invitations:
+      open: true
+      count: 25
+    paypal_hosted_button_id:
+    community_spotlight:
+      enable: false
+      suggest_email:
+  services:
+    facebook:
+      enable: false
+      app_id:
+      secret:
+      open_graph_namespace: 'joindiaspora'
+    twitter:
+      enable: false
+      key:
+      secret:
+    tumblr:
+      enable: false
+      key:
+      secret:
+  mail:
+    enable: false
+    sender_address: 'no-reply@example.org'
+    method: 'smtp'
+    smtp:
+      host: 'localhost'
+      port: 587
+      authentication: 'plain'
+      username:
+      password:
+      starttls_auto: true
+      openssl_verify_mode:
+      domain:
+    sendmail:
+      location: '/usr/sbin/sendmail'
+      exim_fix: false
+    message_bus_api_key:
+  admins:
+    account:
+    inline_resque_web: true
+    monitoring:
+       airbrake_api_key:
+       new_relic:
+        enable: false
+        app_name:
+        license_key:
+
+development:
+  environment:
+    serve_static_assets: true
+    single_process_mode: true
+    require_ssl: false
+  settings:
+    follow_diasporahq: false
+production:
+  i_am_a_dummy: # Remove if you add an actual override
+test:
+  environment:
+    url: "http://localhost:9887/"
+    single_process_mode: true
+    require_ssl: false
+    serve_static_assets: true
+  settings:
+    follow_diasporahq: false
+    invitations:
+      open: true
+  services:
+    facebook:
+      enable: true
+      app_id: 'fake'
+      secret: 'sdoigjosdfijg'
+  mail:
+    enable: true
+integration1:
+  environment:
+    url: "http://localhost:45789/"
+    serve_static_assets: true
+    require_ssl: false
+integration2:
+  environment:
+    url: "http://localhost:34658/"
+    serve_static_assets: true
+    require_ssl: false

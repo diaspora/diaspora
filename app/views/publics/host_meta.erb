@@ -5,6 +5,6 @@
 
   <Link rel='lrdd'
         type='application/xrd+xml'
-        template='<%= AppConfig[:pod_url] %>webfinger?q={uri}' />
+        template='<%= AppConfig.environment.url %>webfinger?q={uri}' />
 
 </XRD>

@@ -395,7 +395,7 @@ class User < ActiveRecord::Base
   end
 
   def set_person(person)
-    person.url = AppConfig[:pod_url]
+    person.url = AppConfig.environment.url
     person.diaspora_handle = "#{self.username}#{User.diaspora_id_host}"
     self.person = person
   end
@@ -410,7 +410,7 @@ class User < ActiveRecord::Base
     self.aspects.create(:name => I18n.t('aspects.seed.work'))
     aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
 
-    unless AppConfig[:no_follow_diasporahq]
+    unless AppConfig.settings.follow_diasporahq
       default_account = Webfinger.new('diasporahq@joindiaspora.com').fetch
       self.share_with(default_account, aq) if default_account
     end

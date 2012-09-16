@@ -73,7 +73,7 @@ module PeopleHelper
 
   # Rails.application.routes.url_helpers is needed since this is indirectly called from a model
   def local_or_remote_person_path(person, opts={})
-    opts.merge!(:protocol => AppConfig[:pod_uri].scheme, :host => AppConfig[:pod_uri].authority)
+    opts.merge!(:protocol => AppConfig.pod_uri.scheme, :host => AppConfig.pod_uri.authority)
     absolute = opts.delete(:absolute)
 
     if person.local?

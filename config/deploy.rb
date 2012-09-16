@@ -32,8 +32,7 @@ end
 namespace :deploy do
   task :symlink_config_files do
     run "ln -s -f #{shared_path}/config/database.yml #{current_path}/config/database.yml"
-    run "ln -s -f #{shared_path}/config/application.yml #{current_path}/config/application.yml"
-    run "ln -s -f #{shared_path}/config/oauth_keys.yml #{current_path}/config/oauth_keys.yml"
+    run "ln -s -f #{shared_path}/config/diaspora.yml #{current_path}/config/diaspora.yml"
   end
 
   task :symlink_cookie_secret do

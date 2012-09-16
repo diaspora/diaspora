@@ -1,6 +1,6 @@
 defaults: &defaults
   HEROKU: true
-  application_yml: <%= '../' + '../' +'config/' + 'application.yml.example' %>
+  application_yml: <%= '../' + '../' +'config/' + 'diaspora.yml.example' %>
 production: 
   app: production
   stack: cedar
