@@ -4,6 +4,22 @@
  */
 
 describe("app.views.Publisher", function() {
+  describe("standalone", function() {
+    beforeEach(function() {
+      // should be jasmine helper
+      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+
+      spec.loadFixture("aspects_index");
+      this.view = new app.views.Publisher({
+        standalone: true
+      });
+    });
+
+    it("hides the close button in standalone mode", function() {
+      expect(this.view.$('#hide_publisher').is(':visible')).toBeFalsy();
+    });
+  });
+
   context("plain publisher", function() {
     beforeEach(function() {
       // should be jasmine helper

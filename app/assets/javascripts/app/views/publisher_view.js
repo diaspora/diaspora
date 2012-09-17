@@ -42,6 +42,12 @@ app.views.Publisher = Backbone.View.extend(_.extend(
       this.el_hiddenInput.val( this.el_input.val() );
     }
 
+    // hide close button, in case publisher is standalone
+    // (e.g. bookmarklet, mentions popup)
+    if( this.options.standalone ) {
+      this.$('#hide_publisher').hide();
+    }
+
     // this has to be here, otherwise for some reason the callback for the
     // textchange event won't be called in Backbone...
     this.el_input.bind('textchange', $.noop);

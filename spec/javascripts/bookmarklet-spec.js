@@ -16,6 +16,7 @@ describe("bookmarklet", function() {
 
     it('verifies we are using the bookmarklet', function(){
       expect(app.publisher.options.standalone).toBeTruthy();
+      expect(app.publisher.$('#hide_publisher').is(':visible')).toBeFalsy();
     });
   });
 
