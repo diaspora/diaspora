@@ -319,6 +319,42 @@ $bring-dark-accent-forward-color: #DDD;
   }
 }
 
+.profile-image-container {
+  border-radius: 140px;
+  border : 3px solid #fff;
+  box-shadow : 0 0 2px rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.5), inset 0 -2px 4px rgba(255,255,255,0.3);
+  background-size: cover;
+
+  height : 140px;
+  width : 140px;
+  background : {
+    position : center;
+    image : image-url('user/default.png');
+  }
+
+  display : inline-block;
+
+  margin-bottom : 5px;
+
+  &.small {
+    height : 40px;
+    width : 40px;
+    border : 2px solid #fff;
+  }
+
+  &.smaller {
+    height : 34px;
+    width : 34px;
+    border : 2px solid #ccc;
+  }
+
+  &.micro {
+    height : 24px;
+    width : 24px;
+    border : 2px solid #fff;
+  }
+}
+
 /* responsive */
 @media (max-width: 767px) {
   body {
