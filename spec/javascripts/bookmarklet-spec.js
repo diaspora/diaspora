@@ -15,7 +15,7 @@ describe("bookmarklet", function() {
     });
 
     it('verifies we are using the bookmarklet', function(){
-      expect(app.publisher.options.bookmarklet).toBeTruthy();
+      expect(app.publisher.options.standalone).toBeTruthy();
     });
   });
 

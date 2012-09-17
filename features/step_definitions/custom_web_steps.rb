@@ -46,10 +46,18 @@ end
 
 When /^I append "([^"]*)" to the publisher$/ do |stuff|
   elem = find('#status_message_fake_text')
-  elem.native.send_keys ' ' + stuff
+  elem.native.send_keys(' ' + stuff)
 
   wait_until do
-    page.find("#status_message_text").value.match(/#{stuff}/)
+    find('#status_message_text').value.include?(stuff)
+  end
+end
+
+And /^I want to mention (?:him|her) from the profile$/ do
+  click_link("Mention")
+  wait_for_ajax_to_finish
+  within('#facebox') do
+    click_publisher
   end
 end
 

@@ -10,7 +10,7 @@
 
 :javascript
   app.publisher = new app.views.Publisher({
-    bookmarklet: true
+    standalone: true
   });
 
   var contents = "#{escape_javascript params[:title]} - #{escape_javascript params[:url]}";
