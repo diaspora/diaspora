@@ -11,11 +11,11 @@ describe("bookmarklet", function() {
     });
 
     it('verifies the publisher is loaded', function(){
-      expect(typeof Publisher === "object").toBeTruthy();
+      expect(typeof app.publisher === "object").toBeTruthy();
     });
 
     it('verifies we are using the bookmarklet', function(){
-      expect(Publisher.bookmarklet).toBeTruthy();
+      expect(app.publisher.options.bookmarklet).toBeTruthy();
     });
   });
 
