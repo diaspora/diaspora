@@ -178,6 +178,56 @@ describe AppConfig do
     end
   end
 
+  describe ".get_redis_instance" do
+    context "with REDISTOGO_URL set" do
+      before do
+        ENV["REDISTOGO_URL"] = "redis://myserver"
+      end
+      
+      after do
+        ENV["REDISTOGO_URL"] = nil
+      end
+      
+      it "uses that" do
+        AppConfig.get_redis_instance.client.host.should == "myserver"
+      end
+    end
+    
+    context "with REDIS_URL set" do
+      before do
+        ENV["REDIS_URL"] = "redis://yourserver"
+      end
+      
+      after do
+        ENV["REDIS_URL"] = nil
+      end
+      
+      it "uses that" do
+        AppConfig.get_redis_instance.client.host.should == "yourserver"
+      end
+    end
+    
+    context "with redis_url set" do
+      before do
+        AppConfig[:redis_url] = "redis://ourserver"
+      end
+      
+      after do
+        AppConfig[:redis_url] = ""
+      end
+      
+      it "uses that" do
+        AppConfig.get_redis_instance.client.host.should == "ourserver"
+      end
+    end
+    
+    context "with nothing set" do
+      it "uses localhost" do  
+        AppConfig.get_redis_instance.client.host.should == "127.0.0.1"
+      end
+    end
+  end
+
   describe ".[]=" do
     describe "when setting pod_url" do
       context "with a symbol" do
