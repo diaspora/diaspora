@@ -1,4 +1,6 @@
 module Configuration
+  # This object builds a chain of configuration providers to try to find
+  # a setting.
   class LookupChain
     def initialize
       @provider = []
