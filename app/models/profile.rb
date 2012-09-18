@@ -185,8 +185,8 @@ class Profile < ActiveRecord::Base
   end
 
   def absolutify_local_url url
-    pod_url = AppConfig[:pod_url].dup
-    pod_url.chop! if AppConfig[:pod_url][-1,1] == '/'
+    pod_url = AppConfig.environment.url.get.dup
+    pod_url.chop! if pod_url[-1,1] == '/'
     "#{pod_url}#{url}"
   end
 end

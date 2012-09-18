@@ -132,17 +132,17 @@ describe Person do
       end
 
       it 'does not include www if it is set in app config' do
-        old_url = AppConfig[:pod_url]
-        AppConfig[:pod_url] = 'https://www.foobar.com/'
+        old_url = AppConfig.environment.url
+        AppConfig.environment.url = 'https://www.foobar.com/'
         new_person = User.build(:username => "foo123", :email => "foo123@example.com", :password => "password", :password_confirmation => "password").person
         new_person.diaspora_handle.should == "foo123@foobar.com"
-        AppConfig[:pod_url] = old_url
+        AppConfig.environment.url = old_url
       end
     end
 
     context 'remote people' do
       it 'stores the diaspora_handle in the database' do
-        @person.diaspora_handle.include?(AppConfig[:pod_uri].host).should be false
+        @person.diaspora_handle.include?(AppConfig.environment.pod_uri.host).should be false
       end
     end
 

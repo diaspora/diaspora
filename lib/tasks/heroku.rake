@@ -2,8 +2,6 @@
  #licensed under the Affero General Public License version 3 or later.  See
  #the COPYRIGHT file.
 
-require Rails.root.join('lib', 'environment_configuration')
-
 namespace :heroku do
   HEROKU_CONFIG_ADD_COMMAND = "heroku config:add"
 
@@ -23,10 +21,10 @@ namespace :heroku do
 
   task :set_up_s3_sync => [:environment] do
     fog_provider = "FOG_PROVIDER=AWS"
-    aws_access_key_id = "AWS_ACCESS_KEY_ID=#{AppConfig[:s3_key]}"
-    aws_secret_access_key = "AWS_SECRET_ACCESS_KEY=#{AppConfig[:s3_secret]}"
-    fog = "FOG_DIRECTORY=#{AppConfig[:s3_bucket]}"
-    asset_host = "ASSET_HOST=https://#{AppConfig[:s3_bucket]}.s3.amazonaws.com"
+    aws_access_key_id = "AWS_ACCESS_KEY_ID=#{AppConfig.environment.s3.key}"
+    aws_secret_access_key = "AWS_SECRET_ACCESS_KEY=#{AppConfig.environment.s3.secret}"
+    fog = "FOG_DIRECTORY=#{AppConfig.environment.s3.bucket}"
+    asset_host = "ASSET_HOST=https://#{AppConfig.environment.s3.bucket}.s3.amazonaws.com"
     
     each_heroku_app do |stage|
       system("heroku labs:enable user_env_compile -a #{stage.app}")

@@ -125,7 +125,7 @@ class Stream::Base
   end
 
   def spotlight_diaspora_id
-    @spotlight_diaspora_id ||= AppConfig[:community_spotlight].try(:sample, 1)
+    @spotlight_diaspora_id ||= AppConfig.settings.community_spotlight.list.try(:sample, 1)
   end
 
   # @param post [Post]

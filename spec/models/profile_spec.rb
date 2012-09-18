@@ -116,7 +116,7 @@ describe Profile do
     before do
       @profile = FactoryGirl.build(:profile)
       @profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
-      @pod_url = (AppConfig[:pod_url][-1,1] == '/' ? AppConfig[:pod_url].chop : AppConfig[:pod_url])
+      @pod_url = (AppConfig.environment.url.get[-1,1] == '/' ? AppConfig.environment.url.chop : AppConfig.environment.url)
     end
 
     it 'ignores an empty string' do

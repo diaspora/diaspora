@@ -17,7 +17,6 @@ describe StreamsController do
     end
 
     it 'will redirect if not' do
-      AppConfig[:admins] = []
       get :public
       response.should be_redirect
     end
@@ -25,21 +24,21 @@ describe StreamsController do
 
   describe '#multi' do
     before do
-      @old_spotlight_value = AppConfig[:community_spotlight]
+      @old_spotlight_value = AppConfig.settings.community_spotlight.list.get
     end
 
     after do
-      AppConfig[:community_spotlight] = @old_spotlight_value
+      AppConfig.settings.community_spotlight.list = @old_spotlight_value
     end
 
     it 'succeeds' do
-      AppConfig[:community_spotlight] = [bob.person.diaspora_handle]
+      AppConfig.settings.community_spotlight.list = [bob.person.diaspora_handle]
       get :multi
       response.should be_success
     end
 
-    it 'succeeds without AppConfig[:community_spotlight]' do
-      AppConfig[:community_spotlight] = nil
+    it 'succeeds without AppConfig.settings.community_spotlight.list' do
+      AppConfig.settings.community_spotlight.list = []
       get :multi
       response.should be_success
     end

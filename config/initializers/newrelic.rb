@@ -2,6 +2,6 @@
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
 
-if EnvironmentConfiguration.using_new_relic?
+if AppConfig.admins.monitoring.new_relic.enable?
   require 'newrelic_rpm'
 end

@@ -46,7 +46,7 @@ after_fork do |server, worker|
   ActiveRecord::Base.establish_connection
 
   # copy pasta from resque.rb because i'm a bad person
-  if !AppConfig.single_process_mode?
+  if !AppConfig.environment.single_process_mode?
     Resque.redis = AppConfig.get_redis_instance
   end
 
