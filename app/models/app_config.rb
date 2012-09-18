@@ -183,9 +183,9 @@ HELP
       redis_options = { :url => ENV['REDIS_URL'] }
     elsif ENV['RAILS_ENV']== 'integration2'
       redis_options = { :host => 'localhost', :port => 6380 }
-    elsif AppConfig[:redis_url].present?
-      puts "WARNING: You're redis_url doesn't start with redis://" unless AppConfig[:redis_url].start_with?("redis://")
-      redis_options = { :url => AppConfig[:redis_url] }
+    elsif self[:redis_url].present?
+      puts "WARNING: You're redis_url doesn't start with redis://" unless self[:redis_url].start_with?("redis://")
+      redis_options = { :url => self[:redis_url] }
     end
   
     Redis.new(redis_options.merge(:thread_safe => true))
