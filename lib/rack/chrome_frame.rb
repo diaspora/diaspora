@@ -17,7 +17,7 @@ module Rack
           status, headers, response = @app.call(env)
           new_body = insert_tag(build_response_body(response))
           new_headers = recalculate_body_length(headers, new_body)
-          return [status, new_headers, new_body]
+          return [status, new_headers, [new_body]]
         elsif @options[:minimum].nil? or ie_version(env['HTTP_USER_AGENT']) < @options[:minimum]
           html = <<-HTML
             <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -42,6 +42,10 @@ module Rack
     def build_response_body(response)
       response_body = ""
       response.each { |part| response_body += part }
+
+      # see: http://johnbintz.github.com/blog/2012/03/05/closing-given-body-in-rack-middleware/
+      response.close if response.respond_to?(:close)
+
       response_body
     end
 
