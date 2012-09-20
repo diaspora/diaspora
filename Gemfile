@@ -65,7 +65,7 @@ gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 # file uploading
 
 gem 'carrierwave', '0.6.2'
-gem 'fog', '1.4.0'
+gem 'fog', '1.6.0'
 gem 'mini_magick', '3.4'
 
 # JSON and API
@@ -170,7 +170,7 @@ group :test, :development do
 end
 
 group :development do
-  gem 'heroku', '2.28.12'
+  gem 'heroku', '2.31.4'
   gem 'heroku_san', '3.0.4'
   gem 'capistrano', '2.12.0', :require => false
   gem 'capistrano_colors', '0.5.5', :require => false
