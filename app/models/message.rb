@@ -11,6 +11,8 @@ class Message < ActiveRecord::Base
 
   belongs_to :author, :class_name => 'Person'
   belongs_to :conversation, :touch => true
+  
+  delegate :name, to: :author, prefix: true
 
   validates :text, :presence => true
   validate :participant_of_parent_conversation

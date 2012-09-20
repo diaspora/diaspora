@@ -3,6 +3,10 @@ module NotificationMailers
 
   class Base
     attr_accessor :recipient, :sender
+    
+    delegate :unconfirmed_email, :confirm_email_token,
+             :first_name, to: :recipient, prefix: true
+    delegate :first_name, :name, :sender, to: :sender, prefix: true
 
     def initialize(recipient_id, sender_id=nil, *args)
       @headers = {}

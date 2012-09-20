@@ -1,5 +1,5 @@
 <%= comment_message(@notification.comment, :process_newlines => true) %>
 
-[<%= t('notifier.comment_on_post.reply', :name => @notification.comment.post.author.first_name) %>][1]
+[<%= t('notifier.comment_on_post.reply', :name => @notification.comment_post.author_first_name) %>][1]
 
-[1]: <%= post_url(@notification.comment.post) %>
+[1]: <%= post_url(@notification.comment_post) %>

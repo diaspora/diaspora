@@ -100,7 +100,7 @@ class Stream::Base
   def like_posts_for_stream!(posts)
     return posts unless @user
 
-    likes = Like.where(:author_id => @user.person.id, :target_id => posts.map(&:id), :target_type => "Post")
+    likes = Like.where(:author_id => @user.person_id, :target_id => posts.map(&:id), :target_type => "Post")
 
     like_hash = likes.inject({}) do |hash, like|
       hash[like.target_id] = like
@@ -133,7 +133,7 @@ class Stream::Base
   def post_is_from_contact?(post)
     @can_comment_cache ||= {}
     @can_comment_cache[post.id] ||= contacts_in_stream.find{|contact| contact.person_id == post.author.id}.present?
-    @can_comment_cache[post.id] ||= (user.person.id == post.author.id)
+    @can_comment_cache[post.id] ||= (user.person_id == post.author_id)
     @can_comment_cache[post.id]
   end
 end

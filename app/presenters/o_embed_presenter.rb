@@ -15,7 +15,7 @@ class OEmbedPresenter
   def as_json(opts={})
     {
       :provider_name => "Diaspora", 
-      :provider_url => AppConfig[:pod_url],
+      :provider_hurl => AppConfig[:pod_url],
       :type => 'rich',
       :version => '1.0',
       :title => post_title,
@@ -36,7 +36,7 @@ class OEmbedPresenter
   end
 
   def post_author
-    @post.author.name
+    @post.author_name
   end
 
   def post_author_url

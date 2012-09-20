@@ -29,7 +29,7 @@
 
     - if @contacts.size > 0
       - for contact in @contacts
-        .stream_element{:id => contact.person.id}
+        .stream_element{:id => contact.person_id}
 
           .float-right
             = contact_aspect_dropdown(contact)
@@ -41,7 +41,7 @@
             .bd
               = person_link(contact.person)
               .info
-                = contact.person.diaspora_handle
+                = contact.person_diaspora_handle
 
       = will_paginate @contacts
     - else
