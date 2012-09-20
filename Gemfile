@@ -126,7 +126,7 @@ group :assets do
   gem 'uglifier', '1.3.0'
 
   # asset_sync is required as needed by application.rb
-  gem "asset_sync", '0.4.2', :require => nil
+  gem "asset_sync", '0.5.0', :require => nil
 end
 
 gem 'jquery-rails', '2.0.2'

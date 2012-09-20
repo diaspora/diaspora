@@ -82,7 +82,7 @@ GEM
       activesupport
       builder
     arel (3.0.2)
-    asset_sync (0.4.2)
+    asset_sync (0.5.0)
       activemodel
       fog
     bbenezech-nested_form (0.0.6)
@@ -458,7 +458,7 @@ DEPENDENCIES
   acts_as_api (= 0.4.1)
   addressable (= 2.3.2)
   airbrake (= 3.1.0)
-  asset_sync (= 0.4.2)
+  asset_sync (= 0.5.0)
   bootstrap-sass (= 2.1.0.0)
   bundler (> 1.1.0)
   capistrano (= 2.12.0)
