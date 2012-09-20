@@ -10,10 +10,35 @@ describe Configuration::Methods do
   end
   
   describe "#pod_uri" do
+    before do
+      @settings.environment.url = nil
+      @settings.instance_variable_set(:@pod_uri, nil)
+    end
+    
     it "properly parses the pod url" do
       @settings.environment.url = "http://example.org/"
       @settings.pod_uri.scheme.should == "http"
       @settings.pod_uri.host.should == "example.org"
+    end
+    
+     it "adds a trailing slash if there isn't one" do
+      @settings.environment.url = "http://example.org"
+      @settings.pod_uri.to_s.should == "http://example.org/"
+    end
+    
+    it "does not add an extra trailing slash" do
+      @settings.environment.url = "http://example.org/"
+      @settings.pod_uri.to_s.should == "http://example.org/"
+    end
+    
+    it "adds http:// on the front if it's missing" do
+      @settings.environment.url = "example.org/"
+      @settings.pod_uri.to_s.should == "http://example.org/"
+    end
+    
+    it "does not add a prefix if there already is https:// on the front" do
+      @settings.environment.url = "https://example.org/"
+      @settings.pod_uri.to_s.should == "https://example.org/"
     end
   end
   

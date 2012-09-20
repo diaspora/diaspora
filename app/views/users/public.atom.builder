@@ -8,7 +8,7 @@ atom_feed({'xmlns:thr' => 'http://purl.org/syndication/thread/1.0',
  :id => "#{@user.public_url}.atom",
  :root_url => "#{@user.public_url}"}) do |feed|
 
-  feed.tag! :generator, 'Diaspora', :uri => "#{AppConfig.environment.url}"
+  feed.tag! :generator, 'Diaspora', :uri => "#{AppConfig.pod_uri.to_s}"
   feed.title "#{@user.name}'s Public Feed"
   feed.subtitle "Updates from #{@user.name} on Diaspora"
   feed.logo "#{@user.image_url(:thumb_small)}"

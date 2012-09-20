@@ -15,7 +15,7 @@ class OEmbedPresenter
   def as_json(opts={})
     {
       :provider_name => "Diaspora", 
-      :provider_url => AppConfig.environment.url,
+      :provider_url => AppConfig.pod_uri.to_s,
       :type => 'rich',
       :version => '1.0',
       :title => post_title,

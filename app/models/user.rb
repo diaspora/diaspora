@@ -395,7 +395,7 @@ class User < ActiveRecord::Base
   end
 
   def set_person(person)
-    person.url = AppConfig.environment.url
+    person.url = AppConfig.pod_uri.to_s
     person.diaspora_handle = "#{self.username}#{User.diaspora_id_host}"
     self.person = person
   end

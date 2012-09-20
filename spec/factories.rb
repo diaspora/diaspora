@@ -28,7 +28,7 @@ FactoryGirl.define do
 
   factory :person do
     sequence(:diaspora_handle) { |n| "bob-person-#{n}#{r_str}@example.net" }
-    sequence(:url)  { |n| AppConfig.environment.url.get }
+    url AppConfig.pod_uri.to_s
     serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
     after(:build) do |person|
       person.profile = FactoryGirl.build(:profile, :person => person) unless person.profile.first_name.present?
