@@ -5,7 +5,7 @@ ruby '1.9.3' if ENV['HEROKU']
 
 gem 'rails', '3.2.8'
 
-gem 'foreman', '0.57'
+gem 'foreman', '0.59'
 
 gem 'thin', '1.4.1',    :require => false
 gem 'rails_autolink', '1.0.9'
@@ -56,7 +56,7 @@ end
 gem 'settingslogic', :git => 'https://github.com/binarylogic/settingslogic.git'
 # database
 
-gem "activerecord-import", "0.2.9"
+gem "activerecord-import", "0.2.10"
 gem 'foreigner', '1.2.1'
 gem 'mysql2', '0.3.11' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg', '0.14.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
@@ -71,7 +71,7 @@ gem 'mini_magick', '3.4'
 # JSON and API
 
 gem 'json', '1.7.5'
-gem 'acts_as_api', '0.4'
+gem 'acts_as_api', '0.4.1 '
 
 # localization
 
@@ -80,7 +80,7 @@ gem 'rails-i18n'
 
 # parsing
 
-gem 'nokogiri', '1.5.2'
+gem 'nokogiri', '1.5.5'
 gem 'redcarpet', "2.1.1"
 gem 'roxml', :git => 'https://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'ruby-oembed', '0.8.7'
@@ -112,7 +112,7 @@ gem 'gon', '4.0.0'
 # assets
 
 group :assets do
-  gem 'bootstrap-sass', '2.0.3.1'
+  gem 'bootstrap-sass', '2.1.0.0'
   gem 'sass-rails', '3.2.5'
 
   # Windows and OSX have an execjs compatible runtime built-in, Linux users should
@@ -133,8 +133,8 @@ gem 'jquery-rails', '2.0.2'
 
 # web
 
-gem 'faraday', '0.8.1'
-gem 'faraday_middleware', '0.8.7'
+gem 'faraday', '0.8.4'
+gem 'faraday_middleware', '0.8.8'
 
 
 gem 'jasmine', '1.2.1'
@@ -148,14 +148,14 @@ group :test do
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'database_cleaner', '0.8'
 
-  gem 'timecop'
-  gem 'factory_girl_rails', '4.0.0'
+  gem 'timecop', '0.5.1'
+  gem 'factory_girl_rails', '4.1.0'
   gem 'fixture_builder', '0.3.4'
   gem 'fuubar', '1.0.0'
   gem 'rspec-instafail', '0.2.4', :require => false
   gem 'selenium-webdriver', '2.25.0'
 
-  gem 'webmock', '1.8.7', :require => false
+  gem 'webmock', '1.8.10', :require => false
 
   gem 'spork', '1.0.0rc3'
   gem 'guard-rspec', '0.7.3'
@@ -175,7 +175,7 @@ group :development do
   gem 'capistrano', '2.12.0', :require => false
   gem 'capistrano_colors', '0.5.5', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
-  gem 'yard', '0.8.1', :require => false
+  gem 'yard', '0.8.2.1', :require => false
 
   # for tracing AR object instantiation and memory usage per request
   gem 'oink', '0.9.3'
