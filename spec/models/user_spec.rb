@@ -29,9 +29,7 @@ describe User do
       user.save
       User.yearly_actives.should include user
     end
-  end
 
-  describe 'yearly_actives' do
     it 'returns list which does not include users who did not sign in within last year' do
       user = FactoryGirl.build(:user)
       user.last_sign_in_at = Time.now - 2.year
@@ -47,9 +45,7 @@ describe User do
       user.save
       User.monthly_actives.should include user
     end
-  end
 
-  describe 'monthly_actives' do
     it 'returns list which does not include users who did not sign in within last month' do
       user = FactoryGirl.build(:user)
       user.last_sign_in_at = Time.now - 2.month
@@ -65,9 +61,7 @@ describe User do
       user.save
       User.daily_actives.should include(user)
     end
-  end
 
-  describe 'daily_actives' do
     it 'returns list which does not include users who did not sign in within last day' do
       user = FactoryGirl.build(:user)
       user.last_sign_in_at = Time.now - 2.day
@@ -75,7 +69,7 @@ describe User do
       User.daily_actives.should_not include(user)
     end
   end
-
+  
   context 'callbacks' do
     describe '#save_person!' do
       it 'saves the corresponding user if it has changed' do
