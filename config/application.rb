@@ -99,8 +99,3 @@ module Diaspora
 
   end
 end
-
-# Only load asset_sync if S3 is configured
-if RAILS_GROUPS.include?(:assets) && ENV['AWS_ACCESS_KEY_ID']
-  require 'asset_sync'
-end
