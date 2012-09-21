@@ -22,6 +22,8 @@ defaults:
       region:
     image_redirect_url:
     pubsub_server: 'https://pubsubhubbub.appspot.com/'
+    unicorn:
+      embed_resque_worker: false
   privacy:
     jquery_cdn: true
     google_analytics_key:

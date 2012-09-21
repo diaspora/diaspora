@@ -99,7 +99,11 @@ configuration:
     ## Diaspora is only tested against this default pubsub server.
     ## You likely don't want to change this.
     #pubsub_server: 'https://pubsubhubbub.appspot.com/'
-  
+    
+    unicorn:
+      ## Embed a resque worker inside the unicorn process, useful for
+      ## minimal Heroku setups
+      #embed_resque_worker: true
   
   ## Settings probably affecting the privacy of your users 
   privacy:
