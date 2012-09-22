@@ -181,13 +181,6 @@ Diaspora::Application.routes.draw do
 
   # External
 
-  resources :authorizations, :only => [:index, :destroy]
-  scope "/oauth", :controller => :authorizations, :as => "oauth" do
-    get "authorize" => :new
-    post "authorize" => :create
-    post :token
-  end
-
   resources :services, :only => [:index, :destroy]
   controller :services do
     scope "/auth", :as => "auth" do
