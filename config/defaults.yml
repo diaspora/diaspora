@@ -11,7 +11,6 @@ defaults:
     url: "http://localhost:3000/"
     certificate_authorities:
     redis:
-    serve_static_assets: false
     require_ssl: true
     single_process_mode: false
     s3:
@@ -21,6 +20,10 @@ defaults:
       bucket:
       region:
     image_redirect_url:
+    assets:
+      serve: false
+      upload: false
+      host:
     pubsub_server: 'https://pubsubhubbub.appspot.com/'
     unicorn:
       embed_resque_worker: false
@@ -87,7 +90,8 @@ defaults:
 
 development:
   environment:
-    serve_static_assets: true
+    assets:
+      serve: true
     single_process_mode: true
     require_ssl: false
   settings:
@@ -99,7 +103,8 @@ test:
     url: "http://localhost:9887/"
     single_process_mode: true
     require_ssl: false
-    serve_static_assets: true
+    assets:
+      serve: true
   settings:
     follow_diasporahq: false
     invitations:
@@ -114,10 +119,12 @@ test:
 integration1:
   environment:
     url: "http://localhost:45789/"
-    serve_static_assets: true
+    assets:
+      serve: true
     require_ssl: false
 integration2:
   environment:
     url: "http://localhost:34658/"
-    serve_static_assets: true
+    assets:
+      serve: true
     require_ssl: false
