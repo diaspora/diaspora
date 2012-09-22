@@ -29,7 +29,7 @@ defaults: &defaults
   ## Leave it empty for the default ('redis://localhost:6379/0')
   ## You can specify a username and password in it, for example
   ## redis://user:password@remote_host:6379/0
-  ## You can also specify a unix socket URL like unix://tmp/redis.sock
+  ## You can also specify a unix socket URL like unix:///tmp/redis.sock
   redis_url:
 
   ## Serve static assets via the appserver.
