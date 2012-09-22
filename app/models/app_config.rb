@@ -184,7 +184,7 @@ HELP
     elsif ENV['RAILS_ENV']== 'integration2'
       redis_options = { :host => 'localhost', :port => 6380 }
     elsif self[:redis_url].present?
-      puts "WARNING: You're redis_url doesn't start with redis://" unless self[:redis_url].start_with?("redis://")
+      puts "WARNING: You're redis_url does not start with redis:// or unix:/// warning" unless start_with?("redis://") || start_with?("unix:///")
       redis_options = { :url => self[:redis_url] }
     end
   
