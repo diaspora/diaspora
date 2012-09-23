@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   include Querying
   include SocialActions
 
+  scope :logged_in_since, lambda { |time| where('last_sign_in_at > ?', time) }
+  scope :monthly_actives, lambda { |time = Time.now| logged_in_since(time - 1.month) }
+  scope :daily_actives, lambda { |time = Time.now| logged_in_since(time - 1.day) }
+  scope :yearly_actives, lambda { |time = Time.now| logged_in_since(time - 1.year) }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable, :token_authenticatable, :lockable,
@@ -80,22 +85,6 @@ class User < ActiveRecord::Base
 
   def self.all_sharing_with_person(person)
     User.joins(:contacts).where(:contacts => {:person_id => person.id})
-  end
-
-  def self.monthly_actives(start_day = Time.now)
-    logged_in_since(start_day - 1.month)
-  end
-
-  def self.yearly_actives(start_day = Time.now)
-    logged_in_since(start_day - 1.year)
-  end
-
-  def self.daily_actives(start_day = Time.now)
-    logged_in_since(start_day - 1.day)
-  end
-
-  def self.logged_in_since(time)
-    where('last_sign_in_at > ?', time)
   end
 
   def unread_notifications
