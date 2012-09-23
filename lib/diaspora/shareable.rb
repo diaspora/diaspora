@@ -16,6 +16,7 @@ module Diaspora
 
         belongs_to :author, :class_name => 'Person'
 
+        delegate :id, :name, :first_name, to: :author, prefix: true
 
         #scopes
         scope :all_public, where(:public => true, :pending => false)
@@ -26,7 +27,7 @@ module Diaspora
                where(
                   Contact.arel_table[:user_id].eq(user.id).or(
                     self.arel_table[:public].eq(true).or(
-                      self.arel_table[:author_id].eq(user.person.id)
+                      self.arel_table[:author_id].eq(user.person_id)
                    )
                  )
                ).

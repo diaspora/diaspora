@@ -17,7 +17,8 @@ module Diaspora
         validates :author, :presence => true
         validate :author_is_not_ignored
 
-        delegate :public?, :to => :parent
+        delegate :public?, to: :parent
+        delegate :author, :diaspora_handle, to: :parent, prefix: true
 
         after_create do
           parent.touch(:interacted_at) if parent.respond_to?(:interacted_at)
@@ -68,7 +69,7 @@ module Diaspora
       comment_or_like = self.class.where(:guid => self.guid).first || self
 
       # Check to make sure the signature of the comment or like comes from the person claiming to author it
-      unless comment_or_like.parent.author == user.person || comment_or_like.verify_parent_author_signature
+      unless comment_or_like.parent_author == user.person || comment_or_like.verify_parent_author_signature
         Rails.logger.info("event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} sender=#{self.parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{self.parent.id}")
         return
       end
