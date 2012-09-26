@@ -129,7 +129,7 @@ group :assets do
   gem "asset_sync", '0.5.0', :require => nil
 end
 
-gem 'jquery-rails', '2.0.2'
+gem 'jquery-rails', '2.1.3'
 
 # web
 
