@@ -36,7 +36,7 @@ gem 'newrelic_rpm', '3.3.5'
 gem "rpm_contrib", '2.1.11'
 
 group :production do # we don't install these on travis to speed up test runs
-  gem 'rails_admin', :git => 'git://github.com/halida/rails_admin.git'
+  gem 'rails_admin', '0.1.1'
   gem 'fastercsv', '1.5.5', :require => false
   gem 'rack-ssl', '1.3.2', :require => 'rack/ssl'
   gem 'rack-rewrite', '1.2.1', :require => false
@@ -56,7 +56,7 @@ end
 gem 'settingslogic', :git => 'https://github.com/binarylogic/settingslogic.git'
 # database
 
-gem "activerecord-import", "0.2.10"
+gem "activerecord-import", "0.2.11"
 gem 'foreigner', '1.2.1'
 gem 'mysql2', '0.3.11' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg', '0.14.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
@@ -65,7 +65,7 @@ gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 # file uploading
 
 gem 'carrierwave', '0.6.2'
-gem 'fog', '1.4.0'
+gem 'fog', '1.6.0'
 gem 'mini_magick', '3.4'
 
 # JSON and API
@@ -126,10 +126,10 @@ group :assets do
   gem 'uglifier', '1.3.0'
 
   # asset_sync is required as needed by application.rb
-  gem "asset_sync", '0.4.2', :require => nil
+  gem "asset_sync", '0.5.0', :require => nil
 end
 
-gem 'jquery-rails', '2.0.2'
+gem 'jquery-rails', '2.1.3'
 
 # web
 
@@ -170,7 +170,7 @@ group :test, :development do
 end
 
 group :development do
-  gem 'heroku', '2.28.12'
+  gem 'heroku', '2.31.4'
   gem 'heroku_san', '3.0.4'
   gem 'capistrano', '2.12.0', :require => false
   gem 'capistrano_colors', '0.5.5', :require => false
