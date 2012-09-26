@@ -184,10 +184,6 @@ describe AppConfig do
         ENV["REDISTOGO_URL"] = "redis://myserver"
       end
       
-      after do
-        ENV["REDISTOGO_URL"] = nil
-      end
-      
       it "uses that" do
         AppConfig.get_redis_instance.client.host.should == "myserver"
       end
@@ -195,11 +191,8 @@ describe AppConfig do
     
     context "with REDIS_URL set" do
       before do
+        ENV["REDISTOGO_URL"] = nil
         ENV["REDIS_URL"] = "redis://yourserver"
-      end
-      
-      after do
-        ENV["REDIS_URL"] = nil
       end
       
       it "uses that" do
@@ -210,10 +203,11 @@ describe AppConfig do
     context "with redis_url set" do
       before do
         AppConfig[:redis_url] = "redis://ourserver"
+        ENV["REDISTOGO_URL"] = nil
+        ENV["REDIS_URL"] = nil
       end
       
       after do
-        AppConfig[:redis_url] = ""
       end
       
       it "uses that" do
@@ -222,6 +216,12 @@ describe AppConfig do
     end
     
     context "with nothing set" do
+      before do
+        AppConfig[:redis_url] = ""
+        ENV["REDISTOGO_URL"] = nil
+        ENV["REDIS_URL"] = nil
+      end
+        
       it "uses localhost" do  
         AppConfig.get_redis_instance.client.host.should == "127.0.0.1"
       end

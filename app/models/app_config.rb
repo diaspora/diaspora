@@ -77,6 +77,7 @@ HELP
     normalize_admins
     normalize_pod_services
     deprecate_hoptoad_api_key
+    self[:to_ary] = []
   end
 
   def self.configured_services
