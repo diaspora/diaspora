@@ -138,7 +138,7 @@ group :test do
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'database_cleaner', '0.8'
 
-  gem 'timecop', '0.5.1'
+  gem 'timecop', '0.5.3'
   gem 'factory_girl_rails', '4.1.0'
   gem 'fixture_builder', '0.3.4'
   gem 'fuubar', '1.0.0'
