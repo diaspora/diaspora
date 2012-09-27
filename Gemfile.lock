@@ -152,7 +152,7 @@ GEM
       ruby-hmac
     foreigner (1.2.1)
       activerecord (>= 3.0.0)
-    foreman (0.59.0)
+    foreman (0.60.2)
       thor (>= 0.13.6)
     formatador (0.2.3)
     fuubar (1.1.0)
@@ -435,7 +435,7 @@ DEPENDENCIES
   fixture_builder (= 0.3.4)
   fog (= 1.6.0)
   foreigner (= 1.2.1)
-  foreman (= 0.59)
+  foreman (= 0.60.2)
   fuubar (= 1.1.0)
   gon (= 4.0.0)
   guard-cucumber (= 1.0.0)
