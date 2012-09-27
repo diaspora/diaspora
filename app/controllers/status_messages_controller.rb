@@ -11,7 +11,18 @@ class StatusMessagesController < ApplicationController
              :mobile,
              :json
 
-  layout 'blank', :only => [ :bookmarklet ]
+  layout :choose_layout
+  
+  # Define layout
+  def choose_layout
+    if action_name == 'bookmarklet'
+      if ! is_mobile_device?
+        return 'blank'
+      else
+        return 'application'
+      end
+    end
+  end
 
   # Called when a user clicks "Mention" on a profile page
   # @param person_id [Integer] The id of the person to be mentioned
