@@ -1,7 +1,5 @@
 source 'http://rubygems.org'
 
-gem 'bundler', '> 1.1.0'
-
 gem 'rails', '3.2.8'
 
 gem 'foreman', '0.60.2'
