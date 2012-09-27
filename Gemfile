@@ -113,7 +113,7 @@ group :assets do
 
   # gem 'therubyracer', :platform => :ruby
 
-  gem 'handlebars_assets', '0.6.5'
+  gem 'handlebars_assets', '0.6.6'
   gem 'uglifier', '1.3.0'
 
   gem "asset_sync", '0.5.0', :require => false
