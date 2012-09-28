@@ -150,7 +150,7 @@ configuration:
     #follow_diasporahq: false
     
     ## Settings about invitations
-    invitiations:
+    invitations:
       
       ## Set this to true if you want users to invite as many
       ## people as they want.
