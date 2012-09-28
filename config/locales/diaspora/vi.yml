@@ -147,7 +147,7 @@ vi:
         find_a_bug: "... tìm thấy lỗi %{link}?"
         have_a_question: "... có một %{link}?"
         here_to_help: "Cộng đồng Diaspora!"
-        need_help: "Cần giúp đỡ?"
+        need_help: "Trợ giúp"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
@@ -158,7 +158,7 @@ vi:
       new_here:
         follow: "Theo dõi %{link} và chào đón người dùng mới đến với Diaspora*!"
         learn_more: "Tìm hiểu thêm"
-        title: "Chào mừng người dùng mới"
+        title: "Chào đón người dùng mới"
       no_contacts: "Không có liên lạc"
       no_tags: "+ Tìm thẻ để theo dõi"
       people_sharing_with_you: "Đang chia sẻ với bạn"
@@ -179,7 +179,7 @@ vi:
     no_contacts_message:
       community_spotlight: "nổi bật từ cộng đồng"
       or_spotlight: "Hoặc bạn có thể chia sẻ với %{link}"
-      try_adding_some_more_contacts: "Bạn có thể tìm kiếm hoặc mời thêm bạn."
+      try_adding_some_more_contacts: "Bạn có thể tìm hoặc mời thêm bạn."
       you_should_add_some_more_contacts: "Bạn có thể thêm một vài liên lạc!"
     no_posts_message:
       start_talking: "Chưa có ai nói gì!"
@@ -289,7 +289,7 @@ vi:
       send: "Gửi"
       sending: "Đang gửi..."
       subject: "tựa đề"
-      to: "đến"
+      to: "người nhận"
     new_message:
       fail: "Tin nhắn không hợp lệ"
     show:
@@ -491,7 +491,7 @@ vi:
   ok: "OK"
   or: "hoặc"
   password: "Mật khẩu"
-  password_confirmation: "Xác nhận mật khẩu"
+  password_confirmation: "Xác nhận mật khẩu mới"
   people:
     add_contact:
       invited_by: "bạn được mời bởi"
@@ -603,7 +603,7 @@ vi:
   profile: "Hồ sơ"
   profiles:
     edit:
-      allow_search: "Cho phép người khác trong Diaspora tìm thấy bạn"
+      allow_search: "Cho phép người khác trong Diaspora tìm thấy tôi"
       edit_profile: "Chỉnh sửa hồ sơ"
       first_name: "Tên"
       last_name: "Họ"
@@ -682,7 +682,7 @@ vi:
       reshare_original: "Chia sẻ lại bài gốc"
       reshared_via: "chia sẻ lại bởi"
       show_original: "Hiện bài đăng gốc"
-  search: "Tìm"
+  search: "Tìm kiếm"
   services:
     create:
       already_authorized: "Một người dùng với id diaspora %{diaspora_id} đã xác thực với tài khoản %{service_name}."
@@ -747,6 +747,7 @@ vi:
       atom_feed: "Nguồn tin"
       logged_in: "đã đăng nhập vào %{service}"
       manage: "quản lí các dịch vụ đã được kết nối"
+      new_user_welcome_message: "Sử dụng dấu thăng (#hashtags) để phân loại bài đăng và tìm người dùng khác."
       share: "Chia sẻ"
       title: "Cài đặt các dịch vụ đã được kết nối"
       visibility_dropdown: "Dùng nút thả xuống này để ẩn/hiện bài đăng của bạn.  (Bạn nên công khai bài đăng đầu tiên.)"
@@ -822,9 +823,10 @@ vi:
     like_stream:
       contacts_title: "Những người có bài đăng mà bạn thích"
       title: "Luồng thích"
+    mentioned_stream: "@Nhắc đến tôi"
     mentions:
       contacts_title: "Người đã nhắc đến bạn"
-      title: "Tin của bạn"
+      title: "@Nhắc đến tôi"
     multi:
       contacts_title: "Người trong luồng của bạn"
       title: "Luồng"
@@ -876,14 +878,14 @@ vi:
       success: "Tài khoản của bạn đã bị khoá. Có thể mất 20 phút để đóng tài khoản của bạn. Cám ơn vì đã dùng Diaspora."
       wrong_password: "Mật khẩu đã nhập không khớp với mật khẩu hiện tại."
     edit:
-      also_commented: "...ai đó bình luận vào bài đăng trong liên lạc của bạn?"
+      also_commented: "...có người bình luận vào bài đăng của người quen?"
       auto_follow_aspect: "Đặt người đó vào mối quan hệ:"
       auto_follow_back: "Tự động theo dõi lại người theo dõi bạn"
       change: "Thay đổi"
       change_email: "Đổi địa chỉ thư điện tử"
       change_language: "Đổi ngôn ngữ"
       change_password: "Đổi mật khẩu"
-      character_minimum_expl: "ít nhất phải có sáu kí tự"
+      character_minimum_expl: "ít nhất sáu kí tự"
       close_account:
         dont_go: "Đừng đi!"
         if_you_want_this: "Nếu bạn muốn, nhập mật khẩu và nhấn 'Đóng tài khoản'"
@@ -891,7 +893,7 @@ vi:
         make_diaspora_better: "Chúng tôi muốn bạn cùng phát triển Diaspora tốt hơn, vì vậy bạn nên giúp đỡ thay vì rời đi. Nếu bạn không muốn ở lại, chúng tôi muốn biết chuyện gì sẽ xảy ra tiếp theo."
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       close_account_text: "Đóng tài khoản"
-      comment_on_post: "...ai đó bình luận vào bài đăng của bạn?"
+      comment_on_post: "...có người bình luận vào bài đăng của tôi?"
       current_password: "Mật khẩu hiện tại"
       current_password_expl: "bạn dùng để đăng nhập..."
       download_photos: "tải ảnh của tôi"
@@ -901,18 +903,18 @@ vi:
       export_data: "Xuất dữ liệu"
       following: "Thiết lập theo dõi"
       getting_started: "Tuỳ chỉnh người dùng mới"
-      liked: "...ai đó thích bài đăng của bạn?"
+      liked: "...có người thích bài đăng của tôi?"
       mentioned: "...bạn được nhắc đến trong một bài đăng?"
       new_password: "Mật khẩu mới"
       photo_export_unavailable: "Chức năng xuất ảnh hiện chưa hoạt động"
       private_message: "...bạn nhận được một tin nhắn cá nhân?"
       receive_email_notifications: "Nhận thư điện tử thông báo khi..."
-      reshared: "...ai đó chia sẻ lại tin của bạn?"
+      reshared: "...có người chia sẻ lại bài đăng của tôi?"
       show_community_spotlight: "Hiện những tin từ cộng đồng?"
       show_getting_started: "Bật lại hướng dẫn cho người dùng mới"
-      started_sharing: "...ai đó bắt đầu chia sẻ với bạn?"
+      started_sharing: "...có người bắt đầu chia sẻ với tôi?"
       stream_preferences: "Tuỳ chỉnh luồng"
-      your_email: "Thư điện tử của bạn"
+      your_email: "Thư điện tử"
       your_handle: "ID Diaspora của bạn"
     getting_started:
       awesome_take_me_to_diaspora: "Tuyệt vời! Đưa tối đến Diaspora*"
@@ -940,8 +942,8 @@ vi:
       password_not_changed: "Đổi mật khẩu thất bại"
       settings_not_updated: "Cập nhật thiết lập thất bại"
       settings_updated: "Đã cập nhật thiết lập"
-      unconfirmed_email_changed: "Đã đổi thư điện tử. Cần kích hoạt ngay."
-      unconfirmed_email_not_changed: "Đổi thư điện tử thất bại"
+      unconfirmed_email_changed: "Đã đổi địa chỉ thư điện tử. Cần kích hoạt ngay."
+      unconfirmed_email_not_changed: "Đổi địa chỉ thư điện tử thất bại"
   welcome: "Chào mừng!"
   will_paginate:
     next_label: "sau &raquo;"

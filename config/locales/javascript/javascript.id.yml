@@ -14,11 +14,7 @@ id:
       started_sharing_with: "Anda mulai berbagi dengan <%= name %> !"
       stopped_sharing_with: "Anda berhenti berbagi dengan <%= name %>"
       toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
         other: "Dalam <%= count %> Hal"
-        two: "In <%= count %> aspects"
         zero: "Dalam <%= count %> Hal"
     aspect_navigation:
       deselect_all: "Batalkan semua pilihan"
@@ -68,11 +64,7 @@ id:
         zero: "<%= count %> Likes"
       limited: "Terbatas"
       more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
         other: "Tampilkan <%= count %> komentar"
-        two: "Show <%= count %> more comments"
         zero: "Tampilkan <%= count %> komentar"
       original_post_deleted: "Posting asli di hapus oleh penulis."
       public: "Publik"

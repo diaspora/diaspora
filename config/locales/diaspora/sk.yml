@@ -272,7 +272,7 @@ sk:
       no_contacts: "Zdá sa, že potrebuješ pridať pár kontaktov!"
       no_contacts_message: "Pozri si %{community_spotlight}"
       no_contacts_message_with_aspect: "Pozri si %{community_spotlight} alebo %{add_to_aspect_link}"
-      only_sharing_with_me: "Tí, ktorí majú v kontaktoch iba mňa"
+      only_sharing_with_me: "Ľudia, ktorí majú v kontaktoch iba mňa"
       remove_person_from_aspect: "Odstrániť použ. %{person_name} z kategórie %{aspect_name}"
       start_a_conversation: "Začať rozhovor"
       title: "Kontakty"
@@ -488,7 +488,7 @@ sk:
   notifier:
     a_post_you_shared: "príspevok."
     accept_invite: "Prijmi svoju pozvánku na Diasporu!"
-    click_here: "Klikni sem"
+    click_here: "klikni sem"
     comment_on_post:
       reply: "Zobraziť príspevok použ. %{name} alebo naň odpovedať >"
     confirm_email:
@@ -532,7 +532,7 @@ sk:
       subject: "%{name} si ťa pridal(a) do kontaktov na Diaspore*"
       view_profile: "Zobraziť profil použ. %{name}"
     thanks: "Vďaka,"
-    to_change_your_notification_settings: "ak chceš zmeniť nastavenie oznamov"
+    to_change_your_notification_settings: "a budeš môcť zmeniť nastavenia oznamov"
   nsfw: "Nevhodné v práci"
   ok: "OK"
   or: "alebo"
@@ -787,10 +787,10 @@ sk:
     aspect_dropdown:
       add_to_aspect: "Pridať kontakt"
       toggle:
-        few: "V %{count} kategóriách"
+        few: "V(o) %{count} kategóriách"
         one: "V %{count} kategórii"
         other: "V(o) %{count} kategóriách"
-        zero: "Pridajte kontakt"
+        zero: "Pridať kontakt"
     contact_list:
       all_contacts: "Všetky kontakty"
     footer:

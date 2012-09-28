@@ -165,6 +165,80 @@ ia:
     zero: "nulle aspecto"
   back: "Retornar"
   cancel: "Cancellar"
+  comments:
+    few: "%{count} commentos"
+    many: "%{count} commentos"
+    new_comment:
+      comment: "Commentar"
+      commenting: "Commenta…"
+    one: "1 commento"
+    other: "%{count} commentos"
+    two: "%{count} commentos"
+    zero: "nulle commento"
+  contacts:
+    create:
+      failure: "Creation de contacto fallite"
+    few: "%{count} contactos"
+    index:
+      add_a_new_aspect: "Adder un nove aspecto"
+      add_to_aspect: "adder contactos a %{name}"
+      add_to_aspect_link: "adder contactos a %{name}"
+      all_contacts: "Tote le contactos"
+      community_spotlight: "Usatores in evidentia"
+      many_people_are_you_sure: "Es tu secur de voler initiar un conversation private con plus de %{suggested_limit} contactos? Publicar un message in iste aspecto pote esser un melior maniera de contactar les."
+      my_contacts: "Mi contactos"
+      no_contacts: "Il pare que tu debe adder alcun contactos!"
+      no_contacts_message: "Visita %{community_spotlight}"
+      no_contacts_message_with_aspect: "Visita %{community_spotlight} o %{add_to_aspect_link}"
+      only_sharing_with_me: "Solmente qui divide con me"
+      remove_person_from_aspect: "Remover %{person_name} de \"%{aspect_name}\""
+      start_a_conversation: "Initiar un conversation"
+      title: "Contactos"
+      your_contacts: "Tu contactos"
+    many: "%{count} contactos"
+    one: "1 contacto"
+    other: "%{count} contactos"
+    sharing:
+      people_sharing: "Personas qui divide con te:"
+    spotlight:
+      community_spotlight: "Usatores in evidentia"
+    two: "%{count} contactos"
+    zero: "contactos"
+  conversations:
+    create:
+      fail: "Message invalide"
+      sent: "Message inviate"
+    destroy:
+      success: "Conversation removite con successo"
+    helper:
+      new_messages:
+        human: "Nulle nove message"
+        po: "1 nove message"
+        yml: "%{count} nove messages"
+    index:
+      create_a_new_message: "crear un nove message"
+      inbox: "Cassa de entrata"
+      message_inbox: "Cassa de entrata de messages"
+      new_message: "Nove message"
+      no_conversation_selected: "nulle conversation seligite"
+      no_messages: "nulle message"
+    new:
+      abandon_changes: "Abandonar modificationes?"
+      send: "Inviar"
+      sending: "Invia…"
+      subject: "subjecto"
+      to: "a"
+    new_message:
+      fail: "Message invalide"
+    show:
+      delete: "deler e blocar conversation"
+      reply: "responder"
+      replying: "Responde…"
+  date:
+    formats:
+      birthday: "le %d de %B"
+      birthday_with_year: "le %d de %B %Y"
+      fullmonth_day: "le %d de %B"
   delete: "Deler"
   email: "E-mail"
   error_messages:
@@ -174,10 +248,141 @@ ia:
   fill_me_out: "Plena me"
   find_people: "Cercar personas o #etiquettas"
   hide: "Celar"
+  invitations:
+    a_facebook_user: "Un usator de Facebook"
+    check_token:
+      not_found: "Indicio de invitation non trovate"
+    create:
+      already_contacts: "Tu es jam connectite con iste persona."
+      already_sent: "Tu ha jam invitate iste persona."
+      no_more: "Tu non ha altere invitationes."
+      own_address: "Non es possibile inviar un invitation a tu proprie adresse."
+      rejected: "Le sequente adresses de e-mail habeva problemas: "
+      sent: "Invitationes ha essite inviate a: "
+    edit:
+      accept_your_invitation: "Acceptar tu invitation"
+      your_account_awaits: "Un conto te attende!"
+    new:
+      already_invited: "Le sequente personas non ha acceptate tu invitation:"
+      aspect: "Aspecto"
+      check_out_diaspora: "Discoperi Diaspora!"
+      if_they_accept_info: "si iste persona accepta, illa essera addite al aspecto in le qual tu la invitava."
+      invite_someone_to_join: "Invita qualcuno a unir se a Diaspora!"
+      language: "Lingua"
+      personal_message: "Message personal"
+      resend: "Reinviar"
+      send_an_invitation: "Inviar un invitation"
+      send_invitation: "Inviar invitation"
+      to: "A"
+  layouts:
+    application:
+      back_to_top: "Initio del pagina"
+      powered_by: "ACTIONATE PER DIASPORA*"
+      public_feed: "Fluxo public de Diaspora pro %{name}"
+      toggle: "(dis)activar mobile"
+      whats_new: "que es nove?"
+      your_aspects: "tu aspectos"
+    header:
+      admin: "admin"
+      blog: "blog"
+      code: "codice"
+      login: "aperir session"
+      logout: "Clauder session"
+      profile: "Profilo"
+      recent_notifications: "Notificationes recente"
+      settings: "Configuration"
+      view_all: "Vider totes"
+  likes:
+    likes:
+      people_dislike_this:
+        human: "nulle antipathia"
+        po: "%{count} antipathia"
+        yml: "%{count} antipathias"
+      people_like_this:
+        human: "nulle appreciation"
+        po: "%{count} appreciation"
+        yml: "%{count} appreciationes"
+      people_like_this_comment:
+        human: "nulle appreciation"
+        po: "%{count} appreciation"
+        yml: "%{count} appreciationes"
   limited: "Limitate"
   more: "Plus"
   next: "sequente"
   no_results: "Nulle resultato trovate"
+  notifications:
+    also_commented:
+      human: "%{actors} commentava anque le %{post_link} de %{post_author}."
+      po: "%{actors} commentava anque le %{post_link} de %{post_author}."
+      yml: "%{actors} commentava anque le %{post_link} de %{post_author}."
+    also_commented_deleted:
+      human: "%{actors} commentava un entrata delite."
+      po: "%{actors} commentava un entrata delite."
+      yml: "%{actors} commentava un entrata delite."
+    comment_on_post:
+      human: "%{actors} commentava tu %{post_link}."
+      po: "%{actors} commentava tu %{post_link}."
+      yml: "%{actors} commentava tu %{post_link}."
+    helper:
+      new_notifications:
+        human: "Nulle nove notification"
+        po: "1 nove notification"
+        yml: "%{count} nove notificationes"
+    index:
+      and: "e"
+      and_others:
+        human: "e nemo altere"
+        po: "e un altere"
+        yml: "e %{count} alteres"
+      mark_all_as_read: "Marcar totes como legite"
+      notifications: "Notificationes"
+    liked:
+      human: "%{actors} ha appreciate tu %{post_link}."
+      po: "%{actors} ha appreciate tu %{post_link}."
+      yml: "%{actors} ha appreciate tu %{post_link}."
+    liked_post_deleted:
+      human: "%{actors} appreciava tu entrata delite."
+      po: "%{actors} appreciava tu entrata delite."
+      yml: "%{actors} appreciava tu entrata delite."
+    mentioned:
+      human: "%{actors} te ha mentionate in un %{post_link}."
+      po: "%{actors} te ha mentionate in un %{post_link}."
+      yml: "%{actors} te ha mentionate in un %{post_link}."
+    mentioned_deleted:
+      human: "%{actors} te mentionava in un entrata delite."
+      po: "%{actors} te mentionava in un entrata delite."
+      yml: "%{actors} te mentionava in un entrata delite."
+    post: "entrata"
+    private_message:
+      human: "%{actors} te inviava un message."
+      po: "%{actors} te inviava un message."
+      yml: "%{actors} te inviava un message."
+    reshared:
+      human: "%{actors} ha repetite tu %{post_link}."
+      po: "%{actors} ha repetite tu %{post_link}."
+      yml: "%{actors} ha repetite tu %{post_link}."
+    reshared_post_deleted:
+      human: "%{actors} repeteva tu entrata delite."
+      po: "%{actors} repeteva tu entrata delite."
+      yml: "%{actors} repeteva tu entrata delite."
+    started_sharing:
+      human: "%{actors} comenciava a divider con te."
+      po: "%{actors} comenciava a divider con te."
+      yml: "%{actors} comenciava a divider con te."
+  notifier:
+    a_post_you_shared: "un entrata."
+    click_here: "clicca hic"
+    email_sent_by_diaspora: "Iste message ha essite inviate per %{pod_name}. Si tu non vole reciper altere e-mail como iste,"
+    hello: "Salute %{name}!"
+    single_admin:
+      admin: "Tu administrator de Diaspora"
+      subject: "Un message concernente tu conto de Diaspora:"
+    started_sharing:
+      sharing: "ha comenciate a divider con te!"
+      subject: "%{name} comenciava a divider con te in Diaspora*"
+      view_profile: "Vider le profilo de %{name}"
+    thanks: "Gratias,"
+    to_change_your_notification_settings: "pro cambiar tu configuration de notificationes"
   ok: "OK"
   or: "o"
   password: "Contrasigno"
@@ -187,6 +392,10 @@ ia:
   privacy_policy: "Politica de confidentialitate"
   profile: "Profilo"
   public: "Public"
+  reactions:
+    human: "0 responsas"
+    po: "1 responsa"
+    yml: "%{count} responsas"
   search: "Cercar"
   settings: "Configuration"
   terms_and_conditions: "Terminos e conditiones"

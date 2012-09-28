@@ -15,10 +15,8 @@ sk:
       stopped_sharing_with: "<%= name %> bol(a) vymazaný (-á) z tvojich kontaktov."
       toggle:
         few: "V <%= count %> kategóriách"
-        many: "V(o) <%= count %> kategóriách"
         one: "V <%= count %> kategórii"
         other: "V(o) <%= count %>kategóriách"
-        two: "V(o) <%= count %> kategóriách"
         zero: "Vyber si kategórie"
     aspect_navigation:
       deselect_all: "Odznačiť všetky"

@@ -381,6 +381,7 @@ sl:
       back_to_top: "Na vrh"
       powered_by: "STRAN POGANJA DIASPORA*"
       public_feed: "Javni vir Diaspore za %{name}"
+      source_package: ""
       toggle: "preklop mobilne strani"
       whats_new: "kaj je novega?"
       your_aspects: "vaši vidiki"
