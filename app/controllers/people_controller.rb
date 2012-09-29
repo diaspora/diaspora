@@ -83,7 +83,7 @@ class PeopleController < ApplicationController
   def show
     @person = Person.find_from_guid_or_username(params)
 
-    raise(ActiveRecord::RecordNotFound) if remote_profile_with_no_user_session?
+    authenticate_user! if remote_profile_with_no_user_session?
     return redirect_to :back, :notice => t("people.show.closed_account") if @person.closed_account?
 
     @post_type = :all

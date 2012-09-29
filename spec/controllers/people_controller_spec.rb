@@ -287,11 +287,12 @@ describe PeopleController do
         end
       end
 
-      it 'throws 404 if the person is remote' do
+      it 'forces to sign in if the person is remote' do
         p = FactoryGirl.create(:person)
 
         get :show, :id => p.to_param
-        response.status.should == 404
+        response.should be_redirect
+        response.should redirect_to new_user_session_path
       end
     end
 
