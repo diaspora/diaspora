@@ -15,5 +15,6 @@ else
     return 1
   fi
 fi
-
+export RAILS_ENV=$ENV
+echo RAILS_ENV set to $ENV
 source ./script/env/ensure_right_rubygems
