@@ -42,7 +42,7 @@ production:
   database: diaspora_production
 test:
   <<: *common
-  database: "diaspora_test<%= ENV['TEST_ENV_NUMBER'] %>"
+  database: "diaspora_test"
 integration1:
   <<: *common
   database: diaspora_integration1

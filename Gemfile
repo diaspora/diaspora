@@ -30,9 +30,6 @@ gem 'twitter', '2.0.2'
 
 gem 'markerb', :git => 'https://github.com/plataformatec/markerb.git'
 gem 'messagebus_ruby_api', '1.0.3'
-gem 'airbrake', '3.1.0'
-gem 'newrelic_rpm', '3.3.5'
-gem "rpm_contrib", '2.1.11'
 
 group :production do # we don't install these on travis to speed up test runs
   gem 'rails_admin', '0.1.1'
@@ -170,8 +167,4 @@ group :development do
   gem 'capistrano', '2.12.0', :require => false
   gem 'capistrano_colors', '0.5.5', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
-  gem 'yard', '0.8.2.1', :require => false
-
-  # for tracing AR object instantiation and memory usage per request
-  gem 'oink', '0.9.3'
 end

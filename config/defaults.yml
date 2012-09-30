@@ -81,12 +81,6 @@ defaults:
   admins:
     account:
     inline_resque_web: true
-    monitoring:
-       airbrake_api_key:
-       new_relic:
-        enable: false
-        app_name:
-        license_key:
 
 development:
   environment:

@@ -268,16 +268,6 @@ configuration:
     ## or not to inline it into Diaspora.
     #inline_resque_web: true
   
-    monitoring:
-      ## If you use Airbrake provide your API key here:
-      #airbrake_api_key: 'abcdef'
-      
-      ## If you use NewRelic provide your credentials here:
-      new_relic:
-        #enable: true
-        #app_name: 'foo'
-        #license_key: 'abcdef'
-    
 ## Here you can make overides to settings defined above if you need
 ## to have them different in different environments.
 production:

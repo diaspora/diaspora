@@ -22,3 +22,19 @@ The new configuration system allows all possible settings to be overriden by env
 * SINGLE_PROCESS -> ENVIRONMENT_SINGLE_PROCESS_MODE
 * NO_SSL -> ENVIRONMENT_REQUIRE_SSL
 * ASSET_HOST -> ENVIRONMENT_ASSETS_HOST
+
+
+## Removed Gems
+
+The following gems and their related files were removed as they aren't widely enough used to justify maintenance for them by the core developers. If you use them please maintain them in your fork.
+
+* airbrake
+* newrelic_rpm
+* rpm_contrib
+* heroku_san
+
+The following gems were removed because their are neither used in daily development or are just CLI tools that aren't required to be loaded from the code:
+
+* heroku
+* oink
+* yard

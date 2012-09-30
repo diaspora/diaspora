@@ -54,9 +54,6 @@ GEM
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
     addressable (2.3.2)
-    airbrake (3.1.0)
-      activesupport
-      builder
     arel (3.0.2)
     asset_sync (0.5.0)
       activemodel
@@ -181,7 +178,6 @@ GEM
     hashie (1.2.0)
     highline (1.6.12)
     hike (1.2.1)
-    hodel_3000_compliant_logger (0.1.0)
     http_accept_language (1.0.2)
     httpauth (0.1)
     i18n (0.6.1)
@@ -238,16 +234,12 @@ GEM
       jruby-pageant (>= 1.1.1)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    newrelic_rpm (3.3.5)
     nokogiri (1.5.5)
     oauth (0.4.6)
     oauth2 (0.6.1)
       faraday (~> 0.7)
       httpauth (~> 0.1)
       multi_json (~> 1.3)
-    oink (0.9.3)
-      activerecord
-      hodel_3000_compliant_logger
     omniauth (1.1.1)
       hashie (~> 1.2)
       rack
@@ -338,9 +330,6 @@ GEM
       vegas (~> 0.1.2)
     resque-timeout (1.0.0)
       resque (~> 1.0)
-    rpm_contrib (2.1.11)
-      newrelic_rpm (>= 3.1.1)
-      newrelic_rpm (>= 3.1.1)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -415,7 +404,6 @@ GEM
     will_paginate (3.0.3)
     xpath (0.1.4)
       nokogiri (~> 1.3)
-    yard (0.8.2.1)
 
 PLATFORMS
   ruby
@@ -425,7 +413,6 @@ DEPENDENCIES
   acts-as-taggable-on (= 2.3.3)
   acts_as_api (= 0.4.1)
   addressable (= 2.3.2)
-  airbrake (= 3.1.0)
   asset_sync (= 0.5.0)
   bootstrap-sass (= 2.1.0.0)
   bundler (> 1.1.0)
@@ -464,9 +451,7 @@ DEPENDENCIES
   mini_magick (= 3.4)
   mobile-fu (= 1.1.0)
   mysql2 (= 0.3.11)
-  newrelic_rpm (= 3.3.5)
   nokogiri (= 1.5.5)
-  oink (= 0.9.3)
   omniauth (= 1.1.1)
   omniauth-facebook (= 1.3.0)
   omniauth-tumblr (= 1.1)
@@ -485,7 +470,6 @@ DEPENDENCIES
   resque (= 1.22.0)
   resque-timeout (= 1.0.0)
   roxml!
-  rpm_contrib (= 2.1.11)
   rspec-instafail (= 0.2.4)
   rspec-rails (= 2.11.0)
   ruby-oembed (= 0.8.7)
@@ -500,4 +484,3 @@ DEPENDENCIES
   unicorn (= 4.3.1)
   webmock (= 1.8.10)
   will_paginate (= 3.0.3)
-  yard (= 0.8.2.1)
