@@ -21,7 +21,7 @@ gem 'remotipart', '1.0.2'
 
 gem 'omniauth', '1.1.1'
 gem 'omniauth-facebook', '1.3.0'
-gem 'omniauth-tumblr', '1.0'
+gem 'omniauth-tumblr', '1.1'
 gem 'omniauth-twitter', '0.0.11'
 
 gem 'twitter', '2.0.2'
