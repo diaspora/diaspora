@@ -19,6 +19,7 @@ class Rails
   end
 end
 
+
 if ARGV.length >= 1
   setting_name = ARGV[0]
   if Rails.env == 'script_server' # load from the special script_server_config.yml file
@@ -34,17 +35,13 @@ if ARGV.length >= 1
   else                            # load from the general diaspora settings file
     require 'active_support/core_ext/class/attribute_accessors'
     require 'active_support/core_ext/object/blank'
-    require 'settingslogic'
-    require Rails.root.join('app', 'models', 'app_config')
-    setting_name = setting_name.to_sym
-    if (!AppConfig.respond_to?(setting_name) || AppConfig.send(setting_name).nil?) && AppConfig[setting_name].nil?
-      $stderr.puts "Could not find setting #{ARGV[0]} for environment #{Rails.env}."
-      Process.exit(1)
-    elsif AppConfig.respond_to?(setting_name)
-      print AppConfig.send(setting_name)
-    else
-      print AppConfig[setting_name]
-    end
+    require 'active_support/core_ext/module/delegation'
+    require 'active_support/core_ext/module/method_names'
+    require Rails.root.join("config/load_config")
+    
+    setting = AppConfig.send(setting_name)
+    setting = setting.get if setting.is_a?(Configuration::Proxy)
+    print setting
   end
 else
   $stderr.puts "Usage: ./script/get_config.rb option [section]"

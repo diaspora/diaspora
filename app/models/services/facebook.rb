@@ -23,7 +23,7 @@ class Services::Facebook < Service
   end
 
   def create_open_graph_params(post)
-    {:post => "#{AppConfig[:pod_url]}#{short_post_path(post)}", :access_token => self.access_token}
+    {:post => "#{AppConfig.pod_uri.to_s}#{short_post_path(post)}", :access_token => self.access_token}
   end
 
   def create_post_params(post)

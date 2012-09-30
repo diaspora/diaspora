@@ -21,11 +21,11 @@ describe RegistrationsController do
 
   describe '#check_registrations_open!' do
     before do
-      AppConfig[:registrations_closed] = true
+      AppConfig.settings.enable_registrations = false
     end
 
     after do
-      AppConfig[:registrations_closed] = false
+      AppConfig.settings.enable_registrations = true
     end
 
     it 'redirects #new to the login page' do
@@ -57,7 +57,7 @@ describe RegistrationsController do
   describe "#create" do
     context "with valid parameters" do
       before do
-        AppConfig[:registrations_closed] = false
+        AppConfig.settings.enable_registrations = true
       end
 
       before do

@@ -31,7 +31,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
   def check_valid_invite!
-    return true unless AppConfig[:registrations_closed] #this sucks
+    return true if AppConfig.settings.enable_registrations? #this sucks
     return true if invite && invite.can_be_used?
     flash[:error] = t('registrations.invalid_invite')
     redirect_to new_user_session_path
@@ -39,7 +39,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def check_registrations_open_or_vaild_invite!
     return true if invite.present?
-    if AppConfig[:registrations_closed]
+    unless AppConfig.settings.enable_registrations?
       flash[:error] = t('registrations.closed')
       redirect_to new_user_session_path
     end

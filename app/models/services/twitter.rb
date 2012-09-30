@@ -35,8 +35,8 @@ class Services::Twitter < Service
 
   private
   def configure_twitter
-    twitter_key = SERVICES['twitter']['consumer_key']
-    twitter_consumer_secret = SERVICES['twitter']['consumer_secret']
+    twitter_key = AppConfig.services.twitter.key
+    twitter_consumer_secret = AppConfig.services.twitter.secret
 
     if twitter_key.blank? || twitter_consumer_secret.blank?
       Rails.logger.info "you have a blank twitter key or secret.... you should look into that"

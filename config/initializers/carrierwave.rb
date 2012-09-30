@@ -3,18 +3,18 @@
 #   the COPYRIGHT file.
 
 #Excon needs to see the CA Cert Bundle file
-ENV["SSL_CERT_FILE"] = AppConfig[:ca_file]
+ENV['SSL_CERT_FILE'] = AppConfig.environment.certificate_authorities.get
 CarrierWave.configure do |config|
-  if !Rails.env.test? && AppConfig[:s3_key] && AppConfig[:s3_secret] && AppConfig[:s3_bucket] && AppConfig[:s3_region]
+  if !Rails.env.test? && AppConfig.environment.s3.enable?
     config.storage = :fog
     config.cache_dir = Rails.root.join('tmp', 'uploads').to_s
     config.fog_credentials = {
-        :provider               => 'AWS',       
-        :aws_access_key_id      => AppConfig[:s3_key],       
-        :aws_secret_access_key  => AppConfig[:s3_secret],
-        :region                 => AppConfig[:s3_region]
+        :provider               => 'AWS',
+        :aws_access_key_id      => AppConfig.environment.s3.key.get,
+        :aws_secret_access_key  => AppConfig.environment.s3.secret.get,
+        :region                 => AppConfig.environment.s3.region.get
     }
-    config.fog_directory = AppConfig[:s3_bucket]
+    config.fog_directory = AppConfig.environment.s3.bucket.get
   else
     config.storage = :file
   end

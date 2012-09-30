@@ -28,7 +28,7 @@ FactoryGirl.define do
 
   factory :person do
     sequence(:diaspora_handle) { |n| "bob-person-#{n}#{r_str}@example.net" }
-    sequence(:url)  { |n| AppConfig[:pod_url] }
+    url AppConfig.pod_uri.to_s
     serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
     after(:build) do |person|
       person.profile = FactoryGirl.build(:profile, :person => person) unless person.profile.first_name.present?
@@ -170,7 +170,7 @@ FactoryGirl.define do
 
   factory(:activity_streams_photo, :class => ActivityStreams::Photo) do
     association(:author, :factory => :person)
-    image_url "#{AppConfig[:pod_url]}/assets/asterisk.png"
+    image_url "#{AppConfig.environments.url}/assets/asterisk.png"
     image_height 154
     image_width 154
     object_url "http://example.com/awesome_things.gif"

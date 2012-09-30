@@ -19,14 +19,20 @@ describe ApplicationController do
     end
   end
 
-  describe '#set_git_headers' do
+  describe '#set_diaspora_headers' do
+    it 'sets the version header' do
+      get :index
+      response.headers['X-Diaspora-Version'].should include AppConfig.version.number.get
+    end
+    
     context 'with git info' do
       before do
-        AppConfig[:git_update] = 'yesterday'
-        AppConfig[:git_revision] = '02395'
+        AppConfig.stub(:git_available?).and_return(true)
+        AppConfig.stub(:git_update).and_return('yesterday')
+        AppConfig.stub(:git_revision).and_return('02395')
       end
 
-      it 'sets the git header if there is git info' do
+      it 'sets the git header' do
         get :index
         response.headers['X-Git-Update'].should == 'yesterday'
         response.headers['X-Git-Revision'].should == '02395'

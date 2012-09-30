@@ -55,7 +55,7 @@ class InvitationsController < ApplicationController
   end
 
   def check_if_invites_open
-    unless AppConfig[:open_invitations]
+    unless AppConfig.settings.invitations.open?
       flash[:error] = I18n.t 'invitations.create.no_more'
 
       redirect_to :back

@@ -6,6 +6,6 @@
       %li= link_to t('.weekly_user_stats'), weekly_user_stats_path
       %li= link_to t('.pod_stats'), pod_stats_path
       %li= link_to t('.correlations'), correlations_path
-      - if AppConfig[:mount_resque_web]
+      - if AppConfig.admins.inline_resque_web?
         %li= link_to t('.resque_overview'), resque_web_path
 	

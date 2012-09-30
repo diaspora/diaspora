@@ -9,7 +9,7 @@ module NotificationMailers
       @comment = Comment.find_by_id(comment_id)
 
       if mail?
-        @headers[:from] = "\"#{@comment.author_name} (Diaspora*)\" <#{AppConfig[:smtp_sender_address]}>"
+        @headers[:from] = "\"#{@comment.author_name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>"
         @headers[:subject] = truncate(@comment.comment_email_subject, :length => TRUNCATION_LEN)
         @headers[:subject] = "Re: #{@headers[:subject]}"
       end

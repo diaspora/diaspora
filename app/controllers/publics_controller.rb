@@ -9,12 +9,6 @@ class PublicsController < ApplicationController
   require Rails.root.join('lib', 'postzord', 'receiver', 'private')
   include Diaspora::Parser
 
-  # We use newrelic_ignore to prevent artifical RPM bloat; however,
-  # I am commenting this line out for the time being to debug some apparent
-  # issues on Heroku.
-  #
-  # newrelic_ignore if EnvironmentConfiguration.using_new_relic?
-
   skip_before_filter :set_header_data
   skip_before_filter :set_grammatical_gender
   before_filter :check_for_xml, :only => [:receive, :receive_public]

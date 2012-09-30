@@ -4,7 +4,7 @@
 
 module ApplicationHelper
   def pod_name
-    AppConfig[:pod_name].present? ? AppConfig[:pod_name] : "DIASPORA*"
+    AppConfig.settings.pod_name.present? ? AppConfig.settings.pod_name : "DIASPORA*"
   end
 
   def how_long_ago(obj)
@@ -21,7 +21,7 @@ module ApplicationHelper
   end
 
   def raw_bookmarklet( height = 250, width = 620)
-    "javascript:(function(){f='#{AppConfig[:pod_url]}bookmarklet?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=no,toolbar=no,width=#{width},height=#{height}'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
+    "javascript:(function(){f='#{AppConfig.pod_uri.to_s}bookmarklet?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=no,toolbar=no,width=#{width},height=#{height}'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
   end
 
   def magic_bookmarklet_link
@@ -37,7 +37,7 @@ module ApplicationHelper
   end
 
   def all_services_connected?
-    current_user.services.size == AppConfig[:configured_services].size
+    current_user.services.size == AppConfig.configured_services.size
   end
 
   def popover_with_close_html(without_close_html)
@@ -56,7 +56,7 @@ module ApplicationHelper
   # vendored jquery_ujs
   def jquery_include_tag
     buf = []
-    if AppConfig[:jquery_cdn]
+    if AppConfig.privacy.jquery_cdn?
       version = Jquery::Rails::JQUERY_VERSION
       buf << [ javascript_include_tag("//ajax.googleapis.com/ajax/libs/jquery/#{version}/jquery.min.js") ]
       buf << [ javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag("jquery")}'));") ]

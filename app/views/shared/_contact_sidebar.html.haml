@@ -8,6 +8,6 @@
   %hr
 
   %ul.left_nav
-    - if AppConfig[:community_spotlight]
+    - if AppConfig.settings.community_spotlight.enable?
       %li{:class => ("active" if @spotlight)}
         = link_to t('contacts.spotlight.community_spotlight'), community_spotlight_path, :class => "element_selector"
