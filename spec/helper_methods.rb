@@ -72,4 +72,11 @@ module HelperMethods
 
     Conversation.create!(create_hash)
   end
+
+  def get_response_for_user_agent(app, userAgent)
+    env = Rack::MockRequest.env_for('/', "HTTP_USER_AGENT" => userAgent)
+    status, headers, body = app.call(env)
+    body.close if body.respond_to?(:close) # avoids deadlock after 3 tests
+    ActionDispatch::TestResponse.new(status, headers, body)
+  end
 end
