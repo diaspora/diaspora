@@ -8,14 +8,14 @@ atom_feed({'xmlns:thr' => 'http://purl.org/syndication/thread/1.0',
  :id => "#{@user.public_url}.atom",
  :root_url => "#{@user.public_url}"}) do |feed|
 
-  feed.tag! :generator, 'Diaspora', :uri => "#{AppConfig[:pod_url]}"
+  feed.tag! :generator, 'Diaspora', :uri => "#{AppConfig.pod_uri.to_s}"
   feed.title "#{@user.name}'s Public Feed"
   feed.subtitle "Updates from #{@user.name} on Diaspora"
   feed.logo "#{@user.image_url(:thumb_small)}"
   feed.updated @posts[0].created_at if @posts.length > 0
   feed.tag! :link, :rel => 'avatar', :type => 'image/jpeg', 'media:width' => '100',
 	    'media:height' => '100', :href => "#{@user.image_url}"
-  feed.tag! :link, :href => "#{AppConfig[:pubsub_server]}", :rel => 'hub'
+  feed.tag! :link, :href => "#{AppConfig.environment.pubsub_server}", :rel => 'hub'
 
   feed.author do |author|
     author.name @user.name

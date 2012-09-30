@@ -33,12 +33,12 @@ module NotificationMailers
     private
     def default_headers
       headers = {
-        :from => AppConfig[:smtp_sender_address],
-        :host => "#{AppConfig[:pod_uri]}",
+        :from => AppConfig.mail.sender_address.get,
+        :host => "#{AppConfig.pod_uri.host}",
         :to => name_and_address(@recipient.name, @recipient.email)
       }
 
-      headers[:from] = "\"#{@sender.name} (Diaspora*)\" <#{AppConfig[:smtp_sender_address]}>" if @sender.present?
+      headers[:from] = "\"#{@sender.name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>" if @sender.present?
 
       headers
     end

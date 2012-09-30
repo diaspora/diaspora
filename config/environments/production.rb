@@ -37,12 +37,6 @@ Diaspora::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
 
-
-  # Enable serving of images, stylesheets, and javascripts from an asset server
-  if ENV['ASSET_HOST']
-    config.action_controller.asset_host = ENV['ASSET_HOST']
-  end
-
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
@@ -55,6 +49,10 @@ Diaspora::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  if defined?(AppConfig) && AppConfig.environment.assets.host.present?
+    config.action_controller.asset_host = AppConfig.environment.assets.host.get
+  end
+  
   config.threadsafe!
 end
 

@@ -13,7 +13,10 @@ end
 
 # Load the rails application
 require File.expand_path('../application', __FILE__)
-require File.join(Rails.root, "lib", "exceptions")
+require Rails.root.join("lib", "exceptions")
+
+# Load configuration system early 
+require Rails.root.join('config', 'load_config')
 
 Haml::Template.options[:format] = :html5
 Haml::Template.options[:escape_html] = true
