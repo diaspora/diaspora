@@ -7,6 +7,8 @@
 ##   name.
 ## - Take care to keep proper quoting. All ' should have a matching ' at
 ##   the end of the same line. Same goes for "
+## - Lines containing "## Section" are sections, categories or however you
+##   like to name them. Do not edit those!
 ## - Lists need the space after the -
 ## - true, false and numbers should have no quoting.
 ##   Single words could have none, but doesn't do any harm to them.
@@ -19,11 +21,11 @@
 ## - Upcase everything: ENVIRONMENT_S3_ENABLE
 ## - Specify lists/arrays as comma separated values
 
-configuration:
+configuration: ## Section
   
   ## Settings you need to change or at least review
   ## in order for your pod to basically work
-  environment:
+  environment: ## Section
     
     ## Set the hostname of the machine you're running Diaspora on, as seen
     ## from the internet. This should be the URL you want to use to
@@ -69,7 +71,7 @@ configuration:
     
     ## Use Amazon S3 instead of your local filesystem
     ## to handle uploaded pictures.
-    s3:
+    s3: ## Section
       #enable: true
       #key: 'changeme'
       #secret: 'changeme'
@@ -83,7 +85,7 @@ configuration:
     ## https://images.example.org/uploads/images/...
     #image_redirect_url: 'https://images.example.org'
     
-    assets:
+    assets: ## Section
       ## Serve static assets via the appserver.
       ## This is highly discouraged for production use,
       ## let your reverse proxy/webserver do it by serving the files
@@ -100,13 +102,13 @@ configuration:
     ## You likely don't want to change this.
     #pubsub_server: 'https://pubsubhubbub.appspot.com/'
     
-    unicorn:
+    unicorn: ## Section
       ## Embed a resque worker inside the unicorn process, useful for
       ## minimal Heroku setups
       #embed_resque_worker: true
   
   ## Settings probably affecting the privacy of your users 
-  privacy:
+  privacy: ## Section
     
     ## Include jQuery from Google's CDN
     ## This potentially saves you some traffic and speeds up
@@ -119,7 +121,7 @@ configuration:
     ## Piwik Tracking
     ## Provide a site ID and the host piwik is running on to enable
     ## tracking through Piwik.
-    piwik:
+    piwik: ## Section
       #enable: true
       #host: 'stats.example.org'
       #site_id: 1
@@ -131,7 +133,7 @@ configuration:
     #chartbeat_uid:
   
   ## General settings
-  settings:
+  settings: ## Section
   
     ## The name of your pod displayed in various locations,
     ## including the header.
@@ -150,7 +152,7 @@ configuration:
     #follow_diasporahq: false
     
     ## Settings about invitations
-    invitations:
+    invitations: ## Section
       
       ## Set this to true if you want users to invite as many
       ## people as they want.
@@ -170,14 +172,14 @@ configuration:
     ## The community spotlight gives new users a starting point on who
     ## could be interesting Diasporas community. To add a person
     ## to the spotlight add the 'spotlight' role to it.
-    community_spotlight:
+    community_spotlight: ## Section
       #enable: false
       ## E-Mail address users can make suggestions about who should be
       ## in the spotlight to.
       #suggest_email: 'admin@example.org'
   
   ## Setup E-Mail
-  mail:
+  mail: ## Section
   
     ## First you need to enable it ;)
     #enable: true
@@ -191,7 +193,7 @@ configuration:
     #method: 'smtp'
     
     ## Ignore if method isn't 'smtp'
-    smtp:
+    smtp: ## Section
       ## Host and port of the smtp server handling outgoing mail.
       ## This should match the common name of the certificate
       ## the SMTP server sends. If he sends one.
@@ -221,7 +223,7 @@ configuration:
       #openssl_verify_mode: 'none'
     
     ## Ignore if method isn't 'sendmail'
-    sendmail:
+    sendmail: ## Section
       ## The path to the sendmail binary.
       #location: '/usr/sbin/sendmail'
       
@@ -232,9 +234,9 @@ configuration:
     #message_bus_api_key: 'abcdef'
   
   ## Settings around Diasporas capabilities to post to services
-  services:
+  services: ## Section
     ## OAuth credentials for Facebook:
-    facebook:
+    facebook: ## Section
       #enable: true
       #app_id: 'abcdef'
       #secret: 'changeme'
@@ -243,19 +245,19 @@ configuration:
       #open_graph_namespace: 
     
     ## OAuth credentials for Twitter:
-    twitter:
+    twitter: ## Section
       #enable: true
       #key: 'abcdef'
       #secret: 'changeme'
     
     ## OAuth credentials for Tumblr
-    tumblr:
+    tumblr: ## Section
       #enable: true
       #key: 'abcdef'
       #secret: 'changeme'
   
   ## Settings relevant to administrators
-  admins:
+  admins: ## Section
     
     ## Set the admin account.
     ## This doesn't make the user an admin but is used when a generic
@@ -270,8 +272,8 @@ configuration:
   
 ## Here you can make overides to settings defined above if you need
 ## to have them different in different environments.
-production:
+production: ## Section
   
-development:
-  environment:
+development: ## Section
+  environment: ## Section
     #redis_url: 'redis://production.example.org:6379'
