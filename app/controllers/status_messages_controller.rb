@@ -11,7 +11,17 @@ class StatusMessagesController < ApplicationController
              :mobile,
              :json
 
-  layout 'blank', :only => [ :bookmarklet ]
+  layout :bookmarklet_layout, :only => :bookmarklet
+  
+  # Define bookmarklet layout depending on whether
+  # user is in mobile or desktop mode
+  def bookmarklet_layout
+    if request.format == :mobile
+      'application'
+    else
+      'blank'
+    end
+  end
 
   # Called when a user clicks "Mention" on a profile page
   # @param person_id [Integer] The id of the person to be mentioned
