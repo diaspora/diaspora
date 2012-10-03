@@ -78,7 +78,7 @@ app.views.ActivityStreams__Photo = app.views.Content.extend({
 app.views.OEmbed = app.views.Base.extend({
   templateName : "oembed",
   events : {
-    "click .oembed .thumb": "showOembedContent"
+    "click .thumb": "showOembedContent"
   },
 
   presenter:function () {
