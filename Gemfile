@@ -143,7 +143,7 @@ group :test do
   gem 'rspec-instafail', '0.2.4', :require => false
   gem 'selenium-webdriver', '2.25.0'
 
-  gem 'webmock', '1.8.10', :require => false
+  gem 'webmock', '1.8.11', :require => false
 
   gem 'spork', '1.0.0rc3'
   gem 'guard-rspec', '0.7.3'
