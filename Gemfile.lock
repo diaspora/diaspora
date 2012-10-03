@@ -330,7 +330,7 @@ GEM
     redis-namespace (1.2.1)
       redis (~> 3.0.0)
     remotipart (1.0.2)
-    resque (1.22.0)
+    resque (1.23.0)
       multi_json (~> 1.0)
       redis-namespace (~> 1.0)
       sinatra (>= 0.9.2)
@@ -468,7 +468,7 @@ DEPENDENCIES
   rails_autolink (= 1.0.9)
   redcarpet (= 2.1.1)
   remotipart (= 1.0.2)
-  resque (= 1.22.0)
+  resque (= 1.23.0)
   resque-timeout (= 1.0.0)
   roxml!
   rspec-instafail (= 0.2.4)
