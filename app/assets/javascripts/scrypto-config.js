@@ -1,6 +1,7 @@
 window.get_scrypto_config = function() {
 	return {
 		"entropy_dependent" : "[href='/conversations/new']",
+		"secure_forms": {},
 		"secure_fields" : "#conversation_text, #message_text",
 		"symmetric_fields" : "#message_text",
 		"decrypt_fields" : "#conversation_show div.ltr",

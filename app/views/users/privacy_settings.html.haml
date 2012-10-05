@@ -25,9 +25,15 @@
   %br
   %hr
   
-  %h3
-    Manage Keys
+  %h3 Manage Keys
+  %div
+    Entropy: 
+    %span#entropy-value> 0%
+  %div
+    %label{:for => "scrypto-passphrase"} Passphrase
+    %input#scrypto-passphrase{:type => "password"}
+      %span#store-passphrase
+        %a{:href => "#"} Update Local Passphrase
+  %div
+    = render 'scrypto/key_rings/key_generator'
     
-  .scrypto-entropy{ "data-existing_dk_nillable" => "true" }
-  .scrypto-passphrase{ "data-store_passphrase" => "true" }
-  .scrypto-key-generator{ "data-store_passphrase" => "true" }

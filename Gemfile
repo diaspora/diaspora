@@ -131,7 +131,7 @@ gem 'faraday', '0.8.4'
 gem 'faraday_middleware', '0.8.8'
 
 # cryptography
-gem 'scrypto', '~> 0.0.17', :git => 'git://github.com/justindthomas/scrypto.git'
+gem 'scrypto', '0.0.28', :git => 'git://github.com/justindthomas/scrypto.git'
 
 gem 'jasmine', '1.2.1'
 

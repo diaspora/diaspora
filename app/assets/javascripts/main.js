@@ -42,5 +42,5 @@
 //= require bootstrap-popover
 //= require bootstrap-dropdown
 //= require bootstrap-scrollspy-custom
-//= require scrypto-config
-//= require scrypto/scrypto
+//= require cryptography
+
