@@ -78,7 +78,7 @@ JS_RUNTIME_DETECTED=false
 #... could be put in a separate file and sourced here
 
 # heredoc for variables - very readable, http://stackoverflow.com/a/8088167
-# use like this: 
+# use like this:
 # define VAR <<'EOF'
 # somecontent
 # EOF
@@ -214,7 +214,7 @@ load_rvmrc() {
   #rvm rvmrc load
   if [ $? -eq 0 ] ; then
     echo "ok"
-  else 
+  else
     echo "not ok"
   fi
   echo ""
@@ -223,7 +223,7 @@ load_rvmrc() {
 # rvm doesn't need sudo, otherwise we do have to use it :(
 rvm_or_sudo() {
   if $RVM_DETECTED ; then
-    run_or_error "$1" 
+    run_or_error "$1"
   else
     eval "$1"
     if [ $? -ne 0 ] ; then
@@ -411,8 +411,8 @@ prepare_install_env
 database_setup
 
 
-echo "copying application.yml.example to application.yml"
-run_or_error "cp config/application.yml.example config/application.yml"
+echo "copying diaspora.yml.example to diaspora.yml"
+run_or_error "cp config/diaspora.yml.example config/diaspora.yml"
 echo ""
 
 
@@ -421,7 +421,7 @@ prepare_gem_bundle
 
 
 echo "creating the default database specified in config/database.yml. please wait..."
-run_or_error "bundle exec rake db:schema:load_if_ruby db:structure:load_if_sql --trace"
+run_or_error "bundle exec rake db:schema:load_if_ruby --trace"
 echo ""
 
 define GOODBYE_MSG <<EOT
