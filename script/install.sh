@@ -432,7 +432,7 @@ It worked! :)
 Now, you should have a look at
 
   - config/database.yml      and
-  - config/application.yml
+  - config/diaspora.yml
 
 and change them to your liking. Then you should be able to
 start Diaspora* in development mode with:
