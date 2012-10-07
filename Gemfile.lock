@@ -14,6 +14,13 @@ GIT
     markerb (1.0.0)
       redcarpet (>= 2.0)
 
+GIT
+  remote: https://github.com/svenfuchs/rails-i18n.git
+  revision: 855edc0e265a6d36fe5f62a886b2f0de455dd92a
+  specs:
+    rails-i18n (0.6.6)
+      i18n (~> 0.5)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -285,8 +292,6 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
-    rails-i18n (0.6.6)
-      i18n (~> 0.5)
     rails_admin (0.1.1)
       bootstrap-sass (~> 2.0)
       builder (~> 3.0)
@@ -462,7 +467,7 @@ DEPENDENCIES
   rack-rewrite (= 1.2.1)
   rack-ssl (= 1.3.2)
   rails (= 3.2.8)
-  rails-i18n
+  rails-i18n!
   rails_admin (= 0.1.1)
   rails_autolink (= 1.0.9)
   redcarpet (= 2.1.1)
