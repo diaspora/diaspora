@@ -708,7 +708,7 @@ nl:
       password: "WACHTWOORD"
       sign_up: "AANMELDEN"
       sign_up_message: "Social Networking met een ♥"
-      username: "GEBRUIKERSNAAM"
+      username: "GEBRUIKER"
   requests:
     create:
       sending: "Versturen..."

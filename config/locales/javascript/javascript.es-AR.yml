@@ -48,6 +48,7 @@ es-AR:
       settings: "Opciones"
       view_all: "Ver todo"
     ignore: "Ignorar"
+    ignore_user: "¿Ignorar a este usuario?"
     infinite_scroll:
       no_more: "No hay más publicaciones."
     my_activity: "Mi actividad"

@@ -51,6 +51,7 @@ sv:
       settings: "Inställningar"
       view_all: "Visa alla"
     ignore: "Ignorera"
+    ignore_user: "Vill du ignorera den här användaren?"
     infinite_scroll:
       no_more: "Inga fler inlägg."
     my_activity: "Min aktivitet"

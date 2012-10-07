@@ -47,6 +47,7 @@ vi:
       settings: "Thiết lập"
       view_all: "Xem tất cả"
     ignore: "Bỏ qua"
+    ignore_user: "Bỏ qua người này?"
     infinite_scroll:
       no_more: "Không còn bài đăng nào nữa."
     my_activity: "Hoạt động của tôi"

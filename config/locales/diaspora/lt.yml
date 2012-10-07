@@ -5,7 +5,9 @@
 
 
 lt:
+  _applications: "Programos"
   _comments: "Komentarai"
+  _contacts: "Kontaktai"
   _home: "Pradžia"
   _photos: "Nuotraukos"
   _services: "Paslaugos"
@@ -13,254 +15,449 @@ lt:
   activerecord:
     errors:
       models:
+        contact:
+          attributes:
+            person_id:
+              taken: "Negali dubliuotis tarp šio vartotojo kontaktų"
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "Užimtas"
+        request:
+          attributes:
+            from_id:
+              taken: "Šis reikalavimas kartojasi"
         reshare:
           attributes:
             root_guid:
-              taken: "You've already reshared that post!"
+              taken: "Šitas geras, ne? Jūs jau dalijotės šiuo įrašu!"
         user:
           attributes:
+            email:
+              taken: "Užimtas"
+            person:
+              invalid: "Neteisingas"
             username:
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "Neteisingas. Galima naudoti tik raides, skaičius ir apatinį brūkšnelį_"
+              taken: "Užimtas"
   ago: "%{time} prieš"
-  all_aspects: "All aspects"
+  all_aspects: "Visos kategorijos"
   application:
     helper:
-      unknown_person: "nežinomas asmuo"
+      diaspora_alpha: "DIASPORA* PRADŽIA"
+      unknown_person: "Nežinomas asmuo"
+      video_title:
+        unknown: "Netinkamas video įrašo tipas."
   are_you_sure: "Ar jūs įsitikinęs?"
+  are_you_sure_delete_account: "Ar Jūs įsitikinęs, kad norite ištrinti savo paskyrą? Šio veiksmo negalėsite atšaukti!"
+  aspect_memberships:
+    destroy:
+      failure: "Nepavyko ištrinti kontakto iš kategorijos"
+      no_membership: "Nepavyko rasti kontakto šioje kategorijoje"
+      success: "Kontaktas sėkmingai pašalintas iš kategorijos"
   aspects:
     add_to_aspect:
-      failure: "Nepavyko pridėti draugo į aspektą."
-      success: "Draugas į aspektą pridėtas sėkmingai."
+      failure: "Nepavyko priskirti kontakto kategorijai."
+      success: "Kontaktas sėkmingai priskirtas kategorijai."
+    aspect_contacts:
+      done_editing: "Pakeista"
+    aspect_listings:
+      add_an_aspect: "Pridėti kategoriją"
+      deselect_all: "Nepasirinkti nieko"
+      edit_aspect: "Redaguoti %{name}"
+      select_all: "Pasirinkti viską"
+    aspect_stream:
+      stay_updated: "Sekite naujienas"
+      stay_updated_explanation: "Jūsų pagrindiniame sraute galite rasti visus savo kontaktus, Jūsų sekamas žymes, ir išradingų bendruomenės narių įrašus."
+    contacts_not_visible: "Šios kategorijos kontaktai negalės matyti vienas kito."
+    contacts_visible: "Šios kategorijos kontaktai galės matyti vienas kitą."
     create:
-      failure: "Aspekto sukurti nepavyko."
-      success: "Spustelk pliusą kairėje ir nurodyk, kas Diasporoje gali matyti tavo naują aspektą."
+      failure: "Kategorijos sukurti nepavyko."
+      success: "Nauja kategorija  %{name} sukurta."
     destroy:
+      failure: "%{name} negali būti pašalintas, nes nėra tuščias."
       success: "%{name} sėkmingai pašalintas."
     edit:
-      make_aspect_list_visible: "make aspect list visible?"
-    few: "%{count} aspects"
+      add_existing: "Pridėti egzistuojantį kontaktą"
+      aspect_list_is_not_visible: "Kategorijų sąrašo nemato kiti esantys šioje kategorijoje"
+      aspect_list_is_visible: "Kategorijų sąrašas matomas kietiems esantiems šioje kategorijoje"
+      confirm_remove_aspect: "Ar tikrai norite ištrinti šią kategoriją?"
+      done: "Atlikta"
+      make_aspect_list_visible: "Ar leisti šios kategorijos kontaktams matyti vienas kitą?"
+      remove_aspect: "Ištrinti kategoriją"
+      rename: "Pervardinti"
+      update: "Atnaujinti"
+      updating: "Atnaujinama..."
+    few: "%{count} kategorijų"
     helper:
-      aspect_not_empty: "Aspektas netuščias"
+      are_you_sure: "Ar tikrai norite ištrinti šią kategoriją?"
+      aspect_not_empty: "Kategorijoje nėra kontaktų"
       remove: "šalinti"
     index:
-      handle_explanation: "Tai tavo identifikatorius Diaspora tinkle. Jis, kaip ir el. pašto adresas, leidžia kitiems žmonėms susisiekti su jumis."
+      cubbies:
+        explanation: "Cubbi.es yra pirmojo tinklapio Diaspora kuriama programa."
+        heading: "Prisijungti prie internetinės nuotraukų saugyklos Cubbi.es"
+        learn_more: "Sužinoti daugiau"
+      diaspora_id:
+        content_1: "Jūsų unikalus Diaspora ID:"
+        content_2: "Jo pagalba Jus galima surasti Diaspora tinkle."
+        heading: "Unikalus Diaspora ID"
+      donate: "Aukoti dabar"
+      handle_explanation: "Tai tavo unikalus numeris Diaspora tinkle. Jis, kaip ir el. pašto adresas, leidžia kitiems žmonėms surasti Jus tinkle."
       help:
-        here_to_help: "Diaspora community is here to help!"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
+        do_you: "Ar:"
+        email_feedback: "%{link} Jūsų atsiliepimai"
+        feature_suggestion: "... galite pasiūlyti %{link}?"
+        find_a_bug: "...randate %{link}?"
+        have_a_question: "... turite %{link}?"
+        here_to_help: "Diaspora bendruomenė tau gali padėti!"
+        need_help: "Reikia pagalbos?"
+        tag_bug: "nesklandumų"
+        tag_feature: "ypatybė"
+        tag_question: "klausimų"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Bendruomenės pagalba, kaip padaryti klausimai ir naujienos"
+      introduce_yourself: "Tai Jūsų srautas. Užeikite ir prisistatykite."
+      new_here:
+        follow: "Sekti %{link} ir pasveikinti naujus tinklapio Diaspora* vartotojus!"
+        learn_more: "Sužinoti daugiau"
+        title: "Pasveikinkite naujus vartotojus"
+      no_contacts: "Kontaktų nėra"
       no_tags: "No tags"
-    many: "%{count} aspects"
+      people_sharing_with_you: "Žmonės dalijasi su jumis"
+      post_a_message: "Parašyti žinutę"
+      services:
+        content: "Jūs galite prijungti šias paslaugas prie savo Diaspora tinklapio:"
+        heading: "Prijungti paslaugas"
+      unfollow_tag: "Sustabdyti sekimą #%{tag}"
+      welcome_to_diaspora: "Sveiki atvykę į tinklapį Diaspora, %{name}!"
+    many: "%{count} kategorijų"
     move_contact:
       error: "Klaida perkeliant kontaktą: %{inspect}"
-      failure: "nepavyko %{inspect}"
-      success: "Kontaktas perkeltas į aspektą"
+      failure: "Nepavyko %{inspect}"
+      success: "Kontaktas perkeltas į kitą kategoriją"
     new:
-      name: "Name"
+      create: "Sukurti"
+      name: "Vardas (matomas tik Jums)"
     no_contacts_message:
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      community_spotlight: "Bendruomenės dėmesio centre"
+      or_spotlight: "Arba galite dalintis su %{link}"
+      try_adding_some_more_contacts: "Jūs galite ieškoti arba pakviesti daugiau žmonių."
+      you_should_add_some_more_contacts: "Pridėkite daugiau kontaktų!"
     no_posts_message:
-      start_talking: "Dar niekas nepasisakė. Pradėk pokalbį pats!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+      start_talking: "Dar niekas nepasisakė. Pradėkite pokalbį pats!"
+    one: "1 kategorija"
+    other: "%{count} kategorijų"
     seed:
+      acquaintances: "Pažintys"
       family: "Šeima"
+      friends: "Draugai"
       work: "Darbas"
+    selected_contacts:
+      manage_your_aspects: "Tvarkyti savo kategorijas."
+      no_contacts: "Kol kas neturite nei vieno kontakto."
+      view_all_community_spotlight: "Matyti viską kas yra bendruomenės dėmesio centre"
+      view_all_contacts: "Rodyti visus kontaktus"
     show:
-      edit_aspect: "keisti aspektą"
-    two: "%{count} aspects"
+      edit_aspect: "Keisti kategoriją"
+    two: "%{count} kategorijos"
     update:
-      success: "Aspektas \"%{name}\" pakeistas sėkmingai."
-    zero: "no aspects"
+      failure: "Kategorijos %{name} pavadinimas yra per ilgas."
+      success: "Kategorija %{name} sėkmingai pakeista."
+    zero: "Nėra kategorijų"
   back: "Atgal"
   bookmarklet:
-    explanation: "%{link} from anywhere by bookmarking this link."
-    heading: "Diaspora Bookmarklet"
+    explanation: "Paskelbkite tinkle Diaspora %{link} paspausdami šią nuorodą => %{link}"
+    heading: "Diaspora žymelės"
+    post_something: "Paskelbti Diaspora"
+    post_success: "Įrašas išsiųstas!"
   cancel: "Atšaukti"
   comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} komentarų"
+    many: "%{count} komentarų"
     new_comment:
       comment: "Komentuoti"
       commenting: "Siunčiamas komentaras..."
+    one: "1 komentaras"
+    other: "%{count} komentarų"
+    two: "%{count} komentarai"
+    zero: "Komentarų nėra"
   contacts:
-    few: "%{count} contacts"
+    create:
+      failure: "Nepavyko sukurti kontakto"
+    few: "%{count} kontaktų"
     index:
-      add_to_aspect: "Add contacts to %{name}"
-      no_contacts: "No contacts."
+      add_a_new_aspect: "Sukurti kategoriją"
+      add_to_aspect: "Pridėti kontaktus į kategoriją %{name}"
+      add_to_aspect_link: "Pridėti kontaktus į kategoriją %{name}"
+      all_contacts: "Visi kontaktai"
+      community_spotlight: "Bendruomenės dėmesio centre"
+      many_people_are_you_sure: "Ar tikrai norite pradėti privatų pokalbį su daugiau nei %{suggested_limit} kontaktų? Paskelbti įrašą šioje kategorijoje gali būti geresnis būdas."
+      my_contacts: "Mano kontaktai"
+      no_contacts: "Pridėkite daugiau kontaktų!"
+      no_contacts_message: "Peržiūrėti %{community_spotlight}"
+      no_contacts_message_with_aspect: "Peržiūrėti %{community_spotlight} arba %{add_to_aspect_link}"
+      only_sharing_with_me: "Tik tie, kurie su manimi dalijasi"
+      remove_person_from_aspect: "Ištrinti %{person_name} iš kategorijos \"%{aspect_name}\""
+      start_a_conversation: "Pradėti pokalbį"
+      title: "Kontaktai"
+      your_contacts: "Jūsų kontaktai"
+    many: "%{count} kontaktų"
+    one: "1 kontaktas"
+    other: "%{count} kontaktų"
+    sharing:
+      people_sharing: "Žmonės dalijasi su jumis:"
+    spotlight:
+      community_spotlight: "Bendruomenės dėmesio centre"
+    two: "%{count} kontaktai"
+    zero: "kontaktai"
   conversations:
+    create:
+      fail: "Netinkamas pranešimas"
+      sent: "Pranešimas išsiųstas"
+    destroy:
+      success: "Pokalbis sėkmingai ištrintas"
     helper:
       new_messages:
-        few: "%{count} new messages"
+        few: "%{count} nauji pranešimai"
         many: "%{count} new messages"
         one: "1 naujas pranešimas"
-        other: "%{count} new messages"
+        other: "%{count} naujų pranešimų"
         two: "%{count} new messages"
         zero: "Nėra naujų pranešimų"
+    index:
+      create_a_new_message: "Sukurti naują pranešimą"
+      inbox: "Gauta"
+      message_inbox: "Gauti pranešimai"
+      new_message: "Naujas pranešimas"
+      no_conversation_selected: "Nepasirinktas joks pokalbis"
+      no_messages: "Nėra pranešimų"
+    new:
+      abandon_changes: "Atsisakyti pakeitimų?"
+      send: "Siųsti"
+      sending: "Siunčiama..."
+      subject: "Tema"
+      to: ""
+    new_message:
+      fail: "Netinkamas pranešimas"
+    show:
+      delete: "Ištrinti ir užblokuoti pokalbį"
+      reply: "Atrašyti"
+      replying: "Siunčiamas atsakymas..."
+  date:
+    formats:
+      birthday: ""
+      birthday_with_year: ""
+      fullmonth_day: ""
   delete: "Šalinti"
   email: "El. paštas"
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Ištaisyk šias klaidas ir bandyk vėl."
-      invalid_fields: "Neteisingi laukai"
-  fill_me_out: "Užpildyk"
-  find_people: "Find people"
+      correct_the_following_errors_and_try_again: "Ištaisykite šias klaidas ir bandykite vėl."
+      invalid_fields: "Neteisingai suvesta"
+  fill_me_out: "Užpildykite"
+  find_people: "Rasti žmones arba žymes"
+  hide: "Slėpti"
   invitations:
+    a_facebook_user: "Facebook vartotojas"
     check_token:
       not_found: "Pakvietimo raktas nerastas"
     create:
+      already_contacts: "Šis žmogus jau yra jūsų kontaktuose"
+      already_sent: "Šiam žmogui pakvietimą jau siuntėte"
       no_more: "Daugiau pakvietimų neturi."
+      own_address: "Jūs negalite siųsti pakvietimo sau."
       rejected: "Šie el. pašto adresai neveikė: "
       sent: "Pakvietimas išsiųstas."
+    edit:
+      accept_your_invitation: "Patvirtinti kvietimą"
+      your_account_awaits: "Jūsų paskyra tikrinama!"
     new:
       already_invited: "Already invited"
+      aspect: "Kategorija"
+      check_out_diaspora: "Užeik į tinklą Diaspora!"
+      if_they_accept_info: "Kvietimus priėmę žmonės bus pridėti prie kategorijos į kurią kvietėte."
       invite_someone_to_join: "Pakviesk ką nors prisijungti prie Diasporos!"
+      language: "Kalba"
       personal_message: "Asmeninė žinutė"
+      resend: "Siųsti dar kartą"
       send_an_invitation: "Nusiųsk kvietimą"
       send_invitation: "Siųsti kvietimą"
       to: "Kam"
   layouts:
     application:
+      back_to_top: "Į viršų"
       powered_by: "TINKLAPĮ LEIDŽIA DIASPORA*"
+      public_feed: "Viešas atsiliepimas apie Diaspora %{name}"
       toggle: "toggle mobile site"
+      whats_new: "Kas naujo?"
+      your_aspects: "Jūsų kategorijos"
     header:
+      admin: "Administruoti"
       blog: "blog'as"
+      code: "kodas"
       login: "prisijungti"
       logout: "atsijungti"
       profile: "profile"
+      recent_notifications: "Siųsti įspėjimą dar kartą"
       settings: "settings"
+      view_all: "Rodyti viską"
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} people disliked this"
+        few: "%{count} žmonės nemėgsta"
         many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
+        one: "1 žmogus nemėgsta"
+        other: "%{count} žmonių nemėgsta"
         two: "%{count} dislikes"
-        zero: "no people disliked this"
+        zero: "Nėra nemėgstančių"
       people_like_this:
-        few: "%{count} people liked this"
+        few: "%{count} žmonių mėgta"
         many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
+        one: "1 žmogus mėgsta"
+        other: "%{count} žmonių mėgsta"
         two: "%{count} likes"
-        zero: "no people liked this"
+        zero: "Niekam nepatiko"
       people_like_this_comment:
-        few: "%{count} likes"
+        few: "%{count} mėgsta"
         many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
+        one: "%{count} mėgsta"
+        other: "%{count} mėgsta"
         two: "%{count} likes"
-        zero: "no likes"
+        zero: "niekas nemėgsta"
+  limited: "Ribotas"
+  more: "Daugiau"
+  next: "Sekantis"
+  no_results: "Nieko nerasta"
   notifications:
     also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors} taip pat pakomentavo %{post_author}'s %{post_link}."
       many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} taip pat pakomentavo %{post_author}'s %{post_link}."
+      other: "%{actors} taip pat pakomentavo %{post_author}'s %{post_link}."
       two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      zero: "%{actors} taip pat pakomentavo %{post_author}'s %{post_link}."
     also_commented_deleted:
-      few: "%{actors} commented on a deleted post."
+      few: "%{actors} pakomentavo ištrintą įrašą."
       many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
+      one: "%{actors} pakomentavo ištrintą įrašą."
+      other: "%{actors} pakomentavo ištrintą įrašą."
       two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
+      zero: "%{actors} pakomentavo ištrintą įrašą."
     comment_on_post:
-      few: "%{actors} commented on your %{post_link}."
+      few: "%{actors} pakomentavo Jūsų %{post_link}."
       many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
+      one: "%{actors} pakomentavo Jūsų %{post_link}."
+      other: "%{actors} pakomentavo Jūsų %{post_link}."
       two: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
+      zero: "%{actors} pakomentavo Jūsų %{post_link}."
     helper:
       new_notifications:
-        few: "%{count} new notifications"
+        few: "%{count} nauji įspėjimai"
         many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
+        one: "1 naujas įspėjimas"
+        other: "%{count} naujų įspėjimų"
         two: "%{count} new notifications"
-        zero: "no new notifications"
+        zero: "nėra naujų įspėjimų"
     index:
+      and: "ir"
       and_others:
-        few: "and %{count} others"
+        few: "ir %{count} kitus"
         many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
+        one: "pridėti dar vieną"
+        other: "ir %{count} kitų"
         two: "and %{count} others"
-        zero: "and nobody else"
+        zero: "ir daugiau nieko"
+      mark_all_as_read: "Pažymėti viską kaip skaitytą"
+      notifications: "Įspėjimai"
     liked:
-      few: "%{actors} has just liked your %{post_link}."
+      few: "%{actors} pamėgo Jūsų įrašą %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
+      one: "%{actors} pamėgo Jūsų įrašą %{post_link}."
+      other: "%{actors} pamėgo Jūsų įrašą %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
+      zero: "%{actors} pamėgo Jūsų įrašą %{post_link}."
     liked_post_deleted:
-      few: "%{actors} liked your deleted post."
+      few: "%{actors} pamėgo Jūsų ištrintą įrašą."
       many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
-      other: "%{actors} liked your deleted post."
+      one: "%{actors} pamėgo Jūsų ištrintą įrašą."
+      other: "%{actors} pamėgo Jūsų ištrintą įrašą."
       two: "%{actors} liked your deleted post."
-      zero: "%{actors} liked your deleted post."
+      zero: "%{actors} pamėgo Jūsų ištrintą įrašą."
     mentioned:
-      few: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} paminėjo Jus įraše %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} paminėjo Jus įraše %{post_link}."
+      other: "%{actors} paminėjo Jus įraše %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
+      zero: "%{actors} paminėjo Jus įraše %{post_link}."
     mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
+      few: "%{actors} paminėjo Jus ištrintame įraše."
       many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} paminėjo Jus ištrintame įraše."
+      other: "%{actors} paminėjo Jus ištrintame įraše."
       two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
+      zero: "%{actors} paminėjo Jus ištrintame įraše."
+    post: "Siųsti"
     private_message:
-      few: "%{actors} sent you a message."
+      few: "Atsiuntė %{actors} pranešimus"
       many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
+      one: "Atsiuntė %{actors} pranešimą"
+      other: "Atsiuntė %{actors} pranešimų"
       two: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
+      zero: "Atsiuntė %{actors} pranešimų"
     reshared:
-      few: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} pasidalijo Jūsų įrašu %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} pasidalijo Jūsų įrašu %{post_link}."
+      other: "%{actors} pasidalijo Jūsų įrašu %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} pasidalijo Jūsų įrašu %{post_link}."
     reshared_post_deleted:
-      few: "%{actors} reshared your deleted post."
+      few: "%{actors} pasidalijo Jūsų ištrintu įrašu."
       many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
+      one: "%{actors} pasidalijo Jūsų ištrintu įrašu."
+      other: "%{actors} pasidalijo Jūsų ištrintu įrašu."
       two: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      zero: "%{actors} pasidalijo Jūsų ištrintu įrašu."
     started_sharing:
-      few: "%{actors} started sharing with you."
+      few: "%{actors} pradėjo su Jumis dalintis."
       many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
-      other: "%{actors} started sharing with you."
+      one: "%{actors} pradėjo su Jumis dalintis."
+      other: "%{actors} pradėjo su Jumis dalintis."
       two: "%{actors} started sharing with you."
-      zero: "%{actors} started sharing with you."
+      zero: "%{actors} pradėjo su Jumis dalintis."
   notifier:
+    a_post_you_shared: "įrašas."
+    click_here: "Spauskite čia"
+    comment_on_post:
+      reply: "Atrašyti arba parodyti %{name} įrašą"
     confirm_email:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "Šį el.laišką Jums atsiuntė %{pod_name}. Jei nebenorite gauti panašių pranešimų,"
     hello: "Labas, %{name}!"
     liked:
       liked: "%{name} has just liked your post: "
+      view_post: "parodyti įrašą"
+    mentioned:
+      mentioned: "paminėjo Jus įraše:"
+      subject: "%{name} paminėjo Jus Diaspora* tinkle"
+    private_message:
+      reply_to_or_view: "Atrašyti arba parodyti pokalbį"
     reshared:
       reshared: "%{name} just reshared your post"
+      view_post: "parodyti įrašą"
     single_admin:
       admin: "Jūsų Diaspora tinklo administratorius"
       subject: "A message from your Diaspora administrator:"
     started_sharing:
+      sharing: "Pradėjo su jumis dalintis"
       subject: "%{name} has started sharing with you on Diaspora*"
-  ok: "gerai"
+      view_profile: "Rodyti %{name} anketą"
+    thanks: "Dėkojame"
+    to_change_your_notification_settings: "kad pakeisti savo įspėjimų nustatymus"
+  nsfw: "Nesaugus"
+  ok: "Gerai"
   or: "arba"
   password: "Slaptažodis"
   password_confirmation: "Slaptažodžio patvirtinimas"
@@ -270,6 +467,9 @@ lt:
       people_on_pod_are_aware_of: " žmonės serveryje žino"
       results_for: " \"%{params}\" rezultatai"
     index:
+      couldnt_find_them_send_invite: "Negalite surasti? Nusiųskite pakvietimą!"
+      no_one_found: "... ir nieko nepavyko rasti."
+      no_results: "Labas! Nieko nerasta."
       results_for: "ieškoti rezultatų pagal"
     many: "%{count} people"
     one: "1 person"
@@ -322,24 +522,28 @@ lt:
   posts:
     show:
       photos_by:
-        few: "%{count} photos by %{author}"
+        few: "%{count} %{author} nuotraukos"
         many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
+        one: "%{author} nuotrauka"
+        other: "%{count} %{author} nuotraukų"
         two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
-  profile: "Profilis"
+        zero: "Nėra %{author} nuotraukų"
+  previous: "Ankstesnis"
+  privacy: "Privatumas"
+  privacy_policy: "Privatumo politika"
+  profile: "Anketa"
   profiles:
     edit:
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+  public: "Viešas"
   reactions:
-    few: "%{count} reactions"
+    few: "%{count} reakcijos"
     many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
+    one: "1 reakcija"
+    other: "%{count} reakcijų"
     two: "%{count} reactions"
-    zero: "0 reactions"
+    zero: "0 reakcijų"
   registrations:
     closed: "Naujų paskyrų kūrimas šiame Diasporos serveryje yra uždarytas."
     create:
@@ -367,12 +571,12 @@ lt:
       success: "Susidraugavai."
     helper:
       new_requests:
-        few: "%{count} new requests!"
+        few: "%{count} nauji prašymai!"
         many: "%{count} new requests!"
         one: "naujas prašymas!"
-        other: "%{count} new requests!"
+        other: "%{count} naujų prašymų!"
         two: "%{count} new requests!"
-        zero: "no new requests"
+        zero: "nėra naujų prašymų"
     manage_aspect_contacts:
       existing: "Egzistuojantys kontaktai"
       manage_within: "Valdyti kontaktus ties"
@@ -381,12 +585,12 @@ lt:
   reshares:
     reshare:
       reshare:
-        few: "%{count} Reshares"
+        few: "%{count} pasidalino"
         many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
+        one: "1 pasidalino"
+        other: "%{count} pasidalino"
         two: "%{count} reshares"
-        zero: "Reshare"
+        zero: "Niekas nepasidalino"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
@@ -414,12 +618,12 @@ lt:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       toggle:
-        few: "In %{count} aspects"
+        few: "%{count} kategorijose"
         many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
+        one: "%{count} kategorijoje"
+        other: "%{count} kategorijų"
         two: "In %{count} aspects"
-        zero: "Add to aspect"
+        zero: "Pridėti kontaktą prie kategorijos"
     contact_list:
       all_contacts: "Visi kontaktai"
     invitations:
@@ -456,21 +660,21 @@ lt:
     helper:
       no_message_to_display: "Žinučių nėra."
     too_long:
-      few: "please make your status messages less than %{count} characters"
+      few: "Sutrumpinkite savo statuso pranešimą %{count} ženklais"
       many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
+      one: "Sutrumpinkite savo statuso pranešimą %{count} ženklu"
+      other: "Sutrumpinkite savo statuso pranešimą %{count} ženklų"
       two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+      zero: "Sutrumpinkite savo statuso pranešimą %{count} ženklų"
   stream_helper:
     hide_comments: "Slėpti visus komentarus"
     show_comments:
-      few: "Show %{count} more comments"
+      few: "Rodyti dar %{count} komentarus"
       many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
+      one: "Rodyti dar vieną komentarą"
+      other: "Rodyti dar %{count} komentarų"
       two: "Show two more comments"
-      zero: "No more comments"
+      zero: "Daugiau komentarų nėra"
   streams:
     aspects:
       title: "Your Aspects"
@@ -485,9 +689,11 @@ lt:
     destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
+  terms_and_conditions: "Nuostatos ir sąlygos"
   tokens:
     show:
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+  undo: "Atšaukti"
   username: "Vartotojo vardas"
   users:
     confirm_email:
@@ -522,3 +728,4 @@ lt:
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger:
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
+  welcome: "Sveiki atvykę!"

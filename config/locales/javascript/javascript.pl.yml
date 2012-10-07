@@ -51,6 +51,7 @@ pl:
       settings: "Ustawienia"
       view_all: "Wyświetl wszystko"
     ignore: "Ignoruj"
+    ignore_user: "Zignorować tego użytkownika?"
     infinite_scroll:
       no_more: "Nie ma więcej wpisów."
     my_activity: "Moja aktywność"
