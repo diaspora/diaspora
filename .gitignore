@@ -4,13 +4,9 @@ app/assets/images/custom/*
 
 
 # Configuration files
-config/app_config.yml
-config/app.yml
-config/application.yml
+config/diaspora.yml
 config/heroku.yml
-config/script_server*.yml
-config/fb_config.yml
-config/oauth_keys.yml
+config/script_server.yml
 config/initializers/secret_token.rb
 config/redis.conf
 config/deploy_config.yml

@@ -1,13 +1,8 @@
 -#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
-= javascript_include_tag  'jquery.textchange.js', "publisher.js"
 
-:javascript
-  $(function() {
-    $("#publisher").bind('ajax:success', function(){ location.reload(); });
-    Publisher.bookmarklet = true;
-  });
+= javascript_include_tag :home
 
 #new_status_message_pane
   .span-15.last
@@ -17,3 +12,10 @@
 
     = render :partial => 'shared/publisher', :locals => { :aspect => @aspect, :aspect_ids => @aspect_ids, :selected_aspects => @aspects_with_person, :person => @person}
 
+:javascript
+  $(function() {
+    app.publisher = new app.views.Publisher({
+      standalone: true
+    });
+    $("#publisher").bind('ajax:success', function(){ location.reload(); });
+  });

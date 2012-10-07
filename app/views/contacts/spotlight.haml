@@ -16,9 +16,9 @@
 
 .span-18.last{:style => "position:relative;"}
 
-  - if AppConfig[:spotlight_suggest_email].present?
+  - if AppConfig.settings.community_spotlight.suggest_email.present?
     .right
-      = link_to "Suggest a member", "mailto:#{AppConfig[:spotlight_suggest_email]}", :class => "button"
+      = link_to "Suggest a member", "mailto:#{AppConfig.settings.community_spotlight.suggest_email}", :class => "button"
 
   %h3
     = t('contacts.spotlight.community_spotlight')

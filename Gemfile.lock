@@ -1,22 +1,4 @@
 GIT
-  remote: git://github.com/halida/rails_admin.git
-  revision: 590dceb10812a9207e42dbccecd5d1031715ae80
-  specs:
-    rails_admin (0.0.3)
-      bbenezech-nested_form (~> 0.0.6)
-      bootstrap-sass (~> 2.0, >= 2.0.3)
-      builder (~> 3.0)
-      coffee-rails (~> 3.1)
-      haml (~> 3.1)
-      jquery-rails (>= 1.0.17)
-      jquery-ui-rails (~> 0.2.2)
-      kaminari (~> 0.12)
-      rack-pjax (~> 0.5)
-      rails (~> 3.1)
-      remotipart (~> 1.0)
-      sass-rails (~> 3.1)
-
-GIT
   remote: https://github.com/Empact/roxml.git
   revision: 7ea9a9ffd2338aaef5b04cb792060ae8c98f346a
   ref: 7ea9a9ffd2338aaef5b0
@@ -26,17 +8,18 @@ GIT
       nokogiri (>= 1.3.3)
 
 GIT
-  remote: https://github.com/binarylogic/settingslogic.git
-  revision: 4884d455bf18d92723cb8190cfd2dbf87f3aafd5
-  specs:
-    settingslogic (2.0.8)
-
-GIT
   remote: https://github.com/plataformatec/markerb.git
   revision: 93b1e8bea9b8fa89ef930f78ba562f596c022198
   specs:
     markerb (1.0.0)
       redcarpet (>= 2.0)
+
+GIT
+  remote: https://github.com/svenfuchs/rails-i18n.git
+  revision: 855edc0e265a6d36fe5f62a886b2f0de455dd92a
+  specs:
+    rails-i18n (0.6.6)
+      i18n (~> 0.5)
 
 GEM
   remote: http://rubygems.org/
@@ -62,7 +45,7 @@ GEM
       activesupport (= 3.2.8)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activerecord-import (0.2.10)
+    activerecord-import (0.2.11)
       activerecord (~> 3.0)
       activerecord (~> 3.0)
     activeresource (3.2.8)
@@ -78,14 +61,10 @@ GEM
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
     addressable (2.3.2)
-    airbrake (3.1.0)
-      activesupport
-      builder
     arel (3.0.2)
-    asset_sync (0.4.2)
+    asset_sync (0.5.0)
       activemodel
       fog
-    bbenezech-nested_form (0.0.6)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.1.0.0)
     builder (3.0.3)
@@ -146,7 +125,7 @@ GEM
     diff-lcs (1.1.3)
     erubis (2.7.0)
     eventmachine (0.12.10)
-    excon (0.14.3)
+    excon (0.16.2)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.1.0)
@@ -163,9 +142,9 @@ GEM
     fixture_builder (0.3.4)
       activerecord (>= 2)
       activesupport (>= 2)
-    fog (1.4.0)
+    fog (1.6.0)
       builder
-      excon (~> 0.14.0)
+      excon (~> 0.14)
       formatador (~> 0.2.0)
       mime-types
       multi_json (~> 1.0)
@@ -204,23 +183,8 @@ GEM
       sprockets (>= 2.0.3)
       tilt
     hashie (1.2.0)
-    heroku (2.28.12)
-      heroku-api (~> 0.2.8)
-      launchy (>= 0.3.2)
-      netrc (~> 0.7.5)
-      rest-client (~> 1.6.1)
-      rubyzip
-    heroku-api (0.2.8)
-      excon (~> 0.14.3)
-    heroku_san (3.0.4)
-      activesupport
-      heroku (>= 2)
-      heroku-api (>= 0.1.2)
-      rake
     highline (1.6.12)
     hike (1.2.1)
-    hodel_3000_compliant_logger (0.1.0)
-    hpricot (0.8.6)
     http_accept_language (1.0.2)
     httpauth (0.1)
     i18n (0.6.1)
@@ -237,20 +201,18 @@ GEM
       selenium-webdriver (>= 0.1.3)
     jasmine-core (1.2.0)
     journey (1.0.4)
-    jquery-rails (2.0.2)
-      railties (>= 3.2.0, < 5.0)
+    jquery-rails (2.1.3)
+      railties (>= 3.1.0, < 5.0)
       thor (~> 0.14)
-    jquery-ui-rails (0.2.2)
+    jquery-ui-rails (2.0.1)
       jquery-rails
       railties (>= 3.1.0)
+    jruby-pageant (1.1.1)
     json (1.7.5)
-    kaminari (0.13.0)
+    kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-      railties (>= 3.0.0)
     kgio (2.7.4)
-    launchy (2.1.2)
-      addressable (~> 2.3)
     libwebsocket (0.1.5)
     listen (0.4.2)
       rb-fchange (~> 0.0.5)
@@ -270,24 +232,21 @@ GEM
     multi_json (1.3.6)
     multipart-post (1.1.5)
     mysql2 (0.3.11)
+    nested_form (0.2.3)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
-    net-ssh (2.5.2)
+    net-ssh (2.6.0)
+      jruby-pageant (>= 1.1.1)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    netrc (0.7.7)
-    newrelic_rpm (3.3.5)
     nokogiri (1.5.5)
     oauth (0.4.6)
     oauth2 (0.6.1)
       faraday (~> 0.7)
       httpauth (~> 0.1)
       multi_json (~> 1.3)
-    oink (0.9.3)
-      activerecord
-      hodel_3000_compliant_logger
     omniauth (1.1.1)
       hashie (~> 1.2)
       rack
@@ -299,13 +258,12 @@ GEM
     omniauth-oauth2 (1.0.2)
       oauth2 (~> 0.6.0)
       omniauth (~> 1.0)
-    omniauth-tumblr (1.0)
+    omniauth-tumblr (1.1)
       omniauth-oauth (~> 1.0)
     omniauth-twitter (0.0.11)
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
     orm_adapter (0.4.0)
-    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -316,8 +274,8 @@ GEM
     rack-mobile-detect (0.4.0)
       rack
     rack-piwik (0.1.3)
-    rack-pjax (0.5.9)
-      hpricot (~> 0.8.6)
+    rack-pjax (0.6.0)
+      nokogiri (~> 1.5)
       rack (~> 1.3)
     rack-protection (1.2.0)
       rack
@@ -334,8 +292,19 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
-    rails-i18n (0.6.6)
-      i18n (~> 0.5)
+    rails_admin (0.1.1)
+      bootstrap-sass (~> 2.0)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      haml (~> 3.1)
+      jquery-rails (~> 2.0)
+      jquery-ui-rails (~> 2.0)
+      kaminari (~> 0.12)
+      nested_form (~> 0.2.3)
+      rack-pjax (~> 0.5)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      sass-rails (~> 3.1)
     rails_autolink (1.0.9)
       rails (~> 3.1)
     railties (3.2.8)
@@ -366,11 +335,6 @@ GEM
       vegas (~> 0.1.2)
     resque-timeout (1.0.0)
       resque (~> 1.0)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
-    rpm_contrib (2.1.11)
-      newrelic_rpm (>= 3.1.1)
-      newrelic_rpm (>= 3.1.1)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -445,18 +409,16 @@ GEM
     will_paginate (3.0.3)
     xpath (0.1.4)
       nokogiri (~> 1.3)
-    yard (0.8.2.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-import (= 0.2.10)
+  activerecord-import (= 0.2.11)
   acts-as-taggable-on (= 2.3.3)
   acts_as_api (= 0.4.1)
   addressable (= 2.3.2)
-  airbrake (= 3.1.0)
-  asset_sync (= 0.4.2)
+  asset_sync (= 0.5.0)
   bootstrap-sass (= 2.1.0.0)
   bundler (> 1.1.0)
   capistrano (= 2.12.0)
@@ -474,7 +436,7 @@ DEPENDENCIES
   faraday_middleware (= 0.8.8)
   fastercsv (= 1.5.5)
   fixture_builder (= 0.3.4)
-  fog (= 1.4.0)
+  fog (= 1.6.0)
   foreigner (= 1.2.1)
   foreman (= 0.59)
   fuubar (= 1.0.0)
@@ -484,47 +446,40 @@ DEPENDENCIES
   guard-spork (= 0.8.0)
   haml (= 3.1.7)
   handlebars_assets (= 0.6.5)
-  heroku (= 2.28.12)
-  heroku_san (= 3.0.4)
   http_accept_language (= 1.0.2)
   i18n-inflector-rails (~> 1.0)
   jasmine (= 1.2.1)
-  jquery-rails (= 2.0.2)
+  jquery-rails (= 2.1.3)
   json (= 1.7.5)
   markerb!
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.4)
   mobile-fu (= 1.1.0)
   mysql2 (= 0.3.11)
-  newrelic_rpm (= 3.3.5)
   nokogiri (= 1.5.5)
-  oink (= 0.9.3)
   omniauth (= 1.1.1)
   omniauth-facebook (= 1.3.0)
-  omniauth-tumblr (= 1.0)
+  omniauth-tumblr (= 1.1)
   omniauth-twitter (= 0.0.11)
-  pg (= 0.14.1)
   rack-cors (= 0.2.7)
   rack-google-analytics (= 0.11.0)
   rack-piwik (= 0.1.3)
   rack-rewrite (= 1.2.1)
   rack-ssl (= 1.3.2)
   rails (= 3.2.8)
-  rails-i18n
-  rails_admin!
+  rails-i18n!
+  rails_admin (= 0.1.1)
   rails_autolink (= 1.0.9)
   redcarpet (= 2.1.1)
   remotipart (= 1.0.2)
   resque (= 1.22.0)
   resque-timeout (= 1.0.0)
   roxml!
-  rpm_contrib (= 2.1.11)
   rspec-instafail (= 0.2.4)
   rspec-rails (= 2.11.0)
   ruby-oembed (= 0.8.7)
   sass-rails (= 3.2.5)
   selenium-webdriver (= 2.25.0)
-  settingslogic!
   spork (= 1.0.0rc3)
   thin (= 1.4.1)
   timecop (= 0.5.1)
@@ -534,4 +489,3 @@ DEPENDENCIES
   unicorn (= 4.3.1)
   webmock (= 1.8.10)
   will_paginate (= 3.0.3)
-  yard (= 0.8.2.1)

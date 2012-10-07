@@ -41,6 +41,7 @@ class Photo < ActiveRecord::Base
 
   belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
   validates_associated :status_message
+  delegate :author_name, to: :status_message, prefix: true
 
   attr_accessible :text, :pending
   validate :ownership_of_status_message
@@ -98,9 +99,7 @@ class Photo < ActiveRecord::Base
 
   def update_remote_path
     unless self.unprocessed_image.url.match(/^https?:\/\//)
-      pod_url = AppConfig[:pod_url].dup
-      pod_url.chop! if AppConfig[:pod_url][-1,1] == '/'
-      remote_path = "#{pod_url}#{self.unprocessed_image.url}"
+      remote_path = "#{AppConfig.pod_uri.to_s.chomp("/")}#{self.unprocessed_image.url}"
     else
       remote_path = self.unprocessed_image.url
     end

@@ -146,6 +146,10 @@ class StatusMessage < Post
     formatted_message(:plain_text => true)
   end
 
+  def first_photo_url(*args)
+    photos.first.url(*args)
+  end
+
   def text_and_photos_blank?
     self.text.blank? && self.photos.blank?
   end

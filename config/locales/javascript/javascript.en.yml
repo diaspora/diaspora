@@ -8,6 +8,7 @@ en:
     confirm_dialog: "Are you sure?"
     delete: "Delete"
     ignore: "Ignore"
+    ignore_user: "Ignore this user?"
     timeago:
       prefixAgo: ""
       prefixFromNow: ""

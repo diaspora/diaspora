@@ -14,11 +14,8 @@ es:
       started_sharing_with: "¡Has empezado a compartir con <%= name %>!"
       stopped_sharing_with: "Ya no compartes más con <%= name %>."
       toggle:
-        few: "En <%= count %> aspectos"
-        many: "En <%= count %> aspectos"
         one: "En <%= count %> aspecto"
         other: "En <%= count %> aspectos"
-        two: "En <%= count %> aspectos"
         zero: "Elige los aspectos"
     aspect_navigation:
       deselect_all: "Desmarcar todos"
@@ -51,6 +48,7 @@ es:
       settings: "Ajustes"
       view_all: "Ver todo"
     ignore: "Ignorar"
+    ignore_user: "¿Ignorar a este usuario?"
     infinite_scroll:
       no_more: "No hay más publicaciones."
     my_activity: "Mi Actividad"

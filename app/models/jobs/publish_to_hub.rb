@@ -9,7 +9,7 @@ module Jobs
     def self.perform(sender_public_url)
       require Rails.root.join('lib', 'pubsubhubbub')
       atom_url = sender_public_url + '.atom'
-      Pubsubhubbub.new(AppConfig[:pubsub_server]).publish(atom_url)
+      Pubsubhubbub.new(AppConfig.environment.pubsub_server.get).publish(atom_url)
     end
   end
 end

@@ -20,7 +20,7 @@ module LayoutHelper
   end
 
   def set_asset_host
-    path = ENV['ASSET_HOST'].to_s + '/assets/'
+    path = AppConfig.environment.assets.host.to_s + '/assets/'
     content_tag(:script) do
       <<-JS.html_safe
         if(window.app) app.baseImageUrl("#{path}")

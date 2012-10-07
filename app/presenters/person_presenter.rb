@@ -12,9 +12,9 @@ class PersonPresenter
 
     if is_own_profile || person_is_following_current_user
       attrs.merge!({
-                      :location => @person.profile.location,
-                      :birthday => @person.profile.formatted_birthday,
-                      :bio => @person.profile.bio
+                      :location => @person.location,
+                      :birthday => @person.formatted_birthday,
+                      :bio => @person.bio
                   })
     end
 

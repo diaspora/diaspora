@@ -224,7 +224,7 @@ hu:
   back: "Vissza"
   blocks:
     create:
-      failure: "Nem tudtam figyelmen kívül hagyni azt a felhasználót. #elkerülés"
+      failure: "Nem sikerült figyelmen kívül hagyni a felhasználót. #megkerülés"
       success: "Többet nem látod azt a felhasználót a hírfolyamban. #némítás!"
     destroy:
       failure: "Nem tudtam kikapcsolni annak a felhasználónak a figyelmen kívül hagyását. #elkerülés"
@@ -588,7 +588,7 @@ hu:
       return_to_aspects: "Menj vissza a csoportokhoz"
       see_all: "Összes"
       start_sharing: "Megosztás indítása"
-      to_accept_or_ignore: "hogy elfogadd vagy elutasítsd."
+      to_accept_or_ignore: "hogy elfogadd vagy figyelmen kívül hagyd."
     sub_header:
       add_some: "adj hozzá néhányat"
       edit: "szerkesztés"
@@ -709,7 +709,7 @@ hu:
       sent: "%{name} megosztásra kért(ek) fel. A következő belépésük alkalmával láthatják a megosztásaid."
     destroy:
       error: "Kérlek válassz egy csoportot!"
-      ignore: "Elutasított kapcsolati felkérés."
+      ignore: "Kapcsolati felkérés figyelmen kívül hagyva."
       success: "Mostantól ismerősök vagytok."
     helper:
       new_requests:
@@ -847,7 +847,7 @@ hu:
       dislike: "Nem tetszik"
       hide_and_mute: "Bejegyzés elrejtése és némítása"
       ignore_user: "Mellőz: %{name}"
-      ignore_user_description: "A felhasználó eltávolítása és mellőzése az összes körből?"
+      ignore_user_description: "A felhasználó mellőzése és eltávolítása az összes csoportból?"
       like: "Tetszik"
       nsfw: "Ez a bejegyzés \"nem biztonságos\" jelölést kapott a szerzőjétől. %{link}"
       shared_with: "Megosztva vele: %{aspect_names}"

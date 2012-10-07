@@ -6,9 +6,9 @@ module ContactsHelper
         :action => 'destroy',
          :id => 42,
          :aspect_id => @aspect.id,
-         :person_id => contact.person.id
+         :person_id => contact.person_id
         },
-        :title => t('.remove_person_from_aspect', :person_name => contact.person.first_name, :aspect_name => @aspect.name),
+        :title => t('.remove_person_from_aspect', :person_name => contact.person_first_name, :aspect_name => @aspect.name),
             :method => 'delete')
 
     else

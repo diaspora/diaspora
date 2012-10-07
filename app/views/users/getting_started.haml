@@ -38,7 +38,7 @@
               .clearfix
                 = label_tag 'profile[first_name]', t('profiles.edit.your_name'), :class => "bootstrapped"
                 .input
-                  = text_field_tag 'profile[first_name]', current_user.person.profile.first_name
+                  = text_field_tag 'profile[first_name]', current_user.first_name
                   = image_tag 'ajax-loader.gif', :id => "gs-name-form-spinner", :class => "hidden"
 
               %span.saved{:class => "hidden"}

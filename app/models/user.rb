@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   include Querying
   include SocialActions
 
+  scope :logged_in_since, lambda { |time| where('last_sign_in_at > ?', time) }
+  scope :monthly_actives, lambda { |time = Time.now| logged_in_since(time - 1.month) }
+  scope :daily_actives, lambda { |time = Time.now| logged_in_since(time - 1.day) }
+  scope :yearly_actives, lambda { |time = Time.now| logged_in_since(time - 1.year) }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable, :token_authenticatable, :lockable,
@@ -33,7 +38,10 @@ class User < ActiveRecord::Base
   serialize :hidden_shareables, Hash
 
   has_one :person, :foreign_key => :owner_id
-  delegate :guid, :public_key, :posts, :photos, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :participations, :to => :person
+  delegate :guid, :public_key, :posts, :photos, :owns?, :image_url,
+           :diaspora_handle, :name, :public_url, :profile, :url,
+           :first_name, :last_name, :gender, :participations, to: :person
+  delegate :id, :guid, to: :person, prefix: true
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
@@ -80,22 +88,6 @@ class User < ActiveRecord::Base
 
   def self.all_sharing_with_person(person)
     User.joins(:contacts).where(:contacts => {:person_id => person.id})
-  end
-
-  def self.monthly_actives(start_day = Time.now)
-    logged_in_since(start_day - 1.month)
-  end
-
-  def self.yearly_actives(start_day = Time.now)
-    logged_in_since(start_day - 1.year)
-  end
-
-  def self.daily_actives(start_day = Time.now)
-    logged_in_since(start_day - 1.day)
-  end
-
-  def self.logged_in_since(time)
-    where('last_sign_in_at > ?', time)
   end
 
   def unread_notifications
@@ -372,7 +364,7 @@ class User < ActiveRecord::Base
       params[:image_url_small] = photo.url(:thumb_small)
     end
 
-    if self.person.profile.update_attributes(params)
+    if self.profile.update_attributes(params)
       Postzord::Dispatcher.build(self, profile).post
       true
     else
@@ -403,7 +395,7 @@ class User < ActiveRecord::Base
   end
 
   def set_person(person)
-    person.url = AppConfig[:pod_url]
+    person.url = AppConfig.pod_uri.to_s
     person.diaspora_handle = "#{self.username}#{User.diaspora_id_host}"
     self.person = person
   end
@@ -418,7 +410,7 @@ class User < ActiveRecord::Base
     self.aspects.create(:name => I18n.t('aspects.seed.work'))
     aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
 
-    unless AppConfig[:no_follow_diasporahq]
+    unless AppConfig.settings.follow_diasporahq
       default_account = Webfinger.new('diasporahq@joindiaspora.com').fetch
       self.share_with(default_account, aq) if default_account
     end

@@ -9,8 +9,9 @@
     = render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
 
 :javascript
-  Publisher.bookmarklet = true;
-  app.publisher = new app.views.Publisher();
+  app.publisher = new app.views.Publisher({
+    standalone: true
+  });
 
   var contents = "#{escape_javascript params[:title]} - #{escape_javascript params[:url]}";
   var notes    = "#{escape_javascript params[:notes]}";

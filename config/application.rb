@@ -24,7 +24,6 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-
 module Diaspora
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -73,7 +72,6 @@ module Diaspora
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    # Do not load whole env on precompile
     config.assets.initialize_on_precompile = false
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
@@ -98,9 +96,4 @@ module Diaspora
     config.assets.version = '1.0'
 
   end
-end
-
-# Only load asset_sync if S3 is configured
-if RAILS_GROUPS.include?(:assets) && ENV['AWS_ACCESS_KEY_ID']
-  require 'asset_sync'
 end

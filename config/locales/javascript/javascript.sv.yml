@@ -51,6 +51,7 @@ sv:
       settings: "Inställningar"
       view_all: "Visa alla"
     ignore: "Ignorera"
+    ignore_user: "Vill du ignorera den här användaren?"
     infinite_scroll:
       no_more: "Inga fler inlägg."
     my_activity: "Min aktivitet"
@@ -76,19 +77,13 @@ sv:
       hide_nsfw_posts: "Dölj #nsfw-inlägg"
       like: "Gilla"
       likes:
-        few: "<%= count %> gillar"
-        many: "<%= count %> gillar"
         one: "En gillar"
         other: "<%= count %> gillar"
-        two: "<%= count %> gillar"
         zero: "Ingen gillar"
       limited: "Begränsad"
       more_comments:
-        few: "Visa <%= count %> till kommentarer"
-        many: "Visa <%= count %> till kommentarer"
         one: "Visa en kommentar till"
         other: "Visa <%= count %> kommentarer till"
-        two: "Visa <%= count %> till kommentarer"
         zero: "Visa inga fler kommentarer"
       original_post_deleted: "Det ursprungliga inlägget har blivit borttaget av författaren."
       public: "Publik"

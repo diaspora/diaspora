@@ -4,7 +4,7 @@
     = person.name
 
   .tags
-    - person.profile.tags.each do |tag|
+    - person.tags.each do |tag|
       = link_to "##{tag}", tag_path(:name => tag.name)
 
   .add_user_to_aspect

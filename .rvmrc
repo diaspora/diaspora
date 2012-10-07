@@ -1,8 +1,6 @@
 #!/bin/bash
 
-rubygems_version="1.8.24"
-ruby_version="1.9.3-p194"
-gemset="diaspora"
+source ./script/env/ruby_env
 
 if [ -e '.rvmrc.local' ]; then
   source .rvmrc.local;
@@ -18,7 +16,4 @@ else
   fi
 fi
 
-
-if [ "$(gem --version)" != "$rubygems_version" ]; then
-  rvm rubygems "$rubygems_version"
-fi
+source ./script/env/ensure_right_rubygems
