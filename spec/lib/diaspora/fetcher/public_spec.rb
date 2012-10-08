@@ -86,10 +86,10 @@ describe PublicFetcher do
           process_posts
         }
       end
-      
+
       it 'applies the date from JSON to the record' do
         @data.each do |post|
-          date = ActiveSupport::TimeZone.new('UTC').parse(post['created_at'])
+          date = ActiveSupport::TimeZone.new('UTC').parse(post['created_at']).to_datetime
 
           entry = StatusMessage.find_by_guid(post['guid'])
           entry.created_at.should eql(date)
@@ -100,6 +100,15 @@ describe PublicFetcher do
         @data.each do |post|
           entry = StatusMessage.find_by_guid(post['guid'])
           entry.raw_message.should eql(post['text'])
+        end
+      end
+
+      it 'applies now to interacted_at on the record' do
+        @data.each do |post|
+          date = ActiveSupport::TimeZone.new('UTC').parse(@now.to_s).to_datetime
+
+          entry = StatusMessage.find_by_guid(post['guid'])
+          entry.interacted_at.should eql(date)
         end
       end
     end
