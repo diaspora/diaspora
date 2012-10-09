@@ -1,2 +1,0 @@
---format progress
---format ParallelSpecs::SpecSummaryLogger --out tmp/spec_summary.log

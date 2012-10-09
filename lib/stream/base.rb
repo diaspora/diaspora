@@ -124,10 +124,6 @@ class Stream::Base
     @contacts_in_stream ||= Contact.where(:user_id => user.id, :person_id => people.map{|x| x.id}).all
   end
 
-  def spotlight_diaspora_id
-    @spotlight_diaspora_id ||= AppConfig[:community_spotlight].try(:sample, 1)
-  end
-
   # @param post [Post]
   # @return [Boolean]
   def post_is_from_contact?(post)

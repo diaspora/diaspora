@@ -15,7 +15,7 @@ vi:
       inactive: "Tài khoản của bạn chưa được kích hoạt."
       invalid: "Tên người dùng hoặc mật khẩu không đúng."
       invalid_token: "Khoá xác thực không hợp lệ."
-      locked: "Tài khoản của bạn bị khoá."
+      locked: "Tài khoản của bạn đã bị khoá."
       timeout: "Phiên đăng nhập đã hết hạn, hãy đăng nhập lại để tiếp tục."
       unauthenticated: "Bạn cần đăng nhập hoặc đăng kí để tiếp tục."
       unconfirmed: "Bạn cần phải xác nhận tài khoản trước khi tiếp tục."
@@ -90,7 +90,7 @@ vi:
     sessions:
       new:
         alpha_software: "Bạn sẽ sử dụng phần mềm không ổn định."
-        bugs_and_feedback: "Có thể bạn sẽ phát hiện lỗi.  Chúng tôi sử dụng nút Phản hồi ở phía bên phải trình duyệt để bạn báo lỗi hoặc vấn đề nào khác.  Chúng tôi sẽ giải quyết vấn đề một cách nhanh nhất có thể."
+        bugs_and_feedback: "Có thể bạn sẽ phát hiện lỗi. Chúng tôi sử dụng nút Phản hồi ở phía bên phải trình duyệt để bạn báo lỗi hoặc vấn đề khác. Chúng tôi sẽ giải quyết vấn đề một cách nhanh nhất có thể."
         bugs_and_feedback_mobile: "Có thể bạn sẽ phát hiện lỗi. Bạn nên báo lỗi hoặc bất kì vấn đề nào khác. Chúng tôi sẽ giải quyết vấn đề một cách nhanh nhất có thể."
         login: "Đăng nhập"
         modern_browsers: "chỉ hỗ trợ những trình duyệt hiện đại."

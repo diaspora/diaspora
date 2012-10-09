@@ -22,12 +22,12 @@ describe InvitationCode do
 
   describe '.default_inviter_or' do
     before do
-      @old_account = AppConfig[:admin_account]
-      AppConfig[:admin_account] = 'bob'
+      @old_account = AppConfig.admins.account.get
+      AppConfig.admins.account = 'bob'
     end
 
     after do
-      AppConfig[:admin_account] = @old_account
+      AppConfig.admins.account = @old_account
     end
 
     it 'grabs the set admin account for the pod...' do
@@ -35,7 +35,7 @@ describe InvitationCode do
     end
 
     it '..or the given user' do
-      AppConfig[:admin_account] = ''
+      AppConfig.admins.account = ''
       InvitationCode.default_inviter_or(alice).username.should == 'alice'
     end
   end

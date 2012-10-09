@@ -32,7 +32,14 @@ other ideas what we could do
 #                                                                   #
 ####                                                             ####
 
-BINARIES="git ruby gem bundle sed mktemp"       # required programs
+# required programs
+declare -A BINARIES
+BINARIES["git"]="git"
+BINARIES["ruby"]="ruby"
+BINARIES["rubygems"]="gem"
+BINARIES["bundler"]="bundle"
+BINARIES["sed"]="sed"
+BINARIES["mktemp"]="mktemp"
 
 D_GIT_CLONE_PATH="/srv/diaspora"     # path for diaspora
 
@@ -54,7 +61,8 @@ D_DB_USER="diaspora"
 
 D_DB_PASS="diaspora"
 
-D_RUBY_VERSION="1.9.3-p125"
+# TODO: read this from ./script/env/ruby_env
+D_RUBY_VERSION="1.9.3-p194"
 
 ####                        INTERNAL VARS                        ####
 
@@ -70,7 +78,7 @@ JS_RUNTIME_DETECTED=false
 #... could be put in a separate file and sourced here
 
 # heredoc for variables - very readable, http://stackoverflow.com/a/8088167
-# use like this: 
+# use like this:
 # define VAR <<'EOF'
 # somecontent
 # EOF
@@ -125,11 +133,11 @@ interactive_check() {
 
 # check if all necessary binaries are available
 binaries_check() {
-  for exe in $BINARIES; do
+  for exe in "${!BINARIES[@]}"; do
     echo -n "checking for $exe... "
-    which "$exe"
+    which "${BINARIES[$exe]}"
     if [ $? -ne 0 ]; then
-      error "you are missing $exe";
+      error "you are missing the '${BINARIES[$exe]}' command, please install '$exe'";
     fi
   done
   echo ""
@@ -190,7 +198,7 @@ install_or_use_ruby() {
 # trust and load rvmrc
 # do this in a directory that has a .rvmrc, only :)
 load_rvmrc() {
-  if ! $RVM_DETECTED ; then
+  if ! $RVM_DETECTED || [[ ! -s ".rvmrc" ]] ; then
     return
   fi
 
@@ -202,11 +210,11 @@ load_rvmrc() {
 
   # load .rvmrc
   echo -n "loading .rvmrc ... "
-  source .rvmrc
+  source ".rvmrc"
   #rvm rvmrc load
   if [ $? -eq 0 ] ; then
     echo "ok"
-  else 
+  else
     echo "not ok"
   fi
   echo ""
@@ -215,7 +223,7 @@ load_rvmrc() {
 # rvm doesn't need sudo, otherwise we do have to use it :(
 rvm_or_sudo() {
   if $RVM_DETECTED ; then
-    run_or_error "$1" 
+    run_or_error "$1"
   else
     eval "$1"
     if [ $? -ne 0 ] ; then
@@ -247,13 +255,13 @@ js_runtime_check() {
   fi
 
   # TheRubyRacer
-  gem which v8 >/dev/null 2>&1
+  (echo "require 'v8'" | ruby) >/dev/null 2>&1
   if [ $? -eq 0 ] ; then
     JS_RUNTIME_DETECTED=true
   fi
 
   ##
-  # add your favourite js runtime here...
+  # add a check for your favourite js runtime here...
   ##
 
   if $JS_RUNTIME_DETECTED ; then
@@ -403,8 +411,8 @@ prepare_install_env
 database_setup
 
 
-echo "copying application.yml.example to application.yml"
-run_or_error "cp config/application.yml.example config/application.yml"
+echo "copying diaspora.yml.example to diaspora.yml"
+run_or_error "cp config/diaspora.yml.example config/diaspora.yml"
 echo ""
 
 
@@ -413,10 +421,10 @@ prepare_gem_bundle
 
 
 echo "creating the default database specified in config/database.yml. please wait..."
-run_or_error "bundle exec rake db:schema:load_if_ruby db:structure:load_if_sql --trace"
+run_or_error "bundle exec rake db:schema:load_if_ruby --trace"
 echo ""
 
-define GOODBYE_MSG <<'EOT'
+define GOODBYE_MSG <<EOT
 #####################################################################
 
 It worked! :)
@@ -424,18 +432,19 @@ It worked! :)
 Now, you should have a look at
 
   - config/database.yml      and
-  - config/application.yml
+  - config/diaspora.yml
 
 and change them to your liking. Then you should be able to
 start Diaspora* in development mode with:
 
     `rails s`
 
+
+For further information read the wiki at $D_WIKI_URL
+or join us on IRC $D_IRC_URL
+
 EOT
 echo "$GOODBYE_MSG"
-echo "For further information read the wiki at $D_WIKI_URL"
-echo "or join us on IRC $D_IRC_URL"
-echo ""
 
 
 exit 0

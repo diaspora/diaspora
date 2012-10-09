@@ -5,9 +5,697 @@
 
 
 hy:
+  _applications: "Հավելվածներ"
+  _comments: "Մեկնաբանություններ"
+  _contacts: "Ընկերներ"
+  _home: "Գլխավոր էջ"
+  _photos: "նկարներ"
+  _services: "Ծառայություններ"
+  account: "Հաշիվ"
+  activerecord:
+    errors:
+      models:
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "արդեն օգտագործվում է։"
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Էսքան լավնա՞։   Արդեն կիսվել ես այս գրառմամբ։"
+        user:
+          attributes:
+            email:
+              taken: "արդեն օգտագործվում է։"
+            person:
+              invalid: "անվավեր է"
+            username:
+              invalid: "անվավեր է։ Թույլատրվում են միայն տառեր, թվեր և _։"
+              taken: "արդեն զբաղված է"
+  admins:
+    admin_bar:
+      pages: "Էջեր"
+      pod_stats: "Փոդի վիճակագրություն"
+      user_search: "Օգտատերի որոնում"
+      weekly_user_stats: "Օգտատերերի շաբաթական վիճակագրություն"
+    stats:
+      2weeks: "2 շաբաթ"
+      50_most: "Ամենատարածված 50 պիտակները"
+      comments:
+        one: "%{count} մեկնաբանություն"
+        other: "%{count} մեկնաբանություն"
+        zero: "%{count} մեկնաբանություն"
+      daily: "Ամենօրյա"
+      go: "առա՛ջ"
+      month: "Ամիս"
+      posts:
+        one: "%{count} գրառում"
+        other: "%{count} գրառում"
+        zero: "%{count} գրառում"
+      tag_name: "Պիտակ՝ <b>%{name_tag}</b>, քանակը՝ <b>%{count_tag}</b>"
+      usage_statistic: "Օգտագործման վիճակագրություն"
+      users:
+        one: "%{count} օգատատեր"
+        other: "%{count} օգատատեր"
+        zero: "%{count} օգատատեր"
+      week: "Շաբաթ"
+    user_search:
+      add_invites: "ավելացնել հրավերներ"
+      email_to: "Հրավիրել նամակով"
+      users:
+        one: "%{count} օգտատեր գտնվեց"
+        other: "%{count} օգտատեր գտնվեց"
+        zero: "%{count} օգտատեր գտնվեց"
+      you_currently: "ներկա պահին դու ունես %{user_invitation} հրավեր ուղարկելու հնարավորություն. %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "այս շաբաթվա նոր օգտատերերի քանակը՝ %{count}"
+        other: "այս շաբաթվա նոր օգտատերերի քանակը՝ %{count}"
+        zero: "այս շաբաթվա նոր օգտատերերի քանակը՝ 0"
+  ago: "%{time} առաջ"
+  all_aspects: "Բոլոր խմբերը"
+  application:
+    helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
+      unknown_person: "անհայտ անձ"
+  are_you_sure: "Համոզվա՞ծ ես"
+  are_you_sure_delete_account: "Համոզվա՞ծ ես, որ ուզում ես փակել հաշիվդ։ Այն վերականգնել չի լինի։"
+  aspect_memberships:
+    destroy:
+      success: "Անձը հաջողությամբ հեռացված է խմբից"
   aspects:
+    aspect_contacts:
+      done_editing: "պատրաստ է"
+    aspect_listings:
+      add_an_aspect: "+ Ստեղծել նոր խումբ"
+      deselect_all: "Ապանշել ամբողջը"
+      edit_aspect: "Փոխել %{name}"
+      select_all: "Նշել ամբողջը"
+    aspect_stream:
+      stay_updated_explanation: "Քո լրահոսը հեղեղված է ընկերներիդ գործողություններով, պիտակներով, որոնց հետևում ես, և համայնքի որոշ կրեատիվ անդամների գրառումներով։"
+    contacts_not_visible: "Այս խմբի ընկերներդ տեսանելի չեն միմյանց համար։"
+    contacts_visible: "Այս խմբի ընկերները կկարողանան իրար տեսնել։"
+    create:
+      failure: "Չհաջողվեց ստեղծել խումբը։"
+      success: "Քո նոր %{name} խումբը պատրաստ է"
+    destroy:
+      failure: "%{name} -ը դատարկ չէ և չի կարող ջնջվել։"
+      success: "%{name} բարեհաջող ջնջվեց։"
+    edit:
+      aspect_list_is_not_visible: "Խմբի ցուցակը տեսանելի չէ նրա անդամներին"
+      aspect_list_is_visible: "Խմբի ցուցակը տեսանելի է նրա անդամներին"
+      confirm_remove_aspect: "Վստա՞հ ես, որ ուզում ես ջնջել այս խումբը։"
+      done: "Պատրաստ է"
+      make_aspect_list_visible: "այս խմբի անդամներին դարձնե՞լ տեսանելի միմյանց համար։"
+      remove_aspect: "Ջնջել այս խումբը"
+      rename: "վերանվանել"
+      update: "թարմացնել"
+      updating: "թարմացվում է"
+    few: "%{count} խմբեր"
+    helper:
+      are_you_sure: "Վստա՞հ ես, որ ուզում ես ջնջել այս խումբը։"
+      aspect_not_empty: "Խումբը դատարկ չէ"
+      remove: "հեռացնել"
     index:
+      cubbies:
+        heading: "Միանալ Cubbi․es-ին"
+        learn_more: "Իմանալ ավելին"
+      diaspora_id:
+        content_1: "Քո Diaspora ID-ն՝"
+        content_2: "Հաղորդիր սա որևիցե մեկին, և նա կկարողանա գտնել քեզ Diaspora-ում։"
+        heading: "Diaspora ID"
+      donate: "Նվիրաբերել"
+      handle_explanation: "Սա քո Diaspora ID-ն է։ Մարդիկ կարող են գտնել քեզ ինչպես քո էլ. հասցեով, այնպես էլ քո Diaspora ID-ով։"
       help:
-        email_link: "Էլ. հասցե"
+        do_you: "Դու."
+        email_feedback: "Կարող ես նաև %{link} ուղարկել քո կարծիքը։"
+        email_link: "նամակով"
+        feature_suggestion: "… %{link} ունե՞ք։"
+        find_a_bug: "… %{link} ե՞ք գտել։"
+        have_a_question: "… %{link} ունե՞ք։"
+        here_to_help: "Համայնքն այստե՜ղ է։"
+        need_help: "Օգնությու՞ն"
+        tag_bug: "բա՞գ"
+        tag_feature: "առաջարկությու՞ն"
+        tag_question: "հա՞րց"
+      introduce_yourself: "Սա քո լրահոսն է։ Ընկղմվիր և ներկայացրու քեզ։"
+      keep_diaspora_running: "Օգնիր Diaspora-ի արագ զարգացմանը ամսական նվիրատվությամբ։"
+      new_here:
+        follow: "Հետևիր %{link}-ին և ողջունիր Diaspora*-ի նոր օգտատերերին։"
+        learn_more: "Իմանալ ավելին"
+        title: "Ողջունի՛ր նորեկներին"
+      no_contacts: "Ընկերներ չկան"
+      no_tags: "+ Հետևելու պիտակ գտնել"
+      people_sharing_with_you: "Քեզ հետ կիսվող մարդիկ"
+      services:
+        content: "Կարող ես հետևյալ ծառայությունները միացնել Diaspora-ին՝"
+        heading: "Միացնել ծառայությունները"
+      unfollow_tag: "Դադարել հետևել #%{tag}ին"
+      welcome_to_diaspora: "Բարի գալուստ Diaspora*, %{name} ջան։"
+    many: "%{count} խմբեր"
+    move_contact:
+      failure: "չի աշխատում %{inspect}"
+      success: "Անձը տեղափոխվեց նոր խումբ։"
+    new:
+      create: "Ստեղծել"
+      name: "Անունը (միայն քեզ է տեսանելի)"
+    no_contacts_message:
+      try_adding_some_more_contacts: "Կարող ես ևս ընկերներ փնտրել կամ հրավիրել նրանց։"
+      you_should_add_some_more_contacts: "Լավ կլինի՝ մի քանի ընկեր ավելացնես։"
+    no_posts_message:
+      start_talking: "Ոչ ոք բան չի ասել դեռևս։"
+    one: "1 խումբ"
+    other: "%{count} խմբեր"
+    seed:
+      acquaintances: "Ծանոթներ"
+      family: "Ընտանիք"
+      friends: "Ընկերներ"
+      work: "Աշխատանք"
+    selected_contacts:
+      manage_your_aspects: "Կարգավորել խմբերը"
+      no_contacts: "Դու դեռ ոչ մի ընկեր չունես։"
+    show:
+      edit_aspect: "փոփոխել խումբը"
+    two: "%{count} խմբեր"
+    update:
+      failure: "Քո՝ %{name} խմբի անունը շատ երկար է և չի կարող պահպանվել։"
+      success: "Քո՝ %{name} խումբը հաջողությամբ փոփոխվեց։"
+    zero: "խմբեր չկան"
+  authorizations:
+    new:
+      nope: "Ոչ"
+  back: "Ետ"
+  blocks:
+    create:
+      success: "Բարի, այլևս չես տեսնի այդ օգտատերին քո լրահոսում։ #silencio!"
+    destroy:
+      success: "Եկ տեսնենք՝ ինչ ունեն նրանք ասելու։ #sayhello"
+  bookmarklet:
+    post_something: "Գրառել Diaspora-ում"
+  cancel: "Չեղարկել"
+  comments:
+    few: "%{count} մեկնաբանություն"
+    many: "%{count} մենկնաբանություններ"
+    new_comment:
+      comment: "Մեկնաբանել"
+      commenting: "Մեկնաբանվում է…"
+    one: "1 մեկնաբանություն"
+    other: "%{count} մեկնաբանություններ"
+    two: "%{count} մեկնաբանություն"
+    zero: "մեկնաբանություն չկա"
+  contacts:
+    index:
+      add_a_new_aspect: "Նոր խումբ ավելացնել"
+      add_to_aspect_link: "Ընկերներ ավելացնել %{name} -ին"
+      all_contacts: "Բոլոր ընկերները"
+      my_contacts: "Իմ ընկերները"
+      no_contacts: "Երևում է՝ նոր ընկերների կարիք ունես։"
+      no_contacts_message: "Ստուգել %{community_spotlight}"
+      only_sharing_with_me: "Միայն ինձ հետ կիսվողները"
+      remove_person_from_aspect: "Հեռացնել %{person_name} -ին %{aspect_name} -ից"
+      start_a_conversation: "Խոսակցություն սկսիր"
+      title: "Ընկերներ"
+      your_contacts: "Քո ընկերները"
+    one: "1 ընկեր"
+    sharing:
+      people_sharing: "Քեզ հետ կիսվող մարդիկ"
+    zero: "ընկերներ"
+  conversations:
+    create:
+      sent: "Նամակն ուղարկված է"
+    destroy:
+      success: "Զրույցը հաջողությամբ ջնջվեց"
+    helper:
+      new_messages:
+        one: "1 նոր նամակ"
+        other: "%{count} նոր նամակներ"
+        zero: "Նոր նամակ չկա"
+    index:
+      create_a_new_message: "նոր նամակ գրել"
+      new_message: "Նոր նամակ"
+      no_messages: "նամակ չկա"
+    new:
+      send: "Ուղարկել"
+      sending: "Ուղարկվում է․․․"
+      subject: "թեմա"
+      to: ""
+    show:
+      reply: "պատասխանել"
+      replying: "Պատասխանը ուղարկվում է..."
   delete: "Ջնջել"
+  email: "Էլփոստ"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Ուղղիր հետևյալ վրիպակները և կրկին փորձիր։"
+      invalid_fields: "Անվավեր դաշտեր"
+    post_not_public: "Գրառումը, որ փորձում ես դիտել, հրապարակային չէ։"
+  fill_me_out: "Լրացրու ամբողջովին"
+  find_people: "Գտնել մարդկանց կամ #պիտակներ"
   hide: "Թաքցնել"
+  invitations:
+    a_facebook_user: "Facebook-յան օգտատեր"
+    create:
+      already_sent: "Այս մարդուն արդեն հրավիրել ես։"
+      no_more: "Այլևս հրավեր ուղարկելու իրավունք չունես։"
+      own_address: "Դու չես կարող հրավեր ուղարկել քո սեփական հասցեին։"
+      rejected: "Հետևյալ էլ.հասցեների հետ կապված խնդիրներ կան՝ "
+      sent: "Հրավերներ ուղարկվեցին հետևյալ անձանց՝ "
+    edit:
+      accept_your_invitation: "Ընդունի՛ր հրավերդ"
+      your_account_awaits: "Հաշիվդ քեզ է սպասում։"
+    new:
+      already_invited: "Հետևյալ մարդիկ չեն ընդունել հրավերդ՝"
+      aspect: "Խումբ"
+      codes_left:
+        one: "Այս հղումը գործող է մեկ հրավերի համար։"
+        other: "Այս հղումը գործող է %{count} հրավերի համար։"
+        zero: "Այս հղմամբ հրավիրել այլևս հնարավոր չէ։"
+      comma_separated_plz: "Կարող ես մուտքագրել մի քանի էլ.հասցե՝ բաժանելով դրանք ստորակետներով։"
+      invite_someone_to_join: "Հրավիրիր որևիցե մեկին՝ միանալու Diaspora-ին։"
+      language: "Լեզու"
+      paste_link: "Կիսվիր այս հղումով ընկերներիդ հետ, որպեսզի հրավիրես նրանց Diaspora*, կամ ուղարկիր այն անմիջապես նրանց էլ.հասցեներին։"
+      personal_message: "Անձնական նամակ"
+      resend: "Կրկին ուղարկել"
+      send_an_invitation: "Հրավեր ուղարկել"
+      send_invitation: "Հրավեր ուղարկել"
+  layouts:
+    application:
+      back_to_top: "Թռնել վերև"
+      whats_new: "ի՞նչ կա"
+      your_aspects: "քո խմբերը"
+    header:
+      blog: "բլոգ"
+      code: "ծածկագիր"
+      login: "մտնել"
+      logout: "Դուրս գալ"
+      profile: "Անձնական էջ"
+      recent_notifications: "Վերջին ծանուցումներ"
+      settings: "Կարգավորումներ"
+      view_all: "Դիտել ամբողջը"
+  likes:
+    likes:
+      people_like_this:
+        one: "%{count} հավանում"
+        other: "%{count}  հավանումներ"
+        zero: "հավանում չկա"
+      people_like_this_comment:
+        one: "%{count} հավանում"
+        other: "%{count}  հավանումներ"
+        zero: "հավանում չկա"
+  limited: "Սահմանափակ"
+  more: "Ավելի՜ն"
+  next: "հաջորդ"
+  no_results: "Ոչինչ չգտնվեց ։("
+  notifications:
+    helper:
+      new_notifications:
+        one: "1 նոր ծանուցում"
+        other: "%{count} նոր ծանուցումներ"
+        zero: "Նոր ծանուցում չկա"
+    index:
+      and: "և"
+      and_others:
+        one: "ևս մեկը"
+        other: "ևս %{count}ը"
+        zero: "այլևս ոչ ոք"
+      mark_all_as_read: "Նշել ամբողջը որպես ընթերցված"
+      mark_unread: "Նշել որպես չկարդացված"
+      notifications: "Ծանուցումներ"
+    post: "Գրառում"
+  notifier:
+    a_post_you_shared: "գրառումը․"
+    accept_invite: "Ընդունի՛ր քո՝ Diaspora*-ի հրավերը։"
+    click_here: "սեղմի՛ր այստեղ"
+    hello: "Ողջու՜յն, %{name}։"
+    invite:
+      message: |-
+          Ողջու՛յն։
+
+          Քեզ հրավիրել են՝ միանալու Diaspora*-ին։
+
+          Անցիր այս հղումով՝ սկսելու համար՝
+
+          [%{invite_url}][1]
+
+
+          Սիրով՝
+
+          Diaspora*-ի էլ.փոստային ռոբոտ։
+
+          [1]: %{invite_url}
+    invited_you: "%{name}-ն է հրավիրել քեզ Diaspora*"
+    reshared:
+      view_post: "Նայել գրառումը"
+    single_admin:
+      subject: "Նամակ՝ Diaspora-ի հաշվիդ մասին։"
+    started_sharing:
+      sharing: "սկսեց կիսվել քո հետ։"
+      subject: "%{name}-ը սկսեց կիսվել քո հետ Diaspora*-ում"
+    thanks: "Շնորհակալություն,"
+    to_change_your_notification_settings: "ծանուցումների կարգավորումները փոխելու համար"
+  ok: "Լավ"
+  or: "կամ"
+  password: "Գաղտնաբառ"
+  password_confirmation: "Գաղտնաբառի հաստատում"
+  people:
+    add_contact:
+      invited_by: "քեզ հրավիրել է"
+    few: "%{count} մարդ"
+    helper:
+      results_for: " արդյունքներ %{params}-ի համար"
+    index:
+      couldnt_find_them_send_invite: "Չե՞ս գտնում նրանց։  Հրավե՛ր ուղարկիր։"
+      looking_for: "%{tag_link} պիտակո՞վ գրառումներ ես փնտրում։"
+      no_one_found: "...և ոչ ոք չգտնվեց։"
+      results_for: "Որոնման արդյունքները"
+      searching: "փնտրվում է, խնդրում ենք լինել համբերատար..."
+    last_post: "Վերջին Գրառում"
+    many: "%{count} մարդ"
+    one: "1 հոգի"
+    other: "%{count} մարդ"
+    person:
+      add_contact: "Ընդլայնել կապերը:"
+      thats_you: "Դա դու՛ ես։"
+    profile_sidebar:
+      bio: "կենսագրություն"
+      born: "ծննդյան ամսաթիվ"
+      edit_my_profile: "Խմբագրել իմ անձնական էջը"
+      gender: "սեռ"
+      in_aspects: "խմբերում"
+      location: "տեղակայություն"
+    show:
+      closed_account: "Այս հաշիվը փակված է։"
+      ignoring: "Դու արհամարհում ես %{name}-ի բոլոր գրառումները։"
+      message: "Հաղորդագրություն"
+      recent_posts: "Վերջին գրառումները"
+      recent_public_posts: "Վերջին հրապարակային գրառումները"
+      see_all: "Տեսնել բոլորին"
+      start_sharing: "սկսիր կիսվել:"
+    sub_header:
+      edit: "խմբագրել"
+      you_have_no_tags: "դու չունես որևէ պիտակ:"
+    two: "%{count} մարդ"
+    zero: "մարդ չկա"
+  photos:
+    comment_email_subject: "%{name}-ի նկարները"
+    create:
+      type_error: "Նկարի վերբեռնումը տապալվեց։  Համոզված ե՞ս, որ հենց նկար էիր ավելացրել։"
+    destroy:
+      notice: "Լուսանկարը ջնջված է։"
+    edit:
+      editing: "Փոփոխվում է"
+    new:
+      back_to_list: "Ետ՝ ցուցակին"
+      new_photo: "Նոր լուսանկար"
+      post_it: "հրապարակի՛ր սա"
+    new_photo:
+      size_error: "{file} չափից դուրս մեծ է, հնարավոր առավելագույն չափն է՝ {sizeLimit}:"
+    new_profile_photo:
+      or_select_one_existing: "կամ ընտրիր արդեն գոյություն ունեցող նկարներից մեկը՝ %{photos}"
+      upload: "Նոր նկար վերբեռնի՛ր"
+    photo:
+      view_all: "դիտել %{name}-ի բոլոր նկարները"
+    show:
+      delete_photo: "Ջնջել լուսանկարը"
+      edit: "խմբագրել"
+      edit_delete_photo: "Փոխել նկարի նկարագրությունը կամ ջնջել նկարը"
+      make_profile_photo: "դարձնել գլխավոր նկար"
+      show_original_post: "Ցույց տալ սկզբնական գրառումը"
+      update_photo: "Փոխել նկարը"
+    update:
+      error: "Չհաջողվեց խմբագրել նկարը։"
+      notice: "Նկարդ հաջողությամբ փոխվեց։"
+  posts:
+    presenter:
+      title: "%{name}-ի գրառումը"
+    show:
+      destroy: "Ջնջել"
+      not_found: "Ցավում ենք, չստացվեց գտնել այդ գրառումը։"
+      photos_by:
+        one: "1 լուսանկար %{author}-ից"
+        other: "%{count} լուսանկարներ %{author}-ից"
+        zero: "Ոչ մի լուսանկար %{author}-ից"
+  previous: "նախորդ"
+  privacy: "Անձնական"
+  privacy_policy: "Անձնական քաղաքականություն"
+  profile: "Անձնական էջ"
+  profiles:
+    edit:
+      allow_search: "Թույլատրել մարդկանց փնտրել քեզ Diaspora-ի սահմաններում"
+      edit_profile: "Խմբագրել անձնական էջը"
+      first_name: "Անուն"
+      last_name: "Ազգանուն"
+      update_profile: "Թարմացրու անձնական էջդ:"
+      your_bio: "Կենսագրություն"
+      your_birthday: "Ծննդյան ամսաթիվ"
+      your_gender: "Սեռ"
+      your_location: "Որտե՞ղ ես"
+      your_name: "Անուն"
+      your_photo: "Քո նկարը"
+      your_public_profile: "Քո հրապարակային Էջը"
+      your_tags: "Նկարագրիր քեզ 5 բառով"
+      your_tags_placeholder: "օրինակ՝ #կինոնկար #կատուներ #ճանապարհորդություն #ուսուցիչ #Երևան"
+    update:
+      failed: "Չհաջողվեց թարմացնել էջդ"
+      updated: "Էջդ թարմացվեց"
+  public: "Հրապարակային"
+  registrations:
+    closed: "Գրանցումները հասանելի չեն Diaspora-ի այս փոդում։"
+    create:
+      success: "Դու միացար Diaspora-ին։"
+    edit:
+      cancel_my_account: "Փակել հաշիվս"
+      edit: "Փոփոխել %{name}ը"
+      password_to_confirm: "(փոփոխությունները հաստատելու համար հարկավոր է քո ներկայիս գաղտնաբառը)"
+      unhappy: "Տխու՞ր ես։"
+      update: "Թարմացնել"
+    new:
+      continue: "Շարունակել"
+      create_my_account: "Ստեղծե՜լ իմ հաշիվը:"
+      diaspora: "<3 Diaspora*"
+      email: "ԷԼ.ՀԱՍՑԵ"
+      enter_email: "Մուտքագրիր էլ.հասցե"
+      enter_password: "Մուտքագրիր գաղտնաբառ (առնվազն վեց նիշ)"
+      enter_password_again: "Մուտքագրիր նույն գաղտնաբառը"
+      enter_username: "Ընտրիր օգտանուն (միայն տառեր, թվեր և _)"
+      hey_make: "Հե՜յ, <br/>ՍՏԵՂԾԻ՛Ր<br/>ՄԻ ԲԱՆ"
+      join_the_movement: "Միանա՜լ շարժմանը"
+      password: "ԳԱՂՏՆԱԲԱՌ"
+      sign_up: "ԳՐԱՆՑՎԵԼ"
+      sign_up_message: "♥-ով լի սոցիալական ցանց"
+      username: "ՕԳՏԱՆՈՒՆ"
+  requests:
+    create:
+      sending: "Ուղարկվում է"
+      sent: "%{name}-ին առաջարկել ես կիսվել:  Նրանք առաջարկը կտեսնեն, երբ հաջորդ անգամ Diaspora մուտք գործեն:"
+    helper:
+      new_requests:
+        one: "Նոր հայտ!"
+        other: "%{count} նոր հայտեր!"
+        zero: "Ոչ մի նոր հայտ"
+    manage_aspect_contacts:
+      existing: "Գոյություն ունեցող ընկերները"
+    new_request_to_person:
+      sent: "ուղարկվեց"
+  reshares:
+    reshare:
+      deleted: "Օրիգինալ գրառումը ջնջվել է հեղինակի կողմից։"
+      reshare_confirmation: "Տարածե՞լ %{author}-ի գրառումը։"
+      show_original: "Ցույց տալ բնօրինակը"
+  search: "Որոնում"
+  services:
+    finder:
+      no_friends: "Facebook-ից ընկերներ չգտնվեցին:"
+    index:
+      connect_to_facebook: "Միացնել Facebook-ին"
+      connect_to_tumblr: "Միացնել Tumblr-ին"
+      connect_to_twitter: "Միացնել Twitter-ին"
+      disconnect: "Անջատել"
+      edit_services: "Փոփոխել ծառայությունները"
+      logged_in_as: "մուտք է գործվել որպես"
+      no_services: "Որևիցե ծառայություն չեք միացրել դեռևս:"
+      really_disconnect: "Անջատե՞լ %{service}-ը"
+    inviter:
+      click_link_to_accept_invitation: "Անցիր այս հղումով, որ ընդունես քո հրավերը"
+      join_me_on_diaspora: "Միացի՛ր ինձ DIASPORA*-ում"
+    remote_friend:
+      invite: "հրավիրել"
+      not_on_diaspora: "Դեռ Diaspora-ում չկա"
+      resend: "Կրկին ուղարկել:"
+  settings: "Կարգավորումներ"
+  share_visibilites:
+    update:
+      post_hidden_and_muted: "%{name}-ի գրառումը թաքցվել է, իսկ ծանուցումները՝ անջատվել։"
+      see_it_on_their_profile: "Եթե ուզում ես այս գրառման հետ կապված նորությունները տեսնել, այցելիր %{name}-ի անձնական էջը։"
+  shared:
+    add_contact:
+      create_request: "Գտնել Diaspora ID-ի միջոցով"
+      enter_a_diaspora_username: "Մուտքագրիր Diaspora օգտանուն"
+      know_email: "Գիտես նրանց էլ.հասցենե՞րը։ Կարող ես հրավիրել նրանց։"
+      your_diaspora_username_is: "Քո Diaspora-ի օգտանունն է %{diaspora_handle}"
+    aspect_dropdown:
+      add_to_aspect: "Ընդլայնել կապերը:"
+    contact_list:
+      all_contacts: "Բոլոր ընկերները:"
+    footer:
+      your_aspects: "քո խմբերը"
+    invitations:
+      by_email: "Էլ.հասցեով"
+      dont_have_now: "Այլևս հրավիրելու իրավունք չունես, բայց շուտով կգան նոր հնարավորություններ։"
+      from_facebook: "Facebook-ից"
+      invitations_left: "մնաց %{count} հատ"
+      invite_someone: "Հրավիրել որևէ մեկին"
+      invite_your_friends: "Կանչի՛ր ընկերներիդ"
+      invites: "Հրավերներ"
+      invites_closed: "Ներկայից պահին հրավերները հասանելի չեն Diaspora-յի այս փոդում։"
+      share_this: "Տարածի՛ր այս հղումը էլ.հասցեի, բլոգի կամ սիրելի սոցիալական ցանցի միջոցով։"
+    notification:
+      new: "Նոր %{type} %{from}-ից"
+    public_explain:
+      new_user_welcome_message: "Օգտագործիր #hashպիտակները՝ գրառումներդ դասակարգելու և հետաքրքրություններդ կիսող մարդկանց գտնելու համար։ Նշիր ընկերներիդ՝ օգտագործելով @Հիշատակել"
+      share: "Կիսվել"
+    publisher:
+      all: "բոլորը"
+      make_public: "Դարձնել հանրամատչելի"
+      new_user_prefill:
+        hello: "Ողջու՛յն, ժողովուրդ, #%{new_user_tag}։ "
+        i_like: "Իմ հետաքրքրություններն են՝ %{tags}։ "
+        invited_by: "Շնորհակալություն հրավերի համար, "
+        newhere: "ԵսՆորեկԵմ"
+      share: "Կիսվել:"
+      upload_photos: "Վերբեռնել լուսանկարները"
+      whats_on_your_mind: "Ի՞նչ կա մտքիդ։"
+    reshare:
+      reshare: "Տարածել"
+    stream_element:
+      currently_unavailable: "մեկնաբանումները այս պահին հասանելի չեն"
+      dislike: "Ապահավանել"
+      hide_and_mute: "Թաքցնել և անջատել գրառումը"
+      ignore_user: "Արհամարհել %{name}-ին"
+      like: "Հավանել"
+      show: "Ցուցադրել"
+      unlike: "Ապահավանել"
+      via_mobile: "հեռախոսով"
+      viewable_to_anyone: "Այս գրառումը տեսանելի է համացանցում ամենքին"
+  status_messages:
+    destroy:
+      failure: "Չհաջողվեց ջնջել գրառումը"
+  stream_helper:
+    hide_comments: "Թաքցնել բոլոր մեկնաբանությունները"
+    show_comments:
+      one: "Ցուցադրել ևս մեկ մեկնաբանություն"
+      other: "Ցուցադրել ևս %{count} մեկնաբանություն"
+      zero: "Այլևս մեկնաբանություն չկա"
+  streams:
+    activity:
+      title: "Իմ գործունեությունը:"
+    aspects:
+      title: "Իմ խմբերը"
+    aspects_stream: "Խմբեր"
+    comment_stream:
+      contacts_title: "Մարդիկ, ում գրառումները դու մեկնաբանել ես"
+      title: "Մեկնաբանված Գրառումներ"
+    followed_tag:
+      add_a_tag: "Ավելացնել պիտակ"
+      contacts_title: "Մարդիկ, ովքեր հայթայթել են այս պիտակները"
+      follow: "Հետևել"
+      title: "#Հետևվող Պիտակներ"
+    followed_tags_stream: "#Հետևվող Պիտակներ"
+    like_stream:
+      contacts_title: "Մարդիկ, ում գրառումները դու հավանել ես"
+    mentioned_stream: "@Հիշատակումներ"
+    mentions:
+      contacts_title: "Մարդիկ, ովքեր հիշատակել են քեզ"
+      title: "@Հիշատակումներ"
+    multi:
+      contacts_title: "Լրահոսիդ ժողովուրդը"
+      title: "Լրահոս"
+    public:
+      title: "Հանրային ակտիվություն"
+    tags:
+      contacts_title: "Մարդիկ, ովքեր հայթայթել են այս պիտակը"
+  tag_followings:
+    create:
+      failure: "Չստացվեց հետևել #%{name}-ին... Գուցե արդեն հետևու՞մ ես դրան։"
+      none: "Դու չես կարող դատարկ պիտակ հետևել։"
+      success: "Հեհեե՜յ։ Սկսեցիր հետևել #%{name}-ին։"
+    destroy:
+      success: "Սատանան տանի՜։ Դու այլևս չես հետևում #%{name} պիտակին։"
+  tags:
+    show:
+      follow: "Հետևել #%{tag}"
+      followed_by: "հետևում են"
+      following: "Հետևում ես #%{tag}-ին"
+      nobody_talking: "Դեռ ոչ ոք չի խոսում %{tag}-ի մասին"
+      none: "Դատարկ պիտակ գոյություն չունի։"
+      people_tagged_with: "%{tag}-ով պիտակավորված մարդիկ"
+      posts_tagged_with: "Գրառումը պիտակավորված է #%{tag}-ով"
+      stop_following: "Դադարել հետևել #%{tag}-ին"
+  tokens:
+    show:
+      connect_to_cubbies: "Միանալ Cubbi․es-ին"
+      daniels_account: "Դանիելի Diaspora հաշիվը"
+      love_to_try: "Ուրախ կլինեինք, եթե փորձարկեիր դա։"
+      sign_up_today: "Գրանցվի՛ր այսօր։"
+  undo: "Չեղարկե՞լ"
+  username: "Օգտանուն"
+  users:
+    confirm_email:
+      email_confirmed: "%{email} էլ․ փոստը ակտիվացված է"
+      email_not_confirmed: "Էլ․ փոստը չի կարող ակտիվացվել։ Միգուցե հղումը սխա՞լ է"
+    destroy:
+      no_password: "Հաշիվդ փակելու համար մուտքագրիր ներկայիս գաղտնաբառդ։"
+      wrong_password: "Մուտքագրված գաղտնաբառը չի համապատասխանում ներկայիս գաղտնաբառին։"
+    edit:
+      change: "Փոփոխություն:"
+      change_email: "Փոխել էլ.հասցեն"
+      change_language: "Փոխել լեզուն"
+      change_password: "Փոխել գաղտնաբառը"
+      character_minimum_expl: "պետք է առնվազն վեց նիշանի լինի"
+      close_account:
+        dont_go: "Հեե՜յ, մի հեռացիր, այստեղ լավ է։"
+        if_you_want_this: "Եթե իրոք վստահ ես, ապա ստորև մուտքագրիր գաղտնաբառդ և սեղմիր \"Փակել հաշիվս\""
+        lock_username: "Արդյունքում ներկայիս օգտանունդ արգելափակվելու է, եթե որոշես հետագայում ետ գրանցվել։"
+        make_diaspora_better: "Կուզենայինք, որ օգնեիր դարձնել Diaspora-ն առավել լավ, այնպես որ հեռանալու փոխարեն լավ կլիներ, որ օգնեիր մեզ այդ հարցում։ Բայց եթե որոշել ես գնալ, ապա ծանոթացիր, թե ինչ կլինի դրա արդյունքում՝"
+        mr_wiggles: "Պրն. Փիսոն կտխրի, եթե դու գնաս"
+      close_account_text: "Փակել հաշիվս"
+      comment_on_post: "...որևէ մեկը մեկնաբանում է քո գրառման տա՞կ։"
+      current_password: "Ներկայիս գաղտնաբառ"
+      download_photos: "ներբեռնել իմ նկարները"
+      download_xml: "ներբեռնել իմ xml-ը"
+      edit_account: "Խմբագրել հաշիվը"
+      following: "Հետևելու կարգավորումներ"
+      getting_started: "Նոր օգտատերի արտոնությունները"
+      liked: "...որևէ մեկը հավանել է քո գրառու՞մը։"
+      mentioned: "...քեզ հիշատակել են գրառման մե՞ջ։"
+      new_password: "Նոր գաղտնաբառ"
+      private_message: "...անձնական նամա՞կ ես ստանում։"
+      receive_email_notifications: "Ստանալ ծանուցումներ էլ.հասցեին, երբ..."
+      reshared: "...որևէ մեկը տարածում է քո գրառու՞մը։"
+      started_sharing: "...որևէ մեկը սկսում է կիսվե՞լ քեզ հետ։"
+      your_email: "Էլ.հասցեն"
+      your_handle: "Diaspora ID-ն"
+    getting_started:
+      awesome_take_me_to_diaspora: "Զիլ է! Տար ինձ Diaspora*"
+      community_welcome: "Diaspora-ի համայնքը ուրախ է տեսնել քեզ այստեղ։"
+      hashtag_suggestions: "Փորձիր հետևել պիտակներ, ինչպիսիք են #արվեստ #կինոնկար #gif և այլն։"
+      saved: "Պահված է!"
+      well_hello_there: "Դե ինչ, ողջու՜յն։"
+      what_are_you_in_to: "Ինչո՞վ ես հետաքրքրված։"
+      who_are_you: "Ո՞վ ես դու։"
+    privacy_settings:
+      ignored_users: "Արհամարհված օգտատերեր"
+    public:
+      does_not_exist: "%{username} օգտատերը գոյություն չունի!"
+    update:
+      language_changed: "Լեզուն փոխված է։"
+      language_not_changed: "Լեզվի փոփխումը ձախողվեց"
+      password_changed: "Գաղտնաբառը փոխված է։  Այժմ կարող ես մուտք գործել քո նոր գաղտնաբառով։"
+      password_not_changed: "Գաղտնաբառի փոփոխումը ձախողվեց"
+      settings_not_updated: "Կարգավորումների թարմացումը ձախոխվեց:"
+      settings_updated: "Կարգավորումները թարմացված են"
+      unconfirmed_email_changed: "Էլ.հասցեն փոխված է և ակտիվացնելու կարիք ունի։"
+  welcome: "Բարի գալու՜ստ։"
+  will_paginate:
+    next_label: "հաջորդ &raquo;"
+    previous_label: "&laquo; նախորդ"

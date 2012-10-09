@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-- if AppConfig[:open_invitations]
+- if AppConfig.settings.invitations.open?
   .section
     .title
       = image_tag('icons/plus.png')
@@ -73,8 +73,8 @@
     %h5
       = t('aspects.index.donate')
   .content
-    - if AppConfig[:paypal_hosted_button_id].present?
-      = t('aspects.index.keep_pod_running', :pod => URI.parse(AppConfig[:pod_url]).host)
+    - if AppConfig.settings.paypal_hosted_button_id.present?
+      = t('aspects.index.keep_pod_running', :pod => AppConfig.pod_uri.host)
       %br
       = render 'shared/donatepod'
     - else

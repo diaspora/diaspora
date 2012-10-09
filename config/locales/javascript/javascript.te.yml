@@ -57,11 +57,8 @@ te:
       hide: "దాచు"
       like: "ఇష్టం"
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
         one: "<%= count %> ఇష్టం"
         other: "<%= count %> ఇష్టాలు"
-        two: "<%= count %> Likes"
         zero: "<%= count %> ఇష్టాలు"
       limited: "పరిమితం"
       more_comments:

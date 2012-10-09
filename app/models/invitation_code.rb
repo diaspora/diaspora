@@ -30,14 +30,14 @@ class InvitationCode < ActiveRecord::Base
   end
 
   def self.default_inviter_or(user)
-    if AppConfig[:admin_account].present?
-      inviter = User.find_by_username(AppConfig[:admin_account])
+    if AppConfig.admins.account.present?
+      inviter = User.find_by_username(AppConfig.admins.account.get)
     end
     inviter ||= user
     inviter
   end
 
   def set_default_invite_count
-    self.count = AppConfig[:invite_count] || 25
+    self.count = AppConfig['settings.invitations.count'] || 25
   end
 end

@@ -20,7 +20,7 @@ module Messagebus
    end
 
    def deliver!(message)
-    msg = {:toEmail => message.to.first, :subject => message.subject, :fromEmail => AppConfig[:smtp_sender_address], :fromName => from_header_parse(message[:from].to_s)}
+    msg = {:toEmail => message.to.first, :subject => message.subject, :fromEmail => AppConfig.mail.sender_address, :fromName => from_header_parse(message[:from].to_s)}
 
     if message.multipart?
       msg[:plaintextBody] = message.text_part.body.to_s if message.text_part

@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'bundler', '> 1.1.0'
-ruby '1.9.3' if ENV['HEROKU']
 
 gem 'rails', '3.2.8'
 
@@ -22,7 +21,7 @@ gem 'remotipart', '1.0.2'
 
 gem 'omniauth', '1.1.1'
 gem 'omniauth-facebook', '1.3.0'
-gem 'omniauth-tumblr', '1.0'
+gem 'omniauth-tumblr', '1.1'
 gem 'omniauth-twitter', '0.0.11'
 
 gem 'twitter', '2.0.2'
@@ -31,12 +30,9 @@ gem 'twitter', '2.0.2'
 
 gem 'markerb', :git => 'https://github.com/plataformatec/markerb.git'
 gem 'messagebus_ruby_api', '1.0.3'
-gem 'airbrake', '3.1.0'
-gem 'newrelic_rpm', '3.3.5'
-gem "rpm_contrib", '2.1.11'
 
 group :production do # we don't install these on travis to speed up test runs
-  gem 'rails_admin', :git => 'git://github.com/halida/rails_admin.git'
+  gem 'rails_admin', '0.1.1'
   gem 'fastercsv', '1.5.5', :require => false
   gem 'rack-ssl', '1.3.2', :require => 'rack/ssl'
   gem 'rack-rewrite', '1.2.1', :require => false
@@ -44,19 +40,18 @@ group :production do # we don't install these on travis to speed up test runs
   # analytics
   gem 'rack-google-analytics', '0.11.0', :require => 'rack/google-analytics'
   gem 'rack-piwik', '0.1.3', :require => 'rack/piwik', :require => false
+  
 end
 
 # configuration
 
 group :heroku do
-  gem 'pg', '0.14.1'
   gem 'unicorn', '4.3.1', :require => false
 end
 
-gem 'settingslogic', :git => 'https://github.com/binarylogic/settingslogic.git'
 # database
 
-gem "activerecord-import", "0.2.10"
+gem "activerecord-import", "0.2.11"
 gem 'foreigner', '1.2.1'
 gem 'mysql2', '0.3.11' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg', '0.14.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
@@ -65,7 +60,7 @@ gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 # file uploading
 
 gem 'carrierwave', '0.6.2'
-gem 'fog', '1.4.0'
+gem 'fog', '1.6.0'
 gem 'mini_magick', '3.4'
 
 # JSON and API
@@ -76,7 +71,7 @@ gem 'acts_as_api', '0.4.1 '
 # localization
 
 gem 'i18n-inflector-rails', '~> 1.0'
-gem 'rails-i18n'
+gem 'rails-i18n', :git => "https://github.com/svenfuchs/rails-i18n.git"
 
 # parsing
 
@@ -125,11 +120,10 @@ group :assets do
   gem 'handlebars_assets', '0.6.5'
   gem 'uglifier', '1.3.0'
 
-  # asset_sync is required as needed by application.rb
-  gem "asset_sync", '0.4.2', :require => nil
+  gem "asset_sync", '0.5.0', :require => false
 end
 
-gem 'jquery-rails', '2.0.2'
+gem 'jquery-rails', '2.1.3'
 
 # web
 
@@ -170,13 +164,7 @@ group :test, :development do
 end
 
 group :development do
-  gem 'heroku', '2.28.12'
-  gem 'heroku_san', '3.0.4'
   gem 'capistrano', '2.12.0', :require => false
   gem 'capistrano_colors', '0.5.5', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
-  gem 'yard', '0.8.2.1', :require => false
-
-  # for tracing AR object instantiation and memory usage per request
-  gem 'oink', '0.9.3'
 end

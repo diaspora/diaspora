@@ -3,14 +3,15 @@
 #   the COPYRIGHT file.
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  if SERVICES['twitter'] && SERVICES['twitter']['consumer_key'] && SERVICES['twitter']['consumer_secret']
-    provider :twitter, SERVICES['twitter']['consumer_key'], SERVICES['twitter']['consumer_secret']
+  if AppConfig.services.twitter.enable?
+    provider :twitter, AppConfig.services.twitter.key, AppConfig.services.twitter.secret
   end
-  if SERVICES['tumblr'] && SERVICES['tumblr']['consumer_key'] && SERVICES['tumblr']['consumer_secret']
-    provider :tumblr, SERVICES['tumblr']['consumer_key'], SERVICES['tumblr']['consumer_secret']
+  if AppConfig.services.tumblr.enable?
+    provider :tumblr, AppConfig.services.tumblr.key, AppConfig.services.tumblr.secret
   end
-  if SERVICES['facebook'] && SERVICES['facebook']['app_id'] && SERVICES['facebook']['app_secret']
-    provider :facebook, SERVICES['facebook']['app_id'], SERVICES['facebook']['app_secret'],  { :display => "popup", :scope => "publish_actions,publish_stream,offline_access",
-                                                                                               :client_options => {:ssl => {:ca_file => EnvironmentConfiguration.ca_cert_file_location}}}  
+  if AppConfig.services.facebook.enable?
+    provider :facebook, AppConfig.services.facebook.app_id, AppConfig.services.facebook.secret,
+             { :display => "popup", :scope => "publish_actions,publish_stream,offline_access",
+               :client_options => {:ssl => {:ca_file => AppConfig.environment.certificate_authorities }}}  
   end
 end

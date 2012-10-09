@@ -2,7 +2,7 @@
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
 
-if AppConfig[:ca_file].blank? && (Rails.env == "development")
+if AppConfig.environment.certificate_authorities.blank? && (Rails.env == "development")
   module OpenSSL
     module SSL
       remove_const :VERIFY_PEER

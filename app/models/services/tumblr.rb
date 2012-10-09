@@ -9,11 +9,11 @@ class Services::Tumblr < Service
   end
 
   def consumer_key
-    SERVICES['tumblr']['consumer_key']
+    AppConfig.services.tumblr.key
   end
 
   def consumer_secret
-    SERVICES['tumblr']['consumer_secret']
+    AppConfig.services.tumblr.secret
   end
 
   def post(post, url='')

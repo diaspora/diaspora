@@ -98,7 +98,7 @@ describe PeopleHelper do
       @user.username = "invalid.username"
       @user.save(:validate => false).should == true
       person = @user.person
-      person.diaspora_handle = "#{@user.username}@#{AppConfig[:pod_uri].authority}"
+      person.diaspora_handle = "#{@user.username}@#{AppConfig.pod_uri.authority}"
       person.save!
 
       local_or_remote_person_path(@user.person).should == person_path(@user.person)
