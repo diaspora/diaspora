@@ -1,3 +1,7 @@
+# 0.0.1.1
+
+Fix syntax error in French Javascript pluralization rule.
+
 # 0.0.1.0
 
 ## New configuration system!
