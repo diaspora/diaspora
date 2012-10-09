@@ -52,9 +52,9 @@
                   </div>
                   <%= invite_hidden_tag(invite) %>
                 </fieldset>
-				<a href="<%= root_url %>"><button class="signup-buttons new-btn"><%= t('cancel') %></button></a>
+				<%= link_to t('cancel'), root_url, :class => "cancel-button new-btn" %>
 				<div class="buttonholder">
-	               	<%= f.submit t('.continue'), :class => "signup-buttons new-btn" %>
+	               	<%= f.submit t('.continue'), :class => "signup-button new-btn" %>
                	</div>
             <% end %>
         </div>

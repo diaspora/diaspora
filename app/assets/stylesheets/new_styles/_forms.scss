@@ -117,8 +117,21 @@ height: 38px;
 float: right;
 }
 
-.signup-buttons {
+.signup-button {
   height: 38px;
   width: 50%;
   float: left;
+}
+
+.cancel-button {
+  height: 28px;
+  width: 158px;
+  float: left;
+  display: inline-block;
+  padding-top: 0.22cm;
+  text-align: center;
+  &:hover {
+	text-decoration: none;
+	color : #888;
+  }
 }
