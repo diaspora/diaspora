@@ -728,6 +728,7 @@ de:
       sign_up: "REGISTRIEREN"
       sign_up_message: "Soziales Netzwerken mit ♥"
       username: "BENUTZERNAME"
+      cancel: "Abbrechen"
   requests:
     create:
       sending: "Senden …"

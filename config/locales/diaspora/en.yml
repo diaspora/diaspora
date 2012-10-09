@@ -688,6 +688,7 @@ en:
       username: "USERNAME"
       password: "PASSWORD"
       continue: "Continue"
+      cancel: "Cancel"
     create:
       success: "You've joined Diaspora!"
     edit:
