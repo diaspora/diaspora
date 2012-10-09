@@ -41,7 +41,7 @@ describe("app.helpers.textFormatter", function(){
       //
       // var formattedText = this.formatter.markdownify(links.join(" "))
 
-      var formattedText = this.formatter.markdownify(links.join(" and "))
+      var formattedText = this.formatter.markdownify(links.join(" and "));
       var wrapper = $("<div>").html(formattedText);
 
       _.each(links, function(link) {
@@ -87,14 +87,16 @@ describe("app.helpers.textFormatter", function(){
           "http://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
           "http://موقع.وزارة-الاتصالات.مصر/", // example from #3082
           "http:///scholar.google.com/citations?view_op=top_venues",
-          "http://lyricstranslate.com/en/someone-you-നിന്നെ-പോലൊരാള്‍.html" // example from #3063
+          "http://lyricstranslate.com/en/someone-you-നിന്നെ-പോലൊരാള്‍.html", // example from #3063,
+          "http://de.wikipedia.org/wiki/Liste_der_Abkürzungen_(Netzjargon)" // #3645
         ];
         this.asciiUrls = [
           "http://www.xn--brgerentscheid-krankenhuser-xkc78d.de",
           "http://xn--bndnis-fr-krankenhuser-i5b27cha.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
           "http://xn--4gbrim.xn----ymcbaaajlc6dj7bxne2c.xn--wgbh1c/",
           "http:///scholar.google.com/citations?view_op=top_venues",
-          "http://lyricstranslate.com/en/someone-you-%E0%B4%A8%E0%B4%BF%E0%B4%A8%E0%B5%8D%E0%B4%A8%E0%B5%86-%E0%B4%AA%E0%B5%8B%E0%B4%B2%E0%B5%8A%E0%B4%B0%E0%B4%BE%E0%B4%B3%E0%B5%8D%E2%80%8D.html"
+          "http://lyricstranslate.com/en/someone-you-%E0%B4%A8%E0%B4%BF%E0%B4%A8%E0%B5%8D%E0%B4%A8%E0%B5%86-%E0%B4%AA%E0%B5%8B%E0%B4%B2%E0%B5%8A%E0%B4%B0%E0%B4%BE%E0%B4%B3%E0%B5%8D%E2%80%8D.html",
+          "http://de.wikipedia.org/wiki/Liste_der_Abk%C3%BCrzungen_%28Netzjargon%29"
         ];
       });
 
@@ -139,6 +141,46 @@ describe("app.helpers.textFormatter", function(){
         expect(text).toContain(image_link);
       });
 
+    });
+
+    context("misc breakage and/or other issues with weird urls", function(){
+      it("doesn't crash Chromium - RUN ME WITH CHROMIUM! (issue #3553)", function() {
+
+        var text_part = 'Revert "rails admin is conflicting with client side validations: see https://github.com/sferik/rails_admin/issues/985"';
+        var link_part = 'https://github.com/diaspora/diaspora/commit/61f40fc6bfe6bb859c995023b5a17d22c9b5e6e5';
+        var content = '['+text_part+']('+link_part+')';
+        var parsed = this.formatter.markdownify(content);
+
+        var link = 'href="' + link_part + '"';
+        var text = '>'+ text_part +'<';
+
+        expect(parsed).toContain(link);
+        expect(parsed).toContain(text);
+      });
+
+      it("tests a bunch of benchmark urls", function(){
+        var self = this;
+        $.ajax({
+          async: false,
+          cache: false,
+          url: '/spec/fixtures/good_urls.txt',
+          success: function(data) { self.url_list = data.split("\n"); }
+        });
+
+        _.each(this.url_list, function(url) {
+          // 'comments'
+          if( url.match(/^#/) ) return;
+
+          // regex.test is stupid, use match and boolean-ify it
+          var result = !!url.match(Diaspora.url_regex);
+          expect(result).toBeTruthy();
+          if( !result && console && console.log ) {
+            console.log(url);
+          }
+        });
+      });
+
+      // TODO: try to match the 'bad_urls.txt' and have as few matches as possible
     });
 
   })
