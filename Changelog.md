@@ -1,5 +1,9 @@
 # 0.0.2.0pre
 
+Fix error with open/close registrations.
+Fix javascripts error in invitations facebox. 
+Fix css overflow problem in aspect dropdown on welcome page.
+
 # 0.0.1.1
 
 Fix syntax error in French Javascript pluralization rule.
