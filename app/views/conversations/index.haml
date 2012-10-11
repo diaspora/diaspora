@@ -18,8 +18,10 @@
       .right
         = link_to t('.new_message'), new_conversation_path, :class => 'button', :rel => 'facebox'
       = t('.inbox')
-    .scrypto-entropy{ "data-require_decryption_key" => "true" }
-    .scrypto-passphrase{ "data-require_decryption_key" => "true", "data-hidden" => "true" }
+    - if not @user.person.key_ring.nil?
+      %div
+        Entropy: 
+        %span#entropy-value> 0%
 
   #conversation_inbox
     .stream.conversations

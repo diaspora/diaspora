@@ -231,8 +231,11 @@ GEM
       rails
     multi_json (1.3.6)
     multipart-post (1.1.5)
+<<<<<<< HEAD
     mysql2 (0.3.11)
     nested_form (0.2.3)
+=======
+>>>>>>> refactoring
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -373,7 +376,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.6)
     subexec (0.2.2)
     thin (1.4.1)
       daemons (>= 1.0.9)
@@ -456,7 +458,11 @@ DEPENDENCIES
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.4)
   mobile-fu (= 1.1.0)
+<<<<<<< HEAD
   mysql2 (= 0.3.11)
+=======
+  newrelic_rpm (= 3.3.5)
+>>>>>>> refactoring
   nokogiri (= 1.5.5)
   omniauth (= 1.1.1)
   omniauth-facebook (= 1.3.0)
@@ -480,7 +486,7 @@ DEPENDENCIES
   rspec-rails (= 2.11.0)
   ruby-oembed (= 0.8.7)
   sass-rails (= 3.2.5)
-  scrypto (~> 0.0.17)!
+  scrypto (= 0.0.29)!
   selenium-webdriver (= 2.25.0)
   spork (= 1.0.0rc3)
   thin (= 1.4.1)

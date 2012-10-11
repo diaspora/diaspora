@@ -7,4 +7,9 @@ $(document).ready(function() {
 			$('#entropy-value').text((progress * 100).toFixed(0) + "%")
 		})
 	}
+	
+	$(document).on("submit", "form[encryptable]", function(event) {
+		alert("submitted!!")
+	})
 })
+
