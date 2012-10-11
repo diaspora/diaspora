@@ -39,4 +39,16 @@
 
     max-width : 95%;
   }
+
+  form {
+    .control-label,
+    .controls {
+      margin-left : auto;
+      width : auto;
+    }
+
+    .controls {
+      float : right;
+    }
+  }
 }

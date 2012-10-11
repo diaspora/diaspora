@@ -7,6 +7,7 @@ Feature: invitation acceptance
         | user_username              | ohai           |
         | user_email                 | woot@sweet.com |
         | user_password              | secret         |
+        | user_password_confirmation | secret         |
       And I press "Continue"
       Then I should be on the getting started page
       And I should see "Well, hello there!"
@@ -24,6 +25,7 @@ Feature: invitation acceptance
         | user_username              | ohai           |
         | user_email                 | woot@sweet.com |
         | user_password              | secret         |
+        | user_password_confirmation | secret         |
       And I press "Continue"
       Then I should be on the getting started page
       And I should see "Well, hello there!"
