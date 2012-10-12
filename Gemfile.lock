@@ -332,7 +332,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     redcarpet (2.1.1)
-    redis (3.0.1)
+    redis (3.0.2)
     redis-namespace (1.2.1)
       redis (~> 3.0.0)
     remotipart (1.0.2)
