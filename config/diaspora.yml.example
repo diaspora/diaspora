@@ -41,12 +41,10 @@ configuration: ## Section
     ## Setting the bundle of certificate authorities (CA) certificates.
     ## This is operating system specific.
     ## Examples, uncomment one or add your own:
-    ## Debian, Ubuntu, Archlinux (package ca-certificates)
+    ## Debian, Ubuntu, Archlinux, Gentoo (package ca-certificates)
     #certificate_authorities: '/etc/ssl/certs/ca-certificates.crt'
-    ## CentOS
+    ## CentOS, Fedora
     #certificate_authorities: '/etc/pki/tls/certs/ca-bundle.crt'
-    ## Gentoo
-    #certificate_authorities: '/etc/ssl/certs/ca-certificates.crt'
     
     ## URL for a remote redis.
     ## Don't forget to restrict the IP access!
