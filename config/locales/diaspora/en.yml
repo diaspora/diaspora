@@ -687,6 +687,7 @@ en:
       email: "EMAIL"
       username: "USERNAME"
       password: "PASSWORD"
+      password_confirmation: "PASSWORD CONFIRMATION"
       continue: "Continue"
     create:
       success: "You've joined Diaspora!"

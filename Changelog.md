@@ -1,5 +1,6 @@
 # 0.0.2.0pre
 
+Add password_confirmation field to registration page
 Fix error with open/close registrations.
 Fix javascripts error in invitations facebox. 
 Fix css overflow problem in aspect dropdown on welcome page.
