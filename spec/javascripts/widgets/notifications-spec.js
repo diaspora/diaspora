@@ -17,7 +17,7 @@ describe("Diaspora.Widgets.Notifications", function() {
   });
 
   describe("clickSuccess", function(){
-    it("changes the css to a read cell", function() {
+    it("changes the css to a read cell at stream element", function() {
       this.view.$(".notifications").html(
         '<div id="1" class="stream_element read" data-guid=1></div>' +
         '<div id="2" class="stream_element unread" data-guid=2></div>'
@@ -25,7 +25,15 @@ describe("Diaspora.Widgets.Notifications", function() {
       notifications.clickSuccess({guid:2,unread:false});
       expect( this.view.$('.stream_element#2')).toHaveClass("read");
     });
-    it("changes the css to an unread cell", function() {
+    it("changes the css to a read cell at notications element", function() {
+      this.view.$(".notifications").html(
+        '<div id="1" class="notification_element read" data-guid=1></div>' +
+        '<div id="2" class="notification_element unread" data-guid=2></div>'
+      );
+      notifications.clickSuccess({guid:2,unread:false});
+      expect( this.view.$('.notification_element#2')).toHaveClass("read");
+    });
+    it("changes the css to an unread cell at stream element", function() {
       this.view.$(".notifications").html(
         '<div id="1" class="stream_element read" data-guid=1></div>' +
         '<div id="2" class="stream_element unread" data-guid=2></div>'
@@ -33,13 +41,21 @@ describe("Diaspora.Widgets.Notifications", function() {
       notifications.clickSuccess({guid:1,unread:true});
       expect( this.view.$('.stream_element#1')).toHaveClass("unread");
     });
+    it("changes the css to an unread cell at notications element", function() {
+      this.view.$(".notifications").html(
+        '<div id="1" class="notification_element read" data-guid=1></div>' +
+        '<div id="2" class="notification_element unread" data-guid=2></div>'
+      );
+      notifications.clickSuccess({guid:1,unread:true});
+      expect( this.view.$('.notification_element#1')).toHaveClass("unread");
+    });
 
 
-    it("calls Notifications.decrementCount on a read cell", function() {
+    it("calls Notifications.decrementCount on a read cell at stream/notification element", function() {
       notifications.clickSuccess(JSON.stringify({guid:1,unread:false}));
       expect(notifications.decrementCount).toHaveBeenCalled();
     });
-    it("calls Notifications.incrementCount on a unread cell", function() {
+    it("calls Notifications.incrementCount on a unread cell at stream/notification element", function() {
       notifications.clickSuccess({guid:1,unread:true});
       expect(notifications.incrementCount).toHaveBeenCalled();
     });

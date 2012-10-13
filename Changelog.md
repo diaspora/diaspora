@@ -1,9 +1,15 @@
 # 0.0.2.0pre
 
-Add password_confirmation field to registration page
-Fix error with open/close registrations.
-Fix javascripts error in invitations facebox. 
-Fix css overflow problem in aspect dropdown on welcome page.
+## Add Features
+
+* Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
+
+## Bug Fixes
+
+* Fix javascripts problem with read/unread notifications. [#3656](https://github.com/diaspora/diaspora/pull/3656)
+* Fix error with open/close registrations. [#3649](https://github.com/diaspora/diaspora/pull/3649)
+* Fix javascripts error in invitations facebox. [#3638](https://github.com/diaspora/diaspora/pull/3638)
+* Fix css overflow problem in aspect dropdown on welcome page. [#3637](https://github.com/diaspora/diaspora/pull/3637)
 
 # 0.0.1.1
 
