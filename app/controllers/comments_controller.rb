@@ -61,7 +61,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def find_post
     if user_signed_in?

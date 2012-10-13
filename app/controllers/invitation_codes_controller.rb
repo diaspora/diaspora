@@ -10,6 +10,8 @@ class InvitationCodesController < ApplicationController
     redirect_to new_user_registration_path(:invite => {:token => params[:id]})
   end
 
+  private
+
   def ensure_valid_invite_code
     InvitationCode.find_by_token!(params[:id])
   end

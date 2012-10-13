@@ -46,7 +46,7 @@ class LikesController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def target
     @target ||= if params[:post_id]
