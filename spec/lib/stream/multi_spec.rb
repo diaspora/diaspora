@@ -3,11 +3,22 @@ require Rails.root.join('spec', 'shared_behaviors', 'stream')
 
 describe Stream::Multi do
   before do
-    @stream = Stream::Multi.new(alice, :max_time => Time.now, :order => 'updated_at')
+    @stream = Stream::Multi.new(alice, :max_time => @time, :order => 'updated_at')
   end
 
   describe 'shared behaviors' do
     it_should_behave_like 'it is a stream'
+  end
+
+  describe "#posts" do
+    it "calls EvilQuery::MultiStream with correct parameters" do
+      ::EvilQuery::MultiStream.should_receive(:new)
+        .with(alice, 'updated_at', @stream.max_time,
+              AppConfig.settings.community_spotlight.enable? &&
+              alice.show_community_spotlight_in_stream?)
+        .and_return(mock.tap { |m| m.stub!(:make_relation!)})
+      @stream.posts
+    end
   end
 
   describe '#publisher_opts' do
