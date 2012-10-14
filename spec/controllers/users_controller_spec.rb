@@ -251,22 +251,5 @@ describe UsersController do
       response.should be_success
     end
   end
-
-  # This logic lives in application controller
-  describe "#after_sign_in_path_for" do
-    before do
-      @controller.stub(:current_user).and_return(eve)
-    end
-
-    context 'getting started true on user' do
-      before do
-        eve.update_attribute(:getting_started, true)
-      end
-
-      it "redirects to getting started if the user has getting started set to true" do
-        @controller.after_sign_in_path_for(eve).should == getting_started_path
-      end
-    end
-  end
 end
 
