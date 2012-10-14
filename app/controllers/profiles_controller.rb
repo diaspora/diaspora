@@ -64,7 +64,7 @@ class ProfilesController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def munge_tag_string
     unless @profile_attrs[:tag_string].nil? || @profile_attrs[:tag_string] == I18n.t('profiles.edit.your_tags_placeholder')

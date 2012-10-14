@@ -74,7 +74,6 @@ class PublicsController < ApplicationController
     render :nothing => true, :status => 202
   end
 
-
   private
 
   def check_for_xml
