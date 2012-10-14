@@ -30,6 +30,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
   def check_valid_invite!
     return true if AppConfig.settings.enable_registrations? #this sucks
     return true if invite && invite.can_be_used?

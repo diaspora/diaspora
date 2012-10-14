@@ -33,7 +33,7 @@ class ContactsController < ApplicationController
     @people = Person.community_spotlight
   end
 
-  protected
+  private
 
   def set_up_contacts
     @contacts = case params[:set]
@@ -51,5 +51,4 @@ class ContactsController < ApplicationController
     end
     @contacts = @contacts.for_a_stream.paginate(:page => params[:page], :per_page => 25)
   end
-
 end

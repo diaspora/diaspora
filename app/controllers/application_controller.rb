@@ -22,6 +22,8 @@ class ApplicationController < ActionController::Base
                 :tags,
                 :open_publisher
 
+  private
+
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/'
   end
@@ -128,8 +130,6 @@ class ApplicationController < ActionController::Base
   def max_time
     params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now + 1
   end
-
-  private
 
   def current_user_redirect_path
     current_user.getting_started? ? getting_started_path : root_path
