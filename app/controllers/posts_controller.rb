@@ -25,8 +25,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    redirect_to "/stream" and return
-    render :text => "", :layout => true
+    redirect_to "/stream"
   end
 
   def show
