@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/justindthomas/scrypto.git
+  revision: b2e34fcfe70afa5c8f7e41c0271b4046000d48f4
+  specs:
+    scrypto (0.0.29)
+      activesupport
+      jquery-rails
+      rails (~> 3.2.2)
+
+GIT
   remote: https://github.com/Empact/roxml.git
   revision: 7ea9a9ffd2338aaef5b04cb792060ae8c98f346a
   ref: 7ea9a9ffd2338aaef5b0
@@ -231,11 +240,7 @@ GEM
       rails
     multi_json (1.3.6)
     multipart-post (1.1.5)
-<<<<<<< HEAD
-    mysql2 (0.3.11)
     nested_form (0.2.3)
-=======
->>>>>>> refactoring
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -267,6 +272,7 @@ GEM
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
     orm_adapter (0.4.0)
+    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -458,16 +464,12 @@ DEPENDENCIES
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.4)
   mobile-fu (= 1.1.0)
-<<<<<<< HEAD
-  mysql2 (= 0.3.11)
-=======
-  newrelic_rpm (= 3.3.5)
->>>>>>> refactoring
   nokogiri (= 1.5.5)
   omniauth (= 1.1.1)
   omniauth-facebook (= 1.3.0)
   omniauth-tumblr (= 1.1)
   omniauth-twitter (= 0.0.11)
+  pg (= 0.14.1)
   rack-cors (= 0.2.7)
   rack-google-analytics (= 0.11.0)
   rack-piwik (= 0.1.3)
