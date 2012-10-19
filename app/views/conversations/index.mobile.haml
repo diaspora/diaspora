@@ -5,6 +5,10 @@
 .right
   = link_to t('.new_message'), new_conversation_path, :class => 'btn'
 
+.stream
+  - flash.each do |name, msg|
+    %p{:class => "conversation_#{name}"}= msg
+
 %h3
   = t('.inbox')
 

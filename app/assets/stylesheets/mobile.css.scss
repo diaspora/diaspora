@@ -781,3 +781,13 @@ textarea#conversation_text {
   color: #DF0101;
   text-shadow: 1px 1px 5px #666; 
 }
+
+.conversation_error {
+  color: #DF0101;
+  text-shadow: 1px 1px 5px #666;
+}
+
+.conversation_notice {
+  color: rgb(10, 150, 10);
+  text-shadow: 1px 1px 20px rgb(126, 240, 77); 
+}
