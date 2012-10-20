@@ -2,9 +2,21 @@
 
 ## Refactor
 
+### script/server
+
+* Uses foreman now
+* Reduce startup time by reducing calls to `script/get_config.rb`
+* `config/script_server.yml` is removed and replaced by the `server` section in `config/diaspora.yml`
+  Have a look at the updated example!
+* Thin is dropped in favour of unicorn
+* Already set versions of `RAILS_ENV` and `DB` are now prefered over those set in `config/diaspora.yml`
+* **Heroku setups:** `ENVIRONMENT_UNICORN_EMBED_RESQUE_WORKER` got renamed to `SERVER_EMBED_RESQUE_WORKER`
+
+### Other
+
 * MessagesController. [#3657](https://github.com/diaspora/diaspora/pull/3657)
 
-## Add Features
+## Features
 
 * Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
 

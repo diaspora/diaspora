@@ -25,8 +25,12 @@ defaults:
       upload: false
       host:
     pubsub_server: 'https://pubsubhubbub.appspot.com/'
-    unicorn:
-      embed_resque_worker: false
+  server:
+    port: 3000
+    rails_environment: 'development'
+    db: 'mysql'
+    embed_resque_worker: false
+    resque_workers: 1
   privacy:
     jquery_cdn: true
     google_analytics_key:
