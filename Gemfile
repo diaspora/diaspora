@@ -155,7 +155,7 @@ end
 
 group :test, :development do
   gem 'debugger', '1.2.0'
-  gem "rspec-rails", "2.11.0" 
+  gem "rspec-rails", "2.11.4" 
 end
 
 group :development do
