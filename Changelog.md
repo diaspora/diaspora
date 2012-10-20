@@ -23,6 +23,7 @@
 
 ## Bug Fixes
 
+* Fix posting to Facebook and Tumblr. Have a look at the updated [services guide](https://github.com/diaspora/diaspora/wiki/Howto-setup-services) for new Facebook instructions.
 * Fix issue with interacted_at in post fetcher. [#3607](https://github.com/diaspora/diaspora/pull/3607)
 * Fix error with show post Community Spotlight. [#3658](https://github.com/diaspora/diaspora/pull/3658)
 * Fix javascripts problem with read/unread notifications. [#3656](https://github.com/diaspora/diaspora/pull/3656)

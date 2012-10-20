@@ -11,7 +11,7 @@ describe Services::Facebook do
 
   describe '#post' do
     it 'posts a status message to facebook' do
-      stub_request(:post, "https://graph.facebook.com/me/joindiaspora:make").
+      stub_request(:post, "https://graph.facebook.com/me/#{AppConfig.services.facebook.open_graph_namespace}:make").
           to_return(:status => 200, :body => "", :headers => {})
       @service.post(@post)
     end
@@ -19,13 +19,13 @@ describe Services::Facebook do
     it 'swallows exception raised by facebook always being down' do
       pending "temporarily disabled to figure out while some requests are failing"
       
-      stub_request(:post,"https://graph.facebook.com/me/joindiaspora:make").
+      stub_request(:post,"https://graph.facebook.com/me/#{AppConfig.services.facebook.open_graph_namespace}:make").
         to_raise(StandardError)
       @service.post(@post)
     end
 
     it 'should call public message' do
-      stub_request(:post, "https://graph.facebook.com/me/joindiaspora:make").
+      stub_request(:post, "https://graph.facebook.com/me/#{AppConfig.services.facebook.open_graph_namespace}:make").
         to_return(:status => 200)
       url = "foo"
       @service.should_not_receive(:public_message)
