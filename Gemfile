@@ -34,7 +34,7 @@ group :production do # we don't install these on travis to speed up test runs
   gem 'rails_admin', '0.1.1'
   gem 'fastercsv', '1.5.5', :require => false
   gem 'rack-ssl', '1.3.2', :require => 'rack/ssl'
-  gem 'rack-rewrite', '1.2.1', :require => false
+  gem 'rack-rewrite', '1.3.1', :require => false
 
   # analytics
   gem 'rack-google-analytics', '0.11.0', :require => 'rack/google-analytics'
