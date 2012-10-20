@@ -4,7 +4,7 @@ gem 'rails', '3.2.8'
 
 gem 'foreman', '0.60.2'
 
-gem 'unicorn', '4.3.1', :require => false
+gem 'unicorn', '4.4.0', :require => false
 
 gem 'rails_autolink', '1.0.9'
 
