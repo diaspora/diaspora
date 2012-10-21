@@ -110,12 +110,12 @@ class PublicFetcher
           :author => @person,
           :public => true
         )
+
         entry.assign_attributes({
           :guid => post['guid'],
           :text => post['text'],
           :provider_display_name => post['provider_display_name'],
           :created_at => ActiveSupport::TimeZone.new('UTC').parse(post['created_at']).to_datetime,
-          :interacted_at => ActiveSupport::TimeZone.new('UTC').parse(post['interacted_at']).to_datetime,
           :frame_name => post['frame_name']
         }, :without_protection => true)
         entry.save
