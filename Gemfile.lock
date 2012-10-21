@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/justindthomas/scrypto.git
-  revision: b2e34fcfe70afa5c8f7e41c0271b4046000d48f4
-  specs:
-    scrypto (0.0.29)
-      activesupport
-      jquery-rails
-      rails (~> 3.2.2)
-
-GIT
   remote: https://github.com/Empact/roxml.git
   revision: 7ea9a9ffd2338aaef5b04cb792060ae8c98f346a
   ref: 7ea9a9ffd2338aaef5b0
@@ -29,6 +20,14 @@ GIT
   specs:
     rails-i18n (0.6.6)
       i18n (~> 0.5)
+
+PATH
+  remote: /Users/justin/Development/scrypto
+  specs:
+    scrypto (0.0.29)
+      activesupport
+      jquery-rails
+      rails (~> 3.2.2)
 
 GEM
   remote: http://rubygems.org/
@@ -488,7 +487,7 @@ DEPENDENCIES
   rspec-rails (= 2.11.0)
   ruby-oembed (= 0.8.7)
   sass-rails (= 3.2.5)
-  scrypto (= 0.0.29)!
+  scrypto!
   selenium-webdriver (= 2.25.0)
   spork (= 1.0.0rc3)
   thin (= 1.4.1)

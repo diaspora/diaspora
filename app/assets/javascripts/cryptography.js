@@ -17,9 +17,29 @@ $(document).ready(function() {
 				ret[$(this).attr('id')] = $(this).val()
 			})
 
-			$(ret).encrypt_fields()
+			ret.recipients = $("#" + window.get_scrypto_config().lookup_field).val().split(',')
+			ret = $(ret).encrypt_fields()
 
-			// ret should, at this point, contain rich 'fields' and 'keys' with encrypted data
+			for (var field in ret.fields) {
+				var name = $("#" + field).attr('name')
+				
+				$("#" + field).removeAttr('name')
+				
+				$('<input/>', {
+					type : 'hidden',
+					name : name,
+					value : ret.fields[field]
+				}).appendTo($(this))
+			}
+			
+			var keys = ret.keys.encrypted_recipient_keys
+			$('<input/>', {
+				type : 'hidden',
+				name : 'recipient_keys',
+				value : JSON.stringify(keys)
+			}).appendTo($(this))
+			
+			return true
 		})
 	})
 })
