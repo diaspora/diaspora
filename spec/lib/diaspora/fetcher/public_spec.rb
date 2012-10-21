@@ -2,8 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join('lib','diaspora','fetcher','public')
 require 'spec_helper'
+require Rails.root.join('lib','diaspora','fetcher','public')
 
 # Tests fetching public posts of a person on a remote server
 describe PublicFetcher do
@@ -79,6 +79,8 @@ describe PublicFetcher do
 
     context 'created post' do
       before do
+        Timecop.freeze
+        @now = DateTime.now.utc
         @data = JSON.parse(@fixture).select { |item| item['post_type'] == 'StatusMessage' }
 
         #save posts to db
@@ -87,12 +89,16 @@ describe PublicFetcher do
         }
       end
 
+      after do
+        Timecop.return
+      end
+
       it 'applies the date from JSON to the record' do
         @data.each do |post|
-          date = ActiveSupport::TimeZone.new('UTC').parse(post['created_at']).to_datetime
+          date = ActiveSupport::TimeZone.new('UTC').parse(post['created_at']).to_i
 
           entry = StatusMessage.find_by_guid(post['guid'])
-          entry.created_at.to_datetime.should eql(date)
+          entry.created_at.to_i.should eql(date)
         end
       end
 
@@ -105,10 +111,10 @@ describe PublicFetcher do
 
       it 'applies now to interacted_at on the record' do
         @data.each do |post|
-          date = ActiveSupport::TimeZone.new('UTC').parse(@now.to_s).to_datetime
+          date = @now.to_i
 
           entry = StatusMessage.find_by_guid(post['guid'])
-          entry.interacted_at.to_datetime.should eql(date)
+          entry.interacted_at.to_i.should eql(date)
         end
       end
     end

@@ -22,6 +22,7 @@
 
 ## Bug Fixes
 
+* Fix issue with interacted_at in post fetcher. [#3607](https://github.com/diaspora/diaspora/pull/3607)
 * Fix error with show post Community Spotlight. [#3658](https://github.com/diaspora/diaspora/pull/3658)
 * Fix javascripts problem with read/unread notifications. [#3656](https://github.com/diaspora/diaspora/pull/3656)
 * Fix error with open/close registrations. [#3649](https://github.com/diaspora/diaspora/pull/3649)
