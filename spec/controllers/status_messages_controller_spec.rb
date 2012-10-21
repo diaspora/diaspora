@@ -224,17 +224,17 @@ describe StatusMessagesController do
     it 'removes the getting started flag from new users' do
       alice.getting_started = true
       alice.save
-      expect{
-        @controller.remove_getting_started
-      }.to change{
+      expect {
+        @controller.send(:remove_getting_started)
+      }.to change {
         alice.reload.getting_started
       }.from(true).to(false)
     end
 
     it 'does nothing for returning users' do
-      expect{
-        @controller.remove_getting_started
-      }.to_not change{
+      expect {
+        @controller.send(:remove_getting_started)
+      }.to_not change {
         alice.reload.getting_started
       }
     end

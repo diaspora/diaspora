@@ -6,7 +6,6 @@ app/assets/images/custom/*
 # Configuration files
 config/diaspora.yml
 config/heroku.yml
-config/script_server.yml
 config/initializers/secret_token.rb
 config/redis.conf
 config/deploy_config.yml

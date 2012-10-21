@@ -39,23 +39,26 @@ class TagsController < ApplicationController
     end
   end
 
- def tag_followed?
-   TagFollowing.user_is_following?(current_user, params[:name])
- end
+  private
+
+  def tag_followed?
+    TagFollowing.user_is_following?(current_user, params[:name])
+  end
 
   def prep_tags_for_javascript
-    @tags.map! do |obj|
-        { :name => ("#"+obj.name),
-          :value => ("#"+obj.name),
-          :url => tag_path(obj.name)
-        }
-      end
-
-      @tags << {
-        :name => ('#' + params[:q]),
-        :value => ("#" + params[:q]),
-        :url => tag_path(params[:q].downcase)
+    @tags.map! do |tag|
+      {
+        :name  => ("#" + tag.name),
+        :value => ("#" + tag.name),
+        :url   => tag_path(tag.name)
       }
-      @tags.uniq!
+    end
+
+    @tags << {
+      :name  => ('#' + params[:q]),
+      :value => ("#" + params[:q]),
+      :url   => tag_path(params[:q].downcase)
+    }
+    @tags.uniq!
   end
 end

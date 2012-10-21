@@ -77,6 +77,6 @@ class Stream::Multi < Stream::Base
 
   # @return [Boolean]
   def include_community_spotlight?
-    AppConfig.environment.community_spotlight.enable? && user.show_community_spotlight_in_stream?
+    AppConfig.settings.community_spotlight.enable? && user.show_community_spotlight_in_stream?
   end
 end

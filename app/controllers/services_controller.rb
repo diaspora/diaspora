@@ -63,6 +63,5 @@ class ServicesController < ApplicationController
     @service.destroy
     flash[:notice] = I18n.t 'services.destroy.success'
     redirect_to services_url
-    end
-
+  end
 end
