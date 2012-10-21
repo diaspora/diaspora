@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def privacy_settings
     @blocks = current_user.blocks.includes(:person)
+    @user = current_user
   end
 
   def update

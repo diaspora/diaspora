@@ -76,6 +76,14 @@ class Message < ActiveRecord::Base
   def formatted_message(opts={})
     opts[:plain_text] ? self.text: ERB::Util.h(self.text)
   end
+  
+  def scrypto?
+    if /\[scrypto\].*\[\/scrypto\]/.match(self.text).nil?
+      false
+    else
+      true
+    end
+  end
 
   private
   def participant_of_parent_conversation

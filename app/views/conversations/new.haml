@@ -32,7 +32,7 @@
       %h3
         = t('conversations.index.new_message')
 
-    = form_for Conversation.new do |conversation|
+    = form_for(Conversation.new, :html => { "data-encryptable" => "true"} ) do |conversation|
 
       .span-2
         %h4
@@ -45,10 +45,10 @@
         %h4
           = t('.subject')
       .span-10.last
-        = conversation.text_field :subject
+        = conversation.text_field :subject, "data-encrypt" => "true"
       %br
       .span-10.prepend-2.last
-        = text_area_tag "conversation[text]", '', :rows => 5
+        = text_area_tag "conversation[text]", '', :rows => 5, "data-encrypt" => "true"
       .clearfix
       .bottom_submit_section
         = conversation.submit t('.send'), 'data-disable-with' => t('.sending'), :class => 'button creation'

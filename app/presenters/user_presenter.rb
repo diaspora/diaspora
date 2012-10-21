@@ -14,10 +14,19 @@ class UserPresenter
         :services => services,
         :following_count => self.user.contacts.receiving.count,
         :configured_services => self.configured_services,
+        :key_ring => self.key_ring
       }
     ).to_json(options)
   end
 
+  def key_ring
+    unless self.user.person.key_ring == nil
+      { "secured_decryption" => self.user.person.key_ring.secured_decryption,
+        "secured_signing" => self.user.person.key_ring.secured_signing,
+        "guid" => self.user.person.guid }
+    end
+  end
+  
   def services
     ServicePresenter.as_collection(user.services)
   end

@@ -130,6 +130,9 @@ gem 'jquery-rails', '2.1.3'
 gem 'faraday', '0.8.4'
 gem 'faraday_middleware', '0.8.8'
 
+# cryptography
+#gem 'scrypto', '0.0.29', :git => 'git://github.com/justindthomas/scrypto.git'
+gem 'scrypto', :path => '/Users/justin/Development/scrypto'
 
 gem 'jasmine', '1.2.1'
 

@@ -18,7 +18,9 @@ class ConversationsController < ApplicationController
     @conversations.each { |c| @authors[c.id] = c.last_author }
 
     @conversation = Conversation.joins(:conversation_visibilities).where(
-      :conversation_visibilities => {:person_id => current_user.person_id, :conversation_id => params[:conversation_id]}).first
+      :conversation_visibilities => {:person_id => current_user.person.id, :conversation_id => params[:conversation_id]}).first
+    
+    @user = current_user
 
     respond_with do |format|
       format.html

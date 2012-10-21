@@ -18,6 +18,10 @@
       .right
         = link_to t('.new_message'), new_conversation_path, :class => 'button', :rel => 'facebox'
       = t('.inbox')
+    - if not @user.person.key_ring.nil?
+      %div
+        Entropy: 
+        %span#entropy-value> 0%
 
   #conversation_inbox
     .stream.conversations
