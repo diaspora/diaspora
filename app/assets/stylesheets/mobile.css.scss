@@ -2,6 +2,7 @@
 @import 'bootstrap-responsive';
 @import "_mixins.css.scss";
 @import 'vendor/autoSuggest';
+@import '_flash_messages.scss';
 
 $blue: #3f8fba;
 
@@ -790,4 +791,11 @@ textarea#conversation_text {
 .conversation_notice {
   color: rgb(10, 150, 10);
   text-shadow: 1px 1px 20px rgb(126, 240, 77); 
+}
+
+#flash_notice .message, 
+#flash_alert .message,
+#flash_error .message { 
+  min-width: 200px;
+  max-width: 400px;
 }
