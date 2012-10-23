@@ -15,6 +15,7 @@
 ### Other
 
 * MessagesController. [#3657](https://github.com/diaspora/diaspora/pull/3657)
+* **Fixed setting:** `follow_diasporahq` has now to be set to `true` to enable following the DiasporaHQ account. Was `false`
 
 ## Features
 
