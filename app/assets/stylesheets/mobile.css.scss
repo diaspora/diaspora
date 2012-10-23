@@ -793,9 +793,11 @@ textarea#conversation_text {
   text-shadow: 1px 1px 20px rgb(126, 240, 77); 
 }
 
-#flash_notice .message, 
-#flash_alert .message,
-#flash_error .message { 
-  min-width: 200px;
-  max-width: 400px;
+#flash_notice,
+#flash_alert,
+#flash_error {
+  .message {
+    min-width: 200px;
+    max-width: 400px;
+  }
 }
