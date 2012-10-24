@@ -44,6 +44,16 @@ describe PostPresenter do
   end
   
   describe '#root' do
+    it 'does not raise if the absolute_root does not exists' do
+      first_reshare = FactoryGirl.create :reshare
+      first_reshare.root = nil
+      reshare = FactoryGirl.create :reshare, :root => first_reshare
+      
+      expect {
+        PostPresenter.new(reshare).root
+      }.to_not raise_error
+    end
+    
     it 'does not raise if the root does not exists' do
       reshare = FactoryGirl.create:reshare
       reshare.root = nil
