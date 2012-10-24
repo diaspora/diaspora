@@ -84,6 +84,58 @@ JS_RUNTIME_DETECTED=false
 # EOF
 define(){ IFS='\n' read -r -d '' ${1}; }
 
+# add padding to the left of a given string to
+# fill to a given amount of characters with a 
+# given char or space
+# example:
+#   lpad 7 "test" "-"
+lpad() {
+  LEN=$1
+  TXT=$2
+  CHR=$3
+  PAD=""
+
+  L_PAD=$(($LEN - ${#TXT}))
+  if [ $L_PAD -ne 0 ] ; then
+    PAD=$(printf "%*s" ${L_PAD} " ")
+  fi
+  if [ ${#CHR} -ne 0 ] ; then
+    PAD=$(printf "$PAD" | tr " " "$CHR")
+  fi
+  PAD="${PAD}${TXT}"
+
+  printf "%s" "$PAD"
+}
+
+# log function
+# prints a given message with the given log level to STDOUT
+logf() {
+  MSG=$1
+  LVL=$2
+  L_LEN=7
+
+  if [ ${#LVL} -ne 0 ] ; then
+    LVL="[$(lpad $(($L_LEN-2)) $LVL " ")]"
+  else
+    LVL=$(lpad $L_LEN "" "-")
+  fi
+
+  printf "%s -- %s\\n" "$LVL" "$MSG"
+}
+
+# short functions for various log levels
+log_err() {
+  logf "$1" "error"
+}
+
+log_dbg() {
+  logf "$1" "debug"
+}
+
+log_inf() {
+  logf "$1" "info"
+}
+
 # run a command or print the error
 run_or_error() {
   eval "$1"
@@ -94,11 +146,9 @@ run_or_error() {
 
 # nicely output error messages and quit
 error() {
-  printf "\n"
-  printf "[ERROR] -- $1"
-  printf "        --"
-  printf "        -- have a look at our wiki: $D_WIKI_URL"
-  printf "        -- or join us on IRC: $D_IRC_URL"
+  log_err "$1"
+  logf "have a look at our wiki: $D_WIKI_URL"
+  logf "or join us on IRC: $D_IRC_URL"
   exit 1
 }
 
@@ -112,7 +162,7 @@ interactive_check() {
   fd=0 #stdin
   if [[ -t "$fd" || -p /dev/stdin ]]; then
     # all is well
-    printf ""
+    printf "\n"
   else
     # non-interactive
     TMPFILE=`mktemp`
@@ -128,13 +178,13 @@ interactive_check() {
 # check if all necessary binaries are available
 binaries_check() {
   for exe in "${!BINARIES[@]}"; do
-    printf -n "checking for $exe... "
+    log_inf "checking for $exe... "
     which "${BINARIES[$exe]}"
     if [ $? -ne 0 ]; then
       error "you are missing the '${BINARIES[$exe]}' command, please install '$exe'";
     fi
   done
-  printf ""
+  printf "\n"
 }
 
 # check for rvm
@@ -146,7 +196,7 @@ to install, manage and work with multiple ruby environments.
 For more details check out https://rvm.io//
 EOT
 rvm_check() {
-  printf -n "checking for rvm... "
+  log_inf "checking for rvm... "
   fn_exists rvm
   if [ $? -eq 0 ] ; then
     RVM_DETECTED=true
@@ -161,13 +211,13 @@ rvm_check() {
   fi
 
   if $RVM_DETECTED ; then
-    printf "found"
+    log_inf "found"
   else
-    printf "not found"
-    printf "$RVM_MSG"
+    log_wrn "not found"
+    logf "$RVM_MSG"
     read -p "Press [Enter] to continue without RVM or abort this script and install RVM..."
   fi
-  printf ""
+  printf "\n"
 }
 
 # prepare ruby with rvm
@@ -177,16 +227,16 @@ install_or_use_ruby() {
   fi
 
   # make sure we have the correct ruby version available
-  printf -n "checking your ruby version... "
+  log_inf "checking your ruby version... "
   rvm use $D_RUBY_VERSION >/dev/null 2>&1
   if [ $? -ne 0 ] ; then
-    printf "not ok"
+    log_wrn "not ok"
     rvm --force install $D_RUBY_VERSION
   else
-    printf "ok"
+    log_inf "ok"
   fi
 
-  printf ""
+  printf "\n"
 }
 
 # trust and load rvmrc
@@ -203,15 +253,15 @@ load_rvmrc() {
   fi
 
   # load .rvmrc
-  printf -n "loading .rvmrc ... "
+  log_inf "loading .rvmrc ... "
   . ".rvmrc"
   #rvm rvmrc load
   if [ $? -eq 0 ] ; then
-    printf "ok"
+    log_inf "ok"
   else
-    printf "not ok"
+    log_wrn "not ok"
   fi
-  printf ""
+  printf "\n"
 }
 
 # rvm doesn't need sudo, otherwise we do have to use it :(
@@ -221,7 +271,7 @@ rvm_or_sudo() {
   else
     eval "$1"
     if [ $? -ne 0 ] ; then
-      printf "\nrunning '$1' didn't succeed, trying again with sudo...\n"
+      log_wrn "running '$1' didn't succeed, trying again with sudo..."
       run_or_error "sudo $1"
     fi
   fi
@@ -240,7 +290,7 @@ For more information on ExecJS, visit
 -- https://github.com/sstephenson/execjs
 EOT
 js_runtime_check() {
-  printf -n "checking for a JavaScript runtime... "
+  log_inf "checking for a JavaScript runtime... "
 
   # Node.js
   which node >/dev/null 2>&1
@@ -259,13 +309,13 @@ js_runtime_check() {
   ##
 
   if $JS_RUNTIME_DETECTED ; then
-    printf "ok"
+    log_inf "ok"
   else
-    printf "not ok"
+    log_err "not ok"
     printf "$JS_RT_MSG"
     error "can't continue without a JS runtime"
   fi
-  printf ""
+  printf "\n"
 }
 
 # make ourselves comfy
@@ -285,17 +335,17 @@ sane_environment_check() {
 
 # find or set up a working git environment
 git_stuff_check() {
-  printf "Where would you like to put the git clone, or, where is your existing git clone?"
-  printf "(please use a full path, not '~' or '.')"
+  printf "Where would you like to put the git clone, or, where is your existing git clone?\n"
+  printf "(please use a full path, not '~' or '.')\n"
   read -e -p "-> " D_GIT_CLONE_PATH
-  printf ""
+  printf "\n"
 
   test -d "$D_GIT_CLONE_PATH" \
     && cd "$D_GIT_CLONE_PATH" \
     && git status # folder exists? go there. is a good git clone?
   if [ $? -ne 0 ]; then
     # not a git repo, create it?
-    printf "the folder you specified does not exist or doesn't contain a git repo"
+    printf "the folder you specified does not exist or doesn't contain a git repo\n"
     read -p "Press [Enter] to create it... "
     run_or_error "mkdir -p -v \"$D_GIT_CLONE_PATH\""  # only if it doesn't exist
     run_or_error "git clone \"$D_REMOTE_REPO_URL\" \"$D_GIT_CLONE_PATH\""
@@ -303,12 +353,12 @@ git_stuff_check() {
     run_or_error "git checkout master"
     run_or_error "git pull"
   fi
-  printf ""
+  printf "\n"
 }
 
 # handle database decision
 database_question() {
-  printf "Which database type are you using?"
+  printf "Which database type are you using?\n"
   select choice in "MySQL" "PgSQL"; do
     case $choice in
       MySQL )
@@ -341,19 +391,19 @@ database_credentials() {
 # setup database
 # (assume we are in the Diaspora directory)
 database_setup() {
-  printf "Database setup"
+  log_inf "Database setup"
   run_or_error "cp config/database.yml.example \"$D_DB_CONFIG_FILE\""
   database_question
   database_credentials
-  printf ""
+  printf "\n"
 }
 
 # install all the gems with bundler
 # (assume we are in the Diaspora directory)
 prepare_gem_bundle() {
-  printf "installing all required gems..."
+  log_inf "installing all required gems..."
   rvm_or_sudo "bundle install"
-  printf ""
+  printf "\n"
 }
 
 
@@ -405,18 +455,18 @@ prepare_install_env
 database_setup
 
 
-printf "copying diaspora.yml.example to diaspora.yml"
+log_inf "copying diaspora.yml.example to diaspora.yml"
 run_or_error "cp config/diaspora.yml.example config/diaspora.yml"
-printf ""
+printf "\n"
 
 
 # bundle gems
 prepare_gem_bundle
 
 
-printf "creating the default database specified in config/database.yml. please wait..."
+log_inf "creating the default database specified in config/database.yml. please wait..."
 run_or_error "bundle exec rake db:schema:load_if_ruby --trace"
-printf ""
+printf "\n"
 
 define GOODBYE_MSG <<EOT
 #####################################################################
