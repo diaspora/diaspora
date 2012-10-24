@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
 # Create a database.yml for the right database

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ###
 # MAKE ME BETTER
@@ -84,12 +84,6 @@ JS_RUNTIME_DETECTED=false
 # EOF
 define(){ IFS='\n' read -r -d '' ${1}; }
 
-# expand aliases in this script
-shopt -s expand_aliases
-
-# alias echo to alway print \newlines
-alias echo='echo -e'
-
 # run a command or print the error
 run_or_error() {
   eval "$1"
@@ -100,11 +94,11 @@ run_or_error() {
 
 # nicely output error messages and quit
 error() {
-  echo "\n"
-  echo "[ERROR] -- $1"
-  echo "        --"
-  echo "        -- have a look at our wiki: $D_WIKI_URL"
-  echo "        -- or join us on IRC: $D_IRC_URL"
+  printf "\n"
+  printf "[ERROR] -- $1"
+  printf "        --"
+  printf "        -- have a look at our wiki: $D_WIKI_URL"
+  printf "        -- or join us on IRC: $D_IRC_URL"
   exit 1
 }
 
@@ -118,7 +112,7 @@ interactive_check() {
   fd=0 #stdin
   if [[ -t "$fd" || -p /dev/stdin ]]; then
     # all is well
-    echo ""
+    printf ""
   else
     # non-interactive
     TMPFILE=`mktemp`
@@ -134,13 +128,13 @@ interactive_check() {
 # check if all necessary binaries are available
 binaries_check() {
   for exe in "${!BINARIES[@]}"; do
-    echo -n "checking for $exe... "
+    printf -n "checking for $exe... "
     which "${BINARIES[$exe]}"
     if [ $? -ne 0 ]; then
       error "you are missing the '${BINARIES[$exe]}' command, please install '$exe'";
     fi
   done
-  echo ""
+  printf ""
 }
 
 # check for rvm
@@ -152,28 +146,28 @@ to install, manage and work with multiple ruby environments.
 For more details check out https://rvm.io//
 EOT
 rvm_check() {
-  echo -n "checking for rvm... "
+  printf -n "checking for rvm... "
   fn_exists rvm
   if [ $? -eq 0 ] ; then
     RVM_DETECTED=true
 
   # seems we don't have it loaded, try to do so
-  elif [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+  elif [ -s "$HOME/.rvm/scripts/rvm" ] ; then
     source "$HOME/.rvm/scripts/rvm" >/dev/null 2>&1
     RVM_DETECTED=true
-  elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+  elif [ -s "/usr/local/rvm/scripts/rvm" ] ; then
     source "/usr/local/rvm/scripts/rvm" >/dev/null 2>&1
     RVM_DETECTED=true
   fi
 
   if $RVM_DETECTED ; then
-    echo "found"
+    printf "found"
   else
-    echo "not found"
-    echo "$RVM_MSG"
+    printf "not found"
+    printf "$RVM_MSG"
     read -p "Press [Enter] to continue without RVM or abort this script and install RVM..."
   fi
-  echo ""
+  printf ""
 }
 
 # prepare ruby with rvm
@@ -183,16 +177,16 @@ install_or_use_ruby() {
   fi
 
   # make sure we have the correct ruby version available
-  echo -n "checking your ruby version... "
+  printf -n "checking your ruby version... "
   rvm use $D_RUBY_VERSION >/dev/null 2>&1
   if [ $? -ne 0 ] ; then
-    echo "not ok"
+    printf "not ok"
     rvm --force install $D_RUBY_VERSION
   else
-    echo "ok"
+    printf "ok"
   fi
 
-  echo ""
+  printf ""
 }
 
 # trust and load rvmrc
@@ -209,15 +203,15 @@ load_rvmrc() {
   fi
 
   # load .rvmrc
-  echo -n "loading .rvmrc ... "
-  source ".rvmrc"
+  printf -n "loading .rvmrc ... "
+  . ".rvmrc"
   #rvm rvmrc load
   if [ $? -eq 0 ] ; then
-    echo "ok"
+    printf "ok"
   else
-    echo "not ok"
+    printf "not ok"
   fi
-  echo ""
+  printf ""
 }
 
 # rvm doesn't need sudo, otherwise we do have to use it :(
@@ -227,7 +221,7 @@ rvm_or_sudo() {
   else
     eval "$1"
     if [ $? -ne 0 ] ; then
-      echo "\nrunning '$1' didn't succeed, trying again with sudo...\n"
+      printf "\nrunning '$1' didn't succeed, trying again with sudo...\n"
       run_or_error "sudo $1"
     fi
   fi
@@ -246,7 +240,7 @@ For more information on ExecJS, visit
 -- https://github.com/sstephenson/execjs
 EOT
 js_runtime_check() {
-  echo -n "checking for a JavaScript runtime... "
+  printf -n "checking for a JavaScript runtime... "
 
   # Node.js
   which node >/dev/null 2>&1
@@ -255,7 +249,7 @@ js_runtime_check() {
   fi
 
   # TheRubyRacer
-  (echo "require 'v8'" | ruby) >/dev/null 2>&1
+  (printf "require 'v8'" | ruby) >/dev/null 2>&1
   if [ $? -eq 0 ] ; then
     JS_RUNTIME_DETECTED=true
   fi
@@ -265,13 +259,13 @@ js_runtime_check() {
   ##
 
   if $JS_RUNTIME_DETECTED ; then
-    echo "ok"
+    printf "ok"
   else
-    echo "not ok"
-    echo "$JS_RT_MSG"
+    printf "not ok"
+    printf "$JS_RT_MSG"
     error "can't continue without a JS runtime"
   fi
-  echo ""
+  printf ""
 }
 
 # make ourselves comfy
@@ -291,17 +285,17 @@ sane_environment_check() {
 
 # find or set up a working git environment
 git_stuff_check() {
-  echo "Where would you like to put the git clone, or, where is your existing git clone?"
-  echo "(please use a full path, not '~' or '.')"
+  printf "Where would you like to put the git clone, or, where is your existing git clone?"
+  printf "(please use a full path, not '~' or '.')"
   read -e -p "-> " D_GIT_CLONE_PATH
-  echo ""
+  printf ""
 
   test -d "$D_GIT_CLONE_PATH" \
     && cd "$D_GIT_CLONE_PATH" \
     && git status # folder exists? go there. is a good git clone?
   if [ $? -ne 0 ]; then
     # not a git repo, create it?
-    echo "the folder you specified does not exist or doesn't contain a git repo"
+    printf "the folder you specified does not exist or doesn't contain a git repo"
     read -p "Press [Enter] to create it... "
     run_or_error "mkdir -p -v \"$D_GIT_CLONE_PATH\""  # only if it doesn't exist
     run_or_error "git clone \"$D_REMOTE_REPO_URL\" \"$D_GIT_CLONE_PATH\""
@@ -309,12 +303,12 @@ git_stuff_check() {
     run_or_error "git checkout master"
     run_or_error "git pull"
   fi
-  echo ""
+  printf ""
 }
 
 # handle database decision
 database_question() {
-  echo "Which database type are you using?"
+  printf "Which database type are you using?"
   select choice in "MySQL" "PgSQL"; do
     case $choice in
       MySQL )
@@ -347,19 +341,19 @@ database_credentials() {
 # setup database
 # (assume we are in the Diaspora directory)
 database_setup() {
-  echo "Database setup"
+  printf "Database setup"
   run_or_error "cp config/database.yml.example \"$D_DB_CONFIG_FILE\""
   database_question
   database_credentials
-  echo ""
+  printf ""
 }
 
 # install all the gems with bundler
 # (assume we are in the Diaspora directory)
 prepare_gem_bundle() {
-  echo "installing all required gems..."
+  printf "installing all required gems..."
   rvm_or_sudo "bundle install"
-  echo ""
+  printf ""
 }
 
 
@@ -390,7 +384,7 @@ Follow the guide in our wiki, instead:
 #####################################################################
 
 EOT
-echo "$WELCOME_MSG"
+printf "$WELCOME_MSG"
 read -p "Press [Enter] to continue... "
 
 
@@ -411,18 +405,18 @@ prepare_install_env
 database_setup
 
 
-echo "copying diaspora.yml.example to diaspora.yml"
+printf "copying diaspora.yml.example to diaspora.yml"
 run_or_error "cp config/diaspora.yml.example config/diaspora.yml"
-echo ""
+printf ""
 
 
 # bundle gems
 prepare_gem_bundle
 
 
-echo "creating the default database specified in config/database.yml. please wait..."
+printf "creating the default database specified in config/database.yml. please wait..."
 run_or_error "bundle exec rake db:schema:load_if_ruby --trace"
-echo ""
+printf ""
 
 define GOODBYE_MSG <<EOT
 #####################################################################
@@ -444,7 +438,7 @@ For further information read the wiki at $D_WIKI_URL
 or join us on IRC $D_IRC_URL
 
 EOT
-echo "$GOODBYE_MSG"
+printf "$GOODBYE_MSG"
 
 
 exit 0
