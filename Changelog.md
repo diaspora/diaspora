@@ -30,6 +30,10 @@
 * Fix javascripts error in invitations facebox. [#3638](https://github.com/diaspora/diaspora/pull/3638)
 * Fix css overflow problem in aspect dropdown on welcome page. [#3637](https://github.com/diaspora/diaspora/pull/3637)
 
+# 0.0.1.2
+
+Fix exception when the root of a reshare of a reshare got deleted [#3546](https://github.com/diaspora/diaspora/issues/3546)
+
 # 0.0.1.1
 
 * Fix syntax error in French Javascript pluralization rule.
