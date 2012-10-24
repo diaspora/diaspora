@@ -23,6 +23,7 @@
 
 ## Bug Fixes
 
+* Fix exception when the root of a reshare of a reshare got deleted [#3546](https://github.com/diaspora/diaspora/issues/3546)
 * Fix issue with interacted_at in post fetcher. [#3607](https://github.com/diaspora/diaspora/pull/3607)
 * Fix error with show post Community Spotlight. [#3658](https://github.com/diaspora/diaspora/pull/3658)
 * Fix javascripts problem with read/unread notifications. [#3656](https://github.com/diaspora/diaspora/pull/3656)
