@@ -15,11 +15,14 @@
 ### Other
 
 * MessagesController. [#3657](https://github.com/diaspora/diaspora/pull/3657)
-* **Fixed setting:** `follow_diasporahq` has now to be set to `true` to enable following the DiasporaHQ account. Was `false`
+* **Fixed setting:** `follow_diasporahq` has now to be set to `true` to enable following the DiasporaHQ account. Was `false`. [#3675](https://github.com/diaspora/diaspora/pull/3675)
+* Privatize some controller methods [#3660](https://github.com/diaspora/diaspora/pull/3660)
 
 ## Features
 
 * Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
+* Remove Alpha logo from branding. [#3669](https://github.com/diaspora/diaspora/pull/3669)
+* Add flash-notice when sending messages to non-contacts. [#3683](https://github.com/diaspora/diaspora/pull/3683)
 
 ## Bug Fixes
 

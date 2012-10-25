@@ -341,6 +341,7 @@ en:
     create:
       sent: "Message sent"
       fail: "Invalid message"
+      no_contact: "Hey, you need to add this contact first!"
     new_message:
       fail: "Invalid message"
     destroy:
