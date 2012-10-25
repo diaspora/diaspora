@@ -37,11 +37,14 @@ class ConversationsController < ApplicationController
     params[:conversation][:messages_attributes] = [ {:author => current_user.person, :text => message_text }]
 
     @conversation = Conversation.new(params[:conversation])
-    if @conversation.save
+    if person_ids.present? && @conversation.save
       Postzord::Dispatcher.build(current_user, @conversation).post
       flash[:notice] = I18n.t('conversations.create.sent')
     else
       flash[:error] = I18n.t('conversations.create.fail')
+      if person_ids.blank?
+        flash[:error] = I18n.t('conversations.create.no_contact')
+      end
     end
     if params[:profile]
       redirect_to person_path(params[:profile])
