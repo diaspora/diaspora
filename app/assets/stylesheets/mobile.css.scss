@@ -292,6 +292,8 @@ body {
 
 #nav_badges {
   display: inline-block;
+  float: right;
+  padding: 4px 12px;
 }
   #nav_badges a:hover {
     text-decoration: none; }
