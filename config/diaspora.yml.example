@@ -99,7 +99,8 @@ configuration: ## Section
     ## Diaspora is only tested against this default pubsub server.
     ## You likely don't want to change this.
     #pubsub_server: 'https://pubsubhubbub.appspot.com/'
-    
+  
+  ## Settings affecting how ./script/server behaves.
   server: ## Section
     ## The port on which the appserver should listen
     #port: 3000
