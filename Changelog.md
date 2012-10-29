@@ -19,7 +19,7 @@
 
 ## Features
 
-* Add "My Activity" icon mobile. [#3687](https://github.com/diaspora/diaspora/pull/3687)
+* Add "My Activity" icon mobile -[Author Icon](http://www.gentleface.com/free_icon_set.html)-. [#3687](https://github.com/diaspora/diaspora/pull/3687)
 * Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
 
 ## Bug Fixes
