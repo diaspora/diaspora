@@ -66,20 +66,6 @@ class PeopleController < ApplicationController
     respond_with @people
   end
 
-  def hashes_for_people(people, aspects)
-    ids = people.map{|p| p.id}
-    contacts = {}
-    Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
-      contacts[contact.person_id] = contact
-    end
-
-    people.map{|p|
-      {:person => p,
-        :contact => contacts[p.id],
-        :aspects => aspects}
-    }
-  end
-
   def show
     @person = Person.find_from_guid_or_username(params)
 
@@ -162,6 +148,8 @@ class PeopleController < ApplicationController
     end
   end
 
+  private
+
   def redirect_if_tag_search
     if search_query.starts_with?('#')
       if search_query.length > 1
@@ -173,7 +161,19 @@ class PeopleController < ApplicationController
     end
   end
 
-  private
+  def hashes_for_people(people, aspects)
+    ids = people.map{|p| p.id}
+    contacts = {}
+    Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
+      contacts[contact.person_id] = contact
+    end
+
+    people.map{|p|
+      {:person => p,
+        :contact => contacts[p.id],
+        :aspects => aspects}
+    }
+  end
 
   def search_query
     @search_query ||= params[:q] || params[:term] || ''
