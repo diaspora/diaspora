@@ -2,6 +2,23 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+:css
+  a.asterisk{ position: absolute; left: 80%; top: 120px; z-index: 100;}
+  a.bat{ position: absolute; left: 76%; top: 140; z-index: 100;}
+  @-webkit-keyframes bat_hallowen{ 0%{top:100px;} 25%{top:200px;} 50%{top:110px;} 75%{top:190px;} 100%{top:100px;}}
+  @-moz-keyframes bat_hallowen{ 0%{top:100px;} 25%{top:200px;} 50%{top:110px;} 75%{top:190px;} 100%{top:100px;}}
+  @-ms-keyframes bat_hallowen{ 0%{top:100px;} 25%{top:200px;} 50%{top:110px;} 75%{top:190px;} 100%{top:100px;}}
+  @-o-keyframes bat_hallowen{ 0%{top:100px;} 25%{top:200px;} 50%{top:110px;} 75%{top:190px;} 100%{top:100px;}}
+  a.bat{ -moz-animation: bat_hallowen 20s infinite;
+         -webkit-animation: bat_hallowen 20s infinite; 
+         -ms-animation: bat_hallowen 20s infinite; 
+         -0-animation: bat_hallowen 20s infinite;}
+
+.hallowen
+  %a.asterisk
+    = image_tag('hallowen_asterisk.png')
+    %a.bat
+      = image_tag('hallowen_bat.png')
 
 - if AppConfig.settings.invitations.open?
   .section
