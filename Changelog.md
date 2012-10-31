@@ -23,6 +23,7 @@
 
 ## Bug Fixes
 
+* Fix overflow button in mobile reset password. [#3696](https://github.com/diaspora/diaspora/pull/3696)
 * Fix issue with interacted_at in post fetcher. [#3607](https://github.com/diaspora/diaspora/pull/3607)
 * Fix error with show post Community Spotlight. [#3658](https://github.com/diaspora/diaspora/pull/3658)
 * Fix javascripts problem with read/unread notifications. [#3656](https://github.com/diaspora/diaspora/pull/3656)
