@@ -252,9 +252,6 @@ configuration: ## Section
       #enable: true
       #app_id: 'abcdef'
       #secret: 'changeme'
-      ## this will be the namespace for your object,
-      ## it should be configured in your FB app
-      #open_graph_namespace: 
     
     ## OAuth credentials for Twitter:
     twitter: ## Section
