@@ -31,6 +31,7 @@
 * Fix javascripts error in invitations facebox. [#3638](https://github.com/diaspora/diaspora/pull/3638)
 * Fix css overflow problem in aspect dropdown on welcome page. [#3637](https://github.com/diaspora/diaspora/pull/3637)
 * Fix empty page after authenticating with other services. [#3693](https://github.com/diaspora/diaspora/pull/3693)
+* Fix posting public posts to Facebook. [#2882](https://github.com/diaspora/diaspora/issues/2882), [#3650](https://github.com/diaspora/diaspora/issues/3650)
 
 # 0.0.1.2
 
