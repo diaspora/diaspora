@@ -65,7 +65,7 @@ gem 'acts_as_api', '0.4.1 '
 # localization
 
 gem 'i18n-inflector-rails', '~> 1.0'
-gem 'rails-i18n', :git => "https://github.com/svenfuchs/rails-i18n.git"
+gem 'rails-i18n', '0.7.0'
 
 # parsing
 
