@@ -30,6 +30,7 @@
 * Fix error with open/close registrations. [#3649](https://github.com/diaspora/diaspora/pull/3649)
 * Fix javascripts error in invitations facebox. [#3638](https://github.com/diaspora/diaspora/pull/3638)
 * Fix css overflow problem in aspect dropdown on welcome page. [#3637](https://github.com/diaspora/diaspora/pull/3637)
+* Fix problem with show reshares_count in stream. [#3699](https://github.com/diaspora/diaspora/pull/3699)
 
 # 0.0.1.2
 
