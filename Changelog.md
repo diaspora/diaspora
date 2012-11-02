@@ -23,6 +23,7 @@
 
 ## Bug Fixes
 
+* Fix posting to Facebook and Tumblr. Have a look at the updated [services guide](https://github.com/diaspora/diaspora/wiki/Howto-setup-services) for new Facebook instructions.
 * Fix overflow button in mobile reset password. [#3697](https://github.com/diaspora/diaspora/pull/3697)
 * Fix issue with interacted_at in post fetcher. [#3607](https://github.com/diaspora/diaspora/pull/3607)
 * Fix error with show post Community Spotlight. [#3658](https://github.com/diaspora/diaspora/pull/3658)
@@ -31,6 +32,7 @@
 * Fix javascripts error in invitations facebox. [#3638](https://github.com/diaspora/diaspora/pull/3638)
 * Fix css overflow problem in aspect dropdown on welcome page. [#3637](https://github.com/diaspora/diaspora/pull/3637)
 * Fix empty page after authenticating with other services. [#3693](https://github.com/diaspora/diaspora/pull/3693)
+* Fix posting public posts to Facebook. [#2882](https://github.com/diaspora/diaspora/issues/2882), [#3650](https://github.com/diaspora/diaspora/issues/3650)
 
 # 0.0.1.2
 
