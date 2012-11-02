@@ -389,7 +389,7 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    twitter (4.1.1)
+    twitter (4.2.0)
       faraday (~> 0.8)
       multi_json (~> 1.3)
       simple_oauth (~> 0.1.6)
@@ -486,7 +486,7 @@ DEPENDENCIES
   selenium-webdriver (= 2.25.0)
   spork (= 1.0.0rc3)
   timecop (= 0.5.3)
-  twitter (= 4.1.1)
+  twitter (= 4.2.0)
   typhoeus (= 0.3.3)
   uglifier (= 1.3.0)
   unicorn (= 4.4.0)
