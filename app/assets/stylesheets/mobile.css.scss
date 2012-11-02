@@ -781,3 +781,8 @@ textarea#conversation_text {
   color: #DF0101;
   text-shadow: 1px 1px 5px #666; 
 }
+
+form#new_user.new_user input.btn {
+  white-space: normal;
+}
+    

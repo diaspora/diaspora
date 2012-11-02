@@ -48,8 +48,12 @@ class ServicesController < ApplicationController
                                  :service_name => provider.camelize )
       end
     end
-
-    render :text => ("<script>window.close()</script>")
+    
+    if request.env['omniauth.origin'].nil?
+      render :text => ("<script>window.close()</script>")
+    else
+      redirect_to request.env['omniauth.origin']
+    end
   end
 
   def failure

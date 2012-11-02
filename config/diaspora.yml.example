@@ -99,7 +99,8 @@ configuration: ## Section
     ## Diaspora is only tested against this default pubsub server.
     ## You likely don't want to change this.
     #pubsub_server: 'https://pubsubhubbub.appspot.com/'
-    
+  
+  ## Settings affecting how ./script/server behaves.
   server: ## Section
     ## The port on which the appserver should listen
     #port: 3000
@@ -251,9 +252,6 @@ configuration: ## Section
       #enable: true
       #app_id: 'abcdef'
       #secret: 'changeme'
-      ## this will be the namespace for your object,
-      ## it should be configured in your FB app
-      #open_graph_namespace: 
     
     ## OAuth credentials for Twitter:
     twitter: ## Section

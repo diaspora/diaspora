@@ -11,19 +11,11 @@ class Services::Facebook < Service
 
   def post(post, url='')
     Rails.logger.debug("event=post_to_service type=facebook sender_id=#{self.user_id}")
-    if post.public?
-      post_to_facebook("https://graph.facebook.com/me/#{AppConfig.services.facebook.open_graph_namespace}:make", create_open_graph_params(post).to_param)
-    else
-      post_to_facebook("https://graph.facebook.com/me/feed", create_post_params(post).to_param)
-    end
+    post_to_facebook("https://graph.facebook.com/me/feed", create_post_params(post).to_param)
   end
 
   def post_to_facebook(url, body)
     Faraday.post(url, body)
-  end
-
-  def create_open_graph_params(post)
-    {:post => "#{AppConfig.pod_uri.to_s}#{short_post_path(post)}", :access_token => self.access_token}
   end
 
   def create_post_params(post)
