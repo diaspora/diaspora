@@ -11,18 +11,18 @@ describe Services::Twitter do
 
   describe '#post' do
     it 'posts a status message to twitter' do
-      Twitter.should_receive(:update).with(instance_of(String))
+      Twitter::Client.any_instance.should_receive(:update).with(instance_of(String))
       @service.post(@post)
     end
 
      it 'swallows exception raised by twitter always being down' do
       pending
-      Twitter.should_receive(:update).and_raise(StandardError)
+      Twitter::Client.any_instance.should_receive(:update).and_raise(StandardError)
       @service.post(@post)
     end
 
     it 'should call public message' do
-      Twitter.stub!(:update)
+      Twitter::Client.any_instance.stub(:update)
       url = "foo"
       @service.should_receive(:public_message).with(@post, url)
       @service.post(@post, url)
@@ -74,12 +74,12 @@ describe Services::Twitter do
   end
   describe "#profile_photo_url" do
     it 'returns the original profile photo url' do
-      stub_request(:get, "https://api.twitter.com/1/users/profile_image/joindiaspora?size=original").
-        to_return(:status => 302, :body => "", :headers => {:location => "http://a2.twimg.com/profile_images/uid/avatar.png"})
+      user_stub = stub
+      user_stub.should_receive(:profile_image_url_https).with("original").and_return("http://a2.twimg.com/profile_images/uid/avatar.png")
+      Twitter::Client.any_instance.should_receive(:user).with("joindiaspora").and_return(user_stub)
 
       @service.nickname = "joindiaspora"
-      @service.profile_photo_url.should == 
-      "http://a2.twimg.com/profile_images/uid/avatar.png"
+      @service.profile_photo_url.should == "http://a2.twimg.com/profile_images/uid/avatar.png"
     end
   end
 end

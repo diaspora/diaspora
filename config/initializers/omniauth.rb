@@ -5,10 +5,16 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   if AppConfig.services.twitter.enable?
     provider :twitter, AppConfig.services.twitter.key, AppConfig.services.twitter.secret
+    Twitter.configure do |config|
+      config.consumer_key = AppConfig.services.twitter.key
+      config.consumer_secret = AppConfig.services.twitter.secret
+    end
   end
+  
   if AppConfig.services.tumblr.enable?
     provider :tumblr, AppConfig.services.tumblr.key, AppConfig.services.tumblr.secret
   end
+  
   if AppConfig.services.facebook.enable?
     provider :facebook, AppConfig.services.facebook.app_id, AppConfig.services.facebook.secret,
              { :display => "popup", :scope => "publish_actions,publish_stream,offline_access",
