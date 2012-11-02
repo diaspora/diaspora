@@ -122,7 +122,7 @@ gem 'jquery-rails', '2.1.3'
 # web
 
 gem 'faraday', '0.8.4'
-gem 'faraday_middleware', '0.8.8'
+gem 'faraday_middleware', '0.9.0'
 
 
 gem 'jasmine', '1.2.1'
