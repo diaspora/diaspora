@@ -27,7 +27,15 @@ describe Services::Twitter do
       @service.should_receive(:public_message).with(@post, url)
       @service.post(@post, url)
     end
+    
+    it 'removes text formatting markdown from post text' do
+      message = "Text with some **bolded** and _italic_ parts."
+      post = stub(:text => message, :photos => [])
+      @service.public_message(post, '').should match "Text with some bolded and italic parts."
+    end
+    
   end
+  
   describe "message size limits" do
     before :each do
       @long_message_start = SecureRandom.hex(25)
