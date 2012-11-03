@@ -22,7 +22,8 @@ class Services::Twitter < Service
       buffer_amt += (a_url.length - SHORTENED_URL_LENGTH)
     end
 
-    super(post, MAX_CHARACTERS + buffer_amt,  url)
+    #if photos, always include url, otherwise not for short posts
+    super(post, MAX_CHARACTERS + buffer_amt,  url, post.photos.any?)
   end
 
   def profile_photo_url
