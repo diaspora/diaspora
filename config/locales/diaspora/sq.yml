@@ -10,19 +10,8 @@
 #
 #      people_on_pod_are_aware_of: " people on pod are aware
 #
-#Call out awesome people with @Mentions"
 #
-#    notification:
-#      new: "New %{type} from %{from}" sa lloje janë
 #       screenshot_explanation: "%{link1}.  Kjo cubby e dhënë është e lidhur te %{link2}."
-#
-#    mentioned_stream: "@Mentions"
-#   followed_tags_stream: "#Followed Tags"
-#
-#   Diaspora Handle
-#
-#         no_turning_back: "Currently, there is no turning back."
-#
 #
 #
 #   resque_overview: "Përmbledhje Resque"
@@ -932,11 +921,11 @@ admins:
   streams:
     community_spotlight_stream: "Prozhektori i Bashkësisë"
     aspects_stream: "Aspekte"
-    mentioned_stream: "@Mentions"
-    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Përmendje"
+    followed_tags_stream: "Etiketa të #Ndjekura"
 
     mentions:
-      title: "@Mentions"
+      title: "@Përmendje"
       contacts_title: "Persona që ju kanë përmendur"
 
     comment_stream:
@@ -948,7 +937,7 @@ admins:
       contacts_title: "Persona postimet e të cilëve i pëlqeni"
 
     followed_tag:
-      title: "Etiketa #Followed"
+      title: "Etiketa të #Ndjekura"
       contacts_title: "Persona që ndjekin këto etiketa"
       add_a_tag: "Shtoni një etiketë"
       follow: "Ndiqe"
@@ -978,7 +967,7 @@ admins:
       photo_export_unavailable: "Hëpërhë eksportimi i fotove nuk funksionon"
       close_account_text: "Mbylleni Llogarinë"
       change_language: "Ndërroni Gjuhën"
-      change_password: "ndërroni Fjalëkalimin"
+      change_password: "Ndërroni Fjalëkalimin"
       change_email: "Ndërroni email-in"
       new_password: "Fjalëkalim i ri"
       current_password: "Fjalëkalimi i tanishëm"
@@ -1015,6 +1004,7 @@ admins:
         what_we_delete: "Ne i fshijmë krejt postimet tuaja, të dhënat e profilit, sa më shpejt që mundemi. Komentet tuaja do të jenë prapë këtu, por do të jenë të përshoqëruara nga ID-ja juaj Diaspora."
         locked_out: "Do të bëhet çregjistrimi juaj dhe nuk do t'ju lejohet më hyrja në llogarinë tuaj."
         lock_username: "Nga kjo do të bllokohet emri juaj i përdoruesit, në rast se vendosët të regjistroheni sërish."
+no_turning_back: "Hëpërhë, nuk ka kthim mbrapsht."
         if_you_want_this: "Nëse e dëshironi vërtet këtë, shtypni më poshtë fjalëkalimin tuaj dhe klikoni mbi 'Mbylle Llogarinë'"
 
     privacy_settings:
