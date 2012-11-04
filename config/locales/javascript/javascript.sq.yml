@@ -8,7 +8,7 @@ sq:
     confirm_dialog: "Jeni i sigurt?"
     delete: "Fshije"
     ignore: "Shpërfille"
-ignore_user: "Të shpërfillet ky përdorues?"
+    ignore_user: "Të shpërfillet ky përdorues?"
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
