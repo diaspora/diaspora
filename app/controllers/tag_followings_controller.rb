@@ -6,7 +6,7 @@
 class TagFollowingsController < ApplicationController
   before_filter :authenticate_user!
 
-  respond_to :html, :json
+  respond_to :json
 
   # POST /tag_followings
   # POST /tag_followings.xml
@@ -14,52 +14,38 @@ class TagFollowingsController < ApplicationController
     name_normalized = ActsAsTaggableOn::Tag.normalize(params['name'])
 
     if name_normalized.nil? || name_normalized.empty?
-      flash[:error] = I18n.t('tag_followings.create.none')
+      render :nothing => true, :status => 403
     else
       @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(name_normalized)
       @tag_following = current_user.tag_followings.new(:tag_id => @tag.id)
 
       if @tag_following.save
-        flash[:notice] = I18n.t('tag_followings.create.success', :name => name_normalized)
+        render :json => @tag.to_json, :status => 201
       else
-        flash[:error] = I18n.t('tag_followings.create.failure', :name => name_normalized)
+        render :nothing => true, :status => 403
       end
     end
-    redirect_to :back
   end
 
   # DELETE /tag_followings/1
   # DELETE /tag_followings/1.xml
   def destroy
-    @tag = ActsAsTaggableOn::Tag.find_by_name(params[:name])
-    tag_following = current_user.tag_followings.find_by_tag_id( @tag.id )
+    tag_following = current_user.tag_followings.find_by_tag_id( params['id'] )
+    
     if tag_following && tag_following.destroy
-      tag_unfollowed = true
+      respond_to do |format|
+        format.any(:js, :json) { render :nothing => true, :status => 204 }
+      end
     else
-      tag_unfollowed = false
-    end
-
-    respond_to do |format|
-      format.js { render 'tags/update' }
-      format.any {
-        if tag_unfollowed
-          flash[:notice] = I18n.t('tag_followings.destroy.success', :name => params[:name])
-        else
-          flash[:error] = I18n.t('tag_followings.destroy.failure', :name => params[:name])
-        end
-        redirect_to tag_path(:name => params[:name])
-      }
+      respond_to do |format|
+        format.any(:js, :json) {render :nothing => true, :status => 403}
+      end
     end
   end
 
-  def create_multiple
-    if params[:tags].present?
-      params[:tags].split(",").each do |name|
-        name_normalized = ActsAsTaggableOn::Tag.normalize(name)
-        @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(name_normalized)
-        @tag_following = current_user.tag_followings.create(:tag_id => @tag.id)
-      end
+  def index
+    respond_to do |format|
+      format.json{ render(:json => tags.to_json, :status => 200) }
     end
-    redirect_to stream_path
   end
 end

@@ -106,6 +106,17 @@ en:
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
 
+      followed_tag:
+        title: "#Followed Tags"
+        contacts_title: "People who dig these tags"
+        add_a_tag: "Add a tag"
+        follow: "Follow"
+
+      tags:
+        follow: "Follow #<%= tag %>"
+        following: "Following #<%= tag %>"
+        stop_following: "Stop Following #<%= tag %>"
+
     header:
       home: "Home"
       profile: "Profile"

@@ -67,12 +67,12 @@ describe PeopleController do
       context 'query is a tag' do
         it 'goes to a tag page' do
           get :index, :q => '#babies'
-          response.should redirect_to(tag_path('babies', :q => '#babies'))
+          response.should redirect_to(tag_path('babies'))
         end
 
         it 'removes dots from the query' do
           get :index, :q => '#babi.es'
-          response.should redirect_to(tag_path('babies', :q => '#babi.es'))
+          response.should redirect_to(tag_path('babies'))
         end
 
         it 'stay on the page if you search for the empty hash' do
