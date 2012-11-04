@@ -68,6 +68,7 @@ D_RUBY_VERSION="1.9.3-p194"
 
 RVM_DETECTED=false
 JS_RUNTIME_DETECTED=false
+ONE_UP="\e[1A"
 
 ####                                                             ####
 #                                                                   #
@@ -128,6 +129,10 @@ log_err() {
   logf "$1" "error"
 }
 
+log_wrn() {
+  logf "$1" "warn"
+}
+
 log_dbg() {
   logf "$1" "debug"
 }
@@ -178,10 +183,15 @@ interactive_check() {
 # check if all necessary binaries are available
 binaries_check() {
   for exe in "${!BINARIES[@]}"; do
-    log_inf "checking for $exe... "
-    which "${BINARIES[$exe]}"
+    LOG_MSG="checking for $exe... "
+    log_inf "$LOG_MSG"
+
+    EXE_PATH=$(which "${BINARIES[$exe]}")
     if [ $? -ne 0 ]; then
       error "you are missing the '${BINARIES[$exe]}' command, please install '$exe'";
+    else
+      printf "$ONE_UP"
+      log_inf "$LOG_MSG  found"
     fi
   done
   printf "\n"
@@ -196,7 +206,9 @@ to install, manage and work with multiple ruby environments.
 For more details check out https://rvm.io//
 EOT
 rvm_check() {
-  log_inf "checking for rvm... "
+  LOG_MSG="checking for rvm... "
+  log_inf "$LOG_MSG"
+
   fn_exists rvm
   if [ $? -eq 0 ] ; then
     RVM_DETECTED=true
@@ -211,7 +223,8 @@ rvm_check() {
   fi
 
   if $RVM_DETECTED ; then
-    log_inf "found"
+    printf "$ONE_UP"
+    log_inf "$LOG_MSG  found"
   else
     log_wrn "not found"
     logf "$RVM_MSG"
@@ -227,13 +240,16 @@ install_or_use_ruby() {
   fi
 
   # make sure we have the correct ruby version available
-  log_inf "checking your ruby version... "
+  LOG_MSG="checking your ruby version... "
+  log_inf "$LOG_MSG"
+
   rvm use $D_RUBY_VERSION >/dev/null 2>&1
   if [ $? -ne 0 ] ; then
     log_wrn "not ok"
     rvm --force install $D_RUBY_VERSION
   else
-    log_inf "ok"
+    printf "$ONE_UP"
+    log_inf "$LOG_MSG  ok"
   fi
 
   printf "\n"
@@ -253,11 +269,14 @@ load_rvmrc() {
   fi
 
   # load .rvmrc
-  log_inf "loading .rvmrc ... "
+  LOG_MSG="loading .rvmrc ... "
+  log_inf "$LOG_MSG"
+
   . ".rvmrc"
   #rvm rvmrc load
   if [ $? -eq 0 ] ; then
-    log_inf "ok"
+    printf "$ONE_UP"
+    log_inf "$LOG_MSG  ok"
   else
     log_wrn "not ok"
   fi
@@ -290,7 +309,8 @@ For more information on ExecJS, visit
 -- https://github.com/sstephenson/execjs
 EOT
 js_runtime_check() {
-  log_inf "checking for a JavaScript runtime... "
+  LOG_MSG="checking for a JavaScript runtime... "
+  log_inf "$LOG_MSG"
 
   # Node.js
   which node >/dev/null 2>&1
@@ -309,7 +329,8 @@ js_runtime_check() {
   ##
 
   if $JS_RUNTIME_DETECTED ; then
-    log_inf "ok"
+    printf "$ONE_UP"
+    log_inf "$LOG_MSG  found"
   else
     log_err "not ok"
     printf "$JS_RT_MSG"
@@ -324,6 +345,7 @@ prepare_install_env() {
   load_rvmrc
   js_runtime_check
 
+  log_inf "making sure the 'bundler' gem is installed"
   rvm_or_sudo "gem install bundler"
 }
 
@@ -346,7 +368,7 @@ git_stuff_check() {
   if [ $? -ne 0 ]; then
     # not a git repo, create it?
     printf "the folder you specified does not exist or doesn't contain a git repo\n"
-    read -p "Press [Enter] to create it... "
+    read -p "Press [Enter] to create it and contine... "
     run_or_error "mkdir -p -v \"$D_GIT_CLONE_PATH\""  # only if it doesn't exist
     run_or_error "git clone \"$D_REMOTE_REPO_URL\" \"$D_GIT_CLONE_PATH\""
   else
@@ -358,7 +380,7 @@ git_stuff_check() {
 
 # handle database decision
 database_question() {
-  printf "Which database type are you using?\n"
+  printf "Which database type are you using? [1|2]\n"
   select choice in "MySQL" "PgSQL"; do
     case $choice in
       MySQL )
@@ -379,22 +401,33 @@ database_question() {
 
 # ask for database credentials
 database_credentials() {
-  read -e -p "hostname: " D_DB_HOST
-  read -e -p "username: " D_DB_USER
-  read -e -p "password: " D_DB_PASS
+  read -e -p "DB hostname: " D_DB_HOST
+  read -e -p "DB username: " D_DB_USER
+  read -e -p "DB password: " D_DB_PASS
 
   run_or_error "sed -i'' -e \"s/\(host:\)[^\n]*/\1 $D_DB_HOST/g\" \"$D_DB_CONFIG_FILE\""
   run_or_error "sed -i'' -e \"s/\(username:\)[^\n]*/\1 $D_DB_USER/g\" \"$D_DB_CONFIG_FILE\""
   run_or_error "sed -i'' -e \"s/\(password:\)[^\n]*/\1 $D_DB_PASS/g\" \"$D_DB_CONFIG_FILE\""
+
+  printf "\n"
 }
 
 # setup database
 # (assume we are in the Diaspora directory)
+define DATABASE_CHK_MSG << 'EOT'
+you can now check the generated database config file in './config/database.yml'
+and see if the specified values are correct.
+
+EOT
 database_setup() {
   log_inf "Database setup"
   run_or_error "cp config/database.yml.example \"$D_DB_CONFIG_FILE\""
   database_question
   database_credentials
+
+  printf "$DATABASE_CHK_MSG"
+  read -p "Press [Enter] to continue... "
+
   printf "\n"
 }
 
@@ -455,6 +488,7 @@ prepare_install_env
 database_setup
 
 
+# diaspora config
 log_inf "copying diaspora.yml.example to diaspora.yml"
 run_or_error "cp config/diaspora.yml.example config/diaspora.yml"
 printf "\n"
