@@ -36,6 +36,7 @@
 * Fix empty page after authenticating with other services. [#3693](https://github.com/diaspora/diaspora/pull/3693)
 * Fix posting public posts to Facebook. [#2882](https://github.com/diaspora/diaspora/issues/2882), [#3650](https://github.com/diaspora/diaspora/issues/3650)
 * Fix error with invite link box shows on search results page even if invites have been turned off. [#3708](https://github.com/diaspora/diaspora/pull/3708)
+* Fix problem with show reshares_count in stream. [#3700](https://github.com/diaspora/diaspora/pull/3700)
 
 # 0.0.1.2
 

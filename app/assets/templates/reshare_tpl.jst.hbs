@@ -23,9 +23,9 @@
                 <time class="timeago" datetime="{{created_at}}"/>
               </a>
 
-              {{#if reshares_count}}
+              {{#if interactions.reshares_count}}
                 -
-                {{t "stream.reshares" count=reshares_count}}
+                {{t "stream.reshares" count=interactions.reshares_count}}
               {{/if}}
             </span>
           </div>
