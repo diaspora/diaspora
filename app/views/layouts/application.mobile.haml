@@ -1,6 +1,6 @@
--#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3 or later.  See
--#   the COPYRIGHT file.
+-# Copyright (c) 2010-2011, Diaspora Inc. This file is
+-# licensed under the Affero General Public License version 3 or later. See
+-# the COPYRIGHT file.
 
 !!!
 %html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
@@ -49,29 +49,25 @@
       .navbar-inner
         .container{:style => "position: relative;"}
           = link_to(image_tag('branding/header-logo2x.png', :height => 40, :width => 40, :id => 'header_title'), stream_path)
+          
           - if user_signed_in?
-            #header-nav
-              .activity-nav
-                = link_to(t('streams.activity.title'), activity_stream_path)
-            
             #nav_badges
-              .badge{:class => "badge-inverse", :id => "notification_badge"}            
+              .badge{:class => "badge-inverse", :id => "my_activity_badge"}
+                = link_to(image_tag('icons/my_activity.png', :height => 16, :width => 16), activity_stream_path)
+              .badge{:class => "badge-inverse", :id => "notification_badge"}
                 = link_to(image_tag('icons/notifications_grey.png', :height => 16, :width => 16, :id => 'notification-flag'), notifications_path)
                 - if current_user.unread_notifications.count > 0
                   .badge_count
                     = current_user.unread_notifications.count
-              .badge{:class => "badge-inverse", :id => "conversations_badge"}            
+              .badge{:class => "badge-inverse", :id => "conversations_badge"}
                 = link_to(image_tag('icons/mail_grey.png', :height => 11, :width => 17), conversations_path)
                 - if current_user.unread_message_count > 0
                   .badge_count
                     = current_user.unread_message_count
-              .badge{:class => "badge-inverse", :id => "people_badge"}            
-                = link_to(image_tag('icons/search_grey.png', :height => 14, :width => 14), people_path)      
-              .badge{:class => "badge-inverse", :id => "contacts_badge"}            
-                = link_to(image_tag('icons/user_grey.png', :height => 16, :width => 16), contacts_path)                   
-
-          - if user_signed_in?
-            .right
+              .badge{:class => "badge-inverse", :id => "people_badge"}
+                = link_to(image_tag('icons/search_grey.png', :height => 14, :width => 14), people_path)
+              .badge{:class => "badge-inverse", :id => "contacts_badge"}
+                = link_to(image_tag('icons/user_grey.png', :height => 16, :width => 16), contacts_path)
               - if yield(:header_action).present?
                 = yield(:header_action)
               - else
@@ -79,6 +75,9 @@
 
     #main.container{:role => "main"}
       .row
+        - if current_page?(:activity_stream)
+          %h3
+            = t('streams.activity.title')
         = yield
 
     - if user_signed_in?
