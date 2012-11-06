@@ -32,7 +32,7 @@ sq:
       signed_in: 'Hytë me sukses.'
       signed_out: 'Dolët me sukses.'
     passwords:
-      send_instructions: 'Brenda pak minutash do t'ju vijë një email me udhëzime se si të ricaktoni fjalëkalimin tuaj.'
+      send_instructions: "Brenda pak minutash do t'ju vijë email me udhëzime si të ricaktoni fjalëkalimin tuaj."
       updated: 'Fjalëkalimi juaj u ndryshua me sukses. Tani jeni i futur.'
       edit:
         change_password: "Ndërroje fjalëkalimin tim"
@@ -41,16 +41,16 @@ sq:
         no_account: 'Nuk ka llogari me këtë email.  Nëse po prisni për një ftesë, po shpërndajmë të tilla aq shpejt sa mundemi'
         send_password_instructions: "Dërgomë udhëzime ricaktimi fjalëkalimi"
     confirmations:
-      send_instructions: 'Brenda pak minutash do t'ju vijë një email me udhëzime se si të ripohoni llogarinë tuaj.'
+      send_instructions: "Brenda pak minutash do t'ju vijë një email me udhëzime se si të ripohoni llogarinë tuaj."
       confirmed: 'Llogaria juaj u ripohua me sukses. Tani jeni i futur.'
       new:
         resend_confirmation: "Ridërgo udhëzime ripohimi" 
     registrations:
       signed_up: 'U regjistruat me sukses. Po qe se mundësia përkatëse është e aktivizuar, ju është dërguar një mesazh ripohimi te e-mail-i juaj.'
       updated: 'E përditësuat me sukses llogarinë tuaj.'
-      destroyed: 'Shëndet! Llogaria juaj u anulua me sukses. Shpresojmë t'ju shohim prapë së shpejti.'
+      destroyed: "Shëndet! Llogaria juaj u anulua me sukses. Shpresojmë t'ju shohim prapë së shpejti."
     unlocks:
-      send_instructions: 'Brenda pak minutash do t'ju vijë një email me udhëzime se si zhbllokoni llogarinë.'
+      send_instructions: "Brenda pak minutash do t'ju vijë një email me udhëzime se si zhbllokoni llogarinë."
       unlocked: 'Llogaria juaj u zhbllokua me sukses. Tani jeni i futur.'
       new:
         resend_unlock: "Ridërgoji udhësimet për zhbllokim"
