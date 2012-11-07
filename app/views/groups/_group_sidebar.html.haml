@@ -1,0 +1,10 @@
+#group_sidebar
+.group_photo#group_photo_drop
+  = image_tag( good_image_for_group( group ), :id => 'group_photo_img', :width=>'100' )
+
+  #group_members
+    %h3 Members
+
+    %ul
+    - group.members.each do |person|
+      = person_image_link(person)

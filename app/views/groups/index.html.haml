@@ -1,0 +1,65 @@
+- if current_user
+
+  %h2= t('.create_group')
+
+  = form_for @group, :url => { :action => 'create' } do |f|
+    %p
+      = f.label :identifier, t('.identifier')
+      = f.text_field :identifier
+    %p
+      = f.label :name, t('.name')
+      = f.text_field :name
+    %p
+      = f.label :description, t('.description')
+      = f.text_area :description, :rows => 8
+    #group_admission
+      %span= t('.admission.label')
+      = f.radio_button :admission, 'open'
+      %span= t('.admission.open')
+      = f.radio_button :admission, 'on-approval'
+      %span= t('.admission.on_approval')
+      = f.radio_button :admission, 'manual'
+      %span= t('.admission.manual')
+    %p
+      = f.submit t('.submit')
+
+  %h2= t('.group_membership')
+
+  %p
+    = t('.group_membership_desc')
+
+  %table.groups
+    - current_user.groups.each do |g|
+      %tr
+        %td
+          %img{'src' => g.image_url_sized('small') || '/images/user/default.png', 'class' => 'group-avatar-listed'}
+        %td
+          = link_to( g.name, group_by_identifier_path(g.identifier) )
+
+  %hr
+
+%h2= t('.biggest')
+
+%table.groups
+  - @biggest.each_with_index do |group,i|
+    %tr
+      %td= i+1
+      %td
+        %img{'src' => group.image_url_sized('small') || '/images/user/default.png', 'class' => 'group-avatar-listed'}
+      %td
+        = link_to group.name, group_path(group)
+      %td
+        = '(' + pluralize(group.member_count, 'member') + ')'
+
+%h2= t('.newest')
+
+%table.groups
+  - @newest.each_with_index do |group,i|
+    %tr
+      %td= i+1
+      %td
+        %img{'src' => group.image_url_sized('small') || '/images/user/default.png', 'class' => 'group-avatar-listed'}
+      %td
+        = link_to group.name, group_path(group)
+      %td
+        = t('.old', :age => time_ago_in_words(group.created_at))

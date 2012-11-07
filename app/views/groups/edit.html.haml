@@ -1,0 +1,59 @@
+%h2= t('.editing_group', :name => @group.name)
+
+= form_for @group, :url => { :action => 'update' }, :method => 'put' do |f|
+  %p
+    %h4= t('.identifier')
+    %span= @group.identifier_full
+  %p
+    %h4= t('.name')
+    = f.label :name, t('.name_label')
+    = f.text_field :name
+  %p
+    %h4= t('.description')
+    = f.label :description, t('.description_label')
+    = f.text_area :description, :rows => 8
+  #group_admission
+    %h4= t('.admission_label')
+    = f.radio_button :admission, 'open'
+    %span= t('.admission.open')
+    = f.radio_button :admission, 'on-approval'
+    %span= t('.admission.on_approval')
+    = f.radio_button :admission, 'manual'
+    %span= t('.admission.manual')
+  %p
+    = f.submit t('.submit')
+    = link_to t('.cancel'), group_path(@group), :class => 'button'
+
+%p
+  %h4= t('.group_image')
+  = render :partial => 'photos/new_group_photo', :locals => { :group => @group }
+
+%hr
+
+%h4= t('.new_members')
+= form_tag group_members_path(@group), :class => 'add_group_members' do
+  %p
+    = label_tag 'group_members[handles]', t('.new_members_label')
+    = text_field 'group_members', 'handles'
+  %p
+    = submit_tag t('.add_new_members')
+
+- if @group.membership_requests.any?
+  #pending_members
+    %h4= t('.pending_members')
+    %table
+      - @group.membership_requests.map(&:person).each do |p|
+        %tr
+          %td= p.name
+          %td= p.diaspora_handle
+          %td
+            = link_to t('.approve'), group_approve_membership_request_path(@group, p), :method => :post
+            = link_to t('.reject'), group_reject_membership_request_path(@group, p), :method => :delete
+
+%h4= t('.current_members')
+%table#group_members
+  - @group.members.each do |m|
+    %tr
+      %td= m.name
+      %td= m.diaspora_handle
+      %td= link_to t('.remove'), group_member_path(@group, m), :method => :delete
