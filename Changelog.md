@@ -22,6 +22,7 @@
 * Add "My Activity" icon mobile -[Author Icon](http://www.gentleface.com/free_icon_set.html)-. [#3687](https://github.com/diaspora/diaspora/pull/3687)
 * Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
 * When posting to Twitter, behaviour changed so that URL to post will only be added to the post when length exceeds 140 chars or post contains uploaded photos.
+* Add simple background for unread messages/conversations mobile. [#3712](https://github.com/diaspora/diaspora/pull/3712)
 
 ## Bug Fixes
 
