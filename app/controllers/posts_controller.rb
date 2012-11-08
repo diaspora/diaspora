@@ -24,10 +24,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def new
-    redirect_to "/stream"
-  end
-
   def show
     mark_corresponding_notification_read if user_signed_in?
 

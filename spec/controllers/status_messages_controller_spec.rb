@@ -53,13 +53,6 @@ describe StatusMessagesController do
     end
   end
 
-  describe '#new_bookmarklet' do
-    it 'works' do
-      get :new_bookmarklet
-      response.should be_success
-    end
-  end
-
   describe '#new' do
     it 'succeeds' do
       get :new,
