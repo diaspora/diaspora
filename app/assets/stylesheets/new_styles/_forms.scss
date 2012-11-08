@@ -110,3 +110,28 @@ form.block-form {
     box-shadow : inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.7);
   }
 }
+
+.buttonholder {
+width: 160px;
+height: 38px;
+float: right;
+}
+
+.signup-button {
+  height: 38px;
+  width: 50%;
+  float: left;
+}
+
+.cancel-button {
+  height: 28px;
+  width: 158px;
+  float: left;
+  display: inline-block;
+  padding-top: 0.22cm;
+  text-align: center;
+  &:hover {
+	text-decoration: none;
+	color : #888;
+  }
+}
