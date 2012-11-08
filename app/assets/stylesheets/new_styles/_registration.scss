@@ -1,3 +1,16 @@
+@import 'application.css.sass';
+
+header .container {
+  position : fixed;
+  right: 10px;
+}
+
+ul#landing_nav {
+  position : fixed;
+  top : 10px;
+  right : 10px;
+}
+
 #registration {
   position : absolute;
   top : 0;
@@ -8,8 +21,9 @@
 
   color : #fff;
 
-  .container {
-    margin-top : 100px;
+  .register-container {
+    margin-top : 40px;
+    margin-left : 40px;
   }
 
   #create-something-text {
