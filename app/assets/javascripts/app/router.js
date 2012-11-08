@@ -1,7 +1,6 @@
 app.Router = Backbone.Router.extend({
   routes: {
     //new hotness
-    "posts/new" : "composer",
     "posts/:id": "singlePost",
     "posts/:id/next": "siblingPost",
     "posts/:id/previous": "siblingPost",
@@ -23,10 +22,6 @@ app.Router = Backbone.Router.extend({
 
     "people/:id": "stream",
     "u/:name": "stream"
-  },
-
-  composer : function(){
-    this.renderPage(function(){ return new app.pages.Composer()});
   },
 
   singlePost : function(id) {
