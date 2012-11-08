@@ -1,6 +1,8 @@
 require 'uri'
 class Services::Facebook < Service
   include Rails.application.routes.url_helpers
+  require Rails.root.join('app', 'helpers', 'markdownify_helper')
+  include MarkdownifyHelper
 
   OVERRIDE_FIELDS_ON_FB_UPDATE = [:contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username]
   MAX_CHARACTERS = 420
@@ -19,7 +21,7 @@ class Services::Facebook < Service
   end
 
   def create_post_params(post)
-    message = post.text(:plain_text => true)
+    message = strip_markdown(post.text(:plain_text => true))
     {:message => message, :access_token => self.access_token, :link => URI.extract(message, ['https', 'http']).first}
   end
 
