@@ -22,15 +22,19 @@ ul#landing_nav {
   color : #fff;
 
   .register-container {
-    margin-top : 40px;
+    margin-top: 1%;
     margin-left : 40px;
   }
 
+form.block-form {
+margin-top : -40px;
+}
   #create-something-text {
     font-family : Roboto-Light;
-    font-size : 100px;
-    line-height : 100px;
+    font-size : 70px;
+    line-height : 70px;
     white-space : nowrap;
+    padding-top : 4%;
   }
 
   #diaspora-hearts {
@@ -48,10 +52,10 @@ ul#landing_nav {
   }
 
   #collage {
-    width : 344px;
-    height : auto;
-
-    max-width : 95%;
+    width: 330px;
+    height: auto;
+    max-width: 95%;
+    padding-top: 8%;
   }
 
   form {
