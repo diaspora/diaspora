@@ -31,6 +31,14 @@ describe Services::Facebook do
       @service.should_not_receive(:public_message)
       @service.post(@post, url)
     end
+    
+    it 'removes text formatting markdown from post text' do
+      message = "Text with some **bolded** and _italic_ parts."
+      post = stub(:text => message)
+      post_params = @service.create_post_params(post)
+      post_params[:message].should match "Text with some bolded and italic parts."
+    end
+    
   end
 
   describe "#profile_photo_url" do
