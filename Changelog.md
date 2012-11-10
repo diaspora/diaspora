@@ -16,6 +16,7 @@
 
 * MessagesController. [#3657](https://github.com/diaspora/diaspora/pull/3657)
 * **Fixed setting:** `follow_diasporahq` has now to be set to `true` to enable following the DiasporaHQ account. Was `false`
+* Removal of some bash-/linux-isms from most of the scripts, rework of 'script/install.sh' output methods. [#3679](https://github.com/diaspora/diaspora/pull/3679)
 
 ## Features
 
