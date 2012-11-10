@@ -165,17 +165,6 @@ class User < ActiveRecord::Base
     self.hidden_shareables[share_type].present?
   end
 
-
-  def self.create_from_invitation!(invitation)
-    user = User.new
-    user.generate_keys
-    user.send(:generate_invitation_token)
-    user.email = invitation.identifier if invitation.service == 'email'
-    # we need to make a custom validator here to make this safer
-    user.save(:validate => false)
-    user
-  end
-
   def send_reset_password_instructions
     generate_reset_password_token! if should_generate_reset_token?
     Resque.enqueue(Jobs::ResetPassword, self.id)
