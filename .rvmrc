@@ -1,19 +1,19 @@
-#!/bin/bash
+#!/bin/sh
 
-source ./script/env/ruby_env
+. ./script/env/ruby_env
 
 if [ -e '.rvmrc.local' ]; then
-  source .rvmrc.local;
+  . .rvmrc.local;
 elif [ -e '.rvmrc_custom' ] ; then
-  source .rvmrc_custom;
+  . .rvmrc_custom;
 else
   if rvm list strings | grep -q "$ruby_version" ; then
     rvm --create use "$ruby_version@$gemset"
   else
-    echo -e "\e[00;31mPLEASE INSTALL RUBY $ruby_version WITH \`rvm install $ruby_version\`"
-    echo -e "Don't forget to run \`cd .. && cd -\` afterwards!\e[00m"
+    printf "\e[00;31mPLEASE INSTALL RUBY $ruby_version WITH \`rvm install $ruby_version\`"
+    printf "Don't forget to run \`cd .. && cd -\` afterwards!\e[00m"
     return 1
   fi
 fi
 
-source ./script/env/ensure_right_rubygems
+. ./script/env/ensure_right_rubygems
