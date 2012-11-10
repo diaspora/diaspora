@@ -3,14 +3,6 @@
 #   the COPYRIGHT file.
 
 module AspectsHelper
-  def remove_link(aspect)
-    if aspect.contacts.size == 0
-      link_to I18n.t('aspects.helper.remove'), aspect, :method => :delete, :confirm => I18n.t('aspects.helper.are_you_sure')
-    else
-      "<span class='grey' title=#{I18n.t('aspects.helper.aspect_not_empty')}>#{I18n.t('aspects.helper.remove')}</span>"
-    end
-  end
-
   def add_to_aspect_button(aspect_id, person_id)
     link_to image_tag('icons/monotone_plus_add_round.png'),
       {:controller => 'aspect_memberships',

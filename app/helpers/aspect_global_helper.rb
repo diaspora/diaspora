@@ -3,39 +3,6 @@
 #   the COPYRIGHT file.
 
 module AspectGlobalHelper
-  def aspects_with_post(aspects, post)
-    aspects.select do |aspect|
-      AspectVisibility.exists?(:aspect_id => aspect.id, :shareable_id => post.id, :shareable_type => 'Post')
-    end
-  end
-
-  def aspect_links(aspects, opts={})
-    str = ""
-    aspects.each do |aspect|
-      str << '<li>'
-      str << link_for_aspect(aspect, :params => opts, 'data-guid' => aspect.id).html_safe
-      str << '</li>'
-    end
-    str.html_safe
-  end
-
-  def link_for_aspect(aspect, opts={})
-    opts[:params] ||= {}
-    params ||= {}
-    opts[:params] = opts[:params].merge("a_ids[]" => aspect.id, :created_at => params[:created_at])
-    opts['data-guid'] = aspect.id
-
-    link_to aspect.name, aspects_path( opts[:params] ), opts
-  end
-
-  def aspect_or_all_path(aspect)
-    if @aspect.is_a? Aspect
-      aspect_path @aspect
-    else
-      aspects_path
-    end
-  end
-
   def aspect_membership_dropdown(contact, person, hang, aspect=nil)
     selected_aspects = all_aspects.select{|aspect| contact.in_aspect?(aspect)}
 
