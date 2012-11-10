@@ -39,6 +39,7 @@
 * Fix error with invite link box shows on search results page even if invites have been turned off. [#3708](https://github.com/diaspora/diaspora/pull/3708)
 * Fix misconfiguration of Devise to allow the session to be remembered. [#3472](https://github.com/diaspora/diaspora/issues/3472)
 * Fix problem with show reshares_count in stream. [#3700](https://github.com/diaspora/diaspora/pull/3700)
+* Fix error with notifications count in mobile. [#3721](https://github.com/diaspora/diaspora/pull/3721)
 
 # 0.0.1.2
 
