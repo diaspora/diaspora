@@ -49,6 +49,14 @@ describe PostsController do
         }.should change(note, :unread).from(true).to(false)
       end
 
+      it 'change from unread to read a corresponding notification' do
+        FactoryGirl.create(:notification, :target => @message, :recipient => alice, :unread => true)
+        FactoryGirl.create(:notification, :recipient => alice, :unread => false)
+        Notification.where(:unread => true).count.should == 1
+        get :show, :id => @message.id
+        Notification.where(:unread => true).count.should == 0
+      end
+
       it 'succeeds with a AS/photo' do
         photo = FactoryGirl.create(:activity_streams_photo, :author => bob.person)
         get :show, :id => photo.id
