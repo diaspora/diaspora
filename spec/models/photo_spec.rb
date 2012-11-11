@@ -166,7 +166,7 @@ describe Photo do
       file = File.open(@fail_fixture_name)
       lambda {
         @photo.unprocessed_image.store! file
-      }.should raise_error CarrierWave::IntegrityError, 'You are not allowed to upload "xml" files, allowed types: ["jpg", "jpeg", "png", "gif"]'
+      }.should raise_error CarrierWave::IntegrityError, 'You are not allowed to upload "xml" files, allowed types: jpg, jpeg, png, gif'
     end
 
   end
