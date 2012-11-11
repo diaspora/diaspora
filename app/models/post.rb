@@ -145,17 +145,24 @@ class Post < ActiveRecord::Base
     self.author.profile.nsfw?
   end
 
+  def accessible_by?(user, key)
+    user.find_visible_shareable_by_id(Post, id, :key => key)
+  end
+
   def self.find_by_guid_or_id_with_user(id, user=nil)
     key = id.to_s.length <= 8 ? :id : :guid
-    post = if user
-             user.find_visible_shareable_by_id(Post, id, :key => key)
-           else
-             Post.where(key => id).includes(:author, :comments => :author).first
-           end
+    post = Post.where(key => id).includes(:author, :comments => :author).first
+    
+    # A post that cannot be found
+    raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}")) if !post
+    
+    # A not signed in user for a private post
+    raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}")) if !user && !post.public?
 
-    # is that a private post?
-    raise(Diaspora::NonPublic) unless user || post.public?
+    # A signed in user that does not have access to this post
+    raise(Diaspora::NonPublic) if (user && !post.accessible_by?(user, key))
 
-    post || raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}"))
+    post 
   end
+
 end
