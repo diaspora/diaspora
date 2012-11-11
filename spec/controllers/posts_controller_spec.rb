@@ -41,12 +41,14 @@ describe PostsController do
       end
 
       it 'marks a corresponding notification as read' do
-        note = Notification.create(:recipient => alice, :target => @message, :unread => true)
+        # Ensure that it doesn't mark a read notification as read
+        FactoryGirl.create(:notification, :recipient => alice, :target => @message, :unread => false)
+        note = FactoryGirl.create(:notification, :recipient => alice, :target => @message, :unread => true)
 
-        lambda{
+        expect {
           get :show, :id => @message.id
           note.reload
-        }.should change(note, :unread).from(true).to(false)
+        }.to change(note, :unread).from(true).to(false)
       end
 
       it 'succeeds with a AS/photo' do
