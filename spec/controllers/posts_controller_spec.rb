@@ -60,6 +60,18 @@ describe PostsController do
           get :show, :id => 1234567
         }.to raise_error(ActiveRecord::RecordNotFound)
       end
+
+      it "403 if the post is not shared with user's aspect" do
+        # a post that exists but that this user does not have access to
+
+        bob_aspect = bob.aspects.first
+        @post = bob.build_post :status_message, :text => "abc", :to => bob_aspect.id
+        @post.save
+
+        get :show, :id => @post.id
+
+        response.status.should == 403
+      end
     end
 
     context 'user not signed in' do
@@ -87,8 +99,9 @@ describe PostsController do
 
       it 'does not show a private post' do
         status = alice.post(:status_message, :text => "hello", :public => false, :to => 'all')
-        get :show, :id => status.id
-        response.status.should == 404
+        expect {
+          get :show, :id => status.id
+        }.to raise_error(ActiveRecord::RecordNotFound)
       end
 
       # We want to be using guids from now on for this post route, but do not want to break

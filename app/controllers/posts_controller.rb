@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:show, :iframe, :oembed, :interactions]
   before_filter :set_format_if_malformed_from_status_net, :only => :show
-  before_filter :find_post, :only => [:show, :next, :previous, :interactions]
+  before_filter :find_post, :only => [:next, :previous, :interactions]
 
   layout 'post'
 
@@ -20,13 +20,13 @@ class PostsController < ApplicationController
 
   rescue_from Diaspora::NonPublic do |exception|
     respond_to do |format|
-      format.all { render :template=>'errors/not_public', :status=>404 }
+      format.all { render :template=>'errors/not_public', :status=>403 }
     end
   end
 
   def show
+    @post = Post.find_by_guid_or_id_with_user(params[:id], current_user)
     mark_corresponding_notification_read if user_signed_in?
-
     respond_to do |format|
       format.html{ gon.post = PostPresenter.new(@post, current_user); render 'posts/show' }
       format.xml{ render :xml => @post.to_diaspora_xml }
@@ -41,11 +41,11 @@ class PostsController < ApplicationController
 
   def oembed
     post_id = OEmbedPresenter.id_from_url(params.delete(:url))
-    post = Post.find_by_guid_or_id_with_user(post_id, current_user)
-    if post.present?
+    begin
+      post = Post.find_by_guid_or_id_with_user(post_id, current_user)
       oembed = OEmbedPresenter.new(post, params.slice(:format, :maxheight, :minheight))
       render :json => oembed
-    else
+    rescue ActiveRecord::RecordNotFound
       render :nothing => true, :status => 404
     end
   end
@@ -93,7 +93,11 @@ class PostsController < ApplicationController
   protected
 
   def find_post #checks whether current user can see it
-    @post = Post.find_by_guid_or_id_with_user(params[:id], current_user)
+    begin
+      @post = Post.find_by_guid_or_id_with_user(params[:id], current_user)
+    rescue ActiveRecord::RecordNotFound
+      render :nothing => true, :status => 404
+    end
   end
 
   def find_current_user_post(id) #makes sure current_user can modify
