@@ -41,6 +41,41 @@
 * Fix misconfiguration of Devise to allow the session to be remembered. [#3472](https://github.com/diaspora/diaspora/issues/3472)
 * Fix problem with show reshares_count in stream. [#3700](https://github.com/diaspora/diaspora/pull/3700)
 
+## Gem updates
+
+* bootstrap-sass 2.1.0.0 -> 2.1.1.0
+* capybara 1.1.2 -> 1.1.3
+* carrierwave 0.6.2 -> 0.7.1
+* client\_side_validations 3.1.4 -> 3.2.1
+* database_cleaner 0.8 -> 0.9.1
+* faraday_middleware 0.8.8 -> 0.9.0
+* foreman 0.59 -> 0.60.2
+* fuubar 1.0.0 -> 1.1.0
+* debugger 1.2.0 -> 1.2.1
+* gon 4.0.0 -> 4.0.1
+* guard
+    * guard-cucumber 1.0.0 -> 1.2.2
+    * guard-rspec 0.7.3 -> 2.1.1
+    * guard-spork 0.8.0 -> 1.2.3
+    * rb-inotify -> 0.8.8, new dependency
+* handlebars_assets 0.6.5 -> 0.6.6
+* omniauth-facebook 1.3.0 -> 1.4.1
+* omniauth-twitter 0.0.11 -> 0.0.13
+* rails_admin 0.1.1 -> 0.2.0
+* rails-i18n -> 0.7.0
+* rack-rewrite 1.2.1 -> 1.3.1
+* redcarpet 2.1.1 -> 2.2.2
+* resque 1.22.0 -> 1.23.0
+* rspec-rails 2.11.0, 2.11.4
+* selenium-webdriver 2.25.0 -> 2.26.0
+* timecop 0.5.1 -> 0.5.3
+* twitter 2.0.2 -> 4.2.0
+* unicorn 4.3.1 -> 4.4.0, now default
+* webmock 1.8.10 -> 1.8.11
+
+And their dependencies.
+
+
 # 0.0.1.2
 
 Fix exception when the root of a reshare of a reshare got deleted [#3546](https://github.com/diaspora/diaspora/issues/3546)
