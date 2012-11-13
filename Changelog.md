@@ -23,6 +23,7 @@
 * Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
 * When posting to Twitter, behaviour changed so that URL to post will only be added to the post when length exceeds 140 chars or post contains uploaded photos.
 * Remove markdown formatting from post message when posting to Facebook or Twitter.
+* Add simple background for unread messages/conversations mobile. [#3724](https://github.com/diaspora/diaspora/pull/3724)
 
 ## Bug Fixes
 
