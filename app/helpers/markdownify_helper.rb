@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 require Rails.root.join('lib', 'diaspora', 'markdownify')
+require 'redcarpet/render_strip'
 
 module MarkdownifyHelper
   def markdownify(target, render_options={})
@@ -44,6 +45,11 @@ module MarkdownifyHelper
     message = Diaspora::Taggable.format_tags(message, :no_escape => true)
 
     return message.html_safe
+  end
+  
+  def strip_markdown(text)
+    renderer = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
+    renderer.render(text)
   end
 
   def process_newlines(message)

@@ -21,4 +21,19 @@ describe Service do
   it 'by default has no profile photo url' do
     Service.new.profile_photo_url.should be_nil
   end
+  
+  it 'removes text formatting markdown from post text' do
+    service = Service.new()
+    message = "Text with some **bolded** and _italic_ parts."
+    post = stub(:text => message)
+    service.public_message(post, 200, '', false).should match "Text with some bolded and italic parts."
+  end
+  
+  it 'keeps markdown in post text when specified' do
+    service = Service.new()
+    message = "Text with some **bolded** and _italic_ parts."
+    post = stub(:text => message)
+    service.public_message(post, 200, '', false, true).should match 'Text with some \*\*bolded\*\* and _italic_ parts.'
+  end
+  
 end

@@ -16,12 +16,14 @@
 
 * MessagesController. [#3657](https://github.com/diaspora/diaspora/pull/3657)
 * **Fixed setting:** `follow_diasporahq` has now to be set to `true` to enable following the DiasporaHQ account. Was `false`
+* Removal of some bash-/linux-isms from most of the scripts, rework of 'script/install.sh' output methods. [#3679](https://github.com/diaspora/diaspora/pull/3679)
 
 ## Features
 
 * Add "My Activity" icon mobile -[Author Icon](http://www.gentleface.com/free_icon_set.html)-. [#3687](https://github.com/diaspora/diaspora/pull/3687)
 * Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
 * When posting to Twitter, behaviour changed so that URL to post will only be added to the post when length exceeds 140 chars or post contains uploaded photos.
+* Remove markdown formatting from post message when posting to Facebook or Twitter.
 
 ## Bug Fixes
 
@@ -38,6 +40,42 @@
 * Fix error with invite link box shows on search results page even if invites have been turned off. [#3708](https://github.com/diaspora/diaspora/pull/3708)
 * Fix misconfiguration of Devise to allow the session to be remembered. [#3472](https://github.com/diaspora/diaspora/issues/3472)
 * Fix problem with show reshares_count in stream. [#3700](https://github.com/diaspora/diaspora/pull/3700)
+* Fix error with notifications count in mobile. [#3721](https://github.com/diaspora/diaspora/pull/3721)
+
+## Gem updates
+
+* bootstrap-sass 2.1.0.0 -> 2.1.1.0
+* capybara 1.1.2 -> 1.1.3
+* carrierwave 0.6.2 -> 0.7.1
+* client\_side_validations 3.1.4 -> 3.2.1
+* database_cleaner 0.8 -> 0.9.1
+* faraday_middleware 0.8.8 -> 0.9.0
+* foreman 0.59 -> 0.60.2
+* fuubar 1.0.0 -> 1.1.0
+* debugger 1.2.0 -> 1.2.1
+* gon 4.0.0 -> 4.0.1
+* guard
+    * guard-cucumber 1.0.0 -> 1.2.2
+    * guard-rspec 0.7.3 -> 2.1.1
+    * guard-spork 0.8.0 -> 1.2.3
+    * rb-inotify -> 0.8.8, new dependency
+* handlebars_assets 0.6.5 -> 0.6.6
+* omniauth-facebook 1.3.0 -> 1.4.1
+* omniauth-twitter 0.0.11 -> 0.0.13
+* rails_admin 0.1.1 -> 0.2.0
+* rails-i18n -> 0.7.0
+* rack-rewrite 1.2.1 -> 1.3.1
+* redcarpet 2.1.1 -> 2.2.2
+* resque 1.22.0 -> 1.23.0
+* rspec-rails 2.11.0, 2.11.4
+* selenium-webdriver 2.25.0 -> 2.26.0
+* timecop 0.5.1 -> 0.5.3
+* twitter 2.0.2 -> 4.2.0
+* unicorn 4.3.1 -> 4.4.0, now default
+* webmock 1.8.10 -> 1.8.11
+
+And their dependencies.
+
 
 # 0.0.1.2
 

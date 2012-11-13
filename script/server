@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -27,7 +27,8 @@ fi
 
 # Setup environment
 if [ -z "$RAILS_ENV" ]; then
-  export RAILS_ENV=$(bundle exec ruby ./script/get_config.rb server.rails_environment)
+  RAILS_ENV=$(bundle exec ruby ./script/get_config.rb server.rails_environment)
+  export RAILS_ENV
 fi
 
 os=`uname -s`
@@ -40,7 +41,8 @@ eval $(bundle exec ruby ./script/get_config.rb \
 )
 
 if [ -z "$DB" ]; then
-  export DB=$db
+  DB=$db
+  export DB
 fi
 
 if [ "$single_process_mode" = "true" -o "$embed_resque_worker" =  "true" ]; then
@@ -56,7 +58,7 @@ do
 done
 
 # Check if already running/port blocked
-function chk_service
+chk_service()
 {
   port=${1:?Missing port}
   case $os in
@@ -92,7 +94,7 @@ if [ ! -e public/source.tar.gz ]; then
 fi
 
 # Check if assets are precompiled
-if [ "$RAILS_ENV" == 'production' ]; then
+if [ "$RAILS_ENV" = 'production' ]; then
   if [ ! -e 'public/assets/default.css' ]; then
     echo "FATAL: You're running in production mode without having assets precompiled." >&2
     echo "Now and after each update before you restart the application, run:" >&2
