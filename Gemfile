@@ -149,7 +149,8 @@ group :test do
   gem 'guard-rspec', '2.1.1'
   gem 'guard-spork', '1.2.3'
   gem 'guard-cucumber', '1.2.2'
-  gem 'rb-inotify', '0.8.8'
+  gem 'rb-inotify', '0.8.8', :require => false
+  gem 'rb-fsevent', '0.9.2', :require => false
 
 end
 
