@@ -27,6 +27,7 @@
 
 ## Bug Fixes
 
+* Fix image path for padlocks [#3682](https://github.com/diaspora/diaspora/pull/3682)
 * Fix posting to Facebook and Tumblr. Have a look at the updated [services guide](https://github.com/diaspora/diaspora/wiki/Howto-setup-services) for new Facebook instructions.
 * Fix overflow button in mobile reset password. [#3697](https://github.com/diaspora/diaspora/pull/3697)
 * Fix issue with interacted_at in post fetcher. [#3607](https://github.com/diaspora/diaspora/pull/3607)
