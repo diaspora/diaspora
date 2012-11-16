@@ -180,6 +180,13 @@ interactive_check() {
   fi
 }
 
+# check if this script is run as root
+root_check() {
+  if [ `id -u` -eq 0 ] ; then
+    error "don't run this script as root!"
+  fi
+}
+
 # check if all necessary binaries are available
 binaries_check() {
   for exe in "${!BINARIES[@]}"; do
@@ -447,6 +454,7 @@ prepare_gem_bundle() {
 ####                                                             ####
 
 #interactive_check
+root_check
 
 
 # display a nice welcome message
