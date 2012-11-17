@@ -43,6 +43,12 @@
 
     this.perform = function() {
       if (self.noneSelected()) {
+        // clear the posts
+        app.page.collection.reset();
+        app.page.render();
+
+        // toggle the button
+        this.calculateToggleText();
         return;
       } else {
         window.location = self.generateURL(); // hella hax
