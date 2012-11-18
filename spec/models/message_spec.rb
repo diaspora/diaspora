@@ -96,12 +96,12 @@ describe Message do
     let(:build_object) { Message.new(:author => @alice.person, :text => "ohai!", :conversation => @conversation) }
     it_should_behave_like 'it is relayable'
 
-    describe '#after_receive' do
+    describe '#increase_unread' do
       it 'increments the conversation visiblity for the conversation' do
        ConversationVisibility.where(:conversation_id => @object_by_recipient.reload.conversation.id,
                                                      :person_id => @local_luke.person.id).first.unread.should == 0
 
-        @object_by_recipient.receive(@local_luke, @local_leia.person)
+        @object_by_recipient.increase_unread(@local_luke)
         ConversationVisibility.where(:conversation_id => @object_by_recipient.reload.conversation.id,
                                                      :person_id => @local_luke.person.id).first.unread.should == 1
       end
