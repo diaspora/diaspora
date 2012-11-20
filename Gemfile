@@ -12,6 +12,10 @@ gem 'rails_autolink', '1.0.9'
 
 gem 'rack-cors', '0.2.7', :require => 'rack/cors'
 
+# click-jacking protection
+
+gem 'rack-protection', '1.2'
+
 # authentication
 
 gem 'devise', '2.1.2'
