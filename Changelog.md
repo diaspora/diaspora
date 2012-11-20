@@ -1,4 +1,4 @@
-# 0.0.2.0pre
+# 0.0.2.0
 
 ## Refactor
 
@@ -27,6 +27,7 @@
 
 ## Bug Fixes
 
+* Fix missing X-Frame headers [#3739](https://github.com/diaspora/diaspora/pull/3739)
 * Fix image path for padlocks [#3682](https://github.com/diaspora/diaspora/pull/3682)
 * Fix posting to Facebook and Tumblr. Have a look at the updated [services guide](https://github.com/diaspora/diaspora/wiki/Howto-setup-services) for new Facebook instructions.
 * Fix overflow button in mobile reset password. [#3697](https://github.com/diaspora/diaspora/pull/3697)
