@@ -4,10 +4,11 @@
 
 
 sq:
-javascripts:
+  javascripts:
     confirm_dialog: "Jeni i sigurt?"
     delete: "Fshije"
     ignore: "Shpërfille"
+    ignore_user: "Të shpërfillet ky përdorues?"
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
@@ -24,7 +25,7 @@ javascripts:
       months: "%d muaj"
       year: "rreth një vit"
       years: "%d vjetë"
-  
+
     my_activity: "Veprimtaria Ime"
     my_stream: "Rrjedhë"
 
@@ -48,9 +49,6 @@ javascripts:
       toggle:
         zero: "Përzgjidhni aspekte"
         one: "Në <%= count %> aspekt"
-        two: "Në <%= count %> aspekte"
-        few: "Në <%= count %> aspekte"
-        many: "Në <%= count %> aspekte"
         other: "Në <%= count %> aspekte"
     show_more: "shfaq më tepër"
     failed_to_like: "Pëlqimi dështoi!"
@@ -60,6 +58,8 @@ javascripts:
       hide: "fshihi komentet"
     reshares:
       duplicate: "I bukur ky, hë?  E keni ndarë një herë me të tjerët atë postim!"
+      successful: "Postimi u rinda me sukses me të tjerët!"
+      post: "Të rindahet me të tjerët postimi nga <%= name %>?"
     aspect_navigation:
       select_all: "Përzgjidhi krejt"
       deselect_all: "Çpërzgjidhi krejt"
@@ -75,7 +75,6 @@ javascripts:
       wasnt_that_interesting: "OK, them se #<%= tagName %> nuk qe kushedi se çë interesant..."
     people:
       not_found: "dhe nuk u gjet ndonjë..."
-
     stream:
       hide: "Fshihe"
       public: "Publike"
@@ -94,25 +93,16 @@ javascripts:
       likes:
         zero: "<%= count %> Pëlqime"
         one: "<%= count %> Pëlqim"
-        two: "<%= count %> Pëlqime"
-        few: "<%= count %> Pëlqime"
-        many: "<%= count %> Pëlqime"
         other: "<%= count %> Pëlqime"
 
       reshares:
         zero: "<%= count %> Rindarje"
         one: "<%= count %> Rindarje"
-        two: "<%= count %> Rindarje"
-        few: "<%= count %> Rindarje"
-        many: "<%= count %> Rindarje"
         other: "<%= count %> Rindarje"
 
       more_comments:
         zero: "Shfaq <%= count %> komente të tjera"
         one: "Shfaq edhe <%= count %> koment"
-        two: "Shfaq edhe <%= count %> komente"
-        few: "Shfaq edhe <%= count %> komente"
-        many: "Shfaq edhe <%= count %> komente"
         other: "Shfaq edhe <%= count %> komente"
 
     header:
@@ -131,6 +121,7 @@ javascripts:
       recent_notifications: "Njoftime Së Fundmi"
       mark_all_as_read: "Shënoji krejt si të lexuara"
       view_all: "Shihini krejt"
+      close: "mbylle"
 
     viewer:
       stop_following_post: "Resht së ndjekuri postimin"
@@ -140,3 +131,4 @@ javascripts:
       reshare: "Rindajeni"
       reshared: "I rindarë"
       comment: "Komentojeni"
+

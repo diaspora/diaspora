@@ -6,17 +6,13 @@ require 'spec_helper'
 
 describe ApplicationController do
   controller do
-    def user_signed_in?
-      nil
-    end
-
-    def current_user
-      nil
-    end
-
     def index
-      render :nothing => true
+      head :ok
     end
+  end
+
+  before do
+    sign_in alice
   end
 
   describe '#set_diaspora_headers' do
@@ -64,6 +60,35 @@ describe ApplicationController do
       session[:mobile_view] = true
       get :index, :format => 'xml'
       request.format.xml?.should be_true
+    end
+  end
+
+  describe '#tags' do
+    before do
+      @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
+      TagFollowing.create!(:tag => @tag, :user => alice)
+    end
+
+    it 'queries current_users tag if there are tag_followings' do
+      @controller.send(:tags).should == [@tag]
+    end
+
+    it 'does not query twice' do
+      User.any_instance.should_receive(:followed_tags).once.and_return([@tag])
+      @controller.send(:tags)
+      @controller.send(:tags)
+    end
+  end
+
+  describe "#after_sign_in_path_for" do
+    context 'getting started true on user' do
+      before do
+        alice.update_attribute(:getting_started, true)
+      end
+
+      it "redirects to getting started if the user has getting started set to true" do
+        @controller.send(:after_sign_in_path_for, alice).should == getting_started_path
+      end
     end
   end
 end

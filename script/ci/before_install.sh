@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
 # Ensure known RubyGems version
 envdir="$(readlink -e $(dirname $0))/../env"
-source "$envdir/ruby_env"
-source "$envdir/ensure_right_rubygems"
+. "$envdir/ruby_env"
+. "$envdir/ensure_right_rubygems"

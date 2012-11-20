@@ -177,7 +177,7 @@ sk:
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} a %{forum}: príručky, ktoré vytvorili členovia komunity, návody  a novinky"
       introduce_yourself: "Toto je tvoja nástenka.  Predstav sa."
       keep_diaspora_running: "Udrž vývoj Diaspory mesačným príspevkom v rýchlom tempe!"
-      keep_pod_running: "Udrž %{pod} v dobrom tempe a kúp mesačným príspevkom serverom ich dávku kávy vo forme opráv!"
+      keep_pod_running: "Udrž %{pod} v rýchlom tempe a kúp serverom mesačným príspevkom kávu vo forme opráv!"
       new_here:
         follow: "Sleduj %{link} a privítaj nových používateľov na Diaspore*!"
         learn_more: "Zistiť viac"
@@ -347,7 +347,7 @@ sk:
       no_more: "Nemáš žiadne nové pozvánky."
       own_address: "Nemôžeš poslať pozvánku na svoju vlastnú adresu."
       rejected: "S týmito adresami sa vyskytli problémy: "
-      sent: "Tvoje pozvánky boli odoslané na adresy: "
+      sent: "Pozvánky boli odoslané na adresy: %{emails}"
     edit:
       accept_your_invitation: "Prijať pozvanie"
       your_account_awaits: "Tvoj účet čaká!"
@@ -509,7 +509,7 @@ sk:
 
           S pozdravom
 
-          e-mailový robot Diaspory*!
+          E-mailový robot Diaspory*!
 
           [1]: %{invite_url}
     invited_you: "%{name} ťa pozval(a) na Diasporu*"
@@ -621,7 +621,7 @@ sk:
     photo:
       view_all: "zobraziť všetky fotky použ. %{name}"
     show:
-      collection_permalink: "kolekcia trvalých odkazov"
+      collection_permalink: "trvalý odkaz na kolekciu"
       delete_photo: "Zmazať fotku"
       edit: "upraviť"
       edit_delete_photo: "Upraviť popis fotky/zmazať fotku"
@@ -683,11 +683,11 @@ sk:
     create:
       success: "Pridal(a) si sa k Diaspore!"
     edit:
-      cancel_my_account: "Zrušiť môj účet"
+      cancel_my_account: "Zrušiť účet"
       edit: "Upraviť %{name}"
       leave_blank: "(ak to nechceš zmeniť, nevypĺňaj, prosím, toto pole)"
       password_to_confirm: "(na potvrdenie zmien budeme potrebovať tvoje heslo)"
-      unhappy: "Nešťastný (-á)?"
+      unhappy: "Si nešťastný (-á)?"
       update: "Aktualizovať"
     invalid_invite: "Odkaz na pozvánku, ktorý si zadal(a), už nie je platný!"
     new:
@@ -702,6 +702,7 @@ sk:
       hey_make: "HEJ,<br/>UROB<br/>NIEČO."
       join_the_movement: "Pripoj sa k hnutiu!"
       password: "HESLO"
+      password_confirmation: "POTVRDENIE HESLA"
       sign_up: "ZAREGISTROVAŤ SA"
       sign_up_message: "Prepojenie cez sociálne siete s ♥"
       username: "POUŽÍVATEĽSKÉ MENO"
@@ -716,10 +717,8 @@ sk:
     helper:
       new_requests:
         few: "%{count} nové žiadosti!"
-        many: "%{count} nových žiadostí!"
         one: "nová žiadosť!"
         other: "%{count} nových žiadostí!"
-        two: "%{count} nové žiadosti!"
         zero: "žiadne nové žiadosti"
     manage_aspect_contacts:
       existing: "Existujúce kontakty"
@@ -783,7 +782,7 @@ sk:
       diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Zadaj používateľské meno na Diasporu:"
       know_email: "Poznáš túto adresu? Môžeš na ňu poslať pozvánku."
-      your_diaspora_username_is: "Tvoje používateľské meno na Diaspore je %{diaspora_handle}"
+      your_diaspora_username_is: "Tvoje používateľské meno na Diasporu je %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Pridať kontakt"
       toggle:
@@ -891,7 +890,7 @@ sk:
     followed_tags_stream: "#Značky, ktoré sleduješ"
     like_stream:
       contacts_title: "Ľudia, ktorých príspevky sa ti páčia"
-      title: "Čo sa mi páči"
+      title: "Páči sa mi"
     mentioned_stream: "@Zmienky"
     mentions:
       contacts_title: "Ľudia, ktorí ťa spomenuli"
@@ -908,12 +907,12 @@ sk:
       title: "Príspevky so značkami: %{tags}"
   tag_followings:
     create:
-      failure: "Nedá sa sledovať použ. #%{name}. Nesleduješ ho (ju) už?"
+      failure: "Nedá sa sledovať #%{name}. Nesleduješ to už?"
       none: "Nemôžeš sledovať prázdnu značku!"
       success: "Hurá! Teraz sleduješ #%{name}."
     destroy:
-      failure: "Nepodarilo sa zrušiť sledovanie použ. #%{name}. Možno si ho (ju) už prestal(a) sledovať."
-      success: "No! Už viac nesleduješ použ. #%{name}."
+      failure: "Nepodarilo sa zrušiť sledovanie #%{name}. Možno si to už prestal(a) sledovať."
+      success: "No! Už viac nesleduješ #%{name}."
   tags:
     show:
       follow: "Sledovať #%{tag}"
@@ -992,14 +991,11 @@ sk:
     getting_started:
       awesome_take_me_to_diaspora: "Super! Prejsť na Diasporu*"
       community_welcome: "Komunita Diaspory je šťastná, že si na jej palube!"
-      hashtag_explanation: "Značky ti umožňujú hovoriť o tom, čo ťa zaujíma  a sledovať diskusie  o tom, čo ťa zaujíma. Je to aj skvelý spôsob na to, ako spoznať nových ľudí na Diaspore."
+      hashtag_explanation: "Značky ti umožňujú hovoriť o tom, čo ťa zaujíma  a sledovať diskusie  o tom, čo ťa zaujíma. Je to aj skvelý spôsob na spoznanie nových ľudí na Diaspore."
       hashtag_suggestions: "Skús sledovať značky, ako napr. #umenie, #filmy, #gif, atď."
-      hooking_up_fb: "prepojíš svoj účet na Facebooku"
       saved: "Uložené!"
-      we_can_speed_things_up: "Môžeme veci trochu urýchliť, ak"
       well_hello_there: "Vitaj!"
-      what_are_you_in_to: "Čo vás baví?"
-      what_facebook_does: "s Diasporou. Tak sa stiahne tvoje meno  i fotka  a budete môcť posielať príspevky  z jednej siete na druhú."
+      what_are_you_in_to: "Čo ťa baví?"
       who_are_you: "Kto si?"
     privacy_settings:
       ignored_users: "Používatelia, ktorých ignoruješ"
@@ -1027,5 +1023,5 @@ sk:
     xrd_fetch_failed: "Pri získavaní xrd z účtu %{account} nastala chyba"
   welcome: "Vitajte!"
   will_paginate:
-    next_label: "Ďalšia &raquo;"
+    next_label: "Ďalej &raquo;"
     previous_label: "&laquo; Predchádzajúca"

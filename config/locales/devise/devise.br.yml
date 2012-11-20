@@ -12,11 +12,11 @@ br:
         resend_confirmation: "Kas titour kadarnaat en-dro"
       send_instructions: "Emaoc'h o vont da reseviñ ur postel gant titouroù a-benn goût penaos kadarnaat ho kont a-benn nebeut."
     failure:
-      inactive: "N'eo ket bet lakaet ho kont war-elum."
+      inactive: "N'eo ket bet gweredekaet ho kont evit c'hoazh."
       invalid: "Direizh eo ar postel pe ar ger-kuzh."
-      invalid_token: "Direizh ar bilhed gwiriañ."
+      invalid_token: "Direizh eo ar bilhed gwiriañ."
       locked: "Prennet eo ho kont."
-      timeout: "Diamzeret eo hoc'h abadenn, dav eo deoc'h mont e-barzh en dro a-benn kendalc'hen."
+      timeout: "Diamzeret eo hoc'h abadenn, dav eo deoc'h mont e-barzh en-dro evit kendelc'her."
       unauthenticated: "Dav eo deoc'h mont e-barzh pe lakaat hoc'h anv a-raok kendelc'her ganti."
       unconfirmed: "Dav eo deoc'h kadarnaat ho kont a-raok mont pelloc'h."
     invitations:
@@ -70,8 +70,8 @@ br:
         change_password: "Cheñch ma ger-kuzh"
       new:
         forgot_password: "Ankouaet ho ker-kuzh ganeoc'h?"
-        no_account: "N'eus kont ebet gant ar postel-mañ. M'emaoc'h o c'hortoz da vezañ pedet, deoc'h da c'hoût e klaskomp astennañ ar pedadennoù da'n abretañ ar gwellañ"
-        send_password_instructions: "Kasit din titouroù evit nulañ ar ger-kuzh"
+        no_account: "N'eus kont ebet stag ouzh ar postel-mañ. M'emaoc'h o c'hortoz ur bedadenn, kaset e vo deoc'h ken buan ha ma c'hallimp."
+        send_password_instructions: "Kasit din an titour evit adsevel ar ger-kuzh"
       send_instructions: "Emaoc'h o vont da reseviñ ur postel gant titouroù evit goût penaos nulañ ho ker-kuzh a-benn nebeut."
       updated: "Cheñchet eo bet ho ker-kuzh. Kennasket oc'h bremañ."
     registrations:
@@ -81,8 +81,8 @@ br:
     sessions:
       new:
         alpha_software: "Emaoc'h o vont da implij ur meziant en e stumm alfa."
-        bugs_and_feedback: "Deoc'h da c'hoût e vo kavet vioù-koukoug ganeoc'h. Reiñ a reomp ton deoc'h evit implij ar boton Feedback a zo e tu dehoù ar bajenn a-benn kelaouiñ ac'hanomp ma vez fazioù! Labourat a rimp ar buanañ a c'hellomp evit diluziañ ar c'hudennoù bet meneget ganeoc'h."
-        bugs_and_feedback_mobile: "Deoc'h da c'hoût e vo kavet vioù-koukoug ganeoc'h. Reiñ a reomp ton deoc'h evit kelaouiñ ac'hanomp pep gwech ma vo kavet fazioù ganeoc'h! Labourat a rimp ar buanañ a c'hellomp evit diluziañ pep kudenn a vo disklaeriet ganeoc'h."
+        bugs_and_feedback: "Deoc'h da c'hoût e vo kavet vioù-koukoug ganeoc'h. Reiñ a reomp ton deoc'h evit implij ar bouton Feedback a zo e tu dehou ar bajenn evit kelaouiñ ac'hanomp pa welit mankoù! Labourat a raimp ar buanañ ar gwellañ evit diluziañ ar c'hudennoù bet meneget ganeoc'h."
+        bugs_and_feedback_mobile: "Deoc'h da c'hoût e vo kavet vioù-koukoug ganeoc'h. Lavarit dimp hardizh pa welit fazioù! Labourat a raimp ar buanañ ar gwellañ evit diluziañ kement kudenn a vo disklêriet ganeoc'h."
         login: "Kennaskañ"
         modern_browsers: "ne c'hell mont en-dro gant merdeidi modern nemetken."
         password: "Ger-kuzh"

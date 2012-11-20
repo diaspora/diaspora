@@ -14,4 +14,6 @@ if defined?(Unicorn)
 end
 use Rack::Deflater
 use Rack::ChromeFrame, :minimum => 8
+use Rack::Protection::FrameOptions
+
 run Diaspora::Application

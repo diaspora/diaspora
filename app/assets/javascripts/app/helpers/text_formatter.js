@@ -1,3 +1,9 @@
+
+// cache url regex globally, for direct acces when testing
+$(function() {
+  Diaspora.url_regex = /(^|\s)\b((?:(?:https?|ftp):(?:\/{1,3})|www\.)(?:[^"<>\)\s]|\(([^\s()<>]+|(\([^\s()<>]+\)))\))+)(?=\s|$)/gi;
+});
+
 (function(){
   //make it so I take text and mentions rather than the modelapp.helpers.textFormatter(
   var textFormatter = function textFormatter(text, model) {
@@ -17,19 +23,28 @@
     converter.hooks.chain("preConversion", function(text) {
 
       // add < > around plain urls, effectively making them "autolinks"
-      // regex copied from: http://daringfireball.net/2010/07/improved_regex_for_matching_urls (slightly modified)
-      var urlRegex = /(^|\s)\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/gi;
-      text = text.replace(urlRegex, function(wholematch, space, url) {
-        if( url.match(/^[^\w]/) ) return wholematch; // evil witchcraft, noop
-        return space+"<"+url+">";
+      text = text.replace(Diaspora.url_regex, function() {
+        var url = arguments[2];
+        if( url.match(/^[^\w]/) ) return url; // evil witchcraft, noop
+        return arguments[1]+"<"+url+">";
       });
 
       // process links
       // regex copied from: https://code.google.com/p/pagedown/source/browse/Markdown.Converter.js#1198 (and slightly expanded)
-      var linkRegex = /(\[.*\]:\s)?(<|\()((?:(https?|ftp):\/\/[^\/'">\s]|www)[^'">\s]+?)(>|\))/gi;
+      var linkRegex = /(\[.*\]:\s)?(<|\()((?:(https?|ftp):\/\/[^\/'">\s]|www)[^'">\s]+?)([>\)]{1,2})/gi;
       text = text.replace(linkRegex, function() {
         var unicodeUrl = arguments[3];
+        var urlSuffix = arguments[5];
+
         unicodeUrl = ( unicodeUrl.match(/^www/) ) ? ('http://' + unicodeUrl) : unicodeUrl;
+
+        // handle parentheses, especially in case the link ends with ')'
+        if( urlSuffix.indexOf(')') != -1 && urlSuffix.indexOf('>') != -1 ) {
+          unicodeUrl += ')';
+          urlSuffix = '>';
+        }
+        // markdown doesn't like '(' or ')' anywhere, except where it wants
+        var workingUrl = unicodeUrl.replace(/\(/, "%28").replace(/\)/, "%29");
 
         var addr = parse_url(unicodeUrl);
         if( !addr.host ) addr.host = ""; // must not be 'undefined'
@@ -45,8 +60,8 @@
           (!addr.query ? '' : '?' + encodeURI(addr.query) ) +
           (!addr.fragment ? '' : '#' + encodeURI(addr.fragment) );
         if( !arguments[1] || arguments[1] == "") { // inline link
-          if(arguments[2] == "<") return "["+unicodeUrl+"]("+asciiUrl+")"; // without link text
-          else return arguments[2]+asciiUrl+arguments[5]; // with link text
+          if(arguments[2] == "<") return "["+workingUrl+"]("+asciiUrl+")"; // without link text
+          else return arguments[2]+asciiUrl+urlSuffix; // with link text
         } else { // reference style link
           return arguments[1]+asciiUrl;
         }

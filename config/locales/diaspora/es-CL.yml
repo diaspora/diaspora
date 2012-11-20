@@ -945,12 +945,9 @@ es-CL:
       community_welcome: "La comunidad de Diaspora esta feliz de tenerte abordo!"
       hashtag_explanation: "Los Hashtags te permiten hablar y seguir sobre tus intereses. También son una manera genial de encontrar nuevas personas en Diaspora."
       hashtag_suggestions: "Prueba siguiendo tags como #arte, #películas, #gif, etc."
-      hooking_up_fb: "conectar tu cuenta de Facebook"
       saved: "Guardado!"
-      we_can_speed_things_up: "Podemos acelerar un poco las cosas"
       well_hello_there: "Bueno, hola!"
       what_are_you_in_to: "En que estas?"
-      what_facebook_does: "con Diaspora. Esto mostrará tu nombre y foto, también activará la publicación cruzada."
       who_are_you: "Quien eres tu?"
     privacy_settings:
       ignored_users: "Usuarios ignorados"

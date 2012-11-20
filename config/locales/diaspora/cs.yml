@@ -891,12 +891,9 @@ cs:
       community_welcome: "Komunita Diaspory je šťastná, že jste se přidali!"
       hashtag_explanation: "Štítky vám dovolují odebírat to, o co se zajímáte, a diskutovat o tom.  Je to také skvělý způsob, jak na Diaspoře najít nové přátele."
       hashtag_suggestions: "Zkuste odebírat třeba štítky #umění, #filmy, #gif, atd."
-      hooking_up_fb: "napojením na váš účet na Facebooku"
       saved: "Uloženo!"
-      we_can_speed_things_up: "Můžeme pár věcí urychlit"
       well_hello_there: "Jé, ahojte!"
       what_are_you_in_to: "Co vás zajímá?"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "Kdo jste?"
     privacy_settings:
       ignored_users: "Ignorovaní uživatelé"

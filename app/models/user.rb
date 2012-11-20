@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :timeoutable, :token_authenticatable, :lockable,
-         :lock_strategy => :none, :unlock_strategy => :none
+         :token_authenticatable, :lockable, :lock_strategy => :none,
+         :unlock_strategy => :none
 
   before_validation :strip_and_downcase_username
   before_validation :set_current_language, :on => :create
@@ -410,7 +410,7 @@ class User < ActiveRecord::Base
     self.aspects.create(:name => I18n.t('aspects.seed.work'))
     aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
 
-    unless AppConfig.settings.follow_diasporahq
+    if AppConfig.settings.follow_diasporahq?
       default_account = Webfinger.new('diasporahq@joindiaspora.com').fetch
       self.share_with(default_account, aq) if default_account
     end

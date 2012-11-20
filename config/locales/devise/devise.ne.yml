@@ -1,0 +1,37 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ne:
+  devise:
+    mailer:
+      hello: "नमस्ते %{email} !"
+      invitation_instructions:
+        accept: "निमन्त्रणा स्वीकार्नुहोस्"
+        here: "यहाँ"
+        love: "माया,"
+        or: "वा"
+        team_diaspora: "डायस्पोरा समूह"
+      inviter:
+        has_invited_you: "%{name}"
+      reset_password_instructions:
+        change: "पासवर्ड परिवर्तन गर्नुहोस्"
+      welcome: "स्वागतम %{email} !"
+    passwords:
+      edit:
+        change_password: "पासवर्ड परिवर्तन गर्नुहोस्"
+      new:
+        forgot_password: "पासवर्ड भुल्नुभयो ?"
+    sessions:
+      new:
+        password: "गोप्य शब्द"
+        remember_me: "मलाई नभुल्नु"
+        username: "प्रयोगकर्ता नाम"
+    shared:
+      links:
+        forgot_your_password: "पासवर्ड भुल्नुभयो ?"
+  errors:
+    messages:
+      not_found: "फेला परेन"

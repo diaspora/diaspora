@@ -32,7 +32,7 @@ before_fork do |server, worker|
     Resque.redis.client.disconnect
   end
   
-  if AppConfig.environment.unicorn.embed_resque_worker?
+  if AppConfig.server.embed_resque_worker?
     # Clean up Resque workers killed by previous deploys/restarts
     Resque.workers.each { |w| w.unregister_worker }
     @resque_pid ||= spawn('bundle exec rake resque:work QUEUES=*')

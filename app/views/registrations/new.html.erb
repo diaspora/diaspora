@@ -50,6 +50,16 @@
                         <%= f.password_field :password, :placeholder => "••••••••", :title => t('registrations.new.enter_password'), :required => true, :pattern => "......+" %>
                     </div>
                   </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="user_password_confirmation">
+                        <%= t('.password_confirmation') %>
+                    </label>
+
+                    <div class="controls">
+                        <%= f.password_field :password_confirmation, :placeholder => "••••••••", :title => t('registrations.new.enter_password_again'), :required => true, :pattern => "......+" %>
+                    </div>
+                  </div>
                   <%= invite_hidden_tag(invite) %>
                 </fieldset>
 

@@ -4,6 +4,8 @@
 
 - content_for :head do
   = javascript_include_tag :profile
+:css
+  .media, .bd{ overflow: visible;}
 
 %br
 
@@ -27,9 +29,7 @@
 
       .row
         %p
-          = t('.we_can_speed_things_up')
-          = link_to t('.hooking_up_fb'), "auth/facebook?callback_url=#{getting_started_url}"
-          = t('.what_facebook_does')
+          != t('.connect_to_facebook', :link => link_to(t('.connect_to_facebook_link'), "auth/facebook?callback_url=#{getting_started_url}"))
 
       .row
         .span6

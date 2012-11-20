@@ -292,6 +292,8 @@ body {
 
 #nav_badges {
   display: inline-block;
+  float: right;
+  padding: 4px 12px;  
 }
   #nav_badges a:hover {
     text-decoration: none; }
@@ -603,7 +605,7 @@ select {
 .compose_icon {
   height: 28px;
   width: 28px;
-  margin-top: 3px;
+  margin-left: 10px;
 }
 
 .navbar-inner .right {
@@ -781,3 +783,8 @@ textarea#conversation_text {
   color: #DF0101;
   text-shadow: 1px 1px 5px #666; 
 }
+
+form#new_user.new_user input.btn {
+  white-space: normal;
+}
+    

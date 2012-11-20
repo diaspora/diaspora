@@ -219,10 +219,8 @@ lt:
     helper:
       new_messages:
         few: "%{count} nauji pranešimai"
-        many: "%{count} new messages"
         one: "1 naujas pranešimas"
         other: "%{count} naujų pranešimų"
-        two: "%{count} new messages"
         zero: "Nėra naujų pranešimų"
     index:
       create_a_new_message: "Sukurti naują pranešimą"
@@ -305,24 +303,18 @@ lt:
     likes:
       people_dislike_this:
         few: "%{count} žmonės nemėgsta"
-        many: "%{count} people disliked this"
         one: "1 žmogus nemėgsta"
         other: "%{count} žmonių nemėgsta"
-        two: "%{count} dislikes"
         zero: "Nėra nemėgstančių"
       people_like_this:
         few: "%{count} žmonių mėgta"
-        many: "%{count} people liked this"
         one: "1 žmogus mėgsta"
         other: "%{count} žmonių mėgsta"
-        two: "%{count} likes"
         zero: "Niekam nepatiko"
       people_like_this_comment:
         few: "%{count} mėgsta"
-        many: "%{count} likes"
         one: "%{count} mėgsta"
         other: "%{count} mėgsta"
-        two: "%{count} likes"
         zero: "niekas nemėgsta"
   limited: "Ribotas"
   more: "Daugiau"
@@ -331,100 +323,74 @@ lt:
   notifications:
     also_commented:
       few: "%{actors} taip pat pakomentavo %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
       one: "%{actors} taip pat pakomentavo %{post_author}'s %{post_link}."
       other: "%{actors} taip pat pakomentavo %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} taip pat pakomentavo %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} pakomentavo ištrintą įrašą."
-      many: "%{actors} commented on a deleted post."
       one: "%{actors} pakomentavo ištrintą įrašą."
       other: "%{actors} pakomentavo ištrintą įrašą."
-      two: "%{actors} commented on a deleted post."
       zero: "%{actors} pakomentavo ištrintą įrašą."
     comment_on_post:
       few: "%{actors} pakomentavo Jūsų %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
       one: "%{actors} pakomentavo Jūsų %{post_link}."
       other: "%{actors} pakomentavo Jūsų %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} pakomentavo Jūsų %{post_link}."
     helper:
       new_notifications:
         few: "%{count} nauji įspėjimai"
-        many: "%{count} new notifications"
         one: "1 naujas įspėjimas"
         other: "%{count} naujų įspėjimų"
-        two: "%{count} new notifications"
         zero: "nėra naujų įspėjimų"
     index:
       and: "ir"
       and_others:
         few: "ir %{count} kitus"
-        many: "and %{count} others"
         one: "pridėti dar vieną"
         other: "ir %{count} kitų"
-        two: "and %{count} others"
         zero: "ir daugiau nieko"
       mark_all_as_read: "Pažymėti viską kaip skaitytą"
       notifications: "Įspėjimai"
     liked:
       few: "%{actors} pamėgo Jūsų įrašą %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} pamėgo Jūsų įrašą %{post_link}."
       other: "%{actors} pamėgo Jūsų įrašą %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} pamėgo Jūsų įrašą %{post_link}."
     liked_post_deleted:
       few: "%{actors} pamėgo Jūsų ištrintą įrašą."
-      many: "%{actors} liked your deleted post."
       one: "%{actors} pamėgo Jūsų ištrintą įrašą."
       other: "%{actors} pamėgo Jūsų ištrintą įrašą."
-      two: "%{actors} liked your deleted post."
       zero: "%{actors} pamėgo Jūsų ištrintą įrašą."
     mentioned:
       few: "%{actors} paminėjo Jus įraše %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
       one: "%{actors} paminėjo Jus įraše %{post_link}."
       other: "%{actors} paminėjo Jus įraše %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} paminėjo Jus įraše %{post_link}."
     mentioned_deleted:
       few: "%{actors} paminėjo Jus ištrintame įraše."
-      many: "%{actors} mentioned you in a deleted post."
       one: "%{actors} paminėjo Jus ištrintame įraše."
       other: "%{actors} paminėjo Jus ištrintame įraše."
-      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} paminėjo Jus ištrintame įraše."
     post: "Siųsti"
     private_message:
       few: "Atsiuntė %{actors} pranešimus"
-      many: "%{actors} sent you a message."
       one: "Atsiuntė %{actors} pranešimą"
       other: "Atsiuntė %{actors} pranešimų"
-      two: "%{actors} sent you a message."
       zero: "Atsiuntė %{actors} pranešimų"
     reshared:
       few: "%{actors} pasidalijo Jūsų įrašu %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} pasidalijo Jūsų įrašu %{post_link}."
       other: "%{actors} pasidalijo Jūsų įrašu %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} pasidalijo Jūsų įrašu %{post_link}."
     reshared_post_deleted:
       few: "%{actors} pasidalijo Jūsų ištrintu įrašu."
-      many: "%{actors} reshared your deleted post."
       one: "%{actors} pasidalijo Jūsų ištrintu įrašu."
       other: "%{actors} pasidalijo Jūsų ištrintu įrašu."
-      two: "%{actors} reshared your deleted post."
       zero: "%{actors} pasidalijo Jūsų ištrintu įrašu."
     started_sharing:
       few: "%{actors} pradėjo su Jumis dalintis."
-      many: "%{actors} started sharing with you."
       one: "%{actors} pradėjo su Jumis dalintis."
       other: "%{actors} pradėjo su Jumis dalintis."
-      two: "%{actors} started sharing with you."
       zero: "%{actors} pradėjo su Jumis dalintis."
   notifier:
     a_post_you_shared: "įrašas."
@@ -523,10 +489,8 @@ lt:
     show:
       photos_by:
         few: "%{count} %{author} nuotraukos"
-        many: "%{count} photos by %{author}"
         one: "%{author} nuotrauka"
         other: "%{count} %{author} nuotraukų"
-        two: "Two photos by %{author}"
         zero: "Nėra %{author} nuotraukų"
   previous: "Ankstesnis"
   privacy: "Privatumas"
@@ -539,10 +503,8 @@ lt:
   public: "Viešas"
   reactions:
     few: "%{count} reakcijos"
-    many: "%{count} reactions"
     one: "1 reakcija"
     other: "%{count} reakcijų"
-    two: "%{count} reactions"
     zero: "0 reakcijų"
   registrations:
     closed: "Naujų paskyrų kūrimas šiame Diasporos serveryje yra uždarytas."
@@ -572,10 +534,8 @@ lt:
     helper:
       new_requests:
         few: "%{count} nauji prašymai!"
-        many: "%{count} new requests!"
         one: "naujas prašymas!"
         other: "%{count} naujų prašymų!"
-        two: "%{count} new requests!"
         zero: "nėra naujų prašymų"
     manage_aspect_contacts:
       existing: "Egzistuojantys kontaktai"
@@ -586,10 +546,8 @@ lt:
     reshare:
       reshare:
         few: "%{count} pasidalino"
-        many: "%{count} Reshares"
         one: "1 pasidalino"
         other: "%{count} pasidalino"
-        two: "%{count} reshares"
         zero: "Niekas nepasidalino"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
@@ -619,10 +577,8 @@ lt:
       add_to_aspect: "Add to aspect"
       toggle:
         few: "%{count} kategorijose"
-        many: "In %{count} aspects"
         one: "%{count} kategorijoje"
         other: "%{count} kategorijų"
-        two: "In %{count} aspects"
         zero: "Pridėti kontaktą prie kategorijos"
     contact_list:
       all_contacts: "Visi kontaktai"
@@ -661,19 +617,15 @@ lt:
       no_message_to_display: "Žinučių nėra."
     too_long:
       few: "Sutrumpinkite savo statuso pranešimą %{count} ženklais"
-      many: "please make your status messages less than %{count} characters"
       one: "Sutrumpinkite savo statuso pranešimą %{count} ženklu"
       other: "Sutrumpinkite savo statuso pranešimą %{count} ženklų"
-      two: "please make your status messages less than %{count} characters"
       zero: "Sutrumpinkite savo statuso pranešimą %{count} ženklų"
   stream_helper:
     hide_comments: "Slėpti visus komentarus"
     show_comments:
       few: "Rodyti dar %{count} komentarus"
-      many: "Show %{count} more comments"
       one: "Rodyti dar vieną komentarą"
       other: "Rodyti dar %{count} komentarų"
-      two: "Show two more comments"
       zero: "Daugiau komentarų nėra"
   streams:
     aspects:
@@ -714,8 +666,6 @@ lt:
       receive_email_notifications: "Receive email notificaions?"
       your_email: "Tavo el. pašto adresas"
       your_handle: "Tavo Diaspora naudotojo vardas"
-    getting_started:
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
     public:
       does_not_exist: "Vartotojas %{username} neegzistuoja!"
     update:

@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.0.1.2"
+    number: "0.0.2.0"
     release: true # Do not touch unless in a merge conflict on doing a release, master should have a commit setting this to true which is not backported to the develop branch.
   heroku: false
   environment:
@@ -25,8 +25,12 @@ defaults:
       upload: false
       host:
     pubsub_server: 'https://pubsubhubbub.appspot.com/'
-    unicorn:
-      embed_resque_worker: false
+  server:
+    port: 3000
+    rails_environment: 'development'
+    db: 'mysql'
+    embed_resque_worker: false
+    resque_workers: 1
   privacy:
     jquery_cdn: true
     google_analytics_key:
@@ -52,7 +56,6 @@ defaults:
       enable: false
       app_id:
       secret:
-      open_graph_namespace: 'joindiaspora'
     twitter:
       enable: false
       key:

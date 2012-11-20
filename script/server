@@ -1,112 +1,118 @@
-#!/bin/bash
+#!/bin/sh
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-#
-# This script is meant for running a small server in production. It starts the Diaspora
-# server, redis, and resque. To run a server locally for development, use foreman instead:
-#    foreman start
-#
 
 # ensure right directory
 realpath=$( ruby -e "puts File.expand_path(\"$0\")")
 cd $(dirname $realpath)/..
 
-# Check if script_server.yml exists
-if [ ! -e 'config/script_server.yml' ]; then
-    echo 'FATAL: config/script_server.yml is missing! Copy over config/script_server.yml.example to config/script_server.yml and edit it properly!' >&2
-    exit 69
+#Warn if legacy config exists
+if [ -e 'config/script_server.yml' ]; then
+  echo "WARNING: config/script_server.yml was merged into config/diaspora.yml. Please read the changelog!" >&2
 fi
-
 
 # Check if database.yml exists
 if [ ! -e 'config/database.yml' ]; then
-    echo 'FATAL: config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
-    exit 68
+  echo 'FATAL: config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
+  exit 68
 fi
 
-
-# Check if application.yml exists
+# Check if diaspora.yml exists
 if [ ! -e 'config/diaspora.yml' ]; then
-    echo 'FATAL: config/diaspora.yml is missing! Copy over config/diaspora.yml.example to config/diaspora.yml and edit it properly!' >&2
-    exit 70
+  echo 'FATAL: config/diaspora.yml is missing! Copy over config/diaspora.yml.example to config/diaspora.yml and edit it properly!' >&2
+  exit 70
 fi
-
-
 
 
 # Setup environment
-OS=`uname -s`
-export RAILS_ENV=$(bundle exec ruby ./script/get_config.rb rails_env script_server)
-export DB=$(bundle exec ruby ./script/get_config.rb db script_server)
-THIN_PORT=$(bundle exec ruby ./script/get_config.rb thin_port script_server)
-eval "DEFAULT_THIN_ARGS=\"$(bundle exec ruby ./script/get_config.rb default_thin_args script_server)\""
+if [ -z "$RAILS_ENV" ]; then
+  RAILS_ENV=$(bundle exec ruby ./script/get_config.rb server.rails_environment)
+  export RAILS_ENV
+fi
 
-# Backward compatibillity, overide default settings
-[ -e config/server.sh ] && source config/server.sh
+os=`uname -s`
+eval $(bundle exec ruby ./script/get_config.rb \
+  port=server.port \
+  db=server.db \
+  workers=server.resque_workers \
+  single_process_mode=environment.single_process_mode?
+  embed_resque_worker=server.embed_resque_worker
+)
 
+if [ -z "$DB" ]; then
+  DB=$db
+  export DB
+fi
 
-function chk_service
-{
-    port=${1:?Missing port}
-    case $OS in
-    *[Bb][Ss][Dd]*|Darwin)
-        ## checks ipv[46]
-        netstat -anL | awk '{print $2}' | grep "\.$1$"
-    ;;
-    *)
-        # Is someone listening on the ports already? (ipv4 only test ?)
-        netstat -nl | grep '[^:]:'$port'[ \t]'
-    ;;
-    esac
-}
+if [ "$single_process_mode" = "true" -o "$embed_resque_worker" =  "true" ]; then
+  workers=0
+fi
 
-
-# Scan for -p, find out what port thin is about to use.
-args="$DEFAULT_THIN_ARGS $@"
+args="$@"
 prev_arg=''
 for arg in $( echo $args | awk '{ for (i = 1; i <= NF; i++) print $i}')
 do
-    [ "$prev_arg" = '-p' ] && THIN_PORT="$arg"
-    prev_arg="$arg"
+  [ "$prev_arg" = '-p' ] && port="$arg"
+  prev_arg="$arg"
 done
 
+# Check if already running/port blocked
+chk_service()
+{
+  port=${1:?Missing port}
+  case $os in
+  *[Bb][Ss][Dd]*|Darwin)
+      ## checks ipv[46]
+      netstat -anL | awk '{print $2}' | grep "\.$1$"
+  ;;
+  *)
+      # Is someone listening on the ports already? (ipv4 only test ?)
+      netstat -nl | grep '[^:]:'$port'[ \t]'
+  ;;
+  esac
+}
 
-# Is someone listening on the ports already? (ipv4 only test ?)
-services=$( chk_service $THIN_PORT )
+
+services=$( chk_service $port )
 if [ -n "$services" ]; then
-    echo "FATAL: Error: thin port $THIN_PORT is already in use. Exiting" >&2
-    echo "     $services"
-    exit 64
+  echo "FATAL: Error: port $port is already in use. Exiting" >&2
+  echo "     $services"
+  exit 64
 fi
+
 
 # Force AGPL
 if [ -w public -a ! -e  public/source.tar.gz ]; then
-    branch=$( git branch | awk '/^[*]/ {print $2}')
-    tar czf public/source.tar.gz  `git ls-tree -r $branch | awk '{print $4}'`
+  branch=$( git branch | awk '/^[*]/ {print $2}')
+  tar czf public/source.tar.gz  `git ls-tree -r $branch | awk '{print $4}'`
 fi
+
 if [ ! -e public/source.tar.gz ]; then
-    echo "FATAL: Error: Can't find, or even create, public/source.tar.gz. Exiting" >&2
-    exit 65
+  echo "FATAL: Error: Can't find, or even create, public/source.tar.gz. Exiting" >&2
+  exit 65
 fi
 
-
-if [ ! -e 'public/assets/default.css' ]; then
-    if [ "$RAILS_ENV" == 'production' ]; then
-        echo "FATAL: You're running in production mode without having assets precompiled." >&2
-        echo "Now and after each git pull before you restart the application, run:" >&2
-        echo "bundle exec rake assets:precompile" >&2
-        exit 71
-    fi
+# Check if assets are precompiled
+if [ "$RAILS_ENV" = 'production' ]; then
+  if [ ! -e 'public/assets/default.css' ]; then
+    echo "FATAL: You're running in production mode without having assets precompiled." >&2
+    echo "Now and after each update before you restart the application, run:" >&2
+    echo "bundle exec rake assets:precompile" >&2
+    exit 71
+  fi
 fi
 
 
 # Start Diaspora
-
-if [ "$(bundle exec ruby ./script/get_config.rb 'environment.single_process_mode?')" != "true" ]; then
-    QUEUE=* bundle exec rake resque:work&
+echo -n "Starting Diaspora in $RAILS_ENV mode on port $port "
+if [ "$embed_resque_worker" = "true" ]; then
+  echo "with a resque worker embeded into unicorn."
+elif [ "$single_process_mode" = "true" ]; then
+  echo "with job processing inside the request cycle."
+else
+  echo "with $workers resque workers."
 fi
+echo ""
 
-if [ "$(./script/get_config.rb enable_thin script_server)" = "true" ]; then
-    bundle exec thin start $args
-fi
+bundle exec foreman start -m "web=1,worker=$workers" -p $port

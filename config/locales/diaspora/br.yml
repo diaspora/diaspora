@@ -233,18 +233,12 @@ br:
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} den n'int ket bet plijet ganti"
-        many: "%{count} den n'int ket bet plijet ganti"
         one: "1 den n'eo ket bet plijet ganti"
         other: "%{count} hini zo bet displijet ganti"
-        two: "%{count} dislikes"
         zero: "N'eo bet kavet displijus gant den"
       people_like_this:
-        few: "%{count} den zo bet plijet ganti"
-        many: "%{count} den zo bet plijet ganti"
         one: "1 den zo bet plijet ganti"
         other: "%{count} den zo bet plijet ganti"
-        two: "%{count} likes"
         zero: "N'eus bet den ebet plijet ganti"
       people_like_this_comment:
         few: "%{count} likes"
@@ -592,8 +586,6 @@ br:
       new_password: "Ger-Kuzh Nevez"
       your_email: "Ho postel"
       your_handle: "Ho skor diaspora"
-    getting_started:
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
     update:
       language_changed: "Yezh Cheñchet"
       language_not_changed: "Kudennoù zo bet o cheñch ar yezh"

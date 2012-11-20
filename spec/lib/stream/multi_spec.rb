@@ -10,6 +10,17 @@ describe Stream::Multi do
     it_should_behave_like 'it is a stream'
   end
 
+  describe "#posts" do
+    it "calls EvilQuery::MultiStream with correct parameters" do
+      ::EvilQuery::MultiStream.should_receive(:new)
+        .with(alice, 'updated_at', @stream.max_time,
+              AppConfig.settings.community_spotlight.enable? &&
+              alice.show_community_spotlight_in_stream?)
+        .and_return(mock.tap { |m| m.stub!(:make_relation!)})
+      @stream.posts
+    end
+  end
+
   describe '#publisher_opts' do
     it 'prefills, sets public, and autoexpands if welcome? is set' do
       prefill_text = "sup?"

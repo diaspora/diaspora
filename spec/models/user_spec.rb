@@ -870,6 +870,59 @@ describe User do
     end
   end
 
+  describe "#seed_aspects" do
+    describe "create aspects" do
+      let(:user) {
+        user = FactoryGirl.create(:user)
+        user.seed_aspects
+        user
+      }
+
+      [I18n.t('aspects.seed.family'), I18n.t('aspects.seed.friends'),
+       I18n.t('aspects.seed.work'), I18n.t('aspects.seed.acquaintances')].each do |aspect_name|
+        it "creates an aspect named #{aspect_name} for the user" do
+          user.aspects.find_by_name(aspect_name).should_not be_nil
+        end
+      end
+    end
+
+    describe "diasporahq sharing" do
+      let(:user) {
+        FactoryGirl.create(:user)
+      }
+
+      before(:each) do
+        @old_followhq_value = AppConfig.settings.follow_diasporahq?
+      end
+
+      after(:each) do
+        AppConfig.settings.follow_diasporahq = @old_followhq_value
+      end
+
+      context "with sharing with diasporahq enabled" do
+        it "should start sharing with the diasporahq account" do
+          AppConfig.settings.follow_diasporahq = true
+
+          wf_mock = mock
+          wf_mock.should_receive(:fetch)
+          Webfinger.should_receive(:new).and_return(wf_mock)
+
+          user.seed_aspects
+        end
+      end
+
+      context "with sharing with diasporahq enabled" do
+        it "should not start sharing with the diasporahq account" do
+          AppConfig.settings.follow_diasporahq = false
+
+          Webfinger.should_not_receive(:new)
+
+          user.seed_aspects
+        end
+      end
+    end
+  end
+
   context "close account" do
     before do
       @user = bob

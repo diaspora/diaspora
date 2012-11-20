@@ -174,23 +174,4 @@ describe AspectsController do
       @alices_aspect_1.reload.contacts_visible.should be_false
     end
   end
-
-  context 'helper methods' do
-    before do
-      @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
-      TagFollowing.create!(:tag => @tag, :user => alice)
-      alice.should_receive(:followed_tags).once.and_return([42])
-    end
-
-    describe 'tags' do
-      it 'queries current_users tag if there are tag_followings' do
-        @controller.tags.should == [42]
-      end
-
-      it 'does not query twice' do
-        @controller.tags.should == [42]
-        @controller.tags.should == [42]
-      end
-    end
-  end
 end

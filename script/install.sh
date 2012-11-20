@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ###
 # MAKE ME BETTER
@@ -68,6 +68,7 @@ D_RUBY_VERSION="1.9.3-p194"
 
 RVM_DETECTED=false
 JS_RUNTIME_DETECTED=false
+ONE_UP="\e[1A"
 
 ####                                                             ####
 #                                                                   #
@@ -84,11 +85,61 @@ JS_RUNTIME_DETECTED=false
 # EOF
 define(){ IFS='\n' read -r -d '' ${1}; }
 
-# expand aliases in this script
-shopt -s expand_aliases
+# add padding to the left of a given string to
+# fill to a given amount of characters with a 
+# given char or space
+# example:
+#   lpad 7 "test" "-"
+lpad() {
+  LEN=$1
+  TXT=$2
+  CHR=$3
+  PAD=""
 
-# alias echo to alway print \newlines
-alias echo='echo -e'
+  L_PAD=$(($LEN - ${#TXT}))
+  if [ $L_PAD -ne 0 ] ; then
+    PAD=$(printf "%*s" ${L_PAD} " ")
+  fi
+  if [ ${#CHR} -ne 0 ] ; then
+    PAD=$(printf "$PAD" | tr " " "$CHR")
+  fi
+  PAD="${PAD}${TXT}"
+
+  printf "%s" "$PAD"
+}
+
+# log function
+# prints a given message with the given log level to STDOUT
+logf() {
+  MSG=$1
+  LVL=$2
+  L_LEN=7
+
+  if [ ${#LVL} -ne 0 ] ; then
+    LVL="[$(lpad $(($L_LEN-2)) $LVL " ")]"
+  else
+    LVL=$(lpad $L_LEN "" "-")
+  fi
+
+  printf "%s -- %s\\n" "$LVL" "$MSG"
+}
+
+# short functions for various log levels
+log_err() {
+  logf "$1" "error"
+}
+
+log_wrn() {
+  logf "$1" "warn"
+}
+
+log_dbg() {
+  logf "$1" "debug"
+}
+
+log_inf() {
+  logf "$1" "info"
+}
 
 # run a command or print the error
 run_or_error() {
@@ -100,11 +151,9 @@ run_or_error() {
 
 # nicely output error messages and quit
 error() {
-  echo "\n"
-  echo "[ERROR] -- $1"
-  echo "        --"
-  echo "        -- have a look at our wiki: $D_WIKI_URL"
-  echo "        -- or join us on IRC: $D_IRC_URL"
+  log_err "$1"
+  logf "have a look at our wiki: $D_WIKI_URL"
+  logf "or join us on IRC: $D_IRC_URL"
   exit 1
 }
 
@@ -118,7 +167,7 @@ interactive_check() {
   fd=0 #stdin
   if [[ -t "$fd" || -p /dev/stdin ]]; then
     # all is well
-    echo ""
+    printf "\n"
   else
     # non-interactive
     TMPFILE=`mktemp`
@@ -131,16 +180,28 @@ interactive_check() {
   fi
 }
 
+# check if this script is run as root
+root_check() {
+  if [ `id -u` -eq 0 ] ; then
+    error "don't run this script as root!"
+  fi
+}
+
 # check if all necessary binaries are available
 binaries_check() {
   for exe in "${!BINARIES[@]}"; do
-    echo -n "checking for $exe... "
-    which "${BINARIES[$exe]}"
+    LOG_MSG="checking for $exe... "
+    log_inf "$LOG_MSG"
+
+    EXE_PATH=$(which "${BINARIES[$exe]}")
     if [ $? -ne 0 ]; then
       error "you are missing the '${BINARIES[$exe]}' command, please install '$exe'";
+    else
+      printf "$ONE_UP"
+      log_inf "$LOG_MSG  found"
     fi
   done
-  echo ""
+  printf "\n"
 }
 
 # check for rvm
@@ -152,28 +213,31 @@ to install, manage and work with multiple ruby environments.
 For more details check out https://rvm.io//
 EOT
 rvm_check() {
-  echo -n "checking for rvm... "
+  LOG_MSG="checking for rvm... "
+  log_inf "$LOG_MSG"
+
   fn_exists rvm
   if [ $? -eq 0 ] ; then
     RVM_DETECTED=true
 
   # seems we don't have it loaded, try to do so
-  elif [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+  elif [ -s "$HOME/.rvm/scripts/rvm" ] ; then
     source "$HOME/.rvm/scripts/rvm" >/dev/null 2>&1
     RVM_DETECTED=true
-  elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+  elif [ -s "/usr/local/rvm/scripts/rvm" ] ; then
     source "/usr/local/rvm/scripts/rvm" >/dev/null 2>&1
     RVM_DETECTED=true
   fi
 
   if $RVM_DETECTED ; then
-    echo "found"
+    printf "$ONE_UP"
+    log_inf "$LOG_MSG  found"
   else
-    echo "not found"
-    echo "$RVM_MSG"
+    log_wrn "not found"
+    logf "$RVM_MSG"
     read -p "Press [Enter] to continue without RVM or abort this script and install RVM..."
   fi
-  echo ""
+  printf "\n"
 }
 
 # prepare ruby with rvm
@@ -183,16 +247,19 @@ install_or_use_ruby() {
   fi
 
   # make sure we have the correct ruby version available
-  echo -n "checking your ruby version... "
+  LOG_MSG="checking your ruby version... "
+  log_inf "$LOG_MSG"
+
   rvm use $D_RUBY_VERSION >/dev/null 2>&1
   if [ $? -ne 0 ] ; then
-    echo "not ok"
+    log_wrn "not ok"
     rvm --force install $D_RUBY_VERSION
   else
-    echo "ok"
+    printf "$ONE_UP"
+    log_inf "$LOG_MSG  ok"
   fi
 
-  echo ""
+  printf "\n"
 }
 
 # trust and load rvmrc
@@ -209,15 +276,18 @@ load_rvmrc() {
   fi
 
   # load .rvmrc
-  echo -n "loading .rvmrc ... "
-  source ".rvmrc"
+  LOG_MSG="loading .rvmrc ... "
+  log_inf "$LOG_MSG"
+
+  . ".rvmrc"
   #rvm rvmrc load
   if [ $? -eq 0 ] ; then
-    echo "ok"
+    printf "$ONE_UP"
+    log_inf "$LOG_MSG  ok"
   else
-    echo "not ok"
+    log_wrn "not ok"
   fi
-  echo ""
+  printf "\n"
 }
 
 # rvm doesn't need sudo, otherwise we do have to use it :(
@@ -227,7 +297,7 @@ rvm_or_sudo() {
   else
     eval "$1"
     if [ $? -ne 0 ] ; then
-      echo "\nrunning '$1' didn't succeed, trying again with sudo...\n"
+      log_wrn "running '$1' didn't succeed, trying again with sudo..."
       run_or_error "sudo $1"
     fi
   fi
@@ -246,7 +316,8 @@ For more information on ExecJS, visit
 -- https://github.com/sstephenson/execjs
 EOT
 js_runtime_check() {
-  echo -n "checking for a JavaScript runtime... "
+  LOG_MSG="checking for a JavaScript runtime... "
+  log_inf "$LOG_MSG"
 
   # Node.js
   which node >/dev/null 2>&1
@@ -255,7 +326,7 @@ js_runtime_check() {
   fi
 
   # TheRubyRacer
-  (echo "require 'v8'" | ruby) >/dev/null 2>&1
+  (printf "require 'v8'" | ruby) >/dev/null 2>&1
   if [ $? -eq 0 ] ; then
     JS_RUNTIME_DETECTED=true
   fi
@@ -265,13 +336,14 @@ js_runtime_check() {
   ##
 
   if $JS_RUNTIME_DETECTED ; then
-    echo "ok"
+    printf "$ONE_UP"
+    log_inf "$LOG_MSG  found"
   else
-    echo "not ok"
-    echo "$JS_RT_MSG"
+    log_err "not ok"
+    printf "$JS_RT_MSG"
     error "can't continue without a JS runtime"
   fi
-  echo ""
+  printf "\n"
 }
 
 # make ourselves comfy
@@ -280,6 +352,7 @@ prepare_install_env() {
   load_rvmrc
   js_runtime_check
 
+  log_inf "making sure the 'bundler' gem is installed"
   rvm_or_sudo "gem install bundler"
 }
 
@@ -291,30 +364,30 @@ sane_environment_check() {
 
 # find or set up a working git environment
 git_stuff_check() {
-  echo "Where would you like to put the git clone, or, where is your existing git clone?"
-  echo "(please use a full path, not '~' or '.')"
+  printf "Where would you like to put the git clone, or, where is your existing git clone?\n"
+  printf "(please use a full path, not '~' or '.')\n"
   read -e -p "-> " D_GIT_CLONE_PATH
-  echo ""
+  printf "\n"
 
   test -d "$D_GIT_CLONE_PATH" \
     && cd "$D_GIT_CLONE_PATH" \
     && git status # folder exists? go there. is a good git clone?
   if [ $? -ne 0 ]; then
     # not a git repo, create it?
-    echo "the folder you specified does not exist or doesn't contain a git repo"
-    read -p "Press [Enter] to create it... "
+    printf "the folder you specified does not exist or doesn't contain a git repo\n"
+    read -p "Press [Enter] to create it and contine... "
     run_or_error "mkdir -p -v \"$D_GIT_CLONE_PATH\""  # only if it doesn't exist
     run_or_error "git clone \"$D_REMOTE_REPO_URL\" \"$D_GIT_CLONE_PATH\""
   else
     run_or_error "git checkout master"
     run_or_error "git pull"
   fi
-  echo ""
+  printf "\n"
 }
 
 # handle database decision
 database_question() {
-  echo "Which database type are you using?"
+  printf "Which database type are you using? [1|2]\n"
   select choice in "MySQL" "PgSQL"; do
     case $choice in
       MySQL )
@@ -335,31 +408,42 @@ database_question() {
 
 # ask for database credentials
 database_credentials() {
-  read -e -p "hostname: " D_DB_HOST
-  read -e -p "username: " D_DB_USER
-  read -e -p "password: " D_DB_PASS
+  read -e -p "DB hostname: " D_DB_HOST
+  read -e -p "DB username: " D_DB_USER
+  read -e -p "DB password: " D_DB_PASS
 
   run_or_error "sed -i'' -e \"s/\(host:\)[^\n]*/\1 $D_DB_HOST/g\" \"$D_DB_CONFIG_FILE\""
   run_or_error "sed -i'' -e \"s/\(username:\)[^\n]*/\1 $D_DB_USER/g\" \"$D_DB_CONFIG_FILE\""
   run_or_error "sed -i'' -e \"s/\(password:\)[^\n]*/\1 $D_DB_PASS/g\" \"$D_DB_CONFIG_FILE\""
+
+  printf "\n"
 }
 
 # setup database
 # (assume we are in the Diaspora directory)
+define DATABASE_CHK_MSG << 'EOT'
+you can now check the generated database config file in './config/database.yml'
+and see if the specified values are correct.
+
+EOT
 database_setup() {
-  echo "Database setup"
+  log_inf "Database setup"
   run_or_error "cp config/database.yml.example \"$D_DB_CONFIG_FILE\""
   database_question
   database_credentials
-  echo ""
+
+  printf "$DATABASE_CHK_MSG"
+  read -p "Press [Enter] to continue... "
+
+  printf "\n"
 }
 
 # install all the gems with bundler
 # (assume we are in the Diaspora directory)
 prepare_gem_bundle() {
-  echo "installing all required gems..."
+  log_inf "installing all required gems..."
   rvm_or_sudo "bundle install"
-  echo ""
+  printf "\n"
 }
 
 
@@ -370,6 +454,7 @@ prepare_gem_bundle() {
 ####                                                             ####
 
 #interactive_check
+root_check
 
 
 # display a nice welcome message
@@ -390,7 +475,7 @@ Follow the guide in our wiki, instead:
 #####################################################################
 
 EOT
-echo "$WELCOME_MSG"
+printf "$WELCOME_MSG"
 read -p "Press [Enter] to continue... "
 
 
@@ -411,18 +496,19 @@ prepare_install_env
 database_setup
 
 
-echo "copying diaspora.yml.example to diaspora.yml"
+# diaspora config
+log_inf "copying diaspora.yml.example to diaspora.yml"
 run_or_error "cp config/diaspora.yml.example config/diaspora.yml"
-echo ""
+printf "\n"
 
 
 # bundle gems
 prepare_gem_bundle
 
 
-echo "creating the default database specified in config/database.yml. please wait..."
+log_inf "creating the default database specified in config/database.yml. please wait..."
 run_or_error "bundle exec rake db:schema:load_if_ruby --trace"
-echo ""
+printf "\n"
 
 define GOODBYE_MSG <<EOT
 #####################################################################
@@ -444,7 +530,7 @@ For further information read the wiki at $D_WIKI_URL
 or join us on IRC $D_IRC_URL
 
 EOT
-echo "$GOODBYE_MSG"
+printf "$GOODBYE_MSG"
 
 
 exit 0

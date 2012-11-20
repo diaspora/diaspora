@@ -32,7 +32,7 @@ class BlocksController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def disconnect_if_contact(person)
     if contact = current_user.contact_for(person)

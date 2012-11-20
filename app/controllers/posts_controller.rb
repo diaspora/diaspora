@@ -24,11 +24,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def new
-    redirect_to "/stream" and return
-    render :text => "", :layout => true
-  end
-
   def show
     mark_corresponding_notification_read if user_signed_in?
 
@@ -110,7 +105,7 @@ class PostsController < ApplicationController
   end
 
   def mark_corresponding_notification_read
-    if notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id).first
+    if notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id, :unread => true).first
       notification.unread = false
       notification.save
     end

@@ -281,11 +281,7 @@ zh-TW:
       success: "對話移除成功"
     helper:
       new_messages:
-        few: "%{count}則新訊息"
-        many: "%{count}則新訊息"
-        one: "1則新訊息"
-        other: "%{count}則新訊息"
-        two: "%{count}則新訊息"
+        other: "有%{count}則新訊息"
         zero: "沒有新訊息"
     index:
       create_a_new_message: "編寫新訊息"
@@ -332,7 +328,7 @@ zh-TW:
       no_more: "你沒有邀請函了."
       own_address: "不能寄邀請函到你自己的信箱."
       rejected: "下列電子信箱有問題: "
-      sent: "邀請函已經寄給: "
+      sent: "邀請函已經寄給了: %{emails}"
     edit:
       accept_your_invitation: "接受邀請"
       your_account_awaits: "你的帳號在等你!"
@@ -358,6 +354,7 @@ zh-TW:
       back_to_top: "回最上面"
       powered_by: "強力配置 DIASPORA*"
       public_feed: "%{name} 的 Diaspora 公開資訊源"
+      source_package: "下載原始碼套件"
       toggle: "行動切換"
       whats_new: "有什麼新消息?"
       your_aspects: "你的面向"
@@ -374,12 +371,8 @@ zh-TW:
   likes:
     likes:
       people_dislike_this:
-        few: "有%{count}個遜"
-        many: "有%{count}個遜"
-        one: "有%{count}個遜"
-        other: "有%{count}個遜"
-        two: "%{count}個遜"
-        zero: "沒有遜"
+        other: "有%{count}個人說遜"
+        zero: "沒人說遜"
       people_like_this:
         other: "有%{count}個人說讚"
         zero: "沒人說讚"
@@ -414,11 +407,7 @@ zh-TW:
       zero: "%{actors} 對你的%{post_link}發表了意見."
     helper:
       new_notifications:
-        few: "%{count}個新消息"
-        many: "%{count}個新消息"
-        one: "1個新消息"
-        other: "%{count}個新消息"
-        two: "%{count}個新消息"
+        other: "有%{count}個新消息"
         zero: "沒有新消息"
     index:
       and: "和"
@@ -475,12 +464,8 @@ zh-TW:
       two: "%{actors} 轉貼了你刪掉的貼文."
       zero: "%{actors} 轉貼了你刪掉的貼文."
     started_sharing:
-      few: "%{actors}開始跟你分享了."
-      many: "%{actors}開始跟你分享了."
-      one: "%{actors}開始跟你分享了."
-      other: "%{actors}開始跟你分享了."
-      two: "%{actors} 開始和你分享了."
-      zero: "%{actors}開始跟你分享了."
+      other: "%{actors} 開始跟你分享了."
+      zero: "%{actors} 開始跟你分享了."
   notifier:
     a_post_you_shared: "一篇貼文."
     accept_invite: "接受 Diaspora* 的邀請吧!"
@@ -584,7 +569,7 @@ zh-TW:
       return_to_aspects: "回你的面向主頁"
       see_all: "看全部"
       start_sharing: "開始分享"
-      to_accept_or_ignore: "接受或不理它."
+      to_accept_or_ignore: "接受或不管它."
     sub_header:
       add_some: "加入一些"
       edit: "編輯"
@@ -694,6 +679,7 @@ zh-TW:
       enter_username: "選個使用者名稱(名稱只能包含拉丁字母,數字,以及底線字元)"
       join_the_movement: "參加這個行動!"
       password: "密碼"
+      password_confirmation: "密碼確認"
       sign_up: "註冊"
       sign_up_message: "有♥的社交網路"
       username: "使用者名稱"
@@ -707,11 +693,7 @@ zh-TW:
       success: "你們現在互相分享了."
     helper:
       new_requests:
-        few: "%{count}個新請求!"
-        many: "%{count}個新請求!"
-        one: "新的請求!"
-        other: "%{count}個新請求!"
-        two: "%{count}個新請求!"
+        other: "有%{count}個新請求!"
         zero: "沒有新請求"
     manage_aspect_contacts:
       existing: "既有聯絡人"
@@ -838,7 +820,7 @@ zh-TW:
       dislike: "遜"
       hide_and_mute: "隱藏貼文並消音"
       ignore_user: "忽視 %{name}"
-      ignore_user_description: "是否要忽視該使用者, 並將其從所有面向中移除?"
+      ignore_user_description: "是否要忽視這個使用者, 並把他/她從所有面向中移除?"
       like: "讚"
       nsfw: "這篇貼文被作者標示為 NSFW (上班時不宜). %{link}"
       shared_with: "分享給: %{aspect_names}"
@@ -989,12 +971,9 @@ zh-TW:
       community_welcome: "Diaspora 的社群歡迎你的到來!"
       hashtag_explanation: "標籤讓你可以討論及追蹤你的興趣. 並且也是在 Diaspora 找到新朋友的好方法."
       hashtag_suggestions: "試試看追蹤像是 #藝術, #電影, #gif 等標籤."
-      hooking_up_fb: "連接你的 Facebook 帳號"
       saved: "存好了!"
-      we_can_speed_things_up: "我們可以藉由"
       well_hello_there: "嗨, 你好!"
       what_are_you_in_to: "你對什麼有興趣?"
-      what_facebook_does: "讓你儘快開始使用 Diaspora. 這個步驟會拿你在 Facebook 的名字和照片來用, 並開啟多重發表."
       who_are_you: "你是誰?"
     privacy_settings:
       ignored_users: "忽視的使用者"

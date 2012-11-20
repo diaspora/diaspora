@@ -51,6 +51,7 @@ fr:
       settings: "Paramètres"
       view_all: "Tout afficher"
     ignore: "Ignorer"
+    ignore_user: "Ignorer cet utilisateur ?"
     infinite_scroll:
       no_more: "Pas d'autres messages."
     my_activity: "Mon activité"

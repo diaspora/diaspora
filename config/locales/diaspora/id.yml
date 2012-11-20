@@ -446,8 +446,6 @@ id:
       new_password: "New Password"
       receive_email_notifications: "Receive email notificaions?"
       your_handle: "Your diaspora handle"
-    getting_started:
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
     update:
       email_notifications_changed: "Language Change Failed"
       language_changed: "Language Changed"

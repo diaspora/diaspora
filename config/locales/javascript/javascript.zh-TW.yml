@@ -46,7 +46,8 @@ zh-TW:
       search: "搜尋"
       settings: "設定"
       view_all: "看全部"
-    ignore: "不理"
+    ignore: "忽視"
+    ignore_user: "要忽視這個使用者嗎?"
     infinite_scroll:
       no_more: "沒有貼文了."
     my_activity: "我的活動"

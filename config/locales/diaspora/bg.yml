@@ -863,12 +863,9 @@ bg:
       community_welcome: "Общността около Diaspora с радост Ви приветства на борда!"
       hashtag_explanation: "Диез марките (#име–на-марката) ви позволяват да коментирате и следите интересни за вас теми.  Улесняват и откриване на хора със сходни интереси в Diaspora."
       hashtag_suggestions: "Пробвайте да следвате няколко марки като #България #diaspora #фитнес и др."
-      hooking_up_fb: "да свържете акаунта си от Facebook"
       saved: "Записано!"
-      we_can_speed_things_up: "Ако желаете можете"
       well_hello_there: "Здравейте!"
       what_are_you_in_to: "От какво се интересувате?"
-      what_facebook_does: "с Diaspora. Така някои данни (име и снимка) ще бъдат попълнени автоматично и ще можете да публикувате съобщения във Facebook от Diaspora."
       who_are_you: "Кой сте Вие?"
     privacy_settings:
       ignored_users: "Игнорирани потребители"

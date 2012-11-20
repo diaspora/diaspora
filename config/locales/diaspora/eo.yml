@@ -993,12 +993,9 @@ eo:
       community_welcome: "La komunumo de DIASPORA* feliĉas, ke vi aniĝis!"
       hashtag_explanation: "Etikedoj permesas al vi priparoli kaj aboni viajn interesojn. Ili estas ankaŭ bona metodo por trovi novajn homojn ĉe DIASPORA*."
       hashtag_suggestions: "Provu sekvi etikedojn kiel #arto, #filmoj, #gif, ktp."
-      hooking_up_fb: "alkroĉi vian Facebook konton"
       saved: "Konservita!"
-      we_can_speed_things_up: "Ni povas iomete rapidigi ĝin per"
       well_hello_there: "Bone, saluton al vi tie!"
       what_are_you_in_to: "Pri kio vi ŝatokupiĝas?"
-      what_facebook_does: "al Diaspora. Tio transportos vian nomon kaj foton, kaj ebligos krucreferencadon."
       who_are_you: "Kiu vi estas?"
     privacy_settings:
       ignored_users: "Ignoritaj Uzantoj"

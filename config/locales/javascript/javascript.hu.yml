@@ -61,7 +61,7 @@ hu:
     photo_uploader:
       looking_good: "Azta! Remekül nézek ki!"
     publisher:
-      at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
+      at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
       public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
     reshares:
@@ -88,7 +88,7 @@ hu:
         two: "Mutasd a többi <%= count %> hozzászólást"
         zero: "Mutasd a többi <%= count %> hozzászólást"
       original_post_deleted: "Eredeti bejegyzés törölve a szerzője által."
-      public: "Publikus"
+      public: "Nyilvános"
       reshare: "Megosztás"
       reshares:
         few: "<%= count %> megosztás"

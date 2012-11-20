@@ -1,0 +1,85 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ne:
+  _home: "गृहपृष्ठ"
+  _photos: "तस्वीरहरु"
+  _services: "सेवाहरु"
+  ago: "%{time} अघि"
+  application:
+    helper:
+      diaspora_alpha: "डायस्पोरा* अल्फा"
+      unknown_person: "अपरिचित व्यक्ति"
+  aspects:
+    helper:
+      remove: "हटाउनुहोस्"
+    index:
+      help:
+        tag_question: "प्रश्न"
+      welcome_to_diaspora: "%{name} ज्यु, डायस्पोरामा तपाईलाई स्वागत छ !"
+    seed:
+      acquaintances: "परिचित व्यक्तिहरु"
+      family: "परिवार"
+      friends: "साथीहरु"
+      work: "सहकर्मी"
+  cancel: "रद्द गर्नुहोस्"
+  conversations:
+    index:
+      new_message: "नयाँ सन्देश"
+    new:
+      send: "पठाउनुहोस्"
+  delete: "मेट्नुहोस्"
+  email: "ईमेल"
+  hide: "लुकाउनुहोस्"
+  invitations:
+    a_facebook_user: "फेसबुक प्रयोगकर्ता"
+    new:
+      language: "भाषा"
+      personal_message: "व्यक्तिगत सन्देश"
+      resend: "पुनः पठाउनुहोस्"
+  notifications:
+    index:
+      and: "र"
+  notifier:
+    hello: "नमस्कार %{name} !"
+    thanks: "धन्यवाद,"
+  ok: "ठीक छ"
+  or: "वा"
+  password: "गोप्य शब्द"
+  photos:
+    comment_email_subject: "%{name}को तस्वीर"
+  privacy: "गोपनीयता"
+  privacy_policy: "गोपनीयता नीति"
+  profiles:
+    edit:
+      first_name: "थर"
+      last_name: "नाम"
+      your_birthday: "जन्मदिन"
+      your_gender: "लिङ्ग"
+      your_location: "ठेगाना"
+      your_photo: "तपाईको तस्वीर"
+  public: "सार्वजनिक"
+  search: "खोज"
+  services:
+    finder:
+      service_friends: "%{service}का साथीहरु"
+    index:
+      connect_to_facebook: "फेसबुक सँग जोड्नुहोस्"
+      connect_to_twitter: "ट्विटर सँग जोड्नुहोस्"
+    remote_friend:
+      invite: "निम्तो पठाउनुहोस्"
+      resend: "पुनः पठाउनुहोस्"
+  username: "प्रयोगकर्ता नाम"
+  users:
+    edit:
+      change_email: "ईमेल परिवर्तन गर्नुहोस्"
+      change_language: "भाषा परिवर्तन गर्नुहोस्"
+      change_password: "गोप्य शब्द परिवर्तन गर्नुहोस्"
+      current_password: "हालको गोप्य शब्द"
+      download_photos: "आफ्नो तस्विरहरु डाउनलोड गर्नुहोस्"
+      new_password: "नयाँ गोप्य शब्द"
+      your_email: "तपाईको ईमेल"
+  welcome: "स्वागतम !"

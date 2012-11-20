@@ -337,25 +337,16 @@ ml:
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} പേര്‍ ഇത് ഇഷ്ടപ്പെടുന്നില്ല"
-        many: "%{count} പേര്‍ ഇത് ഇഷ്ടപ്പെടുന്നില്ല."
         one: "ഒരാള്‍ ഇതിഷ്ടപ്പെടുന്നില്ല."
         other: "%{count} പേര്‍ ഇത് ഇഷ്ടപ്പെടുന്നില്ല"
-        two: "%{count} dislikes"
         zero: "ഇത് ഇഷ്ടപ്പെടാത്തതാരുമില്ല"
       people_like_this:
-        few: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
-        many: "%{count} ആളുകള്‍ ഇത് ഇഷ്ട്പ്പെടുന്നു"
         one: "ഒരാള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
         other: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
-        two: "%{count} likes"
         zero: "ആരും ഇത് ഇഷ്ടപ്പെടുന്നില്ല."
       people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
         one: "%{count} ഇഷ്ട്ടപ്പെടല്‍"
         other: "%{count} ഇഷ്ട്ടപ്പെടലുകള്‍"
-        two: "%{count} likes"
         zero: "ഇഷ്ട്ടപ്പെടലുകളില്ല"
   limited: "Limited"
   more: "കൂടുതല്‍"
@@ -649,11 +640,8 @@ ml:
       updated: "പ്രൊഫൈല്‍ വിജയകരമായൊ തിരുത്തിയിരിക്കുന്നു."
   public: "Public"
   reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
     one: "ഒരു പ്രതികരണം"
     other: "%{count} പ്രതികരണങ്ങള്‍"
-    two: "%{count} reactions"
     zero: "0 പ്രതികരണങ്ങള്‍"
   registrations:
     closed: "ഈ ഡയസ്പോറ പോഡില്‍ ചേരുന്നത് അടച്ചിരിക്കുന്നു."
@@ -971,12 +959,9 @@ ml:
       community_welcome: "Diaspora's community is happy to have you aboard!"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
-      hooking_up_fb: "hooking up your Facebook account"
       saved: "Saved!"
-      we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-posting."
       who_are_you: "Who are you?"
     privacy_settings:
       ignored_users: "Ignored Users"

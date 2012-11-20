@@ -12,9 +12,7 @@ class Services::Twitter < Service
     Rails.logger.debug("event=post_to_service type=twitter sender_id=#{self.user_id}")
     message = public_message(post, url)
 
-    configure_twitter
-
-    Twitter.update(message)
+    client.update(message)
   end
 
 
@@ -24,29 +22,19 @@ class Services::Twitter < Service
       buffer_amt += (a_url.length - SHORTENED_URL_LENGTH)
     end
 
-    super(post, MAX_CHARACTERS + buffer_amt,  url)
+    #if photos, always include url, otherwise not for short posts
+    super(post, MAX_CHARACTERS + buffer_amt,  url, post.photos.any?)
   end
 
   def profile_photo_url
-    configure_twitter
-
-    Twitter.profile_image(nickname, :size => "original")
+    client.user(nickname).profile_image_url_https("original")
   end
 
   private
-  def configure_twitter
-    twitter_key = AppConfig.services.twitter.key
-    twitter_consumer_secret = AppConfig.services.twitter.secret
-
-    if twitter_key.blank? || twitter_consumer_secret.blank?
-      Rails.logger.info "you have a blank twitter key or secret.... you should look into that"
-    end
-
-    Twitter.configure do |config|
-      config.consumer_key = twitter_key
-      config.consumer_secret = twitter_consumer_secret
-      config.oauth_token = self.access_token
-      config.oauth_token_secret = self.access_secret
-    end
+  def client
+    @client ||= Twitter::Client.new(
+      oauth_token: self.access_token,
+      oauth_token_secret: self.access_secret
+    )
   end
 end

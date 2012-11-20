@@ -162,14 +162,6 @@ class PeopleController < ApplicationController
     end
   end
 
-  def diaspora_id?(query)
-    !query.try(:match, /^(\w)*@([a-zA-Z0-9]|[-]|[.]|[:])*$/).nil?
-  end
-
-  def search_query
-    @search_query ||= params[:q] || params[:term] || ''
-  end
-
   def redirect_if_tag_search
     if search_query.starts_with?('#')
       if search_query.length > 1
@@ -181,7 +173,15 @@ class PeopleController < ApplicationController
     end
   end
 
-  protected
+  private
+
+  def search_query
+    @search_query ||= params[:q] || params[:term] || ''
+  end
+
+  def diaspora_id?(query)
+    !query.try(:match, /^(\w)*@([a-zA-Z0-9]|[-]|[.]|[:])*$/).nil?
+  end
 
   def remote_profile_with_no_user_session?
     @person.try(:remote?) && !user_signed_in?

@@ -28,7 +28,7 @@ ml:
       hide: "hide comments"
       show: "show all comments"
     confirm_dialog: "താങ്കള്‍ക്ക് ഉറപ്പാണോ?"
-    delete: "Delete"
+    delete: "മായ്ക്കുക"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"
     getting_started:
@@ -54,6 +54,8 @@ ml:
       no_more: "കൂടുതല്‍ പോസ്റ്റുകളൊന്നുമില്ല."
     my_activity: "My Activity"
     my_stream: "Stream"
+    people:
+      not_found: "...പക്ഷേ, ഒരാളെയും കണ്ടുപിടിച്ചില്ല."
     photo_uploader:
       looking_good: "OMG, you look awesome!"
     publisher:

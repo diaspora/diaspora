@@ -48,6 +48,7 @@ nn:
       settings: "Innstillingar"
       view_all: "Syn alle"
     ignore: "Oversjå"
+    ignore_user: "Oversjå denne brukaren?"
     infinite_scroll:
       no_more: "Ingen fleire meldingar."
     my_activity: "Min aktivitet"

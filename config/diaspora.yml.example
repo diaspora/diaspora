@@ -41,12 +41,10 @@ configuration: ## Section
     ## Setting the bundle of certificate authorities (CA) certificates.
     ## This is operating system specific.
     ## Examples, uncomment one or add your own:
-    ## Debian, Ubuntu, Archlinux (package ca-certificates)
+    ## Debian, Ubuntu, Archlinux, Gentoo (package ca-certificates)
     #certificate_authorities: '/etc/ssl/certs/ca-certificates.crt'
-    ## CentOS
+    ## CentOS, Fedora
     #certificate_authorities: '/etc/pki/tls/certs/ca-bundle.crt'
-    ## Gentoo
-    #certificate_authorities: '/etc/ssl/certs/ca-certificates.crt'
     
     ## URL for a remote redis.
     ## Don't forget to restrict the IP access!
@@ -101,11 +99,25 @@ configuration: ## Section
     ## Diaspora is only tested against this default pubsub server.
     ## You likely don't want to change this.
     #pubsub_server: 'https://pubsubhubbub.appspot.com/'
+  
+  ## Settings affecting how ./script/server behaves.
+  server: ## Section
+    ## The port on which the appserver should listen
+    #port: 3000
     
-    unicorn: ## Section
-      ## Embed a resque worker inside the unicorn process, useful for
-      ## minimal Heroku setups
-      #embed_resque_worker: true
+    ## The environment in which the server should be started by default.
+    #rails_environment: 'production'
+    
+    ## The database type the server should use by default.
+    ## Valid choices are 'mysql' and 'postgres'
+    #database: 'mysql'
+      
+    ## Embed a resque worker inside the unicorn process, useful for
+    ## minimal Heroku setups
+    #embed_resque_worker: true
+    
+    ## Number of resque workers to start
+    #resque_workers: 1
   
   ## Settings probably affecting the privacy of your users 
   privacy: ## Section
@@ -240,9 +252,6 @@ configuration: ## Section
       #enable: true
       #app_id: 'abcdef'
       #secret: 'changeme'
-      ## this will be the namespace for your object,
-      ## it should be configured in your FB app
-      #open_graph_namespace: 
     
     ## OAuth credentials for Twitter:
     twitter: ## Section
