@@ -1,0 +1,38 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ne:
+  javascripts:
+    delete: "मेट्नुहोस्"
+    header:
+      contacts: "सम्पर्कहरु"
+      home: "गृहपृष्ठ"
+      messages: "सन्देशहरु"
+      search: "खोज"
+      view_all: "सबै हेर्नुहोस्"
+    show_more: "अरु हेर्नुहोस्"
+    stream:
+      hide: "लुकाउनुहोस्"
+      like: "मनपर्यो"
+      likes:
+        one: "<%= count %>%= count % जनाले मनपराउनु भयो"
+        other: "<%= count %>%= count % जनाले मनपराउनु भयो"
+      public: "सार्वजनिक"
+      unlike: "मनपरेन"
+    timeago:
+      day: "एक दिन"
+      days: "%d दिन"
+      hour: "लगभग एक घण्टा"
+      hours: "लगभग %d घण्टा"
+      minute: "लगभग एक मिनेट"
+      month: "लगभग एक महिना"
+      months: "%d महिना"
+      prefixAgo: ""
+      prefixFromNow: ""
+      suffixAgo: "अघि"
+      suffixFromNow: "अहिले देखी"
+      year: "लगभग एक वर्ष"
+      years: "%d वर्ष"

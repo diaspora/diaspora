@@ -280,9 +280,15 @@ nl:
       success: "Privégesprek succesvol verwijderd"
     helper:
       new_messages:
-        one: "1 nieuw privébericht"
-        other: "%{count} nieuwe privéberichten"
-        zero: "Geen nieuwe privéberichten"
+        one: |-
+            1 nieuw privébericht
+            1 nieuw bericht
+        other: |-
+            %{count} nieuwe privéberichten
+            nieuwe berichten
+        zero: |-
+            Geen nieuwe privéberichten
+            Geen nieuwe berichten
     index:
       create_a_new_message: "schrijf een nieuw privébericht"
       inbox: "Postvak In"
@@ -388,11 +394,8 @@ nl:
         two: "%{count} leuk"
         zero: "niemand vindt dit leuk"
       people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
         one: "%{count} persoon vindt dit leuk"
         other: "%{count} mensen vinden dit leuk"
-        two: "%{count} leuk"
         zero: "niemand vindt dit leuk"
   limited: "Beperkt"
   more: "Meer"
@@ -400,11 +403,8 @@ nl:
   no_results: "Geen resultaten gevonden"
   notifications:
     also_commented:
-      few: "%{actors} hebben ook op %{post_author} zijn %{post_link} gereageerd."
-      many: "%{actors} hebben ook op %{post_author} zijn %{post_link} gereageerd."
       one: "%{actors} heeft ook op %{post_author} zijn %{post_link} gereageerd."
       other: "%{actors} hebben ook op %{post_author} zijn %{post_link} gereageerd."
-      two: "%{actors} hebben ook gereageerd op %{post_author}'s %{post_link}."
       zero: "%{actors} heeft ook op %{post_author} zijn %{post_link} gereageerd."
     also_commented_deleted:
       few: "%{actors} hebben gereageerd op een verwijderd bericht."
@@ -464,11 +464,8 @@ nl:
       zero: "%{actors} heeft jou genoemd in een verwijderde post."
     post: "bericht"
     private_message:
-      few: "%{actors} hebben je een bericht gestuurd."
-      many: "%{actors} hebben je een bericht gestuurd."
       one: "%{actors} heeft je een bericht gestuurd."
       other: "%{actors} hebben je een bericht gestuurd."
-      two: "%{actors} hebben je een bericht gestuurd."
       zero: "%{actors} heeft je een bericht gestuurd."
     reshared:
       few: "%{actors} hebben jouw %{post_link} doorgegeven."
@@ -1002,12 +999,9 @@ nl:
       community_welcome: "De Diaspora community is blij je aan boord te hebben!"
       hashtag_explanation: "Hashtags laten je gemakkelijk jou interesses volgen. Bovendien kunnen ze je helpen bij het vinden van nieuwe contacten op Diaspora."
       hashtag_suggestions: "Probeer het volgen van tags zoals #art, #movies, #gif, etc. eens uit."
-      hooking_up_fb: "verbinden met je Facebook account"
       saved: "Opgeslagen!"
-      we_can_speed_things_up: "We kunnen het wat sneller maken door"
       well_hello_there: "O, hallo daar!"
       what_are_you_in_to: "Wat interesseert je?"
-      what_facebook_does: "met Diaspora. Je naam en foto worden dan overgezet, en je kan heen en weer posten."
       who_are_you: "Wie ben je?"
     privacy_settings:
       ignored_users: "Genegeerde Gebruikers"

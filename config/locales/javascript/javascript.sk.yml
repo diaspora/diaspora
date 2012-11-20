@@ -49,6 +49,7 @@ sk:
       settings: "Nastavenia"
       view_all: "Zobraziť všetko"
     ignore: "Ignorovať"
+    ignore_user: "Ignorovať tohto používateľa?"
     infinite_scroll:
       no_more: "Žiadne ďalšie príspevky."
     my_activity: "Moja aktivita"

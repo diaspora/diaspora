@@ -86,11 +86,11 @@ zh-TW:
       updated: "帳號更新成功."
     sessions:
       new:
-        alpha_software: "你將要使用剛開發的軟體."
+        alpha_software: "你將要使用新開發的軟體."
         bugs_and_feedback: "給你個忠告, 你將會遭遇到臭蟲. 遇到任何不順, 都請你使用瀏覽器右手邊的\"回饋\"按鈕向我們回報! 我們會盡快處理你回報的任何問題."
         bugs_and_feedback_mobile: "給你個忠告, 你將會遭遇到臭蟲. 遇到任何不順都請你向我們回報! 我們會盡快處理你回報的任何問題."
         login: "登入"
-        modern_browsers: "只支援摩登的瀏覽器."
+        modern_browsers: "只支援新潮的瀏覽器."
         password: "密碼"
         remember_me: "記住我"
         sign_in: "登入"

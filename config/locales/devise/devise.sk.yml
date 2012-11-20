@@ -32,7 +32,7 @@ sk:
       invitation_instructions:
         accept: "Prijať pozvanie"
         arrived: "Sociálna sieť, na ktorú si čakal(a), je tu. %{strong_diaspora} je vylepšená, bezpečnejšia, zábavnejšia a&nbsp;pripravená pomôcť ti deliť sa s&nbsp;ostatnými a&nbsp;skúmať web úplne inak."
-        be_yourself: "Buď sám/sama sebou"
+        be_yourself: "Buď sám alebo sama sebou"
         be_yourself_paragraph: "Internet vytvoril jedinečné nové spôsoby na sebaprezentáciu.  %{strong_diaspora} ti umožňuje, aby si bol(a) sám/sama sebou a podelil(a) sa s priateľmi o hocičo, o čo chceš, a to pod svojím skutočným menom alebo bez neho."
         cubbies: "Cubbi.es"
         displaying_correctly: "Nezobrazuje sa e-mail správne? %{link}"

@@ -9,6 +9,7 @@ ia:
   _comments: "Commentos"
   _contacts: "Contactos"
   _home: "Initio"
+  _photos: "photos"
   _services: "Servicios"
   account: "Conto"
   activerecord:
@@ -163,9 +164,21 @@ ia:
       failure: "Tu aspecto, %{name}, ha un nomine troppo longe e non pote esser salveguardate."
       success: "Tu aspecto, %{name}, ha essite modificate con successo."
     zero: "nulle aspecto"
+  authorizations:
+    index:
+      no_applications: "Tu non ha ancora registrate alcun application."
+      revoke_access: "Revocar accesso"
   back: "Retornar"
+  blocks:
+    create:
+      failure: "Io non poteva ignorar iste usator.  #evasion"
+      success: "Ben, tu non plus videra iste usator in tu fluxo. #silentio!"
+    destroy:
+      failure: "Io non poteva cessar de ignorar iste usator.  #evasion"
+      success: "Vamos vider lo que iste usator ha a dicer! #salutes"
   bookmarklet:
     explanation: "Invia cosas a Diaspora ab ubique con iste ligamine: %{link}"
+    heading: "Mini-marcapaginas"
     post_something: "Inviar a Diaspora"
     post_success: "Inviate! Claudente!"
   cancel: "Cancellar"
@@ -262,7 +275,7 @@ ia:
       no_more: "Tu non ha altere invitationes."
       own_address: "Non es possibile inviar un invitation a tu proprie adresse."
       rejected: "Le sequente adresses de e-mail habeva problemas: "
-      sent: "Invitationes ha essite inviate a: "
+      sent: "Le sequente adresses ha recipite un invitation: %{emails}"
     edit:
       accept_your_invitation: "Acceptar tu invitation"
       your_account_awaits: "Un conto te attende!"
@@ -403,6 +416,7 @@ ia:
       view_profile: "Vider le profilo de %{name}"
     thanks: "Gratias,"
     to_change_your_notification_settings: "pro cambiar tu configuration de notificationes"
+  nsfw: "NSFW"
   ok: "OK"
   or: "o"
   password: "Contrasigno"
@@ -600,6 +614,8 @@ ia:
       error: "un error occurreva durante le connexion a iste servicio"
     finder:
       fetching_contacts: "Diaspora obtene presentemente tu amicos de %{service}. Per favor reveni in alcun pauc minutas."
+      no_friends: "Nulle amico de Facebook trovate."
+      service_friends: "Amicos de %{service}"
     index:
       connect_to_facebook: "Connecter a Facebook"
       connect_to_tumblr: "Connecter a Tumblr"
@@ -612,12 +628,160 @@ ia:
     inviter:
       click_link_to_accept_invitation: "Seque iste ligamine pro acceptar tu invitation"
       join_me_on_diaspora: "Uni te a me in DIASPORA*"
+    remote_friend:
+      invite: "invitar"
+      not_on_diaspora: "Non ancora in Diaspora"
+      resend: "reinviar"
   settings: "Configuration"
   share_visibilites:
     update:
       post_hidden_and_muted: "Le entrata de %{name} ha essite celate, e le notificationes ha essite silentiate."
       see_it_on_their_profile: "Si tu vole vider actualisationes sur iste entrata, visita le profilo de %{name}."
+  shared:
+    add_contact:
+      add_new_contact: "Adder un nove contacto"
+      create_request: "Cercar per ID de Diaspora"
+      diaspora_handle: "diaspora@pod.org"
+      enter_a_diaspora_username: "Entra un nomine de usator de Diaspora:"
+      know_email: "Si tu cognosce su adresse de e-mail, tu deberea invitar le/la."
+      your_diaspora_username_is: "Tu nomine de usator de Diaspora es: %{diaspora_handle}"
+    aspect_dropdown:
+      add_to_aspect: "Adder contacto"
+      toggle:
+        human: "Adder contacto"
+        po: "In %{count} aspecto"
+        yml: "In %{count} aspectos"
+    contact_list:
+      all_contacts: "Tote le contactos"
+    footer:
+      logged_in_as: "identificate como %{name}"
+      your_aspects: "tu aspectos"
+    invitations:
+      by_email: "Per e-mail"
+      dont_have_now: "Tu non ha invitationes pro le momento, ma alteres arrivara bentosto!"
+      from_facebook: "De Facebook"
+      invitations_left: "%{count} restante"
+      invite_someone: "Invitar un persona"
+      invite_your_friends: "Invitar tu amicos"
+      invites: "Invitationes"
+      invites_closed: "Le invitationes es actualmente claudite pro iste pod de Diaspora."
+    notification:
+      new: "Nove %{type} de %{from}"
+    public_explain:
+      atom_feed: "Syndication Atom"
+      control_your_audience: "Controlar tu audientia"
+      logged_in: "identificate in %{service}"
+      manage: "gerer servicios connectite"
+      new_user_welcome_message: "Usa #etiquettas pro classificar tu messages e trovar personas con interesses in commun. Commenda personas extraordinari con @Mentiones."
+      outside: "Le messages public essera visibile pro altere personas foras de Diaspora."
+      share: "Divider"
+      title: "Connecter altere servicios"
+      visibility_dropdown: "Iste menu disrolante es pro cambiar le visibilitate de tu message. (Nos suggere que tu rende iste prime message public.)"
+    publisher:
+      all: "totes"
+      all_contacts: "tote le contactos"
+      discard_post: "Abandonar message"
+      make_public: "render public"
+      new_user_prefill:
+        hello: "Salute, io es un %{new_user_tag}. "
+        i_like: "Io me interessa in %{tags}. "
+        invited_by: "Gratias pro le invitation, "
+        newhere: "usator nove"
+      post_a_message_to: "Inviar un message a %{aspect}"
+      posting: "Invio in curso…"
+      publishing_to: "va publicar in: "
+      share: "Divider"
+      share_with: "divider con"
+      upload_photos: "Incargar photos"
+      whats_on_your_mind: "De que pensa tu?"
+    reshare:
+      reshare: "Repeter"
+    stream_element:
+      connect_to_comment: "Connecter a iste usator pro commentar su message"
+      currently_unavailable: "es impossibile commentar pro le momento"
+      dislike: "Disappreciar"
+      hide_and_mute: "Celar e silentiar iste message"
+      ignore_user: "Ignorar %{name}"
+      ignore_user_description: "Ignorar e remover iste usator de tote le aspectos?"
+      like: "Appreciar"
+      nsfw: "Iste message ha essite marcate como NSFW per su autor. %{link}"
+      shared_with: "Dividite con: %{aspect_names}"
+      show: "monstrar"
+      unlike: "Non plus appreciar"
+      via: "via %{link}"
+      viewable_to_anyone: "Iste message es visibile pro tote le mundo in le web"
+  status_messages:
+    create:
+      success: "Ha essite mentionate: %{names}"
+    destroy:
+      failure: "Le deletion del message ha fallite"
+    helper:
+      no_message_to_display: "Nulle message a presentar."
+    new:
+      mentioning: "Mentiona: %{person}"
+    too_long:
+      human: "per favor non scribe plus de %{count} characteres in tu messages de stato"
+      po: "per favor non scribe plus de %{count} character in tu messages de stato"
+      yml: "per favor non scribe plus de %{count} characteres in tu messages de stato"
+  stream_helper:
+    hide_comments: "Celar tote le commentos"
+    show_comments:
+      human: "Il non ha altere commentos"
+      po: "Monstrar 1 altere commento"
+      yml: "Monstrar %{count} altere commentos"
+  streams:
+    aspects_stream: "Aspectos"
+    comment_stream:
+      contacts_title: "Personas de qui tu ha commentate messages"
+      title: "Messages commentate"
+    community_spotlight_stream: "Usatores in evidentia"
+    followed_tag:
+      add_a_tag: "Adder un etiquetta"
+      contacts_title: "Personas qui se interessa in iste etiquettas"
+      follow: "Sequer"
+      title: "#Etiquettas sequite"
+    followed_tags_stream: "#Etiquettas sequite"
+    like_stream:
+      contacts_title: "Personas de qui tu apprecia le messages"
+      title: "Fluxo de appreciationes"
+    mentioned_stream: "@Mentiones"
+    mentions:
+      contacts_title: "Personas qui te ha mentionate"
+      title: "@Mentiones"
+    tags:
+      contacts_title: "Personas qui se interessa in iste etiquetta"
+      title: "Messages con etiquettas: %{tags}"
+  tag_followings:
+    create:
+      failure: "Impossibile sequer #%{name}. Esque tu jam lo seque?"
+      none: "Non es possibile sequer un etiquetta vacue!"
+      success: "Hurrah! Tu seque ora #%{name}."
+    destroy:
+      failure: "Impossibile cessar de sequer #%{name}. Esque tu ha jam cessate de sequer lo?"
+      success: "Guai! Tu non plus seque #%{name}."
+  tags:
+    show:
+      follow: "Sequer #%{tag}"
+      followed_by: "sequite per"
+      following: "Sequente #%{tag}"
+      nobody_talking: "Nemo parla ancora de \"%{tag}\"."
+      none: "Le etiquetta vacue non existe!"
+      people_tagged_with: "Personas con etiquetta %{tag}"
+      posts_tagged_with: "Messages con etiquetta #%{tag}"
+      stop_following: "Non plus sequer #%{tag}"
   terms_and_conditions: "Terminos e conditiones"
+  tokens:
+    show:
+      connect_to_cubbies: "Connecter a Cubbi.es"
+      connecting_is_simple: "Es simple connecter tu conto de Diaspora! Scribe tu ID de Diaspora (<b>%{diaspora_id}</b>) in le <a href='%{href_link}'>pagina de configuration</a> de tu cubby e preme Connecter."
+      daniels_account: "Le conto de Diaspora de Daniel"
+      love_to_try: "Nos amarea que tu lo essaya."
+      making_the_connection: "Como facer le connexion"
+      screenshot_explanation: "%{link1}. Iste cubby particular es ligate a %{link2}."
+      sign_up_today: "Inscribe te hodie mesmo!"
+      typical_userpage: "Un pagina de usator typic de cubbi.es"
+      via: "(via %{link})"
+      what_is_cubbies: "Cubbi.es es le prime application de Diaspora in le mundo. In ultra, illo es optime modo de colliger photographias in linea."
   undo: "Disfacer?"
   username: "Nomine de usator"
   welcome: "Benvenite!"

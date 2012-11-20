@@ -92,9 +92,10 @@ art-nvi:
       sent: "'Upxare fpìme'"
     helper:
       new_messages:
-        po: "%{count} upxare amip"
-        yml: "%{count} upxare amip"
-        zero: "'upxare amip"
+        human: ""
+        po: "'upxare amip"
+        yml: "%{count}a upxare amip"
+        zero: "kea 'upxare amip"
     index:
       inbox: "'Upxare tsenge"
       message_inbox: "'Upxare tsenge"

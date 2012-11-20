@@ -984,12 +984,9 @@ tr:
       community_welcome: "Diaspora topluluğunda seni aramızda görmekten mutluyuz!"
       hashtag_explanation: "Etiketler, hakkında konuşmak ve ilgi alanlarını takip etmenize izin verir. Ayrıca yeni insanları Diaspora üzerinde bulmak için harika bir yoldur."
       hashtag_suggestions: "Sevdiğiniz etiketleri takip etmeyi deneyin #resim, #film, #gif, vb."
-      hooking_up_fb: "Facebook hesabıza bağlanın"
       saved: "Kaydedildi!"
-      we_can_speed_things_up: "Biz şeyler için biraz hız"
       well_hello_there: "Merhaba!"
       what_are_you_in_to: "Ne yapıyorsun?"
-      what_facebook_does: "Diaspora için. Bu adınızı girin ve fotoğrafınızı çekin."
       who_are_you: "Sen kimsin?"
     privacy_settings:
       ignored_users: "Gözardı Edilen Kullanıcılar"

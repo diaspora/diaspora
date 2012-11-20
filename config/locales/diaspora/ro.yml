@@ -706,8 +706,6 @@ ro:
       receive_email_notifications: "Receive email notificaions?"
       your_email: "E-mailul tău"
       your_handle: "Identificatorul tău pe Diaspora"
-    getting_started:
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
     public:
       does_not_exist: "Utilizatorul %{username} nu există!"
     update:

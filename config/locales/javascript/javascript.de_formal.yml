@@ -28,6 +28,7 @@ de_formal:
       hide: "Kommentare verbergen"
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Sind Sie sich sicher?"
+    delete: "Löschen"
     failed_to_like: "Gefällt mir fehlgeschlagen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started:
@@ -36,9 +37,20 @@ de_formal:
       no_tags: "Hey, Sie folgen noch keinen Tags! Trotzdem weitermachen?"
       preparing_your_stream: "Ihr personalisierter Stream wird zusammengestellt..."
     header:
+      admin: "Administration"
+      contacts: "Kontakte"
+      home: "Startseite"
+      log_out: "Abmelden"
+      mark_all_as_read: "Markiere alle als gelesen"
+      messages: "Nachrichten"
+      profile: "Profil"
+      recent_notifications: "Letzte Benachrichtigungen"
       search: "Find people or #tags"
+      settings: "Einstellungen"
+    ignore: "Ignorieren"
     infinite_scroll:
       no_more: "Keine weiteren Beiträge."
+    my_activity: "Ihre Aktivitäten"
     photo_uploader:
       looking_good: "OMG, Sie sehen toll aus!"
     publisher:
@@ -50,20 +62,20 @@ de_formal:
     search_for: "Nach {{name}} suchen"
     show_more: "Mehr zeigen"
     stream:
+      comment: "Kommentieren"
+      follow: "Folgen"
+      hide: "Verbergen"
+      like: "Gefällt mir"
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-        two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        one: "Ein gefällt mir."
+        other: "<%= count %> gefällt mir."
+        zero: "Bisher gefällt dies keinem."
       more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        one: "Zeige einen weiteren Kommentar"
+        other: "Zeigen <%= count %> weitere Kommentare"
+        zero: "Keine weiteren Kommentare"
+      original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
+      public: "Öffentlich"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -71,6 +83,10 @@ de_formal:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "Beitrag anzeigen"
+      show_nsfw_posts: "Zeige alle"
+      unfollow: "Nicht mehr folgen"
+      unlike: "Gefällt mir nicht mehr"
     tags:
       wasnt_that_interesting: "OK, ich nehme an, #{{tagName}} war nicht so interessant..."
     timeago:
@@ -85,7 +101,7 @@ de_formal:
       prefixAgo: "vor"
       prefixFromNow: "in"
       seconds: "wenigen Sekunden"
-      suffixAgo: ""
+      suffixAgo: "vor"
       suffixFromNow: "ab jetzt"
       year: "etwa einem Jahr"
       years: "%d Jahren"

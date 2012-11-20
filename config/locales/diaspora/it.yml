@@ -85,6 +85,12 @@ it:
         other: "trovati %{count} utenti"
         zero: "trovati %{count} utenti"
       you_currently: "al momento hai %{user_invitation} inviti a disposizione %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "totale dei nuovi utenti di questa settimana: %{count}"
+        other: "totale di nuovi utenti questa settimana: %{count}"
+        zero: "totale di nuovi utenti questa settimana: nessuno"
+      current_server: "La data attuale del server è %{date}"
   ago: "%{time} fa"
   all_aspects: "Tutti gli aspetti"
   application:
@@ -315,6 +321,8 @@ it:
     helper:
       correct_the_following_errors_and_try_again: "Correggi i seguenti errori e riprova."
       invalid_fields: "Campi non validi"
+    login_try_again: "Per favore <a href='%{login_link}'> accedi </a> e riprova"
+    post_not_public: "Il post che stai cercando di vedere non è pubblico!"
   fill_me_out: "Scrivi qui"
   find_people: "Cerca persone o #tag"
   hide: "Nascondi"
@@ -373,11 +381,8 @@ it:
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} Non mi piace"
-        many: "%{count} Non mi piace"
         one: "%{count} Non mi piace"
-        other: "%{count} Non mi piace"
-        two: "%{count} non mi piace"
+        other: "%{count} Non mi piacciono"
         zero: "0 Non mi piace"
       people_like_this:
         few: "%{count} mi piace"
@@ -864,11 +869,8 @@ it:
     new:
       mentioning: "Stai menzionando: %{person}"
     too_long:
-      few: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
-      many: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
       one: "per favore scrivi i tuoi messaggi di stato con meno di %{count} carattere"
       other: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
-      two: "i tuoi messaggi di stato dovrebbero essere più corti di %{count} caratteri"
       zero: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
   stream_helper:
     hide_comments: "Nascondi i commenti"
@@ -1000,12 +1002,9 @@ it:
       community_welcome: "La comunità di Diaspora ti dà il benvenuto a bordo!"
       hashtag_explanation: "I tag ti permettono di parlare dei tuoi interessi e di seguirli. Sono anche un ottimo sistema per trovare nuove persone su Diaspora."
       hashtag_suggestions: "Prova a seguire tag tipo #art, #movies, #gif, ecc."
-      hooking_up_fb: "abbinando il tuo account Facebook"
       saved: "Salvato!"
-      we_can_speed_things_up: "Possiamo velocizzare le cose"
       well_hello_there: "Ciao!"
       what_are_you_in_to: "Di cosa ti interessi?"
-      what_facebook_does: "a Diaspora. Così scaricherai nome e foto, oltre ad abilitare l'invio dei post anche verso l'altro social network."
       who_are_you: "Chi sei?"
     privacy_settings:
       ignored_users: "Utenti ignorati"
