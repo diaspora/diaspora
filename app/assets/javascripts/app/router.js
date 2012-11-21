@@ -91,7 +91,7 @@ app.Router = Backbone.Router.extend({
 
   aspects_stream : function(){
 
-    var ids = app.aspects.selectedAspects();
+    var ids = app.aspects.selectedAspectsIds();
 
     app.stream = new app.models.Stream([], {url: '/aspects'});
     app.stream.fetch({data: $.param({a_ids:ids})});

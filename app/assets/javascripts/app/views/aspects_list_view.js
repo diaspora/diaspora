@@ -3,7 +3,11 @@ app.views.AspectsList = app.views.Base.extend({
 
   el: '#aspects_list',
 
-  postRenderTemplate : function() {
+  events: {
+    'click .toggle_selector' : 'toggleAll'
+  },
+
+  postRenderTemplate: function() {
     this.collection.each(this.appendAspect, this);
     this.$('a[rel*=facebox]').facebox();
   },
@@ -12,6 +16,30 @@ app.views.AspectsList = app.views.Base.extend({
     $("#aspects_list > *:last").before(new app.views.Aspect({
       model: aspect, attributes: {'data-aspect_id': aspect.get('id')}
     }).render().el);
-  }
+  },
 
+  toggleAll: function(evt){
+    if (evt) { evt.preventDefault(); };
+
+    if (this.collection.allSelected()) {
+      this.collection.deselectAll();
+      this.$('li:not(:last)').removeClass("active");
+    } else {
+      this.collection.selectAll();
+      this.$('li:not(:last)').addClass("active");
+    }
+
+    this.toggleSelector();
+
+    app.router.aspects_stream();
+  },
+
+  toggleSelector: function(){
+    var selector = this.$('a.toggle_selector');
+    if (this.collection.allSelected()) {
+      selector.text(Diaspora.I18n.t('aspect_navigation.deselect_all'));
+    } else {
+      selector.text(Diaspora.I18n.t('aspect_navigation.select_all'));
+    }
+  }
 })
