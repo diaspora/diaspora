@@ -1,3 +1,9 @@
+# 0.0.3.0
+
+## Bug Fixes
+
+* Force Typhoeus/cURL to use the CA bundle we query via the config. Also add a setting for extra verbose output.
+
 # 0.0.2.0
 
 ## Refactor

@@ -51,6 +51,7 @@ defaults:
     community_spotlight:
       enable: false
       suggest_email:
+    typhoeus_verbose: false
   services:
     facebook:
       enable: false

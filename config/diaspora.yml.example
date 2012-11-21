@@ -189,6 +189,11 @@ configuration: ## Section
       ## E-Mail address users can make suggestions about who should be
       ## in the spotlight to.
       #suggest_email: 'admin@example.org'
+    
+    ## CURL debug
+    ## Turn on extra verbose output when sending stuff. No you
+    ## don't need to touch this unless explicitly told to.
+    #typhoeus_verbose: true
   
   ## Setup E-Mail
   mail: ## Section
