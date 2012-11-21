@@ -11,8 +11,8 @@ app.Router = Backbone.Router.extend({
     "stream": "stream",
     "participate": "stream",
     "explore": "stream",
-    "aspects": "stream",
-    "aspects:query": "stream",
+    "aspects": "aspects",
+    "aspects/stream": "aspects_stream",
     "commented": "stream",
     "liked": "stream",
     "mentions": "stream",
@@ -74,13 +74,35 @@ app.Router = Backbone.Router.extend({
     followedTagsView.setupAutoSuggest();
 
     app.tagFollowings.add(preloads.tagFollowings);
-    
+
     if(name) {
       var followedTagsAction = new app.views.TagFollowingAction(
             {tagText: name}
           );
       $("#author_info").prepend(followedTagsAction.render().el)
     }
+  },
+
+  aspects : function(){
+    app.aspects = new app.collections.Aspects(app.currentUser.get('aspects'));
+    var aspects_list =  new app.views.AspectsList({ collection: app.aspects });
+    aspects_list.render();
+  },
+
+  aspects_stream : function(){
+
+    var ids = app.aspects.selectedAspects();
+
+    app.stream = new app.models.Stream([], {url: '/aspects'});
+    app.stream.fetch({data: $.param({a_ids:ids})});
+
+    app.page = new app.views.Stream({model : app.stream});
+    app.publisher = new app.views.Publisher({collection : app.stream.items});
+
+    var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
+
+    $("#main_stream").html(app.page.render().el);
+    $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
   }
 });
 
