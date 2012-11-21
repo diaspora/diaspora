@@ -5,17 +5,8 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :check_registrations_open_or_vaild_invite!, :check_valid_invite!
 
-  layout :choose_layout
+  layout "post", :only => :new
 
-  private
-  def choose_layout
-    if ['new'].include? action_name
-      'new'
-    else
-      'new-noheader'
-    end
-  end
-  
   def create
     @user = User.build(params[:user])
     @user.process_invite_acceptence(invite) if invite.present?
