@@ -1,5 +1,10 @@
 # 0.0.3.0
 
+## Refactor
+
+* Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
+
+
 ## Bug Fixes
 
 * Force Typhoeus/cURL to use the CA bundle we query via the config. Also add a setting for extra verbose output.
