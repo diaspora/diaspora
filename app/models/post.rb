@@ -103,11 +103,6 @@ class Post < ActiveRecord::Base
     reshares.where(:author_id => user.person.id).first
   end
 
-  def participation_for(user)
-    return unless user
-    participations.where(:author_id => user.person.id).first
-  end
-
   def like_for(user)
     return unless user
     likes.where(:author_id => user.person.id).first
@@ -131,10 +126,6 @@ class Post < ActiveRecord::Base
 
   def activity_streams?
     false
-  end
-
-  def triggers_caching?
-    true
   end
 
   def comment_email_subject
