@@ -5,12 +5,7 @@
 require 'spec_helper'
 
 describe StatusMessage do
-  include ActionView::Helpers::UrlHelper
   include PeopleHelper
-  include Rails.application.routes.url_helpers
-  def controller
-    mock()
-  end
 
   before do
     @user = alice

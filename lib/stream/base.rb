@@ -50,11 +50,6 @@ class Stream::Base
       includes(:profile)
   end
 
-  # @return [String]
-  def contacts_link_title
-    I18n.translate('aspects.selected_contacts.view_all_contacts')
-  end
-
   # @return [String] def contacts_title 'change me in lib/base_stream.rb!'
   def contacts_title
     'change me in lib/base_stream.rb!'

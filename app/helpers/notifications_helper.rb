@@ -54,10 +54,6 @@ module NotificationsHelper
     object_link(note, notification_people_link(note))
   end
 
-  def peoples_names(note)
-    note.actors.map{|p| p.name}.join(", ")
-  end
-
   def the_day(i18n)
     i18n[0].match(/\d/) ? i18n[0].gsub('.', '') : i18n[1].gsub('.', '')
   end
