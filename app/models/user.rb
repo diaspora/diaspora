@@ -227,14 +227,6 @@ class User < ActiveRecord::Base
     where(conditions).first
   end
 
-  # @param [Person] person
-  # @return [Boolean] whether this user can add person as a contact.
-  def can_add?(person)
-    return false if self.person == person
-    return false if self.contact_for(person).present?
-    true
-  end
-
   def confirm_email(token)
     return false if token.blank? || token != confirm_email_token
     self.email = unconfirmed_email

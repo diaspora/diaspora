@@ -407,28 +407,6 @@ describe User do
     end
   end
 
-  describe "#can_add?" do
-    it "returns true if there is no existing connection" do
-      alice.can_add?(eve.person).should be_true
-    end
-
-    it "returns false if the user and the person are the same" do
-      alice.can_add?(alice.person).should be_false
-    end
-
-    it "returns false if the users are already connected" do
-      alice.can_add?(bob.person).should be_false
-    end
-
-    it "returns false if the user has already sent a request to that person" do
-      alice.share_with(eve.person, alice.aspects.first)
-      alice.reload
-      eve.reload
-      alice.can_add?(eve.person).should be_false
-    end
-  end
-
-
   describe '#process_invite_acceptence' do
     it 'sets the inviter on user' do
       inv = InvitationCode.create(:user => bob)
