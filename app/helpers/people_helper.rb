@@ -16,15 +16,6 @@ module PeopleHelper
     end
   end
 
-  def request_partial single_aspect_form
-    if single_aspect_form
-      'requests/new_request_with_aspect_to_person'
-
-    else
-      'requests/new_request_to_person'
-    end
-  end
-
   def search_or_index
     if search_query
       I18n.t 'people.helper.results_for',:params => search_query
