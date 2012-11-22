@@ -6,5 +6,5 @@ envdir="$(readlink -e $(dirname $0))/../env"
 . "$envdir/ensure_right_rubygems"
 
 if [ "$BUILD_TYPE" = "cucumber" ]; then
-  sudo apt-get install -y firefox=16.0.2
+  sudo aptitude --without-recommends --assume-yes install firefox=16.0.2+build1-0ubuntu0
 fi
