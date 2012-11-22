@@ -60,18 +60,23 @@ describe PeopleHelper do
     end
   end
 
-  describe '#last_post_link' do
+  describe '#last_visible_post_for' do
     before do
       @person = FactoryGirl.create(:person)
     end
 
-    it "doesn't show a link, if the person has no posts" do
-      last_post_link(@person).should be_blank
+    it "doesn't show a link, if the person has no visible posts" do
+      last_visible_post_for(@person).should be_blank
     end
 
-    it "shows the link, if the person has at leas one post" do
+    it "doesn't show a link, if the person has posts but none visible" do
       post = FactoryGirl.create(:status_message, :author => @person)
-      last_post_link(@person).should include last_post_person_path(@person.to_param)
+      last_visible_post_for(@person).should be_blank
+    end
+
+    it "shows the link, if the person has at least one visible post" do
+      post = FactoryGirl.create(:status_message, :author => @person, :public => true)
+      last_visible_post_for(@person).should include last_post_person_path(@person.to_param)
     end
   end
 
