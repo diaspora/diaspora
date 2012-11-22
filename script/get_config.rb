@@ -34,7 +34,7 @@ ARGV.each do |arg|
   var, setting_name = arg.split("=")
   setting_name = var unless setting_name
   setting = AppConfig.send(setting_name)
-  setting = setting.get if setting.is_a?(Configuration::Proxy)
+  setting = setting.get if setting.respond_to?(:_proxy?)
   if var != setting_name
     puts "#{var}=#{setting}"
   else
