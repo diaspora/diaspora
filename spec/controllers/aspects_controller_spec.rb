@@ -101,7 +101,9 @@ describe AspectsController do
       new_user = FactoryGirl.create :user
       params = {"name" => "Bruisers"}
       params[:user_id] = new_user.id
-      put('update', :id => @alices_aspect_1.id, "aspect" => params)
+      expect {
+        put('update', :id => @alices_aspect_1.id, "aspect" => params)
+      }.should raise_error ActiveModel::MassAssignmentSecurity::Error
       Aspect.find(@alices_aspect_1.id).user_id.should == alice.id
     end
 

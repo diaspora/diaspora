@@ -10,8 +10,8 @@ class AspectsController < ApplicationController
              :json
 
   def create
+    aspecting_person_id = params[:aspect].delete(:person_id)
     @aspect = current_user.aspects.build(params[:aspect])
-    aspecting_person_id = params[:aspect][:person_id]
 
     if @aspect.save
       flash[:notice] = I18n.t('aspects.create.success', :name => @aspect.name)

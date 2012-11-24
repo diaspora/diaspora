@@ -151,13 +151,17 @@ describe ProfilesController do
       it 'person_id' do
         person = eve.person
         profile = person.profile
-        put :update, @profile_params
-        profile.reload.person_id.should == person.id
+        expect {
+          put :update, @profile_params
+          profile.reload.person_id.should == person.id
+        }.should raise_error ActiveModel::MassAssignmentSecurity::Error
       end
 
       it 'diaspora handle' do
-        put :update, @profile_params
-        Person.find(eve.person.id).profile[:diaspora_handle].should_not == 'abc@a.com'
+        expect {
+          put :update, @profile_params
+          Person.find(eve.person.id).profile[:diaspora_handle].should_not == 'abc@a.com'
+        }.should raise_error ActiveModel::MassAssignmentSecurity::Error
       end
     end
   end
