@@ -14,6 +14,11 @@ env:
   - DB=postgres BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=cucumber
 
+matrix:
+  allow_failures:
+    - env: DB=postgres BUILD_TYPE=cucumber
+    - env: DB=mysql BUILD_TYPE=cucumber
+
 
 bundler_args: "--without development production heroku"
 before_install: "./script/ci/before_install.sh"
