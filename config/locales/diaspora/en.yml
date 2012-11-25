@@ -362,6 +362,8 @@ en:
       already_sent: "You already invited this person."
       already_contacts: "You are already connected with this person"
       own_address: "You can't send an invitation to your own address."
+      empty: "Please enter at least one email address."
+      note_already_sent: "Invitations have already been sent to: %{emails}"
     new:
       language: "Language"
       invite_someone_to_join: "Invite someone to join Diaspora!"
@@ -519,18 +521,18 @@ en:
     invite:
       message: |-
         Hello!
-        
+
         You have been invited to join Diaspora*!
-        
+
         Click this link to get started
-        
+
         [%{invite_url}][1]
-        
-        
+
+
         Love,
-        
+
         The Diaspora* email robot!
-        
+
         [1]: %{invite_url}
   people:
     zero: "no people"
