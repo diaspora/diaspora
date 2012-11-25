@@ -1,4 +1,4 @@
-Diaspora.Pages.AspectsIndex = function() {
+Diaspora.Pages.StreamsAspects = function() {
   var self = this;
 
   this.subscribe("page/ready", function(evt, document) {
