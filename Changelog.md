@@ -10,6 +10,7 @@
 
 * Force Typhoeus/cURL to use the CA bundle we query via the config. Also add a setting for extra verbose output.
 * Validate input on sending invitations, validate email format, send correct ones. [#3748](https://github.com/diaspora/diaspora/pull/3748), [#3271](https://github.com/diaspora/diaspora/issues/3271)
+* moved Aspects JS initializer to the correct place so aspect selection / deselection works again [#3737] (https://github.com/diaspora/diaspora/pull/3737)
 
 # 0.0.2.0
 
