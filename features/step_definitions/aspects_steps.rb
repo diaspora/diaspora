@@ -26,6 +26,14 @@ When /^I select only "([^"]*)" aspect$/ do |aspect_name|
   step %{I wait for the ajax to finish}
 end
 
+When /^I select "([^"]*)" aspect as well$/ do |aspect_name|
+  within('#aspect_nav') do
+    click_link aspect_name
+  end
+
+  step %{I wait for the ajax to finish}
+end
+
 When /^I should see "([^"]*)" aspect selected$/ do |aspect_name|
   aspect = @me.aspects.where(:name => aspect_name).first
   within("#aspect_nav") do
