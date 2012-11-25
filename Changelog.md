@@ -5,10 +5,10 @@
 * Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
 * Last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
 
-
 ## Bug Fixes
 
 * Force Typhoeus/cURL to use the CA bundle we query via the config. Also add a setting for extra verbose output.
+* Validate input on sending invitations, validate email format, send correct ones. [#3748](https://github.com/diaspora/diaspora/pull/3748), [#3271](https://github.com/diaspora/diaspora/issues/3271)
 
 # 0.0.2.0
 
