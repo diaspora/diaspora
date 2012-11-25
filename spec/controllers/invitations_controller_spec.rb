@@ -16,28 +16,117 @@ describe InvitationsController do
     before do
       sign_in :user, @user
       @controller.stub!(:current_user).and_return(@user)
-      request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
+      @referer = 'http://test.host/cats/foo'
+      request.env["HTTP_REFERER"] = @referer
     end
 
-    it 'creates an EmailInviter'  do
-      inviter = stub(:emails => ['mbs@gmail.com'], :send! => true)
-      EmailInviter.should_receive(:new).with(@invite['email_inviter']['emails'], @user, @invite['email_inviter']).
-        and_return(inviter)
-      post :create,  @invite
+    context "no emails" do
+      before do
+        @invite = {'email_inviter' => {'message' => "test", 'emails' => ""}}
+      end
+
+      it 'does not create an EmailInviter' do
+        EmailInviter.should_not_receive(:new)
+        post :create,  @invite
+      end
+
+      it 'returns to the previous page' do
+        post :create, @invite
+        response.should redirect_to @referer
+      end
+
+      it 'flashes an error' do
+        post :create, @invite
+        flash[:error].should == I18n.t("invitations.create.empty")
+      end
     end
 
-    it "redirects if invitations are closed" do
+    context 'only valid emails' do
+      before do
+        @emails = 'mbs@gmail.com'
+        @invite = {'email_inviter' => {'message' => "test", 'emails' => @emails}}
+      end
+
+      it 'creates an EmailInviter'  do
+        inviter = stub(:emails => [@emails], :send! => true)
+        EmailInviter.should_receive(:new).with(@invite['email_inviter']['emails'], @user, @invite['email_inviter']).
+          and_return(inviter)
+        post :create,  @invite
+      end
+
+      it 'returns to the previous page on success' do
+        post :create, @invite
+        response.should redirect_to @referer
+      end
+
+      it 'flashes a notice' do
+        post :create, @invite
+        expected =  I18n.t('invitations.create.sent', :emails => @emails.split(',').join(', '))
+        flash[:notice].should == expected
+      end
+    end
+
+    context 'only invalid emails' do
+      before do
+        @emails = 'invalid_email'
+        @invite = {'email_inviter' => {'message' => "test", 'emails' => @emails}}
+      end
+
+      it 'does not create an EmailInviter' do
+        EmailInviter.should_not_receive(:new)
+        post :create,  @invite
+      end
+
+      it 'returns to the previous page' do
+        post :create, @invite
+        response.should redirect_to @referer
+      end
+
+      it 'flashes an error' do
+        post :create, @invite
+
+        expected =  I18n.t('invitations.create.rejected') + @emails.split(',').join(', ')
+        flash[:error].should == expected
+      end
+    end
+
+    context 'mixed valid and invalid emails' do
+      before do
+        @valid_emails = 'foo@bar.com,mbs@gmail.com'
+        @invalid_emails = 'invalid'
+        @invite = {'email_inviter' => {'message' => "test", 'emails' =>
+                                       @valid_emails + ',' + @invalid_emails}}
+      end
+
+      it 'creates an EmailInviter'  do
+        inviter = stub(:emails => [@emails], :send! => true)
+        EmailInviter.should_receive(:new).with(@valid_emails, @user, @invite['email_inviter']).
+          and_return(inviter)
+        post :create,  @invite
+      end
+
+      it 'returns to the previous page' do
+        post :create, @invite
+        response.should redirect_to @referer
+      end
+
+      it 'flashes a notice' do
+        post :create, @invite
+        expected =  I18n.t('invitations.create.sent', :emails =>
+                          @valid_emails.split(',').join(', ')) +
+                          '. ' + I18n.t('invitations.create.rejected') +
+                          @invalid_emails.split(',').join(', ')
+        flash[:error].should == expected
+      end
+    end
+
+    it 'redirects if invitations are closed' do
       open_bit = AppConfig.settings.invitations.open?
       AppConfig.settings.invitations.open =  false
 
       post :create, @invite
       response.should be_redirect
       AppConfig.settings.invitations.open = open_bit
-    end
-
-    it 'returns to the previous page on success' do
-      post :create, @invite
-      response.should redirect_to("http://test.host/cats/foo")
     end
   end
 
@@ -90,6 +179,42 @@ describe InvitationsController do
       post :create
       response.should be_redirect
       response.should redirect_to new_user_session_path
+    end
+  end
+
+  describe '.valid_email?' do
+    it 'returns false for empty email' do
+      subject.send(:valid_email?, '').should be false
+    end
+
+    it 'returns false for email without @-sign' do
+      subject.send(:valid_email?, 'foo').should be false
+    end
+
+    it 'returns true for valid email' do
+      subject.send(:valid_email?, 'foo@bar.com').should be true
+    end
+  end
+
+  describe '.html_safe_string_from_session_array' do
+    it 'returns "" for blank session[key]' do
+      subject.send(:html_safe_string_from_session_array, :blank).should eq ""
+    end
+
+    it 'returns "" if session[key] is not an array' do
+      session[:test_key] = "test"
+      subject.send(:html_safe_string_from_session_array, :test_key).should eq ""
+    end
+
+    it 'returns the correct value' do
+      session[:test_key] = ["test", "foo"]
+      subject.send(:html_safe_string_from_session_array, :test_key).should eq "test, foo"
+    end
+
+    it 'sets session[key] to nil' do
+      session[:test_key] = ["test"]
+      subject.send(:html_safe_string_from_session_array, :test_key)
+      session[:test_key].should be nil
     end
   end
 end
