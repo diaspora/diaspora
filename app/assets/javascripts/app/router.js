@@ -16,8 +16,8 @@ app.Router = Backbone.Router.extend({
     "commented": "stream",
     "liked": "stream",
     "mentions": "stream",
-    "followed_tags": "stream",
-    "tags/:name": "stream",
+    "followed_tags": "followed_tags",
+    "tags/:name": "followed_tags",
     "people/:id/photos": "photos",
 
     "people/:id": "stream",
@@ -63,6 +63,24 @@ app.Router = Backbone.Router.extend({
     app.photos = new app.models.Stream([], {collection: app.collections.Photos});
     app.page = new app.views.Photos({model : app.photos});
     $("#main_stream").html(app.page.render().el);
+  },
+
+  followed_tags : function(name) {
+    this.stream();
+
+    app.tagFollowings = new app.collections.TagFollowings();
+    var followedTagsView = new app.views.TagFollowingList({collection: app.tagFollowings});
+    $("#tags_list").replaceWith(followedTagsView.render().el);
+    followedTagsView.setupAutoSuggest();
+
+    app.tagFollowings.add(preloads.tagFollowings);
+    
+    if(name) {
+      var followedTagsAction = new app.views.TagFollowingAction(
+            {tagText: name}
+          );
+      $("#author_info").prepend(followedTagsAction.render().el)
+    }
   }
 });
 

@@ -153,7 +153,8 @@ class PeopleController < ApplicationController
   def redirect_if_tag_search
     if search_query.starts_with?('#')
       if search_query.length > 1
-        redirect_to tag_path(:name => search_query.delete('#.'), :q => search_query)
+
+        redirect_to tag_path(:name => search_query.delete('#.'))
       else
         flash[:error] = I18n.t('tags.show.none', :name => search_query)
         redirect_to :back

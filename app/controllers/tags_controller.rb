@@ -32,8 +32,10 @@ class TagsController < ApplicationController
   end
 
   def show
+    if user_signed_in?
+      gon.tagFollowings = tags
+    end
     @stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
-
     respond_with do |format|
       format.json { render :json => @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
     end
@@ -47,18 +49,10 @@ class TagsController < ApplicationController
 
   def prep_tags_for_javascript
     @tags.map! do |tag|
-      {
-        :name  => ("#" + tag.name),
-        :value => ("#" + tag.name),
-        :url   => tag_path(tag.name)
-      }
+      { :name  => ("#" + tag.name) }
     end
 
-    @tags << {
-      :name  => ('#' + params[:q]),
-      :value => ("#" + params[:q]),
-      :url   => tag_path(params[:q].downcase)
-    }
+    @tags << { :name  => ('#' + params[:q]) }
     @tags.uniq!
   end
 end

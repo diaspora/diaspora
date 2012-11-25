@@ -74,13 +74,8 @@ Diaspora::Application.routes.draw do
   end
 
   resources :tags, :only => [:index]
-  scope "tags/:name" do
-    post   "tag_followings" => "tag_followings#create", :as => 'tag_tag_followings'
-    delete "tag_followings" => "tag_followings#destroy", :as => 'tag_tag_followings'
-  end
 
-  post   "multiple_tag_followings" => "tag_followings#create_multiple", :as => 'multiple_tag_followings'
-  resources "tag_followings", :only => [:create]
+  resources "tag_followings", :only => [:create, :destroy, :index]
 
   get 'tags/:name' => 'tags#show', :as => 'tag'
 
