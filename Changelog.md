@@ -4,6 +4,7 @@
 
 * Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
 * Last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
+* Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713)
 
 ## Bug Fixes
 
