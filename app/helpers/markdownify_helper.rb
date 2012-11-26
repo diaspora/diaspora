@@ -48,7 +48,7 @@ module MarkdownifyHelper
   end
   
   def strip_markdown(text)
-    renderer = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
+    renderer = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, :autolink => true)
     renderer.render(text)
   end
 
