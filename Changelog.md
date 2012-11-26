@@ -12,6 +12,7 @@
 * Validate input on sending invitations, validate email format, send correct ones. [#3748](https://github.com/diaspora/diaspora/pull/3748), [#3271](https://github.com/diaspora/diaspora/issues/3271)
 * moved Aspects JS initializer to the correct place so aspect selection / deselection works again [#3737] (https://github.com/diaspora/diaspora/pull/3737)
 * Do not strip "markdown" in links when posting to services [#3765](https://github.com/diaspora/diaspora/issues/3765)
+* Change footer mobile "toggle mobile" for "toggle desktop". [#3766](https://github.com/diaspora/diaspora/issues/3766)
 
 # 0.0.2.0
 
