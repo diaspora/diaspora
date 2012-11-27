@@ -34,7 +34,7 @@ AppConfig ||= Configuration::Settings.create do
   
   extend Configuration::Methods
   
-  if Rails.env == "production"  && (environment.certificate_authorities.blank? || !File.exists?(environment.certificate_authorities.get))
+  if Rails.env == "production"  && (environment.certificate_authorities.blank? || !File.file?(environment.certificate_authorities.get))
     $stderr.puts "FATAL: Diaspora doesn't know where your certificate authorities are. Please ensure they are set to a valid path in diaspora.yml"
     Process.exit(1)
   end
