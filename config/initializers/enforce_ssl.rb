@@ -3,7 +3,6 @@
 # the COPYRIGHT file.
 
 if AppConfig.environment.require_ssl?
-  require 'rack/ssl'
   Rails.application.config.middleware.insert_before 0, Rack::SSL
   puts "Rack::SSL is enabled"
 end
