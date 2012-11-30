@@ -12,7 +12,7 @@ def sqlite?
 end
 
 # Load the rails application
-require File.expand_path('../application', __FILE__)
+require Pathname.new(__FILE__).dirname.expand_path.join('application')
 require Rails.root.join("lib", "exceptions")
 
 # Load configuration system early 

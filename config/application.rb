@@ -2,7 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.expand_path('../boot', __FILE__)
+require 'pathname'
+require Pathname.new(__FILE__).expand_path.dirname.join('boot')
 
 # Needed for versions of ruby 1.9.2 that were compiled with libyaml.
 # They use psych by default which doesn't handle having a default set of parameters.

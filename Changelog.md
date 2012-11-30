@@ -8,6 +8,7 @@
 * Extracted configuration system to a gem.
 * Made number of unicorn workers configurable.
 * Made loading of the configuration environment independent of Rails.
+* Do not generate paths like `/a/b/c/config/boot.rb/../../Gemfile` to require and open things, create a proper path instead.
 
 ## Bug Fixes
 
