@@ -1,10 +1,13 @@
 rails_env = ENV['RAILS_ENV'] || 'development'
 
+require 'pathname'
+require Pathname.new(__FILE__).expand_path.dirname.join('load_config')
+
 # Enable and set these to run the worker as a different user/group
 #user  = 'diaspora'
 #group = 'diaspora'
 
-worker_processes 1
+worker_processes AppConfig.server.unicorn_worker.to_i
 
 ## Load the app before spawning workers
 preload_app true

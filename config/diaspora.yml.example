@@ -111,7 +111,11 @@ configuration: ## Section
     ## The database type the server should use by default.
     ## Valid choices are 'mysql' and 'postgres'
     #database: 'mysql'
-      
+    
+    ## Number of unicorn worker processes, increase this if
+    ## you have many users
+    #unicorn_worker: 2
+    
     ## Embed a resque worker inside the unicorn process, useful for
     ## minimal Heroku setups
     #embed_resque_worker: true

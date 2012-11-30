@@ -6,6 +6,8 @@
 * Last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
 * Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713)
 * Extracted configuration system to a gem.
+* Made number of unicorn workers configurable.
+* Made loading of the configuration environment independent of Rails.
 
 ## Bug Fixes
 
@@ -13,6 +15,7 @@
 * Validate input on sending invitations, validate email format, send correct ones. [#3748](https://github.com/diaspora/diaspora/pull/3748), [#3271](https://github.com/diaspora/diaspora/issues/3271)
 * moved Aspects JS initializer to the correct place so aspect selection / deselection works again [#3737] (https://github.com/diaspora/diaspora/pull/3737)
 * Do not strip "markdown" in links when posting to services [#3765](https://github.com/diaspora/diaspora/issues/3765)
+* Renamed `server.db` to `server.database` to match the example configuration.
 
 # 0.0.2.0
 

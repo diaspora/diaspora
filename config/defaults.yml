@@ -28,7 +28,8 @@ defaults:
   server:
     port: 3000
     rails_environment: 'development'
-    db: 'mysql'
+    database: 'mysql'
+    unicorn_worker: 2
     embed_resque_worker: false
     resque_workers: 1
   privacy:
