@@ -1,5 +1,4 @@
-require Rails.root.join('lib', 'configuration')
-require Rails.root.join('lib', 'configuration', 'methods')
+require Rails.root.join('lib', 'configuration_methods')
 
 config_dir = Rails.root.join("config")
 
@@ -9,9 +8,9 @@ if File.exists?(config_dir.join("application.yml"))
 end
 
 
-AppConfig ||= Configuration::Settings.create do
-  add_provider Configuration::Provider::Dynamic
-  add_provider Configuration::Provider::Env
+AppConfig ||= Configurate::Settings.create do
+  add_provider Configurate::Provider::Dynamic
+  add_provider Configurate::Provider::Env
   
   unless heroku? || Rails.env == "test" || File.exists?(config_dir.join("diaspora.yml"))
     $stderr.puts "FATAL: Configuration not found. Copy over diaspora.yml.example"
@@ -19,16 +18,16 @@ AppConfig ||= Configuration::Settings.create do
     Process.exit(1)
   end
   
-  add_provider Configuration::Provider::YAML,
+  add_provider Configurate::Provider::YAML,
                config_dir.join("diaspora.yml"),
                namespace: Rails.env, required: false
-  add_provider Configuration::Provider::YAML,
+  add_provider Configurate::Provider::YAML,
                config_dir.join("diaspora.yml"),
                namespace: "configuration", required: false
-  add_provider Configuration::Provider::YAML,
+  add_provider Configurate::Provider::YAML,
                config_dir.join("defaults.yml"),
                namespace: Rails.env
-  add_provider Configuration::Provider::YAML,
+  add_provider Configurate::Provider::YAML,
                config_dir.join("defaults.yml"),
                namespace: "defaults"
   

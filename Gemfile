@@ -8,6 +8,9 @@ gem 'unicorn', '4.4.0', :require => false
 
 gem 'rails_autolink', '1.0.9'
 
+# configuration
+gem 'configurate', '0.0.1'
+
 # cross-origin resource sharing
 
 gem 'rack-cors', '0.2.7', :require => 'rack/cors'

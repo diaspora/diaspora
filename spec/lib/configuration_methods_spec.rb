@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe Configuration::Methods do
   before(:all) do
-    @settings = Configuration::Settings.create do
-      add_provider Configuration::Provider::Dynamic
-      add_provider Configuration::Provider::Env
+    @settings = Configurate::Settings.create do
+      add_provider Configurate::Provider::Dynamic
+      add_provider Configurate::Provider::Env
       extend Configuration::Methods
     end
   end
