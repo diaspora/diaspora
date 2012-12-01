@@ -5,6 +5,7 @@
 * Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
 * Last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
 * Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713)
+* fixed tags on the profiles page (broken by the change of server side response in the switch to backbone) [#3775](https://github.com/diaspora/diaspora/pull/3777)
 * Extracted configuration system to a gem.
 * Made number of unicorn workers configurable.
 * Made loading of the configuration environment independent of Rails.
