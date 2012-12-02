@@ -18,6 +18,8 @@
 * moved Aspects JS initializer to the correct place so aspect selection / deselection works again [#3737] (https://github.com/diaspora/diaspora/pull/3737)
 * Do not strip "markdown" in links when posting to services [#3765](https://github.com/diaspora/diaspora/issues/3765)
 * Renamed `server.db` to `server.database` to match the example configuration.
+* Fix insecure image of cat on user edit page - New photo courtesy of 
+[khanb1 on flickr](http://www.flickr.com/photos/albaraa/) under CC BY 2.0.
 
 # 0.0.2.0
 
