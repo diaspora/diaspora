@@ -12,9 +12,11 @@
           %a.toggle_selector{:href => '#'}
             = stream.for_all_aspects? ? t('.deselect_all') : t('.select_all')
         - for aspect in all_aspects
-          %li{:data => {:aspect_id => aspect.id}, :class => ("active" if defined?(stream) && stream.aspect_ids.include?(aspect.id))}
-            .edit
-              = link_to image_tag("icons/pencil.png", :title => t('.edit_aspect', :name => aspect.name)), edit_aspect_path(aspect), :rel => "facebox"
+          - active = defined?(stream) && stream.aspect_ids.include?(aspect.id)
+          %li.aspect_element{:data => {:aspect_id => aspect.id}, :class => ("active" if active)}
+            %a{:href => edit_aspect_path(aspect), :rel => 'facebox', :title => t('.edit_aspect', :name => aspect.name)}
+              .edit{ :class => 'icons-pencil' }
+            .icons-check_yes_ok{:class => ("invisible" unless active)}
             %a.aspect_selector{:href => aspects_path("a_ids[]" => aspect.id), :class => "name", 'data-guid' => aspect.id}
               = aspect
 

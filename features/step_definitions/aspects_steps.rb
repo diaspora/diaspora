@@ -1,7 +1,7 @@
 When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
   step %{I hover over the "ul.sub_nav > li:contains('#{aspect_name}')"}
   within("#aspect_nav") do
-    find(:xpath, "//a[@rel='facebox'][.//img[@title='Edit #{aspect_name}']]").click
+    find('a > .edit').click
   end
 end
 
