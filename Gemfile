@@ -153,12 +153,11 @@ group :test do
   gem 'webmock', '1.8.11', :require => false
 
   gem 'spork', '1.0.0rc3'
-  gem 'guard-rspec', '2.1.1'
-  gem 'guard-spork', '1.2.3'
-  gem 'guard-cucumber', '1.2.2'
-  gem 'rb-inotify', '0.8.8', :require => false
-  gem 'rb-fsevent', '0.9.2', :require => false
-
+  gem 'guard-rspec', '2.3.3'
+  gem 'guard-spork', '1.4.1'
+  gem 'guard-cucumber', '1.3.2'
+  gem 'rb-inotify', '0.9.0', :require => false
+  gem 'rb-fsevent', '0.9.3', :require => false
 end
 
 group :test, :development do
