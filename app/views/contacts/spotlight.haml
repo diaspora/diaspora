@@ -18,7 +18,7 @@
 
   - if AppConfig.settings.community_spotlight.suggest_email.present?
     .right
-      = link_to "Suggest a member", "mailto:#{AppConfig.settings.community_spotlight.suggest_email}", :class => "button"
+      = link_to t('contacts.spotlight.suggest_member'), "mailto:#{AppConfig.settings.community_spotlight.suggest_email}", :class => "button"
 
   %h3
     = t('contacts.spotlight.community_spotlight')
