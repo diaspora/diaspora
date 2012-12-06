@@ -352,7 +352,7 @@ GEM
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
     ruby-hmac (0.4.0)
-    ruby-oembed (0.8.7)
+    ruby-oembed (0.8.8)
     ruby-progressbar (1.0.2)
     rubyzip (0.9.9)
     sass (3.2.3)
@@ -479,7 +479,7 @@ DEPENDENCIES
   roxml!
   rspec-instafail (= 0.2.4)
   rspec-rails (= 2.12.2)
-  ruby-oembed (= 0.8.7)
+  ruby-oembed (= 0.8.8)
   sass-rails (= 3.2.5)
   selenium-webdriver (= 2.27.1)
   spork (= 1.0.0rc3)
