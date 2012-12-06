@@ -59,7 +59,8 @@ GEM
       activemodel
       fog
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.1.1.0)
+    bootstrap-sass (2.2.2.0)
+      sass (~> 3.2)
     builder (3.0.4)
     capistrano (2.12.0)
       highline
@@ -418,7 +419,7 @@ DEPENDENCIES
   acts_as_api (= 0.4.1)
   addressable (= 2.3.2)
   asset_sync (= 0.5.0)
-  bootstrap-sass (= 2.1.1.0)
+  bootstrap-sass (= 2.2.2.0)
   capistrano (= 2.12.0)
   capistrano_colors (= 0.5.5)
   capybara (= 1.1.3)
