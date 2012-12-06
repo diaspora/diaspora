@@ -11,7 +11,7 @@ pt-PT:
       all_aspects: "Todos os grupos"
       error: "Não foi possível começar a partilhar com {{name}}. Você está a ignorá-los?"
       select_aspects: "Selecionar grupos"
-      started_sharing_with: "Começou a partilhar com {{name}}!"
+      started_sharing_with: "Começou a partilhar com <%= name %>!"
       stopped_sharing_with: "Deixou de partilhar com {{name}}."
       toggle:
         one: "Em <%=count %> grupo"
@@ -48,6 +48,7 @@ pt-PT:
       settings: "Definições"
       view_all: "Ver tudo"
     ignore: "Ignorar"
+    ignore_user: "Ignorar este utilizador?"
     infinite_scroll:
       no_more: "Não há mais publicações."
     my_activity: "Minha atividade"
@@ -80,10 +81,10 @@ pt-PT:
       more_comments:
         few: "Mostrar <%= count %> mais comentários"
         many: "Mostrar <%= count %> mais comentários"
-        one: "Mostras <%= count %> mais comentários"
-        other: "Mostrar <%= count %> mais comentários"
+        one: "Mostrar mais <%= count %> comentário"
+        other: "Mostrar mais <%= count %> comentários"
         two: "Mostrar <%= count %> mais comentários"
-        zero: "Mostrar <%= count %> mais comentários"
+        zero: "Mostrar mais <%= count %> comentários"
       original_post_deleted: "Publicação original eliminada pelo autor."
       public: "Público"
       reshare: "Partilhar"

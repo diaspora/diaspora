@@ -15,7 +15,6 @@ sl:
       stopped_sharing_with: "Prenehali ste deliti z <%= name %>."
       toggle:
         few: "V <%= count %> vidikih"
-        many: "V {{count}} pogledih"
         one: "V <%= count %> vidiku"
         other: "V <%= count %> vidikih"
         two: "V <%= count %> vidikih"
@@ -77,7 +76,6 @@ sl:
       like: "Všeč mi je"
       likes:
         few: "<%= count %> je to všeč"
-        many: "<%= count %> Likes"
         one: "<%= count %> je to všeč"
         other: "<%= count %> je to všeč"
         two: "<%= count %> je to všeč"
@@ -85,7 +83,6 @@ sl:
       limited: "Omejeno"
       more_comments:
         few: "Prikaži <%= count %> mnenja"
-        many: "Show <%= count %> more comments"
         one: "Prikaži <%= count %> mnenje"
         other: "Prikaži <%= count %> mnenj"
         two: "Prikaži <%= count %> mnenji"
@@ -95,7 +92,6 @@ sl:
       reshare: "Ponovno deli"
       reshares:
         few: "<%= count %> ponovna deljenja"
-        many: "<%= count %> Reshares"
         one: "<%= count %> ponovno deljenje"
         other: "<%= count %> ponovnih deljenj"
         two: "<%= count %> ponovni deljenji"

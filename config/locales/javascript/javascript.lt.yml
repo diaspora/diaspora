@@ -1,0 +1,114 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+lt:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "Pridėti prie kontaktų"
+      all_aspects: "Visos kategorijos"
+      error: "Negalima pradėti dalijimosi su <%= name %>. Gal įjungtas ignoravimas?"
+      select_aspects: "Pasirinkti kategorijas"
+      started_sharing_with: "Jūs pradėjote dalijimąsi su <%= name %>!"
+      stopped_sharing_with: "Jūs sustabdėte dalijimąsi su <%= name %>"
+      toggle:
+        few: "<%= count %> kategorijose"
+        one: "<%= count %> kategorijoje"
+        other: "<%= count %> kategorijų"
+        zero: "Pasirinkite kategorijas"
+    aspect_navigation:
+      deselect_all: "Nesirinkti nieko"
+      no_aspects: "Nepasirinkta nei viena kategorija"
+      select_all: "Pasirinkti viską"
+    comments:
+      hide: "Slėpti komentarus"
+      show: "Rodyti visus komentarus"
+    confirm_dialog: "Ar Jūs tuo įsitikinęs?"
+    delete: "Ištrinti"
+    failed_to_like: "Nepavyko pamėgti!"
+    failed_to_post_message: "Nepavyko išsiųsti žinutės!"
+    getting_started:
+      alright_ill_wait: "Suprantama, aš galiu palaukti!"
+      hey: "Sveiki, <%= name %>!"
+      no_tags: "Labas, Jūs nieko nesekate! Visitiek tęsti?"
+      preparing_your_stream: "Ruošiamas Jūsų Srautas..."
+    header:
+      admin: "Administruoti"
+      contacts: "Kontaktai"
+      home: "Pradžia"
+      log_out: "Atsijungti"
+      mark_all_as_read: "Pažymėti viską kaip skaitytą"
+      messages: "Pranešimai"
+      notifications: "Įspėjimai"
+      profile: "Anketa"
+      recent_notifications: "Naujausi įspėjimai"
+      search: "Paieška"
+      settings: "Nustatymai"
+      view_all: "Rodyti viską"
+    ignore: "Ignoruoti"
+    infinite_scroll:
+      no_more: "Įrašų nėra."
+    my_activity: "Mano veikla"
+    my_stream: "Srautas"
+    photo_uploader:
+      looking_good: "Wow, Jūs atrodote nuostabiai!"
+    publisher:
+      at_least_one_aspect: "Jums reikia paviešinti bent vieną kategoriją"
+      limited: "Ribotas - Jūsų įrašą galės peržiūrėti tik žmonės, su kuriais Jūs dalijatės"
+      public: "Viešas - Jūsų įrašus galės peržiūrėti visi, taip pat jie bus randami paieškos sistemose."
+    reshares:
+      duplicate: "Šitas geras, ne? Jūs jau dalijotės šiuo įrašu!"
+    search_for: "Ieškoti <%= name %>"
+    show_more: "Rodyti daugiau"
+    stream:
+      comment: "Komentuoti"
+      follow: "Sekti"
+      hide: "Slėpti"
+      hide_nsfw_posts: "Slėpti #nsfw įrašus"
+      like: "Mėgti"
+      likes:
+        few: "<%= count %> mėgstantys"
+        one: "<%= count %> mėgstantis"
+        other: "<%= count %> mėgstančių"
+        zero: "<%= count %> mėgstančių"
+      limited: "Ribotas"
+      more_comments:
+        few: "Rodyti dar <%= count %> komentarus"
+        one: "Rodyti dar <%= count %> komentarą"
+        other: "Rodyti dar <%= count %> komentarų"
+        zero: "Rodyti <%= count %> komentarų"
+      original_post_deleted: "Įrašą ištrynė jo autorius."
+      public: "viešas"
+      reshare: "Pasidalinti"
+      reshares:
+        few: "Dalijasi <%= count %>"
+        one: "Dalijasi <%= count %>"
+        other: "Dalijasi <%= count %>"
+        zero: "Dalijasi <%= count %>"
+      show_nsfw_post: "Rodyti įrašą"
+      show_nsfw_posts: "Rodyti viską"
+      unfollow: "Nesekti"
+      unlike: "Nemėgti"
+    tags:
+      wasnt_that_interesting: "Na gerai, greičiausiai #<%= tagName%> tai nebuvo taip įdomu..."
+    timeago:
+      day: "1 d."
+      days: "%d d."
+      hour: "maždaug1 val."
+      hours: "maždaug %d val."
+      minute: "maždaug 1 min."
+      minutes: "%d min."
+      month: "maždaug 1 mėn."
+      months: "%d mėn."
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "mažiau nei 1 min."
+      suffixAgo: "prieš"
+      suffixFromNow: "nuo dabar"
+      year: "maždaug 1 m."
+      years: "%d m."
+    videos:
+      unknown: "Netinkamas video įrašo tipas."
+      watch: "Žiūrėkite video įrašą čia <%=provider %>"

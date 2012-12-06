@@ -51,6 +51,7 @@ pl:
       settings: "Ustawienia"
       view_all: "Wyświetl wszystko"
     ignore: "Ignoruj"
+    ignore_user: "Zignorować tego użytkownika?"
     infinite_scroll:
       no_more: "Nie ma więcej wpisów."
     my_activity: "Moja aktywność"
@@ -85,10 +86,8 @@ pl:
       limited: "Ograniczone"
       more_comments:
         few: "Wyświetl <%= count %> komentarze więcej"
-        many: "Wyświetl <%= count %> więcej komentarzy"
         one: "Wyświetl <%= count %> komentarz więcej"
         other: "Wyświetl <%= count %> komentarzy więcej"
-        two: "Wyświetl <%= count %> komentarze więcej"
         zero: "Wyświetl <%= count %> komentarzy więcej"
       original_post_deleted: "Oryginalny wpis został usunięty przez autora."
       public: "Publiczny"

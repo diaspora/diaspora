@@ -1,4 +1,4 @@
-#we dont have the enviroment, and it is not carring over from the migration
+#we dont have the environment, and it is not carring over from the migration
 unless defined?(Person)
   class Person < ActiveRecord::Base
     belongs_to :owner, :class_name => 'User'

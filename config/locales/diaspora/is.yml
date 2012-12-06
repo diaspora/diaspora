@@ -612,8 +612,6 @@ is:
       receive_email_notifications: "Fá tilkynningar í tölvupósti?"
       your_email: "Netfangið þitt"
       your_handle: "Díaspora netfangið þitt."
-    getting_started:
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
     public:
       does_not_exist: "Notandinn %{username} er ekki til!"
     update:

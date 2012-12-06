@@ -11,6 +11,8 @@ class Message < ActiveRecord::Base
 
   belongs_to :author, :class_name => 'Person'
   belongs_to :conversation, :touch => true
+  
+  delegate :name, to: :author, prefix: true
 
   validates :text, :presence => true
   validate :participant_of_parent_conversation
@@ -57,13 +59,10 @@ class Message < ActiveRecord::Base
     self.conversation = parent
   end
 
-  def after_receive(user, person)
+  def increase_unread(user)
     if vis = ConversationVisibility.where(:conversation_id => self.conversation_id, :person_id => user.person.id).first
       vis.unread += 1
       vis.save
-      self
-    else
-      raise NotVisibleError.new("User #{user.id} with person #{user.person.id} is not allowed to see conversation #{conversation.id}!")
     end
   end
 

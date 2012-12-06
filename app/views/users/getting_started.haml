@@ -4,6 +4,8 @@
 
 - content_for :head do
   = javascript_include_tag :profile
+:css
+  .media, .bd{ overflow: visible;}
 
 %br
 
@@ -27,9 +29,7 @@
 
       .row
         %p
-          = t('.we_can_speed_things_up')
-          = link_to t('.hooking_up_fb'), "auth/facebook?callback_url=#{getting_started_url}"
-          = t('.what_facebook_does')
+          != t('.connect_to_facebook', :link => link_to(t('.connect_to_facebook_link'), "auth/facebook?callback_url=#{getting_started_url}"))
 
       .row
         .span6
@@ -38,7 +38,7 @@
               .clearfix
                 = label_tag 'profile[first_name]', t('profiles.edit.your_name'), :class => "bootstrapped"
                 .input
-                  = text_field_tag 'profile[first_name]', current_user.person.profile.first_name
+                  = text_field_tag 'profile[first_name]', current_user.first_name
                   = image_tag 'ajax-loader.gif', :id => "gs-name-form-spinner", :class => "hidden"
 
               %span.saved{:class => "hidden"}
@@ -63,7 +63,7 @@
 
       .row
         .span13
-          = form_tag(multiple_tag_followings_path, :method => 'post', :class => "tag_input search_form") do
+          = form_tag(tag_followings_path, :method => 'get', :class => "tag_input search_form") do
             %fieldset
               .clearfix
                 = label_tag 'follow_tags', t('.hashtag_suggestions'), :class => "bootstrapped"
@@ -75,5 +75,5 @@
               %br
               %br
               .input
-                = link_to "#{t('.awesome_take_me_to_diaspora')} »", "#", :id => "awesome_button", :class => "btn primary"
+                = link_to "#{t('.awesome_take_me_to_diaspora')} »", stream_path, :id => "awesome_button", :class => "btn primary"
 

@@ -21,9 +21,9 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
   #mail setup
-  if AppConfig[:smtp_sender_address]
-    config.mailer_sender = AppConfig[:smtp_sender_address]
-  else
+  if AppConfig.mail.sender_address.present?
+    config.mailer_sender = AppConfig.mail.sender_address
+  elsif AppcConfig.mail.enable?
     unless Rails.env == 'test'
       Rails.logger.warn("No smtp sender address set, mail may fail.")
       puts "WARNING: No smtp sender address set, mail may fail."
@@ -77,7 +77,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+  config.remember_for = 2.weeks
   
   # ==> Configuration for :validatable
   # Range for password length
@@ -89,7 +89,7 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again.
-  config.timeout_in = 1.day
+  # config.timeout_in = 1.day
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.

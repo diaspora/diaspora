@@ -8,6 +8,7 @@ en:
     confirm_dialog: "Are you sure?"
     delete: "Delete"
     ignore: "Ignore"
+    ignore_user: "Ignore this user?"
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
@@ -104,6 +105,17 @@ en:
         zero: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+
+      followed_tag:
+        title: "#Followed Tags"
+        contacts_title: "People who dig these tags"
+        add_a_tag: "Add a tag"
+        follow: "Follow"
+
+      tags:
+        follow: "Follow #<%= tag %>"
+        following: "Following #<%= tag %>"
+        stop_following: "Stop Following #<%= tag %>"
 
     header:
       home: "Home"

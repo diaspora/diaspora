@@ -51,6 +51,7 @@ de:
       settings: "Einstellungen"
       view_all: "Alle anzeigen"
     ignore: "Ignorieren"
+    ignore_user: "Benutzer ignorieren?"
     infinite_scroll:
       no_more: "Keine weiteren Beiträge."
     my_activity: "Meine Aktivitäten"

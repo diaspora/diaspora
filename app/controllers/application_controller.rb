@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :ensure_http_referer_is_set
   before_filter :set_locale
-  before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
+  before_filter :set_diaspora_header
   before_filter :set_grammatical_gender
   before_filter :mobile_switch
 
@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
                 :tag_followings,
                 :tags,
                 :open_publisher
+
+  private
 
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/'
@@ -61,9 +63,13 @@ class ApplicationController < ActionController::Base
     params[:page] = params[:page] ? params[:page].to_i : 1
   end
 
-  def set_git_header
-    headers['X-Git-Update'] = AppConfig[:git_update] if AppConfig[:git_update].present?
-    headers['X-Git-Revision'] = AppConfig[:git_revision] if AppConfig[:git_revision].present?
+  def set_diaspora_header
+    headers['X-Diaspora-Version'] = AppConfig.version_string
+    
+    if AppConfig.git_available?
+      headers['X-Git-Update'] = AppConfig.git_update if AppConfig.git_update.present?
+      headers['X-Git-Revision'] = AppConfig.git_revision if AppConfig.git_revision.present?
+    end
   end
 
   def set_locale
@@ -86,7 +92,7 @@ class ApplicationController < ActionController::Base
 
   def set_grammatical_gender
     if (user_signed_in? && I18n.inflector.inflected_locale?)
-      gender = current_user.profile.gender.to_s.tr('!()[]"\'`*=|/\#.,-:', '').downcase
+      gender = current_user.gender.to_s.tr('!()[]"\'`*=|/\#.,-:', '').downcase
       unless gender.empty?
         i_langs = I18n.inflector.inflected_locales(:gender)
         i_langs.delete  I18n.locale
@@ -124,8 +130,6 @@ class ApplicationController < ActionController::Base
   def max_time
     params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now + 1
   end
-
-  private
 
   def current_user_redirect_path
     current_user.getting_started? ? getting_started_path : root_path

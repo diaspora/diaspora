@@ -1,6 +1,6 @@
 %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post"}
   %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}
-  %input{:name => "hosted_button_id", :type => "hidden", :value => AppConfig[:paypal_hosted_button_id]}
+  %input{:name => "hosted_button_id", :type => "hidden", :value => AppConfig.settings.paypal_hosted_button_id}
   %input{:name => "on0", :type => "hidden", :value => "Type"}
   %input{:name => "modify", :type => "hidden", :value => "2"}
   %select{:name => "os0"}

@@ -50,7 +50,8 @@ hu:
       search: "Keresés"
       settings: "Beállítások"
       view_all: "Összes"
-    ignore: "Elutasít"
+    ignore: "Mellőzés"
+    ignore_user: "Felhasználó mellőzése?"
     infinite_scroll:
       no_more: "Nincs több bejegyzés."
     my_activity: "Tevékenységeim"
@@ -60,7 +61,7 @@ hu:
     photo_uploader:
       looking_good: "Azta! Remekül nézek ki!"
     publisher:
-      at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
+      at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
       public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
     reshares:
@@ -76,11 +77,7 @@ hu:
       hide_nsfw_posts: "#nsfw bejegyzések rejtése"
       like: "Tetszik"
       likes:
-        few: "<%= count %> kedveli"
-        many: "<%= count %> kedveli"
-        one: "<%= count %> kedveli"
         other: "<%= count %> ember kedveli"
-        two: "<%= count %> kedveli"
         zero: "<%= count %> kedveli"
       limited: "Korlátozott"
       more_comments:
@@ -91,7 +88,7 @@ hu:
         two: "Mutasd a többi <%= count %> hozzászólást"
         zero: "Mutasd a többi <%= count %> hozzászólást"
       original_post_deleted: "Eredeti bejegyzés törölve a szerzője által."
-      public: "Publikus"
+      public: "Nyilvános"
       reshare: "Megosztás"
       reshares:
         few: "<%= count %> megosztás"

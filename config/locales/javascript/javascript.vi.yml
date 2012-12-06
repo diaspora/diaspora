@@ -47,6 +47,7 @@ vi:
       settings: "Thiết lập"
       view_all: "Xem tất cả"
     ignore: "Bỏ qua"
+    ignore_user: "Bỏ qua người này?"
     infinite_scroll:
       no_more: "Không còn bài đăng nào nữa."
     my_activity: "Hoạt động của tôi"
@@ -57,7 +58,7 @@ vi:
       looking_good: "Ôi, trông bạn thật tuyệt!"
     publisher:
       at_least_one_aspect: "Bạn phải công khai ít nhất một mối quan hệ"
-      limited: "Giới hạn - tin của bạn được những người chỉ định nhìn thấy"
+      limited: "Giới hạn - bài đăng của bạn được những người chỉ định nhìn thấy"
       public: "Công khai - bài đăng của bạn được mọi người và máy tìm kiếm nhìn thấy"
     reshares:
       duplicate: "Bạn đã chia sẻ lại tin đó!"

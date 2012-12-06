@@ -61,7 +61,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   blockUser: function(evt){
     if(evt) { evt.preventDefault(); }
-    if(!confirm("Ignore this user?")) { return }
+    if(!confirm(Diaspora.I18n.t('ignore_user'))) { return }
 
     var personId = this.model.get("author").id;
     var block = new app.models.Block();

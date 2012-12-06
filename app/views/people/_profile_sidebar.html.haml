@@ -17,30 +17,30 @@
       %br
     -if contact.sharing? || person == current_user.person
       %ul#profile_information
-        - unless person.profile.bio.blank?
+        - unless person.bio.blank?
           %li
             %h4
               =t('.bio')
-            %div{ :class => direction_for(person.profile.bio) }
+            %div{ :class => direction_for(person.bio) }
               = markdownify(person.profile.bio, :oembed => true, :newlines => true)
         - unless person.profile.location.blank?
           %li
             %h4
               =t('.location')
-            %div{ :class => direction_for(person.profile.location) }
-              = markdownify(person.profile.location, :oembed => true, :newlines => true)
+            %div{ :class => direction_for(person.location) }
+              = markdownify(person.location, :oembed => true, :newlines => true)
 
         %li
-          - unless person.profile.gender.blank?
+          - unless person.gender.blank?
             %h4
               =t('.gender')
-            = person.profile.gender
+            = person.gender
 
         %li
-          - unless person.profile.birthday.blank?
+          - unless person.birthday.blank?
             %h4
               =t('.born')
-            = birthday_format(person.profile.birthday)
+            = birthday_format(person.birthday)
 
           %br
           %br

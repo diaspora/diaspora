@@ -30,7 +30,7 @@ module OpenGraphHelper
   end
 
   def og_namespace(object)
-    namespace = AppConfig[:open_graph_namespace].present? ? AppConfig[:open_graph_namespace] : 'joindiaspora'
+    namespace = AppConfig.services.facebook.open_graph_namespace.present? ? AppConfig.services.facebook.open_graph_namespace : 'joindiaspora'
     "#{namespace}:frame"
   end
 

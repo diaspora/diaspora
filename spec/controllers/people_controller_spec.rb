@@ -67,12 +67,12 @@ describe PeopleController do
       context 'query is a tag' do
         it 'goes to a tag page' do
           get :index, :q => '#babies'
-          response.should redirect_to(tag_path('babies', :q => '#babies'))
+          response.should redirect_to(tag_path('babies'))
         end
 
         it 'removes dots from the query' do
           get :index, :q => '#babi.es'
-          response.should redirect_to(tag_path('babies', :q => '#babi.es'))
+          response.should redirect_to(tag_path('babies'))
         end
 
         it 'stay on the page if you search for the empty hash' do
@@ -287,11 +287,12 @@ describe PeopleController do
         end
       end
 
-      it 'throws 404 if the person is remote' do
+      it 'forces to sign in if the person is remote' do
         p = FactoryGirl.create(:person)
 
         get :show, :id => p.to_param
-        response.status.should == 404
+        response.should be_redirect
+        response.should redirect_to new_user_session_path
       end
     end
 
@@ -412,35 +413,35 @@ describe PeopleController do
 
   describe '#diaspora_id?' do
     it 'returns true for pods on urls' do
-      @controller.diaspora_id?("ilya_123@pod.geraspora.de").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@pod.geraspora.de").should be_true
     end
 
     it 'returns true for pods on urls with port' do
-      @controller.diaspora_id?("ilya_123@pod.geraspora.de:12314").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@pod.geraspora.de:12314").should be_true
     end
 
     it 'returns true for pods on localhost' do
-      @controller.diaspora_id?("ilya_123@localhost").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@localhost").should be_true
     end
 
     it 'returns true for pods on localhost and port' do
-      @controller.diaspora_id?("ilya_123@localhost:1234").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@localhost:1234").should be_true
     end
 
     it 'returns true for pods on ip' do
-      @controller.diaspora_id?("ilya_123@1.1.1.1").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@1.1.1.1").should be_true
     end
 
     it 'returns true for pods on ip and port' do
-      @controller.diaspora_id?("ilya_123@1.2.3.4:1234").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@1.2.3.4:1234").should be_true
     end
 
     it 'returns false for pods on with invalid url characters' do
-      @controller.diaspora_id?("ilya_123@join_diaspora.com").should be_false
+      @controller.send(:diaspora_id?, "ilya_123@join_diaspora.com").should be_false
     end
 
     it 'returns false for invalid usernames' do
-      @controller.diaspora_id?("ilya_2%3@joindiaspora.com").should be_false
+      @controller.send(:diaspora_id?, "ilya_2%3@joindiaspora.com").should be_false
     end
   end
 end

@@ -2,17 +2,12 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-if RUBY_VERSION.include?("1.9")
-  require 'yaml'
-  YAML::ENGINE.yamler= 'syck'
-end
-
-require 'rubygems'
+require 'pathname'
 
 # Set up gems listed in the Gemfile.
-gemfile = File.expand_path('../../Gemfile', __FILE__)
+gemfile = Pathname.new(__FILE__).dirname.join('..').expand_path.join('Gemfile')
 begin
-  ENV['BUNDLE_GEMFILE'] = gemfile
+  ENV['BUNDLE_GEMFILE'] = gemfile.to_s
   require 'bundler'
   Bundler.setup
 rescue Bundler::GemNotFound => e

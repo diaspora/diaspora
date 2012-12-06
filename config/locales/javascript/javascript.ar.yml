@@ -68,7 +68,7 @@ ar:
       comment: "تعليق"
       follow: "تابِع"
       hide: "إخف"
-      hide_nsfw_posts: "إخف nsfw المشاركات"
+      hide_nsfw_posts: "إخف nsfw# المشاركات"
       like: "أعجبني"
       likes:
         few: "عدد المعجبين"
@@ -110,7 +110,7 @@ ar:
       minutes: "%d دقائق"
       month: "شهر تقريباً"
       months: "%d شهور"
-      prefixAgo: ""
+      prefixAgo: "قبل"
       prefixFromNow: "من الآن"
       seconds: "أقل من دقيقة"
       suffixAgo: "مضت"

@@ -40,6 +40,31 @@ describe Notifications::PrivateMessage do
         @user2.should_receive(:mail)
         n.email_the_user(@msg, @user1.person)
       end
+      
+      it 'increases user unread count - author user 1' do
+        message = @cnv.messages.build(
+          :text   => "foo bar",
+          :author => @user1.person
+        )
+        message.save
+        n = Notifications::PrivateMessage.make_notification(@user2, message, @user1.person, Notifications::PrivateMessage)
+        
+        ConversationVisibility.where(:conversation_id => message.reload.conversation.id,
+            :person_id => @user2.person.id).first.unread.should == 1
+      end
+      
+      it 'increases user unread count - author user 2' do
+        message = @cnv.messages.build(
+          :text   => "foo bar",
+          :author => @user2.person
+        )
+        message.save
+        n = Notifications::PrivateMessage.make_notification(@user1, message, @user2.person, Notifications::PrivateMessage)
+        
+        ConversationVisibility.where(:conversation_id => message.reload.conversation.id,
+            :person_id => @user1.person.id).first.unread.should == 1
+      end
+      
     end
 end
  

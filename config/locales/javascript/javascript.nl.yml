@@ -81,11 +81,8 @@ nl:
         zero: "<%= count %> mensen vinden dit leuk"
       limited: "Beperkt zichtbaar"
       more_comments:
-        few: "Toon nog <%= count %> reacties"
-        many: "Toon nog <%= count %> reacties"
         one: "Toon nog <%= count %> reactie"
         other: "Toon nog <%= count %> reacties"
-        two: "Toon nog <%= count %> reacties"
         zero: "Toon nog <%= count %> reacties"
       original_post_deleted: "Originele bericht verwijderd door de auteur."
       public: "Openbaar"

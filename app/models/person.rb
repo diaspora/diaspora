@@ -32,7 +32,9 @@ class Person < ActiveRecord::Base
   xml_attr :exported_key
 
   has_one :profile, :dependent => :destroy
-  delegate :last_name, :image_url, :to => :profile
+  delegate :last_name, :image_url, :tag_string, :bio, :location,
+           :gender, :birthday, :formatted_birthday, :tags, :searchable,
+           to: :profile
   accepts_nested_attributes_for :profile
 
   before_validation :downcase_diaspora_handle
@@ -163,12 +165,6 @@ class Person < ActiveRecord::Base
       end
       ["contacts.user_id #{order}", "profiles.last_name ASC", "profiles.first_name ASC"]
     }.call
-  end
-
-  def self.public_search(query, opts={})
-    return [] if query.to_s.blank? || query.to_s.length < 3
-    sql, tokens = self.search_query_string(query)
-    Person.searchable.where(sql, *tokens)
   end
 
   def name(opts = {})

@@ -32,30 +32,27 @@ class TagsController < ApplicationController
   end
 
   def show
+    if user_signed_in?
+      gon.tagFollowings = tags
+    end
     @stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
-
     respond_with do |format|
       format.json { render :json => @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
     end
   end
 
- def tag_followed?
-   TagFollowing.user_is_following?(current_user, params[:name])
- end
+  private
+
+  def tag_followed?
+    TagFollowing.user_is_following?(current_user, params[:name])
+  end
 
   def prep_tags_for_javascript
-    @tags.map! do |obj|
-        { :name => ("#"+obj.name),
-          :value => ("#"+obj.name),
-          :url => tag_path(obj.name)
-        }
-      end
+    @tags.map! do |tag|
+      { :name  => ("#" + tag.name) }
+    end
 
-      @tags << {
-        :name => ('#' + params[:q]),
-        :value => ("#" + params[:q]),
-        :url => tag_path(params[:q].downcase)
-      }
-      @tags.uniq!
+    @tags << { :name  => ('#' + params[:q]) }
+    @tags.uniq!
   end
 end

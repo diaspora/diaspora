@@ -7,8 +7,6 @@ require 'spec_helper'
 describe UsersController do
   before do
     @user = alice
-    @aspect = @user.aspects.first
-    @aspect1 = @user.aspects.create(:name => "super!!")
     sign_in :user, @user
     @controller.stub(:current_user).and_return(@user)
   end
@@ -60,6 +58,7 @@ describe UsersController do
       get :public, :username => @user.username
       response.should be_redirect
     end
+
     it 'redirects to a profile page if mobile is requested' do
       get :public, :username => @user.username, :format => :mobile
       response.should be_redirect
@@ -210,7 +209,6 @@ describe UsersController do
       Resque.should_receive(:enqueue).with(Jobs::DeleteAccount, anything)
       delete :destroy, :user => { :current_password => "bluepin7" }
     end
-
   end
 
   describe '#confirm_email' do
@@ -251,22 +249,4 @@ describe UsersController do
       response.should be_success
     end
   end
-
-  # This logic lives in application controller
-  describe "#after_sign_in_path_for" do
-    before do
-      @controller.stub(:current_user).and_return(eve)
-    end
-
-    context 'getting started true on user' do
-      before do
-        eve.update_attribute(:getting_started, true)
-      end
-
-      it "redirects to getting started if the user has getting started set to true" do
-        @controller.after_sign_in_path_for(eve).should == getting_started_path
-      end
-    end
-  end
 end
-

@@ -7,11 +7,13 @@ Feature: Aspect navigation on the left menu
     Background:
       Given a user with username "bob"
       And I sign in as "bob@bob.bob"
+      And I have an aspect called "Others"
 
     Scenario: All aspects are selected by default
       When I go to the aspects page
       Then I should see "Besties" aspect selected
       Then I should see "Unicorns" aspect selected
+      Then I should see "Others" aspect selected
 
     Scenario: Aspects selection is remembered through site navigation
       When I go to the aspects page
@@ -20,3 +22,12 @@ Feature: Aspect navigation on the left menu
       And I go to the aspects page
       Then I should see "Besties" aspect selected
       Then I should see "Unicorns" aspect unselected
+      Then I should see "Others" aspect unselected
+
+    Scenario: Aspects selection can include one or more aspects
+      When I go to the aspects page
+      And I select only "Besties" aspect
+      And I select "Unicorns" aspect as well
+      Then I should see "Besties" aspect selected
+      Then I should see "Unicorns" aspect selected
+      Then I should see "Others" aspect unselected

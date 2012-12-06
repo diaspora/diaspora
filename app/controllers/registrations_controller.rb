@@ -18,10 +18,10 @@ class RegistrationsController < Devise::RegistrationsController
       Rails.logger.info("event=registration status=successful user=#{@user.diaspora_handle}")
     else
       @user.errors.delete(:person)
-      
+
       flash[:error] = @user.errors.full_messages.join(" - ")
       Rails.logger.info("event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'")
-      render :new
+      redirect_to :back
     end
   end
 
@@ -30,8 +30,9 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
   def check_valid_invite!
-    return true unless AppConfig[:registrations_closed] #this sucks
+    return true if AppConfig.settings.enable_registrations? #this sucks
     return true if invite && invite.can_be_used?
     flash[:error] = t('registrations.invalid_invite')
     redirect_to new_user_session_path
@@ -39,7 +40,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def check_registrations_open_or_vaild_invite!
     return true if invite.present?
-    if AppConfig[:registrations_closed]
+    unless AppConfig.settings.enable_registrations?
       flash[:error] = t('registrations.closed')
       redirect_to new_user_session_path
     end
@@ -50,6 +51,6 @@ class RegistrationsController < Devise::RegistrationsController
       @invite ||= InvitationCode.find_by_token(params[:invite][:token])
     end
   end
-  
+
   helper_method :invite
 end

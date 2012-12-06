@@ -58,7 +58,7 @@ class PhotosController < ApplicationController
   end
 
   def make_profile_photo
-    author_id = current_user.person.id
+    author_id = current_user.person_id
     @photo = Photo.where(:id => params[:photo_id], :author_id => author_id).first
 
     if @photo

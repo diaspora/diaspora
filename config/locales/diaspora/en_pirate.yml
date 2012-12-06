@@ -328,5 +328,3 @@ en_pirate:
       close_account:
         what_we_delete: "We scuttle all of yer posts, profile data, as soon as humanly possible. Yer comments will hang around, but be associated with yer Diaspora Handle."
       your_handle: "Yer diaspora id"
-    getting_started:
-      what_facebook_does: "t' Diaspora. This will pull yer name 'n photo, 'n enable cross-posting."

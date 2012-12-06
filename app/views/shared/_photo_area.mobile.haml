@@ -9,7 +9,7 @@
         - if post.photos.size > 1
           .additional_photo_count
             = "+ #{post.photos.size-1}"
-        = image_tag post.photos.first.url(:thumb_large), :class => "stream-photo big-stream-photo"
+        = image_tag post.first_photo_url(:thumb_large), :class => "stream-photo big-stream-photo"
   - elsif post.activity_streams?
     = image_tag post.image_url
 

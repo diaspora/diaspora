@@ -28,8 +28,6 @@ Diaspora::Application.routes.draw do
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
 
-  match "/framer" => redirect("/posts/new")
-
   get 'p/:id' => 'posts#show', :as => 'short_post'
   get 'posts/:id/iframe' => 'posts#iframe', :as => 'iframe'
 
@@ -76,13 +74,8 @@ Diaspora::Application.routes.draw do
   end
 
   resources :tags, :only => [:index]
-  scope "tags/:name" do
-    post   "tag_followings" => "tag_followings#create", :as => 'tag_tag_followings'
-    delete "tag_followings" => "tag_followings#destroy", :as => 'tag_tag_followings'
-  end
 
-  post   "multiple_tag_followings" => "tag_followings#create_multiple", :as => 'multiple_tag_followings'
-  resources "tag_followings", :only => [:create]
+  resources "tag_followings", :only => [:create, :destroy, :index]
 
   get 'tags/:name' => 'tags#show', :as => 'tag'
 
@@ -181,13 +174,6 @@ Diaspora::Application.routes.draw do
 
   # External
 
-  resources :authorizations, :only => [:index, :destroy]
-  scope "/oauth", :controller => :authorizations, :as => "oauth" do
-    get "authorize" => :new
-    post "authorize" => :create
-    post :token
-  end
-
   resources :services, :only => [:index, :destroy]
   controller :services do
     scope "/auth", :as => "auth" do
@@ -220,7 +206,7 @@ Diaspora::Application.routes.draw do
   get 'protocol' => redirect("https://github.com/diaspora/diaspora/wiki/Diaspora%27s-federation-protocol")
 
   # Resque web
-  if AppConfig[:mount_resque_web]
+  if AppConfig.admins.inline_resque_web?
     mount Resque::Server.new, :at => '/resque-jobs', :as => "resque_web"
   end
 

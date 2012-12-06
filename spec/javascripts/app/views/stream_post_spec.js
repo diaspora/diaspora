@@ -28,19 +28,19 @@ describe("app.views.StreamPost", function(){
 
     context("reshare", function(){
       it("displays a reshare count", function(){
-        this.statusMessage.set({reshares_count : 2})
+        this.statusMessage.set({ interactions: {reshares_count : 2 }});
         var view = new this.PostViewClass({model : this.statusMessage}).render();
 
-        expect($(view.el).html()).toContain(Diaspora.I18n.t('stream.reshares', {count: 2}))
-      })
+        expect($(view.el).html()).toContain(Diaspora.I18n.t('stream.reshares', {count: 2}));
+      });
 
       it("does not display a reshare count for 'zero'", function(){
-        this.statusMessage.set({reshares_count : 0})
+        this.statusMessage.interactions.set({ interactions: { reshares_count : 0}} );
         var view = new this.PostViewClass({model : this.statusMessage}).render();
 
-        expect($(view.el).html()).not.toContain("0 Reshares")
-      })
-    })
+        expect($(view.el).html()).not.toContain("0 Reshares");
+      });
+    });
 
     context("likes", function(){
       it("displays a like count", function(){

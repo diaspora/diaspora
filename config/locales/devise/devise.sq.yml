@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -11,68 +11,68 @@ sq:
 
   devise:
     failure:
-      unauthenticated: "Duhet të bëni hyrjen ose të regjistroheni, përpara se të vazhdohet."
-      unconfirmed: "Duhet të ripohoni llogarinë tuaj, përpara se të vazhdohet."
-      locked: "Llogaria juaj është e kyçur."
-      invalid: "Emër përdoruesi ose fjalëkalim i gabuar."
-      invalid_token: "Mekanizëm ose të dhëna të pavlefshme mirëfilltësimi."
-      timeout: "Sesionit tuaj i mbaroi koha, ju lutem, hyni sërish që të vazhdoni."
-      inactive: "Llogaria juaj ende nuk është aktive."
+      unauthenticated: 'Duhet të bëni hyrjen ose të regjistroheni, përpara se të vazhdohet.'
+      unconfirmed: 'Duhet të ripohoni llogarinë tuaj, përpara se të vazhdohet.'
+      locked: 'Llogaria juaj është e kyçur.'
+      invalid: 'Emër përdoruesi ose fjalëkalim i gabuar.'
+      invalid_token: 'Mekanizëm ose të dhëna të pavlefshme mirëfilltësimi.'
+      timeout: 'Sesionit tuaj i mbaroi koha, ju lutem, hyni sërish që të vazhdoni.'
+      inactive: 'Llogaria juaj ende nuk është aktive.'
     sessions:
       new:
-        login: "Hyni"
-        username: "Emër përdoruesi"
-        password: "Fjalëkalim"
-        sign_in: "Hyni"
+        login: 'Hyni'
+        username: 'Emër përdoruesi'
+        password: 'Fjalëkalim'
+        sign_in: 'Hyni'
         remember_me: "Mbamë mend"
-        alpha_software: "Ju ndan një hap nga përdorimi i një programi në stad alfa."
-        bugs_and_feedback: "Ta dini që tani: do të hasni të meta.  Ju nxisim të përdorni butonin Përshtypje në anën e djathtë të shfletuesit tuaj që të raportoni çfarëdo bllokimi!  Do të punojmë sa më shpejt që të mundemi për të zgjidhur çfarëdo çështje që na raportoni."
-        bugs_and_feedback_mobile: "Ta dini që tani, do të hasni të meta.  Ju nxisim të raportoni çfarëdo bllokimi!  Do të punojmë sa më shpejt që të mundemi për të zgjidhur çfarëdo çështje që na raportoni."
-        modern_browsers: "mbulon vetëm shfletues modernë."
-      signed_in: "Hytë me sukses."
-      signed_out: "Dolët me sukses."
+        alpha_software: 'Ju ndan një hap nga përdorimi i një programi në stad alfa.'
+        bugs_and_feedback: 'Ta dini që tani: do të hasni të meta.  Ju nxisim të përdorni butonin Përshtypje në anën e djathtë të shfletuesit tuaj që të raportoni çfarëdo bllokimi!  Do të punojmë sa më shpejt që të mundemi për të zgjidhur çfarëdo çështje që na raportoni.'
+        bugs_and_feedback_mobile: 'Ta dini që tani, do të hasni të meta.  Ju nxisim të raportoni çfarëdo bllokimi!  Do të punojmë sa më shpejt që të mundemi për të zgjidhur çfarëdo çështje që na raportoni.'
+        modern_browsers: 'mbulon vetëm shfletues modernë.'
+      signed_in: 'Hytë me sukses.'
+      signed_out: 'Dolët me sukses.'
     passwords:
-      send_instructions: "Brenda pak minutash do t'ju vijë një email me udhëzime se si të ricaktoni fjalëkalimin tuaj."
-      updated: "Fjalëkalimi juaj u ndryshua me sukses. Tani jeni i futur."
+      send_instructions: "Brenda pak minutash do t'ju vijë email me udhëzime si të ricaktoni fjalëkalimin tuaj."
+      updated: 'Fjalëkalimi juaj u ndryshua me sukses. Tani jeni i futur.'
       edit:
         change_password: "Ndërroje fjalëkalimin tim"
       new:
         forgot_password: "Harruat fjalëkalimin?"
-        no_account: "Nuk ka llogari me këtë email.  Nëse po prisni për një ftesë, po shpërndajmë të tilla aq shpejt sa mundemi"
+        no_account: 'Nuk ka llogari me këtë email.  Nëse po prisni për një ftesë, po shpërndajmë të tilla aq shpejt sa mundemi'
         send_password_instructions: "Dërgomë udhëzime ricaktimi fjalëkalimi"
     confirmations:
       send_instructions: "Brenda pak minutash do t'ju vijë një email me udhëzime se si të ripohoni llogarinë tuaj."
-      confirmed: "Llogaria juaj u ripohua me sukses. Tani jeni i futur."
+      confirmed: 'Llogaria juaj u ripohua me sukses. Tani jeni i futur.'
       new:
         resend_confirmation: "Ridërgo udhëzime ripohimi" 
     registrations:
-      signed_up: "U regjistruat me sukses. Po qe se mundësia përkatëse është e aktivizuar, ju është dërguar një mesazh ripohimi te e-mail-i juaj."
-      updated: "E përditësuat me sukses llogarinë tuaj."
+      signed_up: 'U regjistruat me sukses. Po qe se mundësia përkatëse është e aktivizuar, ju është dërguar një mesazh ripohimi te e-mail-i juaj.'
+      updated: 'E përditësuat me sukses llogarinë tuaj.'
       destroyed: "Shëndet! Llogaria juaj u anulua me sukses. Shpresojmë t'ju shohim prapë së shpejti."
     unlocks:
       send_instructions: "Brenda pak minutash do t'ju vijë një email me udhëzime se si zhbllokoni llogarinë."
-      unlocked: "Llogaria juaj u zhbllokua me sukses. Tani jeni i futur."
+      unlocked: 'Llogaria juaj u zhbllokua me sukses. Tani jeni i futur.'
       new:
         resend_unlock: "Ridërgoji udhësimet për zhbllokim"
     invitations:
-      send_instructions: "Ftesa juaj u dërgua."
-      invitation_token_invalid: "Ndjesën tonë! Ky mekanizëm ose këto të dhëna ftese nuk janë të vlefshme."
-      updated: "Fjalëkalimi juaj u caktua me sukses. Tani jeni i futur."
+      send_instructions: 'Ftesa juaj u dërgua.'
+      invitation_token_invalid: 'Ndjesën tonë! Ky mekanizëm ose këto të dhëna ftese nuk janë të vlefshme.'
+      updated: 'Fjalëkalimi juaj u caktua me sukses. Tani jeni i futur.'
     mailer:
       welcome: "Mirë se vini %{email}!"
       hello: "Tungjatjeta %{email}!"
       confirmation_instructions:
-        subject: "Udhëzime ripohimi"
+        subject: 'Udhëzime ripohimi'
         you_can_confirm: "Llogarinë tuaj mund të ripohoni përmes lidhjes më poshtë:"
         confirm: "Ripohoje llogarinë time"
       reset_password_instructions:
-        subject: "Udhëzime ricaktimi fjalëkalimi"
+        subject: 'Udhëzime ricaktimi fjalëkalimi'
         someone_requested: "Dikush kërkoi një lidhje për ndryshimin e fjalëkalimit tuaj, dhe këtë mund ta bëni përmes lidhjes më poshtë."
         change: "Ndërroje fjalëkalimin tim"
         wont_change: "Fjalëkalimi juaj nuk do të ndryshojë pa përdorur lidhjen e mësipërme për të krijuar një të ri."
         ignore: "Nëse këtë nuk e kërkuat ju, ju lutem, shpërfilleni këtë email."
       unlock_instructions:
-        subject: "Udhëzime zhbllokimi"
+        subject: 'Udhëzime zhbllokimi'
         account_locked: "Llogari juaj është bllokuar për shkak të një sasie të tepruar përpjekjesh për të hyrë në të."
         click_to_unlock: "Që të zhbllokoni llogarinë tuaj, klikoni lidhjen e mëposhtme:"
         unlock: "Zhbllokoje llogarinë time"
@@ -113,9 +113,9 @@ sq:
       mail_signup_form:
         sign_up_for_an_invite: "Regjistrohuni për një ftesë!"
       links:
-        sign_in: "Hyni"
-        sign_up: "Regjistrohuni"
-        sign_up_closed: "Hëpërhë regjistrimet janë të mbyllura."
-        forgot_your_password: "Harruat fjalëkalimin tuaj?"
+        sign_in: 'Hyni'
+        sign_up: 'Regjistrohuni'
+        sign_up_closed: 'Hëpërhë regjistrimet janë të mbyllura.'
+        forgot_your_password: 'Harruat fjalëkalimin tuaj?'
         receive_confirmation: "Nuk i morët udhëzimet për ripohimin?"
         receive_unlock: "Nuk i morët udhëzimet për zhbllokimin?"

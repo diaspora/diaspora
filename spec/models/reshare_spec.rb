@@ -1,12 +1,7 @@
 require 'spec_helper'
 
 describe Reshare do
-  include ActionView::Helpers::UrlHelper
   include Rails.application.routes.url_helpers
-  def controller
-    mock()
-  end
-
 
   it 'has a valid Factory' do
     FactoryGirl.build(:reshare).should be_valid

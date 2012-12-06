@@ -57,9 +57,9 @@ de:
         one: "%{count} Kommentar"
         other: "%{count} Kommentare"
         zero: "%{count} Kommentare"
-      current_segment: "Das aktuelle Segment hat durchschnittlich <b>%{post_yest}</b> Beiträge pro Benutzer, seit <b>%{post_day}</b>"
+      current_segment: "Das aktuelle Segment hat durchschnittlich <b>%{post_yest}</b> Beiträge pro Benutzer, seit dem <b>%{post_day}</b>"
       daily: "täglich"
-      display_results: "Zeige Ergebnisse aus Segment <b>%{segment}</b>"
+      display_results: "Zeige Ergebnisse aus dem Segment <b>%{segment}</b>"
       go: "los"
       month: "Monat"
       posts:
@@ -84,7 +84,7 @@ de:
         one: "%{count} Benutzer gefunden"
         other: "%{count} Benutzer gefunden"
         zero: "%{count} Benutzer gefunden"
-      you_currently: "du hast noch %{user_invitation} Einladungen übrig %{link}"
+      you_currently: "Du hast noch %{user_invitation} Einladungen übrig %{link}"
     weekly_user_stats:
       amount_of:
         one: "Anzahl neuer Benutzer diese Woche: Einer"
@@ -1025,12 +1025,9 @@ de:
       community_welcome: "Diasporas Gemeinschaft ist froh, dich an Bord zu haben!"
       hashtag_explanation: "Hashtags ermöglichen dir, über deine Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Leute bei Diaspora zu treffen!"
       hashtag_suggestions: "Probier mal Tags wie #kunst, #musik oder #gif zu folgen."
-      hooking_up_fb: "du deinen Facebook-Account"
       saved: "Gespeichert!"
-      we_can_speed_things_up: "Wir können die Dinge ein wenig beschleunigen wenn"
       well_hello_there: "Also, Hallöchen!"
       what_are_you_in_to: "Was machst du so?"
-      what_facebook_does: "mit Diaspora verbindest. Hierbei wird dein Name und dein Foto geladen, um das Veröffentlichen bei Facebook zu ermöglichen."
       who_are_you: "Wer bist Du?"
     privacy_settings:
       ignored_users: "Benutzer, die ignoriert werden"

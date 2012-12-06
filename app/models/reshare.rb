@@ -9,6 +9,7 @@ class Reshare < Post
   attr_accessible :root_guid, :public
   validates_presence_of :root, :on => :create
   validates_uniqueness_of :root_guid, :scope => :author_id
+  delegate :author, to: :root, prefix: true
 
   xml_attr :root_diaspora_id
   xml_attr :root_guid
@@ -58,7 +59,7 @@ class Reshare < Post
   end
 
   def comment_email_subject
-    I18n.t('reshares.comment_email_subject', :resharer => author.name, :author => root.author.name)
+    I18n.t('reshares.comment_email_subject', :resharer => author.name, :author => root.author_name)
   end
 
   def notification_type(user, person)

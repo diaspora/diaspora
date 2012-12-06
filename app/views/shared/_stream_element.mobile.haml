@@ -12,7 +12,7 @@
   
 
   - if post.is_a?(Reshare)
-    = render 'reshares/reshare', :reshare => post, :post => post.root
+    = render 'reshares/reshare', :reshare => post, :post => post.absolute_root
 
   = render 'shared/photo_area', :post => post
 

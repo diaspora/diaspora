@@ -8,9 +8,6 @@ require 'spec_helper'
 describe Diaspora::Taggable do
   shared_examples_for "it is taggable" do
     include ActionView::Helpers::UrlHelper
-    include Rails.application.routes.url_helpers
-    def controller
-    end
 
     def tag_link(s)
       link_to  "##{s}", "/tags/#{s}", :class => 'tag'

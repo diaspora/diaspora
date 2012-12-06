@@ -6,27 +6,29 @@ require 'spec_helper'
 
 describe ApplicationController do
   controller do
-    def user_signed_in?
-      nil
-    end
-
-    def current_user
-      nil
-    end
-
     def index
-      render :nothing => true
+      head :ok
     end
   end
 
-  describe '#set_git_headers' do
+  before do
+    sign_in alice
+  end
+
+  describe '#set_diaspora_headers' do
+    it 'sets the version header' do
+      get :index
+      response.headers['X-Diaspora-Version'].should include AppConfig.version.number.get
+    end
+    
     context 'with git info' do
       before do
-        AppConfig[:git_update] = 'yesterday'
-        AppConfig[:git_revision] = '02395'
+        AppConfig.stub(:git_available?).and_return(true)
+        AppConfig.stub(:git_update).and_return('yesterday')
+        AppConfig.stub(:git_revision).and_return('02395')
       end
 
-      it 'sets the git header if there is git info' do
+      it 'sets the git header' do
         get :index
         response.headers['X-Git-Update'].should == 'yesterday'
         response.headers['X-Git-Revision'].should == '02395'
@@ -58,6 +60,35 @@ describe ApplicationController do
       session[:mobile_view] = true
       get :index, :format => 'xml'
       request.format.xml?.should be_true
+    end
+  end
+
+  describe '#tags' do
+    before do
+      @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
+      TagFollowing.create!(:tag => @tag, :user => alice)
+    end
+
+    it 'queries current_users tag if there are tag_followings' do
+      @controller.send(:tags).should == [@tag]
+    end
+
+    it 'does not query twice' do
+      User.any_instance.should_receive(:followed_tags).once.and_return([@tag])
+      @controller.send(:tags)
+      @controller.send(:tags)
+    end
+  end
+
+  describe "#after_sign_in_path_for" do
+    context 'getting started true on user' do
+      before do
+        alice.update_attribute(:getting_started, true)
+      end
+
+      it "redirects to getting started if the user has getting started set to true" do
+        @controller.send(:after_sign_in_path_for, alice).should == getting_started_path
+      end
     end
   end
 end

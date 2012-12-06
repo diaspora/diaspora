@@ -15,9 +15,9 @@ require 'factory_girl_rails'
 require Rails.root.join('spec', 'helper_methods')
 include HelperMethods
 
-alice = Factory(:user_with_aspect, :username => "alice", :password => 'evankorth')
-bob   = Factory(:user_with_aspect, :username => "bob", :password => 'evankorth')
-eve   = Factory(:user_with_aspect, :username => "eve", :password => 'evankorth')
+alice = FactoryGirl.create(:user_with_aspect, :username => "alice", :password => 'evankorth')
+bob   = FactoryGirl.create(:user_with_aspect, :username => "bob", :password => 'evankorth')
+eve   = FactoryGirl.create(:user_with_aspect, :username => "eve", :password => 'evankorth')
 
 def url_hash(name)
   image_url = "/assets/user/#{name}.jpg"
@@ -41,8 +41,7 @@ connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
 connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
 puts "done!"
 
-print "making Bob an admin and beta... "
-Role.add_beta(bob.person)
+print "making Bob an admin... "
 Role.add_admin(bob.person)
 puts "done!"
 
@@ -58,9 +57,9 @@ time_interval = 1000
     if(n%3==1)
       post = u.post :status_message, :text => "#{u.username} - #{n} - #seeded", :to => u.aspects.first.id
     elsif(n%3==2)
-      post =u.post(:reshare, :root_guid => Factory(:status_message, :public => true).guid, :to => 'all')
+      post = u.post(:reshare, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => 'all')
     else
-      post = Factory(:activity_streams_photo, :public => true, :author => u.person)
+      post = FactoryGirl.create(:activity_streams_photo, :public => true, :author => u.person)
       u.add_to_streams(post, u.aspects)
     end
 

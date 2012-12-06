@@ -66,24 +66,10 @@ class PeopleController < ApplicationController
     respond_with @people
   end
 
-  def hashes_for_people(people, aspects)
-    ids = people.map{|p| p.id}
-    contacts = {}
-    Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
-      contacts[contact.person_id] = contact
-    end
-
-    people.map{|p|
-      {:person => p,
-        :contact => contacts[p.id],
-        :aspects => aspects}
-    }
-  end
-
   def show
     @person = Person.find_from_guid_or_username(params)
 
-    raise(ActiveRecord::RecordNotFound) if remote_profile_with_no_user_session?
+    authenticate_user! if remote_profile_with_no_user_session?
     return redirect_to :back, :notice => t("people.show.closed_account") if @person.closed_account?
 
     @post_type = :all
@@ -162,18 +148,13 @@ class PeopleController < ApplicationController
     end
   end
 
-  def diaspora_id?(query)
-    !query.try(:match, /^(\w)*@([a-zA-Z0-9]|[-]|[.]|[:])*$/).nil?
-  end
-
-  def search_query
-    @search_query ||= params[:q] || params[:term] || ''
-  end
+  private
 
   def redirect_if_tag_search
     if search_query.starts_with?('#')
       if search_query.length > 1
-        redirect_to tag_path(:name => search_query.delete('#.'), :q => search_query)
+
+        redirect_to tag_path(:name => search_query.delete('#.'))
       else
         flash[:error] = I18n.t('tags.show.none', :name => search_query)
         redirect_to :back
@@ -181,7 +162,27 @@ class PeopleController < ApplicationController
     end
   end
 
-  protected
+  def hashes_for_people(people, aspects)
+    ids = people.map{|p| p.id}
+    contacts = {}
+    Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
+      contacts[contact.person_id] = contact
+    end
+
+    people.map{|p|
+      {:person => p,
+        :contact => contacts[p.id],
+        :aspects => aspects}
+    }
+  end
+
+  def search_query
+    @search_query ||= params[:q] || params[:term] || ''
+  end
+
+  def diaspora_id?(query)
+    !query.try(:match, /^(\w)*@([a-zA-Z0-9]|[-]|[.]|[:])*$/).nil?
+  end
 
   def remote_profile_with_no_user_session?
     @person.try(:remote?) && !user_signed_in?

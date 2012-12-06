@@ -64,8 +64,8 @@ var View = {
     $(document.body).click(this.dropdowns.removeFocus);
 
     /* facebox */
-    $.facebox.settings.closeImage = '/assets/facebox/closelabel.png';
-    $.facebox.settings.loadingImage = '/assets/facebox/loading.gif';
+    $.facebox.settings.closeImage = app.baseImageUrl()+'facebox/closelabel.png';
+    $.facebox.settings.loadingImage = app.baseImageUrl()+'facebox/loading.gif';
     $.facebox.settings.opacity = 0.75;
 
     $('a[rel*=facebox]').facebox();

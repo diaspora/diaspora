@@ -5,9 +5,9 @@
 require 'i18n_interpolation_fallbacks'
 require "i18n/backend/fallbacks" 
 
-
-if File.exists?(File.expand_path("./config/locale_settings.yml"))
-  locale_settings = YAML::load(File.open(File.expand_path("./config/locale_settings.yml")))
+settings_file = Pathname.new(__FILE__).dirname.join('..').expand_path.join('locale_settings.yml')
+if settings_file.exist?
+  locale_settings = YAML.load_file(settings_file)
   AVAILABLE_LANGUAGES = (locale_settings['available'].length > 0) ? locale_settings['available'] : { "en" => 'English' }
   AVAILABLE_LANGUAGE_CODES = locale_settings['available'].keys
   DEFAULT_LANGUAGE = (AVAILABLE_LANGUAGE_CODES.include?(locale_settings['default'].to_s)) ? locale_settings['default'].to_s : "en"

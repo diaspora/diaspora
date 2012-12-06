@@ -15,7 +15,7 @@
     = t('.ignored_users')
 
   - @blocks.each do |block|
-    = block.person.name
+    = block.person_name
     \-
     = link_to t('.stop_ignoring'), block_path(block),
       :method => :delete

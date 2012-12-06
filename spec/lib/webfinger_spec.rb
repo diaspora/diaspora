@@ -11,7 +11,7 @@ describe Webfinger do
   let(:account){'foo@bar.com'}
   let(:account_in_fixtures){"alice@localhost:9887"}
   let(:finger){Webfinger.new(account)}
-  let(:host_meta_url){"http://#{AppConfig[:pod_uri].authority}/webfinger?q="}
+  let(:host_meta_url){"http://#{AppConfig.pod_uri.authority}/webfinger?q="}
 
   describe '#intialize' do
     it 'sets account ' do

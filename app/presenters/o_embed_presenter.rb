@@ -15,7 +15,7 @@ class OEmbedPresenter
   def as_json(opts={})
     {
       :provider_name => "Diaspora", 
-      :provider_url => AppConfig[:pod_url],
+      :provider_url => AppConfig.pod_uri.to_s,
       :type => 'rich',
       :version => '1.0',
       :title => post_title,
@@ -36,11 +36,11 @@ class OEmbedPresenter
   end
 
   def post_author
-    @post.author.name
+    @post.author_name
   end
 
   def post_author_url
-   Rails.application.routes.url_helpers.person_url(@post.author, :host => AppConfig[:pod_uri].host)
+   Rails.application.routes.url_helpers.person_url(@post.author, :host => AppConfig.pod_uri.host)
   end
 
   def iframe_html
