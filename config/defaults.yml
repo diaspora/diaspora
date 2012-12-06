@@ -85,6 +85,7 @@ defaults:
     message_bus_api_key:
   admins:
     account:
+    podmin_email:
     inline_resque_web: true
 
 development:

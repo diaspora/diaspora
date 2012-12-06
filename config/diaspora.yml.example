@@ -282,6 +282,9 @@ configuration: ## Section
     ## admin contact is neeeded, much like the postmaster role in mail
     ## systems. Set only the username, NOT the full ID.
     #account: "podmaster"
+
+    ## E-Mail address users can contact the administrator
+    #podmin_email: 'podmin@example.org'
     
     ## Resque is the background processing system used by Diaspora
     ## Resque web is an admin tool for it. This settings decides whether

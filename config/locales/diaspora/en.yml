@@ -240,6 +240,9 @@ en:
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
         email_feedback: "%{link} your feedback, if you prefer"
         email_link: "Email"
+        any_problem: "Any Problem?"
+        contact_podmin: "Contact the administrator of your pod!"
+        mail_podmin: "Podmin E-Mail"
       cubbies:
         heading: "Connect to Cubbi.es"
         explanation: "Cubbi.es is the first Diaspora application under development."

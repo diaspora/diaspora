@@ -11,6 +11,10 @@
 * Made loading of the configuration environment independent of Rails.
 * Do not generate paths like `/a/b/c/config/boot.rb/../../Gemfile` to require and open things, create a proper path instead.
 
+## Features
+
+* Add possibility to contact the administrator. [#3792](https://github.com/diaspora/diaspora/pull/3792)
+
 ## Bug Fixes
 
 * Force Typhoeus/cURL to use the CA bundle we query via the config. Also add a setting for extra verbose output.
