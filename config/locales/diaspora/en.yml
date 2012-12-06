@@ -317,6 +317,7 @@ en:
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
     spotlight:
       community_spotlight: "Community Spotlight"
+      suggest_member: "Suggest a member"
 
   conversations:
     index:
