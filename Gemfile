@@ -99,7 +99,7 @@ gem 'typhoeus', '0.3.3'
 # views
 
 gem 'haml', '3.1.7'
-gem 'mobile-fu', '1.1.0'
+gem 'mobile-fu', '1.1.1'
 
 gem 'will_paginate', '3.0.3'
 gem 'client_side_validations', '3.2.1'
