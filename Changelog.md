@@ -29,6 +29,7 @@
 ## Gem Updates
 
 * Removed `debugger` since it was causing bundle problems, and is not necessary given 1.9.3 has a built-in debugger.
+* jasmine 1.2.1 -> 1.3.1 (+ remove useless spec)
 
 
 # 0.0.2.0
