@@ -26,6 +26,10 @@
 * Allow translation of "suggest member" of Community Spotlight. [#3791](https://github.com/diaspora/diaspora/issues/3791)
 * Resize deletelabel and ignoreuser images to align them [#3779](https://github.com/diaspora/diaspora/issues/3779)
 
+## Gem Updates
+
+* Removed `debugger` since it was causing bundle problems, and is not necessary given 1.9.3 has a built-in debugger.
+
 
 # 0.0.2.0
 
