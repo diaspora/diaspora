@@ -14,6 +14,7 @@
 ## Features
 
 * Add possibility to contact the administrator. [#3792](https://github.com/diaspora/diaspora/pull/3792)
+* Add simple background for unread messages/conversations mobile. [#3724](https://github.com/diaspora/diaspora/pull/3724)
 
 ## Bug Fixes
 

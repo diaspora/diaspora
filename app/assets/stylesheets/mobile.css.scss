@@ -45,7 +45,7 @@ body {
 
   .from {
     a {
-      color: #444 !important;
+      color: #444;
       font-weight: bold;
     }
     margin-bottom: 2px;
@@ -787,4 +787,20 @@ textarea#conversation_text {
 form#new_user.new_user input.btn {
   white-space: normal;
 }
-    
+
+.unread {
+  background-color: LightGrey;
+  .ltr {
+    font-weight: bold;
+  }
+}
+
+.read.stream_element {
+  color: dimGray;
+  .from {
+    a {
+      color: dimGray;
+      font-weight: bold;
+    }
+  }
+}
