@@ -519,7 +519,7 @@ uk:
 
           З любов’ю,
 
-          поштовий робот DIASPORA*!
+          поштовий робот DIASPORA*.
 
           [1]: %{invite_url}
     invited_you: "%{name} запросив(-ла) вас до DIASPORA*"
@@ -733,11 +733,11 @@ uk:
         zero: "нових запитів немає"
     manage_aspect_contacts:
       existing: "Наявні контакти"
-      manage_within: "Керуванн контактами в"
+      manage_within: "Керування контактами в"
     new_request_to_person:
       sent: "надіслано!"
   reshares:
-    comment_email_subject: "Перепост %{resharer} запису %{author}"
+    comment_email_subject: "%{resharer} поширює допис %{author}"
     create:
       failure: "Помилка при спробі поділитися цим записом."
     reshare:
@@ -946,7 +946,7 @@ uk:
   tokens:
     show:
       connect_to_cubbies: "Підключення до Cubbi.es"
-      connecting_is_simple: "Підключити аккаунт DIASPORA* легко! Просто введіть ваш ідентифікатор в DIASPORA* (<b>%{diaspora_id}</b>) на <a href='%{href_link}'>сторінці налаштувань</a> cubbies і натисніть \"підключити\"."
+      connecting_is_simple: "Підключити акаунт DIASPORA* легко! Просто введіть ваш ідентифікатор в DIASPORA* (<b>%{diaspora_id}</b>) на <a href='%{href_link}'>сторінці налаштувань</a> cubbies і натисніть \"підключити\"."
       daniels_account: "аккаунт Данила"
       love_to_try: "Ми будемо раді, якщо ви спробуєте це."
       making_the_connection: "Створення підключення"
