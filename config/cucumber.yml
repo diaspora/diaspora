@@ -1,8 +1,19 @@
 <%
-rerun = File.file?('rerun.txt') ? IO.read('rerun.txt') : ""
-rerun_opts = rerun.to_s.strip.empty? ? "--format #{ENV['CUCUMBER_FORMAT'] || 'progress'} features" : "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} #{rerun}"
-std_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags ~@wip"
+rerun  = File.file?('rerun.txt') ? IO.read('rerun.txt') : ""
+format = ENV['CUCUMBER_FORMAT'] || 'pretty'
+
+# option lists for the `cucumber` command
+rerun_opts = rerun.to_s.strip.empty? ? "--format #{format} features" : "--format #{format} #{rerun}"
+std_opts   = "--format #{format} --strict --tags ~@wip --tags ~@screenshots"
+screenshot_opts  = "--require features --format pretty"
 %>
+
+# 'normal' test runs
 default: <%= std_opts %> -r features
 wip: -r features --tags @wip:3 --wip features
-rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip
+rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip --tags ~@screenshots
+
+# screenshot feature
+ref_screens: "<%= screenshot_opts %> --tags @reference-screenshots"
+cmp_screens: "<%= screenshot_opts %> --tags @comparison-screenshots"
+all_screens: "<%= screenshot_opts %> --tags @screenshots"
