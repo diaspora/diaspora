@@ -13,6 +13,7 @@ class PostPresenter
   end
 
   def as_json(options={})
+    address = (@post.class.to_s == "StatusMessage" and !@post.location.blank?) ? @post.location.address : nil
     {
         :id => @post.id,
         :guid => @post.guid,
@@ -35,6 +36,7 @@ class PostPresenter
         :title => title,
         :next_post => next_post_path,
         :previous_post => previous_post_path,
+        :address => address,
 
         :interactions => {
             :likes => [user_like].compact,

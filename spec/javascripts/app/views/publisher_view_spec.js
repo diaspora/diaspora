@@ -265,4 +265,67 @@ describe("app.views.Publisher", function() {
       });
     });
   });
+
+  context("locator", function() {
+    beforeEach(function() {
+      // should be jasmine helper
+      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+
+      spec.loadFixture("aspects_index");
+      this.view = new app.views.Publisher();
+    });
+
+    describe('#showLocation', function(){
+      it("Show location", function(){
+
+        // inserts location to the DOM; it is the location's view element
+        setFixtures('<div id="publisher_textarea_wrapper"></container>'); 
+
+        // creates a fake Locator to avoid google API call 
+        OSM = {};
+        OSM.Locator = function(){return { getAddress:function(){}}};
+
+        // validates there is not location
+        expect($("#location").length).toBe(0);
+
+        // this should create a new location
+        this.view.showLocation();
+
+        // validates there is one location created
+        expect($("#location").length).toBe(1);
+      })
+    });
+
+    describe('#destroyLocation', function(){
+      it("Destroy location if exists", function(){
+
+        // inserts location to the DOM; it is the location's view element
+        setFixtures('<div id="location"></container>'); 
+
+        // creates a new Location view with the #location element
+        // with this we avoid unnecessarily to call the google API
+        app.views.Location = new Backbone.View({el:"#location"});
+
+        // creates the mock 
+        app.views.location = sinon.mock(app.views.Location).object;
+
+        // calls the destroy function and test the expected result
+        this.view.destroyLocation();
+        expect($("#location").length).toBe(0);
+      })
+    });
+
+    describe('#avoidEnter', function(){
+      it("Avoid submitting the form when pressing enter", function(){
+        // simulates the event object
+        evt = {};
+        evt.keyCode = 13;
+
+        // should return false in order to avoid the form submition
+        expect(this.view.avoidEnter(evt)).toBeFalsy();
+      })
+    });
+  });
+
 });
+

@@ -44,6 +44,7 @@ class StatusMessagesController < ApplicationController
     services = [*params[:services]].compact
 
     @status_message = current_user.build_post(:status_message, params[:status_message])
+    @status_message.build_location(:address => params[:location_address], :coordinates => params[:location_coords]) unless params[:location_address].blank?
     @status_message.attach_photos_by_ids(params[:photos])
 
     if @status_message.save

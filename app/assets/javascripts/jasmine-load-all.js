@@ -10,3 +10,4 @@
 //= require profile
 //= require people
 //= require photos
+//= require sinon-1.3.2
