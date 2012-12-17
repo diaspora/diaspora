@@ -277,7 +277,7 @@ GEM
       rack (~> 1.3)
     rack-protection (1.2.0)
       rack
-    rack-rewrite (1.3.1)
+    rack-rewrite (1.3.3)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.2)
@@ -463,7 +463,7 @@ DEPENDENCIES
   rack-google-analytics (= 0.11.0)
   rack-piwik (= 0.1.3)
   rack-protection (= 1.2)
-  rack-rewrite (= 1.3.1)
+  rack-rewrite (= 1.3.3)
   rack-ssl (= 1.3.2)
   rails (= 3.2.11)
   rails-i18n (= 0.7.2)
