@@ -46,7 +46,7 @@ group :production do # we don't install these on travis to speed up test runs
   # analytics
   gem 'rack-google-analytics', '0.11.0', :require => 'rack/google-analytics'
   gem 'rack-piwik', '0.1.3', :require => 'rack/piwik', :require => false
-  
+
 end
 
 
@@ -162,10 +162,12 @@ group :test do
 end
 
 group :test, :development do
-  gem "rspec-rails", "2.11.4" 
+  gem "rspec-rails", "2.11.4"
 end
 
 group :development do
   gem 'capistrano', '2.12.0', :require => false
   gem 'capistrano_colors', '0.5.5', :require => false
+
+  gem 'rmagick', :require => false
 end
