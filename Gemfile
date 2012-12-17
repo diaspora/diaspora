@@ -148,7 +148,7 @@ group :test do
   gem 'fixture_builder', '0.3.5'
   gem 'fuubar', '1.1.0'
   gem 'rspec-instafail', '0.2.4', :require => false
-  gem 'selenium-webdriver', '2.27.1'
+  gem 'selenium-webdriver', '2.27.2'
 
   gem 'webmock', '1.8.11', :require => false
 
