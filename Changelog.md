@@ -13,6 +13,7 @@
 
 ## Features
 
+* Add 'screenshot tool' for taking before/after images of stylesheet changes. [#3797](https://github.com/diaspora/diaspora/pull/3797)
 * Add possibility to contact the administrator. [#3792](https://github.com/diaspora/diaspora/pull/3792)
 * Add simple background for unread messages/conversations mobile. [#3724](https://github.com/diaspora/diaspora/pull/3724)
 * Add flash warning to conversation mobile, unification of flash warning with login and register mobile, and add support for flash warning to Opera browser. [#3686](https://github.com/diaspora/diaspora/pull/3686)
