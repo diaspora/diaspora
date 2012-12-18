@@ -20,6 +20,7 @@
 * Add progress percentage to upload images. [#3740](https://github.com/diaspora/diaspora/pull/3740)
 * Mark all unread post-related notifications as read, if one of this gets opened. [#3787](https://github.com/diaspora/diaspora/pull/3787)
 * Add flash-notice when sending messages to non-contacts. [#3723](https://github.com/diaspora/diaspora/pull/3723)
+* Re-add hovercards [#3802](https://github.com/diaspora/diaspora/pull/3802)
 
 ## Bug Fixes
 

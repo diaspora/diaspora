@@ -367,7 +367,23 @@ describe PeopleController do
     end
   end
 
+  describe '#hovercard' do
+    before do
+      @hover_test = FactoryGirl.create(:person)
+      @hover_test.profile.tag_string = '#test #tags'
+      @hover_test.profile.save!
+    end
 
+    it 'redirects html requests' do
+      get :hovercard, :person_id => @hover_test.guid
+      response.should redirect_to person_path(:id => @hover_test.guid)
+    end
+
+    it 'returns json with profile stuff' do
+      get :hovercard, :person_id => @hover_test.guid, :format => 'json'
+      JSON.parse( response.body )['handle'].should == @hover_test.diaspora_handle
+    end
+  end
 
   describe '#refresh_search ' do
     before(:each)do
