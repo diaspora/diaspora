@@ -99,6 +99,9 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     this.$("input[name='photos[]']").remove();
     this.el_wrapper.removeClass("with_attachments");
 
+    // empty upload-photo
+    this.$('#fileInfo').empty();
+
     // close publishing area (CSS)
     this.close();
 
