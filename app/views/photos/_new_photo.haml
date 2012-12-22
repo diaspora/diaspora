@@ -17,6 +17,8 @@
        sizeLimit: 4194304,
 
        onProgress: function(id, fileName, loaded, total){
+        var progress = Math.round(loaded / total * 100 );
+         $('#fileInfo').text(fileName + ' ' + progress + '%').fadeTo(200, 1);
        },
 
        messages: {
@@ -38,7 +40,7 @@
        },
 
        onComplete: function(id, fileName, responseJSON) {
-        $('#fileInfo').text(fileName + ' completed');
+        $('#fileInfo').text(Diaspora.I18n.t("photo_uploader.completed", file=fileName)).fadeTo(2000, 0);
         var id = responseJSON.data.photo.id,
             url = responseJSON.data.photo.unprocessed_image.url,
             currentPlaceholder = $('li.loading').first();
@@ -69,7 +71,7 @@
                   success: function() {
                             photo.fadeOut(400, function(){
                               photo.remove();
-                              if ( $('.publisher_photo').length  == 0){
+                              if ( $('.publisher_photo').length == 0){
                                 app.publisher.el_wrapper.removeClass("with_attachments");
                               }
                             });

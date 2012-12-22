@@ -71,6 +71,7 @@ en:
       preparing_your_stream: "Preparing your personalized stream..."
     photo_uploader:
       looking_good: "OMG, you look awesome!"
+      completed: "<%= file %> completed"
     tags:
       wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     people:
