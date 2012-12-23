@@ -1,10 +1,10 @@
 app.collections.Aspects = Backbone.Collection.extend({
   model: app.models.Aspect,
 
-  selectedAspectsIds: function(){
+  selectedAspects: function(attribute){
     return _.pluck(_.filter(this.toJSON(), function(a){
               return a.selected;
-      }), 'id');
+      }), attribute);
   },
 
   allSelected: function(){
@@ -17,5 +17,9 @@ app.collections.Aspects = Backbone.Collection.extend({
 
   deselectAll: function(){
     this.map(function(a){ a.set({ 'selected' : false })} );
+  },
+
+  toSentence: function(){
+    return this.selectedAspects('name').join(", ").replace(/,\s([^,]+)$/, ' and $1')
   }
 })
