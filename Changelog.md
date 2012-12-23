@@ -18,6 +18,7 @@
 * Add simple background for unread messages/conversations mobile. [#3724](https://github.com/diaspora/diaspora/pull/3724)
 * Add flash warning to conversation mobile, unification of flash warning with login and register mobile, and add support for flash warning to Opera browser. [#3686](https://github.com/diaspora/diaspora/pull/3686)
 * Add progress percentage to upload images. [#3740](https://github.com/diaspora/diaspora/pull/3740)
+* Mark all unread post-related notifications as read, if one of this gets opened. [#3787](https://github.com/diaspora/diaspora/pull/3787)
 
 ## Bug Fixes
 
