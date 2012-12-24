@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UserPresenter do
   before do
-    @presenter = UserPresenter.new(bob)
+    @presenter = UserPresenter.new(bob, [])
   end
 
   describe '#to_json' do
