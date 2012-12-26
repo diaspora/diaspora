@@ -19,6 +19,7 @@
 * Add flash warning to conversation mobile, unification of flash warning with login and register mobile, and add support for flash warning to Opera browser. [#3686](https://github.com/diaspora/diaspora/pull/3686)
 * Add progress percentage to upload images. [#3740](https://github.com/diaspora/diaspora/pull/3740)
 * Mark all unread post-related notifications as read, if one of this gets opened. [#3787](https://github.com/diaspora/diaspora/pull/3787)
+* Add flash-notice when sending messages to non-contacts. [#3723](https://github.com/diaspora/diaspora/pull/3723)
 
 ## Bug Fixes
 
