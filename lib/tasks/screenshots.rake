@@ -1,3 +1,4 @@
+if defined? Cucumber
 
 namespace :screenshots do
 
@@ -41,4 +42,6 @@ namespace :screenshots do
 
     )
   end
+end
+
 end
