@@ -3,6 +3,12 @@
 # the COPYRIGHT file.
 
 module Diaspora
+  # the post in question is not public, and that is somehow a problem
   class NonPublic < StandardError
+  end
+
+  # the account was closed and that should not be the case if we want
+  # to continue
+  class AccountClosed < StandardError
   end
 end

@@ -17,6 +17,13 @@ class PeopleController < ApplicationController
            :format => :html, :layout => false, :status => 404
   end
 
+  rescue_from Diaspora::AccountClosed do
+    respond_to do |format|
+      format.any { redirect_to :back, :notice => t("people.show.closed_account") }
+      format.json { render :nothing => true, :status => 410 } # 410 GONE
+    end
+  end
+
   helper_method :search_query
 
   def index
@@ -36,7 +43,7 @@ class PeopleController < ApplicationController
         if diaspora_id?(search_query)
           @people =  Person.where(:diaspora_handle => search_query.downcase)
           if @people.empty?
-            Webfinger.in_background(search_query) 
+            Webfinger.in_background(search_query)
             @background_query = search_query.downcase
           end
         end
@@ -66,11 +73,12 @@ class PeopleController < ApplicationController
     respond_with @people
   end
 
+  # renders the persons user profile page
   def show
     @person = Person.find_from_guid_or_username(params)
 
     authenticate_user! if remote_profile_with_no_user_session?
-    return redirect_to :back, :notice => t("people.show.closed_account") if @person.closed_account?
+    raise Diaspora::AccountClosed if @person.closed_account?
 
     @post_type = :all
     @aspect = :profile
@@ -105,6 +113,23 @@ class PeopleController < ApplicationController
       end
 
       format.json { render :json => @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
+    end
+  end
+
+  # hovercards fetch some the persons public profile data via json and display
+  # it next to the avatar image in a nice box
+  def hovercard
+    @person = Person.find_from_guid_or_username({:id => params[:person_id]})
+    raise Diaspora::AccountClosed if @person.closed_account?
+
+    respond_to do |format|
+      format.all do
+        redirect_to :action => "show", :id => params[:person_id]
+      end
+
+      format.json do
+        render :json => HovercardPresenter.new(@person)
+      end
     end
   end
 
@@ -148,8 +173,6 @@ class PeopleController < ApplicationController
     end
   end
 
-  private
-
   def redirect_if_tag_search
     if search_query.starts_with?('#')
       if search_query.length > 1
@@ -161,6 +184,8 @@ class PeopleController < ApplicationController
       end
     end
   end
+
+  private
 
   def hashes_for_people(people, aspects)
     ids = people.map{|p| p.id}
