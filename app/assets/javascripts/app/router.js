@@ -87,18 +87,17 @@ app.Router = Backbone.Router.extend({
     app.aspects = new app.collections.Aspects(app.currentUser.get('aspects'));
     var aspects_list =  new app.views.AspectsList({ collection: app.aspects });
     aspects_list.render();
+    this.aspects_stream();
   },
 
   aspects_stream : function(){
 
     var ids = app.aspects.selectedAspects('id');
-
-    app.stream = new app.models.Stream([], {url: '/aspects'});
-    app.stream.fetch({data: $.param({a_ids:ids})});
+    app.stream = new app.models.StreamAspects([], { aspects_ids: ids });
+    app.stream.fetch();
 
     app.page = new app.views.Stream({model : app.stream});
     app.publisher = new app.views.Publisher({collection : app.stream.items});
-
     var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
 
     $("#main_stream").html(app.page.render().el);

@@ -30,7 +30,6 @@ app.views.AspectsList = app.views.Base.extend({
     }
 
     this.toggleSelector();
-
     app.router.aspects_stream();
   },
 
