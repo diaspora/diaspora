@@ -150,7 +150,7 @@ GEM
       ruby-progressbar (~> 1.0.0)
     gherkin (2.11.5)
       json (>= 1.4.6)
-    gon (4.0.1)
+    gon (4.0.2)
       actionpack (>= 2.3.0)
       json
     guard (1.6.1)
@@ -438,7 +438,7 @@ DEPENDENCIES
   foreigner (= 1.2.1)
   foreman (= 0.60.2)
   fuubar (= 1.1.0)
-  gon (= 4.0.1)
+  gon (= 4.0.2)
   guard-cucumber (= 1.3.2)
   guard-rspec (= 2.3.3)
   guard-spork (= 1.4.1)
