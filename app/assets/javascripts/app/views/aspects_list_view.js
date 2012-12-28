@@ -7,9 +7,14 @@ app.views.AspectsList = app.views.Base.extend({
     'click .toggle_selector' : 'toggleAll'
   },
 
+  initialize: function(){
+    this.collection.on('change', this.toggleSelector, this);
+  },
+
   postRenderTemplate: function() {
     this.collection.each(this.appendAspect, this);
     this.$('a[rel*=facebox]').facebox();
+    this.toggleSelector();
   },
 
   appendAspect: function(aspect) {
