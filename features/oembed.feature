@@ -17,6 +17,7 @@ Feature: oembed
     When I fill in the following:
         | status_message_fake_text    | http://youtube.com/watch?v=M3r2XDceM6A&format=json    |
     And I press "Share"
+    And I wait for the ajax to finish
     And I follow "My Aspects"
     Then I should see a video player
     And I should see a ".oembed" within ".post-content"
