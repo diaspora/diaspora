@@ -15,7 +15,7 @@
 
           {{#each likes}}
             {{#with author}}
-              <a href="/people/{{guid}}">
+              <a href="/people/{{guid}}" class="{{hovercardable this}}">
                 <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/>
               </a>
             {{/with}}
