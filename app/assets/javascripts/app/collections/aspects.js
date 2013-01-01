@@ -20,6 +20,6 @@ app.collections.Aspects = Backbone.Collection.extend({
   },
 
   toSentence: function(){
-    return this.selectedAspects('name').join(", ").replace(/,\s([^,]+)$/, ' and $1')
+    return this.selectedAspects('name').join(", ").replace(/,\s([^,]+)$/, ' and $1') || 'My Aspects'
   }
 })

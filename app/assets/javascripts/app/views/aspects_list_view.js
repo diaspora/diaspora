@@ -9,11 +9,13 @@ app.views.AspectsList = app.views.Base.extend({
 
   initialize: function(){
     this.collection.on('change', this.toggleSelector, this);
+    this.collection.on('change', this.updateStreamTitle, this);
   },
 
   postRenderTemplate: function() {
     this.collection.each(this.appendAspect, this);
     this.$('a[rel*=facebox]').facebox();
+    this.updateStreamTitle();
     this.toggleSelector();
   },
 
@@ -45,5 +47,9 @@ app.views.AspectsList = app.views.Base.extend({
     } else {
       selector.text(Diaspora.I18n.t('aspect_navigation.select_all'));
     }
+  },
+
+  updateStreamTitle: function(){
+    $('.stream_title').text(this.collection.toSentence());
   }
 })

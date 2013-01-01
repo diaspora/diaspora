@@ -21,13 +21,25 @@
       }
 
       // update the selection summary
-      AspectsDropdown.updateNumber(
-        el.closest(".dropdown_list"),
-        null,
-        el.parent().find('li.selected').length,
-        ''
-      );
+      this._updateAspectsNumber(el);
 
+      this._updateSelectedAspectIds();
+    },
+
+    updateAspectsSelector: function(ids){
+      var el = this.$("ul.dropdown_list");
+      this.$('.dropdown_list > li').each(function(){
+        var el = $(this);
+        var aspectId = el.data('aspect_id');
+        if (_.contains(ids, aspectId)) {
+          el.addClass('selected');
+        }
+        else {
+          el.removeClass('selected');
+        }
+      });
+
+      this._updateAspectsNumber(el);
       this._updateSelectedAspectIds();
     },
 
@@ -50,6 +62,15 @@
           el.closest('.dropdown').removeClass('active');
         }
       });
+    },
+
+    _updateAspectsNumber: function(el){
+      AspectsDropdown.updateNumber(
+        el.closest(".dropdown_list"),
+        null,
+        el.parent().find('li.selected').length,
+        ''
+      );
     },
 
     _addHiddenAspectInput: function(id) {
