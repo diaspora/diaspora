@@ -40,6 +40,9 @@
 * Removed `debugger` since it was causing bundle problems, and is not necessary given 1.9.3 has a built-in debugger.
 * jasmine 1.2.1 -> 1.3.1 (+ remove useless spec)
 
+# 0.0.2.1
+
+* Upgrade to Rails 3.2.10 as per CVE-2012-5664. [Read more](https://groups.google.com/group/rubyonrails-security/browse_thread/thread/c2353369fea8c53)
 
 # 0.0.2.0
 
@@ -121,7 +124,6 @@
 * webmock 1.8.10 -> 1.8.11
 
 And their dependencies.
-
 
 # 0.0.1.2
 
