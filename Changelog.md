@@ -34,6 +34,7 @@
 * Fix insecure image of cat on user edit page - New photo courtesy of [khanb1 on flickr](http://www.flickr.com/photos/albaraa/) under CC BY 2.0.
 * Allow translation of "suggest member" of Community Spotlight. [#3791](https://github.com/diaspora/diaspora/issues/3791)
 * Resize deletelabel and ignoreuser images to align them [#3779](https://github.com/diaspora/diaspora/issues/3779)
+* Patch in Armenian pluralization rule until CLDR provides it.
 
 ## Gem Updates
 
