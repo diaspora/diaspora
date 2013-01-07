@@ -1,17 +1,5 @@
 # 0.0.3.0
-
-## Refactor
-
-* Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
-* Last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
-* Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713)
-* fixed tags on the profiles page (broken by the change of server side response in the switch to backbone) [#3775](https://github.com/diaspora/diaspora/pull/3777)
-* Extracted configuration system to a gem.
-* Made number of unicorn workers configurable.
-* Made loading of the configuration environment independent of Rails.
-* Do not generate paths like `/a/b/c/config/boot.rb/../../Gemfile` to require and open things, create a proper path instead.
-* Remove the hack for loading the entire lib folder with a proper solution. [#3809](https://github.com/diaspora/diaspora/issues/3750)
-
+###coming soon...
 
 ## Features
 
@@ -24,11 +12,24 @@
 * Add flash-notice when sending messages to non-contacts. [#3723](https://github.com/diaspora/diaspora/pull/3723)
 * Re-add hovercards [#3802](https://github.com/diaspora/diaspora/pull/3802)
 
+## Refactor
+
+* Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
+* Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713)
+* Extracted configuration system to a gem.
+* Made number of unicorn workers configurable.
+* Made loading of the configuration environment independent of Rails.
+* Do not generate paths like `/a/b/c/config/boot.rb/../../Gemfile` to require and open things, create a proper path instead.
+* Remove the hack for loading the entire lib folder with a proper solution. [#3809](https://github.com/diaspora/diaspora/issues/3750)
+* Update and refactor the default public view `public/default.html` [#3811](https://github.com/diaspora/diaspora/issues/3811)
+
 ## Bug Fixes
 
+* Last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
+* Fix tags on the profiles page (broken by the change of server side response in the switch to backbone) [#3775](https://github.com/diaspora/diaspora/pull/3777)
 * Force Typhoeus/cURL to use the CA bundle we query via the config. Also add a setting for extra verbose output.
 * Validate input on sending invitations, validate email format, send correct ones. [#3748](https://github.com/diaspora/diaspora/pull/3748), [#3271](https://github.com/diaspora/diaspora/issues/3271)
-* moved Aspects JS initializer to the correct place so aspect selection / deselection works again [#3737] (https://github.com/diaspora/diaspora/pull/3737)
+* Moved Aspects JS initializer to the correct place so aspect selection / deselection works again [#3737] (https://github.com/diaspora/diaspora/pull/3737)
 * Do not strip "markdown" in links when posting to services [#3765](https://github.com/diaspora/diaspora/issues/3765)
 * Renamed `server.db` to `server.database` to match the example configuration.
 * Fix insecure image of cat on user edit page - New photo courtesy of [khanb1 on flickr](http://www.flickr.com/photos/albaraa/) under CC BY 2.0.
@@ -42,10 +43,19 @@
 * jasmine 1.2.1 -> 1.3.1 (+ remove useless spec)
 
 # 0.0.2.1
+### The 3rd of January 2013
 
 * Upgrade to Rails 3.2.10 as per CVE-2012-5664. [Read more](https://groups.google.com/group/rubyonrails-security/browse_thread/thread/c2353369fea8c53)
 
 # 0.0.2.0
+### The 20th of November 2012
+
+## Features
+
+* Add "My Activity" icon mobile -[Author Icon](http://www.gentleface.com/free_icon_set.html)-. [#3687](https://github.com/diaspora/diaspora/pull/3687)
+* Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
+* When posting to Twitter, behaviour changed so that URL to post will only be added to the post when length exceeds 140 chars or post contains uploaded photos.
+* Remove markdown formatting from post message when posting to Facebook or Twitter.
 
 ## Refactor
 
@@ -64,13 +74,6 @@
 * MessagesController. [#3657](https://github.com/diaspora/diaspora/pull/3657)
 * **Fixed setting:** `follow_diasporahq` has now to be set to `true` to enable following the DiasporaHQ account. Was `false`
 * Removal of some bash-/linux-isms from most of the scripts, rework of 'script/install.sh' output methods. [#3679](https://github.com/diaspora/diaspora/pull/3679)
-
-## Features
-
-* Add "My Activity" icon mobile -[Author Icon](http://www.gentleface.com/free_icon_set.html)-. [#3687](https://github.com/diaspora/diaspora/pull/3687)
-* Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
-* When posting to Twitter, behaviour changed so that URL to post will only be added to the post when length exceeds 140 chars or post contains uploaded photos.
-* Remove markdown formatting from post message when posting to Facebook or Twitter.
 
 ## Bug Fixes
 
@@ -127,14 +130,17 @@
 And their dependencies.
 
 # 0.0.1.2
+### The 24th of October 2012
 
 Fix exception when the root of a reshare of a reshare got deleted [#3546](https://github.com/diaspora/diaspora/issues/3546)
 
 # 0.0.1.1
+### The 09th of October 2012
 
 * Fix syntax error in French Javascript pluralization rule.
 
-# 0.0.1.0
+# 0.0.1.0 
+### The 07th of October 2012
 
 ## New configuration system!
 
@@ -186,21 +192,20 @@ The following gems were removed because their are neither used in daily developm
 * oink
 * yard
 
+## Refactor
 
-## Publisher
+### Publisher
 
 Refactoring of the JavaScript code; it is now completely rewritten to make use of Backbone.js.
 This paves the way for future improvements such as post preview or edit toolbar/help.
 
-
-## Removal of 'beta' code
+### Removal of 'beta' code
 
 The feature-flag on users and all the code in connection with experimental UX changes got removed/reverted. Those are the parts that became Makr.io.
 The single-post view will also be revamped/reverted, but that didn't make it into this release.
 
+### JS lib updates
 
-## JS lib updates
+### Cleanup in maintenance scripts and automated build environment
 
-
-## Cleanup in maintenance scripts and automated build environment
 
