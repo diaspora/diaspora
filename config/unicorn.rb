@@ -20,6 +20,14 @@ timeout 30
 #pid '/var/run/diaspora/diaspora.pid'
 #listen '/var/run/diaspora/diaspora.sock', :backlog => 2048
 
+if AppConfig.server.stderr_log.present?
+  stderr_path AppConfig.server.stderr_log
+end
+
+if AppConfig.server.stdout_log.present?
+  stdout_path AppConfig.server.stdout_log
+end
+
 before_fork do |server, worker|
   # If using preload_app, enable this line
   ActiveRecord::Base.connection.disconnect!

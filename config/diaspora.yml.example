@@ -107,6 +107,10 @@ configuration: ## Section
     
     ## The environment in which the server should be started by default.
     #rails_environment: 'production'
+   
+    ## Write unicorn stderr and stdout log
+    #stderr_log: '/usr/local/app/diaspora/log/unicorn-stderr.log'
+    #stdout_log: '/usr/local/app/diaspora/log/unicorn-stdout.log'
     
     ## The database type the server should use by default.
     ## Valid choices are 'mysql' and 'postgres'
