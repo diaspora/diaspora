@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 0.0.3.0
 
 ## Refactor
@@ -41,6 +42,10 @@
 
 * Removed `debugger` since it was causing bundle problems, and is not necessary given 1.9.3 has a built-in debugger.
 * jasmine 1.2.1 -> 1.3.1 (+ remove useless spec)
+
+# 0.0.2.2
+
+* Upgrade to Rails 3.2.11 (CVE-2012-0155, CVE-2012-0156). [Read more](http://weblog.rubyonrails.org/2013/1/8/Rails-3-2-11-3-1-10-3-0-19-and-2-3-15-have-been-released/)
 
 # 0.0.2.1
 
