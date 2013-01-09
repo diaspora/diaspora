@@ -24,6 +24,7 @@
                 
                 .media
                   .bd
+                    = person_image_tag note.actors.first, :thumb_medium
                     = notification_message_for(note)
                     %div
                       %time
