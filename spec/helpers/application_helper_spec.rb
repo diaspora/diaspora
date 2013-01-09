@@ -101,4 +101,14 @@ describe ApplicationHelper do
       AppConfig.settings.pod_name = old_name
     end
   end
+
+  describe '#pod_version' do
+
+    it 'displays the supplied pod_version if it is set' do
+      old_version = AppConfig.version.number.get
+      AppConfig.version.number = "0.0.1.0"
+      pod_version.should == "0.0.1.0"
+      AppConfig.version.number = old_version
+    end
+  end
 end

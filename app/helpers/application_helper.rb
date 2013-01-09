@@ -7,6 +7,10 @@ module ApplicationHelper
     AppConfig.settings.pod_name.present? ? AppConfig.settings.pod_name : "DIASPORA*"
   end
 
+  def pod_version
+    AppConfig.version.number.present? ? AppConfig.version.number : ""
+  end
+
   def how_long_ago(obj)
     timeago(obj.created_at)
   end

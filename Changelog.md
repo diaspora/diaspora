@@ -25,6 +25,7 @@
 * Add flash-notice when sending messages to non-contacts. [#3723](https://github.com/diaspora/diaspora/pull/3723)
 * Re-add hovercards [#3802](https://github.com/diaspora/diaspora/pull/3802)
 * Add images to notifications [#3821](https://github.com/diaspora/diaspora/pull/3821)
+* Show pod version in footer and updated the link to the changelog [#3822](https://github.com/diaspora/diaspora/pull/3822) 
 
 ## Bug Fixes
 
