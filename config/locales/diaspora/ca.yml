@@ -1,9 +1,9 @@
-#   Copyright © 2011, Diaspora Inc.  This file is
+#   Copyright © 2011, 2012, 2013 Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 #
 #   Catalan translation of Diaspora.
-#   Jordi Mallach <jordi@softcatala.org>, 2011.
+#   Jordi Mallach <jordi@softcatala.org>, 2011, 2012, 2013.
 #   Abans d'actualitzar aquesta traducció, si us plau poseu-vos en contacte
 #   amb Jordi Mallach o Softcatalà <info@softcatala.org>.
 
@@ -250,6 +250,9 @@ ca:
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} i %{forum}: Tutorials, guies i notícies mantinguts per la comunitat"
         email_feedback: "Envieu per %{link} els vostres comentaris, si ho preferiu"
         email_link: "correu electrònic"
+        any_problem: "Cap problema?"
+        contact_podmin: "Contacteu amb l'administrador de la vostra beina!"
+        mail_podmin: "Correu de l'administrador de la beina"
       cubbies:
         heading: "Connecteu a Cubbi.es"
         explanation: "Cubbi.es és la primera aplicació Diàspora sota desenvolupament."
@@ -330,6 +333,7 @@ ca:
       many_people_are_you_sure: "Esteu segur que voleu iniciar una conversa privada amb més de %{suggested_limit} contactes? Publicar a aquest aspecte pot ser una forma millor de contactar amb ells."
     spotlight:
       community_spotlight: "Usuaris destacats"
+      suggest_member: "Suggereix un membre"
 
 
   conversations:
@@ -358,6 +362,7 @@ ca:
     create:
       sent: "S'ha enviat el missatge"
       fail: "Missatge invàlid"
+      no_contact: "Ei, primer heu d'afegir el contacte!"
     new_message:
       fail: "Missatge invàlid"
     destroy:
@@ -375,12 +380,14 @@ ca:
     excited: "%{name} és molt content de trobar-vos aquí."
   invitations:
     create:
-      sent: "S'ha enviat invitacions a: "
+      sent: "S'ha enviat invitacions a: %{emails}"
       rejected: "Les adreces següents han tingut problemes: "
       no_more: "No teniu més invitacions."
       already_sent: "Ja heu convidat aquesta persona."
       already_contacts: "Ja esteu connectat a aquesta persona"
       own_address: "No podeu enviar una invitació a la vostra pròpia adreça."
+      empty: "Introduïu almenys una adreça de correu."
+      note_already_sent: "Ja s'ha enviat invitacions a: %{emails}"
     new:
       language: "Llengua"
       invite_someone_to_join: "Convideu algú a unir-se al Diàspora!"
@@ -426,6 +433,7 @@ ca:
       public_feed: "Canal públic del Diàspora per a %{name}"
       your_aspects: "els vostres aspectes"
       back_to_top: "Torna a dalt"
+      source_package: "Baixa el paquet del codi font"
 
 
   likes:
@@ -712,6 +720,7 @@ ca:
       email: "CORREU ELECTRÒNIC"
       username: "NOM D'USUARI"
       password: "CONTRASENYA"
+      password_confirmation: "CONFIRMACIÓ DE LA CONTRASENYA"
       continue: "Continua"
     create:
       success: "Us heu unit al Diàspora!"
@@ -1043,9 +1052,8 @@ ca:
       awesome_take_me_to_diaspora: "Fantàstic! Porta'm al Diàspora*"
 
       who_are_you: "Qui ets?"
-      we_can_speed_things_up: "Podem accelerar un poc les coses"
-      hooking_up_fb: "enllaçant el vostre compte de Facebook"
-      what_facebook_does: "al Diàspora. Això obtindrà el vostre nom i foto, i habilitarà la publicació creuada."
+      connect_to_facebook: "Podem accelerar un poc les coses %{link} al Diàspora. Això obtindrà el vostre nom i foto, i habilitarà la publicació creuada."
+      connect_to_facebook_link: "enllaçant el vostre compte de Facebook"
 
       what_are_you_in_to: "Què t'interessa?"
       hashtag_explanation: "Les etiquetes us permeten parlar i seguir els vostres interesos. També són una bona manera de trobar gent nova al Diàspora."
