@@ -66,7 +66,11 @@
       %a{:id=>"back-to-top", :title=>"#{t('.back_to_top')}", :href=>"#"}
         &#8679;
 
-    = render :partial =>'shared/footer'
+    %footer
+      .container
+        %ul#footer_nav
+          = render :partial =>'shared/links'
+        = image_tag 'branding/powered_by_diaspora.png', :height => "11px", :width => "145px"
 
     = include_chartbeat
     = include_mixpanel_guid
