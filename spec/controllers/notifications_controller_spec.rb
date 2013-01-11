@@ -75,6 +75,12 @@ describe NotificationsController do
       FactoryGirl.create(:notification, :recipient => alice, :target => @post)
     end
 
+    it 'succeeds' do
+      get :index
+      response.should be_success
+      assigns[:notifications].count.should == 1
+    end
+
     it 'succeeds for notification dropdown' do
       get :index, :format => :json
       response.should be_success
