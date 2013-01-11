@@ -37,6 +37,7 @@
 * Allow translation of "suggest member" of Community Spotlight. [#3791](https://github.com/diaspora/diaspora/issues/3791)
 * Resize deletelabel and ignoreuser images to align them [#3779](https://github.com/diaspora/diaspora/issues/3779)
 * Patch in Armenian pluralization rule until CLDR provides it.
+* Fix reshare a post multiple times[#3831](https://github.com/diaspora/diaspora/issues/3671)
 
 ## Gem Updates
 
