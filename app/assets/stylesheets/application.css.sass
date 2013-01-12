@@ -2795,7 +2795,6 @@ a.toggle_selector
       :display none
 
 .popover
-  z-index: 1000 !important
   .close
     @include opacity(0)
     @include transition(opacity, 0.2s)
@@ -2811,6 +2810,9 @@ a.toggle_selector
 
       &:hover
         @include opacity(1)
+body
+  .popover
+    :z-index 1000
 
 .nsfw-shield
   @include border-radius(3px)
