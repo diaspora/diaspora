@@ -95,13 +95,19 @@ app.models.Post.Interactions = Backbone.Model.extend({
   reshare : function(){
     var interactions = this
       , reshare = this.post.reshare()
+      , flash = new Diaspora.Widgets.FlashMessages;
 
     reshare.save({}, {
       success : function(resp){
-        var flash = new Diaspora.Widgets.FlashMessages;
         flash.render({
           success: true,
           notice: Diaspora.I18n.t("reshares.successful")
+        });
+      },
+      error: function(resp){
+        flash.render({
+          success: false,
+          notice: Diaspora.I18n.t("reshares.duplicate")
         });
       }
     }).done(function(){
@@ -119,7 +125,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
       , publicPost = this.post.get("public")
       , userIsNotAuthor = this.post.get("author").diaspora_id != app.currentUser.get("diaspora_id")
       , userIsNotRootAuthor = rootExists && (isReshare ? this.post.get("root").author.diaspora_id != app.currentUser.get("diaspora_id") : true)
+      , notReshared = this.reshares.length === 0;
 
-    return publicPost && app.currentUser.authenticated() && userIsNotAuthor && userIsNotRootAuthor;
+    return publicPost && app.currentUser.authenticated() && userIsNotAuthor && userIsNotRootAuthor && notReshared;
   }
 });

@@ -22,3 +22,4 @@ Feature: public repost
     And I wait for the ajax to finish
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"
+    And I should not see a ".reshare" within ".feedback"
