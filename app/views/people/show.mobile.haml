@@ -39,5 +39,6 @@
   - else
     #main_stream
       %div{:style=>"text-align:center;", :class => "dull"}
+      - if user_signed_in? && (current_user.person != @person)
         = t('.has_not_shared_with_you_yet', :name => @person.first_name)
 
