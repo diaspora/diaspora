@@ -95,7 +95,8 @@
   display: none;
   z-index: 10;
 
-  width: 400px;
+  min-width: 250px;
+  max-width: 400px;
 
   padding: 10px {
     top: 5px;
