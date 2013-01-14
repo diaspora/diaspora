@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def how_long_ago(obj)
-    timeago(obj.created_at)
+    timeago(obj.created_at.localtime)
   end
 
   def timeago(time, options={})
