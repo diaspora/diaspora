@@ -177,7 +177,7 @@ end
 
 Then /^page should (not )?have "([^\"]*)"$/ do |negate, selector|
   page.has_css?(selector).should ( negate ? be_false : be_true )
-+end
+end
 
 When /^I wait for the ajax to finish$/ do
   wait_for_ajax_to_finish
