@@ -1,5 +1,10 @@
 describe("app.collections.Aspects", function(){
   beforeEach(function(){
+    Diaspora.I18n.loadLocale({
+      'and' : "and",
+      'comma' : ",",
+      'my_aspects' : "My Aspects"
+    });
     var my_aspects = [{ name: 'Work',          selected: true  },
                       { name: 'Friends',       selected: false },
                       { name: 'Acquaintances', selected: false }]
