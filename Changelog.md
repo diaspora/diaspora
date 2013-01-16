@@ -13,6 +13,7 @@
 * Remove the hack for loading the entire lib folder with a proper solution. [#3809](https://github.com/diaspora/diaspora/issues/3750)
 * Update and refactor the default public view `public/default.html` [#3811](https://github.com/diaspora/diaspora/issues/3811)
 * Write unicorn stderr and stdout [#3785](https://github.com/diaspora/diaspora/pull/3785)
+* Ported aspects to backbone [#3850](https://github.com/diaspora/diaspora/pull/3850)
 
 ## Features
 

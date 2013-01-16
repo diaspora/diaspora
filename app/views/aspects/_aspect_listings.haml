@@ -4,19 +4,6 @@
 
 %ul#aspect_nav.left_nav.sub
   %li.all_aspects
-    = link_to t('streams.aspects.title'), aspects_path, :class => 'home_selector'
+    = link_to t('streams.aspects.title'), aspects_path, :class => 'home_selector', :rel => 'backbone'
 
-    - if @stream.is_a?(Stream::Aspect)
-      %ul.sub_nav
-        - if defined?(stream)
-          %a.toggle_selector{:href => '#'}
-            = stream.for_all_aspects? ? t('.deselect_all') : t('.select_all')
-        - for aspect in all_aspects
-          %li{:data => {:aspect_id => aspect.id}, :class => ("active" if defined?(stream) && stream.aspect_ids.include?(aspect.id))}
-            .edit
-              = link_to image_tag("icons/pencil.png", :title => t('.edit_aspect', :name => aspect.name)), edit_aspect_path(aspect), :rel => "facebox"
-            %a.aspect_selector{:href => aspects_path("a_ids[]" => aspect.id), :class => "name", 'data-guid' => aspect.id}
-              = aspect
-
-        %li
-          = link_to t('.add_an_aspect'), new_aspect_path, :class => "new_aspect", :rel => "facebox"
+    %ul#aspects_list.sub_nav

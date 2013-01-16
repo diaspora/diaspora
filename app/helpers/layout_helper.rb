@@ -39,7 +39,8 @@ module LayoutHelper
 
   def set_current_user_in_javascript
     return unless user_signed_in?
-    user = UserPresenter.new(current_user).to_json
+    a_ids = session[:a_ids] || []
+    user = UserPresenter.new(current_user, a_ids).to_json
     content_tag(:script) do
       <<-JS.html_safe
         window.current_user_attributes = #{user}

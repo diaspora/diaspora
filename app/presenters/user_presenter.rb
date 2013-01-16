@@ -1,8 +1,9 @@
 class UserPresenter
-  attr_accessor :user
+  attr_accessor :user, :aspects_ids
 
-  def initialize(user)
-    self.user = user
+  def initialize(user, aspects_ids)
+    self.user        = user
+    self.aspects_ids = aspects_ids
   end
 
   def to_json(options = {})
@@ -27,7 +28,11 @@ class UserPresenter
   end
 
   def aspects
-    AspectPresenter.as_collection(user.aspects)
+    @aspects ||= begin
+                   aspects = AspectPresenter.as_collection(user.aspects)
+                   no_aspects = self.aspects_ids.empty?
+                   aspects.each{ |a| a[:selected] = no_aspects || self.aspects_ids.include?(a[:id].to_s) }
+                 end
   end
 
   def notifications_count

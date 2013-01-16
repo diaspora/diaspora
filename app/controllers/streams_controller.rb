@@ -21,7 +21,7 @@ class StreamsController < ApplicationController
              :json
 
   def aspects
-    aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
+    aspect_ids = (session[:a_ids] || [])
     @stream = Stream::Aspect.new(current_user, aspect_ids,
                                  :max_time => max_time)
     stream_responder

@@ -9,6 +9,9 @@ en:
     delete: "Delete"
     ignore: "Ignore"
     ignore_user: "Ignore this user?"
+    and: "and"
+    comma: ","
+    edit: "Edit"
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
@@ -28,6 +31,7 @@ en:
 
     my_activity: "My Activity"
     my_stream: "Stream"
+    my_aspects: "My Aspects"
 
     videos:
       watch: "Watch this video on <%= provider %>"
@@ -64,6 +68,7 @@ en:
       select_all: "Select all"
       deselect_all: "Deselect all"
       no_aspects: "No aspects selected"
+      add_an_aspect: "+ Add an aspect"
     getting_started:
       hey: "Hey, <%= name %>!"
       no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
