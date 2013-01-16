@@ -121,7 +121,7 @@ group :assets do
   gem 'handlebars_assets', '0.8.2'
   gem 'uglifier', '1.3.0'
 
-  gem "asset_sync", '0.5.0', :require => false
+  gem "asset_sync", '0.5.4', :require => false
 end
 
 gem 'jquery-rails', '2.1.4'

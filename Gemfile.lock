@@ -55,7 +55,7 @@ GEM
       rack (>= 1.1.0)
     addressable (2.3.2)
     arel (3.0.2)
-    asset_sync (0.5.0)
+    asset_sync (0.5.4)
       activemodel
       fog
     bcrypt-ruby (3.0.1)
@@ -230,7 +230,7 @@ GEM
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
-    net-ssh (2.6.2)
+    net-ssh (2.6.3)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     nokogiri (1.5.6)
@@ -418,7 +418,7 @@ DEPENDENCIES
   acts-as-taggable-on (= 2.3.3)
   acts_as_api (= 0.4.1)
   addressable (= 2.3.2)
-  asset_sync (= 0.5.0)
+  asset_sync (= 0.5.4)
   bootstrap-sass (= 2.2.2.0)
   capistrano (= 2.12.0)
   capistrano_colors (= 0.5.5)
