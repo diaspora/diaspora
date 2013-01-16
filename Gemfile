@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
 
-gem 'foreman', '0.60.2'
+gem 'foreman', '0.61'
 
 gem 'unicorn', '4.5.0', :require => false
 
