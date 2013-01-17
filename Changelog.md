@@ -26,7 +26,7 @@
 * Add flash-notice when sending messages to non-contacts. [#3723](https://github.com/diaspora/diaspora/pull/3723)
 * Re-add hovercards [#3802](https://github.com/diaspora/diaspora/pull/3802)
 * Add images to notifications [#3821](https://github.com/diaspora/diaspora/pull/3821)
-* Show pod version in footer and updated the link to the changelog [#3822](https://github.com/diaspora/diaspora/pull/3822) 
+* Show pod version in footer and updated the link to the changelog [#3822](https://github.com/diaspora/diaspora/pull/3822)
 
 ## Bug Fixes
 
@@ -45,6 +45,37 @@
 
 * Removed `debugger` since it was causing bundle problems, and is not necessary given 1.9.3 has a built-in debugger.
 * jasmine 1.2.1 -> 1.3.1 (+ remove useless spec)
+* foreman 0.60.2 -> 0.61
+* unicorn 4.4.0 -> 4.5.0
+* omniauth-twitter 0.0.13 -> 0.0.14
+* twitter 4.2.0 -> 4.4.4
+* rails_admin 0.2.0 -> 0.4.1
+* rack 1.4.3 -> 1.4.4
+* rack-rewrite 1.3.1 -> 1.3.3
+* asset_sync 0.5.0 -> 0.5.4
+* fog 1.6.0 -> 1.8.0
+* rails-i18n 0.7.0 -> 0.7.2
+* nokogiri 1.5.5 -> 1.5.6
+* ruby-oembed 0.8.7 -> 0.8.8
+* mobile-fu 1.1.0 -> 1.1.1
+* will_paginate 3.0.4 -> 3.0.5
+* sass 3.2.3 -> 3.2.5
+* bootstap-sass 2.1.1.0 -> 2.2.2.0
+* sass-rails 3.2.5 -> 3.2.6
+* handlebars_assets 0.6.6 -> 0.8.2
+* jquery-rails 2.1.3 -> 2.1.4
+* gon 4.0.1 -> 4.0.2
+* guard 1.5.4 -> 1.6.1
+    * guard-cucumber 1.2.2 -> 1.3.2
+    * guard-rspec 2.1.1 -> 2.3.3
+    * guard-spork 1.2.3 -> 1.4.1
+    * rb-fsevent 0.9.2 -> 0.9.3
+    * rb-inotify 0.8.8 -> 0.9.0
+* rspec 2.11.0 -> 2.12.0
+* rspec-rails 2.11.4 -> 2.12.2
+* selenium-webdriver 2.26.0 -> 2.27.2
+* fixture_builder 0.3.4 -> 0.3.5
+* ffi 1.1.5 -> 1.3.1
 
 # 0.0.2.2
 
