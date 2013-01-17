@@ -1,10 +1,10 @@
 <div class="media">
 
-  {{#if current_user}}
+  {{#if loggedIn}}
     <div class="controls">
       {{#unless authorIsCurrentUser}}
         <a href="#" rel="nofollow" class="block_user">
-          <img src="{{imageUrl "icons/ignoreuser.png"}}"" alt="Ignoreuser" class="control_icon" title="{{t "ignore"}}" />
+          <img src="{{imageUrl "icons/ignoreuser.png"}}" alt="Ignoreuser" class="control_icon" title="{{t "ignore"}}" />
         </a>
         <a href="#" rel="nofollow" class="hide_post">
           <img src="{{imageUrl "deletelabel.png"}}" class="delete control_icon" title="{{t "stream.hide"}}" />
