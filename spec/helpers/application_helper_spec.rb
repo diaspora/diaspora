@@ -38,7 +38,7 @@ describe ApplicationHelper do
       end
       @current_user = alice
     end
-    
+
     after do
       AppConfig.configured_services = @old_configured_services
     end
@@ -97,7 +97,7 @@ describe ApplicationHelper do
     it 'displays the supplied pod_name if it is set' do
       old_name = AppConfig.settings.pod_name.get
       AppConfig.settings.pod_name = "Catspora"
-      pod_name.should == "Catspora"
+      pod_name.should match "Catspora"
       AppConfig.settings.pod_name = old_name
     end
   end
@@ -107,7 +107,7 @@ describe ApplicationHelper do
     it 'displays the supplied pod_version if it is set' do
       old_version = AppConfig.version.number.get
       AppConfig.version.number = "0.0.1.0"
-      pod_version.should == "0.0.1.0"
+      pod_version.should match "0.0.1.0"
       AppConfig.version.number = old_version
     end
   end
