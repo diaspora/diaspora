@@ -27,6 +27,7 @@
 * Re-add hovercards [#3802](https://github.com/diaspora/diaspora/pull/3802)
 * Add images to notifications [#3821](https://github.com/diaspora/diaspora/pull/3821)
 * Show pod version in footer and updated the link to the changelog [#3822](https://github.com/diaspora/diaspora/pull/3822)
+* User interface enhancements [#3832](https://github.com/diaspora/diaspora/pull/3832), [#3839](https://github.com/diaspora/diaspora/pull/3839), [#3834](https://github.com/diaspora/diaspora/pull/3834).
 
 ## Bug Fixes
 
