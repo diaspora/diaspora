@@ -7,6 +7,7 @@
 //= require mbp-respond.min
 //= require mbp-helper
 //= require jquery.autoSuggest.custom
+
 $(document).ready(function(){
 
   $('.shield a').click(function(){
@@ -271,3 +272,39 @@ $(document).ready(function(){
   });
 
 });
+
+function createUploader(){
+ var uploader = new qq.FileUploaderBasic({
+     element: document.getElementById('file-upload'),
+     params: {'photo' : {'pending' : true, 'aspect_ids' : "all", 'set_profile_photo': true}},
+     allowedExtensions: ['jpg', 'jpeg', 'png'],
+     action: "/photos",
+     button: document.getElementById('file-upload'),
+     sizeLimit: 4194304,
+
+     onProgress: function(id, fileName, loaded, total){
+      var progress = Math.round(loaded / total * 100 );
+       $('#fileInfo').text(fileName + ' ' + progress + '%')
+     },
+       
+     messages: {
+       typeError: Diaspora.I18n.t("photo_uploader.invalid_ext"),
+       sizeError: Diaspora.I18n.t("photo_uploader.size_error"),
+       emptyError: Diaspora.I18n.t("photo_uploader.empty")
+     },
+
+     onSubmit: function(id, fileName){
+      $('#file-upload').addClass("loading");
+      $("#profile_photo_upload").find(".avatar").addClass('loading');
+      $("#file-upload-spinner").removeClass("hidden");
+     },
+
+     onComplete: function(id, fileName, responseJSON){
+      $("#file-upload-spinner").addClass("hidden");
+      $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
+      $('#file-upload').removeClass("loading");
+      location.reload();
+     }
+ });
+}
+window.onload = createUploader;
