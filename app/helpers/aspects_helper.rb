@@ -5,38 +5,39 @@
 module AspectsHelper
   def add_to_aspect_button(aspect_id, person_id)
     link_to image_tag('icons/monotone_plus_add_round.png'),
-      {:controller => 'aspect_memberships',
+      { :controller => 'aspect_memberships',
         :action => 'create',
+        :format => :json,
         :aspect_id => aspect_id,
-        :person_id => person_id},
-      :remote => true,
+        :person_id => person_id
+      },
       :method => 'post',
       :class => 'add button',
       'data-aspect_id' => aspect_id,
       'data-person_id' => person_id
   end
 
-  def remove_from_aspect_button(aspect_id, person_id)
+  def remove_from_aspect_button(membership_id, aspect_id, person_id)
     link_to image_tag('icons/monotone_check_yes.png'),
-      {:controller => "aspect_memberships",
+      { :controller => "aspect_memberships",
         :action => 'destroy',
-        :id => 42,
-        :aspect_id => aspect_id,
-        :person_id => person_id},
-      :remote => true,
+        :id => membership_id
+      },
       :method => 'delete',
       :class => 'added button',
+      'data-membership_id' => membership_id,
       'data-aspect_id' => aspect_id,
       'data-person_id' => person_id
   end
 
   def aspect_membership_button(aspect, contact, person)
     return if person && person.closed_account?
-    
-    if contact.nil? || !contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id}
+
+    membership = contact.aspect_memberships.where(:aspect_id => aspect.id).first
+    if contact.nil? || membership.nil?
       add_to_aspect_button(aspect.id, person.id)
     else
-      remove_from_aspect_button(aspect.id, person.id)
+      remove_from_aspect_button(membership.id, aspect.id, person.id)
     end
   end
 end

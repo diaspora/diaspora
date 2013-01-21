@@ -163,14 +163,16 @@ class PeopleController < ApplicationController
     end
   end
 
+  # shows the dropdown list of aspects the current user has set for the given person.
+  # renders "thats you" in case the current user views himself
   def aspect_membership_dropdown
     @person = Person.find_by_guid(params[:person_id])
-    if @person == current_user.person
-      render :text => I18n.t('people.person.thats_you')
-    else
-      @contact = current_user.contact_for(@person) || Contact.new
-      render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
-    end
+
+    # you are not a contact of yourself...
+    return render :text => I18n.t('people.person.thats_you') if @person == current_user.person
+
+    @contact = current_user.contact_for(@person) || Contact.new
+    render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
   end
 
   def redirect_if_tag_search
