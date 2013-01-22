@@ -1,5 +1,5 @@
 .notification_element{:data=>{:guid => n.id}, :class => (n.unread ? "unread" : "read")}
-  = person_image_tag n.actors.first, :thumb_medium  
+  = person_image_tag n.actors.first, :thumb_small
   = notification_message_for(n)
   %div
     %time
