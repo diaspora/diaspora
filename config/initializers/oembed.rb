@@ -9,11 +9,15 @@ require 'uri'
 
 OEmbedCubbies = OEmbed::Provider.new("http://cubbi.es/oembed")
 
+# patch in support for new https soundcloud
+OEmbed::Providers::SoundCloud << "https://*.soundcloud.com/*"
+
 oembed_provider_list = [
   OEmbed::Providers::Youtube,
   OEmbed::Providers::Vimeo,
-  OEmbed::Providers::Flickr,
   OEmbed::Providers::SoundCloud,
+  OEmbed::Providers::Instagram,
+  OEmbed::Providers::Flickr,
   OEmbedCubbies
 ]
 
