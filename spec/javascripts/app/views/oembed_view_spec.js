@@ -13,7 +13,23 @@ describe("app.views.OEmbed", function(){
   });
 
   describe("rendering", function(){
-    context("with thumb", function() {
+
+    it("should set types on the data", function() {
+      this.view.render();
+      expect(this.view.model.get("o_embed_cache").data.types).toBeDefined();
+    });
+
+    context("is a video", function() {
+
+      beforeEach(function(){
+        this.statusMessage.set({"o_embed_cache" : {"data": {"html": "some html","thumbnail_url": "//example.com/thumb.jpg","type": "video"}}});
+      });
+
+      it("should set types.video on the data", function() {
+        this.view.render();
+        expect(this.view.model.get("o_embed_cache").data.types.video).toBe(true)
+      });
+
       it("shows the thumb with overlay", function(){
         this.view.render();
 
@@ -31,7 +47,7 @@ describe("app.views.OEmbed", function(){
       });
     });
 
-    context("no thumb", function() {
+    context("is not a video", function() {
       beforeEach(function(){
         this.statusMessage.set({"o_embed_cache" : {"data": {"html": "some html"}}});
       });

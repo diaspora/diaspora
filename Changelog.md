@@ -17,6 +17,7 @@
 
 ## Features
 
+* Updates to oEmbed, added new providers and fixed photo display. [#3880](https://github.com/diaspora/diaspora/pull/3880)
 * Add 'screenshot tool' for taking before/after images of stylesheet changes. [#3797](https://github.com/diaspora/diaspora/pull/3797)
 * Add possibility to contact the administrator. [#3792](https://github.com/diaspora/diaspora/pull/3792)
 * Add simple background for unread messages/conversations mobile. [#3724](https://github.com/diaspora/diaspora/pull/3724)
