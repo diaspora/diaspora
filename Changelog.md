@@ -41,6 +41,7 @@
 * Resize deletelabel and ignoreuser images to align them [#3779](https://github.com/diaspora/diaspora/issues/3779)
 * Patch in Armenian pluralization rule until CLDR provides it.
 * Fix reshare a post multiple times[#3831](https://github.com/diaspora/diaspora/issues/3671)
+* Fix services index view. [#3884](https://github.com/diaspora/diaspora/issues/3884)
 
 ## Gem Updates
 
