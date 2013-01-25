@@ -34,7 +34,7 @@ gem 'twitter', '4.4.4'
 
 # mail
 
-gem 'markerb', :git => 'https://github.com/plataformatec/markerb.git'
+gem 'markerb', '1.0.1'
 gem 'messagebus_ruby_api', '1.0.3'
 
 group :production do # we don't install these on travis to speed up test runs

@@ -7,13 +7,6 @@ GIT
       activesupport (>= 2.3.0)
       nokogiri (>= 1.3.3)
 
-GIT
-  remote: https://github.com/plataformatec/markerb.git
-  revision: 93b1e8bea9b8fa89ef930f78ba562f596c022198
-  specs:
-    markerb (1.0.0)
-      redcarpet (>= 2.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -214,6 +207,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    markerb (1.0.1)
+      redcarpet (>= 2.0)
     messagebus_ruby_api (1.0.3)
     method_source (0.8.1)
     mime-types (1.19)
@@ -449,7 +444,7 @@ DEPENDENCIES
   jasmine (= 1.3.1)
   jquery-rails (= 2.1.4)
   json (= 1.7.5)
-  markerb!
+  markerb (= 1.0.1)
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.4)
   mobile-fu (= 1.1.1)
