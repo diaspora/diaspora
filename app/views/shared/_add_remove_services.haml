@@ -15,5 +15,5 @@
     = t('services.index.no_services')
 
 - AppConfig.configured_services.each do |service|
-  - unless @services.any?{|x| x.provider == service}
+  - unless @services.any?{|x| x.provider == service.to_s}
     %h4= link_to(t("services.index.connect_to_#{service}"), "/auth/#{service}")
