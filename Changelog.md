@@ -34,15 +34,16 @@
 
 * Force Typhoeus/cURL to use the CA bundle we query via the config. Also add a setting for extra verbose output.
 * Validate input on sending invitations, validate email format, send correct ones. [#3748](https://github.com/diaspora/diaspora/pull/3748), [#3271](https://github.com/diaspora/diaspora/issues/3271)
-* moved Aspects JS initializer to the correct place so aspect selection / deselection works again [#3737] (https://github.com/diaspora/diaspora/pull/3737)
-* Do not strip "markdown" in links when posting to services [#3765](https://github.com/diaspora/diaspora/issues/3765)
+* moved Aspects JS initializer to the correct place so aspect selection / deselection works again. [#3737](https://github.com/diaspora/diaspora/pull/3737)
+* Do not strip "markdown" in links when posting to services. [#3765](https://github.com/diaspora/diaspora/issues/3765)
 * Renamed `server.db` to `server.database` to match the example configuration.
 * Fix insecure image of cat on user edit page - New photo courtesy of [khanb1 on flickr](http://www.flickr.com/photos/albaraa/) under CC BY 2.0.
 * Allow translation of "suggest member" of Community Spotlight. [#3791](https://github.com/diaspora/diaspora/issues/3791)
-* Resize deletelabel and ignoreuser images to align them [#3779](https://github.com/diaspora/diaspora/issues/3779)
+* Resize deletelabel and ignoreuser images to align them. [#3779](https://github.com/diaspora/diaspora/issues/3779)
 * Patch in Armenian pluralization rule until CLDR provides it.
-* Fix reshare a post multiple times[#3831](https://github.com/diaspora/diaspora/issues/3671)
+* Fix reshare a post multiple times. [#3831](https://github.com/diaspora/diaspora/issues/3671)
 * Fix services index view. [#3884](https://github.com/diaspora/diaspora/issues/3884)
+* Excesive padding with "user-controls" in single post view. [#3861](https://github.com/diaspora/diaspora/issues/3861)
 
 ## Gem Updates
 
