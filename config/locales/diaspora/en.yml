@@ -829,7 +829,7 @@ en:
       share: "Share"
       outside: "Public messages will be available for others outside of Diaspora to see."
       logged_in: "logged in to %{service}"
-      manage: "manage connected services"
+      manage: "Manage connected services"
       atom_feed: "Atom feed"
     notification:
       new: "New %{type} from %{from}"
