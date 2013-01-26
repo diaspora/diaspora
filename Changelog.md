@@ -44,6 +44,7 @@
 * Fix reshare a post multiple times. [#3831](https://github.com/diaspora/diaspora/issues/3671)
 * Fix services index view. [#3884](https://github.com/diaspora/diaspora/issues/3884)
 * Excesive padding with "user-controls" in single post view. [#3861](https://github.com/diaspora/diaspora/issues/3861)
+* Resize full scaled image to a specific width. [#3818](https://github.com/diaspora/diaspora/issues/3818)
 
 ## Gem Updates
 
