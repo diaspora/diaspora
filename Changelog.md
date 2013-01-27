@@ -1,20 +1,5 @@
 # 0.0.3.0
 
-## Refactor
-
-* Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
-* Last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
-* Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713)
-* fixed tags on the profiles page (broken by the change of server side response in the switch to backbone) [#3775](https://github.com/diaspora/diaspora/pull/3777)
-* Extracted configuration system to a gem.
-* Made number of unicorn workers configurable.
-* Made loading of the configuration environment independent of Rails.
-* Do not generate paths like `/a/b/c/config/boot.rb/../../Gemfile` to require and open things, create a proper path instead.
-* Remove the hack for loading the entire lib folder with a proper solution. [#3809](https://github.com/diaspora/diaspora/issues/3750)
-* Update and refactor the default public view `public/default.html` [#3811](https://github.com/diaspora/diaspora/issues/3811)
-* Write unicorn stderr and stdout [#3785](https://github.com/diaspora/diaspora/pull/3785)
-* Ported aspects to backbone [#3850](https://github.com/diaspora/diaspora/pull/3850)
-
 ## Features
 
 * Updates to oEmbed, added new providers and fixed photo display. [#3880](https://github.com/diaspora/diaspora/pull/3880)
@@ -33,19 +18,34 @@
 
 ## Bug Fixes
 
-* Force Typhoeus/cURL to use the CA bundle we query via the config. Also add a setting for extra verbose output.
-* Validate input on sending invitations, validate email format, send correct ones. [#3748](https://github.com/diaspora/diaspora/pull/3748), [#3271](https://github.com/diaspora/diaspora/issues/3271)
-* moved Aspects JS initializer to the correct place so aspect selection / deselection works again. [#3737](https://github.com/diaspora/diaspora/pull/3737)
-* Do not strip "markdown" in links when posting to services. [#3765](https://github.com/diaspora/diaspora/issues/3765)
-* Renamed `server.db` to `server.database` to match the example configuration.
+* Fix last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
+* Fix tags on the profiles page (broken by the change of server side response in the switch to backbone) [#3775](https://github.com/diaspora/diaspora/pull/3777)
+* Fix input validation on sending invitations : validate email format, send correct ones. [#3748](https://github.com/diaspora/diaspora/pull/3748), [#3271](https://github.com/diaspora/diaspora/issues/3271)
+* Fix aspect selection / deselection works again by moving Aspects JS initializer to the correct place [#3737](https://github.com/diaspora/diaspora/pull/3737)
+* Fix do not strip "markdown" in links when posting to services. [#3765](https://github.com/diaspora/diaspora/issues/3765)
 * Fix insecure image of cat on user edit page - New photo courtesy of [khanb1 on flickr](http://www.flickr.com/photos/albaraa/) under CC BY 2.0.
-* Allow translation of "suggest member" of Community Spotlight. [#3791](https://github.com/diaspora/diaspora/issues/3791)
-* Resize deletelabel and ignoreuser images to align them. [#3779](https://github.com/diaspora/diaspora/issues/3779)
-* Patch in Armenian pluralization rule until CLDR provides it.
+* Fix allowing translation of "suggest member" of Community Spotlight. [#3791](https://github.com/diaspora/diaspora/issues/3791)
+* Fix deletelabel and ignoreuser images by resizing them to align them. [#3779](https://github.com/diaspora/diaspora/issues/3779)
+* Fix Armenian pluralization rule until CLDR provides it.
 * Fix reshare a post multiple times. [#3831](https://github.com/diaspora/diaspora/issues/3671)
 * Fix services index view. [#3884](https://github.com/diaspora/diaspora/issues/3884)
-* Excesive padding with "user-controls" in single post view. [#3861](https://github.com/diaspora/diaspora/issues/3861)
-* Resize full scaled image to a specific width. [#3818](https://github.com/diaspora/diaspora/issues/3818)
+* Fix excessive padding with "user-controls" in single post view. [#3861](https://github.com/diaspora/diaspora/issues/3861)
+* Fix full scaled image by resizing to a specific width. [#3818](https://github.com/diaspora/diaspora/issues/3818)
+
+## Refactor
+
+* Force Typhoeus/cURL to use the CA bundle we query via the config. Also add a setting for extra verbose output.
+* Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
+* Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713)
+* Extracted configuration system to a gem.
+* Made number of unicorn workers configurable.
+* Made loading of the configuration environment independent of Rails.
+* Do not generate paths like `/a/b/c/config/boot.rb/../../Gemfile` to require and open things, create a proper path instead.
+* Remove the hack for loading the entire lib folder with a proper solution. [#3809](https://github.com/diaspora/diaspora/issues/3750)
+* Update and refactor the default public view `public/default.html` [#3811](https://github.com/diaspora/diaspora/issues/3811)
+* Write unicorn stderr and stdout [#3785](https://github.com/diaspora/diaspora/pull/3785)
+* Ported aspects to backbone [#3850](https://github.com/diaspora/diaspora/pull/3850)
+* Renamed `server.db` to `server.database` to match the example configuration.
 
 ## Gem Updates
 
@@ -93,6 +93,13 @@
 
 # 0.0.2.0
 
+## Features
+
+* Add "My Activity" icon mobile -[Author Icon](http://www.gentleface.com/free_icon_set.html)-. [#3687](https://github.com/diaspora/diaspora/pull/3687)
+* Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
+* When posting to Twitter, behaviour changed so that URL to post will only be added to the post when length exceeds 140 chars or post contains uploaded photos.
+* Remove markdown formatting from post message when posting to Facebook or Twitter.
+
 ## Refactor
 
 ### script/server
@@ -110,13 +117,6 @@
 * MessagesController. [#3657](https://github.com/diaspora/diaspora/pull/3657)
 * **Fixed setting:** `follow_diasporahq` has now to be set to `true` to enable following the DiasporaHQ account. Was `false`
 * Removal of some bash-/linux-isms from most of the scripts, rework of 'script/install.sh' output methods. [#3679](https://github.com/diaspora/diaspora/pull/3679)
-
-## Features
-
-* Add "My Activity" icon mobile -[Author Icon](http://www.gentleface.com/free_icon_set.html)-. [#3687](https://github.com/diaspora/diaspora/pull/3687)
-* Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
-* When posting to Twitter, behaviour changed so that URL to post will only be added to the post when length exceeds 140 chars or post contains uploaded photos.
-* Remove markdown formatting from post message when posting to Facebook or Twitter.
 
 ## Bug Fixes
 
@@ -180,7 +180,7 @@ Fix exception when the root of a reshare of a reshare got deleted [#3546](https:
 
 * Fix syntax error in French Javascript pluralization rule.
 
-# 0.0.1.0
+# 0.0.1.0 
 
 ## New configuration system!
 
@@ -232,21 +232,19 @@ The following gems were removed because their are neither used in daily developm
 * oink
 * yard
 
+## Refactor
 
-## Publisher
+### Publisher
 
 Refactoring of the JavaScript code; it is now completely rewritten to make use of Backbone.js.
 This paves the way for future improvements such as post preview or edit toolbar/help.
 
-
-## Removal of 'beta' code
+### Removal of 'beta' code
 
 The feature-flag on users and all the code in connection with experimental UX changes got removed/reverted. Those are the parts that became Makr.io.
 The single-post view will also be revamped/reverted, but that didn't make it into this release.
 
+### JS lib updates
 
-## JS lib updates
-
-
-## Cleanup in maintenance scripts and automated build environment
+### Cleanup in maintenance scripts and automated build environment
 
