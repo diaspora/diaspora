@@ -53,11 +53,15 @@ module PublishingCukeHelpers
     find(".stream_element:contains('#{text}')")
   end
 
-  def like_post(post_text)
+  def like_post(post_text, label='Like')
     within_post(post_text) do
-      click_link 'Like'
+      click_link label
     end
     wait_for_ajax_to_finish
+  end
+
+  def unlike_post(post_text)
+    like_post(post_text, 'Unlike')
   end
 
   def within_post(post_text)
