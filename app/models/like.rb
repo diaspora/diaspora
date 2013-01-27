@@ -12,6 +12,7 @@ class Like < Federated::Relayable
       {:target => @target, :positive => true}
     end
   end
+  has_one :participation, :dependent => :destroy, :foreign_key => :target_id, :primary_key => :target_id
 
   after_commit :on => :create do
     self.parent.update_likes_counter

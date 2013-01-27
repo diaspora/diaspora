@@ -106,6 +106,12 @@ module PublishingCukeHelpers
     end
   end
 
+  def unlike_post(post_text)
+    within_post(post_text) do
+      find(:css, 'a.unlike').click
+    end
+  end
+
   def stream_posts
     all('.stream_element')
   end
