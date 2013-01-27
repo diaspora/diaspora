@@ -54,6 +54,7 @@
 * Show timestamp hovering a timeago string (stream) [#3149](https://github.com/diaspora/diaspora/issues/3149)
 * Fix reshare and like a post on a single post view [#3672](https://github.com/diaspora/diaspora/issues/3672)
 * Fix posting multiple times the same content [#3272](https://github.com/diaspora/diaspora/issues/3272)
+* Fix wrong message on infinite scroll on contacts page [#3681](https://github.com/diaspora/diaspora/issues/3681)
 
 ## Gem Updates
 
