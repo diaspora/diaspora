@@ -1,20 +1,5 @@
 # 0.0.3.0
 
-## Refactor
-
-* Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
-* Last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
-* Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713)
-* fixed tags on the profiles page (broken by the change of server side response in the switch to backbone) [#3775](https://github.com/diaspora/diaspora/pull/3777)
-* Extracted configuration system to a gem.
-* Made number of unicorn workers configurable.
-* Made loading of the configuration environment independent of Rails.
-* Do not generate paths like `/a/b/c/config/boot.rb/../../Gemfile` to require and open things, create a proper path instead.
-* Remove the hack for loading the entire lib folder with a proper solution. [#3809](https://github.com/diaspora/diaspora/issues/3750)
-* Update and refactor the default public view `public/default.html` [#3811](https://github.com/diaspora/diaspora/issues/3811)
-* Write unicorn stderr and stdout [#3785](https://github.com/diaspora/diaspora/pull/3785)
-* Ported aspects to backbone [#3850](https://github.com/diaspora/diaspora/pull/3850)
-
 ## Features
 
 * Updates to oEmbed, added new providers and fixed photo display. [#3880](https://github.com/diaspora/diaspora/pull/3880)
@@ -28,7 +13,7 @@
 * Re-add hovercards [#3802](https://github.com/diaspora/diaspora/pull/3802)
 * Add images to notifications [#3821](https://github.com/diaspora/diaspora/pull/3821)
 * Show pod version in footer and updated the link to the changelog [#3822](https://github.com/diaspora/diaspora/pull/3822)
-* User interface enhancements [#3832](https://github.com/diaspora/diaspora/pull/3832), [#3839](https://github.com/diaspora/diaspora/pull/3839), [#3834](https://github.com/diaspora/diaspora/pull/3834), [#3840](https://github.com/diaspora/diaspora/issues/3840), [#3846](https://github.com/diaspora/diaspora/issues/3846), [#3851](https://github.com/diaspora/diaspora/issues/3851), [#3828](https://github.com/diaspora/diaspora/issues/3828), [#3874](https://github.com/diaspora/diaspora/issues/3874), [#3806](https://github.com/diaspora/diaspora/issues/3806), [#3906](https://github.com/diaspora/diaspora/issues/3906).
+* User interface enhancements [#3832](https://github.com/diaspora/diaspora/pull/3832), [#3839](https://github.com/diaspora/diaspora/pull/3839), [#3834](https://github.com/diaspora/diaspora/pull/3834), [#3840](https://github.com/diaspora/diaspora/issues/3840), [#3846](https://github.com/diaspora/diaspora/issues/3846), [#3851](https://github.com/diaspora/diaspora/issues/3851), [#3828](https://github.com/diaspora/diaspora/issues/3828), [#3874](https://github.com/diaspora/diaspora/issues/3874), [#3806](https://github.com/diaspora/diaspora/issues/3806).
 * Show links in sidebar [#3827](https://github.com/diaspora/diaspora/pull/3827)
 
 ## Bug Fixes
@@ -44,8 +29,25 @@
 * Patch in Armenian pluralization rule until CLDR provides it.
 * Fix reshare a post multiple times. [#3831](https://github.com/diaspora/diaspora/issues/3671)
 * Fix services index view. [#3884](https://github.com/diaspora/diaspora/issues/3884)
-* Excesive padding with "user-controls" in single post view. [#3861](https://github.com/diaspora/diaspora/issues/3861)
+* Excessive padding with "user-controls" in single post view. [#3861](https://github.com/diaspora/diaspora/issues/3861)
 * Resize full scaled image to a specific width. [#3818](https://github.com/diaspora/diaspora/issues/3818)
+* Fix last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
+* Fix tags on the profiles page (broken by the change of server side response in the switch to backbone) [#3775](https://github.com/diaspora/diaspora/pull/3775)
+
+## Refactor
+
+* Force Typhoeus/cURL to use the CA bundle we query via the config. Also add a setting for extra verbose output.
+* Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
+* Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713)
+* Extracted configuration system to a gem.
+* Made number of unicorn workers configurable.
+* Made loading of the configuration environment independent of Rails.
+* Do not generate paths like `/a/b/c/config/boot.rb/../../Gemfile` to require and open things, create a proper path instead.
+* Remove the hack for loading the entire lib folder with a proper solution. [#3809](https://github.com/diaspora/diaspora/issues/3750)
+* Update and refactor the default public view `public/default.html` [#3811](https://github.com/diaspora/diaspora/issues/3811)
+* Write unicorn stderr and stdout [#3785](https://github.com/diaspora/diaspora/pull/3785)
+* Ported aspects to backbone [#3850](https://github.com/diaspora/diaspora/pull/3850)
+* Renamed `server.db` to `server.database` to match the example configuration.
 
 ## Gem Updates
 
@@ -93,24 +95,6 @@
 
 # 0.0.2.0
 
-## Refactor
-
-### script/server
-
-* Uses foreman now
-* Reduce startup time by reducing calls to `script/get_config.rb`
-* `config/script_server.yml` is removed and replaced by the `server` section in `config/diaspora.yml`
-  Have a look at the updated example!
-* Thin is dropped in favour of unicorn
-* Already set versions of `RAILS_ENV` and `DB` are now prefered over those set in `config/diaspora.yml`
-* **Heroku setups:** `ENVIRONMENT_UNICORN_EMBED_RESQUE_WORKER` got renamed to `SERVER_EMBED_RESQUE_WORKER`
-
-### Other
-
-* MessagesController. [#3657](https://github.com/diaspora/diaspora/pull/3657)
-* **Fixed setting:** `follow_diasporahq` has now to be set to `true` to enable following the DiasporaHQ account. Was `false`
-* Removal of some bash-/linux-isms from most of the scripts, rework of 'script/install.sh' output methods. [#3679](https://github.com/diaspora/diaspora/pull/3679)
-
 ## Features
 
 * Add "My Activity" icon mobile -[Author Icon](http://www.gentleface.com/free_icon_set.html)-. [#3687](https://github.com/diaspora/diaspora/pull/3687)
@@ -137,6 +121,24 @@
 * Fix problem with show reshares_count in stream. [#3700](https://github.com/diaspora/diaspora/pull/3700)
 * Fix error with notifications count in mobile. [#3721](https://github.com/diaspora/diaspora/pull/3721)
 * Fix conversation unread message count bug. [#2321](https://github.com/diaspora/diaspora/issues/2321)
+
+## Refactor
+
+### script/server
+
+* Uses foreman now
+* Reduce startup time by reducing calls to `script/get_config.rb`
+* `config/script_server.yml` is removed and replaced by the `server` section in `config/diaspora.yml`
+  Have a look at the updated example!
+* Thin is dropped in favour of unicorn
+* Already set versions of `RAILS_ENV` and `DB` are now prefered over those set in `config/diaspora.yml`
+* **Heroku setups:** `ENVIRONMENT_UNICORN_EMBED_RESQUE_WORKER` got renamed to `SERVER_EMBED_RESQUE_WORKER`
+
+### Other
+
+* MessagesController. [#3657](https://github.com/diaspora/diaspora/pull/3657)
+* **Fixed setting:** `follow_diasporahq` has now to be set to `true` to enable following the DiasporaHQ account. Was `false`
+* Removal of some bash-/linux-isms from most of the scripts, rework of 'script/install.sh' output methods. [#3679](https://github.com/diaspora/diaspora/pull/3679)
 
 ## Gem updates
 
@@ -180,7 +182,7 @@ Fix exception when the root of a reshare of a reshare got deleted [#3546](https:
 
 * Fix syntax error in French Javascript pluralization rule.
 
-# 0.0.1.0
+# 0.0.1.0 
 
 ## New configuration system!
 
@@ -232,21 +234,18 @@ The following gems were removed because their are neither used in daily developm
 * oink
 * yard
 
+## Refactor
 
-## Publisher
+### Publisher
 
 Refactoring of the JavaScript code; it is now completely rewritten to make use of Backbone.js.
 This paves the way for future improvements such as post preview or edit toolbar/help.
 
-
-## Removal of 'beta' code
+### Removal of 'beta' code
 
 The feature-flag on users and all the code in connection with experimental UX changes got removed/reverted. Those are the parts that became Makr.io.
 The single-post view will also be revamped/reverted, but that didn't make it into this release.
 
+### JS lib updates
 
-## JS lib updates
-
-
-## Cleanup in maintenance scripts and automated build environment
-
+### Cleanup in maintenance scripts and automated build environment
