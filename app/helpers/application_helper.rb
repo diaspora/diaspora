@@ -13,7 +13,8 @@ module ApplicationHelper
 
   def changelog_url
     url = "https://github.com/diaspora/diaspora/blob/master/Changelog.md"
-    url.sub!('/master/', "/#{AppConfig.git_revision}/") if AppConfig.git_available?
+    url.sub!('/master/', "/#{AppConfig.git_revision}/") if AppConfig.git_revision.present?
+    url
   end
 
   def how_long_ago(obj)
