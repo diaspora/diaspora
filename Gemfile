@@ -18,7 +18,7 @@ gem 'rack-protection', '1.2'
 
 # authentication
 
-gem 'devise', '2.1.2'
+gem 'devise', '2.1.3'
 
 gem 'remotipart', '1.0.2'
 
