@@ -16,13 +16,7 @@ Diaspora::Application.routes.draw do
 
   resources :status_messages, :only => [:new, :create]
 
-  resources :posts do
-    member do
-      get :next
-      get :previous
-      get :interactions
-    end
-
+  resources :posts, :only => [:show, :destroy] do
     resources :likes, :only => [:create, :destroy, :index ]
     resources :participations, :only => [:create, :destroy, :index]
     resources :comments, :only => [:new, :create, :destroy, :index]

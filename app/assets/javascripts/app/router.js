@@ -1,10 +1,5 @@
 app.Router = Backbone.Router.extend({
   routes: {
-    //new hotness
-    "posts/:id": "singlePost",
-    "posts/:id/next": "siblingPost",
-    "posts/:id/previous": "siblingPost",
-    "p/:id": "singlePost",
 
     //oldness
     "activity": "stream",
