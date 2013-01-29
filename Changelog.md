@@ -82,6 +82,8 @@
 * selenium-webdriver 2.26.0 -> 2.27.2
 * fixture_builder 0.3.4 -> 0.3.5
 * ffi 1.1.5 -> 1.3.1
+* configurate 0.0.1 -> 0.0.2
+
 
 # 0.0.2.3
 

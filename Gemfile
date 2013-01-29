@@ -9,7 +9,7 @@ gem 'unicorn', '4.5.0', :require => false
 gem 'rails_autolink', '1.0.9'
 
 # configuration
-gem 'configurate', '0.0.1'
+gem 'configurate', '0.0.2'
 
 # cross-origin resource sharing
 
