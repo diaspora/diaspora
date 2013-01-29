@@ -14,6 +14,7 @@
 * Update and refactor the default public view `public/default.html` [#3811](https://github.com/diaspora/diaspora/issues/3811)
 * Write unicorn stderr and stdout [#3785](https://github.com/diaspora/diaspora/pull/3785)
 * Ported aspects to backbone [#3850](https://github.com/diaspora/diaspora/pull/3850)
+* Join tagging's table instead of tags to improve a bit the query [#3932](https://github.com/diaspora/diaspora/pull/3932)
 
 ## Features
 
