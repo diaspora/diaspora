@@ -119,6 +119,13 @@ describe UsersController do
         Resque.stub!(:enqueue)
       end
 
+      it 'disallow the user to change his new (unconfirmed) mail when it is the same as the old' do
+        @user.email = "my@newemail.com"
+        put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
+        @user.reload
+        @user.unconfirmed_email.should eql(nil)
+      end
+
       it 'allow the user to change his (unconfirmed) email' do
         put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
         @user.reload

@@ -1,0 +1,16 @@
+-# Copyright (c) 2010-2011, Diaspora Inc. This file is
+-# licensed under the Affero General Public License version 3 or later. See
+-# the COPYRIGHT file.
+
+
+#section_header
+  %h3
+    = t('settings')
+  = render 'shared/settings_nav'
+
+.span-12.prepend-5.last
+  - content_for :submit_block do
+    = link_to t('cancel'), local_or_remote_person_path(current_user.person), :class => "button"
+    = submit_tag t('.update_profile'), :class => "btn"
+  = render :partial => 'edit', :locals => {:person => @person,
+    :profile => @profile, :aspect => @aspect, :step => @step}
