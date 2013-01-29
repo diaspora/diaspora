@@ -3,7 +3,7 @@ module NotificationsHelper
 
   def object_link(note, actors)
     target_type = note.popup_translation_key
-    actors_count = note.actors.count
+    actors_count = note.actors.size
 
     if note.instance_of?(Notifications::Mentioned)
       if post = note.linked_object
@@ -29,7 +29,7 @@ module NotificationsHelper
 
   def notification_people_link(note, people=nil)
     actors =people || note.actors
-    number_of_actors = actors.count
+    number_of_actors = actors.size
     sentence_translations = {:two_words_connector => " #{t('notifications.index.and')} ", :last_word_connector => ", #{t('notifications.index.and')} " }
     actor_links = actors.collect{ |person|
       person_link(person, :class => 'hovercardable')
