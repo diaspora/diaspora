@@ -50,5 +50,6 @@ class ContactsController < ApplicationController
         end
     end
     @contacts = @contacts.for_a_stream.paginate(:page => params[:page], :per_page => 25)
+    @contacts_size = @contacts.length
   end
 end
