@@ -114,12 +114,13 @@ class UsersController < ApplicationController
   end
 
   def getting_started
-    @aspect   = :getting_started
     @user     = current_user
     @person   = @user.person
     @profile  = @user.profile
 
-    render "users/getting_started"
+    @css_framework = :bootstrap
+    @include_application_css = true #Hack for multiple CSS frameworks and having two main styles
+    render "users/getting_started", layout: "with_header_with_footer"
   end
 
   def getting_started_completed
