@@ -32,10 +32,6 @@ app.views.Post.Day = app.views.Post.Mood.extend({
   mood : "day"
 })
 
-app.views.Post.Night = app.views.Post.Mood.extend({
-  mood : "night"
-})
-
 app.views.Post.Newspaper = app.views.Post.Mood.extend({
   mood : "newspaper"
 })
@@ -51,16 +47,4 @@ app.views.Post.Wallpaper = app.views.Post.Mood.extend({
       backgroundUrl : backgroundPhoto && backgroundPhoto.sizes.large
     })
   }
-})
-
-app.views.Post.Typist = app.views.Post.Mood.extend({
-  mood : "typist"
-})
-
-app.views.Post.Vanilla = app.views.Post.Mood.extend({
-  mood : "vanilla"
-})
-
-app.views.Post.Fridge = app.views.Post.Mood.extend({
-  mood : "fridge"
 })
