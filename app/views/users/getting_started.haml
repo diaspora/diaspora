@@ -3,6 +3,8 @@
 -#   the COPYRIGHT file.
 
 - content_for :head do
+  - if in_mobile_view?
+    = javascript_include_tag :jquery
   = javascript_include_tag :profile
 :css
   .media, .bd{ overflow: visible;}

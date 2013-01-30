@@ -49,7 +49,8 @@
 * Fix services index view. [#3884](https://github.com/diaspora/diaspora/issues/3884)
 * Excesive padding with "user-controls" in single post view. [#3861](https://github.com/diaspora/diaspora/issues/3861)
 * Resize full scaled image to a specific width. [#3818](https://github.com/diaspora/diaspora/issues/3818)
-* Fix translation issue in contacts_helper [#3937](https://github.com/diaspora/diaspora/pull/3937)
+* Fix translation issue in contacts_helper. [#3937](https://github.com/diaspora/diaspora/pull/3937)
+* Getting started page now works on mobile. [#3945](https://github.com/diaspora/diaspora/pull/3945)
 
 ## Gem Updates
 
