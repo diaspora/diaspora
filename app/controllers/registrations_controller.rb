@@ -5,7 +5,7 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :check_registrations_open_or_vaild_invite!, :check_valid_invite!
 
-  layout "application", :only => [:new]
+  layout "with_header", :only => [:new]
   before_filter -> { @css_framework = :bootstrap }, only: [:new]
 
   def create
