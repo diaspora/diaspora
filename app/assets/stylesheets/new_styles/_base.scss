@@ -110,8 +110,7 @@ article { //mood posts
   margin: 0 auto;
 
   img {
-    max-height: 70%;
-    border : 10px solid #fff;
+    max-height: 100%;
   }
 
   .photo_viewer {
@@ -168,9 +167,8 @@ article { //mood posts
     }
 
     .photo_viewer {
-      float: right;
       margin-left: 20px;
-      max-width: 320px;
+      max-width: 650px;
     }
 
     header {
@@ -197,8 +195,9 @@ article { //mood posts
   }
 
   img {
-    max-height: 400px;
-    max-width: 400px;
+    max-height: 100%;
+    max-width: 500px;
+    margin-left: 20%;
   }
 }
 

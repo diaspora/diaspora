@@ -29,7 +29,7 @@ app.views.Post.Mood = app.views.Post.extend({
 });
 
 app.views.Post.Day = app.views.Post.Mood.extend({
-  mood : "day"
+  mood : "newspaper"
 })
 
 app.views.Post.Newspaper = app.views.Post.Mood.extend({
@@ -37,14 +37,5 @@ app.views.Post.Newspaper = app.views.Post.Mood.extend({
 })
 
 app.views.Post.Wallpaper = app.views.Post.Mood.extend({
-  mood : "wallpaper",
-  templateName : "wallpaper-mood",
-
-
-  presenter : function(){
-    var backgroundPhoto = _.first(this.model.get("photos") || [])
-    return _.extend(app.views.Post.Mood.prototype.presenter.call(this), {
-      backgroundUrl : backgroundPhoto && backgroundPhoto.sizes.large
-    })
-  }
+  mood : "newspaper",
 })
