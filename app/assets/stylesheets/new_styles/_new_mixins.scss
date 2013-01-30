@@ -1,5 +1,5 @@
 $light-grey: #999;
-$pane-width: 420px;
+$pane-width: 790px;
 $night-background-color : #333;
 $night-text-color : #999;
 
@@ -28,30 +28,25 @@ $night-text-color : #999;
 
 @mixin background-cover() {
   background: no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
 }
 
 @mixin info-container-base() {
-  @include box-shadow(0, 6px, 20px, #000);
-  @include dark-hatched-bg();
-
-  border-top: 1px solid #555;
+  border-top: 1px solid #DADADA;
   color: #ddd;
+  background: #fff;
 }
 
 @mixin info-container() {
   @include info-container-base();
-  @include border-radius(3px, 0px);
   @include pane-width();
 
   display: inline-block;
   position: relative;
-
-  border-right: 1px solid #444;
-  border-left: 1px solid #444;
+  border: 1px solid #DADADA;
 
   padding-top: 25px;
 
@@ -60,12 +55,10 @@ $night-text-color : #999;
 }
 
 @mixin dark-hatched-bg() {
-  background-color: #444;
-  background-image: image-url("texture/hatched-dark.png");
+  background-color: #FFF;
 }
 
 @mixin photo-shadow() {
-  @include box-shadow(0, 3px, 15px, rgba(0,0,0,0.7));
 }
 
 @mixin media-text() {

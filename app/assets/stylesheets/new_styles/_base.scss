@@ -120,18 +120,21 @@ article { //mood posts
 
   @include centered-frame();
   .container {
-    padding: 70px 0;
-    max-width: 85%;
+    min-width: 790px;
+    background: white;
+    min-height: 280px;
+    box-shadow: 1px 1px 4px #999;
+    padding-left: 25px;
+    padding-right: 6px;
   }
 
   header {
-    padding : 0 100px;
   }
 
   header, header p{
   //big text
     @include media-text();
-    font-size: $big-text-size;
+    font-size: 12px;
     line-height: 1.5em;
   }
 
@@ -320,9 +323,7 @@ $bring-dark-accent-forward-color: #DDD;
 }
 
 .profile-image-container {
-  border-radius: 140px;
   border : 3px solid #fff;
-  box-shadow : 0 0 2px rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.5), inset 0 -2px 4px rgba(255,255,255,0.3);
   background-size: cover;
 
   height : 140px;
@@ -343,9 +344,9 @@ $bring-dark-accent-forward-color: #DDD;
   }
 
   &.smaller {
-    height : 34px;
-    width : 34px;
-    border : 2px solid #ccc;
+    height : 40px;
+    width : 40px;
+    border : 2px solid #fff;
   }
 
   &.micro {
