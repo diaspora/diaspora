@@ -51,6 +51,7 @@
 * Excesive padding with "user-controls" in single post view. [#3861](https://github.com/diaspora/diaspora/issues/3861)
 * Resize full scaled image to a specific width. [#3818](https://github.com/diaspora/diaspora/issues/3818)
 * Fix translation issue in contacts_helper [#3937](https://github.com/diaspora/diaspora/pull/3937)
+* Show timestamp hovering a timeago string (stream) [#3149](https://github.com/diaspora/diaspora/issues/3149)
 
 ## Gem Updates
 
