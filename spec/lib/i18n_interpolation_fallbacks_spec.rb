@@ -10,7 +10,7 @@ describe "i18n interpolation fallbacks" do
       I18n.t('user.invalid',
              :resource_name => "user",
              :scope => "devise.failure",
-             :default => [:invalid, "invalid"]).should == "Invalid email or password."
+             :default => [:invalid, "invalid"]).should == "Invalid username or password."
     end
   end
   describe "when string requires interpolation arguments" do
