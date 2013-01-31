@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'i18n_interpolation_fallbacks'
-require "i18n/backend/fallbacks" 
+require "i18n/backend/fallbacks"
 
 settings_file = Pathname.new(__FILE__).dirname.join('..').expand_path.join('locale_settings.yml')
 if settings_file.exist?
@@ -23,7 +23,8 @@ end
 
 
 # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-I18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+# Use the railtie configuration option to ensure overiding devise.
+Diaspora::Application.config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 I18n.default_locale = DEFAULT_LANGUAGE
 
 I18n::Backend::Simple.send(:include, I18n::Backend::InterpolationFallbacks)
