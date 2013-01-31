@@ -64,3 +64,13 @@ end
 When /^I open the show page of the "([^"]*)" post$/ do |post_text|
   visit post_path_by_content(post_text)
 end
+
+When /^I select "([^"]*)" on the aspect dropdown$/ do |text|
+  page.execute_script(
+    "$('#publisher .dropdown .dropdown_list')
+      .find('li').each(function(i,el){
+      var elem = $(el);
+      if ('" + text + "' == $.trim(elem.text()) ) {
+        elem.click();
+      }});")
+end
