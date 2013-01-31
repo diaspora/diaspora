@@ -29,7 +29,7 @@
           = t('.you_have_no_tags')
           %span.add_tags
             = link_to t('.add_some'), edit_profile_path
-  %hr
-    - if user_signed_in? && person == current_user.person
-      = render 'aspects/aspect_stream', :stream => @stream
+  - if user_signed_in? && person == current_user.person && current_page?(controller: :people, action: :show)
+    %hr
+    = render 'aspects/aspect_stream', :stream => @stream
 %hr
