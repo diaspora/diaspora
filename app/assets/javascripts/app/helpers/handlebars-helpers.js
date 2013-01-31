@@ -40,3 +40,7 @@ Handlebars.registerHelper('personImage', function(person, size, imageClass) {
     'title': _.escape(person.name)
   });
 });
+
+Handlebars.registerHelper('localTime', function(timestamp) {
+  return new Date(timestamp).toLocaleString();
+});
