@@ -108,6 +108,10 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     // disable submitting
     this.checkSubmitAvailability();
 
+    // force textchange plugin to update lastValue
+    this.el_input.data('lastValue', '');
+    this.el_hiddenInput.data('lastValue', '');
+    
     return this;
   },
 
