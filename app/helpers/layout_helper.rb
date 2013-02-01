@@ -42,7 +42,7 @@ module LayoutHelper
     user = UserPresenter.new(current_user).to_json
     content_tag(:script) do
       <<-JS.html_safe
-        window.current_user_attributes = #{user}
+        window.current_user_attributes = #{j user}
       JS
     end
   end

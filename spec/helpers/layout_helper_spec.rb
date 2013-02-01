@@ -10,6 +10,18 @@ describe LayoutHelper do
     @user = alice
   end
 
+  describe "#set_current_user_in_javascript" do
+    it "doesn't allow xss" do
+      user = FactoryGirl.create :user
+      profile = user.profile
+      profile.update_attribute(:first_name, "</script><script>alert(0);</script>");
+      stub!(:user_signed_in?).and_return true
+      stub!(:current_user).and_return user
+      set_current_user_in_javascript.should_not be_empty
+      set_current_user_in_javascript.should_not include(profile.first_name)
+    end
+  end
+
   describe "#page_title" do
     before do
       def current_user
