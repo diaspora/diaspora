@@ -36,11 +36,12 @@
     };
 
     this.formatResult = function(row) {
-      return row.name;
+      return Handlebars.Utils.escapeExpression(row.name);
     };
 
     this.parse = function(data) {
       var results =  data.map(function(person){
+        person['name'] = Handlebars.Utils.escapeExpression(person['name']);
         return {data : person, value : person['name']}
       });
 

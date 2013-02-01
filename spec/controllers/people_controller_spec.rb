@@ -201,11 +201,10 @@ describe PeopleController do
     it 'does not allow xss attacks' do
       user2 = bob
       profile = user2.profile
-      profile.first_name = "<script> alert('xss attack');</script>"
-      profile.save
+      profile.update_attribute(:first_name, "</script><script> alert('xss attack');</script>")
       get :show, :id => user2.person.to_param
       response.should be_success
-      response.body.match(profile.first_name).should be_false
+      response.body.should_not include(profile.first_name)
     end
 
 

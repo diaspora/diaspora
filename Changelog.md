@@ -92,6 +92,9 @@
 * ffi 1.1.5 -> 1.3.1
 * configurate 0.0.1 -> 0.0.2
 
+# 0.0.2.4
+
+* Fix XSS vulnerabilities caused by not escaping a users name fields when loading it from JSON. [#3948](https://github.com/diaspora/diaspora/issues/3948)
 
 # 0.0.2.3
 
