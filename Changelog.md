@@ -53,6 +53,7 @@
 * Fix translation issue in contacts_helper [#3937](https://github.com/diaspora/diaspora/pull/3937)
 * Show timestamp hovering a timeago string (stream) [#3149](https://github.com/diaspora/diaspora/issues/3149)
 * Fix reshare and like a post on a single post view [#3672](https://github.com/diaspora/diaspora/issues/3672)
+* Fix posting multiple times the same content [#3272](https://github.com/diaspora/diaspora/issues/3272)
 
 ## Gem Updates
 
