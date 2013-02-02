@@ -34,6 +34,7 @@
 * Show links in sidebar [#3827](https://github.com/diaspora/diaspora/pull/3827)
 * Add settings web mobile. [#3701](https://github.com/diaspora/diaspora/pull/3701)
 * Stream form on profile page [#3910](https://github.com/diaspora/diaspora/issues/3910).
+* Add Add Getting_Started page mobile. [#3949](https://github.com/diaspora/diaspora/issues/3949).
 
 ## Bug Fixes
 
