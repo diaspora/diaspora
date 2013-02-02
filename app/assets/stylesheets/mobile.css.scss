@@ -943,3 +943,12 @@ select#user_language, #user_auto_follow_back_aspect_id, #aspect_ids_ {
     -moz-border-radius: 6px;
   border-radius: 10px;
 }
+
+.search-mobile {
+  text-align: center;
+  padding-top: 30px;
+}
+
+input#q.search {
+  margin-bottom: 20px;
+}  
