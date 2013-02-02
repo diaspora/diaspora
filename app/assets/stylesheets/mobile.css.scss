@@ -932,3 +932,14 @@ select#user_language, #user_auto_follow_back_aspect_id, #aspect_ids_ {
 #file-upload-spinner {
   top: 0px;
 }
+
+.hero-unit-mobile {
+  padding: 10px;
+  font-size: 14px;
+  line-height: 18px;
+  color: inherit;
+  background-color: #EEE;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+  border-radius: 10px;
+}
