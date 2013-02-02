@@ -56,6 +56,7 @@
 * Fix reshare and like a post on a single post view [#3672](https://github.com/diaspora/diaspora/issues/3672)
 * Fix posting multiple times the same content [#3272](https://github.com/diaspora/diaspora/issues/3272)
 * Excessive padding with select aspect in mobile publisher. [#3951](https://github.com/diaspora/diaspora/issues/3951)
+* Adapt css for search mobile page. [#3953](https://github.com/diaspora/diaspora/issues/3953)
 
 ## Gem Updates
 
