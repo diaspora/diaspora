@@ -48,12 +48,13 @@
 * Patch in Armenian pluralization rule until CLDR provides it.
 * Fix reshare a post multiple times. [#3831](https://github.com/diaspora/diaspora/issues/3671)
 * Fix services index view. [#3884](https://github.com/diaspora/diaspora/issues/3884)
-* Excesive padding with "user-controls" in single post view. [#3861](https://github.com/diaspora/diaspora/issues/3861)
+* Excessive padding with "user-controls" in single post view. [#3861](https://github.com/diaspora/diaspora/issues/3861)
 * Resize full scaled image to a specific width. [#3818](https://github.com/diaspora/diaspora/issues/3818)
 * Fix translation issue in contacts_helper [#3937](https://github.com/diaspora/diaspora/pull/3937)
 * Show timestamp hovering a timeago string (stream) [#3149](https://github.com/diaspora/diaspora/issues/3149)
 * Fix reshare and like a post on a single post view [#3672](https://github.com/diaspora/diaspora/issues/3672)
 * Fix posting multiple times the same content [#3272](https://github.com/diaspora/diaspora/issues/3272)
+* Excessive padding with select aspect in mobile publisher. [#3951](https://github.com/diaspora/diaspora/issues/3951)
 
 ## Gem Updates
 
