@@ -38,7 +38,7 @@ gem 'markerb', '1.0.1'
 gem 'messagebus_ruby_api', '1.0.3'
 
 group :production do # we don't install these on travis to speed up test runs
-  gem 'rails_admin', '0.4.1'
+  gem 'rails_admin', '0.4.5'
   gem 'fastercsv', '1.5.5', :require => false
   gem 'rack-ssl', '1.3.3', :require => 'rack/ssl'
   gem 'rack-rewrite', '1.3.3', :require => false
@@ -98,7 +98,7 @@ gem 'typhoeus', '0.3.3'
 
 # views
 
-gem 'haml', '3.1.7'
+gem 'haml', '4.0.0'
 gem 'mobile-fu', '1.1.1'
 
 gem 'will_paginate', '3.0.4'
