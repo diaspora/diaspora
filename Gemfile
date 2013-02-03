@@ -143,7 +143,7 @@ group :test do
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'database_cleaner', '0.9.1'
 
-  gem 'timecop', '0.5.9'
+  gem 'timecop', '0.5.9.2'
   gem 'factory_girl_rails', '4.2.1'
   gem 'fixture_builder', '0.3.5'
   gem 'fuubar', '1.1.0'
