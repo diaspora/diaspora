@@ -119,7 +119,7 @@ GEM
     fixture_builder (0.3.5)
       activerecord (>= 2)
       activesupport (>= 2)
-    fog (1.8.0)
+    fog (1.9.0)
       builder
       excon (~> 0.14)
       formatador (~> 0.2.0)
@@ -429,7 +429,7 @@ DEPENDENCIES
   faraday_middleware (= 0.9.0)
   fastercsv (= 1.5.5)
   fixture_builder (= 0.3.5)
-  fog (= 1.8.0)
+  fog (= 1.9.0)
   foreigner (= 1.2.1)
   foreman (= 0.61)
   fuubar (= 1.1.0)
