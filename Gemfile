@@ -38,7 +38,7 @@ gem 'markerb', '1.0.1'
 gem 'messagebus_ruby_api', '1.0.3'
 
 group :production do # we don't install these on travis to speed up test runs
-  gem 'rails_admin', '0.4.1'
+  gem 'rails_admin', '0.4.3'
   gem 'fastercsv', '1.5.5', :require => false
   gem 'rack-ssl', '1.3.3', :require => 'rack/ssl'
   gem 'rack-rewrite', '1.3.3', :require => false
