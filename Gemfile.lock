@@ -199,7 +199,7 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.7.4)
+    kgio (2.8.0)
     listen (0.7.2)
     lumberjack (1.0.2)
     mail (2.4.4)
