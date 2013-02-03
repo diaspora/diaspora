@@ -168,5 +168,5 @@ group :development do
   gem 'capistrano', '2.12.0', :require => false
   gem 'capistrano_colors', '0.5.5', :require => false
 
-  gem 'rmagick', :require => false
+  gem 'rmagick', '2.13.2', :require => false
 end

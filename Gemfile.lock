@@ -329,7 +329,7 @@ GEM
       vegas (~> 0.1.2)
     resque-timeout (1.0.0)
       resque (~> 1.0)
-    rmagick (2.13.1)
+    rmagick (2.13.2)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
@@ -470,7 +470,7 @@ DEPENDENCIES
   remotipart (= 1.0.2)
   resque (= 1.23.0)
   resque-timeout (= 1.0.0)
-  rmagick
+  rmagick (= 2.13.2)
   roxml!
   rspec-instafail (= 0.2.4)
   rspec-rails (= 2.12.2)
