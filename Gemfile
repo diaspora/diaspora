@@ -66,7 +66,7 @@ gem 'mini_magick', '3.4'
 
 # JSON and API
 
-gem 'json', '1.7.5'
+gem 'json', '1.7.6'
 gem 'acts_as_api', '0.4.1 '
 
 # localization

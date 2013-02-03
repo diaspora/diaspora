@@ -191,7 +191,7 @@ GEM
     jquery-ui-rails (3.0.1)
       jquery-rails
       railties (>= 3.1.0)
-    json (1.7.5)
+    json (1.7.6)
     jwt (0.1.5)
       multi_json (>= 1.0)
     kaminari (0.14.1)
@@ -443,7 +443,7 @@ DEPENDENCIES
   i18n-inflector-rails (~> 1.0)
   jasmine (= 1.3.1)
   jquery-rails (= 2.1.4)
-  json (= 1.7.5)
+  json (= 1.7.6)
   markerb (= 1.0.1)
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.4)
