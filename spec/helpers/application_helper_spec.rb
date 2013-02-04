@@ -89,6 +89,23 @@ describe ApplicationHelper do
     end
   end
 
+  describe '#changelog_url' do
+    it 'defaults to master branch changleog' do
+      old_revision = AppConfig.git_revision
+      AppConfig.git_revision = nil
+      changelog_url.should == 'https://github.com/diaspora/diaspora/blob/master/Changelog.md'
+      AppConfig.git_revision = old_revision
+    end
+
+    it 'displays the changelog for the current git revision if set' do
+      old_revision = AppConfig.git_revision
+      AppConfig.git_revision = '123'
+      changelog_url.should == 'https://github.com/diaspora/diaspora/blob/123/Changelog.md'
+      AppConfig.git_revision = old_revision
+    end
+
+  end
+
   describe '#pod_name' do
     it 'defaults to Diaspora*' do
       pod_name.should  match /DIASPORA/i
