@@ -58,6 +58,7 @@
 * Fix posting multiple times the same content [#3272](https://github.com/diaspora/diaspora/issues/3272)
 * Excessive padding with select aspect in mobile publisher. [#3951](https://github.com/diaspora/diaspora/issues/3951)
 * Adapt css for search mobile page. [#3953](https://github.com/diaspora/diaspora/issues/3953)
+* Twitter/Facebook/Tumblr count down characters is hidden by the picture of the post. [#3963](https://github.com/diaspora/diaspora/issues/3963)
 
 ## Gem Updates
 
