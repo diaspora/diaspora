@@ -3,5 +3,6 @@ $('#conversation_show').html("<%= escape_javascript(render('conversations/show',
 $(".stream_element", "#conversation_inbox").removeClass('selected');
 $(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").addClass('selected');
 $(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").find(".unread_message_count").remove()
+$('html,body').animate({ scrollTop: element.offset().top }, 'slow');
 
 Diaspora.page.timeAgo.updateTimeAgo();
