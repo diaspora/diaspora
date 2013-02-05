@@ -44,3 +44,8 @@ Handlebars.registerHelper('personImage', function(person, size, imageClass) {
 Handlebars.registerHelper('localTime', function(timestamp) {
   return new Date(timestamp).toLocaleString();
 });
+
+// replace new line characters with <br/> tags
+Handlebars.registerHelper('preserveLineBreaks', function(text) {
+  return text.replace(/(\r\n|\n|\r)/, '<br/>');
+});
