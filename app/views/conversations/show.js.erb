@@ -4,4 +4,6 @@ $(".stream_element", "#conversation_inbox").removeClass('selected');
 $(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").addClass('selected');
 $(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").find(".unread_message_count").remove()
 
+$("html").scrollTop($('#first_unread').offset().top-45);
+
 Diaspora.page.timeAgo.updateTimeAgo();
