@@ -97,7 +97,7 @@ a { color : $link-blue  }
   iframe {
     width: 857px;
     height: 480px;
-    max-width: 100%;
+    max-width: 97%;
   }
 }
 
@@ -171,23 +171,21 @@ article { //mood posts
     }
 
     .photo_viewer {
-      margin-left: 20%;
+      margin-left: -1%;
       max-width: 650px;
       margin-right: 20%;
     }
 
     header {
-      font-family: Palatino, times, georgia, serif;
-      font-size: 1.2em;
-      line-height: 1.7em;
-      margin-bottom: 1.2em;
+      font-family: Roboto, sans-serif;
+      font-size: 12px;
+      line-height: 12px;
     }
 
     .body p {
-      @include newspaper-type();
-      font-size: 1.2em;
-      line-height: 1.7em;
-      margin-bottom: 1.2em;
+      font-family: Robot, sans-serif;
+      font-size: 12px;
+      line-height: 12px;
     }
   }
 
@@ -198,12 +196,13 @@ article { //mood posts
   .img-bounding-box {
     margin : 10px;
     display : inline-block;
-    text-align : left;
+    text-align : center;
+    width: 767px;
   }
 
   img {
-    max-height: 100%;
-    max-width: 500px;
+    max-height: 200%;
+    max-width: 800px;
   }
 }
 
