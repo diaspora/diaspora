@@ -31,8 +31,8 @@
 
     #main_stream.stream
       - if @block.present?
-        %div{:style=>"text-align:center;", :class => "dull"}
+        .dull
           = t('.ignoring', :name => @person.first_name)
-          
+
     #paginate
       %span.loader.hidden
