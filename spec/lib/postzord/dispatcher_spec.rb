@@ -312,6 +312,15 @@ describe Postzord::Dispatcher do
        Resque.should_not_receive(:enqueue).with(Jobs::PostToService, anything, anything, anything)
        mailman.post
       end
+
+      it 'queues a job to delete if given retraction' do
+        retraction = SignedRetraction.build(alice, FactoryGirl.create(:status_message))
+        mailman = Postzord::Dispatcher.build(alice, retraction,  :url => "http://joindiaspora.com/p/123", :services => [@service])
+
+        Resque.stub!(:enqueue).with(Jobs::DeletePostFromService, anything, anything)
+        Resque.should_receive(:enqueue).with(Jobs::DeletePostFromService, anything, anything)
+        mailman.post
+      end
     end
 
     describe '#and_notify_local_users' do
