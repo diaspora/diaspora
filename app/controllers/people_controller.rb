@@ -146,8 +146,6 @@ class PeopleController < ApplicationController
       @aspect = :profile
       @contacts_of_contact = @contact.contacts.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
       @hashes = hashes_for_people @contacts_of_contact, @aspects
-      @aspects_with_person = @contact.aspects
-      @aspect_ids = @aspects_with_person.map(&:id)
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'
       redirect_to people_path
