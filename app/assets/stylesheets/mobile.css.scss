@@ -307,7 +307,7 @@ body {
   #nav_badges .badge {
     position: relative;
     display: inline;
-    margin: 0 2px;
+    margin-left: 3px;
     padding: 8px 3px;
       padding-bottom: 9px;
     font-weight: bold;
@@ -322,13 +322,26 @@ body {
   border-radius: 2px 2px 2px 2px;
   z-index: 3;
   position: absolute;
-  top: -2px;
-  left: 13px;
+  top: 1px;
   padding: 0 2px;
     padding-bottom: 1px;
   background-color: #a40802;
   line-height: 12px;
-  color: white; }
+  color: white;
+  font-size: smaller;
+}
+
+#notification {
+  right: 140px;
+}
+
+#conversation {
+  right: 110px;
+}
+
+.badge-inverse {
+  background-color: #333333 !important;
+}
 
 #header_title {
   position: relative;
