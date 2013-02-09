@@ -36,7 +36,7 @@
 * User interface enhancements [#3832](https://github.com/diaspora/diaspora/pull/3832), [#3839](https://github.com/diaspora/diaspora/pull/3839), [#3834](https://github.com/diaspora/diaspora/pull/3834), [#3840](https://github.com/diaspora/diaspora/issues/3840), [#3846](https://github.com/diaspora/diaspora/issues/3846), [#3851](https://github.com/diaspora/diaspora/issues/3851), [#3828](https://github.com/diaspora/diaspora/issues/3828), [#3874](https://github.com/diaspora/diaspora/issues/3874), [#3806](https://github.com/diaspora/diaspora/issues/3806), [#3906](https://github.com/diaspora/diaspora/issues/3906).
 * Add settings web mobile. [#3701](https://github.com/diaspora/diaspora/pull/3701)
 * Stream form on profile page [#3910](https://github.com/diaspora/diaspora/issues/3910).
-* Add Add Getting_Started page mobile. [#3949](https://github.com/diaspora/diaspora/issues/3949).
+* Add Getting_Started page mobile. [#3949](https://github.com/diaspora/diaspora/issues/3949).
 
 ## Bug Fixes
 
@@ -60,6 +60,7 @@
 * Excessive padding with select aspect in mobile publisher. [#3951](https://github.com/diaspora/diaspora/issues/3951)
 * Adapt css for search mobile page. [#3953](https://github.com/diaspora/diaspora/issues/3953)
 * Twitter/Facebook/Tumblr count down characters is hidden by the picture of the post. [#3963](https://github.com/diaspora/diaspora/issues/3963)
+* Buttons on mobile are hard to click on. [#3973](https://github.com/diaspora/diaspora/issues/3973)
 
 ## Gem Updates
 

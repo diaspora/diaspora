@@ -52,22 +52,17 @@
           
           - if user_signed_in?
             #nav_badges
-              .badge{:class => "badge-inverse", :id => "my_activity_badge"}
-                = link_to(image_tag('icons/my_activity.png', :height => 16, :width => 16), activity_stream_path)
-              .badge{:class => "badge-inverse", :id => "notification_badge"}
-                = link_to(image_tag('icons/notifications_grey.png', :height => 16, :width => 16, :id => 'notification-flag'), notifications_path)
-                - if current_user.unread_notifications.count > 0
-                  .badge_count
-                    = current_user.unread_notifications.count
-              .badge{:class => "badge-inverse", :id => "conversations_badge"}
-                = link_to(image_tag('icons/mail_grey.png', :height => 11, :width => 17), conversations_path)
-                - if current_user.unread_message_count > 0
-                  .badge_count
-                    = current_user.unread_message_count
-              .badge{:class => "badge-inverse", :id => "people_badge"}
-                = link_to(image_tag('icons/search_grey.png', :height => 14, :width => 14), people_path)
-              .badge{:class => "badge-inverse", :id => "contacts_badge"}
-                = link_to(image_tag('icons/user_grey.png', :height => 16, :width => 16), contacts_path)
+              = link_to(image_tag('icons/my_activity.png', :height => 16, :width => 16), activity_stream_path, :class => "badge badge-inverse", :id => "my_activity_badge")
+              = link_to(image_tag('icons/notifications_grey.png', :height => 16, :width => 16, :id => 'notification-flag'), notifications_path, :class => "badge badge-inverse", :id => "notification_badge")
+              - if current_user.unread_notifications.count > 0
+                .badge_count{:id => "notification"}
+                  = current_user.unread_notifications.count
+              = link_to(image_tag('icons/mail_grey.png', :height => 11, :width => 17), conversations_path, :class => "badge badge-inverse", :id => "conversations_badge")
+              - if current_user.unread_message_count > 0
+                .badge_count{:id => "conversation"}
+                  = current_user.unread_message_count
+              = link_to(image_tag('icons/search_grey.png', :height => 14, :width => 14), people_path, :class => "badge badge-inverse", :id => "people_badge")
+              = link_to(image_tag('icons/user_grey.png', :height => 16, :width => 16), contacts_path, :class => "badge badge-inverse", :id => "contacts_badge")
               - if yield(:header_action).present?
                 = yield(:header_action)
               - else
