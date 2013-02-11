@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 
 gem 'foreman', '0.60.2'
 
@@ -63,7 +63,7 @@ gem 'mini_magick', '3.4'
 
 # JSON and API
 
-gem 'json', '1.7.5'
+gem 'json', '1.7.7'
 gem 'acts_as_api', '0.4.1 '
 
 # localization
