@@ -163,7 +163,7 @@ GEM
       spork (>= 0.8.4)
     haml (4.0.0)
       tilt
-    handlebars_assets (0.8.2)
+    handlebars_assets (0.10.0)
       execjs (>= 1.2.9)
       sprockets (>= 2.0.3)
       tilt
@@ -215,7 +215,7 @@ GEM
     mobile-fu (1.1.1)
       rack-mobile-detect
       rails
-    multi_json (1.5.1)
+    multi_json (1.6.0)
     multipart-post (1.1.5)
     mysql2 (0.3.11)
     nested_form (0.3.1)
@@ -438,7 +438,7 @@ DEPENDENCIES
   guard-rspec (= 2.4.0)
   guard-spork (= 1.4.2)
   haml (= 4.0.0)
-  handlebars_assets (= 0.8.2)
+  handlebars_assets (= 0.10.0)
   http_accept_language (= 1.0.2)
   i18n-inflector-rails (~> 1.0)
   jasmine (= 1.3.1)
