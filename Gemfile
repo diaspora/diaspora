@@ -23,7 +23,7 @@ gem 'rack-protection', '1.2'
 
 gem 'devise', '2.1.3'
 
-gem 'remotipart', '1.0.2'
+gem 'remotipart', '1.0.5'
 
 gem 'omniauth', '1.1.3'
 gem 'omniauth-facebook', '1.4.1'
