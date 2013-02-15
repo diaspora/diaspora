@@ -127,7 +127,7 @@ gem 'jquery-rails', '2.1.4'
 
 # web
 
-gem 'faraday', '0.8.4'
+gem 'faraday', '0.8.5'
 gem 'faraday_middleware', '0.9.0'
 
 
