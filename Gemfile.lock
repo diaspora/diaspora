@@ -215,7 +215,7 @@ GEM
     mobile-fu (1.1.1)
       rack-mobile-detect
       rails
-    multi_json (1.6.0)
+    multi_json (1.6.1)
     multipart-post (1.1.5)
     mysql2 (0.3.11)
     nested_form (0.3.1)
