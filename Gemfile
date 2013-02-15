@@ -61,7 +61,7 @@ gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 
 gem 'carrierwave', '0.8.0'
 gem 'fog', '1.9.0'
-gem 'mini_magick', '3.4'
+gem 'mini_magick', '3.5'
 
 # JSON and API
 
