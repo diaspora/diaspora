@@ -139,11 +139,11 @@ module EvilQuery
     end
 
     def persons_private_visibilities
-      contact.share_visibilities.where(:hidden => false, :shareable_type => @class.to_s).limit(15)
+      contact.share_visibilities.where(:hidden => false, :shareable_type => @class.to_s).order("created_at DESC").limit(15)
     end
 
     def persons_public_posts
-      @person.send(table_name).where(:public => true).select(table_name + '.id').limit(15)
+      @person.send(table_name).where(:public => true).select(table_name + '.id').order("created_at DESC").limit(15)
     end
   end
 end
