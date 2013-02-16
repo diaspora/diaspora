@@ -116,12 +116,16 @@ module EvilQuery
     def make_relation!
       return querents_posts if @person == @querent.person
 
+      # persons_private_visibilities and persons_public_posts have no limit which is making shareable_ids gigantic.
+      # perhaps they should the arrays should be merged and sorted
+      # then the query at the bottom of this method can be paginated or something?
+
       shareable_ids = contact.present? ? fetch_ids!(persons_private_visibilities, "share_visibilities.shareable_id") : []
       shareable_ids += fetch_ids!(persons_public_posts, table_name + ".id")
 
       @class.where(:id => shareable_ids, :pending => false).
-          select('DISTINCT ' + table_name + '.*').
-          order(table_name + ".created_at DESC")
+          select('DISTINCT '+table_name+'.*').
+          order(table_name+".created_at DESC")
     end
 
     protected
@@ -139,11 +143,11 @@ module EvilQuery
     end
 
     def persons_private_visibilities
-      contact.share_visibilities.where(:hidden => false, :shareable_type => @class.to_s).order("created_at DESC").limit(15)
+      contact.share_visibilities.where(:hidden => false, :shareable_type => @class.to_s)
     end
 
     def persons_public_posts
-      @person.send(table_name).where(:public => true).select(table_name + '.id').order("created_at DESC").limit(15)
+      @person.send(table_name).where(:public => true).select(table_name+'.id')
     end
   end
 end

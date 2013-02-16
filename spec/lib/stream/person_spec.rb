@@ -29,4 +29,5 @@ describe Stream::Person do
 
     fetched_posts.should == posts
   end
+
 end
