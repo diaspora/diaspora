@@ -62,6 +62,7 @@
 * Adapt css for search mobile page. [#3953](https://github.com/diaspora/diaspora/issues/3953)
 * Twitter/Facebook/Tumblr count down characters is hidden by the picture of the post. [#3963](https://github.com/diaspora/diaspora/issues/3963)
 * Buttons on mobile are hard to click on. [#3973](https://github.com/diaspora/diaspora/issues/3973)
+* Overflow info author mobile web. [#3983](https://github.com/diaspora/diaspora/issues/3983)
 
 ## Gem Updates
 
