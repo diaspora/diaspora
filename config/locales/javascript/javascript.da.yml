@@ -18,7 +18,6 @@ da:
         many: "I <%= count %> aspekter"
         one: "I <%= count %> aspekt"
         other: "I <%= count %> aspekter"
-        two: "I <%= count %> aspekter"
         zero: "Vælg aspekter"
     aspect_navigation:
       deselect_all: "Fravælg alle"
@@ -74,7 +73,6 @@ da:
         many: "<%= count %> synes om dette"
         one: "<%= count %> synes om dette"
         other: "<%= count %> synes om dette"
-        two: "<%= count %> synes om dette"
         zero: "<%= count %> synes om dette"
       limited: "Begrænset"
       more_comments:
@@ -82,7 +80,6 @@ da:
         many: "Show <%= count %> flere kommentarer"
         one: "Vis <%= count %> ekstra kommentar"
         other: "Vis <%= count %> ekstra kommentarer"
-        two: "Vis <%= count %> ekstra kommentarer"
         zero: "Vis <%= count %> ekstra kommentarer"
       original_post_deleted: "Originalt indlæg er slettet af forfatteren."
       public: "Offentlig"
@@ -92,7 +89,6 @@ da:
         many: "<%= count %> videredelinger"
         one: "<%= count %> videredeling"
         other: "<%= count %> videredelinger"
-        two: "<%= count %> videredelinger"
         zero: "<%= count %> videredelinger"
       show_nsfw_post: "Vis indlæg"
       show_nsfw_posts: "Vis alle"

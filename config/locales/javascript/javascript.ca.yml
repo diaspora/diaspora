@@ -1,8 +1,8 @@
-#   Copyright © 2011, Diaspora Inc.  This file is
+#   Copyright © 2011, 2012, 2013 Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 # 
-#   Jordi Mallach <jordi@softcatala.org>, 2011.
+#   Jordi Mallach <jordi@softcatala.org>, 2011, 2012, 2013.
 #   Abans d'actualitzar aquesta traducció, si us plau poseu-vos en contacte
 #   amb Jordi Mallach o Softcatalà <info@softcatala.org>.
 
@@ -11,6 +11,7 @@ ca:
     confirm_dialog: "N'esteu segur?"
     delete: "Suprimeix"
     ignore: "Omet"
+    ignore_user: "Voleu ignorar aquest usuari?"
     timeago:
       prefixAgo: "fa"
       prefixFromNow: "fa"
@@ -71,6 +72,7 @@ ca:
       preparing_your_stream: "S'està preparant el vostre flux personalitzat…"
     photo_uploader:
       looking_good: "Vaja, teniu un aspecte fantàstic!"
+      completed: "<%= file %> completat"
     tags:
       wasnt_that_interesting: "D'acord, es possible que #<%= tagName %> no fos tan interessant…"
     people:
@@ -105,6 +107,17 @@ ca:
         zero: "Mostra <%= count %> comentaris més"
         one: "Mostra <%= count %> comentari més"
         other: "Mostra <%= count %> comentaris més"
+
+      followed_tag:
+        title: "#Etiquetes que seguiu"
+        contacts_title: "Gent que empra aquestes etiquetes"
+        add_a_tag: "Afegeix una etiqueta"
+        follow: "Segueix"
+
+      tags:
+        follow: "Segueix #<%= tag %>"
+        following: "S'està seguint #<%= tag %>"
+        stop_following: "Deixa de seguir #<%= tag %>"
 
     header:
       home: "Inici"

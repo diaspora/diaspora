@@ -21,7 +21,7 @@ class StreamsController < ApplicationController
              :json
 
   def aspects
-    aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
+    aspect_ids = (session[:a_ids] || [])
     @stream = Stream::Aspect.new(current_user, aspect_ids,
                                  :max_time => max_time)
     stream_responder
@@ -52,6 +52,7 @@ class StreamsController < ApplicationController
   end
 
   def followed_tags
+    gon.tagFollowings = tags
     stream_responder(Stream::FollowedTag)
   end
 

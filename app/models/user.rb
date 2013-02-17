@@ -165,17 +165,6 @@ class User < ActiveRecord::Base
     self.hidden_shareables[share_type].present?
   end
 
-
-  def self.create_from_invitation!(invitation)
-    user = User.new
-    user.generate_keys
-    user.send(:generate_invitation_token)
-    user.email = invitation.identifier if invitation.service == 'email'
-    # we need to make a custom validator here to make this safer
-    user.save(:validate => false)
-    user
-  end
-
   def send_reset_password_instructions
     generate_reset_password_token! if should_generate_reset_token?
     Resque.enqueue(Jobs::ResetPassword, self.id)
@@ -225,14 +214,6 @@ class User < ActiveRecord::Base
       conditions[:email] = conditions.delete(:username)
     end
     where(conditions).first
-  end
-
-  # @param [Person] person
-  # @return [Boolean] whether this user can add person as a contact.
-  def can_add?(person)
-    return false if self.person == person
-    return false if self.contact_for(person).present?
-    true
   end
 
   def confirm_email(token)
@@ -424,6 +405,15 @@ class User < ActiveRecord::Base
   def admin?
     Role.is_admin?(self.person)
   end
+
+  def mine?(target)
+    if target.present? && target.respond_to?(:user_id)
+      return self.id == target.user_id
+    end
+
+    false
+  end
+
 
   def guard_unconfirmed_email
     self.unconfirmed_email = nil if unconfirmed_email.blank? || unconfirmed_email == email

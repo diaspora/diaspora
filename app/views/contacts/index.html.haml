@@ -16,32 +16,14 @@
 
 .span-18.last
   #people_stream.stream.contacts
-    - if @aspect
-      #aspect_controls
-        - suggested_limit = 16
-        - conv_opts = { :class => "button conversation_button", :rel => "facebox"}
-        - conv_opts[:title] = t('.many_people_are_you_sure', :suggested_limit => suggested_limit) if @contacts.size > suggested_limit
-
-        - if @contacts.size < 20
-          = link_to t('.start_a_conversation'), new_conversation_path(:aspect_id => @aspect.id, :name => @aspect.name), conv_opts
-        - if @contacts.size
+    - if @contacts_size > 0
+      - if @aspect
+        #aspect_controls
+          - if @contacts_size < 20
+            = start_a_conversation_link(@aspect, @contacts_size)
           = link_to t('.add_to_aspect', :name => @aspect.name), edit_aspect_path(@aspect), :rel => "facebox"
 
-    - if @contacts.size > 0
-      - for contact in @contacts
-        .stream_element{:id => contact.person_id}
-
-          .float-right
-            = contact_aspect_dropdown(contact)
-
-          .media
-            .img
-              = person_image_link(contact.person)
-
-            .bd
-              = person_link(contact.person)
-              .info
-                = contact.person_diaspora_handle
+      = render @contacts
 
       = will_paginate @contacts
     - else

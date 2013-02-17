@@ -8,7 +8,7 @@
   display: inline-block;
   min-width: 250px;
   max-width: 400px;
-  
+
   background-color: $background;
   height: 70px;
   border: 1px solid #999999;
@@ -32,11 +32,15 @@
   & > h4, & > div, & > p {
     margin-left: $image_width;
   }
-  
+
   & > h4, & > div, & > p, .hashtags {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  #hovercard_dropdown_container {
+    overflow: visible !important; /* otherwise the aspect dropdown is cropped */
   }
 
   padding: 5px {
@@ -91,7 +95,8 @@
   display: none;
   z-index: 10;
 
-  width: 400px;
+  min-width: 250px;
+  max-width: 400px;
 
   padding: 10px {
     top: 5px;

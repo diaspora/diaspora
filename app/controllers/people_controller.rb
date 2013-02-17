@@ -17,6 +17,13 @@ class PeopleController < ApplicationController
            :format => :html, :layout => false, :status => 404
   end
 
+  rescue_from Diaspora::AccountClosed do
+    respond_to do |format|
+      format.any { redirect_to :back, :notice => t("people.show.closed_account") }
+      format.json { render :nothing => true, :status => 410 } # 410 GONE
+    end
+  end
+
   helper_method :search_query
 
   def index
@@ -36,7 +43,7 @@ class PeopleController < ApplicationController
         if diaspora_id?(search_query)
           @people =  Person.where(:diaspora_handle => search_query.downcase)
           if @people.empty?
-            Webfinger.in_background(search_query) 
+            Webfinger.in_background(search_query)
             @background_query = search_query.downcase
           end
         end
@@ -66,25 +73,12 @@ class PeopleController < ApplicationController
     respond_with @people
   end
 
-  def hashes_for_people(people, aspects)
-    ids = people.map{|p| p.id}
-    contacts = {}
-    Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
-      contacts[contact.person_id] = contact
-    end
-
-    people.map{|p|
-      {:person => p,
-        :contact => contacts[p.id],
-        :aspects => aspects}
-    }
-  end
-
+  # renders the persons user profile page
   def show
     @person = Person.find_from_guid_or_username(params)
 
     authenticate_user! if remote_profile_with_no_user_session?
-    return redirect_to :back, :notice => t("people.show.closed_account") if @person.closed_account?
+    raise Diaspora::AccountClosed if @person.closed_account?
 
     @post_type = :all
     @aspect = :profile
@@ -122,6 +116,23 @@ class PeopleController < ApplicationController
     end
   end
 
+  # hovercards fetch some the persons public profile data via json and display
+  # it next to the avatar image in a nice box
+  def hovercard
+    @person = Person.find_from_guid_or_username({:id => params[:person_id]})
+    raise Diaspora::AccountClosed if @person.closed_account?
+
+    respond_to do |format|
+      format.all do
+        redirect_to :action => "show", :id => params[:person_id]
+      end
+
+      format.json do
+        render :json => HovercardPresenter.new(@person)
+      end
+    end
+  end
+
   def last_post
     @person = Person.find_from_guid_or_username(params)
     last_post = Post.visible_from_author(@person, current_user).order('posts.created_at DESC').first
@@ -152,20 +163,23 @@ class PeopleController < ApplicationController
     end
   end
 
+  # shows the dropdown list of aspects the current user has set for the given person.
+  # renders "thats you" in case the current user views himself
   def aspect_membership_dropdown
     @person = Person.find_by_guid(params[:person_id])
-    if @person == current_user.person
-      render :text => I18n.t('people.person.thats_you')
-    else
-      @contact = current_user.contact_for(@person) || Contact.new
-      render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
-    end
+
+    # you are not a contact of yourself...
+    return render :text => I18n.t('people.person.thats_you') if @person == current_user.person
+
+    @contact = current_user.contact_for(@person) || Contact.new
+    render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
   end
 
   def redirect_if_tag_search
     if search_query.starts_with?('#')
       if search_query.length > 1
-        redirect_to tag_path(:name => search_query.delete('#.'), :q => search_query)
+
+        redirect_to tag_path(:name => search_query.delete('#.'))
       else
         flash[:error] = I18n.t('tags.show.none', :name => search_query)
         redirect_to :back
@@ -174,6 +188,20 @@ class PeopleController < ApplicationController
   end
 
   private
+
+  def hashes_for_people(people, aspects)
+    ids = people.map{|p| p.id}
+    contacts = {}
+    Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
+      contacts[contact.person_id] = contact
+    end
+
+    people.map{|p|
+      {:person => p,
+        :contact => contacts[p.id],
+        :aspects => aspects}
+    }
+  end
 
   def search_query
     @search_query ||= params[:q] || params[:term] || ''

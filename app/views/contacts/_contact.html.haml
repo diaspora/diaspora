@@ -1,0 +1,10 @@
+.stream_element{:id => contact.person_id}
+  .float-right
+    = contact_aspect_dropdown(contact)
+  .media
+    .img
+      = person_image_link(contact.person, :size => :thumb_small)
+    .bd
+      = person_link(contact.person)
+      .info
+        = contact.person_diaspora_handle

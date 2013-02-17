@@ -10,7 +10,7 @@
         = my_contacts_count
 
     %ul.sub_nav
-      - for aspect in all_aspects
+      - all_aspects.each do |aspect|
         %li{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
           %a.aspect_selector{:href => contacts_path(:a_id => aspect.id)}
             = aspect

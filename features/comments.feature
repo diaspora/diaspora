@@ -20,6 +20,7 @@ Feature: commenting
     And I fill in the following:
         | text            | is that a poodle?    |
     And I press "Comment"
+    And I wait for the ajax to finish
     Then I should see "is that a poodle?" within ".comment"
     And I should see "less than a minute ago" within ".comment time"
 

@@ -9,6 +9,9 @@ en:
     delete: "Delete"
     ignore: "Ignore"
     ignore_user: "Ignore this user?"
+    and: "and"
+    comma: ","
+    edit: "Edit"
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
@@ -28,6 +31,7 @@ en:
 
     my_activity: "My Activity"
     my_stream: "Stream"
+    my_aspects: "My Aspects"
 
     videos:
       watch: "Watch this video on <%= provider %>"
@@ -46,6 +50,7 @@ en:
       stopped_sharing_with: "You have stopped sharing with <%= name %>."
       started_sharing_with: "You have started sharing with <%= name %>!"
       error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
+      error_remove: "Couldn't remove <%= name %> from the aspect :("
       toggle:
         zero: "Select aspects"
         one: "In <%= count %> aspect"
@@ -64,6 +69,7 @@ en:
       select_all: "Select all"
       deselect_all: "Deselect all"
       no_aspects: "No aspects selected"
+      add_an_aspect: "+ Add an aspect"
     getting_started:
       hey: "Hey, <%= name %>!"
       no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
@@ -71,6 +77,7 @@ en:
       preparing_your_stream: "Preparing your personalized stream..."
     photo_uploader:
       looking_good: "OMG, you look awesome!"
+      completed: "<%= file %> completed"
     tags:
       wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     people:
@@ -105,6 +112,17 @@ en:
         zero: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+
+      followed_tag:
+        title: "#Followed Tags"
+        contacts_title: "People who dig these tags"
+        add_a_tag: "Add a tag"
+        follow: "Follow"
+
+      tags:
+        follow: "Follow #<%= tag %>"
+        following: "Following #<%= tag %>"
+        stop_following: "Stop Following #<%= tag %>"
 
     header:
       home: "Home"

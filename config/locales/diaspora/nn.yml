@@ -157,6 +157,8 @@ nn:
       donate: "Doner"
       handle_explanation: "Dette er Diaspora-ID-en din. Nett som ei e-postadresse kan du gje han til folk slik at dei kan nå deg."
       help:
+        any_problem: "Har du eit problem?"
+        contact_podmin: "Ta kontakt med administratoren (podminen) på poden din."
         do_you: "Har du:"
         email_feedback: "%{link} attendemeldingane dine, om du vil"
         email_link: "E-post"
@@ -164,6 +166,7 @@ nn:
         find_a_bug: "funne ein %{link}?"
         have_a_question: "eit %{link}?"
         here_to_help: "Diaspora-fellesskapen er her for deg!"
+        mail_podmin: "Podmin e-post"
         need_help: "Treng du hjelp?"
         tag_bug: "bug"
         tag_feature: "feature"
@@ -278,11 +281,13 @@ nn:
       people_sharing: "Personar som deler med deg:"
     spotlight:
       community_spotlight: "Kreative medlemer"
+      suggest_member: "Foreslå eit medlem"
     two: "%{count} kontaktar"
     zero: "kontaktar"
   conversations:
     create:
       fail: "Ugyldig melding"
+      no_contact: "Hei, du må leggje til kontakten først!"
       sent: "Meldinga er sendt"
     destroy:
       success: "Samtalen blei fjerna"
@@ -292,7 +297,6 @@ nn:
         many: "%{count} nye meldingar"
         one: "1 ny melding"
         other: "%{count} nye meldingar"
-        two: "%{count} nye meldingar"
         zero: "Ingen nye meldingar"
     index:
       create_a_new_message: "skriv ei ny melding"
@@ -338,7 +342,9 @@ nn:
     create:
       already_contacts: "Du er allereie knytt til denne personen"
       already_sent: "Du har allereie invitert denne personen."
+      empty: "Skriv inn minst ei e-post-adresse."
       no_more: "Du har ingen fleire invitasjonar."
+      note_already_sent: "Invitasjonar er allereie sende til: %{emails}"
       own_address: "Du kan ikkje senda invitasjon til di eiga adresse."
       rejected: "Det oppstod problem med desse e-postadressene:"
       sent: "Invitasjonar er sende til:"
@@ -389,7 +395,6 @@ nn:
         many: "%{count} dislikes"
         one: "%{count} dislike"
         other: "%{count} dislikes"
-        two: "%{count} dislikes"
         zero: "no dislikes"
       people_like_this:
         one: "%{count} likar dette"
@@ -413,7 +418,6 @@ nn:
       many: "%{actors} kommenterte eit sletta innlegg."
       one: "%{actors} kommenterte eit sletta innlegg."
       other: "%{actors} kommenterte eit sletta innlegg."
-      two: "%{actors} kommenterte eit sletta innlegg."
       zero: "%{actors} kommenterte eit sletta innlegg."
     comment_on_post:
       one: "%{actors} kommenterte %{post_link}et ditt."
@@ -425,7 +429,6 @@ nn:
         many: "%{count} nye varsel"
         one: "1 nytt varsel"
         other: "%{count} nye varsel"
-        two: "%{count} nye varsel"
         zero: "Ingen nye varsel"
     index:
       and: "og"
@@ -434,7 +437,6 @@ nn:
         many: "og %{count} andre"
         one: "og éin til"
         other: "og %{count} andre"
-        two: "og %{count} andre"
         zero: "og ingen andre"
       mark_all_as_read: "Merk alle som lesne"
       mark_unread: "Merk som ulest"
@@ -448,21 +450,18 @@ nn:
       many: "%{actors} likte det sletta innlegget ditt."
       one: "%{actors} likte det sletta innlegget ditt."
       other: "%{actors} likte det sletta innlegget ditt."
-      two: "%{actors} likte det sletta innlegget ditt."
       zero: "%{actors} likte det sletta innlegget ditt."
     mentioned:
       few: "%{actors} har nemnt deg i eit %{post_link}."
       many: "%{actors} har nemnt deg i eit %{post_link}."
       one: "%{actors} har nemnt deg i eit %{post_link}."
       other: "%{actors} har nemnt deg i eit %{post_link}."
-      two: "%{actors} har nemnt deg i eit %{post_link}."
       zero: "%{actors} har nemnt deg i eit %{post_link}."
     mentioned_deleted:
       few: "%{actors} nemnde deg i eit sletta innlegg."
       many: "%{actors} nemnde deg i eit sletta innlegg."
       one: "%{actors} nemnde deg i eit sletta innlegg."
       other: "%{actors} nemnde deg i eit sletta innlegg."
-      two: "%{actors} nemnde deg i eit sletta innlegg."
       zero: "%{actors} nemnde deg i eit sletta innlegg."
     post: "innlegg"
     private_message:
@@ -470,7 +469,6 @@ nn:
       many: "%{actors} sende deg ei melding."
       one: "%{actors} sende deg ei melding."
       other: "%{actors} sende deg ei melding."
-      two: "%{actors} sende deg ei melding."
       zero: "%{actors} sende deg ei melding."
     reshared:
       one: "%{actors} har delt %{post_link}et ditt."
@@ -715,7 +713,6 @@ nn:
         many: "%{count} nye førespurnader."
         one: "ny førespurnad."
         other: "%{count} nye førespurnader."
-        two: "%{count} nye førespurnader."
         zero: "ingen nye førespurnader"
     manage_aspect_contacts:
       existing: "Eksisterande kontaktar"
@@ -786,7 +783,6 @@ nn:
         many: "I %{count} aspekt"
         one: "I %{count} aspekt"
         other: "I %{count} aspekt"
-        two: "I %{count} aspekt"
         zero: "Legg til kontakt"
     contact_list:
       all_contacts: "Alle kontaktane"
@@ -863,7 +859,6 @@ nn:
       many: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
       one: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
       other: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
-      two: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
       zero: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
   stream_helper:
     hide_comments: "Gøym alle kommentarane"
@@ -990,6 +985,8 @@ nn:
     getting_started:
       awesome_take_me_to_diaspora: "Kult! Ta meg med til Diaspora*"
       community_welcome: "Diaspora* sin fellesskap er glade for å ha deg ombord!"
+      connect_to_facebook: "Me kan få fart på sakane ved å %{link} til Diaspora. Dette vil hente namnet og profilbilete ditt derfrå og sette i gong kryss-posting."
+      connect_to_facebook_link: "kopla til Facebook-kontoen din"
       hashtag_explanation: "Grindmerke (#) gjer at du kan tala om og følgja interessene dine. Dei er òg ein fin måte å finna nye Diaspora-brukarar på."
       hashtag_suggestions: "Prøv å følgje tags som #kunst, #film, #åtgaum, #katt, etc."
       saved: "Lagra!"

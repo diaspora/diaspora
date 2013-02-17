@@ -18,7 +18,6 @@ ko:
         many: "애스펙 <%= count %>개"
         one: "애스펙 하나"
         other: "애스펙 <%= count %>개"
-        two: "애스펙 <%= count %>개"
         zero: "애스펙 고르기"
     aspect_navigation:
       deselect_all: "선택 해제"
@@ -80,7 +79,6 @@ ko:
         many: "<%= count %>명이 좋아합니다"
         one: "한 명이 좋아합니다"
         other: "<%= count %>명이 좋아합니다"
-        two: "<%= count %>명이 좋아합니다"
         zero: "<%= count %>명이 좋아합니다"
       limited: "제한됨"
       more_comments:

@@ -3,54 +3,28 @@
 #   the COPYRIGHT file.
 
 module AspectGlobalHelper
-  def aspects_with_post(aspects, post)
-    aspects.select do |aspect|
-      AspectVisibility.exists?(:aspect_id => aspect.id, :shareable_id => post.id, :shareable_type => 'Post')
-    end
-  end
-
-  def aspect_links(aspects, opts={})
-    str = ""
-    aspects.each do |aspect|
-      str << '<li>'
-      str << link_for_aspect(aspect, :params => opts, 'data-guid' => aspect.id).html_safe
-      str << '</li>'
-    end
-    str.html_safe
-  end
-
-  def link_for_aspect(aspect, opts={})
-    opts[:params] ||= {}
-    params ||= {}
-    opts[:params] = opts[:params].merge("a_ids[]" => aspect.id, :created_at => params[:created_at])
-    opts['data-guid'] = aspect.id
-
-    link_to aspect.name, aspects_path( opts[:params] ), opts
-  end
-
-  def aspect_or_all_path(aspect)
-    if @aspect.is_a? Aspect
-      aspect_path @aspect
-    else
-      aspects_path
-    end
-  end
-
   def aspect_membership_dropdown(contact, person, hang, aspect=nil)
+    aspect_membership_ids = {}
+
     selected_aspects = all_aspects.select{|aspect| contact.in_aspect?(aspect)}
+    selected_aspects.each do |a|
+      record = a.aspect_memberships.find { |am| am.contact_id == contact.id }
+      aspect_membership_ids[a.id] = record.id
+    end
 
     render "shared/aspect_dropdown",
       :selected_aspects => selected_aspects,
+      :aspect_membership_ids => aspect_membership_ids,
       :person => person,
       :hang => hang,
       :dropdown_class => "aspect_membership"
   end
 
-  def aspect_dropdown_list_item(aspect, checked)
-    klass = checked ? "selected" : ""
+  def aspect_dropdown_list_item(aspect, am_id=nil)
+    klass = am_id.present? ? "selected" : ""
 
     str = <<LISTITEM
-<li data-aspect_id=#{aspect.id} class='#{klass} aspect_selector'>
+<li data-aspect_id="#{aspect.id}" data-membership_id="#{am_id}" class="#{klass} aspect_selector">
   #{aspect.name}
 </li>
 LISTITEM

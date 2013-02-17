@@ -5,7 +5,7 @@ describe("app.views.StreamFaces", function(){
     this.post2 = factory.post({author : factory.author({name : "John Stamos", id : 1987})})
     this.post3 = factory.post({author : factory.author({name : "Michelle Tanner", id : 1986})})
     this.post4 = factory.post({author : factory.author({name : "Barack Obama", id : 2000})})
-    this.post5 = factory.post({author : factory.author({name : "Obie-won Kenobie", id : 2020})})
+    this.post5 = factory.post({author : factory.author({name : "Obi-wan Kenobi", id : 2020})})
     this.post6 = factory.post({author : rebeccaBlack})
     this.post7 = factory.post({author : rebeccaBlack})
 

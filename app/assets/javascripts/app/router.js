@@ -11,13 +11,13 @@ app.Router = Backbone.Router.extend({
     "stream": "stream",
     "participate": "stream",
     "explore": "stream",
-    "aspects": "stream",
-    "aspects:query": "stream",
+    "aspects": "aspects",
+    "aspects/stream": "aspects_stream",
     "commented": "stream",
     "liked": "stream",
     "mentions": "stream",
-    "followed_tags": "stream",
-    "tags/:name": "stream",
+    "followed_tags": "followed_tags",
+    "tags/:name": "followed_tags",
     "people/:id/photos": "photos",
 
     "people/:id": "stream",
@@ -63,6 +63,47 @@ app.Router = Backbone.Router.extend({
     app.photos = new app.models.Stream([], {collection: app.collections.Photos});
     app.page = new app.views.Photos({model : app.photos});
     $("#main_stream").html(app.page.render().el);
+  },
+
+  followed_tags : function(name) {
+    this.stream();
+
+    app.tagFollowings = new app.collections.TagFollowings();
+    var followedTagsView = new app.views.TagFollowingList({collection: app.tagFollowings});
+    $("#tags_list").replaceWith(followedTagsView.render().el);
+    followedTagsView.setupAutoSuggest();
+
+    app.tagFollowings.add(preloads.tagFollowings);
+
+    if(name) {
+      var followedTagsAction = new app.views.TagFollowingAction(
+            {tagText: name}
+          );
+      $("#author_info").prepend(followedTagsAction.render().el)
+    }
+  },
+
+  aspects : function(){
+    app.aspects = new app.collections.Aspects(app.currentUser.get('aspects'));
+    var aspects_list =  new app.views.AspectsList({ collection: app.aspects });
+    aspects_list.render();
+    this.aspects_stream();
+  },
+
+  aspects_stream : function(){
+
+    var ids = app.aspects.selectedAspects('id');
+    app.stream = new app.models.StreamAspects([], { aspects_ids: ids });
+    app.stream.fetch();
+
+    app.page = new app.views.Stream({model : app.stream});
+    app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
+    app.publisher.updateAspectsSelector(ids);
+
+    var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
+
+    $("#main_stream").html(app.page.render().el);
+    $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
   }
 });
 

@@ -1,10 +1,13 @@
 rails_env = ENV['RAILS_ENV'] || 'development'
 
+require 'pathname'
+require Pathname.new(__FILE__).expand_path.dirname.join('load_config')
+
 # Enable and set these to run the worker as a different user/group
 #user  = 'diaspora'
 #group = 'diaspora'
 
-worker_processes 1
+worker_processes AppConfig.server.unicorn_worker.to_i
 
 ## Load the app before spawning workers
 preload_app true
@@ -17,11 +20,13 @@ timeout 30
 #pid '/var/run/diaspora/diaspora.pid'
 #listen '/var/run/diaspora/diaspora.sock', :backlog => 2048
 
-# Ruby Enterprise Feature
-if GC.respond_to?(:copy_on_write_friendly=)
-  GC.copy_on_write_friendly = true
+if AppConfig.server.stderr_log.present?
+  stderr_path AppConfig.server.stderr_log
 end
 
+if AppConfig.server.stdout_log.present?
+  stdout_path AppConfig.server.stdout_log
+end
 
 before_fork do |server, worker|
   # If using preload_app, enable this line

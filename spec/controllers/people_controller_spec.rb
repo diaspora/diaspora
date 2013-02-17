@@ -67,12 +67,12 @@ describe PeopleController do
       context 'query is a tag' do
         it 'goes to a tag page' do
           get :index, :q => '#babies'
-          response.should redirect_to(tag_path('babies', :q => '#babies'))
+          response.should redirect_to(tag_path('babies'))
         end
 
         it 'removes dots from the query' do
           get :index, :q => '#babi.es'
-          response.should redirect_to(tag_path('babies', :q => '#babi.es'))
+          response.should redirect_to(tag_path('babies'))
         end
 
         it 'stay on the page if you search for the empty hash' do
@@ -366,7 +366,23 @@ describe PeopleController do
     end
   end
 
+  describe '#hovercard' do
+    before do
+      @hover_test = FactoryGirl.create(:person)
+      @hover_test.profile.tag_string = '#test #tags'
+      @hover_test.profile.save!
+    end
 
+    it 'redirects html requests' do
+      get :hovercard, :person_id => @hover_test.guid
+      response.should redirect_to person_path(:id => @hover_test.guid)
+    end
+
+    it 'returns json with profile stuff' do
+      get :hovercard, :person_id => @hover_test.guid, :format => 'json'
+      JSON.parse( response.body )['handle'].should == @hover_test.diaspora_handle
+    end
+  end
 
   describe '#refresh_search ' do
     before(:each)do

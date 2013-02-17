@@ -18,7 +18,6 @@ de_formal:
         many: "In {{count}} Aspekten"
         one: "In einem Aspekt"
         other: "In {{count}} Aspekten"
-        two: "In {{count}} Aspekten"
         zero: "Aspekt auswählen"
     aspect_navigation:
       deselect_all: "Auswahl aufheben"
@@ -81,7 +80,6 @@ de_formal:
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
       show_nsfw_post: "Beitrag anzeigen"
       show_nsfw_posts: "Zeige alle"

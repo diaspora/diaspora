@@ -60,8 +60,10 @@ class UsersController < ApplicationController
       elsif u[:email]
         @user.unconfirmed_email = u[:email]
         if @user.save
-          @user.mail_confirm_email
-          flash[:notice] = I18n.t 'users.update.unconfirmed_email_changed'
+          @user.mail_confirm_email == @user.email
+          if @user.unconfirmed_email
+            flash[:notice] = I18n.t 'users.update.unconfirmed_email_changed'
+          end
         else
           flash[:error] = I18n.t 'users.update.unconfirmed_email_not_changed'
         end

@@ -6,6 +6,10 @@
 
 $(document).ready(function(){
 
+  if ($('#first_unread').length > 0) {
+    $("html").scrollTop($('#first_unread').offset().top-45);
+  }
+
   $('a.conversation').live('click', function(){
     $.getScript(this.href, function() {
       Diaspora.page.directionDetector.updateBinds();
@@ -13,7 +17,7 @@ $(document).ready(function(){
     history.pushState(null, "", this.href);
 
     var conv = $(this).children('.stream_element'),
-        cBadge = $("#message_inbox_badge").children(".badge_count");
+        cBadge = $("#message_inbox_badge .badge_count");
     if(conv.hasClass('unread') ){
       conv.removeClass('unread');
     }

@@ -5,7 +5,7 @@
     <div class="media">
 
       {{#with root}}
-        <a href="/people/{{author.guid}}" class="img">
+        <a href="/people/{{author.guid}}" class="img {{{hovercardable this}}}">
           <img src="{{author.avatar.small}}" class="avatar" />
         </a>
       {{/with}}
@@ -13,9 +13,7 @@
       {{#with root}}
         <div class="bd">
           <div>
-            <a href="/people/{{author.guid}}" class="author">
-              {{author.name}}
-            </a>
+            <a href="/people/{{author.guid}}" class="author {{{hovercardable this}}}">{{author.name}}</a>
 
             <span class="details grey">
               -

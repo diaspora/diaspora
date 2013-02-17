@@ -5,7 +5,6 @@
 require 'spec_helper'
 
 describe MarkdownifyHelper do
-
   describe "#markdownify" do
     describe "not doing something dumb" do
       it "strips out script tags" do
@@ -84,6 +83,13 @@ describe MarkdownifyHelper do
         formatted = markdownify(message)
         formatted.should == %{<p>Test <a href="/tags/tag" class="tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" target="_blank">https://joindiaspora.com</a></p>\n}
       end
+    end
+  end
+  
+  describe "#strip_markdown" do
+    it 'does not remove markdown in links' do
+      message = "some text and here comes http://exampe.org/foo_bar_baz a link"
+      strip_markdown(message).should match message
     end
   end
 end

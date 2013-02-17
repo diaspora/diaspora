@@ -34,7 +34,7 @@ fi
 os=`uname -s`
 eval $(bundle exec ruby ./script/get_config.rb \
   port=server.port \
-  db=server.db \
+  db=server.database \
   workers=server.resque_workers \
   single_process_mode=environment.single_process_mode?
   embed_resque_worker=server.embed_resque_worker

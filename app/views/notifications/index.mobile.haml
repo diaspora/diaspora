@@ -12,11 +12,10 @@
           = day
       %ul.notifications_for_day
         - notes.each do |note|
-          .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
-
-            = person_image_link(note.actors.last)
+          .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : 'read'}"}
 
             .content
+              =person_image_link(note.actors.last)
               %span.from
                 = notification_message_for(note)
               .time

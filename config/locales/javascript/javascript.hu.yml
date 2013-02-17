@@ -6,6 +6,7 @@
 
 hu:
   javascripts:
+    and: "és"
     aspect_dropdown:
       add_to_aspect: "Hozzáadás a csoporthoz"
       all_aspects: "Összes csoport"
@@ -18,17 +19,19 @@ hu:
         many: "<%= count %> csoportban"
         one: "<%= count %> csoportban"
         other: "<%= count %> csoportban"
-        two: "<%= count %> csoportban"
         zero: "Csoportok kiválasztása"
     aspect_navigation:
+      add_an_aspect: "+ Új csoport"
       deselect_all: "Összes kijelölés megszüntetése"
       no_aspects: "Nincs csoport kiválasztva"
       select_all: "Mindent kijelöl"
+    comma: ","
     comments:
       hide: "hozzászólások elrejtése"
       show: "összes hozzászólás"
     confirm_dialog: "Biztos vagy benne?"
     delete: "Töröl"
+    edit: "Szerkesztés"
     failed_to_like: "Hiba"
     failed_to_post_message: "Üzenet elküldése sikertelen!"
     getting_started:
@@ -55,10 +58,12 @@ hu:
     infinite_scroll:
       no_more: "Nincs több bejegyzés."
     my_activity: "Tevékenységeim"
+    my_aspects: "Csoportjaim"
     my_stream: "Hírfolyam"
     people:
       not_found: "és nem találni senkit..."
     photo_uploader:
+      completed: "<%= file %> feltöltve"
       looking_good: "Azta! Remekül nézek ki!"
     publisher:
       at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"
@@ -73,6 +78,11 @@ hu:
     stream:
       comment: "Hozzászólás"
       follow: "Követem"
+      followed_tag:
+        add_a_tag: "Címke hozzáadása"
+        contacts_title: "Emberek, akik ezeket a címkéket követik"
+        follow: "Követés"
+        title: "#követett címkék"
       hide: "Elrejt"
       hide_nsfw_posts: "#nsfw bejegyzések rejtése"
       like: "Tetszik"
@@ -85,7 +95,6 @@ hu:
         many: "Mutasd a további <%= count %> hozzászólást"
         one: "Mutasd a többi <%= count %> hozzászólást"
         other: "Mutasd a többi <%= count %> hozzászólást"
-        two: "Mutasd a többi <%= count %> hozzászólást"
         zero: "Mutasd a többi <%= count %> hozzászólást"
       original_post_deleted: "Eredeti bejegyzés törölve a szerzője által."
       public: "Nyilvános"
@@ -95,10 +104,13 @@ hu:
         many: "<%= count %> megosztás"
         one: "<%= count %> megosztás"
         other: "<%= count %> megosztás"
-        two: "<%= count %> megosztás"
         zero: "<%= count %> megosztás"
       show_nsfw_post: "Bejegyzés megjelenítése"
       show_nsfw_posts: "Összes megjelenítése"
+      tags:
+        follow: "címke követése"
+        following: "#<%= tag %> követve"
+        stop_following: "követés leállítása #<%= tag %>"
       unfollow: "Nem követem"
       unlike: "Nem tetszik"
     tags:

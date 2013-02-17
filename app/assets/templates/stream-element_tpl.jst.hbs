@@ -1,40 +1,38 @@
 <div class="media">
 
-  {{#if current_user}}
-    <div class="controls">
-      {{#unless authorIsCurrentUser}}
-        <a href="#" rel="nofollow" class="block_user">
-          <img src="{{imageUrl "icons/ignoreuser.png"}}"" alt="Ignoreuser" class="control_icon" title="{{t "ignore"}}" />
-        </a>
-        <a href="#" rel="nofollow" class="hide_post">
-          <img src="{{imageUrl "deletelabel.png"}}" class="delete control_icon" title="{{t "stream.hide"}}" />
-        </a>
-      {{else}}
-        <a href="#" rel="nofollow" class="remove_post">
-          <img src="{{imageUrl "deletelabel.png"}}" class="delete control_icon" title="{{t "delete"}}" />
-        </a>
-      {{/unless}}
-    </div>
-  {{/if}}
-
   {{#with author}}
-    <a href="/people/{{guid}}" class="img">
+    <a href="/people/{{guid}}" class="img {{{hovercardable this}}}">
       {{{personImage this}}}
     </a>
   {{/with}}
 
   <div class="bd">
+    {{#if loggedIn}}
+      <div class="controls">
+        {{#unless authorIsCurrentUser}}
+          <a href="#" rel="nofollow" class="block_user">
+            <img src="{{imageUrl "icons/ignoreuser.png"}}" alt="Ignoreuser" class="ignore control_icon" title="{{t "ignore"}}" />
+          </a>
+          <a href="#" rel="nofollow" class="hide_post">
+            <img src="{{imageUrl "deletelabel.png"}}" class="delete control_icon" title="{{t "stream.hide"}}" />
+          </a>
+        {{else}}
+          <a href="#" rel="nofollow" class="remove_post">
+            <img src="{{imageUrl "deletelabel.png"}}" class="delete control_icon" title="{{t "delete"}}" />
+          </a>
+        {{/unless}}
+      </div>
+    {{/if}}
+    
     <div>
       {{#with author}}
-        <a href="/people/{{guid}}" class="author">
-          {{name}}
-        </a>
+        <a href="/people/{{guid}}" class="author {{{hovercardable this}}}">{{name}}</a>
       {{/with}}
 
       <span class="details grey">
         -
         <a href="/posts/{{id}}">
-          <time class="timeago" datetime="{{created_at}}" />
+          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
         </a>
 
         {{#if interactions.reshares_count}}

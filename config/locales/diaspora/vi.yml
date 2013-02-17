@@ -276,7 +276,6 @@ vi:
         many: "%{count} tin nhắn mới"
         one: "1 tin nhắn mới"
         other: "%{count} tin nhắn mới"
-        two: "%{count} tin nhắn mới"
         zero: "Không có tin nhắn mới"
     index:
       create_a_new_message: "viết tin nhắn mới"
@@ -372,7 +371,6 @@ vi:
         many: "%{count} người không thích"
         one: "%{count} người không thích"
         other: "%{count} người không thích"
-        two: "%{count} người không thích"
         zero: "chưa có người không thích"
       people_like_this:
         other: "%{count} người thích"
@@ -396,7 +394,6 @@ vi:
       many: "%{actors} đã bình luận tin %{post_link} của bạn."
       one: "%{actors} đã bình luận tin %{post_link} của bạn."
       other: "%{actors} đã bình luận tin %{post_link} của bạn."
-      two: "%{actors} đã bình luận tin %{post_link} của bạn."
       zero: "%{actors} đã bình luận tin %{post_link} của bạn."
     helper:
       new_notifications:
@@ -404,7 +401,6 @@ vi:
         many: "%{count} thông báo mới"
         one: "1 thông báo mới"
         other: "%{count} thông báo mới"
-        two: "%{count} thông báo mới"
         zero: "Không có thông báo mới"
     index:
       and: "và"
@@ -441,7 +437,6 @@ vi:
       many: "%{actors} đã bắt đầu chia sẻ với bạn."
       one: "%{actors} đã bắt đầu chia sẻ với bạn."
       other: "%{actors} đã bắt đầu chia sẻ với bạn."
-      two: "%{actors} đã bắt đầu chia sẻ với bạn."
       zero: "%{actors} đã bắt đầu chia sẻ với bạn."
   notifier:
     a_post_you_shared: "một bài đăng."

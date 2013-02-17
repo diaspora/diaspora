@@ -163,6 +163,8 @@ pl:
       donate: "Wspomóż"
       handle_explanation: "Oto Twój identyfikator Diaspory. Tak jak adres e-mail, możesz podać go osobom, z którymi chcesz być w kontakcie."
       help:
+        any_problem: "Jakiś problem?"
+        contact_podmin: "Skontaktuj się z administratorem swojego poda!"
         do_you: "Czy:"
         email_feedback: "Wyślij %{link}, jeśli wolisz"
         email_link: "E-mail"
@@ -170,6 +172,7 @@ pl:
         find_a_bug: "... znal@{m:azłeś|f:azłaś|n:eziono} %{link}?"
         have_a_question: "... masz %{link}?"
         here_to_help: "Społeczność Diaspory jest tutaj!"
+        mail_podmin: "Adres e-mail podmina"
         need_help: "Potrzebujesz pomocy?"
         tag_bug: "błąd"
         tag_feature: "funkcja"
@@ -284,11 +287,13 @@ pl:
       people_sharing: "Osoby które Ci udostępniają:"
     spotlight:
       community_spotlight: "W centrum uwagi społeczności"
+      suggest_member: "Zasugeruj członka"
     two: "%{count} kontakty"
     zero: "kontakty"
   conversations:
     create:
       fail: "Nieprawidłowa wiadomość"
+      no_contact: "Hej! Najpierw należy dodać kontakt!"
       sent: "Wiadomość została wysłana"
     destroy:
       success: "Pomyślnie usunięto rozmowę"
@@ -342,10 +347,12 @@ pl:
     create:
       already_contacts: "{m,f:Jesteś już|n:Połączono już}{ }{m,f:połączon}{m:y|f:a} z tą osobą."
       already_sent: "Już zapros@{m:iłeś|f:iłaś|n:zono} tę osobę."
+      empty: "Podaj przynajmniej jeden adres e-mail."
       no_more: "Nie masz więcej zaproszeń."
+      note_already_sent: "Zaproszenia zostały już wysłane do: %{emails}"
       own_address: "Nie możesz wysłać zaproszenia na swój własny adres."
       rejected: "Następujące adresy e-mail okazały się problematyczne:"
-      sent: "Zaproszenia zostały wysłane do:"
+      sent: "Zaproszenia zostały wysłane do: %{emails}"
     edit:
       accept_your_invitation: "Zaakceptuj zaproszenie"
       your_account_awaits: "Twoje konto czeka!"
@@ -696,6 +703,7 @@ pl:
       hey_make: "HEJ ,<br/>ZRÓB<br/>COŚ."
       join_the_movement: "Dołącz do ruchu!"
       password: "HASŁO"
+      password_confirmation: "POTWIERDZENIE HASŁA"
       sign_up: "REJESTRACJA"
       sign_up_message: "Social Networking z ♥"
       username: "NAZWA UŻYTKOWNIKA"
@@ -736,7 +744,7 @@ pl:
   search: "Znajdź"
   services:
     create:
-      already_authorized: "Użytkownik o identyfikatorze w diasporze \"%{diaspora_id\"} już autoryzował to konto w usłudze \"%{service_name}\"."
+      already_authorized: "Użytkownik o identyfikatorze w diasporze \"%{diaspora_id}\" już autoryzował to konto w usłudze \"%{service_name}\"."
       failure: "Uwierzytelnianie nie powiodło się."
       success: "Pomyślnie uwierzytelniono."
     destroy:
@@ -816,7 +824,7 @@ pl:
       discard_post: "Porzuć wpis"
       make_public: "upublicznij"
       new_user_prefill:
-        hello: "Witajcie wszyscy, jestem tutaj nowy/a! #%{new_user_tag}. "
+        hello: "Witajcie wszyscy, jestem #%{new_user_tag}. "
         i_like: "Interesują mnie %{tags}."
         invited_by: "Dzięki za zaproszenie,"
         newhere: "TutajOdNiedawna"
@@ -984,6 +992,8 @@ pl:
     getting_started:
       awesome_take_me_to_diaspora: "Świetnie! Zabierz mnie do Diaspory*"
       community_welcome: "Społeczność Diaspory cieszy się, że ​​jesteś na pokładzie!"
+      connect_to_facebook: "Możemy nieco przyśpieszyć poprzez %{link} do Diaspory. To spowoduje pobranie Twojej nazwy i zdjęcia i włączy publikowanie krzyżowe."
+      connect_to_facebook_link: "podpinanie konta na Facebooku"
       hashtag_explanation: "Znaczniki pozwalają łatwo odnaleźć interesujące Cię tematy. Są także świetnym sposobem na nawiązywanie znajomości na Diasporze."
       hashtag_suggestions: "Spróbuj obserwować znaczniki takie jak #sztuka, #filmy, #gif, itd."
       saved: "Zapisano!"

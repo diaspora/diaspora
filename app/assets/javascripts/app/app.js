@@ -37,7 +37,7 @@ var app = {
     app.currentUser = app.user(window.current_user_attributes) || new app.models.User()
 
     if(app.currentUser.authenticated()){
-      app.header = new app.views.Header;
+      app.header = new app.views.Header();
       $("header").prepend(app.header.el);
       app.header.render();
     }
@@ -52,7 +52,10 @@ var app = {
 
       $(".stream_title").text(link.text())
       app.router.navigate(link.attr("href").substring(1) ,true)
-    })
+    });
+
+    app.hovercard = new app.views.Hovercard();
+    app.aspectMemberships = new app.views.AspectMembership();
   },
 
   hasPreload : function(prop) {

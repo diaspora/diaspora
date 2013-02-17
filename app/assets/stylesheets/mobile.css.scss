@@ -2,6 +2,7 @@
 @import 'bootstrap-responsive';
 @import "_mixins.css.scss";
 @import 'vendor/autoSuggest';
+@import '_flash_messages.scss';
 
 $blue: #3f8fba;
 
@@ -45,11 +46,13 @@ body {
 
   .from {
     a {
-      color: #444 !important;
+      color: #444;
       font-weight: bold;
     }
     margin-bottom: 2px;
     height: 45px;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   > .content,
@@ -141,6 +144,12 @@ body {
   border-bottom: 1px solid #aaa;
 }
 
+.stream_element div.img img.avatar {
+  margin: 10px;
+}
+.stream_element .bd {
+  padding-top: 10px;
+}
 .photo_attachments {
   position: relative;
   left: 0;
@@ -244,8 +253,9 @@ body {
 }
 
 #author_info {
-  height: 100px;
+  height: 100%;
   position: relative;
+  word-wrap: break-word;
 
   img {
     height: 90px;
@@ -300,7 +310,7 @@ body {
   #nav_badges .badge {
     position: relative;
     display: inline;
-    margin: 0 2px;
+    margin-left: 3px;
     padding: 8px 3px;
       padding-bottom: 9px;
     font-weight: bold;
@@ -315,13 +325,26 @@ body {
   border-radius: 2px 2px 2px 2px;
   z-index: 3;
   position: absolute;
-  top: -2px;
-  left: 13px;
+  top: 1px;
   padding: 0 2px;
     padding-bottom: 1px;
   background-color: #a40802;
   line-height: 12px;
-  color: white; }
+  color: white;
+  font-size: smaller;
+}
+
+#notification {
+  right: 140px;
+}
+
+#conversation {
+  right: 110px;
+}
+
+.badge-inverse {
+  background-color: #333333 !important;
+}
 
 #header_title {
   position: relative;
@@ -659,13 +682,14 @@ display: inline-block;
 .message_count {
   border-radius: 2px 2px 2px 2px;
   float: right;
-  margin: 2px 2px 1px 5px;
+  margin: 10px 10px 1px 5px;
   padding: 0 2px 1px;
   position: relative;
   background-color: #999;
   color: #eee;
   font-size: 10px;
   line-height: 12px;
+
 }
 
 .conversation_participants img.avatar{
@@ -674,10 +698,15 @@ display: inline-block;
 	margin: 5px 0 5px 2px;
 }
 
+.conversations img.avatar{
+  margin: 10px;
+  float: left;
+}
+
 .unread_message_count {
   border-radius: 2px 2px 2px 2px;
   float: right;
-  margin: 2px 2px 1px 5px;
+  margin: 10px 2px 1px 5px;
   padding: 0 2px 1px;
   position: relative;
   background-color: #B11;
@@ -688,7 +717,7 @@ display: inline-block;
 
 .last_author {
   position: relative;
-  margin: 10px 5px 2px;
+  margin: 10px 10px 2px;
   float: right;
   font-size: 12px;
   color: #444;
@@ -730,11 +759,20 @@ textarea#message_text {
 }
 
 form#new_conversation.new_conversation {
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #999999;
-    box-shadow: 0 2px 3px #999999;
-    margin: 5px 20px;
-    padding: 5px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #999999;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 5px 0 5px 15px;
+  padding: 5px 10px;
+  h4 {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;  
+  }
+  .span-10 {
+    margin: 5px;
+  }   
 }
 
 .span-2 {
@@ -757,25 +795,74 @@ textarea#conversation_text {
 }
 
 .bottom_submit_section {
-    display: block;
-    position: relative;
-    text-align: right;
+  display: block;
+  position: relative;
+  text-align: right;
+  padding-bottom: 5px;
 }
 
 .button.creation {
-  color: #333;
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border: 1px solid #cccccc;
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-bottom-color: #b3b3b3;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.button.creation:hover,
+.button.creation:focus,
+.button.creation:active {
+  color: #333333;
+  background-color: #e6e6e6;
+}
+
+.button.creation:active {
+  background-color: #cccccc \9;
+}
+
+.button.creation:first-child {
+  margin-left: 0;
+}
+
+.button.creation:hover,
+.button.creation:focus {
+  color: #333333;
   text-decoration: none;
-  background-color: #E6E6E6;
   background-position: 0 -15px;
   -webkit-transition: background-position 0.1s linear;
-  -webkit-transition-property: background-position;
-  -webkit-transition-duration: 0.1s;
-  -webkit-transition-timing-function: linear;
-  -webkit-transition-delay: initial;
-  -moz-transition: background-position 0.1s linear;
-  -ms-transition: background-position 0.1s linear;
-  -o-transition: background-position 0.1s linear;
-  transition: background-position 0.1s linear;
+     -moz-transition: background-position 0.1s linear;
+       -o-transition: background-position 0.1s linear;
+          transition: background-position 0.1s linear;
+}
+
+.button.creation:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
 }
 
 .registrations_error,
@@ -787,4 +874,155 @@ textarea#conversation_text {
 form#new_user.new_user input.btn {
   white-space: normal;
 }
-    
+
+.unread {
+  background-color: LightGrey;
+  .ltr {
+    font-weight: bold;
+  }
+}
+
+.read.stream_element {
+  color: dimGray;
+  .from {
+    a {
+      color: dimGray;
+      font-weight: bold;
+    }
+  }
+}
+
+.conversation_error {
+  color: #DF0101;
+  text-shadow: 1px 1px 5px #666;
+}
+
+.conversation_notice {
+  color: rgb(10, 150, 10);
+  text-shadow: 1px 1px 20px rgb(126, 240, 77);
+}
+
+#flash_notice,
+#flash_alert,
+#flash_error {
+  .message {
+    min-width: 200px;
+    max-width: 400px;
+  }
+}
+
+
+form p.checkbox_select {
+  position: relative;
+  label {
+    left: 25px;
+    top: 4px;
+    position: absolute;
+    font-size: 1em;
+  }
+  img {
+    position: relative;
+    top: 6px;
+  }
+}
+
+#profile_photo_upload {
+  margin-top: 5px;
+  min-height: 100px;
+  position: relative;
+
+  img {
+    @include border-radius(5px);
+    @include box-shadow(0,1px,2px,#666);
+  
+    position: absolute;
+    left: 0;
+    height: 100px;
+    width: 100px;
+
+    &.avatar {
+      @include transition(opacity, 0.5s);
+      &.loading {
+        @include opacity(0.3);
+      }
+    }
+  }
+  padding-left: 120px;
+}
+
+#file-upload.button {
+  @include border-radius(3px);
+  @include button-gradient($light-grey);
+  @include box-shadow(0,1px,1px,#cfcfcf);
+  @include transition(border);
+
+  display: inline-block;
+
+  font {
+    style: normal;
+    size: 12px;
+  }
+  color: #505050;
+
+  padding: 4px 9px;
+
+  min-height: 10px;
+
+  border: 1px solid;
+
+  cursor: pointer;
+  white-space: normal;
+
+  &:hover {
+    @include button-gradient-hover-no-saturation($light-grey);
+    color: #505050;
+    text-decoration: none;
+    border: 1px solid;
+  }
+}
+
+#settings_nav {
+  font-size: 1em;
+
+  ul {
+    margin: 0 0 0 15px;
+  }
+
+  li {
+    display: inline;
+  }
+}
+
+form#update_profile_form {
+  select {
+    padding: 3px;
+  }
+}
+
+select#user_language, #user_auto_follow_back_aspect_id, #aspect_ids_ {
+ padding: 3px;
+}
+
+#file-upload-spinner {
+  top: 0px;
+}
+
+.hero-unit-mobile {
+  padding: 10px;
+  font-size: 14px;
+  line-height: 18px;
+  color: inherit;
+  background-color: #EEE;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+  border-radius: 10px;
+}
+
+.search-mobile {
+  text-align: center;
+  padding-top: 30px;
+}
+
+input#q.search {
+  margin-bottom: 20px;
+}  

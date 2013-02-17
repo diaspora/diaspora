@@ -1,3 +1,123 @@
+# 0.0.3.0
+
+## Refactor
+
+* Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
+* Last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
+* Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713), [#3775](https://github.com/diaspora/diaspora/pull/3777)
+* Extracted configuration system to a gem.
+* Made number of unicorn workers configurable.
+* Made loading of the configuration environment independent of Rails.
+* Do not generate paths like `/a/b/c/config/boot.rb/../../Gemfile` to require and open things, create a proper path instead.
+* Remove the hack for loading the entire lib folder with a proper solution. [#3809](https://github.com/diaspora/diaspora/issues/3750)
+* Update and refactor the default public view `public/default.html` [#3811](https://github.com/diaspora/diaspora/issues/3811)
+* Write unicorn stderr and stdout [#3785](https://github.com/diaspora/diaspora/pull/3785)
+* Ported aspects to backbone [#3850](https://github.com/diaspora/diaspora/pull/3850)
+* Join tagging's table instead of tags to improve a bit the query [#3932](https://github.com/diaspora/diaspora/pull/3932)
+* Refactor contacts/index view [#3937](https://github.com/diaspora/diaspora/pull/3937)
+* Ported aspect membership dropdown to backbone [#3864](https://github.com/diaspora/diaspora/pull/3864)
+
+## Features
+
+* Updates to oEmbed, added new providers and fixed photo display. [#3880](https://github.com/diaspora/diaspora/pull/3880)
+* Add 'screenshot tool' for taking before/after images of stylesheet changes. [#3797](https://github.com/diaspora/diaspora/pull/3797)
+* Add possibility to contact the administrator. [#3792](https://github.com/diaspora/diaspora/pull/3792)
+* Add simple background for unread messages/conversations mobile. [#3724](https://github.com/diaspora/diaspora/pull/3724)
+* Add flash warning to conversation mobile, unification of flash warning with login and register mobile, and add support for flash warning to Opera browser. [#3686](https://github.com/diaspora/diaspora/pull/3686)
+* Add progress percentage to upload images. [#3740](https://github.com/diaspora/diaspora/pull/3740)
+* Mark all unread post-related notifications as read, if one of this gets opened. [#3787](https://github.com/diaspora/diaspora/pull/3787)
+* Add flash-notice when sending messages to non-contacts. [#3723](https://github.com/diaspora/diaspora/pull/3723)
+* Re-add hovercards [#3802](https://github.com/diaspora/diaspora/pull/3802)
+* Add images to notifications [#3821](https://github.com/diaspora/diaspora/pull/3821)
+* Show pod version in footer and updated the link to the changelog [#3822](https://github.com/diaspora/diaspora/pull/3822)
+* Footer links moved to sidebar [#3827](https://github.com/diaspora/diaspora/pull/3827)
+* Changelog now points to correct revision if possible [#3921](https://github.com/diaspora/diaspora/pull/3921)
+* User interface enhancements [#3832](https://github.com/diaspora/diaspora/pull/3832), [#3839](https://github.com/diaspora/diaspora/pull/3839), [#3834](https://github.com/diaspora/diaspora/pull/3834), [#3840](https://github.com/diaspora/diaspora/issues/3840), [#3846](https://github.com/diaspora/diaspora/issues/3846), [#3851](https://github.com/diaspora/diaspora/issues/3851), [#3828](https://github.com/diaspora/diaspora/issues/3828), [#3874](https://github.com/diaspora/diaspora/issues/3874), [#3806](https://github.com/diaspora/diaspora/issues/3806), [#3906](https://github.com/diaspora/diaspora/issues/3906).
+* Add settings web mobile. [#3701](https://github.com/diaspora/diaspora/pull/3701)
+* Stream form on profile page [#3910](https://github.com/diaspora/diaspora/issues/3910).
+* Add Getting_Started page mobile. [#3949](https://github.com/diaspora/diaspora/issues/3949).
+* Autoscroll to the first unread message in conversations. [#3216](https://github.com/diaspora/diaspora/issues/3216)
+* Friendlier new-conversation mobile. [#3984](https://github.com/diaspora/diaspora/issues/3984) 
+
+## Bug Fixes
+
+* Force Typhoeus/cURL to use the CA bundle we query via the config. Also add a setting for extra verbose output.
+* Validate input on sending invitations, validate email format, send correct ones. [#3748](https://github.com/diaspora/diaspora/pull/3748), [#3271](https://github.com/diaspora/diaspora/issues/3271)
+* moved Aspects JS initializer to the correct place so aspect selection / deselection works again. [#3737](https://github.com/diaspora/diaspora/pull/3737)
+* Do not strip "markdown" in links when posting to services. [#3765](https://github.com/diaspora/diaspora/issues/3765)
+* Renamed `server.db` to `server.database` to match the example configuration.
+* Fix insecure image of cat on user edit page - New photo courtesy of [khanb1 on flickr](http://www.flickr.com/photos/albaraa/) under CC BY 2.0.
+* Allow translation of "suggest member" of Community Spotlight. [#3791](https://github.com/diaspora/diaspora/issues/3791)
+* Resize deletelabel and ignoreuser images to align them. [#3779](https://github.com/diaspora/diaspora/issues/3779)
+* Patch in Armenian pluralization rule until CLDR provides it.
+* Fix reshare a post multiple times. [#3831](https://github.com/diaspora/diaspora/issues/3671)
+* Fix services index view. [#3884](https://github.com/diaspora/diaspora/issues/3884)
+* Excessive padding with "user-controls" in single post view. [#3861](https://github.com/diaspora/diaspora/issues/3861)
+* Resize full scaled image to a specific width. [#3818](https://github.com/diaspora/diaspora/issues/3818)
+* Fix translation issue in contacts_helper [#3937](https://github.com/diaspora/diaspora/pull/3937)
+* Show timestamp hovering a timeago string (stream) [#3149](https://github.com/diaspora/diaspora/issues/3149)
+* Fix reshare and like a post on a single post view [#3672](https://github.com/diaspora/diaspora/issues/3672)
+* Fix posting multiple times the same content [#3272](https://github.com/diaspora/diaspora/issues/3272)
+* Excessive padding with select aspect in mobile publisher. [#3951](https://github.com/diaspora/diaspora/issues/3951)
+* Adapt css for search mobile page. [#3953](https://github.com/diaspora/diaspora/issues/3953)
+* Twitter/Facebook/Tumblr count down characters is hidden by the picture of the post. [#3963](https://github.com/diaspora/diaspora/issues/3963)
+* Buttons on mobile are hard to click on. [#3973](https://github.com/diaspora/diaspora/issues/3973)
+* RTL-language characters in usernames no longer overlay post dates [#2339](https://github.com/diaspora/diaspora/issues/2339)
+* Overflow info author mobile web. [#3983](https://github.com/diaspora/diaspora/issues/3983)
+* Overflow name author mobile post. [#3981](https://github.com/diaspora/diaspora/issues/3981)
+
+## Gem Updates
+
+* Removed `debugger` since it was causing bundle problems, and is not necessary given 1.9.3 has a built-in debugger.
+* dropped unnecessary fastercsv
+* markerb switched from git release to 1.0.1
+* added rmagick as development dependency for making screenshot comparisons
+* jasmine 1.2.1 -> 1.3.1 (+ remove useless spec)
+* activerecord-import 0.2.11 -> 0.3.1
+* asset_sync 0.5.0 -> 0.5.4
+* bootstap-sass 2.1.1.0 -> 2.2.2.0
+* carrierwave 0.7.1 -> 0.8.0
+* configurate 0.0.1 -> 0.0.2
+* factory_girl_rails 4.1.0 -> 4.2.0
+* faraday 0.8.4 -> 0.8.5
+* ffi 1.1.5 -> 1.4.0
+* fixture_builder 0.3.4 -> 0.3.5
+* fog 1.6.0 -> 1.9.0
+* foreigner 1.2.1 -> 1.3.0
+* foreman 0.60.2 -> 0.61
+* gon 4.0.1 -> 4.0.2
+* guard 1.5.4 -> 1.6.2
+    * guard-cucumber 1.2.2 -> 1.3.2
+    * guard-rspec 2.1.1 -> 2.4.0
+    * guard-spork 1.2.3 -> 1.4.2
+    * rb-fsevent 0.9.2 -> 0.9.3
+    * rb-inotify 0.8.8 -> 0.9.0
+* haml 3.1.7 -> 4.0.0
+* handlebars_assets 0.6.6 -> 0.11.0
+* jquery-rails 2.1.3 -> 2.1.4
+* jquery-ui-rails 2.0.2 -> 3.0.1
+* mini_magick 3.4 -> 3.5.0
+* mobile-fu 1.1.0 -> 1.1.1
+* multi_json 1.5.1 -> 1.6.1
+* nokogiri 1.5.5 -> 1.5.6
+* omniauth 1.1.1 -> 1.1.3
+    * omniauth-twitter 0.0.13 -> 0.0.14
+* rack-ssl 1.3.2 -> 1.3.3
+* rack-rewrite 1.3.1 -> 1.3.3
+* rails-i18n 0.7.0 -> 0.7.2
+* rails_admin 0.2.0 -> 0.4.5
+* remotipart 1.0.2 -> 1.0.5
+* ruby-oembed 0.8.7 -> 0.8.8
+* rspec 2.11.0 -> 2.12.0
+* rspec-rails 2.11.4 -> 2.12.2
+* sass-rails 3.2.5 -> 3.2.6
+* selenium-webdriver 2.26.0 -> 2.29.0
+* timecop 0.5.3 -> 0.5.9.2
+* twitter 4.2.0 -> 4.5.0
+* unicorn 4.4.0 -> 4.6.0
+* will_paginate 3.0.3 -> 3.0.4
+
+
 # 0.0.2.5
 
 * Fix CVE-2013-0269 by updating the gems json to 1.7.7 and multi\_json to 1.5.1. [Read more](https://groups.google.com/forum/?fromgroups=#!topic/rubyonrails-security/4_YvCpLzL58)

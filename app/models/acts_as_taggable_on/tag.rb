@@ -1,5 +1,7 @@
 class ActsAsTaggableOn::Tag
 
+  self.include_root_in_json = false
+  
   def followed_count
    @followed_count ||= TagFollowing.where(:tag_id => self.id).count
   end

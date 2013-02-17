@@ -284,7 +284,6 @@ ko:
         many: "새 쪽지 %{count}개"
         one: "새 쪽지 한 개"
         other: "새 쪽지 %{count}개"
-        two: "새 쪽지 %{count}개"
         zero: "새 쪽지 없음"
     index:
       create_a_new_message: "쪽지 보내기"
@@ -404,7 +403,6 @@ ko:
         many: "새 알림 %{count}개"
         one: "새 알림 한 개"
         other: "새 알림 %{count}개"
-        two: "새 알림 %{count}개"
         zero: "새 알림 없음"
     index:
       and: "그리고"
@@ -418,7 +416,6 @@ ko:
       many: "%{actors}님이 내 %{post_link}을 좋아합니다."
       one: "%{actors}님이 내 %{post_link}을 좋아합니다."
       other: "%{actors}님이 내 %{post_link}을 좋아합니다"
-      two: "%{actors}님이 %{post_link} 게시물을 좋아합니다."
       zero: "%{actors}님이 내 %{post_link}을 좋아합니다"
     liked_post_deleted:
       other: "%{actors}님이 내가 지운 게시물을 좋아합니다."
@@ -428,14 +425,12 @@ ko:
       many: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
       one: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
       other: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
-      two: "%{actors}님이 %{post_link} 게시물에서 나를 멘션했습니다."
       zero: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
     mentioned_deleted:
       few: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
       many: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
       one: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
       other: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
-      two: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
       zero: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
     post: "게시물"
     private_message:
@@ -443,7 +438,6 @@ ko:
       many: "%{actors}님이 쪽지를 보냈습니다."
       one: "%{actors}님이 쪽지를 보냈습니다."
       other: "%{actors}님이 쪽지를 보냈습니다."
-      two: "%{actors}님이 내게 쪽지를 보냈습니다."
       zero: "%{actors}님이 쪽지를 보냈습니다."
     reshared:
       other: "%{actors}님이 내 %{post_link}을 재공유했습니다."
@@ -453,14 +447,12 @@ ko:
       many: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
       one: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
       other: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
-      two: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
       zero: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
     started_sharing:
       few: "%{actors}님이 나와 공유를 시작했습니다."
       many: "%{actors}님이 나와 공유를 시작했습니다."
       one: "%{actors}님이 나와 공유를 시작했습니다."
       other: "%{actors}님이 나와 공유를 시작했습니다."
-      two: "%{actors}님이 나와 공유를 시작했습니다."
       zero: "%{actors}님이 나와 공유를 시작했습니다."
   notifier:
     a_post_you_shared: "게시물"
@@ -619,7 +611,6 @@ ko:
         many: "%{author}님의 사진 %{count}장"
         one: "%{author}님의 사진 한 장"
         other: "%{author}님의 사진 %{count}장"
-        two: "%{author}님의 사진 두 장"
         zero: "%{author}님의 사진 없음"
       reshare_by: "%{author}님이 재공유"
   previous: "이전"
@@ -654,7 +645,6 @@ ko:
     many: "반응 %{count}개"
     one: "반응 한 개"
     other: "반응 %{count}개"
-    two: "반응 %{count}개"
     zero: "반응 %{count}개"
   registrations:
     closed: "우리 디아스포라 팓은 가입이 닫혀있습니다."
@@ -697,7 +687,6 @@ ko:
         many: "요청이 %{count}개 들어왔습니다!"
         one: "요청이 한 개 들어왔습니다!"
         other: "요청이 %{count}개 들어왔습니다!"
-        two: "새 요청이 %{count}개 있습니다!"
         zero: "요청 없음"
     manage_aspect_contacts:
       existing: "기존 컨택"
@@ -715,7 +704,6 @@ ko:
         many: "재공유 %{count}번"
         one: "재공유 한 번"
         other: "재공유 %{count}번"
-        two: "재공유 %{count}개"
         zero: "재공유"
       reshare_confirmation: "%{author}님의 %{text} 게시물을 재공유하시겠습니까?"
       reshare_original: "원본 재공유"
@@ -849,7 +837,6 @@ ko:
       many: "댓글 %{count}개 더 보기"
       one: "댓글 한 개 더 보기"
       other: "댓글 %{count}개 더 보기"
-      two: "댓글 두 개 더 보기"
       zero: "댓글이 더 없습니다"
   streams:
     activity:

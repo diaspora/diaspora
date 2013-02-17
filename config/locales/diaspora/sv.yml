@@ -157,6 +157,8 @@ sv:
       donate: "Donera"
       handle_explanation: "Det här är ditt Diaspora-ID. Det är det här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
       help:
+        any_problem: "Några problem?"
+        contact_podmin: "Kontakta din pods administratör."
         do_you: "Har du:"
         email_feedback: "%{link}a din respons, om du föredrar det"
         email_link: "E-post"
@@ -164,6 +166,7 @@ sv:
         find_a_bug: "... hittat en %{link}?"
         have_a_question: "... en %{link}?"
         here_to_help: "Diaspora-gemenskapen finns här!"
+        mail_podmin: "Podadministratörs e-post"
         need_help: "Behöver du hjälp?"
         tag_bug: "bugg"
         tag_feature: "särdrag"
@@ -278,11 +281,13 @@ sv:
       people_sharing: "Personer delar med dig:"
     spotlight:
       community_spotlight: "Gemenskapens rampljus"
+      suggest_member: "Föreslå en medlem"
     two: "%{count} kontakter"
     zero: "kontakter"
   conversations:
     create:
       fail: "Ogiltigt meddelande"
+      no_contact: "Hallå! Du måste först lägga till kontakten."
       sent: "Meddelandet har skickats"
     destroy:
       success: "Konversationen har tagits bort nu"
@@ -335,7 +340,9 @@ sv:
     create:
       already_contacts: "Du är redan i kontakt med denna person"
       already_sent: "Du har redan bjudit in denna person."
+      empty: "Var snäll och ange minst en e-postadress."
       no_more: "Du har inga fler inbjudningar."
+      note_already_sent: "Inbjudningar har redan skickats till: %{emails}"
       own_address: "Du kan inte skicka en inbjudan till din egen adress."
       rejected: "Det är problem med följande e-postadresser: "
       sent: "Inbjudningarna har skickats till: %{emails}"
@@ -416,7 +423,6 @@ sv:
         many: "%{count} nya notiser"
         one: "En ny notis"
         other: "%{count} nya notiser"
-        two: "Två nya notiser"
         zero: "Inga nya notiser"
     index:
       and: "och"
@@ -425,7 +431,6 @@ sv:
         many: "och %{count} till"
         one: "och en till"
         other: "och %{count} till"
-        two: "och två till"
         zero: "och ingen mer"
       mark_all_as_read: "Markera alla som lästa"
       mark_unread: "Markera som oläst"
@@ -621,7 +626,6 @@ sv:
         many: "%{count} foton av %{author}"
         one: "Ett foto av %{author}"
         other: "%{count} foton av %{author}"
-        two: "Två foton av %{author}"
         zero: "Inga foton av %{author}"
       reshare_by: "Delades vidare av %{author}"
   previous: "föregående"
@@ -765,7 +769,6 @@ sv:
         many: "I %{count} aspekter"
         one: "I %{count} aspekt"
         other: "I %{count} aspekter"
-        two: "I %{count} aspekter"
         zero: "Lägg till kontakt"
     contact_list:
       all_contacts: "Alla kontakter"
@@ -848,7 +851,6 @@ sv:
       many: "Visa %{count} ytterligare kommentarer"
       one: "Visa en ytterligare kommentar"
       other: "Visa %{count} ytterligare kommentarer"
-      two: "Visa två ytterligare kommentarer"
       zero: "Inga fler kommentarer"
   streams:
     activity:
@@ -969,6 +971,8 @@ sv:
     getting_started:
       awesome_take_me_to_diaspora: "Häftigt! Ta mig till Diaspora*"
       community_welcome: "Vi i Diasporagemenskapen är glada att ha dig här!"
+      connect_to_facebook: "Vi kan skynda på processen genom %{link} till Diaspora. Det kommer att hämta ditt namn, din bild och tillåta korsinlägg."
+      connect_to_facebook_link: "länkar ihop ditt Facebook-konto"
       hashtag_explanation: "Hashtaggar gör det möjligt att diskutera och följa dina intressen. Det är också ett bra sätt att lära känna nya människor på Diaspora."
       hashtag_suggestions: "Testa att följa taggar såsom #konst, #film, #gif, etc."
       saved: "Sparat!"

@@ -1,9 +1,0 @@
-#author_info.show
-  = person_image_link(person)
-  .from
-    %h5
-      = person.name
-
-    #person_nav_links
-      = link_to t('layouts.header.profile'), local_or_remote_person_path(person)
-      = link_to t('_photos'), person_photos_path(person)

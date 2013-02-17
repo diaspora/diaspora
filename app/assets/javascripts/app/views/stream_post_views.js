@@ -20,7 +20,7 @@ app.views.StreamPost = app.views.Post.extend({
     "click .block_user": "blockUser"
   },
 
-  tooltipSelector : ".delete, .block_user, .post_scope",
+  tooltipSelector : ".timeago, .delete, .block_user, .post_scope, .ignore",
 
   initialize : function(){
     this.model.bind('remove', this.remove, this);

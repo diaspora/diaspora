@@ -375,7 +375,7 @@ git_stuff_check() {
   if [ $? -ne 0 ]; then
     # not a git repo, create it?
     printf "the folder you specified does not exist or doesn't contain a git repo\n"
-    read -p "Press [Enter] to create it and contine... "
+    read -p "Press [Enter] to create it and continue... "
     run_or_error "mkdir -p -v \"$D_GIT_CLONE_PATH\""  # only if it doesn't exist
     run_or_error "git clone \"$D_REMOTE_REPO_URL\" \"$D_GIT_CLONE_PATH\""
   else
@@ -404,13 +404,16 @@ database_question() {
         ;;
     esac
   done
+
+  printf "\n"
 }
 
 # ask for database credentials
 database_credentials() {
-  read -e -p "DB hostname: " D_DB_HOST
-  read -e -p "DB username: " D_DB_USER
-  read -e -p "DB password: " D_DB_PASS
+  printf "Please specify the database credentials\n(the user must be existent and allowed to create new databases)\n"
+  read -e -p "hostname: " D_DB_HOST
+  read -e -p "username: " D_DB_USER
+  read -e -p "password: " D_DB_PASS
 
   run_or_error "sed -i'' -e \"s/\(host:\)[^\n]*/\1 $D_DB_HOST/g\" \"$D_DB_CONFIG_FILE\""
   run_or_error "sed -i'' -e \"s/\(username:\)[^\n]*/\1 $D_DB_USER/g\" \"$D_DB_CONFIG_FILE\""
@@ -429,6 +432,8 @@ EOT
 database_setup() {
   log_inf "Database setup"
   run_or_error "cp config/database.yml.example \"$D_DB_CONFIG_FILE\""
+  printf "\n"
+
   database_question
   database_credentials
 

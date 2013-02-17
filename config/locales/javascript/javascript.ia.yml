@@ -13,10 +13,6 @@ ia:
       select_aspects: "Seliger aspectos"
       started_sharing_with: "Tu ha comenciate a divider con <%= name %>!"
       stopped_sharing_with: "Tu ha cessate de divider con <%= name %>."
-      toggle:
-        human: "Selige aspectos"
-        po: "In <%= count %> aspecto"
-        yml: "In <%= count %> aspectos"
     aspect_navigation:
       deselect_all: "Deseliger totes"
       no_aspects: "Nulle aspecto seligite"
@@ -67,22 +63,10 @@ ia:
       hide: "Celar"
       hide_nsfw_posts: "Celar entratas #nsfw"
       like: "Appreciar"
-      likes:
-        human: "Zero appreciationes"
-        po: "<%= count %> appreciation"
-        yml: "<%= count %> appreciationes"
       limited: "Limitate"
-      more_comments:
-        human: "Il non ha altere commentos a monstrar"
-        po: "Monstrar <%= count %> altere commento"
-        yml: "Monstrar <%= count %> altere commentos"
       original_post_deleted: "Le entrata original ha essite delite per le autor."
       public: "Public"
       reshare: "Repeter"
-      reshares:
-        human: "Zero repetitiones"
-        po: "<%= count %> repetition"
-        yml: "<%= count %> repetitiones"
       show_nsfw_post: "Monstrar entrata"
       show_nsfw_posts: "Monstrar totes"
       unfollow: "Non plus sequer"

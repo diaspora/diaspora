@@ -70,6 +70,9 @@ pt-BR:
     stream:
       comment: "Comentar"
       follow: "Seguir"
+      followed_tag:
+        add_a_tag: "Adicionar uma tag"
+        follow: "Seguir"
       hide: "Ocultar"
       hide_nsfw_posts: "Esconder posts não recomendáveis para serem visualizados no escritório."
       like: "Curtir"
@@ -91,6 +94,10 @@ pt-BR:
         zero: "<%= count %> Recompartilhamento"
       show_nsfw_post: "Mostrar post"
       show_nsfw_posts: "Mostrar tudo"
+      tags:
+        follow: "Seguir #<%= tag %>"
+        following: "Seguindo #<%= tag %>"
+        stop_following: "Parar de Seguir #<%= tag %>"
       unfollow: "Parar de seguir"
       unlike: "Descurtir"
     tags:

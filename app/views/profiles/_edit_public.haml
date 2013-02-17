@@ -12,10 +12,11 @@
 
       autocompleteInput.autoSuggest("#{tags_path}", {
         selectedItemProp: "name",
+        selectedValuesProp: "name",
         searchObjProps: "name",
         asHtmlID: "tags",
         neverSubmit: true,
-        retriveLimit: 10,
+        retrieveLimit: 10,
         minChars: 2,
         keyDelay: 200,
         startText: "",

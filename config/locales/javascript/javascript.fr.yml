@@ -6,6 +6,7 @@
 
 fr:
   javascripts:
+    and: "et"
     aspect_dropdown:
       add_to_aspect: "Ajouter le contact"
       all_aspects: "Tous les aspects"
@@ -18,17 +19,19 @@ fr:
         many: "Dans <%= count %> aspects"
         one: "Dans <%= count %> aspect"
         other: "Dans <%= count %> aspects"
-        two: "Dans <%= count %> aspects"
         zero: "Sélectionnez les aspects"
     aspect_navigation:
+      add_an_aspect: "+ Ajouter un aspect"
       deselect_all: "Désélectionner tout"
       no_aspects: "Aucun aspect sélectionné"
       select_all: "Sélectionner tout"
+    comma: ","
     comments:
-      hide: "Cacher les commentaires"
+      hide: "Masquer les commentaires"
       show: "Afficher tous les commentaires"
-    confirm_dialog: "Êtes-vous sûr ?"
+    confirm_dialog: "Êtes-vous certain-e ?"
     delete: "Effacer"
+    edit: "Éditer"
     failed_to_like: "Impossible d'aimer !"
     failed_to_post_message: "Impossible de partager le message !"
     getting_started:
@@ -55,10 +58,12 @@ fr:
     infinite_scroll:
       no_more: "Pas d'autres messages."
     my_activity: "Mon activité"
+    my_aspects: "Mes Aspects"
     my_stream: "Flux"
     people:
       not_found: "Et personne n'a été trouvé ..."
     photo_uploader:
+      completed: "<%= file %> complété"
       looking_good: "Impressionnant, vous avez un super look !"
     publisher:
       at_least_one_aspect: "Vous devez créer au moins un aspect"
@@ -73,6 +78,11 @@ fr:
     stream:
       comment: "Commenter"
       follow: "Suivre"
+      followed_tag:
+        add_a_tag: "Ajouter un tag"
+        contacts_title: "Personnes qui suivent ces tags"
+        follow: "Suivre"
+        title: "#tags suivis"
       hide: "Masquer"
       hide_nsfw_posts: "Masquer les messages #nsfw"
       like: "J'aime"
@@ -81,7 +91,6 @@ fr:
         many: "<%= count %> J'aime"
         one: "<%= count %> J'aime"
         other: "<%= count %> J'aime"
-        two: "<%= count %> J'aime"
         zero: "<%= count %> J'aime"
       limited: "Limité"
       more_comments:
@@ -96,10 +105,13 @@ fr:
         many: "<%= count %> repartages"
         one: "<%= count %> repartage"
         other: "<%= count %> repartages"
-        two: "<%= count %> Repartages"
         zero: "<%= count %> repartages"
       show_nsfw_post: "Montrer le message"
       show_nsfw_posts: "Tout montrer"
+      tags:
+        follow: "Suivre #<%= tag %>"
+        following: "Suivant #<%= tag %>"
+        stop_following: "Arrêter de suivre #<%= tag %>"
       unfollow: "Ne pas suivre"
       unlike: "Je n'aime plus"
     tags:

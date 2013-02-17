@@ -17,8 +17,6 @@ describe ServicesController do
 
   before do
     @user   = alice
-    @aspect = @user.aspects.first
-
     sign_in :user, @user
     @controller.stub!(:current_user).and_return(@user)
     mock_access_token.stub!(:token => "12345", :secret => "56789")
@@ -106,5 +104,4 @@ describe ServicesController do
       }.should change(@user.services, :count).by(-1)
     end
   end
-
 end

@@ -167,12 +167,6 @@ class Person < ActiveRecord::Base
     }.call
   end
 
-  def self.public_search(query, opts={})
-    return [] if query.to_s.blank? || query.to_s.length < 3
-    sql, tokens = self.search_query_string(query)
-    Person.searchable.where(sql, *tokens)
-  end
-
   def name(opts = {})
     if self.profile.nil?
       fix_profile

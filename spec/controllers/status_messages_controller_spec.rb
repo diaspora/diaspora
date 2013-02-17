@@ -7,7 +7,6 @@ require 'spec_helper'
 describe StatusMessagesController do
   before do
     @aspect1 = alice.aspects.first
-    @aspect2 = bob.aspects.first
 
     request.env["HTTP_REFERER"] = ""
     sign_in :user, alice
@@ -55,8 +54,7 @@ describe StatusMessagesController do
 
   describe '#new' do
     it 'succeeds' do
-      get :new,
-        :person_id => bob.person.id
+      get :new, :person_id => bob.person.id
       response.should be_success
     end
 
