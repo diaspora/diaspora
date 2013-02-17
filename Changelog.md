@@ -4,8 +4,7 @@
 
 * Removed unused stuff [#3714](https://github.com/diaspora/diaspora/pull/3714), [#3754](https://github.com/diaspora/diaspora/pull/3754)
 * Last post link isn't displayed anymore if there are no visible posts [#3750](https://github.com/diaspora/diaspora/issues/3750)
-* Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713)
-* fixed tags on the profiles page (broken by the change of server side response in the switch to backbone) [#3775](https://github.com/diaspora/diaspora/pull/3777)
+* Ported tag followings to backbone [#3713](https://github.com/diaspora/diaspora/pull/3713), [#3775](https://github.com/diaspora/diaspora/pull/3777)
 * Extracted configuration system to a gem.
 * Made number of unicorn workers configurable.
 * Made loading of the configuration environment independent of Rails.
@@ -16,6 +15,7 @@
 * Ported aspects to backbone [#3850](https://github.com/diaspora/diaspora/pull/3850)
 * Join tagging's table instead of tags to improve a bit the query [#3932](https://github.com/diaspora/diaspora/pull/3932)
 * Refactor contacts/index view [#3937](https://github.com/diaspora/diaspora/pull/3937)
+* Ported aspect membership dropdown to backbone (#3864)[https://github.com/diaspora/diaspora/pull/3864]
 
 ## Features
 
@@ -61,43 +61,59 @@
 * Adapt css for search mobile page. [#3953](https://github.com/diaspora/diaspora/issues/3953)
 * Twitter/Facebook/Tumblr count down characters is hidden by the picture of the post. [#3963](https://github.com/diaspora/diaspora/issues/3963)
 * Buttons on mobile are hard to click on. [#3973](https://github.com/diaspora/diaspora/issues/3973)
+* RTL-language characters in usernames no longer overlay post dates [#2339](https://github.com/diaspora/diaspora/issues/2339)
 
 ## Gem Updates
 
 * Removed `debugger` since it was causing bundle problems, and is not necessary given 1.9.3 has a built-in debugger.
+* dropped unnecessary fastercsv
+* markerb switched from git release to 1.0.1
+* added rmagick as development dependency for making screenshot comparisons
 * jasmine 1.2.1 -> 1.3.1 (+ remove useless spec)
-* foreman 0.60.2 -> 0.61
-* unicorn 4.4.0 -> 4.5.0
-* omniauth-twitter 0.0.13 -> 0.0.14
-* twitter 4.2.0 -> 4.4.4
-* rails_admin 0.2.0 -> 0.4.1
-* rack 1.4.3 -> 1.4.4
-* rack-rewrite 1.3.1 -> 1.3.3
+* activerecord-import 0.2.11 -> 0.3.1
 * asset_sync 0.5.0 -> 0.5.4
-* fog 1.6.0 -> 1.8.0
-* rails-i18n 0.7.0 -> 0.7.2
-* nokogiri 1.5.5 -> 1.5.6
-* ruby-oembed 0.8.7 -> 0.8.8
-* mobile-fu 1.1.0 -> 1.1.1
-* will_paginate 3.0.4 -> 3.0.5
-* sass 3.2.3 -> 3.2.5
 * bootstap-sass 2.1.1.0 -> 2.2.2.0
-* sass-rails 3.2.5 -> 3.2.6
-* handlebars_assets 0.6.6 -> 0.8.2
-* jquery-rails 2.1.3 -> 2.1.4
+* carrierwave 0.7.1 -> 0.8.0
+* configurate 0.0.1 -> 0.0.2
+* factory_girl_rails 4.1.0 -> 4.2.0
+* faraday 0.8.4 -> 0.8.5
+* ffi 1.1.5 -> 1.4.0
+* fixture_builder 0.3.4 -> 0.3.5
+* fog 1.6.0 -> 1.9.0
+* foreigner 1.2.1 -> 1.3.0
+* foreman 0.60.2 -> 0.61
 * gon 4.0.1 -> 4.0.2
-* guard 1.5.4 -> 1.6.1
+* guard 1.5.4 -> 1.6.2
     * guard-cucumber 1.2.2 -> 1.3.2
-    * guard-rspec 2.1.1 -> 2.3.3
-    * guard-spork 1.2.3 -> 1.4.1
+    * guard-rspec 2.1.1 -> 2.4.0
+    * guard-spork 1.2.3 -> 1.4.2
     * rb-fsevent 0.9.2 -> 0.9.3
     * rb-inotify 0.8.8 -> 0.9.0
+* haml 3.1.7 -> 4.0.0
+* handlebars_assets 0.6.6 -> 0.11.0
+* jquery-rails 2.1.3 -> 2.1.4
+* jquery-ui-rails 2.0.2 -> 3.0.1
+* mini_magick 3.4 -> 3.5.0
+* mobile-fu 1.1.0 -> 1.1.1
+* multi_json 1.5.1 -> 1.6.1
+* nokogiri 1.5.5 -> 1.5.6
+* omniauth 1.1.1 -> 1.1.3
+    * omniauth-twitter 0.0.13 -> 0.0.14
+* rack-ssl 1.3.2 -> 1.3.3
+* rack-rewrite 1.3.1 -> 1.3.3
+* rails-i18n 0.7.0 -> 0.7.2
+* rails_admin 0.2.0 -> 0.4.5
+* remotipart 1.0.2 -> 1.0.5
+* ruby-oembed 0.8.7 -> 0.8.8
 * rspec 2.11.0 -> 2.12.0
 * rspec-rails 2.11.4 -> 2.12.2
-* selenium-webdriver 2.26.0 -> 2.27.2
-* fixture_builder 0.3.4 -> 0.3.5
-* ffi 1.1.5 -> 1.3.1
-* configurate 0.0.1 -> 0.0.2
+* sass-rails 3.2.5 -> 3.2.6
+* selenium-webdriver 2.26.0 -> 2.29.0
+* timecop 0.5.3 -> 0.5.9.2
+* twitter 4.2.0 -> 4.5.0
+* unicorn 4.4.0 -> 4.6.0
+* will_paginate 3.0.3 -> 3.0.4
+
 
 # 0.0.2.5
 
