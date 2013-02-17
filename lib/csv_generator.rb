@@ -197,14 +197,9 @@ SQL
 
   # ---------------- HELPER METHODS -------------------------
   def self.load_waiting_list_csv(filename)
+    require 'csv'
     csv = filename
-    if RUBY_VERSION.include? "1.8"
-      require 'fastercsv'
-       people = FasterCSV.read(csv)
-     else
-       require 'csv'
-       people = CSV.read(csv)
-     end
+    people = CSV.read(csv)
     people
   end
 

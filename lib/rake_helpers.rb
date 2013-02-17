@@ -4,14 +4,8 @@
 module RakeHelpers
 
   def process_emails(csv, num_to_process, offset, test=true)
-    if RUBY_VERSION.include? "1.8"
-
-       require 'fastercsv'
-       backers = FasterCSV.read(csv)
-     else
-       require 'csv'
-       backers = CSV.read(csv)
-     end
+    require 'csv'
+    backers = CSV.read(csv)
     puts "DRY RUN" if test
     churn_through = 0
     num_to_process.times do |n|
