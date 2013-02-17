@@ -157,6 +157,7 @@ pt-BR:
       donate: "Faça uma Doação"
       handle_explanation: "Esse é seu Diaspora ID. Como um endereço de e-mail, pode ser usado por outras pessoas para entrar em contato com você."
       help:
+        any_problem: "Algum Problema?"
         do_you: "Você:"
         email_feedback: "%{link} seu feedback, se você preferir"
         email_link: "E-mail"
@@ -278,6 +279,7 @@ pt-BR:
       people_sharing: "Pessoas compartilhando com você:"
     spotlight:
       community_spotlight: "Comunidade Spotlight"
+      suggest_member: "Sugerir um membro"
     two: "%{count} contatos"
     zero: "contatos"
   conversations:
@@ -292,7 +294,6 @@ pt-BR:
         many: "%{count} novas mensagens"
         one: "1 nova mensagem"
         other: "%{count} novas mensagens"
-        two: "%{count} novas mensagens"
         zero: "Nenhuma mensagem nova"
     index:
       create_a_new_message: "criar uma nova mensagem"
@@ -338,7 +339,9 @@ pt-BR:
     create:
       already_contacts: "Você já está compartilhando com essa pessoa."
       already_sent: "Você já convidou essa pessoa."
+      empty: "Por favor, insira ao menos um endereço de email."
       no_more: "Você não possui mais convites."
+      note_already_sent: "Convites já foram enviados para: %{emails}"
       own_address: "Você não pode enviar um convite para o seu endereço."
       rejected: "Os seguintes endereços de emails tiveram problemas:"
       sent: "Convites enviados para:"
@@ -393,14 +396,12 @@ pt-BR:
         many: "%{count} curtiram"
         one: "1 curtiu"
         other: "%{count} curtiram"
-        two: "%{count} curtiram"
         zero: "ninguém curtiu"
       people_like_this_comment:
         few: "%{count} curtiram"
         many: "%{count} curtiram"
         one: "%{count} curtiu"
         other: "%{count} curtiram"
-        two: "%{count} curtiram"
         zero: "ninguém curtiu"
   limited: "Limitado"
   more: "Mais"
@@ -425,7 +426,6 @@ pt-BR:
         many: "%{count} novas notificações"
         one: "1 nova notificação"
         other: "%{count} novas notificações"
-        two: "%{count} novas notificações"
         zero: "Nenhuma notificação nova"
     index:
       and: "e"
@@ -434,7 +434,6 @@ pt-BR:
         many: "e %{count} outros"
         one: "e mais um"
         other: "e %{count} outros"
-        two: "e %{count} outros"
         zero: "e mais ninguém"
       mark_all_as_read: "Marcar Todos como Lido"
       mark_unread: "Marcar como não lida"
@@ -461,7 +460,6 @@ pt-BR:
       many: "%{actors}, te enviou uma mensagem."
       one: "%{actors}, te enviou uma mensagem."
       other: "%{actors}, te enviou uma mensagem."
-      two: "%{actors} lhe enviaram umas mensagens."
       zero: "%{actors}, te enviou uma mensagem."
     reshared:
       one: "%{actors}, compartilhou o seu %{post_link}."
@@ -476,7 +474,6 @@ pt-BR:
       many: "%{actors}, está compartilhando com você agora."
       one: "%{actors}, está compartilhando com você agora."
       other: "%{actors}, está compartilhando com você agora."
-      two: "%{actors} começaram a compartilhar com você."
       zero: "%{actors}, está compartilhando com você agora."
   notifier:
     a_post_you_shared: "uma postagem."
@@ -667,7 +664,6 @@ pt-BR:
     many: "%{count} reactions"
     one: "1 reação"
     other: "%{count} reações"
-    two: "%{count} reações"
     zero: "0 reações"
   registrations:
     closed: "Os cadastros estão temporariamente desabilitados."
@@ -693,6 +689,7 @@ pt-BR:
       hey_make: "HEY,<br/>FAÇA<br/>ALGO."
       join_the_movement: "Junte-se ao movimento!"
       password: "SENHA"
+      password_confirmation: "CONFIRMAÇÃO DE SENHA"
       sign_up: "INSCREVER"
       sign_up_message: "Rede social com um <3"
       username: "APELIDO"
@@ -710,7 +707,6 @@ pt-BR:
         many: "%{count} novos pedidos!"
         one: "novo pedido!"
         other: "%{count} novos pedidos!"
-        two: "%{count} novos pedidos!"
         zero: "nenhum pedido novo"
     manage_aspect_contacts:
       existing: "Contatos existentes"
@@ -728,7 +724,6 @@ pt-BR:
         many: "%{count} compartilhados"
         one: "1 compartilhado"
         other: "%{count} compartilhados"
-        two: "%{count} recompartilhados"
         zero: "Compartilhar"
       reshare_confirmation: "Compartilhar %{author} - %{text}?"
       reshare_original: "Compartilhar isso"
@@ -858,7 +853,6 @@ pt-BR:
       many: "por favor, não crie mensagens superior a %{count} caracteres"
       one: "por favor, não crie mensagem superior a %{count} caractere"
       other: "por favor, não crie mensagens superior a %{count} caracteres"
-      two: "Por favor, modifique sua postagem inferior a %{count} caracteres"
       zero: "por favor, não crie mensagens superior a %{count} caracteres"
   stream_helper:
     hide_comments: "Ocultar todos os comentários"
@@ -867,7 +861,6 @@ pt-BR:
       many: "Ver mais %{count} comentários"
       one: "Ver mais um comentário"
       other: "Ver mais %{count} comentários"
-      two: "Ver mais dois comentários"
       zero: "Nenhum comentário"
   streams:
     activity:

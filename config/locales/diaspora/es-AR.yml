@@ -157,6 +157,8 @@ es-AR:
       donate: "Donar"
       handle_explanation: "Ésta es tu identificación de Diáspora*. Es como una dirección de correo electrónico, podes dársela a la gente para que te encuentren."
       help:
+        any_problem: "¿Algún problema?"
+        contact_podmin: "Contacta al administrador de tu pod!"
         do_you: "Tal vez:"
         email_feedback: "Si lo prefieres, enviá tus comentarios a este %{link}."
         email_link: "Correo electrónico"
@@ -164,6 +166,7 @@ es-AR:
         find_a_bug: "...encontraste un %{link}?"
         have_a_question: "...tengas una %{link}?"
         here_to_help: "La comunidad de Diaspora* está aquí para ayudarte."
+        mail_podmin: "Correo electrónico del administrador del pod"
         need_help: "¿Necesitás ayuda?"
         tag_bug: "error"
         tag_feature: "idea"
@@ -278,6 +281,7 @@ es-AR:
       people_sharing: "Compartiendo con vos:"
     spotlight:
       community_spotlight: "Comunidad Creativa"
+      suggest_member: "Sugiere un usuario"
     two: "%{count} contactos"
     zero: "contactos"
   conversations:
@@ -292,7 +296,6 @@ es-AR:
         many: "%{count} mensajes nuevos"
         one: "1 mensaje nuevo"
         other: "%{count} mensajes nuevos"
-        two: "%{count} mensajes nuevos"
         zero: "No hay mensajes nuevos"
     index:
       create_a_new_message: "crear un nuevo mensaje"
@@ -338,7 +341,9 @@ es-AR:
     create:
       already_contacts: "Ya estás conectado con esta persona"
       already_sent: "Ya invitaste a esta persona."
+      empty: "Por favor ingresa al menos una dirección de correo electrónico."
       no_more: "No tenés más invitaciones."
+      note_already_sent: "Las invitaciones han sido enviadas a: %{emails}"
       own_address: "No podés enviar una invitación a tu propia dirección."
       rejected: "Las siguientes direcciones tuvieron problemas: "
       sent: "Las invitaciones se han enviado a: %{emails}"
@@ -406,21 +411,18 @@ es-AR:
       many: "%{actors} también comentaron en la %{post_link} de %{post_author}."
       one: "%{actors} también comentó en la %{post_link} de %{post_author}."
       other: "%{actors} también comentaron en la %{post_link} de %{post_author}."
-      two: "%{actors} también comentó en el %{post_link} de  %{post_author}"
       zero: "%{actors} también comentó en la %{post_link} de %{post_author}."
     also_commented_deleted:
       few: "%{actors} comentaron en una publicación eliminada."
       many: "%{actors} comentaron en una publicación eliminada."
       one: "%{actors} comentó en una publicación eliminada."
       other: "%{actors} comentaron en una publicación eliminada."
-      two: "%{actors} comentaron en una publicación borrada."
       zero: "%{actors} comentó en una publicación eliminada."
     comment_on_post:
       few: "%{actors} comentaron en tu %{post_link}."
       many: "%{actors} comentaron en tu %{post_link}."
       one: "%{actors} comentó en tu %{post_link}."
       other: "%{actors} comentaron en tu %{post_link}."
-      two: "%{actors} comentaron en tu %{post_link}."
       zero: "%{actors} comentó en tu %{post_link}."
     helper:
       new_notifications:
@@ -428,7 +430,6 @@ es-AR:
         many: "%{count} notificaciones nuevas"
         one: "1 notificación nueva"
         other: "%{count} notificaciones nuevas"
-        two: "%{count} notificaciones nuevas"
         zero: "Ninguna notificacíon nueva"
     index:
       and: "y"
@@ -437,7 +438,6 @@ es-AR:
         many: "y otros %{count}"
         one: "y alguien más"
         other: "y otros %{count}"
-        two: "y %{count} otros"
         zero: "y nadie más"
       mark_all_as_read: "Marcar todo como leído"
       mark_unread: "Marcar como no leído"
@@ -451,7 +451,6 @@ es-AR:
       many: "A %{actors} les gusta tu publicación eliminada."
       one: "A %{actors} le gusta tu publicación eliminada."
       other: "A %{actors} les gusta tu publicación eliminada."
-      two: "a %{actors} le gustó tu publicación eliminada."
       zero: "A %{actors} le gusta tu publicación eliminada."
     mentioned:
       one: "%{actors} te mencionó en una %{post_link}."
@@ -462,7 +461,6 @@ es-AR:
       many: "%{actors} te mencionaron en una publicación eliminada."
       one: "%{actors} te mencionó en una publicación eliminada."
       other: "%{actors} te mencionaron en una publicación eliminada."
-      two: "%{actors} te mencionó en un mensaje eliminado."
       zero: "%{actors} te mencionó en una publicación eliminada."
     post: "publicación"
     private_message:
@@ -470,7 +468,6 @@ es-AR:
       many: "%{actors} te enviaron un mensaje."
       one: "%{actors} te envió un mensaje."
       other: "%{actors} te enviaron un mensaje."
-      two: "%{actors} te envió un mensaje."
       zero: "%{actors} te envió un mensaje."
     reshared:
       one: "%{actors} compartió tu %{post_link}."
@@ -485,7 +482,6 @@ es-AR:
       many: "%{actors} comparten con vos."
       one: "%{actors} comparte con vos."
       other: "%{actors} comparten con vos."
-      two: "%{actors} comenzó a compartir con vos."
       zero: "%{actors} comparte con vos."
   notifier:
     a_post_you_shared: "una publicación."
@@ -675,7 +671,6 @@ es-AR:
     many: "%{count} reacciones"
     one: "1 reacción"
     other: "%{count} reacciones"
-    two: "%{count} reacciones"
     zero: "0 reacciones"
   registrations:
     closed: "Los registros están cerrados en este servidor de Diáspora*."
@@ -719,7 +714,6 @@ es-AR:
         many: "¡%{count} solicitudes nuevas!"
         one: "¡Una solicitud nueva!"
         other: "¡%{count} solicitudes nuevas!"
-        two: "%{count} nuevas solicitudes!"
         zero: "No hay solicitudes nuevas"
     manage_aspect_contacts:
       existing: "Contactos existentes"
@@ -870,7 +864,6 @@ es-AR:
       many: "Mostrar %{count} comentarios más"
       one: "Mostrar 1 comentario más"
       other: "Mostrar %{count} comentarios más"
-      two: "Mostrar 2 comentarios más"
       zero: "No hay más comentarios"
   streams:
     activity:
@@ -991,6 +984,8 @@ es-AR:
     getting_started:
       awesome_take_me_to_diaspora: "¡Asombroso! Llevame a Diaspora*"
       community_welcome: "¡La comunidad de Diáspora está feliz de tenerte a bordo!"
+      connect_to_facebook: "Podemos acelerar un poco las cosas con un %{link} a Diaspora. Esto extraerá tu nombre y foto, y habilitará la publicación cruzada."
+      connect_to_facebook_link: "conectando tu cuenta de Facebook"
       hashtag_explanation: "Los hashtags te permiten seguir y hablar sobre tus intereses. También son una gran manera de encontrar gente nueva en Diáspora."
       hashtag_suggestions: "Probá siguiendo tags como #arte, #películas, #activismo, #geek."
       saved: "¡Guardado!"

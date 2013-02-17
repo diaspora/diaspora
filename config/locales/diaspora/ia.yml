@@ -227,11 +227,6 @@ ia:
       sent: "Message inviate"
     destroy:
       success: "Conversation removite con successo"
-    helper:
-      new_messages:
-        human: "Nulle nove message"
-        po: "1 nove message"
-        yml: "%{count} nove messages"
     index:
       create_a_new_message: "crear un nove message"
       inbox: "Cassa de entrata"
@@ -309,83 +304,16 @@ ia:
       recent_notifications: "Notificationes recente"
       settings: "Configuration"
       view_all: "Vider totes"
-  likes:
-    likes:
-      people_dislike_this:
-        human: "nulle antipathia"
-        po: "%{count} antipathia"
-        yml: "%{count} antipathias"
-      people_like_this:
-        human: "nulle appreciation"
-        po: "%{count} appreciation"
-        yml: "%{count} appreciationes"
-      people_like_this_comment:
-        human: "nulle appreciation"
-        po: "%{count} appreciation"
-        yml: "%{count} appreciationes"
   limited: "Limitate"
   more: "Plus"
   next: "sequente"
   no_results: "Nulle resultato trovate"
   notifications:
-    also_commented:
-      human: "%{actors} commentava anque le %{post_link} de %{post_author}."
-      po: "%{actors} commentava anque le %{post_link} de %{post_author}."
-      yml: "%{actors} commentava anque le %{post_link} de %{post_author}."
-    also_commented_deleted:
-      human: "%{actors} commentava un entrata delite."
-      po: "%{actors} commentava un entrata delite."
-      yml: "%{actors} commentava un entrata delite."
-    comment_on_post:
-      human: "%{actors} commentava tu %{post_link}."
-      po: "%{actors} commentava tu %{post_link}."
-      yml: "%{actors} commentava tu %{post_link}."
-    helper:
-      new_notifications:
-        human: "Nulle nove notification"
-        po: "1 nove notification"
-        yml: "%{count} nove notificationes"
     index:
       and: "e"
-      and_others:
-        human: "e nemo altere"
-        po: "e un altere"
-        yml: "e %{count} alteres"
       mark_all_as_read: "Marcar totes como legite"
       notifications: "Notificationes"
-    liked:
-      human: "%{actors} ha appreciate tu %{post_link}."
-      po: "%{actors} ha appreciate tu %{post_link}."
-      yml: "%{actors} ha appreciate tu %{post_link}."
-    liked_post_deleted:
-      human: "%{actors} appreciava tu entrata delite."
-      po: "%{actors} appreciava tu entrata delite."
-      yml: "%{actors} appreciava tu entrata delite."
-    mentioned:
-      human: "%{actors} te ha mentionate in un %{post_link}."
-      po: "%{actors} te ha mentionate in un %{post_link}."
-      yml: "%{actors} te ha mentionate in un %{post_link}."
-    mentioned_deleted:
-      human: "%{actors} te mentionava in un entrata delite."
-      po: "%{actors} te mentionava in un entrata delite."
-      yml: "%{actors} te mentionava in un entrata delite."
     post: "entrata"
-    private_message:
-      human: "%{actors} te inviava un message."
-      po: "%{actors} te inviava un message."
-      yml: "%{actors} te inviava un message."
-    reshared:
-      human: "%{actors} ha repetite tu %{post_link}."
-      po: "%{actors} ha repetite tu %{post_link}."
-      yml: "%{actors} ha repetite tu %{post_link}."
-    reshared_post_deleted:
-      human: "%{actors} repeteva tu entrata delite."
-      po: "%{actors} repeteva tu entrata delite."
-      yml: "%{actors} repeteva tu entrata delite."
-    started_sharing:
-      human: "%{actors} comenciava a divider con te."
-      po: "%{actors} comenciava a divider con te."
-      yml: "%{actors} comenciava a divider con te."
   notifier:
     a_post_you_shared: "un entrata."
     click_here: "clicca hic"
@@ -515,10 +443,6 @@ ia:
       destroy: "Deler"
       not_found: "Impossibile trovar iste entrata."
       permalink: "permaligamine"
-      photos_by:
-        human: "Nulle photo per %{author}"
-        po: "Un photo per %{author}"
-        yml: "%{count} photos per %{author}"
       reshare_by: "Repetite per %{author}"
   previous: "precedente"
   privacy: "Confidentialitate"
@@ -547,10 +471,6 @@ ia:
       failed: "Le actualisation del profilo ha fallite"
       updated: "Profilo actualisate"
   public: "Public"
-  reactions:
-    human: "0 responsas"
-    po: "1 responsa"
-    yml: "%{count} responsas"
   registrations:
     closed: "Le creation de contos es claudite in iste pod de Diaspora."
     create:
@@ -578,11 +498,6 @@ ia:
       error: "Per favor selige un aspecto!"
       ignore: "Demanda de contacto ignorate."
       success: "Tu ha comenciate a divider."
-    helper:
-      new_requests:
-        human: "nulle nove requesta"
-        po: "nove requesta!"
-        yml: "%{count} nove requestas!"
     manage_aspect_contacts:
       existing: "Contactos existente"
       manage_within: "Gerer contactos intra"
@@ -594,10 +509,6 @@ ia:
       failure: "Un error occurreva durante le repetition de iste entrata."
     reshare:
       deleted: "Le entrata original ha essite delite per le autor."
-      reshare:
-        human: "Repeter"
-        po: "1 repetition"
-        yml: "%{count} repetitiones"
       reshare_confirmation: "Repeter iste entrata de %{author}?"
       reshare_original: "Repeter le original"
       reshared_via: "repetite via"
@@ -647,10 +558,6 @@ ia:
       your_diaspora_username_is: "Tu nomine de usator de Diaspora es: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Adder contacto"
-      toggle:
-        human: "Adder contacto"
-        po: "In %{count} aspecto"
-        yml: "In %{count} aspectos"
     contact_list:
       all_contacts: "Tote le contactos"
     footer:
@@ -719,16 +626,8 @@ ia:
       no_message_to_display: "Nulle message a presentar."
     new:
       mentioning: "Mentiona: %{person}"
-    too_long:
-      human: "per favor non scribe plus de %{count} characteres in tu messages de stato"
-      po: "per favor non scribe plus de %{count} character in tu messages de stato"
-      yml: "per favor non scribe plus de %{count} characteres in tu messages de stato"
   stream_helper:
     hide_comments: "Celar tote le commentos"
-    show_comments:
-      human: "Il non ha altere commentos"
-      po: "Monstrar 1 altere commento"
-      yml: "Monstrar %{count} altere commentos"
   streams:
     aspects_stream: "Aspectos"
     comment_stream:

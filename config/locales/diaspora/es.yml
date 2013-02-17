@@ -157,6 +157,8 @@ es:
       donate: "Donar"
       handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de correo electrónico, puedes dársela a la gente para que te encuentre."
       help:
+        any_problem: "¿Algún problema?"
+        contact_podmin: "¡Contacta con el administrador de tu pod!"
         do_you: "Tal vez:"
         email_feedback: "Si lo prefieres, envía tus comentarios a este %{link}."
         email_link: "Correo Electrónico"
@@ -164,7 +166,8 @@ es:
         find_a_bug: "- Encuentres algún %{link}."
         have_a_question: "- Realices alguna %{link}."
         here_to_help: "¡La comunidad Diaspora está aquí!"
-        need_help: "¿Necesitas ayuda?"
+        mail_podmin: "Correo del podmin"
+        need_help: "Ayuda"
         tag_bug: "error"
         tag_feature: "idea"
         tag_question: "pregunta"
@@ -175,7 +178,7 @@ es:
       new_here:
         follow: "¡Sigue %{link} y da la bienvenida a los nuevos miembros de Diaspora*!"
         learn_more: "Más información"
-        title: "Bienvenida a nuevos usuarios"
+        title: "Bienvenida"
       no_contacts: "No hay contactos"
       no_tags: "+ Encuentra una etiqueta a seguir"
       people_sharing_with_you: "Personas que comparten contigo"
@@ -230,7 +233,7 @@ es:
   back: "Atrás"
   blocks:
     create:
-      failure: "No podría ignorar a esa persona.  #evasion"
+      failure: "No puede ignorar a este usuario.  #evasión"
       success: "Bien, no verás a esa persona en tu entrada otra vez. #silencio!"
     destroy:
       failure: "No podría dejar de ignorar a esa persona.  #evasion"
@@ -278,11 +281,13 @@ es:
       people_sharing: "Personas que comparten contigo:"
     spotlight:
       community_spotlight: "Comunidad Creativa"
+      suggest_member: "Sugiere un usuario"
     two: "%{count} contactos"
     zero: "contactos"
   conversations:
     create:
       fail: "Mensaje no válido"
+      no_contact: "¡Eh, primero tienes que añadir al contacto!"
       sent: "Mensaje enviado"
     destroy:
       success: "Conversación eliminada con éxito"
@@ -335,10 +340,12 @@ es:
     create:
       already_contacts: "Ya estás conectad@ con esa persona"
       already_sent: "Ya has invitado a esta persona."
+      empty: "Por favor, introduce al menos una dirección de correo electrónico."
       no_more: "No tienes más invitaciones."
+      note_already_sent: "Las invitaciones han sido enviadas a: %{emails}"
       own_address: "No puedes enviar una invitación a tu propio correo."
       rejected: "Hubo problemas con las siguientes direcciones de correo: "
-      sent: "Se han enviado invitaciones a: %{emails}"
+      sent: "Las invitaciones han sido enviadas a: %{emails}"
     edit:
       accept_your_invitation: "Aceptar tu invitación"
       your_account_awaits: "¡Tu cuenta te espera!"
@@ -366,7 +373,7 @@ es:
       powered_by: "IMPULSADO POR DIASPORA*"
       public_feed: "Canal público de %{name} "
       source_package: "descargar el paquete del código fuente"
-      toggle: "cambiar al sitio móvil"
+      toggle: "Interfaz móvil"
       whats_new: "Novedades en Diaspora*"
       your_aspects: "tus aspectos"
     header:
@@ -460,7 +467,7 @@ es:
   notifier:
     a_post_you_shared: "una publicación."
     accept_invite: "¡Acepta tu invitación a Diaspora*!"
-    click_here: "clic aquí"
+    click_here: "haz clic aquí"
     comment_on_post:
       reply: "Responder o ver los comentarios de %{name} >"
     confirm_email:
@@ -670,7 +677,7 @@ es:
       hey_make: "EH,<br/>HAZ<br/>ALGO."
       join_the_movement: "¡Únete al movimiento!"
       password: "CONTRASEÑA"
-      password_confirmation: "Otra vez"
+      password_confirmation: "CONFIRMACIÓN DE CONTRASEÑA"
       sign_up: "REGISTRARSE"
       sign_up_message: "Redes Sociales con un ♥"
       username: "NOMBRE"
@@ -776,7 +783,7 @@ es:
       atom_feed: "canal Atom"
       control_your_audience: "Controla tu Audiencia"
       logged_in: "conectado a %{service}"
-      manage: "gestión de servicios conectados"
+      manage: "Gestionar servicios conectados"
       new_user_welcome_message: "Utiliza #etiquetas para clasificar tus publicaciones y encontrar gente que comparta tus intereses. Llama a gente asombrosa usando las @Menciones"
       outside: "Los mensajes públicos también podrán verse fuera de Diaspora*."
       share: "Comparte"
@@ -954,6 +961,8 @@ es:
     getting_started:
       awesome_take_me_to_diaspora: "¡Increíble! Llévame a Diaspora*"
       community_welcome: "¡La comunidad de Diaspora está feliz de tenerte a bordo!"
+      connect_to_facebook: "Podemos acelerar un poquito las cosas %{link} en Diaspora. Esto permitirá usar tu mismo nombre y foto, además de habilitar la publicación cruzada."
+      connect_to_facebook_link: "conectando con tu cuenta de Facebook"
       hashtag_explanation: "Las etiquetas te permiten hablar sobre tus intereses así como seguirlos. Además es una forma genial de encontrar gente nueva en Diaspora. "
       hashtag_suggestions: "Prueba a seguir etiquetas como #arte, #cine, #activismo, #libros, etc."
       saved: "¡Guardado!"

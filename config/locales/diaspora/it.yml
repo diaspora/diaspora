@@ -365,6 +365,7 @@ it:
       back_to_top: "Torna all'inizio"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Feed pubblici Diaspora di %{name}"
+      source_package: ""
       toggle: "attiva/disattiva versione mobile"
       whats_new: "novità"
       your_aspects: "i tuoi aspetti"
@@ -389,14 +390,12 @@ it:
         many: "%{count} mi piace"
         one: "%{count} mi piace"
         other: "%{count} mi piace"
-        two: "%{count} mi piace"
         zero: "0 mi piace"
       people_like_this_comment:
         few: "%{count} mi piace"
         many: "%{count} mi piace"
         one: "%{count} mi piace"
         other: "%{count} mi piace"
-        two: "%{count} mi piace"
         zero: "0 mi piace"
   limited: "Non pubblico"
   more: "Altro"
@@ -408,7 +407,6 @@ it:
       many: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
       one: "Anche %{actors} ha commentato il %{post_link} di %{post_author}."
       other: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
-      two: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
       zero: "%{actors} ha commentato il %{post_link} di %{post_author}."
     also_commented_deleted:
       one: "%{actors} ha commentato un post che è stato eliminato."
@@ -419,7 +417,6 @@ it:
       many: "%{actors} hanno commentato il tuo %{post_link}."
       one: "%{actors} ha commentato il tuo %{post_link}."
       other: "%{actors} hanno commentato il tuo %{post_link}."
-      two: "%{actors} hanno commentato il tuo %{post_link}."
       zero: "%{actors} ha commentato il tuo %{post_link}."
     helper:
       new_notifications:
@@ -433,7 +430,6 @@ it:
         many: "e altre %{count} persone"
         one: "e un'altra persona"
         other: "e altre %{count} persone"
-        two: "e altre %{count} persone"
         zero: "e nessun altro"
       mark_all_as_read: "Segna come lette"
       mark_unread: "Segna come non letti"
@@ -443,28 +439,24 @@ it:
       many: "A %{actors} piace il tuo %{post_link}."
       one: "A %{actors} piace il tuo %{post_link}."
       other: "A %{actors} piace il tuo %{post_link}."
-      two: "A %{actors} piace il tuo %{post_link}."
       zero: "A %{actors} piace il tuo %{post_link}."
     liked_post_deleted:
       few: "A %{actors} piaceva il post che hai eliminato."
       many: "A %{actors} piaceva il post che hai eliminato."
       one: "A %{actors} piaceva il post che hai eliminato."
       other: "A %{actors} piaceva il post che hai eliminato."
-      two: "A %{actors} piaceva il post che hai eliminato."
       zero: "A %{actors} piaceva il post che hai eliminato."
     mentioned:
       few: "%{actors} ti hanno menzionato in un %{post_link}."
       many: "%{actors} ti hanno menzionato in un %{post_link}."
       one: "%{actors} ti ha menzionato in un %{post_link}."
       other: "%{actors} ti hanno menzionato in un %{post_link}."
-      two: "%{actors} ti hanno menzionato in un %{post_link}."
       zero: "%{actors} ti hanno menzionato in un %{post_link}."
     mentioned_deleted:
       few: "%{actors} ti hanno menzionato in un post che è stato eliminato."
       many: "%{actors} ti hanno menzionato in un post che è stato eliminato."
       one: "%{actors} ti ha menzionato in un post che è stato eliminato."
       other: "%{actors} ti ha menzionato in un post che è stato eliminato."
-      two: "%{actors} ti hanno menzionato in un post che è stato eliminato."
       zero: "%{actors} ti ha menzionato in un post che è stato eliminato."
     post: "post"
     private_message:
@@ -480,14 +472,12 @@ it:
       many: "%{actors} hanno condiviso il post che hai eliminato."
       one: "%{actors} ha condiviso il post che hai eliminato."
       other: "%{actors} hanno condiviso il post che hai eliminato."
-      two: "%{actors} hanno condiviso il post che hai eliminato."
       zero: "%{actors} hanno condiviso il post che hai eliminato."
     started_sharing:
       few: "%{actors} hanno iniziato a condividere con te."
       many: "%{actors} hanno iniziato a condividere con te."
       one: "%{actors} ha iniziato a condividere con te."
       other: "%{actors} hanno iniziato a condividere con te."
-      two: "%{actors} hanno iniziato a condividere con te."
       zero: "%{actors} ha iniziato a condividere con te."
   notifier:
     a_post_you_shared: "un post."
@@ -647,7 +637,6 @@ it:
         many: "%{count} foto di %{author}"
         one: "Una foto di %{author}"
         other: "%{count} foto di %{author}"
-        two: "Due foto di %{author}"
         zero: "Nessuna foto di %{author}"
       reshare_by: "Condiviso da %{author}"
   previous: "precedente"
@@ -682,7 +671,6 @@ it:
     many: "%{count} risposte"
     one: "1 risposta"
     other: "%{count} risposte"
-    two: "%{count} risposte"
     zero: "0 risposte"
   registrations:
     closed: "Su questo pod Diaspora le iscrizioni sono chiuse."
@@ -725,7 +713,6 @@ it:
         many: "%{count} nuove richieste!"
         one: "una nuova richiesta!"
         other: "%{count} nuove richieste!"
-        two: "%{count} nuove richieste!"
         zero: "nessuna nuova richiesta"
     manage_aspect_contacts:
       existing: "Contatti esistenti"
@@ -796,7 +783,6 @@ it:
         many: "In %{count} aspetti"
         one: "In %{count} aspetto"
         other: "In %{count} aspetti"
-        two: "In %{count} aspetti"
         zero: "Aggiungi"
     contact_list:
       all_contacts: "Tutti i contatti"
@@ -879,7 +865,6 @@ it:
       many: "Mostra gli altri %{count} commenti"
       one: "Mostra 1 altro commento"
       other: "Mostra gli altri %{count} commenti"
-      two: "Mostra gli altri 2 commenti"
       zero: "Nessun altro commento"
   streams:
     activity:

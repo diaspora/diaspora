@@ -6,6 +6,7 @@
 
 sk:
   javascripts:
+    and: "a"
     aspect_dropdown:
       add_to_aspect: "Pridať kontakt"
       all_aspects: "Všetky kategórie"
@@ -19,14 +20,17 @@ sk:
         other: "V(o) <%= count %>kategóriách"
         zero: "Vyber si kategórie"
     aspect_navigation:
+      add_an_aspect: "+ Pridať kategóriu"
       deselect_all: "Odznačiť všetky"
       no_aspects: "Nevybral(a) si žiadne kategórie"
       select_all: "Označiť všetky"
+    comma: ","
     comments:
       hide: "Skryť komentáre"
       show: "Zobraziť všetky komentáre"
     confirm_dialog: "Určite?"
     delete: "Odstrániť"
+    edit: "Upraviť"
     failed_to_like: "Nepodarilo sa označiť, že sa ti to páči!"
     failed_to_post_message: "Správu sa nepodarilo poslať!"
     getting_started:
@@ -53,10 +57,12 @@ sk:
     infinite_scroll:
       no_more: "Žiadne ďalšie príspevky."
     my_activity: "Moja aktivita"
+    my_aspects: "Moje kategórie"
     my_stream: "Nástenka"
     people:
       not_found: "...a nikto sa nenašiel."
     photo_uploader:
+      completed: "<%= file %> hotovo"
       looking_good: "No teda, vyzeráš super!"
     publisher:
       at_least_one_aspect: "Musíš publikovať aspoň jednu kategóriu"
@@ -71,6 +77,11 @@ sk:
     stream:
       comment: "Okomentovať"
       follow: "Sledovať"
+      followed_tag:
+        add_a_tag: "Pridať značku"
+        contacts_title: "Ľudia, ktorí hľadajú tieto značky"
+        follow: "Sledovať"
+        title: "#Sledované značky"
       hide: "Schovať"
       hide_nsfw_posts: "Schovať príspevky #nsfw"
       like: "Páči sa mi to"
@@ -95,6 +106,10 @@ sk:
         zero: "<%= count %> opätovných zdieľaní"
       show_nsfw_post: "Zobraziť príspevok"
       show_nsfw_posts: "Zobraziť všetky"
+      tags:
+        follow: "Sledovať #<%= tag %>"
+        following: "Sleduje(š) #<%= tag %>"
+        stop_following: "Prestať sledovať #<%= tag %>"
       unfollow: "Nesledovať"
       unlike: "Už sa mi to nepáči"
     tags:

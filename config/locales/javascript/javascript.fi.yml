@@ -18,7 +18,6 @@ fi:
         many: "<%= count %> näkymässä"
         one: "<%= count %> näkymässä"
         other: "<%= count %> näkymässä"
-        two: "<%= count %> näkymässä"
         zero: "Valitse näkymät"
     aspect_navigation:
       deselect_all: "Poista valinnat"
@@ -80,7 +79,6 @@ fi:
         many: "<%= count %> tykkäystä"
         one: "<%= count %> tykkäys"
         other: "<%= count %> tykkäystä"
-        two: "<%= count %> tykkäystä"
         zero: "<%= count %> tykkäystä"
       limited: "Rajoitettu"
       more_comments:
@@ -88,7 +86,6 @@ fi:
         many: "Näytä <%= count %> muuta kommenttia"
         one: "Näytä <%= count %> muu kommentti"
         other: "Näytä <%= count %> muuta kommenttia"
-        two: "Näytä <%= count %> muuta kommenttia"
         zero: "Näytä <%= count %> muuta kommenttia"
       original_post_deleted: "Lähettäjä on poistanut alkuperäisen viestin."
       public: "Julkinen"
@@ -98,7 +95,6 @@ fi:
         many: "<%= count %> uudelleenjakoa"
         one: "<%= count %> uudelleenjako"
         other: "<%= count %> uudelleenjakoa"
-        two: "<%= count %> uudelleenjakoa"
         zero: "<%= count %> uudelleenjakoa"
       show_nsfw_post: "Näytä viesti"
       show_nsfw_posts: "Näytä kaikki"

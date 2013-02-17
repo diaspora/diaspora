@@ -6,6 +6,7 @@
 
 sv:
   javascripts:
+    and: "och"
     aspect_dropdown:
       add_to_aspect: "Lägg till kontakt"
       all_aspects: "Alla aspekter"
@@ -18,17 +19,19 @@ sv:
         many: "I <%= count %> aspekter"
         one: "I <%= count %> aspekt"
         other: "I <%= count %> aspekter"
-        two: "I <%= count %> aspekter"
         zero: "Välj aspekter"
     aspect_navigation:
+      add_an_aspect: "+ Lägg till en aspekt"
       deselect_all: "Visa ingen"
       no_aspects: "Ingen aspekt är vald"
       select_all: "Visa alla"
+    comma: ","
     comments:
       hide: "dölj kommentarer"
       show: "visa alla kommentarer"
     confirm_dialog: "Är du säker?"
     delete: "Radera"
+    edit: "Ändra"
     failed_to_like: "Misslyckades med att gilla!"
     failed_to_post_message: "Misslyckades att posta meddelande!"
     getting_started:
@@ -55,10 +58,12 @@ sv:
     infinite_scroll:
       no_more: "Inga fler inlägg."
     my_activity: "Min aktivitet"
+    my_aspects: "Mina aspekter"
     my_stream: "Ström"
     people:
       not_found: "och ingen hittades..."
     photo_uploader:
+      completed: "<%= file %> färdig"
       looking_good: "OMG, du ser grym ut!"
     publisher:
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
@@ -73,6 +78,11 @@ sv:
     stream:
       comment: "Kommentar"
       follow: "Följ"
+      followed_tag:
+        add_a_tag: "Lägg till en tagg"
+        contacts_title: "Personer som gillar dessa taggar"
+        follow: "Följ"
+        title: "#Följda taggar"
       hide: "Göm"
       hide_nsfw_posts: "Dölj #nsfw-inlägg"
       like: "Gilla"
@@ -94,6 +104,10 @@ sv:
         zero: "Ingen delar vidare"
       show_nsfw_post: "Visa inlägg"
       show_nsfw_posts: "Visa alla"
+      tags:
+        follow: "Följ #<%= tag %>"
+        following: "Följer #<%= tag %>"
+        stop_following: "Sluta följa #<%= tag %>"
       unfollow: "Sluta följ"
       unlike: "Sluta gilla"
     tags:

@@ -6,6 +6,7 @@
 
 nn:
   javascripts:
+    and: "og"
     aspect_dropdown:
       add_to_aspect: "Legg til kontakt"
       all_aspects: "Alle aspekta"
@@ -18,14 +19,17 @@ nn:
         other: "I <%= count %> aspekt"
         zero: "Vel aspekt"
     aspect_navigation:
+      add_an_aspect: "+ Legg til eit aspekt"
       deselect_all: "Vel vekk alle"
       no_aspects: "Ingen aspekt er valde"
       select_all: "Vel alle"
+    comma: ","
     comments:
       hide: "gøym merknader"
       show: "syn alle merknadene"
     confirm_dialog: "Er du sikker?"
     delete: "Slett"
+    edit: "Endra"
     failed_to_like: "Like-funksjonen feila."
     failed_to_post_message: "Klarte ikkje å senda meldinga."
     getting_started:
@@ -52,10 +56,12 @@ nn:
     infinite_scroll:
       no_more: "Ingen fleire meldingar."
     my_activity: "Min aktivitet"
+    my_aspects: "Aspekta mine"
     my_stream: "Straum"
     people:
       not_found: "orsak, me kunne ikkje finne nokon."
     photo_uploader:
+      completed: "<%= file %> ferdig"
       looking_good: "Du verda, du ser flott ut!"
     publisher:
       at_least_one_aspect: "Du må offentleggjera til minst eitt aspekt"
@@ -70,6 +76,11 @@ nn:
     stream:
       comment: "Kommenter"
       follow: "Følg"
+      followed_tag:
+        add_a_tag: "Legg til ein tag"
+        contacts_title: "Folk som lik denne tagen"
+        follow: "Følg"
+        title: "#Følgde tags"
       hide: "Gøym"
       hide_nsfw_posts: "Gøym innlegg merka med #nsfw"
       like: "Lik"
@@ -91,6 +102,10 @@ nn:
         zero: "<%= count %> delingar"
       show_nsfw_post: "Syn innlegg"
       show_nsfw_posts: "Syn alt"
+      tags:
+        follow: "Følg #<%= tag %>"
+        following: "Følgjer #<%= tag %>"
+        stop_following: "Slutt å følgja #<%= tag %>"
       unfollow: "Ikkje følg"
       unlike: "Lik ikkje lenger"
     tags:

@@ -50,6 +50,11 @@ sr:
         unknown: "непознат наслов видеа"
   are_you_sure: "Јесте ли сигурни?"
   are_you_sure_delete_account: "Јесте ли сигурни да желите да затворите налог? Ово се не може повратити!"
+  aspect_memberships:
+    destroy:
+      failure: "Неуспех приликом уклањања особе из аспекта"
+      no_membership: "Немогуће пронаћи изабрану особу у том аспекту"
+      success: "Особа успешно уклоњена из аспекта"
   aspects:
     add_to_aspect:
       failure: "Неуспешно додавање особе у поглед."
@@ -159,7 +164,32 @@ sr:
       success: "Твој поглед, %{name}, је успешно измењен."
     zero: "нема погледа"
   back: "Назад"
+  bookmarklet:
+    post_something: "Објави на Дијаспори"
   cancel: "Откажи"
+  comments:
+    new_comment:
+      commenting: "Коментарише се..."
+  contacts:
+    index:
+      add_to_aspect_link: "додај контакт аспекту %{name}"
+      all_contacts: "Сви контакти"
+      my_contacts: "Моји контакти"
+      no_contacts: "Изгледа да треба да додаш неке контакте!"
+      remove_person_from_aspect: "Уклони %{person_name} из аспекта %{aspect_name}"
+      title: "Контакти"
+      your_contacts: "Твоји контакти"
+  conversations:
+    index:
+      new_message: "Нова порука"
+    new:
+      send: "Пошаљи"
+      sending: "Шаљем..."
+      subject: "наслов"
+      to: "за"
+    show:
+      reply: "одговор"
+      replying: "Одговарам..."
   delete: "Уклони"
   email: "Имејл"
   error_messages:

@@ -70,6 +70,11 @@ es-AR:
     stream:
       comment: "Comentar"
       follow: "Seguir"
+      followed_tag:
+        add_a_tag: "Añadir una etiqueta"
+        contacts_title: "Personas que buscaron esta etiqueta"
+        follow: "Seguir"
+        title: "#Etiquetas que sigues"
       hide: "Ocultar"
       hide_nsfw_posts: "Ocultar publicaciones no aptas para todo público (#nsfw)"
       like: "Me gusta"
@@ -91,6 +96,10 @@ es-AR:
         zero: "Compartido <%= count %> veces"
       show_nsfw_post: "Mostrar publicación"
       show_nsfw_posts: "Mostrar todo"
+      tags:
+        follow: "Seguir #<%= tag %>"
+        following: "Siguiendo #<%= tag %>"
+        stop_following: "Dejar de seguir #<%= tag %>"
       unfollow: "Dejar de seguir"
       unlike: "No me gusta"
     tags:
@@ -104,10 +113,10 @@ es-AR:
       minutes: "%d minutos"
       month: "cerca de un mes"
       months: "%d meses"
-      prefixAgo: "hace"
+      prefixAgo: ""
       prefixFromNow: ""
       seconds: "menos de un minuto"
-      suffixAgo: "hace"
+      suffixAgo: ""
       suffixFromNow: "desde ahora"
       year: "cerca de un año"
       years: "%d años"

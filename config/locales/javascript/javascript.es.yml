@@ -6,6 +6,7 @@
 
 es:
   javascripts:
+    and: "y"
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
@@ -18,14 +19,17 @@ es:
         other: "En <%= count %> aspectos"
         zero: "Elige los aspectos"
     aspect_navigation:
+      add_an_aspect: "+ Añadir un aspecto"
       deselect_all: "Desmarcar todos"
       no_aspects: "No hay aspectos seleccionados"
       select_all: "Marcar todos"
+    comma: ","
     comments:
       hide: "ocultar comentarios"
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     delete: "Eliminar"
+    edit: "Editar"
     failed_to_like: "\"Me gusta\" no ha funcionado."
     failed_to_post_message: "¡Error al publicar el mensaje!"
     getting_started:
@@ -52,10 +56,12 @@ es:
     infinite_scroll:
       no_more: "No hay más publicaciones."
     my_activity: "Mi Actividad"
+    my_aspects: "Mis aspectos"
     my_stream: "Entrada"
     people:
       not_found: "...y no se encontró a nadie."
     photo_uploader:
+      completed: "<%= file %> completado"
       looking_good: "¡Guau, estás increíble!"
     publisher:
       at_least_one_aspect: "Debes publicarlo al menos en un aspecto"
@@ -70,6 +76,11 @@ es:
     stream:
       comment: "Comentar"
       follow: "Seguir"
+      followed_tag:
+        add_a_tag: "Añadir una etiqueta"
+        contacts_title: "Personas que buscaron esas etiquetas"
+        follow: "Seguir"
+        title: "#Etiquetas seguidas"
       hide: "Ocultar publicación"
       hide_nsfw_posts: "Ocultar publicaciones no aptas para todos los públicos"
       like: "Me gusta"
@@ -91,6 +102,10 @@ es:
         zero: "Compartido <%= count %> veces"
       show_nsfw_post: "Mostrar publicación"
       show_nsfw_posts: "Mostrar todas las publicaciones"
+      tags:
+        follow: "Seguir #<%= tag %>"
+        following: "Siguiendo #<%= tag %>"
+        stop_following: "Dejar de seguir #<%= tag %>"
       unfollow: "Dejar de seguir"
       unlike: "No me gusta"
     tags:
@@ -107,7 +122,7 @@ es:
       prefixAgo: "Hace"
       prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
-      suffixAgo: "hace"
+      suffixAgo: ""
       suffixFromNow: ""
       year: "un año aproximadamente"
       years: "%d años"

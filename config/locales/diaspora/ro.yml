@@ -167,7 +167,6 @@ ro:
         many: "%{count} mesaje noi"
         one: "1 mesaj nou"
         other: "%{count} mesaje noi"
-        two: "%{count} mesaje noi"
         zero: "no new messages"
     index:
       create_a_new_message: "crează un mesaj nou"
@@ -232,21 +231,18 @@ ro:
         many: "%{count} people disliked this"
         one: "1 person disliked this"
         other: "%{count} people disliked this"
-        two: "%{count} dislikes"
         zero: "no people disliked this"
       people_like_this:
         few: "%{count} people liked this"
         many: "%{count} people liked this"
         one: "1 person liked this"
         other: "%{count} people liked this"
-        two: "%{count} likes"
         zero: "no people liked this"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
         one: "%{count} like"
         other: "%{count} likes"
-        two: "%{count} likes"
         zero: "no likes"
   limited: "Limitat"
   more: "Mai mult"
@@ -258,21 +254,18 @@ ro:
       many: "%{actors} also commented on %{post_author}'s %{post_link}."
       one: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} le-a placut publicatia stearsa de tine."
       many: "%{actors} au put comentarii pe o publicatie deja stearsa."
       one: "%{actors} i-a placut publicatia stearsa de tine."
       other: "%{actors} le-a placut publicatia stearsa de tine."
-      two: "%{actors} commented on a deleted post."
       zero: "%{actors} commented on a deleted post."
     comment_on_post:
       few: "%{actors} au pus comentarii pe %{post_link}."
       many: "%{actors} au pus comentarii pe %{post_link}."
       one: "%{actors} a comentat pe %{post_link} ta."
       other: "%{actors} au comentat pe %{post_link} ta."
-      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
     helper:
       new_notifications:
@@ -280,7 +273,6 @@ ro:
         many: "%{count} notificări noi"
         one: "1 new notifications"
         other: "%{count} notificări noi"
-        two: "%{count} new notifications"
         zero: "no new notifications"
     index:
       and: "şi"
@@ -289,7 +281,6 @@ ro:
         many: "and %{count} others"
         one: "şi doar unul "
         other: "and %{count} others"
-        two: "and %{count} others"
         zero: "and nobody else"
       mark_all_as_read: "Marchează-le pe toate ca citite"
       notifications: "Notificări"
@@ -298,28 +289,24 @@ ro:
       many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
     liked_post_deleted:
       few: "%{actors} au placut publicatia stearsa de tine."
       many: "%{actors} le-au placut publicatia stearsa de tine."
       one: "%{actors} i-a placut publicatia stearsa de tine."
       other: "%{actors} le-a placut publicatia stearsa de tine."
-      two: "%{actors} liked your deleted post."
       zero: "%{actors} liked your deleted post."
     mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
       one: "%{actors} v-a amintit intro %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
     mentioned_deleted:
       few: "%{actors} te-au amintit intro publicatie deja stearsa."
       many: "%{actors} te-au amintit intro publicatie deja stearsa."
       one: "%{actors} te-a amintit intro publicatie deja stearsa."
       other: "%{actors} te-au amintit intro publicatie deja stearsa."
-      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
     post: "publicatie"
     private_message:
@@ -327,28 +314,24 @@ ro:
       many: "%{actors} sent you a message."
       one: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
-      two: "%{actors} sent you a message."
       zero: "%{actors} sent you a message."
     reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
     reshared_post_deleted:
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
     started_sharing:
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
       one: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
-      two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier:
     a_post_you_shared: "o publicatie."
@@ -468,7 +451,6 @@ ro:
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   previous: "anterioare"
   profile: "Profil"
@@ -496,7 +478,6 @@ ro:
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
-    two: "%{count} reactions"
     zero: "0 reactions"
   registrations:
     closed: "Ȋnscrierile sunt ȋnchise pe acest pod Diaspora."
@@ -529,7 +510,6 @@ ro:
         many: "%{count} de cereri noi!"
         one: "cerere nouă!"
         other: "%{count} noi cereri!"
-        two: "%{count} cereri noi!"
         zero: "nicio cerere nouă"
     manage_aspect_contacts:
       existing: "Contactele existente"
@@ -544,7 +524,6 @@ ro:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
-        two: "%{count} reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
@@ -587,7 +566,6 @@ ro:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
-        two: "In %{count} aspects"
         zero: "Add to aspect"
     contact_list:
       all_contacts: "Toate contactele"
@@ -637,7 +615,6 @@ ro:
       many: "please make your status messages less than %{count} characters"
       one: "please make your status messages less than %{count} character"
       other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
       zero: "please make your status messages less than %{count} characters"
   stream_helper:
     hide_comments: "ascunde comentariile"
@@ -646,7 +623,6 @@ ro:
       many: "Show %{count} more comments"
       one: "Show one more comment"
       other: "Show %{count} more comments"
-      two: "Show two more comments"
       zero: "No more comments"
   streams:
     aspects:

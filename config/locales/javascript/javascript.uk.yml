@@ -18,7 +18,6 @@ uk:
         many: "У {{count}} аспектах"
         one: "У {{count}} аспектах"
         other: "У {{count}} аспектах"
-        two: "У {{count}} аспектах"
         zero: "Вибрати аспекти"
     aspect_navigation:
       deselect_all: "Зняти вибір з усіх"
@@ -62,9 +61,10 @@ uk:
     publisher:
       at_least_one_aspect: "Вам потрібно створити мінімум один аспект"
       limited: "Обмежена - ваш запис буде видимий тільки вказаним вами людям"
-      public: "Публічна - ваш запис буде видимий усім, навіть пошуковим системам"
+      public: "Публічна - ваш запис буде видимий усім, зокрема пошуковим системам"
     reshares:
       duplicate: "Настільки круто, так? Ви вже поділилися цим записом!"
+      post: "Поширити допис <%= name %>?"
     search_for: "Шукати {{name}}"
     show_more: "показати більше"
     stream:
@@ -72,13 +72,12 @@ uk:
       follow: "Слідкувати"
       hide: "Приховати"
       hide_nsfw_posts: "приховати NSFW повідомлення"
-      like: "Мені це подобається"
+      like: "Подобається"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
         other: "<%= count %> Likes"
-        two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
       limited: "Обмежений"
       more_comments:
@@ -86,7 +85,6 @@ uk:
         many: "Показати ще <%= count %> відгуків"
         one: "Показати ще <%= count %> відгуків"
         other: "Показати ще <%= count %> відгуків"
-        two: "Показати ще <%= count %> відгуків"
         zero: "Показати ще <%= count %> відгуків"
       original_post_deleted: "Початкове повідомлення було вилучено автором."
       public: "Публічна"
@@ -96,12 +94,11 @@ uk:
         many: "<%= count %> поширень"
         one: "<%= count %> поширень"
         other: "<%= count %> поширень"
-        two: "<%= count %> поширень"
         zero: "<%= count %> поширень"
       show_nsfw_post: "Переглянути запис"
       show_nsfw_posts: "Показати все"
       unfollow: "Не слідкувати"
-      unlike: "Мені це не подобається"
+      unlike: "Hе подобається"
     tags:
       wasnt_that_interesting: "Гаразд, мабуть, стежити за міткою #{{tagName}} було не так вже цікаво..."
     timeago:
@@ -126,7 +123,8 @@ uk:
     viewer:
       comment: "Коментувати"
       follow_post: "Слідкувати за записом"
-      like: "Мені подобається"
+      home: "Домівка"
+      like: "Подобається"
       reshare: "Поділитися"
       reshared: "Поділилися"
       stop_following_post: "Не слідкувати за записом"

@@ -107,13 +107,14 @@ ja:
     other: "アスペクト%{count}集"
     seed:
       family: "家族"
+      friends: "友達"
       work: "仕事"
     show:
       edit_aspect: "アスペクトを編集する"
     two: "%{count} aspects"
     update:
       failure: "アスペクト名「%{name}」は長すぎて保存できませんでした。"
-      success: "アスペクト「%{name}」の編集するのに成功しました。"
+      success: "アスペクト「%{name}」の編集に成功しました。"
     zero: "アスペクト無し"
   back: "前へ"
   bookmarklet:
@@ -130,19 +131,22 @@ ja:
       commenting: "コメント投稿中…"
     one: "コメント1件"
     other: "コメント%{count}件"
-    two: "%{count} comments"
+    two: "コメント%{count}件"
     zero: "コメントがありません"
   contacts:
     create:
-      failure: "連絡先を作成するのに失敗しました。"
+      failure: "連絡先の作成に失敗しました。"
     few: "連絡先%{count}件"
     index:
+      add_a_new_aspect: "新しいアスペクトを追加する"
       add_to_aspect: "Add contacts to %{name}"
+      all_contacts: "全ての連絡先"
       no_contacts: "No contacts."
+      title: "連絡先"
     many: "連絡先%{count}件"
     one: "連絡先1件"
     other: "連絡先%{count}件"
-    two: "%{count} contacts"
+    two: "連絡先%{count}件"
     zero: "連絡先無し"
   conversations:
     create:
@@ -155,7 +159,6 @@ ja:
         many: "新着メッセージ%{count}通"
         one: "新着メッセージ1通"
         other: "新着メッセージ%{count}通"
-        two: "%{count} new messages"
         zero: "新着メッセージ無し"
     index:
       create_a_new_message: "新しいメッセージを作成する"
@@ -166,11 +169,13 @@ ja:
       no_messages: "メッセージがありません"
     new:
       send: "送信する"
+      sending: "送信中…"
       subject: "件名"
       to: "宛先"
     show:
       delete: "会話を削除して、ブロックする"
       reply: "返信"
+      replying: "返信中..."
   date:
     formats:
       birthday: "%m月%d日"
@@ -224,21 +229,18 @@ ja:
         many: "これが嫌いな人：%{count}人"
         one: "これが嫌いな人：1人"
         other: "これが嫌いな人：%{count}人"
-        two: "%{count} dislikes"
         zero: "これが嫌いな人：0人"
       people_like_this:
         few: "これが好きな人：%{count}人"
         many: "これが好きな人：%{count}人"
         one: "これが好きな人：1人"
         other: "これが好きな人：%{count}人"
-        two: "%{count} likes"
         zero: "これが好きな人：0人"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
         one: "%{count} like"
         other: "%{count} likes"
-        two: "%{count} likes"
         zero: "no likes"
   more: "続き"
   next: "次へ"
@@ -249,21 +251,18 @@ ja:
       many: "%{actors} also commented on %{post_author}'s %{post_link}."
       one: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} commented on a deleted post."
       many: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
-      two: "%{actors} commented on a deleted post."
       zero: "%{actors} commented on a deleted post."
     comment_on_post:
       few: "%{actors} commented on your %{post_link}."
       many: "%{actors} commented on your %{post_link}."
       one: "%{actors} commented on your %{post_link}."
       other: "%{actors} commented on your %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
     helper:
       new_notifications:
@@ -271,7 +270,6 @@ ja:
         many: "新着通知%{count}件"
         one: "新着通知1件"
         other: "新着通知%{count}件"
-        two: "%{count} new notifications"
         zero: "新着通知無し"
     index:
       and: "又は"
@@ -280,7 +278,6 @@ ja:
         many: "and %{count} others"
         one: "and one more"
         other: "and %{count} others"
-        two: "and %{count} others"
         zero: "and nobody else"
       mark_all_as_read: "全件を既読にする"
       notifications: "通知"
@@ -289,28 +286,24 @@ ja:
       many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
     liked_post_deleted:
       few: "%{actors} liked your deleted post."
       many: "%{actors} liked your deleted post."
       one: "%{actors} liked your deleted post."
       other: "%{actors} liked your deleted post."
-      two: "%{actors} liked your deleted post."
       zero: "%{actors} liked your deleted post."
     mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
       one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
     mentioned_deleted:
       few: "%{actors} mentioned you in a deleted post."
       many: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
     post: "（投稿で）"
     private_message:
@@ -318,28 +311,24 @@ ja:
       many: "%{actors} sent you a message."
       one: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
-      two: "%{actors} sent you a message."
       zero: "%{actors} sent you a message."
     reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
     reshared_post_deleted:
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
     started_sharing:
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
       one: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
-      two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier:
     confirm_email:
@@ -411,6 +400,7 @@ ja:
       fail: "%{handle}が見つかりませんでした。"
     zero: "連絡先無し"
   photos:
+    comment_email_subject: "%{name}さんの写真"
     create:
       integrity_error: "写真のアップロードに失敗しました。確かに画像ファイルだったのでしょうか。"
       runtime_error: "写真のアップロードに失敗しました。シートベルトはしっかりとお締めでしょうか。"
@@ -443,12 +433,12 @@ ja:
       notice: "写真の更新に成功しました。"
   posts:
     show:
+      destroy: "削除"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   previous: "前へ"
   profile: "プロフィール"
@@ -477,7 +467,6 @@ ja:
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
-    two: "%{count} reactions"
     zero: "0 reactions"
   registrations:
     closed: "このダイアスポラ＊ポッドでは新規登録を受け付けていません。"
@@ -511,7 +500,6 @@ ja:
         many: "新リクエスト%{count}件！"
         one: "新リクエスト！"
         other: "新リクエスト%{count}件！"
-        two: "%{count} new requests!"
         zero: "新リクエスト無し"
     manage_aspect_contacts:
       existing: "現在の連絡先"
@@ -525,7 +513,6 @@ ja:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
-        two: "%{count} reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
@@ -533,6 +520,7 @@ ja:
   search: "検索"
   services:
     create:
+      failure: "認証に失敗しました。"
       success: "認証に成功しました。"
     destroy:
       success: "認証を削除するのに成功しました。"
@@ -540,6 +528,7 @@ ja:
       error: "サービスへ接続中にエラーが発生しました。"
     index:
       connect_to_facebook: "Facebookに接続する"
+      connect_to_tumblr: "Tumblrに接続する"
       connect_to_twitter: "ツイッターに接続する"
       disconnect: "切断"
       edit_services: "サービスを編集する"
@@ -566,7 +555,6 @@ ja:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
-        two: "In %{count} aspects"
         zero: "Add to aspect"
     contact_list:
       all_contacts: "全ての連絡先"
@@ -622,7 +610,6 @@ ja:
       many: "please make your status messages less than %{count} characters"
       one: "please make your status messages less than %{count} character"
       other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
       zero: "please make your status messages less than %{count} characters"
   stream_helper:
     hide_comments: "コメントを非表示にする"
@@ -631,7 +618,6 @@ ja:
       many: "Show %{count} more comments"
       one: "Show one more comment"
       other: "Show %{count} more comments"
-      two: "Show two more comments"
       zero: "No more comments"
   streams:
     aspects:

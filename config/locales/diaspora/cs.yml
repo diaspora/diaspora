@@ -253,7 +253,6 @@ cs:
         many: "%{count} nových zpráv"
         one: "1 nová zpráva"
         other: "%{count} nových zpráv"
-        two: "%{count} nové zprávy"
         zero: "Žádné nové zprávy"
     index:
       create_a_new_message: "vytvořit novou zprávu"
@@ -334,7 +333,6 @@ cs:
         many: "%{count} lidem se to nelíbí"
         one: "1 osobě se to nelíbí"
         other: "%{count} lidem se to nelíbí"
-        two: "%{count} dislikes"
         zero: "žádná záporná hodnocení"
       people_like_this:
         few: "%{count} lidem se to líbí"
@@ -372,7 +370,6 @@ cs:
         many: "%{count} nových oznámení"
         one: "1 nové oznámení"
         other: "%{count} nových oznámení"
-        two: "%{count} nová oznámení"
         zero: "Žádná nová oznámení"
     index:
       and: "a"
@@ -381,7 +378,6 @@ cs:
         many: "a %{count} dalších"
         one: "a ještě jeden"
         other: "a %{count} dalších"
-        two: "a %{count} další"
         zero: "a už nikdo"
       mark_all_as_read: "Označit vše jako přečtené"
       notifications: "Oznámení"
@@ -390,14 +386,12 @@ cs:
       many: "%{actors} se zalíbil váš %{post_link}."
       one: "%{actors} se zalíbil váš %{post_link}."
       other: "%{actors} se zalíbil váš %{post_link}."
-      two: "%{actors} se zalíbil váš %{post_link}."
       zero: "%{actors} se zalíbil váš %{post_link}."
     liked_post_deleted:
       few: "%{actors} se líbil váš odstraněný příspěvek."
       many: "%{actors} se líbil váš odstraněný příspěvek."
       one: "%{actors} se líbil váš odstraněný příspěvek."
       other: "%{actors} se líbil váš odstraněný příspěvek."
-      two: "%{actors} se líbil váš odstraněný příspěvek."
       zero: "%{actors} se líbil váš odstraněný příspěvek."
     mentioned:
       few: "%{actors} vás zmínili na %{post_link}."
@@ -635,7 +629,6 @@ cs:
         many: "%{count} nové žádosti!"
         one: "nová žádost!"
         other: "%{count} nových žádostí!"
-        two: "%{count} nové žádosti!"
         zero: "žádné nové žádosti"
     manage_aspect_contacts:
       existing: "Existující kontakty"
@@ -784,7 +777,6 @@ cs:
       many: "Zobrazit %{count} dalších komentářů"
       one: "Zobrazit 1 další komentář"
       other: "Zobrazit %{count} dalších komentářů"
-      two: "Zobrazit 2 další komentáře"
       zero: "Žádné další komentáře"
   streams:
     activity:

@@ -16,7 +16,7 @@ eo:
       toggle:
         one: "En <%= count %> aspekto"
         other: "En <%= count %> aspektoj"
-        zero: "En <%= count %> aspektoj"
+        zero: "Elektu aspektojn"
     aspect_navigation:
       deselect_all: "Malselekti ĉiujn"
       no_aspects: "Neniuj aspektoj selektitaj"

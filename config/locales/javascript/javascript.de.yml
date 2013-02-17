@@ -6,6 +6,7 @@
 
 de:
   javascripts:
+    and: "und"
     aspect_dropdown:
       add_to_aspect: "Kontakt hinzufügen"
       all_aspects: "Alle Aspekte"
@@ -18,17 +19,19 @@ de:
         many: "In <%= count %> Aspekten"
         one: "In einem Aspekt"
         other: "In <%= count %> Aspekten"
-        two: "In <%= count %> Aspekten"
         zero: "Aspekt auswählen"
     aspect_navigation:
+      add_an_aspect: "+ Aspekt hinzufügen"
       deselect_all: "Auswahl aufheben"
       no_aspects: "Keine Aspekte ausgewählt"
       select_all: "Alle auswählen"
+    comma: ","
     comments:
       hide: "Kommentare verbergen"
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
     delete: "Löschen"
+    edit: "Bearbeiten"
     failed_to_like: "Gefällt mir fehlgeschlagen!"
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started:
@@ -55,10 +58,12 @@ de:
     infinite_scroll:
       no_more: "Keine weiteren Beiträge."
     my_activity: "Meine Aktivitäten"
+    my_aspects: "Meine Aspekte"
     my_stream: "Stream"
     people:
       not_found: "und niemand wurde gefunden..."
     photo_uploader:
+      completed: "<%= file %> hochgeladen"
       looking_good: "OMG, du siehst toll aus!"
     publisher:
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
@@ -73,6 +78,11 @@ de:
     stream:
       comment: "Kommentar"
       follow: "Folgen"
+      followed_tag:
+        add_a_tag: "Tag hinzufügen"
+        contacts_title: "Leute, die diese Tags mögen"
+        follow: "Folgen"
+        title: "#Tags, denen du folgst"
       hide: "Ausblenden"
       hide_nsfw_posts: "#nsfw-Posts verstecken"
       like: "Gefällt mir"
@@ -81,7 +91,6 @@ de:
         many: "<%= count %> Personen gefällt das"
         one: " Einer Person gefällt das"
         other: "<%= count %> Personen gefällt das"
-        two: "<%= count %> Personen gefällt das"
         zero: "Keinem gefällt das"
       limited: "Begrenzt"
       more_comments:
@@ -96,10 +105,13 @@ de:
         many: "<%= count %> mal weitergesagt"
         one: "<%= count %> mal weitergesagt"
         other: "<%= count %> mal weitergesagt"
-        two: "<%= count %> mal weitergesagt"
         zero: "<%= count %> mal weitergesagt"
       show_nsfw_post: "Beitrag anzeigen"
       show_nsfw_posts: "Alle zeigen"
+      tags:
+        follow: "#<%= tag %> folgen"
+        following: "Du folgst #<%=tag%>"
+        stop_following: "Aufhören #<%= tag %> zu folgen"
       unfollow: "Nicht mehr folgen"
       unlike: "Gefällt mir nicht mehr"
     tags:

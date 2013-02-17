@@ -6,6 +6,7 @@
 
 es-MX:
   javascripts:
+    and: "y"
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
@@ -18,14 +19,17 @@ es-MX:
         other: "En <%= count %> aspectos"
         zero: "Elige los aspectos"
     aspect_navigation:
+      add_an_aspect: "+ Añadir un aspecto"
       deselect_all: "Desmarcar todos"
       no_aspects: "No hay aspectos seleccionados"
       select_all: "Marcar todos"
+    comma: ","
     comments:
       hide: "ocultar comentarios"
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     delete: "Borrar"
+    edit: "Editar"
     failed_to_like: "¡No se pudo marcar como «Me gusta»!"
     failed_to_post_message: "¡No se pudo publicar el mensaje!"
     getting_started:
@@ -52,10 +56,12 @@ es-MX:
     infinite_scroll:
       no_more: "No hay más publicaciones."
     my_activity: "Mi actividad"
+    my_aspects: "Mis aspectos"
     my_stream: "Entrada"
     people:
       not_found: "y nadie fue encontrado…"
     photo_uploader:
+      completed: "<%= file %> completado"
       looking_good: "¡Ah, te ves increíble!"
     publisher:
       at_least_one_aspect: "Debes publicar al menos en un aspecto"
@@ -70,6 +76,11 @@ es-MX:
     stream:
       comment: "Comentar"
       follow: "Seguir"
+      followed_tag:
+        add_a_tag: "Añadir una etiqueta"
+        contacts_title: "Personas siguiendo estas etiquetas"
+        follow: "Seguir"
+        title: "#Etiquetas seguidas"
       hide: "Ocultar"
       hide_nsfw_posts: "Ocultar publicaciones no aptas para todo público"
       like: "Me gusta"
@@ -91,6 +102,10 @@ es-MX:
         zero: "Compartido <%= count %> veces"
       show_nsfw_post: "Mostrar publicación"
       show_nsfw_posts: "Mostrar todo"
+      tags:
+        follow: "Seguir #<%= tag %>"
+        following: "Siguiendo #<%= tag %>"
+        stop_following: "Dejar de seguir #<%= tag %>"
       unfollow: "Dejar de seguir"
       unlike: "No me gusta"
     tags:

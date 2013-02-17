@@ -40,6 +40,7 @@ nb:
         email_us: "For generelle spørsmål eller hjelp med din Diaspora-konto, send oss en e-post på %{email}."
         finally: "Endelig - det er her"
         friends_saying: "Det vennene dine sier..."
+        get_connected: "koble opp"
         get_connected_paragraph: "Som en internasjonal bevegelse som deler en visjon om et bedre internett, %{strong_diaspora}'s #1 egenskap er felleskapet. Møt nye mennesker, finn vennene dine, og bli med på moroa. "
         have_fun: "Ha det gøy"
         have_fun_paragraph: "%{strong_diaspora} handler om å finne utrolig nytt innhold og nye mennesker online. %{link}, den første %{strong_diaspora} applikasjonen i verden, er bare begynnelsen. Finn og del alt som gjør nettet til et fantastisk sted."
@@ -58,6 +59,7 @@ nb:
         unsubscribe: "For å avregistrere deg klikk på %{link}."
         view_in: "Se i"
       inviter:
+        accept_at: "via %{url}, kan du akseptere lenken du ser under"
         has_invited_you: "%{name}"
         have_invited_you: "%{names} har invitert deg til Diaspora"
       reset_password_instructions:

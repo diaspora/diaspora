@@ -18,16 +18,15 @@ fr:
         many: "Dans <%= count %> aspects"
         one: "Dans <%= count %> aspect"
         other: "Dans <%= count %> aspects"
-        two: "Dans <%= count %> aspects"
         zero: "Sélectionnez les aspects"
     aspect_navigation:
       deselect_all: "Désélectionner tout"
       no_aspects: "Aucun aspect sélectionné"
       select_all: "Sélectionner tout"
     comments:
-      hide: "Cacher les commentaires"
+      hide: "Masquer les commentaires"
       show: "Afficher tous les commentaires"
-    confirm_dialog: "Êtes-vous sûr ?"
+    confirm_dialog: "Êtes-vous certain-e ?"
     delete: "Effacer"
     failed_to_like: "Impossible d'aimer !"
     failed_to_post_message: "Impossible de partager le message !"
@@ -73,6 +72,8 @@ fr:
     stream:
       comment: "Commenter"
       follow: "Suivre"
+      followed_tag:
+        add_a_tag: "Ajouter un tag"
       hide: "Masquer"
       hide_nsfw_posts: "Masquer les messages #nsfw"
       like: "J'aime"
@@ -81,7 +82,6 @@ fr:
         many: "<%= count %> J'aime"
         one: "<%= count %> J'aime"
         other: "<%= count %> J'aime"
-        two: "<%= count %> J'aime"
         zero: "<%= count %> J'aime"
       limited: "Limité"
       more_comments:
@@ -96,10 +96,12 @@ fr:
         many: "<%= count %> repartages"
         one: "<%= count %> repartage"
         other: "<%= count %> repartages"
-        two: "<%= count %> Repartages"
         zero: "<%= count %> repartages"
       show_nsfw_post: "Montrer le message"
       show_nsfw_posts: "Tout montrer"
+      tags:
+        follow: "Suivre #<%= tag %>"
+        stop_following: "Arrêter de suivre #<%= tag %>"
       unfollow: "Ne pas suivre"
       unlike: "Je n'aime plus"
     tags:

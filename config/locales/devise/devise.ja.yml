@@ -31,7 +31,10 @@ ja:
       hello: "%{email}さん、こんにちは！"
       invitation_instructions:
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        email_address: "questions@joindiaspora.com"
         view_in: "View in"
+      inviter:
+        has_invited_you: "%{name}さん"
       reset_password_instructions:
         change: "パスワードを変更する"
         ignore: "再設定を申請した覚えがない場合はこのメールを無視してください。"

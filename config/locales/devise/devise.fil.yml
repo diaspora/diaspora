@@ -4,14 +4,17 @@
 
 
 
-ga:
+fil:
   devise:
     mailer:
-      hello: "Haileo %{email}!"
+      hello: "Kumusta %{email}!"
       invitation_instructions:
-        love: "Grá"
-      welcome: "Fáilte %{email}!"
+        finally: "Sa wakas - naandito na"
+        here: "dito"
+        or: "o"
     sessions:
       new:
-        login: "Logáil isteach"
-        password: "Pasfhocal"
+        remember_me: "Tandaan Ako"
+  errors:
+    messages:
+      not_found: "Walang Mahanap"
