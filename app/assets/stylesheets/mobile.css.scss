@@ -51,6 +51,8 @@ body {
     }
     margin-bottom: 2px;
     height: 45px;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   > .content,

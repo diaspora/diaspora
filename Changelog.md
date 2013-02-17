@@ -64,6 +64,7 @@
 * Buttons on mobile are hard to click on. [#3973](https://github.com/diaspora/diaspora/issues/3973)
 * RTL-language characters in usernames no longer overlay post dates [#2339](https://github.com/diaspora/diaspora/issues/2339)
 * Overflow info author mobile web. [#3983](https://github.com/diaspora/diaspora/issues/3983)
+* Overflow name author mobile post. [#3981](https://github.com/diaspora/diaspora/issues/3981)
 
 ## Gem Updates
 
