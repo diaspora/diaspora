@@ -55,6 +55,7 @@ var app = {
     });
 
     app.hovercard = new app.views.Hovercard();
+    app.aspectMemberships = new app.views.AspectMembership();
   },
 
   hasPreload : function(prop) {
