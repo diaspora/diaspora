@@ -63,6 +63,7 @@
 * Twitter/Facebook/Tumblr count down characters is hidden by the picture of the post. [#3963](https://github.com/diaspora/diaspora/issues/3963)
 * Buttons on mobile are hard to click on. [#3973](https://github.com/diaspora/diaspora/issues/3973)
 * RTL-language characters in usernames no longer overlay post dates [#2339](https://github.com/diaspora/diaspora/issues/2339)
+* Overflow info author mobile web. [#3983](https://github.com/diaspora/diaspora/issues/3983)
 
 ## Gem Updates
 

@@ -251,8 +251,9 @@ body {
 }
 
 #author_info {
-  height: 100px;
+  height: 100%;
   position: relative;
+  word-wrap: break-word;
 
   img {
     height: 90px;
