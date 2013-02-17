@@ -406,6 +406,15 @@ class User < ActiveRecord::Base
     Role.is_admin?(self.person)
   end
 
+  def mine?(target)
+    if target.present? && target.respond_to?(:user_id)
+      return self.id == target.user_id
+    end
+
+    false
+  end
+
+
   def guard_unconfirmed_email
     self.unconfirmed_email = nil if unconfirmed_email.blank? || unconfirmed_email == email
 

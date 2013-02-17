@@ -50,6 +50,7 @@ en:
       stopped_sharing_with: "You have stopped sharing with <%= name %>."
       started_sharing_with: "You have started sharing with <%= name %>!"
       error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
+      error_remove: "Couldn't remove <%= name %> from the aspect :("
       toggle:
         zero: "Select aspects"
         one: "In <%= count %> aspect"

@@ -11,4 +11,10 @@ module Diaspora
   # to continue
   class AccountClosed < StandardError
   end
+
+  # something that should be accessed does not belong to the current user and
+  # that prevents further execution
+  class NotMine < StandardError
+  end
+  
 end

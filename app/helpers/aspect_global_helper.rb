@@ -4,20 +4,27 @@
 
 module AspectGlobalHelper
   def aspect_membership_dropdown(contact, person, hang, aspect=nil)
+    aspect_membership_ids = {}
+
     selected_aspects = all_aspects.select{|aspect| contact.in_aspect?(aspect)}
+    selected_aspects.each do |a|
+      record = a.aspect_memberships.find { |am| am.contact_id == contact.id }
+      aspect_membership_ids[a.id] = record.id
+    end
 
     render "shared/aspect_dropdown",
       :selected_aspects => selected_aspects,
+      :aspect_membership_ids => aspect_membership_ids,
       :person => person,
       :hang => hang,
       :dropdown_class => "aspect_membership"
   end
 
-  def aspect_dropdown_list_item(aspect, checked)
-    klass = checked ? "selected" : ""
+  def aspect_dropdown_list_item(aspect, am_id=nil)
+    klass = am_id.present? ? "selected" : ""
 
     str = <<LISTITEM
-<li data-aspect_id=#{aspect.id} class='#{klass} aspect_selector'>
+<li data-aspect_id="#{aspect.id}" data-membership_id="#{am_id}" class="#{klass} aspect_selector">
   #{aspect.name}
 </li>
 LISTITEM

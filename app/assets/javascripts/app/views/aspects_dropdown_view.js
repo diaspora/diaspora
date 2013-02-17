@@ -1,3 +1,10 @@
+/**
+ * the aspects dropdown specifies the scope of a posted status message.
+ *
+ * this view is part of the publisher where users are presented the options
+ * 'public', 'all aspects' and a list of their personal aspects, for limiting
+ * 'the audience of created contents.
+ */
 app.views.AspectsDropdown = app.views.Base.extend({
   templateName : "aspects-dropdown",
   events : {

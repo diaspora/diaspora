@@ -6,49 +6,62 @@
 class AspectMembershipsController < ApplicationController
   before_filter :authenticate_user!
 
-  respond_to :html, :json, :js
+  respond_to :html, :json
 
   def destroy
-    #note :id is garbage
+    aspect = current_user.aspects.joins(:aspect_memberships).where(:aspect_memberships=>{:id=>params[:id]}).first
+    contact = current_user.contacts.joins(:aspect_memberships).where(:aspect_memberships=>{:id=>params[:id]}).first
 
-    @person_id = params[:person_id]
-    @aspect_id = params[:aspect_id]
+    raise ActiveRecord::RecordNotFound unless aspect.present? && contact.present?
 
-    @contact = current_user.contact_for(Person.where(:id => @person_id).first)
-    membership = @contact ? @contact.aspect_memberships.where(:aspect_id => @aspect_id).first : nil
+    raise Diaspora::NotMine unless current_user.mine?(aspect) &&
+                                   current_user.mine?(contact)
 
-    if membership && membership.destroy
-        @aspect = membership.aspect
-        flash.now[:notice] = I18n.t 'aspect_memberships.destroy.success'
+    membership = contact.aspect_memberships.where(:aspect_id => aspect.id).first
 
-        respond_with do |format|
-          format.json{ render :json => {
-            :person_id => @person_id,
-            :aspect_ids => @contact.aspects.map{|a| a.id}
-          } }
-          format.html{ redirect_to :back }
-        end
+    raise ActiveRecord::RecordNotFound unless membership.present?
 
-      else
-        flash.now[:error] = I18n.t 'aspect_memberships.destroy.failure'
-        errors = membership ? membership.errors.full_messages : t('aspect_memberships.destroy.no_membership')
-        respond_to do |format|
-          format.js  { render :text => errors, :status => 403 }
-          format.html{
-            redirect_to :back
+    # do it!
+    success = membership.destroy
+
+    # set the flash message
+    if success
+      flash.now[:notice] = I18n.t 'aspect_memberships.destroy.success'
+    else
+      flash.now[:error] = I18n.t 'aspect_memberships.destroy.failure'
+    end
+
+    respond_with do |format|
+      format.json do
+        if success
+          render :json => {
+            :person_id  => contact.person_id,
+            :aspect_ids => contact.aspects.map{|a| a.id}
           }
+        else
+          render :text => membership.errors.full_messages, :status => 403
+        end
       end
+
+      format.all { redirect_to :back }
     end
   end
 
   def create
     @person = Person.find(params[:person_id])
     @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
+
     @contact = current_user.share_with(@person, @aspect)
 
-    if @contact
+    if @contact.present?
       flash.now[:notice] =  I18n.t('aspects.add_to_aspect.success')
-      respond_with AspectMembership.where(:contact_id => @contact.id, :aspect_id => @aspect.id).first
+      respond_with do |format|
+        format.json do
+          render :json => AspectMembership.where(:contact_id => @contact.id, :aspect_id => @aspect.id).first.to_json
+        end
+
+        format.all { redirect_to :back }
+      end
     else
       flash.now[:error] = I18n.t('contacts.create.failure')
       render :nothing => true, :status => 409
@@ -58,4 +71,13 @@ class AspectMembershipsController < ApplicationController
   rescue_from ActiveRecord::StatementInvalid do
     render :text => "Duplicate record rejected.", :status => 400
   end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    render :text => I18n.t('aspect_memberships.destroy.no_membership'), :status => 404
+  end
+
+  rescue_from Diaspora::NotMine do
+    render :text => "You are not allowed to do that.", :status => 403
+  end
+
 end
