@@ -15,7 +15,7 @@
 * Ported aspects to backbone [#3850](https://github.com/diaspora/diaspora/pull/3850)
 * Join tagging's table instead of tags to improve a bit the query [#3932](https://github.com/diaspora/diaspora/pull/3932)
 * Refactor contacts/index view [#3937](https://github.com/diaspora/diaspora/pull/3937)
-* Ported aspect membership dropdown to backbone (#3864)[https://github.com/diaspora/diaspora/pull/3864]
+* Ported aspect membership dropdown to backbone [#3864](https://github.com/diaspora/diaspora/pull/3864)
 
 ## Features
 
