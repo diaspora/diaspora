@@ -115,7 +115,7 @@ ca:
         follow: "Segueix"
 
       tags:
-        follow: "Segueix #<%= tag %>
+        follow: "Segueix #<%= tag %>"
         following: "S'està seguint #<%= tag %>"
         stop_following: "Deixa de seguir #<%= tag %>"
 
