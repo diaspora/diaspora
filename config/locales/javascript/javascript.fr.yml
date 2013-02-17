@@ -6,6 +6,7 @@
 
 fr:
   javascripts:
+    and: "et"
     aspect_dropdown:
       add_to_aspect: "Ajouter le contact"
       all_aspects: "Tous les aspects"
@@ -20,14 +21,17 @@ fr:
         other: "Dans <%= count %> aspects"
         zero: "Sélectionnez les aspects"
     aspect_navigation:
+      add_an_aspect: "+ Ajouter un aspect"
       deselect_all: "Désélectionner tout"
       no_aspects: "Aucun aspect sélectionné"
       select_all: "Sélectionner tout"
+    comma: ","
     comments:
       hide: "Masquer les commentaires"
       show: "Afficher tous les commentaires"
     confirm_dialog: "Êtes-vous certain-e ?"
     delete: "Effacer"
+    edit: "Éditer"
     failed_to_like: "Impossible d'aimer !"
     failed_to_post_message: "Impossible de partager le message !"
     getting_started:
@@ -54,10 +58,12 @@ fr:
     infinite_scroll:
       no_more: "Pas d'autres messages."
     my_activity: "Mon activité"
+    my_aspects: "Mes Aspects"
     my_stream: "Flux"
     people:
       not_found: "Et personne n'a été trouvé ..."
     photo_uploader:
+      completed: "<%= file %> complété"
       looking_good: "Impressionnant, vous avez un super look !"
     publisher:
       at_least_one_aspect: "Vous devez créer au moins un aspect"
@@ -74,6 +80,9 @@ fr:
       follow: "Suivre"
       followed_tag:
         add_a_tag: "Ajouter un tag"
+        contacts_title: "Personnes qui suivent ces tags"
+        follow: "Suivre"
+        title: "#tags suivis"
       hide: "Masquer"
       hide_nsfw_posts: "Masquer les messages #nsfw"
       like: "J'aime"
@@ -101,6 +110,7 @@ fr:
       show_nsfw_posts: "Tout montrer"
       tags:
         follow: "Suivre #<%= tag %>"
+        following: "Suivant #<%= tag %>"
         stop_following: "Arrêter de suivre #<%= tag %>"
       unfollow: "Ne pas suivre"
       unlike: "Je n'aime plus"

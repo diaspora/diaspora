@@ -157,6 +157,8 @@ fr:
       donate: "Faire un don"
       handle_explanation: "Ceci est votre identifiant Diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
       help:
+        any_problem: "Un problème ?"
+        contact_podmin: "Contacter l'administrateur de votre pod !"
         do_you: "Avez-vous :"
         email_feedback: "Envoyez vos impressions par %{link} , si vous préférez."
         email_link: "Courriel"
@@ -164,6 +166,7 @@ fr:
         find_a_bug: "... trouvé un %{link} ?"
         have_a_question: "... une %{link} ?"
         here_to_help: "La communauté Diaspora est là !"
+        mail_podmin: "E-mail du podmin"
         need_help: "Besoin d'aide ?"
         tag_bug: "bug"
         tag_feature: "suggestion"
@@ -278,11 +281,13 @@ fr:
       people_sharing: "Personnes partageant avec vous :"
     spotlight:
       community_spotlight: "Actualités de la communauté"
+      suggest_member: "Suggérer un membre"
     two: "%{count} contacts"
     zero: "contact"
   conversations:
     create:
       fail: "Message invalide"
+      no_contact: "Hé, vous avez besoin d'ajouter le contact d'abord !"
       sent: "Message envoyé"
     destroy:
       success: "La conversation a été supprimée."
@@ -339,6 +344,7 @@ fr:
       already_sent: "Vous avez déjà invité cette personne."
       empty: "Veuillez fournir au moins une adresse de courrier électronique."
       no_more: "Vous n’avez plus d’invitation."
+      note_already_sent: "Une invitation a déjà été envoyée aux e-mails %{emails}"
       own_address: "Vous ne pouvez pas envoyer une invitation à votre adresse."
       rejected: "Les adresses de courrier électronique suivantes ont rencontré des problèmes :"
       sent: "Les invitations ont été envoyées à : %{emails}"
@@ -623,7 +629,7 @@ fr:
         many: "%{count} photos par %{author}"
         one: "Une photo par %{author}"
         other: "%{count} photos par %{author}"
-        zero: "Pas de photos par %{author}"
+        zero: "Pas de photo par %{author}"
       reshare_by: "Repartagé par %{author}"
   previous: "précédent"
   privacy: "Vie privée"
@@ -974,6 +980,8 @@ fr:
     getting_started:
       awesome_take_me_to_diaspora: "Impressionnant ! Offrez-moi Diaspora*"
       community_welcome: "La communauté Diaspora* est heureuse de vous avoir à bord !"
+      connect_to_facebook: "Nous pouvons accélerer un peu les choses en %{link} à Diaspora. Cela va importer votre nom et votre photo et activer l'écriture de messages entre les comptes."
+      connect_to_facebook_link: "connectant votre compte Facebook"
       hashtag_explanation: "Les tags vous permettent de parler de vos intérêts et de les suivre. Ils sont aussi un excellent moyen de rencontrer de nouvelles personnes sur Diaspora."
       hashtag_suggestions: "Essayez de suivre des tags comme #art, #films, #french, etc."
       saved: "Sauvé !"
