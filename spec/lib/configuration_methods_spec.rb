@@ -82,16 +82,6 @@ describe Configuration::Methods do
       @settings.version_string.should include @version.number
     end
     
-    context "on a non release" do
-      before do
-        @version.stub(:release?).and_return(false)
-      end
-      
-      it "includes pre" do
-        @settings.version_string.should include "pre"
-      end
-    end
-    
     context "with git available" do
       before do
         @settings.stub(:git_available?).and_return(true)
