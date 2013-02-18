@@ -115,4 +115,4 @@ else
 fi
 echo ""
 
-bundle exec foreman start -m "web=1,worker=$workers" -p $port
+exec bundle exec foreman start -m "web=1,worker=$workers" -p $port

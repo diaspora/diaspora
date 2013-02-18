@@ -4,6 +4,10 @@
 
 * Deleting a post that was shared to Facebook now deletes it from Facebook too [#3980]( https://github.com/diaspora/diaspora/pull/3980)
 
+## Bug Fixes
+
+* exec foreman in ./script/server to replace the process so that we can Ctrl+C it again.
+
 # 0.0.3.0
 
 ## Refactor
