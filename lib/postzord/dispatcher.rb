@@ -61,6 +61,8 @@ class Postzord::Dispatcher
     @object
   end
 
+  
+
   protected
 
   # @return [Object]
@@ -145,6 +147,11 @@ class Postzord::Dispatcher
     if @object.instance_of?(StatusMessage)
       services.each do |service|
         Resque.enqueue(Jobs::PostToService, service.id, @object.id, url)
+      end
+    end
+    if @object.instance_of?(SignedRetraction)
+      services.each do |service|
+        Resque.enqueue(Jobs::DeletePostFromService, service.id, @object.target.facebook_id)
       end
     end
   end

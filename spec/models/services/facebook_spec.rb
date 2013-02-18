@@ -4,7 +4,7 @@ describe Services::Facebook do
 
   before do
     @user = alice
-    @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id, :public =>true)
+    @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id, :public =>true, :facebook_id => "23456" )
     @service = Services::Facebook.new(:access_token => "yeah")
     @user.services << @service
   end
@@ -12,7 +12,7 @@ describe Services::Facebook do
   describe '#post' do
     it 'posts a status message to facebook' do
       stub_request(:post, "https://graph.facebook.com/me/feed").
-          to_return(:status => 200, :body => "", :headers => {})
+          to_return(:status => 200, :body => '{"id": "12345"}', :headers => {})
       @service.post(@post)
     end
 
@@ -26,7 +26,7 @@ describe Services::Facebook do
 
     it 'should call public message' do
       stub_request(:post, "https://graph.facebook.com/me/feed").
-        to_return(:status => 200)
+        to_return(:status => 200, :body => '{"id": "12345"}', :headers => {})
       url = "foo"
       @service.should_not_receive(:public_message)
       @service.post(@post, url)
@@ -38,6 +38,13 @@ describe Services::Facebook do
       post_params = @service.create_post_params(post)
       post_params[:message].should match "Text with some bolded and italic parts."
     end
+
+    it 'sets facebook id on post' do
+      stub_request(:post, "https://graph.facebook.com/me/feed").
+	to_return(:status => 200, :body => '{"id": "12345"}', :headers => {})
+      @service.post(@post)
+      @post.facebook_id.should match "12345"
+    end
     
   end
 
@@ -47,6 +54,15 @@ describe Services::Facebook do
       @service.access_token = "token123"
       @service.profile_photo_url.should == 
       "https://graph.facebook.com/abc123/picture?type=large&access_token=token123"
+    end
+  end
+
+  describe '#delete_post' do
+    it 'removes a post from facebook' do
+      stub_request(:delete, "https://graph.facebook.com/#{@post.facebook_id}/?access_token=#{@service.access_token}").
+	to_return(:status => 200)
+
+      @service.delete_post(@post.facebook_id)
     end
   end
 end

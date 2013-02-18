@@ -818,7 +818,7 @@ describe User do
         @post.reshares << reshare
 
         dispatcher = mock
-        Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, {:additional_subscribers => [person]}).and_return(dispatcher)
+        Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, {:additional_subscribers => [person], :services => anything}).and_return(dispatcher)
         dispatcher.should_receive(:post)
 
         bob.retract(@post)
