@@ -326,6 +326,7 @@ class User < ActiveRecord::Base
 
    if target.is_a?(Post)
      opts[:additional_subscribers] = target.resharers
+     opts[:services] = self.services
    end
 
     mailman = Postzord::Dispatcher.build(self, retraction, opts)
