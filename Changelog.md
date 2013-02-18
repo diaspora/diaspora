@@ -1,3 +1,9 @@
+# Head
+
+## Features
+
+* Deleting a post that was shared to Facebook now deletes it from Facebook too [#3980]( https://github.com/diaspora/diaspora/pull/3980)
+
 # 0.0.3.0
 
 ## Refactor
