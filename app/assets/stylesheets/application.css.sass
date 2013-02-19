@@ -2,7 +2,6 @@
 @import '_mixins.css.scss'
 @import '_flash_messages.scss'
 @import 'new_styles/_spinner'
-@import 'header.css.sass'
 
 /* ====== media ====== */
 .media
@@ -120,11 +119,176 @@ ul > li
   ul
     :margin 0
 
+header
+  @include box-shadow(0,1px,3px,rgba(0,0,0,0.9))
+
+  :background
+    :color rgb(40,35,35)
+    :image image-url('header-bg.png')
+
+  :z-index 1001
+  :padding 6px 0
+  :color #CCC
+  :height 26px
+
+  :position fixed
+
+  :width 100%
+  :top 0
+  :left 0
+
+  :border
+    :bottom 1px solid #000
+
+  a
+    :color #CCC
+    :color rgb(147,147,147)
+
+    &:hover
+      :background none
+      :color #fafafa
+
+  &.landing
+    .right
+      :top 10px
+    :height 40px
+
+  ul#user_menu
+    :overflow hidden
+    :white-space nowrap
+    :text-overflow ellipsis
+    :text-shadow 0 1px 0 #000
+    :color rgb(147,147,147)
+
+    :min-width 100px
+
+    :cursor pointer
+
+    :z-index 10
+    :padding 5px 0
+      :left 32px
+      :right 7px
+    :margin 0
+      :top -2px
+      :right -5px
+
+    :border
+      :left 1px solid #333
+      :right 1px solid #333
+
+    :display inline
+
+    :top -4px
+    :float right
+
+    li
+      a
+        :padding 4px
+        :height 100%
+        :color #939393
+        &:hover
+          :background
+            :color $blue
+          :color #fff
+          :text
+            :decoration none
+
+      &:first-child
+        :padding 5px 0
+        a
+          :padding
+            :right 15px
+          &:hover
+            :background
+              :color transparent
+            :text
+              :decoration none
+          &:focus
+            :outline none
+        .right
+          :right 5px
+
+    &.active
+      @include dropdown-shadow
+
+      :margin
+        :top -3px
+        :right -5px
+      :background
+        :color rgb(34,30,30)
+      :border 1px solid #999
+
+    .avatar
+      :height 22px
+      :width 22px
+      :position absolute
+      :left 7px
+      :top 9px
+      :display block
+
+  .header-nav
+    :font-weight bold
+    :float left
+    :height 100%
+    :margin-right 5px
+    :margin-top 3px
+
+    a
+      :padding 0 10px
+      :width 100%
+      &:hover
+        :text-decoration none
+
+    > span
+      :height 100%
+      :display inline-block
+      :margin-left -4px
+      :border
+        :left 1px solid #333
+        :right 1px solid #333
+
+      &:last-child
+        :margin-left -5px
+
+
+header.ie-user-menu-active
+  :height 150px
+
+//////////////////////////////////
+ul.dropdown
+  :padding 0
+
+  li
+    :display none
+    a
+      :display block
+
+    &:first-child
+      :display block
+      a
+        :height auto
+        :display inline
+
+  &.active
+    :z-index 30
+    li
+      :display block
+
 //////////////////////////////////
 //hacks for tagging plugin...
 ul.as-selections
   :width 100% !important
 //////////////////////////////////
+
+.unread
+  :background-color #E6E6E6
+  :color #333 !important
+  time
+    :color #333 !important
+
+.diaspora_header_logo
+  :float left
+  :margin-top -6px
 
 .stream
   audio

@@ -1,17 +1,4 @@
-  @import 'header.css.sass';
-
-  header .container {
-    position: fixed;
-    right: 10px;
-  }
-
-  ul#landing_nav {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-  }
-
-  #registration {
+#registration {
   position : absolute;
   top : 0;
   left : 0;
@@ -21,21 +8,15 @@
 
   color : #fff;
 
-  .register-container {
-    margin-top : 1%;
-    margin-left: 40px;
-  }
-
-  form.block-form {
-  margin-top: -40px;
+  .container {
+    margin-top : 100px;
   }
 
   #create-something-text {
     font-family : Roboto-Light;
-    font-size : 70px;
-    line-height : 70px;
+    font-size : 100px;
+    line-height : 100px;
     white-space : nowrap;
-    padding-top: 4%;
   }
 
   #diaspora-hearts {
@@ -53,11 +34,10 @@
   }
 
   #collage {
-    width : 330px;
+    width : 344px;
     height : auto;
 
     max-width : 95%;
-    padding-top: 8%;
   }
 
   form {
