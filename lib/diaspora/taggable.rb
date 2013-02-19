@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join("app", "models", "acts_as_taggable_on", "tag")
-
 module Diaspora
   module Taggable
     def self.included(model)

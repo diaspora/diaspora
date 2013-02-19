@@ -4,8 +4,6 @@
 
 require 'spec_helper'
 
-require Rails.root.join('lib', 'postzord', 'dispatcher')
-
 describe Postzord::Dispatcher do
   before do
     @sm = FactoryGirl.create(:status_message, :public => true, :author => alice.person)

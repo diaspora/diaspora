@@ -4,8 +4,8 @@
 
 
 class Postzord::Dispatcher
-  require Rails.root.join('lib', 'postzord', 'dispatcher', 'private')
-  require Rails.root.join('lib', 'postzord', 'dispatcher', 'public')
+  require 'postzord/dispatcher/private'
+  require 'postzord/dispatcher/public'
 
   attr_reader :sender, :object, :xml, :subscribers, :opts
 

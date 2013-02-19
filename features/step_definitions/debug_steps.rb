@@ -1,6 +1,6 @@
 module DebuggingCukeHelpers
   def start_debugging
-    require 'ruby-debug'
+    require 'debug'
     debugger
     true
   end

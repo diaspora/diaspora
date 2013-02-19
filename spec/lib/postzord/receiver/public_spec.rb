@@ -4,9 +4,6 @@
 
 require 'spec_helper'
 
-require Rails.root.join('lib', 'postzord')
-require Rails.root.join('lib', 'postzord', 'receiver', 'public')
-
 describe Postzord::Receiver::Public do
   before do
     @post = FactoryGirl.build(:status_message, :author => alice.person, :public => true)

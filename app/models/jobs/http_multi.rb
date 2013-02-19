@@ -17,7 +17,7 @@ module Jobs
       people = Person.where(:id => person_ids)
 
       dispatcher = dispatcher_class_as_string.constantize
-      hydra = HydraWrapper.new(user, people, encoded_object_xml, dispatcher)
+      hydra = ::HydraWrapper.new(user, people, encoded_object_xml, dispatcher)
 
       hydra.enqueue_batch
       hydra.run

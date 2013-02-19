@@ -2,15 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join("lib", "stream", "aspect")
-require Rails.root.join("lib", "stream", "multi")
-require Rails.root.join("lib", "stream", "comments")
-require Rails.root.join("lib", "stream", "likes")
-require Rails.root.join("lib", "stream", "mention")
-require Rails.root.join("lib", "stream", "followed_tag")
-require Rails.root.join("lib", "stream", "activity")
-
-
 class StreamsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :save_selected_aspects, :only => :aspects

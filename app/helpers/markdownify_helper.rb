@@ -2,9 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join('lib', 'diaspora', 'markdownify')
-require 'redcarpet/render_strip'
-
 module MarkdownifyHelper
   def markdownify(target, render_options={})
 

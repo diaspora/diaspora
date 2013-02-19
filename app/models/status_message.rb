@@ -159,7 +159,6 @@ class StatusMessage < Post
   end
 
   def contains_oembed_url_in_text?
-    require 'uri'
     urls = URI.extract(self.raw_message, ['http', 'https'])
     self.oembed_url = urls.find{ |url| !TRUSTED_OEMBED_PROVIDERS.find(url).nil? }
   end

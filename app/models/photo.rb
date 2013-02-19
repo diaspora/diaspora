@@ -3,8 +3,6 @@
 #   the COPYRIGHT file.
 
 class Photo < ActiveRecord::Base
-  require 'carrierwave/orm/activerecord'
-
   include Diaspora::Federated::Shareable
   include Diaspora::Commentable
   include Diaspora::Shareable

@@ -2,11 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join('lib', 'stream', 'public')
 class PublicsController < ApplicationController
-  require Rails.root.join('lib', 'diaspora', 'parser')
-  require Rails.root.join('lib', 'postzord', 'receiver', 'public')
-  require Rails.root.join('lib', 'postzord', 'receiver', 'private')
   include Diaspora::Parser
 
   skip_before_filter :set_header_data

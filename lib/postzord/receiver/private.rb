@@ -2,9 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join('lib', 'webfinger')
-require Rails.root.join('lib', 'diaspora', 'parser')
-
 class Postzord::Receiver::Private < Postzord::Receiver
 
   def initialize(user, opts={})

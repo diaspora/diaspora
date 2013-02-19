@@ -1,5 +1,3 @@
-require Rails.root.join('lib', 'statistics')
-
 class AdminsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :redirect_unless_admin
