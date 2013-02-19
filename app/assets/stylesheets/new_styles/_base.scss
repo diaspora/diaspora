@@ -98,7 +98,7 @@ a { color : $link-blue  }
   iframe {
     width: 857px;
     height: 480px;
-    max-width: 97%;
+    max-width: 100%;
   }
 }
 
@@ -177,21 +177,23 @@ article { //mood posts
     }
 
     .photo_viewer {
-      margin-left: -1%;
+      margin-left: 20%;
       max-width: 650px;
       margin-right: 20%;
     }
 
     header {
-      font-family: Roboto, sans-serif;
-      font-size: 12px;
-      line-height: 12px;
+      font-family: Palatino, times, georgia, serif;
+      font-size: 1.2em;
+      line-height: 1.7em;
+      margin-bottom: 1.2em;
     }
 
     .body p {
-      font-family: Robot, sans-serif;
-      font-size: 12px;
-      line-height: 12px;
+      @include newspaper-type();
+      font-size: 1.2em;
+      line-height: 1.7em;
+      margin-bottom: 1.2em;
     }
   }
 
@@ -202,13 +204,12 @@ article { //mood posts
   .img-bounding-box {
     margin : 10px;
     display : inline-block;
-    text-align : center;
-    width: 767px;
+    text-align : left;
   }
 
   img {
-    max-height: 200%;
-    max-width: 800px;
+    max-height: 100%;
+    max-width: 500px;
   }
 }
 
