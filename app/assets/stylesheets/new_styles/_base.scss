@@ -61,6 +61,7 @@ a { color : $link-blue  }
 #post-author {
   margin : 0;
   padding : 10px;
+  margin-top: 21%;
 
   &.status-with-photo-backdrop,
   &.Wallpaper {
@@ -113,6 +114,10 @@ article { //mood posts
     max-height: 100%;
   }
 
+  body img {
+    text-align: center;
+  }
+
   .photo_viewer {
     margin-bottom : 20px;
   }
@@ -125,6 +130,7 @@ article { //mood posts
     box-shadow: 1px 1px 4px #999;
     padding-left: 25px;
     padding-right: 6px;
+    margin-top: 32px;
   }
 
   .post-header {
