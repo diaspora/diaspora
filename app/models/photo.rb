@@ -127,7 +127,7 @@ class Photo < ActiveRecord::Base
   end
 
   def queue_processing_job
-    Resque.enqueue(Jobs::ProcessPhoto, self.id)
+    Workers::ProcessPhoto.perform_async(self.id)
   end
 
   def mutable?

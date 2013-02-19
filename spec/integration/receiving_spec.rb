@@ -42,11 +42,12 @@ describe 'a user receives a post' do
   end
 
   it "should show bob's post to alice" do
-    fantasy_resque do
+    inlined_jobs do |queue|
       sm = bob.build_post(:status_message, :text => "hi")
       sm.save!
       bob.aspects.reload
       bob.add_to_streams(sm, [@bobs_aspect])
+      queue.drain_all
       bob.dispatch_post(sm, :to => @bobs_aspect)
     end
 
@@ -173,7 +174,7 @@ describe 'a user receives a post' do
 
     context 'remote' do
       before do
-        fantasy_resque do
+        inlined_jobs do |queue|
           connect_users(alice, @alices_aspect, eve, @eves_aspect)
           @post = alice.post(:status_message, :text => "hello", :to => @alices_aspect.id)
 
@@ -183,6 +184,7 @@ describe 'a user receives a post' do
           receive_with_zord(eve, alice.person, xml)
 
           comment = eve.comment!(@post, 'tada')
+          queue.drain_all
           # After Eve creates her comment, it gets sent to Alice, who signs it with her private key
           # before relaying it out to the contacts on the top-level post
           comment.parent_author_signature = comment.sign_with_key(alice.encryption_key)
@@ -190,6 +192,7 @@ describe 'a user receives a post' do
           comment.delete
 
           comment_with_whitespace = alice.comment!(@post, '   I cannot lift my thumb from the spacebar  ')
+          queue.drain_all
           @xml_with_whitespace = comment_with_whitespace.to_diaspora_xml
           @guid_with_whitespace = comment_with_whitespace.guid
           comment_with_whitespace.delete
@@ -253,13 +256,13 @@ describe 'a user receives a post' do
       end
 
       it 'does not raise a `Mysql2::Error: Duplicate entry...` exception on save' do
-        fantasy_resque do
+        inlined_jobs do
           @comment = bob.comment!(@post, 'tada')
           @xml = @comment.to_diaspora_xml
-
-          lambda {
+            
+          expect {
             receive_with_zord(alice, bob.person, @xml)
-          }.should_not raise_exception
+          }.to_not raise_exception
         end
       end
     end

@@ -17,4 +17,17 @@ module Diaspora
   class NotMine < StandardError
   end
   
+
+  # Received a message without having a contact
+  class ContactRequiredUnlessRequest < StandardError
+  end
+
+  # Got a relayable (comment, like etc.) without having the parent
+  class RelayableObjectWithoutParent < StandardError
+  end
+
+  # After building an object the author doesn't match the one in the
+  # original XML message
+  class AuthorXMLAuthorMismatch < StandardError
+  end
 end

@@ -46,7 +46,7 @@ Role.add_admin(bob.person)
 puts "done!"
 
 
-require Rails.root.join('spec', 'support', 'fake_resque')
+require 'sidekiq/testing/inline'
 require Rails.root.join('spec', 'support', 'user_methods')
 
 print "Seeding post data..."

@@ -19,7 +19,7 @@ class Webfinger
   end
 
   def self.in_background(account, opts={})
-    Resque.enqueue(Jobs::FetchWebfinger, account)
+    Workers::FetchWebfinger.perform_async(account)
   end
 
   #everything below should be private I guess

@@ -1,5 +1,102 @@
 # Head
 
+## Refactor
+
+### Replaced Resque with Sidekiq - Migration guide - [#3993](https://github.com/diaspora/diaspora/pull/3993)
+
+We replaced our queue system with Sidekiq. You might know that Resque needs Redis.
+Sidekiq does too, so don't remove it, it's still required. Sidekiq uses a threaded
+model so you'll need far less processes than with Resque to do the same amount
+of work.
+
+To update do the following:
+
+1. Before updating (even before the `git pull`!) stop your application
+   server (Unicorn by default, started through Foreman).
+2. In case you did already run `git pull` checkout v0.0.3.2:
+   
+   ```
+   git fetch origin
+   git checkout v0.0.3.2
+   bundle
+   ```
+   
+3. Start Resque web (you'll need temporary access to port 5678, check
+   your Firewall if needed!):
+   
+   ```
+   bundle exec resque-web
+   ```
+   
+   In case you need it you can adjust the port with the `-p` flag.
+4. One last time, start a Resque worker:
+   
+   ```
+   RAILS_ENV=production QUEUE=* bundle exec rake resque:work
+   ```
+
+   Visit Resque web via http://your_host:5678, wait until all queues but the
+   failed one are empty (show 0 jobs).
+5. Kill the Resque worker by hitting Ctrl+C. Kill Resque web with:
+   
+   ```
+   bundle exec resque-web -k
+   ```
+
+   Don't forget to close the port on the Firewall again, if you had to open it.
+6. In case you needed to do step 2., run:
+   
+   ```
+   git checkout master
+   bundle
+   ```
+
+7. Proceed with the update as normal (migrate database, precompile assets).
+8. Before starting Diaspora again ensure that you reviewed the new
+   `environment.sidekiq` section in `config/diaspora.yml.example` and,
+   if wanted, transfered it to your `config/diaspora.yml` and made any
+   needed changes. In particular increase the `environment.sidekiq.concurrency`
+   setting on any medium sized pod. If you do change that value, edit
+   your `config/database.yml` and add a matching `pool: n` to your database
+   configuration. n should be equal or higher than the amount of
+   threads per Sidekiq worker. This sets how many concurrent
+   connections to the database ActiveRecord allows.
+
+
+If you aren't using `script/server` but for example passenger, you no
+longer need to start a Resque worker, but a Sidekiq worker now. The
+command for that is:
+
+```
+bundle exec sidekiq
+```
+
+
+#### Heroku
+
+The only gotcha for Heroku single gear setups is that the setting name
+to spawn a background worker from the unicorn process changed. Run
+
+```
+heroku config:remove SERVER_EMBED_RESQUE_WORKER
+heroku config:set SERVER_EMBED_SIDEKIQ_WORKER=true
+```
+
+We're automatically adjusting the ActiveRecord connection pool size for you.
+
+Larger Heroku setups should have enough expertise to figure out what to do
+by them self.
+
+### Other
+
+* Cleaned up requires of our own libraries [#3993](https://github.com/diaspora/diaspora/pull/3993)
+* Refactor people_controller#show and photos_controller#index [#4002](https://github.com/diaspora/diaspora/issues/4002)
+* Modularize layout [#3944](https://github.com/diaspora/diaspora/pull/3944)
+* Add header to the sign up page [#3944](https://github.com/diaspora/diaspora/pull/3944)
+* Add a configuration entry to set max-age header to Amazon S3 resources. [#4048](https://github.com/diaspora/diaspora/pull/4048)
+* Load images via sprites [#4039](https://github.com/diaspora/diaspora/pull/4039)
+* Delete unnecessary javascript views. [#4059](https://github.com/diaspora/diaspora/pull/4059)
+
 ## Bug fixes
 
 * reset comment box height after posting a comment. [#4030](https://github.com/diaspora/diaspora/issues/4030)
@@ -12,15 +109,6 @@
 * Fix reshares in single post-view [#4056](https://github.com/diaspora/diaspora/issues/4056)
 * Fix mobile view of deleted reshares. [#4063](https://github.com/diaspora/diaspora/issues/4063)
 * Hide comment button in the mobile view when not signed in. [#4065](https://github.com/diaspora/diaspora/issues/4065)
-
-## Refactor
-
-* Delete unnecessary javascript views. [#4059] (https://github.com/diaspora/diaspora/pull/4059)
-* Add a configuration entry to set max-age header to Amazon S3 resources. [#4048](https://github.com/diaspora/diaspora/pull/4048)
-* Refactor people_controller#show and photos_controller#index [#4002](https://github.com/diaspora/diaspora/issues/4002)
-* Modularize layout [#3944](https://github.com/diaspora/diaspora/pull/3944)
-* Add header to the sign up page [#3944](https://github.com/diaspora/diaspora/pull/3944)
-* Load images via sprites [#4039](https://github.com/diaspora/diaspora/pull/4039)
 
 ## Features
 

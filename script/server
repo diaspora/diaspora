@@ -35,18 +35,13 @@ os=`uname -s`
 eval $(bundle exec ruby ./script/get_config.rb \
   port=server.port \
   db=server.database \
-  workers=server.resque_workers \
   single_process_mode=environment.single_process_mode?
-  embed_resque_worker=server.embed_resque_worker
+  embed_sidekiq_worker=server.embed_sidekiq_worker
 )
 
 if [ -z "$DB" ]; then
   DB=$db
   export DB
-fi
-
-if [ "$single_process_mode" = "true" -o "$embed_resque_worker" =  "true" ]; then
-  workers=0
 fi
 
 args="$@"
@@ -106,13 +101,11 @@ fi
 
 # Start Diaspora
 echo -n "Starting Diaspora in $RAILS_ENV mode on port $port "
-if [ "$embed_resque_worker" = "true" ]; then
-  echo "with a resque worker embeded into unicorn."
+if [ "$embed_sidekiq_worker" = "true" ]; then
+  echo "with a sidekiq worker embeded into unicorn."
 elif [ "$single_process_mode" = "true" ]; then
   echo "with job processing inside the request cycle."
-else
-  echo "with $workers resque workers."
 fi
 echo ""
 
-exec bundle exec foreman start -m "web=1,worker=$workers" -p $port
+exec bundle exec foreman start -m "web=1,sidekiq=1" -p $port

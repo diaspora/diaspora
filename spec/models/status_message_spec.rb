@@ -339,7 +339,7 @@ STR
 
     it 'should queue a GatherOembedData if it includes a link' do
       sm = FactoryGirl.build(:status_message, :text => @message_text)
-      Resque.should_receive(:enqueue).with(Jobs::GatherOEmbedData, instance_of(Fixnum), instance_of(String))
+      Workers::GatherOEmbedData.should_receive(:perform_async).with(instance_of(Fixnum), instance_of(String))
       sm.save
     end
 

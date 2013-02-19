@@ -36,7 +36,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
         @object.perform user if user
       end
     else
-      Resque.enqueue(Jobs::ReceiveLocalBatch, @object.class.to_s, @object.id, self.recipient_user_ids)
+      Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, self.recipient_user_ids)
       true
     end
   end
@@ -57,7 +57,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def save_object
     @object = Diaspora::Parser::from_xml(@salmon.parsed_data)
     raise "Object is not public" if object_can_be_public_and_it_is_not?
-    raise "Author does not match XML author" if author_does_not_match_xml_author?
+    raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
     @object.save! if @object && @object.respond_to?(:save!)
     @object
   end

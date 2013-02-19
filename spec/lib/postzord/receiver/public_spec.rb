@@ -61,13 +61,13 @@ describe Postzord::Receiver::Public do
         @receiver.perform!
       end
 
-      it 'enqueues a Jobs::ReceiveLocalBatch' do 
-        Resque.should_receive(:enqueue).with(Jobs::ReceiveLocalBatch, anything, anything, anything)
+      it 'enqueues a Workers::ReceiveLocalBatch' do 
+        Workers::ReceiveLocalBatch.should_receive(:perform_async).with(anything, anything, anything)
         @receiver.perform!
       end
 
       it 'intergrates' do
-        fantasy_resque do
+        inlined_jobs do
           @receiver.perform!
         end
       end

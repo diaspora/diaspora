@@ -76,7 +76,7 @@ describe ServicesController do
         profile[:image_url] = "/non/default/image.jpg"
         profile.save
 
-        Resque.should_not_receive(:enqueue)
+        Workers::FetchProfilePhoto.should_not_receive(:perform_async)
 
         post :create, :provider => 'twitter'
       end
@@ -86,7 +86,7 @@ describe ServicesController do
         profile[:image_url] = nil
         profile.save
 
-        Resque.should_receive(:enqueue).with(Jobs::FetchProfilePhoto, @user.id, anything(), "https://service.com/fallback_lowres.jpg")
+        Workers::FetchProfilePhoto.should_receive(:perform_async).with(@user.id, anything(), "https://service.com/fallback_lowres.jpg")
 
         post :create, :provider => 'twitter'
       end

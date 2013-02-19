@@ -17,8 +17,9 @@ gem 'devise', '2.1.3'
 
 # Background processing
 
-gem 'resque',         '1.23.0'
-gem 'resque-timeout', '1.0.0'
+gem 'sidekiq', '2.7.5'
+gem 'sinatra', '1.3.3'
+gem 'slim', '1.3.6'
 
 # Configuration
 

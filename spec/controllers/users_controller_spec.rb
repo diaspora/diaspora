@@ -121,10 +121,6 @@ describe UsersController do
     end
 
     describe 'email' do
-      before do
-        Resque.stub!(:enqueue)
-      end
-
       it 'disallow the user to change his new (unconfirmed) mail when it is the same as the old' do
         @user.email = "my@newemail.com"
         put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
@@ -157,7 +153,7 @@ describe UsersController do
       end
 
       it 'sends out activation email on success' do
-        Resque.should_receive(:enqueue).with(Jobs::Mail::ConfirmEmail, @user.id).once
+        Workers::Mail::ConfirmEmail.should_receive(:perform_async).with(@user.id).once
         put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
       end
     end
@@ -209,7 +205,7 @@ describe UsersController do
 
   describe '#destroy' do
     it 'does nothing if the password does not match' do
-      Resque.should_not_receive(:enqueue)
+      Workers::DeleteAccount.should_not_receive(:perform_async)
       delete :destroy, :user => { :current_password => "stuff" }
     end
 
@@ -219,7 +215,7 @@ describe UsersController do
     end
 
     it 'enqueues a delete job' do
-      Resque.should_receive(:enqueue).with(Jobs::DeleteAccount, anything)
+      Workers::DeleteAccount.should_receive(:perform_async).with(anything)
       delete :destroy, :user => { :current_password => "bluepin7" }
     end
   end

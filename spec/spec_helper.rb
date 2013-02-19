@@ -19,6 +19,7 @@ prefork = proc do
   require 'rspec/rails'
   require 'webmock/rspec'
   require 'factory_girl'
+  require 'sidekiq/testing'
 
   include HelperMethods
 
