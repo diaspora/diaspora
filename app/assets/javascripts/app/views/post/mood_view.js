@@ -19,12 +19,6 @@ app.views.Post.Mood = app.views.Post.extend({
   photoViewer : function(){
     return new app.views.PhotoViewer({ model : this.model })
   },
-
-  postRenderTemplate : function(){
-    if(this.model.body().length < 200){
-      this.$('section.body').addClass('short_body');
-    }
-  }
 });
 
 app.views.Post.Day = app.views.Post.Mood.extend({

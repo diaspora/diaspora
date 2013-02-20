@@ -42,16 +42,9 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
     if(options.save){ this.save() }
   },
 
-  headline : function() {
-    var headline = this.get("text").trim()
-      , newlineIdx = headline.indexOf("\n")
-    return (newlineIdx > 0 ) ? headline.substr(0, newlineIdx) : headline
-  },
-
   body : function(){
-    var body = this.get("text").trim()
-      , newlineIdx = body.indexOf("\n")
-    return (newlineIdx > 0 ) ? body.substr(newlineIdx+1, body.length) : ""
+    var body = this.get("text")
+    return (body)
   },
 
   //returns a promise
@@ -68,7 +61,7 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
     return $.trim(this.get("text")) !== ""
   }
 }), {
-  headlineLimit : 118,
+  headlineLimit : 10,
 
   frameMoods : [
     "Wallpaper",
