@@ -7,6 +7,7 @@
 ## Bug Fixes
 
 * exec foreman in ./script/server to replace the process so that we can Ctrl+C it again.
+* Include our custom fileuploader on the mobile site too. [#3994](https://github.com/diaspora/diaspora/pull/3994)
 
 # 0.0.3.0
 
