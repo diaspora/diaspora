@@ -4,16 +4,22 @@
 
 class HomeController < ApplicationController
   def show
+    partial_dir = Rails.root.join('app', 'views', 'home')
     if user_signed_in?
       redirect_to stream_path
     elsif is_mobile_device?
-      unless(File.exist?(Rails.root.join('app', 'views', 'home', '_show.mobile.erb')))
-        redirect_to user_session_path
+      if partial_dir.join('_show.mobile.haml').exist? ||
+         partial_dir.join('_show.mobile.erb').exist?
+        render :show, layout: 'post'
       else
-        render :show, :layout => 'post'
+        redirect_to user_session_path
       end
+    elsif partial_dir.join("_show.html.haml").exist? ||
+          partial_dir.join("_show.html.erb").exist?
+      render :show, layout: 'post'
     else
-      render :show, :layout => 'post'
+        render file: Rails.root.join("public", "default.html"),
+               layout: 'post'
     end
   end
 
