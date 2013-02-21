@@ -65,7 +65,7 @@
         $('.x').bind('click', function(){
           var photo = $(this).closest('.publisher_photo');
           photo.addClass("dim");
-          $.ajax({url: "photos/" + photo.children('img').attr('data-id'),
+          $.ajax({url: "/photos/" + photo.children('img').attr('data-id'),
                   dataType: 'json',
                   type: 'DELETE',
                   success: function() {
