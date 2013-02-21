@@ -54,6 +54,12 @@ describe UsersController do
       response.body.should include('a href')
     end
 
+    it 'includes reshares in the atom feed' do
+      reshare = FactoryGirl.create(:reshare, :author => @user.person)
+      get :public, :username => @user.username, :format => :atom
+      response.body.should include reshare.root.raw_message
+    end
+
     it 'redirects to a profile page if html is requested' do
       get :public, :username => @user.username
       response.should be_redirect
