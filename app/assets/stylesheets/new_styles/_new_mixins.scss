@@ -23,7 +23,7 @@ $night-text-color : #999;
 
 @mixin pane-width() {
   width: $pane-width;
-  max-width: 100%;
+  max-width: 98%;
 }
 
 @mixin background-cover() {
@@ -38,6 +38,7 @@ $night-text-color : #999;
   border-top: 1px solid #DADADA;
   color: #ddd;
   background: #fff;
+  margin-left: -10px;
 }
 
 @mixin info-container() {
@@ -69,7 +70,7 @@ $night-text-color : #999;
 }
 
 @mixin newspaper-type() {
-  font-family: Palatino, times, georgia, serif;
+  font-family: Roboto, sans-serif;
 }
 
 @mixin centered-frame(){

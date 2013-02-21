@@ -191,9 +191,11 @@ article { //mood posts
 
     .body p {
       @include newspaper-type();
-      font-size: 1.2em;
+      font-size: 0.9em;
       line-height: 1.7em;
       margin-bottom: 1.2em;
+      margin-right: 15px;
+      margin-left: 4px;
     }
   }
 
