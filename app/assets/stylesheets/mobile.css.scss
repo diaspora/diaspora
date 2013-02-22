@@ -50,9 +50,13 @@ body {
       font-weight: bold;
     }
     margin-bottom: 2px;
-    height: 45px;
-    white-space: nowrap;
+    word-wrap: break-word;
     overflow: hidden;
+    .time_notif {
+      font-weight: normal;
+      float: right;
+      padding-right: 5px;
+    }
   }
 
   > .content,
@@ -165,6 +169,10 @@ body {
 #main_stream {
   margin-left: -10px;
   margin-right: -10px;
+  .from {
+    white-space: nowrap;
+    overflow: hidden;
+  }
 }
 
 .more-link {
