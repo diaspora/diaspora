@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.0.3.0"
+    number: "0.0.3.1"
   heroku: false
   environment:
     url: "http://localhost:3000/"
