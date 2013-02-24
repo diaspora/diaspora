@@ -73,7 +73,7 @@ app.Router = Backbone.Router.extend({
     $("#tags_list").replaceWith(followedTagsView.render().el);
     followedTagsView.setupAutoSuggest();
 
-    app.tagFollowings.add(preloads.tagFollowings);
+    app.tagFollowings.reset(preloads.tagFollowings);
 
     if(name) {
       var followedTagsAction = new app.views.TagFollowingAction(

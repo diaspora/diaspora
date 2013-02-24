@@ -14,7 +14,8 @@ app.views.TagFollowingList = app.views.Base.extend({
   },
 
   initialize : function(){
-    this.collection.bind("add", this.appendTagFollowing, this);
+    this.collection.on("add", this.appendTagFollowing, this);
+    this.collection.on("reset", this.postRenderTemplate, this);
   },
 
   postRenderTemplate : function() {
