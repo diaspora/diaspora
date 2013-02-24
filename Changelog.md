@@ -4,6 +4,7 @@
 
 * Deleting a post that was shared to Facebook now deletes it from Facebook too [#3980]( https://github.com/diaspora/diaspora/pull/3980)
 * Include reshares in a users public atom feed [#1781](https://github.com/diaspora/diaspora/issues/1781)
+* Add the ability to upload photos from the mobile site. [#4004](https://github.com/diaspora/diaspora/issues/4004)
 
 ## Bug Fixes
 
