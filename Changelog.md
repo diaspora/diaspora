@@ -9,7 +9,7 @@
 * Deleting a post that was shared to Facebook now deletes it from Facebook too [#3980]( https://github.com/diaspora/diaspora/pull/3980)
 * Include reshares in a users public atom feed [#1781](https://github.com/diaspora/diaspora/issues/1781)
 
-## Bug Fixes
+# 0.0.3.1
 
 * exec foreman in ./script/server to replace the process so that we can Ctrl+C it again.
 * Include our custom fileuploader on the mobile site too. [#3994](https://github.com/diaspora/diaspora/pull/3994)
