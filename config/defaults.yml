@@ -4,8 +4,7 @@
 
 defaults:
   version:
-    number: "0.0.3.0"
-    release: true # Do not touch unless in a merge conflict on doing a release, master should have a commit setting this to true which is not backported to the develop branch.
+    number: "0.0.3.1"
   heroku: false
   environment:
     url: "http://localhost:3000/"

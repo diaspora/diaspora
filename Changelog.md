@@ -1,3 +1,12 @@
+# 0.0.3.1
+
+* exec foreman in ./script/server to replace the process so that we can Ctrl+C it again.
+* Include our custom fileuploader on the mobile site too. [#3994](https://github.com/diaspora/diaspora/pull/3994)
+* Move custom splash page logic into the controller [#3991](https://github.com/diaspora/diaspora/issues/3991)
+* Fixed removing images from publisher on the profile and tags pages. [#3995](https://github.com/diaspora/diaspora/pull/3995)
+* Wrap text if too long in mobile notifications. [#3990](https://github.com/diaspora/diaspora/pull/3990)
+* Sort tag followings alphabetically, not in reverse [#3986](https://github.com/diaspora/diaspora/issues/3986)
+
 # 0.0.3.0
 
 ## Refactor
