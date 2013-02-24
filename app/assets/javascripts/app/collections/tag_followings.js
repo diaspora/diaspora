@@ -1,8 +1,10 @@
 app.collections.TagFollowings = Backbone.Collection.extend({
 
   model: app.models.TagFollowing,
-
   url : "/tag_followings",
+  comparator: function(first_tf, second_tf) {
+    return first_tf.get("name") < second_tf.get("name");
+  },
 
   create : function(model) {
     var name = model.name || model.get("name");
