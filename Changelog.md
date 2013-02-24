@@ -1,5 +1,9 @@
 # Head
 
+## Refactor
+
+* Refactor people_controller#show and photos_controller#index [#4002](https://github.com/diaspora/diaspora/issues/4002)
+
 ## Features
 
 * Deleting a post that was shared to Facebook now deletes it from Facebook too [#3980]( https://github.com/diaspora/diaspora/pull/3980)
