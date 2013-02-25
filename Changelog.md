@@ -2,6 +2,7 @@
 
 ## Bug fixes
 
+* fade long tag names. [#3899](https://github.com/diaspora/diaspora/issues/3899)
 * avoid posting empty comments. [#3836](https://github.com/diaspora/diaspora/issues/3836)
 
 ## Refactor

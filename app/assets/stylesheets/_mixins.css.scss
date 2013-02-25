@@ -64,6 +64,16 @@ $default-border-radius: 3px;
   background-image: -o-linear-gradient(top, $from $start, $to $end);
 }
 
+@mixin horizontal-linear-gradient($from, $to, $start:0%, $end:100%){
+  background-image: mix($from,$to);
+  
+  background-image: -moz-linear-gradient(left, $from $start, $to $end);
+  background-image: -o-linear-gradient(left, $from $start, $to $end);
+  background-image: -webkit-linear-gradient(left, $from $start, $to $end);
+  background-image: -ms-linear-gradient(left, $from $start, $to $end);
+  background-image: -khtml-linear-gradient(left, $from $start, $to $end);
+}
+
 @mixin opacity($val){
   filter: alpha(opacity= $val* 100);
   -moz-opacity: $val;

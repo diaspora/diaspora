@@ -2304,8 +2304,11 @@ ul.left_nav
     :margin-top 4px
     @include transition(opacity)
     @include opacity(0.3)
-    :float right
+    :position absolute
     :display none
+    :background
+      :color white
+    :padding 0 5px
     &:hover
       @include opacity(1)
 
@@ -2342,16 +2345,39 @@ ul.left_nav
       :width 150px
     ul.sub_nav
       :width 140px
+      &:hover
+        :width auto
 
       a.aspect_selector,
       a.tag_selector
         :width 140px
+        :overflow hidden
+        :position relative
+        :display inline-block
+        &:after
+          :display inline-block
+          :content ""
+          :width 80px
+          :height 25px
+          :position absolute
+          :top 0px
+          :left 100px
+          @include horizontal-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1))
+        &:hover
+          :width auto
+          :z-index 0.9
+        &:hover:after
+          :background none
 
       li:hover,
       li.hover
         .edit,
         .unfollow_icon
           :display inline-block
+          :position absolute
+          :top 0
+          :left 0
+          :z-index 1
 
   .user_card
     :margin-left 8px
