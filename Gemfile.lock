@@ -66,7 +66,7 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.2.6)
     client_side_validations (3.2.2)
-    coderay (1.0.8)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
