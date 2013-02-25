@@ -85,6 +85,7 @@
 * RTL-language characters in usernames no longer overlay post dates [#2339](https://github.com/diaspora/diaspora/issues/2339)
 * Overflow info author mobile web. [#3983](https://github.com/diaspora/diaspora/issues/3983)
 * Overflow name author mobile post. [#3981](https://github.com/diaspora/diaspora/issues/3981)
+* Avoid posting empty comments. [#3836](https://github.com/diaspora/diaspora/issues/3836)
 
 ## Gem Updates
 
