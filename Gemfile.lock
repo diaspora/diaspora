@@ -351,7 +351,7 @@ GEM
     ruby-oembed (0.8.8)
     ruby-progressbar (1.0.2)
     rubyzip (0.9.9)
-    safe_yaml (0.8.0)
+    safe_yaml (0.8.5)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
