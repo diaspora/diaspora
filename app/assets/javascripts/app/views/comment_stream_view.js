@@ -40,11 +40,13 @@ app.views.CommentStream = app.views.Base.extend({
   createComment: function(evt) {
     if(evt){ evt.preventDefault(); }
     
-    var commentText = this.$(".comment_box").val();
+    var commentText = this.$(".comment_box").val().trim();
     if(commentText) {
-      this.model.comment(this.$(".comment_box").val())
-      this.$(".comment_box").val("")
+      this.model.comment(commentText);
+      this.$(".comment_box").val("");
       return this;
+    } else {
+      this.$(".comment_box").val("").focus();
     }
   },
 
