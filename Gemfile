@@ -108,7 +108,7 @@ group :assets do
 
   # JavaScript
 
-  gem 'handlebars_assets', '0.11.0'
+  gem 'handlebars_assets', '0.12.0'
   gem 'jquery-rails',      '2.1.4'
 
   # Windows and OSX have an execjs compatible runtime built-in, Linux users should
