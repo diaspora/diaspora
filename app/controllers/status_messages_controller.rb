@@ -23,6 +23,7 @@ class StatusMessagesController < ApplicationController
       if @contact
         @aspects_with_person = @contact.aspects
         @aspect_ids = @aspects_with_person.map{|x| x.id}
+        gon.aspect_ids = @aspect_ids
         @contacts_of_contact = @contact.contacts
         render :layout => nil
       end
@@ -30,6 +31,7 @@ class StatusMessagesController < ApplicationController
       @aspect = :all
       @aspects = current_user.aspects
       @aspect_ids = @aspects.map{ |a| a.id }
+      gon.aspect_ids = @aspect_ids
     end
   end
 

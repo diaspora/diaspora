@@ -1,3 +1,15 @@
 When /^I visit the mobile aspects page$/ do
   visit('/aspects.mobile')
 end
+
+When /^I visit the mobile home page$/ do
+  visit('/users/sign_in.mobile')
+end
+
+Given /^I publisher mobile page$/ do
+  visit('/status_messages/new.mobile')
+end
+
+When /^I visit the mobile stream page$/ do
+  visit('/stream.mobile')
+end
