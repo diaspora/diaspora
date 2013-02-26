@@ -33,6 +33,14 @@ describe ConversationsController do
       get :new, :aspect_id => alice.aspects.first.id
       assigns(:contact_ids).should == alice.aspects.first.contacts.map(&:id).join(',')
     end
+
+    it "does not allow XSS via the name parameter" do
+      ["</script><script>alert(1);</script>",
+       '"}]});alert(1);(function f() {var foo = [{b:"'].each do |xss|
+        get :new, name: xss
+        response.body.should_not include xss
+      end
+    end
   end
 
   describe '#index' do

@@ -1,3 +1,7 @@
+# 0.0.3.2
+
+* Fix XSS vulnerability in conversations#new [#4010](https://github.com/diaspora/diaspora/issues/4010)
+
 # 0.0.3.1
 
 * exec foreman in ./script/server to replace the process so that we can Ctrl+C it again.
