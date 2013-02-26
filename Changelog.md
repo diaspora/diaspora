@@ -1,5 +1,9 @@
 # Head
 
+## Bug fixes
+
+* avoid posting empty comments. [#3836](https://github.com/diaspora/diaspora/issues/3836)
+
 ## Refactor
 
 * Refactor people_controller#show and photos_controller#index [#4002](https://github.com/diaspora/diaspora/issues/4002)
@@ -57,7 +61,7 @@
 * Stream form on profile page [#3910](https://github.com/diaspora/diaspora/issues/3910).
 * Add Getting_Started page mobile. [#3949](https://github.com/diaspora/diaspora/issues/3949).
 * Autoscroll to the first unread message in conversations. [#3216](https://github.com/diaspora/diaspora/issues/3216)
-* Friendlier new-conversation mobile. [#3984](https://github.com/diaspora/diaspora/issues/3984) 
+* Friendlier new-conversation mobile. [#3984](https://github.com/diaspora/diaspora/issues/3984)
 
 ## Bug Fixes
 
