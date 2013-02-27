@@ -45,13 +45,33 @@ describe("app.views.Publisher", function() {
       it("removes the 'active' class from the publisher element", function(){
         this.view.close($.Event());
         expect($(this.view.el)).toHaveClass("closed");
-      })
+      });
 
-      it("resets the element's height", function() {
+      it("resets the element's height when losing focus and input text is empty", function() {
         $(this.view.el).find("#status_message_fake_text").height(100);
         this.view.close($.Event());
         expect($(this.view.el).find("#status_message_fake_text").attr("style")).not.toContain("height");
       });
+      
+      it("keeps the element's height when losing focus and input text has content", function() {
+        $(this.view.el).find("#status_message_fake_text").val('this is a status message');
+        $(this.view.el).find("#status_message_fake_text").height(100);
+        this.view.close($.Event());
+        expect($(this.view.el).find("#status_message_fake_text").height()).toEqual(100);
+      });
+    });
+    
+    describe("#avoidClosing", function() {
+      beforeEach(function() {
+        this.view.open($.Event());
+        $(this.view.el).find("#status_message_fake_text").click();
+      });
+      
+      it("sets blank space on publisher input to avoid closing when input text is empty", function(){
+        this.view.avoidClosing();
+        expect($(this.view.el).find("#status_message_fake_text").val()).toEqual(" ");
+      });
+      
     });
 
     describe("#clear", function() {

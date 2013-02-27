@@ -20,7 +20,11 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     "submit form" : "createStatusMessage",
     "click .service_icon": "toggleService",
     "textchange #status_message_fake_text": "handleTextchange",
-    "click .dropdown .dropdown_list li": "toggleAspect"
+    "click .dropdown .dropdown_list li": "toggleAspect",
+    "blur textarea" : "close",
+    "mousedown .button.publisher" : "avoidClosing",
+    "mousedown #file-upload" : "avoidClosing",
+    "mousedown .button.creation" : "avoidClosing"
   },
 
   initialize : function(){
@@ -122,16 +126,33 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
     // fetch contacts for mentioning
     Mentions.fetchContacts();
+    
+    var trimmedText = $.trim(this.el_input.val());
+    this.el_input.val(trimmedText);
+
+    this.el_input.autoResize();
 
     return this;
   },
 
-  close : function() {
-    $(this.el).addClass("closed");
-    this.el_wrapper.removeClass("active");
-    this.el_input.css('height', '');
-
-    return this;
+  close : function(evt) {
+    var inputText = this.el_input.val();
+    var photoAttached = this.$('#photodropzone').find('li')[0];
+    if(!inputText && !photoAttached) {
+      $(this.el).addClass("closed");
+      this.el_wrapper.removeClass("active");
+      this.el_input.css('height', '');
+      var trimmedText = $.trim(this.el_input.val());
+      this.el_input.val(trimmedText);
+      return this;
+    }
+  },
+  
+  avoidClosing : function() {
+    var inputText = this.el_input.val();
+    if(!inputText) {
+      this.el_input.val(' ');
+    }
   },
 
   checkSubmitAvailability: function() {
