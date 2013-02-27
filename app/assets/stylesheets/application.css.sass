@@ -8,8 +8,10 @@
 
 @import 'icons/*.png'
 @import 'branding/*.png'
+@import 'social_media_logos/*.png'
 @include all-icons-sprites
 @include all-branding-sprites
+@include all-social_media_logos-sprites
 /* ====== media ====== */
 .media
   :margin 10px
@@ -741,6 +743,15 @@ form p.checkbox_select
       :top 3px
       :margin
         :right 10px
+
+      .social_media_logos-facebook-16x16,
+      .social_media_logos-twitter-16x16,
+      .social_media_logos-tumblr-16x16,
+      .social_media_logos-email-16x16,
+      .social_media_logos-feed-16x16,
+      .social_media_logos-website-16x16
+        :height 16px
+        :width 16px
 
     #fileInfo
       :display inline
@@ -2744,6 +2755,18 @@ a.toggle_selector
   :text-align center
   :padding 10px
     :bottom 0
+
+  .social_media_logos-facebook-24x24,
+  .social_media_logos-twitter-24x24,
+  .social_media_logos-tumblr-24x24,
+  .social_media_logos-email-24x24,
+  .social_media_logos-feed-24x24,
+  .social_media_logos-website-24x24
+    :height 24px
+    :width 24px
+
+  a
+    :display inline-block
 
 .cubbies_images
   :margin-left 15px
