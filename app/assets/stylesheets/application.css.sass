@@ -7,7 +7,9 @@
 /* ===== sprites ===== */
 
 @import 'icons/*.png'
+@import 'branding/*.png'
 @include all-icons-sprites
+@include all-branding-sprites
 /* ====== media ====== */
 .media
   :margin 10px
@@ -144,6 +146,14 @@ header
 
   :border
     :bottom 1px solid #000
+
+  a.header_root_link
+    :display inline-block
+    :margin-top 5px
+
+  .branding-logo_small
+    :height 16px
+    :width 161px
 
   a
     :color #CCC
@@ -294,6 +304,8 @@ ul.as-selections
 .diaspora_header_logo
   :float left
   :margin-top -6px
+  :height 38px
+  :width 65px
 
 .stream
   audio
@@ -1381,8 +1393,10 @@ footer
     :border
       :top 1px solid #ddd
 
-  img
-    :margin-top 2px
+  .branding-powered_by_diaspora
+    :margin-top 3px
+    :height 11px
+    :width 145px
 
   ul#footer_nav
     :margin 0
