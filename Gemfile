@@ -177,7 +177,7 @@ group :test do
   gem 'fixture_builder', '0.3.5'
   gem 'fuubar',          '1.1.0'
   gem 'rspec-instafail', '0.2.4', :require => false
-  gem 'rspec-rails',     '2.12.2'
+  gem "rspec-rails",     '2.13.0'
   
   # Cucumber (integration tests)
 
