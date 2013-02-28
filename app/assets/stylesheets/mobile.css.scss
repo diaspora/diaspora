@@ -546,6 +546,9 @@ footer {
     border: {
       bottom: 1px solid #999;
     }
+    .counter {
+      font-size: 14px;
+    }
   }
 
   textarea {
@@ -1040,7 +1043,7 @@ input#q.search {
 }
 
 #file-upload-publisher {
-  bottom: 10px !important;
+  bottom: 0px !important;
   display: inline-block;
   padding: 3px 12px;
   position: absolute !important;
