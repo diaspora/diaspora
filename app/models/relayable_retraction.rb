@@ -8,6 +8,8 @@ class RelayableRetraction < SignedRetraction
 
   attr_accessor :parent_author_signature
 
+  delegate :parent, :parent_author, to: :target, allow_nil: true
+
   def signable_accessors
     super - ['parent_author_signature']
   end
@@ -18,11 +20,6 @@ class RelayableRetraction < SignedRetraction
     retraction = super
     retraction.parent_author_signature = retraction.sign_with_key(sender.encryption_key) if defined?(target.parent) && sender.person == target.parent.author
     retraction
-  end
-
-  def parent
-    return nil unless self.target.present?
-    self.target.parent
   end
 
   def diaspora_handle
