@@ -311,14 +311,26 @@ describe 'a user receives a post' do
 
   context 'retractions' do
     it 'should accept retractions' do
-      message = bob.post(:status_message, :text => "cats", :to => @bobs_aspect.id)
+      message = bob.post(:status_message, text: "cats", to: @bobs_aspect.id)
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
 
-      lambda {
-        zord = Postzord::Receiver::Private.new(alice, :person => bob.person)
+      expect {
+        zord = Postzord::Receiver::Private.new(alice, person: bob.person)
         zord.parse_and_receive(xml)
-      }.should change(StatusMessage, :count).by(-1)
+      }.to change(StatusMessage, :count).by(-1)
+    end
+
+    it 'should accept relayable retractions' do
+      message = bob.post(:status_message, text: "cats", to: @bobs_aspect.id)
+      comment = bob.comment! message, "and dogs"
+      retraction = RelayableRetraction.build(bob, comment)
+      xml = retraction.to_diaspora_xml
+
+      expect {
+        zord = Postzord::Receiver::Private.new(alice, person: bob.person)
+        zord.parse_and_receive xml
+      }.to change(Comment, :count).by(-1)
     end
   end
 
