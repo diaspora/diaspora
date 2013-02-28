@@ -294,8 +294,8 @@ function createUploader(){
 
        messages: {
           typeError: Diaspora.I18n.t("photo_uploader.invalid_ext"),
-          sizeError: Diaspora.I18n.t("photos.new_photo.size_error"),
-          emptyError: Diaspora.I18n.t("photos.new_photo.empty")
+          sizeError: Diaspora.I18n.t("photo_uploader.new_photo.size_error"),
+          emptyError: Diaspora.I18n.t("photo_uploader.new_photo.empty")
        },
 
        onSubmit: function(id, fileName){
@@ -303,13 +303,13 @@ function createUploader(){
         $('#publisher_textarea_wrapper').addClass("with_attachments");
         $('#photodropzone').append(
           "<li class='publisher_photo loading' style='position:relative;'>" +
-            "<img alt=\"Ajax-loader2\" src=\"/assets/ajax-loader2.gif\" />" +
+            "<img alt='Ajax-loader2' src='/assets/ajax-loader2.gif' />" +
           "</li>"
           );
        },
 
        onComplete: function(id, fileName, responseJSON) {
-        $('#fileInfo-publisher').text(fileName + ' completed');
+        $('#fileInfo-publisher').text(Diaspora.I18n.t("photo_uploader.completed", file=fileName));
         var id = responseJSON.data.photo.id,
             url = responseJSON.data.photo.unprocessed_image.url,
             currentPlaceholder = $('li.loading').first();
