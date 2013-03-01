@@ -150,7 +150,7 @@ class Postzord::Dispatcher
       end
     end
     if @object.instance_of?(SignedRetraction)
-      services.each do |service|
+      services.select { |service| service.respond_to? :delete_post }.each do |service|
         Resque.enqueue(Jobs::DeletePostFromService, service.id, @object.target.facebook_id)
       end
     end

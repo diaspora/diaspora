@@ -317,8 +317,16 @@ describe Postzord::Dispatcher do
         retraction = SignedRetraction.build(alice, FactoryGirl.create(:status_message))
         mailman = Postzord::Dispatcher.build(alice, retraction,  :url => "http://joindiaspora.com/p/123", :services => [@service])
 
-        Resque.stub!(:enqueue).with(Jobs::DeletePostFromService, anything, anything)
         Resque.should_receive(:enqueue).with(Jobs::DeletePostFromService, anything, anything)
+        mailman.post
+      end
+
+      it "doesn't queue a job if we can't delete the post from the service" do
+        retraction = SignedRetraction.build(alice, FactoryGirl.create(:status_message))
+        service = Services::Twitter.new(access_token: "nope")
+        mailman = Postzord::Dispatcher.build(alice, retraction,  :url => "http://joindiaspora.com/p/123", :services => [service])
+
+        Resque.should_not_receive(:enqueue).with(Jobs::DeletePostFromService, anything, anything)
         mailman.post
       end
     end
