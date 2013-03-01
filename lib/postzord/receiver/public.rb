@@ -30,6 +30,11 @@ class Postzord::Receiver::Public < Postzord::Receiver
       receive_relayable
     elsif @object.is_a?(AccountDeletion)
       #nothing
+    elsif @object.is_a?(SignedRetraction) # feels like a hack
+      self.recipient_user_ids.each do |user_id|
+        user = User.where(id: user_id).first
+        @object.perform user if user
+      end
     else
       Resque.enqueue(Jobs::ReceiveLocalBatch, @object.class.to_s, @object.id, self.recipient_user_ids)
       true
@@ -53,7 +58,8 @@ class Postzord::Receiver::Public < Postzord::Receiver
     @object = Diaspora::Parser::from_xml(@salmon.parsed_data)
     raise "Object is not public" if object_can_be_public_and_it_is_not?
     raise "Author does not match XML author" if author_does_not_match_xml_author?
-    @object.save!  if @object
+    @object.save! if @object && @object.respond_to?(:save!)
+    @object
   end
 
   # @return [Array<Integer>] User ids

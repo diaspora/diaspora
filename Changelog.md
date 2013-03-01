@@ -4,6 +4,7 @@
 
 * avoid posting empty comments. [#3836](https://github.com/diaspora/diaspora/issues/3836)
 * Delegate parent_author to the target of a RelayableRetraction
+* Do not fail on receiving a SignedRetraction via the public route
 
 ## Refactor
 
