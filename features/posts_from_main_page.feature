@@ -101,6 +101,9 @@ Feature: posting from the main page
     Scenario: back out of posting a photo-only post
       Given I expand the publisher
       And I have turned off jQuery effects
+      When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
+      And I preemptively confirm the alert
+      Then I should not see an uploaded image within the photo drop zone
       When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
       And I wait for the ajax to finish
       And I click to delete the first uploaded photo

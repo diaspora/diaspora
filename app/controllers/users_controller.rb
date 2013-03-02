@@ -120,7 +120,10 @@ class UsersController < ApplicationController
 
     @css_framework = :bootstrap
     @include_application_css = true #Hack for multiple CSS frameworks and having two main styles
-    render "users/getting_started", layout: "with_header_with_footer"
+    respond_to do |format|
+    format.mobile { render "users/getting_started" }
+    format.all { render "users/getting_started", layout: "with_header_with_footer" }
+    end
   end
 
   def getting_started_completed
