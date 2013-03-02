@@ -184,7 +184,7 @@ group :test do
   gem 'capybara',           '1.1.3'
   gem 'cucumber-rails',     '1.3.0', :require => false
   gem 'database_cleaner',   '0.9.1'
-  gem 'selenium-webdriver', '2.30.0'
+  gem 'selenium-webdriver', '2.31.0'
   
 
   # Jasmine (client side application tests (JS))
