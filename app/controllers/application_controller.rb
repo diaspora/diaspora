@@ -132,6 +132,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_redirect_path
-    current_user.getting_started? ? getting_started_path : root_path
+    current_user.getting_started? ? getting_started_path : stream_path
   end
 end
