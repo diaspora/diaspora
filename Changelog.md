@@ -13,6 +13,7 @@
 
 ## Refactor
 
+* Delete unnecessary javascript views. [#4059] (https://github.com/diaspora/diaspora/pull/4059)
 * Add a configuration entry to set max-age header to Amazon S3 resources. [#4048](https://github.com/diaspora/diaspora/pull/4048)
 * Refactor people_controller#show and photos_controller#index [#4002](https://github.com/diaspora/diaspora/issues/4002)
 * Modularize layout [#3944](https://github.com/diaspora/diaspora/pull/3944)
