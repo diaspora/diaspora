@@ -29,7 +29,7 @@
 
     %ul.sub_nav
       %li.aspect_element{:class => ("active" if params["set"] == "only_sharing")}
-        .icons-check_yes_ok{:class => "invisible"}
+        .icons-check_yes_ok{:class => ("invisible" if params["set"] == "only_sharing")}
         %a.community_aspect_selector{:href => contacts_path(:set => "only_sharing")}
           = t('contacts.index.only_sharing_with_me')
         .contact_count

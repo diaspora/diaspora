@@ -1427,6 +1427,7 @@ footer
       :top 1px solid #ddd
 
   .branding-powered_by_diaspora
+    :display inline-block
     :margin-top 3px
     :height 11px
     :width 145px
@@ -2370,20 +2371,6 @@ ul.left_nav
     :text
       :decoration none
 
-  ul.sub_nav
-    li:hover,
-    li.hover
-      @include border-radius(2px)
-      :background
-        :color lighten($blue,45%)
-      .edit,
-      .unfollow_icon
-        :display inline-block
-
-        .icons-monotone_close_exit_delete
-          :height 16px
-          :width 16px
-
   .invisible
     :visibility hidden
 
@@ -2428,7 +2415,7 @@ ul.left_nav
     :padding 3px 7px
 
   a.home_selector,
-  a.tag_selector,
+  li.aspect_element,
   a.element_selector
     &:hover
       @include border-radius(2px)
@@ -2444,8 +2431,6 @@ ul.left_nav
     @include opacity(0.3)
     :position absolute
     :display none
-    :background
-      :color white
     :padding 0 5px
     &:hover
       @include opacity(1)
@@ -2512,7 +2497,7 @@ ul.left_nav
           :decoration none
 
       a.tag_selector
-        :width 140px
+        :width 117px
         :overflow hidden
         :position relative
         :display inline-block
@@ -2524,10 +2509,6 @@ ul.left_nav
           :position absolute
           :top 0px
           :left 100px
-          @include horizontal-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1))
-        &:hover
-          :width auto
-          :z-index 0.9
         &:hover:after
           :background none
 
@@ -2540,19 +2521,28 @@ ul.left_nav
           :margin-left 3px
           :vertical-align middle
 
-      li:hover,
+        .icons-deletelabel
+          :height 8px
+          :width 8px
+          :margin-top 4px
+
+      li.unfollow,
+      li.sub_nav_item
+        :width 172px
+
+      li.unfollow:hover,
+      li.sub_nav_item:hover,
       li.hover
-        width: 172px
         @include border-radius(2px)
         :background
           :color lighten($blue,45%)
         .edit,
         .unfollow_icon
-          :display inline-block
-          :position absolute
-          :top 0
-          :left 0
           :z-index 1
+          :display inline-block
+          .icons-monotone_close_exit_delete
+            :height 16px
+            :width 16px
 
   .user_card
     :margin-left 8px
@@ -3033,11 +3023,12 @@ a.toggle_selector
 
 .left_nav
   #new_tag_following
+    :width 137px
     :margin
       :left 24px
 
     input[type='text']
-      :width 100%
+      :width 137px
       :font
         :size 13px
 
