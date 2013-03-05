@@ -21,11 +21,11 @@ timeout 30
 #listen '/var/run/diaspora/diaspora.sock', :backlog => 2048
 
 if AppConfig.server.stderr_log.present?
-  stderr_path AppConfig.server.stderr_log
+  stderr_path AppConfig.server.stderr_log.get
 end
 
 if AppConfig.server.stdout_log.present?
-  stdout_path AppConfig.server.stdout_log
+  stdout_path AppConfig.server.stdout_log.get
 end
 
 before_fork do |server, worker|

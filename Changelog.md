@@ -6,6 +6,7 @@
 * avoid posting empty comments. [#3836](https://github.com/diaspora/diaspora/issues/3836)
 * Delegate parent_author to the target of a RelayableRetraction
 * Do not fail on receiving a SignedRetraction via the public route
+* Pass the real values to stderr_path and stdout_path in unicorn.rb since it runs a case statement on them.
 
 ## Refactor
 
