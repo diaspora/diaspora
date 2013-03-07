@@ -47,6 +47,12 @@ describe("app.views.CommentStream", function(){
       this.view.createComment();
       expect(this.view.$(".comment_box").val()).toEqual("");
     })
+    
+    it("resets comment box height", function() {
+      this.view.$(".comment_box").val('a new comment');
+      this.view.createComment();
+      expect(this.view.$(".comment_box").attr("style")).not.toContain("height");
+    })
   })
 
   describe("appendComment", function(){
