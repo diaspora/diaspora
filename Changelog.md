@@ -2,6 +2,7 @@
 
 ## Bug fixes
 
+* reset comment box height after posting a comment. [#4030](https://github.com/diaspora/diaspora/issues/4030)
 * fade long tag names. [#3899](https://github.com/diaspora/diaspora/issues/3899)
 * avoid posting empty comments. [#3836](https://github.com/diaspora/diaspora/issues/3836)
 * Delegate parent_author to the target of a RelayableRetraction
