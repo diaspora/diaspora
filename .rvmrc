@@ -3,9 +3,9 @@
 . ./script/env/ruby_env
 
 if [ -e '.rvmrc.local' ]; then
-  . .rvmrc.local;
+  . ./.rvmrc.local;
 elif [ -e '.rvmrc_custom' ] ; then
-  . .rvmrc_custom;
+  . ./.rvmrc_custom;
 else
   if rvm list strings | grep -q "$ruby_version" ; then
     rvm --create use "$ruby_version@$gemset"
