@@ -18,6 +18,7 @@ defaults:
       secret:
       bucket:
       region:
+      cache: true
     image_redirect_url:
     assets:
       serve: false
