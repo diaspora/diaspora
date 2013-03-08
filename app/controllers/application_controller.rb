@@ -22,6 +22,8 @@ class ApplicationController < ActionController::Base
                 :tags,
                 :open_publisher
 
+  layout ->(c) { request.format == :mobile ? "application" : "centered_with_header_with_footer" }
+
   private
 
   def ensure_http_referer_is_set

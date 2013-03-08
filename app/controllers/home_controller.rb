@@ -10,16 +10,17 @@ class HomeController < ApplicationController
     elsif is_mobile_device?
       if partial_dir.join('_show.mobile.haml').exist? ||
          partial_dir.join('_show.mobile.erb').exist?
-        render :show, layout: 'post'
+        render :show
       else
         redirect_to user_session_path
       end
     elsif partial_dir.join("_show.html.haml").exist? ||
           partial_dir.join("_show.html.erb").exist?
-      render :show, layout: 'post'
+      render :show
     else
-        render file: Rails.root.join("public", "default.html"),
-               layout: 'post'
+      @css_framework = :bootstrap # Hack, port site to one framework
+      render file: Rails.root.join("public", "default.html"),
+             layout: 'application'
     end
   end
 

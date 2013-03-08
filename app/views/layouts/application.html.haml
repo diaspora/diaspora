@@ -18,11 +18,15 @@
     %title
       = page_title yield(:page_title)
 
+    = og_site_name
     = chartbeat_head_block
     = include_mixpanel
 
-    = include_base_css_framework
-    = stylesheet_link_tag 'login', 'application', 'default'
+    = include_base_css_framework(@css_framework)
+    - if @css_framework == :bootstrap && !@include_application_css
+      = stylesheet_link_tag :default, 'new-templates', :media => 'all'
+    - else
+      = stylesheet_link_tag 'login', 'application', 'default'
 
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'
@@ -46,31 +50,24 @@
     = yield(:head)
     = csrf_meta_tag
 
+    - if @post.present?
+      %link{:rel => 'alternate', :type => "application/json+oembed", :href => "#{oembed_url(:url => post_url(@post))}"}
+      = og_page_specific_tags(@post)
+
     = include_gon(:camel_case => true, :namespace => :preloads)
 
   %body
     = flash_messages
 
-    %header
-      - unless current_user
-        = render 'layouts/header'
+    = yield :before_content
 
-    .container
-      - if @aspect == :getting_started
-        = yield
-      - else
-        .span-24.last
-          = yield
-
-    - unless @landing_page
-      %a{:id=>"back-to-top", :title=>"#{t('.back_to_top')}", :href=>"#"}
-        &#8679;
-
-    %footer
+    - if content_for?(:container_content)
       .container
-        %ul#footer_nav
-          = render :partial =>'shared/links'
-        = image_tag 'branding/powered_by_diaspora.png', :height => "11px", :width => "145px"
+        =  yield(:container_content)
+    - else
+      = content_for?(:content) ? yield(:content) : yield
+
+    = yield :after_content
 
     = include_chartbeat
     = include_mixpanel_guid
