@@ -381,6 +381,7 @@ git_stuff_check() {
   else
     run_or_error "git checkout master"
     run_or_error "git pull"
+    cd ..
   fi
   printf "\n"
 }
