@@ -11,6 +11,7 @@
 
 ## Refactor
 
+* Add a configuration entry to set max-age header to Amazon S3 resources. [#4048](https://github.com/diaspora/diaspora/pull/4048)
 * Refactor people_controller#show and photos_controller#index [#4002](https://github.com/diaspora/diaspora/issues/4002)
 * Modularize layout [#3944](https://github.com/diaspora/diaspora/pull/3944)
 * Add header to the sign up page [#3944](https://github.com/diaspora/diaspora/pull/3944)
