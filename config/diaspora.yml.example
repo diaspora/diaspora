@@ -75,6 +75,10 @@ configuration: ## Section
       #secret: 'changeme'
       #bucket: 'my_photos'
       #region: 'us-east-1'
+
+      # Use max-age header on Amazon S3 resources.
+      # this would set a max-age value of 1 year
+      #cache : true
     
     ## Related to S3 you can set a url to redirect all requests to uploaded
     ## images to another host. If you for example set
