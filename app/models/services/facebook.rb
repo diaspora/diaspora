@@ -25,6 +25,9 @@ class Services::Facebook < Service
 
   def create_post_params(post)
     message = strip_markdown(post.text(:plain_text => true))
+    if post.photos.any?
+      message += " " + Rails.application.routes.url_helpers.short_post_url(post, :protocol => AppConfig.pod_uri.scheme, :host => AppConfig.pod_uri.authority)
+    end
     {:message => message, :access_token => self.access_token, :link => URI.extract(message, ['https', 'http']).first}
   end
 
