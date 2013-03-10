@@ -7,7 +7,7 @@
 //= require mbp-respond.min
 //= require mbp-helper
 //= require jquery.autoSuggest.custom
-
+//= require fileuploader-custom
 
 $(document).ready(function(){
 
@@ -309,7 +309,7 @@ function createUploader(){
        },
 
        onComplete: function(id, fileName, responseJSON) {
-        $('#fileInfo-publisher').text(Diaspora.I18n.t("photo_uploader.completed", file=fileName));
+        $('#fileInfo-publisher').text(Diaspora.I18n.t("photo_uploader.completed", {'file': fileName}));
         var id = responseJSON.data.photo.id,
             url = responseJSON.data.photo.unprocessed_image.url,
             currentPlaceholder = $('li.loading').first();

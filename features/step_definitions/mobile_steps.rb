@@ -13,3 +13,11 @@ end
 When /^I visit the mobile stream page$/ do
   visit('/stream.mobile')
 end
+
+When /^I toggle the mobile view$/ do
+  visit('/mobile/toggle')
+end
+
+When /^I visit the mobile getting started page$/ do
+  visit('/getting_started.mobile')
+end

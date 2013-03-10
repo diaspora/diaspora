@@ -1,7 +1,8 @@
 @javascript
-Feature: editing your profile
+Feature: editing the profile in the mobile view
   Scenario: editing profile fields
     Given I am signed in
+    And I toggle the mobile view
     And I go to the edit profile page
 
     When I fill in the following:
@@ -10,7 +11,7 @@ Feature: editing your profile
       | profile_last_name          | Fett            |
       | profile_bio                | This is a bio   |
       | profile_location           | Kamino          |
-
+    
     And I select "1986" from "profile_date_year"
     And I select "30" from "profile_date_day"
     And I select "November" from "profile_date_month"
@@ -34,20 +35,16 @@ Feature: editing your profile
 
     When I fill in "profile[tag_string]" with "#kamino"
     And I press the first ".as-result-item" within ".as-results"
-
+   
     And I press "Update Profile"
     Then I should see "#kamino" within "ul#as-selections-tags"
     And I should see "#starwars" within "ul#as-selections-tags"
-
+    
     When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
     And I preemptively confirm the alert
     And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
     And I wait for the ajax to finish
     Then I should see a "img" within "#profile_photo_upload"
-
+    
     When I go to my new profile page
-#   #commented out until we bring back the profile info on new profile
-#    Then I should see "Gender: Fearless"
     And I should see "Boba Fett"
-#    And I should see "Bio: This is a bio"
-#    And I should see "Birthday: 1986-11-30"
