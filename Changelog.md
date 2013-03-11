@@ -1,3 +1,7 @@
+# 0.0.3.3
+
+* Switch Gemfile source to https to be compatible with bundler 1.3
+
 # 0.0.3.2
 
 * Fix XSS vulnerability in conversations#new [#4010](https://github.com/diaspora/diaspora/issues/4010)
