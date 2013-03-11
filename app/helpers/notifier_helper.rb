@@ -23,12 +23,4 @@ module NotifierHelper
     text = process_newlines(text) if opts[:process_newlines]
     text
   end
-
-  def invite_email_title
-    if @inviter.present?
-      I18n.t 'notifier.invited_you', :name => @inviter.person.name
-    else
-      I18n.t 'notifier.accept_invite'
-    end
-  end
 end

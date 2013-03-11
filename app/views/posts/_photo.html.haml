@@ -9,7 +9,7 @@
   = person_image_link(post.author)
   .from
     %h2
-      = post.author.name
+      = post.author_name
 
 #show_photo{:data=>{:guid=>post.id}}
   = image_tag post.url(:scaled_full)

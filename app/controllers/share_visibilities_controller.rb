@@ -15,7 +15,7 @@ class ShareVisibilitiesController < ApplicationController
     render :nothing => true, :status => 200
   end
 
-  protected
+  private
 
   def accessible_post
     @post ||= params[:shareable_type].constantize.where(:id => params[:post_id]).select("id, guid, author_id, created_at").first

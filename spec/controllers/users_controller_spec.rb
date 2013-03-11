@@ -7,8 +7,6 @@ require 'spec_helper'
 describe UsersController do
   before do
     @user = alice
-    @aspect = @user.aspects.first
-    @aspect1 = @user.aspects.create(:name => "super!!")
     sign_in :user, @user
     @controller.stub(:current_user).and_return(@user)
   end
@@ -56,10 +54,17 @@ describe UsersController do
       response.body.should include('a href')
     end
 
+    it 'includes reshares in the atom feed' do
+      reshare = FactoryGirl.create(:reshare, :author => @user.person)
+      get :public, :username => @user.username, :format => :atom
+      response.body.should include reshare.root.raw_message
+    end
+
     it 'redirects to a profile page if html is requested' do
       get :public, :username => @user.username
       response.should be_redirect
     end
+
     it 'redirects to a profile page if mobile is requested' do
       get :public, :username => @user.username, :format => :mobile
       response.should be_redirect
@@ -118,6 +123,13 @@ describe UsersController do
     describe 'email' do
       before do
         Resque.stub!(:enqueue)
+      end
+
+      it 'disallow the user to change his new (unconfirmed) mail when it is the same as the old' do
+        @user.email = "my@newemail.com"
+        put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
+        @user.reload
+        @user.unconfirmed_email.should eql(nil)
       end
 
       it 'allow the user to change his (unconfirmed) email' do
@@ -210,7 +222,6 @@ describe UsersController do
       Resque.should_receive(:enqueue).with(Jobs::DeleteAccount, anything)
       delete :destroy, :user => { :current_password => "bluepin7" }
     end
-
   end
 
   describe '#confirm_email' do
@@ -251,22 +262,4 @@ describe UsersController do
       response.should be_success
     end
   end
-
-  # This logic lives in application controller
-  describe "#after_sign_in_path_for" do
-    before do
-      @controller.stub(:current_user).and_return(eve)
-    end
-
-    context 'getting started true on user' do
-      before do
-        eve.update_attribute(:getting_started, true)
-      end
-
-      it "redirects to getting started if the user has getting started set to true" do
-        @controller.after_sign_in_path_for(eve).should == getting_started_path
-      end
-    end
-  end
 end
-

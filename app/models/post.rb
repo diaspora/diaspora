@@ -66,6 +66,7 @@ class Post < ActiveRecord::Base
   def mentioned_people; []; end
   def photos; []; end
 
+
   def self.excluding_blocks(user)
     people = user.blocks.map{|b| b.person_id}
     scope = scoped
@@ -103,11 +104,6 @@ class Post < ActiveRecord::Base
     reshares.where(:author_id => user.person.id).first
   end
 
-  def participation_for(user)
-    return unless user
-    participations.where(:author_id => user.person.id).first
-  end
-
   def like_for(user)
     return unless user
     likes.where(:author_id => user.person.id).first
@@ -131,10 +127,6 @@ class Post < ActiveRecord::Base
 
   def activity_streams?
     false
-  end
-
-  def triggers_caching?
-    true
   end
 
   def comment_email_subject

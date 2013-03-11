@@ -3,7 +3,7 @@ module NotificationsHelper
 
   def object_link(note, actors)
     target_type = note.popup_translation_key
-    actors_count = note.actors.count
+    actors_count = note.actors.size
 
     if note.instance_of?(Notifications::Mentioned)
       if post = note.linked_object
@@ -13,7 +13,7 @@ module NotificationsHelper
       end
     elsif note.instance_of?(Notifications::CommentOnPost) || note.instance_of?(Notifications::AlsoCommented) || note.instance_of?(Notifications::Reshared) || note.instance_of?(Notifications::Liked)
       if post = note.linked_object
-        translation(target_type, :actors => actors, :count => actors_count, :post_author => h(post.author.name), :post_link => link_to(t('notifications.post'), post_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
+        translation(target_type, :actors => actors, :count => actors_count, :post_author => h(post.author_name), :post_link => link_to(t('notifications.post'), post_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
       else
         t(note.deleted_translation_key, :actors => actors, :count => actors_count).html_safe
       end
@@ -29,7 +29,7 @@ module NotificationsHelper
 
   def notification_people_link(note, people=nil)
     actors =people || note.actors
-    number_of_actors = actors.count
+    number_of_actors = actors.size
     sentence_translations = {:two_words_connector => " #{t('notifications.index.and')} ", :last_word_connector => ", #{t('notifications.index.and')} " }
     actor_links = actors.collect{ |person|
       person_link(person, :class => 'hovercardable')
@@ -52,10 +52,6 @@ module NotificationsHelper
 
   def notification_message_for(note)
     object_link(note, notification_people_link(note))
-  end
-
-  def peoples_names(note)
-    note.actors.map{|p| p.name}.join(", ")
   end
 
   def the_day(i18n)

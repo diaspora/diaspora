@@ -6,12 +6,13 @@
 
 pt-PT:
   javascripts:
+    and: "e"
     aspect_dropdown:
       add_to_aspect: "Adicionar contacto"
       all_aspects: "Todos os grupos"
       error: "Não foi possível começar a partilhar com {{name}}. Você está a ignorá-los?"
       select_aspects: "Selecionar grupos"
-      started_sharing_with: "Começou a partilhar com {{name}}!"
+      started_sharing_with: "Começou a partilhar com <%= name %>!"
       stopped_sharing_with: "Deixou de partilhar com {{name}}."
       toggle:
         one: "Em <%=count %> grupo"
@@ -26,6 +27,7 @@ pt-PT:
       show: "mostrar todos os comentários"
     confirm_dialog: "Tem a certeza?"
     delete: "Eliminar"
+    edit: "Editar"
     failed_to_like: "Falhou em gostar!"
     failed_to_post_message: "Falhou ao publicar a mensagem!"
     getting_started:
@@ -48,6 +50,7 @@ pt-PT:
       settings: "Definições"
       view_all: "Ver tudo"
     ignore: "Ignorar"
+    ignore_user: "Ignorar este utilizador?"
     infinite_scroll:
       no_more: "Não há mais publicações."
     my_activity: "Minha atividade"
@@ -55,6 +58,7 @@ pt-PT:
     people:
       not_found: "e ninguém foi encontrado..."
     photo_uploader:
+      completed: "<%= file %> completado"
       looking_good: "OMD, tu estás fantástico(a)!"
     publisher:
       at_least_one_aspect: "Tem de publicar em pelo menos um grupo"
@@ -69,6 +73,11 @@ pt-PT:
     stream:
       comment: "Comentar"
       follow: "Seguir"
+      followed_tag:
+        add_a_tag: "Adicionar uma etiqueta"
+        contacts_title: "Pessoas que gostam destas etiquetas"
+        follow: "Seguir"
+        title: "#Etiquetas Seguidas"
       hide: "Ocultar"
       hide_nsfw_posts: "Ocultar publicações #nsfw"
       like: "Gostar"
@@ -78,12 +87,9 @@ pt-PT:
         zero: "<%= count %> gosto"
       limited: "Limitado"
       more_comments:
-        few: "Mostrar <%= count %> mais comentários"
-        many: "Mostrar <%= count %> mais comentários"
-        one: "Mostras <%= count %> mais comentários"
-        other: "Mostrar <%= count %> mais comentários"
-        two: "Mostrar <%= count %> mais comentários"
-        zero: "Mostrar <%= count %> mais comentários"
+        one: "Mostrar mais <%= count %> comentário"
+        other: "Mostrar mais <%= count %> comentários"
+        zero: "Mostrar mais <%= count %> comentários"
       original_post_deleted: "Publicação original eliminada pelo autor."
       public: "Público"
       reshare: "Partilhar"
@@ -93,6 +99,10 @@ pt-PT:
         zero: "<%= count %> repartilhas"
       show_nsfw_post: "Mostrar publicação"
       show_nsfw_posts: "Mostrar todos"
+      tags:
+        follow: "Seguir #<%= tag %>"
+        following: "Seguindo #<%= tag %>"
+        stop_following: "Parar de Seguir #<%= tag %>"
       unfollow: "Não seguir"
       unlike: "Não gostar"
     tags:

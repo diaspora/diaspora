@@ -30,12 +30,17 @@ describe ApplicationHelper do
 
   describe "#all_services_connected?" do
     before do
-      AppConfig[:configured_services] = [1, 2, 3]
+      @old_configured_services = AppConfig.configured_services
+      AppConfig.configured_services = [1, 2, 3]
 
       def current_user
         @current_user
       end
       @current_user = alice
+    end
+
+    after do
+      AppConfig.configured_services = @old_configured_services
     end
 
     it 'returns true if all networks are connected' do
@@ -52,7 +57,7 @@ describe ApplicationHelper do
   describe "#jquery_include_tag" do
     describe "with google cdn" do
       before do
-        AppConfig[:jquery_cdn] = true
+        AppConfig.privacy.jquery_cdn = true
       end
 
       it 'inclues jquery.js from google cdn' do
@@ -66,7 +71,7 @@ describe ApplicationHelper do
 
     describe "without google cdn" do
       before do
-        AppConfig[:jquery_cdn] = false
+        AppConfig.privacy.jquery_cdn = false
       end
 
       it 'includes jquery.js from asset pipeline' do
@@ -84,16 +89,43 @@ describe ApplicationHelper do
     end
   end
 
+  describe '#changelog_url' do
+    it 'defaults to master branch changleog' do
+      old_revision = AppConfig.git_revision
+      AppConfig.git_revision = nil
+      changelog_url.should == 'https://github.com/diaspora/diaspora/blob/master/Changelog.md'
+      AppConfig.git_revision = old_revision
+    end
+
+    it 'displays the changelog for the current git revision if set' do
+      old_revision = AppConfig.git_revision
+      AppConfig.git_revision = '123'
+      changelog_url.should == 'https://github.com/diaspora/diaspora/blob/123/Changelog.md'
+      AppConfig.git_revision = old_revision
+    end
+
+  end
+
   describe '#pod_name' do
     it 'defaults to Diaspora*' do
       pod_name.should  match /DIASPORA/i
     end
 
-    it 'displays the supplied AppConfig[:pod_name] if it is set' do
-      old_name = AppConfig[:pod_name]
-      AppConfig[:pod_name] = "Catspora"
-      pod_name.should == "Catspora"
-      AppConfig[:pod_name] = old_name
+    it 'displays the supplied pod_name if it is set' do
+      old_name = AppConfig.settings.pod_name.get
+      AppConfig.settings.pod_name = "Catspora"
+      pod_name.should match "Catspora"
+      AppConfig.settings.pod_name = old_name
+    end
+  end
+
+  describe '#pod_version' do
+
+    it 'displays the supplied pod_version if it is set' do
+      old_version = AppConfig.version.number.get
+      AppConfig.version.number = "0.0.1.0"
+      pod_version.should match "0.0.1.0"
+      AppConfig.version.number = old_version
     end
   end
 end

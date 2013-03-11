@@ -17,6 +17,8 @@
        sizeLimit: 4194304,
 
        onProgress: function(id, fileName, loaded, total){
+        var progress = Math.round(loaded / total * 100 );
+         $('#fileInfo').text(fileName + ' ' + progress + '%').fadeTo(200, 1);
        },
 
        messages: {
@@ -29,7 +31,7 @@
         $('#file-upload').addClass("loading");
         $('#publisher').find("input[type='submit']").attr('disabled','disabled');
 
-        Publisher.wrapper().addClass("with_attachments");
+        app.publisher.el_wrapper.addClass("with_attachments");
         $('#photodropzone').append(
           "<li class='publisher_photo loading' style='position:relative;'>" +
             "#{escape_javascript(image_tag('ajax-loader2.gif'))}" +
@@ -38,12 +40,12 @@
        },
 
        onComplete: function(id, fileName, responseJSON) {
-        $('#fileInfo').text(fileName + ' completed');
+        $('#fileInfo').text(Diaspora.I18n.t("photo_uploader.completed", file=fileName)).fadeTo(2000, 0);
         var id = responseJSON.data.photo.id,
             url = responseJSON.data.photo.unprocessed_image.url,
             currentPlaceholder = $('li.loading').first();
 
-        Publisher.wrapper().addClass("with_attachments");
+        app.publisher.el_wrapper.addClass("with_attachments");
         $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
 
         // replace image placeholders
@@ -63,14 +65,14 @@
         $('.x').bind('click', function(){
           var photo = $(this).closest('.publisher_photo');
           photo.addClass("dim");
-          $.ajax({url: "photos/" + photo.children('img').attr('data-id'),
+          $.ajax({url: "/photos/" + photo.children('img').attr('data-id'),
                   dataType: 'json',
                   type: 'DELETE',
                   success: function() {
                             photo.fadeOut(400, function(){
                               photo.remove();
-                              if ( $('.publisher_photo').length  == 0){
-                                Publisher.wrapper().removeClass("with_attachments");
+                              if ( $('.publisher_photo').length == 0){
+                                app.publisher.el_wrapper.removeClass("with_attachments");
                               }
                             });
                           }

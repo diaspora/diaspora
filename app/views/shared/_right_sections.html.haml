@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-- if AppConfig[:open_invitations]
+- if AppConfig.settings.invitations.open?
   .section
     .title
       .icons-plus
@@ -73,11 +73,29 @@
     %h5.title-header
       = t('aspects.index.donate')
   .content
-    - if AppConfig[:paypal_hosted_button_id].present?
-      = t('aspects.index.keep_pod_running', :pod => URI.parse(AppConfig[:pod_url]).host)
+    - if AppConfig.settings.paypal_hosted_button_id.present?
+      = t('aspects.index.keep_pod_running', :pod => AppConfig.pod_uri.host)
       %br
       = render 'shared/donatepod'
     - else
       = t('aspects.index.keep_diaspora_running')
       %br
       = render 'shared/donatediaspora'
+
+- if AppConfig.admins.podmin_email.present?
+  .section
+    .title
+      = image_tag('icons/mail.png')
+      %h5
+        = t('aspects.index.help.any_problem')
+    .content
+      = t('aspects.index.help.contact_podmin')
+      %br
+      %br
+      = link_to t('aspects.index.help.mail_podmin'), "mailto:#{AppConfig.admins.podmin_email}", :class => "button"
+
+.section
+  .title
+  %ul.content
+    = render "shared/links"
+

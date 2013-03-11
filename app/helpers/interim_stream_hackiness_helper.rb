@@ -39,14 +39,6 @@ module InterimStreamHackinessHelper
     end
   end
 
-  def what_stream_sentence(post)
-    from_group(post).map{|x| I18n.t("streams.#{x.to_s}")}.to_sentence
-  end
-
-  def stream_settings_link(post)
-    link_to "", "#{edit_user_path}#stream-preferences"
-  end
-
   def publisher_open
     if defined?(@stream)
       @stream.publisher.open?

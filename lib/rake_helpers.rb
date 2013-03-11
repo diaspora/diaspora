@@ -4,14 +4,8 @@
 module RakeHelpers
 
   def process_emails(csv, num_to_process, offset, test=true)
-    if RUBY_VERSION.include? "1.8"
-
-       require 'fastercsv'
-       backers = FasterCSV.read(csv)
-     else
-       require 'csv'
-       backers = CSV.read(csv)
-     end
+    require 'csv'
+    backers = CSV.read(csv)
     puts "DRY RUN" if test
     churn_through = 0
     num_to_process.times do |n|
@@ -26,8 +20,8 @@ module RakeHelpers
       possible_invite = Invitation.find_by_identifier(backer_email)
       possible_user ||= possible_invite.recipient if possible_invite.present?
 
-      admin_account = User.find_by_username(AppConfig[:admin_account])
-      raise "no admin_account in application.yml" unless admin_account.present?
+      admin_account = User.find_by_username(AppConfig.admins.account.get)
+      raise "no admin account in diaspora.yml" unless admin_account.present?
       admin_account.invitation_code.count += num_to_process
       admin_account.invitation_code.save
 

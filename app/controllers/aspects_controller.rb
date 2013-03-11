@@ -34,16 +34,6 @@ class AspectsController < ApplicationController
     end
   end
 
-  #person_id, user, @aspect
-  def connect_person_to_aspect(aspecting_person_id)
-    @person = Person.find(aspecting_person_id)
-    if @contact = current_user.contact_for(@person)
-      @contact.aspects << @aspect
-    else
-      @contact = current_user.share_with(@person, @aspect)
-    end
-  end
-
   def new
     @aspect = Aspect.new
     @person_id = params[:person_id]
@@ -119,5 +109,16 @@ class AspectsController < ApplicationController
       @aspect.contacts_visible = true
     end
     @aspect.save
+  end
+
+  private
+
+  def connect_person_to_aspect(aspecting_person_id)
+    @person = Person.find(aspecting_person_id)
+    if @contact = current_user.contact_for(@person)
+      @contact.aspects << @aspect
+    else
+      @contact = current_user.share_with(@person, @aspect)
+    end
   end
 end

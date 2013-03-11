@@ -28,6 +28,32 @@ describe("app.views.CommentStream", function(){
       expect($.fn.autoResize.mostRecentCall.object.selector).toBe("textarea")
     })
   })
+  
+  describe("createComment", function() {
+    beforeEach(function() {
+      jasmine.Ajax.useMock();
+      this.view.render();
+      this.view.expandComments();
+    })
+    
+    it("submits the new comment when comment text is not empty", function() {
+      this.view.$(".comment_box").val('a new comment');
+      this.view.createComment();
+      expect(this.view.$(".comment-content p").text()).toEqual("a new comment");
+    })
+    
+    it("clears the comment box when there are only spaces", function() {
+      this.view.$(".comment_box").val('   ');
+      this.view.createComment();
+      expect(this.view.$(".comment_box").val()).toEqual("");
+    })
+    
+    it("resets comment box height", function() {
+      this.view.$(".comment_box").val('a new comment');
+      this.view.createComment();
+      expect(this.view.$(".comment_box").attr("style")).not.toContain("height");
+    })
+  })
 
   describe("appendComment", function(){
     it("appends this.model as 'parent' to the comment", function(){

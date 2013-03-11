@@ -44,6 +44,7 @@ de_formal:
   all_aspects: "Alle Aspekte"
   application:
     helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "Unbekannte Person"
       video_title:
         unknown: "Unbekannter Videotitel"
@@ -114,6 +115,7 @@ de_formal:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Von der Gemeinschaft erstellte Tutorials, Anleitungen und Nachrichten"
       introduce_yourself: "Das ist ihr Stream. Legen Sie los und stellen Sie sich vor."
       new_here:
         follow: "Folgen Sie %{link} und heißen Sie neue Benutzer auf Diaspora* willkommen!"
@@ -176,6 +178,7 @@ de_formal:
       success: "Sehen Sie, was diese zu sagen haben! #sayhello"
   bookmarklet:
     explanation: "Erstellen Sie einen Beitrag in Diaspora von überall, in dem Sie %{link} als Lesezeichen speichern."
+    heading: "Lesezeichen"
     post_something: "Erstellen Sie einen Beitrag in Diaspora"
     post_success: "Erstellt! Schließen …"
   cancel: "Abbrechen"
@@ -197,9 +200,11 @@ de_formal:
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
       add_to_aspect: "Füge Kontakte zu %{name} hinzu"
       all_contacts: "Alle Kontakte"
+      community_spotlight: "Gemeinschafts-Focus"
       many_people_are_you_sure: "Sind Sie sich sicher, dass Sie eine private Unterhaltung mit mehr als %{suggested_limit} Kontakten beginnen möchten? Einen Beitrag in diesen Aspekt zu schreiben könnte ein besserer Weg sein, um sie zu kontaktieren."
       my_contacts: "Meine Kontakte"
       no_contacts: "Sieht so aus als müssten Sie einige Kontakte hinzufügen!"
+      no_contacts_message: "Erkunde den %{community_spotlight}"
       no_contacts_message_with_aspect: "Schauen Sie in den %{community_spotlight} oder %{add_to_aspect_link}"
       only_sharing_with_me: "Nur mit Ihnen Teilende"
       remove_person_from_aspect: "Entferne %{person_name} aus \"%{aspect_name}\""
@@ -227,7 +232,6 @@ de_formal:
         many: "%{count} neue Nachrichten"
         one: "Eine neue Nachricht"
         other: "%{count} neue Nachrichten"
-        two: "%{count} neue Nachrichten"
         zero: "Keine neuen Nachrichten"
     index:
       create_a_new_message: "Erstellen Sie eine neue Nachricht"
@@ -279,6 +283,7 @@ de_formal:
     new:
       already_invited: "Die folgenden Personen haben Ihre Einladung nicht angenommen:"
       aspect: "Aspekt"
+      check_out_diaspora: "Erkunde Diaspora!"
       if_they_accept_info: "Wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den Sie sie eingeladen haben."
       invite_someone_to_join: "Laden Sie jemanden zu Diaspora ein!"
       language: "Sprache"
@@ -289,6 +294,7 @@ de_formal:
       to: "An"
   layouts:
     application:
+      back_to_top: "Nach oben"
       powered_by: "BETRIEBEN MIT DIASPORA*"
       public_feed: "Öffentlicher Diaspora Feed von %{name}"
       toggle: "Mobile Ansicht umschalten"
@@ -311,21 +317,18 @@ de_formal:
         many: "%{count} Personen gefällt das nicht"
         one: "Einer Person gefällt das nicht"
         other: "%{count} Personen gefällt das nicht"
-        two: "%{count} Personen gefällt das nicht"
         zero: "Keinem gefällt das nicht"
       people_like_this:
         few: "%{count} Personen gefällt das"
         many: "%{count} Personen gefällt das"
         one: "Einer Person gefällt das"
         other: "%{count} Personen gefällt das"
-        two: "%{count} Personen gefällt das"
         zero: "Keinem gefällt das"
       people_like_this_comment:
         few: "Gefällt %{count}"
         many: "Gefällt %{count}"
         one: "Gefällt %{count}"
         other: "Gefällt %{count}"
-        two: "%{count} Personen gefällt das"
         zero: "Gefällt niemandem"
   limited: "Begrenzt"
   more: "Mehr"
@@ -337,21 +340,18 @@ de_formal:
       many: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
       one: "%{actors} hat auch %{post_author}s %{post_link} kommentiert."
       other: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
-      two: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
       zero: "%{actors} hat auch %{post_author}s %{post_link} kommentiert."
     also_commented_deleted:
       few: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
       many: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
       one: "%{actors} hat einen inzwischen gelöschten Beitrag kommentiert."
       other: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
-      two: "%{actors} haben deinen inzwischen gelöschten Beitrag kommentiert."
       zero: "Niemand hat einen inzwischen gelöschten Beitrag kommentiert."
     comment_on_post:
       few: "%{actors} haben Ihren %{post_link} kommentiert."
       many: "%{actors} haben Ihren %{post_link} kommentiert."
       one: "%{actors} hat Ihren %{post_link} kommentiert."
       other: "%{actors} haben Ihren %{post_link} kommentiert."
-      two: "%{actors} hat Ihren %{post_link} kommentiert."
       zero: "Niemand hat Ihren %{post_link} kommentiert."
     helper:
       new_notifications:
@@ -359,7 +359,6 @@ de_formal:
         many: "%{count} neue Benachrichtigungen"
         one: "Eine neue Benachrichtigung"
         other: "%{count} neue Benachrichtigungen"
-        two: "%{count} neue Benachrichtigungen"
         zero: "Keine neuen Benachrichtigungen"
     index:
       and: "und"
@@ -368,7 +367,6 @@ de_formal:
         many: "und %{count} anderen"
         one: "und einem anderen"
         other: "und %{count} anderen"
-        two: "und %{count} andere"
         zero: "und niemand sonst"
       mark_all_as_read: "Markiere alle als gelesen"
       notifications: "Benachrichtigungen"
@@ -377,28 +375,24 @@ de_formal:
       many: "%{actors} gefällt Ihr %{post_link}."
       one: "%{actors} gefällt Ihr %{post_link}."
       other: "%{actors} gefällt Ihr %{post_link}."
-      two: "%{actors} mag Ihr %{post_link}."
       zero: "Niemandem gefällt Ihr %{post_link}."
     liked_post_deleted:
       few: "%{actors} gefällt Ihr gelöschter Beitrag."
       many: "%{actors} gefällt Ihr gelöschter Beitrag."
       one: "%{actors} gefällt Ihr gelöschter Beitrag."
       other: "%{actors} gefällt Ihr gelöschter Beitrag."
-      two: "%{actors} gefällt Ihr gelöschter Beitrag."
       zero: "Niemandem gefällt Ihr gelöschter Beitrag."
     mentioned:
       few: "%{actors} haben Sie in einem %{post_link} erwähnt."
       many: "%{actors} haben Sie in einem %{post_link} erwähnt."
       one: "%{actors} hat Sie in einem %{post_link} erwähnt."
       other: "%{actors} haben Sie in einem %{post_link} erwähnt."
-      two: "%{actors} hat Sie in einem %{post_link} erwähnt."
       zero: "Niemand hat Sie in einem %{post_link} erwähnt."
     mentioned_deleted:
       few: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
       many: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
       one: "%{actors} hat Sie in einem gelöschten Beitrag erwähnt."
       other: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
-      two: "%{actors} hat Sie in einem bereits gelöschten Beitrag erwähnt."
       zero: "Niemand hat Sie in einem gelöschten Beitrag erwähnt."
     post: "Beitrag"
     private_message:
@@ -406,28 +400,24 @@ de_formal:
       many: "%{actors} haben Ihnen eine Nachricht gesendet."
       one: "%{actors} hat Ihnen eine Nachricht gesendet."
       other: "%{actors} haben Ihnen eine Nachricht gesendet."
-      two: "%{actors} hat Ihnen eine Nachricht geschickt."
       zero: "%{actors} hat Ihnen eine Nachricht gesendet."
     reshared:
       few: "%{actors} haben Ihren %{post_link} weitergesagt."
       many: "%{actors} haben Ihren %{post_link} weitergesagt."
       one: "%{actors} hat Ihren %{post_link} weitergesagt."
       other: "%{actors} haben Ihren %{post_link} weitergesagt."
-      two: "%{actors} hat Ihren %{post_link} weitergeleitet."
       zero: "%{actors} haben Ihren %{post_link} weitergesagt."
     reshared_post_deleted:
       few: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
       many: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
       one: "%{actors} hat Ihren gelöschten Beitrag weitergesagt."
       other: "%{actors} Ihren deinen gelöschten Beitrag weitergesagt."
-      two: "%{actors} hat Ihren bereits gelöschten Beitrag weitergeleitet."
       zero: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
     started_sharing:
       few: "%{actors} haben angefangen mit Ihnen zu teilen."
       many: "%{actors} haben angefangen mit Ihnen zu teilen."
       one: "%{actors} hat angefangen mit Ihnen zu teilen."
       other: "%{actors} haben angefangen mit Ihnen zu teilen."
-      two: "%{actors} haben angefangen mit Ihnen zu teilen."
       zero: "Niemand hat angefangen mit Ihnen zu teilen."
   notifier:
     a_post_you_shared: "ein Beitrag."
@@ -459,6 +449,8 @@ de_formal:
       view_profile: "Schauen Sie sich %{name}s Profil an"
     thanks: "Danke,"
     to_change_your_notification_settings: "um Ihre Benachrichtigungs-Einstellungen zu ändern"
+  nsfw: "NSFW (unpassend für den Arbeitsplatz)"
+  ok: "ok"
   or: "oder"
   password: "Kennwort"
   password_confirmation: "Kennwort-Bestätigung"
@@ -494,6 +486,7 @@ de_formal:
       remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
     show:
+      closed_account: "Dieses Konto wurde geschlossen."
       does_not_exist: "Diese Person existiert nicht!"
       has_not_shared_with_you_yet: "%{name} hat bisher noch keine Beiträge mit Ihnen geteilt!"
       ignoring: "Sie ignorieren sämtliche Beiträge von %{name}."
@@ -534,6 +527,7 @@ de_formal:
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
     new_profile_photo:
+      or_select_one_existing: "oder eins Ihrer bereits hochgeladenen %{photos} auswählen"
       upload: "Laden Sie ein neues Profilfoto hoch!"
     photo:
       view_all: "zeige alle Fotos von %{name}"
@@ -558,10 +552,11 @@ de_formal:
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
+      reshare_by: "Weitergesagt von %{author}"
   previous: "Vorherige"
   privacy: "Privatsphäre"
+  privacy_policy: "Datenschutz"
   profile: "Profil"
   profiles:
     edit:
@@ -570,6 +565,8 @@ de_formal:
       first_name: "Vorname"
       last_name: "Nachname"
       update_profile: "Profil aktualisieren"
+      you_are_nsfw: "Sie haben sich selbst als unpassend für den Arbeitsplatz (NSFW - \"not safe for work\") markiert, was bedeutet, dass Ihre Beiträge bei Personen, die anstößige Inhalte automatisch ausblenden, standardmäßig ausgeblendet werden."
+      you_are_safe_for_work: "Sie haben sich als passend für den Arbeitsplatz (SFW - \"safe for work\") markiert, wodurch Sie sich damit einverstanden erklärst, dass Ihre Beiträge, soweit nicht anders angegeben, den Community-Richtlinien entsprechen."
       your_bio: "Ihre Beschreibung"
       your_birthday: "Ihr Geburtstag"
       your_gender: "Ihr Geschlecht"
@@ -589,7 +586,6 @@ de_formal:
     many: "%{count} Reaktionen"
     one: "Eine Reaktion"
     other: "%{count} Reaktionen"
-    two: "%{count} Reaktionen"
     zero: "Keine Reaktionen"
   registrations:
     closed: "Neuregistrierungen sind auf diesem Pod geschlossen."
@@ -624,7 +620,6 @@ de_formal:
         many: "%{count} neue Anfragen!"
         one: "Neue Anfrage!"
         other: "%{count} neue Anfragen!"
-        two: "%{count} neue Anfragen!"
         zero: "Keine neuen Anfragen"
     manage_aspect_contacts:
       existing: "Bestehende Kontakte"
@@ -642,7 +637,6 @@ de_formal:
         many: "%{count} mal weitergesagt"
         one: "Einmal weitergesagt"
         other: "%{count} mal weitergesagt"
-        two: "%{count} mal weitergesagt"
         zero: "Weitersagen"
       reshare_confirmation: "%{author}'s Beitrag weitersagen?"
       reshare_original: "Original weitersagen"
@@ -659,6 +653,7 @@ de_formal:
     failure:
       error: "Es gab einen Fehler der Verbindung mit dem Dienst."
     finder:
+      fetching_contacts: "Ihre %{service}-Freunde werden momentan eingeladen. Schauen Sie bitte in ein paar Minuten noch mal vorbei!"
       no_friends: "Keine Facebook-Freunde gefunden."
       service_friends: "%{service}-Freunde"
     index:
@@ -697,7 +692,6 @@ de_formal:
         many: "In %{count} Aspekten"
         one: "In einem Aspekt"
         other: "In %{count} Aspekten"
-        two: "In %{count} Aspekten"
         zero: "Kontakt hinzufügen"
     contact_list:
       all_contacts: "Alle Kontakte"
@@ -750,8 +744,11 @@ de_formal:
       ignore_user: "%{name} ignorieren"
       ignore_user_description: "Benutzer ignorieren und aus allen Aspekten entfernen?"
       like: "Gefällt mir"
+      nsfw: "Dieser Beitrag wurde vom Autor als \"unpassend für den Arbeitsplatz\" markiert. %{link}"
       shared_with: "Geteilt mit: %{aspect_names}"
+      show: "Anzeigen"
       unlike: "Gefällt mir nicht mehr"
+      via: "via %{link}"
       viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
   status_messages:
     create:
@@ -767,7 +764,6 @@ de_formal:
       many: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen."
       one: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen."
       other: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen."
-      two: "Bitte kürzen Sie Ihren Beitrag auf unter %{count} Zeichen."
       zero: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen."
   stream_helper:
     hide_comments: "Alle Kommentare verbergen"
@@ -776,12 +772,14 @@ de_formal:
       many: "Show %{count} more comments"
       one: "Show one more comment"
       other: "Show %{count} more comments"
-      two: "Show two more comments"
       zero: "No more comments"
   streams:
     aspects:
       title: "Ihre Aspekte"
     aspects_stream: "Aspekte"
+    comment_stream:
+      contacts_title: "Leute, deren Beiträge Sie kommentiert haben"
+      title: "Kommentierte Beiträge"
     community_spotlight_stream: "Gemeinschafts-Schaukasten"
     followed_tag:
       add_a_tag: "Fügen Sie einen Tag hinzu"
@@ -789,6 +787,9 @@ de_formal:
       follow: "Folgen"
       title: "#Gefolgte Tags"
     followed_tags_stream: "#Gefolgte Tags"
+    like_stream:
+      contacts_title: "Leute, deren Beiträge Ihnen gefallen"
+      title: "\"Gefällt mir\"-Stream"
     mentioned_stream: "@Erwähnungen"
     mentions:
       contacts_title: "Personen, die Sie erwähnt haben"
@@ -817,6 +818,7 @@ de_formal:
       people_tagged_with: "Personen, die mit %{tag} getagt sind"
       posts_tagged_with: "Beiträge, die mit #%{tag} getagt sind"
       stop_following: "#%{tag} nicht mehr folgen"
+  terms_and_conditions: "Nutzungsbedingungen"
   tokens:
     show:
       connect_to_cubbies: "Mit Cubbi.es verbinden"
@@ -827,6 +829,7 @@ de_formal:
       screenshot_explanation: "%{link1}. Dieses \"Cubby\" ist verlinkt auf %{link2}."
       sign_up_today: "Jetzt registrieren!"
       typical_userpage: "Eine typische cubbi.es Benutzerseite"
+      via: "(via %{link})"
       what_is_cubbies: "Cubbi.es ist die erste Diaspora Anwendung der Welt. Sie ist auch der beste Weg, um online Fotos zu sammeln."
   undo: "Rückgängig machen?"
   username: "Benutzername"
@@ -869,12 +872,9 @@ de_formal:
       community_welcome: "Diasporas Gemeinschaft ist froh, Sie an Bord zu haben!"
       hashtag_explanation: "Hashtags ermöglichen Ihnen, über Ihre Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Leute bei Diaspora zu treffen!"
       hashtag_suggestions: "Probieren Sie mal Tags wie #kunst, #musik oder #gif zu folgen."
-      hooking_up_fb: "Sie Ihren Facebook-Account"
       saved: "Gespeichert!"
-      we_can_speed_things_up: "Wir können die Dinge ein wenig beschleunigen wenn"
       well_hello_there: "Also, Hallöchen!"
       what_are_you_in_to: "Was machen Sie so?"
-      what_facebook_does: "mit Diaspora verbinden. Hierbei wird Ihr Name und Ihr Foto geladen, und das Veröffentlichen zu Facebook ermöglicht."
       who_are_you: "Wer sind Sie?"
     privacy_settings:
       ignored_users: "Ignorierte Benutzer"

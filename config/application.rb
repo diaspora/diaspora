@@ -2,7 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.expand_path('../boot', __FILE__)
+require 'pathname'
+require Pathname.new(__FILE__).expand_path.dirname.join('boot')
 
 # Needed for versions of ruby 1.9.2 that were compiled with libyaml.
 # They use psych by default which doesn't handle having a default set of parameters.
@@ -24,7 +25,6 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-
 module Diaspora
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -32,12 +32,8 @@ module Diaspora
     # -- all .rb files in that directory are automatically loaded.
 
     # Add additional load paths for your own custom dirs
-     #config.autoload_paths += %W(#{config.root}/lib)
-     config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/presenters)
-     #OMG HAX PLZ FIX MAKE ALL LIB AUTOLOAD KTHNX
-     config.autoload_paths += %W(#{config.root}/lib/*)
-     config.autoload_paths += %W(#{config.root}/lib/*/*)
-     config.autoload_paths += %W(#{config.root}/lib/*/*/*)
+     config.autoload_paths += %W(#{config.root}/app/presenters)
+     config.autoload_paths += %W(#{config.root}/lib)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named
@@ -73,7 +69,6 @@ module Diaspora
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    # Do not load whole env on precompile
     config.assets.initialize_on_precompile = false
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
@@ -98,9 +93,4 @@ module Diaspora
     config.assets.version = '1.0'
 
   end
-end
-
-# Only load asset_sync if S3 is configured
-if RAILS_GROUPS.include?(:assets) && ENV['AWS_ACCESS_KEY_ID']
-  require 'asset_sync'
 end

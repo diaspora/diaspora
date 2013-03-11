@@ -18,9 +18,9 @@
           %li{:data=>{:contact_id=>contact.id}}
             = person_image_tag contact.person
             %h4.name
-              = link_to contact.person.name, contact.person
+              = link_to contact.person_name, contact.person
               .description
-                = contact.person.diaspora_handle
+                = contact.person_diaspora_handle
 
             .right
               = aspect_membership_dropdown(contact, contact.person, 'right')

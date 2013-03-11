@@ -18,7 +18,6 @@ ru:
         many: "В <%= count %> аспектах"
         one: "В <%= count %> аспекте"
         other: "В <%= count %> аспектах"
-        two: "В <%= count %> аспектах"
         zero: "Выбрать аспекты"
     aspect_navigation:
       deselect_all: "Выключить все"
@@ -80,7 +79,6 @@ ru:
         many: "Понравилось: <%= count %>"
         one: "Понравилось: <%= count %>"
         other: "Понравилось: <%= count %>"
-        two: "Понравилось: <%= count %>"
         zero: "Понравилось: <%= count %>"
       limited: "Ограниченная"
       more_comments:
@@ -88,7 +86,6 @@ ru:
         many: "Еще <%= count %> комментариев"
         one: "Еще <%= count %> комментарий"
         other: "Еще <%= count %> комментариев"
-        two: "Остальные комментарии (<%= count %>)"
         zero: "Еще <%= count %> комментариев"
       original_post_deleted: "Исходная запись удалена автором."
       public: "Публичная"
@@ -98,7 +95,6 @@ ru:
         many: "Поделились: <%= count %>"
         one: "Поделились: <%= count %>"
         other: "Поделились: <%= count %>"
-        two: "Поделились: <%= count %>"
         zero: "Поделились: <%= count %>"
       show_nsfw_post: "Показать запись"
       show_nsfw_posts: "Показать все"

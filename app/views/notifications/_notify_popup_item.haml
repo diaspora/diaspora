@@ -1,7 +1,7 @@
-.notification_element{:data=>{:guid => n.id},:class => (n.unread ? "unread" : "read")}
-  %img{:src => n.actors.first.profile.image_url(:thumb_medium)}
+.notification_element{:data=>{:guid => n.id}, :class => (n.unread ? "unread" : "read")}
+  = person_image_tag n.actors.first, :thumb_small
   = notification_message_for(n)
-  %br/
-  %abbr.timeago{:title=>n.created_at.iso8601}
-  %a{:class => 'unread-setter'}
-    = t('notifications.index.mark_unread')
+  %div
+    %time
+      = timeago(n.created_at)
+    = link_to t('notifications.index.mark_unread'), "#", :class => "unread-setter"

@@ -1,10 +1,12 @@
 branches:
   only:
     - 'master'
-    
+    - 'develop'
+
 language: ruby
 rvm:
   - 1.9.3
+
 
 env:
   - DB=postgres BUILD_TYPE=other
@@ -12,15 +14,13 @@ env:
   - DB=postgres BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=cucumber
 
-before_install: 
-  - "./script/ci/before_install.sh"
 
 bundler_args: "--without development production heroku"
-before_script: "./script/ci/before.sh"
-script: "bundle exec rake travis"
+before_install: "./script/ci/before_install.sh"
+script: "./script/ci/build.sh"
 
 
 notifications:
   irc:
     channels:
-      - 'irc.freenode.org:6667#diaspora-dev'
+      - "irc.freenode.org:6667#diaspora-dev"

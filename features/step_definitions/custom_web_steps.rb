@@ -1,3 +1,55 @@
+module ScreenshotCukeHelpers
+
+  def set_screenshot_location(path)
+    @screenshot_path = Rails.root.join('tmp','screenshots', path)
+    @screenshot_path.mkpath unless @screenshot_path.exist?
+  end
+
+  def take_screenshot(name, path)
+    visit send("#{path}_path")
+    browser = page.driver.browser
+    pic = @screenshot_path.join("#{name}.png")
+
+    sleep 0.5
+
+    browser.manage.window.resize_to(1280, 1024)
+    browser.save_screenshot(pic)
+  end
+
+  def take_screenshots_without_login
+    pages = {
+      'register' => 'new_user_registration',
+      'login'    => 'user_session'
+    }
+
+    pages.each do |name, path|
+      take_screenshot name, path
+    end
+  end
+
+  def take_screenshots_with_login
+    pages = {
+      'stream'        => 'stream',
+      'activity'      => 'activity_stream',
+      'mentions'      => 'mentioned_stream',
+      'aspects'       => 'aspects_stream',
+      'tags'          => 'followed_tags_stream',
+      'contacts'      => 'contacts',
+      'settings'      => 'edit_user',
+      'notifications' => 'notifications',
+      'conversations' => 'conversations',
+      'logout'        => 'destroy_user_session'
+    }
+
+    pages.each do |name, path|
+      take_screenshot name, path
+    end
+  end
+
+end
+World(ScreenshotCukeHelpers)
+
+
 When /^(.*) in the header$/ do |action|
   within('header') do
     step action
@@ -44,12 +96,33 @@ Then /^the publisher should be expanded$/ do
   find("#publisher")["class"].should_not include("closed")
 end
 
+Then /^the text area wrapper mobile should be with attachments$/ do
+  find("#publisher_textarea_wrapper")["class"].should include("with_attachments")
+end
+
 When /^I append "([^"]*)" to the publisher$/ do |stuff|
   elem = find('#status_message_fake_text')
-  elem.native.send_keys ' ' + stuff
+  elem.native.send_keys(' ' + stuff)
 
   wait_until do
-    page.find("#status_message_text").value.match(/#{stuff}/)
+    find('#status_message_text').value.include?(stuff)
+  end
+end
+
+When /^I append "([^"]*)" to the publisher mobile$/ do |stuff|
+  elem = find('#status_message_text')
+  elem.native.send_keys(' ' + stuff)
+
+  wait_until do
+    find('#status_message_text').value.include?(stuff)
+  end
+end
+
+And /^I want to mention (?:him|her) from the profile$/ do
+  click_link("Mention")
+  wait_for_ajax_to_finish
+  within('#facebox') do
+    click_publisher
   end
 end
 
@@ -113,6 +186,10 @@ Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector,
   with_scope(scope_selector) do
     page.has_css?(selector, :visible => true).should be_false
   end
+end
+
+Then /^page should (not )?have "([^\"]*)"$/ do |negate, selector|
+  page.has_css?(selector).should ( negate ? be_false : be_true )
 end
 
 When /^I wait for the ajax to finish$/ do
@@ -228,4 +305,20 @@ end
 
 Then /^I should see a flash message containing "(.+)"$/ do |text|
   flash_message_containing? text
+end
+
+Given /^the reference screenshot directory is used$/ do
+  set_screenshot_location 'reference'
+end
+
+Given /^the comparison screenshot directory is used$/ do
+  set_screenshot_location 'current'
+end
+
+When /^I take the screenshots while logged out$/ do
+  take_screenshots_without_login
+end
+
+When /^I take the screenshots while logged in$/ do
+  take_screenshots_with_login
 end

@@ -54,7 +54,7 @@ nn:
         no_account_till: "Kontoen din vil ikkje verta oppretta før du nyttar lenkja ovanfor og loggar deg på."
         or: "eller"
         sign_up_now: "Meld deg inn no →"
-        subject: "Du er vorten invitert til å vera med i Diaspora."
+        subject: "Du er invitert til å vera med i Diaspora."
         team_diaspora: "Team Diaspora"
         unsubscribe: "For å melde deg av, klikk på %{link}."
         view_in: "View in"
@@ -81,7 +81,7 @@ nn:
         forgot_password: "Har du gløymt passordet ditt?"
         no_account: "Det finst ingen konto med denne e-postadressa. Om du ventar på ein invitasjon, skal du veta at vi sender dei ut så fort vi kan."
         send_password_instructions: "Send meg opplysningar om korleis nullstilla passordet"
-      send_instructions: "Om ei lita stund vil du få ei e-postmelding med opplysningar om korleis du kan nullstilla passordet ditt."
+      send_instructions: "Om ei lita stund vil du få ein e-post med opplysningar om korleis du kan nullstilla passordet ditt."
       updated: "Passordet ditt vart endra. Du er no pålogga."
     registrations:
       destroyed: "Ha det! Kontoen din vart sletta. Vi vonar vi ser deg att snart."

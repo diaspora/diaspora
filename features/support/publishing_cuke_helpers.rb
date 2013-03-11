@@ -13,7 +13,7 @@ module PublishingCukeHelpers
   def click_publisher
     page.execute_script('
       $("#publisher").removeClass("closed");
-      $("#publisher").find("textarea").focus();
+      $("#publisher").find("#status_message_fake_text").focus();
     ')
   end
 
@@ -79,7 +79,7 @@ module PublishingCukeHelpers
   end
 
   def comment_on_show_page(comment_text)
-    within("#post-interactions") do 
+    within("#post-interactions") do
       focus_comment_box(".label.comment")
       make_comment(comment_text, "new-comment-text")
     end

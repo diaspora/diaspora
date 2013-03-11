@@ -23,7 +23,7 @@ ca:
       inactive: "El vostre compte encara no era actiu."
     sessions:
       new:
-        login: "Entrada"
+        login: "Entra"
         username: "Nom d'usuari"
         password: "Contrasenya"
         sign_in: "Entra"

@@ -1,7 +1,7 @@
 class User
   include Rails.application.routes.url_helpers
   def default_url_options
-    {:host => AppConfig[:pod_url]}
+    {:host => AppConfig.pod_uri.host}
   end
 
   alias_method :share_with_original, :share_with
@@ -30,12 +30,5 @@ class User
       end
       p
     end
-  end
-
-  def post_at_time(time)
-    to_aspect = self.aspects.length == 1 ? self.aspects.first : self.aspects.where(:name => "generic")
-    p = self.post(:status_message, :text => 'hi', :to => to_aspect)
-    p.created_at = time
-    p.save!
   end
 end

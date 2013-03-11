@@ -55,7 +55,7 @@ class PostPresenter
   end
 
   def title
-    @post.text.present? ? @post.text(:plain_text => true) : I18n.translate('posts.presenter.title', :name => @post.author.name)
+    @post.text.present? ? @post.text(:plain_text => true) : I18n.translate('posts.presenter.title', :name => @post.author_name)
   end
 
   def template_name #kill me, lol, I should be client side
@@ -63,7 +63,7 @@ class PostPresenter
   end
 
   def root
-    PostPresenter.new(@post.absolute_root, current_user).as_json if @post.respond_to?(:root) && @post.root.present?
+    PostPresenter.new(@post.absolute_root, current_user).as_json if @post.respond_to?(:absolute_root) && @post.absolute_root.present?
   end
 
   def user_like

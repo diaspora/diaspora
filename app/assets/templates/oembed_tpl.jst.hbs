@@ -1,5 +1,5 @@
 {{#if o_embed_cache}}
-    {{#if o_embed_cache.data.thumbnail_url}}
+    {{#if o_embed_cache.data.types.video }}
         <div class="thumb">
             <img src="{{o_embed_cache.data.thumbnail_url}}" />
             <div class="video-overlay">
@@ -17,6 +17,6 @@
             </div>
         </div>
     {{else}}
-        {{{o_embed_html}}}
+      {{{o_embed_html}}}
     {{/if}}
 {{/if}}

@@ -11,12 +11,10 @@ describe Services::Tumblr do
 
   describe '#post' do
     it 'posts a status message to tumblr' do
+      response = mock
+      response.stub(:body).and_return('{"response": {"user": {"blogs": [{"url": "http://foo.tumblr.com"}]}}}')
+      OAuth::AccessToken.any_instance.should_receive(:get).with("/v2/user/info").and_return(response)
       OAuth::AccessToken.any_instance.should_receive(:post)
-      @service.post(@post)
-    end
-
-    it 'swallows exception raised by tumblr not being webscale' do
-      OAuth::AccessToken.any_instance.should_receive(:post).and_raise(StandardError)
       @service.post(@post)
     end
   end

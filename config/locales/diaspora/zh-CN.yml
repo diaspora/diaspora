@@ -282,11 +282,7 @@ zh-CN:
       success: "消息移除成功"
     helper:
       new_messages:
-        few: "%{count}条新消息"
-        many: "%{count}条新消息"
-        one: "1条新消息"
         other: "%{count} 条新消息"
-        two: "%{count} new messages"
         zero: "暂无新消息"
     index:
       create_a_new_message: "发送消息"
@@ -378,25 +374,13 @@ zh-CN:
   likes:
     likes:
       people_dislike_this:
-        few: "有%{count}人觉得不好"
-        many: "有%{count}人觉得不好"
-        one: "有1个人觉得不好"
         other: "%{count} 个差"
-        two: "%{count} dislikes"
         zero: "暂无差"
       people_like_this:
-        few: "有%{count}个人觉得好"
-        many: "有%{count}个人觉得好"
-        one: "有1个人觉得好"
         other: "%{count} 个赞"
-        two: "%{count} likes"
         zero: "暂无赞"
       people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
         other: "%{count} 个赞"
-        two: "%{count} likes"
         zero: "暂无赞"
   limited: "限制"
   more: "更多"
@@ -404,102 +388,50 @@ zh-CN:
   no_results: "没有找到符合条件的内容"
   notifications:
     also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors} 也对 %{post_author} 的 %{post_link} 发表了评论。"
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} 也对 %{post_author} 的 %{post_link} 发表了评论。"
     also_commented_deleted:
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
       other: "%{actors} 对一个已被删除的内容发表了评论。"
-      two: "%{actors} commented on a deleted post."
       zero: "%{actors} 对一个已被删除的内容发表了评论。"
     comment_on_post:
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
       other: "%{actors} 回复了您的 %{post_link}。"
-      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} 回复了您的 %{post_link}。"
     helper:
       new_notifications:
-        few: "%{count}个新消息"
-        many: "%{count}个新消息"
-        one: "1个新消息"
         other: "%{count} 个新消息"
-        two: "%{count} new notifications"
         zero: "暂无新消息"
     index:
       and: "和"
       and_others:
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
         other: "和另 %{count} 人"
-        two: "and %{count} others"
         zero: "一人"
       mark_all_as_read: "全部标示为已读"
       mark_unread: "标记为未读"
       notifications: "消息"
     liked:
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} 刚刚赞了您的 %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} 刚刚赞了您的 %{post_link}."
     liked_post_deleted:
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
       other: "%{actors} 赞了您已删除的内容。"
-      two: "%{actors} liked your deleted post."
       zero: "%{actors} 赞了您已删除的内容。"
     mentioned:
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} 在 %{post_link} 中提到了您。"
-      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} 在 %{post_link} 中提到了您。"
     mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
       other: "%{actors} 在已删除的内容中提到了您。"
-      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} 在已删除的内容中提到了您。"
     post: "日志。"
     private_message:
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
       other: "%{actors} 向您发了一条信息。"
-      two: "%{actors} sent you a message."
       zero: "%{actors} 向您发了一条信息。"
     reshared:
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} 转发了您的 %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} 转发了您的 %{post_link}."
     reshared_post_deleted:
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
       other: "%{actors} 转发了您已删除的内容。"
-      two: "%{actors} reshared your deleted post."
       zero: "%{actors} 转发了您已删除的内容。"
     started_sharing:
-      few: "%{actors} started sharing with you."
-      many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
       other: "%{actors} 开始与您分享内容。"
-      two: "%{actors} started sharing with you."
       zero: "%{actors} 开始与您分享内容。"
   notifier:
     a_post_you_shared: "一篇内容。"
@@ -654,11 +586,7 @@ zh-CN:
       not_found: "抱歉，找不到该内容。"
       permalink: "永久连接"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
         other: "%{author} 的 %{count} 张照片"
-        two: "Two photos by %{author}"
         zero: "暂无来自 %{author} 的照片"
       reshare_by: "%{author} 转发"
   previous: "上一步"
@@ -689,11 +617,7 @@ zh-CN:
       updated: "个人档案更新成功"
   public: "公开"
   reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
     other: "%{count} 个回应"
-    two: "%{count} reactions"
     zero: "0 个回应"
   registrations:
     closed: "此 Diaspora pod 不开放注册。"
@@ -732,11 +656,7 @@ zh-CN:
       success: "你们现在互相分享了。"
     helper:
       new_requests:
-        few: "%{count}个新请求！"
-        many: "%{count}个新请求！"
-        one: "新的请求！"
         other: "%{count}个新请求！"
-        two: "%{count} new requests!"
         zero: "暂无新请求"
     manage_aspect_contacts:
       existing: "当前好友"
@@ -750,11 +670,7 @@ zh-CN:
     reshare:
       deleted: "原内容已被作者删除"
       reshare:
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
         other: "%{count}个转发"
-        two: "%{count} reshares"
         zero: "转发"
       reshare_confirmation: "您要转发 %{author} 的内容吗？"
       reshare_original: "转发原文"
@@ -806,11 +722,7 @@ zh-CN:
     aspect_dropdown:
       add_to_aspect: "添加到分组"
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
         other: "在 %{count} 个分组中"
-        two: "In %{count} aspects"
         zero: "添加到分组"
     contact_list:
       all_contacts: "全部好友"
@@ -883,20 +795,12 @@ zh-CN:
     new:
       mentioning: "提及发布中: %{person}"
     too_long:
-      few: "请确认您的状态信息不超过%{count}个字符"
-      many: "请确认您的状态信息不超过%{count}个字符"
-      one: "请确认您的状态信息不超过%{count}个字符"
       other: "请确保您的状态信息不超过 %{count} 个字符"
-      two: "please make your status messages less than %{count} characters"
       zero: "请确保您的状态信息不超过 %{count} 个字符"
   stream_helper:
     hide_comments: "隐藏评论"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
       other: "还有 %{count} 条评论"
-      two: "Show two more comments"
       zero: "无更多评论"
   streams:
     activity:
@@ -1019,12 +923,9 @@ zh-CN:
       community_welcome: "Diaspora 社区欢迎您的到来"
       hashtag_explanation: "标签让您可以讨论关注您的兴趣。并且也是在 Diaspora 找到新朋友的好办法。"
       hashtag_suggestions: "试试看关注如 #艺术，#电影, #gif 之类的标签。"
-      hooking_up_fb: "连接您的 Facebook 帐号"
       saved: "已保存"
-      we_can_speed_things_up: "我们可以通过"
       well_hello_there: "嗨，您好！"
       what_are_you_in_to: "您对什么有兴趣？"
-      what_facebook_does: "让您尽快使用 Diaspora。这个步骤会获取您的姓名和照片，并开启内容分享。"
       who_are_you: "您是哪位？"
     privacy_settings:
       ignored_users: "忽略的用户"

@@ -65,10 +65,10 @@ sr:
     show_more: "прикажи још"
     stream:
       comment: "Коментариши"
-      follow: "Прати"
+      follow: "Запрати"
       hide: "Сакриј"
       hide_nsfw_posts: "Сакриј #нпзп објаве"
-      like: "Свиђа ми се"
+      like: "Свиђам"
       likes:
         few: "<%= count %> свиђања"
         many: "<%= count %> свиђања"
@@ -93,8 +93,8 @@ sr:
         zero: "<%= count %> дељења"
       show_nsfw_post: "Прикажи објаву"
       show_nsfw_posts: "Прикажи све"
-      unfollow: "Не прати"
-      unlike: "Не свиђа ми се"
+      unfollow: "Отпрати"
+      unlike: "Не свиђам"
     tags:
       wasnt_that_interesting: "Добро, изгледа да те #<%= tagName %> не занима толико..."
     timeago:

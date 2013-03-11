@@ -12,16 +12,32 @@ describe RelayableRetraction do
     @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
   end
 
-  describe '#subscribers' do
+  context "when retracting a comment" do
     before do
       @comment= @local_luke.comment!(@local_parent, "yo")
       @retraction= @local_luke.retract(@comment)
     end
 
-    it 'delegates it to target' do
-      arg = mock()
-      @retraction.target.should_receive(:subscribers).with(arg)
-      @retraction.subscribers(arg)
+    describe "#parent" do
+      it "delegates to to target" do
+        @retraction.target.should_receive(:parent)
+        @retraction.parent
+      end
+    end
+
+    describe "#parent_author" do
+      it "delegates to target" do
+        @retraction.target.should_receive(:parent_author)
+        @retraction.parent_author
+      end
+    end
+
+    describe '#subscribers' do
+      it 'delegates it to target' do
+        arg = mock()
+        @retraction.target.should_receive(:subscribers).with(arg)
+        @retraction.subscribers(arg)
+      end
     end
   end
 

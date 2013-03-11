@@ -386,6 +386,7 @@ ul.as-selections
 .stream_element
   a.author
     :font-weight bold
+    :unicode-bidi bidi-override
 
   .photo_attachments
     :margin
@@ -393,6 +394,14 @@ ul.as-selections
 
   img
     :max-width 100%
+
+  .bd
+    > img
+      :height 30px
+      :width 30px
+      :float left
+      :margin
+        :right 10px
 
   .stream_photo
     :float left
@@ -435,6 +444,9 @@ ul.as-selections
     .icons-deletelabel
       :height 8px
       :width 8px
+
+  a:hover
+    :text-decoration none
 
 .status_message_show
   .comment_box
@@ -548,6 +560,13 @@ ul.as-selections
   .right
     :right 4px
 
+.stream_element
+  .new_comment_form_wrapper
+    :width 415px
+
+.stream_element .bd
+  & > .likes, & > .comments
+    :margin-right 15px
 
 .stream_element .post-content .reshare
   :border-left 2px solid #ddd
@@ -559,7 +578,7 @@ form.new_comment
   textarea
     :height 21px
     :font-size 12px
-    :width 355px
+    :width 364px
 
   &.open
     input
@@ -638,6 +657,10 @@ form p
   :padding 0
   :margin 0
 
+form#update_profile_form p.checkbox_select
+  label
+    :top 0   
+
 form p.checkbox_select
   :width 75%
   label
@@ -688,7 +711,6 @@ form p.checkbox_select
   form
     textarea
       :resize none
-      :width 455px
       :height 50px
       :margin 0
 
@@ -847,8 +869,7 @@ form p.checkbox_select
     :z-index 3
     :position absolute
     :bottom 0
-    :width 435px
-    :left 5px
+    :right 35px
     :padding 0
 
     li
@@ -895,7 +916,7 @@ form p.checkbox_select
   .counter
     :position absolute
     :font-size 13px
-    :padding-top 2px
+    :padding 12px 0 0 5px
   .warning
     :color orange
   .exceeded
@@ -1020,6 +1041,7 @@ ul#settings_nav
 
 .dull
   :color #aaa
+  :text-align center
   :font
     :style italic
 
@@ -1961,6 +1983,11 @@ ul#press_logos
     :margin
       :top 9px
 
+.conversation_participants
+  a:hover
+    :text-decoration none
+
+
 .stream_element.conversation
   :padding 8px
 
@@ -2009,6 +2036,7 @@ ul#press_logos
     :height 35px
     :margin
       :right 10px
+      :bottom 10px
 
   &:hover:not(.selected)
     :background
@@ -2255,6 +2283,10 @@ h1.tag
       :padding 8px
       :color #999
       :font-size 11px
+    li
+      :list-style none
+      :float left
+      :padding-right 10px
     :margin
       :bottom 25px
 
@@ -2410,8 +2442,11 @@ ul.left_nav
     :margin-top 4px
     @include transition(opacity)
     @include opacity(0.3)
-    :float right
+    :position absolute
     :display none
+    :background
+      :color white
+    :padding 0 5px
     &:hover
       @include opacity(1)
 
@@ -2465,6 +2500,8 @@ ul.left_nav
       :width 150px
     ul.sub_nav
       :width 140px
+      &:hover
+        :width auto
 
       a.aspect_selector
         :width 112px
@@ -2476,6 +2513,23 @@ ul.left_nav
 
       a.tag_selector
         :width 140px
+        :overflow hidden
+        :position relative
+        :display inline-block
+        &:after
+          :display inline-block
+          :content ""
+          :width 80px
+          :height 25px
+          :position absolute
+          :top 0px
+          :left 100px
+          @include horizontal-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1))
+        &:hover
+          :width auto
+          :z-index 0.9
+        &:hover:after
+          :background none
 
       li
         :height 25px
@@ -2495,6 +2549,10 @@ ul.left_nav
         .edit,
         .unfollow_icon
           :display inline-block
+          :position absolute
+          :top 0
+          :left 0
+          :z-index 1
 
   .user_card
     :margin-left 8px
@@ -2585,6 +2643,10 @@ a.toggle_selector
     :width 32px
     :margin
       :bottom -2px
+
+.stream-faces
+  a:hover
+    :text-decoration none
 
 #view_all_contacts_link
   @include border-radius(2px)
@@ -2975,6 +3037,7 @@ a.toggle_selector
       :left 24px
 
     input[type='text']
+      :width 100%
       :font
         :size 13px
 
@@ -3000,6 +3063,9 @@ a.toggle_selector
 
       &:hover
         @include opacity(1)
+body
+  .popover
+    :z-index 1000
 
 .nsfw-shield
   @include border-radius(3px)
@@ -3037,3 +3103,7 @@ a.toggle_selector
     :color #666
     :color #666
 
+#fileInfo
+  :font-size small
+  :text-align right
+  :margin 5px 2px

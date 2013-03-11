@@ -14,7 +14,7 @@ hu:
     failure:
       inactive: "A fiókod nem aktiváltad még."
       invalid: "Érvénytelen felhasználónév vagy jelszó."
-      invalid_token: "Érvénytelen hitelesítési jel."
+      invalid_token: "Érvénytelen hitelesítési azonosító."
       locked: "A fiókod zárolva van."
       timeout: "A munkamenet lejárt, kérjük jelentkezz be újra."
       unauthenticated: "A továbblépéshez jelentkezz be vagy iratkozz fel."

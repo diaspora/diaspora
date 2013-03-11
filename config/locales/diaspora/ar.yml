@@ -45,6 +45,11 @@ ar:
       pages: "صفحات"
       user_search: "بحث عن عضو"
       weekly_user_stats: "إحصائيات المستخدم الإسبوعية"
+    stats:
+      2weeks: "أسبوعين"
+      daily: "يومياً"
+      month: "شهر"
+      week: "أسبوع"
   ago: "منذ %{time}"
   all_aspects: "كل الفئات"
   application:
@@ -54,7 +59,7 @@ ar:
       video_title:
         unknown: "فيديو غير مُعَنْوَن"
   are_you_sure: "أواثقٌ أنت؟"
-  are_you_sure_delete_account: "هل تريد حقا إغلاق حسابك؟ هذه الخطوة لا يمكن التراجع عنها!"
+  are_you_sure_delete_account: "هل تريد حقا إغلاق حسابك؟ عند إغلاق حسابك تحذف كل معلوماتك ولا يمكن استرجاعهاا!"
   aspect_memberships:
     destroy:
       failure: "فشل في حذف عضو من الفئة"
@@ -213,6 +218,8 @@ ar:
       many_people_are_you_sure: "هل أنت متأكد من بدأ هذه المحادثة الخاصة مع أكثر من %{suggested_limit} جهات اتصال? من الأفضل إرسال مشاركة لهذه الفئة لتتصل بهم."
       my_contacts: "جهات الاتصال الخاصة بي"
       no_contacts: "لا توجد جهات اتصال."
+      no_contacts_message: "انظر في  {community_spotlight}%"
+      no_contacts_message_with_aspect: "انظر في %{community_spotlight} او %{add_to_aspect_link}"
       only_sharing_with_me: "فقط يتشاركون معي"
       remove_person_from_aspect: "احذف %{person_name} من \"%{aspect_name}\""
       start_a_conversation: "ابدأ محادثة"
@@ -239,7 +246,6 @@ ar:
         many: "%{count} رسالةً جديدة"
         one: "رسالةٌ واحدةٌ جديدة"
         other: "%{count} رسالة جديدة"
-        two: "%{count} رسالتان جديدتان"
         zero: "لا توجد رسائل جديدة"
     index:
       create_a_new_message: "إنشئ رسالة جديدة."
@@ -324,21 +330,18 @@ ar:
         many: "%{count} كرهوا هذا"
         one: "كره هذا شخصُ واحد"
         other: "%{count} كرهو هذا"
-        two: "%{count} كرها"
         zero: "لا أحد يكره هذا"
       people_like_this:
         few: "%{count} إعجابات"
         many: "%{count} إعجابًا"
         one: "إعجابٌ واحد"
         other: "%{count} إعجابًا"
-        two: "%{count} إعجابان"
         zero: "لا إعجابات"
       people_like_this_comment:
         few: "%{count} إعجابات"
         many: "%{count} إعجابًا"
         one: "إعجابٌ واحد"
         other: "%{count} إعجاب"
-        two: "%{count} أعجبهما"
         zero: "لا إعجابات"
   limited: "محدود"
   more: "أكثر"
@@ -350,21 +353,18 @@ ar:
       many: "%{actors} علق أيضا على %{post_link} %{post_author}."
       one: "%{actors} علق أيضا على %{post_link} %{post_author}."
       other: "%{actors} علق أيضا على %{post_link} %{post_author}."
-      two: "%{actors} علقا أيضا على %{post_link} مشاركة %{post_author}."
       zero: "%{actors} علق أيضا على %{post_link} %{post_author}."
     also_commented_deleted:
       few: "%{actors} علقوا على المشاركة المحذوفة."
       many: "%{actors} علقوا على المشاركة المحذوفة."
       one: "%{actors} علق على المشاركة المحذوفة."
       other: "%{actors} علقوا على المشاركة المحذوفة."
-      two: "%{actors} علقا على مشاركتك المحذوفة."
       zero: "%{actors} علق على المشاركة المحذوفة."
     comment_on_post:
       few: "%{actors} علقوا على %{post_link}."
       many: "%{actors} علقوا على %{post_link}."
       one: "%{actors} علق على %{post_link}."
       other: "%{actors} علقوا على %{post_link}."
-      two: "%{actors} علقا على %{post_link}."
       zero: "%{actors} علق على %{post_link}."
     helper:
       new_notifications:
@@ -372,7 +372,6 @@ ar:
         many: "%{count} تنبيهات جديدة"
         one: "1 تنبيه جديد"
         other: "%{count} تنبيهات جديدة"
-        two: "%{count} تنبيهان"
         zero: "لا تنبيهات جديدة"
     index:
       and: "و"
@@ -381,7 +380,6 @@ ar:
         many: "و %{count} آخرون"
         one: "و آخر"
         other: "و %{count} آخرون"
-        two: "و %{count} آخران"
         zero: "و لا أحد"
       mark_all_as_read: "وضع الجميع كمقروء"
       mark_unread: "غير مقروء"
@@ -391,28 +389,24 @@ ar:
       many: "%{actors} أعجبوا لتوهم بـ %{post_link}."
       one: "%{actors} أعجب لتوه بـ %{post_link}."
       other: "%{actors} أعجبوا لتوهم بـ %{post_link}."
-      two: "%{actors} أعجبا لتوهما بـ %{post_link}."
       zero: "%{actors} أعجب لتوه بـ %{post_link}."
     liked_post_deleted:
       few: "%{actors} أعجبوا بمشاركتك المحذوفة."
       many: "%{actors} أعجبوا بمشاركتك المحذوفة."
       one: "%{actors} أعجب بمشاركتك المحذوفة."
       other: "%{actors} أعجبوا بمشاركتك المحذوفة."
-      two: "%{actors} أعجبتهما مشاركتك المحذوفة."
       zero: "%{actors} أعجب بمشاركتك المحذوفة."
     mentioned:
       few: "%{actors} أشاروا إليك في %{post_link}."
       many: "%{actors} أشاروا إليك في %{post_link}."
       one: "%{actors} أشار إليك في %{post_link}."
       other: "%{actors} أشاروا إليك في %{post_link}."
-      two: "%{actors} أشارا إليك في %{post_link}."
       zero: "%{actors} أشار إليك في %{post_link}."
     mentioned_deleted:
       few: "%{actors} أشاروا إليك في مشاركة محذوفة."
       many: "%{actors} أشاروا إليك في مشاركة محذوفة."
       one: "%{actors} أشار إليك في مشاركة محذوفة."
       other: "%{actors} أشاروا إليك في مشاركة محذوفة."
-      two: "%{actors} أشارا إليك في مشاركة محذوفة."
       zero: "%{actors} أشار إليك في مشاركة محذوفة."
     post: "مشاركة"
     private_message:
@@ -420,28 +414,24 @@ ar:
       many: "%{actors} راسلوك."
       one: "%{actors} راسلك."
       other: "%{actors} راسلوك."
-      two: "%{actors} راسلاك."
       zero: "%{actors} راسلك."
     reshared:
       few: "%{actors} أعادوا نشر %{post_link}."
       many: "%{actors} أعادوا نشر %{post_link}."
       one: "%{actors} أعاد نشر %{post_link}."
       other: "%{actors} أعادوا نشر %{post_link}."
-      two: "%{actors} أعادا نشر %{post_link}."
       zero: "%{actors} أعاد نشر %{post_link}."
     reshared_post_deleted:
       few: "%{actors} أعادوا نشر مشاركتك المحذوفة."
       many: "%{actors} أعادوا نشر مشاركتك المحذوفة."
       one: "%{actors} أعاد نشر مشاركتك المحذوفة."
       other: "%{actors} أعادوا نشر مشاركتك المحذوفة."
-      two: "%{actors} أعادا نشر مشاركتك المحذوفة."
       zero: "%{actors} أعاد نشر مشاركتك المحذوفة"
     started_sharing:
       few: "%{actors} بدؤوا المشاركة معك."
       many: "%{actors} بدؤوا المشاركة معك."
       one: "%{actors} بدأ المشاركة معك."
       other: "%{actors} بدؤوا المشاركة معك."
-      two: "%{actors} بدآ المشاركة معك."
       zero: "%{actors} بدأ المشاركة معك."
   notifier:
     a_post_you_shared: "مشاركة."
@@ -481,6 +471,7 @@ ar:
       view_profile: "عرض ملف %{name} الشخصي"
     thanks: "شكرا,"
     to_change_your_notification_settings: "لتعديل إعدادات التنبيهات خاصتك"
+  nsfw: "غير مناسب لمكان العمل"
   ok: "حسنًا"
   or: "أو"
   password: "كلمة المرور"
@@ -563,6 +554,7 @@ ar:
       invalid_ext: "{file} له صيغة غير صالحة. {extensions} هي الصيغ الوحيدة المسموح بها."
       size_error: "{file} ذو حجم كبير جدا, {sizeLimit} هو الحجم الأقصى المسموح به."
     new_profile_photo:
+      or_select_one_existing: "او اختار صور من %{photos}"
       upload: "ارْفَع صورةً شخصيةً جديدة"
     photo:
       view_all: "عرض كل صور %{name}"
@@ -589,7 +581,6 @@ ar:
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
       reshare_by: "أعيد مشاركتها بواسطة %{author}"
   previous: "السابق"
@@ -622,7 +613,6 @@ ar:
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
-    two: "%{count} reactions"
     zero: "0 reactions"
   registrations:
     closed: "التسجيلات مغلقة على هذه المنصة"
@@ -637,12 +627,15 @@ ar:
       update: "تحديث"
     new:
       create_my_account: "أًنشِئ حسابي"
+      email: "الإيميـــل"
       enter_email: "أدخل عنوان بريد إلكتروني"
       enter_password: "أدخل كلمة مرور"
       enter_password_again: "أعد إدخال كلمة المرور"
       enter_username: "اختر معرف (فقط حروف, أرقام, و الإشارات الخطية)"
       join_the_movement: "إنضم للرّكب"
+      password: "كلمة السر"
       sign_up_message: "Social Networking with a <3"
+      username: "إسم المستخدم"
   requests:
     create:
       sending: "يُرسِل ..."
@@ -657,7 +650,6 @@ ar:
         many: "%{count} طلب تشارك جديد!"
         one: "طلب تشارك جديد!"
         other: "%{count} طلب تشارك جديد!"
-        two: "%{count} طلبان جديدان!"
         zero: "لا يوجد طلبات مشاركة جديدة"
     manage_aspect_contacts:
       existing: "جهات الإتصال الموجودة مسبقًا"
@@ -675,7 +667,6 @@ ar:
         many: "%{count} إعادة النشر"
         one: "إعادة نشرها مرات عديدة"
         other: "%{count} إعادة النشر"
-        two: "%{count} إعادة النشر مرة واحدة  "
         zero: "إعادة النشر"
       reshare_confirmation: "هل أُعِيد نشرالمشاركة %{author} ؟"
       reshare_original: "أعد نشر المشاركة الأصلية"
@@ -728,7 +719,6 @@ ar:
         many: "في %{count} فئات"
         one: "في %{count} فئات"
         other: "في %{count} فئة"
-        two: "في %{count} فئتين"
         zero: "أشف إلى فئة"
     contact_list:
       all_contacts: "جميع الأعضاء"
@@ -803,7 +793,6 @@ ar:
       many: "المرجو ان تكون رسالتك أقل من %{count} حرف"
       one: "المرجو ان تكون رسالتك أقل من %{count} حروف"
       other: "المرجو ان تكون رسالتك أقل من %{count} حروف"
-      two: "المرجو ان تكون رسالتك أقل من %{count} حرف"
       zero: "المرجو ان تكون رسالتك أقل من %{count} حروف"
   stream_helper:
     hide_comments: "أخْفِ كل التعليقات"
@@ -812,7 +801,6 @@ ar:
       many: "اعرض  تعليقين أخرين "
       one: "اعرض %{count} تعليقات أخرى "
       other: "لا توجد تعليقات أخرى "
-      two: "اعرض تعليقا أخر"
       zero: "اعرض %{count} تعليقات أخرى "
   streams:
     activity:
@@ -918,7 +906,6 @@ ar:
       hashtag_explanation: "الوسوم تسمح لك بالحديث عن اهتماماتك ومتابعتها.  وهي أيضا طريقة عبقرية للعثور على أناس جدد بدياسبرا."
       hashtag_suggestions: "جرب الوسوم التالية احب #فن، #أفلام، #صور، إلخ."
       saved: "تم الحفظ!"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "من أنت؟"
     privacy_settings:
       ignored_users: "المستخدمين الذين تم تجاهلهم"

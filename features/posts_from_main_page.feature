@@ -28,6 +28,23 @@ Feature: posting from the main page
       And I go to the aspects page
       Then "I am eating yogurt" should be post 1
 
+    Scenario: re-posting a text-only message
+      Given I expand the publisher
+      When I fill in the following:
+          | status_message_fake_text    | The World needs more Cats.    |
+      And I press "Share"
+      And I wait for the ajax to finish
+
+      Given I expand the publisher
+      When I fill in the following:
+          | status_message_fake_text    | The World needs more Cats.    |
+      And I press "Share"
+      And I wait for the ajax to finish
+
+      And I go to the aspects page
+      Then "The World needs more Cats." should be post 1
+      Then "The World needs more Cats." should be post 2
+
     Scenario: posting a message appends it to the top of the stream
       When I click the publisher and post "sup dog"
       And I wait for 1 second
@@ -84,6 +101,9 @@ Feature: posting from the main page
     Scenario: back out of posting a photo-only post
       Given I expand the publisher
       And I have turned off jQuery effects
+      When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
+      And I preemptively confirm the alert
+      Then I should not see an uploaded image within the photo drop zone
       When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
       And I wait for the ajax to finish
       And I click to delete the first uploaded photo

@@ -149,6 +149,8 @@ nl:
       donate: "Doneer"
       handle_explanation: "Dit is jouw Diaspora ID. Net als een e-mailadres kun je deze aan mensen geven zodat ze je kunnen bereiken."
       help:
+        any_problem: "Enige Problemen?"
+        contact_podmin: "Gelieve de systeembeheerder van uw pod te contacteren!"
         do_you: "Heb je:"
         email_feedback: "%{link} jouw feedback, als dat jou voorkeur heeft."
         email_link: "E-mail"
@@ -156,6 +158,7 @@ nl:
         find_a_bug: "... een %{link} gevonden?"
         have_a_question: "... een %{link}?"
         here_to_help: "De Diaspora community staat voor je klaar!"
+        mail_podmin: "E-mail van Podmin"
         need_help: "Hulp nodig?"
         tag_bug: "bug"
         tag_feature: "feature"
@@ -280,9 +283,15 @@ nl:
       success: "Privégesprek succesvol verwijderd"
     helper:
       new_messages:
-        one: "1 nieuw privébericht"
-        other: "%{count} nieuwe privéberichten"
-        zero: "Geen nieuwe privéberichten"
+        one: |-
+            1 nieuw privébericht
+            1 nieuw bericht
+        other: |-
+            %{count} nieuwe privéberichten
+            nieuwe berichten
+        zero: |-
+            Geen nieuwe privéberichten
+            Geen nieuwe berichten
     index:
       create_a_new_message: "schrijf een nieuw privébericht"
       inbox: "Postvak In"
@@ -327,6 +336,7 @@ nl:
     create:
       already_contacts: "Je bent al verbonden met deze persoon"
       already_sent: "Je hebt deze persoon al uitgenodigd."
+      empty: "Gelieve minstens 1 email adres toe te voegen."
       no_more: "Je hebt geen uitnodigingen meer."
       own_address: "Het is niet mogelijk om een uitnodiging naar je eigen adres te sturen."
       rejected: "De volgende e-mailadressen gaven problemen: "
@@ -378,21 +388,16 @@ nl:
         many: "%{count} mensen vinden dit niet leuk"
         one: "%{count} persoon vindt dit niet leuk"
         other: "%{count} mensen vinden dit niet leuk"
-        two: "%{count} niet leuk"
         zero: "niemand vindt dit niet leuk"
       people_like_this:
         few: "%{count} mensen vinden dit leuk"
         many: "%{count} mensen vinden dit leuk"
         one: "%{count} persoon vindt dit leuk"
         other: "%{count} mensen vinden dit leuk"
-        two: "%{count} leuk"
         zero: "niemand vindt dit leuk"
       people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
         one: "%{count} persoon vindt dit leuk"
         other: "%{count} mensen vinden dit leuk"
-        two: "%{count} leuk"
         zero: "niemand vindt dit leuk"
   limited: "Beperkt"
   more: "Meer"
@@ -400,25 +405,20 @@ nl:
   no_results: "Geen resultaten gevonden"
   notifications:
     also_commented:
-      few: "%{actors} hebben ook op %{post_author} zijn %{post_link} gereageerd."
-      many: "%{actors} hebben ook op %{post_author} zijn %{post_link} gereageerd."
       one: "%{actors} heeft ook op %{post_author} zijn %{post_link} gereageerd."
       other: "%{actors} hebben ook op %{post_author} zijn %{post_link} gereageerd."
-      two: "%{actors} hebben ook gereageerd op %{post_author}'s %{post_link}."
       zero: "%{actors} heeft ook op %{post_author} zijn %{post_link} gereageerd."
     also_commented_deleted:
       few: "%{actors} hebben gereageerd op een verwijderd bericht."
       many: "%{actors} heeft gereageerd op een verwijderde post."
       one: "%{actors} heeft gereageerd op een verwijderd bericht."
       other: "%{actors} hebben gereageerd op een verwijderd bericht."
-      two: "%{actors} hebben gereageerd op een verwijderde post."
       zero: "%{actors} heeft gereageerd op een verwijderd bericht."
     comment_on_post:
       few: "%{actors} hebben op jouw %{post_link} gereageerd."
       many: "%{actors} hebben op jouw %{post_link} gereageerd."
       one: "%{actors} heeft op jouw %{post_link} gereageerd."
       other: "%{actors} hebben op jouw %{post_link} gereageerd."
-      two: "%{actors} heeft gereageerd op jou %{post_link}."
       zero: "%{actors} heeft op jouw %{post_link} gereageerd."
     helper:
       new_notifications:
@@ -426,7 +426,6 @@ nl:
         many: "%{count} nieuwe notificaties"
         one: "1 nieuwe notificatie"
         other: "%{count} nieuwe notificaties"
-        two: "%{count} nieuwe notificaties"
         zero: "Geen nieuwe notificaties"
     index:
       and: "en"
@@ -435,7 +434,6 @@ nl:
         many: "en %{count} anderen"
         one: "en nog iemand"
         other: "en %{count} anderen"
-        two: "en %{count} anderen"
         zero: "en niemand anders"
       mark_all_as_read: "Markeer alles gelezen"
       mark_unread: "Markeer ongelezen"
@@ -453,29 +451,23 @@ nl:
       many: "%{actors} hebben je genoemd in een %{post_link}."
       one: "%{actors} heeft je genoemd in een %{post_link}."
       other: "%{actors} hebben je genoemd in een %{post_link}."
-      two: "%{actors} hebben je genoemd in een %{post_link}."
       zero: "%{actors} hebben je genoemd in een %{post_link}."
     mentioned_deleted:
       few: "%{actors} hebben jouw genoemd in een verwijderde post."
       many: "%{actors} hebben jou genoemd in een verwijderde post."
       one: "%{actors} heeft jou genoemd in een verwijderde post."
       other: "%{actors} hebben jou genoemd in een verwijderde post."
-      two: "%{actors} hebben je genoemd in een verwijderde post."
       zero: "%{actors} heeft jou genoemd in een verwijderde post."
     post: "bericht"
     private_message:
-      few: "%{actors} hebben je een bericht gestuurd."
-      many: "%{actors} hebben je een bericht gestuurd."
       one: "%{actors} heeft je een bericht gestuurd."
       other: "%{actors} hebben je een bericht gestuurd."
-      two: "%{actors} hebben je een bericht gestuurd."
       zero: "%{actors} heeft je een bericht gestuurd."
     reshared:
       few: "%{actors} hebben jouw %{post_link} doorgegeven."
       many: "%{actors} hebben jouw %{post_link} doorgegeven."
       one: "%{actors} heeft jouw %{post_link} doorgegeven."
       other: "%{actors} hebben jouw %{post_link} doorgegeven."
-      two: "%{actors} hebben jouw %{post_link} doorgegeven."
       zero: "%{actors} hebben jouw %{post_link} doorgegeven."
     reshared_post_deleted:
       one: "%{actors} hebben jouw verwijderde bericht doorgegeven."
@@ -486,7 +478,6 @@ nl:
       many: "%{actors} delen nu met jou."
       one: "%{actors} deelt nu met jou."
       other: "%{actors} delen nu met jou."
-      two: "%{actors} zijn met je gaan delen."
       zero: "%{actors} deelt nu met jou."
   notifier:
     a_post_you_shared: "een bericht."
@@ -645,7 +636,6 @@ nl:
         many: "%{count} foto's door %{author}"
         one: "Eén foto door %{author}"
         other: "%{count} foto's door %{author}"
-        two: "Twee foto's door %{author}"
         zero: "Geen foto's van %{author}"
       reshare_by: "Doorgegeven door %{author}"
   previous: "vorige"
@@ -680,7 +670,6 @@ nl:
     many: "%{count} reacties"
     one: "1 reactie"
     other: "%{count} reacties"
-    two: "%{count} reactions"
     zero: "0 reacties"
   registrations:
     closed: "Registratie is gesloten op deze Diaspora pod."
@@ -706,9 +695,10 @@ nl:
       hey_make: "HEEY,<br/>MAAK<br/>IETS"
       join_the_movement: "Sluit je aan!"
       password: "WACHTWOORD"
+      password_confirmation: "Wachtwoordbevestiging"
       sign_up: "AANMELDEN"
       sign_up_message: "Social Networking met een ♥"
-      username: "GEBRUIKERSNAAM"
+      username: "GEBRUIKER"
   requests:
     create:
       sending: "Versturen..."
@@ -723,7 +713,6 @@ nl:
         many: "%{count} nieuwe verzoeken!"
         one: "nieuw verzoek!"
         other: "%{count} nieuwe verzoeken!"
-        two: "%{count} nieuwe verzoeken!"
         zero: "geen nieuwe verzoeken"
     manage_aspect_contacts:
       existing: "Bestaande contacten"
@@ -794,7 +783,6 @@ nl:
         many: "In %{count} aspecten"
         one: "In %{count} aspect"
         other: "In %{count} aspecten"
-        two: "In %{count} aspecten"
         zero: "Voeg contact toe"
     contact_list:
       all_contacts: "Alle contacten"
@@ -871,7 +859,6 @@ nl:
       many: "statusberichten mogen niet langer zijn dan %{count} tekens"
       one: "statusberichten mogen niet langer zijn dan %{count} tekens"
       other: "statusberichten mogen niet langer zijn dan %{count} tekens"
-      two: "maak je status bericht niet langer dan %{count} karakters"
       zero: "statusberichten mogen niet langer zijn dan %{count} tekens"
   stream_helper:
     hide_comments: "Verberg alle reacties"
@@ -880,7 +867,6 @@ nl:
       many: "Toon nog %{count} andere reacties."
       one: "Toon nog één andere reactie."
       other: "Toon nog %{count} andere reacties"
-      two: "Toon nog twee andere reacties."
       zero: "Geen andere reacties meer"
   streams:
     activity:
@@ -977,6 +963,7 @@ nl:
       close_account_text: "Sluit Account"
       comment_on_post: "...iemand op jouw post reageert?"
       current_password: "Huidig wachtwoord"
+      current_password_expl: "die gene waar je mee inlogt..."
       download_photos: "download mijn foto's"
       download_xml: "download mijn xml"
       edit_account: "Bewerk account"
@@ -1000,14 +987,12 @@ nl:
     getting_started:
       awesome_take_me_to_diaspora: "Super! Neem me naar Diaspora*"
       community_welcome: "De Diaspora community is blij je aan boord te hebben!"
+      connect_to_facebook_link: "verbinden met je Facebook account"
       hashtag_explanation: "Hashtags laten je gemakkelijk jou interesses volgen. Bovendien kunnen ze je helpen bij het vinden van nieuwe contacten op Diaspora."
       hashtag_suggestions: "Probeer het volgen van tags zoals #art, #movies, #gif, etc. eens uit."
-      hooking_up_fb: "verbinden met je Facebook account"
       saved: "Opgeslagen!"
-      we_can_speed_things_up: "We kunnen het wat sneller maken door"
       well_hello_there: "O, hallo daar!"
       what_are_you_in_to: "Wat interesseert je?"
-      what_facebook_does: "met Diaspora. Je naam en foto worden dan overgezet, en je kan heen en weer posten."
       who_are_you: "Wie ben je?"
     privacy_settings:
       ignored_users: "Genegeerde Gebruikers"

@@ -40,13 +40,14 @@ describe PostsController do
         response.should be_success
       end
 
-      it 'marks a corresponding notification as read' do
-        note = Notification.create(:recipient => alice, :target => @message, :unread => true)
+      it 'marks a corresponding notifications as read' do
+        FactoryGirl.create(:notification, :recipient => alice, :target => @message, :unread => true)
+        note = FactoryGirl.create(:notification, :recipient => alice, :target => @message, :unread => true)
 
-        lambda{
+        expect {
           get :show, :id => @message.id
           note.reload
-        }.should change(note, :unread).from(true).to(false)
+        }.to change(Notification.where(:unread => true), :count).by(-2)
       end
 
       it 'succeeds with a AS/photo' do

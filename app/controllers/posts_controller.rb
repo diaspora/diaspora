@@ -1,4 +1,4 @@
-  #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -11,7 +11,8 @@ class PostsController < ApplicationController
   before_filter :set_format_if_malformed_from_status_net, :only => :show
   before_filter :find_post, :only => [:show, :next, :previous, :interactions]
 
-  layout 'post'
+  layout 'application'
+  before_filter -> { @css_framework = :bootstrap }
 
   respond_to :html,
              :mobile,
@@ -20,22 +21,17 @@ class PostsController < ApplicationController
 
   rescue_from Diaspora::NonPublic do |exception|
     respond_to do |format|
-      format.all { render :template=>'errors/not_public', :status=>404 }
+      format.all { @css_framework = :bootstrap; render :template=>'errors/not_public', :status=>404, :layout => "application"}
     end
   end
 
-  def new
-    redirect_to "/stream" and return
-    render :text => "", :layout => true
-  end
-
   def show
-    mark_corresponding_notification_read if user_signed_in?
+    mark_corresponding_notifications_read if user_signed_in?
 
     respond_to do |format|
       format.html{ gon.post = PostPresenter.new(@post, current_user); render 'posts/show' }
       format.xml{ render :xml => @post.to_diaspora_xml }
-      format.mobile{render 'posts/show', :layout => "application"}
+      format.mobile{render 'posts/show' }
       format.json{ render :json => PostPresenter.new(@post, current_user) }
     end
   end
@@ -82,7 +78,7 @@ class PostsController < ApplicationController
     current_user.retract(@post)
 
     respond_to do |format|
-      format.js { render 'destroy',:layout => false,  :format => :js }
+      format.js { render 'destroy',:layout => false, :format => :js }
       format.json { render :nothing => true, :status => 204 }
       format.any { redirect_to stream_path }
     end
@@ -109,10 +105,10 @@ class PostsController < ApplicationController
    request.format = :html if request.format == 'application/html+xml'
   end
 
-  def mark_corresponding_notification_read
-    if notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id).first
-      notification.unread = false
-      notification.save
+  def mark_corresponding_notifications_read
+    Notification.where(recipient_id: current_user.id, target_id: @post.id, unread: true).each do |n|
+      n.unread = false
+      n.save!
     end
   end
 end

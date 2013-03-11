@@ -59,14 +59,14 @@ module UserCukeHelpers
     find("#user_menu li:last-child a").click
   end
 
-  # fill change password section on the user edit page 
+  # fill change password section on the user edit page
   def fill_change_password_section(cur_pass, new_pass, confirm_pass)
     fill_in 'user_current_password', :with => cur_pass
     fill_in 'user_password', :with => new_pass
     fill_in 'user_password_confirmation', :with => confirm_pass
   end
 
-  # fill forgot password form to get reset password link 
+  # fill forgot password form to get reset password link
   def fill_forgot_password_form(email)
     fill_in 'user_email', :with => email
   end

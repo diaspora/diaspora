@@ -44,6 +44,16 @@ describe PostPresenter do
   end
   
   describe '#root' do
+    it 'does not raise if the absolute_root does not exists' do
+      first_reshare = FactoryGirl.create :reshare
+      first_reshare.root = nil
+      reshare = FactoryGirl.create :reshare, :root => first_reshare
+      
+      expect {
+        PostPresenter.new(reshare).root
+      }.to_not raise_error
+    end
+    
     it 'does not raise if the root does not exists' do
       reshare = FactoryGirl.create:reshare
       reshare.root = nil
@@ -75,7 +85,7 @@ describe PostPresenter do
     context 'with posts without text' do
       it ' displays a messaage with the post class' do
 
-        @sm = stub(:text => "", :author => bob.person)
+        @sm = stub(:text => "", :author => bob.person, :author_name => bob.person.name)
         @presenter.post = @sm
         @presenter.title.should == "A post from #{@sm.author.name}"
       end

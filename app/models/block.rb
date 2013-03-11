@@ -2,6 +2,8 @@ class Block < ActiveRecord::Base
   belongs_to :person
   belongs_to :user
 
+  delegate :name, to: :person, prefix: true
+
   validates :user_id, :presence => true
   validates :person_id, :presence => true, :uniqueness => { :scope => :user_id }
 

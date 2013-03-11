@@ -70,7 +70,7 @@ namespace :db do
     require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
     Person.where(:url => 'example.org').all.each{|person|
       if person.owner
-        person.url = AppConfig[:pod_url]
+        person.url = AppConfig.pod_uri.to_s
         person.diaspora_handle = person.owner.diaspora_handle
         person.save
       end

@@ -78,12 +78,18 @@ app.views.ActivityStreams__Photo = app.views.Content.extend({
 app.views.OEmbed = app.views.Base.extend({
   templateName : "oembed",
   events : {
-    "click .oembed .thumb": "showOembedContent"
+    "click .thumb": "showOembedContent"
   },
 
   presenter:function () {
+    o_embed_cache = this.model.get("o_embed_cache")
+    if(o_embed_cache) {
+      typemodel = { rich: false, photo: false, video: false, link: false }
+      typemodel[o_embed_cache.data.type] = true
+      o_embed_cache.data.types = typemodel
+    }
     return _.extend(this.defaultPresenter(), {
-      o_embed_html : app.helpers.oEmbed.html(this.model.get("o_embed_cache"))
+      o_embed_html : app.helpers.oEmbed.html(o_embed_cache)
     })
   },
 

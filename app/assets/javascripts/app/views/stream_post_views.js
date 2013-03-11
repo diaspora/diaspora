@@ -20,7 +20,7 @@ app.views.StreamPost = app.views.Post.extend({
     "click .block_user": "blockUser"
   },
 
-  tooltipSelector : ".delete, .block_user, .post_scope",
+  tooltipSelector : ".timeago, .delete, .block_user, .post_scope, .ignore",
 
   initialize : function(){
     this.model.bind('remove', this.remove, this);
@@ -61,7 +61,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   blockUser: function(evt){
     if(evt) { evt.preventDefault(); }
-    if(!confirm("Ignore this user?")) { return }
+    if(!confirm(Diaspora.I18n.t('ignore_user'))) { return }
 
     var personId = this.model.get("author").id;
     var block = new app.models.Block();

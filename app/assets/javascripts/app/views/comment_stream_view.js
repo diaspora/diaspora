@@ -39,9 +39,16 @@ app.views.CommentStream = app.views.Base.extend({
 
   createComment: function(evt) {
     if(evt){ evt.preventDefault(); }
-    this.model.comment(this.$(".comment_box").val())
-    this.$(".comment_box").val("")
-    return this;
+    
+    var commentText = $.trim(this.$('.comment_box').val());
+    this.$(".comment_box").val("");
+    this.$(".comment_box").css("height", "");
+    if(commentText) {
+      this.model.comment(commentText);
+      return this;
+    } else {
+      this.$(".comment_box").focus();
+    }
   },
 
   appendComment: function(comment) {

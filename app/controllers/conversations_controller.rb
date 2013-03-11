@@ -5,20 +5,22 @@ class ConversationsController < ApplicationController
 
   def index
     @conversations = Conversation.joins(:conversation_visibilities).where(
-      :conversation_visibilities => {:person_id => current_user.person.id}).paginate(
+      :conversation_visibilities => {:person_id => current_user.person_id}).paginate(
       :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
 
-    @visibilities = ConversationVisibility.where(:person_id => current_user.person.id).paginate(
+    @visibilities = ConversationVisibility.where(:person_id => current_user.person_id).paginate(
       :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
+      
+    @conversation = Conversation.joins(:conversation_visibilities).where(
+      :conversation_visibilities => {:person_id => current_user.person_id, :conversation_id => params[:conversation_id]}).first
 
     @unread_counts = {}
     @visibilities.each { |v| @unread_counts[v.conversation_id] = v.unread }
+    
+    @first_unread_message_id = @conversation.try(:first_unread_message, current_user).try(:id)
 
     @authors = {}
     @conversations.each { |c| @authors[c.id] = c.last_author }
-
-    @conversation = Conversation.joins(:conversation_visibilities).where(
-      :conversation_visibilities => {:person_id => current_user.person.id, :conversation_id => params[:conversation_id]}).first
 
     respond_with do |format|
       format.html
@@ -31,17 +33,20 @@ class ConversationsController < ApplicationController
       contact.person_id
     end
 
-    params[:conversation][:participant_ids] = person_ids | [current_user.person.id]
+    params[:conversation][:participant_ids] = person_ids | [current_user.person_id]
     params[:conversation][:author] = current_user.person
     message_text = params[:conversation].delete(:text)
     params[:conversation][:messages_attributes] = [ {:author => current_user.person, :text => message_text }]
 
     @conversation = Conversation.new(params[:conversation])
-    if @conversation.save
+    if person_ids.present? && @conversation.save
       Postzord::Dispatcher.build(current_user, @conversation).post
       flash[:notice] = I18n.t('conversations.create.sent')
     else
       flash[:error] = I18n.t('conversations.create.fail')
+      if person_ids.blank?
+        flash[:error] = I18n.t('conversations.create.no_contact')
+      end
     end
     if params[:profile]
       redirect_to person_path(params[:profile])
@@ -52,7 +57,9 @@ class ConversationsController < ApplicationController
 
   def show
     if @conversation = Conversation.joins(:conversation_visibilities).where(:id => params[:id],
-                                                                            :conversation_visibilities => {:person_id => current_user.person.id}).first
+                                                                            :conversation_visibilities => {:person_id => current_user.person_id}).first
+
+      @first_unread_message_id = @conversation.first_unread_message(current_user).try(:id)
       if @visibility = ConversationVisibility.where(:conversation_id => params[:id], :person_id => current_user.person.id).first
         @visibility.unread = 0
         @visibility.save

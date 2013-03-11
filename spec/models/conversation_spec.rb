@@ -32,6 +32,22 @@ describe Conversation do
     end
   end
 
+  describe '#first_unread_message' do  
+    before do
+      @cnv = Conversation.create(@create_hash)
+      @message = Message.create(:author => @user2.person, :created_at => Time.now + 100, :text => "last", :conversation_id => @cnv.id)
+      @message.increase_unread(@user1) 
+    end
+    
+    it 'returns the first unread message if there are unread messages in a conversation' do
+      @cnv.first_unread_message(@user1) == @message
+    end  
+
+    it 'returns nil if there are no unread messages in a conversation' do
+      @cnv.conversation_visibilities.where(:person_id => @user1.person.id).first.tap { |cv| cv.unread = 0 }.save
+      @cnv.first_unread_message(@user1).should be_nil
+    end
+  end
 
   context 'transport' do
     before do

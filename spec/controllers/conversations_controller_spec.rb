@@ -33,6 +33,14 @@ describe ConversationsController do
       get :new, :aspect_id => alice.aspects.first.id
       assigns(:contact_ids).should == alice.aspects.first.contacts.map(&:id).join(',')
     end
+
+    it "does not allow XSS via the name parameter" do
+      ["</script><script>alert(1);</script>",
+       '"}]});alert(1);(function f() {var foo = [{b:"'].each do |xss|
+        get :new, name: xss
+        response.body.should_not include xss
+      end
+    end
   end
 
   describe '#index' do
@@ -113,6 +121,30 @@ describe ConversationsController do
       end
     end
 
+    context 'with empty subject' do
+      before do
+        @hash = {
+          :conversation => {
+            :subject => ' ',
+            :text => 'text debug'
+          },
+          :contact_ids => [alice.contacts.first.id]
+        }
+      end
+
+      it 'creates a conversation' do
+        lambda {
+          post :create, @hash
+        }.should change(Conversation, :count).by(1)
+      end
+
+      it 'creates a message' do
+        lambda {
+          post :create, @hash
+        }.should change(Message, :count).by(1)
+      end
+    end
+
     context 'with empty text' do
       before do
         @hash = {
@@ -121,6 +153,30 @@ describe ConversationsController do
             :text => '  '
           },
           :contact_ids => [alice.contacts.first.id]
+        }
+      end
+
+      it 'does not create a conversation' do
+        lambda {
+          post :create, @hash
+        }.should_not change(Conversation, :count).by(1)
+      end
+
+      it 'does not create a message' do
+        lambda {
+          post :create, @hash
+        }.should_not change(Message, :count).by(1)
+      end
+    end
+
+    context 'with empty contact' do
+      before do
+        @hash = {
+          :conversation => {
+            :subject => 'secret stuff',
+            :text => 'text debug'
+          },
+          :contact_ids => ' '
         }
       end
 

@@ -16,6 +16,6 @@
   = render 'people/sub_header', :person => @person, :contact => @contact
 
   #people_stream.stream
-    - for hash in @hashes
+    - @hashes.each do |hash|
       = render :partial => 'people/person', :locals => hash
   = will_paginate @contacts_of_contact

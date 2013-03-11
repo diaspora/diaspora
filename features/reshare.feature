@@ -11,6 +11,18 @@ Feature: public repost
       | Alice Smith | alice@alice.alice |
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
 
+  Scenario: Resharing a post from a single post page
+    Given "bob@bob.bob" has a public post with text "reshare this!"
+    And I sign in as "alice@alice.alice"
+    And I am on "bob@bob.bob"'s page
+    And I follow "Last Post"
+
+    And I preemptively confirm the alert
+    And I click on selector "a.reshare"
+    And I wait for the ajax to finish
+    Then I should see a flash message indicating success
+    And I should see a flash message containing "successfully"
+
   # should be covered in rspec, so testing that the post is added to
   # app.stream in jasmine should be enough coverage
   Scenario: When I reshare, it shows up on my profile page
@@ -22,3 +34,4 @@ Feature: public repost
     And I wait for the ajax to finish
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"
+    And I should not see a ".reshare" within ".feedback"

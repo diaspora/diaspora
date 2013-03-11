@@ -146,6 +146,10 @@ class StatusMessage < Post
     formatted_message(:plain_text => true)
   end
 
+  def first_photo_url(*args)
+    photos.first.url(*args)
+  end
+
   def text_and_photos_blank?
     self.text.blank? && self.photos.blank?
   end
@@ -169,7 +173,7 @@ class StatusMessage < Post
 
   private
   def self.tag_stream(tag_ids)
-    joins(:tags).where(:tags => {:id => tag_ids})
+    joins(:taggings).where('taggings.tag_id IN (?)', tag_ids)
   end
 end
 
