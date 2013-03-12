@@ -125,7 +125,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
       , publicPost = this.post.get("public")
       , userIsNotAuthor = this.post.get("author").diaspora_id != app.currentUser.get("diaspora_id")
       , userIsNotRootAuthor = rootExists && (isReshare ? this.post.get("root").author.diaspora_id != app.currentUser.get("diaspora_id") : true)
-      , notReshared = this.reshares.length === 0;
+      , notReshared = !this.userReshare();
 
     return publicPost && app.currentUser.authenticated() && userIsNotAuthor && userIsNotRootAuthor && notReshared;
   }

@@ -32,6 +32,11 @@ Given /^"([^"]*)" has a non public post with text "([^"]*)"$/ do |email, text|
   user.post(:status_message, :text => text, :public => false, :to => user.aspects)
 end
 
+And /^the post with text "([^"]*)" is reshared by "([^"]*)"$/ do |text, email|
+  user = User.find_by_email(email)
+  root = Post.find_by_text(text)
+  user.post(:reshare, :root_guid => root.guid, :public => true, :to => user.aspects)
+end
 
 When /^The user deletes their first post$/ do
   @me.posts.first.destroy
