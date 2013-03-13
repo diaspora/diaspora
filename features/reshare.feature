@@ -9,10 +9,24 @@ Feature: public repost
       | username    | email             |
       | Bob Jones   | bob@bob.bob       |
       | Alice Smith | alice@alice.alice |
+      | Eve Doe     | eve@eve.eve       |
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
 
   Scenario: Resharing a post from a single post page
     Given "bob@bob.bob" has a public post with text "reshare this!"
+    And I sign in as "alice@alice.alice"
+    And I am on "bob@bob.bob"'s page
+    And I follow "Last Post"
+
+    And I preemptively confirm the alert
+    And I click on selector "a.reshare"
+    And I wait for the ajax to finish
+    Then I should see a flash message indicating success
+    And I should see a flash message containing "successfully"
+
+  Scenario: Resharing a post from a single post page that is reshared
+    Given "bob@bob.bob" has a public post with text "reshare this!"
+    And the post with text "reshare this!" is reshared by "eve@eve.eve"
     And I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
     And I follow "Last Post"
