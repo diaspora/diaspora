@@ -7,8 +7,6 @@ Diaspora.Pages.UsersGettingStarted = function() {
 
     $('#edit_profile').bind('ajax:success', function(evt, data, status, xhr){
       $('#gs-name-form-spinner').addClass("hidden");
-      $('.profile .saved').show();
-      $('.profile .saved').fadeOut(2000);
     });
 
     // It seems that the default behavior of rails ujs is to clear the remote form

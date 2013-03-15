@@ -51,7 +51,7 @@ module ApplicationHelper
   end
 
   def popover_with_close_html(without_close_html)
-    without_close_html + link_to(image_tag('deletelabel.png'), "#", :class => 'close')
+    without_close_html + link_to(content_tag(:div, nil, :class => 'icons-deletelabel'), "#", :class => 'close')
   end
 
   # Require jQuery from CDN if possible, falling back to vendored copy, and require

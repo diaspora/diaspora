@@ -3,7 +3,7 @@ module ContactsHelper
     membership = contact.aspect_memberships.where(:aspect_id => @aspect.id).first unless @aspect.nil?
 
     if membership
-      link_to(image_tag('icons/monotone_close_exit_delete.png', :height => 20, :width => 20),
+      link_to(content_tag(:div, nil, :class => 'icons-monotone_close_exit_delete'),
         { :controller => "aspect_memberships",
           :action => 'destroy',
           :id => membership.id

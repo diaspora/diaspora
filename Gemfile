@@ -109,6 +109,7 @@ gem 'gon', '4.0.2'
 group :assets do
   gem 'bootstrap-sass', '2.2.2.0'
   gem 'sass-rails', '3.2.6'
+  gem 'compass-rails', '1.0.3'
 
   # Windows and OSX have an execjs compatible runtime built-in, Linux users should
   # install Node.js or use 'therubyracer'.
