@@ -4,7 +4,7 @@
 
 module AspectsHelper
   def add_to_aspect_button(aspect_id, person_id)
-    link_to image_tag('icons/monotone_plus_add_round.png'),
+    link_to content_tag(:div, nil, :class => 'icons-monotone_plus_add_round'),
       { :controller => 'aspect_memberships',
         :action => 'create',
         :format => :json,
@@ -18,7 +18,7 @@ module AspectsHelper
   end
 
   def remove_from_aspect_button(membership_id, aspect_id, person_id)
-    link_to image_tag('icons/monotone_check_yes.png'),
+    link_to content_tag(:div, nil, :class => 'icons-monotone_check_yes'),
       { :controller => "aspect_memberships",
         :action => 'destroy',
         :id => membership_id
