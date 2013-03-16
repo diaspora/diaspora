@@ -189,7 +189,7 @@ group :test do
 
   # Jasmine (client side application tests (JS))
 
-  gem 'jasmine', '1.3.1'
+  gem 'jasmine', '1.3.2'
 
   # General helpers
 
