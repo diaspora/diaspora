@@ -1,9 +1,6 @@
 require 'rubygems'
-require 'spork'
-#uncomment the following line to use spork with the debugger
-#require 'spork/ext/ruby-debug'
 
-Spork.prefork do
+prefork = proc do
   ENV["RAILS_ENV"] ||= "test"
   require 'cucumber/rails'
 
@@ -68,7 +65,7 @@ Spork.prefork do
   end
 end
 
-Spork.each_run do
+each_run = proc do
   Before do
     DatabaseCleaner.clean
     Devise.mailer.deliveries = []
@@ -91,6 +88,18 @@ Spork.each_run do
   After('@localserver') do
     CapybaraSettings.instance.restore
   end
+end
+
+begin
+  require 'spork'
+  #uncomment the following line to use spork with the debugger
+  #require 'spork/ext/ruby-debug'
+
+  Spork.prefork(&prefork)
+  Spork.each_run(&each_run)
+rescue LoadError
+  prefork.call
+  each_run.call
 end
 
 # give firefox more time to complete requests

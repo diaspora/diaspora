@@ -3,11 +3,8 @@
 #   the COPYRIGHT file.
 
 require 'rubygems'
-require 'spork'
-#uncomment the following line to use spork with the debugger
-#require 'spork/ext/ruby-debug'
 
-Spork.prefork do
+prefork = proc do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
@@ -96,6 +93,16 @@ Spork.prefork do
       `rm -rf #{Rails.root}/tmp/uploads/*`
     end
   end
+end
+
+begin
+  require 'spork'
+  #uncomment the following line to use spork with the debugger
+  #require 'spork/ext/ruby-debug'
+
+  Spork.prefork(&prefork)
+rescue LoadError
+  prefork.call
 end
 
 # https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
