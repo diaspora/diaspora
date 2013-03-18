@@ -11,6 +11,7 @@
 * Decode tag name before passing it into a TagFollowingAction [#4027](https://github.com/diaspora/diaspora/issues/4027)
 * Fix reshares in single post-view [#4056](https://github.com/diaspora/diaspora/issues/4056)
 * Fix mobile view of deleted reshares. [#4063](https://github.com/diaspora/diaspora/issues/4063)
+* Hide comment button in the mobile view when not signed in. [#4065](https://github.com/diaspora/diaspora/issues/4065)
 
 ## Refactor
 
