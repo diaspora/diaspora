@@ -150,6 +150,10 @@ And /^I click on selector "([^"]*)"$/ do |selector|
   page.execute_script("$('#{selector}').click();")
 end
 
+And /^I click on the first selector "([^"]*)"$/ do |selector|
+  page.execute_script("$('#{selector}').first().click();")
+end
+
 And /^I preemptively confirm the alert$/ do
   page.evaluate_script("window.confirm = function() { return true; }")
 end
