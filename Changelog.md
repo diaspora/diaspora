@@ -10,6 +10,7 @@
 * Pass the real values to stderr_path and stdout_path in unicorn.rb since it runs a case statement on them.
 * Decode tag name before passing it into a TagFollowingAction [#4027](https://github.com/diaspora/diaspora/issues/4027)
 * Fix reshares in single post-view [#4056](https://github.com/diaspora/diaspora/issues/4056)
+* Hide comment button in the mobile view when not signed in. [#4065](https://github.com/diaspora/diaspora/issues/4065)
 
 ## Refactor
 
