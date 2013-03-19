@@ -27,7 +27,7 @@ app.views.PostViewerNewComment = app.views.Base.extend({
   clearAndReactivateForm : function() {
     this.toggleFormState()
     this.$("textarea").val("")
-      .css('height', '18px')
+      .css('height', '120px')
       .focus()
   },
 

@@ -61,6 +61,7 @@ a { color : $link-blue  }
 #post-author {
   margin : 0;
   padding : 10px;
+  margin-top: 21%;
 
   &.status-with-photo-backdrop,
   &.Wallpaper {
@@ -110,8 +111,11 @@ article { //mood posts
   margin: 0 auto;
 
   img {
-    max-height: 70%;
-    border : 10px solid #fff;
+    max-height: 100%;
+  }
+
+  body img {
+    text-align: center;
   }
 
   .photo_viewer {
@@ -120,18 +124,26 @@ article { //mood posts
 
   @include centered-frame();
   .container {
-    padding: 70px 0;
-    max-width: 85%;
+    min-width: 790px;
+    background: white;
+    min-height: 280px;
+    box-shadow: 1px 1px 4px #999;
+    padding-left: 25px;
+    padding-right: 6px;
+    margin-top: 32px;
+  }
+
+  .post-header {
+  height: 10px;
   }
 
   header {
-    padding : 0 100px;
   }
 
   header, header p{
   //big text
     @include media-text();
-    font-size: $big-text-size;
+    font-size: 12px;
     line-height: 1.5em;
   }
 
@@ -165,21 +177,25 @@ article { //mood posts
     }
 
     .photo_viewer {
-      float: right;
-      margin-left: 20px;
-      max-width: 320px;
+      margin-left: 20%;
+      max-width: 650px;
+      margin-right: 20%;
     }
 
     header {
-      margin-bottom: 1em;
-      line-height: 1.2em;
+      font-family: Palatino, times, georgia, serif;
+      font-size: 1.2em;
+      line-height: 1.7em;
+      margin-bottom: 1.2em;
     }
 
     .body p {
       @include newspaper-type();
-      font-size: 1.2em;
+      font-size: 0.9em;
       line-height: 1.7em;
       margin-bottom: 1.2em;
+      margin-right: 15px;
+      margin-left: 4px;
     }
   }
 
@@ -194,8 +210,8 @@ article { //mood posts
   }
 
   img {
-    max-height: 400px;
-    max-width: 400px;
+    max-height: 100%;
+    max-width: 500px;
   }
 }
 
@@ -320,9 +336,7 @@ $bring-dark-accent-forward-color: #DDD;
 }
 
 .profile-image-container {
-  border-radius: 140px;
   border : 3px solid #fff;
-  box-shadow : 0 0 2px rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.5), inset 0 -2px 4px rgba(255,255,255,0.3);
   background-size: cover;
 
   height : 140px;
@@ -343,9 +357,9 @@ $bring-dark-accent-forward-color: #DDD;
   }
 
   &.smaller {
-    height : 34px;
-    width : 34px;
-    border : 2px solid #ccc;
+    height : 40px;
+    width : 40px;
+    border : 2px solid #fff;
   }
 
   &.micro {

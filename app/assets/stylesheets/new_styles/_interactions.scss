@@ -1,18 +1,16 @@
 @import '../mixins';
 
 #post-interactions {
-  position: fixed;
+  position: relative;
   width: 100%;
-  bottom: 0;
   left: 0;
   text-align: center;
 }
 
 #post-reactions {
-  height: 80%;
-  max-height: 350px;
-  overflow: auto;
+  height: 100%;
   margin-top: 5px;
+  position: relative;
 }
 
 #post-info,
@@ -27,11 +25,9 @@
   }
 
   .well {
-    -webkit-box-shadow: inset 0 2px 2px rgba(0,0,0,0.10);
-    -moz-box-shadow: inset 0 2px 2px rgba(0,0,0,0.10);
-    box-shadow: inset 0 2px 2px rgba(0,0,0,0.10);
 
     margin: 5px;
+    width: 752px;
     padding: 5px;
     text-align: left;
 
@@ -39,15 +35,14 @@
     overflow: hidden;
 
     background: {
-      color: #222;
-      color: rgba(0,0,0,0.2);
+      color: #FFF;
     }
 
     border: {
-      left: 1px solid #444;
-      right: 1px solid #444;
-      bottom: 1px solid #555;
-      top: 1px solid #111;
+      left: 1px solid #DADADA;
+      right: 1px solid #DADADA;
+      bottom: 1px solid #DADADA;
+      top: 1px solid #DADADA;
     }
 
     .img {
@@ -70,13 +65,8 @@
   }
 
   #new-post-comment {
-    -webkit-box-shadow: 0 -3px 6px -5px rgba(0,0,0,0.8);
-    -moz-box-shadow: 0 -3px 6px -5px rgba(0,0,0,0.8);
-    box-shadow: 0 -3px 6px -5px rgba(0,0,0,0.8);
-
-    border-top: 1px solid #444;
+    border-top: 1px solid #DADADA;
     text-align: left;
-    background-image: image-url("hatched-bg-dark.png");
   }
 
   #new-post-comment-container {
@@ -85,8 +75,8 @@
     padding: 10px;
 
     textarea{
-      height: 18px;
-      width: 318px;
+      height: 120px;
+      width: 665px;
       padding: 4px;
     }
 
@@ -102,27 +92,6 @@
       line-height: 16px; 
       padding: 5px 9px;
     }
-  }
-}
-
-#post-info-sneaky {
-  @include transition(all, 0.2s);
-
-  z-index: 1;
-  position: fixed;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  bottom: 0;
-
-  margin-bottom: -60px;
-  min-height: 20px;
-
-  #post-info-container-sneaky {
-    @include info-container();
-
-    padding: 10px 0;
-    min-height: 20px;
   }
 }
 
@@ -164,11 +133,8 @@
 }
 
 .post-comment {
-  -moz-box-shadow: 0 1px 2px -2px #999;
-  -webkit-box-shadow: 0 1px 2px -2px #999;
-  box-shadow: 0 1px 2px -2px #999;
-
-  border-bottom: 1px solid #333;
+  color: #5E5E5E;
+  border-bottom: 1px solid #DADADA;
 
   p:last-child {
     margin-bottom: 0;
@@ -193,8 +159,6 @@
       bottom: 1px solid #666;
     }
   }
-
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 
   a:hover {
     color: #99CCFF
