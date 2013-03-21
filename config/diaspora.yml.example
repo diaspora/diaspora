@@ -178,12 +178,12 @@ configuration: ## Section
     ## Settings about invitations
     invitations: ## Section
       
-      ## Set this to true if you want users to invite as many
-      ## people as they want.
+      ## Set this to true if you want users to be able to send invites.
       #open: true
       
       ## The default amount of invitiations an invite link has.
-      ## Every user has such a link. Only counts if open is false.
+      ## Every user has such a link. Default count is 25, uncomment to set
+      ## another value.
       #count: 25
     
     ## Paypal donations
