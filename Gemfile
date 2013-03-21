@@ -4,7 +4,7 @@ gem 'rails', '3.2.13'
 
 # Appserver
 
-gem 'unicorn', '4.6.0', :require => false
+gem 'unicorn', '4.6.2', :require => false
 
 # API and JSON
 
@@ -36,12 +36,12 @@ gem 'mysql2', '0.3.11' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg',     '0.14.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 
 gem 'activerecord-import', '0.3.1'
-gem 'foreigner',           '1.3.0'
+gem 'foreigner',           '1.4.0'
 
 # File uploading
 
 gem 'carrierwave', '0.8.0'
-gem 'fog',         '1.9.0'
+gem 'fog',         '1.10.0'
 gem 'mini_magick', '3.5'
 gem 'remotipart',  '1.0.5'
 
@@ -49,7 +49,7 @@ gem 'remotipart',  '1.0.5'
 
 gem 'http_accept_language', '1.0.2'
 gem 'i18n-inflector-rails', '~> 1.0'
-gem 'rails-i18n',           '0.7.2'
+gem 'rails-i18n',           '0.7.3'
 
 # Mail
 
@@ -58,7 +58,7 @@ gem 'messagebus_ruby_api', '1.0.3'
 
 # Parsing
 
-gem 'nokogiri',       '1.5.6'
+gem 'nokogiri',       '1.5.9'
 gem 'rails_autolink', '1.0.9'
 gem 'redcarpet',      '2.2.2'
 gem 'roxml',          '3.1.6'
@@ -69,8 +69,8 @@ gem 'ruby-oembed',    '0.8.8'
 gem 'omniauth',          '1.1.3'
 gem 'omniauth-facebook', '1.4.1'
 gem 'omniauth-tumblr',   '1.1'
-gem 'omniauth-twitter',  '0.0.14'
-gem 'twitter',           '4.5.0'
+gem 'omniauth-twitter',  '0.0.15'
+gem 'twitter',           '4.6.2'
 
 # Tags
 
@@ -78,16 +78,16 @@ gem 'acts-as-taggable-on', '2.3.3'
 
 # URIs and HTTP
 
-gem 'addressable',        '2.3.2', :require => 'addressable/uri'
-gem 'faraday',            '0.8.5'
+gem 'addressable',        '2.3.3', :require => 'addressable/uri'
+gem 'faraday',            '0.8.6'
 gem 'faraday_middleware', '0.9.0'
 gem 'typhoeus',           '0.3.3'
 
 # Views
 
-gem 'client_side_validations', '3.2.1'
+gem 'client_side_validations', '3.2.2'
 gem 'gon',                     '4.0.2'
-gem 'haml',                    '4.0.0'
+gem 'haml',                    '4.0.1'
 gem 'mobile-fu',               '1.1.1'
 gem 'will_paginate',           '3.0.4'
 
@@ -108,7 +108,7 @@ group :assets do
 
   # JavaScript
 
-  gem 'handlebars_assets', '0.11.0'
+  gem 'handlebars_assets', '0.12.0'
   gem 'jquery-rails',      '2.1.4'
 
   # Windows and OSX have an execjs compatible runtime built-in, Linux users should
@@ -123,12 +123,12 @@ group :production do # we don't install these on travis to speed up test runs
 
   # Administration
 
-  gem 'rails_admin', '0.4.5'
+  gem 'rails_admin', '0.4.6'
 
   # Analytics
 
   gem 'rack-google-analytics', '0.11.0', :require => 'rack/google-analytics'
-  gem 'rack-piwik',            '0.1.3',  :require => 'rack/piwik'
+  gem 'rack-piwik',            '0.2.2',  :require => 'rack/piwik'
 
   # Click-jacking protection
 
@@ -136,7 +136,7 @@ group :production do # we don't install these on travis to speed up test runs
 
   # Process management
 
-  gem 'foreman', '0.61'
+  gem 'foreman', '0.62'
 
   # Redirects
 
@@ -161,13 +161,13 @@ group :development do
   # Automatic test runs
 
   gem 'guard-cucumber', '1.3.2'
-  gem 'guard-rspec',    '2.4.0'
+  gem 'guard-rspec',    '2.5.1'
   gem 'rb-fsevent',     '0.9.3', :require => false
   gem 'rb-inotify',     '0.9.0', :require => false
   
   # Preloading environment
 
-  gem 'guard-spork', '1.4.2'
+  gem 'guard-spork', '1.5.0'
   gem 'spork',       '1.0.0rc3'
 end
 
@@ -177,23 +177,23 @@ group :test do
   gem 'fixture_builder', '0.3.5'
   gem 'fuubar',          '1.1.0'
   gem 'rspec-instafail', '0.2.4', :require => false
-  gem 'rspec-rails',     '2.12.2'
+  gem "rspec-rails",     '2.13.0'
   
   # Cucumber (integration tests)
 
   gem 'capybara',           '1.1.3'
-  gem 'cucumber-rails',     '1.3.0', :require => false
+  gem 'cucumber-rails',     '1.3.1', :require => false
   gem 'database_cleaner',   '0.9.1'
-  gem 'selenium-webdriver', '2.30.0'
+  gem 'selenium-webdriver', '2.31.0'
   
 
   # Jasmine (client side application tests (JS))
 
-  gem 'jasmine', '1.3.1'
+  gem 'jasmine', '1.3.2'
 
   # General helpers
 
   gem 'factory_girl_rails', '4.2.1'
-  gem 'timecop',            '0.5.9.2'
+  gem 'timecop',            '0.6.1'
   gem 'webmock',            '1.8.11', :require => false
 end
