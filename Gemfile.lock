@@ -264,7 +264,7 @@ GEM
     rack-google-analytics (0.11.0)
     rack-mobile-detect (0.4.0)
       rack
-    rack-piwik (0.1.3)
+    rack-piwik (0.2.2)
     rack-pjax (0.7.0)
       nokogiri (~> 1.5)
       rack (~> 1.3)
@@ -461,7 +461,7 @@ DEPENDENCIES
   pg (= 0.14.1)
   rack-cors (= 0.2.7)
   rack-google-analytics (= 0.11.0)
-  rack-piwik (= 0.1.3)
+  rack-piwik (= 0.2.2)
   rack-protection (= 1.2)
   rack-rewrite (= 1.3.3)
   rack-ssl (= 1.3.3)
