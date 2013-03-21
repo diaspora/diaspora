@@ -112,7 +112,7 @@ GEM
       multipart-post (~> 1.1)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
-    ffi (1.4.0)
+    ffi (1.5.0)
     fixture_builder (0.3.5)
       activerecord (>= 2)
       activesupport (>= 2)
