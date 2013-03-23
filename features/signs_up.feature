@@ -17,9 +17,16 @@ Feature: new user registration
       | profile_first_name | O             |
     And I preemptively confirm the alert
     And I follow "awesome_button"
-
     Then I should be on the stream page
     And I should not see "awesome_button"
+
+  Scenario: new user does not add any tags in setup wizard and cancel the alert
+    When I fill in the following:
+      | profile_first_name | some name     |
+    And I preemptively reject the alert
+    And I follow "awesome_button"
+    Then I should be on the getting started page
+    And I should see a flash message containing "Alright, I'll wait."
 
   Scenario: new user skips the setup wizard
     When I preemptively confirm the alert
