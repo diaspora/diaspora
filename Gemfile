@@ -30,7 +30,8 @@ gem 'rack-cors', '0.2.7', :require => 'rack/cors'
 
 # Database
 
-ENV['DB'] ||= ['production', 'test'].include?(ENV['RAILS_ENV']) ? 'mysql' : 'all'
+ENV['DB'] ||= 'mysql' if ENV['RAILS_ENV'] == 'production'
+ENV['DB'] ||= 'all' unless ENV['TRAVIS']
 
 gem 'mysql2', '0.3.11' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg',     '0.14.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
@@ -177,23 +178,28 @@ group :test do
   gem 'fixture_builder', '0.3.5'
   gem 'fuubar',          '1.1.0'
   gem 'rspec-instafail', '0.2.4', :require => false
-  gem "rspec-rails",     '2.13.0'
   
   # Cucumber (integration tests)
 
   gem 'capybara',           '1.1.3'
-  gem 'cucumber-rails',     '1.3.1', :require => false
   gem 'database_cleaner',   '0.9.1'
   gem 'selenium-webdriver', '2.31.0'
   
-
-  # Jasmine (client side application tests (JS))
-
-  gem 'jasmine', '1.3.2'
-
   # General helpers
 
   gem 'factory_girl_rails', '4.2.1'
   gem 'timecop',            '0.6.1'
   gem 'webmock',            '1.8.11', :require => false
+end
+
+
+group :development, :test do
+  # RSpec (unit tests, some integration tests)
+  gem "rspec-rails",     '2.13.0'
+  
+  # Cucumber (integration tests)
+  gem 'cucumber-rails',     '1.3.1', :require => false
+  
+  # Jasmine (client side application tests (JS))
+  gem 'jasmine', '1.3.2'
 end
