@@ -2,9 +2,10 @@
 
 ## Bug fixes
 
-* reset comment box height after posting a comment. [#4030](https://github.com/diaspora/diaspora/issues/4030)
-* fade long tag names. [#3899](https://github.com/diaspora/diaspora/issues/3899)
-* avoid posting empty comments. [#3836](https://github.com/diaspora/diaspora/issues/3836)
+* Fix cancel button on getting_started confirmation box [#4073](https://github.com/diaspora/diaspora/issues/4073)
+* Reset comment box height after posting a comment. [#4030](https://github.com/diaspora/diaspora/issues/4030)
+* Fade long tag names. [#3899](https://github.com/diaspora/diaspora/issues/3899)
+* Avoid posting empty comments. [#3836](https://github.com/diaspora/diaspora/issues/3836)
 * Delegate parent_author to the target of a RelayableRetraction
 * Do not fail on receiving a SignedRetraction via the public route
 * Pass the real values to stderr_path and stdout_path in unicorn.rb since it runs a case statement on them.
