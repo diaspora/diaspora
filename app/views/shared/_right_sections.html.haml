@@ -85,8 +85,8 @@
 - if AppConfig.admins.podmin_email.present?
   .section
     .title
-      = image_tag('icons/mail.png')
-      %h5
+      .icons-mail
+      %h5.title-header
         = t('aspects.index.help.any_problem')
     .content
       = t('aspects.index.help.contact_podmin')
