@@ -15,6 +15,7 @@
 * Hide comment button in the mobile view when not signed in. [#4065](https://github.com/diaspora/diaspora/issues/4065)
 * Send profile alongside notification [#3976] (https://github.com/diaspora/diaspora/issues/3976)
 * Fix off-center close button image on intro popovers [#3841](https://github.com/diaspora/diaspora/pull/3841)
+* Remove unnecessary navigation bar to access mobile site and re-add flash warning to registrations mobile. [#4085](https://github.com/diaspora/diaspora/pull/4085)
 
 ## Refactor
 
@@ -32,7 +33,7 @@
 * Add the ability to upload photos from the mobile site. [#4004](https://github.com/diaspora/diaspora/issues/4004)
 * Show timestamp when hovering on comment time-ago string. [#4042](https://github.com/diaspora/diaspora/issues/4042)
 * If sharing a post with photos to Facebook, always include URL to post [#3706](https://github.com/diaspora/diaspora/issues/3706)
-* Add multiphoto for mobile post. [#4065](https://github.com/diaspora/diaspora/issues/4065)
+* Add multiphoto for mobile post. [#4067](https://github.com/diaspora/diaspora/issues/4067)
 
 # 0.0.3.4
 

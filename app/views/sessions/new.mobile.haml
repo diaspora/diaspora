@@ -2,49 +2,47 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= stylesheet_link_tag :mobile
-
 :css
-  body{ padding: 10px; margin: 0px 10px;}
-  #flash_alert .message{ padding: 10px 12px 8px;}
-  footer{ padding-top: 0;}
-  .landing{ padding: 20px; margin: -10px -20px 10px -20px; background-color:#4b4b4b; box-shadow: 0 3px 40px rgba(0,0,0,0.8); z-index: 10; position: relative; text-align: center;}
-  h1{ font-size: 40px; font-weight: 200;}
+  .navbar-fixed-top{display: none;}
 
-.landing
-  %h1
-    = "#{pod_name}"
-#main_stream.stream
-  - flash.each do |name, msg|
-    %p{:class => "login_#{name}"}= msg
+.session_mobile
+  .landing
+    %h1{:class =>"session"}
+      = "#{pod_name}"
 
-  #login_form
-    .login-container
-      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-        %fieldset
-          %legend
-            = image_tag('branding/header-logo2x.png', :height => 40, :width => 40)
-            = t('devise.sessions.new.login').upcase
+  #main_stream.stream
+    - flash.each do |name, msg|
+      %p{:class => "login_#{name}"}= msg
+      #flash_alert.expose
+        %div{:class => "message", :id => "session"}= msg
+
+    #login_form
+      .login-container
+        = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+          %fieldset
+            %legend
+              = image_tag('branding/header-logo2x.png', :height => 40, :width => 40)
+              = t('devise.sessions.new.login').upcase
           
-          .control-group
-            = f.label :username, t('username').upcase
+            .control-group
+              = f.label :username, t('username').upcase
+              .controls
+                = f.text_field :username, :autofocus => true
+
+            .control-group
+              = f.label :password , t('password').upcase
+              .controls
+                = f.password_field :password
+
+              = hidden_field(:user, :remember_me, :value => 1)
+
             .controls
-              = f.text_field :username, :autofocus => true
+              = f.submit t('devise.sessions.new.sign_in'), :class => 'btn primary'
+              - if display_registration_link?
+                = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name), :class => 'btn primary', :style => "float: right;"
 
-          .control-group
-            = f.label :password , t('password').upcase
-            .controls
-              = f.password_field :password
+  %footer
+    - if display_password_reset_link?
+      = link_to t('devise.passwords.new.forgot_password'), new_password_path(resource_name)
 
-            = hidden_field(:user, :remember_me, :value => 1)
-
-          .controls
-            = f.submit t('devise.sessions.new.sign_in'), :class => 'btn primary'
-            - if display_registration_link?
-              = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name), :class => 'btn primary', :style => "float: right;"
-
-%footer
-  - if display_password_reset_link?
-    = link_to t('devise.passwords.new.forgot_password'), new_password_path(resource_name)
-
-  = link_to t('layouts.application.toggle'), toggle_mobile_path
+    = link_to t('layouts.application.toggle'), toggle_mobile_path
