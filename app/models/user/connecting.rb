@@ -22,9 +22,14 @@ module User::Connecting
     if notification = Notification.where(:target_id => person.id).first
       notification.update_attributes(:unread=>false)
     end
-
+    
+    deliver_profile_update
     register_share_visibilities(contact)
     contact
+  end
+
+  def deliver_profile_update
+    Postzord::Dispatcher.build(self, profile).post
   end
 
   # This puts the last 100 public posts by the passed in contact into the user's stream.
