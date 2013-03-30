@@ -1,0 +1,30 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+:css
+  footer{display: none;}
+
+#show_content.photos
+  .photo
+    = image_tag photo.url(:scaled_full)
+  .stream_element{:class => "photo_mobile"}
+    .content
+      .from
+        = person_image_link(photo.author, :size => :thumb_small)
+        = person_link(photo.author)
+        .info
+          %span.time{:integer => photo.created_at.to_i}
+            = link_to(t('ago', :time => time_ago_in_words(photo.created_at)), post_path(photo))
+
+-if additional_photos && additional_photos.length > 1
+  #photo_controls
+  %table
+    %tr
+      %td
+        - if previous_photo != additional_photos.last
+          = link_to(image_tag('arrow-left.png', :id => 'arrow-left'), previous_photo, :rel => 'prefetch', :class => 'arrow', :id => 'left')
+      %td{:width => '100%'}
+      %td
+        - if next_photo == additional_photos[additional_photos.index(photo)+1]
+          = link_to(image_tag('arrow-right.png', :id => 'arrow-right'), next_photo, :rel => 'prefetch', :class => 'arrow', :id => 'right')
