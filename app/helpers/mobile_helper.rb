@@ -39,4 +39,23 @@ module MobileHelper
       html << "</span>"
     end
   end
+
+  def additional_photos
+    if photo.status_message_guid?
+      @additional_photos ||= photo.status_message.photos
+    end
+  end
+
+  def next_photo
+    @next_photo ||= additional_photos[additional_photos.index(photo)+1]
+    @next_photo ||= additional_photos.first
+  end
+
+  def previous_photo
+    @previous_photo ||= additional_photos[additional_photos.index(photo)-1]
+  end
+
+  def photo
+    @photo ||= current_user.find_visible_shareable_by_id(Photo, params[:id])
+  end
 end
