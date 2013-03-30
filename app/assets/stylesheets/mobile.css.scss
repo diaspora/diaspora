@@ -388,8 +388,8 @@ footer {
     margin: 10px;
   }
   padding: {
-    top: 60px;
-    bottom: 30px;
+    top: 20px;
+    bottom: 20px;
   }
 }
 
@@ -903,6 +903,10 @@ textarea#conversation_text {
   text-shadow: 1px 1px 5px #666; 
 }
 
+.registrations {
+  margin: -45px;
+}
+
 form#new_user.new_user input.btn {
   white-space: normal;
 }
@@ -934,6 +938,10 @@ form#new_user.new_user input.btn {
   text-shadow: 1px 1px 20px rgb(126, 240, 77);
 }
 
+input#user_password, #user_username, #user_password_confirmation, #user_email {
+  height: 30px;
+}
+  
 #flash_notice,
 #flash_alert,
 #flash_error {
@@ -943,6 +951,32 @@ form#new_user.new_user input.btn {
   }
 }
 
+#session.message {
+  padding: 10px 12px 8px;
+}
+
+#registration.message {
+  padding: 1px
+}
+
+.session_mobile {
+  margin-top: -55px;
+}
+
+h1.session {
+  font-size: 40px; 
+  font-weight: 200;
+}
+
+.landing  {
+  padding: 20px;
+  margin: -10px -20px 10px -20px;
+  background-color:#4b4b4b;
+  box-shadow: 0 3px 40px rgba(0,0,0,0.8);
+  z-index: 10;
+  position: relative;
+  text-align: center;
+}
 
 form p.checkbox_select {
   position: relative;
