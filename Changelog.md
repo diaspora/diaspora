@@ -31,6 +31,7 @@
 * Add the ability to upload photos from the mobile site. [#4004](https://github.com/diaspora/diaspora/issues/4004)
 * Show timestamp when hovering on comment time-ago string. [#4042](https://github.com/diaspora/diaspora/issues/4042)
 * If sharing a post with photos to Facebook, always include URL to post [#3706](https://github.com/diaspora/diaspora/issues/3706)
+* Add multiphoto for mobile post. [#4065](https://github.com/diaspora/diaspora/issues/4065)
 
 # 0.0.3.4
 
