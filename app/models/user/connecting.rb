@@ -28,10 +28,6 @@ module User::Connecting
     contact
   end
 
-  def deliver_profile_update
-    Postzord::Dispatcher.build(self, profile).post
-  end
-
   # This puts the last 100 public posts by the passed in contact into the user's stream.
   # @param [Contact] contact
   # @return [void]

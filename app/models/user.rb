@@ -347,13 +347,16 @@ class User < ActiveRecord::Base
     end
 
     if self.profile.update_attributes(params)
-      Postzord::Dispatcher.build(self, profile).post
+      deliver_profile_update
       true
     else
       false
     end
   end
 
+  def deliver_profile_update
+    Postzord::Dispatcher.build(self, profile).post
+  end
 
   ###Helpers############
   def self.build(opts = {})
