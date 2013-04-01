@@ -501,7 +501,9 @@ ul.as-selections
     :size 12px
 
 .comment.no-border
-  :border none
+  &.media
+    :border none
+    :padding 0
 
 .comment
   &.media
@@ -509,8 +511,11 @@ ul.as-selections
       :left 0
       :right 0
 
-  :border
-    :bottom 1px dotted #aaa
+    :border
+      :top 1px dotted #aaa
+
+    :padding
+      :top 10px
 
   .youtube-player, .vimeo-player
     :border none

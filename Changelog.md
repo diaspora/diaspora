@@ -8,6 +8,7 @@
 * Delegate parent_author to the target of a RelayableRetraction
 * Do not fail on receiving a SignedRetraction via the public route
 * Pass the real values to stderr_path and stdout_path in unicorn.rb since it runs a case statement on them.
+* Remove unnecessary dotted CSS borders. [#2940](https://github.com/diaspora/diaspora/issues/2940)
 
 ## Refactor
 
