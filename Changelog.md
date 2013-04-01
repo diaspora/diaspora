@@ -15,6 +15,7 @@
 * Hide comment button in the mobile view when not signed in. [#4065](https://github.com/diaspora/diaspora/issues/4065)
 * Send profile alongside notification [#3976] (https://github.com/diaspora/diaspora/issues/3976)
 * Fix off-center close button image on intro popovers [#3841](https://github.com/diaspora/diaspora/pull/3841)
+* Remove unnecessary dotted CSS borders. [#2940](https://github.com/diaspora/diaspora/issues/2940)
 
 ## Refactor
 
