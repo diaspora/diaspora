@@ -10,11 +10,10 @@
 
   .media
     .img
-      = person_image_link(person)
+      = person_image_link(person, :class => "hovercardable")
 
     .bd
-      =person_link(person)
+      = person_link(person, :class => "hovercardable")
 
       .info
         = Diaspora::Taggable.format_tags(person.profile.tag_string)
-

@@ -130,6 +130,10 @@ And /^I hover over the "([^"]+)"$/ do |element|
   page.execute_script("$(\"#{element}\").first().addClass('hover')")
 end
 
+And /^I hover the "([^"]+)"$/ do |element|
+  page.execute_script("$('#{element}').trigger('mouseenter')") 
+end
+
 When /^I click to delete the first post$/ do
   page.execute_script('$(".stream_element").first().find(".remove_post").first().click()')
 end

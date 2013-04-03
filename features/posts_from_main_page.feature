@@ -11,6 +11,7 @@ Feature: posting from the main page
         | alice      |
       And I sign in as "bob@bob.bob"
       And a user with username "bob" is connected with "alice"
+      And there is a user "bob" who's tagged "#carmendemairena"
       Given I have following aspects:
         | PostingTo            |
         | NotPostingThingsHere |
@@ -96,7 +97,9 @@ Feature: posting from the main page
       When I log out
       And I sign in as "alice@alice.alice"
       And I go to "bob@bob.bob"'s page
+      And I hover the ".author"
       Then I should see a "img" within ".stream_element div.photo_attachments"
+      And I should see "#carmendemairena" within ".footer_container"
 
     Scenario: back out of posting a photo-only post
       Given I expand the publisher
