@@ -115,7 +115,6 @@ by them self.
 * Remove unnecessary dotted CSS borders. [#2940](https://github.com/diaspora/diaspora/issues/2940)
 * Fix default image url in profiles table. [#3795](https://github.com/diaspora/diaspora/issues/3795)
 * Fix mobile buttons are only clickable when scrolled to the top. [#4102](https://github.com/diaspora/diaspora/issues/4102)
-* Fix regression in bookmarklet causing uneditable post contents. [#4057](https://github.com/diaspora/diaspora/issues/4057)
 
 ## Features
 
@@ -127,7 +126,7 @@ by them self.
 * Add multiphoto for mobile post. [#4065](https://github.com/diaspora/diaspora/issues/4065)
 * Add hotkeys to navigate in stream [#4089](https://github.com/diaspora/diaspora/pull/4089)
 * Add a brief explanatory text about external services connections to services index page [#3064](https://github.com/diaspora/diaspora/issues/3064)
-* Add a preview for posts in the stream [#4099](https://github.com/diaspora/diaspora/issues/4099)
+* Shift + Enter will submit the comment. [#4096](github.com/diaspora/diaspora/pull/4096)
 
 # 0.0.3.4
 

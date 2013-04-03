@@ -80,4 +80,32 @@ describe("app.views.CommentStream", function(){
       expect(this.view.$("textarea").val()).toEqual("great post!");
     })
   })
+  
+  describe("pressing a key when typing on the new comment box", function(){
+    it("should not submit the form when enter key is pressed", function(){
+      this.view.render();
+      var form = this.view.$("form")
+      var submitCallback = jasmine.createSpy().andReturn(false);form.submit(submitCallback);
+      
+      var e = $.Event("keydown", { keyCode: 13 });
+      e.shiftKey = false;
+      this.view.keyDownOnCommentBox(e);
+      
+      expect(submitCallback).not.toHaveBeenCalled();
+    })
+    
+    it("should submit the form when enter is pressed with shift", function(){
+      this.view.render();
+      var form = this.view.$("form")
+      var submitCallback = jasmine.createSpy().andReturn(false);
+      form.submit(submitCallback);
+      
+      var e = $.Event("keydown", { keyCode: 13 });
+      e.shiftKey = true;
+      this.view.keyDownOnCommentBox(e);
+      
+      expect(submitCallback).toHaveBeenCalled();
+    })
+  })
+  
 })
