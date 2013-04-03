@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require Rails.root.join('lib', 'postzord', 'dispatcher', 'private')
 
 describe Postzord::Dispatcher::Private do
 

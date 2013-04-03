@@ -1,5 +1,5 @@
-require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'template_picker')
 require 'spec_helper'
+
 describe TemplatePicker do
   before do
     @post_stubs = {:type => 'StatusMessage', :photos => stub(:size => 2), 

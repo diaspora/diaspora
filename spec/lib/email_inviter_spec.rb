@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'email_inviter')
+require 'spec_helper'
 
 describe EmailInviter do
   before do

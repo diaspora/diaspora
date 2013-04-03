@@ -3,7 +3,8 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require Rails.root.join('lib', 'rake_helpers')
+require 'rake_helpers'
+
 include RakeHelpers
 describe RakeHelpers do
   before do

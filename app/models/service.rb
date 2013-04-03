@@ -4,7 +4,6 @@
 
 class Service < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
-  require Rails.root.join('app', 'helpers', 'markdownify_helper')
   include MarkdownifyHelper
   
   belongs_to :user
@@ -39,5 +38,5 @@ class Service < ActiveRecord::Base
   end
 
 end
-require Rails.root.join('app', 'models', 'services', 'facebook')
-require Rails.root.join('app', 'models', 'services', 'twitter')
+require 'services/facebook'
+require 'services/twitter'

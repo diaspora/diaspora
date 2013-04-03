@@ -3,24 +3,26 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require Rails.root.join('lib','diaspora','fetcher','public')
 
 # Tests fetching public posts of a person on a remote server
-describe PublicFetcher do
+describe Diaspora::Fetcher::Public do
   before do
 
     # the fixture is taken from an actual json request.
     # it contains 10 StatusMessages and 5 Reshares, all of them public
     # the guid of the person is "7445f9a0a6c28ebb"
     @fixture = File.open(Rails.root.join('spec', 'fixtures', 'public_posts.json')).read
-    @fetcher = PublicFetcher.new
+    @fetcher = Diaspora::Fetcher::Public.new
     @person = FactoryGirl.create(:person, {:guid => "7445f9a0a6c28ebb",
                                 :url => "https://remote-testpod.net",
                                 :diaspora_handle => "testuser@remote-testpod.net"})
 
     stub_request(:get, /remote-testpod.net\/people\/.*/)
-      .with(:headers => {'Accept'=>'application/json'})
-      .to_return(:body => @fixture)
+      .with(headers: {
+            'Accept'=>'application/json', 
+            'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+            'User-Agent'=>'diaspora-fetcher'
+      }).to_return(:body => @fixture)
   end
 
   describe "#retrieve_posts" do
@@ -34,8 +36,8 @@ describe PublicFetcher do
 
     it "sets the operation status on the person" do
       @person.reload
-      @person.fetch_status.should_not eql(PublicFetcher::Status_Initial)
-      @person.fetch_status.should eql(PublicFetcher::Status_Fetched)
+      @person.fetch_status.should_not eql(Diaspora::Fetcher::Public::Status_Initial)
+      @person.fetch_status.should eql(Diaspora::Fetcher::Public::Status_Fetched)
     end
 
     it "sets the @data variable to the parsed JSON data" do
@@ -73,8 +75,8 @@ describe PublicFetcher do
       }
 
       @person.reload
-      @person.fetch_status.should_not eql(PublicFetcher::Status_Initial)
-      @person.fetch_status.should eql(PublicFetcher::Status_Processed)
+      @person.fetch_status.should_not eql(Diaspora::Fetcher::Public::Status_Initial)
+      @person.fetch_status.should eql(Diaspora::Fetcher::Public::Status_Processed)
     end
 
     context 'created post' do
@@ -121,7 +123,7 @@ describe PublicFetcher do
   end
 
   context "private methods" do
-    let(:public_fetcher) { PublicFetcher.new }
+    let(:public_fetcher) { Diaspora::Fetcher::Public.new }
 
     describe '#qualifies_for_fetching?' do
       it "raises an error if the person doesn't exist" do
@@ -135,7 +137,7 @@ describe PublicFetcher do
 
       it 'returns false if the person is unfetchable' do
         public_fetcher.instance_eval {
-          @person = FactoryGirl.create(:person, {:fetch_status => PublicFetcher::Status_Unfetchable})
+          @person = FactoryGirl.create(:person, {:fetch_status => Diaspora::Fetcher::Public::Status_Unfetchable})
           qualifies_for_fetching?
         }.should be_false
       end
@@ -146,12 +148,12 @@ describe PublicFetcher do
           @person = user.person
           qualifies_for_fetching?
         }.should be_false
-        user.person.fetch_status.should eql PublicFetcher::Status_Unfetchable
+        user.person.fetch_status.should eql Diaspora::Fetcher::Public::Status_Unfetchable
       end
 
       it 'returns false if the person is processing already (or has been processed)' do
         person = FactoryGirl.create(:person)
-        person.fetch_status = PublicFetcher::Status_Fetched
+        person.fetch_status = Diaspora::Fetcher::Public::Status_Fetched
         person.save
         public_fetcher.instance_eval {
           @person = person
@@ -173,14 +175,14 @@ describe PublicFetcher do
         person = @person
         public_fetcher.instance_eval {
           @person = person
-          set_fetch_status PublicFetcher::Status_Unfetchable
+          set_fetch_status Diaspora::Fetcher::Public::Status_Unfetchable
         }
-        @person.fetch_status.should eql PublicFetcher::Status_Unfetchable
+        @person.fetch_status.should eql Diaspora::Fetcher::Public::Status_Unfetchable
 
         public_fetcher.instance_eval {
-          set_fetch_status PublicFetcher::Status_Initial
+          set_fetch_status Diaspora::Fetcher::Public::Status_Initial
         }
-        @person.fetch_status.should eql PublicFetcher::Status_Initial
+        @person.fetch_status.should eql Diaspora::Fetcher::Public::Status_Initial
       end
     end
 

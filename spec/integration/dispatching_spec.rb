@@ -7,13 +7,14 @@ describe "Dispatching" do
       # Luke has a public post and comments on it
       post = FactoryGirl.create(:status_message, :public => true, :author => luke.person)
 
-      fantasy_resque do
-        comment = luke.comment!(post, "awesomesauseum")
+      comment = luke.comment!(post, "awesomesauseum")
+      
+      inlined_jobs do
         # Luke now retracts his comment
         Postzord::Dispatcher::Public.should_not_receive(:new)
         Postzord::Dispatcher::Private.should_receive(:new).and_return(stub(:post => true))
         luke.retract(comment)
-      end 
+      end
     end
   end
 end

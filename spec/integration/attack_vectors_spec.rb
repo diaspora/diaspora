@@ -85,9 +85,9 @@ describe "attack vectors" do
         zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
 
         expect {
-          expect_error /Contact required/ do
+          expect {
             zord.perform!
-          end
+          }.to raise_error Diaspora::ContactRequiredUnlessRequest
         }.to_not change(Post, :count)
 
         user_should_not_see_guid(bob, bad_post_guid)
@@ -110,9 +110,9 @@ describe "attack vectors" do
         #bob sends it to himself?????
         zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
 
-        expect_error /Contact required/ do
+        expect {
           zord.perform!
-        end
+        }.to raise_error Diaspora::ContactRequiredUnlessRequest
 
         #alice still should not see eves original post, even though bob sent it to her
         user_should_not_see_guid(alice, original_message.guid)
@@ -125,9 +125,9 @@ describe "attack vectors" do
         profile.first_name = "Not BOB"
 
         expect {
-          expect_error /Author does not match XML author/ do
+          expect {
             receive(profile, :from => alice, :by => bob)
-          end
+          }.to raise_error Diaspora::AuthorXMLAuthorMismatch
         }.to_not change(eve.profile, :first_name) 
       end
     end
@@ -135,9 +135,9 @@ describe "attack vectors" do
 
     it 'public stuff should not be spoofed from another author' do
       post = FactoryGirl.build(:status_message, :public => true, :author => eve.person)
-      expect_error /Author does not match XML author/ do
+      expect {
         receive_public(post, :from => alice)
-      end
+      }.to raise_error Diaspora::AuthorXMLAuthorMismatch
     end
   end
 
@@ -209,9 +209,9 @@ describe "attack vectors" do
       end
 
       expect {
-        expect_error /Author does not match XML author/  do
+        expect {
           receive(retraction, :from => alice, :by => bob)
-        end
+        }.to raise_error Diaspora::AuthorXMLAuthorMismatch
       }.to_not change(bob.visible_shareables(Post), :count)
 
     end
@@ -239,10 +239,10 @@ describe "attack vectors" do
       end
 
       expect{
-        expect_error /Author does not match XML author/ do
+        expect {
           receive(retraction, :from => alice, :by => bob)
-        end
-        }.to_not change(bob.contacts, :count)
+        }.to raise_error Diaspora::AuthorXMLAuthorMismatch
+      }.to_not change(bob.contacts, :count)
     end
 
     it 'does not let another user update other persons post' do

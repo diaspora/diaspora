@@ -1,5 +1,3 @@
-require Rails.root.join('lib', 'template_picker')
-
 class PostPresenter
   attr_accessor :post, :current_user
 

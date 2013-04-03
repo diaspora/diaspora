@@ -7,13 +7,13 @@ class User
   alias_method :share_with_original, :share_with
 
   def share_with(*args)
-    fantasy_resque do
+    inlined_jobs do
       share_with_original(*args)
     end
   end
 
   def post(class_name, opts = {})
-    fantasy_resque do
+    inlined_jobs do
       p = build_post(class_name, opts)
       if p.save!
         self.aspects.reload

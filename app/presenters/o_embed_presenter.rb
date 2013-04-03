@@ -1,4 +1,3 @@
-require 'uri'
 class OEmbedPresenter
   include PostsHelper
   include ActionView::Helpers::TextHelper

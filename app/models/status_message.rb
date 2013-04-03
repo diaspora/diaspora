@@ -155,11 +155,10 @@ class StatusMessage < Post
   end
 
   def queue_gather_oembed_data
-    Resque.enqueue(Jobs::GatherOEmbedData, self.id, self.oembed_url)
+    Workers::GatherOEmbedData.perform_async(self.id, self.oembed_url)
   end
 
   def contains_oembed_url_in_text?
-    require 'uri'
     urls = URI.extract(self.raw_message, ['http', 'https'])
     self.oembed_url = urls.find{ |url| !TRUSTED_OEMBED_PROVIDERS.find(url).nil? }
   end

@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join("app", "presenters", "post_presenter")
-
 class PostsController < ApplicationController
   include PostsHelper
 

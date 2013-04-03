@@ -202,11 +202,12 @@ describe StatusMessagesController do
       end
 
       it "sets the pending bit of referenced photos" do
-        fantasy_resque do
+        inlined_jobs do
           post :create, @hash
-          @photo1.reload.pending.should be_false
-          @photo2.reload.pending.should be_false
         end
+        
+        @photo1.reload.pending.should be_false
+        @photo2.reload.pending.should be_false
       end
     end
   end

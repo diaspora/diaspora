@@ -3,9 +3,6 @@
 #   the COPYRIGHT file.
 
 class UsersController < ApplicationController
-  require Rails.root.join('lib', 'diaspora', 'exporter')
-  require Rails.root.join('lib', 'collect_user_photos')
-
   before_filter :authenticate_user!, :except => [:new, :create, :public, :user_photo]
 
   respond_to :html

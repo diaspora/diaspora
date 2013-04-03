@@ -12,6 +12,13 @@ defaults:
     redis:
     require_ssl: true
     single_process_mode: false
+    sidekiq:
+      namespace: "diaspora"
+      concurrency: 5
+      retry: 10
+      timeout: 900
+      backtrace: 15
+      log: "log/sidekiq.log"
     s3:
       enable: false
       key:
@@ -32,8 +39,7 @@ defaults:
     stdout_log:
     database: 'mysql'
     unicorn_worker: 2
-    embed_resque_worker: false
-    resque_workers: 1
+    embed_sidekiq_worker: false
   privacy:
     jquery_cdn: true
     google_analytics_key:
@@ -88,7 +94,6 @@ defaults:
   admins:
     account:
     podmin_email:
-    inline_resque_web: true
 
 development:
   environment:
@@ -123,12 +128,14 @@ test:
 integration1:
   environment:
     url: "http://localhost:45789/"
+    single_process_mode: true
     assets:
       serve: true
     require_ssl: false
 integration2:
   environment:
     url: "http://localhost:34658/"
+    single_process_mode: true
     assets:
       serve: true
     require_ssl: false

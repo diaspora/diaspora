@@ -1,7 +1,5 @@
-require 'uri'
 class Services::Facebook < Service
   include Rails.application.routes.url_helpers
-  require Rails.root.join('app', 'helpers', 'markdownify_helper')
   include MarkdownifyHelper
 
   OVERRIDE_FIELDS_ON_FB_UPDATE = [:contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username]
