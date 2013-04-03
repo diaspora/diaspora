@@ -1,6 +1,6 @@
 class Notifications::Liked < Notification
   def mail_job
-    Jobs::Mail::Liked
+    Workers::Mail::Liked
   end
   
   def popup_translation_key

@@ -46,16 +46,16 @@ prefork = proc do
   require File.join(File.dirname(__FILE__), "integration_sessions_controller")
   require File.join(File.dirname(__FILE__), "poor_mans_webmock")
 
+  require 'sidekiq/testing/inline'
+
   require Rails.root.join('spec', 'helper_methods')
+  require Rails.root.join('spec', 'support', 'inlined_jobs')
   require Rails.root.join('spec', 'support', 'user_methods')
   include HelperMethods
 
   # require 'webmock/cucumber'
   # WebMock.disable_net_connect!(:allow_localhost => true)
 
-  require Rails.root.join('spec', 'support', 'fake_resque')
-
-  require File.join(File.dirname(__FILE__), 'run_resque_in_process')
 
   #hax to get rubymine to run spork, set RUBYMINE_HOME in your .bash_profile
   if ENV["RUBYMINE_HOME"]

@@ -2,9 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join('lib', 'hcard')
-require Rails.root.join('lib', 'webfinger_profile')
-
 class Webfinger
   attr_accessor :host_meta_xrd, :webfinger_profile_xrd,
                 :webfinger_profile, :hcard, :hcard_xrd, :person,
@@ -22,7 +19,7 @@ class Webfinger
   end
 
   def self.in_background(account, opts={})
-    Resque.enqueue(Jobs::FetchWebfinger, account)
+    Workers::FetchWebfinger.perform_async(account)
   end
 
   #everything below should be private I guess

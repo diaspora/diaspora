@@ -1,6 +1,6 @@
 class Notifications::AlsoCommented < Notification
   def mail_job
-    Jobs::Mail::AlsoCommented
+    Workers::Mail::AlsoCommented
   end
   
   def popup_translation_key

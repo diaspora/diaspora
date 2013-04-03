@@ -1,5 +1,6 @@
 require 'spec_helper'
 require Rails.root.join('spec', 'shared_behaviors', 'stream')
+
 describe Stream::Base do
   before do
     @stream = Stream::Base.new(alice)

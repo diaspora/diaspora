@@ -197,7 +197,7 @@ describe Photo do
 
   describe 'remote photos' do
     before do
-      Jobs::ProcessPhoto.perform(@saved_photo.id)
+      Workers::ProcessPhoto.new.perform(@saved_photo.id)
     end
 
     it 'should set the remote_photo on marshalling' do
@@ -229,8 +229,8 @@ describe Photo do
   end
 
   describe '#queue_processing_job' do
-    it 'should queue a resque job to process the images' do
-      Resque.should_receive(:enqueue).with(Jobs::ProcessPhoto, @photo.id)
+    it 'should queue a job to process the images' do
+      Workers::ProcessPhoto.should_receive(:perform_async).with(@photo.id)
       @photo.queue_processing_job
     end
   end

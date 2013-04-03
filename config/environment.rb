@@ -13,7 +13,6 @@ end
 
 # Load the rails application
 require Pathname.new(__FILE__).dirname.expand_path.join('application')
-require Rails.root.join("lib", "exceptions")
 
 # Load configuration system early 
 require Rails.root.join('config', 'load_config')
@@ -27,7 +26,6 @@ USERNAME_BLACKLIST = ['admin', 'administrator', 'hostmaster', 'info', 'postmaste
 
 # Initialize the rails application
 Diaspora::Application.initialize!
-require Rails.root.join('lib', 'federation_logger')
 
 # allow token auth only for posting activitystream photos
 module Devise

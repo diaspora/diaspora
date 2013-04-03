@@ -66,6 +66,38 @@ configuration: ## Section
     ## all the time intensive jobs must be run inside the request cycle.
     ## So this is higly unrecommended for production setups.
     #single_process_mode: true
+
+    ## Sidekiq - background processing
+    sidekiq: ## Section
+      ## Number of parallel threads Sidekiq uses
+      ## If you touch this please set the pool setting
+      ## in your database.yml to a value that's at minimum
+      ## close to this! The default value is 5 but you can safely
+      ## increase it to 25 and more on a medium sized pod.
+      ## This applies per started Sidekiq worker, so if you set it to
+      ## 25 and start two workers you'll process up to 50 jobs in parallel.
+      #concurrency: 25
+
+      ## Number of times a job is retried
+      ## There's an exponential backoff, if you set this too
+      ## high you might get too many jobs in the queue
+      ## Set this to false to disable it completely 
+      #retry: 10
+
+      ## Time in seconds before a job is killed
+      #timeout: 900
+
+      ## Namespace to use in Redis, useful if you need to run
+      ## multiple instances of Diaspora using the same Redis instance
+      #namespace: "diaspora"
+
+      ## Lines of backtrace that is stored on failure
+      ## Set this to false if you're not interested in this data to
+      ## reduce memory usage (and log size)
+      #backtrace: 15
+
+      ## Log file for Sidekiq
+      #log: "log/sidekiq.log"
     
     ## Use Amazon S3 instead of your local filesystem
     ## to handle uploaded pictures.
@@ -124,12 +156,9 @@ configuration: ## Section
     ## you have many users
     #unicorn_worker: 2
     
-    ## Embed a resque worker inside the unicorn process, useful for
+    ## Embed a Sidekiq worker inside the unicorn process, useful for
     ## minimal Heroku setups
-    #embed_resque_worker: true
-    
-    ## Number of resque workers to start
-    #resque_workers: 1
+    #embed_sidekiq_worker: true
   
   ## Settings probably affecting the privacy of your users 
   privacy: ## Section
@@ -293,11 +322,6 @@ configuration: ## Section
 
     ## E-Mail address users can contact the administrator
     #podmin_email: 'podmin@example.org'
-    
-    ## Resque is the background processing system used by Diaspora
-    ## Resque web is an admin tool for it. This settings decides whether
-    ## or not to inline it into Diaspora.
-    #inline_resque_web: true
   
 ## Here you can make overides to settings defined above if you need
 ## to have them different in different environments.

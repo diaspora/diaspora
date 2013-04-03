@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join("lib", 'stream', "person")
-
 class PeopleController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :last_post]
   before_filter :redirect_if_tag_search, :only => [:index]
