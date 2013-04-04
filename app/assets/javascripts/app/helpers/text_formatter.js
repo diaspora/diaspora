@@ -104,7 +104,8 @@ $(function() {
   textFormatter.hashtagify = function hashtagify(text){
     var utf8WordCharcters =/(\s|^|>)#([\u0080-\uFFFF|\w|-]+|&lt;3)/g
     return text.replace(utf8WordCharcters, function(hashtag, preceeder, tagText) {
-      return preceeder + "<a href='/tags/" + tagText + "' class='tag'>#" + tagText + "</a>"
+      return preceeder + "<a href='/tags/" + tagText.toLowerCase() +
+                         "' class='tag'>#" + tagText + "</a>"
     })
   };
 
