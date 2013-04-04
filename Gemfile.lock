@@ -220,7 +220,7 @@ GEM
     net-ssh (2.6.6)
     nokogiri (1.5.9)
     oauth (0.4.7)
-    oauth2 (0.8.0)
+    oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
       jwt (~> 0.1.4)
