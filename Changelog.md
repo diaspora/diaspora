@@ -127,6 +127,7 @@ by them self.
 * Add multiphoto for mobile post. [#4065](https://github.com/diaspora/diaspora/issues/4065)
 * Add hotkeys to navigate in stream [#4089](https://github.com/diaspora/diaspora/pull/4089)
 * Add a brief explanatory text about external services connections to services index page [#3064](https://github.com/diaspora/diaspora/issues/3064)
+* Add a preview for posts in the stream [#4099](https://github.com/diaspora/diaspora/issues/4099)
 
 # 0.0.3.4
 
