@@ -123,6 +123,7 @@ by them self.
 * If sharing a post with photos to Facebook, always include URL to post [#3706](https://github.com/diaspora/diaspora/issues/3706)
 * Add multiphoto for mobile post. [#4065](https://github.com/diaspora/diaspora/issues/4065)
 * Add hotkeys to navigate in stream [#4089](https://github.com/diaspora/diaspora/pull/4089)
+* Add a brief explanatory text about external services connections to services index page [#3064](https://github.com/diaspora/diaspora/issues/3064)
 
 # 0.0.3.4
 
