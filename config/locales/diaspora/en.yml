@@ -750,6 +750,7 @@ en:
       connect_to_tumblr: "Connect to Tumblr"
       edit_services: "Edit services"
       no_services: 'You have not connected any services yet.'
+      services_explanation: 'Connecting to services gives you the ability to publish your posts to them as you write them in Diaspora.'
     create:
       success: "Authentication successful."
       failure: "Authentication failed."
