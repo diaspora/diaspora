@@ -1,4 +1,5 @@
 require 'sidekiq_middlewares'
+require 'sidekiq/middleware/i18n'
 
 # Single process-mode
 if AppConfig.environment.single_process_mode? && Rails.env != "test"

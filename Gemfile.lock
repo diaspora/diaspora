@@ -107,7 +107,7 @@ GEM
     excon (0.20.1)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    facter (1.6.17)
+    facter (1.6.18)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.2.1)
@@ -219,7 +219,7 @@ GEM
     mobile-fu (1.1.1)
       rack-mobile-detect
       rails
-    multi_json (1.7.1)
+    multi_json (1.7.2)
     multipart-post (1.2.0)
     mysql2 (0.3.11)
     nested_form (0.3.1)
@@ -360,7 +360,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
-    sidekiq (2.7.5)
+    sidekiq (2.9.0)
       celluloid (~> 0.12.0)
       connection_pool (~> 1.0)
       multi_json (~> 1)
@@ -485,7 +485,7 @@ DEPENDENCIES
   ruby-oembed (= 0.8.8)
   sass-rails (= 3.2.6)
   selenium-webdriver (= 2.31.0)
-  sidekiq (= 2.7.5)
+  sidekiq (= 2.9.0)
   sinatra (= 1.3.3)
   slim (= 1.3.6)
   spork (= 1.0.0rc3)

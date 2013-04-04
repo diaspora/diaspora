@@ -17,7 +17,7 @@ gem 'devise', '2.1.3'
 
 # Background processing
 
-gem 'sidekiq', '2.7.5'
+gem 'sidekiq', '2.9.0'
 gem 'sinatra', '1.3.3'
 gem 'slim', '1.3.6'
 

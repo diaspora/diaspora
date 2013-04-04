@@ -1,5 +1,3 @@
-rails_env = ENV['RAILS_ENV'] || 'development'
-
 require 'pathname'
 require Pathname.new(__FILE__).expand_path.dirname.join('load_config')
 
@@ -20,13 +18,9 @@ timeout 30
 #pid '/var/run/diaspora/diaspora.pid'
 #listen '/var/run/diaspora/diaspora.sock', :backlog => 2048
 
-if AppConfig.server.stderr_log.present?
-  stderr_path AppConfig.server.stderr_log.get
-end
 
-if AppConfig.server.stdout_log.present?
-  stdout_path AppConfig.server.stdout_log.get
-end
+stderr_path AppConfig.server.stderr_log.get if AppConfig.server.stderr_log.present?
+stdout_path AppConfig.server.stdout_log.get if AppConfig.server.stdout_log.present?
 
 before_fork do |server, worker|
   # If using preload_app, enable this line
@@ -55,11 +49,4 @@ end
 after_fork do |server, worker|
   # If using preload_app, enable this line
   ActiveRecord::Base.establish_connection
-
-  unless AppConfig.environment.single_process_mode?
-    Sidekiq.redis = AppConfig.get_redis_options
-  end
-
-  # Enable this line to have the workers run as different user/group
-  #worker.user(user, group)
 end
