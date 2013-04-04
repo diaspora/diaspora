@@ -13,11 +13,11 @@ To update do the following:
 
 1. Before updating (even before the `git pull`!) stop your application
    server (Unicorn by default, started through Foreman).
-2. In case you did already run `git pull` checkout v0.0.3.2:
+2. In case you did already run `git pull` checkout v0.0.3.4:
    
    ```
    git fetch origin
-   git checkout v0.0.3.2
+   git checkout v0.0.3.4
    bundle
    ```
    
