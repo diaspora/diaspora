@@ -205,7 +205,7 @@ GEM
       redcarpet (>= 2.0)
     messagebus_ruby_api (1.0.3)
     method_source (0.8.1)
-    mime-types (1.21)
+    mime-types (1.22)
     mini_magick (3.5.0)
       subexec (~> 0.2.1)
     mobile-fu (1.1.1)
