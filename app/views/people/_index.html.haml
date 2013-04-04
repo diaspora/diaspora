@@ -1,11 +1,8 @@
 .people_stream
   - people.each do |person|
     .stream_element{:id => person.id}
-      .media
-        .img
-          = person_image_tag(person)
-        .bg
-          %span.from
-            = person_link(person, :class => "hovercardable")
+      .media_people
+        = person_image_link(person, :class => "hovercardable")
+        = person_link(person, :class => "hovercardable")
 
   = will_paginate people, :inner_window => 3, :params => {:controller => 'people', :action => 'tag_index'}

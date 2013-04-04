@@ -113,6 +113,7 @@ by them self.
 * Send profile alongside notification [#3976] (https://github.com/diaspora/diaspora/issues/3976)
 * Fix off-center close button image on intro popovers [#3841](https://github.com/diaspora/diaspora/pull/3841)
 * Remove unnecessary dotted CSS borders. [#2940](https://github.com/diaspora/diaspora/issues/2940)
+* Long name overflow in tags stream. [#3975](https://github.com/diaspora/diaspora/issues/3975)  
 
 ## Features
 
@@ -123,6 +124,7 @@ by them self.
 * If sharing a post with photos to Facebook, always include URL to post [#3706](https://github.com/diaspora/diaspora/issues/3706)
 * Add multiphoto for mobile post. [#4065](https://github.com/diaspora/diaspora/issues/4065)
 * Add hotkeys to navigate in stream [#4089](https://github.com/diaspora/diaspora/pull/4089)
+* Add hovercard on tags, conversations and search user page. [#3975](https://github.com/diaspora/diaspora/issues/3975) 
 
 # 0.0.3.4
 

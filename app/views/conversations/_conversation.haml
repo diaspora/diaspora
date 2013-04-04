@@ -2,14 +2,14 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+.img{:id => "people_convers"}
+  = person_image_link(conversation.author, :class => "hovercardable")
+
 %a.conversation{:href => conversation_path(conversation)}
   .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
     .media
-      .img
-        = person_image_tag(conversation.author)
-
       .bg
-        .subject
+        .subject{:id => "people_conversations"}
           .message_count
             = conversation.messages.size
           - if unread_counts[conversation.id].to_i > 0
@@ -19,7 +19,7 @@
           %div{ :class => direction_for(conversation.subject) }
             = conversation.subject[0..30]
 
-        .last_author
+        .last_author{:id => "people_conversations"}
           .timestamp
             = t('ago', :time =>  time_ago_in_words(conversation.updated_at))
           - if authors[conversation.id].present?
