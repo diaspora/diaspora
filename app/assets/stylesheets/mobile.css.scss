@@ -311,7 +311,6 @@ body {
 
 .navbar {
   @include box-shadow(0,1px,2px,#333);
-  padding: 0 20px;
 }
 
 .navbar-inner {
@@ -674,6 +673,8 @@ select {
   max-height: 45px !important;
   min-height: 45px !important;
   height: 45px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
   overflow: hidden;
 }
 
