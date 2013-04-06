@@ -115,6 +115,7 @@ by them self.
 * Remove unnecessary dotted CSS borders. [#2940](https://github.com/diaspora/diaspora/issues/2940)
 * Fix default image url in profiles table. [#3795](https://github.com/diaspora/diaspora/issues/3795)
 * Fix mobile buttons are only clickable when scrolled to the top. [#4102](https://github.com/diaspora/diaspora/issues/4102)
+* Fix regression in bookmarklet causing uneditable post contents. [#4057](https://github.com/diaspora/diaspora/issues/4057)
 
 ## Features
 

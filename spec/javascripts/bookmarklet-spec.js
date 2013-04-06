@@ -37,6 +37,16 @@ describe("bookmarklet", function() {
       });
     });
   });
+  
+  describe("modified prefilled bookmarklet", function(){
+    it('allows changing of post content', function(){
+      spec.loadFixture('prefilled_bookmarklet');
+      $('div.mentions > div').html('Foo Bar');
+      _.defer(function() {
+        expect($("#publisher #status_message_text").val()).toEqual("Foo Bar");
+      });
+    });
+  });
 
 
 
