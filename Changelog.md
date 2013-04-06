@@ -115,6 +115,7 @@ by them self.
 * Remove unnecessary dotted CSS borders. [#2940](https://github.com/diaspora/diaspora/issues/2940)
 * Fix default image url in profiles table. [#3795](https://github.com/diaspora/diaspora/issues/3795)
 * Fix mobile buttons are only clickable when scrolled to the top. [#4102](https://github.com/diaspora/diaspora/issues/4102)
+* My Activity mobile don't shows second page when click "more". [#4109](https://github.com/diaspora/diaspora/issues/4109)
 
 ## Features
 
