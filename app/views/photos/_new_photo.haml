@@ -30,6 +30,7 @@
        onSubmit: function(id, fileName){
         $('#file-upload').addClass("loading");
         $('#publisher').find("input[type='submit']").attr('disabled','disabled');
+        $('#publisher').find("button.post_preview_button").attr('disabled','disabled');
 
         app.publisher.el_wrapper.addClass("with_attachments");
         $('#photodropzone').append(
@@ -61,6 +62,7 @@
             textarea = publisher.find('textarea');
 
         publisher.find("input[type='submit']").removeAttr('disabled');
+        publisher.find("button.post_preview_button").removeAttr('disabled');
 
         $('.x').bind('click', function(){
           var photo = $(this).closest('.publisher_photo');

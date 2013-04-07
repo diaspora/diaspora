@@ -18,6 +18,10 @@ describe("app.views.Publisher", function() {
     it("hides the close button in standalone mode", function() {
       expect(this.view.$('#hide_publisher').is(':visible')).toBeFalsy();
     });
+    
+    it("hides the post preview button in standalone mode", function() {
+      expect(this.view.$('.post_preview_button').is(':visible')).toBeFalsy();
+    });
   });
 
   context("plain publisher", function() {
@@ -60,6 +64,13 @@ describe("app.views.Publisher", function() {
 
         this.view.clear($.Event());
         expect(this.view.close).toHaveBeenCalled();
+      })
+      
+      it("calls removePostPreview", function(){
+        spyOn(this.view, "removePostPreview");
+
+        this.view.clear($.Event());
+        expect(this.view.removePostPreview).toHaveBeenCalled();
       })
 
       it("clears all textareas", function(){
