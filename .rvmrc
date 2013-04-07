@@ -1,5 +1,7 @@
 #!/bin/sh
 
+rvm rvmrc warning ignore
+
 . ./script/env/ruby_env
 
 if [ -e '.rvmrc.local' ]; then
