@@ -789,6 +789,7 @@ en:
     publisher:
       posting: "Posting..."
       share: "Share"
+      preview: "Preview"
       post_a_message_to: "Post a message to %{aspect}"
       make_public: "make public"
       all: "all"
