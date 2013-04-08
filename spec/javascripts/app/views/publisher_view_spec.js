@@ -106,6 +106,22 @@ describe("app.views.Publisher", function() {
         expect(this.view.$("input[name='photos[]']").length).toBe(0);
       })
     });
+    
+    describe("publishing a post with keyboard", function(){
+      it("should submit the form when shift+enter is pressed", function(){
+        this.view.render();
+        var form = this.view.$("form")
+        var submitCallback = jasmine.createSpy().andReturn(false);
+        form.submit(submitCallback);
+      
+        var e = $.Event("keydown", { keyCode: 13 });
+        e.shiftKey = true;
+        this.view.keyDown(e);
+      
+        expect(submitCallback).toHaveBeenCalled();
+        expect($(this.view.el)).not.toHaveClass("closed");
+      })
+    })
   });
 
   context("#toggleService", function(){
