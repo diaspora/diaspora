@@ -96,6 +96,7 @@ en:
       you_currently: "you currently have %{user_invitation} invites left %{link}"
       add_invites: "add invites"
       email_to: "Email to Invite"
+      under_13: "Show users that are under 13 (COPPA)"
       users:
         zero: "%{count} users found"
         one: "%{count} user found"
