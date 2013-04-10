@@ -30,6 +30,8 @@ class TagsController < ApplicationController
   end
 
   def show
+    redirect_to(:action => :show, :name => downcased_tag_name) && return if tag_has_capitals?
+
     if user_signed_in?
       gon.tagFollowings = tags
     end
@@ -43,6 +45,15 @@ class TagsController < ApplicationController
 
   def tag_followed?
     TagFollowing.user_is_following?(current_user, params[:name])
+  end
+
+  def tag_has_capitals?
+    mb_tag = params[:name].mb_chars
+    mb_tag.downcase != mb_tag
+  end
+
+  def downcased_tag_name
+    params[:name].mb_chars.downcase.to_s
   end
 
   def prep_tags_for_javascript

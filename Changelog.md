@@ -116,6 +116,7 @@ by them self.
 * Fix default image url in profiles table. [#3795](https://github.com/diaspora/diaspora/issues/3795)
 * Fix mobile buttons are only clickable when scrolled to the top. [#4102](https://github.com/diaspora/diaspora/issues/4102)
 * Fix regression in bookmarklet causing uneditable post contents. [#4057](https://github.com/diaspora/diaspora/issues/4057)
+* Redirect all mixed case tags to the lower case equivalents [#4058](https://github.com/diaspora/diaspora/issues/4058)
 
 ## Features
 
