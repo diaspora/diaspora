@@ -39,21 +39,39 @@ describe("app.views.Stream", function() {
 
   describe("infScroll", function() {
     // NOTE: inf scroll happens at 500px
-
-    it("fetches moar when the user is at the bottom of the page", function() {
+    beforeEach(function(){
       spyOn($.fn, "height").andReturn(0);
       spyOn($.fn, "scrollTop").andReturn(100);
       spyOn(this.view.model, "fetch");
 
+    });
+
+    it("fetches moar when the user is at the bottom of the page", function() {
       this.view.infScroll();
 
       waitsFor(function(){
         return this.view.model.fetch.wasCalled
-      }, "the infinite scroll function didn't fetch the stream")
+      }, "the infinite scroll function didn't fetch the stream");
 
       runs(function(){
         expect(this.view.model.fetch).toHaveBeenCalled()
-      })
+      });
+    });
+
+    it("shows the loader while fetching new posts", function() {
+      spyOn(this.view, "showLoader");
+      this.view.infScroll();
+
+      expect(this.view.showLoader).toHaveBeenCalled();
+    });
+
+
+    it("doesnt try to fetch more content if already fetched all", function() {
+      spyOn($.fn, "unbind");
+
+      this.stream.trigger("allItemsLoaded", this.view);
+
+      expect($.fn.unbind).toHaveBeenCalledWith("scroll");
     });
   });
 

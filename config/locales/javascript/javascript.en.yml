@@ -43,6 +43,7 @@ en:
       public: "Public - your post will be visible to everyone and found by search engines"
     infinite_scroll:
       no_more: "No more posts."
+      no_more_contacts: "No more contacts."
     aspect_dropdown:
       add_to_aspect: "Add contact"
       select_aspects: "Select aspects"
