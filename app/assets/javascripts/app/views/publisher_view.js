@@ -6,6 +6,7 @@
 //= require ./publisher/services
 //= require ./publisher/aspects_selector
 //= require ./publisher/getting_started
+//= require jquery.textchange
 
 app.views.Publisher = Backbone.View.extend(_.extend(
   app.views.PublisherServices,
