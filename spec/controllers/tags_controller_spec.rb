@@ -36,6 +36,17 @@ describe TagsController do
   end
 
   describe '#show' do
+    context 'tag with capital letters' do
+      before do
+        sign_in :user, alice
+      end
+
+      it 'redirect to the downcase tag uri' do
+        get :show, :name => 'DiasporaRocks!'
+        response.should redirect_to(:action => :show, :name => 'diasporarocks!')
+      end
+    end
+
     context 'signed in' do
       before do
         sign_in :user, alice
