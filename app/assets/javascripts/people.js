@@ -5,4 +5,3 @@
 //= require aspect-edit-pane
 //= require fileuploader-custom
 //= require jquery.autoSuggest.custom
-//= require jquery.textchange

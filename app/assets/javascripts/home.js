@@ -3,6 +3,5 @@
  *   the COPYRIGHT file.
  */
 
-//= require jquery.textchange
 //= require aspect-edit-pane
 //= require fileuploader-custom
