@@ -16,6 +16,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
   el : "#publisher",
 
   events : {
+    "keydown #status_message_fake_text" : "keyDown", 
     "focus textarea" : "open",
     "click #hide_publisher" : "clear",
     "submit form" : "createStatusMessage",
@@ -89,7 +90,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     // clear state
     this.clear();
   },
-  
+
   createPostPreview : function(evt) {
     if(evt){ evt.preventDefault(); }
 
@@ -167,6 +168,14 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     }
   },
 
+  keyDown : function(evt) {
+    if( evt.keyCode == 13 && evt.shiftKey ) {
+      this.$("form").submit();
+      this.open();
+      return false;
+    }
+  },
+
   clear : function() {
     // clear text(s)
     this.el_input.val('');
@@ -206,7 +215,6 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
     // fetch contacts for mentioning
     Mentions.fetchContacts();
-
     return this;
   },
 

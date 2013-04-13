@@ -5,6 +5,7 @@ app.views.CommentStream = app.views.Base.extend({
   className : "comment_stream",
 
   events: {
+    "keydown .comment_box": "keyDownOnCommentBox",
     "submit form": "createComment",
     "focus .comment_box": "commentTextareaFocused",
     "click .toggle_post_comments": "expandComments"
@@ -51,6 +52,13 @@ app.views.CommentStream = app.views.Base.extend({
     }
   },
 
+  keyDownOnCommentBox: function(evt) {
+    if(evt.keyCode == 13 && evt.shiftKey) {
+      this.$("form").submit()
+      return false;
+    }
+  },
+  
   appendComment: function(comment) {
     // Set the post as the comment's parent, so we can check
     // on post ownership in the Comment view.
