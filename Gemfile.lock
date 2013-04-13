@@ -214,7 +214,7 @@ GEM
     multi_json (1.7.2)
     multipart-post (1.2.0)
     mysql2 (0.3.11)
-    nested_form (0.3.1)
+    nested_form (0.3.2)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
     net-ssh (2.6.7)
