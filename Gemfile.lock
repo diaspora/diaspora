@@ -165,7 +165,7 @@ GEM
       sprockets (>= 2.0.3)
       tilt
     hashie (2.0.3)
-    hike (1.2.1)
+    hike (1.2.2)
     http_accept_language (1.0.2)
     httpauth (0.2.0)
     i18n (0.6.1)
