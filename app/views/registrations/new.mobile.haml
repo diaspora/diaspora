@@ -8,12 +8,14 @@
 
 :css
   div.navbar.navbar-fixed-top{ display:none;}
-  body{ padding: 10px;}
-  #flash_error .message{ padding: 1px 1px 1px;}
 
+.registrations
 .stream
   - flash.each do |name, msg|
     %p{:class => "registrations_#{name}"}= msg
+    #flash_alert.expose
+      %div{:class => "message", :id => "session"}= msg
+
   #login_form
     .login-container
       = form_for(resource, :as => resource_name, :html => {:class => 'new_user_form'}, :url => registration_path(resource_name), :validate => true) do |f|
