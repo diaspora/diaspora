@@ -86,7 +86,7 @@ gem 'typhoeus',           '0.3.3'
 
 gem 'client_side_validations', '3.2.5'
 gem 'gon',                     '4.0.2'
-gem 'haml',                    '4.0.1'
+gem 'haml',                    '4.0.2'
 gem 'mobile-fu',               '1.1.1'
 gem 'will_paginate',           '3.0.4'
 
