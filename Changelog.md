@@ -119,6 +119,7 @@ by them self.
 * Fix regression in bookmarklet causing uneditable post contents. [#4057](https://github.com/diaspora/diaspora/issues/4057)
 * Redirect all mixed case tags to the lower case equivalents [#4058](https://github.com/diaspora/diaspora/issues/4058)
 * Fix wrong message on infinite scroll on contacts page [#3681](https://github.com/diaspora/diaspora/issues/3681)
+* My Activity mobile doesn't show second page when clicking "more". [#4109](https://github.com/diaspora/diaspora/issues/4109)
 
 ## Features
 
