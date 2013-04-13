@@ -2,7 +2,7 @@
 Feature: Viewing my activity on the steam mobile page
   In order to navigate Diaspora*
   As a mobile user
-  I want to view my actituty stream
+  I want to view my activity stream
 
   Background:
     Given a user with username "alice"

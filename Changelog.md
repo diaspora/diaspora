@@ -99,7 +99,7 @@ by them self.
 
 ## Bug fixes
 
-* Fix posting functionality on tags show view [#4017][#4107](https://github.com/diaspora/diaspora/issues/4017)(https://github.com/diaspora/diaspora/pull/4112)
+* Fix posting functionality on tags show view [#4112](https://github.com/diaspora/diaspora/pull/4112)
 * Fix cancel button on getting_started confirmation box [#4073](https://github.com/diaspora/diaspora/issues/4073)
 * Reset comment box height after posting a comment. [#4030](https://github.com/diaspora/diaspora/issues/4030)
 * Fade long tag names. [#3899](https://github.com/diaspora/diaspora/issues/3899)
