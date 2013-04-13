@@ -103,7 +103,7 @@ group :assets do
 
   # Compression
 
-  gem 'uglifier', '1.3.0'
+  gem 'uglifier', '2.0.1'
 
   # JavaScript
 
