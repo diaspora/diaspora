@@ -148,22 +148,17 @@ group :production do # we don't install these on travis to speed up test runs
 end
 
 group :development do
-  # Deployment
-
-  gem 'capistrano',        '2.12.0', :require => false
-  gem 'capistrano_colors', '0.5.5',  :require => false
-
   # Comparison images
 
   gem 'rmagick', '2.13.2', :require => false
-  
+
   # Automatic test runs
 
   gem 'guard-cucumber', '1.3.2'
   gem 'guard-rspec',    '2.5.1'
   gem 'rb-fsevent',     '0.9.3', :require => false
   gem 'rb-inotify',     '0.9.0', :require => false
-  
+
   # Preloading environment
 
   gem 'guard-spork', '1.5.0'
@@ -176,13 +171,13 @@ group :test do
   gem 'fixture_builder', '0.3.5'
   gem 'fuubar',          '1.1.0'
   gem 'rspec-instafail', '0.2.4', :require => false
-  
+
   # Cucumber (integration tests)
 
   gem 'capybara',           '1.1.3'
   gem 'database_cleaner',   '0.9.1'
   gem 'selenium-webdriver', '2.31.0'
-  
+
   # General helpers
 
   gem 'factory_girl_rails', '4.2.1'
@@ -194,10 +189,10 @@ end
 group :development, :test do
   # RSpec (unit tests, some integration tests)
   gem "rspec-rails",     '2.13.0'
-  
+
   # Cucumber (integration tests)
   gem 'cucumber-rails',     '1.3.1', :require => false
-  
+
   # Jasmine (client side application tests (JS))
   gem 'jasmine', '1.3.2'
 end
