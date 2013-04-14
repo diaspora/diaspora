@@ -23,14 +23,14 @@ To update do the following:
    
 3. Start Resque web (you'll need temporary access to port 5678, check
    your Firewall if needed!):
-   
+
    ```
    bundle exec resque-web
    ```
-   
+
    In case you need it you can adjust the port with the `-p` flag.
 4. One last time, start a Resque worker:
-   
+
    ```
    RAILS_ENV=production QUEUE=* bundle exec rake resque:work
    ```
@@ -38,7 +38,7 @@ To update do the following:
    Visit Resque web via http://your_host:5678, wait until all queues but the
    failed one are empty (show 0 jobs).
 5. Kill the Resque worker by hitting Ctrl+C. Kill Resque web with:
-   
+
    ```
    bundle exec resque-web -k
    ```
@@ -86,6 +86,14 @@ We're automatically adjusting the ActiveRecord connection pool size for you.
 
 Larger Heroku setups should have enough expertise to figure out what to do
 by them self.
+
+### Removal of Capistrano
+
+The Capistrano deployment scripts were removed from the main source code
+repository, since they were no longer working.
+They will be moved into their own repository with a new maintainer,
+you'll be able to find them under the Diaspora* Github organization once
+everything is set up.
 
 ### Other
 
