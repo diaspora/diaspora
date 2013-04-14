@@ -23,7 +23,7 @@ Devise.setup do |config|
   #mail setup
   if AppConfig.mail.sender_address.present?
     config.mailer_sender = AppConfig.mail.sender_address
-  elsif AppcConfig.mail.enable?
+  elsif AppConfig.mail.enable?
     unless Rails.env == 'test'
       Rails.logger.warn("No smtp sender address set, mail may fail.")
       puts "WARNING: No smtp sender address set, mail may fail."
