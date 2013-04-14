@@ -21,7 +21,7 @@ gem 'sidekiq', '2.10.0'
 
 # Configuration
 
-gem 'configurate', '0.0.2'
+gem 'configurate', '0.0.6'
 
 # Cross-origin resource sharing
 
