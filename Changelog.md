@@ -104,6 +104,7 @@ everything is set up.
 * Add a configuration entry to set max-age header to Amazon S3 resources. [#4048](https://github.com/diaspora/diaspora/pull/4048)
 * Load images via sprites [#4039](https://github.com/diaspora/diaspora/pull/4039)
 * Delete unnecessary javascript views. [#4059](https://github.com/diaspora/diaspora/pull/4059)
+* Cleanup of script/server
 
 ## Bug fixes
 
