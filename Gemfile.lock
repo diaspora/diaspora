@@ -30,7 +30,7 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
-    acts-as-taggable-on (2.3.3)
+    acts-as-taggable-on (2.4.0)
       rails (~> 3.0)
     acts_as_api (0.4.1)
       activemodel (>= 3.0.0)
@@ -410,7 +410,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import (= 0.3.1)
-  acts-as-taggable-on (= 2.3.3)
+  acts-as-taggable-on (= 2.4.0)
   acts_as_api (= 0.4.1)
   addressable (= 2.3.3)
   asset_sync (= 0.5.4)

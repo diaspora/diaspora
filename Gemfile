@@ -73,7 +73,7 @@ gem 'twitter',           '4.6.2'
 
 # Tags
 
-gem 'acts-as-taggable-on', '2.3.3'
+gem 'acts-as-taggable-on', '2.4.0'
 
 # URIs and HTTP
 
