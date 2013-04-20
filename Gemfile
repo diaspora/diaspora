@@ -17,11 +17,13 @@ gem 'devise', '2.1.3'
 
 # Background processing
 
-gem 'sidekiq', '2.10.0'
+gem 'sidekiq', '2.10.1'
+gem 'sinatra', '1.3.3'
+gem 'slim', '1.3.8'
 
 # Configuration
 
-gem 'configurate', '0.0.2'
+gem 'configurate', '0.0.6'
 
 # Cross-origin resource sharing
 
@@ -32,15 +34,15 @@ gem 'rack-cors', '0.2.7', :require => 'rack/cors'
 ENV['DB'] ||= 'mysql'
 
 gem 'mysql2', '0.3.11' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
-gem 'pg',     '0.14.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
+gem 'pg',     '0.15.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 
 gem 'activerecord-import', '0.3.1'
-gem 'foreigner',           '1.4.0'
+gem 'foreigner',           '1.4.1'
 
 # File uploading
 
 gem 'carrierwave', '0.8.0'
-gem 'fog',         '1.10.0'
+gem 'fog',         '1.10.1'
 gem 'mini_magick', '3.5'
 gem 'remotipart',  '1.0.5'
 
@@ -65,28 +67,28 @@ gem 'ruby-oembed',    '0.8.8'
 
 # Services
 
-gem 'omniauth',          '1.1.3'
+gem 'omniauth',          '1.1.4'
 gem 'omniauth-facebook', '1.4.1'
 gem 'omniauth-tumblr',   '1.1'
-gem 'omniauth-twitter',  '0.0.15'
+gem 'omniauth-twitter',  '0.0.16'
 gem 'twitter',           '4.6.2'
 
 # Tags
 
-gem 'acts-as-taggable-on', '2.3.3'
+gem 'acts-as-taggable-on', '2.4.0'
 
 # URIs and HTTP
 
-gem 'addressable',        '2.3.3', :require => 'addressable/uri'
-gem 'faraday',            '0.8.6'
+gem 'addressable',        '2.3.4', :require => 'addressable/uri'
+gem 'faraday',            '0.8.7'
 gem 'faraday_middleware', '0.9.0'
 gem 'typhoeus',           '0.3.3'
 
 # Views
 
-gem 'client_side_validations', '3.2.2'
-gem 'gon',                     '4.0.2'
-gem 'haml',                    '4.0.1'
+gem 'client_side_validations', '3.2.5'
+gem 'gon',                     '4.1.0'
+gem 'haml',                    '4.0.2'
 gem 'mobile-fu',               '1.1.1'
 gem 'will_paginate',           '3.0.4'
 
@@ -103,7 +105,7 @@ group :assets do
 
   # Compression
 
-  gem 'uglifier', '1.3.0'
+  gem 'uglifier', '2.0.1'
 
   # JavaScript
 
@@ -122,7 +124,7 @@ group :production do # we don't install these on travis to speed up test runs
 
   # Administration
 
-  gem 'rails_admin', '0.4.6'
+  gem 'rails_admin', '0.4.7'
 
   # Analytics
 
@@ -154,8 +156,8 @@ group :development do
 
   # Automatic test runs
 
-  gem 'guard-cucumber', '1.3.2'
-  gem 'guard-rspec',    '2.5.1'
+  gem 'guard-cucumber', '1.4.0'
+  gem 'guard-rspec',    '2.5.3'
   gem 'rb-fsevent',     '0.9.3', :require => false
   gem 'rb-inotify',     '0.9.0', :require => false
 
@@ -176,7 +178,7 @@ group :test do
 
   gem 'capybara',           '1.1.3'
   gem 'database_cleaner',   '0.9.1'
-  gem 'selenium-webdriver', '2.31.0'
+  gem 'selenium-webdriver', '2.32.1'
 
   # General helpers
 
