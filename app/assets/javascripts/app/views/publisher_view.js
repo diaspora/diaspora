@@ -16,7 +16,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
   el : "#publisher",
 
   events : {
-    "keydown #status_message_fake_text" : "keyDown", 
+    "keydown #status_message_fake_text" : "keyDown",
     "focus textarea" : "open",
     "click #hide_publisher" : "clear",
     "submit form" : "createStatusMessage",
@@ -25,6 +25,8 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     "textchange #status_message_fake_text": "handleTextchange",
     "click .dropdown .dropdown_list li": "toggleAspect"
   },
+
+  tooltipSelector: ".service_icon",
 
   initialize : function(){
     // init shortcut references to the various elements
@@ -40,6 +42,9 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
     // init autoresize plugin
     this.el_input.autoResize({ 'extraSpace' : 10, 'maxHeight' : Infinity });
+
+    // init tooltip plugin
+    this.$(this.tooltipSelector).tooltip();
 
     // sync textarea content
     if( this.el_hiddenInput.val() == "" ) {
@@ -95,7 +100,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     if(evt){ evt.preventDefault(); }
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
-    
+
     var photos = new Array();
     $('li.publisher_photo img').each(function(){
       var file = $(this).attr('src').substring("/uploads/images/".length);
@@ -108,8 +113,8 @@ app.views.Publisher = Backbone.View.extend(_.extend(
           }
         }
       );
-    });  
-    
+    });
+
     var mentioned_people = new Array();
     var regexp = new RegExp("@{\(\.\*\) ; \(\.\*\)}", "g");
     while(user=regexp.exec(serializedForm["status_message[text]"])){
@@ -123,9 +128,9 @@ app.views.Publisher = Backbone.View.extend(_.extend(
           "diaspora_id":user[2],
           "avatar":mentioned_user["avatar"]
         });
-      }      
+      }
     }
-    
+
     var date = (new Date()).toISOString();
     var previewMessage = {
       "id" : 0,
@@ -146,21 +151,21 @@ app.views.Publisher = Backbone.View.extend(_.extend(
       this.removePostPreview();
       app.stream.items.add(previewMessage);
       this.recentPreview=previewMessage;
-      this.modifyPostPreview($('.stream_element:first'));   
+      this.modifyPostPreview($('.stream_element:first'));
     }
   },
 
   modifyPostPreview : function(post) {
     post.addClass('post_preview');
     $('a.delete.remove_post',post).hide();
-    $('a.like, a.focus_comment_textarea',post).removeAttr("href");    
+    $('a.like, a.focus_comment_textarea',post).removeAttr("href");
     $('a.like',post).addClass("like_preview");
     $('a.like',post).removeClass("like");
     $('a.focus_comment_textarea',post).addClass("focus_comment_textarea_preview");
     $('a.focus_comment_textarea',post).removeClass("focus_comment_textarea");
     $('a',$('span.details.grey',post)).removeAttr("href");
   },
-  
+
   removePostPreview : function() {
     if(app.stream && this.recentPreview){
         app.stream.items.remove(this.recentPreview);
@@ -194,7 +199,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
     // close publishing area (CSS)
     this.close();
-    
+
     // remove preview
     this.removePostPreview();
 
@@ -204,7 +209,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     // force textchange plugin to update lastValue
     this.el_input.data('lastValue', '');
     this.el_hiddenInput.data('lastValue', '');
-    
+
     return this;
   },
 
