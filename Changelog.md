@@ -143,7 +143,8 @@ everything is set up.
 * Add hotkeys to navigate in stream [#4089](https://github.com/diaspora/diaspora/pull/4089)
 * Add a brief explanatory text about external services connections to services index page [#3064](https://github.com/diaspora/diaspora/issues/3064)
 * Add a preview for posts in the stream [#4099](https://github.com/diaspora/diaspora/issues/4099)
-* Add shortcut key Shift to submit comments and publish posts. [#4096](github.com/diaspora/diaspora/pull/4096)
+* Add shortcut key Shift to submit comments and publish posts. [#4096](https://github.com/diaspora/diaspora/pull/4096)
+* Show the service username in a tooltip next to the publisher icons [#4126](https://github.com/diaspora/diaspora/pull/4126)
 
 # 0.0.3.4
 

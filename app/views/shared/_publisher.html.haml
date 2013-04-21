@@ -43,10 +43,11 @@
             - if current_user.services
               - for service in current_user.services
                 = content_tag :div, nil,
-                              :title => service.provider.titleize,
+                              :title => "#{service.provider.titleize} (#{service.nickname})",
                               :class => "social_media_logos-#{service.provider}-16x16 service_icon dim",
                               :id    => "#{service.provider}",
-                              :maxchar => "#{service.class::MAX_CHARACTERS}"
+                              :maxchar => "#{service.class::MAX_CHARACTERS}",
+                              :data  => {:toggle=>'tooltip', :placement=>'bottom'}
             %a{ :href => "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage') }
               .icons-monotone_wrench_settings
 
@@ -74,7 +75,7 @@
                   = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )
 
           %button{ :disabled => ("disabled" if publisher_hidden_text.blank?), :class => 'button post_preview_button'}
-            = t('.preview') 
+            = t('.preview')
 
           = status.submit t('.share'), :disabled => publisher_hidden_text.blank?, :class => 'button creation', :tabindex => 2
 
