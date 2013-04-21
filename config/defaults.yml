@@ -40,6 +40,7 @@ defaults:
     database: 'mysql'
     unicorn_worker: 2
     embed_sidekiq_worker: false
+    sidekiq_workers: 1
   privacy:
     jquery_cdn: true
     google_analytics_key:
