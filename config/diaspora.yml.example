@@ -152,13 +152,18 @@ configuration: ## Section
     ## Valid choices are 'mysql' and 'postgres'
     #database: 'mysql'
     
-    ## Number of unicorn worker processes, increase this if
+    ## Number of Unicorn worker processes, increase this if
     ## you have many users
     #unicorn_worker: 2
     
     ## Embed a Sidekiq worker inside the unicorn process, useful for
     ## minimal Heroku setups
     #embed_sidekiq_worker: true
+
+    ## Number of Sidekiq worker processes
+    ## Most of the time you want to increase
+    ## environment.sidekiq.concurrency instead!
+    #sidekiq_workers: 1
   
   ## Settings probably affecting the privacy of your users 
   privacy: ## Section
