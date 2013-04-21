@@ -38,3 +38,7 @@ module Devise
     end
   end
 end
+
+
+# Ensure Builder is loaded
+require 'active_support/builder' unless defined?(Builder)

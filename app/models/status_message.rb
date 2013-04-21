@@ -14,6 +14,7 @@ class StatusMessage < Post
   validates_length_of :text, :maximum => 65535, :message => I18n.t('status_messages.too_long', :count => 65535)
   xml_name :status_message
   xml_attr :raw_message
+  xml_attr :photos, :as => [Photo]
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
