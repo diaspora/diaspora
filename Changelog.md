@@ -109,6 +109,7 @@ everything is set up.
 
 ## Bug fixes
 
+* fix mass aspect selection [#4127](https://github.com/diaspora/diaspora/pull/4127)
 * Fix posting functionality on tags show view [#4112](https://github.com/diaspora/diaspora/pull/4112)
 * Fix cancel button on getting_started confirmation box [#4073](https://github.com/diaspora/diaspora/issues/4073)
 * Reset comment box height after posting a comment. [#4030](https://github.com/diaspora/diaspora/issues/4030)
