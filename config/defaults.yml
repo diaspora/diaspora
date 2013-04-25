@@ -16,7 +16,6 @@ defaults:
       namespace: "diaspora"
       concurrency: 5
       retry: 10
-      timeout: 900
       backtrace: 15
       log: "log/sidekiq.log"
     s3:

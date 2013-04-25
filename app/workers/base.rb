@@ -5,8 +5,7 @@
 module Workers
   class Base
     include Sidekiq::Worker
-    sidekiq_options timeout: AppConfig.environment.sidekiq.timeout.to_i,
-                    backtrace: ((bt = AppConfig.environment.sidekiq.backtrace.get) && bt.to_i),
+    sidekiq_options backtrace: ((bt = AppConfig.environment.sidekiq.backtrace.get) && bt.to_i),
                     retry:  AppConfig.environment.sidekiq.retry.to_i
 
     # In the long term we need to eliminate the cause of these

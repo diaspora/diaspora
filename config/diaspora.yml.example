@@ -84,9 +84,6 @@ configuration: ## Section
       ## Set this to false to disable it completely 
       #retry: 10
 
-      ## Time in seconds before a job is killed
-      #timeout: 900
-
       ## Namespace to use in Redis, useful if you need to run
       ## multiple instances of Diaspora using the same Redis instance
       #namespace: "diaspora"
