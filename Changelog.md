@@ -109,7 +109,7 @@ everything is set up.
 
 ## Bug fixes
 
-* fix mass aspect selection [#4127](https://github.com/diaspora/diaspora/pull/4127)
+* Fix mass aspect selection [#4127](https://github.com/diaspora/diaspora/pull/4127)
 * Fix posting functionality on tags show view [#4112](https://github.com/diaspora/diaspora/pull/4112)
 * Fix cancel button on getting_started confirmation box [#4073](https://github.com/diaspora/diaspora/issues/4073)
 * Reset comment box height after posting a comment. [#4030](https://github.com/diaspora/diaspora/issues/4030)
@@ -132,6 +132,7 @@ everything is set up.
 * Fix wrong message on infinite scroll on contacts page [#3681](https://github.com/diaspora/diaspora/issues/3681)
 * My Activity mobile doesn't show second page when clicking "more". [#4109](https://github.com/diaspora/diaspora/issues/4109)
 * Remove unnecessary navigation bar to access mobile site and re-add flash warning to mobile registrations. [#4085](https://github.com/diaspora/diaspora/pull/4085)
+* Fix broken reactions link on mobile page [#4125](https://github.com/diaspora/diaspora/pull/4125)
 
 ## Features
 

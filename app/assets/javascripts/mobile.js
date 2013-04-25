@@ -98,7 +98,7 @@ $(document).ready(function(){
   });
 
   /* Show comments */
-  $(".show_comments", ".stream").bind("tap click", function(evt){
+  $("a.show_comments", ".stream").bind("tap click", function(evt){
     evt.preventDefault();
     var link = $(this),
         parent = link.closest(".bottom_bar").first(),
