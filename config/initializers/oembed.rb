@@ -16,6 +16,9 @@ OEmbedTwitter = OEmbed::Provider.new("https://api.twitter.com/1/statuses/oembed.
 OEmbedTwitter << "http://twitter.com/*/status/*"
 OEmbedTwitter << "https://twitter.com/*/status/*"
 
+OEmbedMixCloud = OEmbed::Provider.new("http://www.mixcloud.com/oembed/")
+OEmbedMixCloud << "http://www.mixcloud.com/*/*"
+
 # patch in support for new https soundcloud
 OEmbed::Providers::SoundCloud << "https://*.soundcloud.com/*"
 
