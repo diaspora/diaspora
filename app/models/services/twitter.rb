@@ -9,8 +9,9 @@ class Services::Twitter < Service
   def post(post, url='')
     Rails.logger.debug("event=post_to_service type=twitter sender_id=#{self.user_id}")
     message = public_message(post, url)
-
-    client.update(message)
+    tweet = client.update(message)
+    post.tweet_id = tweet.id
+    post.save
   end
 
 
@@ -26,6 +27,15 @@ class Services::Twitter < Service
 
   def profile_photo_url
     client.user(nickname).profile_image_url_https("original")
+  end
+
+ def delete_post(service_post_id)
+    Rails.logger.debug("event=delete_from_service type=twitter sender_id=#{self.user_id}")
+    delete_from_twitter(service_post_id)
+  end
+
+  def delete_from_twitter(service_post_id)
+    client.status_destroy(service_post_id)
   end
 
   private

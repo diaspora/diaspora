@@ -151,8 +151,11 @@ class Postzord::Dispatcher
       end
     end
     if @object.instance_of?(SignedRetraction)
-      services.select { |service| service.respond_to? :delete_post }.each do |service|
+      services.select { |service| service.provider == "facebook" }.each do |service|
         Workers::DeletePostFromService.perform_async(service.id, @object.target.facebook_id)
+      end
+      services.select { |service| service.provider == "twitter" }.each do |service|
+        Workers::DeletePostFromService.perform_async(service.id, @object.target.tweet_id)
       end
     end
   end
