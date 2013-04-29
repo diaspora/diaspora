@@ -30,7 +30,8 @@ oembed_provider_list = [
   OEmbed::Providers::Flickr,
   OEmbedCubbies,
   OEmbedDailyMotion,
-  OEmbedTwitter
+  OEmbedTwitter,
+  OEmbedMixCloud
 ]
 
 SECURE_ENDPOINTS = oembed_provider_list.map do |provider|
