@@ -321,7 +321,7 @@ describe Postzord::Dispatcher do
 
       it "doesn't queue a job if we can't delete the post from the service" do
         retraction = SignedRetraction.build(alice, FactoryGirl.create(:status_message))
-        service = Services::Twitter.new(access_token: "nope")
+        service = Services::Tumblr.new(access_token: "nope")
         mailman = Postzord::Dispatcher.build(alice, retraction,  :url => "http://joindiaspora.com/p/123", :services => [service])
 
         Workers::DeletePostFromService.should_not_receive(:perform_async).with(anything, anything)

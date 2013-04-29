@@ -122,7 +122,7 @@ everything is set up.
 * Fix reshares in single post-view [#4056](https://github.com/diaspora/diaspora/issues/4056)
 * Fix mobile view of deleted reshares. [#4063](https://github.com/diaspora/diaspora/issues/4063)
 * Hide comment button in the mobile view when not signed in. [#4065](https://github.com/diaspora/diaspora/issues/4065)
-* Send profile alongside notification [#3976] (https://github.com/diaspora/diaspora/issues/3976)
+* Send profile alongside notification [#3976](https://github.com/diaspora/diaspora/issues/3976)
 * Fix off-center close button image on intro popovers [#3841](https://github.com/diaspora/diaspora/pull/3841)
 * Remove unnecessary dotted CSS borders. [#2940](https://github.com/diaspora/diaspora/issues/2940)
 * Fix default image url in profiles table. [#3795](https://github.com/diaspora/diaspora/issues/3795)
@@ -136,7 +136,7 @@ everything is set up.
 
 ## Features
 
-* Deleting a post that was shared to Facebook now deletes it from Facebook too [#3980]( https://github.com/diaspora/diaspora/pull/3980)
+* Deleting a post that was shared to Facebook now deletes it from Facebook too [#3980](https://github.com/diaspora/diaspora/pull/3980)
 * Include reshares in a users public atom feed [#1781](https://github.com/diaspora/diaspora/issues/1781)
 * Add the ability to upload photos from the mobile site. [#4004](https://github.com/diaspora/diaspora/issues/4004)
 * Show timestamp when hovering on comment time-ago string. [#4042](https://github.com/diaspora/diaspora/issues/4042)
@@ -147,6 +147,7 @@ everything is set up.
 * Add a preview for posts in the stream [#4099](https://github.com/diaspora/diaspora/issues/4099)
 * Add shortcut key Shift to submit comments and publish posts. [#4096](https://github.com/diaspora/diaspora/pull/4096)
 * Show the service username in a tooltip next to the publisher icons [#4126](https://github.com/diaspora/diaspora/pull/4126)
+* Deleting a post that was shared to Twitter now deletes it from Twitter too [#4135](https://github.com/diaspora/diaspora/pull/4135)
 
 # 0.0.3.4
 

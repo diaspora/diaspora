@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404211624) do
+ActiveRecord::Schema.define(:version => 20130429073928) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -298,6 +298,7 @@ ActiveRecord::Schema.define(:version => 20130404211624) do
     t.string   "frame_name"
     t.boolean  "favorite",                            :default => false
     t.string   "facebook_id"
+    t.string   "tweet_id"
   end
 
   add_index "posts", ["author_id", "root_guid"], :name => "index_posts_on_author_id_and_root_guid", :unique => true
@@ -307,6 +308,7 @@ ActiveRecord::Schema.define(:version => 20130404211624) do
   add_index "posts", ["root_guid"], :name => "index_posts_on_root_guid"
   add_index "posts", ["status_message_guid", "pending"], :name => "index_posts_on_status_message_guid_and_pending"
   add_index "posts", ["status_message_guid"], :name => "index_posts_on_status_message_guid"
+  add_index "posts", ["tweet_id"], :name => "index_posts_on_tweet_id"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
 
   create_table "profiles", :force => true do |t|
