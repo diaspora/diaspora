@@ -1,0 +1,19 @@
+# SECURITY NOTICE! CROSS-SITE SCRIPTING!
+# these endpoints may inject html code into our page
+# note that 'endpoint' is the only information
+# in OEmbed that we can trust. anything else may be spoofed!
+daily_motion:
+  endpoint: "http://www.dailymotion.com/services/oembed"
+  urls:
+    - http://www.dailymotion.com/video/*
+
+twitter:
+  endpoint: "https://api.twitter.com/1/statuses/oembed.json"
+  urls:
+    - http://twitter.com/*/status/*
+    - https://twitter.com/*/status/*
+
+mixcloud:
+  endpoint: "http://www.mixcloud.com/oembed/"
+  urls:
+    - http://www.mixcloud.com/*/*

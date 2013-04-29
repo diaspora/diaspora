@@ -108,6 +108,7 @@ everything is set up.
 * Attempt to stabilize federation of attached photos (fix [#3033](https://github.com/diaspora/diaspora/issues/3033)  [#3940](https://github.com/diaspora/diaspora/pull/3940)
 * Refactor develop install script [#4111](https://github.com/diaspora/diaspora/pull/4111)
 * Remove special hacks for supporting Ruby 1.8 [#4113] (https://github.com/diaspora/diaspora/pull/4139)
+* Moved custom oEmbed providers to config/oembed_providers.yml [#4131](https://github.com/diaspora/diaspora/pull/4131)
 
 ## Bug fixes
 
@@ -151,6 +152,7 @@ everything is set up.
 * Add shortcut key Shift to submit comments and publish posts. [#4096](https://github.com/diaspora/diaspora/pull/4096)
 * Show the service username in a tooltip next to the publisher icons [#4126](https://github.com/diaspora/diaspora/pull/4126)
 * Ability to add location when creating a post [#3803](https://github.com/diaspora/diaspora/pull/3803)
+* Added oEmbed provider for MixCloud. [#4131](https://github.com/diaspora/diaspora/pull/4131)
 
 # 0.0.3.4
 
