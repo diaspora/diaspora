@@ -133,6 +133,7 @@ everything is set up.
 * My Activity mobile doesn't show second page when clicking "more". [#4109](https://github.com/diaspora/diaspora/issues/4109)
 * Remove unnecessary navigation bar to access mobile site and re-add flash warning to mobile registrations. [#4085](https://github.com/diaspora/diaspora/pull/4085)
 * Fix broken reactions link on mobile page [#4125](https://github.com/diaspora/diaspora/pull/4125)
+* Missing translation "Back to top". [#4138](https://github.com/diaspora/diaspora/pull/4138)
 
 ## Features
 
