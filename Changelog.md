@@ -107,6 +107,7 @@ everything is set up.
 * Cleanup of script/server
 * Attempt to stabilize federation of attached photos (fix [#3033](https://github.com/diaspora/diaspora/issues/3033)  [#3940](https://github.com/diaspora/diaspora/pull/3940)
 * Refactor develop install script [#4111](https://github.com/diaspora/diaspora/pull/4111)
+* Remove special hacks for supporting Ruby 1.8 [#4113] (https://github.com/diaspora/diaspora/pull/4139)
 
 ## Bug fixes
 
