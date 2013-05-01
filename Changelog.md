@@ -106,6 +106,7 @@ everything is set up.
 * Delete unnecessary javascript views. [#4059](https://github.com/diaspora/diaspora/pull/4059)
 * Cleanup of script/server
 * Attempt to stabilize federation of attached photos (fix [#3033](https://github.com/diaspora/diaspora/issues/3033)  [#3940](https://github.com/diaspora/diaspora/pull/3940)
+* Refactor develop install script [#4111](https://github.com/diaspora/diaspora/pull/4111)
 
 ## Bug fixes
 
