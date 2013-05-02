@@ -120,13 +120,10 @@ describe Photo do
   it 'should save a photo' do
     @photo.unprocessed_image.store! File.open(@fixture_name)
     @photo.save.should == true
-    begin
-      binary = @photo.unprocessed_image.read.force_encoding('BINARY')
-      fixture_binary = File.open(@fixture_name).read.force_encoding('BINARY')
-    rescue NoMethodError # Ruby 1.8 doesn't have force_encoding
-      binary = @photo.unprocessed_image.read
-      fixture_binary = File.open(@fixture_name).read
-    end
+
+    binary = @photo.unprocessed_image.read.force_encoding('BINARY')
+    fixture_binary = File.read(@fixture_name).force_encoding('BINARY')
+
     binary.should == fixture_binary
   end
 
