@@ -23,7 +23,7 @@ gem 'slim', '1.3.8'
 
 # Configuration
 
-gem 'configurate', '0.0.6'
+gem 'configurate', '0.0.7'
 
 # Cross-origin resource sharing
 
