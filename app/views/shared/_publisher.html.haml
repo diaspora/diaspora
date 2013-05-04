@@ -39,7 +39,7 @@
 
       .options_and_submit
         .public_toggle
-          %span#publisher_service_icons
+          .public#publisher_service_icons
             - if current_user.services
               - for service in current_user.services
                 = content_tag :div, nil,
