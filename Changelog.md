@@ -136,6 +136,7 @@ everything is set up.
 * Remove unnecessary navigation bar to access mobile site and re-add flash warning to mobile registrations. [#4085](https://github.com/diaspora/diaspora/pull/4085)
 * Fix broken reactions link on mobile page [#4125](https://github.com/diaspora/diaspora/pull/4125)
 * Missing translation "Back to top". [#4138](https://github.com/diaspora/diaspora/pull/4138)
+* Overflow service username to the publisher. [#4142](https://github.com/diaspora/diaspora/pull/4142)
 
 ## Features
 
