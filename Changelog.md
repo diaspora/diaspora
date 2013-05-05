@@ -2,7 +2,11 @@
 
 ## Refactor
 
+* Refactored config/ directory [#4145](https://github.com/diaspora/diaspora/pull/4145).
+
 ## Bug fixes
+
+* Don't use Pathname early to circumvent some rare initialization errors [#3816](https://github.com/diaspora/diaspora/issues/3816)
 
 ## Features
 

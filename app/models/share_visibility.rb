@@ -23,7 +23,7 @@ class ShareVisibility < ActiveRecord::Base
   def self.batch_import(contact_ids, share)
     return false unless ShareVisibility.new(:shareable_id => share.id, :shareable_type => share.class.to_s).valid?
 
-    if postgres?
+    if AppConfig.postgres?
       contact_ids.each do |contact_id|
         ShareVisibility.find_or_create_by_contact_id_and_shareable_id_and_shareable_type(contact_id, share.id, share.class.base_class.to_s)
       end
