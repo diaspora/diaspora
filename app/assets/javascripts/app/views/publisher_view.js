@@ -23,7 +23,10 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     "click .post_preview_button" : "createPostPreview",
     "click .service_icon": "toggleService",
     "textchange #status_message_fake_text": "handleTextchange",
-    "click .dropdown .dropdown_list li": "toggleAspect"
+    "click .dropdown .dropdown_list li": "toggleAspect",
+    "click #locator" : "showLocation",
+    "click #hide_location" : "destroyLocation",
+    "keypress #location_address" : "avoidEnter"
   },
 
   tooltipSelector: ".service_icon",
@@ -79,7 +82,9 @@ app.views.Publisher = Backbone.View.extend(_.extend(
       },
       "aspect_ids" : serializedForm["aspect_ids[]"],
       "photos" : serializedForm["photos[]"],
-      "services" : serializedForm["services[]"]
+      "services" : serializedForm["services[]"],
+      "location_address" : $("#location_address").val(),
+      "location_coords" : serializedForm["location[coords]"]
     }, {
       url : "/status_messages",
       success : function() {
@@ -94,6 +99,30 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
     // clear state
     this.clear();
+
+    // clear location
+    this.destroyLocation();
+  },
+
+  // creates the location
+  showLocation: function(){
+    if($('#location').length == 0){
+      $('#publisher_textarea_wrapper').after('<div id="location"></div>');
+      app.views.location = new app.views.Location();
+    }
+  },
+
+  // destroys the location
+  destroyLocation: function(){
+    if(app.views.location){
+      app.views.location.remove();
+    }
+  },
+
+  // avoid submitting form when pressing Enter key
+  avoidEnter: function(evt){
+    if(evt.keyCode == 13)
+      return false;
   },
 
   createPostPreview : function(evt) {

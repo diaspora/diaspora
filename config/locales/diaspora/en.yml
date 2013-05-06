@@ -794,6 +794,7 @@ en:
       make_public: "make public"
       all: "all"
       upload_photos: "Upload photos"
+      get_location: "Get your location"
       all_contacts: "all contacts"
       share_with: "share with"
       whats_on_your_mind: "What's on your mind?"
