@@ -573,8 +573,21 @@ ul.as-selections
   & > .likes, & > .comments
     :margin-right 15px
 
+.status-message-location
+  .near-from
+    :font-size smaller
+    :color #aaa
+    :width 100%
+    :float left
+  .address
+    :font-size 11px
+    :color #bbb
+
 .stream_element .post-content .reshare
   :border-left 2px solid #ddd
+
+.stream_element.loaded .media .bd .feedback
+  :clear both
 
 form.new_comment
   input
@@ -697,6 +710,8 @@ form p.checkbox_select
     :height 100%
     :width 100%
     :cursor pointer
+  img
+    :margin-right 20px
 
 #publisher
   :z-index 1
@@ -876,6 +891,8 @@ form p.checkbox_select
     :position absolute
     :bottom 0
     :right 35px
+    :width 430px
+    :left 5px
     :padding 0
 
     li
@@ -3120,3 +3137,46 @@ body
     :bottom 3px solid #3f8fba !important
   :background
     :color #e8f7ff
+
+#publisher-images
+  #locator
+    :bottom 1px !important
+    :display inline-block
+    :margin 0
+    :position absolute !important
+    :right 30px
+    :cursor pointer
+    img
+      :padding-top 2px
+      @include opacity(0.4)
+    &:hover
+      :color #666
+      :cursor pointer
+      img
+        @include opacity(0.8)
+  .btn
+    :height 19px
+    :width 19px
+
+#location
+  :border 1px solid #999
+  :height 20px
+  #location_address
+    :border none
+    :color #aaa
+    :height 10px
+    :width 430px
+    :float left
+  a#hide_location
+    :position absolute
+    :right 22px
+    :filter alpha(opacity=30)
+    :-moz-opacity 0.3
+    :-khtml-opacity 0.3
+    :opacity 0.3
+    :z-index 5
+  a#hide_location:hover
+    @include opacity(0)
+    :-khtml-opacity 1
+    :opacity 1 
+    :cursor pointer
