@@ -26,8 +26,12 @@
               = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}..."
             = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
 
-            #file-upload{:title => t('.upload_photos')}
-              = image_tag 'icons/camera.png', :alt => t('.upload_photos').titleize
+            #publisher-images
+              #locator.btn{:title => t('.get_location')}
+                = image_tag 'icons/marker.png', :alt => t('.get_location').titleize, :class => 'publisher_image'
+              #file-upload.btn{:title => t('.upload_photos')}
+                = image_tag 'icons/camera.png', :alt => t('.upload_photos').titleize, :class => 'publisher_image'
+            = hidden_field :location, :coords
 
       - if publisher_public
         = hidden_field_tag 'aspect_ids[]', "public"

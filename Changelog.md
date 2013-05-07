@@ -106,6 +106,8 @@ everything is set up.
 * Delete unnecessary javascript views. [#4059](https://github.com/diaspora/diaspora/pull/4059)
 * Cleanup of script/server
 * Attempt to stabilize federation of attached photos (fix [#3033](https://github.com/diaspora/diaspora/issues/3033)  [#3940](https://github.com/diaspora/diaspora/pull/3940)
+* Refactor develop install script [#4111](https://github.com/diaspora/diaspora/pull/4111)
+* Remove special hacks for supporting Ruby 1.8 [#4113] (https://github.com/diaspora/diaspora/pull/4139)
 
 ## Bug fixes
 
@@ -133,6 +135,7 @@ everything is set up.
 * My Activity mobile doesn't show second page when clicking "more". [#4109](https://github.com/diaspora/diaspora/issues/4109)
 * Remove unnecessary navigation bar to access mobile site and re-add flash warning to mobile registrations. [#4085](https://github.com/diaspora/diaspora/pull/4085)
 * Fix broken reactions link on mobile page [#4125](https://github.com/diaspora/diaspora/pull/4125)
+* Missing translation "Back to top". [#4138](https://github.com/diaspora/diaspora/pull/4138)
 
 ## Features
 
@@ -147,6 +150,7 @@ everything is set up.
 * Add a preview for posts in the stream [#4099](https://github.com/diaspora/diaspora/issues/4099)
 * Add shortcut key Shift to submit comments and publish posts. [#4096](https://github.com/diaspora/diaspora/pull/4096)
 * Show the service username in a tooltip next to the publisher icons [#4126](https://github.com/diaspora/diaspora/pull/4126)
+* Ability to add location when creating a post [#3803](https://github.com/diaspora/diaspora/pull/3803)
 
 # 0.0.3.4
 
