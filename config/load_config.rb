@@ -37,7 +37,7 @@ AppConfig ||= Configurate::Settings.create do
   add_provider Configurate::Provider::YAML,
                config_dir.join("defaults.yml"),
                namespace: "defaults"
-  
+
   extend Configuration::Methods
   
   if rails_env == "production"  &&
