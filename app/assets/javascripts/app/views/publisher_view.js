@@ -173,6 +173,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
       "photos" : photos,
       "frame_name" : "status",
       "title" : serializedForm["status_message[text]"],
+      "address" : $("#location_address").val(),
       "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0}
     }
 
