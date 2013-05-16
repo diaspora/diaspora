@@ -71,6 +71,9 @@ app.views.Publisher = Backbone.View.extend(_.extend(
   createStatusMessage : function(evt) {
     if(evt){ evt.preventDefault(); }
 
+    //add missing mentions at end of post:
+    this.handleTextchange();
+
     var serializedForm = $(evt.target).closest("form").serializeObject();
 
     // lulz this code should be killed.
@@ -127,6 +130,9 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
   createPostPreview : function(evt) {
     if(evt){ evt.preventDefault(); }
+
+    //add missing mentions at end of post:
+    this.handleTextchange();
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
 
