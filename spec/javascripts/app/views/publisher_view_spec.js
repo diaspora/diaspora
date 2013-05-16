@@ -329,6 +329,9 @@ describe("app.views.Publisher", function() {
         // inserts location to the DOM; it is the location's view element
         setFixtures('<div id="location"></div>'); 
 
+        //Backup original view
+        var original_location = app.views.Location;
+
         // creates a new Location view with the #location element
         app.views.Location = new Backbone.View({el:"#location"});
 
@@ -337,7 +340,11 @@ describe("app.views.Publisher", function() {
 
         // calls the destroy function and test the expected result
         this.view.destroyLocation();
+
         expect($("#location").length).toBe(0);
+
+        //Restore view
+        app.views.Location = original_location;
       })
     });
 
