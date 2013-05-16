@@ -3,7 +3,7 @@ describe("app.views.Location", function(){
     OSM = {};
     OSM.Locator = function(){return { getAddress:function(){}}};
 
-    this.view = new app.views.Location();
+    this.view = app.views.Location;
   });
 
   describe("When it gets instantiated", function(){
