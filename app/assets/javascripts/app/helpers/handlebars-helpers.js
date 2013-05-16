@@ -17,13 +17,10 @@ Handlebars.registerHelper('linkToPerson', function(context, block) {
 });
 
 
-// allow hovercards for users that are not the current user.
+// allow hovercards for all users
 // returns the html class name used to trigger hovercards.
 Handlebars.registerHelper('hovercardable', function(person) {
-  if( app.currentUser.get('guid') != person.guid ) {
-    return 'hovercardable';
-  }
-  return '';
+  return 'hovercardable';
 });
 
 Handlebars.registerHelper('personImage', function(person, size, imageClass) {
