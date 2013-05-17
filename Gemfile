@@ -64,6 +64,7 @@ gem 'rails_autolink', '1.0.9'
 gem 'redcarpet',      '2.2.2'
 gem 'roxml',          '3.1.6'
 gem 'ruby-oembed',    '0.8.8'
+gem 'multi_json',     '1.7.2'
 
 # Services
 
