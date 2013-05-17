@@ -138,6 +138,7 @@ everything is set up.
 * Fix broken reactions link on mobile page [#4125](https://github.com/diaspora/diaspora/pull/4125)
 * Missing translation "Back to top". [#4138](https://github.com/diaspora/diaspora/pull/4138)
 * Fix preview with locator feature. [#4147](https://github.com/diaspora/diaspora/pull/4147)
+* Fix mentions at end of post. [#3746](https://github.com/diaspora/diaspora/issues/3746)
 
 ## Features
 

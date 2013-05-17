@@ -106,7 +106,15 @@ describe("app.views.Publisher", function() {
         expect(this.view.$("input[name='photos[]']").length).toBe(0);
       })
     });
-    
+
+    describe("createStatusMessage", function(){
+      it("calls handleTextchange to complete missing mentions", function(){
+        spyOn(this.view, "handleTextchange");
+        this.view.createStatusMessage($.Event());
+        expect(this.view.handleTextchange).toHaveBeenCalled();
+      })
+    });
+
     describe("publishing a post with keyboard", function(){
       it("should submit the form when shift+enter is pressed", function(){
         this.view.render();
