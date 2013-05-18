@@ -139,6 +139,7 @@ everything is set up.
 * Missing translation "Back to top". [#4138](https://github.com/diaspora/diaspora/pull/4138)
 * Fix preview with locator feature. [#4147](https://github.com/diaspora/diaspora/pull/4147)
 * Fix mentions at end of post. [#3746](https://github.com/diaspora/diaspora/issues/3746)
+* Fix missing indent to correct logged-out-header container relative positioning [#4134](https://github.com/diaspora/diaspora/pull/4134)
 
 ## Features
 
