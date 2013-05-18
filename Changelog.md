@@ -160,6 +160,46 @@ everything is set up.
 * Ability to add location when creating a post [#3803](https://github.com/diaspora/diaspora/pull/3803)
 * Added oEmbed provider for MixCloud. [#4131](https://github.com/diaspora/diaspora/pull/4131)
 
+## Gem updates
+
+* Dropped everything related to Capistrano in preparation for maintaining it in a separate repository
+* Replaced Resque with Sidekiq, see above. Added Sinatra and Slim for the Sidekiq  Monitor interface
+* Added sinon-rails, compass-rails
+* acts-as-taggable-on 2.3.3 -> 2.4.0
+* addressable 2.3.2 -> 2.3.4
+* client_side_validations 3.2.1 -> 3.2.5
+* configurate 0.0.2 -> 0.0.7
+* cucumber-rails 1.3.0 -> 1.3.1
+* faraday 0.8.5 -> 0.8.7
+* fog 1.9.0 -> 1.10.1
+* foreigner 1.3.0 -> 1.4.1
+* foreman 0.61 -> 0.62
+* gon 4.0.2 -> 4.1.0
+* guard 1.6.2 -> 1.7.0
+* guard-cucumber 1.3.2 -> 1.4.0
+* guard-rspec 2.4.0 -> 2.5.3
+* guard-spork 1.4.2 -> 1.5.0
+* haml 4.0.0 -> 4.0.2
+* handlebars_assets 0.11.0 -> 0.1.2.0
+* jasmine 1.3.1 -> 1.3.2
+* nokogiri 1.5.6 -> 1.5.9
+* oauth2 0.8.0 -> 0.8.1
+* omniauth 1.1.3 -> 1.1.4
+* omniauth-twitter 0.0.14 -> 0.0.16
+* pg 0.14.1 -> 0.15.1
+* rack-piwik 0.1.3 -> 0.2.2
+* rails-i18n 0.7.2 -> 0.7.3
+* rails_admin 0.4.5 -> 0.4.7
+* roxml git release -> 3.1.6
+* rspec-rails 2.12.2 -> 2.13.0
+* safe_yaml 0.8.0 -> 0.9.1
+* selenium-webdriver 2.29.0 -> 2.32.1
+* timecop 0.5.9.2 -> 0.6.1
+* twitter 4.5.0 -> 4.6.2
+* uglifier 1.3.0 -> 2.0.1
+* unicorn 4.6.0 -> 4.6.2
+
+
 # 0.0.3.4
 
 * Bump Rails to 3.2.13, fixes CVE-2013-1854, CVE-2013-1855, CVE-2013-1856 and CVE-2013-1857. [Read more](http://weblog.rubyonrails.org/2013/3/18/SEC-ANN-Rails-3-2-13-3-1-12-and-2-3-18-have-been-released/)
