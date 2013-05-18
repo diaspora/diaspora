@@ -109,6 +109,7 @@ everything is set up.
 * Refactor develop install script [#4111](https://github.com/diaspora/diaspora/pull/4111)
 * Remove special hacks for supporting Ruby 1.8 [#4113] (https://github.com/diaspora/diaspora/pull/4139)
 * Moved custom oEmbed providers to config/oembed_providers.yml [#4131](https://github.com/diaspora/diaspora/pull/4131)
+* Add specs for Post#find_by_guid_or_id_with_user
 
 ## Bug fixes
 
@@ -141,6 +142,7 @@ everything is set up.
 * Fix mentions at end of post. [#3746](https://github.com/diaspora/diaspora/issues/3746)
 * Fix missing indent to correct logged-out-header container relative positioning [#4134](https://github.com/diaspora/diaspora/pull/4134)
 * Private post dont show error 404 when you are not authorized on mobile page [#4129](https://github.com/diaspora/diaspora/issues/4129)
+* Show 404 instead of 500 if a not signed in user wants to see a non public or non existing post.
 
 ## Features
 

@@ -150,7 +150,7 @@ class Post < ActiveRecord::Base
            end
 
     # is that a private post?
-    raise(Diaspora::NonPublic) unless user || post.public?
+    raise(Diaspora::NonPublic) unless user || post.try(:public?)
 
     post || raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}"))
   end
