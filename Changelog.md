@@ -140,6 +140,7 @@ everything is set up.
 * Fix preview with locator feature. [#4147](https://github.com/diaspora/diaspora/pull/4147)
 * Fix mentions at end of post. [#3746](https://github.com/diaspora/diaspora/issues/3746)
 * Fix missing indent to correct logged-out-header container relative positioning [#4134](https://github.com/diaspora/diaspora/pull/4134)
+* Private post dont show error 404 when you are not authorized on mobile page [#4129](https://github.com/diaspora/diaspora/issues/4129)
 
 ## Features
 
