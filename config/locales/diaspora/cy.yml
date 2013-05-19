@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -110,6 +110,7 @@ cy:
         many: "%{count} new messages"
         one: "1 new messages"
         other: "%{count} new messages"
+        two: "%{count} new messages"
         zero: "no new messages"
     index:
       message_inbox: "Neges Inbox"
@@ -141,18 +142,21 @@ cy:
         many: "%{count} o bobl ddim yn hoffi hwn"
         one: "%{count} dislike"
         other: "%{count} people disliked this"
+        two: "%{count} dislikes"
         zero: "no people disliked this"
       people_like_this:
         few: "%{count} people liked this"
         many: "%{count} people liked this"
         one: "1 unigolyn yn hoffi hyn"
         other: "%{count} pobl yn hoffi hyn"
+        two: "%{count} likes"
         zero: "no people liked this"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
         one: "%{count} like"
         other: "%{count} likes"
+        two: "%{count} likes"
         zero: "no likes"
   limited: "Cyfyngedig"
   next: "nesaf"
@@ -162,18 +166,21 @@ cy:
       many: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
       one: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
       other: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
+      two: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
       zero: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
     also_commented_deleted:
       few: "Mae %{actors} wedi sylwi ar bost dileuwyd"
       many: "Mae %{actors} wedi sylwi ar bost dileuwyd"
       one: "Mae %{actors} wedi sylwi ar bost dileuwyd"
       other: "Mae %{actors} wedi sylwi ar bost dileuwyd"
+      two: "Mae %{actors} wedi sylwi ar bost dileuwyd"
       zero: "Mae %{actors} wedi sylwi ar bost dileuwyd"
     comment_on_post:
       few: "Mae %{actors} wedi sylwi ar eich %{post_link}."
       many: "Mae %{actors} wedi sylwi ar eich %{post_link}."
       one: "Mae %{actors} wedi sylwi ar eich %{post_link}."
       other: "Mae %{actors} wedi sylwi ar eich %{post_link}."
+      two: "Mae %{actors} wedi sylwi ar eich %{post_link}."
       zero: "Mae %{actors} wedi sylwi ar eich %{post_link}."
     helper:
       new_notifications:
@@ -181,6 +188,7 @@ cy:
         many: "%{count} hysbysiadau newydd"
         one: "1 new notification"
         other: "%{count} hysbysiadau newydd"
+        two: "%{count} new notifications"
         zero: "no new notifications"
     index:
       and: "a"
@@ -189,6 +197,7 @@ cy:
         many: "and %{count} others"
         one: "ac un arall"
         other: "and %{count} others"
+        two: "and %{count} others"
         zero: "and nobody else"
       mark_all_as_read: "Nodiad pob wedi darllen"
       notifications: "Hysbysiadau"
@@ -197,24 +206,28 @@ cy:
       many: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
       one: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
       other: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
+      two: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
       zero: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
     liked_post_deleted:
       few: "%{actors} yn hoffi y post bod chi wedi dileu."
       many: "%{actors} yn hoffi y post bod chi wedi dileu."
       one: "%{actors} yn hoffi y post bod chi wedi dileu."
       other: "%{actors} yn hoffi y post bod chi wedi dileu."
+      two: "%{actors} yn hoffi y post bod chi wedi dileu."
       zero: "%{actors} yn hoffi y post bod chi wedi dileu."
     mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
       one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
     mentioned_deleted:
       few: "%{actors} mentioned you in a deleted post."
       many: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
     post: "bost"
     private_message:
@@ -222,24 +235,28 @@ cy:
       many: "Mae %{actors} wedi anfon neges iddych chi."
       one: "Mae %{actors} wedi anfon neges iddych chi."
       other: "Mae %{actors} wedi anfon neges iddych chi."
+      two: "Mae %{actors} wedi anfon neges iddych chi."
       zero: "Mae %{actors} wedi anfon neges iddych chi."
     reshared:
       few: "Mae %{actors} wedi ailrhannu eich %{post_link}."
       many: "Mae %{actors} wedi ailrhannu eich %{post_link}."
       one: "Mae %{actors} wedi ail-bostio eich %{post_link}."
       other: "Mae %{actors} wedi ail-bostio eich %{post_link}."
+      two: "Mae %{actors} wedi ailrhannu eich %{post_link}."
       zero: "Mae %{actors} wedi ail-bostio eich %{post_link}."
     reshared_post_deleted:
       few: "mae %{actors} wedi rhannu eich post wedi dileu."
       many: "mae %{actors} wedi rhannu eich post wedi dileu."
       one: "mae %{actors} wedi rhannu eich post wedi dileu."
       other: "%{actors} wedi rhannu y swydd yr ydych yn dileu."
+      two: "mae %{actors} wedi rhannu eich post wedi dileu."
       zero: "%{actors} wedi rhannu y swydd yr ydych yn dileu."
     started_sharing:
       few: "Mae %{actors} wedi dechrau rhannu gyda chi."
       many: "Mae %{actors} wedi dechrau rhannu gyda chi."
       one: "Mae %{actors} wedi dechrau rhannu gyda chi."
       other: "Mae %{actors} wedi dechrau rhannu gyda chi."
+      two: "Mae %{actors} wedi dechrau rhannu gyda chi."
       zero: "Mae %{actors} wedi dechrau rhannu gyda chi."
   notifier:
     a_post_you_shared: "post."
@@ -309,6 +326,7 @@ cy:
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   previous: "blaenorol"
   profile: "Proffil"
@@ -325,6 +343,7 @@ cy:
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
+    two: "%{count} reactions"
     zero: "0 reactions"
   registrations:
     create:
@@ -347,6 +366,7 @@ cy:
         many: "%{count} new requests!"
         one: "new request!"
         other: "%{count} new requests!"
+        two: "%{count} new requests!"
         zero: "no new requests"
   reshares:
     create:
@@ -358,6 +378,7 @@ cy:
         many: "rhannwyd %{count} waith"
         one: "Rhannwyd unwaith"
         other: "rhannwyd %{count} waith"
+        two: "rhannwyd %{count} waith"
         zero: "Ailrhannu"
       reshare_confirmation: "Ailrhannu post %{author}?"
       reshare_original: "Ailrhannu"
@@ -394,6 +415,7 @@ cy:
         many: "Mewn %{count} agweddau"
         one: "Mewn %{count} agwedd"
         other: "Mewn %{count} agweddau"
+        two: "Mewn %{count} agweddau"
         zero: "Add to aspect"
     contact_list:
       all_contacts: "Cysylltiadau i gŷd"
@@ -433,6 +455,7 @@ cy:
       many: "please make your status messages less than %{count} characters"
       one: "please make your status messages less than %{count} character"
       other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
       zero: "please make your status messages less than %{count} characters"
   stream_helper:
     hide_comments: "hide comments"
@@ -441,6 +464,7 @@ cy:
       many: "Show %{count} more comments"
       one: "Show one more comment"
       other: "Show %{count} more comments"
+      two: "Show two more comments"
       zero: "No more comments"
   streams:
     aspects:

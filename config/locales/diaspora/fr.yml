@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,7 @@ fr:
       correlations: "Corrélations"
       pages: "Pages"
       pod_stats: "Statistiques du pod"
-      resque_overview: "Vue d'ensemble des tâches"
+      sidekiq_monitor: "Moniteur Sidekiq"
       user_search: "Chercher un utilisateur"
       weekly_user_stats: "Statistiques hebdomadaires"
     correlations:
@@ -297,6 +297,7 @@ fr:
         many: "%{count} nouveaux messages"
         one: "1 nouveau message"
         other: "%{count} nouveaux messages"
+        two: "%{count} nouveaux messages"
         zero: "Aucun nouveau message"
     index:
       create_a_new_message: "créer un nouveau message"
@@ -395,6 +396,7 @@ fr:
         many: "%{count} personnes n'aiment pas"
         one: "%{count} personne n'aime pas"
         other: "%{count} personnes n'aiment pas"
+        two: "%{count} n'aiment pas"
         zero: "Personne n'aime pas"
       people_like_this:
         one: "%{count} personne aime"
@@ -411,22 +413,23 @@ fr:
   notifications:
     also_commented:
       one: "%{actors} a également commenté sur %{post_link} de %{post_author}."
-      other: "%{actors} a/ont également commenté sur %{post_link} de %{post_author}."
-      zero: "%{actors} ont également commenté sur %{post_link} de %{post_author}."
+      other: "%{actors} ont également commenté sur %{post_link} de %{post_author}."
+      zero: "%{actors} a également commenté sur %{post_link} de %{post_author}."
     also_commented_deleted:
       one: "%{actors} a commenté votre message supprimé."
       other: "%{actors} ont commenté votre message supprimé."
-      zero: "%{actors} ont commenté votre message supprimé."
+      zero: "%{actors} a commenté votre message supprimé."
     comment_on_post:
       one: "%{actors} a commenté sur votre %{post_link}."
-      other: "%{actors} a/ont commenté sur votre %{post_link}."
-      zero: "%{actors} ont commenté sur votre %{post_link}."
+      other: "%{actors} ont commenté sur votre %{post_link}."
+      zero: "%{actors} a commenté sur votre %{post_link}."
     helper:
       new_notifications:
         few: "%{count} nouvelles notifications"
         many: "%{count} nouvelles notifications"
         one: "1 nouvelle notification"
         other: "%{count} nouvelles notifications"
+        two: "%{count} nouvelles notifications"
         zero: "Aucune nouvelle notification"
     index:
       and: "et"
@@ -435,6 +438,7 @@ fr:
         many: "et %{count} autres"
         one: "et un autre"
         other: "et %{count} autres"
+        two: "et %{count} autres"
         zero: "et personne d'autre"
       mark_all_as_read: "Tout marquer comme lu"
       mark_unread: "Marquer comme non lu"
@@ -442,36 +446,36 @@ fr:
     liked:
       one: "%{actors} a aimé votre %{post_link}."
       other: "%{actors} ont aimé votre %{post_link}."
-      zero: "%{actors} ont aimé votre %{post_link}."
+      zero: "%{actors} a aimé votre %{post_link}."
     liked_post_deleted:
       one: "%{actors} a aimé votre message supprimé."
-      other: "%{actors} a/ont aimé votre message supprimé."
-      zero: "%{actors} ont aimé votre message supprimé."
+      other: "%{actors} ont aimé votre message supprimé."
+      zero: "%{actors} a aimé votre message supprimé."
     mentioned:
       one: "%{actors} vous a mentionné(e) dans un %{post_link}."
-      other: "%{actors} vous a/ont mentionné(e) dans un %{post_link}."
-      zero: "%{actors} vous ont mentionné(e) dans un %{post_link}."
+      other: "%{actors} vous ont mentionné(e) dans un %{post_link}."
+      zero: "%{actors} vous a mentionné(e) dans un %{post_link}."
     mentioned_deleted:
       one: "%{actors} vous a mentionné-e dans un message supprimé."
       other: "%{actors} vous ont mentionné-e dans un message supprimé."
-      zero: "%{actors} vous ont mentionné-e dans un message supprimé."
+      zero: "%{actors} a ont mentionné-e dans un message supprimé."
     post: "message"
     private_message:
       one: "%{actors} vous a envoyé un message."
-      other: "%{actors} vous a/ont envoyé un message."
-      zero: "%{actors} vous ont envoyé un message."
+      other: "%{actors} vous ont envoyé un message."
+      zero: "%{actors} vous a envoyé un message."
     reshared:
       one: "%{actors} a repartagé votre %{post_link}."
       other: "%{actors} ont repartagé votre %{post_link}."
-      zero: "%{actors} ont repartagé votre %{post_link}."
+      zero: "%{actors} a repartagé votre %{post_link}."
     reshared_post_deleted:
       one: "%{actors} a partagé le message que vous avez supprimé."
       other: "%{actors} ont partagé le message que vous avez supprimé."
-      zero: "%{actors} ont partagé votre message supprimé."
+      zero: "%{actors} a partagé votre message supprimé."
     started_sharing:
       one: "%{actors} a commencé à partager avec vous."
-      other: "%{actors} a/ont commencé à partager avec vous."
-      zero: "%{actors} ont commencé à partager avec vous."
+      other: "%{actors} ont commencé à partager avec vous."
+      zero: "%{actors} a commencé à partager avec vous."
   notifier:
     a_post_you_shared: "un message."
     accept_invite: "Acceptez votre invitation sur Diaspora* !"
@@ -625,8 +629,6 @@ fr:
       not_found: "Désolé, nous n'avons pas pu trouver ce message."
       permalink: "lien permanent"
       photos_by:
-        few: "%{count} photos par %{author}"
-        many: "%{count} photos par %{author}"
         one: "Une photo par %{author}"
         other: "%{count} photos par %{author}"
         zero: "Pas de photo par %{author}"
@@ -663,6 +665,7 @@ fr:
     many: "%{count} réactions"
     one: "1 réaction"
     other: "%{count} réactions"
+    two: "%{count} réactions"
     zero: "0 réaction"
   registrations:
     closed: "Les inscriptions sont fermées sur ce pod Diaspora."
@@ -706,6 +709,7 @@ fr:
         many: "%{count} nouvelles requêtes !"
         one: "nouvelle requête !"
         other: "%{count} nouvelles requêtes !"
+        two: "%{count} nouvelles demandes !"
         zero: "aucune nouvelle requête"
     manage_aspect_contacts:
       existing: "Contacts existants"
@@ -723,6 +727,7 @@ fr:
         many: "%{count} partages"
         one: "1 partage"
         other: "%{count} partages"
+        two: "%{count} partages"
         zero: "Repartager"
       reshare_confirmation: "Partager le message d'%{author} ?"
       reshare_original: "Partager l'original"
@@ -751,6 +756,7 @@ fr:
       logged_in_as: "connecté(e) en tant que"
       no_services: "Vous n'êtes connecté à aucun service pour le moment."
       really_disconnect: "déconnecter %{service} ?"
+      services_explanation: "Se connecter à des services vous donne la possibilité d'y publier vos messages depuis Diaspora*."
     inviter:
       click_link_to_accept_invitation: "Suivez ce lien pour accepter l'invitation"
       join_me_on_diaspora: "Rejoignez-moi sur DIASPORA*"
@@ -761,7 +767,7 @@ fr:
   settings: "Options"
   share_visibilites:
     update:
-      post_hidden_and_muted: "La publication de %{name} a été masquée ainsi que les notifications."
+      post_hidden_and_muted: "La publication de %{name} a été masquée et vous ne serez plus notifié."
       see_it_on_their_profile: "Si vous souhaitez voir des mises à jour de ce message, visitez la page de profil de %{name}."
   shared:
     add_contact:
@@ -778,6 +784,7 @@ fr:
         many: "Dans %{count} aspects"
         one: "Dans %{count} aspect"
         other: "Dans %{count} aspects"
+        two: "Dans %{count} aspects"
         zero: "Ajouter le contact"
     contact_list:
       all_contacts: "Tous les contacts"
@@ -800,7 +807,7 @@ fr:
       atom_feed: "Flux Atom"
       control_your_audience: "Contrôlez votre audience"
       logged_in: "connecté(e) à %{service}"
-      manage: "gérer les services connectés"
+      manage: "Gérer les services connectés"
       new_user_welcome_message: "Utilisez les #tags pour classer vos messages et trouver des personnes qui partagent vos intérêts. Interpelez des personnes géniales avec les @Mentions"
       outside: "Les messages publics pourront être vus par d'autres en dehors de Diaspora."
       share: "Partager"
@@ -818,6 +825,7 @@ fr:
         newhere: "nouveauici"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
+      preview: "Aperçu"
       publishing_to: "publication vers : "
       share: "Partager"
       share_with: "Partager avec"
@@ -854,6 +862,7 @@ fr:
       many: "merci de bien vouloir écrire des messages de moins de %{count} caractères"
       one: "merci de bien vouloir écrire des messages de moins de %{count} caractère"
       other: "merci de bien vouloir écrire des messages de moins de %{count} caractères"
+      two: "votre statut doit faire moins de %{count} caractères"
       zero: "merci de bien vouloir écrire des messages de moins de %{count} caractère"
   stream_helper:
     hide_comments: "Masquer tous les commentaires"
@@ -952,7 +961,7 @@ fr:
         make_diaspora_better: "Nous avons besoin de vous pour rendre Diaspora meilleur, vous devriez nous aider au lieu de partir. Si vous voulez partir, on voudrait que vous sachiez ce qu'il se passera prochainement."
         mr_wiggles: "Mr Wiggles sera triste de vous voir partir."
         no_turning_back: "Pour l'instant, on ne peut pas revenir en arrière."
-        what_we_delete: "Nous enlevons tous vos envois, les données de votre profil, aussi tôt que c'est humainement possible. Vos commentaires resteront sur le site, mais seront associés à votre identifiant Diaspora."
+        what_we_delete: "Nous supprimerons tous vos envois et les données de votre profil dès que possible. Vos commentaires resteront sur le site, mais seront associés à votre identifiant Diaspora plutôt qu'à votre nom.."
       close_account_text: "Fermer le compte"
       comment_on_post: "…quelqu'un commente votre publication ?"
       current_password: "Mot de passe actuel"

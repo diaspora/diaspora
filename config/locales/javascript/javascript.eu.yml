@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -77,6 +77,7 @@ eu:
         many: "<%= count %>(e)k gustuko dute"
         one: "<%= count %>ek gustuko du"
         other: "<%= count %>(e)k gustuko dute"
+        two: "<%= count %>(e)k gustuko dute"
         zero: "<%= count %>(e)k gustuko dute"
       limited: "Mugatua"
       more_comments:
@@ -84,6 +85,7 @@ eu:
         many: "Erakutsi <%= count %> iruzkin gehiago"
         one: "Erakutsi iruzkin <%= count %> gehiago"
         other: "Erakutsi <%= count %> iruzkin gehiago"
+        two: "Erakutsi <%= count %> iruzkin gehiago"
         zero: "Erakutsi <%= count %> iruzkin gehiago"
       original_post_deleted: "Jatorrizko mezua egileak ezabatu du."
       public: "Publikoa"
@@ -93,6 +95,7 @@ eu:
         many: "<%= count %> Birpartekaketa"
         one: "Birpartekaketa <%= count %> "
         other: "<%= count %> Birpatekaketa"
+        two: "<%= count %> Birpatekaketa"
         zero: "<%= count %> Birpatekaketa"
       show_nsfw_post: "Mezua erakutsi"
       show_nsfw_posts: "Guztiak erakutsi"

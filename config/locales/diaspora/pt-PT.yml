@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ pt-PT:
       correlations: "Correlações"
       pages: "Páginas"
       pod_stats: "Estatísticas do Pod"
-      resque_overview: "Visão Global do Resque"
       user_search: "Pesquisar Utilizador"
       weekly_user_stats: "Estatísticas Semanais de Utilizador"
     correlations:
@@ -297,6 +296,7 @@ pt-PT:
         many: "%{count} novas mensagens"
         one: "1 nova mensagem"
         other: "%{count} novas mensagens"
+        two: "%{count} novas mensagens"
         zero: "Não há novas mensagens"
     index:
       create_a_new_message: "criar uma nova mensagem"
@@ -399,12 +399,14 @@ pt-PT:
         many: "%{count} pessoas não gostam"
         one: "%{count} pessoa gosta"
         other: "%{count} pessoas gostam"
+        two: "%{count} gostam"
         zero: "ninguém gosta"
       people_like_this_comment:
         few: "%{count} gostos"
         many: "%{count} gostos"
         one: "%{count} gosto"
         other: "%{count} gostos"
+        two: "%{count} gostam"
         zero: "não há gostos"
   limited: "Limitado"
   more: "Mais"
@@ -429,6 +431,7 @@ pt-PT:
         many: "%{count} novas notificações"
         one: "1 nova notificação"
         other: "%{count} novas notificações"
+        two: "%{count} novas notificações"
         zero: "Não há novas notificações"
     index:
       and: "e"
@@ -437,6 +440,7 @@ pt-PT:
         many: "e %{count} outros"
         one: "e mais uma pessoa"
         other: "e {count} outros"
+        two: "e %{count} outros"
         zero: "e mais ninguém"
       mark_all_as_read: "Marcar Tudo como Lido"
       mark_unread: "Marcar como não lida"
@@ -446,12 +450,14 @@ pt-PT:
       many: "%{actors} gostaram do seu %{post_link}."
       one: "%{actors} gostou do seu %{post_link}."
       other: "%{actors} gostaram do seu %{post_link}."
+      two: "%{actors} gostaram do seu %{post_link}."
       zero: "%{actors} gostaram do seu %{post_link}."
     liked_post_deleted:
       few: "%{actors} gostaram da sua publicação eliminada"
       many: "%{actors} gostaram da sua publicação eliminada."
       one: "%{actors} gostou da sua publicação eliminada."
       other: "%{actors} gostaram da sua publicação eliminada."
+      two: "%{actors} gostaram do seu artigo eliminado."
       zero: "%{actors} gostaram da sua publicação eliminada."
     mentioned:
       one: "%{actors} mencionou-o numa %{post_link}."
@@ -462,6 +468,7 @@ pt-PT:
       many: "%{actors} mencionaram-no numa publicação apagada."
       one: "%{actors} mencionou-no numa publicação apagada."
       other: "%{actors} mencionaram-no numa publicação apagada."
+      two: "%{actors} mencionaram-no numa publicação apagada."
       zero: "%{actors} mencionaram-no numa publicação apagada."
     post: "publicação"
     private_message:
@@ -481,6 +488,7 @@ pt-PT:
       many: "%{actors} começaram a partilhar consigo."
       one: "%{actors} começou a partilhar consigo."
       other: "%{actors} começaram a partilhar consigo."
+      two: "%{actors} começaram a partilhar consigo."
       zero: "%{actors} começou a partilhar consigo."
   notifier:
     a_post_you_shared: "uma publicação."
@@ -638,6 +646,7 @@ pt-PT:
         many: "%{count} fotografias de %{author}"
         one: "Uma fotografia de %{author}"
         other: "%{count} fotografias de %{author}"
+        two: "Duas fotografias de %{author}"
         zero: "Nenhuma fotografia de %{author}"
       reshare_by: "Partilhado por %{author}"
   previous: "anterior"
@@ -713,6 +722,7 @@ pt-PT:
         many: "%{count} novos pedidos!"
         one: "novo pedido!"
         other: "%{count} novos pedidos!"
+        two: "%{count} novos pedidos!"
         zero: "não há novos pedidos"
     manage_aspect_contacts:
       existing: "Contactos existentes"
@@ -730,6 +740,7 @@ pt-PT:
         many: "%{count} repartilhas"
         one: "1 repartilha"
         other: "%{count} repartilhas"
+        two: "%{count} repartilhas"
         zero: "Repartilhar"
       reshare_confirmation: "Repartilhar a publicação de %{author}?"
       reshare_original: "Repartilha o original"
@@ -785,6 +796,7 @@ pt-PT:
         many: "Em %{count} aspectos"
         one: "Em %{count} aspecto"
         other: "Em %{count} aspectos"
+        two: "Em %{count} aspectos"
         zero: "Adicionar contacto"
     contact_list:
       all_contacts: "Todos os contactos"

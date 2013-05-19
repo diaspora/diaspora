@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ ru:
       correlations: "Корреляции"
       pages: "Страницы"
       pod_stats: "Статистика пода"
-      resque_overview: "Обзор Resque"
       user_search: "Поиск пользователей"
       weekly_user_stats: "Еженедельная пользовательская статистика"
     correlations:
@@ -408,12 +407,14 @@ ru:
         many: "Понравилось: %{count}"
         one: "Понравилось: %{count}"
         other: "Понравилось: %{count}"
+        two: "Понравилось: %{count}"
         zero: "Понравилось: 0"
       people_like_this_comment:
         few: "%{count} понравилось"
         many: "%{count} понравилось"
         one: "%{count} понравилось"
         other: "%{count} понравилось"
+        two: "%{count} понравилось"
         zero: "не понравилось никому"
   limited: "Ограниченная"
   more: "Еще"
@@ -425,18 +426,21 @@ ru:
       many: "%{actors} также прокомментировали %{post_link} %{post_author}."
       one: "%{actors} также прокомментировал(а) %{post_link} %{post_author}."
       other: "%{actors} также прокомментировали %{post_link} %{post_author}."
+      two: "%{actors} также прокомментировали %{post_link} %{post_author}."
       zero: "%{actors} также прокомментировали %{post_link} %{post_author}."
     also_commented_deleted:
       few: "%{actors} комментировали ваше удаленное сообщение."
       many: "%{actors} комментировали ваше удаленное сообщение."
       one: "%{actors} комментировал(а) ваше удаленное сообщение."
       other: "%{actors} комментировали ваше удаленное сообщение."
+      two: "%{actors} комментировали удаленое сообщение."
       zero: "%{actors} комментировали ваше удаленное сообщение."
     comment_on_post:
       few: "%{actors} прокомментировали вашу %{post_link}."
       many: "%{actors} прокомментировали вашу %{post_link}."
       one: "%{actors} прокомментировал(а) вашу %{post_link}."
       other: "%{actors} прокомментировали вашу %{post_link}."
+      two: "%{actors} прокомментировали вашу %{post_link}."
       zero: "%{actors} прокомментировали вашу %{post_link}."
     helper:
       new_notifications:
@@ -452,6 +456,7 @@ ru:
         many: "и %{count} другим"
         one: "и еще один"
         other: "и %{count} другим"
+        two: "и %{count} других"
         zero: "и больше никому"
       mark_all_as_read: "Отметить все как прочитанные"
       mark_unread: "пометить как непрочитанное"
@@ -461,12 +466,14 @@ ru:
       many: "%{actors} понравилась ваша %{post_link}."
       one: "%{actors} понравилась ваша %{post_link}."
       other: "%{actors} понравилась ваша %{post_link}."
+      two: "%{actors} понравилась ваша %{post_link}."
       zero: "%{actors} понравилась ваша %{post_link}."
     liked_post_deleted:
       few: "%{actors} нравилась ваша удаленная запись."
       many: "%{actors} нравилась ваша удаленная запись."
       one: "%{actors} нравилась ваша удаленная запись."
       other: "%{actors} нравилась ваша удаленная запись."
+      two: "%{actors} нравилась ваша удаленная запись."
       zero: "%{actors} нравилась ваша удаленная запись."
     mentioned:
       few: "%{actors} упомянули вас в %{post_link}."
@@ -479,6 +486,7 @@ ru:
       many: "%{actors} упомянули вас в удаленном сообщении."
       one: "%{actors} упомянул(а) вас в удаленном сообщении."
       other: "%{actors} упомянули вас в удаленном сообщении."
+      two: "%{actors} упомянули вас в удаленной записи."
       zero: "%{actors} упомянули вас в удаленном сообщении."
     post: "запись"
     private_message:
@@ -492,12 +500,14 @@ ru:
       many: "%{actors} поделились вашей %{post_link}."
       one: "%{actors} поделился(лась) вашей %{post_link}."
       other: "%{actors} поделились вашей %{post_link}."
+      two: "%{actors} поделились вашей %{post_link}."
       zero: "%{actors} поделились вашей %{post_link}."
     reshared_post_deleted:
       few: "%{actors} поделились вашей удаленной записью."
       many: "%{actors} поделились вашей удаленной записью."
       one: "%{actors} поделился(лась) вашей удаленной записью."
       other: "%{actors} поделились вашей удаленной записью."
+      two: "%{actors} поделились вашей удаленной записью."
       zero: "%{actors} поделились вашей удаленной записью."
     started_sharing:
       few: "%{actors} начали делиться с вами."
@@ -697,6 +707,7 @@ ru:
     many: "Отзывы: %{count}"
     one: "Отзывы: 1"
     other: "Отзывы: %{count}"
+    two: "Отзывы: %{count}"
     zero: "Отзывы: 0"
   registrations:
     closed: "На этом сервере Диаспоры регистрация закрыта."
@@ -811,6 +822,7 @@ ru:
         many: "В %{count} аспектах"
         one: "В %{count} аспекте"
         other: "В %{count} аспектах"
+        two: "В %{count} аспекте[ах]"
         zero: "Добавить контакт"
     contact_list:
       all_contacts: "Все контакты"

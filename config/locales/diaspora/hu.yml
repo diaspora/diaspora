@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,7 @@ hu:
       correlations: "Korrelációk"
       pages: "Oldalak"
       pod_stats: "Kiszolgáló statisztika"
-      resque_overview: "Feladatok áttekintése"
+      sidekiq_monitor: "Sidekiq monitor"
       user_search: "Felhasználó keresés"
       weekly_user_stats: "Heti statisztika"
     correlations:
@@ -291,6 +291,7 @@ hu:
         many: "%{count} új üzenet"
         one: "1 új üzenet"
         other: "%{count} új üzenet"
+        two: "%{count} új üzenet"
         zero: "nincs új üzenet"
     index:
       create_a_new_message: "új üzenet írása"
@@ -377,7 +378,7 @@ hu:
       code: "kód"
       login: "bejelentkezés"
       logout: "Kijelentkezés"
-      profile: "Profil"
+      profile: "Adatlap"
       recent_notifications: "Legújabb jelzések"
       settings: "Beállítások"
       view_all: "Az összes megtekintése"
@@ -394,6 +395,7 @@ hu:
         many: "%{count} kedveli"
         one: "%{count} kedveli"
         other: "%{count} tetszik"
+        two: "%{count} ember kedveli"
         zero: "nincs 'tetszik'"
   limited: "Korlátozott"
   more: "Bővebben"
@@ -405,18 +407,21 @@ hu:
       many: "%{actors} is hozzászólt %{post_author} bejegyzéséhez: %{post_link}."
       one: "%{actors} is hozzászólt %{post_author} bejegyzéséhez: %{post_link}."
       other: "%{actors} is hozzászólt %{post_author} bejegyzéséhez: %{post_link}."
+      two: "%{actors} is hozzászólt %{post_author} bejegyzéséhez %{post_link}."
       zero: "%{actors} is hozzászólt %{post_author} bejegyzéséhez: %{post_link}."
     also_commented_deleted:
       few: "%{actors} hozzászólt egy törölt bejegyzéshez."
       many: "%{actors} hozzászólt egy törölt bejegyzéshez."
       one: "%{actors} hozzászólt egy törölt bejegyzéshez."
       other: "%{actors} hozzászólt egy törölt bejegyzéshez."
+      two: "%{actors} hozzászólt egy törölt bejegyzéshez."
       zero: "%{actors} hozzászólt egy törölt bejegyzéshez."
     comment_on_post:
       few: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
       many: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
       one: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
       other: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
+      two: "%{actors} hozzászólt ehhez: %{post_link}."
       zero: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
     helper:
       new_notifications:
@@ -435,24 +440,28 @@ hu:
       many: "%{actors} kedveli a %{post_link}edet."
       one: "%{actors} kedveli a %{post_link}edet."
       other: "%{actors} kedveli a %{post_link}edet."
+      two: "%{actors} kedveli a %{post_link}edet."
       zero: "%{actors} kedveli a %{post_link}edet."
     liked_post_deleted:
       few: "%{actors} kedveli a már törölt bejegyzésedet."
       many: "%{actors} kedveli a már törölt bejegyzésedet."
       one: "%{actors} kedveli a már törölt bejegyzésedet."
       other: "%{actors} kedveli a már törölt bejegyzésedet."
+      two: "%{actors} kedvelte a törölt hozzászólásod."
       zero: "%{actors} kedveli a már törölt bejegyzésedet."
     mentioned:
       few: "%{actors} megemlített téged egy %{post_link}ben."
       many: "%{actors} megemlített téged egy %{post_link}ben."
       one: "%{actors} megemlített téged egy %{post_link}ben."
       other: "%{actors} megemlített téged egy %{post_link}ben."
+      two: "%{actors} megemlített téged egy %{post_link}ben."
       zero: "%{actors} megemlített téged egy %{post_link}ben."
     mentioned_deleted:
       few: "%{actors} megemlített téged egy, már törölt bejegyzésben."
       many: "%{actors} megemlített téged egy, már törölt bejegyzésben."
       one: "%{actors} megemlített téged egy, már törölt bejegyzésben."
       other: "%{actors} megemlített téged egy, már törölt bejegyzésben."
+      two: "%{actors} megemlített téged egy törölt bejegyzésben."
       zero: "%{actors} megemlített téged egy, már törölt bejegyzésben."
     post: "bejegyzés"
     private_message:
@@ -460,24 +469,28 @@ hu:
       many: "%{actors} üzenetet küldött neked."
       one: "%{actors} üzenetet küldött neked."
       other: "%{actors} üzenetet küldött neked."
+      two: "%{actors} küldött egy üzenetet."
       zero: "%{actors} üzenetet küldött neked."
     reshared:
       few: "%{actors} újraosztotta a %{post_link}edet."
       many: "%{actors} újraosztotta a %{post_link}edet."
       one: "%{actors} újraosztotta a bejegyzésedet: %{post_link}."
       other: "%{actors} újraosztotta a %{post_link}edet."
+      two: "%{actors} újraosztotta a %{post_link}edet."
       zero: "%{actors} újraosztotta a %{post_link}edet."
     reshared_post_deleted:
       few: "%{actors} újraosztotta a már törölt bejegyzésedet."
       many: "%{actors} újraosztotta a már törölt bejegyzésedet."
       one: "%{actors} újraosztotta a már törölt bejegyzésedet."
       other: "%{actors} újraosztotta a már törölt bejegyzésedet."
+      two: "%{actors} megosztotta a törölt bejegyzésed."
       zero: "%{actors} újraosztotta a már törölt bejegyzésedet."
     started_sharing:
       few: "%{actors} mostantól megoszt veled."
       many: "%{actors} mostantól megoszt veled."
       one: "%{actors} mostantól megoszt veled."
       other: "%{actors} mostantól megoszt veled."
+      two: "%{actors} ezentúl megoszt veled dolgokat."
       zero: "%{actors} mostantól megoszt veled."
   notifier:
     a_post_you_shared: "egy bejegyzés."
@@ -524,7 +537,7 @@ hu:
     started_sharing:
       sharing: "mostantól ismerősöd!"
       subject: "%{name} elkezdett megosztani veled"
-      view_profile: "%{name} profiljának megtekintése"
+      view_profile: "%{name} adatlapjának megtekintése"
     thanks: "Köszi,"
     to_change_your_notification_settings: "hogy megváltoztasd az értesítési beállításaidat."
   nsfw: "NSFW (munkahelyen nem illő tartalom)"
@@ -562,7 +575,7 @@ hu:
     profile_sidebar:
       bio: "személyes"
       born: "születésnap"
-      edit_my_profile: "Profilom szerkesztése"
+      edit_my_profile: "Adatlapom szerkesztése"
       gender: "nem"
       in_aspects: "csoportokban"
       location: "lakóhely"
@@ -611,7 +624,7 @@ hu:
       size_error: "{file} túl nagy, maximum fájlméret {sizeLimit}."
     new_profile_photo:
       or_select_one_existing: "vagy válassz egyet a már meglévők közül %{photos}"
-      upload: "Új profilkép feltöltése!"
+      upload: "Tölts fel új önarcképet!"
     photo:
       view_all: "%{name} összes képének megtekintése"
     show:
@@ -619,7 +632,7 @@ hu:
       delete_photo: "Kép törlése"
       edit: "szerkesztés"
       edit_delete_photo: "Kép leírás szerkesztése / kép törlése"
-      make_profile_photo: "beállítás profilképnek"
+      make_profile_photo: "beállítás önarcképnek"
       show_original_post: "Eredeti bejegyzés megtekintése"
       update_photo: "Kép frissítése"
     update:
@@ -637,34 +650,35 @@ hu:
         many: "%{count} fénykép tőle: %{author}"
         one: "Egy fénykép tőle: %{author}"
         other: "%{count} fénykép tőle: %{author}"
+        two: "Két fénykép tőle: %{author}"
         zero: "Nincs fénykép tőle: %{author}"
       reshare_by: "forrás: %{author}"
   previous: "előző"
   privacy: "Adatvédelem"
   privacy_policy: "Adatvédelem"
-  profile: "Profil"
+  profile: "Adatlap"
   profiles:
     edit:
       allow_search: "megtalálható legyek a Diaspora keresőben"
-      edit_profile: "Profil szerkesztése"
+      edit_profile: "Adatlap szerkesztése"
       first_name: "Keresztnév"
       last_name: "Vezetéknév"
-      update_profile: "Profil frissítése"
+      update_profile: "Adatlap frissítése"
       you_are_nsfw: "Jelenleg a \"munkahelyen nem illő\" (NSFW) beállítással jelölted magadat. A megosztott tartalmaid nem fognak közvetlenül megjelenni azon felhasználóknál, akik kikapcsolták a kifogásolható tartalmak megtekintését."
       you_are_safe_for_work: "Jelenleg a \"munkahelyen illő\" tartalmi beállítással jelölted magadat. Ezáltal elfogadod, hogy mindaz, amit megosztasz - míg nem adod meg másképpen - megfelel a közösségi irányelveknek."
       your_bio: "Írj pár sort magadról"
-      your_birthday: "Szülinapod"
+      your_birthday: "Születésnapod"
       your_gender: "Nemed"
       your_location: "Lakóhelyed"
       your_name: "Neved"
       your_photo: "Fényképed"
-      your_private_profile: "Személyes profilod"
-      your_public_profile: "Nyilvános profilod"
+      your_private_profile: "Személyes adatlapod"
+      your_public_profile: "Nyilvános adatlapod"
       your_tags: "5 tulajdonság (#címke) rólad:"
       your_tags_placeholder: "pl: #film #túra #pécs #kutatás #fényképész"
     update:
-      failed: "Profil frissítése sikertelen"
-      updated: "Profil frissítve"
+      failed: "Adatlap frissítése sikertelen"
+      updated: "Adatlap frissítve"
   public: "Nyilvános"
   reactions:
     other: "%{count} visszajelzés"
@@ -711,6 +725,7 @@ hu:
         many: "%{count} új felkérés!"
         one: "új felkérések!"
         other: "%{count} új felkérés!"
+        two: "%{count} új kérés"
         zero: "nincs új felkérés"
     manage_aspect_contacts:
       existing: "Meglévő kapcsolatok"
@@ -728,6 +743,7 @@ hu:
         many: "%{count} újraosztás"
         one: "1 újraosztás"
         other: "%{count} újraosztás"
+        two: "%{count} megosztás"
         zero: "Újraosztás"
       reshare_confirmation: "Újraosztod %{author} - %{text}?"
       reshare_original: "Eredeti újraosztása"
@@ -756,6 +772,7 @@ hu:
       logged_in_as: "- bejelentkeztél ezen a néven:"
       no_services: "Még nem kapcsolódtál egy szolgáltatáshoz sem."
       really_disconnect: "Megszakítod a kapcsolatot ezzel: %{service}?"
+      services_explanation: "Ha kapcsolódsz más szolgáltatásokhoz, lehetőséged lesz bejegyzéseket küldeni a felületükre, amint azokat a Diaspora rendszerén belül megírod."
     inviter:
       click_link_to_accept_invitation: "Kattints a linkre, hogy elfogadd a meghívást."
       join_me_on_diaspora: "Találkozzunk a DIASPORA*-n"
@@ -767,7 +784,7 @@ hu:
   share_visibilites:
     update:
       post_hidden_and_muted: "%{name} bejegyzései és értesítései el lettek rejtve."
-      see_it_on_their_profile: "Ha szeretnéd látni a frissítéseket ezen a bejegyzésen, látogasd meg %{name} profil oldalát."
+      see_it_on_their_profile: "Ha szeretnéd látni a frissítéseket ezen a bejegyzésen, látogasd meg %{name} adatlapját."
   shared:
     add_contact:
       add_new_contact: "Új ismerős"
@@ -783,6 +800,7 @@ hu:
         many: "%{count} csoportban"
         one: "%{count} csoportban"
         other: "%{count} csoportban"
+        two: "%{count} nézetben"
         zero: "Ismerős hozzáadása"
     contact_list:
       all_contacts: "Összes kapcsolat"
@@ -825,6 +843,7 @@ hu:
         newhere: "újonc"
       post_a_message_to: "Bejegyzés küldése ennek a csoportnak: %{aspect}"
       posting: "Küldés..."
+      preview: "Előnézet"
       publishing_to: "Publikálás:"
       share: "Megosztás"
       share_with: "megosztás vele"
@@ -861,6 +880,7 @@ hu:
       many: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
       one: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
       other: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
+      two: "Az állapotfrissítésednek %{count} karakternél rövidebbnek kell lennie"
       zero: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
   stream_helper:
     hide_comments: "hozzászólások elrejtése"
@@ -869,6 +889,7 @@ hu:
       many: "Még %{count} hozzászólás megtekintése"
       one: "Még egy hozzászólás megtekintése"
       other: "Még %{count} hozzászólás megtekintése"
+      two: "Még két hozzászólás megtekintése"
       zero: "Nincs több hozzászólás"
   streams:
     activity:
@@ -961,7 +982,7 @@ hu:
         make_diaspora_better: "Azt szeretnénk, ha segítenél hogy jobbá tehessük a Diaspora-t, így a távozásod helyett szívesebben vennénk ha közreműködnél. Ám ha el akarod hagyni az oldalt, kérlek olvasd el mi fog következni."
         mr_wiggles: "Vuk szomorú lesz, ha távozni lát."
         no_turning_back: "Nincs visszaút."
-        what_we_delete: "Töröljük az összes bejegyzésedet és profil adataidat amint tudjuk. A kommentjeid megmaradnak."
+        what_we_delete: "Töröljük az összes bejegyzésedet és adatodat amint tudjuk. A hozzászólásaid megmaradnak, de a neved helyett csak a diaspora azonosítód lesz látható mellettük."
       close_account_text: "Fiók törlése"
       comment_on_post: "...valaki hozzászólt egy bejegyzésedhez?"
       current_password: "Jelenlegi jelszó"

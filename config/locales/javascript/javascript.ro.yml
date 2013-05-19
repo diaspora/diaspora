@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -18,6 +18,7 @@ ro:
         many: "În {{count}} aspecte"
         one: "În {{count}} aspect"
         other: "În {{count}} aspecte"
+        two: "In {{count}} aspecte"
         zero: "Selectati aspecte"
     aspect_navigation:
       deselect_all: "Deselectează tot"
@@ -27,6 +28,7 @@ ro:
       hide: "ascunde comentariile"
       show: "arată toate comentarile"
     confirm_dialog: "Sunteţi sigur?"
+    delete: "Şterge"
     failed_to_like: "Nu sa reusit operatia de \"imi place\"!"
     failed_to_post_message: "Nu sa reusit trimiterea mesajului!"
     getting_started:
@@ -35,37 +37,68 @@ ro:
       no_tags: "Hopa, nu urmati nicio eticheta! Continuati si asa ?"
       preparing_your_stream: "Se pregateste fluxul personalizat pentru dvs..."
     header:
+      admin: "Administrator"
+      contacts: "Contacte"
+      home: "Acasă"
+      log_out: "Ieşire"
+      mark_all_as_read: "Marchează-le pe toate ca citite"
+      messages: "Mesaje"
+      notifications: "Notificări"
+      profile: "Profil"
+      recent_notifications: "Notificări recente"
       search: "Find people or #tags"
+      settings: "Setări"
+      view_all: "Vizualizează-le pe Toate"
+    ignore: "Ignoră"
     infinite_scroll:
       no_more: "Nu mai sunt posturi."
+    my_activity: "Activitatea proprie"
+    my_stream: "Flux"
     photo_uploader:
       looking_good: "WOW, arati super!"
     publisher:
       at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
       limited: "Limitat - publicatia va fi vazuta doar de catre persoanele cu care imparti publicatii"
+      public: "Public - articolul tău va fi vizibil tuturor şi va fi accesibilă prin motoarele de căutare"
     reshares:
       duplicate: "E chiar asa de tare, hmm?  Ati mai raspandit o data aceasta publicatie!"
     search_for: "Caută {{name}}"
     show_more: "arată mai mult"
     stream:
+      comment: "Comentariu"
+      follow: "Urmează"
+      hide: "Ascunde"
+      hide_nsfw_posts: "Ascunde #nsfw articole"
+      like: "Îmi place"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
         other: "<%= count %> Likes"
+        two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "Limitat"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      original_post_deleted: "Publicaţia originală a fost ştearsă de autorul ei."
+      public: "publică"
+      reshare: "Redistribuie"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "Afișare articol"
+      show_nsfw_posts: "Arată tot"
+      unfollow: "Nu mai urmări"
+      unlike: "Nu ȋmi place"
     tags:
       wasnt_that_interesting: "Bine, presupun ca #{{tagName}} nu a fost chiar atat de interesant..."
     timeago:
@@ -80,7 +113,7 @@ ro:
       prefixAgo: "acum"
       prefixFromNow: "in timp de"
       seconds: "mai putin de un minut"
-      suffixAgo: ""
+      suffixAgo: "în urmă"
       suffixFromNow: "in urma"
       year: "un an"
       years: "%d ani"

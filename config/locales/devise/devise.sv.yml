@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -95,7 +95,7 @@ sv:
         login: "Logga in"
         modern_browsers: "stöder endast moderna webbläsare."
         password: "Lösenord"
-        remember_me: "Minns mig"
+        remember_me: "Kom ihåg mig"
         sign_in: "Logga in"
         username: "Användarnamn"
       signed_in: "Inloggningen lyckades."

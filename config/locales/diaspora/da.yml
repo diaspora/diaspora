@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -224,6 +224,7 @@ da:
         many: "%{count} nye beskeder"
         one: "1 ny besked"
         other: "%{count} nye beskeder"
+        two: "%{count} nye beskeder"
         zero: "Ingen nye beskeder"
     index:
       create_a_new_message: "Opret ny besked"
@@ -304,18 +305,21 @@ da:
         many: "%{count} synes ikke om"
         one: "Én person synes ikke om"
         other: "%{count} synes ikke om"
+        two: "%{count} synes ikke om"
         zero: "ingen synes ikke om"
       people_like_this:
         few: "%{count} synes om dette"
         many: "%{count} synes om dette"
         one: "%{count} synes om dette"
         other: "%{count} synes om dette"
+        two: "%{count} synes om dette"
         zero: "ingen synes om dette"
       people_like_this_comment:
         few: "%{count} synes om"
         many: "%{count} synes om"
         one: "%{count} synes om"
         other: "%{count} synes om"
+        two: "%{count} synes om"
         zero: "ingen synes om"
   limited: "Begrænset"
   more: "Mere"
@@ -327,18 +331,21 @@ da:
       many: "%{actors} kommenterede også %{post_author}s %{post_link}."
       one: "%{actors} kommenterede også %{post_author}s %{post_link}."
       other: "%{actors} kommenterede også %{post_author}s %{post_link}."
+      two: "%{actors} kommenterede også %{post_author}s %{post_link}."
       zero: "%{actors} kommenterede også %{post_author}s %{post_link}."
     also_commented_deleted:
       few: "%{actors} kommenterede et slettet indlæg."
       many: "%{actors} kommenterede et slettet indlæg."
       one: "%{actors} kommenterede et slettet indlæg."
       other: "%{actors} kommenterede et slettet indlæg."
+      two: "%{actors} kommenterede på et slettet indlæg."
       zero: "%{actors} kommenterede et slettet indlæg."
     comment_on_post:
       few: "%{actors} kommenterede dit %{post_link}."
       many: "%{actors} kommenterede dit %{post_link}."
       one: "%{actors} kommenterede dit %{post_link}."
       other: "%{actors} kommenterede dit %{post_link}."
+      two: "%{actors} kommenterede dit %{post_link}."
       zero: "%{actors} kommenterede dit %{post_link}."
     helper:
       new_notifications:
@@ -346,6 +353,7 @@ da:
         many: "%{count} ny notifikationer"
         one: "1 ny notifikation"
         other: "%{count} nye notifikationer"
+        two: "%{count} nye meddelelser"
         zero: "Ingen nye notifikationer"
     index:
       and: "og"
@@ -354,6 +362,7 @@ da:
         many: "og %{count} andre"
         one: "og en mere"
         other: "og %{count} andre"
+        two: "og %{count} andre"
         zero: "og ingen andre"
       mark_all_as_read: "Marker alle som læst"
       notifications: "Notifikationer"
@@ -362,24 +371,28 @@ da:
       many: "%{actors} har lige syntes om dit %{post_link}."
       one: "%{actors} har lige syntes om dit %{post_link}."
       other: "%{actors} har lige syntes om dit %{post_link}."
+      two: "%{actors} har lige syntes om dit %{post_link}."
       zero: "%{actors} har lige syntes om dit %{post_link}."
     liked_post_deleted:
       few: "%{actors} syntes om dit slettede indlæg."
       many: "%{actors} syntes om dit slettede indlæg."
       one: "%{actors} syntes om dit slettede indlæg."
       other: "%{actors} syntes om dit slettede indlæg."
+      two: "%{actors} syntes om dit slettede indlæg."
       zero: "%{actors} syntes om dit slettede indlæg."
     mentioned:
       few: "%{actors} har nævnt dig i et %{post_link}."
       many: "%{actors} har nævnt dig i et %{post_link}."
       one: "%{actors} har nævnt dig i et indlæg %{post_link}."
       other: "%{actors} har nævnt dig i et %{post_link}."
+      two: "%{actors} har nævnt dig i %{post_link}."
       zero: "%{actors} har nævnt dig i et %{post_link}."
     mentioned_deleted:
       few: "%{actors} har nævnt dig i et slettet indlæg."
       many: "%{actors} har nævnt dig i et slettet indlæg."
       one: "%{actors} har nævnt dig i et slettet indlæg."
       other: "%{actors} har nævnt dig i et slettet indlæg."
+      two: "%{actors} har nævnt dig i et slettet indlæg."
       zero: "%{actors} har nævnt dig i et slettet indlæg."
     post: "indlæg"
     private_message:
@@ -387,24 +400,28 @@ da:
       many: "%{actors} har sendt dig en besked."
       one: "%{actors} har sendt dig en besked."
       other: "%{actors} har sendt dig en besked."
+      two: "%{actors} har sendt dig en besked."
       zero: "%{actors} har sendt dig en besked."
     reshared:
       few: "%{actors} har delt dit %{post_link}."
       many: "%{actors} har delt dit %{post_link}."
       one: "%{actors} har delt dit %{post_link}."
       other: "%{actors} har delt dit %{post_link}."
+      two: "%{actors} har delt dit %{post_link}."
       zero: "%{actors} har delt dit %{post_link}."
     reshared_post_deleted:
       few: "%{actors} har delt dit slettede indlæg."
       many: "%{actors} har delt dit slettede indlæg."
       one: "%{actors} har delt dit slettede indlæg."
       other: "%{actors} har delt dit slettede indlæg."
+      two: "%{actors} delte dit slettede indlæg."
       zero: "%{actors} har delt dit slettede indlæg."
     started_sharing:
       few: "%{actors} er begyndt at dele med dig."
       many: "%{actors} er begyndt at dele med dig."
       one: "%{actors} er begyndt at dele med dig."
       other: "%{actors} er begyndt at dele med dig."
+      two: "%{actors} begyndte at dele med dig."
       zero: "%{actors} er begyndt at dele med dig."
   notifier:
     a_post_you_shared: "et indlæg."
@@ -537,6 +554,7 @@ da:
         many: "%{count} billeder af %{author}"
         one: "Et billede af %{author}"
         other: "%{count} billeder af %{author}"
+        two: "To billeder af %{author}"
         zero: "Ingen billeder af %{author}"
       reshare_by: "Videredelt af %{author}"
   previous: "Forrige"
@@ -569,6 +587,7 @@ da:
     many: "%{count} reaktioner"
     one: "én reaktion"
     other: "%{count} reaktioner"
+    two: "%{count} reaktioner"
     zero: "nul reaktioner"
   registrations:
     closed: "Der er lukket for tilmeldinger på dette Diaspora server."
@@ -603,6 +622,7 @@ da:
         many: "%{Count} nye anmodninger!"
         one: "ny anmodning!"
         other: "%{count} nye anmodninger!"
+        two: "%{count} nye ansøgninger!"
         zero: "ingen nye anmodninger"
     manage_aspect_contacts:
       existing: "Eksisterende kontaktpersoner"
@@ -620,6 +640,7 @@ da:
         many: "%{count} delinger"
         one: "Én deling"
         other: "%{count} delinger"
+        two: "%{count} delinger"
         zero: "Del"
       reshare_confirmation: "Del %{author} - %{text}?"
       reshare_original: "Del original"
@@ -674,6 +695,7 @@ da:
         many: "I %{count} aspekter"
         one: "I %{count} aspekt"
         other: "I %{count} aspekter"
+        two: "I %{count} aspekter"
         zero: "Tilføj kontakt"
     contact_list:
       all_contacts: "Alle kontaktpersoner"
@@ -745,6 +767,7 @@ da:
       many: "Din status besked skal være mindre en %{count} tegn"
       one: "Status opdateringen skal  være mindre end %{count} tegn"
       other: "Lav venligst en meddelse på under %{count} tegn"
+      two: "vær venlig at skrive din status besked mindre end %{count} tegn"
       zero: "vær' venlig at lave din status besked mindre end %{count} tegn"
   stream_helper:
     hide_comments: "Skjul alle kommentarer"
@@ -753,6 +776,7 @@ da:
       many: "Vis %{count} flere kommentarer"
       one: "Vis én kommentar mere"
       other: "Vis %{count} flere kommentarer"
+      two: "Vis to kommentarer til"
       zero: "Ikke flere kommentarer"
   streams:
     activity:

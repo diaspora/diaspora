@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ nn:
       correlations: "Korrelasjonar"
       pages: "Sidar"
       pod_stats: "Pod-statistikk"
-      resque_overview: "Resque-overblikk"
       user_search: "Brukarsøk"
       weekly_user_stats: "Brukarstatistikk per veke"
     correlations:
@@ -297,6 +296,7 @@ nn:
         many: "%{count} nye meldingar"
         one: "1 ny melding"
         other: "%{count} nye meldingar"
+        two: "%{count} nye meldingar"
         zero: "Ingen nye meldingar"
     index:
       create_a_new_message: "skriv ei ny melding"
@@ -395,6 +395,7 @@ nn:
         many: "%{count} dislikes"
         one: "%{count} dislike"
         other: "%{count} dislikes"
+        two: "%{count} dislikes"
         zero: "no dislikes"
       people_like_this:
         one: "%{count} likar dette"
@@ -418,6 +419,7 @@ nn:
       many: "%{actors} kommenterte eit sletta innlegg."
       one: "%{actors} kommenterte eit sletta innlegg."
       other: "%{actors} kommenterte eit sletta innlegg."
+      two: "%{actors} kommenterte eit sletta innlegg."
       zero: "%{actors} kommenterte eit sletta innlegg."
     comment_on_post:
       one: "%{actors} kommenterte %{post_link}et ditt."
@@ -429,6 +431,7 @@ nn:
         many: "%{count} nye varsel"
         one: "1 nytt varsel"
         other: "%{count} nye varsel"
+        two: "%{count} nye varsel"
         zero: "Ingen nye varsel"
     index:
       and: "og"
@@ -437,6 +440,7 @@ nn:
         many: "og %{count} andre"
         one: "og éin til"
         other: "og %{count} andre"
+        two: "og %{count} andre"
         zero: "og ingen andre"
       mark_all_as_read: "Merk alle som lesne"
       mark_unread: "Merk som ulest"
@@ -450,18 +454,21 @@ nn:
       many: "%{actors} likte det sletta innlegget ditt."
       one: "%{actors} likte det sletta innlegget ditt."
       other: "%{actors} likte det sletta innlegget ditt."
+      two: "%{actors} likte det sletta innlegget ditt."
       zero: "%{actors} likte det sletta innlegget ditt."
     mentioned:
       few: "%{actors} har nemnt deg i eit %{post_link}."
       many: "%{actors} har nemnt deg i eit %{post_link}."
       one: "%{actors} har nemnt deg i eit %{post_link}."
       other: "%{actors} har nemnt deg i eit %{post_link}."
+      two: "%{actors} har nemnt deg i eit %{post_link}."
       zero: "%{actors} har nemnt deg i eit %{post_link}."
     mentioned_deleted:
       few: "%{actors} nemnde deg i eit sletta innlegg."
       many: "%{actors} nemnde deg i eit sletta innlegg."
       one: "%{actors} nemnde deg i eit sletta innlegg."
       other: "%{actors} nemnde deg i eit sletta innlegg."
+      two: "%{actors} nemnde deg i eit sletta innlegg."
       zero: "%{actors} nemnde deg i eit sletta innlegg."
     post: "innlegg"
     private_message:
@@ -469,6 +476,7 @@ nn:
       many: "%{actors} sende deg ei melding."
       one: "%{actors} sende deg ei melding."
       other: "%{actors} sende deg ei melding."
+      two: "%{actors} sende deg ei melding."
       zero: "%{actors} sende deg ei melding."
     reshared:
       one: "%{actors} har delt %{post_link}et ditt."
@@ -713,6 +721,7 @@ nn:
         many: "%{count} nye førespurnader."
         one: "ny førespurnad."
         other: "%{count} nye førespurnader."
+        two: "%{count} nye førespurnader."
         zero: "ingen nye førespurnader"
     manage_aspect_contacts:
       existing: "Eksisterande kontaktar"
@@ -783,6 +792,7 @@ nn:
         many: "I %{count} aspekt"
         one: "I %{count} aspekt"
         other: "I %{count} aspekt"
+        two: "I %{count} aspekt"
         zero: "Legg til kontakt"
     contact_list:
       all_contacts: "Alle kontaktane"
@@ -859,6 +869,7 @@ nn:
       many: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
       one: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
       other: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
+      two: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
       zero: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
   stream_helper:
     hide_comments: "Gøym alle kommentarane"

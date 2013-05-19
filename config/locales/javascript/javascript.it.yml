@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,10 +6,12 @@
 
 it:
   javascripts:
+    and: "e"
     aspect_dropdown:
       add_to_aspect: "Aggiungi"
       all_aspects: "Tutti gli aspetti"
       error: "Non è possibile condividere con <%= name %>. È tra gli utenti ignorati?"
+      error_remove: "Impossibile rimuovere <%= name %> dall'aspetto :("
       select_aspects: "Scegli gli aspetti"
       started_sharing_with: "Hai iniziato a condividere con <%= name %>!"
       stopped_sharing_with: "Hai smesso di condividere con <%= name %>."
@@ -18,16 +20,20 @@ it:
         many: "In <%= count %> aspetti"
         one: "In <%= count %> aspetto"
         other: "In <%= count %> aspetti"
+        two: "In <%= count %> aspetti"
         zero: "Scegli gli aspetti"
     aspect_navigation:
+      add_an_aspect: "+ Aggiungi un aspetto"
       deselect_all: "Deseleziona tutti"
       no_aspects: "Nessun aspetto selezionato"
       select_all: "Seleziona tutti"
+    comma: ","
     comments:
       hide: "nascondi i commenti"
       show: "mostra tutti i commenti"
     confirm_dialog: "Sei sicuro?"
     delete: "Elimina"
+    edit: "Modifica"
     failed_to_like: "Errore, il \"mi piace\" non è stato inviato!"
     failed_to_post_message: "Invio messaggio fallito!"
     getting_started:
@@ -50,15 +56,21 @@ it:
       settings: "Impostazioni"
       view_all: "Vedi tutti"
     ignore: "Ignora"
-    ignore_user: "Ignora l'utente?"
+    ignore_user: "Ignora utente?"
     infinite_scroll:
       no_more: "Non ci sono altri post."
+      no_more_contacts: "Non ci sono altri contatti"
     my_activity: "Attività"
+    my_aspects: "I miei aspetti"
     my_stream: "Stream"
     people:
       not_found: "ma nessuno è stato trovato..."
     photo_uploader:
+      completed: "<%= file %> completato"
+      empty: "{file} è vuoto, per favore seleziona di nuovo i file senza includerlo."
+      invalid_ext: "{file} ha un'estensione non valida. Sono permesse soltanto {extensions}."
       looking_good: "Accidenti, sei in splendida forma!"
+      size_error: "{file} è troppo grande, la dimensione massima è {sizeLimit}."
     publisher:
       at_least_one_aspect: "Devi scegliere almeno un aspetto"
       limited: "Non pubblico - il tuo post sarà visibile solamente a coloro con cui lo condividi"
@@ -72,6 +84,11 @@ it:
     stream:
       comment: "Commenta"
       follow: "Segui"
+      followed_tag:
+        add_a_tag: "Aggiungi un tag"
+        contacts_title: "Persone che apprezzano queste tag"
+        follow: "Segui"
+        title: "#Tag seguite"
       hide: "Nascondi"
       hide_nsfw_posts: "Nascondi i post #nsfw"
       like: "Mi piace"
@@ -80,6 +97,7 @@ it:
         many: "<%= count %> mi piace"
         one: "<%= count %> mi piace"
         other: "<%= count %> mi piace"
+        two: "<%= count %> mi piace"
         zero: "<%= count %> mi piace"
       limited: "Non pubblico"
       more_comments:
@@ -94,9 +112,14 @@ it:
         many: "<%= count %> Condivisioni"
         one: "<%= count %> Condivisione"
         other: "<%= count %> Condivisioni"
+        two: "<%= count %> Condivisioni"
         zero: "<%= count %> Condivisioni"
       show_nsfw_post: "Mostra il post"
       show_nsfw_posts: "Mostra tutti i post"
+      tags:
+        follow: "Segui #<%= tag %>"
+        following: "Stai seguendo #<%= tag %>"
+        stop_following: "Smetti di seguire #<%= tag %>"
       unfollow: "Non seguire più"
       unlike: "Non mi piace più"
     tags:

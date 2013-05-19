@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -227,6 +227,7 @@ ka:
         many: "%{count} new messages"
         one: "1 new messages"
         other: "%{count} new messages"
+        two: "%{count} new messages"
         zero: "No new messages"
     index:
       create_a_new_message: "შექმენი ახალი წერილი"
@@ -312,6 +313,7 @@ ka:
         many: "%{count} dislikes"
         one: "%{count} dislike"
         other: "%{count} dislikes"
+        two: "%{count} dislikes"
         zero: "no dislikes"
       people_like_this:
         other: "%{count} მოწონება"
@@ -321,6 +323,7 @@ ka:
         many: "%{count} likes"
         one: "%{count} like"
         other: "%{count} likes"
+        two: "%{count} likes"
         zero: "no likes"
   limited: "შეზღუდული"
   more: "მეტი"
@@ -332,18 +335,21 @@ ka:
       many: "%{actors} also commented on %{post_author}'s %{post_link}."
       one: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} commented on a deleted post."
       many: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} commented on a deleted post."
     comment_on_post:
       few: "%{actors} commented on your %{post_link}."
       many: "%{actors} commented on your %{post_link}."
       one: "%{actors} commented on your %{post_link}."
       other: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
     helper:
       new_notifications:
@@ -351,6 +357,7 @@ ka:
         many: "%{count} new notifications"
         one: "1 new notification"
         other: "%{count} new notifications"
+        two: "%{count} new notifications"
         zero: "No new notifications"
     index:
       and: "და"
@@ -359,6 +366,7 @@ ka:
         many: "and %{count} others"
         one: "and one more"
         other: "and %{count} others"
+        two: "and %{count} others"
         zero: "and nobody else"
       mark_all_as_read: "ყველას წაკითხულად მონიშვნა"
       notifications: "შეტყობინებები"
@@ -367,24 +375,28 @@ ka:
       many: "%{actors} have liked your %{post_link}."
       one: "%{actors} has liked your %{post_link}."
       other: "%{actors} have liked your %{post_link}."
+      two: "%{actors} have liked your %{post_link}."
       zero: "%{actors} have liked your %{post_link}."
     liked_post_deleted:
       few: "%{actors} liked your deleted post."
       many: "%{actors} liked your deleted post."
       one: "%{actors} liked your deleted post."
       other: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors} liked your deleted post."
     mentioned:
       few: "%{actors} have mentioned you in a %{post_link}."
       many: "%{actors} have mentioned you in a %{post_link}."
       one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} have mentioned you in a %{post_link}."
+      two: "%{actors} have mentioned you in a %{post_link}."
       zero: "%{actors} have mentioned you in a %{post_link}."
     mentioned_deleted:
       few: "%{actors} mentioned you in a deleted post."
       many: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
     post: "გამოქვეყნება"
     private_message:
@@ -392,24 +404,28 @@ ka:
       many: "%{actors} sent you a message."
       one: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
       zero: "%{actors} sent you a message."
     reshared:
       few: "%{actors} have reshared your %{post_link}."
       many: "%{actors} have reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} have reshared your %{post_link}."
+      two: "%{actors} have reshared your %{post_link}."
       zero: "%{actors} have reshared your %{post_link}."
     reshared_post_deleted:
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
     started_sharing:
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
       one: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier:
     a_post_you_shared: "პოსტი."
@@ -545,6 +561,7 @@ ka:
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
       reshare_by: "თავიდან გამოქვეყნება by %{author}"
   previous: "წინა"
@@ -579,6 +596,7 @@ ka:
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
+    two: "%{count} reactions"
     zero: "0 reactions"
   registrations:
     closed: "რეგისტრაცია დახურულია დიასპორას ამ პოდზე."
@@ -615,6 +633,7 @@ ka:
         many: "%{count} new requests!"
         one: "new request!"
         other: "%{count} new requests!"
+        two: "%{count} new requests!"
         zero: "no new requests"
     manage_aspect_contacts:
       existing: "არსებული კონტაქტები"
@@ -632,6 +651,7 @@ ka:
         many: "%{count} reshares"
         one: "1 reshare"
         other: "%{count} reshares"
+        two: "%{count} reshares"
         zero: "Reshare"
       reshare_confirmation: "გსურს %{author}-ს პოსტის თავიდან გაზიარება?"
       reshare_original: "ორიგინალის თავიდან გაზიარება"
@@ -686,6 +706,7 @@ ka:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add contact"
     contact_list:
       all_contacts: "ყველა კონტაქტი"
@@ -752,6 +773,7 @@ ka:
       many: "please make your status messages less than %{count} characters"
       one: "please make your status messages less than %{count} character"
       other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
       zero: "please make your status messages less than %{count} characters"
   stream_helper:
     hide_comments: "დამალე ყველა კომენატარი"
@@ -760,6 +782,7 @@ ka:
       many: "Show %{count} more comments"
       one: "Show one more comment"
       other: "Show %{count} more comments"
+      two: "Show two more comments"
       zero: "No more comments"
   streams:
     aspects:

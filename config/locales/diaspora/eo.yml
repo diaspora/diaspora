@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ eo:
       correlations: "Korelacio"
       pages: "Paĝoj"
       pod_stats: "Statistiko de 'pod' (Diaspora-servilo)"
-      resque_overview: "Superrigardo pri saveblecoj"
       user_search: "Serĉo de uzanto"
       weekly_user_stats: "Semajna statistiko de uzanto"
     correlations:
@@ -281,8 +280,6 @@ eo:
       success: "Konversacio sukcese forviŝiĝis."
     helper:
       new_messages:
-        few: "%{count} novaj mesaĝoj"
-        many: "%{count} novaj mesaĝoj"
         one: "1 nova mesaĝo"
         other: "%{count} novaj mesaĝoj"
         zero: "Neniuj novaj mesaĝoj"
@@ -374,8 +371,6 @@ eo:
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} malŝatantoj"
-        many: "%{count} malŝatantoj"
         one: "%{count} malŝatanto"
         other: "%{count} malŝatantoj"
         zero: "neniuj malŝatantoj"
@@ -384,6 +379,7 @@ eo:
         many: "%{count} ŝatantoj"
         one: "%{count} ŝatanto"
         other: "%{count} ŝatantoj"
+        two: "%{count} ŝatadoj"
         zero: "neniuj ŝatantoj"
       people_like_this_comment:
         one: "%{count} ŝato"
@@ -399,6 +395,7 @@ eo:
       many: "%{actors} ankaŭ komentis pri %{post_link} de %{post_author}."
       one: "%{actors} ankaŭ komentis pri %{post_link} de %{post_author}."
       other: "%{actors} ankaŭ komentis pri %{post_link} de %{post_author}."
+      two: "%{actors} ankaŭ komentis pri la %{post_link} de %{post_author}."
       zero: "%{actors} ankaŭ komentis pri %{post_link} de %{post_author}."
     also_commented_deleted:
       one: "%{actors} komentis pri forigita afiŝo."
@@ -409,6 +406,7 @@ eo:
       many: "%{actors} komentis pri via %{post_link}."
       one: "%{actors} komentis pri via %{post_link}."
       other: "%{actors} komentis pri via %{post_link}."
+      two: "%{actors} komentis pri via %{post_link}."
       zero: "%{actors} komentis pri via %{post_link}."
     helper:
       new_notifications:
@@ -416,6 +414,7 @@ eo:
         many: "%{count} novaj sciigoj"
         one: "1 nova sciigo"
         other: "%{count} novaj sciigoj"
+        two: "%{count} novaj sciigoj"
         zero: "neniuj novaj sciigoj"
     index:
       and: "kaj"
@@ -435,18 +434,21 @@ eo:
       many: "%{actors} ŝatis vian forigitan afiŝon."
       one: "%{actors} ŝatis vian forigitan afiŝon."
       other: "%{actors} ŝatis vian forigitan afiŝon."
+      two: "%{actors} ŝatis vian foritan afiŝon."
       zero: "%{actors} ŝatis vian forigitan afiŝon."
     mentioned:
       few: "%{actors} menciis vin en %{post_link}."
       many: "%{actors} menciis vin en %{post_link}."
       one: "%{actors} menciis vin en %{post_link}."
       other: "%{actors} menciis vin en %{post_link}."
+      two: "%{actors} menciis vin en %{post_link}."
       zero: "%{actors} menciis vin en %{post_link}."
     mentioned_deleted:
       few: "%{actors} menciis vin en forigita afiŝo."
       many: "%{actors} menciis vin en forigita afiŝo."
       one: "%{actors} menciis vin en forigita afiŝo."
       other: "%{actors} menciis vin en forigita afiŝo."
+      two: "%{actors} menciis vin en foritan afiŝon."
       zero: "%{actors} menciis vin en forigita afiŝo."
     post: "afiŝo"
     private_message:
@@ -454,14 +456,13 @@ eo:
       many: "%{actors} sendis al vi poŝton."
       one: "%{actors} sendis al vi poŝton."
       other: "%{actors} sendis al vi poŝton."
+      two: "%{actors} poŝtis al vi poŝton."
       zero: "%{actors} sendis al vi poŝton."
     reshared:
       one: "%{actors} rekonigis vian %{post_link}-n."
       other: "%{actors} rekonigis vian %{post_link}-n."
       zero: "%{actors} rekonigis vian %{post_link}-n."
     reshared_post_deleted:
-      few: "%{actors} rekonigis vian forviŝitan afiŝon."
-      many: "%{actors} rekonigis vian forviŝitan afiŝon."
       one: "%{actors} rekonigis vian forigitan afiŝon."
       other: "%{actors} rekonigis vian forigitan afiŝon."
       zero: "%{actors} rekonigis vian forigitan afiŝon."
@@ -627,6 +628,7 @@ eo:
         many: "%{count} bildoj de %{author}"
         one: "Unu bildo de %{author}"
         other: "%{count} bildoj de %{author}"
+        two: "Du bildoj de %{author}"
         zero: "Neniuj bildoj de %{author}"
       reshare_by: "Rekonigo de %{author}"
   previous: "antaŭa"
@@ -701,6 +703,7 @@ eo:
         many: "%{count} novaj petoj!"
         one: "nova peto!"
         other: "%{count} novaj petoj!"
+        two: "%{count} novaj petoj!"
         zero: "neniuj novaj petoj"
     manage_aspect_contacts:
       existing: "Ekzistantaj kontaktoj"
@@ -718,6 +721,7 @@ eo:
         many: "%{count} rekonigoj"
         one: "1 rekonigo"
         other: "%{count} rekonigoj"
+        two: "%{count} rekonigoj"
         zero: "Rekonigi"
       reshare_confirmation: "Ĉu rekonigi la afiŝon de %{author}?"
       reshare_original: "Rekonigi la originalon"
@@ -773,6 +777,7 @@ eo:
         many: "En %{count} aspektoj"
         one: "En %{count} aspekto"
         other: "En %{count} aspektoj"
+        two: "En %{count} aspektoj"
         zero: "Aldoni kontakton"
     contact_list:
       all_contacts: "Ĉiuj kontaktoj"
@@ -855,6 +860,7 @@ eo:
       many: "Montri %{count} pliajn komentojn"
       one: "Montri unu plian komenton"
       other: "Montri %{count} pliajn komentojn"
+      two: "Montri du pliajn komentojn"
       zero: "Neniuj pliaj komentoj"
   streams:
     activity:

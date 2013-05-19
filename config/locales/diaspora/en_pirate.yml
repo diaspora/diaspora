@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -84,6 +84,7 @@ en_pirate:
         many: "%{count} new messages"
         one: "1 new messages"
         other: "%{count} new messages"
+        two: "%{count} new messages"
         zero: "No new messages"
   layouts:
     application:
@@ -99,18 +100,21 @@ en_pirate:
         many: "%{count} dislikes"
         one: "%{count} dislike"
         other: "%{count} dislikes"
+        two: "%{count} dislikes"
         zero: "no dislikes"
       people_like_this:
         few: "%{count} likes"
         many: "%{count} likes"
         one: "%{count} like"
         other: "%{count} likes"
+        two: "%{count} likes"
         zero: "no likes"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
         one: "%{count} like"
         other: "%{count} likes"
+        two: "%{count} likes"
         zero: "no likes"
   notifications:
     also_commented:
@@ -118,18 +122,21 @@ en_pirate:
       many: "%{actors} also commented on %{post_author}'s %{post_link}."
       one: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} commented on a scuttled post."
       many: "%{actors} commented on a scuttled post."
       one: "%{actors} commented on a scuttled post."
       other: "%{actors} commented on a scuttled post."
+      two: "%{actors} commented on a scuttled post."
       zero: "%{actors} commented on a scuttled post."
     comment_on_post:
       few: "%{actors} commented on yer %{post_link}."
       many: "%{actors} commented on yer %{post_link}."
       one: "%{actors} commented on yer %{post_link}."
       other: "%{actors} commented on yer %{post_link}."
+      two: "%{actors} commented on yer %{post_link}."
       zero: "%{actors} commented on yer %{post_link}."
     helper:
       new_notifications:
@@ -137,6 +144,7 @@ en_pirate:
         many: "%{count} new notifications"
         one: "1 new notifications"
         other: "%{count} new notifications"
+        two: "%{count} new notifications"
         zero: "No new notifications"
     index:
       and_others:
@@ -144,54 +152,63 @@ en_pirate:
         many: "'n %{count} others"
         one: "'n one more"
         other: "'n %{count} others"
+        two: "'n %{count} others"
         zero: "'n nobody else"
     liked:
       few: "%{actors} has just liked yer %{post_link}."
       many: "%{actors} has just liked yer %{post_link}."
       one: "%{actors} has just liked yer %{post_link}."
       other: "%{actors} has just liked yer %{post_link}."
+      two: "%{actors} has just liked yer %{post_link}."
       zero: "%{actors} has just liked yer %{post_link}."
     liked_post_deleted:
       few: "%{actors} liked yer scuttled post."
       many: "%{actors} liked yer scuttled post."
       one: "%{actors} liked yer scuttled post."
       other: "%{actors} liked yer scuttled post."
+      two: "%{actors} liked yer scuttled post."
       zero: "%{actors} liked yer scuttled post."
     mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
       one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
     mentioned_deleted:
       few: "%{actors} mentioned you in a scuttled post."
       many: "%{actors} mentioned you in a scuttled post."
       one: "%{actors} mentioned you in a scuttled post."
       other: "%{actors} mentioned you in a scuttled post."
+      two: "%{actors} mentioned you in a scuttled post."
       zero: "%{actors} mentioned you in a scuttled post."
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."
       one: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
       zero: "%{actors} sent you a message."
     reshared:
       few: "%{actors} has reshared yer %{post_link}."
       many: "%{actors} has reshared yer %{post_link}."
       one: "%{actors} has reshared yer %{post_link}."
       other: "%{actors} has reshared yer %{post_link}."
+      two: "%{actors} has reshared yer %{post_link}."
       zero: "%{actors} has reshared yer %{post_link}."
     reshared_post_deleted:
       few: "%{actors} reshared yer scuttled post."
       many: "%{actors} reshared yer scuttled post."
       one: "%{actors} reshared yer scuttled post."
       other: "%{actors} reshared yer scuttled post."
+      two: "%{actors} reshared yer scuttled post."
       zero: "%{actors} reshared yer scuttled post."
     started_sharing:
       few: "%{actors} started sharin' with ye."
       many: "%{actors} started sharin' with ye."
       one: "%{actors} started sharin' with ye."
       other: "%{actors} started sharin' with ye."
+      two: "%{actors} started sharin' with ye."
       zero: "%{actors} started sharin' with ye."
   notifier:
     confirm_email:
@@ -219,6 +236,7 @@ en_pirate:
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   profiles:
     edit:
@@ -228,6 +246,7 @@ en_pirate:
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
+    two: "%{count} reactions"
     zero: "0 reactions"
   registrations:
     new:
@@ -240,6 +259,7 @@ en_pirate:
         many: "%{count} new requests!"
         one: "new request!"
         other: "%{count} new requests!"
+        two: "%{count} new requests!"
         zero: "no new requests"
   reshares:
     reshare:
@@ -248,6 +268,7 @@ en_pirate:
         many: "%{count} reshares"
         one: "1 reshare"
         other: "%{count} reshares"
+        two: "%{count} reshares"
         zero: "Reshare"
   search: "Scour"
   services:
@@ -261,6 +282,7 @@ en_pirate:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
     publisher:
       new_user_prefill:
@@ -276,6 +298,7 @@ en_pirate:
       many: "Ye scallywag,make yer status messages less than %{count} characters"
       one: "Ye scallywag, make yer status messages less than %{count} character"
       other: "Ye scallywag, make yer status messages less than %{count} characters"
+      two: "Ye scallywag, make yer status messages less than %{count} characters"
       zero: "Ye scallywag,make yer status messages less than %{count} characters"
   stream_helper:
     show_comments:
@@ -283,6 +306,7 @@ en_pirate:
       many: "Show %{count} more comments"
       one: "Show one more comment"
       other: "Show %{count} more comments"
+      two: "Show two more comments"
       zero: "No more comments"
   streams:
     aspects:

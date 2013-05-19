@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ eu:
       correlations: "Korrelazioak"
       pages: "Orrialdeak"
       pod_stats: "Hornitzailearen Estatistikak"
-      resque_overview: "Resqueren Aurrebista"
       user_search: "Erabiltzaile Bilaketa"
       weekly_user_stats: "Asteko Erabiltzaile Estatistikak"
     correlations:
@@ -292,6 +291,7 @@ eu:
         many: "%{count} mezu pribatu berri"
         one: "mezu pribatu berri 1"
         other: "%{count} mezu pribatu berri"
+        two: "%{count} new messages"
         zero: "Mezu pribatu berririk ez"
     index:
       create_a_new_message: "mezu berria sortu"
@@ -387,18 +387,21 @@ eu:
         many: "%{count} pertsonek ez dute hau gustuko"
         one: "%{count}ek ez du hau gustuko"
         other: "%{count} pertsonek ez dute hau gustuko"
+        two: "%{count} dislikes"
         zero: "gustuko ez duen pertsonarik ez"
       people_like_this:
         few: "%{count} pertsonek gustuko dute hau"
         many: "%{count} pertsonek gustuko dute hau"
         one: "%{count}ek du gustuko"
         other: "%{count} pertsonek gustuko dute hau"
+        two: "%{count}(e)k gustuko dute"
         zero: "oraindik ez du inork gustuko"
       people_like_this_comment:
         few: "%{count}(e)k gustuko dute"
         many: "%{count}(e)k gustuko dute"
         one: "%{count}ek gustuko du"
         other: "%{count}(e)k gustuko dute"
+        two: "%{count}(e)k gustuko dute"
         zero: "inork ez du gustuko"
   limited: "Mugatua"
   more: "Gehiago"
@@ -410,18 +413,21 @@ eu:
       many: "%{actors}(e)k ere iruzkindu du(te) %{post_author}(r)en %{post_link}."
       one: "%{actors}(e)k ere iruzkindu du(te) %{post_author}(r)en %{post_link}."
       other: "%{actors}(e)k ere iruzkindu du(te) %{post_author}(r)en %{post_link}."
+      two: "%{actors}(e)k ere iruzkindu du(te) %{post_author}(r)en %{post_link}."
       zero: "%{actors}(e)k ere iruzkindu du(te) %{post_author}(r)en %{post_link}."
     also_commented_deleted:
       few: "%{actors}(e)k mezu ezabatu bat iruzkindu du(te)."
       many: "%{actors}(e)k mezu ezabatu bat iruzkindu du(te)."
       one: "%{actors}(e)k mezu ezabatu bat iruzkindu du(te)."
       other: "%{actors}(e)k mezu ezabatu bat iruzkindu du(te)."
+      two: "%{actors}(e)k mezu ezabatu bat iruzkindu du(te)."
       zero: "%{actors}(e)k mezu ezabatu bat iruzkindu du(te)."
     comment_on_post:
       few: "%{actors}(e)k zure %{post_link} iruzkindu du(te)."
       many: "%{actors}(e)k zure %{post_link} iruzkindu du(te)."
       one: "%{actors}(e)k zure %{post_link} iruzkindu du(te)."
       other: "%{actors}(e)k zure %{post_link} iruzkindu du(te)."
+      two: "%{actors}(e)k zure %{post_link} iruzkindu du(te)."
       zero: "%{actors}(e)k zure %{post_link} iruzkindu du(te)."
     helper:
       new_notifications:
@@ -429,6 +435,7 @@ eu:
         many: "%{count} jakinarazpen berri"
         one: "jakinarazpen berri 1"
         other: "%{count} jakinarazpen berri"
+        two: "%{count} jakinarazpen berri"
         zero: "Jakinarazpen berririk ez"
     index:
       and: "eta"
@@ -437,6 +444,7 @@ eu:
         many: "eta beste %{count}(e)k"
         one: "eta beste batek"
         other: "eta beste %{count}(e)k"
+        two: "eta beste %{count}"
         zero: "eta inork gehiago ez"
       mark_all_as_read: "Guztiak irakurrita"
       mark_unread: "Irakurri gabe gisa markatu"
@@ -446,24 +454,28 @@ eu:
       many: "%{actors}(e)k gustuko dute zure %{post_link}."
       one: "%{actors}(e)k gustuko du zure %{post_link}."
       other: "%{actors}(e)k gustuko dute zure %{post_link}."
+      two: "%{actors}(e)k zure %{post_link} gustuko dute."
       zero: "%{actors}(e)k gustuko dute zure %{post_link}."
     liked_post_deleted:
       few: "%{actors}(e)k gustuko du(te) zure mezu ezabatua."
       many: "%{actors}(e)k gustuko du(te) zure mezu ezabatua."
       one: "%{actors}(e)k gustuko du(te) zure mezu ezabatua."
       other: "%{actors}(e)k gustuko du(te) zure mezu ezabatua."
+      two: "%{actors}(e)k zure mezu ezabatua gustuko du(te)"
       zero: "%{actors}(e)k gustuko du(te) zure mezu ezabatua."
     mentioned:
       few: "%{actors}(e)k zu aipatu zaituzte %{post_link} batean."
       many: "%{actors}(e)k zu aipatu zaituzte %{post_link} batean."
       one: "%{actors}(e)k zu aipatu zaitu(zte) %{post_link}(e)n."
       other: "%{actors}(e)k zu aipatu zaituzte %{post_link} batean."
+      two: "%{actors}(e)k zu aipatu zaituzte %{post_link} batean."
       zero: "%{actors}(e)k zu aipatu zaituzte %{post_link} batean."
     mentioned_deleted:
       few: "%{actors}(e)k zu aipatu zaitu(zte) mezu ezabatu batean."
       many: "%{actors}(e)k zu aipatu zaitu(zte) mezu ezabatu batean."
       one: "%{actors}(e)k zu aipatu zaitu(zte) mezu ezabatu batean.\n"
       other: "%{actors}(e)k mezu ezabatu batean aipatu zaitu(zte)."
+      two: "%{actors}(e)k mezu ezabatu batean aipatu zaitu(zte)."
       zero: "%{actors}(e)k mezu ezabatu batean aipatu zaitu(zte)."
     post: "mezua"
     private_message:
@@ -471,24 +483,28 @@ eu:
       many: "%{actors}(e)k mezu bat bidali dizu(te)."
       one: "%{actors}(e)k mezu bat bidali dizu(te)."
       other: "%{actors}(e)k mezu bat bidali dizu(te)."
+      two: "%{actors}(e)k mezu pribatu bat bidali dizu(te)."
       zero: "%{actors}(e)k mezu bat bidali dizu(te)."
     reshared:
       few: "%{actors}(e)k zure %{post_link} birpartekatu dute."
       many: "%{actors}(e)k zure %{post_link} birpartekatu du."
       one: "%{actors}(e)k zure %{post_link} birpartekatu du."
       other: "%{actors}(e)k zure %{post_link} birpartekatu dute."
+      two: "%{actors}(e)k zure %{post_link} birpartekatu dute."
       zero: "%{actors}(e)k zure %{post_link} birpartekatu du."
     reshared_post_deleted:
       few: "%{actors}(e)k zure mezu ezabatu birpartekatu du(te)."
       many: "%{actors}(e)k zure mezu ezabatua iruzkindu du(te)."
       one: "%{actors}(e)k zure mezu ezabatua birpartekatu du(te)."
       other: "%{actors}(e)k zure mezu ezabatua iruzkindu du(te)."
+      two: "%{actors}(e)k zure mezu ezabatua iruzkindu du(te)."
       zero: "%{actors}(e)k zure mezu ezabatua iruzkindu du(te)."
     started_sharing:
       few: "%{actors} zurekin harremanetan hasi dir)a."
       many: "%{actors} zurekin harremanetan hasi d(ir)a"
       one: "%{actors} zurekin harremanetan hasi d(ir)a"
       other: "%{actors} zurekin harremanetan hasi d(ir)a"
+      two: "%{actors} zurekin harremanetan hasi d(ir)a."
       zero: "%{actors} zurekin harremanetan hasi d(ir)a"
   notifier:
     a_post_you_shared: "mezu bat."
@@ -648,6 +664,7 @@ eu:
         many: "%{count} argazki %{author}(r)en eskutik"
         one: "Argazki bat %{author}(r)en eskutik"
         other: "%{count} argazki %{author}(r)en eskutik"
+        two: "Bi argazki %{author}(r)en eskutik"
         zero: "Argazkirik ez %{author}(r)en eskutik"
       reshare_by: "Birpartekaketa %{author}(r)en eskutik"
   previous: "aurrekoa"
@@ -682,6 +699,7 @@ eu:
     many: "%{count} erreakzio"
     one: "erreakzio 1"
     other: "%{count} erreakzio"
+    two: "%{count} erreakzio"
     zero: "erreakziorik ez"
   registrations:
     closed: "Izen emateak itxirik daude Diaspora zerbitzari hontan."
@@ -724,6 +742,7 @@ eu:
         many: "%{count} eskaera berri!"
         one: "eskaera berria!"
         other: "%{count} eskaera berri!"
+        two: "%{count} eskaera berri!"
         zero: "eskaera berririk ez"
     manage_aspect_contacts:
       existing: "Adiskideak"
@@ -741,6 +760,7 @@ eu:
         many: "%{count} Birpartekaketa"
         one: "Birpartekaketa 1"
         other: "%{count} birpartekaketa "
+        two: "%{count} birpartekaketa"
         zero: "Birpartekatu"
       reshare_confirmation: "Birpartekatu %{author}(r)en mezua?"
       reshare_original: "Birpartekatu jatorrizkoa"
@@ -870,6 +890,7 @@ eu:
       many: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
       one: "mesedez, egin itzazu zure mezuak karaktere %{count} baino motzagoak"
       other: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
+      two: "mesedez egin itzazu zure mezuak %{count} laraktere baino motzagoak"
       zero: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
   stream_helper:
     hide_comments: "Iruzkin guztiak ezkutatu"
@@ -878,6 +899,7 @@ eu:
       many: "Erakutsi %{count} iruzkin gehiago"
       one: "Erakutsi iruzki bat gehiago"
       other: "Erakutsi %{count} iruzkin gehiago"
+      two: "Erakutsi bi iruzkin gehiago"
       zero: "Ez dago iruzkin gehiago"
   streams:
     activity:

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -74,6 +74,7 @@ bg:
         many: "Покажи останалите <%= count %> коментара"
         one: "Покажи останалия <%= count %> коментар"
         other: "Покажи останалите <%= count %> коментара"
+        two: "Show <%= count %> more comments"
         zero: "Покажи осталите <%= count %> коментара"
       original_post_deleted: "Авторът на оригиналната публикация я е изтрил."
       public: "Публично"

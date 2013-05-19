@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ hy:
       correlations: "Կախվածություններ"
       pages: "Էջեր"
       pod_stats: "Փոդի վիճակագրություն"
-      resque_overview: "Resque Overview (Նոր, էս չենք կարացել թարգմանել :Ճ)"
       user_search: "Օգտատերի որոնում"
       weekly_user_stats: "Օգտատերերի շաբաթական վիճակագրություն"
     correlations:

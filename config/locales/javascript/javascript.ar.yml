@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -18,6 +18,7 @@ ar:
         many: "في {{count}} فئات"
         one: "في {{count}} فئة"
         other: "في {{count}} فئات"
+        two: "في {{count}} فئات"
         zero: "حدّد الفئات"
     aspect_navigation:
       deselect_all: "إلغاء اختيار الكل"
@@ -74,6 +75,7 @@ ar:
         many: "عدد المعجبين"
         one: "عدد المعجبين"
         other: "عدد المعجبين"
+        two: "عدد معجب"
         zero: "عدد المعجبين"
       limited: "محدود"
       more_comments:
@@ -81,6 +83,7 @@ ar:
         many: "إعرض >عدد<  تعليقات أكثر "
         one: "إعرض >عدد<  تعليقات أكثر "
         other: "إعرض >عدد<  تعليقات أكثر "
+        two: "إعرض >عدد< تعليق أكثر "
         zero: "إعرض >عدد<  تعليقات أكثر "
       original_post_deleted: "لقد حذف المؤلف مشاركته الأصلية."
       public: "عام"
@@ -90,6 +93,7 @@ ar:
         many: ">عدد<  اعادة  المشاركات"
         one: ">عدد<  اعادة  المشاركات"
         other: ">عدد<  اعادة  المشاركات"
+        two: ">عدد<  اعادة  المشاركة"
         zero: ">عدد< اعادة  المشاركات"
       show_nsfw_post: "أظهِر المشاركة"
       show_nsfw_posts: "أظهِر الكل"

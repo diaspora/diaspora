@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ sl:
       correlations: "Korelacije"
       pages: "Strani"
       pod_stats: "Statistika Poda"
-      resque_overview: "Pregled nad Resque"
       user_search: "Iskanje uporabnikov"
       weekly_user_stats: "Tedenska statistika uporabnikov"
     correlations:
@@ -57,6 +56,7 @@ sl:
         few: "%{count} mnenja"
         one: "%{count} mnenje"
         other: "%{count} mnenj"
+        two: "%{count} mnenji"
         zero: "%{count} mnenj"
       current_segment: "Trenutni odsek ima povprečno <b>%{post_yest}</b> objav na uporabnika na <b>%{post_day}</b>"
       daily: "Dnevno"
@@ -67,11 +67,13 @@ sl:
         few: "%{count} objave"
         one: "%{count} objava"
         other: "%{count} objav"
+        two: "%{count} objavi"
         zero: "%{count} objav"
       shares:
         few: "%{count} deljenja"
         one: "%{count} deljenje"
         other: "%{count} deljenj"
+        two: "%{count} deljenji"
         zero: "%{count} deljenj"
       tag_name: "Ime oznake: <b>%{name_tag}</b> Število: <b>%{count_tag}</b>"
       usage_statistic: "Statistika uporabe"
@@ -79,6 +81,7 @@ sl:
         few: "%{count} uporabniki"
         one: "%{count} uporabnik"
         other: "%{count} uporabnikov"
+        two: "%{count} uporabnika"
         zero: "%{count} uporabnikov"
       week: "Teden"
     user_search:
@@ -88,6 +91,7 @@ sl:
         few: "%{count} najdeni uporabniki"
         one: "%{count} najden uporabnik"
         other: "%{count} najdenih uporabnikov"
+        two: "%{count} najdena uporabnika"
         zero: "%{count} najdenih uporabnikov"
       you_currently: "trenutno imate na razpolago še %{user_invitation} povabil %{link}"
     weekly_user_stats:
@@ -95,6 +99,7 @@ sl:
         few: "Število novih uporabnikov ta teden: %{count}"
         one: "Število novih uporabnikov ta teden: %{count}"
         other: "Število novih uporabnikov ta teden: %{count}"
+        two: "Število novih uporabnikov ta teden: %{count}"
         zero: "Nobenega novega uporabnika ta teden"
       current_server: "Trenutni čas strežnika je %{date}"
   ago: "%{time} nazaj"
@@ -297,6 +302,7 @@ sl:
         few: "%{count} nova sporočila"
         one: "1 novo sporočilo"
         other: "%{count} novih sporočil"
+        two: "%{count} novi sporočili"
         zero: "Nobenih novih sporočil"
     index:
       create_a_new_message: "ustvari novo sporočilo"
@@ -357,6 +363,7 @@ sl:
         few: "S to kodo so na razpolago še %{count} vabila"
         one: "S to kodo je na razpolago še eno vabilo"
         other: "S to kodo je na razpolago še %{count} vabil"
+        two: "S to kodo sta na razpolago še %{count} vabili"
         zero: "S to kodo ni več vabil na razpolago"
       comma_separated_plz: "Vnesete lahko več e-naslovov ločenih z vejico."
       if_they_accept_info: "v kolikor sprejmejo vaše povabilo, bodo samodejno dodani vidikom v katere ste jih povabili."
@@ -392,16 +399,19 @@ sl:
         few: "%{count} osebam ni všeč"
         one: "1 osebi ni všeč"
         other: "%{count} osebam ni všeč"
+        two: "%{count} osebama ni všeč"
         zero: "ni osebe, ki ji ni všeč"
       people_like_this:
         few: "%{count} osebam je všeč"
         one: "1 osebi je všeč"
         other: "%{count} osebam je všeč"
+        two: "%{count} osebama je všeč"
         zero: "nikomur ni všeč"
       people_like_this_comment:
         few: "%{count} osebam je všeč"
         one: "%{count} osebi je všeč"
         other: "%{count} osebam je všeč."
+        two: "%{count} osebama je všeč"
         zero: "nikomur ni všeč"
   limited: "Omejeno"
   more: "Več"
@@ -412,22 +422,26 @@ sl:
       few: "%{actors} so tudi napisali mnenje o %{post_link} osebe %{post_author}."
       one: "%{actors} je tudi napisal mnenje o %{post_link} osebe %{post_author}."
       other: "%{actors} jih je tudi napisalo mnenje o %{post_link} osebe %{post_author}."
+      two: "%{actors} sta tudi napisala mnenje o %{post_link} osebe %{post_author}."
       zero: "Nihče ni napisal mnenja o %{post_link} osebe %{post_author}."
     also_commented_deleted:
       few: "%{actors} so napisali mnenje o izbrisani objavi."
       one: "%{actors} je napisal mnenje o izbrisani objavi."
       other: "%{actors} jih je napisalo mnenje o izbrisani objavi."
+      two: "%{actors} sta napisala mnenje o izbrisani objavi."
       zero: "Nihče ni napisal mnenja o izbrisani objavi."
     comment_on_post:
       few: "%{actors} so napisali mnenje o vašem %{post_link}."
       one: "%{actors} je napisal mnenje o vašem %{post_link}."
       other: "%{actors} jih je napisalo mnenje o vašem %{post_link}."
+      two: "%{actors} sta napisala mnenje o vašem %{post_link}."
       zero: "Nihče ni napisal mnenja o vašem %{post_link}."
     helper:
       new_notifications:
         few: "%{count} nova obvestila"
         one: "1 novo obvestilo"
         other: "%{count} novih obvestil"
+        two: "%{count} novi obvestili"
         zero: "Ni novih obvestil"
     index:
       and: "in"
@@ -436,6 +450,7 @@ sl:
         many: "in %{count} drugih"
         one: "in %{count} drugi"
         other: "in %{count} drugih"
+        two: "in %{count} druga"
         zero: "in nihče drug"
       mark_all_as_read: "Označi vse kot prebrano"
       mark_unread: "Označi kot neprebrano"
@@ -444,42 +459,50 @@ sl:
       few: "%{actors} je všeč vaš %{post_link}."
       one: "%{actors} je všeč vaš %{post_link}."
       other: "%{actors} je všeč vaš %{post_link}."
+      two: "%{actors} je všeč vaš %{post_link}."
       zero: "Nikomur ni všeč vaš %{post_link}."
     liked_post_deleted:
       few: "%{actors} je všeč vaša izbrisana objava."
       one: "%{actors} je všeč vaša izbrisana objava."
       other: "%{actors} je všeč vaša izbrisana objava."
+      two: "%{actors} je všeč vaša izbrisana objava."
       zero: "%{actors} ni všeč vaša izbrisana objava."
     mentioned:
       few: "%{actors} so vas omenili v %{post_link}."
       one: "%{actors} vas je omenil v %{post_link}."
       other: "%{actors} vas je omenilo v %{post_link}."
+      two: "%{actors} sta vas omenila v %{post_link}."
       zero: "%{actors} vas ni omenilo v %{post_link}."
     mentioned_deleted:
       few: "%{actors} so vas omenili v izbrisani objavi."
       one: "%{actors} vas je omenil v izbrisani objavi."
       other: "%{actors} je omenilo vas v izbrisani objavi."
+      two: "%{actors} sta vas omenila v izbrisani objavi."
       zero: "%{actors} vas je omenilo v izbrisani objavi."
     post: "objava"
     private_message:
       few: "%{actors} so vam poslali sporočilo."
       one: "%{actors} vam je poslal sporočilo."
       other: "%{actors} vam jih je poslalo sporočilo."
+      two: "%{actors} sta vam poslala sporočilo."
       zero: "Nihče vam ni poslal sporočila."
     reshared:
       few: "%{actors} so delili vaš {post_link}."
       one: "%{actors} je delil vašo %{post_link}."
       other: "%{actors} jih je delilo vašo %{post_link}."
+      two: "%{actors} sta delila %{post_link}."
       zero: "Nihče ni delil vaš %{post_link}."
     reshared_post_deleted:
       few: "%{actors} so delili vašo izbrisano objavo."
       one: "%{actors} je delil vašo izbrisano objavo."
       other: "%{actors} jih je delilo vašo izbrisano objavo."
+      two: "%{actors} sta delila vašo izbrisano objavo."
       zero: "Nihče ni delil vaše izbrisane objave."
     started_sharing:
       few: "%{actors} so začeli deliti z vami."
       one: "%{actors} je začel deliti z vami."
       other: "%{actors} jih je začelo deliti z vami."
+      two: "%{actors} sta začela deliti z vami."
       zero: "%{actors} jih ni začelo deliti z vami."
   notifier:
     a_post_you_shared: "objava."
@@ -638,6 +661,7 @@ sl:
         few: "%{count} slike o %{author}"
         one: "Ena slika o %{author}"
         other: "%{count} slik o %{author}"
+        two: "%{count} sliki o %{author}"
         zero: "Ni slik o %{author}"
       reshare_by: "Ponovna deljenja po %{author}"
   previous: "prejšnja"
@@ -671,6 +695,7 @@ sl:
     few: "%{count} odzivi"
     one: "1 odziv"
     other: "%{count} odzivov"
+    two: "%{count} odziva"
     zero: "0 odzivov"
   registrations:
     closed: "Za ta Pod Diaspore registracije trenutno niso mogoče."
@@ -713,6 +738,7 @@ sl:
         many: "%{count} novih prošnj!"
         one: "nova prošnja!"
         other: "%{count} novih prošenj!"
+        two: "%{count} novi prošnji!"
         zero: "ni novih prošenj"
     manage_aspect_contacts:
       existing: "Obstoječi stiki"
@@ -730,6 +756,7 @@ sl:
         many: "%{count} delitev"
         one: "1 delitev"
         other: "%{count} delitev"
+        two: "%{count} delitvi"
         zero: "Ponovno deli"
       reshare_confirmation: "Deli objavo osebe %{author}?"
       reshare_original: "Deli izvirnik"
@@ -784,6 +811,7 @@ sl:
         few: "V %{count} vidikih"
         one: "V %{count} vidiku"
         other: "V %{count} vidikih"
+        two: "V %{count} vidikih"
         zero: "Dodaj stik"
     contact_list:
       all_contacts: "Vsi stiki"
@@ -859,6 +887,7 @@ sl:
       few: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znake"
       one: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znak"
       other: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov"
+      two: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znaka"
       zero: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov"
   stream_helper:
     hide_comments: "Skrij vsa mnenja"
@@ -866,6 +895,7 @@ sl:
       few: "Prikaži še %{count} mnenja"
       one: "Prikaži še eno mnenje"
       other: "Prikaži še %{count} mnenj"
+      two: "Prikaži še %{count} mnenji"
       zero: "Ni več mnenj"
   streams:
     activity:

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -17,6 +17,7 @@ en_1337:
         many: "1N {{count}} 45P3C75"
         one: "1N {{count}} 45P3C7"
         other: "1N {{count}} 45P3C75"
+        two: "1N {{count}} 45P3C75"
         zero: "4DD N00B"
     aspect_navigation:
       deselect_all: "D353L3C7 4LL"
@@ -49,18 +50,21 @@ en_1337:
         many: "<%= count %> <3"
         one: "<%= count %> <3"
         other: "<%= count %> <3"
+        two: "<%= count %> <3"
         zero: "<%= count %> <3"
       more_comments:
         few: "5H0W <%= count %> M0R3 C0MM3N75"
         many: "5H0W <%= count %> M0R3 C0MM3N75"
         one: "5H0W <%= count %> M0R3 C0MM3N7"
         other: "5H0W <%= count %> M0R3 C0MM3N75"
+        two: "5H0W <%= count %> M0R3 C0MM3N75"
         zero: "5H0W <%= count %> M0R3 C0MM3N75"
       reshares:
         few: "<%= count %> R35H4R35"
         many: "<%= count %> R35H4R35"
         one: "<%= count %> R35H4R3"
         other: "<%= count %> R35H4R35"
+        two: "<%= count %> R35H4R35"
         zero: "<%= count %> R35H4R35"
     tags:
       wasnt_that_interesting: "0K, 1 5UPP053 #{{tagName}} W45N7 7H47 1N73R3571NG..."

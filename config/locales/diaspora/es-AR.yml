@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,7 @@ es-AR:
       correlations: "Similitudes"
       pages: "Páginas"
       pod_stats: "Estadísticas del servidor"
-      resque_overview: "Información general de Resque"
+      sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Búsqueda de usuarios"
       weekly_user_stats: "Estadísticas semanales de usuario"
     correlations:
@@ -287,6 +287,7 @@ es-AR:
   conversations:
     create:
       fail: "Mensaje inválido"
+      no_contact: "¡Primero necesitas agregar al contacto!"
       sent: "Mensaje enviado"
     destroy:
       success: "La conversación se eliminó"
@@ -296,6 +297,7 @@ es-AR:
         many: "%{count} mensajes nuevos"
         one: "1 mensaje nuevo"
         other: "%{count} mensajes nuevos"
+        two: "%{count} mensajes nuevos"
         zero: "No hay mensajes nuevos"
     index:
       create_a_new_message: "crear un nuevo mensaje"
@@ -411,18 +413,21 @@ es-AR:
       many: "%{actors} también comentaron en la %{post_link} de %{post_author}."
       one: "%{actors} también comentó en la %{post_link} de %{post_author}."
       other: "%{actors} también comentaron en la %{post_link} de %{post_author}."
+      two: "%{actors} también comentó en el %{post_link} de  %{post_author}"
       zero: "%{actors} también comentó en la %{post_link} de %{post_author}."
     also_commented_deleted:
       few: "%{actors} comentaron en una publicación eliminada."
       many: "%{actors} comentaron en una publicación eliminada."
       one: "%{actors} comentó en una publicación eliminada."
       other: "%{actors} comentaron en una publicación eliminada."
+      two: "%{actors} comentaron en una publicación borrada."
       zero: "%{actors} comentó en una publicación eliminada."
     comment_on_post:
       few: "%{actors} comentaron en tu %{post_link}."
       many: "%{actors} comentaron en tu %{post_link}."
       one: "%{actors} comentó en tu %{post_link}."
       other: "%{actors} comentaron en tu %{post_link}."
+      two: "%{actors} comentaron en tu %{post_link}."
       zero: "%{actors} comentó en tu %{post_link}."
     helper:
       new_notifications:
@@ -430,6 +435,7 @@ es-AR:
         many: "%{count} notificaciones nuevas"
         one: "1 notificación nueva"
         other: "%{count} notificaciones nuevas"
+        two: "%{count} notificaciones nuevas"
         zero: "Ninguna notificacíon nueva"
     index:
       and: "y"
@@ -438,6 +444,7 @@ es-AR:
         many: "y otros %{count}"
         one: "y alguien más"
         other: "y otros %{count}"
+        two: "y %{count} otros"
         zero: "y nadie más"
       mark_all_as_read: "Marcar todo como leído"
       mark_unread: "Marcar como no leído"
@@ -451,6 +458,7 @@ es-AR:
       many: "A %{actors} les gusta tu publicación eliminada."
       one: "A %{actors} le gusta tu publicación eliminada."
       other: "A %{actors} les gusta tu publicación eliminada."
+      two: "a %{actors} le gustó tu publicación eliminada."
       zero: "A %{actors} le gusta tu publicación eliminada."
     mentioned:
       one: "%{actors} te mencionó en una %{post_link}."
@@ -461,6 +469,7 @@ es-AR:
       many: "%{actors} te mencionaron en una publicación eliminada."
       one: "%{actors} te mencionó en una publicación eliminada."
       other: "%{actors} te mencionaron en una publicación eliminada."
+      two: "%{actors} te mencionó en un mensaje eliminado."
       zero: "%{actors} te mencionó en una publicación eliminada."
     post: "publicación"
     private_message:
@@ -468,6 +477,7 @@ es-AR:
       many: "%{actors} te enviaron un mensaje."
       one: "%{actors} te envió un mensaje."
       other: "%{actors} te enviaron un mensaje."
+      two: "%{actors} te envió un mensaje."
       zero: "%{actors} te envió un mensaje."
     reshared:
       one: "%{actors} compartió tu %{post_link}."
@@ -482,6 +492,7 @@ es-AR:
       many: "%{actors} comparten con vos."
       one: "%{actors} comparte con vos."
       other: "%{actors} comparten con vos."
+      two: "%{actors} comenzó a compartir con vos."
       zero: "%{actors} comparte con vos."
   notifier:
     a_post_you_shared: "una publicación."
@@ -671,6 +682,7 @@ es-AR:
     many: "%{count} reacciones"
     one: "1 reacción"
     other: "%{count} reacciones"
+    two: "%{count} reacciones"
     zero: "0 reacciones"
   registrations:
     closed: "Los registros están cerrados en este servidor de Diáspora*."
@@ -714,6 +726,7 @@ es-AR:
         many: "¡%{count} solicitudes nuevas!"
         one: "¡Una solicitud nueva!"
         other: "¡%{count} solicitudes nuevas!"
+        two: "%{count} nuevas solicitudes!"
         zero: "No hay solicitudes nuevas"
     manage_aspect_contacts:
       existing: "Contactos existentes"
@@ -757,6 +770,7 @@ es-AR:
       logged_in_as: "conectado como"
       no_services: "No conectaste ningún servicio todavía."
       really_disconnect: "¿Querés desconectarte de %{service}?"
+      services_explanation: "Conectar con otros servicios te ofrece la posibilidad de publicar tus publicaciones a medida que las escribes en Diaspora*."
     inviter:
       click_link_to_accept_invitation: "Seguí este enlace para aceptar la invitación"
       join_me_on_diaspora: "Unite, estoy en DIÁSPORA*"
@@ -804,7 +818,7 @@ es-AR:
       atom_feed: "canal Atom"
       control_your_audience: "Controla tu Audiencia"
       logged_in: "conectado a %{service}"
-      manage: "gestionar servicios conectados"
+      manage: "Gestionar servicios conectados"
       new_user_welcome_message: "Usa #hashtags para clasificar tus publicaciones y encontrar gente que comparte tus intereses.  Llama a gente interesante usando las @Menciones"
       outside: "Las publicaciones para \"el mundo\" podrán verse fuera de Diáspora*."
       share: "Comparte"
@@ -822,6 +836,7 @@ es-AR:
         newhere: "Hola"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando..."
+      preview: "Vista previa"
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "compartir con"
@@ -864,6 +879,7 @@ es-AR:
       many: "Mostrar %{count} comentarios más"
       one: "Mostrar 1 comentario más"
       other: "Mostrar %{count} comentarios más"
+      two: "Mostrar 2 comentarios más"
       zero: "No hay más comentarios"
   streams:
     activity:
@@ -956,7 +972,7 @@ es-AR:
         make_diaspora_better: "Queremos que nos ayudes a mejorar Diaspora, así que deberías ayudarnos en vez de marcharte. Si en verdad quieres irte, queremos que sepas lo que sucede después."
         mr_wiggles: "El gatito estará triste por verte partir."
         no_turning_back: "Actualmente, no hay vuelta atrás."
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+        what_we_delete: "Eliminaremos todas tus publicaciones y datos de perfil tan pronto como sea humanamente posible. Tus comentarios seguirán en línea, pero asociados a tu dirección de Diaspora*."
       close_account_text: "Cerrar cuenta"
       comment_on_post: "...comentan en una publicación tuya?"
       current_password: "Contraseña actual"

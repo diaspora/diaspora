@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ zh-TW:
       correlations: "關聯性"
       pages: "分頁"
       pod_stats: "Pod統計資料"
-      resque_overview: "Resque 狀態概要"
       user_search: "使用者搜尋"
       weekly_user_stats: "使用者統計週報"
     correlations:
@@ -389,18 +388,21 @@ zh-TW:
       many: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
       one: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
       other: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
+      two: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
       zero: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
     also_commented_deleted:
       few: "%{actors} 對已刪掉的貼文發表了意見."
       many: "%{actors} 對已刪掉的貼文發表了意見."
       one: "%{actors} 對已刪掉的貼文發表了意見."
       other: "%{actors} 對已刪掉的貼文發表了意見."
+      two: "%{actors} 對已刪掉的貼文發表了意見."
       zero: "%{actors} 對已刪掉的貼文發表了意見."
     comment_on_post:
       few: "%{actors} 對你的%{post_link}發表了意見."
       many: "%{actors} 對你的%{post_link}發表了意見."
       one: "%{actors} 對你的%{post_link}發表了意見."
       other: "%{actors} 對你的%{post_link}發表了意見."
+      two: "%{actors} 對你的%{post_link}發表了意見."
       zero: "%{actors} 對你的%{post_link}發表了意見."
     helper:
       new_notifications:
@@ -413,6 +415,7 @@ zh-TW:
         many: "和其他%{count}個人"
         one: "和另外一個人"
         other: "和其他%{count}個人"
+        two: "以及其他%{count}個"
         zero: "以外沒有其他人"
       mark_all_as_read: "全部標示為看過了"
       mark_unread: "標示為沒看過"
@@ -422,6 +425,7 @@ zh-TW:
       many: "%{actors} 說你的%{post_link}很讚."
       one: "%{actors} 說你的%{post_link}很讚."
       other: "%{actors} 說你的%{post_link}很讚."
+      two: "%{actors} 說你的%{post_link}很讚."
       zero: "%{actors} 說你的%{post_link}很讚."
     liked_post_deleted:
       other: "%{actors} 說你刪掉了的貼文很讚."
@@ -431,12 +435,14 @@ zh-TW:
       many: "%{actors} 在%{post_link}中點到了你."
       one: "%{actors}在%{post_link}中點到了你."
       other: "%{actors} 在%{post_link}中點到了你."
+      two: "%{actors} 在%{post_link}中點到了你."
       zero: "%{actors} 在%{post_link}中點到了你."
     mentioned_deleted:
       few: "%{actors} 在已刪掉的貼文中點到了你."
       many: "%{actors} 在已刪掉的貼文中點到了你."
       one: "%{actors} 在已刪掉的貼文中點到了你."
       other: "%{actors} 在已刪掉的貼文中點到了你."
+      two: "%{actors} 在刪掉的貼文中點到了你."
       zero: "%{actors} 在已刪掉的貼文中點到了你."
     post: "貼文"
     private_message:
@@ -447,12 +453,14 @@ zh-TW:
       many: "%{actors} 轉貼了你的%{post_link}."
       one: "%{actors} 轉貼了你的%{post_link}."
       other: "%{actors} 轉貼了你的%{post_link}."
+      two: "%{actors} 轉貼了你的%{post_link}."
       zero: "%{actors} 轉貼了你的%{post_link}."
     reshared_post_deleted:
       few: "%{actors} 轉貼了你刪掉的貼文."
       many: "%{actors} 轉貼了你刪掉的貼文."
       one: "%{actors} 轉貼了你刪掉的貼文."
       other: "%{actors} 轉貼了你刪掉的貼文."
+      two: "%{actors} 轉貼了你刪掉的貼文."
       zero: "%{actors} 轉貼了你刪掉的貼文."
     started_sharing:
       other: "%{actors} 開始跟你分享了."
@@ -646,6 +654,7 @@ zh-TW:
     many: "有%{count}次反應"
     one: "有1次反應"
     other: "有%{count}次反應"
+    two: "有%{count}次反應"
     zero: "沒有反應"
   registrations:
     closed: "本 Diaspora pod 不開放登記."
@@ -701,6 +710,7 @@ zh-TW:
         many: "被轉貼%{count}次"
         one: "被轉貼1次"
         other: "被轉貼%{count}次"
+        two: "%{count}次轉貼"
         zero: "轉貼"
       reshare_confirmation: "要轉貼 %{author} 的貼文嗎?"
       reshare_original: "轉貼原文"
@@ -755,6 +765,7 @@ zh-TW:
         many: "在%{count}個面向中"
         one: "在%{count}個面向中"
         other: "在%{count}個面向中"
+        two: "在%{count}個面向中"
         zero: "加聯絡人"
     contact_list:
       all_contacts: "所有聯絡人"
@@ -831,6 +842,7 @@ zh-TW:
       many: "請限制狀態訊息在%{count}個字內"
       one: "請限制狀態訊息在%{count}個字內"
       other: "請限制狀態訊息在%{count}個字內"
+      two: "請縮短你的狀態訊息在%{count}個字元以下"
       zero: "請限制狀態訊息在%{count}個字內"
   stream_helper:
     hide_comments: "隱藏所有意見"

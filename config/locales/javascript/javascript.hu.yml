@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -11,6 +11,7 @@ hu:
       add_to_aspect: "Hozzáadás a csoporthoz"
       all_aspects: "Összes csoport"
       error: "Nem indult el a megosztás vele: <%= name %>. Visszavonod?"
+      error_remove: "<%= name %> nem távolítható el a csoportból :("
       select_aspects: "Csoportok kiválasztása"
       started_sharing_with: "Mostantól megosztasz vele: <%= name %>!"
       stopped_sharing_with: "Nem osztasz meg többé vele: <%= name %>."
@@ -19,6 +20,7 @@ hu:
         many: "<%= count %> csoportban"
         one: "<%= count %> csoportban"
         other: "<%= count %> csoportban"
+        two: "<%= count %> csoportban"
         zero: "Csoportok kiválasztása"
     aspect_navigation:
       add_an_aspect: "+ Új csoport"
@@ -48,7 +50,7 @@ hu:
       mark_all_as_read: "Összes olvasottnak jelölése"
       messages: "Üzenetek"
       notifications: "Értesítések"
-      profile: "Profil"
+      profile: "Adatlap"
       recent_notifications: "Friss értesítések"
       search: "Keresés"
       settings: "Beállítások"
@@ -57,6 +59,7 @@ hu:
     ignore_user: "Felhasználó mellőzése?"
     infinite_scroll:
       no_more: "Nincs több bejegyzés."
+      no_more_contacts: "Nincs több ismerős."
     my_activity: "Tevékenységeim"
     my_aspects: "Csoportjaim"
     my_stream: "Hírfolyam"
@@ -64,7 +67,10 @@ hu:
       not_found: "és nem találni senkit..."
     photo_uploader:
       completed: "<%= file %> feltöltve"
+      empty: "{file} üres, kérlek válassz képeket újra, mellőzve a jelenlegit."
+      invalid_ext: "{file} érvénytelen kiterjesztésű. Csak {extensions} használata megengedett."
       looking_good: "Azta! Remekül nézek ki!"
+      size_error: "{file} túl nagy, az állomány mérete legfeljebb {sizeLimit} lehet."
     publisher:
       at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
@@ -95,6 +101,7 @@ hu:
         many: "Mutasd a további <%= count %> hozzászólást"
         one: "Mutasd a többi <%= count %> hozzászólást"
         other: "Mutasd a többi <%= count %> hozzászólást"
+        two: "Mutasd a többi <%= count %> hozzászólást"
         zero: "Mutasd a többi <%= count %> hozzászólást"
       original_post_deleted: "Eredeti bejegyzés törölve a szerzője által."
       public: "Nyilvános"
@@ -104,6 +111,7 @@ hu:
         many: "<%= count %> megosztás"
         one: "<%= count %> megosztás"
         other: "<%= count %> megosztás"
+        two: "<%= count %> megosztás"
         zero: "<%= count %> megosztás"
       show_nsfw_post: "Bejegyzés megjelenítése"
       show_nsfw_posts: "Összes megjelenítése"

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ ko:
       correlations: "상관 관계"
       pages: "페이지"
       pod_stats: "팟 통계"
-      resque_overview: "Resque 개요"
       user_search: "사용자 찾기"
       weekly_user_stats: "주간 사용자 통계"
     correlations:
@@ -150,6 +149,8 @@ ko:
       donate: "기부"
       handle_explanation: "디아스포라 아이디는 이메일 주소처럼 내게 연락하고 싶어하는 사람들에게 건낼 수 있습니다."
       help:
+        any_problem: "문제가 있나요?"
+        contact_podmin: "내 팟 관리자에게 문의하기"
         do_you: "해시태그:"
         email_feedback: "%{link}: 이메일로 보낼 수도 있습니다"
         email_link: "이메일"
@@ -157,6 +158,7 @@ ko:
         find_a_bug: "%{link}: 버그를 보고해주세요!"
         have_a_question: "%{link}: 물어보세요!"
         here_to_help: "디아스포라 커뮤니티가 도와드립니다!"
+        mail_podmin: "팟관리자 이메일 주소"
         need_help: "도움이 필요하세요?"
         tag_bug: "버그"
         tag_feature: "기능"
@@ -270,11 +272,13 @@ ko:
       people_sharing: "나와 공유하는 사람들:"
     spotlight:
       community_spotlight: "커뮤니티 스포트라이트"
+      suggest_member: "회원 제안"
     two: "컨택 %{count}명"
     zero: "컨택"
   conversations:
     create:
       fail: "유효하지 않은 쪽지"
+      no_contact: "컨택부터 추가하세요!"
       sent: "쪽지를 보냈습니다"
     destroy:
       success: "대화를 성공적으로 지웠습니다"
@@ -284,6 +288,7 @@ ko:
         many: "새 쪽지 %{count}개"
         one: "새 쪽지 한 개"
         other: "새 쪽지 %{count}개"
+        two: "새 쪽지 %{count}개"
         zero: "새 쪽지 없음"
     index:
       create_a_new_message: "쪽지 보내기"
@@ -329,10 +334,12 @@ ko:
     create:
       already_contacts: "이 사람과 이미 연결되어 있습니다"
       already_sent: "이미 초대한 사람입니다."
+      empty: "이메일 주소를 한 개 이상 입력해주세요."
       no_more: "가진 초대장이 없습니다."
+      note_already_sent: "이미 %{emails} 주소로 초대장을 보냈습니다."
       own_address: "내 이메일 주소로 초대장을 보낼 수 없습니다."
       rejected: "아래의 이메일 주소는 문제가 있습니다: "
-      sent: "초대장이 보내진 이메일 주소: "
+      sent: "초대장을 %{emails} 주소로 보냈습니다."
     edit:
       accept_your_invitation: "초대 승락하기"
       your_account_awaits: "내 계정이 기다리고있습니다!"
@@ -403,6 +410,7 @@ ko:
         many: "새 알림 %{count}개"
         one: "새 알림 한 개"
         other: "새 알림 %{count}개"
+        two: "새 알림 %{count}개"
         zero: "새 알림 없음"
     index:
       and: "그리고"
@@ -416,6 +424,7 @@ ko:
       many: "%{actors}님이 내 %{post_link}을 좋아합니다."
       one: "%{actors}님이 내 %{post_link}을 좋아합니다."
       other: "%{actors}님이 내 %{post_link}을 좋아합니다"
+      two: "%{actors}님이 %{post_link} 게시물을 좋아합니다."
       zero: "%{actors}님이 내 %{post_link}을 좋아합니다"
     liked_post_deleted:
       other: "%{actors}님이 내가 지운 게시물을 좋아합니다."
@@ -425,12 +434,14 @@ ko:
       many: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
       one: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
       other: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
+      two: "%{actors}님이 %{post_link} 게시물에서 나를 멘션했습니다."
       zero: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
     mentioned_deleted:
       few: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
       many: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
       one: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
       other: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
+      two: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
       zero: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
     post: "게시물"
     private_message:
@@ -438,6 +449,7 @@ ko:
       many: "%{actors}님이 쪽지를 보냈습니다."
       one: "%{actors}님이 쪽지를 보냈습니다."
       other: "%{actors}님이 쪽지를 보냈습니다."
+      two: "%{actors}님이 내게 쪽지를 보냈습니다."
       zero: "%{actors}님이 쪽지를 보냈습니다."
     reshared:
       other: "%{actors}님이 내 %{post_link}을 재공유했습니다."
@@ -447,12 +459,14 @@ ko:
       many: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
       one: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
       other: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
+      two: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
       zero: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
     started_sharing:
       few: "%{actors}님이 나와 공유를 시작했습니다."
       many: "%{actors}님이 나와 공유를 시작했습니다."
       one: "%{actors}님이 나와 공유를 시작했습니다."
       other: "%{actors}님이 나와 공유를 시작했습니다."
+      two: "%{actors}님이 나와 공유를 시작했습니다."
       zero: "%{actors}님이 나와 공유를 시작했습니다."
   notifier:
     a_post_you_shared: "게시물"
@@ -611,6 +625,7 @@ ko:
         many: "%{author}님의 사진 %{count}장"
         one: "%{author}님의 사진 한 장"
         other: "%{author}님의 사진 %{count}장"
+        two: "%{author}님의 사진 두 장"
         zero: "%{author}님의 사진 없음"
       reshare_by: "%{author}님이 재공유"
   previous: "이전"
@@ -645,6 +660,7 @@ ko:
     many: "반응 %{count}개"
     one: "반응 한 개"
     other: "반응 %{count}개"
+    two: "반응 %{count}개"
     zero: "반응 %{count}개"
   registrations:
     closed: "우리 디아스포라 팓은 가입이 닫혀있습니다."
@@ -670,6 +686,7 @@ ko:
       hey_make: "자,<br/>뭔가<br/>만들어보세요."
       join_the_movement: "합류하세요!"
       password: "암호"
+      password_confirmation: "암호 확인"
       sign_up: "가입"
       sign_up_message: "소셜 네트워크♡"
       username: "사용자 이름"
@@ -687,6 +704,7 @@ ko:
         many: "요청이 %{count}개 들어왔습니다!"
         one: "요청이 한 개 들어왔습니다!"
         other: "요청이 %{count}개 들어왔습니다!"
+        two: "새 요청이 %{count}개 있습니다!"
         zero: "요청 없음"
     manage_aspect_contacts:
       existing: "기존 컨택"
@@ -704,6 +722,7 @@ ko:
         many: "재공유 %{count}번"
         one: "재공유 한 번"
         other: "재공유 %{count}번"
+        two: "재공유 %{count}개"
         zero: "재공유"
       reshare_confirmation: "%{author}님의 %{text} 게시물을 재공유하시겠습니까?"
       reshare_original: "원본 재공유"
@@ -778,7 +797,7 @@ ko:
       atom_feed: "Atom 구독"
       control_your_audience: "보일 사람 제어하기"
       logged_in: "%{service}에 로그인 되었습니다"
-      manage: "연결된 서비스 관리"
+      manage: "서비스 연결 관리"
       new_user_welcome_message: "#해시태그 는 내 게시물을 분류하고, 같은 관심사를 가진 사람들을 찾습니다. @멘션 으로 멋진 사람들을 부릅니다."
       outside: "공개 게시물은 디아스포라 밖의 사람들도 볼 수 있습니다."
       share: "공유하기"
@@ -837,6 +856,7 @@ ko:
       many: "댓글 %{count}개 더 보기"
       one: "댓글 한 개 더 보기"
       other: "댓글 %{count}개 더 보기"
+      two: "댓글 두 개 더 보기"
       zero: "댓글이 더 없습니다"
   streams:
     activity:
@@ -957,6 +977,8 @@ ko:
     getting_started:
       awesome_take_me_to_diaspora: "디아스포라* 시작하기"
       community_welcome: "디아스포라 커뮤니티가 여러분을 환영합니다!"
+      connect_to_facebook: "%{link} 디아스포라를 더 빨리 시작할 수있습니다. 내 이름과 사진을 가져오고 서로 게시물을 게시할 수 있습니다."
+      connect_to_facebook_link: "페이스북 계정을 연결하면"
       hashtag_explanation: "해시태그로 내 관심사에 대해 말하거나 팔로우할 수 있습니다. 디아스포라에서 새로운 사람들을 찾을 수 있는 또 하나의 훌륭한 방법입니다."
       hashtag_suggestions: "#art, #movies, #gif 같은 태그를 팔로우해보세요."
       saved: "저장되었습니다!"

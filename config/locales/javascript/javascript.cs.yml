@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -9,7 +9,7 @@ cs:
     aspect_dropdown:
       add_to_aspect: "Přidat kontakt"
       all_aspects: "Všechny aspekty"
-      error: "Nelze začít sdílení s <%= name %>.  Neignorujete je?"
+      error: "Nelze zahájit sdílení s <%= name %>.  Neignorujete je?"
       select_aspects: "Vybrat aspekty"
       started_sharing_with: "Začali jste sdílet s <%= name %>!"
       stopped_sharing_with: "Přestali jste sdílet s <%= name %>."
@@ -17,7 +17,7 @@ cs:
         few: "Ve <%= count %> aspektech"
         one: "V <%= count %> aspektu"
         other: "V <%= count %> aspektech"
-        zero: "Vyberte aspekty"
+        zero: "V <%= count %> aspektech"
     aspect_navigation:
       deselect_all: "Odznačit vše"
       no_aspects: "Nebyl vybrán žádný aspekt"
@@ -51,22 +51,29 @@ cs:
     infinite_scroll:
       no_more: "Žádné další příspěvky."
     my_activity: "Moje aktivita"
-    my_stream: "Stream"
+    my_stream: "Proud"
     photo_uploader:
       looking_good: "Tedy, vypadáte úžasně!"
     publisher:
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
-      limited: "Omezený — váše zpráva bude přístupná pouze lidem, se kterými sdílíte"
-      public: "Veřejné — váši zprávu si bude moci přečíst kdokoliv a může být nalezena vyhledávači"
+      limited: "Omezený — váš příspěvek bude přístupný pouze lidem, se kterými sdílíte"
+      public: "Veřejný — váš příspěvek si bude moci přečíst kdokoliv a může být nalezen vyhledávači"
     reshares:
-      duplicate: "Tato zprávu už sdílíte!"
+      duplicate: "Tento příspěvek už sdílíte!"
+      post: "Sdílet příspěvek uživatele <%= name %>?"
+      successful: "Příspěvek je sdílen!"
     search_for: "Hledat <%= name %>"
     show_more: "zobrazit více"
     stream:
       comment: "Okomentovat"
       follow: "Sledovat"
+      followed_tag:
+        add_a_tag: "Přidat štítek"
+        contacts_title: "Lidé navěšující tyto štítky"
+        follow: "Sledovat"
+        title: "#Sledované štítky"
       hide: "Skrýt"
-      hide_nsfw_posts: "Skrýt příspěvky #nsfw"
+      hide_nsfw_posts: "Skrýt citlivý obsah (erotiku, násilí a podobně)"
       like: "To se mi líbí"
       likes:
         few: "<%= count %> uživatelům se to líbí"
@@ -79,7 +86,7 @@ cs:
         one: "Zobrazit <%= count %> další komentář"
         other: "Zobrazit <%= count %> dalších komentářů"
         zero: "Zobrazit <%= count %> dalších komentářů"
-      original_post_deleted: "Původní zpráva byla odstraněna jejím autorem."
+      original_post_deleted: "Původní příspěvek byl odstraněn svým autorem."
       public: "Veřejný"
       reshare: "Sdílet"
       reshares:
@@ -89,6 +96,10 @@ cs:
         zero: "Nikdo to nesdílel"
       show_nsfw_post: "Zobrazit příspěvek"
       show_nsfw_posts: "Zobrazit vše"
+      tags:
+        follow: "Sledovat #<%= tag %>"
+        following: "Sledujete #<%= tag %>"
+        stop_following: "Přestat sledovat #<%= tag %>"
       unfollow: "Přestat sledovat"
       unlike: "To se mi nelíbí"
     tags:
@@ -103,7 +114,7 @@ cs:
       month: "1 měsícem"
       months: "%d měsíci"
       prefixAgo: "před"
-      prefixFromNow: ""
+      prefixFromNow: "za"
       seconds: "méně než minutou"
       suffixAgo: ""
       suffixFromNow: ""
@@ -114,9 +125,9 @@ cs:
       watch: "Podívejte se na tohle video na <%= provider %>"
     viewer:
       comment: "Komentovat"
-      follow_post: "Následovat"
+      follow_post: "Sledovat příspěvek"
       like: "To se mi líbí"
       reshare: "Sdílet"
       reshared: "Sdíleno"
-      stop_following_post: "Přestat následovat"
+      stop_following_post: "Přestat sledovat příspěvek"
       unlike: "To se mi nelíbí"
