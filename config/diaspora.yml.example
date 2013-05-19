@@ -328,6 +328,8 @@ configuration: ## Section
 ## Here you can make overides to settings defined above if you need
 ## to have them different in different environments.
 production: ## Section
+  environment: ## Section
+    #redis_url: 'redis://production.example.org:6379'
   
 development: ## Section
   environment: ## Section
