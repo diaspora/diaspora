@@ -19,6 +19,7 @@ require 'markdownify_helper'
 # Our libs
 require 'collect_user_photos'
 require 'diaspora'
+require 'direction_detector'
 require 'email_inviter'
 require 'evil_query'
 require 'federation_logger'
@@ -33,4 +34,3 @@ require 'stream'
 require 'template_picker'
 require 'webfinger'
 require 'webfinger_profile'
-
