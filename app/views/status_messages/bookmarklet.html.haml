@@ -2,6 +2,8 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+= javascript_include_tag :home
+
 #new_status_message_pane
   .span-15.last
     %h4
@@ -35,5 +37,7 @@
 
 - content_for(:head) do
   :css
+    body { padding:0; margin-top: 0; }
+    .container { width: auto; }
     #new_status_message_pane { margin: 1em 0 0; }
     #new_status_message_pane h4 { margin: 0 0 0 1em; }

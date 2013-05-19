@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -17,6 +17,7 @@ sl:
         few: "V <%= count %> vidikih"
         one: "V <%= count %> vidiku"
         other: "V <%= count %> vidikih"
+        two: "V <%= count %> vidikih"
         zero: "Izberite vidik"
     aspect_navigation:
       deselect_all: "Odstrani izbiro"
@@ -77,12 +78,14 @@ sl:
         few: "<%= count %> je to všeč"
         one: "<%= count %> je to všeč"
         other: "<%= count %> je to všeč"
+        two: "<%= count %> je to všeč"
         zero: "Nikomur ni to všeč"
       limited: "Omejeno"
       more_comments:
         few: "Prikaži <%= count %> mnenja"
         one: "Prikaži <%= count %> mnenje"
         other: "Prikaži <%= count %> mnenj"
+        two: "Prikaži <%= count %> mnenji"
         zero: "Prikaži <%= count %> mnenj"
       original_post_deleted: "Avtor je izbrisal izvirno objavo."
       public: "Javno"
@@ -91,6 +94,7 @@ sl:
         few: "<%= count %> ponovna deljenja"
         one: "<%= count %> ponovno deljenje"
         other: "<%= count %> ponovnih deljenj"
+        two: "<%= count %> ponovni deljenji"
         zero: "<%= count %> ponovnih deljenj"
       show_nsfw_post: "Prikaži objavo"
       show_nsfw_posts: "Prikaži vse"

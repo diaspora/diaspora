@@ -3,7 +3,8 @@
 -#   the COPYRIGHT file.
 
 - content_for :head do
-  = javascript_include_tag :jquery, :home
+  = javascript_include_tag :jquery
+  = javascript_include_tag 'fileuploader-custom'
 
   :javascript
     $(document).ready(function () {

@@ -31,8 +31,8 @@ describe Webfinger do
   end
 
   describe '.in_background' do
-    it 'enqueues a Jobs::FetchWebfinger job' do
-      Resque.should_receive(:enqueue).with(Jobs::FetchWebfinger, account)
+    it 'enqueues a Workers::FetchWebfinger job' do
+      Workers::FetchWebfinger.should_receive(:perform_async).with(account)
       Webfinger.in_background(account)
     end
   end

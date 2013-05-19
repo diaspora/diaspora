@@ -3,9 +3,6 @@
 #   the COPYRIGHT file.
 
 class UsersController < ApplicationController
-  require Rails.root.join('lib', 'diaspora', 'exporter')
-  require Rails.root.join('lib', 'collect_user_photos')
-
   before_filter :authenticate_user!, :except => [:new, :create, :public, :user_photo]
 
   respond_to :html
@@ -103,7 +100,7 @@ class UsersController < ApplicationController
     if @user = User.find_by_username(params[:username])
       respond_to do |format|
         format.atom do
-          @posts = StatusMessage.where(:author_id => @user.person_id, :public => true).order('created_at DESC').limit(25)
+          @posts = Post.where(:author_id => @user.person_id, :public => true).order('created_at DESC').limit(25)
         end
 
         format.any { redirect_to person_path(@user.person) }
@@ -114,12 +111,16 @@ class UsersController < ApplicationController
   end
 
   def getting_started
-    @aspect   = :getting_started
     @user     = current_user
     @person   = @user.person
     @profile  = @user.profile
 
-    render "users/getting_started"
+    @css_framework = :bootstrap
+    @include_application_css = true #Hack for multiple CSS frameworks and having two main styles
+    respond_to do |format|
+    format.mobile { render "users/getting_started" }
+    format.all { render "users/getting_started", layout: "with_header_with_footer" }
+    end
   end
 
   def getting_started_completed

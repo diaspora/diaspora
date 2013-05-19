@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -31,40 +31,31 @@ ml:
       hello: "നമസ്ക്കാരം %{email}!"
       invitation_instructions:
         accept: "ക്ഷണം സ്വീകരിക്കു"
-        arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
-        be_yourself: "Be Yourself"
-        be_yourself_paragraph: "The Internet has created unique new ways for us to express ourselves. %{strong_diaspora} lets you be yourself and share however you want, with or without your real name."
+        be_yourself: "താങ്കൾ താങ്കളാകുക"
         cubbies: "Cubbi.es"
         displaying_correctly: "ഇമെയില്‍ ശരിക്ക് കാണുന്നില്ലേ? %{link}"
         email_address: "questions@joindiaspora.com"
-        email_us: "For general inquiries or support with your Diaspora account, please email us at %{email}."
-        friends_saying: "What your friends are saying..."
-        get_connected: "Get Connected"
-        get_connected_paragraph: "An international movement with a shared vision for a better web, %{strong_diaspora}'s #1 feature is its community. Meet new people, connect with friends, and join the fun."
-        have_fun: "Have Fun"
-        have_fun_paragraph: "%{strong_diaspora} is all about discovering amazing new content and people online. %{link}, the world's first %{strong_diaspora} application is just the begining. Collect and share the web in all of its glory."
-        help_fund: "help fund Diaspora"
+        finally: "അവസാനം - അതിവിടെ..."
+        friends_saying: "നിങ്ങളുടെ സുഹൃത്തുക്കള്‍ പറയുന്നത്"
+        get_connected: "ബന്ധപ്പെടുക"
+        have_fun: "അടിച്ച് പൊളിക്കു"
+        help_fund: "ഡയസ്പോറയിലോട്ട് സംഭാവന തരുക"
         here: "ഇവിടെ"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        join_team: "Join our Team"
+        join_team: "ഞങ്ങളുടെ കൂട ചേരുക"
         love: "സസ്നേഹം,"
-        made_by_people: "%{strong_diaspora} is made by people who love the Internet as much as you do. %{jointeam}, or %{helpfund}!"
-        more_people: "Even more people are excited to see you!"
-        no_account_till: "Your account won't be created until you access the link above and sign up."
         or: "അല്ലെങ്കില്‍"
         sign_up_now: "ഇപ്പോള്‍ തന്നെ കയറു &rarr;"
         subject: "ഡയസ്പോറയില്‍ ചേരാന്‍ താങ്കളെ ക്ഷണിച്ചിരിക്കുന്നു!"
-        team_diaspora: "Team Diaspora"
-        unsubscribe: "To unsubscribe please click %{link}."
+        team_diaspora: "ഡയസ്പോറ ടീം"
         view_in: "ബ്രൌസറില്‍ കാണു:"
       inviter:
-        accept_at: "at %{url}, you can accept it through the link below."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} എന്നിവര്‍ താങ്കളെ ഡയസ്പോറയില്‍ ചേരാന്‍ ക്ഷണിച്ചിരിക്കുന്നു"
       reset_password_instructions:
         change: "എന്റെ രഹസ്യവാക്ക് മാറ്റുക"
         ignore: "താങ്കള്‍ ഇത് ആവശ്യപ്പെട്ടിലെങ്കില്‍ ദയവായി അവഗണിക്കുക."
         someone_requested: "താങ്കളുടെ രഹസ്യവാക്ക് മാറ്റുന്നതിന് ആരോ അപേക്ഷ നല്‍കിയിരിക്കുന്നു. മാറ്റുന്നതിനായി താഴെയുള്ള കണ്ണി തിരഞ്ഞെടുക്കാവുന്നതാണ്."
+        subject: "രഹസ്യവാക്ക് പുനഃക്രമീകരിക്കാനുള്ള നിര്‍ദ്ദേശങ്ങള്‍"
         wont_change: "മുകളിലുള്ള കണ്ണിയിലൂടെ പൂതിയ ഒരു രഹസ്യവാക്ക് നിര്‍മ്മിക്കാതെ അത് മാറ്റപ്പെടില്ല."
       unlock_instructions:
         click_to_unlock: "നിങ്ങളുടെ അക്കൌണ്ട് തുറക്കുന്നതിനായി താഴെയുള്ള കണ്ണി തെരഞ്ഞെടുക്കുക:"
@@ -99,7 +90,6 @@ ml:
         receive_unlock: "തുറക്കാനുള്ള വിവരങ്ങള്‍ ലഭിച്ചില്ലേ?"
         sign_in: "പ്രവേശിക്കു"
         sign_up: "ചേരു"
-        sign_up_closed: "Open signups are closed at this time."
       mail_signup_form:
         sign_up_for_an_invite: "ഒരു ക്ഷണത്തിനായി ചേരു!"
     unlocks:

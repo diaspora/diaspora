@@ -16,7 +16,7 @@
         %params
           #fileInfo
           #publisher_textarea_wrapper
-            = link_to( image_tag('deletelabel.png'), "#", :id => "hide_publisher", :title => t('.discard_post'))
+            = link_to(content_tag(:div, nil, :class => 'icons-deletelabel'), "#", :id => "hide_publisher", :title => t('.discard_post'))
             %ul#photodropzone
             - if current_user.getting_started?
               = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",
@@ -26,8 +26,12 @@
               = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}..."
             = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
 
-            #file-upload{:title => t('.upload_photos')}
-              = image_tag 'icons/camera.png', :alt => t('.upload_photos').titleize
+            #publisher-images
+              #locator.btn{:title => t('.get_location')}
+                = image_tag 'icons/marker.png', :alt => t('.get_location').titleize, :class => 'publisher_image'
+              #file-upload.btn{:title => t('.upload_photos')}
+                = image_tag 'icons/camera.png', :alt => t('.upload_photos').titleize, :class => 'publisher_image'
+            = hidden_field :location, :coords
 
       - if publisher_public
         = hidden_field_tag 'aspect_ids[]', "public"
@@ -42,8 +46,14 @@
           %span#publisher_service_icons
             - if current_user.services
               - for service in current_user.services
-                = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
-            = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
+                = content_tag :div, nil,
+                              :title => "#{service.provider.titleize} (#{service.nickname})",
+                              :class => "social_media_logos-#{service.provider}-16x16 service_icon dim",
+                              :id    => "#{service.provider}",
+                              :maxchar => "#{service.class::MAX_CHARACTERS}",
+                              :data  => {:toggle=>'tooltip', :placement=>'bottom'}
+            %a{ :href => "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage') }
+              .icons-monotone_wrench_settings
 
           .dropdown{ ! current_user.getting_started? ? {:class => "hang_right"} : { :class => "hang_right", :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_audience')}"), 'data-content'=> t('shared.public_explain.visibility_dropdown')} }
             .button.toggle.publisher
@@ -67,6 +77,9 @@
 
                 - for aspect in all_aspects
                   = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )
+
+          %button{ :disabled => ("disabled" if publisher_hidden_text.blank?), :class => 'button post_preview_button'}
+            = t('.preview')
 
           = status.submit t('.share'), :disabled => publisher_hidden_text.blank?, :class => 'button creation', :tabindex => 2
 

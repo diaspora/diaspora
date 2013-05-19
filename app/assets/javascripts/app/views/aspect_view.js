@@ -3,6 +3,8 @@ app.views.Aspect = app.views.Base.extend({
 
   tagName: "li",
 
+  className: 'sub_nav_item',
+
   initialize: function(){
     if (this.model.get('selected')){
       this.$el.addClass('active');
@@ -16,6 +18,7 @@ app.views.Aspect = app.views.Base.extend({
   toggleAspect: function(evt){
     if (evt) { evt.preventDefault(); };
     this.$el.toggleClass('active');
+    this.$el.find('.icons-check_yes_ok').toggleClass('invisible')
     this.model.toggleSelected();
     app.router.aspects_stream();
   },

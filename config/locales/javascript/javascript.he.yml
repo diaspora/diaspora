@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -19,6 +19,7 @@ he:
         many: "{{count}} תחומי עניין ב"
         one: "{{count}}בתחום עניין "
         other: "ב־{{count}} היבטים"
+        two: "ב־{{count}} היבטים"
         zero: "בחר תחום עניין"
     aspect_navigation:
       deselect_all: "בטל את הסימון"
@@ -78,7 +79,9 @@ he:
       follow: "עקוב"
       followed_tag:
         add_a_tag: "הוסף תג"
+        contacts_title: "אנשים שדלוקים על התגיות הללו"
         follow: "עקוב"
+        title: "תגיות נעקבות"
       hide: "הסתר"
       hide_nsfw_posts: "הסתר את הההודעות אשר nsfw#"
       like: "אהבתי"
@@ -87,6 +90,7 @@ he:
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
         other: "<%= count %> Likes"
+        two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
       limited: "מוגבל"
       more_comments:
@@ -94,6 +98,7 @@ he:
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
       original_post_deleted: "ההודעה המקורית נמחקה על ידי הכותב"
       public: "ציבורי"
@@ -103,9 +108,14 @@ he:
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
       show_nsfw_post: "הצג את ההודעה"
       show_nsfw_posts: "הצג הכל"
+      tags:
+        follow: "עקוב אחרי #<%= tag %>"
+        following: "במעקב אחר #<%= tag %>"
+        stop_following: "הפסק מעקב אחר #<%= tag %>"
       unfollow: "הפסק לעקוב"
       unlike: "לא אהבתי"
     tags:

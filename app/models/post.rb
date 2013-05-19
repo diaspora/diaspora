@@ -66,6 +66,11 @@ class Post < ActiveRecord::Base
   def mentioned_people; []; end
   def photos; []; end
 
+  #prevents error when trying to access @post.address in a post different than Reshare and StatusMessage types;
+  #check PostPresenter
+  def address
+  end
+
   def self.excluding_blocks(user)
     people = user.blocks.map{|b| b.person_id}
     scope = scoped
@@ -145,7 +150,7 @@ class Post < ActiveRecord::Base
            end
 
     # is that a private post?
-    raise(Diaspora::NonPublic) unless user || post.public?
+    raise(Diaspora::NonPublic) unless user || post.try(:public?)
 
     post || raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}"))
   end

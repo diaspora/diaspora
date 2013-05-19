@@ -28,12 +28,19 @@ app.views.AspectsList = app.views.Base.extend({
   toggleAll: function(evt){
     if (evt) { evt.preventDefault(); };
 
+    var aspects = this.$('li:not(:last)')
     if (this.collection.allSelected()) {
       this.collection.deselectAll();
-      this.$('li:not(:last)').removeClass("active");
+      aspects.removeClass("active");
+      aspects.each(function(i){
+        $(this).find('.icons-check_yes_ok').addClass('invisible');
+      });
     } else {
       this.collection.selectAll();
-      this.$('li:not(:last)').addClass("active");
+      aspects.addClass("active");
+      aspects.each(function(i){
+        $(this).find('.icons-check_yes_ok').removeClass('invisible');
+      });
     }
 
     this.toggleSelector();

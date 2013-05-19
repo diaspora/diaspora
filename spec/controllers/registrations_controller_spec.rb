@@ -79,7 +79,7 @@ describe RegistrationsController do
       it "redirects to the home path" do
         get :create, @valid_params
         response.should be_redirect
-        response.location.should match /^#{root_url}\??$/
+        response.location.should match /^#{stream_url}\??$/
       end
     end
 

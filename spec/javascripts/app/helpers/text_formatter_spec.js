@@ -214,6 +214,12 @@ describe("app.helpers.textFormatter", function(){
         expect(wrapper.find("h1").length).toBe(0)
         expect(wrapper.find("a[href='/tags/parties']").text()).toContain("#parties")
       })
+
+      it("and the resultant link has the tags name downcased", function(){
+        var formattedText = this.formatter.hashtagify("#PARTIES, I love")
+
+        expect(formattedText).toContain("/tags/parties")
+      })
     })
   })
 

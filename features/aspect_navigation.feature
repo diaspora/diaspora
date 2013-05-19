@@ -31,3 +31,10 @@ Feature: Aspect navigation on the left menu
       Then I should see "Besties" aspect selected
       Then I should see "Unicorns" aspect selected
       Then I should see "Others" aspect unselected
+
+    Scenario: Deselect all aspects
+      When I go to the aspects page
+      And I follow "Deselect all"
+      Then I should see "Besties" aspect unselected
+      Then I should see "Unicorns" aspect unselected
+      Then I should see "Others" aspect unselected

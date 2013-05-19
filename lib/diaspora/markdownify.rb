@@ -1,5 +1,3 @@
-require 'erb'
-
 module Diaspora
   module Markdownify
     class HTML < Redcarpet::Render::HTML

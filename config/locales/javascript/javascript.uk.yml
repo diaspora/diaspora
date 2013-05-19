@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -18,6 +18,7 @@ uk:
         many: "У {{count}} аспектах"
         one: "У {{count}} аспектах"
         other: "У {{count}} аспектах"
+        two: "У {{count}} аспектах"
         zero: "Вибрати аспекти"
     aspect_navigation:
       deselect_all: "Зняти вибір з усіх"
@@ -78,6 +79,7 @@ uk:
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
         other: "<%= count %> Likes"
+        two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
       limited: "Обмежений"
       more_comments:
@@ -85,6 +87,7 @@ uk:
         many: "Показати ще <%= count %> відгуків"
         one: "Показати ще <%= count %> відгуків"
         other: "Показати ще <%= count %> відгуків"
+        two: "Показати ще <%= count %> відгуків"
         zero: "Показати ще <%= count %> відгуків"
       original_post_deleted: "Початкове повідомлення було вилучено автором."
       public: "Публічна"
@@ -94,6 +97,7 @@ uk:
         many: "<%= count %> поширень"
         one: "<%= count %> поширень"
         other: "<%= count %> поширень"
+        two: "<%= count %> поширень"
         zero: "<%= count %> поширень"
       show_nsfw_post: "Переглянути запис"
       show_nsfw_posts: "Показати все"
@@ -110,7 +114,7 @@ uk:
       minutes: "%d хвилин[-и]"
       month: "біля місяця"
       months: "%d місяця[-ів]"
-      prefixAgo: "біля"
+      prefixAgo: ""
       prefixFromNow: "через"
       seconds: "декілька секунд"
       suffixAgo: "тому"

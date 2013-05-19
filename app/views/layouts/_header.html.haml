@@ -2,11 +2,13 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.container{:style => "position:relative;"}
-  = link_to image_tag('branding/logo_small.png', :height => "16px", :width => "161px", :style => 'position:relative;top:5px;'), root_path
+%header
+    - unless current_user
+        .container{:style => "position:relative;"}
+            = link_to content_tag(:div, nil, :class => 'branding-logo_small'), root_path
 
-  %ul#landing_nav
-    %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
-    %li= link_to 'github', "https://github.com/diaspora/diaspora"
-    %li= link_to t('.blog'), 'http://blog.joindiaspora.com/'
-    %li= link_to t('.login'), new_user_session_path, :class => 'login'
+            %ul#landing_nav
+                %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
+                %li= link_to 'github', "https://github.com/diaspora/diaspora"
+                %li= link_to t('.blog'), 'http://blog.diasporafoundation.org/'
+                %li= link_to t('.login'), new_user_session_path, :class => 'login'

@@ -1,0 +1,79 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+fy:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "Kontakt taheakje"
+    aspect_navigation:
+      deselect_all: "Alle deselektearje"
+      select_all: "Alle selektearje"
+    comments:
+      hide: "reaksjes ferbergje"
+      show: "toan alle reaksjes"
+    confirm_dialog: "Bisto wis?"
+    delete: "Fuortsmite"
+    getting_started:
+      alright_ill_wait: "Akkoard, ik wachtsje."
+      hey: "Hé, <%= name %>"
+    header:
+      admin: "Behearder"
+      contacts: "Kontakten"
+      home: "Thús"
+      log_out: "Útlogge"
+      mark_all_as_read: "Alle as lêzen markearje"
+      messages: "Berjochten"
+      notifications: "Notifikaasjes"
+      profile: "Profyl"
+      recent_notifications: "Resinte Notifikaasjes"
+      search: "Sykje"
+      settings: "Ynstellingen"
+      view_all: "Toan alle"
+    ignore: "Negearje"
+    my_activity: "Myn Aktiviteit"
+    photo_uploader:
+      looking_good: "Heare GOD noch oan ta, do sjochst der fantastysk út!"
+    search_for: "Sykje nei <%= name %>"
+    show_more: "toan mear"
+    stream:
+      comment: "Reaksje"
+      follow: "Folgje"
+      hide: "Ferbergje"
+      hide_nsfw_posts: "#nsfw berjochten ferbergje"
+      like: "Fyn-ik-Leuk"
+      likes:
+        one: "<%= count %> Fyn-ik-Leuk"
+        other: "<%= count %> Fyn-ik-Leuks"
+        zero: "<%= count %> Fyn-ik-Leuks"
+      more_comments:
+        one: "Toan <%= count %> oare reaksje"
+        other: "Toan <%= count %> oare reaksjes"
+        zero: "Toan <%= count %> oare reaksjes"
+      public: "Iepenbier"
+      reshares:
+        one: "<%= count %> kear dield"
+        other: "<%= count %> kearen dield"
+        zero: "<%= count %> kearen dield"
+      show_nsfw_post: "Toan berjocht"
+      show_nsfw_posts: "Toan alle"
+      unfollow: "Net mear Folgje"
+      unlike: "Net mear Leuk"
+    timeago:
+      day: "in dei"
+      days: "%d dagen"
+      hour: "likernôch in oere"
+      hours: "likernôch %d oeren"
+      minutes: "%d minuten"
+      month: "likernôch in moanne"
+      months: "%d moannen"
+      prefixAgo: ""
+      prefixFromNow: ""
+      suffixAgo: "lyn"
+      suffixFromNow: ""
+      year: "likernôch in jier"
+      years: "%d jierren"
+    videos:
+      watch: "Dizze fideo op <%= provider %> besjen"

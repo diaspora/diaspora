@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ it:
       correlations: "Correlazioni"
       pages: "Pagine"
       pod_stats: "Statistiche pod"
-      resque_overview: "Supervisione Resque"
       user_search: "Cerca utente"
       weekly_user_stats: "Statistiche settimanali utenti"
     correlations:
@@ -157,6 +156,8 @@ it:
       donate: "Fai una donazione"
       handle_explanation: "Questo è il tuo ID su Diaspora. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
       help:
+        any_problem: "Qualche problema?"
+        contact_podmin: "Contatta l'amministratore del tuo pod"
         do_you: "Vuoi..."
         email_feedback: "Se preferisci, manda un feedback a %{link}"
         email_link: "Email"
@@ -278,11 +279,13 @@ it:
       people_sharing: "Persone che condividono con te:"
     spotlight:
       community_spotlight: "In evidenza nella comunità"
+      suggest_member: "Suggerisci un membro"
     two: "%{count} contatti"
     zero: "contatti"
   conversations:
     create:
       fail: "Messaggio non valido"
+      no_contact: "Hey, devi prima aggiungere un contatto!"
       sent: "Messaggio inviato"
     destroy:
       success: "Conversazione rimossa con successo"
@@ -335,7 +338,9 @@ it:
     create:
       already_contacts: "Questa persona è già tra i tuoi contatti"
       already_sent: "Hai già invitato questa persona."
+      empty: "Perfavore inserire almeno un indirizzo email."
       no_more: "Non hai più inviti a disposizione"
+      note_already_sent: "Gli inviti sono stati già inviati a: %{emails}"
       own_address: "Non puoi inviare un invito al tuo indirizzo."
       rejected: "Questi indirizzi email hanno dei problemi:"
       sent: "Gli inviti sono stati inviati a: "
@@ -390,12 +395,14 @@ it:
         many: "%{count} mi piace"
         one: "%{count} mi piace"
         other: "%{count} mi piace"
+        two: "%{count} mi piace"
         zero: "0 mi piace"
       people_like_this_comment:
         few: "%{count} mi piace"
         many: "%{count} mi piace"
         one: "%{count} mi piace"
         other: "%{count} mi piace"
+        two: "%{count} mi piace"
         zero: "0 mi piace"
   limited: "Non pubblico"
   more: "Altro"
@@ -407,6 +414,7 @@ it:
       many: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
       one: "Anche %{actors} ha commentato il %{post_link} di %{post_author}."
       other: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
+      two: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
       zero: "%{actors} ha commentato il %{post_link} di %{post_author}."
     also_commented_deleted:
       one: "%{actors} ha commentato un post che è stato eliminato."
@@ -417,6 +425,7 @@ it:
       many: "%{actors} hanno commentato il tuo %{post_link}."
       one: "%{actors} ha commentato il tuo %{post_link}."
       other: "%{actors} hanno commentato il tuo %{post_link}."
+      two: "%{actors} hanno commentato il tuo %{post_link}."
       zero: "%{actors} ha commentato il tuo %{post_link}."
     helper:
       new_notifications:
@@ -430,6 +439,7 @@ it:
         many: "e altre %{count} persone"
         one: "e un'altra persona"
         other: "e altre %{count} persone"
+        two: "e altre %{count} persone"
         zero: "e nessun altro"
       mark_all_as_read: "Segna come lette"
       mark_unread: "Segna come non letti"
@@ -439,24 +449,28 @@ it:
       many: "A %{actors} piace il tuo %{post_link}."
       one: "A %{actors} piace il tuo %{post_link}."
       other: "A %{actors} piace il tuo %{post_link}."
+      two: "A %{actors} piace il tuo %{post_link}."
       zero: "A %{actors} piace il tuo %{post_link}."
     liked_post_deleted:
       few: "A %{actors} piaceva il post che hai eliminato."
       many: "A %{actors} piaceva il post che hai eliminato."
       one: "A %{actors} piaceva il post che hai eliminato."
       other: "A %{actors} piaceva il post che hai eliminato."
+      two: "A %{actors} piaceva il post che hai eliminato."
       zero: "A %{actors} piaceva il post che hai eliminato."
     mentioned:
       few: "%{actors} ti hanno menzionato in un %{post_link}."
       many: "%{actors} ti hanno menzionato in un %{post_link}."
       one: "%{actors} ti ha menzionato in un %{post_link}."
       other: "%{actors} ti hanno menzionato in un %{post_link}."
+      two: "%{actors} ti hanno menzionato in un %{post_link}."
       zero: "%{actors} ti hanno menzionato in un %{post_link}."
     mentioned_deleted:
       few: "%{actors} ti hanno menzionato in un post che è stato eliminato."
       many: "%{actors} ti hanno menzionato in un post che è stato eliminato."
       one: "%{actors} ti ha menzionato in un post che è stato eliminato."
       other: "%{actors} ti ha menzionato in un post che è stato eliminato."
+      two: "%{actors} ti hanno menzionato in un post che è stato eliminato."
       zero: "%{actors} ti ha menzionato in un post che è stato eliminato."
     post: "post"
     private_message:
@@ -472,12 +486,14 @@ it:
       many: "%{actors} hanno condiviso il post che hai eliminato."
       one: "%{actors} ha condiviso il post che hai eliminato."
       other: "%{actors} hanno condiviso il post che hai eliminato."
+      two: "%{actors} hanno condiviso il post che hai eliminato."
       zero: "%{actors} hanno condiviso il post che hai eliminato."
     started_sharing:
       few: "%{actors} hanno iniziato a condividere con te."
       many: "%{actors} hanno iniziato a condividere con te."
       one: "%{actors} ha iniziato a condividere con te."
       other: "%{actors} hanno iniziato a condividere con te."
+      two: "%{actors} hanno iniziato a condividere con te."
       zero: "%{actors} ha iniziato a condividere con te."
   notifier:
     a_post_you_shared: "un post."
@@ -637,6 +653,7 @@ it:
         many: "%{count} foto di %{author}"
         one: "Una foto di %{author}"
         other: "%{count} foto di %{author}"
+        two: "Due foto di %{author}"
         zero: "Nessuna foto di %{author}"
       reshare_by: "Condiviso da %{author}"
   previous: "precedente"
@@ -671,6 +688,7 @@ it:
     many: "%{count} risposte"
     one: "1 risposta"
     other: "%{count} risposte"
+    two: "%{count} risposte"
     zero: "0 risposte"
   registrations:
     closed: "Su questo pod Diaspora le iscrizioni sono chiuse."
@@ -696,6 +714,7 @@ it:
       hey_make: "HEY,<br/>CREA<br/>QUALCOSA."
       join_the_movement: "Partecipa al movimento!"
       password: "PASSWORD"
+      password_confirmation: "CONFERMA PASSWORD"
       sign_up: "ISCRIVITI"
       sign_up_message: "Il Social Network con un ♥ così"
       username: "NOME UTENTE"
@@ -713,6 +732,7 @@ it:
         many: "%{count} nuove richieste!"
         one: "una nuova richiesta!"
         other: "%{count} nuove richieste!"
+        two: "%{count} nuove richieste!"
         zero: "nessuna nuova richiesta"
     manage_aspect_contacts:
       existing: "Contatti esistenti"
@@ -756,6 +776,7 @@ it:
       logged_in_as: "accesso effettuato come"
       no_services: "Ancora non hai collegato alcun servizio."
       really_disconnect: "disconnettere %{service}?"
+      services_explanation: "Il collegamento ai servizi ti da la possibilità di pubblicare i tuoi post che hai pubblicato su Diaspora"
     inviter:
       click_link_to_accept_invitation: "Vai a questo indirizzo per accettare l'invito"
       join_me_on_diaspora: "Vieni con me su DIASPORA*"
@@ -783,6 +804,7 @@ it:
         many: "In %{count} aspetti"
         one: "In %{count} aspetto"
         other: "In %{count} aspetti"
+        two: "In %{count} aspetti"
         zero: "Aggiungi"
     contact_list:
       all_contacts: "Tutti i contatti"
@@ -823,6 +845,7 @@ it:
         newhere: "NuovoUtente"
       post_a_message_to: "Invia un messaggio a %{aspect}"
       posting: "Invio in corso..."
+      preview: "Anteprima"
       publishing_to: "stai condividendo con: "
       share: "Condividi"
       share_with: "condividi con"
@@ -855,15 +878,13 @@ it:
     new:
       mentioning: "Stai menzionando: %{person}"
     too_long:
-      one: "per favore scrivi i tuoi messaggi di stato con meno di %{count} carattere"
-      other: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
-      zero: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
+      one: "per favore scrivi i tuoi stati con meno di %{count} carattere"
+      other: "per favore scrivi i tuoi stati con meno di %{count} caratteri"
+      zero: "per favore scrivi i tuoi stati con meno di %{count} caratteri"
   stream_helper:
     hide_comments: "Nascondi i commenti"
     show_comments:
-      few: "Mostra gli altri %{count} commenti"
-      many: "Mostra gli altri %{count} commenti"
-      one: "Mostra 1 altro commento"
+      one: "Mostra un altro commento"
       other: "Mostra gli altri %{count} commenti"
       zero: "Nessun altro commento"
   streams:
@@ -985,6 +1006,7 @@ it:
     getting_started:
       awesome_take_me_to_diaspora: "Fantastico! Fammi entrare in Diaspora*"
       community_welcome: "La comunità di Diaspora ti dà il benvenuto a bordo!"
+      connect_to_facebook_link: "Collega il tuo account Facebook"
       hashtag_explanation: "I tag ti permettono di parlare dei tuoi interessi e di seguirli. Sono anche un ottimo sistema per trovare nuove persone su Diaspora."
       hashtag_suggestions: "Prova a seguire tag tipo #art, #movies, #gif, ecc."
       saved: "Salvato!"

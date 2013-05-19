@@ -10,8 +10,8 @@ describe AccountDeletion do
     a.diaspora_handle.should == alice.person.diaspora_handle
   end
 
-  it 'fires a resque job after creation'do
-    Resque.should_receive(:enqueue).with(Jobs::DeleteAccount, anything)
+  it 'fires a job after creation'do
+    Workers::DeleteAccount.should_receive(:perform_async).with(anything)
 
     AccountDeletion.create(:person => alice.person)
   end

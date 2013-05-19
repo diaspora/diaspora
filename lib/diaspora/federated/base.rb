@@ -9,8 +9,6 @@
 
 #including this module lets you federate an object at the most basic of level
 
-require 'builder/xchar'
-
 module Diaspora
   module Federated
     module Base 

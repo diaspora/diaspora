@@ -1,8 +1,17 @@
-@import 'ui.css.sass'
+@import 'compass'
+@import 'ui.css.scss'
 @import '_mixins.css.scss'
 @import '_flash_messages.scss'
 @import 'new_styles/_spinner'
 
+/* ===== sprites ===== */
+
+@import 'icons/*.png'
+@import 'branding/*.png'
+@import 'social_media_logos/*.png'
+@include all-icons-sprites
+@include all-branding-sprites
+@include all-social_media_logos-sprites
 /* ====== media ====== */
 .media
   :margin 10px
@@ -139,6 +148,14 @@ header
 
   :border
     :bottom 1px solid #000
+
+  a.header_root_link
+    :display inline-block
+    :margin-top 5px
+
+  .branding-logo_small
+    :height 16px
+    :width 161px
 
   a
     :color #CCC
@@ -289,6 +306,8 @@ ul.as-selections
 .diaspora_header_logo
   :float left
   :margin-top -6px
+  :height 38px
+  :width 65px
 
 .stream
   audio
@@ -412,7 +431,20 @@ ul.as-selections
   &:hover
     @include opacity(1)
 
-.controls
+  .block_user
+    :display inline-block
+
+    .icons-ignoreuser
+      :height 14px
+      :width 13px
+
+  .delete
+    :display inline-block
+
+    .icons-deletelabel
+      :height 8px
+      :width 8px
+
   a:hover
     :text-decoration none
 
@@ -501,7 +533,9 @@ ul.as-selections
     :size 12px
 
 .comment.no-border
-  :border none
+  &.media
+    :border none
+    :padding 0
 
 .comment
   &.media
@@ -509,8 +543,11 @@ ul.as-selections
       :left 0
       :right 0
 
-  :border
-    :bottom 1px dotted #aaa
+    :border
+      :top 1px dotted #aaa
+
+    :padding
+      :top 10px
 
   .youtube-player, .vimeo-player
     :border none
@@ -536,8 +573,21 @@ ul.as-selections
   & > .likes, & > .comments
     :margin-right 15px
 
+.status-message-location
+  .near-from
+    :font-size smaller
+    :color #aaa
+    :width 100%
+    :float left
+  .address
+    :font-size 11px
+    :color #bbb
+
 .stream_element .post-content .reshare
   :border-left 2px solid #ddd
+
+.stream_element.loaded .media .bd .feedback
+  :clear both
 
 form.new_comment
   input
@@ -660,6 +710,8 @@ form p.checkbox_select
     :height 100%
     :width 100%
     :cursor pointer
+  img
+    :margin-right 20px
 
 #publisher
   :z-index 1
@@ -720,11 +772,29 @@ form p.checkbox_select
         :text
           :align left
 
+      .icons-monotone_wrench_settings
+        :display inline-block
+        :width 16px
+        :height 16px
+
+      a.question_mark
+        :text-decoration none
+
     #publisher_service_icons
       :position relative
       :top 3px
       :margin
         :right 10px
+
+      .social_media_logos-facebook-16x16,
+      .social_media_logos-twitter-16x16,
+      .social_media_logos-tumblr-16x16,
+      .social_media_logos-email-16x16,
+      .social_media_logos-feed-16x16,
+      .social_media_logos-website-16x16
+        :display inline-block
+        :height 16px
+        :width 16px
 
     #fileInfo
       :display inline
@@ -784,7 +854,11 @@ form p.checkbox_select
     :padding 3px
     :position absolute
     :right 6px
-    :top 0
+    :margin-top 9px
+
+    .icons-deletelabel
+      :height 8px
+      :width 8px
 
     &:hover
       @include opacity(1)
@@ -817,6 +891,8 @@ form p.checkbox_select
     :position absolute
     :bottom 0
     :right 35px
+    :width 430px
+    :left 5px
     :padding 0
 
     li
@@ -988,6 +1064,7 @@ ul#settings_nav
 
 .dull
   :color #aaa
+  :text-align center
   :font
     :style italic
 
@@ -1166,36 +1243,47 @@ h3 span.current_gs_step
   :display inline-block
   :margin-top 2px
   :float left
+  :width 61px
 
   a:hover
     :text
       :decoration none
+
 
   .badge
     :position relative
     :top 2px
     :display inline
     :margin 0 2px
-    :padding 8px 3px
-      :bottom 9px
     :font
       :weight bold
       :size smaller
-    :width 28px
+    :width 22px
 
     &:hover
       .badge_count
         :background
           :color lighten(#A40802, 5%)
 
+    a.badge_link
+      :display block
+      :width 100%
+      :height 16px
+      :float left
+
+    .icons-notifications_grey
+      :height 16px
+
+    .icons-mail_grey
+      :height 11px
+
 #message_inbox_badge
-  img
-    :position relative
-    :top -2px
+  :float left
+  :padding 3px 3px 0px 0px
 
 #notification_badge
-  img
-    :position relative
+  :float left
+  :padding 0px 3px 0px 3px
 
 .badge_count
   @include border-radius(2px)
@@ -1270,6 +1358,11 @@ ul#request_result
       :right 8px
       :top 3px
 
+  .icons-monotone_plus_add_round,
+  .icons-monotone_check_yes
+    :height 20px
+    :width 20px
+
   > .contacts
     :margin 0
     :padding 5px
@@ -1312,12 +1405,10 @@ ul#request_result
         :border
           :bottom none
 
-        :height 12px !important
-        :width 12px !important
-
-        :padding
-          :right 4px
-          :left 4px
+        :min-width auto
+        :float right
+        :padding 2px 4px
+        :margin-top 5px
 
         &.added
           @include linear-gradient(rgb(158,255,153), rgb(92,199,86))
@@ -1358,8 +1449,11 @@ footer
     :border
       :top 1px solid #ddd
 
-  img
-    :margin-top 2px
+  .branding-powered_by_diaspora
+    :display inline-block
+    :margin-top 3px
+    :height 11px
+    :width 145px
 
   ul#footer_nav
     :margin 0
@@ -1637,13 +1731,19 @@ ul#press_logos
     :color #999
 
 .likes
-  .img
+  .icons-heart
+    :height 12px
+    :width 13px
+    :display inline-block
+    :vertical-align top
     :margin-top 3px
     :margin-right 5px
 
-  img
-    :height 12px
-    :width 12px
+  .bd
+    :display inline-block
+
+    .expand_likes
+      :vertical-align text-bottom
 
 .mark_all_read
   :position relative
@@ -1733,6 +1833,10 @@ ul#press_logos
 
   :padding
     :left 60px
+
+.icons-monotone_email_letter_round
+  :height 128px
+  :width 128px
 
 #email_invitation
   input
@@ -1857,6 +1961,10 @@ ul#press_logos
   .right
     :top 118px
     :right 5px
+
+    .icons-deletelabel
+      :height 8px
+      :width 8px
 
   h3
     :margin 0
@@ -2141,7 +2249,6 @@ h1.tag
       :bottom 1px solid #ddd
     :padding 2px 0
       :top 0
-      :left 22px
 
     &.no_icon
       :padding
@@ -2154,15 +2261,51 @@ h1.tag
       :font-weight bold
       :color #777
 
+    .icons-plus,
+    .icons-heart,
+    .icons-question,
+    .icons-monotone_wrench_settings,
+    .icons-coffee,
+    .icons-mail,
+    .icons-bookmark,
+      :position absolute
+      :margin-left 3px
+
+    .icons-plus
+      :width  14px
+      :height 14px
+
+    .icons-heart
+      :width  13px
+      :height 13px
+
+    .icons-question
+      :width  16px
+      :height 16px
+
+    .icons-monotone_wrench_settings
+      :width  16px
+      :height 16px
+
+    .icons-bookmark
+      :width  14px
+      :height 16px
+
+    .icons-coffee
+      :width  16px
+      :height 14px
+
+    .icons-mail
+      :width 16px
+      :height 13px
+
+    h5.title-header
+      :margin-left 22px
+
     h5
       :font-size 12px
       :margin 0
       :color #666
-
-    img
-      :position absolute
-      :left 3px
-      :top 0px
 
   .section
     .content
@@ -2243,13 +2386,32 @@ ul.left_nav
   &.sub
     :padding-left 6px
 
+  a.community_aspect_selector
+    :width 152px
+    :vertical-align middle
+    :display inline-block
+    :line-height 25px
+    :text
+      :decoration none
   a
-    :color #777
     :font-weight bold
+    :color #777
+    :text
+      :decoration none
+
+  .invisible
+    :visibility hidden
 
   li
     :position relative
     :width 100%
+
+    .icons-check_yes_ok
+      :height 18px
+      :width 18px
+      :display inline-block
+      :margin-left 3px
+      :vertical-align middle
 
   li.active
     > a.home_selector:not(.sub_selected)
@@ -2263,12 +2425,6 @@ ul.left_nav
           :weight 700
         :color #666
 
-    > a.aspect_selector
-      :background
-        :image image-url("icons/check_yes_ok.png")
-        :position 3px 50%
-        :repeat no-repeat
-
   a.aspect_selector,
   a.home_selector,
   a.tag_selector,
@@ -2278,7 +2434,6 @@ ul.left_nav
       :cursor -moz-grabbing
       :cursor grabbing
 
-  a.aspect_selector,
   a.home_selector,
   a.tag_selector,
   a.element_selector,
@@ -2287,9 +2442,8 @@ ul.left_nav
     :width 100%
     :padding 3px 7px
 
-  a.aspect_selector,
   a.home_selector,
-  a.tag_selector,
+  li.aspect_element,
   a.element_selector
     &:hover
       @include border-radius(2px)
@@ -2298,9 +2452,23 @@ ul.left_nav
       :text
         :decoration none
 
-  .edit,
   .unfollow_icon
+    :margin-right 10px
     :margin-top 4px
+    @include transition(opacity)
+    @include opacity(0.3)
+    :position absolute
+    :display none
+    :padding 0 5px
+    &:hover
+      @include opacity(1)
+
+  .edit
+    :margin-right 10px
+    :margin-top 4px
+    :width 12px
+    :height 12px
+    :margin-top 6px
     @include transition(opacity)
     @include opacity(0.3)
     :float right
@@ -2309,24 +2477,28 @@ ul.left_nav
       @include opacity(1)
 
   .contact_count
-    :float right
+    :width 16px
+    :line-height 16px
+    :text-align center
     @include border-radius(4px)
     :margin-top 1px
     :color #999
     :background
       :color #eee
-    :padding 0 5px
-    :display inline
+    :display inline-block
     :font
       :size 11px
+
+  a.home_selector
+    .contact_count
+      :float right
 
   ul.sub_nav
     :padding 0
     :margin 0
     li
-      :width 162px
+      :width 204px
 
-    a.aspect_selector,
     a.toggle_selector,
     .new_aspect,
     a.tag_selector
@@ -2341,16 +2513,64 @@ ul.left_nav
       :width 150px
     ul.sub_nav
       :width 140px
+      &:hover
+        :width auto
 
-      a.aspect_selector,
+      a.aspect_selector
+        :width 112px
+        :vertical-align middle
+        :display inline-block
+        :line-height 25px
+        :text
+          :decoration none
+
       a.tag_selector
-        :width 140px
+        :width 117px
+        :overflow hidden
+        :position relative
+        :display inline-block
+        &:after
+          :display inline-block
+          :content ""
+          :width 80px
+          :height 25px
+          :position absolute
+          :top 0px
+          :left 100px
+        &:hover:after
+          :background none
 
-      li:hover,
+      li
+        :height 25px
+        .icons-check_yes_ok
+          :height 18px
+          :width 18px
+          :display inline-block
+          :margin-left 3px
+          :vertical-align middle
+
+        .icons-deletelabel
+          :height 8px
+          :width 8px
+          :margin-top 4px
+
+      li.unfollow,
+      li.sub_nav_item
+        :width 172px
+
+      li.unfollow:hover,
+      li.sub_nav_item:hover,
       li.hover
+        @include border-radius(2px)
+        :background
+          :color lighten($blue,45%)
         .edit,
         .unfollow_icon
+          :z-index 1
           :display inline-block
+          .icons-monotone_close_exit_delete
+            :height 16px
+            :width 16px
 
   .user_card
     :margin-left 8px
@@ -2420,6 +2640,10 @@ a.toggle_selector
     :height 30px
     :width 30px
 
+  .icons-monotone_close_exit_delete
+    :height 20px
+    :width 20px
+
 #aspect_controls
   @include border-radius(2px)
   :background
@@ -2451,12 +2675,25 @@ a.toggle_selector
   :margin 5px 0
 
 .bottom_submit_section
+  :overflow hidden
   :display block
   :position relative
+  :text-align right
 
   form
+    :float left
     :display inline-block
-  :text-align right
+    .creation
+      :float right
+
+  .icons-padlock-open,
+  .icons-padlock-closed
+    :float left
+    :height 16px
+    :width  16px
+    :margin
+      :left 4px
+      :top 2px
 
 #no_contacts
   :text-align center
@@ -2464,10 +2701,6 @@ a.toggle_selector
   :background
     :color #eee
   :color #666
-
-.left
-  :position absolute
-  :left 0
 
 #notification_dropdown
   @include dropdown-shadow
@@ -2477,7 +2710,7 @@ a.toggle_selector
   :left 300px
   :width 380px
   :display none
-  :margin-top 8px
+  :float left
 
   :color #444
 
@@ -2538,7 +2771,7 @@ a.toggle_selector
   :margin
     :left 0px
   :padding
-    :bottom 10px
+    :bottom 12px
 
 .cubbies_collage
   :position absolute
@@ -2602,6 +2835,18 @@ a.toggle_selector
   :text-align center
   :padding 10px
     :bottom 0
+
+  .social_media_logos-facebook-24x24,
+  .social_media_logos-twitter-24x24,
+  .social_media_logos-tumblr-24x24,
+  .social_media_logos-email-24x24,
+  .social_media_logos-feed-24x24,
+  .social_media_logos-website-24x24
+    :height 24px
+    :width 24px
+
+  a
+    :display inline-block
 
 .cubbies_images
   :margin-left 15px
@@ -2806,11 +3051,12 @@ a.toggle_selector
 
 .left_nav
   #new_tag_following
+    :width 137px
     :margin
       :left 24px
 
     input[type='text']
-      :width 100%
+      :width 137px
       :font
         :size 13px
 
@@ -2822,11 +3068,16 @@ a.toggle_selector
   .close
     @include opacity(0)
     @include transition(opacity, 0.2s)
-
-    :float right
     :position relative
-    :top -9px
+    :top 1px
     :right -5px
+    :float right
+    .icons-deletelabel
+      :height 8px
+      :width 8px
+
+    img
+      margin-top: 10px
 
   &:hover
     .close
@@ -2878,3 +3129,54 @@ body
   :font-size small
   :text-align right
   :margin 5px 2px
+  
+.post_preview
+  :padding
+    :top 5px
+  :border
+    :bottom 3px solid #3f8fba !important
+  :background
+    :color #e8f7ff
+
+#publisher-images
+  #locator
+    :bottom 1px !important
+    :display inline-block
+    :margin 0
+    :position absolute !important
+    :right 30px
+    :cursor pointer
+    img
+      :padding-top 2px
+      @include opacity(0.4)
+    &:hover
+      :color #666
+      :cursor pointer
+      img
+        @include opacity(0.8)
+  .btn
+    :height 19px
+    :width 19px
+
+#location
+  :border 1px solid #999
+  :height 20px
+  #location_address
+    :border none
+    :color #aaa
+    :height 10px
+    :width 430px
+    :float left
+  a#hide_location
+    :position absolute
+    :right 22px
+    :filter alpha(opacity=30)
+    :-moz-opacity 0.3
+    :-khtml-opacity 0.3
+    :opacity 0.3
+    :z-index 5
+  a#hide_location:hover
+    @include opacity(0)
+    :-khtml-opacity 1
+    :opacity 1 
+    :cursor pointer

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,10 +6,12 @@
 
 pt-BR:
   javascripts:
+    and: "e"
     aspect_dropdown:
       add_to_aspect: "Adicionar contato"
       all_aspects: "Todos aspectos"
       error: "Não foi possível compartilhar com {{name}}.  Deseja ignorar isto?"
+      error_remove: "Não foi possível remover <%= name %> do grupo :("
       select_aspects: "Selecione os aspectos"
       started_sharing_with: "Você começou a compartilhar com {{name}}!"
       stopped_sharing_with: "Você parou de compartilhar com {{name}}."
@@ -18,14 +20,17 @@ pt-BR:
         other: "Em <%= count %> grupos"
         zero: "Selecione grupos"
     aspect_navigation:
+      add_an_aspect: "+ Adicione um grupo"
       deselect_all: "Desmarcar tudo"
       no_aspects: "Sem grupo selecionado"
       select_all: "Marcar tudo"
+    comma: ","
     comments:
       hide: "ocultar comentários"
       show: "mostrar todos comentários"
     confirm_dialog: "Tem certeza?"
     delete: "Apagar"
+    edit: "Editar"
     failed_to_like: "Falhou ao curtir!"
     failed_to_post_message: "Falha em postar a mensagem!"
     getting_started:
@@ -52,11 +57,16 @@ pt-BR:
     infinite_scroll:
       no_more: "Não há mais postagem."
     my_activity: "Minhas Atividades"
+    my_aspects: "Meus Grupos"
     my_stream: "Fluxo"
     people:
       not_found: "e ninguém foi encontrado..."
     photo_uploader:
+      completed: "<%= file %> completo"
+      empty: "{file} está vazio, por favor selecione arquivos novamente."
+      invalid_ext: "{file} possui extensão inválida. Somente {extensions} são permitidas."
       looking_good: "OMG, veja você é incrível!"
+      size_error: "{file} é muito grande, o tamanho máximo do arquivo é {sizeLimit}."
     publisher:
       at_least_one_aspect: "Você deve publicar pelo menos um grupo"
       limited: "Limitada - a sua postagem será visível apenas para as pessoas que você compartilha."
@@ -72,14 +82,16 @@ pt-BR:
       follow: "Seguir"
       followed_tag:
         add_a_tag: "Adicionar uma tag"
+        contacts_title: "Pessoas que procuram por essas marcas"
         follow: "Seguir"
+        title: "Marcas #Seguida"
       hide: "Ocultar"
-      hide_nsfw_posts: "Esconder posts não recomendáveis para serem visualizados no escritório."
+      hide_nsfw_posts: "Ocultar publicações #nsfw"
       like: "Curtir"
       likes:
-        one: "<%= count %> gostei"
-        other: "<%= count %> gostei"
-        zero: "<%= count %> gostei"
+        one: "<%= count %> Curtir"
+        other: "<%= count %> Curtir"
+        zero: "<%= count %> Curtir"
       limited: "Limitado"
       more_comments:
         one: "Mostre mais <%= count %> comentário"
@@ -89,9 +101,9 @@ pt-BR:
       public: "Público"
       reshare: "Recompartilhar"
       reshares:
-        one: "<%= count %> Recompartilhamento"
-        other: "<%= count %> Recompartilhamentos"
-        zero: "<%= count %> Recompartilhamento"
+        one: "<%= count %> Compartilhamento"
+        other: "<%= count %> Compartilhamentos"
+        zero: "<%= count %> Compartilhamentos"
       show_nsfw_post: "Mostrar post"
       show_nsfw_posts: "Mostrar tudo"
       tags:
@@ -111,8 +123,8 @@ pt-BR:
       minutes: "%d minutos"
       month: "cerca de um mês"
       months: "%d meses"
-      prefixAgo: "atrás"
-      prefixFromNow: "dentro de"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "menos de um minuto"
       suffixAgo: "atrás"
       suffixFromNow: "a partir de agora"
@@ -123,10 +135,10 @@ pt-BR:
       watch: "Assista este vídeo no {{provider}}"
     viewer:
       comment: "Comentário"
-      follow_post: "Seguir posts"
+      follow_post: "Seguir postagem"
       home: "PÁGINA INICIAL"
       like: "Curtir"
-      reshare: "Recompartilhar"
-      reshared: "Recompartilhado"
+      reshare: "Compartilhar"
+      reshared: "Compartilhado"
       stop_following_post: "Parar de seguir post"
       unlike: "Descurtir"

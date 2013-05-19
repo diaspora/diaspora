@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -22,6 +22,7 @@ pt-PT:
       deselect_all: "Desmarcar todos"
       no_aspects: "Nenhuns aspectos selecionados"
       select_all: "Selecionar todos"
+    comma: ","
     comments:
       hide: "ocultar comentários"
       show: "mostrar todos os comentários"
@@ -59,7 +60,10 @@ pt-PT:
       not_found: "e ninguém foi encontrado..."
     photo_uploader:
       completed: "<%= file %> completado"
+      empty: "{file} está vazio, por favor seleccione novamente os arquivos, sem este."
+      invalid_ext: "{file} tem uma extensão inválida. Apenas são permitidas as extensões {extensions}."
       looking_good: "OMD, tu estás fantástico(a)!"
+      size_error: "{file} é muito grande, o tamanho máximo do ficheiro é {sizeLimit}."
     publisher:
       at_least_one_aspect: "Tem de publicar em pelo menos um grupo"
       limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está a partilhar"

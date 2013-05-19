@@ -6,16 +6,16 @@
 - if AppConfig.settings.invitations.open?
   .section
     .title
-      = image_tag('icons/plus.png')
-      %h5
+      .icons-plus
+      %h5.title-header
         = t('shared.invitations.invite_your_friends')
     .content
       = render "shared/invitations"
 
 .section
   .title
-    = image_tag('icons/heart.png')
-    %h5
+    .icons-heart
+    %h5.title-header
       = t('aspects.index.new_here.title')
   .content
     != t('aspects.index.new_here.follow', :link => link_to("#"+t('shared.publisher.new_user_prefill.newhere'), tag_path(:name => t('shared.publisher.new_user_prefill.newhere'))))
@@ -24,8 +24,8 @@
 
 .section
   .title
-    = image_tag('icons/question.png')
-    %h5
+    .icons-question
+    %h5.title-header
       = t('aspects.index.help.need_help')
   .content
     = t('aspects.index.help.here_to_help')
@@ -47,8 +47,8 @@
 - unless AppConfig.configured_services.blank? || all_services_connected?
   .section
     .title
-      = image_tag('icons/monotone_wrench_settings.png')
-      %h5
+      .icons-monotone_wrench_settings
+      %h5.title-header
         = t('aspects.index.services.heading')
     .content
       %div
@@ -57,20 +57,20 @@
       #right_service_icons
         - AppConfig.configured_services.each do |service|
           - unless current_user.services.any?{|x| x.provider == service}
-            = link_to(image_tag("social_media_logos/#{service.to_s.downcase}-24x24.png", :title => service.to_s.titleize), "/auth/#{service}")
+            = link_to(content_tag(:div, nil, :class => "social_media_logos-#{service.to_s.downcase}-24x24", :title => service.to_s.titleize), "/auth/#{service}")
 
 .section
   .title
-    = image_tag('icons/bookmark.png')
-    %h5
+    .icons-bookmark
+    %h5.title-header
       = t('bookmarklet.heading')
   .content
     != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.post_something'), magic_bookmarklet_link))
 
 .section
   .title
-    = image_tag('icons/coffee.png')
-    %h5
+    .icons-coffee
+    %h5.title-header
       = t('aspects.index.donate')
   .content
     - if AppConfig.settings.paypal_hosted_button_id.present?
@@ -85,8 +85,8 @@
 - if AppConfig.admins.podmin_email.present?
   .section
     .title
-      = image_tag('icons/mail.png')
-      %h5
+      .icons-mail
+      %h5.title-header
         = t('aspects.index.help.any_problem')
     .content
       = t('aspects.index.help.contact_podmin')

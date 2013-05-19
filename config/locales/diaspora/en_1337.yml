@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -199,6 +199,7 @@ en_1337:
         many: "%{count} N3W M3554G35"
         one: "1 N3W M3554G3"
         other: "%{count} N3W M3554G35"
+        two: "%{count} N3W M3554G35"
         zero: "N0 N3W M3554G35"
     index:
       create_a_new_message: "5P4M 50M30N3!"
@@ -276,18 +277,21 @@ en_1337:
         many: "%{count} </3"
         one: "%{count} </3"
         other: "%{count} </3"
+        two: "%{count} </3"
         zero: "N0 </3"
       people_like_this:
         few: "%{count} <3"
         many: "%{count} <3"
         one: "%{count} <3"
         other: "%{count} <3"
+        two: "%{count} <3"
         zero: "N0 <3"
       people_like_this_comment:
         few: "%{count} <3"
         many: "%{count} <3"
         one: "%{count} <3"
         other: "%{count} <3"
+        two: "%{count} <3"
         zero: "N0 <3"
   limited: "V1P"
   more: "M0R3"
@@ -299,18 +303,21 @@ en_1337:
       many: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
       one: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
       other: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
+      two: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
       zero: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
       many: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
       one: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
       other: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
+      two: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
       zero: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
     comment_on_post:
       few: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
       many: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
       one: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
       other: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
+      two: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
       zero: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
     helper:
       new_notifications:
@@ -318,6 +325,7 @@ en_1337:
         many: "%{count} N3W N071F1C4710N5"
         one: "1 N3W N071F1C4710N"
         other: "%{count} N3W N071F1C4710N5"
+        two: "%{count} N3W N071F1C4710N5"
         zero: "N0 N3W N071F1C4710N5"
     index:
       and: "4ND"
@@ -326,6 +334,7 @@ en_1337:
         many: "4ND %{count} 07H3R5"
         one: "4ND 0N3 M0R3"
         other: "4ND %{count} 07H3R5"
+        two: "4ND %{count} 07H3R5"
         zero: "4ND N0B0DY 3l53"
       mark_all_as_read: "M4RK 4LL 45 R34D"
       notifications: "N071F1C4710N5"
@@ -334,48 +343,56 @@ en_1337:
       many: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
       one: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
       other: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
+      two: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
       zero: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
     liked_post_deleted:
       few: "%{actors} <3 Y0UR D3L373D P057."
       many: "%{actors} <3 Y0UR D3L373D P057."
       one: "%{actors} <3 Y0UR D3L373D P057."
       other: "%{actors} <3 Y0UR D3L373D P057."
+      two: "%{actors} <3 Y0UR D3L373D P057."
       zero: "%{actors} <3 Y0UR D3L373D P057."
     mentioned:
       few: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
       many: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
       one: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
       other: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
+      two: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
       zero: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
     mentioned_deleted:
       few: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
       many: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
       one: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
       other: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
+      two: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
       zero: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
     private_message:
       few: "%{actors} 53N7 U 4 M3554G3."
       many: "%{actors} 53N7 U 4 M3554G3."
       one: "%{actors} 53N7 U 4 M3554G3."
       other: "%{actors} 53N7 U 4 M3554G3."
+      two: "%{actors} 53N7 U 4 M3554G3."
       zero: "%{actors} 53N7 U 4 M3554G3."
     reshared:
       few: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
       many: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
       one: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
       other: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
+      two: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
       zero: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
     reshared_post_deleted:
       few: "%{actors} R35H4R3D Y0UR D3L373D P057."
       many: "%{actors} R35H4R3D Y0UR D3L373D P057."
       one: "%{actors} R35H4R3D Y0UR D3L373D P057."
       other: "%{actors} R35H4R3D Y0UR D3L373D P057."
+      two: "%{actors} R35H4R3D Y0UR D3L373D P057."
       zero: "%{actors} R35H4R3D Y0UR D3L373D P057."
     started_sharing:
       few: "%{actors} 574R73D 5H4R1NG W17H U."
       many: "%{actors} 574R73D 5H4R1NG W17H U."
       one: "%{actors} 574R73D 5H4R1NG W17H U."
       other: "%{actors} 574R73D 5H4R1NG W17H U."
+      two: "%{actors} 574R73D 5H4R1NG W17H U."
       zero: "%{actors} 574R73D 5H4R1NG W17H U."
   notifier:
     a_post_you_shared: "4 P057!"
@@ -505,6 +522,7 @@ en_1337:
         many: "%{count} P1CZ BY %{author}"
         one: "1 P1C BY %{author}"
         other: "%{count} P1CZ BY %{author}"
+        two: "2 P1CZ BY %{author}"
         zero: "N0 P1CZ BY %{author}"
   previous: "PR3V10U5"
   profile: "PR0F1L3"
@@ -534,6 +552,7 @@ en_1337:
     many: "%{count} R34C710N5"
     one: "1 R34C710N"
     other: "%{count} R34C710N5"
+    two: "%{count} R34C710N5"
     zero: "0 R34C710N5"
   registrations:
     closed: "51GNUP5 4R3 CL053D 0N 7H15 D* P0D!"
@@ -568,6 +587,7 @@ en_1337:
         many: "%{count} N3W R3QU3575!"
         one: "N3W R3QU357"
         other: "%{count} N3W R3QU3575!"
+        two: "%{count} N3W R3QU3575!"
         zero: "N0 N3W R3QU3575!"
     manage_aspect_contacts:
       existing: "3X1571NG N00B5"
@@ -585,6 +605,7 @@ en_1337:
         many: "%{count} R35P4M5"
         one: "1 R35P4M"
         other: "%{count} R35P4M5"
+        two: "%{count} R35P4M5"
         zero: "R35P4M"
       reshare_confirmation: "R35P4M %{author}'s 5P4M?"
       reshare_original: "R35P4M 0R1G1N4L"
@@ -633,6 +654,7 @@ en_1337:
         many: "1N %{count} 45P3C75"
         one: "1N %{count} 45P3C7"
         other: "1N %{count} 45P3C75"
+        two: "1N %{count} 45P3C75"
         zero: "4DD N00B"
     contact_list:
       all_contacts: "4LL C0N74C75"
@@ -693,6 +715,7 @@ en_1337:
       many: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
       one: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R\""
       other: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+      two: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
       zero: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
   stream_helper:
     hide_comments: "H1D3 4LL 5P4M5!"
@@ -701,6 +724,7 @@ en_1337:
       many: "5H0W %{count} M0R3 C0MM3N75"
       one: "5H0W 1 M0R3 C0MM3N75"
       other: "5H0W %{count} M0R3 C0MM3N75"
+      two: "5H0W 2 M0R3 C0MM3N75"
       zero: "N0 C0MM3N75!"
   streams:
     aspects:

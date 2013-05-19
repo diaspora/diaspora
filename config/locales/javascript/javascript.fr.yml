@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -11,6 +11,7 @@ fr:
       add_to_aspect: "Ajouter le contact"
       all_aspects: "Tous les aspects"
       error: "Impossible de partager avec <%= name %>. Ignorez-vous cette personne ?"
+      error_remove: "Ne peut pas supprimer <%= name %> de l'aspect :("
       select_aspects: "Choisir les aspects"
       started_sharing_with: "Vous avez commencé à partager avec <%= name %> !"
       stopped_sharing_with: "Vous avez arrêté de partager avec <%= name %>."
@@ -19,6 +20,7 @@ fr:
         many: "Dans <%= count %> aspects"
         one: "Dans <%= count %> aspect"
         other: "Dans <%= count %> aspects"
+        two: "Dans <%= count %> aspects"
         zero: "Sélectionnez les aspects"
     aspect_navigation:
       add_an_aspect: "+ Ajouter un aspect"
@@ -57,6 +59,7 @@ fr:
     ignore_user: "Ignorer cet utilisateur ?"
     infinite_scroll:
       no_more: "Pas d'autres messages."
+      no_more_contacts: "Pas d'autres contacts."
     my_activity: "Mon activité"
     my_aspects: "Mes Aspects"
     my_stream: "Flux"
@@ -64,7 +67,10 @@ fr:
       not_found: "Et personne n'a été trouvé ..."
     photo_uploader:
       completed: "<%= file %> complété"
+      empty: "{file} est vide, s'il vous plaît sélectionner des fichiers à nouveau sans celui-ci."
+      invalid_ext: "{file} a une extension invalide. Seules {extensions} sont permises."
       looking_good: "Impressionnant, vous avez un super look !"
+      size_error: "{file} est trop gros, la taille maximum est {sizeLimit}."
     publisher:
       at_least_one_aspect: "Vous devez créer au moins un aspect"
       limited: "Limité - votre message ne sera vu que par des gens avec qui vous partagez"
@@ -91,6 +97,7 @@ fr:
         many: "<%= count %> J'aime"
         one: "<%= count %> J'aime"
         other: "<%= count %> J'aime"
+        two: "<%= count %> J'aime"
         zero: "<%= count %> J'aime"
       limited: "Limité"
       more_comments:
@@ -105,6 +112,7 @@ fr:
         many: "<%= count %> repartages"
         one: "<%= count %> repartage"
         other: "<%= count %> repartages"
+        two: "<%= count %> Repartages"
         zero: "<%= count %> repartages"
       show_nsfw_post: "Montrer le message"
       show_nsfw_posts: "Tout montrer"

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,22 +6,27 @@
 
 ia:
   javascripts:
+    and: "e"
     aspect_dropdown:
       add_to_aspect: "Adder contacto"
       all_aspects: "Tote le aspectos"
       error: "Impossibile comenciar a divider con <%= name %>. Esque tu ignora iste persona?"
+      error_remove: "Non poteva remover <%= name %> del aspecto."
       select_aspects: "Seliger aspectos"
       started_sharing_with: "Tu ha comenciate a divider con <%= name %>!"
       stopped_sharing_with: "Tu ha cessate de divider con <%= name %>."
     aspect_navigation:
+      add_an_aspect: "+ Adder un aspecto"
       deselect_all: "Deseliger totes"
       no_aspects: "Nulle aspecto seligite"
       select_all: "Seliger totes"
+    comma: ","
     comments:
       hide: "celar commentos"
       show: "revelar tote le commentos"
     confirm_dialog: "Es tu secur?"
     delete: "Deler"
+    edit: "Modificar"
     failed_to_like: "Appreciation fallite!"
     failed_to_post_message: "Publication del entrata fallite!"
     getting_started:
@@ -31,6 +36,7 @@ ia:
       preparing_your_stream: "Fluxo personalisate in preparation..."
     header:
       admin: "Administration"
+      close: "clauder"
       contacts: "Contactos"
       home: "Initio"
       log_out: "Clauder session"
@@ -43,25 +49,40 @@ ia:
       settings: "Configuration"
       view_all: "Vider totes"
     ignore: "Ignorar"
+    ignore_user: "Ignorar iste usator?"
     infinite_scroll:
       no_more: "Nulle messages restante."
     my_activity: "Mi activitate"
+    my_aspects: "Mi aspectos"
     my_stream: "Fluxo"
+    people:
+      not_found: "e nemo ha essite trovate..."
     photo_uploader:
+      completed: "<%= file %> complete"
+      empty: "{file} es vacue. Per favor re-selige le files sin iste."
+      invalid_ext: "{file} ha un extension inadmissibile. Solmente {extensions} es permittite."
       looking_good: "Oh, tu es incredibile!"
+      size_error: "{file} es troppo grande. Le dimension maxime es {sizeLimit}."
     publisher:
       at_least_one_aspect: "Le publication debe esser includite in al minus un aspecto"
       limited: "Limitate: le message es visibile solmente pro le personas con qui tu lo divide"
       public: "Public: le message es visibile pro tote le mundo e trovabile pro motores de recerca"
     reshares:
       duplicate: "Tu ha jam repetite iste entrata."
+      post: "Repeter le entrata de <%= name %>?"
+      successful: "Le entrata ha essite repetite con successo."
     search_for: "Cercar <%= name %>"
     show_more: "monstrar plus"
     stream:
       comment: "Commentar"
       follow: "Sequer"
+      followed_tag:
+        add_a_tag: "Adder un etiquetta"
+        contacts_title: "Personas qui se interessa in iste etiquettas"
+        follow: "Sequer"
+        title: "#Etiquettas sequite"
       hide: "Celar"
-      hide_nsfw_posts: "Celar entratas #nsfw"
+      hide_nsfw_posts: "Celar entratas #nsfw (improprie pro le travalio)"
       like: "Appreciar"
       limited: "Limitate"
       original_post_deleted: "Le entrata original ha essite delite per le autor."
@@ -69,6 +90,10 @@ ia:
       reshare: "Repeter"
       show_nsfw_post: "Monstrar entrata"
       show_nsfw_posts: "Monstrar totes"
+      tags:
+        follow: "Sequer #<%= tag %>"
+        following: "Tu seque #<%= tag %>"
+        stop_following: "Cessar de sequer #<%= tag %>"
       unfollow: "Non plus sequer"
       unlike: "Non plus appreciar"
     tags:
@@ -92,3 +117,12 @@ ia:
     videos:
       unknown: "Typo de video incognite"
       watch: "Spectar iste video sur <%= provider %>"
+    viewer:
+      comment: "Commento"
+      follow_post: "Sequer iste entrata"
+      home: "INITIO"
+      like: "Appreciar"
+      reshare: "Repeter"
+      reshared: "Repetite"
+      stop_following_post: "Non plus sequer iste entrata"
+      unlike: "Non plus appreciar"

@@ -8,7 +8,7 @@
   {{#if canRemove}}
     <div class="controls">
       <a href="#" class="delete comment_delete" title="{{t "delete"}}">
-        <img alt="Deletelabel" src="{{imageUrl "deletelabel.png"}}" />
+        <div alt="Deletelabel" class="icons-deletelabel" />
       <a/>
     </div>
   {{/if}}
@@ -22,6 +22,6 @@
   </div>
 
   <div class="info">
-    <time class="timeago" datetime="{{created_at}}"/>
+    <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"/>
   </div>
 </div>

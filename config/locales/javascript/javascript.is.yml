@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -16,6 +16,7 @@ is:
         many: "In {{count}} aspects"
         one: "In {{count}} aspect"
         other: "In {{count}} aspects"
+        two: "In <%= count %> aspects"
         zero: "Add to aspect"
     confirm_dialog: "Ertu viss?"
     getting_started:
@@ -32,18 +33,21 @@ is:
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
         other: "<%= count %> Likes"
+        two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."

@@ -41,10 +41,6 @@
                   = text_field_tag 'profile[first_name]', current_user.first_name
                   = image_tag 'ajax-loader.gif', :id => "gs-name-form-spinner", :class => "hidden"
 
-              %span.saved{:class => "hidden"}
-                = image_tag 'icons/check_yes_ok.png'
-                = t(".saved")
-
             .clearfix
               = label_tag :your_photo, t('profiles.edit.your_photo'), :class => "bootstrapped"
               .input{:style => "position:relative;"}

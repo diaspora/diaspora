@@ -11,11 +11,12 @@
 
     %ul.sub_nav
       - all_aspects.each do |aspect|
-        %li{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
-          %a.aspect_selector{:href => contacts_path(:a_id => aspect.id)}
+        %li.aspect_element{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
+          .icons-check_yes_ok{:class => ("invisible" if params["a_id"].to_i != aspect.id) }
+          %a.community_aspect_selector{:href => contacts_path(:a_id => aspect.id)}
             = aspect
-            .contact_count
-              = aspect.contacts.size
+          .contact_count
+            = aspect.contacts.size
 
       %li
         = link_to t('aspects.aspect_listings.add_an_aspect'), new_aspect_path, :class => "new_aspect", :rel => "facebox"
@@ -27,9 +28,10 @@
         = all_contacts_count
 
     %ul.sub_nav
-      %li{:class => ("active" if params["set"] == "only_sharing")}
-        %a.aspect_selector{:href => contacts_path(:set => "only_sharing")}
+      %li.aspect_element{:class => ("active" if params["set"] == "only_sharing")}
+        .icons-check_yes_ok{:class => ("invisible" if params["set"] == "only_sharing")}
+        %a.community_aspect_selector{:href => contacts_path(:set => "only_sharing")}
           = t('contacts.index.only_sharing_with_me')
-          .contact_count
-            = only_sharing_count
+        .contact_count
+          = only_sharing_count
 

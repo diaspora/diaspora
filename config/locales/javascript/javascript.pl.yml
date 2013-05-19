@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -19,6 +19,7 @@ pl:
         many: "W <%= count %> aspektach"
         one: "W <%= count %> aspekcie"
         other: "W <%= count %> aspektach"
+        two: "W <%= count %> aspektach"
         zero: "Wybierz aspekty"
     aspect_navigation:
       add_an_aspect: "+ Dodaj aspekt"
@@ -57,6 +58,7 @@ pl:
     ignore_user: "Zignorować tego użytkownika?"
     infinite_scroll:
       no_more: "Nie ma więcej wpisów."
+      no_more_contacts: "Brak dalsyzch kontaktów."
     my_activity: "Moja aktywność"
     my_aspects: "Moje aspekty"
     my_stream: "Strumień"
@@ -91,6 +93,7 @@ pl:
         many: "Polubienia: <%= count %>"
         one: "<%= count %> polubienie"
         other: "<%= count %> polubienia"
+        two: "<%= count %> polubienia"
         zero: "<%= count %> polubień"
       limited: "Ograniczone"
       more_comments:
@@ -106,6 +109,7 @@ pl:
         many: "<%= count %> razy przekazano dalej"
         one: "<%= count %> razy przekazano dalej"
         other: "<%= count %> razy przekazano dalej"
+        two: "<%= count %> razy przekazano dalej"
         zero: "<%= count %> razy przekazano dalej"
       show_nsfw_post: "Wyświetl wpis"
       show_nsfw_posts: "Wyświetl wszystko"
@@ -126,7 +130,7 @@ pl:
       minutes: "%d minut"
       month: "około miesiąca"
       months: "%d miesięcy"
-      prefixAgo: " "
+      prefixAgo: ""
       prefixFromNow: "javascripts:timeago:prefixFromNow"
       seconds: "mniej niż minutę"
       suffixAgo: "temu"

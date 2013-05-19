@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,7 @@ es:
       correlations: "Similitudes"
       pages: "Páginas"
       pod_stats: "Estadísticas del Servidor"
-      resque_overview: "Información de Resque"
+      sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Buscar usuario"
       weekly_user_stats: "Estadísticas Semanales del Usuario"
     correlations:
@@ -736,6 +736,7 @@ es:
       logged_in_as: "conectado como"
       no_services: "Aún no has conectado ningún servicio."
       really_disconnect: "¿Desconectar %{service}?"
+      services_explanation: "Conectar con servicios que ofrece la posibilidad de publicar sus mensajes a medida que se escriben en Diaspora."
     inviter:
       click_link_to_accept_invitation: "Sigue este enlace para aceptar tu invitación"
       join_me_on_diaspora: "Nos vemos en DIASPORA*."
@@ -801,6 +802,7 @@ es:
         newhere: "Hola"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando..."
+      preview: "Vista previa"
       publishing_to: "publicar en:"
       share: "Compartir"
       share_with: "compartir con"

@@ -280,7 +280,7 @@ STR
       @message.text = text
       @message.to_xml.to_s.should include Builder::XChar.encode(text)
     end
-    
+
     it 'serializes the message' do
       @xml.should include "<raw_message>I hate WALRUSES!</raw_message>"
     end
@@ -304,6 +304,29 @@ STR
       end
       it 'marshals the diaspora_handle' do
         @marshalled.diaspora_handle.should == @message.diaspora_handle
+      end
+    end
+
+    context 'with some photos' do
+      before do
+        @message.photos << FactoryGirl.build(:photo)
+        @message.photos << FactoryGirl.build(:photo)
+        @xml = @message.to_xml.to_s
+      end
+
+      it 'serializes the photos' do
+        @xml.should include "photo"
+        @xml.should include @message.photos.first.remote_photo_path
+      end
+
+      describe '.from_xml' do
+        before do
+          @marshalled = StatusMessage.from_xml(@xml)
+        end
+
+        it 'marshals the photos' do
+          @marshalled.photos.size.should == 2
+        end
       end
     end
   end
@@ -339,7 +362,7 @@ STR
 
     it 'should queue a GatherOembedData if it includes a link' do
       sm = FactoryGirl.build(:status_message, :text => @message_text)
-      Resque.should_receive(:enqueue).with(Jobs::GatherOEmbedData, instance_of(Fixnum), instance_of(String))
+      Workers::GatherOEmbedData.should_receive(:perform_async).with(instance_of(Fixnum), instance_of(String))
       sm.save
     end
 

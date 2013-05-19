@@ -370,5 +370,43 @@ describe Post do
     end
   end
 
+  describe "#find_by_guid_or_id_with_user" do
+    it "succeeds with an id" do
+      post = FactoryGirl.create :status_message, public: true
+      Post.find_by_guid_or_id_with_user(post.id).should == post
+    end
 
+    it "succeeds with an guid" do
+      post = FactoryGirl.create :status_message, public: true
+      Post.find_by_guid_or_id_with_user(post.guid).should == post
+    end
+
+    it "looks up on the passed user object if it's non-nil" do
+      post = FactoryGirl.create :status_message
+      user = mock
+      user.should_receive(:find_visible_shareable_by_id).with(Post, post.id, key: :id).and_return(post)
+      Post.find_by_guid_or_id_with_user post.id, user
+    end
+
+    it "raises ActiveRecord::RecordNotFound with a non-existing id and a user" do
+      user = stub(find_visible_shareable_by_id: nil)
+      expect {
+        Post.find_by_guid_or_id_with_user 123, user
+      }.to raise_error ActiveRecord::RecordNotFound
+    end
+
+    it "raises Diaspora::NonPublic for a non-existing id without a user" do
+      Post.stub where: stub(includes: stub(first: nil))
+      expect {
+        Post.find_by_guid_or_id_with_user 123
+      }.to raise_error Diaspora::NonPublic
+    end
+
+    it "raises Diaspora::NonPublic for a private post without a user" do
+      post = FactoryGirl.create :status_message
+      expect {
+        Post.find_by_guid_or_id_with_user post.id
+      }.to raise_error Diaspora::NonPublic
+    end
+  end
 end

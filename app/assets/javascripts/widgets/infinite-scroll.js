@@ -27,7 +27,8 @@
       }
     };
 
-    this.subscribe("widget/ready", function() {
+    this.subscribe("widget/ready", function(evt, opts) {
+      $.extend(self.options, opts);
       if($('#main_stream').length !== 0) {
         $('#main_stream').infinitescroll(self.options, function(newElements) {
           self.globalPublish("stream/scrolled", newElements);

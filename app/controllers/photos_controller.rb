@@ -12,23 +12,17 @@ class PhotosController < ApplicationController
     @person = Person.find_by_guid(params[:person_id])
 
     if @person
-      @profile = @person.profile
       @contact = current_user.contact_for(@person)
-      @is_contact = @person != current_user.person && @contact
-      @aspects_with_person = []
 
       if @contact
-        @aspects_with_person = @contact.aspects
         @contacts_of_contact = @contact.contacts
         @contacts_of_contact_count = @contact.contacts.count
       else
         @contact = Contact.new
-        @contacts_of_contact = []
-        @contacts_of_contact_count = 0
       end
 
       @posts = current_user.photos_from(@person)
-      
+
       respond_to do |format|
         format.all { render 'people/show' }
         format.json{ render_for_api :backbone, :json => @posts, :root => :photos }
@@ -147,16 +141,9 @@ class PhotosController < ApplicationController
       # get file content type
       att_content_type = (request.content_type.to_s == "") ? "application/octet-stream" : request.content_type.to_s
       # create tempora##l file
-      begin
-        file = Tempfile.new(file_name, {:encoding =>  'BINARY'})
-        file.print request.raw_post.force_encoding('BINARY')
-      rescue RuntimeError => e
-        raise e unless e.message.include?('cannot generate tempfile')
-        file = Tempfile.new(file_name) # Ruby 1.8 compatibility
-        file.binmode
-        file.print request.raw_post
-      end
+      file = Tempfile.new(file_name, {:encoding =>  'BINARY'})
       # put data into this file from raw post request
+      file.print request.raw_post.force_encoding('BINARY')
 
       # create several required methods for this temporal file
       Tempfile.send(:define_method, "content_type") {return att_content_type}

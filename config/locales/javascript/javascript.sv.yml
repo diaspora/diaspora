@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -11,6 +11,7 @@ sv:
       add_to_aspect: "Lägg till kontakt"
       all_aspects: "Alla aspekter"
       error: "Det går inte att börja dela med <%= name %>. Ignorerar du dem?"
+      error_remove: "Kunde ej ta bort <%= name %> från aspekten :("
       select_aspects: "Välj aspekter"
       started_sharing_with: "Du har börjat dela med <%= name %>!"
       stopped_sharing_with: "Du har slutat dela med <%= name %>."
@@ -19,6 +20,7 @@ sv:
         many: "I <%= count %> aspekter"
         one: "I <%= count %> aspekt"
         other: "I <%= count %> aspekter"
+        two: "I <%= count %> aspekter"
         zero: "Välj aspekter"
     aspect_navigation:
       add_an_aspect: "+ Lägg till en aspekt"
@@ -63,8 +65,11 @@ sv:
     people:
       not_found: "och ingen hittades..."
     photo_uploader:
-      completed: "<%= file %> färdig"
+      completed: "<%= file %> klar"
+      empty: "{file} är tom, var vänlig och välj filerna igen utan den."
+      invalid_ext: "{file} har otillåten filändelse. Endast {extensions} tillåts."
       looking_good: "OMG, du ser grym ut!"
+      size_error: "{file} är för stor, största tillåtna filstorlek är {sizeLimit}."
     publisher:
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
       limited: "Begränsad - ditt inlägg visas endast för personer som du delar med"
@@ -121,7 +126,7 @@ sv:
       minutes: "%d minuter"
       month: "ungefär en månad"
       months: "%d månader"
-      prefixAgo: "För"
+      prefixAgo: "för"
       prefixFromNow: "om"
       seconds: "mindre än en minut"
       suffixAgo: "sedan"

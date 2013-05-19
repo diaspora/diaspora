@@ -15,14 +15,14 @@
 .span-6
   = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
 
-  - if user_signed_in? && @contact.persisted? && @contacts_of_contact.count > 0
+  - if user_signed_in? && @contact.persisted? && @contacts_of_contact_count > 0
     .span-5.last#contacts_of_contact
       .section.contact_pictures
         %h4
           = t('contacts', :count => @contacts_of_contact_count)
-        - for person in @contacts_of_contact
+        - @contacts_of_contact.each do |person|
           = person_image_link person
-      - if @contacts_of_contact.count > 8
+      - if @contacts_of_contact_count > 8
         %p.see_all= link_to t('.see_all'), person_contacts_path(@person)
 
 .span-18.last
@@ -31,8 +31,8 @@
 
     #main_stream.stream
       - if @block.present?
-        %div{:style=>"text-align:center;", :class => "dull"}
+        .dull
           = t('.ignoring', :name => @person.first_name)
-          
+
     #paginate
       %span.loader.hidden

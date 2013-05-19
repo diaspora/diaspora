@@ -1,7 +1,7 @@
 module PublishingCukeHelpers
   def make_post(text)
     fill_in 'status_message_fake_text', :with => text
-    click_button :submit
+    find(".creation").click
     wait_for_ajax_to_finish
   end
 

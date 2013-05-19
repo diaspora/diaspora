@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join('lib', 'email_inviter')
-
 class InvitationsController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:new, :create]

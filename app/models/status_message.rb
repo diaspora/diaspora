@@ -14,8 +14,11 @@ class StatusMessage < Post
   validates_length_of :text, :maximum => 65535, :message => I18n.t('status_messages.too_long', :count => 65535)
   xml_name :status_message
   xml_attr :raw_message
+  xml_attr :photos, :as => [Photo]
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
+
+  has_one :location
 
   # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
   # therefore, we put the validation in a before_destory callback instead of a validation
@@ -155,13 +158,16 @@ class StatusMessage < Post
   end
 
   def queue_gather_oembed_data
-    Resque.enqueue(Jobs::GatherOEmbedData, self.id, self.oembed_url)
+    Workers::GatherOEmbedData.perform_async(self.id, self.oembed_url)
   end
 
   def contains_oembed_url_in_text?
-    require 'uri'
     urls = URI.extract(self.raw_message, ['http', 'https'])
     self.oembed_url = urls.find{ |url| !TRUSTED_OEMBED_PROVIDERS.find(url).nil? }
+  end
+
+  def address
+    location.try(:address)
   end
 
   protected

@@ -18,6 +18,10 @@ describe("app.views.Publisher", function() {
     it("hides the close button in standalone mode", function() {
       expect(this.view.$('#hide_publisher').is(':visible')).toBeFalsy();
     });
+    
+    it("hides the post preview button in standalone mode", function() {
+      expect(this.view.$('.post_preview_button').is(':visible')).toBeFalsy();
+    });
   });
 
   context("plain publisher", function() {
@@ -61,6 +65,13 @@ describe("app.views.Publisher", function() {
         this.view.clear($.Event());
         expect(this.view.close).toHaveBeenCalled();
       })
+      
+      it("calls removePostPreview", function(){
+        spyOn(this.view, "removePostPreview");
+
+        this.view.clear($.Event());
+        expect(this.view.removePostPreview).toHaveBeenCalled();
+      })
 
       it("clears all textareas", function(){
         _.each(this.view.$("textarea"), function(element){
@@ -95,6 +106,30 @@ describe("app.views.Publisher", function() {
         expect(this.view.$("input[name='photos[]']").length).toBe(0);
       })
     });
+
+    describe("createStatusMessage", function(){
+      it("calls handleTextchange to complete missing mentions", function(){
+        spyOn(this.view, "handleTextchange");
+        this.view.createStatusMessage($.Event());
+        expect(this.view.handleTextchange).toHaveBeenCalled();
+      })
+    });
+
+    describe("publishing a post with keyboard", function(){
+      it("should submit the form when shift+enter is pressed", function(){
+        this.view.render();
+        var form = this.view.$("form")
+        var submitCallback = jasmine.createSpy().andReturn(false);
+        form.submit(submitCallback);
+      
+        var e = $.Event("keydown", { keyCode: 13 });
+        e.shiftKey = true;
+        this.view.keyDown(e);
+      
+        expect(submitCallback).toHaveBeenCalled();
+        expect($(this.view.el)).not.toHaveClass("closed");
+      })
+    })
   });
 
   context("#toggleService", function(){
@@ -265,4 +300,73 @@ describe("app.views.Publisher", function() {
       });
     });
   });
+
+  context("locator", function() {
+    beforeEach(function() {
+      // should be jasmine helper
+      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+
+      spec.loadFixture("aspects_index");
+      this.view = new app.views.Publisher();
+    });
+
+    describe('#showLocation', function(){
+      it("Show location", function(){
+
+        // inserts location to the DOM; it is the location's view element
+        setFixtures('<div id="publisher_textarea_wrapper"></div>'); 
+
+        // creates a fake Locator 
+        OSM = {};
+        OSM.Locator = function(){return { getAddress:function(){}}};
+
+        // validates there is not location
+        expect($("#location").length).toBe(0);
+
+        // this should create a new location
+        this.view.showLocation();
+
+        // validates there is one location created
+        expect($("#location").length).toBe(1);
+      })
+    });
+
+    describe('#destroyLocation', function(){
+      it("Destroy location if exists", function(){
+
+        // inserts location to the DOM; it is the location's view element
+        setFixtures('<div id="location"></div>'); 
+
+        //Backup original view
+        var original_location = app.views.Location;
+
+        // creates a new Location view with the #location element
+        app.views.Location = new Backbone.View({el:"#location"});
+
+        // creates the mock 
+        app.views.location = sinon.mock(app.views.Location).object;
+
+        // calls the destroy function and test the expected result
+        this.view.destroyLocation();
+
+        expect($("#location").length).toBe(0);
+
+        //Restore view
+        app.views.Location = original_location;
+      })
+    });
+
+    describe('#avoidEnter', function(){
+      it("Avoid submitting the form when pressing enter", function(){
+        // simulates the event object
+        evt = {};
+        evt.keyCode = 13;
+
+        // should return false in order to avoid the form submition
+        expect(this.view.avoidEnter(evt)).toBeFalsy();
+      })
+    });
+  });
+
 });
+

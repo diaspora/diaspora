@@ -28,6 +28,9 @@ spec/fixtures/*.y*ml
 spec/fixtures/*.fixture.*
 coverage/*
 xml_locales/*
+app/assets/images/branding-*.png
+app/assets/images/icons-*.png
+app/assets/images/social_media_logos-*.png
 
 #Documentation
 .yardoc/

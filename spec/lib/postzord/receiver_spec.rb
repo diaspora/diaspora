@@ -4,8 +4,6 @@
 
 require 'spec_helper'
 
-require Rails.root.join('lib', 'postzord', 'receiver')
-
 describe Postzord::Receiver do
   before do
     @receiver = Postzord::Receiver.new

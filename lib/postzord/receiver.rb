@@ -4,8 +4,9 @@
 
 
 class Postzord::Receiver
-  require Rails.root.join('lib', 'postzord', 'receiver', 'private')
-  require Rails.root.join('lib', 'postzord', 'receiver', 'public')
+  require 'postzord/receiver/private'
+  require 'postzord/receiver/public'
+  require 'postzord/receiver/local_batch'
 
   def perform!
     self.receive!

@@ -28,6 +28,32 @@ describe("app.views.CommentStream", function(){
       expect($.fn.autoResize.mostRecentCall.object.selector).toBe("textarea")
     })
   })
+  
+  describe("createComment", function() {
+    beforeEach(function() {
+      jasmine.Ajax.useMock();
+      this.view.render();
+      this.view.expandComments();
+    })
+    
+    it("submits the new comment when comment text is not empty", function() {
+      this.view.$(".comment_box").val('a new comment');
+      this.view.createComment();
+      expect(this.view.$(".comment-content p").text()).toEqual("a new comment");
+    })
+    
+    it("clears the comment box when there are only spaces", function() {
+      this.view.$(".comment_box").val('   ');
+      this.view.createComment();
+      expect(this.view.$(".comment_box").val()).toEqual("");
+    })
+    
+    it("resets comment box height", function() {
+      this.view.$(".comment_box").val('a new comment');
+      this.view.createComment();
+      expect(this.view.$(".comment_box").attr("style")).not.toContain("height");
+    })
+  })
 
   describe("appendComment", function(){
     it("appends this.model as 'parent' to the comment", function(){
@@ -54,4 +80,32 @@ describe("app.views.CommentStream", function(){
       expect(this.view.$("textarea").val()).toEqual("great post!");
     })
   })
+  
+  describe("pressing a key when typing on the new comment box", function(){
+    it("should not submit the form when enter key is pressed", function(){
+      this.view.render();
+      var form = this.view.$("form")
+      var submitCallback = jasmine.createSpy().andReturn(false);form.submit(submitCallback);
+      
+      var e = $.Event("keydown", { keyCode: 13 });
+      e.shiftKey = false;
+      this.view.keyDownOnCommentBox(e);
+      
+      expect(submitCallback).not.toHaveBeenCalled();
+    })
+    
+    it("should submit the form when enter is pressed with shift", function(){
+      this.view.render();
+      var form = this.view.$("form")
+      var submitCallback = jasmine.createSpy().andReturn(false);
+      form.submit(submitCallback);
+      
+      var e = $.Event("keydown", { keyCode: 13 });
+      e.shiftKey = true;
+      this.view.keyDownOnCommentBox(e);
+      
+      expect(submitCallback).toHaveBeenCalled();
+    })
+  })
+  
 })

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ pl:
       correlations: "Współzależności"
       pages: "Strony"
       pod_stats: "Statystyki dla Podu"
-      resque_overview: "Przegląd resque"
       user_search: "Wyszukiwanie użytkowników"
       weekly_user_stats: "Tygodniowe statystyki użytkownika"
     correlations:
@@ -830,6 +829,7 @@ pl:
         newhere: "TutajOdNiedawna"
       post_a_message_to: "Wyślij wiadomość do %{aspect}"
       posting: "Publikowanie..."
+      preview: "Podgląd"
       publishing_to: "publikuj na:"
       share: "Udostępnij"
       share_with: "udostępnij"

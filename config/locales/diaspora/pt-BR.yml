@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,8 +45,7 @@ pt-BR:
       correlations: "Correlações"
       pages: "Páginas"
       pod_stats: "Status do Servidor"
-      resque_overview: "Informação de Resque"
-      user_search: "Busca Usuários"
+      user_search: "Busca de Usuários"
       weekly_user_stats: "Estatísticas Semanais"
     correlations:
       correlations_count: "Contas similares:"
@@ -158,6 +157,7 @@ pt-BR:
       handle_explanation: "Esse é seu Diaspora ID. Como um endereço de e-mail, pode ser usado por outras pessoas para entrar em contato com você."
       help:
         any_problem: "Algum Problema?"
+        contact_podmin: "Entre em contato com o administrador do seu servidor!"
         do_you: "Você:"
         email_feedback: "%{link} seu feedback, se você preferir"
         email_link: "E-mail"
@@ -165,6 +165,7 @@ pt-BR:
         find_a_bug: "... encontrar um %{link}?"
         have_a_question: "... Tem um %{link}?"
         here_to_help: "A comunidade do Diaspora está aqui!"
+        mail_podmin: "E-mail do administrador do Servidor"
         need_help: "Quer Ajuda?"
         tag_bug: "#bug"
         tag_feature: "#feature"
@@ -237,9 +238,9 @@ pt-BR:
       failure: "Eu não conseguirei parar de ignorar este usuário. #evasion"
       success: "Vamos ver o que eles têm a dizer! #sayhello"
   bookmarklet:
-    explanation: "Postar para Diaspora de qualquer lugar através dos favoritos %{link}."
+    explanation: "Publique em Diaspora de qualquer lugar favoritando este link => %{link}."
     heading: "Favoritos"
-    post_something: "Postar algo em Diaspora"
+    post_something: "Publicar em Diaspora"
     post_success: "Postado! Fechado!"
   cancel: "Cancelar"
   comments:
@@ -285,6 +286,7 @@ pt-BR:
   conversations:
     create:
       fail: "Mensagem inválida"
+      no_contact: "Cuidado, você precisa adicionar o contato primeiro!"
       sent: "Mensagem enviada"
     destroy:
       success: "Conversa removida com sucesso"
@@ -294,6 +296,7 @@ pt-BR:
         many: "%{count} novas mensagens"
         one: "1 nova mensagem"
         other: "%{count} novas mensagens"
+        two: "%{count} novas mensagens"
         zero: "Nenhuma mensagem nova"
     index:
       create_a_new_message: "criar uma nova mensagem"
@@ -317,8 +320,8 @@ pt-BR:
   date:
     formats:
       birthday: "%d %B"
-      birthday_with_year: "%d %B %Y"
-      fullmonth_day: "%d %B"
+      birthday_with_year: "%d de %B de %Y"
+      fullmonth_day: "%d de %B"
   delete: "Deletar"
   email: "Email"
   error_messages:
@@ -344,7 +347,7 @@ pt-BR:
       note_already_sent: "Convites já foram enviados para: %{emails}"
       own_address: "Você não pode enviar um convite para o seu endereço."
       rejected: "Os seguintes endereços de emails tiveram problemas:"
-      sent: "Convites enviados para:"
+      sent: "Convites enviados para: %{emails}"
     edit:
       accept_your_invitation: "Aceitar seu convite"
       your_account_awaits: "Aguarde sua conta!"
@@ -396,12 +399,14 @@ pt-BR:
         many: "%{count} curtiram"
         one: "1 curtiu"
         other: "%{count} curtiram"
+        two: "%{count} curtiram"
         zero: "ninguém curtiu"
       people_like_this_comment:
         few: "%{count} curtiram"
         many: "%{count} curtiram"
         one: "%{count} curtiu"
         other: "%{count} curtiram"
+        two: "%{count} curtiram"
         zero: "ninguém curtiu"
   limited: "Limitado"
   more: "Mais"
@@ -409,23 +414,24 @@ pt-BR:
   no_results: "Nenhum Resultado Encontrado"
   notifications:
     also_commented:
-      one: "%{actors} também comentou sobre %{post_author}'s %{post_link}."
-      other: "%{actors} também comentaram sobre %{post_author}'s %{post_link}."
-      zero: "%{actors} também comentou sobre %{post_author}'s %{post_link}."
+      one: "%{actors} também comentou sobre %{post_link} de %{post_author}."
+      other: "%{actors} também comentaram sobre %{post_link} de %{post_author}."
+      zero: "Ninguém mais comentou sobre %{post_link} de %{post_author}."
     also_commented_deleted:
-      one: "%{actors}, comentou em uma postagem deletada."
-      other: "%{actors}, comentaram em uma postagem deletada."
-      zero: "%{actors}, comentou em uma postagem deletada."
+      one: "%{actors} comentou em uma postagem apagada."
+      other: "%{actors} comentaram em uma postagem apagada."
+      zero: "Ninguém comentou em uma postagem apagada."
     comment_on_post:
-      one: "%{actors}, comentou sua postagem %{post_link}."
-      other: "%{actors}, comentaram sua postagem %{post_link}."
-      zero: "%{actors}, comentou sua postagem %{post_link}."
+      one: "Ninguém comentou sua postagem %{post_link}."
+      other: "%{actors} comentaram sua postagem %{post_link}."
+      zero: "%{actors} comentou sua postagem %{post_link}."
     helper:
       new_notifications:
         few: "%{count} novas notificações"
         many: "%{count} novas notificações"
         one: "1 nova notificação"
         other: "%{count} novas notificações"
+        two: "%{count} novas notificações"
         zero: "Nenhuma notificação nova"
     index:
       and: "e"
@@ -434,6 +440,7 @@ pt-BR:
         many: "e %{count} outros"
         one: "e mais um"
         other: "e %{count} outros"
+        two: "e %{count} outros"
         zero: "e mais ninguém"
       mark_all_as_read: "Marcar Todos como Lido"
       mark_unread: "Marcar como não lida"
@@ -443,38 +450,34 @@ pt-BR:
       other: "%{actors} curtiram sua postagem %{post_link}."
       zero: "%{actors} curtiu sua postagem %{post_link}."
     liked_post_deleted:
-      one: "%{actors}, curtiu sua postagem deletada."
-      other: "%{actors}, curtiram sua postagem deletada."
-      zero: "%{actors}, curtiu sua postagem deletada."
+      one: "%{actors} curtiu sua postagem apagada."
+      other: "%{actors} curtiram sua postagem apagada."
+      zero: "Ninguém curtiu sua postagem apagada."
     mentioned:
       one: "%{actors} mencionou você em %{post_link}."
       other: "%{actors} mencionaram você em %{post_link}."
       zero: "%{actors} mencionou você em %{post_link}."
     mentioned_deleted:
-      one: "%{actors} mencionou você numa postagem deletada."
-      other: "%{actors} mencionaram você numa postagem deletada."
-      zero: "%{actors} mencionou você numa postagem deletada."
+      one: "%{actors} mencionou você em uma postagem apagada."
+      other: "%{actors} mencionaram você em uma postagem apagada."
+      zero: "Ninguém mencionou você em uma postagem apagada."
     post: "postagem"
     private_message:
-      few: "%{actors}, te enviou uma mensagem."
-      many: "%{actors}, te enviou uma mensagem."
-      one: "%{actors}, te enviou uma mensagem."
-      other: "%{actors}, te enviou uma mensagem."
-      zero: "%{actors}, te enviou uma mensagem."
+      one: "%{actors} te enviou uma mensagem."
+      other: "%{actors} te enviaram uma mensagem."
+      zero: "Ninguém te enviou uma mensagem."
     reshared:
-      one: "%{actors}, compartilhou o seu %{post_link}."
+      one: "%{actors} compartilhou o seu %{post_link}."
       other: "%{actors} compartilharam o seu %{post_link}."
       zero: "%{actors} compartilhou o seu %{post_link}."
     reshared_post_deleted:
-      one: "%{actors}, compartilhou sua postagem deletada."
-      other: "%{actors}, compartilharam sua postagem deletada."
-      zero: "%{actors}, compartilhou sua postagem deletada."
+      one: "%{actors} compartilhou sua postagem apagada."
+      other: "%{actors} compartilharam sua postagem apagada."
+      zero: "Ninguém compartilhou sua postagem apagada."
     started_sharing:
-      few: "%{actors}, está compartilhando com você agora."
-      many: "%{actors}, está compartilhando com você agora."
-      one: "%{actors}, está compartilhando com você agora."
-      other: "%{actors}, está compartilhando com você agora."
-      zero: "%{actors}, está compartilhando com você agora."
+      one: "%{actors} começou a compartilhar com você."
+      other: "%{actors} começaram a compartilhar com você."
+      zero: "Ninguém está compartilhando com você."
   notifier:
     a_post_you_shared: "uma postagem."
     accept_invite: "Aceite Seu Convite Para Diaspora*!"
@@ -484,7 +487,7 @@ pt-BR:
     confirm_email:
       click_link: "Para confirmar o seu novo endereço de email %{unconfirmed_email}, por favor clique neste link:"
       subject: "Por favor, ative o seu novo endereço de email %{unconfirmed_email}"
-    email_sent_by_diaspora: "Este email foi enviado por Diaspora. Se você quer parar de receber emails como este,"
+    email_sent_by_diaspora: "Este email foi enviado por %{pod_name}. Se você deseja parar de receber emails como este,"
     hello: "Olá %{name}!"
     invite:
       message: |-
@@ -494,13 +497,13 @@ pt-BR:
 
           Clique neste link para começar
 
-          %{invite_url}
-          <%= invite_code_url(@invitation_code)%>
+          %{invite_url}[1]
 
 
           Com amor,
 
           O robô de emails do Diaspora*!
+          [1]: %{invite_url}
     invited_you: "%{name} te convidou para Diaspora*"
     liked:
       liked: "%{name} curtiu sua postagem."
@@ -522,7 +525,7 @@ pt-BR:
       view_profile: "Ver perfil de %{name}'s "
     thanks: "Obrigado,"
     to_change_your_notification_settings: "para alterar tuas configurações de notificações"
-  nsfw: "Não recomendável para ser visualizado no escritório."
+  nsfw: "Conteúdo inapropriado"
   ok: "OK"
   or: "ou"
   password: "Senha"
@@ -545,7 +548,7 @@ pt-BR:
       no_results: "Ei! Você precisa procurar por alguma coisa."
       results_for: "resultado da busca por"
       searching: "pesquisando, por favor aguarde..."
-    last_post: "Último post"
+    last_post: "Última postagem"
     many: "%{count} pessoas"
     one: "1 pessoa"
     other: "%{count} pessoas"
@@ -622,7 +625,7 @@ pt-BR:
       notice: "A foto foi enviada com sucesso."
   posts:
     presenter:
-      title: "Um post de %{name}"
+      title: "Uma postagem de %{name}"
     show:
       destroy: "Deletar"
       not_found: "Desculpe! Não foi possível encontrar."
@@ -631,7 +634,7 @@ pt-BR:
         one: "Uma foto de %{author}"
         other: "%{count} fotos de %{author}"
         zero: "Não há fotos de %{author}"
-      reshare_by: "Recompartilhado por %{author}"
+      reshare_by: "Compartilhado por %{author}"
   previous: "Anterior"
   privacy: "Privacidade"
   privacy_policy: "Política de Privacidade"
@@ -643,8 +646,8 @@ pt-BR:
       first_name: "Primeiro Nome"
       last_name: "Sobrenome"
       update_profile: "Atualizar perfil"
-      you_are_nsfw: "Você marcou seu perfil como não apto para todos os públicos, seus conteúdos não serão exibidos para pessoas que optarem por não ver conteúdos questionáveis."
-      you_are_safe_for_work: "Você marcou seu perfil como apto para todos os públicos, isso significa que você concorda que o conteúdo de seus posts estão de acordo com as normas da comunidade."
+      you_are_nsfw: "Você marcou seu perfil como não apropriado para todos os públicos; seus conteúdos não serão exibidos para pessoas que tenham optado por não ver conteúdos ofensivos."
+      you_are_safe_for_work: "Você marcou seu perfil como apropriado para todos os públicos; isso significa que você concorda que o conteúdo de suas publicações estará de acordo com as normas da comunidade."
       your_bio: "Sobre você"
       your_birthday: "Data de nascimento"
       your_gender: "Sua sexualidade"
@@ -664,6 +667,7 @@ pt-BR:
     many: "%{count} reactions"
     one: "1 reação"
     other: "%{count} reações"
+    two: "%{count} reações"
     zero: "0 reações"
   registrations:
     closed: "Os cadastros estão temporariamente desabilitados."
@@ -683,7 +687,7 @@ pt-BR:
       diaspora: "<3 Diaspora*"
       email: "E-MAIL"
       enter_email: "Digite teu email"
-      enter_password: "Digite a senha (seis caracteres no mínimo)"
+      enter_password: "Digite a senha (mínimo de seis caracteres)"
       enter_password_again: "Digite novamente a tua senha"
       enter_username: "Escolha um nome de usuário (use somente letras, números e sublinhados)"
       hey_make: "HEY,<br/>FAÇA<br/>ALGO."
@@ -707,6 +711,7 @@ pt-BR:
         many: "%{count} novos pedidos!"
         one: "novo pedido!"
         other: "%{count} novos pedidos!"
+        two: "%{count} novos pedidos!"
         zero: "nenhum pedido novo"
     manage_aspect_contacts:
       existing: "Contatos existentes"
@@ -720,10 +725,8 @@ pt-BR:
     reshare:
       deleted: "A postagem original foi deletada pelo autor."
       reshare:
-        few: "%{count} compartilhados"
-        many: "%{count} compartilhados"
-        one: "1 compartilhado"
-        other: "%{count} compartilhados"
+        one: "1 compartilhamento"
+        other: "%{count} compartilhamentos"
         zero: "Compartilhar"
       reshare_confirmation: "Compartilhar %{author} - %{text}?"
       reshare_original: "Compartilhar isso"
@@ -740,7 +743,7 @@ pt-BR:
     failure:
       error: "Houve uma falha na conexão deste serviço"
     finder:
-      fetching_contacts: "Diaspora está procurando seus amigos em %{service}, volte daqui alguns minutos."
+      fetching_contacts: "Diaspora está importando seus amigos de %{service}; por favor, volte daqui alguns minutos."
       no_friends: "Ninguém do Facebook foi encontrado."
       service_friends: "%{service} Amigos"
     index:
@@ -752,6 +755,7 @@ pt-BR:
       logged_in_as: "logado(a) como"
       no_services: "Você ainda não tem serviços conectados na sua conta."
       really_disconnect: "Desconectar %{service}?"
+      services_explanation: "A conexão com serviços externos permite que você publique suas postagens em serviços conectados ao mesmo tempo em que posta no Diaspora."
     inviter:
       click_link_to_accept_invitation: "Clique neste link para aceitar o convite"
       join_me_on_diaspora: "Junte-se a mim em DIASPORA*"
@@ -849,16 +853,12 @@ pt-BR:
     new:
       mentioning: "Mencionando: %{person}"
     too_long:
-      few: "por favor, não crie mensagens superior a %{count} caracteres"
-      many: "por favor, não crie mensagens superior a %{count} caracteres"
-      one: "por favor, não crie mensagem superior a %{count} caractere"
-      other: "por favor, não crie mensagens superior a %{count} caracteres"
-      zero: "por favor, não crie mensagens superior a %{count} caracteres"
+      one: "por favor, crie mensagens de status com menos de %{count} caractere"
+      other: "por favor, crie mensagens de status com menos de %{count} caracteres"
+      zero: "por favor, crie mensagens de status com menos de %{count} caracteres"
   stream_helper:
     hide_comments: "Ocultar todos os comentários"
     show_comments:
-      few: "Ver mais %{count} comentários"
-      many: "Ver mais %{count} comentários"
       one: "Ver mais um comentário"
       other: "Ver mais %{count} comentários"
       zero: "Nenhum comentário"
@@ -981,6 +981,8 @@ pt-BR:
     getting_started:
       awesome_take_me_to_diaspora: "Incrível! Leve-me para Diaspora*."
       community_welcome: "A comunidade Diaspora* está feliz em tê-lo(a) a bordo!"
+      connect_to_facebook: "Podemos acelerar um pouco as coisas pelo %{link} para o Diaspora. Isso vai recuperar seu nome e foto, habilitando a postagem cruzada"
+      connect_to_facebook_link: "Associando sua conta do Facebook"
       hashtag_explanation: "As hashtags permitem à você compartilhar e acompanhar os teus interesses. Elas também são uma ótima maneira de encontrar novas pessoas em Diaspora."
       hashtag_suggestions: "Tente tags como #art, #movies, #gif, etc."
       saved: "Salvo!"

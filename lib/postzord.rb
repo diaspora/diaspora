@@ -3,5 +3,6 @@
 #   the COPYRIGHT file.
 
 module Postzord
-
+  require 'postzord/receiver'
+  require 'postzord/dispatcher'
 end

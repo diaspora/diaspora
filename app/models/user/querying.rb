@@ -2,9 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join('lib', 'evil_query')
-
-
 #TODO: THIS FILE SHOULD NOT EXIST, EVIL SQL SHOULD BE ENCAPSULATED IN EvilQueries,
 #throwing all of this stuff in user violates demeter like WHOA
 module User::Querying

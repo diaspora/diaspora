@@ -4,8 +4,6 @@
 
 require 'spec_helper'
 
-require Rails.root.join('lib', 'postzord', 'dispatcher')
-
 describe Postzord::Dispatcher do
   before do
     @sm = FactoryGirl.create(:status_message, :public => true, :author => alice.person)
@@ -211,7 +209,7 @@ describe Postzord::Dispatcher do
 
       it 'should queue an HttpMultiJob for the remote people' do
         Postzord::Dispatcher::Public.any_instance.unstub(:deliver_to_remote)
-        Resque.should_receive(:enqueue).with(Jobs::HttpMulti, alice.id, anything, @remote_people.map{|p| p.id}, anything).once
+        Workers::HttpMulti.should_receive(:perform_async).with(alice.id, anything, @remote_people.map{|p| p.id}, anything).once
         @mailman.send(:deliver_to_remote, @remote_people)
 
         Postzord::Dispatcher::Public.stub(:deliver_to_remote)
@@ -226,18 +224,18 @@ describe Postzord::Dispatcher do
       it 'queues a batch receive' do
         local_people = []
         local_people << alice.person
-        Resque.should_receive(:enqueue).with(Jobs::ReceiveLocalBatch, @sm.class.to_s, @sm.id, [alice.id]).once
+        Workers::ReceiveLocalBatch.should_receive(:perform_async).with(@sm.class.to_s, @sm.id, [alice.id]).once
         @mailman.send(:deliver_to_local, local_people)
       end
 
       it 'returns if people are empty' do
-        Resque.should_not_receive(:enqueue)
+        Workers::ReceiveLocalBatch.should_not_receive(:perform_async)
         @mailman.send(:deliver_to_local, [])
       end
 
       it 'returns if the object is a profile' do
         @mailman.instance_variable_set(:@object, Profile.new)
-        Resque.should_not_receive(:enqueue)
+        Workers::ReceiveLocalBatch.should_not_receive(:perform_async)
         @mailman.send(:deliver_to_local, [1])
       end
     end
@@ -279,8 +277,8 @@ describe Postzord::Dispatcher do
       end
 
       it 'queues a job to notify the hub' do
-        Resque.stub!(:enqueue).with(Jobs::PostToService, anything, anything, anything)
-        Resque.should_receive(:enqueue).with(Jobs::PublishToHub, alice.public_url)
+        Workers::PostToService.stub!(:perform_async).with(anything, anything, anything)
+        Workers::PublishToHub.should_receive(:perform_async).with(alice.public_url)
         @zord.send(:deliver_to_services, nil, [])
       end
 
@@ -299,18 +297,35 @@ describe Postzord::Dispatcher do
        alice.services << @s2
        mailman = Postzord::Dispatcher.build(alice, FactoryGirl.create(:status_message), :url => "http://joindiaspora.com/p/123", :services => [@s1])
 
-       Resque.stub!(:enqueue).with(Jobs::PublishToHub, anything)
-       Resque.stub!(:enqueue).with(Jobs::HttpMulti, anything, anything, anything)
-       Resque.should_receive(:enqueue).with(Jobs::PostToService, @s1.id, anything, anything)
+       Workers::PublishToHub.stub!(:perform_async).with(anything)
+       Workers::HttpMulti.stub!(:perform_async).with(anything, anything, anything)
+       Workers::PostToService.should_receive(:perform_async).with(@s1.id, anything, anything)
        mailman.post
       end
 
       it 'does not push to services if none are specified' do
        mailman = Postzord::Dispatcher.build(alice, FactoryGirl.create(:status_message), :url => "http://joindiaspora.com/p/123")
 
-       Resque.stub!(:enqueue).with(Jobs::PublishToHub, anything)
-       Resque.should_not_receive(:enqueue).with(Jobs::PostToService, anything, anything, anything)
+       Workers::PublishToHub.stub!(:perform_async).with(anything)
+       Workers::PostToService.should_not_receive(:perform_async).with(anything, anything, anything)
        mailman.post
+      end
+
+      it 'queues a job to delete if given retraction' do
+        retraction = SignedRetraction.build(alice, FactoryGirl.create(:status_message))
+        mailman = Postzord::Dispatcher.build(alice, retraction,  :url => "http://joindiaspora.com/p/123", :services => [@service])
+
+        Workers::DeletePostFromService.should_receive(:perform_async).with(anything, anything)
+        mailman.post
+      end
+
+      it "doesn't queue a job if we can't delete the post from the service" do
+        retraction = SignedRetraction.build(alice, FactoryGirl.create(:status_message))
+        service = Services::Twitter.new(access_token: "nope")
+        mailman = Postzord::Dispatcher.build(alice, retraction,  :url => "http://joindiaspora.com/p/123", :services => [service])
+
+        Workers::DeletePostFromService.should_not_receive(:perform_async).with(anything, anything)
+        mailman.post
       end
     end
 
@@ -323,7 +338,7 @@ describe Postzord::Dispatcher do
 
     describe '#notify_users' do
       it 'enqueues a NotifyLocalUsers job' do
-        Resque.should_receive(:enqueue).with(Jobs::NotifyLocalUsers, [bob.id], @zord.object.class.to_s, @zord.object.id, @zord.object.author.id)
+        Workers::NotifyLocalUsers.should_receive(:perform_async).with([bob.id], @zord.object.class.to_s, @zord.object.id, @zord.object.author.id)
         @zord.send(:notify_users, [bob])
       end
     end

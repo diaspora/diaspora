@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -274,6 +274,7 @@ fi:
         many: "%{count} uutta viestiä"
         one: "1 uusi viesti"
         other: "%{count} uutta viestiä"
+        two: "%{count} uutta viestiä"
         zero: "Ei uusia viestejä"
     index:
       create_a_new_message: "luo uusi viesti"
@@ -368,18 +369,21 @@ fi:
         many: "%{count} ei tykkää"
         one: "%{count} ei tykkää"
         other: "%{count} ei tykkää"
+        two: "%{count} ei tykkää"
         zero: "no people disliked this"
       people_like_this:
         few: "%{count} tykkää"
         many: "%{count} tykkää"
         one: "%{count} tykkää"
         other: "%{count} tykkää"
+        two: "%{count} tykkää"
         zero: "ei tykkäyksiä"
       people_like_this_comment:
         few: "%{count} tykkää"
         many: "%{count} tykkää"
         one: "%{count} tykkää"
         other: "%{count} tykkää"
+        two: "%{count} tykkää"
         zero: "ei tykkäyksiä"
   limited: "Rajoitettu"
   more: "Lisää"
@@ -391,18 +395,21 @@ fi:
       many: "Myös %{actors} kommentoivat käyttäjän %{post_author} %{post_link}ä."
       one: "Myös %{actors} kommentoi käyttäjän %{post_author} %{post_link}ä."
       other: "Myös %{actors} kommentoivat käyttäjän %{post_author} %{post_link}ä."
+      two: "Myös %{actors} kommentoivat käyttäjän %{post_author} %{post_link}ä."
       zero: "Myös %{actors} kommentoi käyttäjän %{post_author} %{post_link}ä."
     also_commented_deleted:
       few: "%{actors} kommentoi poistettua viestiä."
       many: "%{actors} kommentoi poistettua viestiä."
       one: "%{actors} kommentoi poistettua viestiä."
       other: "%{actors} kommentoivat poistettua viestiä."
+      two: "%{actors} kommentoivat poistettua viestiä."
       zero: "%{actors} kommentoivat poistettua viestiä."
     comment_on_post:
       few: "%{actors} kommentoivat %{post_link}äsi."
       many: "%{actors} kommentoivat %{post_link}äsi."
       one: "%{actors} kommentoi %{post_link}äsi."
       other: "%{actors} kommentoivat %{post_link}äsi."
+      two: "%{actors} kommentoivat %{post_link}äsi."
       zero: "%{actors} kommentoi %{post_link}äsi."
     helper:
       new_notifications:
@@ -410,6 +417,7 @@ fi:
         many: "%{count} uutta ilmoitusta"
         one: "1 uusi ilmoitus"
         other: "%{count} uutta ilmoitusta"
+        two: "%{count} uutta ilmoitusta"
         zero: "Ei uusia ilmoituksia"
     index:
       and: "ja"
@@ -418,6 +426,7 @@ fi:
         many: "ja %{count} muuta"
         one: "ja yksi muu"
         other: "ja %{count} muuta"
+        two: "ja %{count} muuta"
         zero: "eikä kukaan muu"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
       mark_unread: "Merkitse lukemattomaksi"
@@ -427,18 +436,21 @@ fi:
       many: "%{actors} tykkäsivät %{post_link}stäsi."
       one: "%{actors} tykkäsi %{post_link}stäsi."
       other: "%{actors} tykkäsivät %{post_link}stäsi."
+      two: "%{actors} tykkäsivät %{post_link}stäsi."
       zero: "%{actors} tykkäsivät %{post_link}stäsi."
     liked_post_deleted:
       few: "%{actors} tykkäsivät poistamastasi viestistä."
       many: "%{actors} tykkäsivät poistamastasi viestistä."
       one: "%{actors} tykkäsi poistamastasi viestistä."
       other: "%{actors} tykkäsivät poistamastasi viestistä."
+      two: "%{actors} tykkäsivät poistamastasi viestistä."
       zero: "%{actors} tykkäsi poistamastasi viestistä."
     mentioned:
       few: "%{actors} ovat maininneet sinut %{post_link}ssä."
       many: "%{actors} ovat maininneet sinut %{post_link}ssä."
       one: "%{actors} on maininnut sinut %{post_link}ssä."
       other: "%{actors} ovat maininneet sinut %{post_link}ssä."
+      two: "%{actors} ovat maininneet sinut %{post_link}ssä."
       zero: "%{actors} on maininnut sinut %{post_link}ssä."
     mentioned_deleted:
       one: "%{actors} mainitsi sinut poistetussa viestissä."
@@ -454,18 +466,21 @@ fi:
       many: "%{actors} ovat jakaneet %{post_link}si uudelleen."
       one: "%{actors} on jakanut %{post_link}si uudelleen."
       other: "%{actors} ovat jakaneet %{post_link}si uudelleen."
+      two: "%{actors} ovat jakaneet %{post_link}si uudelleen."
       zero: "%{actors} on jakanut %{post_link}si uudelleen."
     reshared_post_deleted:
       few: "%{actors} jakoivat poistamasi viestin uudelleen."
       many: "%{actors} jakoivat poistamasi viestin uudelleen."
       one: "%{actors} jakoi poistamasi viestin uudelleen."
       other: "%{actors} jakoivat poistamasi viestin uudelleen."
+      two: "%{actors} jakoivat poistamasi viestin uudelleen."
       zero: "%{actors} jakoivat poistamasi viestin uudelleen."
     started_sharing:
       few: "%{actors} on aloittanut jakamaan kanssasi."
       many: "%{actors} on aloittanut jakamaan kanssasi."
       one: "%{actors} on aloittanut jakamaan kanssasi."
       other: "%{actors} on aloittanut jakamaan kanssasi."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} on aloittanut jakamaan kanssasi."
   notifier:
     a_post_you_shared: "viesti"
@@ -657,6 +672,7 @@ fi:
     many: "%{count} reaktiota"
     one: "1 reaktio"
     other: "%{count} reaktiota"
+    two: "%{count} reaktiota"
     zero: "0 reaktiota"
   registrations:
     closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
@@ -700,6 +716,7 @@ fi:
         many: "%{count} uutta pyyntöä!"
         one: "uusi pyyntö!"
         other: "%{count} uutta pyyntöä!"
+        two: "%{count} uutta pyyntöä!"
         zero: "ei uusia pyyntöjä"
     manage_aspect_contacts:
       existing: "Olemassa olevat kontaktit"
@@ -717,6 +734,7 @@ fi:
         many: "jaettu uudelleen %{count} kertaa"
         one: "jaettu uudelleen kerran"
         other: "jaettu uudelleen %{count} kertaa"
+        two: "jaettu uudelleen %{count} kertaa"
         zero: "Jaa uudelleen"
       reshare_confirmation: "Jaetaanko käyttäjän %{author} viesti uudelleen?"
       reshare_original: "Jaa alkuperäinen uudelleen"
@@ -771,6 +789,7 @@ fi:
         many: "%{count} näkymässä"
         one: "%{count} näkymässä"
         other: "%{count} näkymässä"
+        two: "%{count} näkymässä"
         zero: "Lisää kontakti"
     contact_list:
       all_contacts: "Kaikki kontaktit"
@@ -847,6 +866,7 @@ fi:
       many: "Ole hyvä ja kirjoita tilaasi vähemmän kuin %{count} merkkiä"
       one: "viestin merkkimäärä voi olla maksimissaan %{count}"
       other: "viestin merkkimäärä voi olla maksimissaan %{count}"
+      two: "statusviestisi voi olla korkeintaan %{count} merkin pituinen"
       zero: "viestin merkkimäärä voi olla maksimissaan %{count}"
   stream_helper:
     hide_comments: "Piilota kaikki kommentit"
@@ -855,6 +875,7 @@ fi:
       many: "Näytä %{count} muuta kommenttia"
       one: "Näytä yksi muu kommentti"
       other: "Näytä %{count} muuta kommenttia"
+      two: "Näytä kaksi muuta kommenttia"
       zero: "Ei enempää kommentteja"
   streams:
     activity:

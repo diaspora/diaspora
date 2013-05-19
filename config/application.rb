@@ -5,13 +5,7 @@
 require 'pathname'
 require Pathname.new(__FILE__).expand_path.dirname.join('boot')
 
-# Needed for versions of ruby 1.9.2 that were compiled with libyaml.
-# They use psych by default which doesn't handle having a default set of parameters.
-# See bug #1120.
 require 'yaml'
-if RUBY_VERSION.include? '1.9'
-  YAML::ENGINE.yamler= 'syck'
-end
 
 require 'rails/all'
 
@@ -32,8 +26,8 @@ module Diaspora
     # -- all .rb files in that directory are automatically loaded.
 
     # Add additional load paths for your own custom dirs
-     config.autoload_paths += %W(#{config.root}/app/presenters)
-     config.autoload_paths += %W(#{config.root}/lib)
+     config.autoload_paths      += %W{#{config.root}/app/presenters #{config.root}/app}
+     config.autoload_once_paths += %W{#{config.root}/lib}
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named

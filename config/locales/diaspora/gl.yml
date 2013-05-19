@@ -202,7 +202,7 @@ gl:
       create: "Crear"
     create:
       success: "Creouse o aspecto «%{name}»."
-      failure: "Non se puido crear o aspecto."
+      failure: "Non foi posíbel crear o aspecto."
     destroy:
       success: "Eliminouse «%{name}»."
       failure: "Non se pode eliminar «%{name}» porque non está baleiro."
@@ -214,7 +214,7 @@ gl:
       success: "Moveuse a persoa a un novo aspecto."
       error: "Houbo un erro ao intentar mover o contacto: %{inspect}"
     add_to_aspect:
-      failure: "Non se puido engadir o contacto ao aspecto."
+      failure: "Non foi posíbel engadir o contacto ao aspecto."
       success: "O contacto engadiuse ao aspecto."
     helper:
       remove: "Eliminar"
@@ -257,6 +257,9 @@ gl:
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki}, %{forum}… Recursos de aprendizaxe, manuais e novas, todo da man a comunidade!"
         email_feedback: "Ademais, sempre lle quedará mandarnos un %{link}."
         email_link: "Correo"
+        any_problem: "Algún problema?"
+        contact_podmin: "Contacte co administrador do seu servidor!"
+        mail_podmin: "Enderezo do administrador"
       cubbies:
         heading: "Conectarse a Cubbi.es"
         explanation: "Cubbi.es é o primeiro aplicativo en desenvolverse para Diaspora."
@@ -277,7 +280,7 @@ gl:
   aspect_memberships:
     destroy:
       success: "Eliminouse ao contacto do aspecto."
-      failure: "Non se puido eliminar ao contacto do aspecto."
+      failure: "Non foi posíbel eliminar ao contacto do aspecto."
       no_membership: "O contacto seleccionado non está neste aspecto."
 
   bookmarklet:
@@ -313,7 +316,7 @@ gl:
     many: "Hai %{count} contactos."
     other: "Hai %{count} contactos."
     create:
-      failure: "Non se puido crear o contacto."
+      failure: "Non foi posíbel crear o contacto."
     sharing:
       people_sharing: "Xente que comparte con vostede:"
     index:
@@ -334,6 +337,7 @@ gl:
       many_people_are_you_sure: "Está seguro de que quere iniciar unha conversa privada con máis de %{suggested_limit} contactos? Para comunicarse con eles, quizais sexa mellor publicar neste aspecto."
     spotlight:
       community_spotlight: "Estrelas da comunidade"
+      suggest_member: "Suxerir un membro"
 
   conversations:
     index:
@@ -364,6 +368,7 @@ gl:
     create:
       sent: "Enviouse a mensaxe."
       fail: "Mensaxe incorrecta."
+      no_contact: "Antes ten que engadir o contacto!"
     new_message:
       fail: "Mensaxe incorrecta."
     destroy:
@@ -385,6 +390,8 @@ gl:
       already_sent: "Xa invitou a esta persoa."
       already_contacts: "Xa está conectado con esta persoa."
       own_address: "Non pode enviarse unha invitación a si mesmo."
+      empty: "Escriba polo menos un enderezo de correo electrónico."
+      note_already_sent: "Xa no seu momento se convidou a: %{emails}."
     new:
       language: "Lingua"
       invite_someone_to_join: "Convide a alguén a unirse a Diaspora!"
@@ -593,17 +600,17 @@ gl:
     invite:
       message: |-
         Ola!
-        
+
         Recibiches unha invitación para unirte a Diaspora*!
-        
+
         Segue esta ligazón para comezar:
-        
+
         [%{invite_url}][1]
-                
+
         Un saúdo,
-        
+
         O robot do correo de Diaspora*
-        
+
         [1]: %{invite_url}
   people:
     zero: "ninguén."
@@ -625,7 +632,7 @@ gl:
       searching: "Buscando…"
       looking_for: "Busca publicacións coa etiqueta %{tag_link}?"
     webfinger:
-      fail: "Non se puido atopar «%{handle}»."
+      fail: "Non foi posíbel atopar «%{handle}»."
     show:
       has_not_shared_with_you_yet: "%{name} aínda non compartiu con vostede!"
       incoming_request: "%{name} quere compartir con vostede."
@@ -683,12 +690,12 @@ gl:
       back_to_list: "Volver á lista"
       post_it: "Publicalo!"
     create:
-      runtime_error: "Non se puido subir a imaxe. Está seguro de que tiña o cinto de seguridade ben axustado?"
-      integrity_error: "Non se puido subir a imaxe. Está seguro de que o ficheiro era unha imaxe?"
-      type_error: "Non se puido subir a imaxe. Está seguro de que se engadiu algunha imaxe?"
+      runtime_error: "Non foi posíbel subir a imaxe. Está seguro de que tiña o cinto de seguridade ben axustado?"
+      integrity_error: "Non foi posíbel subir a imaxe. Está seguro de que o ficheiro era unha imaxe?"
+      type_error: "Non foi posíbel subir a imaxe. Está seguro de que se engadiu algunha imaxe?"
     update:
       notice: "Actualizouse a imaxe."
-      error: "Non se puido modificar a imaxe."
+      error: "Non foi posíbel modificar a imaxe."
     destroy:
       notice: "Eliminouse a imaxe."
     new_photo:
@@ -744,7 +751,7 @@ gl:
       you_are_safe_for_work: "Marcouse a vostede mesmo como apto para todos os públicos, indicando así que o que vostede publique é acorde ás directrices da comunidade."
     update:
       updated: "Actualizouse o perfil."
-      failed: "Non se puido actualizar o perfil."
+      failed: "Non foi posíbel actualizar o perfil."
 
   registrations:
     new:
@@ -849,10 +856,10 @@ gl:
   blocks:
     create:
       success: "Vale, non volverá ver a ese contacto na súa onda. #silencio!"
-      failure: "Non se puido ignorar ao usuario. #evasión"
+      failure: "Non foi posíbel ignorar ao usuario. #evasión"
     destroy:
       success: "A ver que ten que dicir! #saúdo"
-      failure: "Non se puido evitar ignorar ao usuario. #evasión"
+      failure: "Non foi posíbel evitar ignorar ao usuario. #evasión"
 
   shared:
     aspect_dropdown:
@@ -941,7 +948,7 @@ gl:
     helper:
       no_message_to_display: "Non hai mensaxes que amosar."
     destroy:
-      failure: "Non se puido eliminar a publicación."
+      failure: "Non foi posíbel eliminar a publicación."
     too_long:
       zero: "As súas mensaxes de estado non poden ter ningún carácter. Curioso, va que si?"
       one: "As súas mensaxes de estado non poden ter máis dun carácter. Elíxao ben!"
@@ -973,11 +980,11 @@ gl:
   tag_followings:
     create:
       success: "Agora segue «#%{name}»."
-      failure: "Non se puido seguir «#%{name}». Xa a está a seguir?"
+      failure: "Non foi posíbel seguir «#%{name}». Xa a está a seguir?"
       none: "Non pode seguir unha etiqueta baleira!"
     destroy:
       success: "Deixou de seguir «#%{name}»."
-      failure: "Non se puido deixar e seguir «#%{name}». Será que xa deixou de seguila?"
+      failure: "Non foi posíbel deixar e seguir «#%{name}». Será que xa deixou de seguila?"
 
   tokens:
     show:
@@ -1124,32 +1131,32 @@ gl:
 
     update:
       password_changed: "Cambiouse o contrasinal."
-      password_not_changed: "Non se puido cambiar o contrasinal."
+      password_not_changed: "Non foi posíbel cambiar o contrasinal."
 
       language_changed: "Cambiouse a lingua."
-      language_not_changed: "Non se puido cambiar a lingua."
+      language_not_changed: "Non foi posíbel cambiar a lingua."
 
       settings_updated: "Actualizouse a configuración."
-      settings_not_updated: "Non se puido actualizar a configuración."
+      settings_not_updated: "Non foi posíbel actualizar a configuración."
 
       email_notifications_changed: "Modificáronse as notificacións por correo."
       unconfirmed_email_changed: "Cambiouse o enderezo de correo, resta activar o novo."
-      unconfirmed_email_not_changed: "Non se puido cambiar o enderezo de correo."
+      unconfirmed_email_not_changed: "Non foi posíbel cambiar o enderezo de correo."
       follow_settings_changed: "Cambiouse a configuración de seguimento."
-      follow_settings_not_changed: "Non se puido cambiar a configuración de seguimento."
+      follow_settings_not_changed: "Non foi posíbel cambiar a configuración de seguimento."
     public:
       does_not_exist: "O usuario «%{username}» non existe!"
     confirm_email:
       email_confirmed: "Activouse o enderezo de correo «%{email}»."
-      email_not_confirmed: "Non se puido activar o enderezo de correo. Confundiuse de ligazón?"
+      email_not_confirmed: "Non foi posíbel activar o enderezo de correo. Confundiuse de ligazón?"
 
   will_paginate:
     previous_label: "← Anterior"
     next_label: "Seguinte →"
 
   webfinger:
-    fetch_failed: "Non se puido obter o perfil “webfinger” de «%{profile_url}»."
-    hcard_fetch_failed: "Non se puido obter a tarxeta “hcard” de «%{account}»."
-    xrd_fetch_failed: "Non se puido obter o “xrd” de «%{account}»."
+    fetch_failed: "Non foi posíbel obter o perfil “webfinger” de «%{profile_url}»."
+    hcard_fetch_failed: "Non foi posíbel obter a tarxeta “hcard” de «%{account}»."
+    xrd_fetch_failed: "Non foi posíbel obter o “xrd” de «%{account}»."
     not_enabled: "Parece que no servidor no que está a conta «%{account}» non está activado o “webfinger”."
-    no_person_constructed: "Non se puido configurar unha persoa a partir desta tarxeta “hcard”."
+    no_person_constructed: "Non foi posíbel configurar unha persoa a partir desta tarxeta “hcard”."

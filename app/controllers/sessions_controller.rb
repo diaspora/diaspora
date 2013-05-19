@@ -4,6 +4,7 @@
 
 class SessionsController < Devise::SessionsController
 
-  layout "post", :only => [:new]
+  layout "application", :only => [:new]
+  before_filter -> { @css_framework = :bootstrap }, only: [:new]
 
 end

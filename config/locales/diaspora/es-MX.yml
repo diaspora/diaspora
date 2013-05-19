@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,7 @@ es-MX:
       correlations: "Correlaciones"
       pages: "Páginas"
       pod_stats: "Estadísticas del servidor"
-      resque_overview: "Información general de Resque"
+      sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Búsqueda de usuario"
       weekly_user_stats: "Estadísticas semanales de usuario"
     correlations:
@@ -736,6 +736,7 @@ es-MX:
       logged_in_as: "conectado como"
       no_services: "Todavía no has conectado ningún servicio."
       really_disconnect: "¿Desconectar %{service}?"
+      services_explanation: "Conectar con servicios te ofrece la posibilidad de publicar tus mensajes en estos, a medida que los escribes en Diaspora."
     inviter:
       click_link_to_accept_invitation: "Sigue este enlace para aceptar tu invitación"
       join_me_on_diaspora: "Únete a mí en DIASPORA*"
@@ -801,6 +802,7 @@ es-MX:
         newhere: "Hola"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando…"
+      preview: "Vista previa"
       publishing_to: "publicar en: "
       share: "Comparte"
       share_with: "compartir con"
@@ -933,7 +935,7 @@ es-MX:
         make_diaspora_better: "Queremos que nos ayudes a mejorar Diaspora, así que deberías ayudarnos en vez de marcharte. Si en verdad quieres irte, queremos que sepas lo que sucede después."
         mr_wiggles: "El gatito estará triste por verte partir."
         no_turning_back: "Actualmente, no hay vuelta atrás."
-        what_we_delete: "Eliminamos todas tus publicaciones, tu información de perfil, tan pronto como nos es posible. Tus comentarios estarán en línea, pero estarán asociados a tu cuenta de Diaspora."
+        what_we_delete: "Eliminaremos todas tus publicaciones e información de perfil tan pronto como no sea posible. Tus comentarios seguirán existiendo, pero estarán asociados a tu ID de Diaspora, en lugar de tu nombre."
       close_account_text: "Cerrar cuenta"
       comment_on_post: "Alguien comenta en tu publicación."
       current_password: "Contraseña actual"

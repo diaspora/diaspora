@@ -36,7 +36,7 @@ class ServicesController < ApplicationController
       fetch_photo = current_user.profile[:image_url].blank?
 
       current_user.update_profile(current_user.profile.from_omniauth_hash(user))
-      Resque.enqueue(Jobs::FetchProfilePhoto, current_user.id, service.id, user["image"]) if fetch_photo
+      Workers::FetchProfilePhoto.perform_async(current_user.id, service.id, user["image"]) if fetch_photo
 
       flash[:notice] = I18n.t 'services.create.success'
     else

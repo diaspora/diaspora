@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -190,6 +190,7 @@ en_shaw:
         many: "%{count} 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
         one: "1 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡"
         other: "%{count} 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
+        two: "%{count} new messages"
         zero: "𐑯𐑴 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
     index:
       create_a_new_message: "𐑒𐑮𐑦𐑱𐑑 𐑩 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡"
@@ -260,18 +261,21 @@ en_shaw:
         many: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
         one: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒"
         other: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
+        two: "%{count} dislikes"
         zero: "𐑯𐑴 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
       people_like_this:
         few: "%{count} 𐑤𐑲𐑒𐑕"
         many: "%{count} 𐑤𐑲𐑒𐑕"
         one: "%{count} 𐑤𐑲𐑒"
         other: "%{count} 𐑤𐑲𐑒𐑕"
+        two: "%{count} likes"
         zero: "𐑯𐑴 𐑤𐑲𐑒𐑕"
       people_like_this_comment:
         few: "%{count} 𐑤𐑲𐑒𐑕"
         many: "%{count} 𐑤𐑲𐑒𐑕"
         one: "%{count} 𐑤𐑲𐑒"
         other: "%{count} 𐑤𐑲𐑒𐑕"
+        two: "%{count} likes"
         zero: "𐑯𐑴 𐑤𐑲𐑒𐑕"
   limited: "𐑤𐑦𐑥𐑦𐑑𐑩𐑛"
   more: "𐑥𐑹"
@@ -283,18 +287,21 @@ en_shaw:
       many: "%{actors} 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 %{post_link}."
       one: "%{actors} 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 %{post_link}."
       other: "%{actors} 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 %{post_link}."
     also_commented_deleted:
       few: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       many: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       one: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       other: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
     comment_on_post:
       few: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 %{post_link}."
       many: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 %{post_link}."
       one: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 %{post_link}."
       other: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 %{post_link}."
     helper:
       new_notifications:
@@ -302,6 +309,7 @@ en_shaw:
         many: "%{count} 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
         one: "1 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
         other: "%{count} 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
+        two: "%{count} new notifications"
         zero: "𐑯𐑴 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
     index:
       and: "𐑯"
@@ -310,6 +318,7 @@ en_shaw:
         many: "𐑯 %{count} 𐑳𐑞𐑼𐑟"
         one: "𐑯 𐑢𐑳𐑯 𐑥𐑹"
         other: "𐑯 %{count} 𐑳𐑞𐑼𐑟"
+        two: "and %{count} others"
         zero: "𐑯 𐑯𐑴𐑚𐑩𐑛𐑦 𐑧𐑤𐑕"
       mark_all_as_read: "𐑥𐑸𐑒 𐑷𐑤 𐑨𐑟 𐑮𐑧𐑛"
       notifications: "𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
@@ -318,24 +327,28 @@ en_shaw:
       many: "%{actors} 𐑣𐑨𐑟 𐑡𐑩𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 %{post_link}."
       one: "%{actors} 𐑣𐑨𐑟 𐑡𐑩𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 %{post_link}."
       other: "%{actors} 𐑣𐑨𐑟 𐑡𐑩𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} 𐑣𐑨𐑟 𐑡𐑩𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 %{post_link}."
     liked_post_deleted:
       few: "%{actors} 𐑤𐑦𐑙𐑒𐑑 𐑑 𐑿𐑼 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       many: "%{actors} 𐑤𐑦𐑙𐑒𐑑 𐑿𐑼 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       one: "%{actors} 𐑤𐑦𐑙𐑒𐑑 𐑿𐑼 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       other: "%{actors} 𐑤𐑦𐑙𐑒𐑑 𐑑 𐑿𐑼 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors} 𐑤𐑦𐑙𐑒𐑑 𐑑 𐑿𐑼 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
     mentioned:
       few: "%{actors} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 %{post_link}."
       many: "%{actors} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 %{post_link}."
       one: "%{actors} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 %{post_link}."
       other: "%{actors} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 %{post_link}."
     mentioned_deleted:
       few: "%{actors} 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       many: "%{actors} 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       one: "%{actors} 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       other: "%{actors} 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
     post: "𐑐𐑴𐑕𐑑"
     private_message:
@@ -343,24 +356,28 @@ en_shaw:
       many: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
       one: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
       other: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
+      two: "%{actors} sent you a message."
       zero: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
     reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
     reshared_post_deleted:
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
     started_sharing:
       few: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
       many: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
       one: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
       other: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
   notifier:
     click_here: "𐑒𐑤𐑦𐑒 𐑣𐑽"
@@ -482,6 +499,7 @@ en_shaw:
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   previous: "𐑐𐑮𐑰𐑝𐑾𐑕"
   profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
@@ -511,6 +529,7 @@ en_shaw:
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
+    two: "%{count} reactions"
     zero: "0 reactions"
   registrations:
     closed: "𐑕𐑲𐑯𐑩𐑐𐑕 𐑸 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛."
@@ -544,6 +563,7 @@ en_shaw:
         many: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
         one: "𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑!"
         other: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
+        two: "%{count} new requests!"
         zero: "𐑯𐑴 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
     manage_aspect_contacts:
       existing: "𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
@@ -560,6 +580,7 @@ en_shaw:
         many: "%{count} 𐑮𐑦𐑖𐑺𐑟"
         one: "1 𐑮𐑦𐑖𐑺"
         other: "%{count} 𐑮𐑦𐑖𐑺𐑟"
+        two: "%{count} reshares"
         zero: "𐑮𐑦𐑖𐑺"
       reshare_confirmation: "𐑮𐑦𐑖𐑺 %{author} - %{text}?"
       reshare_original: "𐑮𐑦𐑖𐑺 𐑩𐑮𐑦𐑡𐑩𐑯𐑩𐑤"
@@ -603,6 +624,7 @@ en_shaw:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
     contact_list:
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
@@ -663,6 +685,7 @@ en_shaw:
       many: "𐑐𐑤𐑰𐑟 𐑥𐑱𐑒 𐑿𐑼 𐑕𐑑𐑨𐑑𐑩𐑕 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑤𐑧𐑕 𐑞𐑨𐑯 %{count} 𐑒𐑺𐑩𐑒𐑑𐑼𐑟"
       one: "𐑐𐑤𐑰𐑟 𐑥𐑱𐑒 𐑿𐑼 𐑕𐑑𐑨𐑑𐑩𐑕 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑤𐑧𐑕 𐑞𐑨𐑯 %{count} 𐑒𐑺𐑩𐑒𐑑𐑼"
       other: "𐑐𐑤𐑰𐑟 𐑥𐑱𐑒 𐑿𐑼 𐑕𐑑𐑨𐑑𐑩𐑕 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑤𐑧𐑕 𐑞𐑨𐑯 %{count} 𐑒𐑺𐑩𐑒𐑑𐑼𐑟"
+      two: "please make your status messages less than %{count} characters"
       zero: "𐑐𐑤𐑰𐑟 𐑥𐑱𐑒 𐑿𐑼 𐑕𐑑𐑨𐑑𐑩𐑕 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑤𐑧𐑕 𐑞𐑨𐑯 %{count} 𐑒𐑺𐑩𐑒𐑑𐑼𐑟"
   stream_helper:
     hide_comments: "𐑣𐑲𐑛 𐑷𐑤 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
@@ -671,6 +694,7 @@ en_shaw:
       many: "Show %{count} more comments"
       one: "Show one more comment"
       other: "Show %{count} more comments"
+      two: "Show two more comments"
       zero: "No more comments"
   streams:
     aspects:

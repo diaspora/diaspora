@@ -74,7 +74,7 @@ module Configuration
       (git_revision || version)[0..8]
     end
     
-    def get_redis_instance
+    def get_redis_options
       if redistogo_url.present?
         $stderr.puts "WARNING: using the REDISTOGO_URL environment variable is deprecated, please use REDIS_URL now."
         ENV['REDIS_URL'] = redistogo_url
@@ -85,17 +85,25 @@ module Configuration
       redis_url = ENV['REDIS_URL'] || environment.redis.get
       
       if ENV['RAILS_ENV']== 'integration2'
-        redis_options = { :host => 'localhost', :port => 6380 }
+        redis_options[:url] = "redis://localhost:6380"
       elsif redis_url.present?
         unless redis_url.start_with?("redis://") || redis_url.start_with?("unix:///")
           $stderr.puts "WARNING: Your redis url (#{redis_url}) doesn't start with redis:// or unix:///"
         end
-        redis_options = { :url => redis_url }
+        redis_options[:url] = redis_url
       end
       
-      Redis.new(redis_options.merge(:thread_safe => true))
+      redis_options[:namespace] = AppConfig.environment.sidekiq.namespace.get
+      
+      redis_options
     end
     
+    def sidekiq_log
+      path = Pathname.new environment.sidekiq.log.get
+      path = Rails.root.join(path) unless pathname.absolute?
+      path.to_s
+    end
+
     private
 
     def get_git_info

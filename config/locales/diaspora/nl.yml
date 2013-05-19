@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -44,7 +44,6 @@ nl:
     admin_bar:
       pages: "Pagina's"
       pod_stats: "Pod Statistieken"
-      resque_overview: "Resque Overzicht"
       user_search: "Gebruiker Zoeken"
       weekly_user_stats: "Wekelijkse Gebruiker Statistieken"
     stats:
@@ -388,12 +387,14 @@ nl:
         many: "%{count} mensen vinden dit niet leuk"
         one: "%{count} persoon vindt dit niet leuk"
         other: "%{count} mensen vinden dit niet leuk"
+        two: "%{count} niet leuk"
         zero: "niemand vindt dit niet leuk"
       people_like_this:
         few: "%{count} mensen vinden dit leuk"
         many: "%{count} mensen vinden dit leuk"
         one: "%{count} persoon vindt dit leuk"
         other: "%{count} mensen vinden dit leuk"
+        two: "%{count} leuk"
         zero: "niemand vindt dit leuk"
       people_like_this_comment:
         one: "%{count} persoon vindt dit leuk"
@@ -413,12 +414,14 @@ nl:
       many: "%{actors} heeft gereageerd op een verwijderde post."
       one: "%{actors} heeft gereageerd op een verwijderd bericht."
       other: "%{actors} hebben gereageerd op een verwijderd bericht."
+      two: "%{actors} hebben gereageerd op een verwijderde post."
       zero: "%{actors} heeft gereageerd op een verwijderd bericht."
     comment_on_post:
       few: "%{actors} hebben op jouw %{post_link} gereageerd."
       many: "%{actors} hebben op jouw %{post_link} gereageerd."
       one: "%{actors} heeft op jouw %{post_link} gereageerd."
       other: "%{actors} hebben op jouw %{post_link} gereageerd."
+      two: "%{actors} heeft gereageerd op jou %{post_link}."
       zero: "%{actors} heeft op jouw %{post_link} gereageerd."
     helper:
       new_notifications:
@@ -426,6 +429,7 @@ nl:
         many: "%{count} nieuwe notificaties"
         one: "1 nieuwe notificatie"
         other: "%{count} nieuwe notificaties"
+        two: "%{count} nieuwe notificaties"
         zero: "Geen nieuwe notificaties"
     index:
       and: "en"
@@ -434,6 +438,7 @@ nl:
         many: "en %{count} anderen"
         one: "en nog iemand"
         other: "en %{count} anderen"
+        two: "en %{count} anderen"
         zero: "en niemand anders"
       mark_all_as_read: "Markeer alles gelezen"
       mark_unread: "Markeer ongelezen"
@@ -451,12 +456,14 @@ nl:
       many: "%{actors} hebben je genoemd in een %{post_link}."
       one: "%{actors} heeft je genoemd in een %{post_link}."
       other: "%{actors} hebben je genoemd in een %{post_link}."
+      two: "%{actors} hebben je genoemd in een %{post_link}."
       zero: "%{actors} hebben je genoemd in een %{post_link}."
     mentioned_deleted:
       few: "%{actors} hebben jouw genoemd in een verwijderde post."
       many: "%{actors} hebben jou genoemd in een verwijderde post."
       one: "%{actors} heeft jou genoemd in een verwijderde post."
       other: "%{actors} hebben jou genoemd in een verwijderde post."
+      two: "%{actors} hebben je genoemd in een verwijderde post."
       zero: "%{actors} heeft jou genoemd in een verwijderde post."
     post: "bericht"
     private_message:
@@ -468,6 +475,7 @@ nl:
       many: "%{actors} hebben jouw %{post_link} doorgegeven."
       one: "%{actors} heeft jouw %{post_link} doorgegeven."
       other: "%{actors} hebben jouw %{post_link} doorgegeven."
+      two: "%{actors} hebben jouw %{post_link} doorgegeven."
       zero: "%{actors} hebben jouw %{post_link} doorgegeven."
     reshared_post_deleted:
       one: "%{actors} hebben jouw verwijderde bericht doorgegeven."
@@ -478,6 +486,7 @@ nl:
       many: "%{actors} delen nu met jou."
       one: "%{actors} deelt nu met jou."
       other: "%{actors} delen nu met jou."
+      two: "%{actors} zijn met je gaan delen."
       zero: "%{actors} deelt nu met jou."
   notifier:
     a_post_you_shared: "een bericht."
@@ -636,6 +645,7 @@ nl:
         many: "%{count} foto's door %{author}"
         one: "Eén foto door %{author}"
         other: "%{count} foto's door %{author}"
+        two: "Twee foto's door %{author}"
         zero: "Geen foto's van %{author}"
       reshare_by: "Doorgegeven door %{author}"
   previous: "vorige"
@@ -670,6 +680,7 @@ nl:
     many: "%{count} reacties"
     one: "1 reactie"
     other: "%{count} reacties"
+    two: "%{count} reactions"
     zero: "0 reacties"
   registrations:
     closed: "Registratie is gesloten op deze Diaspora pod."
@@ -713,6 +724,7 @@ nl:
         many: "%{count} nieuwe verzoeken!"
         one: "nieuw verzoek!"
         other: "%{count} nieuwe verzoeken!"
+        two: "%{count} nieuwe verzoeken!"
         zero: "geen nieuwe verzoeken"
     manage_aspect_contacts:
       existing: "Bestaande contacten"
@@ -783,6 +795,7 @@ nl:
         many: "In %{count} aspecten"
         one: "In %{count} aspect"
         other: "In %{count} aspecten"
+        two: "In %{count} aspecten"
         zero: "Voeg contact toe"
     contact_list:
       all_contacts: "Alle contacten"
@@ -859,6 +872,7 @@ nl:
       many: "statusberichten mogen niet langer zijn dan %{count} tekens"
       one: "statusberichten mogen niet langer zijn dan %{count} tekens"
       other: "statusberichten mogen niet langer zijn dan %{count} tekens"
+      two: "maak je status bericht niet langer dan %{count} karakters"
       zero: "statusberichten mogen niet langer zijn dan %{count} tekens"
   stream_helper:
     hide_comments: "Verberg alle reacties"
@@ -867,6 +881,7 @@ nl:
       many: "Toon nog %{count} andere reacties."
       one: "Toon nog één andere reactie."
       other: "Toon nog %{count} andere reacties"
+      two: "Toon nog twee andere reacties."
       zero: "Geen andere reacties meer"
   streams:
     activity:

@@ -9,6 +9,10 @@ gl:
     confirm_dialog: "Está seguro?"
     delete: "Eliminar"
     ignore: "Ignorar"
+    ignore_user: "Ignorar este usuario?"
+    and: "e"
+    comma: ","
+    edit: "Editar"
     timeago:
       prefixAgo: "Hai"
       prefixFromNow: "Dentro de"
@@ -28,6 +32,7 @@ gl:
 
     my_activity: "Actividade"
     my_stream: "Onda"
+    my_aspects: "Aspectos"
 
     videos:
       watch: "Ver o vídeo en <%= provider %>"
@@ -45,7 +50,8 @@ gl:
       all_aspects: "Todos os aspectos"
       stopped_sharing_with: "Deixou de compartir con <%= name %>."
       started_sharing_with: "Comezou a compartir con <%= name %>!"
-      error: "Non se puido empezar a compartir con <%= name %>.  Está ignorando a esa persoa?"
+      error: "Non foi posíbel empezar a compartir con <%= name %>.  Está ignorando a esa persoa?"
+      error_remove: "Non foi posíbel eliminar a <%= name %> do aspecto."
       toggle:
         zero: "Engadir a un aspecto"
         one: "Nun aspecto"
@@ -54,8 +60,8 @@ gl:
         many: "En <%= count %> aspectos"
         other: "En <%= count %> aspectos"
     show_more: "Amosar máis"
-    failed_to_like: "Non se puido indicar que lle gusta a publicación!"
-    failed_to_post_message: "Non se puido publicar a mensaxe!"
+    failed_to_like: "Non foi posíbel indicar que lle gusta a publicación!"
+    failed_to_post_message: "Non foi posíbel publicar a mensaxe!"
     comments:
       hide: "Agochar os comentarios"
       show: "Amosar os comentarios"
@@ -67,6 +73,7 @@ gl:
       select_all: "Escollelos todos"
       deselect_all: "Non escoller ningún"
       no_aspects: "Non se escolleu ningún"
+      add_an_aspect: "Engadir un aspecto"
     getting_started:
       hey: "Ola, <%= name %>!"
       no_tags: "Eh, non está a seguir ningunha etiqueta! Quere continuar aínda así?"
@@ -74,6 +81,7 @@ gl:
       preparing_your_stream: "Preparando a súa onda personalizada…"
     photo_uploader:
       looking_good: "Ghuapo ghuapo non é, pero ten unha pelaxe…"
+      completed: "<%= file %> enviada."
     tags:
       wasnt_that_interesting: "Vale, supoño que #<%= tagName %> non era tan interesante…"
     people:

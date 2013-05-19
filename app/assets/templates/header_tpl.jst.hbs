@@ -1,7 +1,8 @@
 <div class="container" style="position:relative;">
 
   <a href="/stream">
-    <img alt="Logo_small" class="diaspora_header_logo" height="38px" width="65px" src="{{imageUrl "branding/header-logo.png"}}" />
+    <div alt="Logo_small" class="diaspora_header_logo branding-header-logo">
+    </div>
   </a>
 
   <span class="header-nav">
@@ -20,27 +21,30 @@
 
   <div id="nav_badges">
     <div class="badge badge-inverse" id="notification_badge">
-      <a href="/notifications" title="{{t "header.notifications"}}">
-        <img alt="{{t "header.notifications"}}" id="notification-flag" src="{{imageUrl "icons/notifications_grey.png"}}" />
-        <div class="badge_count {{#unless current_user.notifications_count}} hidden {{/unless}}">
-          {{current_user.notifications_count}}
-        </div>
-      </a>
+      <div class="icons-notifications_grey" >
+        <a href="/notifications" title="{{t "header.notifications"}}" class="badge_link" >
+          <div class="badge_count {{#unless current_user.notifications_count}} hidden {{/unless}}">
+            {{current_user.notifications_count}}
+          </div>
+        </a>
+      </div>
     </div>
 
     <div class="badge badge-inverse" id="message_inbox_badge">
-      <a href="/conversations" title="{{t "header.messages"}}">
-        <img alt="{{t "header.messages"}}" src="{{imageUrl "icons/mail_grey.png"}}" />
-        <div class="badge_count {{#unless current_user.unread_messages_count}} hidden {{/unless}}">
-          {{current_user.unread_messages_count}}
-        </div>
-      </a>
+     <div class="icons-mail_grey" >
+        <a href="/conversations" title="{{t "header.messages"}}" class="badge_link" >
+          <div class="badge_count {{#unless current_user.unread_messages_count}} hidden {{/unless}}">
+            {{current_user.unread_messages_count}}
+          </div>
+        </a>
+      </div>
     </div>
 
 
       <div id="notification_dropdown">
         <div class="header">
           <div class="right">
+
             <a href="#" id="mark_all_read_link">
               {{t "header.mark_all_as_read"}}
             </a>

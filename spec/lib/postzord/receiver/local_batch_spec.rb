@@ -1,5 +1,4 @@
 require 'spec_helper'
-require Rails.root.join('lib', 'postzord', 'receiver', 'local_batch')
 
 describe Postzord::Receiver::LocalBatch do
   before do

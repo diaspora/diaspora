@@ -2,15 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join("lib", "stream", "aspect")
-require Rails.root.join("lib", "stream", "multi")
-require Rails.root.join("lib", "stream", "comments")
-require Rails.root.join("lib", "stream", "likes")
-require Rails.root.join("lib", "stream", "mention")
-require Rails.root.join("lib", "stream", "followed_tag")
-require Rails.root.join("lib", "stream", "activity")
-
-
 class StreamsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :save_selected_aspects, :only => :aspects
@@ -64,8 +55,8 @@ class StreamsController < ApplicationController
     end
 
     respond_with do |format|
-      format.html { render 'layouts/main_stream' }
-      format.mobile { render 'layouts/main_stream' }
+      format.html { render 'streams/main_stream' }
+      format.mobile { render 'streams/main_stream' }
       format.json { render :json => @stream.stream_posts.map {|p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
     end
   end

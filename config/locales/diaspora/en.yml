@@ -89,7 +89,7 @@ en:
       weekly_user_stats: "Weekly User Stats"
       pod_stats: "Pod Stats"
       correlations: "Correlations"
-      resque_overview: "Resque Overview"
+      sidekiq_monitor: "Sidekiq monitor"
     correlations:
       correlations_count: "Correlations with Sign In Count:"
     user_search:
@@ -750,6 +750,7 @@ en:
       connect_to_tumblr: "Connect to Tumblr"
       edit_services: "Edit services"
       no_services: 'You have not connected any services yet.'
+      services_explanation: 'Connecting to services gives you the ability to publish your posts to them as you write them in Diaspora.'
     create:
       success: "Authentication successful."
       failure: "Authentication failed."
@@ -788,10 +789,12 @@ en:
     publisher:
       posting: "Posting..."
       share: "Share"
+      preview: "Preview"
       post_a_message_to: "Post a message to %{aspect}"
       make_public: "make public"
       all: "all"
       upload_photos: "Upload photos"
+      get_location: "Get your location"
       all_contacts: "all contacts"
       share_with: "share with"
       whats_on_your_mind: "What's on your mind?"
@@ -996,7 +999,7 @@ en:
         dont_go: "Hey, please don't go!"
         make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
         mr_wiggles: 'Mr Wiggles will be sad to see you go'
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora ID."
+        what_we_delete: "We will delete all of your posts and profile data as soon as humanly possible. Your comments will hang around, but they would be associated with your Diaspora ID instead of your name."
         locked_out: "You will get signed out and locked out of your account."
         lock_username: "This will lock your username if you decided to sign back up."
         no_turning_back: "Currently, there is no turning back."

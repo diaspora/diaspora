@@ -1,6 +1,10 @@
-<div class="edit">
-  <a href="/aspects/{{id}}/edit" rel="facebox">
-    <img alt="Pencil" src="{{imageUrl "icons/pencil.png"}}" title="{{t 'edit'}} {{name}}">
-  </a>
-</div>
+<a href="/aspects/{{id}}/edit" rel="facebox">
+  <div class="edit icons-pencil" alt="Pencil" title="{{t 'edit'}} {{name}}">
+  </div>
+</a>
+{{#if selected}}
+  <div class="icons-check_yes_ok"></div>
+{{else}}
+  <div class="icons-check_yes_ok invisible"></div>
+{{/if}}
 <a class="aspect_selector name" data-guid="{{id}}" href="/aspects/query"> {{name}} </a>

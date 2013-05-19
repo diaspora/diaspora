@@ -77,7 +77,7 @@ app.Router = Backbone.Router.extend({
 
     if(name) {
       var followedTagsAction = new app.views.TagFollowingAction(
-            {tagText: name}
+            {tagText: decodeURIComponent(name).toLowerCase()}
           );
       $("#author_info").prepend(followedTagsAction.render().el)
     }

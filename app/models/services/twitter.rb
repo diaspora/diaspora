@@ -1,5 +1,3 @@
-require 'uri'
-
 class Services::Twitter < Service
   MAX_CHARACTERS = 140
   SHORTENED_URL_LENGTH = 21

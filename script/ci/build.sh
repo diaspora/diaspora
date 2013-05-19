@@ -5,7 +5,7 @@
 echo "Setting up database.yml for $DB"
 cp config/database.yml.example config/database.yml
 if [ "$DB" = "postgres" ]; then
-  sed -i 's/*choose/*postgres_travis/' config/database.yml
+  sed -i 's/*common/*postgres_travis/' config/database.yml
 fi
 
 command="bundle exec rake --trace ci:travis:${BUILD_TYPE}"

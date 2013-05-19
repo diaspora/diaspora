@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ sk:
       correlations: "Závislosti"
       pages: "Stránky"
       pod_stats: "Štatistiky servera"
-      resque_overview: "Prehľad Resque"
       user_search: "Používateľské vyhľadávanie"
       weekly_user_stats: "Štatistiky používateľa za týždeň"
     correlations:
@@ -172,7 +171,7 @@ sk:
         find_a_bug: "... našiel (-šla) si %{link}?"
         have_a_question: "... máš %{link}?"
         here_to_help: "Komunita Diaspory je tu!"
-        mail_podmin: "E-mail podmina"
+        mail_podmin: "Napísať správcov podu"
         need_help: "Potrebuješ pomoc?"
         tag_bug: "chybu"
         tag_feature: "funkciu"
@@ -303,6 +302,7 @@ sk:
         many: "%{count} nových správ"
         one: "1 nová správa"
         other: "%{count} nových správ"
+        two: "%{count} nové správy"
         zero: "Žiadne nové správy"
     index:
       create_a_new_message: "vytvoriť novú správu"
@@ -438,6 +438,7 @@ sk:
         many: "%{count} nových oznamov"
         one: "1 nový oznam"
         other: "%{count} nových oznamov"
+        two: "%{count} nové oznamy"
         zero: "Žiadne nové oznamy"
     index:
       and: "a"
@@ -617,9 +618,9 @@ sk:
       new_photo: "Nová fotka"
       post_it: "Poslať to!"
     new_photo:
-      empty: "{file} je prázdny; vyber, prosím znova všetky súbory okrem tohto."
-      invalid_ext: "{file} má neplatnú príponu. Povolené sú len prípony {extensions}."
-      size_error: "{file} je príliš veľký, maximálna povolená veľkosť je {sizeLimit}."
+      empty: "Súbor {file} je prázdny; vyber, prosím, znova všetky súbory okrem tohto."
+      invalid_ext: "Súbor {file} má neplatnú príponu. Povolené sú len prípony {extensions}."
+      size_error: "Súbor {file} je príliš veľký, maximálna povolená veľkosť je {sizeLimit}."
     new_profile_photo:
       or_select_one_existing: "alebo si vyber jednu z fotiek, ktoré už existujú %{photos}"
       upload: "Nahrať novú profilovú fotku!"
@@ -648,6 +649,7 @@ sk:
         many: "%{count} fotiek, ktoré nahral(a) %{author}"
         one: "Jedna fotka, ktorú nahral(a) %{author}"
         other: "%{count} fotiek, ktoré nahral(a) %{author}"
+        two: "Dve fotky, ktoré nahral(a) %{author}"
         zero: "Žiadne fotky, ktoré nahral(a) %{author}"
       reshare_by: "Znova ukázal(a) príspevok %{author}"
   previous: "Predchádzajúce"

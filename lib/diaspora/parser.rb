@@ -13,7 +13,7 @@ module Diaspora
       rescue NameError => e
         # A pods is trying to federate an object we don't recognize.
         # i.e. their codebase is different from ours.  Quietly discard
-        # so that no Resque job failure is created
+        # so that no job failure is created
         nil
       end
     end

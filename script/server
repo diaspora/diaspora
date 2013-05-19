@@ -3,59 +3,24 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-# ensure right directory
-realpath=$( ruby -e "puts File.expand_path(\"$0\")")
-cd $(dirname $realpath)/..
+warning()
+{
+  echo "WARNING: $1" >&2
+}
 
-#Warn if legacy config exists
-if [ -e 'config/script_server.yml' ]; then
-  echo "WARNING: config/script_server.yml was merged into config/diaspora.yml. Please read the changelog!" >&2
-fi
+fatal()
+{
+  echo "FATAL: $1" >&2
+  exit 1
+}
 
-# Check if database.yml exists
-if [ ! -e 'config/database.yml' ]; then
-  echo 'FATAL: config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
-  exit 68
-fi
-
-# Check if diaspora.yml exists
-if [ ! -e 'config/diaspora.yml' ]; then
-  echo 'FATAL: config/diaspora.yml is missing! Copy over config/diaspora.yml.example to config/diaspora.yml and edit it properly!' >&2
-  exit 70
-fi
-
-
-# Setup environment
-if [ -z "$RAILS_ENV" ]; then
-  RAILS_ENV=$(bundle exec ruby ./script/get_config.rb server.rails_environment)
-  export RAILS_ENV
-fi
-
-os=`uname -s`
-eval $(bundle exec ruby ./script/get_config.rb \
-  port=server.port \
-  db=server.database \
-  workers=server.resque_workers \
-  single_process_mode=environment.single_process_mode?
-  embed_resque_worker=server.embed_resque_worker
-)
-
-if [ -z "$DB" ]; then
-  DB=$db
-  export DB
-fi
-
-if [ "$single_process_mode" = "true" -o "$embed_resque_worker" =  "true" ]; then
-  workers=0
-fi
-
-args="$@"
-prev_arg=''
-for arg in $( echo $args | awk '{ for (i = 1; i <= NF; i++) print $i}')
-do
-  [ "$prev_arg" = '-p' ] && port="$arg"
-  prev_arg="$arg"
-done
+on_failure()
+{
+  if [ $? != 0 ]
+  then
+    fatal $1
+  fi
+}
 
 # Check if already running/port blocked
 chk_service()
@@ -74,45 +39,102 @@ chk_service()
 }
 
 
-services=$( chk_service $port )
-if [ -n "$services" ]; then
-  echo "FATAL: Error: port $port is already in use. Exiting" >&2
-  echo "     $services"
-  exit 64
+# ensure right directory
+realpath=$( ruby -e "puts File.expand_path(\"$0\")")
+cd $(dirname $realpath)/..
+
+#Warn if legacy config exists
+if [ -e "config/script_server.yml" ]
+then
+  warning "config/script_server.yml was merged into config/diaspora.yml. Please read the changelog!"
 fi
 
+# Check if database.yml exists
+if [ ! -e "config/database.yml" ]
+then
+  fatal "config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!"
+fi
+
+# Check if diaspora.yml exists
+if [ ! -e "config/diaspora.yml" ]
+then
+  fatal "config/diaspora.yml is missing! Copy over config/diaspora.yml.example to config/diaspora.yml and edit it properly!"
+fi
+
+# Setup environment
+if [ -z "$RAILS_ENV" ]
+then
+  RAILS_ENV=$(bundle exec ruby ./script/get_config.rb server.rails_environment)
+  on_failure "Couldn't parse config/diaspora.yml!"
+  export RAILS_ENV
+fi
+
+
+os=$(uname -s)
+vars=$(bundle exec ruby ./script/get_config.rb \
+  port=server.port \
+  db=server.database \
+  single_process_mode=environment.single_process_mode? \
+  embed_sidekiq_worker=server.embed_sidekiq_worker \
+  workers=server.sidekiq_workers
+)
+on_failure "Couldn't parse config/diaspora.yml!"
+eval "$vars"
+
+if [ -z "$DB" ]
+then
+  DB=$db
+  export DB
+fi
+
+args="$@"
+for arg in $(echo $args | awk '{ for (i = 1; i <= NF; i++) print $i}')
+do
+  [ "$prev_arg" = '-p' ] && port="$arg"
+  prev_arg="$arg"
+done
+
+services=$(chk_service $port )
+if [ -n "$services" ]
+then
+  fatal "Port $port is already in use.\n\t$services"
+fi
 
 # Force AGPL
-if [ -w public -a ! -e  public/source.tar.gz ]; then
-  branch=$( git branch | awk '/^[*]/ {print $2}')
-  tar czf public/source.tar.gz  `git ls-tree -r $branch | awk '{print $4}'`
+if [ -w "public" -a ! -e  "public/source.tar.gz" ]
+then
+  branch=$(git branch | awk '/^[*]/ {print $2}')
+  tar czf public/source.tar.gz  $(git ls-tree -r $branch | awk '{print $4}')
 fi
 
-if [ ! -e public/source.tar.gz ]; then
-  echo "FATAL: Error: Can't find, or even create, public/source.tar.gz. Exiting" >&2
-  exit 65
+if [ ! -e "public/source.tar.gz" ]
+then
+  fatal "Can't find, or even create, public/source.tar.gz."
 fi
 
 # Check if assets are precompiled
-if [ "$RAILS_ENV" = 'production' ]; then
-  if [ ! -e 'public/assets/default.css' ]; then
-    echo "FATAL: You're running in production mode without having assets precompiled." >&2
-    echo "Now and after each update before you restart the application, run:" >&2
-    echo "bundle exec rake assets:precompile" >&2
-    exit 71
-  fi
+if [ "$RAILS_ENV" = "production" -a ! -e "public/assets/default.css" ]
+then
+  fatal <<MSG
+You're running in production mode without having assets precompiled.
+Now and after each update before you restart the application, run:
+    bundle exec rake assets:precompile
+MSG
 fi
-
 
 # Start Diaspora
 echo -n "Starting Diaspora in $RAILS_ENV mode on port $port "
-if [ "$embed_resque_worker" = "true" ]; then
-  echo "with a resque worker embeded into unicorn."
-elif [ "$single_process_mode" = "true" ]; then
+if [ "$embed_sidekiq_worker" = "true" ]
+then
+  echo "with a Sidekiq worker embedded into Unicorn."
+  workers=0
+elif [ "$single_process_mode" = "true" ]
+then
   echo "with job processing inside the request cycle."
+  workers=0
 else
-  echo "with $workers resque workers."
+  echo "with $workers Sidekiq worker(s)."
 fi
 echo ""
 
-exec bundle exec foreman start -m "web=1,worker=$workers" -p $port
+exec bundle exec foreman start -m "web=1,sidekiq=$workers" -p $port

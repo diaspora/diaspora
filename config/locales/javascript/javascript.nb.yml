@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -11,6 +11,7 @@ nb:
       add_to_aspect: "Legg til kategori"
       all_aspects: "Alle kategorier"
       error: "Kunne ikke begynne å dele med {{name}}.  Ignorerer du dem?"
+      error_remove: "Kunne ikke flytte <%= name %> fra aspektet :("
       select_aspects: "Velg kategori"
       started_sharing_with: "Du har begynt å dele med {{name}}!"
       stopped_sharing_with: "Du har sluttet å dele med {{name}}."
@@ -19,6 +20,7 @@ nb:
         many: "I {{count}} kategorier"
         one: "I {{count}} kategori"
         other: "I {{count}} kategorier"
+        two: "I {{count}} kategorier"
         zero: "Legg til kategori"
     aspect_navigation:
       add_an_aspect: "+ Legg til et aspekt"
@@ -57,6 +59,7 @@ nb:
     ignore_user: "Overse denne brukeren?"
     infinite_scroll:
       no_more: "Ingen flere innlegg."
+      no_more_contacts: "Ingen flere kontakter."
     my_activity: "Min aktivitet"
     my_aspects: "Mine aspekter"
     my_stream: "Stream"
@@ -64,7 +67,9 @@ nb:
       not_found: "og ingen andre ble funnet..."
     photo_uploader:
       completed: "<%= file %> ferdig"
+      empty: "{file} er tom, vennligst velg filer igjen uten å bruke den."
       looking_good: "Wow, du ser fantastisk ut!"
+      size_error: "{file} er for stor, maksimal filstørrelse er {sizeLimit}"
     publisher:
       at_least_one_aspect: "Du må poste til minst ett aspekt"
       limited: "Begrenset - posten din vil bare være synlig for de du deler med"

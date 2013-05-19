@@ -1,6 +1,6 @@
 class Notifications::StartedSharing < Notification
   def mail_job
-    Jobs::Mail::StartedSharing
+    Workers::Mail::StartedSharing
   end
 
   def popup_translation_key
