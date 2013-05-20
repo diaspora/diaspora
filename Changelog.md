@@ -1,3 +1,8 @@
+# 0.1.0.1
+
+* Regression fix: 500 for deleted reshares introduced by the locator
+* Federate locations
+
 # 0.1.0.0
 
 ## Refactor

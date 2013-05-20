@@ -329,6 +329,29 @@ STR
         end
       end
     end
+
+    context 'with a location' do
+      before do
+        @message.location = Location.new(coordinates: "1, 2").tap(&:save)
+        @xml = @message.to_xml.to_s
+      end
+
+      it 'serializes the location' do
+        @xml.should include "location"
+        @xml.should include "lat"
+        @xml.should include "lng"
+      end
+
+      describe ".from_xml" do
+        before do
+          @marshalled = StatusMessage.from_xml(@xml)
+        end
+
+        it 'marshals the location' do
+          @marshalled.location.should be_present
+        end
+      end
+    end
   end
 
   describe '#after_dispatch' do
