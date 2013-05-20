@@ -60,7 +60,7 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
   # return [void]
   def notify_users
     return unless @object.respond_to?(:notification_type)
-    @users.each do |user|
+    @users.find_each do |user|
       Notification.notify(user, @object, @object.author)
     end
   end

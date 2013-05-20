@@ -17,7 +17,7 @@ module Workers
       users = User.where(:id => user_ids)
       person = Person.find_by_id(person_id)
 
-      users.each{|user| Notification.notify(user, object, person) }
+      users.find_each{|user| Notification.notify(user, object, person) }
     end
   end
 end
