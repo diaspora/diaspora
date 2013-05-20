@@ -80,7 +80,7 @@ class Reshare < Post
   end
 
   def address
-    absolute_root.location.try(:address)
+    absolute_root.try(:location).try(:address)
   end
 
   private
