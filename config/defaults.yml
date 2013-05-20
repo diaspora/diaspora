@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.1.0.0" # Do not touch unless doing a release, do not backport the version number that's in master but keep develp to always say "head"
+    number: "0.1.0.1" # Do not touch unless doing a release, do not backport the version number that's in master but keep develp to always say "head"
   heroku: false
   environment:
     url: "http://localhost:3000/"
