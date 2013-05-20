@@ -29,9 +29,11 @@ class Services::Twitter < Service
     client.user(nickname).profile_image_url_https("original")
   end
 
- def delete_post(service_post_id)
-    Rails.logger.debug("event=delete_from_service type=twitter sender_id=#{self.user_id}")
-    delete_from_twitter(service_post_id)
+  def delete_post(post)
+    if post.present? && post.tweet_id.present?
+      Rails.logger.debug("event=delete_from_service type=twitter sender_id=#{self.user_id}")
+      delete_from_twitter(post.tweet_id)
+    end
   end
 
   def delete_from_twitter(service_post_id)

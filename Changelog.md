@@ -10,7 +10,7 @@
 
 ## Features
 
-* Deleting a post that was shared to Twitter now deletes it from Twitter too [#4135](https://github.com/diaspora/diaspora/pull/4135)
+* Deleting a post that was shared to Twitter now deletes it from Twitter too [#4156](https://github.com/diaspora/diaspora/pull/4156)
 
 # 0.1.0.0
 
