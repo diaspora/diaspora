@@ -7,6 +7,7 @@
 ## Bug fixes
 
 * Don't use Pathname early to circumvent some rare initialization errors [#3816](https://github.com/diaspora/diaspora/issues/3816)
+* Don't error out in script/server if git is unavailable.
 
 ## Features
 

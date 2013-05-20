@@ -103,13 +103,21 @@ fi
 # Force AGPL
 if [ -w "public" -a ! -e  "public/source.tar.gz" ]
 then
-  branch=$(git branch | awk '/^[*]/ {print $2}')
-  tar czf public/source.tar.gz  $(git ls-tree -r $branch | awk '{print $4}')
+  if command -v git > /dev/null 2>&1 && git rev-parse --is-inside-work-tree > /dev/null 2>&1
+  then
+    branch=$(git branch | awk '/^[*]/ {print $2}')
+    tar czf public/source.tar.gz  $(git ls-tree -r $branch | awk '{print $4}')
+  else
+    fatal <<MSG
+Can't generate public/source.tar.gz for you. Please tar up a copy of
+your Diaspora installtion and place it there.
+MSG
+  fi
 fi
 
 if [ ! -e "public/source.tar.gz" ]
 then
-  fatal "Can't find, or even create, public/source.tar.gz."
+  fatal "Can't find public/source.tar.gz"
 fi
 
 # Check if assets are precompiled
