@@ -37,6 +37,10 @@ class Service < ActiveRecord::Base
     nil
   end
 
+  def delete_post(post)
+    #don't do anything (should be overriden by service extensions)
+  end
+
 end
 require 'services/facebook'
 require 'services/twitter'
