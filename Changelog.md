@@ -4,6 +4,7 @@
 
 * Refactored config/ directory [#4145](https://github.com/diaspora/diaspora/pull/4145).
 * Drop misleading fallback donation form. [Proposal](https://www.loomio.org/discussions/1045?proposal=2722)
+* Update Typhoeus to 0.6.3 and refactor HydraWrapper. [#4162](https://github.com/diaspora/diaspora/pull/4162)
 
 ## Bug fixes
 
