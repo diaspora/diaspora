@@ -14,11 +14,14 @@ class User
 
   def post(class_name, opts = {})
     inlined_jobs do
+      aspects = self.aspects_from_ids(opts[:to])
+
       p = build_post(class_name, opts)
+      p.aspects = aspects
+
       if p.save!
         self.aspects.reload
 
-        aspects = self.aspects_from_ids(opts[:to])
         add_to_streams(p, aspects)
         dispatch_opts = {:url => post_url(p), :to => opts[:to]}
         dispatch_opts.merge!(:additional_subscribers => p.root.author) if class_name == :reshare

@@ -35,15 +35,15 @@ module MarkdownifyHelper
 
     message = markdown.render(message).html_safe
 
-    if target.respond_to?(:format_mentions)
-      message = target.format_mentions(message)
+    if target.respond_to?(:mentioned_people)
+      message = Diaspora::Mentionable.format(message, target.mentioned_people)
     end
 
     message = Diaspora::Taggable.format_tags(message, :no_escape => true)
 
     return message.html_safe
   end
-  
+
   def strip_markdown(text)
     renderer = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, :autolink => true)
     renderer.render(text).strip

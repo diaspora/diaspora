@@ -18,6 +18,7 @@
 * Show medium avatar in hovercard [#4203](https://github.com/diaspora/diaspora/pull/4203)
 * Fix posting to Twitter [#2758](https://github.com/diaspora/diaspora/issues/2758)
 * Don't show hovercards for current user in comments [#3999](https://github.com/diaspora/diaspora/issues/3999)
+* Replace mentions of out-of-aspect people with markdown links [#4161](https://github.com/diaspora/diaspora/pull/4161)
 
 ## Features
 
@@ -45,13 +46,13 @@ To update do the following:
 1. Before updating (even before the `git pull`!) stop your application
    server (Unicorn by default, started through Foreman).
 2. In case you did already run `git pull` checkout v0.0.3.4:
-   
+
    ```
    git fetch origin
    git checkout v0.0.3.4
    bundle
    ```
-   
+
 3. Start Resque web (you'll need temporary access to port 5678, check
    your Firewall if needed!):
 
@@ -76,7 +77,7 @@ To update do the following:
 
    Don't forget to close the port on the Firewall again, if you had to open it.
 6. In case you needed to do step 2., run:
-   
+
    ```
    git checkout master
    bundle

@@ -99,6 +99,14 @@ FactoryGirl.define do
     end
   end
 
+  factory(:status_message_in_aspect, parent: :status_message) do
+    self.public false
+    after :build do |sm|
+      sm.author = FactoryGirl.create(:user_with_aspect).person
+      sm.aspects << sm.author.owner.aspects.first
+    end
+  end
+
   factory(:photo) do
     sequence(:random_string) {|n| SecureRandom.hex(10) }
     association :author, :factory => :person
