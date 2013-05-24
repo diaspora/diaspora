@@ -187,7 +187,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
       this.removePostPreview();
       app.stream.items.add(previewMessage);
       this.recentPreview=previewMessage;
-      this.modifyPostPreview($('.stream_element:first'));
+      this.modifyPostPreview($('.stream_element:first',$('.stream_container')));
     }
   },
 
