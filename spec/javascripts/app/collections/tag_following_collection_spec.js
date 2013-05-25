@@ -7,7 +7,7 @@ describe("app.collections.TagFollowings", function(){
     it("should compare in reverse order", function() {
       var a = new app.models.TagFollowing({name: "aaa"}),
           b = new app.models.TagFollowing({name: "zzz"})
-      expect(this.collection.comparator(a, b)).toBe(true)
+      expect(this.collection.comparator(a, b)).toBeGreaterThan(0)
     })
   })
 
