@@ -177,7 +177,7 @@ group :test do
   # Cucumber (integration tests)
 
   gem 'capybara',           '1.1.3'
-  gem 'database_cleaner',   '0.9.1'
+  gem 'database_cleaner',   '1.0.1'
   gem 'selenium-webdriver', '2.32.1'
 
   # General helpers
