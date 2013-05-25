@@ -164,7 +164,7 @@ GEM
       execjs (>= 1.2.9)
       sprockets (>= 2.0.3)
       tilt
-    hashie (2.0.3)
+    hashie (2.0.5)
     hike (1.2.2)
     http_accept_language (1.0.2)
     httpauth (0.2.0)
