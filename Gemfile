@@ -124,7 +124,7 @@ group :production do # we don't install these on travis to speed up test runs
 
   # Administration
 
-  gem 'rails_admin', '0.4.7'
+  gem 'rails_admin', '0.4.9'
 
   # Analytics
 
