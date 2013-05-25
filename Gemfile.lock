@@ -30,8 +30,8 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
-    acts-as-taggable-on (2.4.0)
-      rails (~> 3.0)
+    acts-as-taggable-on (2.4.1)
+      rails (>= 3, < 5)
     acts_as_api (0.4.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -198,8 +198,7 @@ GEM
     kgio (2.8.0)
     listen (0.7.3)
     lumberjack (1.0.3)
-    mail (2.5.3)
-      i18n (>= 0.4.0)
+    mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     markerb (1.0.1)
@@ -212,7 +211,7 @@ GEM
     mobile-fu (1.1.1)
       rack-mobile-detect
       rails
-    multi_json (1.7.2)
+    multi_json (1.7.3)
     multipart-post (1.2.0)
     mysql2 (0.3.11)
     nested_form (0.3.2)
@@ -410,7 +409,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import (= 0.3.1)
-  acts-as-taggable-on (= 2.4.0)
+  acts-as-taggable-on (= 2.4.1)
   acts_as_api (= 0.4.1)
   addressable (= 2.3.4)
   asset_sync (= 0.5.4)
