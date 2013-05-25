@@ -11,6 +11,7 @@
 * Don't error out in script/server if git is unavailable.
 * Fix post preview from tag pages [#4157](https://github.com/diaspora/diaspora/issues/4157)
 * Fix tags ordering in chrome [#4133](https://github.com/diaspora/diaspora/issues/4133)
+* Fix src URL for oEmbed iFrame [#4178](https://github.com/diaspora/diaspora/pull/4178)
 
 ## Features
 
