@@ -19,7 +19,7 @@ gem 'devise', '2.1.3'
 
 gem 'sidekiq', '2.11.1'
 gem 'sinatra', '1.3.3'
-gem 'slim', '1.3.8'
+gem 'slim', '1.3.9'
 
 # Configuration
 
