@@ -50,3 +50,15 @@ Feature: preview posts in the stream
       And I press "Preview"
       And I follow "Alice Smith"
       Then I should see "Alice Smith"
+      
+    Scenario: preview a post on tag page
+      Given there is a user "Samuel Beckett" who's tagged "#rockstar"
+      When I search for "#rockstar"
+      Then I should be on the tag page for "rockstar"
+      And I should see "Samuel Beckett"
+      Given I expand the publisher
+      When I fill in the following:
+          | status_message_fake_text    | This preview rocks    |
+      And I press "Preview"
+      Then "This preview rocks" should be post 1
+      And the first post should be a preview
