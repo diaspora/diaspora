@@ -20,7 +20,7 @@ module PostsHelper
   def post_iframe_url(post_id, opts={})
     opts[:width] ||= 516
     opts[:height] ||= 315 
-    host = AppConfig.pod_uri.site
+    host = AppConfig.pod_uri.authority
    "<iframe src='#{Rails.application.routes.url_helpers.post_url(post_id, :host => host)}' width='#{opts[:width]}px' height='#{opts[:height]}px' frameBorder='0'></iframe>".html_safe
   end
 end
