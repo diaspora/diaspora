@@ -3,6 +3,7 @@
 ## Refactor
 
 * Refactored config/ directory [#4145](https://github.com/diaspora/diaspora/pull/4145).
+* Drop misleading fallback donation form. [Proposal](https://www.loomio.org/discussions/1045?proposal=2722)
 
 ## Bug fixes
 
