@@ -145,14 +145,12 @@ class Postzord::Dispatcher
     if @object.respond_to?(:public) && @object.public
       deliver_to_hub
     end
-    if @object.instance_of?(StatusMessage)
-      services.each do |service|
+    services.each do |service|
+      if @object.instance_of?(StatusMessage)
         Workers::PostToService.perform_async(service.id, @object.id, url)
       end
-    end
-    if @object.instance_of?(SignedRetraction)
-      services.select { |service| service.respond_to? :delete_post }.each do |service|
-        Workers::DeletePostFromService.perform_async(service.id, @object.target.facebook_id)
+      if @object.instance_of?(SignedRetraction)
+        Workers::DeletePostFromService.perform_async(service.id, @object.target.id)
       end
     end
   end

@@ -10,19 +10,28 @@ describe Services::Twitter do
   end
 
   describe '#post' do
+
+    before do
+      Twitter::Client.any_instance.stub(:update) { Twitter::Tweet.new(id: "1234") }
+    end
+
     it 'posts a status message to twitter' do
       Twitter::Client.any_instance.should_receive(:update).with(instance_of(String))
       @service.post(@post)
     end
 
-     it 'swallows exception raised by twitter always being down' do
+    it 'sets the tweet_id on the post' do
+      @service.post(@post)
+      @post.tweet_id.should match "1234"
+    end    
+
+    it 'swallows exception raised by twitter always being down' do
       pending
       Twitter::Client.any_instance.should_receive(:update).and_raise(StandardError)
       @service.post(@post)
     end
 
     it 'should call public message' do
-      Twitter::Client.any_instance.stub(:update)
       url = "foo"
       @service.should_receive(:public_message).with(@post, url)
       @service.post(@post, url)

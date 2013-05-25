@@ -318,15 +318,7 @@ describe Postzord::Dispatcher do
         Workers::DeletePostFromService.should_receive(:perform_async).with(anything, anything)
         mailman.post
       end
-
-      it "doesn't queue a job if we can't delete the post from the service" do
-        retraction = SignedRetraction.build(alice, FactoryGirl.create(:status_message))
-        service = Services::Twitter.new(access_token: "nope")
-        mailman = Postzord::Dispatcher.build(alice, retraction,  :url => "http://joindiaspora.com/p/123", :services => [service])
-
-        Workers::DeletePostFromService.should_not_receive(:perform_async).with(anything, anything)
-        mailman.post
-      end
+      
     end
 
     describe '#and_notify_local_users' do

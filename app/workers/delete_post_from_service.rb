@@ -6,9 +6,10 @@ module Workers
   class DeletePostFromService < Base
     sidekiq_options queue: :http_service
 
-    def perform(service_id, service_post_id)
+    def perform(service_id, post_id)
       service = Service.find_by_id(service_id)
-      service.delete_post(service_post_id)
+      post = Post.find_by_id(post_id)
+      service.delete_post(post)
     end
   end
 end
