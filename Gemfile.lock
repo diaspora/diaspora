@@ -209,7 +209,7 @@ GEM
     messagebus_ruby_api (1.0.3)
     method_source (0.8.1)
     mime-types (1.23)
-    mini_magick (3.5.0)
+    mini_magick (3.6.0)
       subexec (~> 0.2.1)
     mobile-fu (1.1.1)
       rack-mobile-detect
@@ -448,7 +448,7 @@ DEPENDENCIES
   json (= 1.7.7)
   markerb (= 1.0.1)
   messagebus_ruby_api (= 1.0.3)
-  mini_magick (= 3.5)
+  mini_magick (= 3.6.0)
   mobile-fu (= 1.1.1)
   mysql2 (= 0.3.11)
   nokogiri (= 1.5.9)
