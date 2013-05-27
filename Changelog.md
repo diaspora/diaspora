@@ -137,6 +137,7 @@ everything is set up.
 
 ## Bug fixes
 
+* Fix deletelabel icon size regression after sprites [$4180](https://github.com/diaspora/diaspora/issues/4180)
 * Fix mass aspect selection [#4127](https://github.com/diaspora/diaspora/pull/4127)
 * Fix posting functionality on tags show view [#4112](https://github.com/diaspora/diaspora/pull/4112)
 * Fix cancel button on getting_started confirmation box [#4073](https://github.com/diaspora/diaspora/issues/4073)
