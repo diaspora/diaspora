@@ -167,6 +167,7 @@ everything is set up.
 * Fix missing indent to correct logged-out-header container relative positioning [#4134](https://github.com/diaspora/diaspora/pull/4134)
 * Private post dont show error 404 when you are not authorized on mobile page [#4129](https://github.com/diaspora/diaspora/issues/4129)
 * Show 404 instead of 500 if a not signed in user wants to see a non public or non existing post.
+* Fix reopened issue by changing the comment/post submit keyboard sortcut to ctrl+enter from shift+enter [#3897](https://github.com/diaspora/diaspora/issues/3897)
 
 ## Features
 
