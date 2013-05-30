@@ -161,9 +161,6 @@ STR
       it 'escapes the link title' do
         p = @people[0].profile
         p.first_name="</a><script>alert('h')</script>"
-["a", "b", "A", "C"]\
-.inject(Hash.new){ |h,element| h[element.downcase] = element  unless h[element.downcase]  ; h }\
-.values
         p.save!
 
         @sm.format_mentions(@sm.raw_message).should_not include(@people[0].profile.first_name)
