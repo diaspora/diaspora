@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429073928) do
+ActiveRecord::Schema.define(:version => 20130530135826) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20130429073928) do
 
   add_index "contacts", ["person_id"], :name => "index_contacts_on_person_id"
   add_index "contacts", ["user_id", "person_id"], :name => "index_contacts_on_user_id_and_person_id", :unique => true
+  add_index "contacts", ["user_id"], :name => "index_contacts_on_user_id"
 
   create_table "conversation_visibilities", :force => true do |t|
     t.integer  "conversation_id",                :null => false
