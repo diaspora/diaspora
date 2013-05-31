@@ -12,6 +12,7 @@
 * Fix post preview from tag pages [#4157](https://github.com/diaspora/diaspora/issues/4157)
 * Fix tags ordering in chrome [#4133](https://github.com/diaspora/diaspora/issues/4133)
 * Fix src URL for oEmbed iFrame [#4178](https://github.com/diaspora/diaspora/pull/4178)
+* Add back-to-top button on tag and user pages [#4185](https://github.com/diaspora/diaspora/issues/4185)
 
 ## Features
 
