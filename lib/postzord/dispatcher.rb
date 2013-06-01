@@ -40,6 +40,11 @@ class Postzord::Dispatcher
     if opts[:additional_subscribers].present?
       opts[:additional_subscribers] = [*opts[:additional_subscribers]].map(&:id)
     end
+
+    if opts[:to].present?
+      opts[:to] = [*opts[:to]].map {|e| e.respond_to?(:id) ? e.id : e }
+    end
+
     Workers::DeferredDispatch.perform_async(user.id, object.class.to_s, object.id, opts)
   end
 
