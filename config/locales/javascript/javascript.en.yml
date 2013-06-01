@@ -88,6 +88,9 @@ en:
     people:
       not_found: "and no one was found..."
 
+    conversation:
+      participants: "Participants"
+
     stream:
       hide: "Hide"
       public: "Public"

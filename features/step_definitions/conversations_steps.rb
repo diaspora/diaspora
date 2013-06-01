@@ -36,3 +36,20 @@ Then /^I send a mobile message with subject "([^"]*)" and text "([^"]*)" to "([^
   step %(I press "Send")
   step %(I wait for the ajax to finish)
 end
+
+Then /^I should see the participants popover$/ do
+  step %(I should see "Participants" within ".popover-title")
+end
+
+Then /^I should see "([^"]*)" as part of the participants popover$/ do |name|
+  within(".conversation_participants_popover") do
+    find("img.avatar[title^='#{name}']").should_not be_nil
+  end
+end
+
+Then /^I close the participants popover$/ do
+  within('.popover-title') do
+    find('.close').click
+  end
+end
+

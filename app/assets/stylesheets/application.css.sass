@@ -1947,10 +1947,8 @@ ul#press_logos
 
 
 .conversation_participants
-  :z-index 3
   :background
     :color $background
-  :position relative
   :margin
     :bottom 10px
 
@@ -1958,9 +1956,10 @@ ul#press_logos
   :-moz-box-shadow 0 2px 3px -3px #666
   :box-shadow 0 2px 3px -3px #666
 
-  .right
-    :top 118px
-    :right 5px
+  a.close_conversation
+    :display block
+    :margin-top 20px
+    :float right
 
     .icons-deletelabel
       :height 14px
@@ -2054,6 +2053,16 @@ ul#press_logos
       :weight normal
     :color $blue
 
+  .participants_link
+    :float left
+
+  .conversation_participants_popover_content
+    :display none
+
+  .conversation_participants_popover
+    :margin 0 auto
+    :padding-left 12px
+
   .avatar
     :display inline
     :width 35px
@@ -2061,6 +2070,9 @@ ul#press_logos
     :margin
       :right 10px
       :bottom 10px
+
+  .participants_left
+    :display block
 
   &:hover:not(.selected)
     :background
