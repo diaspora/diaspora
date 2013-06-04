@@ -105,6 +105,11 @@ $(document).ready(function(){
     var self = $(this);
     self.popover('show');
     var popup = self.data('popover').$tip[0];
+
+    // attach tooltips to each avatar showing the name
+    $(popup).find('.avatar').tooltip({ placement: 'bottom' });
+
+    // register handler for the close button
     var close = $(popup).find('.close');
     close.click(function(){
       self.popover('hide');
