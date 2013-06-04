@@ -82,7 +82,7 @@ gem 'acts-as-taggable-on', '2.4.0'
 gem 'addressable',        '2.3.4', :require => 'addressable/uri'
 gem 'faraday',            '0.8.7'
 gem 'faraday_middleware', '0.9.0'
-gem 'typhoeus',           '0.3.3'
+gem 'typhoeus',           '0.6.3'
 
 # Views
 
@@ -184,7 +184,7 @@ group :test do
 
   gem 'factory_girl_rails', '4.2.1'
   gem 'timecop',            '0.6.1'
-  gem 'webmock',            '1.8.11', :require => false
+  gem 'webmock',            '1.11.0', :require => false
 end
 
 
