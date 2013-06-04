@@ -14,6 +14,7 @@
 * Fix tags ordering in chrome [#4133](https://github.com/diaspora/diaspora/issues/4133)
 * Fix src URL for oEmbed iFrame [#4178](https://github.com/diaspora/diaspora/pull/4178)
 * Add back-to-top button on tag and user pages [#4185](https://github.com/diaspora/diaspora/issues/4185)
+* Fix reopened issue by changing the comment/post submit keyboard sortcut to ctrl+enter from shift+enter [#3897](https://github.com/diaspora/diaspora/issues/3897)
 
 ## Features
 

@@ -116,14 +116,14 @@ describe("app.views.Publisher", function() {
     });
 
     describe("publishing a post with keyboard", function(){
-      it("should submit the form when shift+enter is pressed", function(){
+      it("should submit the form when ctrl+enter is pressed", function(){
         this.view.render();
         var form = this.view.$("form")
         var submitCallback = jasmine.createSpy().andReturn(false);
         form.submit(submitCallback);
       
         var e = $.Event("keydown", { keyCode: 13 });
-        e.shiftKey = true;
+        e.ctrlKey = true;
         this.view.keyDown(e);
       
         expect(submitCallback).toHaveBeenCalled();
