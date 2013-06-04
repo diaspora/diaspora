@@ -19,6 +19,7 @@
 ## Features
 
 * Deleting a post that was shared to Twitter now deletes it from Twitter too [#4156](https://github.com/diaspora/diaspora/pull/4156)
+* Improvement on how participants are displayed on each conversation without opening it [#4149](https://github.com/diaspora/diaspora/pull/4149)
 
 # 0.1.0.1
 
@@ -174,7 +175,7 @@ everything is set up.
 
 ## Features
 
-* Deleting a post that was shared to Facebook now deletes it from Facebook too [#3980](https://github.com/diaspora/diaspora/pull/3980)
+* Deleting a post that was shared to Facebook now deletes it from Facebook too [#3980]( https://github.com/diaspora/diaspora/pull/3980)
 * Include reshares in a users public atom feed [#1781](https://github.com/diaspora/diaspora/issues/1781)
 * Add the ability to upload photos from the mobile site. [#4004](https://github.com/diaspora/diaspora/issues/4004)
 * Show timestamp when hovering on comment time-ago string. [#4042](https://github.com/diaspora/diaspora/issues/4042)

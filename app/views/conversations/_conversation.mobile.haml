@@ -1,8 +1,4 @@
--#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3 or later.  See
--#   the COPYRIGHT file.
-
-.conversation-wrapper{ :"data-conversation-path" => conversation_path(conversation) }
+%a.conversation{ :href => conversation_path(conversation) }
   .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
     .media
       .img
@@ -19,6 +15,7 @@
 
           - if authors[conversation.id].present?
             = authors[conversation.id].name
- 
-          = link_to t('.participants'), '#', :class => 'participants_link', :"data-conversation-id" => conversation.id
-          = render :partial => 'participants_popover', :locals => { :conversation => conversation }
+
+          - if conversation.participants.size > 2
+            %span.participant_count
+              = "(+#{conversation.participants.size - 1})"
