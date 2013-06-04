@@ -42,14 +42,10 @@ Then /^I should see the participants popover$/ do
 end
 
 Then /^I should see "([^"]*)" as part of the participants popover$/ do |name|
-  within(".conversation_participants_popover") do
-    find("img.avatar[title^='#{name}']").should_not be_nil
-  end
+  find(".conversation_participants_popover img.avatar[title^='#{name}']").should_not be_nil
 end
 
 Then /^I close the participants popover$/ do
-  within('.popover-title') do
-    find('.close').click
-  end
+  find('.popover-title .close').click
 end
 
