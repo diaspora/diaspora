@@ -94,14 +94,14 @@ describe("app.views.CommentStream", function(){
       expect(submitCallback).not.toHaveBeenCalled();
     })
     
-    it("should submit the form when enter is pressed with shift", function(){
+    it("should submit the form when enter is pressed with ctrl", function(){
       this.view.render();
       var form = this.view.$("form")
       var submitCallback = jasmine.createSpy().andReturn(false);
       form.submit(submitCallback);
       
       var e = $.Event("keydown", { keyCode: 13 });
-      e.shiftKey = true;
+      e.ctrlKey = true;
       this.view.keyDownOnCommentBox(e);
       
       expect(submitCallback).toHaveBeenCalled();
