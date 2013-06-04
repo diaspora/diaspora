@@ -61,6 +61,7 @@ defaults:
       enable: false
       suggest_email:
     typhoeus_verbose: false
+    typhoeus_concurrency: 20
     username_blacklist:
       - 'admin'
       - 'administrator'
