@@ -23,14 +23,6 @@ describe Services::Facebook do
         to_raise(StandardError)
       @service.post(@post)
     end
-
-    it 'should call public message' do
-      stub_request(:post, "https://graph.facebook.com/me/feed").
-        to_return(:status => 200, :body => '{"id": "12345"}', :headers => {})
-      url = "foo"
-      @service.should_not_receive(:public_message)
-      @service.post(@post, url)
-    end
     
     it 'removes text formatting markdown from post text' do
       message = "Text with some **bolded** and _italic_ parts."
