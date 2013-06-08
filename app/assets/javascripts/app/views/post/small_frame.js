@@ -10,7 +10,8 @@ app.views.Post.SmallFrame = app.views.Post.extend({
   },
 
   subviews : {
-    '.embed-frame' : "oEmbedView"
+    '.embed-frame' : "oEmbedView",
+    '.open-graph-frame' : 'openGraphView'
   },
 
   initialize : function(options) {
@@ -20,6 +21,10 @@ app.views.Post.SmallFrame = app.views.Post.extend({
 
   oEmbedView : function(){
     return new app.views.OEmbed({model : this.model})
+  },
+
+  openGraphView : function(){
+    return new app.views.OpenGraph({model : this.model})
   },
 
   smallFramePresenter : function(){
@@ -50,10 +55,10 @@ app.views.Post.SmallFrame = app.views.Post.extend({
     var text = this.model.get("text")
       , baseClass = $.trim(text).length == 0 ? "no-text" : "has-text";
 
-    if(this.model.get("photos").length > 0 || this.model.get("o_embed_cache"))
+    if(this.model.get("photos").length > 0 || this.model.get("o_embed_cache") || this.model.get("open_graph_cache"))
       baseClass += " has-media";
 
-    if(baseClass == "no-text" || this.model.get("photos").length > 0 || this.model.get("o_embed_cache")) { return baseClass }
+    if(baseClass == "no-text" || this.model.get("photos").length > 0 || this.model.get("o_embed_cache") || this.model.get("open_graph_cache")) { return baseClass }
 
     var randomColor = _.first(_.shuffle(['cyan', 'green', 'yellow', 'purple', 'lime-green', 'orange', 'red', 'turquoise', 'sand']));
 

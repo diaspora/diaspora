@@ -44,9 +44,13 @@ app.views.Content = app.views.Base.extend({
     var collHeight = 200
       , elem = this.$(".collapsible")
       , oembed = elem.find(".oembed")
+      , opengraph = elem.find(".opengraph")
       , addHeight = 0;
     if($.trim(oembed.html()) != "") {
-      addHeight = oembed.height();
+      addHeight += oembed.height();
+    }
+    if($.trim(opengraph.html()) != "") {
+      addHeight += opengraph.height();
     }
 
     // only collapse if height exceeds collHeight+20%
@@ -101,4 +105,8 @@ app.views.OEmbed = app.views.Base.extend({
     insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1");
     this.$el.html(insertHTML);
   }
+});
+
+app.views.OpenGraph = app.views.Base.extend({
+  templateName : "opengraph"
 });
