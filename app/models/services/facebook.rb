@@ -29,10 +29,6 @@ class Services::Facebook < Service
     {:message => message, :access_token => self.access_token, :link => URI.extract(message, ['https', 'http']).first}
   end
 
-  def public_message(post, url)
-    super(post, MAX_CHARACTERS, url)
-  end
-
   def profile_photo_url
    "https://graph.facebook.com/#{self.uid}/picture?type=large&access_token=#{URI.escape(self.access_token)}"
   end
