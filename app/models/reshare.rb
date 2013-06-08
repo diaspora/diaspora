@@ -33,6 +33,10 @@ class Reshare < Post
     self.root ? root.o_embed_cache : super
   end
 
+  def open_graph_cache
+    self.root ? root.open_graph_cache : super
+  end
+
   def raw_message
     self.root ? root.raw_message : super
   end

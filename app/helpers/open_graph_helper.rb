@@ -44,6 +44,25 @@ module OpenGraphHelper
     content_tag(:meta, '', :property => name, :content => content)
   end
 
+  def og_html(cache)
+    title = cache.title
+    html =
+      "<div class=\"og-concent\">" +
+      "<a class=\"og-link\" href=\"#{cache.url}\">" +
+      "<img class=\"og-image\" src=\"#{cache.image}\"/>"
+      "<h1 class=\"og-title\">#{cache.title}</h1>" +
+      "<p class=\"og-description\">#{cache.description}</p>"
+      "</a></div>"
+    return html
+  end
+
+  def link_to_oembed_image(cache, prefix = 'thumbnail_')
+    link_to(oembed_image_tag(cache, prefix), cache.url, :target => '_blank')
+  end
+  
+  def oembed_image_tag(cache, prefix)
+    image_tag(cache.data[prefix + 'url'], cache.options_hash(prefix))
+  end
   private
 
   # This method compensates for hosting assets off of s3

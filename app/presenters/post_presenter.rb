@@ -29,6 +29,7 @@ class PostPresenter
         :nsfw => @post.nsfw,
         :author => @post.author.as_api_response(:backbone),
         :o_embed_cache => @post.o_embed_cache.try(:as_api_response, :backbone),
+        :open_graph_cache => @post.open_graph_cache.try(:as_api_response, :backbone),
         :mentioned_people => @post.mentioned_people.as_api_response(:backbone),
         :photos => @post.photos.map {|p| p.as_api_response(:backbone)},
         :frame_name => @post.frame_name || template_name,

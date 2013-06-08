@@ -26,10 +26,12 @@ class StatusMessage < Post
   before_destroy :presence_of_content
 
   attr_accessor :oembed_url
+  attr_accessor :open_graph_url
 
   before_create :filter_mentions
   after_create :create_mentions
   after_create :queue_gather_oembed_data, :if => :contains_oembed_url_in_text?
+  after_create :queue_gather_open_graph_data, :if => :contains_open_graph_url_in_text?
 
   #scopes
   scope :where_person_is_mentioned, lambda { |person|
@@ -143,9 +145,17 @@ class StatusMessage < Post
     Workers::GatherOEmbedData.perform_async(self.id, self.oembed_url)
   end
 
+  def queue_gather_open_graph_data
+    Workers::GatherOpenGraphData.perform_async(self.id, self.open_graph_url)
+  end
+
   def contains_oembed_url_in_text?
     urls = URI.extract(self.raw_message, ['http', 'https'])
     self.oembed_url = urls.find{ |url| !TRUSTED_OEMBED_PROVIDERS.find(url).nil? }
+  end
+
+  def contains_open_graph_url_in_text?
+    self.open_graph_url = URI.extract(self.raw_message, ['http', 'https'])[0]
   end
 
   def address

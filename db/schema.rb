@@ -215,6 +215,14 @@ ActiveRecord::Schema.define(:version => 20130801063213) do
 
   add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
 
+  create_table "open_graph_caches", :force => true do |t|
+    t.string "title"
+    t.string "ob_type"
+    t.string "image"
+    t.string "url"
+    t.text   "description"
+  end
+
   create_table "participations", :force => true do |t|
     t.string   "guid"
     t.integer  "target_id"
@@ -309,6 +317,7 @@ ActiveRecord::Schema.define(:version => 20130801063213) do
     t.string   "facebook_id"
     t.string   "tweet_id"
     t.text     "tumblr_ids"
+    t.integer  "open_graph_cache_id"
   end
 
   add_index "posts", ["author_id", "root_guid"], :name => "index_posts_on_author_id_and_root_guid", :unique => true
