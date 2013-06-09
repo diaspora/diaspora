@@ -99,6 +99,19 @@ a { color : $link-blue  }
     height: 480px;
     max-width: 100%;
   }
+
+  .opengraph {
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    img {
+      margin-bottom: 20px;
+    }
+  }
 }
 
 article { //mood posts
