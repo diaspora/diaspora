@@ -210,7 +210,7 @@ GEM
     mime-types (1.23)
     mini_magick (3.6.0)
       subexec (~> 0.2.1)
-    mobile-fu (1.1.1)
+    mobile-fu (1.2.1)
       rack-mobile-detect
       rails
     multi_json (1.7.6)
@@ -448,7 +448,7 @@ DEPENDENCIES
   markerb (= 1.0.1)
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.6.0)
-  mobile-fu (= 1.1.1)
+  mobile-fu (= 1.2.1)
   mysql2 (= 0.3.11)
   nokogiri (= 1.5.9)
   omniauth (= 1.1.4)
