@@ -5,6 +5,11 @@ class OpenGraphCache < ActiveRecord::Base
   attr_accessible :url
   attr_accessible :description
 
+  validates :title, :presence => true
+  validates :ob_type, :presence => true
+  validates :image, :presence => true
+  validates :url, :presence => true
+
   has_many :posts
 
   acts_as_api
@@ -20,7 +25,8 @@ class OpenGraphCache < ActiveRecord::Base
    cache = OpenGraphCache.find_or_initialize_by_url(url)
    return cache if cache.persisted?
    cache.fetch_and_save_opengraph_data!
-   cache
+   return cache if cache.persisted?
+   return nil
   end
 
   def fetch_and_save_opengraph_data!
