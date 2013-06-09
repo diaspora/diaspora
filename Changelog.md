@@ -17,6 +17,7 @@
 * Fix reopened issue by changing the comment/post submit keyboard sortcut to ctrl+enter from shift+enter [#3897](https://github.com/diaspora/diaspora/issues/3897)
 * Show medium avatar in hovercard [#4203](https://github.com/diaspora/diaspora/pull/4203)
 * Fix posting to Twitter [#2758](https://github.com/diaspora/diaspora/issues/2758)
+* Don't show hovercards for current user in comments [#3999](https://github.com/diaspora/diaspora/issues/3999)
 
 ## Features
 
