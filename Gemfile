@@ -71,7 +71,7 @@ gem 'omniauth',          '1.1.4'
 gem 'omniauth-facebook', '1.4.1'
 gem 'omniauth-tumblr',   '1.1'
 gem 'omniauth-twitter',  '0.0.16'
-gem 'twitter',           '4.6.2'
+gem 'twitter',           '4.7.0'
 
 # Tags
 

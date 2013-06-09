@@ -384,7 +384,7 @@ GEM
     treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
-    twitter (4.6.2)
+    twitter (4.7.0)
       faraday (~> 0.8, < 0.10)
       multi_json (~> 1.0)
       simple_oauth (~> 0.2)
@@ -482,7 +482,7 @@ DEPENDENCIES
   slim (= 1.3.9)
   spork (= 1.0.0rc3)
   timecop (= 0.6.1)
-  twitter (= 4.6.2)
+  twitter (= 4.7.0)
   typhoeus (= 0.6.3)
   uglifier (= 2.1.1)
   unicorn (= 4.6.2)
