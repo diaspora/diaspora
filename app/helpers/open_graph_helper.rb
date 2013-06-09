@@ -47,12 +47,14 @@ module OpenGraphHelper
   def og_html(cache)
     title = cache.title
     html =
-      "<div class=\"og-concent\">" +
-      "<a class=\"og-link\" href=\"#{cache.url}\">" +
-      "<img class=\"og-image\" src=\"#{cache.image}\"/>"
-      "<h1 class=\"og-title\">#{cache.title}</h1>" +
-      "<p class=\"og-description\">#{cache.description}</p>"
-      "</a></div>"
+      "<a href=\"#{cache.url}\" target=\"_blank\">" +
+      "  <div>" +
+      "    <img src=\"#{cache.image}\" />" +
+      "    <strong>#{cache.title}</strong>" +
+      "    <p>#{cache.description}</p>" +
+      "    <br />" +
+      "  </div>" +
+      "</a>"
     return html
   end
 
