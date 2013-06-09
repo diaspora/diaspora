@@ -28,8 +28,8 @@ class Publisher
   private
   def formatted_message
     if self.prefill.present?
-      StatusMessage.new(:text => self.prefill).
-        format_mentions(self.prefill, :plain_text => true)
+      sm = StatusMessage.new(:text => self.prefill)
+      Diaspora::Mentionable.format(sm.raw_message, sm.mentioned_people, plain_text: true)
     end
   end
 end
