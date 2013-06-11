@@ -31,8 +31,8 @@ class OpenGraphCache < ActiveRecord::Base
 
   def fetch_and_save_opengraph_data!
     begin
-      response = OpenGraph.fetch(self.url)
-      if !response
+      response = OpenGraph.new(self.url)
+      if !response or response.type.nil?
         return
       end
     rescue => e
@@ -40,7 +40,7 @@ class OpenGraphCache < ActiveRecord::Base
     else
       self.title = response.title
       self.ob_type = response.type
-      self.image = response.image
+      self.image = response.images[0]
       self.url = response.url
       self.description = response.description
       self.save
