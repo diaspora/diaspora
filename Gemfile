@@ -9,7 +9,7 @@ gem 'unicorn', '4.6.2', :require => false
 # API and JSON
 
 gem 'acts_as_api', '0.4.1'
-gem 'json',        '1.7.7'
+gem 'json',        '1.8.0'
 
 # Authentication
 
@@ -19,7 +19,7 @@ gem 'devise', '2.1.3'
 
 gem 'sidekiq', '2.11.1'
 gem 'sinatra', '1.3.3'
-gem 'slim', '1.3.8'
+gem 'slim', '1.3.9'
 
 # Configuration
 
@@ -27,7 +27,7 @@ gem 'configurate', '0.0.8'
 
 # Cross-origin resource sharing
 
-gem 'rack-cors', '0.2.7', :require => 'rack/cors'
+gem 'rack-cors', '0.2.8', :require => 'rack/cors'
 
 # Database
 
@@ -42,8 +42,8 @@ gem 'foreigner',           '1.4.1'
 # File uploading
 
 gem 'carrierwave', '0.8.0'
-gem 'fog',         '1.10.1'
-gem 'mini_magick', '3.5'
+gem 'fog',         '1.12.1'
+gem 'mini_magick', '3.6.0'
 gem 'remotipart',  '1.0.5'
 
 # Localization
@@ -60,7 +60,7 @@ gem 'messagebus_ruby_api', '1.0.3'
 # Parsing
 
 gem 'nokogiri',       '1.5.9'
-gem 'rails_autolink', '1.0.9'
+gem 'rails_autolink', '1.1.0'
 gem 'redcarpet',      '2.3.0'
 gem 'roxml',          '3.1.6'
 gem 'ruby-oembed',    '0.8.8'
@@ -71,11 +71,11 @@ gem 'omniauth',          '1.1.4'
 gem 'omniauth-facebook', '1.4.1'
 gem 'omniauth-tumblr',   '1.1'
 gem 'omniauth-twitter',  '0.0.16'
-gem 'twitter',           '4.6.2'
+gem 'twitter',           '4.7.0'
 
 # Tags
 
-gem 'acts-as-taggable-on', '2.4.0'
+gem 'acts-as-taggable-on', '2.4.1'
 
 # URIs and HTTP
 
@@ -87,9 +87,9 @@ gem 'typhoeus',           '0.6.3'
 # Views
 
 gem 'client_side_validations', '3.2.5'
-gem 'gon',                     '4.1.0'
-gem 'haml',                    '4.0.2'
-gem 'mobile-fu',               '1.1.1'
+gem 'gon',                     '4.1.1'
+gem 'haml',                    '4.0.3'
+gem 'mobile-fu',               '1.2.1'
 gem 'will_paginate',           '3.0.4'
 
 
@@ -105,7 +105,7 @@ group :assets do
 
   # Compression
 
-  gem 'uglifier', '2.0.1'
+  gem 'uglifier', '2.1.1'
 
   # JavaScript
 
@@ -124,7 +124,7 @@ group :production do # we don't install these on travis to speed up test runs
 
   # Administration
 
-  gem 'rails_admin', '0.4.7'
+  gem 'rails_admin', '0.4.9'
 
   # Analytics
 
@@ -157,7 +157,7 @@ group :development do
   # Automatic test runs
 
   gem 'guard-cucumber', '1.4.0'
-  gem 'guard-rspec',    '2.5.3'
+  gem 'guard-rspec',    '3.0.1'
   gem 'rb-fsevent',     '0.9.3', :require => false
   gem 'rb-inotify',     '0.9.0', :require => false
   
@@ -171,13 +171,13 @@ group :test do
   # RSpec (unit tests, some integration tests)
 
   gem 'fixture_builder', '0.3.5'
-  gem 'fuubar',          '1.1.0'
+  gem 'fuubar',          '1.1.1'
   gem 'rspec-instafail', '0.2.4', :require => false
 
   # Cucumber (integration tests)
 
   gem 'capybara',           '1.1.3'
-  gem 'database_cleaner',   '0.9.1'
+  gem 'database_cleaner',   '1.0.1'
   gem 'selenium-webdriver', '2.32.1'
 
   # General helpers
@@ -190,7 +190,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails",     '2.13.0'
+  gem "rspec-rails",     '2.13.2'
 
   # Cucumber (integration tests)
   gem 'cucumber-rails',     '1.3.1', :require => false
