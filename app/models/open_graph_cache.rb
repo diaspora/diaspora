@@ -22,28 +22,24 @@ class OpenGraphCache < ActiveRecord::Base
   end
 
   def self.find_or_create_by_url(url)
-   cache = OpenGraphCache.find_or_initialize_by_url(url)
-   return cache if cache.persisted?
-   cache.fetch_and_save_opengraph_data!
-   return cache if cache.persisted?
-   return nil
+    cache = OpenGraphCache.find_or_initialize_by_url(url)
+    cache.fetch_and_save_opengraph_data! unless cache.persisted?
+    cache if cache.persisted?
   end
 
   def fetch_and_save_opengraph_data!
-    begin
-      response = OpenGraph.fetch(self.url)
-      if !response
-        return
-      end
-    rescue => e
-      # noop
-    else
-      self.title = response.title
-      self.ob_type = response.type
-      self.image = response.image
-      self.url = response.url
-      self.description = response.description
-      self.save
+    response = OpenGraph.new(self.url)
+    if response.blank? || response.type.blank?
+      return
     end
+  rescue
+    # noop
+  else
+    self.title = response.title
+    self.ob_type = response.type
+    self.image = response.images[0]
+    self.url = response.url
+    self.description = response.description
+    self.save
   end
 end
