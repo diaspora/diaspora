@@ -2,7 +2,7 @@ class ShareAnything < ActiveRecord::Migration
   def self.up
     remove_foreign_key :aspect_visibilities, :posts
 
-    if postgres?
+    if AppConfig.postgres?
       execute "DROP INDEX index_aspect_visibilities_on_post_id_and_aspect_id"
       execute "DROP INDEX index_aspect_visibilities_on_post_id"
       execute "ALTER TABLE aspect_visibilities RENAME COLUMN post_id TO shareable_id"
@@ -46,7 +46,7 @@ class ShareAnything < ActiveRecord::Migration
     remove_foreign_key :post_visibilities, :posts
     rename_table :post_visibilities, :share_visibilities
 
-    if postgres?
+    if AppConfig.postgres?
       execute "DROP INDEX index_post_visibilities_on_contact_id_and_post_id"
       execute "DROP INDEX index_post_visibilities_on_post_id_and_hidden_and_contact_id"
       execute "ALTER TABLE share_visibilities RENAME COLUMN post_id TO shareable_id"

@@ -19,7 +19,7 @@ class MovePhotosToTheirOwnTable < ActiveRecord::Migration
       t.integer  "comments_count"
     end
 
-    if postgres?
+    if AppConfig.postgres?
       execute %{
         INSERT INTO photos (
             tmp_old_id
@@ -82,7 +82,7 @@ SQL
 
 
   def self.down
-    if postgres?
+    if AppConfig.postgres?
       execute %{
         INSERT INTO posts (
           id, author_id, public, diaspora_handle, guid, pending, type, text,

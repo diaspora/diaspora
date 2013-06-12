@@ -4,7 +4,7 @@ class CounterCacheOnPostReshares < ActiveRecord::Migration
   def self.up
     add_column :posts, :reshares_count, :integer, :default => 0
 
-    if postgres?
+    if AppConfig.postgres?
       execute %{
         UPDATE posts
         SET reshares_count = (

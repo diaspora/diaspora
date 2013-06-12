@@ -4,7 +4,7 @@ class FixPhotoShareVisibilities < ActiveRecord::Migration
   def self.up
     return  if ! Photo.first.respond_to?(:tmp_old_id)
 
-    if postgres?
+    if AppConfig.postgres?
       ['aspect_visibilities', 'share_visibilities'].each do |vis_table|
         execute "UPDATE #{vis_table} SET shareable_type = 'Post'"
 
