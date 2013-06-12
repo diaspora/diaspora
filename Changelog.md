@@ -26,6 +26,31 @@
 * Deleting a post that was shared to Twitter now deletes it from Twitter too [#4156](https://github.com/diaspora/diaspora/pull/4156)
 * Improvement on how participants are displayed on each conversation without opening it [#4149](https://github.com/diaspora/diaspora/pull/4149)
 
+## Gem updates
+
+* acts-as-taggable-on 2.4.0 -> 2.4.1
+* configurate 0.0.7 -> 0.0.8
+* database_cleaner 0.9.1 -> 1.0.1
+* fog 1.10.1 -> 1.12.1
+* fuubar 1.10 -> 1.1.1
+* gon 4.1.0 -> 4.1.1
+* guard-rspec 2.5.3 -> 3.0.1
+* haml 4.0.2 -> 4.0.3
+* json 1.7.7 -> 1.8.0
+* mini_magick 3.5 -> 3.6.0
+* mobile-fu 1.1.1 -> 1.2.1
+* rack-cors 0.2.7 -> 0.2.8
+* rails_admin 0.4.7 -> 0.4.9
+* rails_autolink 1.0.9 -> 1.1.0
+* redcarpet 2.2.2 -> 2.3.0
+* rspec-rails 2.13.0 -> 2.13.2
+* slim 1.3.8 -> 1.3.9
+* twitter 4.6.2 -> 4.7.0
+* typhoeus 0.3.3 -> 0.6.3
+* uglifier 2.0.1 -> 2.1.1
+* webmock 1.8.11 -> 1.11.0
+
+
 # 0.1.0.1
 
 * Regression fix: 500 for deleted reshares introduced by the locator
