@@ -249,6 +249,14 @@ FactoryGirl.define do
     scopes ["post_write", "contact_list_read"]
   end
 
+  factory :access_request, {:class => Dauth::AccessRequest} do
+    sequence(:app_id) { |n| "#{n}" }
+    dev_handle "dev@pod.com"
+    callback_url "http://coolbirds.com/diasporaapp"
+    redirect_url "http://coolbirds.com/welcome"
+    scopes ["post_write", "contact_list_read"]
+  end
+
   #templates
   factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
 
