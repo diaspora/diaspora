@@ -19,7 +19,7 @@
 * Fix posting to Twitter [#2758](https://github.com/diaspora/diaspora/issues/2758)
 * Don't show hovercards for current user in comments [#3999](https://github.com/diaspora/diaspora/issues/3999)
 * Replace mentions of out-of-aspect people with markdown links [#4161](https://github.com/diaspora/diaspora/pull/4161)
-* Unify hide and ignore [#3827](https://github.com/diaspora/diaspora/issues/3828)
+* Unify hide and ignore [#3828](https://github.com/diaspora/diaspora/issues/3828)
 * Remove alpha branding [#4196](https://github.com/diaspora/diaspora/issues/4196)
 * Fix dynamic loading of asset_sync
 
