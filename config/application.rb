@@ -3,6 +3,9 @@ require_relative 'boot'
 require 'rails/all'
 Bundler.require(*Rails.groups(:assets => %w(development test))) if defined?(Bundler)
 
+# Load asset_sync early
+require_relative 'asset_sync'
+
 module Diaspora
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

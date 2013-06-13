@@ -1,6 +1,4 @@
-
-if AppConfig.environment.assets.upload? && AppConfig.environment.s3.enable?
-  require 'asset_sync'
+if defined? AssetSync
   AssetSync.configure do |config|
     config.enabled = true
     
