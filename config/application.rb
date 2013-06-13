@@ -51,6 +51,9 @@ module Diaspora
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    # Speed up precompile by not loading the environment
+    config.assets.initialize_on_precompile = false
+
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
     config.assets.precompile += %w{
       aspect-contacts.js 
