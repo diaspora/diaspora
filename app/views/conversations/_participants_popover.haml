@@ -1,7 +1,7 @@
 .conversation_participants_popover_content{ :"data-content-conversation-id" => conversation.id }
   .conversation_participants_popover
     - conversation.participants.limit(20).each do |participant|
-      = image_tag(participant.profile.image_url_small,
+      = image_tag(participant.profile.image_url(:small),
           :class => 'avatar',
           :title => participant.name,
           :data => {:toggle => 'tooltip'})
