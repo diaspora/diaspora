@@ -22,6 +22,7 @@
 * Unify hide and ignore [#3828](https://github.com/diaspora/diaspora/issues/3828)
 * Remove alpha branding [#4196](https://github.com/diaspora/diaspora/issues/4196)
 * Fix dynamic loading of asset_sync
+* Fix login for short passwords [#4123](https://github.com/diaspora/diaspora/issues/4123)
 
 ## Features
 
