@@ -32,7 +32,7 @@
       %h3
         = t('conversations.index.new_message')
 
-    = form_for Conversation.new do |conversation|
+    = form_for Conversation.new, html: {class: "new_conversation form_do_not_clear"}, remote: true do |conversation|
 
       .span-2
         %h4
