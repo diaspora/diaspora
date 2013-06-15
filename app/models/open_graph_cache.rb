@@ -29,7 +29,7 @@ class OpenGraphCache < ActiveRecord::Base
 
   def fetch_and_save_opengraph_data!
     response = OpenGraph.new(self.url)
-    if response.bank? || response.type.blank?
+    if response.blank? || response.type.blank?
       return
     end
   rescue
