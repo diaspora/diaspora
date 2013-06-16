@@ -8,6 +8,7 @@
 
 ## Bug fixes
 
+* Fix deletelabel icon size regression after sprites [$4180](https://github.com/diaspora/diaspora/issues/4180)
 * Don't use Pathname early to circumvent some rare initialization errors [#3816](https://github.com/diaspora/diaspora/issues/3816)
 * Don't error out in script/server if git is unavailable.
 * Fix post preview from tag pages [#4157](https://github.com/diaspora/diaspora/issues/4157)
@@ -167,7 +168,7 @@ everything is set up.
 * Load images via sprites [#4039](https://github.com/diaspora/diaspora/pull/4039)
 * Delete unnecessary javascript views. [#4059](https://github.com/diaspora/diaspora/pull/4059)
 * Cleanup of script/server
-* Attempt to stabilize federation of attached photos (fix [#3033](https://github.com/diaspora/diaspora/issues/3033)  [#3940](https://github.com/diaspora/diaspora/pull/3940)
+* Attempt to stabilize federation of attached photos (fix [#3033](https://github.com/diaspora/diaspora/issues/3033)  [#3940](https://github.com/diaspora/diaspora/pull/3940) )
 * Refactor develop install script [#4111](https://github.com/diaspora/diaspora/pull/4111)
 * Remove special hacks for supporting Ruby 1.8 [#4113] (https://github.com/diaspora/diaspora/pull/4139)
 * Moved custom oEmbed providers to config/oembed_providers.yml [#4131](https://github.com/diaspora/diaspora/pull/4131)
@@ -175,7 +176,6 @@ everything is set up.
 
 ## Bug fixes
 
-* Fix deletelabel icon size regression after sprites [$4180](https://github.com/diaspora/diaspora/issues/4180)
 * Fix mass aspect selection [#4127](https://github.com/diaspora/diaspora/pull/4127)
 * Fix posting functionality on tags show view [#4112](https://github.com/diaspora/diaspora/pull/4112)
 * Fix cancel button on getting_started confirmation box [#4073](https://github.com/diaspora/diaspora/issues/4073)
