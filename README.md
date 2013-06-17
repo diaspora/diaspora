@@ -18,23 +18,23 @@ With Diaspora you can:
 ## Quick Start:
 
 Here's how you can get a **[development](http://guides.rubyonrails.org/getting_started.html)** environment up and running.  This is where any new pod runner should start, as well as people
-looking to contribute to D*.  This script assumes you have [a basic Rails setup installed](http://railsapps.github.com/installing-rails-3-1.html).
+looking to contribute to D*.  This script assumes you have [a basic Rails setup installed](http://railsapps.github.io/installing-rails.html).
 
 ### Step 1: Run the script and follow the on screen instructions.
-```
+```bash
   bash <(curl https://raw.github.com/diaspora/diaspora/master/script/install.sh)
 ```
 
 
 ### Step 2: Run the development server
-```
+```bash
   rails s
 ```
 
 then visit 'http://localhost:3000' in your browser.
 
 ### Step 3 (for developers): Run tests
-```
+```bash
   rake
 ```
 
@@ -54,8 +54,7 @@ Documentation is available on our [wiki](http://wiki.diasporafoundation.org)
 ## More Resources:
 
 - [Wiki](http://wiki.diasporafoundation.org)
-- [Podmin Resources](https://github.com/diaspora/diaspora/wiki/Podmin-Resources)
-- [Contributing](https://github.com/diaspora/diaspora/wiki/Getting-Started-With-Contributing)
-- [Dev List](https://groups.google.com/forum/?fromgroups#!forum/diaspora-dev)
-- [Discuss List](https://groups.google.com/forum/?fromgroups#!forum/diaspora-discuss)
+- [Podmin Resources](http://wiki.diasporafoundation.org/Category:Podmin)
+- [Contributing](http://wiki.diasporafoundation.org/Getting_Started_With_Contributing)
+* [Mailing lists](http://wiki.diasporafoundation.org/How_We_Communicate#Mailing_Lists)
 - [IRC](http://wiki.diasporafoundation.org/How_We_Communicate#IRC)
