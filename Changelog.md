@@ -25,6 +25,7 @@
 * Fix dynamic loading of asset_sync
 * Fix login for short passwords [#4123](https://github.com/diaspora/diaspora/issues/4123)
 * Add loading indicator on tag pages, remove the second one from the profile page [#4041](https://github.com/diaspora/diaspora/issues/4041)
+* Leaving the `to` field blank when sending a private message causes a server error [#4227](https://github.com/diaspora/diaspora/issues/4227)
 
 ## Features
 
