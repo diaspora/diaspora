@@ -4,9 +4,6 @@
 
 require 'spec_helper'
 
-require Rails.root.join('lib', 'postzord')
-require Rails.root.join('lib', 'postzord', 'receiver', 'private')
-
 describe Postzord::Receiver::Private do
 
   before do

@@ -2,9 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join('lib', 'diaspora', 'markdownify')
-require 'redcarpet/render_strip'
-
 module MarkdownifyHelper
   def markdownify(target, render_options={})
 
@@ -38,18 +35,18 @@ module MarkdownifyHelper
 
     message = markdown.render(message).html_safe
 
-    if target.respond_to?(:format_mentions)
-      message = target.format_mentions(message)
+    if target.respond_to?(:mentioned_people)
+      message = Diaspora::Mentionable.format(message, target.mentioned_people)
     end
 
     message = Diaspora::Taggable.format_tags(message, :no_escape => true)
 
     return message.html_safe
   end
-  
+
   def strip_markdown(text)
     renderer = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, :autolink => true)
-    renderer.render(text)
+    renderer.render(text).strip
   end
 
   def process_newlines(message)

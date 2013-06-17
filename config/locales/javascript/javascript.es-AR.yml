@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,10 +6,12 @@
 
 es-AR:
   javascripts:
+    and: "y"
     aspect_dropdown:
       add_to_aspect: "Agregar contacto"
       all_aspects: "Todos los aspectos"
       error: "No se pudo empezar a compartir con <%= name %>. ¿Será que la/lo estás ignorando?"
+      error_remove: "No se pudo eliminar a <%= name %> del aspecto."
       select_aspects: "Selecciona aspectos"
       started_sharing_with: "¡Has empezado a compartir con <%= name%>!"
       stopped_sharing_with: "Has dejado de compartir con <%= name =%>"
@@ -18,14 +20,17 @@ es-AR:
         other: "En <%= count %> aspectos"
         zero: "Seleccionar aspectos"
     aspect_navigation:
+      add_an_aspect: "+ Agregar un aspecto"
       deselect_all: "Deseleccionar todo"
       no_aspects: "No hay aspectos seleccionados"
       select_all: "Seleccionar todo"
+    comma: ","
     comments:
       hide: "ocultar los comentarios"
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     delete: "Borrar"
+    edit: "Editar"
     failed_to_like: "¡No pudo marcarse como 'Me gusta'!"
     failed_to_post_message: "¡No pudo publicarse el mensaje!"
     getting_started:
@@ -51,12 +56,18 @@ es-AR:
     ignore_user: "¿Ignorar a este usuario?"
     infinite_scroll:
       no_more: "No hay más publicaciones."
+      no_more_contacts: "No hay más contactos."
     my_activity: "Mi actividad"
+    my_aspects: "Mis aspectos"
     my_stream: "Entrada"
     people:
       not_found: "...y no se encontró a nadie."
     photo_uploader:
+      completed: "<%= file %> completado"
+      empty: "El archivo {file} está vacío, por favor selecciona los archivos nuevamente sin incluir este."
+      invalid_ext: "El archivo {file} tiene una extensión inválida. Solo las extensiones {extensions} están permitidas."
       looking_good: "¡Apa, te ves muy bien!"
+      size_error: "El archivo {file} es demasiado grande, el tamaño máximo permitido es {sizeLimit}."
     publisher:
       at_least_one_aspect: "Tenés que publicarlo en, por lo menos, un aspecto"
       limited: "Limitada - tu publicación sera vista solo por la gente con quien la compartes "

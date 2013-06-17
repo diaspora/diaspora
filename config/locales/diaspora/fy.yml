@@ -1,0 +1,151 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+fy:
+  _applications: "Tapassingen"
+  _comments: "Reaksjes"
+  _contacts: "Kontakten"
+  _home: "Thús"
+  _photos: "foto's"
+  account: "Akkount"
+  ago: "%{time} lyn"
+  are_you_sure: "Bisto wis?"
+  aspects:
+    edit:
+      done: "Klear"
+      update: "fernij"
+      updating: "fernije"
+    helper:
+      remove: "fuorthelje"
+    index:
+      diaspora_id:
+        content_1: "Dyn Diaspora ID is:"
+      help:
+        find_a_bug: "... in %{link} fine?"
+        have_a_question: "... in %{link} hawwe?"
+        tag_question: "fraach"
+      new_here:
+        learn_more: "Lês mear"
+        title: "Wolkom Nije Brûkers"
+      no_contacts: "Gjin kontakten"
+      post_a_message: "stjoer in berjocht >>"
+      welcome_to_diaspora: "Wolkom by Diaspora, %{name}!"
+    new:
+      create: "Oanmeitsje"
+    seed:
+      acquaintances: "Bekenden"
+      family: "Famylje"
+      friends: "Freonen"
+      work: "Wurk"
+    selected_contacts:
+      view_all_contacts: "Toan alle kontakten"
+  back: "Tebek"
+  cancel: "Annulearje"
+  comments:
+    new_comment:
+      comment: "Reaksje"
+      commenting: "Reagearje..."
+  contacts:
+    create:
+      failure: "Koe gjin kontakt oanmeitsje"
+    few: "%{count} kontakten"
+    index:
+      add_to_aspect_link: "kontakten tafoegje oan %{name}"
+      all_contacts: "Alle Kontakten"
+      title: "Kontakten"
+      your_contacts: "Dyn Kontakten"
+    many: "%{count} kontakten"
+    one: "1 kontakt"
+    other: "%{count} kontakten"
+    two: "%{count} kontakten"
+    zero: "kontakten"
+  conversations:
+    create:
+      sent: "Berjocht ferstjoerd"
+    helper:
+      new_messages:
+        one: "1 nij berjocht"
+        other: "%{count} nije berjochten"
+        zero: "Gjin nije berjochten"
+    index:
+      create_a_new_message: "in nij berjocht oanmeitsje"
+      inbox: "Ynbox"
+      message_inbox: "Berjocht Ynbox"
+      new_message: "Nij Berjocht"
+      no_messages: "gjin berjochten"
+    new:
+      send: "Ferstjoere"
+      sending: "Ferstjoere..."
+      subject: "ûnderwerp"
+      to: "oan"
+    show:
+      reply: "reagearje"
+      replying: "Reagearje..."
+  date:
+    formats:
+      birthday: "%d %B"
+      birthday_with_year: "%d %B %Y"
+      fullmonth_day: "%d %B"
+  delete: "Fuortsmite"
+  email: "E-mail"
+  find_people: "Minsken of #labels Sykje"
+  hide: "Ferbergje"
+  invitations:
+    a_facebook_user: "In Facebook brûker"
+    new:
+      invite_someone_to_join: "Immen útnoadigje foar Diaspora!"
+      language: "Taal"
+      personal_message: "Persoanlik berjocht"
+      resend: "Opnij ferstjoere"
+      send_an_invitation: "In útnoeging ferstjoere"
+      send_invitation: "Útnoeging ferstjoerd"
+      to: "Oan"
+  layouts:
+    application:
+      powered_by: "MEA MOOGLIK MAKKE TROCH DIASPORA*"
+    header:
+      admin: "behearder"
+      blog: "bloch"
+      code: "koade"
+      login: "ynlogge"
+      logout: "Útlogge"
+      profile: "Profyl"
+      recent_notifications: "Resinte notifikaasjes"
+      settings: "Ynstellingen"
+      view_all: "Toan alle"
+  more: "Mear"
+  next: "folgjende"
+  no_results: "Gjin Risseltaten Fûn"
+  notifications:
+    post: "berjocht"
+  notifier:
+    a_post_you_shared: "in berjocht."
+    click_here: "klik hjirre"
+    hello: "Guoi %{name}"
+    reshared:
+      view_post: "Toan berjocht >"
+    thanks: "Tige Tank,"
+  nsfw: "Net Feilich Foar Wurk"
+  ok: "Okee"
+  or: "of"
+  password: "Wachtwurd"
+  password_confirmation: "Wachtwurd konfirmaasje"
+  people:
+    few: "%{count} minsken"
+    one: "1 persoan"
+    two: "%{count} minsken"
+    zero: "gjin minsken"
+  previous: "foarrige"
+  privacy: "Privacy"
+  privacy_policy: "Privacybelied"
+  profile: "Profyl"
+  public: "Iepenbier"
+  search: "Sykje"
+  settings: "Ynstellingen"
+  terms_and_conditions: "Algemiene Betingsten"
+  undo: "Ûngedien meitsje?"
+  username: "Brûkersnamme"
+  welcome: "Wolkom!"

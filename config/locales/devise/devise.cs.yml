@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -32,8 +32,9 @@ cs:
       invitation_instructions:
         accept: "Přijmout pozvání"
         be_yourself: "Buďte sami sebou"
+        cubbies: "Cubbi.es"
         displaying_correctly: "E-mail se nezobrazuje správně? %{link}"
-        email_us: "Máte-li nějaké dotazy, nebo potřebujete pomoc s vaším Diaspora účtem, kontaktujte nás prosím na email %{email}."
+        email_us: "Máte-li nějaké dotazy nebo potřebujete-li pomoci s vaším Diaspora účtem, kontaktujte nás prosím na e-mailu %{email}."
         finally: "Konečně — je to tady"
         friends_saying: "Co říkají vaši přátelé…"
         get_connected: "Připojte se"
@@ -41,7 +42,7 @@ cs:
         help_fund: "pomozte financovat Diasporu"
         here: "zde"
         ignore: "Pokud nechcete přijmout pozvání, prosím ignorujte tento e-mail."
-        join_team: "Připojte se k nám"
+        join_team: "Přidejte se k nám"
         love: "S láskou,"
         made_by_people: "%{strong_diaspora} je tvořena lidmi, kteří milují internet tak jako vy. %{jointeam} nebo %{helpfund}!"
         more_people: "A ještě další lidé se těší na to, až vás uvidí!"

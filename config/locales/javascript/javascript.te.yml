@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -16,6 +16,7 @@ te:
         many: "In {{count}} aspects"
         one: "In {{count}} aspect"
         other: "In {{count}} aspects"
+        two: "In <%= count %> aspects"
         zero: "Select aspects"
     aspect_navigation:
       deselect_all: "ఎంపిక మొత్తం రద్దుచేయి"
@@ -65,6 +66,7 @@ te:
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
       public: "బహిరంగం"
       reshare: "మరలపంచుకొను"
@@ -73,6 +75,7 @@ te:
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
       show_nsfw_post: "టపాను చూపించు"
       show_nsfw_posts: "అన్నీ చూపించు"

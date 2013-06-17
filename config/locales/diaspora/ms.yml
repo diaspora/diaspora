@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -141,6 +141,7 @@ ms:
         many: "%{count} new messages"
         one: "1 new messages"
         other: "%{count} new messages"
+        two: "%{count} new messages"
         zero: "Tiada mesej baru"
     index:
       create_a_new_message: "membuat mesej baru"
@@ -194,18 +195,21 @@ ms:
         many: "%{count} dislikes"
         one: "%{count} dislike"
         other: "%{count} dislikes"
+        two: "%{count} dislikes"
         zero: "no dislikes"
       people_like_this:
         few: "%{count} likes"
         many: "%{count} suka"
         one: "%{count} suka"
         other: "%{count} suka"
+        two: "%{count} suka"
         zero: "tiada suka"
       people_like_this_comment:
         few: "%{count} suka"
         many: "%{count} suka"
         one: "%{count} suka"
         other: "%{count} suka"
+        two: "%{count} likes"
         zero: "tiada suka"
   limited: "Terhad"
   more: "lebih banyak"
@@ -217,18 +221,21 @@ ms:
       many: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
       one: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
       other: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+      two: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} commented on a deleted post."
       many: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} commented on a deleted post."
     comment_on_post:
       few: "%{actors} commented on your %{post_link}."
       many: "%{actors} commented on your %{post_link}."
       one: "%{actors} commented on your %{post_link}."
       other: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
     helper:
       new_notifications:
@@ -236,6 +243,7 @@ ms:
         many: "%{count} new notifications"
         one: "1 new notification"
         other: "%{count} new notifications"
+        two: "%{count} new notifications"
         zero: "No new notifications"
     index:
       and: "dan"
@@ -244,6 +252,7 @@ ms:
         many: "dan %{count} lain-lain"
         one: "dan satu lagi"
         other: "dan %{count} lain-lain"
+        two: "dan %{count} lain-lain"
         zero: "dan tiada siapa lagi"
       mark_all_as_read: "Tandakan Semua sebagai Sudah Baca"
       notifications: "Pemberitahuan"
@@ -252,48 +261,56 @@ ms:
       many: "%{actors} telah menyukai anda %{post_link}."
       one: "%{actors} telah menyukai anda %{post_link}."
       other: "%{actors} telah menyukai anda %{post_link}."
+      two: "%{actors} telah menyukai anda %{post_link}."
       zero: "%{actors} telah menyukai anda %{post_link}."
     liked_post_deleted:
       few: "%{actors} suka pos yang dihapuskan anda."
       many: "%{actors} suka pos yang dihapuskan anda."
       one: "%{actors} suka pos yang dihapuskan anda."
       other: "%{actors} suka pos yang dihapuskan anda."
+      two: "%{actors} suka pos yang dihapuskan anda."
       zero: "%{actors} liked your deleted post."
     mentioned:
       few: "%{actors} have mentioned you in a %{post_link}."
       many: "%{actors} have mentioned you in a %{post_link}."
       one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} have mentioned you in a %{post_link}."
+      two: "%{actors} have mentioned you in a %{post_link}."
       zero: "%{actors} have mentioned you in a %{post_link}."
     mentioned_deleted:
       few: "%{actors} mentioned you in a deleted post."
       many: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."
       one: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
       zero: "%{actors} sent you a message."
     reshared:
       few: "%{actors} telah berkongsi semula dengan anda %{post_link}."
       many: "%{actors} have reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} telah berkongsi semula %{post_link} anda."
+      two: "%{actors} telah berkongsi semula %{post_link} anda."
       zero: "%{actors} telah berkongsi semula %{post_link} anda."
     reshared_post_deleted:
       few: "%{actors} berkongsi semula pos yang dihapuskan anda."
       many: "%{actors} berkongsi semula pos yang dihapuskan anda."
       one: "%{actors} berkongsi semula pos yang dihapuskan anda."
       other: "%{actors} berkongsi semula pos yang dihapuskan anda."
+      two: "%{actors} berkongsi semula pos yang dihapuskan anda."
       zero: "%{actors} berkongsi semula pos yang dihapuskan anda."
     started_sharing:
       few: "%{actors} mula berkongsi dengan anda."
       many: "%{actors} mula berkongsi dengan anda."
       one: "%{actors} mula berkongsi dengan anda."
       other: "%{actors} mula berkongsi dengan anda."
+      two: "%{actors} mula berkongsi dengan anda."
       zero: "%{actors} mula berkongsi dengan anda."
   notifier:
     a_post_you_shared: "pos."
@@ -346,12 +363,14 @@ ms:
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
+    two: "%{count} reactions"
     zero: "0 reactions"
   requests:
     helper:
@@ -360,6 +379,7 @@ ms:
         many: "%{count} new requests!"
         one: "new request!"
         other: "%{count} new requests!"
+        two: "%{count} new requests!"
         zero: "no new requests"
   reshares:
     reshare:
@@ -368,6 +388,7 @@ ms:
         many: "%{count} reshares"
         one: "1 reshare"
         other: "%{count} reshares"
+        two: "%{count} reshares"
         zero: "Reshare"
   shared:
     aspect_dropdown:
@@ -376,6 +397,7 @@ ms:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add contact"
   status_messages:
     too_long:
@@ -383,6 +405,7 @@ ms:
       many: "please make your status messages less than %{count} characters"
       one: "please make your status messages less than %{count} character"
       other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
       zero: "please make your status messages less than %{count} characters"
   stream_helper:
     show_comments:
@@ -390,6 +413,7 @@ ms:
       many: "Show %{count} more comments"
       one: "Show one more comment"
       other: "Show %{count} more comments"
+      two: "Show two more comments"
       zero: "No more comments"
   streams:
     aspects:

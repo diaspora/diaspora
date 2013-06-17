@@ -3,5 +3,10 @@
 #   the COPYRIGHT file.
 
 module Diaspora
-  autoload :Parser
+  require 'diaspora/exceptions'
+  require 'diaspora/parser'
+  require 'diaspora/fetcher'
+  require 'diaspora/markdownify'
+  require 'diaspora/mentionable'
+  require 'diaspora/exporter'
 end

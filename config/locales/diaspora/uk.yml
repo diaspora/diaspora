@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -94,9 +94,7 @@ uk:
     weekly_user_stats:
       amount_of:
         few: "%{count} нових користувачів цього тижня"
-        many: ""
         one: "%{count} новий користувач цього тижня"
-        other: ""
         zero: "Немає нових користувачів цього тижня"
       current_server: "Дата зараз на сервері: %{date}"
   ago: "%{time} назад"
@@ -245,7 +243,7 @@ uk:
   bookmarklet:
     explanation: "Пишіть з будь-якої сторінки, використовуючи %{link}."
     heading: "Інтерактивна закладка Діаспори"
-    post_something: "повідомленняя до Діаспори"
+    post_something: "повідомлення до Діаспори"
     post_success: "Опубліковано! Закриття!"
   cancel: "Скасувати"
   comments:
@@ -299,6 +297,7 @@ uk:
         many: "Нові повідомлення: %{count}"
         one: "1 нове повідомлення"
         other: "Нові повідомлення: %{count}"
+        two: "%{count} нових повідомлень"
         zero: "Нових повідомлень немає"
     index:
       create_a_new_message: "написати нове повідомлення"
@@ -396,18 +395,21 @@ uk:
         many: "%{count} не сподобалося"
         one: "%{count} не сподобалося"
         other: "%{count} не сподобалося"
+        two: "%{count} не сподобалося"
         zero: "нікому не сподобалося"
       people_like_this:
         few: "%{count} сподобалося"
         many: "%{count} сподобалося"
         one: "%{count} сподобалося"
         other: "%{count} сподобалося"
+        two: "%{count} сподобалося"
         zero: "нікому не сподобалося"
       people_like_this_comment:
         few: "%{count} сподобалося"
         many: "%{count} сподобалося"
         one: "%{count} сподобалося"
         other: "%{count} сподобалося"
+        two: "%{count} сподобалося"
         zero: "не сподобалося нікому"
   limited: "Обмежена"
   more: "Ще"
@@ -419,18 +421,21 @@ uk:
       many: "%{actors} також прокоментували %{post_link} %{post_author}."
       one: "%{actors} також прокоментував(ла) %{post_link} %{post_author}."
       other: "%{actors} також прокоментував(ла) %{post_link} %{post_author}."
+      two: "%{actors} також прокоментували %{post_link} %{post_author}."
       zero: "%{actors} також прокоментував(ла) %{post_link} %{post_author}."
     also_commented_deleted:
       few: "%{actors} коментували ваше вилучене повідомлення."
       many: "%{actors} коментували вилучене повідомлення."
       one: "%{actors} коментували ваше вилучене повідомлення."
       other: "%{actors} коментували ваше вилучене повідомлення."
+      two: "%{actors} коментували вилучене повідомлення."
       zero: "%{actors} коментували ваше вилучене повідомлення."
     comment_on_post:
       few: "%{actors} прокоментували вашу %{post_link}."
       many: "%{actors} прокоментували вашу %{post_link}."
       one: "%{actors} прокоментували вашу %{post_link}."
       other: "%{actors} прокоментували вашу %{post_link}."
+      two: "%{actors} прокоментували вашу %{post_link}."
       zero: "%{actors} прокоментували вашу %{post_link}."
     helper:
       new_notifications:
@@ -438,6 +443,7 @@ uk:
         many: "%{count} нових повідомлень"
         one: "1 нове сповіщення"
         other: "Нові сповіщення: %{count}"
+        two: "%{count} нових повідомлень"
         zero: "Нових сповіщень немає"
     index:
       and: "і"
@@ -446,6 +452,7 @@ uk:
         many: "і %{count} інших"
         one: "і ще один"
         other: "і %{count} іншим"
+        two: "і %{count} інших"
         zero: "і більше нікому"
       mark_all_as_read: "Позначити всі як прочитані"
       mark_unread: "позначити як непрочитане"
@@ -455,24 +462,28 @@ uk:
       many: "%{actors} сподобався ваш %{post_link}."
       one: "%{actors} сподобався ваш %{post_link}."
       other: "%{actors} сподобався ваш %{post_link}."
+      two: "%{actors} сподобався ваш %{post_link}."
       zero: "%{actors} сподобався ваш %{post_link}."
     liked_post_deleted:
       few: "%{actors} подобався ваш вилучений запис."
       many: "%{actors} подобався ваш вилучений запис."
       one: "%{actors} подобався ваш вилучений запис."
       other: "%{actors} подобався ваш вилучений запис."
+      two: "%{actors} подобався ваш вилучений запис."
       zero: "%{actors} подобався ваш вилучений запис."
     mentioned:
       few: "%{actors} згадали вас в %{post_link}."
       many: "%{actors} згадали вас в %{post_link}."
       one: "%{actors} згадав(ла) вас в %{post_link}."
       other: "%{actors} згадали вас в %{post_link}."
+      two: "%{actors} згадали вас в %{post_link}."
       zero: "%{actors} згадали вас в %{post_link}."
     mentioned_deleted:
       few: "%{actors} згадали вас у вилученому записі."
       many: "%{actors} згадали вас у вилученому записі."
       one: "%{actors} згадали вас у вилученому записі."
       other: "%{actors} згадали вас у вилученому повідомленні."
+      two: "%{actors} згадали вас у вилученому записі."
       zero: "%{actors} згадали вас у вилученому повідомленні."
     post: "запис"
     private_message:
@@ -480,24 +491,28 @@ uk:
       many: "%{actors} надіслали вам повідомлення."
       one: "%{actors} надіслали вам повідомлення."
       other: "%{actors} надіслали вам повідомлення."
+      two: "%{actors} надіслали вам повідомлення."
       zero: "%{actors} надіслали вам повідомлення."
     reshared:
       few: "%{actors} поділилися вашим %{post_link}."
       many: "%{actors} поділилися вашим %{post_link}."
       one: "%{actors} поділився(лась) вашою %{post_link}."
       other: "%{actors} поділилися вашим %{post_link}."
+      two: "%{actors} поділилися вашим %{post_link}."
       zero: "%{actors} поділилися вашим %{post_link}."
     reshared_post_deleted:
       few: "%{actors} поділилися вашим вилученим записом."
       many: "%{actors} поділилися вашим вилученим записом."
       one: "%{actors} поділився(лась) вашим вилученим записом."
       other: "%{actors} поділилися вашим вилученим записом."
+      two: "%{actors} поділилися вашим вилученим записом."
       zero: "%{actors} поділилися вашим вилученим записом."
     started_sharing:
       few: "%{actors} почав(ла) ділитися з вами."
       many: "%{actors} почав(ла) ділитися з вами."
       one: "%{actors} почав(ла) ділитися з вами."
       other: "%{actors} почав(ла) ділитися з вами."
+      two: "%{actors} почав(ла) ділитися з вами."
       zero: "%{actors} почав(ла) ділитися з вами."
   notifier:
     a_post_you_shared: "запис."
@@ -656,6 +671,7 @@ uk:
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
       reshare_by: "Поширено %{author}"
   previous: "попередня"
@@ -690,6 +706,7 @@ uk:
     many: "Відгуки: %{count}"
     one: "Відгуки: 1"
     other: "Відгуки: %{count}"
+    two: "Відгуки: %{count}"
     zero: "Відгуки: 0"
   registrations:
     closed: "У цій частині Діаспори реєстрація закрита."
@@ -732,6 +749,7 @@ uk:
         many: "%{count} нові[-х] заявки[-ок]!"
         one: "новий запит!"
         other: "%{count} нові[-х] заявки[-ок]!"
+        two: "%{count} нових запитів!"
         zero: "нових запитів немає"
     manage_aspect_contacts:
       existing: "Наявні контакти"
@@ -749,6 +767,7 @@ uk:
         many: "Поділилися: %{count}"
         one: "Поділився: 1"
         other: "Поділилися: %{count}"
+        two: "Поділилися: %{count}"
         zero: "Поділитися"
       reshare_confirmation: "Поділитися записом %{author}?"
       reshare_original: "Поділитися початковим записом"
@@ -804,6 +823,7 @@ uk:
         many: "У %{count} аспектах"
         one: "У %{count} аспекті[ах]"
         other: "У %{count} аспектах"
+        two: "У %{count} аспектах"
         zero: "Додати аспект"
     contact_list:
       all_contacts: "Усі контакти"
@@ -880,6 +900,7 @@ uk:
       many: "зробіть ваше повідомлення меншим, ніж %{count} символів"
       one: "скоротіть, будь ласка, ваше повідомлення до %{count} символів"
       other: "скоротіть, будь ласка, ваше повідомлення до %{count} символів"
+      two: "зробіть ваше повідомлення меншим, ніж %{count} символів"
       zero: "скоротіть, будь ласка, ваше повідомлення до %{count} символів"
   stream_helper:
     hide_comments: "Приховати усі коментарі"
@@ -888,6 +909,7 @@ uk:
       many: "Показати ще %{count} коментарів"
       one: "Показати ще коментарі"
       other: "Показати ще %{count} коментарів"
+      two: "Показати ще два коментарі"
       zero: "Більше немає коментарів"
   streams:
     activity:

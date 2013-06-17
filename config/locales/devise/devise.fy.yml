@@ -1,0 +1,53 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+fy:
+  devise:
+    failure:
+      locked: "Dyn akkount is beskoattele."
+      unauthenticated: "Do moatst ynlogge of oanmelde foardatsto fierder kinst."
+    mailer:
+      confirmation_instructions:
+        confirm: "Myn akkount befêstigje"
+      hello: "Guoi %{email}!"
+      invitation_instructions:
+        accept: "Útnoeging akseptearje"
+        love: "Leafde,"
+        or: "of"
+        subject: "Do wiest útnoadige foar Diaspora!"
+        team_diaspora: "Team Diaspora"
+      inviter:
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} ha dy útnoadige om jin oan te slute by Diaspora"
+      reset_password_instructions:
+        change: "Feroarje myn wachtwurd"
+      welcome: "Wolkom %{email}!"
+    passwords:
+      edit:
+        change_password: "Feroarje myn wachtwurd"
+      new:
+        forgot_password: "Dyn wachtwurd ferjitten?"
+    registrations:
+      updated: "Do hast dyn akkount mei súkses fernijd."
+    sessions:
+      new:
+        login: "Ynlogge"
+        password: "Wachtwurd"
+        remember_me: "Ûntkear My"
+        sign_in: "Oanmelde"
+        username: "Brûkersnamme"
+      signed_in: "Oanmelde slagge."
+      signed_out: "Ôfmelde slagge."
+    shared:
+      links:
+        forgot_your_password: "Dyn wachtwurd ferjitten?"
+        sign_in: "Ynlogge"
+        sign_up: "Oanmelde"
+  errors:
+    messages:
+      already_confirmed: "wie al befêstige"
+      not_found: "net fûn"
+      not_locked: "wie net sluten"

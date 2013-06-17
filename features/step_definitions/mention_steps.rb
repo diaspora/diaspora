@@ -4,3 +4,12 @@ And /^Alice has a post mentioning Bob$/ do
   aspect = alice.aspects.where(:name => "Besties").first
   alice.post(:status_message, :text => "@{Bob Jones; #{bob.person.diaspora_handle}}", :to => aspect)
 end
+
+And /^I mention Alice in the publisher$/ do
+  alice = User.find_by_email 'alice@alice.alice'
+  fill_in 'status_message_fake_text', :with => "@{Alice Smith ; #{alice.person.diaspora_handle}}"
+end
+
+And /^I click on the first user in the mentions dropdown list$/ do
+  find('.mentions-autocomplete-list li:first').click
+end

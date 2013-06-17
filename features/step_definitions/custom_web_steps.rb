@@ -96,8 +96,21 @@ Then /^the publisher should be expanded$/ do
   find("#publisher")["class"].should_not include("closed")
 end
 
+Then /^the text area wrapper mobile should be with attachments$/ do
+  find("#publisher_textarea_wrapper")["class"].should include("with_attachments")
+end
+
 When /^I append "([^"]*)" to the publisher$/ do |stuff|
   elem = find('#status_message_fake_text')
+  elem.native.send_keys(' ' + stuff)
+
+  wait_until do
+    find('#status_message_text').value.include?(stuff)
+  end
+end
+
+When /^I append "([^"]*)" to the publisher mobile$/ do |stuff|
+  elem = find('#status_message_text')
   elem.native.send_keys(' ' + stuff)
 
   wait_until do
@@ -135,6 +148,10 @@ end
 
 And /^I click on selector "([^"]*)"$/ do |selector|
   page.execute_script("$('#{selector}').click();")
+end
+
+And /^I click on the first selector "([^"]*)"$/ do |selector|
+  page.execute_script("$('#{selector}').first().click();")
 end
 
 And /^I preemptively confirm the alert$/ do

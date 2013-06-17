@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join("lib", 'stream', "person")
-
 class PeopleController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :last_post]
   before_filter :redirect_if_tag_search, :only => [:index]
@@ -82,27 +80,18 @@ class PeopleController < ApplicationController
 
     @post_type = :all
     @aspect = :profile
-    @share_with = (params[:share_with] == 'true')
-
     @stream = Stream::Person.new(current_user, @person, :max_time => max_time)
-
     @profile = @person.profile
 
     unless params[:format] == "json" # hovercard
       if current_user
         @block = current_user.blocks.where(:person_id => @person.id).first
         @contact = current_user.contact_for(@person)
-        @aspects_with_person = []
         if @contact && !params[:only_posts]
-          @aspects_with_person = @contact.aspects
-          @aspect_ids = @aspects_with_person.map(&:id)
           @contacts_of_contact_count = @contact.contacts.count
           @contacts_of_contact = @contact.contacts.limit(8)
-
         else
           @contact ||= Contact.new
-          @contacts_of_contact_count = 0
-          @contacts_of_contact = []
         end
       end
     end
@@ -155,8 +144,6 @@ class PeopleController < ApplicationController
       @aspect = :profile
       @contacts_of_contact = @contact.contacts.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
       @hashes = hashes_for_people @contacts_of_contact, @aspects
-      @aspects_with_person = @contact.aspects
-      @aspect_ids = @aspects_with_person.map(&:id)
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'
       redirect_to people_path

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -224,6 +224,7 @@ bg:
         many: "%{count} нови съобщения"
         one: "1 ново съобщение"
         other: "%{count} нови съобщения"
+        two: "%{count} нови съобщения"
         zero: "Няма нови съобщения"
     index:
       create_a_new_message: "създаване на съобщение"
@@ -307,18 +308,21 @@ bg:
         many: "не е харесана %{count} пъти"
         one: "не е харесана %{count} път"
         other: "не е харесана %{count} пъти"
+        two: "не е харесана %{count} пъти"
         zero: "всички са я харесали"
       people_like_this:
         few: "харесана %{count} пъти"
         many: "харесана %{count} пъти"
         one: "харесана %{count} път"
         other: "харесана %{count} пъти"
+        two: "харесана %{count} пъти"
         zero: "не е харесана"
       people_like_this_comment:
         few: "харесан %{count} пъти"
         many: "харесан %{count} пъти"
         one: "харесан %{count} път"
         other: "харесан %{count} пъти"
+        two: "харесан %{count} пъти"
         zero: "не е харесан"
   limited: "Ограничена"
   more: "Още"
@@ -330,6 +334,7 @@ bg:
       many: "%{actors} също коментираха %{post_link} на %{post_author}."
       one: "%{actors} също коментира %{post_link} на %{post_author}."
       other: "%{actors} също коментираха %{post_link} на %{post_author}."
+      two: "%{actors} също коментираха %{post_link} на %{post_author}."
       zero: "%{actors} също коментира %{post_link} на %{post_author}."
     also_commented_deleted:
       one: "%{actors} коментира изтрита публикация."
@@ -340,6 +345,7 @@ bg:
       many: "%{actors} коментираха ваша %{post_link}."
       one: "%{actors} коментира ваша %{post_link}."
       other: "%{actors} коментираха ваша %{post_link}."
+      two: "%{actors} коментираха ваша %{post_link}."
       zero: "%{actors} коментира ваша %{post_link}."
     helper:
       new_notifications:
@@ -347,6 +353,7 @@ bg:
         many: "%{count} нови известия"
         one: "1 ново известие"
         other: "%{count} нови известия"
+        two: "%{count}  нови известия"
         zero: "Няма нови известия"
     index:
       and: "и"
@@ -355,6 +362,7 @@ bg:
         many: "и други %{count}-ма"
         one: "и още някой"
         other: "и други %{count}-ма"
+        two: "и други %{count}-ма"
         zero: "и никой друг"
       mark_all_as_read: "Маркиране на всички като прочетени"
       notifications: "Известия"
@@ -521,6 +529,7 @@ bg:
         many: "%{count} снимки от %{author}"
         one: "1 снимка от %{author}"
         other: "%{count} снимки от %{author}"
+        two: "2 снимки от %{author}"
         zero: "Няма снимки от %{author}"
   previous: "предишна"
   privacy: "Поверителност"
@@ -552,6 +561,7 @@ bg:
     many: "%{count} отзива"
     one: "1 отзив"
     other: "%{count} отзива"
+    two: "%{count} отзива"
     zero: "0 отзива"
   registrations:
     closed: "Нови регистрации не са възможни на този pod на Diaspora."
@@ -583,6 +593,7 @@ bg:
         many: "%{count} нови покани!"
         one: "нова покана!"
         other: "%{count} нови покани!"
+        two: "%{count} нови покани!"
         zero: "няма нови покани"
     manage_aspect_contacts:
       existing: "Съществуващи контакти"
@@ -599,6 +610,7 @@ bg:
         many: "%{count} споделяния"
         one: "1 споделяне"
         other: "%{count} споделяния"
+        two: "%{count} споделяния"
         zero: "Споделяне"
       reshare_confirmation: "Споделяне публикацията на %{author}?"
       reshare_original: "Споделяне на оригинала"
@@ -653,6 +665,7 @@ bg:
         many: "В %{count} аспекта"
         one: "В %{count} аспект"
         other: "В %{count} аспекта"
+        two: "В %{count} аспекта"
         zero: "Добавете контакт"
     contact_list:
       all_contacts: "Всички контакти"
@@ -725,6 +738,7 @@ bg:
       many: ", моля съкратете съобщението си до %{count} знака"
       one: ", моля съкратете съобщението си до %{count} знака"
       other: ", моля съкратете съобщението си до %{count} знака"
+      two: ", моля съкратете съобщението си до %{count} знака"
       zero: ", моля съкратете съобщението си до %{count} знака"
   stream_helper:
     hide_comments: "Скриване на коментарите"
@@ -733,6 +747,7 @@ bg:
       many: "Показване на останалите %{count} коментара"
       one: "Показване на още 1 коментар"
       other: "Показване на останалите %{count} коментара"
+      two: "Показване на още 2 коментара"
       zero: "Няма други коментари"
   streams:
     aspects:

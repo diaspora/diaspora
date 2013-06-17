@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :page_title do
   - if @stream.tag_name
     = @stream.display_tag_name
@@ -42,4 +41,7 @@
     #main_stream.stream
 
     #paginate
+      %span.loader.hidden
 
+  %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
+    &#8679;

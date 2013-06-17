@@ -22,7 +22,8 @@ module User::Connecting
     if notification = Notification.where(:target_id => person.id).first
       notification.update_attributes(:unread=>false)
     end
-
+    
+    deliver_profile_update
     register_share_visibilities(contact)
     contact
   end

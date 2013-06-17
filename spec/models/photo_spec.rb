@@ -120,13 +120,10 @@ describe Photo do
   it 'should save a photo' do
     @photo.unprocessed_image.store! File.open(@fixture_name)
     @photo.save.should == true
-    begin
-      binary = @photo.unprocessed_image.read.force_encoding('BINARY')
-      fixture_binary = File.open(@fixture_name).read.force_encoding('BINARY')
-    rescue NoMethodError # Ruby 1.8 doesn't have force_encoding
-      binary = @photo.unprocessed_image.read
-      fixture_binary = File.open(@fixture_name).read
-    end
+
+    binary = @photo.unprocessed_image.read.force_encoding('BINARY')
+    fixture_binary = File.read(@fixture_name).force_encoding('BINARY')
+
     binary.should == fixture_binary
   end
 
@@ -197,7 +194,7 @@ describe Photo do
 
   describe 'remote photos' do
     before do
-      Jobs::ProcessPhoto.perform(@saved_photo.id)
+      Workers::ProcessPhoto.new.perform(@saved_photo.id)
     end
 
     it 'should set the remote_photo on marshalling' do
@@ -229,8 +226,8 @@ describe Photo do
   end
 
   describe '#queue_processing_job' do
-    it 'should queue a resque job to process the images' do
-      Resque.should_receive(:enqueue).with(Jobs::ProcessPhoto, @photo.id)
+    it 'should queue a job to process the images' do
+      Workers::ProcessPhoto.should_receive(:perform_async).with(@photo.id)
       @photo.queue_processing_job
     end
   end

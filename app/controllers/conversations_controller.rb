@@ -29,8 +29,9 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    person_ids = Contact.where(:id => params[:contact_ids].split(',')).map! do |contact|
-      contact.person_id
+    # Can't split nil
+    if params[:contact_ids]
+      person_ids = Contact.where(:id => params[:contact_ids].split(',')).map(&:person_id)
     end
 
     params[:conversation][:participant_ids] = person_ids | [current_user.person_id]

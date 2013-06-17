@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -260,6 +260,7 @@ tr:
         many: "%{count} yeni mesaj"
         one: "1 yeni mesaj"
         other: "%{count} yeni mesaj"
+        two: "%{count} yeni mesaj"
         zero: "Yeni mesaj yok"
     index:
       create_a_new_message: "yeni mesaj oluştur"
@@ -349,18 +350,21 @@ tr:
         many: "%{count} kişi beğenmedi"
         one: "1 kişi beğenmedi"
         other: "%{count} kişi beğenmedi"
+        two: "%{count} beğenmeme"
         zero: "beğenmeyen yok"
       people_like_this:
         few: "%{count} kişi beğendi"
         many: "%{count} kişi beğendi"
         one: "1 kişi beğendi"
         other: "%{count} kişi beğendi"
+        two: "%{count} kişi beğendi"
         zero: "beğenme yok"
       people_like_this_comment:
         few: "%{count} kişi bunu beğendi"
         many: "%{count} kişi bunu beğendi!"
         one: "%{count} beğenme"
         other: "%{count} beğenme"
+        two: "%{count} kişi bunu beğendi"
         zero: "beğenen yok"
   limited: "Sınırlı"
   more: "Daha fazla"
@@ -372,18 +376,21 @@ tr:
       many: "%{actors} %{post_author} kişisinin %{post_link}sini yorumladı."
       one: "%{actors} %{post_author} kişisinin %{post_link}sini yorumladı."
       other: "%{actors} %{post_author} kişisinin %{post_link}sini yorumladı."
+      two: "%{actors} %{post_author} kişisinin %{post_link}sini yorumladı."
       zero: "%{actors} %{post_author} kişisinin %{post_link}sini yorumladı."
     also_commented_deleted:
       few: "%{actors} silinmiş gönderinize yorum yazdı."
       many: "%{actors} silinmiş gönderinize yorum yazdı."
       one: "%{actors} silinmiş gönderinize yorum yazdı."
       other: "%{actors} silinmiş gönderinize yorum yazdı."
+      two: "%{actors} silinmiş gönderinize yorum yazdı."
       zero: "%{actors} silinmiş gönderinize yorum yazdı."
     comment_on_post:
       few: "%{actors} %{post_link}yi yorumladı."
       many: "%{actors} %{post_link}yi yorumladı."
       one: "%{actors} %{post_link}yi yorumladı."
       other: "%{actors} %{post_link}yi yorumladı."
+      two: "%{actors} %{post_link}yi yorumladı."
       zero: "%{actors} %{post_link}yi yorumladı."
     helper:
       new_notifications:
@@ -391,6 +398,7 @@ tr:
         many: "%{count} yeni bildirim"
         one: "1 yeni bildirim"
         other: "%{count} yeni bildirim"
+        two: "%{count} yeni bildirim"
         zero: "Yeni bildirim yok"
     index:
       and: "ve"
@@ -399,6 +407,7 @@ tr:
         many: "ve %{count} diğer kişi"
         one: "ve bir kişi daha"
         other: "ve %{count} diğer kişi"
+        two: "ve %{count} diğer kişi"
         zero: "ve başka hiç kimse"
       mark_all_as_read: "Tümünü okundu olarak işaretle"
       mark_unread: "Okunmadı olarak işaretle"
@@ -408,24 +417,28 @@ tr:
       many: "%{actors} senin %{post_link} unsurunu iğneledi."
       one: "%{actors} senin %{post_link} unsurunu iğneledi."
       other: "%{actors} senin %{post_link} unsurunu iğneledi."
+      two: "%{actors} senin %{post_link} unsurunu iğneledi."
       zero: "%{actors} senin %{post_link} unsurunu iğneledi."
     liked_post_deleted:
       few: "%{actors} silinmiş gönderinizi iğneledi."
       many: "%{actors} silinmiş gönderinizi iğneledi."
       one: "%{actors} silinmiş gönderinizi iğneledi."
       other: "%{actors} silinmiş gönderinizi iğneledi."
+      two: "%{actors} silinen gönderiyi iğneledi."
       zero: "%{actors} silinmiş gönderinizi iğnelemedi."
     mentioned:
       few: "%{actors} %{post_link} senden bahsetti."
       many: "%{actors} %{post_link} senden bahsetti."
       one: "%{actors} kişisi %{post_link} gönderisinde senden bahsetti."
       other: "%{actors} %{post_link}senden bahsetti."
+      two: "%{actors} senden %{post_link} unsurunda bahsetti."
       zero: "%{actors} %{post_link} senden bahsetti."
     mentioned_deleted:
       few: "%{actors} silinmiş gönderide senden bahsetti."
       many: "%{actors} silinmiş gönderide senden bahsetti."
       one: "%{actors} silinmiş gönderide senden bahsetti."
       other: "%{actors} silinmiş gönderide senden bahsetti."
+      two: "%{actors} silinmiş bir gönderiden bahsetti."
       zero: "%{actors} silinmiş gönderide senden bahsetti."
     post: "gönderi"
     private_message:
@@ -433,24 +446,28 @@ tr:
       many: "%{actors} mesaj gönderdi."
       one: "%{actors} mesaj gönderdi."
       other: "%{actors} mesaj gönderdi."
+      two: "%{actors} size bir mesaj gönderdi."
       zero: "%{actors} mesaj gönderdi."
     reshared:
       few: "%{actors} %{post_link}yi tekrar paylaştı."
       many: "%{actors} %{post_link}yi tekrar paylaştı."
       one: "%{actors} tekrar paylaştı %{post_link}."
       other: "%{actors} %{post_link}yi tekrar paylaştı."
+      two: "%{actors} %{post_link}yi tekrar paylaştı."
       zero: "%{actors} %{post_link}yi tekrar paylaştı."
     reshared_post_deleted:
       few: "%{actors} silenen gönderiyi tekrar paylaştı."
       many: "%{actors} silinen gönderiyi tekrar paylaştı."
       one: "%{actors} silenen gönderiyi tekrar paylaştı."
       other: "%{actors} silenen gönderiyi tekrar paylaştı."
+      two: "%{actors} silinmiş gönderiyi tekrar paylaştı."
       zero: "%{actors} silenen gönderiyi tekrar paylaştı."
     started_sharing:
       few: "%{actors} sizinle paylaşıma başladı."
       many: "%{actors} sizinle paylaşıma başladı."
       one: "%{actors} sizinle paylaşıma başladı."
       other: "%{actors} sizinle paylaşıma başladı."
+      two: "%{actors} sizinle paylaşıma başladı."
       zero: "%{actors} sizinle paylaşıma başladı."
   notifier:
     a_post_you_shared: "gönderi"
@@ -610,6 +627,7 @@ tr:
         many: "%{author} tarafından %{count} fotoğraf"
         one: "%{author} tarafından bir fotoğraf"
         other: "%{author} tarafından %{count} fotoğraf"
+        two: "%{author} tarafından iki fotoğraf"
         zero: "%{author} tarafından fotoğraf yok"
       reshare_by: "%{author} tarafından tekrar paylaşım"
   previous: "önceki"
@@ -642,6 +660,7 @@ tr:
     many: "%{count} tepki"
     one: "1 tepki"
     other: "%{count} tepki"
+    two: "%{count} tepki"
     zero: "0 tepki"
   registrations:
     closed: "Üyelik bu Diaspora'da kapandı."
@@ -683,6 +702,7 @@ tr:
         many: "%{count} yeni istek!"
         one: "yeni istek!"
         other: "%{count} yeni istek!"
+        two: "%{count} yeni istek!"
         zero: "yeni istek yok"
     manage_aspect_contacts:
       existing: "Mevcut rehber"
@@ -700,6 +720,7 @@ tr:
         many: "%{count} tekrar paylaşım"
         one: "1 tekrar paylaşım"
         other: "%{count} tekrar paylaşım"
+        two: "%{count} tekrar paylaşım"
         zero: "Tekrar paylaş"
       reshare_confirmation: "Tekrar paylaş %{author} - %{text}?"
       reshare_original: "Orijinali tekrar paylaş"
@@ -755,6 +776,7 @@ tr:
         many: "%{count} yönde"
         one: "%{count} yönde"
         other: "%{count} yönde"
+        two: "%{count} yönde"
         zero: "Yönüne ekle"
     contact_list:
       all_contacts: "Bütün kişiler"
@@ -831,6 +853,7 @@ tr:
       many: "durum mesajları %{count} karakterden az olmalıdır."
       one: "durum mesajları %{count} karakterden az olmalıdır."
       other: "durum mesajları %{count} karakterden az olmalıdır."
+      two: "lütfen durum güncellerken %{count} karakterden az kullanın"
       zero: "durum mesajları %{count} karakterden az olmalıdır."
   stream_helper:
     hide_comments: "Yorumları gizle"
@@ -839,6 +862,7 @@ tr:
       many: "%{count} yorum daha göster"
       one: "Ek bir yorum göster"
       other: "%{count} ek yorum göster"
+      two: "İki yorum daha göster"
       zero: "Daha fazla yorum yok"
   streams:
     activity:

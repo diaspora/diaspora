@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -238,6 +238,7 @@ es-CL:
         many: "%{count} nuevos mensajes"
         one: "1 nuevo mensaje"
         other: "%{count} nuevos mensajes"
+        two: "%{count} nuevos mensajes"
         zero: "sin nuevos mensajes"
     index:
       create_a_new_message: "crear un nuevo mensaje"
@@ -324,18 +325,21 @@ es-CL:
         many: "%{count} personas no les gusta esto"
         one: "1 persona no le gusta esto"
         other: "%{count} personas no les gusta esto"
+        two: "%{count} no me gusta"
         zero: "a ninguna persona le disgusta esto"
       people_like_this:
         few: "%{count} personas les gusta esto"
         many: "%{count} personas les gusta esto"
         one: "1 persona le gusta esto"
         other: "%{count} personas les gusta esto"
+        two: "%{count} likes"
         zero: "a nadie le gusta esto aun"
       people_like_this_comment:
         few: "a %{count} les gusta esto"
         many: "a %{count} les gusta esto"
         one: "a %{count} le gusta esto"
         other: "a %{count} les gusta esto"
+        two: "%{count} me gusta"
         zero: "a nadie le gusta esto aun"
   limited: "Restringido"
   more: "Más"
@@ -347,18 +351,21 @@ es-CL:
       many: "%{actors} también comentaron en el %{post_link} de %{post_author}."
       one: "%{actors} también comentó en el %{post_link} de %{post_author}."
       other: "%{actors} también comentaron en el %{post_link} de %{post_author}."
+      two: "%{actors} también comentaron en el %{post_link} de  %{post_author}."
       zero: "%{actors} también comentó en el %{post_link} de %{post_author}."
     also_commented_deleted:
       few: "%{actors} comentaron en un post eliminado."
       many: "%{actors} comentaron en una post eliminado."
       one: "%{actors} comentó en un post eliminado."
       other: "%{actors} comentaron en un post eliminado."
+      two: "%{actors} comentaron en un post eliminado."
       zero: "%{actors} comentó en un post eliminado."
     comment_on_post:
       few: "%{actors} comentaron en tu %{post_link}."
       many: "%{actors} comentaron en tu %{post_link}."
       one: "%{actors} comentó en tu %{post_link}."
       other: "%{actors} comentaron en tu %{post_link}."
+      two: "%{actors} comentaron en tu %{post_link}."
       zero: "%{actors} comentó en tu %{post_link}."
     helper:
       new_notifications:
@@ -366,6 +373,7 @@ es-CL:
         many: "%{count} nuevas notificaciones"
         one: "1 nueva notificación"
         other: "%{count} nuevas notificaciones"
+        two: "%{count} nuevas notificaciones"
         zero: "sin nuevas notificaciones"
     index:
       and: "y"
@@ -374,6 +382,7 @@ es-CL:
         many: "y otros %{count}"
         one: "y uno más"
         other: "y otros %{count}"
+        two: "y %{count} más"
         zero: "y nadie más"
       mark_all_as_read: "Marcar todo como leido"
       mark_unread: "Marcar como no leído"
@@ -383,24 +392,28 @@ es-CL:
       many: "A %{actors} les gustó tu %{post_link}."
       one: "A %{actors} le gustó tu %{post_link}."
       other: "A %{actors} le gustó tu %{post_link}."
+      two: "A %{actors} les gusto tu %{post_link}."
       zero: "A %{actors} le gustó tu %{post_link}."
     liked_post_deleted:
       few: "%{actors} les gustó tu post eliminado."
       many: "%{actors} les gustó tu post eliminado."
       one: "%{actors} le gustó tu post eliminado."
       other: "%{actors} les gustó tu post eliminado."
+      two: "%{actors} les gusto tu post eliminado."
       zero: "%{actors} le gustó tu post eliminado."
     mentioned:
       few: "%{actors} te mencionaron en un %{post_link}."
       many: "%{actors} te mencionaron en un %{post_link}."
       one: "%{actors} te menciono en %{post_link}."
       other: "%{actors} te mencionó en un %{post_link}."
+      two: "%{actors} te han mencionado en %{post_link}."
       zero: "%{actors} te mencionó en un %{post_link}."
     mentioned_deleted:
       few: "%{actors} te mencionó en un post eliminado."
       many: "%{actors} te mencionó en un post eliminado."
       one: "%{actors} te mencionó en un post eliminado."
       other: "%{actors} te mencionó en un post eliminado."
+      two: "%{actors} te mencionaron en un post eliminado."
       zero: "%{actors} te mencionó en un post eliminado."
     post: "publicación"
     private_message:
@@ -408,24 +421,28 @@ es-CL:
       many: "%{actors} te envió un mensaje."
       one: "%{actors} te envió un mensaje."
       other: "%{actors} te envió un mensaje."
+      two: "%{actors} te enviaron un mensaje."
       zero: "%{actors} te envió un mensaje."
     reshared:
       few: "%{actors} compartieron tu %{post_link}."
       many: "%{actors} compartieron tu %{post_link}."
       one: "%{actors} compartió tu %{post_link}."
       other: "%{actors} compartió tu %{post_link}."
+      two: "%{actors} compartieron tu %{post_link}."
       zero: "%{actors} compartió tu %{post_link}."
     reshared_post_deleted:
       few: "%{actors} compartieron tu post eliminado."
       many: "%{actors} compartieron tu post eliminado."
       one: "%{actors} compartió tu post eliminado."
       other: "%{actors} compartieron tu post eliminado."
+      two: "%{actors} compartieron tu post eliminado."
       zero: "%{actors} compartió tu post eliminado."
     started_sharing:
       few: "%{actors} comenzaron a compartir contigo."
       many: "%{actors} comenzaron a compartir contigo."
       one: "%{actors} comenzó a compartir contigo."
       other: "%{actors} comenzaron a compartir contigo."
+      two: "%{actors} comenzaron a compartir contigo."
       zero: "%{actors} comenzó a compartir contigo."
   notifier:
     a_post_you_shared: "un post."
@@ -579,6 +596,7 @@ es-CL:
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
       reshare_by: "Compartido por %{author}"
   previous: "Anterior"
@@ -613,6 +631,7 @@ es-CL:
     many: "%{count} reacciones"
     one: "1 reacción"
     other: "%{count} reacciones"
+    two: "%{count} reacciones"
     zero: "0 reacciones"
   registrations:
     closed: "Los registros están cerrados en este servidor de Diaspora."
@@ -650,6 +669,7 @@ es-CL:
         many: "%{count} nuevas solicitudes!"
         one: "nueva solicitud!"
         other: "%{count} nuevas solicitudes!"
+        two: "%{count} nuevas solicitudes!"
         zero: "sin nuevas solicitudes"
     manage_aspect_contacts:
       existing: "Los contactos existen"
@@ -667,6 +687,7 @@ es-CL:
         many: "Se ha compartido %{count} veces"
         one: "Se ha compartido 1 vez"
         other: "Se ha compartido %{count} veces"
+        two: "se ha compartido %{count} veces"
         zero: "Compartir"
       reshare_confirmation: "Compartir el post de %{author}? "
       reshare_original: "Compartir el original"
@@ -722,6 +743,7 @@ es-CL:
         many: "En %{count} aspectos"
         one: "En %{count} aspecto"
         other: "En %{count} aspectos"
+        two: "En %{count} aspectos"
         zero: "Agregar contacto"
     contact_list:
       all_contacts: "Todos los contactos"
@@ -796,6 +818,7 @@ es-CL:
       many: "Tu mensaje de estado debe tener menos de %{count} caracteres"
       one: "Tu mensaje de estado debe tener menos de %{count} caracter"
       other: "Tu mensaje de estado debe tener menos de %{count} caracteres"
+      two: "tu mensaje de estado tiene que tener menos de %{count} caracteres"
       zero: "Tu mensaje de estado debe tener menos de %{count} caracteres"
   stream_helper:
     hide_comments: "ocultar todos los comentarios"
@@ -804,6 +827,7 @@ es-CL:
       many: "Mostrar %{count} comentarios más"
       one: "Mostrar un comentario más"
       other: "Mostrar %{count} comentarios más"
+      two: "Mostrar 2 comentarios más"
       zero: "No más comentarios"
   streams:
     activity:

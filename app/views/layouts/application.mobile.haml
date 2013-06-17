@@ -52,7 +52,7 @@
           
           - if user_signed_in?
             #nav_badges
-              = link_to(image_tag('icons/my_activity.png', :height => 16, :width => 16), activity_stream_path, :class => "badge badge-inverse", :id => "my_activity_badge")
+              = link_to(image_tag('icons/my_activity.png', :class => 'my_activity'), activity_stream_path, :class => "badge badge-inverse", :id => "my_activity_badge")
               = link_to(image_tag('icons/notifications_grey.png', :height => 16, :width => 16, :id => 'notification-flag'), notifications_path, :class => "badge badge-inverse", :id => "notification_badge")
               - if current_user.unread_notifications.count > 0
                 .badge_count{:id => "notification"}

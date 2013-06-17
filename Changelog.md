@@ -1,17 +1,288 @@
 # Head
 
+## Refactor
+
+* Refactored config/ directory [#4145](https://github.com/diaspora/diaspora/pull/4145).
+* Drop misleading fallback donation form. [Proposal](https://www.loomio.org/discussions/1045?proposal=2722)
+* Update Typhoeus to 0.6.3 and refactor HydraWrapper. [#4162](https://github.com/diaspora/diaspora/pull/4162)
+
+## Bug fixes
+
+* Fix deletelabel icon size regression after sprites [$4180](https://github.com/diaspora/diaspora/issues/4180)
+* Don't use Pathname early to circumvent some rare initialization errors [#3816](https://github.com/diaspora/diaspora/issues/3816)
+* Don't error out in script/server if git is unavailable.
+* Fix post preview from tag pages [#4157](https://github.com/diaspora/diaspora/issues/4157)
+* Fix tags ordering in chrome [#4133](https://github.com/diaspora/diaspora/issues/4133)
+* Fix src URL for oEmbed iFrame [#4178](https://github.com/diaspora/diaspora/pull/4178)
+* Add back-to-top button on tag and user pages [#4185](https://github.com/diaspora/diaspora/issues/4185)
+* Fix reopened issue by changing the comment/post submit keyboard sortcut to ctrl+enter from shift+enter [#3897](https://github.com/diaspora/diaspora/issues/3897)
+* Show medium avatar in hovercard [#4203](https://github.com/diaspora/diaspora/pull/4203)
+* Fix posting to Twitter [#2758](https://github.com/diaspora/diaspora/issues/2758)
+* Don't show hovercards for current user in comments [#3999](https://github.com/diaspora/diaspora/issues/3999)
+* Replace mentions of out-of-aspect people with markdown links [#4161](https://github.com/diaspora/diaspora/pull/4161)
+* Unify hide and ignore [#3828](https://github.com/diaspora/diaspora/issues/3828)
+* Remove alpha branding [#4196](https://github.com/diaspora/diaspora/issues/4196)
+* Fix dynamic loading of asset_sync
+* Fix login for short passwords [#4123](https://github.com/diaspora/diaspora/issues/4123)
+* Add loading indicator on tag pages, remove the second one from the profile page [#4041](https://github.com/diaspora/diaspora/issues/4041)
+* Leaving the `to` field blank when sending a private message causes a server error [#4227](https://github.com/diaspora/diaspora/issues/4227)
+
+## Features
+
+* Deleting a post that was shared to Twitter now deletes it from Twitter too [#4156](https://github.com/diaspora/diaspora/pull/4156)
+* Improvement on how participants are displayed on each conversation without opening it [#4149](https://github.com/diaspora/diaspora/pull/4149)
+
+## Gem updates
+
+* acts-as-taggable-on 2.4.0 -> 2.4.1
+* configurate 0.0.7 -> 0.0.8
+* database_cleaner 0.9.1 -> 1.0.1
+* fog 1.10.1 -> 1.12.1
+* fuubar 1.10 -> 1.1.1
+* gon 4.1.0 -> 4.1.1
+* guard-rspec 2.5.3 -> 3.0.1
+* haml 4.0.2 -> 4.0.3
+* json 1.7.7 -> 1.8.0
+* mini_magick 3.5 -> 3.6.0
+* mobile-fu 1.1.1 -> 1.2.1
+* rack-cors 0.2.7 -> 0.2.8
+* rails_admin 0.4.7 -> 0.4.9
+* rails_autolink 1.0.9 -> 1.1.0
+* redcarpet 2.2.2 -> 2.3.0
+* rspec-rails 2.13.0 -> 2.13.2
+* slim 1.3.8 -> 1.3.9
+* twitter 4.6.2 -> 4.7.0
+* typhoeus 0.3.3 -> 0.6.3
+* uglifier 2.0.1 -> 2.1.1
+* webmock 1.8.11 -> 1.11.0
+
+
+# 0.1.0.1
+
+* Regression fix: 500 for deleted reshares introduced by the locator
+* Federate locations
+
+# 0.1.0.0
+
+## Refactor
+
+### Replaced Resque with Sidekiq - Migration guide - [#3993](https://github.com/diaspora/diaspora/pull/3993)
+
+We replaced our queue system with Sidekiq. You might know that Resque needs Redis.
+Sidekiq does too, so don't remove it, it's still required. Sidekiq uses a threaded
+model so you'll need far less processes than with Resque to do the same amount
+of work.
+
+To update do the following:
+
+1. Before updating (even before the `git pull`!) stop your application
+   server (Unicorn by default, started through Foreman).
+2. In case you did already run `git pull` checkout v0.0.3.4:
+
+   ```
+   git fetch origin
+   git checkout v0.0.3.4
+   bundle
+   ```
+
+3. Start Resque web (you'll need temporary access to port 5678, check
+   your Firewall if needed!):
+
+   ```
+   bundle exec resque-web
+   ```
+
+   In case you need it you can adjust the port with the `-p` flag.
+4. One last time, start a Resque worker:
+
+   ```
+   RAILS_ENV=production QUEUE=* bundle exec rake resque:work
+   ```
+
+   Visit Resque web via http://your_host:5678, wait until all queues but the
+   failed one are empty (show 0 jobs).
+5. Kill the Resque worker by hitting Ctrl+C. Kill Resque web with:
+
+   ```
+   bundle exec resque-web -k
+   ```
+
+   Don't forget to close the port on the Firewall again, if you had to open it.
+6. In case you needed to do step 2., run:
+
+   ```
+   git checkout master
+   bundle
+   ```
+
+7. Proceed with the update as normal (migrate database, precompile assets).
+8. Before starting Diaspora again ensure that you reviewed the new
+   `environment.sidekiq` section in `config/diaspora.yml.example` and,
+   if wanted, transfered it to your `config/diaspora.yml` and made any
+   needed changes. In particular increase the `environment.sidekiq.concurrency`
+   setting on any medium sized pod. If you do change that value, edit
+   your `config/database.yml` and add a matching `pool: n` to your database
+   configuration. n should be equal or higher than the amount of
+   threads per Sidekiq worker. This sets how many concurrent
+   connections to the database ActiveRecord allows.
+
+
+If you aren't using `script/server` but for example passenger, you no
+longer need to start a Resque worker, but a Sidekiq worker now. The
+command for that is:
+
+```
+bundle exec sidekiq
+```
+
+
+#### Heroku
+
+The only gotcha for Heroku single gear setups is that the setting name
+to spawn a background worker from the unicorn process changed. Run
+
+```
+heroku config:remove SERVER_EMBED_RESQUE_WORKER
+heroku config:set SERVER_EMBED_SIDEKIQ_WORKER=true
+```
+
+We're automatically adjusting the ActiveRecord connection pool size for you.
+
+Larger Heroku setups should have enough expertise to figure out what to do
+by them self.
+
+### Removal of Capistrano
+
+The Capistrano deployment scripts were removed from the main source code
+repository, since they were no longer working.
+They will be moved into their own repository with a new maintainer,
+you'll be able to find them under the Diaspora* Github organization once
+everything is set up.
+
+### Other
+
+* Cleaned up requires of our own libraries [#3993](https://github.com/diaspora/diaspora/pull/3993)
+* Refactor people_controller#show and photos_controller#index [#4002](https://github.com/diaspora/diaspora/issues/4002)
+* Modularize layout [#3944](https://github.com/diaspora/diaspora/pull/3944)
+* Add header to the sign up page [#3944](https://github.com/diaspora/diaspora/pull/3944)
+* Add a configuration entry to set max-age header to Amazon S3 resources. [#4048](https://github.com/diaspora/diaspora/pull/4048)
+* Load images via sprites [#4039](https://github.com/diaspora/diaspora/pull/4039)
+* Delete unnecessary javascript views. [#4059](https://github.com/diaspora/diaspora/pull/4059)
+* Cleanup of script/server
+* Attempt to stabilize federation of attached photos (fix [#3033](https://github.com/diaspora/diaspora/issues/3033)  [#3940](https://github.com/diaspora/diaspora/pull/3940) )
+* Refactor develop install script [#4111](https://github.com/diaspora/diaspora/pull/4111)
+* Remove special hacks for supporting Ruby 1.8 [#4113] (https://github.com/diaspora/diaspora/pull/4139)
+* Moved custom oEmbed providers to config/oembed_providers.yml [#4131](https://github.com/diaspora/diaspora/pull/4131)
+* Add specs for Post#find_by_guid_or_id_with_user
+
+## Bug fixes
+
+* Fix mass aspect selection [#4127](https://github.com/diaspora/diaspora/pull/4127)
+* Fix posting functionality on tags show view [#4112](https://github.com/diaspora/diaspora/pull/4112)
+* Fix cancel button on getting_started confirmation box [#4073](https://github.com/diaspora/diaspora/issues/4073)
+* Reset comment box height after posting a comment. [#4030](https://github.com/diaspora/diaspora/issues/4030)
+* Fade long tag names. [#3899](https://github.com/diaspora/diaspora/issues/3899)
+* Avoid posting empty comments. [#3836](https://github.com/diaspora/diaspora/issues/3836)
+* Delegate parent_author to the target of a RelayableRetraction
+* Do not fail on receiving a SignedRetraction via the public route
+* Pass the real values to stderr_path and stdout_path in unicorn.rb since it runs a case statement on them.
+* Decode tag name before passing it into a TagFollowingAction [#4027](https://github.com/diaspora/diaspora/issues/4027)
+* Fix reshares in single post-view [#4056](https://github.com/diaspora/diaspora/issues/4056)
+* Fix mobile view of deleted reshares. [#4063](https://github.com/diaspora/diaspora/issues/4063)
+* Hide comment button in the mobile view when not signed in. [#4065](https://github.com/diaspora/diaspora/issues/4065)
+* Send profile alongside notification [#3976](https://github.com/diaspora/diaspora/issues/3976)
+* Fix off-center close button image on intro popovers [#3841](https://github.com/diaspora/diaspora/pull/3841)
+* Remove unnecessary dotted CSS borders. [#2940](https://github.com/diaspora/diaspora/issues/2940)
+* Fix default image url in profiles table. [#3795](https://github.com/diaspora/diaspora/issues/3795)
+* Fix mobile buttons are only clickable when scrolled to the top. [#4102](https://github.com/diaspora/diaspora/issues/4102)
+* Fix regression in bookmarklet causing uneditable post contents. [#4057](https://github.com/diaspora/diaspora/issues/4057)
+* Redirect all mixed case tags to the lower case equivalents [#4058](https://github.com/diaspora/diaspora/issues/4058)
+* Fix wrong message on infinite scroll on contacts page [#3681](https://github.com/diaspora/diaspora/issues/3681)
+* My Activity mobile doesn't show second page when clicking "more". [#4109](https://github.com/diaspora/diaspora/issues/4109)
+* Remove unnecessary navigation bar to access mobile site and re-add flash warning to mobile registrations. [#4085](https://github.com/diaspora/diaspora/pull/4085)
+* Fix broken reactions link on mobile page [#4125](https://github.com/diaspora/diaspora/pull/4125)
+* Missing translation "Back to top". [#4138](https://github.com/diaspora/diaspora/pull/4138)
+* Fix preview with locator feature. [#4147](https://github.com/diaspora/diaspora/pull/4147)
+* Fix mentions at end of post. [#3746](https://github.com/diaspora/diaspora/issues/3746)
+* Fix missing indent to correct logged-out-header container relative positioning [#4134](https://github.com/diaspora/diaspora/pull/4134)
+* Private post dont show error 404 when you are not authorized on mobile page [#4129](https://github.com/diaspora/diaspora/issues/4129)
+* Show 404 instead of 500 if a not signed in user wants to see a non public or non existing post.
+
 ## Features
 
 * Deleting a post that was shared to Facebook now deletes it from Facebook too [#3980]( https://github.com/diaspora/diaspora/pull/3980)
 * Include reshares in a users public atom feed [#1781](https://github.com/diaspora/diaspora/issues/1781)
+* Add the ability to upload photos from the mobile site. [#4004](https://github.com/diaspora/diaspora/issues/4004)
+* Show timestamp when hovering on comment time-ago string. [#4042](https://github.com/diaspora/diaspora/issues/4042)
+* If sharing a post with photos to Facebook, always include URL to post [#3706](https://github.com/diaspora/diaspora/issues/3706)
+* Add possibiltiy to upload multiple photos from mobile. [#4067](https://github.com/diaspora/diaspora/issues/4067)
+* Add hotkeys to navigate in stream [#4089](https://github.com/diaspora/diaspora/pull/4089)
+* Add a brief explanatory text about external services connections to services index page [#3064](https://github.com/diaspora/diaspora/issues/3064)
+* Add a preview for posts in the stream [#4099](https://github.com/diaspora/diaspora/issues/4099)
+* Add shortcut key Shift to submit comments and publish posts. [#4096](https://github.com/diaspora/diaspora/pull/4096)
+* Show the service username in a tooltip next to the publisher icons [#4126](https://github.com/diaspora/diaspora/pull/4126)
+* Ability to add location when creating a post [#3803](https://github.com/diaspora/diaspora/pull/3803)
+* Added oEmbed provider for MixCloud. [#4131](https://github.com/diaspora/diaspora/pull/4131)
 
-## Bug Fixes
+## Gem updates
+
+* Dropped everything related to Capistrano in preparation for maintaining it in a separate repository
+* Replaced Resque with Sidekiq, see above. Added Sinatra and Slim for the Sidekiq  Monitor interface
+* Added sinon-rails, compass-rails
+* acts-as-taggable-on 2.3.3 -> 2.4.0
+* addressable 2.3.2 -> 2.3.4
+* client_side_validations 3.2.1 -> 3.2.5
+* configurate 0.0.2 -> 0.0.7
+* cucumber-rails 1.3.0 -> 1.3.1
+* faraday 0.8.5 -> 0.8.7
+* fog 1.9.0 -> 1.10.1
+* foreigner 1.3.0 -> 1.4.1
+* foreman 0.61 -> 0.62
+* gon 4.0.2 -> 4.1.0
+* guard 1.6.2 -> 1.7.0
+* guard-cucumber 1.3.2 -> 1.4.0
+* guard-rspec 2.4.0 -> 2.5.3
+* guard-spork 1.4.2 -> 1.5.0
+* haml 4.0.0 -> 4.0.2
+* handlebars_assets 0.11.0 -> 0.1.2.0
+* jasmine 1.3.1 -> 1.3.2
+* nokogiri 1.5.6 -> 1.5.9
+* oauth2 0.8.0 -> 0.8.1
+* omniauth 1.1.3 -> 1.1.4
+* omniauth-twitter 0.0.14 -> 0.0.16
+* pg 0.14.1 -> 0.15.1
+* rack-piwik 0.1.3 -> 0.2.2
+* rails-i18n 0.7.2 -> 0.7.3
+* rails_admin 0.4.5 -> 0.4.7
+* roxml git release -> 3.1.6
+* rspec-rails 2.12.2 -> 2.13.0
+* safe_yaml 0.8.0 -> 0.9.1
+* selenium-webdriver 2.29.0 -> 2.32.1
+* timecop 0.5.9.2 -> 0.6.1
+* twitter 4.5.0 -> 4.6.2
+* uglifier 1.3.0 -> 2.0.1
+* unicorn 4.6.0 -> 4.6.2
+
+# 0.0.3.4
+
+* Bump Rails to 3.2.13, fixes CVE-2013-1854, CVE-2013-1855, CVE-2013-1856 and CVE-2013-1857. [Read more](http://weblog.rubyonrails.org/2013/3/18/SEC-ANN-Rails-3-2-13-3-1-12-and-2-3-18-have-been-released/)
+
+# 0.0.3.3
+
+* Switch Gemfile source to https to be compatible with bundler 1.3
+
+# 0.0.3.2
+
+* Fix XSS vulnerability in conversations#new [#4010](https://github.com/diaspora/diaspora/issues/4010)
+
+# 0.0.3.1
 
 * exec foreman in ./script/server to replace the process so that we can Ctrl+C it again.
 * Include our custom fileuploader on the mobile site too. [#3994](https://github.com/diaspora/diaspora/pull/3994)
 * Move custom splash page logic into the controller [#3991](https://github.com/diaspora/diaspora/issues/3991)
 * Fixed removing images from publisher on the profile and tags pages. [#3995](https://github.com/diaspora/diaspora/pull/3995)
 * Wrap text if too long in mobile notifications. [#3990](https://github.com/diaspora/diaspora/pull/3990)
+* Sort tag followings alphabetically, not in reverse [#3986](https://github.com/diaspora/diaspora/issues/3986)
 
 # 0.0.3.0
 
@@ -52,7 +323,7 @@
 * Stream form on profile page [#3910](https://github.com/diaspora/diaspora/issues/3910).
 * Add Getting_Started page mobile. [#3949](https://github.com/diaspora/diaspora/issues/3949).
 * Autoscroll to the first unread message in conversations. [#3216](https://github.com/diaspora/diaspora/issues/3216)
-* Friendlier new-conversation mobile. [#3984](https://github.com/diaspora/diaspora/issues/3984) 
+* Friendlier new-conversation mobile. [#3984](https://github.com/diaspora/diaspora/issues/3984)
 
 ## Bug Fixes
 

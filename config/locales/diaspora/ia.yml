@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -40,6 +40,32 @@ ia:
             username:
               invalid: "es invalide. Nos permitte solmente litteras, numeros e tractos de sublineamento."
               taken: "es jam in uso."
+  admins:
+    admin_bar:
+      correlations: "Correlationes"
+      pages: "Paginas"
+      pod_stats: "Statisticas de pod"
+      user_search: "Recerca de usatores"
+      weekly_user_stats: "Statisticas septimanal de usatores"
+    correlations:
+      correlations_count: "Correlationes con le numero de aperturas de session:"
+    stats:
+      2weeks: "2 Septimana"
+      50_most: "Le 50 etiquettas le plus popular"
+      current_segment: "Le segmento actual ha un media de <b>%{post_yest}</b> entratas per usator, a partir de <b>%{post_day}</b>"
+      daily: "Quotidian"
+      display_results: "Resultatos del segmento <b>%{segment}</b>"
+      go: "va"
+      month: "Mense"
+      tag_name: "Nomine del etiquetta: <b>%{name_tag}</b> Occurrentias: <b>%{count_tag}</b>"
+      usage_statistic: "Statisticas de uso"
+      week: "Septimana"
+    user_search:
+      add_invites: "adder invitationes"
+      email_to: "Adresse de e-mail a invitar"
+      you_currently: "in iste momento, il te resta %{user_invitation} invitationes %{link}"
+    weekly_user_stats:
+      current_server: "Le data actual del servitor es %{date}"
   ago: "%{time} retro"
   all_aspects: "Tote le aspectos"
   application:
@@ -67,6 +93,7 @@ ia:
       edit_aspect: "Modificar %{name}"
       select_all: "Seliger totes"
     aspect_stream:
+      make_something: "Crea qualcosa"
       stay_updated: "Tene te al currente"
       stay_updated_explanation: "Le fluxo principal es plenate con tote le contactos tue, le etiquettas que tu seque, e messages de alcun membros creative del communitate."
     contacts_not_visible: "Le contactos in iste aspecto non potera vider le unes le alteres."
@@ -105,18 +132,24 @@ ia:
       donate: "Donar"
       handle_explanation: "Isto es tu identitate in Diaspora. Como un adresse de e-mail, tu pote dar isto a personas pro attinger te."
       help:
+        any_problem: "Problema?"
+        contact_podmin: "Contacta le administrator de tu pod!"
         do_you: "Esque tu:"
         email_feedback: "%{link} tu commentario, si tu lo prefere"
+        email_link: "E-mail"
         feature_suggestion: "... ha un suggestion de %{link}?"
         find_a_bug: "... ha trovate un %{link}?"
         have_a_question: "... ha un %{link}?"
         here_to_help: "Le communitate de Diaspora es a tu disposition!"
+        mail_podmin: "E-mail del \"podmin\""
         need_help: "Require adjuta?"
         tag_bug: "defecto"
         tag_feature: "functionalitate"
         tag_question: "question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, guidas e actualitates mantenite per le communitate"
-      introduce_yourself: "Isto es tu fluxo. Avante, presenta te."
+      introduce_yourself: "Iste fluxo es tue. Avante, presenta te."
+      keep_diaspora_running: "Mantene le disveloppamento de Diaspora rapide con un donation mensual!"
+      keep_pod_running: "Adjuta al mantenentia e melioration de %{pod} (e al caffeination de su gerentes) con un donation mensual!"
       new_here:
         follow: "Seque %{link} e da le benvenita a nove usatores in Diaspora*!"
         learn_more: "Leger plus"
@@ -168,6 +201,10 @@ ia:
     index:
       no_applications: "Tu non ha ancora registrate alcun application."
       revoke_access: "Revocar accesso"
+    new:
+      authorize: "Autorisar"
+      cubbies_will: "Cubbies potera publicar photos in tu nomine"
+      nope: "No"
   back: "Retornar"
   blocks:
     create:
@@ -219,11 +256,13 @@ ia:
       people_sharing: "Personas qui divide con te:"
     spotlight:
       community_spotlight: "Usatores in evidentia"
+      suggest_member: "Suggerer un membro"
     two: "%{count} contactos"
     zero: "contactos"
   conversations:
     create:
       fail: "Message invalide"
+      no_contact: "Tu debe adder le contacto primo."
       sent: "Message inviate"
     destroy:
       success: "Conversation removite con successo"
@@ -257,9 +296,13 @@ ia:
     helper:
       correct_the_following_errors_and_try_again: "Corrige le sequente errores e proba de novo."
       invalid_fields: "Campos invalide"
+    login_try_again: "Per favor <a href='%{login_link}'>aperi session</a> e reproba."
+    post_not_public: "Le entrata que tu vole vider non es public!"
   fill_me_out: "Plena me"
   find_people: "Cercar personas o #etiquettas"
   hide: "Celar"
+  invitation_codes:
+    excited: "%{name} es multo felice de vider te hic."
   invitations:
     a_facebook_user: "Un usator de Facebook"
     check_token:
@@ -267,7 +310,9 @@ ia:
     create:
       already_contacts: "Tu es jam connectite con iste persona."
       already_sent: "Tu ha jam invitate iste persona."
+      empty: "Per favor, specifica al minus un adresse de e-mail."
       no_more: "Tu non ha altere invitationes."
+      note_already_sent: "Invitationes ha jam essite inviate a: %{emails}"
       own_address: "Non es possibile inviar un invitation a tu proprie adresse."
       rejected: "Le sequente adresses de e-mail habeva problemas: "
       sent: "Le sequente adresses ha recipite un invitation: %{emails}"
@@ -278,9 +323,11 @@ ia:
       already_invited: "Le sequente personas non ha acceptate tu invitation:"
       aspect: "Aspecto"
       check_out_diaspora: "Discoperi Diaspora!"
+      comma_separated_plz: "Tu pote entrar plure adresses de e-mail separante los per commas."
       if_they_accept_info: "si iste persona accepta, illa essera addite al aspecto in le qual tu la invitava."
       invite_someone_to_join: "Invita qualcuno a unir se a Diaspora!"
       language: "Lingua"
+      paste_link: "Divide iste ligamine con tu amicos pro invitar les a Diaspora*, o invia le ligamine directemente a illes per e-mail."
       personal_message: "Message personal"
       resend: "Reinviar"
       send_an_invitation: "Inviar un invitation"
@@ -291,6 +338,7 @@ ia:
       back_to_top: "Initio del pagina"
       powered_by: "ACTIONATE PER DIASPORA*"
       public_feed: "Fluxo public de Diaspora pro %{name}"
+      source_package: "discargar le pacchetto con le codice-fonte"
       toggle: "(dis)activar mobile"
       whats_new: "que es nove?"
       your_aspects: "tu aspectos"
@@ -312,10 +360,12 @@ ia:
     index:
       and: "e"
       mark_all_as_read: "Marcar totes como legite"
+      mark_unread: "Marcar como non legite"
       notifications: "Notificationes"
     post: "entrata"
   notifier:
     a_post_you_shared: "un entrata."
+    accept_invite: "Accepta tu invitation a Diaspora*!"
     click_here: "clicca hic"
     comment_on_post:
       reply: "Responde o lege le message de %{name} >"
@@ -324,6 +374,23 @@ ia:
       subject: "Per favor activa tu nove adresse de e-mail %{unconfirmed_email}"
     email_sent_by_diaspora: "Iste message ha essite inviate per %{pod_name}. Si tu non vole reciper altere e-mail como iste,"
     hello: "Salute %{name}!"
+    invite:
+      message: |-
+          Hallo,
+
+          Tu ha essite invitate a unir te a Diaspora*!
+
+          Clicca sur iste ligamine pro comenciar:
+
+          [%{invite_url}][1]
+
+
+          Cordialmente,
+
+          Le robot de e-mail de Diaspora*
+
+          [1]: %{invite_url}
+    invited_you: "%{name} te ha invitate a Diaspora*"
     liked:
       liked: "%{name} apprecia tu entrata"
       view_post: "Vider entrata >"
@@ -350,6 +417,8 @@ ia:
   password: "Contrasigno"
   password_confirmation: "Confirmation del contrasigno"
   people:
+    add_contact:
+      invited_by: "tu ha essite inviate per"
     add_contact_small:
       add_contact_from_tag: "adder contacto ab etiquetta"
     aspect_list:
@@ -364,6 +433,8 @@ ia:
       no_one_found: "…e nemo ha essite trovate."
       no_results: "Un momento! Tu debe cercar qualcosa."
       results_for: "cercar resultatos pro"
+      searching: "recerca in curso, un momento per favor..."
+    last_post: "Ultime entrata"
     many: "%{count} personas"
     one: "1 persona"
     other: "%{count} personas"
@@ -439,6 +510,8 @@ ia:
       error: "Le modification del photo ha fallite."
       notice: "Photo actualisate con successo."
   posts:
+    presenter:
+      title: "Un entrata de %{name}"
     show:
       destroy: "Deler"
       not_found: "Impossibile trovar iste entrata."
@@ -482,14 +555,23 @@ ia:
       password_to_confirm: "(nos require tu contrasigno actual pro confirmar le cambiamentos)"
       unhappy: "Non felice?"
       update: "Actualisar"
+    invalid_invite: "Le ligamine de invitation que tu ha fornite non plus es valide."
     new:
+      continue: "Continuar"
       create_my_account: "Crear mi conto!"
+      diaspora: "<3 Diaspora*"
+      email: "E-MAIL"
       enter_email: "Specifica adresse de e-mail"
       enter_password: "Elige un contrasigno (de sex characteres al minimo)"
       enter_password_again: "Repete le contrasigno"
       enter_username: "Elige un nomine de usator (usa solmente litteras, numeros e tractos de sublineamento)"
+      hey_make: "HEY,<br/>CREA<br/>QUALCOSA."
       join_the_movement: "Adhere al movimento!"
+      password: "CONTRASIGNO"
+      password_confirmation: "CONFIRMATION DEL CONTRASIGNO"
+      sign_up: "CREAR CONTO"
       sign_up_message: "Rete social con ♥"
+      username: "NOMINE DE USATOR"
   requests:
     create:
       sending: "Invio in curso"
@@ -572,13 +654,14 @@ ia:
       invite_your_friends: "Invitar tu amicos"
       invites: "Invitationes"
       invites_closed: "Le invitationes es actualmente claudite pro iste pod de Diaspora."
+      share_this: "Divide iste ligamine per e-mail, blog, o tu rete social favorite!"
     notification:
       new: "Nove %{type} de %{from}"
     public_explain:
       atom_feed: "Syndication Atom"
       control_your_audience: "Controlar tu audientia"
       logged_in: "identificate in %{service}"
-      manage: "gerer servicios connectite"
+      manage: "Gerer servicios connectite"
       new_user_welcome_message: "Usa #etiquettas pro classificar tu messages e trovar personas con interesses in commun. Commenda personas extraordinari con @Mentiones."
       outside: "Le messages public essera visibile pro altere personas foras de Diaspora."
       share: "Divider"
@@ -616,6 +699,7 @@ ia:
       show: "monstrar"
       unlike: "Non plus appreciar"
       via: "via %{link}"
+      via_mobile: "via mobile"
       viewable_to_anyone: "Iste message es visibile pro tote le mundo in le web"
   status_messages:
     create:
@@ -629,6 +713,10 @@ ia:
   stream_helper:
     hide_comments: "Celar tote le commentos"
   streams:
+    activity:
+      title: "Mi activitate"
+    aspects:
+      title: "Mi aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
       contacts_title: "Personas de qui tu ha commentate messages"
@@ -647,8 +735,15 @@ ia:
     mentions:
       contacts_title: "Personas qui te ha mentionate"
       title: "@Mentiones"
+    multi:
+      contacts_title: "Personas in tu fluxo"
+      title: "Fluxo"
+    public:
+      contacts_title: "Autores recente"
+      title: "Activitate public"
     tags:
       contacts_title: "Personas qui se interessa in iste etiquetta"
+      tag_prefill_text: "Le facto sur %{tag_name} es... "
       title: "Messages con etiquettas: %{tags}"
   tag_followings:
     create:
@@ -683,4 +778,92 @@ ia:
       what_is_cubbies: "Cubbi.es es le prime application de Diaspora in le mundo. In ultra, illo es optime modo de colliger photographias in linea."
   undo: "Disfacer?"
   username: "Nomine de usator"
+  users:
+    confirm_email:
+      email_confirmed: "Adresse de e-mail %{email} activate"
+      email_not_confirmed: "Le adresse de e-mail non poteva esser activate. Ligamine incorrecte?"
+    destroy:
+      no_password: "Per favor entra tu contrasigno actual pro clauder tu conto."
+      success: "Tu conto ha essite blocate. Le clausura definitive de tu conto pote durar 20 minutas. Gratias pro haber essayate Diaspora."
+      wrong_password: "Le contrasigno entrate non corresponde a tu contrasigno actual."
+    edit:
+      also_commented: "...un altere persona commenta un entrata de un contacto tue?"
+      auto_follow_aspect: "Aspecto pro usatores sequite automaticamente:"
+      auto_follow_back: "Sequer automaticamente omne persona qui comencia a sequer te"
+      change: "Cambiar"
+      change_email: "Cambiar adresse de e-mail"
+      change_language: "Cambiar de lingua"
+      change_password: "Cambiar contrasigno"
+      character_minimum_expl: "debe haber al minus sex characteres"
+      close_account:
+        dont_go: "Per favor, non parti!"
+        if_you_want_this: "Si tu vermente vole facer isto, entra hic infra tu contrasigno e clicca sur 'Clauder conto'."
+        lock_username: "Isto reserva tu nomine de usator in caso que tu decide de re-crear tu conto."
+        locked_out: "Tu session essera claudite e tu essera excludite de tu conto."
+        make_diaspora_better: "Nos ha besonio de adjuta pro meliorar Diaspora, dunque, per favor contribue in loco de partir. Si tu vermente vole partir, nos vole informar te de lo que evenira."
+        mr_wiggles: "Sr. Wiggles essera triste de vider te partir"
+        no_turning_back: "Tu ha arrivate al puncto de non retorno."
+        what_we_delete: "Nos va deler, si tosto que possibile, tote tu entratas e datos de profilo tue. Tu commentos remanera, ma essera associate solmente con tu ID de Diaspora."
+      close_account_text: "Clauder conto"
+      comment_on_post: "...un persona commenta un entrata tue?"
+      current_password: "Contrasigno actual"
+      current_password_expl: "illo con que tu aperi session..."
+      download_photos: "discargar mi photos"
+      download_xml: "discargar mi XML"
+      edit_account: "Modificar conto"
+      email_awaiting_confirmation: "Nos te ha inviate un ligamine de activation al adresse %{unconfirmed_email}. Usque al momento que tu seque iste ligamine pro activar le nove adresse, nos va continuar a usar tu adresse original %{email}."
+      export_data: "Exportar datos"
+      following: "Configuration de sequimento"
+      getting_started: "Preferentias de nove usator"
+      liked: "...un persona apprecia tu entrata?"
+      mentioned: "...un persona te mentiona in un entrata sue?"
+      new_password: "Contrasigno nove"
+      photo_export_unavailable: "Le exportation de photos non es actualmente disponibile"
+      private_message: "...tu recipe un message private?"
+      receive_email_notifications: "Reciper notificationes per e-mail quando..."
+      reshared: "...un persona repete tu entrata?"
+      show_community_spotlight: "Monstrar \"Usatores in evidentia\" in fluxo?"
+      show_getting_started: "Re-activar \"Como initiar\""
+      started_sharing: "...un persona comencia a divider cosas con te?"
+      stream_preferences: "Preferentias de fluxo"
+      your_email: "Tu adresse de e-mail"
+      your_handle: "Tu ID de Diaspora"
+    getting_started:
+      awesome_take_me_to_diaspora: "Superbe! Porta me a Diaspora*"
+      community_welcome: "Le communitate de Diaspora es felice de dar te le benvenita!"
+      connect_to_facebook: "Nos pote accelerar le cosas un poco per %{link} a Diaspora. Isto insere automaticamente tu nomine e photo, e permitte inviar entratas a ambe sitos."
+      connect_to_facebook_link: "connecter tu conto de Facebook"
+      hashtag_explanation: "Le #etiquettas permitte discuter e sequer tu interesses. Illos anque es un bon maniera de trovar nove personas in Diaspora."
+      hashtag_suggestions: "Tenta sequer etiquettas como #arte, #films, #gif, etc."
+      saved: "Salveguardate!"
+      well_hello_there: "Salutationes a te!"
+      what_are_you_in_to: "Quales es tu interesses?"
+      who_are_you: "Qui es tu?"
+    privacy_settings:
+      ignored_users: "Usatores ignorate"
+      stop_ignoring: "Cessar de ignorar"
+      title: "Configuration de confidentialitate"
+    public:
+      does_not_exist: "Le usator %{username} non existe!"
+    update:
+      email_notifications_changed: "Notificationes per e-mail cambiate"
+      follow_settings_changed: "Configuration de sequimento cambiate"
+      follow_settings_not_changed: "Cambio de configuration de sequimento fallite"
+      language_changed: "Tu ha cambiate de lingua"
+      language_not_changed: "Cambio de lingua fallite"
+      password_changed: "Contrasigno cambiate. Tu pote ora aperir session con tu nove contrasigno."
+      password_not_changed: "Le cambio del contrasigno ha fallite."
+      settings_not_updated: "Actualisation de configuration fallite"
+      settings_updated: "Configuration actualisate"
+      unconfirmed_email_changed: "Adresse de e-mail cambiate. Necessita activation."
+      unconfirmed_email_not_changed: "Cambio de e-mail fallite"
+  webfinger:
+    fetch_failed: "obtention de profilo webfinger pro %{profile_url} fallite"
+    hcard_fetch_failed: "il habeva un problema durante le obtention del hcard pro %{account}"
+    no_person_constructed: "Nulle persona poteva esser construite a partir de iste hcard."
+    not_enabled: "le servicio webfinger non pare esser activate pro le host del conto %{account}"
+    xrd_fetch_failed: "il habeva un error durante le obtention del XRD ab le conto %{account}"
   welcome: "Benvenite!"
+  will_paginate:
+    next_label: "sequente &raquo;"
+    previous_label: "&laquo; precedente"

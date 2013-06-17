@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -18,6 +18,7 @@ ka:
         many: "{{count}} ასპექტში"
         one: "{{count}} ასპექტში"
         other: "{{count}} ასპექტში"
+        two: "{{count}} ასპექტში"
         zero: "აირჩიეთ ასპექტები"
     aspect_navigation:
       deselect_all: "მონიშვნის მოხსნა"
@@ -78,6 +79,7 @@ ka:
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
       original_post_deleted: "ავტორმა წაშალა ორიგინალი პოსტი."
       public: "საჯარო"
@@ -87,6 +89,7 @@ ka:
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
       show_nsfw_post: "პოსტის ჩვენება"
       show_nsfw_posts: "ყველას ჩვენება"

@@ -24,3 +24,28 @@ When /^I reply with "([^"]*)"$/ do |text|
   step %(I press "Reply")
   step %(I wait for the ajax to finish)
 end
+
+Then /^I send a mobile message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/ do |subject, text, person|
+  step %(I am on the conversations page)
+  step %(I follow "New Message")
+  step %(I wait for the ajax to finish)
+  step %(I fill in "contact_autocomplete" with "#{person}")
+  step %(I press the first ".as-result-item" within ".as-results")
+  step %(I fill in "conversation_subject" with "#{subject}")
+  step %(I fill in "conversation_text" with "#{text}")
+  step %(I press "Send")
+  step %(I wait for the ajax to finish)
+end
+
+Then /^I should see the participants popover$/ do
+  step %(I should see "Participants" within ".popover-title")
+end
+
+Then /^I should see "([^"]*)" as part of the participants popover$/ do |name|
+  find(".conversation_participants_popover img.avatar[title^='#{name}']").should_not be_nil
+end
+
+Then /^I close the participants popover$/ do
+  find('.popover-title .close').click
+end
+

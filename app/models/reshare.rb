@@ -79,6 +79,10 @@ class Reshare < Post
     current
   end
 
+  def address
+    absolute_root.try(:location).try(:address)
+  end
+
   private
 
   def after_parse

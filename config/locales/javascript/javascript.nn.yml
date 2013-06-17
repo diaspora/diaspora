@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -11,6 +11,7 @@ nn:
       add_to_aspect: "Legg til kontakt"
       all_aspects: "Alle aspekta"
       error: "Klarte ikkje å byrja å dela med <%= name %>.  Ignorerer du dei?"
+      error_remove: "Kunne ikkje fjerne <%= name %> frå aspektet :("
       select_aspects: "Vel aspekt"
       started_sharing_with: "Du har byrja å dela med <%= name %>"
       stopped_sharing_with: "Du deler ikkje lenger med <%= name %>."

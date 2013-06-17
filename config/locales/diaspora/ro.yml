@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -7,6 +7,7 @@
 ro:
   _applications: "Aplicaţii"
   _comments: "Comentarii"
+  _contacts: "contacte"
   _home: "Acasă"
   _photos: "Fotografii"
   _services: "Servicii"
@@ -39,17 +40,21 @@ ro:
             username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "este deja folosit de cineva."
+  ago: "%{time} în urmă"
   all_aspects: "All aspects"
   application:
     helper:
+      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "persoană necunoscută"
       video_title:
         unknown: "Titlu necunoscut"
   are_you_sure: "Eşti sigur?"
+  are_you_sure_delete_account: "Ești sigur(ă) că vrei sa închizi contul? Acest lucru nu poate fi refăcut!"
   aspect_memberships:
     destroy:
       failure: "Nu s-a reusit mutarea persoanei din acel aspect"
       no_membership: "Nu s-a gasit pesoana in aspectul cautat"
+      success: "Persoana a fost îndepărtată cu succes din ipostază."
   aspects:
     add_to_aspect:
       failure: "Nu s-a reuşit adăuga contactul la aspect."
@@ -58,6 +63,12 @@ ro:
       done_editing: "terminat de editat"
     aspect_listings:
       add_an_aspect: "+ Adaugă un aspect"
+      deselect_all: "Deselectează tot"
+      edit_aspect: "Editează %{name}"
+      select_all: "Selectare tot"
+    aspect_stream:
+      stay_updated: "Rămâi la curent"
+      stay_updated_explanation: "Fluxul tău de date este populat cu toate contactele tale, toate etichetele pe care le urmărești și articolele publicate de unii membri creativi ai comunității."
     contacts_not_visible: "Contactele din acest aspect nu vor putea sa se vada intre ele."
     contacts_visible: "Contactele din acest aspect se vor putea vedea intre ele."
     create:
@@ -83,19 +94,38 @@ ro:
       aspect_not_empty: "Aspectul nu este gol"
       remove: "şterge"
     index:
+      cubbies:
+        explanation: "Cubbi.es este prima aplicație Diaspora în dezvoltare"
+        heading: "Conectarea la Cubbi.es"
+        learn_more: "Află mai multe"
       diaspora_id:
         content_1: "ID-ul tău Diaspora este:"
+        content_2: "Transmite-l tuturor și ei vor putea să te găsească pe Diaspora."
+        heading: "Identificatorul tău pe Diaspora"
       donate: "Donează"
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       help:
+        email_feedback: "%{link} feedback-ul tău, dacă preferi."
         here_to_help: "Diaspora community is here to help!"
+        need_help: "Ai nevoie de ajutor?"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriale, tehnici how-to și știri ale comunității."
+      introduce_yourself: "Acesta este fluxul tău. Fă-ți prezentarea."
+      new_here:
+        follow: "Urmează legătura %{link} si urează-le bun venit noilor utilizatori in comunitatea Diaspora"
+        learn_more: "Află mai multe"
+        title: "Bun venit noilor utilizatori"
       no_contacts: "Niciun contact"
       no_tags: "No tags"
+      people_sharing_with_you: "Cunoscuți care partajează cu tine"
       post_a_message: "publicati un mesaj >>"
+      services:
+        content: "Te poți conecta la următoarele servicii pe Diaspora"
+        heading: "Conectează servciii"
       unfollow_tag: "Nu mai urma #%{tag}"
+      welcome_to_diaspora: "Bun venit in comunitatea Diaspora %{name}"
     many: "%{count} aspecte"
     move_contact:
       error: "Eroare la mutarea contactului: %{inspect}"
@@ -105,21 +135,29 @@ ro:
       create: "Crează"
       name: "Name"
     no_contacts_message:
+      community_spotlight: "reflectorul comunității"
+      or_spotlight: "Sau poți partaja cu %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      you_should_add_some_more_contacts: "Ar trebui sa mai adaugi noi persoane de contact!"
     no_posts_message:
       start_talking: "Nimeni nu a spus nimic deocamdată."
     one: "1 aspect"
     other: "%{count} aspecte"
     seed:
+      acquaintances: "Cunoscuții"
       family: "Familie"
       friends: "Prieteni"
       work: "Lucru"
     selected_contacts:
+      manage_your_aspects: "Gestionează aspectele tale personale"
+      no_contacts: "Nu aveți incă nici o persoană de contact."
+      view_all_community_spotlight: "Vizualizează toate reflectoarele comunității"
       view_all_contacts: "Vezi toate contactele"
     show:
       edit_aspect: "Editează aspect"
     two: "%{count} aspects"
     update:
+      failure: "Apectul tău, %{name}, are numele prea lung ca să fie salvat"
       success: "Aspectul, %{name}, a fost editat cu succes."
     zero: "niciun aspect"
   back: "Înapoi"
@@ -149,11 +187,14 @@ ro:
       all_contacts: "Toate contactele"
       my_contacts: "Contactele mele"
       no_contacts: "No contacts."
+      start_a_conversation: "Începe o conversație."
       title: "Contacte"
       your_contacts: "Contactele Tale"
     many: "%{count} contacte"
     one: "1 contact"
     other: "%{count} contacte"
+    sharing:
+      people_sharing: "Cunoscuți care partajează cu tine"
     two: "%{count} contacts"
     zero: "contacte"
   conversations:
@@ -167,6 +208,7 @@ ro:
         many: "%{count} mesaje noi"
         one: "1 mesaj nou"
         other: "%{count} mesaje noi"
+        two: "%{count} mesaje noi"
         zero: "no new messages"
     index:
       create_a_new_message: "crează un mesaj nou"
@@ -183,6 +225,11 @@ ro:
     show:
       delete: "sterge si blocheaza conversatia"
       reply: "raspunde"
+  date:
+    formats:
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Şterge"
   email: "E-mail"
   error_messages:
@@ -231,18 +278,21 @@ ro:
         many: "%{count} people disliked this"
         one: "1 person disliked this"
         other: "%{count} people disliked this"
+        two: "%{count} dislikes"
         zero: "no people disliked this"
       people_like_this:
         few: "%{count} people liked this"
         many: "%{count} people liked this"
         one: "1 person liked this"
         other: "%{count} people liked this"
+        two: "%{count} likes"
         zero: "no people liked this"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
         one: "%{count} like"
         other: "%{count} likes"
+        two: "%{count} likes"
         zero: "no likes"
   limited: "Limitat"
   more: "Mai mult"
@@ -254,18 +304,21 @@ ro:
       many: "%{actors} also commented on %{post_author}'s %{post_link}."
       one: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} le-a placut publicatia stearsa de tine."
       many: "%{actors} au put comentarii pe o publicatie deja stearsa."
       one: "%{actors} i-a placut publicatia stearsa de tine."
       other: "%{actors} le-a placut publicatia stearsa de tine."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} commented on a deleted post."
     comment_on_post:
       few: "%{actors} au pus comentarii pe %{post_link}."
       many: "%{actors} au pus comentarii pe %{post_link}."
       one: "%{actors} a comentat pe %{post_link} ta."
       other: "%{actors} au comentat pe %{post_link} ta."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
     helper:
       new_notifications:
@@ -273,6 +326,7 @@ ro:
         many: "%{count} notificări noi"
         one: "1 new notifications"
         other: "%{count} notificări noi"
+        two: "%{count} new notifications"
         zero: "no new notifications"
     index:
       and: "şi"
@@ -281,6 +335,7 @@ ro:
         many: "and %{count} others"
         one: "şi doar unul "
         other: "and %{count} others"
+        two: "and %{count} others"
         zero: "and nobody else"
       mark_all_as_read: "Marchează-le pe toate ca citite"
       notifications: "Notificări"
@@ -289,24 +344,28 @@ ro:
       many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
     liked_post_deleted:
       few: "%{actors} au placut publicatia stearsa de tine."
       many: "%{actors} le-au placut publicatia stearsa de tine."
       one: "%{actors} i-a placut publicatia stearsa de tine."
       other: "%{actors} le-a placut publicatia stearsa de tine."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors} liked your deleted post."
     mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
       one: "%{actors} v-a amintit intro %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
     mentioned_deleted:
       few: "%{actors} te-au amintit intro publicatie deja stearsa."
       many: "%{actors} te-au amintit intro publicatie deja stearsa."
       one: "%{actors} te-a amintit intro publicatie deja stearsa."
       other: "%{actors} te-au amintit intro publicatie deja stearsa."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
     post: "publicatie"
     private_message:
@@ -314,24 +373,28 @@ ro:
       many: "%{actors} sent you a message."
       one: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
       zero: "%{actors} sent you a message."
     reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
     reshared_post_deleted:
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
     started_sharing:
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
       one: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier:
     a_post_you_shared: "o publicatie."
@@ -358,6 +421,8 @@ ro:
       view_profile: "Vezi profilul lui %{name}"
     thanks: "Mulţumim,"
     to_change_your_notification_settings: "pentru a schimba setăriile notificărilor"
+  nsfw: "NSFW"
+  ok: "Ok"
   or: "sau"
   password: "Parola"
   password_confirmation: "Confirmă parola"
@@ -451,8 +516,11 @@ ro:
         many: "%{count} photos by %{author}"
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   previous: "anterioare"
+  privacy: "Confidențialitate"
+  privacy_policy: "Politica de Confidenţialitate"
   profile: "Profil"
   profiles:
     edit:
@@ -473,11 +541,13 @@ ro:
     update:
       failed: "Eşuare la actualizarea profilului"
       updated: "Profil updatat"
+  public: "Public"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
+    two: "%{count} reactions"
     zero: "0 reactions"
   registrations:
     closed: "Ȋnscrierile sunt ȋnchise pe acest pod Diaspora."
@@ -510,6 +580,7 @@ ro:
         many: "%{count} de cereri noi!"
         one: "cerere nouă!"
         other: "%{count} noi cereri!"
+        two: "%{count} cereri noi!"
         zero: "nicio cerere nouă"
     manage_aspect_contacts:
       existing: "Contactele existente"
@@ -524,6 +595,7 @@ ro:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
+        two: "%{count} reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
@@ -566,6 +638,7 @@ ro:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
     contact_list:
       all_contacts: "Toate contactele"
@@ -615,6 +688,7 @@ ro:
       many: "please make your status messages less than %{count} characters"
       one: "please make your status messages less than %{count} character"
       other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
       zero: "please make your status messages less than %{count} characters"
   stream_helper:
     hide_comments: "ascunde comentariile"
@@ -623,6 +697,7 @@ ro:
       many: "Show %{count} more comments"
       one: "Show one more comment"
       other: "Show %{count} more comments"
+      two: "Show two more comments"
       zero: "No more comments"
   streams:
     aspects:
@@ -646,6 +721,7 @@ ro:
       people_tagged_with: "Persoane marcate cu %{tag}"
       posts_tagged_with: "Publicatii marcate cu #%{tag}"
       stop_following: "Nu mai urmari #%{tag}"
+  terms_and_conditions: "Termeni de utilizare și Condiții:"
   tokens:
     show:
       connect_to_cubbies: "Conectarea la Cubbi.es"
@@ -698,3 +774,4 @@ ro:
     no_person_constructed: "Nu sa putut indentifica nici o persoana prin acest hcard."
     not_enabled: "webfinger nu pare sa fie activat pentru locatia %{account}"
     xrd_fetch_failed: "s-a semnalat o eroare la extragerea xrd de la contul %{account}"
+  welcome: "Bine ai venit,"

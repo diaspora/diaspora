@@ -13,7 +13,7 @@ class HovercardPresenter
   # hovercard UI
   def to_json(options={})
     {  :id => person.id,
-       :avatar => avatar('small'),
+       :avatar => avatar('medium'),
        :url => profile_url,
        :name => person.name,
        :handle => person.diaspora_handle,
@@ -23,7 +23,7 @@ class HovercardPresenter
 
   # get the image url of the profile avatar for the given size
   # possible sizes: 'small', 'medium', 'large'
-  def avatar(size="small")
+  def avatar(size="medium")
     if !["small", "medium", "large"].include?(size)
       raise ArgumentError, "the given parameter is not a valid size"
     end

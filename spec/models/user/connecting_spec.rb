@@ -147,6 +147,13 @@ describe User::Connecting do
         contact.should_not_receive(:dispatch_request)
         alice.share_with(eve.person, a2)
       end
+
+      it 'posts profile' do
+        m = mock()
+        Postzord::Dispatcher.should_receive(:build).twice.and_return(m)
+        m.should_receive(:post).twice
+        alice.share_with(eve.person, alice.aspects.first)
+      end
     end
 
     it 'sets receiving' do

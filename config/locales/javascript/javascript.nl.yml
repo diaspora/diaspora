@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -18,6 +18,7 @@ nl:
         many: "In <%= count %> aspecten"
         one: "In <%= count %> aspect"
         other: "In <%= count %> aspecten"
+        two: "In <%= count %> aspecten"
         zero: "Aspecten selecteren"
     aspect_navigation:
       deselect_all: "Alles deselecteren"

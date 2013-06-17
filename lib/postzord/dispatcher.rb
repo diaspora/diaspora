@@ -4,8 +4,8 @@
 
 
 class Postzord::Dispatcher
-  require Rails.root.join('lib', 'postzord', 'dispatcher', 'private')
-  require Rails.root.join('lib', 'postzord', 'dispatcher', 'public')
+  require 'postzord/dispatcher/private'
+  require 'postzord/dispatcher/public'
 
   attr_reader :sender, :object, :xml, :subscribers, :opts
 
@@ -40,7 +40,7 @@ class Postzord::Dispatcher
     if opts[:additional_subscribers].present?
       opts[:additional_subscribers] = [*opts[:additional_subscribers]].map(&:id)
     end
-    Resque.enqueue(Jobs::DeferredDispatch, user.id, object.class.to_s, object.id, opts)
+    Workers::DeferredDispatch.perform_async(user.id, object.class.to_s, object.id, opts)
   end
 
   # @param object [Object]
@@ -102,15 +102,16 @@ class Postzord::Dispatcher
     queue_remote_delivery_job(remote_people)
   end
 
-  # Enqueues a job in Resque
+  # Enqueues a job
   # @param remote_people [Array<Person>] Recipients of the post on other pods
   # @return [void]
   def queue_remote_delivery_job(remote_people)
-    Resque.enqueue(Jobs::HttpMulti,
-                   @sender.id,
-                   Base64.strict_encode64(@object.to_diaspora_xml),
-                   remote_people.map{|p| p.id},
-                   self.class.to_s)
+    Workers::HttpMulti.perform_async(
+      @sender.id,
+      Base64.strict_encode64(@object.to_diaspora_xml),
+      remote_people.map{|p| p.id},
+      self.class.to_s
+    )
   end
 
   # @param people [Array<Person>] Recipients of the post
@@ -121,7 +122,7 @@ class Postzord::Dispatcher
     else
       people.each do |person|
         Rails.logger.info("event=push route=local sender=#{@sender.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{@object.class}")
-        Resque.enqueue(Jobs::Receive, person.owner_id, @xml, @sender.person_id)
+        Workers::Receive.perform_async(person.owner_id, @xml, @sender.person_id)
       end
     end
   end
@@ -129,13 +130,13 @@ class Postzord::Dispatcher
   # @param people [Array<Person>] Recipients of the post
   def batch_deliver_to_local(people)
     ids = people.map{ |p| p.owner_id }
-    Resque.enqueue(Jobs::ReceiveLocalBatch, @object.class.to_s, @object.id, ids)
+    Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, ids)
     Rails.logger.info("event=push route=local sender=#{@sender.diaspora_handle} recipients=#{ids.join(',')} payload_type=#{@object.class}")
   end
 
   def deliver_to_hub
     Rails.logger.debug("event=post_to_service type=pubsub sender_handle=#{@sender.diaspora_handle}")
-    Resque.enqueue(Jobs::PublishToHub, @sender.public_url)
+    Workers::PublishToHub.perform_async(@sender.public_url)
   end
 
   # @param url [String]
@@ -144,14 +145,12 @@ class Postzord::Dispatcher
     if @object.respond_to?(:public) && @object.public
       deliver_to_hub
     end
-    if @object.instance_of?(StatusMessage)
-      services.each do |service|
-        Resque.enqueue(Jobs::PostToService, service.id, @object.id, url)
+    services.each do |service|
+      if @object.instance_of?(StatusMessage)
+        Workers::PostToService.perform_async(service.id, @object.id, url)
       end
-    end
-    if @object.instance_of?(SignedRetraction)
-      services.each do |service|
-        Resque.enqueue(Jobs::DeletePostFromService, service.id, @object.target.facebook_id)
+      if @object.instance_of?(SignedRetraction)
+        Workers::DeletePostFromService.perform_async(service.id, @object.target.id)
       end
     end
   end
@@ -168,7 +167,7 @@ class Postzord::Dispatcher
 
     #temp hax
     unless object_is_related_to_diaspora_hq?
-      Resque.enqueue(Jobs::NotifyLocalUsers, users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
+      Workers::NotifyLocalUsers.perform_async(users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
     end
   end
 

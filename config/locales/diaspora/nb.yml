@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,6 @@ nb:
       correlations: "Korrellert med"
       pages: "Sider"
       pod_stats: "Pod statistikk"
-      resque_overview: "Resque oversikt"
       user_search: "Brukersøk"
       weekly_user_stats: "Ukentlig brukerstatistikk"
     correlations:
@@ -297,6 +296,7 @@ nb:
         many: "%{count} nye meldinger"
         one: "1 ny melding"
         other: "%{count} nye meldinger"
+        two: "%{count} nye beskjeder"
         zero: "ingen nye meldinger"
     index:
       create_a_new_message: "skriv en ny melding"
@@ -395,18 +395,21 @@ nb:
         many: "%{count} personer misliker dette"
         one: "1 person misliker dette"
         other: "%{count} personer misliker dette"
+        two: "%{count} misliker dette"
         zero: "ingen misliker dette"
       people_like_this:
         few: "%{count} personer liker dette"
         many: "%{count} personer liker dette"
         one: "1 person liker dette"
         other: "%{count} personer liker dette"
+        two: "%{count} liker dette"
         zero: "ingen liker dette"
       people_like_this_comment:
         few: "%{count} liker"
         many: "%{count} liker"
         one: "%{count} liker"
         other: "%{count} liker"
+        two: "%{count} liker dette"
         zero: "ingen liker"
   limited: "Begrenset"
   more: "Mer"
@@ -418,18 +421,21 @@ nb:
       many: "%{actors} kommenterte også på %{post_author}s %{post_link}."
       one: "%{actors} kommenterte også på %{post_author}s %{post_link}."
       other: "%{actors} har også kommentert på %{post_author}'s %{post_link}."
+      two: "%{actors} kommenterte også %{post_author}s %{post_link}."
       zero: "%{actors} har også kommentert på %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} kommenterte på en slettet post."
       many: "%{actors} kommenterte på en slettet post."
       one: "%{actors} kommenterte på en slettet post."
       other: "%{actors} kommenterte på en slettet post."
+      two: "%{actors} kommenterte en slettet post."
       zero: "%{actors} kommenterte på en slettet post."
     comment_on_post:
       few: "%{actors} kommenterte på din %{post_link}."
       many: "%{actors} kommenterte på din %{post_link}."
       one: "%{actors} kommenterte på din %{post_link}."
       other: "%{actors} kommenterte på din %{post_link}."
+      two: "%{actors} kommenterte din %{post_link}."
       zero: "%{actors} kommenterte på din %{post_link}."
     helper:
       new_notifications:
@@ -437,6 +443,7 @@ nb:
         many: "%{count} nye varsler"
         one: "1 nytt varsel"
         other: "%{count} nye varsler"
+        two: "%{count} nye varsler"
         zero: "ingen nye varsler"
     index:
       and: "og"
@@ -445,6 +452,7 @@ nb:
         many: "og %{count} andre"
         one: "og en annen"
         other: "og %{count} andre"
+        two: "og %{count} andre"
         zero: "og ingen andre"
       mark_all_as_read: "Merk alle som leste"
       mark_unread: "Merk som ulest"
@@ -458,6 +466,7 @@ nb:
       many: "%{actors} likte ditt innlegg du har slettet."
       one: "%{actors} likte ditt innlegg du har slettet."
       other: "%{actors} likte ditt innlegg du har slettet."
+      two: "%{actors} likte din slettede post."
       zero: "%{actors} likte ditt innlegg du har slettet."
     mentioned:
       one: "%{actors} har nevnt deg i en %{post_link}."
@@ -468,6 +477,7 @@ nb:
       many: "%{actors} nevnte deg i en slettet post."
       one: "%{actors} nevnte deg i en slettet post."
       other: "%{actors} nevnte deg i en slettet post."
+      two: "%{actors} nevnte deg i en slettet post."
       zero: "%{actors} nevnte deg i en slettet post."
     post: "innlegg"
     private_message:
@@ -475,6 +485,7 @@ nb:
       many: "%{actors} sendte deg en melding."
       one: "%{actors} sendte deg en melding."
       other: "%{actors} sendte deg en melding."
+      two: "%{actors} sendte deg en melding."
       zero: "%{actors} sendte deg en melding."
     reshared:
       one: "%{actors} har delt din %{post_link}."
@@ -485,6 +496,7 @@ nb:
       many: "%{actors} har delt innlegget du slettet."
       one: "%{actors} har delt innlegget du slettet."
       other: "%{actors} har delt innlegget du slettet."
+      two: "%{actors} delte din slettede post."
       zero: "%{actors} har delt innlegget du slettet."
     started_sharing:
       one: "%{actors} har begynt å dele med deg."
@@ -680,6 +692,7 @@ nb:
     many: "%{count} reaksjoner"
     one: "1 reaksjon"
     other: "%{count} reaksjoner"
+    two: "%{count} reaksjoner"
     zero: "0 reaksjoner"
   registrations:
     closed: "Registreringer er stengt på denne Diaspora poden."
@@ -723,6 +736,7 @@ nb:
         many: "%{count} nye forespørsler!"
         one: "nye forespørsler!"
         other: "%{count} nye forespørsler!"
+        two: "%{count} nye forespørsler!"
         zero: "ingen nye forespørsler"
     manage_aspect_contacts:
       existing: "Eksisterende kontakter"
@@ -766,6 +780,7 @@ nb:
       logged_in_as: "logget inn som"
       no_services: "Du har ikke koblet til noen tjenester ennå."
       really_disconnect: "koble fra %{service}?"
+      services_explanation: "Ved å koble til tjenester får du muligheten å publisere dine innlegg til dem mens du skriver dem i Diaspora."
     inviter:
       click_link_to_accept_invitation: "Klikk denne linken for å akseptere invitasjonen din"
       join_me_on_diaspora: "Bli med meg på DIASPORA*"
@@ -813,7 +828,7 @@ nb:
       atom_feed: "Atom-strøm"
       control_your_audience: "Kontrollér ditt publikum"
       logged_in: "innlogget på %{service}"
-      manage: "behandle tilkoblede tjenester"
+      manage: "Behandle tilkoblede tjenester"
       new_user_welcome_message: "Bruk #hashtags for å sette merkelapp på innleggene dine og finne folk som deler samme interessefelt. Rop ut til bra folk med @Mentions"
       outside: "Offentlige meldinger vil være synlige for personer utenfor Diaspora."
       share: "Del"
@@ -831,6 +846,7 @@ nb:
         newhere: "NyHer"
       post_a_message_to: "Post et innlegg til %{aspect}"
       posting: "Poster..."
+      preview: "Forhåndsvisning"
       publishing_to: "publiserer til:"
       share: "Del"
       share_with: "del med"
@@ -867,6 +883,7 @@ nb:
       many: "Du bør begrense statusmeldingene dine til %{count} characters"
       one: "du bør begrense statusmeldingene dine til %{count} tegn"
       other: "du må gjøre statusmeldingene dine kortere enn %{count} tegn"
+      two: "vær så snill og skriv statusoppdateringer som er under %{count} tegn"
       zero: "Statusmeldinger må være lengre enn ingenting."
   stream_helper:
     hide_comments: "skjul kommentarer"
@@ -965,7 +982,7 @@ nb:
         make_diaspora_better: "Vi ønsker at du hjelper oss å gjøre Diaspora bedre, så det hadde vært fint om du hjalp oss i stedet for å forlate oss. Hvis du allikevel ønsker å forsvinne så vil vi gjerne at du skal få vite hva som skjer videre."
         mr_wiggles: "Mr Wiggles blir lei seg om du forlater oss nå"
         no_turning_back: "På dette tidspunktet er det ingen vei tilbake."
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+        what_we_delete: "Vi kommer til å slette dine tidligere innlegg og profildata så snart som menneskelig mulig. Dine kommentarer vil fortsatt stå, men vil bli assosiert med din Diaspora ID istedet for ditt navn."
       close_account_text: "Avslutt konto"
       comment_on_post: " noen kommenterer på dine innlegg?"
       current_password: "Nåverende passord"

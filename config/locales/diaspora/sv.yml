@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -45,7 +45,7 @@ sv:
       correlations: "Korrelationer"
       pages: "Sidor"
       pod_stats: "Podstatistik"
-      resque_overview: "Resque-översyn"
+      sidekiq_monitor: "Sidekiq-övervakare"
       user_search: "Användarsökning"
       weekly_user_stats: "Veckovis användarstatistik"
     correlations:
@@ -287,7 +287,7 @@ sv:
   conversations:
     create:
       fail: "Ogiltigt meddelande"
-      no_contact: "Hallå! Du måste först lägga till kontakten."
+      no_contact: "Hallå där! Du måste först lägga till kontakten."
       sent: "Meddelandet har skickats"
     destroy:
       success: "Konversationen har tagits bort nu"
@@ -423,6 +423,7 @@ sv:
         many: "%{count} nya notiser"
         one: "En ny notis"
         other: "%{count} nya notiser"
+        two: "Två nya notiser"
         zero: "Inga nya notiser"
     index:
       and: "och"
@@ -431,6 +432,7 @@ sv:
         many: "och %{count} till"
         one: "och en till"
         other: "och %{count} till"
+        two: "och två till"
         zero: "och ingen mer"
       mark_all_as_read: "Markera alla som lästa"
       mark_unread: "Markera som oläst"
@@ -516,7 +518,7 @@ sv:
       view_profile: "Se %{name}s profil"
     thanks: "Tack,"
     to_change_your_notification_settings: "för att ändra dina notisinställningar"
-  nsfw: "NSFW"
+  nsfw: "Ej lämpad för arbetsplats."
   ok: "Ok"
   or: "eller"
   password: "Lösenord"
@@ -626,6 +628,7 @@ sv:
         many: "%{count} foton av %{author}"
         one: "Ett foto av %{author}"
         other: "%{count} foton av %{author}"
+        two: "Två foton av %{author}"
         zero: "Inga foton av %{author}"
       reshare_by: "Delades vidare av %{author}"
   previous: "föregående"
@@ -742,6 +745,7 @@ sv:
       logged_in_as: "inloggad som"
       no_services: "Du har inte kopplat ihop några tjänster."
       really_disconnect: "vill du koppla från %{service}?"
+      services_explanation: "Genom att ansluta till andra tjänster möjliggör det för dig att att skicka dina inlägg till dem samtidigt som på Diaspora."
     inviter:
       click_link_to_accept_invitation: "Följ länken för att acceptera din inbjudan"
       join_me_on_diaspora: "Gå med mig på DIASPORA*"
@@ -769,6 +773,7 @@ sv:
         many: "I %{count} aspekter"
         one: "I %{count} aspekt"
         other: "I %{count} aspekter"
+        two: "I %{count} aspekter"
         zero: "Lägg till kontakt"
     contact_list:
       all_contacts: "Alla kontakter"
@@ -809,6 +814,7 @@ sv:
         newhere: "NyHär"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: "Skickar..."
+      preview: "Förhandsgranska"
       publishing_to: "publicerar till: "
       share: "Dela"
       share_with: "dela med"
@@ -851,6 +857,7 @@ sv:
       many: "Visa %{count} ytterligare kommentarer"
       one: "Visa en ytterligare kommentar"
       other: "Visa %{count} ytterligare kommentarer"
+      two: "Visa två ytterligare kommentarer"
       zero: "Inga fler kommentarer"
   streams:
     activity:
@@ -943,7 +950,7 @@ sv:
         make_diaspora_better: "Vi vill att du hjälper oss att göra Diaspora bättre, så du borde hjälpa oss istället för att lämna oss. Men om du verkligen vill lämna oss vill vi att du ska veta vad som kommer att hända."
         mr_wiggles: "Herr Wiggles kommer att bli ledsen"
         no_turning_back: "Nu finns det ingen återvändo."
-        what_we_delete: "Vi kommer att radera alla dina inlägg och din profil så fort som det bara går. Dina kommentarer kommer att finnas kvar, men vara associerade med ditt Diaspora-id."
+        what_we_delete: "Vi kommer att radera alla dina inlägg och din profil så fort som det bara går. Dina kommentarer kommer att finnas kvar men vara associerade med ditt Diaspora-id och inte ditt namn."
       close_account_text: "Stäng kontot"
       comment_on_post: "... någon kommenterar ditt inlägg."
       current_password: "Nuvarande lösenord"

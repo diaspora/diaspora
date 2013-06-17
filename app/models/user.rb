@@ -2,9 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join('lib', 'salmon', 'salmon')
-require Rails.root.join('lib', 'postzord', 'dispatcher')
-
 class User < ActiveRecord::Base
   include Encryptor::Private
   include Connecting
@@ -18,8 +15,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :token_authenticatable, :lockable, :lock_strategy => :none,
-         :unlock_strategy => :none
+         :lockable, :lock_strategy => :none, :unlock_strategy => :none
 
   before_validation :strip_and_downcase_username
   before_validation :set_current_language, :on => :create
@@ -27,7 +23,7 @@ class User < ActiveRecord::Base
   validates :username, :presence => true, :uniqueness => true
   validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
   validates_length_of :username, :maximum => 32
-  validates_exclusion_of :username, :in => USERNAME_BLACKLIST
+  validates_exclusion_of :username, :in => AppConfig.settings.username_blacklist
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
   validates_format_of :unconfirmed_email, :with  => Devise.email_regexp, :allow_blank => true
 
@@ -167,7 +163,7 @@ class User < ActiveRecord::Base
 
   def send_reset_password_instructions
     generate_reset_password_token! if should_generate_reset_token?
-    Resque.enqueue(Jobs::ResetPassword, self.id)
+    Workers::ResetPassword.perform_async(self.id)
   end
 
   def update_user_preferences(pref_hash)
@@ -302,15 +298,15 @@ class User < ActiveRecord::Base
 
   ######### Mailer #######################
   def mail(job, *args)
-    pref = job.to_s.gsub('Jobs::Mail::', '').underscore
+    pref = job.to_s.gsub('Workers::Mail::', '').underscore
     if(self.disable_mail == false && !self.user_preferences.exists?(:email_type => pref))
-      Resque.enqueue(job, *args)
+      job.perform_async(*args)
     end
   end
 
   def mail_confirm_email
     return false if unconfirmed_email.blank?
-    Resque.enqueue(Jobs::Mail::ConfirmEmail, id)
+    Workers::Mail::ConfirmEmail.perform_async(id)
     true
   end
 
@@ -347,13 +343,16 @@ class User < ActiveRecord::Base
     end
 
     if self.profile.update_attributes(params)
-      Postzord::Dispatcher.build(self, profile).post
+      deliver_profile_update
       true
     else
       false
     end
   end
 
+  def deliver_profile_update
+    Postzord::Dispatcher.build(self, profile).post
+  end
 
   ###Helpers############
   def self.build(opts = {})

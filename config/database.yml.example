@@ -18,10 +18,13 @@ postgres: &postgres
 
 # Comment the the mysql line and uncomment the postgres line
 # if you want to use postgres
-choose: &choose
+common: &common
   # Choose one of the following
   <<: *mysql
   #<<: *postgres
+
+  # Should match environment.sidekiq.concurrency
+  #pool: 25
   
 ##################################################
 #### CONFIGURE ABOVE #############################
@@ -32,20 +35,20 @@ choose: &choose
 postgres_travis: &postgres_travis
   adapter: postgresql
   username: postgres
-common: &common
-  <<: *choose
-development:
+combined: &combined
   <<: *common
+development:
+  <<: *combined
   database: diaspora_development
 production:
-  <<: *common
+  <<: *combined
   database: diaspora_production
 test:
-  <<: *common
+  <<: *combined
   database: "diaspora_test"
 integration1:
-  <<: *common
+  <<: *combined
   database: diaspora_integration1
 integration2:
-  <<: *common
+  <<: *combined
   database: diaspora_integration2

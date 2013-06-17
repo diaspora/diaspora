@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -18,6 +18,7 @@ br:
         many: "In {{count}} aspects"
         one: "In {{count}} aspect"
         other: "In {{count}} aspects"
+        two: "In <%= count %> aspects"
         zero: "Add to aspect"
     aspect_navigation:
       deselect_all: "Dizilenn pep tra"
