@@ -457,7 +457,7 @@ everything is set up.
 
 * Fix missing X-Frame headers [#3739](https://github.com/diaspora/diaspora/pull/3739)
 * Fix image path for padlocks [#3682](https://github.com/diaspora/diaspora/pull/3682)
-* Fix posting to Facebook and Tumblr. Have a look at the updated [services guide](https://github.com/diaspora/diaspora/wiki/Howto-setup-services) for new Facebook instructions.
+* Fix posting to Facebook and Tumblr. Have a look at the updated [services guide](http://wiki.diasporafoundation.org/Integrating_Other_Social_Networks) for new Facebook instructions.
 * Fix overflow button in mobile reset password. [#3697](https://github.com/diaspora/diaspora/pull/3697)
 * Fix issue with interacted_at in post fetcher. [#3607](https://github.com/diaspora/diaspora/pull/3607)
 * Fix error with show post Community Spotlight. [#3658](https://github.com/diaspora/diaspora/pull/3658)
@@ -519,7 +519,7 @@ Fix exception when the root of a reshare of a reshare got deleted [#3546](https:
 
 ## New configuration system!
 
-Copy over config/diaspora.yml.example to config/diaspora.yml and migrate your settings! An updated Heroku guide including basic hints on howto migrate is [here](https://github.com/diaspora/diaspora/wiki/Installing-on-heroku).
+Copy over config/diaspora.yml.example to config/diaspora.yml and migrate your settings! An updated Heroku guide including basic hints on howto migrate is [here](http://wiki.diasporafoundation.org/Installing_on_Heroku).
 
 The new configuration system allows all possible settings to be overriden by environment variables. This makes it possible to deploy heroku without checking any credentials into git. Read the top of `config/diaspora.yml.example` for an explanation on how to convert the setting names to environment variables.
 
