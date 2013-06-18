@@ -45,17 +45,14 @@ module OpenGraphHelper
   end
 
   def og_html(cache)
-    title = cache.title
-    html =
-      "<a href=\"#{cache.url}\" target=\"_blank\">" +
-      "  <div>" +
-      "    <img src=\"#{cache.image}\" />" +
-      "    <strong>#{cache.title}</strong>" +
-      "    <p>#{cache.description}</p>" +
-      "    <br />" +
-      "  </div>" +
-      "</a>"
-    return html
+    "<a href=\"#{cache.url}\" target=\"_blank\">" +
+    "  <div>" +
+    "    <img src=\"#{cache.image}\" />" +
+    "    <strong>#{cache.title}</strong>" +
+    "    <p>#{cache.description}</p>" +
+    "    <br />" +
+    "  </div>" +
+    "</a>"
   end
 
   def link_to_oembed_image(cache, prefix = 'thumbnail_')
@@ -63,7 +60,7 @@ module OpenGraphHelper
   end
   
   def oembed_image_tag(cache, prefix)
-    image_tag(cache.data[prefix + 'url'], cache.options_hash(prefix))
+    image_tag(cache.data["#{prefix}url"], cache.options_hash(prefix))
   end
   private
 
