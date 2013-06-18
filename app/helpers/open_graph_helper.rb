@@ -59,7 +59,7 @@ module OpenGraphHelper
   end
   
   def oembed_image_tag(cache, prefix)
-    image_tag(cache.data[prefix + 'url'], cache.options_hash(prefix))
+    image_tag(cache.data["#{prefix}url"], cache.options_hash(prefix))
   end
   private
 
