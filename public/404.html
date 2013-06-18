@@ -55,6 +55,11 @@
       left : 0;
     }
 
+    #content {
+      z-index: 3;
+      position: relative;
+    }
+
   </style>
 </head>
 
@@ -64,12 +69,14 @@
     404
   </div>
 
-  These are not the kittens you're looking for.  Move along.
-  <br/>
-  <br/>
-  <a href="/">
-    Go Back?
-  </a>
+  <div id="content">
+    These are not the kittens you're looking for.  Move along.
+    <br/>
+    <br/>
+    <a href="/">
+      Go Back?
+    </a>
+  </div>
 
   <div id="cat-footer" class="transparent">
     <img src="https://s3.amazonaws.com/joindiaspora/peeping-tom.png">
