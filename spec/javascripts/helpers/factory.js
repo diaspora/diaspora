@@ -61,6 +61,7 @@ factory = {
       "guid" : this.guid(),
       "image_url" : null,
       "o_embed_cache" : null,
+      "open_graph_cache": null,
       "photos" : [],
       "text" : "jasmine is bomb",
       "id" : this.id.next(),
