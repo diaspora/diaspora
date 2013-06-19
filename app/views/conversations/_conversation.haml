@@ -6,7 +6,8 @@
   .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
     .media
       .img
-        = person_image_tag(conversation.author)
+        - if authors[conversation.id].present?
+          = person_image_tag(authors[conversation.id])
 
       .bg
         = render(:partial => 'conversation_subject',
