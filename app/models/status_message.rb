@@ -31,7 +31,7 @@ class StatusMessage < Post
   before_create :filter_mentions
   after_create :create_mentions
   after_create :queue_gather_oembed_data, :if => :contains_oembed_url_in_text?
-  after_commit :queue_gather_open_graph_data, :if => :needs_open_graph_data_update?
+  after_commit :queue_gather_open_graph_data, :on => :create, :if => :contains_open_graph_url_in_text?
 
   #scopes
   scope :where_person_is_mentioned, lambda { |person|
@@ -156,10 +156,6 @@ class StatusMessage < Post
 
   def contains_open_graph_url_in_text?
     self.open_graph_url = URI.extract(self.raw_message, ['http', 'https'])[0]
-  end
-
-  def needs_open_graph_data_update?
-    self.contains_open_graph_url_in_text? and self.open_graph_cache.blank?
   end
 
   def address
