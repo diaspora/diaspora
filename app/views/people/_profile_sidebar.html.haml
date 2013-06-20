@@ -5,14 +5,11 @@
 #profile
   .profile_photo
     = person_image_link(person, :size => :thumb_large, :to => :photos)
-  - if contact.sharing?
-    .info
-      = image_tag('icons/check_yes_ok.png')
-      = person.name
-      is sharing with you
 
   - if user_signed_in?
     - if person != current_user.person
+      = sharing_message(@person, @contact)
+
       - if @contact && @contact.receiving?
         %br
         = link_to t('people.show.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
