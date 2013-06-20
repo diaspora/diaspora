@@ -90,7 +90,7 @@ module PeopleHelper
 
   def sharing_message(person, contact)
     if contact.sharing?
-      content_tag(:div, :class => 'info') do
+      content_tag(:div, :id => 'sharing_message') do
         image_tag('icons/check_yes_ok.png') +
         content_tag(:span, I18n.t('people.helper.is_sharing', :name => person.name))
       end
