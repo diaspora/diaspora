@@ -12,16 +12,10 @@
         .controls
           = f.text_field :email, :required => true, :autocapitalize => "off", :autocorrect => "off", :autofocus => true, :style => "width: 60%;"
     = f.submit t('devise.passwords.new.send_password_instructions'), :class => "new-btn"
-  -#.span-12.prepend-6.last
-    -#.floating
-      -#%h2
-        -#= t('.forgot_password')
-      -#- unless devise_error_messages!.empty?
-        -#%i= t('.no_account')
 
-        -#%p
-          -#= f.label :email, t('email')
-          -#= f.text_field :email
-        -#%p
-        -#= f.submit t('.send_password_instructions')
-      -#= render :partial => "devise/shared/links"
+    - if display_registration_link?
+      %br/
+      %br/
+      %br/
+      = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
+

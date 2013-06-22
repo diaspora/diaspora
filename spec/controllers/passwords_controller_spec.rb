@@ -4,13 +4,13 @@
 
 require 'spec_helper'
 
-describe Devise::PasswordsController do
+describe PasswordsController do
   include Devise::TestHelpers
 
   before do
     @request.env["devise.mapping"] = Devise.mappings[:user]
   end
-  
+
   describe "#create" do
     context "when there is no such user" do
       it "succeeds" do
