@@ -27,6 +27,7 @@
 * Add loading indicator on tag pages, remove the second one from the profile page [#4041](https://github.com/diaspora/diaspora/issues/4041)
 * Leaving the `to` field blank when sending a private message causes a server error [#4227](https://github.com/diaspora/diaspora/issues/4227)
 * Fix hashtags that start a line when posting to Facebook or Twitter [#3768](https://github.com/diaspora/diaspora/issues/3768) [#4154](https://github.com/diaspora/diaspora/issues/4154)
+* Show avatar of recent user in conversation list [#4237](https://github.com/diaspora/diaspora/issues/4237)
 
 ## Features
 
