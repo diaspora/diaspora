@@ -1,14 +1,27 @@
-.span-12.prepend-6.last
-  .floating
-    %h2
-      = t('.forgot_password')
-    - unless devise_error_messages!.empty?
-      %i= t('.no_account')
+- content_for :page_title do
+  = "#{AppConfig.settings.pod_name} / #{t('devise.passwords.new.forgot_password')}"
 
-    = form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f|
-      %p
-        = f.label :email, t('email')
-        = f.text_field :email
-      %p
-      = f.submit t('.send_password_instructions')
-    = render :partial => "devise/shared/links"
+#login
+  %h1{id: "huge-text"}= AppConfig.settings.pod_name
+
+  = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {:class => "form-horizontal block-form"}, :autocomplete => 'off') do |f|
+    %fieldset
+      .control-group
+        %label{class: "control-label", for: "user_email", style: "width: 40%; text-align: center; padding: 10px 0; overflow: hidden"}
+          = t('registrations.new.email')
+        .controls
+          = f.text_field :email, :required => true, :autocapitalize => "off", :autocorrect => "off", :autofocus => true, :style => "width: 60%;"
+    = f.submit t('devise.passwords.new.send_password_instructions'), :class => "new-btn"
+  -#.span-12.prepend-6.last
+    -#.floating
+      -#%h2
+        -#= t('.forgot_password')
+      -#- unless devise_error_messages!.empty?
+        -#%i= t('.no_account')
+
+        -#%p
+          -#= f.label :email, t('email')
+          -#= f.text_field :email
+        -#%p
+        -#= f.submit t('.send_password_instructions')
+      -#= render :partial => "devise/shared/links"
