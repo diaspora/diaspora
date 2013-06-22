@@ -3,9 +3,9 @@
 #   the COPYRIGHT file.
 
 module MarkdownifyHelper
-  def markdownify(target, render_options={})
 
-    markdown_options = {
+  def markdown_options
+    {
       :autolink            => true,
       :fenced_code_blocks  => true,
       :space_after_headers => true,
@@ -13,6 +13,9 @@ module MarkdownifyHelper
       :tables              => true,
       :no_intra_emphasis   => true,
     }
+  end
+
+  def markdownify(target, render_options={})
 
     render_options[:filter_html] = true
     render_options[:hard_wrap] ||= true
@@ -45,7 +48,7 @@ module MarkdownifyHelper
   end
 
   def strip_markdown(text)
-    renderer = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, :autolink => true)
+    renderer = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, markdown_options)
     renderer.render(text).strip
   end
 

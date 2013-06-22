@@ -83,12 +83,22 @@ describe MarkdownifyHelper do
         formatted = markdownify(message)
         formatted.should == %{<p>Test <a href="/tags/tag" class="tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" target="_blank">https://joindiaspora.com</a></p>\n}
       end
+      
+      it 'should process text with a header' do
+        message = "# I love markdown"
+        markdownify(message).should match "I love markdown"
+      end
     end
   end
   
   describe "#strip_markdown" do
     it 'does not remove markdown in links' do
       message = "some text and here comes http://exampe.org/foo_bar_baz a link"
+      strip_markdown(message).should match message
+    end
+    
+    it 'does not destroy hashtag that starts a line' do
+      message = "#hashtag message"
       strip_markdown(message).should match message
     end
   end
