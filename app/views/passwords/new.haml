@@ -13,9 +13,8 @@
           = f.text_field :email, :required => true, :autocapitalize => "off", :autocorrect => "off", :autofocus => true, :style => "width: 60%;"
     = f.submit t('devise.passwords.new.send_password_instructions'), :class => "new-btn"
 
-    - if display_registration_link?
-      %br/
-      %br/
-      %br/
-      = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
+    %br/
+    %br/
+    %br/
+    = link_to t('devise.shared.links.sign_in'), new_session_path(resource_name)
 
