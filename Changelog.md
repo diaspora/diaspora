@@ -1,5 +1,11 @@
 # Head
 
+## Change in guid generation
+
+This version will break federation to pods running on versions prior 0.1.1.0.
+
+Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883](https://github.com/diaspora/diaspora/pull/4883)
+
 ## Refactor
 * Drop number of followers from tags page [#4717](https://github.com/diaspora/diaspora/issues/4717)
 * Remove some unused beta code [#4738](https://github.com/diaspora/diaspora/issues/4738)

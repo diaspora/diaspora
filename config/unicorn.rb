@@ -48,4 +48,7 @@ end
 after_fork do |server, worker|
   # If using preload_app, enable this line
   ActiveRecord::Base.establish_connection
+
+  # We don't generate uuids in the frontend, but let's be on the safe side
+  UUID.generator.next_sequence
 end
