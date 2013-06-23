@@ -5,7 +5,9 @@ class AdminsController < ApplicationController
   def user_search
     params[:user] ||= {}
     params[:user].delete_if {|key, value| value.blank? }
-    @users = params[:user].empty? ? [] : User.where(params[:user])
+    @users = User.joins(person: :profile).where("profiles.birthday > date_sub(now(), interval 13 year)") if params[:under13]
+    @users = (@users || User).where(params[:user]) if params[:user].present?
+    @users ||= []
   end
 
   def admin_inviter 
