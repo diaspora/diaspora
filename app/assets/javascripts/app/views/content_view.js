@@ -108,25 +108,5 @@ app.views.OEmbed = app.views.Base.extend({
 });
 
 app.views.OpenGraph = app.views.Base.extend({
-  templateName : "opengraph",
-  events : {
-    "click .thumb": "showOpenGraphContent" // huspora TODO: we need a better selector
-  },
-
-  presenter:function () {
-    console.log("OG presenter");
-    open_graph_cache = this.model.get("open_graph_cache")
-    console.log(open_graph_cache);
-    return _.extend(this.defaultPresenter(), {
-      opengraph_html : app.helpers.openGraph.html(open_graph_cache)
-    })
-  },
-
-  showOpenGraphContent : function (evt) {
-    if( $(evt.target).is('a') ) return;
-    var insertHTML = $(app.helpers.openGraph.html(this.model.get("open_graph_cache")));
-    var paramSeparator = ( /\?/.test(insertHTML.attr("src")) ) ? "&" : "?";
-    insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1");
-    this.$el.html(insertHTML);
-  }
+  templateName : "opengraph"
 });
