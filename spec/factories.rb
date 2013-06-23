@@ -185,6 +185,14 @@ FactoryGirl.define do
     data {{'data' => 'foo'}}
   end
 
+  factory(:open_graph_cache) do
+    url "http://example.com/articles/123"
+    image "http://example.com/images/123.jpg"
+    title "Some article"
+    ob_type "article"
+    description "This is the article lead"
+  end
+
   factory(:tag_following) do
     association(:tag, :factory => :tag)
     association(:user, :factory => :user)
