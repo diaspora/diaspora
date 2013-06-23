@@ -33,6 +33,7 @@
 
 * Deleting a post that was shared to Twitter now deletes it from Twitter too [#4156](https://github.com/diaspora/diaspora/pull/4156)
 * Improvement on how participants are displayed on each conversation without opening it [#4149](https://github.com/diaspora/diaspora/pull/4149)
+* Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
 
 ## Gem updates
 
