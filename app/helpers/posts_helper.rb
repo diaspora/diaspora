@@ -10,6 +10,14 @@ module PostsHelper
       I18n.t "posts.show.reshare_by", :author => post.author_name
     else
       if post.text.present?
+        title = post.text(:plain_text => true).match(/^((([^\n\r]*)(\r?\n)(-+|=+)(\r?\n|$))|(\#{1,6}[[:space:]]+([^\n\r]+?)\#*(\r?\n|$)))/)
+        unless title.nil?
+          unless title[3].nil?
+            return title[3]
+          else
+            return title[8]
+          end
+        end
         truncate(post.text(:plain_text => true), :length => opts.fetch(:length, 20))
       elsif post.respond_to?(:photos) && post.photos.present?
         I18n.t "posts.show.photos_by", :count => post.photos.size, :author => post.author_name
