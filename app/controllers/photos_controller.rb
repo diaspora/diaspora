@@ -7,6 +7,10 @@ class PhotosController < ApplicationController
 
   respond_to :html, :json
 
+  def show
+    @photo = Photo.find(params[:id])
+  end
+
   def index
     @post_type = :photos
     @person = Person.find_by_guid(params[:person_id])
