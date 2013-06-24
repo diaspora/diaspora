@@ -163,4 +163,15 @@ describe PhotosController do
     end
   end
 
+  describe "#show" do
+    it 'should return 404 for nonexistent stuff on mobile devices' do
+      expect{get :show, :id => 772831, :format => 'mobile'}.to raise_error ActiveRecord::RecordNotFound
+    end
+
+    it 'should return 200 for existing stuff on mobile devices' do
+      get :show, :id => @alices_photo.id, :format => 'mobile'
+      response.should be_success
+    end
+  end
+
 end
