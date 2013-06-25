@@ -9,12 +9,17 @@ $(document).ready(function(){
   if ($('#first_unread').length > 0) {
     $("html").scrollTop($('#first_unread').offset().top-45);
   }
+  $('.timeago').tooltip();
+  $('.timeago').timeago();
 
   $('.conversation-wrapper').live('click', function(){
-    $.getScript($(this).data('conversation-path'), function() {
+    var conversation_path = $(this).data('conversation-path');
+
+    $.getScript(conversation_path, function() {
       Diaspora.page.directionDetector.updateBinds();
     });
-    history.pushState(null, "", this.href);
+
+    history.pushState(null, "", conversation_path);
 
     var conv = $(this).children('.stream_element'),
         cBadge = $("#message_inbox_badge .badge_count");
@@ -31,7 +36,6 @@ $(document).ready(function(){
       });
     }
 
-    jQuery("abbr.timeago").timeago();
     return false;
   });
 
