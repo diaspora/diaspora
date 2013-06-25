@@ -4,6 +4,19 @@ $(".stream_element", "#conversation_inbox").removeClass('selected');
 $(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").addClass('selected');
 $(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").find(".unread_message_count").remove()
 
-$("html").scrollTop($('#first_unread').offset().top-45);
+$('time.timeago').each(function(i,e) {
+  var jqe = $(e);
+  jqe.attr('data-original-title', new Date(jqe.attr('datetime')).toLocaleString());
+});
 
-Diaspora.page.timeAgo.updateTimeAgo();
+if ($('#first_unread') > 0) {
+  $("html").scrollTop($('#first_unread').offset().top-45);
+}
+
+$(".timeago").tooltip();
+$("time.timeago").timeago();
+
+$('time.timeago').each(function(i,e) {
+  var jqe = $(e);
+  jqe.attr('title', '');
+});
