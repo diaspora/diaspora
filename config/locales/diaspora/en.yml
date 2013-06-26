@@ -381,6 +381,7 @@ en:
       to: "To"
       personal_message: "Personal message"
       send_an_invitation: "Send an invitation"
+      sending_invitation: "Sending invitation..."
       send_invitation: "Send invitation"
       paste_link: "Share this link with your friends to invite them to Diaspora*, or email them the link directly."
       codes_left:
