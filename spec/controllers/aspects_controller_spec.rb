@@ -145,14 +145,6 @@ describe AspectsController do
       end
     end
     
-    it "doesn't overwrite random attributes" do
-      new_user = FactoryGirl.create :user
-      params = {"name" => "Bruisers"}
-      params[:user_id] = new_user.id
-      put('update', :id => @alices_aspect_1.id, "aspect" => params)
-      Aspect.find(@alices_aspect_1.id).user_id.should == alice.id
-    end
-
     it "should return the name and id of the updated item" do
       params = {"name" => "Bruisers"}
       put('update', :id => @alices_aspect_1.id, "aspect" => params)
