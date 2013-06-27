@@ -99,6 +99,8 @@ $(document).ready(function(){
     },
     trigger: 'manual'
   });
+  
+  $('.participants_link > span').tooltip({placement: 'bottom'});
 
   $('.participants_link').click(function(e) {
     e.stopPropagation();
