@@ -202,9 +202,6 @@ describe ConversationsController do
           },
           :contact_ids => nil
         }
-        Conversation.stub(:new).and_return(double(Conversation,
-                                                  :save => false,
-                                                  :id => 1))
       end
 
       it 'does not create a conversation' do
