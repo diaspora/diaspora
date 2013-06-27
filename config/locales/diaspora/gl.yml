@@ -89,7 +89,7 @@ gl:
       weekly_user_stats: "Estatísticas semanais de usuarios"
       pod_stats: "Estatísticas do servidor"
       correlations: "Correlacións"
-      resque_overview: "Información de Resque"
+      sidekiq_monitor: "Monitor Sidekiq"
     correlations:
       correlations_count: "Correlación entre contas:"
     user_search:
@@ -347,6 +347,8 @@ gl:
       create_a_new_message: "Iniciar unha conversa"
       no_messages: "Non hai mensaxes."
       inbox: "Caixa de entrada"
+    conversation:
+      participants: "Participantes"
     show:
       reply: "Responder"
       replying: "Respondendo…"
@@ -832,7 +834,8 @@ gl:
       connect_to_facebook: "Conectar ao Facebook"
       connect_to_tumblr: "Conectar ao Tumblr"
       edit_services: "Modificar os servizos"
-      no_services: 'Aínda non conectou ningún dos servizos.'
+      no_services: "Aínda non conectou ningún dos servizos."
+      services_explanation: "Ao conectarse a servizos poderá enviar a eles as súas publicacións en Diaspora."
     create:
       success: "Accedeu a Diaspora."
       failure: "Non puido acceder a Diaspora."
@@ -874,10 +877,12 @@ gl:
     publisher:
       posting: "Publicando…"
       share: "Compartir"
+      preview: "Vista previa"
       post_a_message_to: "Publicar unha mensaxe en %{aspect}"
       make_public: "Facer público"
       all: "Todos"
       upload_photos: "Subir imaxes"
+      get_location: "Obter a súa posición"
       all_contacts: "Todos os contactos"
       share_with: "Compartir con"
       whats_on_your_mind: "En que está a pensar?"
@@ -1097,7 +1102,7 @@ gl:
         dont_go: "Non marche, por favor!"
         make_diaspora_better: "Queremos que nos axude a mellorar Diaspora, así que debería axudar en vez de marchar. Pero se vai marchar, queremos que saiba o que lle espera."
         mr_wiggles: 'Botarémolo de menos.'
-        what_we_delete: "Eliminaranse as súas publicacións e datos do perfil canto antes. Os seus comentarios seguirán por aí, salvo que estean asociados co seu identificador de Diaspora."
+        what_we_delete: "Eliminaranse as súas publicacións e datos do perfil canto antes. Os seus comentarios seguirán por aí, pero pasarán a estar asociados co seu identificador de Diaspora en lugar do seu nome."
         locked_out: "Pecharase a súas sesión e non poderá volver entrar coa súa conta."
         lock_username: "Se lle entra a morriña, non poderá volver empregar o seu usuario."
         no_turning_back: "De momento, non hai xeito de volver atrás."
