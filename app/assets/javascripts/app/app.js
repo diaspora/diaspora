@@ -34,7 +34,11 @@ var app = {
   initialize: function() {
     app.router = new app.Router();
 
-    app.currentUser = app.user(window.current_user_attributes) || new app.models.User()
+    var currentUser = false;
+    if (window.preloads != undefined) {
+      currentUser = app.user(window.preloads.user)
+    }
+    app.currentUser = currentUser || new app.models.User();
 
     if(app.currentUser.authenticated()){
       app.header = new app.views.Header();
