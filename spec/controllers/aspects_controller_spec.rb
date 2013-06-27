@@ -47,6 +47,30 @@ describe AspectsController do
   end
 
   describe "#create" do
+    context "strong parameters" do
+      it "permits 'name', 'contacts_visible' and 'order_id'" do
+        post :create, "aspect" => {
+          "name" => "new aspect",
+          "contacts_visible" => true,
+          "order_id" => 1
+        }
+        aspect = alice.aspects.last
+        aspect.name.should eq("new aspect")
+        aspect.contacts_visible.should eq(true)
+        aspect.order_id.should eq(1)
+      end
+      
+      it "forbids other params" do
+        post :create, "aspect" => {
+          "name" => "new aspect",
+          "user_id" => 123
+        }
+        aspect = Aspect.last
+        aspect.name.should eq("new aspect")
+        aspect.user_id.should_not eq(123)
+      end
+    end
+
     context "with valid params" do
       it "creates an aspect" do
         alice.aspects.count.should == 2
@@ -97,6 +121,30 @@ describe AspectsController do
       @alices_aspect_1 = alice.aspects.create(:name => "Bruisers")
     end
 
+    context "strong parameters" do
+      it "permits 'name', 'contacts_visible' and 'order_id'" do
+        put 'update', :id => @alices_aspect_1.id, "aspect" => {
+          "name" => "new aspect",
+          "contacts_visible" => true,
+          "order_id" => 1
+        }
+        aspect = Aspect.find(@alices_aspect_1.id)
+        aspect.name.should eq("new aspect")
+        aspect.contacts_visible.should eq(true)
+        aspect.order_id.should eq(1)
+      end
+      
+      it "forbids other params" do
+        put :update, :id => @alices_aspect_1.id, "aspect" => {
+          "name" => "new aspect",
+          "user_id" => 123
+        }
+        aspect = Aspect.find(@alices_aspect_1.id)
+        aspect.name.should eq("new aspect")
+        aspect.user_id.should_not eq(123)
+      end
+    end
+    
     it "doesn't overwrite random attributes" do
       new_user = FactoryGirl.create :user
       params = {"name" => "Bruisers"}

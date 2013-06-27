@@ -10,7 +10,7 @@ class AspectsController < ApplicationController
              :json
 
   def create
-    @aspect = current_user.aspects.build(params[:aspect])
+    @aspect = current_user.aspects.build(aspect_params)
     aspecting_person_id = params[:aspect][:person_id]
 
     if @aspect.save
@@ -92,7 +92,7 @@ class AspectsController < ApplicationController
   def update
     @aspect = current_user.aspects.where(:id => params[:id]).first
 
-    if @aspect.update_attributes!(params[:aspect])
+    if @aspect.update_attributes!(aspect_params)
       flash[:notice] = I18n.t 'aspects.update.success', :name => @aspect.name
     else
       flash[:error] = I18n.t 'aspects.update.failure', :name => @aspect.name
@@ -120,5 +120,9 @@ class AspectsController < ApplicationController
     else
       @contact = current_user.share_with(@person, @aspect)
     end
+  end
+
+  def aspect_params
+    params.require(:aspect).permit(:name, :contacts_visible, :order_id)
   end
 end

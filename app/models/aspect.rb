@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 class Aspect < ActiveRecord::Base
+  include ActiveModel::ForbiddenAttributesProtection
+  
   belongs_to :user
 
   has_many :aspect_memberships, :dependent => :destroy
@@ -15,8 +17,6 @@ class Aspect < ActiveRecord::Base
   validates :name, :presence => true, :length => { :maximum => 20 }
 
   validates_uniqueness_of :name, :scope => :user_id, :case_sensitive => false
-
-  attr_accessible :name, :contacts_visible, :order_id
 
   before_validation do
     name.strip!
