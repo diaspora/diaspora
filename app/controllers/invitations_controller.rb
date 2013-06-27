@@ -61,7 +61,6 @@ class InvitationsController < ApplicationController
       Workers::Mail::InviteEmail.perform_async(valid_emails.join(','),
                                                current_user.id,
                                                params[:email_inviter])
-
     end
 
     if emails.empty?
@@ -98,5 +97,9 @@ class InvitationsController < ApplicationController
     value = session[key].join(', ').html_safe
     session[key] = nil
     return value
+  end
+
+  def email_inviter_params
+    params.require(:email_inviter).permit(:message, :locale, :emails)
   end
 end
