@@ -34,13 +34,14 @@ class ConversationsController < ApplicationController
       person_ids = Contact.where(:id => params[:contact_ids].split(',')).map(&:person_id)
     end
 
-    params[:conversation][:participant_ids] = [*person_ids] | [current_user.person_id]
-    params[:conversation][:author] = current_user.person
-    message_text = params[:conversation].delete(:text)
-    params[:conversation][:messages_attributes] = [ {:author => current_user.person, :text => message_text }]
+    @conversation = Conversation.new
+    @conversation.subject = params[:conversation][:subject]
+    @conversation.participant_ids = [*person_ids] | [current_user.person_id]
+    @conversation.author = current_user.person
+    message_text = params[:conversation][:text]
+    @conversation.messages_attributes = [ {:author => current_user.person, :text => message_text }]
 
     @response = {}
-    @conversation = Conversation.new(params[:conversation])
     if person_ids.present? && @conversation.save
       Postzord::Dispatcher.build(current_user, @conversation).post
       @response[:success] = true
