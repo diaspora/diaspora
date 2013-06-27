@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   include Connecting
   include Querying
   include SocialActions
+  include ActiveModel::ForbiddenAttributesProtection
 
   scope :logged_in_since, lambda { |time| where('last_sign_in_at > ?', time) }
   scope :monthly_actives, lambda { |time = Time.now| logged_in_since(time - 1.month) }
@@ -66,21 +67,6 @@ class User < ActiveRecord::Base
 
   before_save :guard_unconfirmed_email,
               :save_person!
-
-  attr_accessible :username,
-                  :email,
-                  :getting_started,
-                  :password,
-                  :password_confirmation,
-                  :language,
-                  :disable_mail,
-                  :invitation_service,
-                  :invitation_identifier,
-                  :show_community_spotlight_in_stream,
-                  :auto_follow_back,
-                  :auto_follow_back_aspect_id,
-                  :remember_me
-
 
   def self.all_sharing_with_person(person)
     User.joins(:contacts).where(:contacts => {:person_id => person.id})
