@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429073928) do
+ActiveRecord::Schema.define(:version => 20130613203350) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -213,7 +213,7 @@ ActiveRecord::Schema.define(:version => 20130429073928) do
     t.text   "data",                 :null => false
   end
 
-  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url"
 
   create_table "participations", :force => true do |t|
     t.string   "guid"
@@ -297,7 +297,7 @@ ActiveRecord::Schema.define(:version => 20130429073928) do
     t.string   "provider_display_name"
     t.string   "actor_url"
     t.string   "objectId"
-    t.string   "root_guid",             :limit => 30
+    t.string   "root_guid"
     t.string   "status_message_guid"
     t.integer  "likes_count",                         :default => 0
     t.integer  "comments_count",                      :default => 0
