@@ -14,7 +14,7 @@ Feature: private messages
     Given I send a message with subject "Greetings" and text "hello, alice!" to "Alice Awesome"
     Then I should see "Greetings" within "#conversation_inbox"
     And I should see "Greetings" within "#conversation_show"
-    And I follow "Participants"
+    And I click on selector "a.participants_link"
     Then I should see the participants popover
     And I should see "Alice Awesome" as part of the participants popover
     And I should see "Robert Grimm" as part of the participants popover

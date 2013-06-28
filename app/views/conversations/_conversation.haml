@@ -21,5 +21,5 @@
           - if authors[conversation.id].present?
             = authors[conversation.id].name
  
-          = link_to t('.participants'), '#', :class => 'participants_link', :"data-conversation-id" => conversation.id
+          = link_to content_tag(:span, nil, class: 'icons-users', title: t('.participants')), '#', :class => 'participants_link', "data-conversation-id" => conversation.id
           = render :partial => 'participants_popover', :locals => { :conversation => conversation }
