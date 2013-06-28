@@ -6,31 +6,36 @@
 
 zh-TW:
   javascripts:
+    and: "及"
     aspect_dropdown:
       add_to_aspect: "加聯絡人"
       all_aspects: "所有面向"
-      error: "無法開始和 <%= name %> 分享. 你還在忽視他們嗎?"
+      error: "無法開始和 <%= name %> 分享。你還在忽視他們嗎？"
+      error_remove: "無法把 <%= name %> 從面向中移除 :("
       select_aspects: "選面向"
-      started_sharing_with: "你開始和 <%= name %> 分享了!"
-      stopped_sharing_with: "你停止和 <%= name %> 分享了."
+      started_sharing_with: "你開始和 <%= name %> 分享了！"
+      stopped_sharing_with: "停止和 <%= name %> 分享了。"
       toggle:
-        other: "在<% count %>個面向中"
+        other: "在<%= count %>個面向中"
         zero: "選面向"
     aspect_navigation:
+      add_an_aspect: "+ 新增面向"
       deselect_all: "全不選"
       no_aspects: "沒選任何一個面向"
       select_all: "全選"
+    comma: "，"
     comments:
       hide: "隱藏意見"
       show: "顯示所有意見"
-    confirm_dialog: "你確定嗎?"
+    confirm_dialog: "你確定嗎？"
     delete: "刪除"
-    failed_to_like: "說讚失敗!"
-    failed_to_post_message: "貼文失敗!"
+    edit: "編輯"
+    failed_to_like: "說讚失敗！"
+    failed_to_post_message: "貼文失敗！"
     getting_started:
-      alright_ill_wait: "好吧, 以後再說."
-      hey: "嘿, <% name %>!"
-      no_tags: "嘿, 你還沒有追蹤任何標籤! 要往下一步嗎?"
+      alright_ill_wait: "好，再說吧。"
+      hey: "嗨，<%= name %>！"
+      no_tags: "咦，你還沒有追蹤任何標籤耶！要往下一步嗎？"
       preparing_your_stream: "整理你個人的流水帳中..."
     header:
       admin: "管理"
@@ -47,28 +52,40 @@ zh-TW:
       settings: "設定"
       view_all: "看全部"
     ignore: "忽視"
-    ignore_user: "要忽視這個使用者嗎?"
+    ignore_user: "要忽視這個使用者嗎？"
     infinite_scroll:
-      no_more: "沒有貼文了."
+      no_more: "沒有貼文了。"
+      no_more_contacts: "沒有聯絡人了。"
     my_activity: "我的活動"
+    my_aspects: "我的面向"
     my_stream: "流水帳"
     people:
       not_found: "找不到任何人..."
     photo_uploader:
-      looking_good: "天啊, 你看起來真帥!"
+      completed: "檔案 <%= file %> 完成了"
+      empty: "檔案 {file} 是空的，請不要選它再重選一次。"
+      invalid_ext: "檔案 {file} 的副檔名不合格。僅接受 {extensions}。"
+      looking_good: "天啊，你看起來真帥！"
+      size_error: "檔案 {file} 太大了，上限是{sizeLimit}。"
     publisher:
       at_least_one_aspect: "發表時請至少選擇一個面向"
       limited: "限制 - 只有你想分享的人才看得到你的貼文"
-      public: "公開 - 所有人都能看到你的貼文, 包括搜尋引擎"
+      near_from: "靠近：<%= location %>"
+      public: "公開 - 所有人都能看到你的貼文，包括搜尋引擎"
     reshares:
-      duplicate: "很棒對吧? 你已經轉貼過該篇貼文了!"
-      post: "要轉貼 <%= name %> 的貼文嗎?"
-      successful: "貼文轉貼成功!"
+      duplicate: "很棒對吧？你已經轉貼過該篇貼文了！"
+      post: "要轉貼 <%= name %> 的貼文嗎？"
+      successful: "貼文轉貼成功！"
     search_for: "搜尋 <%= name %>"
     show_more: "顯示更多"
     stream:
       comment: "意見"
       follow: "追蹤"
+      followed_tag:
+        add_a_tag: "新增標籤"
+        contacts_title: "這些標籤的粉絲"
+        follow: "追蹤"
+        title: "#追蹤中的標籤"
       hide: "隱藏"
       hide_nsfw_posts: "隱藏 #nsfw (上班時不宜)的貼文"
       like: "讚"
@@ -79,7 +96,7 @@ zh-TW:
       more_comments:
         other: "顯示另外<%= count %>個意見"
         zero: "顯示另外<%= count %>個意見"
-      original_post_deleted: "原貼文已經被作者刪除了."
+      original_post_deleted: "原貼文已經被作者刪除了。"
       public: "公開"
       reshare: "轉貼"
       reshares:
@@ -87,10 +104,14 @@ zh-TW:
         zero: "被轉貼<%= count %>次"
       show_nsfw_post: "顯示貼文"
       show_nsfw_posts: "全都顯示"
+      tags:
+        follow: "追蹤 #<%= tag %>"
+        following: "正在追蹤 #<%= tag %>"
+        stop_following: "停止追蹤 #<%= tag %>"
       unfollow: "取消追蹤"
       unlike: "收回讚"
     tags:
-      wasnt_that_interesting: "OK, 我想 #<% tagName %> 大概沒那麼有趣..."
+      wasnt_that_interesting: "OK，我想 #<%= tagName %> 大概沒那麼有趣..."
     timeago:
       day: "一天"
       days: "%d天"

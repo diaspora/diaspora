@@ -30,6 +30,8 @@ sk:
       hide: "Skryť komentáre"
       show: "Zobraziť všetky komentáre"
     confirm_dialog: "Určite?"
+    conversation:
+      participants: "Účastníci"
     delete: "Odstrániť"
     edit: "Upraviť"
     failed_to_like: "Nepodarilo sa označiť, že sa ti to páči!"
@@ -57,6 +59,7 @@ sk:
     ignore_user: "Ignorovať tohto používateľa?"
     infinite_scroll:
       no_more: "Žiadne ďalšie príspevky."
+      no_more_contacts: "Žiadne ďalšie kontakty."
     my_activity: "Moja aktivita"
     my_aspects: "Moje kategórie"
     my_stream: "Nástenka"
@@ -71,6 +74,7 @@ sk:
     publisher:
       at_least_one_aspect: "Musíš publikovať aspoň jednu kategóriu"
       limited: "Vyhradený – tvoj príspevok uvidia len ľudia, s ktorými sa oň podelíš"
+      near_from: "Blízko obce:<%= location %>"
       public: "Verejný – tvoj príspevok pomocou vyhľadávačov uvidí a nájde každý"
     reshares:
       duplicate: "Je to dobré, čo? O tento príspevok si sa už raz znova podelil(a)!"

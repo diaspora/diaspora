@@ -285,6 +285,8 @@ sv:
     two: "%{count} kontakter"
     zero: "kontakter"
   conversations:
+    conversation:
+      participants: "Deltagare"
     create:
       fail: "Ogiltigt meddelande"
       no_contact: "Hallå där! Du måste först lägga till kontakten."
@@ -806,6 +808,7 @@ sv:
       all: "alla"
       all_contacts: "alla kontakter"
       discard_post: "Släng inlägg"
+      get_location: "Hämta din position"
       make_public: "gör publik"
       new_user_prefill:
         hello: "Hej allihop, jag är #%{new_user_tag}. "

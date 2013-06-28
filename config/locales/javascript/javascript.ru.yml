@@ -6,10 +6,12 @@
 
 ru:
   javascripts:
+    and: "и"
     aspect_dropdown:
       add_to_aspect: "Добавить контакт"
       all_aspects: "Все аспекты"
       error: "Невозможно начать делиться с пользователем <%= name %>.  Возможно, вы его заблокировали?"
+      error_remove: "Невозможно удалить <%= name %> из аспекта :("
       select_aspects: "Выбрать аспекты"
       started_sharing_with: "Вы начали делиться с <%= name %>!"
       stopped_sharing_with: "Вы перестали делиться с <%= name %>."
@@ -21,14 +23,17 @@ ru:
         two: "В <%= count %> аспектах"
         zero: "Выбрать аспекты"
     aspect_navigation:
+      add_an_aspect: "+ Добавить аспект"
       deselect_all: "Выключить все"
       no_aspects: "Аспект не выбран"
       select_all: "Включить все"
+    comma: ","
     comments:
       hide: "скрыть комментарии"
       show: "Показать все комментарии"
     confirm_dialog: "Вы уверены? "
     delete: "Удалить"
+    edit: "Изменить"
     failed_to_like: "Не удалось!"
     failed_to_post_message: "Не удалось отправить сообщение!"
     getting_started:
@@ -51,17 +56,25 @@ ru:
       settings: "Настройки"
       view_all: "Посмотреть все"
     ignore: "Блокировать"
+    ignore_user: "Игнорировать этого пользователя?"
     infinite_scroll:
       no_more: "Сообщений больше нет."
+      no_more_contacts: "Контактов больше нет."
     my_activity: "Моя активность"
+    my_aspects: "Мои аспекты"
     my_stream: "Поток"
     people:
       not_found: "и не найдено никого..."
     photo_uploader:
+      completed: "<%= file %> готово"
+      empty: "{file} пуст, выберите пожалуйста файл повторно."
+      invalid_ext: "{file} имеет недопустимое расширение. Разрешены только {extensions}."
       looking_good: "Боже мой, вы выглядите потрясающе!"
+      size_error: "{file} имеет слишком большой размер, максимальный размер файла: {sizeLimit}."
     publisher:
       at_least_one_aspect: "Вам надо создать как минимум один аспект"
       limited: "Ограниченная - ваша запись будет видна только указанным вами людям"
+      near_from: "Рядом с: <%= location %>"
       public: "Публичная - ваша запись будет видна всем, включая поисковые системы"
     reshares:
       duplicate: "Настолько круто, да? Вы уже поделились этой записью!"
@@ -72,6 +85,11 @@ ru:
     stream:
       comment: "Комментировать"
       follow: "Следить"
+      followed_tag:
+        add_a_tag: "Добавить метку"
+        contacts_title: "Люди, которые интересуются этими метками"
+        follow: "Следить"
+        title: "#Метки"
       hide: "Скрыть"
       hide_nsfw_posts: "Скрыть записи #nsfw"
       like: "Мне нравится"
@@ -101,6 +119,10 @@ ru:
         zero: "Поделились: <%= count %>"
       show_nsfw_post: "Показать запись"
       show_nsfw_posts: "Показать все"
+      tags:
+        follow: "Следить за меткой #<%= tag %>"
+        following: "Вы следите за меткой #<%= tag %>"
+        stop_following: "Не следить за меткой #<%= tag %>"
       unfollow: "Не следить"
       unlike: "Не нравится"
     tags:
@@ -114,7 +136,7 @@ ru:
       minutes: "%d минут[-ы]"
       month: "около месяца"
       months: "%d месяца[-ев]"
-      prefixAgo: ""
+      prefixAgo: "до"
       prefixFromNow: "через"
       seconds: "несколько секунд"
       suffixAgo: "назад"

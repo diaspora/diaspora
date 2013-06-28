@@ -1,0 +1,53 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+wo:
+  javascripts:
+    and: "ak"
+    comma: ","
+    edit: "Soppil"
+    getting_started:
+      alright_ill_wait: "Baax na, damay xaar."
+    header:
+      home: "Kër gi"
+      log_out: "Génnu"
+      profile: "Xibaar yu la Ñeel"
+      settings: "Tànneef"
+      view_all: "Xoolal yëpp"
+    my_stream: "Seyaan"
+    stream:
+      follow: "Toppal"
+      followed_tag:
+        follow: "Toppal"
+      hide: "Nëbbal"
+      like: "Bëgg"
+      likes:
+        other: "<%= count %>i Bëgg"
+        zero: "<%= count %>i Bëgg"
+      reshare: "Bokkaat"
+      reshares:
+        other: "<%= count %>i Bokkaat"
+        zero: "<%= count %>i Bokkaat"
+      show_nsfw_posts: "Wonel yëpp"
+      tags:
+        follow: "Toppal #<%= tag %>"
+        following: "Dangay topp #<%= tag %>"
+        stop_following: "Bul topp #<%= tag %>"
+      unfollow: "Du topp"
+      unlike: "Du bëgg"
+    timeago:
+      day: "bés"
+      days: "%di bés"
+      months: "%di weer"
+      prefixAgo: ""
+      prefixFromNow: ""
+      suffixAgo: ""
+      suffixFromNow: ""
+      years: "%di at"
+    viewer:
+      home: "KËR GI"
+      like: "Bëgg"
+      unlike: "Du bëgg"

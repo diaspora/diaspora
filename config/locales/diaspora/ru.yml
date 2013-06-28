@@ -45,6 +45,7 @@ ru:
       correlations: "Корреляции"
       pages: "Страницы"
       pod_stats: "Статистика пода"
+      sidekiq_monitor: "Монитор Sidekiq"
       user_search: "Поиск пользователей"
       weekly_user_stats: "Еженедельная пользовательская статистика"
     correlations:
@@ -168,6 +169,8 @@ ru:
       donate: "Пожертвовать"
       handle_explanation: "Это ваш идентификатор в Диаспоре. Как и адрес электронной почты, вы можете дать его людям для связи с вами."
       help:
+        any_problem: "Есть проблемы?"
+        contact_podmin: "Свяжитесь с администратором вашего пода!"
         do_you: "Вы:"
         email_feedback: "%{link}: еще один способ связи с нами."
         email_link: "Email"
@@ -175,6 +178,7 @@ ru:
         find_a_bug: "... нашли ошибку (%{link})?"
         have_a_question: "... хотите задать вопрос (%{link})?"
         here_to_help: "Сообщество Диаспоры всегда рядом!"
+        mail_podmin: "Адрес электронной почты подмина"
         need_help: "Нужна помощь?"
         tag_bug: "ошибка"
         tag_feature: "функция"
@@ -289,11 +293,13 @@ ru:
       people_sharing: "делятся с вами:"
     spotlight:
       community_spotlight: "В центре внимания"
+      suggest_member: "Предложить пользователя"
     two: "%{count} контакта"
     zero: "0 контактов"
   conversations:
     create:
       fail: "Неверное сообщение"
+      no_contact: "Эй, вам нужно сначала добавить контакт!"
       sent: "Сообщение отправлено"
     destroy:
       success: "Разговор успешно удален"
@@ -348,10 +354,12 @@ ru:
     create:
       already_contacts: "Вы уже связаны с этим человеком"
       already_sent: "Вы уже пригласили этого человека."
+      empty: "Пожалуйста введите хотя бы один адрес электронной почты."
       no_more: "У вас закончились приглашения."
+      note_already_sent: "Приглашения уже были высланы на: %{emails}"
       own_address: "Вы не можете отправить приглашение на ваш собственный адрес."
       rejected: "Есть проблемы со следующими адресами электронной почты:"
-      sent: "Ваши приглашения отправлены:"
+      sent: "Ваши приглашения отправлены на: %{emails}"
     edit:
       accept_your_invitation: "Принять ваше приглашение"
       your_account_awaits: "Ваш аккаунт ждет вас!"
@@ -636,7 +644,7 @@ ru:
     destroy:
       notice: "Фотография удалена."
     edit:
-      editing: "Редактирование"
+      editing: "Изменить"
     new:
       back_to_list: "Вернуться к списку"
       new_photo: "Новая фотография"
@@ -733,6 +741,7 @@ ru:
       hey_make: "ПРИВЕТ,<br/>СОЗДАЙТЕ<br/>ЧТО-НИБУДЬ."
       join_the_movement: "Присоединяйтесь к движению!"
       password: "ПАРОЛЬ"
+      password_confirmation: "ПОДТВЕРЖДЕНИЕ ПАРОЛЯ"
       sign_up: "РЕГИСТРАЦИЯ"
       sign_up_message: "Социальная сеть с ♥"
       username: "ИМЯ ПОЛЬЗОВАТЕЛЯ"
@@ -795,6 +804,7 @@ ru:
       logged_in_as: "Вы вошли как"
       no_services: "Вы еще не подключили ни одной службы."
       really_disconnect: "отключить %{service}?"
+      services_explanation: "Подключение к службам дает вам возможность публиковать на них ваши сообщения написанные в Диаспоре."
     inviter:
       click_link_to_accept_invitation: "Перейдите по этой ссылке для принятия вашего приглашения"
       join_me_on_diaspora: "Присоединяйтесь ко мне в DIASPORA*"
@@ -845,7 +855,7 @@ ru:
       atom_feed: "Atom-лента"
       control_your_audience: "Выбирайте свою аудиторию"
       logged_in: "вошли в %{service}"
-      manage: "управление подключенными сервисами"
+      manage: "Управление подключенными сервисами"
       new_user_welcome_message: "Используйте #метки для классификации своих записей и поиска людей со схожими интересами. Привлекайте внимание интересных людей с помощью @упоминаний."
       outside: "Публичные сообщения доступны для чтения всем, даже за пределами Диаспоры."
       share: "Делитесь"
@@ -855,6 +865,7 @@ ru:
       all: "все"
       all_contacts: "все контакты"
       discard_post: "Отменить запись"
+      get_location: "Получаем ваше месторасположение"
       make_public: "сделать публичным"
       new_user_prefill:
         hello: "Всем привет, я #%{new_user_tag}."
@@ -863,6 +874,7 @@ ru:
         newhere: "новичок"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: "Отправка..."
+      preview: "Предпросмотр"
       publishing_to: "публикация в:"
       share: "Поделиться"
       share_with: "поделиться с"
@@ -920,7 +932,7 @@ ru:
     community_spotlight_stream: "В центре внимания"
     followed_tag:
       add_a_tag: "Добавить метку"
-      contacts_title: "Интересуются этими метками"
+      contacts_title: "Люди, которые интересуются этими метками"
       follow: "Следить"
       title: "#Метки"
     followed_tags_stream: "#Метки"
@@ -938,7 +950,7 @@ ru:
       contacts_title: "Последние публиковавшие"
       title: "Публичная активность"
     tags:
-      contacts_title: "Люди, которым нравятся эта метка"
+      contacts_title: "Люди, которым интересна эта метка"
       tag_prefill_text: "По поводу метки %{tag_name}..."
       title: "Записи, отмеченные: %{tags}"
   tag_followings:
@@ -1027,6 +1039,8 @@ ru:
     getting_started:
       awesome_take_me_to_diaspora: "Чудесно! Пустите меня в Диаспору*"
       community_welcome: "Сообщество Диаспоры радо приветствовать вас!"
+      connect_to_facebook: "Мы можем немного ускорить процесс через %{link} на Диаспору. Это действие подгрузит ваше имя и фото, а также добавит кросспостинг."
+      connect_to_facebook_link: "Подключаем ваш аккаунт Facebook"
       hashtag_explanation: "Метки позволяют вам обсуждать и следить за интересующими вас темами. Это также отличный способ поиска единомышленников в Диаспоре."
       hashtag_suggestions: "Попробуйте следующие метки, например #искусство, #кино, #gif и т. п."
       saved: "Сохранено!"

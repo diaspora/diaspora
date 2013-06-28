@@ -55,8 +55,10 @@ ko:
       settings: "설정"
       view_all: "모두 보기"
     ignore: "무시하기"
+    ignore_user: "이 사용자를 무시할까요?"
     infinite_scroll:
       no_more: "게시물이 더 없습니다."
+      no_more_contacts: "컨택 끝."
     my_activity: "내 활동"
     my_aspects: "내 애스펙"
     my_stream: "스트림"
@@ -71,6 +73,7 @@ ko:
     publisher:
       at_least_one_aspect: "공유하려면 적어도 한 애스펙을 골라야 합니다."
       limited: "제한됨 - 내 게시물을 나와 공유하고 있는 사람들만 볼 수 있습니다"
+      near_from: "<%= location %> 근처"
       public: "공개 - 내 게시물을 누구나 볼 수 있고 검색 엔진으로 찾을 수 있습니다"
     reshares:
       duplicate: "이미 재공유된 게시물입니다!"

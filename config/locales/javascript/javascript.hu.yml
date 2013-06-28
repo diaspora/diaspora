@@ -32,6 +32,8 @@ hu:
       hide: "hozzászólások elrejtése"
       show: "összes hozzászólás"
     confirm_dialog: "Biztos vagy benne?"
+    conversation:
+      participants: "Résztvevők"
     delete: "Töröl"
     edit: "Szerkesztés"
     failed_to_like: "Hiba"
@@ -74,6 +76,7 @@ hu:
     publisher:
       at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
+      near_from: "<%= location %> közelében"
       public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
     reshares:
       duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"

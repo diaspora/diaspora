@@ -45,6 +45,7 @@ ia:
       correlations: "Correlationes"
       pages: "Paginas"
       pod_stats: "Statisticas de pod"
+      sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Recerca de usatores"
       weekly_user_stats: "Statisticas septimanal de usatores"
     correlations:
@@ -618,6 +619,7 @@ ia:
       logged_in_as: "identificate como"
       no_services: "Tu non ha ancora connectite alcun servicio."
       really_disconnect: "disconnecter %{service}?"
+      services_explanation: "Le connexion a servicios da le possibilitate de publicar tu messages anque in illos si tu los scribe in Diaspora."
     inviter:
       click_link_to_accept_invitation: "Seque iste ligamine pro acceptar tu invitation"
       join_me_on_diaspora: "Uni te a me in DIASPORA*"
@@ -671,6 +673,7 @@ ia:
       all: "totes"
       all_contacts: "tote le contactos"
       discard_post: "Abandonar message"
+      get_location: "Localisar te"
       make_public: "render public"
       new_user_prefill:
         hello: "Salute, io es un %{new_user_tag}. "
@@ -679,6 +682,7 @@ ia:
         newhere: "usator nove"
       post_a_message_to: "Inviar un message a %{aspect}"
       posting: "Invio in curso…"
+      preview: "Previsualisation"
       publishing_to: "va publicar in: "
       share: "Divider"
       share_with: "divider con"
@@ -803,7 +807,7 @@ ia:
         make_diaspora_better: "Nos ha besonio de adjuta pro meliorar Diaspora, dunque, per favor contribue in loco de partir. Si tu vermente vole partir, nos vole informar te de lo que evenira."
         mr_wiggles: "Sr. Wiggles essera triste de vider te partir"
         no_turning_back: "Tu ha arrivate al puncto de non retorno."
-        what_we_delete: "Nos va deler, si tosto que possibile, tote tu entratas e datos de profilo tue. Tu commentos remanera, ma essera associate solmente con tu ID de Diaspora."
+        what_we_delete: "Nos va deler, le plus tosto possibile, tote le entratas e datos de profilo pertinente a te. Tu commentos remanera, ma essera associate con tu ID de Diaspora in loco de tu nomine."
       close_account_text: "Clauder conto"
       comment_on_post: "...un persona commenta un entrata tue?"
       current_password: "Contrasigno actual"

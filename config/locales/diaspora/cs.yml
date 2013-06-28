@@ -342,10 +342,8 @@ cs:
     likes:
       people_dislike_this:
         few: "%{count} uživatelům se to nelíbí"
-        many: "%{count} lidem se to nelíbí"
         one: "jednomu uživateli se to nelíbí"
         other: "%{count} uživatelům se to nelíbí"
-        two: "%{count} dislikes"
         zero: "žádná záporná hodnocení"
       people_like_this:
         few: "%{count} uživatelům se to líbí"
@@ -380,35 +378,27 @@ cs:
     helper:
       new_notifications:
         few: "%{count} nová upozornění"
-        many: "%{count} nových oznámení"
         one: "Jedno nové upozornění"
         other: "%{count} nových upozornění"
-        two: "%{count} nová oznámení"
         zero: "Žádná nová upozornění"
     index:
       and: "a"
       and_others:
         few: "a %{count} další"
-        many: "a %{count} dalších"
         one: "a ještě jeden"
         other: "a %{count} dalších"
-        two: "a %{count} další"
         zero: "a nikdo další"
       mark_all_as_read: "Označit vše jako přečtené"
       notifications: "Oznámení"
     liked:
       few: "%{actors} se líbí váš %{post_link}."
-      many: "%{actors} se zalíbil váš %{post_link}."
       one: "%{actors} se líbí váš %{post_link}."
       other: "%{actors} se líbí váš %{post_link}."
-      two: "%{actors} se zalíbil váš %{post_link}."
       zero: "%{actors} se líbí váš %{post_link}."
     liked_post_deleted:
       few: "%{actors} se líbil váš smazaný příspěvek."
-      many: "%{actors} se líbil váš odstraněný příspěvek."
       one: "%{actors} se líbil váš smazaný příspěvek."
       other: "%{actors} se líbil váš smazaný příspěvek."
-      two: "%{actors} se líbil váš odstraněný příspěvek."
       zero: "%{actors} se líbil váš smazaný příspěvek."
     mentioned:
       few: "%{actors} vás zmínili na %{post_link}."
@@ -644,10 +634,8 @@ cs:
     helper:
       new_requests:
         few: "%{count} nové žádosti!"
-        many: "%{count} nové žádosti!"
         one: "jedna nová žádost!"
         other: "%{count} nových žádostí!"
-        two: "%{count} nové žádosti!"
         zero: "žádné nové žádosti"
     manage_aspect_contacts:
       existing: "Existující kontakty"
@@ -796,10 +784,8 @@ cs:
     hide_comments: "Skrýt všechny komentáře"
     show_comments:
       few: "Zobrazit %{count} dalších komentářů"
-      many: "Zobrazit %{count} dalších komentářů"
       one: "Zobrazit jeden další komentář"
       other: "Zobrazit %{count} dalších komentářů"
-      two: "Zobrazit 2 další komentáře"
       zero: "Žádné další komentáře"
   streams:
     activity:

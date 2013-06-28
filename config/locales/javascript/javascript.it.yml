@@ -32,6 +32,8 @@ it:
       hide: "nascondi i commenti"
       show: "mostra tutti i commenti"
     confirm_dialog: "Sei sicuro?"
+    conversation:
+      participants: "Partecipanti"
     delete: "Elimina"
     edit: "Modifica"
     failed_to_like: "Errore, il \"mi piace\" non è stato inviato!"
@@ -59,7 +61,7 @@ it:
     ignore_user: "Ignora utente?"
     infinite_scroll:
       no_more: "Non ci sono altri post."
-      no_more_contacts: "Non ci sono altri contatti"
+      no_more_contacts: "Non ci sono altri contatti."
     my_activity: "Attività"
     my_aspects: "I miei aspetti"
     my_stream: "Stream"
@@ -74,6 +76,7 @@ it:
     publisher:
       at_least_one_aspect: "Devi scegliere almeno un aspetto"
       limited: "Non pubblico - il tuo post sarà visibile solamente a coloro con cui lo condividi"
+      near_from: "Vicino a: <%= location %>"
       public: "Pubblico - il tuo post sarà visibile a tutti, inclusi i motori di ricerca"
     reshares:
       duplicate: "Bello eh? Ma hai già condiviso quel post!"
@@ -86,9 +89,9 @@ it:
       follow: "Segui"
       followed_tag:
         add_a_tag: "Aggiungi un tag"
-        contacts_title: "Persone che apprezzano queste tag"
+        contacts_title: "Persone che seguono questi tag"
         follow: "Segui"
-        title: "#Tag seguite"
+        title: "#Tag seguiti"
       hide: "Nascondi"
       hide_nsfw_posts: "Nascondi i post #nsfw"
       like: "Mi piace"

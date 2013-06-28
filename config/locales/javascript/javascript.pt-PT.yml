@@ -11,6 +11,7 @@ pt-PT:
       add_to_aspect: "Adicionar contacto"
       all_aspects: "Todos os grupos"
       error: "Não foi possível começar a partilhar com {{name}}. Você está a ignorá-los?"
+      error_remove: "Não pode remover <%= name %> nesse grupo :("
       select_aspects: "Selecionar grupos"
       started_sharing_with: "Começou a partilhar com <%= name %>!"
       stopped_sharing_with: "Deixou de partilhar com {{name}}."
@@ -19,6 +20,7 @@ pt-PT:
         other: "Em <%=count %> grupos"
         zero: "Selecione os grupos"
     aspect_navigation:
+      add_an_aspect: "+ Adicionar um grupo"
       deselect_all: "Desmarcar todos"
       no_aspects: "Nenhuns aspectos selecionados"
       select_all: "Selecionar todos"
@@ -54,7 +56,9 @@ pt-PT:
     ignore_user: "Ignorar este utilizador?"
     infinite_scroll:
       no_more: "Não há mais publicações."
+      no_more_contacts: "Sem mais contatos."
     my_activity: "Minha atividade"
+    my_aspects: "Os meus grupos"
     my_stream: "Fluxo"
     people:
       not_found: "e ninguém foi encontrado..."
@@ -67,6 +71,7 @@ pt-PT:
     publisher:
       at_least_one_aspect: "Tem de publicar em pelo menos um grupo"
       limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está a partilhar"
+      near_from: "Perto de: <%= location %>"
       public: "Público - A sua publicação será visível para todos e encontrada por motores de busca"
     reshares:
       duplicate: "Que bom, hein? Você já republicou essa mensagem!"

@@ -285,6 +285,8 @@ es-AR:
     two: "%{count} contactos"
     zero: "contactos"
   conversations:
+    conversation:
+      participants: "Participantes"
     create:
       fail: "Mensaje inválido"
       no_contact: "¡Primero necesitas agregar al contacto!"
@@ -828,6 +830,7 @@ es-AR:
       all: "todo"
       all_contacts: "todos los contactos"
       discard_post: "Descartar publicación"
+      get_location: "Obtener tu ubicación"
       make_public: "hacer público"
       new_user_prefill:
         hello: "#%{new_user_tag}, acabo de llegar aquí."
