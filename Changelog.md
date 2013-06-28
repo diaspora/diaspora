@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+* Don't focus comment form on 'show n more comments' [#4265](https://github.com/diaspora/diaspora/issues/4265)
 
 ## Features
 
