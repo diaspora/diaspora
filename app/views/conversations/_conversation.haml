@@ -2,29 +2,24 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%a.conversation{:href => conversation_path(conversation)}
+.conversation-wrapper{ :"data-conversation-path" => conversation_path(conversation) }
   .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
     .media
       .img
-        = person_image_tag(conversation.author)
+        - if authors[conversation.id].present?
+          = person_image_tag(authors[conversation.id])
 
       .bg
-        .subject
-          .message_count
-            = conversation.messages.size
-          - if unread_counts[conversation.id].to_i > 0
-            .unread_message_count
-              = unread_counts[conversation.id].to_i
-
-          %div{ :class => direction_for(conversation.subject) }
-            = conversation.subject[0..30]
+        = render(:partial => 'conversation_subject',
+                  :locals => { :conversation => conversation,
+                               :unread_count => unread_counts[conversation.id].to_i })
 
         .last_author
           .timestamp
             = t('ago', :time =>  time_ago_in_words(conversation.updated_at))
+
           - if authors[conversation.id].present?
             = authors[conversation.id].name
-
-          - if conversation.participants.size > 2
-            %span.participant_count
-              = "(+#{conversation.participants.size - 1})"
+ 
+          = link_to content_tag(:span, nil, class: 'icons-users', title: t('.participants')), '#', :class => 'participants_link', "data-conversation-id" => conversation.id
+          = render :partial => 'participants_popover', :locals => { :conversation => conversation }

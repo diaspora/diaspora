@@ -35,4 +35,6 @@
           = t('.ignoring', :name => @person.first_name)
 
     #paginate
-      %span.loader.hidden
+
+  %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
+    &#8679;

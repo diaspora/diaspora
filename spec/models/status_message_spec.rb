@@ -76,12 +76,18 @@ describe StatusMessage do
       status.should_receive(:build_tags)
       status.save
     end
+
+    it 'calls filter_mentions' do
+      status = FactoryGirl.build(:status_message)
+      status.should_receive(:filter_mentions)
+      status.save
+    end
   end
 
   describe '.after_create' do
     it 'calls create_mentions' do
-      status = FactoryGirl.build(:status_message)
-      status.should_receive(:create_mentions)
+      status = FactoryGirl.build(:status_message, text: "text @{Test; #{alice.diaspora_handle}}")
+      status.should_receive(:create_mentions).and_call_original
       status.save
     end
   end
@@ -94,6 +100,7 @@ describe StatusMessage do
       post.author.should == person
     end
   end
+
   it "should have either a message or at least one photo" do
     n = FactoryGirl.build(:status_message, :text => nil)
 #    n.valid?.should be_false
@@ -136,39 +143,6 @@ STR
       @sm = FactoryGirl.create(:status_message, :text => @test_string )
     end
 
-    describe '#format_mentions' do
-      it 'adds the links in the formated message text' do
-        message = @sm.format_mentions(@sm.raw_message)
-        message.should include(person_link(@people[0], :class => 'mention hovercardable'))
-        message.should include(person_link(@people[1], :class => 'mention hovercardable'))
-        message.should include(person_link(@people[2], :class => 'mention hovercardable'))
-      end
-
-      context 'with :plain_text option' do
-        it 'removes the mention syntax and displays the unformatted name' do
-          status  = FactoryGirl.build(:status_message, :text => "@{Barack Obama; barak@joindiaspora.com } is so cool @{Barack Obama; barak@joindiaspora.com } ")
-          status.format_mentions(status.raw_message, :plain_text => true).should == 'Barack Obama is so cool Barack Obama '
-        end
-      end
-
-      it 'leaves the name of people that cannot be found' do
-        @sm.stub(:mentioned_people).and_return([])
-        @sm.format_mentions(@sm.raw_message).should == <<-STR
-Raphael can mention people like Raphael Ilya
-can mention people like Raphaellike Raphael Daniel can mention people like Raph
-STR
-      end
-      it 'escapes the link title' do
-        p = @people[0].profile
-        p.first_name="</a><script>alert('h')</script>"
-["a", "b", "A", "C"]\
-.inject(Hash.new){ |h,element| h[element.downcase] = element  unless h[element.downcase]  ; h }\
-.values
-        p.save!
-
-        @sm.format_mentions(@sm.raw_message).should_not include(@people[0].profile.first_name)
-      end
-    end
     describe '#formatted_message' do
       it 'escapes the message' do
         xss = "</a> <script> alert('hey'); </script>"
@@ -181,15 +155,9 @@ STR
       end
     end
 
-    describe '#mentioned_people_from_string' do
-      it 'extracts the mentioned people from the message' do
-        @sm.mentioned_people_from_string.to_set.should == @people.to_set
-      end
-    end
     describe '#create_mentions' do
-
       it 'creates a mention for everyone mentioned in the message' do
-        @sm.should_receive(:mentioned_people_from_string).and_return(@people)
+        Diaspora::Mentionable.should_receive(:people_from_string).and_return(@people)
         @sm.mentions.delete_all
         @sm.create_mentions
         @sm.mentions(true).map{|m| m.person}.to_set.should == @people.to_set
@@ -203,6 +171,7 @@ STR
         }.to_not raise_error
       end
     end
+
     describe '#mentioned_people' do
       it 'calls create_mentions if there are no mentions in the db' do
         @sm.mentions.delete_all
@@ -229,23 +198,45 @@ STR
       end
     end
 
-    describe "#nsfw" do
-      it 'returns MatchObject (true) if the post contains #nsfw (however capitalised)' do
-         status  = FactoryGirl.build(:status_message, :text => "This message is #nSFw")
-         status.nsfw.should be_true
-      end
-
-      it 'returns nil (false) if the post does not contain #nsfw' do
-         status  = FactoryGirl.build(:status_message, :text => "This message is #sFW")
-         status.nsfw.should be_false
-      end
-    end
-
     describe "#notify_person" do
       it 'notifies the person mentioned' do
         Notification.should_receive(:notify).with(alice, anything, anything)
         @sm.notify_person(alice.person)
       end
+    end
+
+    describe "#filter_mentions" do
+      it 'calls Diaspora::Mentionable#filter_for_aspects' do
+        msg = FactoryGirl.build(:status_message_in_aspect)
+
+        msg_txt = msg.raw_message
+        author_usr = msg.author.owner
+        aspect_id = author_usr.aspects.first.id
+
+        Diaspora::Mentionable.should_receive(:filter_for_aspects)
+                             .with(msg_txt, author_usr, aspect_id)
+
+        msg.send(:filter_mentions)
+      end
+
+      it "doesn't do anything when public" do
+        msg = FactoryGirl.build(:status_message, public: true)
+        Diaspora::Mentionable.should_not_receive(:filter_for_aspects)
+
+        msg.send(:filter_mentions)
+      end
+    end
+  end
+
+  describe "#nsfw" do
+    it 'returns MatchObject (true) if the post contains #nsfw (however capitalised)' do
+      status  = FactoryGirl.build(:status_message, :text => "This message is #nSFw")
+      status.nsfw.should be_true
+    end
+
+    it 'returns nil (false) if the post does not contain #nsfw' do
+      status  = FactoryGirl.build(:status_message, :text => "This message is #sFW")
+      status.nsfw.should be_false
     end
   end
 

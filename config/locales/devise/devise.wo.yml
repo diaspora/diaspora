@@ -1,0 +1,36 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+wo:
+  devise:
+    mailer:
+      hello: "Na nga def %{email}?"
+      invitation_instructions:
+        cubbies: "Cubbi.es"
+        friends_saying: "Li say xarit wax..."
+        here: "fii"
+        or: "walla"
+        sign_up_now: "Sos am sàq léegi &rarr;"
+      reset_password_instructions:
+        change: "Soppil sama baatujàll"
+      welcome: "Dalal-jàmm %{email}!"
+    passwords:
+      edit:
+        change_password: "Soppil sama baatujàll"
+      new:
+        forgot_password: "Fatte nga sa baatujàll?"
+    sessions:
+      new:
+        login: "Xammeeku"
+        password: "Baatujàll"
+        remember_me: "Fattaliku ma"
+        sign_in: "Xammeeku"
+        username: "Turu Jëfandikukat"
+    shared:
+      links:
+        forgot_your_password: "Fatte nga sa baatujàll?"
+        sign_in: "Xammeeku"
+        sign_up: "Sos am sàq"

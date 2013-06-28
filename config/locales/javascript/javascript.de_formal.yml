@@ -6,10 +6,12 @@
 
 de_formal:
   javascripts:
+    and: "und"
     aspect_dropdown:
       add_to_aspect: "Kontakt hinzufügen"
       all_aspects: "Alle Aspekte"
       error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error_remove: "Konnte <%= name %> nicht vom Aspekt entfernen :("
       select_aspects: "Wählen Sie Aspekte aus"
       started_sharing_with: "Sie haben angefangen, mit {{name}} zu teilen!"
       stopped_sharing_with: "Sie haben aufgehört, mit {{name}} zu teilen!"
@@ -21,14 +23,19 @@ de_formal:
         two: "In {{count}} Aspekten"
         zero: "Aspekt auswählen"
     aspect_navigation:
+      add_an_aspect: "+ Aspekt hinzufügen"
       deselect_all: "Auswahl aufheben"
       no_aspects: "Keine Aspekte ausgewählt"
       select_all: "Alle auswählen"
+    comma: ","
     comments:
       hide: "Kommentare verbergen"
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Sind Sie sich sicher?"
+    conversation:
+      participants: "Teilnehmer"
     delete: "Löschen"
+    edit: "Bearbeiten"
     failed_to_like: "Gefällt mir fehlgeschlagen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started:
@@ -38,53 +45,78 @@ de_formal:
       preparing_your_stream: "Ihr personalisierter Stream wird zusammengestellt..."
     header:
       admin: "Administration"
+      close: "schließen"
       contacts: "Kontakte"
       home: "Startseite"
       log_out: "Abmelden"
       mark_all_as_read: "Markiere alle als gelesen"
       messages: "Nachrichten"
+      notifications: "Benachrichtigungen"
       profile: "Profil"
       recent_notifications: "Letzte Benachrichtigungen"
       search: "Find people or #tags"
       settings: "Einstellungen"
+      view_all: "Alle ansehen"
     ignore: "Ignorieren"
+    ignore_user: "Benutzer ignorieren?"
     infinite_scroll:
       no_more: "Keine weiteren Beiträge."
-    my_activity: "Ihre Aktivitäten"
+      no_more_contacts: "Keine weiteren Kontakte."
+    my_activity: "Meine Aktivitäten"
+    my_aspects: "Ihre Aspekte"
+    my_stream: "Stream"
+    people:
+      not_found: "niemand wurde gefunden..."
     photo_uploader:
+      completed: "<%= file %> hochgeladen"
+      empty: "{file} ist leer, bitte wählen Sie erneut Dateien aus."
+      invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
       looking_good: "OMG, Sie sehen toll aus!"
+      size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
     publisher:
       at_least_one_aspect: "Sie müssen zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - Ihr Beitrag wird nur Leuten sichtbar sein, mit denen Sie teilen"
+      near_from: "In der Nähe von <%= location %>"
       public: "Öffentlich - Ihr Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares:
       duplicate: "Sie haben diesen Beitrag bereits weitergesagt!"
+      post: "<%= name %>s Beitrag weitersagen?"
+      successful: "Der Beitrag wurde erfolgreich weitergesagt!"
     search_for: "Nach {{name}} suchen"
     show_more: "Mehr zeigen"
     stream:
       comment: "Kommentieren"
       follow: "Folgen"
+      followed_tag:
+        add_a_tag: "Einen Tag hinzufügen"
+        contacts_title: "Leute, die diese Tags mögen"
+        follow: "Folgen"
+        title: "#Tags, denen Sie folgen"
       hide: "Verbergen"
+      hide_nsfw_posts: "#nsfw-Beiträge verstecken"
       like: "Gefällt mir"
       likes:
         one: "Ein gefällt mir."
         other: "<%= count %> gefällt mir."
         zero: "Bisher gefällt dies keinem."
+      limited: "Begrenzt"
       more_comments:
-        one: "Zeige einen weiteren Kommentar"
-        other: "Zeigen <%= count %> weitere Kommentare"
+        one: "Zeige <%= count %> weiteren Kommentar"
+        other: "Zeige <%= count %> weitere Kommentare"
         zero: "Keine weiteren Kommentare"
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
       public: "Öffentlich"
+      reshare: "Weitersagen"
       reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+        one: "<%= count %> mal weitergeteilt"
+        other: "<%= count %> mal weitergeteilt"
+        zero: "<%= count %> mal weitergeteilt"
       show_nsfw_post: "Beitrag anzeigen"
       show_nsfw_posts: "Zeige alle"
+      tags:
+        follow: "#<%= tag %> folgen"
+        following: "Sie folgen #<%= tag %>"
+        stop_following: "Aufhören #<%= tag %> zu folgen"
       unfollow: "Nicht mehr folgen"
       unlike: "Gefällt mir nicht mehr"
     tags:
@@ -108,3 +140,12 @@ de_formal:
     videos:
       unknown: "Unbekanntes Videoformat"
       watch: "Dieses Video auf {{provider}} ansehen"
+    viewer:
+      comment: "Kommentar"
+      follow_post: "Diesem Beitrag folgen"
+      home: "Start"
+      like: "Gefällt mir"
+      reshare: "Weitersagen"
+      reshared: "Weitergesagt"
+      stop_following_post: "Diesem Beitrag nicht mehr folgen"
+      unlike: "Gefällt mir nicht mehr"

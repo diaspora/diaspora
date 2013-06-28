@@ -52,6 +52,7 @@ ia:
     ignore_user: "Ignorar iste usator?"
     infinite_scroll:
       no_more: "Nulle messages restante."
+      no_more_contacts: "Nulle altere contactos."
     my_activity: "Mi activitate"
     my_aspects: "Mi aspectos"
     my_stream: "Fluxo"
@@ -66,6 +67,7 @@ ia:
     publisher:
       at_least_one_aspect: "Le publication debe esser includite in al minus un aspecto"
       limited: "Limitate: le message es visibile solmente pro le personas con qui tu lo divide"
+      near_from: "Vicinitate de: <%= location %>"
       public: "Public: le message es visibile pro tote le mundo e trovabile pro motores de recerca"
     reshares:
       duplicate: "Tu ha jam repetite iste entrata."

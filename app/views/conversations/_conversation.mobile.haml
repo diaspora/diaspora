@@ -1,0 +1,21 @@
+%a.conversation{ :href => conversation_path(conversation) }
+  .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
+    .media
+      .img
+        = person_image_tag(conversation.author)
+
+      .bg
+        = render(:partial => 'conversation_subject',
+                  :locals => { :conversation => conversation,
+                               :unread_count => unread_counts[conversation.id].to_i })
+
+        .last_author
+          .timestamp
+            = t('ago', :time =>  time_ago_in_words(conversation.updated_at))
+
+          - if authors[conversation.id].present?
+            = authors[conversation.id].name
+
+          - if conversation.participants.size > 2
+            %span.participant_count
+              = "(+#{conversation.participants.size - 1})"

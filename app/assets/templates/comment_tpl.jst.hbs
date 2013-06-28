@@ -13,9 +13,11 @@
     </div>
   {{/if}}
 
-  <a href="/people/{{author.guid}}" class="author author-name {{hovercardable this}}">
-    {{author.name}}
-  </a>
+  {{#with author}}
+    <a href="/people/{{guid}}" class="author author-name {{hovercardable this}}">
+      {{name}}
+    </a>
+  {{/with}}
 
   <div class="collapsible comment-content">
     {{{text}}}

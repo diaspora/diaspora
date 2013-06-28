@@ -1,0 +1,212 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+wo:
+  _home: "Kër gi"
+  _photos: "nataal"
+  admins:
+    admin_bar:
+      pages: "Xët yi"
+    stats:
+      2weeks: "2i Ayubés"
+      go: "dem"
+      month: "Weer"
+      week: "Ayubés"
+  aspects:
+    aspect_listings:
+      edit_aspect: "Soppil %{name}"
+    edit:
+      done: "Raaf na"
+    index:
+      diaspora_id:
+        content_1: "Sa Limu Diaspora mooy:"
+        heading: "Limu Diaspora"
+      help:
+        any_problem: "Am Nga Jafejafe?"
+        do_you: "Danga"
+        email_link: "Email"
+        find_a_bug: "... fekk %{link}?"
+        have_a_question: "... am %{link}?"
+        here_to_help: "Mbooloo mu Diaspora fii nekk!"
+        need_help: "Soxla Nga Ndimbal?"
+        tag_question: "laaj"
+      new_here:
+        follow: "Toppal ci %{link} te wax dalal-jàmm ci jëfandikukat yu bees ci Diaspora*!"
+        title: "Dalal-jàmm Jëfandikukat yu Bees"
+      people_sharing_with_you: "Nit ñu bokk ak yow"
+      welcome_to_diaspora: "Dalal-jàmm ci Diaspora, %{name}!"
+    seed:
+      family: "Waakër"
+      friends: "Xarit"
+      work: "Ligéey"
+  authorizations:
+    new:
+      nope: "Déedéet"
+  back: "Dellu"
+  blocks:
+    destroy:
+      success: "Ayca nu gis liñu wax! #nuyu"
+  contacts:
+    index:
+      no_contacts_message: "Xoolal %{community_spotlight}"
+      no_contacts_message_with_aspect: "Xoolal %{community_spotlight} walla %{add_to_aspect_link}"
+  conversations:
+    new:
+      to: "ci"
+  email: "Email"
+  hide: "Nëbbal"
+  invitations:
+    a_facebook_user: "Facebooku jëfandikukat"
+    new:
+      language: "Làkk"
+      to: "Ci"
+  layouts:
+    application:
+      whats_new: "lu bees?"
+    header:
+      login: "xammeeku"
+      logout: "Génnu"
+      profile: "Xibaar yu la Ñeel"
+      settings: "Tànneef"
+      view_all: "Xoolal yëpp"
+  next: "bi di ñëw"
+  notifications:
+    index:
+      and: "ak"
+  notifier:
+    hello: "Na nga def %{name}?"
+    started_sharing:
+      view_profile: "Xoolal xibaar yu %{name} ñeel"
+    thanks: "Jërëjëf,"
+  ok: "Ayca"
+  or: "walla"
+  password: "Baatujàll"
+  people:
+    few: "%{count}i nit"
+    many: "%{count}i nit"
+    one: "1 nit"
+    other: "%{count}i nit"
+    person:
+      thats_you: "Yow la!"
+    profile_sidebar:
+      born: "besu judd"
+      edit_my_profile: "Soppil xibaar yu ma ñeel"
+      location: "dëkk"
+    show:
+      see_all: "Gisal ñëpp"
+    sub_header:
+      edit: "soppil"
+    two: "%{count}i nit"
+  photos:
+    comment_email_subject: "Nataalu %{name}"
+    edit:
+      editing: "Coppite"
+    new:
+      back_to_list: "Ca Liim Ba"
+      new_photo: "Nataal Bu Bees"
+    photo:
+      view_all: "xoolal yëpp nataali %{name}"
+    show:
+      edit: "soppil"
+  posts:
+    show:
+      permalink: "lëkkalekaay yu fi nekkandi"
+  previous: "bi weesu"
+  privacy: "Mbóot"
+  privacy_policy: "Politigu Mbóot"
+  profile: "Xibaar yu la Ñeel"
+  profiles:
+    edit:
+      edit_profile: "Soppil xibaar yu la ñeel"
+      first_name: "Tur bi"
+      last_name: "Sant wi"
+      your_birthday: "Sa besu judd"
+      your_location: "Sa dëkk"
+      your_name: "Sa tur"
+      your_photo: "Sa nataal"
+      your_tags_placeholder: "ni #film #muus #tukki #jàngalekat #newyork"
+  registrations:
+    edit:
+      edit: "Soppi %{name}"
+      unhappy: "Kontaanul?"
+    new:
+      diaspora: "<3 Diaspora*"
+      email: "EMAIL"
+      enter_email: "Duggal email"
+      password: "BAATUJÀLL"
+      sign_up: "SOS AM SÀQ"
+      username: "TURU JËFANDIKUKAT"
+  search: "Seetal"
+  settings: "Tànneef"
+  shared:
+    add_contact:
+      diaspora_handle: "diaspora@pod.org"
+      enter_a_diaspora_username: "Duggal turu jëfandikukatu Diaspora"
+      your_diaspora_username_is: "Sa turu jëfandikukat ci Diaspora: %{diaspora_handle} la"
+    invitations:
+      by_email: "Ci email"
+    public_explain:
+      logged_in: "Danga xammeeku ci %{service}"
+      share: "Bokkal"
+    publisher:
+      all: "yëpp"
+      new_user_prefill:
+        hello: "Na ngeen def? %{new_user_tag}. "
+        newhere: "BeesNaaFii"
+      whats_on_your_mind: "Lu bees?"
+    reshare:
+      reshare: "Bokkaat"
+    stream_element:
+      dislike: "Bëggul"
+      like: "Bëgg"
+      shared_with: "Dafa bokk ak: %{aspect_names}"
+      show: "wonel"
+      unlike: "Du bëgg"
+      via: "cib %{link}"
+  streams:
+    followed_tag:
+      follow: "Toppal"
+    like_stream:
+      title: "Seyaanu Bëggukaay yi"
+    multi:
+      contacts_title: "Nit ci sa Seyaan"
+      title: "Seyaan"
+  tags:
+    show:
+      follow: "Toppal #%{tag}"
+      following: "Dangay topp #%{tag}"
+      stop_following: "Bul Topp #%{tag}"
+  tokens:
+    show:
+      sign_up_today: "Sos am sàq tey!"
+      via: "(cib %{link})"
+  username: "Turu Jëfandikukat"
+  users:
+    edit:
+      change: "Soppil"
+      change_email: "Soppil email"
+      change_language: "Soppil làkk"
+      change_password: "Soppil baatujàll"
+      current_password: "Baatujàll bi fi nekk"
+      current_password_expl: "bi xammeeku ak..."
+      following: "Tànneefi Topp"
+      getting_started: "Tànneefi Jëfandikukat bu Bees"
+      new_password: "Baatujàll bu bees"
+      stream_preferences: "Tànneefi Seyaan"
+      your_email: "Sa email"
+      your_handle: "Sa limu Diaspora"
+    getting_started:
+      awesome_take_me_to_diaspora: "Baax na! Indi ma ci Diaspora*"
+      saved: "Denc na!"
+      well_hello_there: "Asalaamu aleykum! Na nga def?"
+      what_are_you_in_to: "Loo bëgg?"
+      who_are_you: "Kan nga?"
+    privacy_settings:
+      title: "Tànneefi Mbóot"
+    update:
+      language_changed: "Làkk dafa soppi"
+      password_changed: "Baatujàll dafa soppi. Léegi danga mën xammeeku ak sa baatujàll bu bees."
+  welcome: "Dalal-jàmm!"

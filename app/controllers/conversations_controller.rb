@@ -29,11 +29,12 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    person_ids = Contact.where(:id => params[:contact_ids].split(',')).map! do |contact|
-      contact.person_id
+    # Can't split nil
+    if params[:contact_ids]
+      person_ids = Contact.where(:id => params[:contact_ids].split(',')).map(&:person_id)
     end
 
-    params[:conversation][:participant_ids] = person_ids | [current_user.person_id]
+    params[:conversation][:participant_ids] = [*person_ids] | [current_user.person_id]
     params[:conversation][:author] = current_user.person
     message_text = params[:conversation].delete(:text)
     params[:conversation][:messages_attributes] = [ {:author => current_user.person, :text => message_text }]

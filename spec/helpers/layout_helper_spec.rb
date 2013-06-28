@@ -20,7 +20,7 @@ describe LayoutHelper do
   describe "#page_title" do
     context "passed blank text" do
       it "returns Diaspora*" do
-        page_title.should == pod_name
+        page_title.to_s.should == pod_name
       end
     end
 

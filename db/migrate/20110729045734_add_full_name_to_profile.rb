@@ -10,7 +10,7 @@ class AddFullNameToProfile < ActiveRecord::Migration
     remove_index :profiles, [:last_name, :searchable]
 
     if Profile.count > 0
-      if postgres? 
+      if AppConfig.postgres? 
         execute("UPDATE profiles SET full_name=LOWER(first_name || ' ' || last_name)")
       else
         execute("UPDATE profiles SET full_name=LOWER(CONCAT(first_name, ' ', last_name))")

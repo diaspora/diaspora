@@ -192,6 +192,30 @@ describe ConversationsController do
         }.should_not change(Message, :count).by(1)
       end
     end
+
+    context 'with nil contact' do
+      before do
+        @hash = {
+          :conversation => {
+            :subject => 'secret stuff',
+            :text => 'text debug'
+          },
+          :contact_ids => nil
+        }
+      end
+
+      it 'does not create a conversation' do
+        lambda {
+          post :create, @hash
+        }.should_not change(Conversation, :count).by(1)
+      end
+
+      it 'does not create a message' do
+        lambda {
+          post :create, @hash
+        }.should_not change(Message, :count).by(1)
+      end
+    end
   end
 
   describe '#show' do

@@ -187,7 +187,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
       this.removePostPreview();
       app.stream.items.add(previewMessage);
       this.recentPreview=previewMessage;
-      this.modifyPostPreview($('.stream_element:first'));
+      this.modifyPostPreview($('.stream_element:first',$('.stream_container')));
     }
   },
 
@@ -210,7 +210,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
   },
 
   keyDown : function(evt) {
-    if( evt.keyCode == 13 && evt.shiftKey ) {
+    if( evt.keyCode == 13 && evt.ctrlKey ) {
       this.$("form").submit();
       this.open();
       return false;

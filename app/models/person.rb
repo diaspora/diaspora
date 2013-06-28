@@ -126,7 +126,7 @@ class Person < ActiveRecord::Base
 
   def self.search_query_string(query)
     query = query.downcase
-    like_operator = postgres? ? "ILIKE" : "LIKE"
+    like_operator = AppConfig.postgres? ? "ILIKE" : "LIKE"
 
     where_clause = <<-SQL
       profiles.full_name #{like_operator} ? OR
@@ -155,7 +155,7 @@ class Person < ActiveRecord::Base
   # @return [Array<String>] postgreSQL and mysql deal with null values in orders differently, it seems.
   def self.search_order
     @search_order ||= Proc.new {
-      order = if postgres?
+      order = if AppConfig.postgres?
         "ASC"
       else
         "DESC"

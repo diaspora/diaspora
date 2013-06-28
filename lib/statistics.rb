@@ -176,10 +176,8 @@ SQL
 
   protected
   def where_clause_sql
-    if postgres?
+    if AppConfig.postgres?
       "WHERE users.created_at > NOW() - '1 month'::INTERVAL"
-    elsif sqlite?
-      raise "#where_clause_sql not yet written for SQLite"
     else
       "where users.created_at > FROM_UNIXTIME(#{(Time.now - 1.month).to_i})"
     end

@@ -86,7 +86,7 @@ to get a DEVELOPMENT setup of Diaspora* up and running
 
 For a PRODUCTION installation, please do *not* use this script!
 Follow the guide in our wiki, instead:
--- https://github.com/diaspora/diaspora/wiki/Installation-Guides
+-- http://wiki.diasporafoundation.org/Installation_guides
 
 #####################################################################
 

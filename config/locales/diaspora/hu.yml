@@ -279,6 +279,8 @@ hu:
     two: "%{count} ismerős"
     zero: "nincs ismerős"
   conversations:
+    conversation:
+      participants: "Résztvevők"
     create:
       fail: "Érvénytelen üzenet"
       no_contact: "Hé, először kapcsolatot kell hozzáadnod!"
@@ -835,6 +837,7 @@ hu:
       all: "összes"
       all_contacts: "összes kapcsolat"
       discard_post: "Bejegyzés elvetése"
+      get_location: "Helyzetmeghatározás"
       make_public: "nyilvánossá tesz"
       new_user_prefill:
         hello: "Sziasztok, én #%{new_user_tag} vagyok. "

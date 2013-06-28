@@ -14,13 +14,13 @@ sk:
     failure:
       inactive: "Tvoj účet ešte nebol aktivovaný."
       invalid: "Neplatné používateľské meno alebo heslo."
-      invalid_token: "Neplatný autentifikačný token."
+      invalid_token: "Neplatné identifikačné číslo."
       locked: "Tvoj účet je zamknutý."
       timeout: "Čas tvojho sedenia uplynul; ak chceš pokračovať, znovu sa prihlás, prosím."
       unauthenticated: "Ak chceš pokračovať, musíš sa prihlásiť alebo zaregistrovať."
       unconfirmed: "Predtým, ako budeš môcť pokračovať, musíš potvrdiť svoj účet."
     invitations:
-      invitation_token_invalid: "Ospravedlňujeme sa. Táto pozývacia značka nie je platná."
+      invitation_token_invalid: "Ospravedlňujeme sa. Toto číslo pozvánky nie je platné."
       send_instructions: "Tvoja pozvánka bola odoslaná."
       updated: "Tvoje heslo bolo úspešné nastavené. Teraz si prihlásený (-á)."
     mailer:

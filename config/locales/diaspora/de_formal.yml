@@ -40,6 +40,57 @@ de_formal:
             username:
               invalid: "ist ungültig. Wir erlauben nur Buchstaben, Zahlen und Unterstriche."
               taken: "wird schon benutzt."
+  admins:
+    admin_bar:
+      correlations: "Korrelationen"
+      pages: "Seiten"
+      pod_stats: "Pod Statistik"
+      sidekiq_monitor: "Sidekiq-Monitor"
+      user_search: "Benutzersuche"
+      weekly_user_stats: "Wöchentliche Benutzerstatistik"
+    correlations:
+      correlations_count: "Korrelationen mit der Anzahl der Anmeldungen:"
+    stats:
+      2weeks: "2 Wochen"
+      50_most: "Die 50 populärsten Tags"
+      comments:
+        one: "%{count} Kommentar"
+        other: "%{count} Kommentare"
+        zero: "%{count} Kommentare"
+      current_segment: "Das aktuelle Segment hat durchschnittlich <b>%{post_yest}</b> Beiträge pro Benutzer, seit dem <b>%{post_day}</b>"
+      daily: "täglich"
+      display_results: "Zeige Ergebnisse aus dem Segment <b>%{segment}</b>"
+      go: "los"
+      month: "Monat"
+      posts:
+        one: "%{count} Beitrag"
+        other: "%{count} Beiträge"
+        zero: "%{count} Beiträge"
+      shares:
+        one: "%{count} mal geteilt"
+        other: "%{count} mal geteilt"
+        zero: "%{count} mal geteilt"
+      tag_name: "Tag Name: <b>%{name_tag}</b> Anzahl: <b>%{count_tag}</b>"
+      usage_statistic: "Nutzungsstatistik"
+      users:
+        one: "%{count} Benutzer"
+        other: "%{count} Benutzer"
+        zero: "%{count} Benutzer"
+      week: "Woche"
+    user_search:
+      add_invites: "Einladungen hinzufügen"
+      email_to: "per E-Mail einladen"
+      users:
+        one: "%{count} Benutzer gefunden"
+        other: "%{count} Benutzer gefunden"
+        zero: "%{count} Benutzer gefunden"
+      you_currently: "Sie haben noch %{user_invitation} Einladungen übrig %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "Anzahl neuer Benutzer in dieser Woche: %{count}"
+        other: "Anzahl neuer Benutzer in dieser Woche: %{count}"
+        zero: "Anzahl neuer Benutzer in dieser Woche: keine"
+      current_server: "Das aktuelle Serverdatum ist %{date}"
   ago: "Vor %{time}"
   all_aspects: "Alle Aspekte"
   application:
@@ -67,6 +118,7 @@ de_formal:
       edit_aspect: "Bearbeite %{name}"
       select_all: "Alle auswählen"
     aspect_stream:
+      make_something: "Machen Sie etwas"
       stay_updated: "Bleiben Sie auf dem Laufenden"
       stay_updated_explanation: "Ihr Stream ist gefüllt mit all Ihren Kontakten, Tags denen Sie folgen sowie Beiträgen einiger kreativer Mitglieder der Gemeinschaft."
     contacts_not_visible: "Kontakte in diesem Aspekt sind nicht in der Lage einander zu sehen."
@@ -105,18 +157,24 @@ de_formal:
       donate: "Spenden"
       handle_explanation: "Das ist Ihre Diaspora ID. Sie können sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit Ihnen Kontakt aufnehmen können."
       help:
+        any_problem: "Gibt es ein Problem?"
+        contact_podmin: "Kontaktieren Sie den Administrator Ihres Pods!"
         do_you: "Haben Sie:"
         email_feedback: "%{link} Ihr Feedback für Diaspora"
+        email_link: "E-Mail"
         feature_suggestion: "… einen %{link} Vorschlag?"
         find_a_bug: "… einen %{link} gefunden?"
         have_a_question: "… eine %{link}?"
         here_to_help: "Die Diaspora-Community ist hier!"
+        mail_podmin: "Podmin E-Mail"
         need_help: "Benötigen Sie Hilfe?"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Von der Gemeinschaft erstellte Tutorials, Anleitungen und Nachrichten"
       introduce_yourself: "Das ist ihr Stream. Legen Sie los und stellen Sie sich vor."
+      keep_diaspora_running: "Die Entwicklung von Diaspora bleibt schnell, wenn Sie monatlich spenden!"
+      keep_pod_running: "Helfen Sie %{pod} schneller zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
       new_here:
         follow: "Folgen Sie %{link} und heißen Sie neue Benutzer auf Diaspora* willkommen!"
         learn_more: "Mehr erfahren"
@@ -168,6 +226,10 @@ de_formal:
     index:
       no_applications: "Sie haben noch keine Anwendung registriert."
       revoke_access: "Zugriff widerrufen"
+    new:
+      authorize: "Autorisieren"
+      cubbies_will: "Cubbies wird in Ihrem Namen Fotos posten können"
+      nope: "Nie"
   back: "Zurück"
   blocks:
     create:
@@ -177,7 +239,7 @@ de_formal:
       failure: "Konnte das Ignorieren dieses Benutzers nicht aufheben.  #evasion"
       success: "Sehen Sie, was diese zu sagen haben! #sayhello"
   bookmarklet:
-    explanation: "Erstellen Sie einen Beitrag in Diaspora von überall, in dem Sie %{link} als Lesezeichen speichern."
+    explanation: "Erstellen Sie auf jeder Webseite einen Beitrag für Diaspora, indem Sie %{link} als Lesezeichen speichern."
     heading: "Lesezeichen"
     post_something: "Erstellen Sie einen Beitrag in Diaspora"
     post_success: "Erstellt! Schließen …"
@@ -199,12 +261,13 @@ de_formal:
     index:
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
       add_to_aspect: "Füge Kontakte zu %{name} hinzu"
+      add_to_aspect_link: "Füge Kontakte zu %{name} hinzu"
       all_contacts: "Alle Kontakte"
       community_spotlight: "Gemeinschafts-Focus"
       many_people_are_you_sure: "Sind Sie sich sicher, dass Sie eine private Unterhaltung mit mehr als %{suggested_limit} Kontakten beginnen möchten? Einen Beitrag in diesen Aspekt zu schreiben könnte ein besserer Weg sein, um sie zu kontaktieren."
       my_contacts: "Meine Kontakte"
       no_contacts: "Sieht so aus als müssten Sie einige Kontakte hinzufügen!"
-      no_contacts_message: "Erkunde den %{community_spotlight}"
+      no_contacts_message: "Erkunden Sie den %{community_spotlight}"
       no_contacts_message_with_aspect: "Schauen Sie in den %{community_spotlight} oder %{add_to_aspect_link}"
       only_sharing_with_me: "Nur mit Ihnen Teilende"
       remove_person_from_aspect: "Entferne %{person_name} aus \"%{aspect_name}\""
@@ -218,11 +281,15 @@ de_formal:
       people_sharing: "Leute, die mit Ihnen teilen:"
     spotlight:
       community_spotlight: "Gemeinschafts-Schaukasten"
+      suggest_member: "Ein Mitglied vorschlagen"
     two: "%{count} Kontakte"
     zero: "Kontakte"
   conversations:
+    conversation:
+      participants: "Teilnehmer"
     create:
       fail: "Ungültige Nachricht"
+      no_contact: "Hoppla, Sie müssen den Kontakt erst hinzufügen!"
       sent: "Nachricht versendet"
     destroy:
       success: "Konversation erfolgreich entfernt"
@@ -264,9 +331,13 @@ de_formal:
     helper:
       correct_the_following_errors_and_try_again: "Korrigieren Sie die folgenden Fehler und versuchen Sie es erneut."
       invalid_fields: "Ungültige Felder"
+    login_try_again: "Bitte <a href='%{login_link}'>melden Sie sich neu an</a> und versuchen Sie es erneut."
+    post_not_public: "Dieser Beitrag ist nicht öffentlich!"
   fill_me_out: "Füllen Sie mich aus"
   find_people: "Leute oder #Tags finden"
   hide: "Ausblenden"
+  invitation_codes:
+    excited: "%{name} freut sich Sie hier zu sehen."
   invitations:
     a_facebook_user: "Ein Facebook Nutzer"
     check_token:
@@ -274,7 +345,9 @@ de_formal:
     create:
       already_contacts: "Sie sind bereits mit dieser Person verbunden"
       already_sent: "Sie haben diese Person bereits eingeladen."
+      empty: "Bitte mindestens eine E-Mail-Adresse eingeben."
       no_more: "Sie haben keine Einladungen mehr."
+      note_already_sent: "Es wurde bereits eine Einladung an %{emails} gesendet"
       own_address: "Sie können keine Einladung an deine eigene Adresse senden."
       rejected: "Mit diesen E-Mail-Adressen gab es Probleme:"
       sent: "Einladungen wurden verschickt an:"
@@ -285,9 +358,15 @@ de_formal:
       already_invited: "Die folgenden Personen haben Ihre Einladung nicht angenommen:"
       aspect: "Aspekt"
       check_out_diaspora: "Erkunde Diaspora!"
+      codes_left:
+        one: "Eine Einladung übrig für diesen Code"
+        other: "%{count} Einladungen übrig für diesen Code"
+        zero: "Keine Einladungen übrig für diesen Code"
+      comma_separated_plz: "Sie können mehrere E-Mail-Adressen, getrennt durch Kommas, eingeben."
       if_they_accept_info: "Wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den Sie sie eingeladen haben."
       invite_someone_to_join: "Laden Sie jemanden zu Diaspora ein!"
       language: "Sprache"
+      paste_link: "Teilen Sie diesen Link mit Ihren Freunden, um sie zu Diaspora* einzuladen oder schicken Sie ihnen den Link direkt per E-Mail."
       personal_message: "Persönliche Nachricht"
       resend: "Erneut senden"
       send_an_invitation: "Eine Einladung senden"
@@ -298,6 +377,7 @@ de_formal:
       back_to_top: "Nach oben"
       powered_by: "BETRIEBEN MIT DIASPORA*"
       public_feed: "Öffentlicher Diaspora Feed von %{name}"
+      source_package: "Quelltextpaket runterladen"
       toggle: "Mobile Ansicht umschalten"
       whats_new: "Was gibt's Neues?"
       your_aspects: "Ihre Aspekte"
@@ -378,6 +458,7 @@ de_formal:
         two: "und %{count} andere"
         zero: "und niemand sonst"
       mark_all_as_read: "Markiere alle als gelesen"
+      mark_unread: "als ungelesen markieren"
       notifications: "Benachrichtigungen"
     liked:
       few: "%{actors} gefällt Ihr %{post_link}."
@@ -438,14 +519,31 @@ de_formal:
       zero: "Niemand hat angefangen mit Ihnen zu teilen."
   notifier:
     a_post_you_shared: "ein Beitrag."
+    accept_invite: "Bestätigen Sie Ihre Diaspora* Einladung!"
     click_here: "Hier klicken"
     comment_on_post:
       reply: "Antworten Sie oder schauen Sie sich %{name}s Beitrag an >"
     confirm_email:
       click_link: "Um deine neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicken Sie bitte auf diesen Link:"
       subject: "Bitte aktivieren Sie Ihre neue E-Mail-Adresse %{unconfirmed_email}"
-    email_sent_by_diaspora: "Diese E-Mail wurde von Diaspora verschickt. Falls Sie solche E-Mails nicht mehr erhalten wollen,"
+    email_sent_by_diaspora: "Diese E-Mail wurde von %{pod_name} verschickt. Falls Sie solche E-Mails nicht mehr erhalten wollen,"
     hello: "Hallo %{name}!"
+    invite:
+      message: |-
+          Hallo!
+
+          Sie wurden zu Diaspora* eingeladen!
+
+          Klicken Sie auf diesen Link um loszulegen
+
+          [%{invite_url}][1]
+
+          Grüße,
+
+          Der Diaspora* E-Mail Roboter!
+
+          [1]:%{invite_url}
+    invited_you: "%{name} hat Sie zu Diaspora* eingeladen"
     liked:
       liked: "%{name} gefällt Ihr Beitrag"
       view_post: "Beitrag betrachten >"
@@ -472,6 +570,8 @@ de_formal:
   password: "Kennwort"
   password_confirmation: "Kennwort-Bestätigung"
   people:
+    add_contact:
+      invited_by: "Sie wurden eingeladen von"
     add_contact_small:
       add_contact_from_tag: "Fügen Sie Kontakt über einen Hashtag hinzu"
     aspect_list:
@@ -482,9 +582,12 @@ de_formal:
       results_for: "Ergebnisse für %{params}"
     index:
       couldnt_find_them_send_invite: "Konnten Sie die gesuchte Person nicht finden? Schicken Sie eine Einladung!"
+      looking_for: "Suchen Sie mit %{tag_link} getaggte Beiträge?"
       no_one_found: "… und niemand wurde gefunden."
       no_results: "Hey! Sie müssen nach etwas suchen."
       results_for: "Suchergebnisse für"
+      searching: "suche, bitte warten..."
+    last_post: "Letzer Beitrag"
     many: "%{count} Personen"
     one: "Eine Person"
     other: "%{count} Personen"
@@ -560,21 +663,20 @@ de_formal:
       error: "Bearbeiten des Fotos fehlgeschlagen."
       notice: "Foto erfolgreich aktualisiert."
   posts:
+    presenter:
+      title: "Ein Beitrag von %{name}"
     show:
       destroy: "Löschen"
       not_found: "Entschuldigen Sie, wir konnten den Beitrag leider nicht finden."
       permalink: "Permanentlink"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        one: "Ein Foto von %{author}"
+        other: "%{count} Fotos von %{author}"
+        zero: "Kein Foto von %{author}"
       reshare_by: "Weitergesagt von %{author}"
   previous: "Vorherige"
   privacy: "Privatsphäre"
-  privacy_policy: "Datenschutz"
+  privacy_policy: "Datenschutzerklärung"
   profile: "Profil"
   profiles:
     edit:
@@ -584,7 +686,7 @@ de_formal:
       last_name: "Nachname"
       update_profile: "Profil aktualisieren"
       you_are_nsfw: "Sie haben sich selbst als unpassend für den Arbeitsplatz (NSFW - \"not safe for work\") markiert, was bedeutet, dass Ihre Beiträge bei Personen, die anstößige Inhalte automatisch ausblenden, standardmäßig ausgeblendet werden."
-      you_are_safe_for_work: "Sie haben sich als passend für den Arbeitsplatz (SFW - \"safe for work\") markiert, wodurch Sie sich damit einverstanden erklärst, dass Ihre Beiträge, soweit nicht anders angegeben, den Community-Richtlinien entsprechen."
+      you_are_safe_for_work: "Sie haben sich als passend für den Arbeitsplatz (SFW - \"safe for work\") markiert, wodurch Sie sich damit einverstanden erklären, dass Ihre Beiträge, soweit nicht anders angegeben, den Community-Richtlinien entsprechen."
       your_bio: "Ihre Beschreibung"
       your_birthday: "Ihr Geburtstag"
       your_gender: "Ihr Geschlecht"
@@ -617,14 +719,23 @@ de_formal:
       password_to_confirm: "(wir brauchen Ihr aktuelles Passwort, um Ihre Änderungen zu bestätigen)"
       unhappy: "Unglücklich?"
       update: "Aktualisieren"
+    invalid_invite: "Der von Ihnen erstellte Einladungs-Link ist nicht mehr gültig!"
     new:
+      continue: "Weiter"
       create_my_account: "Konto erstellen"
+      diaspora: "<3 Diaspora*"
+      email: "E-MAIL"
       enter_email: "Geben Sie eine E-Mail-Adresse an"
-      enter_password: "Geben Sie ein Kennwort ein"
+      enter_password: "Geben Sie ein Kennwort ein (mindestens sechs Zeichen)"
       enter_password_again: "Geben Sie das gleiche Kennwort wie zuvor ein"
       enter_username: "Wählen Sie einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
+      hey_make: "HEY,<br/>MACHEN SIE<br/>ETWAS."
       join_the_movement: "Treten Sie der Bewegung bei!"
+      password: "PASSWORT"
+      password_confirmation: "PASSWORT BESTÄTIGEN"
+      sign_up: "REGISTRIEREN"
       sign_up_message: "Soziales Netzwerken mit <3"
+      username: "BENUTZERNAME"
   requests:
     create:
       sending: "Senden …"
@@ -635,11 +746,8 @@ de_formal:
       success: "Sie sind jetzt verbunden."
     helper:
       new_requests:
-        few: "%{count} neue Anfragen!"
-        many: "%{count} neue Anfragen!"
-        one: "Neue Anfrage!"
+        one: "Eine neue Anfrage!"
         other: "%{count} neue Anfragen!"
-        two: "%{count} neue Anfragen!"
         zero: "Keine neuen Anfragen"
     manage_aspect_contacts:
       existing: "Bestehende Kontakte"
@@ -653,11 +761,8 @@ de_formal:
     reshare:
       deleted: "Originalbeitrag wurde vom Autor entfernt."
       reshare:
-        few: "%{count} mal weitergesagt"
-        many: "%{count} mal weitergesagt"
-        one: "Einmal weitergesagt"
+        one: "1 mal weitergesagt"
         other: "%{count} mal weitergesagt"
-        two: "%{count} mal weitergesagt"
         zero: "Weitersagen"
       reshare_confirmation: "%{author}'s Beitrag weitersagen?"
       reshare_original: "Original weitersagen"
@@ -686,6 +791,7 @@ de_formal:
       logged_in_as: "angemeldet als"
       no_services: "Sie haben noch keine Dienste verbunden."
       really_disconnect: "Verbindung mit %{service} entfernen?"
+      services_explanation: "Wenn Sie sich mit anderen Diensten verbinden, erhalten Sie die Möglichkeit ihre Beiträge auch dort zu veröffentlichen, indem Sie in Diaspora schreiben."
     inviter:
       click_link_to_accept_invitation: "Öffnen Sie diesen Link, um die Einladung zu akzeptieren:"
       join_me_on_diaspora: "Folgen Sie mir auf DIASPORA*"
@@ -729,9 +835,11 @@ de_formal:
       invite_your_friends: "Laden Sie Ihre Freunde ein"
       invites: "Einladungen"
       invites_closed: "Einladungen sind auf diesem Diaspora-Pod derzeit nicht verfügbar."
+      share_this: "Teilen Sie diesen Link per E-Mail, Blog oder Ihrem beliebtesten sozialen Netzwerk!"
     notification:
       new: "Neue %{type} von %{from}"
     public_explain:
+      atom_feed: "Atom-Feed"
       control_your_audience: "Kontrollieren Sie Ihre Zielgruppe"
       logged_in: "Eingeloggt in %{service}"
       manage: "Verbundene Dienste verwalten"
@@ -744,13 +852,16 @@ de_formal:
       all: "alle"
       all_contacts: "Alle Kontakte"
       discard_post: "Beitrag verwerfen"
+      get_location: "Ihren Standort ermitteln"
       make_public: "veröffentlichen"
       new_user_prefill:
         hello: "Hallo zusammen, ich bin #%{new_user_tag}. "
         i_like: "Ich interessiere mich für %{tags}."
         invited_by: "Danke für die Einladung, "
+        newhere: "Neuhier"
       post_a_message_to: "Senden Sie eine Nachricht an %{aspect}"
       posting: "Senden …"
+      preview: "Vorschau"
       publishing_to: "Veröffentlichen an: "
       share: "Teilen"
       share_with: "Teilen Sie mit"
@@ -766,11 +877,12 @@ de_formal:
       ignore_user: "%{name} ignorieren"
       ignore_user_description: "Benutzer ignorieren und aus allen Aspekten entfernen?"
       like: "Gefällt mir"
-      nsfw: "Dieser Beitrag wurde vom Autor als \"unpassend für den Arbeitsplatz\" markiert. %{link}"
+      nsfw: "Dieser Beitrag wurde vom Autor als \"unpassend für den Arbeitsplatz\" (NSFW) markiert. %{link}"
       shared_with: "Geteilt mit: %{aspect_names}"
       show: "Anzeigen"
       unlike: "Gefällt mir nicht mehr"
       via: "via %{link}"
+      via_mobile: "via mobile"
       viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
   status_messages:
     create:
@@ -791,13 +903,12 @@ de_formal:
   stream_helper:
     hide_comments: "Alle Kommentare verbergen"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      one: "Zeige einen weiteren Kommentar"
+      other: "Zeige %{count} weitere Kommentare"
+      zero: "Kein weiterer Kommentar"
   streams:
+    activity:
+      title: "Ihre Aktivitäten"
     aspects:
       title: "Ihre Aspekte"
     aspects_stream: "Aspekte"
@@ -809,8 +920,8 @@ de_formal:
       add_a_tag: "Fügen Sie einen Tag hinzu"
       contacts_title: "Leute, denen diese Tags gefallen"
       follow: "Folgen"
-      title: "#Gefolgte Tags"
-    followed_tags_stream: "#Gefolgte Tags"
+      title: "#Tags, denen Sie folgen"
+    followed_tags_stream: "#Tags, denen Sie folgen"
     like_stream:
       contacts_title: "Leute, deren Beiträge Ihnen gefallen"
       title: "\"Gefällt mir\"-Stream"
@@ -820,15 +931,18 @@ de_formal:
       title: "Ihre Erwähnungen"
     multi:
       contacts_title: "Personen in Ihrem Stream"
+      title: "Stream"
     public:
       contacts_title: "Aktuelle Poster"
       title: "Öffentliche Aktivität"
     tags:
       contacts_title: "Menschen, die diese Tags nutzen"
+      tag_prefill_text: "Das Interessante an %{tag_name} ist, dass… "
       title: "Getaggte Beiträge: %{tags}"
   tag_followings:
     create:
       failure: "Fehler beim Folgen von: #%{name}"
+      none: "Sie können keinem leeren Tag folgen!"
       success: "Sie folgen nun: #%{name}"
     destroy:
       failure: "Fehler beim Beenden des Folgens von: #%{name}"
@@ -839,6 +953,7 @@ de_formal:
       followed_by: "gefolgt von"
       following: "#%{tag} folgen"
       nobody_talking: "Niemand hat bisher etwas über %{tag} gesagt."
+      none: "Der leere Tag existiert nicht!"
       people_tagged_with: "Personen, die mit %{tag} getagt sind"
       posts_tagged_with: "Beiträge, die mit #%{tag} getagt sind"
       stop_following: "#%{tag} nicht mehr folgen"
@@ -861,22 +976,38 @@ de_formal:
     confirm_email:
       email_confirmed: "E-Mail %{email} wurde aktiviert"
       email_not_confirmed: "Die E-Mail-Adresse konnte nicht aktiviert werden. Falscher Link?"
+    destroy:
+      no_password: "Bitte geben Sie Ihr Kennwort ein, um Ihren Account zu schließen."
+      success: "Ihr Account wurde gesperrt. Es kann bis zu 20 Minuten dauern, bis Ihr Account endgültig geschlossen ist. Vielen Dank, dass Sie Diaspora ausprobiert haben."
+      wrong_password: "Das eingegebene Kennwort stimmt nicht mit Ihrem aktuellen Kennwort überein."
     edit:
       also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert?"
+      auto_follow_aspect: "Aspekt für automatisch gefolgte Benutzer:"
       auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Ändern"
       change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"
       change_password: "Passwort ändern"
+      character_minimum_expl: "bitte mindestens sechs Zeichen eingeben"
       close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+        dont_go: "Bitte gehen Sie nicht!"
+        if_you_want_this: "Wenn Sie das wirklich möchten, geben Sie Ihr Kennwort ein und klicken Sie auf 'Konto schließen'"
+        lock_username: "Das wird Ihren Benutzernamen sperren, falls Sie sich dazu entscheiden, sich neu anzumelden."
+        locked_out: "Sie werden abgemeldet und von Ihrem Account ausgesperrt."
+        make_diaspora_better: "Wir möchten, dass Sie uns dabei helfen Diaspora zu verbessern, anstatt uns zu verlassen. Falls Sie uns dennoch verlassen möchten, wollen wir Sie auf dem Laufenden halten."
+        mr_wiggles: "Mr. Wiggles wird traurig sein, wenn Sie gehen"
+        no_turning_back: "Momentan gibt es kein Zurück."
+        what_we_delete: "Wir löschen alle Ihre Beiträge und Ihr Profil so schnell wie möglich. Ihre Kommentare bleiben hier, werden jedoch mit einem Diaspora-Handle verbunden."
+      close_account_text: "Konto schließen"
       comment_on_post: "… jemand Ihren Beitrag kommentiert?"
       current_password: "Derzeitiges Kennwort"
+      current_password_expl: "das mit dem Sie sich anmelden..."
       download_photos: "Meine Fotos herunterladen"
       download_xml: "Daten herunterladen (XML)"
       edit_account: "Konto bearbeiten"
       email_awaiting_confirmation: "Wir haben Ihnen einen Aktivierungslink zu %{unconfirmed_email} geschickt. Solange Sie dem Link nicht gefolgt sind und die neue Adresse aktiviert haben, werden wir weiterhin Ihre ursprüngliche E-Mail-Adresse %{email} verwenden."
       export_data: "Daten exportieren"
+      following: "Folgen-Einstellungen"
       getting_started: "Einstellungen für neue Nutzer"
       liked: "… wenn jemandem Ihr Beitrag gefällt?"
       mentioned: "… Sie in einem Beitrag erwähnt werden?"
@@ -894,6 +1025,8 @@ de_formal:
     getting_started:
       awesome_take_me_to_diaspora: "Super! Bring mich zu Diaspora*"
       community_welcome: "Diasporas Gemeinschaft ist froh, Sie an Bord zu haben!"
+      connect_to_facebook: "Wir können das Ganze etwas beschleunigen, indem Sie %{link}. So werden Ihr Name und Ihr Profilbild hier eingefügt und die Crossposting-Funktion aktiviert."
+      connect_to_facebook_link: "Ihr Facebook-Konto mit Diaspora verlinken"
       hashtag_explanation: "Hashtags ermöglichen Ihnen, über Ihre Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Leute bei Diaspora zu treffen!"
       hashtag_suggestions: "Probieren Sie mal Tags wie #kunst, #musik oder #gif zu folgen."
       saved: "Gespeichert!"
@@ -908,6 +1041,8 @@ de_formal:
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update:
       email_notifications_changed: "E-Mail-Benachrichtigungen geändert"
+      follow_settings_changed: "Folgen-Einstellungen geändert"
+      follow_settings_not_changed: "Ändern der Folgen-Einstellungen fehlgeschlagen."
       language_changed: "Sprache geändert"
       language_not_changed: "Fehler beim Ändern der Sprache."
       password_changed: "Kennwort geändert. Sie können sich nun mit Ihrem neuen Kennwort anmelden."
@@ -923,3 +1058,6 @@ de_formal:
     not_enabled: "Webfinger scheint nicht für den Server von %{account} verfügbar zu sein."
     xrd_fetch_failed: "Die XRD-Datei von %{account} konnte nicht heruntergeladen werden."
   welcome: "Willkommen!"
+  will_paginate:
+    next_label: "Weiter &raquo;"
+    previous_label: "&laquo; Zurück"

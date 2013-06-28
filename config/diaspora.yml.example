@@ -233,6 +233,12 @@ configuration: ## Section
       ## in the spotlight to.
       #suggest_email: 'admin@example.org'
     
+
+    ## Maximum number of parallel HTTP requests made to other pods
+    ## Be careful, raising this setting will heavily increase the
+    ## memory usage of your Sidekiq workers
+    #typhoeus_concurrency: 20
+
     ## CURL debug
     ## Turn on extra verbose output when sending stuff. No you
     ## don't need to touch this unless explicitly told to.
@@ -328,6 +334,8 @@ configuration: ## Section
 ## Here you can make overides to settings defined above if you need
 ## to have them different in different environments.
 production: ## Section
+  environment: ## Section
+    #redis_url: 'redis://production.example.org:6379'
   
 development: ## Section
   environment: ## Section

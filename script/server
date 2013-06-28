@@ -18,7 +18,7 @@ on_failure()
 {
   if [ $? != 0 ]
   then
-    fatal $1
+    fatal "$1"
   fi
 }
 
@@ -103,23 +103,28 @@ fi
 # Force AGPL
 if [ -w "public" -a ! -e  "public/source.tar.gz" ]
 then
-  branch=$(git branch | awk '/^[*]/ {print $2}')
-  tar czf public/source.tar.gz  $(git ls-tree -r $branch | awk '{print $4}')
+  if command -v git > /dev/null 2>&1 && git rev-parse --is-inside-work-tree > /dev/null 2>&1
+  then
+    branch=$(git branch | awk '/^[*]/ {print $2}')
+    tar czf public/source.tar.gz  $(git ls-tree -r $branch | awk '{print $4}')
+  else
+    fatal "Can't generate public/source.tar.gz for you.
+Please tar up a copy of your Diaspora installtion and place it there."
+  fi
 fi
 
 if [ ! -e "public/source.tar.gz" ]
 then
-  fatal "Can't find, or even create, public/source.tar.gz."
+  fatal "Can't find public/source.tar.gz"
 fi
 
 # Check if assets are precompiled
 if [ "$RAILS_ENV" = "production" -a ! -e "public/assets/default.css" ]
 then
-  fatal <<MSG
-You're running in production mode without having assets precompiled.
-Now and after each update before you restart the application, run:
-    bundle exec rake assets:precompile
-MSG
+  fatal "You're running in production mode without having assets
+precompiled. Now and after each update before you restart the
+application, run:
+    bundle exec rake assets:precompile"
 fi
 
 # Start Diaspora

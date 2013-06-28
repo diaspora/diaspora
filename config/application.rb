@@ -1,23 +1,10 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See
-#   the COPYRIGHT file.
-
-require 'pathname'
-require Pathname.new(__FILE__).expand_path.dirname.join('boot')
-
-require 'yaml'
+require_relative 'boot'
 
 require 'rails/all'
+Bundler.require(*Rails.groups(:assets => %w(development test))) if defined?(Bundler)
 
-# Sanitize groups to make matching :assets easier
-RAILS_GROUPS = Rails.groups(:assets => %w(development test)).map { |group| group.to_sym }
-
-if defined?(Bundler)
-  # If you precompile assets before deploying to production, use this line
-  Bundler.require(*RAILS_GROUPS)
-  # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
-end
+# Load asset_sync early
+require_relative 'asset_sync'
 
 module Diaspora
   class Application < Rails::Application
@@ -25,15 +12,15 @@ module Diaspora
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    # Add additional load paths for your own custom dirs
-     config.autoload_paths      += %W{#{config.root}/app/presenters #{config.root}/app}
-     config.autoload_once_paths += %W{#{config.root}/lib}
+    # Custom directories with classes and modules you want to be autoloadable.
+    config.autoload_paths      += %W{#{config.root}/app}
+    config.autoload_once_paths += %W{#{config.root}/lib}
 
     # Only load the plugins named here, in the order given (default is alphabetical).
-    # :all can be used as a placeholder for all plugins not explicitly named
+    # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
-    # Activate observers that should always be running
+    # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
@@ -44,47 +31,74 @@ module Diaspora
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # Configure generators values. Many other options are available, be sure to check the documentation.
-     config.generators do |g|
-       g.template_engine :haml
-       g.test_framework  :rspec
-     end
-
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
-    config.filter_parameters += [:xml]
-    config.filter_parameters += [:message]
-    config.filter_parameters += [:text]
-    config.filter_parameters += [:bio]
+    config.filter_parameters += [:password, :xml,:message, :text, :bio]
+
+    # Enable escaping HTML in JSON.
+    config.active_support.escape_html_entities_in_json = true
+
+    # Use SQL instead of Active Record's schema dumper when creating the database.
+    # This is necessary if your schema can't be completely dumped by the schema dumper,
+    # like if you have constraints or database-specific column types
+    # config.active_record.schema_format = :sql
+
+    # Enforce whitelist mode for mass assignment.
+    # This will create an empty whitelist of attributes available for mass-assignment for all models
+    # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
+    # parameters by using an attr_accessible or attr_protected declaration.
+    #config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    # Speed up precompile by not loading the environment
     config.assets.initialize_on_precompile = false
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    # Javascripts
-    config.assets.precompile += [ "aspect-contacts.js", "contact-list.js", "finder.js",
-      "home.js", "ie.js", "inbox.js", "jquery.js", "jquery_ujs.js", "jquery.textchange.js",
-      "login.js", "mailchimp.js", "main.js", "mobile.js", "profile.js", "people.js", "photos.js",
-      "profile.js", "publisher.js", "templates.js", "validation.js" ]
+    config.assets.precompile += %w{
+      aspect-contacts.js 
+      contact-list.js
+      finder.js
+      home.js
+      ie.js
+      inbox.js
+      jquery.js
+      jquery_ujs.js
+      jquery.textchange.js
+      login.js
+      mailchimp.js
+      main.js
+      mobile.js
+      profile.js
+      people.js
+      photos.js
+      profile.js
+      publisher.js
+      templates.js
+      validation.js
 
-    # Stylesheets
-    config.assets.precompile += [ "blueprint.css", "bootstrap.css", "bootstrap-complete.css",
-      "bootstrap-responsive.css", "default.css", "error_pages.css", "login.css", "mobile.css",
-      "new-templates.css", "rtl.css" ]
-
-    # Rails Admin - these assets need to be added here since the Engine initializer
-    # doesn't run with initialize_on_precompile disabled. This list is taken
-    # directly from the Rails Admin Engine initializer.
-    config.assets.precompile += ['rails_admin/rails_admin.js', 'rails_admin/rails_admin.css',
-      'rails_admin/jquery.colorpicker.js', 'rails_admin/jquery.colorpicker.css']
+      blueprint.css
+      bootstrap.css
+      bootstrap-complete.css
+      bootstrap-responsive.css
+      default.css
+      error_pages.css
+      login.css
+      mobile.css
+      new-templates.css
+      rtl.css
+    }
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    # Configure generators values. Many other options are available, be sure to check the documentation.
+    config.generators do |g|
+      g.template_engine :haml
+      g.test_framework  :rspec
+    end
   end
 end

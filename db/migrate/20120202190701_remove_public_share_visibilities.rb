@@ -16,14 +16,14 @@ class RemovePublicShareVisibilities < ActiveRecord::Migration
       index = 0
 
       table_name = type.tableize
-      if postgres?
+      if AppConfig.postgres?
         shareable_size = ActiveRecord::Base.connection.execute("SELECT COUNT(*) FROM #{table_name}").first['count'].to_i
       else
         shareable_size = ActiveRecord::Base.connection.execute("SELECT COUNT(*) FROM #{table_name}").first.first
       end
 
       while index < shareable_size + 100 do
-        if postgres?
+        if AppConfig.postgres?
           sql = <<-SQL
             DELETE
               FROM share_visibilities AS sv

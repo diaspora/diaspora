@@ -20,7 +20,7 @@
   .content
     != t('aspects.index.new_here.follow', :link => link_to("#"+t('shared.publisher.new_user_prefill.newhere'), tag_path(:name => t('shared.publisher.new_user_prefill.newhere'))))
     %br
-    = link_to(t('aspects.index.new_here.learn_more'), "https://github.com/diaspora/diaspora/wiki/Welcoming-Committee")
+    = link_to(t('aspects.index.new_here.learn_more'), "http://wiki.diasporafoundation.org/Welcoming_Committee")
 
 .section
   .title
@@ -40,7 +40,7 @@
     %br
     %br
     %p
-      != t('aspects.index.help.tutorials_wiki_and_forum', :tutorial => link_to("Diasporial" , "http://diasporial.com/tutorials", :target => '_blank'), :wiki => link_to('Wiki','http://github.com/diaspora/diaspora/wiki', :target => '_blank'), :forum => link_to("Forum", "http://www.diasporaforum.org/", :target => '_blank'))
+      != t('aspects.index.help.tutorials_wiki_and_forum', :tutorial => link_to("Diasporial" , "http://diasporial.com/tutorials", :target => '_blank'), :wiki => link_to('Wiki','http://wiki.diasporafoundation.org', :target => '_blank'), :forum => link_to("Forum", "http://www.diasporaforum.org/", :target => '_blank'))
     %p
       != t('aspects.index.help.email_feedback', :link => link_to(t('aspects.index.help.email_link'), "mailto:feedback@joindiaspora.com"))
 
@@ -67,20 +67,16 @@
   .content
     != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.post_something'), magic_bookmarklet_link))
 
-.section
-  .title
-    .icons-coffee
-    %h5.title-header
-      = t('aspects.index.donate')
-  .content
-    - if AppConfig.settings.paypal_hosted_button_id.present?
+- if AppConfig.settings.paypal_hosted_button_id.present?
+  .section
+    .title
+      .icons-coffee
+      %h5.title-header
+        = t('aspects.index.donate')
+    .content
       = t('aspects.index.keep_pod_running', :pod => AppConfig.pod_uri.host)
       %br
       = render 'shared/donatepod'
-    - else
-      = t('aspects.index.keep_diaspora_running')
-      %br
-      = render 'shared/donatediaspora'
 
 - if AppConfig.admins.podmin_email.present?
   .section

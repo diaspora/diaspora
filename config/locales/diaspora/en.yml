@@ -327,6 +327,8 @@ en:
       create_a_new_message: "create a new message"
       no_messages: "no messages"
       inbox: "Inbox"
+    conversation:
+      participants: "Participants"
     show:
       reply: "reply"
       replying: "Replying..."

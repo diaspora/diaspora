@@ -38,13 +38,14 @@ de:
             person:
               invalid: "ist ungültig."
             username:
-              invalid: "ist ungültig. Wir erlauben nur Buchstaben, Zahlen und Unterstriche."
+              invalid: "ist ungültig. Es sind nur Buchstaben, Zahlen und Unterstriche erlaubt."
               taken: "ist schon vergeben."
   admins:
     admin_bar:
       correlations: "Korrelationen"
       pages: "Seiten"
       pod_stats: "Pod Statistik"
+      sidekiq_monitor: "Sidekiq-Monitor"
       user_search: "Benutzer Suche"
       weekly_user_stats: "Wöchentliche Benutzerstatistik"
     correlations:
@@ -98,7 +99,7 @@ de:
       unknown_person: "Unbekannte Person"
       video_title:
         unknown: "Unbekannter Videotitel"
-  are_you_sure: "Bist du sicher?"
+  are_you_sure: "Bist du dir sicher?"
   are_you_sure_delete_account: "Möchtest du dein Konto wirklich schließen? Dieser Schritt kann nicht rückgängig gemacht werden!"
   aspect_memberships:
     destroy:
@@ -165,6 +166,7 @@ de:
         find_a_bug: "… ein %{link}?"
         have_a_question: "… eine %{link}?"
         here_to_help: "Die Diaspora-Gemeinschaft ist für dich da!"
+        mail_podmin: "Podmin E-Mail"
         need_help: "Benötigst du Hilfe?"
         tag_bug: "Problem"
         tag_feature: "Verbesserung"
@@ -283,6 +285,8 @@ de:
     two: "%{count} Kontakte"
     zero: "Kontakte"
   conversations:
+    conversation:
+      participants: "Teilnehmer"
     create:
       fail: "Ungültige Nachricht"
       no_contact: "Hoppla, du musst den Kontakt erst hinzufügen!"
@@ -855,6 +859,7 @@ de:
       all: "alle"
       all_contacts: "Alle Kontakte"
       discard_post: "Beitrag verwerfen"
+      get_location: "Deinen Standort ermitteln"
       make_public: "veröffentlichen"
       new_user_prefill:
         hello: "Hallo zusammen, ich bin #%{new_user_tag}. "

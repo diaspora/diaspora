@@ -751,6 +751,7 @@ ko:
       logged_in_as: "로그인 중: "
       no_services: "아직 연결한 서비스가 없습니다."
       really_disconnect: "%{service} 서비스를 끊으시겠습니까?"
+      services_explanation: "서비스 연결로 디아스포라에 내 게시물을 남기면서 해당 서비스에도 같이 게시할 수 있습니다."
     inviter:
       click_link_to_accept_invitation: "초대를 수락하려면 이 링크를 따라가세요"
       join_me_on_diaspora: "디아스포라*에서 만나요!"
@@ -807,6 +808,7 @@ ko:
       all: "모두"
       all_contacts: "모든 컨택"
       discard_post: "게시물 삭제"
+      get_location: "위치 가져오기"
       make_public: "공개하기"
       new_user_prefill:
         hello: "반갑습니다! #%{new_user_tag} 했습니다."
@@ -815,6 +817,7 @@ ko:
         newhere: "새로가입"
       post_a_message_to: "%{aspect} 애스펙에 메시지 게시하기"
       posting: "올리는 중···"
+      preview: "미리보기"
       publishing_to: "올릴 곳: "
       share: "공유"
       share_with: "공유하기: "
@@ -949,7 +952,7 @@ ko:
         make_diaspora_better: "떠나는 것 대신 더 나은 디아스포라를 만들 수 있도록 도와주십시오. 떠나고 싶다면, 다음에 무슨 일이 일어나는지 알려드리겠습니다."
         mr_wiggles: "Mr Wiggles님이 내가 떠나는 걸 슬퍼할거에요"
         no_turning_back: "현재로서는 돌이킬 수 있는 방법이 없습니다."
-        what_we_delete: "내 게시물, 프로필 자료가 인간적으로 가능한 한 빨리 모두 지워집니다. 내 댓글은 그대로 달려있지만 내 디아스포라 핸들과 연결됩니다."
+        what_we_delete: "내 모든 게시물과 프로필 자료가 인간적으로 가능한 한 빨리 지워집니다. 내 댓글은 그대로 달려있지만 내 이름 대신에 디아스포라 핸들과 연결됩니다."
       close_account_text: "계정 없애기"
       comment_on_post: "내 게시물에 댓글이 달렸을 때"
       current_password: "원래 암호"

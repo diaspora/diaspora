@@ -42,6 +42,7 @@ gl:
       at_least_one_aspect: "Ten que publicalo polo menos nun aspecto."
       limited: "Limitado. Só poderá velo a xente coa que comparte."
       public: "Público. Poderá velo calquera, e aparecerá nos motores de busca."
+      near_from: "Preto de <%= location %>"
     infinite_scroll:
       no_more: "Non hai máis publicacións."
     aspect_dropdown:
@@ -86,6 +87,9 @@ gl:
       wasnt_that_interesting: "Vale, supoño que #<%= tagName %> non era tan interesante…"
     people:
       not_found: "Non se atopou a ninguén."
+
+    conversation:
+      participants: "Participantes"
 
     stream:
       hide: "Agochar"

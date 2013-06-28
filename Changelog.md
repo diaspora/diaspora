@@ -1,3 +1,66 @@
+# 0.1.1.0
+
+## Refactor
+
+* Refactored config/ directory [#4145](https://github.com/diaspora/diaspora/pull/4145).
+* Drop misleading fallback donation form. [Proposal](https://www.loomio.org/discussions/1045?proposal=2722)
+* Update Typhoeus to 0.6.3 and refactor HydraWrapper. [#4162](https://github.com/diaspora/diaspora/pull/4162)
+* Bump recomended Ruby version to 1.9.3-p448, see [Ruby news](http://www.ruby-lang.org/en/news/2013/06/27/hostname-check-bypassing-vulnerability-in-openssl-client-cve-2013-4073/).
+* Remove length restriciton on GUIDs in the database schema [#4249](https://github.com/diaspora/diaspora/pull/4249)
+
+## Bug fixes
+
+* Fix deletelabel icon size regression after sprites [$4180](https://github.com/diaspora/diaspora/issues/4180)
+* Don't use Pathname early to circumvent some rare initialization errors [#3816](https://github.com/diaspora/diaspora/issues/3816)
+* Don't error out in script/server if git is unavailable.
+* Fix post preview from tag pages [#4157](https://github.com/diaspora/diaspora/issues/4157)
+* Fix tags ordering in chrome [#4133](https://github.com/diaspora/diaspora/issues/4133)
+* Fix src URL for oEmbed iFrame [#4178](https://github.com/diaspora/diaspora/pull/4178)
+* Add back-to-top button on tag and user pages [#4185](https://github.com/diaspora/diaspora/issues/4185)
+* Fix reopened issue by changing the comment/post submit keyboard sortcut to ctrl+enter from shift+enter [#3897](https://github.com/diaspora/diaspora/issues/3897)
+* Show medium avatar in hovercard [#4203](https://github.com/diaspora/diaspora/pull/4203)
+* Fix posting to Twitter [#2758](https://github.com/diaspora/diaspora/issues/2758)
+* Don't show hovercards for current user in comments [#3999](https://github.com/diaspora/diaspora/issues/3999)
+* Replace mentions of out-of-aspect people with markdown links [#4161](https://github.com/diaspora/diaspora/pull/4161)
+* Unify hide and ignore [#3828](https://github.com/diaspora/diaspora/issues/3828)
+* Remove alpha branding [#4196](https://github.com/diaspora/diaspora/issues/4196)
+* Fix dynamic loading of asset_sync
+* Fix login for short passwords [#4123](https://github.com/diaspora/diaspora/issues/4123)
+* Add loading indicator on tag pages, remove the second one from the profile page [#4041](https://github.com/diaspora/diaspora/issues/4041)
+* Leaving the `to` field blank when sending a private message causes a server error [#4227](https://github.com/diaspora/diaspora/issues/4227)
+* Fix hashtags that start a line when posting to Facebook or Twitter [#3768](https://github.com/diaspora/diaspora/issues/3768) [#4154](https://github.com/diaspora/diaspora/issues/4154)
+* Show avatar of recent user in conversation list [#4237](https://github.com/diaspora/diaspora/issues/4237)
+
+## Features
+
+* Deleting a post that was shared to Twitter now deletes it from Twitter too [#4156](https://github.com/diaspora/diaspora/pull/4156)
+* Improvement on how participants are displayed on each conversation without opening it [#4149](https://github.com/diaspora/diaspora/pull/4149)
+
+## Gem updates
+
+* acts-as-taggable-on 2.4.0 -> 2.4.1
+* configurate 0.0.7 -> 0.0.8
+* database_cleaner 0.9.1 -> 1.0.1
+* fog 1.10.1 -> 1.12.1
+* fuubar 1.10 -> 1.1.1
+* gon 4.1.0 -> 4.1.1
+* guard-rspec 2.5.3 -> 3.0.1
+* haml 4.0.2 -> 4.0.3
+* json 1.7.7 -> 1.8.0
+* mini_magick 3.5 -> 3.6.0
+* mobile-fu 1.1.1 -> 1.2.1
+* rack-cors 0.2.7 -> 0.2.8
+* rails_admin 0.4.7 -> 0.4.9
+* rails_autolink 1.0.9 -> 1.1.0
+* redcarpet 2.2.2 -> 2.3.0
+* rspec-rails 2.13.0 -> 2.13.2
+* slim 1.3.8 -> 1.3.9
+* twitter 4.6.2 -> 4.7.0
+* typhoeus 0.3.3 -> 0.6.3
+* uglifier 2.0.1 -> 2.1.1
+* webmock 1.8.11 -> 1.11.0
+
+
 # 0.1.0.1
 
 * Regression fix: 500 for deleted reshares introduced by the locator
@@ -19,13 +82,13 @@ To update do the following:
 1. Before updating (even before the `git pull`!) stop your application
    server (Unicorn by default, started through Foreman).
 2. In case you did already run `git pull` checkout v0.0.3.4:
-   
+
    ```
    git fetch origin
    git checkout v0.0.3.4
    bundle
    ```
-   
+
 3. Start Resque web (you'll need temporary access to port 5678, check
    your Firewall if needed!):
 
@@ -50,7 +113,7 @@ To update do the following:
 
    Don't forget to close the port on the Firewall again, if you had to open it.
 6. In case you needed to do step 2., run:
-   
+
    ```
    git checkout master
    bundle
@@ -110,7 +173,7 @@ everything is set up.
 * Load images via sprites [#4039](https://github.com/diaspora/diaspora/pull/4039)
 * Delete unnecessary javascript views. [#4059](https://github.com/diaspora/diaspora/pull/4059)
 * Cleanup of script/server
-* Attempt to stabilize federation of attached photos (fix [#3033](https://github.com/diaspora/diaspora/issues/3033)  [#3940](https://github.com/diaspora/diaspora/pull/3940)
+* Attempt to stabilize federation of attached photos (fix [#3033](https://github.com/diaspora/diaspora/issues/3033)  [#3940](https://github.com/diaspora/diaspora/pull/3940) )
 * Refactor develop install script [#4111](https://github.com/diaspora/diaspora/pull/4111)
 * Remove special hacks for supporting Ruby 1.8 [#4113] (https://github.com/diaspora/diaspora/pull/4139)
 * Moved custom oEmbed providers to config/oembed_providers.yml [#4131](https://github.com/diaspora/diaspora/pull/4131)
@@ -131,7 +194,7 @@ everything is set up.
 * Fix reshares in single post-view [#4056](https://github.com/diaspora/diaspora/issues/4056)
 * Fix mobile view of deleted reshares. [#4063](https://github.com/diaspora/diaspora/issues/4063)
 * Hide comment button in the mobile view when not signed in. [#4065](https://github.com/diaspora/diaspora/issues/4065)
-* Send profile alongside notification [#3976] (https://github.com/diaspora/diaspora/issues/3976)
+* Send profile alongside notification [#3976](https://github.com/diaspora/diaspora/issues/3976)
 * Fix off-center close button image on intro popovers [#3841](https://github.com/diaspora/diaspora/pull/3841)
 * Remove unnecessary dotted CSS borders. [#2940](https://github.com/diaspora/diaspora/issues/2940)
 * Fix default image url in profiles table. [#3795](https://github.com/diaspora/diaspora/issues/3795)
@@ -203,7 +266,6 @@ everything is set up.
 * twitter 4.5.0 -> 4.6.2
 * uglifier 1.3.0 -> 2.0.1
 * unicorn 4.6.0 -> 4.6.2
-
 
 # 0.0.3.4
 
@@ -399,7 +461,7 @@ everything is set up.
 
 * Fix missing X-Frame headers [#3739](https://github.com/diaspora/diaspora/pull/3739)
 * Fix image path for padlocks [#3682](https://github.com/diaspora/diaspora/pull/3682)
-* Fix posting to Facebook and Tumblr. Have a look at the updated [services guide](https://github.com/diaspora/diaspora/wiki/Howto-setup-services) for new Facebook instructions.
+* Fix posting to Facebook and Tumblr. Have a look at the updated [services guide](http://wiki.diasporafoundation.org/Integrating_Other_Social_Networks) for new Facebook instructions.
 * Fix overflow button in mobile reset password. [#3697](https://github.com/diaspora/diaspora/pull/3697)
 * Fix issue with interacted_at in post fetcher. [#3607](https://github.com/diaspora/diaspora/pull/3607)
 * Fix error with show post Community Spotlight. [#3658](https://github.com/diaspora/diaspora/pull/3658)
@@ -461,7 +523,7 @@ Fix exception when the root of a reshare of a reshare got deleted [#3546](https:
 
 ## New configuration system!
 
-Copy over config/diaspora.yml.example to config/diaspora.yml and migrate your settings! An updated Heroku guide including basic hints on howto migrate is [here](https://github.com/diaspora/diaspora/wiki/Installing-on-heroku).
+Copy over config/diaspora.yml.example to config/diaspora.yml and migrate your settings! An updated Heroku guide including basic hints on howto migrate is [here](http://wiki.diasporafoundation.org/Installing_on_Heroku).
 
 The new configuration system allows all possible settings to be overriden by environment variables. This makes it possible to deploy heroku without checking any credentials into git. Read the top of `config/diaspora.yml.example` for an explanation on how to convert the setting names to environment variables.
 

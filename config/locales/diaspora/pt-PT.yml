@@ -391,7 +391,7 @@ pt-PT:
   likes:
     likes:
       people_dislike_this:
-        one: "%{count} pessoas não gostam"
+        one: "%{count} pessoa não gosta"
         other: "%{count} pessoas não gostam"
         zero: "nenhuma pessoa não gosta disto"
       people_like_this:
@@ -769,6 +769,7 @@ pt-PT:
       logged_in_as: "com sessão registada como"
       no_services: "Ainda não conectou quaisquer serviços."
       really_disconnect: "desligar do %{service}?"
+      services_explanation: "A conexão com serviços externos permite que você publique as suas publicações nesses serviços ao mesmo tempo em que publica no Diaspora."
     inviter:
       click_link_to_accept_invitation: "Siga esta hiperligação para aceitar o seu convite"
       join_me_on_diaspora: "Junte-se a mim no DIASPORA*"
@@ -829,6 +830,7 @@ pt-PT:
       all: "tudo"
       all_contacts: "todos os contactos"
       discard_post: "Rejeitar a publicação"
+      get_location: "Obter a sua localização"
       make_public: "tornar público"
       new_user_prefill:
         hello: "Olá a todos, sou #%{new_user_tag}. "
@@ -837,6 +839,7 @@ pt-PT:
         newhere: "NovoAqui"
       post_a_message_to: "Publicar uma mensagem em %{aspect}"
       posting: "A publicar..."
+      preview: "Pré-visualizar"
       publishing_to: "publicando para:"
       share: "Partilhar"
       share_with: "partilhar com"

@@ -1,6 +1,6 @@
 class PostgresqlPhotosIdSeqInit < ActiveRecord::Migration
   def self.up
-    if postgres?
+    if AppConfig.postgres?
       execute "SELECT setval('photos_id_seq', COALESCE( ( SELECT MAX(id)+1 FROM photos ), 1 ) )"
     end
   end
