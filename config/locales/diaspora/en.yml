@@ -594,6 +594,7 @@ en:
     helper:
       results_for: " results for %{params}"
       people_on_pod_are_aware_of: " people on pod are aware of"
+      is_sharing: "%{name} is sharing with you"
     aspect_list:
       edit_membership: "edit aspect membership"
     add_contact_small:

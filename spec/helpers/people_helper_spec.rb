@@ -117,5 +117,25 @@ describe PeopleHelper do
       local_or_remote_person_path(@person).should == person_path(@person)
     end
   end
-end
 
+  describe '#sharing_message' do
+    before do
+      @contact = FactoryGirl.create(:contact, :person => @person)
+    end
+
+    context 'when the contact is sharing' do
+      it 'shows the sharing message' do
+        message = I18n.t('people.helper.is_sharing', :name => @person.name)
+        @contact.stub(:sharing?).and_return(true)
+        sharing_message(@person, @contact).should include(message)
+      end
+    end
+
+    context 'when the contact is not sharing' do
+      it 'does not show the sharing message' do
+        @contact.stub(:sharing?).and_return(false)
+        sharing_message(@person, @contact).should be_blank
+      end
+    end
+  end
+end
