@@ -22,6 +22,9 @@
     = t('email')
     = text_field_tag 'user[email]', params[:user][:email]
 
+    = t('.under_13')
+    = check_box_tag 'under13', params[:under13]
+
     = submit_tag t('admins.stats.go')
 
 
@@ -38,7 +41,7 @@
         = user.person.profile.inspect
       %br
     = "invite token: #{invite_code_url(user.invited_by.invite_code)}" if user.invited_by.present?
-    = link_to "add_invites", add_invites_path(user.invitation_code)
+    = link_to t(".add_invites"), add_invites_path(user.invitation_code)
     %br
     %br
     %br
