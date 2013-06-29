@@ -8,6 +8,8 @@
 
   - if user_signed_in?
     - if person != current_user.person
+      = sharing_message(@person, @contact)
+
       - if @contact && @contact.receiving?
         %br
         = link_to t('people.show.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
