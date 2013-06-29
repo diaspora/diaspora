@@ -34,28 +34,43 @@ describe AdminsController do
         assigns[:users].should == []
       end
 
-      it 'should search on username' do
+      it 'searches on username' do
         get :user_search, :user => {:username => @user.username}
         assigns[:users].should == [@user]
       end
 
-      it 'should search on email' do
+      it 'searches on email' do
         get :user_search, :user => {:email => @user.email}
         assigns[:users].should == [@user]
       end
 
-      it 'should search on invitation_identifier' do
+      it 'searches on invitation_identifier' do
         @user.invitation_identifier = "La@foo.com"
         @user.save!
         get :user_search, :user => {:invitation_identifier => @user.invitation_identifier}
         assigns[:users].should == [@user]
       end
 
-      it 'should search on invitation_token' do
+      it 'searches on invitation_token' do
         @user.invitation_token = "akjsdhflhasdf"
         @user.save
         get :user_search, :user => {:invitation_token => @user.invitation_token}
         assigns[:users].should == [@user]
+      end
+
+      it 'searches on age < 13 (COPPA)' do
+        u_13 = FactoryGirl.create(:user)
+        u_13.profile.birthday = 10.years.ago.to_date
+        u_13.profile.save!
+
+        o_13 = FactoryGirl.create(:user)
+        o_13.profile.birthday = 20.years.ago.to_date
+        o_13.profile.save!
+
+        get :user_search, under13: true
+
+        assigns[:users].should include(u_13)
+        assigns[:users].should_not include(o_13)
       end
     end
   end
