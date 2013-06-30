@@ -43,7 +43,7 @@ class StreamsController < ApplicationController
   end
 
   def followed_tags
-    gon.tagFollowings = tags
+    gon.preloads[:tagFollowings] = tags
     stream_responder(Stream::FollowedTag)
   end
 

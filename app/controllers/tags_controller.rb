@@ -33,7 +33,7 @@ class TagsController < ApplicationController
     redirect_to(:action => :show, :name => downcased_tag_name) && return if tag_has_capitals?
 
     if user_signed_in?
-      gon.tagFollowings = tags
+      gon.preloads[:tagFollowings] = tags
     end
     @stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
     respond_with do |format|
