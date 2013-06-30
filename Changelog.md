@@ -2,6 +2,7 @@
 
 ## Refactor
 * Background actual mailing when sending invitations [#4069](https://github.com/diaspora/diaspora/issues/4069)
+* Set the current user on the client side through gon [#4028](https://github.com/diaspora/diaspora/issues/4028)
 
 ## Bug fixes
 * Don't focus comment form on 'show n more comments' [#4265](https://github.com/diaspora/diaspora/issues/4265)
