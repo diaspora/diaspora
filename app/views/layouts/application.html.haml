@@ -53,7 +53,7 @@
       %link{:rel => 'alternate', :type => "application/json+oembed", :href => "#{oembed_url(:url => post_url(@post))}"}
       = og_page_specific_tags(@post)
 
-    = include_gon(:camel_case => true, :namespace => :preloads)
+    = include_gon(:camel_case => true)
 
   %body
     = flash_messages
