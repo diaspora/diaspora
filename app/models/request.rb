@@ -76,10 +76,10 @@ class Request
     Rails.logger.info("event=receive payload_type=request sender=#{self.sender} to=#{self.recipient}")
 
     contact = user.contacts.find_or_initialize_by_person_id(self.sender.id)
-    contact.sharing = true
+    contact.receiving = true
     contact.save
     
-    user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back && !contact.receiving
+    user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back && !contact.sharing
 
     self
   end

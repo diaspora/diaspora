@@ -44,7 +44,7 @@ class Contact < ActiveRecord::Base
   }
 
   scope :only_sharing, lambda {
-    sharing.where(:receiving => false)
+    receiving.where(:sharing => false)
   }
 
   def destroy_notifications
