@@ -9,16 +9,16 @@ ar:
     aspect_dropdown:
       add_to_aspect: "أضف مراسلا"
       all_aspects: "جميع الفئات"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
       select_aspects: "إختر فئات"
       started_sharing_with: "لقد بدأت المشاركة مع <%= name %> !"
       stopped_sharing_with: "لقد توقفت عن المشاركة مع <%= name %>"
       toggle:
-        few: "في {{count}} فئات"
-        many: "في {{count}} فئات"
-        one: "في {{count}} فئة"
-        other: "في {{count}} فئات"
-        two: "في {{count}} فئات"
+        few: "في <%= count %> فئات"
+        many: "في <%= count %> فئات"
+        one: "في <%= count %> فئة"
+        other: "في <%= count %> فئات"
+        two: "في <%= count %> فئات"
         zero: "حدّد الفئات"
     aspect_navigation:
       deselect_all: "إلغاء اختيار الكل"
@@ -62,7 +62,7 @@ ar:
       public: "عام - مشاركتك ستكون متاحة للجميع ومفهرسة في محركات البحث"
     reshares:
       duplicate: "رائع، أليس كذلك؟ أعدت نشر هذه المشاركة مسبقا"
-    search_for: "إبحث عن {{name}}"
+    search_for: "إبحث عن <%= name %>"
     show_more: "المزيد"
     stream:
       comment: "تعليق"
@@ -100,7 +100,7 @@ ar:
       unfollow: "ألغِ المتابعة"
       unlike: "إلغاء إعجابى"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     timeago:
       day: "يوم"
       days: "%d أيام"
@@ -119,7 +119,7 @@ ar:
       years: "%d أعوام"
     videos:
       unknown: "نوع فيديو غير معروف"
-      watch: "شاهد هذا الفيديو عبر {{provider}}"
+      watch: "شاهد هذا الفيديو عبر <%= provider %>"
     viewer:
       comment: "تعليق"
       follow_post: "اتبع المشاركة"

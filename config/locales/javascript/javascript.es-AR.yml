@@ -79,7 +79,7 @@ es-AR:
       duplicate: "¿Te gustó eh? ¡Ya habías compartido esa publicación!"
       post: "¿Compartir la publicación de <%= name %>?"
       successful: "¡La publicación se compartió correctamente!"
-    search_for: "Buscar a {{name}}"
+    search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
     stream:
       comment: "Comentar"
@@ -136,7 +136,7 @@ es-AR:
       years: "%d años"
     videos:
       unknown: "Tipo de video desconocido"
-      watch: "Ver este video en {{provider}}"
+      watch: "Ver este video en <%= provider %>"
     viewer:
       comment: "Comentar"
       follow_post: "Seguir esta publicación"

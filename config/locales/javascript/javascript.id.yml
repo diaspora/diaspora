@@ -29,7 +29,7 @@ id:
     failed_to_post_message: "Gagal memposting pesan!"
     getting_started:
       alright_ill_wait: "Baiklah, Saya akan menunggu"
-      hey: "Hey, {{name}}!"
+      hey: "Hey, <%= name %>!"
       no_tags: "Hey, anda belum mengikuti 'tags' apapun! Lanjutkan ?"
       preparing_your_stream: "Mempersiapkan 'stream' personalisasi anda"
     header:

@@ -8,25 +8,25 @@ is:
   javascripts:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
+      started_sharing_with: "You have started sharing with <%= name %>!"
+      stopped_sharing_with: "You have stopped sharing with <%= name %>."
       toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
+        few: "In <%= count %> aspects"
+        many: "In <%= count %> aspects"
+        one: "In <%= count %> aspect"
+        other: "In <%= count %> aspects"
         two: "In <%= count %> aspects"
         zero: "Add to aspect"
     confirm_dialog: "Ertu viss?"
     getting_started:
-      hey: "Hey, {{name}}!"
+      hey: "Hey, <%= name %>!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       search: "Find people or #tags"
     reshares:
       duplicate: "You've already reshared that post!"
-    search_for: "Search for {{name}}"
+    search_for: "Search for <%= name %>"
     stream:
       likes:
         few: "<%= count %> Likes"
@@ -50,7 +50,7 @@ is:
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     timeago:
       day: "á dag"
       days: "%d dagar"
@@ -69,4 +69,4 @@ is:
       years: "%d ára"
     videos:
       unknown: "Óþekkt vídeó tegund"
-      watch: "Horfa á þetta vídeó á {{provider}}"
+      watch: "Horfa á þetta vídeó á <%= provider %>"

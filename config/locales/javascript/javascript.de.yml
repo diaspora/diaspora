@@ -144,7 +144,7 @@ de:
       years: "%d Jahren"
     videos:
       unknown: "Unbekanntes Videoformat"
-      watch: "Dieses Video auf {{provider}} ansehen"
+      watch: "Dieses Video auf <%= provider %> ansehen"
     viewer:
       comment: "Kommentieren"
       follow_post: "Diesen Beitrag verfolgen"

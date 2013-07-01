@@ -10,11 +10,11 @@ pt-PT:
     aspect_dropdown:
       add_to_aspect: "Adicionar contacto"
       all_aspects: "Todos os grupos"
-      error: "Não foi possível começar a partilhar com {{name}}. Você está a ignorá-los?"
+      error: "Não foi possível começar a partilhar com <%= name %>. Você está a ignorá-los?"
       error_remove: "Não pode remover <%= name %> nesse grupo :("
       select_aspects: "Selecionar grupos"
       started_sharing_with: "Começou a partilhar com <%= name %>!"
-      stopped_sharing_with: "Deixou de partilhar com {{name}}."
+      stopped_sharing_with: "Deixou de partilhar com <%= name %>."
       toggle:
         one: "Em <%=count %> grupo"
         other: "Em <%=count %> grupos"
@@ -35,7 +35,7 @@ pt-PT:
     failed_to_post_message: "Falhou ao publicar a mensagem!"
     getting_started:
       alright_ill_wait: "Tudo bem, eu esperarei."
-      hey: "Ei, {{name}}!"
+      hey: "Ei, <%= name %>!"
       no_tags: "Ei, não está a seguir nenhuma etiqueta! Continuar mesmo assim?"
       preparing_your_stream: "A preparar o seu fluxo personalizado..."
     header:
@@ -77,7 +77,7 @@ pt-PT:
       duplicate: "Que bom, hein? Você já republicou essa mensagem!"
       post: "Repartilhar a publicação de <%= name %>?"
       successful: "A publicação foi repartilhada com sucesso!"
-    search_for: "Procurar por {{name}}"
+    search_for: "Procurar por <%= name %>"
     show_more: "mostrar mais"
     stream:
       comment: "Comentar"
@@ -115,7 +115,7 @@ pt-PT:
       unfollow: "Não seguir"
       unlike: "Não gostar"
     tags:
-      wasnt_that_interesting: "OK, suponho que #{{tagName}} não era assim tão interessante..."
+      wasnt_that_interesting: "OK, suponho que #<%= tagName %> não era assim tão interessante..."
     timeago:
       day: "um dia"
       days: "%d dias"
@@ -134,7 +134,7 @@ pt-PT:
       years: "%d anos"
     videos:
       unknown: "Formato de vídeo desconhecido"
-      watch: "Veja este vídeo no {{provider}}"
+      watch: "Veja este vídeo no <%= provider %>"
     viewer:
       comment: "Comentário"
       follow_post: "Seguir a publicação"
