@@ -10,17 +10,17 @@ nb:
     aspect_dropdown:
       add_to_aspect: "Legg til kategori"
       all_aspects: "Alle kategorier"
-      error: "Kunne ikke begynne å dele med {{name}}.  Ignorerer du dem?"
+      error: "Kunne ikke begynne å dele med <%= name %>.  Ignorerer du dem?"
       error_remove: "Kunne ikke flytte <%= name %> fra aspektet :("
       select_aspects: "Velg kategori"
-      started_sharing_with: "Du har begynt å dele med {{name}}!"
-      stopped_sharing_with: "Du har sluttet å dele med {{name}}."
+      started_sharing_with: "Du har begynt å dele med <%= name %>!"
+      stopped_sharing_with: "Du har sluttet å dele med <%= name %>."
       toggle:
-        few: "I {{count}} kategorier"
-        many: "I {{count}} kategorier"
-        one: "I {{count}} kategori"
-        other: "I {{count}} kategorier"
-        two: "I {{count}} kategorier"
+        few: "I <%= count %> kategorier"
+        many: "I <%= count %> kategorier"
+        one: "I <%= count %> kategori"
+        other: "I <%= count %> kategorier"
+        two: "I <%= count %> kategorier"
         zero: "Legg til kategori"
     aspect_navigation:
       add_an_aspect: "+ Legg til et aspekt"
@@ -38,7 +38,7 @@ nb:
     failed_to_post_message: "Klarte ikke å publisere post!"
     getting_started:
       alright_ill_wait: "Greit, jeg venter."
-      hey: "Hei, {{name}}!"
+      hey: "Hei, <%= name %>!"
       no_tags: "Hei, du har ikke fulgt noen tagger! Fortsett likevel?"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
@@ -78,7 +78,7 @@ nb:
       duplicate: "du har allerede delt denne posten!"
       post: "Videredel <%= name %> sitt innhold?"
       successful: "Dette innholdet ble videredelt"
-    search_for: "Søk etter {{name}}"
+    search_for: "Søk etter <%= name %>"
     show_more: "vis mer"
     stream:
       comment: "Kommenter"
@@ -116,7 +116,7 @@ nb:
       unfollow: "Ikke følg"
       unlike: "Liker ikke"
     tags:
-      wasnt_that_interesting: "OK, jeg skjønner at #{{tagName}} ikke var så spennende likevel..."
+      wasnt_that_interesting: "OK, jeg skjønner at #<%= tagName %> ikke var så spennende likevel..."
     timeago:
       day: "en dag"
       days: "%d dager"
@@ -135,7 +135,7 @@ nb:
       years: "%d år"
     videos:
       unknown: "Ukjent videotype"
-      watch: "Se denne videoen på {{provider}}"
+      watch: "Se denne videoen på <%= provider %>"
     viewer:
       comment: "Kommenter"
       follow_post: "Følg post"
