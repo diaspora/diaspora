@@ -26,7 +26,7 @@ describe InvitationsController do
       end
 
       it 'does not create an EmailInviter' do
-        EmailInviter.should_not_receive(:new)
+        Workers::Mail::InviteEmail.should_not_receive(:perform_async)
         post :create,  @invite
       end
 
@@ -47,10 +47,9 @@ describe InvitationsController do
         @invite = {'email_inviter' => {'message' => "test", 'emails' => @emails}}
       end
 
-      it 'creates an EmailInviter'  do
+      it 'creates an InviteEmail worker'  do
         inviter = stub(:emails => [@emails], :send! => true)
-        EmailInviter.should_receive(:new).with(@invite['email_inviter']['emails'], @user, @invite['email_inviter']).
-          and_return(inviter)
+        Workers::Mail::InviteEmail.should_receive(:perform_async).with(@invite['email_inviter']['emails'], @user.id, @invite['email_inviter'])
         post :create,  @invite
       end
 
@@ -72,8 +71,8 @@ describe InvitationsController do
         @invite = {'email_inviter' => {'message' => "test", 'emails' => @emails}}
       end
 
-      it 'does not create an EmailInviter' do
-        EmailInviter.should_not_receive(:new)
+      it 'does not create an InviteEmail worker' do
+        Workers::Mail::InviteEmail.should_not_receive(:perform_async)
         post :create,  @invite
       end
 
@@ -98,10 +97,9 @@ describe InvitationsController do
                                        @valid_emails + ',' + @invalid_emails}}
       end
 
-      it 'creates an EmailInviter'  do
+      it 'creates an InviteEmail worker'  do
         inviter = stub(:emails => [@emails], :send! => true)
-        EmailInviter.should_receive(:new).with(@valid_emails, @user, @invite['email_inviter']).
-          and_return(inviter)
+        Workers::Mail::InviteEmail.should_receive(:perform_async).with(@valid_emails, @user.id, @invite['email_inviter'])
         post :create,  @invite
       end
 
