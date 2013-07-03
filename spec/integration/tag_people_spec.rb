@@ -2,10 +2,11 @@ require 'spec_helper'
 
 describe TagsController, type: :controller do
   describe 'will_paginate people on the tag page' do
-    let(:people) { (1..16).map { FactoryGirl.create(:person) } }
+    let(:people) { (1..2).map { FactoryGirl.create(:person) } }
     let(:tag)    { "diaspora" }
 
     before do
+ 	  Stream::Tag.any_instance.stub(people_per_page: 1)
       Person.should_receive(:profile_tagged_with).with(/#{tag}/).twice.and_return(people)
     end
 
