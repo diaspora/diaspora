@@ -1,6 +1,7 @@
 # Head
 
 ## Refactor
+* Background actual mailing when sending invitations [#4069](https://github.com/diaspora/diaspora/issues/4069)
 
 ## Bug fixes
 * Don't focus comment form on 'show n more comments' [#4265](https://github.com/diaspora/diaspora/issues/4265)

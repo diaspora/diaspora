@@ -58,9 +58,10 @@ class InvitationsController < ApplicationController
     session[:invalid_email_invites] = invalid_emails
 
     unless valid_emails.empty?
-      inviter = EmailInviter.new(valid_emails.join(','), current_user,
-                                 params[:email_inviter])
-      inviter.send!
+      Workers::Mail::InviteEmail.perform_async(valid_emails.join(','),
+                                               current_user.id,
+                                               params[:email_inviter])
+
     end
 
     if emails.empty?

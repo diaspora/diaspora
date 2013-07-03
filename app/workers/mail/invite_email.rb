@@ -4,14 +4,11 @@
 
 module Workers
   module Mail
-    class InviteUserByEmail < Base
+    class InviteEmail < Base
       sidekiq_options queue: :mail
-      
-      def perform(invite_id)
-        invite = Invitation.find(invite_id)
-        I18n.with_locale(invite.language) do
-          invite.send!
-        end
+
+      def perform(emails, inviter_id, options={})
+        EmailInviter.new(emails, User.find(inviter_id), options).send!
       end
     end
   end
