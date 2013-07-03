@@ -53,7 +53,8 @@ defaults:
   settings:
     pod_name: 'Diaspora*'
     enable_registrations: true
-    follow_diasporahq: true
+    autofollow_on_join: true
+    autofollow_on_join_user: 'diasporahq@joindiaspora.com'
     invitations:
       open: true
       count: 25
@@ -121,7 +122,8 @@ development:
   server:
     unicorn_worker: 1
   settings:
-    follow_diasporahq: false
+    autofollow_on_join: false
+    autofollow_on_join_user: ''
 production:
   i_am_a_dummy: # Remove if you add an actual override
 test:
@@ -132,7 +134,8 @@ test:
     assets:
       serve: true
   settings:
-    follow_diasporahq: false
+    autofollow_on_join: false
+    autofollow_on_join_user: ''
     invitations:
       open: true
   services:
