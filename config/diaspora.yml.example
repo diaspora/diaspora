@@ -152,6 +152,12 @@ configuration: ## Section
     ## Number of Unicorn worker processes, increase this if
     ## you have many users
     #unicorn_worker: 2
+
+    ## Number of seconds before a request is aborted, increase if
+    ## you get empty responses, or large image uploads fail.
+    ## Decrease if you're under heavy load and don't care for some
+    ## requests to fail.
+    #unicorn_timeout: 90
     
     ## Embed a Sidekiq worker inside the unicorn process, useful for
     ## minimal Heroku setups

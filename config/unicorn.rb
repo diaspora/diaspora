@@ -10,7 +10,7 @@ worker_processes AppConfig.server.unicorn_worker.to_i
 preload_app true
 
 # How long to wait before killing an unresponsive worker
-timeout 30
+timeout AppConfig.server.unicorn_timeout.to_i
 
 @sidekiq_pid = nil
 
