@@ -11,11 +11,8 @@ module User::Connecting
     contact = self.contacts.find_or_initialize_by_person_id(person.id)
     return false unless contact.valid?
 
-    unless contact.receiving?
-      contact.dispatch_request
-      contact.receiving = true
-    end
-
+    contact.dispatch_request unless contact.sharing
+    contact.sharing = true
     contact.aspects << aspect
     contact.save
 
@@ -41,13 +38,15 @@ module User::Connecting
     nil
   end
 
-  def remove_contact(contact, opts={:force => false})
+  def remove_contact(contact, opts={:force => false, :received => false})
     posts = contact.posts.all
 
     if !contact.mutual? || opts[:force]
       contact.destroy
-    else
+    elsif opts[:received]
       contact.update_attributes(:receiving => false)
+    else
+      contact.update_attributes(:sharing => false);
     end
   end
 
@@ -65,7 +64,7 @@ module User::Connecting
   def disconnected_by(person)
     Rails.logger.info("event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}")
     if contact = self.contact_for(person)
-      remove_contact(contact)
+      remove_contact(contact, {:received => true})
     end
   end
 end

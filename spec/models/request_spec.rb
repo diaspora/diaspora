@@ -68,11 +68,13 @@ describe Request do
   describe '#receive' do
     it 'creates a contact' do
       request = Request.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
+
       lambda{
         request.receive(eve, alice.person)
       }.should change{
         eve.contacts(true).size
       }.by(1)
+
     end
 
     it 'sets mutual if a contact already exists' do
@@ -87,10 +89,11 @@ describe Request do
 
     end
 
-    it 'sets sharing' do
-      Request.diaspora_initialize(:from => eve.person, :to => alice.person,
-                                  :into => eve.aspects.first).receive(alice, eve.person)
-      alice.contact_for(eve.person).should be_sharing
+    it 'sets receiving' do
+        Request.diaspora_initialize(:from => eve.person, :to => alice.person,
+                                    :into => eve.aspects.first).receive(alice, eve.person);
+
+        alice.contact_for(eve.person).should be_receiving 
     end
     
     it 'shares back if auto_following is enabled' do
@@ -101,7 +104,7 @@ describe Request do
       Request.diaspora_initialize(:from => eve.person, :to => alice.person,
                                   :into => eve.aspects.first).receive(alice, eve.person)
       
-      eve.contact_for(alice.person).should be_sharing
+      alice.contact_for(eve.person).should be_sharing
     end
     
     it 'shares not back if auto_following is not enabled' do
@@ -121,7 +124,7 @@ describe Request do
       alice.save
       
       contact = FactoryGirl.build:contact, :user => alice, :person => eve.person,
-                                  :receiving => true, :sharing => false
+                                :receiving => true, :sharing => true 
       contact.save
       
       alice.should_not_receive(:share_with)

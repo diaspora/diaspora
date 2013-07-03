@@ -79,15 +79,15 @@ describe Contact do
     end
 
     describe 'only_sharing' do
-      it 'returns contacts with sharing true and receiving false' do
+      it 'returns contacts with sharing false and receiving true' do
         lambda {
           alice.contacts.create!(:receiving => true, :sharing => true, :person => FactoryGirl.build(:person))
           alice.contacts.create!(:receiving => false, :sharing => true, :person => FactoryGirl.build(:person))
           alice.contacts.create!(:receiving => false, :sharing => true, :person => FactoryGirl.build(:person))
           alice.contacts.create!(:receiving => true, :sharing => false, :person => FactoryGirl.build(:person))
         }.should change{
-          Contact.receiving.count
-        }.by(2)
+          Contact.only_sharing.count
+        }.by(1)
       end
     end
     

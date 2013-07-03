@@ -27,16 +27,16 @@ describe User::Connecting do
         }.by(-1)
       end
 
-      it 'removes a contacts receiving flag' do
-        bob.contacts.find_by_person_id(alice.person.id).should be_receiving
+      it 'removes a contacts sharing flag' do
+        bob.contacts.find_by_person_id(alice.person.id).should be_sharing
         bob.remove_contact(bob.contact_for(alice.person))
-        bob.contacts(true).find_by_person_id(alice.person.id).should_not be_receiving
+        bob.contacts(true).find_by_person_id(alice.person.id).should_not be_sharing
       end
     end
 
     describe '#disconnected_by' do
       it 'calls remove contact' do
-        bob.should_receive(:remove_contact).with(bob.contact_for(alice.person))
+        bob.should_receive(:remove_contact).with(bob.contact_for(alice.person), {:received => true})
         bob.disconnected_by(alice.person)
       end
 
@@ -138,10 +138,10 @@ describe User::Connecting do
         alice.share_with(eve.person, alice.aspects.first)
       end
 
-      it 'does not dispatch a request if contact already marked as receiving' do
+      it 'does not dispatch a request if contact already marked as sharing' do
         a2 = alice.aspects.create(:name => "two")
 
-        contact = alice.contacts.create(:person => eve.person, :receiving => true)
+        contact = alice.contacts.create(:person => eve.person, :sharing => true)
         alice.contacts.stub!(:find_or_initialize_by_person_id).and_return(contact)
 
         contact.should_not_receive(:dispatch_request)
@@ -156,9 +156,9 @@ describe User::Connecting do
       end
     end
 
-    it 'sets receiving' do
+    it 'sets sharing' do
       alice.share_with(eve.person, alice.aspects.first)
-      alice.contact_for(eve.person).should be_receiving
+      alice.contact_for(eve.person).should be_sharing
     end
 
     it "should mark the corresponding notification as 'read'" do
