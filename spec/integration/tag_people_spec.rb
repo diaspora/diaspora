@@ -6,7 +6,7 @@ describe TagsController, type: :controller do
     let(:tag)    { "diaspora" }
 
     before do
- 	  Stream::Tag.any_instance.stub(people_per_page: 1)
+      Stream::Tag.any_instance.stub(people_per_page: 1)
       Person.should_receive(:profile_tagged_with).with(/#{tag}/).twice.and_return(people)
     end
 

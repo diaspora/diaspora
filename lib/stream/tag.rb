@@ -8,7 +8,7 @@ class Stream::Tag < Stream::Base
   def initialize(user, tag_name, opts={})
     self.tag_name = tag_name
     self.people_page = opts[:page] || 1
-	self.people_per_page = 15
+    self.people_per_page = 15
     super(user, opts)
   end
 
