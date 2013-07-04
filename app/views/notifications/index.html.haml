@@ -21,16 +21,15 @@
                 - if note.type == "Notifications::StartedSharing" && contact = current_user.contact_for(note.effective_target)
                   .float-right
                     = aspect_membership_dropdown(contact, note.effective_target, 'left')
-                
+
                 .media
                   .bd
                     = person_image_tag note.actors.first, :thumb_medium
                     = notification_message_for(note)
                     %div
-                      %time
-                        = timeago(note.created_at)
+                      = timeago(note.created_at)
                       = link_to t('.mark_unread'), "#", :class => "unread-setter"
-                      
+
       = will_paginate @notifications
 
 :javascript
