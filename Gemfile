@@ -65,6 +65,11 @@ gem 'redcarpet',      '3.0.0'
 gem 'roxml',          '3.1.6'
 gem 'ruby-oembed',    '0.8.8'
 
+
+#Rails 4 integration
+gem 'strong_parameters'
+
+
 # Services
 
 gem 'omniauth',          '1.1.4'
