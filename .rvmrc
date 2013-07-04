@@ -1,4 +1,6 @@
 #!/bin/sh
+rvm use --create 1.9.3@diaspora
+
 
 rvm rvmrc warning ignore
 

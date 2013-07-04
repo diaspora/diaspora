@@ -13,6 +13,7 @@ config/deploy_config.yml
 vendor/bundle/*
 vendor/cache/*
 config/database.yml
+db/schema.rb
 .rvmrc_custom
 .rvmrc.local
 
