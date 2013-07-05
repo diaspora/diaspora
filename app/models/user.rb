@@ -64,7 +64,6 @@ class User < ActiveRecord::Base
 
   has_many :notifications, :foreign_key => :recipient_id
 
-
   before_save :guard_unconfirmed_email,
               :save_person!
 
@@ -342,7 +341,7 @@ class User < ActiveRecord::Base
 
   ###Helpers############
   def self.build(opts = {})
-    u = User.new(opts)
+    u = User.new(opts.except(:person))
     u.setup(opts)
     u
   end
