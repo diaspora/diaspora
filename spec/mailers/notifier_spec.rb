@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Notifier do
   include ActionView::Helpers::TextHelper
+  include MarkdownifyHelper
 
   let(:person) { FactoryGirl.create(:person) }
 
@@ -214,7 +215,7 @@ describe Notifier do
   end
 
   context "comments" do
-    let(:commented_post) {bob.post(:status_message, :text => "It's really sunny outside today, and this is a super long status message!  #notreally", :to => :all)}
+    let(:commented_post) {bob.post(:status_message, :text => "### Headline \r\n It's **really** sunny outside today, and this is a super long status message!  #notreally", :to => :all)}
     let(:comment) { eve.comment!(commented_post, "Totally is")}
 
     describe ".comment_on_post" do
@@ -228,8 +229,8 @@ describe Notifier do
         comment_mail["From"].to_s.should == "\"#{eve.name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>"
       end
 
-      it 'SUBJECT: has a snippet of the post contents' do
-        comment_mail.subject.should == "Re: #{truncate(commented_post.raw_message, :length => 70)}"
+      it 'SUBJECT: has a snippet of the post contents, without markdown and without newlines' do
+        comment_mail.subject.should == "Re: Headline It's really sunny outside today, and this is a super long ..."
       end
 
       context 'BODY' do
@@ -269,8 +270,8 @@ describe Notifier do
         comment_mail["From"].to_s.should == "\"#{eve.name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>"
       end
 
-      it 'SUBJECT: has a snippet of the post contents' do
-        comment_mail.subject.should == "Re: #{truncate(commented_post.raw_message, :length => 70)}"
+      it 'SUBJECT: has a snippet of the post contents, without markdown and without newlines' do
+        comment_mail.subject.should == "Re: Headline It's really sunny outside today, and this is a super long ..."
       end
 
       context 'BODY' do
