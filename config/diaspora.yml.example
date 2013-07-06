@@ -205,12 +205,16 @@ configuration: ## Section
     ## the first registration (you).
     #enable_registrations: true
     
-    ## Set this to false if you don't want your users to follow the
-    ## diasporahq@joindiaspora.com account on account creation.
+    ## Users will automatically follow a specified account on creation
+    ## Set this to false if you don't want your users to automatically
+    ## follow an account upon creation.
+    #autfollow_on_join: true
+ 
     ## The diasporahq account helps users start with some activity in
     ## their stream and get news about Diaspora, but if you don't want
-    ## your server to contact joindiaspora.com, set this to false:
-    #follow_diasporahq: false
+    ## your server to contact joindiaspora.com, you can change account
+    ## below or set autofollow_on_join to false
+    #autofollow_on_join_user: 'diasporahq@joindiaspora.com'
     
     ## Settings about invitations
     invitations: ## Section
