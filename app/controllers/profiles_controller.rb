@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
 
   def update
     # upload and set new profile photo
-    @profile_attrs = params[:profile] || {}
+    @profile_attrs = params.require(:profile).permit(:first_name, :last_name, :gender, :bio, :location, :searchable, :tag_string, :nsfw, :date => [:year, :month, :day]) || {}
     
     munge_tag_string
 
