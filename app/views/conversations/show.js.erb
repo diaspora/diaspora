@@ -15,3 +15,8 @@ if ($('#first_unread') > 0) {
 
 $(".timeago").tooltip();
 $("time.timeago").timeago();
+
+$('time.timeago').each(function(i,e) {
+  var jqe = $(e);
+  jqe.attr('title', '');
+});

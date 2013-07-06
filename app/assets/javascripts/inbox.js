@@ -13,10 +13,16 @@ $(document).ready(function(){
   $('time.timeago').each(function(i,e) {
     var jqe = $(e);
     jqe.attr('data-original-title', new Date(jqe.attr('datetime')).toLocaleString());
+    jqe.attr('title', '');
   });
 
   $('.timeago').tooltip();
   $('.timeago').timeago();
+
+  $('time.timeago').each(function(i,e) {
+    var jqe = $(e);
+    jqe.attr('title', '');
+  });
 
   $('.conversation-wrapper').live('click', function(){
     var conversation_path = $(this).data('conversation-path');
