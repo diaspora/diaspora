@@ -65,6 +65,16 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     // textchange event won't be called in Backbone...
     this.el_input.bind('textchange', $.noop);
 
+    var _this = this
+    $('body').on('click', function(event){
+      // if the click event is happened outside the publisher view, then try to close the box
+      if($(event.target).closest('#publisher').attr('id') != _this.el.id){
+          console.log('testing')
+          _this.tryClose()  
+        }
+    });
+
+
     return this;
   },
 
