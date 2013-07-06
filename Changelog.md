@@ -9,6 +9,7 @@
 * Do not render mobile photo view for none-existing photos [#4194](https://github.com/diaspora/diaspora/issues/4194)
 * Render markdown content for prettier email subjects and titles [#4182](https://github.com/diaspora/diaspora/issues/4182)
 * Disable invite button after sending invite [#4173](https://github.com/diaspora/diaspora/issues/4173)
+* Fix pagination for people list on the tag stream page [#4245](https://github.com/diaspora/diaspora/pull/4245)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
