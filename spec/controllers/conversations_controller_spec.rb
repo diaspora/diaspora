@@ -97,6 +97,13 @@ describe ConversationsController do
         }.should change(Message, :count).by(1)
       end
 
+      it 'should set response with success to true and message to success message' do
+        post :create, @hash
+        assigns[:response][:success].should == true
+        assigns[:response][:message].should == I18n.t('conversations.create.sent')
+        assigns[:response][:conversation_id].should == Conversation.first.id
+      end
+
       it 'sets the author to the current_user' do
         @hash[:author] = FactoryGirl.create(:user)
         post :create, @hash
@@ -143,6 +150,13 @@ describe ConversationsController do
           post :create, @hash
         }.should change(Message, :count).by(1)
       end
+
+      it 'should set response with success to true and message to success message' do
+        post :create, @hash
+        assigns[:response][:success].should == true
+        assigns[:response][:message].should == I18n.t('conversations.create.sent')
+        assigns[:response][:conversation_id].should == Conversation.first.id
+      end
     end
 
     context 'with empty text' do
@@ -167,6 +181,12 @@ describe ConversationsController do
           post :create, @hash
         }.should_not change(Message, :count).by(1)
       end
+
+      it 'should set response with success to false and message to create fail' do
+        post :create, @hash
+        assigns[:response][:success].should == false
+        assigns[:response][:message].should == I18n.t('conversations.create.fail')
+      end
     end
 
     context 'with empty contact' do
@@ -190,6 +210,12 @@ describe ConversationsController do
         lambda {
           post :create, @hash
         }.should_not change(Message, :count).by(1)
+      end
+
+      it 'should set response with success to false and message to fail due to no contact' do
+        post :create, @hash
+        assigns[:response][:success].should == false
+        assigns[:response][:message].should == I18n.t('conversations.create.no_contact')
       end
     end
 
