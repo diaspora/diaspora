@@ -208,7 +208,7 @@ configuration: ## Section
     ## Users will automatically follow a specified account on creation
     ## Set this to false if you don't want your users to automatically
     ## follow an account upon creation.
-    #autfollow_on_join: true
+    #autofollow_on_join: true
  
     ## The diasporahq account helps users start with some activity in
     ## their stream and get news about Diaspora, but if you don't want
