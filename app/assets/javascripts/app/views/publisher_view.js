@@ -249,6 +249,13 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     return this;
   },
 
+  tryClose : function(){
+    // if it is not submittable, close it. 
+    if( !this._submittable() ){
+      this.close()
+    }
+  },  
+
   open : function() {
     // visually 'open' the publisher
     this.$el.removeClass('closed');

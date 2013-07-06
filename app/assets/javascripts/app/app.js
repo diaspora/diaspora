@@ -20,7 +20,7 @@ var app = {
   views: {},
   pages: {},
   forms: {},
-
+  
   user: function(userAttrs) {
     if(userAttrs) { return this._user = new app.models.User(userAttrs) }
     return this._user || false
@@ -33,6 +33,7 @@ var app = {
 
   initialize: function() {
     app.router = new app.Router();
+    app.application_view = new app.views.app()
 
     app.currentUser = app.user(window.current_user_attributes) || new app.models.User()
 
@@ -84,5 +85,18 @@ var app = {
 };
 
 $(function() {
+  app.views.app = Backbone.View.extend({
+    el : 'body',
+    events: {
+      "click" : 'test'
+    },
+    test: function(event){
+      // if the click event is happened outside the publisher view
+      if($(event.target).closest('#publisher').attr('id') != app.publisher.el.id)
+        app.publisher.tryClose()
+    }
+
+  })
+
   app.initialize();
 });
