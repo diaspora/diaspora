@@ -9,6 +9,12 @@ $(document).ready(function(){
   if ($('#first_unread').length > 0) {
     $("html").scrollTop($('#first_unread').offset().top-45);
   }
+
+  $('time.timeago').each(function(i,e) {
+    var jqe = $(e);
+    jqe.attr('data-original-title', new Date(jqe.attr('datetime')).toLocaleString());
+  });
+
   $('.timeago').tooltip();
   $('.timeago').timeago();
 
