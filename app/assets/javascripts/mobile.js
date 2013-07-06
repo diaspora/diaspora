@@ -276,7 +276,7 @@ $(document).ready(function(){
 
 function createUploader(){
 
-   var aspectIds = gon.aspect_ids;
+   var aspectIds = gon.preloads.aspect_ids;
 
    var uploader = new qq.FileUploaderBasic({
        element: document.getElementById('file-upload-publisher'),

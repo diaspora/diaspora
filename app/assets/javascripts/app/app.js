@@ -34,7 +34,11 @@ var app = {
   initialize: function() {
     app.router = new app.Router();
 
-    app.currentUser = app.user(window.current_user_attributes) || new app.models.User()
+    if (window.gon == undefined) {
+      window.gon = {preloads:{}};
+    }
+
+    app.currentUser = app.user(window.gon.user) || new app.models.User();
 
     if(app.currentUser.authenticated()){
       app.header = new app.views.Header();
@@ -59,19 +63,19 @@ var app = {
   },
 
   hasPreload : function(prop) {
-    return !!(window.preloads && window.preloads[prop]) //returning boolean variable so that parsePreloads, which cleans up properly is used instead
+    return !!(window.gon.preloads && window.gon.preloads[prop]) //returning boolean variable so that parsePreloads, which cleans up properly is used instead
   },
 
   setPreload : function(prop, val) {
-    window.preloads = window.preloads || {}
-    window.preloads[prop] = val
+    window.gon.preloads = window.gon.preloads || {}
+    window.gon.preloads[prop] = val
   },
 
   parsePreload : function(prop){
       if(!app.hasPreload(prop)) { return }
 
-      var preload = window.preloads[prop]
-      delete window.preloads[prop] //prevent dirty state across navigates
+      var preload = window.gon.preloads[prop]
+      delete window.gon.preloads[prop] //prevent dirty state across navigates
 
       return(preload)
   },

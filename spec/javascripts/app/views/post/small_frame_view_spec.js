@@ -40,7 +40,7 @@ describe("app.views.Post.SmallFrame", function(){
     beforeEach(function(){
       app.page = { editMode : false }
       app.router = new app.Router()
-      window.preloads = {}
+      window.gon.preloads = {}
       spyOn(app.router, "navigate")
     })
 
