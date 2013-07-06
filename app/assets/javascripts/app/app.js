@@ -85,6 +85,7 @@ var app = {
 };
 
 $(function() {
+
   app.views.app = Backbone.View.extend({
     el : 'body',
     events: {
@@ -92,10 +93,10 @@ $(function() {
     },
     test: function(event){
       // if the click event is happened outside the publisher view
-      if($(event.target).closest('#publisher').attr('id') != app.publisher.el.id)
-        app.publisher.tryClose()
+      if(app.publisher && $(event.target).closest('#publisher').attr('id') != app.publisher.el.id){
+          app.publisher.tryClose()  
+      }
     }
-
   })
 
   app.initialize();
