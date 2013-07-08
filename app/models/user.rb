@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   include Connecting
   include Querying
   include SocialActions
-  include ActiveModel::ForbiddenAttributesProtection
 
   scope :logged_in_since, lambda { |time| where('last_sign_in_at > ?', time) }
   scope :monthly_actives, lambda { |time = Time.now| logged_in_since(time - 1.month) }

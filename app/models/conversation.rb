@@ -1,7 +1,6 @@
 class Conversation < ActiveRecord::Base
   include Diaspora::Federated::Base
   include Diaspora::Guid
-  include ActiveModel::ForbiddenAttributesProtection
 
   xml_attr :subject
   xml_attr :created_at

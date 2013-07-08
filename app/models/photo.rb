@@ -41,7 +41,6 @@ class Photo < ActiveRecord::Base
   validates_associated :status_message
   delegate :author_name, to: :status_message, prefix: true
 
-  attr_accessible :text, :pending
   validate :ownership_of_status_message
 
   before_destroy :ensure_user_picture
