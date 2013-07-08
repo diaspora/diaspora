@@ -71,7 +71,8 @@ describe ProfilesController do
 
     it 'sets tags' do
       params = { :id => eve.person.id,
-                 :tags => '#apples #oranges'}
+                 :tags => '#apples #oranges',
+                 :profile => {:tag_string => ''} }
 
       put :update, params
       eve.person(true).profile.tag_list.to_set.should == ['apples', 'oranges'].to_set
