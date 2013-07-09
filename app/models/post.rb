@@ -116,7 +116,7 @@ class Post < ActiveRecord::Base
   #############
 
   def self.diaspora_initialize(params)
-    new_post = self.new params.to_hash
+    new_post = self.new params.to_hash.stringify_keys.slice(*self.column_names)
     new_post.author = params[:author]
     new_post.public = params[:public] if params[:public]
     new_post.pending = params[:pending] if params[:pending]
