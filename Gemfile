@@ -66,7 +66,7 @@ gem 'roxml',          '3.1.6'
 gem 'ruby-oembed',    '0.8.8'
 
 
-#Rails 4 integration
+# Please remove when migrating to Rails 4
 gem 'strong_parameters'
 
 
@@ -96,10 +96,6 @@ gem 'gon',                     '4.1.1'
 gem 'haml',                    '4.0.3'
 gem 'mobile-fu',               '1.2.1'
 gem 'will_paginate',           '3.0.4'
-
-# Strong parameters
-
-gem 'strong_parameters'
 
 
 ### GROUPS ####

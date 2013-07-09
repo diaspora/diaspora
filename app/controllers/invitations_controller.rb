@@ -50,7 +50,6 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    inviter_params = params.require(:email_inviter).permit(:message, :locale, :emails)
     emails = inviter_params[:emails].split(',').map(&:strip).uniq
 
     valid_emails, invalid_emails = emails.partition { |email| valid_email?(email) }
@@ -98,5 +97,9 @@ class InvitationsController < ApplicationController
     value = session[key].join(', ').html_safe
     session[key] = nil
     return value
+  end
+
+  def inviter_params
+    params.require(:email_inviter).permit(:message, :locale, :emails)
   end
 end
