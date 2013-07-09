@@ -11,6 +11,7 @@
 * Disable invite button after sending invite [#4173](https://github.com/diaspora/diaspora/issues/4173)
 * Fix pagination for people list on the tag stream page [#4245](https://github.com/diaspora/diaspora/pull/4245)
 * Fix missing timeago tooltip in conversations [#4257](https://github.com/diaspora/diaspora/issues/4257)
+* Fix link to background image [#4289](https://github.com/diaspora/diaspora/pull/4289)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
