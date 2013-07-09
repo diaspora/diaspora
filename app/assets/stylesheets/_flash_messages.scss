@@ -15,7 +15,7 @@
   color: #666;
 
   &.expose {
-    @include animation(expose, 5s)
+    @include animation(expose, 10s)
   }
 
   .message {
