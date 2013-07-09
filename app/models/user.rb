@@ -326,7 +326,8 @@ class User < ActiveRecord::Base
       params[:image_url_small] = photo.url(:thumb_small)
     end
 
-    params.stringify_keys!.slice!(*(Profile.column_names+['tag_string', 'date']))
+    params.stringify_keys!
+    params.slice!(*(Profile.column_names+['tag_string', 'date']))
     if self.profile.update_attributes(params)
       deliver_profile_update
       true
