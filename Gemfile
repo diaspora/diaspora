@@ -50,7 +50,7 @@ gem 'remotipart',  '1.0.5'
 
 gem 'http_accept_language', '1.0.2'
 gem 'i18n-inflector-rails', '~> 1.0'
-gem 'rails-i18n',           '0.7.3'
+gem 'rails-i18n',           '0.7.4'
 
 # Mail
 
