@@ -157,13 +157,13 @@ group :development do
   # Automatic test runs
 
   gem 'guard-cucumber', '1.4.0'
-  gem 'guard-rspec',    '3.0.1'
+  gem 'guard-rspec',    '3.0.2'
   gem 'rb-fsevent',     '0.9.3', :require => false
   gem 'rb-inotify',     '0.9.0', :require => false
 
   # Preloading environment
 
-  gem 'guard-spork', '1.5.0'
+  gem 'guard-spork', '1.5.1'
   gem 'spork',       '1.0.0rc3'
 end
 
