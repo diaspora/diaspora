@@ -44,7 +44,7 @@ gem 'foreigner',           '1.4.1'
 gem 'carrierwave', '0.9.0'
 gem 'fog',         '1.12.1'
 gem 'mini_magick', '3.6.0'
-gem 'remotipart',  '1.0.5'
+gem 'remotipart',  '1.2.1'
 
 # Localization
 
