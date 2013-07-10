@@ -79,7 +79,7 @@ gem 'acts-as-taggable-on', '2.4.1'
 
 # URIs and HTTP
 
-gem 'addressable',        '2.3.4', :require => 'addressable/uri'
+gem 'addressable',        '2.3.5', :require => 'addressable/uri'
 gem 'faraday',            '0.8.7'
 gem 'faraday_middleware', '0.9.0'
 gem 'typhoeus',           '0.6.3'
