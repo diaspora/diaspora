@@ -170,7 +170,7 @@ end
 group :test do
   # RSpec (unit tests, some integration tests)
 
-  gem 'fixture_builder', '0.3.5'
+  gem 'fixture_builder', '0.3.6'
   gem 'fuubar',          '1.1.1'
   gem 'rspec-instafail', '0.2.4', :require => false
 
