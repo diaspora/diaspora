@@ -37,11 +37,9 @@ Feature: posting
   Scenario: can stop following a tag from the tag page
     When I press "Following #boss"
     And I go to the followed tags stream page
-    Then I should not see "#boss" within ".left_nav"
+    Then I should not see "#boss" within "#tags_list"
 
   Scenario: can stop following a tag from the homepage
     When I go to the followed tags stream page
-    And I hover over the "li.unfollow#tag-following-boss"
-    And I follow "unfollow_boss"
-    And I confirm the alert
-    Then I should not see "#tag-following-boss" within ".left_nav"
+    And I unfollow the "boss" tag
+    Then I should not see "#tag-following-boss" within "#tags_list"

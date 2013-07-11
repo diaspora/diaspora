@@ -1,6 +1,8 @@
-<a class="toggle_selector" href="#">
-  {{ t "aspect_navigation.select_all" }}
-</a>
-<li>
-  <a class="new_aspect" href="/aspects/new" rel="facebox">{{ t "aspect_navigation.add_an_aspect" }}</a>
+<li class="hoverable">
+  <a class="selectable toggle_selector" href="#">
+    {{ t "aspect_navigation.select_all" }}
+  </a>
+</li>
+<li class="hoverable">
+  <a href="/aspects/new" class="selectable new_aspect" rel="facebox">{{ t "aspect_navigation.add_an_aspect" }}</a>
 </li>

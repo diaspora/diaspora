@@ -3,6 +3,7 @@
 @import '_mixins.css.scss'
 @import '_flash_messages.scss'
 @import 'new_styles/_spinner'
+@import 'sidebar.css.scss'
 
 /* ===== sprites ===== */
 
@@ -1060,10 +1061,6 @@ ul#settings_nav
 #thumbnails
   :line-height 14px
 
-#aspect_list
-  :margin 0
-  :padding 0
-
 .dull
   :color #aaa
   :text-align center
@@ -1149,24 +1146,6 @@ input[type="search"]
 
   form
     :display relative
-
-.inline_aspect_listing
-  :margin 0
-  :padding 0
-  :display inline
-  > li
-    :display inline
-    :font
-      :weight normal
-
-    &:after
-      :content ", "
-
-    &:last-child
-      &:before
-        :content "and "
-      &:after
-        :content "."
 
 #user_photo_uploader
   .avatar
@@ -1811,31 +1790,6 @@ ul#press_logos
   :margin
     :top 8px
 
-#home_user_badge
-  :position relative
-
-  img
-    :position absolute
-    :left 0
-
-  h4
-    :position relative
-    :top 14px
-    :padding
-      :bottom 5px
-    :text-overflow ellipsis
-    :overflow hidden
-    :white-space nowrap
-
-    a
-      :color inherit
-
-  :margin
-    :bottom 54px
-
-  :padding
-    :left 60px
-
 .icons-monotone_email_letter_round
   :height 128px
   :width 128px
@@ -2439,19 +2393,9 @@ ul.left_nav
     :text
       :decoration none
 
-  .invisible
-    :visibility hidden
-
   li
     :position relative
     :width 100%
-
-    .icons-check_yes_ok
-      :height 18px
-      :width 18px
-      :display inline-block
-      :margin-left 3px
-      :vertical-align middle
 
   li.active
     > a.home_selector:not(.sub_selected)
@@ -2534,17 +2478,11 @@ ul.left_nav
       :float right
 
   ul.sub_nav
-    :padding 0
+    :padding
+      :left 25px
     :margin 0
     li
       :width 204px
-
-    a.toggle_selector,
-    .new_aspect,
-    a.tag_selector
-      :padding
-        :left 25px
-      :width 172px
 
 .section
   .left_nav

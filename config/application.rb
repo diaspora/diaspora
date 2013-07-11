@@ -90,6 +90,7 @@ module Diaspora
       mobile.css
       new-templates.css
       rtl.css
+      sidebar.css
     }
 
     # Version of your assets, change this if you want to expire all your assets
