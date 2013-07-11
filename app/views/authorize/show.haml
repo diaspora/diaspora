@@ -1,0 +1,50 @@
+- content_for :page_title do
+  = t('authorize.title')
+
+#section_header
+  %h2
+    = t('.title', { :app_name => @access_request.app_name })
+
+.span-24.last
+  .span-14.append-1
+    %hr
+    %h4
+      = @access_request.app_description
+    %br
+    %hr
+    
+    .span-13.prepend-1
+      %strong
+        %h3
+          = t('.acess_request', { :app_name => @access_request.app_name })    
+      - @access_request.scopes.each do |scope|
+        %li
+          %label
+            = t(".#{scope}")
+      %br
+      %strong
+        %h3
+          = t('.additional_acess_request', { :app_name => @access_request.app_name })
+      = form_tag('/dauth/authorize/update') do
+        %p
+          - @scopes.each do |scope|
+            %p.checkbox_select
+              = check_box_tag "scopes[]", scope, false,  :id => scope
+              = label_tag t(".#{scope}")
+              %br
+        = hidden_field_tag 'authorize_token', @access_request.auth_token
+        = hidden_field_tag 'handle', @diaspora_handle
+        = submit_tag t('.allow')
+        = submit_tag t('.deny')
+
+  .span-8.last
+    %h3
+      = t('.developer', { :app_name => @access_request.app_name })
+    .media
+      .profile_photo
+        = person_image_link(@dev, :size => :thumb_large, :to => :photos)
+
+    .bd
+      %h3= person_link(@dev)
+    %h4
+      = @dev.diaspora_handle  

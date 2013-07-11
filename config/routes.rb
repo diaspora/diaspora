@@ -239,5 +239,7 @@ Diaspora::Application.routes.draw do
       post :download
     end
   end
-
+  
+  #dauth
+  match 'dauth/authorize/authorization_token',    to: 'authorize#show'
 end

@@ -1167,6 +1167,24 @@ en:
 
     developer:
       title: "Developer"
+    
+  authorize:
+    title: "Authentication"
+    show:
+      title: "Authenticate %{app_name}"
+      developer: "Creator of %{app_name}"
+      acess_request: "%{app_name} would like do following on your data,"
+      additional_acess_request: "You can additionaly allow it to following,"
+      allow: "Allow"
+      deny: "Deny"
+
+      post_write: "Put posts on your behalf"
+      post_read: "Read your posts"
+      post_delete:  "Delete your posts"
+      comment_read:  "Read comments you make on posts"
+      comment_write:  "Write comments to posts on your behalf"
+      profile_read:  "Read your profile information"
+      contact_list_read:  "Read your contact list"  
 
   manifests:
     missing_values: "Missing or incorrect values"
