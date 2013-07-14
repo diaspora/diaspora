@@ -68,7 +68,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     var _this = this
     $('body').on('click', function(event){
       // if the click event is happened outside the publisher view, then try to close the box
-      if($(event.target).closest('#publisher').attr('id') != _this.el.id){
+      if( _this.el && $(event.target).closest('#publisher').attr('id') != _this.el.id){
           _this.tryClose()
         }
     });
