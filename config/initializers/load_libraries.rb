@@ -34,3 +34,6 @@ require 'stream'
 require 'template_picker'
 require 'webfinger'
 require 'webfinger_profile'
+
+# API
+require 'authenticator'
