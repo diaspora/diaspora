@@ -50,13 +50,6 @@ describe TemplatePicker do
     end
   end
 
-  describe '#activity_stream_photo' do
-    it 'is true if the post is of type activity_streams_photo' do
-      photo = stub(:type => "ActivityStreams::Photo")      
-      TemplatePicker.new(photo).should be_activity_streams_photo
-    end
-  end
-
   describe 'factories' do
     TemplatePicker::TEMPLATES.each do |template|
       describe "#{template} factory" do

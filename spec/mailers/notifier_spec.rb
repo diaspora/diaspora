@@ -136,12 +136,6 @@ describe Notifier do
       like = reshare.likes.create!(:author => bob.person)
       mail = Notifier.liked(alice.id, like.author.id, like.id)
     end
-
-    it 'can handle a activity streams photo' do
-      as_photo = FactoryGirl.create(:activity_streams_photo)
-      like = as_photo.likes.create!(:author => bob.person)
-      mail = Notifier.liked(alice.id, like.author.id, like.id)
-    end
   end
 
   describe ".reshared" do
@@ -247,7 +241,7 @@ describe Notifier do
         end
       end
 
-      [:reshare, :activity_streams_photo].each do |post_type|
+      [:reshare].each do |post_type|
         context post_type.to_s do
           let(:commented_post) { FactoryGirl.create(post_type, :author => bob.person) }
           it 'succeeds' do
@@ -287,7 +281,7 @@ describe Notifier do
           comment_mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
         end
       end
-      [:reshare, :activity_streams_photo].each do |post_type|
+      [:reshare].each do |post_type|
         context post_type.to_s do
           let(:commented_post) { FactoryGirl.create(post_type, :author => bob.person) }
           it 'succeeds' do
