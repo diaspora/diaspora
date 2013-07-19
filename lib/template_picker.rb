@@ -4,7 +4,6 @@ class TemplatePicker
   TEMPLATES = %w{ status_with_photo_backdrop
                   note
                   photo_backdrop
-                  activity_streams_photo
                   status
                 }
 
@@ -30,10 +29,6 @@ class TemplatePicker
 
   def photo_backdrop?
     post.photos.size == 1 
-  end
-
-  def activity_streams_photo?
-    post.type == "ActivityStreams::Photo"
   end
 
   def status?
