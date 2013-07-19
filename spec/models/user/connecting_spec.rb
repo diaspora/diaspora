@@ -36,7 +36,7 @@ describe User::Connecting do
 
     describe '#disconnected_by' do
       it 'calls remove contact' do
-        bob.should_receive(:remove_contact).with(bob.contact_for(alice.person))
+        bob.should_receive(:remove_contact).with(bob.contact_for(alice.person), :retracted => true)
         bob.disconnected_by(alice.person)
       end
 
