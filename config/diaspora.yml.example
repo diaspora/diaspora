@@ -328,6 +328,12 @@ configuration: ## Section
       #enable: true
       #key: 'abcdef'
       #secret: 'changeme'
+      
+    ## OAuth credentials for Wordpress
+    wordpress: ## Section
+      #enable: true
+      #client_id: 'abcdef'
+      #secret: 'changeme'
   
   ## Settings relevant to administrators
   admins: ## Section

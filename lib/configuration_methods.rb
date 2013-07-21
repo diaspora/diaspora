@@ -24,7 +24,7 @@ module Configuration
       return @configured_services unless @configured_services.nil?
       
       @configured_services = []
-      [:twitter, :tumblr, :facebook].each do |service|
+      [:twitter, :tumblr, :facebook, :wordpress].each do |service|
         @configured_services << service if services.send(service).enable?
       end
       
