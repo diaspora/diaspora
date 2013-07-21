@@ -92,6 +92,10 @@ defaults:
       enable: false
       key:
       secret:
+    wordpress:
+      enable: false
+      key:
+      secret:
   mail:
     enable: false
     sender_address: 'no-reply@example.org'
