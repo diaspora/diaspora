@@ -23,7 +23,6 @@ Feature: posting from the main page
       When I fill in the following:
           | status_message_fake_text    | I am eating yogurt    |
       And I press "Share"
-      And I wait for the ajax to finish
 
       And I go to the aspects page
       Then "I am eating yogurt" should be post 1
@@ -33,13 +32,11 @@ Feature: posting from the main page
       When I fill in the following:
           | status_message_fake_text    | The World needs more Cats.    |
       And I press "Share"
-      And I wait for the ajax to finish
 
       Given I expand the publisher
       When I fill in the following:
           | status_message_fake_text    | The World needs more Cats.    |
       And I press "Share"
-      And I wait for the ajax to finish
 
       And I go to the aspects page
       Then "The World needs more Cats." should be post 1
@@ -47,7 +44,6 @@ Feature: posting from the main page
 
     Scenario: posting a message appends it to the top of the stream
       When I click the publisher and post "sup dog"
-      And I wait for 1 second
       And I click the publisher and post "hello there"
       Then I should see "hello there" as the first post in my stream
 
@@ -56,9 +52,8 @@ Feature: posting from the main page
       And I expand the publisher
       And I fill in the following:
           | status_message_fake_text    | I am eating a yogurt    |
-      
+
       And I press "Share"
-      And I wait for the ajax to finish
 
       When I am on the aspects page
       And I select only "PostingTo" aspect
@@ -70,11 +65,10 @@ Feature: posting from the main page
 
     Scenario: post a photo with text
       Given I expand the publisher
-      When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
+      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
       When I fill in the following:
           | status_message_fake_text    | Look at this dog    |
       And I press "Share"
-      And I wait for the ajax to finish
       And I go to the aspects page
       Then I should see a "img" within ".stream_element div.photo_attachments"
       And I should see "Look at this dog" within ".stream_element"
@@ -86,11 +80,9 @@ Feature: posting from the main page
 
     Scenario: post a photo without text
       Given I expand the publisher
-      When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
-      And I wait for the ajax to finish
+      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
       Then I should see an uploaded image within the photo drop zone
       When I press "Share"
-      And I wait for the ajax to finish
       And I go to the aspects page
       Then I should see a "img" within ".stream_element div.photo_attachments"
       When I log out
@@ -102,12 +94,10 @@ Feature: posting from the main page
       Given I expand the publisher
       And I have turned off jQuery effects
       When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
-      And I preemptively confirm the alert
+      And I confirm the alert
       Then I should not see an uploaded image within the photo drop zone
-      When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
-      And I wait for the ajax to finish
+      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
       And I click to delete the first uploaded photo
-      And I wait for the ajax to finish
       Then I should not see an uploaded image within the photo drop zone
 
     Scenario: back out of uploading a picture to a post with text
@@ -115,10 +105,8 @@ Feature: posting from the main page
       And I have turned off jQuery effects
       When I fill in the following:
           | status_message_fake_text    | I am eating a yogurt    |
-      And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
-      And I wait for the ajax to finish
+      And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
       And I click to delete the first uploaded photo
-      And I wait for the ajax to finish
       Then I should not see an uploaded image within the photo drop zone
       And the publisher should be expanded
 
@@ -127,11 +115,9 @@ Feature: posting from the main page
       And I have turned off jQuery effects
       When I fill in the following:
           | status_message_fake_text    | I am eating a yogurt    |
-      And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
-      And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
-      And I wait for the ajax to finish
+      And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+      And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
       And I click to delete the first uploaded photo
-      And I wait for the ajax to finish
       Then I should see an uploaded image within the photo drop zone
       And the publisher should be expanded
 
@@ -141,21 +127,17 @@ Feature: posting from the main page
       When I fill in the following:
           | status_message_fake_text    | Here is a post for you to hide    |
       And I press "Share"
-      And I wait for the ajax to finish
 
       And I log out
       And I sign in as "alice@alice.alice"
       And I am on "bob@bob.bob"'s page
 
       And I hover over the ".stream_element"
-      And I preemptively confirm the alert
       And I click to delete the first post
-      And I wait for the ajax to finish
+      And I confirm the alert
       And I go to "bob@bob.bob"'s page
-      And I wait for the ajax to finish
       Then I should not see "Here is a post for you to hide"
       When I am on the aspects page
-      And I wait for the ajax to finish
       Then I should not see "Here is a post for you to hide"
 
     Scenario: delete one of my posts
@@ -163,12 +145,9 @@ Feature: posting from the main page
       When I fill in the following:
           | status_message_fake_text    | I am eating a yogurt    |
       And I press "Share"
-      And I wait for the ajax to finish
       And I go to the aspects page
       And I hover over the ".stream_element"
-      And I preemptively confirm the alert
       And I click to delete the first post
-      And I wait for the ajax to finish
       And I go to the aspects page
       Then I should not see "I am eating a yogurt"
 
@@ -178,7 +157,6 @@ Feature: posting from the main page
       And I toggle the aspect "PostingTo"
       And I append "I am eating a yogurt" to the publisher
       And I press "Share"
-      And I wait for the ajax to finish
 
       And I am on the aspects page
       And I select only "PostingTo" aspect
@@ -193,14 +171,12 @@ Feature: posting from the main page
       And I toggle the aspect "PostingTo"
       And I append "I am eating a yogurt" to the publisher
       And I press "Share"
-      And I wait for the ajax to finish
 
       And I expand the publisher
       And I press the aspect dropdown
       And I toggle the aspect "Besties"
       And I append "And cornflakes also" to the publisher
       And I press "Share"
-      And I wait for the ajax to finish
 
       And I am on the aspects page
       And I select only "PostingTo" aspect
@@ -219,9 +195,8 @@ Feature: posting from the main page
       When I fill in the following:
           | status_message_fake_text    | I am eating a yogurt    |
       And I press "Share"
-      And I wait for the ajax to finish
 
       And I hover over the ".stream_element"
-      And I preemptively reject the alert
-      And I click to delete the first post
+      And I prepare the deletion of the first post
+      And I reject the alert
       Then I should see "I am eating a yogurt"

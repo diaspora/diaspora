@@ -9,8 +9,8 @@ Feature: Close Account
     When I go to the users edit page
     And I follow "Close Account"
     And I put in my password in "close_account_password" in the modal window
-    And I preemptively confirm the alert
     And I press "Close Account" in the modal window
+    And I confirm the alert
     Then I should be on the new user session page
 
     When I try to sign in manually
@@ -29,8 +29,8 @@ Feature: Close Account
     When I go to the users edit page
     And I follow "Close Account"
     And I put in my password in "close_account_password" in the modal window
-    And I preemptively confirm the alert
     And I press "Close Account" in the modal window
+    And I confirm the alert
     Then I sign in as "alice@alice.alice"
     And I am on the home page
     Then I should see "Bob Jones"

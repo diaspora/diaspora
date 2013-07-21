@@ -11,21 +11,16 @@ Feature: viewing photos on the mobile main page
     And I click on selector "img.compose_icon"
 
   Scenario: view full size image
-    Given I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload-publisher"
-    And I wait for the ajax to finish
+    Given I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload-publisher"
     When I press "Share"
-    And I wait for the ajax to finish
     And I click on selector "img.stream-photo"
     Then I should see a "img" within "#show_content"
     And I should not see a "#right" within ".row"
 
   Scenario: view multiphoto post
-    Given I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload-publisher"
-    And I wait for the ajax to finish
-    And I attach the file "spec/fixtures/button.gif" to hidden element "file" within "#file-upload-publisher"
-    And I wait for the ajax to finish
+    Given I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload-publisher"
+    And I attach the file "spec/fixtures/button.gif" to hidden "file" within "#file-upload-publisher"
     When I press "Share"
-    And I wait for the ajax to finish
     And I should see "+ 1" within ".additional_photo_count"
     And I click on selector "img.stream-photo"
     Then I should see a "#right" within "tbody"

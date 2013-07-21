@@ -13,7 +13,7 @@ module ApplicationCukeHelpers
 
   def flash_message(selector=".message")
     selector = "#flash_#{selector}" unless selector == ".message"
-    find(selector)
+    find(selector, match: :first)
   end
 end
 

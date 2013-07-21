@@ -40,9 +40,8 @@ Feature: editing your profile
     And I should see "#starwars" within "ul#as-selections-tags"
 
     When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
-    And I preemptively confirm the alert
-    And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
-    And I wait for the ajax to finish
+    And I confirm the alert
+    And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
     Then I should see a "img" within "#profile_photo_upload"
 
     When I go to my new profile page

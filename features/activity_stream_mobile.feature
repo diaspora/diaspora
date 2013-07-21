@@ -17,7 +17,6 @@ Feature: Viewing my activity on the steam mobile page
 
   Scenario: Show post on my activity
     When I click on selector "a.image_link.like_action.inactive"
-    And I wait for the ajax to finish
     And I click on selector "img.my_activity"
     Then I should see "My Activity"
     And I should see "Hello! i am #newhere" within ".ltr"
