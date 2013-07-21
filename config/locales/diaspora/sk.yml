@@ -714,7 +714,7 @@ sk:
       password_confirmation: "POTVRDENIE HESLA"
       sign_up: "ZAREGISTROVAŤ SA"
       sign_up_message: "Prepojenie cez sociálne siete s ♥"
-      username: "POUŽÍVATEĽSKÉ MENO"
+      username: "POUŽÍVATEĽ"
   requests:
     create:
       sending: "Posiela sa"
