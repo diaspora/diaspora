@@ -40,6 +40,12 @@ describe User::Connecting do
         bob.disconnected_by(alice.person)
       end
 
+      it 'removes contact sharing flag' do
+        bob.contacts.find_by_person_id(alice.person.id).should be_sharing
+        bob.disconnected_by(alice.person)
+        bob.contacts.find_by_person_id(alice.person.id).should_not be_sharing
+      end
+
       it 'removes notitications' do
         alice.share_with(eve.person, alice.aspects.first)
         Notifications::StartedSharing.where(:recipient_id => eve.id).first.should_not be_nil
