@@ -74,10 +74,10 @@ app.pages.PostViewer = app.views.Base.extend({
 
   postRenderTemplate : function() {
     if(this.model.get("title")){
-	// formats title to html...
-	var html_title = app.helpers.textFormatter(this.model.get("title"), this.model)
-	//... and converts html to plain text 
-	document.title = $('<div>').html(html_title).text(); 
+      // formats title to html...
+      var html_title = app.helpers.textFormatter(this.model.get("title"), this.model);
+      //... and converts html to plain text 
+      document.title = $('<div>').html(html_title).text(); 
     }
   },
 
