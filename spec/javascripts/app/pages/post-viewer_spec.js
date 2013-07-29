@@ -1,12 +1,14 @@
 describe("app.Pages.PostViewer", function(){
   describe("postRenderTemplate", function(){
     beforeEach(function(){
-      this.view = new app.pages.PostViewer({id : 4});
+      app.setPreload('post', factory.post({frame_name : "note"}).attributes);
+      this.page = new app.pages.PostViewer({id : 2});
     })
     it('translates post title from Markdown to plain text and pushes it in document.title', function () {
-      this.view.model.set({title : "### My [Markdown](url) *title*" });
-      this.view.postRenderTemplate();
+      this.page.model.set({title : "### My [Markdown](url) *title*" });
+      this.page.postRenderTemplate();
       expect(document.title).toEqual("My Markdown title");
     })
   })
 });
+
