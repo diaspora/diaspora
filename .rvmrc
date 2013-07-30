@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 rvm rvmrc warning ignore
 
 . ./script/env/ruby_env

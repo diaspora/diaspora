@@ -1,5 +1,4 @@
 class Block < ActiveRecord::Base
-  
   belongs_to :person
   belongs_to :user
 
