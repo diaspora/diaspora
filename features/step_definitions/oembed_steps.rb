@@ -123,10 +123,12 @@ Given /^I have several oEmbed data in cache$/ do
 end
 
 Then /^I should see a video player$/ do
-  page.has_css?('object')
+  visit aspects_path
+  find('.post-content .oembed')
+  find('.stream_container').should have_css('.post-content .oembed img')
 end
 
 Then /^I should not see a video player$/ do
-  page.has_no_css?('object')
+  find('.stream_container').should_not have_css('.post-content .oembed img')
 end
 

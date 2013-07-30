@@ -25,14 +25,14 @@ module UserCukeHelpers
   def login_as(user, pass)
     fill_in 'user_username', :with=>user
     fill_in 'user_password', :with=>pass
-    click_button :submit
+    click_button "Sign in"
   end
 
   # create a new @me user, if not present, and log in using the
   # integration_sessions controller (automatic)
   def automatic_login
     @me ||= FactoryGirl.create(:user_with_aspect, :getting_started => false)
-    page.driver.visit(new_integration_sessions_path(:user_id => @me.id))
+    visit(new_integration_sessions_path(:user_id => @me.id))
     click_button "Login"
   end
 
@@ -44,7 +44,7 @@ module UserCukeHelpers
 
   # checks the page content to see, if the login was successful
   def confirm_login
-    wait_until { page.has_content?("#{@me.first_name} #{@me.last_name}") }
+    page.has_content?("#{@me.first_name} #{@me.last_name}")
   end
 
   # delete all cookies, destroying the current session

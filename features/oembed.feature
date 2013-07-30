@@ -6,7 +6,7 @@ Feature: oembed
 
   Background:
     Given following user exists:
-      | username    | email             | 
+      | username    | email             |
       | Alice Smith | alice@alice.alice |
     And I have several oEmbed data in cache
     When I sign in as "alice@alice.alice"
@@ -17,18 +17,13 @@ Feature: oembed
     When I fill in the following:
         | status_message_fake_text    | http://youtube.com/watch?v=M3r2XDceM6A&format=json    |
     And I press "Share"
-    And I wait for the ajax to finish
-    And I follow "My Aspects"
     Then I should see a video player
-    And I should see a ".oembed" within ".post-content"
-    And I should see a "img" within ".oembed"
 
   Scenario: Post an unsecure video link
     Given I expand the publisher
     When I fill in the following:
         | status_message_fake_text    | http://mytube.com/watch?v=M3r2XDceM6A&format=json    |
     And I press "Share"
-    And I wait for the ajax to finish
     And I follow "My Aspects"
     Then I should not see a video player
     And I should see "http://mytube.com/watch?v=M3r2XDceM6A&format=json"

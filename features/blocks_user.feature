@@ -12,20 +12,15 @@ Feature: Blocking a user from the stream
 
   Scenario: Blocking a user
     When I am on the home page
-    And I preemptively confirm the alert
-    And I wait for the ajax to finish
     When I click on the first block button
+    And I confirm the alert
     And I am on the home page
-    And I wait for the ajax to finish
     Then I should not see any posts in my stream
 
   Scenario: Blocking a user from the profile page
     When I am on the home page
     And I follow "Alice Smith"
-    And I wait for the ajax to finish
-    And I preemptively confirm the alert
-    And I wait for the ajax to finish
     When I click on the first block button
+    And I confirm the alert
     And I am on the home page
-    And I wait for the ajax to finish
     Then I should not see any posts in my stream

@@ -11,11 +11,11 @@ Then /^"([^"]*)" should be post (\d+)$/ do |post_text, position|
 end
 
 When /^I toggle nsfw posts$/ do
-  find(".toggle_nsfw_state").click
+  find(".toggle_nsfw_state", match: :first).click
 end
 
 Then /^I should have (\d+) nsfw posts$/ do |num_posts|
-  all(".nsfw-shield").size.should == num_posts.to_i
+  page.should have_css(".nsfw-shield", count: num_posts.to_i)
 end
 
 When /^I click the show page link for "([^"]*)"$/ do |post_text|

@@ -5,7 +5,7 @@ Then 'I should see the photo lightbox' do
 end
 
 Then 'I should not see the photo lightbox' do
-  step %{I should not see a "img" within "#lightbox-imageset"}
+  step %{I should not see a "#lightbox-imageset" within "body"}
   step %{I should not see a "#lightbox-backdrop" within "body"}
   step %{I should not see a "#lightbox-image" within "body"}
 end

@@ -14,8 +14,8 @@ Feature: invitation acceptance
       And I fill in the following:
         | profile_first_name         | O             |
 
-      And I preemptively confirm the alert
       And I follow "awesome_button"
+      And I confirm the alert
       Then I should be on the stream page
 
     Scenario: accept invitation from user
@@ -32,8 +32,8 @@ Feature: invitation acceptance
       And I fill in the following:
         | profile_first_name         | O             |
 
-      And I preemptively confirm the alert
       And I follow "awesome_button"
+      And I confirm the alert
       Then I should be on the stream page
       And I log out
       And I sign in as "bob@bob.bob"
