@@ -1,4 +1,7 @@
 class PostPresenter
+  include PostsHelper
+  include ActionView::Helpers::TextHelper
+
   attr_accessor :post, :current_user
 
   def initialize(post, current_user = nil)
@@ -54,7 +57,7 @@ class PostPresenter
   end
 
   def title
-    @post.text.present? ? @post.text(:plain_text => true) : I18n.translate('posts.presenter.title', :name => @post.author_name)
+    @post.text.present? ? post_page_title(@post) : I18n.translate('posts.presenter.title', :name => @post.author_name)
   end
 
   def template_name #kill me, lol, I should be client side
