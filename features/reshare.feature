@@ -18,9 +18,8 @@ Feature: public repost
     And I am on "bob@bob.bob"'s page
     And I follow "Last Post"
 
-    And I preemptively confirm the alert
     And I click on selector "a.reshare"
-    And I wait for the ajax to finish
+    And I confirm the alert
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"
 
@@ -31,9 +30,8 @@ Feature: public repost
     And I am on "bob@bob.bob"'s page
     And I follow "Last Post"
 
-    And I preemptively confirm the alert
     And I click on selector "a.reshare"
-    And I wait for the ajax to finish
+    And I confirm the alert
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"
 
@@ -43,9 +41,8 @@ Feature: public repost
     Given "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
 
-    And I preemptively confirm the alert
     And I follow "Reshare"
-    And I wait for the ajax to finish
+    And I confirm the alert
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"
     And I should not see a ".reshare" within ".feedback"

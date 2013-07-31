@@ -1,9 +1,11 @@
 When /^I press the "([^\"]*)" key somewhere$/ do |key|
-  find("div.stream_element").native.send_keys(key)
+  within("#main_stream") do
+    find("div.stream_element", match: :first).native.send_keys(key)
+  end
 end
 
 When /^I press the "([^\"]*)" key in the publisher$/ do |key|
-  find("#status_message_fake_text").native.send_keys(key)                    
+  find("#status_message_fake_text", visible: false).native.send_keys(key)
 end
 
 Then /^post (\d+) should be highlighted$/ do |position|
@@ -15,6 +17,8 @@ And /^I should have navigated to the highlighted post$/ do
 end
 
 When /^I scroll to post (\d+)$/ do |position|
-  page.driver.browser.execute_script("var element = $('div.stream_element')[" + position + " - 1];
-  window.scrollTo(window.pageXOffset, element.offsetTop-50);")
+  page.should have_css("div.stream_element")
+  page.driver.browser.execute_script("
+    window.scrollTo(window.pageXOffset, $('div.stream_element')[#{position}-1].offsetTop-50);
+  ")
 end

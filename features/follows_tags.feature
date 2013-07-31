@@ -6,17 +6,16 @@ Feature: posting
 
   Background:
     Given following users exist:
-      | username   | 
+      | username   |
       | bob        |
       | alice      |
 
     When I sign in as "bob@bob.bob"
     And I post a status with the text "I am da #boss"
-    When I go to the destroy user session page
+    When I sign out
     And I sign in as "alice@alice.alice"
     And I search for "#boss"
     And I press "Follow #boss"
-    And I wait for the ajax to finish
 
   Scenario: can post a message from the tag page
     Then I should see "#boss" within "#publisher"
@@ -42,8 +41,7 @@ Feature: posting
 
   Scenario: can stop following a tag from the homepage
     When I go to the followed tags stream page
-    And I preemptively confirm the alert
     And I hover over the "li.unfollow#tag-following-boss"
     And I follow "unfollow_boss"
-    And I wait for the ajax to finish
+    And I confirm the alert
     Then I should not see "#tag-following-boss" within ".left_nav"

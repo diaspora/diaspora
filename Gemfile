@@ -160,7 +160,7 @@ group :development do
   gem 'guard-rspec',    '3.0.1'
   gem 'rb-fsevent',     '0.9.3', :require => false
   gem 'rb-inotify',     '0.9.0', :require => false
-  
+
   # Preloading environment
 
   gem 'guard-spork', '1.5.0'
@@ -176,9 +176,9 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem 'capybara',           '1.1.3'
+  gem 'capybara',           '2.1.0'
   gem 'database_cleaner',   '1.0.1'
-  gem 'selenium-webdriver', '2.32.1'
+  gem 'selenium-webdriver', '2.33.0'
 
   # General helpers
 
