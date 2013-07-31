@@ -20,7 +20,7 @@ var app = {
   views: {},
   pages: {},
   forms: {},
-
+  
   user: function(userAttrs) {
     if(userAttrs) { return this._user = new app.models.User(userAttrs) }
     return this._user || false

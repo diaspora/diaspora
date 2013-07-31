@@ -22,6 +22,7 @@
 * Made Unicorn timeout configurable and increased the default to 90 seconds
 * Follow DiasporaHQ upon account creation is now configurable to another account [#4278](https://github.com/diaspora/diaspora/pull/4278)
 * Use first header as title in the single post view, when possible [#4256](https://github.com/diaspora/diaspora/pull/4256)
+* Close publisher when clicking on the page outside of it [#4282](https://github.com/diaspora/diaspora/pull/4282)
 
 # 0.1.1.0
 
