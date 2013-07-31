@@ -14,6 +14,7 @@
 * Fix missing timeago tooltip in conversations [#4257](https://github.com/diaspora/diaspora/issues/4257)
 * Fix link to background image [#4289](https://github.com/diaspora/diaspora/pull/4289)
 * Fix Facebox icons 404s when called from Backbone
+* Fix deleting a post from Facebook [#4290](https://github.com/diaspora/diaspora/pull/4290)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
