@@ -265,7 +265,8 @@ And "I wait for the popovers to appear" do
 end
 
 And /^I click close on all the popovers$/ do
-  all(".popover .close", visible: false).each(&:click)
+  page.execute_script("$('.popover .close').click();")
+  page.should_not have_selector(".popover .close")
 end
 
 Then /^I should see first post deletion link$/ do
