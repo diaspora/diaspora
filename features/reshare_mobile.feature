@@ -28,7 +28,7 @@ Feature: resharing from the mobile
     When I toggle the mobile view
     And I click on the first selector "a.image_link.reshare_action.inactive"
     And I confirm the alert
-    Then I should see "reshared via"
+    Then I should see a "a.image_link.reshare_action.active"
     When I go to the stream page
     Then I should see "reshared via" within ".reshare_via"
 
