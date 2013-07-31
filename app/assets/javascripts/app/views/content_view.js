@@ -76,10 +76,6 @@ app.views.Reshare = app.views.Content.extend({
   templateName : "reshare"
 });
 
-app.views.ActivityStreams__Photo = app.views.Content.extend({
-  templateName : "activity-streams-photo"
-});
-
 app.views.OEmbed = app.views.Base.extend({
   templateName : "oembed",
   events : {

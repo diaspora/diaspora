@@ -51,16 +51,13 @@ require Rails.root.join('spec', 'support', 'user_methods')
 
 print "Seeding post data..."
 time_interval = 1000
-(1..25).each do |n|
+(1..23).each do |n|
   [alice, bob, eve].each do |u|
     print '.'
-    if(n%3==1)
+    if(n%2==0)
       post = u.post :status_message, :text => "#{u.username} - #{n} - #seeded", :to => u.aspects.first.id
-    elsif(n%3==2)
-      post = u.post(:reshare, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => 'all')
     else
-      post = FactoryGirl.create(:activity_streams_photo, :public => true, :author => u.person)
-      u.add_to_streams(post, u.aspects)
+      post = u.post(:reshare, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => 'all')
     end
 
     post.created_at = post.created_at - time_interval

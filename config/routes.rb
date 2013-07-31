@@ -65,11 +65,6 @@ Diaspora::Application.routes.draw do
     put :make_profile_photo
   end
 
-  # ActivityStreams routes
-  scope "/activity_streams", :module => "activity_streams", :as => "activity_streams" do
-    resources :photos, :controller => "photos", :only => [:create]
-  end
-
   resources :conversations do
     resources :messages, :only => [:create, :show]
     delete 'visibility' => 'conversation_visibilities#destroy'

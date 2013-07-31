@@ -176,18 +176,6 @@ FactoryGirl.define do
     end
   end
 
-  factory(:activity_streams_photo, :class => ActivityStreams::Photo) do
-    association(:author, :factory => :person)
-    image_url "#{AppConfig.environments.url}/assets/asterisk.png"
-    image_height 154
-    image_width 154
-    object_url "http://example.com/awesome_things.gif"
-    objectId "http://example.com/awesome_things.gif"
-    actor_url "http://notcubbes/cubber"
-    provider_display_name "not cubbies"
-    public true
-  end
-
   factory(:tag, :class => ActsAsTaggableOn::Tag) do
     name "partytimeexcellent"
   end
