@@ -4,7 +4,7 @@ class CreateOEmbedCaches < ActiveRecord::Migration
       t.string :url, :limit => 1024, :null => false, :unique => true
       t.text :data, :null => false
     end
-    add_index :o_embed_caches, :url
+    add_index :o_embed_caches, :url, :length => { :url => 255 }
   end
 
   def self.down
