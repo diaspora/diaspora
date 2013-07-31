@@ -19,6 +19,7 @@
 * Fix Facebox icons 404s when called from Backbone
 * Fix deleting a post from Facebook [#4290](https://github.com/diaspora/diaspora/pull/4290)
 * Display notices a little bit longer to help on sign up errors [#4274](https://github.com/diaspora/diaspora/issues/4274)
+* Fix user contact sharing/receiving [#4163](https://github.com/diaspora/diaspora/issues/4163)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
@@ -32,7 +33,7 @@
 
 ## Refactor
 
-* Refactored config/ directory [#4145](https://github.com/diaspora/diaspora/pull/4145).
+* Refactored config/ directory [#4144](https://github.com/diaspora/diaspora/pull/4145).
 * Drop misleading fallback donation form. [Proposal](https://www.loomio.org/discussions/1045?proposal=2722)
 * Update Typhoeus to 0.6.3 and refactor HydraWrapper. [#4162](https://github.com/diaspora/diaspora/pull/4162)
 * Bump recomended Ruby version to 1.9.3-p448, see [Ruby news](http://www.ruby-lang.org/en/news/2013/06/27/hostname-check-bypassing-vulnerability-in-openssl-client-cve-2013-4073/).
