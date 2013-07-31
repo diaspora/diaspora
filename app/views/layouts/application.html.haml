@@ -7,10 +7,8 @@
   %head
     %meta{:charset => 'utf-8'}
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
-
     %meta{:name => "description", :content => "Diaspora*"}
     %meta{:name => "author", :content => "Diaspora, Inc."}
-    = og_site_name
 
     %link{:rel => 'shortcut icon', :href => "#{image_path('favicon.png')}" }
     %link{:rel => 'apple-touch-icon', :href => "#{image_path('apple-touch-icon.png')}"}
@@ -18,7 +16,6 @@
     %title
       = page_title yield(:page_title)
 
-    = og_site_name
     = chartbeat_head_block
     = include_mixpanel
 
