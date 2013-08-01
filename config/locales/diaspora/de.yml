@@ -799,6 +799,7 @@ de:
       logged_in_as: "angemeldet als"
       no_services: "Du hast noch keine Dienste verbunden."
       really_disconnect: "Verbindung mit %{service} entfernen?"
+      services_explanation: "Die Verbindung mit Diensten ermöglicht es dir deine Beiträge auch bei diesen zu veröffentlichen, wenn du in Diaspora postest."
     inviter:
       click_link_to_accept_invitation: "Öffne diesen Link, um die Einladung zu akzeptieren:"
       join_me_on_diaspora: "Folge mir auf DIASPORA*"
