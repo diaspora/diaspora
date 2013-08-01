@@ -38,9 +38,9 @@ GEM
       rack (>= 1.1.0)
     addressable (2.3.5)
     arel (3.0.2)
-    asset_sync (0.5.4)
+    asset_sync (1.0.0)
       activemodel
-      fog
+      fog (>= 1.8.0)
     bcrypt-ruby (3.1.1)
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
@@ -419,7 +419,7 @@ DEPENDENCIES
   acts-as-taggable-on (= 2.4.1)
   acts_as_api (= 0.4.1)
   addressable (= 2.3.5)
-  asset_sync (= 0.5.4)
+  asset_sync (= 1.0.0)
   bootstrap-sass (= 2.2.2.0)
   capybara (= 2.1.0)
   carrierwave (= 0.9.0)
