@@ -34,7 +34,7 @@ gem 'rack-cors', '0.2.8', :require => 'rack/cors'
 ENV['DB'] ||= 'mysql'
 
 gem 'mysql2', '0.3.11' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
-gem 'pg',     '0.15.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
+gem 'pg',     '0.16.0' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 
 gem 'activerecord-import', '0.3.1'
 gem 'foreigner',           '1.4.2'
