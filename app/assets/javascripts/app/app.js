@@ -20,7 +20,7 @@ var app = {
   views: {},
   pages: {},
   forms: {},
-  
+
   user: function(userAttrs) {
     if(userAttrs) { return this._user = new app.models.User(userAttrs) }
     return this._user || false
@@ -34,24 +34,12 @@ var app = {
   initialize: function() {
     app.router = new app.Router();
 
-    if (window.gon == undefined) {
-      window.gon = {preloads:{}};
-    }
-
-    app.currentUser = app.user(window.gon.user) || new app.models.User();
-
+    this.setupDummyPreloads();
     this.setupFacebox();
-    this.setupHovercards();
-
-    if(app.currentUser.authenticated()) {
-      app.header = new app.views.Header();
-      $("header").prepend(app.header.el);
-      app.header.render();
-    }
-
-    Backbone.history.start({pushState: true});
-
-    app.aspectMemberships = new app.views.AspectMembership();
+    this.setupUser();
+    this.setupHeader();
+    this.setupBackboneLinks();
+    this.setupGlobalViews();
   },
 
   hasPreload : function(prop) {
@@ -63,7 +51,7 @@ var app = {
     window.gon.preloads[prop] = val
   },
 
-  parsePreload : function(prop){
+  parsePreload : function(prop) {
       if(!app.hasPreload(prop)) { return }
 
       var preload = window.gon.preloads[prop]
@@ -72,13 +60,33 @@ var app = {
       return(preload)
   },
 
+  setupDummyPreloads: function() {
+    if (window.gon == undefined) {
+      window.gon = {preloads:{}};
+    }
+  },
+
+  setupUser: function() {
+    app.currentUser = app.user(window.gon.user) || new app.models.User();
+  },
+
+  setupHeader: function() {
+    if(app.currentUser.authenticated()) {
+      app.header = new app.views.Header();
+      $("header").prepend(app.header.el);
+      app.header.render();
+    }
+  },
+
   setupFacebox: function() {
     $.facebox.settings.closeImage = app.baseImageUrl()+'facebox/closelabel.png';
     $.facebox.settings.loadingImage = app.baseImageUrl()+'facebox/loading.gif';
     $.facebox.settings.opacity = 0.75;
   },
 
-  setupHovercards: function() {
+  setupBackboneLinks: function() {
+    Backbone.history.start({pushState: true});
+
     // there's probably a better way to do this...
     $("a[rel=backbone]").live("click", function(evt){
       evt.preventDefault();
@@ -87,8 +95,11 @@ var app = {
       $(".stream_title").text(link.text())
       app.router.navigate(link.attr("href").substring(1) ,true)
     });
+  },
 
+  setupGlobalViews: function() {
     app.hovercard = new app.views.Hovercard();
+    app.aspectMemberships = new app.views.AspectMembership();
   },
 
   /* mixpanel wrapper function */
