@@ -403,7 +403,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    warden (1.2.1)
+    warden (1.2.3)
       rack (>= 1.0)
     webmock (1.13.0)
       addressable (>= 2.2.7)
