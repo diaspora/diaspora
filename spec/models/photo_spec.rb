@@ -26,24 +26,6 @@ describe Photo do
     @saved_photo.save
   end
 
-  describe "protected attributes" do
-    it "doesn't allow mass assignment of person" do
-      @photo.save!
-      @photo.update_attributes(:author => FactoryGirl.build(:person))
-      @photo.reload.author.should == @user.person
-    end
-    it "doesn't allow mass assignment of person_id" do
-      @photo.save!
-      @photo.update_attributes(:author_id => FactoryGirl.build(:person).id)
-      @photo.reload.author.should == @user.person
-    end
-    it 'allows assignment of text' do
-      @photo.save!
-      @photo.update_attributes(:text => "this is awesome!!")
-      @photo.reload.text.should == "this is awesome!!"
-    end
-  end
-
   describe 'after_create' do
     it 'calls #queue_processing_job' do
       @photo.should_receive(:queue_processing_job)

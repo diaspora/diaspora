@@ -1,6 +1,5 @@
 class OEmbedCache < ActiveRecord::Base
   serialize :data
-  attr_accessible :url
   validates :data, :presence => true
 
   has_many :posts

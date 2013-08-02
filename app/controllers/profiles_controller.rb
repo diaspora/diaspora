@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
 
   def update
     # upload and set new profile photo
-    @profile_attrs = params[:profile] || {}
+    @profile_attrs = profile_params
     
     munge_tag_string
 
@@ -77,5 +77,9 @@ class ProfilesController < ApplicationController
       end
     end
     @profile_attrs[:tag_string] = (params[:tags]) ? params[:tags].gsub(',',' ') : ""
+  end
+
+  def profile_params
+    params.require(:profile).permit(:first_name, :last_name, :gender, :bio, :location, :searchable, :tag_string, :nsfw, :date => [:year, :month, :day]) || {}
   end
 end

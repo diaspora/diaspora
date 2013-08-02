@@ -54,6 +54,20 @@ describe PhotosController do
       }.should change(Photo, :count).by(1)
     end
 
+    it "doesn't allow mass assignment of person" do
+      new_user = FactoryGirl.create(:user)
+      @params[:photo][:author] = new_user
+      post :create, @params
+      Photo.last.author.should == alice.person
+    end
+
+    it "doesn't allow mass assignment of person_id" do
+      new_user = FactoryGirl.create(:user)
+      @params[:photo][:author_id] = new_user.id
+      post :create, @params
+      Photo.last.author.should == alice.person
+    end
+
     it 'can set the photo as the profile photo' do
       old_url = alice.person.profile.image_url
       @params[:photo][:set_profile_photo] = true
@@ -137,7 +151,14 @@ describe PhotosController do
       @alices_photo.reload.text.should == "now with lasers!"
     end
 
-    it "doesn't overwrite random attributes" do
+    it "doesn't allow mass assignment of person" do
+      new_user = FactoryGirl.create(:user)
+      params = { :text => "now with lasers!", :author => new_user }
+      put :update, :id => @alices_photo.id, :photo => params
+      @alices_photo.reload.author.should == alice.person
+    end
+
+    it "doesn't allow mass assignment of person_id" do
       new_user = FactoryGirl.create(:user)
       params = { :text => "now with lasers!", :author_id => new_user.id }
       put :update, :id => @alices_photo.id, :photo => params

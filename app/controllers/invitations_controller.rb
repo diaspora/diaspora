@@ -50,7 +50,7 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    emails = params[:email_inviter][:emails].split(',').map(&:strip).uniq
+    emails = inviter_params[:emails].split(',').map(&:strip).uniq
 
     valid_emails, invalid_emails = emails.partition { |email| valid_email?(email) }
 
@@ -60,8 +60,7 @@ class InvitationsController < ApplicationController
     unless valid_emails.empty?
       Workers::Mail::InviteEmail.perform_async(valid_emails.join(','),
                                                current_user.id,
-                                               params[:email_inviter])
-
+                                               inviter_params)
     end
 
     if emails.empty?
@@ -98,5 +97,9 @@ class InvitationsController < ApplicationController
     value = session[key].join(', ').html_safe
     session[key] = nil
     return value
+  end
+
+  def inviter_params
+    params.require(:email_inviter).permit(:message, :locale, :emails)
   end
 end

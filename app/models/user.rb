@@ -63,24 +63,8 @@ class User < ActiveRecord::Base
 
   has_many :notifications, :foreign_key => :recipient_id
 
-
   before_save :guard_unconfirmed_email,
               :save_person!
-
-  attr_accessible :username,
-                  :email,
-                  :getting_started,
-                  :password,
-                  :password_confirmation,
-                  :language,
-                  :disable_mail,
-                  :invitation_service,
-                  :invitation_identifier,
-                  :show_community_spotlight_in_stream,
-                  :auto_follow_back,
-                  :auto_follow_back_aspect_id,
-                  :remember_me
-
 
   def self.all_sharing_with_person(person)
     User.joins(:contacts).where(:contacts => {:person_id => person.id})
@@ -342,6 +326,8 @@ class User < ActiveRecord::Base
       params[:image_url_small] = photo.url(:thumb_small)
     end
 
+    params.stringify_keys!
+    params.slice!(*(Profile.column_names+['tag_string', 'date']))
     if self.profile.update_attributes(params)
       deliver_profile_update
       true
@@ -356,7 +342,7 @@ class User < ActiveRecord::Base
 
   ###Helpers############
   def self.build(opts = {})
-    u = User.new(opts)
+    u = User.new(opts.except(:person))
     u.setup(opts)
     u
   end
