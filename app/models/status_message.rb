@@ -155,6 +155,7 @@ class StatusMessage < Post
   end
 
   def contains_open_graph_url_in_text?
+    return nil if self.contains_oembed_url_in_text?
     self.open_graph_url = URI.extract(self.raw_message, ['http', 'https'])[0]
   end
 
