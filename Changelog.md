@@ -263,6 +263,7 @@ everything is set up.
 * Show the service username in a tooltip next to the publisher icons [#4126](https://github.com/diaspora/diaspora/pull/4126)
 * Ability to add location when creating a post [#3803](https://github.com/diaspora/diaspora/pull/3803)
 * Added oEmbed provider for MixCloud. [#4131](https://github.com/diaspora/diaspora/pull/4131)
+* Added Wordpress service ability for posts. [#4321](https://github.com/diaspora/diaspora/pull/4321)
 
 ## Gem updates
 
