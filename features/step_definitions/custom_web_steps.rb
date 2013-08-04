@@ -278,11 +278,11 @@ Then /^I should not see ajax loader on deletion link place$/ do
 end
 
 Then /^I should see a flash message indicating success$/ do
-  flash_message_success?
+  flash_message_success?.should be_true
 end
 
 Then /^I should see a flash message indicating failure$/ do
-  flash_message_failure?
+  flash_message_failure?.should be_true
 end
 
 Then /^I should see a flash message containing "(.+)"$/ do |text|

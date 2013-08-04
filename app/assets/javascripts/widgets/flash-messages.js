@@ -11,7 +11,7 @@
     };
 
     this.render = function(result) {
-      self.flashMessages().removeClass("expose").hide();
+      self.flashMessages().removeClass("expose").remove();
 
       $("<div/>", {
         id: result.success ? "flash_notice" : "flash_error"
