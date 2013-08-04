@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/readmill/omniauth-wordpress.git
+  revision: 32ac451f564e5189a863cb5db16aad2d48f7a638
+  specs:
+    omniauth-wordpress (0.1.1)
+      omniauth-oauth2 (~> 1.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -468,6 +475,7 @@ DEPENDENCIES
   omniauth-facebook (= 1.4.1)
   omniauth-tumblr (= 1.1)
   omniauth-twitter (= 1.0.0)
+  omniauth-wordpress (= 0.1.1)!
   opengraph_parser (= 0.2.3)
   rack-cors (= 0.2.8)
   rack-google-analytics (= 0.11.0)

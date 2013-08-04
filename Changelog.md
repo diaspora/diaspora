@@ -32,6 +32,7 @@
 * Close publisher when clicking on the page outside of it [#4282](https://github.com/diaspora/diaspora/pull/4282)
 * Deleting a post deletes it from Tumblr too [#4331](https://github.com/diaspora/diaspora/pull/4331)
 * OpenGraph support [#4215](https://github.com/diaspora/diaspora/pull/4215)
+* Added Wordpress service ability for posts. [#4321](https://github.com/diaspora/diaspora/pull/4321)
 
 # 0.1.1.0
 
