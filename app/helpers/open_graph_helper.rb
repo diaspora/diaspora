@@ -50,7 +50,6 @@ module OpenGraphHelper
     "    <img src=\"#{cache.image}\" />" +
     "    <strong>#{cache.title}</strong>" +
     "    <p>#{cache.description}</p>" +
-    "    <br />" +
     "  </div>" +
     "</a>"
   end
