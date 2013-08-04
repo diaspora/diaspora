@@ -1243,3 +1243,25 @@ input#q.search {
 #content {
   font-size: 13px !important;
 }
+
+.opengraph {
+  width: 100%;
+  a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    margin: 5px 0px 5px 0px;
+    border-top: solid 1px #DDD;
+    border-bottom: solid 1px #DDD;
+    padding: 5px 0px 2px 0px;
+    overflow: hidden;
+    img {
+      margin: 0px 3px 3px 0px;
+      float: left;
+      max-width: 80px;
+    }
+    .og-title {
+      margin-bottom: 3px;
+    }
+  }
+}

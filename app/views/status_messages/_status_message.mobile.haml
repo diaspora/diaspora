@@ -16,3 +16,7 @@
 
 %div{:class => direction_for(post.text)}
   != markdownify(post)
+  -if post.open_graph_cache
+    .opengraph
+      != og_html post.open_graph_cache
+
