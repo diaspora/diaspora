@@ -8,11 +8,13 @@
 
 app.views.InfScroll = app.views.Base.extend({
   setupInfiniteScroll : function() {
-    this.postViews = this.postViews || []
+    this.postViews = this.postViews || [];
+    this.appendedPosts = [];
+    this.prependedPosts = [];
 
-    this.bind("loadMore", this.fetchAndshowLoader, this)
-    this.stream.bind("fetched", this.hideLoader, this)
-    this.stream.bind("allItemsLoaded", this.unbindInfScroll, this)
+    this.bind("loadMore", this.fetchAndshowLoader, this);
+    this.stream.bind("fetched", this.finishedLoading, this);
+    this.stream.bind("allItemsLoaded", this.unbindInfScroll, this);
 
     this.collection.bind("add", this.addPostView, this);
 
@@ -26,13 +28,21 @@ app.views.InfScroll = app.views.Base.extend({
 
   createPostView : function(post){
     var postView = new this.postClass({ model: post, stream: this.stream });
-    this.postViews.push(postView)
-    return postView
+    if (this.collection.at(0).id == post.id) {
+      this.postViews.unshift(postView);
+    } else {
+      this.postViews.push(postView);
+    }
+    return postView;
   },
 
   addPostView : function(post) {
-    var placeInStream = (this.collection.at(0).id == post.id) ? "prepend" : "append";
-    this.$el[placeInStream](this.createPostView(post).render().el);
+    var el = this.createPostView(post).render().el;
+    if (this.collection.at(0).id == post.id) {
+        this.prependedPosts.unshift(el);
+    } else {
+        this.appendedPosts.push(el);
+    }
   },
 
   unbindInfScroll : function() {
@@ -44,24 +54,39 @@ app.views.InfScroll = app.views.Base.extend({
   },
 
   renderInitialPosts : function(){
-    this.$el.empty()
+    this.$el.empty();
+    var els = [];
     this.stream.items.each(_.bind(function(post){
-      this.$el.append(this.createPostView(post).render().el);
+      els.push(this.createPostView(post).render().el);
     }, this))
+    this.$el.append(els);
   },
 
   fetchAndshowLoader : function(){
     if(this.stream.isFetching()) { return false }
-    this.stream.fetch()
-    this.showLoader()
+    this.stream.fetch();
+    this.showLoader();
   },
 
   showLoader: function(){
     $("#paginate .loader").removeClass("hidden")
   },
 
+  finishedAdding: function() {
+    var el = $('<span></span>');
+    this.$el.prepend(this.prependedPosts);
+    this.$el.append(this.appendedPosts);
+    this.appendedPosts = [];
+    this.prependedPosts = [];
+  },
+
+  finishedLoading: function() {
+    this.finishedAdding();
+    this.hideLoader();
+  },
+
   hideLoader: function() {
-    $("#paginate .loader").addClass("hidden")
+    $("#paginate .loader").addClass("hidden");
   },
 
   infScroll : function() {

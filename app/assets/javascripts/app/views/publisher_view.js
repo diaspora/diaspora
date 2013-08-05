@@ -104,7 +104,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
           $(app.publisher.el).trigger('ajax:success');
         }
         if(app.stream) {
-          app.stream.items.add(statusMessage.toJSON());
+          app.stream.addNow(statusMessage.toJSON());
         }
       }
     });
@@ -194,7 +194,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
     if(app.stream) {
       this.removePostPreview();
-      app.stream.items.add(previewMessage);
+      app.stream.addNow(previewMessage);
       this.recentPreview=previewMessage;
       this.modifyPostPreview($('.stream_element:first',$('.stream_container')));
     }
