@@ -213,7 +213,7 @@ ActiveRecord::Schema.define(:version => 20130717104359) do
     t.text   "data",                 :null => false
   end
 
-  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>767}
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
 
   create_table "participations", :force => true do |t|
     t.string   "guid"
