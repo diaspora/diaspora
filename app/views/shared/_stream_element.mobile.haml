@@ -10,7 +10,6 @@
         | 
         = link_to t('javascripts.stream.show_nsfw_post'), '#'
   
-
   - if post.is_a?(Reshare)
     = render 'reshares/reshare', :reshare => post, :post => post.absolute_root
 

@@ -16,3 +16,5 @@
 
 %div{:class => direction_for(post.text)}
   != markdownify(post)
+  - if post.o_embed_cache
+    != o_embed_html post.o_embed_cache
