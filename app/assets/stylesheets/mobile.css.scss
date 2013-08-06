@@ -331,21 +331,31 @@ body {
 #nav_badges {
   display: inline-block;
   float: right;
-  padding: 4px 12px;  
-}
-  #nav_badges a:hover {
-    text-decoration: none; }
-  #nav_badges .badge {
+  padding: 4px 12px;
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  .badge {
     position: relative;
     display: inline;
     margin-left: 3px;
     padding: 8px 3px;
-      padding-bottom: 9px;
+    padding-bottom: 9px;
     font-weight: bold;
     font-size: smaller;
-    width: 28px; }
-    #nav_badges .badge:hover .badge_count {
-      background-color: #bd0902; }
+    width: 28px;
+  }
+  
+  .badge:hover .badge_count {
+      background-color: #bd0902;
+  }
+  
+  a {
+    padding: 5px 0px;
+  }
+}
 
 .badge_count {
   -moz-border-radius: 2px 2px 2px 2px;
@@ -546,6 +556,7 @@ footer {
   left: 0;
   top: 40px;
   width: 100%;
+  min-height: 220px;
 
   fieldset {
     padding: 10px;
@@ -627,10 +638,6 @@ select {
   bottom: 10px;
   right: 10px;
   line-height: 16px;
-}
-
-.new_status_message {
-  min-height: 300px;
 }
 
 .reshare {
