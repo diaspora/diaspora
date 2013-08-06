@@ -83,7 +83,7 @@ class Profile < ActiveRecord::Base
                'location' =>  'location',
                 }
 
-    update_hash = Hash[omniauth_user_hash.map {|k, v| [mappings[k], v] }]
+    update_hash = Hash[ omniauth_user_hash.map {|k, v| [mappings[k], v] } ]
     
     self.attributes.merge(update_hash){|key, old, new| old.blank? ? new : old}
   end

@@ -3,6 +3,7 @@
 **Attention:** This release includes a potentially long running migration! However it should be safe to run this while keeping your application servers on.
 
 ## Refactor
+* Service and ServiceController, general code reorg to make it cleaner/+ testable/+ extensible
 * Background actual mailing when sending invitations [#4069](https://github.com/diaspora/diaspora/issues/4069)
 * Set the current user on the client side through gon [#4028](https://github.com/diaspora/diaspora/issues/4028)
 * Update sign out route to a DELETE request [#4068](https://github.com/diaspora/diaspora/issues/4068)
@@ -11,6 +12,7 @@
 * Refactor left bar side menu, improve tag autosuggestion design [#4271](https://github.com/diaspora/diaspora/issues/4271), [#4316](https://github.com/diaspora/diaspora/pull/4316)
 
 ## Bug fixes
+* Check twitter write access before adding/authorizing it for a user.
 * Don't focus comment form on 'show n more comments' [#4265](https://github.com/diaspora/diaspora/issues/4265)
 * Do not render mobile photo view for none-existing photos [#4194](https://github.com/diaspora/diaspora/issues/4194)
 * Render markdown content for prettier email subjects and titles [#4182](https://github.com/diaspora/diaspora/issues/4182)
