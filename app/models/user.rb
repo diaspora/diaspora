@@ -336,6 +336,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def update_profile_with_omniauth( user_info )
+    update_profile( self.profile.from_omniauth_hash( user_info ) )
+  end 
+
   def deliver_profile_update
     Postzord::Dispatcher.build(self, profile).post
   end
