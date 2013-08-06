@@ -10,11 +10,11 @@ describe("app.views.Aspect", function(){
     });
 
     it('should show the aspect selected', function(){
-      expect(this.view.$el.hasClass('active')).toBeTruthy();
+      expect(this.view.$el.children('.icons-check_yes_ok').hasClass('selected')).toBeTruthy();
     });
 
     it('should show the name of the aspect', function(){
-      expect(this.view.$('a.aspect_selector').text()).toMatch('Acquaintances');
+      expect(this.view.$el.children('a.selectable').text()).toMatch('Acquaintances');
     });
 
     describe('selecting aspects', function(){
@@ -26,15 +26,15 @@ describe("app.views.Aspect", function(){
       });
 
       it('it should deselect the aspect', function(){
-        this.view.$('a.aspect_selector').trigger('click');
+        this.view.$el.children('a.selectable').trigger('click');
         expect(this.view.toggleAspect).toHaveBeenCalled();
-        expect(this.view.$el.hasClass('active')).toBeFalsy();
+        expect(this.view.$el.children('.icons-check_yes_ok').hasClass('selected')).toBeFalsy();
         expect(app.router.aspects_stream).toHaveBeenCalled();
       });
 
       it('should call #toggleSelected on the model', function(){
         spyOn(this.aspect, 'toggleSelected');
-        this.view.$('a.aspect_selector').trigger('click');
+        this.view.$el.children('a.selectable').trigger('click');
         expect(this.aspect.toggleSelected).toHaveBeenCalled();
       });
     });

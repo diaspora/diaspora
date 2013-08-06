@@ -2,8 +2,5 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%ul#aspect_nav.left_nav.sub
-  %li.all_aspects
-    = link_to t('streams.aspects.title'), aspects_path, :class => 'home_selector', :rel => 'backbone'
-
-    %ul#aspects_list.sub_nav
+= link_to t('streams.aspects.title'), aspects_path, :class => 'hoverable', :rel => 'backbone'
+%ul#aspects_list
