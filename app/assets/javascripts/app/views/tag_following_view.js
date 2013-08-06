@@ -2,12 +2,12 @@ app.views.TagFollowing = app.views.Base.extend({
 
   templateName: "tag_following",
 
-  className : "unfollow",
+  className : "hoverable",
 
   tagName: "li",
 
   events : {
-    "click .tag_following_delete": "destroyModel"
+    "click .delete_tag_following": "destroyModel"
   },
 
   initialize : function(){

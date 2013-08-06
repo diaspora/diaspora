@@ -2,9 +2,5 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- if user_signed_in?
-  %ul.left_nav.sub
-    %li
-      %b=link_to t('streams.followed_tag.title'), followed_tags_stream_path, :class => 'home_selector'
-
-      %ul.sub_nav#tags_list
+= link_to t('streams.followed_tag.title'), followed_tags_stream_path, :class => 'hoverable'
+%ul#tags_list  
