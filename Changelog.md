@@ -41,6 +41,8 @@
 * Deleting a post deletes it from Tumblr too [#4331](https://github.com/diaspora/diaspora/pull/4331)
 * OpenGraph support [#4215](https://github.com/diaspora/diaspora/pull/4215)
 * Added Wordpress service ability for posts. [#4321](https://github.com/diaspora/diaspora/pull/4321)
+* Implement tag search autocomplete in header search box [#4169](https://github.com/diaspora/diaspora/issues/4169)
+
 
 # 0.1.1.0
 

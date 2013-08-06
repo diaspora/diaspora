@@ -64,6 +64,9 @@ Diaspora::Application.routes.draw do
   resources :photos, :except => [:index] do
     put :make_profile_photo
   end
+	
+	#Search
+	get 'search' => "search#search"
 
   resources :conversations do
     resources :messages, :only => [:create, :show]
