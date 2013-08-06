@@ -23,6 +23,7 @@
 * Fix user contact sharing/receiving [#4163](https://github.com/diaspora/diaspora/issues/4163)
 * Change image to ajax-loader when closing lightbox [#3229](https://github.com/diaspora/diaspora/issues/3229)
 * Fix pointer cursor on the file upload button [#4349](https://github.com/diaspora/diaspora/pull/4349)
+* Resize preview button [#4355](https://github.com/diaspora/diaspora/pull/4355)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
