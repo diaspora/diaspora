@@ -34,6 +34,15 @@ Feature: preview posts in the stream
       Then "I like rocks" should be post 1
       And I should not see "This preview rocks"
 
+    Scenario: preview a very long message
+      Given I expand the publisher
+      When I insert an extremely long status message
+      And I press "Preview"
+      Then the preview should not be collapsed
+
+      When I press "Share"
+      Then the post should be collapsed
+
     Scenario: preview a photo with text
       Given I expand the publisher
       When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"

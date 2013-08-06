@@ -202,6 +202,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
   modifyPostPreview : function(post) {
     post.addClass('post_preview');
+    $('.collapsible',post).removeClass('collapsed').addClass('opened');
     $('a.delete.remove_post',post).hide();
     $('a.like, a.focus_comment_textarea',post).removeAttr("href");
     $('a.like',post).addClass("like_preview");

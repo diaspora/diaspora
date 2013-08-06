@@ -66,6 +66,10 @@ When /^I post an extremely long status message$/ do
   click_and_post("I am a very interesting message " * 64)
 end
 
+When /^I insert an extremely long status message$/ do
+  fill_in 'status_message_fake_text', :with => "I am a very interesting message " * 64
+end
+
 When /^I open the show page of the "([^"]*)" post$/ do |post_text|
   visit post_path_by_content(post_text)
 end
