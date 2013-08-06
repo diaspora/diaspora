@@ -44,5 +44,14 @@
               =t('.born')
             = birthday_format(person.birthday)
 
+        %li
+          - unless @photos.blank?
+            %h4
+              = link_to t('_photos'),  person_photos_path(person)
+            - for photo in @photos
+              = image_tag(photo.url(:thumb_small))
+
+
+
           %br
           %br
