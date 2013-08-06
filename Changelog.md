@@ -25,6 +25,7 @@
 * Change image to ajax-loader when closing lightbox [#3229](https://github.com/diaspora/diaspora/issues/3229)
 * Fix pointer cursor on the file upload button [#4349](https://github.com/diaspora/diaspora/pull/4349)
 * Resize preview button [#4355](https://github.com/diaspora/diaspora/pull/4355)
+* Fix compability problem with MySQL 5.6 [#4312](https://github.com/diaspora/diaspora/issues/4312)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
