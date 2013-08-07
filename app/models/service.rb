@@ -43,10 +43,6 @@ class Service < ActiveRecord::Base
       "Services::#{options[:provider].camelize}"
     end
 
-    def access_level
-      auth['extra']['access_token']['response']['header']['x_access_level'] if auth['extra']
-    end
-
     def options
       { 
         nickname:      auth['info']['nickname'],
@@ -54,11 +50,10 @@ class Service < ActiveRecord::Base
         access_secret: auth['credentials']['secret'],
         uid:           auth['uid'],
         provider:      auth['provider'],
-        info:          auth['info'], 
-        access_level:  access_level  
+        info:          auth['info']
       }
     end
 
-    private :auth, :service_type, :access_level, :options
+    private :auth, :service_type, :options
   end
 end

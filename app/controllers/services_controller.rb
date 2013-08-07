@@ -1,7 +1,6 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See 
 #   the COPYRIGHT file.
-
 class ServicesController < ApplicationController
   # We need to take a raw POST from an omniauth provider with no authenticity token.
   # See https://github.com/intridea/omniauth/issues/203
@@ -57,7 +56,7 @@ class ServicesController < ApplicationController
   end
 
   def abort_if_read_only_access
-    if header_hash["x_access_level"] && header_hash["x_access_level"] == 'read'
+    if omniauth_hash['provider'] == 'twitter' && twitter_header['x_access_level'] == 'read'
       flash[:error] =  I18n.t( 'services.create.read_only_access' )
       redirect_to_origin
     end
@@ -87,7 +86,17 @@ class ServicesController < ApplicationController
     request.env['omniauth.auth']
   end
 
-  def header_hash 
-    omniauth_hash['extra'] ? omniauth_hash['extra']['access_token']['response']['header'] : {}
+  def extra_hash
+    omniauth_hash['extra'] ? omniauth_hash['extra'] : {} 
+  end
+
+  def twitter_header 
+    twitter_header_present? ? extra_hash['access_token']['response']['header'] : {}
   end 
+
+  #https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema #=> normalized hash
+  #https://gist.github.com/oliverbarnes/6096959 #=> hash with twitter specific extra
+  def twitter_header_present?
+    extra_hash['access_token'] && extra_hash['access_token']['response'] && extra_hash['access_token']['response']['header']
+  end
 end
