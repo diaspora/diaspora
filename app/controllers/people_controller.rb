@@ -142,6 +142,7 @@ class PeopleController < ApplicationController
       @contact = current_user.contact_for(@person)
       @aspect = :profile
       @contacts_of_contact = @contact.contacts.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
+      @contacts_of_contact_count = @contact.contacts.count
       @hashes = hashes_for_people @contacts_of_contact, @aspects
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'
