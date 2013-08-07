@@ -4,9 +4,9 @@
 
 require 'spec_helper'
 require Rails.root.join("spec", "shared_behaviors", "relayable")
-require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
+# require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
 
-describe Diaspora::Federated::Messages::RelayableRetraction do
+describe Diaspora::Federated::RelayableRetraction do
   before do
     @local_luke, @local_leia, @remote_raphael = set_up_friends
     @remote_parent = FactoryGirl.build(:status_message, :author => @remote_raphael)
@@ -83,7 +83,7 @@ describe Diaspora::Federated::Messages::RelayableRetraction do
     context 'from the upstream owner' do
       before do
         @comment = @local_luke.comment!(@remote_parent, "Yeah, it was great")
-        @retraction = RelayableRetraction.allocate
+        @retraction = described_class.allocate
         @retraction.sender = @remote_raphael
         @retraction.target = @comment
         @retraction.stub!(:parent_author_signature_valid?).and_return(true)
@@ -105,7 +105,7 @@ describe Diaspora::Federated::Messages::RelayableRetraction do
   describe 'xml' do
     before do
       @comment = @local_leia.comment!(@local_parent, "yo")
-      @retraction = RelayableRetraction.build(@local_leia, @comment)
+      @retraction = described_class.build(@local_leia, @comment)
       @retraction.parent_author_signature = 'PARENTSIGNATURE'
       @retraction.target_author_signature = 'TARGETSIGNATURE'
       @xml = @retraction.to_xml.to_s
@@ -132,7 +132,7 @@ describe Diaspora::Federated::Messages::RelayableRetraction do
 
     describe '.from_xml' do
       before do
-        @marshalled = RelayableRetraction.from_xml(@xml)
+        @marshalled = described_class.from_xml(@xml)
       end
 
       it 'marshals the target' do

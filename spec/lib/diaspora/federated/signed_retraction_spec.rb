@@ -1,7 +1,7 @@
 require 'spec_helper'
-require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
+# require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
 
-describe Diaspora::Federated::Messages::SignedRetraction do
+describe Diaspora::Federated::SignedRetraction do
   before do
     @post = FactoryGirl.create(:status_message, :author => bob.person, :public => true)
     @resharer = FactoryGirl.create(:user)
@@ -10,7 +10,7 @@ describe Diaspora::Federated::Messages::SignedRetraction do
   end
   describe '#perform' do
     it "dispatches the retraction onward to recipients of the recipient's reshare" do
-      retraction = SignedRetraction.build(bob, @post)
+      retraction = described_class.build(bob, @post)
       onward_retraction = retraction.dup
       retraction.should_receive(:dup).and_return(onward_retraction)
 
@@ -25,7 +25,7 @@ describe Diaspora::Federated::Messages::SignedRetraction do
       bob.post(:reshare, :root_guid => remote_post.guid)
       alice.post(:reshare, :root_guid => remote_post.guid)
 
-      remote_retraction = SignedRetraction.new.tap{|r|
+      remote_retraction = described_class.new.tap{|r|
         r.target_type = remote_post.type
         r.target_guid = remote_post.guid
         r.sender = remote_post.author

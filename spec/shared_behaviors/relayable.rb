@@ -34,7 +34,7 @@ describe Diaspora::Relayable do
 
           it "sends a retraction for the object" do
             pending 'need to figure out how to test this'
-            RelayableRetraction.should_receive(:build)
+            Diaspora::Federated::RelayableRetraction.should_receive(:build)
             Postzord::Dispatcher.should_receive(:build)
             @relayable.valid?
           end

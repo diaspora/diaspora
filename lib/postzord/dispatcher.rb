@@ -149,7 +149,7 @@ class Postzord::Dispatcher
       if @object.instance_of?(StatusMessage)
         Workers::PostToService.perform_async(service.id, @object.id, url)
       end
-      if @object.instance_of?(SignedRetraction)
+      if @object.instance_of?(Diaspora::Federated::SignedRetraction)
         Workers::DeletePostFromService.perform_async(service.id, @object.target.id)
       end
     end

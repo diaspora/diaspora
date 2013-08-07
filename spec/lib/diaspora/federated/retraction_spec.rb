@@ -3,9 +3,9 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
+# require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
 
-describe Diaspora::Federated::Messages::Retraction do
+describe Diaspora::Federated::Retraction do
   before do
     @aspect = alice.aspects.first
     alice.contacts.create(:person => eve.person, :aspects => [@aspect])
@@ -14,7 +14,7 @@ describe Diaspora::Federated::Messages::Retraction do
 
   describe 'serialization' do
     it 'should have a post id after serialization' do
-      retraction = Retraction.for(@post)
+      retraction = described_class.for(@post)
       xml = retraction.to_xml.to_s
       xml.include?(@post.guid.to_s).should == true
     end
@@ -23,7 +23,7 @@ describe Diaspora::Federated::Messages::Retraction do
   describe '#subscribers' do
     context 'posts' do
       before do
-        @retraction = Retraction.for(@post)
+        @retraction = described_class.for(@post)
         @obj = @retraction.instance_variable_get(:@object)
         @wanted_subscribers = @obj.subscribers(alice)
       end
@@ -43,7 +43,7 @@ describe Diaspora::Federated::Messages::Retraction do
 
     context 'setting subscribers' do
       it 'barfs if the type is a person, and subscribers instance varabile is not set' do
-        retraction = Retraction.for(alice)
+        retraction = described_class.for(alice)
         obj = retraction.instance_variable_get(:@object)
 
         lambda {
@@ -52,7 +52,7 @@ describe Diaspora::Federated::Messages::Retraction do
       end
 
       it 'returns manually set subscribers' do
-        retraction = Retraction.for(alice)
+        retraction = described_class.for(alice)
         retraction.subscribers = "fooey"
         retraction.subscribers(alice).should == 'fooey'
       end

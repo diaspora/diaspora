@@ -99,7 +99,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
   end
 
   def contact_required_unless_request
-    unless @object.is_a?(Request) || @user.contact_for(@sender)
+    unless @object.is_a?(Diaspora::Federated::Request) || @user.contact_for(@sender)
       FEDERATION_LOGGER.error("event=receive status=abort reason='sender not connected to recipient' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
       return true 
     end
@@ -107,7 +107,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
 
   def assign_sender_handle_if_request
     #special casey
-    if @object.is_a?(Request)
+    if @object.is_a?(Diaspora::Federated::Request)
       @object.sender_handle = @sender.diaspora_handle
     end
   end

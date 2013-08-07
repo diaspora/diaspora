@@ -22,7 +22,7 @@ module NavigationHelpers
       when /^my acceptance form page$/
         invite_code_path(InvitationCode.first)
       when /^the requestors profile$/
-        person_path(Request.where(:recipient_id => @me.person.id).first.sender)
+        person_path(Diaspora::Federated::Request.where(:recipient_id => @me.person.id).first.sender)
       when /^"([^\"]*)"'s page$/
         person_path(User.find_by_email($1).person)
       when /^my account settings page$/

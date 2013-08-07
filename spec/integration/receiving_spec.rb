@@ -317,7 +317,7 @@ describe 'a user receives a post' do
     let(:zord) { Postzord::Receiver::Private.new(alice, person: bob.person) }
 
     it 'should accept retractions' do
-      retraction = Retraction.for(message)
+      retraction = Diaspora::Federated::Retraction.for(message)
       xml = retraction.to_diaspora_xml
 
       expect {
@@ -327,7 +327,7 @@ describe 'a user receives a post' do
 
     it 'should accept relayable retractions' do
       comment = bob.comment! message, "and dogs"
-      retraction = RelayableRetraction.build(bob, comment)
+      retraction = Diaspora::Federated::RelayableRetraction.build(bob, comment)
       xml = retraction.to_diaspora_xml
 
       expect {
@@ -337,7 +337,7 @@ describe 'a user receives a post' do
 
     it 'should accept signed retractions for public posts' do
       message = bob.post(:status_message, text: "cats", public: true)
-      retraction = SignedRetraction.build(bob, message)
+      retraction = Diaspora::Federated::SignedRetraction.build(bob, message)
       salmon = Postzord::Dispatcher::Public.salmon bob, retraction.to_diaspora_xml
       xml = salmon.xml_for alice.person
       zord = Postzord::Receiver::Public.new xml
