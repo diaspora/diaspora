@@ -3,8 +3,9 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
+require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
 
-describe Request do
+describe Diaspora::Federated::Messages::Request do
   before do
     @aspect = alice.aspects.first
   end

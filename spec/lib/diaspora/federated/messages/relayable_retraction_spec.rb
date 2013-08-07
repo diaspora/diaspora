@@ -4,8 +4,9 @@
 
 require 'spec_helper'
 require Rails.root.join("spec", "shared_behaviors", "relayable")
+require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
 
-describe RelayableRetraction do
+describe Diaspora::Federated::Messages::RelayableRetraction do
   before do
     @local_luke, @local_leia, @remote_raphael = set_up_friends
     @remote_parent = FactoryGirl.build(:status_message, :author => @remote_raphael)

@@ -1,6 +1,7 @@
 require 'spec_helper'
+require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
 
-describe SignedRetraction do
+describe Diaspora::Federated::Messages::SignedRetraction do
   before do
     @post = FactoryGirl.create(:status_message, :author => bob.person, :public => true)
     @resharer = FactoryGirl.create(:user)
