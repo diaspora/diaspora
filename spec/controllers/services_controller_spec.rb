@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe ServicesController do
   let(:omniauth_auth) do
-    { 'provider' => 'twitter',
+    { 'provider' => 'facebook',
       'uid'      => '2',
       'info'   => { 'nickname' => 'grimmin' },
       'credentials' => { 'token' => 'tokin', 'secret' =>"not_so_much" }}
@@ -37,13 +37,13 @@ describe ServicesController do
 
     it 'creates a new service and associates it with the current user' do
       expect {
-        post :create, :provider => 'twitter'
+        post :create, :provider => 'facebook'
       }.to change(user.services, :count).by(1)
     end
 
     it 'saves the provider' do
-      post :create, :provider => 'twitter'
-      user.reload.services.first.class.name.should == "Services::Twitter"
+      post :create, :provider => 'facebook'
+      user.reload.services.first.class.name.should == "Services::Facebook"
     end
 
     context 'when service exists with the same uid' do
@@ -64,15 +64,21 @@ describe ServicesController do
 
     context 'Twitter' do
       context 'when the access-level is read-only' do
+
+        let(:header) { { 'x-access-level' => 'read' } }
+        let(:access_token) { double('access_token') } 
+        let(:extra) { {'extra' => { 'access_token' => access_token }} }
+        let(:provider) { {'provider' => 'twitter'} }
+
         before do 
-          access_level_hash = { 'extra' => { 'access_token' => { 'response' => { 'header' => { 'x_access_level' => 'read' }}}}}
-          request.env['omniauth.auth'] = omniauth_auth.merge!( access_level_hash )
+          access_token.stub_chain(:response, :header).and_return header
+          request.env['omniauth.auth'] = omniauth_auth.merge!( provider).merge!( extra )
         end
 
         it 'doesnt create a new service' do
           expect {
-          post :create, :provider => 'twitter'
-        }.to_not change(Service, :count).by(1)
+            post :create, :provider => 'twitter'
+          }.to_not change(Service, :count).by(1)
         end
 
         it 'flashes an read-only access error'  do
