@@ -81,7 +81,7 @@ class PeopleController < ApplicationController
     @aspect = :profile
     @stream = Stream::Person.new(current_user, @person, :max_time => max_time)
     @profile = @person.profile
-    @photos = Photo.where(author_id: @profile.id).limit(3).order('created_at desc')
+    @photos = Photo.where(author_id: @profile.id).order('created_at desc')
     unless params[:format] == "json" # hovercard
       if current_user
         @block = current_user.blocks.where(:person_id => @person.id).first

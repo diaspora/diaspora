@@ -18,7 +18,8 @@
       %br
       %br
     -if contact.sharing? || person == current_user.person
-      %ul#profile_information
+      %ul#aspect_nav.left_nav
+      
         - unless person.bio.blank?
           %li
             %h4
@@ -47,7 +48,10 @@
           - unless @photos.blank?
             %h4
               = t('_photos')
-            - for photo in @photos
+            .contact_count
+              = " #{@photos.count}"
+            - @thumbs = @photos.limit(3)
+            - for photo in @thumbs
               = image_tag(photo.url(:thumb_small))
             %br
               = link_to t('layouts.header.view_all'),  person_photos_path(person)
