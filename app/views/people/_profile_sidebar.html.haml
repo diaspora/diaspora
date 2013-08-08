@@ -18,7 +18,7 @@
       %br
       %br
     -if contact.sharing? || person == current_user.person
-      %ul#aspect_nav.left_nav
+      %ul#profile_information
       
         - unless person.bio.blank?
           %li
@@ -48,8 +48,8 @@
           - unless @photos.blank?
             %h4
               = t('_photos')
-            .contact_count
-              = " #{@photos.count}"
+              .item_count
+                = "#{@photos.count}"
             - @thumbs = @photos.limit(3)
             - for photo in @thumbs
               = image_tag(photo.url(:thumb_small))
