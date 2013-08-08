@@ -62,21 +62,36 @@ describe ServicesController do
       end
     end
 
-    context 'when the access-level is read-only' do
-      before do 
-        access_level_hash = { 'extra' => { 'access_token' => { 'response' => { 'header' => { 'x_access_level' => 'read' }}}}}
-        request.env['omniauth.auth'] = omniauth_auth["info"].merge!( access_level_hash )
+    context 'Twitter' do
+      context 'when the access-level is read-only' do
+        before do 
+          access_level_hash = { 'extra' => { 'access_token' => { 'response' => { 'header' => { 'x_access_level' => 'read' }}}}}
+          request.env['omniauth.auth'] = omniauth_auth.merge!( access_level_hash )
+        end
+
+        it 'doesnt create a new service' do
+          expect {
+          post :create, :provider => 'twitter'
+        }.to_not change(Service, :count).by(1)
+        end
+
+        it 'flashes an read-only access error'  do
+          post :create, :provider => 'twitter'
+          flash[:error].include?( 'Access level is read-only' ).should be_true
+        end
+      end
+    end
+
+    context 'Facebook' do
+      before do
+        facebook_auth_without_twitter_extras = { 'provider' => 'facebook', 'extras' => { 'someotherkey' => 'lorem'}}
+        request.env['omniauth.auth'] = omniauth_auth.merge!( facebook_auth_without_twitter_extras )
       end
 
-      it 'doesnt create a new service' do
+      it "doesn't break when twitter-specific extras aren't available in omniauth hash" do
         expect {
-        post :create, :provider => 'twitter'
-      }.to_not change(Service, :count).by(1)
-      end
-
-      it 'flashes an read-only access error'  do
-        post :create, :provider => 'twitter'
-        flash[:error].include?( 'Access level is read-only' ).should be_true
+          post :create, :provider => 'facebook'
+        }.to change(user.services, :count).by(1)
       end
     end
 

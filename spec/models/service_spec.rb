@@ -40,8 +40,7 @@ describe Service do
       { 'provider' => 'facebook',
         'uid'      => '2',
         'info'   => { 'nickname' => 'grimmin' },
-        'credentials' => { 'token' => 'tokin', 'secret' =>"not_so_much" },
-        'extra' => { 'access_token' => { 'response' => { 'header' => { 'x_access_level' => 'read' }}}}
+        'credentials' => { 'token' => 'tokin', 'secret' =>"not_so_much" }
       }
     end
     let(:subject) { described_class.initialize_from_omniauth( omniauth ) }
@@ -55,7 +54,6 @@ describe Service do
       expect( subject.nickname ).to eql "grimmin"
       expect( subject.access_token ).to eql "tokin"
       expect( subject.access_secret ).to eql "not_so_much"
-      expect( subject.access_level ).to eql "read"
     end
   end
 end
