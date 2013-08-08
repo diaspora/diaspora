@@ -13,7 +13,7 @@ gem 'json',        '1.8.0'
 
 # Authentication
 
-gem 'devise', '2.1.3'
+gem 'devise', '2.2.4'
 
 # Background processing
 
