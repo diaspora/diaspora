@@ -304,3 +304,12 @@ end
 When /^I take the screenshots while logged in$/ do
   take_screenshots_with_login
 end
+
+Given /^I have configured a Bitcoin wallet$/ do
+  AppConfig.settings.stub(:bitcoin_wallet_id).and_return("AAAAAA")
+end
+
+Then /^I should see the Bitcoin wallet ID$/ do
+  find(:css, "input[type='text']", text: 'AAAAAA').should be_present  # find will aleady raise an error when the
+                                                                      # element is not found, this just adds meaning
+end
