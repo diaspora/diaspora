@@ -1,11 +1,17 @@
-%form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post"}
-  %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}
-  %input{:name => "hosted_button_id", :type => "hidden", :value => AppConfig.settings.paypal_hosted_button_id}
-  %input{:name => "on0", :type => "hidden", :value => "Type"}
-  %input{:name => "modify", :type => "hidden", :value => "2"}
-  %select{:name => "os0"}
-    %option{:value => "Mocha"} Mocha : $3.00USD
-    %option{:value => "Americano"} Americano : $5.00USD
-    %option{:value => "Box o' Joe"} Box o' Joe : $20.00USD
-  %input{:name => "currency_code", :type => "hidden", :value => "USD"}
-  %input{:name => "submit", :type => "submit", :value => t('aspects.index.donate')}
+- if AppConfig.settings.paypal_hosted_button_id.present?
+  PayPal:
+  %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post"}
+    %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}
+    %input{:name => "hosted_button_id", :type => "hidden", :value => AppConfig.settings.paypal_hosted_button_id}
+    %input{:name => "on0", :type => "hidden", :value => "Type"}
+    %input{:name => "modify", :type => "hidden", :value => "2"}
+    %select{:name => "os0"}
+      %option{:value => "Mocha"} Mocha : $3.00USD
+      %option{:value => "Americano"} Americano : $5.00USD
+      %option{:value => "Box o' Joe"} Box o' Joe : $20.00USD
+    %input{:name => "currency_code", :type => "hidden", :value => "USD"}
+    %input{:name => "submit", :type => "submit", :value => t('aspects.index.donate')}
+- if AppConfig.settings.bitcoin_wallet_id.present?
+  Bitcoin:
+  %input{:type => "text", :id => "bitcoin_address", :value => AppConfig.settings.bitcoin_wallet_id, :readonly => true}
+  
