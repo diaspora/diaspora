@@ -66,7 +66,7 @@
         window.location = self.searchFormAction + '?' + self.searchInputName + '=' + data['name'];
       } else { // The actual result
         self.options.element.val(formatted);
-        window.location = data['url'] ? data['url'] : "/tags/" + searchForm.attr('name');
+        window.location = data['url'] ? data['url'] : "/tags/" + data['name'].substring(1); // we don't want the #-character
       }
     };
   };
