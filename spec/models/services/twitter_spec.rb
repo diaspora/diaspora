@@ -71,6 +71,24 @@ describe Services::Twitter do
 
       answer.should_not match /\.\.\./
     end
+    
+    it "should not cut links when truncating a post" do
+      long_message = SecureRandom.hex(40) + " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + SecureRandom.hex(55)
+      long_post = stub(:text => long_message, :id => 1, :photos => [])
+      answer = @service.build_twitter_post(long_post, '')
+
+      answer.should match /\.\.\./
+      answer.should match /shortened\.html/
+    end
+    
+    it "should append the otherwise-cut link when truncating a post" do
+      long_message = "http://joindiaspora.com/a-very-long-decoy-url.html " + SecureRandom.hex(20) + " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + SecureRandom.hex(55) + " http://joindiaspora.com/a-very-long-decoy-url-part-2.html"
+      long_post = stub(:text => long_message, :id => 1, :photos => [])
+      answer = @service.build_twitter_post(long_post, '')
+      
+      answer.should match /\.\.\./
+      answer.should match /shortened\.html/
+    end
 
     it "should not truncate a long message with an https url" do
       long_message = " https://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end

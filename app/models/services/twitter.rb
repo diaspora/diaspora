@@ -4,6 +4,8 @@ class Services::Twitter < Service
 
   MAX_CHARACTERS = 140
   SHORTENED_URL_LENGTH = 21
+  
+  LINK_PATTERN = %r{https?://\S+}
 
   def provider
     "twitter"
@@ -46,8 +48,10 @@ class Services::Twitter < Service
       :protocol => AppConfig.pod_uri.scheme, 
       :host => AppConfig.pod_uri.authority
     )
-    truncated = truncate(post_text, :length => (maxchars - (SHORTENED_URL_LENGTH+1) ))
-    post_text = "#{truncated} #{post_url}"
+    truncated_text = truncate post_text, length: maxchars - SHORTENED_URL_LENGTH + 1
+    truncated_text = restore_truncated_url truncated_text, post_text, maxchars
+
+    "#{truncated_text} #{post_url}"
   end
 
   def build_twitter_post(post, url, retry_count=0)
@@ -81,5 +85,19 @@ class Services::Twitter < Service
       oauth_token: self.access_token,
       oauth_token_secret: self.access_secret
     )
+  end
+  
+  def restore_truncated_url truncated_text, post_text, maxchars
+      return truncated_text if truncated_text !~ /#{LINK_PATTERN}\Z/
+
+      url = post_text.match(LINK_PATTERN, truncated_text.rindex('http'))[0]
+      truncated_text = truncate(
+        post_text,
+        length: maxchars - SHORTENED_URL_LENGTH + 2,
+        separator: ' ',
+        omission: ''
+      )
+
+    "#{truncated_text} #{url} ..."
   end
 end
