@@ -3,7 +3,7 @@ class Services::Facebook < Service
   include MarkdownifyHelper
 
   OVERRIDE_FIELDS_ON_FB_UPDATE = [:contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username]
-  MAX_CHARACTERS = 420
+  MAX_CHARACTERS = 63206 
 
   def provider
     "facebook"
