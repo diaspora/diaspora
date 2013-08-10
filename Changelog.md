@@ -44,6 +44,7 @@
 * OpenGraph support [#4215](https://github.com/diaspora/diaspora/pull/4215)
 * Added Wordpress service ability for posts. [#4321](https://github.com/diaspora/diaspora/pull/4321)
 * Implement tag search autocomplete in header search box [#4169](https://github.com/diaspora/diaspora/issues/4169)
+* Uncheck 'make contacts visible to each other' by default when adding new aspect. [#4343](https://github.com/diaspora/diaspora/issues/4343)
 
 
 # 0.1.1.0
