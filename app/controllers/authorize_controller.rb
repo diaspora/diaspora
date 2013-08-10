@@ -1,6 +1,6 @@
 class AuthorizeController < ApplicationController
   include Authenticator
-  before_filter :authenticate_user!, :except => :verify
+  before_filter :authenticate_user!, :except => [:verify, :access_token]
   ALL_SCOPES = %w(profile_read 
                   contact_list_read 
                   post_write 
@@ -97,5 +97,28 @@ class AuthorizeController < ApplicationController
     end
     redirect_to access_request.redirect_url
     send_refresh_token_to_app refresh_token.token, access_request.callback_url, current_user.diaspora_handle
+  end
+
+  def access_token
+    refresh_token = Dauth::RefreshToken.find_by_token(params[:refresh_token])
+
+    unless refresh_token
+      Rails.logger.info("refresh token #{refresh_token} is illegal")
+      render :status => :bad_request, :json => {:error => "200"}  
+    else
+      if refresh_token.access_tokens.last
+        access_token = refresh_token.access_tokens.last
+
+        #check valid access token
+        unless access_token.expire?
+          render :status => :ok, :json => {:access_token => "#{access_token.token}"}
+          return
+        end
+      end
+      new_access_token = refresh_token.access_tokens.new
+      new_access_token.refresh_token = refresh_token
+      new_access_token.save
+      render :status => :ok, :json => {:access_token => "#{new_access_token.token}"}
+    end
   end
 end

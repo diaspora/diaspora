@@ -244,6 +244,7 @@ Diaspora::Application.routes.draw do
   post "authorize/verify"
   match 'dauth/authorize/authorization_token',    to: 'authorize#show'
   match 'dauth/authorize/update', to: 'authorize#update', via: :post
+  match 'dauth/authorize/access_token',  to: 'authorize#access_token', via: :post
 
   namespace :dauth do
     resources :thirdparty_apps
