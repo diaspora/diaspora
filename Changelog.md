@@ -30,6 +30,7 @@
 * Fix compability problem with MySQL 5.6 [#4312](https://github.com/diaspora/diaspora/issues/4312)
 * Don't collapse the post preview [#4346](https://github.com/diaspora/diaspora/issues/4346)
 * Improve mobile usability [#4354](https://github.com/diaspora/diaspora/pull/4354)
+* Descending text is no longer cut off in orange welcome banner [#4377](https://github.com/diaspora/diaspora/issues/4377)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
