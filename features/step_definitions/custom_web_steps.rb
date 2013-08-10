@@ -306,7 +306,7 @@ When /^I take the screenshots while logged in$/ do
 end
 
 Given /^I have configured a Bitcoin wallet$/ do
-  AppConfig.settings.stub(:bitcoin_wallet_id).and_return("AAAAAA")
+  AppConfig.settings.bitcoin_wallet_id = "AAAAAA"
 end
 
 Then /^I should see the Bitcoin wallet ID$/ do
