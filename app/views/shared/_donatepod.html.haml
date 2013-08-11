@@ -13,5 +13,5 @@
     %input{:name => "submit", :type => "submit", :value => t('aspects.index.donate')}
 - if AppConfig.settings.bitcoin_wallet_id.present?
   Bitcoin:
-  %input{:type => "text", :value => AppConfig.settings.bitcoin_wallet_id, :readonly => true}
+  %input{:type => "text", :id => "bitcoin_address", :value => AppConfig.settings.bitcoin_wallet_id, :readonly => true}
   

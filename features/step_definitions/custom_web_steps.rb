@@ -310,6 +310,6 @@ Given /^I have configured a Bitcoin wallet$/ do
 end
 
 Then /^I should see the Bitcoin wallet ID$/ do
-  find(:css, "input[type='text']", text: 'AAAAAA').should be_present  # find will aleady raise an error when the
+  find("#bitcoin_address")['value'].should == "AAAAAA"  # find will aleady raise an error when the
                                                                       # element is not found, this just adds meaning
 end
