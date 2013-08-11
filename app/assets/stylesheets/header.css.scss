@@ -44,6 +44,7 @@ body > header {
     display: inline-block;
     margin-top: 2px;
     float: left;
+    width: 61px;
 
     a:hover { text-decoration: none; }
 
@@ -55,6 +56,18 @@ body > header {
       margin: 0 2px;      
       font-weight: bold;
       font-size: smaller;
+
+      .badge_count {
+        @include border-radius(2px);
+        z-index: 3;
+        position: absolute;
+        top: -4px;
+        left: 15px;
+        padding: 1px 2px;
+        background-color: #A40802;
+        line-height: 12px;
+        color: #fff;
+      }
 
       &:hover .badge_count { background-color: lighten(#A40802, 5%); }
       
@@ -74,29 +87,19 @@ body > header {
       padding: 0px 3px;
     }
     
-    #message_inbox_badge { padding-top: 3px; }
+    #message_inbox_badge {
+      padding-top: 3px; 
+      margin-right: 0px;
+      padding-right: 0px;
+    }
 
-    #notification_badge {
-      .active {
-        z-index: 10;
-        background-color: #fff;
-        border: 1px solid #888;
-        border-bottom: 0px;
-        margin-left: 0px;
-        padding-bottom: 12px;
-      }
-
-      .badge_count {
-        @include border-radius(2px);
-        z-index: 3;
-        position: absolute;
-        top: -2px;
-        left: 13px;
-        padding: 0 2px 1px 2px;
-        background-color: #A40802;
-        line-height: 12px;
-        color: #fff;
-      }
+    #notification_badge.active {
+      z-index: 10;
+      background-color: #fff;
+      border: 1px solid #888;
+      border-bottom: 0px;
+      margin-left: 0px;
+      padding-bottom: 12px;
     }
 
     #notification_dropdown {
@@ -192,7 +195,8 @@ body > header {
           width: 200px;
         }
 
-        &::-webkit-input-placeholder, &:-moz-placeholder { text-shadow: none; }
+        &::-webkit-input-placeholder { text-shadow: none; }
+        &:-moz-placeholder { text-shadow: none; }
       }
     }
   }
@@ -212,10 +216,8 @@ body > header {
     margin: -2px -5px 0px 0px;    
     padding: 5px 7px 5px 32px;
     
-    border {
-      left: 1px solid #333;
-      right: 1px solid #333;
-    }
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
 
     li {
       a {
@@ -253,7 +255,6 @@ body > header {
 
     &.active {
       margin-top: -3px;
-      margin-right: -5px;
       @include dropdown-shadow;
       background-color: rgb(34,30,30);
       border: 1px solid #999;
@@ -286,10 +287,8 @@ body > header {
       height: 100%;
       display: inline-block;
       margin-left: -4px;
-      border {
-        left: 1px solid #333;
-        right: 1px solid #333;
-      }
+      border-left: 1px solid #333;
+      border-right: 1px solid #333;
 
       &:last-child {
         margin-left: -5px;
