@@ -1,3 +1,5 @@
+body > #container { margin-top: 50px; } /* to avoid being hidden under the header in the SPV */
+
 body > header {
   @include box-shadow(0,1px,3px,rgba(0,0,0,0.9));
   background: url('header-bg.png') rgb(40,35,35);
