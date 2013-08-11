@@ -23,7 +23,9 @@ Feature: new user registration
   Scenario: new user does not add any tags in setup wizard and cancel the alert
     When I fill in the following:
       | profile_first_name | some name     |
-    And I follow "awesome_button"
+    And I focus the "follow_tags" field
+    Then I should see a flash message containing "Hey, some name!"
+    When I follow "awesome_button"
     And I reject the alert
     Then I should be on the getting started page
     And I should see a flash message containing "Alright, I'll wait."

@@ -304,3 +304,7 @@ end
 When /^I take the screenshots while logged in$/ do
   take_screenshots_with_login
 end
+
+When /^I focus the "([^"]+)" field$/ do |field|
+  find_field(field).click
+end
