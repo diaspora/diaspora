@@ -233,6 +233,11 @@ configuration: ## Section
     ## we kindly ask your users to donate to the Diaspora Foundation :)
     #paypal_hosted_button_id: ""
     
+    ## Bitcoin donations
+    ## You can provide the bitcoin address here to kindly ask
+    ## your users for donations to run their pod.
+    #bitcoin_wallet_id: ""
+    
     ## Community Spotlight
     ## The community spotlight gives new users a starting point on who
     ## could be interesting Diasporas community. To add a person
