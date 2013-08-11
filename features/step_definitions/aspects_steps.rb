@@ -32,7 +32,7 @@ end
 Then /^I should see "([^"]*)" aspect unselected$/ do |aspect_name|
   aspect = @me.aspects.where(:name => aspect_name).first
   within("#aspects_list") do
-    page.should_not have_css "li[data-aspect_id='#{aspect.id}'] .selected"
+    page.should have_no_css "li[data-aspect_id='#{aspect.id}'] .selected"
   end
 end
 
