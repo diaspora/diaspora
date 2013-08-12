@@ -216,11 +216,7 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
     field = find_field(field)
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
     field_value = field_value.first if field_value.is_a? Array
-    if field_value.respond_to? :should
-      field_value.should == value
-    else
-      assert_equal(value, field_value)
-    end
+    field_value.should == value
   end
 end
 
