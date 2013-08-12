@@ -75,10 +75,6 @@ And /^I expand the publisher$/ do
  click_publisher
 end
 
-When 'I click the aspects title' do
-  find('.home_selector').click
-end
-
 When /^I press the aspect dropdown$/ do
   find('.dropdown .button').click
 end
@@ -86,10 +82,6 @@ end
 And /^I toggle the aspect "([^"]*)"$/ do |aspect_name|
   aspect = @me.aspects.where(:name => aspect_name).first
   find(".dropdown li[data-aspect_id='#{aspect.id}']").click
-end
-
-Then /^the publisher should be collapsed$/ do
-  find("#publisher")["class"].should include("closed")
 end
 
 Then /^the publisher should be expanded$/ do
@@ -145,10 +137,6 @@ end
 When /^I click to delete the first uploaded photo$/ do
   page.execute_script("$('#photodropzone .x').css('display', 'block');")
   find("#photodropzone .x", match: :first).click
-end
-
-And /^I click "([^"]*)" button$/ do |arg1|
-  page.execute_script('$(".button:contains('+arg1+')").click()')
 end
 
 And /^I click on selector "([^"]*)"$/ do |selector|
@@ -220,10 +208,6 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
   end
 end
 
-Then /^I should see (\d+) posts$/ do |n_posts|
-  has_css?("#main_stream .stream_element", :count => n_posts.to_i).should be_true
-end
-
 Then /^I should see (\d+) contacts$/ do |n_posts|
   has_css?("#people_stream .stream_element", :count => n_posts.to_i).should be_true
 end
@@ -240,12 +224,6 @@ When /^I resize my window to 800x600$/ do
   page.execute_script <<-JS
     window.resizeTo(800,600);
   JS
-end
-
-Then /^I follow Edit Profile in the same window$/ do
-  page.execute_script("$('a[href=\"#{edit_profile_path}\"]').removeAttr('target')")
-
-  step %(I follow "Edit Profile")
 end
 
 Then 'I should see an image attached to the post' do
@@ -265,20 +243,8 @@ And /^I click close on all the popovers$/ do
   page.should_not have_selector(".popover .close")
 end
 
-Then /^I should see first post deletion link$/ do
-  page.should have_selector '.stream_element .delete', match: :first
-end
-
-Then /^I should not see ajax loader on deletion link place$/ do
-  page.should_not have_selector '.hide_loader'
-end
-
 Then /^I should see a flash message indicating success$/ do
   flash_message_success?.should be_true
-end
-
-Then /^I should see a flash message indicating failure$/ do
-  flash_message_failure?.should be_true
 end
 
 Then /^I should see a flash message containing "(.+)"$/ do |text|

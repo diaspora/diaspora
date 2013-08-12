@@ -1,11 +1,6 @@
-
-Given /^(?:I am signed in|I sign in)$/ do
+Given /^(?:I am signed in)$/ do
   automatic_login
   confirm_login
-end
-
-When /^I try to sign in$/ do
-  automatic_login
 end
 
 When /^I try to sign in manually$/ do
