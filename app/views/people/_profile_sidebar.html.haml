@@ -15,6 +15,10 @@
         = link_to t('people.show.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
         - if @contact.mutual?
           = link_to t('people.show.message'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name), :class => 'button', :rel => 'facebox'
+          
+      = link_to "#", :class => "block_user", :rel => "nofollow", :title => "ignore" do
+        .icons-ignoreuser.control_icon
+
       %br
       %br
     -if contact.sharing? || person == current_user.person
