@@ -1,0 +1,15 @@
+#section_header
+  %h2
+    = @app.name
+
+.span-24.last
+  .span-14.append-1
+    %h4= @app.description
+    %br
+    %br
+
+  .span-8.last
+    = render :partial => 'dauth/dev'
+.submit_block
+  %p Revoke this app to disallow it to use your data
+  = link_to "Revoke", dauth_thirdparty_app_path(@app), :method => :delete, data: { confirm: 'Are you sure?' } , :class => "button"

@@ -1,0 +1,10 @@
+- content_for :page_title do
+  = t('apps')
+
+#section_header
+  %h2= t('.title')
+
+- @dauth_thirdparty_apps.each do |app|
+  %h3= link_to app.name, dauth_thirdparty_app_path(app)
+  %p= app.description
+  %br

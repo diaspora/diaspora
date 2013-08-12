@@ -11,6 +11,7 @@ en:
   developer: "Developer"
   account: "Account"
   privacy: "Privacy"
+  apps: "Apps"
   privacy_policy: "Privacy Policy"
   terms_and_conditions: "Terms and Conditions"
   _services: "Services"
@@ -1324,3 +1325,8 @@ en:
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     no_person_constructed: "No person could be constructed from this hcard."
+
+  dauth:
+    thirdparty_apps:
+      index:
+        title: "My Apps"
