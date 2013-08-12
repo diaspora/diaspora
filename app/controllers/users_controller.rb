@@ -162,6 +162,29 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.fetch(:user).permit(:username, :email, :current_password, :password, :password_confirmation, :language, :disable_mail, :invitation_service, :invitation_identifier, :show_community_spotlight_in_stream, :auto_follow_back, :auto_follow_back_aspect_id, :remember_me, :email_preferences => [:also_commented, :mentioned, :comment_on_post, :private_message, :started_sharing, :liked, :reshared])
+    params.fetch(:user).permit(
+      :email,
+      :current_password,
+      :password,
+      :password_confirmation,
+      :language,
+      :disable_mail,
+      :invitation_service,
+      :invitation_identifier,
+      :show_community_spotlight_in_stream,
+      :auto_follow_back,
+      :auto_follow_back_aspect_id,
+      :remember_me,
+      :getting_started,
+      email_preferences: [
+        :also_commented,
+        :mentioned,
+        :comment_on_post,
+        :private_message,
+        :started_sharing,
+        :liked,
+        :reshared
+      ]
+    )
   end
 end
