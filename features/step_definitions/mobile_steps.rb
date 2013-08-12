@@ -21,3 +21,7 @@ end
 When /^I visit the mobile getting started page$/ do
   visit('/getting_started.mobile')
 end
+
+When /^I visit the mobile search page$/ do
+  visit('/people.mobile')
+end

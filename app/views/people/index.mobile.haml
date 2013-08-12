@@ -6,7 +6,7 @@
   = t('search')
 
 .search-mobile
-  = form_tag(people_path, :method => 'get') do
+  = form_tag(search_path, :method => 'get') do
     %div{:data => {:role => 'fieldcontain', :inline => 'true'}}
       = search_field_tag :q, nil, :placeholder => t('find_people'), :class => 'search'
     = submit_tag t('search'), 'data-inline' => 'true', :class => 'btn'

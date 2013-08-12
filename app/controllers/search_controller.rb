@@ -6,7 +6,7 @@ class SearchController < ApplicationController
       if search_query.length > 1
         respond_to do |format| 
           format.json {redirect_to tags_path(:q => search_query.delete("#."))}
-          format.html {redirect_to tag_path(:name => search_query.delete("#."))}
+          format.any {redirect_to tag_path(:name => search_query.delete("#."))}
         end
       else
         flash[:error] = I18n.t('tags.show.none', :name => search_query)
