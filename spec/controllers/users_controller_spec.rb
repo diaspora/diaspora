@@ -174,6 +174,13 @@ describe UsersController do
         }.should change(@user.user_preferences, :count).by(-1)
       end
     end
+
+    describe 'getting started' do
+      it 'can be reenabled' do
+        put :update, user: {getting_started: true}
+        @user.reload.getting_started?.should be_true
+      end
+    end
   end
 
   describe '#privacy_settings' do
