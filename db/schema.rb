@@ -133,6 +133,16 @@ ActiveRecord::Schema.define(:version => 20131128065516) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "dauth_thirdparty_apps", :force => true do |t|
+    t.string   "app_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "homepage_url"
+    t.string   "dev_handle"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "invitation_codes", :force => true do |t|
     t.string   "token"
     t.integer  "user_id"

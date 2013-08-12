@@ -258,9 +258,14 @@ FactoryGirl.define do
   end
 
   factory :refresh_token, {:class => Dauth::RefreshToken} do
-    sequence(:app_id) { |n| "#{n}" }
     association(:user, :factory => :user)
+    association(:app, :factory => :thirdparty_app)
     scopes ["post_write", "contact_list_read"]
+  end
+
+  factory :thirdparty_app, {:class => Dauth::ThirdpartyApp} do
+    sequence(:app_id) { |n| "#{n}" }
+    dev_handle "dev@pod.com"
   end
 
   #templates

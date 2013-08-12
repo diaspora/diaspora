@@ -3,9 +3,9 @@ class Dauth::RefreshToken < ActiveRecord::Base
   serialize :scopes, Array
 
   belongs_to :user
+  belongs_to :app, :class_name => 'Dauth::ThirdpartyApp'
 
-  attr_accessible :app_id,
-                  :scopes,
+  attr_accessible :scopes,
                   :secret,
                   :token
 
