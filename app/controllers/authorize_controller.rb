@@ -70,8 +70,18 @@ class AuthorizeController < ApplicationController
     end
 
     access_request = Dauth::AccessRequest.find_by_auth_token(params[:authorize_token])
-    current_user = Person.find_by_diaspora_handle(params[:handle]).owner
-    refresh_token = current_user.refresh_tokens.find_or_create_by_app_id(access_request.app_id)
+
+    #save app details
+    thirdparty_app = Dauth::ThirdpartyApp.find_or_create_by_app_id(access_request.app_id)
+    thirdparty_app.app_id = access_request.app_id
+    thirdparty_app.name = access_request.app_name
+    thirdparty_app.description = access_request.app_description
+    thirdparty_app.dev_handle = access_request.dev_handle
+    thirdparty_app.save
+
+    refresh_token = current_user.refresh_tokens.find_or_create_by_app_id(thirdparty_app.id)
+    refresh_token.user = current_user
+    refresh_token.app = thirdparty_app
 
     if params[:scopes]
       refresh_token.scopes = access_request.scopes + params[:scopes]
@@ -79,9 +89,7 @@ class AuthorizeController < ApplicationController
       refresh_token.scopes = access_request.scopes
     end
 
-    if refresh_token.save
-      #TODO save third-party application details
-    else
+    unless refresh_token.save
       Rails.logger.info("Unable to generate refresh token")
       redirect_to access_request.redirect_url
       send_error_to_app access_request.callback_url, "101"
