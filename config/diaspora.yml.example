@@ -20,6 +20,9 @@
 ## - Replace the dots with underscores: environment_s3_enable
 ## - Upcase everything: ENVIRONMENT_S3_ENABLE
 ## - Specify lists/arrays as comma separated values
+##
+## - For example, on Heroku:
+##   heroku config:set SERVICES_FACEBOOK_APP_ID=whateeryourappid SERVICES_FACEBOOK_SECRET=whateeryourappsecret
 
 configuration: ## Section
   
