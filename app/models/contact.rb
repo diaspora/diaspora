@@ -61,7 +61,7 @@ class Contact < ActiveRecord::Base
   end
 
   def generate_request
-    Diaspora::Federated::Request.diaspora_initialize(:from => self.user.person,
+    Request.diaspora_initialize(:from => self.user.person,
                 :to => self.person,
                 :into => aspects.first)
   end

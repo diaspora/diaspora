@@ -65,7 +65,7 @@ describe Notification do
   describe '.notify' do
     context 'with a request' do
       before do
-        @request = Diaspora::Federated::Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
+        @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       end
 
       it 'calls Notification.create if the object has a notification_type' do

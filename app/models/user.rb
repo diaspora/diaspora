@@ -297,11 +297,11 @@ class User < ActiveRecord::Base
   ######### Posts and Such ###############
   def retract(target, opts={})
     if target.respond_to?(:relayable?) && target.relayable?
-      retraction = Diaspora::Federated::RelayableRetraction.build(self, target)
+      retraction = RelayableRetraction.build(self, target)
     elsif target.is_a? Post
-      retraction = Diaspora::Federated::SignedRetraction.build(self, target)
+      retraction = SignedRetraction.build(self, target)
     else
-      retraction = Diaspora::Federated::Retraction.for(target)
+      retraction = Retraction.for(target)
     end
 
    if target.is_a?(Post)

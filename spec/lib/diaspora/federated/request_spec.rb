@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Diaspora::Federated::Request do
+describe Request do
   before do
     @aspect = alice.aspects.first
   end

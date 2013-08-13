@@ -83,7 +83,7 @@ private
     n = notification_type.new(:target => target,
                               :recipient_id => recipient.id)
     n.actors = n.actors | [actor]
-    n.unread = false if target.is_a? Diaspora::Federated::Request
+    n.unread = false if target.is_a? Request
     n.save!
     n
   end

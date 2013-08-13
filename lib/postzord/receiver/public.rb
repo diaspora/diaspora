@@ -30,7 +30,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
       receive_relayable
     elsif @object.is_a?(AccountDeletion)
       #nothing
-    elsif @object.is_a?(Diaspora::Federated::SignedRetraction) # feels like a hack
+    elsif @object.is_a?(SignedRetraction) # feels like a hack
       self.recipient_user_ids.each do |user_id|
         user = User.where(id: user_id).first
         @object.perform user if user

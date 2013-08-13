@@ -47,7 +47,7 @@ def expect_error(partial_message, &block)# DOES NOT REQUIRE ERROR!!
 end
 
 def bogus_retraction(&block)
-  ret = Diaspora::Federated::Retraction.new
+  ret = Retraction.new
   yield ret
   ret
 end

@@ -262,7 +262,7 @@ describe Postzord::Dispatcher do
       end
 
       it 'returns false for a relayable_retraction' do
-        f = Diaspora::Federated::RelayableRetraction.new
+        f = RelayableRetraction.new
         f.target = FactoryGirl.create(:status_message, :public => true)
         Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
       end
@@ -312,7 +312,7 @@ describe Postzord::Dispatcher do
       end
 
       it 'queues a job to delete if given retraction' do
-        retraction = Diaspora::Federated::SignedRetraction.build(alice, FactoryGirl.create(:status_message))
+        retraction = SignedRetraction.build(alice, FactoryGirl.create(:status_message))
         mailman = Postzord::Dispatcher.build(alice, retraction,  :url => "http://joindiaspora.com/p/123", :services => [@service])
 
         Workers::DeletePostFromService.should_receive(:perform_async).with(anything, anything)

@@ -5,7 +5,7 @@
 require 'spec_helper'
 # require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
 
-describe Diaspora::Federated::Retraction do
+describe Retraction do
   before do
     @aspect = alice.aspects.first
     alice.contacts.create(:person => eve.person, :aspects => [@aspect])

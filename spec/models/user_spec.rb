@@ -800,7 +800,7 @@ describe User do
 
     context "posts" do
       before do
-        Diaspora::Federated::SignedRetraction.stub(:build).and_return(@retraction)
+        SignedRetraction.stub(:build).and_return(@retraction)
         @retraction.stub(:perform)
       end
 
