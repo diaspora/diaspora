@@ -28,7 +28,7 @@ class TemplatePicker
   end
 
   def photo_backdrop?
-    post.photos.size == 1 
+    false # No backdrop, ever.
   end
 
   def status?
