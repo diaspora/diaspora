@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-# require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
 
 describe Retraction do
   before do

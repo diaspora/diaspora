@@ -1,5 +1,4 @@
 require 'spec_helper'
-# require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
 
 describe SignedRetraction do
   before do

@@ -4,7 +4,6 @@
 
 require 'spec_helper'
 require Rails.root.join("spec", "shared_behaviors", "relayable")
-# require Rails.root.join('lib', 'diaspora', 'federated', 'messages')
 
 describe RelayableRetraction do
   before do
