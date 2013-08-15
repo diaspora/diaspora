@@ -184,7 +184,7 @@ GEM
       selenium-webdriver (>= 0.1.3)
     jasmine-core (1.3.1)
     journey (1.0.4)
-    jquery-rails (2.1.4)
+    jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (3.0.1)
@@ -216,7 +216,7 @@ GEM
     mobile-fu (1.2.1)
       rack-mobile-detect
       rails
-    multi_json (1.7.7)
+    multi_json (1.7.9)
     multi_test (0.0.2)
     multipart-post (1.2.0)
     mysql2 (0.3.13)
@@ -458,7 +458,7 @@ DEPENDENCIES
   http_accept_language (= 1.0.2)
   i18n-inflector-rails (~> 1.0)
   jasmine (= 1.3.2)
-  jquery-rails (= 2.1.4)
+  jquery-rails (= 3.0.4)
   json (= 1.8.0)
   markerb (= 1.0.1)
   messagebus_ruby_api (= 1.0.3)
