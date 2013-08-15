@@ -65,6 +65,7 @@
 * Added a link to user photos and thumbnails are shown in the left side bar [#4347](https://github.com/diaspora/diaspora/issues/4347)
 * Rework the single post view
 * Add aspect modification on contacts page, close [#4397](https://github.com/diaspora/diaspora/issues/4397)
+* Add help page [#4405](https://github.com/diaspora/diaspora/issues/4405)
 
 ## Gem updates
 
