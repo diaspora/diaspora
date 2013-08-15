@@ -760,6 +760,7 @@ en:
       success: "Authentication successful."
       failure: "Authentication failed."
       already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
+      read_only_access: "Access level is read-only, please try to authorize again later"
     destroy:
       success: "Successfully deleted authentication."
     failure:

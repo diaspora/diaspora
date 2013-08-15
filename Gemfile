@@ -59,11 +59,17 @@ gem 'messagebus_ruby_api', '1.0.3'
 
 # Parsing
 
-gem 'nokogiri',       '1.6.0'
-gem 'rails_autolink', '1.1.0'
-gem 'redcarpet',      '3.0.0'
-gem 'roxml',          '3.1.6'
-gem 'ruby-oembed',    '0.8.8'
+gem 'nokogiri',         '1.6.0'
+gem 'rails_autolink',   '1.1.0'
+gem 'redcarpet',        '3.0.0'
+gem 'roxml',            '3.1.6'
+gem 'ruby-oembed',      '0.8.8'
+gem 'opengraph_parser', '0.2.3'
+
+
+# Please remove when migrating to Rails 4
+gem 'strong_parameters'
+
 
 # Services
 
@@ -72,6 +78,7 @@ gem 'omniauth-facebook', '1.4.1'
 gem 'omniauth-tumblr',   '1.1'
 gem 'omniauth-twitter',  '1.0.0'
 gem 'twitter',           '4.8.1'
+gem 'omniauth-wordpress','0.2.0'
 
 # Tags
 
@@ -110,7 +117,7 @@ group :assets do
   # JavaScript
 
   gem 'handlebars_assets', '0.12.0'
-  gem 'jquery-rails',      '2.1.4'
+  gem 'jquery-rails',      '3.0.4'
 
   # Windows and OSX have an execjs compatible runtime built-in, Linux users should
   # install Node.js or use 'therubyracer'.
@@ -170,9 +177,10 @@ end
 group :test do
   # RSpec (unit tests, some integration tests)
 
-  gem 'fixture_builder', '0.3.6'
-  gem 'fuubar',          '1.1.1'
-  gem 'rspec-instafail', '0.2.4', :require => false
+  gem 'fixture_builder',   '0.3.6'
+  gem 'fuubar',            '1.1.1'
+  gem 'rspec-instafail',   '0.2.4', :require => false
+  gem 'test_after_commit', '0.2.0'
 
   # Cucumber (integration tests)
 

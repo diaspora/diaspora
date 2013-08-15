@@ -9,8 +9,6 @@ class Invitation < ActiveRecord::Base
   belongs_to :recipient, :class_name => 'User'
   belongs_to :aspect
 
-  attr_accessible :sender, :recipient, :aspect, :language, :service, :identifier, :admin, :message
-
   before_validation :set_email_as_default_service
 
  # before_create :share_with_exsisting_user, :if => :recipient_id?

@@ -6,6 +6,16 @@
         {{#if o_embed_cache.data}}
             {{{o_embed_cache.data.html}}}
         {{/if}}
+    {{else}}
+        {{#if open_graph_cache}}
+            <div class="opengraph">
+                <a href="{{open_graph_cache.url}}" target="_blank">
+                    <h2>{{{open_graph_cache.title}}}</h2>
+                    <img src="{{open_graph_cache.image}}"/>
+                    <p>{{open_graph_cache.description}}</p>
+                </a>
+            </div>
+        {{/if}}
     {{/if}}
 
     <header>{{{headline}}}</header>

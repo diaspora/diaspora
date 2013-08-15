@@ -61,10 +61,12 @@ describe Configuration::Methods do
       services.stub(:twitter).and_return(enabled)
       services.stub(:tumblr).and_return(enabled)
       services.stub(:facebook).and_return(disabled)
+      services.stub(:wordpress).and_return(disabled)
       @settings.stub(:services).and_return(services)
       @settings.configured_services.should include :twitter
       @settings.configured_services.should include :tumblr
       @settings.configured_services.should_not include :facebook
+      @settings.configured_services.should_not include :wordpress
     end
   end
   

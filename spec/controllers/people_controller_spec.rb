@@ -64,23 +64,6 @@ describe PeopleController do
         end
       end
 
-      context 'query is a tag' do
-        it 'goes to a tag page' do
-          get :index, :q => '#babies'
-          response.should redirect_to(tag_path('babies'))
-        end
-
-        it 'removes dots from the query' do
-          get :index, :q => '#babi.es'
-          response.should redirect_to(tag_path('babies'))
-        end
-
-        it 'stay on the page if you search for the empty hash' do
-          get :index, :q => '#'
-          flash[:error].should be_present
-        end
-      end
-
       context 'query is not a tag or a diaspora ID' do
         it 'assigns hashes' do
           get :index, :q => "Korth"

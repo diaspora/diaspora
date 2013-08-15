@@ -4,7 +4,6 @@
 
 class PeopleController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :last_post]
-  before_filter :redirect_if_tag_search, :only => [:index]
 
   respond_to :html, :except => [:tag_index]
   respond_to :json, :only => [:index, :show]
@@ -160,18 +159,6 @@ class PeopleController < ApplicationController
 
     @contact = current_user.contact_for(@person) || Contact.new
     render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
-  end
-
-  def redirect_if_tag_search
-    if search_query.starts_with?('#')
-      if search_query.length > 1
-
-        redirect_to tag_path(:name => search_query.delete('#.'))
-      else
-        flash[:error] = I18n.t('tags.show.none', :name => search_query)
-        redirect_to :back
-      end
-    end
   end
 
   private

@@ -39,7 +39,7 @@ Feature: User manages contacts
     And I press "Delete" in the modal window
     And I confirm the alert
     Then I should be on the aspects page
-    And I should not see "People" within "#aspect_nav"
+    And I should not see "People" within "#aspects_list"
 
   Scenario: Editing the aspect memberships of a contact from the aspect edit facebox
     Given I am signed in

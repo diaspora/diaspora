@@ -3,12 +3,16 @@
 **Attention:** This release includes a potentially long running migration! However it should be safe to run this while keeping your application servers on.
 
 ## Refactor
+* Service and ServiceController, general code reorg to make it cleaner/+ testable/+ extensible [#4344](https://github.com/diaspora/diaspora/pull/4344)
 * Background actual mailing when sending invitations [#4069](https://github.com/diaspora/diaspora/issues/4069)
 * Set the current user on the client side through gon [#4028](https://github.com/diaspora/diaspora/issues/4028)
 * Update sign out route to a DELETE request [#4068](https://github.com/diaspora/diaspora/issues/4068)
 * Convert all ActivityStreams::Photo to StatusMessages and drop ActivityStreams::Photo [#4144](https://github.com/diaspora/diaspora/issues/4144)
+* Port the Rails application to strong_parameters in preparation to the upgrade to Rails 4 [#4143](https://github.com/diaspora/diaspora/issues/4143)
+* Refactor left bar side menu, improve tag autosuggestion design [#4271](https://github.com/diaspora/diaspora/issues/4271), [#4316](https://github.com/diaspora/diaspora/pull/4316)
 
 ## Bug fixes
+* Check twitter write access before adding/authorizing it for a user. [#4124](https://github.com/diaspora/diaspora/issues/4124)
 * Don't focus comment form on 'show n more comments' [#4265](https://github.com/diaspora/diaspora/issues/4265)
 * Do not render mobile photo view for none-existing photos [#4194](https://github.com/diaspora/diaspora/issues/4194)
 * Render markdown content for prettier email subjects and titles [#4182](https://github.com/diaspora/diaspora/issues/4182)
@@ -20,6 +24,12 @@
 * Fix deleting a post from Facebook [#4290](https://github.com/diaspora/diaspora/pull/4290)
 * Display notices a little bit longer to help on sign up errors [#4274](https://github.com/diaspora/diaspora/issues/4274)
 * Fix user contact sharing/receiving [#4163](https://github.com/diaspora/diaspora/issues/4163)
+* Change image to ajax-loader when closing lightbox [#3229](https://github.com/diaspora/diaspora/issues/3229)
+* Fix pointer cursor on the file upload button [#4349](https://github.com/diaspora/diaspora/pull/4349)
+* Resize preview button [#4355](https://github.com/diaspora/diaspora/pull/4355)
+* Fix compability problem with MySQL 5.6 [#4312](https://github.com/diaspora/diaspora/issues/4312)
+* Don't collapse the post preview [#4346](https://github.com/diaspora/diaspora/issues/4346)
+* Improve mobile usability [#4354](https://github.com/diaspora/diaspora/pull/4354)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
@@ -28,6 +38,11 @@
 * Follow DiasporaHQ upon account creation is now configurable to another account [#4278](https://github.com/diaspora/diaspora/pull/4278)
 * Use first header as title in the single post view, when possible [#4256](https://github.com/diaspora/diaspora/pull/4256)
 * Close publisher when clicking on the page outside of it [#4282](https://github.com/diaspora/diaspora/pull/4282)
+* Deleting a post deletes it from Tumblr too [#4331](https://github.com/diaspora/diaspora/pull/4331)
+* OpenGraph support [#4215](https://github.com/diaspora/diaspora/pull/4215)
+* Added Wordpress service ability for posts. [#4321](https://github.com/diaspora/diaspora/pull/4321)
+* Implement tag search autocomplete in header search box [#4169](https://github.com/diaspora/diaspora/issues/4169)
+
 
 # 0.1.1.0
 
