@@ -18,13 +18,16 @@ Feature: posting from the mobile main page
       And I have user with username "alice" in an aspect called "PostingTo"
       And I have user with username "alice" in an aspect called "NotPostingThingsHere"
 
-    Scenario: posting some text
+    Scenario: post and delete some text
       Given I publisher mobile page
       And I append "I am eating yogurt" to the publisher mobile
       And I select "Unicorns" from "aspect_ids_"
       And I press "Share"
       When I visit the mobile stream page
       Then I should see "I am eating yogurt"
+      When I click on selector "a.remove"
+      And I confirm the alert
+      Then I should not see "I am eating yogurt"
 
     Scenario: post a photo without text
       Given I publisher mobile page

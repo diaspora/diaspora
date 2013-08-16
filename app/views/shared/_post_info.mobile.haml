@@ -5,6 +5,11 @@
 .from
   = person_image_link(post.author, :size => :thumb_small)
   = person_link(post.author)
+
+  .remove_post
+    - if post.author == current_user.person
+      = link_to(image_tag('deletelabel.png'), post_path(post), :method => :delete, :data => { :confirm => "#{t('are_you_sure')}" }, :class => "remove")
+
   .info
     %span.time{:integer => post.created_at.to_i}
       = link_to(t('ago', :time => time_ago_in_words(post.created_at)), post_path(post))
