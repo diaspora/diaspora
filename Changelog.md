@@ -37,6 +37,7 @@
 * Fix mobile search tags [#4392](https://github.com/diaspora/diaspora/issues/4392)
 * Remove placeholders for name fields in settings (no more Sofaer) [#4385](https://github.com/diaspora/diaspora/pull/4385)
 * Problems with layout the registration page for mobile. [#4396](https://github.com/diaspora/diaspora/issues/4396)
+* Fix mobile view of deleted reshares [#4397](https://github.com/diaspora/diaspora/issues/4397)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)

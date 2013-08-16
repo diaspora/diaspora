@@ -11,6 +11,7 @@ Feature: resharing from the mobile
       | Alice Smith | alice@alice.alice |
       | Eve Doe     | eve@eve.eve       |
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
+    And a user with email "eve@eve.eve" is connected with "bob@bob.bob"
     Given "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
 
@@ -39,5 +40,9 @@ Feature: resharing from the mobile
     When I click to delete the first post
     And I log out
     And I sign in as "bob@bob.bob"
+    And I toggle the mobile view
+    Then I should see "Original post deleted by author." within ".reshare"
+    And I log out
+    And I sign in as "eve@eve.eve"
     And I toggle the mobile view
     Then I should see "Original post deleted by author." within ".reshare"
