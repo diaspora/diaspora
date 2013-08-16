@@ -53,6 +53,7 @@
 * Implement tag search autocomplete in header search box [#4169](https://github.com/diaspora/diaspora/issues/4169)
 * Uncheck 'make contacts visible to each other' by default when adding new aspect. [#4343](https://github.com/diaspora/diaspora/issues/4343)
 * Add possibility to ask for Bitcoin donations [#4375](https://github.com/diaspora/diaspora/pull/4375)
+* Add the header to the single post view
 
 
 # 0.1.1.0
