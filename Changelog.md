@@ -37,6 +37,7 @@
 * Fix mobile search tags [#4392](https://github.com/diaspora/diaspora/issues/4392)
 * Remove placeholders for name fields in settings (no more Sofaer) [#4385](https://github.com/diaspora/diaspora/pull/4385)
 * Problems with layout the registration page for mobile. [#4396](https://github.com/diaspora/diaspora/issues/4396)
+* Do not display photos in the background in the SPV [#4407](https://github.com/diaspora/diaspora/pull/4407)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
