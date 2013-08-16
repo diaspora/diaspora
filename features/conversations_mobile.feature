@@ -11,7 +11,7 @@ Feature: private messages mobile
     And a user with username "bob" is connected with "alice_awesome"
     And I toggle the mobile view
 
-  Scenario: send a mobile message
+  Scenario: send and delete a mobile message
     Given I send a mobile message with subject "Greetings" and text "hello, alice!" to "Alice Awesome"
     Then I should see "Greetings" within ".ltr"
     And I should see "Greetings" within ".ltr"
@@ -22,3 +22,6 @@ Feature: private messages mobile
     And I reply with "hey, how you doing?"
     And I press the first ".ltr" within ".conversation"
     Then I should see "hey, how you doing?"
+    When I click on selector "a.remove"
+    And I confirm the alert
+    Then I should not see "hey, how you doing"

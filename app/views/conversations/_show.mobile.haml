@@ -1,0 +1,27 @@
+-# Copyright (c) 2010-2011, Diaspora Inc. This file is
+-# licensed under the Affero General Public License version 3 or later. See
+-# the COPYRIGHT file.
+
+.conversation_participants
+  .right
+    = link_to(image_tag('deletelabel.png'), conversation_visibility_path(conversation), :method => 'delete', :data => { :confirm => "#{t('.delete')}?" }, :class => "remove")
+
+  %h3{ :class => direction_for(conversation.subject) }
+    = conversation.subject
+
+  - for participant in conversation.participants
+    = person_image_link(participant, :size => :thumb_small)
+
+.span-15.last
+  .stream
+    = render :partial => 'messages/message', :collection => conversation.messages
+
+    .stream_element.new_message
+      .media
+        .img
+          = owner_image_tag(:thumb_small)
+
+        .bd
+          = form_for [conversation, Message.new] do |message|
+            = message.text_area :text, :rows => 5, :tabindex => 1
+            = message.submit t('.reply').capitalize, 'data-disable-with' => t('.replying'), :class => 'button creation', :tabindex => 2
