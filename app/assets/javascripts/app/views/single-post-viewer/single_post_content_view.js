@@ -5,7 +5,8 @@ app.views.SinglePostContent = app.views.Base.extend({
     "#single-post-actions" : "singlePostActionsView",
     '#real-post-content' : 'postContentView',
     ".oembed" : "oEmbedView",
-    ".opengraph" : "openGraphView"
+    ".opengraph" : "openGraphView",
+    ".status-message-location" : "postLocationStreamView"
   },
 
   initialize : function() {
@@ -13,6 +14,10 @@ app.views.SinglePostContent = app.views.Base.extend({
     this.oEmbedView = new app.views.OEmbed({model : this.model});
     this.openGraphView = new app.views.OpenGraph({model : this.model});
     this.postContentView = new app.views.StatusMessage({model: this.model});
+  },
+
+  postLocationStreamView : function(){
+    return new app.views.LocationStream({ model : this.model});
   },
 
   presenter : function() {

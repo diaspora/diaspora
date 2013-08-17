@@ -1,29 +1,32 @@
-<div id='reshares'>
-  <span class='label reshare'>
-    <i class='icon-retweet icon-white'></i>
-    {{resharesCount}}
-  </span>
-  {{#each reshares}}
-    {{{personImage author 'small' "micro"}}}
-  {{/each}}
-</div>
-<div id='likes'>
-  <span class='label like'>
-    <i class='icon-heart icon-white'></i>
-    {{likesCount}}
-  </span>
-  {{#each likes}}
-    {{{personImage author 'small' "micro"}}}
-  {{/each}}
-</div>
-<div id='comments-meta'>
-  <span class='label comments'>
-    <i class='icon-comment icon-white'></i>
-    {{commentsCount}}
-  </span>
-  {{#each comments}}
-    {{{personImage author 'small' "micro"}}}
-  {{/each}}
-</div>
+{{#if reshareCount}}
+  <div id='reshares'>
+    <span class='label reshare'>
+      <i class='icon-retweet icon-white'></i>
+      {{resharesCount}}
+    </span>
+    {{#each reshares}}
+      {{{personImage author 'small' "micro"}}}
+    {{/each}}
+  </div>
+{{/if}}
+{{#if likesCount}}
+  <div id='likes'>
+    <span class='label like'>
+      <i class='icon-heart icon-white'></i>
+      {{likesCount}}
+    </span>
+    {{#each likes}}
+      {{{personImage author 'small' "micro"}}}
+    {{/each}}
+  </div>
+{{/if}}
+{{#if commentsCount}}
+  <div id='comments-meta'>
+    <span class='label comments'>
+      <i class='icon-comment icon-white'></i>
+      {{commentsCount}}
+    </span>
+  </div>
+{{/if}}
 <div id='comments'>
 </div>

@@ -1,9 +1,7 @@
 <div id='head' class='row-fluid'>
-  <div id='author' class='span6'>
+  <div id='author' class='span8'>
     <div class="img pull-left">
-        {{#linkToPerson author}}
-            <div class="profile-image-container small" style="background-image : url('{{avatar.small}}');" data-placement="right"></div>
-        {{/linkToPerson}}
+      {{{personImage author 'medium'}}}
     </div>
 
     <div class="bd">
@@ -22,12 +20,14 @@
 
       <div class='public-info'>
         {{#unless public}}
-          <i class="icon-lock"> </i>
+          <i class="icon-lock icon-grey"> </i>
         {{/unless}}
       </div>
+
+      <div class='status-message-location' />
     </div>
   </div>
-  <div id='single-post-actions' class='span6'>
+  <div id='single-post-actions' class='span4'>
   </div>
 </div>
 <div id='body' class='row-fluid'>
