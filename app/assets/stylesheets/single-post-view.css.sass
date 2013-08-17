@@ -1,10 +1,15 @@
 #single-post-container
   padding-top: 20px
+  padding-bottom: 3em
+
 #single-post-content
   #head
     color: #aaa
     font-size: 12px
   #author
+    .img
+      max-width: 25%
+    .avatar
     .bd
       padding-left: 10px
   border-right: solid 1px #ccc
@@ -12,6 +17,7 @@
   #body
     margin-left: 20px
     padding-top: 20px
+    width: auto
     .photo_attachments
       padding-bottom: 10px
       img
@@ -21,21 +27,40 @@
         padding-bottom: 5px
         max-width: 90%
 
+    .oembed
+      background: image-url('ajax-loader2.gif') no-repeat center center
+      float: left
+      width: 95%
+
+      .thumb
+        @include video-overlay()
+
+      iframe, .thumb img
+        width: 100%
+        min-height: 60%
+
 #single-post-interactions
+  border-left: 1px solid #ccc
+  position: relative
+  left: -1px
+  margin-left: 0
+  padding-left: 2.5%
   #likes, #reshares, #comments-meta
     padding-bottom: 5px
   .comment
     border-bottom: solid 1px #ccc
     padding-top: 10px
     padding-bottom: 10px
+
     p
       margin: 0
   textarea
     width: 95%
+  .new_comment_form_wrapper
+    border-bottom: none
   a
     color: #3f8fba
   .timeago
     color: #aaaaaa
     text-decoration: none
     font-size: smaller
-

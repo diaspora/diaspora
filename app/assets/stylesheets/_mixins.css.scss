@@ -48,9 +48,9 @@ $default-border-radius: 3px;
 
 /* Browser compatability */
 @mixin box-shadow($left, $top, $blur, $color:#000){
-  -webkit-box-shadow: $left $top $blur $color; 
-  -moz-box-shadow: $left $top $blur $color; 
-  box-shadow: $left $top $blur $color; 
+  -webkit-box-shadow: $left $top $blur $color;
+  -moz-box-shadow: $left $top $blur $color;
+  box-shadow: $left $top $blur $color;
 }
 
 @mixin linear-gradient($from, $to, $start:0%, $end:100%){
@@ -58,7 +58,7 @@ $default-border-radius: 3px;
 
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#{$from}, endColorstr=#{$to})";
-  
+
   background-image: -webkit-gradient(linear, 0% $start, 0% $end, from($from), to($to));
   background-image: -moz-linear-gradient(top, $from $start, $to $end);
   background-image: -o-linear-gradient(top, $from $start, $to $end);
@@ -66,7 +66,7 @@ $default-border-radius: 3px;
 
 @mixin horizontal-linear-gradient($from, $to, $start:0%, $end:100%){
   background-image: mix($from,$to);
-  
+
   background-image: -moz-linear-gradient(left, $from $start, $to $end);
   background-image: -o-linear-gradient(left, $from $start, $to $end);
   background-image: -webkit-linear-gradient(left, $from $start, $to $end);
@@ -108,6 +108,9 @@ $default-border-radius: 3px;
 }
 
 @mixin video-overlay(){
+  position: relative;
+  cursor: pointer;
+
   .video-overlay {
     background : {
       color: rgba(0,0,0, .65);
@@ -124,7 +127,7 @@ $default-border-radius: 3px;
     top : 50%;
     left : 10%;
     right : 10%;
-    
+
     height: 60px;
     margin-top: -40px;
     padding: 10px 7px 10px 80px;
