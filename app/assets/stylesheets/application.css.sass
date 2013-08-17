@@ -1,11 +1,13 @@
 @import 'compass'
-@import 'ui.css.scss'
-@import '_mixins.css.scss'
-@import '_flash_messages.scss'
+@import 'ui'
+@import '_mixins'
+@import '_flash_messages'
 @import 'new_styles/_spinner'
-@import 'sidebar.css.scss'
-@import 'header.css.scss'
-@import 'sprites.css.scss'
+
+@import 'sidebar'
+@import 'header'
+@import 'sprites'
+@import 'opengraph'
 
 /* ====== media ====== */
 .media
@@ -526,7 +528,7 @@ form p
 
 form#update_profile_form p.checkbox_select
   label
-    :top 0   
+    :top 0
 
 form p.checkbox_select
   label
@@ -1592,31 +1594,10 @@ ul#press_logos
       :width 100%
 
       .thumb
-        :position relative
-        :cursor pointer
         @include video-overlay()
 
       iframe, .thumb img
         :width 100%
-
-    .opengraph
-      :width 100%
-      a
-        :display block
-        :text-decoration none
-        :color #000
-        :margin 10px 0px 10px 0px
-        :border-top solid 1px #DDD
-        :border-bottom solid 1px #DDD
-        :padding 10px 0px 5px 0px
-        :overflow hidden
-
-        img
-          :margin 0px 5px 5px 0px
-          :float left
-          :max-width 155px
-        .og-title
-          :margin-bottom 5px
 
 .conversation_participants
   :background
@@ -1730,7 +1711,7 @@ ul#press_logos
     :clear right
     :float right
     :color #aaa
-    
+
   .icons-users
     :display block
     :width 25px
@@ -2721,11 +2702,11 @@ body
 #fileInfo
   :font-size small
   :text-align right
-  :margin 5px 2px  
-  
+  :margin 5px 2px
+
 .post_preview_button
   :padding 3px 9px 4px
-  
+
 .post_preview
   :padding
     :top 5px
@@ -2774,5 +2755,5 @@ body
   a#hide_location:hover
     @include opacity(0)
     :-khtml-opacity 1
-    :opacity 1 
+    :opacity 1
     :cursor pointer
