@@ -55,6 +55,6 @@ Feature: commenting
     When I follow "less than a minute ago"
     Then I should see "Look at this dog"
     And I make a show page comment "I think thats a cat"
-    Then I should see "less than a minute ago" within "#post-comments"
+    Then I should see "less than a minute ago" within "#comments"
     When I go to "alice@alice.alice"'s page
     Then I should see "I think thats a cat"
