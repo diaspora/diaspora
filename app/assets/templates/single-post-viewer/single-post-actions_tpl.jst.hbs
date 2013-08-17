@@ -3,20 +3,20 @@
     <time datetime="{{created_at}}" />
   </div>
   <div class='pull-right'>
-    <a href="#" rel="auth-required" class="label like" title="{{#if userLike}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
+    <a href="#" rel="auth-required" class="like" title="{{#if userLike}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
         {{#if userLike}}
             <i class="icon-heart icon-red"></i>
         {{else}}
-            <i class="icon-heart icon-white"></i>
+            <i class="icon-heart icon-grey"></i>
         {{/if}}
     </a>
 
     {{#if userCanReshare}}
-        <a href="#" rel="auth-required" class="label reshare" title="{{#if userReshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
+        <a href="#" rel="auth-required" class="reshare" title="{{#if userReshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
             {{#if userReshare}}
                 <i class="icon-retweet icon-blue"></i>
             {{else}}
-                <i class="icon-retweet icon-white"></i>
+                <i class="icon-retweet icon-grey"></i>
             {{/if}}
         </a>
     {{/if}}
