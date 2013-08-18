@@ -76,6 +76,11 @@ app.views.StatusMessage = app.views.Content.extend({
   templateName : "status-message"
 });
 
+app.views.expandedStatusMessage = app.views.StatusMessage.extend({
+  postRenderTemplate : function(){
+  }
+});
+
 app.views.Reshare = app.views.Content.extend({
   templateName : "reshare"
 });
