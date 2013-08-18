@@ -13,7 +13,7 @@ app.views.SinglePostContent = app.views.Base.extend({
     this.singlePostActionsView = new app.views.SinglePostActions({model: this.model});
     this.oEmbedView = new app.views.OEmbed({model : this.model});
     this.openGraphView = new app.views.OpenGraph({model : this.model});
-    this.postContentView = new app.views.StatusMessage({model: this.model});
+    this.postContentView = new app.views.expandedStatusMessage({model: this.model});
   },
 
   postLocationStreamView : function(){
