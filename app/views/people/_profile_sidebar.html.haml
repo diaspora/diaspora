@@ -45,13 +45,12 @@
               =t('.born')
             = birthday_format(person.birthday)
         %li
-          - unless @photos.blank?
+          - if @photos.present?
             %h4
               = t('_photos')
               .item_count
                 = "#{@photos.count}"
-            - @thumbs = @photos.limit(3)
-            - for photo in @thumbs
+            - @photos.limit(3).each do |photo|
               = image_tag(photo.url(:thumb_small))
             %br
               = link_to t('layouts.header.view_all'),  person_photos_path(person)

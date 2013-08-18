@@ -15,8 +15,8 @@ Feature: show photos
     And I press "Share"
     
     Scenario: see my own photos
-      And I am on "robert@grimm.grimm"'s page   
       When I follow "View all" 
+      And I am on "robert@grimm.grimm"'s page   
       Then I should be on person_photos page
     
     Scenario: I cannot see photos of people who don't share with me
