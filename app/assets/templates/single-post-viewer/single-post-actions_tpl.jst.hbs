@@ -5,18 +5,18 @@
   <div class='pull-right'>
     <a href="#" rel="auth-required" class="like" title="{{#if userLike}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
         {{#if userLike}}
-            <i class="icon-heart icon-red"></i>
+            <i class="entypo heart red large"></i>
         {{else}}
-            <i class="icon-heart icon-grey"></i>
+            <i class="entypo heart gray large"></i>
         {{/if}}
     </a>
 
     {{#if userCanReshare}}
         <a href="#" rel="auth-required" class="reshare" title="{{#if userReshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
             {{#if userReshare}}
-                <i class="icon-retweet icon-blue"></i>
+                <i class="entypo retweet blue large"></i>
             {{else}}
-                <i class="icon-retweet icon-grey"></i>
+                <i class="entypo retweet gray large"></i>
             {{/if}}
         </a>
     {{/if}}

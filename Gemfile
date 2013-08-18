@@ -104,6 +104,9 @@ gem 'will_paginate',           '3.0.4'
 
 group :assets do
 
+  # Icons
+  gem 'entypo-rails'
+
   # CSS
 
   gem 'bootstrap-sass', '2.2.2.0'
