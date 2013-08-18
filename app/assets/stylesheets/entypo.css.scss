@@ -1,0 +1,34 @@
+.entypo {
+  font-family: 'entypo';
+  font-style: normal;
+  color: black;
+
+  &.heart:before {
+    content: '\2665';
+  }
+
+  &.heart-empty:before {
+    content: '\2661';
+  }
+
+  &.retweet:before {
+    content: '\e717';
+  }
+
+  &.red {
+    color: #A40802;
+  }
+  &.white {
+    color: white;
+  }
+  &.gray {
+    color: #aaa;
+  }
+  &.blue {
+    color: #3f8fba;
+  }
+
+  &.large {
+    font-size: 25px;
+  }
+}
