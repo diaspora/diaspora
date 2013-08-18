@@ -9,7 +9,7 @@ app.views.SinglePostActions = app.views.Feedback.extend({
 
   focusComment: function() {
     $('.comment_box').focus();
-    $("html, body").animate({ scrollTop: $(document).height()-$(window).height() }); // Go to the bottom.
+    $('html,body').animate({scrollTop: $('.comment_box').offset().top - ($('.comment_box').height() + 20)});
     return false;
   }
 
