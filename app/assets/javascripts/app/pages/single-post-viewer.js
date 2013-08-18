@@ -33,7 +33,8 @@ app.pages.SinglePostViewer = app.views.Base.extend({
       // formats title to html...
       var html_title = app.helpers.textFormatter(this.model.get("title"), this.model);
       //... and converts html to plain text
-      document.title = $('<div>').html(html_title).text(); 
+      document.title = $('<div>').html(html_title).text();
+      app.hovercard.deactivate() // No hovercards for now.
     }
   },
 
