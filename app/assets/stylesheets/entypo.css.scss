@@ -15,6 +15,10 @@
     content: '\e717';
   }
 
+  &.comment:before {
+    content: '\e718';
+  }
+
   &.red {
     color: #A40802;
   }
