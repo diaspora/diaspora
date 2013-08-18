@@ -1,14 +1,23 @@
 <div class='pull-right'>
-  <div class="post-time">
+  <span class='public-info'>
+    {{#unless public}}
+      <i class="icon-lock icon-grey"> </i>
+    {{/unless}}
+  </span>
+  <span class="post-time">
     <time datetime="{{created_at}}" />
-  </div>
-  <div class='pull-right'>
+  </span>
+  <div class="buttons pull-right">
     <a href="#" rel="auth-required" class="like" title="{{#if userLike}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
         {{#if userLike}}
             <i class="entypo heart red large"></i>
         {{else}}
             <i class="entypo heart gray large"></i>
         {{/if}}
+    </a>
+
+    <a href="#" rel="auth-required" class="focus-comment" title="{{t "viewer.comment"}}">
+      <i class="entypo comment gray large"></i>
     </a>
 
     {{#if userCanReshare}}
@@ -20,9 +29,5 @@
             {{/if}}
         </a>
     {{/if}}
-
-    <a href="#" rel="auth-required" class="focus-comment" title="{{t "viewer.comment"}}">
-      <i class="entypo comment gray large"></i>
-    </a>
   </div>
 </div>
