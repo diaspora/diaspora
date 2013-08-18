@@ -15,6 +15,11 @@ app.views.Hovercard = Backbone.View.extend({
     this.hashtags = this.$('.hashtags');
     this.person_link = this.$('a.person');
     this.person_handle = this.$('p.handle');
+    this.active = true;
+  },
+
+  deactivate: function() {
+    this.active = false;
   },
 
   href: function() {
@@ -22,6 +27,7 @@ app.views.Hovercard = Backbone.View.extend({
   },
 
   _mouseenterHandler: function(event) {
+    if(this.active == false) { return false }
     var el = $(event.target);
     if( !el.is('a') ) {
       el = el.parents('a');
@@ -38,6 +44,7 @@ app.views.Hovercard = Backbone.View.extend({
   },
 
   _mouseleaveHandler: function(event) {
+    if(this.active == false) { return false }
     this.show_me = false;
     if( this.$el.is(':visible') ) {
       this.$el.fadeOut('fast');
