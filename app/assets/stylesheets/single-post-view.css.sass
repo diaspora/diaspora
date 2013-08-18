@@ -23,6 +23,15 @@
       .public-info > i
         float: left
         margin: 2px 4px 0 0
+      i.comment:hover
+        color: #424242
+      i.heart.gray:hover
+        color: #a40802
+      i.heart.red:hover
+        color: #f55f5a
+      i.retweet:hover
+        color: #3f8fba
+
       time
         float: right
         margin-left: 3px
@@ -84,3 +93,23 @@
     color: #aaaaaa
     text-decoration: none
     font-size: smaller
+
+.controls
+  @include transition(opacity)
+  @include opacity(0.1)
+  :z-index 6
+  :float right
+
+  &:hover
+    @include opacity(1)
+
+  .delete
+    :display inline-block
+
+    .icons-deletelabel
+      :height 14px
+      :width 14px
+
+  a:hover
+    :text-decoration none
+
