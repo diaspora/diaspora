@@ -10,19 +10,13 @@
       {{/linkToPerson}}
 
       {{#if root}}
-      <div>
+      <span class="retweet">
         <i class="icon-retweet"></i>
           {{#linkToPerson root.author}}
             {{name}}
           {{/linkToPerson}}
-      </div>
+      </span>
       {{/if}}
-
-      <div class='public-info'>
-        {{#unless public}}
-          <i class="icon-lock icon-grey"> </i>
-        {{/unless}}
-      </div>
 
       <div class='status-message-location' />
     </div>
