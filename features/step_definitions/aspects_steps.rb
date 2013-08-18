@@ -11,6 +11,7 @@ When /^I select only "([^"]*)" aspect$/ do |aspect_name|
   within('#aspects_list') do
     click_link 'Select all' if has_link? 'Select all'
     click_link 'Deselect all'
+    current_scope.should have_no_css '.selected'
   end
   step %Q(I select "#{aspect_name}" aspect as well)
 end
