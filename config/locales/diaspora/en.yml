@@ -590,6 +590,7 @@ en:
       location: "Location"
       gender: "Gender"
       born: "Birthday"
+      photos: "Photos"
       in_aspects: "in aspects"
       remove_from: "Remove %{name} from %{aspect}?"
     helper:
