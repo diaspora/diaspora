@@ -76,7 +76,7 @@ app.views.StatusMessage = app.views.Content.extend({
   templateName : "status-message"
 });
 
-app.views.expandedStatusMessage = app.views.StatusMessage.extend({
+app.views.ExpandedStatusMessage = app.views.StatusMessage.extend({
   postRenderTemplate : function(){
   }
 });
