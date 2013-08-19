@@ -21,13 +21,15 @@
     </a>
 
     {{#if userCanReshare}}
-        <a href="#" rel="auth-required" class="reshare" title="{{#if userReshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
-            {{#if userReshare}}
-                <i class="entypo retweet blue large"></i>
-            {{else}}
-                <i class="entypo retweet gray large"></i>
-            {{/if}}
+        <a href="#" rel="auth-required" class="reshare" title="{{t "viewer.reshare"}}">
+          <i class="entypo retweet gray large"></i>
         </a>
+    {{else}}
+        {{#if userReshare}}
+            <a href="#" rel="auth-required" class="reshare-viewonly" title="{{t "viewer.reshared"}}">
+              <i class="entypo retweet blue large"></i>
+            </a>
+        {{/if}}
     {{/if}}
   </div>
 </div>
