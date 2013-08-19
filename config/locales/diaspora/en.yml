@@ -586,10 +586,10 @@ en:
     profile_sidebar:
       remove_contact: "remove contact"
       edit_my_profile: "Edit my profile"
-      bio: "bio"
-      location: "location"
-      gender: "gender"
-      born: "birthday"
+      bio: "Bio"
+      location: "Location"
+      gender: "Gender"
+      born: "Birthday"
       in_aspects: "in aspects"
       remove_from: "Remove %{name} from %{aspect}?"
     helper:
