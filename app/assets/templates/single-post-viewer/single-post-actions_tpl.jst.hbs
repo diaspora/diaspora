@@ -5,7 +5,7 @@
     {{/unless}}
   </span>
   <span class="post-time">
-    <time datetime="{{created_at}}" />
+    <time datetime="{{created_at}}" title="{{localTime created_at}}" />
   </span>
   <div class="buttons pull-right">
     <a href="#" rel="auth-required" class="like" title="{{#if userLike}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
