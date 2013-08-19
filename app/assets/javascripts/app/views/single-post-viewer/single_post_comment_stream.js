@@ -1,4 +1,5 @@
 app.views.SinglePostCommentStream = app.views.CommentStream.extend({
+  tooltipSelector: "time, .controls a",
 
   postRenderTemplate: function() {
     app.views.CommentStream.prototype.postRenderTemplate.apply(this)
