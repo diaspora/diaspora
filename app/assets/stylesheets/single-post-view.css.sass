@@ -94,22 +94,26 @@
     text-decoration: none
     font-size: smaller
 
-.controls
-  @include transition(opacity)
-  @include opacity(0.1)
-  :z-index 6
-  :float right
-
+.comment
   &:hover
-    @include opacity(1)
+    .controls
+      @include opacity(0.3)
+  .controls
+    @include transition(opacity)
+    @include opacity(0)
+    :z-index 6
+    :float right
 
-  .delete
-    :display inline-block
+    &:hover
+      @include opacity(1)
 
-    .icons-deletelabel
-      :height 14px
-      :width 14px
+    .delete
+      :display inline-block
 
-  a:hover
-    :text-decoration none
+      .icons-deletelabel
+        :height 14px
+        :width 14px
+
+    a:hover
+      :text-decoration none
 
