@@ -2068,6 +2068,19 @@ ul#requested-scopes
     .scope-description
       :display none
 
+.item_count
+  :width 16px
+  :line-height 16px
+  :text-align center
+  @include border-radius(4px)
+  :color #999
+  :background
+    :color #eee
+  :display inline-block
+  :font
+    :size 11px
+    :weight 700
+
 ul.left_nav
   :margin 0
     :bottom 15px
@@ -2100,9 +2113,7 @@ ul.left_nav
 
     > a:not(.sub_selected)
       :color #333
-      .contact_count
-        :font
-          :weight 700
+      .item_count
         :color #666
 
   a.aspect_selector,
@@ -2155,22 +2166,9 @@ ul.left_nav
     :display none
     &:hover
       @include opacity(1)
-
-  .contact_count
-    :width 16px
-    :line-height 16px
-    :text-align center
-    @include border-radius(4px)
-    :margin-top 1px
-    :color #999
-    :background
-      :color #eee
-    :display inline-block
-    :font
-      :size 11px
-
+    
   a.home_selector
-    .contact_count
+    .item_count
       :float right
 
   ul.sub_nav
