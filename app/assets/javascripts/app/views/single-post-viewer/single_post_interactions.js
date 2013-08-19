@@ -1,5 +1,6 @@
 app.views.SinglePostInteractions = app.views.Base.extend({
   templateName: "single-post-viewer/single-post-interactions",
+  tooltipSelector: ".avatar.micro",
 
   subviews: {
     '#comments': 'commentStreamView'
