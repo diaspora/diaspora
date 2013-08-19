@@ -92,10 +92,7 @@
   left: -1px;
   margin-left: 0;
   padding-left: 2.5%;
-  #likes, #reshares, #comments-meta {
-    padding-bottom: 5px;
-  }
-  .comment {
+  .comments .comment {
     border-bottom: solid 1px #cccccc;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -116,6 +113,20 @@
     color: #aaaaaa;
     text-decoration: none;
     font-size: smaller;
+  }
+  .count {
+    width: 12.8%;
+    text-align: right;
+    i {
+      display: inline-block;
+      text-align: center;
+      width: 25px;
+      vertical-align: middle;
+    }
+  }
+  #reshares .count i { text-align: left; }
+  .persons {
+    margin-left: 5px;
   }
 }
 
