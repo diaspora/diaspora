@@ -1,6 +1,8 @@
 module NavigationHelpers
   def path_to(page_name)
     case page_name
+      when /^person_photos page$/
+         person_photos_path(@me.person)
       when /^the home(?: )?page$/
         stream_path
       when /^step (\d)$/

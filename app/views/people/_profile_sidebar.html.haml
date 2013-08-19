@@ -19,6 +19,7 @@
       %br
     -if contact.sharing? || person == current_user.person
       %ul#profile_information
+      
         - unless person.bio.blank?
           %li
             %h4
@@ -43,6 +44,16 @@
             %h4
               =t('.born')
             = birthday_format(person.birthday)
-
+        %li
+          - if @photos.present?
+            %h4
+              = t('_photos')
+              .item_count
+                = "#{@photos.count}"
+            - @photos.limit(3).each do |photo|
+              = image_tag(photo.url(:thumb_small))
+            %br
+              = link_to t('layouts.header.view_all'),  person_photos_path(person)
+  
           %br
           %br

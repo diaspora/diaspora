@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
   def index
     @post_type = :photos
     @person = Person.find_by_guid(params[:person_id])
-
+    @photos = Photo.where(author_id: @person.id).order('created_at desc')
     if @person
       @contact = current_user.contact_for(@person)
 
