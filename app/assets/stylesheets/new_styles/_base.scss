@@ -32,6 +32,11 @@ a { color : $link-blue  }
   }
 }
 
+#login {
+  background-image : image_url("texture/light-bg.png");
+  height: 100%;
+}
+
 .author-name {
   font-family : Roboto;
   color: inherit;
