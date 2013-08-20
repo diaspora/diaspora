@@ -53,28 +53,28 @@
 	100%   { @include opacity(0); -o-transform : scale(1.3); }
 }
 
-/* flash message animations */
+/* flash message animations - header height is about 40px */
 @-webkit-keyframes expose {
         0%   { top : -100px; }
-        15%  { top : 0; }
-        85%  { top : 0; }
+        15%  { top : 34px; }
+        85%  { top : 34px; }
         100% { top : -100px; }
 }
 @-moz-keyframes expose {
         0%   { top : -100px; }
-        15%  { top : 0; }
-        85%  { top : 0; }
+        15%  { top : 34px; }
+        85%  { top : 34px; }
         100% { top : -100px; }
 }
 @-ms-keyframes expose {
         0%   { top : -100px; }
-        15%  { top : 0; }
-        85%  { top : 0; }
+        15%  { top : 34px; }
+        85%  { top : 34px; }
         100% { top : -100px; }
 }
 @-o-keyframes expose {
         0%   { top : -100px; }
-        15%  { top : 0; }
-        85%  { top : 0; }
+        15%  { top : 34px; }
+        85%  { top : 34px; }
         100% { top : -100px; }
 }

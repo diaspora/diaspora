@@ -3,7 +3,7 @@
 @import 'new_styles/variables';
 
 /* core */
-@import 'new_styles/flash_messages';
+@import 'flash_messages';
 @import 'sprites';
 
 @import 'new_styles/base';
@@ -21,6 +21,7 @@
 
 /* new SPV */
 @import 'header';
+@import 'footer';
 @import 'bootstrap-headerfix';
 @import 'opengraph';
 @import 'single-post-view';
