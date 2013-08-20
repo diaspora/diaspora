@@ -154,5 +154,37 @@
       text-decoration: none;
     }
   }
+  .submit_button {
+    input {
+      float: right;
+    }
+    padding-left: 12px;
+    width: 95%;
+  }
+
+  .button.creation {
+    $button-border-color: #aaa;
+    @include border-radius(3px);
+    @include box-shadow(0,1px,1px,#cfcfcf);
+    @include transition(border);
+    @include button-gradient($creation-blue);
+    font: {
+      size: 12px;
+    }
+    color: #fff;
+    padding: 4px 9px;
+    min-width: 90px;
+    min-height: 10px;
+    border: 1px solid darken($button-border-color,20%);
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:hover {
+      @include button-gradient-hover($creation-blue);
+      border: 1px solid darken($button-border-color,35%);
+      text-decoration: none;
+    }
+  }
 }
 
