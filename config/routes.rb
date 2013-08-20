@@ -61,10 +61,10 @@ Diaspora::Application.routes.draw do
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
 
-  resources :photos, :except => [:index] do
+  resources :photos, :except => [:index, :show] do
     put :make_profile_photo
   end
-	
+
 	#Search
 	get 'search' => "search#search"
 

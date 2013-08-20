@@ -8,7 +8,13 @@ class PhotosController < ApplicationController
   respond_to :html, :json
 
   def show
-    @photo = Photo.find(params[:id])
+    @photo = if user_signed_in?
+      current_user.photos_from(Person.find_by_guid(params[:person_id])).where(id: params[:id]).first
+    else
+      Photo.where(id: params[:id], public: true).first
+    end
+
+    raise ActiveRecord::RecordNotFound unless @photo
   end
 
   def index

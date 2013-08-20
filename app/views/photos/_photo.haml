@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= link_to (image_tag post.url(:thumb_large)), photo_path(post), :class => 'stream_photo'
+= link_to (image_tag post.url(:thumb_large)), person_photo_path(post.author, post), :class => 'stream_photo'
 
 %h1
   = post.pending

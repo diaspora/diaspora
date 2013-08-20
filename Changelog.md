@@ -46,6 +46,7 @@
 * Fix opacity of control icons [#4414](https://github.com/diaspora/diaspora/issues/4414/)
 * Add hover state to header icons [#4436](https://github.com/diaspora/diaspora/pull/4436)
 * Fix check icon regression on contacts page [#4440](https://github.com/diaspora/diaspora/pull/4440)
+* Do not leak non public photos
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
