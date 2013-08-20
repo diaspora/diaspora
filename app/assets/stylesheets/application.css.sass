@@ -6,6 +6,7 @@
 
 @import 'sidebar'
 @import 'header'
+@import 'footer'
 @import 'sprites'
 @import 'opengraph'
 
@@ -1153,47 +1154,6 @@ ul#request_result
       .right
         :top 2px
         :right 1em
-
-footer
-  :width 100%
-  :left 0
-  :bottom 0
-  :color #999
-
-  .container
-    :margin
-      :top 4em
-    :padding 0
-      :top 0.5em
-    :border
-      :top 1px solid #ddd
-
-  .branding-powered_by_diaspora
-    :display inline-block
-    :margin-top 3px
-    :height 11px
-    :width 145px
-
-  ul#footer_nav
-    :margin 0
-    :padding 0
-    :display inline-block
-    :float right
-
-    > li
-      :display inline
-      :margin
-        :right 1em
-
-      &.separator
-        :margin-left -.35em
-        :margin-right .65em
-        @include opacity(.6)
-
-      &:last-child
-        :margin 0
-    a
-      :color #777
 
 #signup_field
   :margin
