@@ -242,30 +242,24 @@ ul.as-selections
     :float left
     :margin
       :top 6px
-
+  
+  .controls:first-child
+    .control_icon
+      @include transition(opacity)
+      @include opacity(0)
   &:hover
     .controls:first-child
       .control_icon
-        @include opacity(0.5)
+        @include opacity(0.3)
+      .control_icon:hover
+        @include opacity(1)
 
 .info
   :font-size smaller
 
-  .control_icon
-    @include opacity(0.3)
-    :padding 5px
-
-    &:hover
-      @include opacity(1)
-
 .controls
-  @include transition(opacity)
-  @include opacity(0)
   :z-index 6
   :float right
-
-  &:hover
-    @include opacity(1)
 
   .block_user
     :display inline-block
@@ -384,6 +378,17 @@ ul.as-selections
 
     :padding
       :top 10px
+    
+    .controls
+      .comment_delete
+        @include transition(opacity)
+        @include opacity(0)
+    &:hover
+      .controls
+        .comment_delete
+          @include opacity(0.3)
+        .comment_delete:hover
+          @include opacity(1)
 
   .youtube-player, .vimeo-player
     :border none
