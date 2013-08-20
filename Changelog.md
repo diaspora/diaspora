@@ -41,6 +41,7 @@
 * Do not display photos in the background in the SPV [#4407](https://github.com/diaspora/diaspora/pull/4407)
 * Fix mobile view of deleted reshares [#4397](https://github.com/diaspora/diaspora/issues/4397)
 * Fix the overlapping of embedded youtube videos [#2943](https://github.com/diaspora/diaspora/issues/2943)
+* Fix opacity of control icons [#4414](https://github.com/diaspora/diaspora/issues/4414/)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
