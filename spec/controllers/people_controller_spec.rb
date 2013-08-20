@@ -190,6 +190,16 @@ describe PeopleController do
       response.body.should_not include(profile.first_name)
     end
 
+    it "doesn't leak photos in the sidebar" do
+      private_photo = @user.post(:photo, user_file: uploaded_photo, to: @aspect.id, public: false)
+      public_photo = @user.post(:photo, user_file: uploaded_photo, to: @aspect.id, public: true)
+
+      sign_out :user
+      get :show, id: @user.person.to_param
+
+      assigns(:photos).should_not include private_photo
+      assigns(:photos).should include public_photo
+    end
 
     context "when the person is the current user" do
       it "succeeds" do

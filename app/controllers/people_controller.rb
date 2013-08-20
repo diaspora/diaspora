@@ -81,7 +81,8 @@ class PeopleController < ApplicationController
     @aspect = :profile
     @stream = Stream::Person.new(current_user, @person, :max_time => max_time)
     @profile = @person.profile
-    @photos = Photo.where(author_id: @profile.id).order('created_at desc')
+    @photos = photos_from(@person)
+
     unless params[:format] == "json" # hovercard
       if current_user
         @block = current_user.blocks.where(:person_id => @person.id).first
@@ -188,5 +189,15 @@ class PeopleController < ApplicationController
 
   def remote_profile_with_no_user_session?
     @person.try(:remote?) && !user_signed_in?
+  end
+
+  def photos_from(person)
+    photos = if user_signed_in?
+      current_user.photos_from(person)
+    else
+      Photo.where(author_id: person.id, public: true)
+    end
+
+    photos.order('created_at desc')
   end
 end
