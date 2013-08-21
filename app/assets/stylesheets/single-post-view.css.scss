@@ -3,6 +3,9 @@
 }
 
 #single-post-content {
+  border-right: solid 1px #cccccc;
+  padding-right: 25px;
+  
   #head {
     color: #aaaaaa;
     font-size: 12px;
@@ -31,7 +34,7 @@
         margin: 2px 4px 0 0;
       }
       i.comment:hover {
-        color: #424242;
+        color: orange;
       }
       i.heart.gray:hover {
         color: #a40802;
@@ -54,8 +57,7 @@
       }
     }
   }
-  border-right: solid 1px #cccccc;
-  padding-right: 10px;
+  
   #body {
     margin-left: 20px;
     padding-top: 20px;
@@ -90,7 +92,8 @@
   position: relative;
   left: -1px;
   margin-left: 0;
-  padding-left: 2.5%;
+  padding-left: 25px;
+  
   .comments .comment {
     border-bottom: solid 1px #cccccc;
     padding-top: 10px;
