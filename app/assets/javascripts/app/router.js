@@ -25,7 +25,7 @@ app.Router = Backbone.Router.extend({
   },
 
   singlePost : function(id) {
-    this.renderPage(function(){ return new app.pages.PostViewer({ id: id })});
+    this.renderPage(function(){ return new app.pages.SinglePostViewer({ id: id })});
   },
 
   siblingPost : function(){ //next or previous

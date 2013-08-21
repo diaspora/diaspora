@@ -80,9 +80,8 @@ module PublishingCukeHelpers
   end
 
   def comment_on_show_page(comment_text)
-    within("#post-interactions") do
-      focus_comment_box(".label.comment")
-      make_comment(comment_text, "new-comment-text")
+    within("#single-post-interactions") do
+      make_comment(comment_text)
     end
   end
 
