@@ -8,15 +8,26 @@
 
   - if user_signed_in?
     - if person != current_user.person
-      = sharing_message(@person, @contact)
+      %div#profile_buttons{ :class => profile_buttons_class(@contact, @block) }
+        = sharing_message(@person, @contact)
 
-      - if @contact && @contact.receiving?
-        %br
-        = link_to t('people.show.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
+        - if @contact.receiving?
+          .profile_button
+            = link_to content_tag(:div, nil, :class => 'icons-mention', :title => t('people.show.mention'), :id => 'mention_button'), new_status_message_path(:person_id => @person.id), :rel => 'facebox'
+          //.white_bar
+        
         - if @contact.mutual?
-          = link_to t('people.show.message'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name), :class => 'button', :rel => 'facebox'
+          // remove the following line when adding the ignore button
+          .white_bar
+          .profile_button
+            = link_to content_tag(:div, nil, :class => 'icons-message', :title => t('people.show.message'), :id => 'message_button'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name), :rel => 'facebox'
+          //.white_bar
+        
+        //.profile_button
+        //  = link_to content_tag(:div, nil, :class => 'icons-ignoreuser', :title => t('people.show.message'), :id => 'block_user_button'), '/block', :rel => 'facebox'     
+        
       %br
-      %br
+
     -if contact.sharing? || person == current_user.person
       %ul#profile_information
       
