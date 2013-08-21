@@ -17,10 +17,6 @@ module OpenGraphHelper
     tags.join(' ')
   end
 
-  def og_site_name
-    meta_tag_with_property('og:site_name', 'Diaspora*')
-  end
-
   def og_description(post)
     meta_tag_with_property('og:description', post_page_title(post, :length => 1000))
   end
