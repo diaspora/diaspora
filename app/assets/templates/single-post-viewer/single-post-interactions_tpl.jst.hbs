@@ -6,7 +6,9 @@
     </div>
     <div class='span10 persons'>
       {{#each reshares}}
-        {{{personImage author 'small' 'micro'}}}
+        {{#linkToPerson author}}
+          {{{personImage this 'small' 'micro'}}}
+        {{/linkToPerson}}
       {{/each}}
     </div>
   </div>
@@ -19,7 +21,9 @@
     </div>
     <div class='span10 persons'>
       {{#each likes}}
-        {{{personImage author 'small' 'micro'}}}
+        {{#linkToPerson author}}
+          {{{personImage this 'small' 'micro'}}}
+        {{/linkToPerson}}
       {{/each}}
     </div>
   </div>
