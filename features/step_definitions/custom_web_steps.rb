@@ -115,7 +115,7 @@ When /^I append "([^"]*)" to the publisher mobile$/ do |stuff|
 end
 
 And /^I want to mention (?:him|her) from the profile$/ do
-  click_link("Mention")
+  find('#mention_button').click
   within('#facebox') do
     click_publisher
   end

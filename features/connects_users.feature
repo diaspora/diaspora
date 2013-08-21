@@ -87,15 +87,17 @@ Feature: following and being followed
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
 
-    Then I should see "Besties" and "Mention"
-    Then I should not see "Message" within "#profile"
+    Then I should see "Besties" 
+    Then  I should see a "#mention_button" within "#profile"
+    Then I should not see a "#message_button" within "#profile"
 
   Scenario: interacting with the profile page of someone who follows you but who you do not follow
     Given I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
     Then I should see "Add contact"
-    Then I should not see "Mention" and "Message" within "#profile"
+    Then I should not see a "#mention_button" within "#profile"
+    Then I should not see a "#message_button" within "#profile"
 
   Scenario: interacting with the profile page of someone you follow who also follows you
     Given I sign in as "alice@alice.alice"
@@ -105,4 +107,6 @@ Feature: following and being followed
     And I add the person to my "Unicorns" aspect
 
     When I go to "bob@bob.bob"'s page
-    Then I should see "All Aspects" and "Mention" and "Message"
+    Then I should see "All Aspects" 
+    Then I should see a "#mention_button" within "#profile" 
+    Then I should see a "#message_button" within "#profile"

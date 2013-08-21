@@ -132,9 +132,10 @@ describe PeopleHelper do
     end
 
     context 'when the contact is not sharing' do
-      it 'does not show the sharing message' do
+      it 'does show the not sharing message' do
+        message = I18n.t('people.helper.is_not_sharing', :name => @person.name)
         @contact.stub(:sharing?).and_return(false)
-        sharing_message(@person, @contact).should be_blank
+        sharing_message(@person, @contact).should include(message)
       end
     end
   end
