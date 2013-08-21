@@ -1,0 +1,46 @@
+footer {
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  color: #999;
+
+  .container {
+    width: 95%;
+    margin: 4em auto 0 auto;
+    padding: 0.5em 0 1em 0;
+    border-top: 1px solid #ddd;
+  }
+
+  .branding-powered_by_diaspora {
+    display: inline-block;
+    margin-top: 3px;
+    height: 11px;
+    width: 145px;
+  }
+
+  ul#footer_nav {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    float: right;
+
+    > li {
+      display: inline;
+      margin-right: 1em;
+
+      &.separator {
+        margin-left: -.35em;
+        margin-right: .65em;
+        @include opacity(.6);
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    a {
+      color: #777;
+    }
+  }
+}
