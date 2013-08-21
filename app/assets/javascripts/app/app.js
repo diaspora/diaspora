@@ -12,6 +12,7 @@
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./forms
+//= require jquery.are-you-sure
 
 var app = {
   collections: {},
@@ -111,4 +112,5 @@ var app = {
 
 $(function() {
   app.initialize();
+  $('.content_creation form').areYouSure();
 });
