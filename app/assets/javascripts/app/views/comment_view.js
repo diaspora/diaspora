@@ -33,3 +33,8 @@ app.views.Comment = app.views.Content.extend({
     return app.currentUser.authenticated() && (this.ownComment() || this.postOwner())
   }
 });
+
+app.views.ExpandedComment = app.views.Comment.extend({
+  postRenderTemplate : function(){
+  }
+});
