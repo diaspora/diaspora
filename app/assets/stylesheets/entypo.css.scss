@@ -19,6 +19,14 @@
     content: '\e718';
   }
 
+  &.globe:before {
+    content: '\1f30e';
+  }
+
+  &.lock:before {
+    content: '\1f512';
+  }
+
   &.red {
     color: #A40802;
   }
@@ -38,5 +46,9 @@
 
   &.middle {
     font-size: 1.5em;
+  }
+
+  &.small {
+    font-size: 1.2em;
   }
 }

@@ -56,14 +56,17 @@
   }
   border-right: solid 1px #cccccc;
   padding-right: 10px;
+  
   #body {
     margin-left: 20px;
     padding-top: 20px;
     width: auto;
     .photo_attachments {
       padding-bottom: 10px;
+      text-align: center;
       img {
-        display: block;
+        &.big_stream_photo { display: block; }
+        display: inline;
         margin-left: auto;
         margin-right: auto;
         padding-bottom: 5px;
