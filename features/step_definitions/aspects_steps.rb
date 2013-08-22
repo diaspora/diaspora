@@ -1,7 +1,7 @@
 When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
   within(".all_aspects") do
     li = find('li', text: aspect_name)
-    page.execute_script("$('#aspects_list li:contains(\\'#{aspect_name}\\') .modify_aspect').css('display', 'block');") # TODO HACK please replace me by li.hover when capybara will be fixed
+    li.hover
     li.find('.modify_aspect').click
   end
 end

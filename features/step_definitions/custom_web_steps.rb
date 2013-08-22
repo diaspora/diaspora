@@ -114,7 +114,7 @@ And /^I want to mention (?:him|her) from the profile$/ do
 end
 
 And /^I hover over the "([^"]+)"$/ do |element|
-  page.execute_script("$(\"#{element}\").first().addClass('hover')")
+  find("#{element}", match: :first).hover
 end
 
 When /^I prepare the deletion of the first post$/ do
