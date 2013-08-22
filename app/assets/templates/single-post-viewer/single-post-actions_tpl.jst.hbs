@@ -1,8 +1,10 @@
 <div class='pull-right'>
   <span class='public-info'>
-    {{#unless public}}
-      <i class="icon-lock icon-grey"> </i>
-    {{/unless}}
+    {{#if public}}
+      <i class="entypo globe small"> </i>
+    {{else}}
+      <i class="entypo lock small"> </i>
+    {{/if}}
   </span>
   <span class="post-time">
     <time datetime="{{created_at}}" title="{{localTime created_at}}" />
