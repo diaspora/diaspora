@@ -18,7 +18,25 @@
         
         - if @contact.mutual?
           // remove the following line when adding the ignore button
-          .white_bar
+        = link_to "#", :class => "block_user", :rel => "nofollow", :title => "ignore", :id => "block_user", :data =>  { :person_id => @person.id } do
+          .icons-ignoreuser.control_icon
+          :javascript
+            $(document).ready(function() {
+              $("#block_user").click(function(evt) {
+               if(!confirm(Diaspora.I18n.t('ignore_user'))) { return }
+                 var personId = $(this).data('person-id');
+                 var block = new app.models.Block();
+
+                 block.save({block : {person_id : personId}}, {
+                  success : function(){
+                 
+                  }
+
+                 });
+                 return false;
+              }); 
+            }); 
+  
           .profile_button
             = link_to content_tag(:div, nil, :class => 'icons-message', :title => t('people.show.message'), :id => 'message_button'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name), :rel => 'facebox'
           //.white_bar
