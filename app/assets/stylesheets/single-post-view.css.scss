@@ -102,6 +102,15 @@
       margin: 0;
     }
   }
+  .no_comments {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eee;
+    text-align: center;
+    @include border-radius(4px);
+    margin-bottom: 30px;
+  }
+
   textarea {
     width: 95%;
   }
