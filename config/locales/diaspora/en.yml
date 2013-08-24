@@ -139,7 +139,6 @@ en:
       unknown_person: "unknown person"
       video_title:
         unknown: "Unknown Video Title"
-      diaspora_alpha: "DIASPORA* ALPHA"
   aspects:
     zero: "no aspects"
     one: "1 aspect"
@@ -225,7 +224,7 @@ en:
 
       new_here:
         title: "Welcome New Users"
-        follow: "Follow %{link} and welcome new users to Diaspora*!"
+        follow: "Follow %{link} and welcome new users to diaspora*!"
         learn_more: "Learn more"
 
       help:
@@ -378,13 +377,13 @@ en:
       invite_someone_to_join: "Invite someone to join Diaspora!"
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       comma_separated_plz: "You can enter multiple email addresses separated by commas."
-      check_out_diaspora: "Hey! You should check out Diaspora*"
+      check_out_diaspora: "Hey! You should check out diaspora*"
       to: "To"
       personal_message: "Personal message"
       send_an_invitation: "Send an invitation"
       sending_invitation: "Sending invitation..."
       send_invitation: "Send invitation"
-      paste_link: "Share this link with your friends to invite them to Diaspora*, or email them the link directly."
+      paste_link: "Share this link with your friends to invite them to diaspora*, or email them the link directly."
       codes_left:
         zero:  "No invites left on this code"
         one:  "One invite left on this code"
@@ -412,7 +411,7 @@ en:
       view_all: "View all"
       recent_notifications: "Recent notifications"
     application:
-      powered_by: "POWERED BY DIASPORA*"
+      powered_by: "POWERED BY diaspora*"
       whats_new: "what's new?"
       toggle: "toggle mobile"
       public_feed: "Public Diaspora Feed for %{name}"
@@ -507,13 +506,13 @@ en:
         subject: "A message about your Diaspora account:"
         admin: "Your Diaspora administrator"
     started_sharing:
-        subject: "%{name} started sharing with you on Diaspora*"
+        subject: "%{name} started sharing with you on diaspora*"
         sharing: "has started sharing with you!"
         view_profile: "View %{name}'s profile"
     comment_on_post:
         reply: "Reply or view %{name}'s post >"
     mentioned:
-        subject: "%{name} has mentioned you on Diaspora*"
+        subject: "%{name} has mentioned you on diaspora*"
         mentioned: "mentioned you in a post:"
     private_message:
         reply_to_or_view: "Reply to or view this conversation >"
@@ -526,13 +525,13 @@ en:
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
-    accept_invite: "Accept Your Diaspora* invite!"
-    invited_you: "%{name} invited you to Diaspora*"
+    accept_invite: "Accept Your diaspora* invite!"
+    invited_you: "%{name} invited you to diaspora*"
     invite:
       message: |-
         Hello!
 
-        You have been invited to join Diaspora*!
+        You have been invited to join diaspora*!
 
         Click this link to get started
 
@@ -541,7 +540,7 @@ en:
 
         Love,
 
-        The Diaspora* email robot!
+        The diaspora* email robot!
 
         [1]: %{invite_url}
   people:
@@ -697,7 +696,7 @@ en:
       enter_password: "Enter a password (six character minimum)"
       enter_password_again: "Enter the same password as before"
       hey_make: "HEY,<br/>MAKE<br/>SOMETHING."
-      diaspora: "<3 Diaspora*"
+      diaspora: "<3 diaspora*"
       sign_up: "SIGN UP"
       email: "EMAIL"
       username: "USERNAME"
@@ -769,7 +768,7 @@ en:
     failure:
       error: "there was an error connecting that service"
     inviter:
-      join_me_on_diaspora: "Join me on DIASPORA*"
+      join_me_on_diaspora: "Join me on diaspora*"
       click_link_to_accept_invitation: "Follow this link to accept your invitation"
     finder:
       fetching_contacts: "Diaspora is populating your %{service} friends, please check back in a few minutes."
@@ -1027,7 +1026,7 @@ en:
       well_hello_there: "Well, hello there!"
       community_welcome: "Diaspora's community is happy to have you aboard!"
 
-      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
+      awesome_take_me_to_diaspora: "Awesome! Take me to diaspora*"
 
       who_are_you: "Who are you?"
       connect_to_facebook: "We can speed things up a bit by %{link} to Diaspora. This will pull your name and photo, and enable cross-posting."

@@ -185,7 +185,7 @@ describe Notifier do
     end
 
     it "FROM: contains the sender's name" do
-      @mail["From"].to_s.should == "\"#{@cnv.author.name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>"
+      @mail["From"].to_s.should == "\"#{@cnv.author.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
     end
 
     it 'SUBJECT: has a snippet of the post contents' do
@@ -220,7 +220,7 @@ describe Notifier do
       end
 
       it "FROM: contains the sender's name" do
-        comment_mail["From"].to_s.should == "\"#{eve.name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>"
+        comment_mail["From"].to_s.should == "\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
       end
 
       it 'SUBJECT: has a snippet of the post contents, without markdown and without newlines' do
@@ -261,7 +261,7 @@ describe Notifier do
       end
 
       it 'FROM: has the name of person commenting as the sender' do
-        comment_mail["From"].to_s.should == "\"#{eve.name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>"
+        comment_mail["From"].to_s.should == "\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
       end
 
       it 'SUBJECT: has a snippet of the post contents, without markdown and without newlines' do
