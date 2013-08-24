@@ -76,7 +76,10 @@ body > header {
       
       .icons-notifications_grey { height: 16px; }
 
-      &.active .icons-notifications_grey:hover { background-position: 0 -983px; }
+      &.active .icons-notifications_grey:hover {
+        $icons: sprite-map("icons/*.png");
+        background-position: sprite-position($icons, notifications_grey);
+      }
 
       .icons-mail_grey { height: 11px }
 
