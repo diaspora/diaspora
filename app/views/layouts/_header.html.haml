@@ -3,12 +3,11 @@
 -#   the COPYRIGHT file.
 
 %header
-    - unless current_user
-        .container{:style => "position:relative;"}
-            = link_to content_tag(:div, nil, :class => 'diaspora_header_logo branding-header-logo'), root_path
+  - unless current_user
+    .container{style: "position:relative;"}
+      = link_to content_tag(:div, nil, class: 'diaspora_header_logo branding-header-logo'), root_path
 
-            %ul#landing_nav
-                %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
-                %li= link_to 'github', "https://github.com/diaspora/diaspora"
-                %li= link_to t('.blog'), 'http://blog.diasporafoundation.org/'
-                %li= link_to t('.login'), new_user_session_path, :class => 'login'
+      %ul#landing_nav
+        - unless current_page?(controller: :registrations, action: :new)
+          %li= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'login'
+        %li= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: 'login'

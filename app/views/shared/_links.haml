@@ -1,6 +1,5 @@
-%li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
-%li= link_to 'github', "https://github.com/diaspora/diaspora"
-%li= link_to t('layouts.header.blog'), "http://blog.diasporafoundation.org/"
+%li= link_to 'diasporafoundation.org', "https://diasporafoundation.org"
+%li= link_to 'wiki', "https://wiki.diasporafoundation.org"
 %li= link_to t('layouts.application.whats_new'), changelog_url
 %li= link_to(t('layouts.header.code') + " " + pod_version, "#{root_path.chomp('/')}/source.tar.gz", {:title => t('layouts.application.source_package')}) unless request.url.match(/joindiaspora.com/)
 %li= link_to(t('layouts.application.toggle'), toggle_mobile_path)
