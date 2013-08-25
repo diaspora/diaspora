@@ -77,7 +77,7 @@ body > header {
       .icons-notifications_grey { height: 16px; }
 
       &.active .icons-notifications_grey:hover {
-        background-position: sprite-position($icons, notifications_grey);
+        background-position: sprite-position($icons-sprites, notifications_grey);
       }
 
       .icons-mail_grey { height: 11px }
