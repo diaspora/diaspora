@@ -75,6 +75,11 @@ body > header {
       &:hover .badge_count { background-color: lighten(#A40802, 5%); }
       
       .icons-notifications_grey { height: 16px; }
+
+      &.active .icons-notifications_grey:hover {
+        background-position: sprite-position($icons-sprites, notifications_grey);
+      }
+
       .icons-mail_grey { height: 11px }
 
       a.badge_link {
