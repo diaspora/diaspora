@@ -5,7 +5,7 @@ When /^I press the "([^\"]*)" key somewhere$/ do |key|
 end
 
 When /^I press the "([^\"]*)" key in the publisher$/ do |key|
-  find("#status_message_fake_text", visible: false).native.send_keys(key)
+  find("#status_message_fake_text").native.send_keys(key)
 end
 
 Then /^post (\d+) should be highlighted$/ do |position|

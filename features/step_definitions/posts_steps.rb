@@ -7,7 +7,7 @@ Then /^the post should be expanded$/ do
 end
 
 Then /^I should see an uploaded image within the photo drop zone$/ do
-  find("#photodropzone img", visible: false)["src"].should include("uploads/images")
+  find("#photodropzone img")["src"].should include("uploads/images")
 end
 
 Then /^I should not see an uploaded image within the photo drop zone$/ do
@@ -35,7 +35,8 @@ And /^the post with text "([^"]*)" is reshared by "([^"]*)"$/ do |text, email|
 end
 
 When /^I click on the first block button/ do
-  find(".block_user", visible: false).click
+  find(".stream_element", match: :first).hover
+  find(".block_user").click
 end
 
 When /^I expand the post$/ do

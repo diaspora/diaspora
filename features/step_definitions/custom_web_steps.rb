@@ -95,8 +95,6 @@ end
 When /^I append "([^"]*)" to the publisher$/ do |stuff|
   elem = find('#status_message_fake_text')
   elem.native.send_keys(' ' + stuff)
-
-  find('#status_message_text', visible: false).value.should include(stuff)
 end
 
 When /^I append "([^"]*)" to the publisher mobile$/ do |stuff|
@@ -119,7 +117,8 @@ end
 
 When /^I prepare the deletion of the first post$/ do
   within('.stream_element', match: :first) do
-    find('.remove_post', visible: false).click
+    find('.controls').hover
+    find('.remove_post').click
   end
 end
 
@@ -130,7 +129,8 @@ end
 
 When /^I click to delete the first comment$/ do
   within("div.comment", match: :first) do
-    find(".comment_delete", visible: false).click
+    find(".controls").hover
+    find(".comment_delete").click
   end
 end
 
