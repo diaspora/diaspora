@@ -2,13 +2,13 @@ footer {
   width: 100%;
   left: 0;
   bottom: 0;
-  color: #999;
+  color: $text-grey;
 
   .container {
     width: 95%;
     margin: 4em auto 0 auto;
     padding: 0.5em 0 1em 0;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $border-grey;
   }
 
   .branding-powered_by_diaspora {
@@ -40,7 +40,7 @@ footer {
     }
 
     a {
-      color: #777;
+      color: $link-grey;
     }
   }
 }
