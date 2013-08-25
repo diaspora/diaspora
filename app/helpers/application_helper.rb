@@ -4,7 +4,7 @@
 
 module ApplicationHelper
   def pod_name
-    AppConfig.settings.pod_name.present? ? AppConfig.settings.pod_name : "DIASPORA*"
+    AppConfig.settings.pod_name.present? ? AppConfig.settings.pod_name : "diaspora*"
   end
 
   def pod_version

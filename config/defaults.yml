@@ -51,7 +51,7 @@ defaults:
     mixpanel_uid:
     chartbeat_uid:
   settings:
-    pod_name: 'Diaspora*'
+    pod_name: 'diaspora*'
     enable_registrations: true
     autofollow_on_join: true
     autofollow_on_join_user: 'diasporahq@joindiaspora.com'
