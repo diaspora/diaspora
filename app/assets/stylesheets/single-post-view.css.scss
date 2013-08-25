@@ -56,11 +56,14 @@
   }
   border-right: solid 1px #cccccc;
   padding-right: 10px;
-  
+
   #body {
     margin-left: 20px;
     padding-top: 20px;
     width: auto;
+    p {
+      margin: 0 0 1em 0;
+    }
     .photo_attachments {
       padding-bottom: 10px;
       text-align: center;
@@ -99,7 +102,10 @@
     padding-top: 10px;
     padding-bottom: 10px;
     p {
-      margin: 0;
+      margin: 0 0 1em 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
   .no_comments {
