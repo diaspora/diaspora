@@ -25,10 +25,10 @@ $bluebg: #e7f2f7;
 	float: left;
 	margin: 0px;
 	margin-right: 10px;
-	padding: 0px;
 	color: #222222;
 	
 	ul {
+		margin: 0px;
 		padding: 0px;
 	}
 	
@@ -40,7 +40,7 @@ $bluebg: #e7f2f7;
 	
 	.hoverable {
 		display: block;
-		width: 90%;
+		margin-right: 6px;
 		padding: 4px;
 		
 		&:hover {
@@ -54,12 +54,6 @@ $bluebg: #e7f2f7;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
-}
-
-#stream_selection {
-	& > li {
-		margin-bottom: 10px;
-	}
 
 	.action {
 		width: 12px;
@@ -71,6 +65,12 @@ $bluebg: #e7f2f7;
 
 	.hoverable:hover  > .action {
 		display: block;
+	}
+}
+
+#stream_selection {
+	& > li {
+		margin-bottom: 10px;
 	}
 }
 

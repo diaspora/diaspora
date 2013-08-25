@@ -2,12 +2,12 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.span-5.append-1
+#leftNavBar.span-5.append-1
   = render 'contacts/aspect_listings'
 
-  %hr
+  - if AppConfig.settings.community_spotlight.enable?
+    %hr
 
-  %ul.left_nav
-    - if AppConfig.settings.community_spotlight.enable?
+    %ul.left_nav
       %li{:class => ("active" if @spotlight)}
         = link_to t('contacts.spotlight.community_spotlight'), community_spotlight_path, :class => "element_selector"
