@@ -45,6 +45,7 @@
 * Fix the overlapping of embedded youtube videos [#2943](https://github.com/diaspora/diaspora/issues/2943)
 * Fix opacity of control icons [#4414](https://github.com/diaspora/diaspora/issues/4414/)
 * Add hover state to header icons [#4436](https://github.com/diaspora/diaspora/pull/4436)
+* Fix check icon regression on contacts page [#4440](https://github.com/diaspora/diaspora/pull/4440)
 
 ## Features
 * Admin: add option to find users under 13 (COPPA) [#4252](https://github.com/diaspora/diaspora/pull/4252)
@@ -62,6 +63,7 @@
 * Remove posts, comments and private conversations from the mobile site. [#4408](https://github.com/diaspora/diaspora/pull/4408) [#4409](https://github.com/diaspora/diaspora/pull/4409)
 * Added a link to user photos and thumbnails are shown in the left side bar [#4347](https://github.com/diaspora/diaspora/issues/4347)
 * Rework the single post view
+* Add aspect modification on contacts page, close [#4397](https://github.com/diaspora/diaspora/issues/4397)
 
 ## Gem updates
 
