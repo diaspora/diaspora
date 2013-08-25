@@ -7,7 +7,7 @@ module NotificationMailers
       @conversation = @message.conversation
       @participants = @conversation.participants
 
-      @headers[:from] = "\"#{@message.author_name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>"
+      @headers[:from] = "\"#{@message.author_name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
       @headers[:subject] = @conversation.subject.strip
       @headers[:subject] = "Re: #{@headers[:subject]}" if @conversation.messages.size > 1
     end
