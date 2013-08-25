@@ -34,7 +34,7 @@
         color: #424242;
       }
       i.heart.gray:hover {
-        color: #a40802;
+        color: $red;
       }
       i.heart.red:hover {
         color: #f55f5a;
@@ -111,7 +111,7 @@
   .no_comments {
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: #eee;
+    background-color: $background-grey;
     text-align: center;
     @include border-radius(4px);
     margin-bottom: 30px;

@@ -20,21 +20,21 @@ body > header {
     height: 38px;
     width: 65px;
   }
-  
+
   .ie-user-menu-active { height: 150px; }
 
   a.header_root_link {
     display: inline-block;
     margin-top: 5px;
   }
-  
+
   a {
     color: #CCC;
     color: rgb(147,147,147);
 
     &:hover {
       background: none;
-      color: #fafafa;
+      color: $highlight-white;
     }
   }
 
@@ -42,7 +42,7 @@ body > header {
     height: 40px;
     .right { top: 10px; }
   }
-  
+
   #nav_badges {
     display: inline-block;
     margin-top: 2px;
@@ -56,7 +56,7 @@ body > header {
       position: relative;
       top: 2px;
       display: inline;
-      margin: 0 2px;      
+      margin: 0 2px;
       font-weight: bold;
       font-size: smaller;
 
@@ -67,13 +67,13 @@ body > header {
         top: -4px;
         left: 15px;
         padding: 1px 2px;
-        background-color: #A40802;
+        background-color: $red;
         line-height: 12px;
         color: #fff;
       }
 
-      &:hover .badge_count { background-color: lighten(#A40802, 5%); }
-      
+      &:hover .badge_count { background-color: lighten($red, 5%); }
+
       .icons-notifications_grey { height: 16px; }
 
       &.active .icons-notifications_grey:hover {
@@ -89,14 +89,14 @@ body > header {
         float: left;
       }
     }
-    
+
     #notification_badge, #message_inbox_badge {
       float: left;
       padding: 0px 3px;
     }
-    
+
     #message_inbox_badge {
-      padding-top: 3px; 
+      padding-top: 3px;
       margin-right: 0px;
       padding-right: 0px;
     }
@@ -134,7 +134,7 @@ body > header {
 
       .header {
         padding: 10px;
-        
+
         h4 {
           padding-bottom: 0;
           margin-bottom: 0;
@@ -142,7 +142,7 @@ body > header {
       }
 
       .notification_element,
-      .header { border-bottom: 1px solid #ddd; }
+      .header { border-bottom: 1px solid $border-grey; }
 
       .ajax_loader {
         text-align: center;
@@ -152,9 +152,9 @@ body > header {
       .notification_element {
         padding: 10px;
         min-height: 30px;
-      
-        &:hover { background-color: #FAFAFA; }
-        
+
+        &:hover { background-color: $highlight-white; }
+
         > img {
           height: 30px;
           width: 30px;
@@ -163,14 +163,14 @@ body > header {
         }
 
         &.unread {
-          background-color: #eee;
+          background-color: $background-grey;
           color: #000;
           font-weight: bold;
         }
       }
     }
   }
-  
+
   #global_search {
     float: right;
     margin-right: 10px;
@@ -179,7 +179,7 @@ body > header {
     form {
       position: absolute;
       right: 0;
-      
+
       input {
         @include box-shadow(0, 1px, 1px, #444);
         @include border-radius(15px);
@@ -193,7 +193,7 @@ body > header {
         &:hover { background-color: #555; }
 
         &.active {
-          background-color: #fafafa;
+          background-color: $highlight-white;
           background-color: rgba(160,160,160,0.6);
         }
 
@@ -220,10 +220,10 @@ body > header {
     z-index: 10;
     display: inline;
     top: -4px;
-    float: right;      
-    margin: -2px -5px 0px 0px;    
+    float: right;
+    margin: -2px -5px 0px 0px;
     padding: 5px 7px 5px 32px;
-    
+
     border-left: 1px solid #333;
     border-right: 1px solid #333;
 
@@ -238,11 +238,11 @@ body > header {
   .user-menu-item a {
     padding: 4px;
     height: 100%;
-    color: #939393;
+    color: $header-grey;
 
     &:hover {
       background-color: $blue;
-      color: #FAFAFA;
+      color: $highlight-white;
       text-decoration: none;
     }
   }
@@ -251,8 +251,8 @@ body > header {
     padding: 5px 0;
 
     &:hover {
-      color: #FAFAFA;
-      .user-name { color: #FAFAFA; }
+      color: $highlight-white;
+      .user-name { color: $highlight-white; }
     }
   }
 
@@ -306,41 +306,41 @@ body > header {
       }
     }
   }
-  
+
   /* When the user is not connected */
   ul#landing_nav {
     position: absolute;
     top: 4px;
-    right: 0;  
+    right: 0;
     margin: 0;
     padding: 0;
-  
+
     > li {
       text-shadow: 0 1px 0 #000;
       display: inline;
       margin-right: 0.5em;
-    
-      a {      
+
+      a {
         color: $blue;
-      
-        &.login {        
+
+        &.login {
           @include border-radius(5px);
           @include box-shadow(0, 1px, 1px, #666);
           padding: 5px 8px;
           background-color: #000;
           border-top: 1px solid #000;
-          
+
           &:hover { background-color: #222; }
         }
  	  }
- 	
+
       &:last-child { margin-right: 0; }
     }
   }
 }
 
 
-/* 
+/*
  * Extract here from application.sass because
  * needed for the header in the bootstrap part
  */
@@ -349,12 +349,12 @@ ul.dropdown {
 
   li {
     display: none;
-    
+
     a { display: block; }
 
     &:first-child {
       display: block;
-      
+
       a {
         height: auto;
         display: inline;

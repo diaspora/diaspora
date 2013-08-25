@@ -1,4 +1,4 @@
-
+@import 'colors';
 @import '_mixins.css.scss';
 
 .mentions-input-box {
@@ -53,9 +53,9 @@
         padding: 5px;
         white-space: nowrap;
 
-        &:hover, &.active { background: #eee; }
+        &:hover, &.active { background: $background-grey; }
         &:last-child { @include border-radius(0px, 0px, 5px, 5px); }
-        
+
         img, div.icon {
           float: left;
           height: 25px;

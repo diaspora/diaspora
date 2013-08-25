@@ -1,4 +1,5 @@
 @import 'compass'
+@import 'colors'
 @import 'ui'
 @import '_mixins'
 @import '_flash_messages'
@@ -81,7 +82,7 @@ ul > li
   :-moz-box-shadow rgba(0,0,0,0.12) 0px 0px 5px inset
 
   :background
-    :color #eee
+    :color $background-grey
 
   :width 50px
   :height 50px
@@ -149,7 +150,7 @@ ul.as-selections
 
   .stream_element
     :border
-      :bottom 1px solid #ddd
+      :bottom 1px solid $border-grey
 
     p
       &:last-child
@@ -240,7 +241,7 @@ ul.as-selections
     :float left
     :margin
       :top 6px
-  
+
   .controls:first-child
     .control_icon
       @include transition(opacity)
@@ -376,7 +377,7 @@ ul.as-selections
 
     :padding
       :top 10px
-    
+
     .controls
       .comment_delete
         @include transition(opacity)
@@ -423,7 +424,7 @@ ul.as-selections
     :color #bbb
 
 .stream_element .post-content .reshare
-  :border-left 2px solid #ddd
+  :border-left 2px solid $border-grey
 
 .stream_element.loaded .media .bd .feedback
   :clear both
@@ -1326,7 +1327,7 @@ ul#press_logos
 
 .show_comments
   :border
-    :top 1px solid #ddd
+    :top 1px solid $border-grey
   :margin
     :top 5px
 
@@ -1458,7 +1459,7 @@ ul#press_logos
 .invite_friends
   :padding 1em
   :background
-    :color #eee
+    :color $background-grey
   :border 1px solid #ccc
 
 #remember_me
@@ -1507,7 +1508,7 @@ ul#press_logos
       :color $grey
       :text-shadow 0 0 7px #FFF
       :cursor pointer
-      :border-bottom 2px solid #DDD
+      :border-bottom 2px solid $border-grey
       @include border-radius(0, 0, 3px, 3px)
       @include linear-gradient(rgba(255,255,255,0) , #EEE, 0%, 95%)
       :background-color transparent
@@ -1569,7 +1570,7 @@ ul#press_logos
       :bottom 10px
 
   :border
-    :bottom 1px solid #ddd
+    :bottom 1px solid $border-grey
   :padding 10px
     :top 101px
     :bottom 10px
@@ -1710,7 +1711,7 @@ ul#press_logos
     :padding 10px
     :height 55px
     :border
-      :bottom 1px solid #ddd
+      :bottom 1px solid $border-grey
 
 #no_conversation_text
   :font
@@ -1759,7 +1760,7 @@ h1.tag
   .tag
     :background
       :color #efefef
-    :color #999
+    :color $text-grey
     :border
       :bottom 1px dotted #999
 
@@ -1795,7 +1796,7 @@ h1.tag
     :color #e6e6e6
   :border-radius 8px
   :padding 5px
-  :color #999
+  :color $text-grey
 
   :text-align center
   .day
@@ -1810,7 +1811,7 @@ h1.tag
 .notification_count
   :background
     :color #f0f0f0
-  :color #999
+  :color $text-grey
   :font
     :weight normal
 
@@ -1823,7 +1824,7 @@ h1.tag
 
   &.unread
     :background
-      :color lighten(#A40802, 5%)
+      :color lighten($red, 5%)
     :color #eee !important
     :font
       :weight bold
@@ -1832,7 +1833,7 @@ h1.tag
   .title
     :position relative
     :border
-      :bottom 1px solid #ddd
+      :bottom 1px solid $border-grey
     :padding 2px 0
       :top 0
 
@@ -1896,7 +1897,7 @@ h1.tag
   .section
     .content
       :padding 8px
-      :color #999
+      :color $text-grey
       :font-size 11px
     li
       :list-style none
@@ -1975,9 +1976,9 @@ ul#requested-scopes
   :float right
   @include border-radius(4px)
   :margin-top 1px
-  :color #999
+  :color $text-grey
   :background
-    :color #eee
+    :color $background-grey
   :display inline-block
   :font
     :size 11px
@@ -2000,7 +2001,7 @@ ul.left_nav
       :decoration none
   a
     :font-weight bold
-    :color #777
+    :color $link-grey
     :text
       :decoration none
 
@@ -2155,7 +2156,7 @@ ul.left_nav
     :margin
       :bottom 0
   :border
-    :left 1px solid #ddd
+    :left 1px solid $border-grey
   :padding
     :left 10px
     :top 20px
@@ -2169,12 +2170,12 @@ ul.left_nav
 .new_aspect,
 a.toggle_selector
   :outline none
-  :color #999
+  :color $text-grey
   :font
     :style italic
 
   &:hover
-    :color #777
+    :color $link-grey
 
 .no_contacts
   :position relative
@@ -2314,7 +2315,7 @@ a.toggle_selector
   :width 140px
 
   .tags
-    :color #999
+    :color $text-grey
 
   h4
     :margin
@@ -2365,7 +2366,7 @@ a.toggle_selector
     :position relative
 
     :border
-      :bottom 1px solid #ddd
+      :bottom 1px solid $border-grey
 
     :padding 5px
     :margin
@@ -2402,7 +2403,7 @@ a.toggle_selector
   .diaspora_id_text
     :font-size 12px
     :text-align right
-    :color #999
+    :color $text-grey
     :margin
       :top -8px
     :padding 0
@@ -2455,7 +2456,7 @@ a.toggle_selector
   :text
     :align center
   :border
-    :bottom 1px solid #ddd
+    :bottom 1px solid $border-grey
 
 .mobile_row
   :margin
@@ -2489,7 +2490,7 @@ a.toggle_selector
   span.host_uri
     :float right
     :margin-top -28px
-    :color #999
+    :color $text-grey
     :padding-right 9px
 
 .center
@@ -2590,11 +2591,11 @@ body
 
 .nsfw-shield
   @include border-radius(3px)
-  :background-color #eee
+  :background-color $background-grey
   :width 90%
   :padding 5px 10px
-  :border 1px solid #ddd
-  :color #999
+  :border 1px solid $border-grey
+  :color $text-grey
 
 #back-to-top
   :display block
@@ -2619,7 +2620,7 @@ body
 
 .nsfw_off
   :font-size smaller
-  :color #999
+  :color $text-grey
   a
     :color #666
     :color #666

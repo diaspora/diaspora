@@ -54,7 +54,7 @@ form.block-form {
   /* mainly bootstrap overrides */
     .control-group {
       margin : 0;
-      border-bottom : 1px solid #ddd;
+      border-bottom : 1px solid $border-grey;
 
       .control-label,
       input[type=text],
