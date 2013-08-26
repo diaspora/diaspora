@@ -8,7 +8,10 @@ ja:
   javascripts:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
+      all_aspects: "全てのアスペクト"
       error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error_remove: "アスペクトから<%= name %>さんを削除できませんでした :("
+      select_aspects: "アスペクトを選択する"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle:
@@ -18,20 +21,64 @@ ja:
         other: "In {{count}} aspects"
         two: "In <%= count %> aspects"
         zero: "Add to aspect"
+    aspect_navigation:
+      add_an_aspect: "+ アスペクトを追加する"
+      deselect_all: "全て選択解除"
+      no_aspects: "どのアスペクトも選択されていません"
+      select_all: "全て選択"
+    comma: ","
+    comments:
+      hide: "コメントを隠す"
+      show: "全てのコメントを表示する"
     confirm_dialog: "本当にいいですか。"
+    delete: "削除"
+    edit: "編集"
+    failed_to_post_message: "メッセージの投稿に失敗しました!"
     getting_started:
       hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
+      close: "閉じる"
+      contacts: "連絡先"
+      home: "ホーム"
+      log_out: "ログアウト"
+      mark_all_as_read: "全て既読にする"
+      messages: "メッセージ"
+      notifications: "通知"
+      profile: "プロフィール"
+      recent_notifications: "最近の通知"
       search: "Find people or #tags"
+      settings: "設定"
+      view_all: "全て見る"
+    ignore: "無視"
+    ignore_user: "このユーザーを無視しますか?"
     infinite_scroll:
       no_more: "投稿はこれ以上ありません。"
+      no_more_contacts: "これ以上連絡先はありません。"
+    my_aspects: "私のアスペクト"
+    photo_uploader:
+      empty: "{file}は空のファイルです。他のファイルを選択してください。"
+      size_error: "{file}は大きすぎます。ファイルサイズの上限は{sizeLimit}です。"
     publisher:
       at_least_one_aspect: "アスペクトを選択してから投稿してください。"
+      limited: "限定公開 - 投稿はあなたが共有している人だけが見られるようになります"
+      near_from: "<%= location %>からの投稿"
+      public: "公開 - 投稿は全ての人から見ることができ、検索エンジンで見つかるようになります"
     reshares:
       duplicate: "You've already reshared that post!"
+      post: "<%= name %>さんの投稿を再共有しますか?"
+      successful: "投稿は正常に再共有されました!"
     search_for: "{{name}}を検索する"
+    show_more: "さらに表示する"
     stream:
+      comment: "コメント"
+      follow: "フォロー"
+      followed_tag:
+        add_a_tag: "タグを追加する"
+        follow: "フォロー"
+        title: "#フォローしたタグ"
+      hide: "隠す"
+      hide_nsfw_posts: "#nsfwの投稿を隠す"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -39,6 +86,7 @@ ja:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "限定公開"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
@@ -46,6 +94,8 @@ ja:
         other: "Show <%= count %> more comments"
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      public: "公開"
+      reshare: "再共有"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -53,6 +103,13 @@ ja:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "投稿を表示する"
+      show_nsfw_posts: "全て表示"
+      tags:
+        follow: "#<%= tag %>をフォローする"
+        following: "#<%= tag %>をフォロー中"
+        stop_following: "#<%= tag %>のフォローを中止する"
+      unfollow: "フォロー解除"
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:
@@ -74,3 +131,9 @@ ja:
     videos:
       unknown: "動画の種類が不明です"
       watch: "{{provider}}で動画を視聴する"
+    viewer:
+      comment: "コメント"
+      follow_post: "投稿をフォローする"
+      home: "ホーム"
+      reshare: "再共有"
+      stop_following_post: "投稿のフォローを解除する"

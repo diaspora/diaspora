@@ -284,6 +284,8 @@ el:
     two: "%{count} επαφές"
     zero: "επαφές"
   conversations:
+    conversation:
+      participants: "Συμμετέχοντες"
     create:
       fail: "Μη έγκυρο μήνυμα"
       no_contact: "Ε, πρέπει πρώτα να προσθέσετε μια επαφή!"

@@ -16,6 +16,7 @@ de:
       invalid: "Ungültiger Benutzername oder ungültiges Kennwort."
       invalid_token: "Ungültiger Authentifizierungstoken."
       locked: "Dein Konto ist gesperrt."
+      not_found_in_database: "Passwort oder E-Mail-Adresse ungültig"
       timeout: "Deine Sitzung ist abgelaufen! Um fortzufahren, melde dich bitte erneut an."
       unauthenticated: "Du musst dich anmelden oder registrieren, um fortzufahren."
       unconfirmed: "Du musst dein Konto bestätigen, um fortzufahren."

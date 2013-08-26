@@ -80,6 +80,7 @@ it:
     user_search:
       add_invites: "aggiungi inviti"
       email_to: "Email a cui mandare l'invito"
+      under_13: "Mostra utenti sotto i 13 anni (Children's Online Privacy Protection Act)"
       users:
         one: "trovato %{count} utente"
         other: "trovati %{count} utenti"
@@ -368,6 +369,7 @@ it:
       resend: "Invia di nuovo"
       send_an_invitation: "Spedisci un invito"
       send_invitation: "Invito spedito"
+      sending_invitation: "Invio dell'invito in corso..."
       to: "A"
   layouts:
     application:
@@ -555,6 +557,7 @@ it:
       edit_membership: "modifica appartenenza all'aspetto"
     few: "%{count} persone"
     helper:
+      is_sharing: "%{name} sta condividendo con te"
       people_on_pod_are_aware_of: " le persone sul pod sanno che"
       results_for: " risultati per %{params}"
     index:

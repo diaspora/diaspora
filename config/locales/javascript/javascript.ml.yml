@@ -25,6 +25,8 @@ ml:
       hide: "അഭിപ്രായങ്ങള്‍ മറയ്ക്കുക"
       show: "എല്ലാ അഭിപ്രായങ്ങളും കാണിക്കുക"
     confirm_dialog: "താങ്കള്‍ക്ക് ഉറപ്പാണോ?"
+    conversation:
+      participants: "അംഗങ്ങൾ"
     delete: "മായ്ക്കുക"
     edit: "തിരുത്തുക"
     failed_to_like: "ഇഷ്ടപെടാൻ സാധിച്ചില്ല"
@@ -52,6 +54,7 @@ ml:
     ignore_user: "ഈ ഉപയോക്താവിനെ അവഗണിക്കണോ?"
     infinite_scroll:
       no_more: "കൂടുതല്‍ പോസ്റ്റുകളൊന്നുമില്ല."
+      no_more_contacts: "മറ്റു സമ്പർക്കങ്ങളൊന്നുമില്ല"
     my_activity: "എന്റെ പ്രവൃത്തി"
     my_aspects: "എന്റെ ഭാവങ്ങൾ"
     my_stream: "സ്ട്രീം"

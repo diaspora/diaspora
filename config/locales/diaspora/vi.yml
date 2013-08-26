@@ -52,6 +52,7 @@ vi:
         other: "%{count} bình luận"
         zero: "Không có bình luận"
       daily: "Hàng ngày"
+      go: "đi"
       month: "Tháng"
       posts:
         other: "%{count} bài đăng"
@@ -141,6 +142,7 @@ vi:
       donate: "Quyên góp"
       handle_explanation: "Đây là id diaspora của bạn. Giống như một địa chỉ thư điện tử, người khác có thể liên lạc với bạn thông qua nó."
       help:
+        any_problem: "Có vấn đề?"
         do_you: "Bạn muốn:"
         email_feedback: "%{link} phản hồi hoặc góp ý"
         email_link: "Thư điện tử"
@@ -265,8 +267,11 @@ vi:
     two: "%{count} liên lạc"
     zero: "contacts"
   conversations:
+    conversation:
+      participants: "Người tham gia"
     create:
       fail: "Tin nhắn không hợp lệ"
+      no_contact: "Bạn cần phải thêm liên lạc trước đã!"
       sent: "Đã gửi tin nhắn"
     destroy:
       success: "Đã loại bỏ cuộc hội thoại"
@@ -322,7 +327,9 @@ vi:
     create:
       already_contacts: "Bạn đã kết nối với người này"
       already_sent: "Bạn đã mời người này."
+      empty: "Nhập ít nhất một địa chỉ thư điện tử."
       no_more: "Bạn đã hết thư mời."
+      note_already_sent: "Đã gửi lời mời đến địa chỉ: %{emails}"
       own_address: "Bạn không thể gửi lời mời đến địa chỉ riêng của bạn."
       rejected: "Địa chỉ thư điện tử sau có vấn đề: "
       sent: "Thư mời đã được gửi đến: %{emails}"
@@ -345,6 +352,7 @@ vi:
       resend: "Gửi lại"
       send_an_invitation: "Gửi thư mời"
       send_invitation: "Gửi thư mời"
+      sending_invitation: "Đang gửi thư mời..."
       to: "Đến"
   layouts:
     application:
@@ -502,6 +510,7 @@ vi:
       add_contact_from_tag: "thêm liên lạc từ thẻ"
     few: "%{count} người"
     helper:
+      is_sharing: "%{name} đang chia sẻ với bạn"
       results_for: " kết quả cho %{params}"
     index:
       couldnt_find_them_send_invite: "Không thể tìm thấy họ?  Hãy gửi thư mời!"
@@ -649,6 +658,7 @@ vi:
       enter_username: "Tên người dùng (chỉ gồm chữ cái, số và dấu gạch dưới _)"
       join_the_movement: "Tham gia chuyển đổi!"
       password: "MẬT KHẨU"
+      password_confirmation: "XÁC NHẬN MẬT KHẨU"
       sign_up: "ĐĂNG KÍ"
       sign_up_message: "Social Networking with a <3"
       username: "TÊN NGƯỜI DÙNG"
@@ -705,6 +715,7 @@ vi:
       logged_in_as: "đã đăng nhập với tên"
       no_services: "Bạn chưa kết nối đến dịch vụ nào."
       really_disconnect: "ngắt kết nối với %{service}?"
+      services_explanation: "Kết nối các dịch vụ để có thể đăng tin lên chúng thông qua Diaspora."
     inviter:
       click_link_to_accept_invitation: "Theo dõi liên kết này để chấp nhận lời mời của bạn"
       join_me_on_diaspora: "Tham gia DIASPORA*"
@@ -751,7 +762,7 @@ vi:
       atom_feed: "Nguồn tin"
       control_your_audience: "Kiểm soát phạm vi chia sẻ"
       logged_in: "đã đăng nhập vào %{service}"
-      manage: "quản lí các dịch vụ đã được kết nối"
+      manage: "Quản lí các dịch vụ đã được kết nối"
       new_user_welcome_message: "Sử dụng dấu thăng (#hashtags) để phân loại bài đăng và tìm người dùng khác."
       outside: "Công khai bài đăng để mọi người ở ngoài Diaspora đều được thấy."
       share: "Chia sẻ"
@@ -761,6 +772,7 @@ vi:
       all: "tất cả"
       all_contacts: "tất cả liên lạc"
       discard_post: "Huỷ bài đăng"
+      get_location: "Lấy thông tin vị trí"
       make_public: "công khai hoá"
       new_user_prefill:
         hello: |-
@@ -771,6 +783,7 @@ vi:
         newhere: "NewHere"
       post_a_message_to: "Gửi tin nhắn đến %{aspect}"
       posting: "Đăng bài..."
+      preview: "Xem trước"
       publishing_to: "chia sẻ với: "
       share: "Chia sẻ"
       share_with: "chia sẻ với"
@@ -931,6 +944,7 @@ vi:
       hashtag_suggestions: "Thử theo dõi các thẻ như #art, #movies, #gif, v.v..."
       saved: "Đã lưu!"
       well_hello_there: "Chào bạn!"
+      what_are_you_in_to: "Bạn đang ở đâu?"
       who_are_you: "Bạn là ai?"
     privacy_settings:
       ignored_users: "Người dùng bị bỏ qua"

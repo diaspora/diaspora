@@ -1,0 +1,40 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+es-BO:
+  _applications: "Aplicaciones"
+  _comments: "Comentarios"
+  _home: "Inicio"
+  _photos: "Fotos"
+  _services: "Servicios"
+  account: "Cuenta"
+  ago: "hace %{time}"
+  are_you_sure: "¿Estás seguro/a?"
+  are_you_sure_delete_account: "¿Estás seguro/a de que quieres cerrar tu cuenta? ¡Esto no se puede deshacer!"
+  back: "atrás"
+  cancel: "Cancelar"
+  delete: "Borrar"
+  email: "correo electrónico"
+  fill_me_out: "Complétame"
+  find_people: "Encontrar personas o #tags"
+  hide: "Ocultar"
+  limited: "Limitado"
+  more: "Más"
+  next: "Siguiente"
+  ok: "Aceptar"
+  or: "o"
+  password: "Contraseña"
+  password_confirmation: "Confirmación de contraseña"
+  previous: "Anterior"
+  privacy: "privacidad"
+  privacy_policy: "Política de privacidad"
+  profile: "Perfil"
+  public: "público\n"
+  search: "Búsqueda"
+  settings: "configuración"
+  terms_and_conditions: "Términos y condiciones"
+  undo: "¿Deshacer?"
+  username: "Nombre de usuario"

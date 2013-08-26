@@ -83,6 +83,7 @@ pl:
     user_search:
       add_invites: "dodaj zaproszenia"
       email_to: "Zaproś przez e-mail"
+      under_13: "Wyswietlij użytkowników poniżej 13 lat."
       users:
         few: "%{count} znalezionych użytkowników"
         one: "%{count} znaleziony użytkownik"
@@ -290,6 +291,8 @@ pl:
     two: "%{count} kontakty"
     zero: "kontakty"
   conversations:
+    conversation:
+      participants: "Uczestnicy"
     create:
       fail: "Nieprawidłowa wiadomość"
       no_contact: "Hej! Najpierw należy dodać kontakt!"
@@ -373,6 +376,7 @@ pl:
       resend: "Wyślij ponownie"
       send_an_invitation: "Wyślij zaproszenie"
       send_invitation: "Wyślij zaproszenie"
+      sending_invitation: "Wysyła zaproszenie..."
       to: "Do"
   layouts:
     application:
@@ -549,6 +553,7 @@ pl:
       edit_membership: "edycja przynależności do aspektów"
     few: "Osoby: %{count}"
     helper:
+      is_sharing: "%{name} dzieli się z tobą."
       people_on_pod_are_aware_of: "osoby na podzie wiedzą, że"
       results_for: "wyniki dla %{params}"
     index:
@@ -821,6 +826,7 @@ pl:
       all: "wszyscy"
       all_contacts: "wszystkim kontaktom"
       discard_post: "Porzuć wpis"
+      get_location: "Ustal twoją lokalizację"
       make_public: "upublicznij"
       new_user_prefill:
         hello: "Witajcie wszyscy, jestem #%{new_user_tag}. "

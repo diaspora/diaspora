@@ -32,6 +32,8 @@ ru:
       hide: "скрыть комментарии"
       show: "Показать все комментарии"
     confirm_dialog: "Вы уверены? "
+    conversation:
+      participants: "Участники"
     delete: "Удалить"
     edit: "Изменить"
     failed_to_like: "Не удалось!"

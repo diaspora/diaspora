@@ -25,6 +25,8 @@ ia:
       hide: "celar commentos"
       show: "revelar tote le commentos"
     confirm_dialog: "Es tu secur?"
+    conversation:
+      participants: "Participantes"
     delete: "Deler"
     edit: "Modificar"
     failed_to_like: "Appreciation fallite!"

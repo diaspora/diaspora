@@ -51,7 +51,7 @@ nb:
       correlations_count: "Korrellasjoner med pålogget antall"
     stats:
       2weeks: "To uker"
-      50_most: "femti mest populære tag'er"
+      50_most: "50 mest populære tag'er"
       comments:
         one: "%{count} kommentarer"
         other: "%{count} kommentarer"
@@ -79,6 +79,7 @@ nb:
     user_search:
       add_invites: "legg til invitasjoner"
       email_to: "E-post for invitasjon"
+      under_13: "Vis deltakere under 13 (COPPA)"
       users:
         one: "%{count} bruker funnet"
         other: "%{count} brukere funnet"
@@ -284,9 +285,11 @@ nb:
     two: "%{count} kontakter"
     zero: "ingen kontakter"
   conversations:
+    conversation:
+      participants: "Deltakere"
     create:
       fail: "Ugyldig melding"
-      no_contact: "Heisan, du må legge til kontakten først."
+      no_contact: "Heisann, du må legge til kontakten først."
       sent: "Melding sendt"
     destroy:
       success: "Samtale fjernet"
@@ -368,6 +371,7 @@ nb:
       resend: "Send på nytt"
       send_an_invitation: "Send en invitasjon"
       send_invitation: "Send invitasjon"
+      sending_invitation: "Sender invitasjon..."
       to: "Til"
   layouts:
     application:
@@ -564,6 +568,7 @@ nb:
       edit_membership: "endre aspektmedlemskap"
     few: "%{count} personer"
     helper:
+      is_sharing: "%{name} deler med deg"
       people_on_pod_are_aware_of: "folk på poden snakker om"
       results_for: " resultater for %{params}"
     index:
@@ -718,7 +723,7 @@ nb:
       hey_make: "HALLO,<br/>LAG<br/>ET ELLER ANNET."
       join_the_movement: "Bli med i nettverket!"
       password: "PASSORD"
-      password_confirmation: "PASSORD BEKREFTELSE"
+      password_confirmation: "PASSORDBEKREFTELSE"
       sign_up: "REGISTRER DEG"
       sign_up_message: "Social Networking with a <3"
       username: "BRUKERNAVN"
@@ -821,7 +826,7 @@ nb:
       invite_your_friends: "Innviter vennene dine"
       invites: "Invitasjoner "
       invites_closed: "Invites are currently closed on this Diaspora seed"
-      share_this: "Del denne lenken via e-post, blogg eller favoritt sosialt nettverk!"
+      share_this: "Del denne lenken via e-post, blogg eller ditt foretrukne sosiale nettverk!"
     notification:
       new: "Ny %{type} fra %{from}"
     public_explain:
@@ -838,6 +843,7 @@ nb:
       all: "alle"
       all_contacts: "alle kontakter"
       discard_post: "Forkast det innsendte/registrerte"
+      get_location: "Hent din posisjon"
       make_public: "gjør offentlig"
       new_user_prefill:
         hello: "Hei alle sammen, jeg er #%{new_user_tag}. "

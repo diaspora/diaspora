@@ -30,6 +30,7 @@ hu:
     comma: ","
     comments:
       hide: "hozzászólások elrejtése"
+      no_comments: "Még nincs hozzászólás."
       show: "összes hozzászólás"
     confirm_dialog: "Biztos vagy benne?"
     conversation:

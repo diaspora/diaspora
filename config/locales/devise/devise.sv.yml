@@ -16,6 +16,7 @@ sv:
       invalid: "Fel användarnamn eller lösenord."
       invalid_token: "Ogiltig identifiering."
       locked: "Ditt konto är låst."
+      not_found_in_database: "Ogiltig e-postadress eller ogiltigt lösenord."
       timeout: "Din session är avslutad, var vänlig logga in igen."
       unauthenticated: "Du måste logga in innan du kan fortsätta."
       unconfirmed: "Du måste verifiera ditt konto innan du kan fortsätta."

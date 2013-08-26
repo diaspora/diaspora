@@ -11,6 +11,7 @@ de:
       add_to_aspect: "Kontakt hinzufügen"
       all_aspects: "Alle Aspekte"
       error: "Teilen mit <%= name %> nicht möglich. Ignorierst du sie/ihn?"
+      error_remove: "Konnte <%= name %> nicht aus dem Aspekt entfernen :("
       select_aspects: "Wähle Aspekte aus"
       started_sharing_with: "Du hast angefangen, mit <%= name %> zu teilen!"
       stopped_sharing_with: "Du hast aufgehört, mit <%= name %> zu teilen!"
@@ -29,6 +30,7 @@ de:
     comma: ","
     comments:
       hide: "Kommentare verbergen"
+      no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
     conversation:
@@ -75,7 +77,7 @@ de:
     publisher:
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
-      near_from: "In der Nähe von <%= location %>"
+      near_from: "Gesendet aus <%= location %>"
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares:
       duplicate: "Du hast diesen Beitrag bereits weitergesagt!"

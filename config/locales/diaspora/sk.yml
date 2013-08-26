@@ -84,6 +84,7 @@ sk:
     user_search:
       add_invites: "pridať pozvánky"
       email_to: "Pozvi e-mailom"
+      under_13: "Zobraziť používateľov mladších ako 13 rokov (COPPA)"
       users:
         few: "našli sa %{count} používatelia"
         one: "našiel sa %{count} používateľ"
@@ -378,6 +379,7 @@ sk:
       resend: "Preposlať"
       send_an_invitation: "Poslať pozvánku"
       send_invitation: "Poslať pozvánku"
+      sending_invitation: "Posiela sa pozvánka..."
       to: "Príjemcovia"
   layouts:
     application:
@@ -385,7 +387,7 @@ sk:
       powered_by: "PREVÁDZKUJE DIASPORA*"
       public_feed: "Verejný kanál Diaspory pre %{name}"
       source_package: "stiahnuť balík so zdrojovým kódom"
-      toggle: "prepnúť na stránku pre mobil"
+      toggle: "prepnúť mobilnú verziu"
       whats_new: "Čo je nové?"
       your_aspects: "Tvoje kategórie"
     header:
@@ -556,6 +558,7 @@ sk:
       edit_membership: "upraviť členstvo v kategórii"
     few: "%{count} ľudia"
     helper:
+      is_sharing: "%{name} sa s Tebou o niečo delí"
       people_on_pod_are_aware_of: "Ľudia na pode sú si vedomí"
       results_for: "výsledky pre %{params}"
     index:
@@ -714,7 +717,7 @@ sk:
       password_confirmation: "POTVRDENIE HESLA"
       sign_up: "ZAREGISTROVAŤ SA"
       sign_up_message: "Prepojenie cez sociálne siete s ♥"
-      username: "POUŽÍVATEĽSKÉ MENO"
+      username: "POUŽÍVATEĽ"
   requests:
     create:
       sending: "Posiela sa"

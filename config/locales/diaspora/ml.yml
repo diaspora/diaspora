@@ -89,6 +89,7 @@ ml:
   all_aspects: "എല്ലാം"
   application:
     helper:
+      diaspora_alpha: "ഡയസ്പോറ* ആൽഫ"
       unknown_person: "അറിയാത്ത വ്യക്തി"
       video_title:
         unknown: "ചലചിത്രത്തിന്റെ തലക്കെട്ട് അറിയില്ല"
@@ -106,6 +107,8 @@ ml:
     aspect_contacts:
       done_editing: "മാറ്റം വരുത്തി കഴിഞ്ഞു"
     aspect_listings:
+      add_an_aspect: "+ഒരു ഭാവം ചേർക്കുക"
+      deselect_all: "ഒന്നും തിരഞ്ഞെടുക്കാതിരിക്കുക"
       edit_aspect: "%{name} തിരുത്തു"
       select_all: "എല്ലാം തെരഞ്ഞെടുക്കുക"
     aspect_stream:
@@ -138,6 +141,7 @@ ml:
       cubbies:
         learn_more: "കൂടുതല്‍ അറിയുക"
       diaspora_id:
+        content_1: "നിങ്ങളുടെ ഡയസ്പോറ ഐഡി:"
         heading: "ഡയസ്പോറ ഐഡി"
       donate: "സംഭാവന"
       handle_explanation: "ഇത് താങ്കളുടെ ഡയസ്പോറ ഐഡിയാണ്. അളുകള്‍ക്ക് താങ്കളെ ബന്ധപെടാന്‍ ഇത് ഇമെയില്‍ പോലെ കൊടുക്കാം."
@@ -148,13 +152,18 @@ ml:
         mail_podmin: "പോഡ്മിൻ ഈമെയിൽ"
         need_help: "സഹായം വേണോ?"
         tag_bug: "bug"
+        tag_feature: "പ്രത്യേകത"
         tag_question: "question"
       keep_diaspora_running: "ഒരു സംഭാവനയിലൂടെ ഡയസ്പോറ വികസനം വേഗത്തിലാക്കുക"
       keep_pod_running: "ഒരു സംഭാവന കൊണ്ട് %{pod} സുഗമമായി പ്രവർത്തിപ്പിക്കുന്നതിലും സെർവറുകൾ നിലനിർത്തുന്നതിലും സഹായിക്കുക"
       new_here:
         learn_more: "കൂടുതല്‍ അറിയുക"
+        title: "പുതിയ ഉപയോക്താക്കളെ സ്വാഗതം ചെയ്യുക"
       no_contacts: "സമ്പര്‍ക്കങ്ങളില്ല"
       post_a_message: "ഒരു കത്തയക്കുക >>"
+      services:
+        content: "താഴെപ്പറയുന്ന സേവനങ്ങളുമായി ബന്ധപ്പെടാം"
+        heading: "സേവനങ്ങൾ ഉൾപ്പെടുത്തുക"
       unfollow_tag: "#%{tag} പിന്തുടരുന്നത് നിർത്തുക"
       welcome_to_diaspora: "ഡയസ്പോറയിലേക്ക് സ്വഗതം, %{name}!"
     many: "%{count} പരിചയങ്ങള്‍"
@@ -174,6 +183,9 @@ ml:
       family: "കുടുംബം"
       friends: "കൂട്ടുകാര്‍"
       work: "ജോലി"
+    selected_contacts:
+      no_contacts: "നിങ്ങൾക്കിതുവരെ സമ്പർക്കങ്ങളൊന്നുമില്ല"
+      view_all_contacts: "എല്ലാ സമ്പർക്കങ്ങളും കാണുക"
     show:
       edit_aspect: "പരിചയം ചിട്ടപെടുത്തുക"
     two: "%{count} aspects"
@@ -199,6 +211,7 @@ ml:
       success: "Let's see what they have to say! #sayhello"
   bookmarklet:
     explanation: "എവിടെ നിന്നും ഡയസ്പോറയിലേക്ക് കുറിക്കുവാനായി ഈ ലിങ്ക് ബുക്ക്മാര്‍ക്ക് ചെയ്യുക => %{link}."
+    heading: "അടയാളക്കുറിപ്പാക്കുക"
     post_something: "ഡയസ്പോറയിലേക്ക് കുറിക്കുക"
     post_success: "കുറിച്ചു! അടയ്ക്കുന്നു!"
   cancel: "റദ്ദാക്കുക"
@@ -219,17 +232,24 @@ ml:
     index:
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
       my_contacts: "എന്റെ സമ്പര്‍ക്കങ്ങള്‍"
+      only_sharing_with_me: "നിങ്ങളുമായി മാത്രം പങ്ക് വച്ചത്"
+      start_a_conversation: "സംഭാഷണം ആരംഭിക്കൂ"
       title: "സമ്പര്‍ക്കങ്ങള്‍"
       your_contacts: "നിങ്ങളുടെ സമ്പര്‍ക്കങ്ങള്‍"
     many: "%{count} സമ്പര്‍ക്കങ്ങള്‍"
     one: "ഒരു സമ്പര്‍ക്കം"
     other: "%{count} മറ്റു സമ്പര്‍ക്കങ്ങള്‍"
+    sharing:
+      people_sharing: "നിങ്ങളുമായി പങ്കിടുന്ന സുഹൃത്തുക്കൾ"
     spotlight:
       suggest_member: "ഒരു ഉപയോക്ത്താവിനെ നിർദ്ദേശിക്കുക"
     two: "%{count} contacts"
     zero: "സമ്പര്‍ക്കമൊന്നുമില്ല"
   conversations:
+    conversation:
+      participants: "അംഗങ്ങൾ"
     create:
+      fail: "സാധുവല്ലാത്ത സന്ദേശം"
       no_contact: "നമസ്കാരം, താങ്കൾ ആദ്യം ഒരു ബന്ധം ചേർക്കണം!"
       sent: "സന്ദേശം അയച്ചു."
     destroy:
@@ -254,9 +274,12 @@ ml:
       sending: "അയയ്ക്കുന്നു..."
       subject: "വിഷയം"
       to: "സ്വീകര്‍ത്താവ്"
+    new_message:
+      fail: "സാധുവല്ലാത്ത സന്ദേശം"
     show:
       delete: "സംഭാഷണം തടഞ്ഞ് നീക്കം ചെയ്യുക."
       reply: "മറുപടി"
+      replying: "മറുപടി നൽകുന്നു.."
   date:
     formats:
       birthday: "%B %d"
@@ -275,6 +298,7 @@ ml:
   invitation_codes:
     excited: "%{name} താങ്കളെ ഇവിടെ കണ്ടതിൽ ആഹ്ലാദിക്കുന്നു."
   invitations:
+    a_facebook_user: "ഒരു ഫേസ്ബുക്ക് ഉപയോക്താവ്"
     check_token:
       not_found: "ക്ഷണത്തിന്റെ ടോക്കണ്‍ കാണുന്നില്ല"
     create:
@@ -284,6 +308,8 @@ ml:
       no_more: "താങ്കള്‍ക്ക് ഇനി ക്ഷണങ്ങളൊന്നും ബാക്കിയില്ല."
       note_already_sent: "ക്ഷണക്കത്തുകൾ മുൻപേ തന്നെ അയച്ചിട്ടുണ്ട്: %{emails}"
       rejected: "ഈ ഇമെയില്‍ വിലാസങ്ങള്‍ക്ക് പ്രശ്നങ്ങളുണ്ട്: "
+    edit:
+      accept_your_invitation: "നിങ്ങൾക്കുള്ള ക്ഷണം സ്വീകരിക്കുക"
     new:
       aspect: "പരിചയം"
       codes_left:
@@ -299,6 +325,7 @@ ml:
       resend: "വീണ്ടും അയയ്ക്കുക"
       send_an_invitation: "ഒരു ക്ഷണം അയയ്ക്കു"
       send_invitation: "ക്ഷണം അയയ്ക്കു"
+      sending_invitation: "ക്ഷണം അയയ്ക്കുന്നു"
       to: "സ്വീകര്‍ത്താവ്"
   layouts:
     application:
@@ -310,6 +337,7 @@ ml:
       whats_new: "പുതിയത്?"
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
     header:
+      admin: "കാര്യനിർവാഹകൻ"
       blog: "ബ്ലോഗ്"
       code: "കോഡ്"
       login: "അകത്ത് കടക്കുക"
@@ -452,6 +480,7 @@ ml:
           [1]:%{invite_url}
     invited_you: "%{name} താങ്കളെ ഡയസ്പോറ*യിലേക്ക് ക്ഷണിച്ചിരിക്കുന്നു"
     liked:
+      liked: "%{name} നിങ്ങളുടെ പോസ്റ്റ് ഇഷ്ടപ്പെടുന്നു"
       view_post: "കുറിപ്പ് കാണുക >"
     mentioned:
       mentioned: "താങ്കളെ ഒരു കുറിപ്പില്‍ സൂചിപ്പിച്ചു:"
@@ -462,8 +491,10 @@ ml:
       admin: "നിങ്ങളുടെ ഡയസ്പോറ മേല്‍നോട്ടക്കാരന്‍"
       subject: "നിങ്ങളുടെ ഡയസ്പോറ അക്കൌണ്ടിനെ സംബന്ധിച്ച് ഒരു സന്ദേശം:"
     started_sharing:
+      sharing: "നിങ്ങളുമായി പങ്കിടാൻ ആരംഭിച്ചിരിക്കുന്നു"
       subject: "%{name} താങ്കളുമായി ഡയസ്പോറയില്‍ പങ്കിടാന്‍ തുടങ്ങി"
     thanks: "നന്ദിയോടെ,"
+    to_change_your_notification_settings: "അറിയിപ്പുകളെപ്പറ്റിയുള്ള സജ്ജീകരണങ്ങളിൽ മാറ്റം വരുത്തുക"
   ok: "ശരി"
   or: "അല്ലെങ്കില്‍"
   password: "അടയാളവാക്ക്"
@@ -517,6 +548,7 @@ ml:
       start_sharing: "പങ്കുവച്ച് തുടങ്ങുക"
       to_accept_or_ignore: "സ്വീകരിക്കുകയോ ത്യജിക്കുകയോ ചെയ്യാന്‍."
     sub_header:
+      add_some: "എന്തെങ്കിലും ചേർക്കൂ"
       edit: "തിരുത്തുക"
     two: "%{count} ആളുകള്‍"
     webfinger:
@@ -748,6 +780,7 @@ ml:
       all: "എല്ലാം"
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
       discard_post: "Discard post"
+      get_location: "നിങ്ങളുടെ സ്ഥാനം പ്രാപ്തമാക്കുക"
       make_public: "പൊതുവാക്കുക"
       new_user_prefill:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
@@ -756,6 +789,7 @@ ml:
         newhere: "NewHere"
       post_a_message_to: "%{aspect}ല്‍ ഒരു സന്ദേശം പ്രസിദ്ധീകരിക്കുക"
       posting: "കുറിക്കുന്നു..."
+      preview: "തിരനോട്ടം"
       publishing_to: "പ്രസിദ്ധീകരിക്കുന്നു: "
       share: "പങ്കുവെയ്ക്കുക"
       share_with: "പങ്കുവെയ്ക്കുക"

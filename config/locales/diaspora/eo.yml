@@ -5,11 +5,11 @@
 
 
 eo:
-  _applications: "Programoj"
+  _applications: "Aplikaĵoj"
   _comments: "Komentoj"
   _contacts: "Kontaktoj"
   _home: "Hejmo"
-  _photos: "Bildoj"
+  _photos: "bildoj"
   _services: "Servoj"
   account: "Konto"
   activerecord:
@@ -18,28 +18,28 @@ eo:
         contact:
           attributes:
             person_id:
-              taken: "devas esti unika inter la kontaktoj de tiu uzanto."
+              taken: "estu unika inter la kontaktoj de ĉi tiu uzanto."
         person:
           attributes:
             diaspora_handle:
-              taken: "jam okupiĝis."
+              taken: "estas jam prenita."
         request:
           attributes:
             from_id:
-              taken: "estas ripeto de jam ekzistanta peto."
+              taken: "estas duoblo de jam ekzistanta peto."
         reshare:
           attributes:
             root_guid:
-              taken: "Ho, ĉu tiom bone? Vi jam rekonigis tiun afiŝon!"
+              taken: "Ho, ĉu tiom bone? Vi jam rekunhavigis ĉi tiun afiŝon!"
         user:
           attributes:
             email:
-              taken: "jam okupiĝis."
+              taken: "estas jam prenita."
             person:
-              invalid: "ne estas valida."
+              invalid: "ne validas."
             username:
-              invalid: "ne ĝustas.  Ni permesas nur literojn, nombrojn kaj substrekojn."
-              taken: "jam okupiĝis."
+              invalid: "nevalidas. Ni permesas nur literojn, nombrojn kaj substrekojn."
+              taken: "estas jam prenita."
   admins:
     admin_bar:
       correlations: "Korelacio"
@@ -83,16 +83,18 @@ eo:
         other: "%{count} uzantoj trovitaj"
         zero: "%{count} uzantoj trovitaj"
       you_currently: "vi aktuale havas ankoraŭ %{user_invitation} invitojn %{link}"
+    weekly_user_stats:
+      current_server: "Aktuala dato de servilo estas %{date}"
   ago: "antaŭ %{time}"
-  all_aspects: "Ĉiuj Aspektoj"
+  all_aspects: "Ĉiuj aspektoj"
   application:
     helper:
       diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "nekonata persono"
       video_title:
-        unknown: "Nekonata film-titolo"
+        unknown: "Nekonata filmtitolo"
   are_you_sure: "Ĉu vi certas?"
-  are_you_sure_delete_account: "Ĉu vi certas, ke vi volas forigi vian konton?  Ĉi tion oni ne povas malfari!"
+  are_you_sure_delete_account: "Ĉu vi certe volas forigi vian konton? Vi ne povas malfari tion!"
   aspect_memberships:
     destroy:
       failure: "Forigi personon el aspekto malsukcesis"
@@ -232,7 +234,7 @@ eo:
     heading: "Legosigneto"
     post_something: "Afiŝi ion en DIASPORA*"
     post_success: "Afiŝita! Fermanta!"
-  cancel: "Rezigni"
+  cancel: "Nuligi"
   comments:
     few: "%{count} komentoj"
     many: "%{count} komentoj"
@@ -270,6 +272,7 @@ eo:
       people_sharing: "Homoj, kiuj konigas al vi:"
     spotlight:
       community_spotlight: "Komunuma ĉeflumo"
+      suggest_member: "Sugesti membron"
     two: "%{count} kontaktoj"
     zero: "kontaktoj"
   conversations:
@@ -307,13 +310,14 @@ eo:
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
-  delete: "Forviŝi"
+  delete: "Forigi"
   email: "Retpoŝtadreso"
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Ĝustigu la postajn erarojn kaj reprovu."
-      invalid_fields: "Malvalidaj kampoj"
-  fill_me_out: "Kompletigu min"
+      correct_the_following_errors_and_try_again: "Ĝustigu la sekvajn erarojn kaj reprovu."
+      invalid_fields: "Nevalidaj kampoj"
+    login_try_again: "Bonvole <a href='%{login_link}'>ensalutu</a> kaj provu denove."
+  fill_me_out: "Plenumigu min"
   find_people: "Trovi homojn aŭ #etikedojn"
   hide: "Kaŝi"
   invitation_codes:
@@ -328,7 +332,7 @@ eo:
       no_more: "Vi ne plu havas invitojn."
       own_address: "Vi ne povas sendi inviton al via propra adreso."
       rejected: "La postaj retpoŝtadresoj estis problemaj:"
-      sent: "Invitoj sendiĝis al: %{emails}"
+      sent: "Invitoj estas sendita al: %{emails}"
     edit:
       accept_your_invitation: "Akcepti vian inviton"
       your_account_awaits: "Via konto atendas!"
@@ -349,6 +353,7 @@ eo:
       resend: "Resendi"
       send_an_invitation: "Sendu inviton"
       send_invitation: "Sendu la inviton"
+      sending_invitation: "Sendado de invito..."
       to: "Al"
   layouts:
     application:
@@ -371,9 +376,9 @@ eo:
   likes:
     likes:
       people_dislike_this:
-        one: "%{count} malŝatanto"
-        other: "%{count} malŝatantoj"
-        zero: "neniuj malŝatantoj"
+        one: "%{count} malŝato"
+        other: "%{count} malŝatoj"
+        zero: "neniuj malŝatoj"
       people_like_this:
         few: "%{count} ŝatantoj"
         many: "%{count} ŝatantoj"
@@ -518,11 +523,11 @@ eo:
       view_profile: "Vidi la profilon de %{name}"
     thanks: "Dankon,"
     to_change_your_notification_settings: "ŝanĝi viajn sciigajn agordojn"
-  nsfw: "NSFW (ne sekura)"
+  nsfw: "NSĈL"
   ok: "Bone"
   or: "aŭ"
   password: "Pasvorto"
-  password_confirmation: "Pasvorta konfirmado"
+  password_confirmation: "Konfirmado de pasvorto"
   people:
     add_contact:
       invited_by: "vi estis invitita de"
@@ -532,6 +537,7 @@ eo:
       edit_membership: "redakti membraron de aspekto"
     few: "%{count} personoj"
     helper:
+      is_sharing: "%{name} nun kunhavigas kun vi"
       people_on_pod_are_aware_of: " homoj ĉe tiu ĉi Pod (Diaspora-servilo) konscias pri"
       results_for: "rezultoj por %{params}"
     index:
@@ -633,7 +639,7 @@ eo:
       reshare_by: "Rekonigo de %{author}"
   previous: "antaŭa"
   privacy: "Privateco"
-  privacy_policy: "Reguloj pri privateco"
+  privacy_policy: "Politiko pri privateco"
   profile: "Profilo"
   profiles:
     edit:
