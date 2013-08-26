@@ -13,6 +13,7 @@ app.views.Stream = app.views.InfScroll.extend(_.extend(
     this.setupLightbox()
     this.setupInfiniteScroll()
     this.setupShortcuts()
+    this.markNavSelected()
   },
 
   postClass : app.views.StreamPost,
@@ -28,5 +29,12 @@ app.views.Stream = app.views.InfScroll.extend(_.extend(
     function reRenderPostViews() {
       _.map(this.postViews, function(view){ view.render() })
     }
+  },
+
+  markNavSelected : function() {
+    var activeStream = Backbone.history.fragment;
+    var streamSelection = $("#stream_selection");
+    streamSelection.find("[data-stream]").removeClass("selected");
+    streamSelection.find("[data-stream='" + activeStream + "']").addClass("selected");
   }
 }));
