@@ -227,55 +227,58 @@ body > header {
     border-left: 1px solid #333;
     border-right: 1px solid #333;
 
-    li {
-      a {
-        padding: 4px;
-        height: 100%;
-        color: #939393;
-        
-        &:hover {
-          background-color: $blue;
-          color: #fff;
-          text-decoration: none;
-        }
-      }
-
-      &:first-child {
-        padding: 5px 0;
-        
-        a {
-          padding-right: 15px;
-          
-          &:hover {
-            background-color: transparent;
-            text-decoration: none;
-          }
-          
-          &:focus { :outline: none; }
-        }
-        
-        .right {
-          position: absolute;
-          right: 5px;
-        }
-      }
-    }
-
     &.active {
       margin-top: -3px;
       @include dropdown-shadow;
       background-color: rgb(34,30,30);
       border: 1px solid #999;
     }
+  }
 
-    .avatar {
-      height: 22px;
-      width: 22px;
-      position: absolute;
-      left: 7px;
-      top: 9px;
-      display: block;
+  .user-menu-item a {
+    padding: 4px;
+    height: 100%;
+    color: #939393;
+
+    &:hover {
+      background-color: $blue;
+      color: #FAFAFA;
+      text-decoration: none;
     }
+  }
+
+  .user-menu-trigger {
+    padding: 5px 0;
+
+    &:hover {
+      color: #FAFAFA;
+      .user-name { color: #FAFAFA; }
+    }
+  }
+
+  .user-name {
+    padding: 4px 15px 4px 4px;
+
+    &:hover {
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    &:focus { :outline: none; }
+  }
+
+  .user-menu-more-indicator {
+    position: absolute;
+    right: 5px;
+  }
+
+  .user-menu-avatar {
+    height: 22px;
+    width: 22px;
+    position: absolute;
+    left: 7px;
+    top: 9px;
+    display: block;
   }
 
   .header-nav {
