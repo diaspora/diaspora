@@ -4,6 +4,7 @@
 
 class HomeController < ApplicationController
   def show
+    @ghetto_styles = true
     partial_dir = Rails.root.join('app', 'views', 'home')
     if user_signed_in?
       redirect_to stream_path

@@ -10,13 +10,18 @@
   background : {
     color : #fff;
   }
+  
+  .content {
+    padding-bottom: 50px;
+  }
+
+
 
   #sign_up {
     text-align:center;
     position : relative;
     z-index : 20;
 
-    border-bottom: 1px solid #ccc;
     padding-bottom:50px;
 
     form {
@@ -24,9 +29,6 @@
       .controls { margin-left : 100px; }
 
       input[type='submit'] {
-        @include transition(background);
-        @include box-shadow(0,0,0,0);
-
         font-size:1.2em;
         background : #99CC00;
         color : #fff;
@@ -38,7 +40,6 @@
         }
 
         &:active {
-          @include box-shadow(0,0,0,0);
           background : darken(rgb(255, 77, 54), 2%);
         }
       }
@@ -92,7 +93,6 @@
     }
 
     .login-button {
-      @include border-radius(3px);
       border:1px solid #666;
       background:#111;
 

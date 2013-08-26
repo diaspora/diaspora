@@ -1,7 +1,7 @@
 #trademark sillyness
-app/views/home/_show.*
+dapp/views/home/_show.*
 app/assets/images/custom/
-
+app/assets/images/custom/*
 
 # Configuration files
 config/diaspora.yml
