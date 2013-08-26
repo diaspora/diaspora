@@ -1,0 +1,16 @@
+#faq_nav
+  %ul
+    %li= link_to_unless_current t('help.getting_help.title'), faq_getting_help_path
+    %li= link_to_unless_current t('help.account_and_data_management.title'), faq_account_and_data_management_path
+    %li= link_to_unless_current t('help.aspects.title'), faq_aspects_path
+    %li= link_to_unless_current t('help.mentions.title'), faq_mentions_path
+    %li= link_to_unless_current t('help.pods.title'), faq_pods_path
+    %li= link_to_unless_current t('help.posts_and_posting.title'), faq_posts_and_posting_path
+    %li= link_to_unless_current t('help.private_profiles.title'), faq_private_profiles_path
+    %li= link_to_unless_current t('help.private_posts.title'), faq_private_posts_path
+    %li= link_to_unless_current t('help.public_posts.title'), faq_public_posts_path
+    %li= link_to_unless_current t('help.public_profiles.title'), faq_public_profiles_path
+    %li= link_to_unless_current t('help.resharing_posts.title'), faq_resharing_posts_path
+    %li= link_to_unless_current t('help.sharing.title'), faq_sharing_path
+    %li= link_to_unless_current t('help.tags.title'), faq_tags_path
+    %li= link_to_unless_current t('help.miscellaneous.title'), faq_miscellaneous_path

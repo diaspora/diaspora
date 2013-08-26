@@ -138,6 +138,7 @@ en:
       profile: "Profile"
       contacts: "Contacts"
       settings: "Settings"
+      help: "Help"
       admin: "Admin"
       log_out: "Log out"
 
