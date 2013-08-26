@@ -24,10 +24,9 @@
           .white_bar
         
         .profile_button
-          = link_to content_tag(:div, nil, :class => 'icons-ignoreuser block_user', :title => 'ignore', :id => 'block_user_button'), '#', :rel => "nofollow", :data => { :person_id => @person.id }
-            
+          = link_to content_tag(:div, nil, :class => 'icons-ignoreuser block_user', :title => t('ignore'), :id => 'block_user_button', :data => { :person_id => @person.id }), '#', :rel => "nofollow" if @block.blank?
                
-        
+
       %br 
 
     -if contact.sharing? || person == current_user.person
