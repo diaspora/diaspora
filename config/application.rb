@@ -87,7 +87,9 @@ module Diaspora
       mobile/mobile.css
       new-templates.css
       rtl.css
+      ghetto_styles.css
     }
+
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

@@ -2,13 +2,16 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.20'
 
+ruby '2.0.0'
 # Appserver
 
 gem 'unicorn', '4.8.3', :require => false
 
 # API and JSON
 
-gem 'acts_as_api', '0.4.2'
+
+gem 'heroku-api'
+gem 'acts_as_api', '0.4.1'
 gem 'json',        '1.8.1'
 
 # Authentication
@@ -37,8 +40,8 @@ gem 'rack-cors', '0.2.9', :require => 'rack/cors'
 
 ENV['DB'] ||= 'mysql'
 
-gem 'mysql2', '0.3.16' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
-gem 'pg',     '0.17.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
+gem 'mysql2', '0.3.14' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
+# gem 'pg',     '0.17.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 
 gem 'activerecord-import', '0.3.1'
 gem 'foreigner',           '1.6.1'
@@ -168,6 +171,8 @@ group :production do # we don't install these on travis to speed up test runs
   # Third party asset hosting
 
   gem 'asset_sync', '1.0.0', :require => false
+  
+  gem 'rails_12factor'
 end
 
 group :development do

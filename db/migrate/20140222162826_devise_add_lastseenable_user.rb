@@ -1,9 +1,10 @@
 class DeviseAddLastseenableUser < ActiveRecord::Migration
   def self.up
     add_column :users, :last_seen, :datetime
-    User.find_each do |user|
-      user.update_column(:last_seen, user.last_sign_in_at)
-    end
+    # User.find_each do |user|
+    #   user.update_column(:last_seen, user.last_sign_in_at)
+    # end 
+    #ill do it seperately
   end
   
   def self.down

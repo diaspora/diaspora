@@ -32,7 +32,7 @@ module NotificationMailers
     def default_headers
       headers = {
         :from => AppConfig.mail.sender_address.get,
-        :host => "#{AppConfig.pod_uri.host}",
+        :sender => AppConfig.mail.sender_address.get,
         :to => name_and_address(@recipient.name, @recipient.email)
       }
 

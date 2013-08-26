@@ -1,0 +1,1 @@
+heroku config:add MAIL_METHOD=smtp MAIL_SMTP_HOST=email-smtp.us-east-1.amazonaws.com MAIL_SMTP_USERNAME=AKIAJXZ2IK7ZUK46VC6A MAIL_SMTP_PASSWORD=AnNUEb3++1p/pMjup1hmUjGo5Pg9yOJohHeiz20zVxgX MAIL_SENDER_ADDRESS=hello@joindiaspora.com -a diaspora-production
