@@ -1,0 +1,35 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('_help')
+
+#section_header
+  %h2
+    = t('_help')
+  //= render('help_nav')
+.span-5
+  = render('faq_nav')
+
+.span-19.last#faq
+  .question.opened.collapsible
+    %a.toggle{ :href => '#' }
+      %h4= t('.move_pods_q')
+    .answer= t('.move_pods_a')
+  .question.opened.collapsible
+    %a.toggle{ :href => '#' }
+      %h4= t('.download_data_q')
+    .answer= t('.download_data_a')
+  .question.opened.collapsible
+    %a.toggle{ :href => '#' }
+      %h4= t('.close_account_q')
+    .answer= t('.close_account_a')
+  .question.opened.collapsible
+    %a.toggle{ :href => '#' }
+      %h4= t('.data_visible_to_podmin_q')
+    .answer= t('.data_visible_to_podmin_a')
+  .question.opened.collapsible
+    %a.toggle{ :href => '#' }
+      %h4= t('.data_other_podmins_q')
+    .answer= t('.data_other_podmins_a')
