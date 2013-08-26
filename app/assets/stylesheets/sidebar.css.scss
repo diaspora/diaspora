@@ -27,6 +27,8 @@ $bluebg: #e7f2f7;
 	margin-right: 10px;
 	color: #222222;
 	
+	.selected { background-color: $bluebg; }
+
 	ul {
 		margin: 0px;
 		padding: 0px;

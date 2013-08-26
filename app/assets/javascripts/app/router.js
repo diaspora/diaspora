@@ -48,6 +48,7 @@ app.Router = Backbone.Router.extend({
   //below here is oldness
 
   stream : function(page) {
+    this.markSelected();
     app.stream = new app.models.Stream();
     app.stream.fetch();
     app.page = new app.views.Stream({model : app.stream});
@@ -67,6 +68,7 @@ app.Router = Backbone.Router.extend({
   },
 
   followed_tags : function(name) {
+    this.markSelected();
     this.stream();
 
     app.tagFollowings = new app.collections.TagFollowings();
@@ -86,6 +88,7 @@ app.Router = Backbone.Router.extend({
   },
 
   aspects : function(){
+    this.markSelected();
     app.aspects = new app.collections.Aspects(app.currentUser.get('aspects'));
     this.aspects_list =  new app.views.AspectsList({ collection: app.aspects });
     this.aspects_list.render();
@@ -93,7 +96,6 @@ app.Router = Backbone.Router.extend({
   },
 
   aspects_stream : function(){
-
     var ids = app.aspects.selectedAspects('id');
     app.stream = new app.models.StreamAspects([], { aspects_ids: ids });
     app.stream.fetch();
@@ -116,5 +118,12 @@ app.Router = Backbone.Router.extend({
     if(this.followedTagsView && Backbone.history.fragment != "followed_tags")
       this.followedTagsView.hideFollowedTags();
   },
+
+  markSelected : function() {
+    var activeStream = Backbone.history.fragment;
+    var streamSelection = $("#stream_selection");
+    streamSelection.find("[data-stream]").removeClass("selected");
+    streamSelection.find("[data-stream='" + activeStream + "']").addClass("selected");
+  }
 });
 
