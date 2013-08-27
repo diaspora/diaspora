@@ -456,7 +456,7 @@ en:
       character_limit_a: "65,535 characters. That's 65,395 more characters than you get on Twitter! ;)"
       char_limit_services_q: "What is the character limit for posts shared through a connected service with a smaller character count?"
       char_limit_services_a: "In that case your post is limited to the smaller character count (140 in the case of Twitter; 1000 in the case of Tumblr), and the number of characters you have left to use is displayed when that service's icon is highlighted. You can still post to these services if your post is longer than their limit, but the text is truncated on those services."
-      stream_full_of_posts_q: "Why is my stream is full of posts from people I don't know and don't share with?"
+      stream_full_of_posts_q: "Why is my stream full of posts from people I don't know and don't share with?"
       stream_full_of_posts_a1: "Your stream is made up of three types of posts:"
       stream_full_of_posts_li1: "Posts by people you are sharing with, which come in two types: public posts and limited posts shared with an aspect that you are part of. To remove these posts from your stream, simply stop sharing with the person."
       stream_full_of_posts_li2: "Public posts containing one of the tags that you follow. To remove these, stop following the tag."
