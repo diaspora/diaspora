@@ -1,3 +1,11 @@
+# Head
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.2.0.0
 
 **Attention:** This release includes a potentially long running migration! However it should be safe to run this while keeping your application servers on.
