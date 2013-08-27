@@ -9,4 +9,5 @@ module Diaspora
   require 'diaspora/markdownify'
   require 'diaspora/mentionable'
   require 'diaspora/exporter'
+  require 'diaspora/federated'
 end

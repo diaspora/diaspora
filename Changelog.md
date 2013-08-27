@@ -1,6 +1,7 @@
 # Head
 
 ## Refactor
+Move non-model federation stuff into lib/ [#4363](https://github.com/diaspora/diaspora/pull/4363)
 
 ## Bug fixes
 Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
