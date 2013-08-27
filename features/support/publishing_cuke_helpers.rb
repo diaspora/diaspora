@@ -20,7 +20,7 @@ module PublishingCukeHelpers
   def expand_first_post
     within(".stream_element", match: :first) do
       find(".expander").click
-      find(".expander", visible: false).should_not be_visible
+      has_css?(".expander").should be_false
     end
   end
 
@@ -30,7 +30,7 @@ module PublishingCukeHelpers
   end
 
   def first_post_expanded?
-    find(".stream_element .expander", match: :first, visible: false).should_not be_visible
+    has_no_css?(".stream_element .expander", match: :first).should be_true
     find(".stream_element .collapsible", match: :first).has_no_selector?(".collapsed")
     find(".stream_element .collapsible", match: :first).has_selector?(".opened")
   end

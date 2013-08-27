@@ -41,6 +41,7 @@ Then /^I should see "([^"]*)" as part of the participants popover$/ do |name|
 end
 
 Then /^I close the participants popover$/ do
-  find('.popover-title .close', visible: false).click
+  find('.popover').hover
+  find('.popover-title .close').click
 end
 
