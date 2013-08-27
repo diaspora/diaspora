@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
 
 ## Features
 
