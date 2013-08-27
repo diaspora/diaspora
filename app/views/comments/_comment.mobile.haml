@@ -4,6 +4,10 @@
 
 %li.comment{:data=>{:guid=>comment.id}, :class => ("hidden" if(defined? hidden))}
   .content
+    .remove_comment
+      .right
+        - if comment.author == current_user.person
+          = link_to(image_tag('deletelabel.png'), comment_path(comment), :method => :delete, :data => { :confirm => "#{t('are_you_sure')}" }, :class => "remove")
     .from
       = person_image_link(comment.author)
       = person_link(comment.author)
@@ -13,4 +17,3 @@
 
     %div{:class => direction_for(comment.text)}
       = markdownify(comment)
-

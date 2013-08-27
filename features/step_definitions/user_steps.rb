@@ -31,7 +31,7 @@ Given /^(?:|[tT]hat )?following user[s]?(?: exist[s]?)?:$/ do |table|
     if hash.has_key? "username" and hash.has_key? "email"
       step %{a user named "#{hash['username']}" with email "#{hash['email']}"}
     elsif hash.has_key? "username"
-      step %{a user with username "#{hash['username']}"} 
+      step %{a user with username "#{hash['username']}"}
     elsif hash.has_key? "email"
       step %{a user with email "#{hash['email']}"}
     end
@@ -119,9 +119,9 @@ Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
 end
 
 When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect$/ do |aspect_name|
-    aspects_dropdown = find(".aspect_membership .toggle.button:first")
+    aspects_dropdown = find(".aspect_membership .toggle.button", match: :first)
     aspects_dropdown.click
-    find(".dropdown.active .dropdown_list li:contains('#{aspect_name}')").click
+    find(".dropdown.active .dropdown_list li", text: aspect_name).click
     aspects_dropdown.click
 end
 

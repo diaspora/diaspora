@@ -27,6 +27,7 @@ es-AR:
     comma: ","
     comments:
       hide: "ocultar los comentarios"
+      no_comments: "Aún no hay comentarios."
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     conversation:

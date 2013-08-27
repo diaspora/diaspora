@@ -5,7 +5,6 @@ body {
 }
 
 body {
-  background-image : image_url("texture/light-bg.png");
   padding : none;
 
   &.lock {
@@ -31,6 +30,11 @@ a { color : $link-blue  }
     height: 35px;
     width: 35px;
   }
+}
+
+#login {
+  background-image : image_url("texture/light-bg.png");
+  height: 100%;
 }
 
 .author-name {
@@ -86,7 +90,7 @@ a { color : $link-blue  }
   display: table;
   position: absolute;
 
-  height: 100%;
+  height: 93%;
   width: 100%;
 
   img,
@@ -98,6 +102,19 @@ a { color : $link-blue  }
     width: 857px;
     height: 480px;
     max-width: 100%;
+  }
+
+  .opengraph {
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    img {
+      margin-bottom: 20px;
+    }
   }
 }
 

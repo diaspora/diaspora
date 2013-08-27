@@ -80,6 +80,7 @@ sv:
     user_search:
       add_invites: "lägg till inbjudningar"
       email_to: "Skicka ett e-brev för att bjuda in"
+      under_13: "Visa användare som är yngre än 13 år"
       users:
         one: "En användare hittades"
         other: "%{count} användare hittades"
@@ -368,6 +369,7 @@ sv:
       resend: "Skicka igen"
       send_an_invitation: "Skicka en inbjudan"
       send_invitation: "Skicka inbjudan"
+      sending_invitation: "Sänder invitation..."
       to: "Till"
   layouts:
     application:
@@ -534,6 +536,8 @@ sv:
       edit_membership: "redigera medlemskap för aspekt"
     few: "%{count} personer"
     helper:
+      is_not_sharing: "%{name} delar inte med sig till dig."
+      is_sharing: "%{name} delar med sig till dig"
       people_on_pod_are_aware_of: " personer på denna pod är medvetna om att"
       results_for: " resultat för %{params}"
     index:
@@ -543,7 +547,7 @@ sv:
       no_results: "Hördu! Du måste söka efter någonting."
       results_for: "Sökresultat för"
       searching: "söker, var god och vänta..."
-    last_post: "Sista inlägget"
+    last_post: "Senaste inlägget"
     many: "%{count} personer"
     one: "En person"
     other: "%{count} personer"
@@ -553,12 +557,13 @@ sv:
       pending_request: "Väntande förfrågningar"
       thats_you: "Det är du!"
     profile_sidebar:
-      bio: "biografi"
-      born: "födelsedag"
+      bio: "Biografi"
+      born: "Födelsedag"
       edit_my_profile: "Ändra min profil"
-      gender: "kön"
+      gender: "Kön"
       in_aspects: "i aspekter"
-      location: "plats"
+      location: "Plats"
+      photos: "Foton"
       remove_contact: "ta bort kontakt"
       remove_from: "Ta bort %{name} från %{aspect}?"
     show:
@@ -729,6 +734,7 @@ sv:
     create:
       already_authorized: "En användare med Diaspora-id %{diaspora_id} har redan auktoriserat det %{service_name}-kontot."
       failure: "Kunde inte autentisera."
+      read_only_access: "Tillgänglighetsnivån är skrivskyddad. Var god och försök auktorisera igen senare."
       success: "Autentisering lyckades."
     destroy:
       success: "Du har nu kopplat bort tjänsten."

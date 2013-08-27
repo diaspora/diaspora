@@ -64,6 +64,7 @@ ia:
     user_search:
       add_invites: "adder invitationes"
       email_to: "Adresse de e-mail a invitar"
+      under_13: "Monstrar usatores con minus de 13 annos (COPPA)"
       you_currently: "in iste momento, il te resta %{user_invitation} invitationes %{link}"
     weekly_user_stats:
       current_server: "Le data actual del servitor es %{date}"
@@ -218,7 +219,7 @@ ia:
     explanation: "Invia cosas a Diaspora ab ubique con iste ligamine: %{link}"
     heading: "Mini-marcapaginas"
     post_something: "Inviar a Diaspora"
-    post_success: "Inviate! Claudente!"
+    post_success: "Invio succedite!"
   cancel: "Cancellar"
   comments:
     few: "%{count} commentos"
@@ -245,7 +246,7 @@ ia:
       no_contacts: "Il pare que tu debe adder alcun contactos!"
       no_contacts_message: "Visita %{community_spotlight}"
       no_contacts_message_with_aspect: "Visita %{community_spotlight} o %{add_to_aspect_link}"
-      only_sharing_with_me: "Solmente qui divide con me"
+      only_sharing_with_me: "Solmente qui divide cosas con me"
       remove_person_from_aspect: "Remover %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Initiar un conversation"
       title: "Contactos"
@@ -254,15 +255,17 @@ ia:
     one: "1 contacto"
     other: "%{count} contactos"
     sharing:
-      people_sharing: "Personas qui divide con te:"
+      people_sharing: "Qui divide cosas con te:"
     spotlight:
       community_spotlight: "Usatores in evidentia"
       suggest_member: "Suggerer un membro"
     two: "%{count} contactos"
     zero: "contactos"
   conversations:
+    conversation:
+      participants: "Participantes"
     create:
-      fail: "Message invalide"
+      fail: "Message non valide"
       no_contact: "Tu debe adder le contacto primo."
       sent: "Message inviate"
     destroy:
@@ -281,7 +284,7 @@ ia:
       subject: "subjecto"
       to: "a"
     new_message:
-      fail: "Message invalide"
+      fail: "Message non valide"
     show:
       delete: "deler e blocar conversation"
       reply: "responder"
@@ -333,10 +336,11 @@ ia:
       resend: "Reinviar"
       send_an_invitation: "Inviar un invitation"
       send_invitation: "Inviar invitation"
+      sending_invitation: "Invia invitation..."
       to: "A"
   layouts:
     application:
-      back_to_top: "Initio del pagina"
+      back_to_top: "Retornar al cyma"
       powered_by: "ACTIONATE PER DIASPORA*"
       public_feed: "Fluxo public de Diaspora pro %{name}"
       source_package: "discargar le pacchetto con le codice-fonte"
@@ -426,6 +430,7 @@ ia:
       edit_membership: "modificar membrato del aspecto"
     few: "%{count} personas"
     helper:
+      is_sharing: "%{name} is sharing with you"
       people_on_pod_are_aware_of: " personas in iste pod es conscie de"
       results_for: " resultatos pro %{params}"
     index:

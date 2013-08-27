@@ -45,6 +45,7 @@ nn:
       correlations: "Korrelasjonar"
       pages: "Sidar"
       pod_stats: "Pod-statistikk"
+      sidekiq_monitor: "Sidekiq monitor"
       user_search: "Brukarsøk"
       weekly_user_stats: "Brukarstatistikk per veke"
     correlations:
@@ -79,6 +80,7 @@ nn:
     user_search:
       add_invites: "legg til invitasjonar"
       email_to: "Send e-post for å invitere"
+      under_13: "Vis brukarar at du er under 13"
       users:
         one: "ein brukar funne"
         other: "%{count} brukarar funne"
@@ -284,6 +286,8 @@ nn:
     two: "%{count} kontaktar"
     zero: "kontaktar"
   conversations:
+    conversation:
+      participants: "Deltakarar"
     create:
       fail: "Ugyldig melding"
       no_contact: "Hei, du må leggje til kontakten først!"
@@ -368,6 +372,7 @@ nn:
       resend: "Send på nytt"
       send_an_invitation: "Send ein invitasjon"
       send_invitation: "Send invitasjonen"
+      sending_invitation: "Sendar invitasjon..."
       to: "Til"
   layouts:
     application:
@@ -747,6 +752,7 @@ nn:
     create:
       already_authorized: "En brukar med Diaspora* ID %{diaspora_id} har allereie teke i bruk den %{service_name}kontoen."
       failure: "Feila autentisering"
+      read_only_access: "Tilgangsnivå er \"berre les\", ver ven og autoriser igjen seinare"
       success: "Vellukka autentisering."
     destroy:
       success: "Sletta autentiseringa."
@@ -833,6 +839,7 @@ nn:
         newhere: "NyHer"
       post_a_message_to: "Send ei melding til %{aspect}"
       posting: "Sender …"
+      preview: "Førehandsvising"
       publishing_to: "publiserer til:"
       share: "Del"
       share_with: "del med"

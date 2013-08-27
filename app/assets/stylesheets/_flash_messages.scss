@@ -11,11 +11,10 @@
   width : 100%;
 
   text-align : center;
-  font-weight: bold;
   color: #666;
 
   &.expose {
-    @include animation(expose, 5s)
+    @include animation(expose, 10s)
   }
 
   .message {
@@ -23,13 +22,17 @@
     @include box-shadow(0, 1px, 4px, rgba(0,0,0,0.8));
 
     display : inline-block;
-    padding: 45px 12px 8px;
+    padding: 10px 12px;
     min-width: 400px;
     max-width: 800px;
 
     color : #fff;
     background-color : rgba(0,0,0,0.8);
     border : 1px solid rgba(255,255,255,0.7);
+
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
   }
 }
 

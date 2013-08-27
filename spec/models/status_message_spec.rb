@@ -388,4 +388,32 @@ STR
       end
     end
   end
+
+  describe 'opengraph' do
+    before do
+      @ninegag_url = "http://9gag.com/gag/a1AMW16"
+      @youtube_url = "https://www.youtube.com/watch?v=3PtFwlKfvHI"
+      @message_text = "#{@ninegag_url} is so cool. so is this link -> https://joindiaspora.com"
+      @oemessage_text = "#{@youtube_url} is so cool. so is this link -> https://joindiaspora.com"
+    end
+
+    it 'should queue a GatherOpenGraphData if it includes a link' do
+      sm = FactoryGirl.build(:status_message, :text => @message_text)
+      Workers::GatherOpenGraphData.should_receive(:perform_async).with(instance_of(Fixnum), instance_of(String))
+      sm.save
+    end
+
+    describe '#contains_open_graph_url_in_text?' do
+      it 'returns the opengraph urls found in the raw message' do
+        sm = FactoryGirl.build(:status_message, :text => @message_text)
+        sm.contains_open_graph_url_in_text?.should_not be_nil
+        sm.open_graph_url.should == @ninegag_url
+      end
+      it 'returns nil if the link is from trusted oembed provider' do
+        sm = FactoryGirl.build(:status_message, :text => @oemessage_text)
+        sm.contains_open_graph_url_in_text?.should be_nil
+        sm.open_graph_url.should be_nil
+      end
+    end
+  end
 end

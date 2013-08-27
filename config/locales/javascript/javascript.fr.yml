@@ -32,6 +32,8 @@ fr:
       hide: "Masquer les commentaires"
       show: "Afficher tous les commentaires"
     confirm_dialog: "Êtes-vous certain-e ?"
+    conversation:
+      participants: "Participants"
     delete: "Effacer"
     edit: "Éditer"
     failed_to_like: "Impossible d'aimer !"
@@ -67,7 +69,7 @@ fr:
       not_found: "Et personne n'a été trouvé ..."
     photo_uploader:
       completed: "<%= file %> complété"
-      empty: "{file} est vide, s'il vous plaît sélectionner des fichiers à nouveau sans celui-ci."
+      empty: "{file} est vide, merci de sélectionner d'autres fichiers."
       invalid_ext: "{file} a une extension invalide. Seules {extensions} sont permises."
       looking_good: "Impressionnant, vous avez un super look !"
       size_error: "{file} est trop gros, la taille maximum est {sizeLimit}."

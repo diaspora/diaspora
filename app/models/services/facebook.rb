@@ -3,7 +3,7 @@ class Services::Facebook < Service
   include MarkdownifyHelper
 
   OVERRIDE_FIELDS_ON_FB_UPDATE = [:contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username]
-  MAX_CHARACTERS = 420
+  MAX_CHARACTERS = 63206 
 
   def provider
     "facebook"
@@ -34,7 +34,7 @@ class Services::Facebook < Service
   end
 
   def delete_post(post)
-    if post.present? && post.facebbook_id.present?
+    if post.present? && post.facebook_id.present?
       Rails.logger.debug("event=delete_from_service type=facebook sender_id=#{self.user_id}")
       delete_from_facebook("https://graph.facebook.com/#{post.facebook_id}/", {:access_token => self.access_token})
     end

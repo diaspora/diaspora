@@ -16,6 +16,7 @@ es-AR:
       invalid: "La contraseña o el nombre de usuario introducidos son incorrectos"
       invalid_token: "El identificador de autenticación no es válido."
       locked: "Tu cuenta está bloqueada"
+      not_found_in_database: "Contraseña o e-mail incorrecto."
       timeout: "Tu sesión expiró, por favor conectate de nuevo."
       unauthenticated: "Necesitás conectarte a tu cuenta, o registrarse, para continuar."
       unconfirmed: "Necesitas confirmar tu cuenta antes de continuar."

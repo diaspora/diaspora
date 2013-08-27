@@ -76,6 +76,7 @@ hu:
     user_search:
       add_invites: "meghívók hozzáadása"
       email_to: "a meghívandó személy email címe"
+      under_13: "13 éven aluli felhasználók mutatása (az USA COPPA szabályzata szerint)"
       users:
         other: "%{count} felhasználó található"
         zero: "nem található felhasználó"
@@ -364,6 +365,7 @@ hu:
       resend: "Újraküld"
       send_an_invitation: "Küldj egy meghívót"
       send_invitation: "Meghívás küldése"
+      sending_invitation: "Meghívó küldése folyamatban..."
       to: "Címzett"
   layouts:
     application:
@@ -556,6 +558,8 @@ hu:
       edit_membership: "csoport tagság szerkesztése"
     few: "%{count} személy"
     helper:
+      is_not_sharing: "%{name} nem oszt meg veled tartalmakat"
+      is_sharing: "%{name} megoszt veled"
       people_on_pod_are_aware_of: "az emberek tisztában vannak"
       results_for: "eredmények %{params}"
     index:
@@ -581,6 +585,7 @@ hu:
       gender: "nem"
       in_aspects: "csoportokban"
       location: "lakóhely"
+      photos: "képek"
       remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
     show:
@@ -756,6 +761,7 @@ hu:
     create:
       already_authorized: "Egy %{diaspora_id} nevű felhasználó, már hitelesítette ezt a %{service_name} fiókot."
       failure: "A hitelesítés sikertelen."
+      read_only_access: "A hozzáférési szint \"csak olvasható\" állapotú, próbáld magad később újra azonosítani..."
       success: "A hitelesítés sikeres."
     destroy:
       success: "Sikeresen megszakítottad a kapcsolódást."

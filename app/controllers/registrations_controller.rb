@@ -5,11 +5,11 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :check_registrations_open_or_vaild_invite!, :check_valid_invite!
 
-  layout "with_header", :only => [:new]
+  layout ->(c) { request.format == :mobile ? "application" : "with_header" }, :only => [:new]
   before_filter -> { @css_framework = :bootstrap }, only: [:new]
 
   def create
-    @user = User.build(params[:user])
+    @user = User.build(user_params)
     @user.process_invite_acceptence(invite) if invite.present?
 
     if @user.save
@@ -54,4 +54,8 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   helper_method :invite
+
+  def user_params
+    params.require(:user).permit(:username, :email, :getting_started, :password, :password_confirmation, :language, :disable_mail, :invitation_service, :invitation_identifier, :show_community_spotlight_in_stream, :auto_follow_back, :auto_follow_back_aspect_id, :remember_me)
+  end
 end

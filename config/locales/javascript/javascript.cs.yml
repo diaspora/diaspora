@@ -19,6 +19,7 @@ cs:
         other: "V <%= count %> aspektech"
         zero: "V <%= count %> aspektech"
     aspect_navigation:
+      add_an_aspect: "+ Přidat aspekt"
       deselect_all: "Odznačit vše"
       no_aspects: "Nebyl vybrán žádný aspekt"
       select_all: "Vybrat vše"
@@ -26,7 +27,10 @@ cs:
       hide: "skrýt komentáře"
       show: "zobrazit všechny komentáře"
     confirm_dialog: "Jste si jisti?"
+    conversation:
+      participants: "Účastníci"
     delete: "Odstranit"
+    edit: "Upravit"
     failed_to_like: "Oblíbení se nezdařilo!"
     failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
     getting_started:
@@ -48,10 +52,14 @@ cs:
       settings: "Nastavení"
       view_all: "Zobrazit vše"
     ignore: "Ignorovat"
+    ignore_user: "Ignorovat tohoto uživatele?"
     infinite_scroll:
       no_more: "Žádné další příspěvky."
     my_activity: "Moje aktivita"
+    my_aspects: "Moje aspekty"
     my_stream: "Proud"
+    people:
+      not_found: "… a nikdo nebyl nalezen."
     photo_uploader:
       looking_good: "Tedy, vypadáte úžasně!"
     publisher:

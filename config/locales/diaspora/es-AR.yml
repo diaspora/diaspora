@@ -80,6 +80,7 @@ es-AR:
     user_search:
       add_invites: "Añadir invitaciones"
       email_to: "Mandar invitación por correo electrónico a"
+      under_13: "Mostrar usuarios menores de 13 años (COPPA)"
       users:
         one: "%{count} usuario encontrado"
         other: "%{count} usuarios encontrados"
@@ -371,6 +372,7 @@ es-AR:
       resend: "Reenviar"
       send_an_invitation: "Enviar una invitación"
       send_invitation: "Enviar invitación"
+      sending_invitation: "Enviando invitación..."
       to: "Para"
   layouts:
     application:
@@ -556,6 +558,8 @@ es-AR:
       edit_membership: "editar aspectos asociados"
     few: "%{count} personas"
     helper:
+      is_not_sharing: "%{name} no está compartiendo con vos"
+      is_sharing: "%{name} está compartiendo con vos"
       people_on_pod_are_aware_of: " personas en POD está al tanto de"
       results_for: " resultados para %{params}"
     index:
@@ -575,12 +579,13 @@ es-AR:
       pending_request: "Solicitud pendiente"
       thats_you: "¡Ése sos vos!"
     profile_sidebar:
-      bio: "biografía"
-      born: "nacimiento"
+      bio: "Biografía"
+      born: "Fecha de nacimiento"
       edit_my_profile: "Editar mi perfil"
-      gender: "género/sexo"
+      gender: "Género/sexo"
       in_aspects: "en aspectos"
-      location: "ubicación"
+      location: "Ubicación"
+      photos: "Fotos"
       remove_contact: "eliminar contacto"
       remove_from: "¿Querés eliminar a %{name} de %{aspect}?"
     show:
@@ -754,6 +759,7 @@ es-AR:
     create:
       already_authorized: "Un usuario de Diaspora con id %{diaspora_id} ya autorizó la cuenta de servicio %{service_name}."
       failure: "Falló la autenticación."
+      read_only_access: "El nivel de acceso es de solo lectura, por favor intente autorizar nuevamente más tarde."
       success: "Autenticacíon correcta."
     destroy:
       success: "Autenticación eliminada."

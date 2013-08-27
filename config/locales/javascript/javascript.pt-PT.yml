@@ -29,6 +29,8 @@ pt-PT:
       hide: "ocultar comentários"
       show: "mostrar todos os comentários"
     confirm_dialog: "Tem a certeza?"
+    conversation:
+      participants: "Participantes"
     delete: "Eliminar"
     edit: "Editar"
     failed_to_like: "Falhou em gostar!"

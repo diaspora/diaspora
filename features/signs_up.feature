@@ -15,32 +15,33 @@ Feature: new user registration
   Scenario: new user goes through the setup wizard
     When I fill in the following:
       | profile_first_name | O             |
-    And I preemptively confirm the alert
     And I follow "awesome_button"
+    And I confirm the alert
     Then I should be on the stream page
     And I should not see "awesome_button"
 
   Scenario: new user does not add any tags in setup wizard and cancel the alert
     When I fill in the following:
       | profile_first_name | some name     |
-    And I preemptively reject the alert
-    And I follow "awesome_button"
+    And I focus the "follow_tags" field
+    Then I should see a flash message containing "Hey, some name!"
+    When I follow "awesome_button"
+    And I reject the alert
     Then I should be on the getting started page
     And I should see a flash message containing "Alright, I'll wait."
 
   Scenario: new user skips the setup wizard
-    When I preemptively confirm the alert
-    And I follow "awesome_button"
+    When I follow "awesome_button"
+    And I confirm the alert
     Then I should be on the stream page
 
   Scenario: closing a popover clears getting started
-    When I preemptively confirm the alert
-    And I follow "awesome_button"
+    When I follow "awesome_button"
+    And I confirm the alert
     Then I should be on the stream page
     And I have turned off jQuery effects
     And I wait for the popovers to appear
     And I click close on all the popovers
-    And I wait for 3 seconds
     And I go to the home page
     Then I should not see "Welcome to Diaspora"
 

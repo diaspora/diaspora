@@ -2,36 +2,37 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%ul#aspect_nav.left_nav
+%ul#aspect_nav
   %li.all_aspects{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing" && !@spotlight)}
-    %a.home_selector{:href => contacts_path, :class => ("sub_selected" if params["a_id"])}
+    %a.home_selector.hoverable{:href => contacts_path, :class => ("sub_selected" if params["a_id"])}
       = t('contacts.index.my_contacts')
-      .contact_count
+      .item_count
         = my_contacts_count
 
-    %ul.sub_nav
+    %ul.sub_nav#aspects_list
       - all_aspects.each do |aspect|
-        %li.aspect_element{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
-          .icons-check_yes_ok{:class => ("invisible" if params["a_id"].to_i != aspect.id) }
-          %a.community_aspect_selector{:href => contacts_path(:a_id => aspect.id)}
-            = aspect
-          .contact_count
+        %li.hoverable{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
+          .item_count
             = aspect.contacts.size
+          %a.action.modify_aspect{:href => "/aspects/#{aspect.id}/edit", :rel => "facebox"}
+          .icons-check_yes_ok{:class => ("selected" if params["a_id"].to_i == aspect.id) }
+          %a.selectable{:href => contacts_path(:a_id => aspect.id)}
+            = aspect
 
-      %li
-        = link_to t('aspects.aspect_listings.add_an_aspect'), new_aspect_path, :class => "new_aspect", :rel => "facebox"
+      %li.hoverable
+        = link_to t('aspects.aspect_listings.add_an_aspect'), new_aspect_path, :class => "selectable new_aspect", :rel => "facebox"
 
   %li.all_contacts{:class => ("active" if params["set"] == "all" || params["set"] == "only_sharing")}
-    %a.home_selector{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
+    %a.home_selector.hoverable{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
       = t('contacts.index.all_contacts')
-      .contact_count
+      .item_count
         = all_contacts_count
 
     %ul.sub_nav
-      %li.aspect_element{:class => ("active" if params["set"] == "only_sharing")}
+      %li.hoverable{:class => ("active" if params["set"] == "only_sharing")}
         .icons-check_yes_ok{:class => ("invisible" if params["set"] == "only_sharing")}
-        %a.community_aspect_selector{:href => contacts_path(:set => "only_sharing")}
+        %a.selectable{:href => contacts_path(:set => "only_sharing")}
           = t('contacts.index.only_sharing_with_me')
-        .contact_count
-          = only_sharing_count
+          .item_count
+            = only_sharing_count
 

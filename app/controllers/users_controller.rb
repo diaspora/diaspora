@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     password_changed = false
     @user = current_user
 
-    if u = params[:user]
+    if u = user_params
       u.delete(:password) if u[:password].blank?
       u.delete(:password_confirmation) if u[:password].blank? and u[:password_confirmation].blank?
       u.delete(:language) if u[:language].blank?
@@ -125,7 +125,8 @@ class UsersController < ApplicationController
 
   def getting_started_completed
     user = current_user
-    user.update_attributes(:getting_started => false)
+    user.getting_started = false
+    user.save
     redirect_to stream_path
   end
 
@@ -156,5 +157,34 @@ class UsersController < ApplicationController
       flash[:error] = I18n.t('users.confirm_email.email_not_confirmed')
     end
     redirect_to edit_user_path
+  end
+
+  private
+
+  def user_params
+    params.fetch(:user).permit(
+      :email,
+      :current_password,
+      :password,
+      :password_confirmation,
+      :language,
+      :disable_mail,
+      :invitation_service,
+      :invitation_identifier,
+      :show_community_spotlight_in_stream,
+      :auto_follow_back,
+      :auto_follow_back_aspect_id,
+      :remember_me,
+      :getting_started,
+      email_preferences: [
+        :also_commented,
+        :mentioned,
+        :comment_on_post,
+        :private_message,
+        :started_sharing,
+        :liked,
+        :reshared
+      ]
+    )
   end
 end

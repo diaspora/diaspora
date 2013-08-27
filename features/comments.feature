@@ -20,7 +20,6 @@ Feature: commenting
     And I fill in the following:
         | text            | is that a poodle?    |
     And I press "Comment"
-    And I wait for the ajax to finish
     Then I should see "is that a poodle?" within ".comment"
     And I should see "less than a minute ago" within ".comment time"
 
@@ -32,11 +31,8 @@ Feature: commenting
     And I fill in the following:
         | text            | is that a poodle?    |
     And I press "Comment"
-    And I wait for the ajax to finish
-    When I hover over the ".comment"
-    And I preemptively confirm the alert
     And I click to delete the first comment
-    And I wait for the ajax to finish
+    And I confirm the alert
     Then I should not see "is that a poodle?"
 
   Scenario: expand the comment form in the main stream and an individual aspect stream
@@ -59,5 +55,6 @@ Feature: commenting
     When I follow "less than a minute ago"
     Then I should see "Look at this dog"
     And I make a show page comment "I think thats a cat"
+    Then I should see "less than a minute ago" within "#comments"
     When I go to "alice@alice.alice"'s page
     Then I should see "I think thats a cat"

@@ -65,6 +65,15 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     // textchange event won't be called in Backbone...
     this.el_input.bind('textchange', $.noop);
 
+    var _this = this
+    $('body').on('click', function(event){
+      // if the click event is happened outside the publisher view, then try to close the box
+      if( _this.el && $(event.target).closest('#publisher').attr('id') != _this.el.id){
+          _this.tryClose()
+        }
+    });
+
+
     return this;
   },
 
@@ -193,6 +202,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
   modifyPostPreview : function(post) {
     post.addClass('post_preview');
+    $('.collapsible',post).removeClass('collapsed').addClass('opened');
     $('a.delete.remove_post',post).hide();
     $('a.like, a.focus_comment_textarea',post).removeAttr("href");
     $('a.like',post).addClass("like_preview");
@@ -248,6 +258,13 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
     return this;
   },
+
+  tryClose : function(){
+    // if it is not submittable, close it. 
+    if( !this._submittable() ){
+      this.close()
+    }
+  },  
 
   open : function() {
     // visually 'open' the publisher

@@ -8,7 +8,7 @@
       = person_image_link(message.author, :size => :thumb_small)
     .bd
       = person_link(message.author, :class => 'author from')
-      %time.timeago{:datetime => message.created_at}
+      %time.timeago{:datetime => message.created_at.iso8601}
         = t('ago', :time =>  time_ago_in_words(message.created_at))
 
       %div{ :class => direction_for(message.text) }

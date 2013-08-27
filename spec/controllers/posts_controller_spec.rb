@@ -50,12 +50,6 @@ describe PostsController do
         }.to change(Notification.where(:unread => true), :count).by(-2)
       end
 
-      it 'succeeds with a AS/photo' do
-        photo = FactoryGirl.create(:activity_streams_photo, :author => bob.person)
-        get :show, :id => photo.id
-        response.should be_success
-      end
-
       it '404 if the post is missing' do
         expect {
           get :show, :id => 1234567

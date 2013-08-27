@@ -5,3 +5,8 @@
 //= require aspect-edit-pane
 //= require fileuploader-custom
 //= require jquery.autoSuggest.custom
+
+$(document).ready(function() {
+  $('#profile_buttons .profile_button div').tooltip({placement: 'bottom'});
+  $('#profile_buttons .sharing_message_container').tooltip({placement: 'bottom'});
+});

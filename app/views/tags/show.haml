@@ -12,7 +12,7 @@
 - content_for :body_class do
   = "tags_show"
 
-.span-6.tags_people
+#leftNavBar
   %h3
     = t('people', :count => @stream.tagged_people_count)
 
@@ -21,7 +21,7 @@
 
   %br
 
-  .section
+  - if user_signed_in?
     = render "tags/followed_tags_listings"
 
 .span-15.last

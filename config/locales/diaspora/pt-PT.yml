@@ -45,6 +45,7 @@ pt-PT:
       correlations: "Correlações"
       pages: "Páginas"
       pod_stats: "Estatísticas do Pod"
+      sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Pesquisar Utilizador"
       weekly_user_stats: "Estatísticas Semanais de Utilizador"
     correlations:
@@ -79,6 +80,7 @@ pt-PT:
     user_search:
       add_invites: "adicionar convites"
       email_to: "Email para Convite"
+      under_13: "Mostrar utilizadores menores de 13 anos (COPPA)"
       users:
         one: "%{count} utilizador encontrado"
         other: "%{count} utilizadores encontrados"
@@ -284,6 +286,8 @@ pt-PT:
     two: "%{count} contactos"
     zero: "contactos"
   conversations:
+    conversation:
+      participants: "Participantes"
     create:
       fail: "Mensagem inválida"
       no_contact: "Cuidado, tens de adicionar o contacto primeiro!"
@@ -368,6 +372,7 @@ pt-PT:
       resend: "Reenviar"
       send_an_invitation: "Envie um convite"
       send_invitation: "Enviar convite"
+      sending_invitation: "Enviando convite..."
       to: "Para"
   layouts:
     application:
@@ -550,6 +555,7 @@ pt-PT:
       edit_membership: "editar a participação no grupo"
     few: "%{count} pessoas"
     helper:
+      is_sharing: "%{name} está a partilhar consigo"
       people_on_pod_are_aware_of: "as pessoas no pod estão cientes de que"
       results_for: "resultados para %{params}"
     index:

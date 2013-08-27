@@ -80,6 +80,7 @@ es-MX:
     user_search:
       add_invites: "añadir invitaciones"
       email_to: "Mandar invitación por correo electrónico a"
+      under_13: "Mostrar usuarios menores de 13 años (COPPA)"
       users:
         one: "Un usuario encontrado"
         other: "%{count} usuarios encontrados"
@@ -285,6 +286,8 @@ es-MX:
     two: "%{count} contactos"
     zero: "contactos"
   conversations:
+    conversation:
+      participants: "Participantes"
     create:
       fail: "Mensaje inválido"
       no_contact: "¡Eh, primero necesitas añadir al contacto!"
@@ -366,6 +369,7 @@ es-MX:
       resend: "Reenviar"
       send_an_invitation: "Enviar una invitación"
       send_invitation: "Enviar invitación"
+      sending_invitation: "Enviando invitación…"
       to: "Para"
   layouts:
     application:
@@ -526,6 +530,7 @@ es-MX:
       edit_membership: "editar aspecto asociado"
     few: "%{count} personas"
     helper:
+      is_sharing: "%{name} está compartiendo contigo"
       people_on_pod_are_aware_of: " la gente en el servidor está consciente de"
       results_for: " resultados para %{params}"
     index:
@@ -794,6 +799,7 @@ es-MX:
       all: "todo"
       all_contacts: "todos los contactos"
       discard_post: "Descartar publicación"
+      get_location: "Obtener tu ubicación"
       make_public: "hacer público"
       new_user_prefill:
         hello: "#%{new_user_tag}, acabo de llegar aquí. "

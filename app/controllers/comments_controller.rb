@@ -36,11 +36,11 @@ class CommentsController < ApplicationController
       respond_to do |format|
         format.js { render :nothing => true, :status => 204 }
         format.json { render :nothing => true, :status => 204 }
-        format.mobile{ redirect_to @comment.post }
+        format.mobile{ redirect_to :back }
       end
     else
       respond_to do |format|
-        format.mobile {redirect_to :back}
+        format.mobile { redirect_to :back }
         format.any(:js, :json) {render :nothing => true, :status => 403}
       end
     end

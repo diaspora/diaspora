@@ -284,6 +284,8 @@ pt-BR:
     two: "%{count} contatos"
     zero: "contatos"
   conversations:
+    conversation:
+      participants: "Participantes"
     create:
       fail: "Mensagem inválida"
       no_contact: "Cuidado, você precisa adicionar o contato primeiro!"
@@ -368,6 +370,7 @@ pt-BR:
       resend: "Reenviar"
       send_an_invitation: "Enviar um convite"
       send_invitation: "Enviar convite"
+      sending_invitation: "Enviando convite..."
       to: "Para"
   layouts:
     application:
@@ -460,7 +463,7 @@ pt-BR:
     mentioned_deleted:
       one: "%{actors} mencionou você em uma postagem apagada."
       other: "%{actors} mencionaram você em uma postagem apagada."
-      zero: "Ninguém mencionou você em uma postagem apagada."
+      zero: "%{actors} mencionou você em uma postagem apagada."
     post: "postagem"
     private_message:
       one: "%{actors} te enviou uma mensagem."
@@ -539,6 +542,7 @@ pt-BR:
       edit_membership: "editar participação no grupo"
     few: "%{count} pessoas"
     helper:
+      is_sharing: "%{name} está compartilhando com você"
       people_on_pod_are_aware_of: " as pessoas deste \"pod\" sabem que"
       results_for: " resultados para %{params}"
     index:
@@ -813,6 +817,7 @@ pt-BR:
       all: "todos"
       all_contacts: "Todos os contatos"
       discard_post: "Descartar postagem"
+      get_location: "Obter a sua localização"
       make_public: "Tornar público"
       new_user_prefill:
         hello: "Olá a todos, sou #%{new_user_tag}. "
@@ -853,7 +858,7 @@ pt-BR:
     new:
       mentioning: "Mencionando: %{person}"
     too_long:
-      one: "por favor, crie mensagens de status com menos de %{count} caractere"
+      one: "por favor, crie mensagens de status com menos de %{count} caracteres"
       other: "por favor, crie mensagens de status com menos de %{count} caracteres"
       zero: "por favor, crie mensagens de status com menos de %{count} caracteres"
   stream_helper:

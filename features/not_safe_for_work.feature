@@ -3,7 +3,7 @@ Feature: Not safe for work
 
 Scenario: Setting not safe for work
   Given following users exist:
-    | username    | email             | 
+    | username    | email             |
     | pr0n king   | tommy@pr0n.xxx    |
   And I sign in as "tommy@pr0n.xxx"
   When I go to the edit profile page
@@ -49,12 +49,8 @@ Scenario: Resharing an nsfw post
   And "tommy@pr0nking.com" has a public post with text "Sexy Senators Gone Wild!"
   And I sign in as "laura@officeworkers.com"
   And I toggle nsfw posts
-  And I preemptively confirm the alert
   And I follow "Reshare"
-  And I wait for 2 seconds
-  And I wait for the ajax to finish
+  And I confirm the alert
   And I go to the home page
-  #if this is failing on travis throw a random wait in here :/
-  And I wait for the ajax to finish
   Then I should not see "Sexy Senators Gone Wild!"
   And I should have 2 nsfw posts

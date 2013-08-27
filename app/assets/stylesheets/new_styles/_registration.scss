@@ -1,11 +1,11 @@
 #registration {
-  position : absolute;
-  left : 0;
+  position:absolute;
+  min-width: 100%;
+  min-height: 100%;
   background-color : #afc652;
-  min-height : 100%;
-  min-width : 100%;
-
-  color : #fff;
+  color: #fff;
+  
+  .container { margin-top: 50px; }
 
   #create-something-text {
     font-family : Roboto-Light;
@@ -31,7 +31,6 @@
   #collage {
     width : 344px;
     height : auto;
-
     max-width : 95%;
   }
 
@@ -46,56 +45,4 @@
       float : right;
     }
   }
-}
-
-ul#landing_nav {
-  margin: 0;
-  padding: 0;
-
-  position: absolute;
-  top: 10px;
-  right: 20px;
-
-  > li {
-    display: inline;
-    margin-right: 0.5em;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    a {
-      color: $blue;
-
-      &.login {
-        @include border-radius(5px);
-        @include box-shadow(0,1px,1px,#666);
-
-        padding: 5px 8px;
-
-        background-color: #000;
-
-        border-top: 1px solid #000;
-
-        &:hover {
-          background-color: #222;
-        }
-      }
-    }
-
-    text-shadow: 0 1px 0 #000;
-  }
-}
-
-
-body > header {
-  @include box-shadow(0,1px,3px,rgba(0,0,0,0.9));
-
-  background-color: rgb(40,35,35);
-  background-image: image-url('header-bg.png');
-
-  z-index: 1001;
-  padding: 6px 0;
-  color: #CCC;
-  height: 26px;
 }

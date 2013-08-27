@@ -95,15 +95,16 @@
     <li><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
     <li><a href="/contacts">{{t "header.contacts"}}</a></li>
     <li><a href="/user/edit">{{t "header.settings"}}</a></li>
+    <li><a href="/help">{{t "header.help"}}</a></li>
     {{#if current_user.admin}}
       <li><a href="/admins/user_search">{{t "header.admin"}}</a></li>
     {{/if}}
-    <li><a href="/users/sign_out">{{t "header.log_out"}}</a></li>
+    <li><a href="/users/sign_out" data-method="delete">{{t "header.log_out"}}</a></li>
   </ul>
 
 
   <div id="global_search">
-    <form accept-charset="UTF-8" action="/people" class="search_form" method="get">
+    <form accept-charset="UTF-8" action="/search" class="search_form" method="get">
       <input name="utf8" type="hidden" value="✓">
       <input id="q" name="q" placeholder="{{t "header.search"}}" results="5" type="search" autocomplete="off" class="ac_input">
     </form>

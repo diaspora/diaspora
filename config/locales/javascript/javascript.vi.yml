@@ -6,10 +6,12 @@
 
 vi:
   javascripts:
+    and: "và"
     aspect_dropdown:
       add_to_aspect: "Thêm liên lạc"
       all_aspects: "Tất cả mối quan hệ"
       error: "Không thể bắt đầu chia sẻ với <%= name %>. Bạn có muốn bỏ qua họ?"
+      error_remove: "Không thể loại bỏ <%= name %> khỏi mối quan hệ :("
       select_aspects: "Chọn mối quan hệ"
       started_sharing_with: "Bạn đã bắt đầu chia sẻ với <%= name %>!"
       stopped_sharing_with: "Bạn đã ngưng chia sẻ với <%= name %>."
@@ -17,14 +19,19 @@ vi:
         other: "Trong <%= count %> mối quan hệ"
         zero: "Chọn mối quan hệ"
     aspect_navigation:
+      add_an_aspect: "+ Thêm một mối quan hệ"
       deselect_all: "Bỏ chọn tất cả"
       no_aspects: "Không có mối quan hệ được chọn"
       select_all: "Chọn tất cả"
+    comma: ","
     comments:
       hide: "ẩn các bình luận"
       show: "hiện tất cả bình luận"
     confirm_dialog: "Bạn có chắc không?"
+    conversation:
+      participants: "Người tham gia"
     delete: "Xoá"
+    edit: "Chỉnh sửa"
     failed_to_like: "Không thích được!"
     failed_to_post_message: "Đăng tin thất bại!"
     getting_started:
@@ -50,15 +57,22 @@ vi:
     ignore_user: "Bỏ qua người này?"
     infinite_scroll:
       no_more: "Không còn bài đăng nào nữa."
+      no_more_contacts: "Không có liên lạc."
     my_activity: "Hoạt động của tôi"
+    my_aspects: "Các mối quan hệ của tôi"
     my_stream: "Luồng"
     people:
       not_found: "và không tìm thấy ai..."
     photo_uploader:
+      completed: "Đã xong <%= file %>"
+      empty: "Tập tin {file} rỗng, hãy chọn lại tập tin khác."
+      invalid_ext: "Tập tin {file} có phần mở rộng không hợp lệ. Chỉ chấp nhận {extensions}."
       looking_good: "Ôi, trông bạn thật tuyệt!"
+      size_error: "Tập tin {file} quá lớn, dung lượng tối đa là {sizeLimit}."
     publisher:
       at_least_one_aspect: "Bạn phải công khai ít nhất một mối quan hệ"
       limited: "Giới hạn - bài đăng của bạn được những người chỉ định nhìn thấy"
+      near_from: "Gửi từ: <%= location %>"
       public: "Công khai - bài đăng của bạn được mọi người và máy tìm kiếm nhìn thấy"
     reshares:
       duplicate: "Bạn đã chia sẻ lại tin đó!"
@@ -69,6 +83,9 @@ vi:
     stream:
       comment: "Bình luận"
       follow: "Theo dõi"
+      followed_tag:
+        add_a_tag: "Thêm một thẻ"
+        follow: "Theo dõi"
       hide: "Ẩn"
       hide_nsfw_posts: "Ẩn bài đăng #nsfw"
       like: "Thích"
@@ -87,6 +104,10 @@ vi:
         zero: "Không có ai chia sẻ lại"
       show_nsfw_post: "Hiện bài đăng"
       show_nsfw_posts: "Hiện tất cả"
+      tags:
+        follow: "Theo dõi #<%= tag %>"
+        following: "Đang theo dõi #<%= tag %>"
+        stop_following: "Dừng theo dõi #<%= tag %>"
       unfollow: "Bỏ theo dõi"
       unlike: "Bỏ thích"
     tags:

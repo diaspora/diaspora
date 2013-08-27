@@ -11,11 +11,11 @@ Then /^the post should be expanded$/ do
 end
 
 Then /^I should see an uploaded image within the photo drop zone$/ do
-  find("#photodropzone img")["src"].should include("uploads/images")
+  find("#photodropzone img", visible: false)["src"].should include("uploads/images")
 end
 
 Then /^I should not see an uploaded image within the photo drop zone$/ do
-  all("#photodropzone img").should be_empty
+  page.should_not have_css "#photodropzone img"
 end
 
 Then /^I should not see any posts in my stream$/ do
@@ -43,7 +43,7 @@ When /^The user deletes their first post$/ do
 end
 
 When /^I click on the first block button/ do
-  find(".block_user").click
+  find(".block_user", visible: false).click
 end
 
 When /^I expand the post$/ do
@@ -64,6 +64,10 @@ end
 
 When /^I post an extremely long status message$/ do
   click_and_post("I am a very interesting message " * 64)
+end
+
+When /^I insert an extremely long status message$/ do
+  fill_in 'status_message_fake_text', :with => "I am a very interesting message " * 64
 end
 
 When /^I open the show page of the "([^"]*)" post$/ do |post_text|

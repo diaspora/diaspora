@@ -29,7 +29,7 @@ var View = {
     /* Clear forms after successful submit, this is some legacy dan hanson stuff, do we still want it? */
     $.fn.clearForm = function() {
       return this.each(function() {
-        if ($(this).is('form')) {
+        if ($(this).is('form') && !$(this).hasClass('form_do_not_clear')) {
           return $(':input', this).clearForm();
         }
         if ($(this).hasClass('clear_on_submit') || $(this).is(':text') || $(this).is(':password') || $(this).is('textarea')) {
@@ -62,11 +62,6 @@ var View = {
     });
 
     $(document.body).click(this.dropdowns.removeFocus);
-
-    /* facebox */
-    $.facebox.settings.closeImage = app.baseImageUrl()+'facebox/closelabel.png';
-    $.facebox.settings.loadingImage = app.baseImageUrl()+'facebox/loading.gif';
-    $.facebox.settings.opacity = 0.75;
 
     $('a[rel*=facebox]').facebox();
     $(document).bind('reveal.facebox', function() {

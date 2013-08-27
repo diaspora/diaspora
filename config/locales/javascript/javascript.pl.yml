@@ -11,6 +11,7 @@ pl:
       add_to_aspect: "Dodaj kontakt"
       all_aspects: "Wszystkie aspekty"
       error: "Nie można zacząć dzielić się z <%= name %>. Może go/ją ignorujesz?"
+      error_remove: "<%= name %> nie można usunąć z aspektu :("
       select_aspects: "Wybierz aspekty"
       started_sharing_with: "Od teraz dzielisz się z <%= name %>!"
       stopped_sharing_with: "Nie dzielisz się już z <%= name %>."
@@ -31,6 +32,8 @@ pl:
       hide: "ukryj komentarze"
       show: "wyświetl wszystkie komentarze"
     confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
+    conversation:
+      participants: "Uczestnicy"
     delete: "Usuń"
     edit: "Edycja"
     failed_to_like: "Nie udało się pulubić!"
@@ -66,10 +69,14 @@ pl:
       not_found: "...i nikogo nie odnaleziono."
     photo_uploader:
       completed: "<%= file %> ukończono"
+      empty: "Plik {file} jest pusty. Proszę dokonać nowy wybór bez tego pliku."
+      invalid_ext: "Plik {file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia to: {extensions}"
       looking_good: "O rety! Świetnie wyglądasz!"
+      size_error: "Plik {file} jest za duży. Maksymalny rozmiar pliku to {sizeLimit}."
     publisher:
       at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
       limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"
+      near_from: "Blisko <%= location %>"
       public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
     reshares:
       duplicate: "Już przekaza@{m:łeś|f:łaś|n:no} dalej ten wpis!"

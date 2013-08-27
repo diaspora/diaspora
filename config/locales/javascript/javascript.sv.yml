@@ -30,6 +30,7 @@ sv:
     comma: ","
     comments:
       hide: "dölj kommentarer"
+      no_comments: "Inga kommentarer finns ännu."
       show: "visa alla kommentarer"
     confirm_dialog: "Är du säker?"
     conversation:
@@ -76,7 +77,7 @@ sv:
     publisher:
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
       limited: "Begränsad - ditt inlägg visas endast för personer som du delar med"
-      near_from: "Nära <%= location %>"
+      near_from: "Sänt från: <%= location %>"
       public: "Publikt - ditt inlägg visas för alla och i söktjänster"
     reshares:
       duplicate: "Du gillar detta va? Du har nämligen redan delat vidare detta inlägg!"

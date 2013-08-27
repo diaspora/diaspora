@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.1.1.0" # Do not touch unless doing a release, do not backport the version number that's in master but keep develp to always say "head"
+    number: "0.2.0.0" # Do not touch unless doing a release, do not backport the version number that's in master but keep develp to always say "head"
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -38,6 +38,7 @@ defaults:
     stdout_log:
     database: 'mysql'
     unicorn_worker: 2
+    unicorn_timeout: 90
     embed_sidekiq_worker: false
     sidekiq_workers: 1
   privacy:
@@ -50,13 +51,15 @@ defaults:
     mixpanel_uid:
     chartbeat_uid:
   settings:
-    pod_name: 'Diaspora*'
+    pod_name: 'diaspora*'
     enable_registrations: true
-    follow_diasporahq: true
+    autofollow_on_join: true
+    autofollow_on_join_user: 'diasporahq@joindiaspora.com'
     invitations:
       open: true
       count: 25
     paypal_hosted_button_id:
+    bitcoin_wallet_id:
     community_spotlight:
       enable: false
       suggest_email:
@@ -90,6 +93,10 @@ defaults:
       enable: false
       key:
       secret:
+    wordpress:
+      enable: false
+      key:
+      secret:
   mail:
     enable: false
     sender_address: 'no-reply@example.org'
@@ -120,7 +127,8 @@ development:
   server:
     unicorn_worker: 1
   settings:
-    follow_diasporahq: false
+    autofollow_on_join: false
+    autofollow_on_join_user: ''
 production:
   i_am_a_dummy: # Remove if you add an actual override
 test:
@@ -131,7 +139,8 @@ test:
     assets:
       serve: true
   settings:
-    follow_diasporahq: false
+    autofollow_on_join: false
+    autofollow_on_join_user: ''
     invitations:
       open: true
   services:

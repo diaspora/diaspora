@@ -44,9 +44,13 @@ app.views.Content = app.views.Base.extend({
     var collHeight = 200
       , elem = this.$(".collapsible")
       , oembed = elem.find(".oembed")
+      , opengraph = elem.find(".opengraph")
       , addHeight = 0;
     if($.trim(oembed.html()) != "") {
-      addHeight = oembed.height();
+      addHeight += oembed.height();
+    }
+    if($.trim(opengraph.html()) != "") {
+      addHeight += opengraph.height();
     }
 
     // only collapse if height exceeds collHeight+20%
@@ -72,12 +76,13 @@ app.views.StatusMessage = app.views.Content.extend({
   templateName : "status-message"
 });
 
-app.views.Reshare = app.views.Content.extend({
-  templateName : "reshare"
+app.views.ExpandedStatusMessage = app.views.StatusMessage.extend({
+  postRenderTemplate : function(){
+  }
 });
 
-app.views.ActivityStreams__Photo = app.views.Content.extend({
-  templateName : "activity-streams-photo"
+app.views.Reshare = app.views.Content.extend({
+  templateName : "reshare"
 });
 
 app.views.OEmbed = app.views.Base.extend({
@@ -102,7 +107,11 @@ app.views.OEmbed = app.views.Base.extend({
     if( $(evt.target).is('a') ) return;
     var insertHTML = $(app.helpers.oEmbed.html(this.model.get("o_embed_cache")));
     var paramSeparator = ( /\?/.test(insertHTML.attr("src")) ) ? "&" : "?";
-    insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1");
+    insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1&wmode=opaque");
     this.$el.html(insertHTML);
   }
+});
+
+app.views.OpenGraph = app.views.Base.extend({
+  templateName : "opengraph"
 });

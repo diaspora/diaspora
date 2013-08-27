@@ -3,4 +3,4 @@
     = link_to current_user.name, current_user.person
   = link_to t('layouts.header.settings'), users_edit_path
   = link_to t('layouts.application.toggle'), toggle_mobile_path
-  = link_to t('layouts.header.logout'), destroy_user_session_path
+  = link_to t('layouts.header.logout'), destroy_user_session_path, method: :delete

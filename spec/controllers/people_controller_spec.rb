@@ -64,23 +64,6 @@ describe PeopleController do
         end
       end
 
-      context 'query is a tag' do
-        it 'goes to a tag page' do
-          get :index, :q => '#babies'
-          response.should redirect_to(tag_path('babies'))
-        end
-
-        it 'removes dots from the query' do
-          get :index, :q => '#babi.es'
-          response.should redirect_to(tag_path('babies'))
-        end
-
-        it 'stay on the page if you search for the empty hash' do
-          get :index, :q => '#'
-          flash[:error].should be_present
-        end
-      end
-
       context 'query is not a tag or a diaspora ID' do
         it 'assigns hashes' do
           get :index, :q => "Korth"
@@ -207,6 +190,16 @@ describe PeopleController do
       response.body.should_not include(profile.first_name)
     end
 
+    it "doesn't leak photos in the sidebar" do
+      private_photo = @user.post(:photo, user_file: uploaded_photo, to: @aspect.id, public: false)
+      public_photo = @user.post(:photo, user_file: uploaded_photo, to: @aspect.id, public: true)
+
+      sign_out :user
+      get :show, id: @user.person.to_param
+
+      assigns(:photos).should_not include private_photo
+      assigns(:photos).should include public_photo
+    end
 
     context "when the person is the current user" do
       it "succeeds" do

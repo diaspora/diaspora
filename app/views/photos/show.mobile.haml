@@ -23,8 +23,8 @@
     %tr
       %td
         - if previous_photo != additional_photos.last
-          = link_to(image_tag('arrow-left.png', :id => 'arrow-left'), previous_photo, :rel => 'prefetch', :class => 'arrow', :id => 'left')
+          = link_to(image_tag('arrow-left.png', :id => 'arrow-left'), person_photo_path(previous_photo.author, previous_photo), :rel => 'prefetch', :class => 'arrow', :id => 'left')
       %td{:width => '100%'}
       %td
         - if next_photo == additional_photos[additional_photos.index(photo)+1]
-          = link_to(image_tag('arrow-right.png', :id => 'arrow-right'), next_photo, :rel => 'prefetch', :class => 'arrow', :id => 'right')
+          = link_to(image_tag('arrow-right.png', :id => 'arrow-right'), person_photo_path(next_photo.author, next_photo), :rel => 'prefetch', :class => 'arrow', :id => 'right')

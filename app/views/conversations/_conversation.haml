@@ -15,7 +15,7 @@
                                :unread_count => unread_counts[conversation.id].to_i })
 
         .last_author
-          .timestamp
+          %time.timeago.timestamp{:datetime => conversation.updated_at.iso8601}
             = t('ago', :time =>  time_ago_in_words(conversation.updated_at))
 
           - if authors[conversation.id].present?

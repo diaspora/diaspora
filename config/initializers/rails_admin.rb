@@ -40,10 +40,10 @@ RailsAdmin.config do |config|
 
   #  ==> Included models
   # Add all excluded models here:
-  config.excluded_models = [ActivityStreams::Photo, AspectMembership, AspectVisibility, ShareVisibility, ConversationVisibility,  NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, Reshare, Services::Facebook, Services::Tumblr, Services::Twitter,  UserPreference]
+  config.excluded_models = [AspectMembership, AspectVisibility, ShareVisibility, ConversationVisibility,  NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, Reshare, Services::Facebook, Services::Tumblr, Services::Twitter,  UserPreference]
 
   # Add models here if you want to go 'whitelist mode':
-  # config.included_models = [AccountDeletion, ActivityStreams::Photo, ActsAsTaggableOn::Tag, Aspect, AspectMembership, AspectVisibility, Block, Comment, Contact, Conversation, ConversationVisibility, Invitation, InvitationCode, Like, Mention, Message, Notification, NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, OEmbedCache, Participation, Person, Photo, Pod, Post, Profile, Reshare, Service, ServiceUser, Services::Facebook, Services::Tumblr, Services::Twitter, ShareVisibility, StatusMessage, TagFollowing, User, UserPreference]
+  # config.included_models = [AccountDeletion, ActsAsTaggableOn::Tag, Aspect, AspectMembership, AspectVisibility, Block, Comment, Contact, Conversation, ConversationVisibility, Invitation, InvitationCode, Like, Mention, Message, Notification, NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, OEmbedCache, Participation, Person, Photo, Pod, Post, Profile, Reshare, Service, ServiceUser, Services::Facebook, Services::Tumblr, Services::Twitter, ShareVisibility, StatusMessage, TagFollowing, User, UserPreference]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -101,57 +101,7 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
-  # config.model ActivityStreams::Photo do
-  #   # Found associations:
-  #     configure :author, :belongs_to_association 
-  #     configure :reshares, :has_many_association 
-  #     configure :o_embed_cache, :belongs_to_association 
-  #     configure :likes, :has_many_association 
-  #     configure :dislikes, :has_many_association 
-  #     configure :comments, :has_many_association 
-  #     configure :aspect_visibilities, :has_many_association 
-  #     configure :aspects, :has_many_association 
-  #     configure :share_visibilities, :has_many_association 
-  #     configure :contacts, :has_many_association 
-  #     configure :participations, :has_many_association 
-  #     configure :mentions, :has_many_association 
-  #     configure :resharers, :has_many_association   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :author_id, :integer         # Hidden 
-  #     configure :public, :boolean 
-  #     configure :diaspora_handle, :string 
-  #     configure :guid, :string 
-  #     configure :pending, :boolean 
-  #     configure :type, :string 
-  #     configure :text, :text 
-  #     configure :remote_photo_path, :text 
-  #     configure :remote_photo_name, :string 
-  #     configure :random_string, :string 
-  #     configure :processed_image, :string 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :unprocessed_image, :string 
-  #     configure :object_url, :string 
-  #     configure :image_url, :string 
-  #     configure :image_height, :integer 
-  #     configure :image_width, :integer 
-  #     configure :provider_display_name, :string 
-  #     configure :actor_url, :string 
-  #     configure :objectId, :string 
-  #     configure :root_guid, :string         # Hidden 
-  #     configure :status_message_guid, :string 
-  #     configure :likes_count, :integer 
-  #     configure :comments_count, :integer 
-  #     configure :o_embed_cache_id, :integer         # Hidden 
-  #     configure :reshares_count, :integer 
-  #     configure :interacted_at, :datetime   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
+  
   # config.model ActsAsTaggableOn::Tag do
   #   # Found associations:
   #     configure :taggings, :has_many_association         # Hidden   #   # Found columns:

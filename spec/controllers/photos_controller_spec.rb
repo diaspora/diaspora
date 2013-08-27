@@ -6,10 +6,9 @@ require 'spec_helper'
 
 describe PhotosController do
   before do
-    @alices_photo = alice.post(:photo, :user_file => uploaded_photo, :to => alice.aspects.first.id)
+    @alices_photo = alice.post(:photo, :user_file => uploaded_photo, :to => alice.aspects.first.id, :public => false)
     @bobs_photo = bob.post(:photo, :user_file => uploaded_photo, :to => bob.aspects.first.id, :public => true)
 
-    @controller.stub!(:current_user).and_return(alice)
     sign_in :user, alice
     request.env["HTTP_REFERER"] = ''
   end
@@ -52,6 +51,20 @@ describe PhotosController do
       lambda {
         post :create, @params
       }.should change(Photo, :count).by(1)
+    end
+
+    it "doesn't allow mass assignment of person" do
+      new_user = FactoryGirl.create(:user)
+      @params[:photo][:author] = new_user
+      post :create, @params
+      Photo.last.author.should == alice.person
+    end
+
+    it "doesn't allow mass assignment of person_id" do
+      new_user = FactoryGirl.create(:user)
+      @params[:photo][:author_id] = new_user.id
+      post :create, @params
+      Photo.last.author.should == alice.person
     end
 
     it 'can set the photo as the profile photo' do
@@ -115,6 +128,7 @@ describe PhotosController do
     end
 
     it 'sends a retraction on delete' do
+      @controller.stub!(:current_user).and_return(alice)
       alice.should_receive(:retract).with(@alices_photo)
       delete :destroy, :id => @alices_photo.id
     end
@@ -137,7 +151,14 @@ describe PhotosController do
       @alices_photo.reload.text.should == "now with lasers!"
     end
 
-    it "doesn't overwrite random attributes" do
+    it "doesn't allow mass assignment of person" do
+      new_user = FactoryGirl.create(:user)
+      params = { :text => "now with lasers!", :author => new_user }
+      put :update, :id => @alices_photo.id, :photo => params
+      @alices_photo.reload.author.should == alice.person
+    end
+
+    it "doesn't allow mass assignment of person_id" do
       new_user = FactoryGirl.create(:user)
       params = { :text => "now with lasers!", :author_id => new_user.id }
       put :update, :id => @alices_photo.id, :photo => params
@@ -160,6 +181,26 @@ describe PhotosController do
     it 'should return a 422 on failure' do
       get :make_profile_photo, :photo_id => @bobs_photo.id
       response.code.should == "422"
+    end
+  end
+
+  describe "#show" do
+    it 'should return 404 for nonexistent stuff on mobile devices' do
+      expect {
+        get :show, :person_id => bob.person.guid, :id => 772831, :format => 'mobile'
+      }.to raise_error ActiveRecord::RecordNotFound
+    end
+
+    it 'should return 200 for existing stuff on mobile devices' do
+      get :show, :person_id => alice.person.guid, :id => @alices_photo.id, :format => 'mobile'
+      response.should be_success
+    end
+
+    it "doesn't leak private photos to the public" do
+      sign_out :user
+      expect {
+        get :show, :person_id => alice.person.guid, :id => @alices_photo.id, :format => 'mobile'
+      }.to raise_error ActiveRecord::RecordNotFound
     end
   end
 

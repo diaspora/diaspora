@@ -8,4 +8,4 @@ Feature: Download Photos
     And I follow "settings"
     Then I should be on my account settings page
     And I follow "download my photos"
-    Then I should get download alert
+    Then I confirm the alert

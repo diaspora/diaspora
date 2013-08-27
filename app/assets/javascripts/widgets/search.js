@@ -31,7 +31,11 @@
       if (typeof row.search !== "undefined") {
         return Diaspora.I18n.t("search_for", row);
       } else {
-        return "<img src='"+ row.avatar +"' class='avatar'/>" + row.name;
+				if (row.avatar) {        
+					return "<img src='"+ row.avatar +"' class='avatar'/>" + row.name;
+				} else {
+					return row.name;				
+				}
       }
     };
 
@@ -62,7 +66,7 @@
         window.location = self.searchFormAction + '?' + self.searchInputName + '=' + data['name'];
       } else { // The actual result
         self.options.element.val(formatted);
-        window.location = data['url'];
+        window.location = data['url'] ? data['url'] : "/tags/" + data['name'].substring(1); // we don't want the #-character
       }
     };
   };

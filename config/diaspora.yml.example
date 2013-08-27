@@ -20,6 +20,9 @@
 ## - Replace the dots with underscores: environment_s3_enable
 ## - Upcase everything: ENVIRONMENT_S3_ENABLE
 ## - Specify lists/arrays as comma separated values
+##
+## - For example, on Heroku:
+##   heroku config:set SERVICES_FACEBOOK_APP_ID=whateeryourappid SERVICES_FACEBOOK_SECRET=whateeryourappsecret
 
 configuration: ## Section
   
@@ -152,6 +155,12 @@ configuration: ## Section
     ## Number of Unicorn worker processes, increase this if
     ## you have many users
     #unicorn_worker: 2
+
+    ## Number of seconds before a request is aborted, increase if
+    ## you get empty responses, or large image uploads fail.
+    ## Decrease if you're under heavy load and don't care for some
+    ## requests to fail.
+    #unicorn_timeout: 90
     
     ## Embed a Sidekiq worker inside the unicorn process, useful for
     ## minimal Heroku setups
@@ -199,12 +208,16 @@ configuration: ## Section
     ## the first registration (you).
     #enable_registrations: true
     
-    ## Set this to false if you don't want your users to follow the
-    ## diasporahq@joindiaspora.com account on account creation.
+    ## Users will automatically follow a specified account on creation
+    ## Set this to false if you don't want your users to automatically
+    ## follow an account upon creation.
+    #autofollow_on_join: true
+ 
     ## The diasporahq account helps users start with some activity in
     ## their stream and get news about Diaspora, but if you don't want
-    ## your server to contact joindiaspora.com, set this to false:
-    #follow_diasporahq: false
+    ## your server to contact joindiaspora.com, you can change account
+    ## below or set autofollow_on_join to false
+    #autofollow_on_join_user: 'diasporahq@joindiaspora.com'
     
     ## Settings about invitations
     invitations: ## Section
@@ -222,6 +235,11 @@ configuration: ## Section
     ## your users for donations to run their pod. If you leave this out
     ## we kindly ask your users to donate to the Diaspora Foundation :)
     #paypal_hosted_button_id: ""
+    
+    ## Bitcoin donations
+    ## You can provide the bitcoin address here to kindly ask
+    ## your users for donations to run their pod.
+    #bitcoin_wallet_id: ""
     
     ## Community Spotlight
     ## The community spotlight gives new users a starting point on who
@@ -317,6 +335,12 @@ configuration: ## Section
     tumblr: ## Section
       #enable: true
       #key: 'abcdef'
+      #secret: 'changeme'
+      
+    ## OAuth credentials for Wordpress
+    wordpress: ## Section
+      #enable: true
+      #client_id: 'abcdef'
       #secret: 'changeme'
   
   ## Settings relevant to administrators

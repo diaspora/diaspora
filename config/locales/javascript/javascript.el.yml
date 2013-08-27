@@ -29,6 +29,8 @@ el:
       hide: "απόκρυψη σχολίων"
       show: "προβολή όλων των σχολίων"
     confirm_dialog: "Είστε σίγουροι;"
+    conversation:
+      participants: "Συμμετέχοντες"
     delete: "Διαγραφή"
     edit: "Επεξεργασία"
     failed_to_like: "Αποτυχία!"

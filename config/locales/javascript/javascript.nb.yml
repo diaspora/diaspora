@@ -32,6 +32,8 @@ nb:
       hide: "skjul kommentarer"
       show: "vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
+    conversation:
+      participants: "Deltakere"
     delete: "Slett"
     edit: "Rediger"
     failed_to_like: "Klarte ikke å like!"
@@ -68,11 +70,13 @@ nb:
     photo_uploader:
       completed: "<%= file %> ferdig"
       empty: "{file} er tom, vennligst velg filer igjen uten å bruke den."
+      invalid_ext: "{file} har en ugyldig utvidelse. Bare {extensions} er tillatt."
       looking_good: "Wow, du ser fantastisk ut!"
       size_error: "{file} er for stor, maksimal filstørrelse er {sizeLimit}"
     publisher:
       at_least_one_aspect: "Du må poste til minst ett aspekt"
       limited: "Begrenset - posten din vil bare være synlig for de du deler med"
+      near_from: "Nært ved: <%= location %>"
       public: "Offentlig - posten din vil være synlig for alle og kan bli funnet av søkemotorer"
     reshares:
       duplicate: "du har allerede delt denne posten!"

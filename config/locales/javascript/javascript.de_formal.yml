@@ -133,7 +133,7 @@ de_formal:
       prefixAgo: "vor"
       prefixFromNow: "in"
       seconds: "wenigen Sekunden"
-      suffixAgo: "vor"
+      suffixAgo: ""
       suffixFromNow: "ab jetzt"
       year: "etwa einem Jahr"
       years: "%d Jahren"

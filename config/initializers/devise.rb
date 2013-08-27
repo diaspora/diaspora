@@ -58,7 +58,7 @@ Devise.setup do |config|
 
   # Setup a pepper to generate the encrypted password.
   config.pepper = "065eb8798b181ff0ea2c5c16aee0ff8b70e04e2ee6bd6e08b49da46924223e39127d5335e466207d42bf2a045c12be5f90e92012a4f05f7fc6d9f3c875f4c95b"
-  
+
   config.reset_password_within = 2.days
 
   # ==> Configuration for :invitable
@@ -78,10 +78,10 @@ Devise.setup do |config|
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
   config.remember_for = 2.weeks
-  
+
   # ==> Configuration for :validatable
   # Range for password length
-  # config.password_length = 6..20
+  # config.password_length = 8..20
 
   # Regex to use to validate the email address
   # config.email_regexp = /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
@@ -159,5 +159,8 @@ Devise.setup do |config|
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
+
+  # Sign out via a DELETE request
+  config.sign_out_via = :delete
 end
 

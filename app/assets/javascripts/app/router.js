@@ -25,7 +25,7 @@ app.Router = Backbone.Router.extend({
   },
 
   singlePost : function(id) {
-    this.renderPage(function(){ return new app.pages.PostViewer({ id: id })});
+    this.renderPage(function(){ return new app.pages.SinglePostViewer({ id: id })});
   },
 
   siblingPost : function(){ //next or previous
@@ -34,7 +34,7 @@ app.Router = Backbone.Router.extend({
     post.fetch({url : window.location})
 
     function setPreloadAttributesAndNavigate(){
-      window.preloads.post = post.attributes
+      window.gon.preloads.post = post.attributes
       app.router.navigate(post.url(), {trigger:true, replace: true})
     }
   },
@@ -73,7 +73,7 @@ app.Router = Backbone.Router.extend({
     $("#tags_list").replaceWith(followedTagsView.render().el);
     followedTagsView.setupAutoSuggest();
 
-    app.tagFollowings.reset(preloads.tagFollowings);
+    app.tagFollowings.reset(gon.preloads.tagFollowings);
 
     if(name) {
       var followedTagsAction = new app.views.TagFollowingAction(

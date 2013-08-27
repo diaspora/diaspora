@@ -3,7 +3,7 @@ module NotificationMailers
 
   class Base
     attr_accessor :recipient, :sender
-    
+
     delegate :unconfirmed_email, :confirm_email_token,
              :first_name, to: :recipient, prefix: true
     delegate :first_name, :name, :sender, to: :sender, prefix: true
@@ -38,7 +38,7 @@ module NotificationMailers
         :to => name_and_address(@recipient.name, @recipient.email)
       }
 
-      headers[:from] = "\"#{@sender.name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>" if @sender.present?
+      headers[:from] = "\"#{@sender.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>" if @sender.present?
 
       headers
     end

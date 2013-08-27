@@ -29,6 +29,8 @@ es-MX:
       hide: "ocultar comentarios"
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
+    conversation:
+      participants: "Participantes"
     delete: "Borrar"
     edit: "Editar"
     failed_to_like: "¡No se pudo marcar como «Me gusta»!"
@@ -71,6 +73,7 @@ es-MX:
     publisher:
       at_least_one_aspect: "Debes publicar al menos en un aspecto"
       limited: "Limitado – tu publicación solo será vista por ia gente con quien compartes"
+      near_from: "Cerca de: <%= location %>"
       public: "Público – tu publicación será visible para todos, y encontrada por buscadores"
     reshares:
       duplicate: "Qué bien, ¿eh? ¡Ya has compartido esa publicación!"

@@ -29,6 +29,8 @@ es:
       hide: "ocultar comentarios"
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
+    conversation:
+      participants: "Participantes"
     delete: "Eliminar"
     edit: "Editar"
     failed_to_like: "\"Me gusta\" no ha funcionado."
@@ -71,6 +73,7 @@ es:
     publisher:
       at_least_one_aspect: "Debes publicarlo al menos en un aspecto"
       limited: "Limitado - tu publicación solo es visible para gente con quien compartes"
+      near_from: "Cerca de: <%= location %>"
       public: "Público - tu publicación es visible para todos, incluyendo buscadores"
     reshares:
       duplicate: "¿Verdad que te ha gustado? Pero ya has esa publicación."

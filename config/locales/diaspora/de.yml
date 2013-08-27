@@ -80,6 +80,7 @@ de:
     user_search:
       add_invites: "Einladungen hinzufügen"
       email_to: "per E-Mail einladen"
+      under_13: "Zeige Benutzer, die unter 13 Jahre alt sind (COPPA)"
       users:
         one: "%{count} Benutzer gefunden"
         other: "%{count} Benutzer gefunden"
@@ -371,6 +372,7 @@ de:
       resend: "Erneut senden"
       send_an_invitation: "Eine Einladung senden"
       send_invitation: "Einladung senden"
+      sending_invitation: "Sende Einladung..."
       to: "An"
   layouts:
     application:
@@ -577,6 +579,8 @@ de:
       edit_membership: "Bearbeite die Aspekt-Zugehörigkeit"
     few: "%{count} Personen"
     helper:
+      is_not_sharing: "%{name} teilt nicht mit dir"
+      is_sharing: "%{name} teilt mit dir"
       people_on_pod_are_aware_of: "Leute auf dem Pod wissen von"
       results_for: "Ergebnisse für %{params}"
     index:
@@ -602,6 +606,7 @@ de:
       gender: "Geschlecht"
       in_aspects: "in Aspekten"
       location: "Ort"
+      photos: "Fotos"
       remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
     show:
@@ -781,6 +786,7 @@ de:
     create:
       already_authorized: "Ein anderer Nutzer mit der Diaspora ID %{diaspora_id} hat diesen %{service_name}-Account bereits autorisiert."
       failure: "Authentifizierung fehlgeschlagen."
+      read_only_access: "Die Zugriffsebene ist schreibgeschützt. Bitte versuche dich später noch einmal anzumelden."
       success: "Authentifizierung erfolgreich."
     destroy:
       success: "Authentifizierung erfolgreich gelöscht."
@@ -799,6 +805,7 @@ de:
       logged_in_as: "angemeldet als"
       no_services: "Du hast noch keine Dienste verbunden."
       really_disconnect: "Verbindung mit %{service} entfernen?"
+      services_explanation: "Das Verbinden zu anderen Diensten gibt dir die Möglichkeit, Beiträge die du in Diaspora schreibst, auch dort zu veröffentlichen."
     inviter:
       click_link_to_accept_invitation: "Öffne diesen Link, um die Einladung zu akzeptieren:"
       join_me_on_diaspora: "Folge mir auf DIASPORA*"

@@ -37,17 +37,6 @@ module LayoutHelper
     end
   end
 
-  def set_current_user_in_javascript
-    return unless user_signed_in?
-    a_ids = session[:a_ids] || []
-    user = UserPresenter.new(current_user, a_ids).to_json
-    content_tag(:script) do
-      <<-JS.html_safe
-        window.current_user_attributes = #{j user}
-      JS
-    end
-  end
-
   def current_user_atom_tag
     return #temp hax
 
@@ -67,7 +56,7 @@ module LayoutHelper
 
   def include_base_css_framework(use_bootstrap=false)
     if use_bootstrap || @aspect == :getting_started
-      stylesheet_link_tag 'bootstrap-complete'
+      stylesheet_link_tag('bootstrap-complete')
     else
       stylesheet_link_tag 'blueprint', :media => 'screen'
     end

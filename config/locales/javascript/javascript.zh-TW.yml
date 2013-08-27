@@ -28,6 +28,8 @@ zh-TW:
       hide: "隱藏意見"
       show: "顯示所有意見"
     confirm_dialog: "你確定嗎？"
+    conversation:
+      participants: "參加人員"
     delete: "刪除"
     edit: "編輯"
     failed_to_like: "說讚失敗！"

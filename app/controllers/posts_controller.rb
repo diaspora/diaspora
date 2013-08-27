@@ -9,7 +9,6 @@ class PostsController < ApplicationController
   before_filter :set_format_if_malformed_from_status_net, :only => :show
   before_filter :find_post, :only => [:show, :next, :previous, :interactions]
 
-  layout 'application'
   before_filter -> { @css_framework = :bootstrap }
 
   respond_to :html,
@@ -27,7 +26,7 @@ class PostsController < ApplicationController
     mark_corresponding_notifications_read if user_signed_in?
 
     respond_to do |format|
-      format.html{ gon.post = PostPresenter.new(@post, current_user); render 'posts/show' }
+      format.html{ gon.post = PostPresenter.new(@post, current_user); render 'posts/show', layout: 'with_header_with_footer' }
       format.xml{ render :xml => @post.to_diaspora_xml }
       format.mobile{render 'posts/show' }
       format.json{ render :json => PostPresenter.new(@post, current_user) }

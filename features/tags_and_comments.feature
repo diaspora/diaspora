@@ -5,7 +5,6 @@ Feature: Issue #3382 The comments under postings are missing when using the #tag
     Given a user named "Bob Jones" with email "bob@bob.bob"
     And I sign in as "bob@bob.bob"
     When I post "This is a post with a #tag"
-    And I wait for 1 second
     And I am on the homepage
 
   Scenario:
@@ -15,7 +14,6 @@ Feature: Issue #3382 The comments under postings are missing when using the #tag
 
   Scenario:
     When I comment "this is a comment on my post" on "This is a post with a #tag"
-    And I wait for the ajax to finish
     And I search for "#tag"
     Then I should be on the tag page for "tag"
     And I should see "this is a comment on my post"

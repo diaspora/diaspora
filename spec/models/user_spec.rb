@@ -466,7 +466,7 @@ describe User do
     end
 
     it 'dispatches the profile when tags are set' do
-      @params = {:tags => '#what #hey'}
+      @params = {:tag_string => '#what #hey'}
       mailman = Postzord::Dispatcher.build(alice, Profile.new)
       Postzord::Dispatcher.should_receive(:build).and_return(mailman)
       alice.update_profile(@params).should be_true
@@ -864,26 +864,29 @@ describe User do
       end
     end
 
-    describe "diasporahq sharing" do
+    describe "autofollow sharing" do
       let(:user) {
         FactoryGirl.create(:user)
       }
 
       before(:each) do
-        @old_followhq_value = AppConfig.settings.follow_diasporahq?
+        @old_autofollow_value = AppConfig.settings.autofollow_on_join?
+        @old_autofollow_user = AppConfig.settings.autofollow_on_join_user
       end
 
       after(:each) do
-        AppConfig.settings.follow_diasporahq = @old_followhq_value
+        AppConfig.settings.autofollow_on_join = @old_followhq_value
+        AppConfig.settings.autofollow_on_join_user = @old_autofollow_user
       end
 
-      context "with sharing with diasporahq enabled" do
-        it "should start sharing with the diasporahq account" do
-          AppConfig.settings.follow_diasporahq = true
+      context "with autofollow sharing enabled" do
+        it "should start sharing with autofollow account" do
+          AppConfig.settings.autofollow_on_join = true
+          AppConfig.settings.autofollow_on_join_user = 'one'
 
           wf_mock = mock
           wf_mock.should_receive(:fetch)
-          Webfinger.should_receive(:new).and_return(wf_mock)
+          Webfinger.should_receive(:new).with('one').and_return(wf_mock)
 
           user.seed_aspects
         end
@@ -891,7 +894,7 @@ describe User do
 
       context "with sharing with diasporahq enabled" do
         it "should not start sharing with the diasporahq account" do
-          AppConfig.settings.follow_diasporahq = false
+          AppConfig.settings.autofollow_on_join = false
 
           Webfinger.should_not_receive(:new)
 

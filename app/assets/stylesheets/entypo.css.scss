@@ -1,0 +1,54 @@
+.entypo {
+  font-family: 'entypo';
+  font-style: normal;
+  color: black;
+
+  &.heart:before {
+    content: '\2665';
+  }
+
+  &.heart-empty:before {
+    content: '\2661';
+  }
+
+  &.retweet:before {
+    content: '\e717';
+  }
+
+  &.comment:before {
+    content: '\e718';
+  }
+
+  &.globe:before {
+    content: '\1f30e';
+  }
+
+  &.lock:before {
+    content: '\1f512';
+  }
+
+  &.red {
+    color: #A40802;
+  }
+  &.white {
+    color: white;
+  }
+  &.gray {
+    color: #aaa;
+  }
+  &.blue {
+    color: #3f8fba;
+  }
+
+  &.large {
+    font-size: 2.5em;
+  }
+
+  &.middle {
+    font-size: 1.5em;
+  }
+
+  &.small {
+    font-size: 1.2em;
+  }
+}

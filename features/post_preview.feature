@@ -21,36 +21,44 @@ Feature: preview posts in the stream
       And I press "Preview"
       Then "I am eating yogurt" should be post 1
       And the first post should be a preview
-      
+
       When I fill in the following:
           | status_message_fake_text    | This preview rocks    |
       And I press "Preview"
       Then "This preview rocks" should be post 1
       And I should not see "I am eating a yogurt"
-      
+
       When I fill in the following:
           | status_message_fake_text    | I like rocks    |
       And I press "Share"
-      And I wait for the ajax to finish
       Then "I like rocks" should be post 1
       And I should not see "This preview rocks"
 
+    Scenario: preview a very long message
+      Given I expand the publisher
+      When I insert an extremely long status message
+      And I press "Preview"
+      Then the preview should not be collapsed
+
+      When I press "Share"
+      Then the post should be collapsed
+
     Scenario: preview a photo with text
       Given I expand the publisher
-      When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
+      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
       When I fill in the following:
           | status_message_fake_text    | Look at this dog    |
       And I press "Preview"
       Then I should see a "img" within ".stream_element div.photo_attachments"
       And I should see "Look at this dog" within ".stream_element"
-      
+
     Scenario: preview a post with mentions
       Given I expand the publisher
       And I mention Alice in the publisher
       And I press "Preview"
       And I follow "Alice Smith"
       Then I should see "Alice Smith"
-      
+
     Scenario: preview a post on tag page
       Given there is a user "Samuel Beckett" who's tagged "#rockstar"
       When I search for "#rockstar"

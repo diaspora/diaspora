@@ -41,7 +41,7 @@ en:
       at_least_one_aspect: "You must publish to at least one aspect"
       limited: "Limited - your post will only be seen by people you are sharing with"
       public: "Public - your post will be visible to everyone and found by search engines"
-      near_from: "Near from: <%= location %>"
+      near_from: "Posted from: <%= location %>"
     infinite_scroll:
       no_more: "No more posts."
       no_more_contacts: "No more contacts."
@@ -63,6 +63,7 @@ en:
     comments:
       show: "show all comments"
       hide: "hide comments"
+      no_comments: "There are no comments yet."
     reshares:
       duplicate: "That good, huh?  You've already reshared that post!"
       successful: "The post was successfully reshared!"
@@ -137,6 +138,7 @@ en:
       profile: "Profile"
       contacts: "Contacts"
       settings: "Settings"
+      help: "Help"
       admin: "Admin"
       log_out: "Log out"
 

@@ -7,7 +7,7 @@ app.views.AspectsList = app.views.Base.extend({
     'click .toggle_selector' : 'toggleAll'
   },
 
-  initialize: function(){
+  initialize: function() {
     this.collection.on('change', this.toggleSelector, this);
     this.collection.on('change', this.updateStreamTitle, this);
   },
@@ -25,21 +25,19 @@ app.views.AspectsList = app.views.Base.extend({
     }).render().el);
   },
 
-  toggleAll: function(evt){
+  toggleAll: function(evt) {
     if (evt) { evt.preventDefault(); };
 
     var aspects = this.$('li:not(:last)')
     if (this.collection.allSelected()) {
       this.collection.deselectAll();
-      aspects.removeClass("active");
       aspects.each(function(i){
-        $(this).find('.icons-check_yes_ok').addClass('invisible');
+        $(this).find('.icons-check_yes_ok').removeClass('selected');
       });
     } else {
       this.collection.selectAll();
-      aspects.addClass("active");
       aspects.each(function(i){
-        $(this).find('.icons-check_yes_ok').removeClass('invisible');
+        $(this).find('.icons-check_yes_ok').addClass('selected');
       });
     }
 
@@ -47,7 +45,7 @@ app.views.AspectsList = app.views.Base.extend({
     app.router.aspects_stream();
   },
 
-  toggleSelector: function(){
+  toggleSelector: function() {
     var selector = this.$('a.toggle_selector');
     if (this.collection.allSelected()) {
       selector.text(Diaspora.I18n.t('aspect_navigation.deselect_all'));
@@ -56,7 +54,7 @@ app.views.AspectsList = app.views.Base.extend({
     }
   },
 
-  updateStreamTitle: function(){
+  updateStreamTitle: function() {
     $('.stream_title').text(this.collection.toSentence());
   }
 })

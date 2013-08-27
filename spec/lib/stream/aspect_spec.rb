@@ -56,9 +56,9 @@ describe Stream::Aspect do
       stream.posts
     end
 
-    it 'is called with 3 types' do
+    it 'is called with 2 types' do
       stream = Stream::Aspect.new(@alice, [1,2], :order => 'created_at')
-      @alice.should_receive(:visible_shareables).with(Post, hash_including(:type=> ['StatusMessage', 'Reshare', 'ActivityStreams::Photo'])).and_return(stub.as_null_object)
+      @alice.should_receive(:visible_shareables).with(Post, hash_including(:type=> ['StatusMessage', 'Reshare'])).and_return(stub.as_null_object)
       stream.posts
     end
 

@@ -8,17 +8,18 @@
     %title
       = pod_name
 
-    %meta{:name => "description", :content => "Diaspora* Mobile"}
-    %meta{:name => "author", :content => "Diaspora, Inc."}
+    %meta{:name => "description", :content => "diaspora* mobile"}/
+    %meta{:name => "author", :content => "Diaspora, Inc."}/
+    %meta{:charset => 'utf-8'}/
+    %meta{:property => "og:site_name", :content => "#{AppConfig.settings.pod_name}"}/
 
-    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     / Viewport scale
-    %meta{:name =>'viewport', :content => "width=device-width, minimum-scale=1 maximum-scale=1"}
-    %meta{:name => "HandheldFriendly", :content => "True"}
-    %meta{:name => "MobileOptimized", :content => "320"}
+    %meta{:name =>'viewport', :content => "width=device-width, minimum-scale=1 maximum-scale=1"}/
+    %meta{:name => "HandheldFriendly", :content => "True"}/
+    %meta{:name => "MobileOptimized", :content => "320"}/
     / Force cleartype on WP7
-    %meta{'http-equiv' => "cleartype", :content => 'on'}
-    = og_site_name
+    %meta{'http-equiv' => "cleartype", :content => 'on'}/
+
     / Home screen icon (sized for retina displays)
     %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
     / For Nokia devices
@@ -49,7 +50,7 @@
       .navbar-inner
         .container{:style => "position: relative;"}
           = link_to(image_tag('branding/header-logo2x.png', :height => 40, :width => 40, :id => 'header_title'), stream_path)
-          
+
           - if user_signed_in?
             #nav_badges
               = link_to(image_tag('icons/my_activity.png', :class => 'my_activity'), activity_stream_path, :class => "badge badge-inverse", :id => "my_activity_badge")

@@ -1,0 +1,366 @@
+body > #container { margin-top: 50px; } /* to avoid being hidden under the header in the SPV */
+
+body > header {
+  @include box-shadow(0,1px,3px,rgba(0,0,0,0.9));
+  background: url('header-bg.png') rgb(40,35,35);
+  z-index: 1001;
+  padding: 6px 0;
+  color: #CCC;
+  height: 26px;
+  position: fixed;
+  width: 100%;
+  min-width: 620px;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid #000;
+
+  .diaspora_header_logo {
+    float: left;
+    margin-top: -6px;
+    height: 38px;
+    width: 65px;
+  }
+  
+  .ie-user-menu-active { height: 150px; }
+
+  a.header_root_link {
+    display: inline-block;
+    margin-top: 5px;
+  }
+  
+  a {
+    color: #CCC;
+    color: rgb(147,147,147);
+
+    &:hover {
+      background: none;
+      color: #fafafa;
+    }
+  }
+
+  &.landing {
+    height: 40px;
+    .right { top: 10px; }
+  }
+  
+  #nav_badges {
+    display: inline-block;
+    margin-top: 2px;
+    float: left;
+    width: 61px;
+
+    a:hover { text-decoration: none; }
+
+    .badge {
+      width: 22px;
+      position: relative;
+      top: 2px;
+      display: inline;
+      margin: 0 2px;      
+      font-weight: bold;
+      font-size: smaller;
+
+      .badge_count {
+        @include border-radius(2px);
+        z-index: 3;
+        position: absolute;
+        top: -4px;
+        left: 15px;
+        padding: 1px 2px;
+        background-color: #A40802;
+        line-height: 12px;
+        color: #fff;
+      }
+
+      &:hover .badge_count { background-color: lighten(#A40802, 5%); }
+      
+      .icons-notifications_grey { height: 16px; }
+
+      &.active .icons-notifications_grey:hover {
+        background-position: sprite-position($icons-sprites, notifications_grey);
+      }
+
+      .icons-mail_grey { height: 11px }
+
+      a.badge_link {
+        display: block;
+        width: 100%;
+        height: 16px;
+        float: left;
+      }
+    }
+    
+    #notification_badge, #message_inbox_badge {
+      float: left;
+      padding: 0px 3px;
+    }
+    
+    #message_inbox_badge {
+      padding-top: 3px; 
+      margin-right: 0px;
+      padding-right: 0px;
+    }
+
+    #notification_badge.active {
+      z-index: 10;
+      background-color: #fff;
+      border: 1px solid #888;
+      border-bottom: 0px;
+      margin-left: 0px;
+      padding-bottom: 12px;
+    }
+
+    #notification_dropdown {
+      @include dropdown-shadow;
+
+      background: white;
+      border: solid #888 1px;
+      left: 300px;
+      width: 380px;
+      display: none;
+      float: left;
+      color: #444;
+
+      .right {
+        font-size: smaller;
+        display: inline;
+        position: relative;
+        float: right;
+        top: 4px;
+        font-weight: bold;
+      }
+
+      a { color: $blue; }
+
+      .header {
+        padding: 10px;
+        
+        h4 {
+          padding-bottom: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      .notification_element,
+      .header { border-bottom: 1px solid #ddd; }
+
+      .ajax_loader {
+        text-align: center;
+        padding: 15px;
+      }
+
+      .notification_element {
+        padding: 10px;
+        min-height: 30px;
+      
+        &:hover { background-color: #FAFAFA; }
+        
+        > img {
+          height: 30px;
+          width: 30px;
+          float: left;
+          margin-right: 10px;
+        }
+
+        &.unread {
+          background-color: #eee;
+          color: #000;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  
+  #global_search {
+    float: right;
+    margin-right: 10px;
+    position: relative;
+
+    form {
+      position: absolute;
+      right: 0;
+      
+      input {
+        @include box-shadow(0, 1px, 1px, #444);
+        @include border-radius(15px);
+        @include transition(width);
+        width: 100px;
+        background-color: #444;
+        border: 1px solid #222;
+        font-size: 13px;
+        padding: 4px;
+
+        &:hover { background-color: #555; }
+
+        &.active {
+          background-color: #fafafa;
+          background-color: rgba(160,160,160,0.6);
+        }
+
+        &:focus {
+          outline: none;
+          background-color: white;
+          width: 200px;
+        }
+
+        &::-webkit-input-placeholder { text-shadow: none; }
+        &:-moz-placeholder { text-shadow: none; }
+      }
+    }
+  }
+
+  ul#user_menu {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 0 #000;
+    color: rgb(147,147,147);
+    min-width: 100px;
+    cursor: pointer;
+    z-index: 10;
+    display: inline;
+    top: -4px;
+    float: right;      
+    margin: -2px -5px 0px 0px;    
+    padding: 5px 7px 5px 32px;
+    
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+
+    li {
+      a {
+        padding: 4px;
+        height: 100%;
+        color: #939393;
+        
+        &:hover {
+          background-color: $blue;
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+
+      &:first-child {
+        padding: 5px 0;
+        
+        a {
+          padding-right: 15px;
+          
+          &:hover {
+            background-color: transparent;
+            text-decoration: none;
+          }
+          
+          &:focus { :outline: none; }
+        }
+        
+        .right {
+          position: absolute;
+          right: 5px;
+        }
+      }
+    }
+
+    &.active {
+      margin-top: -3px;
+      @include dropdown-shadow;
+      background-color: rgb(34,30,30);
+      border: 1px solid #999;
+    }
+
+    .avatar {
+      height: 22px;
+      width: 22px;
+      position: absolute;
+      left: 7px;
+      top: 9px;
+      display: block;
+    }
+  }
+
+  .header-nav {
+    font-weight: bold;
+    float: left;
+    height: 100%;
+    margin-right: 5px;
+    margin-top: 3px;
+
+    a {
+      padding: 0 10px;
+      width: 100%;
+      &:hover { text-decoration: none; }
+    }
+
+    > span {
+      height: 100%;
+      display: inline-block;
+      margin-left: -4px;
+      border-left: 1px solid #333;
+      border-right: 1px solid #333;
+
+      &:last-child {
+        margin-left: -5px;
+      }
+    }
+  }
+  
+  /* When the user is not connected */
+  ul#landing_nav {
+    position: absolute;
+    top: 4px;
+    right: 0;  
+    margin: 0;
+    padding: 0;
+  
+    > li {
+      text-shadow: 0 1px 0 #000;
+      display: inline;
+      margin-right: 0.5em;
+    
+      a {      
+        color: $blue;
+      
+        &.login {        
+          @include border-radius(5px);
+          @include box-shadow(0, 1px, 1px, #666);
+          padding: 5px 8px;
+          background-color: #000;
+          border-top: 1px solid #000;
+          
+          &:hover { background-color: #222; }
+        }
+ 	  }
+ 	
+      &:last-child { margin-right: 0; }
+    }
+  }
+}
+
+
+/* 
+ * Extract here from application.sass because
+ * needed for the header in the bootstrap part
+ */
+ul.dropdown {
+  padding: 0px;
+
+  li {
+    display: none;
+    
+    a { display: block; }
+
+    &:first-child {
+      display: block;
+      
+      a {
+        height: auto;
+        display: inline;
+      }
+    }
+  }
+
+  &.active {
+    z-index: 30;
+    li { display: block; }
+  }
+}

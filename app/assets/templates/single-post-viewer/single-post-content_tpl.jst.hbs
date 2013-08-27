@@ -1,0 +1,31 @@
+<div id='head' class='row-fluid'>
+  <div id='author' class='span8'>
+    <div class="img pull-left">
+      {{{personImage author 'medium'}}}
+    </div>
+
+    <div class="bd">
+      {{#linkToPerson author}}
+          {{name}}
+      {{/linkToPerson}}
+
+      {{#if root}}
+      <span class="retweet">
+        <i class="icon-retweet"></i>
+          {{#linkToPerson root.author}}
+            {{name}}
+          {{/linkToPerson}}
+      </span>
+      {{/if}}
+
+      <div class='status-message-location' />
+    </div>
+  </div>
+  <div id='single-post-actions' class='span4'>
+  </div>
+</div>
+<hr />
+<div id='body' class='row-fluid'>
+  <div id='real-post-content' class='span12'>
+  </div>
+</div>

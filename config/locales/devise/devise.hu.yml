@@ -16,6 +16,7 @@ hu:
       invalid: "Érvénytelen felhasználónév vagy jelszó."
       invalid_token: "Érvénytelen hitelesítési azonosító."
       locked: "A fiókod zárolva van."
+      not_found_in_database: "Érvénytelen e-mail cím vagy jelszó"
       timeout: "A munkamenet lejárt, kérjük jelentkezz be újra."
       unauthenticated: "A továbblépéshez jelentkezz be vagy iratkozz fel."
       unconfirmed: "Előbb meg kell erősítened fiókodat."

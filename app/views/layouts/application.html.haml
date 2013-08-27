@@ -5,20 +5,18 @@
 !!!
 %html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
   %head
-    %meta{:charset => 'utf-8'}
-    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
+    %title
+      = page_title yield(:page_title)
 
-    %meta{:name => "description", :content => "Diaspora*"}
-    %meta{:name => "author", :content => "Diaspora, Inc."}
-    = og_site_name
+    %meta{:charset => 'utf-8'}/
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{:name => "description", :content => "diaspora*"}/
+    %meta{:name => "author", :content => "Diaspora, Inc."}/
+    %meta{:property => "og:site_name", :content => "#{AppConfig.settings.pod_name}"}/
 
     %link{:rel => 'shortcut icon', :href => "#{image_path('favicon.png')}" }
     %link{:rel => 'apple-touch-icon', :href => "#{image_path('apple-touch-icon.png')}"}
 
-    %title
-      = page_title yield(:page_title)
-
-    = og_site_name
     = chartbeat_head_block
     = include_mixpanel
 
@@ -43,7 +41,6 @@
       = load_javascript_locales
 
     = set_asset_host
-    = set_current_user_in_javascript
     = translation_missing_warnings
     = current_user_atom_tag
 
@@ -54,7 +51,7 @@
       %link{:rel => 'alternate', :type => "application/json+oembed", :href => "#{oembed_url(:url => post_url(@post))}"}
       = og_page_specific_tags(@post)
 
-    = include_gon(:camel_case => true, :namespace => :preloads)
+    = include_gon(:camel_case => true)
 
   %body
     = flash_messages

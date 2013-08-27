@@ -26,9 +26,8 @@ Feature: User manages contacts
     When I am on the contacts page
     And I follow "People"
     And I follow "add contacts to People"
-    And I wait for the ajax to finish
-    And I preemptively confirm the alert
     And I press "Delete" in the modal window
+    And I confirm the alert
     Then I should be on the contacts page
     And I should not see "People" within "#aspect_nav"
 
@@ -37,11 +36,10 @@ Feature: User manages contacts
     And I have an aspect called "People"
     When I am on the aspects page
     And I click on "People" aspect edit icon
-    And I wait for the ajax to finish
-    And I preemptively confirm the alert
     And I press "Delete" in the modal window
+    And I confirm the alert
     Then I should be on the aspects page
-    And I should not see "People" within "#aspect_nav"
+    And I should not see "People" within "#aspects_list"
 
   Scenario: Editing the aspect memberships of a contact from the aspect edit facebox
     Given I am signed in
@@ -50,13 +48,10 @@ Feature: User manages contacts
     When I am on the contacts page
     And I follow "Cat People"
     And I follow "add contacts to Cat People"
-    And I wait for the ajax to finish
-    And I press the first ".contact_list .button"
-    And I wait for the ajax to finish
+    And I check the first contact list button
     Then I should have 1 contact in "Cat People"
 
-    When I press the first ".contact_list .button"
-    And I wait for the ajax to finish
+    When I uncheck the first contact list button
     Then I should have 0 contacts in "Cat People"
 
   Scenario: infinite scroll on contacts index

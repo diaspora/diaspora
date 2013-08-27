@@ -6,6 +6,7 @@
 
 eo:
   javascripts:
+    and: "kaj"
     aspect_dropdown:
       add_to_aspect: "Aldoni kontakton"
       all_aspects: "Ĉiuj aspektoj"
@@ -18,14 +19,17 @@ eo:
         other: "En <%= count %> aspektoj"
         zero: "Elektu aspektojn"
     aspect_navigation:
+      add_an_aspect: "+ Aldoni aspekton"
       deselect_all: "Malselekti ĉiujn"
       no_aspects: "Neniuj aspektoj selektitaj"
       select_all: "Selekti ĉiujn"
+    comma: ","
     comments:
       hide: "Kaŝi komentojn"
       show: "Vidi ĉiujn komentojn"
     confirm_dialog: "Ĉu vi certas?"
     delete: "Forviŝi"
+    edit: "Redakti"
     failed_to_like: "Ne povis ŝati!"
     failed_to_post_message: "Ne povis afiŝi mesaĝon!"
     getting_started:
@@ -51,10 +55,12 @@ eo:
     infinite_scroll:
       no_more: "Neniu plua afiŝo."
     my_activity: "Mia aktiveco"
+    my_aspects: "Viaj aspektoj"
     my_stream: "Torento"
     people:
       not_found: "...kaj neniu troviĝis."
     photo_uploader:
+      completed: "<%= file %> kompletita"
       looking_good: "Diable, vi aspektas bonege!"
     publisher:
       at_least_one_aspect: "Vi devas konigi al almenaŭ unu aspekton"
@@ -69,6 +75,10 @@ eo:
     stream:
       comment: "Komenti"
       follow: "Sekvi"
+      followed_tag:
+        add_a_tag: "Aldoni etikedon"
+        follow: "Sekvi"
+        title: "#Sekvitaj etikedoj"
       hide: "Kaŝi"
       hide_nsfw_posts: "Kaŝi #nsfw-mesaĝojn (ne sekuraj)"
       like: "Ŝati"
@@ -90,6 +100,10 @@ eo:
         zero: "<%= count %> Rekonigoj"
       show_nsfw_post: "Montri afiŝon"
       show_nsfw_posts: "Montri ĉiujn"
+      tags:
+        follow: "Sekvi #<%= tag %>"
+        following: "Sekvanta #<%= tag %>"
+        stop_following: "Ĉesi sekvadon de #<%= tag %>"
       unfollow: "Ne plu sekvi"
       unlike: "Ne plu ŝati"
     tags:

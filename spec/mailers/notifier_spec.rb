@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Notifier do
   include ActionView::Helpers::TextHelper
+  include MarkdownifyHelper
 
   let(:person) { FactoryGirl.create(:person) }
 
@@ -135,12 +136,6 @@ describe Notifier do
       like = reshare.likes.create!(:author => bob.person)
       mail = Notifier.liked(alice.id, like.author.id, like.id)
     end
-
-    it 'can handle a activity streams photo' do
-      as_photo = FactoryGirl.create(:activity_streams_photo)
-      like = as_photo.likes.create!(:author => bob.person)
-      mail = Notifier.liked(alice.id, like.author.id, like.id)
-    end
   end
 
   describe ".reshared" do
@@ -190,7 +185,7 @@ describe Notifier do
     end
 
     it "FROM: contains the sender's name" do
-      @mail["From"].to_s.should == "\"#{@cnv.author.name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>"
+      @mail["From"].to_s.should == "\"#{@cnv.author.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
     end
 
     it 'SUBJECT: has a snippet of the post contents' do
@@ -214,7 +209,7 @@ describe Notifier do
   end
 
   context "comments" do
-    let(:commented_post) {bob.post(:status_message, :text => "It's really sunny outside today, and this is a super long status message!  #notreally", :to => :all)}
+    let(:commented_post) {bob.post(:status_message, :text => "### Headline \r\n It's **really** sunny outside today, and this is a super long status message!  #notreally", :to => :all)}
     let(:comment) { eve.comment!(commented_post, "Totally is")}
 
     describe ".comment_on_post" do
@@ -225,11 +220,11 @@ describe Notifier do
       end
 
       it "FROM: contains the sender's name" do
-        comment_mail["From"].to_s.should == "\"#{eve.name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>"
+        comment_mail["From"].to_s.should == "\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
       end
 
-      it 'SUBJECT: has a snippet of the post contents' do
-        comment_mail.subject.should == "Re: #{truncate(commented_post.raw_message, :length => 70)}"
+      it 'SUBJECT: has a snippet of the post contents, without markdown and without newlines' do
+        comment_mail.subject.should == "Re: Headline It's really sunny outside today, and this is a super long ..."
       end
 
       context 'BODY' do
@@ -246,7 +241,7 @@ describe Notifier do
         end
       end
 
-      [:reshare, :activity_streams_photo].each do |post_type|
+      [:reshare].each do |post_type|
         context post_type.to_s do
           let(:commented_post) { FactoryGirl.create(post_type, :author => bob.person) }
           it 'succeeds' do
@@ -266,11 +261,11 @@ describe Notifier do
       end
 
       it 'FROM: has the name of person commenting as the sender' do
-        comment_mail["From"].to_s.should == "\"#{eve.name} (Diaspora*)\" <#{AppConfig.mail.sender_address}>"
+        comment_mail["From"].to_s.should == "\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
       end
 
-      it 'SUBJECT: has a snippet of the post contents' do
-        comment_mail.subject.should == "Re: #{truncate(commented_post.raw_message, :length => 70)}"
+      it 'SUBJECT: has a snippet of the post contents, without markdown and without newlines' do
+        comment_mail.subject.should == "Re: Headline It's really sunny outside today, and this is a super long ..."
       end
 
       context 'BODY' do
@@ -286,7 +281,7 @@ describe Notifier do
           comment_mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
         end
       end
-      [:reshare, :activity_streams_photo].each do |post_type|
+      [:reshare].each do |post_type|
         context post_type.to_s do
           let(:commented_post) { FactoryGirl.create(post_type, :author => bob.person) }
           it 'succeeds' do

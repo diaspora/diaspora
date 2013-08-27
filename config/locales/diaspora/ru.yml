@@ -88,6 +88,7 @@ ru:
     user_search:
       add_invites: "добавить приглашения"
       email_to: "Адрес для пришлашения"
+      under_13: "Показать пользователей моложе 13 (COPPA)"
       users:
         few: "найдено %{count} пользователя"
         many: "найдено %{count} пользователей"
@@ -297,6 +298,8 @@ ru:
     two: "%{count} контакта"
     zero: "0 контактов"
   conversations:
+    conversation:
+      participants: "Участники"
     create:
       fail: "Неверное сообщение"
       no_contact: "Эй, вам нужно сначала добавить контакт!"
@@ -382,6 +385,7 @@ ru:
       resend: "Ещё раз послать"
       send_an_invitation: "Отправить приглашение"
       send_invitation: "Отправить приглашение"
+      sending_invitation: "Отправка приглашения..."
       to: "Для"
   layouts:
     application:
@@ -585,6 +589,7 @@ ru:
       edit_membership: "редактировать участников аспекта"
     few: "%{count} человек[-a]"
     helper:
+      is_sharing: "%{name} делится с вами"
       people_on_pod_are_aware_of: "люди на сервере знают о"
       results_for: "результаты для %{params}"
     index:

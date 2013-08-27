@@ -76,6 +76,7 @@ zh-TW:
     user_search:
       add_invites: "增加邀請次數"
       email_to: "寄電子郵件邀請"
+      under_13: "顯示低於 13 歲的使用者(基於美國兒童網路隱私保護法案, COPPA)"
       users:
         other: "找到%{count}個使用者"
         zero: "找到%{count}個使用者"
@@ -279,6 +280,8 @@ zh-TW:
     two: "%{count}個聯絡人"
     zero: "聯絡人"
   conversations:
+    conversation:
+      participants: "參加人員"
     create:
       fail: "無效的訊息"
       no_contact: "喂，你要先新增聯絡人才行！"
@@ -358,6 +361,7 @@ zh-TW:
       resend: "重寄"
       send_an_invitation: "寄邀請卡"
       send_invitation: "寄邀請卡"
+      sending_invitation: "正在邀請卡..."
       to: "收件人"
   layouts:
     application:
@@ -506,6 +510,7 @@ zh-TW:
       edit_membership: "編輯所屬面向"
     few: "%{count}個聯絡人"
     helper:
+      is_sharing: "%{name} 正在跟你分享中"
       people_on_pod_are_aware_of: "Pod上已知的人"
       results_for: "%{params}的搜尋結果"
     index:

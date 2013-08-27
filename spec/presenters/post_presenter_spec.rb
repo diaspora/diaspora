@@ -76,12 +76,28 @@ describe PostPresenter do
   end
   
   describe '#title' do 
-    it 'includes the text if it is present' do
-      @sm = stub(:text => "lalalalalalala", :author => bob.person)
-      @presenter.post = @sm
-      @presenter.title.should == @sm.text
-    end
+    context 'with posts with text' do
+      context 'with a Markdown header of less than 200 characters on first line'do
+        it 'returns atx style header' do
+          @sm = stub(:text => "## My title\n Post content...")
+          @presenter.post = @sm
+          @presenter.title.should == "## My title"
+        end
 
+        it 'returns setext style header' do
+          @sm = stub(:text => "My title \n======\n Post content...")
+          @presenter.post = @sm
+          @presenter.title.should == "My title \n======"
+        end
+      end
+      context 'without a Markdown header of less than 200 characters on first line 'do
+        it 'truncates post to the 20 first characters' do
+          @sm = stub(:text => "Very, very, very long post")
+          @presenter.post = @sm
+          @presenter.title.should == "Very, very, very ..."
+        end
+      end
+    end
     context 'with posts without text' do
       it ' displays a messaage with the post class' do
 

@@ -8,7 +8,7 @@ module MobileHelper
     if (post.public? || reshare?(post)) && (user_signed_in? && post.author != current_user.person)
       absolute_root = reshare?(post) ? post.absolute_root : post
 
-      if absolute_root.author != current_user.person
+      if absolute_root && absolute_root.author != current_user.person
         reshare = Reshare.where(:author_id => current_user.person_id,
                                 :root_guid => absolute_root.guid).first
         klass = reshare.present? ? "active" : "inactive"

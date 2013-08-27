@@ -21,7 +21,7 @@ Feature: Unfollowing
 
     Then I should have 0 contacts in "Besties"
 
-    Then I go to the destroy user session page
+    Then I sign out
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
@@ -33,16 +33,13 @@ Feature: Unfollowing
 
     And I follow "Besties"
     And I follow "add contacts to Besties"
-    And I wait for the ajax to finish
 
-    And I preemptively confirm the alert
     And I press the first ".added" within "#facebox .contact_list ul > li:first-child"
-    And I wait for the ajax to finish
 
     When I follow "My Contacts"
     Then I should have 0 contacts in "Besties"
 
-    When I go to the destroy user session page
+    When I sign out
     And I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
     Then I should not see "is sharing with you."
