@@ -7,6 +7,7 @@ Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspo
 Make invite code input width consistent across borwsers [#4448](https://github.com/diaspora/diaspora/pull/4448)
 
 ## Features
+Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
 
 # 0.2.0.0
 
