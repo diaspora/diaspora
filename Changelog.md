@@ -4,6 +4,7 @@
 
 ## Bug fixes
 Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
+Make invite code input width consistent across borwsers [#4448](https://github.com/diaspora/diaspora/pull/4448)
 
 ## Features
 
