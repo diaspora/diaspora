@@ -13,7 +13,7 @@ describe Retraction do
 
   describe 'serialization' do
     it 'should have a post id after serialization' do
-      retraction = Retraction.for(@post)
+      retraction = described_class.for(@post)
       xml = retraction.to_xml.to_s
       xml.include?(@post.guid.to_s).should == true
     end
@@ -22,7 +22,7 @@ describe Retraction do
   describe '#subscribers' do
     context 'posts' do
       before do
-        @retraction = Retraction.for(@post)
+        @retraction = described_class.for(@post)
         @obj = @retraction.instance_variable_get(:@object)
         @wanted_subscribers = @obj.subscribers(alice)
       end
@@ -42,7 +42,7 @@ describe Retraction do
 
     context 'setting subscribers' do
       it 'barfs if the type is a person, and subscribers instance varabile is not set' do
-        retraction = Retraction.for(alice)
+        retraction = described_class.for(alice)
         obj = retraction.instance_variable_get(:@object)
 
         lambda {
@@ -51,7 +51,7 @@ describe Retraction do
       end
 
       it 'returns manually set subscribers' do
-        retraction = Retraction.for(alice)
+        retraction = described_class.for(alice)
         retraction.subscribers = "fooey"
         retraction.subscribers(alice).should == 'fooey'
       end

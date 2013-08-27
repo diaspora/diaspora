@@ -11,7 +11,7 @@ describe Request do
 
   describe 'validations' do
     before do
-      @request = Request.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
+      @request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
     end
 
     it 'is valid' do
@@ -42,7 +42,7 @@ describe Request do
     end
 
     it 'is not to yourself' do
-      @request = Request.diaspora_initialize(:from => alice.person, :to => alice.person, :into => @aspect)
+      @request = described_class.diaspora_initialize(:from => alice.person, :to => alice.person, :into => @aspect)
       @request.should_not be_valid
     end
   end
@@ -51,7 +51,7 @@ describe Request do
     it 'returns request_accepted' do
       person = FactoryGirl.build:person
 
-      request = Request.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
+      request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
       alice.contacts.create(:person_id => person.id)
 
       request.notification_type(alice, person).should == Notifications::StartedSharing
@@ -60,14 +60,14 @@ describe Request do
 
   describe '#subscribers' do
     it 'returns an array with to field on a request' do
-      request = Request.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
+      request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
       request.subscribers(alice).should =~ [eve.person]
     end
   end
 
   describe '#receive' do
     it 'creates a contact' do
-      request = Request.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
+      request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
       lambda{
         request.receive(eve, alice.person)
       }.should change{
@@ -79,7 +79,7 @@ describe Request do
       alice.share_with(eve.person, alice.aspects.first)
 
       lambda {
-        Request.diaspora_initialize(:from => eve.person, :to => alice.person,
+        described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
                                     :into => eve.aspects.first).receive(alice, eve.person)
       }.should change {
         alice.contacts.find_by_person_id(eve.person.id).mutual?
@@ -88,7 +88,7 @@ describe Request do
     end
 
     it 'sets sharing' do
-      Request.diaspora_initialize(:from => eve.person, :to => alice.person,
+      described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
                                   :into => eve.aspects.first).receive(alice, eve.person)
       alice.contact_for(eve.person).should be_sharing
     end
@@ -98,10 +98,10 @@ describe Request do
       alice.auto_follow_back_aspect = alice.aspects.first
       alice.save
       
-      Request.diaspora_initialize(:from => eve.person, :to => alice.person,
-                                  :into => eve.aspects.first).receive(alice, eve.person)
+      described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
+                                          :into => eve.aspects.first).receive(alice, eve.person)
       
-      eve.contact_for(alice.person).should be_sharing
+      eve.contact_for( alice.person ).should be_sharing
     end
     
     it 'shares not back if auto_following is not enabled' do
@@ -109,7 +109,7 @@ describe Request do
       alice.auto_follow_back_aspect = alice.aspects.first
       alice.save
       
-      Request.diaspora_initialize(:from => eve.person, :to => alice.person,
+      described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
                                   :into => eve.aspects.first).receive(alice, eve.person)
       
       eve.contact_for(alice.person).should be_nil
@@ -126,14 +126,14 @@ describe Request do
       
       alice.should_not_receive(:share_with)
       
-      Request.diaspora_initialize(:from => eve.person, :to => alice.person,
+      described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
                                   :into => eve.aspects.first).receive(alice, eve.person)
     end
   end
 
   context 'xml' do
     before do
-      @request = Request.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
+      @request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
       @xml = @request.to_xml.to_s
     end
 
@@ -148,7 +148,7 @@ describe Request do
 
     context 'marshalling' do
       it 'produces a request object' do
-        marshalled = Request.from_xml @xml
+        marshalled = described_class.from_xml @xml
 
         marshalled.sender.should == alice.person
         marshalled.recipient.should == eve.person
