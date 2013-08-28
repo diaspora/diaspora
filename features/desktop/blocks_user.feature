@@ -20,7 +20,7 @@ Feature: Blocking a user from the stream
   Scenario: Blocking a user from the profile page
     When I am on the home page
     And I follow "Alice Smith"
-    When I click on the first block button
+    When I click on the profile block button
     And I confirm the alert
     And I am on the home page
     Then I should not see any posts in my stream
