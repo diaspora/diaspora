@@ -38,7 +38,7 @@ body
   :padding 2em
   :margin 0
     :top 33px
-  :background-color $background
+  :background-color $background-white
 
   :font
     :family "Helvetica Neue",Helvetica,Arial,sans-serif
@@ -1526,7 +1526,7 @@ ul#press_logos
 
 .conversation_participants
   :background
-    :color $background
+    :color $background-white
   :margin
     :bottom 10px
 
@@ -1662,7 +1662,7 @@ ul#press_logos
 
   &:hover:not(.selected)
     :background
-      :color #fafafa
+      :color $highlight-white
 
   &.selected:hover
     :background
@@ -1673,7 +1673,7 @@ ul#press_logos
 
 .conversation.unread
   :background
-    :color darken($background,5%)
+    :color darken($background-white,5%)
 
 .conversation.selected
   :background
