@@ -28,9 +28,9 @@
         
       %br
 
-    -if contact.sharing? || person == current_user.person
-      %ul#profile_information
-      
+  %ul#profile_information
+    -if user_signed_in?
+      -if contact.sharing? || person == current_user.person
         - unless person.bio.blank?
           %li
             %h4
@@ -55,37 +55,37 @@
             %h4
               =t('.born')
             = birthday_format(person.birthday)
-        - if @photos.present?
-          %li.image_list
-            %h4
-              = t('.photos')
-              .item_count
-                = "#{@photos.count}"
-            - @photos.limit(8).each do |photo|
-              = image_tag(photo.url(:thumb_small))
-            %br
-              = link_to t('layouts.header.view_all'),  person_photos_path(person)
-  
-        - if person == current_user.person
-          %li.image_list
-            %h4
-              = t('_contacts')
-              .item_count
-                = all_contacts_count
-            .section.contact_pictures
-              - current_user.contacts.limit(8).each do |contact|
-                = person_image_link contact.person, :size => :thumb_small
-            %p.see_all= link_to t('layouts.header.view_all'), contacts_path
-        - elsif @contact.persisted? && @contacts_of_contact_count > 0
-          %li.image_list
-            %h4
-              = t('_contacts')
-              .item_count
-                = @contacts_of_contact_count
-            .section.contact_pictures
-              -@contacts_of_contact.limit(8).each do |person|
-                = person_image_link person, :size => :thumb_small
-              %p.see_all= link_to t('layouts.header.view_all'), person_contacts_path(@person)
 
+    - if @photos.present?
+      %li.image_list
+        %h4
+          = t('.photos')
+          .item_count
+            = "#{@photos.count}"
+        - @photos.limit(8).each do |photo|
+          = image_tag(photo.url(:thumb_small))
         %br
-        %br
+          = link_to t('layouts.header.view_all'),  person_photos_path(person)
+
+    - if user_signed_in?
+      - if person == current_user.person
+        %li.image_list
+          %h4
+            = t('_contacts')
+            .item_count
+              = all_contacts_count
+          .section.contact_pictures
+            - current_user.contacts.limit(8).each do |contact|
+              = person_image_link contact.person, :size => :thumb_small
+          %p.see_all= link_to t('layouts.header.view_all'), contacts_path
+      - elsif contact.sharing? && contact.persisted? && @contacts_of_contact_count > 0
+        %li.image_list
+          %h4
+            = t('_contacts')
+            .item_count
+              = @contacts_of_contact_count
+          .section.contact_pictures
+            - @contacts_of_contact.limit(8).each do |person|
+              = person_image_link person, :size => :thumb_small
+            %p.see_all= link_to t('layouts.header.view_all'), person_contacts_path(@person)
+
