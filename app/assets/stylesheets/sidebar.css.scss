@@ -26,8 +26,6 @@ $bluebg: #e7f2f7;
 	margin: 0px;
 	margin-right: 10px;
 	color: #222222;
-	
-	.selected { background-color: $bluebg; }
 
 	ul {
 		margin: 0px;
@@ -38,16 +36,16 @@ $bluebg: #e7f2f7;
 		color: $link-grey;
 		font-weight: bold;
 		text-decoration: none;
+		&:hover { color :$black; }
 	}
-	
+
+	.selected { color: $black; }
+	.selected a { color: $black; }
+
 	.hoverable {
 		display: block;
 		margin-right: 6px;
-		padding: 4px;
-		
-		&:hover {
-			background-color: $bluebg;
-		}
+		padding: 4px 4px 4px 0;
 	}
 	
 	.selectable {
