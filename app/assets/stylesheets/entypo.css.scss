@@ -29,7 +29,14 @@
 
   &.small {
     font-size: 1.2em;
+  }
+
+  &.regular {
+    display: inline-block;
+    font-size: 1.2em;
     line-height: 1.2em;
+    min-width: 15px;
+    text-align: center;
   }
 }
 
