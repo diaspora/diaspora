@@ -16,7 +16,7 @@ Feature: show photos
 
     Scenario: see my own photos
       When I am on "robert@grimm.grimm"'s page
-      And I follow "View all" within "#image_list"
+      And I follow "View all" within ".image_list"
       Then I should be on person_photos page
 
     Scenario: I cannot see photos of people who don't share with me
