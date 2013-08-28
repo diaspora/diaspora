@@ -3,6 +3,7 @@
 //   the COPYRIGHT file.
 
 @import "mixins";
+@import "colors";
 
 body, html{
   padding: 20px;
@@ -50,7 +51,7 @@ header{
 
 footer{
   position: absolute;
-  background-color: #eee;
+  background-color: $background-grey;
   border-top: 1px solid #ccc;
   bottom: 0;
   left: 0;
