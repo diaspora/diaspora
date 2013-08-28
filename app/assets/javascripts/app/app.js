@@ -40,6 +40,7 @@ var app = {
     this.setupHeader();
     this.setupBackboneLinks();
     this.setupGlobalViews();
+    this.setupInviteLinks();
   },
 
   hasPreload : function(prop) {
@@ -100,6 +101,12 @@ var app = {
   setupGlobalViews: function() {
     app.hovercard = new app.views.Hovercard();
     app.aspectMemberships = new app.views.AspectMembership();
+  },
+
+  setupInviteLinks: function() {
+    $("input#invite_code").click(function() {
+      this.select();
+    });
   },
 
   /* mixpanel wrapper function */
