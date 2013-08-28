@@ -1,15 +1,16 @@
 # Head
 
 ## Refactor
-Move non-model federation stuff into lib/ [#4363](https://github.com/diaspora/diaspora/pull/4363)
+* Move non-model federation stuff into lib/ [#4363](https://github.com/diaspora/diaspora/pull/4363)
 
 ## Bug fixes
-Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
-Make invite code input width consistent across borwsers [#4448](https://github.com/diaspora/diaspora/pull/4448)
+* Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
+* Make invite code input width consistent across borwsers [#4448](https://github.com/diaspora/diaspora/pull/4448)
+* Fix style of contacts in profile sidebar [#4451](https://github.com/diaspora/pull/4451)
 
 ## Features
-Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
-One click to select the invite URL [#4447](https://github.com/diaspora/diaspora/pull/4447)
+* Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
+* One click to select the invite URL [#4447](https://github.com/diaspora/diaspora/pull/4447)
 
 # 0.2.0.0
 
