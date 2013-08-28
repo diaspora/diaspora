@@ -41,8 +41,8 @@ $bluebg: #e7f2f7;
 	.hoverable {
 		display: block;
 		margin-right: 6px;
-		padding: 4px;
-		
+		padding: 4px 4px 4px 0;
+
 		&:hover {
 			background-color: $bluebg;
 		}
