@@ -9,6 +9,7 @@ Make invite code input width consistent across borwsers [#4448](https://github.c
 
 ## Features
 Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
+One click to select the invite URL [#4447](https://github.com/diaspora/diaspora/pull/4447)
 
 # 0.2.0.0
 
