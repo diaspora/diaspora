@@ -160,7 +160,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     });
 
     var mentioned_people = new Array();
-    var regexp = new RegExp("@{\(\.\*\) ; \(\.\*\)}", "g");
+    var regexp = new RegExp("@{\(\[\^\;\]\+\); \(\[\^\}\]\+\)}", "g");
     while(user=regexp.exec(serializedForm["status_message[text]"])){
       // user[1]: name, user[2]: handle
       var mentioned_user = Mentions.contacts.filter(function(item) { return item.handle == user[2];})[0];

@@ -8,6 +8,7 @@
 * Make invite code input width consistent across borwsers [#4448](https://github.com/diaspora/diaspora/pull/4448)
 * Fix style of contacts in profile sidebar [#4451](https://github.com/diaspora/pull/4451)
 * Fix profile mobile when logged out [#4464](https://github.com/diaspora/pull/4464)
+* Fix preview with more than one mention [#4450](https://github.com/diaspora/diaspora/issues/4450)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
