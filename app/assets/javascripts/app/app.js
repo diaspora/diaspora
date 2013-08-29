@@ -40,6 +40,7 @@ var app = {
     this.setupHeader();
     this.setupBackboneLinks();
     this.setupGlobalViews();
+    this.setupDisabledLinks();
   },
 
   hasPreload : function(prop) {
@@ -107,7 +108,13 @@ var app = {
   instrument : function(type, name, object, callback) {
     if(!window.mixpanel) { return }
     window.mixpanel[type](name, object, callback)
-  }
+  },
+
+  setupDisabledLinks: function() {
+    $("a.disabled").click(function(event) {
+      event.preventDefault();
+    });
+  },
 };
 
 $(function() {

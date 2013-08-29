@@ -22,7 +22,7 @@
           .next(".hidden")
           .removeClass("hidden");
       });
-      self.notificationMenu.find('a#mark_all_read_link').click(function() {
+      self.notificationMenu.find('a#mark_all_read_link').click(function(event) {
         $.ajax({
           url: "/notifications/read_all",
           type: "GET",
@@ -39,6 +39,7 @@
             self.resetCount();
           }
         });
+        $(event.target).addClass("disabled");
         return false;
       });
     });
