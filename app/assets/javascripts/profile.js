@@ -4,5 +4,3 @@
  */
 //= require jquery.autoSuggest.custom
 
-$(document).ready(function() {
-});
