@@ -7,7 +7,7 @@
   = person_link(post.author)
 
   .remove_post
-    - if post.author == current_user.person
+    - if user_signed_in? && post.author == current_user.person
       = link_to(image_tag('deletelabel.png'), post_path(post), :method => :delete, :data => { :confirm => "#{t('are_you_sure')}" }, :class => "remove")
 
   .info
