@@ -9,7 +9,6 @@
 //= require jquery.textchange
 
 app.views.Publisher = Backbone.View.extend(_.extend(
-  app.views.PublisherServices,
   app.views.PublisherAspectsSelector,
   app.views.PublisherGettingStarted, {
 
@@ -21,15 +20,12 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     "click #hide_publisher" : "clear",
     "submit form" : "createStatusMessage",
     "click .post_preview_button" : "createPostPreview",
-    "click .service_icon": "toggleService",
     "textchange #status_message_fake_text": "handleTextchange",
     "click .dropdown .dropdown_list li": "toggleAspect",
     "click #locator" : "showLocation",
     "click #hide_location" : "destroyLocation",
     "keypress #location_address" : "avoidEnter"
   },
-
-  tooltipSelector: ".service_icon",
 
   initialize : function(){
     // init shortcut references to the various elements
@@ -45,9 +41,6 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
     // init autoresize plugin
     this.el_input.autoResize({ 'extraSpace' : 10, 'maxHeight' : Infinity });
-
-    // init tooltip plugin
-    this.$(this.tooltipSelector).tooltip();
 
     // sync textarea content
     if( this.el_hiddenInput.val() == "" ) {
@@ -73,8 +66,17 @@ app.views.Publisher = Backbone.View.extend(_.extend(
         }
     });
 
+    this.initSubviews();
 
     return this;
+  },
+
+  initSubviews: function() {
+    this.view_services = new app.views.PublisherServices({
+      el:    this.$('#publisher_service_icons'),
+      input: this.el_input,
+      form:  this.$('.content_creation form')
+    });
   },
 
   createStatusMessage : function(evt) {
@@ -260,11 +262,11 @@ app.views.Publisher = Backbone.View.extend(_.extend(
   },
 
   tryClose : function(){
-    // if it is not submittable, close it. 
+    // if it is not submittable, close it.
     if( !this._submittable() ){
       this.close()
     }
-  },  
+  },
 
   open : function() {
     // visually 'open' the publisher

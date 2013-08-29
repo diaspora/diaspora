@@ -3,49 +3,58 @@
  *   the COPYRIGHT file.
  */
 
-(function(){
-  // mixin-object, used in conjunction with the publisher to provide the
-  // functionality for selecting services for cross-posting
-  app.views.PublisherServices = {
+// Services view for the publisher.
+// Provides the ability for selecting services for cross-posting
+app.views.PublisherServices = Backbone.View.extend({
 
-    // visually toggle the icon and kick-off all other actions for cross-posting
-    toggleService: function(evt) {
-      var el = $(evt.target);
-      var provider = el.attr('id');
+  events: {
+    'click .service_icon': 'toggleService'
+  },
 
-      el.toggleClass("dim");
+  tooltipSelector: '.service_icon',
 
-      this._createCounter();
-      this._toggleServiceField(provider);
-    },
+  initialize: function() {
+    // init tooltip plugin
+    this.$(this.tooltipSelector).tooltip();
+  },
 
-    // keep track of character count
-    _createCounter: function() {
-      // remove obsolete counter
-      this.$('.counter').remove();
+  // visually toggle the icon and handle all other actions for cross-posting
+  toggleService: function(evt) {
+    var el = $(evt.target);
+    var provider = el.attr('id');
 
-      // create new counter
-      var min = 40000;
-      var a = this.$('.service_icon:not(.dim)');
-      if(a.length > 0){
-        $.each(a, function(index, value){
-          var num = parseInt($(value).attr('maxchar'));
-          if (min > num) { min = num; }
-        });
-        this.el_input.charCount({allowed: min, warning: min/10 });
-      }
-    },
+    el.toggleClass("dim");
 
-    // add or remove the input containing the selected service
-    _toggleServiceField: function(provider) {
-      var hidden_field = this.$('input[name="services[]"][value="'+provider+'"]');
-      if(hidden_field.length > 0){
-        hidden_field.remove();
-      } else {
-        var uid = _.uniqueId('services_');
-        this.$(".content_creation form").append(
-        '<input id="'+uid+'" name="services[]" type="hidden" value="'+provider+'">');
-      }
+    this._createCounter();
+    this._toggleServiceField(provider);
+  },
+
+  // keep track of character count
+  _createCounter: function() {
+    // remove any obsolete counters
+    this.options.input.siblings('.counter').remove();
+
+    // create new counter
+    var min = 40000;
+    var a = this.$('.service_icon:not(.dim)');
+    if(a.length > 0){
+      $.each(a, function(index, value){
+        var num = parseInt($(value).attr('maxchar'));
+        if (min > num) { min = num; }
+      });
+      this.options.input.charCount({allowed: min, warning: min/10 });
     }
-  };
-})();
+  },
+
+  // add or remove the input containing the selected service
+  _toggleServiceField: function(provider) {
+    var hidden_field = this.options.form.find('input[name="services[]"][value="'+provider+'"]');
+    if(hidden_field.length > 0){
+      hidden_field.remove();
+    } else {
+      var uid = _.uniqueId('services_');
+      this.options.form.append(
+      '<input id="'+uid+'" name="services[]" type="hidden" value="'+provider+'">');
+    }
+  }
+});
