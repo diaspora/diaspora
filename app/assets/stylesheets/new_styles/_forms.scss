@@ -35,7 +35,7 @@ form.block-form {
 
     background-color : #fff;
 
-    border : 1px solid #888;
+    border : 1px solid $border-dark-grey;
 
     input[type=text],
     input[type=email],
@@ -96,7 +96,7 @@ form.block-form {
 
   background-color : rgb(233,233,233);
   color : $text-grey;
-  border : 1px solid #888;
+  border : 1px solid $border-dark-grey;
 
   //font-family : Roboto-Bold;
   font-size : 14px;
