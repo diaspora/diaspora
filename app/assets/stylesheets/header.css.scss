@@ -131,6 +131,10 @@ body > header {
       }
 
       a { color: $blue; }
+      a.disabled {
+        color: $link-disabled-grey;
+        cursor: default;
+      }
 
       .header {
         padding: 10px;

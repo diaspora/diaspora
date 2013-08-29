@@ -11,6 +11,7 @@
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
 * One click to select the invite URL [#4447](https://github.com/diaspora/diaspora/pull/4447)
+* Disable "mark all as read" link if all notifications are read [#4463](https://github.com/diaspora/diaspora/pull/4463)
 
 # 0.2.0.0
 
