@@ -3,13 +3,12 @@
  *   the COPYRIGHT file.
  */
 
-//= require ./publisher/services
-//= require ./publisher/aspects_selector
+//= require ./publisher/publisher_services
+//= require ./publisher/publisher_aspect_selector
 //= require ./publisher/getting_started
 //= require jquery.textchange
 
 app.views.Publisher = Backbone.View.extend(_.extend(
-  app.views.PublisherAspectsSelector,
   app.views.PublisherGettingStarted, {
 
   el : "#publisher",
@@ -21,7 +20,6 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     "submit form" : "createStatusMessage",
     "click .post_preview_button" : "createPostPreview",
     "textchange #status_message_fake_text": "handleTextchange",
-    "click .dropdown .dropdown_list li": "toggleAspect",
     "click #locator" : "showLocation",
     "click #hide_location" : "destroyLocation",
     "keypress #location_address" : "avoidEnter"
@@ -72,11 +70,23 @@ app.views.Publisher = Backbone.View.extend(_.extend(
   },
 
   initSubviews: function() {
+    var form = this.$('.content_creation form');
+
     this.view_services = new app.views.PublisherServices({
       el:    this.$('#publisher_service_icons'),
       input: this.el_input,
-      form:  this.$('.content_creation form')
+      form:  form
     });
+
+    this.view_aspect_selector = new app.views.PublisherAspectSelector({
+      el: this.$('.public_toggle > .dropdown'),
+      form: form
+    });
+  },
+
+  // set the selected aspects in the dropdown by their ids
+  setSelectedAspects: function(ids) {
+    this.view_aspect_selector.updateAspectsSelector(ids);
   },
 
   createStatusMessage : function(evt) {
