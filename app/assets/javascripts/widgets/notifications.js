@@ -22,7 +22,12 @@
           .next(".hidden")
           .removeClass("hidden");
       });
-      self.notificationMenu.find('a#mark_all_read_link').click(function() {
+      self.notificationMenu.find('a#mark_all_read_link').click(function(event) {
+        if ($(event.target).hasClass("disabled")) {
+          event.preventDefault();
+          return false;
+        }
+
         $.ajax({
           url: "/notifications/read_all",
           type: "GET",
