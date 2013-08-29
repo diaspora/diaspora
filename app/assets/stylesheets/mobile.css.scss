@@ -392,7 +392,7 @@ footer {
   text-align: center;
   a,
   a:visited {
-    color: #999;
+    color: $text-grey;
     margin: 10px;
   }
   padding: {
@@ -422,7 +422,7 @@ footer {
   > a,
   .show_comments {
     @include transition(color);
-    color: #999;
+    color: $text-grey;
     font-weight: bold;
   }
 
@@ -433,7 +433,7 @@ footer {
   }
 
   a.show_comments {
-    color: #999;
+    color: $text-grey;
 
     &.active:not(.bottom_collapse) {
       color: #444;
@@ -574,7 +574,7 @@ footer {
     background-color: #fff;
     padding: 5px;
     border: {
-      bottom: 1px solid #999;
+      bottom: 1px solid $border-dark-grey;
     }
     .counter {
       font-size: 14px;
@@ -799,7 +799,7 @@ textarea#message_text {
 
 form#new_conversation.new_conversation {
   background-color: #FFFFFF;
-  border-bottom: 1px solid #999999;
+  border-bottom: 1px solid $border-dark-grey;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin: 5px 0 5px 15px;
@@ -1155,7 +1155,7 @@ input#q.search {
   background: #fff;
 
   &.active {
-    border: 1px solid #999;
+    border: 1px solid $border-dark-grey;
   }
   position: relative;
   padding-right: 10px;
