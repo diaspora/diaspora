@@ -57,6 +57,7 @@ app.Router = Backbone.Router.extend({
 
     $("#main_stream").html(app.page.render().el);
     $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
+    this.hideInactiveStreamLists();
   },
 
   photos : function() {
@@ -69,9 +70,9 @@ app.Router = Backbone.Router.extend({
     this.stream();
 
     app.tagFollowings = new app.collections.TagFollowings();
-    var followedTagsView = new app.views.TagFollowingList({collection: app.tagFollowings});
-    $("#tags_list").replaceWith(followedTagsView.render().el);
-    followedTagsView.setupAutoSuggest();
+    this.followedTagsView = new app.views.TagFollowingList({collection: app.tagFollowings});
+    $("#tags_list").replaceWith(this.followedTagsView.render().el);
+    this.followedTagsView.setupAutoSuggest();
 
     app.tagFollowings.reset(gon.preloads.tagFollowings);
 
@@ -81,12 +82,13 @@ app.Router = Backbone.Router.extend({
           );
       $("#author_info").prepend(followedTagsAction.render().el)
     }
+    this.hideInactiveStreamLists();
   },
 
   aspects : function(){
     app.aspects = new app.collections.Aspects(app.currentUser.get('aspects'));
-    var aspects_list =  new app.views.AspectsList({ collection: app.aspects });
-    aspects_list.render();
+    this.aspects_list =  new app.views.AspectsList({ collection: app.aspects });
+    this.aspects_list.render();
     this.aspects_stream();
   },
 
@@ -104,6 +106,15 @@ app.Router = Backbone.Router.extend({
 
     $("#main_stream").html(app.page.render().el);
     $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
-  }
+    this.hideInactiveStreamLists();
+  },
+
+  hideInactiveStreamLists: function() {
+    if(this.aspects_list && Backbone.history.fragment != "aspects")
+      this.aspects_list.hideAspectsList();
+
+    if(this.followedTagsView && Backbone.history.fragment != "followed_tags")
+      this.followedTagsView.hideFollowedTags();
+  },
 });
 
