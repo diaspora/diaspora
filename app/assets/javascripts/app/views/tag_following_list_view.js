@@ -71,6 +71,9 @@ app.views.TagFollowingList = app.views.Base.extend({
     this.$el.prepend(new app.views.TagFollowing({
       model: tag
     }).render().el);
-  }
-  
+  },
+
+  hideFollowedTags: function() {
+    this.$el.empty();
+  },
 });
