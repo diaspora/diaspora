@@ -392,7 +392,7 @@ footer {
   text-align: center;
   a,
   a:visited {
-    color: #999;
+    color: $text-grey;
     margin: 10px;
   }
   padding: {
@@ -422,7 +422,7 @@ footer {
   > a,
   .show_comments {
     @include transition(color);
-    color: #999;
+    color: $text-grey;
     font-weight: bold;
   }
 
@@ -433,7 +433,7 @@ footer {
   }
 
   a.show_comments {
-    color: #999;
+    color: $text-grey;
 
     &.active:not(.bottom_collapse) {
       color: #444;
