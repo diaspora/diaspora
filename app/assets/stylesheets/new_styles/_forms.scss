@@ -9,7 +9,7 @@ form.block-form {
   display : inline-block;
 
   label {
-    color : #555;
+    color : $text-dark-grey;
   }
 
   input {
@@ -22,7 +22,7 @@ form.block-form {
       box-shadow : none;
 
       border : none;
-      color : #555;
+      color : $text-dark-grey;
     }
   }
 

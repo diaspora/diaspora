@@ -18,7 +18,7 @@ pre {
 a {
   color: #000;
   &:visited {
-    color: #666; }
+    color: $text-dark-grey; }
   &:hover {
     color: #fff;
     background-color: #000; } }

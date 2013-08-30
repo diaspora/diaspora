@@ -210,7 +210,7 @@ body {
 
 .comment {
   .time {
-    color: #777; } }
+    color: $text-dark-grey; } }
 
 .info {
   margin: {
@@ -615,7 +615,7 @@ select {
   z-index: 2;
 
   span {
-    color: #666;
+    color: $text-dark-grey;
     font-weight: bold;
     padding: 2px 7px;
     margin: 5px 6px;
@@ -703,7 +703,7 @@ display: inline-block;
 #header-nav a {
     padding: 0 10px;
     width: 100%;
-    color: $header-grey;
+    color: $text-grey;
 }
 
 #header-nav > div {
@@ -1116,7 +1116,7 @@ input#q.search {
       vertical-align: bottom;
     }
     &:hover {
-      color: #666;
+      color: $text-dark-grey;
       cursor: pointer;
 
       img {
