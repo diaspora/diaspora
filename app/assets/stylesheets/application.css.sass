@@ -69,7 +69,7 @@ h1, h2, h3, h4
 
   small
     :font-size small
-    :color #999
+    :color $text-grey
 
 ul > li
   :list-style none
@@ -292,7 +292,7 @@ ul.as-selections
 
 .grey,
 .grey *
-  :color #999
+  :color $text-grey
 
 .details,
 .details *
@@ -307,7 +307,7 @@ ul.as-selections
 .via
   :color #aaa
   a
-    :color #999
+    :color $text-grey
   :text
     :decoration none
   :border none
@@ -334,7 +334,7 @@ ul.as-selections
     :size small
     :font
       :weight normal
-    :color #999
+    :color $text-grey
   #latest_message_time
     :font-style italic
   ul
@@ -514,7 +514,7 @@ form p.checkbox_select
     :top 6px
 
 @mixin placeholder_styles
-  :color #999
+  :color $text-grey
   :text-shadow 0 1px 1px #eee
   :font-weight normal
 
@@ -530,7 +530,7 @@ form p.checkbox_select
 
 #publisher
   :z-index 1
-  :color #999
+  :color $text-grey
   :position relative
   :margin
     :top 0
@@ -686,7 +686,7 @@ form p.checkbox_select
   :background #fff
 
   &.active
-    :border 1px solid #999
+    :border 1px solid $border-dark-grey
 
   :position relative
   :padding
@@ -891,7 +891,7 @@ input[type="search"]
       :top 10px
 
 .photo_options
-  :color #888
+  :color $text-grey
   :text
     :align center
 
@@ -1083,7 +1083,7 @@ ul#request_result
         :right 5px
 
       :padding 5px
-      :border 1px solid #999
+      :border 1px solid $border-dark-grey
 
       > .name
         :white-space nowrap
@@ -1144,7 +1144,7 @@ ul#request_result
     :font
       :size 12px
     :display block
-    :color #888
+    :color $text-grey
     :text-shadow 0 1px 0 #fff
 
     #mce-error-response
@@ -1227,7 +1227,7 @@ ul#request_result
   :margin
     :top 14px
     :left 540px
-  :color #888
+  :color $text-grey
 
 
 ul#press_logos
@@ -1341,7 +1341,7 @@ ul#press_logos
 .show_comments,
 .likes_container
   a
-    :color #999
+    :color $text-grey
 
 .likes
   .icons-heart
@@ -1769,11 +1769,11 @@ h1.tag
       :color #efefef
     :color $text-grey
     :border
-      :bottom 1px dotted #999
+      :bottom 1px dotted $border-dark-grey
 
     &:hover
       :border
-        :bottom 1px solid #999
+        :bottom 1px solid $border-dark-grey
 
 .diaspora_handle
   :font
@@ -1918,7 +1918,7 @@ h1.tag
       @include box-sizing(border-box)
 
 .subtle
-  :color #888
+  :color $text-grey
   :font
     :style italic
 
@@ -2385,7 +2385,7 @@ a.toggle_selector
 
     .tags
       a
-        :color #999
+        :color $text-grey
 
     .avatar
       :height 30px
@@ -2669,7 +2669,7 @@ body
     :width 19px
 
 #location
-  :border 1px solid #999
+  :border 1px solid $border-dark-grey
   :height 20px
   #location_address
     :border none
