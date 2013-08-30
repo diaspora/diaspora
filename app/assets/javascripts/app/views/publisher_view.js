@@ -6,6 +6,7 @@
 //= require ./publisher/services
 //= require ./publisher/aspect_selector
 //= require ./publisher/getting_started
+//= require ./publisher/uploader
 //= require jquery.textchange
 
 app.views.Publisher = Backbone.View.extend(_.extend(
@@ -88,6 +89,13 @@ app.views.Publisher = Backbone.View.extend(_.extend(
       el_visibility: this.$('.public_toggle > .dropdown'),
       el_stream:     $('#gs-shim')
     });
+
+    this.view_uploader = new app.views.PublisherUploader({
+      el: this.$('#file-upload'),
+      el_info: this.$('#fileInfo'),
+      publisher: this
+    });
+
   },
 
   // set the selected aspects in the dropdown by their ids
@@ -309,12 +317,16 @@ app.views.Publisher = Backbone.View.extend(_.extend(
 
   checkSubmitAvailability: function() {
     if( this._submittable() ) {
-      this.el_submit.removeAttr('disabled');
-      this.el_preview.removeAttr('disabled');
+      this.setButtonsEnabled(true);
     } else {
-      this.el_submit.attr('disabled','disabled');
-      this.el_preview.attr('disabled','disabled');
+      this.setButtonsEnabled(false);
     }
+  },
+
+  setButtonsEnabled: function(bool) {
+    bool = !bool;
+    this.el_submit.prop({disabled: bool});
+    this.el_preview.prop({disabled: bool});
   },
 
   // determine submit availability
