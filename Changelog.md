@@ -2,7 +2,7 @@
 
 ## Refactor
 * Move non-model federation stuff into lib/ [#4363](https://github.com/diaspora/diaspora/pull/4363)
-* Build a color palette to uniform color usage [#4437](https://github.com/diaspora/diaspora/pull/4437) [#4469](https://github.com/diaspora/diaspora/pull/4469)
+* Build a color palette to uniform color usage [#4437](https://github.com/diaspora/diaspora/pull/4437) [#4469](https://github.com/diaspora/diaspora/pull/4469) [#4479](https://github.com/diaspora/diaspora/pull/4479)
 
 ## Bug fixes
 * Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)

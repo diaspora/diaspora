@@ -190,7 +190,7 @@
       top: 1px solid #222;
       right: 1px solid #444;
       left: 1px solid #444;
-      bottom: 1px solid #666;
+      bottom: 1px solid $text-dark-grey;
     }
   }
 
@@ -201,7 +201,7 @@
   }
 
   time {
-    color: #666;
+    color: $text-dark-grey;
     font-size: smaller;
   }
 

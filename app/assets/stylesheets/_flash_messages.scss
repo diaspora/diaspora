@@ -11,7 +11,7 @@
   width : 100%;
 
   text-align : center;
-  color: #666;
+  color: $text-dark-grey;
 
   &.expose {
     @include animation(expose, 10s)
@@ -38,7 +38,7 @@
 
 #flash_notice {
   .message {
-    color: #666;
+    color: $text-dark-grey;
     background-color: #F4F899;
     border-color: darken(#F4F899, 40%);
   }
