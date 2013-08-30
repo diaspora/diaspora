@@ -11,6 +11,7 @@
 * Fix profile mobile when logged out [#4464](https://github.com/diaspora/pull/4464)
 * Fix preview with more than one mention [#4450](https://github.com/diaspora/diaspora/issues/4450)
 * Fix size of images in the SPV [#4471](https://github.com/diaspora/diaspora/pull/4471)
+* Adjust 404 message description to not leak logged out users if a post exists or not [#4477](https://github.com/diaspora/diaspora/pull/4477)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
