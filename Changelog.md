@@ -1,5 +1,18 @@
 # Head
 
+## Rails 4 - Manual action required
+Please edit `config/initializers/secret_token.rb`, replacing `secret_token` with
+`secret_key_base`.
+
+```ruby
+# Old
+Rails.application.config.secret_token = '***********...'
+
+# New
+Diaspora::Application.config.secret_key_base = '*************...'
+```
+
+
 ## Refactor
 * Move non-model federation stuff into lib/ [#4363](https://github.com/diaspora/diaspora/pull/4363)
 * Build a color palette to uniform color usage [#4437](https://github.com/diaspora/diaspora/pull/4437) [#4469](https://github.com/diaspora/diaspora/pull/4469) [#4479](https://github.com/diaspora/diaspora/pull/4479)

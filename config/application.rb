@@ -1,7 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
-Bundler.require(*Rails.groups(:assets => %w(development test))) if defined?(Bundler)
+Bundler.require(:default, Rails.env)
 
 # Load asset_sync early
 require_relative 'asset_sync'
@@ -34,9 +34,6 @@ module Diaspora
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
-    # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password, :xml,:message, :text, :bio]
-
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
 
@@ -44,12 +41,6 @@ module Diaspora
     # This is necessary if your schema can't be completely dumped by the schema dumper,
     # like if you have constraints or database-specific column types
     # config.active_record.schema_format = :sql
-
-    # Enforce whitelist mode for mass assignment.
-    # This will create an empty whitelist of attributes available for mass-assignment for all models
-    # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
-    # parameters by using an attr_accessible or attr_protected declaration.
-    #config.active_record.whitelist_attributes = false
 
     # Enable the asset pipeline
     config.assets.enabled = true
@@ -59,7 +50,7 @@ module Diaspora
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
     config.assets.precompile += %w{
-      aspect-contacts.js 
+      aspect-contacts.js
       contact-list.js
       finder.js
       home.js
