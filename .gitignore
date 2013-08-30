@@ -58,7 +58,6 @@ tmp/
 *.swp
 *~
 *#
-bin/*
 nbproject
 patches-*
 capybara-*.html
