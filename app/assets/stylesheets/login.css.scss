@@ -2,6 +2,7 @@
 //   licensed under the Affero General Public License version 3 or later.  See
 //   the COPYRIGHT file.
 
+@import "colors";
 @import "mixins";
 
 #login {
@@ -51,7 +52,7 @@
           position: relative;
           height: 40px;
           top: 0px;
-          color: #666666;
+          color: $text-dark-grey;
           margin: {
             bottom: 10px;
           };
