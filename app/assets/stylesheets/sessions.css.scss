@@ -122,7 +122,7 @@ form p {
 }
 
 label {
-  color: $text-grey;
+  color: #999;
   position: absolute;
   padding-top: 7px;
   left: 8px;
@@ -137,7 +137,7 @@ input[type='password'] {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   padding: 0.3em;
   width: 395px;
-  border-top: 1px solid $border-dark-grey;
+  border-top: 1px solid #999;
 }
 
 #user {
