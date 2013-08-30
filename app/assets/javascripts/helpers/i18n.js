@@ -20,6 +20,10 @@
       translatedMessage,
       nextNamespace;
 
+    if(views && typeof views.count !== "undefined") {
+      items.push(this.pluralizationKey(views.count));
+    }
+
     while(nextNamespace = items.shift()) {
       translatedMessage = (translatedMessage)
         ? translatedMessage[nextNamespace]
@@ -29,11 +33,7 @@
         return "";
       }
     }
-    
-    if(views && typeof views.count !== "undefined") {
-      translatedMessage = translatedMessage[this.pluralizationKey(views.count)];
-    }
-    
+
     return _.template(translatedMessage, views || {});
    }
  };

@@ -10,6 +10,7 @@ module I18n
             result = super(fallback, key, options)
             return result unless result.nil?
           rescue I18n::MissingInterpolationArgument
+          rescue I18n::InvalidPluralizationData
           end
         end
 
