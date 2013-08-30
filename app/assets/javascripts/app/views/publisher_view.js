@@ -3,8 +3,8 @@
  *   the COPYRIGHT file.
  */
 
-//= require ./publisher/publisher_services
-//= require ./publisher/publisher_aspect_selector
+//= require ./publisher/services
+//= require ./publisher/aspect_selector
 //= require ./publisher/getting_started
 //= require jquery.textchange
 
@@ -82,11 +82,22 @@ app.views.Publisher = Backbone.View.extend(_.extend(
       el: this.$('.public_toggle > .dropdown'),
       form: form
     });
+
+    this.view_getting_started = new app.views.PublisherGettingStarted({
+      el_first_msg:  this.el_input,
+      el_visibility: this.$('.public_toggle > .dropdown'),
+      el_stream:     $('#gs-shim')
+    });
   },
 
   // set the selected aspects in the dropdown by their ids
   setSelectedAspects: function(ids) {
     this.view_aspect_selector.updateAspectsSelector(ids);
+  },
+
+  // show the "getting started" popups around the publisher
+  triggerGettingStarted: function() {
+    this.view_getting_started.show();
   },
 
   createStatusMessage : function(evt) {
