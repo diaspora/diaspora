@@ -5,7 +5,7 @@
 class Comment < ActiveRecord::Base
 
   include Diaspora::Federated::Base
-  
+
   include Diaspora::Guid
   include Diaspora::Relayable
 
@@ -22,7 +22,7 @@ class Comment < ActiveRecord::Base
   belongs_to :commentable, :touch => true, :polymorphic => true
   alias_attribute :post, :commentable
   belongs_to :author, :class_name => 'Person'
-  
+
   delegate :name, to: :author, prefix: true
   delegate :comment_email_subject, to: :parent
   delegate :author_name, to: :parent, prefix: true
@@ -30,8 +30,8 @@ class Comment < ActiveRecord::Base
   validates :text, :presence => true, :length => {:maximum => 65535}
   validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
-  scope :including_author, includes(:author => :profile)
-  scope :for_a_stream, including_author.merge(order('created_at ASC'))
+  scope :including_author, -> { includes(:author => :profile) }
+  scope :for_a_stream,  -> { including_author.merge(order('created_at ASC')) }
 
   before_save do
     self.text.strip! unless self.text.nil?

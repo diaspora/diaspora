@@ -19,7 +19,7 @@ module Diaspora
         delegate :id, :name, :first_name, to: :author, prefix: true
 
         #scopes
-        scope :all_public, where(:public => true, :pending => false)
+        scope :all_public, -> { where(:public => true, :pending => false) }
 
         def self.owned_or_visible_by_user(user)
           self.joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = posts.id AND share_visibilities.shareable_type = 'Post'").

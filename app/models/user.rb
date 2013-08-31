@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
   include Querying
   include SocialActions
 
-  scope :logged_in_since, lambda { |time| where('last_sign_in_at > ?', time) }
-  scope :monthly_actives, lambda { |time = Time.now| logged_in_since(time - 1.month) }
-  scope :daily_actives, lambda { |time = Time.now| logged_in_since(time - 1.day) }
-  scope :yearly_actives, lambda { |time = Time.now| logged_in_since(time - 1.year) }
+  scope :logged_in_since, ->(time) { where('last_sign_in_at > ?', time) }
+  scope :monthly_actives, ->(time = Time.now) { logged_in_since(time - 1.month) }
+  scope :daily_actives, ->(time = Time.now) { logged_in_since(time - 1.day) }
+  scope :yearly_actives, ->(time = Time.now) { logged_in_since(time - 1.year) }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
