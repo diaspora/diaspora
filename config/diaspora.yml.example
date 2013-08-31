@@ -237,9 +237,9 @@ configuration: ## Section
     #paypal_hosted_button_id: ""
     
     ## Bitcoin donations
-    ## You can provide the bitcoin address here to kindly ask
+    ## You can provide a bitcoin address here to kindly ask
     ## your users for donations to run their pod.
-    #bitcoin_wallet_id: ""
+    #bitcoin_address: ""
     
     ## Community Spotlight
     ## The community spotlight gives new users a starting point on who
