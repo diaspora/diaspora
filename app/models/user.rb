@@ -256,7 +256,7 @@ class User < ActiveRecord::Base
     if aspect_ids == "all" || aspect_ids == :all
       self.aspects
     else
-      aspects.where(:id => aspect_ids)
+      aspects.where(:id => aspect_ids).to_a
     end
   end
 

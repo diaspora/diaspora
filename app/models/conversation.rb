@@ -36,7 +36,7 @@ class Conversation < ActiveRecord::Base
 
   def first_unread_message(user)
     if visibility = self.conversation_visibilities.where(:person_id => user.person.id).where('unread > 0').first
-      self.messages.all[-visibility.unread]
+      self.messages.to_a[-visibility.unread]
     end
   end
 

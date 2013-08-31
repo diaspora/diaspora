@@ -70,12 +70,12 @@ class AspectsController < ApplicationController
   def edit
     @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts => {:person => :profile}).first
 
-    @contacts_in_aspect = @aspect.contacts.includes(:aspect_memberships, :person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
+    @contacts_in_aspect = @aspect.contacts.includes(:aspect_memberships, :person => :profile).to_a.sort_by { |c| c.person.name }
     c = Contact.arel_table
     if @contacts_in_aspect.empty?
-      @contacts_not_in_aspect = current_user.contacts.includes(:aspect_memberships, :person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
+      @contacts_not_in_aspect = current_user.contacts.includes(:aspect_memberships, :person => :profile).to_a.sort_by { |c| c.person.name }
     else
-      @contacts_not_in_aspect = current_user.contacts.where(c[:id].not_in(@contacts_in_aspect.map(&:id))).includes(:aspect_memberships, :person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
+      @contacts_not_in_aspect = current_user.contacts.where(c[:id].not_in(@contacts_in_aspect.map(&:id))).includes(:aspect_memberships, :person => :profile).to_a.sort_by { |c| c.person.name }
     end
 
     @contacts = @contacts_in_aspect + @contacts_not_in_aspect

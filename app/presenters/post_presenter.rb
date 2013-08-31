@@ -99,7 +99,7 @@ class PostInteractionPresenter
   end
 
   def as_api(collection)
-    collection.includes(:author => :profile).all.map do |element|
+    collection.includes(:author => :profile).map do |element|
       element.as_api_response(:backbone)
     end
   end

@@ -23,8 +23,8 @@ describe 'deleteing your account' do
       create_conversation_with_message(alice, @bob2.person, "Subject", "Hey @bob2")
 
       #join tables
-      @users_sv = ShareVisibility.where(:contact_id => @bobs_contact_ids).all
-      @persons_sv = ShareVisibility.where(:contact_id => bob.person.contacts.map(&:id)).all
+      @users_sv = ShareVisibility.where(:contact_id => @bobs_contact_ids).load
+      @persons_sv = ShareVisibility.where(:contact_id => bob.person.contacts.map(&:id)).load
 
       #user associated objects
       @prefs = []
@@ -86,8 +86,8 @@ describe 'deleteing your account' do
       @bob2.contacts.should be_empty
     end
 
-    
-    it "clears the account fields" do 
+
+    it "clears the account fields" do
       @bob2.send(:clearable_fields).each do |field|
         @bob2.reload[field].should be_blank
       end
@@ -99,7 +99,7 @@ describe 'deleteing your account' do
   context 'remote person' do
     before do
       @person = remote_raphael
-      
+
       #contacts
       @contacts = @person.contacts
 
