@@ -1,10 +1,4 @@
 class OpenGraphCache < ActiveRecord::Base
-  attr_accessible :title
-  attr_accessible :ob_type
-  attr_accessible :image
-  attr_accessible :url
-  attr_accessible :description
-
   validates :title, :presence => true
   validates :ob_type, :presence => true
   validates :image, :presence => true
