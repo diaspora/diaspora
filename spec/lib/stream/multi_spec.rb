@@ -40,7 +40,7 @@ describe Stream::Multi do
 
   describe "#publisher_prefill" do
     before do
-      @tag = ActsAsTaggableOn::Tag.find_or_create_by_name("cats")
+      @tag = ActsAsTaggableOn::Tag.find_or_create_by(name: "cats")
       @tag_following = alice.tag_followings.create(:tag_id => @tag.id)
 
       @stream = Stream::Multi.new(alice)

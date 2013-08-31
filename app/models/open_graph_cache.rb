@@ -21,10 +21,10 @@ class OpenGraphCache < ActiveRecord::Base
     t.add :url
   end
 
-  def self.find_or_create_by_url(url)
-    cache = OpenGraphCache.find_or_initialize_by_url(url)
+  def self.find_or_create_by(opts)
+    cache = OpenGraphCache.find_or_initialize_by(opts)
     cache.fetch_and_save_opengraph_data! unless cache.persisted?
-    cache if cache.persisted?
+    cache if cache.persisted? # Make this an after create callback and drop this method ?
   end
 
   def fetch_and_save_opengraph_data!

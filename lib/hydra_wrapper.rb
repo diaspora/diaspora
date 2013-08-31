@@ -83,7 +83,7 @@ class HydraWrapper
   def prepare_request request, people_for_receive_url
     request.on_complete do |response|
       # Save the reference to the pod to the database if not already present
-      Pod.find_or_create_by_url response.effective_url
+      Pod.find_or_create_by(url: response.effective_url)
 
       if redirecting_to_https? response
         Person.url_batch_update people_for_receive_url, response.headers_hash['Location']

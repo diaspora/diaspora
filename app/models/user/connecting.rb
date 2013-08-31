@@ -8,7 +8,7 @@ module User::Connecting
   # @param [Aspect] aspect The aspect to add them to.
   # @return [Contact] The newly made contact for the passed in person.
   def share_with(person, aspect)
-    contact = self.contacts.find_or_initialize_by_person_id(person.id)
+    contact = self.contacts.find_or_initialize_by(person_id: person.id)
     return false unless contact.valid?
 
     unless contact.receiving?
@@ -22,7 +22,7 @@ module User::Connecting
     if notification = Notification.where(:target_id => person.id).first
       notification.update_attributes(:unread=>false)
     end
-    
+
     deliver_profile_update
     register_share_visibilities(contact)
     contact
