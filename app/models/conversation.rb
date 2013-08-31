@@ -10,7 +10,7 @@ class Conversation < ActiveRecord::Base
 
   has_many :conversation_visibilities, :dependent => :destroy
   has_many :participants, :class_name => 'Person', :through => :conversation_visibilities, :source => :person
-  has_many :messages, :order => 'created_at ASC'
+  has_many :messages, -> { order('created_at ASC') }
 
   belongs_to :author, :class_name => 'Person'
 

@@ -55,7 +55,7 @@ class Profile < ActiveRecord::Base
   def receive(user, person)
     Rails.logger.info("event=receive payload_type=profile sender=#{person} to=#{user}")
     profiles_attr = self.attributes.merge('tag_string' => self.tag_string).slice('diaspora_handle', 'first_name', 'last_name', 'image_url', 'image_url_small', 'image_url_medium', 'birthday', 'gender', 'bio', 'location', 'searchable', 'nsfw', 'tag_string')
-    person.profile.update_attributes(profiles_attr) 
+    person.profile.update_attributes(profiles_attr)
 
     person.profile
   end
