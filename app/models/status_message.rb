@@ -40,7 +40,7 @@ class StatusMessage < Post
   after_commit :queue_gather_open_graph_data, :on => :create, :if => :contains_open_graph_url_in_text?
 
   #scopes
-  scope :where_person_is_mentioned, lambda { |person|
+  scope :where_person_is_mentioned, ->(person) {
     joins(:mentions).where(:mentions => {:person_id => person.id})
   }
 

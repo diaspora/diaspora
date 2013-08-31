@@ -30,8 +30,8 @@ class Comment < ActiveRecord::Base
   validates :text, :presence => true, :length => {:maximum => 65535}
   validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
-  scope :including_author, includes(:author => :profile)
-  scope :for_a_stream, including_author.merge(order('created_at ASC'))
+  scope :including_author, -> { includes(:author => :profile) }
+  scope :for_a_stream,  -> { including_author.merge(order('created_at ASC')) }
 
   before_save do
     self.text.strip! unless self.text.nil?

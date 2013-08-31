@@ -48,7 +48,12 @@ class Photo < ActiveRecord::Base
 
   after_commit :on => :create do
     queue_processing_job if self.author.local?
+
   end
+
+  scope :on_statuses, ->(post_guids) {
+    where(:status_message_guid => post_guids)
+  }
 
   def clear_empty_status_message
     if self.status_message && self.status_message.text_and_photos_blank?
@@ -132,8 +137,4 @@ class Photo < ActiveRecord::Base
   def mutable?
     true
   end
-
-  scope :on_statuses, lambda { |post_guids|
-    where(:status_message_guid => post_guids)
-  }
 end
