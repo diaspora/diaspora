@@ -94,7 +94,7 @@ class User < ActiveRecord::Base
 
 
   def invitation_code
-    InvitationCode.find_or_create_by_user_id(self.id)
+    InvitationCode.find_or_create_by(user_id: self.id)
   end
 
   def hidden_shareables
@@ -152,14 +152,14 @@ class User < ActiveRecord::Base
 
   def update_user_preferences(pref_hash)
     if self.disable_mail
-      UserPreference::VALID_EMAIL_TYPES.each{|x| self.user_preferences.find_or_create_by_email_type(x)}
+      UserPreference::VALID_EMAIL_TYPES.each{|x| self.user_preferences.find_or_create_by(email_type: x)}
       self.disable_mail = false
       self.save
     end
 
     pref_hash.keys.each do |key|
       if pref_hash[key] == 'true'
-        self.user_preferences.find_or_create_by_email_type(key)
+        self.user_preferences.find_or_create_by(email_type: key)
       else
         block = self.user_preferences.where(:email_type => key).first
         if block
@@ -338,7 +338,7 @@ class User < ActiveRecord::Base
 
   def update_profile_with_omniauth( user_info )
     update_profile( self.profile.from_omniauth_hash( user_info ) )
-  end 
+  end
 
   def deliver_profile_update
     Postzord::Dispatcher.build(self, profile).post

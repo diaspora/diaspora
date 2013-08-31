@@ -82,7 +82,7 @@ namespace :migrations do
     puts "found #{evil_tags.count} tags to convert..."
 
     evil_tags.each_with_index do |tag, i|
-      good_tag = ActsAsTaggableOn::Tag.find_or_create_by_name(tag.name.mb_chars.downcase)
+      good_tag = ActsAsTaggableOn::Tag.first_or_create_by(name: tag.name.mb_chars.downcase)
       puts "++ '#{tag.name}' has #{tag.taggings.count} records attached"
 
       taggings = tag.taggings

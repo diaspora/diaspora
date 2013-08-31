@@ -16,7 +16,7 @@ class TagFollowingsController < ApplicationController
     if name_normalized.nil? || name_normalized.empty?
       render :nothing => true, :status => 403
     else
-      @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(name_normalized)
+      @tag = ActsAsTaggableOn::Tag.find_or_create_by(name: name_normalized)
       @tag_following = current_user.tag_followings.new(:tag_id => @tag.id)
 
       if @tag_following.save
@@ -31,7 +31,7 @@ class TagFollowingsController < ApplicationController
   # DELETE /tag_followings/1.xml
   def destroy
     tag_following = current_user.tag_followings.find_by_tag_id( params['id'] )
-    
+
     if tag_following && tag_following.destroy
       respond_to do |format|
         format.any(:js, :json) { render :nothing => true, :status => 204 }

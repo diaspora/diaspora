@@ -51,7 +51,7 @@ describe Workers::GatherOEmbedData do
       OEmbedCache.find_by_url(@flickr_photo_url).data.should == expected_data
 
       Workers::GatherOEmbedData.new.perform(@status_message.id, @flickr_photo_url)
-      OEmbedCache.count(:conditions => {:url => @flickr_photo_url}).should == 1
+      OEmbedCache.where(url: @flickr_photo_url).count.should == 1
     end
 
     it 'creates no cache entry for unsupported pages' do

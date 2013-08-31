@@ -4,13 +4,15 @@ class ConversationsController < ApplicationController
   respond_to :html, :mobile, :json, :js
 
   def index
-    @conversations = Conversation.joins(:conversation_visibilities).where(
-      :conversation_visibilities => {:person_id => current_user.person_id}).paginate(
-      :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
+    @conversations = Conversation.joins(:conversation_visibilities)
+      .where(:conversation_visibilities => {:person_id => current_user.person_id})
+      .order('updated_at DESC')
+      .paginate(:page => params[:page], :per_page => 15)
 
-    @visibilities = ConversationVisibility.where(:person_id => current_user.person_id).paginate(
-      :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
-      
+    @visibilities = ConversationVisibility.where(:person_id => current_user.person_id)
+      .order('updated_at DESC')
+      .paginate(:page => params[:page], :per_page => 15)
+
     @conversation = Conversation.joins(:conversation_visibilities).where(
       :conversation_visibilities => {:person_id => current_user.person_id, :conversation_id => params[:conversation_id]}).first
 
