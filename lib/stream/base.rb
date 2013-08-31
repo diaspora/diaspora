@@ -115,7 +115,7 @@ class Stream::Base
   #
   # @return [Array<Contact>]
   def contacts_in_stream
-    @contacts_in_stream ||= Contact.where(:user_id => user.id, :person_id => people.map{|x| x.id}).all
+    @contacts_in_stream ||= Contact.where(:user_id => user.id, :person_id => people.map(&:id)).load
   end
 
   # @param post [Post]

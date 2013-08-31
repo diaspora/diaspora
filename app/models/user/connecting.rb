@@ -42,8 +42,6 @@ module User::Connecting
   end
 
   def remove_contact(contact, opts={:force => false, :retracted => false})
-    posts = contact.posts.all
-
     if !contact.mutual? || opts[:force]
       contact.destroy
     elsif opts[:retracted]
