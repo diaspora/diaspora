@@ -25,7 +25,11 @@ class ShareVisibility < ActiveRecord::Base
 
     if AppConfig.postgres?
       contact_ids.each do |contact_id|
-        ShareVisibility.find_or_create_by_contact_id_and_shareable_id_and_shareable_type(contact_id, share.id, share.class.base_class.to_s)
+        ShareVisibility.find_or_create_by(
+          contact_id: contact_id,
+          shareable_id: share.id,
+          shareable_type: share.class.base_class.to_s
+        )
       end
     else
        new_share_visibilities_data = contact_ids.map do |contact_id|

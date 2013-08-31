@@ -201,7 +201,7 @@ end
 
 Given /^I visit alice's invitation code url$/ do
   @alice ||= FactoryGirl.create(:user, :username => 'alice', :getting_started => false)
-  invite_code  = InvitationCode.find_or_create_by_user_id(@alice.id)
+  invite_code  = InvitationCode.find_or_create_by(user_id: @alice.id)
   visit invite_code_path(invite_code)
 end
 
