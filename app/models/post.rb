@@ -26,6 +26,8 @@ class Post < ActiveRecord::Base
   belongs_to :o_embed_cache
   belongs_to :open_graph_cache
 
+  validates_uniqueness_of :id
+
   after_create do
     self.touch(:interacted_at)
   end

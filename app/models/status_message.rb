@@ -66,7 +66,7 @@ class StatusMessage < Post
 
   def attach_photos_by_ids(photo_ids)
     return [] unless photo_ids.present?
-    self.photos << Photo.where(:id => photo_ids, :author_id => self.author_id).all
+    self.photos << Photo.where(:id => photo_ids, :author_id => self.author_id)
   end
 
   def nsfw
