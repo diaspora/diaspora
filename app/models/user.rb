@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
   end
 
   def unread_message_count
-    ConversationVisibility.sum(:unread, :conditions => "person_id = #{self.person.id}")
+    ConversationVisibility.where(person_id: self.person_id).sum(:unread)
   end
 
   #@deprecated
