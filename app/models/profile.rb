@@ -144,8 +144,8 @@ class Profile < ActiveRecord::Base
     if @tag_string
       @tag_string
     else
-      rows = self.class.connection.select_rows( self.tags.scoped.to_sql )
-      rows.inject(""){|string, row| string << "##{row[1]} " }
+      tags = self.tags.pluck(:name)
+      tags.inject(""){|string, tag| string << "##{tag} " }
     end
   end
 
