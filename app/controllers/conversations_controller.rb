@@ -83,8 +83,10 @@ class ConversationsController < ApplicationController
 
   def new
     all_contacts_and_ids = Contact.connection.select_rows(
-      current_user.contacts.where(:sharing => true).joins(:person => :profile).
-        select("contacts.id, profiles.first_name, profiles.last_name, people.diaspora_handle").to_sql
+      Contact.connection.unprepared_statement {
+        current_user.contacts.where(:sharing => true).joins(:person => :profile).
+          select("contacts.id, profiles.first_name, profiles.last_name, people.diaspora_handle").to_sql
+      }
     ).map{|r| {:value => r[0], :name => Person.name_from_attrs(r[1], r[2], r[3]).gsub(/(")/, "'")} }
 
     @contact_ids = ""
