@@ -63,6 +63,7 @@
     width: auto;
     p {
       margin: 0 0 1em 0;
+      word-wrap: break-word;
     }
     .photo_attachments {
       padding-bottom: 10px;
@@ -103,6 +104,7 @@
     padding-bottom: 10px;
     p {
       margin: 0 0 1em 0;
+      word-wrap: break-word;
       &:last-child {
         margin-bottom: 0;
       }
