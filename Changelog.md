@@ -23,6 +23,8 @@
 * Disable "mark all as read" link if all notifications are read [#4463](https://github.com/diaspora/diaspora/pull/4463)
 * Collapse aspect list and tag followings list when switching to other views [#4462](https://github.com/diaspora/diaspora/pull/4462)
 * Highlight current stream in left sidebar [#4445](https://github.com/diaspora/diaspora/pull/4445)
+* Added ignore user icon [#4417](https://github.com/diaspora/diaspora/pull/4417)
+
 
 # 0.2.0.0
 
