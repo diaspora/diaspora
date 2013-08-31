@@ -63,32 +63,40 @@ class Person < ActiveRecord::Base
   validates :serialized_public_key, :presence => true
   validates :diaspora_handle, :uniqueness => true
 
-  scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
-  scope :remote, where('people.owner_id IS NULL')
-  scope :local, where('people.owner_id IS NOT NULL')
-  scope :for_json, select('DISTINCT people.id, people.guid, people.diaspora_handle').includes(:profile)
+  scope :searchable, -> { joins(:profile).where(:profiles => {:searchable => true}) }
+  scope :remote, -> { where('people.owner_id IS NULL') }
+  scope :local, -> { where('people.owner_id IS NOT NULL') }
+  scope :for_json, -> {
+    select('DISTINCT people.id, people.guid, people.diaspora_handle')
+      .includes(:profile)
+  }
 
   # @note user is passed in here defensively
-  scope :all_from_aspects, lambda { |aspect_ids, user|
+  scope :all_from_aspects, ->(aspect_ids, user) {
     joins(:contacts => :aspect_memberships).
          where(:contacts => {:user_id => user.id}).
          where(:aspect_memberships => {:aspect_id => aspect_ids})
   }
 
-  scope :unique_from_aspects, lambda{ |aspect_ids, user|
+  scope :unique_from_aspects, ->(aspect_ids, user) {
     all_from_aspects(aspect_ids, user).select('DISTINCT people.*')
   }
 
   #not defensive
-  scope :in_aspects, lambda { |aspect_ids|
+  scope :in_aspects, ->(aspect_ids) {
     joins(:contacts => :aspect_memberships).
         where(:aspect_memberships => {:aspect_id => aspect_ids})
   }
 
-  scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:tags => {:name => tag_name}).where('profiles.searchable IS TRUE') }
+  scope :profile_tagged_with, ->(tag_name) {
+    joins(:profile => :tags)
+      .where(:tags => {:name => tag_name})
+      .where('profiles.searchable IS TRUE')
+  }
 
-  scope :who_have_reshared_a_users_posts, lambda{|user|
-    joins(:posts).where(:posts => {:root_guid => StatusMessage.guids_for_author(user.person), :type => 'Reshare'} )
+  scope :who_have_reshared_a_users_posts, ->(user) {
+    joins(:posts)
+      .where(:posts => {:root_guid => StatusMessage.guids_for_author(user.person), :type => 'Reshare'} )
   }
 
   def self.community_spotlight

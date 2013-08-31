@@ -10,11 +10,11 @@ class User < ActiveRecord::Base
 
   apply_simple_captcha :message => I18n.t('simple_captcha.message.failed'), :add_to_base => true
 
-  scope :logged_in_since, lambda { |time| where('last_seen > ?', time) }
-  scope :monthly_actives, lambda { |time = Time.now| logged_in_since(time - 1.month) }
-  scope :daily_actives, lambda { |time = Time.now| logged_in_since(time - 1.day) }
-  scope :yearly_actives, lambda { |time = Time.now| logged_in_since(time - 1.year) }
-  scope :halfyear_actives, lambda { |time = Time.now| logged_in_since(time - 6.month) }
+  scope :logged_in_since, ->(time) { where('last_seen > ?', time) }
+  scope :monthly_actives, ->(time = Time.now) { logged_in_since(time - 1.month) }
+  scope :daily_actives, ->(time = Time.now) { logged_in_since(time - 1.day) }
+  scope :yearly_actives, ->(time = Time.now) { logged_in_since(time - 1.year) }
+  scope :halfyear_actives, ->(time = Time.now) { logged_in_since(time - 6.month) }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
