@@ -27,7 +27,7 @@ module User::Querying
     opts[:klass] = klass
     opts[:by_members_of] ||= self.aspect_ids
 
-    post_ids = klass.connection.select_values(visible_shareable_sql(klass, opts)).map { |id| id.to_i }
+    post_ids = klass.connection.select_values(visible_shareable_sql(klass, opts)).map(&:to_i)
     post_ids += klass.connection.select_values("#{construct_public_followings_sql(opts).to_sql} LIMIT #{opts[:limit]}").map {|id| id.to_i }
   end
 
@@ -88,9 +88,9 @@ module User::Querying
   end
 
   def construct_shareable_from_self_query(opts)
-    conditions = {:pending => false }
+    conditions = {:pending => false, :author_id => self.person_id }
     conditions[:type] = opts[:type] if opts.has_key?(:type)
-    query = self.person.send(opts[:klass].to_s.tableize).where(conditions)
+    query = opts[:klass].where(conditions)
 
     if opts[:by_members_of]
       query = query.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
