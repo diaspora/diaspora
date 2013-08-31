@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
-  has_many :aspects, :order => 'order_id ASC'
+  has_many :aspects, -> { order('order_id ASC') }
 
   belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'
   belongs_to :invited_by, :class_name => 'User'
@@ -59,13 +59,13 @@ class User < ActiveRecord::Base
   has_many :user_preferences
 
   has_many :tag_followings
-  has_many :followed_tags, :through => :tag_followings, :source => :tag, :order => 'tags.name'
+  has_many :followed_tags, -> { order('tags.name') }, :through => :tag_followings, :source => :tag
 
   has_many :blocks
   has_many :ignored_people, :through => :blocks, :source => :person
 
-  has_many :conversation_visibilities, through: :person, order: 'updated_at DESC'
-  has_many :conversations, through: :conversation_visibilities, order: 'updated_at DESC'
+  has_many :conversation_visibilities, -> { order 'updated_at DESC' }, through: :person
+  has_many :conversations, -> { order 'updated_at DESC' }, through: :conversation_visibilities
 
   has_many :notifications, :foreign_key => :recipient_id
 
