@@ -78,13 +78,13 @@ class Profile < ActiveRecord::Base
 
   def from_omniauth_hash(omniauth_user_hash)
     mappings = {"description" => "bio",
-               'image' => 'image_url', 
-               'name' => 'first_name',  
+               'image' => 'image_url',
+               'name' => 'first_name',
                'location' =>  'location',
                 }
 
     update_hash = Hash[ omniauth_user_hash.map {|k, v| [mappings[k], v] } ]
-    
+
     self.attributes.merge(update_hash){|key, old, new| old.blank? ? new : old}
   end
 
@@ -137,7 +137,7 @@ class Profile < ActiveRecord::Base
     if @tag_string
       @tag_string
     else
-      rows = connection.select_rows( self.tags.scoped.to_sql )
+      rows = self.class.connection.select_rows( self.tags.scoped.to_sql )
       rows.inject(""){|string, row| string << "##{row[1]} " }
     end
   end
