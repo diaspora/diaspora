@@ -736,3 +736,4 @@ The single-post view will also be revamped/reverted, but that didn't make it int
 
 ## Cleanup in maintenance scripts and automated build environment
 
+## Added ignore user icon
