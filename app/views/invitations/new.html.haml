@@ -26,4 +26,4 @@
     
     .control-group
       .controls
-        = submit_tag t('.send_an_invitation'), :class => 'btn btn-primary creation', :disable_with => t('.sending_invitation')
+        = submit_tag t('.send_an_invitation'), class: 'btn btn-primary creation', data: {disable_with: t('.sending_invitation')}
