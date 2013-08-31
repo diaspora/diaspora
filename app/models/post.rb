@@ -82,7 +82,7 @@ class Post < ActiveRecord::Base
 
   def self.excluding_blocks(user)
     people = user.blocks.map{|b| b.person_id}
-    scope = scoped
+    scope = all
 
     if people.any?
       scope = scope.where("posts.author_id NOT IN (?)", people)
@@ -92,7 +92,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.excluding_hidden_shareables(user)
-    scope = scoped
+    scope = all
     if user.has_hidden_shareables_of_type?
       scope = scope.where('posts.id NOT IN (?)', user.hidden_shareables["#{self.base_class}"])
     end

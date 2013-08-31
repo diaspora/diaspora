@@ -32,7 +32,7 @@ class Stream::Base
 
   # @return [ActiveRecord::Relation<Post>]
   def posts
-    Post.scoped
+    Post.all
   end
 
   # @return [Array<Post>]
