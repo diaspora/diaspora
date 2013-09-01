@@ -355,7 +355,7 @@ class User < ActiveRecord::Base
 
   ###Helpers############
   def self.build(opts = {})
-    u = User.new(opts.except(:person))
+    u = User.new(opts.except(:person, :id))
     u.setup(opts)
     u
   end
@@ -369,7 +369,7 @@ class User < ActiveRecord::Base
     errors = self.errors
     errors.delete :person
     return if errors.size > 0
-    self.set_person(Person.new(opts[:person] || {} ))
+    self.set_person(Person.new((opts[:person] || {}).except(:id)))
     self.generate_keys
     self
   end
