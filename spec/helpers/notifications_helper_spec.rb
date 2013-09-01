@@ -77,7 +77,7 @@ describe NotificationsHelper do
         output.should include I18n.t("#{@notification.popup_translation_key}",
                                      :actors => notification_people_link(@notification),
                                      :count => @notification.actors.count,
-                                     :post_link => "<a href=\"#{post_path(@post)}\" class=\"hard_object_link\" data-ref=\"#{@post.id}\">#{t('notifications.post')}</a>")
+                                     :post_link => "<a class=\"hard_object_link\" data-ref=\"#{@post.id}\" href=\"#{post_path(@post)}\">#{t('notifications.post')}</a>")
       end
 
       context 'when post is deleted' do

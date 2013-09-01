@@ -38,7 +38,7 @@ describe MarkdownifyHelper do
                                  :author => alice.person,
                                  :text => "I love #markdown")
         formatted = markdownify(message)
-        formatted.should =~ %r{<a href="/tags/markdown" class="tag">#markdown</a>}
+        formatted.should =~ %r{<a class="tag" href="/tags/markdown">#markdown</a>}
       end
 
       it 'should leave multi-underscore tags intact' do
@@ -48,7 +48,7 @@ describe MarkdownifyHelper do
           :text => "Here is a #multi_word tag"
         )
         formatted = markdownify(message)
-        formatted.should =~ %r{Here is a <a href="/tags/multi_word" class="tag">#multi_word</a> tag}
+        formatted.should =~ %r{Here is a <a class="tag" href="/tags/multi_word">#multi_word</a> tag}
 
         message = FactoryGirl.create(
           :status_message,
@@ -56,7 +56,7 @@ describe MarkdownifyHelper do
           :text => "Here is a #multi_word_tag yo"
         )
         formatted = markdownify(message)
-        formatted.should =~ %r{Here is a <a href="/tags/multi_word_tag" class="tag">#multi_word_tag</a> yo}
+        formatted.should =~ %r{Here is a <a class="tag" href="/tags/multi_word_tag">#multi_word_tag</a> yo}
       end
 
       it "should leave mentions intact" do
@@ -81,22 +81,22 @@ describe MarkdownifyHelper do
                                  :author => alice.person,
                                  :text => "Test #tag?\nhttps://joindiaspora.com\n")
         formatted = markdownify(message)
-        formatted.should == %{<p>Test <a href="/tags/tag" class="tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" target="_blank">https://joindiaspora.com</a></p>\n}
+        formatted.should == %{<p>Test <a class="tag" href="/tags/tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" target="_blank">https://joindiaspora.com</a></p>\n}
       end
-      
+
       it 'should process text with a header' do
         message = "# I love markdown"
         markdownify(message).should match "I love markdown"
       end
     end
   end
-  
+
   describe "#strip_markdown" do
     it 'does not remove markdown in links' do
       message = "some text and here comes http://exampe.org/foo_bar_baz a link"
       strip_markdown(message).should match message
     end
-    
+
     it 'does not destroy hashtag that starts a line' do
       message = "#hashtag message"
       strip_markdown(message).should match message

@@ -50,7 +50,7 @@ module Diaspora
           url_bit = '<3'
         end
 
-        %{#{pre}<a href="/tags/#{url_bit}" class="tag">#{clickable}</a>}
+        %{#{pre}<a class="tag" href="/tags/#{url_bit}">#{clickable}</a>}
       }.html_safe
     end
   end
