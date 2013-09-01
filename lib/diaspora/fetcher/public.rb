@@ -111,7 +111,7 @@ module Diaspora; module Fetcher; class Public
           :created_at => ActiveSupport::TimeZone.new('UTC').parse(post['created_at']).to_datetime,
           :interacted_at => ActiveSupport::TimeZone.new('UTC').parse(post['interacted_at']).to_datetime,
           :frame_name => post['frame_name']
-        }, :without_protection => true)
+        })
         entry.save
 
         # re-enable everything we disabled before
