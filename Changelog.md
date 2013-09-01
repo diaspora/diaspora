@@ -1,5 +1,4 @@
 # Head
-* Added ignore user icon [#4417](https://github.com/diaspora/diaspora/pull/4417)
 
 ## Refactor
 * Move non-model federation stuff into lib/ [#4363](https://github.com/diaspora/diaspora/pull/4363)
@@ -23,7 +22,9 @@
 * One click to select the invite URL [#4447](https://github.com/diaspora/diaspora/pull/4447)
 * Disable "mark all as read" link if all notifications are read [#4463](https://github.com/diaspora/diaspora/pull/4463)
 * Collapse aspect list and tag followings list when switching to other views [#4462](https://github.com/diaspora/diaspora/pull/4462)
+<<<<<<< HEAD
 * Highlight current stream in left sidebar [#4445](https://github.com/diaspora/diaspora/pull/4445)
+* Added ignore user icon [#4417](https://github.com/diaspora/diaspora/pull/4417)
 
 
 
