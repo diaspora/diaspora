@@ -11,6 +11,6 @@ Feature: donations
     And I sign in as "alice@alice.alice"
 
   Scenario: Bitcoin donations
-    Given I have configured a Bitcoin wallet
+    Given I have configured a Bitcoin address
     And I am on the home page
-    Then I should see the Bitcoin wallet ID
+    Then I should see the Bitcoin address
