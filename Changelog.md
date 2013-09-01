@@ -13,6 +13,7 @@
 * Fix size of images in the SPV [#4471](https://github.com/diaspora/diaspora/pull/4471)
 * Adjust 404 message description to not leak logged out users if a post exists or not [#4477](https://github.com/diaspora/diaspora/pull/4477)
 * Make I18n system more robust against missing keys in pluralization data
+* Prevent overflow of too long strings in the single post view [#4487](https://github.com/diaspora/diaspora/pull/4487)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
