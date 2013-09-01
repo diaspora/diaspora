@@ -271,10 +271,10 @@ When /^I focus the "([^"]+)" field$/ do |field|
   find_field(field).click
 end
 
-Given /^I have configured a Bitcoin wallet$/ do
-  AppConfig.settings.bitcoin_wallet_id = "AAAAAA"
+Given /^I have configured a Bitcoin address$/ do
+  AppConfig.settings.bitcoin_address = "AAAAAA"
 end
 
-Then /^I should see the Bitcoin wallet ID$/ do
+Then /^I should see the Bitcoin address$/ do
   find("#bitcoin_address")['value'].should == "AAAAAA"
 end
