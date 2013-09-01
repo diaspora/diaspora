@@ -18,7 +18,7 @@ describe("app.views.Publisher", function() {
     it("hides the close button in standalone mode", function() {
       expect(this.view.$('#hide_publisher').is(':visible')).toBeFalsy();
     });
-    
+
     it("hides the post preview button in standalone mode", function() {
       expect(this.view.$('.post_preview_button').is(':visible')).toBeFalsy();
     });
@@ -65,7 +65,7 @@ describe("app.views.Publisher", function() {
         this.view.clear($.Event());
         expect(this.view.close).toHaveBeenCalled();
       })
-      
+
       it("calls removePostPreview", function(){
         spyOn(this.view, "removePostPreview");
 
@@ -121,18 +121,18 @@ describe("app.views.Publisher", function() {
         var form = this.view.$("form")
         var submitCallback = jasmine.createSpy().andReturn(false);
         form.submit(submitCallback);
-      
+
         var e = $.Event("keydown", { keyCode: 13 });
         e.ctrlKey = true;
         this.view.keyDown(e);
-      
+
         expect(submitCallback).toHaveBeenCalled();
         expect($(this.view.el)).not.toHaveClass("closed");
       })
     })
   });
 
-  context("#toggleService", function(){
+  context("services", function(){
     beforeEach( function(){
       spec.loadFixture('aspects_index_services');
       this.view = new app.views.Publisher();
@@ -156,52 +156,42 @@ describe("app.views.Publisher", function() {
       expect(second.hasClass('dim')).toBeTruthy();
     });
 
-    describe("#_createCounter", function() {
-      it("gets called in when you toggle service icons", function(){
-        spyOn(this.view, '_createCounter');
-        $(".service_icon").first().trigger('click');
-        expect(this.view._createCounter).toHaveBeenCalled();
-      });
-
-      it("removes the 'old' .counter span", function(){
-        spyOn($.fn, "remove");
-        $(".service_icon").first().trigger('click');
-        expect($.fn.remove).toHaveBeenCalled();
-      });
+    it("creates a counter element", function(){
+      expect(this.view.$('.counter').length).toBe(0);
+      $(".service_icon").first().trigger('click');
+      expect(this.view.$('.counter').length).toBe(1);
     });
 
-    describe("#_toggleServiceField", function() {
-      it("gets called when you toggle service icons", function(){
-        spyOn(this.view, '_toggleServiceField');
-        $(".service_icon").first().trigger('click');
-        expect(this.view._toggleServiceField).toHaveBeenCalled();
-      });
+    it("removes any old counters", function(){
+      spyOn($.fn, "remove");
+      $(".service_icon").first().trigger('click');
+      expect($.fn.remove).toHaveBeenCalled();
+    });
 
-      it("toggles the hidden input field", function(){
-        expect($('input[name="services[]"]').length).toBe(0);
-        $(".service_icon").first().trigger('click');
-        expect($('input[name="services[]"]').length).toBe(1);
-        $(".service_icon").first().trigger('click');
-        expect($('input[name="services[]"]').length).toBe(0);
-      });
+    it("toggles the hidden input field", function(){
+      expect(this.view.$('input[name="services[]"]').length).toBe(0);
+      $(".service_icon").first().trigger('click');
+      expect(this.view.$('input[name="services[]"]').length).toBe(1);
+      $(".service_icon").first().trigger('click');
+      expect(this.view.$('input[name="services[]"]').length).toBe(0);
+    });
 
-      it("toggles the correct input", function() {
-        var first = $(".service_icon").eq(0);
-        var second = $(".service_icon").eq(1);
+    it("toggles the correct input", function() {
+      var first = $(".service_icon").eq(0);
+      var second = $(".service_icon").eq(1);
 
-        first.trigger('click');
-        second.trigger('click');
+      first.trigger('click');
+      second.trigger('click');
 
-        expect($('input[name="services[]"]').length).toBe(2);
+      expect(this.view.$('input[name="services[]"]').length).toBe(2);
 
-        first.trigger('click');
+      first.trigger('click');
 
-        var prov1 = first.attr('id');
-        var prov2 = second.attr('id');
+      var prov1 = first.attr('id');
+      var prov2 = second.attr('id');
 
-        expect($('input[name="services[]"][value="'+prov1+'"]').length).toBe(0);
-        expect($('input[name="services[]"][value="'+prov2+'"]').length).toBe(1);
-      });
+      expect(this.view.$('input[name="services[]"][value="'+prov1+'"]').length).toBe(0);
+      expect(this.view.$('input[name="services[]"][value="'+prov2+'"]').length).toBe(1);
     });
   });
 
@@ -236,16 +226,10 @@ describe("app.views.Publisher", function() {
       expect(this.check_els.last().hasClass('selected')).toBeTruthy();
     });
 
-    describe("#_updateSelectedAspectIds", function(){
+    describe("hidden form elements", function(){
       beforeEach(function(){
         this.li = $('<li data-aspect_id="42" />');
         this.view.$('.dropdown_list').append(this.li);
-      });
-
-      it("gets called when aspects are selected", function(){
-        spyOn(this.view, "_updateSelectedAspectIds");
-        this.check_els.last().trigger('click');
-        expect(this.view._updateSelectedAspectIds).toHaveBeenCalled();
       });
 
       it("removes a previous selection and inserts the current one", function() {
@@ -261,13 +245,13 @@ describe("app.views.Publisher", function() {
       });
 
       it("toggles the same item", function() {
-        expect(this.view.$('input[name="aspect_ids[]"]').length).toBe(1);
+        expect(this.view.$('input[name="aspect_ids[]"][value="42"]').length).toBe(0);
 
         this.li.trigger('click');
-        expect(this.view.$('input[name="aspect_ids[]"]').length).toBe(1);
+        expect(this.view.$('input[name="aspect_ids[]"][value="42"]').length).toBe(1);
 
         this.li.trigger('click');
-        expect(this.view.$('input[name="aspect_ids[]"]').length).toBe(0);
+        expect(this.view.$('input[name="aspect_ids[]"][value="42"]').length).toBe(0);
       });
 
       it("keeps other fields with different values", function() {
@@ -275,30 +259,13 @@ describe("app.views.Publisher", function() {
         this.view.$('.dropdown_list').append(li2);
 
         this.li.trigger('click');
-        expect(this.view.$('input[name="aspect_ids[]"]').length).toBe(1);
-
         li2.trigger('click');
-        expect(this.view.$('input[name="aspect_ids[]"]').length).toBe(2);
+
+        expect(this.view.$('input[name="aspect_ids[]"][value="42"]').length).toBe(1);
+        expect(this.view.$('input[name="aspect_ids[]"][value="99"]').length).toBe(1);
       });
     });
 
-    describe("#_addHiddenAspectInput", function(){
-      it("gets called when aspects are selected", function(){
-        spyOn(this.view, "_addHiddenAspectInput");
-        this.check_els.last().trigger('click');
-        expect(this.view._addHiddenAspectInput).toHaveBeenCalled();
-      });
-
-      it("adds a hidden input to the form", function(){
-        var id = 42;
-
-        this.view._addHiddenAspectInput(id);
-        var input = this.view.$('input[name="aspect_ids[]"][value="'+id+'"]');
-
-        expect(input.length).toBe(1);
-        expect(input.val()).toBe('42');
-      });
-    });
   });
 
   context("locator", function() {
@@ -314,9 +281,9 @@ describe("app.views.Publisher", function() {
       it("Show location", function(){
 
         // inserts location to the DOM; it is the location's view element
-        setFixtures('<div id="publisher_textarea_wrapper"></div>'); 
+        setFixtures('<div id="publisher_textarea_wrapper"></div>');
 
-        // creates a fake Locator 
+        // creates a fake Locator
         OSM = {};
         OSM.Locator = function(){return { getAddress:function(){}}};
 
@@ -333,26 +300,11 @@ describe("app.views.Publisher", function() {
 
     describe('#destroyLocation', function(){
       it("Destroy location if exists", function(){
-
-        // inserts location to the DOM; it is the location's view element
-        setFixtures('<div id="location"></div>'); 
-
-        //Backup original view
-        var original_location = app.views.Location;
-
-        // creates a new Location view with the #location element
-        app.views.Location = new Backbone.View({el:"#location"});
-
-        // creates the mock 
-        app.views.location = sinon.mock(app.views.Location).object;
-
-        // calls the destroy function and test the expected result
+        setFixtures('<div id="location"></div>');
+        this.view.view_locator = new app.views.Location({el: "#location"});
         this.view.destroyLocation();
 
         expect($("#location").length).toBe(0);
-
-        //Restore view
-        app.views.Location = original_location;
       })
     });
 

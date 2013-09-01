@@ -9,8 +9,7 @@
 //= require ./publisher/uploader
 //= require jquery.textchange
 
-app.views.Publisher = Backbone.View.extend(_.extend(
-  app.views.PublisherGettingStarted, {
+app.views.Publisher = Backbone.View.extend({
 
   el : "#publisher",
 
@@ -151,14 +150,15 @@ app.views.Publisher = Backbone.View.extend(_.extend(
   showLocation: function(){
     if($('#location').length == 0){
       $('#publisher_textarea_wrapper').after('<div id="location"></div>');
-      app.views.location = new app.views.Location();
+      this.view_locator = new app.views.Location();
     }
   },
 
   // destroys the location
   destroyLocation: function(){
-    if(app.views.location){
-      app.views.location.remove();
+    if(this.view_locator){
+      this.view_locator.remove();
+      delete this.view_locator;
     }
   },
 
@@ -346,7 +346,7 @@ app.views.Publisher = Backbone.View.extend(_.extend(
     });
   }
 
-}));
+});
 
 // jQuery helper for serializing a <form> into JSON
 $.fn.serializeObject = function()
