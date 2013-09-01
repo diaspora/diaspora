@@ -3,17 +3,17 @@ $bluebg: #e7f2f7;
 #home_user_badge {
 	min-height: 50px;
 	margin-bottom: 20px;
-	
+
 	img {
 		float: left;
 	}
-	
+
 	h4 {
 		margin-left: 60px;
 		padding-top: 15px;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		
+
 		a {
 			color: inherit;
 			font-weight: bold;
@@ -26,7 +26,7 @@ $bluebg: #e7f2f7;
 	margin: 0px;
 	margin-right: 10px;
 	color: #222222;
-	
+
 	ul {
 		margin: 0px;
 		padding: 0px;
@@ -37,17 +37,17 @@ $bluebg: #e7f2f7;
 		font-weight: bold;
 		text-decoration: none;
 	}
-	
+
+	.selected { color: $black; }
+	.selected a { color: $black; }
+
 	.hoverable {
 		display: block;
 		margin-right: 6px;
-		padding: 4px;
-		
-		&:hover {
-			background-color: $bluebg;
-		}
+		padding: 4px 4px 4px 0;
+		&:hover { background-color: $bluebg; }
 	}
-	
+
 	.selectable {
 		display: block;
 		margin-left: 21px;
