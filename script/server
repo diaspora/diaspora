@@ -73,7 +73,6 @@ fi
 os=$(uname -s)
 vars=$(bundle exec ruby ./script/get_config.rb \
   port=server.port \
-  db=server.database \
   single_process_mode=environment.single_process_mode? \
   embed_sidekiq_worker=server.embed_sidekiq_worker \
   workers=server.sidekiq_workers
@@ -81,9 +80,8 @@ vars=$(bundle exec ruby ./script/get_config.rb \
 on_failure "Couldn't parse config/diaspora.yml!"
 eval "$vars"
 
-if [ -z "$DB" ]
+if [ -n "$DB" ]
 then
-  DB=$db
   export DB
 fi
 

@@ -36,7 +36,6 @@ defaults:
     rails_environment: 'development'
     stderr_log:
     stdout_log:
-    database: 'mysql'
     unicorn_worker: 2
     unicorn_timeout: 90
     embed_sidekiq_worker: false

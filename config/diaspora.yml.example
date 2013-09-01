@@ -148,10 +148,6 @@ configuration: ## Section
     #stderr_log: '/usr/local/app/diaspora/log/unicorn-stderr.log'
     #stdout_log: '/usr/local/app/diaspora/log/unicorn-stdout.log'
     
-    ## The database type the server should use by default.
-    ## Valid choices are 'mysql' and 'postgres'
-    #database: 'mysql'
-    
     ## Number of Unicorn worker processes, increase this if
     ## you have many users
     #unicorn_worker: 2
