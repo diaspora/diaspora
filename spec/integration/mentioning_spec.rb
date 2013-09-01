@@ -3,7 +3,7 @@ require 'spec_helper'
 
 module MentioningSpecHelpers
   def default_aspect
-    @user1.aspects.where(name: 'generic')
+    @user1.aspects.where(name: 'generic').first
   end
 
   def text_mentioning(user)
