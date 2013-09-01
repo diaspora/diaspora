@@ -48,7 +48,7 @@ STR
         fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people)
 
         fmt_msg.should_not include(p.first_name)
-        fmt_msg.should include("&gt;", "&lt;", "&#x27;") # ">", "<", "'"
+        fmt_msg.should include("&gt;", "&lt;", "&#39;") # ">", "<", "'"
       end
     end
 
