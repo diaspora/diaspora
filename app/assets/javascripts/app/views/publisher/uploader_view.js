@@ -30,12 +30,15 @@ app.views.PublisherUploader = Backbone.View.extend({
 
     });
 
+    this.el_info = $('<div id="fileInfo" />');
+    this.options.publisher.el_wrapper.before(this.el_info);
+
     this.options.publisher.el_photozone.on('click', '.x', _.bind(this._removePhoto, this));
   },
 
   progressHandler: function(id, fileName, loaded, total) {
     var progress = Math.round(loaded / total * 100);
-    this.options.el_info.text(fileName + ' ' + progress + '%').fadeTo(200, 1);
+    this.el_info.text(fileName + ' ' + progress + '%').fadeTo(200, 1);
   },
 
   submitHandler: function(id, fileName) {
@@ -46,8 +49,7 @@ app.views.PublisherUploader = Backbone.View.extend({
   // add photo placeholders to the publisher to indicate an upload in progress
   _addPhotoPlaceholder: function() {
     var publisher = this.options.publisher;
-    publisher.el_submit.attr('disabled', 'disabled');
-    publisher.el_preview.attr('disabled', 'disabled');
+    publisher.setButtonsEnabled(false);
 
     publisher.el_wrapper.addClass('with_attachments');
     publisher.el_photozone.append(
@@ -58,7 +60,7 @@ app.views.PublisherUploader = Backbone.View.extend({
   },
 
   uploadCompleteHandler: function(id, fileName, response) {
-    this.options.el_info.text(Diaspora.I18n.t('photo_uploader.completed', {file: fileName})).fadeTo(2000, 0);
+    this.el_info.text(Diaspora.I18n.t('photo_uploader.completed', {file: fileName})).fadeTo(2000, 0);
 
     var id  = response.data.photo.id,
         url = response.data.photo.unprocessed_image.url;
@@ -105,7 +107,7 @@ app.views.PublisherUploader = Backbone.View.extend({
       dataType: 'json',
       type: 'DELETE',
       success: function() {
-        photo.fadeOut(400, function(){
+        $.when(photo.fadeOut(400)).then(function(){
           photo.remove();
 
           if( self.options.publisher.$('.publisher_photo').length == 0 ) {

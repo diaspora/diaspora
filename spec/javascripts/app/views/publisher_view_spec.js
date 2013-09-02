@@ -320,5 +320,135 @@ describe("app.views.Publisher", function() {
     });
   });
 
+  context('uploader', function() {
+    beforeEach(function() {
+      jQuery.fx.off = true;
+      setFixtures(
+        '<div id="publisher">'+
+        '  <div class="content_creation"><form>'+
+        '    <div id="publisher_textarea_wrapper"></div>'+
+        '    <div id="photodropzone"></div>'+
+        '    <input type="submit" />'+
+        '    <button class="post_preview_button" />'+
+        '  </form></div>'+
+        '</div>'
+      );
+    });
+
+    it('initializes the file uploader plugin', function() {
+      spyOn(qq, 'FileUploaderBasic');
+      var publisher = new app.views.Publisher();
+
+      expect(qq.FileUploaderBasic).toHaveBeenCalled();
+    });
+
+    context('event handlers', function() {
+      beforeEach(function() {
+        this.view = new app.views.Publisher();
+
+        // replace the uploader plugin with a dummy object
+        var upload_view = this.view.view_uploader;
+        this.uploader = {
+          onProgress: _.bind(upload_view.progressHandler, upload_view),
+          onSubmit:   _.bind(upload_view.submitHandler, upload_view),
+          onComplete: _.bind(upload_view.uploadCompleteHandler, upload_view)
+        };
+        upload_view.uploader = this.uploader;
+      });
+
+      context('progress', function() {
+        it('shows progress in percent', function() {
+          this.uploader.onProgress(null, 'test.jpg', 20, 100);
+
+          var info = this.view.view_uploader.el_info;
+          expect(info.text()).toContain('test.jpg');
+          expect(info.text()).toContain('20%');
+        });
+      });
+
+      context('submitting', function() {
+        beforeEach(function() {
+          this.uploader.onSubmit(null, 'test.jpg');
+        });
+
+        it('adds a placeholder', function() {
+          expect(this.view.el_wrapper.attr('class')).toContain('with_attachments');
+          expect(this.view.el_photozone.find('li').length).toBe(1);
+        });
+
+        it('disables the publisher buttons', function() {
+          expect(this.view.el_submit.prop('disabled')).toBeTruthy();
+          expect(this.view.el_preview.prop('disabled')).toBeTruthy();
+        });
+      });
+
+      context('completion', function() {
+        beforeEach(function() {
+          Diaspora.I18n.loadLocale({ photo_uploader: { completed: '<%= file %> completed' }});
+          $('#photodropzone').html('<li class="publisher_photo loading"><img src="" /></li>');
+
+          this.uploader.onComplete(null, 'test.jpg', { data: { photo: {
+            id: '987',
+            unprocessed_image: { url: 'test.jpg' }
+          }}});
+        });
+
+        it('shows it in text form', function() {
+          var info = this.view.view_uploader.el_info;
+          expect(info.text()).toBe(Diaspora.I18n.t('photo_uploader.completed', {file: 'test.jpg'}))
+        });
+
+        it('adds a hidden input to the publisher', function() {
+          var input = this.view.$('input[type="hidden"][value="987"][name="photos[]"]');
+          expect(input.length).toBe(1);
+        });
+
+        it('replaces the placeholder', function() {
+          var li  = this.view.el_photozone.find('li');
+          var img = li.find('img');
+
+          expect(li.attr('class')).not.toContain('loading');
+          expect(img.attr('src')).toBe('test.jpg');
+          expect(img.attr('data-id')).toBe('987');
+        });
+
+        it('re-enables the buttons', function() {
+          expect(this.view.el_submit.prop('disabled')).toBeFalsy();
+          expect(this.view.el_preview.prop('disabled')).toBeFalsy();
+        });
+      });
+    });
+
+    context('photo removal', function() {
+      beforeEach(function() {
+        this.view = new app.views.Publisher();
+        this.view.el_wrapper.addClass('with_attachments');
+        this.view.el_photozone.html(
+          '<li class="publisher_photo">.'+
+          '  <img data-id="444" />'+
+          '  <div class="x">X</div>'+
+          '  <div class="circle"></div>'+
+          '</li>'
+        );
+
+        spyOn(jQuery, 'ajax').andCallFake(function(opts) { opts.success(); });
+        this.view.el_photozone.find('.x').click();
+      });
+
+      it('removes the element', function() {
+        var photo = this.view.el_photozone.find('li.publisher_photo');
+        expect(photo.length).toBe(0);
+      });
+
+      it('sends an ajax request', function() {
+        expect($.ajax).toHaveBeenCalled();
+      });
+
+      it('removes class on wrapper element', function() {
+        expect(this.view.el_wrapper.attr('class')).not.toContain('with_attachments');
+      });
+    });
+  });
+
 });
 

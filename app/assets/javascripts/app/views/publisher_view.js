@@ -3,10 +3,10 @@
  *   the COPYRIGHT file.
  */
 
-//= require ./publisher/services
-//= require ./publisher/aspect_selector
-//= require ./publisher/getting_started
-//= require ./publisher/uploader
+//= require ./publisher/services_view
+//= require ./publisher/aspect_selector_view
+//= require ./publisher/getting_started_view
+//= require ./publisher/uploader_view
 //= require jquery.textchange
 
 app.views.Publisher = Backbone.View.extend({
@@ -91,7 +91,6 @@ app.views.Publisher = Backbone.View.extend({
 
     this.view_uploader = new app.views.PublisherUploader({
       el: this.$('#file-upload'),
-      el_info: this.$('#fileInfo'),
       publisher: this
     });
 
