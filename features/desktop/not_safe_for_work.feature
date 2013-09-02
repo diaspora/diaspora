@@ -33,16 +33,11 @@ Scenario: Toggling nsfw state
   When I toggle nsfw posts
   Then I should see "I love 0bj3ction4bl3 c0nt3nt!" and "Sexy Senators Gone Wild!"
 
-  #cookies
-  #When I refresh the page
-  #Then I should see "I love 0bj3ction4bl3 c0nt3nt!"
-  #And I should see "Sexy Senators Gone Wild!"
-
   #hiding
   When I toggle nsfw posts
   Then I should not see "I love 0bj3ction4bl3 c0nt3nt!" and "Sexy Senators Gone Wild!"
 
-Scenario: Resharing an nsfw post
+Scenario: Resharing a nsfw post
   Given a nsfw user with email "tommy@pr0nking.com"
   And a user with email "laura@officeworkers.com"
   And a user with email "laura@officeworkers.com" is connected with "tommy@pr0nking.com"
