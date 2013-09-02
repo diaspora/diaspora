@@ -9,6 +9,8 @@ describe Comment do
   before do
     @alices_aspect = alice.aspects.first
     @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
+
+    @public_post = bob.post(:status_message, :text => 'wooo', :public => true, :to => 'all')
   end
 
   describe 'comment#notification_type' do
@@ -22,10 +24,25 @@ describe Comment do
       comment.notification_type(eve, alice.person).should be_false
     end
 
-    context "also commented" do
+    context "also commented on private post" do
       before do
         alice.comment!(@status, "a-commenta commenta")
         @comment = eve.comment!(@status, "I also commented on the first user's post")
+      end
+
+      it 'does not return also commented if the user commented' do
+        @comment.notification_type(eve, alice.person).should == false
+      end
+
+      it "returns 'also_commented' if another person commented on a post you commented on" do
+        @comment.notification_type(alice, alice.person).should == Notifications::AlsoCommented
+      end
+    end
+
+    context "also commented on public post" do
+      before do
+        alice.comment!(@public_post, "a-commenta commenta")
+        @comment = eve.comment!(@public_post, "I also commented on the first user's post")
       end
 
       it 'does not return also commented if the user commented' do
