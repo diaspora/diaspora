@@ -19,7 +19,7 @@ Feature: posting
 
   Scenario: can post a message from the tag page
     Then I should see "#boss" within "#publisher"
-    And I post "#boss from the tag page"
+    And I click the publisher and post "#boss from the tag page"
     And I search for "#boss"
     Then I should see "#boss from the tag page"
 
@@ -31,7 +31,7 @@ Feature: posting
   Scenario: see a tag that I am following and I post over there
     When I go to the home page
     And I follow "#boss"
-    And I post "#boss from the #boss tag page"
+    And I click the publisher and post "#boss from the #boss tag page"
     Then I should see "#boss from the #boss tag page" within "body"
 
   Scenario: can stop following a tag from the tag page

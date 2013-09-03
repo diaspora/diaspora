@@ -57,7 +57,7 @@ Feature: following and being followed
     Then I should have 1 contact in "Besties"
 
     When I am on the home page
-    And I post "I am following you back"
+    And I click the publisher and post "I am following you back"
     Then I sign out
 
     When I sign in as "bob@bob.bob"
@@ -88,7 +88,7 @@ Feature: following and being followed
     And I am on "alice@alice.alice"'s page
 
     Then I should see "Besties" 
-    Then  I should see a "#mention_button" within "#profile"
+    Then I should see a "#mention_button" within "#profile"
     Then I should not see a "#message_button" within "#profile"
 
   Scenario: interacting with the profile page of someone who follows you but who you do not follow
