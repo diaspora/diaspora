@@ -8,9 +8,9 @@
 
 ## Bug fixes
 * Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
-* Make invite code input width consistent across borwsers [#4448](https://github.com/diaspora/diaspora/pull/4448)
-* Fix style of contacts in profile sidebar [#4451](https://github.com/diaspora/pull/4451)
-* Fix profile mobile when logged out [#4464](https://github.com/diaspora/pull/4464)
+* Make invite code input width consistent across browsers [#4448](https://github.com/diaspora/diaspora/pull/4448)
+* Fix style of contacts in profile sidebar [#4451](https://github.com/diaspora/diaspora/pull/4451)
+* Fix profile mobile when logged out [#4464](https://github.com/diaspora/diaspora/pull/4464)
 * Fix preview with more than one mention [#4450](https://github.com/diaspora/diaspora/issues/4450)
 * Fix size of images in the SPV [#4471](https://github.com/diaspora/diaspora/pull/4471)
 * Adjust 404 message description to not leak logged out users if a post exists or not [#4477](https://github.com/diaspora/diaspora/pull/4477)
@@ -324,7 +324,7 @@ everything is set up.
 * Cleanup of script/server
 * Attempt to stabilize federation of attached photos (fix [#3033](https://github.com/diaspora/diaspora/issues/3033)  [#3940](https://github.com/diaspora/diaspora/pull/3940) )
 * Refactor develop install script [#4111](https://github.com/diaspora/diaspora/pull/4111)
-* Remove special hacks for supporting Ruby 1.8 [#4113] (https://github.com/diaspora/diaspora/pull/4139)
+* Remove special hacks for supporting Ruby 1.8 [#4113](https://github.com/diaspora/diaspora/pull/4139)
 * Moved custom oEmbed providers to config/oembed_providers.yml [#4131](https://github.com/diaspora/diaspora/pull/4131)
 * Add specs for Post#find_by_guid_or_id_with_user
 
