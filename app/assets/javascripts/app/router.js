@@ -99,7 +99,7 @@ app.Router = Backbone.Router.extend({
 
     app.page = new app.views.Stream({model : app.stream});
     app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
-    app.publisher.updateAspectsSelector(ids);
+    app.publisher.setSelectedAspects(ids);
 
     var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
 

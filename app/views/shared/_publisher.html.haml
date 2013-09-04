@@ -14,7 +14,6 @@
       = status.error_messages
       %div
         %params
-          #fileInfo
           #publisher_textarea_wrapper
             = link_to(content_tag(:div, nil, :class => 'icons-deletelabel'), "#", :id => "hide_publisher", :title => t('.discard_post'))
             %ul#photodropzone
@@ -90,5 +89,3 @@
 
 
     #publisher_photo_upload
-      = render 'photos/new_photo', :aspect_ids => aspect_ids.join(',')
-
