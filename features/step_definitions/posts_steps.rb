@@ -39,6 +39,10 @@ When /^I click on the first block button/ do
   find(".block_user").click
 end
 
+When /^I click on the profile block button/ do
+  find("#profile_buttons .block_user").click
+end
+
 When /^I expand the post$/ do
   expand_first_post
 end

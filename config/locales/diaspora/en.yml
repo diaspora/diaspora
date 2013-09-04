@@ -20,6 +20,7 @@ en:
   cancel: "Cancel"
   delete: "Delete"
   hide: "Hide"
+  ignore: "Ignore"
   undo: "Undo?"
   or: "or"
   ago: "%{time} ago"
