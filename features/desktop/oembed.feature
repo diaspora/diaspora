@@ -26,7 +26,7 @@ Feature: oembed
     And I press "Share"
     And I follow "My Aspects"
     Then I should not see a video player
-    And I should see "http://mytube.com/watch?v=M3r2XDceM6A&format=json"
+    And I should see "http://mytube.com/watch?v=M3r2XDceM6A&format=json" within ".stream_element"
 
   Scenario: Post an unsecure rich-typed link
     Given I expand the publisher
@@ -35,7 +35,7 @@ Feature: oembed
     And I press "Share"
     And I follow "My Aspects"
     Then I should not see a video player
-    And I should see "http://myrichtube.com/watch?v=M3r2XDceM6A&format=json"
+    And I should see "http://myrichtube.com/watch?v=M3r2XDceM6A&format=json" within ".stream_element"
 
   Scenario: Post a photo link
     Given I expand the publisher
