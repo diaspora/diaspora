@@ -36,19 +36,19 @@ describe("app.views.CommentStream", function(){
       this.view.expandComments();
     })
 
+
     it("submits the new comment when comment text is not empty", function() {
       this.view.$(".comment_box").val('a new comment');
       this.view.createComment();
-      var request = mostRecentAjaxRequest();
-      expect(request.params).toEqual("{"text":"a new comment"}");
+      expect(this.view.$(".comment-content p").text()).toEqual("a new comment");
     })
 
-    it("displays the new comment after submission", function() {
-      var comment = factory.comment();
-      this.view.$(".comment_box").val(comment.get('text'));
+    it("should not display the comment if the submission fails", function() {
+      this.view.$(".comment_box").val('a new comment');
       this.view.createComment();
-      mostRecentAjaxRequest().response(comment.attributes);
-      expect(this.view.$(".comment-content p").text()).toEqual("This is a comment!");
+      expect(this.view.$("").text()).toEqual("");
+
+
     })
 
     it("clears the comment box when there are only spaces", function() {
