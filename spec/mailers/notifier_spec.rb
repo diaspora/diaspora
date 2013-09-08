@@ -82,10 +82,10 @@ describe Notifier, :type => :mailer do
   describe ".mentioned" do
     before do
       @user = alice
-      @sm = FactoryGirl.create(:status_message)
-      @m = Mention.create(:person => @user.person, :post=> @sm)
+      @post = FactoryGirl.create(:status_message, public: true)
+      @mention = Mention.create(:person => @user.person, :post => @post)
 
-      @mail = Notifier.mentioned(@user.id, @sm.author.id, @m.id)
+      @mail = Notifier.mentioned(@user.id, @post.author.id, @mention.id)
     end
 
     it 'TO: goes to the right person' do
@@ -93,11 +93,11 @@ describe Notifier, :type => :mailer do
     end
 
     it 'SUBJECT: has the name of person mentioning in the subject' do
-      expect(@mail.subject).to include(@sm.author.name)
+      expect(@mail.subject).to include(@post.author.name)
     end
 
     it 'has the post text in the body' do
-      expect(@mail.body.encoded).to include(@sm.text)
+      expect(@mail.body.encoded).to include(@post.text)
     end
 
     it 'should not include translation fallback' do
@@ -107,8 +107,8 @@ describe Notifier, :type => :mailer do
 
   describe ".liked" do
     before do
-      @sm = FactoryGirl.create(:status_message, :author => alice.person)
-      @like = @sm.likes.create!(:author => bob.person)
+      @post = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
+      @like = @post.likes.create!(:author => bob.person)
       @mail = Notifier.liked(alice.id, @like.author.id, @like.id)
     end
 
@@ -117,7 +117,7 @@ describe Notifier, :type => :mailer do
     end
 
     it 'BODY: contains the truncated original post' do
-      expect(@mail.body.encoded).to include(@sm.message.plain_text)
+      expect(@mail.body.encoded).to include(@post.message.plain_text)
     end
 
     it 'BODY: contains the name of person liking' do
@@ -137,8 +137,8 @@ describe Notifier, :type => :mailer do
 
   describe ".reshared" do
     before do
-      @sm = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
-      @reshare = FactoryGirl.create(:reshare, :root => @sm, :author => bob.person)
+      @post = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
+      @reshare = FactoryGirl.create(:reshare, :root => @post, :author => bob.person)
       @mail = Notifier.reshared(alice.id, @reshare.author.id, @reshare.id)
     end
 
@@ -147,7 +147,7 @@ describe Notifier, :type => :mailer do
     end
 
     it 'BODY: contains the truncated original post' do
-      expect(@mail.body.encoded).to include(@sm.message.plain_text)
+      expect(@mail.body.encoded).to include(@post.message.plain_text)
     end
 
     it 'BODY: contains the name of person liking' do
@@ -196,8 +196,8 @@ describe Notifier, :type => :mailer do
       expect(@mail.subject).to eq("Re: #{@cnv.subject}")
     end
 
-    it 'BODY: contains the message text' do
-      expect(@mail.body.encoded).to include(@cnv.messages.first.text)
+    it 'BODY: does not contain the message text' do
+      expect(@mail.body.encoded).not_to include(@cnv.messages.first.text)
     end
 
     it 'should not include translation fallback' do
@@ -206,7 +206,7 @@ describe Notifier, :type => :mailer do
   end
 
   context "comments" do
-    let(:commented_post) {bob.post(:status_message, :text => "### Headline \r\n It's **really** sunny outside today, and this is a super long status message!  #notreally", :to => :all)}
+    let(:commented_post) {bob.post(:status_message, :text => "### Headline \r\n It's **really** sunny outside today, and this is a super long status message!  #notreally", :to => :all, :public => true)}
     let(:comment) { eve.comment!(commented_post, "Totally is")}
 
     describe ".comment_on_post" do
@@ -271,7 +271,7 @@ describe Notifier, :type => :mailer do
         end
 
         it "contains the original post's link" do
-          expect(comment_mail.body.encoded.include?("#{comment.post.id.to_s}")).to be true
+          expect(comment_mail.body.encoded).to include("#{comment.post.id.to_s}")
         end
 
         it 'should not include translation fallback' do
