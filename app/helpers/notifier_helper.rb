@@ -20,7 +20,7 @@ module NotifierHelper
   # @return [String] The truncated and formatted comment.
   def comment_message(comment, opts={})
     opts[:length] ||= 600
-    text = "Hey! There was some activity on your post. See it at " + post_comment_url(comment.post, comment) 
+    text = post_comment_url(comment.post, comment) 
     # text = strip_markdown(comment.text)
     # text = truncate(text, :length => opts[:length])
     # text = process_newlines(text) if opts[:process_newlines]
