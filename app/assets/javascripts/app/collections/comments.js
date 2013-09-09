@@ -17,15 +17,12 @@ app.collections.Comments = Backbone.Collection.extend({
     var deferred = comment.save({}, {
       url : self.url(),
       success: function() {
-        console.log("error");
         comment.set({author: app.currentUser.toJSON(), parent: self.post })
         self.add(comment)
       },
       error: function() {
 
-        console.log("error");
-
-      }
+       }
     })
 
     return deferred

@@ -36,19 +36,22 @@ describe("app.views.CommentStream", function(){
       this.view.expandComments();
     })
 
-
     it("submits the new comment when comment text is not empty", function() {
       this.view.$(".comment_box").val('a new comment');
       this.view.createComment();
-      expect(this.view.$(".comment-content p").text()).toEqual("a new comment");
+      comments = mostRecentAjaxRequest();
+      params = JSON.parse(comments.params)
+      expect(params.text).toEqual("a new comment");
     })
 
-    it("should not display the comment if the submission fails", function() {
-      this.view.$(".comment_box").val('a new comment');
-      this.view.createComment();
-      expect(this.view.$("").text()).toEqual("");
-
-
+    it("comment doesn't get added if the submission fails", function(){
+      this.view.render();
+      var form = this.view.$("form")
+      var submitCallback = jasmine.createSpy().andReturn(false);form.submit(submitCallback);
+      var e = $.Event("keydown", { keyCode: 13 });
+      e.shiftKey = false;
+      this.view.keyDownOnCommentBox(e);
+      expect(submitCallback).not.toHaveBeenCalled();
     })
 
     it("clears the comment box when there are only spaces", function() {
