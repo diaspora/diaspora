@@ -5,6 +5,7 @@ gem 'rails', '3.2.13'
 # Appserver
 
 gem 'unicorn', '4.6.3', :require => false
+gem 'thin'
 
 # API and JSON
 
@@ -31,7 +32,7 @@ gem 'rack-cors', '0.2.8', :require => 'rack/cors'
 
 # Database
 
-ENV['DB'] ||= 'mysql'
+ENV['DB'] ||= 'postgres'
 
 gem 'mysql2', '0.3.13' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg',     '0.16.0' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
