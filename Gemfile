@@ -13,7 +13,7 @@ gem 'json',        '1.8.1'
 
 # Authentication
 
-gem 'devise', '3.0.2'
+gem 'devise', '3.2.2'
 
 # Captcha
 
