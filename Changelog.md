@@ -25,7 +25,7 @@
 * Collapse aspect list and tag followings list when switching to other views [#4462](https://github.com/diaspora/diaspora/pull/4462)
 * Highlight current stream in left sidebar [#4445](https://github.com/diaspora/diaspora/pull/4445)
 * Added ignore user icon [#4417](https://github.com/diaspora/diaspora/pull/4417)
-
+* You can report a single post by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517)
 
 # 0.2.0.0
 

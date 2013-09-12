@@ -1,0 +1,16 @@
+#post_report {
+  padding-top: 2em;
+  span {
+    display: block;
+  }
+  .content {
+    float: left;
+  }
+  .options {
+    float: right;
+  }
+  .clear {
+    clear: both;
+    padding-bottom: 1em;
+  }
+}
