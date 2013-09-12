@@ -63,7 +63,7 @@
                   <%= invite_hidden_tag(invite) %>
                 </fieldset>
 
-                <%= f.submit t('.continue'), :class => "new-btn" %>
+                <%= f.submit t('.continue'), :class => "new-btn", :disable_with => t('.submitting') %>
             <% end %>
         </div>
     </div>

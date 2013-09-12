@@ -894,6 +894,7 @@ en:
       password: "PASSWORD"
       password_confirmation: "PASSWORD CONFIRMATION"
       continue: "Continue"
+      submitting: "Submitting..."
     create:
       success: "You've joined Diaspora!"
     edit:
