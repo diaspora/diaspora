@@ -1,0 +1,27 @@
+.span-24
+  = render :partial => 'admins/admin_bar'
+%br
+%br
+
+.span-24.last
+  %h1
+    = 'Marked Reports Overview'
+  %div{:style => "padding-top:20px"}
+    - @post_reporter.each do |report|
+      %div{:style => "float:left"}
+        %b Post:
+        %a{:href => "/posts/#{report.post_id}", :target => "_blank"}= report.post_id
+        %br
+        %b Reported by:
+        %a{:href => "/u/#{report.user_id}", :target => "_blank"}= report.user_id
+        %br
+        %b Reason:
+        = report.text
+        %br
+        %br
+      %div{:style => "float:right"}
+        = link_to 'Mark as reviewed', update_post_reporter_path(report)
+        %br
+        %br
+        = link_to 'Delete post', destroy_post_reporter_path(report)
+      %div{:style => "clear:both"}

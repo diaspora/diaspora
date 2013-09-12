@@ -33,6 +33,8 @@ de:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
+    post_report_prompt: "Bitte gib einen Grund an:"
+    post_report_prompt_default: "Anstößige Inhalte"
     conversation:
       participants: "Teilnehmer"
     delete: "Löschen"

@@ -19,6 +19,7 @@ app.views.StreamPost = app.views.Post.extend({
 
     "click .remove_post": "destroyModel",
     "click .hide_post": "hidePost",
+    "click .report_post": "reportPost",
     "click .block_user": "blockUser"
   },
 
@@ -105,6 +106,22 @@ app.views.StreamPost = app.views.Post.extend({
 
     this.remove();
   },
+
+  reportPost : function(evt) {
+    if(evt) { evt.preventDefault(); }
+    var text = prompt(Diaspora.I18n.t('post_report_prompt'),
+		      Diaspora.I18n.t('post_report_prompt_default'));
+
+    $.ajax({
+      url : "/post_reporter",
+      type : "POST",
+      data : {
+        post_id : this.model.id,
+	text : text
+      }
+    })
+  },
+
 
   focusCommentTextarea: function(evt){
     evt.preventDefault();

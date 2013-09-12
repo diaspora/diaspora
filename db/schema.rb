@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130801063213) do
+ActiveRecord::Schema.define(:version => 20130911125923) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -281,6 +281,15 @@ ActiveRecord::Schema.define(:version => 20130801063213) do
     t.boolean  "ssl"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "post_reporters", :force => true do |t|
+    t.integer  "post_id"
+    t.string   "user_id"
+    t.boolean  "reviewed",   :default => false
+    t.text     "text"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "posts", :force => true do |t|
