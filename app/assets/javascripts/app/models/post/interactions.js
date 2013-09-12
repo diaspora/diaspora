@@ -82,7 +82,11 @@ app.models.Post.Interactions = Backbone.Model.extend({
     var self = this;
 
     this.comments.make(text).fail(function () {
-      alert(Diaspora.I18n.t("failed_to_post_message"));
+      flash = new Diaspora.Widgets.FlashMessages;
+      flash.render({
+        success: false,
+        notice: Diaspora.I18n.t("failed_to_post_message")
+      });
     }).done(function() {
       self.trigger('change') //updates after sync
     });

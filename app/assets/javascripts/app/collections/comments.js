@@ -19,12 +19,9 @@ app.collections.Comments = Backbone.Collection.extend({
       success: function() {
         comment.set({author: app.currentUser.toJSON(), parent: self.post })
         self.add(comment)
-      },
-      error: function() {
+      }
+    });
 
-       }
-    })
-
-    return deferred
+    return deferred;
   }
 });
