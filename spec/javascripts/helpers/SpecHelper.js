@@ -25,7 +25,34 @@ beforeEach(function() {
   $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
 
   Diaspora.page = new Page();
-  Diaspora.page.publish("page/ready", [$(document.body)])
+  Diaspora.page.publish("page/ready", [$(document.body)]);
+
+
+  // matches flash messages with success/error and contained text
+  var flashMatcher = function(flash, id, text) {
+    textContained = true;
+    if( text ) {
+      textContained = (flash.text().indexOf(text) !== -1);
+    }
+
+    return flash.is(id) &&
+           flash.hasClass('expose') &&
+           textContained;
+  };
+
+  // add custom matchers for flash messages
+  this.addMatchers({
+    toBeSuccessFlashMessage: function(containedText) {
+      var flash = this.actual;
+      return flashMatcher(flash, '#flash_notice', containedText);
+    },
+
+    toBeErrorFlashMessage: function(containedText) {
+      var flash = this.actual;
+      return flashMatcher(flash, '#flash_error', containedText);
+    }
+  });
+
 });
 
 afterEach(function() {
