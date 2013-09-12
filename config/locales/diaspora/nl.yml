@@ -86,7 +86,6 @@ nl:
   all_aspects: "Alle Aspecten"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "onbekend persoon"
       video_title:
         unknown: "Onbekende Videotitel"
@@ -148,8 +147,8 @@ nl:
       donate: "Doneer"
       handle_explanation: "Dit is jouw Diaspora ID. Net als een e-mailadres kun je deze aan mensen geven zodat ze je kunnen bereiken."
       help:
-        any_problem: "Enige Problemen?"
-        contact_podmin: "Gelieve de systeembeheerder van uw pod te contacteren!"
+        any_problem: "Problemen?"
+        contact_podmin: "Gelieve de beheerder van uw pod te contacteren!"
         do_you: "Heb je:"
         email_feedback: "%{link} jouw feedback, als dat jou voorkeur heeft."
         email_link: "E-mail"
@@ -157,12 +156,11 @@ nl:
         find_a_bug: "... een %{link} gevonden?"
         have_a_question: "... een %{link}?"
         here_to_help: "De Diaspora community staat voor je klaar!"
-        mail_podmin: "E-mail van Podmin"
+        mail_podmin: "Email van Podmin"
         need_help: "Hulp nodig?"
         tag_bug: "bug"
         tag_feature: "feature"
         tag_question: "vraag"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-gedreven tutorials, instructies, en nieuws."
       introduce_yourself: "Dit is jouw Stream.  Spring erin en introduceer jezelf."
       keep_diaspora_running: "Houdt de Diaspora ontwikkeling snel met een maandelijkse bijdrage!"
       keep_pod_running: "Hou %{pod} draaiend en koop een cafeïneshot voor de servers met een maandelijkse donatie."
@@ -282,15 +280,9 @@ nl:
       success: "Privégesprek succesvol verwijderd"
     helper:
       new_messages:
-        one: |-
-            1 nieuw privébericht
-            1 nieuw bericht
-        other: |-
-            %{count} nieuwe privéberichten
-            nieuwe berichten
-        zero: |-
-            Geen nieuwe privéberichten
-            Geen nieuwe berichten
+        one: "1 nieuw bericht"
+        other: "%{count} nieuwe berichten\n"
+        zero: "Geen nieuwe berichten"
     index:
       create_a_new_message: "schrijf een nieuw privébericht"
       inbox: "Postvak In"
@@ -348,7 +340,7 @@ nl:
       aspect: "Aspect"
       check_out_diaspora: "Kijk eens naar Diaspora!"
       codes_left:
-        one: "Nog een uitnodiging over op deze code"
+        one: "Nog één uitnodiging over op deze code"
         other: "Nog %{count} uitnodigingen over op deze code"
         zero: "Geen uitnodigingen over op deze code"
       comma_separated_plz: "Je kan meerdere e-mail adressen toevoegen door ze te scheiden door komma's"
@@ -978,7 +970,7 @@ nl:
       close_account_text: "Sluit Account"
       comment_on_post: "...iemand op jouw post reageert?"
       current_password: "Huidig wachtwoord"
-      current_password_expl: "die gene waar je mee inlogt..."
+      current_password_expl: "het wachtwoord waar je mee inlogt..."
       download_photos: "download mijn foto's"
       download_xml: "download mijn xml"
       edit_account: "Bewerk account"

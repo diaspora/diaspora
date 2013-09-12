@@ -76,7 +76,7 @@ nb:
     publisher:
       at_least_one_aspect: "Du må poste til minst ett aspekt"
       limited: "Begrenset - posten din vil bare være synlig for de du deler med"
-      near_from: "Nært ved: <%= location %>"
+      near_from: "Publisert ved: <%= location %>"
       public: "Offentlig - posten din vil være synlig for alle og kan bli funnet av søkemotorer"
     reshares:
       duplicate: "du har allerede delt denne posten!"

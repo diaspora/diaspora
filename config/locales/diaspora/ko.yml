@@ -87,7 +87,6 @@ ko:
   all_aspects: "모든 애스펙"
   application:
     helper:
-      diaspora_alpha: "디아스포라* 알파"
       unknown_person: "알 수 없는 사람"
       video_title:
         unknown: "알 수 없는 비디오 제목"
@@ -163,7 +162,6 @@ ko:
         tag_bug: "버그"
         tag_feature: "기능"
         tag_question: "질문"
-        tutorials_wiki_and_forum: "%{tutorial}과 %{wiki}와  %{forum}: 커뮤니티가 운영하는 튜토리얼, 사용 방법과 소식"
       introduce_yourself: "내 스트림입니다. 자기소개 어때요?"
       keep_diaspora_running: "정기 후원으로 디아스포라 개발을 빠르게 유지해주세요!"
       keep_pod_running: "%{pod} 팟이 빠르게 동작하고 서버와 디아스포라 팀이 마시는 커피를 살 수 있도록 정기후원을 해 주세요!"

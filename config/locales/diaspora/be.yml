@@ -1,0 +1,194 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+be:
+  _applications: "праграмы"
+  _comments: "каментары"
+  _contacts: "кантакты"
+  _home: "home"
+  _photos: "Фатаграфіі"
+  _services: "паслугі"
+  account: "Аккаунт"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "павінна быць унікальным у кантактах гэтага карыстальніка."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "ужо існуе."
+        request:
+          attributes:
+            from_id:
+              taken: "было аднойчы ўжо запатрабавана."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Добра, але гэта ты ўжо перапосціў!"
+        user:
+          attributes:
+            email:
+              taken: "ужо існуе."
+            person:
+              invalid: "Памылковае значэнне"
+            username:
+              invalid: "Памылка. Дазваляюцца літары, лічбы і падкрэсліванні."
+              taken: "ужо існуе."
+  all_aspects: "усе катыгорыі"
+  application:
+    helper:
+      unknown_person: "невядомая асоба"
+      video_title:
+        unknown: "невядомае відэа"
+  are_you_sure: "сапраўды?"
+  are_you_sure_delete_account: "Вы сапраўды хочаце выдаліць Ваш акаўнт? Гэта не магчыма будзе адмяніць!"
+  aspects:
+    add_to_aspect:
+      failure: "Памылка пры спробе дадаць кантакты да аспекта."
+      success: "Кантакты паспяхова дададзены ў аспект."
+    aspect_contacts:
+      done_editing: "падцвердзіць змены"
+    aspect_listings:
+      add_an_aspect: "+ дадаць катыгорыю"
+      deselect_all: "Ачысціць выбранае"
+      edit_aspect: "змяніць %{name}"
+      select_all: "Адзначыць усё"
+    contacts_not_visible: "у гэтай катыгорыі катакты не могуць бачыць адзін аднаго."
+    contacts_visible: "у гэтай катыгорыі катакты могуць бачыць адзін аднаго."
+    create:
+      failure: "Памылка пры стварэнні аспекта."
+      success: "Твой новы аспект %{name} створан."
+    destroy:
+      failure: "%{name} не пустая і не можа быць выдалена."
+      success: "%{name} паспяхова выдалена"
+    edit:
+      add_existing: "дадаць існуючы кантакт"
+      aspect_list_is_not_visible: "спіс катыгорый не бачны для ўсіх"
+      aspect_list_is_visible: "спіс катыгорый бачны для ўсіх"
+      confirm_remove_aspect: "ты сапраўды жадаешь выдаліць гэтую катыгорыю?"
+      done: "гатова"
+      make_aspect_list_visible: "зрабіць катакты ў гэтай катыгорыі адкрытымі?"
+      remove_aspect: "выдаліць катыгорыю"
+      rename: "перайменаваць"
+      update: "абнавіць"
+      updating: "абнаўляю ..."
+    few: "%{count} катыгорыі"
+    helper:
+      are_you_sure: "Сапраўды выдаліць гэты аспект?"
+      aspect_not_empty: "Аспект не пусты."
+      remove: "Выдаліць"
+    index:
+      cubbies:
+        heading: "Падключыць Cubbi.es"
+        learn_more: "паказаць больш"
+      diaspora_id:
+        content_1: "твой Diaspora ID:"
+        heading: "Diaspora ID"
+      donate: "падзяка"
+      handle_explanation: "Гэта твой Diaspora ID. Як і адрас электроннай пошты, ты можаш даць яго людзям, каб яны маглі з табой звязацца."
+      help:
+        do_you: "Гэта тычыцца:"
+        here_to_help: "Супольнасці Diaspora тут!"
+        need_help: "дапамога патрэбна?"
+        tag_bug: "памылка"
+        tag_question: "пытанне"
+      new_here:
+        follow: "Сачы за %{link} і вітай новых карыстальнікаў diaspora*!"
+        learn_more: "паказаць больш"
+        title: "Прывітанне, Новы Ўдзельнік!(чалавек)"
+      no_contacts: "намя кантактаў"
+      post_a_message: "напісаць паведамленне >>"
+      unfollow_tag: "больш не сачыць за #%{tag}"
+      welcome_to_diaspora: "Вітаем ў Diaspora, %{name}!"
+    many: "%{count} катыгорыі"
+    move_contact:
+      error: "Памылка пры пераносе кантакта: %{inspect}"
+      failure: "не магчыма %{inspect}"
+      success: "Кантакт перанесены да новага аспекта."
+    new:
+      create: "Стварыць"
+      name: "імя (бачна толькі табе)"
+    no_contacts_message:
+      community_spotlight: "супольны прагляд"
+      or_spotlight: "ты можаш таксама падзяліцца %{link}"
+      try_adding_some_more_contacts: "ты можаш знайсці ці дадаць новыя катракты"
+      you_should_add_some_more_contacts: "спачатку дадай пару кантактаў"
+    no_posts_message:
+      start_talking: "пакуль ніхто нічога не казаў"
+    one: "адна катыгорыя"
+    other: "%{count} катыгорыі"
+    seed:
+      acquaintances: "знаёмыя"
+      family: "сям'я"
+      friends: "сябры"
+      work: "праца"
+    selected_contacts:
+      manage_your_aspects: "упраўленне катыгорыямі"
+      no_contacts: "У цябе тут няма кантактаў."
+      view_all_contacts: "паказаць ўсе кантакты"
+    show:
+      edit_aspect: "змяніць катыгорыі"
+    two: "%{count} катыгорыі"
+    update:
+      failure: "не магчыма захаваць катыгорыю %{name}, занадта дліная назва."
+      success: "катыгорыя %{name} была паспяхова выдалена"
+    zero: "катыгорыі адсутнічаюць"
+  back: "назад"
+  cancel: "адмяніць"
+  comments:
+    few: "%{count} каментароў"
+    many: "%{count} каментароў"
+    one: "1 каментар"
+    two: "%{count} каментары"
+    zero: "каментароў няма"
+  contacts:
+    index:
+      all_contacts: "усе кантакты"
+      your_contacts: "твае кантакты"
+  conversations:
+    new:
+      abandon_changes: "скасаваць змены"
+      send: "даслаць"
+      sending: "адсылаю ..."
+  delete: "выдаліць"
+  email: "Email"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "спраўляй памылкі і паспрабуй зноў."
+      invalid_fields: "недапушчальныя радкі"
+  fill_me_out: "запоўні мяне"
+  find_people: "Пошук людзей ці #тэгаў"
+  hide: "Схаваць"
+  invitations:
+    new:
+      invite_someone_to_join: "запрасі каго-небудзь да Diaspora!"
+      language: "мова"
+  layouts:
+    header:
+      settings: "налады"
+  limited: "абмежавана"
+  more: "больш"
+  next: "далей"
+  no_results: "нічога не знайшлось"
+  nsfw: "не дзеля ўсіх вачэй"
+  ok: "ok"
+  or: "ці"
+  password: "пароль"
+  password_confirmation: "падцвердзіць пароль"
+  previous: "назад"
+  privacy: "Прыватнасць"
+  privacy_policy: "Выкарастанне асабістых дадзенных"
+  profile: "Прафіль"
+  public: "адкрыта"
+  search: "Пошук"
+  settings: "Налады"
+  terms_and_conditions: "Умовы выкарастоўвання"
+  undo: "назад"
+  username: "Імя карыстальніка"
+  welcome: "Прывітанне!"

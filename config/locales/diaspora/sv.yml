@@ -8,6 +8,7 @@ sv:
   _applications: "Applikationer"
   _comments: "Kommentarer"
   _contacts: "Kontakter"
+  _help: "Hjälp"
   _home: "Hem"
   _photos: "foton"
   _services: "Tjänster"
@@ -96,7 +97,6 @@ sv:
   all_aspects: "Alla aspekter"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "okänd person"
       video_title:
         unknown: "Okänd videotitel"
@@ -172,12 +172,13 @@ sv:
         tag_bug: "bugg"
         tag_feature: "särdrag"
         tag_question: "fråga"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Handledning, guider och nyheter från gemenskapen"
+        tutorial_link_text: "Nybörjar-guider"
+        tutorials_and_wiki: "Se %{tutorial} & %{wiki} för hjälp med de första stegen."
       introduce_yourself: "Det här är din ström. Hoppa in och presentera dig själv."
       keep_diaspora_running: "Håll Diasporautvecklingen igång med en månatlig donation!"
       keep_pod_running: "Håll %{pod} igång och ge servrarna sin kaffefix med en månatlig donation!"
       new_here:
-        follow: "Följ %{link} och välkomna nya användare till Diaspora*!"
+        follow: "Följ %{link} och hälsa nya Diaspora*-användare välkomna!"
         learn_more: "Läs mer"
         title: "Välkomna nya användare"
       no_contacts: "Inga kontakter"
@@ -333,6 +334,51 @@ sv:
     post_not_public: "Du försöker läsa ett inlägg som inte är publikt."
   fill_me_out: "Fyll i mig"
   find_people: "Hitta personer eller #taggar"
+  help:
+    account_and_data_management:
+      close_account_a: "Gå längst ner på Inställnings-sidan och tryck på knappen \"Stäng Kontot\"."
+      close_account_q: "Hur tar jag bort mitt frö (konto)?"
+      data_other_podmins_q: "Kan adminstratörer av andra pods se min information?"
+      data_visible_to_podmin_q: "Hur mycket av min personliga information kan min pod-administratör se?"
+      download_data_a: "Ja. Längst ned på sidan Konto-fliken i Inställnings-menyn finns det två knappar för att ladda ner din data."
+      download_data_q: "Kan jag ladda ner en kopia av all data på mitt frö (konto)?"
+      move_pods_q: "Hur flyttar jag mitt frö (konto) från en pod till en annan?"
+      title: "Konto- samt datainställningar"
+    aspects:
+      contacts_know_aspect_a: "Nej. De kan inte se namnet på aspekten under några omständigheter."
+      contacts_know_aspect_q: "Vet mina kontakter i vilken aspekt jag har sorterat in dem?"
+      delete_aspect_q: "Hur tar jag bort en aspekt?"
+      person_multiple_aspects_q: "Kan jag lägga till en person i flera olika aspekter?"
+      remove_notification_a: "Nej."
+      rename_aspect_q: "Kan jag döpa om en aspekt?"
+      title: "Aspekter"
+      what_is_an_aspect_q: "Vad är en Aspekt?"
+    foundation_website: "diaspora-föreningens hemsida"
+    getting_help:
+      get_support_a_hashtag: "ställ en fråga i ett publikt inlägg på Diaspora* med hashtaggen %{question}"
+      get_support_a_irc: "hälsa på oss på %{irc} (direktchatt)"
+      get_support_a_tutorials: "ta en titt på våra %{tutorials}"
+      get_support_a_website: "besök vår %{link}"
+      get_support_a_wiki: "sök i %{link}"
+      get_support_q: "Vad gör jag om jag inte fått svar på min fråga i denna lista? Var kan jag få svar på min fråga?"
+      getting_started_a: "Du har tur. Pröva projektets %{tutorial_series} på vår sida. Där får du en steg-för-steg-genomgång av hela registreringsprocessen och lära dig grunderna för att använda Diaspora*."
+      getting_started_q: "Jag behöver hjälp för att komma igång!"
+      title: "Få hjälp"
+    getting_started_tutorial: "Handledning för att komma igång"
+    here: "här"
+    irc: "IRC"
+    markdown: "Prisnedsättning"
+    mentions:
+      how_to_mention_q: "Hur nämner jag någon när jag skriver ett inlägg?"
+      mention_in_comment_a: "Nej, inte i nuläget."
+      mention_in_comment_q: "Kan jag @nämna någon i en kommentar?"
+    posts_and_posting:
+      image_text: "bildtext"
+      image_url: "bild-url"
+    third_party_tools: "tredjepartsverktyg"
+    tutorial: "Nybörjar-guide"
+    tutorials: "nybörjar-guider"
+    wiki: "wiki"
   hide: "Göm"
   invitation_codes:
     excited: "%{name} är glad för att du är här."
@@ -364,7 +410,7 @@ sv:
       if_they_accept_info: "om de accepterar, kommer de läggas till i den aspekt du angav vid inbjudan."
       invite_someone_to_join: "Bjud in en vän till Diaspora!"
       language: "Språk"
-      paste_link: "Ge denna länk till dina vänner för att bjuda in dem till Diaspora*, eller e-posta den till dem på en gång."
+      paste_link: "Ge denna länk till dina vänner för att bjuda in dem till Diaspora*, eller skicka länken till dem med e-post."
       personal_message: "Personligt meddelande"
       resend: "Skicka igen"
       send_an_invitation: "Skicka en inbjudan"
@@ -476,7 +522,7 @@ sv:
       zero: "ingen delar ännu något med dig."
   notifier:
     a_post_you_shared: "ett inlägg."
-    accept_invite: "Godtag din Diaspora*-inbjudan!"
+    accept_invite: "Acceptera din Diaspora*-inbjudan!"
     click_here: "klicka här"
     comment_on_post:
       reply: "Svara eller se %{name}s inlägg >"
@@ -536,7 +582,7 @@ sv:
       edit_membership: "redigera medlemskap för aspekt"
     few: "%{count} personer"
     helper:
-      is_not_sharing: "%{name} delar inte med sig till dig."
+      is_not_sharing: "%{name} delar inte sina uppdateringar med dig."
       is_sharing: "%{name} delar med sig till dig"
       people_on_pod_are_aware_of: " personer på denna pod är medvetna om att"
       results_for: " resultat för %{params}"
@@ -756,7 +802,7 @@ sv:
       services_explanation: "Genom att ansluta till andra tjänster möjliggör det för dig att att skicka dina inlägg till dem samtidigt som på Diaspora."
     inviter:
       click_link_to_accept_invitation: "Följ länken för att acceptera din inbjudan"
-      join_me_on_diaspora: "Gå med mig på DIASPORA*"
+      join_me_on_diaspora: "Gå med mig på Diaspora*"
     remote_friend:
       invite: "bjud in"
       not_on_diaspora: "Ännu inte på Diaspora"
@@ -919,7 +965,7 @@ sv:
       people_tagged_with: "Personer taggade med %{tag}"
       posts_tagged_with: "Poster taggade med #%{tag}"
       stop_following: "Sluta följa #%{tag}"
-  terms_and_conditions: "Vilkor"
+  terms_and_conditions: "Villkor"
   tokens:
     show:
       connect_to_cubbies: "Koppla till Cubbi.es"
@@ -943,7 +989,7 @@ sv:
       success: "Ditt konto har låsts. Det kan ta 20 minuter för oss att avsluta ditt konto. Tack för att du testade Diaspora."
       wrong_password: "Det angivna lösenordet stämde inte med ditt nuvarande lösenord."
     edit:
-      also_commented: "... någon annan också har kommenterat på din kontakts inlägg."
+      also_commented: "... någon annan också kommenterar din kontakts inlägg?"
       auto_follow_aspect: "Den aspekt som automatiskt följda användare skall läggas i:"
       auto_follow_back: "Följ automatiskt de som börjar följa dig"
       change: "Ändra"
@@ -961,7 +1007,7 @@ sv:
         no_turning_back: "Nu finns det ingen återvändo."
         what_we_delete: "Vi kommer att radera alla dina inlägg och din profil så fort som det bara går. Dina kommentarer kommer att finnas kvar men vara associerade med ditt Diaspora-id och inte ditt namn."
       close_account_text: "Stäng kontot"
-      comment_on_post: "... någon kommenterar ditt inlägg."
+      comment_on_post: "... någon kommenterar ditt inlägg?"
       current_password: "Nuvarande lösenord"
       current_password_expl: "den som du loggar in med..."
       download_photos: "ladda ner mina foton"

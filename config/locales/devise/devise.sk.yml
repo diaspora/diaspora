@@ -16,6 +16,7 @@ sk:
       invalid: "Neplatné používateľské meno alebo heslo."
       invalid_token: "Neplatné identifikačné číslo."
       locked: "Tvoj účet je zamknutý."
+      not_found_in_database: "Neplatný e-mail alebo neplatné heslo"
       timeout: "Čas tvojho sedenia uplynul; ak chceš pokračovať, znovu sa prihlás, prosím."
       unauthenticated: "Ak chceš pokračovať, musíš sa prihlásiť alebo zaregistrovať."
       unconfirmed: "Predtým, ako budeš môcť pokračovať, musíš potvrdiť svoj účet."

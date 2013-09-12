@@ -74,7 +74,7 @@ nl:
       comment: "Reageren"
       follow: "Volgen"
       followed_tag:
-        add_a_tag: "Label toevoegen"
+        add_a_tag: "Voeg een label toe"
         follow: "Volgen"
       hide: "Verberg"
       hide_nsfw_posts: "Verberg #nsfw berichten"

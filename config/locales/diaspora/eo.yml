@@ -89,7 +89,6 @@ eo:
   all_aspects: "Ĉiuj aspektoj"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "nekonata persono"
       video_title:
         unknown: "Nekonata filmtitolo"
@@ -108,15 +107,15 @@ eo:
       done_editing: "redaktado finita"
     aspect_listings:
       add_an_aspect: "+ Aldoni aspekton"
-      deselect_all: "Malselektu ĉion"
-      edit_aspect: "Redakti %{name}-n"
-      select_all: "Selektu ĉion"
+      deselect_all: "Malelekti ĉion"
+      edit_aspect: "Redakti %{name}"
+      select_all: "Elekti ĉion"
     aspect_stream:
       make_something: "Faru ion"
       stay_updated: "Restu ĝisdatigata"
       stay_updated_explanation: "Via ĉefa torento enhavas ĉiujn viajn kontaktojn, sekvatajn etikedojn kaj afiŝojn de kelkaj kreemaj anoj de la komunumo."
-    contacts_not_visible: "Kontaktoj en tiu aspekto ne povos vidi unu la aliajn."
-    contacts_visible: "Kontaktoj en tiu aspekto povos vidi unu la alian."
+    contacts_not_visible: "Kontaktoj en ĉi tiu aspekto ne povos vidi unu la alian."
+    contacts_visible: "Kontaktoj en ĉi tiu aspekto povos vidi unu la alian."
     create:
       failure: "Ne povis krei aspekton."
       success: "Via nova aspekto, %{name} kreiĝis"
@@ -124,16 +123,16 @@ eo:
       failure: "%{name} ne malplenas kaj do ne povis esti forigita."
       success: "%{name} sukcese elpreniĝis."
     edit:
-      add_existing: "Aldonu ekzistantan kontakton"
-      aspect_list_is_not_visible: "la aspekto-listo estas kaŝita de la aliaj en tiu aspekto"
-      aspect_list_is_visible: "la aspekto-listo estas montrata al la aliaj en tiu aspekto"
-      confirm_remove_aspect: "Ĉu vi certas, ke vi volas forviŝi tiun ĉi aspekton?"
+      add_existing: "Aldoni ekzistantan kontakton"
+      aspect_list_is_not_visible: "la aspekto-listo estas kaŝita al la aliaj en ĉi tiu aspekto"
+      aspect_list_is_visible: "la aspekto-listo estas montrata al la aliaj en ĉi tiu aspekto"
+      confirm_remove_aspect: "Ĉu vi certe volas forigi ĉi tiun aspekton?"
       done: "Farita"
-      make_aspect_list_visible: "Ĉu kontaktoj en ĉi tiu aspekto povu vidi unu la aliajn?"
-      remove_aspect: "Forviŝu tiun ĉi aspekton"
-      rename: "renomi"
+      make_aspect_list_visible: "Ĉu kontaktoj en ĉi tiu aspekto povu vidi unu la alian?"
+      remove_aspect: "Forigi ĉi tiun aspekton"
+      rename: "alinomigi"
       update: "ĝisdatigi"
-      updating: "ĝisdatiganta"
+      updating: "ĝisdatigado"
     few: "%{count} aspektoj"
     helper:
       are_you_sure: "Ĉu vi certas, ke vi volas forviŝi tiun ĉi aspekton?"
@@ -162,7 +161,6 @@ eo:
         tag_bug: "cimo"
         tag_feature: "trajtpeto"
         tag_question: "demando"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Instruiloj, lerniloj kaj novaĵoj funkciigitaj de la komunumo"
       introduce_yourself: "Tio estas via torento. Ensaltu kaj prezentu vin mem."
       keep_diaspora_running: "Tenu la DIASPORA-evoluadon rapida per monata donacado!"
       keep_pod_running: "Helpu al %{pod} rapide funkcii kaj aĉeti por niaj servistoj ilian \"kaforiparon\" per ĉiumonata donacado!"
@@ -189,7 +187,7 @@ eo:
       name: "Nomo (nur videblas de vi)"
     no_contacts_message:
       community_spotlight: "en komunuma ĉeflumo"
-      or_spotlight: "Aŭ vi povas dividi kun %{link}"
+      or_spotlight: "Aŭ vi povas kunhavigi kun %{link}"
       try_adding_some_more_contacts: "Vi povas serĉi aŭ inviti pliajn kontaktojn."
       you_should_add_some_more_contacts: "Vi devus aldoni pliajn kontaktojn!"
     no_posts_message:
@@ -204,7 +202,7 @@ eo:
     selected_contacts:
       manage_your_aspects: "Redakti viajn aspektojn."
       no_contacts: "Vi ne jam havas iujn ajn kontaktojn tie ĉi."
-      view_all_community_spotlight: "Vidu ĉiun Komunuman Ĉeflumon"
+      view_all_community_spotlight: "Vidi ĉiun komunuman ĉeflumon"
       view_all_contacts: "Vidi ĉiujn kontaktojn"
     show:
       edit_aspect: "redakti aspekton"

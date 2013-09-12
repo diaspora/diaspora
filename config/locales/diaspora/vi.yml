@@ -8,6 +8,7 @@ vi:
   _applications: "Ứng dụng"
   _comments: "Bình luận"
   _contacts: "Liên lạc"
+  _help: "Trợ giúp"
   _home: "Trang chủ"
   _photos: "ảnh"
   _services: "Dịch vụ"
@@ -81,7 +82,6 @@ vi:
   all_aspects: "Tất cả mối quan hệ"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "người lạ"
       video_title:
         unknown: "Chưa biết tựa đề video"
@@ -154,7 +154,6 @@ vi:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Kinh nghiệm, thủ thuật, giải đáp và tin tức từ cộng đồng"
       introduce_yourself: "Đây là luồng của bạn. Hãy tự giới thiệu mình ở đây."
       keep_diaspora_running: "Đóng góp hàng tháng để giúp phát triển Diaspora nhanh hơn!"
       keep_pod_running: "Đóng góp hàng tháng để giúp %{pod} chạy nhanh và duy trì các phí khác!"
@@ -317,6 +316,10 @@ vi:
     post_not_public: "Bài đăng bạn muốn xem không được công khai!"
   fill_me_out: "Điền đầy đủ"
   find_people: "Tìm người hoặc #tags"
+  help:
+    irc: "IRC"
+    markdown: "Markdown"
+    wiki: "wiki"
   hide: "Ẩn"
   invitation_codes:
     excited: "%{name} muốn nhìn thấy bạn ở đây."
@@ -535,6 +538,7 @@ vi:
       gender: "Giới tính"
       in_aspects: "trong mối quan hệ"
       location: "Nơi ở"
+      photos: "Hình ảnh"
       remove_contact: "loại bỏ liên lạc"
       remove_from: "Loại bỏ %{name} khỏi %{aspect}?"
     show:

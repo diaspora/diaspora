@@ -8,6 +8,7 @@ pt-BR:
   _applications: "Aplicações"
   _comments: "Comentários"
   _contacts: "Contatos"
+  _help: "Ajuda"
   _home: "Início"
   _photos: "Fotos"
   _services: "Serviços"
@@ -50,7 +51,7 @@ pt-BR:
     correlations:
       correlations_count: "Contas similares:"
     stats:
-      2weeks: "2 semanas"
+      2weeks: "2 Semanas"
       50_most: "50 etiquetas mais populares"
       comments:
         one: "%{count} comentário"
@@ -75,9 +76,9 @@ pt-BR:
         one: "%{count} usuário"
         other: "%{count} usuários"
         zero: "%{count} usuário"
-      week: "semana"
+      week: "Semana"
     user_search:
-      add_invites: "enviar convites"
+      add_invites: "adicionar convites"
       email_to: "Email para convite"
       users:
         one: "%{count} usuário encontrado"
@@ -94,7 +95,6 @@ pt-BR:
   all_aspects: "Todos os Grupos"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "pessoa desconhecida"
       video_title:
         unknown: "Vídeo sem título"
@@ -170,10 +170,10 @@ pt-BR:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriais produzidos pela comunidade, dicas, e notícias"
+        tutorial_link_text: "Tutoriais"
       introduce_yourself: "Este é seu fluxo. Se apresente!"
-      keep_diaspora_running: "Ajude o Diaspora no desenvolvimento com uma doação mensal!"
-      keep_pod_running: "Mantenha %{pod} rodando bem e compre o nosso café com uma doação mensal!"
+      keep_diaspora_running: "Ajude o desenvolvimento do Diaspora com uma doação mensal!"
+      keep_pod_running: "Mantenha %{pod} rodando bem e compre o café para nossos servidores com uma doação mensal!"
       new_here:
         follow: "Siga %{link} e dê boas vindas aos novos usuários de Diaspora*!"
         learn_more: "Saiba mais"
@@ -334,6 +334,19 @@ pt-BR:
     post_not_public: "A publicação que está tentando visualizar não é pública!"
   fill_me_out: "Preencha"
   find_people: "Procurar pessoas"
+  help:
+    getting_help:
+      get_support_a_hashtag: "pergunte num post público no diaspora* usando a hashtag %{question}"
+      get_support_a_irc: "junte-se a nós no %{irc} (Chat ao vivo)"
+      get_support_a_tutorials: "confira nossos %{tutorials}"
+      get_support_a_website: "visite nosso %{link}"
+      get_support_a_wiki: "procure o %{link}"
+      get_support_q: "E se minha pergunta não for respondida neste FAQ? Onde mais eu posso obter suporte?"
+      getting_started_a: "Você está com sorte. Tente nosso %{tutorial_series} no site. Ele irá te levar num passo-a-passo pelo processo de registro e te ensina-rá o básico que você precisa saber para usar o diaspora*."
+      getting_started_q: "Socorro! Preciso de ajuda para começar!"
+    irc: "IRC"
+    tutorial: "tutorial"
+    tutorials: "tutoriais"
   hide: "Ocultar"
   invitation_codes:
     excited: "%{name} está contente em te ver aqui."
@@ -375,7 +388,7 @@ pt-BR:
   layouts:
     application:
       back_to_top: "Voltar ao topo"
-      powered_by: "PRODUZIDO POR DIASPORA*"
+      powered_by: "POWERED BY DIASPORA*"
       public_feed: "Feed público de Diaspora para %{name}"
       source_package: "baixar o pacote do código-fonte"
       toggle: "Versão para celular"
@@ -425,7 +438,7 @@ pt-BR:
       other: "%{actors} comentaram em uma postagem apagada."
       zero: "Ninguém comentou em uma postagem apagada."
     comment_on_post:
-      one: "Ninguém comentou sua postagem %{post_link}."
+      one: "%{actors} comentou sua postagem %{post_link}."
       other: "%{actors} comentaram sua postagem %{post_link}."
       zero: "%{actors} comentou sua postagem %{post_link}."
     helper:
@@ -542,6 +555,7 @@ pt-BR:
       edit_membership: "editar participação no grupo"
     few: "%{count} pessoas"
     helper:
+      is_not_sharing: "%{name} não está compartilhando com você"
       is_sharing: "%{name} está compartilhando com você"
       people_on_pod_are_aware_of: " as pessoas deste \"pod\" sabem que"
       results_for: " resultados para %{params}"
@@ -551,7 +565,7 @@ pt-BR:
       no_one_found: "...e não foi encontrado ninguém."
       no_results: "Ei! Você precisa procurar por alguma coisa."
       results_for: "resultado da busca por"
-      searching: "pesquisando, por favor aguarde..."
+      searching: "pesquisando, por favor tenha paciência..."
     last_post: "Última postagem"
     many: "%{count} pessoas"
     one: "1 pessoa"
@@ -568,6 +582,7 @@ pt-BR:
       gender: "Sexo"
       in_aspects: "em grupos"
       location: "Localização"
+      photos: "Fotos"
       remove_contact: "remover contato"
       remove_from: "Remover %{name} de %{aspect}?"
     show:
@@ -689,7 +704,7 @@ pt-BR:
       continue: "Continue"
       create_my_account: "Criar minha conta!"
       diaspora: "<3 Diaspora*"
-      email: "E-MAIL"
+      email: "EMAIL"
       enter_email: "Digite teu email"
       enter_password: "Digite a senha (mínimo de seis caracteres)"
       enter_password_again: "Digite novamente a tua senha"
@@ -700,7 +715,7 @@ pt-BR:
       password_confirmation: "CONFIRMAÇÃO DE SENHA"
       sign_up: "INSCREVER"
       sign_up_message: "Rede social com um <3"
-      username: "APELIDO"
+      username: "USUÁRIO"
   requests:
     create:
       sending: "Enviando"
@@ -826,6 +841,7 @@ pt-BR:
         newhere: "Novato"
       post_a_message_to: "Postar uma mensagem para %{aspect}"
       posting: "Postando..."
+      preview: "Visualizar"
       publishing_to: "publicando para:"
       share: "Compartilhar"
       share_with: "Compartilhar com %{aspect}"
@@ -846,7 +862,7 @@ pt-BR:
       show: "mostrar"
       unlike: "Descurtir"
       via: "via %{link}"
-      via_mobile: "via celular"
+      via_mobile: "pelo celular"
       viewable_to_anyone: "Essa postagem é visível para qualquer pessoa na internet"
   status_messages:
     create:
@@ -984,7 +1000,7 @@ pt-BR:
       your_email: "Seu Email"
       your_handle: "Seu Diaspora ID"
     getting_started:
-      awesome_take_me_to_diaspora: "Incrível! Leve-me para Diaspora*."
+      awesome_take_me_to_diaspora: "Incrível! Leve-me ao Diaspora*."
       community_welcome: "A comunidade Diaspora* está feliz em tê-lo(a) a bordo!"
       connect_to_facebook: "Podemos acelerar um pouco as coisas pelo %{link} para o Diaspora. Isso vai recuperar seu nome e foto, habilitando a postagem cruzada"
       connect_to_facebook_link: "Associando sua conta do Facebook"

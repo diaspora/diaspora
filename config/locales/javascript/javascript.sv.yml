@@ -86,7 +86,7 @@ sv:
     search_for: "Sök efter <%= name %>"
     show_more: "visa mer"
     stream:
-      comment: "Kommentar"
+      comment: "Kommentera"
       follow: "Följ"
       followed_tag:
         add_a_tag: "Lägg till en tagg"
@@ -142,7 +142,7 @@ sv:
       unknown: "Okänd videotyp"
       watch: "Se den här videon på <%= provider %>"
     viewer:
-      comment: "Kommentar"
+      comment: "Kommentera"
       follow_post: "Följ inlägg"
       home: "HEM"
       like: "Gilla"

@@ -8,6 +8,7 @@ nb:
   _applications: "Applikasjoner"
   _comments: "Kommentarer"
   _contacts: "Kontakter"
+  _help: "Hjelp"
   _home: "Hjem"
   _photos: "bilder"
   _services: "Tjenester"
@@ -95,7 +96,6 @@ nb:
   all_aspects: "Alle aspekter"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "ukjent person"
       video_title:
         unknown: "Ukjent Videotittel"
@@ -171,12 +171,13 @@ nb:
         tag_bug: "#bug"
         tag_feature: "funksjon"
         tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Fellesskapets leksjoner, veiledninger og nyheter."
+        tutorial_link_text: "Veiledninger"
+        tutorials_and_wiki: "%{tutorial} og %{wiki}: Hjelp for dine første skritt"
       introduce_yourself: "Dette er strømmen din. Hopp inn og presenter deg selv."
       keep_diaspora_running: "Sørg for Diasporautvikling går hurtig ved å gi en månedlig donasjon!"
       keep_pod_running: "Sørg for at %{pod} går kjapt ved å kjøpe kaffe-fiks til dem med en månedlig donasjon!"
       new_here:
-        follow: "Følg denne %{link} og ønsk nye brukere velkommen til Diaspora*"
+        follow: "Følg denne %{link} og ønsk nye brukere velkommen til diaspora*!"
         learn_more: "Lær mer"
         title: "Ønsk nye brukere velkommen"
       no_contacts: "Ingen kontakter"
@@ -335,6 +336,35 @@ nb:
     post_not_public: "Innholdet som du forsøker å titte på er ikke alment tilgjengelig!"
   fill_me_out: "Fortell meg"
   find_people: "Find people"
+  help:
+    account_and_data_management:
+      close_account_a: "Gå til bunnen av instillings-siden din og klikk Slett bruker-knappen."
+      download_data_a: "Ja. på bunnen av Profil-fanen i instillings-siden din er det to knapper for å laste ned dataen din."
+    aspects:
+      contacts_know_aspect_a: "Nei. De har ikke mulighet til å se hva navnet på aspektet er."
+      contacts_know_aspect_q: "Vet kontaktene mine hvilke aspekter jeg har puttet dem i?"
+      restrict_posts_i_see_a: "Ja. Klikk på Mine Aspekter i sidelinjen, og så klikk individuelle innlegg i listen for å velge dem. Du vil bare se innlegg fra personer i de valgte aspektene i strømmen din."
+      restrict_posts_i_see_q: "Kan jeg begrense postene jeg ser til bare dem fra noen aspekter?"
+      what_is_an_aspect_a: "Aspekter er måten du grupperer kontaktene dine på diaspora*. Et aspekt er en av ansiktene du viser til verden. Det kan være hvem du er på jobben, hvem du er for familien din, eller hvem du er for vennene dine i en klubb du er medlem av."
+      who_sees_post_a: "Hvis du lager et begrenset innlegg vil det bare være synlig for de du har lagt inn i aspektet (eller disse aspektene, hvis det gjøres synlig for flere aspekter). Kontakter du har som ikke er i aspektet har ingen mulighet for å se innlegget med mindre du publiserte det som offentlig. Personene du ikke har plassert i et aspekt vil bare kunne se dine offentlige innlegg."
+      who_sees_post_q: "Hvem ser hva jeg publiserer til et aspekt?"
+    foundation_website: "diaspora-stiftelsens nettside"
+    getting_help:
+      get_support_a_hashtag: "spør i en offentlig post på diaspora* med %{question}-hashtaggen"
+      get_support_a_irc: "bli med oss på %{irc} (live-chat)"
+      get_support_a_tutorials: "sjekk våre %{tutorials}"
+      get_support_a_website: "besøk vår %{link}"
+      get_support_q: "Hva hvis spørsmålet mitt ikke er besvart i denne FAQ'en? Hvor kan jeg ellers få support."
+      getting_started_q: "Hjelp! Jeg trenger hjelp med å komme i gang!"
+      title: "Få hjelp"
+    getting_started_tutorial: "'Komme i gang' veiledninger"
+    here: "her"
+    irc: "IRC"
+    markdown: "Markdown"
+    third_party_tools: "tredjeparts-verktøy"
+    tutorial: "veiledning"
+    tutorials: "veiledninger"
+    wiki: "wiki"
   hide: "Skjul"
   invitation_codes:
     excited: "%{name} ble glad for å se deg her."
@@ -437,10 +467,10 @@ nb:
     comment_on_post:
       few: "%{actors} kommenterte på din %{post_link}."
       many: "%{actors} kommenterte på din %{post_link}."
-      one: "%{actors} kommenterte på din %{post_link}."
-      other: "%{actors} kommenterte på din %{post_link}."
+      one: "%{actors} kommenterte ditt %{post_link}."
+      other: "%{actors} kommenterte ditt %{post_link}."
       two: "%{actors} kommenterte din %{post_link}."
-      zero: "%{actors} kommenterte på din %{post_link}."
+      zero: "%{actors} kommenterte ditt %{post_link}."
     helper:
       new_notifications:
         few: "%{count} nye varsler"
@@ -462,9 +492,9 @@ nb:
       mark_unread: "Merk som ulest"
       notifications: "Varsler"
     liked:
-      one: "%{actors} liker din %{post_link}."
-      other: "%{actors} liker din %{post_link}."
-      zero: "%{actors} liker din %{post_link}."
+      one: "%{actors} liker ditt %{post_link}."
+      other: "%{actors} liker ditt %{post_link}."
+      zero: "%{actors} liker ditt %{post_link}."
     liked_post_deleted:
       few: "%{actors} likte ditt innlegg du har slettet."
       many: "%{actors} likte ditt innlegg du har slettet."
@@ -508,7 +538,7 @@ nb:
       zero: "%{actors} har begynt å dele med deg."
   notifier:
     a_post_you_shared: "en post"
-    accept_invite: "Godta Diaspora*-invitasjonen din."
+    accept_invite: "Godta Diaspora*-invitasjonen din!"
     click_here: "klikk her"
     comment_on_post:
       reply: "Svar eller se %{name}'s innlegg >"
@@ -533,13 +563,13 @@ nb:
           Diaspora*s mail-robot!
 
           [1]: %{invite_url}
-    invited_you: "%{name} har invitert deg til Diaspora*"
+    invited_you: "%{name} har invitert deg til diaspora*"
     liked:
       liked: "%{name} has just liked your post: "
       view_post: "Se innlegg >"
     mentioned:
       mentioned: "nevnte deg i et innlegg:"
-      subject: "%{name} har nevnt deg på Diaspora*"
+      subject: "%{name} har nevnt deg på diaspora*"
     private_message:
       reply_to_or_view: "Svar eller se på denne samtalen >"
     reshared:
@@ -550,7 +580,7 @@ nb:
       subject: "A message from your Diaspora administrator:"
     started_sharing:
       sharing: "har begynt å dele med deg!"
-      subject: "%{name} has started sharing with you on Diaspora*"
+      subject: "%{name} har startet å dele med deg på diaspora*"
       view_profile: "Se %{name}'s profil"
     thanks: "Takk,"
     to_change_your_notification_settings: "for å endre innstilliger for varsler"
@@ -568,6 +598,7 @@ nb:
       edit_membership: "endre aspektmedlemskap"
     few: "%{count} personer"
     helper:
+      is_not_sharing: "%{name} deler ikke med deg"
       is_sharing: "%{name} deler med deg"
       people_on_pod_are_aware_of: "folk på poden snakker om"
       results_for: " resultater for %{params}"
@@ -589,11 +620,12 @@ nb:
       thats_you: "Det er deg!"
     profile_sidebar:
       bio: "mitt livsløp (bio)"
-      born: "født"
+      born: "Bursdag"
       edit_my_profile: "Endre profilen min"
-      gender: "kjønn"
+      gender: "Kjønn"
       in_aspects: "i aspekt"
-      location: "sted"
+      location: "Sted"
+      photos: "Bilder"
       remove_contact: "fjern kontakt"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show:
@@ -714,7 +746,7 @@ nb:
     new:
       continue: "Fortsett"
       create_my_account: "Create my account"
-      diaspora: "<3 Diaspora*"
+      diaspora: "<3 diaspora*"
       email: "E-POST"
       enter_email: "Skriv en e-post"
       enter_password: "Skriv inn et passord"
@@ -788,7 +820,7 @@ nb:
       services_explanation: "Ved å koble til tjenester får du muligheten å publisere dine innlegg til dem mens du skriver dem i Diaspora."
     inviter:
       click_link_to_accept_invitation: "Klikk denne linken for å akseptere invitasjonen din"
-      join_me_on_diaspora: "Bli med meg på DIASPORA*"
+      join_me_on_diaspora: "Bli med meg på diaspora*"
     remote_friend:
       invite: "inviter"
       not_on_diaspora: "Finnes ikke på Diaspora ennå."

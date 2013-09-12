@@ -48,7 +48,6 @@ ka:
   all_aspects: "ყველა ასპექტი"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "უცნობი ადამიანი"
       video_title:
         unknown: "ვიდეოს სათაური უცნობია"

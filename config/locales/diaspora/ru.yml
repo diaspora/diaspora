@@ -108,7 +108,6 @@ ru:
   all_aspects: "Все аспекты"
   application:
     helper:
-      diaspora_alpha: "ДИАСПОРА* АЛЬФА"
       unknown_person: "неизвестная персона"
       video_title:
         unknown: "Неизвестное название видеозаписи"
@@ -184,7 +183,6 @@ ru:
         tag_bug: "ошибка"
         tag_feature: "функция"
         tag_question: "вопрос"
-        tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum}: составляемые сообществом справочные пособия, инструкции и новости."
       introduce_yourself: "Это ваш поток. Ныряйте и осваивайтесь здесь."
       keep_diaspora_running: "Помогите развитию Диаспоры ежемесячным пожертвованием!"
       keep_pod_running: "Помогите %{pod} работать быстро — купите нашим серверам дозу кофе, сделав ежемесячное пожертвование!"

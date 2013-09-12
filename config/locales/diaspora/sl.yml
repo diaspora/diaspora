@@ -106,7 +106,6 @@ sl:
   all_aspects: "Vsi pogledi"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "neznana oseba"
       video_title:
         unknown: "Neznani naslov videa"
@@ -179,7 +178,6 @@ sl:
         tag_bug: "bug"
         tag_feature: "feature"
         tag_question: "question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Vodiči, navodila in novice iz skupnosti"
       introduce_yourself: "To je vaš tok. Vskočite in predstavite se."
       keep_diaspora_running: "Z mesečnim prispevkom pohitrite razvoj Diaspore!"
       keep_pod_running: "Pomagajte, da bo %{pod} deloval hitro in plačajte strežnikom kavico z mesečnim prispevkom!"

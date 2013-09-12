@@ -44,7 +44,6 @@ da:
   all_aspects: "Alle aspekter"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "Ukendt person"
       video_title:
         unknown: "Ukendt videotitel"
@@ -115,7 +114,6 @@ da:
         tag_bug: "fejl"
         tag_feature: "egenskab"
         tag_question: "spørgsmål"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Fællesskabsdrevne indføringer, vejledninger og nyheder"
       introduce_yourself: "Dette er din strøm. Hop ud i den og introducér dig selv."
       new_here:
         follow: "Følg %{link} og byd nye brugere velkommen til Diaspora*!"

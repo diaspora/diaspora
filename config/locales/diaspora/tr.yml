@@ -8,6 +8,7 @@ tr:
   _applications: "Uygulamalar"
   _comments: "Yorumlar"
   _contacts: "Kişiler"
+  _help: "Yardım"
   _home: "Ev"
   _photos: "fotoğraflar"
   _services: "Servisler"
@@ -38,7 +39,7 @@ tr:
             person:
               invalid: "geçersiz."
             username:
-              invalid: "geçersiz. Sadece harf, sayı ve alt çizgi"
+              invalid: "geçersiz. Sadece harf, sayı ve alt çizgi."
               taken: "önceden alınmış."
   admins:
     admin_bar:
@@ -88,7 +89,6 @@ tr:
   all_aspects: "Tüm Yönler"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "bilinmeyen kişi"
       video_title:
         unknown: "Geçersiz Video Başlığı"
@@ -164,7 +164,6 @@ tr:
         tag_bug: "hata"
         tag_feature: "işlev"
         tag_question: "soru"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Topluluğun oluşturduğu haberler, belgeler ve yardımlar"
       introduce_yourself: "Bu sizin akışınızdır. Atla ve kendini tanıt."
       keep_diaspora_running: "Diasporanın gelişmesini aylık bir bağışla hızlandırın."
       keep_pod_running: "%{pod}u hızlı çalıştırmaya devam edin ve sunucularına aylık bir bağışla kahve ikram edin."
@@ -326,6 +325,10 @@ tr:
     post_not_public: "Görüntülemeye çalıştığınız gönderi aleni değildir!"
   fill_me_out: "Beni doldur"
   find_people: "Kişi ve #tag bul"
+  help:
+    account_and_data_management:
+      title: "Hesap ve veri yönetimi"
+    third_party_tools: "üçüncü taraf araçları"
   hide: "Gizle"
   invitation_codes:
     excited: "%{name}, sizi burada gördüğü için heyecanlı."
@@ -361,11 +364,12 @@ tr:
       resend: "Tekrar gönder"
       send_an_invitation: "Bir davet yolla"
       send_invitation: "Davetiye yolla"
+      sending_invitation: "Davet gönderiliyor..."
       to: "Kime"
   layouts:
     application:
       back_to_top: "Sayfa başına dön"
-      powered_by: "GELİŞTİRİCİ DIASPORA*"
+      powered_by: "GELİŞTİREN: DIASPORA*"
       public_feed: " %{name} için Genel Diaspora Beslemesi"
       source_package: "kaynak kodu paketini indir"
       toggle: "mobil site"
@@ -594,6 +598,7 @@ tr:
       gender: "cinsiyet"
       in_aspects: "yönleriyle"
       location: "yer"
+      photos: "Fotoğraflar"
       remove_contact: "kişiyi kaldır"
       remove_from: "%{name}, %{aspect} yönünden kaldırılsın mı?"
     show:
@@ -696,12 +701,8 @@ tr:
       updated: "Profil güncellendi"
   public: "Genel"
   reactions:
-    few: "%{count} tepki"
-    many: "%{count} tepki"
-    one: "1 tepki"
     other: "%{count} tepki"
-    two: "%{count} tepki"
-    zero: "0 tepki"
+    zero: "1 tepki"
   registrations:
     closed: "Üyelik bu Diaspora'da kapandı."
     create:
@@ -851,6 +852,7 @@ tr:
       all: "hepsi"
       all_contacts: "tüm bağlantılar"
       discard_post: "Gönderiyi sil"
+      get_location: "Konumunu ayarla"
       make_public: "herkese görünür yap"
       new_user_prefill:
         hello: "Hey herkes, Ben #%{new_user_tag}. "
@@ -859,6 +861,7 @@ tr:
         newhere: "YeniyimBurada"
       post_a_message_to: "%{aspect} yönüne mesaj gönder "
       posting: "Gönderiliyor..."
+      preview: "Önizleme"
       publishing_to: "buraya yayınlanıyor:"
       share: "Paylaş"
       share_with: "paylaş"

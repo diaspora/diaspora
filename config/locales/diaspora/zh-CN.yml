@@ -88,7 +88,6 @@ zh-CN:
   all_aspects: "所有分组"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* 预览版"
       unknown_person: "未知用户"
       video_title:
         unknown: "未知影片标题"
@@ -161,7 +160,6 @@ zh-CN:
         tag_bug: "#bug"
         tag_feature: "#特色"
         tag_question: "#问题"
-        tutorials_wiki_and_forum: "%{tutorial} 和 %{wiki} 和 %{forum}：社区运作的入门，指南和新闻网站"
       introduce_yourself: "这是您的动态。介绍一下自己吧！"
       keep_diaspora_running: "每月捐赠让 Diaspora 开发更快速！"
       keep_pod_running: "让 %{pod} 高速运转，需要您的每月捐助，供应服务器的耗材！"

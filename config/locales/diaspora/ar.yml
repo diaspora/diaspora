@@ -54,7 +54,6 @@ ar:
   all_aspects: "كل الفئات"
   application:
     helper:
-      diaspora_alpha: "دياسبرا* ألفا"
       unknown_person: "شخص مجهول"
       video_title:
         unknown: "فيديو غير مُعَنْوَن"
@@ -125,7 +124,6 @@ ar:
         tag_bug: "#bug"
         tag_feature: "ميزة"
         tag_question: "سؤال"
-        tutorials_wiki_and_forum: "%{tutorial} و %{wiki} و %{forum} : دروس وشروحات وأخبار من المُجتمع."
       introduce_yourself: "هذه هى ساحة مشاركاتك.  هيا قدم نفسك."
       keep_diaspora_running: "حافظ على التطور السريع ل ديسبرا بتبرعاتك الشهرية"
       new_here:

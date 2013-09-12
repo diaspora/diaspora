@@ -90,7 +90,6 @@ zh-TW:
   all_aspects: "所有面向"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* 預覽版"
       unknown_person: "不明聯絡人"
       video_title:
         unknown: "影片標題不明"
@@ -166,7 +165,6 @@ zh-TW:
         tag_bug: "臭蟲"
         tag_feature: "功能"
         tag_question: "問題"
-        tutorials_wiki_and_forum: "%{tutorial} 和 %{wiki} 和 %{forum}：社群運作的入門，指南，與新聞網站"
       introduce_yourself: "這是你的流水帳。跳進來介紹你自己吧。"
       keep_diaspora_running: "每月固定捐助讓 Diaspora 快速研發！"
       keep_pod_running: "讓 %{pod} 高速運轉，現在就開始固定每月捐助，來供應伺服器的咖啡耗材吧！"

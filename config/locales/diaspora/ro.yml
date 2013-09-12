@@ -44,7 +44,6 @@ ro:
   all_aspects: "All aspects"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "persoană necunoscută"
       video_title:
         unknown: "Titlu necunoscut"
@@ -111,7 +110,6 @@ ro:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriale, tehnici how-to și știri ale comunității."
       introduce_yourself: "Acesta este fluxul tău. Fă-ți prezentarea."
       new_here:
         follow: "Urmează legătura %{link} si urează-le bun venit noilor utilizatori in comunitatea Diaspora"

@@ -44,7 +44,6 @@ sr:
   all_aspects: "Сви погледи"
   application:
     helper:
-      diaspora_alpha: "ДИЈАСПОРА* АЛФА"
       unknown_person: "непозната особа"
       video_title:
         unknown: "непознат наслов видеа"
@@ -114,7 +113,6 @@ sr:
         tag_bug: "грешку"
         tag_feature: "предлог"
         tag_question: "питање"
-        tutorials_wiki_and_forum: "%{tutorial} и %{wiki} и %{forum}: туторијали, вики и вести које пише Заједница"
       introduce_yourself: "Ово је твој ток.  Упадај и представи се."
       new_here:
         follow: "Прати %{link} и поздрављај нове кориснике Дијаспоре*!"

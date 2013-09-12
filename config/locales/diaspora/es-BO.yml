@@ -7,11 +7,25 @@
 es-BO:
   _applications: "Aplicaciones"
   _comments: "Comentarios"
+  _contacts: "Contactos"
   _home: "Inicio"
   _photos: "Fotos"
   _services: "Servicios"
   account: "Cuenta"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "ya esta siendo usado"
+            person:
+              invalid: "es inválido"
+            username:
+              invalid: "no es válido. Solo se permiten letras, números y guiones bajos."
+              taken: "ya esta siendo usado"
   ago: "hace %{time}"
+  all_aspects: "Todos los aspectos"
   are_you_sure: "¿Estás seguro/a?"
   are_you_sure_delete_account: "¿Estás seguro/a de que quieres cerrar tu cuenta? ¡Esto no se puede deshacer!"
   back: "atrás"
@@ -24,6 +38,8 @@ es-BO:
   limited: "Limitado"
   more: "Más"
   next: "Siguiente"
+  no_results: "No hay resultados"
+  nsfw: "No apto para todo público"
   ok: "Aceptar"
   or: "o"
   password: "Contraseña"
@@ -38,3 +54,4 @@ es-BO:
   terms_and_conditions: "Términos y condiciones"
   undo: "¿Deshacer?"
   username: "Nombre de usuario"
+  welcome: "¡Bienvenido/a!"

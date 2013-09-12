@@ -1,0 +1,189 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+fa:
+  _applications: "برنامه‌های کاربردی"
+  _comments: "دیدگاه‌ها"
+  _contacts: "مخاطبین"
+  _home: "خانه"
+  _photos: "عکس‌ها"
+  _services: "سرویس‌ها"
+  account: "حساب کاربری"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "باید در میان مخاطبین این کاربران منحصر به فرد باشد."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "درحال حاظر گرفته‌شده."
+        request:
+          attributes:
+            from_id:
+              taken: "با درخواست قبلی تکراری هست."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "خوبه، نه؟ شما اون پست رو دوباره به اشتراک گذاشتید."
+        user:
+          attributes:
+            email:
+              taken: "درحال حاظر گرفته‌شده."
+            person:
+              invalid: "نامعتبر است."
+            username:
+              invalid: "نامعتبر است. فقط می‌توانید از حروف، اعداد، و خط تیره استفاده کنید."
+              taken: "درحال حاظر گرفته‌شده."
+  ago: "‎%{time}‎ پیش"
+  all_aspects: "تمام منظرها"
+  application:
+    helper:
+      unknown_person: "شخص ناشناس"
+      video_title:
+        unknown: "عنوان ناشناس ویدئو"
+  are_you_sure: "مطمئن هستید؟"
+  are_you_sure_delete_account: "مطمئن هستید که می‌خواهید حساب کاربریتان را ببندید؟ این کار غیرقابل بازگشت است!"
+  aspects:
+    add_to_aspect:
+      failure: "خطا در اضافه کردن مخاطب به منظر"
+      success: "مخاطب با موفقیت به منظر اضافه شد."
+    aspect_contacts:
+      done_editing: "اتمام ویرایش"
+    aspect_listings:
+      add_an_aspect: "+اضافه کردن منظر"
+      deselect_all: "لغو انتخاب همه"
+      edit_aspect: "ویرایش ‎%{name}‎"
+      select_all: "انتخاب همه"
+    aspect_stream:
+      stay_updated: "بروز بمانید"
+    contacts_not_visible: "مخاطبینی که در این منظر قرار دارند قادرند یکدیگر را ببینند."
+    contacts_visible: "مخاطبینی که در این منظر قرار دارند قادرند یکدیگر را ببینند."
+    create:
+      failure: "خطا در ساخت منظر"
+      success: "منظر جدید شما، ‎%{name}‎ ساخته شد"
+    destroy:
+      failure: "‎%{name}‎ خالی نیست و نمی‌توانید حذفش کنید."
+      success: "‎%{name}‎ با موفقیت حذف شد."
+    edit:
+      add_existing: "اضافه کردن یک مخاطب موجود"
+      aspect_list_is_not_visible: "لیست منظر برای افراد دیگر در این منظر مخفی است"
+      aspect_list_is_visible: "لیست منظر برای افراد دیگر در این منظر قابل مشاهده است"
+      confirm_remove_aspect: "مطمئن هستید می‌خواهید این منظر را حذف کنید؟"
+      done: "تمام"
+      make_aspect_list_visible: "مخاطبینی که در این منظر هستند برای یکدیگر قابل مشاهده باشند؟"
+      remove_aspect: "حذف این منظر"
+      rename: "تغییر نام"
+      update: "بروزرسانی"
+      updating: "در حال بروزرسانی"
+    few: "‎%{count}‎ منظر"
+    helper:
+      are_you_sure: "مطمئن هستید که می‌خواهید این منظر را حذف کنید؟"
+      aspect_not_empty: "منظر خالی نیست"
+      remove: "حذف"
+    index:
+      cubbies:
+        explanation: "Cubbi.es اولین برنامه‌ی کاربردی دیاسپورا هست که در دست توسعه می‌باشد."
+        heading: "اتصال به Cubbi.es"
+        learn_more: "بیشتر بدانید"
+      diaspora_id:
+        content_1: "آدرس شناسایی دیاسپورای شما:"
+        content_2: "در اختیار هرکسی که قادر به یافتن شما در دیاسپورا هست قرار دهید."
+        heading: "آدرس شناسایی دیاسپورا"
+      donate: "کمک مالی"
+      handle_explanation: "این آدرس شناسایی دیاسپورای شماست. مثل تمامی آدرس‌های رایانامه، می‌توانید آن را برای رسیدن به خودتان به مردم بدهید."
+      help:
+        do_you: "آیا شما:"
+        email_feedback: "اگر ترجیح می‌دهید، ‎%{link}‎ پاسخ شما"
+        feature_suggestion: "یک پیشنهاد ‎%{link}‎ دارید؟"
+        find_a_bug: "یک ‎%{link}‎ یافتید؟"
+        have_a_question: "یک %{link} دارید؟"
+        here_to_help: "جامعه دیاسپورا اینجاست!"
+        need_help: "به راهنمایی نیاز دارد؟"
+        tag_bug: "اشکال"
+        tag_feature: "ویژگی‌ها"
+        tag_question: "پرسش"
+      introduce_yourself: "این خط جریان شماست. زود باش و خودت رو معرفی کن."
+      new_here:
+        follow: "‎%{link}‎ دبنلا کنید و به کاربران جدید دیاسپورا* خوش آمد بگوئید!"
+        learn_more: "بیشتر بدانید"
+        title: "خوش آمد گویی به کاربران جدید"
+      no_contacts: "بدون مخاطب"
+      no_tags: "+یافتن یک تگ برای دنبال کردن"
+      people_sharing_with_you: "افراد با شما به اشتراک گذاشتن"
+      post_a_message: "ارسال پیام >>"
+      services:
+        content: "شما می‌توانید سرویس‌های زیر را به دیاسپورا متصل کنید:"
+        heading: "اتصال سرویس‌ها"
+      unfollow_tag: "لغو دنبال کردن #‎%{tag}‎"
+      welcome_to_diaspora: "%{name}، به دیاسپورا خوش آمدی!"
+    many: "‎%{count}‎ منظر"
+    move_contact:
+      error: "خطا در فرستادن مخاطب: ‎%{inspect}‎"
+      failure: "‎%{inspect}‎ کار نکرد."
+      success: "شخص به منظر جدید فرستاده شد."
+    new:
+      create: "ساختن"
+      name: "نام (فقط برای شما قابل مشاهده است)"
+    no_contacts_message:
+      community_spotlight: "کانون توجه جامعه"
+      or_spotlight: "یا می توانید با ‎%{link}‎ به اشترام بگذارید"
+      try_adding_some_more_contacts: "شما می‌توانید مخاطبین بیشتری را جستجو یا دعوت کنید."
+      you_should_add_some_more_contacts: "شما باید مخاطبین بیشتری اضافه کنید!"
+    no_posts_message:
+      start_talking: "هنوز کسی چیطی نگفته!"
+    one: "منظر"
+    other: "‎%{count}‎ منظر"
+    seed:
+      acquaintances: "آشنایان"
+      family: "خانواده"
+      friends: "دوستان"
+      work: "کار"
+    selected_contacts:
+      manage_your_aspects: "مدیریت منظرهای شما"
+      no_contacts: "هنوز هیچ مخاطبی ندارد."
+      view_all_community_spotlight: "مشاهده تمامی کانون‌های توجه جامعه"
+      view_all_contacts: "مشاهده همه مخاطبین"
+    show:
+      edit_aspect: "ویرایش منظر"
+    two: "‎%{count}‎ منظر"
+    update:
+      failure: "منظر ‎%{name}‎، نامش برای ذخیره سازی طولانی هست."
+      success: "منظر ‎%{name}‎، با موفقیت ویرایش شد."
+    zero: "بدون منظر"
+  back: "عقب"
+  cancel: "لفو"
+  delete: "حذف"
+  email: "رایانامه"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "خطاها را درست کرده و دوباره تلاش کنید."
+      invalid_fields: "فیلدهای نامعتبر"
+  fill_me_out: "پر کنید"
+  find_people: "یافتن افراد یا #تگ‌ها"
+  hide: "مخفی"
+  limited: "محدود"
+  more: "بیشتر"
+  next: "بعدی"
+  no_results: "نتیجه‌ای یافت نشد"
+  nsfw: "NSFW"
+  ok: "قبول"
+  or: "یا"
+  password: "رمز عبور"
+  password_confirmation: "تایید رمز عبور"
+  previous: "قبلی"
+  privacy: "حریم خصوصی"
+  privacy_policy: "سیاست حفظ حریم خصوصی"
+  profile: "نمایه"
+  public: "عمومی"
+  search: "جستجو"
+  settings: "تنظیمات"
+  terms_and_conditions: "شرایط و ظوابط"
+  undo: "برگشت؟"
+  username: "نام‌کاربری"
+  welcome: "خوش آمدید!"

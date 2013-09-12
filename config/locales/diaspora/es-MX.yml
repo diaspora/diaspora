@@ -96,7 +96,6 @@ es-MX:
   all_aspects: "Todos los aspectos"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "persona desconocida"
       video_title:
         unknown: "Título de video desconocido"
@@ -172,7 +171,6 @@ es-MX:
         tag_bug: "error"
         tag_feature: "idea"
         tag_question: "pregunta"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales hechos por la comunidad, guías y noticias"
       introduce_yourself: "Esta es tu entrada. Adelante, preséntate."
       keep_diaspora_running: "¡Haz que el desarrollo de Diaspora siga yendo rápido con una donación mensual!"
       keep_pod_running: "¡Haz que %{pod} siga yendo rápido, y compra a nuestros servidores su dosis de café, con una donación mensual!"

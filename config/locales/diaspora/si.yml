@@ -30,7 +30,6 @@ si:
       week: "සතිය"
   application:
     helper:
-      diaspora_alpha: "සංවර්ධනය වෙමින් පවතින DIASPORA*"
       unknown_person: "නාඳුනන කෙනෙක්"
       video_title:
         unknown: "නාඳුනන වීඩියෝ මාතෘකාවකි"

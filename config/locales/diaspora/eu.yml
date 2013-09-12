@@ -94,7 +94,6 @@ eu:
   all_aspects: "Arlo guztiak"
   application:
     helper:
-      diaspora_alpha: "DIASPORA ALPHA*"
       unknown_person: "pertsona ezezaguna"
       video_title:
         unknown: "Bideo izen ezezaguna"
@@ -167,7 +166,6 @@ eu:
         tag_bug: "errore"
         tag_feature: "funtzioa"
         tag_question: "galdera"
-        tutorials_wiki_and_forum: "%{tutorial}, %{wiki} eta %{forum}: Komunitateak egindako tutorialak, nola-eginak eta berriak"
       introduce_yourself: "Hau zure kronologia da.  Animatu eta zure burua aurkeztu."
       keep_diaspora_running: "Diaspoaren garapena azkartu ezazu hilabeteroko donazio batekin!"
       keep_pod_running: "Mantendu %{pod} azkar izaten hornitzaileari kafe-konponketa ordainduz hilero!"

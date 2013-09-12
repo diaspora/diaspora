@@ -36,7 +36,6 @@ br:
   all_aspects: "An Holl Arvezioù"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "den dianav"
       video_title:
         unknown: "Titl video dianav"
@@ -83,7 +82,6 @@ br:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum} : "
       introduce_yourself: "Hennezh eo ho kwazh. Lammit enni ha lavarit piv oc'h."
       new_here:
         learn_more: "Gouzout hiroc'h"

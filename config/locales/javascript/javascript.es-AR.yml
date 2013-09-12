@@ -45,6 +45,7 @@ es-AR:
       admin: "Administrador"
       close: "Cerrar"
       contacts: "Contactos"
+      help: "Ayuda"
       home: "Inicio"
       log_out: "Salir"
       mark_all_as_read: "Marcar todo como leído"

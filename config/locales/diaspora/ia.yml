@@ -8,6 +8,7 @@ ia:
   _applications: "Applicationes"
   _comments: "Commentos"
   _contacts: "Contactos"
+  _help: "Adjuta"
   _home: "Initio"
   _photos: "photos"
   _services: "Servicios"
@@ -72,7 +73,6 @@ ia:
   all_aspects: "Tote le aspectos"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "persona incognite"
       video_title:
         unknown: "Titulo de video incognite"
@@ -148,7 +148,8 @@ ia:
         tag_bug: "defecto"
         tag_feature: "functionalitate"
         tag_question: "question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, guidas e actualitates mantenite per le communitate"
+        tutorial_link_text: "Tutoriales"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Adjuta pro le prime passos."
       introduce_yourself: "Iste fluxo es tue. Avante, presenta te."
       keep_diaspora_running: "Mantene le disveloppamento de Diaspora rapide con un donation mensual!"
       keep_pod_running: "Adjuta al mantenentia e melioration de %{pod} (e al caffeination de su gerentes) con un donation mensual!"
@@ -304,6 +305,15 @@ ia:
     post_not_public: "Le entrata que tu vole vider non es public!"
   fill_me_out: "Plena me"
   find_people: "Cercar personas o #etiquettas"
+  help:
+    foundation_website: "le sito web del fundation diaspora"
+    here: "hic"
+    irc: "IRC"
+    markdown: "Markdown"
+    third_party_tools: "instrumentos de tertie personas"
+    tutorial: "tutorial"
+    tutorials: "tutoriales"
+    wiki: "wiki"
   hide: "Celar"
   invitation_codes:
     excited: "%{name} es multo felice de vider te hic."
@@ -430,6 +440,7 @@ ia:
       edit_membership: "modificar membrato del aspecto"
     few: "%{count} personas"
     helper:
+      is_not_sharing: "%{name} non divide cosas con te"
       is_sharing: "%{name} is sharing with you"
       people_on_pod_are_aware_of: " personas in iste pod es conscie de"
       results_for: " resultatos pro %{params}"
@@ -456,6 +467,7 @@ ia:
       gender: "sexo"
       in_aspects: "in aspectos"
       location: "loco"
+      photos: "Photos"
       remove_contact: "remover contacto"
       remove_from: "Remover %{name} de %{aspect}?"
     show:
@@ -606,6 +618,7 @@ ia:
     create:
       already_authorized: "Un usator con le ID de Diaspora \"%{diaspora_id}\" ha jam autorisate iste conto de %{service_name}."
       failure: "Authentication fallite."
+      read_only_access: "Le nivello de accesso es lectura solmente. Per favor proba de authenticar de novo plus tarde."
       success: "Authentication succedite."
     destroy:
       success: "Authentication delite con successo."

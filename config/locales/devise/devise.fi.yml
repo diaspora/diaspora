@@ -16,6 +16,7 @@ fi:
       invalid: "Virheellinen käyttäjätunnus tai salasana."
       invalid_token: "Virheellinen todennustunnus."
       locked: "Käyttäjätilisi on lukittu."
+      not_found_in_database: "Virheellinen sähköpostiosoite tai salasana."
       timeout: "Istunto on vanhentunut, kirjaudu uudelleen jatkaaksesi."
       unauthenticated: "Sinun tulee rekisteröityä ja/tai kirjautua ennen jatkamista."
       unconfirmed: "Sinun täytyy vahvistaa käyttäjätilisi ennen kuin voit jatkaa"
