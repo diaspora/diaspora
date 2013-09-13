@@ -159,10 +159,11 @@ en:
       remove_aspect: "Delete this aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       add_existing: "Add an existing contact"
+      visibility: "Visibility"
       done: "Done"
       rename: "rename"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "Contacts in this aspect are able to see each other."
+      aspect_list_is_not_visible: "Contacts in this aspect are not able to see each other."
       update: "update"
       updating: "updating"
     aspect_contacts:

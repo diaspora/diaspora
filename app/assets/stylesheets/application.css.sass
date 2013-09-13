@@ -13,6 +13,7 @@
 @import 'help'
 @import 'profile'
 @import 'publisher'
+@import 'facebox'
 
 /* ====== media ====== */
 .media
@@ -624,9 +625,6 @@ input[type="search"]
   :-webkit-appearance textfield
   :-moz-appearance textfield
 
-.facebox_content
-  :display none
-
 #photo_edit_options
   :display none
 
@@ -739,125 +737,6 @@ ul#request_result
       :position relative
       :bottom 2.5em
       :padding 0
-
-.contact_list_controls
-  :height 30px
-  :margin
-    :bottom 5px
-  :vertical-align middle
-  :position relative
-
-#contact_list_search
-  :width 200px
-  :margin
-    :top 0
-  :float right
-
-.contact_list,
-.aspect_list
-  @include border-radius(3px)
-
-  :height 300px
-  :max-height 300px
-
-  :overflow-y auto
-  :overflow-x hidden
-
-  :border 1px solid #bbb
-
-  :background
-    :color rgb(252,252,252)
-
-  .avatar
-    :float left
-    :height 50px
-    :width 50px
-    :margin
-      :right 10px !important
-
-  .button.share
-    :padding
-      :right 20px
-    .right
-      :right 8px
-      :top 3px
-
-  .icons-monotone_plus_add_round,
-  .icons-monotone_check_yes
-    :height 20px
-    :width 20px
-
-  > .contacts
-    :margin 0
-    :padding 5px
-      :right 0
-
-    > .contact
-      @include border-radius(3px)
-      @include box-shadow(0, 1px, 5px, #ccc)
-      :background
-        :color #fff
-      :float left
-      :overflow-x hidden
-      :overflow-y hidden
-
-      :position relative
-      :display inline-block
-
-      &.hidden
-        :display none
-
-      :height 50px
-      :width 170px
-
-      :margin
-        :bottom 5px
-        :right 5px
-
-      :padding 5px
-      :border 1px solid $border-dark-grey
-
-      > .name
-        :white-space nowrap
-
-      &.remote_friend
-        :width 285px
-
-      a.button
-        @include box-shadow(0,0,0)
-
-        :border
-          :bottom none
-
-        :min-width auto
-        :float right
-        :padding 2px 4px
-        :margin-top 5px
-
-        &.added
-          @include linear-gradient(rgb(158,255,153), rgb(92,199,86))
-
-        &.added.remove
-          @include linear-gradient(rgb(255,153,153), rgb(199,86,86))
-
-          &:active
-            @include linear-gradient(rgb(199,119,119), rgb(130,55,55))
-
-.aspect_list
-  :height 300px
-  :max-height 300px
-
-  .name
-    :left 1em
-
-  ul
-    > li
-      :padding 1em
-      :height 1em
-
-      .right
-        :top 2px
-        :right 1em
 
 #signup_field
   :margin
@@ -1096,63 +975,6 @@ ul#press_logos
 
 #inner_account_delete
   :width 810px
-
-#aspect_edit_pane
-  :width 810px
-  .person_tiles
-    .tile
-      @include border-radius(2px)
-
-      :padding 6px
-        :left 65px
-      :margin 3px
-        :left 0
-      :display inline-block
-      :width 126px
-      :height 50px
-
-      :border 1px solid #eee
-
-      :position relative
-
-      img
-        :position absolute
-        :left 6px
-
-  &.larger
-    :width 650px
-
-#facebox_header
-  :position relative
-  :padding
-    :bottom 10px
-
-  .right
-    :z-index 3
-    :right 1em
-    :top 14px
-    :color #ccc
-
-    img
-      :vertical
-        :align top
-      :position relative
-      :top 0px
-
-  h3,
-  h4
-    .description
-      :margin
-        :top 0px
-
-  .tiny_text
-    :font
-      :size 11px
-      :weight normal
-
-#aspect_edit_controls
-  :margin
-    :top 8px
 
 .icons-monotone_email_letter_round
   :height 128px
@@ -1468,9 +1290,6 @@ ul#press_logos
   :font
     :size 12px
 
-#contact_visibility_padlock:hover
-  @include opacity(0.7)
-
 .side_stream
   .stream_element
     :padding 10px 0
@@ -1675,10 +1494,6 @@ h1.tag
 
   &:active
     @include linear-gradient(darken(#D9FFA9,20%),darken(#B9E68A,20%))
-
-#facebox
-  input[type='text'], input.text
-    :width 98%
 
 #client-application-image
   :max-width 100%
@@ -1983,27 +1798,6 @@ a.toggle_selector
   :border 1px dotted #aaa
   :text-align center
   :margin 5px 0
-
-.bottom_submit_section
-  :overflow hidden
-  :display block
-  :position relative
-  :text-align right
-
-  form
-    :float left
-    :display inline-block
-    .creation
-      :float right
-
-  .icons-padlock-open,
-  .icons-padlock-closed
-    :float left
-    :height 16px
-    :width  16px
-    :margin
-      :left 4px
-      :top 2px
 
 #no_contacts
   :text-align center

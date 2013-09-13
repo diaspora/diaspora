@@ -4,8 +4,8 @@
 
 
 .contact_list_controls
-  = search_field_tag :contact_search, "", :id => "contact_list_search", :class => 'contact_list_search', :results => 5, :placeholder => t('.all_contacts')
-  = t('contacts', :count =>@aspect_contacts_count)
+  = search_field_tag :contact_search, "", id: "contact_list_search", class: 'contact_list_search', results: 5, placeholder: t('.all_contacts')
+  = t('contacts', count: @aspect_contacts_count)
 
 .contact_list.searchable
   %ul.contacts

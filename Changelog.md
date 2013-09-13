@@ -40,6 +40,7 @@
 * Collapse aspect list and tag followings list when switching to other views [#4462](https://github.com/diaspora/diaspora/pull/4462)
 * Highlight current stream in left sidebar [#4445](https://github.com/diaspora/diaspora/pull/4445)
 * Added ignore user icon [#4417](https://github.com/diaspora/diaspora/pull/4417)
+* Improve the management of the contacts visibility settings in an aspect [#4567](https://github.com/diaspora/diaspora/pull/4567)
 
 
 # 0.2.0.0
