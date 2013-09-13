@@ -1282,3 +1282,20 @@ input#q.search {
 .remove_comment {
   opacity: 0.5;
 }
+
+.center {
+  text-align: center;
+}
+
+/* --- Getting started page --- */
+#hello-there {
+  h1, h2, h3 { line-height: normal; }
+  h1 { font-size: 25px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 15px; }
+  
+  h2, #awesome_button {
+    margin-top: 30px;
+  }
+}
+
