@@ -18,6 +18,7 @@
 * Make I18n system more robust against missing keys in pluralization data
 * Prevent overflow of too long strings in the single post view [#4487](https://github.com/diaspora/diaspora/pull/4487)
 * Disable submit button in sign up form after submission to avoid email already exists error [#4506](https://github.com/diaspora/diaspora/issues/4506)
+* Add a white background to images shown in the lightbox [#4475](https://github.com/diaspora/diaspora/issues/4475)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
