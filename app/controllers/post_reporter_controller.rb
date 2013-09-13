@@ -3,14 +3,14 @@ class PostReporterController < ApplicationController
 
   def index
     redirect_unless_admin
-    @post_reporter = PostReporter.where("reviewed = 0").all
+    @post_reporter = PostReporter.where(reviewed: false).all
   end
 
   def update
     redirect_unless_admin
     if PostReporter.exists?(id: params[:id])
       post = PostReporter.find(params[:id])
-      post.update_attributes(:reviewed => 1)
+      post.update_attributes(reviewed: true)
     end
     redirect_to action: 'index'
   end
@@ -25,7 +25,7 @@ class PostReporterController < ApplicationController
   end
 
   def create
-    username = @current_user.username
+    username = current_user.username
     if !PostReporter.where("post_id = #{params[:post_id]}").exists?(user_id: username)
       post = PostReporter.new(
 	:post_id => params[:post_id],

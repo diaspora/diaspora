@@ -112,16 +112,15 @@ app.views.StreamPost = app.views.Post.extend({
     var text = prompt(Diaspora.I18n.t('post_report_prompt'),
 		      Diaspora.I18n.t('post_report_prompt_default'));
 
-    $.ajax({
-      url : "/post_reporter",
-      type : "POST",
-      data : {
-        post_id : this.model.id,
-	text : text
-      }
-    })
+    var postReporter = new app.models.PostReporter();
+    postReporter.fetch({
+      data: {
+	post_id: this.model.id,
+	text: text
+      },
+      type: 'POST'
+    });
   },
-
 
   focusCommentTextarea: function(evt){
     evt.preventDefault();
