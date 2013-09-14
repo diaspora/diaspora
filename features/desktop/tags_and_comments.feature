@@ -4,7 +4,7 @@ Feature: Issue #3382 The comments under postings are missing when using the #tag
   Background:
     Given a user named "Bob Jones" with email "bob@bob.bob"
     And I sign in as "bob@bob.bob"
-    When I post "This is a post with a #tag"
+    When I post a status with the text "This is a post with a #tag"
     And I am on the homepage
 
   Scenario:
