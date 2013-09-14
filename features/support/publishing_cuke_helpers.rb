@@ -26,13 +26,13 @@ module PublishingCukeHelpers
 
   def first_post_collapsed?
     find(".stream_element .collapsible", match: :first).should have_css(".expander")
-    find(".stream_element .collapsible", match: :first).has_selector?(".collapsed")
+    page.should have_css(".stream_element .collapsible.collapsed", match: :first)
   end
 
   def first_post_expanded?
-    has_no_css?(".stream_element .expander", match: :first).should be_true
-    find(".stream_element .collapsible", match: :first).has_no_selector?(".collapsed")
-    find(".stream_element .collapsible", match: :first).has_selector?(".opened")
+    page.should have_no_css(".stream_element .expander", match: :first)
+    page.should have_no_css(".stream_element .collapsible.collapsed", match: :first)
+    page.should have_css(".stream_element .collapsible.opened", match: :first)
   end
 
   def first_post_text

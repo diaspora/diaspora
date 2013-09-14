@@ -4,9 +4,9 @@ Feature: The activity stream
     Given a user with username "bob"
     When I sign in as "bob@bob.bob"
 
-    And I post "A- I like turtles"
-    And I post "B- barack obama is your new bicycle"
-    And I post "C- barack obama is a square"
+    And I click the publisher and post "A- I like turtles"
+    And I click the publisher and post "B- barack obama is your new bicycle"
+    And I click the publisher and post "C- barack obama is a square"
 
     When I go to the activity stream page
     Then "C- barack obama is a square" should be post 1
