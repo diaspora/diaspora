@@ -32,13 +32,17 @@ describe NotifierHelper do
 
   describe '#comment_message' do
     before do
-      # comment for no content test
+      # comment for includes a link test
       @comment = FactoryGirl.create(:comment)
-      @comment_post = I18n.t('post_activity', link: post_comment_url(@comment.post, @comment))
+      @post_comment_url = I18n.t('post_activity', link: post_comment_url(@comment.post, @comment))
     end
 
-    it 'removes content from the post' do
-      comment_message(@comment).should == @comment_post
+    it 'includes a link to the post' do
+      comment_message(@comment).should == @post_comment_url
+    end
+
+    it 'does not include text' do
+      comment_message(@comment).should_not include @comment.text
     end
   end
 
