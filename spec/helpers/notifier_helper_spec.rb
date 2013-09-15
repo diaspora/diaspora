@@ -32,24 +32,14 @@ describe NotifierHelper do
 
   describe '#comment_message' do
     before do
-      # comment for truncate test
+      # comment for no content test
       @comment = FactoryGirl.create(:comment)
-      @comment.text = "Hey! There was some activity on your post. See it at " + post_comment_url(@comment.post, @comment)
-      @truncated_comment = "Hey! There was some activity on your post. See it at " + post_comment_url(@comment.post, @comment)
-      # comment for markdown test
-      @markdown_comment = FactoryGirl.create(:comment)
-      @markdown_comment.text = "[link](http://diasporafoundation.org) **bold text** *other text*"
-      @striped_markdown_comment = "Hey! There was some activity on your post. See it at " + post_comment_url(@comment.post, @comment)
-    end
-    
-      it 'truncates in the comment' do
-      opts = {:length => @comment.text.length - 10}
-      comment_message(@comment, opts).should == @truncated_comment
+      @comment_post = I18n.t('post_activity', link: post_comment_url(@comment.post, @comment))
     end
 
-    it 'strip markdown in the comment' do
-      opts = {:length => @markdown_comment.text.length}
-      comment_message(@markdown_comment, opts).should == @striped_markdown_comment
+    it 'removes content from the post' do
+      comment_message(@comment).should == @comment_post
     end
   end
+
 end
