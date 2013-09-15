@@ -3,6 +3,8 @@
 }
 
 #single-post-content {
+  border-right: solid 1px #cccccc;
+  padding-right: 12px;
   #head {
     padding-bottom: 10px;
     border-bottom: 1px solid $border-grey;
@@ -44,7 +46,7 @@
         display: block;
         font-size: 12px;
       }
-      .avatar { 
+      .avatar {
         height: 30px;
         width: 30px;
       }
@@ -80,9 +82,7 @@
       }
     }
   }
-  border-right: solid 1px #cccccc;
-  padding-right: 10px;
-
+  
   #body {
     margin-left: 20px;
     padding-top: 20px;
@@ -129,7 +129,8 @@
   position: relative;
   left: -1px;
   margin-left: 0;
-  padding-left: 2.5%;
+  padding-left: 15px;
+  
   .comments .comment {
     border-bottom: solid 1px #cccccc;
     padding-top: 10px;
@@ -164,18 +165,22 @@
     font-size: smaller;
   }
   .count {
-    width: 12.8%;
-    text-align: right;
     i {
       display: inline-block;
       text-align: center;
       width: 25px;
       vertical-align: middle;
     }
+    span {
+      margin-left: -3px;
+      width: 30px;
+      display: inline-block;
+      text-align: center;
+    }
   }
-  #reshares .count i { text-align: left; }
-  .persons {
-    margin-left: 5px;
+  #reshares, #likes, #comments-meta {
+    margin-left: 7px;
+    margin-bottom: 8px;
   }
 }
 

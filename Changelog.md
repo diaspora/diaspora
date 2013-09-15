@@ -23,6 +23,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 * Port notifications and hovercards to Bootstrap [#4814](https://github.com/diaspora/diaspora/pull/4814)
 * Replace .rvmrc by .ruby-version and .ruby-gemset [#4854](https://github.com/diaspora/diaspora/pull/4855)
 * Reorder and reword items on user settings page [#4912](https://github.com/diaspora/diaspora/pull/4912)
+* SPV: Improve padding and interaction counts [#4426](https://github.com/diaspora/diaspora/pull/4426)
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
@@ -371,7 +372,6 @@ Updated:
 * warden 1.2.1 -> 1.2.3
 * webmock 1.11.0 -> 1.13.0
 * xpath 0.1.4 -> 2.0.0
-
 
 # 0.1.1.0
 
