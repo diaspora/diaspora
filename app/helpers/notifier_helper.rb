@@ -1,5 +1,5 @@
 module NotifierHelper
-  
+
   # @param post [Post] The post object.
   # @param opts [Hash] Optional hash.  Accepts :length and :process_newlines parameters.
   # @return [String] The truncated and formatted post.
@@ -9,7 +9,7 @@ module NotifierHelper
       message = strip_markdown(post.formatted_message(:plain_text => true))
       message = truncate(message, :length => opts[:length])
       message = process_newlines(message) if opts[:process_newlines]
-      message
+      message.html_safe
     else
       I18n.translate 'notifier.a_post_you_shared'
     end
