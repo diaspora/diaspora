@@ -228,9 +228,9 @@ describe Notifier do
       end
 
       context 'BODY' do
-        #it "contains the comment" do
-          #comment_mail.body.encoded.should include(comment.text)
-        #end
+        it "contains the comment" do
+          comment_mail.body.encoded.should include(comment.text)
+        end
 
         it "contains the original post's link" do
           comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
@@ -269,9 +269,9 @@ describe Notifier do
       end
 
       context 'BODY' do
-        #it "contains the comment" do
-          #comment_mail.body.encoded.should include(comment.text)
-        #end
+        it "contains the comment" do
+          comment_mail.body.encoded.should include(comment.text)
+        end
 
         it "contains the original post's link" do
           comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true

@@ -34,14 +34,15 @@ describe NotifierHelper do
     before do
       # comment for truncate test
       @comment = FactoryGirl.create(:comment)
-      @comment.text = "hi dude! "*10
-      @truncated_comment = "hi dude! hi dude! hi dude! hi dude! hi dude! hi dude! hi dude! hi dude! hi d..."
+      @comment.text = "Hey! There was some activity on your post. See it at " + post_comment_url(@comment.post, @comment)
+      @truncated_comment = "Hey! There was some activity on your post. See it at " + post_comment_url(@comment.post, @comment)
       # comment for markdown test
       @markdown_comment = FactoryGirl.create(:comment)
       @markdown_comment.text = "[link](http://diasporafoundation.org) **bold text** *other text*"
-      @striped_markdown_comment = "link bold text other text"
+      @striped_markdown_comment = "Hey! There was some activity on your post. See it at " + post_comment_url(@comment.post, @comment)
     end
-
+    
+       
     it 'truncates in the comment' do
       opts = {:length => @comment.text.length - 10}
       comment_message(@comment, opts).should == @truncated_comment
@@ -51,5 +52,6 @@ describe NotifierHelper do
       opts = {:length => @markdown_comment.text.length}
       comment_message(@markdown_comment, opts).should == @striped_markdown_comment
     end
+    
   end
 end
