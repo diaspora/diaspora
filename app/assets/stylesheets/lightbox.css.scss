@@ -106,6 +106,7 @@
     width: 70px;
     margin-right: 5px;
     cursor: pointer;
+    background-color: white;
 
     &:last-child{
       margin-right: 0;
@@ -113,7 +114,6 @@
 
     &.selected{
       @include opacity(1);
-      background-color: white;
     }
   }
 }
