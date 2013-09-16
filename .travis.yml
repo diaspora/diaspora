@@ -2,6 +2,7 @@ branches:
   only:
     - 'master'
     - 'develop'
+    - 'update_foreman'
 
 language: ruby
 rvm:
