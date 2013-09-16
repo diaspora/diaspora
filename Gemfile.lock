@@ -1,4 +1,4 @@
-//GEM
+GEM
   remote: https://rubygems.org/
   specs:
     actionmailer (3.2.13)
@@ -258,7 +258,6 @@
       nokogiri
     orm_adapter (0.4.0)
     polyglot (0.3.3)
-      thor (>= 0.11.5)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -476,7 +475,6 @@ DEPENDENCIES
   omniauth-twitter (= 1.0.0)
   omniauth-wordpress (= 0.2.0)
   opengraph_parser (= 0.2.3)
-  powder
   rack-cors (= 0.2.8)
   rack-google-analytics (= 0.11.0)
   rack-piwik (= 0.2.2)

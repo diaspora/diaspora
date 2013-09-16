@@ -16,7 +16,6 @@
 * Fix size of images in the SPV [#4471](https://github.com/diaspora/diaspora/pull/4471)
 * Adjust 404 message description to not leak logged out users if a post exists or not [#4477](https://github.com/diaspora/diaspora/pull/4477)
 * Make I18n system more robust against missing keys in pluralization data
-<<<<<<< HEAD
 * Prevent overflow of too long strings in the single post view [#4487](https://github.com/diaspora/diaspora/pull/4487)
 * Disable submit button in sign up form after submission to avoid email already exists error [#4506](https://github.com/diaspora/diaspora/issues/4506)
 * Do not pull the 404 pages assets from Amazon S3 [#4501](https://github.com/diaspora/diaspora/pull/4501)

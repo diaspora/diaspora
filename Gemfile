@@ -100,7 +100,6 @@ gem 'mobile-fu',               '1.2.1'
 gem 'will_paginate',           '3.0.4'
 
 
-
 ### GROUPS ####
 
 group :assets do
