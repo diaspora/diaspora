@@ -30,6 +30,7 @@
     top: 0;
     display: block;
     margin-bottom: 120px;
+    background: white;
   }
 
   #lightbox-content{
@@ -105,6 +106,7 @@
     width: 70px;
     margin-right: 5px;
     cursor: pointer;
+    background-color: white;
 
     &:last-child{
       margin-right: 0;

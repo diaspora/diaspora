@@ -22,6 +22,7 @@
 * Fix counter background does not cover more than 2 digits on profile [#4499](https://github.com/diaspora/diaspora/issues/4499)
 * Fix commenting upon submission fail [#4005] (https://github.com/diaspora/diaspora/issues/4005)
 
+* Add a white background to images shown in the lightbox [#4475](https://github.com/diaspora/diaspora/issues/4475)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
