@@ -23,8 +23,8 @@
 * Fix counter background does not cover more than 2 digits on profile [#4499](https://github.com/diaspora/diaspora/issues/4499)
 * Fix commenting upon submission fail [#4005] (https://github.com/diaspora/diaspora/issues/4005)
 * Fix date color and alignment in the notifications dropdown [#4502](https://github.com/diaspora/diaspora/issues/4502)
-
 * Add a white background to images shown in the lightbox [#4475](https://github.com/diaspora/diaspora/issues/4475)
+* Refactor getting_started page, test if facebook is available, fix [#4520](https://github.com/diaspora/diaspora/issues/4520)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
