@@ -240,7 +240,7 @@ en:
         tag_bug: "bug"
         feature_suggestion: "... have a %{link} suggestion?"
         tag_feature: "feature"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Help for your first steps."
+        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: Help for your first steps."
         tutorial_link_text: "Tutorials"
         email_feedback: "%{link} your feedback, if you prefer"
         email_link: "Email"
