@@ -21,6 +21,7 @@
 * Do not pull the 404 pages assets from Amazon S3 [#4501](https://github.com/diaspora/diaspora/pull/4501)
 * Fix counter background does not cover more than 2 digits on profile [#4499](https://github.com/diaspora/diaspora/issues/4499)
 * Fix commenting upon submission fail [#4005] (https://github.com/diaspora/diaspora/issues/4005)
+* Fix date color and alignment in the notifications dropdown [#4502](https://github.com/diaspora/diaspora/issues/4502)
 
 * Add a white background to images shown in the lightbox [#4475](https://github.com/diaspora/diaspora/issues/4475)
 

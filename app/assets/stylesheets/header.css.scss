@@ -1,3 +1,8 @@
+.timeago {
+  color: $text-grey;
+  border-bottom: none;
+}
+
 body > #container { margin-top: 50px; } /* to avoid being hidden under the header in the SPV */
 
 body > header {
@@ -155,15 +160,16 @@ body > header {
 
       .notification_element {
         padding: 10px;
+        padding-left: 50px;
         min-height: 30px;
 
         &:hover { background-color: $highlight-white; }
 
-        > img {
+        .avatar {
           height: 30px;
           width: 30px;
           float: left;
-          margin-right: 10px;
+          margin-left: -40px;
         }
 
         &.unread {
