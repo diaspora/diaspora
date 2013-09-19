@@ -24,6 +24,8 @@ beforeEach(function() {
   var Page = Diaspora.Pages["TestPage"];
   $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
 
+  Diaspora.I18n.loadLocale({}, 'en');
+
   Diaspora.page = new Page();
   Diaspora.page.publish("page/ready", [$(document.body)]);
 
