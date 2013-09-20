@@ -1,3 +1,19 @@
 // Place all the styles related to the PostReporter controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#post_reporter {
+  padding-top: 2em;
+}
+
+#post_reporter.content {
+  float: left;
+}
+
+#post_reporter.options {
+  float: right;
+}
+
+#post_reporter.clear {
+  clear: both;
+}

@@ -94,6 +94,13 @@ en:
       post_reporter: "Reported Posts"
       correlations: "Correlations"
       sidekiq_monitor: "Sidekiq monitor"
+    post_reporter:
+      title: "Marked Reports Overview"
+      post_label: "Post"
+      reported_label: "Reported by"
+      reason_label: "Reason"
+      review_link: "Mark as reviewed"
+      delete_link: "Delete post"
     correlations:
       correlations_count: "Correlations with Sign In Count:"
     user_search:

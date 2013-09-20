@@ -7,7 +7,7 @@ class PostReporter < ActiveRecord::Base
 
   has_many :post_reporters  
 
-  after_save :send_report_notification
+  after_create :send_report_notification
 
   def send_report_notification
     Workers::Mail::PostReportWorker.perform_async

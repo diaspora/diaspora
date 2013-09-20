@@ -115,8 +115,8 @@ app.views.StreamPost = app.views.Post.extend({
     var postReporter = new app.models.PostReporter();
     postReporter.fetch({
       data: {
-	post_id: this.model.id,
-	text: text
+        post_id: this.model.id,
+        text: text
       },
       type: 'POST'
     });

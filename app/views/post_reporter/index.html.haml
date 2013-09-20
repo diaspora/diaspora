@@ -1,27 +1,19 @@
 .span-24
   = render :partial => 'admins/admin_bar'
-%br
-%br
 
 .span-24.last
   %h1
-    = 'Marked Reports Overview'
-  %div{:style => "padding-top:20px"}
+    = t('admins.post_reporter.title')
+  %div#post_reporter
     - @post_reporter.each do |report|
-      %div{:style => "float:left"}
-        %b Post:
-        %a{:href => "/posts/#{report.post_id}", :target => "_blank"}= report.post_id
-        %br
-        %b Reported by:
-        %a{:href => "/u/#{report.user_id}", :target => "_blank"}= report.user_id
-        %br
-        %b Reason:
+      %div#content
+        = t('admins.post_reporter.post_label')
+        = link_to post_page_title(Post.find_by_id(report.post_id)), post_path(report.post_id)
+        = t('admins.post_reporter.reported_label')
+        = link_to report.user_id, user_profile_path(report.user_id)
+        = t('admins.post_reporter.reason_label')
         = report.text
-        %br
-        %br
-      %div{:style => "float:right"}
-        = link_to 'Mark as reviewed', update_post_reporter_path(report)
-        %br
-        %br
-        = link_to 'Delete post', destroy_post_reporter_path(report)
-      %div{:style => "clear:both"}
+      %div#options
+        = link_to t('admins.post_reporter.review_link'), post_reporter_path(report.post_id), method: :put
+        = link_to t('admins.post_reporter.delete_link'), post_reporter_path(report.post_id), method: :delete
+      %div#clear
