@@ -1,1 +1,5 @@
-<%= auto_link(comment_message(@notification.comment)) %>
+<%= comment_message(@notification.comment) %>
+
+[<%= t('notifier.comment_on_post.post_activity') %>][1]
+
+[1]: <%= post_url(@notification.comment) %>
