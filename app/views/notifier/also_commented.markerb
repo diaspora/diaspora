@@ -1,1 +1,1 @@
-<%= comment_message(@notification.comment) %>
+<%= auto_link(comment_message(@notification.comment)) %>
