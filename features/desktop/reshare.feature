@@ -16,8 +16,7 @@ Feature: public repost
     Given "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
-    And I follow "Last Post"
-
+    And I open the show page of the "reshare this!" post
     And I click on selector "a.reshare"
     And I confirm the alert
     Then I should see a flash message indicating success
@@ -28,8 +27,7 @@ Feature: public repost
     And the post with text "reshare this!" is reshared by "eve@eve.eve"
     And I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
-    And I follow "Last Post"
-
+    And I open the show page of the "reshare this!" post
     And I click on selector "a.reshare"
     And I confirm the alert
     Then I should see a flash message indicating success
