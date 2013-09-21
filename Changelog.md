@@ -7,6 +7,7 @@
 * Batch insert posts into stream collection for a small speedup [#4341](https://github.com/diaspora/diaspora/pull/4351)
 * Ported fileuploader to Backbone and refactored publisher views [#4480](https://github.com/diaspora/diaspora/pull/4480)
 * Refactor 404.html, fix [#4078](https://github.com/diaspora/diaspora/issues/4078)
+* Remove the (now useless) last post link from the user profile. [#4540](https://github.com/diaspora/diaspora/pull/4540)
 
 ## Bug fixes
 * Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)

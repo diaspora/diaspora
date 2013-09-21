@@ -14,11 +14,6 @@ Feature: Browsing Diaspora as a logged out user
       Then I should see "public stuff" within "body"
       And page should not have ".media .controls"
 
-    Scenario: Clicking Last Post
-      When I am on "bob@bob.bob"'s page
-      And I follow "Last Post"
-      Then I should see "public stuff" within "body"
-
     Scenario: Visiting a post show page
       When I view "bob@bob.bob"'s first post
       Then I should see "public stuff" within "body"
