@@ -31,7 +31,7 @@ class AspectMembershipsController < ApplicationController
       flash.now[:error] = I18n.t 'aspect_memberships.destroy.failure'
     end
 
-    respond_with do |format|
+    respond_to do |format|
       format.json do
         if success
           render :json => {
