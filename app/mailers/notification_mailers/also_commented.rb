@@ -11,7 +11,7 @@ module NotificationMailers
 
       if mail?
         @headers[:from] = "\"#{@comment.author_name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
-        @headers[:subject] = truncate(strip_markdown(@comment.comment_email_subject.squish), :length => TRUNCATION_LEN)
+        @headers[:subject] = truncate(strip_markdown(@comment.comment_email_subject.squish), length: TRUNCATION_LEN, escape: false)
         @headers[:subject] = "Re: #{@headers[:subject]}"
       end
     end
