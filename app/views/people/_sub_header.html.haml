@@ -15,7 +15,6 @@
     = person.name
   %span.diaspora_handle
     = person.diaspora_handle
-    = last_visible_post_for person
 
   .description
     - if !person.tag_string.blank? && user_signed_in?

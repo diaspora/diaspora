@@ -39,12 +39,6 @@ module PeopleHelper
     "<a data-hovercard='#{remote_or_hovercard_link}' #{person_href(person)} class='#{opts[:class]}' #{ ("target=" + opts[:target]) if opts[:target]}>#{h(person.name)}</a>".html_safe
   end
 
-  def last_visible_post_for(person, current_user=nil)
-    unless Post.visible_from_author(person, current_user).empty?
-      link_to(t('people.last_post'), last_post_person_path(person.to_param))
-    end
-  end
-
   def person_image_tag(person, size = :thumb_small)
     image_tag(person.profile.image_url(size), :alt => person.name, :class => 'avatar', :title => person.name, 'data-person_id' => person.id)
   end
