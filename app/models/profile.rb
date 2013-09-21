@@ -186,7 +186,7 @@ class Profile < ActiveRecord::Base
 
   private
   def clearable_fields
-    self.attributes.keys - Profile.protected_attributes.to_a - ["created_at", "updated_at", "person_id"]
+    self.attributes.keys - ["id", "created_at", "updated_at", "person_id"]
   end
 
   def absolutify_local_url url
