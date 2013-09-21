@@ -53,20 +53,20 @@ describe ConversationsController do
       }
       @conversations = Array.new(3) { Conversation.create(hash) }
     end
-    
+
     it 'succeeds' do
       get :index
       response.should be_success
       assigns[:conversations].should =~ @conversations
     end
-    
+
     it 'succeeds with json' do
       get :index, :format => :json
       response.should be_success
       json = JSON.parse(response.body)
       json.first['conversation'].should be_present
     end
-    
+
     it 'retrieves all conversations for a user' do
       get :index
       assigns[:conversations].count.should == 3
@@ -77,6 +77,7 @@ describe ConversationsController do
     context 'with a valid conversation' do
       before do
         @hash = {
+          :format => :js,
           :conversation => {
             :subject => "secret stuff",
             :text => 'text debug'
@@ -131,6 +132,7 @@ describe ConversationsController do
     context 'with empty subject' do
       before do
         @hash = {
+          :format => :js,
           :conversation => {
             :subject => ' ',
             :text => 'text debug'
@@ -162,6 +164,7 @@ describe ConversationsController do
     context 'with empty text' do
       before do
         @hash = {
+          :format => :js,
           :conversation => {
             :subject => 'secret stuff',
             :text => '  '
@@ -192,6 +195,7 @@ describe ConversationsController do
     context 'with empty contact' do
       before do
         @hash = {
+          :format => :js,
           :conversation => {
             :subject => 'secret stuff',
             :text => 'text debug'
@@ -222,6 +226,7 @@ describe ConversationsController do
     context 'with nil contact' do
       before do
         @hash = {
+          :format => :js,
           :conversation => {
             :subject => 'secret stuff',
             :text => 'text debug'
@@ -254,13 +259,13 @@ describe ConversationsController do
       }
       @conversation = Conversation.create(hash)
     end
-    
+
     it 'succeeds with js' do
       get :show, :id => @conversation.id, :format => :js
       response.should be_success
       assigns[:conversation].should == @conversation
     end
-    
+
     it 'succeeds with json' do
       get :show, :id => @conversation.id, :format => :json
       response.should be_success
@@ -273,7 +278,7 @@ describe ConversationsController do
       response.should redirect_to(conversations_path(:conversation_id => @conversation.id))
       assigns[:conversation].should == @conversation
     end
-    
+
     it 'does not let you access conversations where you are not a recipient' do
       sign_in :user, eve
 
