@@ -93,6 +93,7 @@ app.views.Publisher = Backbone.View.extend({
       el: this.$('#file-upload'),
       publisher: this
     });
+    this.view_uploader.on('change', this.checkSubmitAvailability, this);
 
   },
 
