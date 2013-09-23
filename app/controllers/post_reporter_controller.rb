@@ -1,29 +1,20 @@
-require 'pp'
-require 'logger'
 class PostReporterController < ApplicationController
   before_filter :authenticate_user!
 
-  attr_accessor :id
-
   def index
     redirect_unless_admin
-    logger.debug("index")
     @post_reporter = PostReporter.where(reviewed: false).all
   end
 
   def update
     redirect_unless_admin
-    @id = params[:id]
-    logger.debug("update")
-    mark_as_reviewed if PostReporter.exists?(post_id: self.id)
+    mark_as_reviewed if PostReporter.exists?(post_id: params[:id])
     redirect_to :action => 'index'
   end
 
   def destroy
     redirect_unless_admin
-    @id = params[:id]
-    logger.debug("destroy")
-    if Post.exists?(self.id)
+    if Post.exists?(params[:id])
       delete_post
       mark_as_reviewed
     end
@@ -31,36 +22,32 @@ class PostReporterController < ApplicationController
   end
 
   def create
-    @id = params[:post_id]
-    logger.debug("create")
     username = current_user.username
-    if !PostReporter.where(post_id: self.id).exists?(user_id: username)
+    unless PostReporter.where(post_id: params[:post_id]).exists?(user_id: username)
       post = PostReporter.new(
-        :post_id => self.id,
+        :post_id => params[:post_id],
         :user_id => username,
         :text => params[:text])
       result = post.save
-      status(( 200 if result ) || ( 500 if !result ))
+      status(( 200 if result ) || ( 422 if !result ))
     else
       status(409)
     end
   end
 
-  def delete_post
-    post = Post.find(self.id)
-    logger.debug("deleted")
-    post.destroy
-  end
-
-  def mark_as_reviewed
-    posts = PostReporter.where(post_id: self.id)
-    posts.each do |post|
-      logger.debug("reviewed")
-      post.update_attributes(reviewed: true)
-    end
-  end
-
   private
+    def delete_post id = params[:id]
+      post = Post.find(id)
+      post.destroy
+    end
+
+    def mark_as_reviewed id = params[:id]
+      posts = PostReporter.where(post_id: id)
+      posts.each do |post|
+        post.update_attributes(reviewed: true)
+      end
+    end
+
     def status(code)
       render :nothing => true, :status => code
     end

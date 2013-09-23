@@ -10,6 +10,7 @@ en:
     post_report_prompt_default: "offensive content"
     delete: "Delete"
     ignore: "Ignore"
+    report_post: "Report"
     ignore_user: "Ignore this user?"
     and: "and"
     comma: ","

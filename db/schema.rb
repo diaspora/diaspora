@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130911125923) do
+ActiveRecord::Schema.define(:version => 20130923133605) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -284,13 +284,15 @@ ActiveRecord::Schema.define(:version => 20130911125923) do
   end
 
   create_table "post_reporters", :force => true do |t|
-    t.integer  "post_id"
+    t.integer  "post_id",                       :null => false
     t.string   "user_id"
     t.boolean  "reviewed",   :default => false
     t.text     "text"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
+
+  add_index "post_reporters", ["post_id"], :name => "index_post_reporters_on_post_id"
 
   create_table "posts", :force => true do |t|
     t.integer  "author_id",                                              :null => false
