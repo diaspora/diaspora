@@ -701,7 +701,8 @@ en:
         sharing: "has started sharing with you!"
         view_profile: "View %{name}'s profile"
     comment_on_post:
-        post_activity: "Hey! There was some activity on your post. See it at %{link}."
+        post_activity: "Hey! There was some activity on your post. See it at "
+        href: "%{link}"
         reply: "Reply or view %{name}'s post >"
     mentioned:
         subject: "%{name} has mentioned you on diaspora*"
