@@ -8,8 +8,10 @@ class PostReporterController < ApplicationController
 
   def update
     redirect_unless_admin
-    mark_as_reviewed if PostReporter.exists?(post_id: params[:id])
-    redirect_to :action => 'index'
+    if PostReporter.exists?(post_id: params[:id])
+      mark_as_reviewed
+    end
+    redirect_to :action => :index
   end
 
   def destroy
@@ -18,7 +20,7 @@ class PostReporterController < ApplicationController
       delete_post
       mark_as_reviewed
     end
-    redirect_to :action => 'index'
+    redirect_to :action => :index
   end
 
   def create
@@ -39,6 +41,7 @@ class PostReporterController < ApplicationController
     def delete_post id = params[:id]
       post = Post.find(id)
       post.destroy
+      flash[:notice] = I18n.t 'post_reporter.status.destroyed'
     end
 
     def mark_as_reviewed id = params[:id]
@@ -46,9 +49,15 @@ class PostReporterController < ApplicationController
       posts.each do |post|
         post.update_attributes(reviewed: true)
       end
+      flash[:notice] = I18n.t 'post_reporter.status.marked'
     end
 
     def status(code)
+      if code == 200
+        flash[:notice] = I18n.t 'post_reporter.status.created'
+      else
+        flash[:error] = I18n.t 'post_reporter.status.failed'
+      end
       render :nothing => true, :status => code
     end
 end

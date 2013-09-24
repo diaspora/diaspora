@@ -856,6 +856,11 @@ en:
     reason_label: "Reason: %{text}"
     review_link: "Mark as reviewed"
     delete_link: "Delete post"
+    status:
+      marked: "The report was marked as reviewed"
+      destroyed: "The post was destroyed"
+      created: "A report was created"
+      failed: "Something went wrong"
 
   share_visibilites:
     update:
