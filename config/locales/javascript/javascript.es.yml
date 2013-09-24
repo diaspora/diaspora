@@ -27,6 +27,7 @@ es:
     comma: ","
     comments:
       hide: "ocultar comentarios"
+      no_comments: "Aún no hay comentarios."
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     conversation:
@@ -44,6 +45,7 @@ es:
       admin: "Administrar"
       close: "cerrar"
       contacts: "Contactos"
+      help: "Ayuda"
       home: "Inicio"
       log_out: "Salir"
       mark_all_as_read: "Marcar todo como leido"
@@ -86,7 +88,7 @@ es:
       follow: "Seguir"
       followed_tag:
         add_a_tag: "Añadir una etiqueta"
-        contacts_title: "Personas que buscaron esas etiquetas"
+        contacts_title: "Personas que buscaron estas etiquetas"
         follow: "Seguir"
         title: "#Etiquetas seguidas"
       hide: "Ocultar publicación"

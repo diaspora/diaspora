@@ -16,6 +16,7 @@ pt-BR:
       invalid: "Nome de usuário ou senha inválidos."
       invalid_token: "Token de autenticação inválido."
       locked: "Sua conta está bloqueada."
+      not_found_in_database: "Email ou senha inválidos."
       timeout: "Sua sessão expirou; por favor, entre novamente para continuar."
       unauthenticated: "Você precisa entrar ou se cadastrar antes de continuar."
       unconfirmed: "Você deve confirmar a sua conta antes de continuar."

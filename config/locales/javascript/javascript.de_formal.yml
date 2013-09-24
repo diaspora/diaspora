@@ -30,6 +30,7 @@ de_formal:
     comma: ","
     comments:
       hide: "Kommentare verbergen"
+      no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Sind Sie sich sicher?"
     conversation:
@@ -47,6 +48,7 @@ de_formal:
       admin: "Administration"
       close: "schließen"
       contacts: "Kontakte"
+      help: "Hilfe"
       home: "Startseite"
       log_out: "Abmelden"
       mark_all_as_read: "Markiere alle als gelesen"

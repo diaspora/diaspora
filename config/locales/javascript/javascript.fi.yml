@@ -27,6 +27,7 @@ fi:
       deselect_all: "Poista valinnat"
       no_aspects: "Näkymiä ei ole valittu"
       select_all: "Valitse kaikki"
+    comma: ","
     comments:
       hide: "piilota kommentit"
       no_comments: "Kommentteja ei vielä ole."
@@ -140,8 +141,8 @@ fi:
       minutes: "%d minuuttia"
       month: "noin kuukausi"
       months: "%d kuukautta"
-      prefixAgo: ""
-      prefixFromNow: ""
+      prefixAgo: "sitten"
+      prefixFromNow: "tästä alkaen"
       seconds: "alle minuutti"
       suffixAgo: "sitten"
       suffixFromNow: "tästä alkaen"

@@ -161,15 +161,32 @@ is:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Það þarf að lagfæra eftirfarandi villur og reyna síðan aftur. "
+    post_not_public_or_not_exist: "Skeytið sem þú ert að reyna að skoða er ekki aðgengilegt eða er ekki til!"
   fill_me_out: "Fylla út"
   find_people: "Find people"
+  help:
+    account_and_data_management:
+      data_visible_to_podmin_a: "Samskipti milli belgja eru ávalt dulkóðuð (með SSL sem og dulkóðun frá diaspora*), en gögnin á belgnum eru ekki dulkóðuð á miðlaranum.  Kerfisstjórinn á belgnum sem þú ert hýstur á (oftast sá sem rekur belginn) gæti komist í allar þínar upplýsingar á belgnum, sem og öll seyti sem þú hefur sent (sambærilegt við flestar aðrar vefsíður sem vista gögn um þig).  Ef þú keyrir þinn egin belg hefur þú betir stjórn á gögnunum þínum."
+    aspects:
+      person_multiple_aspects_a: "Já.  Farðu á síðuna með tengiliðum þínum og smelltu á Mínir tengiliðir.  Þú getur notað valmyndina til hægri til að bæta tengilið (eða taka úr) eins mörgum sýnum og þú vilt.  Þú getur einnig bætt þeim við nýja sýn með því að ýta á Velja Sýn takkan á upplýsingasíðu viðkomandi.  Einnig getur þú haldið músini fyrir ofan nafn þeirra þar sem nafn þeirra birtist á straumnum þínum og birtist þá lítill val gluggi.  Þar getur þú breytt í hvaða sýnum viðkomandi er."
+      post_multiple_aspects_a: "Já.  Þegar þú getur notað 'sýn' takkan til að velja og hafna hvaða sýn skeytið sem þú ert að skrifa birtist í.  Skeytið mun vera sýnilegt í öllum þeim sýnum sem þú hefur valið.  Þú getur einnig valið í hvaða sýn skilaboðin birtast á hliðarslánni.  Þegar þú sendir skilaboðin munu þær sýnir sem þú hefur valið vistast og vera valdar þegar þú skrifar næst skilaboð."
+    miscellaneous:
+      diaspora_app_a: "Það er til nokkur Android forrit sem eru enn i þróun.  Sum eru löngu yfirgefin og virka því ekki vel með núverandi útgáfu af diaspora*.  Ekki búast við of mikklu af þessum forritum eins og stendur.  Það er einfaldlega best að nota diaspora* beint á vafranum í símanum þar sem hannað hefur verið viðmót sem ætti að hennta flestum tækjum.  Eins og er eru engin forrit fyrir diaspora* á iOS, en enn og aftur virkar diaspora* vel í vafranum."
+      diaspora_app_q: "Er til diaspora* app fyrir Android eða iOS?"
+    pods:
+      what_is_a_pod_a: "Belgur er miðlari sem keyrir diaspora* hugbúnaðinn og er tengdur diaspora* netinu.  \"Belgur\" er samlíking við fræbelgi á plöntum sem innihalda fræ á sama átt og miðlarinn hýsir marga notendur.  Það eru margir belgir til.  Þú getur bætt við vinum á öðrum belgjum og átt í samskiptum við þá.  (Þú getur hugsað belg á svipaðan hátt og tölvupóstþjón: það eru margir opnir belgir sem og lokaðir belgir , þú getur meira að segja hýst þinn eginn belg)."
+    posts_and_posting:
+      embed_multimedia_a: "Oftast er hægt að setja URLið (t.d. http://www.youtube.com/watch?v=nnnnnnnnnnn) beint inn í skilaboðin og myndin eða myndbandið verður fellt sjálfkrafa inn í skeytið.  Við styðjum meðal annars. YouTube, Vimeo, SoundCloud, Flickr ásamt nokkrum öðrum.  diaspora* notar oEmbed til að framkvæma innfellinguna sem gerir það að verkum að nýjar þjónustur eru stöðugt að bætast í hópinn.  Mundu að setja alltaf inn fulla slóð inn, ekki stytta hana né bæta aftan við sem og að smá stund getur tekið áður en innfellingin er verður sýnileg."
+    private_profiles:
+      whats_in_profile_a: "Ferilskráin, staðsetning, kyn og fæðingardagur.  Þetta eru allt hlutir sem eru neðst á Síðunni Þinni.  Þú ræður hvort þú setur upplýsingar þar inn.  Eingöngu einstaklingar sem þú hefur bætt í eina af þínum sýnum, og eru skráðir inn, geta séð þessar upplýsingar.  Þegar þeir fara á síðuna þína geta þeir séð þau skeyti sem þú hefur deilt með öllum, sem og þau skeyti sem þú hefur valið að deila með sýnum sem þeir eru í."
+  hide: "Fela"
   invitations:
     create:
       already_contacts: "Þú tengist þessari manneskju nú þegar"
       already_sent: "Þessari manneskju hefur þegar verið boðið."
       no_more: "Ekki eru til fleiri boðsmiðar."
       rejected: "Eftirfarandi netföng ollu vandræðum: "
-      sent: "Boðsmiðar hafa verið sendir til:"
+      sent: "Boðsmiðar hafa verið sendir til: %{emails}"
     new:
       already_invited: "Nu þegar boðið"
       aspect: "Ásýnd"
@@ -188,6 +205,7 @@ is:
       your_aspects: "þínar ásýndir"
     header:
       blog: "blogg"
+      help: "Hjálp"
       login: "Innskráning"
       logout: "Útskrá"
       profile: "profile"
@@ -197,26 +215,27 @@ is:
       people_dislike_this:
         few: "%{count} people disliked this"
         many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
+        one: "%{count} aðili kann ekki að meta þetta"
+        other: "%{count} aðilar kunna ekki að meta þetta"
         two: "%{count} dislikes"
-        zero: "no people disliked this"
+        zero: "enginn kann ekki að meta þetta"
       people_like_this:
         few: "%{count} people liked this"
         many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
+        one: "%{count} aðili kann að meta þetta"
+        other: "%{count} aðili kunna að meta þetta"
         two: "%{count} likes"
-        zero: "no people liked this"
+        zero: "enginn kann að meta þetta"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
+        one: "%{count} aðili kann að meta þetta"
+        other: "%{count} aðilar kunna að meta þetta"
         two: "%{count} likes"
-        zero: "no likes"
+        zero: "enginn kann að meta þetta"
   more: "Meira"
   next: "næsta"
+  no_results: "Engar niðurstöður"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -235,10 +254,10 @@ is:
     comment_on_post:
       few: "%{actors} commented on your %{post_link}."
       many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
+      one: "%{actors} skrifaði ummæli við %{post_link}."
+      other: "%{actors} skrifuðu ummæli við %{post_link}."
       two: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
+      zero: "%{actors} skrifaði ummæli við %{post_link}."
     helper:
       new_notifications:
         few: "%{count} new notifications"
@@ -310,10 +329,10 @@ is:
     started_sharing:
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
-      other: "%{actors} started sharing with you."
+      one: "%{actors} hefur byrjað að deila með þér."
+      other: "%{actors} hafa byrjað að deila mér þér."
       two: "%{actors} started sharing with you."
-      zero: "%{actors} started sharing with you."
+      zero: "%{actors} hefur byrjað að deila með þér."
   notifier:
     confirm_email:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
@@ -494,6 +513,7 @@ is:
     index:
       connect_to_facebook: "Tengja við facebook"
       connect_to_twitter: "Tengja við twitter"
+      connect_to_wordpress: "Tengja Wordpress"
       disconnect: "aftengja"
       edit_services: "Breyta þjónustum"
       logged_in_as: "innskráning þín sem "

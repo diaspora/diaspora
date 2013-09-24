@@ -339,10 +339,16 @@ nb:
   help:
     account_and_data_management:
       close_account_a: "Gå til bunnen av instillings-siden din og klikk Slett bruker-knappen."
+      close_account_q: "Hvordan sletter jeg frøet (kontoen) min?"
+      data_other_podmins_q: "Kan administratorene på andre pods se informasjonen min?"
+      data_visible_to_podmin_q: "Hvor mye av informasjonen min kan pod-administratoren min se?"
       download_data_a: "Ja. på bunnen av Profil-fanen i instillings-siden din er det to knapper for å laste ned dataen din."
+      download_data_q: "Kan jeg laste ned en kopi av alle dataene jeg har i frøet (kontoen) min?"
+      move_pods_a: "I fremtiden vil du ha mulighet til å eksportere kontoen din fra en pod og importere den på en annen, men dette er enda ikke mulig. Du kan alltids åpne en ny konto og legge til kontaktene dine på den nye kontoen, og så spørre dem om å legge den nye kontoen din til i sine aspekter."
     aspects:
       contacts_know_aspect_a: "Nei. De har ikke mulighet til å se hva navnet på aspektet er."
       contacts_know_aspect_q: "Vet kontaktene mine hvilke aspekter jeg har puttet dem i?"
+      remove_notification_a: "Nei."
       restrict_posts_i_see_a: "Ja. Klikk på Mine Aspekter i sidelinjen, og så klikk individuelle innlegg i listen for å velge dem. Du vil bare se innlegg fra personer i de valgte aspektene i strømmen din."
       restrict_posts_i_see_q: "Kan jeg begrense postene jeg ser til bare dem fra noen aspekter?"
       what_is_an_aspect_a: "Aspekter er måten du grupperer kontaktene dine på diaspora*. Et aspekt er en av ansiktene du viser til verden. Det kan være hvem du er på jobben, hvem du er for familien din, eller hvem du er for vennene dine i en klubb du er medlem av."
@@ -465,11 +471,8 @@ nb:
       two: "%{actors} kommenterte en slettet post."
       zero: "%{actors} kommenterte på en slettet post."
     comment_on_post:
-      few: "%{actors} kommenterte på din %{post_link}."
-      many: "%{actors} kommenterte på din %{post_link}."
       one: "%{actors} kommenterte ditt %{post_link}."
       other: "%{actors} kommenterte ditt %{post_link}."
-      two: "%{actors} kommenterte din %{post_link}."
       zero: "%{actors} kommenterte ditt %{post_link}."
     helper:
       new_notifications:
@@ -799,6 +802,7 @@ nb:
     create:
       already_authorized: "En bruker med diaspora id %{diaspora_id} har alllerede autorisert denne %{service_name} kontoen."
       failure: "Autentisering gikk galt."
+      read_only_access: "Tilgangsnivå er kun lesing, prøv igjen senere."
       success: "Autentisering vellykket."
     destroy:
       success: "Bekrefter slettet autentisering."

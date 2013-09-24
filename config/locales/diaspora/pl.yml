@@ -88,10 +88,16 @@ pl:
       under_13: "Wyswietlij użytkowników poniżej 13 lat."
       users:
         few: "%{count} znalezionych użytkowników"
+        many: "%{count} znalezionych użytkowników"
         one: "%{count} znaleziony użytkownik"
-        other: "%{count} znalezieni użytkownicy"
-        zero: "Nikogo nie znaleziono"
-      you_currently: "Pozostało Ci jeszcze %{user_invitation} zaproszeń %{link}"
+        other: "%{count} znalezionych użytkowników"
+        zero: "%{count} znalezionych użytkowników"
+      you_currently:
+        few: "pozostały Ci jeszcze %{count} zaproszenia %{link}"
+        many: "pozostało Ci jeszcze %{count} zaproszeń %{link}"
+        one: "pozostało Ci jeszcze jedno zaproszenie %{link}"
+        other: "pozostało Ci jeszcze %{count} zaproszeń %{link}"
+        zero: "nie pozostały Ci już żadne zaproszenia %{link}"
     weekly_user_stats:
       amount_of:
         few: "liczba nowych użytkowników w tym tygodniu: %{count}"
@@ -346,6 +352,9 @@ pl:
     account_and_data_management:
       close_account_a: "Przejdź na dół strony z Twoimi ustawieniami i kliknij przycisk Zamknij Konto."
       close_account_q: "Jak usunę moje konto?"
+      data_other_podmins_a: "Od momentu kiedy zaczniesz udostępniać komuś na innym podzie, wszystkie Twoje wpisy, a także Twój profil są zapisane (jako tzw. cache) na jego podzie, i dostępne dla jego administratora. Jeśli skasujesz wpis lub dane ze swojego profilu, są one kasowane na Twoim podzie i wszystkich podach na których były przechowywane."
+      data_other_podmins_q: "Czy administrator innego poda może zobaczyć moje dane?"
+      data_visible_to_podmin_a: "Komunikacja między podami jest zawsze szyfrowana (przy użyciu SSL i własnego szyfrowania diaspory*), ale dane przechowywane na podzie nie są zaszyfrowane. Administrator poda (zwykle jego właściciel) jeśli zechce, ma dostęp do danych Twojego profilu i wszystkiego co udostępniasz. Nie odbiega to od standardowej sytuacji w innych serwisach przechowujących dane użytkowników. Posiadanie własnego poda zwiększa poziom prywatności, ponieważ wtedy sam kontrolujesz dostęp do bazy danych."
       data_visible_to_podmin_q: "Ile z moich informacji może zobaczyć administrator poda, na którym jestem zarejestrowan@{f:a|m:y|m:e}?"
       download_data_a: "Tak. Na dole działu Konto na stronie z Twoimi ustawieniami znajdują się dwa przyciski służące do pobierania danych."
       download_data_q: "Czy mogę pobrać kopię wszystkich danych z mojego konta?"
@@ -357,6 +366,7 @@ pl:
       contacts_know_aspect_q: "Czy moje kontakty wiedzą w jakich aspektach ich umieścił@{f:a|m:e}m?"
       remove_notification_a: "Nie."
       restrict_posts_i_see_q: "Czy mogę wyświetlić wpisy jedynie z konkretnego aspektu?"
+      title: "Aspekty"
       what_is_an_aspect_a: "Aspekty są sposobem w jaki grupujesz swoje kontakty na diasporze*. Aspekt jest jednym z oblicz jakie pokazujesz światu. Może to być to kim jesteś w pracy, kim jesteś dla rodziny lub kim jesteś dla przyjaciół z klubu."
       what_is_an_aspect_q: "Czym jest aspekt?"
       who_sees_post_q: "Kiedy udostępniam w aspekcie, kto widzi mój wpis?"
@@ -377,6 +387,13 @@ pl:
     markdown: "Markdown"
     pods:
       title: "Pody"
+    posts_and_posting:
+      embed_multimedia_q: "Jak mogę osadzić wideo, audio lub inną treść mutltimedialną we wpisie?"
+      image_text: "Tekst obrazka"
+      image_url: "Adres URL obrazka"
+      insert_images_comments_q: "Czy mogę do komentarzy dodać zdięcia?"
+      insert_images_q: "Jak mogę dodać do wpisów zdięcia?"
+      size_of_images_q: "Czy mogę dostosować wymiary obrazków we wpisach lub komentarzach?"
     third_party_tools: "narzędzia innych dostawców"
     tutorial: "samouczek"
     tutorials: "samouczki"
@@ -406,6 +423,7 @@ pl:
       check_out_diaspora: "Wypróbuj Diasporę!"
       codes_left:
         few: "%{count} zaproszenia na ten kod"
+        many: "%{count} zaproszeń na ten kod"
         one: "Jedno zaproszenie na ten kod"
         other: "%{count} zaproszeń na ten kod"
         zero: "Brak zaproszeń na ten kod"
@@ -472,7 +490,8 @@ pl:
       zero: "%{actors} także skomentowali %{post_link} użytkownika %{post_author}."
     also_commented_deleted:
       few: "%{actors} skomentowali już usunięty wpis."
-      one: "%{actors} skomentował już usunięty wpis."
+      many: "%{actors} skomentowali już usunięty wpis."
+      one: "%{actors} skomentowa@{m:ł|f:ła|n:ło} już usunięty wpis."
       other: "%{actors} skomentował już usunięty wpis."
       zero: "%{actors} skomentował już usunięty wpis."
     comment_on_post:
@@ -575,13 +594,13 @@ pl:
           Robot e-mail diaspory*!
 
           [1]: %{invite_url}
-    invited_you: "%{name} zaprasza Cię do diaspory*"
+    invited_you: "%{name} zaprosi@{m:ł|f:ła|n:ło} Cię do diaspory*"
     liked:
       liked: "%{name} polubi@{m:ł|f:ła|n:ł/ła} Twój wpis"
       view_post: "Wyświetl wpis >"
     mentioned:
       mentioned: "wspomniał(a) o Tobie we wpisie:"
-      subject: "%{name} wspomina o Tobie na Diasporze*"
+      subject: "%{name} wspomniał o Tobie na diasporze*"
     private_message:
       reply_to_or_view: "Odpowiedz lub wyświetl wątek >"
     reshared:
@@ -592,7 +611,7 @@ pl:
       subject: "Wiadomość dotycząca konta na Diasporze:"
     started_sharing:
       sharing: "od teraz udostępnia Ci na Diasporze!"
-      subject: "%{name} od teraz udostępnia Ci na Diasporze*"
+      subject: "%{name} od teraz udostępnia Ci na diasporze*"
       view_profile: "Wyświetl profil użytkownika %{name}"
     thanks: "Dzięki,"
     to_change_your_notification_settings: "aby zmienić ustawienia powiadomień"
@@ -631,12 +650,12 @@ pl:
       pending_request: "Oczekujące zaproszenia"
       thats_you: "To Ty!"
     profile_sidebar:
-      bio: "notka biograficzna"
-      born: "urodziny"
+      bio: "Notka biograficzna"
+      born: "Urodziny"
       edit_my_profile: "Edycja mojego profilu"
-      gender: "płeć"
+      gender: "Płeć"
       in_aspects: "w aspektach"
-      location: "lokalizacja"
+      location: "Lokalizacja"
       photos: "Zdjęcia"
       remove_contact: "usuń kontakt"
       remove_from: "Usunąć %{name} z aspektu %{aspect}?"
@@ -757,7 +776,7 @@ pl:
     new:
       continue: "Kontynuuj"
       create_my_account: "Utwórz konto!"
-      diaspora: "<3 Diaspora*"
+      diaspora: "<3 diaspora*"
       email: "E-MAIL"
       enter_email: "Wpisz adres e-mail"
       enter_password: "Podaj hasło (maks. 6 znaków)"
@@ -780,9 +799,10 @@ pl:
       success: "Jesteście teraz znajomymi."
     helper:
       new_requests:
-        few: "Nowe zaproszenia: %{count}"
-        one: "Nowe zaproszenie!"
-        other: "Nowe zaproszenia: %{count}"
+        few: "%{count} nowe zaproszenia"
+        many: "%{count} nowych zaproszeń"
+        one: "nowe zaproszenie!"
+        other: "%{count} nowych zaproszeń"
         zero: "brak nowych zaproszeń"
     manage_aspect_contacts:
       existing: "Istniejące kontakty"
@@ -831,7 +851,7 @@ pl:
       services_explanation: "Podłączenie usług umożliwia jednoczesne publikowanie w nich postów w momencie publikacji na Diasporze."
     inviter:
       click_link_to_accept_invitation: "Kliknij to łącze, aby przyjąć zaproszenie"
-      join_me_on_diaspora: "Dołącz do mnie na diasporze*."
+      join_me_on_diaspora: "Dołącz do mnie na diasporze*"
     remote_friend:
       invite: "zaproś"
       not_on_diaspora: "Nie ma jeszcze konta na Diasporze"
@@ -852,9 +872,10 @@ pl:
     aspect_dropdown:
       add_to_aspect: "Dodaj kontakt"
       toggle:
-        few: "W aspektach: %{count}"
-        one: "W aspektach: %{count}"
-        other: "W aspektach: %{count}"
+        few: "W %{count} aspektach"
+        many: "W %{count} aspektach"
+        one: "W %{count} aspekcie"
+        other: "W %{count} aspektach"
         zero: "Dodaj kontakt"
     contact_list:
       all_contacts: "Wszystkie kontakty"
@@ -877,7 +898,7 @@ pl:
       atom_feed: "Kanał Atom"
       control_your_audience: "Dostosuj swoją publiczność"
       logged_in: "zalogowano do %{service}"
-      manage: "zarządzaj powiązanymi usługami"
+      manage: "Zarządzaj powiązanymi usługami"
       new_user_welcome_message: "Używaj #znaczników, aby opisywać swoje wpisy i znajdować osoby o podobnych zainteresowaniach. Zawołaj ciekawych ludzi dzięki @wzmiankom"
       outside: "Publiczna wiadomość będzie widoczna dla wszystkich spoza Diaspory."
       share: "Podziel się"
@@ -1031,7 +1052,7 @@ pl:
         make_diaspora_better: "Pomóż nam uczynić Diasporę jeszcze lepszą, zamiast nas opuszczać. Jeśli naprawdę odchodzisz, chcemy poinformować Cię o tym, co się stanie."
         mr_wiggles: "Pan Łaskotka będzie niepocieszony, widząc, że odchodzisz"
         no_turning_back: "Aktualnie, nie ma odwrotu."
-        what_we_delete: "Usuniemy wszystkie Twoje wpisy i dane profilu, najszybciej jak tylko człowiek jest w stanie to zrobić. Twoje komentarze pozostaną tam gdzie były, ale będą skojarzone bezpośrednio z Twoim Identyfikatorem Diaspory."
+        what_we_delete: "Usuniemy wszystkie Twoje wpisy i dane profilu najszybciej jak tylko człowiek jest w stanie to zrobić. Twoje komentarze pozostaną tam gdzie były, ale będą skojarzone z Twoim Identyfikatorem Diaspory zamiast z imieniem."
       close_account_text: "Zamknij konto"
       comment_on_post: "...ktoś dodał komentarz do mojego wpisu"
       current_password: "Bieżące hasło"
@@ -1057,7 +1078,7 @@ pl:
       your_email: "Adres e-mail"
       your_handle: "Twój Identyfikator Diaspory"
     getting_started:
-      awesome_take_me_to_diaspora: "Świetnie! Zabierz mnie do diaspory*"
+      awesome_take_me_to_diaspora: "Świetnie! Zabierz mnie na diasporę*"
       community_welcome: "Społeczność Diaspory cieszy się, że ​​jesteś na pokładzie!"
       connect_to_facebook: "Możemy nieco przyśpieszyć poprzez %{link} do Diaspory. To spowoduje pobranie Twojej nazwy i zdjęcia i włączy publikowanie krzyżowe."
       connect_to_facebook_link: "podpinanie konta na Facebooku"

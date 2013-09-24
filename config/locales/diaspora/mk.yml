@@ -5,7 +5,9 @@
 
 
 mk:
+  _applications: "Апликации"
   _comments: "Коментари"
+  _contacts: "Контакти"
   _home: "Дома"
   _photos: "фотографии"
   _services: "Сервиси"
@@ -19,13 +21,18 @@ mk:
               taken: "You've already reshared that post!"
         user:
           attributes:
+            email:
+              taken: "е веќе искористена."
             username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
+              taken: "е веќе искористено."
   ago: "%{time} пред"
   all_aspects: "All aspects"
   application:
     helper:
       unknown_person: "непозната личност"
+  are_you_sure: "Дали сте сигурни?"
+  are_you_sure_delete_account: "Дали сте сигурни дека сакате да ја избришете вашата корисничка сметка? После ова не можете да ја вратите."
   aspects:
     add_to_aspect:
       failure: "Неуспешно додавање на контактот во аспект."
@@ -103,7 +110,8 @@ mk:
       correct_the_following_errors_and_try_again: "Поправете ги следниве грешки и обидете се повторно."
       invalid_fields: "Невалидни полиња"
   fill_me_out: "Пополни ме"
-  find_people: "Find people"
+  find_people: "Пронајди пријатели или #тагови"
+  hide: "Сокриј"
   invitations:
     check_token:
       not_found: "Токенот за поканата не е пронајден"
@@ -149,6 +157,10 @@ mk:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
+  limited: "Ограничено"
+  more: "Повеќе"
+  next: "следно"
+  no_results: "Нема резултати"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -276,7 +288,7 @@ mk:
       pending_request: "престоечко барање"
       thats_you: "тоа си ти!"
     profile_sidebar:
-      bio: "биографија"
+      bio: "Биографија"
       born: "роденден"
       edit_my_profile: "Уреди го мојот профил"
       gender: "пол"
@@ -322,11 +334,15 @@ mk:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
+  previous: "претходно"
+  privacy: "Приватност"
+  privacy_policy: "Политика за приватност"
   profile: "Профил"
   profiles:
     edit:
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+  public: "Јавно"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
@@ -360,10 +376,10 @@ mk:
       new_requests:
         few: "%{count} new requests!"
         many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
+        one: "ново барање!"
+        other: "%{count} нови барања!"
         two: "%{count} new requests!"
-        zero: "no new requests"
+        zero: "немате нови барања"
     manage_aspect_contacts:
       existing: "Постоечки контакти"
       manage_within: "Менаџирај контакти во"
@@ -474,9 +490,11 @@ mk:
     destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
+  terms_and_conditions: "Услови и правила"
   tokens:
     show:
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+  undo: "Откажи"
   username: "Корисничко име"
   users:
     confirm_email:
@@ -509,3 +527,4 @@ mk:
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger:
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
+  welcome: "Добредојдовте!"

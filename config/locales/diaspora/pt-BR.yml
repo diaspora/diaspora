@@ -46,13 +46,14 @@ pt-BR:
       correlations: "Correlações"
       pages: "Páginas"
       pod_stats: "Status do Servidor"
+      sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Busca de Usuários"
       weekly_user_stats: "Estatísticas Semanais"
     correlations:
       correlations_count: "Contas similares:"
     stats:
       2weeks: "2 Semanas"
-      50_most: "50 etiquetas mais populares"
+      50_most: "50 tags mais populares"
       comments:
         one: "%{count} comentário"
         other: "%{count} comentários"
@@ -70,7 +71,7 @@ pt-BR:
         one: "%{count} compartilhamento"
         other: "%{count} compartilhamentos"
         zero: "%{count} compartilhamento"
-      tag_name: "Nome da etiqueta: <b>%{name_tag}</b> Contagem: <b>%{count_tag}</b>"
+      tag_name: "Nome da tag: <b>%{name_tag}</b> Contagem: <b>%{count_tag}</b>"
       usage_statistic: "Estatísticas de uso"
       users:
         one: "%{count} usuário"
@@ -80,6 +81,7 @@ pt-BR:
     user_search:
       add_invites: "adicionar convites"
       email_to: "Email para convite"
+      under_13: "Mostrar usuários menores de 13 anos (COPPA)"
       users:
         one: "%{count} usuário encontrado"
         other: "%{count} usuários encontrados"
@@ -171,6 +173,7 @@ pt-BR:
         tag_feature: "#feature"
         tag_question: "#question"
         tutorial_link_text: "Tutoriais"
+        tutorials_and_wiki: "%{tutorial} e %{wiki}: Ajuda para seus primeiros passos."
       introduce_yourself: "Este é seu fluxo. Se apresente!"
       keep_diaspora_running: "Ajude o desenvolvimento do Diaspora com uma doação mensal!"
       keep_pod_running: "Mantenha %{pod} rodando bem e compre o café para nossos servidores com uma doação mensal!"
@@ -179,7 +182,7 @@ pt-BR:
         learn_more: "Saiba mais"
         title: "Dê as boas vindas aos novos usuários"
       no_contacts: "Nenhum contato"
-      no_tags: "+ Procurar tag para seguir"
+      no_tags: "+ Procurar uma tag para seguir"
       people_sharing_with_you: "Pessoas compartilhando com você"
       post_a_message: "postar uma mensagem >>"
       services:
@@ -332,9 +335,47 @@ pt-BR:
       invalid_fields: "Campos inválidos"
     login_try_again: "Por favor  faça<a href='%{login_link}'>login</a> e tente de novo."
     post_not_public: "A publicação que está tentando visualizar não é pública!"
+    post_not_public_or_not_exist: "A publicação que você está tentando ver não é pública, ou não existe!"
   fill_me_out: "Preencha"
-  find_people: "Procurar pessoas"
+  find_people: "Procurar pessoas ou #tags"
   help:
+    account_and_data_management:
+      close_account_a: "Vá até o final de sua página de configurações e clique no botão Cancelar Conta."
+      close_account_q: "Como eu apago minha semente (conta)?"
+      data_other_podmins_a: "Uma vez que você está compartilhando com alguém de outro servidor, quaisquer publicações que você compartilha com eles, e uma cópia dos dados do seu perfil (em cache), estão acessíveis ao administrador da base de dados desse servidor. Quando você apaga uma publicação ou dados do perfil, estes são eliminados do seu servidor e de quaisquer outros servidores onde estavam armazenados previamente."
+      data_other_podmins_q: "Os administradores de outros servidores podem ver minhas informações?"
+      data_visible_to_podmin_a: "A comunicação *entre* servidores é sempre criptografada (utilizando SSL e a criptografia de transporte própria do diaspora*), mas o armazenamento de dados nos servidores não é criptografado. Caso quisesse, o administrador da base de dados de seu servidor (normalmente a pessoa que opera o servidor) poderia acessar todos os dados do seu perfil e tudo aquilo que você publicou (tal como é o caso da maioria dos websites que armazenam dados de usuários). Operando seu próprio servidor proporciona mais privacidade, pois assim é você quem controla o acesso à base de dados."
+      data_visible_to_podmin_q: "Quanta informação minha o administrador do meu servidor pode ver?"
+      download_data_a: "Sim. Na aba Conta ao final de sua página de configurações existem dois botões para baixar seus dados."
+      download_data_q: "Posso baixar uma cópia de todos os meus dados contidos em minha semente (conta)?"
+      move_pods_a: "No futuro você será capaz de exportar sua conta de um servidor e importá-la para outro, mas no momento isto não é possível. Você sempre poderá abrir uma nova conta e adicionar seus contactos aos aspectos nessa nova conta, e pedir-lhes para adicionar a sua nova conta aos aspectos deles."
+      move_pods_q: "Como eu movo minha semente (conta) de um servidor para outro?"
+      title: "Gerenciamento de conta e dados pessoais"
+    aspects:
+      change_aspect_of_post_a: "Não, mas você sempre pode fazer uma nova publicação com o mesmo conteúdo e publicá-la em um aspecto diferente."
+      change_aspect_of_post_q: "Uma vez que eu publiquei alguma coisa, posso mudar o(s) aspecto(s) que pode(m) ver isto?"
+      contacts_know_aspect_a: "Não. Eles não podem ver o nome do aspecto em nenhuma circunstância."
+      contacts_know_aspect_q: "Meus contactos sabem em que aspectos eu os coloquei?"
+      contacts_visible_a: "Se selecionar esta opção, então os contatos daquele aspecto serão capazes de ver quem mais está lá dentro, na sua página de perfil, sob a sua imagem pessoal. É melhor selecionar esta opção somente se todos os contatos naquele aspecto se conhecerem. Eles ainda não serão capazes de poder ver o nome do aspecto."
+      contacts_visible_q: "O que significa \"tornar contatos neste aspecto visíveis entre eles\"?"
+      delete_aspect_a: "Na sua lista de aspectos do lado esquerdo na página principal, aponte o mouse para o aspecto que você quer deletar. Clique no pequeno lápis de edição que aparece à direita. Clique no botão Deletar na caixa que aparece."
+      delete_aspect_q: "Como eu deleto um aspecto?"
+      person_multiple_aspects_a: "Sim. Vá até sua página de contatos e clique em meus contatos. Para cada contato você pode usar o menu à direita para adicioná-los para (ou removê-los de) tantos aspectos quanto você quiser. Ou você pode adicioná-los a um novo aspecto (ou removê-los de um aspecto) clicando no botão seletor de aspectos na sua página de perfil. Ou você pode ainda apenas mover o cursor sobre o nome que você vê no fluxo, e um 'cartão flutuante' aparecerá. Você pode mudar os aspectos que estão à direita."
+      person_multiple_aspects_q: "Posso adicionar uma pessoa a múltiplos aspectos?"
+      post_multiple_aspects_a: "Sim. Quando você está fazendo uma publicação, use o botão seletor de aspectos para selecionar ou desselecionar aspectos. Sua publicação será visível a todos os aspectos que você selecionou. Você pode também selecionar na barra lateral os aspectos para os quais você quer publicar. Quando você publica, o(s) aspecto(s) que você selecionou da lista à esquerda serão automaticamente selecionados no seletor de aspectos."
+      post_multiple_aspects_q: "Posso publicar conteúdo em múltiplos aspectos de uma vez?"
+      remove_notification_a: "Não."
+      remove_notification_q: "Se eu remover alguém de um aspecto, ou todos de meus aspectos, eles serão notificados disto?"
+      rename_aspect_a: "Sim. Do lado esquerdo da página principal, na sua lista de aspectos, coloque o cursor do mouse sobre o aspecto que você quer renomear. Clique no pequeno lápis de edição que aparece à direita. Depois renomeie na caixa que aparece."
+      rename_aspect_q: "Posso renomear um aspecto?"
+      restrict_posts_i_see_a: "Sim. Clique em Meus Aspectos na barra lateral e em seguida clique em aspectos individuais na lista para selecioná-los ou desselecioná-los. Apenas as publicações por pessoas dos aspectos selecionados aparecerão no seu Fluxo."
+      restrict_posts_i_see_q: "Posso restringir as publicações que eu vejo apenas para aqueles de certos aspectos?"
+      title: "Aspectos"
+      what_is_an_aspect_a: "Aspectos são a maneira que você agupa seus contactos no diaspora*. Um aspecto é uma das faces que você se mostra ao mundo. Poderá ser quem você é no emprego, ou quem você é para a sua família, ou quem você é para os seus amigos em um clube ao qual você pertence."
+      what_is_an_aspect_q: "O que é um aspecto?"
+      who_sees_post_a: "Se você faz uma publicação limitada, esta será visível apenas para as pessoas que você colocou naquele aspecto (ou naqueles aspectos, se é destinada a múltiplos aspectos). Os seus contatos que não estiverem no aspecto não têm nenhuma maneira de ver a publicação, a não ser que a torne pública. Apenas publicações públicas serão visíveis a alguém que você não tenha colocado em um de seus aspectos."
+      who_sees_post_q: "Quando eu publico em um aspecto, quem vê?"
+    foundation_website: "site da Fundação Diaspora"
     getting_help:
       get_support_a_hashtag: "pergunte num post público no diaspora* usando a hashtag %{question}"
       get_support_a_irc: "junte-se a nós no %{irc} (Chat ao vivo)"
@@ -344,10 +385,50 @@ pt-BR:
       get_support_q: "E se minha pergunta não for respondida neste FAQ? Onde mais eu posso obter suporte?"
       getting_started_a: "Você está com sorte. Tente nosso %{tutorial_series} no site. Ele irá te levar num passo-a-passo pelo processo de registro e te ensina-rá o básico que você precisa saber para usar o diaspora*."
       getting_started_q: "Socorro! Preciso de ajuda para começar!"
+      title: "Obter ajuda"
+    getting_started_tutorial: "tutorial da série 'Começando'"
+    here: "aqui"
     irc: "IRC"
+    mentions:
+      how_to_mention_a: "Digite o símbolo \"@\" e digite o nome da pessoa. Um menu de lista deve aparecer para que você escolha mais facilmente. Note que somente é possível mencionar pessoas que você adicionou a algum aspecto."
+      how_to_mention_q: "Como eu menciono alguém quando estou fazendo uma pubicação?"
+      mention_in_comment_a: "Não, não atualmente."
+      mention_in_comment_q: "Posso mencionar alguém em um comentário?"
+      see_mentions_a: "Sim, clique em \"Menções\" na coluna do lado esquerdo na sua página inicial."
+      see_mentions_q: "Existe uma maneira de ver as publicações nas quais eu tenha sido mencionado?"
+      title: "Menções"
+      what_is_a_mention_a: "Uma menção é um link para a página do perfil de uma pessoa que aparece na publicação. Quando alguém é mencionado, essa pessoa recebe uma notificação que chama a atenção dela para a publicação."
+      what_is_a_mention_q: "O que é uma \"menção\"?"
+    pods:
+      find_people_a: "Convide seus amigos utilizando o link email na barra lateral. Siga #tags para descobrir outros que compartilhem de seus interesses, e adicione a algum aspecto aqueles que publicam coisas que interessam a você. Grite que você é #novato em uma publicação."
+      find_people_q: "Eu acabei de me associar ao pod, como eu posso encontrar pessoas com quem eu possa compartilhar?"
+      title: "Pods"
+      use_search_box_a: "Se você conhece a diaspora* ID completa dessas pessoas (ex.: nomedeutilizador@nomedopod.org), você pode encontrá-las buscando diretamente pelas IDs. Se você está no mesmo pod, você pode buscar apenas pelo nomedeutilizador. Uma alternativa é buscar por eles através do nome de perfil (o nome que você vê na tela). Se uma busca não funciona na primeira vez, tente novamente."
+      use_search_box_q: "Como eu utilizo a caixa de busca para encontrar pessoas em particular?"
+      what_is_a_pod_a: "Um pod é um servidor executando o software diaspora* e conectado à rede diaspora*. \"Pod\" é uma metáfora referindo-se às vagens nas plantas que contém sementes, da maneira que um servidor contém um número de contas de usuários. Existem muitos pods diferentes. Você pode adicionar amigos de outros pods e se comunicar com eles. (Você pode pensar de um pod diaspora* como sendo similar a um provedor de email: existem pods públicos, pods privados, e com algum esforço você pode até mesmo rodar o seu próprio)."
+      what_is_a_pod_q: "O que é um pod?"
+    posts_and_posting:
+      format_text_a: "Utilizando um sistema simplificado chamado %{markdown}. Você pode encontrar a sintaxe completa %{here}. O botão de pré-visualização é muito útil aqui, pois você pode ver como sua mensagem parecerá antes de compartilhá-la."
+      format_text_q: "Como eu posso formatar o texto em minhas publicações (negrito, itálico, etc.)?"
+      hide_posts_a: "Se você apontar seu mouse para a parte superior da publicação, um X aparece à direita. Clique nele para ocultar a publicação e desligar as notificações sobre esta publicação. Você ainda pode ver a publicação se você visitar a página de perfil da pessoa que publicou."
+      hide_posts_q: "Como eu escondo uma publicação? Como eu posso parar de receber notificações sobre uma publicação na qual eu comentei?"
+      insert_images_a: "Clique no pequeno ícone de câmera para inserir uma imagem na publicação. Pressione o ícone de foto novamente para adicionar outra foto, ou você pode selecionar múltiplas fotos para serem carregadas de uma vez."
+      insert_images_q: "Como eu insiro imagens às publicações?"
+      title: "Publicações e publicar"
+    private_posts:
+      title: "Publicações de acesso privado"
+    public_posts:
+      title: "Publicações de acesso público"
+    resharing_posts:
+      title: "Recompartilhando publicações"
+    sharing:
+      title: "Compartilhando"
+    third_party_tools: "ferramentas de terceiros"
     tutorial: "tutorial"
     tutorials: "tutoriais"
+    wiki: "wiki"
   hide: "Ocultar"
+  ignore: "Ignorar"
   invitation_codes:
     excited: "%{name} está contente em te ver aqui."
   invitations:
@@ -398,6 +479,7 @@ pt-BR:
       admin: "Administrador"
       blog: "Blog"
       code: "Código"
+      help: "Ajuda"
       login: "Entrar"
       logout: "Sair"
       profile: "Perfil"
@@ -715,6 +797,7 @@ pt-BR:
       password_confirmation: "CONFIRMAÇÃO DE SENHA"
       sign_up: "INSCREVER"
       sign_up_message: "Rede social com um <3"
+      submitting: "Enviando..."
       username: "USUÁRIO"
   requests:
     create:
@@ -756,6 +839,7 @@ pt-BR:
     create:
       already_authorized: "Um usuário com uma id disapora %{diaspora_id} já está autorizando %{service_name} nesta conta."
       failure: "Autenticação falhou."
+      read_only_access: "O nível de acesso é somente-leitura, por favor tente autorização novamente mais tarde"
       success: "Sucesso na autenticação."
     destroy:
       success: "Autenticação deletada com sucesso."

@@ -26,6 +26,7 @@ zh-TW:
     comma: "，"
     comments:
       hide: "隱藏意見"
+      no_comments: "目前還沒有任何意見。"
       show: "顯示所有意見"
     confirm_dialog: "你確定嗎？"
     conversation:
@@ -43,6 +44,7 @@ zh-TW:
       admin: "管理"
       close: "關閉"
       contacts: "連絡人"
+      help: "說明"
       home: "我家"
       log_out: "登出"
       mark_all_as_read: "全部標示為看過了"
@@ -71,7 +73,7 @@ zh-TW:
       size_error: "檔案 {file} 太大了，上限是{sizeLimit}。"
     publisher:
       at_least_one_aspect: "發表時請至少選擇一個面向"
-      limited: "限制 - 只有你想分享的人才看得到你的貼文"
+      limited: "有限 - 只有你想分享的人才看得到你的貼文"
       near_from: "靠近：<%= location %>"
       public: "公開 - 所有人都能看到你的貼文，包括搜尋引擎"
     reshares:
@@ -94,7 +96,7 @@ zh-TW:
       likes:
         other: "有<%= count %>個人說讚"
         zero: "有<%= count %>個人說讚"
-      limited: "限制"
+      limited: "有限"
       more_comments:
         other: "顯示另外<%= count %>個意見"
         zero: "顯示另外<%= count %>個意見"

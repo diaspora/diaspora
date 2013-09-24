@@ -525,6 +525,7 @@ es-AR:
     tutorials: "tutoriales"
     wiki: "wiki"
   hide: "Ocultar"
+  ignore: "Ignorar"
   invitation_codes:
     excited: "%{name} está encantado de verte por aquí."
   invitations:
@@ -909,6 +910,7 @@ es-AR:
       password_confirmation: "Confirmación de contraseña"
       sign_up: "REGISTRARSE"
       sign_up_message: "Redes Sociales con un <3"
+      submitting: "Enviar"
       username: "NOMBRE DE USUARIO"
   requests:
     create:
@@ -964,6 +966,7 @@ es-AR:
       connect_to_facebook: "Conectar a Facebook"
       connect_to_tumblr: "Conectar con Tumblr"
       connect_to_twitter: "Conectar a Twitter"
+      connect_to_wordpress: "Conectarse a Wordpress"
       disconnect: "desconectar"
       edit_services: "Editar servicios"
       logged_in_as: "conectado como"
