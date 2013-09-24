@@ -1,26 +1,24 @@
 class PostReporterController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :redirect_unless_admin, :except => [:create]
 
   def index
-    redirect_unless_admin
     @post_reporter = PostReporter.where(reviewed: false).all
   end
 
   def update
-    redirect_unless_admin
     if PostReporter.exists?(post_id: params[:id])
       mark_as_reviewed
     end
-    redirect_to :action => :index
+    redirect_to :action => :index and return
   end
 
   def destroy
-    redirect_unless_admin
     if Post.exists?(params[:id])
       delete_post
       mark_as_reviewed
     end
-    redirect_to :action => :index
+    redirect_to :action => :index and return
   end
 
   def create

@@ -38,9 +38,7 @@ describe PostReporterController do
   describe '#update' do
     context 'mark report as user' do
       it 'is behind redirect_unless_admin' do
-        expect {
-          put :update, :id => @message.id
-        }.to raise_error(AbstractController::DoubleRenderError)
+        put :update, :id => @message.id
         response.should redirect_to stream_path
         PostReporter.where(:reviewed => false, :post_id => @message.id).should be_true
       end
@@ -61,9 +59,7 @@ describe PostReporterController do
   describe '#destroy' do
     context 'destroy post as user' do
       it 'is behind redirect_unless_admin' do
-        expect {
-          delete :destroy, :id => @message.id
-        }.to raise_error(AbstractController::DoubleRenderError)
+        delete :destroy, :id => @message.id
         response.should redirect_to stream_path
         PostReporter.where(:reviewed => false, :post_id => @message.id).should be_true
       end
