@@ -34,7 +34,7 @@ describe NotifierHelper do
     before do
       # comment for includes a link test
       @comment = FactoryGirl.create(:comment)
-      @post_comment_url = I18n.t('notifier.comment_on_post.href', link: post_comment_url(@comment.post, @comment))
+      @post_comment_url = I18n.t('notifier.comment_on_post.post', post: post_comment_url(@comment.post, @comment))
     end
 
     it 'includes a link to the post' do

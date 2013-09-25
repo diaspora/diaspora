@@ -4,6 +4,7 @@ module NotificationMailers
     include MarkdownifyHelper
 
     attr_accessor :comment
+    delegate :post, to: :comment, prefix: true
 
     def set_headers(comment_id)
       @comment = Comment.find(comment_id)
