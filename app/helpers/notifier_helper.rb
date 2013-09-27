@@ -18,7 +18,4 @@ module NotifierHelper
   # @param comment [Comment] The comment to process.
   # @param opts [Hash] Optional hash.  Accepts :length and :process_newlines parameters.
   # @return [String] The truncated and formatted comment.
-  def comment_message(comment)
-    I18n.t('notifier.comment_on_post.post', post: post_comment_url(@comment.post, @comment))
-  end
 end

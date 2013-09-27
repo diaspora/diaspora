@@ -1,5 +1,3 @@
-<%= t('notifier.comment_on_post.post_activity')%>
-
-[<%= t('notifier.comment_on_post.post', :post => link_to(t('notifier.comment_on_post.post'), login_path)) %>][1]
+<%= t('notifier.comment_on_post.post_activity') %>[<%= t('notifier.comment_on_post.link', :link => link_to(t('notifier.comment_on_post.link'), login_path)) %>][1]
 
 [1]: <%= post_url(@notification.comment_post) %>

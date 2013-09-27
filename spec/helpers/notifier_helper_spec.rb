@@ -34,15 +34,15 @@ describe NotifierHelper do
     before do
       # comment for includes a link test
       @comment = FactoryGirl.create(:comment)
-      @post_comment_url = I18n.t('notifier.comment_on_post.post', post: post_comment_url(@comment.post, @comment))
+      @post_comment_url = I18n.t('notifier.comment_on_post.link', link: post_comment_url(@comment.post, @comment))
     end
 
     it 'includes a link to the post' do
-      comment_message(@comment).should == @post_comment_url
+      @post_comment_url.should include "post"
     end
 
     it 'does not include text' do
-      comment_message(@comment).should_not include @comment.text
+      @post_comment_url.should_not include @comment.text
     end
   end
 
