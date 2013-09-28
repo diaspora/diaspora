@@ -36,14 +36,4 @@ describe NotifierHelper do
       @comment = FactoryGirl.create(:comment)
       @post_comment_url = I18n.t('notifier.comment_on_post.link', link: post_comment_url(@comment.post, @comment))
     end
-
-    it 'includes a link to the post' do
-      @post_comment_url.should include "post"
-    end
-
-    it 'does not include text' do
-      @post_comment_url.should_not include @comment.text
-    end
   end
-
-end

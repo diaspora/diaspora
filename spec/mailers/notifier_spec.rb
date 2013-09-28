@@ -213,6 +213,11 @@ describe Notifier do
     let(:comment) { eve.comment!(commented_post, "Totally is")}
 
     describe ".comment_on_post" do
+      before do
+      # comment for includes a link test
+        @comment = FactoryGirl.create(:comment)
+        @post_comment_url = I18n.t('notifier.comment_on_post.link', link: post_comment_url(@comment.post, @comment))
+      end
       let(:comment_mail) {Notifier.comment_on_post(bob.id, person.id, comment.id).deliver}
 
       it 'TO: goes to the right person' do
@@ -235,8 +240,11 @@ describe Notifier do
         it 'should not include translation fallback' do
           comment_mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
         end
+     
+        it 'does not include text' do
+          @post_comment_url.should_not include @comment.text
+        end
       end
-
       [:reshare].each do |post_type|
         context post_type.to_s do
           let(:commented_post) { FactoryGirl.create(post_type, :author => bob.person) }
@@ -250,6 +258,11 @@ describe Notifier do
     end
 
     describe ".also_commented" do
+      before do
+      # comment for includes a link test
+        @comment = FactoryGirl.create(:comment)
+        @post_comment_url = I18n.t('notifier.comment_on_post.link', link: post_comment_url(@comment.post, @comment))
+      end
       let(:comment_mail) { Notifier.also_commented(bob.id, person.id, comment.id) }
 
       it 'TO: goes to the right person' do
@@ -271,6 +284,9 @@ describe Notifier do
 
         it 'should not include translation fallback' do
           comment_mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
+        end
+        it 'does not include text' do
+          @post_comment_url.should_not include @comment.text
         end
       end
       [:reshare].each do |post_type|
