@@ -29,11 +29,3 @@ describe NotifierHelper do
       post_message(@markdown_post, opts).should == @striped_markdown_post
     end
   end
-
-  describe '#comment_message' do
-    before do
-      # comment for includes a link test
-      @comment = FactoryGirl.create(:comment)
-      @post_comment_url = I18n.t('notifier.comment_on_post.link', link: post_comment_url(@comment.post, @comment))
-    end
-  end
