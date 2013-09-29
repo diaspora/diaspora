@@ -29,7 +29,7 @@ class AccountDeleter
     remove_share_visibilities_on_persons_posts
     delete_contacts_of_me
     tombstone_person_and_profile
-    
+
     if self.user
       #user deletion methods
       remove_share_visibilities_on_contacts_posts
@@ -50,7 +50,7 @@ class AccountDeleter
   end
 
   def ignored_ar_user_associations
-    [:followed_tags, :invited_by, :contact_people, :aspect_memberships, :ignored_people]
+    [:followed_tags, :invited_by, :contact_people, :aspect_memberships, :ignored_people, :conversation_visibilities, :conversations]
   end
 
   def delete_standard_user_associations
@@ -101,12 +101,12 @@ class AccountDeleter
   def delete_contacts_of_me
     Contact.all_contacts_of_person(self.person).destroy_all
   end
-  
+
   def normal_ar_person_associates_to_delete
     [:posts, :photos, :mentions, :participations, :roles]
   end
 
   def ignored_or_special_ar_person_associations
-    [:comments, :contacts, :notification_actors, :notifications, :owner, :profile ]
+    [:comments, :contacts, :notification_actors, :notifications, :owner, :profile, :conversation_visibilities]
   end
 end
