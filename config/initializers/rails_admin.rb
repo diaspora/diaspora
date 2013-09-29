@@ -40,7 +40,7 @@ if Rails.env.production?
 
     #  ==> Included models
     # Add all excluded models here:
-    config.excluded_models = [AspectMembership, AspectVisibility, ShareVisibility, ConversationVisibility,  NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, Reshare, Services::Facebook, Services::Tumblr, Services::Twitter,  UserPreference]
+    config.excluded_models = [AspectMembership, AspectVisibility, ShareVisibility, ConversationVisibility,  NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, Reshare, Services::Facebook, Services::Tumblr, Services::Twitter, UserPreference, ActsAsTaggableOn::Tag]
 
     # Add models here if you want to go 'whitelist mode':
     # config.included_models = [AccountDeletion, ActsAsTaggableOn::Tag, Aspect, AspectMembership, AspectVisibility, Block, Comment, Contact, Conversation, ConversationVisibility, Invitation, InvitationCode, Like, Mention, Message, Notification, NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, OEmbedCache, Participation, Person, Photo, Pod, Post, Profile, Reshare, Service, ServiceUser, Services::Facebook, Services::Tumblr, Services::Twitter, ShareVisibility, StatusMessage, TagFollowing, User, UserPreference]
