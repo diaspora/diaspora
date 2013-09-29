@@ -208,6 +208,37 @@ FactoryGirl.define do
     association(:post, :factory => :status_message)
   end
 
+  factory(:conversation) do
+    association(:author, factory: :person)
+    sequence(:subject) { |n| "conversation ##{n}" }
+
+    after(:build) do |c|
+      c.participants << c.author
+    end
+  end
+
+  factory(:conversation_with_message, parent: :conversation) do
+    after(:build) do |c|
+      msg = FactoryGirl.build(:message)
+      msg.conversation_id = c.id
+      c.participants << msg.author
+      msg.save
+    end
+  end
+
+  factory(:message) do
+    association(:author, factory: :person)
+    sequence(:text) { |n| "message text ##{n}" }
+  end
+
+  factory(:message_with_conversation, parent: :message) do
+    after(:build) do |msg|
+      c = FactoryGirl.build(:conversation)
+      c.participants << msg.author
+      msg.conversation_id = c.id
+    end
+  end
+
   #templates
   factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
 

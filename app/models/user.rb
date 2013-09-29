@@ -61,6 +61,9 @@ class User < ActiveRecord::Base
   has_many :blocks
   has_many :ignored_people, :through => :blocks, :source => :person
 
+  has_many :conversation_visibilities, through: :person, order: 'updated_at DESC'
+  has_many :conversations, through: :conversation_visibilities, order: 'updated_at DESC'
+
   has_many :notifications, :foreign_key => :recipient_id
 
   before_save :guard_unconfirmed_email,
@@ -338,7 +341,7 @@ class User < ActiveRecord::Base
 
   def update_profile_with_omniauth( user_info )
     update_profile( self.profile.from_omniauth_hash( user_info ) )
-  end 
+  end
 
   def deliver_profile_update
     Postzord::Dispatcher.build(self, profile).post

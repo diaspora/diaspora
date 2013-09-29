@@ -4,19 +4,18 @@ class ConversationsController < ApplicationController
   respond_to :html, :mobile, :json, :js
 
   def index
-    @conversations = Conversation.joins(:conversation_visibilities).where(
-      :conversation_visibilities => {:person_id => current_user.person_id}).paginate(
-      :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
+    @conversations = current_user.conversations.paginate(
+      :page => params[:page], :per_page => 15)
 
-    @visibilities = ConversationVisibility.where(:person_id => current_user.person_id).paginate(
-      :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
-      
+    @visibilities = current_user.conversation_visibilities.paginate(
+      :page => params[:page], :per_page => 15)
+
     @conversation = Conversation.joins(:conversation_visibilities).where(
       :conversation_visibilities => {:person_id => current_user.person_id, :conversation_id => params[:conversation_id]}).first
 
     @unread_counts = {}
     @visibilities.each { |v| @unread_counts[v.conversation_id] = v.unread }
-    
+
     @first_unread_message_id = @conversation.try(:first_unread_message, current_user).try(:id)
 
     @authors = {}
@@ -60,8 +59,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    if @conversation = Conversation.joins(:conversation_visibilities).where(:id => params[:id],
-                                                                            :conversation_visibilities => {:person_id => current_user.person_id}).first
+    if @conversation = current_user.conversations.where(id: params[:id]).first
 
       @first_unread_message_id = @conversation.first_unread_message(current_user).try(:id)
       if @visibility = ConversationVisibility.where(:conversation_id => params[:id], :person_id => current_user.person.id).first
