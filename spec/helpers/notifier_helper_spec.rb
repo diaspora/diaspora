@@ -29,3 +29,4 @@ describe NotifierHelper do
       post_message(@markdown_post, opts).should == @striped_markdown_post
     end
   end
+end
