@@ -9,6 +9,7 @@
 * Refactor 404.html, fix [#4078](https://github.com/diaspora/diaspora/issues/4078)
 * Remove the (now useless) last post link from the user profile. [#4540](https://github.com/diaspora/diaspora/pull/4540)
 * Refactor ConversationsController, move query building to User model. [#4547](https://github.com/diaspora/diaspora/pull/4547)
+* Refactor the Twitter service model [#4387](https://github.com/diaspora/diaspora/pull/4387)
 
 ## Bug fixes
 * Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
