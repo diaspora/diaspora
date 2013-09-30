@@ -5,6 +5,31 @@
 require 'spec_helper'
 
 describe User do
+  context "relations" do
+    context "#conversations" do
+      it "doesn't find anything when there is nothing to find" do
+        u = FactoryGirl.create(:user)
+        u.conversations.should be_empty
+      end
+
+      it "finds the users conversations" do
+        c = FactoryGirl.create(:conversation, { author: alice.person })
+
+        alice.conversations.should include c
+      end
+
+      it "doesn't find other users conversations" do
+        c1 = FactoryGirl.create(:conversation)
+        c2 = FactoryGirl.create(:conversation)
+        c_own = FactoryGirl.create(:conversation, { author: alice.person })
+
+        alice.conversations.should include c_own
+        alice.conversations.should_not include c1
+        alice.conversations.should_not include c2
+      end
+    end
+  end
+
   describe "private key" do
     it 'has a key' do
       alice.encryption_key.should_not be nil
