@@ -78,16 +78,16 @@ describe PostPresenter do
   describe '#title' do 
     context 'with posts with text' do
       context 'with a Markdown header of less than 200 characters on first line'do
-        it 'returns atx style header' do
+        it 'returns title without markdown-syntax in case of atx style header' do
           @sm = stub(:text => "## My title\n Post content...")
           @presenter.post = @sm
-          @presenter.title.should == "## My title"
+          @presenter.title.should == "My title"
         end
 
-        it 'returns setext style header' do
+        it 'returns title without markdown-syntax in case of setext style header' do
           @sm = stub(:text => "My title \n======\n Post content...")
           @presenter.post = @sm
-          @presenter.title.should == "My title \n======"
+          @presenter.title.should == "My title"
         end
       end
       context 'without a Markdown header of less than 200 characters on first line 'do
