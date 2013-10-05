@@ -235,10 +235,6 @@ describe Notifier do
         it 'should not include translation fallback' do
           comment_mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
         end
-     
-        it 'does not include text' do
-          comment_mail.body.encoded.should_not include(comment.text)
-        end
       end
       [:reshare].each do |post_type|
         context post_type.to_s do
@@ -274,9 +270,6 @@ describe Notifier do
 
         it 'should not include translation fallback' do
           comment_mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
-        end
-        it 'does not include text' do
-          comment_mail.body.encoded.should_not include(comment.text)
         end
       end
       [:reshare].each do |post_type|
