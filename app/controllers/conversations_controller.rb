@@ -30,15 +30,13 @@ class ConversationsController < ApplicationController
   def create
     # Can't split nil
     if params[:contact_ids]
-      person_ids = Contact.where(:id => params[:contact_ids].split(',')).map(&:person_id)
+      person_ids = current_user.contacts.where(id: params[:contact_ids].split(',')).pluck(:person_id)
     end
 
-    @conversation = Conversation.new
-    @conversation.subject = params[:conversation][:subject]
-    @conversation.participant_ids = [*person_ids] | [current_user.person_id]
-    @conversation.author = current_user.person
-    message_text = params[:conversation][:text]
-    @conversation.messages_attributes = [ {:author => current_user.person, :text => message_text }]
+    opts = params.require(:conversation).permit(:subject)
+    opts[:participant_ids] = person_ids
+    opts[:message] = { text: params[:conversation][:text] }
+    @conversation = current_user.build_conversation(opts)
 
     @response = {}
     if person_ids.present? && @conversation.save
