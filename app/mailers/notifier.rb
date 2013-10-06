@@ -73,16 +73,8 @@ class Notifier < ActionMailer::Base
   def comment_on_post(recipient_id, sender_id, comment_id)
     send_notification(:comment_on_post, recipient_id, sender_id, comment_id)
   end
-  
-  def comment_on_public_post(recipient_id, sender_id, comment_id)
-    send_notification(:comment_on_post, recipient_id, sender_id, comment_id)
-  end
 
   def also_commented(recipient_id, sender_id, comment_id)
-    send_notification(:also_commented, recipient_id, sender_id, comment_id)
-  end
-
-  def also_commented_on_public_post(recipient_id, sender_id, comment_id)
     send_notification(:also_commented, recipient_id, sender_id, comment_id)
   end
 

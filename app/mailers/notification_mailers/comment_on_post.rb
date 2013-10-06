@@ -5,6 +5,8 @@ module NotificationMailers
 
     attr_accessor :comment
     delegate :post, to: :comment, prefix: true
+    attr_accessor :post
+    delegate :author_name, to: :post, prefix: true
 
     def set_headers(comment_id)
       @comment = Comment.find(comment_id)

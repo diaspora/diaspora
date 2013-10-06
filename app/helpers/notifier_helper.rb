@@ -1,4 +1,6 @@
 module NotifierHelper
+module Diaspora; module Fetcher; class Public
+
   
   # @param post [Post] The post object. 
   # @param opts [Hash] Optional hash.  Accepts :length and :process_newlines parameters.
@@ -18,6 +20,14 @@ module NotifierHelper
   # @param comment [Comment] The comment to process.
   # @param opts [Hash] Optional hash.  Accepts :length and :process_newlines parameters.
   # @return [String] The truncated and formatted comment.
+  def check_public post
+      ispublic = (post['public'] == true)
+
+      FEDERATION_LOGGER.warn "the post (#{post['guid']}) is not public, this is not intended..." unless ispublic
+
+      ispublic
+  end
+
   def comment_message(comment, opts={})
     opts[:length] ||= 600
     text = strip_markdown(comment.text)
@@ -26,3 +36,4 @@ module NotifierHelper
     text
   end
 end
+end; end; end
