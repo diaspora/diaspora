@@ -9,9 +9,22 @@ ga:
     mailer:
       hello: "Haileo %{email}!"
       invitation_instructions:
+        finally: "Tá sé anseo - ar deireadh!"
+        sign_up_now: "Cláraigh anois &rarr;"
+        have_fun: "Beir Bua"
+        cubbies: "Cubbi.es"
+        team_diaspora: "An Foireann Diaspora"
+        email_address: "questions@joindiaspora.com"
+        accept: "glacadh leis an gcuireadh"
+        here: "anseo"
         love: "Grá"
       welcome: "Fáilte %{email}!"
     sessions:
       new:
         login: "Logáil isteach"
+        username: 'Ainm úsáideoir'
         password: "Pasfhocal"
+        sign_in: 'Sínigh isteach'
+        remember_me: "Cuimhnigh orm"
+      signed_in: 'Sínithe isteach rathúil.'
+      signed_out: 'Sínithe amach rathúil.'
