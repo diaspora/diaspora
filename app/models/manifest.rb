@@ -52,14 +52,36 @@ class Manifest < ActiveRecord::Base
   end
 
   def verify jwt
+    developer_handle = self.devloper_handle_from_jwt jwt
+    person = Webfinger.new(developer_handle).fetch
+    JWT.decode(self.signed_jwt, person.public_key)
+  end
+
+  def self.by_signed_jwt jwt
+    manifest = Manifest.new
     begin
      payload = JWT.decode(jwt, nil, false)
-     developer_handle = payload["dev_handle"]
     rescue JWT::DecodeError => e
      return nil
     end
-    person = Webfinger.new(developer_handle).fetch
-    JWT.decode(self.signed_jwt, person.public_key)
+    manifest.callback_url = payload["callback_url"]
+    manifest.redirect_url = payload["redirect_url"]
+    manifest.scopes = payload["access"]
+    manifest.app_id = payload["app_details"]["id"]
+    manifest.app_name = payload["app_details"]["name"]
+    manifest.app_description = payload["app_details"]["description"]
+    manifest.app_version = payload["app_details"]["version"]
+    manifest.signed_jwt = jwt
+    manifest
+  end
+
+  def devloper_handle_from_jwt jwt
+    begin
+     payload = JWT.decode(jwt, nil, false)
+     return payload["dev_handle"]
+    rescue JWT::DecodeError => e
+     return nil
+    end
   end
 
   private
