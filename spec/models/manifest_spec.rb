@@ -60,7 +60,8 @@ describe Manifest do
           :app_details => { :name=>"cool birds", :id=> manifest.app_id, :description=>"Birds in this app are cool!", :version=>"1" },
           :callback_url => "http://coolbirds.com/diasporaapp",
           :redirect_url => "http://coolbirds.com/welcome",
-          :access => ["post_write", "contact_list_read"]
+          :access => ["post_write", "contact_list_read"],
+          :signed_jwt => manifest.signed_jwt
         }
 
         manifest.manifest_hash.should == expected_hash
