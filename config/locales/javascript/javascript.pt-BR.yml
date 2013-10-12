@@ -10,11 +10,11 @@ pt-BR:
     aspect_dropdown:
       add_to_aspect: "Adicionar contato"
       all_aspects: "Todos aspectos"
-      error: "Não foi possível compartilhar com {{name}}.  Deseja ignorar isto?"
+      error: "Não foi possível compartilhar com <%= name %>.  Deseja ignorar isto?"
       error_remove: "Não foi possível remover <%= name %> do grupo :("
       select_aspects: "Selecione os aspectos"
-      started_sharing_with: "Você começou a compartilhar com {{name}}!"
-      stopped_sharing_with: "Você parou de compartilhar com {{name}}."
+      started_sharing_with: "Você começou a compartilhar com <%= name %>!"
+      stopped_sharing_with: "Você parou de compartilhar com <%= name %>."
       toggle:
         one: "Em <%= count %> grupo"
         other: "Em <%= count %> grupos"
@@ -38,7 +38,7 @@ pt-BR:
     failed_to_post_message: "Falha em postar a mensagem!"
     getting_started:
       alright_ill_wait: "Tudo bem, eu esperarei."
-      hey: "Ei, {{name}}!"
+      hey: "Ei, <%= name %>!"
       no_tags: "Ei, você não está seguindo todas as tags! Continuar assim mesmo?"
       preparing_your_stream: "Preparando seu fluxo personalizado..."
     header:
@@ -68,10 +68,10 @@ pt-BR:
       not_found: "e ninguém foi encontrado..."
     photo_uploader:
       completed: "<%= file %> completo"
-      empty: "{file} está vazio, por favor selecione arquivos novamente."
-      invalid_ext: "{file} possui extensão inválida. Somente {extensions} são permitidas."
+      empty: "<%= file %> está vazio, por favor selecione arquivos novamente."
+      invalid_ext: "<%= file %> possui extensão inválida. Somente <%= extensions %> são permitidas."
       looking_good: "OMG, veja você é incrível!"
-      size_error: "{file} é muito grande, o tamanho máximo do arquivo é {sizeLimit}."
+      size_error: "<%= file %> é muito grande, o tamanho máximo do arquivo é <%= sizeLimit %>."
     publisher:
       at_least_one_aspect: "Você deve publicar pelo menos um grupo"
       limited: "Limitada - a sua postagem será visível apenas para as pessoas que você compartilha."
@@ -81,7 +81,7 @@ pt-BR:
       duplicate: "Você já compartilhou essa postagem."
       post: "Compartilhar o post <%= name %>?"
       successful: "O post foi compartilhado com sucesso!"
-    search_for: "Procurar por {{name}}"
+    search_for: "Procurar por <%= name %>"
     show_more: "mostrar mais"
     stream:
       comment: "Comentar"
@@ -119,7 +119,7 @@ pt-BR:
       unfollow: "Parar de seguir"
       unlike: "Descurtir"
     tags:
-      wasnt_that_interesting: "Ok, eu acho que #{{tagName}} não era tão interessante..."
+      wasnt_that_interesting: "Ok, eu acho que #<%= tagName %> não era tão interessante..."
     timeago:
       day: "um dia"
       days: "%d dias"
@@ -138,7 +138,7 @@ pt-BR:
       years: "%d anos"
     videos:
       unknown: "Tipo de vídeo desconhecido"
-      watch: "Assista este vídeo no {{provider}}"
+      watch: "Assista este vídeo no <%= provider %>"
     viewer:
       comment: "Comentário"
       follow_post: "Seguir postagem"
