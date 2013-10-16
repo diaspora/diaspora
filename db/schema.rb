@@ -123,6 +123,16 @@ ActiveRecord::Schema.define(:version => 20131128065516) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "dauth_refresh_tokens", :force => true do |t|
+    t.string   "user_id"
+    t.string   "app_id"
+    t.string   "token"
+    t.string   "secret"
+    t.text     "scopes"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "invitation_codes", :force => true do |t|
     t.string   "token"
     t.integer  "user_id"

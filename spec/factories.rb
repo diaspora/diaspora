@@ -257,6 +257,12 @@ FactoryGirl.define do
     scopes ["post_write", "contact_list_read"]
   end
 
+  factory :refresh_token, {:class => Dauth::RefreshToken} do
+    sequence(:app_id) { |n| "#{n}" }
+    association(:user, :factory => :user)
+    scopes ["post_write", "contact_list_read"]
+  end
+
   #templates
   factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
 
