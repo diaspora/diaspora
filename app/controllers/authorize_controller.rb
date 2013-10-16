@@ -1,5 +1,5 @@
 class AuthorizeController < ApplicationController
-
+  include Authenticator
   before_filter :authenticate_user!, :except => :verify
   ALL_SCOPES = %w(profile_read 
                   contact_list_read 
@@ -62,5 +62,32 @@ class AuthorizeController < ApplicationController
       render :status => :bad_request, :json => {:error => "002"}
     end
   end
-  
+
+  def update
+    if params[:commit] == 'Deny'
+      redirect_to stream_path
+      return
+    end
+
+    access_request = Dauth::AccessRequest.find_by_auth_token(params[:authorize_token])
+    current_user = Person.find_by_diaspora_handle(params[:handle]).owner
+    refresh_token = current_user.refresh_tokens.find_or_create_by_app_id(access_request.app_id)
+
+    if params[:scopes]
+      refresh_token.scopes = access_request.scopes + params[:scopes]
+    else
+      refresh_token.scopes = access_request.scopes
+    end
+
+    if refresh_token.save
+      #TODO save third-party application details
+    else
+      Rails.logger.info("Unable to generate refresh token")
+      redirect_to access_request.redirect_url
+      send_error_to_app access_request.callback_url, "101"
+      return
+    end
+    redirect_to access_request.redirect_url
+    send_refresh_token_to_app refresh_token.token, access_request.callback_url, current_user.diaspora_handle
+  end
 end
