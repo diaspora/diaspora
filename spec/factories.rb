@@ -268,6 +268,10 @@ FactoryGirl.define do
     dev_handle "dev@pod.com"
   end
 
+  factory :access_token, {:class => Dauth::AccessToken} do
+    association(:refresh_token, :factory => :refresh_token)
+  end
+
   #templates
   factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
 

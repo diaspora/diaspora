@@ -4,6 +4,7 @@ class Dauth::RefreshToken < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :app, :class_name => 'Dauth::ThirdpartyApp'
+  has_many :access_tokens, :class_name => 'Dauth::AccessToken'
 
   attr_accessible :scopes,
                   :secret,
