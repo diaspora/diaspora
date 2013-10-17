@@ -1,2 +1,0 @@
-<%= t('notifier.post_reporter_email.body') %>
-

@@ -91,7 +91,7 @@ en:
       user_search: "User Search"
       weekly_user_stats: "Weekly User Stats"
       pod_stats: "Pod Stats"
-      post_reporter: "Reported Posts"
+      post_report: "Reported Posts"
       correlations: "Correlations"
       sidekiq_monitor: "Sidekiq monitor"
     correlations:
@@ -717,7 +717,7 @@ en:
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
-    post_reporter_email:
+    post_report_email:
         subject: "A new post was marked as offensive"
         body: "Please review as soon as possible!"
     accept_invite: "Accept Your diaspora* invite!"
@@ -849,7 +849,7 @@ en:
         other: "%{count} photos by %{author}"
       reshare_by: "Reshare by %{author}"
 
-  post_reporter:
+  post_report:
     title: "Marked Reports Overview"
     post_label: "<b>Post</b>: %{title}"
     reported_label: "<b>Reported by</b> %{person}"

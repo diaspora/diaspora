@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PostReporterController do
+describe PostReportController do
   before do
     sign_in alice
     @message = alice.post(:status_message, :text => "hey", :to => alice.aspects.first.id)
@@ -30,7 +30,7 @@ describe PostReporterController do
       it 'succeeds' do
         put :create, :post_id => @message.id, :text => 'offensive content'
         response.status.should == 200
-        PostReporter.exists?(:post_id => @message.id).should be_true
+        PostReport.exists?(:post_id => @message.id).should be_true
       end
     end
   end
@@ -40,7 +40,7 @@ describe PostReporterController do
       it 'is behind redirect_unless_admin' do
         put :update, :id => @message.id
         response.should redirect_to stream_path
-        PostReporter.where(:reviewed => false, :post_id => @message.id).should be_true
+        PostReport.where(:reviewed => false, :post_id => @message.id).should be_true
       end
     end
 
@@ -51,7 +51,7 @@ describe PostReporterController do
       it 'succeeds' do
         put :update, :id => @message.id
         response.status.should == 302
-        PostReporter.where(:reviewed => true, :post_id => @message.id).should be_true
+        PostReport.where(:reviewed => true, :post_id => @message.id).should be_true
       end
     end
   end
@@ -61,7 +61,7 @@ describe PostReporterController do
       it 'is behind redirect_unless_admin' do
         delete :destroy, :id => @message.id
         response.should redirect_to stream_path
-        PostReporter.where(:reviewed => false, :post_id => @message.id).should be_true
+        PostReport.where(:reviewed => false, :post_id => @message.id).should be_true
       end
     end
 
@@ -72,7 +72,7 @@ describe PostReporterController do
       it 'succeeds' do
         delete :destroy, :id => @message.id
         response.status.should == 302
-        PostReporter.where(:reviewed => true, :post_id => @message.id).should be_true
+        PostReport.where(:reviewed => true, :post_id => @message.id).should be_true
       end
     end
   end

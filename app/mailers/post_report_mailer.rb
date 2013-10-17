@@ -10,9 +10,9 @@ class PostReportMailer < ActionMailer::Base
 
   private
     def format(email)
-      mail(to: email, subject: I18n.t('notifier.post_reporter_email.subject')) do |format|
-        format.text { render 'post_reporter/post_reporter_email' }
-        format.html { render 'post_reporter/post_reporter_email' }
+      mail(to: email, subject: I18n.t('notifier.post_report_email.subject')) do |format|
+        format.text { render 'post_report/post_report_email' }
+        format.html { render 'post_report/post_report_email' }
       end
     end
 end
