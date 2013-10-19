@@ -239,6 +239,16 @@ FactoryGirl.define do
     end
   end
 
+  factory(:manifest) do
+    association(:dev, :factory => :user)
+    app_name "cool birds"
+    app_description "Birds in this app are cool!"
+    app_version "1"
+    callback_url "http://coolbirds.com/diasporaapp"
+    redirect_url "http://coolbirds.com/welcome"
+    scopes ["post_write", "contact_list_read"]
+  end
+
   #templates
   factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
 

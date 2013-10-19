@@ -160,6 +160,21 @@ ActiveRecord::Schema.define(:version => 20130801063213) do
     t.datetime "updated_at",        :null => false
   end
 
+  create_table "manifests", :force => true do |t|
+    t.integer  "dev_id"
+    t.string   "app_id"
+    t.string   "app_description"
+    t.string   "app_name"
+    t.string   "app_version"
+    t.string   "manifest_ver"
+    t.string   "callback_url"
+    t.string   "redirect_url"
+    t.text     "signed_jwt"
+    t.text     "scopes"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "mentions", :force => true do |t|
     t.integer "post_id",   :null => false
     t.integer "person_id", :null => false
