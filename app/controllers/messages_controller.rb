@@ -11,10 +11,8 @@ class MessagesController < ApplicationController
   def create
     conversation = Conversation.find(params[:conversation_id])
 
-    message = conversation.messages.build(
-      :text   => params[:message][:text],
-      :author => current_user.person
-    )
+    opts = params.require(:message).permit(:text)
+    message = current_user.build_message(conversation, opts)
 
     if message.save
       Rails.logger.info("event=create type=comment user=#{current_user.diaspora_handle} status=success message=#{message.id} chars=#{params[:message][:text].length}")

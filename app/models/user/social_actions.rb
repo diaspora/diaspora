@@ -36,6 +36,13 @@ module User::SocialActions
     end
   end
 
+  def build_message(conversation, opts={})
+    conversation.messages.build(
+      text: opts[:text],
+      author: self.person
+    )
+  end
+
   def find_or_create_participation!(target)
     participations.where(:target_id => target).first || participate!(target)
   end
