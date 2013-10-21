@@ -62,6 +62,10 @@ prefork = proc do
     @photo_fixture_name = File.join(File.dirname(__FILE__), 'fixtures', 'button.png')
   end
 
+  def parse_json(body)
+    JSON.parse(body, symbolize_names: true)
+  end
+
   # Force fixture rebuild
   FileUtils.rm_f(Rails.root.join('tmp', 'fixture_builder.yml'))
 
@@ -112,6 +116,6 @@ RSpec.configure do |config|
     DeferredGarbageCollection.start
   end
   config.after(:all) do
-    DeferredGarbageCollection.reconsider 
+    DeferredGarbageCollection.reconsider
   end
 end

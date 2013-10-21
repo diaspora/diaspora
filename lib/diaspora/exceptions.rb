@@ -16,7 +16,7 @@ module Diaspora
   # that prevents further execution
   class NotMine < StandardError
   end
-  
+
 
   # Received a message without having a contact
   class ContactRequiredUnlessRequest < StandardError
@@ -29,5 +29,15 @@ module Diaspora
   # After building an object the author doesn't match the one in the
   # original XML message
   class AuthorXMLAuthorMismatch < StandardError
+  end
+
+  module Backbone
+    # the request was malformed or didn't include essential fields
+    class BadRequest < StandardError
+    end
+
+    # the requested entity could not be found
+    class NotFound < StandardError
+    end
   end
 end
