@@ -218,7 +218,7 @@ FactoryGirl.define do
   end
 
   factory(:conversation_with_message, parent: :conversation) do
-    after(:build) do |c|
+    after(:create) do |c|
       msg = FactoryGirl.build(:message)
       msg.conversation_id = c.id
       c.participants << msg.author
@@ -235,6 +235,7 @@ FactoryGirl.define do
     after(:build) do |msg|
       c = FactoryGirl.build(:conversation)
       c.participants << msg.author
+      c.save
       msg.conversation_id = c.id
     end
   end
