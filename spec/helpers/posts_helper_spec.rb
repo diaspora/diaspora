@@ -21,13 +21,13 @@ describe PostsHelper do
       end
       context 'when :length is not passed in parameters' do
         context 'with a Markdown header of less than 200 characters on first line'do
-          it 'returns atx style header' do
+          it 'returns title without markdown-syntax in case of atx style header' do
             @sm = stub(:text => "## My title\n Post content...")
-            post_page_title(@sm).should == "## My title"
+            post_page_title(@sm).should == "My title"
           end
-          it 'returns setext style header' do
+          it 'returns title without markdown-syntax in case of setext style header' do
             @sm = stub(:text => "My title \n======\n Post content...")
-            post_page_title(@sm).should ==  "My title \n======"
+            post_page_title(@sm).should ==  "My title"
           end
         end
         context 'without a Markdown header of less than 200 characters on first line 'do

@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 module PostsHelper
+    include MarkdownifyHelper
+
   def post_page_title(post, opts={})
     if post.is_a?(Photo)
       I18n.t "posts.show.photos_by", :count => 1, :author => post.status_message_author_name
@@ -17,8 +19,8 @@ module PostsHelper
                   |                                                                   # or
               (?<atx_content>\#{1,6}\s.{1,200})(?:\r?\n|$)                            # Atx-style header
                )/x   =~  post.text(:plain_text => true)
-          return setext_content unless setext_content.nil?
-          return atx_content unless atx_content.nil?
+          return strip_markdown(setext_content) unless setext_content.nil?
+          return strip_markdown(atx_content) unless atx_content.nil?
         else
           truncate(post.text(:plain_text => true), :length => 20 )
         end
