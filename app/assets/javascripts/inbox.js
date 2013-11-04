@@ -60,11 +60,6 @@ $(document).ready(function(){
     }
   });
 
-  resize();
-  $(window).resize(function(){
-    resize();
-  });
-
   $('#conversation_inbox .stream').infinitescroll({
     navSelector  : ".pagination",
                  // selector for the paged navigation (it will be hidden)
@@ -134,11 +129,3 @@ $(document).ready(function(){
     })
   });
 });
-
-var resize = function(){
-  var inboxSidebar = $('#conversation_inbox'),
-      inboxSidebarOffset = inboxSidebar.offset().top,
-      windowHeight = $(window).height();
-
-  inboxSidebar.css('height', windowHeight - inboxSidebarOffset);
-};
