@@ -30,7 +30,7 @@ Feature: show contacts
     And I add the person to my "Unicorns" aspect
     And I am on the contacts page
     And I follow "Unicorns"
-    And I follow "add contacts to Unicorns"
+    And I follow "Manage"
     And I press the first "a.contact_visibility_link" in the modal window
     And I press "Done" in the modal window
     And I sign out

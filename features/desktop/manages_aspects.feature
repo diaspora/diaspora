@@ -29,16 +29,16 @@ Feature: User manages contacts
     And I press "Delete" in the modal window
     And I confirm the alert
     Then I should be on the contacts page
-    And I should not see "People" within "#aspect_nav"
+    And I should not see "People" within "#aspects_list"
 
   Scenario: deleting an aspect from homepage
     Given I am signed in
     And I have an aspect called "People"
     When I am on the aspects page
     And I click on "People" aspect edit icon
-    And I press "Delete" in the modal window
+    And I follow "Delete" within "#aspect_controls"
     And I confirm the alert
-    Then I should be on the aspects page
+    Then I should be on the contacts page
     And I should not see "People" within "#aspects_list"
 
   Scenario: Editing the aspect memberships of a contact from the aspect edit facebox
