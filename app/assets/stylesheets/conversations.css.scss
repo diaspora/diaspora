@@ -1,0 +1,171 @@
+.conversation_participants {
+  box-shadow: 0 2px 3px -3px #666;
+  -webkit-box-shadow: 0 2px 3px -3px #666;
+  -moz-box-shadow: 0 2px 3px -3px #666;
+  
+  background-color: $background-white;
+  margin-bottom: 10px;
+  border-bottom: 1px solid $border-grey;
+  padding: 10px;
+  padding-top: 0px;
+  width: 560px;
+  line-height: 0px;
+
+  a.close_conversation {
+    display: block;
+    margin-top: 5px;
+    float: right;
+
+    .icons-deletelabel {
+      height: 14px;
+      width: 14px;
+    }
+  }
+
+  h3 {
+    margin: 0px;
+    margin-top: 6px;
+    padding-bottom: 10px;
+  }
+
+  .avatar {
+    height: 30px;
+    width: 30px;
+  }
+
+  .avatars {
+    text-align: right;
+    margin-top: 9px;
+  }
+  
+  a img { margin-bottom: 4px; }
+
+  .conversation_controls {
+    margin-bottom: 10px;
+    
+    a { margin-right: 10px; }
+  }
+}
+
+.conversation_participants a:hover { text-decoration: none; }
+
+.stream_element.conversation {
+  padding: 8px;
+
+  .message_count, .unread_message_count {
+    @include border-radius(5px);
+    float: right;
+    right: 5px;
+    padding: 0px 5px;
+    position: relative;
+    color: $background-grey;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  
+  .message_count { background-color: #999; }
+  .unread_message_count { background-color: #b11; }
+  .participant_count { font-weight: normal; }
+
+  .timestamp {
+    position: relative;
+    float: right;
+    font-weight: normal;
+    color: $blue;
+  }
+
+  .participants_link {
+    margin-top: 5px;
+    clear: right;
+    float: right;
+    color: #aaa;
+  }
+
+  .icons-users {
+    display: block;
+    width: 25px;
+    height: 16px;
+  }
+
+  .conversation_participants_popover_content {
+    display: none;
+  }
+
+  .conversation_participants_popover {
+    margin: 0px auto;
+    padding-left: 12px;
+  }
+
+  .avatar {
+    display: inline;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .participants_left { display: block; }
+  &:hover:not(.selected) { background-color: $highlight-white; }
+  &.selected:hover { background-color: lighten($blue,5%); }
+  &:hover { cursor: pointer; }
+}
+
+.conversation.unread {
+  background-color: darken($background-white, 5%);
+}
+
+.conversation.selected {
+  background-color: $blue;
+    
+  .subject,
+  .last_author {
+    color: $white;
+  }
+  .timestamp { color: $background-grey; }
+}
+
+#left_pane {
+  h3 {
+    padding-bottom: 0;
+    margin-bottom: 15px;
+  }
+
+  #left_pane_header {
+    position: fixed;
+    top: 50px;
+    width: 320px;
+    height: 40px;
+    padding: 10px;
+    border-bottom: 1px solid $border-grey;
+  }
+
+  #conversation_inbox {
+    position: fixed;
+    bottom: 0px;
+    top: 125px;
+    width: 350px;
+    overflow-y: auto;
+    overflow-x: none;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+#no_conversations,
+#no_conversation_text {
+  font-weight: bold;
+  color: #ccc;
+  text-align: center;
+  margin-top: 100px;
+}
+
+#no_conversation_text {
+  font-size: 20px;
+}
+
+#no_conversation_controls {
+  text-align: center;
+  font-size: 12px;
+}
