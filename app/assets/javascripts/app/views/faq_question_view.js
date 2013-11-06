@@ -16,7 +16,6 @@ app.views.FaqQuestionView = app.views.Base.extend({
   },
 
   afterRender: function(){
-    console.log("Rendered yo")
     var el = $(this.el)
     el.find('.question.collapsible').removeClass('opened').addClass('collapsed');
     el.find('.answer').hide();

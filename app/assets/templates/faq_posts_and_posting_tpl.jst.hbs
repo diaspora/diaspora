@@ -2,27 +2,27 @@
   <a class='toggle' href='#'>
     <h4>{{ hide_posts_q }}</h4>
   </a>
-  <div class='answer'>{{ hide_posts_a }}</div>
+  <div class='answer hideable'>{{ hide_posts_a }}</div>
   </div>
   <div class='question opened collapsible'>
     <a class='toggle' href='#'>
       <h4>{{ format_text_q }}</h4>
     </a>
-    <div class='answer'>
-      {{ format_text_a1 }} <a href="{{ format_text_url_1 }}" target="_blank">{{ format_text_link_1 }}</a>{{ format_text_a2 }} <a href="{{ format_text_url_2 }}" target="_blank">{{ format_text_link_2 }}</a>{{ format_text_a3 }}
+    <div class='answer hideable'>
+      {{{ format_text_a }}}
     </div>
   </div>
   <div class='question opened collapsible'>
     <a class='toggle' href='#'>
       <h4>{{ insert_images_q }}</h4>
     </a>
-    <div class='answer'>{{ insert_images_a }}</div>
+    <div class='answer hideable'>{{ insert_images_a }}</div>
   </div>
   <div class='question opened collapsible'>
     <a class='toggle' href='#'>
       <h4>{{ insert_images_comments_q }}</h4>
     </a>
-    <div class='answer'>
+    <div class='answer hideable'>
       {{ insert_images_comments_a1 }}
       <pre>![{{ image_text }}]( {{ image_url }})</pre>
       {{ insert_images_comments_a2 }}
@@ -32,31 +32,31 @@
     <a class='toggle' href='#'>
       <h4>{{ size_of_images_q }}</h4>
     </a>
-    <div class='answer'>{{ size_of_images_a }}</div>
+    <div class='answer hideable'>{{ size_of_images_a }}</div>
   </div>
   <div class='question opened collapsible'>
     <a class='toggle' href='#'>
       <h4>{{ embed_multimedia_q }}</h4>
     </a>
-    <div class='answer'>{{ embed_multimedia_a }}</div>
+    <div class='answer hideable'>{{ embed_multimedia_a }}</div>
   </div>
   <div class='question opened collapsible'>
     <a class='toggle' href='#'>
       <h4>{{ character_limit_q }}</h4>
     </a>
-    <div class='answer'>{{ character_limit_a }}</div>
+    <div class='answer hideable'>{{ character_limit_a }}</div>
   </div>
   <div class='question opened collapsible'>
     <a class='toggle' href='#'>
       <h4>{{ char_limit_services_q }}</h4>
     </a>
-    <div class='answer'>{{ char_limit_services_a }}</div>
+    <div class='answer hideable'>{{ char_limit_services_a }}</div>
   </div>
   <div class='question opened collapsible'>
     <a class='toggle' href='#'>
       <h4>{{ stream_full_of_posts_q }}</h4>
     </a>
-    <div class='answer'>
+    <div class='answer hideable'>
       {{ stream_full_of_posts_a1 }}
       <ol>
         <li>{{ stream_full_of_posts_li1 }}</li>
