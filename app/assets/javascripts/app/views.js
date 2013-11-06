@@ -29,6 +29,7 @@ app.views.Base = Backbone.View.extend({
     this.renderSubviews()
     this.renderPluginWidgets()
     this.removeTooltips()
+    this.afterRender()
 
     return this
   },
@@ -99,6 +100,10 @@ app.views.Base = Backbone.View.extend({
           });
         });
     }
+  },
+
+  afterRender: function(){
+    // Do nothing
   }
 });
 

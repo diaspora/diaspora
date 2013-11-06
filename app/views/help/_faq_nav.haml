@@ -1,7 +1,7 @@
 #faq_nav
   %ul
     %li= link_to_unless_current t('help.getting_help.title'), faq_getting_help_path
-    %li= link_to_unless_current t('help.account_and_data_management.title'), faq_account_and_data_management_path
+    %li= link_to_unless_current t('help.account_and_data_management.title'), faq_account_and_data_management_path, class: 'faq-link', data_items: ['move_pods', 'download_data', 'close_account', 'data_visible_to_podmin', 'data_other_podmins']
     %li= link_to_unless_current t('help.aspects.title'), faq_aspects_path
     %li= link_to_unless_current t('help.mentions.title'), faq_mentions_path
     %li= link_to_unless_current t('help.pods.title'), faq_pods_path
@@ -14,3 +14,4 @@
     %li= link_to_unless_current t('help.sharing.title'), faq_sharing_path
     %li= link_to_unless_current t('help.tags.title'), faq_tags_path
     %li= link_to_unless_current t('help.miscellaneous.title'), faq_miscellaneous_path
+    %span.xxx this is text

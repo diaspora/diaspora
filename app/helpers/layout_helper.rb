@@ -37,6 +37,15 @@ module LayoutHelper
     end
   end
 
+  def load_section_javascript_locales(section)
+    content_tag(:script) do
+      <<-JS.html_safe
+        Diaspora.I18n.loadLocale(#{get_diaspora_section_strings_for(section, I18n.locale).to_json}, "#{I18n.locale}");
+        Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
+      JS
+    end
+  end
+
   def current_user_atom_tag
     return #temp hax
 

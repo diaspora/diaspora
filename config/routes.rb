@@ -205,7 +205,7 @@ Diaspora::Application.routes.draw do
 
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
 
-  # Help
+  # help
   get 'help' => 'help#getting_help', :as => 'faq_getting_help'
   
   scope path: "/help/faq", :controller => :help, :as => 'faq' do
@@ -222,6 +222,7 @@ Diaspora::Application.routes.draw do
     get :resharing_posts
     get :sharing
     get :tags
+    get :faq
   end
 
   #Protocol Url
