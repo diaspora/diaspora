@@ -14,9 +14,20 @@ module LanguageHelper
       translations = I18n.t('javascripts', :locale => language)
       defaults.deep_merge!(translations)
     end
-    
+
     defaults['pluralization_rule'] = I18n.t('i18n.plural.js_rule', :locale => language)
     defaults['pod_name'] = pod_name
+    defaults
+  end
+
+  def get_diaspora_section_strings_for(section, language)
+    defaults = I18n.t(section, :locale => DEFAULT_LANGUAGE)
+
+    if language != DEFAULT_LANGUAGE
+      translations = I18n.t(section, :locale => language)
+      defaults.deep_merge!(translations)
+    end
+
     defaults
   end
 

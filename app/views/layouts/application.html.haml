@@ -39,6 +39,7 @@
     - unless @landing_page
       = javascript_include_tag :main, :templates
       = load_javascript_locales
+      = load_section_javascript_locales("help")
 
     = set_asset_host
     = translation_missing_warnings
