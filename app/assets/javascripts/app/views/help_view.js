@@ -59,10 +59,13 @@ app.views.Help = app.views.StaticContentView.extend({
     var items = el.data('items').split(" ");
 
     items.forEach(function(item, i){
-      var qa = {question: this.getText(section, item, true),
-              answer: this.getText(section, item, false)};
+      var qa = {
+        className: "faq_question_" + section,
+        question: this.getText(section, item, true),
+        answer: this.getText(section, item, false)
+      };
       item = new app.views.FaqQuestionView(qa);
-      $('#faq').append(item.render().el);
+      this.$el.find('#faq').append(item.render().el);
     }, this);
 
     this.setInitialVisibility();
@@ -74,8 +77,8 @@ app.views.Help = app.views.StaticContentView.extend({
   },
 
   setInitialVisibility: function() {
-    $('#faq .question.collapsible :first').addClass('opened').removeClass('collapsed');
-    $('#faq .question.collapsible .answer :first').show();
+    this.$el.find('#faq .question.collapsible :first').addClass('opened').removeClass('collapsed');
+    this.$el.find('#faq .question.collapsible .answer :first').show();
   },
 
   resetMenu: function(initial) {
@@ -94,7 +97,7 @@ app.views.Help = app.views.StaticContentView.extend({
   },
 
   clearItems: function() {
-    $('#faq').empty();
+    this.$el.find('#faq').empty();
   },
 
   sectionClicked : function(e) {
@@ -106,9 +109,9 @@ app.views.Help = app.views.StaticContentView.extend({
 
   renderStaticSection: function(section, template, subs) {
     this.clearItems();
-    data = Diaspora.I18n.locale[section];
-    section = new app.views.HelpSectionView( template, data, subs );
-    $('#faq').append(section.render().el);
+    data = $.extend(Diaspora.I18n.locale[section], { className: section });
+    help_section = new app.views.HelpSectionView( template, data, subs );
+    this.$el.find('#faq').append(help_section.render().el);
   },
 
   gettingHelp: function(e) {
