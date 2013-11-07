@@ -11,14 +11,16 @@ app.views.HelpSectionView = app.views.StaticContentView.extend({
     return this;
   },
 
-  afterRender: function() {
-    // Hide all questions
+  render: function(){
+    var section = app.views.Base.prototype.render.apply(this, arguments);
+
+    // After render actions
     $(this.el).find('.question.collapsible').removeClass('opened').addClass('collapsed');
     $(this.el).find('.answer.hideable').hide();
-
-    // Show first question
     $(this.el).find('.question.collapsible :first').addClass('opened').removeClass('collapsed');
     $(this.el).find('.answer.hideable :first').show();
+
+    return section;
   },
 
   toggled: function(e) {

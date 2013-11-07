@@ -15,10 +15,15 @@ app.views.FaqQuestionView = app.views.Base.extend({
     return this.data;
   },
 
-  afterRender: function(){
-    var el = $(this.el)
+  render: function(){
+    var section = app.views.Base.prototype.render.apply(this, arguments);
+
+    // After render actions
+    var el = $(this.el);
     el.find('.question.collapsible').removeClass('opened').addClass('collapsed');
     el.find('.answer').hide();
+
+    return section;
   },
 
   toggled: function(e) {

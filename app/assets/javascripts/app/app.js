@@ -39,7 +39,6 @@ var app = {
     this.setupHeader();
     this.setupBackboneLinks();
     this.setupGlobalViews();
-    this.setupHelpViews();
     this.setupDisabledLinks();
   },
 
@@ -102,13 +101,6 @@ var app = {
     app.hovercard = new app.views.Hovercard();
     app.aspectMemberships = new app.views.AspectMembership();
     app.sidebar = new app.views.Sidebar();
-  },
-
-  setupHelpViews: function() {
-    //TODO RS: Is this the right place from here?
-    app.help = new app.views.Help();
-    $("#help").prepend(app.help.el);
-    app.help.render();
   },
 
   /* mixpanel wrapper function */

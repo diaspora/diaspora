@@ -206,8 +206,6 @@ Diaspora::Application.routes.draw do
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
 
   # help
-  get 'help/faq' => 'help#faq', :as => 'faq_getting_help'
-  get 'help/faq' => 'help#faq', :as => 'faq'
   get 'help' => 'help#faq', :as => 'help'
 
   #Protocol Url

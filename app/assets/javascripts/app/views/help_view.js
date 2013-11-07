@@ -1,4 +1,3 @@
-//TODO RS: Would be nice to have #faq as the root elem or something
 app.views.Help = app.views.StaticContentView.extend({
   templateName : "help",
 
@@ -10,14 +9,13 @@ app.views.Help = app.views.StaticContentView.extend({
   },
 
   initialize : function(options) {
-    // TODO RS: Hard coded links are not nice. Should be in a config or something.
     this.GETTING_HELP_SUBS = {
       getting_started_a: { tutorial_series: this.linkHtml("http://diasporafoundation.org/getting_started/sign_up", Diaspora.I18n.t( 'getting_started_tutorial' )) },
       get_support_a_website: { link: this.linkHtml("https://diasporafoundation.org/", Diaspora.I18n.t( 'foundation_website' ))},
       get_support_a_tutorials: { tutorials: this.linkHtml("https://diasporafoundation.org/tutorials", Diaspora.I18n.t( 'tutorials' ))},
       get_support_a_wiki: { link: this.linkHtml("https://wiki.diasporafoundation.org/Special:Search", Diaspora.I18n.t( 'wiki' ))},
       get_support_a_irc: { irc: this.linkHtml("https://wiki.diasporafoundation.org/How_We_Communicate#IRC", Diaspora.I18n.t( 'irc' ))},
-      get_support_a_hashtag: { question: this.linkHtml("/tags/question", "#question")}, // TODO RS: Is this definitely hard coded?
+      get_support_a_hashtag: { question: this.linkHtml("/tags/question", "#question")},
 	};
 
     this.POSTS_AND_POSTING_SUBS = {
@@ -47,10 +45,14 @@ app.views.Help = app.views.StaticContentView.extend({
     return this;
   },
 
-  afterRender: function() {
-    this.resetMenu(true);
+  render: function(){
+    var section = app.views.Base.prototype.render.apply(this, arguments);
 
+    // After render actions
+    this.resetMenu(true);
     this.renderStaticSection("getting_help", "faq_getting_help", this.GETTING_HELP_SUBS);
+
+    return section;
   },
 
   showItems: function(el) {
