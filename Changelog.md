@@ -32,6 +32,7 @@
 * Add a white background to images shown in the lightbox [#4475](https://github.com/diaspora/diaspora/issues/4475)
 * Refactor getting_started page, test if facebook is available, fix [#4520](https://github.com/diaspora/diaspora/issues/4520)
 * Avoid publishing empty posts [#4542](https://github.com/diaspora/diaspora/pull/4542)
+* Force comments sort order in mobile spv [#4578](https://github.com/diaspora/diaspora/pull/4578)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
