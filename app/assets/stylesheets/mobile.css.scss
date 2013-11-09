@@ -17,6 +17,11 @@ body {
     /* scale background image down for iOS retina display */
     size: 200px;
   }
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#main.container {
   padding-top: 55px;
 }
 
@@ -26,6 +31,74 @@ h3 {
 
 .clear {
   clear: both;
+}
+
+#menu_badge {
+  float: right;
+  display: inline-block;
+  padding: 0px 10px 0px 12px;
+
+  img.menu {
+    height: 40px;
+  }
+}
+
+#app {
+  position: relative;
+  left: 0;
+  -moz-transition:left 0.35s;
+  -webkit-transition:left 0.35s;
+  -o-transition:left 0.35s;
+  transition:left 0.35s;
+}
+
+#main_nav {
+  -moz-transition:left 0.35s;
+  -webkit-transition:left 0.35s;
+  -o-transition:left 0.35s;
+  transition:left 0.35s;
+  height: 45px;
+}
+
+#drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 80%;
+  left: 100%;
+  background-color: #444;
+
+  -moz-transition:left 0.35s;
+  -webkit-transition:left 0.35s;
+  -o-transition:left 0.35s;
+  transition:left 0.35s;
+
+  .navbar {
+    .navbar-inner {
+      height: 45px;
+      border: none;
+      border-radius: 0;
+
+      @include box-shadow(0,1px,2px,#333);
+
+      background: {
+        image: image-url("header-bg-long.jpg");
+      }
+
+      width: 100%;
+    }
+  }
+}
+
+#app.draw {
+  left: -80%;
+
+  #main_nav {
+    left: -80%;
+  }
+  #drawer {
+    left: 20%;
+  }
 }
 
 .message {
@@ -78,7 +151,7 @@ h3 {
   .timeago {
     font: {
       weight: normal; }; }
-  padding: 0 !important; 
+  padding: 0 !important;
 }
 .shield{
   padding: 10px;
@@ -174,8 +247,8 @@ h3 {
 
 
 #main_stream {
-  margin-left: -10px;
-  margin-right: -10px;
+  margin-left: 10px;
+  margin-right: 10px;
   .from {
     white-space: nowrap;
     overflow: hidden;
@@ -241,9 +314,9 @@ h3 {
 
   .photo {
     text-align: center;
-    background-color: #FFFFFF; 
-    border-style: solid; 
-    border-width: 1px; 
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     border-color: #DDDDDD #BBBBBB #AAAAAA;
     border-bottom-width: 0px;
@@ -273,7 +346,7 @@ h3 {
     shadow: 0 1px 2px #333;
     decoration: none; };
   padding: 0;
-  position: fixed; 
+  position: fixed;
   bottom: 10%;
   z-index: 1;
   height: 50px;
@@ -299,7 +372,7 @@ h3 {
     margin-right: 10px;
     float: left;
   }
-  
+
   .content {
     padding-left: 100px;
   }
@@ -327,18 +400,19 @@ header {
   top: 0px;
   left: 0px;
   right: 0px;
-  min-width: 250px;
+  width: 100%;
   z-index: 10;
   background: url("header-bg-long.jpg") rgb(40,35,35);
   @include box-shadow(0, 1px, 2px, #333);
-  border-bottom: 1px solid #222;  
+  border-bottom: 1px solid #222;
 
   #header_title { display: inline-block; }
-  
+
   #nav_badges {
     float: right;
     margin: 4px 12px;
-    
+    display: inline-block;
+
     .badge {
       display: inline;
       margin-left: 3px;
@@ -348,11 +422,11 @@ header {
       font-size: smaller;
       width: 28px;
     }
-    
+
     .badge:hover .badge_count {
         background-color: #bd0902;
     }
-    
+
     a {
       padding: 5px 0px;
     }
@@ -806,18 +880,18 @@ form#new_conversation.new_conversation {
   h4 {
     font-size: 14px;
     font-weight: normal;
-    line-height: 20px;  
+    line-height: 20px;
   }
   .span-10 {
     margin: 5px;
-  }   
+  }
 }
 
 .span-2 {
    margin: 5px 5px;
    text-transform: uppercase;
 }
-  
+
 .span-10 {
   width: 100%;
 }
@@ -906,7 +980,7 @@ textarea#conversation_text {
 .registrations_error,
 .registrations_notice {
   color: #DF0101;
-  text-shadow: 1px 1px 5px #666; 
+  text-shadow: 1px 1px 5px #666;
 }
 
 .registrations {
@@ -947,7 +1021,7 @@ form#new_user.new_user input.btn {
 input#user_password, #user_username, #user_password_confirmation, #user_email {
   height: 30px;
 }
-  
+
 #flash_notice,
 #flash_alert,
 #flash_error {
@@ -970,7 +1044,7 @@ input#user_password, #user_username, #user_password_confirmation, #user_email {
 }
 
 h1.session {
-  font-size: 40px; 
+  font-size: 40px;
   font-weight: 200;
 }
 
@@ -1006,7 +1080,7 @@ form p.checkbox_select {
   img {
     @include border-radius(5px);
     @include box-shadow(0,1px,2px,#666);
-  
+
     position: absolute;
     left: 0;
     height: 100px;
@@ -1113,7 +1187,7 @@ select#aspect_ids_ {
   float: left;
   padding: 3px 12px;
   cursor: pointer;
-  
+
   &:hover img {
       @include opacity(0.4);
   }
@@ -1169,11 +1243,11 @@ select#aspect_ids_ {
     li {
       display: table-cell;
       padding-right: 4px;
-      
+
       img {
         max-height: 55px;
       }
-      
+
       .circle {
         @include border-radius(20px);
         z-index: 1;
@@ -1187,7 +1261,7 @@ select#aspect_ids_ {
         max-height: 20px;
         border: 1px solid #fff;
       }
-      
+
       .x  {
         z-index: 2;
         position: absolute;
@@ -1264,7 +1338,7 @@ select#aspect_ids_ {
   h1 { font-size: 25px; }
   h2 { font-size: 20px; }
   h3 { font-size: 15px; }
-  
+
   h2, #awesome_button {
     margin-top: 30px;
   }

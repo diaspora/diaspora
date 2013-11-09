@@ -26,6 +26,23 @@ $(document).ready(function(){
          .toggleClass('inactive');
   };
 
+  /* Drawer menu */
+  $('#menu_badge').click(function(evt){
+    evt.preventDefault();
+    toggleDrawerMenu();
+  });
+
+  var toggleDrawerMenu = function(){
+    var app = $("#app");
+
+    if (app.hasClass('draw')){
+      app.removeClass('draw');
+    }
+    else {
+      app.addClass('draw');
+    }
+  };
+
   /* Heart toggle */
   $(".like_action", ".stream").bind("tap click", function(evt){
     evt.preventDefault();
@@ -270,7 +287,7 @@ $(document).ready(function(){
       );
     }
   });
-  
+
   $("#submit_new_message").bind("tap click", function(evt){
     evt.preventDefault();
     $("#new_status_message").submit();
