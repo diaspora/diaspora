@@ -37,6 +37,7 @@ h3 {
   float: right;
   display: inline-block;
   padding: 0px 10px 0px 12px;
+  margin-top: 3px;
 
   img.menu {
     height: 40px;
@@ -73,20 +74,76 @@ h3 {
   -o-transition:left 0.35s;
   transition:left 0.35s;
 
-  .navbar {
-    .navbar-inner {
-      height: 45px;
-      border: none;
-      border-radius: 0;
+  header {
+    position: static;
+    height: 45px;
+    border-radius: 0;
 
-      @include box-shadow(0,1px,2px,#333);
+    #global_search {
+      margin-right: 20px;
+      margin-left: 10px;
+      position: relative;
 
-      background: {
-        image: image-url("header-bg-long.jpg");
+      form {
+        position: absolute;
+        width: 100%;
+        margin-right: 20px;
+
+        input {
+          @include box-shadow(0, 1px, 1px, #444);
+          @include border-radius(15px);
+          @include transition(width);
+          width: 100%;
+          margin-top: 7px;
+          background-color: #444;
+          border: 1px solid #222;
+          font-size: 13px;
+          padding: 4px;
+
+          color: black;
+
+          &.active {
+            background-color: $highlight-white;
+            background-color: rgba(160,160,160,0.6);
+          }
+
+          &:focus {
+            outline: none;
+            background-color: white;
+          }
+
+          &::-webkit-input-placeholder { text-shadow: none; }
+          &:-moz-placeholder { text-shadow: none; }
+        }
       }
-
-      width: 100%;
     }
+  }
+
+  li {
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: bold;
+    color: $light-grey;
+    padding: 12px 25px;
+    border-bottom: solid rgb(53, 53, 53) 2px;
+  }
+
+  // Aspects
+  li > ul > li {
+    font-size: 14px;
+    font-weight: normal;
+    color: $text-dark-grey;
+    border-bottom: none;
+  }
+
+  a {
+    color: $light-grey;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0px;
   }
 }
 
@@ -98,7 +155,15 @@ h3 {
   }
   #drawer {
     left: 20%;
+
+    -webkit-box-shadow: -2px 0px 2px 1px #333;
+    -moz-box-shadow: -2px 0px 2px 1px #333;
+    box-shadow: -2px 0px 2px 1px #333;
   }
+}
+
+.row {
+  margin-left: 20px !important;
 }
 
 .message {
@@ -410,7 +475,7 @@ header {
 
   #nav_badges {
     float: right;
-    margin: 4px 12px;
+    margin: 7px 12px;
     display: inline-block;
 
     .badge {
