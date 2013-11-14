@@ -24,13 +24,8 @@
       - if @conversations.count > 0
         = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors, :unread_counts => @unread_counts}
       - else
-        %br
-        %br
-        %br
-        %br
-        %div{:style => 'text-align:center;'}
-          %i
-            = t('.no_messages')
+        #no_conversations
+          = t('.no_messages')
       = will_paginate @conversations
 
 
