@@ -16,13 +16,19 @@
 
 .span-18.last
   #people_stream.stream.contacts
-    - if @contacts_size > 0
-      - if @aspect
-        #aspect_controls
-          - if @contacts_size < 20
-            = start_a_conversation_link(@aspect, @contacts_size)
-          = link_to t('.add_to_aspect', :name => @aspect.name), edit_aspect_path(@aspect), :rel => "facebox"
+    - if @aspect
+      #aspect_controls
+        - if @contacts_size > 0 && @contacts_size < 20 #TODO Fla: why 20? Technical restriction? We already warn the user if > 16
+          = start_a_conversation_link(@aspect, @contacts_size)
+        = link_to edit_aspect_path(@aspect), rel: "facebox", class: "button" do
+          = t('aspects.edit.manage')
+          %span.modify_aspect
+        = aspect_visibility_link(@aspect)
+        = link_to @aspect, method: "delete", data: { confirm: t('aspects.edit.confirm_remove_aspect') }, class: 'button delete' do
+          = t('delete')
+          %span.icons-monotone_close_exit_delete
 
+    - if @contacts_size > 0
       = render @contacts
 
       = will_paginate @contacts

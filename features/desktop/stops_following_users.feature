@@ -32,7 +32,7 @@ Feature: Unfollowing
     And I go to the contacts page
 
     And I follow "Besties"
-    And I follow "add contacts to Besties"
+    And I follow "Manage"
 
     And I press the first ".added" within "#facebox .contact_list ul > li:first-child"
 

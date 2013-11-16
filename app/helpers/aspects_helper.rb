@@ -44,15 +44,15 @@ module AspectsHelper
   def aspect_visibility_link(aspect)
     if aspect.contacts_visible?
       icon = 'icons-padlock-open'
-      title = t('.aspect_list_is_visible')
+      title = t('aspects.edit.aspect_list_is_visible');
     else
       icon = 'icons-padlock-closed'
-      title = t('.aspect_list_is_not_visible')
+      title = t('aspects.edit.aspect_list_is_not_visible');
     end
-      
+    
     link_to aspect_toggle_contact_visibility_path(@aspect), class: 'contact_visibility_link button', title: title, method: :put, remote: true do
-      concat t('.visibility')
-      concat content_tag(:div, nil, id: "contact_visibility_padlock", class: icon)
+      concat t('aspects.edit.set_visibility')
+      concat content_tag(:span, nil, class: "contact_visibility_padlock " + icon)
     end
   end
 end
