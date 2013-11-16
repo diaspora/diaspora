@@ -8,6 +8,7 @@
 en:
   settings: "Settings"
   profile: "Profile"
+  developer: "Developer"
   account: "Account"
   privacy: "Privacy"
   privacy_policy: "Privacy Policy"
@@ -1163,6 +1164,47 @@ en:
 
     activity:
       title: "My Activity"
+
+    developer:
+      title: "Developer"
+
+  manifests:
+    missing_values: "Missing or incorrect values"
+    successfully_updated: "Manifest is successfully updated"
+
+    index:
+      create_new: "Create new manifest"
+      download: "Download"
+
+    show:
+      title: "Manifest Details"
+      download_manifest: "Download Manifest"
+
+    new:
+      title: "Create New Manifest"
+      incorrect_values: "Incorrect or incomplete values. Please check again."
+      create_menifest: "Create Manifest"
+
+    form:
+      app_details: "App Details"
+      app_name: "App Name"
+      app_description: "App Description"
+      app_version: "App Vesion"
+      callback_url: "Callback URL"
+      redirect_url: "URL your users will be redirected to"
+      your_app_name: "Your Application Name"
+      your_app_discription: "A short discription of your app"
+      your_app_version: "Version of your app"
+      callback_url: "Callback URL of your app"
+
+      post_write: "Put posts on your behalf"
+      post_read: "Read your posts"
+      post_delete:  "Delete your posts"
+      comment_read:  "Read comments you make on posts"
+      comment_write:  "Write comments to posts on your behalf"
+      profile_read:  "Read your profile information"
+      contact_list_read:  "Read your contact list"
+
   users:
     edit:
       export_data: "Export Data"

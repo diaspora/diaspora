@@ -1,0 +1,32 @@
+= form_for (@manifest) do |f|
+  = f.error_messages
+  %p
+    = f.label :app_name
+    = f.text_field :app_name, :placeholder => t('.your_app_name')
+  %br
+  %p
+    = f.label :app_description
+    = f.text_area :app_description, :rows => 5, :placeholder => t('.your_app_discription')
+  %br
+  %p
+    = f.label :app_version
+    = f.text_field :app_version, :placeholder => t('.your_app_version')
+  %br
+  %p
+    = f.label :callback_url
+    = f.text_field :callback_url, :placeholder => t('.callback_url')
+  %br
+  %p
+    = f.label :redirect_url
+    = f.text_field :redirect_url, :placeholder => t('.redirect_url')
+  %br  
+  %p
+    = f.label :scopes
+    - @scopes.each do |scope|
+      %br
+      %p.checkbox_select
+        = check_box_tag "manifest[scopes][]", scope, @manifest.scopes.include?(scope),  :id => scope
+        = label_tag t(".#{scope}")
+  %br
+  %p
+    = f.submit :class => 'button'
