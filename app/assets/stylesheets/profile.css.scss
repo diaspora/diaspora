@@ -123,3 +123,12 @@
     }
   }
 }
+
+#update_profile_form {
+  .additional-visibility-icon {
+    cursor: pointer;
+  }
+  #profile_is_public {
+    display: none;
+  }
+}
