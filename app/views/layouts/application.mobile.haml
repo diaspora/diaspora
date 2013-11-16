@@ -68,11 +68,10 @@
             = link_to(image_tag('icons/compose_mobile2.png', class: 'compose_icon'), new_status_message_path)
 
     #main.container{:role => "main"}
-      .row
-        - if current_page?(:activity_stream)
-          %h3
-            = t('streams.activity.title')
-        = yield
+      - if current_page?(:activity_stream)
+        %h3
+          = t('streams.activity.title')
+      = yield
 
     - if user_signed_in?
       = render :partial =>'shared/footer'
