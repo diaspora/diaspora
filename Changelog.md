@@ -35,6 +35,7 @@
 * Force comments sort order in mobile spv [#4578](https://github.com/diaspora/diaspora/pull/4578)
 * Fix getting started page for mobile [#4536](https://github.com/diaspora/diaspora/pull/4536)
 * Refactor mobile header, fix [#4579](https://github.com/diaspora/diaspora/issues/4579)
+* Fix avatar display on mobile profile [#4591](https://github.com/diaspora/diaspora/pull/4591)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)

@@ -288,25 +288,31 @@ body {
   img {
     height: 90px;
     width: 90px;
-    margin: {
-      right: 10px;
-    }
-    position: absolute;
+    margin-right: 10px;
+    float: left;
   }
+  
   .content {
-    padding: {
-      left: 100px;
-    };
+    padding-left: 100px;
   }
 
   .description {
     font: {
       weight: normal;
-      size: small; };
-    color: $text-grey; } }
+      size: small;
+    };
+    color: $text-grey;
+  }
+}
+
+.profile_stream {
+  clear: both;
+  padding-top: 12px;
+}
 
 .right {
-  float: right; }
+  float: right;
+}
 
 header {
   position: fixed;
