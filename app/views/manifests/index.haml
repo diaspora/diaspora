@@ -1,0 +1,23 @@
+#section_header
+  %h2
+    Your apps  
+
+.span-4.prepend-20
+  = link_to t('.create_new'), new_manifest_path, :class => "button"
+%br
+%br
+%br
+
+- @manifests.each do |manifest|
+  .span-17.prepend-1
+    %h3
+      = link_to manifest.app_name, manifest
+    = manifest.app_description
+  .span-3
+    = link_to t(".download"), download_manifest_path(manifest), :method => :post
+  .span-3.last
+    = link_to t("delete"), manifest, method: :delete, data: { confirm: 'Are you sure?' }
+  %br
+  %br
+  %br
+  %hr

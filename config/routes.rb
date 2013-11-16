@@ -5,6 +5,7 @@
 require 'sidekiq/web'
 
 Diaspora::Application.routes.draw do
+
   if Rails.env.production?
     mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
   end
@@ -231,4 +232,12 @@ Diaspora::Application.routes.draw do
 
   # Startpage
   root :to => 'home#show'
+
+  # API
+  resources :manifests do
+    member do
+      post :download
+    end
+  end
+
 end
