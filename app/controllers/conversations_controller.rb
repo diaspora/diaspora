@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   layout ->(c) { request.format == :mobile ? "application" : "with_header" }
   use_bootstrap_for :index, :show, :new

@@ -3,9 +3,9 @@
 #   the COPYRIGHT file.
 
 class StatusMessagesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
-  before_filter :remove_getting_started, :only => [:create]
+  before_action :remove_getting_started, :only => [:create]
 
   use_bootstrap_for :bookmarklet
 

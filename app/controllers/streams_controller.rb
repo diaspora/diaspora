@@ -3,9 +3,9 @@
 #   the COPYRIGHT file.
 
 class StreamsController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :save_selected_aspects, :only => :aspects
-  before_filter :redirect_unless_admin, :only => :public
+  before_action :authenticate_user!
+  before_action :save_selected_aspects, :only => :aspects
+  before_action :redirect_unless_admin, :only => :public
 
   respond_to :html,
              :mobile,
