@@ -158,23 +158,6 @@ describe UsersController do
       end
     end
 
-    describe 'email settings' do
-      it 'lets the user turn off mail' do
-        par = {:id => @user.id, :user => {:email_preferences => {'mentioned' => 'true'}}}
-        proc{
-          put :update, par
-        }.should change(@user.user_preferences, :count).by(1)
-      end
-
-      it 'lets the user get mail again' do
-        @user.user_preferences.create(:email_type => 'mentioned')
-        par = {:id => @user.id, :user => {:email_preferences => {'mentioned' => 'false'}}}
-        proc{
-          put :update, par
-        }.should change(@user.user_preferences, :count).by(-1)
-      end
-    end
-
     describe 'getting started' do
       it 'can be reenabled' do
         put :update, user: {getting_started: true}

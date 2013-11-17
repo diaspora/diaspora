@@ -131,7 +131,7 @@
   %br
   %h3 
     = t('.receive_email_notifications')
-  = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
+  = form_for 'user', :url => user_email_preferences_path, :html => { :method => :put } do |f|
     = f.error_messages
 
     = f.fields_for :email_preferences do |type|
