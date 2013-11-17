@@ -107,7 +107,7 @@ ia:
         receive_unlock: "Instructiones pro disblocar non recipite?"
         sign_in: "Aperir session"
         sign_up: "Crear un conto"
-        sign_up_closed: "Le creation public de contos es claudite in iste momento."
+        sign_up_closed: "Le creation de contos es claudite al publico in iste momento."
       mail_signup_form:
         sign_up_for_an_invite: "Inscribe te pro un invitation!"
     unlocks:

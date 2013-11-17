@@ -27,6 +27,7 @@ pt-BR:
     comma: ","
     comments:
       hide: "ocultar comentários"
+      no_comments: "Ainda não existem comentários."
       show: "mostrar todos comentários"
     confirm_dialog: "Tem certeza?"
     conversation:
@@ -44,6 +45,7 @@ pt-BR:
       admin: "Administrador"
       close: "fechar"
       contacts: "Contatos"
+      help: "Ajuda"
       home: "Páginal Inicial"
       log_out: "Sair"
       mark_all_as_read: "Marcar Todas como Lidas"
@@ -58,6 +60,7 @@ pt-BR:
     ignore_user: "Ignorar este usuário?"
     infinite_scroll:
       no_more: "Não há mais postagem."
+      no_more_contacts: "Sem mais contatos."
     my_activity: "Minhas Atividades"
     my_aspects: "Meus Grupos"
     my_stream: "Fluxo"
@@ -72,6 +75,7 @@ pt-BR:
     publisher:
       at_least_one_aspect: "Você deve publicar pelo menos um grupo"
       limited: "Limitada - a sua postagem será visível apenas para as pessoas que você compartilha."
+      near_from: "Publicado de: <%= location %>"
       public: "Pública - a sua postagem será totalmente visível na web e poderá ser encontrada pelos mecanismos de buscas, Google, Bing e etc..."
     reshares:
       duplicate: "Você já compartilhou essa postagem."

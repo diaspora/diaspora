@@ -46,6 +46,7 @@ fi:
       correlations: "Vastaavuudet"
       pages: "Sivut"
       pod_stats: "Podin tilastot"
+      sidekiq_monitor: "Sidekiq tarkkailija"
       user_search: "Käyttäjähaku"
       weekly_user_stats: "Viikottaiset käyttäjätilastot"
     correlations:
@@ -85,7 +86,10 @@ fi:
         one: "%{count} käyttäjä löytyi"
         other: "%{count} käyttäjää löytyi"
         zero: "Yhtään käyttäjää ei löytynyt"
-      you_currently: "Sinulla on tällä hetkellä %{user_invitation} kutsua jäljellä %{link}"
+      you_currently:
+        one: "sinulla on tällä hetkellä %{count} kutsu jäljellä %{link}"
+        other: "sinulla on tällä hetkellä %{count} kutsua jäljellä %{link}"
+        zero: "sinulla ei ole tällä hetkellä yhtään kutsua jäljellä"
     weekly_user_stats:
       amount_of:
         one: "Yksi uusi käyttäjä tällä viikolla."
@@ -127,7 +131,7 @@ fi:
       failure: "Näkymän luominen epäonnistui."
       success: "Uusi näkymäsi, %{name}, on luotu"
     destroy:
-      failure: "%{name} ei ole tyhjä, eikä sitä voida poistaa."
+      failure: "%{name} ei ole tyhjä, eikä sitä voitu poistaa."
       success: "%{name} poistettiin onnistuneesti."
     edit:
       add_existing: "Lisää olemassa oleva henkilö"
@@ -152,7 +156,7 @@ fi:
         learn_more: "Lue lisää"
       diaspora_id:
         content_1: "Diaspora-ID:si on:"
-        content_2: "Anna se kenelle tahansa, jotta he voivat löytää sinut Diasporasta."
+        content_2: "Anna se kenelle tahansa ja hän löytää sinut Diasporasta."
         heading: "Diaspora-ID"
       donate: "Lahjoita"
       handle_explanation: "Tämä on Diaspora-tunnuksesi. Voit antaa sen ihmisille kuten sähköpostiosoitteesi, jotta he voivat sen avulla tavoittaa sinut Diasporasta."
@@ -172,7 +176,7 @@ fi:
         tag_feature: "ominaisuus"
         tag_question: "kysymys"
         tutorial_link_text: "Ohjeita"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Ohjeita aloittavalle."
+        tutorials_and_wiki: "%{faq},%{tutorial} & %{wiki}: Ohjeita aloittavalle."
       introduce_yourself: "Tämä on virtasi. Hyppää sekaan ja esittele itsesi."
       keep_diaspora_running: "Pidä Diasporan kehitys nopeana kuukausittaisten lahjoitusten avulla!"
       keep_pod_running: "Pidä %{pod} vauhdissa tarjoamalla palvelimille kupponen kahvia kuukausittaisella lahjoituksella!"
@@ -212,7 +216,7 @@ fi:
       friends: "Ystävät"
       work: "Työ"
     selected_contacts:
-      manage_your_aspects: "Hallitse näkymiä."
+      manage_your_aspects: "Hallitse näkymiäsi."
       no_contacts: "Sinulla ei vielä ole henkilöitä täällä."
       view_all_community_spotlight: "Näytä kaikki yhteisön valokeilaan kuuluvat käyttäjät"
       view_all_contacts: "Näytä kaikki henkilöt"
@@ -240,9 +244,9 @@ fi:
       failure: "En voinut lakata sivuuttamasta käyttäjää. #evasion"
       success: "Katsotaanpa, mitä sanottavaa hänellä on! #sayhello"
   bookmarklet:
-    explanation: "Voit lähettää viestin Diasporaan mistä tahansa lisäämällä tämän linkin kirjanmerkkeihisi: %{link}"
+    explanation: "Voit julkaista Diasporaan mistä tahansa lisäämällä tämän linkin kirjanmerkkeihisi: %{link}"
     heading: "Sovelluskirjanmerkki"
-    post_something: "Lähetä viesti Diasporaan"
+    post_something: "Lähetä julkaisu Diasporaan"
     post_success: "Lähetetty! Suljetaan!"
   cancel: "Peruuta"
   comments:
@@ -257,8 +261,8 @@ fi:
     zero: "ei kommentteja"
   contacts:
     create:
-      failure: "Kontaktin luonti epäonnistui"
-    few: "%{count} kontaktia"
+      failure: "Henkilön lisääminen epäonnistui"
+    few: "%{count} henkilöä"
     index:
       add_a_new_aspect: "Lisää näkymä"
       add_to_aspect: "lisää henkilöitä näkymään %{name}"
@@ -275,15 +279,15 @@ fi:
       start_a_conversation: "Aloita keskustelu"
       title: "Henkilöt"
       your_contacts: "Kontaktisi"
-    many: "%{count} kontaktia"
-    one: "1 kontakti"
-    other: "%{count} kontaktia"
+    many: "%{count} henkilöä"
+    one: "1 henkilö"
+    other: "%{count} henkilöä"
     sharing:
       people_sharing: "Ihmiset jotka jakavat kanssasi:"
     spotlight:
       community_spotlight: "Yhteisön valokeila"
       suggest_member: "Ehdota jäsentä"
-    two: "%{count} kontaktia"
+    two: "%{count} henkilöä"
     zero: "ei henkilöitä"
   conversations:
     conversation:
@@ -333,7 +337,7 @@ fi:
       correct_the_following_errors_and_try_again: "Korjaa seuraavat virheet ja yritä uudelleen."
       invalid_fields: "Vialliset arvot"
     login_try_again: "<a href='%{login_link}'>Kirjaudu sisään</a> ja yritä uudelleen."
-    post_not_public: "Viesti, jota yrität lukea, ei ole julkinen!"
+    post_not_public: "Julkaisu, jota yrität lukea, ei ole julkinen!"
     post_not_public_or_not_exist: "Julkaisu jota yrität katsella ei ole julkinen tai sitä ei ole olemassa!"
   fill_me_out: "Täytä tiedot"
   find_people: "Etsi ihmisiä tai #tageja"
@@ -376,7 +380,7 @@ fi:
       who_sees_post_q: "Kun julkaisen näkymälle kuka voi nähdä sen?"
     foundation_website: "diaspora säätiön kotisivu"
     getting_help:
-      get_support_a_hashtag: "kysy diasporassa* julkisessa julkaisussa käyttämällä %{question} tagia"
+      get_support_a_hashtag: "kysy Diasporassa* julkisessa julkaisussa käyttämällä %{question} tagia"
       get_support_a_irc: "juttele kanssamme %{irc} (Live chat)"
       get_support_a_tutorials: "Perehdy %{tutorials}"
       get_support_a_website: "Käy sivulla %{link}"
@@ -585,11 +589,8 @@ fi:
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} ei tykkää"
-        many: "%{count} ei tykkää"
         one: "%{count} ei tykkää"
         other: "%{count} ei tykkää"
-        two: "%{count} ei tykkää"
         zero: "kukaan ei ole inhonnut tätä"
       people_like_this:
         one: "%{count} tykkäys"
@@ -637,11 +638,8 @@ fi:
       mark_unread: "Merkitse lukemattomaksi"
       notifications: "Ilmoitukset"
     liked:
-      few: "%{actors} tykkäsivät %{post_link}stäsi."
-      many: "%{actors} tykkäsivät %{post_link}stäsi."
       one: "%{actors} tykkäsi %{post_link}stäsi."
       other: "%{actors} on tykännyt %{post_link}stäsi."
-      two: "%{actors} tykkäsivät %{post_link}stäsi."
       zero: "%{actors} tykkäsi %{post_link}stäsi."
     liked_post_deleted:
       one: "%{actors} tykkäsi poistamastasi julkaisusta."
@@ -664,11 +662,8 @@ fi:
       other: "%{actors} lähettivät sinulle viestin."
       zero: "%{actors} lähetti sinulle viestin."
     reshared:
-      few: "%{actors} ovat jakaneet %{post_link}si uudelleen."
-      many: "%{actors} ovat jakaneet %{post_link}si uudelleen."
       one: "%{actors} on jakanut %{post_link}si uudelleen."
       other: "%{actors} on jakanut %{post_link}si uudelleen."
-      two: "%{actors} ovat jakaneet %{post_link}si uudelleen."
       zero: "%{actors} on jakanut %{post_link}si uudelleen."
     reshared_post_deleted:
       one: "%{actors} jakoi poistamasi julkaisun uudelleen."
@@ -714,7 +709,7 @@ fi:
       view_post: "Näytä viesti >"
     mentioned:
       mentioned: "mainitsi sinut viestissään:"
-      subject: "%{name} on maininnut sinut diaspora*:ssa"
+      subject: "%{name} on maininnut sinut Diaspora*:ssa"
     private_message:
       reply_to_or_view: "Lue tai osallistu keskusteluun >"
     reshared:
@@ -725,7 +720,7 @@ fi:
       subject: "Viesti Diaspora-käyttäjätilistäsi:"
     started_sharing:
       sharing: "on alkanut jakaa kanssasi!"
-      subject: "%{name} on alkanut jakaa kanssasi diaspora*:ssa"
+      subject: "%{name} on alkanut jakaa kanssasi Diaspora*:ssa"
       view_profile: "Näytä käyttäjän %{name} profiiili"
     thanks: "Kiitos,"
     to_change_your_notification_settings: "vaihtaaksesi ilmoitusasetuksia"
@@ -733,7 +728,7 @@ fi:
   ok: "OK"
   or: "tai"
   password: "Salasana"
-  password_confirmation: "Salasanan varmistus"
+  password_confirmation: "Salasanan vahvistus"
   people:
     add_contact:
       invited_by: "sinut kutsui"
@@ -835,7 +830,7 @@ fi:
       title: "Julkaisu käyttäjältä %{name}"
     show:
       destroy: "Poista"
-      not_found: "Valitettavasti viestiä ei löytynyt."
+      not_found: "Valitettavasti tätä julkaisua ei löytynyt."
       permalink: "pysyvä linkki"
       photos_by:
         one: "Yksi kuva käyttäjältä %{author}"
@@ -855,12 +850,12 @@ fi:
       update_profile: "Päivitä profiili"
       you_are_nsfw: "Olet merkinnyt itsesi ei-työturvalliseksi. Sisältösi ei näy käyttäjille jotka ovat valinneet etteivät halua nähdä tällaisten henkilöiden virtoja."
       you_are_safe_for_work: "Olet merkinnyt itsesi työturvalliseksi, näin ollen hyväksyt, että kaikki lähettämäsi sisältö on yhteisön suositusten mukaista."
-      your_bio: "Biografiasi"
+      your_bio: "Elämäkertasi"
       your_birthday: "Syntymäpäiväsi"
       your_gender: "Sukupuolesi"
       your_location: "Sijaintisi"
       your_name: "Nimesi"
-      your_photo: "Profiilikuva"
+      your_photo: "Profiilikuvasi"
       your_private_profile: "Yksityinen profiilisi"
       your_public_profile: "Julkinen profiilisi"
       your_tags: "Kuvaile itseäsi viidellä sanalla"
@@ -883,7 +878,7 @@ fi:
     edit:
       cancel_my_account: "Poista käyttäjätilini"
       edit: "Muokkaa %{name}"
-      leave_blank: "(jätä tyhjäksi, mikäli et halua muuttaa)"
+      leave_blank: "(jätä tyhjäksi, mikäli et halua muuttaa sitä)"
       password_to_confirm: "(tarvitsemme nykyisen salasanasi muutosten varmistusta varten)"
       unhappy: "Tyytymätön?"
       update: "Päivitä"
@@ -903,13 +898,14 @@ fi:
       password_confirmation: "SALASANA UUDESTAAN"
       sign_up: "REKISTERÖIDY"
       sign_up_message: "Yhteisöpalvelu suurella ♥:llä"
+      submitting: "Lähettää..."
       username: "KÄYTTÄJÄNIMI"
   requests:
     create:
       sending: "Lähetetään"
       sent: "Olet lähettänyt käyttäjälle %{name} pyynnön jakaa kanssasi. Hänen pitäisi nähdä se kirjautuessaan seuraavan kerran Diasporaan."
     destroy:
-      error: "Valitse näkymä!"
+      error: "Valitse joku näkymä!"
       ignore: "Hylätty kontaktipyyntö."
       success: "Olet nyt jakamassa."
     helper:
@@ -942,7 +938,7 @@ fi:
       already_authorized: "Käyttäjä, jonka Diaspora-ID on %{diaspora_id}, on jo ottanut käyttöön kyseisen %{service_name}-käyttäjätilin."
       failure: "Tunnistautuminen epäonnistui."
       read_only_access: "Käyttöikeus on vain-luku, ole hyvä ja yritä määrittää käyttöoikeutta myöhemmin uudelleen"
-      success: "Tunnistus onnistui."
+      success: "Tunnistautuminen onnistui."
     destroy:
       success: "Tunnistuksen poisto onnistui."
     failure:
@@ -955,15 +951,16 @@ fi:
       connect_to_facebook: "Yhdistä Facebookiin"
       connect_to_tumblr: "Yhdistä Tumblriin"
       connect_to_twitter: "Yhdistä Twitteriin"
-      disconnect: "katkaise"
+      connect_to_wordpress: "Yhdistä WordPressiin"
+      disconnect: "katkaise yhteys"
       edit_services: "Muokkaa palveluita"
       logged_in_as: "kirjauduttu käyttäjänä"
       no_services: "Et ole vielä yhdistänyt palveluita."
-      really_disconnect: "katkaise %{service}?"
+      really_disconnect: "katkaise yhteys palveluun %{service}?"
       services_explanation: "Palveluihin yhdistäminen antaa sinulle mahdollisuuden julkaista Diasporaan lähettämäsi viestit myös niissä."
     inviter:
       click_link_to_accept_invitation: "Paina tätä linkkiä hyväksyäksesi kutsun"
-      join_me_on_diaspora: "Liity seuraani diasporaan*"
+      join_me_on_diaspora: "Liity seuraani Diasporaan*"
     remote_friend:
       invite: "kutsu"
       not_on_diaspora: "Ei vielä Diasporassa"
@@ -971,8 +968,8 @@ fi:
   settings: "Asetukset"
   share_visibilites:
     update:
-      post_hidden_and_muted: "Käyttäjän %{name} viesti on piilotettu, ja ilmoitukset on vaimennettu."
-      see_it_on_their_profile: "Jos haluat nähdä päivityksiä tälle viestille, mene käyttäjän %{name} profiilisivulle."
+      post_hidden_and_muted: "Käyttäjän %{name} julkaisu on piilotettu, ja ilmoitukset on vaimennettu."
+      see_it_on_their_profile: "Jos haluat nähdä päivitykset tälle julkaisulle, mene käyttäjän %{name} profiilisivulle."
   shared:
     add_contact:
       add_new_contact: "Lisää uusi kontakti"
@@ -982,7 +979,7 @@ fi:
       know_email: "Tiedätkö heidän sähköpostiosoitteitansa? Kutsu heidät!"
       your_diaspora_username_is: "Diaspora-käyttäjätunnuksesi on: %{diaspora_handle}"
     aspect_dropdown:
-      add_to_aspect: "Lisää kontakti"
+      add_to_aspect: "Lisää henkilö"
       toggle:
         one: "%{count} näkymässä"
         other: "%{count} näkymässä"
@@ -1036,33 +1033,33 @@ fi:
     reshare:
       reshare: "Jaa uudelleen"
     stream_element:
-      connect_to_comment: "Yhdistä tähän käyttäjään kommentoidaksesi hänen viestiään"
-      currently_unavailable: "kommentointi ei tällä hetkellä mahdollista"
+      connect_to_comment: "Yhdistä tähän käyttäjään kommentoidaksesi hänen julkaisuaan"
+      currently_unavailable: "kommentointi ei tällä hetkellä ole mahdollista"
       dislike: "En tykkää"
-      hide_and_mute: "Piilota ja vaimenna viesti"
+      hide_and_mute: "Piilota ja vaimenna julkaisu"
       ignore_user: "Sivuuta %{name}"
       ignore_user_description: "Sivuuta käyttäjä ja poista hänet kaikista näkymistä?"
       like: "Tykkää"
-      nsfw: "Tämän viestin lähettäjä on merkinnyt sen ei-työturvalliseksi. %{link}"
+      nsfw: "Tämän julkaisun lähettäjä on merkinnyt sen ei-työturvalliseksi. %{link}"
       shared_with: "Jaettu heidän kanssaan: %{aspect_names}"
       show: "näytä"
       unlike: "Peru tykkäys"
       via: "%{link} kautta"
       via_mobile: "puhelimen välityksellä"
-      viewable_to_anyone: "Kuka tahansa verkossa näkee tämän viestin"
+      viewable_to_anyone: "Kuka tahansa verkossa näkee tämän julkaisun"
   status_messages:
     create:
       success: "Onnistuneesti mainittu: %{names}"
     destroy:
-      failure: "Viestin poisto epäonnistui"
+      failure: "Julkaisun poisto epäonnistui"
     helper:
       no_message_to_display: "Ei näytettäviä viestejä."
     new:
       mentioning: "Mainitse: %{person}"
     too_long:
-      one: "viestin merkkimäärä voi olla enimmillään %{count}"
-      other: "viestin merkkimäärä voi olla enimmillään %{count}"
-      zero: "viestin merkkimäärä voi olla enimmillään %{count}"
+      one: "tilapäivityksen merkkimäärä voi olla enimmillään %{count}"
+      other: "tilapäivityksen merkkimäärä voi olla enimmillään %{count}"
+      zero: "tilapäivityksen merkkimäärä voi olla enimmillään %{count}"
   stream_helper:
     hide_comments: "Piilota kaikki kommentit"
     show_comments:
@@ -1079,8 +1076,8 @@ fi:
       title: "Näkymäsi"
     aspects_stream: "Näkymät"
     comment_stream:
-      contacts_title: "Ihmiset, joiden viestejä olet kommentoinut"
-      title: "Kommentoimasi viestit"
+      contacts_title: "Ihmiset, joiden julkaisuaja olet kommentoinut"
+      title: "Kommentoimasi julkaisut"
     community_spotlight_stream: "Yhteisön valokeila"
     followed_tag:
       add_a_tag: "Lisää tagi"
@@ -1089,7 +1086,7 @@ fi:
       title: "#Seuratut tagit"
     followed_tags_stream: "#Seuratut tagit"
     like_stream:
-      contacts_title: "Ihmiset, joiden viesteistä olet tykännyt"
+      contacts_title: "Ihmiset, joiden julkaisuista olet tykännyt"
       title: "Tykkäysvirta"
     mentioned_stream: "@Maininnat"
     mentions:
@@ -1147,7 +1144,7 @@ fi:
       success: "Tilisi on lukittu. Meiltä voi mennä 20 minuuttia tilisi sulkemiseen. Kiitos, kun kokeilit Diasporaa."
       wrong_password: "Syötetty salasana ei vastannut nykyistä salasanaasi."
     edit:
-      also_commented: "...joku myös kommentoi kontaktisi viestiin?"
+      also_commented: "...joku myös kommentoi kontaktisi julkaisua?"
       auto_follow_aspect: "Näkymä automaattisesti seurattaville käyttäjille:"
       auto_follow_back: "Seuraa automaattisesti henkilöitä, jotka seuraavat sinua"
       change: "Vaihda"
@@ -1165,7 +1162,7 @@ fi:
         no_turning_back: "Tällä hetkellä tästä ei ole paluuta."
         what_we_delete: "Poistamme kaikki viestisi ja profiilisi tiedot niin pian kuin se on inhimillisesti mahdollista. Kommenttisi jäävät paikoilleen, mutta ne yhdistetään Diaspora-tunnukseesi nimesi sijasta."
       close_account_text: "Sulje käyttäjätili"
-      comment_on_post: "...joku kommentoi viestiisi?"
+      comment_on_post: "...joku kommentoi julkaisuasi?"
       current_password: "Nykyinen salasana"
       current_password_expl: "se, jolla kirjaudut sisään..."
       download_photos: "Lataa kaikki kuvat"
@@ -1175,13 +1172,13 @@ fi:
       export_data: "Vie tietoja"
       following: "Seuraamisasetukset"
       getting_started: "Uudet käyttäjäasetukset"
-      liked: "...tykkää kirjoituksistasi?"
-      mentioned: "...sinut mainitaan viestissä?"
+      liked: "...tykkää julkaisustasi?"
+      mentioned: "...sinut mainitaan julkaisuasi?"
       new_password: "Uusi salasana"
       photo_export_unavailable: "Kuvien vienti ei tällä hetkellä mahdollista"
-      private_message: "...saat uuden viestin?"
+      private_message: "...saat yksityisviestin?"
       receive_email_notifications: "Vastaanota sähköposti-ilmoituksia, kun.."
-      reshared: "...joku jakaa viestisi uudelleen?"
+      reshared: "...joku jakaa julkaisusi uudelleen?"
       show_community_spotlight: "Näytetäänkö Yhteisön valokeila virrassa?"
       show_getting_started: "Ota aloitusohjeet uudelleen käyttöön"
       started_sharing: "...aloittaa jakamaan kanssasi?"

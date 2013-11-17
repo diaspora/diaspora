@@ -52,6 +52,8 @@ es-CL:
       no_more: "No más publicaciones."
     my_activity: "Mi Actividad"
     my_stream: "Entrada"
+    people:
+      not_found: "y nadie fue encontrado..."
     photo_uploader:
       looking_good: "¡Guau, te ves genial!"
     publisher:
@@ -60,6 +62,7 @@ es-CL:
       public: "Público - tu post será visible para todos y encontrado por mecanismos de búsqueda"
     reshares:
       duplicate: "¿Es genial, cierto?  ¡Ya has compartido esa publicación!"
+      successful: "¡La publicación se compartió correctamente!"
     search_for: "Buscar <%= name%>"
     show_more: "mostrar más"
     stream:
@@ -102,7 +105,10 @@ es-CL:
       unknown: "Tipo de video desconocido"
       watch: "Mira este video en <%= provider %>"
     viewer:
+      comment: "Comentar"
       follow_post: "Seguir esta publicación"
       like: "Me gusta"
+      reshare: "Compartir"
+      reshared: "Compartido"
       stop_following_post: "Dejar de seguir esta publicación"
       unlike: "No me gusta"

@@ -40,4 +40,19 @@ module AspectsHelper
       remove_from_aspect_button(membership.id, aspect.id, person.id)
     end
   end
+  
+  def aspect_visibility_link(aspect)
+    if aspect.contacts_visible?
+      icon = 'icons-padlock-open'
+      title = t('aspects.edit.aspect_list_is_visible');
+    else
+      icon = 'icons-padlock-closed'
+      title = t('aspects.edit.aspect_list_is_not_visible');
+    end
+    
+    link_to aspect_toggle_contact_visibility_path(@aspect), class: 'contact_visibility_link button', title: title, method: :put, remote: true do
+      concat t('aspects.edit.set_visibility')
+      concat content_tag(:span, nil, class: "contact_visibility_padlock " + icon)
+    end
+  end
 end

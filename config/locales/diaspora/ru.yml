@@ -398,7 +398,7 @@ ru:
       admin: "админ"
       blog: "блог"
       code: "код"
-      login: "логин"
+      login: "имя пользователя"
       logout: "Выйти"
       profile: "Профиль"
       recent_notifications: "Последние извещения"
@@ -407,25 +407,23 @@ ru:
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} не понравилось"
-        many: "%{count} не понравилось"
-        one: "%{count} не понравилось"
-        other: "%{count} не понравилось "
-        zero: "не было тех, кому не понравилось"
+        few: "Не нравится: %{count} "
+        many: "Не нравится: %{count} "
+        one: "Не нравится: %{count} "
+        other: "Не нравится: %{count} "
+        zero: "Не нравится: 0"
       people_like_this:
         few: "Понравилось: %{count}"
         many: "Понравилось: %{count}"
         one: "Понравилось: %{count}"
         other: "Понравилось: %{count}"
-        two: "Понравилось: %{count}"
         zero: "Понравилось: 0"
       people_like_this_comment:
-        few: "%{count} понравилось"
-        many: "%{count} понравилось"
-        one: "%{count} понравилось"
-        other: "%{count} понравилось"
-        two: "%{count} понравилось"
-        zero: "не понравилось никому"
+        few: "Понравилось: %{count}"
+        many: "Понравилось: %{count}"
+        one: "Понравилось: %{count}"
+        other: "Понравилось: %{count}"
+        zero: "Понравилось:0"
   limited: "Ограниченная"
   more: "Еще"
   next: "далее"
@@ -462,11 +460,10 @@ ru:
     index:
       and: "и"
       and_others:
-        few: "и %{count} другим"
-        many: "и %{count} другим"
-        one: "и еще один"
-        other: "и %{count} другим"
-        two: "и %{count} других"
+        few: "и ещё  %{count} "
+        many: "и ещё %{count} "
+        one: "и еще %{count}"
+        other: "и ещё %{count} "
         zero: "и больше никому"
       mark_all_as_read: "Отметить все как прочитанные"
       mark_unread: "пометить как непрочитанное"
@@ -598,9 +595,9 @@ ru:
       results_for: "результаты поиска для"
       searching: "идет поиск: пожалуйста, подождите..."
     last_post: "Последняя запись"
-    many: "%{count} человек[-a]"
+    many: "%{count} человек[-a] [-ов]"
     one: "1 человек"
-    other: "%{count} человек[-a]"
+    other: "%{count} человек[-a] [-ов]"
     person:
       add_contact: "добавить контакт"
       already_connected: "Уже подключен"
@@ -617,7 +614,7 @@ ru:
       remove_from: "Удалить %{name} из %{aspect}?"
     show:
       closed_account: "Эта учетная запись была закрыта."
-      does_not_exist: "Персоны не существует!"
+      does_not_exist: "Нет такого человека!"
       has_not_shared_with_you_yet: "%{name} еще не делился записями с вами!"
       ignoring: "Вы блокируете все записи пользователя %{name}."
       incoming_request: "%{name} хочет поделиться с вами"
@@ -625,7 +622,7 @@ ru:
       message: "Сообщение"
       not_connected: "Вы не делитесь с этим человеком"
       recent_posts: "Последние записи"
-      recent_public_posts: "Последние Публичные Посты"
+      recent_public_posts: "Последние публичные сообщения"
       return_to_aspects: "Вернуться на страницу аспектов"
       see_all: "Показать все"
       start_sharing: "поделиться"
@@ -657,7 +654,7 @@ ru:
       invalid_ext: "{file} имеет недопустимое расширение. Разрешены только {extensions}."
       size_error: "{file} слишком большой, максимальный размер файла {sizeLimit}."
     new_profile_photo:
-      or_select_one_existing: "или выберете одну из уже загруженных %{photos}"
+      or_select_one_existing: "или выберите одну из уже загруженных %{photos}"
       upload: "Загрузить новое фото для профиля!"
     photo:
       view_all: "Посмотреть все фотографии %{name}"
@@ -682,7 +679,7 @@ ru:
       photos_by:
         few: "%{count} фото пользователя %{author}"
         many: "%{count} фото пользователя %{author}"
-        one: "Одно фото пользователя %{author}"
+        one: "фотография пользователя %{author}"
         other: "%{count} фото пользователя %{author}"
         zero: "Нет фото пользователя %{author}"
       reshare_by: "Поделился(лась) %{author}"
@@ -716,16 +713,15 @@ ru:
   reactions:
     few: "Отзывы: %{count}"
     many: "Отзывы: %{count}"
-    one: "Отзывы: 1"
+    one: "Отзывы: %{count} "
     other: "Отзывы: %{count}"
-    two: "Отзывы: %{count}"
     zero: "Отзывы: 0"
   registrations:
     closed: "На этом сервере Диаспоры регистрация закрыта."
     create:
       success: "Добро пожаловать в Диаспору!"
     edit:
-      cancel_my_account: "Закрыть мой аккаунт"
+      cancel_my_account: "Отменить регистрацию"
       edit: "Редактировать %{name}"
       leave_blank: "(Оставьте пустым, если не хотите менять)"
       password_to_confirm: "(введите ваш текущий пароль для подтверждения изменений)"
@@ -769,7 +765,7 @@ ru:
     new_request_to_person:
       sent: "отправлено!"
   reshares:
-    comment_email_subject: "Перепост %{resharer} записи %{author}"
+    comment_email_subject: "Распространение %{resharer} записи %{author}"
     create:
       failure: "Ошибка при попытке поделиться этой записью."
     reshare:
@@ -777,12 +773,12 @@ ru:
       reshare:
         few: "Поделились: %{count}"
         many: "Поделились: %{count}"
-        one: "Поделился: 1"
+        one: "Поделился: %{count}"
         other: "Поделились: %{count}"
         zero: "Поделиться"
       reshare_confirmation: "Поделиться записью %{author}?"
       reshare_original: "Поделиться исходной записью"
-      reshared_via: "поделился пользователь"
+      reshared_via: "распространено пользователем"
       show_original: "Показать исходную запись"
   search: "Поиск"
   services:
@@ -835,7 +831,6 @@ ru:
         many: "В %{count} аспектах"
         one: "В %{count} аспекте"
         other: "В %{count} аспектах"
-        two: "В %{count} аспекте[ах]"
         zero: "Добавить контакт"
     contact_list:
       all_contacts: "Все контакты"

@@ -21,6 +21,11 @@ Diaspora::Application.config.secret_key_base = '*************...'
 * Ported fileuploader to Backbone and refactored publisher views [#4480](https://github.com/diaspora/diaspora/pull/4480)
 * Refactor 404.html, fix [#4078](https://github.com/diaspora/diaspora/issues/4078)
 * Remove the (now useless) last post link from the user profile. [#4540](https://github.com/diaspora/diaspora/pull/4540)
+* Refactor ConversationsController, move query building to User model. [#4547](https://github.com/diaspora/diaspora/pull/4547)
+* Refactor the Twitter service model [#4387](https://github.com/diaspora/diaspora/pull/4387)
+* Refactor ConversationsController#create, move more stuff to User model [#4551](https://github.com/diaspora/diaspora/pull/4551)
+* Refactor MessagesController#create, move stuff to User model [#4556](https://github.com/diaspora/diaspora/pull/4556)
+* Reorder the left bar side menu to put the stream first [#4569](https://github.com/diaspora/diaspora/pull/4569)
 
 ## Bug fixes
 * Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
@@ -39,6 +44,10 @@ Diaspora::Application.config.secret_key_base = '*************...'
 * Fix date color and alignment in the notifications dropdown [#4502](https://github.com/diaspora/diaspora/issues/4502)
 * Add a white background to images shown in the lightbox [#4475](https://github.com/diaspora/diaspora/issues/4475)
 * Refactor getting_started page, test if facebook is available, fix [#4520](https://github.com/diaspora/diaspora/issues/4520)
+* Avoid publishing empty posts [#4542](https://github.com/diaspora/diaspora/pull/4542)
+* Force comments sort order in mobile spv [#4578](https://github.com/diaspora/diaspora/pull/4578)
+* Fix getting started page for mobile [#4536](https://github.com/diaspora/diaspora/pull/4536)
+* Refactor mobile header, fix [#4579](https://github.com/diaspora/diaspora/issues/4579)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
@@ -47,6 +56,7 @@ Diaspora::Application.config.secret_key_base = '*************...'
 * Collapse aspect list and tag followings list when switching to other views [#4462](https://github.com/diaspora/diaspora/pull/4462)
 * Highlight current stream in left sidebar [#4445](https://github.com/diaspora/diaspora/pull/4445)
 * Added ignore user icon [#4417](https://github.com/diaspora/diaspora/pull/4417)
+* Improve the management of the contacts visibility settings in an aspect [#4567](https://github.com/diaspora/diaspora/pull/4567)
 
 
 # 0.2.0.0

@@ -61,6 +61,9 @@ class User < ActiveRecord::Base
   has_many :blocks
   has_many :ignored_people, :through => :blocks, :source => :person
 
+  has_many :conversation_visibilities, through: :person, order: 'updated_at DESC'
+  has_many :conversations, through: :conversation_visibilities, order: 'updated_at DESC'
+
   has_many :notifications, :foreign_key => :recipient_id
 
   before_save :guard_unconfirmed_email,

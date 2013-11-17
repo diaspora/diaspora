@@ -71,6 +71,9 @@ _.extend(app.tmp.ContactAspectsBox.prototype, {
       .addClass('added')
       .attr('data-membership_id', membership_id) // just to be sure...
       .data('membership_id', membership_id);
+
+    el.find('div').removeClass('icons-monotone_plus_add_round')
+      .addClass('icons-monotone_check_yes');
   },
 
   removeFromAspect: function(evt) {
@@ -97,6 +100,9 @@ _.extend(app.tmp.ContactAspectsBox.prototype, {
       .addClass('add')
       .removeAttr('data-membership_id')
       .removeData('membership_id');
+      
+    el.find('div').removeClass('icons-monotone_check_yes')
+      .addClass('icons-monotone_plus_add_round');
   },
 
   _displayError: function(msg_id, contact_el) {

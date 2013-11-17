@@ -16,6 +16,7 @@ zh-TW:
       invalid: "使用者名稱或密碼無效。"
       invalid_token: "認證信物無效。"
       locked: "你的帳號已鎖定。"
+      not_found_in_database: "無效的電子郵件或密碼。"
       timeout: "工作階段已逾時，要繼續的話請重新登入。"
       unauthenticated: "繼續之前你必須先登入或註冊。"
       unconfirmed: "你必須先確認帳號才能繼續。"

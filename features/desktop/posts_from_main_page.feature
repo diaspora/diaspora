@@ -99,6 +99,7 @@ Feature: posting from the main page
       When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
       And I click to delete the first uploaded photo
       Then I should not see an uploaded image within the photo drop zone
+      And I should not be able to submit the publisher
 
     Scenario: back out of uploading a picture to a post with text
       Given I expand the publisher

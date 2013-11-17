@@ -16,6 +16,7 @@ es:
       invalid: "Nombre de usuario o contraseña incorrectos."
       invalid_token: "Identificador de autenticación incorrecto."
       locked: "Tu cuenta está bloqueada."
+      not_found_in_database: "Contraseña o Email incorrecto."
       timeout: "Tu sesión ha expirado, por favor accede de nuevo para continuar."
       unauthenticated: "Necesitas acceder a tu cuenta o registrarte antes de continuar."
       unconfirmed: "Necesitas confirmar tu cuenta antes de continuar."

@@ -25,6 +25,24 @@ module User::SocialActions
     Comment::Generator.new(self, options.delete(:post), options.delete(:text)).build(options)
   end
 
+  def build_conversation(opts={})
+    Conversation.new do |c|
+      c.author = self.person
+      c.subject = opts[:subject]
+      c.participant_ids = [*opts[:participant_ids]] | [self.person_id]
+      c.messages_attributes = [
+        { author: self.person, text: opts[:message][:text] }
+      ]
+    end
+  end
+
+  def build_message(conversation, opts={})
+    conversation.messages.build(
+      text: opts[:text],
+      author: self.person
+    )
+  end
+
   def find_or_create_participation!(target)
     participations.where(:target_id => target).first || participate!(target)
   end

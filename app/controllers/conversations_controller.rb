@@ -4,14 +4,11 @@ class ConversationsController < ApplicationController
   respond_to :html, :mobile, :json, :js
 
   def index
-    @conversations = Conversation.joins(:conversation_visibilities)
-      .where(:conversation_visibilities => {:person_id => current_user.person_id})
-      .order('updated_at DESC')
-      .paginate(:page => params[:page], :per_page => 15)
+    @conversations = current_user.conversations.paginate(
+      :page => params[:page], :per_page => 15)
 
-    @visibilities = ConversationVisibility.where(:person_id => current_user.person_id)
-      .order('updated_at DESC')
-      .paginate(:page => params[:page], :per_page => 15)
+    @visibilities = current_user.conversation_visibilities.paginate(
+      :page => params[:page], :per_page => 15)
 
     @conversation = Conversation.joins(:conversation_visibilities).where(
       :conversation_visibilities => {:person_id => current_user.person_id, :conversation_id => params[:conversation_id]}).first
@@ -33,15 +30,13 @@ class ConversationsController < ApplicationController
   def create
     # Can't split nil
     if params[:contact_ids]
-      person_ids = Contact.where(:id => params[:contact_ids].split(',')).map(&:person_id)
+      person_ids = current_user.contacts.where(id: params[:contact_ids].split(',')).pluck(:person_id)
     end
 
-    @conversation = Conversation.new
-    @conversation.subject = params[:conversation][:subject]
-    @conversation.participant_ids = [*person_ids] | [current_user.person_id]
-    @conversation.author = current_user.person
-    message_text = params[:conversation][:text]
-    @conversation.messages_attributes = [ {:author => current_user.person, :text => message_text }]
+    opts = params.require(:conversation).permit(:subject)
+    opts[:participant_ids] = person_ids
+    opts[:message] = { text: params[:conversation][:text] }
+    @conversation = current_user.build_conversation(opts)
 
     @response = {}
     if person_ids.present? && @conversation.save
@@ -62,8 +57,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    if @conversation = Conversation.joins(:conversation_visibilities).where(:id => params[:id],
-                                                                            :conversation_visibilities => {:person_id => current_user.person_id}).first
+    if @conversation = current_user.conversations.where(id: params[:id]).first
 
       @first_unread_message_id = @conversation.first_unread_message(current_user).try(:id)
       if @visibility = ConversationVisibility.where(:conversation_id => params[:id], :person_id => current_user.person.id).first

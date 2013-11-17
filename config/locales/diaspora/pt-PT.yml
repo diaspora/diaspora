@@ -392,6 +392,18 @@ pt-PT:
     pods:
       title: "Servidores"
       what_is_a_pod_q: "O que é um servidor?"
+    posts_and_posting:
+      character_limit_q: "Qual é o limite de caracteres em publicações?"
+      image_text: "texto da imagem"
+      image_url: "URL da imagem"
+      insert_images_comments_q: "Posso inserir imagens em comentários?"
+      insert_images_q: "Como insiro imagens em publicações?"
+      size_of_images_q: "Posso personalizar o tamanho das imagens em publicações ou comentários?"
+      title: "Publicações e publicar"
+    public_profiles:
+      title: "Perfis públicos"
+      whats_in_profile_q: "O que está no meu perfil público"
+      who_sees_profile_q: "Quem vê o meu perfil público?"
     third_party_tools: "ferramentas de terceiros"
     tutorial: "tutorial"
     tutorials: "tutoriais"

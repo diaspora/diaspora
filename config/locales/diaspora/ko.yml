@@ -8,6 +8,7 @@ ko:
   _applications: "애플리케이션"
   _comments: "댓글"
   _contacts: "컨택"
+  _help: "도움말"
   _home: "처음"
   _photos: "사진"
   _services: "서비스"
@@ -322,6 +323,15 @@ ko:
     post_not_public: "공개 게시물이 아닙니다!"
   fill_me_out: "채워주세요"
   find_people: "사람이나 #태그 를 찾아보세요"
+  help:
+    account_and_data_management:
+      close_account_a: "설정 페이지의 아래에 가서 계정 지우기 단추를 클릭하세요."
+      close_account_q: "내 시드(계정)을 어떻게 지우나요?"
+      download_data_a: "네. 설정 페이지의 계정 탭 아래에 자료를 다운받는 두 버튼이 있습니다."
+      download_data_q: "내 시드(계정)에 있는 자료를 다운받을 수 있나요?"
+      move_pods_q: "내 시드(계정)를 다른 팟으로 어떻게 옮기나요?"
+    foundation_website: "디아스포라 재단 웹사이트"
+    markdown: "마크다운"
   hide: "숨기기"
   invitation_codes:
     excited: "%{name}님이 나를 기다리고 있습니다."
@@ -357,6 +367,7 @@ ko:
       resend: "다시 보내기"
       send_an_invitation: "초대장 보내기"
       send_invitation: "초대장 보내기"
+      sending_invitation: "초대장 전송중"
       to: "받는이"
   layouts:
     application:
@@ -552,6 +563,7 @@ ko:
       gender: "성별"
       in_aspects: "속한 애스펙:"
       location: "위치"
+      photos: "사진"
       remove_contact: "컨택 지우기"
       remove_from: "%{aspect}에서 %{name}님을 지울까요?"
     show:

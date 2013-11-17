@@ -44,6 +44,7 @@ ko:
       admin: "관리"
       close: "닫기"
       contacts: "컨택"
+      help: "도움말"
       home: "처음"
       log_out: "로그아웃"
       mark_all_as_read: "읽음으로 표시"

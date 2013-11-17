@@ -66,6 +66,7 @@ app.views.PublisherUploader = Backbone.View.extend({
         url = response.data.photo.unprocessed_image.url;
 
     this._addFinishedPhoto(id, url);
+    this.trigger('change');
   },
 
   // replace the first photo placeholder with the finished uploaded image and
@@ -114,6 +115,8 @@ app.views.PublisherUploader = Backbone.View.extend({
             // no more photos left...
             self.options.publisher.el_wrapper.removeClass('with_attachments');
           }
+
+          self.trigger('change');
         });
       }
     });

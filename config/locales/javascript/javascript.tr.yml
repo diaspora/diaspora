@@ -80,7 +80,7 @@ tr:
         zero: "<%= count %> Beğeni"
       limited: "Sınırlı"
       more_comments:
-        other: "Diğer <%= count %> yorum gör"
+        other: "Diğer <%= count %> yorumu gör"
         zero: "Diğer <%= count %> yorumu gör"
       original_post_deleted: "İleti yazarı tarafından silindi."
       public: "Genel"

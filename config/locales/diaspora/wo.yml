@@ -49,6 +49,8 @@ wo:
   blocks:
     destroy:
       success: "Ayca nu gis liñu wax! #nuyu"
+  bookmarklet:
+    heading: "Bookmarklet"
   contacts:
     index:
       no_contacts_message: "Xoolal %{community_spotlight}"
@@ -77,6 +79,7 @@ wo:
     index:
       and: "ak"
   notifier:
+    click_here: "cuqal fii"
     hello: "Na nga def %{name}?"
     started_sharing:
       view_profile: "Xoolal xibaar yu %{name} ñeel"

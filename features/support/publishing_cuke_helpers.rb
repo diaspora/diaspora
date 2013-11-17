@@ -17,6 +17,11 @@ module PublishingCukeHelpers
     ')
   end
 
+  def publisher_submittable?
+    submit_btn = find("#publisher input[type=submit]")
+    !submit_btn[:disabled]
+  end
+
   def expand_first_post
     within(".stream_element", match: :first) do
       find(".expander").click

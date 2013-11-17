@@ -12,6 +12,9 @@
 @import 'opengraph'
 @import 'help'
 @import 'profile'
+@import 'publisher'
+@import 'facebox'
+@import 'aspects'
 
 /* ====== media ====== */
 .media
@@ -527,248 +530,10 @@ form p.checkbox_select
 *:-moz-placeholder
   @include placeholder_styles
 
-#publisher
-  :z-index 1
-  :color $text-grey
-  :position relative
-  :margin
-    :top 0
-    :bottom 0
-  :padding 12px
-    :top 0
-    :bottom 22px
-  :top 0
-
-  :border
-    :bottom 1px #eee solid
-
-  form
-    textarea
-      :resize none
-      :height 50px
-      :margin 0
-
-  &.mention_popup
-    :padding 1px 12px
-    :margin
-      :bottom 0
-    :border
-      :bottom none
-
-  &.closed
-    .options_and_submit
-      :display none !important
-
-    .counter
-      :display none
-
-  &:not(.closed)
-    textarea
-      :margin
-        :bottom 30px
-
-  .options_and_submit
-    :min-height 21px
-    :clear both
-    :position relative
-    :padding
-      :top 6px
-    :margin
-      :bottom -2px
-
-    input
-      :display inline
-
-    .public_toggle
-      :text
-        :align right
-      .dropdown
-        :text
-          :align left
-
-      .icons-monotone_wrench_settings
-        :display inline-block
-        :width 16px
-        :height 16px
-
-      a.question_mark
-        :text-decoration none
-
-    #publisher_service_icons
-      :position relative
-      :top 3px
-      :margin
-        :right 10px
-
-      .social_media_logos-facebook-16x16,
-      .social_media_logos-twitter-16x16,
-      .social_media_logos-tumblr-16x16,
-      .social_media_logos-wordpress-16x16,
-      .social_media_logos-email-16x16,
-      .social_media_logos-feed-16x16,
-      .social_media_logos-website-16x16
-        :display inline-block
-        :height 16px
-        :width 16px
-
-    #fileInfo
-      :display inline
-      :position relative
-      :top -2px
-
-  #status_message_fake_text
-    :min-height 20px
-
-
-  .content_creation
-    :margin
-      :top 1em
-
-  #file-upload
-    :bottom 1px !important
-    :display inline-block
-    :margin 0
-    :padding .3em .3em 3px
-    :position absolute !important
-    :right 6px
-    :cursor pointer
-
-
-    input[type='file']
-      :cursor pointer
-      :right initial !important
-      :height 100%
-      :width 100%
-      &::-webkit-file-upload-button
-        :cursor pointer
-
-    img
-      @include opacity(0.4)
-      :vertical-align bottom
-
-    &:hover
-      :color $text-dark-grey
-      :cursor pointer
-
-      img
-        @include opacity(0.8)
-
-    &:active
-      :color #444
-      :text-shadow 0 1px 0 #fafafa
-
-      img
-        @include opacity(1)
-
-    &.loading
-      @include opacity(0.5)
-
-#publisher_textarea_wrapper
-  #hide_publisher
-    @include opacity(0.3)
-    :z-index 5
-    :padding 3px
-    :position absolute
-    :right 6px
-    :margin-top 9px
-
-    .icons-deletelabel
-      :height 14px
-      :width 14px
-
-    &:hover
-      @include opacity(1)
-
-  @include border-radius(2px)
-
-  :border 1px solid #ccc
-  :background #fff
-
-  &.active
-    :border 1px solid $border-dark-grey
-
-  :position relative
-  :padding
-    :right 10px
-
-  textarea
-    :z-index 2
-    :border none
-
-    &:focus
-      :outline 0
-      :background transparent
-
-  &.with_attachments
-    :padding-bottom 38px
-
-  #photodropzone
-    :z-index 3
-    :position absolute
-    :bottom 0
-    :right 35px
-    :width 430px
-    :left 5px
-    :padding 0
-
-    li
-      :display inline-block
-      :margin-right 4px
-      img
-        :width 50px
-        :max-height 55px
-      .circle
-        @include border-radius(20px)
-
-        :display none
-        :z-index 1
-        :position absolute
-        :right -7px
-        :top -5px
-        :background
-          :color #333
-
-        :width 20px
-        :max-width 20px
-        :height 20px
-        :max-height 20px
-
-        :border 1px solid #fff
-
-      .x
-        :display none
-        :z-index 2
-        :position absolute
-        :top -3px
-        :right -1px
-        :font
-          :size small
-          :weight bold
-
-      &:hover
-        :cursor default
-        .circle
-          :display block
-        .x
-          :display block
-
-  .counter
-    :position absolute
-    :font-size 13px
-    :padding 12px 0 0 5px
-  .warning
-    :color orange
-  .exceeded
-    :color red
 .field_with_submit
   input[type='text']
     :width 82%
     :display inline
-
-#publisher.closed
-  #publisher_textarea_wrapper
-    #hide_publisher
-      :display none
 
 .dim
   @include opacity(0.3)
@@ -861,9 +626,6 @@ input[type="search"]
   :-webkit-appearance textfield
   :-moz-appearance textfield
 
-.facebox_content
-  :display none
-
 #photo_edit_options
   :display none
 
@@ -926,36 +688,6 @@ input[type="search"]
     :height 100px
     :width 100px
 
-#publisher_photo_upload
-  :position absolute
-  :display inline
-  :left 600px
-  :top 0
-  :z-index 10
-
-#profile_photo_upload
-  :margin
-    :top 5px
-  :min-height 100px
-  :position relative
-
-  img
-    @include border-radius(5px)
-    @include box-shadow(0,1px,2px,#666)
-
-    :position absolute
-    :left 0
-    :height 100px
-    :width 100px
-
-    &.avatar
-      @include transition(opacity, 0.5s)
-      &.loading
-        @include opacity(0.3)
-
-  :padding
-    :left 120px
-
 h3 span.current_gs_step
   :color #22C910
 
@@ -1006,125 +738,6 @@ ul#request_result
       :position relative
       :bottom 2.5em
       :padding 0
-
-.contact_list_controls
-  :height 30px
-  :margin
-    :bottom 5px
-  :vertical-align middle
-  :position relative
-
-#contact_list_search
-  :width 200px
-  :margin
-    :top 0
-  :float right
-
-.contact_list,
-.aspect_list
-  @include border-radius(3px)
-
-  :height 300px
-  :max-height 300px
-
-  :overflow-y auto
-  :overflow-x hidden
-
-  :border 1px solid #bbb
-
-  :background
-    :color rgb(252,252,252)
-
-  .avatar
-    :float left
-    :height 50px
-    :width 50px
-    :margin
-      :right 10px !important
-
-  .button.share
-    :padding
-      :right 20px
-    .right
-      :right 8px
-      :top 3px
-
-  .icons-monotone_plus_add_round,
-  .icons-monotone_check_yes
-    :height 20px
-    :width 20px
-
-  > .contacts
-    :margin 0
-    :padding 5px
-      :right 0
-
-    > .contact
-      @include border-radius(3px)
-      @include box-shadow(0, 1px, 5px, #ccc)
-      :background
-        :color #fff
-      :float left
-      :overflow-x hidden
-      :overflow-y hidden
-
-      :position relative
-      :display inline-block
-
-      &.hidden
-        :display none
-
-      :height 50px
-      :width 170px
-
-      :margin
-        :bottom 5px
-        :right 5px
-
-      :padding 5px
-      :border 1px solid $border-dark-grey
-
-      > .name
-        :white-space nowrap
-
-      &.remote_friend
-        :width 285px
-
-      a.button
-        @include box-shadow(0,0,0)
-
-        :border
-          :bottom none
-
-        :min-width auto
-        :float right
-        :padding 2px 4px
-        :margin-top 5px
-
-        &.added
-          @include linear-gradient(rgb(158,255,153), rgb(92,199,86))
-
-        &.added.remove
-          @include linear-gradient(rgb(255,153,153), rgb(199,86,86))
-
-          &:active
-            @include linear-gradient(rgb(199,119,119), rgb(130,55,55))
-
-.aspect_list
-  :height 300px
-  :max-height 300px
-
-  .name
-    :left 1em
-
-  ul
-    > li
-      :padding 1em
-      :height 1em
-
-      .right
-        :top 2px
-        :right 1em
 
 #signup_field
   :margin
@@ -1363,63 +976,6 @@ ul#press_logos
 
 #inner_account_delete
   :width 810px
-
-#aspect_edit_pane
-  :width 810px
-  .person_tiles
-    .tile
-      @include border-radius(2px)
-
-      :padding 6px
-        :left 65px
-      :margin 3px
-        :left 0
-      :display inline-block
-      :width 126px
-      :height 50px
-
-      :border 1px solid #eee
-
-      :position relative
-
-      img
-        :position absolute
-        :left 6px
-
-  &.larger
-    :width 650px
-
-#facebox_header
-  :position relative
-  :padding
-    :bottom 10px
-
-  .right
-    :z-index 3
-    :right 1em
-    :top 14px
-    :color #ccc
-
-    img
-      :vertical
-        :align top
-      :position relative
-      :top 0px
-
-  h3,
-  h4
-    .description
-      :margin
-        :top 0px
-
-  .tiny_text
-    :font
-      :size 11px
-      :weight normal
-
-#aspect_edit_controls
-  :margin
-    :top 8px
 
 .icons-monotone_email_letter_round
   :height 128px
@@ -1735,9 +1291,6 @@ ul#press_logos
   :font
     :size 12px
 
-#contact_visibility_padlock:hover
-  @include opacity(0.7)
-
 .side_stream
   .stream_element
     :padding 10px 0
@@ -1942,10 +1495,6 @@ h1.tag
 
   &:active
     @include linear-gradient(darken(#D9FFA9,20%),darken(#B9E68A,20%))
-
-#facebox
-  input[type='text'], input.text
-    :width 98%
 
 #client-application-image
   :max-width 100%
@@ -2182,102 +1731,6 @@ a.toggle_selector
 
   &:hover
     :color $link-grey
-
-.no_contacts
-  :position relative
-  :text-align center
-  :top 50px
-
-#people_stream.contacts
-  .stream_element
-    :padding 10px
-    :min-height 30px
-    .right
-      :top 16px
-
-      a
-        @include opacity(0.3)
-
-        &:hover
-          @include opacity(1)
-
-    .from
-      :position relative
-      a
-        :color rgb(85,80,80)
-
-    .content
-      :padding
-        :left 40px
-    .info
-      :margin
-        :top -2px
-
-  .avatar
-    :height 30px
-    :width 30px
-
-  .icons-monotone_close_exit_delete
-    :height 20px
-    :width 20px
-
-#aspect_controls
-  @include border-radius(2px)
-  :background
-    :color #fafafa
-  :border 1px solid #ccc
-  :padding 10px
-  :min-height 23px
-
-  .conversation_button
-    :float right
-
-#selected_aspect_contacts
-  .avatar
-    :height 32px
-    :width 32px
-    :margin
-      :bottom -2px
-
-.stream-faces
-  a:hover
-    :text-decoration none
-
-#view_all_contacts_link
-  @include border-radius(2px)
-  :display block
-  :padding 5px
-  :border 1px dotted #aaa
-  :text-align center
-  :margin 5px 0
-
-.bottom_submit_section
-  :overflow hidden
-  :display block
-  :position relative
-  :text-align right
-
-  form
-    :float left
-    :display inline-block
-    .creation
-      :float right
-
-  .icons-padlock-open,
-  .icons-padlock-closed
-    :float left
-    :height 16px
-    :width  16px
-    :margin
-      :left 4px
-      :top 2px
-
-#no_contacts
-  :text-align center
-  :padding 10px
-  :background
-    :color #eee
-  :color $text-dark-grey
 
 .cubbies_collage
   :position absolute
@@ -2677,26 +2130,6 @@ body
     :bottom 3px solid #3f8fba !important
   :background
     :color #e8f7ff
-
-#publisher-images
-  #locator
-    :bottom 1px !important
-    :display inline-block
-    :margin 0
-    :position absolute !important
-    :right 30px
-    :cursor pointer
-    img
-      :padding-top 2px
-      @include opacity(0.4)
-    &:hover
-      :color $text-dark-grey
-      :cursor pointer
-      img
-        @include opacity(0.8)
-  .btn
-    :height 19px
-    :width 19px
 
 #location
   :border 1px solid $border-dark-grey

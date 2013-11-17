@@ -54,7 +54,9 @@ class Conversation < ActiveRecord::Base
   end
 
   def last_author
-    self.messages.last.author if self.messages.size > 0
+    return unless @last_author.present? || self.messages.size > 0
+    @last_author_id ||= self.messages.pluck(:author_id).last
+    @last_author ||= Person.includes(:profile).where(id: @last_author_id).first
   end
 
   def subject

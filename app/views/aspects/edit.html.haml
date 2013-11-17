@@ -17,16 +17,8 @@
   - if @contacts.count > 0
     = render 'shared/contact_list', :aspect => @aspect, :contacts => @contacts
 
-  %br
   .bottom_submit_section
     = button_to t('delete'), @aspect, :method => "delete", :data => { :confirm => t('.confirm_remove_aspect') }, :class => 'button delete'
-    - if @aspect.contacts_visible
-      = link_to content_tag(:div, nil, :class => 'icons-padlock-open', :id => "contact_visibility_padlock", :title => t('.aspect_list_is_visible')),
-                            aspect_toggle_contact_visibility_path(@aspect), :class => 'contact_visibility_link', :method => :put, :remote => true
-
-    - else
-      = link_to content_tag(:div, nil, :class => 'icons-padlock-closed', :id => "contact_visibility_padlock", :title => t('.aspect_list_is_not_visible')),
-                            aspect_toggle_contact_visibility_path(@aspect), :class => 'contact_visibility_link', :method => :put, :remote => true
-
+    = aspect_visibility_link(@aspect)
     = submit_tag t('.done'), :class => 'button creation', :rel => 'close'
 

@@ -348,11 +348,25 @@ sk:
     account_and_data_management:
       close_account_a: "Prejdi do spodnej časti stránky s nastaveniami a klikni na tlačidlo Zrušiť účet."
       close_account_q: "Ako odstánim (zruším) svoj(e) účet (semiačko)?"
+      data_other_podmins_a: "Keď niečo napíšete niekomu na inom serveri, všetky príspevky, o ktoré sa takto podelíte a kópia dát z tvojho profilu sa uloží na ich serveri a bude prístupná administrátorovi databázy toho servera. Ak príspevok alebo dáta z profilu vymažete, vymažú sa z vášho servera a z každého servera, kde boli predtým uložené."
+      data_other_podmins_q: "Môžu moje údaje vidieť administrátori iných serverov?"
+      data_visible_to_podmin_a: "Komunikácia \"medzi\" servermi je vždy zakódovaná (pomocou SSL a vlastného prenosového zakódovania Diaspory*), ale uloženie dát na serveroch nie je zakódované. Ak správca databázy tvojho servera (zvyčajne je to človek, ktorý prevádzkuje server) chce, môže sa dostať ku všetkým údajom v tvojom profile a ku všetkému, čo posielaš (ako v prípade väčšiny stránok, ktoré si ukladajú dáta používateľov). Prevádzkovanie vlastného servera ponúka viac súkromia, lebo máš pod kontrolou prístup k databáze."
+      data_visible_to_podmin_q: "Ktoré moje údaje vidí administrátor servera?"
       download_data_a: "Áno. V spodnej časti karty Účet na stránke s nastaveniami máš na stiahnutie svojich údajov dve tlačidlá."
       download_data_q: "Môžem si stiahnuť kópiu všetkých svojich údajov, ktoré sa nachádzajú na mojom semiačku (účte)?"
       move_pods_a: "V budúcnosti budeš môcť preniesť svoj účet z podu a nahrať ho na iný, ale momentálne to nie je možné. Stále si však môžeš vytvoriť nový účet a pridať kontakty do kategórii na tom novom účte a poprosiť tých ľudí, aby si tvoj nový účet pridali do svojich kontaktov."
       move_pods_q: "Ako prenesiem svoj(e) (semiačko) účet z jedného podu na iný?"
       title: "Správa účtov a údajov"
+    aspects:
+      contacts_know_aspect_a: "Nie. Za žiadnych okolností nevidia názov kategórie."
+      contacts_know_aspect_q: "Vedia ľudia v mojich kontaktoch, do akej kategórie som ich dal(a)?"
+      restrict_posts_i_see_a: "Áno. Klikni na Moje kategórie v bočnom menu a potom klikni na jednotlivé kategórie v zozname, ktoré chceš vybrať alebo odobrať. Na nástenke sa potom objavia iba príspevky od ľudí vo vybraných kategóriach."
+      restrict_posts_i_see_q: "Môžem obmedziť príspevky, ktoré vidím iba na príspevky od určitých kategórií?"
+      title: "Kategórie"
+      what_is_an_aspect_a: "Kategórie sú spôsob, akým si zotriedite kontakty na Diaspore*. Kategória je jednou tvárou, ktorú ukážeš svetu. Môžeš byť tým (tou), čo si v práci, alebo tým (tou), čo si pre svoju rodinu alebo kamarátov v klube, kam patríš."
+      what_is_an_aspect_q: "Čo je kategória"
+      who_sees_post_a: "Ak napíšeš príspevok pre vybraných ľudí, uvidia ho len ľudia, ktorých si dal(a) do tej kategórie (alebo tých kategórií, ak je určený pre viacej kategórii)."
+      who_sees_post_q: "Keď pošlem príspevok do kategórie, kto ho uvidí?"
     foundation_website: "internetová stránka nadácie Diaspory"
     getting_help:
       get_support_a_hashtag: "spýtaj sa cez verejný príspevok na Diaspore* so značkou %{question}"
@@ -367,8 +381,16 @@ sk:
     getting_started_tutorial: "návody pre začiatočníkov"
     here: "sem"
     irc: "IRC"
+    mentions:
+      how_to_mention_a: "Napíš znak \"@\" pred meno toho človeka (bez medzery). Malo by sa zobraziť rolovacie menu, aby si si mohol (-hla) ľahšie vybrať. Pamätaj si, že takto môžeš spomenúť iba ľudí, ktorých máš pridaných do kategórií."
+      how_to_mention_q: "Ako môžem niekoho spomenúť, keď píšem príspevok?"
+      mention_in_comment_a: "Nie, nie v súčasnosti."
+      mention_in_comment_q: "Môžem niekoho spomenúť v komentári?"
+      title: "Zmienky"
     miscellaneous:
       title: "Rôzne"
+    pods:
+      title: "Servery"
     posts_and_posting:
       image_text: "text k obrázku"
       image_url: "adresa obrázka"

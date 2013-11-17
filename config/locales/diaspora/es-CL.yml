@@ -474,8 +474,17 @@ es-CL:
       who_sees_updates_a: "Cualquier persona puede ver los cambios si visitan tu página de perfil."
       who_sees_updates_q: "¿Quién puede ver las actualizaciones de mi perfil público?"
     resharing_posts:
+      reshare_private_post_aspects_q: "¿Puedo volver a compartir una publicación privada solo con ciertos aspectos?"
       reshare_public_post_aspects_q: "¿Puedo compartir una publicación pública con solo ciertos aspectos?"
       title: "Compartir publicaciones"
+    sharing:
+      add_to_aspect_a1: "Digamos que Amy agrega a Ben a un aspecto, pero Ben (aún) no ha agregado a Amy a un aspecto:"
+      add_to_aspect_li1: "Ben recibe una notificación de que Amy \"comenzó a compartir\" con Ben."
+      add_to_aspect_li2: "Amy comenzará a ver las publicaciones públicas de Ben en su Entrada."
+      add_to_aspect_li3: "Amy no podrá ver ninguna de las publicaciones privadas de Ben."
+      add_to_aspect_li4: "Ben no verá las publicaciones públicas o privadas de Amy en su Entrada."
+      add_to_aspect_q: "¿Qué sucede cuando agrego a alguien a uno de mis aspectos? ¿O cuando alguien me agrega a uno de sus aspectos?"
+      title: "Compartir"
     third_party_tools: "herramientas de terceros"
     tutorial: "tutorial"
     tutorials: "tutoriales"

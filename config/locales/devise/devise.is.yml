@@ -16,6 +16,7 @@ is:
       invalid: "Ógilt netfang eða lykilorð."
       invalid_token: "Ógildur staðfestingarlykill."
       locked: "Aðgangurinn þinn er læstur."
+      not_found_in_database: "Email eða lykilorð eru ekki rétt."
       timeout: "Innskráningin þín hefur runnið út á tíma. Vinsamlegast skráðu þig aftur inn til að geta haldið áfram."
       unauthenticated: "Þú þarft að skrá þig inn eða stofna nýjan aðgang áður en þú getur haldið áfram."
       unconfirmed: "Þú þarft að staðfesta aðganginn þinn áður en þú getur haldið áfram."
@@ -34,7 +35,9 @@ is:
         arrived: "Hér er loksins komið samskiptanetið sem þú hefur beðið eftir. %{strong_diaspora} er hressara, öruggara og skemmtilegra, og tilbúið fyrir það sem þú vilt skoða eða deila með vefnum, á nýjan hátt."
         be_yourself: "Vertu þú @{f:sjálf|m:sjálfur|sjálf(ur)}"
         be_yourself_paragraph: "Með Internetinu hafa orðið til nýjar leiðir fyrir okkur til að tjá okkur. Á %{strong_diaspora} færð þú að vera þú @{f:sjálf|m:sjálfur|sjálf(ur)} og deila því sem þú vilt, undir þínu rétta nafni eða ekki, eftir því sem þú vilt."
+        cubbies: "Cubbi.es"
         displaying_correctly: "Birtist netfangið ekki rétt? %{link}"
+        email_address: "questions@joindiaspora.com"
         email_us: "Almennar fyrirspurnir og fyrirspurnir sem varða Diasporaaðganginn þinn má senda á %{email}."
         finally: "Loksins, hérna er það komið"
         friends_saying: "Það sem vinir þínir segja..."
@@ -58,6 +61,7 @@ is:
         view_in: "Skoða í"
       inviter:
         accept_at: "á %{url}. Þú getur þegið boðið með því að fylgja hlekknum hér fyrir neðan."
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} hafa boðið þér að vera með í Diaspora"
       reset_password_instructions:
         change: "Breyta lykilorðinu mínu"

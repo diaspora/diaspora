@@ -81,7 +81,9 @@ hu:
       users:
         other: "%{count} felhasználó található"
         zero: "nem található felhasználó"
-      you_currently: "jelenleg %{user_invitation} meghívó áll még rendelkezésedre %{link}"
+      you_currently:
+        other: "jelenleg %{count} meghívó áll még rendelkezésedre %{link}"
+        zero: "jelenleg nem áll rendelkezésedre meghívó %{link}"
     weekly_user_stats:
       amount_of:
         other: "az új felhasználók száma ezen a héten: %{count}"
@@ -167,7 +169,7 @@ hu:
         tag_feature: "javaslat"
         tag_question: "kérdés"
         tutorial_link_text: "Útmutatók"
-        tutorials_and_wiki: "A kezdő lépésekhez angol nyelvű %{tutorial} és %{wiki} is rendelkezésedre áll."
+        tutorials_and_wiki: "A kezdő lépéseidben segíthet még a %{faq}, az %{tutorial} és a %{wiki}"
       introduce_yourself: "Ez a te Hírfolyamod. Kezdd is el gyorsan egy bemutatkozással!"
       keep_diaspora_running: "Támogasd a Diaspora gyorsabb fejlesztését havi adományoddal!"
       keep_pod_running: "Hogy gyors maradhasson ez a kiszolgáló (%{pod}), adományozz havonta egy kis kávéra valót a szervereknek ;)"
@@ -358,8 +360,8 @@ hu:
     foundation_website: "Diaspora alapítvány"
     getting_help:
       get_support_a_hashtag: "kérdezz magyarul a közösségi hálón, nyilvános bejegyzésben a %{question} címke használatával"
-      get_support_a_irc: "Kapcsolódj %{irc} -n (Élő cset)"
-      get_support_a_tutorials: "nézed meg a %{tutorials} -unkat"
+      get_support_a_irc: "Kapcsolódj %{irc}-en (élő csevegés)"
+      get_support_a_tutorials: "nézd meg az általunk készített %{tutorials}at"
       get_support_a_website: "látogasd meg a %{link} honlapját"
       get_support_a_wiki: "kutass a %{link} adattárunkban"
       get_support_q: "Mit tegyek, ha a kérdésemre itt nem találok választ? Hol kaphatok még felvilágosítást?"
@@ -369,24 +371,30 @@ hu:
     getting_started_tutorial: "'Kezdő lépések'"
     here: "itt"
     irc: "IRC"
-    markdown: "Leírás"
+    markdown: "markdown"
     mentions:
       mention_in_comment_a: "Jelenleg ez még nem lehetséges."
       mention_in_comment_q: "Megemlíthetek valakit egy hozzászólásban?"
       see_mentions_a: "Igen, kattints a \"Megemlítettek\" feliratra a kezdőlapod bal oldalán."
       see_mentions_q: "Van rá mód, hogy megtekinthessem azokat a bejegyzéseket, melyekben megemlítettek engem?"
     miscellaneous:
+      back_to_top_a: "Igen. Miután legörgeted az oldalt, kattints a böngészőablak jobb alsó sarkában megjelenő szürke nyílra."
       back_to_top_q: "Van gyors módja annak, hogy visszajussak az oldal elejére miután lejjebb görgettem?"
+      diaspora_app_a: "Számos Android alkalmazás van a korai fejlesztés állapotában. Ezek közül többen régóta magára hagyott projektek, így nem működnek jól a Diaspora legújabb változatával. Ne várj túl sokat ezektől az alkalmazásoktól jelenleg. Pillanatnyilag a Diaspora-hoz való hozzáférés legjobb módja, ha a mobil böngésződön keresztül próbálsz csatlakozni, mivel erre optimalizáltuk a rendszert. Aktuálisan nincs iOS alkalmazásunk. Röviden szólva: a Diaspora legjobban a böngésződön keresztül fog működni."
       diaspora_app_q: "Létezik Diaspora* alkalmazás Android vagy iOS rendszerre?"
+      photo_albums_a: "Jelenleg nem. Mindazonáltal a feltöltött képek folyamát megtekintheted az adatlapok oldalsávjának fényképek részlegén."
       photo_albums_q: "Támogatottak a kép- vagy videó gyűjtemények?"
       subscribe_feed_q: "Feliratkozhatok valakinek a nyilvános bejegyzéseire hírfolyam (RSS) olvasóval?"
       title: "Egyebek"
     posts_and_posting:
-      format_text_a: "A %{markdown} nevű egyszerűsített leíró rendszer segítségével, melynek pontos alaki követelményeit %{here} találod. Az előnézet gomb itt különösen hasznosnak bizonyulhat, hiszen segítségével láthatod, hogyan fog kinézni az üzeneted mielőtt megosztod azt."
+      embed_multimedia_q: "Hogyan ágyazhatok be mozgóképet, hangot vagy más multimédiás tartalmat a bejegyzésembe?"
+      format_text_a: "A %{markdown} nevű egyszerűsített leíró rendszer segítségével, melynek pontos alaki követelményeit %{here} találod. Az előnézet gomb ekkor különösen hasznosnak bizonyulhat, hiszen segítségével láthatod, hogyan fog kinézni az üzeneted mielőtt megosztod azt."
       format_text_q: "Hogyan formázhatom meg a bejegyzéseim szövegét (kövér, dőlt, stb.)?"
       insert_images_a: "Kattints a kis fényképezőgép jelére, ha képet szeretnél beszúrni a bejegyzésedbe. Nyomd meg az ikont ismételten, ha másikat is szeretnél hozzáadni. Lehetőséged van több képet is egyszerre kiválasztani."
       insert_images_comments_q: "Beilleszthetek képeket a hozzászólásaimba?"
       insert_images_q: "Hogyan helyezhetek el képeket a bejegyzésemben?"
+      size_of_images_a: "Nem. A képek automatikusan átméreteződnek, hogy megfelelően épülhessenek be a hírfolyamba. A markdown nem támogatja a képek átméretezését szolgáló kódok semmilyen formáját."
+      size_of_images_q: "Testreszabhatom-e a bejegyzésekben vagy hozzászólásokban szereplő képek méretét?"
       stream_full_of_posts_a1: "A hírfolyamod három fajta bejegyzésből áll:"
       stream_full_of_posts_q: "Miért van tele a hírfolyamom olyan emberek bejegyzéseivel, akiket nem ismerek és nem is osztok meg velük semmit?"
     private_posts:
@@ -415,9 +423,11 @@ hu:
     sharing:
       title: "Megosztás"
     tags:
+      filter_tags_a: "Ez a lehetőség közvetlenül még nem hozzáférhető a diaspora-n keresztül, de %{third_party_tools} segítségével részben megvalósítható."
       filter_tags_q: "Hogyan szűrhetek vagy zárhatok ki címkéket a hírfolyamomból?"
       followed_tags_q: "Mik azok a \"#követett címkék\" és hogyan követhetek címkéket?"
       people_tag_page_q: "Kik a bal oldali sávban látható személyek az egyes címkék oldalain?"
+      tags_in_comments_q: "Elhelyezhetek címkéket a hozzászólásokban is vagy csak a bejegyzésekben tehetem meg ezt?"
       title: "Címkék"
       what_are_tags_for_q: "Mire valók a címkék?"
     third_party_tools: "külsős fejlesztőeszközök"
@@ -813,6 +823,7 @@ hu:
       password_confirmation: "JELSZÓ MEGERŐSÍTÉS"
       sign_up: "Iratkozz fel!"
       sign_up_message: "Közösségi Hálózat <3"
+      submitting: "Feldolgozás folyamatban..."
       username: "AZONOSÍTÓ"
   requests:
     create:
@@ -868,9 +879,10 @@ hu:
       no_friends: "Nincs Facebook ismerősöd"
       service_friends: "%{service} ismerősök"
     index:
-      connect_to_facebook: "Csatlakozás a Facebook-hoz"
-      connect_to_tumblr: "Csatlakozás a Tumblr-hez"
-      connect_to_twitter: "Csatlakozás a Twitter-hez"
+      connect_to_facebook: "Kapcsolódás a Facebook-hoz"
+      connect_to_tumblr: "Kapcsolódás a Tumblr-hez"
+      connect_to_twitter: "Kapcsolódás a Twitter-hez"
+      connect_to_wordpress: "Kapcsolódás a Wordpress-hez"
       disconnect: "megszakít"
       edit_services: "Szolgáltatások szerkesztése"
       logged_in_as: "- bejelentkeztél ezen a néven:"
