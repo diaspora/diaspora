@@ -5,10 +5,10 @@
 class PublicsController < ApplicationController
   include Diaspora::Parser
 
-  skip_before_filter :set_header_data
-  skip_before_filter :set_grammatical_gender
-  before_filter :check_for_xml, :only => [:receive, :receive_public]
-  before_filter :authenticate_user!, :only => [:index]
+  skip_before_action :set_header_data
+  skip_before_action :set_grammatical_gender
+  before_action :check_for_xml, :only => [:receive, :receive_public]
+  before_action :authenticate_user!, :only => [:index]
 
   respond_to :html
   respond_to :xml, :only => :post
