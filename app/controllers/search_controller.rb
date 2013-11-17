@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 	
   def search
     if search_query.starts_with?('#')

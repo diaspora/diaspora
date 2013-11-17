@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class PeopleController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :last_post]
+  before_action :authenticate_user!, :except => [:show, :last_post]
 
   respond_to :html, :except => [:tag_index]
   respond_to :json, :only => [:index, :show]

@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class NotificationsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def update
     note = Notification.where(:recipient_id => current_user.id, :id => params[:id]).first

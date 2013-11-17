@@ -5,9 +5,9 @@ class ServicesController < ApplicationController
   # We need to take a raw POST from an omniauth provider with no authenticity token.
   # See https://github.com/intridea/omniauth/issues/203
   # See also http://www.communityguides.eu/articles/16
-  skip_before_filter :verify_authenticity_token, :only => :create
-  before_filter :authenticate_user!
-  before_filter :abort_if_already_authorized, :abort_if_read_only_access, :only => :create
+  skip_before_action :verify_authenticity_token, :only => :create
+  before_action :authenticate_user!
+  before_action :abort_if_already_authorized, :abort_if_read_only_access, :only => :create
 
   respond_to :html
   respond_to :json, :only => :inviter
