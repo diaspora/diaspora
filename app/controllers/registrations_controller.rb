@@ -3,10 +3,10 @@
 #   the COPYRIGHT file.
 
 class RegistrationsController < Devise::RegistrationsController
-  before_filter :check_registrations_open_or_valid_invite!, :check_valid_invite!
+  before_action :check_registrations_open_or_valid_invite!, :check_valid_invite!
 
   layout ->(c) { request.format == :mobile ? "application" : "with_header" }, :only => [:new]
-  before_filter -> { @css_framework = :bootstrap }, only: [:new, :create]
+  before_action -> { @css_framework = :bootstrap }, only: [:new, :create]
 
   def create
     @user = User.build(user_params)

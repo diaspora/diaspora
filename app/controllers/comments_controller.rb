@@ -4,7 +4,7 @@
 
 class CommentsController < ApplicationController
   include ApplicationHelper
-  before_filter :authenticate_user!, :except => [:index]
+  before_action :authenticate_user!, :except => [:index]
 
   respond_to :html,
              :mobile,
