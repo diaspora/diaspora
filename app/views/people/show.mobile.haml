@@ -2,10 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :page_title do
-  %h1
-    diaspora*
-
 .span12
   #author_info
     = person_image_tag @person, :thumb_medium
@@ -15,7 +11,7 @@
       %span.description
         = @person.diaspora_handle
 
-.span12
+.span12.profile_stream
   - if @stream.stream_posts.length > 0
     - if @post_type == :photos
       = render 'photos/index', :photos => @stream.stream_posts
