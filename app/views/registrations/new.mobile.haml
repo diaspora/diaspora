@@ -45,8 +45,8 @@
                 = f.password_field :password_confirmation, :placeholder => "••••••••"
 
             .controls
-              = f.submit t('registrations.new.create_my_account'), :class => 'btn primary', :disable_with => t('registrations.new.submitting')
-              = link_to t('devise.sessions.new.sign_in'), new_user_session_path(), :class => 'btn primary', :style => "float: right;"
+              = f.submit t('registrations.new.create_my_account'), :class => 'btn primary', data: { disable_with: t('registrations.new.submitting') }
+              = link_to t('devise.sessions.new.sign_in'), new_user_session_path, :class => 'btn primary', :style => "float: right;"
 
 %footer
   = link_to t('layouts.application.toggle'), toggle_mobile_path
