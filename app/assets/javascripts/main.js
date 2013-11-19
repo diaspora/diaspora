@@ -4,7 +4,6 @@
  */
 //= require underscore
 //= require backbone
-//= require rails.validations
 //= require jquery.hotkeys
 //= require jquery.remotipart
 //= require jquery.autoresize
