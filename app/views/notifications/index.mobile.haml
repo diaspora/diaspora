@@ -1,10 +1,10 @@
-.right
-  = link_to t('.mark_all_as_read'), notifications_read_all_path, :class => 'btn'
-
 %h3
   = t('.notifications')
 
-%ul.stream.notifications
+.right
+  = link_to t('.mark_all_as_read'), notifications_read_all_path, :class => 'btn'
+
+%ul.notifications
   - @group_days.each do |day, notes|
     %li
       .notification_day_header

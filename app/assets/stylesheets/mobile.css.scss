@@ -7,8 +7,7 @@
 
 a {
   color: #2489ce;
-  text: {
-    decoration: none; };
+  text-decoration: none;
 }
 
 body {
@@ -21,9 +20,12 @@ body {
   padding-top: 55px;
 }
 
+h3 {
+  margin-top: 0px;
+}
+
 .message {
-  padding: {
-    left: 2px; };
+  padding-left: 2px;
 }
 
 .stream_element,
@@ -676,6 +678,12 @@ select {
 
 .notifications {
   list-style: none;
+  margin: 0px;
+  clear: right;
+}
+
+.notifications_for_day {
+  margin-left: 12px;
 }
 
 .notification_day_header {
@@ -702,10 +710,6 @@ display: inline-block;
     margin: 0 2px;
     position: relative;
     width: 28px;
-}
-
-#conversation_inbox {
-  margin: 10px 0 0 10px;
 }
 
 .message_count {
@@ -792,7 +796,6 @@ form#new_conversation.new_conversation {
   border-bottom: 1px solid $border-dark-grey;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  margin: 5px 0 5px 15px;
   padding: 5px 10px;
   h4 {
     font-size: 14px;

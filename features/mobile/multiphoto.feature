@@ -17,7 +17,7 @@ Feature: viewing photos on the mobile main page
     When I press "Share"
     And I click on selector "img.stream-photo"
     Then I should see a "img" within "#show_content"
-    And I should not see a "#right" within ".row"
+    And I should not see a "#right" within "#main"
 
   Scenario: view multiphoto post
     Given I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload-publisher"
