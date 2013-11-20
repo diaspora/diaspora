@@ -378,7 +378,7 @@ en:
     foundation_website: "diaspora foundation website"
     third_party_tools: "third party tools"
     getting_started_tutorial: "'Getting started' tutorial series"
-    getting_help: 
+    getting_help:
       title: "Getting help"
       getting_started_q: "Help! I need some basic help to get me started!"
       getting_started_a: "You're in luck. Try the %{tutorial_series} on our project site. It will take you step-by-step through the registration process and teach you all the basic things you need to know about using diaspora*."
@@ -1090,7 +1090,10 @@ en:
       follow: "Follow #%{tag}"
       following: "Following #%{tag}"
       stop_following: "Stop Following #%{tag}"
-      followed_by: 'followed by'
+      followed_by_people:
+        zero: "followed by nobody"
+        one: "followed by one person"
+        two: "followed by %{count} people"
       none: "The empty tag does not exist!"
   tag_followings:
     create:
