@@ -94,6 +94,22 @@ describe User do
       User.daily_actives.should_not include(user)
     end
   end
+  
+  describe 'halfyear_actives' do
+    it 'returns list which includes users who latest signed in within half a year' do
+      user = FactoryGirl.build(:user)
+      user.last_sign_in_at = Time.now - 4.month
+      user.save
+      User.halfyear_actives.should include user
+    end
+
+     it 'returns list which does not include users who did not sign in within the last half a year' do
+      user = FactoryGirl.build(:user)
+      user.last_sign_in_at = Time.now - 7.month
+      user.save
+      User.halfyear_actives.should_not include user
+    end
+  end
 
   context 'callbacks' do
     describe '#save_person!' do

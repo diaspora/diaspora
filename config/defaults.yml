@@ -49,6 +49,9 @@ defaults:
       site_id:
     mixpanel_uid:
     chartbeat_uid:
+    statistics:
+      user_counts: false
+      post_counts: false
   settings:
     pod_name: 'diaspora*'
     enable_registrations: true

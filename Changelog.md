@@ -51,6 +51,7 @@
 * Added ignore user icon on user profile [#4417](https://github.com/diaspora/diaspora/pull/4417)
 * Improve the management of the contacts visibility settings in an aspect [#4567](https://github.com/diaspora/diaspora/pull/4567)
 * Add actions on aspects on the contact page [#4570](https://github.com/diaspora/diaspora/pull/4570)
+* Added a statistics route with general pod information, and if enabled in pod settings, total user, half year/monthly active users and local post counts [#4602](https://github.com/diaspora/diaspora/pull/4602)
 
 
 # 0.2.0.0

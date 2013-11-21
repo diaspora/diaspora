@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   scope :monthly_actives, lambda { |time = Time.now| logged_in_since(time - 1.month) }
   scope :daily_actives, lambda { |time = Time.now| logged_in_since(time - 1.day) }
   scope :yearly_actives, lambda { |time = Time.now| logged_in_since(time - 1.year) }
+  scope :halfyear_actives, lambda { |time = Time.now| logged_in_since(time - 6.month) }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
