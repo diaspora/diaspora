@@ -6,10 +6,11 @@
   - if post.is_a?(StatusMessage)
     -if post.photos.size > 0
       .photo_attachments
-        - if post.photos.size > 1
-          .additional_photo_count
-            = "+ #{post.photos.size-1}"
-        = link_to (image_tag post.photos.first.url(:thumb_large), :class => "stream-photo big-stream-photo"), person_photo_path(post.author, post.photos.first), :class => "stream-photo-link"
+        = link_to person_photo_path(post.author, post.photos.first), class: "stream-photo-link" do
+          - if post.photos.size > 1
+            .additional_photo_count
+              = "+ #{post.photos.size-1}"
+          = image_tag post.photos.first.url(:thumb_large), class: "stream-photo big-stream-photo"
   - elsif post.activity_streams?
     = image_tag post.image_url
 
