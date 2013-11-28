@@ -43,7 +43,7 @@
             = post.likes.size
 
         %ul.comments
-          = render :partial => 'comments/comment', :collection => post.comments, :locals => {:post => post}
+          = render :partial => 'comments/comment', :collection => post.comments.order('created_at ASC')
 
           %li.comment.add_comment_bottom_link_container
             - if user_signed_in? 
