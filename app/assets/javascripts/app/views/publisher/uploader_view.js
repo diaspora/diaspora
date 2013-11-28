@@ -71,7 +71,7 @@ app.views.PublisherUploader = Backbone.View.extend({
     } else {
       this._cancelPhotoUpload();
       this.trigger('change');
-      alert(Diaspora.I18n.t('photo_uploader.error', {file: fileName}));
+      this.el_info.text(Diaspora.I18n.t('photo_uploader.error', {file: fileName}));
     }
   },
 

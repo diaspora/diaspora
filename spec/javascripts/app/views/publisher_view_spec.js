@@ -382,15 +382,17 @@ describe("app.views.Publisher", function() {
         });
       });
 
-      context('completion', function() {
+      context('successful completion', function() {
         beforeEach(function() {
           Diaspora.I18n.loadLocale({ photo_uploader: { completed: '<%= file %> completed' }});
           $('#photodropzone').html('<li class="publisher_photo loading"><img src="" /></li>');
 
-          this.uploader.onComplete(null, 'test.jpg', { data: { photo: {
-            id: '987',
-            unprocessed_image: { url: 'test.jpg' }
-          }}});
+          this.uploader.onComplete(null, 'test.jpg', {
+            data: { photo: {
+              id: '987',
+              unprocessed_image: { url: 'test.jpg' }
+            }},
+            success: true });
         });
 
         it('shows it in text form', function() {
@@ -415,6 +417,25 @@ describe("app.views.Publisher", function() {
         it('re-enables the buttons', function() {
           expect(this.view.el_submit.prop('disabled')).toBeFalsy();
           expect(this.view.el_preview.prop('disabled')).toBeFalsy();
+        });
+      });
+
+      context('unsuccessful completion', function() {
+        beforeEach(function() {
+          Diaspora.I18n.loadLocale({ photo_uploader: { completed: '<%= file %> completed' }});
+          $('#photodropzone').html('<li class="publisher_photo loading"><img src="" /></li>');
+
+          this.uploader.onComplete(null, 'test.jpg', {
+            data: { photo: {
+              id: '987',
+              unprocessed_image: { url: 'test.jpg' }
+            }},
+            success: false });
+        });
+
+        it('shows error message', function() {
+          var info = this.view.view_uploader.el_info;
+          expect(info.text()).toBe(Diaspora.I18n.t('photo_uploader.error', {file: 'test.jpg'}))
         });
       });
     });
