@@ -85,7 +85,7 @@ app.views.PublisherUploader = Backbone.View.extend({
       '<input type="hidden", value="'+id+'" name="photos[]" />'
     );
 
-    // // replace placeholder
+    // replace placeholder
     var placeholder = publisher.el_photozone.find('li.loading').first();
     placeholder
       .removeClass('loading')
