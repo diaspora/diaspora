@@ -1093,7 +1093,7 @@ en:
       followed_by_people:
         zero: "followed by nobody"
         one: "followed by one person"
-        two: "followed by %{count} people"
+        other: "followed by %{count} people"
       none: "The empty tag does not exist!"
   tag_followings:
     create:
