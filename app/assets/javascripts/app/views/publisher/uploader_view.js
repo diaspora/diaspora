@@ -60,13 +60,19 @@ app.views.PublisherUploader = Backbone.View.extend({
   },
 
   uploadCompleteHandler: function(id, fileName, response) {
-    this.el_info.text(Diaspora.I18n.t('photo_uploader.completed', {file: fileName})).fadeTo(2000, 0);
+    if (response.success){
+      this.el_info.text(Diaspora.I18n.t('photo_uploader.completed', {file: fileName})).fadeTo(2000, 0);
 
-    var id  = response.data.photo.id,
-        url = response.data.photo.unprocessed_image.url;
+      var id  = response.data.photo.id,
+          url = response.data.photo.unprocessed_image.url;
 
-    this._addFinishedPhoto(id, url);
-    this.trigger('change');
+      this._addFinishedPhoto(id, url);
+      this.trigger('change');
+    } else {
+      this._cancelPhotoUpload();
+      this.trigger('change');
+      this.el_info.text(Diaspora.I18n.t('photo_uploader.error', {file: fileName}));
+    }
   },
 
   // replace the first photo placeholder with the finished uploaded image and
@@ -94,6 +100,14 @@ app.views.PublisherUploader = Backbone.View.extend({
       this.$el.removeClass('loading');
       publisher.setButtonsEnabled(true);
     }
+  },
+
+  _cancelPhotoUpload: function() {
+    var publisher = this.options.publisher;
+    var placeholder = publisher.el_photozone.find('li.loading').first();
+    placeholder
+      .removeClass('loading')
+      .find('img').remove();
   },
 
   // remove an already uploaded photo
