@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:show, :iframe, :oembed, :interactions]
   before_filter :set_format_if_malformed_from_status_net, :only => :show
-  before_filter :find_post, :only => [:show, :next, :previous, :interactions]
+  before_filter :find_post, :only => [:show, :interactions]
 
   before_filter -> { @css_framework = :bootstrap }
 
@@ -45,24 +45,6 @@ class PostsController < ApplicationController
       render :json => oembed
     else
       render :nothing => true, :status => 404
-    end
-  end
-
-  def next
-    next_post = Post.visible_from_author(@post.author, current_user).newer(@post)
-
-    respond_to do |format|
-      format.html{ redirect_to post_path(next_post) }
-      format.json{ render :json => PostPresenter.new(next_post, current_user)}
-    end
-  end
-
-  def previous
-    previous_post = Post.visible_from_author(@post.author, current_user).older(@post)
-
-    respond_to do |format|
-      format.html{ redirect_to post_path(previous_post) }
-      format.json{ render :json => PostPresenter.new(previous_post, current_user)}
     end
   end
 
