@@ -35,8 +35,6 @@ class PostPresenter
         :frame_name => @post.frame_name || template_name,
         :root => root,
         :title => title,
-        :next_post => next_post_path,
-        :previous_post => previous_post_path,
         :address => @post.address,
 
         :interactions => {
@@ -47,14 +45,6 @@ class PostPresenter
             :reshares_count => @post.reshares_count,
         }
     }
-  end
-
-  def next_post_path
-    Rails.application.routes.url_helpers.next_post_path(@post)
-  end
-
-  def previous_post_path
-    Rails.application.routes.url_helpers.previous_post_path(@post)
   end
 
   def title
