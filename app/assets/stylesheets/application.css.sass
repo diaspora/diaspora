@@ -91,6 +91,8 @@ ul > li
   :-webkit-box-shadow rgba(0,0,0,0.12) 0px 0px 5px inset
   :-moz-box-shadow rgba(0,0,0,0.12) 0px 0px 5px inset
 
+  @include box-shadow(0px, 1px, 2px, #666)
+
   :background
     :color $background-grey
 
@@ -182,13 +184,6 @@ ul.as-selections
 
 #author_info
   :position relative
-
-  .avatar img
-    :position relative
-    :top 0px
-    :display inline-block
-    :height 30px
-    :width 30px
 
   .from
     :display inline-block
@@ -683,10 +678,35 @@ input[type="search"]
 
 #user_photo_uploader
   .avatar
-    @include border-radius(5px)
-
     :height 100px
     :width 100px
+
+#publisher_photo_upload
+  :position absolute
+  :display inline
+  :left 600px
+  :top 0
+  :z-index 10
+
+#profile_photo_upload
+  :margin
+    :top 5px
+  :min-height 100px
+  :position relative
+
+  img
+    :position absolute
+    :left 0
+    :height 100px
+    :width 100px
+
+    &.avatar
+      @include transition(opacity, 0.5s)
+      &.loading
+        @include opacity(0.3)
+
+  :padding
+    :left 120px
 
 h3 span.current_gs_step
   :color #22C910
@@ -700,6 +720,284 @@ h3 span.current_gs_step
   .notification
     @include border-radius(5px)
     @include box-shadow(0,2px,3px,#333)
+
+    :margin
+      :bottom 10px
+
+    :background
+      :color rgb(30,30,30)
+      :color rgba(30,30,30,0.9)
+
+    :min-width 200px
+    :padding 12px
+    :color #fff
+
+    :vertical
+      :align middle
+
+    .avatar
+      :display inline-block
+      :height 20px
+      :width 20px
+      :margin
+        :right 5px
+      :vertical
+        :align middle
+
+#nav_badges
+  :display inline-block
+  :margin-top 2px
+  :float left
+  :width 61px
+
+  a:hover
+    :text
+      :decoration none
+
+
+  .badge
+    :position relative
+    :top 2px
+    :display inline
+    :margin 0 2px
+    :font
+      :weight bold
+      :size smaller
+    :width 22px
+
+    &:hover
+      .badge_count
+        :background
+          :color lighten(#A40802, 5%)
+
+    a.badge_link
+      :display block
+      :width 100%
+      :height 16px
+      :float left
+
+    .icons-notifications_grey
+      :height 16px
+
+    .icons-mail_grey
+      :height 11px
+
+#message_inbox_badge
+  :float left
+  :padding 3px 3px 0px 0px
+
+#notification_badge
+  :float left
+  :padding 0px 3px 0px 3px
+
+.badge_count
+  @include border-radius(2px)
+
+  :z-index 3
+  :position absolute
+  :top -2px
+  :left 13px
+  :padding 0 2px
+    :bottom 1px
+  :background
+    :color #A40802
+  :line
+    :height 12px
+
+  :color #fff
+
+ul#request_result
+  :padding 0
+  :margin 0
+  li
+    :margin
+      :bottom 25px
+    input.add
+      :color green
+  .stream_element
+    .content
+      :display inline
+      :position relative
+      :bottom 2.5em
+      :padding 0
+
+.contact_list_controls
+  :height 30px
+  :margin
+    :bottom 5px
+  :vertical-align middle
+  :position relative
+
+#contact_list_search
+  :width 200px
+  :margin
+    :top 0
+  :float right
+
+.contact_list,
+.aspect_list
+  @include border-radius(3px)
+
+  :height 300px
+  :max-height 300px
+
+  :overflow-y auto
+  :overflow-x hidden
+
+  :border 1px solid #bbb
+
+  :background
+    :color rgb(252,252,252)
+
+  .avatar
+    :float left
+    :margin
+      :right 10px !important
+
+  .button.share
+    :padding
+      :right 20px
+    .right
+      :right 8px
+      :top 3px
+
+  .icons-monotone_plus_add_round,
+  .icons-monotone_check_yes
+    :height 20px
+    :width 20px
+
+  > .contacts
+    :margin 0
+    :padding 5px
+      :right 0
+
+    > .contact
+      @include border-radius(3px)
+      @include box-shadow(0, 1px, 5px, #ccc)
+      :background
+        :color #fff
+      :float left
+      :overflow-x hidden
+      :overflow-y hidden
+
+      :position relative
+      :display inline-block
+
+      &.hidden
+        :display none
+
+      :height 50px
+      :width 170px
+
+      :margin
+        :bottom 5px
+        :right 5px
+
+      :padding 5px
+      :border 1px solid #999
+
+      > .name
+        :white-space nowrap
+
+      &.remote_friend
+        :width 285px
+
+      a.button
+        @include box-shadow(0,0,0)
+
+        :border
+          :bottom none
+
+        :min-width auto
+        :float right
+        :padding 2px 4px
+        :margin-top 5px
+
+        &.added
+          @include linear-gradient(rgb(158,255,153), rgb(92,199,86))
+
+        &.added.remove
+          @include linear-gradient(rgb(255,153,153), rgb(199,86,86))
+
+          &:active
+            @include linear-gradient(rgb(199,119,119), rgb(130,55,55))
+
+.aspect_list
+  :height 300px
+  :max-height 300px
+
+  .name
+    :left 1em
+
+  ul
+    > li
+      :padding 1em
+      :height 1em
+
+      .right
+        :top 2px
+        :right 1em
+
+footer
+  :width 100%
+  :left 0
+  :bottom 0
+  :color #999
+
+  .container
+    :margin
+      :top 4em
+    :padding 0
+      :top 0.5em
+    :border
+      :top 1px solid #ddd
+
+  .branding-powered_by_diaspora
+    :display inline-block
+    :margin-top 3px
+    :height 11px
+    :width 145px
+
+  ul#footer_nav
+    :margin 0
+    :padding 0
+    :display inline-block
+    :float right
+
+    > li
+      :display inline
+      :margin
+        :right 1em
+
+      &.separator
+        :margin-left -.35em
+        :margin-right .65em
+        @include opacity(.6)
+
+      &:last-child
+        :margin 0
+    a
+      :color #777
+
+ul#landing_nav
+  :margin 0
+  :padding 0
+
+  :position absolute
+  :top 4px
+  :right 0
+
+  > li
+    :display inline
+    :margin
+      :right 0.5em
+
+    &:last-child
+      :margin
+        :right 0
+
+    a
+      :color $blue
 
     :margin
       :bottom 10px
@@ -911,8 +1209,6 @@ ul#press_logos
   :min-width 430px
 
   .avatar
-    :width 50px
-    :height 50px
     :float left
 
   h4,p
