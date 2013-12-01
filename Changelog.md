@@ -40,6 +40,7 @@
 * Fix avatar display on mobile profile [#4591](https://github.com/diaspora/diaspora/pull/4591)
 * Add lightbox to unauthenticated header, fix [#4432](https://github.com/diaspora/diaspora/issues/4432)
 * Fix "more picture" indication (+n) on mobile by adding a link on the indication [#4592](https://github.com/diaspora/diaspora/pull/4592)
+* Display errors when photo upload fails [#4509](https://github.com/diaspora/diaspora/issues/4509)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
