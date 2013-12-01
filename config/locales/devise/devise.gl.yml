@@ -14,6 +14,7 @@ gl:
       unauthenticated: 'Ten que acceder ou rexistrarse para continuar.'
       unconfirmed: 'Ten que confirmar a súa conta para continuar.'
       locked: 'A súa conta está bloqueada.'
+      not_found_in_database: 'O enderezo ou contrasinal son incorrectos.'
       invalid: 'O correo electrónico ou contrasinal son incorrectos.'
       invalid_token: 'O código de autenticación é incorrecto.'
       timeout: 'A súa sesión rematou, volva identificarse para continuar.'
