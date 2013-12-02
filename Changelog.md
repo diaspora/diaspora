@@ -48,8 +48,9 @@
 * Disable "mark all as read" link if all notifications are read [#4463](https://github.com/diaspora/diaspora/pull/4463)
 * Collapse aspect list and tag followings list when switching to other views [#4462](https://github.com/diaspora/diaspora/pull/4462)
 * Highlight current stream in left sidebar [#4445](https://github.com/diaspora/diaspora/pull/4445)
-* Added ignore user icon [#4417](https://github.com/diaspora/diaspora/pull/4417)
+* Added ignore user icon on user profile [#4417](https://github.com/diaspora/diaspora/pull/4417)
 * Improve the management of the contacts visibility settings in an aspect [#4567](https://github.com/diaspora/diaspora/pull/4567)
+* Add actions on aspects on the contact page [#4570](https://github.com/diaspora/diaspora/pull/4570)
 
 
 # 0.2.0.0
@@ -118,7 +119,7 @@
 * Add possibility to ask for Bitcoin donations [#4375](https://github.com/diaspora/diaspora/pull/4375)
 * Remove posts, comments and private conversations from the mobile site. [#4408](https://github.com/diaspora/diaspora/pull/4408) [#4409](https://github.com/diaspora/diaspora/pull/4409)
 * Added a link to user photos and thumbnails are shown in the left side bar [#4347](https://github.com/diaspora/diaspora/issues/4347)
-* Rework the single post view
+* Rework the single post view [#4410](https://github.com/diaspora/diaspora/pull/4410)
 * Add aspect modification on contacts page, close [#4397](https://github.com/diaspora/diaspora/issues/4397)
 * Add help page [#4405](https://github.com/diaspora/diaspora/issues/4405)
 
