@@ -191,6 +191,15 @@ configuration: ## Section
     
     ## Chartbeat tracking
     #chartbeat_uid:
+    
+    ## Statistics
+    ## By default pod name, version and whether registrations are
+    ## open or not is reported. Enable more statistics below.
+    statistics: ## Section
+      ## Local user total and 6 month active counts
+      #user_counts: true
+      ## Local post total count
+      #post_counts: true
   
   ## General settings
   settings: ## Section
