@@ -50,6 +50,7 @@
 * Highlight current stream in left sidebar [#4445](https://github.com/diaspora/diaspora/pull/4445)
 * Added ignore user icon [#4417](https://github.com/diaspora/diaspora/pull/4417)
 * Improve the management of the contacts visibility settings in an aspect [#4567](https://github.com/diaspora/diaspora/pull/4567)
+* Add shadow-boxes to user avatar [#4296](https://github.com/diaspora/diaspora/pull/4296)
 
 
 # 0.2.0.0
