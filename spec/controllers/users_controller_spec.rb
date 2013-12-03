@@ -93,20 +93,6 @@ describe UsersController do
       response.status.should == 204
     end
 
-    context 'password updates' do
-      before do
-        @password_params = {:current_password => 'bluepin7',
-                            :password => "foobaz",
-                            :password_confirmation => "foobaz"}
-      end
-
-      it "uses devise's update with password" do
-        @user.should_receive(:update_with_password).with(hash_including(@password_params))
-        @controller.stub!(:current_user).and_return(@user)
-        put :update, :id => @user.id, :user => @password_params
-      end
-    end
-
     describe 'language' do
       it 'allow the user to change his language' do
         old_language = 'en'
