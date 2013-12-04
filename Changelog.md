@@ -1,5 +1,6 @@
 # 0.2.0.1
 
+* Bump rails to version 3.2.16, fixes several security issues, see http://weblog.rubyonrails.org/2013/12/3/Rails_3_2_16_and_4_0_2_have_been_released/
 * Bump recommended Ruby version to 1.9.3-p484, see https://www.ruby-lang.org/en/news/2013/11/22/heap-overflow-in-floating-point-parsing-cve-2013-4164/
 
 # 0.2.0.0
