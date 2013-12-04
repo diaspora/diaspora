@@ -1,3 +1,7 @@
+# 0.2.0.1
+
+* Bump recommended Ruby version to 1.9.3-p484, see https://www.ruby-lang.org/en/news/2013/11/22/heap-overflow-in-floating-point-parsing-cve-2013-4164/
+
 # 0.2.0.0
 
 **Attention:** This release includes a potentially long running migration! However it should be safe to run this while keeping your application servers on.
