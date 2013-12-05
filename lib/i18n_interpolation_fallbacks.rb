@@ -15,7 +15,7 @@ module I18n
         end
 
         return super(locale, nil, options) if default
-        raise(I18n::MissingInterpolationArgument.new(options, "key: #{key} in locale: #{locale}"))
+        raise(I18n::MissingInterpolationArgument.new(key, options, locale))
       end
     end
   end
