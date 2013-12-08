@@ -3,7 +3,7 @@
  *   the COPYRIGHT file.
  */
 
-describe("Diaspora.Widgets.Lighbox", function() {
+describe("Diaspora.Widgets.Lightbox", function() {
   var photos;
 
   var createDummyMarkup = function(opts){
