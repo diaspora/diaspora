@@ -59,16 +59,17 @@ app.views.Help = app.views.StaticContentView.extend({
     this.clearItems();
     var section = el.data('section');
     var items = el.data('items').split(" ");
+    var self = this;
 
-    items.forEach(function(item, i){
+    $.each(items, function(i, item){
       var qa = {
         className: "faq_question_" + section,
-        question: this.getText(section, item, true),
-        answer: this.getText(section, item, false)
+        question: self.getText(section, item, true),
+        answer: self.getText(section, item, false)
       };
       item = new app.views.FaqQuestionView(qa);
-      this.$el.find('#faq').append(item.render().el);
-    }, this);
+      self.$('#faq').append(item.render().el);
+    });
 
     this.setInitialVisibility();
   },
@@ -79,8 +80,8 @@ app.views.Help = app.views.StaticContentView.extend({
   },
 
   setInitialVisibility: function() {
-    this.$el.find('#faq .question.collapsible :first').addClass('opened').removeClass('collapsed');
-    this.$el.find('#faq .question.collapsible .answer :first').show();
+    this.$('#faq .question.collapsible :first').addClass('opened').removeClass('collapsed');
+    this.$('#faq .question.collapsible .answer :first').show();
   },
 
   resetMenu: function(initial) {
@@ -99,7 +100,7 @@ app.views.Help = app.views.StaticContentView.extend({
   },
 
   clearItems: function() {
-    this.$el.find('#faq').empty();
+    this.$('#faq').empty();
   },
 
   sectionClicked : function(e) {
@@ -113,7 +114,7 @@ app.views.Help = app.views.StaticContentView.extend({
     this.clearItems();
     data = $.extend(Diaspora.I18n.locale[section], { className: section });
     help_section = new app.views.HelpSectionView( template, data, subs );
-    this.$el.find('#faq').append(help_section.render().el);
+    this.$('#faq').append(help_section.render().el);
   },
 
   gettingHelp: function(e) {

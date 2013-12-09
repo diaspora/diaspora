@@ -19,9 +19,8 @@ app.views.FaqQuestionView = app.views.Base.extend({
     var section = app.views.Base.prototype.render.apply(this, arguments);
 
     // After render actions
-    var el = $(this.el);
-    el.find('.question.collapsible').removeClass('opened').addClass('collapsed');
-    el.find('.answer').hide();
+    this.$('.question.collapsible').removeClass('opened').addClass('collapsed');
+    this.$('.answer').hide();
 
     return section;
   },
