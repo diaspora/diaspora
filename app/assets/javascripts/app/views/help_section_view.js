@@ -15,10 +15,10 @@ app.views.HelpSectionView = app.views.StaticContentView.extend({
     var section = app.views.Base.prototype.render.apply(this, arguments);
 
     // After render actions
-    $(this.el).find('.question.collapsible').removeClass('opened').addClass('collapsed');
-    $(this.el).find('.answer.hideable').hide();
-    $(this.el).find('.question.collapsible :first').addClass('opened').removeClass('collapsed');
-    $(this.el).find('.answer.hideable :first').show();
+    this.$('.question.collapsible').removeClass('opened').addClass('collapsed');
+    this.$('.answer.hideable').hide();
+    this.$('.question.collapsible :first').addClass('opened').removeClass('collapsed');
+    this.$('.answer.hideable :first').show();
 
     return section;
   },
