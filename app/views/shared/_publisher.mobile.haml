@@ -9,9 +9,8 @@
   = include_gon
 
 = form_for StatusMessage.new, {:data => {:ajax => false}} do |status|
-  #message_container
-    = status.hidden_field :provider_display_name, :value => 'mobile'
-    = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :rows => 4, :autofocus => "autofocus"
+  = status.hidden_field :provider_display_name, :value => 'mobile'
+  = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :rows => 4, :autofocus => "autofocus"
 
   %fieldset
     %span#publisher_service_icons

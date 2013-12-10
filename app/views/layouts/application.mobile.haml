@@ -48,23 +48,30 @@
   %body
     #app
       %header#main_nav
-        = link_to(image_tag('branding/header-logo2x.png', height: 40, width: 40), stream_path, id: 'header_title')
+        = link_to(image_tag('icons/asterisk_white_mobile.png'), stream_path, id: 'header_title')
         - if user_signed_in?
-          = link_to(image_tag('icons/menu.png', :class => 'menu'),"#", id: "menu_badge")
-
           #nav_badges
-            = link_to(image_tag('icons/notifications_grey.png', height: 16, width: 16, id: 'notification-flag'), notifications_path, class: "badge badge-inverse", id: "notification_badge")
-            - if current_user.unread_notifications.count > 0
-              .badge_count{id: "notification"}
-                = current_user.unread_notifications.count
-            = link_to(image_tag('icons/mail_grey.png', height: 11, width: 17), conversations_path, class: "badge badge-inverse", id: "conversations_badge")
-            - if current_user.unread_message_count > 0
-              .badge_count{id: "conversation"}
-                = current_user.unread_message_count
+            -# Notifications
+            = link_to notifications_path, class: "badge", id: "notification_badge" do
+              = image_tag('icons/notifications_white.png')
+              - if current_user.unread_notifications.count > 0
+                %span.badge_count{id: "notification"}
+                  = current_user.unread_notifications.count
+            -# Conversations
+            = link_to conversations_path, class: "badge", id: "conversations_badge" do
+              = image_tag('icons/mail_white.png', id: 'conversation_icon')
+              - if current_user.unread_message_count > 0
+                %span.badge_count{id: "conversation"}
+                  = current_user.unread_message_count
+            -# Composition
             - if yield(:header_action).present?
               = yield(:header_action)
             - else
-              = link_to(image_tag('icons/compose_mobile2.png', class: 'compose_icon'), new_status_message_path)
+              = link_to(image_tag('icons/compose_mobile.png'), new_status_message_path, class: "badge")
+            -# Menu
+            = link_to(image_tag('icons/menu.png'), "#", id: "menu_badge", class: "badge")
+
+
 
       #main.container{:role => "main"}
         - if current_page?(:activity_stream)

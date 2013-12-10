@@ -22,7 +22,7 @@ body {
 }
 
 #main.container {
-  padding-top: 55px;
+  margin: 55px 10px 0px 10px;
 }
 
 h3 {
@@ -31,17 +31,6 @@ h3 {
 
 .clear {
   clear: both;
-}
-
-#menu_badge {
-  float: right;
-  display: inline-block;
-  padding: 0px 10px 0px 12px;
-  margin-top: 3px;
-
-  img.menu {
-    height: 40px;
-  }
 }
 
 #app {
@@ -160,10 +149,6 @@ h3 {
     -moz-box-shadow: -2px 0px 2px 1px #333;
     box-shadow: -2px 0px 2px 1px #333;
   }
-}
-
-.row {
-  margin-left: 20px !important;
 }
 
 .message {
@@ -312,8 +297,6 @@ h3 {
 
 
 #main_stream {
-  margin-left: 10px;
-  margin-right: 10px;
   .from {
     white-space: nowrap;
     overflow: hidden;
@@ -471,7 +454,12 @@ header {
   @include box-shadow(0, 1px, 2px, #333);
   border-bottom: 1px solid #222;
 
-  #header_title { display: inline-block; }
+  #header_title {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+  }
 
   #nav_badges {
     float: right;
@@ -480,48 +468,31 @@ header {
 
     .badge {
       display: inline;
-      margin-left: 3px;
-      padding: 8px 3px;
-      padding-bottom: 9px;
+      margin: 0px 4px;
+      padding: 10px 6px;
       font-weight: bold;
       font-size: smaller;
-      width: 28px;
+      background-color: #333333;
+      
+      img {
+        height: 30px;
+        width: 30px;
+      }
     }
 
-    .badge:hover .badge_count {
-        background-color: #bd0902;
+    .badge_count {
+      @include border-radius(2px);
+      z-index: 3;
+      position: absolute;
+      top: 3px;
+      padding: 1px 3px;
+      background-color: $red;
+      margin-left: -8px;
     }
-
-    a {
-      padding: 5px 0px;
+    
+    #conversation_icon {
+      height: 18px;
     }
-  }
-
-  .badge_count {
-    -moz-border-radius: 2px 2px 2px 2px;
-    -webkit-border-radius: 2px 2px 2px 2px;
-    border-radius: 2px 2px 2px 2px;
-    z-index: 3;
-    position: absolute;
-    top: 1px;
-    padding: 0 2px;
-      padding-bottom: 1px;
-    background-color: $red;
-    line-height: 12px;
-    color: white;
-    font-size: smaller;
-  }
-
-  #notification {
-    right: 140px;
-  }
-
-  #conversation {
-    right: 110px;
-  }
-
-  .badge-inverse {
-    background-color: #333333 !important;
   }
 }
 
@@ -687,12 +658,7 @@ footer {
 }
 
 #new_status_message {
-  text-align: left;
-  position: absolute;
-  left: 0;
-  top: 40px;
-  width: 100%;
-  min-height: 250px;
+  margin: 0px;
 
   fieldset {
     padding: 10px;
@@ -799,12 +765,6 @@ select {
   }
 }
 
-.compose_icon {
-  height: 28px;
-  width: 28px;
-  margin-left: 10px;
-}
-
 .navbar-inner .right {
   position: absolute;
   right: 12px;
@@ -833,28 +793,6 @@ select {
 
 .notification_day_header {
   margin-bottom: 5px;
-}
-
-#header-nav {
-    font-weight: bold;
-    height: 100%;
-    margin-right: 5px;
-    margin-top: 3px;
-display: inline-block;
-}
-
-#header-nav a {
-    padding: 0 10px;
-    width: 100%;
-    color: $text-grey;
-}
-
-#header-nav > div {
-  display: inline;
-    font-weight: bold;
-    margin: 0 2px;
-    position: relative;
-    width: 28px;
 }
 
 .message_count {
