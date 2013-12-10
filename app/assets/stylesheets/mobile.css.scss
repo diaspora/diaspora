@@ -672,26 +672,19 @@ footer {
     }
   }
 
-  #message_container {
-    @include box-shadow(0, 2px, 3px, #999);
-    background-color: #fff;
-    padding: 5px;
-    border: {
-      bottom: 1px solid $border-dark-grey;
-    }
-    .counter {
-      font-size: 14px;
-    }
+  .counter {
+    font-size: 14px;
   }
 
   textarea {
     @include border-radius(0);
-    left: 0;
+    @include box-shadow(0, 2px, 3px, #999);
     border: none;
-    margin: 10px 0;
+    border-bottom: 1px solid $border-dark-grey;
+    width: 96%;
+    padding: 2%;
+    margin: 0px;
     font-size: 14px;
-    padding: 0;
-    min-width: 100%;
   }
 }
 
