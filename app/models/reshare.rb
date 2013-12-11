@@ -49,10 +49,6 @@ class Reshare < Post
     self.root ? root.photos : []
   end
 
-  def frame_name
-    self.root ? root.frame_name : nil
-  end
-
   def receive(recipient, sender)
     local_reshare = Reshare.where(:guid => self.guid).first
     if local_reshare && local_reshare.root.author_id == recipient.person.id

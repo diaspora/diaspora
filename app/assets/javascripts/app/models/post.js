@@ -15,14 +15,6 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
     }
   },
 
-  setFrameName : function(){
-    this.set({frame_name : new app.models.Post.TemplatePicker(this).getFrameName()})
-  },
-
-  applicableTemplates: function() {
-    return new app.models.Post.TemplatePicker(this).applicableTemplates()
-  },
-
   interactedAt : function() {
     return this.timeOf("interacted_at");
   },
@@ -67,13 +59,4 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
   hasText : function(){
     return $.trim(this.get("text")) !== ""
   }
-}), {
-  headlineLimit : 118,
-
-  frameMoods : [
-    "Wallpaper",
-    "Vanilla",
-    "Typist",
-    "Fridge"
-  ]
-});
+}));

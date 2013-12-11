@@ -32,11 +32,8 @@ class PostPresenter
         :open_graph_cache => @post.open_graph_cache.try(:as_api_response, :backbone),
         :mentioned_people => @post.mentioned_people.as_api_response(:backbone),
         :photos => @post.photos.map {|p| p.as_api_response(:backbone)},
-        :frame_name => @post.frame_name || template_name,
         :root => root,
         :title => title,
-        :next_post => next_post_path,
-        :previous_post => previous_post_path,
         :address => @post.address,
 
         :interactions => {
@@ -49,20 +46,8 @@ class PostPresenter
     }
   end
 
-  def next_post_path
-    Rails.application.routes.url_helpers.next_post_path(@post)
-  end
-
-  def previous_post_path
-    Rails.application.routes.url_helpers.previous_post_path(@post)
-  end
-
   def title
     @post.text.present? ? post_page_title(@post) : I18n.translate('posts.presenter.title', :name => @post.author_name)
-  end
-
-  def template_name #kill me, lol, I should be client side
-    @template_name ||= TemplatePicker.new(@post).template_name
   end
 
   def root

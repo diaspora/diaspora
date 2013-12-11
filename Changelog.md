@@ -4,6 +4,7 @@
 A new feature [has been added](https://github.com/diaspora/diaspora/pull/4602) to allow pods to report extra statistics. Automatically after this code change, the route /statistics.json contains some basic data that was also available before via page headers (pod name, version, status of signups). But also, optionally podmins can enable user and post counts in the diaspora.yml configuration file. The counts are by default switched off, so if you want to report the total user, active user and local post counts, please edit your diaspora.yml configuration with the example values in diaspora.yml.example and uncomment the required lines as indicated.
 
 ## Refactor
+* Remove old SPV code [#4612](https://github.com/diaspora/diaspora/pull/4612)
 * Move non-model federation stuff into lib/ [#4363](https://github.com/diaspora/diaspora/pull/4363)
 * Build a color palette to uniform color usage [#4437](https://github.com/diaspora/diaspora/pull/4437) [#4469](https://github.com/diaspora/diaspora/pull/4469) [#4479](https://github.com/diaspora/diaspora/pull/4479)
 * Rename bitcoin_wallet_id setting to bitcoin_address [#4485](https://github.com/diaspora/diaspora/pull/4485)

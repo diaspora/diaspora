@@ -2,7 +2,7 @@ app.views.PostViewerReactions = app.views.Base.extend({
 
   className : "",
 
-  templateName: "post-viewer/reactions",
+  templateName: "single-post-viewer/reactions",
 
   tooltipSelector : ".avatar",
 

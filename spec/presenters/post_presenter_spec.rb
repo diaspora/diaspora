@@ -42,18 +42,18 @@ describe PostPresenter do
       @unauthenticated_presenter.user_reshare.should be_nil
     end
   end
-  
+
   describe '#root' do
     it 'does not raise if the absolute_root does not exists' do
       first_reshare = FactoryGirl.create :reshare
       first_reshare.root = nil
       reshare = FactoryGirl.create :reshare, :root => first_reshare
-      
+
       expect {
         PostPresenter.new(reshare).root
       }.to_not raise_error
     end
-    
+
     it 'does not raise if the root does not exists' do
       reshare = FactoryGirl.create:reshare
       reshare.root = nil
@@ -62,20 +62,8 @@ describe PostPresenter do
       }.to_not raise_error
     end
   end
-  
-  describe '#next_post_path' do
-    it 'returns a string of the users next post' do
-      @presenter.next_post_path.should == "#{Rails.application.routes.url_helpers.post_path(@sm)}/next"
-    end
-  end
 
-  describe '#previous_post_path' do
-    it 'returns a string of the users next post' do
-      @presenter.previous_post_path.should == "#{Rails.application.routes.url_helpers.post_path(@sm)}/previous"
-    end
-  end
-  
-  describe '#title' do 
+  describe '#title' do
     context 'with posts with text' do
       context 'with a Markdown header of less than 200 characters on first line'do
         it 'returns atx style header' do
@@ -90,6 +78,7 @@ describe PostPresenter do
           @presenter.title.should == "My title \n======"
         end
       end
+
       context 'without a Markdown header of less than 200 characters on first line 'do
         it 'truncates post to the 20 first characters' do
           @sm = stub(:text => "Very, very, very long post")
@@ -98,9 +87,9 @@ describe PostPresenter do
         end
       end
     end
+
     context 'with posts without text' do
       it ' displays a messaage with the post class' do
-
         @sm = stub(:text => "", :author => bob.person, :author_name => bob.person.name)
         @presenter.post = @sm
         @presenter.title.should == "A post from #{@sm.author.name}"

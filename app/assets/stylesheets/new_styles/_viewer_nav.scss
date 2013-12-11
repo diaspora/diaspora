@@ -1,10 +1,5 @@
 @import '../mixins';
 
-#post-nav {
-  @include transition(opacity, 0.5s);
-  @include opacity(1);
-}
-
 body.idle {
   #post-nav {
     @include opacity(0);
@@ -19,53 +14,5 @@ body.idle {
       }
     }
 
-  }
-}
-
-.nav-arrow {
-  @include opacity(0.8);
-  @include transition(all, 0.3s);
-
-  display: table;
-
-  position: fixed;
-  height: 100%;
-  z-index: 3;
-  top: 0;
-  padding: 0 1.2%;
-
-  background-color: rgba(0,0,0,0);
-
-  .nav-arrow-inner {
-    padding: 0; margin: 0;
-    display: table-cell;
-    vertical-align: middle;
-  }
-
-  img {
-    @include opacity(0.5);
-
-    height: 30px;
-    width: 30px;
-
-  /* half the size of the nav arrows on mobile phones */
-    @media (max-width: 480px) {
-      height: 15px;
-      width: 15px;
-    }
-  }
-
-  &.left {
-    left: 0;
-    padding-right: 19px;
-  }
-
-  &.right {
-    right: 0;
-    padding-left: 19px;
-  }
-
-  &:hover {
-    background-color: rgba(0,0,0,0.1)
   }
 }

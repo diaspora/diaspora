@@ -2,8 +2,6 @@ app.Router = Backbone.Router.extend({
   routes: {
     //new hotness
     "posts/:id": "singlePost",
-    "posts/:id/next": "siblingPost",
-    "posts/:id/previous": "siblingPost",
     "p/:id": "singlePost",
 
     //oldness
@@ -26,17 +24,6 @@ app.Router = Backbone.Router.extend({
 
   singlePost : function(id) {
     this.renderPage(function(){ return new app.pages.SinglePostViewer({ id: id })});
-  },
-
-  siblingPost : function(){ //next or previous
-    var post = new app.models.Post();
-    post.bind("change", setPreloadAttributesAndNavigate)
-    post.fetch({url : window.location})
-
-    function setPreloadAttributesAndNavigate(){
-      window.gon.preloads.post = post.attributes
-      app.router.navigate(post.url(), {trigger:true, replace: true})
-    }
   },
 
   renderPage : function(pageConstructor){

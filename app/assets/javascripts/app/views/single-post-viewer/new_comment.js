@@ -1,6 +1,6 @@
 app.views.PostViewerNewComment = app.views.Base.extend({
 
-  templateName: "post-viewer/new-comment",
+  templateName: "single-post-viewer/new-comment",
 
   events : {
     "click button" : "createComment",
