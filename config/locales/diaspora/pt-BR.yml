@@ -1018,6 +1018,13 @@ pt-BR:
       people_tagged_with: "Pessoas marcadas com %{tag}"
       posts_tagged_with: "Postagens marcadas com #%{tag}"
       stop_following: "Parar de seguir #%{tag}"
+      followed_by_people:
+        zero: "seguido por ninguém"
+        one: "seguido por uma pessoa"
+        two: "seguido por %{count} pessoas"
+        few: "seguido por %{count} pessoas"
+        many: "seguido por %{count} pessoas"
+        other: "seguido por %{count} pessoas"
   terms_and_conditions: "Termos e condições"
   tokens:
     show:
