@@ -30,20 +30,15 @@ class AdminsController < ApplicationController
   end
 
   def weekly_user_stats
+    @created_users_by_week = Hash.new{ |h,k| h[k] = [] }
     @created_users = User.where("username IS NOT NULL and created_at IS NOT NULL")
-    @created_users_by_week =  Hash.new{ |h,k| h[k] = [] }
     @created_users.find_each do |u|
-      unless u.nil?
-          @created_users_by_week[u.created_at.beginning_of_week.strftime("%Y-%m-%d")].push("#{u.username}")
-        end
-      end
-
-    unless(params[:week]).nil?
-      # @segment = "#{@created_users_by_week[(params[:week])]}"
-      @counter = "#{@created_users_by_week[(params[:week])].count}"
-    else
-      @counter = ""
+      week = u.created_at.beginning_of_week.strftime("%Y-%m-%d")
+      @created_users_by_week[week] << u.username
     end
+
+    @selected_week = params[:week] || @created_users_by_week.keys.first
+    @counter = @created_users_by_week[@selected_week].count
   end
 
   def stats
