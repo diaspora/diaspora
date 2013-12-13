@@ -992,6 +992,7 @@ en:
         one: "In %{count} aspect"
         other: "In %{count} aspects"
     publisher:
+      formatWithMarkdown: "You can use %{markdown_link} to format your post"
       posting: "Posting..."
       share: "Share"
       preview: "Preview"

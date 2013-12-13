@@ -17,6 +17,14 @@ Feature: posting from the main page
       And I have user with username "alice" in an aspect called "PostingTo"
       And I have user with username "alice" in an aspect called "NotPostingThingsHere"
       And I am on the home page
+      
+    Scenario: expanding the publisher
+      Given ".markdownIndications" is hidden
+      And ".options_and_submit" is hidden
+      When I expand the publisher
+      Then I should see "You can use Markdown to format your post" within "#publisher-images"
+      Then I should see "All Aspects" within ".options_and_submit"
+      Then I should see "Preview" within ".options_and_submit"
 
     Scenario: post a text-only message to all aspects
       Given I expand the publisher

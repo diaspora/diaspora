@@ -26,6 +26,8 @@
             = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
 
             #publisher-images
+              %span.markdownIndications
+                != t('.formatWithMarkdown', markdown_link: link_to(t('help.markdown'), 'https://diasporafoundation.org/formatting', target: :blank))
               #locator.btn{:title => t('.get_location')}
                 = image_tag 'icons/marker.png', :alt => t('.get_location').titleize, :class => 'publisher_image'
               #file-upload.btn{:title => t('.upload_photos')}

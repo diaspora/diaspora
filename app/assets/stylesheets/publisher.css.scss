@@ -261,10 +261,9 @@
 }
 
 #publisher.closed {
-  #publisher_textarea_wrapper {
-    #hide_publisher {
-      display: none;
-    }
+  #publisher_textarea_wrapper #hide_publisher,
+  .markdownIndications {
+    display: none;
   }
 }
 
@@ -277,6 +276,8 @@
 }
 
 #publisher-images {
+  padding-left: 5px;
+
   #locator {
     bottom: 1px !important;
     display: inline-block;

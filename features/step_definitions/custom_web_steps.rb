@@ -267,3 +267,8 @@ end
 Then /^I should see the Bitcoin address$/ do
   find("#bitcoin_address")['value'].should == "AAAAAA"
 end
+
+Given /^"([^"]*)" is hidden$/ do |selector|
+  page.should have_selector(selector, visible: false)
+  page.should_not have_selector(selector)
+end
