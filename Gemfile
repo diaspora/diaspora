@@ -15,6 +15,10 @@ gem 'json',        '1.8.0'
 
 gem 'devise', '3.0.2'
 
+# Captcha
+
+gem 'galetahub-simple_captcha', :require => 'simple_captcha'
+
 # Background processing
 
 gem 'sidekiq', '2.11.1'
