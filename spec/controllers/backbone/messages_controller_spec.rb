@@ -46,7 +46,7 @@ describe Backbone::MessagesController do
 
     it "responds with 404 if conversation wasn't found" do
       sign_in :user, alice
-      post :create, @create_hash
+      post :create, @create_hash.merge(conversation_id: 0)
 
       expect(response).not_to be_success
       response.status.should eql 404

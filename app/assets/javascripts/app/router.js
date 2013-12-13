@@ -19,7 +19,9 @@ app.Router = Backbone.Router.extend({
     "people/:id/photos": "photos",
 
     "people/:id": "stream",
-    "u/:name": "stream"
+    "u/:name": "stream",
+
+    "conversations": "conversation_index"
   },
 
   singlePost : function(id) {
@@ -102,5 +104,10 @@ app.Router = Backbone.Router.extend({
     if(this.followedTagsView && Backbone.history.fragment != "followed_tags")
       this.followedTagsView.hideFollowedTags();
   },
+
+  conversation_index: function() {
+    app.conversations = new app.collections.Conversations();
+    app.conversations.fetch();
+  }
 });
 

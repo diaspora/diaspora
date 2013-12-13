@@ -10,9 +10,9 @@ class Backbone::BaseController < ApplicationController
   protected
 
   def paginate(relation)
-    @paginated_rel = relation.paginate(page: current_page, per_page: items_per_page)
-    set_pagination_headers
-    @paginated_rel
+    paginated_rel = relation.paginate(page: current_page, per_page: items_per_page)
+    set_pagination_headers(paginated_rel)
+    paginated_rel
   end
 
   def self.responder
@@ -30,30 +30,19 @@ class Backbone::BaseController < ApplicationController
   # @return [Fixnum] number of items per page.
   #                  default: 15, max: 50
   def items_per_page
-    max = 50
-    if p = params[:per_page].to_i
-      if p.between?(1, max)
-        p
-      elsif p > max
-        max
-      elsif p < 1
-        15
-      end
-    else
-      15
-    end
+    [[15, params[:per_page].presence.to_i].max, 50].min
   end
 
   # add a recommended "Link" header to the response pointing to the URLs for
   # paginated data sets
-  def set_pagination_headers
-    request_url = request.original_url.split("?")[0]
+  def set_pagination_headers(relation)
+    request_url = request.original_url.split("?").first
 
     links = []
-    links << %(<#{request_url}?page=#{@paginated_rel.previous_page.to_s}&per_page=#{items_per_page}>; rel="prev") if @paginated_rel.previous_page
-    links << %(<#{request_url}?page=#{@paginated_rel.next_page.to_s}&per_page=#{items_per_page}>; rel="next") if @paginated_rel.next_page
+    links << %(<#{request_url}?page=#{relation.previous_page}&per_page=#{items_per_page}>; rel="prev") if relation.previous_page
+    links << %(<#{request_url}?page=#{relation.next_page}&per_page=#{items_per_page}>; rel="next") if relation.next_page
     links << %(<#{request_url}?page=1&per_page=#{items_per_page}>; rel="first")
-    links << %(<#{request_url}?page=#{@paginated_rel.total_pages.to_s}&per_page=#{items_per_page}>; rel="last")
+    links << %(<#{request_url}?page=#{relation.total_pages}&per_page=#{items_per_page}>; rel="last")
 
     response.headers["Link"] = links.join(",")
   end
