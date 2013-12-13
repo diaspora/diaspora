@@ -36,6 +36,7 @@ class StatusMessage < Post
   after_create :create_mentions
   after_create :queue_gather_oembed_data, :if => :contains_oembed_url_in_text?
   after_commit :queue_gather_open_graph_data, :on => :create, :if => :contains_open_graph_url_in_text?
+  before_save :strip_html
 
   #scopes
   scope :where_person_is_mentioned, lambda { |person|
@@ -165,6 +166,17 @@ class StatusMessage < Post
 
   def address
     location.try(:address)
+  end
+
+  def strip_html
+    status_message = Nokogiri::HTML(text)
+    status_message.xpath("//script").remove
+    self.text = status_message.text
+
+    Rails.logger.info "**** status_message starts ****"
+    Rails.logger.info p status_message.inspect
+    Rails.logger.info p status_message.text.inspect
+    Rails.logger.info "**** status_message ends ****"
   end
 
   protected
