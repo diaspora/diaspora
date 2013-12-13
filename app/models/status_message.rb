@@ -172,12 +172,8 @@ class StatusMessage < Post
     status_message = Nokogiri::HTML(text)
     status_message.xpath("//script").remove
     self.text = status_message.text
-
-    Rails.logger.info "**** status_message starts ****"
-    Rails.logger.info p status_message.inspect
-    Rails.logger.info p status_message.text.inspect
-    Rails.logger.info "**** status_message ends ****"
   end
+
 
   protected
   def presence_of_content
