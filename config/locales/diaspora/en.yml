@@ -1270,3 +1270,11 @@ en:
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     no_person_constructed: "No person could be constructed from this hcard."
+
+  simple_captcha:
+    placeholder: "Enter the image value"
+    label: "Enter the code in the box:"
+    message:
+      default: "Secret Code did not match with the Image"
+      user: "The secret Image and code were different"
+      failed: "Human verification failed"
