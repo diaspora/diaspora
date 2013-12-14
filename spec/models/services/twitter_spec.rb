@@ -43,6 +43,12 @@ describe Services::Twitter do
       @service.send(:build_twitter_post, post).should match "Text with some bolded and italic parts."
     end
 
+    it 'status message to twitter should not contain html tags' do
+      message = "Text with some **bolded** and _italic_ parts.<a data-hovercard=\"/people/jsfkjas22216f\" href='tagsmarkdown' class=>#markdown</a>"
+      post = stub(:text => message, :photos => [])
+      @service.send(:build_twitter_post, post).should match "Text with some bolded and italic parts.#markdown"
+    end
+
   end
 
   describe "message size limits" do

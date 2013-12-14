@@ -3,7 +3,7 @@ class Services::Facebook < Service
   include MarkdownifyHelper
 
   OVERRIDE_FIELDS_ON_FB_UPDATE = [:contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username]
-  MAX_CHARACTERS = 63206 
+  MAX_CHARACTERS = 63206
 
   def provider
     "facebook"
@@ -23,6 +23,10 @@ class Services::Facebook < Service
 
   def create_post_params(post)
     message = strip_markdown(post.text(:plain_text => true))
+    doc = Nokogiri::HTML(message)
+    doc.xpath("//script").remove
+    message=doc.text
+
     if post.photos.any?
       message += " " + Rails.application.routes.url_helpers.short_post_url(post, :protocol => AppConfig.pod_uri.scheme, :host => AppConfig.pod_uri.authority)
     end

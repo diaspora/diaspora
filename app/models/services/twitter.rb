@@ -51,8 +51,10 @@ class Services::Twitter < Service
 
   def build_twitter_post post, retry_count=0
     max_characters = MAX_CHARACTERS - retry_count
-
     post_text = strip_markdown post.text(plain_text: true)
+    doc = Nokogiri::HTML(post_text)
+    doc.xpath("//script").remove
+    post_text=doc.text
     truncate_and_add_post_link post, post_text, max_characters
   end
 

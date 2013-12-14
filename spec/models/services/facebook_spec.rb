@@ -16,6 +16,13 @@ describe Services::Facebook do
       @service.post(@post)
     end
 
+    it "status message to facebook should not contain html tags" do
+      message = "Text with some **bolded** and _italic_ parts.<a data-hovercard=\"/people/jsfkjas22216f\" href='tagsmarkdown' class=>#markdown</a>"
+      post = stub(:text => message, :photos => [])
+      post_params = @service.create_post_params(post)
+      post_params[:message].should match "Text with some bolded and italic parts.#markdown"
+    end
+
     it 'swallows exception raised by facebook always being down' do
       pending "temporarily disabled to figure out while some requests are failing"
 
