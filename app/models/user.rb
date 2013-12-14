@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   include Querying
   include SocialActions
 
+  apply_simple_captcha :message => I18n.t('simple_captcha.message.failed'), :add_to_base => true
+
   scope :logged_in_since, lambda { |time| where('last_sign_in_at > ?', time) }
   scope :monthly_actives, lambda { |time = Time.now| logged_in_since(time - 1.month) }
   scope :daily_actives, lambda { |time = Time.now| logged_in_since(time - 1.day) }
