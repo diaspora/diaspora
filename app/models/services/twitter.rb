@@ -42,7 +42,7 @@ class Services::Twitter < Service
     message = build_twitter_post post, retry_count
     tweet = client.update message
   rescue Twitter::Error::Forbidden => e
-    if e.message != 'Status is over 140 characters' || retry_count == 20
+    if ! e.message.include? 'is over 140' || retry_count == 20
       raise e
     else
       attempt_post post, retry_count+1
@@ -50,7 +50,7 @@ class Services::Twitter < Service
   end
 
   def build_twitter_post post, retry_count=0
-    max_characters = MAX_CHARACTERS - retry_count * 5
+    max_characters = MAX_CHARACTERS - retry_count
 
     post_text = strip_markdown post.text(plain_text: true)
     truncate_and_add_post_link post, post_text, max_characters
