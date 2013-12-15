@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter -> { @css_framework = :bootstrap }
 
   respond_to :html, :mobile, :json, :js
 

@@ -15,7 +15,7 @@
 @import 'publisher'
 @import 'facebox'
 @import 'aspects'
-@import 'conversations'
+@import 'popover'
 
 /* ====== media ====== */
 .media
@@ -1853,31 +1853,6 @@ a.toggle_selector
   #tag_following_submit
     &.hidden
       :display none
-
-.popover
-  .close
-    @include opacity(0)
-    @include transition(opacity, 0.2s)
-    :position relative
-    :top 1px
-    :right -5px
-    :float right
-    .icons-deletelabel
-      :height 14px
-      :width 14px
-
-    img
-      margin-top: 10px
-
-  &:hover
-    .close
-      @include opacity(0.5)
-
-      &:hover
-        @include opacity(1)
-body
-  .popover
-    :z-index 1000
 
 .nsfw-shield
   @include border-radius(3px)
