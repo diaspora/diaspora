@@ -34,7 +34,7 @@ configuration: ## Section
     ## from the internet. This should be the URL you want to use to
     ## access the pod. So if you plan to  reverse proxy it, it should be
     ## the URL the proxy listens on.
-    ## DO NOT CHNANGE THIS AFTER INITIAL SETUP
+    ## DO NOT CHANGE THIS AFTER INITIAL SETUP
     ## UNLESS YOU KNOW WHAT YOU'RE DOING!
     ## However changing http to https is okay and has no consequences.
     ## If you do change it you have to start over as it's hardcoded into
