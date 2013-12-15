@@ -1,0 +1,250 @@
+.conversations_container {
+  padding-top: 40px;
+
+  .stream_element {
+    border-bottom: 1px solid $border-grey;
+    &:first-child {
+      border-top: none;
+    }
+    .last_author {
+      font-size: 12px;
+      color: $text-dark-grey;
+    }
+    a.author{
+      font-weight: bold;
+      unicode-bidi: bidi-override;
+    }
+  }
+  .stream .stream_element {
+    padding: 10px;
+    p {
+      margin: 0 0 1em 0;
+      word-wrap: break-word;
+      &:last-child { margin-bottom: 0; }
+    }
+
+    .new_message { border-bottom: none; }
+    .timeago { font-size: smaller; }
+    textarea { width: 95%; }
+    .button.creation {
+      $button-border-color: #aaa;
+      @include border-radius(3px);
+      @include box-shadow(0,1px,1px,#cfcfcf);
+      @include transition(border);
+      @include button-gradient($creation-blue);
+      font-size: 12px;
+      color: #fff;
+      padding: 4px 9px;
+      min-width: 90px;
+      min-height: 10px;
+      border: 1px solid darken($button-border-color,20%);
+
+      cursor: pointer;
+      white-space: nowrap;
+
+      &:hover {
+        @include button-gradient-hover($creation-blue);
+        border: 1px solid darken($button-border-color,35%);
+        text-decoration: none;
+      }
+    }
+  }
+}
+  
+.conversation_participants {
+  box-shadow: 0 2px 3px -3px #666;
+  -webkit-box-shadow: 0 2px 3px -3px #666;
+  -moz-box-shadow: 0 2px 3px -3px #666;
+  
+  background-color: $background-white;
+  margin-bottom: 5px;
+  border-bottom: 1px solid $border-grey;
+  padding: 5px;
+  line-height: 0px;
+
+  a.close_conversation {
+    display: block;
+    margin-top: 10px;
+    float: right;
+
+    .icons-deletelabel {
+      height: 14px;
+      width: 14px;
+    }
+  }
+
+  .avatar {
+    height: 30px;
+    width: 30px;
+  }
+
+  .avatars {
+    text-align: right;
+    margin-top: 9px;
+  }
+  
+  a img { margin-bottom: 4px; }
+
+  .conversation_controls {
+    margin-bottom: 10px;
+    
+    a { margin-right: 10px; }
+  }
+}
+
+.conversation_participants a:hover { text-decoration: none; }
+
+.stream_element.conversation {
+  padding: 8px;
+  
+  .subject {
+    font-size: 14px;
+  }
+
+  .message_count, .unread_message_count {
+    margin-right: 3px;
+    float: right;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  
+  .participants_link {
+    clear: right;
+    float: right;
+    color: #aaa;
+  }
+
+  .icons-users {
+    display: block;
+    width: 25px;
+    height: 16px;
+  }
+  .participant_count { font-weight: normal; }
+
+  .timestamp {
+    position: relative;
+    float: right;
+    font-weight: normal;
+    color: $blue;
+  }
+
+  .last_message {
+    font-size: 12px;
+  }
+  .conversation_participants_popover_content {
+    display: none;
+  }
+
+  .conversation_participants_popover {
+    .avatar {
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+    margin: 0px auto;
+    padding-left: 12px;
+  }
+
+  .avatar {
+    display: inline;
+    width: 35px;
+    height: 35px;
+    margin-top: 5px;
+  }
+
+  .participants_left { display: block; }
+  &:hover:not(.selected) { 
+    background-color: lighten($blue,5%);
+    .subject,
+    .last_author,
+    .last_message {
+      color: $white;
+    }
+    .timestamp { color: $background-grey; }
+  }
+  &.selected:hover { background-color: lighten($blue,5%); }
+  &:hover { cursor: pointer; }
+}
+
+.conversation.unread {
+  background-color: darken($background-white, 5%);
+}
+
+.conversation.selected {
+  background-color: $blue;
+    
+  .subject,
+  .last_author,
+  .last_message {
+    color: $white;
+  }
+  .timestamp { color: $background-grey; }
+}
+
+#left_pane {
+  border-right: solid 1px $border-grey;
+  h3 {
+    padding-bottom: 0;
+  }
+
+  #left_pane_header {
+    padding: 10px;
+    padding-right: 20px;
+    border-bottom: 1px solid $border-grey;
+  }
+
+  #conversation_inbox {
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+#no_conversations,
+#no_conversation_text {
+  font-weight: bold;
+  color: #ccc;
+  text-align: center;
+  margin-top: 100px;
+}
+
+#no_conversation_text {
+  font-size: 20px;
+}
+
+#no_conversation_controls {
+  text-align: center;
+  font-size: 12px;
+}
+
+#new_message_pane {
+  ul.as-selections { width: 100% !important; }
+  input#contact_ids { box-shadow: none; }
+  textarea { width: 98%; }
+  
+  .bottom_submit_section {
+    text-align: right;
+  }
+
+  .button.creation {
+    $button-border-color: #aaa;
+    @include border-radius(3px);
+    @include box-shadow(0,1px,1px,#cfcfcf);
+    @include transition(border);
+    @include button-gradient($creation-blue);
+    font-size: 12px;
+    color: #fff;
+    padding: 4px 9px;
+    min-width: 90px;
+    min-height: 10px;
+    border: 1px solid darken($button-border-color,20%);
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:hover {
+      @include button-gradient-hover($creation-blue);
+      border: 1px solid darken($button-border-color,35%);
+      text-decoration: none;
+    }
+  }
+}

@@ -26,29 +26,28 @@
     autocompleteInput.focus();
   });
 
-#new_message_pane
-  .span-12.last
-    #facebox_header
-      %h3
-        = t('conversations.index.new_message')
+.span6#new_message_pane
+  .span5#facebox_header
+    %h3
+      = t('conversations.index.new_message')
 
-    = form_for Conversation.new, html: {class: "new_conversation form_do_not_clear"}, remote: true do |conversation|
+  = form_for Conversation.new, html: {class: "new_conversation form_do_not_clear"}, remote: true do |conversation|
 
-      .span-2
-        %h4
-          = t('.to')
-      .span-10.last
-        = text_field_tag "contact_autocomplete"
-      .clearfix
-      %br
-      .span-2
-        %h4
-          = t('.subject')
-      .span-10.last
-        = conversation.text_field :subject
-      %br
-      .span-10.prepend-2.last
-        = text_area_tag "conversation[text]", '', :rows => 5
-      .clearfix
-      .bottom_submit_section
-        = conversation.submit t('.send'), 'data-disable-with' => t('.sending'), :class => 'button creation'
+    .span1
+      %h4
+        = t('.to')
+    .span4
+      = text_field_tag "contact_autocomplete"
+    .clearfix
+    %br
+    .span1
+      %h4
+        = t('.subject')
+    .span4
+      = conversation.text_field :subject
+    %br
+    .span4.offset1
+      = text_area_tag "conversation[text]", '', :rows => 5
+    .clearfix
+    .bottom_submit_section
+      = conversation.submit t('.send'), 'data-disable-with' => t('.sending'), :class => 'button creation'
