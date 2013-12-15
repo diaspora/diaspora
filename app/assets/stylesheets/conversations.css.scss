@@ -102,22 +102,10 @@
   }
 
   .message_count, .unread_message_count {
-    @include border-radius(5px);
+    margin-right: 3px;
     float: right;
-    padding: 0px 6px;
-    position: relative;
-    color: $background-grey;
     font-size: 12px;
     font-weight: normal;
-  }
-  
-  .message_count { 
-    background-color: #999;
-    right: 0px;
-  }
-  .unread_message_count { 
-    background-color: #b11;
-    right: 4px;
   }
   
   .participants_link {
@@ -127,7 +115,6 @@
   }
 
   .icons-users {
-    margin-left: 4px;
     display: block;
     width: 25px;
     height: 16px;
