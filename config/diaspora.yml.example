@@ -234,7 +234,7 @@ configuration: ## Section
         #image_size: '120x20'
 
         ## Length of captcha text. Default value is 5
-        #length: 5
+        #captcha_length: 5
 
         ## Change this value to use various image style.
         ## Available options are: 'simply_blue', 'simply_red'

@@ -85,7 +85,7 @@ defaults:
     captcha:
       enable: true
       image_size: '120x20'
-      legnth: 5
+      captcha_length: 5
       image_style: 'simply_green'
       distortion: 'low'
   services:
