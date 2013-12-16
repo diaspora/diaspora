@@ -19,6 +19,7 @@ A new feature [has been added](https://github.com/diaspora/diaspora/pull/4602) t
 * Reorder the left bar side menu to put the stream first [#4569](https://github.com/diaspora/diaspora/pull/4569)
 * Improve notifications and conversations views design on mobile [#4593](https://github.com/diaspora/diaspora/pull/4593)
 * Slight redesign of mobile publisher [#4604](https://github.com/diaspora/diaspora/pull/4604)
+* Port conversations to Bootstrap [#4622](https://github.com/diaspora/diaspora/pull/4622)
 
 ## Bug fixes
 * Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
