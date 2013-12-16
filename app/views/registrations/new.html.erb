@@ -61,9 +61,11 @@
                 </div>
               </div>
 
-              <div class="control-group" id="captcha">
-                <%= show_simple_captcha(:object => 'user', :code_type => 'numeric') %>
-              </div>
+              <% if AppConfig.settings.captcha.enable? %>
+                <div class="control-group" id="captcha">
+                  <%= show_simple_captcha(:object => 'user', :code_type => 'numeric') %>
+                </div>
+              <% end %>
               <%= invite_hidden_tag(invite) %>
             </fieldset>
 

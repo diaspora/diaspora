@@ -12,7 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.build(user_params)
     @user.process_invite_acceptence(invite) if invite.present?
 
-    if @user.save_with_captcha
+    if @user.sign_up
       flash[:notice] = I18n.t 'registrations.create.success'
       @user.seed_aspects
       sign_in_and_redirect(:user, @user)

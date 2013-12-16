@@ -478,6 +478,13 @@ class User < ActiveRecord::Base
     self.save(:validate => false)
   end
 
+  def sign_up
+    if AppConfig.settings.captcha.enable?
+      save_with_captcha
+    else
+      save
+    end
+  end
   private
   def clearable_fields
     self.attributes.keys - ["id", "username", "encrypted_password",
