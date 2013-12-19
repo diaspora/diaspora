@@ -24,6 +24,9 @@ class ConversationsController < ApplicationController
     @authors = {}
     @conversations.each { |c| @authors[c.id] = c.last_author }
 
+    @ordered_participants = {}
+    @conversations.each { |c| @ordered_participants[c.id] = (c.messages.map{|m| m.author}.reverse + c.participants).uniq }
+
     respond_with do |format|
       format.html
       format.json { render :json => @conversations, :status => 200 }

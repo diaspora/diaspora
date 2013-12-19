@@ -33,6 +33,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Improve notifications and conversations views design on mobile [#4593](https://github.com/diaspora/diaspora/pull/4593)
 * Slight redesign of mobile publisher [#4604](https://github.com/diaspora/diaspora/pull/4604)
 * Port conversations to Bootstrap [#4622](https://github.com/diaspora/diaspora/pull/4622)
+* Remove participants popover and improve conversations menu [#4644](https://github.com/diaspora/diaspora/pull/4644)
 
 ## Bug fixes
 * Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)

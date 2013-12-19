@@ -14,9 +14,13 @@
       font-weight: bold;
       unicode-bidi: bidi-override;
     }
+
+    .avatar{
+      width: 50px;
+      height: 50px;
+    }
   }
   .stream .stream_element {
-    padding: 10px;
     p {
       margin: 0 0 1em 0;
       word-wrap: break-word;
@@ -24,134 +28,66 @@
     }
 
     .new_message { border-bottom: none; }
-    .timeago { font-size: smaller; }
-    textarea { width: 95%; }
-    .button.creation {
-      $button-border-color: #aaa;
-      @include border-radius(3px);
-      @include box-shadow(0,1px,1px,#cfcfcf);
-      @include transition(border);
-      @include button-gradient($creation-blue);
-      font-size: 12px;
-      color: #fff;
-      padding: 4px 9px;
-      min-width: 90px;
-      min-height: 10px;
-      border: 1px solid darken($button-border-color,20%);
+    .timeago { font-size: 11px; }
+  }
+}
 
-      cursor: pointer;
-      white-space: nowrap;
+#conversation_show {
+  .conversation_participants {
+    box-shadow: 0 2px 3px -3px #666;
+    -webkit-box-shadow: 0 2px 3px -3px #666;
+    -moz-box-shadow: 0 2px 3px -3px #666;
+    
+    background-color: $background-white;
+    margin-bottom: 5px;
+    border-bottom: 1px solid $border-grey;
+    padding: 5px;
+    line-height: 0px;
 
-      &:hover {
-        @include button-gradient-hover($creation-blue);
-        border: 1px solid darken($button-border-color,35%);
-        text-decoration: none;
+    a.close_conversation {
+      display: block;
+      margin-top: 10px;
+      float: right;
+
+      .icons-deletelabel {
+        height: 14px;
+        width: 14px;
       }
     }
-  }
-}
-  
-.conversation_participants {
-  box-shadow: 0 2px 3px -3px #666;
-  -webkit-box-shadow: 0 2px 3px -3px #666;
-  -moz-box-shadow: 0 2px 3px -3px #666;
-  
-  background-color: $background-white;
-  margin-bottom: 5px;
-  border-bottom: 1px solid $border-grey;
-  padding: 5px;
-  line-height: 0px;
 
-  a.close_conversation {
-    display: block;
-    margin-top: 10px;
-    float: right;
+    .avatar {
+      height: 30px;
+      width: 30px;
+    }
 
-    .icons-deletelabel {
-      height: 14px;
-      width: 14px;
+    .avatars {
+      text-align: right;
+      margin-top: 9px;
+    }
+    
+    a img { margin-bottom: 4px; }
+
+    .conversation_controls {
+      margin-bottom: 10px;
+      
+      a { margin-right: 10px; }
     }
   }
 
-  .avatar {
-    height: 30px;
-    width: 30px;
-  }
-
-  .avatars {
-    text-align: right;
-    margin-top: 9px;
-  }
+  .conversation_participants a:hover { text-decoration: none; }
   
-  a img { margin-bottom: 4px; }
-
-  .conversation_controls {
-    margin-bottom: 10px;
-    
-    a { margin-right: 10px; }
+  .stream .stream_element {
+    padding: 10px;
   }
 }
-
-.conversation_participants a:hover { text-decoration: none; }
 
 .stream_element.conversation {
   padding: 8px;
-  
-  .subject {
-    font-size: 14px;
+  .media { 
+    margin-bottom: 5px; 
+    margin-left: 0px;
   }
 
-  .message_count, .unread_message_count {
-    margin-right: 3px;
-    float: right;
-    font-size: 12px;
-    font-weight: normal;
-  }
-  
-  .participants_link {
-    clear: right;
-    float: right;
-    color: #aaa;
-  }
-
-  .icons-users {
-    display: block;
-    width: 25px;
-    height: 16px;
-  }
-  .participant_count { font-weight: normal; }
-
-  .timestamp {
-    position: relative;
-    float: right;
-    font-weight: normal;
-    color: $blue;
-  }
-
-  .last_message {
-    font-size: 12px;
-  }
-  .conversation_participants_popover_content {
-    display: none;
-  }
-
-  .conversation_participants_popover {
-    .avatar {
-      margin-bottom: 10px;
-      margin-right: 10px;
-    }
-    margin: 0px auto;
-    padding-left: 12px;
-  }
-
-  .avatar {
-    display: inline;
-    width: 35px;
-    height: 35px;
-    margin-top: 5px;
-  }
-
-  .participants_left { display: block; }
   &:hover:not(.selected) { 
     background-color: lighten($blue,5%);
     .subject,
@@ -163,6 +99,43 @@
   }
   &.selected:hover { background-color: lighten($blue,5%); }
   &:hover { cursor: pointer; }
+ 
+  .avatar {
+    width: 50px;
+    height: 50px;
+    float: left;
+  }
+  
+  .last_author, .last_message {
+    font-size: 12px;
+    line-height: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .message_count, .unread_message_count {
+    margin-left: 3px;
+    float: right;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  
+  .subject {
+    font-size: 14px;
+    > * {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .timestamp {
+    float: right;
+    line-height: normal;
+    font-weight: normal;
+    color: $blue;
+  }
 }
 
 .conversation.unread {
