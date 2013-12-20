@@ -102,6 +102,9 @@ gem 'haml',                    '4.0.3'
 gem 'mobile-fu',               '1.2.1'
 gem 'will_paginate',           '3.0.4'
 
+# Workarounds
+# https://github.com/rubyzip/rubyzip#important-note
+gem 'zip-zip'
 
 ### GROUPS ####
 
