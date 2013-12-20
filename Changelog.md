@@ -3,6 +3,19 @@
 ## Pod statistics
 A new feature [has been added](https://github.com/diaspora/diaspora/pull/4602) to allow pods to report extra statistics. Automatically after this code change, the route /statistics.json contains some basic data that was also available before via page headers (pod name, version, status of signups). But also, optionally podmins can enable user and post counts in the diaspora.yml configuration file. The counts are by default switched off, so if you want to report the total user, active user and local post counts, please edit your diaspora.yml configuration with the example values in diaspora.yml.example and uncomment the required lines as indicated.
 
+## Ruby 2.0
+
+We now recommend using Ruby 2.0 with Diaspora. If you're using RVM make sure to run:
+```bash
+rvm get stable
+rvm install 2.0.0
+cd ~/diaspora
+git pull
+cd - && cd ..
+```
+
+For more details see https://wiki.diasporafoundation.org/Updating
+
 ## Refactor
 * Remove old SPV code [#4612](https://github.com/diaspora/diaspora/pull/4612)
 * Move non-model federation stuff into lib/ [#4363](https://github.com/diaspora/diaspora/pull/4363)
