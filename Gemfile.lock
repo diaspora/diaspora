@@ -393,7 +393,7 @@ GEM
     test_after_commit (0.2.0)
     thor (0.18.1)
     tilt (1.4.1)
-    timecop (0.6.1)
+    timecop (0.7.0)
     timers (1.1.0)
     treetop (1.4.15)
       polyglot
@@ -500,7 +500,7 @@ DEPENDENCIES
   spork (= 1.0.0rc3)
   strong_parameters
   test_after_commit (= 0.2.0)
-  timecop (= 0.6.1)
+  timecop (= 0.7.0)
   twitter (= 4.8.1)
   typhoeus (= 0.6.3)
   uglifier (= 2.1.2)
