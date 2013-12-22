@@ -59,6 +59,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Add lightbox to unauthenticated header, fix [#4432](https://github.com/diaspora/diaspora/issues/4432)
 * Fix "more picture" indication (+n) on mobile by adding a link on the indication [#4592](https://github.com/diaspora/diaspora/pull/4592)
 * Display errors when photo upload fails [#4509](https://github.com/diaspora/diaspora/issues/4509)
+* Fix posting to Twitter by correctly catching exception [#4627](https://github.com/diaspora/diaspora/issues/4627)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
