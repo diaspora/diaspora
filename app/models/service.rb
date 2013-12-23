@@ -7,12 +7,18 @@ class Service < ActiveRecord::Base
   include MarkdownifyHelper
 
   attr_accessor :provider, :info, :access_level
-  
+
   belongs_to :user
   validates_uniqueness_of :uid, :scope => :type
 
   def profile_photo_url
     nil
+  end
+
+  def strip_off_html(post)
+    doc = Nokogiri::HTML(post.text(:plain_text => true))
+    doc.xpath("//script").remove
+    doc.text
   end
 
   def delete_post(post)
@@ -26,12 +32,12 @@ class Service < ActiveRecord::Base
     end
 
     def first_from_omniauth( auth_hash )
-      @@auth = auth_hash 
+      @@auth = auth_hash
       where( type: service_type, uid: options[:uid] ).first
     end
 
     def initialize_from_omniauth( auth_hash )
-      @@auth = auth_hash 
+      @@auth = auth_hash
       service_type.constantize.new( options )
     end
 
@@ -44,7 +50,7 @@ class Service < ActiveRecord::Base
     end
 
     def options
-      { 
+      {
         nickname:      auth['info']['nickname'],
         access_token:  auth['credentials']['token'],
         access_secret: auth['credentials']['secret'],

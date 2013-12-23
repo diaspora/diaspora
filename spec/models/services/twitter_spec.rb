@@ -44,9 +44,9 @@ describe Services::Twitter do
     end
 
     it 'status message to twitter should not contain html tags' do
-      message = "Text with some **bolded** and _italic_ parts.<a data-hovercard=\"/people/jsfkjas22216f\" href='tagsmarkdown' class=>#markdown</a>"
+      message = "<p>Text with some **bolded** and _italic_ parts.#markdown <a href=\"/people/a70e62f0fea02ecf\" class=\"mention\">user@localhost:3000</a></p>"
       post = stub(:text => message, :photos => [])
-      @service.send(:build_twitter_post, post).should match "Text with some bolded and italic parts.#markdown"
+      @service.send(:build_twitter_post, post).should match "Text with some bolded and italic parts.#markdown user@localhost:3000"
     end
 
   end

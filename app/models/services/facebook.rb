@@ -22,10 +22,8 @@ class Services::Facebook < Service
   end
 
   def create_post_params(post)
-    message = strip_markdown(post.text(:plain_text => true))
-    doc = Nokogiri::HTML(message)
-    doc.xpath("//script").remove
-    message=doc.text
+    stripped_html_message = strip_off_html(post)
+    message = strip_markdown(stripped_html_message)
 
     if post.photos.any?
       message += " " + Rails.application.routes.url_helpers.short_post_url(post, :protocol => AppConfig.pod_uri.scheme, :host => AppConfig.pod_uri.authority)
