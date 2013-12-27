@@ -10,13 +10,23 @@
         <h1 id="create-something-text">
           <%= t('.hey_make').html_safe %>
         </h1>
-
         <h3 id="diaspora-hearts">
           <%= t('.diaspora') %>
         </h3>
+        
+        <h2>Avertissement</h2>
+<p style="font-size:medium;text-align:justify;"><strong>Attention !</strong>, ce serveur utilise la <strong>version de développement</strong> de Diaspora*.
+Cela nous permet de faire des tests et d'améliorer le réseau, et à vous de profiter plus rapidement des dernières améliorations.
+Cependant, cela signifie aussi que <strong>le code exécuté n'est pas stable</strong> et peut entraîner des pertes de données. N'utilisez
+donc pas cette instance de Diaspora* comme sauvegarde pour vos photos ou autres données. <strong>Vos bienveillants administrateurs ne pourront
+en aucun cas être tenus responsables de la perte de données, de dysfonctionnements ou d'indisponibilité du service</strong>. Merci :D</p>
 
-        <h4 id="sign-up-text">
-          <%= t('.sign_up') %>
+<h2>Conditions d'utilisation</h2>
+<p style="font-size:medium;text-align:justify;">Diaspora*, c'est la Liberté. Mais la liberté des uns s'arrête là où commence celle des autres. Veuillez donc ne pas poster de contenu considéré comme illégal en France (incitation à la haine, pédophilie, pornographie (pod ouvert aux mineurs), ...). Si un contenu est jugé
+comme non approprié par les administrateurs, il pourra être supprimé sans avertissement. Et puis, soyez respectueux, c'est toujours mieux :D</p>
+
+        <h4 id="sign-up-text" style="margin-top: 12px">
+          Ça me semble juste, Je m'inscris !
         </h4>
 
         <%= form_for(resource, :url => registration_path(resource_name), :html => {:class => "form-horizontal block-form", :autocomplete => "off"}) do |f| %>
@@ -76,3 +86,4 @@
     </div>
   </div>
 </div>
+
