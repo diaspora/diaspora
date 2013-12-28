@@ -4,8 +4,8 @@ app.collections.Conversations = Backbone.Collection.extend({
 
   sync: function(method, model, options) {
     var options = options || {};
+    // TODO: get the header value from the mime type defined in Rails
     options.headers = {'Accept': "application/vnd.diaspora.backbone+json"};
-    console.log(options);
     return Backbone.sync(method, model, options);
   }
 });

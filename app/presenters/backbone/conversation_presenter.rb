@@ -15,6 +15,7 @@ class Backbone::ConversationPresenter < BasePresenter
     base_hash.merge({
       author: AuthorPresenter.new(author).full_hash,
       last_author: AuthorPresenter.new(last_author).full_hash,
+      last_message: Backbone::MessagePresenter.new(last_message).full_hash,
       message_count: messages.size,
       participant_count: participants.size,
       participants: AuthorPresenter.as_collection(participants, :full_hash)

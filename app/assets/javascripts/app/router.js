@@ -107,7 +107,14 @@ app.Router = Backbone.Router.extend({
 
   conversation_index: function() {
     app.conversations = new app.collections.Conversations();
-    app.conversations.fetch();
+    app.conversations.reset(gon.preloads.conversations);
+
+    app.stream = new app.views.ConversationStream({
+      collection: app.conversations,
+      el: $('.stream.conversations')
+    });
+
+    app.stream.render();
   }
 });
 

@@ -59,6 +59,11 @@ class Conversation < ActiveRecord::Base
     @last_author ||= Person.includes(:profile).where(id: @last_author_id).first
   end
 
+  def last_message
+    return unless @last_message.present? || self.messages.size > 0
+    @last_message ||= self.messages.last
+  end
+
   def subject
     self[:subject].blank? ? "no subject" : self[:subject]
   end
