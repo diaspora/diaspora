@@ -26,5 +26,5 @@
 
       .bd
         = form_for [conversation, Message.new] do |message|
-          = message.text_area :text, :rows => 5, :tabindex => 1
-          = message.submit t('.reply').capitalize, 'data-disable-with' => t('.replying'), :class => 'button creation', :tabindex => 2
+          = message.text_area :text, :class => 'span12', :rows => 5, :tabindex => 1
+          = message.submit t('.reply').capitalize, 'data-disable-with' => t('.replying'), :class => 'btn btn-primary', :tabindex => 2
