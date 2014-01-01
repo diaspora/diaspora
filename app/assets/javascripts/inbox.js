@@ -24,6 +24,16 @@ $(document).ready(function(){
     jqe.attr('title', '');
   });
 
+  $('.stream_element.conversation').hover(
+    function(){
+      $(this).find('.participants').slideDown('300');
+    },
+    
+    function(){
+      $(this).find('.participants').slideUp('300');
+    }
+  );
+
   $('.conversation-wrapper').live('click', function(){
     var conversation_path = $(this).data('conversation-path');
 
