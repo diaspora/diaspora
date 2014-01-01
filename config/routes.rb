@@ -95,6 +95,7 @@ Diaspora::Application.routes.draw do
     get :getting_started_completed
     get :export
     get :export_photos
+    resources :email_preferences, controller: 'users/email_preferences'
   end
 
   controller :users do

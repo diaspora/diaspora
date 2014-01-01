@@ -20,64 +20,50 @@ class UsersController < ApplicationController
     @blocks = current_user.blocks.includes(:person)
   end
 
+  #TODO: just break down into a bunch of separate small controllers?
   def update
-    password_changed = false
+    #TODO: get rid of these temps
     @user = current_user
+    u = user_params
 
-    if u = user_params
-      u.delete(:password) if u[:password].blank?
-      u.delete(:password_confirmation) if u[:password].blank? and u[:password_confirmation].blank?
-      u.delete(:language) if u[:language].blank?
-
-      # change email notifications
-      if u[:email_preferences]
-        @user.update_user_preferences(u[:email_preferences])
-        flash[:notice] = I18n.t 'users.update.email_notifications_changed'
-      # change password
-      elsif u[:current_password] && u[:password] && u[:password_confirmation]
-        if @user.update_with_password(u)
-          password_changed = true
-          flash[:notice] = I18n.t 'users.update.password_changed'
-        else
-          flash[:error] = I18n.t 'users.update.password_not_changed'
-        end
-      elsif u[:show_community_spotlight_in_stream] || u[:getting_started]
-        if @user.update_attributes(u)
-          flash[:notice] = I18n.t 'users.update.settings_updated'
-        else
-          flash[:notice] = I18n.t 'users.update.settings_not_updated'
-        end
-      elsif u[:language]
-        if @user.update_attributes(u)
-          I18n.locale = @user.language
-          flash[:notice] = I18n.t 'users.update.language_changed'
-        else
-          flash[:error] = I18n.t 'users.update.language_not_changed'
-        end
-      elsif u[:email]
-        @user.unconfirmed_email = u[:email]
-        if @user.save
-          @user.mail_confirm_email == @user.email
-          if @user.unconfirmed_email
-            flash[:notice] = I18n.t 'users.update.unconfirmed_email_changed'
-          end
-        else
-          flash[:error] = I18n.t 'users.update.unconfirmed_email_not_changed'
-        end
-      elsif u[:auto_follow_back]
-        if  @user.update_attributes(u)
-          flash[:notice] = I18n.t 'users.update.follow_settings_changed'
-        else
-          flash[:error] = I18n.t 'users.update.follow_settings_not_changed'
-        end
+    #TODO: User::Settings controller? Maybe not, this is might be manageable
+    if u[:show_community_spotlight_in_stream] || u[:getting_started]
+      if @user.update_attributes(u)
+        flash[:notice] = I18n.t 'users.update.settings_updated'
+      else
+        flash[:notice] = I18n.t 'users.update.settings_not_updated'
       end
-    elsif aspect_order = params[:reorder_aspects]
-      @user.reorder_aspects(aspect_order)
+    elsif u[:language]
+      if @user.update_attributes(u)
+        I18n.locale = @user.language
+        flash[:notice] = I18n.t 'users.update.language_changed'
+      else
+        flash[:error] = I18n.t 'users.update.language_not_changed'
+      end
+    elsif u[:email]
+      @user.unconfirmed_email = u[:email]
+      if @user.save
+        @user.mail_confirm_email == @user.email
+        if @user.unconfirmed_email
+          flash[:notice] = I18n.t 'users.update.unconfirmed_email_changed'
+        end
+      else
+        flash[:error] = I18n.t 'users.update.unconfirmed_email_not_changed'
+      end
+    elsif u[:auto_follow_back]
+      if  @user.update_attributes(u)
+        flash[:notice] = I18n.t 'users.update.follow_settings_changed'
+      else
+        flash[:error] = I18n.t 'users.update.follow_settings_not_changed'
+      end
     end
+    # elsif aspect_order = params[:reorder_aspects]
+    #   @user.reorder_aspects(aspect_order)
+    # end
 
     respond_to do |format|
       format.js   { render :nothing => true, :status => 204 }
-      format.all  { redirect_to password_changed ? new_user_session_path : edit_user_path }
+      format.all  { redirect_to edit_user_path }
     end
   end
 
@@ -164,9 +150,6 @@ class UsersController < ApplicationController
   def user_params
     params.fetch(:user).permit(
       :email,
-      :current_password,
-      :password,
-      :password_confirmation,
       :language,
       :disable_mail,
       :invitation_service,
@@ -175,16 +158,7 @@ class UsersController < ApplicationController
       :auto_follow_back,
       :auto_follow_back_aspect_id,
       :remember_me,
-      :getting_started,
-      email_preferences: [
-        :also_commented,
-        :mentioned,
-        :comment_on_post,
-        :private_message,
-        :started_sharing,
-        :liked,
-        :reshared
-      ]
+      :getting_started
     )
   end
 end

@@ -1,3 +1,4 @@
+#TODO: refactor to EmailPreference
 class UserPreference < ActiveRecord::Base
   belongs_to :user
 
