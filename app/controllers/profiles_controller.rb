@@ -40,6 +40,7 @@ class ProfilesController < ApplicationController
     #checkbox tags wtf
     @profile_attrs[:searchable] ||= false
     @profile_attrs[:nsfw] ||= false
+    @profile_attrs[:is_public] ||= false
 
     if params[:photo_id]
       @profile_attrs[:photo] = Photo.where(:author_id => current_user.person_id, :id => params[:photo_id]).first
@@ -80,6 +81,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :gender, :bio, :location, :searchable, :tag_string, :nsfw, :date => [:year, :month, :day]) || {}
+    params.require(:profile).permit(:first_name, :last_name, :gender, :bio, :location, :searchable, :tag_string, :nsfw, :is_public, :date => [:year, :month, :day]) || {}
   end
 end

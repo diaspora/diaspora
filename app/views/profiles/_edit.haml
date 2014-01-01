@@ -9,10 +9,22 @@
   = render 'profiles/edit_public', :profile => profile, :aspect => aspect, :person => person
 
   %hr
+  :javascript
+    $(document).ready(function () {
+      $('.additional-visibility-icon').click(function() {
+        $('input#profile_is_public').prop('checked', ! $('input#profile_is_public').prop('checked'));
+        $('.additional-visibility-icon').toggle();
+      });
+    });
+  %h3{:class=>"inline"}
+    = t('profiles.edit.additional')
+  = image_tag 'icons/globe.png', class: 'additional-visibility-icon', style: ('display:none;' if ! profile.is_public)
+  = image_tag 'icons/padlock-closed.png', class: 'additional-visibility-icon', style: ('display:none;' if profile.is_public)
+  %span{ :rel => 'facebox', :title => t('profiles.edit.additional_hint') }
+    = image_tag 'icons/monotone_question.png'
+  = check_box_tag 'profile[is_public]', true, profile.is_public
   %br
-  %h3
-    = t('profiles.edit.your_private_profile')
-
+  %br
 
   %h4
     = t('profiles.edit.your_bio')
@@ -40,7 +52,15 @@
 
   %br
   %br
+  
+  %hr
+  %h3{:class=>"inline"}
+    = t('profiles.edit.settings')
+  = image_tag 'icons/padlock-closed.png'
 
+  %br
+  %br
+  
   %h4
     = t('search')
 

@@ -34,8 +34,11 @@
       });
     });
 
-%h3
-  = t('profiles.edit.your_public_profile')
+%h3{:class=>"inline"}
+  = t('profiles.edit.basic')
+= image_tag 'icons/globe.png'
+%br
+%br
 
 = error_messages_for profile
 

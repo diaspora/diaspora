@@ -856,8 +856,10 @@ en:
 
   profiles:
     edit:
-      your_public_profile: "Your public profile"
-      your_private_profile: "Your private profile"
+      basic: "Basic"
+      additional: "Additional"
+      settings: "Profile settings"
+      additional_hint: "Click the globe or the padlock to set your additional profile data visibility. The globe means it is public (to the internet), the padlock means only people who you share with will see this information."
       your_name: "Your name"
       first_name: "First name"
       last_name: "Last name"
