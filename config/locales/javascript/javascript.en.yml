@@ -32,6 +32,7 @@ en:
     my_activity: "My Activity"
     my_stream: "Stream"
     my_aspects: "My Aspects"
+    developer: "Developer"
 
     videos:
       watch: "Watch this video on <%= provider %>"
