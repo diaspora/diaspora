@@ -214,7 +214,8 @@ body > header {
         }
 
         &::-webkit-input-placeholder { text-shadow: none; }
-        &:-moz-placeholder { text-shadow: none; }
+        &::-moz-placeholder { text-shadow: none; }
+        &.ac_loading::-webkit-search-cancel-button { -webkit-appearance: none; }
       }
     }
   }
