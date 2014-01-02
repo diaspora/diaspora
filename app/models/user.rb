@@ -485,6 +485,7 @@ class User < ActiveRecord::Base
       save
     end
   end
+  
   private
   def clearable_fields
     self.attributes.keys - ["id", "username", "encrypted_password",

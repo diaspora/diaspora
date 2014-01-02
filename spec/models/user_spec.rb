@@ -1018,4 +1018,34 @@ describe User do
       end
     end
   end
+  
+  describe "sign up" do
+    before do
+      params = {:username => "ohai",
+                :email => "ohai@example.com",
+                :password => "password",
+                :password_confirmation => "password",
+                :captcha => "12345",
+                
+                :person =>
+                  {:profile =>
+                    {:first_name => "O",
+                     :last_name => "Hai"}
+                  }
+      }
+      @user = User.build(params)
+    end
+
+    it "saves with captcha off" do
+      AppConfig.settings.captcha.enable = false
+      @user.should_receive(:save).and_return(true)
+      @user.sign_up
+    end
+
+    it "saves with captcha on" do
+      AppConfig.settings.captcha.enable = true
+      @user.should_receive(:save_with_captcha).and_return(true)
+      @user.sign_up
+    end
+  end
 end

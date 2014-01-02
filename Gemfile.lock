@@ -449,7 +449,7 @@ DEPENDENCIES
   foreigner (= 1.4.2)
   foreman (= 0.62)
   fuubar (= 1.1.1)
-  galetahub-simple_captcha
+  galetahub-simple_captcha (= 0.1.5)
   gon (= 4.1.1)
   guard-cucumber (= 1.4.0)
   guard-rspec (= 3.0.2)
