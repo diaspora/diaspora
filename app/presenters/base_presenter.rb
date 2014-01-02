@@ -1,15 +1,18 @@
 class BasePresenter
-  def self.new(arg)
-    return NilPresenter.new if arg.nil?
-    super
+  attr_accessor :current_user
+
+  def self.new(*args)
+    return NilPresenter.new if args[0].nil?
+    super *args
   end
 
-  def self.as_collection(collection, method=:as_json)
-    collection.map{ |object| self.new(object).send(method) }
+  def self.as_collection(collection, method=:as_json, *args)
+    collection.map{ |object| self.new(object, *args).send(method) }
   end
 
-  def initialize(presentable)
+  def initialize(presentable, curr_user=nil)
     @presentable = presentable
+    @current_user = curr_user
   end
 
   def method_missing(method, *args)

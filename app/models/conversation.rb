@@ -40,6 +40,13 @@ class Conversation < ActiveRecord::Base
     end
   end
 
+  def unread_count_for(user)
+    if v = self.conversation_visibilities.where(person_id: user.person_id).first
+      return v.unread
+    end
+    0
+  end
+
   def public?
     false
   end

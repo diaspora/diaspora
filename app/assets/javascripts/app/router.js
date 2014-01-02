@@ -21,7 +21,8 @@ app.Router = Backbone.Router.extend({
     "people/:id": "stream",
     "u/:name": "stream",
 
-    "conversations": "conversation_index"
+    "conversations": "conversationStream",
+    "conversations/:id": "singleConversation"
   },
 
   singlePost : function(id) {
@@ -105,7 +106,7 @@ app.Router = Backbone.Router.extend({
       this.followedTagsView.hideFollowedTags();
   },
 
-  conversation_index: function() {
+  conversationStream: function() {
     app.conversations = new app.collections.Conversations();
     app.conversations.reset(gon.preloads.conversations);
 
@@ -115,6 +116,22 @@ app.Router = Backbone.Router.extend({
     });
 
     app.stream.render();
+  },
+
+  singleConversation: function(id) {
+    // the view for a single conversation also has the stream visible, render it
+    this.conversationStream();
+
+    var messages = new app.collections.Messages();
+    messages.reset(gon.preloads.messages);
+
+    app.conversation = new app.views.SingleConversation({
+      el: $('#conversation_show'),
+      model: app.models.Conversation(gon.preloads.conversation),
+      messages: messages
+    });
+
+    app.conversation.render();
   }
 });
 

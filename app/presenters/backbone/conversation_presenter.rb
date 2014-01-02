@@ -22,4 +22,11 @@ class Backbone::ConversationPresenter < BasePresenter
     })
   end
 
+  # to use this hash, the current_user has to have been passed to the presenter
+  # when it was initialized
+  def full_hash_with_unread_count
+    full_hash.merge({
+      unread_count: unread_count_for(current_user)
+    })
+  end
 end

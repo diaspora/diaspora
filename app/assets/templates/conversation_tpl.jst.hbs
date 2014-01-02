@@ -1,26 +1,20 @@
 <div class="stream_element conversation {{#if unread_count}}unread{{/if}}">
   <div class="media">
-    {{!-- PARTICIPANTS --}}
-    <a href="#" class="participants_link"><span class="icons-users" title="{{t "conversation.participants"}}"></span></a>
-    <div class="participants">
-      {{!-- render participants here --}}
-    </div>
-
-    {{!-- SUBJECT --}}
-    <div class="subject">
-      <div class="label label-default message_count">{{message_count}}</div>
-      {{#if unread_count}}
-      <div class="label label-important unread_message_count">{{unread_count}}</div>
-      {{/if}}
-      <div>{{subject}}</div>
-    </div>
-
     <div class="img">{{{personImage author 'medium'}}}</div>
-
     <div class="bg">
+
+      {{!-- COUNTERS --}}
+      <div class="badge badge-default message_count">{{message_count}}</div>
+      {{#if unread_count}}
+      <div class="badge badge-important unread_message_count">{{unread_count}}</div>
+      {{/if}}
+
+      {{!-- SUBJECT --}}
+      <div class="subject"><a href="/conversations/{{id}}">{{subject}}</a></div>
+
       <time class="timeago timestamp" datetime="{{updated_at}}" />
 
-      {{!-- LAST AUTHOR --}}
+      {{!-- PREVIEW --}}
       {{#if last_author}}
         <div class="last_author">{{last_author.name}}</div>
       {{/if}}

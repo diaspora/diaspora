@@ -7,17 +7,27 @@ class ConversationsController < ApplicationController
   respond_to :html, :mobile #, :json, :js
 
   def index
-    conversations = current_user.conversations.includes(
-      participants: :profile
-    ).paginate(
-      page: params[:page],
-      per_page: 15
-    )
+    respond_to do |format|
+      conversations = current_user.conversations.includes(
+        participants: :profile
+      ).paginate(
+        page: params[:page],
+        per_page: 15
+      )
 
-    @conversations = conversations  # deprecated
-    @unread_counts = []
-
-    gon.preloads[:conversations] = Backbone::ConversationPresenter.as_collection(conversations, :full_hash)
+      format.html {
+        gon.preloads[:conversations] = Backbone::ConversationPresenter.as_collection(conversations, :full_hash_with_unread_count, current_user)
+      }
+      format.mobile {
+        @conversations = conversations
+        visibilities = current_user.conversation_visibilities.paginate(
+          page: params[:page],
+          per_page: 15
+        )
+        @unread_counts = Hash[visibilities.map{ |v| [v.conversation_id, v.unread] }]
+        @authors = Hash[conversations.map{ |c| [c.id, c.last_author] }]
+      }
+    end
   end
 
   def create
