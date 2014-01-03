@@ -107,8 +107,7 @@ app.Router = Backbone.Router.extend({
   },
 
   conversationStream: function() {
-    app.conversations = new app.collections.Conversations();
-    app.conversations.reset(gon.preloads.conversations);
+    app.conversations = new app.collections.Conversations(gon.preloads.conversations);
 
     app.stream = new app.views.ConversationStream({
       collection: app.conversations,
@@ -122,8 +121,7 @@ app.Router = Backbone.Router.extend({
     // the view for a single conversation also has the stream visible, render it
     this.conversationStream();
 
-    var messages = new app.collections.Messages();
-    messages.reset(gon.preloads.messages);
+    var messages = new app.collections.Messages(gon.preloads.messages);
 
     app.conversation = new app.views.SingleConversation({
       el: $('#conversation_show'),

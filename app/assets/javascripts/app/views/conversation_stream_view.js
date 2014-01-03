@@ -21,9 +21,10 @@ app.views.ConversationStream = Backbone.View.extend({
   _openConversation: function(model) {
     app.router.navigate('/conversations/'+model.id);
 
-    if( app.conversation ) app.conversation.remove();
+    var messages = new app.collections.Messages([], {
+      url: model.url()+'/messages'
+    });
 
-    var messages = new app.collections.Messages();
     app.conversation = new app.views.SingleConversation({
       el: $('#conversation_show'),
       model: model,

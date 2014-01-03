@@ -1,0 +1,9 @@
+<div class="stream_element">
+  <div class="media">
+    <div class="img">{{{personImage author "medium"}}}</div>
+    <div class="bd">
+      {{#linkToPerson author}}{{name}}{{/linkToPerson}}
+      <time class="timeago timestamp" datetime="{{updated_at}}" />
+      <div>{{{text}}}</div>
+    </div>
+</div>
