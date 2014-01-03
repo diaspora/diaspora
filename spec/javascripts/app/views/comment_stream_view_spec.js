@@ -81,11 +81,10 @@ describe("app.views.CommentStream", function(){
 
   describe("appendComment", function(){
     it("appends this.model as 'parent' to the comment", function(){
-      var comment = new app.models.Comment(factory.comment())
-
-      spyOn(comment, "set")
-      this.view.appendComment(comment)
-      expect(comment.set).toHaveBeenCalled()
+      var comment = factory.comment();
+      spyOn(comment, "set");
+      this.view.appendComment(comment);
+      expect(comment.set).toHaveBeenCalled();
     });
   });
 

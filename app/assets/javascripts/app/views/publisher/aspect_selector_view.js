@@ -12,6 +12,10 @@ app.views.PublisherAspectSelector  = Backbone.View.extend({
     "click .dropdown_list > li": "toggleAspect"
   },
 
+  initialize: function(opts) {
+    this.form = opts.form;
+  },
+
   // event handler for aspect selection
   toggleAspect: function(evt) {
     var el = $(evt.target);
@@ -53,7 +57,7 @@ app.views.PublisherAspectSelector  = Backbone.View.extend({
     var self = this;
 
     // remove previous selection
-    this.options.form.find('input[name="aspect_ids[]"]').remove();
+    this.form.find('input[name="aspect_ids[]"]').remove();
 
     // create fields for current selection
     this.$('.dropdown_list li.selected').each(function() {
@@ -80,7 +84,7 @@ app.views.PublisherAspectSelector  = Backbone.View.extend({
 
   _addHiddenAspectInput: function(id) {
     var uid = _.uniqueId('aspect_ids_');
-    this.options.form.append(
+    this.form.append(
       '<input id="'+uid+'" name="aspect_ids[]" type="hidden" value="'+id+'">'
     );
   }

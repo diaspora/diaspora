@@ -13,7 +13,10 @@ app.views.PublisherServices = Backbone.View.extend({
 
   tooltipSelector: '.service_icon',
 
-  initialize: function() {
+  initialize: function(opts) {
+    this.input = opts.input;
+    this.form = opts.form;
+
     // init tooltip plugin
     this.$(this.tooltipSelector).tooltip();
   },
@@ -32,7 +35,7 @@ app.views.PublisherServices = Backbone.View.extend({
   // keep track of character count
   _createCounter: function() {
     // remove any obsolete counters
-    this.options.input.siblings('.counter').remove();
+    this.input.siblings('.counter').remove();
 
     // create new counter
     var min = 40000;
@@ -42,18 +45,18 @@ app.views.PublisherServices = Backbone.View.extend({
         var num = parseInt($(value).attr('maxchar'));
         if (min > num) { min = num; }
       });
-      this.options.input.charCount({allowed: min, warning: min/10 });
+      this.input.charCount({allowed: min, warning: min/10 });
     }
   },
 
   // add or remove the input containing the selected service
   _toggleServiceField: function(provider) {
-    var hidden_field = this.options.form.find('input[name="services[]"][value="'+provider+'"]');
+    var hidden_field = this.form.find('input[name="services[]"][value="'+provider+'"]');
     if(hidden_field.length > 0){
       hidden_field.remove();
     } else {
       var uid = _.uniqueId('services_');
-      this.options.form.append(
+      this.form.append(
       '<input id="'+uid+'" name="services[]" type="hidden" value="'+provider+'">');
     }
   }

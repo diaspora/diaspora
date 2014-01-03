@@ -79,6 +79,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Added a statistics route with general pod information, and if enabled in pod settings, total user, half year/monthly active users and local post counts [#4602](https://github.com/diaspora/diaspora/pull/4602)
 * Add indication about markdown formatting in the publisher [#4589](https://github.com/diaspora/diaspora/pull/4589)
 * Add captcha to signup form [#4659](https://github.com/diaspora/diaspora/pull/4659)
+* Update Underscore.js 1.3.1 to 1.5.2, update Backbone.js 0.9.2 to 1.1.0 [#4662](https://github.com/diaspora/diaspora/pull/4662)
 
 ## Gem updates
 * selenium-webdriver 2.34.0 -> 2.39.0
