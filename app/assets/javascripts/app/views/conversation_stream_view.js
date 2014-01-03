@@ -1,5 +1,7 @@
 app.views.ConversationStream = Backbone.View.extend({
-  initialize: function() { },
+  initialize: function() {
+    this.collection.on('sync', this.render, this);
+  },
 
   render: function() {
     var self = this;
@@ -24,6 +26,7 @@ app.views.ConversationStream = Backbone.View.extend({
     var messages = new app.collections.Messages([], {
       url: model.url()+'/messages'
     });
+    messages.on('add', this._messageAdded, this);
 
     app.conversation = new app.views.SingleConversation({
       el: $('#conversation_show'),
@@ -32,6 +35,10 @@ app.views.ConversationStream = Backbone.View.extend({
     });
 
     app.conversation.render();
+  },
+
+  _messageAdded: function() {
+    this.collection.fetch();
   }
 
 });
