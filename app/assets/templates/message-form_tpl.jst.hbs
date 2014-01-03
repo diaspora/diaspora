@@ -1,0 +1,11 @@
+<div class="stream_element new_message">
+  <div class="media">
+    <div class="img">{{{personImage current_user}}}</div>
+    <div class="bd">
+      <form id="new_message" class="new_message" method="post" action="/conversations/{{id}}/messages">
+        <textarea id="message_test" class="span12" rows="5" name="message[text]" cols="40"></textarea>
+        <input class="btn btn-primary" type="submit" value="{{t "conversations.reply"}}" name="commit">
+      </form>
+    </div>
+  </div>
+</div>

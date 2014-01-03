@@ -94,6 +94,8 @@ en:
       participants: "Participants"
       no_messages: "no messages"
       delete: "delete and block conversation?"
+      reply: "Reply"
+      replying: "Replying..."
 
     stream:
       hide: "Hide"
