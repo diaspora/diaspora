@@ -37,6 +37,10 @@
       margin-bottom: 30px;
     }
   }
+  
+  .mentions-autocomplete-list ul {
+    width: 483px;
+  }
 
   .options_and_submit {
     min-height: 21px;
@@ -165,6 +169,11 @@
       @include opacity(1);
     }
   }
+  
+  .markdownIndications {
+    position: absolute;
+    bottom: 0px;
+  }
 
   @include border-radius(2px);
 
@@ -195,7 +204,7 @@
   #photodropzone {
     z-index: 3;
     position: absolute;
-    bottom: 0;
+    bottom: 15px;
     right: 35px;
     width: 430px;
     left: 5px;
