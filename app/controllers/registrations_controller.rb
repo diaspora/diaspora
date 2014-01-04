@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
   before_filter :check_registrations_open_or_vaild_invite!, :check_valid_invite!
 
   layout ->(c) { request.format == :mobile ? "application" : "with_header" }, :only => [:new]
-  before_filter -> { @css_framework = :bootstrap }, only: [:new]
+  before_filter -> { @css_framework = :bootstrap }, only: [:new, :create]
 
   def create
     @user = User.build(user_params)
@@ -22,7 +22,7 @@ class RegistrationsController < Devise::RegistrationsController
 
       flash[:error] = @user.errors.full_messages.join(" - ")
       Rails.logger.info("event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'")
-      redirect_to :back
+      render :action => 'new', :layout => 'with_header'
     end
   end
 
