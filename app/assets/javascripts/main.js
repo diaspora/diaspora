@@ -35,7 +35,6 @@
 //= require aspects-dropdown
 //= require contact-edit
 //= require contact-list
-//= require aspect-sorting
 //= require mentions
 //= require bootstrap-tooltip
 //= require bootstrap-popover

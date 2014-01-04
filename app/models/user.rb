@@ -422,14 +422,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def reorder_aspects(aspect_order)
-    i = 0
-    aspect_order.each do |id|
-      self.aspects.find(id).update_attributes({ :order_id => i })
-      i += 1
-    end
-  end
-
   # Generate public/private keys for User and associated Person
   def generate_keys
     key_size = (Rails.env == 'test' ? 512 : 4096)
