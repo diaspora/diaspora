@@ -62,6 +62,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Display errors when photo upload fails [#4509](https://github.com/diaspora/diaspora/issues/4509)
 * Fix posting to Twitter by correctly catching exception [#4627](https://github.com/diaspora/diaspora/issues/4627)
 * Change "Show n more comments"-link, fix [#3119](https://github.com/diaspora/diaspora/issues/3119)
+* Specify Firefox version for Travis-CI [#4623](https://github.com/diaspora/diaspora/pull/4623)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
@@ -74,6 +75,9 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Add actions on aspects on the contact page [#4570](https://github.com/diaspora/diaspora/pull/4570)
 * Added a statistics route with general pod information, and if enabled in pod settings, total user, half year/monthly active users and local post counts [#4602](https://github.com/diaspora/diaspora/pull/4602)
 * Add indication about markdown formatting in the publisher [#4589](https://github.com/diaspora/diaspora/pull/4589)
+
+## Gem updates
+* selenium-webdriver 2.34.0 -> 2.39.0
 
 # 0.2.0.1
 
