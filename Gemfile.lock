@@ -141,6 +141,7 @@ GEM
       rspec (~> 2.0)
       rspec-instafail (~> 0.2.0)
       ruby-progressbar (~> 1.0)
+    galetahub-simple_captcha (0.1.5)
     gherkin (2.12.0)
       multi_json (~> 1.3)
     gon (4.1.1)
@@ -448,6 +449,7 @@ DEPENDENCIES
   foreigner (= 1.4.2)
   foreman (= 0.62)
   fuubar (= 1.1.1)
+  galetahub-simple_captcha
   gon (= 4.1.1)
   guard-cucumber (= 1.4.0)
   guard-rspec (= 3.0.2)
