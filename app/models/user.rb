@@ -245,8 +245,6 @@ class User < ActiveRecord::Base
   end
 
   def add_to_streams(post, aspects_to_insert)
-    inserted_aspect_ids = aspects_to_insert.map{|x| x.id}
-
     aspects_to_insert.each do |aspect|
       aspect << post
     end
