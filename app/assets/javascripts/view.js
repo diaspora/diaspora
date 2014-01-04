@@ -20,8 +20,8 @@ var View = {
       .keypress(this.search.keyPress);
 
     /* Dropdowns */
-    $(this.dropdowns.selector)
-      .live('click', this.dropdowns.click);
+    $(document)
+      .on('click', this.dropdowns.selector, this.dropdowns.click);
 
     /* Avatars */
     $(this.avatars.selector).error(this.avatars.fallback);
@@ -45,7 +45,7 @@ var View = {
       });
     };
 
-    $('form[data-remote]').live('ajax:success', function (e) {
+    $(document).on('ajax:success', 'form[data-remote]', function (e) {
       $(this).clearForm();
       $(this).focusout();
     });
@@ -73,7 +73,7 @@ var View = {
     });
 
     /* facebox 'done' buttons */
-    $("*[rel*=close]").live('click', function(){ $.facebox.close(); });
+    $(document).on('click', "*[rel*=close]", function(){ $.facebox.close(); });
 
     /* notification routing */
     $("#notification").delegate('.hard_object_link', 'click', function(evt){

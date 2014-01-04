@@ -217,7 +217,7 @@ $(document).ready(function(){
     form.remove();
   });
 
-  $(".new_comment").live("submit", function(evt){
+  $(document).on("submit", ".new_comment", function(evt){
     evt.preventDefault();
     var form = $(this);
 
