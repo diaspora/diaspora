@@ -107,6 +107,14 @@ h3 {
       }
     }
   }
+  
+  nav {
+    position: fixed;
+    top: 45px;
+    bottom: 0px;
+    overflow: auto;
+    width: 100%;
+  }
 
   li {
     font-size: 25px;
