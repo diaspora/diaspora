@@ -37,11 +37,27 @@ $(document).ready(function(){
 
     if (app.hasClass('draw')){
       app.removeClass('draw');
-    }
-    else {
+    } else {
       app.addClass('draw');
     }
   };
+  
+  /* Show / hide aspects in the drawer */
+  $('#all_aspects').bind("tap click", function(evt){
+    evt.preventDefault();
+    toggleAspectsMenu();
+  });
+
+  var toggleAspectsMenu = function(){
+    var aspect_list = $("#all_aspects + li");
+
+    if (aspect_list.hasClass('hide')){
+      aspect_list.removeClass('hide');
+    } else {
+      aspect_list.addClass('hide');
+    }
+  };
+  
 
   /* Heart toggle */
   $(".like_action", ".stream").bind("tap click", function(evt){

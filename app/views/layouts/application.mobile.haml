@@ -97,17 +97,17 @@
                   = link_to t("streams.activity.title"), activity_stream_path
                 %li
                   = link_to t("streams.mentions.title"), mentioned_stream_path
-                %li
-                  = t('streams.aspects.title')
-                %li.no_border
+                %li#all_aspects
+                  = link_to t('streams.aspects.title'), "#"
+                %li.no_border.hide
                   %ul
                     - for aspect in current_user.aspects
                       %li
-                        = aspect.name
+                        = link_to aspect.name, aspects_stream_path(a_ids: [aspect.id])
                 %li
-                  = link_to(t('layouts.header.profile'), user_profile_path(current_user.username))
+                  = link_to t('layouts.header.profile'), user_profile_path(current_user.username)
                 %li
-                  = link_to(t('_contacts'), contacts_path)
+                  = link_to t('_contacts'), contacts_path
                 %li
                   = link_to t('layouts.header.settings'), users_edit_path
                 %li

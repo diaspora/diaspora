@@ -114,24 +114,28 @@ h3 {
     bottom: 0px;
     overflow: auto;
     width: 100%;
-  }
 
-  li {
-    font-size: 25px;
-    line-height: 25px;
-    font-weight: bold;
-    color: $light-grey;
-    padding: 12px 25px;
-    border-bottom: solid rgb(53, 53, 53) 2px;
-  }
+    li {
+      font-size: 25px;
+      line-height: 25px;
+      font-weight: bold;
+      color: $light-grey;
+      padding: 12px 25px;
+      border-bottom: solid rgb(53, 53, 53) 2px;
+    }
 
-  .no_border {
-    padding: 0px;
-    border-bottom: 0px;
+    .no_border {
+      padding: 0px;
+      border-bottom: 0px;
+      
+      > ul > li {
+        font-size: 14px;
+        padding: 8px 42px;
+      }
+    }
     
-    > ul > li {
-      font-size: 14px;
-      padding: 8px 42px;
+    .hide {
+      display: none;
     }
   }
   
