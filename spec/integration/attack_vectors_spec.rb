@@ -5,7 +5,7 @@
 require 'spec_helper'
 
 
-def receive(post, opts)
+def receive_post(post, opts)
   sender = opts.fetch(:from)
   receiver = opts.fetch(:by)
   salmon_xml = sender.salmon(post).xml_for(receiver.person)
@@ -36,7 +36,7 @@ def temporary_post(user, &block)
 end
 
 def expect_error(partial_message, &block)# DOES NOT REQUIRE ERROR!!
-  begin 
+  begin
     yield
   rescue => e
     e.message.should match partial_message
@@ -58,7 +58,7 @@ end
     #returns the message
 def legit_post_from_user1_to_user2(user1, user2)
   original_message = user1.post(:status_message, :text => 'store this!', :to => user1.aspects.find_by_name("generic").id)
-  receive(original_message, :from => user1, :by => user2)
+  receive_post(original_message, :from => user1, :by => user2)
   original_message
 end
 
@@ -126,9 +126,9 @@ describe "attack vectors" do
 
         expect {
           expect {
-            receive(profile, :from => alice, :by => bob)
+            receive_post(profile, :from => alice, :by => bob)
           }.to raise_error Diaspora::AuthorXMLAuthorMismatch
-        }.to_not change(eve.profile, :first_name) 
+        }.to_not change(eve.profile, :first_name)
       end
     end
 
@@ -153,7 +153,7 @@ describe "attack vectors" do
         malicious_message = FactoryGirl.build(:status_message, :id => original_message.id, :guid => original_message.guid, :author => alice.person)
 
         expect{
-          receive(malicious_message, :from => alice, :by => bob)
+          receive_post(malicious_message, :from => alice, :by => bob)
         }.to_not change(original_message, :author_id)
       end
 
@@ -166,7 +166,7 @@ describe "attack vectors" do
         malicious_message = FactoryGirl.build( :status_message, :id => original_message.id, :text => 'BAD!!!', :author => eve.person)
 
         expect {
-          receive(malicious_message, :from => eve, :by => bob)
+          receive_post(malicious_message, :from => eve, :by => bob)
         }.to_not change(original_message, :text)
       end
     end
@@ -175,14 +175,14 @@ describe "attack vectors" do
     it "ignores retractions on a post not owned by the retraction's sender" do
       original_message = legit_post_from_user1_to_user2(eve, bob)
 
-      ret = bogus_retraction do |retraction| 
+      ret = bogus_retraction do |retraction|
         retraction.post_guid = original_message.guid
         retraction.diaspora_handle = alice.person.diaspora_handle
         retraction.type = original_message.class.to_s
       end
 
       expect {
-        receive(ret, :from => alice, :by => bob)
+        receive_post(ret, :from => alice, :by => bob)
       }.to_not change(StatusMessage, :count)
     end
 
@@ -195,7 +195,7 @@ describe "attack vectors" do
                             end
                           end
        expect{
-        receive(bogus_retraction, :from => alice, :by => bob)
+        receive_post(bogus_retraction, :from => alice, :by => bob)
       }.to_not raise_error
     end
 
@@ -210,7 +210,7 @@ describe "attack vectors" do
 
       expect {
         expect {
-          receive(retraction, :from => alice, :by => bob)
+          receive_post(retraction, :from => alice, :by => bob)
         }.to raise_error Diaspora::AuthorXMLAuthorMismatch
       }.to_not change(bob.visible_shareables(Post), :count)
 
@@ -227,7 +227,7 @@ describe "attack vectors" do
       end
 
       expect{
-        receive(retraction, :from => alice, :by => bob)
+        receive_post(retraction, :from => alice, :by => bob)
       }.to_not change{bob.reload.contacts.count}
     end
 
@@ -240,14 +240,14 @@ describe "attack vectors" do
 
       expect{
         expect {
-          receive(retraction, :from => alice, :by => bob)
+          receive_post(retraction, :from => alice, :by => bob)
         }.to raise_error Diaspora::AuthorXMLAuthorMismatch
       }.to_not change(bob.contacts, :count)
     end
 
     it 'does not let another user update other persons post' do
       original_message = eve.post(:photo, :user_file => uploaded_photo, :text => "store this!", :to => eves_aspect.id)
-      receive(original_message, :from => eve, :by => bob)
+      receive_post(original_message, :from => eve, :by => bob)
 
       #is this testing two things?
       new_message = original_message.dup
@@ -255,7 +255,7 @@ describe "attack vectors" do
       new_message.text = "bad bad bad"
 
       expect{
-        receive(new_message, :from => alice, :by => bob)
+        receive_post(new_message, :from => alice, :by => bob)
        }.to_not change(original_message, :text)
     end
   end

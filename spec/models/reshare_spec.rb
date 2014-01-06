@@ -23,26 +23,27 @@ describe Reshare do
   end
 
   describe "#receive" do
-    let(:receive) {@reshare.receive(@root.author.owner, @reshare.author)}
+    let(:receive_reshare) { @reshare.receive(@root.author.owner, @reshare.author) }
+
     before do
       @reshare = FactoryGirl.create(:reshare, :root => FactoryGirl.build(:status_message, :author => bob.person, :public => true))
       @root = @reshare.root
     end
 
     it 'increments the reshare count' do
-      receive
+      receive_reshare
       @root.resharers.count.should == 1
     end
 
     it 'adds the resharer to the re-sharers of the post' do
-      receive
+      receive_reshare
       @root.resharers.should include(@reshare.author)
     end
     it 'does not error if the root author has a contact for the resharer' do
       bob.share_with @reshare.author, bob.aspects.first
       proc {
         Timeout.timeout(5) do
-          receive #This doesn't ever terminate on my machine before it was fixed.
+          receive_reshare #This doesn't ever terminate on my machine before it was fixed.
         end
       }.should_not raise_error
     end
