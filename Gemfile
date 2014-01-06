@@ -96,7 +96,7 @@ gem 'typhoeus',           '0.6.7'
 
 # Views
 
-gem 'client_side_validations', '3.2.5'
+gem 'client_side_validations', '3.2.6'
 gem 'gon',                     '4.1.1'
 gem 'haml',                    '4.0.3'
 gem 'mobile-fu',               '1.2.2'
