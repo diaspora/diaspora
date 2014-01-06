@@ -67,7 +67,7 @@
             - if yield(:header_action).present?
               = yield(:header_action)
             - else
-              = link_to(image_tag('icons/compose_mobile.png'), new_status_message_path, class: "badge")
+              = link_to(image_tag('icons/compose_mobile.png'), new_status_message_path, class: "badge", id: "compose_badge")
             -# Menu
             = link_to(image_tag('icons/menu.png'), "#", id: "menu_badge", class: "badge")
 
@@ -99,7 +99,7 @@
                   = link_to t("streams.mentions.title"), mentioned_stream_path
                 %li
                   = t('streams.aspects.title')
-                %li#aspects_list
+                %li.no_border
                   %ul
                     - for aspect in current_user.aspects
                       %li
