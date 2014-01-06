@@ -79,12 +79,6 @@ body > header {
 
       &:hover .badge_count { background-color: lighten($red, 5%); }
 
-      .icons-notifications_grey { height: 16px; }
-
-      &.active .icons-notifications_grey:hover {
-        background-position: sprite-position($icons-sprites, notifications_grey);
-      }
-
       .icons-mail_grey { height: 11px }
 
       a.badge_link {
@@ -95,13 +89,19 @@ body > header {
       }
     }
 
+    .header-icon {
+      color: $header-grey;
+      line-height: 1.1em;
+      &:hover { color: $highlight-white; }
+    }
+    .badge.active .header-icon:hover { color: $header-grey; }
+
     #notification_badge, #message_inbox_badge {
       float: left;
       padding: 0px 3px;
     }
 
     #message_inbox_badge {
-      padding-top: 3px;
       margin-right: 0px;
       padding-right: 0px;
     }

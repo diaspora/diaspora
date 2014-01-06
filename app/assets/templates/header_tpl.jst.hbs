@@ -21,23 +21,21 @@
 
   <div id="nav_badges">
     <div class="badge badge-inverse" id="notification_badge">
-      <div class="icons-notifications_grey" >
-        <a href="/notifications" title="{{t "header.notifications"}}" class="badge_link" >
-          <div class="badge_count {{#unless current_user.notifications_count}} hidden {{/unless}}">
-            {{current_user.notifications_count}}
-          </div>
-        </a>
-      </div>
+      <a href="/notifications" title="{{t "header.notifications"}}" class="badge_link" >
+        <i class="entypo megaphone medium header-icon"></i>
+        <div class="badge_count {{#unless current_user.notifications_count}} hidden {{/unless}}">
+          {{current_user.notifications_count}}
+        </div>
+      </a>
     </div>
 
     <div class="badge badge-inverse" id="message_inbox_badge">
-     <div class="icons-mail_grey" >
-        <a href="/conversations" title="{{t "header.messages"}}" class="badge_link" >
-          <div class="badge_count {{#unless current_user.unread_messages_count}} hidden {{/unless}}">
-            {{current_user.unread_messages_count}}
-          </div>
-        </a>
-      </div>
+      <a href="/conversations" title="{{t "header.messages"}}" class="badge_link" >
+        <i class="entypo mail medium header-icon"></i>
+        <div class="badge_count {{#unless current_user.unread_messages_count}} hidden {{/unless}}">
+          {{current_user.unread_messages_count}}
+        </div>
+      </a>
     </div>
 
 

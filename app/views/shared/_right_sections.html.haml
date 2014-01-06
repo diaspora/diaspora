@@ -6,7 +6,7 @@
 - if AppConfig.settings.invitations.open?
   .section
     .title
-      .icons-plus
+      %i.entypo.plus.regular
       %h5.title-header
         = t('shared.invitations.invite_your_friends')
     .content
@@ -14,7 +14,7 @@
 
 .section
   .title
-    .icons-heart
+    %i.entypo.heart.regular
     %h5.title-header
       = t('aspects.index.new_here.title')
   .content
@@ -24,7 +24,7 @@
 
 .section
   .title
-    .icons-question
+    %i.entypo.circled-help.regular
     %h5.title-header
       = t('aspects.index.help.need_help')
   .content
@@ -48,7 +48,7 @@
 - unless AppConfig.configured_services.blank? || all_services_connected?
   .section
     .title
-      .icons-monotone_wrench_settings
+      .entypo.tools.regular
       %h5.title-header
         = t('aspects.index.services.heading')
     .content
@@ -62,7 +62,7 @@
 
 .section
   .title
-    .icons-bookmark
+    %i.entypo.bookmark.regular
     %h5.title-header
       = t('bookmarklet.heading')
   .content
@@ -71,7 +71,7 @@
 - if AppConfig.settings.paypal_hosted_button_id.present? || AppConfig.bitcoin_donation_address
   .section
     .title
-      .icons-coffee
+      .entypo.cup.regular
       %h5.title-header
         = t('aspects.index.donate')
     .content
@@ -82,7 +82,7 @@
 - if AppConfig.admins.podmin_email.present?
   .section
     .title
-      .icons-mail
+      .entypo.mail.regular
       %h5.title-header
         = t('aspects.index.help.any_problem')
     .content
