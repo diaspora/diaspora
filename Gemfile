@@ -63,7 +63,7 @@ gem 'messagebus_ruby_api', '1.0.3'
 # Parsing
 
 gem 'nokogiri',         '1.6.1'
-gem 'rails_autolink',   '1.1.0'
+gem 'rails_autolink',   '1.1.5'
 gem 'redcarpet',        '3.0.0'
 gem 'roxml',            '3.1.6'
 gem 'ruby-oembed',      '0.8.9'
