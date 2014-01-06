@@ -180,7 +180,7 @@ group :development do
   # Preloading environment
 
   gem 'guard-spork', '1.5.1'
-  gem 'spork',       '1.0.0rc3'
+  gem 'spork',       '1.0.0rc4'
 end
 
 group :test do
