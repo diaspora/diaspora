@@ -33,9 +33,9 @@ describe Notifications::PrivateMessage do
           :recipient_id => @user2.id}
 
         n = Notifications::PrivateMessage.new(opts)
-        Notifications::PrivateMessage.stub!(:make_notification).and_return(n)
+        Notifications::PrivateMessage.stub(:make_notification).and_return(n)
         Notification.notify(@user2, @msg, @user1.person)
-        n.stub!(:recipient).and_return @user2
+        n.stub(:recipient).and_return @user2
 
         @user2.should_receive(:mail)
         n.email_the_user(@msg, @user1.person)

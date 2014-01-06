@@ -85,7 +85,7 @@ describe RelayableRetraction do
         @retraction = described_class.allocate
         @retraction.sender = @remote_raphael
         @retraction.target = @comment
-        @retraction.stub!(:parent_author_signature_valid?).and_return(true)
+        @retraction.stub(:parent_author_signature_valid?).and_return(true)
         @recipient = @local_luke
       end
 

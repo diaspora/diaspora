@@ -28,7 +28,7 @@ describe SignedRetraction do
         r.target_type = remote_post.type
         r.target_guid = remote_post.guid
         r.sender = remote_post.author
-        r.stub!(:target_author_signature_valid?).and_return(true)
+        r.stub(:target_author_signature_valid?).and_return(true)
       }
 
       remote_retraction.dup.perform(bob)

@@ -15,7 +15,7 @@ describe InvitationsController do
   describe "#create" do
     before do
       sign_in :user, @user
-      @controller.stub!(:current_user).and_return(@user)
+      @controller.stub(:current_user).and_return(@user)
       @referer = 'http://test.host/cats/foo'
       request.env["HTTP_REFERER"] = @referer
     end

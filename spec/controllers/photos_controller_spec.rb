@@ -43,7 +43,7 @@ describe PhotosController do
 
   describe '#create' do
     before do
-      @controller.stub!(:file_handler).and_return(uploaded_photo)
+      @controller.stub(:file_handler).and_return(uploaded_photo)
       @params = {:photo => {:user_file => uploaded_photo, :aspect_ids => "all"} }
     end
 
@@ -128,7 +128,7 @@ describe PhotosController do
     end
 
     it 'sends a retraction on delete' do
-      @controller.stub!(:current_user).and_return(alice)
+      @controller.stub(:current_user).and_return(alice)
       alice.should_receive(:retract).with(@alices_photo)
       delete :destroy, :id => @alices_photo.id
     end

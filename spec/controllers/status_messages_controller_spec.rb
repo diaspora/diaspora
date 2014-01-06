@@ -10,7 +10,7 @@ describe StatusMessagesController do
 
     request.env["HTTP_REFERER"] = ""
     sign_in :user, alice
-    @controller.stub!(:current_user).and_return(alice)
+    @controller.stub(:current_user).and_return(alice)
     alice.reload
   end
 

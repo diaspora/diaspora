@@ -122,7 +122,7 @@ describe ConversationsController do
         )
 
         p = Postzord::Dispatcher.build(alice, cnv)
-        p.class.stub!(:new).and_return(p)
+        p.class.stub(:new).and_return(p)
         p.should_receive(:post)
         post :create, @hash
       end

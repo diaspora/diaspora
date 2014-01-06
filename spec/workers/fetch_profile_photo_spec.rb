@@ -27,7 +27,7 @@ describe Workers::FetchProfilePhoto do
 
   context "service does not have a profile_photo_url" do
     it "does nothing without fallback" do
-      @service.stub!(:profile_photo_url).and_return(nil)
+      @service.stub(:profile_photo_url).and_return(nil)
       Photo.should_not_receive(:diaspora_initialize)
 
       Workers::FetchProfilePhoto.new.perform(@user.id, @service.id)
@@ -35,7 +35,7 @@ describe Workers::FetchProfilePhoto do
 
     it "fetches fallback if it's provided" do
       @photo_stub.should_receive(:save!).and_return(true)
-      @service.stub!(:profile_photo_url).and_return(nil)
+      @service.stub(:profile_photo_url).and_return(nil)
       Photo.should_receive(:diaspora_initialize).with(hash_including(:author => @user.person, :image_url => "https://service.com/fallback_lowres.jpg", :pending => true)).and_return(@photo_stub)
 
       Workers::FetchProfilePhoto.new.perform(@user.id, @service.id, "https://service.com/fallback_lowres.jpg")

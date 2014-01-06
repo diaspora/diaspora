@@ -38,19 +38,19 @@ describe NotificationsHelper do
       end
 
       it 'with two, does not comma seperate two actors' do
-        @note.stub!(:actors).and_return([@max, @sarah])
+        @note.stub(:actors).and_return([@max, @sarah])
         output.scan(/,/).should be_empty
         output.scan(/and/).count.should be 1
       end
 
       it 'with three, comma seperates the first two, and and the last actor' do
-        @note.stub!(:actors).and_return([@max, @sarah, @daniel])
+        @note.stub(:actors).and_return([@max, @sarah, @daniel])
         output.scan(/,/).count.should be 2
         output.scan(/and/).count.should be 1
       end
 
       it 'with more than three, lists the first three, then the others tag' do
-        @note.stub!(:actors).and_return([@max, @sarah, @daniel, @ilya])
+        @note.stub(:actors).and_return([@max, @sarah, @daniel, @ilya])
         output.scan(/,/).count.should be 3
         output.scan(/and/).count.should be 2
       end

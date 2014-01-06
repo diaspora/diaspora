@@ -148,7 +148,7 @@ describe Configuration::Methods do
     context "with a relative log set" do
       it "joins that with Rails.root" do
         path = "/some/path/"
-        Rails.stub!(:root).and_return(stub(join: path))
+        Rails.stub(:root).and_return(stub(join: path))
         @settings.environment.sidekiq.log = "relative_path"
         @settings.sidekiq_log.should match path
       end

@@ -148,7 +148,7 @@ describe PostsController do
     end
 
     it 'sends a retraction on delete' do
-      controller.stub!(:current_user).and_return alice
+      controller.stub(:current_user).and_return alice
       message = alice.post(:status_message, :text => "hey", :to => alice.aspects.first.id)
       alice.should_receive(:retract).with(message)
       delete :destroy, :format => :js, :id => message.id

@@ -16,7 +16,7 @@ describe Workers::HttpMulti do
     @post_xml = Base64.encode64 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH"
 
     @hydra = Typhoeus::Hydra.new
-    Typhoeus::Hydra.stub!(:new).and_return(@hydra)
+    Typhoeus::Hydra.stub(:new).and_return(@hydra)
     @salmon = Salmon::EncryptedSlap.create_by_user_and_activity bob, Base64.decode64(@post_xml)
     Salmon::EncryptedSlap.stub(:create_by_user_and_activity).and_return @salmon
     @body = "encrypted things"
