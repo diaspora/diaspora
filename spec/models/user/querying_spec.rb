@@ -66,7 +66,7 @@ describe User::Querying do
     it "does not contain duplicate posts" do
       bobs_other_aspect = bob.aspects.create(:name => "cat people")
       bob.add_contact_to_aspect(bob.contact_for(alice.person), bobs_other_aspect)
-      bob.aspects_with_person(alice.person).should =~ [@bobs_aspect, bobs_other_aspect]
+      expect(bob.aspects_with_person(alice.person)).to match_array [@bobs_aspect, bobs_other_aspect]
 
       bobs_post = bob.post(:status_message, :text => "hai to all my people", :to => [@bobs_aspect.id, bobs_other_aspect.id])
 
