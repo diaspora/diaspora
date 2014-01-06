@@ -193,7 +193,7 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.8.0)
-    jwt (0.1.8)
+    jwt (0.1.10)
       multi_json (>= 1.5)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
@@ -238,8 +238,8 @@ GEM
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
-    omniauth-facebook (1.4.1)
-      omniauth-oauth2 (~> 1.1.0)
+    omniauth-facebook (1.6.0)
+      omniauth-oauth2 (~> 1.1)
     omniauth-oauth (1.0.1)
       oauth
       omniauth (~> 1.0)
@@ -468,7 +468,7 @@ DEPENDENCIES
   mysql2 (= 0.3.14)
   nokogiri (= 1.6.1)
   omniauth (= 1.1.4)
-  omniauth-facebook (= 1.4.1)
+  omniauth-facebook (= 1.6.0)
   omniauth-tumblr (= 1.1)
   omniauth-twitter (= 1.0.0)
   omniauth-wordpress (= 0.2.0)
