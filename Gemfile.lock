@@ -267,7 +267,9 @@ GEM
       rack (>= 0.4)
     rack-cors (0.2.8)
       rack
-    rack-google-analytics (0.11.0)
+    rack-google-analytics (0.14.0)
+      actionpack
+      activesupport
     rack-mobile-detect (0.4.0)
       rack
     rack-piwik (0.2.2)
@@ -474,7 +476,7 @@ DEPENDENCIES
   omniauth-wordpress (= 0.2.0)
   opengraph_parser (= 0.2.3)
   rack-cors (= 0.2.8)
-  rack-google-analytics (= 0.11.0)
+  rack-google-analytics (= 0.14.0)
   rack-piwik (= 0.2.2)
   rack-protection (= 1.2)
   rack-rewrite (= 1.3.3)
