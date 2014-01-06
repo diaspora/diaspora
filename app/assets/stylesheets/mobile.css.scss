@@ -125,14 +125,16 @@ h3 {
     border-bottom: solid rgb(53, 53, 53) 2px;
   }
 
-  // Aspects
-  li > ul > li {
-    font-size: 14px;
-    font-weight: normal;
-    color: $text-dark-grey;
-    border-bottom: none;
+  #aspects_list {
+    padding: 0px;
+    border-bottom: 0px;
+    
+    > ul > li {
+      font-size: 14px;
+      padding: 8px 42px;
+    }
   }
-
+  
   a {
     color: $light-grey;
     text-decoration: none;

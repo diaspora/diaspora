@@ -96,11 +96,14 @@
                 %li
                   = link_to t("streams.activity.title"), activity_stream_path
                 %li
-                  = t('streams.aspects.title')
+                  = link_to t("streams.mentions.title"), mentioned_stream_path
                 %li
-                  %ul#aspects_list
-                    %li
-                      = "One Aspect"
+                  = t('streams.aspects.title')
+                %li#aspects_list
+                  %ul
+                    - for aspect in current_user.aspects
+                      %li
+                        = aspect.name
                 %li
                   = link_to(t('layouts.header.profile'), user_profile_path(current_user.username))
                 %li
