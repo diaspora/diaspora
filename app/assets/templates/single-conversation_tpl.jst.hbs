@@ -1,0 +1,20 @@
+
+<div class="conversation_participants">
+  {{!-- DELETE BUTTON --}}
+  <a class="close_conversation" data-method="delete" data-confirm="{{t "conversations.delete"}}" href="/conversations/{{id}}/visibility" title="{{t "conversations.delete"}}" rel="nofollow">
+    <div class="icons-deletelabel"></div>
+  </a>
+
+  <h3>{{subject}}</h3>
+
+  {{!-- PARTICIPANTS --}}
+  {{#each participants}}
+    {{{personImage this "small"}}}
+  {{/each}}
+</div>
+
+<div class="stream">
+    {{!-- MESSAGES LIST SUBVIEW --}}
+
+    {{!-- NEW MESSAGE FORM SUBVIEW --}}
+</div>

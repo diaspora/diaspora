@@ -14,6 +14,16 @@ Diaspora::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq', :as => 'sidekiq'
   end
 
+  # Backbone JSON interface
+  constraints Diaspora::Backbone::Constraint.new do
+    scope module: 'backbone' do
+      resources :conversations, only: [:index, :create] do
+        resources :messages, only: [:index, :create]
+      end
+      resources :conversation_visibilities, only: [:destroy]
+    end
+  end
+
   get "/atom.xml" => redirect('http://blog.diasporafoundation.org/feed/atom') #too many stupid redirects :()
 
   get 'oembed' => 'posts#oembed', :as => 'oembed'
@@ -209,7 +219,7 @@ Diaspora::Application.routes.draw do
 
   # Help
   get 'help' => 'help#getting_help', :as => 'faq_getting_help'
-  
+
   scope path: "/help/faq", :controller => :help, :as => 'faq' do
     get :account_and_data_management
     get :aspects

@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_grammatical_gender
   before_filter :mobile_switch
   before_filter :gon_set_current_user
+  before_filter :gon_set_backbone_mime_type
   before_filter :gon_set_preloads
 
   inflection_method :grammatical_gender => :gender
@@ -143,7 +144,11 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
     a_ids = session[:a_ids] || []
     user = UserPresenter.new(current_user, a_ids)
-    gon.push({:user => user})
+    gon.push({ user: user })
+  end
+
+  def gon_set_backbone_mime_type
+    gon.push({ backbone_mime_type: Diaspora::Backbone::MIME_TYPE })
   end
 
   def gon_set_preloads

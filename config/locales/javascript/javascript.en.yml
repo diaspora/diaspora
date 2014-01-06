@@ -90,8 +90,12 @@ en:
     people:
       not_found: "and no one was found..."
 
-    conversation:
+    conversations:
       participants: "Participants"
+      no_messages: "no messages"
+      delete: "delete and block conversation?"
+      reply: "Reply"
+      replying: "Replying..."
 
     stream:
       hide: "Hide"

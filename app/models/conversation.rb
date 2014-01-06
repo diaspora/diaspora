@@ -40,6 +40,13 @@ class Conversation < ActiveRecord::Base
     end
   end
 
+  def unread_count_for(user)
+    if v = self.conversation_visibilities.where(person_id: user.person_id).first
+      return v.unread
+    end
+    0
+  end
+
   def public?
     false
   end
@@ -57,6 +64,11 @@ class Conversation < ActiveRecord::Base
     return unless @last_author.present? || self.messages.size > 0
     @last_author_id ||= self.messages.pluck(:author_id).last
     @last_author ||= Person.includes(:profile).where(id: @last_author_id).first
+  end
+
+  def last_message
+    return unless @last_message.present? || self.messages.size > 0
+    @last_message ||= self.messages.last
   end
 
   def subject

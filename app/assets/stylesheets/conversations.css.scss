@@ -37,7 +37,7 @@
     box-shadow: 0 2px 3px -3px #666;
     -webkit-box-shadow: 0 2px 3px -3px #666;
     -moz-box-shadow: 0 2px 3px -3px #666;
-    
+
     background-color: $background-white;
     margin-bottom: 5px;
     border-bottom: 1px solid $border-grey;
@@ -64,18 +64,18 @@
       text-align: right;
       margin-top: 9px;
     }
-    
+
     a img { margin-bottom: 4px; }
 
     .conversation_controls {
       margin-bottom: 10px;
-      
+
       a { margin-right: 10px; }
     }
   }
 
   .conversation_participants a:hover { text-decoration: none; }
-  
+
   .stream .stream_element {
     padding: 10px;
   }
@@ -83,12 +83,12 @@
 
 .stream_element.conversation {
   padding: 8px;
-  .media { 
-    margin-bottom: 5px; 
+  .media {
+    margin-bottom: 5px;
     margin-left: 0px;
   }
 
-  &:hover:not(.selected) { 
+  &:hover:not(.selected) {
     background-color: lighten($blue,5%);
     .subject,
     .last_author,
@@ -99,13 +99,13 @@
   }
   &.selected:hover { background-color: lighten($blue,5%); }
   &:hover { cursor: pointer; }
- 
+
   .avatar {
     width: 50px;
     height: 50px;
     float: left;
   }
-  
+
   .last_author, .last_message {
     font-size: 12px;
     line-height: 15px;
@@ -114,15 +114,19 @@
     white-space: nowrap;
   }
 
+  .last_message:before { content: "»"; }
+  .last_message:after  { content: "«"; }
+
   .message_count, .unread_message_count {
     margin-left: 3px;
     float: right;
     font-size: 12px;
     font-weight: normal;
   }
-  
+
   .subject {
     font-size: 14px;
+    a { color: inherit; }
     > * {
       overflow: hidden;
       white-space: nowrap;
@@ -144,7 +148,7 @@
 
 .conversation.selected {
   background-color: $blue;
-    
+
   .subject,
   .last_author,
   .last_message {
@@ -193,7 +197,7 @@
   ul.as-selections { width: 100% !important; }
   input#contact_ids { box-shadow: none; }
   textarea { width: 98%; }
-  
+
   .bottom_submit_section {
     text-align: right;
   }

@@ -221,10 +221,19 @@ class User < ActiveRecord::Base
     model_class.diaspora_initialize(opts)
   end
 
-  def dispatch_post(post, opts={})
-    FEDERATION_LOGGER.info("user:#{self.id} dispatching #{post.class}:#{post.guid}")
-    Postzord::Dispatcher.defer_build_and_post(self, post, opts)
+  def dispatch(dispatchable, opts={})
+    unless dispatchable.respond_to?(:guid)
+      raise ArgumentError, "dispatchable object '#{dispatchable.class}' doesn't respond to '#guid'"
+    end
+
+    FEDERATION_LOGGER.info("user:#{self.id} dispatching #{dispatchable.class}:#{dispatchable.guid}")
+
+    # queue the actual dispatching with the background worker
+    Postzord::Dispatcher.defer_build_and_post(self, dispatchable, opts)
   end
+  # TODO:
+  # change all occurrences of 'dispatch_post' to dispatch...
+  alias_method :dispatch_post, :dispatch
 
   def update_post(post, post_hash={})
     if self.owns? post

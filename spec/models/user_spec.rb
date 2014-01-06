@@ -94,7 +94,7 @@ describe User do
       User.daily_actives.should_not include(user)
     end
   end
-  
+
   describe 'halfyear_actives' do
     it 'returns list which includes users who latest signed in within half a year' do
       user = FactoryGirl.build(:user)
@@ -565,6 +565,19 @@ describe User do
       photo = alice.build_post(:photo, :user_file => uploaded_photo, :text => "hello", :to => alice.aspects.first.id)
       alice.should_receive(:dispatch_post).with(photo)
       alice.update_post(photo, :text => 'hellp')
+    end
+  end
+
+  describe '#dispatch' do
+    it 'passes stuff to the dispatcher' do
+      p = FactoryGirl.create(:status_message, author: bob.person, public: true)
+      Postzord::Dispatcher.should_receive(:defer_build_and_post).with(bob, p, anything()).once
+
+      bob.dispatch(p)
+    end
+
+    it 'raises when the object has no guid' do
+      expect { bob.dispatch({}) }.to raise_error
     end
   end
 
