@@ -141,9 +141,6 @@ app.views.Publisher = Backbone.View.extend({
 
     // clear state
     this.clear();
-
-    // clear location
-    this.destroyLocation();
   },
 
   // creates the location
@@ -282,6 +279,9 @@ app.views.Publisher = Backbone.View.extend({
 
     // disable submitting
     this.checkSubmitAvailability();
+
+    // clear location
+    this.destroyLocation();
 
     // force textchange plugin to update lastValue
     this.el_input.data('lastValue', '');

@@ -63,6 +63,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Fix posting to Twitter by correctly catching exception [#4627](https://github.com/diaspora/diaspora/issues/4627)
 * Change "Show n more comments"-link, fix [#3119](https://github.com/diaspora/diaspora/issues/3119)
 * Specify Firefox version for Travis-CI [#4623](https://github.com/diaspora/diaspora/pull/4623)
+* Remove location when publisher is cleared by user
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)

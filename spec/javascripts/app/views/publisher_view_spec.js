@@ -105,6 +105,15 @@ describe("app.views.Publisher", function() {
         this.view.clear($.Event());
         expect(this.view.$("input[name='photos[]']").length).toBe(0);
       })
+
+      it("destroy location if exists", function(){
+        setFixtures('<div id="location"></div>');
+        this.view.view_locator = new app.views.Location({el: "#location"});
+
+        expect($("#location").length).toBe(1);
+        this.view.clear($.Event());
+        expect($("#location").length).toBe(0);
+      })
     });
 
     describe("createStatusMessage", function(){
