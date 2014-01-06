@@ -99,7 +99,7 @@ gem 'typhoeus',           '0.6.7'
 gem 'client_side_validations', '3.2.5'
 gem 'gon',                     '4.1.1'
 gem 'haml',                    '4.0.3'
-gem 'mobile-fu',               '1.2.1'
+gem 'mobile-fu',               '1.2.2'
 gem 'will_paginate',           '3.0.4'
 
 # Workarounds

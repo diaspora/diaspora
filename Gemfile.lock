@@ -216,7 +216,7 @@ GEM
     mini_magick (3.6.0)
       subexec (~> 0.2.1)
     mini_portile (0.5.1)
-    mobile-fu (1.2.1)
+    mobile-fu (1.2.2)
       rack-mobile-detect
       rails
     multi_json (1.7.9)
@@ -466,7 +466,7 @@ DEPENDENCIES
   markerb (= 1.0.1)
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.6.0)
-  mobile-fu (= 1.2.1)
+  mobile-fu (= 1.2.2)
   mysql2 (= 0.3.14)
   nokogiri (= 1.6.0)
   omniauth (= 1.1.4)
