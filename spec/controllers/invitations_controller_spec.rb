@@ -48,7 +48,7 @@ describe InvitationsController do
       end
 
       it 'creates an InviteEmail worker'  do
-        inviter = stub(:emails => [@emails], :send! => true)
+        inviter = double(:emails => [@emails], :send! => true)
         Workers::Mail::InviteEmail.should_receive(:perform_async).with(@invite['email_inviter']['emails'], @user.id, @invite['email_inviter'])
         post :create,  @invite
       end
@@ -98,7 +98,7 @@ describe InvitationsController do
       end
 
       it 'creates an InviteEmail worker'  do
-        inviter = stub(:emails => [@emails], :send! => true)
+        inviter = double(:emails => [@emails], :send! => true)
         Workers::Mail::InviteEmail.should_receive(:perform_async).with(@valid_emails, @user.id, @invite['email_inviter'])
         post :create,  @invite
       end

@@ -50,19 +50,19 @@ describe Post do
 
     describe '.for_a_stream' do
       it 'calls #for_visible_shareable_sql' do
-        time, order = stub, stub
+        time, order = double, double
         Post.should_receive(:for_visible_shareable_sql).with(time, order).and_return(Post)
         Post.for_a_stream(time, order)
       end
 
       it 'calls includes_for_a_stream' do
         Post.should_receive(:includes_for_a_stream)
-        Post.for_a_stream(stub, stub)
+        Post.for_a_stream(double, double)
       end
 
       it 'calls excluding_blocks if a user is present' do
         Post.should_receive(:excluding_blocks).with(alice).and_return(Post)
-        Post.for_a_stream(stub, stub, alice)
+        Post.for_a_stream(double, double, alice)
       end
     end
 
@@ -141,7 +141,7 @@ describe Post do
         end
 
         it 'defaults to 15 posts' do
-          chain = stub.as_null_object
+          chain = double.as_null_object
 
           Post.stub(:by_max_time).and_return(chain)
           chain.should_receive(:limit).with(15).and_return(Post)
@@ -255,7 +255,7 @@ describe Post do
     before do
       @post = FactoryGirl.create(:status_message, :author => bob.person)
       @known_post = Post.new
-      bob.stub(:contact_for).with(eve.person).and_return(stub(:receive_shareable => true))
+      bob.stub(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
     end
 
     context "user knows about the post" do
@@ -287,7 +287,7 @@ describe Post do
       end
 
       it 'notifies the user if they are mentioned' do
-        bob.stub(:contact_for).with(eve.person).and_return(stub(:receive_shareable => true))
+        bob.stub(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
         bob.should_receive(:notify_if_mentioned).and_return(true)
 
         @post.send(:receive_persisted, bob, eve.person, @known_post).should == true
@@ -304,12 +304,12 @@ describe Post do
       end
 
       it "it receives the post from the contact of the author" do
-        bob.should_receive(:contact_for).with(eve.person).and_return(stub(:receive_shareable => true))
+        bob.should_receive(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
         @post.send(:receive_non_persisted, bob, eve.person).should == true
       end
 
       it 'notifies the user if they are mentioned' do
-        bob.stub(:contact_for).with(eve.person).and_return(stub(:receive_shareable => true))
+        bob.stub(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
         bob.should_receive(:notify_if_mentioned).and_return(true)
 
         @post.send(:receive_non_persisted, bob, eve.person).should == true
@@ -383,20 +383,20 @@ describe Post do
 
     it "looks up on the passed user object if it's non-nil" do
       post = FactoryGirl.create :status_message
-      user = mock
+      user = double
       user.should_receive(:find_visible_shareable_by_id).with(Post, post.id, key: :id).and_return(post)
       Post.find_by_guid_or_id_with_user post.id, user
     end
 
     it "raises ActiveRecord::RecordNotFound with a non-existing id and a user" do
-      user = stub(find_visible_shareable_by_id: nil)
+      user = double(find_visible_shareable_by_id: nil)
       expect {
         Post.find_by_guid_or_id_with_user 123, user
       }.to raise_error ActiveRecord::RecordNotFound
     end
 
     it "raises Diaspora::NonPublic for a non-existing id without a user" do
-      Post.stub where: stub(includes: stub(first: nil))
+      Post.stub where: double(includes: double(first: nil))
       expect {
         Post.find_by_guid_or_id_with_user 123
       }.to raise_error Diaspora::NonPublic

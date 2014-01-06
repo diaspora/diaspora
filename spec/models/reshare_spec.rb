@@ -143,7 +143,7 @@ describe Reshare do
         before do
           @root_object = @reshare.root
           @root_object.delete
-          @response = mock
+          @response = double
           @response.stub(:status).and_return(200)
           @response.stub(:success?).and_return(true)
         end
@@ -156,9 +156,9 @@ describe Reshare do
 
           @original_author.profile = @original_profile
 
-          wf_prof_mock = mock
-          wf_prof_mock.should_receive(:fetch).and_return(@original_author)
-          Webfinger.should_receive(:new).and_return(wf_prof_mock)
+          wf_prof_double = double
+          wf_prof_double.should_receive(:fetch).and_return(@original_author)
+          Webfinger.should_receive(:new).and_return(wf_prof_double)
 
           @response.stub(:body).and_return(@root_object.to_diaspora_xml)
 
@@ -216,9 +216,9 @@ describe Reshare do
 
             different_person = FactoryGirl.build(:person)
 
-            wf_prof_mock = mock
-            wf_prof_mock.should_receive(:fetch).and_return(different_person)
-            Webfinger.should_receive(:new).and_return(wf_prof_mock)
+            wf_prof_double = double
+            wf_prof_double.should_receive(:fetch).and_return(different_person)
+            Webfinger.should_receive(:new).and_return(wf_prof_double)
 
             different_person.stub(:url).and_return(@original_author.url)
 

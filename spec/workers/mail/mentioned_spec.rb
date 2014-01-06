@@ -11,9 +11,9 @@ describe Workers::Mail::Mentioned do
       sm = FactoryGirl.build(:status_message)
       m = Mention.new(:person => user.person, :post=> sm)
 
-      mail_mock = mock()
-      mail_mock.should_receive(:deliver)
-      Notifier.should_receive(:mentioned).with(user.id, sm.author.id, m.id).and_return(mail_mock)
+      mail_double = double()
+      mail_double.should_receive(:deliver)
+      Notifier.should_receive(:mentioned).with(user.id, sm.author.id, m.id).and_return(mail_double)
 
       Workers::Mail::Mentioned.new.perform(user.id, sm.author.id, m.id)
     end

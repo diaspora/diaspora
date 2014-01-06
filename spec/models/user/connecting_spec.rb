@@ -63,7 +63,7 @@ describe User::Connecting do
       end
 
       it 'dispatches a retraction' do
-        p = mock()
+        p = double()
         Postzord::Dispatcher.should_receive(:build).and_return(p)
         p.should_receive(:post)
 
@@ -155,7 +155,7 @@ describe User::Connecting do
       end
 
       it 'posts profile' do
-        m = mock()
+        m = double()
         Postzord::Dispatcher.should_receive(:build).twice.and_return(m)
         m.should_receive(:post).twice
         alice.share_with(eve.person, alice.aspects.first)

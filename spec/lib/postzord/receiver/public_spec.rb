@@ -84,7 +84,7 @@ describe Postzord::Receiver::Public do
 
   describe '#recipient_user_ids' do
     it 'calls User.all_sharing_with_person' do
-      User.should_receive(:all_sharing_with_person).and_return(stub(:select => []))
+      User.should_receive(:all_sharing_with_person).and_return(double(:select => []))
       receiver = Postzord::Receiver::Public.new(@xml)
       receiver.perform!
     end
@@ -101,7 +101,7 @@ describe Postzord::Receiver::Public do
     end
 
     it 'receives only for the parent author if he is local to the pod' do
-      comment = stub.as_null_object
+      comment = double.as_null_object
       @receiver.instance_variable_set(:@object, comment)
 
       comment.should_receive(:receive)
@@ -109,10 +109,10 @@ describe Postzord::Receiver::Public do
     end
 
     it 'calls notifiy_users' do
-      comment = stub.as_null_object
+      comment = double.as_null_object
       @receiver.instance_variable_set(:@object, comment)
 
-      local_batch_receiver = stub.as_null_object
+      local_batch_receiver = double.as_null_object
       Postzord::Receiver::LocalBatch.stub(:new).and_return(local_batch_receiver)
       local_batch_receiver.should_receive(:notify_users)
       @receiver.receive_relayable

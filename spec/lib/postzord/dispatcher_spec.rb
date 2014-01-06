@@ -203,7 +203,7 @@ describe Postzord::Dispatcher do
         @remote_people = []
         @remote_people << alice.person
         @mailman = Postzord::Dispatcher.build(alice, @sm)
-        @hydra = mock()
+        @hydra = double()
         Typhoeus::Hydra.stub(:new).and_return(@hydra)
       end
 
@@ -318,7 +318,7 @@ describe Postzord::Dispatcher do
         Workers::DeletePostFromService.should_receive(:perform_async).with(anything, anything)
         mailman.post
       end
-      
+
     end
 
     describe '#and_notify_local_users' do

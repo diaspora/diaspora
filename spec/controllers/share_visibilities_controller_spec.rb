@@ -30,7 +30,7 @@ describe ShareVisibilitiesController do
       @controller.params[:post_id] = id
       @controller.params[:shareable_type] = 'Post'
 
-      Post.should_receive(:where).with(hash_including(:id => id)).once.and_return(stub.as_null_object)
+      Post.should_receive(:where).with(hash_including(:id => id)).once.and_return(double.as_null_object)
       2.times do |n|
         @controller.send(:accessible_post)
       end

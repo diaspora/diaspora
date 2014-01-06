@@ -10,9 +10,9 @@ describe Workers::Mail::Reshared do
       sm = FactoryGirl.build(:status_message, :author => bob.person, :public => true)
       reshare = FactoryGirl.build(:reshare, :author => alice.person, :root=> sm)
 
-      mail_mock = mock()
-      mail_mock.should_receive(:deliver)
-      Notifier.should_receive(:reshared).with(bob.id, reshare.author.id, reshare.id).and_return(mail_mock)
+      mail_double = double()
+      mail_double.should_receive(:deliver)
+      Notifier.should_receive(:reshared).with(bob.id, reshare.author.id, reshare.id).and_return(mail_double)
 
       Workers::Mail::Reshared.new.perform(bob.id, reshare.author.id, reshare.id)
     end

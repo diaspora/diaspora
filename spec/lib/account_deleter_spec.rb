@@ -72,9 +72,9 @@ describe AccountDeleter do
   describe "#delete_standard_user_associations" do
     it 'removes all standard user associaltions' do
       @account_deletion.normal_ar_user_associates_to_delete.each do |asso|
-        association_mock = mock
-        association_mock.should_receive(:delete)
-        bob.should_receive(asso).and_return([association_mock])
+        association_double = double
+        association_double.should_receive(:delete)
+        bob.should_receive(asso).and_return([association_double])
       end
 
       @account_deletion.delete_standard_user_associations
@@ -87,9 +87,9 @@ describe AccountDeleter do
     end
     it 'removes all standard person associaltions' do
       @account_deletion.normal_ar_person_associates_to_delete.each do |asso|
-        association_mock = mock
-        association_mock.should_receive(:delete_all)
-        bob.person.should_receive(asso).and_return(association_mock)
+        association_double = double
+        association_double.should_receive(:delete_all)
+        bob.person.should_receive(asso).and_return(association_double)
       end
 
       @account_deletion.delete_standard_person_associations
@@ -98,7 +98,7 @@ describe AccountDeleter do
 
   describe "#disassociate_invitations" do
     it "sets invitations_from_me to be admin invitations" do
-      invites = [mock]
+      invites = [double]
       bob.stub(:invitations_from_me).and_return(invites)
       invites.first.should_receive(:convert_to_admin!)
       @account_deletion.disassociate_invitations
@@ -115,7 +115,7 @@ describe AccountDeleter do
 
     describe '#delete_contacts_of_me' do
       it 'deletes all the local contact objects where deleted account is the person' do
-        contacts = mock
+        contacts = double
         Contact.should_receive(:all_contacts_of_person).with(bob.person).and_return(contacts)
         contacts.should_receive(:destroy_all)
         @account_deletion.delete_contacts_of_me
@@ -135,7 +135,7 @@ describe AccountDeleter do
     end
      describe "#remove_conversation_visibilities" do
       it "removes the conversation visibility for the deleted user" do
-        vis = stub
+        vis = double
         ConversationVisibility.should_receive(:where).with(hash_including(:person_id => bob.person.id)).and_return(vis)
         vis.should_receive(:destroy_all)
         @account_deletion.remove_conversation_visibilities
@@ -145,7 +145,7 @@ describe AccountDeleter do
 
   describe "#remove_person_share_visibilities" do
     it 'removes the share visibilities for a person ' do
-      @s_vis = stub
+      @s_vis = double
       ShareVisibility.should_receive(:for_contacts_of_a_person).with(bob.person).and_return(@s_vis)
       @s_vis.should_receive(:destroy_all)
 
@@ -155,7 +155,7 @@ describe AccountDeleter do
 
   describe "#remove_share_visibilities_by_contacts_of_user" do
     it 'removes the share visibilities for a user' do
-      @s_vis = stub
+      @s_vis = double
       ShareVisibility.should_receive(:for_a_users_contacts).with(bob).and_return(@s_vis)
       @s_vis.should_receive(:destroy_all)
 

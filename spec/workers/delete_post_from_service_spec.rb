@@ -7,7 +7,7 @@ describe Workers::DeletePostFromService do
   end
 
   it 'calls service#delete_post with given service' do
-    m = mock()
+    m = double()
     url = "foobar"
     m.should_receive(:delete_post)
     Service.stub(:find_by_id).and_return(m)

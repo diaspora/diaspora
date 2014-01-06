@@ -225,7 +225,7 @@ describe 'a user receives a post' do
         Profile.where(:person_id => remote_person.id).delete_all
         remote_person.attributes.delete(:id) # leaving a nil id causes it to try to save with id set to NULL in postgres
 
-        m = mock()
+        m = double()
         Webfinger.should_receive(:new).twice.with(eve.person.diaspora_handle).and_return(m)
         m.should_receive(:fetch).twice.and_return{
           remote_person.save(:validate => false)

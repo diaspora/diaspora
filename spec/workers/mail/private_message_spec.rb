@@ -17,9 +17,9 @@ describe Workers::Mail::PrivateMessage do
       cnv = Conversation.create(create_hash)
       message = cnv.messages.first
 
-      mail_mock = mock()
-      mail_mock.should_receive(:deliver)
-      Notifier.should_receive(:mentioned).with(user2.id, user1.person.id, message.id).and_return(mail_mock)
+      mail_double = double()
+      mail_double.should_receive(:deliver)
+      Notifier.should_receive(:mentioned).with(user2.id, user1.person.id, message.id).and_return(mail_double)
 
       Workers::Mail::Mentioned.new.perform(user2.id, user1.person.id, message.id)
     end

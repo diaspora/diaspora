@@ -11,7 +11,7 @@ describe ProfilesController do
 
   describe '#show' do
     let(:mock_person) {mock_model(User)}
-    let(:mock_presenter) { mock(:as_json => {:rock_star => "Jamie Cai"})}
+    let(:mock_presenter) { double(:as_json => {:rock_star => "Jamie Cai"})}
 
     it "returns a post Presenter" do
       Person.should_receive(:find_by_guid!).with("12345").and_return(mock_person)
@@ -22,7 +22,7 @@ describe ProfilesController do
     end
   end
 
-  describe '#edit' do 
+  describe '#edit' do
     it 'succeeds' do
       get :edit
       response.should be_success
@@ -77,12 +77,12 @@ describe ProfilesController do
       put :update, params
       eve.person(true).profile.tag_list.to_set.should == ['apples', 'oranges'].to_set
     end
-    
+
     it 'sets plaintext tags' do
       params = { :id => eve.person.id,
                  :tags => ',#apples,#oranges,',
                  :profile => {:tag_string => '#pears'} }
-      
+
       put :update, params
       eve.person(true).profile.tag_list.to_set.should == ['apples', 'oranges', 'pears'].to_set
     end
@@ -91,7 +91,7 @@ describe ProfilesController do
       params = { :id => eve.person.id,
                  :tags => ',#apples,#oranges,',
                  :profile => {:tag_string => 'bananas'} }
-      
+
       put :update, params
       eve.person(true).profile.tag_list.to_set.should == ['apples', 'oranges', 'bananas'].to_set
     end

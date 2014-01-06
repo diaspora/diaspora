@@ -104,7 +104,7 @@ describe Webfinger do
 
   describe 'cached_person' do
     it 'sets the person by looking up the account from Person.by_account_identifier' do
-      person = stub
+      person = double
       Person.should_receive(:by_account_identifier).with(account).and_return(person)
       finger.cached_person.should == person
       finger.person.should == person

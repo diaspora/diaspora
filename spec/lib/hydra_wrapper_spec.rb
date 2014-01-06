@@ -7,7 +7,7 @@ require 'spec_helper'
 describe HydraWrapper do
   before do
     @people = ["person", "person2", "person3"]
-    @wrapper = HydraWrapper.new stub, @people, "<encoded_xml>", stub
+    @wrapper = HydraWrapper.new double, @people, "<encoded_xml>", double
   end
 
   describe 'initialize' do
@@ -25,7 +25,7 @@ describe HydraWrapper do
 
   describe '#run' do
     it 'delegates #run to the @hydra' do
-      hydra = stub.as_null_object
+      hydra = double.as_null_object
       @wrapper.instance_variable_set :@hydra, hydra
       hydra.should_receive :run
       @wrapper.run
@@ -58,7 +58,7 @@ describe HydraWrapper do
 
     it 'inserts a job for every group of people' do
       Base64.stub(:decode64)
-      @wrapper.dispatcher_class = stub salmon: stub(xml_for: "<XML>")
+      @wrapper.dispatcher_class = double salmon: double(xml_for: "<XML>")
       @wrapper.stub(:grouped_people).and_return('https://foo.com' => @wrapper.people)
       @wrapper.people.should_receive(:first).once
       @wrapper.should_receive(:insert_job).with('https://foo.com', "<XML>", @wrapper.people).once
@@ -67,8 +67,8 @@ describe HydraWrapper do
 
     it 'does not insert a job for a person whos xml returns false' do
       Base64.stub(:decode64)
-      @wrapper.stub(:grouped_people).and_return('https://foo.com' => [stub])
-      @wrapper.dispatcher_class = stub salmon: stub(xml_for: false)
+      @wrapper.stub(:grouped_people).and_return('https://foo.com' => [double])
+      @wrapper.dispatcher_class = double salmon: double(xml_for: false)
       @wrapper.should_not_receive :insert_job
       @wrapper.enqueue_batch
     end
@@ -77,15 +77,15 @@ describe HydraWrapper do
 
   describe '#redirecting_to_https?!' do
     it 'does not execute unless response has a 3xx code' do
-      resp = stub code: 200
+      resp = double code: 200
       @wrapper.send(:redirecting_to_https?, resp).should be_false
     end
 
     it "returns true if just the protocol is different" do
       host = "the-same.com/"
-      resp = stub(
-        request: stub(url: "http://#{host}"), 
-        code: 302, 
+      resp = double(
+        request: double(url: "http://#{host}"),
+        code: 302,
         headers_hash: {
           'Location' => "https://#{host}"
         }
@@ -96,8 +96,8 @@ describe HydraWrapper do
 
     it "returns false if not just the protocol is different" do
       host = "the-same.com/"
-      resp = stub(
-        request: stub(url: "http://#{host}"), 
+      resp = double(
+        request: double(url: "http://#{host}"),
         code: 302,
         headers_hash: {
           'Location' => "https://not-the-same/"

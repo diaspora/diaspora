@@ -34,7 +34,7 @@ describe NotificationsHelper do
         @ilya = FactoryGirl.create(:person)
         @ilya.profile.first_name = 'ilya'
         @ilya.profile.last_name = 'zhit'
-        @note = mock()
+        @note = double()
       end
 
       it 'with two, does not comma seperate two actors' do
