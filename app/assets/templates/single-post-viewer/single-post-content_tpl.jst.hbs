@@ -9,15 +9,12 @@
           {{name}}
       {{/linkToPerson}}
 
-      {{#if root}}
-      <span class="retweet">
-        <i class="icon-retweet"></i>
-          {{#linkToPerson root.author}}
-            {{name}}
-          {{/linkToPerson}}
-      </span>
+      {{#if resharer}}
+      <i class="icon-retweet"></i>
+      {{#linkToPerson resharer}}
+        {{name}}
+      {{/linkToPerson}}
       {{/if}}
-
       <div class='status-message-location' />
     </div>
   </div>
