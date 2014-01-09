@@ -5,6 +5,7 @@
 
 //= require ./publisher/services_view
 //= require ./publisher/aspect_selector_view
+//= require ./publisher/aspect_selector_blueprint_view
 //= require ./publisher/getting_started_view
 //= require ./publisher/uploader_view
 //= require jquery.textchange
@@ -81,6 +82,11 @@ app.views.Publisher = Backbone.View.extend({
     });
 
     this.view_aspect_selector = new app.views.PublisherAspectSelector({
+      el: this.$('.public_toggle .aspect_dropdown'),
+      form: form
+    });
+
+    this.view_aspect_selector_blueprint = new app.views.PublisherAspectSelectorBlueprint({
       el: this.$('.public_toggle > .dropdown'),
       form: form
     });
@@ -102,6 +108,7 @@ app.views.Publisher = Backbone.View.extend({
   // set the selected aspects in the dropdown by their ids
   setSelectedAspects: function(ids) {
     this.view_aspect_selector.updateAspectsSelector(ids);
+    this.view_aspect_selector_blueprint.updateAspectsSelector(ids);
   },
 
   // show the "getting started" popups around the publisher
@@ -148,7 +155,8 @@ app.views.Publisher = Backbone.View.extend({
   // creates the location
   showLocation: function(){
     if($('#location').length == 0){
-      $('#publisher_textarea_wrapper').after('<div id="location"></div>');
+      $('#location_container').append('<div id="location"></div>');
+      this.el_wrapper.addClass('with_location');
       this.view_locator = new app.views.Location();
     }
   },
@@ -157,6 +165,7 @@ app.views.Publisher = Backbone.View.extend({
   destroyLocation: function(){
     if(this.view_locator){
       this.view_locator.remove();
+      this.el_wrapper.removeClass('with_location');
       delete this.view_locator;
     }
   },
