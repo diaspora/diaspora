@@ -24,7 +24,9 @@ app.views.SinglePostContent = app.views.Base.extend({
     return _.extend(this.defaultPresenter(), {
       authorIsCurrentUser : this.authorIsCurrentUser(),
       showPost : this.showPost(),
-      text : app.helpers.textFormatter(this.model.get("text"), this.model)
+      text : app.helpers.textFormatter(this.model.get("text"), this.model),
+      resharer: this.defaultPresenter().root ? this.defaultPresenter().author : undefined,
+      author: this.defaultPresenter().root ? this.defaultPresenter().root.author : this.defaultPresenter().author
     })
   },
 

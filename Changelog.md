@@ -64,6 +64,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Change "Show n more comments"-link, fix [#3119](https://github.com/diaspora/diaspora/issues/3119)
 * Specify Firefox version for Travis-CI [#4623](https://github.com/diaspora/diaspora/pull/4623)
 * Remove location when publisher is cleared by user
+* Display original author first instead of the resharer in the SPV [#4615](https://github.com/diaspora/diaspora/issues/4615)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
