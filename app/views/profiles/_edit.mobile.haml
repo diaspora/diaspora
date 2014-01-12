@@ -43,11 +43,14 @@
     = check_box_tag 'profile[searchable]', true, profile.searchable
   %br
 
-  %h4= t('nsfw')
-  %p.nsfw_explanation=profile.nsfw? ? t('.you_are_nsfw') : t('.you_are_safe_for_work')
+  %h4
+    = t('nsfw')
+  = t('profiles.edit.nsfw_explanation')
   %p{:class=>"checkbox_select"}
-    = check_box_tag 'profile[nsfw]', true, profile.nsfw?
-    = label_tag 'profile[nsfw]', "nsfw?"
+    = check_box_tag 'profile[nsfw]', true, profile.nsfw
+    = label_tag 'profile[nsfw]', t('profiles.edit.nsfw_check')
+  = t('profiles.edit.nsfw_explanation2')
+  %br
   %br
 
   .submit_block
