@@ -11,6 +11,7 @@
 //= require jquery.placeholder
 //= require rails-timeago
 //= require facebox
+//= require browser_detection
 //= require jquery.events.input
 //= require jquery.elastic
 //= require jquery.mentionsInput
