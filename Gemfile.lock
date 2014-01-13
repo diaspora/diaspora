@@ -41,7 +41,7 @@ GEM
     asset_sync (1.0.0)
       activemodel
       fog (>= 1.8.0)
-    bcrypt-ruby (3.1.1)
+    bcrypt-ruby (3.1.2)
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.0.4)
