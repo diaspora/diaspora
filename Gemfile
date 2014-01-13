@@ -52,7 +52,7 @@ gem 'remotipart',  '1.2.1'
 # Localization
 
 gem 'http_accept_language', '1.0.2'
-gem 'i18n-inflector-rails', '~> 1.0'
+gem 'i18n-inflector-rails', '1.0.7'
 gem 'rails-i18n',           '0.7.4'
 
 # Mail
