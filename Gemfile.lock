@@ -32,7 +32,7 @@ GEM
       multi_json (~> 1.0)
     acts-as-taggable-on (2.4.1)
       rails (>= 3, < 5)
-    acts_as_api (0.4.1)
+    acts_as_api (0.4.2)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
@@ -218,10 +218,9 @@ GEM
     mobile-fu (1.2.2)
       rack-mobile-detect
       rails
-    multi_json (1.8.2)
+    multi_json (1.8.4)
     multi_test (0.0.3)
     multipart-post (1.2.0)
-    mysql2 (0.3.14)
     nested_form (0.3.2)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -257,6 +256,7 @@ GEM
       addressable
       nokogiri
     orm_adapter (0.4.0)
+    pg (0.16.0)
     polyglot (0.3.3)
     pry (0.9.12.4)
       coderay (~> 1.0)
@@ -430,7 +430,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-import (= 0.3.1)
   acts-as-taggable-on (= 2.4.1)
-  acts_as_api (= 0.4.1)
+  acts_as_api (= 0.4.2)
   addressable (= 2.3.5)
   asset_sync (= 1.0.0)
   bootstrap-sass (= 2.2.2.0)
@@ -467,7 +467,6 @@ DEPENDENCIES
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.7.0)
   mobile-fu (= 1.2.2)
-  mysql2 (= 0.3.14)
   nokogiri (= 1.6.1)
   omniauth (= 1.1.4)
   omniauth-facebook (= 1.6.0)
@@ -475,6 +474,7 @@ DEPENDENCIES
   omniauth-twitter (= 1.0.1)
   omniauth-wordpress (= 0.2.0)
   opengraph_parser (= 0.2.3)
+  pg (= 0.16.0)
   rack-cors (= 0.2.8)
   rack-google-analytics (= 0.14.0)
   rack-piwik (= 0.2.2)
