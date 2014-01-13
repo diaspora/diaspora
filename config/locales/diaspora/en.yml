@@ -873,8 +873,9 @@ en:
       update_profile: "Update Profile"
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
-      you_are_nsfw: "You have marked yourself not safe for work, your content will not show up in people who have opted out of seeing objectionable content's streams."
-      you_are_safe_for_work: "You have marked yourself as safe for work, this means you agree the content you post will agree with the community guidelines."
+      nsfw_explanation: "NSFW (‘not safe for work’) is diaspora*’s self-governing community standard for content which may not be suitable to view while at work. If you plan to share such material frequently, please check this option so that everything you share will be hidden from people’s streams unless they choose to view them."
+      nsfw_explanation2: "If you choose not to select this option, please add the #nsfw tag each time you share such material."
+      nsfw_check: "Mark everything I share as NSFW"
     update:
       updated: "Profile updated"
       failed: "Failed to update profile"

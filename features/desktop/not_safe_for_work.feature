@@ -7,14 +7,15 @@ Scenario: Setting not safe for work
     | pr0n king   | tommy@pr0n.xxx    |
   And I sign in as "tommy@pr0n.xxx"
   When I go to the edit profile page
-  And I should see the "you are safe for work" message
   And I mark myself as not safe for work
   And I submit the form
   Then I should be on the edit profile page
-  And I should see the "you are nsfw" message
-  When I mark myself as safe for work
+  And the "profile[nsfw]" checkbox should be checked
+  When I go to the edit profile page
+  And I mark myself as safe for work
   And I submit the form
-  Then I should see the "you are safe for work" message
+  Then I should be on the edit profile page
+  And the "profile[nsfw]" checkbox should not be checked
 
 Scenario: Toggling nsfw state
   #Nsfw users posts are marked nsfw
