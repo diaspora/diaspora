@@ -111,7 +111,7 @@ GEM
     factory_girl_rails (4.3.0)
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
-    faraday (0.8.8)
+    faraday (0.8.9)
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
@@ -444,7 +444,7 @@ DEPENDENCIES
   devise (= 3.0.2)
   entypo-rails
   factory_girl_rails (= 4.3.0)
-  faraday (= 0.8.8)
+  faraday (= 0.8.9)
   faraday_middleware (= 0.9.0)
   fixture_builder (= 0.3.6)
   fog (= 1.19.0)
