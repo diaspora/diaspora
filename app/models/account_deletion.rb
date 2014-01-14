@@ -7,7 +7,7 @@ class AccountDeletion < ActiveRecord::Base
 
 
   belongs_to :person
-  after_create :queue_delete_account
+  after_commit :queue_delete_account, :on => :create
 
   xml_name :account_deletion
   xml_attr :diaspora_handle
