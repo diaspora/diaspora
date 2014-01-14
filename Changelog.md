@@ -65,6 +65,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Specify Firefox version for Travis-CI [#4623](https://github.com/diaspora/diaspora/pull/4623)
 * Remove location when publisher is cleared by user
 * On signup form errors, don't empty previous values by user, fix [#4663](https://github.com/diaspora/diaspora/issues/4663)
+* Remove background from badges in header [#4692](https://github.com/diaspora/diaspora/issues/4692)
 
 ## Features
 * Add oEmbed content to the mobile view [#4343](https://github.com/diaspora/diaspora/pull/4353)
