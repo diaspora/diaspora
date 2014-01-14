@@ -17,7 +17,7 @@ class Reshare < Post
     self.public = true
   end
 
-  after_create do
+  after_commit :on => :create do
     self.root.update_reshares_counter
   end
 
