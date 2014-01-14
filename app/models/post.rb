@@ -26,7 +26,7 @@ class Post < ActiveRecord::Base
   belongs_to :o_embed_cache
   belongs_to :open_graph_cache
 
-  after_create do
+  after_commit :on => :create do
     self.touch(:interacted_at)
   end
 

@@ -34,7 +34,7 @@ class StatusMessage < Post
 
   before_create :filter_mentions
   after_create :create_mentions
-  after_create :queue_gather_oembed_data, :if => :contains_oembed_url_in_text?
+  after_commit :queue_gather_oembed_data, :on => :create, :if => :contains_oembed_url_in_text?
   after_commit :queue_gather_open_graph_data, :on => :create, :if => :contains_open_graph_url_in_text?
 
   #scopes

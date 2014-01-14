@@ -46,7 +46,7 @@ class Photo < ActiveRecord::Base
   before_destroy :ensure_user_picture
   after_destroy :clear_empty_status_message
 
-  after_create do
+  after_commit :on => :create do
     queue_processing_job if self.author.local?
   end
 
