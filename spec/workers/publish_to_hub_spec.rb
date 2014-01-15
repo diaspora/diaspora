@@ -8,7 +8,7 @@ describe Workers::PublishToHub do
   describe '.perform' do
     it 'calls pubsubhubbub' do
       url = "http://publiczone.com/"
-      m = mock()
+      m = double()
 
       m.should_receive(:publish).with(url+'.atom')
       Pubsubhubbub.should_receive(:new).with(AppConfig.environment.pubsub_server).and_return(m)

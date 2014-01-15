@@ -21,7 +21,7 @@ describe UserPresenter do
 
   describe '#services' do
     it 'provides an array of jsonifed services' do
-      fakebook = stub(:provider => 'fakebook')
+      fakebook = double(:provider => 'fakebook')
       bob.stub(:services).and_return([fakebook])
       @presenter.services.should include(:provider => 'fakebook')
     end
@@ -29,7 +29,7 @@ describe UserPresenter do
 
   describe '#configured_services' do
     it 'displays a list of the users configured services' do
-      fakebook = stub(:provider => 'fakebook')
+      fakebook = double(:provider => 'fakebook')
       bob.stub(:services).and_return([fakebook])
       @presenter.configured_services.should include("fakebook")
     end

@@ -15,7 +15,7 @@ describe ServicesController do
 
   before do
     sign_in :user, user
-    @controller.stub!(:current_user).and_return(user)
+    @controller.stub(:current_user).and_return(user)
   end
 
   describe '#index' do
@@ -110,7 +110,7 @@ describe ServicesController do
       end
 
       it 'does not queue a job if the profile photo is set' do
-        @controller.stub!(:no_profile_image?).and_return false
+        @controller.stub(:no_profile_image?).and_return false
 
         Workers::FetchProfilePhoto.should_not_receive(:perform_async)
 
@@ -118,7 +118,7 @@ describe ServicesController do
       end
 
       it 'queues a job to save user photo if the photo does not exist' do
-        @controller.stub!(:no_profile_image?).and_return true
+        @controller.stub(:no_profile_image?).and_return true
 
         Workers::FetchProfilePhoto.should_receive(:perform_async).with(user.id, anything(), "https://service.com/fallback_lowres.jpg")
 

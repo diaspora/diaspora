@@ -67,13 +67,13 @@ describe PostPresenter do
     context 'with posts with text' do
       context 'with a Markdown header of less than 200 characters on first line'do
         it 'returns atx style header' do
-          @sm = stub(:text => "## My title\n Post content...")
+          @sm = double(:text => "## My title\n Post content...")
           @presenter.post = @sm
           @presenter.title.should == "## My title"
         end
 
         it 'returns setext style header' do
-          @sm = stub(:text => "My title \n======\n Post content...")
+          @sm = double(:text => "My title \n======\n Post content...")
           @presenter.post = @sm
           @presenter.title.should == "My title \n======"
         end
@@ -81,7 +81,7 @@ describe PostPresenter do
 
       context 'without a Markdown header of less than 200 characters on first line 'do
         it 'truncates post to the 20 first characters' do
-          @sm = stub(:text => "Very, very, very long post")
+          @sm = double(:text => "Very, very, very long post")
           @presenter.post = @sm
           @presenter.title.should == "Very, very, very ..."
         end
@@ -90,7 +90,7 @@ describe PostPresenter do
 
     context 'with posts without text' do
       it ' displays a messaage with the post class' do
-        @sm = stub(:text => "", :author => bob.person, :author_name => bob.person.name)
+        @sm = double(:text => "", :author => bob.person, :author_name => bob.person.name)
         @presenter.post = @sm
         @presenter.title.should == "A post from #{@sm.author.name}"
       end

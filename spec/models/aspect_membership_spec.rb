@@ -12,7 +12,7 @@ describe AspectMembership do
       @contact = alice.contact_for(bob.person)
 
       @am = alice.aspects.where(:name => "generic").first.aspect_memberships.first
-      @am.stub!(:user).and_return(alice)
+      @am.stub(:user).and_return(alice)
     end
 
     it 'calls disconnect if its the last aspect for the contact' do

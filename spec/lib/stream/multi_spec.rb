@@ -16,7 +16,7 @@ describe Stream::Multi do
         .with(alice, 'updated_at', @stream.max_time,
               AppConfig.settings.community_spotlight.enable? &&
               alice.show_community_spotlight_in_stream?)
-        .and_return(mock.tap { |m| m.stub!(:make_relation!)})
+        .and_return(double.tap { |m| m.stub(:make_relation!)})
       @stream.posts
     end
   end

@@ -96,7 +96,7 @@ STR
       @test_txt_C = "mentioning #{@mention_C}"
       @test_txt_BC = "mentioning #{@mention_B}} and #{@mention_C}"
 
-      Diaspora::Mentionable.stub!(:current_user).and_return(@user_A)
+      Diaspora::Mentionable.stub(:current_user).and_return(@user_A)
     end
 
     it 'filters mention, if contact is not in a given aspect' do

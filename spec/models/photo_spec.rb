@@ -54,9 +54,9 @@ describe Photo do
     end
 
     it 'sets the random prefix' do
-      photo_stub = stub.as_null_object
-      photo_stub.should_receive(:random_string=)
-      Photo.stub(:new).and_return(photo_stub)
+      photo_double = double.as_null_object
+      photo_double.should_receive(:random_string=)
+      Photo.stub(:new).and_return(photo_double)
 
       Photo.diaspora_initialize(
         :author => @user.person, :user_file => @image)
@@ -73,9 +73,9 @@ describe Photo do
       it 'saves the photo' do
         url = "https://service.com/user/profile_image"
 
-        photo_stub = stub.as_null_object
-        photo_stub.should_receive(:remote_unprocessed_image_url=).with(url)
-        Photo.stub(:new).and_return(photo_stub)
+        photo_double = double.as_null_object
+        photo_double.should_receive(:remote_unprocessed_image_url=).with(url)
+        Photo.stub(:new).and_return(photo_double)
 
         Photo.diaspora_initialize(
                 :author => @user.person, :image_url => url)

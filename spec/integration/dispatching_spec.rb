@@ -12,7 +12,7 @@ describe "Dispatching" do
       inlined_jobs do
         # Luke now retracts his comment
         Postzord::Dispatcher::Public.should_not_receive(:new)
-        Postzord::Dispatcher::Private.should_receive(:new).and_return(stub(:post => true))
+        Postzord::Dispatcher::Private.should_receive(:new).and_return(double(:post => true))
         luke.retract(comment)
       end
     end

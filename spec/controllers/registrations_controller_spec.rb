@@ -59,7 +59,7 @@ describe RegistrationsController do
       before do
         AppConfig.settings.enable_registrations = true
         user = FactoryGirl.build(:user)
-        User.stub!(:build).and_return(user)
+        User.stub(:build).and_return(user)
       end
 
       it "creates a user" do

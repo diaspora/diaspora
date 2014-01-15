@@ -80,7 +80,7 @@ describe Notification do
             :recipient_id => @user.id}
 
             n = Notifications::StartedSharing.new(opts)
-            n.stub!(:recipient).and_return @user
+            n.stub(:recipient).and_return @user
 
             @user.should_receive(:mail)
             n.email_the_user(@request, @person)

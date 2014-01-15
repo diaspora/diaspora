@@ -263,8 +263,8 @@ STR
       msg_lc.save; msg_uc.save; msg_cp.save
 
       tag_array = msg_lc.tags
-      msg_uc.tags.should =~ tag_array
-      msg_cp.tags.should =~ tag_array
+      expect(msg_uc.tags).to match_array(tag_array)
+      expect(msg_cp.tags).to match_array(tag_array)
     end
   end
 

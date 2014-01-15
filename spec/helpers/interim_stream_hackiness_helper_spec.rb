@@ -14,19 +14,19 @@ describe InterimStreamHackinessHelper do
       def user_signed_in? 
         false 
       end
-      commenting_disabled?(stub).should == true
+      commenting_disabled?(double).should == true
     end
 
     it 'returns true if @commenting_disabled is set' do
       @commenting_disabled = true
-      commenting_disabled?(stub).should == true
+      commenting_disabled?(double).should == true
       @commenting_disabled = false
-      commenting_disabled?(stub).should == false 
+      commenting_disabled?(double).should == false 
     end
 
     it 'returns @stream.can_comment? if @stream is set' do
-      post = stub
-      @stream = stub
+      post = double
+      @stream = double
       @stream.should_receive(:can_comment?).with(post).and_return(true)
       commenting_disabled?(post).should == false
 

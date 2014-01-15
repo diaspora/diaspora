@@ -34,7 +34,7 @@ describe RelayableRetraction do
 
     describe '#subscribers' do
       it 'delegates it to target' do
-        arg = mock()
+        arg = double()
         @retraction.target.should_receive(:subscribers).with(arg)
         @retraction.subscribers(arg)
       end
@@ -67,7 +67,7 @@ describe RelayableRetraction do
       end
 
       it 'dispatches' do
-        zord = mock()
+        zord = double()
         zord.should_receive(:post)
         Postzord::Dispatcher.should_receive(:build).with(@local_luke, @retraction).and_return zord
         @retraction.receive(@recipient, @comment.author)
@@ -85,7 +85,7 @@ describe RelayableRetraction do
         @retraction = described_class.allocate
         @retraction.sender = @remote_raphael
         @retraction.target = @comment
-        @retraction.stub!(:parent_author_signature_valid?).and_return(true)
+        @retraction.stub(:parent_author_signature_valid?).and_return(true)
         @recipient = @local_luke
       end
 

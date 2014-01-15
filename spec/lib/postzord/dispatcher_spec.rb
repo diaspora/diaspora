@@ -203,8 +203,8 @@ describe Postzord::Dispatcher do
         @remote_people = []
         @remote_people << alice.person
         @mailman = Postzord::Dispatcher.build(alice, @sm)
-        @hydra = mock()
-        Typhoeus::Hydra.stub!(:new).and_return(@hydra)
+        @hydra = double()
+        Typhoeus::Hydra.stub(:new).and_return(@hydra)
       end
 
       it 'should queue an HttpMultiJob for the remote people' do
@@ -277,7 +277,7 @@ describe Postzord::Dispatcher do
       end
 
       it 'queues a job to notify the hub' do
-        Workers::PostToService.stub!(:perform_async).with(anything, anything, anything)
+        Workers::PostToService.stub(:perform_async).with(anything, anything, anything)
         Workers::PublishToHub.should_receive(:perform_async).with(alice.public_url)
         @zord.send(:deliver_to_services, nil, [])
       end
@@ -297,8 +297,8 @@ describe Postzord::Dispatcher do
        alice.services << @s2
        mailman = Postzord::Dispatcher.build(alice, FactoryGirl.create(:status_message), :url => "http://joindiaspora.com/p/123", :services => [@s1])
 
-       Workers::PublishToHub.stub!(:perform_async).with(anything)
-       Workers::HttpMulti.stub!(:perform_async).with(anything, anything, anything)
+       Workers::PublishToHub.stub(:perform_async).with(anything)
+       Workers::HttpMulti.stub(:perform_async).with(anything, anything, anything)
        Workers::PostToService.should_receive(:perform_async).with(@s1.id, anything, anything)
        mailman.post
       end
@@ -306,7 +306,7 @@ describe Postzord::Dispatcher do
       it 'does not push to services if none are specified' do
        mailman = Postzord::Dispatcher.build(alice, FactoryGirl.create(:status_message), :url => "http://joindiaspora.com/p/123")
 
-       Workers::PublishToHub.stub!(:perform_async).with(anything)
+       Workers::PublishToHub.stub(:perform_async).with(anything)
        Workers::PostToService.should_not_receive(:perform_async).with(anything, anything, anything)
        mailman.post
       end
@@ -318,7 +318,7 @@ describe Postzord::Dispatcher do
         Workers::DeletePostFromService.should_receive(:perform_async).with(anything, anything)
         mailman.post
       end
-      
+
     end
 
     describe '#and_notify_local_users' do

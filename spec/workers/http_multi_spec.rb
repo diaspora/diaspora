@@ -16,7 +16,7 @@ describe Workers::HttpMulti do
     @post_xml = Base64.encode64 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH"
 
     @hydra = Typhoeus::Hydra.new
-    Typhoeus::Hydra.stub!(:new).and_return(@hydra)
+    Typhoeus::Hydra.stub(:new).and_return(@hydra)
     @salmon = Salmon::EncryptedSlap.create_by_user_and_activity bob, Base64.decode64(@post_xml)
     Salmon::EncryptedSlap.stub(:create_by_user_and_activity).and_return @salmon
     @body = "encrypted things"
@@ -51,7 +51,7 @@ describe Workers::HttpMulti do
     person = @people.first
 
     Typhoeus.stub(person.receive_url).and_return @failed_response
-    
+
     Workers::HttpMulti.should_receive(:perform_in).with(1.hour, bob.id, @post_xml, [person.id], anything, 1).once
     Workers::HttpMulti.new.perform bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private"
   end
@@ -98,7 +98,8 @@ describe Workers::HttpMulti do
     person.serialized_public_key = "-----BEGIN RSA PUBLIC KEY-----\nPsych!\n-----END RSA PUBLIC KEY-----"
     person.save
 
-    Salmon::EncryptedSlap.rspec_reset
+    # Should be possible to drop when converting should_receive to expect(...).to
+    RSpec::Mocks.proxy_for(Salmon::EncryptedSlap).reset
 
     Typhoeus.stub(person.receive_url).and_return @response
     Typhoeus.stub(@people[1].receive_url).and_return @response

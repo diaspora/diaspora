@@ -94,7 +94,7 @@ describe User do
       User.daily_actives.should_not include(user)
     end
   end
-  
+
   describe 'halfyear_actives' do
     it 'returns list which includes users who latest signed in within half a year' do
       user = FactoryGirl.build(:user)
@@ -835,7 +835,7 @@ describe User do
 
   describe '#retract' do
     before do
-      @retraction = mock
+      @retraction = double
       @post = FactoryGirl.build(:status_message, :author => bob.person, :public => true)
     end
 
@@ -846,7 +846,7 @@ describe User do
       end
 
       it 'sends a retraction' do
-        dispatcher = mock
+        dispatcher = double
         Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, anything()).and_return(dispatcher)
         dispatcher.should_receive(:post)
 
@@ -858,7 +858,7 @@ describe User do
         reshare = FactoryGirl.create(:reshare, :root => @post, :author => person)
         @post.reshares << reshare
 
-        dispatcher = mock
+        dispatcher = double
         Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, {:additional_subscribers => [person], :services => anything}).and_return(dispatcher)
         dispatcher.should_receive(:post)
 
@@ -870,14 +870,14 @@ describe User do
   describe "#send_reset_password_instructions" do
     it "generates a reset password token if it's supposed to" do
       user = User.new
-      user.stub!(:should_generate_reset_token?).and_return(true)
+      user.stub(:should_generate_reset_token?).and_return(true)
       user.should_receive(:generate_reset_password_token)
       user.send_reset_password_instructions
     end
 
     it "does not generate a reset password token if it's not supposed to" do
       user = User.new
-      user.stub!(:should_generate_reset_token?).and_return(false)
+      user.stub(:should_generate_reset_token?).and_return(false)
       user.should_not_receive(:generate_reset_password_token)
       user.send_reset_password_instructions
     end
@@ -925,9 +925,9 @@ describe User do
           AppConfig.settings.autofollow_on_join = true
           AppConfig.settings.autofollow_on_join_user = 'one'
 
-          wf_mock = mock
-          wf_mock.should_receive(:fetch)
-          Webfinger.should_receive(:new).with('one').and_return(wf_mock)
+          wf_double = double
+          wf_double.should_receive(:fetch)
+          Webfinger.should_receive(:new).with('one').and_return(wf_double)
 
           user.seed_aspects
         end
