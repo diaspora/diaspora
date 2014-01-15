@@ -41,7 +41,7 @@ class Comment < ActiveRecord::Base
     self.post.touch
   end
 
-  after_create do
+  after_commit :on => :create do
     self.parent.update_comments_counter
   end
 

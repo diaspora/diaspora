@@ -17,7 +17,7 @@ class Message < ActiveRecord::Base
   validates :text, :presence => true
   validate :participant_of_parent_conversation
 
-  after_create do
+  after_commit :on => :create do
     #sign comment as commenter
     self.author_signature = self.sign_with_key(self.author.owner.encryption_key) if self.author.owner
 
