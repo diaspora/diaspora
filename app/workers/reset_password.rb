@@ -3,8 +3,7 @@ module Workers
     sidekiq_options queue: :mail
 
     def perform(user_id)
-      user = User.find(user_id)
-      ::Devise.mailer.reset_password_instructions(user).deliver
+      User.find(user_id).send_reset_password_instructions!
     end
   end
 end

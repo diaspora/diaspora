@@ -4,4 +4,4 @@
 
 [<%= t('.confirm') %>][1]
 
-[1]: <%= confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %>
+[1]: <%= confirmation_url(@resource, :confirmation_token => @token) %>

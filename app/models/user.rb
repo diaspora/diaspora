@@ -151,8 +151,11 @@ class User < ActiveRecord::Base
     self.hidden_shareables[share_type].present?
   end
 
+  # Copy the method provided by Devise to be able to call it later
+  # from a Sidekiq job
+  alias_method :send_reset_password_instructions!, :send_reset_password_instructions
+
   def send_reset_password_instructions
-    generate_reset_password_token! if should_generate_reset_token?
     Workers::ResetPassword.perform_async(self.id)
   end
 
