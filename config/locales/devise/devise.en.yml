@@ -22,9 +22,6 @@ en:
         password: 'Password'
         sign_in: 'Sign in'
         remember_me: "Remember me"
-        alpha_software: 'You are about to use alpha software.'
-        bugs_and_feedback: 'Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report.'
-        bugs_and_feedback_mobile: 'Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report.'
         modern_browsers: 'only supports modern browsers.'
       signed_in: 'Signed in successfully.'
       signed_out: 'Signed out successfully.'
@@ -35,7 +32,7 @@ en:
         change_password: "Change my password"
       new:
         forgot_password: "Forgot your password?"
-        no_account: 'No account with this email exists.  If you are waiting for an invite, we are rolling them out as soon as possible'
+        no_account: 'No account with this email exists'
         send_password_instructions: "Send me reset password instructions"
     confirmations:
       send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
@@ -45,7 +42,7 @@ en:
     registrations:
       signed_up: 'You have signed up successfully. If enabled, a confirmation was sent to your e-mail.'
       updated: 'You updated your account successfully.'
-      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      destroyed: 'Bye! Your account was successfully deleted. We hope to see you again soon.'
     unlocks:
       send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
       unlocked: 'Your account was successfully unlocked. You are now signed in.'
@@ -64,51 +61,20 @@ en:
         confirm: "Confirm my account"
       reset_password_instructions:
         subject: 'Reset password instructions'
-        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        someone_requested: "Someone has requested a link to change your password, If it was you, you can do this through the link below."
         change: "Change my password"
         wont_change: "Your password won't change until you access the link above and create a new one."
         ignore: "If you didn't request this, please ignore this email."
       unlock_instructions:
-        subject: 'Unlock Instructions'
-        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        subject: 'Unlock instructions'
+        account_locked: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
         click_to_unlock: "Click the link below to unlock your account:"
         unlock: "Unlock my account"
-      invitation_instructions:
-        displaying_correctly: "Email not displaying correctly? %{link}"
-        view_in: "View it in your browser."
-        finally: "Finally - it's here"
-        arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
-        sign_up_now: "Sign up now &rarr;"
-        friends_saying: "What your friends are saying..."
-        more_people: "Even more people are excited to see you!"
-        get_connected: "Get Connected"
-        get_connected_paragraph: "An international movement with a shared vision for a better web, %{strong_diaspora}'s #1 feature is its community. Meet new people, connect with friends, and join the fun."
-        be_yourself: "Be Yourself"
-        be_yourself_paragraph: "The Internet has created unique new ways for us to express ourselves. %{strong_diaspora} lets you be yourself and share however you want, with or without your real name."
-        have_fun: "Have Fun"
-        cubbies: "Cubbi.es"
-        have_fun_paragraph: "%{strong_diaspora} is all about discovering amazing new content and people online. %{link}, the world's first %{strong_diaspora} application is just the begining. Collect and share the web in all of its glory."
-        made_by_people: "%{strong_diaspora} is made by people who love the Internet as much as you do. %{jointeam}, or %{helpfund}!"
-        join_team: "Join our Team"
-        or: "or"
-        help_fund: "help fund Diaspora"
-        unsubscribe: "To unsubscribe please click %{link}."
-        here: "here"
-        love: "Love,"
-        team_diaspora: "Team Diaspora"
-        email_us: "For general inquiries or support with your Diaspora account, please email us at %{email}."
-        email_address: "questions@joindiaspora.com"
-        subject: "You've been invited to join Diaspora!"
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} have invited you to join Diaspora"
         accept_at: "at %{url}, you can accept it through the link below."
     shared:
-      mail_signup_form:
-        sign_up_for_an_invite: "Sign up for an invite!"
       links:
         sign_in: 'Sign in'
         sign_up: 'Sign up'
