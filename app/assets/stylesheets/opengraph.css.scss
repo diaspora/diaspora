@@ -1,24 +1,30 @@
-.opengraph {
+.opengraph-container {
   width: 100%;
-
+  display: block;
+  text-decoration: none;
+  font-style: normal;
+  margin: 10px 0px 10px 0px;
+  border-top: solid 1px $border-grey;
+  border-bottom: solid 1px $border-grey;
+  padding: 10px 0px 5px 0px;
+  overflow: hidden;
   a {
-    display: block;
-    text-decoration: none;;
     color: #000;
-    margin: 10px 0px 10px 0px;
-    border-top: solid 1px $border-grey;
-    border-bottom: solid 1px $border-grey;
-    padding: 10px 0px 5px 0px;
-    overflow: hidden;
-
     img {
-      margin: 0px 5px 5px 0px;
+      margin: 5px 5px 5px 0px;
       float: left;
-      max-width: 155px;
+      max-width: 150px;
+      padding-right: 5px;
     }
-
     .og-title {
       margin-bottom: 5px;
+      font-weight: bold;
     }
+  }
+  a:hover {
+    color: $blue;
+  }
+  .og-description {
+    color: $text-grey;
   }
 }
