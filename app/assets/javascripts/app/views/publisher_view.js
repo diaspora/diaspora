@@ -73,10 +73,21 @@ app.views.Publisher = Backbone.View.extend(_.extend(
         }
     });
 
+    $(window).on('beforeunload unload', _.bind(_this._unsavedPublisherWarning, _this));
 
     return this;
   },
 
+  _unsavedPublisherWarning : function(){
+    var publisherTextLength = this.el_input.val().trim().length;
+    var publisherPhotoCount = this.el_photozone.children().length;
+    var locationAddress = $('#location_address');
+    var locationAddressLength = locationAddress.length ? locationAddress.val().trim().length: 0
+
+    if(publisherTextLength + publisherPhotoCount + locationAddressLength){
+      return Diaspora.I18n.t("navigation_warning");
+    }
+  },
   createStatusMessage : function(evt) {
     if(evt){ evt.preventDefault(); }
 
@@ -260,11 +271,11 @@ app.views.Publisher = Backbone.View.extend(_.extend(
   },
 
   tryClose : function(){
-    // if it is not submittable, close it. 
+    // if it is not submittable, close it.
     if( !this._submittable() ){
       this.close()
     }
-  },  
+  },
 
   open : function() {
     // visually 'open' the publisher
@@ -310,6 +321,8 @@ app.views.Publisher = Backbone.View.extend(_.extend(
       self.el_hiddenInput.val(value);
     });
   }
+
+
 
 }));
 
