@@ -25,7 +25,9 @@ app.views.Publisher = Backbone.View.extend({
     "keypress #location_address" : "avoidEnter"
   },
 
-  initialize : function(){
+  initialize : function(opts){
+    this.standalone = opts ? opts.standalone : false;
+
     // init shortcut references to the various elements
     this.el_input = this.$('#status_message_fake_text');
     this.el_hiddenInput = this.$('#status_message_text');
@@ -47,7 +49,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // hide close and preview buttons, in case publisher is standalone
     // (e.g. bookmarklet, mentions popup)
-    if( this.options.standalone ) {
+    if( this.standalone ) {
       this.$('#hide_publisher').hide();
       this.el_preview.hide();
     }

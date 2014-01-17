@@ -43,6 +43,11 @@ GEM
       fog (>= 1.8.0)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
+    backbone-on-rails (1.1.0.0)
+      eco
+      ejs
+      jquery-rails
+      rails (>= 3.1)
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -99,6 +104,12 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    eco (1.0.0)
+      coffee-script
+      eco-source
+      execjs
+    eco-source (1.1.0.rc.1)
+    ejs (1.1.1)
     entypo-rails (2.0.2)
       railties (>= 3.1, <= 5)
     erubis (2.7.0)
@@ -436,6 +447,7 @@ DEPENDENCIES
   acts_as_api (= 0.4.2)
   addressable (= 2.3.5)
   asset_sync (= 1.0.0)
+  backbone-on-rails (= 1.1.0)
   bootstrap-sass (= 2.2.2.0)
   capybara (= 2.2.1)
   carrierwave (= 0.9.0)

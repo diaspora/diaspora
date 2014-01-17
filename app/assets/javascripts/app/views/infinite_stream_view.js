@@ -9,8 +9,7 @@
 app.views.InfScroll = app.views.Base.extend({
   setupInfiniteScroll : function() {
     this.postViews = this.postViews || [];
-    this.appendedPosts = [];
-    this.prependedPosts = [];
+    this._resetPostFragments();
 
     this.bind("loadMore", this.fetchAndshowLoader, this);
     this.stream.bind("fetched", this.finishedLoading, this);
@@ -22,6 +21,11 @@ app.views.InfScroll = app.views.Base.extend({
     $(window).scroll(throttledScroll);
   },
 
+  _resetPostFragments: function() {
+    this.appendedPosts  = document.createDocumentFragment();
+    this.prependedPosts = document.createDocumentFragment();
+  },
+
   postRenderTemplate : function() {
     if(this.stream.isFetching()) { this.showLoader() }
   },
@@ -29,6 +33,7 @@ app.views.InfScroll = app.views.Base.extend({
   createPostView : function(post){
     var postView = new this.postClass({ model: post, stream: this.stream });
     if (this.collection.at(0).id == post.id) {
+      // post is first in collection - insert view at top of the list
       this.postViews.unshift(postView);
     } else {
       this.postViews.push(postView);
@@ -36,12 +41,13 @@ app.views.InfScroll = app.views.Base.extend({
     return postView;
   },
 
+  // called for every item inserted in this.collection
   addPostView : function(post) {
     var el = this.createPostView(post).render().el;
     if (this.collection.at(0).id == post.id) {
-        this.prependedPosts.unshift(el);
+        this.prependedPosts.insertBefore(el, this.prependedPosts.firstChild);
     } else {
-        this.appendedPosts.push(el);
+        this.appendedPosts.appendChild(el);
     }
   },
 
@@ -55,15 +61,16 @@ app.views.InfScroll = app.views.Base.extend({
 
   renderInitialPosts : function(){
     this.$el.empty();
-    var els = [];
+    var els = document.createDocumentFragment();
     this.stream.items.each(_.bind(function(post){
-      els.push(this.createPostView(post).render().el);
+      els.appendChild(this.createPostView(post).render().el);
     }, this))
-    this.$el.append(els);
+    this.$el.html(els);
   },
 
   fetchAndshowLoader : function(){
-    if(this.stream.isFetching()) { return false }
+    if( this.stream.isFetching() ) return false;
+
     this.stream.fetch();
     this.showLoader();
   },
@@ -73,11 +80,9 @@ app.views.InfScroll = app.views.Base.extend({
   },
 
   finishedAdding: function() {
-    var el = $('<span></span>');
     this.$el.prepend(this.prependedPosts);
     this.$el.append(this.appendedPosts);
-    this.appendedPosts = [];
-    this.prependedPosts = [];
+    this._resetPostFragments();
   },
 
   finishedLoading: function() {
@@ -96,7 +101,7 @@ app.views.InfScroll = app.views.Base.extend({
       , bufferPx = 500;
 
     if(distFromBottom < bufferPx) {
-      this.trigger("loadMore")
+      this.trigger("loadMore");
     }
   }
 });

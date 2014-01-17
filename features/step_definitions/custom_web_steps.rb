@@ -105,9 +105,10 @@ And /^I hover over the "([^"]+)"$/ do |element|
 end
 
 When /^I prepare the deletion of the first post$/ do
-  within('.stream_element', match: :first) do
-    find('.controls').hover
-    find('.remove_post').click
+  within(find('.stream .stream_element')) do
+    ctrl = find('.controls')
+    ctrl.hover
+    ctrl.find('.remove_post').click
   end
 end
 

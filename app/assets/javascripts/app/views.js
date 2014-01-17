@@ -9,11 +9,6 @@ app.views.Base = Backbone.View.extend({
   },
 
   setupRenderEvents : function(){
-    if(this.model) {
-      //this should be in streamobjects view
-      this.model.bind('remove', this.remove, this);
-    }
-
     // this line is too generic.  we usually only want to re-render on
     // feedback changes as the post content, author, and time do not change.
     //
@@ -88,9 +83,21 @@ app.views.Base = Backbone.View.extend({
 
   destroyModel: function(evt) {
     evt && evt.preventDefault();
+    var self = this;
+    var url = this.model.urlRoot + '/' + this.model.id;
+
     if (confirm(Diaspora.I18n.t("confirm_dialog"))) {
-      this.model.destroy();
-      this.remove();
+      this.model.destroy({ url: url })
+        .done(function() {
+          self.remove();
+        })
+        .fail(function() {
+          var flash = new Diaspora.Widgets.FlashMessages;
+          flash.render({
+            success: false,
+            notice: Diaspora.I18n.t('failed_to_remove')
+          });
+        });
     }
   }
 });

@@ -15,7 +15,7 @@ describe("bookmarklet", function() {
     });
 
     it('verifies we are using the bookmarklet', function(){
-      expect(app.publisher.options.standalone).toBeTruthy();
+      expect(app.publisher.standalone).toBeTruthy();
       expect(app.publisher.$('#hide_publisher').is(':visible')).toBeFalsy();
     });
   });
@@ -37,7 +37,7 @@ describe("bookmarklet", function() {
       });
     });
   });
-  
+
   describe("modified prefilled bookmarklet", function(){
     it('allows changing of post content', function(){
       spec.loadFixture('prefilled_bookmarklet');

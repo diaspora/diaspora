@@ -8,7 +8,9 @@ app.views.PublisherUploader = Backbone.View.extend({
   allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'tif', 'tiff'],
   sizeLimit: 4194304,  // bytes
 
-  initialize: function() {
+  initialize: function(opts) {
+    this.publisher = opts.publisher;
+
     this.uploader = new qq.FileUploaderBasic({
       element: this.el,
       button:  this.el,
@@ -31,9 +33,9 @@ app.views.PublisherUploader = Backbone.View.extend({
     });
 
     this.el_info = $('<div id="fileInfo" />');
-    this.options.publisher.el_wrapper.before(this.el_info);
+    this.publisher.el_wrapper.before(this.el_info);
 
-    this.options.publisher.el_photozone.on('click', '.x', _.bind(this._removePhoto, this));
+    this.publisher.el_photozone.on('click', '.x', _.bind(this._removePhoto, this));
   },
 
   progressHandler: function(id, fileName, loaded, total) {
@@ -48,7 +50,7 @@ app.views.PublisherUploader = Backbone.View.extend({
 
   // add photo placeholders to the publisher to indicate an upload in progress
   _addPhotoPlaceholder: function() {
-    var publisher = this.options.publisher;
+    var publisher = this.publisher;
     publisher.setButtonsEnabled(false);
 
     publisher.el_wrapper.addClass('with_attachments');
@@ -78,7 +80,7 @@ app.views.PublisherUploader = Backbone.View.extend({
   // replace the first photo placeholder with the finished uploaded image and
   // add the id to the publishers form
   _addFinishedPhoto: function(id, url) {
-    var publisher = this.options.publisher;
+    var publisher = this.publisher;
 
     // add form input element
     publisher.$('.content_creation form').append(
@@ -103,7 +105,7 @@ app.views.PublisherUploader = Backbone.View.extend({
   },
 
   _cancelPhotoUpload: function() {
-    var publisher = this.options.publisher;
+    var publisher = this.publisher;
     var placeholder = publisher.el_photozone.find('li.loading').first();
     placeholder
       .removeClass('loading')
@@ -125,9 +127,9 @@ app.views.PublisherUploader = Backbone.View.extend({
         $.when(photo.fadeOut(400)).then(function(){
           photo.remove();
 
-          if( self.options.publisher.$('.publisher_photo').length == 0 ) {
+          if( self.publisher.$('.publisher_photo').length == 0 ) {
             // no more photos left...
-            self.options.publisher.el_wrapper.removeClass('with_attachments');
+            self.publisher.el_wrapper.removeClass('with_attachments');
           }
 
           self.trigger('change');

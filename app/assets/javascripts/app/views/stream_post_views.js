@@ -25,8 +25,7 @@ app.views.StreamPost = app.views.Post.extend({
   tooltipSelector : ".timeago, .post_scope, .block_user, .delete",
 
   initialize : function(){
-    this.model.bind('remove', this.remove, this);
-
+    this.model.on('remove', this.remove, this);
     //subviews
     this.commentStreamView = new app.views.CommentStream({model : this.model});
     this.oEmbedView = new app.views.OEmbed({model : this.model});

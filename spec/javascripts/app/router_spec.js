@@ -34,42 +34,38 @@ describe('app.Router', function () {
   });
 
   describe("when routing to /stream and hiding inactive stream lists", function() {
+    var router;
+    var aspects;
+    var tagFollowings;
+
+    beforeEach(function() {
+      router = new app.Router();
+    });
+
     it('calls hideInactiveStreamLists', function () {
-      var hideInactiveStreamLists = spyOn(app.router, 'hideInactiveStreamLists').andCallThrough();
-      spyOn(window.history, 'pushState').andCallFake(function (data, title, url) {
-        var route = app.router._routeToRegExp("stream");
-        var args = app.router._extractParameters(route, url.replace(/^\//, ""));
-        app.router.stream(args[0]);
-      });
-      app.router.navigate('/stream');
+      var hideInactiveStreamLists = spyOn(router, 'hideInactiveStreamLists').andCallThrough();
+
+      router.stream();
       expect(hideInactiveStreamLists).toHaveBeenCalled();
     });
 
     it('hides the aspects list', function(){
-      var aspects = new app.collections.Aspects([{ name: 'Work', selected: true  }]);
+      aspects = new app.collections.Aspects([{ name: 'Work', selected: true  }]);
       var aspectsListView = new app.views.AspectsList({collection: aspects});
       var hideAspectsList = spyOn(aspectsListView, 'hideAspectsList').andCallThrough();
-      app.router.aspects_list = aspectsListView;
-      spyOn(window.history, 'pushState').andCallFake(function (data, title, url) {
-        var route = app.router._routeToRegExp("stream");
-        var args = app.router._extractParameters(route, url.replace(/^\//, ""));
-        app.router.stream(args[0]);
-      });
-      app.router.navigate('/stream');
+      router.aspects_list = aspectsListView;
+
+      router.stream();
       expect(hideAspectsList).toHaveBeenCalled();
     });
 
     it('hides the followed tags view', function(){
-      var tagFollowings = new app.collections.TagFollowings();
+      tagFollowings = new app.collections.TagFollowings();
       var followedTagsView = new app.views.TagFollowingList({collection: tagFollowings});
       var hideFollowedTags = spyOn(followedTagsView, 'hideFollowedTags').andCallThrough();
-      app.router.followedTagsView = followedTagsView;
-      spyOn(window.history, 'pushState').andCallFake(function (data, title, url) {
-        var route = app.router._routeToRegExp("stream");
-        var args = app.router._extractParameters(route, url.replace(/^\//, ""));
-        app.router.stream(args[0]);
-      });
-      app.router.navigate('/stream');
+      router.followedTagsView = followedTagsView;
+
+      router.stream();
       expect(hideFollowedTags).toHaveBeenCalled();
     });
   });
