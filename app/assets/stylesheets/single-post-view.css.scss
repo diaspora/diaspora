@@ -159,6 +159,12 @@
       @include opacity(0.3);
     }
   }
+
+  >.highlighted {
+    border-left: 3px solid $blue;
+    padding-left: 3px;
+  }
+
   .controls {
     @include transition(opacity);
     @include opacity(0);

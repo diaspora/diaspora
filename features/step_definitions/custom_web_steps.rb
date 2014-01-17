@@ -206,6 +206,10 @@ And /^I scroll down$/ do
   page.execute_script("window.scrollBy(0,3000000)")
 end
 
+Then /^I should have scrolled down$/ do
+  page.evaluate_script("window.pageYOffset").should > 0
+end
+
 Then /^the notification dropdown should be visible$/ do
   find(:css, "#notification_dropdown").should be_visible
 end
