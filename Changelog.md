@@ -82,7 +82,98 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Update Underscore.js 1.3.1 to 1.5.2, update Backbone.js 0.9.2 to 1.1.0 [#4662](https://github.com/diaspora/diaspora/pull/4662)
 
 ## Gem updates
+Added:
+* atomic (1.1.14)
+* bcrypt-ruby (3.1.2)
+* backbone-on-rails (1.1.0.0)
+* devise thread_safe (0.1)
+* eco (1.0.0)
+* eco-source (1.1.0.rc.1)
+* ejs (1.1.1)
+* galetahub-simple_captcha (0.1.5)
+* thread_safe (0.1.3)
+* zip-zip (0.2)
+
+Removed:
+* bcrypt-ruby
+* rb-kqueue
+* slim
+* temple
+
+Updated:
+* acts_as_api 0.4.1 -> 0.4.2
+* capybara 2.1.0 -> 2.2.1
+* celluloid (0.13.0 -> 0.15.2
+* chunky_png 1.2.8 -> 1.2.9
+* client_side_validations 3.2.5 -> 3.2.6
+* coderay 1.0.9 -> 1.1.0
+* connection_pool 1.0.0 -> 1.2.0
+* crack 0.4.0 -> 0.4.1
+* cucumber 1.3.5 -> 1.3.10
+* cucumber-rails 1.3.1 -> 1.4.0
+* database_cleaner 1.1.0 -> 1.2.0
+* devise 3.0.2 -> 3.2.2
+* diff-lcs 1.2.4 -> 1.2.5
+* ethon 0.5.12 -> 0.6.2
+* excon 0.25.3 -> 0.31.0
+* factory_girl 4.2.0 -> 4.3.0
+* factory_girl_rails 4.2.0 -> 4.3.0
+* faraday 0.8.8 -> 0.8.9
+* ffi 1.9.0 -> 1.9.3
+* fog 1.14.0 -> 1.19.0
+* foreigner 1.4.2 -> 1.6.1
+* fuubar 1.1.1 -> 1.3.2
+* gherkin 2.12.0 -> 2.12.2
+* guard 1.8.2 -> 2.2.5
+* guard-cucumber 1.4.0 -> 1.4.1
+* guard-rspec 3.0.2 -> 4.2.4
+* haml 4.0.3 -> 4.0.5
+* i18n-inflector-rails 1.0.6 -> 1.0.7
+* json 1.8.0 -> 1.8.1
+* jwt 0.1.8 -> 0.1.10
+* kaminari 0.14.1 -> 0.15.0
+* kgio 2.8.0 -> 2.8.1
+* listen 1.2.2 -> 2.4.0
+* mini_magick 3.6.0 -> 3.7.0
+* mini_profile 0.5.1 -> 0.5.2
+* mobile-fu 1.2.1 -> 1.2.2
+* multi_json 1.7.9 -> 1.8.4
+* multi_test 0.0.2 -> 0.0.3
+* mysql2 0.3.13 -> 0.3.14
+* net-ssh 2.6.8 -> 2.7.0
+* nokogiri 1.6.0 -> 1.6.1
+* omniauth-facebook 1.4.1 -> 1.6.0
+* omniauth-twitter 1.0.0 -> 1.0.1
+* orm_adapter 0.4.0 -> 0.5.0
+* pry 0.9.12.2 -> 0.9.12.4
+* rack-google-analytics 0.11.0 -> 0.14.0
+* rack-rewrite 1.3.3 -> 1.5.0
+* rails_autolink 1.1.0 -> 1.1.5
+* raindrops 0.11.0 -> 0.12.0
+* rake 10.1.0 -> 10.1.1
+* rb-fsevent 0.9.3 -> 0.9.4
+* rb-inotify 0.9.0 -> 0.9.3
+* redis 3.0.4 -> 3.0.6
+* redis-namespace 1.3.0 -> 1.4.1
+* rspec 2.13.0 -> 2.14.1
+* rspec-core 2.13.1 -> 2.14.7
+* rspec-expectations 2.13.0 -> 2.14.4
+* rspec-mocks 2.13.1 -> 2.14.4
+* rspec-rails 2.13.2 -> 2.14.1
+* ruby-oembed 0.8.8 -> 0.8.9
+* ruby-progressbar 1.1.1 -> 1.4.0
 * selenium-webdriver 2.34.0 -> 2.39.0
+* sidekiq 2.11.1 -> 2.17.2
+* slop 3.4.6 -> 3.4.7
+* spork 1.0.0rc3 -> 1.0.0rc4
+* strong_parameters 0.2.1 -> 0.2.2
+* test_after_commit 0.2.0 -> 0.2.2
+* timers 1.0.0 -> 1.1.0
+* timecop 0.6.1 -> 0.7.1
+* typhoeus 0.6.3 -> 0.6.7
+* unicorn 4.6.3 -> 4.8.0
+* webmock 1.13.0 -> 1.16.1
+* will_paginate 3.0.4 -> 3.0.5
 
 # 0.2.0.1
 
