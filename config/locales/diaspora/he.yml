@@ -90,11 +90,10 @@ he:
   all_aspects: "כל ההיבטים"
   application:
     helper:
-      diaspora_alpha: "דיאספורה* אלפא"
       unknown_person: "אדם לא ידוע"
       video_title:
         unknown: "כותרת הווידאו אינה ידועה"
-  are_you_sure: "בבטחה"
+  are_you_sure: "בטוח?"
   are_you_sure_delete_account: "האם אתה בטוח שברצונך לסגור את החשבון? הדבר אינו אפשרי"
   aspect_memberships:
     destroy:
@@ -166,7 +165,6 @@ he:
         tag_bug: "תקלה"
         tag_feature: "מאפיין"
         tag_question: "שאלה"
-        tutorials_wiki_and_forum: "הדרכה על ידי הקהילה, איך לעשות דברים וחדשות: %{tutorial} & %{wiki} & %{forum}"
       introduce_yourself: "אלו החדשות שלך, היכנס והצג את עצמך"
       keep_diaspora_running: "עזור לשמור על קצב פתוח מהיר על ידי מתן תרומה חודשית"
       new_here:
@@ -406,7 +404,7 @@ he:
         two: "%{count} מתעניין"
         zero: "אף אחד לא אהב"
   limited: "מוגבל"
-  more: "המשך"
+  more: "עוד"
   next: "הבאה"
   no_results: "לא נמצאו תוצאות"
   notifications:
@@ -558,7 +556,6 @@ he:
       no_results: "הי! לא חיפשת שום דבר"
       results_for: "תוצאות חיפוש עבור"
       searching: "מחפש, המתן בבקשה בסבלנות..."
-    last_post: "ההודעה האחרונה"
     many: "%{count} אנשים"
     one: "אדם אחד"
     other: "%{count} אנשים"
@@ -659,8 +656,6 @@ he:
       first_name: "שם פרטי"
       last_name: "שם משפחה"
       update_profile: "עדכון הפרופיל"
-      you_are_nsfw: "סימנת את עצמך כלא מתאים לצפייה בפרהסייה, התוכן שלך לא יוצג לאנשים שלא רוצים לראות בחדשות תוכן מאיים"
-      you_are_safe_for_work: "סימנת את עצמך כנעים לעבודה משותפת, כלומר אתה מסכים שהתוכן שאתה מפרסם יהיה בהתאם להנחיות ומוסכמות הקהילה"
       your_bio: "הביוגרפיה שלך"
       your_birthday: "יום ההולדת שלך"
       your_gender: "המגדר שלך"
@@ -933,7 +928,6 @@ he:
   tags:
     show:
       follow: "מעקב אחר #%{tag}"
-      followed_by: "ניתן לעקוב ב"
       following: "במעקב אחר #%{tag}"
       nobody_talking: "אף אחד עדיין לא דיבר על %{tag}."
       none: "התגית הריקה לא קיימת"

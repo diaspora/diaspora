@@ -13,7 +13,7 @@ describe Workers::ReceiveEncryptedSalmon do
     }
   end
   it 'calls receive_salmon' do
-    zord = mock
+    zord = double
 
     zord.should_receive(:perform!)
     Postzord::Receiver::Private.should_receive(:new).with(@user, hash_including(:salmon_xml => @xml)).and_return(zord)

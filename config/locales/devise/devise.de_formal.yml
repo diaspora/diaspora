@@ -16,6 +16,7 @@ de_formal:
       invalid: "Ungültiger Benutzername oder ungültiges Kennwort."
       invalid_token: "Ungültiger Authentifizierungstoken."
       locked: "Ihr Konto ist gesperrt."
+      not_found_in_database: "Ungültige E-Mail-Adresse oder ungültiges Passwort."
       timeout: "Ihre Sitzung ist abgelaufen! Um fortzufahren, melden Sie sich bitte erneut an."
       unauthenticated: "Sie müssen sich anmelden oder registrieren, um fortzufahren."
       unconfirmed: "Sie müssen ihr Konto bestätigen, um fortzufahren."
@@ -26,42 +27,13 @@ de_formal:
     mailer:
       confirmation_instructions:
         confirm: "Mein Konto bestätigen"
-        subject: "Bestätigung Ihres Diaspora-Kontos"
+        subject: "Bestätigung Ihres diaspora*-Kontos"
         you_can_confirm: "Sie können Ihr Konto über den nachfolgenden Link bestätigen:"
       hello: "Hallo %{email}!"
-      invitation_instructions:
-        accept: "Einladung annehmen"
-        arrived: "Das soziale Netzwerk, auf das Sie schon immer gewartet haben, ist da. Aufpoliert, sicherer und lustiger ist %{strong_diaspora} dafür da, Ihnen dabei zu helfen, das Web auf eine ganz neue Weise zu entdecken."
-        be_yourself: "Seien Sie sie selbst"
-        be_yourself_paragraph: "Das Internet hat einzigartige Möglichkeiten entwickelt, um uns auszudrücken. %{strong_diaspora} lässt Sie Sie selbst sein und teilen, was Sie möchten, mit oder ohne Ihren echten Namen."
-        cubbies: "Cubbi.es"
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        email_address: "questions@joindiaspora.com"
-        email_us: "Für allgemeine Anfragen oder Unterstützung zu Ihrem Diaspora-Konto, schreiben Sie uns ein E-Mail an %{email}."
-        finally: "Endlich - Es ist da"
-        friends_saying: "Was Ihre Freunde sagen..."
-        get_connected: "Verbinden Sie sich"
-        get_connected_paragraph: "Als eine internationale Bewegung mit einer gemeinsamen Vision eines besseren Webs, %{strong_diaspora}s Besonderheit Nummer Eins ist seine Gemeinschaft. Lernen Sie neue Leute kennen, verbinden Sie sich mit Freunden und haben Sie Spaß."
-        have_fun: "Haben Sie Spaß"
-        have_fun_paragraph: "Bei %{strong_diaspora} dreht es sich darum, online faszinierende Inhalte und Leute zu entdecken. %{link}, die erste %{strong_diaspora}-Anwendung der Welt, ist nur der Anfang. Sammeln und teilen Sie das Web in all seiner Pracht."
-        help_fund: "Helfen Sie, Diaspora zu finanzieren"
-        here: "hier"
-        ignore: "Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail einfach."
-        join_team: "Treten Sie unserem Team bei"
-        love: "Alles liebe,"
-        made_by_people: "%{strong_diaspora} wird von Leuten erstellt, die das Internet genauso lieben wie Sie. %{jointeam} oder %{helpfund}!"
-        more_people: "Noch mehr Leute sind gespannt, Sie zu sehen!"
-        no_account_till: "Ihr Konto wird nicht erstellt solange Sie sich nicht über den oberen Link registrieren."
-        or: "oder"
-        sign_up_now: "Registrieren Sie sich jetzt &rarr;"
-        subject: "Sie wurden zu Diaspora eingeladen!"
-        team_diaspora: "Diaspora-Team"
-        unsubscribe: "Zum Abbestellen bitte %{link} klicken."
-        view_in: "View in"
       inviter:
         accept_at: "unter %{url}, können Sie sie über den untenstehenden Link akzeptieren."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} hat Sie eingeladen Diaspora beizutreten"
+        have_invited_you: "%{names} hat Sie eingeladen diaspora* beizutreten"
       reset_password_instructions:
         change: "Mein Kennwort ändern"
         ignore: "Wenn Sie dies nicht angefordert haben, ignorieren Sie bitte diese E-Mail."
@@ -89,9 +61,6 @@ de_formal:
       updated: "Ihr Konto wurde aktualisiert."
     sessions:
       new:
-        alpha_software: "Diese Software befindet sich im Alpha-Stadium."
-        bugs_and_feedback: "Seien Sie gewarnt, Fehler werden auftreten. Wir empfehlen Ihnen, den Feedback-Knopf am rechten Browserrand zu nutzen, um alle Störungen zu berichten. Wir werden so schnell wir können arbeiten, um alle Probleme, die Sie melden, zu lösen."
-        bugs_and_feedback_mobile: "Seien Sie gewarnt, Fehler werden auftreten. Wir empfehlen Ihnen, alle Störungen zu melden! Wir werden so schnell wir können arbeiten, um alle Probleme, die Sie melden, zu lösen."
         login: "Einloggen"
         modern_browsers: "unterstützt nur moderne Browser."
         password: "Kennwort"
@@ -108,8 +77,6 @@ de_formal:
         sign_in: "Anmelden"
         sign_up: "Registrieren"
         sign_up_closed: "Öffentliche Registrierungen sind momentan nicht möglich."
-      mail_signup_form:
-        sign_up_for_an_invite: "Registrieren Sie sich für eine Einladung!"
     unlocks:
       new:
         resend_unlock: "Entsperr-Anweisungen erneut senden"

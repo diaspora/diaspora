@@ -6,7 +6,7 @@
 
 br:
   _applications: "Arloadoù"
-  _comments: "Embannoù"
+  _comments: "Evezhiadennoù"
   _contacts: "Darempredoù"
   _home: "Kêr"
   _photos: "fotoioù"
@@ -30,19 +30,23 @@ br:
             person:
               invalid: "a zo direizh"
             username:
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "zo direizh. Ne asantomp nemet lizherennoù, sifroù, hag ar  barrennigoù-islinennañ."
               taken: "zo bet dibabet dija."
+  admins:
+    admin_bar:
+      pages: "Pajennoù"
   ago: "%{time} zo"
   all_aspects: "An Holl Arvezioù"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "den dianav"
       video_title:
         unknown: "Titl video dianav"
-  are_you_sure: "Sur emaoc'h?"
+  are_you_sure: "Sur oc'h?"
   are_you_sure_delete_account: "Ha bez' e fell deoc'h klozañ ho kont ? Ne c'hallo ket bezañ disgraet !"
   aspects:
+    aspect_contacts:
+      done_editing: "daskemm graet"
     aspect_listings:
       add_an_aspect: "+ Ouzhpennañ ur gwel"
       deselect_all: "Dizilenn pep tra"
@@ -78,15 +82,17 @@ br:
       donate: "Reiñ arc'hant"
       handle_explanation: "Ar postel-mañ zo ho skor diaspora. E-giz ur chomlec'h-postel e c'hellit skignat anezhañ a-benn bezañ kavet gant an dud."
       help:
-        here_to_help: "Diaspora community is here to help!"
-        need_help: "Ezhomm a skoazell ?"
+        any_problem: "Ur gudenn bennak?"
+        email_link: "Postel"
+        here_to_help: "Izili kumuniezh Diaspora zo amañ evit sikour!"
+        need_help: "Ezhomm a skoazell?"
         tag_bug: "#bug"
         tag_feature: "#feature"
-        tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum} : "
+        tag_question: "#goulenn"
       introduce_yourself: "Hennezh eo ho kwazh. Lammit enni ha lavarit piv oc'h."
       new_here:
         learn_more: "Gouzout hiroc'h"
+        title: "Degemer Implijerien Nevez"
       no_contacts: "Darempred ebet"
       no_tags: "No tags"
       post_a_message: "embann ur gemennadenn"
@@ -100,27 +106,32 @@ br:
       failure: "Ne gerzh ket %{inspect}"
     new:
       create: "Krouiñ"
-      name: "Name"
+      name: "Anv (gwelet ganeoc'h hepken)"
     no_contacts_message:
       community_spotlight: "Emañ ar gouloù warne"
       or_spotlight: "pe e c'hallit rannañ dre %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "Dleout a rafec'h ouzhpennañ darempredoù all !"
+      you_should_add_some_more_contacts: "Dleout a rafec'h ouzhpennañ darempredoù!"
     no_posts_message:
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
+      start_talking: "N'eus bet lavaret grik evit poent!"
     one: "1 arvez"
     other: "%{count} arvez"
     seed:
+      acquaintances: "Anaoudeien"
       family: "Familh"
       friends: "Mignoned"
       work: "Labour"
     selected_contacts:
-      manage_your_aspects: "Merit ho gweloù"
+      manage_your_aspects: "Merit ho gweloù."
+      no_contacts: "N'ho peus darempred ebet amañ evit poent."
       view_all_contacts: "Gwelet an holl zarempredoù"
     show:
       edit_aspect: "aozañ ar gwel"
-    two: "%{count} aspects"
+    two: "%{count} arvez"
     zero: "arvez ebet"
+  authorizations:
+    new:
+      authorize: "Aotren"
   back: "Distreiñ"
   bookmarklet:
     explanation: "%{link} adalek pep lec'h dre lakaat al liamm-se e-barzh ho sinedoù."
@@ -142,7 +153,7 @@ br:
     few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
-      add_to_aspect_link: "ouzhpennaén darempredoù e %{name}"
+      add_to_aspect_link: "ouzhpennañ darempredoù e %{name}"
       all_contacts: "An holl zarempredoù"
       my_contacts: "Ma darempredoù"
       no_contacts: "No contacts."
@@ -163,12 +174,9 @@ br:
       success: "Kaoz diverket da vat"
     helper:
       new_messages:
-        few: "%{count} a gemennadennoù nevez"
-        many: "%{count} a gemennadennoù nevez"
         one: "1 gemennadenn nevez"
         other: "%{count} a gemennadennoù nevez"
-        two: "%{count} new messages"
-        zero: "kemenadenn nevez ebet"
+        zero: "kemennadenn nevez ebet"
     index:
       create_a_new_message: "sevel ur gemennadenn nevez"
       inbox: "Boest-lizhiri"
@@ -192,8 +200,9 @@ br:
   email: "Postel"
   error_messages:
     helper:
+      correct_the_following_errors_and_try_again: "Divankit ar fazioù da-heul ha kalskit adarre."
       invalid_fields: "Maezennoù direizh"
-  find_people: "Find people"
+  find_people: "Kavout tud"
   hide: "Kuzhaat"
   invitations:
     check_token:
@@ -212,6 +221,7 @@ br:
       personal_message: "Kemennadenn brevez"
       resend: "Kas en dro"
       send_an_invitation: "Kas ur bedadenn"
+      send_invitation: "Kas ar bedadenn"
       to: "Da"
   layouts:
     application:
@@ -249,7 +259,7 @@ br:
         zero: "no likes"
   limited: "Bevennet"
   more: "Muioc'h"
-  next: "Da heul"
+  next: "da-heul"
   no_results: "Disoc'h Ebet"
   notifications:
     also_commented:
@@ -275,12 +285,9 @@ br:
       zero: "%{actors} commented on your %{post_link}."
     helper:
       new_notifications:
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        two: "%{count} new notifications"
-        zero: "no new notifications"
+        one: "ur c'hemenn nevez"
+        other: "%{count} a gemennoù nevez"
+        zero: "kemenn nevez ebet"
     index:
       and: "ha"
       and_others:
@@ -364,24 +371,32 @@ br:
       view_profile: "Gwelet profil %{name}"
     thanks: "Trugarez,"
   nsfw: "NSFW"
-  ok: "MAT EO"
+  ok: "Mat eo"
   or: "pe"
   password: "Ger-kuzh"
   password_confirmation: "Kadarnaat ar ger-kuzh"
   people:
+    add_contact:
+      invited_by: "kouviet oc'h bet gant"
     few: "%{count} people"
+    helper:
+      results_for: " disoc'hoù evit %{params}"
     many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
     profile_sidebar:
-      bio: "buhez"
-      born: "deiziad-ganidigezh"
-      gender: "reizh"
-      location: "chomaj"
+      bio: "Buhez"
+      born: "Deiziad-ganedigezh"
+      edit_my_profile: "Daskemmañ ma frofil"
+      gender: "Reizh"
+      location: "Chomaj"
       remove_contact: "skarzhañ an darempred"
       remove_from: "Fellout a ra deoc'h skarzhañ %{name} diwar %{aspect}?"
     show:
       message: "Kemmenadenn"
+    sub_header:
+      add_some: "ouzhpennañ"
+      edit: "daskemmañ"
     two: "%{count} people"
     webfinger:
       fail: "Siwazh, n'eus ket moaien kavout %{handle}."
@@ -390,7 +405,7 @@ br:
     destroy:
       notice: "Foto bet skarzhet."
     new:
-      back_to_list: "Distreiñ da'r rollad"
+      back_to_list: "Distreiñ d'ar rollad"
       new_photo: "Foto Nevez"
       post_it: "postit!"
     new_profile_photo:
@@ -399,14 +414,15 @@ br:
       view_all: "sellet ouzh an holl fotoioù gant %{name}"
     show:
       delete_photo: "Skarzhañ ar Foto"
-      edit: "kemmañ"
-      edit_delete_photo: "Kemmañ deskrivadenn ar foto / skarzhañ ar foto"
+      edit: "daskemmañ"
+      edit_delete_photo: "Daskemmañ deskrivadenn ar foto / skarzhañ ar foto"
       make_profile_photo: "lakaat e-giz poltred"
       update_photo: "Nevesaat ar Foto"
     update:
       notice: "Foto bet kaset mat."
   posts:
     show:
+      destroy: "Skarzhañ"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -414,24 +430,28 @@ br:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: "war-raok"
+  previous: "a-raok"
   privacy: "Prevezted"
   profile: "Patrom"
   profiles:
     edit:
       edit_profile: "Kempenn ar patrom"
+      first_name: "Anv-bihan"
       last_name: "Anv-familh"
+      update_profile: "Nevesaat ar patrom"
       your_bio: "Ho puhez"
-      your_birthday: "Ho teiziad-ganidigezh"
+      your_birthday: "Ho teiziad-ganedigezh"
       your_gender: "Ho reizh"
-      your_location: "Ho kêr"
+      your_location: "Ho kumun"
       your_name: "Hoc'h anv"
       your_photo: "Ho poltred"
       your_private_profile: "Ho patrom prevez"
       your_public_profile: "Ho patrom foran"
       your_tags: "C'hwi: gant 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
-  public: "Boutin"
+    update:
+      updated: "Patrom nevesaet"
+  public: "A-wel d'an holl"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
@@ -442,12 +462,13 @@ br:
   registrations:
     edit:
       cancel_my_account: "Nullañ ma c'hont"
+      edit: "Daskemmañ %{name}"
       leave_blank: "(laoskit goullo m'ho peus ket c'hoant cheñch an dra-se)"
       password_to_confirm: "(ho ker-kuzh zo ret a-benn kadarnaat ar cheñchamantoù)"
     new:
-      create_my_account: "Create my account"
+      create_my_account: "Krouiñ ma c'hont!"
       enter_email: "Skrivit ur postel"
-      enter_password: "Skrivit ur ger-kuzh"
+      enter_password: "Skrivit ur ger-kuzh (c'hwec'h arouezenn da nebeutañ)"
       enter_password_again: "Skrivit ar memes ger-kuzh hag a-raok"
       enter_username: "Dibabit un anv-implijer (lizherennoù, niverennoù hag isbarennoù nemetken)"
       sign_up_message: "Social Networking with a <3"
@@ -455,7 +476,7 @@ br:
     create:
       sending: "O kas"
     destroy:
-      success: "Emaoc'h mignoned bremañ."
+      success: "Mignoned oc'h bremañ."
     helper:
       new_requests:
         few: "%{count} new requests!"
@@ -481,13 +502,18 @@ br:
   search: "Klask"
   services:
     index:
-      connect_to_facebook: "Connect to facebook"
-      connect_to_twitter: "Connect to twitter"
+      connect_to_facebook: "Kevreañ ouzh Facebook"
+      connect_to_tumblr: "Kevreañ ouzh Tumblr"
+      connect_to_twitter: "Kevreañ ouzh Twitter"
     inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"
+    remote_friend:
+      invite: "kouviañ"
+      resend: "adkas"
   settings: "Arventennoù"
   shared:
     add_contact:
+      add_new_contact: "Ouzhpennañ un darempred nevez"
       create_request: "Klask diwar ar skor Diaspora"
       diaspora_handle: "diaspora@handle.org"
       your_diaspora_username_is: "Setu hoc'h anv-implijer war Diaspora: %{diaspora_handle}"
@@ -503,29 +529,34 @@ br:
     contact_list:
       all_contacts: "An holl zarempredoù"
     invitations:
-      by_email: "dre Bostel"
+      by_email: "Dre bostel"
       from_facebook: "Diwar Facebook"
       invitations_left: "(%{count} a chom deoc'h)"
+      invite_someone: "Kouviañ unan bennak"
       invite_your_friends: "Klaskit mignoned"
       invites: "Pedadennoù"
     public_explain:
+      share: "Rannañ"
       title: "You are about to post a public message!"
     publisher:
       all: "an holl"
       all_contacts: "an holl darempredoù"
-      make_public: "diskouez da'n holl"
+      make_public: "diskouez d'an holl"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "Skrivañ ur c'hemennad da %{aspect}"
       posting: "Oc'h embann..."
-      share: "Kas"
+      share: "Rannañ"
+      share_with: "rannañ gant"
       whats_on_your_mind: "petra zo e-barzh ho penn?"
     reshare:
-      reshare: "Adkevrennañ"
+      reshare: "Adrannañ"
     stream_element:
       dislike: "Ne blij ket din"
       hide_and_mute: "Hide and Mute"
-      like: "Plij' ra din"
+      like: "Plijout a ra din"
+      shared_with: "Rannet gant: %{aspect_names}"
+      show: "diskouez"
   status_messages:
     helper:
       no_message_to_display: "Kemennadenn ebet da ziskouez."
@@ -537,7 +568,7 @@ br:
       two: "please make your status messages less than %{count} characters"
       zero: "please make your status messages less than %{count} characters"
   stream_helper:
-    hide_comments: "kuzhaat an embannoù"
+    hide_comments: "Kuzhat an holl evezhiadennoù"
     show_comments:
       few: "Show %{count} more comments"
       many: "Show %{count} more comments"
@@ -548,8 +579,12 @@ br:
   streams:
     aspects:
       title: "Your Aspects"
+    followed_tag:
+      follow: "Heuliañ"
+    mentioned_stream: "@Menegoù"
     mentions:
-      title: "Your Mentions"
+      contacts_title: "Tud hag o deus ho meneget"
+      title: "@Menegoù"
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
@@ -561,35 +596,47 @@ br:
       success: "Successfully stopped following: #%{name}"
   tags:
     show:
-      nobody_talking: "Den ebet zo o kaozeal diwar-benn %{tag} c'hoazh."
+      follow: "Heuliañ #%{tag}"
+      nobody_talking: "N'eus den o kaozeal diwar-benn %{tag} c'hoazh."
       people_tagged_with: "Tud bet merket gant %{tag}"
       posts_tagged_with: "Skridoù bet merket gant #%{tag}"
   tokens:
     show:
+      connect_to_cubbies: "Kevreañ ouzh Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+      making_the_connection: "o kevreañ"
+      sign_up_today: "Lakait hoc'h anv diouzhtu!"
   undo: "Mont war-gil?"
   username: "Anv-implijer"
   users:
     confirm_email:
-      email_confirmed: "E-Mail %{email} activated"
+      email_confirmed: "Postel %{email} gweredekaet"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
       auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Cheñch"
-      change_email: "Change E-Mail"
-      change_language: "Cheñch Yezh"
-      change_password: "Cheñch ar Ger-Kuzh"
+      change_email: "Cheñch postel"
+      change_language: "Cheñch yezh"
+      change_password: "Cheñch ger-kuzh"
+      character_minimum_expl: "a rank bezañ c'hwec'h arouezenn da vihanañ"
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      current_password: "Ho Ker-Kuzh"
+      close_account_text: "Serriñ ar Gont"
+      current_password: "Ho ker-kuzh"
+      download_photos: "pellgargañ ma fotoioù"
+      download_xml: "pellgargañ ma xml"
+      edit_account: "Daskemmañ ar gont"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
-      new_password: "Ger-Kuzh Nevez"
+      new_password: "Ger-kuzh nevez"
       your_email: "Ho postel"
       your_handle: "Ho skor diaspora"
+    getting_started:
+      saved: "Enrollet!"
+      who_are_you: "Piv oc'h-c'hwi?"
     update:
-      language_changed: "Yezh Cheñchet"
+      language_changed: "Yezh cheñchet"
       language_not_changed: "Kudennoù zo bet o cheñch ar yezh"
-      password_changed: "Ger-Kuzh Cheñchet"
+      password_changed: "Ger-kuzh cheñchet. Kevreañ gant ho ker-kuzh nevez a c'hellit ober bremañ."
       password_not_changed: "Ur gudenn zo bet o cheñch ar ger-kuzh"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"

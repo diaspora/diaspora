@@ -102,7 +102,7 @@ describe UsersController do
 
       it "uses devise's update with password" do
         @user.should_receive(:update_with_password).with(hash_including(@password_params))
-        @controller.stub!(:current_user).and_return(@user)
+        @controller.stub(:current_user).and_return(@user)
         put :update, :id => @user.id, :user => @password_params
       end
     end

@@ -96,7 +96,6 @@ nn:
   all_aspects: "Alle aspekta"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "ukjend person"
       video_title:
         unknown: "Ukjend filmtittel"
@@ -172,7 +171,6 @@ nn:
         tag_bug: "bug"
         tag_feature: "feature"
         tag_question: "spørsmål"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Laga i fellesskap, med guidar og nyhende"
       introduce_yourself: "Dette er straumen din.   Hiv deg med og introduser deg sjølv."
       keep_diaspora_running: "Held utviklinga av Diaspora* rask med ei månadleg donasjon!"
       keep_pod_running: "Held %{pod} på beina og spander kaffi på serverane med ein månadleg donasjon!"
@@ -566,7 +564,6 @@ nn:
       no_results: "Du må søkja etter noko."
       results_for: "søkjeresultat for"
       searching: "me leiter, ver ven og vent litt..."
-    last_post: "Siste innlegg"
     many: "%{count} personar"
     one: "1 person"
     other: "%{count} personar"
@@ -664,8 +661,6 @@ nn:
       first_name: "Fornamn"
       last_name: "Etternamn"
       update_profile: "Oppdater profilen"
-      you_are_nsfw: "Du har merka deg sjølv som \"ikkje trygg for arbeidsplassen\" (NSFW) og det du legg ut vil ikkje dukke opp i straumen til folk som har valt å ikkje få opp støytande innhald i straumen sin."
-      you_are_safe_for_work: "Du er merka som \"trygg for arbeidsplassen\", det vil seie at du meiner at det du legg ut stemmer overeins med fellesskapen sine retningslinjer."
       your_bio: "Livshistoria di"
       your_birthday: "Fødselsdagen din"
       your_gender: "Kjønnet ditt"
@@ -928,7 +923,6 @@ nn:
   tags:
     show:
       follow: "Følg #%{tag}"
-      followed_by: "følgt av"
       following: "Følgjer #%{tag}"
       nobody_talking: "Det er enno ingen som taler om %{tag}."
       none: "Det finnast ikkje tomme tags!"

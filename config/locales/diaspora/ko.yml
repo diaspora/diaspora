@@ -8,6 +8,7 @@ ko:
   _applications: "애플리케이션"
   _comments: "댓글"
   _contacts: "컨택"
+  _help: "도움말"
   _home: "처음"
   _photos: "사진"
   _services: "서비스"
@@ -87,7 +88,6 @@ ko:
   all_aspects: "모든 애스펙"
   application:
     helper:
-      diaspora_alpha: "디아스포라* 알파"
       unknown_person: "알 수 없는 사람"
       video_title:
         unknown: "알 수 없는 비디오 제목"
@@ -163,7 +163,6 @@ ko:
         tag_bug: "버그"
         tag_feature: "기능"
         tag_question: "질문"
-        tutorials_wiki_and_forum: "%{tutorial}과 %{wiki}와  %{forum}: 커뮤니티가 운영하는 튜토리얼, 사용 방법과 소식"
       introduce_yourself: "내 스트림입니다. 자기소개 어때요?"
       keep_diaspora_running: "정기 후원으로 디아스포라 개발을 빠르게 유지해주세요!"
       keep_pod_running: "%{pod} 팟이 빠르게 동작하고 서버와 디아스포라 팀이 마시는 커피를 살 수 있도록 정기후원을 해 주세요!"
@@ -324,6 +323,15 @@ ko:
     post_not_public: "공개 게시물이 아닙니다!"
   fill_me_out: "채워주세요"
   find_people: "사람이나 #태그 를 찾아보세요"
+  help:
+    account_and_data_management:
+      close_account_a: "설정 페이지의 아래에 가서 계정 지우기 단추를 클릭하세요."
+      close_account_q: "내 시드(계정)을 어떻게 지우나요?"
+      download_data_a: "네. 설정 페이지의 계정 탭 아래에 자료를 다운받는 두 버튼이 있습니다."
+      download_data_q: "내 시드(계정)에 있는 자료를 다운받을 수 있나요?"
+      move_pods_q: "내 시드(계정)를 다른 팟으로 어떻게 옮기나요?"
+    foundation_website: "디아스포라 재단 웹사이트"
+    markdown: "마크다운"
   hide: "숨기기"
   invitation_codes:
     excited: "%{name}님이 나를 기다리고 있습니다."
@@ -359,6 +367,7 @@ ko:
       resend: "다시 보내기"
       send_an_invitation: "초대장 보내기"
       send_invitation: "초대장 보내기"
+      sending_invitation: "초대장 전송중"
       to: "받는이"
   layouts:
     application:
@@ -538,7 +547,6 @@ ko:
       no_results: "검색 결과가 없습니다"
       results_for: "검색 결과:"
       searching: "검색중입니다, 잠시만 기다려주십시오···"
-    last_post: "최근 게시물"
     many: "%{count}명"
     one: "한 명"
     other: "%{count}명"
@@ -554,6 +562,7 @@ ko:
       gender: "성별"
       in_aspects: "속한 애스펙:"
       location: "위치"
+      photos: "사진"
       remove_contact: "컨택 지우기"
       remove_from: "%{aspect}에서 %{name}님을 지울까요?"
     show:
@@ -639,8 +648,6 @@ ko:
       first_name: "이름"
       last_name: "성"
       update_profile: "프로필 업데이트"
-      you_are_nsfw: "스스로를 유해매체로 지정했습니다. 내 콘텐트가 불쾌한 콘텐트 스트림을 거부한 사람들에게 보이지 않습니다."
-      you_are_safe_for_work: "스스로를 유해매체가 아니라고 지정했습니다. 내가 게시하는 콘텐트는 커뮤니티 지침을 동의할 것입니다."
       your_bio: "자기소개"
       your_birthday: "생년월일"
       your_gender: "성별"
@@ -905,7 +912,6 @@ ko:
   tags:
     show:
       follow: "#%{tag} 태그 팔로우하기"
-      followed_by: "팔로우한 사람들"
       following: "#%{tag} 태그 팔로우중"
       nobody_talking: "아직 %{tag} 태그가 달린 게시물이 없습니다."
       none: "빈 태그는 존재하지 않습니다!"

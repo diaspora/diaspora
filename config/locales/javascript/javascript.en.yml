@@ -60,6 +60,7 @@ en:
     show_more: "show more"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"
+    failed_to_remove: "Failed to remove the entry!"
     comments:
       show: "show all comments"
       hide: "hide comments"
@@ -81,6 +82,7 @@ en:
     photo_uploader:
       looking_good: "OMG, you look awesome!"
       completed: "<%= file %> completed"
+      error: "A problem occurred while uploading file <%= file %>"
       invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
       size_error: "{file} is too large, maximum file size is {sizeLimit}."
       empty: "{file} is empty, please select files again without it."

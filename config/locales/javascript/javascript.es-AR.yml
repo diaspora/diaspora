@@ -36,6 +36,7 @@ es-AR:
     edit: "Editar"
     failed_to_like: "¡No pudo marcarse como 'Me gusta'!"
     failed_to_post_message: "¡No pudo publicarse el mensaje!"
+    failed_to_remove: "Fallo al eliminar la entrada!"
     getting_started:
       alright_ill_wait: "Todo bien, voy a esperar."
       hey: "¡Hola, <%= name %>!"
@@ -45,6 +46,7 @@ es-AR:
       admin: "Administrador"
       close: "Cerrar"
       contacts: "Contactos"
+      help: "Ayuda"
       home: "Inicio"
       log_out: "Salir"
       mark_all_as_read: "Marcar todo como leído"
@@ -68,6 +70,7 @@ es-AR:
     photo_uploader:
       completed: "<%= file %> completado"
       empty: "El archivo {file} está vacío, por favor selecciona los archivos nuevamente sin incluir este."
+      error: "Un problema ocurrió mientras se subía el archivo <%= file %>"
       invalid_ext: "El archivo {file} tiene una extensión inválida. Solo las extensiones {extensions} están permitidas."
       looking_good: "¡Apa, te ves muy bien!"
       size_error: "El archivo {file} es demasiado grande, el tamaño máximo permitido es {sizeLimit}."

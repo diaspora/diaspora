@@ -15,9 +15,9 @@ describe Workers::Receive do
   end
 
   it 'calls receive' do
-    zord_mock = mock()
-    zord_mock.should_receive(:parse_and_receive).with(@xml)
-    Postzord::Receiver::Private.should_receive(:new).with(@user, anything).and_return(zord_mock)
+    zord_double = double()
+    zord_double.should_receive(:parse_and_receive).with(@xml)
+    Postzord::Receiver::Private.should_receive(:new).with(@user, anything).and_return(zord_double)
     Workers::Receive.new.perform(@user.id, @xml, @person.id)
   end
 end

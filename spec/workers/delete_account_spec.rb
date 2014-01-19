@@ -7,7 +7,7 @@ require 'spec_helper'
 describe Workers::DeleteAccount do
   describe '#perform' do
     it 'performs the account deletion' do
-      account_deletion = stub
+      account_deletion = double
       AccountDeletion.stub(:find).and_return(account_deletion)
       account_deletion.should_receive(:perform!)
       

@@ -26,14 +26,14 @@ describe Services::Facebook do
 
     it 'removes text formatting markdown from post text' do
       message = "Text with some **bolded** and _italic_ parts."
-      post = stub(:text => message, :photos => [])
+      post = double(:text => message, :photos => [])
       post_params = @service.create_post_params(post)
       post_params[:message].should match "Text with some bolded and italic parts."
     end
 
     it 'does not add post link when no photos' do
       message = "Text with some **bolded** and _italic_ parts."
-      post = stub(:text => message, :photos => [])
+      post = double(:text => message, :photos => [])
       post_params = @service.create_post_params(post)
       post_params[:message].should match "Text with some bolded and italic parts."
     end

@@ -1,4 +1,5 @@
 @import 'compass'
+@import 'colors'
 @import 'ui'
 @import '_mixins'
 @import '_flash_messages'
@@ -11,6 +12,10 @@
 @import 'opengraph'
 @import 'help'
 @import 'profile'
+@import 'publisher'
+@import 'facebox'
+@import 'aspects'
+@import 'popover'
 
 /* ====== media ====== */
 .media
@@ -37,7 +42,7 @@ body
   :padding 2em
   :margin 0
     :top 33px
-  :background-color $background
+  :background-color $background-white
 
   :font
     :family "Helvetica Neue",Helvetica,Arial,sans-serif
@@ -51,6 +56,13 @@ a
     :color $blue
     :text
       :decoration underline
+  &.disabled
+    :color $link-disabled-grey
+    :cursor default
+  &.disabled.button:hover
+    :color $link-disabled-grey
+    :cursor default
+    :background #f7f7f7
 
 p
   :word-wrap break-word
@@ -61,7 +73,7 @@ h1, h2, h3, h4
 
   small
     :font-size small
-    :color #999
+    :color $text-grey
 
 ul > li
   :list-style none
@@ -81,7 +93,7 @@ ul > li
   :-moz-box-shadow rgba(0,0,0,0.12) 0px 0px 5px inset
 
   :background
-    :color #eee
+    :color $background-grey
 
   :width 50px
   :height 50px
@@ -149,7 +161,7 @@ ul.as-selections
 
   .stream_element
     :border
-      :bottom 1px solid #ddd
+      :bottom 1px solid $border-grey
 
     p
       &:last-child
@@ -240,7 +252,7 @@ ul.as-selections
     :float left
     :margin
       :top 6px
-  
+
   .controls:first-child
     .control_icon
       @include transition(opacity)
@@ -284,7 +296,7 @@ ul.as-selections
 
 .grey,
 .grey *
-  :color #999
+  :color $text-grey
 
 .details,
 .details *
@@ -295,11 +307,10 @@ ul.as-selections
   :cursor default
 
 .time,
-.timeago,
 .via
   :color #aaa
   a
-    :color #999
+    :color $text-grey
   :text
     :decoration none
   :border none
@@ -326,7 +337,7 @@ ul.as-selections
     :size small
     :font
       :weight normal
-    :color #999
+    :color $text-grey
   #latest_message_time
     :font-style italic
   ul
@@ -376,7 +387,7 @@ ul.as-selections
 
     :padding
       :top 10px
-    
+
     .controls
       .comment_delete
         @include transition(opacity)
@@ -423,7 +434,7 @@ ul.as-selections
     :color #bbb
 
 .stream_element .post-content .reshare
-  :border-left 2px solid #ddd
+  :border-left 2px solid $border-grey
 
 .stream_element.loaded .media .bd .feedback
   :clear both
@@ -506,7 +517,7 @@ form p.checkbox_select
     :top 6px
 
 @mixin placeholder_styles
-  :color #999
+  :color $text-grey
   :text-shadow 0 1px 1px #eee
   :font-weight normal
 
@@ -517,251 +528,13 @@ form p.checkbox_select
 *::-webkit-input-placeholder
   @include placeholder_styles
 
-*:-moz-placeholder
+*::-moz-placeholder
   @include placeholder_styles
 
-#publisher
-  :z-index 1
-  :color #999
-  :position relative
-  :margin
-    :top 0
-    :bottom 0
-  :padding 12px
-    :top 0
-    :bottom 22px
-  :top 0
-
-  :border
-    :bottom 1px #eee solid
-
-  form
-    textarea
-      :resize none
-      :height 50px
-      :margin 0
-
-  &.mention_popup
-    :padding 1px 12px
-    :margin
-      :bottom 0
-    :border
-      :bottom none
-
-  &.closed
-    .options_and_submit
-      :display none !important
-
-    .counter
-      :display none
-
-  &:not(.closed)
-    textarea
-      :margin
-        :bottom 30px
-
-  .options_and_submit
-    :min-height 21px
-    :clear both
-    :position relative
-    :padding
-      :top 6px
-    :margin
-      :bottom -2px
-
-    input
-      :display inline
-
-    .public_toggle
-      :text
-        :align right
-      .dropdown
-        :text
-          :align left
-
-      .icons-monotone_wrench_settings
-        :display inline-block
-        :width 16px
-        :height 16px
-
-      a.question_mark
-        :text-decoration none
-
-    #publisher_service_icons
-      :position relative
-      :top 3px
-      :margin
-        :right 10px
-
-      .social_media_logos-facebook-16x16,
-      .social_media_logos-twitter-16x16,
-      .social_media_logos-tumblr-16x16,
-      .social_media_logos-wordpress-16x16,
-      .social_media_logos-email-16x16,
-      .social_media_logos-feed-16x16,
-      .social_media_logos-website-16x16
-        :display inline-block
-        :height 16px
-        :width 16px
-
-    #fileInfo
-      :display inline
-      :position relative
-      :top -2px
-
-  #status_message_fake_text
-    :min-height 20px
-
-
-  .content_creation
-    :margin
-      :top 1em
-
-  #file-upload
-    :bottom 1px !important
-    :display inline-block
-    :margin 0
-    :padding .3em .3em 3px
-    :position absolute !important
-    :right 6px
-    :cursor pointer
-
-
-    input[type='file']
-      :cursor pointer
-      :right initial !important
-      :height 100%
-      :width 100%
-      &::-webkit-file-upload-button
-        :cursor pointer
-
-    img
-      @include opacity(0.4)
-      :vertical-align bottom
-
-    &:hover
-      :color #666
-      :cursor pointer
-
-      img
-        @include opacity(0.8)
-
-    &:active
-      :color #444
-      :text-shadow 0 1px 0 #fafafa
-
-      img
-        @include opacity(1)
-
-    &.loading
-      @include opacity(0.5)
-
-#publisher_textarea_wrapper
-  #hide_publisher
-    @include opacity(0.3)
-    :z-index 5
-    :padding 3px
-    :position absolute
-    :right 6px
-    :margin-top 9px
-
-    .icons-deletelabel
-      :height 14px
-      :width 14px
-
-    &:hover
-      @include opacity(1)
-
-  @include border-radius(2px)
-
-  :border 1px solid #ccc
-  :background #fff
-
-  &.active
-    :border 1px solid #999
-
-  :position relative
-  :padding
-    :right 10px
-
-  textarea
-    :z-index 2
-    :border none
-
-    &:focus
-      :outline 0
-      :background transparent
-
-  &.with_attachments
-    :padding-bottom 38px
-
-  #photodropzone
-    :z-index 3
-    :position absolute
-    :bottom 0
-    :right 35px
-    :width 430px
-    :left 5px
-    :padding 0
-
-    li
-      :display inline-block
-      :margin-right 4px
-      img
-        :width 50px
-        :max-height 55px
-      .circle
-        @include border-radius(20px)
-
-        :display none
-        :z-index 1
-        :position absolute
-        :right -7px
-        :top -5px
-        :background
-          :color #333
-
-        :width 20px
-        :max-width 20px
-        :height 20px
-        :max-height 20px
-
-        :border 1px solid #fff
-
-      .x
-        :display none
-        :z-index 2
-        :position absolute
-        :top -3px
-        :right -1px
-        :font
-          :size small
-          :weight bold
-
-      &:hover
-        :cursor default
-        .circle
-          :display block
-        .x
-          :display block
-
-  .counter
-    :position absolute
-    :font-size 13px
-    :padding 12px 0 0 5px
-  .warning
-    :color orange
-  .exceeded
-    :color red
 .field_with_submit
   input[type='text']
     :width 82%
     :display inline
-
-#publisher.closed
-  #publisher_textarea_wrapper
-    #hide_publisher
-      :display none
 
 .dim
   @include opacity(0.3)
@@ -854,9 +627,6 @@ input[type="search"]
   :-webkit-appearance textfield
   :-moz-appearance textfield
 
-.facebox_content
-  :display none
-
 #photo_edit_options
   :display none
 
@@ -883,7 +653,7 @@ input[type="search"]
       :top 10px
 
 .photo_options
-  :color #888
+  :color $text-grey
   :text
     :align center
 
@@ -918,36 +688,6 @@ input[type="search"]
 
     :height 100px
     :width 100px
-
-#publisher_photo_upload
-  :position absolute
-  :display inline
-  :left 600px
-  :top 0
-  :z-index 10
-
-#profile_photo_upload
-  :margin
-    :top 5px
-  :min-height 100px
-  :position relative
-
-  img
-    @include border-radius(5px)
-    @include box-shadow(0,1px,2px,#666)
-
-    :position absolute
-    :left 0
-    :height 100px
-    :width 100px
-
-    &.avatar
-      @include transition(opacity, 0.5s)
-      &.loading
-        @include opacity(0.3)
-
-  :padding
-    :left 120px
 
 h3 span.current_gs_step
   :color #22C910
@@ -1000,125 +740,6 @@ ul#request_result
       :bottom 2.5em
       :padding 0
 
-.contact_list_controls
-  :height 30px
-  :margin
-    :bottom 5px
-  :vertical-align middle
-  :position relative
-
-#contact_list_search
-  :width 200px
-  :margin
-    :top 0
-  :float right
-
-.contact_list,
-.aspect_list
-  @include border-radius(3px)
-
-  :height 300px
-  :max-height 300px
-
-  :overflow-y auto
-  :overflow-x hidden
-
-  :border 1px solid #bbb
-
-  :background
-    :color rgb(252,252,252)
-
-  .avatar
-    :float left
-    :height 50px
-    :width 50px
-    :margin
-      :right 10px !important
-
-  .button.share
-    :padding
-      :right 20px
-    .right
-      :right 8px
-      :top 3px
-
-  .icons-monotone_plus_add_round,
-  .icons-monotone_check_yes
-    :height 20px
-    :width 20px
-
-  > .contacts
-    :margin 0
-    :padding 5px
-      :right 0
-
-    > .contact
-      @include border-radius(3px)
-      @include box-shadow(0, 1px, 5px, #ccc)
-      :background
-        :color #fff
-      :float left
-      :overflow-x hidden
-      :overflow-y hidden
-
-      :position relative
-      :display inline-block
-
-      &.hidden
-        :display none
-
-      :height 50px
-      :width 170px
-
-      :margin
-        :bottom 5px
-        :right 5px
-
-      :padding 5px
-      :border 1px solid #999
-
-      > .name
-        :white-space nowrap
-
-      &.remote_friend
-        :width 285px
-
-      a.button
-        @include box-shadow(0,0,0)
-
-        :border
-          :bottom none
-
-        :min-width auto
-        :float right
-        :padding 2px 4px
-        :margin-top 5px
-
-        &.added
-          @include linear-gradient(rgb(158,255,153), rgb(92,199,86))
-
-        &.added.remove
-          @include linear-gradient(rgb(255,153,153), rgb(199,86,86))
-
-          &:active
-            @include linear-gradient(rgb(199,119,119), rgb(130,55,55))
-
-.aspect_list
-  :height 300px
-  :max-height 300px
-
-  .name
-    :left 1em
-
-  ul
-    > li
-      :padding 1em
-      :height 1em
-
-      .right
-        :top 2px
-        :right 1em
-
 #signup_field
   :margin
     :top -200px
@@ -1136,7 +757,7 @@ ul#request_result
     :font
       :size 12px
     :display block
-    :color #888
+    :color $text-grey
     :text-shadow 0 1px 0 #fff
 
     #mce-error-response
@@ -1219,7 +840,7 @@ ul#request_result
   :margin
     :top 14px
     :left 540px
-  :color #888
+  :color $text-grey
 
 
 ul#press_logos
@@ -1259,8 +880,8 @@ ul#press_logos
 
 #already_invited_pane
   h4
-    :color #666
-  :color #666
+    :color $text-dark-grey
+  :color $text-dark-grey
 
 #search_title
   :font
@@ -1326,14 +947,14 @@ ul#press_logos
 
 .show_comments
   :border
-    :top 1px solid #ddd
+    :top 1px solid $border-grey
   :margin
     :top 5px
 
 .show_comments,
 .likes_container
   a
-    :color #999
+    :color $text-grey
 
 .likes
   .icons-heart
@@ -1356,63 +977,6 @@ ul#press_logos
 
 #inner_account_delete
   :width 810px
-
-#aspect_edit_pane
-  :width 810px
-  .person_tiles
-    .tile
-      @include border-radius(2px)
-
-      :padding 6px
-        :left 65px
-      :margin 3px
-        :left 0
-      :display inline-block
-      :width 126px
-      :height 50px
-
-      :border 1px solid #eee
-
-      :position relative
-
-      img
-        :position absolute
-        :left 6px
-
-  &.larger
-    :width 650px
-
-#facebox_header
-  :position relative
-  :padding
-    :bottom 10px
-
-  .right
-    :z-index 3
-    :right 1em
-    :top 14px
-    :color #ccc
-
-    img
-      :vertical
-        :align top
-      :position relative
-      :top 0px
-
-  h3,
-  h4
-    .description
-      :margin
-        :top 0px
-
-  .tiny_text
-    :font
-      :size 11px
-      :weight normal
-
-#aspect_edit_controls
-  :margin
-    :top 8px
 
 .icons-monotone_email_letter_round
   :height 128px
@@ -1458,7 +1022,7 @@ ul#press_logos
 .invite_friends
   :padding 1em
   :background
-    :color #eee
+    :color $background-grey
   :border 1px solid #ccc
 
 #remember_me
@@ -1485,7 +1049,7 @@ ul#press_logos
   .last_author
     :font
       :size 12px
-    :color #777
+    :color $text-dark-grey
 
   .collapsible
     :overflow hidden
@@ -1507,7 +1071,7 @@ ul#press_logos
       :color $grey
       :text-shadow 0 0 7px #FFF
       :cursor pointer
-      :border-bottom 2px solid #DDD
+      :border-bottom 2px solid $border-grey
       @include border-radius(0, 0, 3px, 3px)
       @include linear-gradient(rgba(255,255,255,0) , #EEE, 0%, 95%)
       :background-color transparent
@@ -1522,211 +1086,6 @@ ul#press_logos
 
       iframe, .thumb img
         :width 100%
-
-.conversation_participants
-  :background
-    :color $background
-  :margin
-    :bottom 10px
-
-  :-webkit-box-shadow 0 2px 3px -3px #666
-  :-moz-box-shadow 0 2px 3px -3px #666
-  :box-shadow 0 2px 3px -3px #666
-
-  a.close_conversation
-    :display block
-    :margin-top 20px
-    :float right
-
-    .icons-deletelabel
-      :height 14px
-      :width 14px
-
-  h3
-    :margin 0
-      :top 6px
-      :bottom 0px
-    :padding
-      :bottom 10px
-
-  .avatar
-    :height 30px
-    :width 30px
-
-  :line
-    :height 0
-
-  a img
-    :margin
-      :bottom 4px
-
-  .conversation_controls
-    a
-      :margin
-        :right 10px
-
-    :margin
-      :bottom 10px
-
-  :border
-    :bottom 1px solid #ddd
-  :padding 10px
-    :top 101px
-    :bottom 10px
-  :width 560px
-  :margin
-    :top -100px
-
-  .avatars
-    :text
-      :align right
-    :margin
-      :top 9px
-
-.conversation_participants
-  a:hover
-    :text-decoration none
-
-
-.stream_element.conversation
-  :padding 8px
-
-  .message_count
-    @include border-radius(5px)
-
-    :float right
-    :right 0px
-    :padding 0 5px
-    :position relative
-    :background
-      :color #999
-    :color #eee
-    :font
-      :size 12px
-      :weight normal
-
-  .unread_message_count
-    @include border-radius(5px)
-
-    :float right
-    :right 5px
-    :padding 0 5px
-    :position relative
-    :background
-      :color #b11
-    :color #eee
-    :font
-      :size 12px
-      :weight normal
-
-  .participant_count
-    :font
-      :weight normal
-
-  .timestamp
-    :position relative
-    :float right
-    :font
-      :weight normal
-    :color $blue
-
-  .participants_link
-    :margin-top 5px
-    :clear right
-    :float right
-    :color #aaa
-
-  .icons-users
-    :display block
-    :width 25px
-    :height 16px
-
-  .conversation_participants_popover_content
-    :display none
-
-  .conversation_participants_popover
-    :margin 0 auto
-    :padding-left 12px
-
-  .avatar
-    :display inline
-    :width 35px
-    :height 35px
-    :margin
-      :right 10px
-      :bottom 10px
-
-  .participants_left
-    :display block
-
-  &:hover:not(.selected)
-    :background
-      :color #fafafa
-
-  &.selected:hover
-    :background
-      :color lighten($blue,5%)
-
-  &:hover
-    :cursor pointer
-
-.conversation.unread
-  :background
-    :color darken($background,5%)
-
-.conversation.selected
-  :background
-    :color $blue
-  .subject
-    :color #fff
-  .last_author
-    :color #fff
-  .timestamp
-    :color #eee
-  :border
-    :bottom 1px solid darken($blue, 10%)
-    :top 1px solid darken($blue, 10%)
-
-#conversation_inbox
-  :height 100%
-  :overflow-y auto
-  :overflow-x none
-
-  a:hover
-    :text
-      :decoration none
-
-#left_pane
-  :position fixed
-  :width 337px
-
-  h3
-    :padding
-      :bottom 0
-    :margin
-      :bottom 15px
-
-  #left_pane_header
-    :padding 10px
-    :height 55px
-    :border
-      :bottom 1px solid #ddd
-
-#no_conversation_text
-  :font
-    :size 20px
-    :weight bold
-  :color #ccc
-  :text
-    :align center
-  :margin
-    :top 100px
-
-#no_conversation_controls
-  :text
-    :align center
-  :font
-    :size 12px
 
 #contact_visibility_padlock:hover
   @include opacity(0.7)
@@ -1759,13 +1118,13 @@ h1.tag
   .tag
     :background
       :color #efefef
-    :color #999
+    :color $text-grey
     :border
-      :bottom 1px dotted #999
+      :bottom 1px dotted $border-dark-grey
 
     &:hover
       :border
-        :bottom 1px solid #999
+        :bottom 1px solid $border-dark-grey
 
 .diaspora_handle
   :font
@@ -1795,7 +1154,7 @@ h1.tag
     :color #e6e6e6
   :border-radius 8px
   :padding 5px
-  :color #999
+  :color $text-grey
 
   :text-align center
   .day
@@ -1810,7 +1169,7 @@ h1.tag
 .notification_count
   :background
     :color #f0f0f0
-  :color #999
+  :color $text-grey
   :font
     :weight normal
 
@@ -1823,7 +1182,7 @@ h1.tag
 
   &.unread
     :background
-      :color lighten(#A40802, 5%)
+      :color lighten($red, 5%)
     :color #eee !important
     :font
       :weight bold
@@ -1832,7 +1191,7 @@ h1.tag
   .title
     :position relative
     :border
-      :bottom 1px solid #ddd
+      :bottom 1px solid $border-grey
     :padding 2px 0
       :top 0
 
@@ -1845,7 +1204,7 @@ h1.tag
       :top 3px
       :font-size smaller
       :font-weight bold
-      :color #777
+      :color $text-dark-grey
 
     .icons-plus,
     .icons-heart,
@@ -1891,12 +1250,12 @@ h1.tag
     h5
       :font-size 12px
       :margin 0
-      :color #666
+      :color $text-dark-grey
 
   .section
     .content
       :padding 8px
-      :color #999
+      :color $text-grey
       :font-size 11px
     li
       :list-style none
@@ -1905,8 +1264,12 @@ h1.tag
     :margin
       :bottom 25px
 
+    #invite_code
+      :width 100%
+      @include box-sizing(border-box)
+
 .subtle
-  :color #888
+  :color $text-grey
   :font
     :style italic
 
@@ -1931,10 +1294,6 @@ h1.tag
 
   &:active
     @include linear-gradient(darken(#D9FFA9,20%),darken(#B9E68A,20%))
-
-#facebox
-  input[type='text'], input.text
-    :width 98%
 
 #client-application-image
   :max-width 100%
@@ -1965,15 +1324,15 @@ ul#requested-scopes
       :display none
 
 .item_count
-  :width 16px
+  :min-width 16px
   :line-height 16px
   :text-align center
   :float right
   @include border-radius(4px)
   :margin-top 1px
-  :color #999
+  :color $text-grey
   :background
-    :color #eee
+    :color $background-grey
   :display inline-block
   :font
     :size 11px
@@ -1996,7 +1355,7 @@ ul.left_nav
       :decoration none
   a
     :font-weight bold
-    :color #777
+    :color $link-grey
     :text
       :decoration none
 
@@ -2012,7 +1371,7 @@ ul.left_nav
     > a:not(.sub_selected)
       :color #333
       .item_count
-        :color #666
+        :color $text-dark-grey
 
   a.aspect_selector,
   a.home_selector,
@@ -2151,7 +1510,7 @@ ul.left_nav
     :margin
       :bottom 0
   :border
-    :left 1px solid #ddd
+    :left 1px solid $border-grey
   :padding
     :left 10px
     :top 20px
@@ -2165,108 +1524,12 @@ ul.left_nav
 .new_aspect,
 a.toggle_selector
   :outline none
-  :color #999
+  :color $text-grey
   :font
     :style italic
 
   &:hover
-    :color #777
-
-.no_contacts
-  :position relative
-  :text-align center
-  :top 50px
-
-#people_stream.contacts
-  .stream_element
-    :padding 10px
-    :min-height 30px
-    .right
-      :top 16px
-
-      a
-        @include opacity(0.3)
-
-        &:hover
-          @include opacity(1)
-
-    .from
-      :position relative
-      a
-        :color rgb(85,80,80)
-
-    .content
-      :padding
-        :left 40px
-    .info
-      :margin
-        :top -2px
-
-  .avatar
-    :height 30px
-    :width 30px
-
-  .icons-monotone_close_exit_delete
-    :height 20px
-    :width 20px
-
-#aspect_controls
-  @include border-radius(2px)
-  :background
-    :color #fafafa
-  :border 1px solid #ccc
-  :padding 10px
-  :min-height 23px
-
-  .conversation_button
-    :float right
-
-#selected_aspect_contacts
-  .avatar
-    :height 32px
-    :width 32px
-    :margin
-      :bottom -2px
-
-.stream-faces
-  a:hover
-    :text-decoration none
-
-#view_all_contacts_link
-  @include border-radius(2px)
-  :display block
-  :padding 5px
-  :border 1px dotted #aaa
-  :text-align center
-  :margin 5px 0
-
-.bottom_submit_section
-  :overflow hidden
-  :display block
-  :position relative
-  :text-align right
-
-  form
-    :float left
-    :display inline-block
-    .creation
-      :float right
-
-  .icons-padlock-open,
-  .icons-padlock-closed
-    :float left
-    :height 16px
-    :width  16px
-    :margin
-      :left 4px
-      :top 2px
-
-#no_contacts
-  :text-align center
-  :padding 10px
-  :background
-    :color #eee
-  :color #666
+    :color $link-grey
 
 .cubbies_collage
   :position absolute
@@ -2310,7 +1573,7 @@ a.toggle_selector
   :width 140px
 
   .tags
-    :color #999
+    :color $text-grey
 
   h4
     :margin
@@ -2361,7 +1624,7 @@ a.toggle_selector
     :position relative
 
     :border
-      :bottom 1px solid #ddd
+      :bottom 1px solid $border-grey
 
     :padding 5px
     :margin
@@ -2373,7 +1636,7 @@ a.toggle_selector
 
     .tags
       a
-        :color #999
+        :color $text-grey
 
     .avatar
       :height 30px
@@ -2398,7 +1661,7 @@ a.toggle_selector
   .diaspora_id_text
     :font-size 12px
     :text-align right
-    :color #999
+    :color $text-grey
     :margin
       :top -8px
     :padding 0
@@ -2451,7 +1714,7 @@ a.toggle_selector
   :text
     :align center
   :border
-    :bottom 1px solid #ddd
+    :bottom 1px solid $border-grey
 
 .mobile_row
   :margin
@@ -2485,7 +1748,7 @@ a.toggle_selector
   span.host_uri
     :float right
     :margin-top -28px
-    :color #999
+    :color $text-grey
     :padding-right 9px
 
 .center
@@ -2496,6 +1759,38 @@ a.toggle_selector
   :-webkit-box-shadow none
   :-moz-box-shadow none
   :box-shadow none
+
+#hello-there
+  p
+    :font-size medium
+  h1
+    :margin 0px
+  h2
+    :margin
+      :top 80px
+      :bottom 12px
+  h3
+    :font
+      :size large
+      :weight 200
+    :margin 0px
+  form, p
+    :margin-left 30px
+  input
+    :margin-bottom 15px
+  .hero-unit
+    :margin 20px 42px
+    :padding 40px 80px
+  .awesome
+    :text-align center
+    :margin-top 60px
+    .creation
+      :font-size 16px
+      
+#profile_photo_upload
+  #fileInfo
+    :margin-top 12px
+    :text-align left
 
 #welcome-to-diaspora
   :-webkit-box-shadow inset 0 -2px 10px rgba(0,0,0,0.35)
@@ -2559,38 +1854,13 @@ a.toggle_selector
     &.hidden
       :display none
 
-.popover
-  .close
-    @include opacity(0)
-    @include transition(opacity, 0.2s)
-    :position relative
-    :top 1px
-    :right -5px
-    :float right
-    .icons-deletelabel
-      :height 14px
-      :width 14px
-
-    img
-      margin-top: 10px
-
-  &:hover
-    .close
-      @include opacity(0.5)
-
-      &:hover
-        @include opacity(1)
-body
-  .popover
-    :z-index 1000
-
 .nsfw-shield
   @include border-radius(3px)
-  :background-color #eee
+  :background-color $background-grey
   :width 90%
   :padding 5px 10px
-  :border 1px solid #ddd
-  :color #999
+  :border 1px solid $border-grey
+  :color $text-grey
 
 #back-to-top
   :display block
@@ -2615,10 +1885,9 @@ body
 
 .nsfw_off
   :font-size smaller
-  :color #999
+  :color $text-grey
   a
-    :color #666
-    :color #666
+    :color $text-dark-grey
 
 #fileInfo
   :font-size small
@@ -2636,28 +1905,8 @@ body
   :background
     :color #e8f7ff
 
-#publisher-images
-  #locator
-    :bottom 1px !important
-    :display inline-block
-    :margin 0
-    :position absolute !important
-    :right 30px
-    :cursor pointer
-    img
-      :padding-top 2px
-      @include opacity(0.4)
-    &:hover
-      :color #666
-      :cursor pointer
-      img
-        @include opacity(0.8)
-  .btn
-    :height 19px
-    :width 19px
-
 #location
-  :border 1px solid #999
+  :border 1px solid $border-dark-grey
   :height 20px
   #location_address
     :border none

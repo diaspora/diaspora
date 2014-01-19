@@ -28,6 +28,7 @@ sk:
     comma: ","
     comments:
       hide: "Skryť komentáre"
+      no_comments: "Ešte tu nie sú žiadne príspevky."
       show: "Zobraziť všetky komentáre"
     confirm_dialog: "Určite?"
     conversation:
@@ -45,6 +46,7 @@ sk:
       admin: "Administrátor"
       close: "zatvoriť"
       contacts: "Kontakty"
+      help: "Pomoc"
       home: "Úvodná stránka"
       log_out: "Odhlásiť sa"
       mark_all_as_read: "Označiť všetky ako prečítané"
@@ -68,13 +70,14 @@ sk:
     photo_uploader:
       completed: "<%= file %> hotovo"
       empty: "Súbor {file} je prázdny; vyber, prosím, znova všetky súbory okrem tohto."
+      error: "Pri nahrávaní súboru<%= file %> sa vyskytla chyba"
       invalid_ext: "Súbor {file} má neplatnú príponu. Povolené sú len prípony {extensions}."
       looking_good: "No teda, vyzeráš super!"
       size_error: "Súbor {file} je príliš veľký, maximálna povolená veľkosť je {sizeLimit}."
     publisher:
       at_least_one_aspect: "Musíš publikovať aspoň jednu kategóriu"
       limited: "Vyhradený – tvoj príspevok uvidia len ľudia, s ktorými sa oň podelíš"
-      near_from: "Blízko obce:<%= location %>"
+      near_from: "Odoslané z obce:<%= location %>"
       public: "Verejný – tvoj príspevok pomocou vyhľadávačov uvidí a nájde každý"
     reshares:
       duplicate: "Je to dobré, čo? O tento príspevok si sa už raz znova podelil(a)!"

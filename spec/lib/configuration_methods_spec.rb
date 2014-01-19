@@ -44,7 +44,7 @@ describe Configuration::Methods do
   
   describe "#bare_pod_uri" do
     it 'is #pod_uri.authority stripping www.' do
-      pod_uri = mock
+      pod_uri = double
       @settings.stub(:pod_uri).and_return(pod_uri)
       pod_uri.should_receive(:authority).and_return("www.example.org")
       @settings.bare_pod_uri.should == 'example.org'
@@ -53,10 +53,10 @@ describe Configuration::Methods do
   
   describe "#configured_services" do
     it "includes the enabled services only" do
-      services = mock
-      enabled = mock
+      services = double
+      enabled = double
       enabled.stub(:enable?).and_return(true)
-      disabled = mock
+      disabled = double
       disabled.stub(:enable?).and_return(false)
       services.stub(:twitter).and_return(enabled)
       services.stub(:tumblr).and_return(enabled)
@@ -72,7 +72,7 @@ describe Configuration::Methods do
   
   describe "#version_string" do
     before do
-      @version = mock
+      @version = double
       @version.stub(:number).and_return("0.0.0.0")
       @version.stub(:release?).and_return(true)
       @settings.stub(:version).and_return(@version)
@@ -148,7 +148,7 @@ describe Configuration::Methods do
     context "with a relative log set" do
       it "joins that with Rails.root" do
         path = "/some/path/"
-        Rails.stub!(:root).and_return(stub(join: path))
+        Rails.stub(:root).and_return(double(join: path))
         @settings.environment.sidekiq.log = "relative_path"
         @settings.sidekiq_log.should match path
       end

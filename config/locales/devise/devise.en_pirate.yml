@@ -8,7 +8,3 @@ en_pirate:
   devise:
     invitations:
       invitation_token_invalid: "The invitation token provided is not valid!"
-    mailer:
-      invitation_instructions:
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        view_in: "View in"

@@ -9,16 +9,13 @@ br:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       all_aspects: "An holl weloù"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
       select_aspects: "Dilenn gweloù"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "You have started sharing with <%= name %>!"
+      stopped_sharing_with: "You have stopped sharing with <%= name %>."
       toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In <%= count %> aspects"
+        one: "In <%= count %> aspect"
+        other: "In <%= count %> aspects"
         zero: "Add to aspect"
     aspect_navigation:
       deselect_all: "Dizilenn pep tra"
@@ -31,7 +28,7 @@ br:
     delete: "Dilemel"
     getting_started:
       alright_ill_wait: "Ma, me zo o vont da c'hortoz."
-      hey: "Hey, {{name}}!"
+      hey: "Hey, <%= name %>!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       admin: "Merañ"
@@ -56,7 +53,7 @@ br:
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
     reshares:
       duplicate: "You've already reshared that post!"
-    search_for: "Klask war-lerc'h {{name}}"
+    search_for: "Klask war-lerc'h <%= name %>"
     show_more: "Gwelet muioc'h"
     stream:
       comment: "Ober un evezhiadenn"
@@ -85,7 +82,7 @@ br:
       unfollow: "Chom hep heuliañ"
       unlike: "Ne blij ket din ken"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     timeago:
       day: "un devezh"
       days: "%d a zevezhioù"
@@ -104,4 +101,4 @@ br:
       years: "%d a vloavezhioù"
     videos:
       unknown: "Stumm ar video dianav"
-      watch: "Sellet ouzh ar video gant {{provider}}"
+      watch: "Sellet ouzh ar video gant <%= provider %>"

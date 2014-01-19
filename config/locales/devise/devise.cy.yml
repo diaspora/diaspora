@@ -26,9 +26,6 @@ cy:
       confirmation_instructions:
         subject: "Cyfarwyddiadau Cadarnhad"
       hello: "Helo %{email}!"
-      invitation_instructions:
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        view_in: "View in"
       reset_password_instructions:
         change: "Newid y cyfrinair"
       unlock_instructions:

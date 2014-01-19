@@ -5,3 +5,4 @@ end
 And /^I mark myself as safe for work$/ do
   uncheck('profile[nsfw]')
 end
+

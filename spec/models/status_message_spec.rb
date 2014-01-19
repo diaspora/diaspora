@@ -101,23 +101,30 @@ describe StatusMessage do
     end
   end
 
-  it "should have either a message or at least one photo" do
-    n = FactoryGirl.build(:status_message, :text => nil)
-#    n.valid?.should be_false
+  context "emptyness" do
+    it "needs either a message or at least one photo" do
+      n = @user.build_post(:status_message, :text => nil)
+      n.should_not be_valid
 
-#    n.text = ""
-#    n.valid?.should be_false
+      n.text = ""
+      n.should_not be_valid
 
-    n.text = "wales"
-    n.valid?.should be_true
-    n.text = nil
+      n.text = "wales"
+      n.should be_valid
+      n.text = nil
 
-    photo = @user.build_post(:photo, :user_file => uploaded_photo, :to => @aspect.id)
-    photo.save!
+      photo = @user.build_post(:photo, :user_file => uploaded_photo, :to => @aspect.id)
+      photo.save!
 
-    n.photos << photo
-    n.valid?.should be_true
-    n.errors.full_messages.should == []
+      n.photos << photo
+      n.should be_valid
+      n.errors.full_messages.should == []
+    end
+
+    it "doesn't check for content when author is remote (federation...)" do
+      p = FactoryGirl.build(:status_message, text: nil)
+      p.should be_valid
+    end
   end
 
   it 'should be postable through the user' do
@@ -256,8 +263,8 @@ STR
       msg_lc.save; msg_uc.save; msg_cp.save
 
       tag_array = msg_lc.tags
-      msg_uc.tags.should =~ tag_array
-      msg_cp.tags.should =~ tag_array
+      expect(msg_uc.tags).to match_array(tag_array)
+      expect(msg_cp.tags).to match_array(tag_array)
     end
   end
 

@@ -22,7 +22,7 @@ describe AccountDeletion do
     end
 
     it 'creates a deleter' do
-      AccountDeleter.should_receive(:new).with(alice.person.diaspora_handle).and_return(stub(:perform! => true))
+      AccountDeleter.should_receive(:new).with(alice.person.diaspora_handle).and_return(double(:perform! => true))
       @ad.perform!
     end
     
@@ -45,7 +45,7 @@ describe AccountDeletion do
     end
 
     it 'creates a public postzord' do
-      Postzord::Dispatcher::Public.should_receive(:new).and_return(stub.as_null_object)
+      Postzord::Dispatcher::Public.should_receive(:new).and_return(double.as_null_object)
       @ad = AccountDeletion.new(:person => alice.person)
       @ad.send(:dispatch)
     end

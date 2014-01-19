@@ -7,23 +7,141 @@
 es-BO:
   _applications: "Aplicaciones"
   _comments: "Comentarios"
+  _contacts: "Contactos"
   _home: "Inicio"
   _photos: "Fotos"
   _services: "Servicios"
   account: "Cuenta"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "debe ser único entre los contactos de este usuario"
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "ya está ocupado."
+        request:
+          attributes:
+            from_id:
+              taken: "es un duplicado de una solicitud preexistente."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Esta bueno verdad?  Ya compartiste esa publicación!"
+        user:
+          attributes:
+            email:
+              taken: "ya esta siendo usado"
+            person:
+              invalid: "es inválido"
+            username:
+              invalid: "no es válido. Solo se permiten letras, números y guiones bajos."
+              taken: "ya esta siendo usado"
   ago: "hace %{time}"
+  all_aspects: "Todos los aspectos"
+  application:
+    helper:
+      unknown_person: "persona desconocida"
+      video_title:
+        unknown: "Título de video desconocido"
   are_you_sure: "¿Estás seguro/a?"
   are_you_sure_delete_account: "¿Estás seguro/a de que quieres cerrar tu cuenta? ¡Esto no se puede deshacer!"
+  aspects:
+    add_to_aspect:
+      failure: "Error al añadir el contacto al aspecto."
+      success: "Contacto añadido exitosamente al aspecto."
+    aspect_contacts:
+      done_editing: "editado"
+    aspect_listings:
+      add_an_aspect: "+ Añadir un aspecto"
+      deselect_all: "Anular selección"
+      edit_aspect: "Editar %{name}"
+      select_all: "Seleccionar todo"
+    contacts_not_visible: "Los contactos en este aspecto no podrán verse entre ellos."
+    contacts_visible: "Los contactos en este aspecto podrán verse entre ellos."
+    create:
+      failure: "Error al crear el aspecto."
+      success: "Tu nuevo aspecto %{name} ha sido creado"
+    destroy:
+      failure: "%{name} no esta vacio y no pudo ser eliminado."
+      success: "%{name} ha sido eliminado con éxito."
+    edit:
+      add_existing: "Añade un contacto existente"
+      aspect_list_is_not_visible: "la lista de aspectos está oculta a otros en este aspecto"
+      aspect_list_is_visible: "la lista de contactos del aspecto es visible"
+      confirm_remove_aspect: "¿Estás seguro de que quieres eliminar este aspecto?"
+      done: "Hecho"
+      make_aspect_list_visible: "¿hacer que los contactos en este aspecto puedan verse entre ellos?"
+      remove_aspect: "Eliminar este aspecto"
+      rename: "Cambiar nombre"
+      update: "actualizar"
+      updating: "actualizando"
+    few: "%{count} aspectos"
+    helper:
+      are_you_sure: "¿Estás seguro de querer borrar este aspecto?"
+      aspect_not_empty: "El aspecto no está vacío"
+      remove: "eliminar"
+    index:
+      donate: "Donar"
+      handle_explanation: "Esta es tu dirección de Diaspora. Como una dirección de correo electrónico, puedes dársela a la gente para que te encuentre."
+      no_contacts: "No hay contactos"
+      no_tags: "+ Encuentra una etiqueta para seguir"
+      people_sharing_with_you: "Personas que comparten contigo"
+      post_a_message: "publica un mensaje >>"
+      unfollow_tag: "Dejar de seguir #%{tag}"
+      welcome_to_diaspora: "Bienvenido a Diaspora, %{name}!"
+    many: "%{count} aspectos"
+    move_contact:
+      error: "Error moviendo contacto: %{inspect}"
+      success: "La persona fue movida al nuevo aspecto"
+    new:
+      create: "Crear"
+      name: "Nombre (solo es visible para tí)"
+    no_contacts_message:
+      community_spotlight: "lo más destacado de la comunidad"
+      or_spotlight: "o puedes compartir con %{link}"
+      try_adding_some_more_contacts: "Puedes buscar o invitar a más contactos."
+      you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos!"
+    no_posts_message:
+      start_talking: "¡Nadie ha dicho nada aún!"
+    one: "1 aspecto"
+    other: "%{count} aspectos"
+    seed:
+      acquaintances: "Conocidos"
+      family: "Familia"
+      friends: "Amigos"
+      work: "Trabajo"
+    selected_contacts:
+      manage_your_aspects: "Administra tus aspectos"
+      no_contacts: "Todavía no tienes ningún contacto aquí."
+      view_all_community_spotlight: "Ver lo más destacado de la comunidad"
+      view_all_contacts: "Ver todos los contactos"
+    show:
+      edit_aspect: "editar aspecto"
+    two: "%{count} aspectos"
+    update:
+      failure: "Tu aspecto, %{name}, tiene un nombre muy largo para ser guardado."
+      success: "Tu aspecto %{name}, ha sido editado con éxito."
+    zero: "no hay aspectos"
   back: "atrás"
   cancel: "Cancelar"
   delete: "Borrar"
   email: "correo electrónico"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
+      invalid_fields: "Campos inválidos"
   fill_me_out: "Complétame"
   find_people: "Encontrar personas o #tags"
   hide: "Ocultar"
   limited: "Limitado"
   more: "Más"
   next: "Siguiente"
+  no_results: "No hay resultados"
+  nsfw: "No apto para todo público"
   ok: "Aceptar"
   or: "o"
   password: "Contraseña"
@@ -38,3 +156,4 @@ es-BO:
   terms_and_conditions: "Términos y condiciones"
   undo: "¿Deshacer?"
   username: "Nombre de usuario"
+  welcome: "¡Bienvenido/a!"

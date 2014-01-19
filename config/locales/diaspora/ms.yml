@@ -44,7 +44,6 @@ ms:
   all_aspects: "Semua Aspek"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "orang yang tidak diketahui"
       video_title:
         unknown: "Tajuk Wayang Tidak Diketahui"

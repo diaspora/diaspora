@@ -60,11 +60,6 @@ $(document).ready(function(){
     }
   });
 
-  resize();
-  $(window).resize(function(){
-    resize();
-  });
-
   $('#conversation_inbox .stream').infinitescroll({
     navSelector  : ".pagination",
                  // selector for the paged navigation (it will be hidden)
@@ -103,42 +98,4 @@ $(document).ready(function(){
       $('#message_text').focus();
      });
   });
-
-  $('.participants_link').popover({
-    html: true,
-    title: function(){
-       return Diaspora.I18n.t('conversation.participants') + '<a href="#" class="close"><div class="icons-deletelabel"></div></a>';
-    },
-    content: function() {
-      var conv_id = $(this).data('conversation-id');
-      return $('[data-content-conversation-id="' + conv_id + '"]').html();
-    },
-    trigger: 'manual'
-  });
-  
-  $('.participants_link > span').tooltip({placement: 'bottom'});
-
-  $('.participants_link').click(function(e) {
-    e.stopPropagation();
-    var self = $(this);
-    self.popover('show');
-    var popup = self.data('popover').$tip[0];
-
-    // attach tooltips to each avatar showing the name
-    $(popup).find('.avatar').tooltip({ placement: 'bottom' });
-
-    // register handler for the close button
-    var close = $(popup).find('.close');
-    close.click(function(){
-      self.popover('hide');
-    })
-  });
 });
-
-var resize = function(){
-  var inboxSidebar = $('#conversation_inbox'),
-      inboxSidebarOffset = inboxSidebar.offset().top,
-      windowHeight = $(window).height();
-
-  inboxSidebar.css('height', windowHeight - inboxSidebarOffset);
-};

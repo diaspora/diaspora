@@ -56,5 +56,9 @@ app.views.AspectsList = app.views.Base.extend({
 
   updateStreamTitle: function() {
     $('.stream_title').text(this.collection.toSentence());
-  }
+  },
+
+  hideAspectsList: function() {
+    this.$el.empty();
+  },
 })

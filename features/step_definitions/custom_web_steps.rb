@@ -60,23 +60,8 @@ And /^I submit the form$/ do
   find("input[type='submit']").click
 end
 
-Then /^the "([^"]*)" field should have a validation error$/ do |field|
-  find_field(field).has_xpath?(".//ancestor::div[contains(@class, 'control-group')]/div[contains(@class, 'field_with_errors')]")
-end
-
-
-Then /^following field[s]? should have validation error[s]?:$/ do |fields|
-  fields.raw.each do |field|
-    step %{the "#{field[0]}" field should have a validation error}
-  end
-end
-
 And /^I expand the publisher$/ do
  click_publisher
-end
-
-When 'I click the aspects title' do
-  find('.home_selector').click
 end
 
 When /^I press the aspect dropdown$/ do
@@ -86,10 +71,6 @@ end
 And /^I toggle the aspect "([^"]*)"$/ do |aspect_name|
   aspect = @me.aspects.where(:name => aspect_name).first
   find(".dropdown li[data-aspect_id='#{aspect.id}']").click
-end
-
-Then /^the publisher should be collapsed$/ do
-  find("#publisher")["class"].should include("closed")
 end
 
 Then /^the publisher should be expanded$/ do
@@ -103,8 +84,6 @@ end
 When /^I append "([^"]*)" to the publisher$/ do |stuff|
   elem = find('#status_message_fake_text')
   elem.native.send_keys(' ' + stuff)
-
-  find('#status_message_text', visible: false).value.should include(stuff)
 end
 
 When /^I append "([^"]*)" to the publisher mobile$/ do |stuff|
@@ -122,12 +101,14 @@ And /^I want to mention (?:him|her) from the profile$/ do
 end
 
 And /^I hover over the "([^"]+)"$/ do |element|
-  page.execute_script("$(\"#{element}\").first().addClass('hover')")
+  find("#{element}", match: :first).hover
 end
 
 When /^I prepare the deletion of the first post$/ do
-  within('.stream_element', match: :first) do
-    find('.remove_post', visible: false).click
+  within(find('.stream .stream_element')) do
+    ctrl = find('.controls')
+    ctrl.hover
+    ctrl.find('.remove_post').click
   end
 end
 
@@ -138,17 +119,14 @@ end
 
 When /^I click to delete the first comment$/ do
   within("div.comment", match: :first) do
-    find(".comment_delete", visible: false).click
+    find(".controls").hover
+    find(".comment_delete").click
   end
 end
 
 When /^I click to delete the first uploaded photo$/ do
   page.execute_script("$('#photodropzone .x').css('display', 'block');")
   find("#photodropzone .x", match: :first).click
-end
-
-And /^I click "([^"]*)" button$/ do |arg1|
-  page.execute_script('$(".button:contains('+arg1+')").click()')
 end
 
 And /^I click on selector "([^"]*)"$/ do |selector|
@@ -216,16 +194,8 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
     field = find_field(field)
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
     field_value = field_value.first if field_value.is_a? Array
-    if field_value.respond_to? :should
-      field_value.should == value
-    else
-      assert_equal(value, field_value)
-    end
+    field_value.should == value
   end
-end
-
-Then /^I should see (\d+) posts$/ do |n_posts|
-  has_css?("#main_stream .stream_element", :count => n_posts.to_i).should be_true
 end
 
 Then /^I should see (\d+) contacts$/ do |n_posts|
@@ -246,12 +216,6 @@ When /^I resize my window to 800x600$/ do
   JS
 end
 
-Then /^I follow Edit Profile in the same window$/ do
-  page.execute_script("$('a[href=\"#{edit_profile_path}\"]').removeAttr('target')")
-
-  step %(I follow "Edit Profile")
-end
-
 Then 'I should see an image attached to the post' do
   step %{I should see a "img" within ".stream_element div.photo_attachments"}
 end
@@ -269,20 +233,8 @@ And /^I click close on all the popovers$/ do
   page.should_not have_selector(".popover .close")
 end
 
-Then /^I should see first post deletion link$/ do
-  page.should have_selector '.stream_element .delete', match: :first
-end
-
-Then /^I should not see ajax loader on deletion link place$/ do
-  page.should_not have_selector '.hide_loader'
-end
-
 Then /^I should see a flash message indicating success$/ do
   flash_message_success?.should be_true
-end
-
-Then /^I should see a flash message indicating failure$/ do
-  flash_message_failure?.should be_true
 end
 
 Then /^I should see a flash message containing "(.+)"$/ do |text|
@@ -309,10 +261,15 @@ When /^I focus the "([^"]+)" field$/ do |field|
   find_field(field).click
 end
 
-Given /^I have configured a Bitcoin wallet$/ do
-  AppConfig.settings.bitcoin_wallet_id = "AAAAAA"
+Given /^I have configured a Bitcoin address$/ do
+  AppConfig.settings.bitcoin_address = "AAAAAA"
 end
 
-Then /^I should see the Bitcoin wallet ID$/ do
+Then /^I should see the Bitcoin address$/ do
   find("#bitcoin_address")['value'].should == "AAAAAA"
+end
+
+Given /^"([^"]*)" is hidden$/ do |selector|
+  page.should have_selector(selector, visible: false)
+  page.should_not have_selector(selector)
 end

@@ -66,7 +66,7 @@ describe User::Querying do
     it "does not contain duplicate posts" do
       bobs_other_aspect = bob.aspects.create(:name => "cat people")
       bob.add_contact_to_aspect(bob.contact_for(alice.person), bobs_other_aspect)
-      bob.aspects_with_person(alice.person).should =~ [@bobs_aspect, bobs_other_aspect]
+      expect(bob.aspects_with_person(alice.person)).to match_array [@bobs_aspect, bobs_other_aspect]
 
       bobs_post = bob.post(:status_message, :text => "hai to all my people", :to => [@bobs_aspect.id, bobs_other_aspect.id])
 
@@ -113,7 +113,7 @@ describe User::Querying do
       FactoryGirl.create(:status_message, :public => true)
       bob.visible_shareables(Post).count.should == 0
     end
-    
+
     context 'with two posts with the same timestamp' do
       before do
         aspect_id = alice.aspects.where(:name => "generic").first.id
@@ -122,7 +122,7 @@ describe User::Querying do
           alice.post :status_message, :text => "second", :to => aspect_id
         end
       end
-      
+
       it "returns them in reverse creation order" do
         bob.visible_shareables(Post).first.text.should == "second"
         bob.visible_shareables(Post).last.text.should == "first"

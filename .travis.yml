@@ -5,8 +5,8 @@ branches:
 
 language: ruby
 rvm:
+  - 2.0.0
   - 1.9.3
-
 
 env:
   - DB=postgres BUILD_TYPE=other
@@ -19,6 +19,8 @@ bundler_args: "--without development production heroku"
 before_install: "./script/ci/before_install.sh"
 script: "./script/ci/build.sh"
 
+addons:
+  firefox: "26.0"
 
 notifications:
   irc:

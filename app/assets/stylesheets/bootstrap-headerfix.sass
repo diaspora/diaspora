@@ -14,6 +14,10 @@ header
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
       font-size: 13px
 
+  #message_inbox_badge, #notification_badge
+    background: none
+  
+
   #notification_badge.active
     @include border-radius(0)
 
@@ -32,8 +36,6 @@ header
     .notification_element
       font-size: 13px
       .timeago
-        color: #aaa
-        text-decoration: none
         border: medium none
         cursor: text
       .unread-setter

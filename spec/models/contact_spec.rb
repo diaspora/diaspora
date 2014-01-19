@@ -186,7 +186,7 @@ describe Contact do
     describe '#dispatch_request' do
       it 'pushes to people' do
         @contact.stub(:user).and_return(@user)
-        m = mock()
+        m = double()
         m.should_receive(:post)
         Postzord::Dispatcher.should_receive(:build).and_return(m)
         @contact.dispatch_request

@@ -48,6 +48,7 @@ sv:
       admin: "Administratör"
       close: "stäng"
       contacts: "Kontakter"
+      help: "Hjälp"
       home: "Hem"
       log_out: "Logga ut"
       mark_all_as_read: "Markera alla som lästa"
@@ -55,7 +56,7 @@ sv:
       notifications: "Notiser"
       profile: "Profil"
       recent_notifications: "Tidigare notiser"
-      search: "Hitta användare eller #taggar"
+      search: "Sök"
       settings: "Inställningar"
       view_all: "Visa alla"
     ignore: "Ignorera"
@@ -71,6 +72,7 @@ sv:
     photo_uploader:
       completed: "<%= file %> klar"
       empty: "{file} är tom, var vänlig och välj filerna igen utan den."
+      error: "Ett problem uppstod när filen <%= file %> laddades upp"
       invalid_ext: "{file} har otillåten filändelse. Endast {extensions} tillåts."
       looking_good: "OMG, du ser grym ut!"
       size_error: "{file} är för stor, största tillåtna filstorlek är {sizeLimit}."
@@ -86,7 +88,7 @@ sv:
     search_for: "Sök efter <%= name %>"
     show_more: "visa mer"
     stream:
-      comment: "Kommentar"
+      comment: "Kommentera"
       follow: "Följ"
       followed_tag:
         add_a_tag: "Lägg till en tagg"
@@ -142,7 +144,7 @@ sv:
       unknown: "Okänd videotyp"
       watch: "Se den här videon på <%= provider %>"
     viewer:
-      comment: "Kommentar"
+      comment: "Kommentera"
       follow_post: "Följ inlägg"
       home: "HEM"
       like: "Gilla"

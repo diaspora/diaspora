@@ -1,4 +1,4 @@
-
+@import 'colors';
 @import '_mixins.css.scss';
 
 .mentions-input-box {
@@ -33,7 +33,7 @@
     z-index: 10000;
 
     ul {
-      border: 1px solid #999;
+      border: 1px solid $border-dark-grey;
       margin: 0;
       padding: 0;
 
@@ -53,9 +53,9 @@
         padding: 5px;
         white-space: nowrap;
 
-        &:hover, &.active { background: #eee; }
+        &:hover, &.active { background: $background-grey; }
         &:last-child { @include border-radius(0px, 0px, 5px, 5px); }
-        
+
         img, div.icon {
           float: left;
           height: 25px;
@@ -94,5 +94,3 @@
     }
   }
 }
-
-#publisher .mentions-autocomplete-list ul { width: 483px; }

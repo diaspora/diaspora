@@ -1,6 +1,3 @@
-default: "en"
-
-
 available:
   ar: "العربية"
   art-nvi: "Na'vi"
@@ -115,7 +112,6 @@ fallbacks:
     - "pt"
   pt-PT:
     - "pt"
-
 
 rtl:
   - "ar"

@@ -14,7 +14,7 @@ describe Stream::Base do
 
   describe '#stream_posts' do
     it "should returns the posts.for_a_stream" do
-      posts = mock
+      posts = double
       @stream.stub(:posts).and_return(posts)
       @stream.stub(:like_posts_for_stream!)
 
@@ -70,7 +70,7 @@ describe Stream::Base do
 
   describe '#people' do
     it 'excludes blocked people' do
-      @stream.should_receive(:stream_posts).and_return(stub.as_null_object)
+      @stream.should_receive(:stream_posts).and_return(double.as_null_object)
       @stream.people
     end
   end

@@ -94,7 +94,6 @@ eu:
   all_aspects: "Arlo guztiak"
   application:
     helper:
-      diaspora_alpha: "DIASPORA ALPHA*"
       unknown_person: "pertsona ezezaguna"
       video_title:
         unknown: "Bideo izen ezezaguna"
@@ -167,7 +166,6 @@ eu:
         tag_bug: "errore"
         tag_feature: "funtzioa"
         tag_question: "galdera"
-        tutorials_wiki_and_forum: "%{tutorial}, %{wiki} eta %{forum}: Komunitateak egindako tutorialak, nola-eginak eta berriak"
       introduce_yourself: "Hau zure kronologia da.  Animatu eta zure burua aurkeztu."
       keep_diaspora_running: "Diaspoaren garapena azkartu ezazu hilabeteroko donazio batekin!"
       keep_pod_running: "Mantendu %{pod} azkar izaten hornitzaileari kafe-konponketa ordainduz hilero!"
@@ -577,7 +575,6 @@ eu:
       no_results: "Aizu! Zerbait bilatu behar duzu."
       results_for: "bilaketa emaitzak hontarako:"
       searching: "bilatzen, mesedez itxaron pixka bat..."
-    last_post: "Azken Mezua"
     many: "%{count} pertsona"
     one: "pertsona 1"
     other: "%{count} pertsona"
@@ -678,8 +675,6 @@ eu:
       first_name: "Izena"
       last_name: "Abizena"
       update_profile: "Profila Eguneratu"
-      you_are_nsfw: "Lanerako egoki ez gisa markatu duzu zeure burua, zure mezuak horrelako edukinak ez izatea aukeratu dutenek ez dituzte zure mezuak ikusiko."
-      you_are_safe_for_work: "Lanerako egoki gisa markatu duzu zeure burua, hau da, komunitateko mezuen arauekin bat zaude."
       your_bio: "Zuri buruz"
       your_birthday: "Zure urtemuga"
       your_gender: "Zure sexua"
@@ -945,7 +940,6 @@ eu:
   tags:
     show:
       follow: "Jarraitu #%{tag}"
-      followed_by: "jarraitzen dute"
       following: "#%{tag} jarraitzen"
       nobody_talking: "Inor ez du %{tag}(r)i buruz hitz egin oraindik."
       none: "Etiketa hutsik ez dago!"

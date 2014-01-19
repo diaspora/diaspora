@@ -16,7 +16,7 @@ describe("app.models.Stream", function() {
 
     it("it fetches posts from the window's url, and ads them to the collection", function() {
       this.stream.fetch()
-      expect(this.stream.items.fetch).toHaveBeenCalledWith({ add : true, url : this.expectedPath});
+      expect(this.stream.items.fetch).toHaveBeenCalledWith({ remove: false, url: this.expectedPath});
     });
 
     it("returns the json path with max_time if the collection has models", function() {
@@ -25,7 +25,7 @@ describe("app.models.Stream", function() {
       this.stream.add(post);
 
       this.stream.fetch()
-      expect(this.stream.items.fetch).toHaveBeenCalledWith({ add : true, url : this.expectedPath + "?max_time=1234"});
+      expect(this.stream.items.fetch).toHaveBeenCalledWith({ remove: false, url: this.expectedPath + "?max_time=1234"});
     });
 
     it("triggers fetched on the stream when it is fetched", function(){

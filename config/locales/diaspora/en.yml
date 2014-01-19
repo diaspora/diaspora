@@ -20,6 +20,7 @@ en:
   cancel: "Cancel"
   delete: "Delete"
   hide: "Hide"
+  ignore: "Ignore"
   undo: "Undo?"
   or: "or"
   ago: "%{time} ago"
@@ -81,6 +82,7 @@ en:
       invalid_fields: "Invalid Fields"
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
     post_not_public: "The post you are trying to view is not public!"
+    post_not_public_or_not_exist: "The post you are trying to view is not public, or does not exist!"
     login_try_again: "Please <a href='%{login_link}'>login</a> and try again."
 
   admins:
@@ -94,7 +96,10 @@ en:
     correlations:
       correlations_count: "Correlations with Sign In Count:"
     user_search:
-      you_currently: "you currently have %{user_invitation} invites left %{link}"
+      you_currently:
+        zero: "you currently have no invites left %{link}"
+        one: "you currently have one invite left %{link}"
+        other: "you currently have %{count} invites left %{link}"
       add_invites: "add invites"
       email_to: "Email to Invite"
       under_13: "Show users that are under 13 (COPPA)"
@@ -154,10 +159,12 @@ en:
       remove_aspect: "Delete this aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       add_existing: "Add an existing contact"
+      set_visibility: "Set visibility"
+      manage: "Manage"
       done: "Done"
       rename: "rename"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "Contacts in this aspect are able to see each other."
+      aspect_list_is_not_visible: "Contacts in this aspect are not able to see each other."
       update: "update"
       updating: "updating"
     aspect_contacts:
@@ -238,7 +245,7 @@ en:
         tag_bug: "bug"
         feature_suggestion: "... have a %{link} suggestion?"
         tag_feature: "feature"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Help for your first steps."
+        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: Help for your first steps."
         tutorial_link_text: "Tutorials"
         email_feedback: "%{link} your feedback, if you prefer"
         email_link: "Email"
@@ -371,7 +378,7 @@ en:
     foundation_website: "diaspora foundation website"
     third_party_tools: "third party tools"
     getting_started_tutorial: "'Getting started' tutorial series"
-    getting_help: 
+    getting_help:
       title: "Getting help"
       getting_started_q: "Help! I need some basic help to get me started!"
       getting_started_a: "You're in luck. Try the %{tutorial_series} on our project site. It will take you step-by-step through the registration process and teach you all the basic things you need to know about using diaspora*."
@@ -791,7 +798,6 @@ en:
       edit_membership: "edit aspect membership"
     add_contact_small:
       add_contact_from_tag: "add contact from tag"
-    last_post: "Last Post"
     add_contact:
       invited_by: "you were invited by"
 
@@ -867,8 +873,9 @@ en:
       update_profile: "Update Profile"
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
-      you_are_nsfw: "You have marked yourself not safe for work, your content will not show up in people who have opted out of seeing objectionable content's streams."
-      you_are_safe_for_work: "You have marked yourself as safe for work, this means you agree the content you post will agree with the community guidelines."
+      nsfw_explanation: "NSFW (‘not safe for work’) is diaspora*’s self-governing community standard for content which may not be suitable to view while at work. If you plan to share such material frequently, please check this option so that everything you share will be hidden from people’s streams unless they choose to view them."
+      nsfw_explanation2: "If you choose not to select this option, please add the #nsfw tag each time you share such material."
+      nsfw_check: "Mark everything I share as NSFW"
     update:
       updated: "Profile updated"
       failed: "Failed to update profile"
@@ -892,6 +899,7 @@ en:
       password: "PASSWORD"
       password_confirmation: "PASSWORD CONFIRMATION"
       continue: "Continue"
+      submitting: "Submitting..."
     create:
       success: "You've joined Diaspora!"
     edit:
@@ -944,6 +952,7 @@ en:
       connect_to_twitter: "Connect to Twitter"
       connect_to_facebook: "Connect to Facebook"
       connect_to_tumblr: "Connect to Tumblr"
+      connect_to_wordpress: "Connect to Wordpress"
       edit_services: "Edit services"
       no_services: 'You have not connected any services yet.'
       services_explanation: 'Connecting to services gives you the ability to publish your posts to them as you write them in Diaspora.'
@@ -984,6 +993,7 @@ en:
         one: "In %{count} aspect"
         other: "In %{count} aspects"
     publisher:
+      formatWithMarkdown: "You can use %{markdown_link} to format your post"
       posting: "Posting..."
       share: "Share"
       preview: "Preview"
@@ -1082,7 +1092,10 @@ en:
       follow: "Follow #%{tag}"
       following: "Following #%{tag}"
       stop_following: "Stop Following #%{tag}"
-      followed_by: 'followed by'
+      followed_by_people:
+        zero: "followed by nobody"
+        one: "followed by one person"
+        other: "followed by %{count} people"
       none: "The empty tag does not exist!"
   tag_followings:
     create:
@@ -1258,3 +1271,11 @@ en:
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     no_person_constructed: "No person could be constructed from this hcard."
+
+  simple_captcha:
+    placeholder: "Enter the image value"
+    label: "Enter the code in the box:"
+    message:
+      default: "Secret Code did not match with the Image"
+      user: "The secret Image and code were different"
+      failed: "Human verification failed"

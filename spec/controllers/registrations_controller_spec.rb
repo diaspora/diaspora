@@ -53,11 +53,13 @@ describe RegistrationsController do
   end
 
   describe "#create" do
+    render_views
+    
     context "with valid parameters" do
       before do
         AppConfig.settings.enable_registrations = true
         user = FactoryGirl.build(:user)
-        User.stub!(:build).and_return(user)
+        User.stub(:build).and_return(user)
       end
 
       it "creates a user" do
@@ -107,9 +109,14 @@ describe RegistrationsController do
         flash[:error].should_not be_blank
       end
 
-      it "redirects back" do
+      it "renders new" do
         get :create, @invalid_params
-        response.should be_redirect
+        expect(response).to render_template("registrations/new")
+      end
+      
+      it "keeps invalid params in form" do
+        get :create, @invalid_params
+        expect(response.body).to match /jdoe@example.com/m
       end
     end
   end

@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'rubygems'
-
 prefork = proc do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
@@ -13,7 +11,7 @@ prefork = proc do
   #Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
 
   ENV["RAILS_ENV"] ||= 'test'
-  require File.join(File.dirname(__FILE__), '..', 'config', 'environment') unless defined?(Rails)
+  require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
   require Rails.root.join('spec', 'helper_methods')
   require Rails.root.join('spec', 'spec-doc')
   require 'rspec/rails'
@@ -112,6 +110,6 @@ RSpec.configure do |config|
     DeferredGarbageCollection.start
   end
   config.after(:all) do
-    DeferredGarbageCollection.reconsider 
+    DeferredGarbageCollection.reconsider
   end
 end

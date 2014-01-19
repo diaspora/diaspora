@@ -9,38 +9,33 @@
 - content_for :page_title do
   = t('.message_inbox')
 
-:css
-  footer{ display:none;}
+.container-fluid.conversations_container
+  .row-fluid
+    .span4
+      #left_pane
+        #left_pane_header
+          %h3
+            .pull-right
+              = link_to t('.new_message'), new_conversation_path, :class => 'btn btn-default', :rel => 'facebox'
+            = t('.inbox')
 
-#left_pane
-  #left_pane_header
-    %h3
-      .right
-        = link_to t('.new_message'), new_conversation_path, :class => 'button', :rel => 'facebox'
-      = t('.inbox')
-
-  #conversation_inbox
-    .stream.conversations
-      - if @conversations.count > 0
-        = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors, :unread_counts => @unread_counts}
-      - else
-        %br
-        %br
-        %br
-        %br
-        %div{:style => 'text-align:center;'}
-          %i
-            = t('.no_messages')
-      = will_paginate @conversations
+        #conversation_inbox
+          .stream.conversations
+            - if @conversations.count > 0
+              = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors, :ordered_participants => @ordered_participants, :unread_counts => @unread_counts}
+            - else
+              #no_conversations
+                = t('.no_messages')
+            = will_paginate @conversations, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
 
 
-.span-15.prepend-9.last
-  .stream_container
-    #conversation_show
-      - if @conversation
-        = render 'conversations/show', :conversation => @conversation
-      - else
-        #no_conversation_text
-          = t('.no_conversation_selected')
-        #no_conversation_controls
-          = link_to t('.create_a_new_message'), new_conversation_path, :rel => 'facebox'
+    .span8
+      .stream_container
+        #conversation_show
+          - if @conversation
+            = render 'conversations/show', :conversation => @conversation
+          - else
+            #no_conversation_text
+              = t('.no_conversation_selected')
+            #no_conversation_controls
+              = link_to t('.create_a_new_message'), new_conversation_path, :rel => 'facebox'

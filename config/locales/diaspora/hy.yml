@@ -94,7 +94,6 @@ hy:
   all_aspects: "Բոլոր խմբերը"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "անհայտ անձ"
       video_title:
         unknown: "Տեսանյութի անհայտ վերնագիր"
@@ -129,6 +128,7 @@ hy:
       failure: "%{name}-ը դատարկ չէ և չի կարող ջնջվել։"
       success: "%{name} բարեհաջող ջնջվեց։"
     edit:
+      add_existing: "Ավելացնել գոյություն ունեցող կոնտակտ"
       aspect_list_is_not_visible: "խմբի ցուցակը տեսանելի չէ նրա անդամներին"
       aspect_list_is_visible: "խմբի ցուցակը տեսանելի է նրա անդամներին"
       confirm_remove_aspect: "Վստա՞հ ես, որ ուզում ես ջնջել այս խումբը։"
@@ -166,7 +166,6 @@ hy:
         tag_bug: "բագ"
         tag_feature: "առաջարկություն"
         tag_question: "հարց"
-        tutorials_wiki_and_forum: "%{tutorial} և %{wiki} և %{forum}. Համայնքի կողմից ստեղծված ուղեցույցեր, ինչպես-անեմ-ներ և նորություններ։"
       introduce_yourself: "Սա քո լրահոսն է։ Ընկղմվիր և ներկայացրու քեզ։"
       keep_diaspora_running: "Օգնի՛ր Diaspora-ի արագ զարգացմանը ամսական նվիրատվությամբ։"
       keep_pod_running: "Փող քցվենք %{pod} -ի առողջության համար:"
@@ -209,7 +208,7 @@ hy:
       manage_your_aspects: "Կարգավորել խմբերը"
       no_contacts: "Դու դեռ ոչ մի կոնտակտ չունես այստեղ։"
       view_all_community_spotlight: "Դիտել համայնքի բոլոր նորությունները"
-      view_all_contacts: "Տես բոլոր կոնտակտներին"
+      view_all_contacts: "Տես բոլոր կոնտակտները"
     show:
       edit_aspect: "փոփոխել խումբը"
     two: "%{count} խումբ"
@@ -297,6 +296,8 @@ hy:
       sending: "Ուղարկվում է․․․"
       subject: "թեմա"
       to: ""
+    new_message:
+      fail: "Չստացված նամակ"
     show:
       delete: "ջնջել և արգելափակել խոսակցությունը"
       reply: "պատասխանել"
@@ -503,6 +504,8 @@ hy:
   people:
     add_contact:
       invited_by: "քեզ հրավիրել է"
+    add_contact_small:
+      add_contact_from_tag: "Ավելացնել կոնտակտ թեգից"
     aspect_list:
       edit_membership: "փոփոխել խմբի անդամներին"
     few: "%{count} մարդ"
@@ -516,7 +519,6 @@ hy:
       no_results: "Հե՜յ։ Մի բան գտնելու կարիք ունես։"
       results_for: "որոնման արդյունքները"
       searching: "փնտրվում է, խնդրում ենք լինել համբերատար..."
-    last_post: "Վերջին Գրառում"
     many: "%{count} մարդ"
     one: "1 հոգի"
     other: "%{count} մարդ"
@@ -601,6 +603,7 @@ hy:
         one: "Մեկ նկար %{author}-ից"
         other: "%{count} նկար %{author}-ից"
         zero: "Ոչ մի նկար %{author}-ից"
+      reshare_by: "տարածվել է %{author}-ից"
   previous: "նախորդ"
   privacy: "Անձնական"
   privacy_policy: "Անձնական քաղաքականություն"
@@ -612,8 +615,6 @@ hy:
       first_name: "Անուն"
       last_name: "Ազգանուն"
       update_profile: "Թարմացնել անձնական էջը"
-      you_are_nsfw: "Նշել ես, որ  աշխատանքի համար ոչ ապահով  ես (քխ)։ Քո գրառումները տեսանելի չեն լինի այն մարդկանց, ովքեր հրաժարվել են objectionable բովանդակությամբ հոսքերից։"
-      you_are_safe_for_work: "Քեզ նշել ես, որպես ապահով աշխատանքի համար (ոչ քըխ), սա նշանակում է՝ համաձայն ես, որ քո գրառած բովանդակությունը համապատասխանում է համայնքի ուղեցույցին։"
       your_bio: "Կենսագրություն"
       your_birthday: "Ծննդյան ամսաթիվ"
       your_gender: "Սեռ"
@@ -688,6 +689,7 @@ hy:
         zero: "Ոչ ոք չի տարածել"
       reshare_confirmation: "Տարածե՞լ %{author}-ի գրառումը"
       reshare_original: "Տարածել բնօրինակը"
+      reshared_via: "Տարածվել է"
       show_original: "Ցույց տալ բնօրինակը"
   search: "Որոնում"
   services:
@@ -850,7 +852,6 @@ hy:
   tags:
     show:
       follow: "Հետևել #%{tag}"
-      followed_by: "հետևում են"
       following: "Հետևում ես #%{tag}-ին"
       nobody_talking: "Դեռ ոչ ոք չի խոսում %{tag}-ի մասին"
       none: "Դատարկ պիտակ գոյություն չունի։"

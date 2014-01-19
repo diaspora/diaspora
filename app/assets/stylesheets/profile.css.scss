@@ -22,7 +22,7 @@
       }
   }
 
-  #image_list {
+  .image_list {
     .section {
       margin-bottom: 4px;
     }
@@ -41,8 +41,7 @@
   .mutual {
     background-color: rgb(142, 222, 61);
     .profile_button {
-      //width: 50px;
-      width: 75px;
+      width: 50px;
     }
   }
   .only_sharing {
@@ -54,8 +53,7 @@
   .receiving {
     background-color: rgb(211, 211, 211);
     .profile_button {
-      //width: 75px;
-      width: 150px;
+      width: 75px;
     }
   }
   .not_sharing {

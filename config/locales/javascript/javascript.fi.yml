@@ -6,10 +6,12 @@
 
 fi:
   javascripts:
+    and: "ja"
     aspect_dropdown:
       add_to_aspect: "Lisää kontakti"
       all_aspects: "Kaikki näkymät"
       error: "Ei voitu aloittaa jakamaan käyttäjän <%= name %> kanssa. Oletko sivuuttanut hänet?"
+      error_remove: "Käyttäjää <%= name %> ei voitu poistaa näkymästä :("
       select_aspects: "Valitse näkymät"
       started_sharing_with: "Olet alkanut jakaa käyttäjän <%= name %> kanssa!"
       stopped_sharing_with: "Olet lopettanut jakamisen käyttäjän <%= name %> kanssa."
@@ -21,16 +23,23 @@ fi:
         two: "<%= count %> näkymässä"
         zero: "Valitse näkymät"
     aspect_navigation:
+      add_an_aspect: "+ Lisää näkymä"
       deselect_all: "Poista valinnat"
       no_aspects: "Näkymiä ei ole valittu"
       select_all: "Valitse kaikki"
+    comma: ","
     comments:
       hide: "piilota kommentit"
+      no_comments: "Kommentteja ei vielä ole."
       show: "näytä kaikki kommentit"
     confirm_dialog: "Oletko varma?"
+    conversation:
+      participants: "Osallistujat"
     delete: "Poista"
+    edit: "Muokkaa"
     failed_to_like: "Tykkääminen epäonnistui!"
     failed_to_post_message: "Viestin lähetys epäonnistui!"
+    failed_to_remove: "Lisäyksen poistaminen epäonnistui!"
     getting_started:
       alright_ill_wait: "Okei, minä odotan."
       hey: "Hei <%= name %>!"
@@ -39,7 +48,8 @@ fi:
     header:
       admin: "Ylläpitäjä"
       close: "sulje"
-      contacts: "Kontaktit"
+      contacts: "Henkilöt"
+      help: "Apua"
       home: "Koti"
       log_out: "Kirjaudu ulos"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
@@ -51,29 +61,43 @@ fi:
       settings: "Asetukset"
       view_all: "Näytä kaikki"
     ignore: "Sivuuta"
+    ignore_user: "Sivuuta tämä käyttäjä?"
     infinite_scroll:
       no_more: "Ei enempää viestejä."
+      no_more_contacts: "Ei enempää yhteystietoja."
     my_activity: "Oma toimintani"
+    my_aspects: "Omat näkymäni"
     my_stream: "Virta"
     people:
       not_found: "...ketään ei löytynyt."
     photo_uploader:
+      completed: "<%= file %> suoritettu"
+      empty: "Tiedosto {file} on tyhjä, valitse tiedostot uudelleen ilman kyseistä tiedostoa."
+      error: "On tapahtunut virhe lähetettäessä tiedostoa <%= file %>"
+      invalid_ext: "Tiedostolla {file} on epäkelpo tiedostopääte. Vain {extensions} päätteet ovat sallittuja."
       looking_good: "OMG, näytät upealta!"
+      size_error: "Tiedosto {file} on liian iso, suurin sallittu tiedostokoko on {sizeLimit}"
     publisher:
       at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
-      limited: "Rajoitettu - viestisi näkyy vain ihmisille, joiden kanssa jaat"
-      public: "Julkinen - viestisi näkyvät kaikille mukaan lukien hakukoneet ja niiden tulokset"
+      limited: "Rajoitettu - julkaisusi näkyy vain ihmisille, joiden kanssa jaat"
+      near_from: "Lähetetty sijainnista: <%= location %>"
+      public: "Julkinen - julkaisusi näkyvät kaikille mukaan lukien hakukoneet ja niiden tulokset"
     reshares:
-      duplicate: "Olet jo uudelleenjakanut viesti!"
-      post: "Jaa käyttäjän <%= name %> viesti?"
-      successful: "Viesti jaettiin onnistuneesti!"
+      duplicate: "Olet jo uudelleenjakanut tämän julkaisun!"
+      post: "Jaa käyttäjän <%= name %> julkaisu?"
+      successful: "Julkaisu jaettiin onnistuneesti!"
     search_for: "Etsi nimellä <%= name %>"
     show_more: "näytä lisää"
     stream:
       comment: "Kommentoi"
       follow: "Seuraa"
+      followed_tag:
+        add_a_tag: "Lisää tagi"
+        contacts_title: "Tästä tagista pitävät henkilöt"
+        follow: "Seuraa"
+        title: "#Seuratut Tagit"
       hide: "Piilota"
-      hide_nsfw_posts: "Piilota #nsfw-viestit"
+      hide_nsfw_posts: "Piilota #nsfw-julkaisut"
       like: "Tykkää"
       likes:
         few: "<%= count %> tykkäystä"
@@ -90,7 +114,7 @@ fi:
         other: "Näytä <%= count %> muuta kommenttia"
         two: "Näytä <%= count %> muuta kommenttia"
         zero: "Näytä <%= count %> muuta kommenttia"
-      original_post_deleted: "Lähettäjä on poistanut alkuperäisen viestin."
+      original_post_deleted: "Lähettäjä on poistanut alkuperäisen julkaisun."
       public: "Julkinen"
       reshare: "Jaa uudelleen"
       reshares:
@@ -100,8 +124,12 @@ fi:
         other: "<%= count %> uudelleenjakoa"
         two: "<%= count %> uudelleenjakoa"
         zero: "<%= count %> uudelleenjakoa"
-      show_nsfw_post: "Näytä viesti"
+      show_nsfw_post: "Näytä julkaisu"
       show_nsfw_posts: "Näytä kaikki"
+      tags:
+        follow: "Seuraa #<%= tag %>"
+        following: "Seurataan tagia #<%= tag %>"
+        stop_following: "Lopeta seuraamasta tagia #<%= tag %>"
       unfollow: "Lopeta seuraaminen"
       unlike: "Peru tykkäys"
     tags:
@@ -115,8 +143,8 @@ fi:
       minutes: "%d minuuttia"
       month: "noin kuukausi"
       months: "%d kuukautta"
-      prefixAgo: ""
-      prefixFromNow: ""
+      prefixAgo: "sitten"
+      prefixFromNow: "tästä alkaen"
       seconds: "alle minuutti"
       suffixAgo: "sitten"
       suffixFromNow: "tästä alkaen"
@@ -127,10 +155,10 @@ fi:
       watch: "Katso video palvelussa <%= provider %>"
     viewer:
       comment: "Kommentoi"
-      follow_post: "Seuraa viestiä"
+      follow_post: "Seuraa julkaisua"
       home: "KOTI"
       like: "Tykkää"
       reshare: "Jaa uudelleen"
       reshared: "Jaettu uudelleen"
-      stop_following_post: "Lopeta viestin seuraaminen"
+      stop_following_post: "Lopeta julkaisun seuraaminen"
       unlike: "Peru tykkäys"

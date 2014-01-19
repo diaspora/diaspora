@@ -8,12 +8,6 @@ ne:
   devise:
     mailer:
       hello: "नमस्ते %{email} !"
-      invitation_instructions:
-        accept: "निमन्त्रणा स्वीकार्नुहोस्"
-        here: "यहाँ"
-        love: "माया,"
-        or: "वा"
-        team_diaspora: "डायस्पोरा समूह"
       inviter:
         has_invited_you: "%{name}"
       reset_password_instructions:

@@ -10,17 +10,14 @@ de_formal:
     aspect_dropdown:
       add_to_aspect: "Kontakt hinzufügen"
       all_aspects: "Alle Aspekte"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Couldn't start sharing with <%= name %>. Are you ignoring them?"
       error_remove: "Konnte <%= name %> nicht vom Aspekt entfernen :("
       select_aspects: "Wählen Sie Aspekte aus"
-      started_sharing_with: "Sie haben angefangen, mit {{name}} zu teilen!"
-      stopped_sharing_with: "Sie haben aufgehört, mit {{name}} zu teilen!"
+      started_sharing_with: "Sie haben angefangen, mit <%= name %> zu teilen!"
+      stopped_sharing_with: "Sie haben aufgehört, mit <%= name %> zu teilen!"
       toggle:
-        few: "In {{count}} Aspekten"
-        many: "In {{count}} Aspekten"
         one: "In einem Aspekt"
-        other: "In {{count}} Aspekten"
-        two: "In {{count}} Aspekten"
+        other: "In <%= count %> Aspekten"
         zero: "Aspekt auswählen"
     aspect_navigation:
       add_an_aspect: "+ Aspekt hinzufügen"
@@ -30,6 +27,7 @@ de_formal:
     comma: ","
     comments:
       hide: "Kommentare verbergen"
+      no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Sind Sie sich sicher?"
     conversation:
@@ -40,13 +38,14 @@ de_formal:
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
-      hey: "Hey, {{name}}!"
+      hey: "Hey, <%= name %>!"
       no_tags: "Hey, Sie folgen noch keinen Tags! Trotzdem weitermachen?"
       preparing_your_stream: "Ihr personalisierter Stream wird zusammengestellt..."
     header:
       admin: "Administration"
       close: "schließen"
       contacts: "Kontakte"
+      help: "Hilfe"
       home: "Startseite"
       log_out: "Abmelden"
       mark_all_as_read: "Markiere alle als gelesen"
@@ -82,7 +81,7 @@ de_formal:
       duplicate: "Sie haben diesen Beitrag bereits weitergesagt!"
       post: "<%= name %>s Beitrag weitersagen?"
       successful: "Der Beitrag wurde erfolgreich weitergesagt!"
-    search_for: "Nach {{name}} suchen"
+    search_for: "Nach <%= name %> suchen"
     show_more: "Mehr zeigen"
     stream:
       comment: "Kommentieren"
@@ -120,7 +119,7 @@ de_formal:
       unfollow: "Nicht mehr folgen"
       unlike: "Gefällt mir nicht mehr"
     tags:
-      wasnt_that_interesting: "OK, ich nehme an, #{{tagName}} war nicht so interessant..."
+      wasnt_that_interesting: "OK, ich nehme an, #<%= tagName %> war nicht so interessant..."
     timeago:
       day: "einem Tag"
       days: "%d Tagen"
@@ -139,7 +138,7 @@ de_formal:
       years: "%d Jahren"
     videos:
       unknown: "Unbekanntes Videoformat"
-      watch: "Dieses Video auf {{provider}} ansehen"
+      watch: "Dieses Video auf <%= provider %> ansehen"
     viewer:
       comment: "Kommentar"
       follow_post: "Diesem Beitrag folgen"

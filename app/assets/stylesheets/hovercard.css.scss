@@ -1,3 +1,4 @@
+@import "colors";
 @import "_mixins.css.scss";
 
 #hovercard {
@@ -9,9 +10,9 @@
   min-width: 250px;
   max-width: 400px;
 
-  background-color: $background;
+  background-color: $background-white;
   height: 70px;
-  border: 1px solid #999999;
+  border: 1px solid $border-dark-grey;
   font-size: small;
 
   .avatar {
@@ -58,7 +59,7 @@
   }
 
   p {
-    color: #999999;
+    color: $text-grey;
     padding-top: 0px;
     margin-top: 0px;
     margin-bottom: 10px;
@@ -68,7 +69,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: #eeeeee;
+    background-color: $background-grey;
     margin-left: 0;
 
     width: 100%;
@@ -82,7 +83,7 @@
       padding: 1px 5px;
 
       a {
-        color: #999999;
+        color: $text-grey;
         margin-right: 4px;
         font-weight: normal;
       }

@@ -8,6 +8,7 @@ zh-TW:
   _applications: "應用程式"
   _comments: "意見"
   _contacts: "聯絡人"
+  _help: "說明"
   _home: "我家"
   _photos: "相片"
   _services: "服務"
@@ -44,7 +45,7 @@ zh-TW:
     admin_bar:
       correlations: "關聯性"
       pages: "分頁"
-      pod_stats: "Pod統計資料"
+      pod_stats: "豆莢統計資料"
       sidekiq_monitor: "Sidekiq 監視器"
       user_search: "使用者搜尋"
       weekly_user_stats: "使用者統計週報"
@@ -90,7 +91,6 @@ zh-TW:
   all_aspects: "所有面向"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* 預覽版"
       unknown_person: "不明聯絡人"
       video_title:
         unknown: "影片標題不明"
@@ -126,13 +126,15 @@ zh-TW:
       success: "成功刪除%{name}了。"
     edit:
       add_existing: "加入既有聯絡人"
-      aspect_list_is_not_visible: "面向中的其他人無法看見聯絡人列表"
-      aspect_list_is_visible: "面向中的其他人可以看見聯絡人列表"
+      aspect_list_is_not_visible: "在這個面向中的連絡人沒辦法看見哪些人在同一個面向中"
+      aspect_list_is_visible: "在這個面向中的連絡人可以互相看見他們在同一個面向中"
       confirm_remove_aspect: "你確定要刪除這個面向嗎？"
       done: "完成"
       make_aspect_list_visible: "讓面向中的聯絡人可以互相看得到嗎？"
+      manage: "管理"
       remove_aspect: "刪除這個面向"
       rename: "改名"
+      set_visibility: "設定可見範圍"
       update: "更新"
       updating: "更新中"
     few: "%{count}個面向"
@@ -153,7 +155,7 @@ zh-TW:
       handle_explanation: "這是你的 Diaspora 識別碼。就像電子信箱一樣，你可以把它給想聯絡你的人。"
       help:
         any_problem: "有問題嗎？"
-        contact_podmin: "聯絡 pod 管理員！"
+        contact_podmin: "聯絡豆莢管理員！"
         do_you: "你是否："
         email_feedback: "也可以%{link}你的意見來"
         email_link: "寄信"
@@ -161,17 +163,18 @@ zh-TW:
         find_a_bug: "...找到一隻%{link}嗎？"
         have_a_question: "...有個%{link}嗎？"
         here_to_help: "Diaspora 社群就在這裡！"
-        mail_podmin: "Pod主的電郵信箱"
+        mail_podmin: "莢主的電郵信箱"
         need_help: "要幫忙嗎？"
         tag_bug: "臭蟲"
         tag_feature: "功能"
         tag_question: "問題"
-        tutorials_wiki_and_forum: "%{tutorial} 和 %{wiki} 和 %{forum}：社群運作的入門，指南，與新聞網站"
+        tutorial_link_text: "個別指導"
+        tutorials_and_wiki: "%{faq}，%{tutorial}，還有%{wiki}：讓你順利上手的好幫手。"
       introduce_yourself: "這是你的流水帳。跳進來介紹你自己吧。"
       keep_diaspora_running: "每月固定捐助讓 Diaspora 快速研發！"
       keep_pod_running: "讓 %{pod} 高速運轉，現在就開始固定每月捐助，來供應伺服器的咖啡耗材吧！"
       new_here:
-        follow: "追蹤 %{link} 來歡迎 Diaspora* 的新使用者！"
+        follow: "追蹤 %{link} 來歡迎 diaspora* 的新人！"
         learn_more: "進一步了解"
         title: "歡迎新使用者"
       no_contacts: "沒有任何聯絡人"
@@ -324,9 +327,63 @@ zh-TW:
       invalid_fields: "欄位無效"
     login_try_again: "請<a href='%{login_link}'>登入</a>後再試一次。"
     post_not_public: "你要看的貼文沒有公開！"
+    post_not_public_or_not_exist: "你要看的貼文沒有公開，或是根本不存在！"
   fill_me_out: "填寫我"
   find_people: "找人或 #標籤"
+  help:
+    account_and_data_management:
+      close_account_a: 到你的設定頁面的最下面，按"關帳號"的按鈕。
+      close_account_q: "我要怎樣刪掉我的豆子（帳號）？"
+      data_other_podmins_a: "當你開始和其它豆莢裡的某人分享以後，你和他們分享的任何貼文，以及你的帳號資料，都會儲存（或是暫存）在他們的豆莢裡，因此他們豆莢的資料庫管理員就有辦法可以讀得到。當你刪掉貼文或是帳號資料，這些資料不但會從你的豆莢刪掉，也會從之前有儲存這些資料的其他豆莢刪掉。"
+      data_other_podmins_q: "其它豆莢的管理員可以看到多少我的資料？"
+      data_visible_to_podmin_a: "豆莢和豆莢間的通訊會全程加密（用 SSL 和 diaspora* 自己的傳輸層加密），但是存在豆莢理的資料是沒有加密的。所以，如果資料庫管理員（通常也是管理豆莢的人）想看的話，他/她可以看到你全部的個人資料，以及你發表的任何東西（其實對於大多數的，有存放個人資料的網站來說，這點都是一樣的）。因此如果你能管理你自己的豆莢，當然更能確保你的隱私，因為只能資料庫的存取權是由你控制。"
+      data_visible_to_podmin_q: "我所在豆莢的管理員可以看到多少我的資料？"
+      download_data_a: "可以的。在設定頁面的帳號頁籤的最下面，分別有兩個按鈕可以讓你下載資料。"
+      download_data_q: "我可以把豆子裡全部的資料都下載下來嗎？"
+      move_pods_a: "目前不行，未來我們會加入匯出匯入的功能，你就可以從一個豆莢匯出後，再從另一個豆莢匯入了。不過你還是可以開一個新的帳號和面向，然後把一個個聯絡人重加一次，請他們也重加你一次。"
+      move_pods_q: "要怎樣把我的豆子（帳號）搬到別的豆莢去呢？"
+      title: "帳號與資料管理"
+    aspects:
+      contacts_know_aspect_a: "不知道。無論如何他們都看不到面向的名稱。"
+      contacts_know_aspect_q: "我的聯絡人知道我把他們放到哪些面向裡面嗎？"
+      contacts_visible_q: "\"讓面向中的聯絡人可以互相看得到\"是什麼意思？"
+      restrict_posts_i_see_a: "可以。請點一下側邊欄的你的面向，然後用點個別的面向來選擇，或是取消選擇他們。只有被選擇的貼文才會出現在流水帳裡。"
+      restrict_posts_i_see_q: "我可以過濾只看到來自特定面向的貼文嗎？"
+      title: "面向"
+      what_is_an_aspect_a: "面向是將你在的聯絡人分群的方式。用來比喻你展現給這個世界的其中一面。比如說你在職場的一面，你在家庭中的一面，或是你對某個團體的朋友展現的一面。"
+      what_is_an_aspect_q: "什麼是面向？"
+      who_sees_post_a: "當你發表了一篇有限的貼文，就只有你那一個面向（或是那些面向，你也可以選擇好幾個面向）中的人才看得到。不在那個（或那些）面向中的聯絡人，就看不到那篇貼文，除非你把它公開。只有公開的貼文可以讓不在你任何面向中的其它人看到。"
+      who_sees_post_q: "當我貼文到一個面向時，誰看得到？"
+    foundation_website: "Diaspora 基金會網站"
+    getting_help:
+      get_support_a_hashtag: "公開用 %{question} 標籤在 diaspora* 上發問"
+      get_support_a_irc: "來%{irc}加入我們（即時聊天）"
+      get_support_a_tutorials: "來看看我們的%{tutorials}"
+      get_support_a_website: "來拜訪%{link}"
+      get_support_a_wiki: "來去%{link}搜尋"
+      get_support_q: "我的疑問在這份常見問題中沒有解答怎麼辦？我還可以在哪裡得到幫助？"
+      getting_started_a: "你運氣很好。來試看看我們專案網站上的%{tutorial_series}吧。我們會一步步帶著你完成註冊過程，並告訴你關於使用 Diaspora* 的基本事項。"
+      getting_started_q: "幫我一下！我需要有人教我怎麼開始！"
+      title: "求助"
+    getting_started_tutorial: "’出發囉‘個別指導系列"
+    irc: "IRC"
+    pods:
+      find_people_a: "你可以用網頁旁邊的電子郵件連結來邀請你的朋友。也可以追蹤 #標籤 來尋找跟你志同道合的人，當他們發表了你有興趣的貼文時，你就可以將他們加到你的面向裡。你也可以公開貼文大喊你是 #新來的"
+      find_people_q: "我剛剛加入一個豆莢，要怎麼找到其它可以分享的人？"
+      title: "豆莢"
+      use_search_box_a: "如果你知道他們的 diaspora* 識別碼全寫的話（比如說像是 username@podname.org），直接搜尋識別碼就可以了。如果你們在同一個豆莢裡，可以用他們的使用者名稱搜尋。不然就是用他們的檔案名稱（也就是畫面上看到的名字）搜尋看看。如果第一次搜尋不到，就再重試一次看看。"
+      use_search_box_q: "我要怎麼用搜尋框框找到特定的人？"
+      what_is_a_pod_a: "豆莢是一台伺服器，上面跑了 diaspora* 軟體，和整個 diaspora* 網路相連接。用\"豆莢\"這一個詞，是在比喻有如植物的豆莢包含了許多豆子一樣，伺服器上也包含了許多使用者的帳號。網路上會有許許多多的豆莢。你可以加位於其它豆莢的朋友，好跟他們交流。（你也可以想像 diaspora* 豆莢就好像電子郵件的信箱一樣：有公開供應的信箱，也有私人的信箱，甚至如果你肯下功夫，也可以維護自己的信箱。）"
+      what_is_a_pod_q: "什麼是豆莢？"
+    sharing:
+      add_to_aspect_li7: "Amy 會出現在 Ben 聯絡人頁面中的\"和我分享的人\"裡面。"
+      only_sharing_a: 這些人已經把你加到他們的面向中了，但是你的面向中沒有他們。也就是說他們有跟你分享，但是你卻沒有跟他們分享（非對稱的分享）。如果你把他們加到任何一個面向，他們就會出現在那個面向的列表中，而不會在"和我分享的人"裡面。請看上面。
+      only_sharing_q: 出現在聯絡人頁面中"和我分享的人"裡面的人是誰？
+    tutorial: "個別指導"
+    tutorials: "個別指導"
+    wiki: "維基"
   hide: "隱藏"
+  ignore: "忽略"
   invitation_codes:
     excited: "%{name} 看到你來覺得很興奮。"
   invitations:
@@ -356,7 +413,7 @@ zh-TW:
       if_they_accept_info: "如果他們接受，就會被加入至你所邀請的面向中。"
       invite_someone_to_join: "邀請某人來加入 Diaspora！"
       language: "語言"
-      paste_link: "將這個連結分享給你的朋友，來邀請他們加入 Diaspora*，或者也可以直接用電子郵件寄給他們。"
+      paste_link: "將這個連結分享給你的朋友，來邀請他們加入 diaspora*，或者也可以直接寄電子郵件給他們。"
       personal_message: "個人訊息"
       resend: "重寄"
       send_an_invitation: "寄邀請卡"
@@ -366,7 +423,7 @@ zh-TW:
   layouts:
     application:
       back_to_top: "回最上面"
-      powered_by: "強力配置 DIASPORA*"
+      powered_by: "強力配置 diaspora*"
       public_feed: "%{name} 的 Diaspora 公開資訊源"
       source_package: "下載原始碼套件"
       toggle: "行動切換"
@@ -376,6 +433,7 @@ zh-TW:
       admin: "管理"
       blog: "部落格"
       code: "源碼"
+      help: "說明"
       login: "登入"
       logout: "登出"
       profile: "個人檔案"
@@ -393,7 +451,7 @@ zh-TW:
       people_like_this_comment:
         other: "有%{count}個人說讚"
         zero: "沒人說讚"
-  limited: "限制"
+  limited: "有限"
   more: "更多"
   next: "後面"
   no_results: "搜尋沒有結果"
@@ -450,7 +508,7 @@ zh-TW:
       zero: "%{actors} 開始跟你分享了。"
   notifier:
     a_post_you_shared: "一篇貼文."
-    accept_invite: "接受 Diaspora* 的邀請吧！"
+    accept_invite: "接受來自 diaspora* 的邀請吧！"
     click_here: "按這裡"
     comment_on_post:
       reply: "回或看 %{name} 的貼文 >"
@@ -461,9 +519,9 @@ zh-TW:
     hello: "%{name} 你好！"
     invite:
       message: |-
-          嗨！
+          你好！
 
-          你被邀請加入 Diaspora* 了！
+          有人邀請你加入 Diaspora* 喔！
 
           請按這個連結來開始使用吧
 
@@ -475,13 +533,13 @@ zh-TW:
           Diaspora* 電郵機器人敬上。
 
           [1]: %{invite_url}
-    invited_you: "%{name} 邀請你來用 Diaspora*"
+    invited_you: "%{name} 邀請你來用 diaspora*"
     liked:
       liked: "%{name} 說你的貼文很讚"
       view_post: "看貼文 >"
     mentioned:
       mentioned: "在貼文中點到了你："
-      subject: "%{name} 在 Diaspora* 點到了你"
+      subject: "%{name} 在 diaspora* 點到了你"
     private_message:
       reply_to_or_view: "回或看這次對話 >"
     reshared:
@@ -492,7 +550,7 @@ zh-TW:
       subject: "有關於你的 Diaspora 帳號的訊息："
     started_sharing:
       sharing: "開始跟你分享了！"
-      subject: "%{name} 開始在 Diaspora* 跟你分享了"
+      subject: "%{name} 開始在 diaspora* 跟你分享了"
       view_profile: "看 %{name} 的個人檔案"
     thanks: "謝謝，"
     to_change_your_notification_settings: "來更改消息通知的設定"
@@ -510,8 +568,9 @@ zh-TW:
       edit_membership: "編輯所屬面向"
     few: "%{count}個聯絡人"
     helper:
+      is_not_sharing: "%{name} 沒有跟你分享"
       is_sharing: "%{name} 正在跟你分享中"
-      people_on_pod_are_aware_of: "Pod上已知的人"
+      people_on_pod_are_aware_of: " 個在豆莢裡的人都知道了"
       results_for: "%{params}的搜尋結果"
     index:
       couldnt_find_them_send_invite: "找不到他們嗎？寄一封邀請卡吧！"
@@ -520,7 +579,6 @@ zh-TW:
       no_results: "喂！搜尋要有目標。"
       results_for: "搜尋結果："
       searching: "搜尋中，請耐心等待..."
-    last_post: "最近貼文"
     many: "%{count}個聯絡人"
     one: "1個聯絡人"
     other: "%{count}個聯絡人"
@@ -535,7 +593,8 @@ zh-TW:
       edit_my_profile: "編輯個人檔案"
       gender: "性別"
       in_aspects: "所屬面向"
-      location: "位置"
+      location: "地點"
+      photos: "相片"
       remove_contact: "刪除聯絡人"
       remove_from: "要從 %{aspect} 刪除 %{name} 嗎？"
     show:
@@ -616,13 +675,14 @@ zh-TW:
       edit_profile: "編輯個人檔案"
       first_name: "名字(前)"
       last_name: "名字(後)"
+      nsfw_check: "把我分享的所有東西都標示為上班時不宜(NSFW)"
+      nsfw_explanation: "在 diaspora* 社群，對於不適合在上班時看的內容，是採用上班時不宜(NSFW)這種自我管理機制。如果你會常常發表這類題材，可以勾選這個選項，那麼你分享的東西就不會直接顯示在其它人的流水帳中，除非他們去點來看。"
+      nsfw_explanation2: "如果你沒有勾選這個選項，那麼當你要分享上班時不宜的題材時，請加上 #nsfw 這個標籤。"
       update_profile: "更新個人檔案"
-      you_are_nsfw: "你將自己標記為上班時不宜了，如果有人選擇要過濾掉爭議性的內容，你所發表的東西將不會出現在他們的流水帳中。"
-      you_are_safe_for_work: "你將自己標記為上班時適宜了，表示你同意你發表的內容符合社群共識。"
       your_bio: "你的自我介紹"
       your_birthday: "你的生日"
       your_gender: "你的性別"
-      your_location: "你的位置"
+      your_location: "你所在的地方"
       your_name: "你的名字"
       your_photo: "你的相片"
       your_private_profile: "你的私人檔案"
@@ -634,14 +694,10 @@ zh-TW:
       updated: "個人檔案已經更新了"
   public: "公開"
   reactions:
-    few: "有%{count}次反應"
-    many: "有%{count}次反應"
-    one: "有1次反應"
-    other: "有%{count}次反應"
-    two: "有%{count}次反應"
-    zero: "沒有反應"
+    other: "有%{count}次回應"
+    zero: "沒有回應"
   registrations:
-    closed: "本 Diaspora pod 不開放登記。"
+    closed: "本 Diaspora 豆莢不開放登記。"
     create:
       success: "你已經加入 Diaspora 了！"
     edit:
@@ -655,7 +711,7 @@ zh-TW:
     new:
       continue: "繼續"
       create_my_account: "開我的帳號！"
-      diaspora: "<3 Diaspora*"
+      diaspora: "<3 diaspora*"
       email: "電子信箱"
       enter_email: "輸入電子信箱"
       enter_password: "輸入密碼(至少六個字)"
@@ -667,6 +723,7 @@ zh-TW:
       password_confirmation: "密碼確認"
       sign_up: "註冊"
       sign_up_message: "有♥的社交網路"
+      submitting: "提交中..."
       username: "使用者名稱"
   requests:
     create:
@@ -707,6 +764,7 @@ zh-TW:
     create:
       already_authorized: "已經有 Diaspora 識別碼為 %{diaspora_id} 的使用者被授權使用該 %{service_name} 帳號了。"
       failure: "認證失敗。"
+      read_only_access: "存取權限是唯讀，請待會重新認證。"
       success: "認證成功。"
     destroy:
       success: "認證刪除成功。"
@@ -720,6 +778,7 @@ zh-TW:
       connect_to_facebook: "與 Facebook 連結"
       connect_to_tumblr: "與 Tumblr 連結"
       connect_to_twitter: "與 Twitter 連結"
+      connect_to_wordpress: "與 Wordpress 連結"
       disconnect: "切斷連結"
       edit_services: "編輯服務"
       logged_in_as: "已經登入為"
@@ -728,7 +787,7 @@ zh-TW:
       services_explanation: "連結到其他服務可以讓你在貼文到 Diaspora 的同時，也發表到這些服務去。"
     inviter:
       click_link_to_accept_invitation: "請按這個連結來接受邀請"
-      join_me_on_diaspora: "跟我一起加入 DIASPORA*"
+      join_me_on_diaspora: "跟我一起加入 diaspora*"
     remote_friend:
       invite: "邀請"
       not_on_diaspora: "還沒來 Diaspora"
@@ -768,7 +827,7 @@ zh-TW:
       invite_someone: "邀請某人來"
       invite_your_friends: "邀請你的朋友"
       invites: "邀請"
-      invites_closed: "目前本 Diaspora pod 不開放邀請功能"
+      invites_closed: "目前本 Diaspora 豆莢不開放邀請功能"
       share_this: "用這個連結來分享在電子郵件，部落格，或其他你喜愛的社交網站上！"
     notification:
       new: "%{from} 有新的%{type}"
@@ -786,7 +845,8 @@ zh-TW:
       all: "全部"
       all_contacts: "所有聯絡人"
       discard_post: "捨棄貼文"
-      get_location: "取得你的位置"
+      formatWithMarkdown: "你可以用%{markdown_link}來對貼文做排版"
+      get_location: "取得你所在的地點"
       make_public: "公開"
       new_user_prefill:
         hello: "大家好，我是 #%{new_user_tag}。"
@@ -818,6 +878,13 @@ zh-TW:
       via: "經由%{link}"
       via_mobile: "經由行動裝置"
       viewable_to_anyone: "任何上網的人都能看到這篇貼文"
+  simple_captcha:
+    label: "請輸入方塊中顯示的密碼:"
+    message:
+      default: "密碼跟圖形內容不符"
+      failed: "人類確認檢查失敗"
+      user: "圖形和密碼不一樣"
+    placeholder: "請輸入圖形中的內容"
   status_messages:
     create:
       success: "成功推薦了：%{names}"
@@ -883,7 +950,9 @@ zh-TW:
   tags:
     show:
       follow: "追蹤 #%{tag}"
-      followed_by: "追蹤者："
+      followed_by_people:
+        other: "有%{count}個人追蹤"
+        zero: "沒人追蹤"
       following: "正在追蹤 #%{tag}"
       nobody_talking: "還沒有人在討論 %{tag}。"
       none: "不存在空白標籤！"
@@ -930,7 +999,7 @@ zh-TW:
         make_diaspora_better: "希望你能幫助我們讓 Diaspora 更好，而不是選擇離開。如果你還是想走，我們也想讓你知道日後的發展。"
         mr_wiggles: "Mr Wiggles 看到你走會很難過"
         no_turning_back: "現在已經不能回頭了。"
-        what_we_delete: "我們會儘快刪掉你的貼文和個人檔案。你發表的意見會繼續跟著原來的 Diaspora 識別碼而留著。"
+        what_we_delete: "我們會儘快刪掉你的貼文和個人檔案。你發表的意見會繼續跟著原來的 Diaspora 識別碼而留著，但是不再會有你檔案裡的名字。"
       close_account_text: "關帳號"
       comment_on_post: "...當有人對你的貼文發表意見時？"
       current_password: "目前密碼"
@@ -956,7 +1025,7 @@ zh-TW:
       your_email: "你的電子郵件"
       your_handle: "你的 diaspora 識別碼"
     getting_started:
-      awesome_take_me_to_diaspora: "帥！帶我去 Diaspora*"
+      awesome_take_me_to_diaspora: "帥！帶我去 diaspora* 吧"
       community_welcome: "Diaspora 的社群歡迎你的到來！"
       connect_to_facebook: "藉由%{link} Diaspora 讓你儘快上軌道 。這個步驟會取得你原有的名字和照片來用，並開啟跨站貼文。"
       connect_to_facebook_link: "連結 Facebook 帳號"

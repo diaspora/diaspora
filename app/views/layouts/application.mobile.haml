@@ -46,35 +46,32 @@
     = yield(:head)
 
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container{:style => "position: relative;"}
-          = link_to(image_tag('branding/header-logo2x.png', :height => 40, :width => 40, :id => 'header_title'), stream_path)
+    %header    
+      = link_to(image_tag('branding/header-logo2x.png', height: 40, width: 40), stream_path, id: 'header_title')
 
-          - if user_signed_in?
-            #nav_badges
-              = link_to(image_tag('icons/my_activity.png', :class => 'my_activity'), activity_stream_path, :class => "badge badge-inverse", :id => "my_activity_badge")
-              = link_to(image_tag('icons/notifications_grey.png', :height => 16, :width => 16, :id => 'notification-flag'), notifications_path, :class => "badge badge-inverse", :id => "notification_badge")
-              - if current_user.unread_notifications.count > 0
-                .badge_count{:id => "notification"}
-                  = current_user.unread_notifications.count
-              = link_to(image_tag('icons/mail_grey.png', :height => 11, :width => 17), conversations_path, :class => "badge badge-inverse", :id => "conversations_badge")
-              - if current_user.unread_message_count > 0
-                .badge_count{:id => "conversation"}
-                  = current_user.unread_message_count
-              = link_to(image_tag('icons/search_grey.png', :height => 14, :width => 14), people_path, :class => "badge badge-inverse", :id => "people_badge")
-              = link_to(image_tag('icons/user_grey.png', :height => 16, :width => 16), contacts_path, :class => "badge badge-inverse", :id => "contacts_badge")
-              - if yield(:header_action).present?
-                = yield(:header_action)
-              - else
-                = link_to(image_tag('icons/compose_mobile2.png', :class => 'compose_icon'), new_status_message_path)
+      - if user_signed_in?
+        #nav_badges
+          = link_to(image_tag('icons/my_activity.png', class: 'my_activity'), activity_stream_path, class: "badge badge-inverse", id: "my_activity_badge")
+          = link_to(image_tag('icons/notifications_grey.png', height: 16, width: 16, id: 'notification-flag'), notifications_path, class: "badge badge-inverse", id: "notification_badge")
+          - if current_user.unread_notifications.count > 0
+            .badge_count{id: "notification"}
+              = current_user.unread_notifications.count
+          = link_to(image_tag('icons/mail_grey.png', height: 11, width: 17), conversations_path, class: "badge badge-inverse", id: "conversations_badge")
+          - if current_user.unread_message_count > 0
+            .badge_count{id: "conversation"}
+              = current_user.unread_message_count
+          = link_to(image_tag('icons/search_grey.png', height: 14, width: 14), people_path, class: "badge badge-inverse", id: "people_badge")
+          = link_to(image_tag('icons/user_grey.png', height: 16, width: 16), contacts_path, class: "badge badge-inverse", id: "contacts_badge")
+          - if yield(:header_action).present?
+            = yield(:header_action)
+          - else
+            = link_to(image_tag('icons/compose_mobile2.png', class: 'compose_icon'), new_status_message_path)
 
     #main.container{:role => "main"}
-      .row
-        - if current_page?(:activity_stream)
-          %h3
-            = t('streams.activity.title')
-        = yield
+      - if current_page?(:activity_stream)
+        %h3
+          = t('streams.activity.title')
+      = yield
 
     - if user_signed_in?
       = render :partial =>'shared/footer'

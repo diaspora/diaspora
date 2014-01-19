@@ -64,7 +64,7 @@ ia:
       completed: "<%= file %> complete"
       empty: "{file} es vacue. Per favor re-selige le files sin iste."
       invalid_ext: "{file} ha un extension inadmissibile. Solmente {extensions} es permittite."
-      looking_good: "Oh, tu es incredibile!"
+      looking_good: "Oh, tu pare splendide!"
       size_error: "{file} es troppo grande. Le dimension maxime es {sizeLimit}."
     publisher:
       at_least_one_aspect: "Le publication debe esser includite in al minus un aspecto"

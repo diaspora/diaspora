@@ -17,7 +17,7 @@ class Reshare < Post
     self.public = true
   end
 
-  after_create do
+  after_commit :on => :create do
     self.root.update_reshares_counter
   end
 
@@ -47,10 +47,6 @@ class Reshare < Post
 
   def photos
     self.root ? root.photos : []
-  end
-
-  def frame_name
-    self.root ? root.frame_name : nil
   end
 
   def receive(recipient, sender)

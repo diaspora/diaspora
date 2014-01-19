@@ -19,7 +19,7 @@ en_pirate:
         two: "In <%= count %> aspects"
         zero: "Add to aspect"
     getting_started:
-      hey: "Hey, {{name}}!"
+      hey: "Hey, <%= name %>!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       search: "Find people or #tags"
@@ -49,7 +49,7 @@ en_pirate:
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     timeago:
       prefixAgo: ""
       prefixFromNow: ""

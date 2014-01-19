@@ -4,7 +4,6 @@
 
 - content_for :head do
   = javascript_include_tag :jquery
-  = javascript_include_tag 'fileuploader-custom'
 
   :javascript
     $(document).ready(function () {
@@ -42,64 +41,43 @@
 
 %section#hello-there
   .hero-unit-mobile
-    %h3.center
+    %h1.center
       = t('.well_hello_there')
-    %p.center
+    %h3.center
       = t(".community_welcome")
 
     = invited_by_message
 
-    .clearfix
+    %h2
+      = t(".who_are_you")
 
-    .clearfix
-      .row
-        %h3
-          = t(".who_are_you")
+    - if AppConfig.configured_services.include? :facebook
+      %p
+        != t('.connect_to_facebook', :link => link_to(t('.connect_to_facebook_link'), "auth/facebook?callback_url=#{getting_started_url}"))
 
-      .row
-        %p
-          != t('.connect_to_facebook', :link => link_to(t('.connect_to_facebook_link'), "auth/facebook?callback_url=#{getting_started_url}"))
+    = form_tag profile_path, :method => :put, :remote => true, :id => 'edit_profile' do
+      %fieldset
+        = label_tag 'profile[first_name]', t('profiles.edit.your_name'), :class => "bootstrapped"
+        = text_field_tag 'profile[first_name]', current_user.first_name
+        = image_tag 'ajax-loader.gif', :id => "gs-name-form-spinner", :class => "hidden"
+        %span.saved{:class => "hidden"}
+          = image_tag 'icons/check_yes_ok.png'
+          = t(".saved")
 
-      .row
-        .span6
-          = form_tag profile_path, :method => :put, :remote => true, :id => 'edit_profile' do
-            %fieldset
-              .clearfix
-                = label_tag 'profile[first_name]', t('profiles.edit.your_name'), :class => "bootstrapped"
-                .input
-                  = text_field_tag 'profile[first_name]', current_user.first_name
-                  = image_tag 'ajax-loader.gif', :id => "gs-name-form-spinner", :class => "hidden"
+        = label_tag :your_photo, t('profiles.edit.your_photo'), :class => "bootstrapped"
+        = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person
 
-              %span.saved{:class => "hidden"}
-                = image_tag 'icons/check_yes_ok.png'
-                = t(".saved")
+    %h2
+      = t('.what_are_you_in_to')
 
-            .clearfix
-              = label_tag :your_photo, t('profiles.edit.your_photo'), :class => "bootstrapped"
-              = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person
+    %p
+      = t('.hashtag_explanation')
 
-    .clearfix
-      .row
-        %h3
-          = t('.what_are_you_in_to')
-
-      .row
-        %p
-          = t('.hashtag_explanation')
-
-      .row
-        .span13
-          = form_tag(tag_followings_path, :method => 'get', :class => "tag_input search_form") do
-            %fieldset
-              .clearfix
-                = label_tag 'follow_tags', t('.hashtag_suggestions'), :class => "bootstrapped"
-                .input
-                  = text_field_tag 'follow_tags', nil, :class => "nostrap"
-
-            .clearfix
-              %br
-              %br
-              %br
-              .input
-                = link_to "#{t('.awesome_take_me_to_diaspora')} »", stream_path, :id => "awesome_button", :class => "btn primary"
+    = form_tag(tag_followings_path, :method => 'get', :class => "tag_input search_form") do
+      %fieldset
+        = label_tag 'follow_tags', t('.hashtag_suggestions'), :class => "bootstrapped"
+        = text_field_tag 'follow_tags', nil, :class => "nostrap"
+    
+    .center
+      = link_to "#{t('.awesome_take_me_to_diaspora')} »", stream_path, :id => "awesome_button", :class => "button creation"
 

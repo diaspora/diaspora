@@ -48,6 +48,7 @@ hu:
       admin: "Adminisztráció"
       close: "bezárás"
       contacts: "Ismerősök"
+      help: "Súgó"
       home: "Kezdőlap"
       log_out: "Kijelentkezés"
       mark_all_as_read: "Összes olvasottnak jelölése"

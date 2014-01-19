@@ -1,7 +1,8 @@
 //   licensed under the Affero General Public License version 3 or later.  See
 //   the COPYRIGHT file.
 
-@import '_mixins.css.scss';
+@import 'colors';
+@import 'mixins';
 
 #lightbox{
   z-index: 1003;
@@ -15,7 +16,7 @@
   padding-top: 80px;
   padding-bottom: 20px;
 
-  color: #666;
+  color: $text-dark-grey;
   text-shadow: none;
   font-size: 12px;
 
@@ -29,6 +30,7 @@
     top: 0;
     display: block;
     margin-bottom: 120px;
+    background: white;
   }
 
   #lightbox-content{
@@ -66,7 +68,7 @@
   }
 
   #lightbox-close-link{
-    color: #666;
+    color: $text-dark-grey;
     margin-bottom: 12px;
   }
 }
@@ -104,6 +106,7 @@
     width: 70px;
     margin-right: 5px;
     cursor: pointer;
+    background-color: white;
 
     &:last-child{
       margin-right: 0;

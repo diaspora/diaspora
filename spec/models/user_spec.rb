@@ -5,6 +5,31 @@
 require 'spec_helper'
 
 describe User do
+  context "relations" do
+    context "#conversations" do
+      it "doesn't find anything when there is nothing to find" do
+        u = FactoryGirl.create(:user)
+        u.conversations.should be_empty
+      end
+
+      it "finds the users conversations" do
+        c = FactoryGirl.create(:conversation, { author: alice.person })
+
+        alice.conversations.should include c
+      end
+
+      it "doesn't find other users conversations" do
+        c1 = FactoryGirl.create(:conversation)
+        c2 = FactoryGirl.create(:conversation)
+        c_own = FactoryGirl.create(:conversation, { author: alice.person })
+
+        alice.conversations.should include c_own
+        alice.conversations.should_not include c1
+        alice.conversations.should_not include c2
+      end
+    end
+  end
+
   describe "private key" do
     it 'has a key' do
       alice.encryption_key.should_not be nil
@@ -67,6 +92,22 @@ describe User do
       user.last_sign_in_at = Time.now - 2.day
       user.save
       User.daily_actives.should_not include(user)
+    end
+  end
+
+  describe 'halfyear_actives' do
+    it 'returns list which includes users who latest signed in within half a year' do
+      user = FactoryGirl.build(:user)
+      user.last_sign_in_at = Time.now - 4.month
+      user.save
+      User.halfyear_actives.should include user
+    end
+
+     it 'returns list which does not include users who did not sign in within the last half a year' do
+      user = FactoryGirl.build(:user)
+      user.last_sign_in_at = Time.now - 7.month
+      user.save
+      User.halfyear_actives.should_not include user
     end
   end
 
@@ -794,7 +835,7 @@ describe User do
 
   describe '#retract' do
     before do
-      @retraction = mock
+      @retraction = double
       @post = FactoryGirl.build(:status_message, :author => bob.person, :public => true)
     end
 
@@ -805,7 +846,7 @@ describe User do
       end
 
       it 'sends a retraction' do
-        dispatcher = mock
+        dispatcher = double
         Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, anything()).and_return(dispatcher)
         dispatcher.should_receive(:post)
 
@@ -817,7 +858,7 @@ describe User do
         reshare = FactoryGirl.create(:reshare, :root => @post, :author => person)
         @post.reshares << reshare
 
-        dispatcher = mock
+        dispatcher = double
         Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, {:additional_subscribers => [person], :services => anything}).and_return(dispatcher)
         dispatcher.should_receive(:post)
 
@@ -827,20 +868,6 @@ describe User do
   end
 
   describe "#send_reset_password_instructions" do
-    it "generates a reset password token if it's supposed to" do
-      user = User.new
-      user.stub!(:should_generate_reset_token?).and_return(true)
-      user.should_receive(:generate_reset_password_token)
-      user.send_reset_password_instructions
-    end
-
-    it "does not generate a reset password token if it's not supposed to" do
-      user = User.new
-      user.stub!(:should_generate_reset_token?).and_return(false)
-      user.should_not_receive(:generate_reset_password_token)
-      user.send_reset_password_instructions
-    end
-
     it "queues up a job to send the reset password instructions" do
       user = FactoryGirl.create :user
       Workers::ResetPassword.should_receive(:perform_async).with(user.id)
@@ -884,9 +911,9 @@ describe User do
           AppConfig.settings.autofollow_on_join = true
           AppConfig.settings.autofollow_on_join_user = 'one'
 
-          wf_mock = mock
-          wf_mock.should_receive(:fetch)
-          Webfinger.should_receive(:new).with('one').and_return(wf_mock)
+          wf_double = double
+          wf_double.should_receive(:fetch)
+          Webfinger.should_receive(:new).with('one').and_return(wf_double)
 
           user.seed_aspects
         end
@@ -975,6 +1002,36 @@ describe User do
           confirm_email_token
         }.sort
       end
+    end
+  end
+  
+  describe "sign up" do
+    before do
+      params = {:username => "ohai",
+                :email => "ohai@example.com",
+                :password => "password",
+                :password_confirmation => "password",
+                :captcha => "12345",
+                
+                :person =>
+                  {:profile =>
+                    {:first_name => "O",
+                     :last_name => "Hai"}
+                  }
+      }
+      @user = User.build(params)
+    end
+
+    it "saves with captcha off" do
+      AppConfig.settings.captcha.enable = false
+      @user.should_receive(:save).and_return(true)
+      @user.sign_up
+    end
+
+    it "saves with captcha on" do
+      AppConfig.settings.captcha.enable = true
+      @user.should_receive(:save_with_captcha).and_return(true)
+      @user.sign_up
     end
   end
 end

@@ -44,7 +44,6 @@ lt:
   all_aspects: "Visos kategorijos"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* PRADŽIA"
       unknown_person: "Nežinomas asmuo"
       video_title:
         unknown: "Netinkamas video įrašo tipas."
@@ -115,7 +114,6 @@ lt:
         tag_bug: "nesklandumų"
         tag_feature: "ypatybė"
         tag_question: "klausimų"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Bendruomenės pagalba, kaip padaryti klausimai ir naujienos"
       introduce_yourself: "Tai Jūsų srautas. Užeikite ir prisistatykite."
       new_here:
         follow: "Sekti %{link} ir pasveikinti naujus tinklapio Diaspora* vartotojus!"

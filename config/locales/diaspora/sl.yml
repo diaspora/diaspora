@@ -106,7 +106,6 @@ sl:
   all_aspects: "Vsi pogledi"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "neznana oseba"
       video_title:
         unknown: "Neznani naslov videa"
@@ -179,7 +178,6 @@ sl:
         tag_bug: "bug"
         tag_feature: "feature"
         tag_question: "question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Vodiči, navodila in novice iz skupnosti"
       introduce_yourself: "To je vaš tok. Vskočite in predstavite se."
       keep_diaspora_running: "Z mesečnim prispevkom pohitrite razvoj Diaspore!"
       keep_pod_running: "Pomagajte, da bo %{pod} deloval hitro in plačajte strežnikom kavico z mesečnim prispevkom!"
@@ -575,7 +573,6 @@ sl:
       no_results: "Hej! Za iskanje je potrebno vpisati nekaj."
       results_for: "rezultati iskanja za"
       searching: "iskanje poteka, bodite potrpežljivi ..."
-    last_post: "Zadnja objava"
     many: "%{count} oseb"
     one: "1 oseba"
     other: "%{count} oseb"
@@ -675,8 +672,6 @@ sl:
       first_name: "Ime"
       last_name: "Priimek"
       update_profile: "Posodobi profil"
-      you_are_nsfw: "Označili ste se kot ne varne za delovno mesto. To pomeni, da vaše vsebine ne bodo vidne za ljudi, ki so izbrali, da nočejo videti oporečnih tokov vsebin."
-      you_are_safe_for_work: "Označili ste se kot varne za delovno mesto. To pomeni, da se strinjate, da bo vsebina vaših objav upoštevala smernice skupnosti."
       your_bio: "Vaš življenjepis"
       your_birthday: "Vaš rojstni dan"
       your_gender: "Vaš spol"
@@ -941,7 +936,6 @@ sl:
   tags:
     show:
       follow: "Sledite #%{tag}"
-      followed_by: "sledi"
       following: "Sledenje #%{tag}"
       nobody_talking: "Nihče še ni govoril o %{tag}."
       none: "Prazna oznaka ne obstaja!"

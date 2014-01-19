@@ -44,7 +44,6 @@ ur-PK:
   all_aspects: "تمام پہلو"
   application:
     helper:
-      diaspora_alpha: "ڈایسپورا* الف"
       unknown_person: "نامعلوم شخص"
       video_title:
         unknown: "نامعلوم ویڈیو عنوان"

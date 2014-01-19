@@ -61,7 +61,7 @@ input.button {
 }
 
 .button .selected {
-  @include linear-gradient(#f0f0f0,#fafafa,29%,85%);
+  @include linear-gradient(#f0f0f0,$highlight-white,29%,85%);
 
   border-top: 1px solid #aaa;
 }
@@ -123,7 +123,7 @@ input.button {
     padding: 4px 0;
     margin-top: 2px;
     background-color: #fff;
-    border: 1px solid #999;
+    border: 1px solid $border-dark-grey;
 
     ul {
       @include user-select(none);
@@ -175,7 +175,7 @@ input.button {
 
         &.newItem {
           a {
-            color: #999;
+            color: $text-grey;
             font-style: italic;
 
             &:hover {

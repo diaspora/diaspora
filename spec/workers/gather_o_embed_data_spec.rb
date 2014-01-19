@@ -63,7 +63,7 @@ describe Workers::GatherOEmbedData do
     it 'gracefully handles a deleted post' do
       expect {
         Workers::GatherOEmbedData.new.perform(0, @flickr_photo_url)
-      }.to_not raise_error ActiveRecord::RecordNotFound
+      }.to_not raise_error
     end
   end
 end

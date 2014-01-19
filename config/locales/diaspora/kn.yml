@@ -1,0 +1,62 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+kn:
+  _applications: "ಅನ್ವಯಿಸುವಿಕೆಗಳು"
+  _comments: "ಪ್ರತಿಕ್ರಿಯೆಗಳು"
+  _contacts: "ಸಂಪರ್ಕಗಳು"
+  _home: "ಮತ್ತಷ್ಟು"
+  _photos: "ಭಾವಚಿತ್ರಗಳು"
+  _services: "ಸೇವೆಗಳು"
+  account: "ಖಾತೆ"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "ಈ ಬಳಕೆದಾರರ ಸಂಪರ್ಕಗಳ ನಡುವೆ ಅನನ್ಯ ಇರಬೇಕು."
+        request:
+          attributes:
+            from_id:
+              taken: "ಒಂದು ಪೂರ್ವ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ವಿನಂತಿಯ ನಕಲು ಇದೆ."
+        user:
+          attributes:
+            person:
+              invalid: "ಅಮಾನ್ಯವಾಗಿದೆ"
+            username:
+              invalid: "ಅಮಾನ್ಯವಾಗಿದೆ. ನಾವು ಅಕ್ಷರಗಳು, ಸಂಖ್ಯೆಗಳು, ಮತ್ತು ಒತ್ತಿಹೇಳುತ್ತದೆ ಮಾತ್ರ ಅವಕಾಶ"
+              taken: "ಈಗಾಗಲೇ ತೆಗೆದುಕೊಳ್ಳಲಾಗಿದೆ"
+  all_aspects: "ಎಲ್ಲಾ ಅಂಶಗಳು"
+  are_you_sure: "ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?"
+  are_you_sure_delete_account: "ನೀವು ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಮುಚ್ಚಲು ಬಯಸುವಿರಾ? ಇದನ್ನು ರದ್ದುಪಡಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ!"
+  back: "ಹಿಂದೆ"
+  delete: "ಅಳಿಸು"
+  email: "ಇಮೇಲ್"
+  fill_me_out: "ತುಂಬಿಸಿ"
+  find_people: "ಜನರನ್ನು ಹುಡುಕಿ ಅಥವಾ #ಟ್ಯಾಗ್ಗಳು"
+  limited: "ಸೀಮಿತ"
+  more: "ಮತ್ತಷ್ಟು"
+  next: "ನಂತರ"
+  no_results: "ಫಲಿತಾಂಶಗಳು ಪತ್ತೆಯಾಗಿಲ್ಲ"
+  nsfw: "ಎನ್ ಎಸ್ ಎಫ್ ಡಬೣಯೂ"
+  ok: "ಒಪ್ಪಿಗೆ"
+  or: "ಅಥವಾ"
+  password: |-
+
+      ಸಂಜ್ಞೆ
+  password_confirmation: "ಸಂಜ್ಞೆ ದೃಢೀಕರಣ"
+  previous: "ಹಿಂದಿನ"
+  privacy: "ಖಾಸಗಿತನ"
+  privacy_policy: "ಗೌಪ್ಯತಾ ನೀತಿ"
+  profile: "ಸ್ವವಿವರ"
+  public: "ಲೋಕಪ್ರಸಿದ್ಧ"
+  search: "ಹುಡುಕು"
+  settings: "ಸೆಟ್ಟಿಂಗ್ಗಳು"
+  terms_and_conditions: "ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು"
+  undo: "ಮೇಲಕ್ಕೆ"
+  username: "ಬಳಕೆದಾರಹೆಸರು"
+  welcome: "ಸ್ವಾಗತ"

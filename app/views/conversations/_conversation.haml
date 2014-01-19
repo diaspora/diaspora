@@ -6,20 +6,25 @@
   .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
     .media
       .img
-        - if authors[conversation.id].present?
-          = person_image_tag(authors[conversation.id])
+        - other_participants = ordered_participants[conversation.id] - [current_user.person]
+        - if other_participants.first.present?
+          = person_image_tag(other_participants.first)
 
       .bg
-        = render(:partial => 'conversation_subject',
-                  :locals => { :conversation => conversation,
-                               :unread_count => unread_counts[conversation.id].to_i })
-
+        .badge.badge-dafault.message_count
+          = conversation.messages.size
+        - unread_count = unread_counts[conversation.id].to_i
+        - if unread_count > 0
+          .badge.badge-important.unread_message_count
+            = unread_count
+        .subject
+          %div{ :class => direction_for(conversation.subject) }
+            = conversation.subject
+        %time.timeago.timestamp{:datetime => conversation.updated_at.iso8601}
+          = t('ago', :time =>  time_ago_in_words(conversation.updated_at))
         .last_author
-          %time.timeago.timestamp{:datetime => conversation.updated_at.iso8601}
-            = t('ago', :time =>  time_ago_in_words(conversation.updated_at))
-
           - if authors[conversation.id].present?
             = authors[conversation.id].name
- 
-          = link_to content_tag(:span, nil, class: 'icons-users', title: t('.participants')), '#', :class => 'participants_link', "data-conversation-id" => conversation.id
-          = render :partial => 'participants_popover', :locals => { :conversation => conversation }
+        .last_message
+          - if conversation.messages.present?
+            = '»' + conversation.messages.last.text + '«'

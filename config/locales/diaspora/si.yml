@@ -5,8 +5,11 @@
 
 
 si:
+  _comments: "ප්‍රතිචාර"
   _home: "නිවස"
+  _photos: "පින්තූර"
   _services: "සේවාවන්"
+  account: "ගිණුම"
   activerecord:
     errors:
       models:
@@ -30,7 +33,6 @@ si:
       week: "සතිය"
   application:
     helper:
-      diaspora_alpha: "සංවර්ධනය වෙමින් පවතින DIASPORA*"
       unknown_person: "නාඳුනන කෙනෙක්"
       video_title:
         unknown: "නාඳුනන වීඩියෝ මාතෘකාවකි"
@@ -40,6 +42,7 @@ si:
       done_editing: "සංස්කරණය හරි"
     aspect_listings:
       add_an_aspect: "+ අංගයන් එක් කරන්න"
+      deselect_all: "සියල්ල නොසලකා හරින්න"
       edit_aspect: "%{name} සංස්කරණය කරන්න"
       select_all: "සියල්ල තෝරන්න"
     create:
@@ -60,6 +63,7 @@ si:
       remove: "ඉවත්කරන්න"
     index:
       cubbies:
+        heading: "Cubbi.es සම්බන්ධ කරන්න"
         learn_more: "තව දැනගන්න"
       diaspora_id:
         content_1: "මෙය ඔබගේ ඩයස්පෝරා ID එකයි:"
@@ -92,6 +96,7 @@ si:
       work: "රැකියාව"
     selected_contacts:
       manage_your_aspects: "ඔබගේ අංගයන් කලමනාකරණය කරන්න"
+      view_all_contacts: "සියලු පෙන්වන්න"
     show:
       edit_aspect: "අංගය සංස්කරණය කරන්න"
     two: "අංගයන් %{count}"
@@ -99,14 +104,33 @@ si:
       failure: "ඔබගේ අංගය, %{name}, හි නම save කිරීමට දිග වැඩියි."
       success: "ඔබගේ අංගය, %{name}, සාර්ථකව නැවත සකසන ලදී."
     zero: "අංගයන් නැත"
-  back: "ආපස්සට"
+  back: "පිටුපසට"
   bookmarklet:
     heading: "පොත් සලකුණ"
+  comments:
+    new_comment:
+      comment: "ප්‍රතිචාරයක්"
+      commenting: "ප්‍රතිචාර දක්වමින්..."
+    one: "එක් ප්‍රතිචාරයක්"
+    zero: "ප්‍රතිචාර නොමැත"
   contacts:
     index:
       only_sharing_with_me: "මා සමග පමණක් share කර ඇත"
+      start_a_conversation: "සංවාදයක් අරබන්න"
   conversations:
+    create:
+      fail: "පණිවිඩයක් වලංගු නැත"
+      sent: "පණිවිඩය යැව්වා"
+    destroy:
+      success: "සංවාදය සාර්ථකව ඉවත් කරන ලදී"
+    index:
+      create_a_new_message: "අලුත් පණිවිඩයක් සාදන්න"
+      new_message: "අලුත් පණිවිඩයක්"
+      no_conversation_selected: "කිසිම සංවාදයක් තෝරාගෙන නැහැ"
+      no_messages: "පණිවිඩ නැත"
     new:
+      send: "යවන්න"
+      sending: "යවමින්..."
       subject: "විෂයය"
   date:
     formats:
@@ -138,8 +162,10 @@ si:
       back_to_top: "නැවත ඉහලට යන්න"
       whats_new: "අලුතින් මොනවද?"
     header:
+      admin: "පරිපාලක"
       blog: "බ්ලොගය"
       code: "කේතය"
+      settings: "සැකසුම්"
       view_all: "සියල්ල පෙන්වන්න"
   likes:
     likes:
@@ -198,6 +224,7 @@ si:
   posts:
     show:
       destroy: "ඉවත් කරන්න"
+  previous: "පෙර පිටුවට"
   privacy: "පෞද්ගලිකත්වය"
   privacy_policy: "පෞද්ගලික ප්‍රතිපත්තිය"
   profiles:

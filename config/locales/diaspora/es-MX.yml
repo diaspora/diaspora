@@ -8,6 +8,7 @@ es-MX:
   _applications: "Aplicaciones"
   _comments: "Comentarios"
   _contacts: "Contactos"
+  _help: "Ayuda"
   _home: "Inicio"
   _photos: "Fotos"
   _services: "Servicios"
@@ -96,7 +97,6 @@ es-MX:
   all_aspects: "Todos los aspectos"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "persona desconocida"
       video_title:
         unknown: "Título de video desconocido"
@@ -172,7 +172,8 @@ es-MX:
         tag_bug: "error"
         tag_feature: "idea"
         tag_question: "pregunta"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales hechos por la comunidad, guías y noticias"
+        tutorial_link_text: "Tutoriales"
+        tutorials_and_wiki: "%{faq},%{tutorial} & %{wiki}: Ayuda en tus primeros pasos en Diaspora."
       introduce_yourself: "Esta es tu entrada. Adelante, preséntate."
       keep_diaspora_running: "¡Haz que el desarrollo de Diaspora siga yendo rápido con una donación mensual!"
       keep_pod_running: "¡Haz que %{pod} siga yendo rápido, y compra a nuestros servidores su dosis de café, con una donación mensual!"
@@ -333,6 +334,34 @@ es-MX:
     post_not_public: "¡La publicación que estás tratando de ver no es pública!"
   fill_me_out: "Complétame"
   find_people: "Encuentra gente o #etiquetas"
+  help:
+    account_and_data_management:
+      close_account_a: "Ve hasta la parte inferior de tu pagina de configuración y dale click en el botón \"Cerrar Cuenta\"."
+      close_account_q: "¿Como puedo  borrar mi cuenta?"
+      data_visible_to_podmin_q: "¿Qué tanto de mi información puede ver el administrador de mi pod?"
+      download_data_a: "SI. Al final de la pestaña de configuración de Cuenta hay dos botones para descargar tu iformación."
+      download_data_q: "¿Puedo descargar una copia de todos los datos contenidos en mi cuenta?"
+      move_pods_q: "¿Cómo puedo mover mi cuenta de un pod a otro?"
+      title: "Cuenta y gestión de datos"
+    foundation_website: "sitio de la fundación diaspora"
+    getting_help:
+      get_support_a_hashtag: "haz una pregunta en un post publico en diaspora* utilizando la etiqueta %{question}"
+      get_support_a_irc: "únete a nosotros en %{irc} (Chat en vivo)"
+      get_support_a_tutorials: "revisa nuestros %{tutorials}"
+      get_support_a_website: "visítanos en %{link}"
+      get_support_a_wiki: "busca en %{link}"
+      get_support_q: "Si no encuentro una respuesta a mi pregunta en este FAQ. ¿Donde puedo encontrar ayuda?"
+      getting_started_a: "Estas de suerte. Intenta la %{tutorial_series} en nuestro sitio del proyecto. Te llevara paso a paso a través del proceso de registro y te enseñara todo los aspectos básicos de como usar diaspora*."
+      getting_started_q: "¡Ayuda! ¡Necesito conocer lo básico para empezar!"
+      title: "Obteniendo ayuda"
+    getting_started_tutorial: "Serie de tutoriales 'Primeros pasos'"
+    here: "aquí"
+    irc: "IRC"
+    markdown: "Markdown"
+    third_party_tools: "herramientas de terceros"
+    tutorial: "tutorial"
+    tutorials: "tutoriales"
+    wiki: "wiki"
   hide: "Ocultar"
   invitation_codes:
     excited: "%{name} está entusiasmado por verte aquí."
@@ -530,6 +559,7 @@ es-MX:
       edit_membership: "editar aspecto asociado"
     few: "%{count} personas"
     helper:
+      is_not_sharing: "%{name} no esta compartiendo contigo"
       is_sharing: "%{name} está compartiendo contigo"
       people_on_pod_are_aware_of: " la gente en el servidor está consciente de"
       results_for: " resultados para %{params}"
@@ -540,7 +570,6 @@ es-MX:
       no_results: "¡Eh! Necesitas buscar algo."
       results_for: "buscar resultados para"
       searching: "buscando, por favor sé paciente…"
-    last_post: "Última publicación"
     many: "%{count} personas"
     one: "1 persona"
     other: "%{count} personas"
@@ -556,6 +585,7 @@ es-MX:
       gender: "género"
       in_aspects: "en aspectos"
       location: "ubicación"
+      photos: "Fotos"
       remove_contact: "quitar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show:
@@ -638,8 +668,6 @@ es-MX:
       first_name: "Nombre"
       last_name: "Apellidos"
       update_profile: "Actualizar perfil"
-      you_are_nsfw: "Has marcado tu perfil como no apto para todo público, tu contenido no se mostrará a las personas que han optado por no ver publicaciones con contenido indeseable."
-      you_are_safe_for_work: "Has marcado tu perfil como apto para todo público, esto significa que aceptas que el contenido que publiques estará de acuerdo con las normas de la comunidad."
       your_bio: "Biografía"
       your_birthday: "Cumpleaños"
       your_gender: "Género"
@@ -723,6 +751,7 @@ es-MX:
     create:
       already_authorized: "Un usuario con la ID de Diaspora %{diaspora_id} ya autorizó esa cuenta de %{service_name}."
       failure: "Error de autenticación."
+      read_only_access: "El nivel de acceso es \"solo lectura\", por favor inténtelo de nuevo más tarde."
       success: "Autenticación exitosa."
     destroy:
       success: "Autenticación eliminada exitosamente."
@@ -894,7 +923,6 @@ es-MX:
   tags:
     show:
       follow: "Seguir #%{tag}"
-      followed_by: "seguido por"
       following: "Siguiendo #%{tag}"
       nobody_talking: "Nadie está hablando acerca de %{tag} todavía."
       none: "¡La etiqueta vacía no existe!"

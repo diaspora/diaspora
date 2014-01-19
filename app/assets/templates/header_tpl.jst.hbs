@@ -45,7 +45,7 @@
         <div class="header">
           <div class="right">
 
-            <a href="#" id="mark_all_read_link">
+            <a href="#" id="mark_all_read_link" class="{{#unless current_user.notifications_count}}disabled{{/unless}}">
               {{t "header.mark_all_as_read"}}
             </a>
             |
@@ -85,21 +85,21 @@
   </div>
 
   <ul class="dropdown" id="user_menu">
-    <li>
-    <div class="right">
-      ▼
-    </div>
-    <img alt="{{current_user.name}}" class="avatar" src="{{current_user.avatar.small}}" title="{{current_user.name}}" />
-    <a href="#">{{current_user.name}}</a>
+    <li class="user-menu-trigger">
+      <div class="user-menu-more-indicator">
+        ▼
+      </div>
+      <img alt="{{current_user.name}}" class="user-menu-avatar" src="{{current_user.avatar.small}}" title="{{current_user.name}}" />
+      <a class="user-name" href="#">{{current_user.name}}</a>
     </li>
-    <li><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
-    <li><a href="/contacts">{{t "header.contacts"}}</a></li>
-    <li><a href="/user/edit">{{t "header.settings"}}</a></li>
-    <li><a href="/help">{{t "header.help"}}</a></li>
+    <li class="user-menu-item"><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
+    <li class="user-menu-item"><a href="/contacts">{{t "header.contacts"}}</a></li>
+    <li class="user-menu-item"><a href="/user/edit">{{t "header.settings"}}</a></li>
+    <li class="user-menu-item"><a href="/help">{{t "header.help"}}</a></li>
     {{#if current_user.admin}}
-      <li><a href="/admins/user_search">{{t "header.admin"}}</a></li>
+      <li class="user-menu-item"><a href="/admins/user_search">{{t "header.admin"}}</a></li>
     {{/if}}
-    <li><a href="/users/sign_out" data-method="delete">{{t "header.log_out"}}</a></li>
+    <li class="user-menu-item"><a href="/users/sign_out" data-method="delete">{{t "header.log_out"}}</a></li>
   </ul>
 
 

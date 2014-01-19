@@ -8,6 +8,7 @@ hu:
   _applications: "Alkalmazások"
   _comments: "Hozzászólások"
   _contacts: "Ismerősök"
+  _help: "Súgó"
   _home: "Kezdőlap"
   _photos: "képeidből"
   _services: "Szolgáltatások"
@@ -80,7 +81,9 @@ hu:
       users:
         other: "%{count} felhasználó található"
         zero: "nem található felhasználó"
-      you_currently: "jelenleg %{user_invitation} meghívó áll még rendelkezésedre %{link}"
+      you_currently:
+        other: "jelenleg %{count} meghívó áll még rendelkezésedre %{link}"
+        zero: "jelenleg nem áll rendelkezésedre meghívó %{link}"
     weekly_user_stats:
       amount_of:
         other: "az új felhasználók száma ezen a héten: %{count}"
@@ -90,7 +93,6 @@ hu:
   all_aspects: "Összes csoport"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "ismeretlen személy"
       video_title:
         unknown: "Ismeretlen videó cím"
@@ -130,7 +132,7 @@ hu:
       aspect_list_is_visible: "csoportlista látható a csoporttagok számára"
       confirm_remove_aspect: "Biztos, hogy törölni akarod a csoportot?"
       done: "Kész"
-      make_aspect_list_visible: "csoporttagok láthatják egymást"
+      make_aspect_list_visible: "a csoporttagok láthatják egymást"
       remove_aspect: "Csoport törlése"
       rename: "átnevezés"
       update: "frissítés"
@@ -166,7 +168,8 @@ hu:
         tag_bug: "hiba"
         tag_feature: "javaslat"
         tag_question: "kérdés"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Közösségi leckék, módszerek, hírek"
+        tutorial_link_text: "Útmutatók"
+        tutorials_and_wiki: "A kezdő lépéseidben segíthet még a %{faq}, az %{tutorial} és a %{wiki}"
       introduce_yourself: "Ez a te Hírfolyamod. Kezdd is el gyorsan egy bemutatkozással!"
       keep_diaspora_running: "Támogasd a Diaspora gyorsabb fejlesztését havi adományoddal!"
       keep_pod_running: "Hogy gyors maradhasson ez a kiszolgáló (%{pod}), adományozz havonta egy kis kávéra valót a szervereknek ;)"
@@ -212,7 +215,7 @@ hu:
       view_all_contacts: "Összes kapcsolat"
     show:
       edit_aspect: "csoport szerkesztése"
-    two: "%{count} nézet"
+    two: "%{count} csoport"
     update:
       failure: "A %{name} nevű csoportodnak túl hosszú a neve."
       success: "%{name} csoport szerkesztve."
@@ -259,7 +262,7 @@ hu:
       add_to_aspect_link: "ismerősök hozzáadása: %{name}"
       all_contacts: "Összes ismerős"
       community_spotlight: "Közösségi Reflektorfény"
-      many_people_are_you_sure: "Biztos, hogy privát beszélgetést akarsz kezdeményezni több mint %{suggested_limit} személlyel? Talán jobb lenne, ha bejegyzést írnál ennek a csoportnak."
+      many_people_are_you_sure: "Biztos, hogy magánbeszélgetést akarsz kezdeményezni több mint %{suggested_limit} személlyel? Talán jobb lenne, ha bejegyzést írnál ennek a csoportnak."
       my_contacts: "Kapcsolataim"
       no_contacts: "Nincs ismerősöd."
       no_contacts_message: "Vess egy pillantást erre is: %{community_spotlight}"
@@ -324,13 +327,127 @@ hu:
   email: "E-mail"
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Javítsd a következő hibákat, és próbáld újra."
+      correct_the_following_errors_and_try_again: "Javítsd a következő hibákat és próbáld újra."
       invalid_fields: "Érvénytelen adatok"
     login_try_again: "Kérlek <a href='%{login_link}'>jelentkezz be</a> és próbáld meg újra."
     post_not_public: "A megtekinteni kívánt bejegyzés nem nyilvános!"
+    post_not_public_or_not_exist: "A megtekinteni kívánt bejegyzés nem nyilvános vagy nem létezik!"
   fill_me_out: "Töltsd ki"
   find_people: "Emberek vagy #címkék keresése"
+  help:
+    account_and_data_management:
+      close_account_a: "Kattints a beállítások oldal alján található \"Fiók törlése\" gombra."
+      data_other_podmins_q: "Más kiszolgálók karbantartói láthatják az adataimat?"
+      data_visible_to_podmin_q: "Mennyi adatot láthat rólam a kiszolgálóm karbantartója?"
+      title: "Fiók- és adatkezelés"
+    aspects:
+      change_aspect_of_post_a: "Nem, de bármikor írhatsz még egy azonos tartalmú üzenetet, a korábbitól eltérő csoport(ok) felé címezve."
+      change_aspect_of_post_q: "Ha már elküldtem egy bejegyzést, később megváltoztathatom, hogy mely csoport vagy csoportok láthassák azt?"
+      contacts_know_aspect_a: "Nem. A csoport nevét semmilyen körülmények között nem láthatják."
+      contacts_know_aspect_q: "A kapcsolataim tudhatják, hogy melyik csoportba helyeztem őket?"
+      contacts_visible_q: "Mit jelent a \"csoporttagok láthatják egymást\" kitétel?"
+      delete_aspect_q: "Hogyan törölhetek egy csoportot?"
+      person_multiple_aspects_q: "Hozzáadhatok egy személyt több csoporthoz is?"
+      post_multiple_aspects_a: "Igen. Amikor írsz egy bejegyzést, a csoport választó gomb segítségével tudsz kijelölni egy- vagy több csoportot. A bejegyzésed minden kiválasztott csoport számára látható lesz. A célcsoportot az oldalsávon is megjelölheted, ebben az esetben az ott kipipáltak lesznek a következő küldés során az alapértelmezett közönség."
+      post_multiple_aspects_q: "Küldhetek tartalmat egyszerre több csoportba is?"
+      remove_notification_a: "Nem."
+      remove_notification_q: "Ha valakit eltávolítok egy csoportból, vagy az összes csoportomból, kap róla értesítést?"
+      rename_aspect_q: "Átnevezhetem a csoportokat?"
+      restrict_posts_i_see_a: "Igen. Kattints a \"csoportjaim\" feliratra a bal oldalsávon és válaszd ki azokat a csoportokat, amelyeket megjeleníteni vagy elrejteni szeretnél. Csak a kijelölt csoportokhoz tartozó személyek bejegyzései fognak látszódni a hírfolyamodban."
+      restrict_posts_i_see_q: "Korlátozhatom a megjelenítendő bejegyzéseket csak bizonyos csoportokból származóakra?"
+      title: "Csoportok"
+      what_is_an_aspect_a: "A csoport (vagy eredetileg \"aspektus\") az a mód, ahogy a kapcsolataidat rendszerezed a diaspora-n. Különböző arcaidat, oldalaidat különbözőképpen mutathatod meg például a munkatársaid, a családod, netán meghatározott közösséghez tartozó barátaid számára."
+      what_is_an_aspect_q: "Mit jelent a \"csoport\"?"
+      who_sees_post_q: "Amikor bejegyzést írok egy csoportba, ki láthatja azt?"
+    foundation_website: "Diaspora alapítvány"
+    getting_help:
+      get_support_a_hashtag: "kérdezz magyarul a közösségi hálón, nyilvános bejegyzésben a %{question} címke használatával"
+      get_support_a_irc: "Kapcsolódj %{irc}-en (élő csevegés)"
+      get_support_a_tutorials: "nézd meg az általunk készített %{tutorials}at"
+      get_support_a_website: "látogasd meg a %{link} honlapját"
+      get_support_a_wiki: "kutass a %{link} adattárunkban"
+      get_support_q: "Mit tegyek, ha a kérdésemre itt nem találok választ? Hol kaphatok még felvilágosítást?"
+      getting_started_a: "Szerencséd van. Tekintsd át a %{tutorial_series} című angol nyelvű bemutató oldalunkat. Lépésről lépésre végigvezet a feliratkozási eljáráson és megtanítja mindazokat az alapvető dolgokat, amiket tudnod kell a Diaspora* használatához."
+      getting_started_q: "Húha! A kezdéshez elkélne némi alapvető segítség!"
+      title: "Források a tájékozódáshoz"
+    getting_started_tutorial: "'Kezdő lépések'"
+    here: "itt"
+    irc: "IRC"
+    markdown: "markdown"
+    mentions:
+      how_to_mention_a: "Írj le egy \"@\" jelet és kezdd el gépelni az illető nevét. Egy legördülő menü fog megjelenni annak érdekében, hogy könnyebben választhass. Fontos, hogy csak azokat az embereket tudod megemlíteni, akiket hozzáadtál valamely csoporthoz."
+      how_to_mention_q: "Hogyan említhetek meg valakit, amikor bejegyzést írok?"
+      mention_in_comment_a: "Jelenleg ez még nem lehetséges."
+      mention_in_comment_q: "Megemlíthetek valakit egy hozzászólásban?"
+      see_mentions_a: "Igen, kattints a \"Megemlítettek\" feliratra a kezdőlapod bal oldalán."
+      see_mentions_q: "Van rá mód, hogy megtekinthessem azokat a bejegyzéseket, melyekben megemlítettek engem?"
+      title: "Megemlítések"
+      what_is_a_mention_q: "Mit jelent a \"megemlítés\"?"
+    miscellaneous:
+      back_to_top_a: "Igen. Miután legörgeted az oldalt, kattints a böngészőablak jobb alsó sarkában megjelenő szürke nyílra."
+      back_to_top_q: "Van gyors módja annak, hogy visszajussak az oldal elejére miután lejjebb görgettem?"
+      diaspora_app_a: "Számos Android alkalmazás van a korai fejlesztés állapotában. Ezek közül többen régóta magára hagyott projektek, így nem működnek jól a Diaspora legújabb változatával. Ne várj túl sokat ezektől az alkalmazásoktól jelenleg. Pillanatnyilag a Diaspora-hoz való hozzáférés legjobb módja, ha a mobil böngésződön keresztül próbálsz csatlakozni, mivel erre optimalizáltuk a rendszert. Aktuálisan nincs iOS alkalmazásunk. Röviden szólva: a Diaspora legjobban a böngésződön keresztül fog működni."
+      diaspora_app_q: "Létezik Diaspora* alkalmazás Android vagy iOS rendszerre?"
+      photo_albums_a: "Jelenleg nem. Mindazonáltal a feltöltött képek folyamát megtekintheted az adatlapok oldalsávjának fényképek részlegén."
+      photo_albums_q: "Támogatottak a kép- vagy videó gyűjtemények?"
+      subscribe_feed_q: "Feliratkozhatok valakinek a nyilvános bejegyzéseire hírfolyam (RSS) olvasóval?"
+      title: "Egyebek"
+    posts_and_posting:
+      character_limit_a: "65535 leütésből. Ez pontosan 65395-el több annál, mint amit a Twitter nyújt! ;)"
+      character_limit_q: "Legfeljebb hány leütésből állhat egy bejegyzés?"
+      embed_multimedia_q: "Hogyan ágyazhatok be mozgóképet, hangot vagy más multimédiás tartalmat a bejegyzésembe?"
+      format_text_a: "A %{markdown} nevű egyszerűsített leíró rendszer segítségével, melynek pontos alaki követelményeit %{here} találod. Az előnézet gomb ekkor különösen hasznosnak bizonyulhat, hiszen segítségével láthatod, hogyan fog kinézni az üzeneted mielőtt megosztod azt."
+      format_text_q: "Hogyan formázhatom meg a bejegyzéseim szövegét (kövér, dőlt, stb.)?"
+      image_text: "kép szövege"
+      image_url: "kép url"
+      insert_images_a: "Kattints a kis fényképezőgép jelére, ha képet szeretnél beszúrni a bejegyzésedbe. Nyomd meg az ikont ismételten, ha újabbat is szeretnél hozzáadni. Lehetőséged van több képet is egyszerre kiválasztani."
+      insert_images_comments_a1: "A következő markdown kód"
+      insert_images_comments_a2: "használható a világhálóról származó képek bejegyzésekbe és hozzászólásokba való beillesztéséhez"
+      insert_images_comments_q: "Beilleszthetek képeket a hozzászólásaimba?"
+      insert_images_q: "Hogyan helyezhetek el képeket a bejegyzésemben?"
+      size_of_images_a: "Nem. A képek automatikusan átméreteződnek, hogy megfelelően épülhessenek be a hírfolyamba. A markdown nem támogatja a képek átméretezését szolgáló kódok semmilyen formáját."
+      size_of_images_q: "Testreszabhatom-e a bejegyzésekben vagy hozzászólásokban szereplő képek méretét?"
+      stream_full_of_posts_a1: "A hírfolyamod három fajta bejegyzésből áll:"
+      stream_full_of_posts_q: "Miért van tele a hírfolyamom olyan emberek bejegyzéseivel, akiket nem ismerek és nem is osztok meg velük semmit?"
+    private_posts:
+      title: "Személyes bejegyzések"
+    private_profiles:
+      title: "Személyes adatlapok"
+      whats_in_profile_a: "Rövid önéletrajzot, tartózkodási helyet, nemet és születésnapot. Az \"adatlap szerkesztése\" oldal alsó részén található. Az adatok megadása nem kötelező - rajtad múlik, hogy kitöltöd-e vagy sem. Kizárólag azok a bejelentkezett felhasználók láthatják a személyes adatlapodat, akiket hozzáadtál valamelyik csoportodhoz. Amikor valaki meglátogatja az adatlapodat, a nyilvános bejegyzéseiddel egyetemben azokat a személyes bejegyzéseket is látni fogja, amelyek azon csoport(ok) számára íródtak, ahová az illetőt soroltad."
+      whats_in_profile_q: "Mit tartalmaz a személyes adatlapom?"
+      who_sees_profile_a: "Bármely bejelentkezett felhasználó, akivel megosztasz (vagyis akit hozzáadtál valamely csoportodhoz). Ugyanakkor, azok a személyek, akik téged követnek, de te nem követed őket, csak a nyilvános adataidat láthatják."
+      who_sees_profile_q: "Ki láthatja a személyes adatlapomat?"
+      who_sees_updates_a: "A csoportjaidból bárki láthatja a személyes adatlapod változásait. "
+      who_sees_updates_q: "Ki látja a személyes adatlapom frissítéseit?"
+    public_posts:
+      find_public_post_a: "Nyilvános bejegyzéseid megjelennek minden téged követő személy hírfolyamában. Ha #címkéket is elhelyeztél benne, akkor bárki, aki követi azokat, meg fogja találni a bejegyzéseidet a saját folyamában. Ezen kívül minden nyilvános bejegyzés egy meghatározott elérési úttal is rendelkezik, amit bárki megnyithat - még akkor is, ha nincs bejelentkezve - így az ilyen bejegyzések közvetlenül lehivatkozhatóak Twitterből, blogokból, stb. Nem mellékesen a különböző internetes keresők is nyilvántartásba vehetik őket."
+      find_public_post_q: "Hogy találhatják meg mások a nyilvános bejegyzésemet?"
+      title: "Nyilvános bejegyzések"
+    public_profiles:
+      title: "Nyilvános adatlapok"
+      what_do_tags_do_a: "Segítenek abban, hogy mások megismerhessenek téged. Az önarcképed is meg fog jelenni az egyes címkék oldalainak bal szélén, azokkal egyetemben, akik szintén megadtak a nyilvános adatlapjukon ilyeneket."
+      what_do_tags_do_q: "Mi a szerepük a címkéknek a nyilvános adatlapomon?"
+      whats_in_profile_a: "A nevedet, az öt címkét, melyet saját magad jellemzésére választhatsz és a fényképedet. Mindezek az 'adatlapom szerkesztése' oldal felső részén találhatóak. Te döntöd el, hogy névtelen szeretnél lenni, vagy könnyedén azonosítható. Az adatlapod oldala ezen kívül az összes nyilvános bejegyzésedet is tartalmazza."
+      whats_in_profile_q: "Mit tartalmaz a nyilvános adatlapom?"
+      who_sees_profile_q: "Ki láthatja a nyilvános adatlapomat?"
+      who_sees_updates_a: "Bárki láthatja a változásokat, ha meglátogatják az adatlapodat."
+      who_sees_updates_q: "Ki láthatja a nyilvános adatlapom frissítéseit?"
+    sharing:
+      title: "Megosztás"
+    tags:
+      filter_tags_a: "Ez a lehetőség közvetlenül még nem hozzáférhető a diaspora-n keresztül, de %{third_party_tools} segítségével részben megvalósítható."
+      filter_tags_q: "Hogyan szűrhetek vagy zárhatok ki címkéket a hírfolyamomból?"
+      followed_tags_q: "Mik azok a \"#követett címkék\" és hogyan követhetek címkéket?"
+      people_tag_page_q: "Kik a bal oldali sávban látható személyek az egyes címkék oldalain?"
+      tags_in_comments_q: "Elhelyezhetek címkéket a hozzászólásokban is vagy csak a bejegyzésekben tehetem meg ezt?"
+      title: "Címkék"
+      what_are_tags_for_q: "Mire valók a címkék?"
+    third_party_tools: "külsős fejlesztőeszközök"
+    tutorial: "útmutató"
+    tutorials: "útmutatók"
+    wiki: "wiki"
   hide: "Elrejt"
+  ignore: "Mellőzés"
   invitation_codes:
     excited: "%{name} alig várja, hogy üdvözölhessen nálunk."
   invitations:
@@ -380,6 +497,7 @@ hu:
       admin: "rendszergazda"
       blog: "blog"
       code: "kód"
+      help: "Súgó"
       login: "bejelentkezés"
       logout: "Kijelentkezés"
       profile: "Adatlap"
@@ -513,7 +631,7 @@ hu:
 
           Meghívtak, hogy csatlakozz a Diaspora* közösséghez!
 
-          Kattints erre a linkre a kezdéshez:
+          Kattints ide a kezdéshez:
 
           [%{invite_url}][1]
 
@@ -569,7 +687,6 @@ hu:
       no_results: "Hé! Valamit keresned kell."
       results_for: "találatok keresése"
       searching: "keresés folyamatban, légy türelmes..."
-    last_post: "Legutolsó bejegyzés"
     many: "%{count} személy"
     one: "1 személy"
     other: "%{count} személy"
@@ -671,8 +788,6 @@ hu:
       first_name: "Keresztnév"
       last_name: "Vezetéknév"
       update_profile: "Adatlap frissítése"
-      you_are_nsfw: "Jelenleg a \"munkahelyen nem illő\" (NSFW) beállítással jelölted magadat. A megosztott tartalmaid nem fognak közvetlenül megjelenni azon felhasználóknál, akik kikapcsolták a kifogásolható tartalmak megtekintését."
-      you_are_safe_for_work: "Jelenleg a \"munkahelyen illő\" tartalmi beállítással jelölted magadat. Ezáltal elfogadod, hogy mindaz, amit megosztasz - míg nem adod meg másképpen - megfelel a közösségi irányelveknek."
       your_bio: "Írj pár sort magadról"
       your_birthday: "Születésnapod"
       your_gender: "Nemed"
@@ -717,6 +832,7 @@ hu:
       password_confirmation: "JELSZÓ MEGERŐSÍTÉS"
       sign_up: "Iratkozz fel!"
       sign_up_message: "Közösségi Hálózat <3"
+      submitting: "Feldolgozás folyamatban..."
       username: "AZONOSÍTÓ"
   requests:
     create:
@@ -772,9 +888,10 @@ hu:
       no_friends: "Nincs Facebook ismerősöd"
       service_friends: "%{service} ismerősök"
     index:
-      connect_to_facebook: "Csatlakozás a Facebook-hoz"
-      connect_to_tumblr: "Csatlakozás a Tumblr-hez"
-      connect_to_twitter: "Csatlakozás a Twitter-hez"
+      connect_to_facebook: "Kapcsolódás a Facebook-hoz"
+      connect_to_tumblr: "Kapcsolódás a Tumblr-hez"
+      connect_to_twitter: "Kapcsolódás a Twitter-hez"
+      connect_to_wordpress: "Kapcsolódás a Wordpress-hez"
       disconnect: "megszakít"
       edit_services: "Szolgáltatások szerkesztése"
       logged_in_as: "- bejelentkeztél ezen a néven:"
@@ -944,7 +1061,6 @@ hu:
   tags:
     show:
       follow: "Címke követése"
-      followed_by: "figyelemmel kíséri:"
       following: "#%{tag} követve"
       nobody_talking: "Senki nem beszélt még erről: %{tag}."
       none: "Az üres címke nem létezik!"
@@ -1007,7 +1123,7 @@ hu:
       mentioned: "...megemlítettek téged egy bejegyzésben?"
       new_password: "Új jelszó"
       photo_export_unavailable: "Fényképek kivitele jelenleg nem lehetséges"
-      private_message: "...privát üzenetet kaptál?"
+      private_message: "...személyes üzenetet kaptál?"
       receive_email_notifications: "Szeretnél értesítést kapni levélben, ha..."
       reshared: "...valaki újraosztotta a bejegyzésedet?"
       show_community_spotlight: "Mutassa a Reflektorfényben szereplő dolgokat a Hírfolyamodban?"

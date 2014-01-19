@@ -11,12 +11,12 @@ describe Services::Tumblr do
 
   describe '#post' do
     it 'posts a status message to tumblr and saves the returned ids' do
-      response = mock(body: '{"response": {"user": {"blogs": [{"url": "http://foo.tumblr.com"}]}}}')
+      response = double(body: '{"response": {"user": {"blogs": [{"url": "http://foo.tumblr.com"}]}}}')
       OAuth::AccessToken.any_instance.should_receive(:get)
       .with("/v2/user/info")
       .and_return(response)
 
-      response = mock(code: "201", body: '{"response": {"id": "bla"}}')
+      response = double(code: "201", body: '{"response": {"id": "bla"}}')
       OAuth::AccessToken.any_instance.should_receive(:post)
       .with("/v2/blog/foo.tumblr.com/post", @service.build_tumblr_post(@post, ''))
       .and_return(response)

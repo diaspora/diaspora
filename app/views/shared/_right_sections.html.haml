@@ -41,6 +41,7 @@
     %br
     %p
       != t('aspects.index.help.tutorials_and_wiki',
+           :faq => link_to(t('_help'), faq_getting_help_path),
            :tutorial => link_to(t('aspects.index.help.tutorial_link_text'), "https://diasporafoundation.org/tutorials", :target => '_blank'),
            :wiki => link_to('Wiki','http://wiki.diasporafoundation.org', :target => '_blank'), :target => '_blank')
 
@@ -67,7 +68,7 @@
   .content
     != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.post_something'), magic_bookmarklet_link))
 
-- if AppConfig.settings.paypal_hosted_button_id.present? || AppConfig.settings.bitcoin_wallet_id.present?
+- if AppConfig.settings.paypal_hosted_button_id.present? || AppConfig.bitcoin_donation_address
   .section
     .title
       .icons-coffee

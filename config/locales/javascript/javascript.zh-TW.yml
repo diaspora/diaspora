@@ -26,6 +26,7 @@ zh-TW:
     comma: "，"
     comments:
       hide: "隱藏意見"
+      no_comments: "目前還沒有任何意見。"
       show: "顯示所有意見"
     confirm_dialog: "你確定嗎？"
     conversation:
@@ -34,6 +35,7 @@ zh-TW:
     edit: "編輯"
     failed_to_like: "說讚失敗！"
     failed_to_post_message: "貼文失敗！"
+    failed_to_remove: "刪掉這個項目的動作失敗了！"
     getting_started:
       alright_ill_wait: "好，再說吧。"
       hey: "嗨，<%= name %>！"
@@ -43,6 +45,7 @@ zh-TW:
       admin: "管理"
       close: "關閉"
       contacts: "連絡人"
+      help: "說明"
       home: "我家"
       log_out: "登出"
       mark_all_as_read: "全部標示為看過了"
@@ -66,13 +69,14 @@ zh-TW:
     photo_uploader:
       completed: "檔案 <%= file %> 完成了"
       empty: "檔案 {file} 是空的，請不要選它再重選一次。"
+      error: "上傳檔案 <%= file %> 時發生問題"
       invalid_ext: "檔案 {file} 的副檔名不合格。僅接受 {extensions}。"
       looking_good: "天啊，你看起來真帥！"
       size_error: "檔案 {file} 太大了，上限是{sizeLimit}。"
     publisher:
       at_least_one_aspect: "發表時請至少選擇一個面向"
-      limited: "限制 - 只有你想分享的人才看得到你的貼文"
-      near_from: "靠近：<%= location %>"
+      limited: "有限 - 只有你想分享的人才看得到你的貼文"
+      near_from: "貼文地點：<%= location %>"
       public: "公開 - 所有人都能看到你的貼文，包括搜尋引擎"
     reshares:
       duplicate: "很棒對吧？你已經轉貼過該篇貼文了！"
@@ -94,7 +98,7 @@ zh-TW:
       likes:
         other: "有<%= count %>個人說讚"
         zero: "有<%= count %>個人說讚"
-      limited: "限制"
+      limited: "有限"
       more_comments:
         other: "顯示另外<%= count %>個意見"
         zero: "顯示另外<%= count %>個意見"

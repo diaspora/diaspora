@@ -6,7 +6,7 @@ describe Workers::GatherOpenGraphData do
     @ogsite_image = '/img/something.png'
     @ogsite_url = 'http://www.we-support-open-graph.com'
     @ogsite_description = 'Homepage'
-    
+
     @ogsite_body =
       "<html><head><title>#{@ogsite_title}</title>
       <meta property=\"og:title\" content=\"#{@ogsite_title}\"/>
@@ -63,7 +63,7 @@ describe Workers::GatherOpenGraphData do
     it 'gracefully handles a deleted post' do
       expect {
         Workers::GatherOpenGraphData.new.perform(0, @ogsite_url)
-      }.to_not raise_error ActiveRecord::RecordNotFound
+      }.to_not raise_error
     end
   end
 end

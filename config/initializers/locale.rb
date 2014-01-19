@@ -10,16 +10,16 @@ if settings_file.exist?
   locale_settings = YAML.load_file(settings_file)
   AVAILABLE_LANGUAGES = (locale_settings['available'].length > 0) ? locale_settings['available'] : { "en" => 'English' }
   AVAILABLE_LANGUAGE_CODES = locale_settings['available'].keys
-  DEFAULT_LANGUAGE = (AVAILABLE_LANGUAGE_CODES.include?(locale_settings['default'].to_s)) ? locale_settings['default'].to_s : "en"
   LANGUAGE_CODES_MAP = locale_settings['fallbacks']
   RTL_LANGUAGES = locale_settings['rtl']
 else
   AVAILABLE_LANGUAGES = { "en" => 'English' }
-  DEFAULT_LANGUAGE = "en"
   AVAILABLE_LANGUAGE_CODES = ["en"]
   LANGUAGE_CODES_MAP = {}
   RTL_LANGUAGES = []
 end
+
+DEFAULT_LANGUAGE = "en"
 
 
 # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.

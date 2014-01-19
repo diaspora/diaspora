@@ -9,9 +9,9 @@ en_1337:
     aspect_dropdown:
       add_to_aspect: "4DD N00B"
       all_aspects: "4LL 45P3C75"
-      error: "C0ULDN7 574LK {{name}}. H4V3 U PWND H1M?"
-      started_sharing_with: "U 574R73D 574LK1NG {{name}}!"
-      stopped_sharing_with: "U 570PP3D 574LK1NG {{name}}."
+      error: "C0ULDN7 574LK <%= name %>. H4V3 U PWND H1M?"
+      started_sharing_with: "U 574R73D 574LK1NG <%= name %>!"
+      stopped_sharing_with: "U 570PP3D 574LK1NG <%= name %>."
       toggle:
         few: "1N {{count}} 45P3C75"
         many: "1N {{count}} 45P3C75"
@@ -30,7 +30,7 @@ en_1337:
     failed_to_like: "F41L3D 2 <3!"
     failed_to_post_message: "F41L3D 2 53ND 5P4M!"
     getting_started:
-      hey: "H3Y, {{name}}!"
+      hey: "H3Y, <%= name %>!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       search: "F1ND N00B5 0R #74G5"
@@ -42,7 +42,7 @@ en_1337:
       public: "PUBL1C - Y0UR 5P4M W1LL B3 V151BL3 2 3V3RY0N3 4ND F0UND BY S34RCH 3NG1N35!"
     reshares:
       duplicate: "U H4V3 4LR34DY R35P4MM3D 7HI5!"
-    search_for: "S34RCH F0R {{name}}"
+    search_for: "S34RCH F0R <%= name %>"
     show_more: "5H0W M0R3!"
     stream:
       likes:
@@ -67,7 +67,7 @@ en_1337:
         two: "<%= count %> R35H4R35"
         zero: "<%= count %> R35H4R35"
     tags:
-      wasnt_that_interesting: "0K, 1 5UPP053 #{{tagName}} W45N7 7H47 1N73R3571NG..."
+      wasnt_that_interesting: "0K, 1 5UPP053 #<%= tagName %> W45N7 7H47 1N73R3571NG..."
     timeago:
       day: "4 D4Y"
       days: "%d D4Y5"
@@ -86,4 +86,4 @@ en_1337:
       years: "%d Y34R5"
     videos:
       unknown: "UNK0WN V1D30 7YP3"
-      watch: "W47CH 7H15 V1D30 0N {{provider}}"
+      watch: "W47CH 7H15 V1D30 0N <%= provider %>"

@@ -15,23 +15,6 @@ art-nvi:
       unconfirmed: "Ngal kin stiveftxaw ngeyä Diasporati fte fpxäkim."
     mailer:
       hello: "Kaltxì %{email}!"
-      invitation_instructions:
-        accept: "mll'an"
-        be_yourself: "nga läpu"
-        cubbies: "Cubbi.es"
-        email_address: "questions@joindiaspora.com"
-        email_us: "Txo nga kin srung sivi tsnì lu teri Diaspora, rutxe fpe' 'upxareti Diasporaru ro %{email}"
-        finally: "Nì'i'a - fì'u lu fìtsenge"
-        friends_saying: "'upe ngeyä eylan pamrel seri..."
-        have_fun: "Fì'u a'o'"
-        here: "fìtsenge"
-        ignore: "Txo nga ke new mll'ivan stxenu, rutxe tswa' fì'upxare."
-        love: "Hu tìyawn,"
-        more_people: "nì'ul sute lu lefpom fte tse'a ngati!"
-        no_account_till: "oeyä Diaspora ke ngalyop vaykrr ngal sar io tsengit ulte 'awstengyem ayoe."
-        or: "fu"
-        subject: "Tuteol pìlmawm ngati txo new slivu Diaspora hxpaitu!"
-        team_diaspora: "Pongu Diaspora"
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} polawm ngati txo säpung Diasporaru"
@@ -51,8 +34,6 @@ art-nvi:
       updated: "Ngeyä ftemlì'u lìmatem. Nga tung fìtsengmì set."
     sessions:
       new:
-        bugs_and_feedback: "Eltu si, ngal tsìsye'a keyey. Ayoel mok futa ngal sar <Feedback Button> a mì skiena pa'o fte ayoeru piveng. Ayoe tìkangkem sayi nìwin fte zeykivo keyeyti a ngal wìntxu."
-        bugs_and_feedback_mobile: "Eltu si, ngal tsìsye'a keyey. Ayoel mok futa ngal ayoeru piveng teri sa'u. Ayoe tìkangkem sayi nìwin fte zeykivo keyeyti a ngal wìntxu."
         login: "Fpxäkim"
         modern_browsers: "Diasporal nì'aw tung eltuti lefpom nariti asop"
         password: "Ftemlì'u"
@@ -64,8 +45,6 @@ art-nvi:
     shared:
       links:
         forgot_your_password: "Nga tswama' ngeyä ftemlì'u srak?"
-      mail_signup_form:
-        sign_up_for_an_invite: "Ngal 'awstengyem ayoeti Diasporari!"
   errors:
     messages:
       already_confirmed: "li stameftxaw"

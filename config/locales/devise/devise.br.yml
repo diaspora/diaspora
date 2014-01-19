@@ -29,27 +29,6 @@ br:
         subject: "Titour kadarnaat"
         you_can_confirm: "Moaien zo deoc'h kadarnaat ho kont gant al liamm dindan:"
       hello: "Demat, %{email}!"
-      invitation_instructions:
-        accept: "Asantiñ d'ar gouviadenn"
-        be_yourself: "Bezit c'hwi hoc'h-unan"
-        cubbies: "Cubbi.es"
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        finally: "Evelato  - Amañ emañ"
-        friends_saying: "Ar pezh a gont ho mignoned"
-        get_connected: "Kennaskit"
-        have_fun: "Plijadur deoc'h !"
-        help_fund: "skoazellañ Diaspora da gaout arc'hant."
-        here: "amañ"
-        ignore: "Mar ne fell ket deoc'h asantiñ d'ar gouviadenn, na daolit ket pled ouzh ar postel-mañ mar plij."
-        join_team: "Deuit en hor skipailh."
-        love: "A galon,"
-        made_by_people: "%{strong_diaspora} a zo graet gant tud hag a blij dezhe ar Genrouedad kement hag e plij deoc'h. %{jointeam} pe %{helpfund} !"
-        or: "pe"
-        sign_up_now: "Lakait hoc'h anv →"
-        subject: "Kouviet oc'h da zont da Diaspora"
-        team_diaspora: "Skipailh Diaspora"
-        unsubscribe: "Evit dilemel hoc'h anv, klikit war al liamm %{link} mar plij."
-        view_in: "Diskwel en ho merdeer"
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "Pedet oc'h gant %{names} da lakaat hoc'h anv e Diaspora."
@@ -80,9 +59,6 @@ br:
       updated: "Adnevezet eo bet ho kont ganeoc'h."
     sessions:
       new:
-        alpha_software: "Emaoc'h o vont da implij ur meziant en e stumm alfa."
-        bugs_and_feedback: "Deoc'h da c'hoût e vo kavet vioù-koukoug ganeoc'h. Reiñ a reomp ton deoc'h evit implij ar bouton Feedback a zo e tu dehou ar bajenn evit kelaouiñ ac'hanomp pa welit mankoù! Labourat a raimp ar buanañ ar gwellañ evit diluziañ ar c'hudennoù bet meneget ganeoc'h."
-        bugs_and_feedback_mobile: "Deoc'h da c'hoût e vo kavet vioù-koukoug ganeoc'h. Lavarit dimp hardizh pa welit fazioù! Labourat a raimp ar buanañ ar gwellañ evit diluziañ kement kudenn a vo disklêriet ganeoc'h."
         login: "Kennaskañ"
         modern_browsers: "ne c'hell mont en-dro gant merdeidi modern nemetken."
         password: "Ger-kuzh"
@@ -99,8 +75,6 @@ br:
         sign_in: "Mont e-barzh"
         sign_up: "Lakait hoc'h anv"
         sign_up_closed: "Klozet eo an enskrivadurioù evit poent."
-      mail_signup_form:
-        sign_up_for_an_invite: "Lakait hoc'h anv evit bezañ pedet!"
     unlocks:
       new:
         resend_unlock: "Kas titouroù-dibrennañ en dro"

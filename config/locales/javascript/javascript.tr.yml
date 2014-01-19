@@ -9,16 +9,12 @@ tr:
     aspect_dropdown:
       add_to_aspect: "Yönüne ekle"
       all_aspects: "Tüm yönler"
-      error: "{{name}} ile paylaşım başlatılamadı. Onu yasaklamış olmayasınız?"
+      error: "<%= name %> ile paylaşım başlatılamadı. Onu yasaklamış olmayasınız?"
       select_aspects: "Yönleri seç"
-      started_sharing_with: "{{name}} sizinle paylaşıma başladı!"
-      stopped_sharing_with: "{{name}} sizinle paylaşımı durdurdu."
+      started_sharing_with: "<%= name %> sizinle paylaşıma başladı!"
+      stopped_sharing_with: "<%= name %> sizinle paylaşımı durdurdu."
       toggle:
-        few: "{{count}} yön"
-        many: "{{count}} yön"
-        one: "{{count}} yön"
-        other: "{{count}} yön"
-        two: "{{count}} yön"
+        other: "<%= count %> yön"
         zero: "Yön seç"
     aspect_navigation:
       deselect_all: "Tümünü kaldır"
@@ -33,7 +29,7 @@ tr:
     failed_to_post_message: "Gönderi başarısız oldu!"
     getting_started:
       alright_ill_wait: "Tamam, ben bekleyeceğim."
-      hey: "Merhaba, {{name}}!"
+      hey: "Merhaba, <%= name %>!"
       no_tags: "Hey, hiç etiket takip etmiyorsunuz! Gerçekten devam etmek istiyor musun?"
       preparing_your_stream: "Kişiselleştirilmiş akışınız hazırlanıyor..."
     header:
@@ -67,7 +63,7 @@ tr:
       duplicate: "Bu iyi, değil mi? Zaten bu gönderiyi tekrar paylaştın!"
       post: "<%= name %> kişisinin gönderisini yeniden paylaşamak istiyor musun?"
       successful: "Gönderi başarıyla yeniden paylaşıldı!"
-    search_for: "{{name}} Ara"
+    search_for: "<%= name %> Ara"
     show_more: "daha fazlasını göster"
     stream:
       comment: "Yorum"
@@ -80,7 +76,7 @@ tr:
         zero: "<%= count %> Beğeni"
       limited: "Sınırlı"
       more_comments:
-        other: "Diğer <%= count %> yorum gör"
+        other: "Diğer <%= count %> yorumu gör"
         zero: "Diğer <%= count %> yorumu gör"
       original_post_deleted: "İleti yazarı tarafından silindi."
       public: "Genel"
@@ -93,7 +89,7 @@ tr:
       unfollow: "İzlemeyi durdur"
       unlike: "Beğenme"
     tags:
-      wasnt_that_interesting: "Tamam, benim #{{tagName}} o kadar da ilginç değil..."
+      wasnt_that_interesting: "Tamam, benim #<%= tagName %> o kadar da ilginç değil..."
     timeago:
       day: "1 gün"
       days: "%d gün"
@@ -112,7 +108,7 @@ tr:
       years: "%d yıl"
     videos:
       unknown: "Bilinmeyen video tipi"
-      watch: "Bu videoyu {{provider}}'da izle"
+      watch: "Bu videoyu <%= provider %>'da izle"
     viewer:
       comment: "Yorum"
       follow_post: "İletiyi izle"

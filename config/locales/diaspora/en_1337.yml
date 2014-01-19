@@ -5,46 +5,50 @@
 
 
 en_1337:
-  _applications: "4PPL1C4710N5"
-  _comments: "5P4M"
-  _contacts: "N00B5"
+  _applications: "4ppz"
+  _comments: "5p4mz"
+  _contacts: "n0obz"
   _home: "127.0.0.1"
-  _photos: "P1CZ"
-  _services: "53RV1C35"
-  account: "4CC0UN7"
+  _photos: "p!cz"
+  _services: "53rv!c35"
+  account: "4cc0un7"
   activerecord:
     errors:
       models:
         contact:
           attributes:
             person_id:
-              taken: "MU57 B3 UN1QU3!"
+              taken: "mu57 b3 un!q"
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "41r34dy pwnd"
         request:
           attributes:
             from_id:
-              taken: "DUPL1C473 -> D0N7 5P4M!"
+              taken: "dup1!c473 -> d0n7 5p4m"
         reshare:
           attributes:
             root_guid:
-              taken: "U JU57 5P4MM3D 7H15 P057!"
+              taken: "j0o 5p4mm3d 7h!5 41r34dy!"
         user:
           attributes:
             email:
-              taken: "15 4LR34DY 74K3N!"
+              taken: "41r34dy pwnd"
             person:
-              invalid: "15 1NV4L1D"
+              invalid: "!5 !nv41!d"
             username:
               invalid: "415 - 0NLY U53 L3773R5, NUMB3R5 & UND3R5C0R35!"
-              taken: "15 4LR34DY PWND"
-  ago: "%{time} 4G0"
-  all_aspects: "4LL 45P3C75"
+              taken: "41r34dy pwnd"
+  ago: "%{time} 4g0"
+  all_aspects: "411 45p3ctz"
   application:
     helper:
-      diaspora_alpha: "D145P0R4* 4LPH4"
-      unknown_person: "4N0NYM0U5 N00B!"
+      unknown_person: "4n0n no0b"
       video_title:
-        unknown: "UNK0WN PR0N 717L3"
-  are_you_sure: "4R3 U 5UR3?"
+        unknown: "un0wn pr0n 7!713"
+  are_you_sure: "j0o 5ur3?"
+  are_you_sure_delete_account: "j0o 5ur3 w4nn4 Shift+Del jo0r 4cc0un7? C4n7 r3570r3!"
   aspect_memberships:
     destroy:
       failure: "F41L3D 2 PWN 7H47 N00B!"
@@ -59,6 +63,7 @@ en_1337:
     aspect_listings:
       add_an_aspect: "+ 4DD 4N 45P3C7"
       edit_aspect: "3D17 %{name}"
+      select_all: "Ctrl+A"
     contacts_not_visible: "N00B5 1N 7H15 45P3C7 W0N7 KN0W 34CH 07H3R!"
     contacts_visible: "N00B5 1N 7H15 45P3C7 W1LL KN0W 34CH 07H3R!"
     create:
@@ -142,7 +147,7 @@ en_1337:
     update:
       failure: "45P3C7 %{name} H4D 2 L0NG N4M3 -> F41L!"
       success: "45P3C7 %{name} H45 B33N 5UCC35FULLY 3D173D!"
-    zero: "N0 45P3C75"
+    zero: "n0 45p3c7z"
   authorizations:
     index:
       no_applications: "U H4V3N7 R3G1573R3D 4NY 4PP Y37!"
@@ -153,7 +158,7 @@ en_1337:
     heading: "B00KM4RKL37"
     post_something: "5P4M 50M37H1NG 2 D*"
     post_success: "5P4MM3D! CL051NG!"
-  cancel: "C4NC3L"
+  cancel: "c4nc3l"
   comments:
     few: "%{count} 5P4M5"
     many: "%{count} 5P4M5"
@@ -171,6 +176,7 @@ en_1337:
     index:
       add_a_new_aspect: "4DD 4 N3W 45P3C7!"
       add_to_aspect: "4DD N00B5 2: %{name}"
+      add_to_aspect_link: "++no0bz >> %{name}"
       all_contacts: "4LL N00B5"
       many_people_are_you_sure: "R34LLY W4NN4 5P4M %{suggested_limit} N00B5? 5P4MM1NG 7H31R 45P3C7 M4Y B3 M0R3 1N73LL1G3N7!"
       my_contacts: "Y0UR N00B5"
@@ -220,15 +226,15 @@ en_1337:
       delete: "PWN 7H47 C0NV3R54710N!"
       reply: "R3PLY"
       replying: "R3PLY1NG..."
-  delete: "D3L373"
-  email: "M41L"
+  delete: "b4w3373"
+  email: "m4!1"
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "C0RR3C7 Y0UR 3RR0R5 4ND 7RY 4G41N!"
-      invalid_fields: "1NV4L1D F13LD5!"
-  fill_me_out: "F1LL M3 0U7!"
-  find_people: "F1ND N00B5 0R #74G5"
-  hide: "PWN?"
+      correct_the_following_errors_and_try_again: "3rr0rz! r37ry!"
+      invalid_fields: "!nv41!d !npu7"
+  fill_me_out: "!npu7 73x7 h3r3"
+  find_people: "Ctrl+F n0obz, #74g5"
+  hide: "pwn?"
   invitations:
     a_facebook_user: "4 F4C3B00K N00B!"
     check_token:
@@ -294,9 +300,9 @@ en_1337:
         two: "%{count} <3"
         zero: "N0 <3"
   limited: "V1P"
-  more: "M0R3"
-  next: "N3X7"
-  no_results: "N07H1NG F0UND!"
+  more: "m04r"
+  next: "n3x7"
+  no_results: "404"
   notifications:
     also_commented:
       few: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
@@ -366,6 +372,7 @@ en_1337:
       other: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
       two: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
       zero: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
+    post: "5p4mz"
     private_message:
       few: "%{actors} 53N7 U 4 M3554G3."
       many: "%{actors} 53N7 U 4 M3554G3."
@@ -401,6 +408,7 @@ en_1337:
       reply: "R3PLY 0R V13W %{name}'s 5P4M >"
     confirm_email:
       click_link: "2 4C71V473 Y0UR N3W M41L %{unconfirmed_email}, PLZ F0LL0W 7H15 L1NK:"
+      subject: "4u7h0r!z3 no0 3m4!1z %{unconfirmed_email}"
     email_sent_by_diaspora: "7H15 M41L W45 53N7 BY D*!  1F U W0ULD L1K3 2 510P G3771NG M41L5 L1K3 7H15,"
     hello: "H3LL0 %{name}!"
     liked:
@@ -423,10 +431,11 @@ en_1337:
       view_profile: "V13W %{name}'s PR0F1L3"
     thanks: "7HX, "
     to_change_your_notification_settings: "2 CH4NG3 Y0UR N071F1C4710N 53771NG5"
+  nsfw: "N5FW! 1337z 0n1y!"
   ok: "K"
-  or: "0R"
+  or: "XOR"
   password: "*****"
-  password_confirmation: "***** C0NF1RM4710N"
+  password_confirmation: "***** c0nf!rm47!0n"
   people:
     add_contact_small:
       add_contact_from_tag: "4DD N00B FR0M 74G"
@@ -524,8 +533,10 @@ en_1337:
         other: "%{count} P1CZ BY %{author}"
         two: "2 P1CZ BY %{author}"
         zero: "N0 P1CZ BY %{author}"
-  previous: "PR3V10U5"
-  profile: "PR0F1L3"
+  previous: "pr3v!0us"
+  privacy: "u53r pr!vi13935"
+  privacy_policy: "pr!v4cy p01!cy"
+  profile: "5p3cz"
   profiles:
     edit:
       allow_search: "4LL0W N00B5 2 534RCH F0R U!"
@@ -546,7 +557,7 @@ en_1337:
     update:
       failed: "F41L3D 2 UPD473 PR0F1L3!"
       updated: "PR0F1L3 UPD473D"
-  public: "PUBL1C"
+  public: "pub1!c"
   reactions:
     few: "%{count} R34C710N5"
     many: "%{count} R34C710N5"
@@ -572,6 +583,7 @@ en_1337:
       enter_password_again: "3N73R 17 4G41N!"
       enter_username: "P1CK 4 N1CK (0NLY L3773R5 NUMB3R5 4ND UND3R5C0R35!)"
       join_the_movement: "J01N 7H3 M0V3M3N7!"
+      password: "*****"
       sign_up_message: "50C14L N37W0RK1NG W17H 4 <3"
   requests:
     create:
@@ -611,9 +623,10 @@ en_1337:
       reshare_original: "R35P4M 0R1G1N4L"
       reshared_via: "R35P4MM3D V14"
       show_original: "5H0W 0R1G1N4L"
-  search: "534RCH"
+  search: "Ctrl+F"
   services:
     create:
+      failure: "4cc355 d3n!3d"
       success: "4U7H3N71F1C4710N 5UCC355FULL"
     destroy:
       success: "5UCC35FULLY D3L373D 4U7H3N71F1C4710N!"
@@ -638,7 +651,7 @@ en_1337:
       invite: "1NV173"
       not_on_diaspora: "N07 Y37 0N D*!"
       resend: "R35P4M"
-  settings: "53771NG5"
+  settings: "~/.config"
   shared:
     add_contact:
       add_new_contact: "4DD 4 N3W N00B"
@@ -684,6 +697,7 @@ en_1337:
       make_public: "M4K3 PUBL1C"
       new_user_prefill:
         i_like: "1 575LK: %{tags}."
+        newhere: "#n00b_h3r3"
       post_a_message_to: "5P4M 7H15 45P3C7: %{aspect}"
       posting: "5P4MM1NG..."
       publishing_to: "PUBL15H1NG 2: "
@@ -750,6 +764,7 @@ en_1337:
       people_tagged_with: "N00B5 74GG3D W17H %{tag}"
       posts_tagged_with: "5P4M 74GG3D W17H #%{tag}"
       stop_following: "570P F0LL0W1NG #%{tag}"
+  terms_and_conditions: "T&C"
   tokens:
     show:
       connect_to_cubbies: "C0NN3C7 2 CUBB1.35!"
@@ -762,8 +777,8 @@ en_1337:
       typical_userpage: "4 7YP1C4L CUBB135 N00B P4G3"
       via: "(V14 %{link})"
       what_is_cubbies: "CUBB135 15 7H3 W0RLD5 F1R57 D* 4PPL1C4710N! 175 4L50 7H3 B357 W4Y 2 C0LL3C7 P1C5 0NL1N3!"
-  undo: "UND0?"
-  username: "N1CKN4M3"
+  undo: "Ctrl+Z?"
+  username: "n!ck"
   users:
     confirm_email:
       email_confirmed: "M41L %{email} 4C71V473D!"
@@ -812,3 +827,4 @@ en_1337:
     no_person_constructed: "N0 P3R50N C0ULD B3 C0N57RUC73D FR0M 7H15 HC4RD!"
     not_enabled: "W3BF1NG3R D035 N07 533M 70 B3 3N4BL3D F0R %{account}'s H057!"
     xrd_fetch_failed: "3RR0R G3771NG XRD F0R %{account}!"
+  welcome: "w31c0m3"

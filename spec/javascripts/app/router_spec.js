@@ -32,4 +32,41 @@ describe('app.Router', function () {
       expect(tag_following_action).toHaveBeenCalledWith({tagText: 'somethingwithcapitalletters'});
     });
   });
+
+  describe("when routing to /stream and hiding inactive stream lists", function() {
+    var router;
+    var aspects;
+    var tagFollowings;
+
+    beforeEach(function() {
+      router = new app.Router();
+    });
+
+    it('calls hideInactiveStreamLists', function () {
+      var hideInactiveStreamLists = spyOn(router, 'hideInactiveStreamLists').andCallThrough();
+
+      router.stream();
+      expect(hideInactiveStreamLists).toHaveBeenCalled();
+    });
+
+    it('hides the aspects list', function(){
+      aspects = new app.collections.Aspects([{ name: 'Work', selected: true  }]);
+      var aspectsListView = new app.views.AspectsList({collection: aspects});
+      var hideAspectsList = spyOn(aspectsListView, 'hideAspectsList').andCallThrough();
+      router.aspects_list = aspectsListView;
+
+      router.stream();
+      expect(hideAspectsList).toHaveBeenCalled();
+    });
+
+    it('hides the followed tags view', function(){
+      tagFollowings = new app.collections.TagFollowings();
+      var followedTagsView = new app.views.TagFollowingList({collection: tagFollowings});
+      var hideFollowedTags = spyOn(followedTagsView, 'hideFollowedTags').andCallThrough();
+      router.followedTagsView = followedTagsView;
+
+      router.stream();
+      expect(hideFollowedTags).toHaveBeenCalled();
+    });
+  });
 });

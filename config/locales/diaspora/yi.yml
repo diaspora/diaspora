@@ -1,0 +1,90 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+yi:
+  _help: "העלף"
+  _home: "היים"
+  activerecord:
+    errors:
+      models:
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "איז פֿאַרנעמט"
+  admins:
+    admin_bar:
+      pages: "בלאַטן"
+    stats:
+      2weeks: "2 וואָכן"
+      daily: "טעגלעך"
+      month: "חודש"
+      week: "וואָך"
+  ago: "%{time} צוריק"
+  aspects:
+    aspect_stream:
+      make_something: "מאַך עפּעס"
+    index:
+      help:
+        do_you: "טוסטו:"
+        email_link: "בליצפּאָסט"
+        tag_question: "פֿראַגע"
+    seed:
+      family: "משפּחה"
+      friends: "חבֿרים"
+      work: "אַרבעט"
+  authorizations:
+    new:
+      nope: "ניין"
+  back: "צוריק"
+  cancel: "אַנוליר"
+  conversations:
+    new:
+      send: "שיק"
+      to: "צו"
+  email: "בליצפּאָסט"
+  help:
+    aspects:
+      remove_notification_a: "ניין."
+    here: "דאָ"
+    pods:
+      title: "שויטן"
+      what_is_a_pod_q: "וואָס איז אַ שויט?"
+    wiki: "וויקי"
+  invitations:
+    new:
+      language: "לשון"
+      to: "צו"
+  layouts:
+    header:
+      blog: "קוועטשל"
+      help: "העלף"
+      view_all: "זע אַלט"
+  more: "מער"
+  notifier:
+    hello: "שלומ עליכם %{name}!"
+    thanks: "אַ דאַנק,"
+  ok: "גוט"
+  or: "אָדער"
+  profiles:
+    edit:
+      your_name: "דײַן נאָמען"
+  registrations:
+    new:
+      email: "בליצפּאָסט"
+  requests:
+    new_request_to_person:
+      sent: "געשיקט!"
+  search: "זוך"
+  shared:
+    contact_list:
+      all_contacts: "אַלע קאָנטאַקטן"
+    invitations:
+      by_email: "מיט בליצפּאָסט"
+  undo: "אויפֿמאַכן?"
+  users:
+    getting_started:
+      who_are_you: "וווּ ביסטו?"
+  welcome: "שלום עליכם!"

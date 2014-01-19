@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.2.0.1" # Do not touch unless doing a release, do not backport the version number that's in master but keep develp to always say "head"
+    number: "0.3.0.0" # Do not touch unless doing a release, do not backport the version number that's in master but keep develp to always say "head"
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -36,7 +36,6 @@ defaults:
     rails_environment: 'development'
     stderr_log:
     stdout_log:
-    database: 'mysql'
     unicorn_worker: 2
     unicorn_timeout: 90
     embed_sidekiq_worker: false
@@ -50,6 +49,9 @@ defaults:
       site_id:
     mixpanel_uid:
     chartbeat_uid:
+    statistics:
+      user_counts: false
+      post_counts: false
   settings:
     pod_name: 'diaspora*'
     enable_registrations: true
@@ -59,7 +61,7 @@ defaults:
       open: true
       count: 25
     paypal_hosted_button_id:
-    bitcoin_wallet_id:
+    bitcoin_address:
     community_spotlight:
       enable: false
       suggest_email:
@@ -80,6 +82,12 @@ defaults:
       - 'support'
       - 'contact'
       - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
+    captcha:
+      enable: true
+      image_size: '120x20'
+      captcha_length: 5
+      image_style: 'simply_green'
+      distortion: 'low'
   services:
     facebook:
       enable: false

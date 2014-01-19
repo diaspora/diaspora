@@ -31,7 +31,7 @@
         background : #99CC00;
         color : #fff;
         text-shadow : 0 -1px 0 #669900;
-        border : 1px solid #999;
+        border : 1px solid $border-dark-grey;
 
         &:hover {
           background : desaturate(#99CC00, 15%);
@@ -98,7 +98,7 @@
 
       &:hover {
         background:#222;
-        border:1px solid #999;
+        border:1px solid $border-dark-grey;
         text-decoration:none;
       }
     }
@@ -107,7 +107,7 @@
   #steps {
     text-align: center;
     p {
-      color:#666;
+      color: $text-dark-grey;
     }
   }
 }

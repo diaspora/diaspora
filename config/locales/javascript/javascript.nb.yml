@@ -30,6 +30,7 @@ nb:
     comma: ","
     comments:
       hide: "skjul kommentarer"
+      no_comments: "Det finnes ingen kommentarer ennå."
       show: "vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
     conversation:
@@ -40,13 +41,14 @@ nb:
     failed_to_post_message: "Klarte ikke å publisere post!"
     getting_started:
       alright_ill_wait: "Greit, jeg venter."
-      hey: "Hei, {{name}}!"
+      hey: "Hei, <%= name %>!"
       no_tags: "Hei, du har ikke fulgt noen tagger! Fortsett likevel?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      preparing_your_stream: "Forbereder din personlige stream ..."
     header:
       admin: "Admin"
       close: "lukk"
       contacts: "Kontakter"
+      help: "Hjelp"
       home: "Hjem"
       log_out: "Logg ut"
       mark_all_as_read: "Merk alle som lest"
@@ -54,7 +56,7 @@ nb:
       notifications: "Varsler"
       profile: "Profil"
       recent_notifications: "Nylige varsel"
-      search: "Find people or #tags"
+      search: "Søk"
       settings: "Innstillinger"
       view_all: "Vis alle"
     ignore: "Ignorer"
@@ -62,21 +64,22 @@ nb:
     infinite_scroll:
       no_more: "Ingen flere innlegg."
       no_more_contacts: "Ingen flere kontakter."
-    my_activity: "Min aktivitet"
-    my_aspects: "Mine aspekter"
+    my_activity: "Min Aktivitet"
+    my_aspects: "Mine Aspekter"
     my_stream: "Stream"
     people:
-      not_found: "og ingen andre ble funnet..."
+      not_found: "og ingen ble funnet ..."
     photo_uploader:
       completed: "<%= file %> ferdig"
       empty: "{file} er tom, vennligst velg filer igjen uten å bruke den."
+      error: "Et problem oppstod under opplastning av filen <%= file %>"
       invalid_ext: "{file} har en ugyldig utvidelse. Bare {extensions} er tillatt."
       looking_good: "Wow, du ser fantastisk ut!"
       size_error: "{file} er for stor, maksimal filstørrelse er {sizeLimit}"
     publisher:
       at_least_one_aspect: "Du må poste til minst ett aspekt"
       limited: "Begrenset - posten din vil bare være synlig for de du deler med"
-      near_from: "Nært ved: <%= location %>"
+      near_from: "Publisert fra: <%= location %>"
       public: "Offentlig - posten din vil være synlig for alle og kan bli funnet av søkemotorer"
     reshares:
       duplicate: "du har allerede delt denne posten!"
@@ -120,7 +123,7 @@ nb:
       unfollow: "Ikke følg"
       unlike: "Liker ikke"
     tags:
-      wasnt_that_interesting: "OK, jeg skjønner at #{{tagName}} ikke var så spennende likevel..."
+      wasnt_that_interesting: "OK, jeg skjønner at #<%= tagName %> ikke var så spennende likevel ..."
     timeago:
       day: "en dag"
       days: "%d dager"
@@ -145,7 +148,7 @@ nb:
       follow_post: "Følg post"
       home: "HJEM"
       like: "Liker"
-      reshare: "Del med andre"
+      reshare: "Del"
       reshared: "Delt med andre"
       stop_following_post: "Slutt å følge post"
       unlike: "Fjern liker"

@@ -17,22 +17,27 @@ module PublishingCukeHelpers
     ')
   end
 
+  def publisher_submittable?
+    submit_btn = find("#publisher input[type=submit]")
+    !submit_btn[:disabled]
+  end
+
   def expand_first_post
     within(".stream_element", match: :first) do
       find(".expander").click
-      find(".expander", visible: false).should_not be_visible
+      has_css?(".expander").should be_false
     end
   end
 
   def first_post_collapsed?
     find(".stream_element .collapsible", match: :first).should have_css(".expander")
-    find(".stream_element .collapsible", match: :first).has_selector?(".collapsed")
+    page.should have_css(".stream_element .collapsible.collapsed", match: :first)
   end
 
   def first_post_expanded?
-    find(".stream_element .expander", match: :first, visible: false).should_not be_visible
-    find(".stream_element .collapsible", match: :first).has_no_selector?(".collapsed")
-    find(".stream_element .collapsible", match: :first).has_selector?(".opened")
+    page.should have_no_css(".stream_element .expander", match: :first)
+    page.should have_no_css(".stream_element .collapsible.collapsed", match: :first)
+    page.should have_css(".stream_element .collapsible.opened", match: :first)
   end
 
   def first_post_text

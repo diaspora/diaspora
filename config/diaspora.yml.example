@@ -34,7 +34,7 @@ configuration: ## Section
     ## from the internet. This should be the URL you want to use to
     ## access the pod. So if you plan to  reverse proxy it, it should be
     ## the URL the proxy listens on.
-    ## DO NOT CHNANGE THIS AFTER INITIAL SETUP
+    ## DO NOT CHANGE THIS AFTER INITIAL SETUP
     ## UNLESS YOU KNOW WHAT YOU'RE DOING!
     ## However changing http to https is okay and has no consequences.
     ## If you do change it you have to start over as it's hardcoded into
@@ -148,10 +148,6 @@ configuration: ## Section
     #stderr_log: '/usr/local/app/diaspora/log/unicorn-stderr.log'
     #stdout_log: '/usr/local/app/diaspora/log/unicorn-stdout.log'
     
-    ## The database type the server should use by default.
-    ## Valid choices are 'mysql' and 'postgres'
-    #database: 'mysql'
-    
     ## Number of Unicorn worker processes, increase this if
     ## you have many users
     #unicorn_worker: 2
@@ -195,6 +191,15 @@ configuration: ## Section
     
     ## Chartbeat tracking
     #chartbeat_uid:
+    
+    ## Statistics
+    ## By default pod name, version and whether registrations are
+    ## open or not is reported. Enable more statistics below.
+    statistics: ## Section
+      ## Local user total and 6 month active counts
+      #user_counts: true
+      ## Local post total count
+      #post_counts: true
   
   ## General settings
   settings: ## Section
@@ -218,7 +223,29 @@ configuration: ## Section
     ## your server to contact joindiaspora.com, you can change account
     ## below or set autofollow_on_join to false
     #autofollow_on_join_user: 'diasporahq@joindiaspora.com'
-    
+
+    ## Settings about captcha
+    captcha: ## Section
+
+      ## Set this to false if you don't want to use captcha for signup process
+      #enable: true
+
+      ## Change this value to use different captcha image size
+      #image_size: '120x20'
+
+      ## Length of captcha text. Default value is 5
+      #captcha_length: 5
+
+      ## Change this value to use various image style.
+      ## Available options are: 'simply_blue', 'simply_red'
+      ## 'simply_green', 'charcoal_grey', 'embosed_silver', 'all_black',
+      ## 'distorted_black', 'almost_invisible', 'random'
+      #image_style: 'simply_green'
+
+      ## Set this value to use various level of distortion
+      ## Available options are: 'low', 'medium', 'high', 'random'
+      #distortion: 'low'
+
     ## Settings about invitations
     invitations: ## Section
       
@@ -237,9 +264,9 @@ configuration: ## Section
     #paypal_hosted_button_id: ""
     
     ## Bitcoin donations
-    ## You can provide the bitcoin address here to kindly ask
+    ## You can provide a bitcoin address here to kindly ask
     ## your users for donations to run their pod.
-    #bitcoin_wallet_id: ""
+    #bitcoin_address: ""
     
     ## Community Spotlight
     ## The community spotlight gives new users a starting point on who

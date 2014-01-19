@@ -5,10 +5,13 @@
 = render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
 
 :javascript
-  var contents = "#{escape_javascript params[:title]} - #{escape_javascript params[:url]}";
-  var notes    = "#{escape_javascript params[:notes]}";
-  if (notes.length > 0){
-    contents = contents + " - " + notes;
+  var contents = "#{escape_javascript params[:content]}";
+  if(!contents){
+    contents  = "#{escape_javascript params[:title]} - #{escape_javascript params[:url]}";
+    var notes = "#{escape_javascript params[:notes]}";
+    if (notes.length > 0){
+      contents += " - " + notes;
+    }
   }
 
   $(document).ready(function() {

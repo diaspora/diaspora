@@ -6,54 +6,203 @@
 
 ga:
   _applications: "Feidhmchláir"
+  _comments: "Tráchtanna"
   _contacts: "Teagmhálacha"
   _home: "Baile"
+  _photos: "griangraif"
+  _services: "Seirbhísí"
+  account: "Cuntas"
+  activerecord:
+    errors:
+      models:
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "glacadh cheana."
+        user:
+          attributes:
+            email:
+              taken: "glacadh cheana."
+            person:
+              invalid: "neamhbhailí."
+            username:
+              invalid: "neamhbhailí. Tá ach litreacha, uimhreacha agus béim ceadaithe."
+              taken: "glacadh cheana."
+  ago: "%{time} ó shin"
+  all_aspects: "Gach gnéithe"
+  are_you_sure: "An bhfuil tú cinnte?"
+  are_you_sure_delete_account: "An bhfuil tú cinnte go dteastaíonn uait do chuntas a dhúnadh? Ní féidir é seo a chealaigh!"
   aspects:
+    aspect_contacts:
+      done_editing: "eagarthóireacht déanta"
+    aspect_listings:
+      edit_aspect: "%{name} a chur in eagar"
+    edit:
+      done: "Déanta"
+      rename: "athainmnigh"
+      update: "uasdátaigh"
+      updating: "nuashonrú"
+    few: "%{count} gnéithe"
+    helper:
+      remove: "bain"
     index:
+      cubbies:
+        learn_more: "Breis eolais"
+      diaspora_id:
+        heading: "ID Diaspora"
       help:
         email_link: "Ríomhphoist"
+        need_help: "Cabhair?"
+        tag_bug: "fabht"
+        tag_feature: "gné"
+      new_here:
+        learn_more: "Breis eolais"
+    many: "%{count} gnéithe"
+    new:
+      create: "Cruthaigh"
+    one: "gné amháin"
+    other: "%{count} gnéithe"
+    seed:
+      family: "Gaolmhara"
+      friends: "Cháirde"
+      work: "Obair"
+    two: "%{count} gnéithe"
+    zero: "gan ghnéithe"
+  back: "Ar ais"
+  cancel: "Cealaigh"
   contacts:
     few: "%{count} teagmhálacha"
     index:
-      my_contacts: "Mo teagmhálacha"
+      all_contacts: "Gach Teagmhálacha"
+      community_spotlight: "Spotsolas Pobail"
+      my_contacts: "Mo Theagmhálacha"
       title: "Teagmhálacha"
+      your_contacts: "Do Theagmhálacha"
     many: "%{count} teagmhálacha"
-    one: "1 teagmháil"
+    one: "Teagmháil amháin"
     other: "%{count} teagmhálacha"
+    spotlight:
+      community_spotlight: "Spotsolas Pobail"
     two: "%{count} teagmhálacha"
     zero: "teagmhálacha"
   conversations:
     index:
-      inbox: "Bosca Isteach"
+      create_a_new_message: "cruthaigh teachtaireacht nua"
+      inbox: "post isteach"
+      new_message: "Teachtaireacht Nua"
     new:
       send: "Seol"
       subject: "ábhar"
+      to: "le"
     show:
       reply: "freagair"
   delete: "Scrios"
   email: "Ríomhphoist"
+  fill_me_out: "Líon amach"
+  hide: "Folaigh"
   invitations:
+    a_facebook_user: "Úsáideoir Facebook"
     new:
+      aspect: "Gné"
       language: "Teanga"
+      personal_message: "Teachtaireacht pearsanta"
+      to: "Le"
   layouts:
+    application:
+      back_to_top: "Barr"
+      your_aspects: "do ghnéithe"
     header:
-      login: "Logáil isteach"
+      blog: "blag"
+      code: "cód"
+      login: "logáil isteach"
       logout: "Logáil amach"
+      settings: "Sainroghanna"
+  limited: "Teoranta"
+  more: "Níos mó"
+  next: "chugainn"
+  no_results: "Níl Torthaí Aimsithe"
+  notifications:
+    index:
+      and: "agus"
+      and_others:
+        one: "agus ceann eile"
+        other: "%{count} gcinn"
+        two: "%{count} chinn"
+        zero: "agus gan ceann eile"
+      notifications: "Fógraí"
   notifier:
     hello: "Haileo %{name}!"
+    liked:
+      view_post: "Féach ar post >"
+    reshared:
+      view_post: "Féach ar post >"
+    single_admin:
+      admin: "Do riarthóir Diaspóra"
+    started_sharing:
+      view_profile: "Féach ar próifíl %{name}"
+    thanks: "Maith agat,"
+  nsfw: "NSFW"
+  ok: "OK"
+  or: "nó"
   password: "Pasfhocal"
+  password_confirmation: "Deimhniú pásfhocal"
+  people:
+    few: "%{count} daoine"
+    many: "%{count} daoine"
+    one: "duine amháin"
+    other: "%{count} daoine"
+    person:
+      thats_you: "Is leatsa!"
+    profile_sidebar:
+      born: "Breithlá"
+      gender: "Inscne"
+      location: "Suíomh"
+    show:
+      message: "Teachtaireacht"
+    two: "%{count} daoine"
+    zero: "gan duine"
+  photos:
+    destroy:
+      notice: "Griangraf scriosta."
+    new:
+      back_to_list: "Ar ais go dtí an liosta"
+      new_photo: "Griangraf Nua"
+    show:
+      delete_photo: "Scrios an Ghriangraf"
+      edit: "cur in eagar"
   posts:
     show:
       destroy: "Scrios"
+  previous: "roimhe"
+  privacy: "Príobháideachas"
+  privacy_policy: "Polasaí Príobháideachta"
+  profile: "Próifíl"
+  profiles:
+    edit:
+      edit_profile: "Cur do phróifíl in eagar"
+      first_name: "Ainm baiste"
+      last_name: "Sloinne"
+      your_birthday: "Do bhreithlá"
+      your_gender: "D'inscne"
+      your_name: "D'ainm"
+      your_photo: "Do ghriangraf"
+  public: "Poiblí"
   registrations:
+    edit:
+      unhappy: "Míshona?"
     new:
+      create_my_account: "Cruthaigh mo chuntas!"
       email: "RÍOMHPHOIST"
       enter_email: "Seoladh ríomhphoist"
       password: "PASFHOCAL"
-      password_confirmation: "AN PASFFHOCAL ARÍS"
+      password_confirmation: "PASFHOCAL DAINGNITHE"
       sign_up: "CLÁRÚCHÁN"
       username: "AINM ÚSAIDEOIR"
   search: "Cuardaigh"
+  settings: "Sainroghanna"
+  terms_and_conditions: "Téarmaí agus Coinníollacha"
+  undo: "Cealaigh?"
+  username: "Ainm úsáideora"
   users:
     edit:
       your_email: "Do ríomhphoist"

@@ -8,15 +8,12 @@ te:
   javascripts:
     aspect_dropdown:
       add_to_aspect: "పరిచయాన్ని జతచేయి"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      error: "Couldn't start sharing with <%= name %>. Are you ignoring them?"
+      started_sharing_with: "You have started sharing with <%= name %>!"
+      stopped_sharing_with: "You have stopped sharing with <%= name %>."
       toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In <%= count %> aspects"
+        one: "In <%= count %> aspect"
+        other: "In <%= count %> aspects"
         zero: "Select aspects"
     aspect_navigation:
       deselect_all: "ఎంపిక మొత్తం రద్దుచేయి"
@@ -28,7 +25,7 @@ te:
     failed_to_like: "ఇష్టపడుటలో విఫలమైంది!"
     failed_to_post_message: "సందేశాన్ని పోస్టుచేయుటలో విఫలమైంది!"
     getting_started:
-      hey: "ఓయ్, {{name}}!"
+      hey: "ఓయ్, <%= name %>!"
     header:
       admin: "నిర్వాహకుడు"
       close: "మూసివేయి"
@@ -49,7 +46,7 @@ te:
     my_stream: "ప్రవాహం"
     reshares:
       duplicate: "ఓహో, అది బాగుందా?  ఆ టపాని మీరు ఇప్పటికే పంచుకున్నారు!"
-    search_for: "{{name}} కోసం వెతకండి"
+    search_for: "<%= name %> కోసం వెతకండి"
     show_more: "మరిన్ని చూపించు"
     stream:
       comment: "వ్యాఖ్య"
@@ -82,7 +79,7 @@ te:
       unfollow: "అనుసరించవద్దు"
       unlike: "అయిష్టం"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     timeago:
       day: "ఒక రోజు"
       days: "%d రోజుల"
@@ -101,7 +98,7 @@ te:
       years: "%d సంవత్సరాల"
     videos:
       unknown: "తెలియని వీడియో రకం"
-      watch: "ఈ వీడియోని {{provider}}లో చూడండి"
+      watch: "ఈ వీడియోని <%= provider %>లో చూడండి"
     viewer:
       comment: "వ్యాఖ్య"
       home: "నివాసం"

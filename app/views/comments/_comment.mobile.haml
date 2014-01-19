@@ -6,7 +6,7 @@
   .content
     .remove_comment
       .right
-        - if comment.author == current_user.person
+        - if user_signed_in? && comment.author == current_user.person
           = link_to(image_tag('deletelabel.png'), comment_path(comment), :method => :delete, :data => { :confirm => "#{t('are_you_sure')}" }, :class => "remove")
     .from
       = person_image_link(comment.author)

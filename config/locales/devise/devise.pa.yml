@@ -24,18 +24,6 @@ pa:
         confirm: "ਮੇਰੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
         subject: "ਪੁਸ਼ਟੀ ਹਦਾਇਤਾਂ"
       hello: "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ %{email}!"
-      invitation_instructions:
-        accept: "ਸੱਦਾ ਮਨਜ਼ੂਰ ਕਰੋ"
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        have_fun: "ਮਜ਼ਾ ਕਰੋ"
-        here: "ਇਥੇ"
-        join_team: "ਸਾਡੀ ਟੀਮ ਨਾਲ ਜੁੜੋ"
-        love: "ਪਿਆਰ,"
-        or: "ਜਾਂ"
-        sign_up_now: "ਹੁਣੇ ਸਾਇਨਅਪ ਕਰੋ →"
-        subject: "ਤੁਹਾਨੂੰ ਡਿਆਸਪਰਾ ਨਾਲ ਜੁੜਨ ਲਈ ਸੱਦਿਆ ਜਾਂਦਾ ਹੈ!"
-        team_diaspora: "ਡਿਆਸਪਰਾ ਟੀਮ"
-        view_in: "View in"
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} ਨੇ ਤੁਹਾਨੂੰ ਡਿਆਸਪਰਾ ਨਾਲ ਜੁੜਨ ਲਈ ਸੱਦਿਆ ਹੈ"

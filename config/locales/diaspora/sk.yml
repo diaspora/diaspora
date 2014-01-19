@@ -8,6 +8,7 @@ sk:
   _applications: "Aplikácie"
   _comments: "Komentáre"
   _contacts: "Kontakty"
+  _help: "Pomoc"
   _home: "Domov"
   _photos: "Fotky"
   _services: "Služby"
@@ -18,7 +19,7 @@ sk:
         contact:
           attributes:
             person_id:
-              taken: "musí byť výnimočný medzi kontaktmi tohto používateľa."
+              taken: "musí byť jedinečný medzi kontaktmi zvoleného používateľa."
         person:
           attributes:
             diaspora_handle:
@@ -39,7 +40,7 @@ sk:
               invalid: "je neplatný."
             username:
               invalid: "je neplatné. Povolené sú len písmená, číslice a podčiarkovníky."
-              taken: "je už obsadený."
+              taken: "sa už používa."
   admins:
     admin_bar:
       correlations: "Závislosti"
@@ -90,7 +91,11 @@ sk:
         one: "našiel sa %{count} používateľ"
         other: "našlo sa %{count} používateľov"
         zero: "našlo sa %{count} používateľov"
-      you_currently: "nateraz ti ostalo %{user_invitation} pozvánok %{link}"
+      you_currently:
+        few: "nateraz ti ostali %{count} pozvánky %{link}"
+        one: "nateraz ti ostala %{count} pozvánky %{link}"
+        other: "nateraz ti ostalo %{count} pozvánok %{link}"
+        zero: "nateraz ti ostalo %{count} pozvánok %{link}"
     weekly_user_stats:
       amount_of:
         few: "počet nových používateľov tento týždeň: %{count}"
@@ -98,15 +103,14 @@ sk:
         other: "počet nových používateľov tento týždeň: %{count}"
         zero: "počet nových používateľov tento týždeň: žiaden"
       current_server: "Aktuálny dátum na serveri je %{date}"
-  ago: "%{time}"
+  ago: "pred %{time}"
   all_aspects: "Všetky kategórie"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "neznámy človek"
       video_title:
         unknown: "Neznámy názov videa"
-  are_you_sure: "Si si istý (-á)?"
+  are_you_sure: "Si si istý(á)?"
   are_you_sure_delete_account: "Určite chceš zrušiť svoj účet? Táto operácia sa nedá vrátiť späť!"
   aspect_memberships:
     destroy:
@@ -138,16 +142,18 @@ sk:
       success: "Použ. %{name} bol úspešne odstránený."
     edit:
       add_existing: "Pridať existujúci kontakt"
-      aspect_list_is_not_visible: "zoznam z kategórie ostatní v kategórii nevidia"
-      aspect_list_is_visible: "zoznam z kategórie ostatní v kategórii uvidia"
-      confirm_remove_aspect: "Si si istý (-á), že chceš zmazať túto kategóriu?"
+      aspect_list_is_not_visible: "Ľudia v tejto kategórii sa nevida"
+      aspect_list_is_visible: "Kontakty v tejto kategórii sú navzájom viditeľné"
+      confirm_remove_aspect: "Si si istý(á), že chceš zmazať túto kategóriu?"
       done: "Hotovo"
-      make_aspect_list_visible: "majú sa ľudia v kontaktoch  v tejto kategórii navzájom vidieť?"
+      make_aspect_list_visible: "urobiť kontakty v tejto kategórii viditeľné pre ostatných"
+      manage: "Spravovať"
       remove_aspect: "Zmazať túto kategóriu"
       rename: "premenovať"
+      set_visibility: "Nastaviť viditeľnosť"
       update: "aktualizovať"
       updating: "aktualizuje sa"
-    few: "%{count} kategórií"
+    few: "%{count} kategórie"
     helper:
       are_you_sure: "Si si istý (-á), že chceš zmazať túto kategóriu?"
       aspect_not_empty: "Kategória nie je prázdna"
@@ -173,12 +179,13 @@ sk:
         find_a_bug: "... našiel (-šla) si %{link}?"
         have_a_question: "... máš %{link}?"
         here_to_help: "Komunita Diaspory je tu!"
-        mail_podmin: "Napísať správcov podu"
+        mail_podmin: "Napísať správcovi podu"
         need_help: "Potrebuješ pomoc?"
         tag_bug: "chybu"
         tag_feature: "funkciu"
         tag_question: "otázku"
-        tutorials_wiki_and_forum: "%{tutorial}, %{wiki} a %{forum}: príručky, ktoré vytvorili členovia komunity, návody  a novinky"
+        tutorial_link_text: "Návody"
+        tutorials_and_wiki: "%{faq}, %{tutorial} a %{wiki}: pomoc pri prvých krokoch."
       introduce_yourself: "Toto je tvoja nástenka.  Predstav sa."
       keep_diaspora_running: "Udrž vývoj Diaspory mesačným príspevkom v rýchlom tempe!"
       keep_pod_running: "Udrž %{pod} v rýchlom tempe a kúp serverom mesačným príspevkom kávu vo forme opráv!"
@@ -340,9 +347,97 @@ sk:
       invalid_fields: "Neplatné polia"
     login_try_again: "Prosím, <a href='%{login_link}'>prihlás sa</a> a skús to znova."
     post_not_public: "Príspevok, ktorý sa snažíš zobraziť, nie je verejný!"
+    post_not_public_or_not_exist: "Príspevok, ktorý chcete zobraziť, nie je verejný alebo neexistuje."
   fill_me_out: "Vyplň formulár, prosím"
   find_people: "Nájsť ľudí alebo #značky"
+  help:
+    account_and_data_management:
+      close_account_a: "Prejdi do spodnej časti stránky s nastaveniami a klikni na tlačidlo Zrušiť účet."
+      close_account_q: "Ako odstánim (zruším) svoj(e) účet (semiačko)?"
+      data_other_podmins_a: "Keď niečo napíšete niekomu na inom serveri, všetky príspevky, o ktoré sa takto podelíte a kópia dát z tvojho profilu sa uloží na ich serveri a bude prístupná administrátorovi databázy toho servera. Ak príspevok alebo dáta z profilu vymažete, vymažú sa z vášho servera a z každého servera, kde boli predtým uložené."
+      data_other_podmins_q: "Môžu moje údaje vidieť administrátori iných serverov?"
+      data_visible_to_podmin_a: "Komunikácia \"medzi\" servermi je vždy zakódovaná (pomocou SSL a vlastného prenosového zakódovania Diaspory*), ale uloženie dát na serveroch nie je zakódované. Ak správca databázy tvojho servera (zvyčajne je to človek, ktorý prevádzkuje server) chce, môže sa dostať ku všetkým údajom v tvojom profile a ku všetkému, čo posielaš (ako v prípade väčšiny stránok, ktoré si ukladajú dáta používateľov). Prevádzkovanie vlastného servera ponúka viac súkromia, lebo máš pod kontrolou prístup k databáze."
+      data_visible_to_podmin_q: "Ktoré moje údaje vidí administrátor servera?"
+      download_data_a: "Áno. V spodnej časti karty Účet na stránke s nastaveniami máš na stiahnutie svojich údajov dve tlačidlá."
+      download_data_q: "Môžem si stiahnuť kópiu všetkých svojich údajov, ktoré sa nachádzajú na mojom semiačku (účte)?"
+      move_pods_a: "V budúcnosti budeš môcť preniesť svoj účet z podu a nahrať ho na iný, ale momentálne to nie je možné. Stále si však môžeš vytvoriť nový účet a pridať kontakty do kategórii na tom novom účte a poprosiť tých ľudí, aby si tvoj nový účet pridali do svojich kontaktov."
+      move_pods_q: "Ako prenesiem svoj(e) (semiačko) účet z jedného podu na iný?"
+      title: "Správa účtov a údajov"
+    aspects:
+      contacts_know_aspect_a: "Nie. Za žiadnych okolností nevidia názov kategórie."
+      contacts_know_aspect_q: "Vedia ľudia v mojich kontaktoch, do akej kategórie som ich dal(a)?"
+      contacts_visible_q: "Čo znamená „urobiť kontakty v tejto kategórii viditeľné pre ostatných“"
+      remove_notification_a: "Nie."
+      remove_notification_q: "Ak niekoho odstránim z kategórie alebo zo všetkých svojich kategórií, dostane o tom oznam?"
+      rename_aspect_q: "Môžem premenovať kategóriu?"
+      restrict_posts_i_see_a: "Áno. Klikni na Moje kategórie v bočnom menu a potom klikni na jednotlivé kategórie v zozname, ktoré chceš vybrať alebo odobrať. Na nástenke sa potom objavia iba príspevky od ľudí vo vybraných kategóriach."
+      restrict_posts_i_see_q: "Môžem obmedziť príspevky, ktoré vidím iba na príspevky od určitých kategórií?"
+      title: "Kategórie"
+      what_is_an_aspect_a: "Kategórie sú spôsob, akým si zotriedite kontakty na Diaspore*. Kategória je jednou tvárou, ktorú ukážeš svetu. Môžeš byť tým (tou), čo si v práci, alebo tým (tou), čo si pre svoju rodinu alebo kamarátov v klube, kam patríš."
+      what_is_an_aspect_q: "Čo je kategória"
+      who_sees_post_a: "Ak napíšeš príspevok pre vybraných ľudí, uvidia ho len ľudia, ktorých si dal(a) do tej kategórie (alebo tých kategórií, ak je určený pre viacej kategórii)."
+      who_sees_post_q: "Keď pošlem príspevok do kategórie, kto ho uvidí?"
+    foundation_website: "internetová stránka nadácie Diaspory"
+    getting_help:
+      get_support_a_hashtag: "spýtaj sa cez verejný príspevok na Diaspore* so značkou %{question}"
+      get_support_a_irc: "pripoj sa k nám na %{irc} (chat naživo)"
+      get_support_a_tutorials: "Pozri si naše %{tutorials}"
+      get_support_a_website: "Navštív našu %{link}"
+      get_support_a_wiki: "Prehľadaj %{link}"
+      get_support_q: "Čo ak odpoveď na moju otázku nie je v častých otázkach? Kde inde môžem nájsť pomoc?"
+      getting_started_a: "Máš šťastie. Vyskúšaj %{tutorial_series} na stránke nášho projektu. Prevedie ťa krok za krokom cez registráciu a naučí ťa všetky základné veci, ktoré potrebuješ vedieť o používaní Diaspory*."
+      getting_started_q: "Pomoc! Na začiatok potrebujem základnú pomoc!"
+      title: "Nájsť pomoc"
+    getting_started_tutorial: "návody pre začiatočníkov"
+    here: "sem"
+    irc: "IRC"
+    mentions:
+      how_to_mention_a: "Napíš znak \"@\" pred meno toho človeka (bez medzery). Malo by sa zobraziť rolovacie menu, aby si si mohol (-hla) ľahšie vybrať. Pamätaj si, že takto môžeš spomenúť iba ľudí, ktorých máš pridaných do kategórií."
+      how_to_mention_q: "Ako môžem niekoho spomenúť, keď píšem príspevok?"
+      mention_in_comment_a: "Nie, nie v súčasnosti."
+      mention_in_comment_q: "Môžem niekoho spomenúť v komentári?"
+      title: "Zmienky"
+      what_is_a_mention_a: "Zmienka je odkaz na niečiu stránku s profilom, ktorý sa objaví v príspevku. Keď niekoho spomeniete, dostane oznam, ktorý upriami jeho pozornosť na príspevok."
+      what_is_a_mention_q: "Čo je to \"zmienka\"?"
+    miscellaneous:
+      diaspora_app_q: "Existuje aplikácia diaspora* pre Android alebo iOS?"
+      title: "Rôzne"
+    pods:
+      title: "Servery"
+      what_is_a_pod_q: "Čo je pod?"
+    posts_and_posting:
+      character_limit_a: "65 535 znakov. To je o 65 395 znakov viac, ako Ti dá Twitter! ;)"
+      character_limit_q: "Aký je limit znakov pre príspevok?"
+      format_text_q: "Ako môžem formátovať text v mojom príspevku (hrúbku, kurzíva, atď.)?"
+      image_text: "text k obrázku"
+      image_url: "adresa obrázka"
+      insert_images_comments_q: "Môžem vložiť obrázok do komentáru?"
+      insert_images_q: "Ako môžem vložiť obrázok do príspevku?"
+      size_of_images_q: "Môžem upraviť veľkosť obrázku v príspevku alebo komentári"
+      title: "Príspevky a ich posielanie"
+    private_posts:
+      title: "Súkromné príspevky"
+    private_profiles:
+      who_sees_profile_q: "Kto vidí môj osobný profil?"
+    public_posts:
+      find_public_post_q: "Ako môžu ľudia nájsť môj verejný príspevok?"
+      title: "Verejné príspevky"
+    public_profiles:
+      title: "Verejné profily"
+      whats_in_profile_q: "Čo je môj verejný profil?"
+      who_sees_profile_q: "Kto vidí môj verejný profil?"
+    sharing:
+      title: "Zdieľanie"
+    tags:
+      title: "Značky"
+      what_are_tags_for_a: "Značky sú spôsobom, ako zatriediť príspevok, obyčajne podľa témy. Vyhľadávanie podľa značky zobrazuje všetky príspevky s danou značkou, ktoré sa dajú zobraziť (aj verejné aj súkromné príspevky). To umožňuje ľuďom, ktorí sa zaujímajú o danú tému nájsť verejné príspevky, ktoré sa jej týkajú."
+      what_are_tags_for_q: "Na čo sú značky?"
+    third_party_tools: "nástroje iných firiem"
+    tutorial: "návod"
+    tutorials: "návody"
+    wiki: "wiki"
   hide: "Schovať"
+  ignore: "Ignorovať"
   invitation_codes:
     excited: "%{name} ťa tu rád/rada vidí"
   invitations:
@@ -374,7 +469,7 @@ sk:
       if_they_accept_info: "Po prijatí pozvánky budú pozvaní používatelia pridaní do príslušnej kategórie."
       invite_someone_to_join: "Pozvi niekoho na Diasporu!"
       language: "Jazyk"
-      paste_link: "Podeľ sa o tento odkaz s priateľmi a pozvi ich na Diasporu alebo im ho pošli priamo na e-mail."
+      paste_link: "Podeľ sa o tento odkaz s priateľmi a pozvi ich na Diasporu* alebo im ho pošli rovno na e-mail."
       personal_message: "Súkromná správa"
       resend: "Preposlať"
       send_an_invitation: "Poslať pozvánku"
@@ -384,7 +479,7 @@ sk:
   layouts:
     application:
       back_to_top: "Späť nahor"
-      powered_by: "PREVÁDZKUJE DIASPORA*"
+      powered_by: "PREVÁDZKUJE Diaspora*"
       public_feed: "Verejný kanál Diaspory pre %{name}"
       source_package: "stiahnuť balík so zdrojovým kódom"
       toggle: "prepnúť mobilnú verziu"
@@ -394,6 +489,7 @@ sk:
       admin: "správca"
       blog: "Blog"
       code: "kód"
+      help: "Pomoc"
       login: "Prihlásiť sa"
       logout: "Odhlásiť sa"
       profile: "Profil"
@@ -498,7 +594,7 @@ sk:
       zero: "%{actors} si ťa pridalo do kontaktov."
   notifier:
     a_post_you_shared: "príspevok."
-    accept_invite: "Prijmi svoju pozvánku na Diasporu!"
+    accept_invite: "Odsúhlas svoju pozvánku na Diasporu*!"
     click_here: "klikni sem"
     comment_on_post:
       reply: "Zobraziť príspevok použ. %{name} alebo naň odpovedať >"
@@ -529,7 +625,7 @@ sk:
       view_post: "Zobraziť príspevok >"
     mentioned:
       mentioned: "vás spomenul(a) v príspevku:"
-      subject: "%{name} vás spomenul(a) na Diaspore*"
+      subject: "%{name} ťa spomenul(a) na Diaspore*"
     private_message:
       reply_to_or_view: "Zobraziť tento rozhovor alebo sa doň zapojiť >"
     reshared:
@@ -568,7 +664,6 @@ sk:
       no_results: "Hej! Musíš niečo hľadať."
       results_for: "Výsledky vyhľadávania pre"
       searching: "hľadá sa, prosím buď trpezlivý (-á)."
-    last_post: "Posledný príspevok"
     many: "%{count} ľudí"
     one: "1 človek"
     other: "%{count} ľudí"
@@ -579,11 +674,12 @@ sk:
       thats_you: "To si ty!"
     profile_sidebar:
       bio: "Niečo o tebe"
-      born: "dátum narodenia"
+      born: "Narodeniny"
       edit_my_profile: "Upraviť si profil"
-      gender: "pohlavie"
+      gender: "Pohlavie"
       in_aspects: "v kategóriách"
-      location: "bydlisko"
+      location: "Bydlisko"
+      photos: "Fotky"
       remove_contact: "odstrániť kontakt"
       remove_from: "Odstrániť používateľa %{name} z kategórie %{aspect}?"
     show:
@@ -658,7 +754,7 @@ sk:
         two: "Dve fotky, ktoré nahral(a) %{author}"
         zero: "Žiadne fotky, ktoré nahral(a) %{author}"
       reshare_by: "Znova ukázal(a) príspevok %{author}"
-  previous: "Predchádzajúce"
+  previous: "predchádzajúce"
   privacy: "Ochrana súkromia"
   privacy_policy: "Ochrana osobných údajov"
   profile: "Profil"
@@ -669,8 +765,6 @@ sk:
       first_name: "Krstné meno"
       last_name: "Priezvisko"
       update_profile: "Aktualizovať profil"
-      you_are_nsfw: "Svoj profil si označil(a) ako nevhodný na prezeranie v práci, nezobrazí sa ľuďom, ktorí nechcú vidieť príspevky pre zrelých používateľov."
-      you_are_safe_for_work: "Svoj profil si označil(a) ako vhodný v práci, čo znamená, že súhlasíš s tým, aby tvoje príspevky spĺňali podmienky stránky."
       your_bio: "Niečo o tebe"
       your_birthday: "Dátum narodenia"
       your_gender: "Tvoje pohlavie"
@@ -705,7 +799,7 @@ sk:
     new:
       continue: "Pokračovať"
       create_my_account: "Založ si účet!"
-      diaspora: "<3 Diaspora*"
+      diaspora: "<3 diaspora*"
       email: "E-MAIL"
       enter_email: "Zadaj e-mail"
       enter_password: "Zadaj heslo (minimálne šesť znakov)"
@@ -717,6 +811,7 @@ sk:
       password_confirmation: "POTVRDENIE HESLA"
       sign_up: "ZAREGISTROVAŤ SA"
       sign_up_message: "Prepojenie cez sociálne siete s ♥"
+      submitting: "Posiela sa..."
       username: "POUŽÍVATEĽ"
   requests:
     create:
@@ -770,6 +865,7 @@ sk:
       connect_to_facebook: "Pripojiť sa na Facebook"
       connect_to_tumblr: "Pripojiť sa na Tumblr"
       connect_to_twitter: "Pripojiť sa na Twitter"
+      connect_to_wordpress: "Prihlásiť sa na Wordpress"
       disconnect: "Odhlásiť sa"
       edit_services: "Upraviť pripojenie na služby"
       logged_in_as: "prihlásil(a) si sa ako"
@@ -778,7 +874,7 @@ sk:
       services_explanation: "Pripojenie k službám Ti umožňuje publikovať na nich príspevky, len čo ich napíšeš na Diasporu."
     inviter:
       click_link_to_accept_invitation: "Ak chcete prijať pozvanie, kliknite na tento odkaz"
-      join_me_on_diaspora: "Pridať sa k DIASPORE*"
+      join_me_on_diaspora: "Pridať sa k Diaspore*"
     remote_friend:
       invite: "pozvať"
       not_on_diaspora: "Ešte nie je na Diaspore"
@@ -931,7 +1027,11 @@ sk:
   tags:
     show:
       follow: "Sledovať #%{tag}"
-      followed_by: "sleduje ho alebo ju"
+      followed_by_people:
+        few: "sledujú %{count} ľudia"
+        one: "sleduje %{count} človek"
+        other: "sleduje %{count} ľudí"
+        zero: "nikto nesledujue"
       following: "Sleduješ #%{tag}"
       nobody_talking: "Nikto ešte nehovorí o téme %{tag}."
       none: "Prázdna značka neexistuje!"
@@ -947,11 +1047,11 @@ sk:
       love_to_try: "Bolo by super, keby si to vyskúšal(a)."
       making_the_connection: "Vytvára sa prepojenie"
       screenshot_explanation: "%{link1}.  Táto konkrétna cubby je napojená na %{link2}."
-      sign_up_today: "Zaregistuj sa dnes!"
+      sign_up_today: "Zaregistruj sa dnes!"
       typical_userpage: "Typická používateľská stránka na cubbi.es"
       via: "(na %{link})"
       what_is_cubbies: "Cubbi.es je celosvetovo prvá aplikácia Diaspory. Je to  aj najlepší spôsob na vytváranie fotoalbumov online."
-  undo: "Odvolať zmeny?"
+  undo: "Vrátiť zmeny?"
   username: "Používateľské meno"
   users:
     confirm_email:

@@ -12,6 +12,10 @@ class StatusMessage < Post
   extract_tags_from :raw_message
 
   validates_length_of :text, :maximum => 65535, :message => I18n.t('status_messages.too_long', :count => 65535)
+
+  # don't allow creation of empty status messages
+  validate :presence_of_content, on: :create, if: proc { |sm| sm.author.local? }
+
   xml_name :status_message
   xml_attr :raw_message
   xml_attr :photos, :as => [Photo]
@@ -23,14 +27,14 @@ class StatusMessage < Post
 
   # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
   # therefore, we put the validation in a before_destory callback instead of a validation
-  before_destroy :presence_of_content
+  before_destroy :absence_of_content
 
   attr_accessor :oembed_url
   attr_accessor :open_graph_url
 
   before_create :filter_mentions
   after_create :create_mentions
-  after_create :queue_gather_oembed_data, :if => :contains_oembed_url_in_text?
+  after_commit :queue_gather_oembed_data, :on => :create, :if => :contains_oembed_url_in_text?
   after_commit :queue_gather_open_graph_data, :on => :create, :if => :contains_open_graph_url_in_text?
 
   #scopes
@@ -165,6 +169,12 @@ class StatusMessage < Post
 
   protected
   def presence_of_content
+    if text_and_photos_blank?
+      errors[:base] << "Cannot create a StatusMessage without content"
+    end
+  end
+
+  def absence_of_content
     unless text_and_photos_blank?
       errors[:base] << "Cannot destory a StatusMessage with text and/or photos present"
     end

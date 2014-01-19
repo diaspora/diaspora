@@ -35,7 +35,7 @@ nn:
     failed_to_post_message: "Klarte ikkje å senda meldinga."
     getting_started:
       alright_ill_wait: "Greitt, eg ventar."
-      hey: "Hei, {{name}}!"
+      hey: "Hei, <%= name %>!"
       no_tags: "Du har ikkje følgt nokon etikett. Vil du likevel halda fram?"
       preparing_your_stream: "Lagar den tilpassa straumen din …"
     header:
@@ -72,7 +72,7 @@ nn:
       duplicate: "Så bra, altså? Men du har allereie delt meldinga :-)"
       post: "Vil du dele <%= name %> sin post?"
       successful: "Hurra, posten vart delt!"
-    search_for: "Leit etter {{name}}"
+    search_for: "Leit etter <%= name %>"
     show_more: "syn meir"
     stream:
       comment: "Kommenter"
@@ -129,7 +129,7 @@ nn:
       years: "%d år"
     videos:
       unknown: "Ukjend videotype"
-      watch: "Sjå denne videoen hos {{provider}}"
+      watch: "Sjå denne videoen hos <%= provider %>"
     viewer:
       comment: "Kommenter"
       follow_post: "Følg innlegg"

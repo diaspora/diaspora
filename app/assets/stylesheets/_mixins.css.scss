@@ -1,22 +1,6 @@
 /* Mixin file for sass.  Here is where we define our variables and
    browser compatability functions used in all scss/sass files */
 
-/* Diapora's default color palate */
-$blue: #3f8fba;
-$dark-blue: darken(#0984C8,10%);
-$green: #8EDE3D;
-
-$grey: #2b2b2b;
-$light-grey: #ddd;
-
-$red: #a80000;
-$background: #fff;
-$creation-blue: #0097ff;
-
-$red: #a80000;
-$background: #fff;
-$creation-blue: #0097ff;
-
 /* Transision defaults */
 $speed: 0.1s;
 $easing: linear;

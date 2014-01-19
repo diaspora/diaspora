@@ -15,21 +15,6 @@ si:
       send_instructions: "ඔබගේ ආරාධනාව යැවුවා."
     mailer:
       hello: "කොහොමද %{email}!"
-      invitation_instructions:
-        accept: "ආරාධනාව අනුමත කරන්න"
-        cubbies: "Cubbi.es"
-        email_address: "questions@joindiaspora.com"
-        finally: "අන්තිමට - එය මෙතන"
-        friends_saying: "මොකද්ද ඔබගේ යාළුවන් කියන්නේ..."
-        get_connected: "සම්බන්ධ වෙනවා"
-        have_fun: "විනෝද වන්න"
-        help_fund: "Diaspora එකට මුදලින් උපකාරයක් කරන්න"
-        here: "මෙතන"
-        join_team: "අපේ කණ්ඩායමට සම්බන්ධ වන්න"
-        love: "ආදරයෙන්,"
-        or: "හො"
-        team_diaspora: "ඩයස්පෝරා කණ්‌ඩායම"
-        view_in: "එය ඔබගේ වෙබ් බ්‍රවුසරයෙන් බලන්න."
       inviter:
         has_invited_you: "%{name}"
       reset_password_instructions:
@@ -46,7 +31,6 @@ si:
       updated: "ඔබ ඔබගේ ගිණුම සාර්ථකව යාවත්කාලීන කළා."
     sessions:
       new:
-        alpha_software: "ඔබ භාවිතා කරන්නේ සංවර්ධනය වෙමින් පවතින වැඩසටහනකි."
         login: "අතුල්වන්න"
         modern_browsers: "සහාය දක්වන්නේ නවීන browsers වලට පමණි."
         password: "මුරපදය"

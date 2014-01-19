@@ -8,16 +8,10 @@
   = load_javascript_locales
   = include_gon
 
-- content_for :custom_css do
-  :css
-    body {
-      background-color: #eee;
-    }
-
 = form_for StatusMessage.new, {:data => {:ajax => false}} do |status|
   #message_container
     = status.hidden_field :provider_display_name, :value => 'mobile'
-    = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :style => "width:300px", :rows => 4, :autofocus => "autofocus"
+    = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :rows => 4, :autofocus => "autofocus"
 
   %fieldset
     %span#publisher_service_icons
@@ -25,7 +19,7 @@
         - for service in current_user.services
           = image_tag "social_media_logos/#{service.provider}-32x32.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
 
-    %select{:id => "aspect_ids_", :name => "aspect_ids[]", :style => "float:right;"}
+    %select{:id => "aspect_ids_", :name => "aspect_ids[]"}
       %option{:value => 'public'}
         = t('public')
 
@@ -35,17 +29,15 @@
       - current_user.aspects.each do |aspect|
         %option{:value => aspect.id}
           = "· #{aspect.name}"
-
-    %br
-    %br
     
-    #fileInfo-publisher
+    .clear
     #publisher_textarea_wrapper
       %ul#photodropzone
+    #fileInfo-publisher
 
     #file-upload-publisher{:title => t('.upload_photos'), :class => 'btn'}
-      = image_tag 'icons/camera.png', :style => "height: 14px; width: 19px;", :alt => t('.upload_photos').titleize
+      = image_tag 'icons/camera.png', alt: t('.upload_photos').titleize
     #publisher_mobile
-      = submit_tag t('.share'), :class => 'btn primary', :id => "submit_new_message", :style => "position: absolute; right: 20px; bottom: 0px"
+      = submit_tag t('.share'), :class => 'btn primary', :id => "submit_new_message"
 
     #publisher_photo_upload

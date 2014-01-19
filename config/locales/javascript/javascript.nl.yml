@@ -6,6 +6,7 @@
 
 nl:
   javascripts:
+    and: "en"
     aspect_dropdown:
       add_to_aspect: "Voeg contact toe"
       all_aspects: "Alle aspecten"
@@ -21,14 +22,20 @@ nl:
         two: "In <%= count %> aspecten"
         zero: "Aspecten selecteren"
     aspect_navigation:
+      add_an_aspect: "+ Toevoegen aspect"
       deselect_all: "Alles deselecteren"
       no_aspects: "Geen aspecten geselecteerd"
       select_all: "Alles selecteren"
+    comma: ","
     comments:
       hide: "verberg reacties"
+      no_comments: "Er zijn nog geen reacties."
       show: "laat reacties zien"
     confirm_dialog: "Weet je het zeker?"
+    conversation:
+      participants: "Deelnemers"
     delete: "Verwijder"
+    edit: "Bewerken"
     failed_to_like: "Leuk vinden mislukt!"
     failed_to_post_message: "Bericht plaatsen mislukt!"
     getting_started:
@@ -40,6 +47,7 @@ nl:
       admin: "Beheer"
       close: "sluit"
       contacts: "Contacten"
+      help: "Help"
       home: "Home"
       log_out: "Uitloggen"
       mark_all_as_read: "Markeer alles gelezen"
@@ -54,15 +62,20 @@ nl:
     ignore_user: "Wilt u deze gebruiker negeren?"
     infinite_scroll:
       no_more: "Geen berichten meer."
+      no_more_contacts: "Geen contacten meer."
     my_activity: "Mijn activiteit"
+    my_aspects: "Mijn aspecten"
     my_stream: "Stream"
     people:
       not_found: "en niemand is gevonden..."
     photo_uploader:
+      completed: "<%= file %> gereed"
+      error: "Er ontstond een probleem bij het uploaden van bestand <%= file %>"
       looking_good: "Wow, wat ben je knap!"
     publisher:
       at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
       limited: "Gelimiteerd - je post is alleen zichtbaar voor de mensen waarmee je hem deelt"
+      near_from: "Geplaatst vanaf: <%= location %>"
       public: "Openbaar - je post is zichtbaar voor iedereen en kan gevonden worden door zoekmachines"
     reshares:
       duplicate: "Je hebt dit bericht al doorgegeven! Is hij echt zo goed?"
@@ -74,8 +87,9 @@ nl:
       comment: "Reageren"
       follow: "Volgen"
       followed_tag:
-        add_a_tag: "Label toevoegen"
+        add_a_tag: "Voeg een label toe"
         follow: "Volgen"
+        title: "#Gevolgde tags"
       hide: "Verberg"
       hide_nsfw_posts: "Verberg #nsfw berichten"
       like: "Vind ik leuk"
@@ -97,6 +111,10 @@ nl:
         zero: "<%= count %>keer opnieuw gedeeld"
       show_nsfw_post: "Toon bericht"
       show_nsfw_posts: "Toon alles"
+      tags:
+        follow: "Volg #<%= tag %>"
+        following: "Volgend #<%= tag %>"
+        stop_following: "Stop met volgen #<%= tag %>"
       unfollow: "Niet meer volgen"
       unlike: "Loslaten"
     tags:

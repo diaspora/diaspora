@@ -8,6 +8,7 @@ pl:
   _applications: "Aplikacje"
   _comments: "Komentarze"
   _contacts: "Kontakty"
+  _help: "Pomoc"
   _home: "Główna"
   _photos: "zdjęcia"
   _services: "Usługi"
@@ -45,6 +46,7 @@ pl:
       correlations: "Współzależności"
       pages: "Strony"
       pod_stats: "Statystyki dla Podu"
+      sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Wyszukiwanie użytkowników"
       weekly_user_stats: "Tygodniowe statystyki użytkownika"
     correlations:
@@ -54,6 +56,7 @@ pl:
       50_most: "50 najpopularniejszych znaczników"
       comments:
         few: "%{count} komentarze"
+        many: "%{count} komentarzy"
         one: "%{count} komentarz"
         other: "%{count} komentarzy"
         zero: "Brak komentarzy"
@@ -64,18 +67,21 @@ pl:
       month: "Miesiąc"
       posts:
         few: "%{count} wpisach"
+        many: "%{count} wpisach"
         one: "%{count} wpisie"
         other: "%{count} wpisach"
         zero: "Brak wpisów"
       shares:
         few: "%{count} udostępnienia"
+        many: "%{count} udostępnień"
         one: "%{count} udostępnienie"
         other: "%{count} udostępnień"
         zero: "Nie udostępniono"
       tag_name: "Nazwa znacznika: <b>%{name_tag}</b> Licznik: <b>%{count_tag}</b>"
       usage_statistic: "Statystyki"
       users:
-        few: "%{count} użytkownicy"
+        few: "%{count} użytkowników"
+        many: "%{count} użytkowników"
         one: "%{count} użytkownik"
         other: "%{count} użytkowników"
         zero: "Żaden użytkownik"
@@ -83,25 +89,31 @@ pl:
     user_search:
       add_invites: "dodaj zaproszenia"
       email_to: "Zaproś przez e-mail"
-      under_13: "Wyswietlij użytkowników poniżej 13 lat."
+      under_13: "Wyswietl użytkowników poniżej 13 lat."
       users:
         few: "%{count} znalezionych użytkowników"
+        many: "%{count} znalezionych użytkowników"
         one: "%{count} znaleziony użytkownik"
-        other: "%{count} znalezieni użytkownicy"
-        zero: "Nikogo nie znaleziono"
-      you_currently: "Pozostało Ci jeszcze %{user_invitation} zaproszeń %{link}"
+        other: "%{count} znalezionych użytkowników"
+        zero: "%{count} znalezionych użytkowników"
+      you_currently:
+        few: "pozostały Ci jeszcze %{count} zaproszenia %{link}"
+        many: "pozostało Ci jeszcze %{count} zaproszeń %{link}"
+        one: "pozostało Ci jeszcze jedno zaproszenie %{link}"
+        other: "pozostało Ci jeszcze %{count} zaproszeń %{link}"
+        zero: "nie pozostały Ci już żadne zaproszenia %{link}"
     weekly_user_stats:
       amount_of:
         few: "liczba nowych użytkowników w tym tygodniu: %{count}"
+        many: "liczba nowych użytkowników w tym tygodniu: %{count}"
         one: "liczba nowych użytkowników w tym tygodniu: %{count}"
         other: "liczba nowych użytkowników w tym tygodniu: %{count}"
-        zero: "liczba nowych użytkowników w tym tygodniu: brak"
+        zero: "liczba nowych użytkowników w tym tygodniu: żadnego"
       current_server: "Aktualna data na serwerze to %{date}"
   ago: "%{time} temu"
   all_aspects: "Wszystkie aspekty"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "nieznana osoba"
       video_title:
         unknown: "Wideo bez nazwy"
@@ -137,13 +149,15 @@ pl:
       success: "%{name} został usunięty."
     edit:
       add_existing: "Dodaj istniejący kontakt"
-      aspect_list_is_not_visible: "lista aspektów jest ukryta przed innymi z tego aspektu"
-      aspect_list_is_visible: "lista aspektów jest widoczna dla innych z tego aspektu"
+      aspect_list_is_not_visible: "Kontakty z tego aspektu nie widzą się nawzajem."
+      aspect_list_is_visible: "Kontakty z tego aspektu mogą zobaczyć się nawzajem."
       confirm_remove_aspect: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"
       done: "Zrobione"
       make_aspect_list_visible: "ustawić kontakty w tym aspekcie jako widoczne dla wszystkich?"
+      manage: "Zarządzaj"
       remove_aspect: "Usuń ten aspekt"
       rename: "zmień nazwę"
+      set_visibility: "Ustaw widoczność"
       update: "aktualizuj"
       updating: "aktualizowanie"
     few: "Aspekty: %{count}"
@@ -177,12 +191,13 @@ pl:
         tag_bug: "błąd"
         tag_feature: "funkcja"
         tag_question: "pytanie"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Samouczki, instrukcje i aktualności dostarczane przez Społeczność"
+        tutorial_link_text: "Samouczki"
+        tutorials_and_wiki: "%{faq}, %{tutorial} i %{wiki}: Pomoc w Twoich pierwszych krokach."
       introduce_yourself: "Oto Twoj strumień. Wskocz do niego i przedstaw się."
       keep_diaspora_running: "Ułatw sprawny rozwój Diaspory dzięki miesięcznej darowiźnie!"
       keep_pod_running: "Aby %{pod} działał szybko podaruj serwerom dawkę kofeiny w postaci miesięcznej darowizny!"
       new_here:
-        follow: "Obserwuj %{link} i powitaj nowych użytkowników Diaspory*!"
+        follow: "Obserwuj %{link} i powitaj nowych użytkowników diaspory*!"
         learn_more: "Dowiedz się więcej"
         title: "Powitaj nowych użytkowników"
       no_contacts: "Brak kontaktów"
@@ -301,9 +316,10 @@ pl:
       success: "Pomyślnie usunięto rozmowę"
     helper:
       new_messages:
-        few: "Nowe wiadomości: %{count}"
+        few: "%{count} nowe wiadomości"
+        many: "%{count} nowych wiadomości"
         one: "1 nowa wiadomość"
-        other: "Nowe wiadomości: %{count}"
+        other: "%{count} nowych wiadomości"
         zero: "Brak nowych wiadomości"
     index:
       create_a_new_message: "utwórz nową wiadomość"
@@ -337,9 +353,197 @@ pl:
       invalid_fields: "Pola z błędami"
     login_try_again: "<a href='%{login_link}'>Zaloguj się</a> i spróbuj ponownie."
     post_not_public: "Wpis, który chcesz wyświetlić nie jest dostępny publicznie!"
+    post_not_public_or_not_exist: "Wpis, który chcesz zobaczyć nie jest publiczny lub nie istnieje!"
   fill_me_out: "Wypełnij mnie"
   find_people: "Znajdź osoby lub #znaczniki"
+  help:
+    account_and_data_management:
+      close_account_a: "Przejdź na dół strony z Twoimi ustawieniami i kliknij przycisk Zamknij Konto."
+      close_account_q: "Jak usunę moje konto?"
+      data_other_podmins_a: "Od momentu kiedy zaczniesz udostępniać komuś na innym podzie, wszystkie Twoje wpisy, a także Twój profil są zapisane (jako tzw. cache) na jego podzie, i dostępne dla jego administratora. Jeśli skasujesz wpis lub dane ze swojego profilu, są one kasowane na Twoim podzie i wszystkich podach na których były przechowywane."
+      data_other_podmins_q: "Czy administrator innego poda może zobaczyć moje dane?"
+      data_visible_to_podmin_a: "Komunikacja między podami jest zawsze szyfrowana (przy użyciu SSL i własnego szyfrowania diaspory*), ale dane przechowywane na podzie nie są zaszyfrowane. Administrator poda (zwykle jego właściciel) jeśli zechce, ma dostęp do danych Twojego profilu i wszystkiego co udostępniasz. Nie odbiega to od standardowej sytuacji w innych serwisach przechowujących dane użytkowników. Posiadanie własnego poda zwiększa poziom prywatności, ponieważ wtedy sam kontrolujesz dostęp do bazy danych."
+      data_visible_to_podmin_q: "Ile z moich informacji może zobaczyć administrator poda, na którym jestem zarejestrowan@{f:a|m:y|n:a/y}?"
+      download_data_a: "Tak. Na dole działu Konto na stronie z Twoimi ustawieniami znajdują się dwa przyciski służące do pobierania danych."
+      download_data_q: "Czy mogę pobrać kopię wszystkich danych z mojego konta?"
+      move_pods_a: "W przyszłości będzie można wyeksportować konto z poda i zaimportować je na innym, ale tymczasowo jest to niemożliwe. Zawsze jednak możesz założyć nowe konto, dodać swoje kontakty do jego aspektów i poprosić znajomych żeby dodali do swoich aspektów twoje nowe konto."
+      move_pods_q: "Jak przenieść konto z jednego poda na drugi?"
+      title: "Zarządzanie kontem i danymi"
+    aspects:
+      change_aspect_of_post_a: "Nie, ale możesz utworzyć nowy wpis z tą samą treścią i wysłać go do innych aspektów."
+      change_aspect_of_post_q: "Czy mogę zmienić aspekty, dla których będzie widoczny wpis, już po wysłaniu tego wpisu?"
+      contacts_know_aspect_a: "Nie. W żadnej sytuacji nie mogą oni zobaczyć nazwy aspektu."
+      contacts_know_aspect_q: "Czy moje kontakty wiedzą w jakich aspektach ich umieścił@{f:am|m:em|n:am/em}?"
+      contacts_visible_a: "Jeśli zaznaczysz tą opcję, kontakty z danego aspektu będą mogły zobaczyć pod Twoim zdjęciem na stronie profilu, kto oprócz nich znajduje się w tym aspekcie. Najlepiej zaznaczać tą opcję tylko jeśli kontakty z tego aspektu znają się nawzajem. Nazwa aspektu jednak nadal pozostanie dla nich niewidoczna."
+      contacts_visible_q: "Co oznacza \"spraw, aby kontakty z tego aspektu były nawzajem dla siebie widoczne\"?"
+      delete_aspect_a: "W liście aspektów na stronie głównej z lewej strony ustaw kursor nad aspektem, który chcesz usunąć. Kliknij ikonkę edycji w kształcie ołówka która pojawi się po prawej stronie. W okienku, które się pojawi, kliknij \"usuń\"."
+      delete_aspect_q: "Jak usunąć aspekt?"
+      person_multiple_aspects_a: "Tak. Kliknij \"moje kontakty\" na swojej stronie kontaktów. Przy każdym z kontaktów jest menu po prawej, za pomocą którego możesz dodać go lub usunąć z dowolnych aspektów. Możesz też dodać go do nowego aspektu (lub z aspektu usunąć) klikając przycisk aspektów na jego stronie profilowej. Albo po prostu przesuń kursor nad jego imię widoczne gdziekolwiek w strumieniu, wtedy pojawi się jego \"wizytówka\". Tam możesz zmieniać aspekty, do których należy."
+      person_multiple_aspects_q: "Czy mogę dodać kogoś do kilku aspektów?"
+      post_multiple_aspects_a: "Tak. W czasie tworzenia wpisu użyj przycisku aspektów, żeby wybrać te, którym chcesz udostępnić wpis. Będzie on widoczny dla nich wszystkich. Możesz też wybrać aspekty z panelu bocznego. Będą one automatycznie wybrane w menu aspektów podczas pisania."
+      post_multiple_aspects_q: "Czy mogę udostępniać wpisy kilku aspektom naraz?"
+      remove_notification_a: "Nie."
+      remove_notification_q: "Czy ktoś, kogo usunę z aspektu, albo ze wszystkich moich aspektów, zostanie o tym poinformowany?"
+      rename_aspect_a: "Tak. Na liście aspektów po lewej na głównej stronie ustaw myszkę nad aspektem, którego nazwę chcesz zmienić. Kliknij ikonkę edycji w kształcie ołówka która pojawi się po prawej stronie. W okienku, które się pojawi, kliknij \"zmień nazwę\"."
+      rename_aspect_q: "Czy mogę zmienić nazwę aspektu?"
+      restrict_posts_i_see_a: "Tak. Kliknij \"Moje aspekty\" w panelu bocznym, a następnie te z aspektów na liście, które chcesz zaznaczyć lub pominąć. Tylko wpisy osób z zaznaczonych aspektów pojawią się w Twoim strumieniu."
+      restrict_posts_i_see_q: "Czy mogę wyświetlić wpisy jedynie z konkretnego aspektu?"
+      title: "Aspekty"
+      what_is_an_aspect_a: "Aspekty są sposobem, w jaki grupujesz swoje kontakty na diasporze*. Aspekt jest jednym z oblicz jakie pokazujesz światu. Może to być to, kim jesteś w pracy, kim jesteś dla rodziny, lub kim jesteś dla przyjaciół z klubu."
+      what_is_an_aspect_q: "Czym jest aspekt?"
+      who_sees_post_a: "Jeśli zamieszczasz wpis o ograniczonej widoczności, będzie on widoczny tylko dla ludzi którzy znajdują się w danym aspekcie (lub aspektach, jeśli post jest ograniczony do wielu aspektów). Kontakty które należą do innych aspektów nie będą miały jak zobaczyć wpisu, chyba że uczynisz go publicznym. Tylko publiczne posty będą widoczne dla kogokolwiek spoza Twoich aspektów."
+      who_sees_post_q: "Kiedy udostępniam w aspekcie, kto widzi mój wpis?"
+    foundation_website: "strona fundacji diaspora"
+    getting_help:
+      get_support_a_hashtag: "zapytaj o diasporę* w publicznym wpisie używając tagu %{question}"
+      get_support_a_irc: "dołącz do nas na %{irc} w rozmowie na żywo"
+      get_support_a_tutorials: "sprawdć nasze %{tutorials}"
+      get_support_a_website: "odwiedź naszą %{link}"
+      get_support_a_wiki: "przeszukaj %{link}"
+      get_support_q: "Co zrobić jeśli nie znajduję odpowiedzi w tym FAQ? Gdzie jeszcze mogę znaleźć wsparcie?"
+      getting_started_a: "Masz szczęście. Wypróbuj %{tutorial_series} na stronie naszego projektu. Poprowadzą Cię, krok po kroku, przez proces rejestracji i nauczą wszystkich podstaw poruszanie się po diasporze*."
+      getting_started_q: "Pomocy! Potrzebuję podstawowych rad na początek."
+      title: "Uzyskaj pomoc."
+    getting_started_tutorial: "serię samouczków \"Pierwsze kroki\""
+    here: "Tutaj"
+    irc: "IRC"
+    markdown: "Markdown"
+    mentions:
+      how_to_mention_a: "Wprowadź znak \"@\", a po nim zacznij wpisywać imię osoby. Pojawi się menu, które pozwoli Ci wybrać tą osobę. Pamiętaj, że w ten sposób wspomnisz tylko o osobach, które dodałeś do któregoś z aspektów."
+      how_to_mention_q: "Jak wspomnieć o kimś we wpisie?"
+      mention_in_comment_a: "Aktualnie nie."
+      mention_in_comment_q: "Czy mogę wspomnieć o kimś w komentarzu?"
+      see_mentions_a: "Tak, kliknij \"Wzmianki\" po lewej stronie Twojej strony głównej."
+      see_mentions_q: "Czy mogę jakoś zobaczyć wpisy, w których zostałem wspomniany?"
+      title: "Wzmianki"
+      what_is_a_mention_a: "Wzmianka to link do profilu osoby, który pojawia się w treści wpisu. Kiedy ktoś jest wspomniany, otrzymuje powiadomienie, które zwraca jego uwagę na dany wpis."
+      what_is_a_mention_q: "Czym jest wzmianka?"
+    miscellaneous:
+      back_to_top_a: "Tak. Po przewinięciu treści w dół, kliknij w szarą strzałkę, która pojawi się w prawym dolnym rogu okna przeglądarki."
+      back_to_top_q: "Czy jest szybki sposób aby wrócić na górę strony po tym jak przewinąłem treść w dół?"
+      diaspora_app_a: "Na system Android istnieje kilka aplikacji we wczesnej fazie rozwoju. Niektóre są porzuconymi projektami więc nie będą dobrze współpracować z najnowszymi wersjami diaspory*. W tym momencie nie należy oczekiwać wiele od tych aplikacji, najlepiej jest korzystać z diaspory* przez przeglądarkę - zaprojektowaliśmy specjalną mobilną wersję strony, która powinna działać na wszystkich urządzeniach. Obecnie nie istnieje żadna aplikacja na system iOS jednak i tym razem diapsora* powinna bez problemu działać przez przeglądarkę."
+      diaspora_app_q: "Czy istnieje aplikacja diaspory* na Androida lub iOS?"
+      photo_albums_a: "Obecnie nie. Jednak możesz przejrzeć strumień dodanych zdjęć w sekcji Zdjęcia na stronie profilowej."
+      photo_albums_q: "Czy istnieją albumy zdjęć lub filmów?"
+      subscribe_feed_a: "Tak, ale nie jest to doszlifowana do końca funkcja i formatowanie tekstu jest czasami kiepskie. Jeśli mimo to chcesz spróbować, przejdź na czyjąś stronę profilową i kliknij ikonę feed'a w twojej przeglądarce lub skopiuj URL strony profilowej (np. https://diaspora.example.com/people/abd56789cef01234) i wklej go w czytnik aktualności. Ostateczny URL powinien wyglądać mniej więcej tak: https://diaspora.example.com/public/username.atom Diaspora* wykorzystuje Atom zamiast RSS."
+      subscribe_feed_q: "Czy mogę śledzić czyjeś publiczne wpisy korzystając z feed readera?"
+      title: "Różne"
+    pods:
+      find_people_a: "Możesz zaprosić znajomych za pomocą linku w bocznym panelu. Możesz śledzić #tagi, w ten sposób trafisz na ludzi podzielających Twoje zainteresowania. Tych, którzy udostępniają interesujące Cię treści, dodaj do aspektu. Ogłoś, że jesteś #TutajOdNiedawna."
+      find_people_q: "Właśnie dołączyłem do poda. Jak znajdę ludzi, z którymi mogę się skomunikować?"
+      title: "Pody"
+      use_search_box_a: "Jeśli znasz jej pełen identyfikator (typu nazwauzytkownika@jakispod.org), znajdziesz ją wpisując w pole ten identyfikator. Jeśli jesteście na tym samym podzie, możesz wyszukiwać po samej nazwie użytkownika. Można też spróbować wyszukiwać według nazwy ekranowej (np. imię i nazwisko). Jeśli wyszukiwanie nie uda się za pierwszym razem, spróbuj ponownie."
+      use_search_box_q: "Jak korzystać z pola wyszukiwania, żeby znaleźć konkretną osobę?"
+      what_is_a_pod_a: "Pod to serwer, na którym uruchomiona jest aplikacja diaspory*, połączony z siecią diaspora*. \"Pod\" z angielskiego to miejsce w roślinie, w którym znajdują się nasiona. Angielskojęzyczna społeczność diaspory nazywa konta użytkowników nasionami, \"seeds\". Istnieje wiele podów w sieci. Możesz mieć znajomych na innych podach i komunikować się z nimi. Warto zauważyć podobieństwo do systemu e-mailowego. Istnieją pody publiczne, pody prywatne, niewielkim nakładem pracy możesz nawet założyć własny pod."
+      what_is_a_pod_q: "Czym jest \"pod\"?"
+    posts_and_posting:
+      char_limit_services_a: "W takim przypadku twój wpis jest ograniczony do niższego limitu znaków (140 dla Twittera; 1000 dla Tumblr'a), a ilość znaków jaka została ci do wykorzystania jest pokazana kiedy ikona połączonego serwisu jest podświetlona. Wpis możesz wysłać go do połączonego serwisu nawet jeśli jest on dłuższy niż udostępniany limit znaków, ale zostanie od skrócony po stronie połączonego serwisu."
+      char_limit_services_q: "Jaki jest limit znaków dla wpisów dodawanych przez połączone serwisy z mniejszym limitem znaków?"
+      character_limit_a: "65,535 znaków. To o 65,395 więcej niż jest dostępne na Twitterze! ;)"
+      character_limit_q: "Jaki jest limit znaków w pojedynczym wpisie?"
+      embed_multimedia_a: "Zazwyczaj możesz po prostu wkleić URL (np. http://www.youtube.com/watch?v=nnnnnnnnnnn ) do swojego wpisu, a wideo lub muzyka zostanie w niego automatycznie włączona. Niektóre wspierane strony to: YouTube, Vimeo, SoundCloud, Flickr i kilka innych. diaspora* używa oEmbed do udostępnienia tej funkcjonalności. Nieustannie dodajemy wsparcie dla nowych stron. Pamiętaj aby zawsze wklejać proste, pełne odnośniki: nie skracaj linków; nie dodawaj żadnych operatorów po bazowym URLu. Po dodaniu wpisu musisz chwilę poczekać aż podgląd będzie możliwy (daj nam trochę czasu zanim odświeżysz stronę)."
+      embed_multimedia_q: "Jak mogę osadzić wideo, audio lub inną treść mutltimedialną we wpisie?"
+      format_text_a: "Używając uproszczonego systemu nazywanego %{markdown}. Pełną składnię Markdown możesz znaleźć %{here}. Przycisk podglądu jest tutaj bardzo przydatny - możesz dzięki niemu sprawdzić jak będzie wyglądać twój wpis zanim go udostępnisz."
+      format_text_q: "Jak mogę formatować tekst w moich wpisach (pogrubiać go, dodać kursywę itp.)?"
+      hide_posts_a: "Jeśli nakierujesz kursor na górę wpisu, po prawej stronie pojawi się X. Kliknij go aby ukryć ten wpis i wyciszyć powiadomienia dotyczące go. Wciąż będziesz mógł zobaczyć ten wpis jeśli przejdziesz na stronę profilową osoby, która go udostępniła."
+      hide_posts_q: "Jak ukryć wpis? / Jak wyłączyć powiadomienia na temat wpisu skomentowanego przeze mnie?"
+      image_text: "tekst obrazka"
+      image_url: "adres url obrazka"
+      insert_images_a: "Kliknij ikonę aparatu aby dodać zdjęcie do wpisu. Kliknij ikonę jeszcze raz aby dodać kolejne zdjęcie, lub zaznacz kilka plików aby dodać je jednocześnie."
+      insert_images_comments_a1: "Ten kod Markdown"
+      insert_images_comments_a2: "może być użyty do wstawiania obrazków z Internetu w komentarzach i wpisach."
+      insert_images_comments_q: "Czy mogę do komentarzy dodać zdięcia?"
+      insert_images_q: "Jak mogę dodać do wpisów zdięcia?"
+      size_of_images_a: "Nie. Obrazy są skalowane automatycznie, tak aby dopasować się do strumienia. Markdown nie udostępnia sposobu na określenie rozmiaru obrazu."
+      size_of_images_q: "Czy mogę dostosować wymiary obrazków we wpisach lub komentarzach?"
+      stream_full_of_posts_a1: "Twój strumień składa się z trzech rodzajów wpisów:"
+      stream_full_of_posts_li1: "Wpisów od ludzi, z którymi się dzielisz, które występują w dwóch odmianach: publicznych i ograniczonych (udostępnionych jedynie poszczególnym aspektom). Aby usunąć te wpisy ze swojego strumienia wystarczy przestać dzielić się z daną osobą."
+      stream_full_of_posts_li2: "Wpisy publiczne zawierające jeden z tagów, które obserwujesz. Aby usunąć je przestać obserwować dany tag."
+      stream_full_of_posts_li3: "Publiczne wpisy ludzi znajdujących się w centrum uwagi. Te wpisy mogą być usunięte przez odznaczenie opcji \"Pokaż centrum uwagi w strumieniu\" w zakładce Konto w twoich Ustawieniach."
+      stream_full_of_posts_q: "Dlaczego mój strumień jest pełen wpisów od ludzi, których nie znam i z którymi się nie dzielę?"
+      title: "Wpisy i udostępnianie"
+    private_posts:
+      can_comment_a: "Jedynie zalogowani użytkownicy diaspory*, którzy znajdują się w danym aspekcie mogą skomentować lub polubić twój prywatny wpis."
+      can_comment_q: "Kto może skomentować lub polubić mój prywatny wpis?"
+      can_reshare_a: "Nikt. Prywatne wpisy nie mogą być przekazywane. Zalogowani użytkownicy, którzy mogą zobaczyć ten post mogą go teoretycznie skopiować ręcznie i udostępnić jako własny."
+      can_reshare_q: "Kto może przekazać mój prywatny post dalej?"
+      see_comment_a: "Jedynie ludzie, którym ten wpis jest udostępniony (t.j. znajdujący się w aspektach wybranych przez osobę dodającą wpis) mogą zobaczyć jego komentarze i polubienia. "
+      see_comment_q: "Kiedy komentuję lub lubię ograniczony wpis, kto może to zobaczyć?"
+      title: "Wpisy prywatne"
+      who_sees_post_a: "Jedynie zalogowani użytkownicy diaspory*, którzy znajdują się w tym aspekcie mogą zobaczyć ten wpis."
+      who_sees_post_q: "Kiedy udostępniam wpis w ramach określonego aspektu (t.j. udostępniam wpis prywatny) kto może go zobaczyć?"
+    private_profiles:
+      title: "Profile prywatne"
+      whats_in_profile_a: "Biografia, lokalizacja, płeć i data urodzin. To co znajduje się w dolnej części edytora profilu. Każda z tych informacji jest opcjonalna – to czy je wypełnisz zalezy wyłącznie od ciebie. Zalogowani użytkownicy, których dodałeś do swoich aspektów są jedynymi ludźmi, którzy mają dostęp do tych informacji. Widzą oni również twoje prywatne wpisy udostępnione w aspektach, w których się znajdują podczas przeglądania twojego profilu."
+      whats_in_profile_q: "Co znajduje się w moim prywatnym profilu?"
+      who_sees_profile_a: "Każdy zalogowany użytkownik, z którym się dzielisz (t.j. znajdujący się w jednym z twoich aspektów). Ludzie, którzy cię obserwują, ale których ty nie obserwujesz mogą zobaczyć jedynie twoje publicznie dostępne informacje."
+      who_sees_profile_q: "Kto może zobaczyć mój prywatny profil?"
+      who_sees_updates_a: "Każdy kto znajduje się w twoich aspektach widzi zmiany w twoim profilu. "
+      who_sees_updates_q: "Kto widzi aktualizacje w moim prywatnym profilu?"
+    public_posts:
+      can_comment_reshare_like_a: "Każdy zalogowany użytkownik diaspory* może komentować, przekazywać i lubić twoje publiczne wpisy."
+      can_comment_reshare_like_q: "Kto może komentować, przekazać i polubić mój publiczny wpis?"
+      deselect_aspect_posting_a: "Odznaczenie aspektów nie wpływa na publiczne wpisy. W dalszym ciągu będą one widoczne w strumieniach wszystkich twoich kontaktów. Aby udostępnić wpis jedynie wybranym aspektom musisz wybrać te aspekty korzystając z przycisku pod polem udostępniania."
+      deselect_aspect_posting_q: "Co się dzieje jeśli odznaczę jeden lub więcej aspektów kiedy udostępniam publiczny wpis?"
+      find_public_post_a: "Twoje publiczne wpisy pojawią się w strumieniu każdego kto cię obserwuje. Jeśli dodasz #tag do swojego publicznego wpisu, każdy kto obserwuje ten tag również znajdzie twój wpis w swoim strumieniu. Każdy wpis ma również unikalny URL, który każdy może zobaczyć nawet jeśli nie jest zalogowany - w ten sposób do wpisów można się odnosić bezpośrednio z Twittera, blogów itp. Publiczne wpisy mogą być również indeksowane przez wyszukiwarki."
+      find_public_post_q: "Jak inni ludzie mogą znaleźć mój publiczny wpis?"
+      see_comment_reshare_like_a: "Każdy zalogowany użytkownik diaspory* i każdy użytkownik Internetu. Komentarze, przekazania i polubienia publicznych wpisów są także publiczne."
+      see_comment_reshare_like_q: "Kiedy komentuję, przekazuję lub lubię publiczny wpis, kto może to zobaczyć?"
+      title: "Wpisy publiczne"
+      who_sees_post_a: "Każdy użytkownik Internetu może zobaczyć twój publiczny wpis więc zawsze zastanów się czy chcesz udostępnić go publicznie. Jest to jednak świetny sposób na to żeby dać się poznać."
+      who_sees_post_q: "Kiedy udostępniam wpis publiczny, kto może go zobaczyć?"
+    public_profiles:
+      title: "Profile publiczne"
+      what_do_tags_do_a: "Pozwalają one ludziom zorientować się kim jesteś. Twoje zdjęcie pojawi się również z lewej strony stron tych konkretnych tagów, wraz ze zdjęciami innych ludzi, którzy dodali je do swoich publicznych profili."
+      what_do_tags_do_q: "O co chodzi z tagami w moim publicznym profilu?"
+      whats_in_profile_a: "Twoje imię, pięć tagów jakimi się opisałeś i zdjęcie. Te rzeczy znajdują się w górnej sekcji edytora profilu. Możesz tu podać informacje, które pozwolą na identyfikację ciebie lub takie, które pozwolą ci zachować anonimowość. Twój publiczny profil zawiera również wszystkie twoje publiczne wpisy."
+      whats_in_profile_q: "Co znajduje się w moim publicznym profilu."
+      who_sees_profile_a: "Każdy zalogowany użytkownik diaspory* jak również każdy użytkownik Internetu. Każdy profil ma swój bezpośredni URL więc mogą się do niego odnosić zewnętrzne strony. Może on być również indeksowany przez wyszukiwarki."
+      who_sees_profile_q: "Kto widzi mój publiczny profil?"
+      who_sees_updates_a: "Każdy może zobaczyć zmiany w twoim publicznym profilu jeśli odwiedzi twoją stronę profilową."
+      who_sees_updates_q: "Kto widzi aktualizacje mojego publicznego profilu?"
+    resharing_posts:
+      reshare_private_post_aspects_a: "Nie. Przekazywanie ograniczonych wpisów nie jest możliwe. Jest to środek mający służyć respektowaniu intencji oryginalnego udostępniającego, który podzielił się nim jedynie z wybraną grupą ludzi."
+      reshare_private_post_aspects_q: "Czy mogę przekazać prywatny wpis jedynie wybranym aspektom?"
+      reshare_public_post_aspects_a: "Nie. Kiedy przekazujesz publiczny wpis automatycznie staje się on jednym z twoich publicznych wpisów. Aby przekazać go jedynie wybranym aspektom skopiuj jego zawartość i udostępnij jako nowy wpis."
+      reshare_public_post_aspects_q: "Czy mogę przekazać publiczny wpis jedynie określonym aspektom?"
+      title: "Przekazywanie wpisów"
+    sharing:
+      add_to_aspect_a1: "Załóżmy, że Ania dodaje Bartka do aspektu, ale Bartek (jeszcze) nie dodał Ani do aspektu:"
+      add_to_aspect_a2: "Jest to tzw. udostępnianie asymetryczne. Dopiero kiedy Bartek doda Anię do swoich aspektów będzie to udostępnianie obustronne - zarówno Ania jak i Bartek będą wtedy widzieli swoje prywatne wpisy udostępnione w odpowiednich aspektach, prywatne części profilu itd. "
+      add_to_aspect_li1: "Bartek dostanie powiadomieni, że Ania \"zaczęła udostępniać\" mu."
+      add_to_aspect_li2: "Ania zacznie widzieć publiczne wpisy Bartka w swoim strumieniu."
+      add_to_aspect_li3: "Ania nie będzie widziała prywatnych wpisów Bartka."
+      add_to_aspect_li4: "Bartek nie będzie widział ani publicznych ani prywatnych wpisów Ani w swoim strumieniu."
+      add_to_aspect_li5: "Jednak jeśli Bartek przejdzie na stronę profilową Ani, zobaczy wszystkie jej prywatne wpisy udostępnione w aspekcie, do którego Ania go dodała (razem ze wszystkimi jej publicznymi wpisami)."
+      add_to_aspect_li6: "Bartek będzie mógł zobaczyć prywatne części profilu Ani (biografię, lokalizację, płeć i datę urodzenia)."
+      add_to_aspect_li7: "Ania pojawi się z kategorii \"Jedynie mi udostępniają\" w stronie z kontaktami Bartka."
+      add_to_aspect_q: "Co się dzieje kiedy dodaję kogoś do jednego z moich aspektów? Lub kiedy ktoś dodaje mnie do swoich aspektów?"
+      list_not_sharing_a: "Nie, ale możesz sprawdzić czy ktoś ci udostępnia odwiedzając jego stronę profilową. Jeśli dana osoba ci udostępnia, pasek pod jej zdjęciem będzie zielony, a jeśli nie - będzie on szary. Powinieneś dostać powiadomienie za każdym razem kiedy ktoś zaczyna ci udostępniać."
+      list_not_sharing_q: "Czy jest dostępna lista osób, które dodałem do moich aspektów, ale które nie udostępniają mi?"
+      only_sharing_a: "Są to ludzie, którzy dodali cię do swoich aspektów, ale których ty (jeszcze) nie dodałeś do żadnego ze swoich aspektów. Innymi słowy, ci, którzy udostępniają tobie, ale którym nie udostępniasz ty (zgodnie z udostępnianiem asymetrycznym). Jeśli dodasz kogoś z tej listy do jakiegoś swojego aspektu zniknie on z tej kategorii, a pojawi się w danym aspekcie. Sprawdź powyżej."
+      only_sharing_q: "Kim są ludzie pokazani w kategorii \"Jedynie mi udostępniają\" na mojej stronie z kontaktami?"
+      see_old_posts_a: "Nie. Ta osoba będzie widziała jedynie nowe wpisy udostępniane w tym aspekcie. Ta osoba (i wszyscy inni) może zobaczyć twoje stare publiczne wpisy na twojej stronie profilowej."
+      see_old_posts_q: "Jeśli dodam kogoś do aspektu czy może on zobaczyć wpisy, które udostępniłem w tym aspekcie zanim zacząłem mu udostępniać?"
+      title: "Udostępnianie"
+    tags:
+      filter_tags_a: "Ta funkcjonalność nie jest jeszcze dostępna bezpośrednio w diasporze*, ale istnieją pewne %{third_party_tools} które mogą ją zapewnić."
+      filter_tags_q: "Czy mogę filtrować/wyrzucić określone tagi z mojego strumienia?"
+      followed_tags_a: "Po wyszukaniu tagu kliknij w przycisk na szczycie strony aby zacząć \"obserwować\" dany tag. Pojawi się on wtedy na twojej liście obserwowanych tagów po lewej stronie. Kliknięcie na jeden z obserwowanych tagów przeniesie cię na stronę danego tagu, gdzie możesz zobaczyć najnowsze wpisy, które go zawierają. Kliknij na #Obserwowane Tagi aby zobaczyć strumień wpisów zawierających jeden tagów, które obserwujesz. "
+      followed_tags_q: "Czym są \"#Obserwowane Tagi\" i jak mogę obserwować tag?"
+      people_tag_page_a: "To są ludzie, którzy wybrali ten tag aby opisać siebie w ich publicznych profilach."
+      people_tag_page_q: "Kim są ludzie pokazani po lewej stronie strony tagu?"
+      tags_in_comments_a: "Tag dodany do komentarza zostanie pokazany jako link to strony tego tagu, ale nie sprawi, że skomentowany wpis się na niej znajdzie. Grupowanie działa wyłącznie dla wpisów."
+      tags_in_comments_q: "Czy mogę dodawać tagi do komentarzy czy tylko do wpisów?"
+      title: "Tagi"
+      what_are_tags_for_a: "Tagi są sposobem na grupowanie wpisów, zazwyczaj ze względu na tematykę. Wyszukiwanie konkretnego tagu pokaże ci wszystkie wpisy zawierające dany tag (zarówno prywatne jak i publiczne). Pozwala to ludziom odnaleźć publiczne wpisy dotyczące spraw, które ich interesują"
+      what_are_tags_for_q: "Do czego służą tagi?"
+    third_party_tools: "narzędzia innych dostawców"
+    tutorial: "samouczek"
+    tutorials: "samouczki"
+    wiki: "wiki"
   hide: "Ukryj"
+  ignore: "Ignoruj"
   invitation_codes:
     excited: "%{name} cieszy się, że Cię tutaj widzi."
   invitations:
@@ -364,6 +568,7 @@ pl:
       check_out_diaspora: "Wypróbuj Diasporę!"
       codes_left:
         few: "%{count} zaproszenia na ten kod"
+        many: "%{count} zaproszeń na ten kod"
         one: "Jedno zaproszenie na ten kod"
         other: "%{count} zaproszeń na ten kod"
         zero: "Brak zaproszeń na ten kod"
@@ -381,7 +586,7 @@ pl:
   layouts:
     application:
       back_to_top: "Powrót na górę"
-      powered_by: "NAPĘDZANE PRZEZ DIASPORĘ*"
+      powered_by: "DZIAŁA NA diasporze*"
       public_feed: "Publiczny kanał Diaspory użytkownika %{name}"
       source_package: "pobierz pakiet z kodem źródłowym"
       toggle: "przełącz widok mobilny"
@@ -391,6 +596,7 @@ pl:
       admin: "administrator"
       blog: "blog"
       code: "kod"
+      help: "Pomoc"
       login: "zaloguj się"
       logout: "Wyloguj"
       profile: "Profil"
@@ -401,16 +607,19 @@ pl:
     likes:
       people_dislike_this:
         few: "%{count} os. tego nie lubi"
+        many: "%{count} os. tego nie lubi"
         one: "1 osoba tego nie lubi"
         other: "%{count} os. tego nie lubi"
         zero: "nikt tego nie nielubi"
       people_like_this:
         few: "%{count} os. to lubi"
+        many: "%{count} os. to lubi"
         one: "%{count} os. to lubi"
         other: "%{count} os. to lubi"
         zero: "nikt nie lubi"
       people_like_this_comment:
         few: "%{count} os. to lubi"
+        many: "%{count} os. to lubi"
         one: "%{count} osoba to lubi"
         other: "%{count} os. to lubi"
         zero: "nikt nie lubi"
@@ -420,23 +629,27 @@ pl:
   no_results: "Niczego nie znaleziono"
   notifications:
     also_commented:
-      few: "%{actors} także skomentowali %{post_link} użytkownika %{post_author} ."
-      one: "%{actors} także skomentowali %{post_link} użytkownika %{post_author} ."
-      other: "%{actors} także skomentowali %{post_link} użytkownika %{post_author} ."
-      zero: "%{actors} także skomentowali %{post_link} użytkownika %{post_author} ."
+      few: "%{actors} także skomentowali %{post_link} użytkownika %{post_author}."
+      many: "%{actors} także skomentowali %{post_link} użytkownika %{post_author}."
+      one: "%{actors} także skomentowa@{m:ł|f:ła|n:ł/ła} %{post_link} użytkownika %{post_author}."
+      other: "%{actors} także skomentowali %{post_link} użytkownika %{post_author}."
+      zero: "%{actors} także skomentowali %{post_link} użytkownika %{post_author}."
     also_commented_deleted:
       few: "%{actors} skomentowali już usunięty wpis."
-      one: "%{actors} skomentował już usunięty wpis."
+      many: "%{actors} skomentowali już usunięty wpis."
+      one: "%{actors} skomentowa@{m:ł|f:ła|n:ł/ła} już usunięty wpis."
       other: "%{actors} skomentował już usunięty wpis."
       zero: "%{actors} skomentował już usunięty wpis."
     comment_on_post:
       few: "%{actors} skomentowali Twój %{post_link}."
-      one: "%{actors} skomentował(a) Twój %{post_link}."
+      many: "%{actors} skomentowali Twój %{post_link}."
+      one: "%{actors} skomentowa@{m:ł|f:ła|n:ł/ła} Twój %{post_link}."
       other: "%{actors} skomentowali Twój %{post_link}."
       zero: "%{actors} skomentował Twój %{post_link}."
     helper:
       new_notifications:
         few: "%{count} nowe powiadomienia"
+        many: "%{count} nowych powiadomień"
         one: "1 nowe powiadomienie"
         other: "%{count} nowych powiadomień"
         zero: "Brak nowych powiadomień"
@@ -444,6 +657,7 @@ pl:
       and: "i"
       and_others:
         few: "i %{count} innych"
+        many: "i %{count} innych"
         one: "i jeszcze jedna osoba"
         other: "i %{count} innych"
         zero: "i nikt więcej"
@@ -451,49 +665,57 @@ pl:
       mark_unread: "Oznacz jako nieprzeczytane"
       notifications: "Powiadomienia"
     liked:
-      few: "%{actors} polubiło Twój %{post_link}."
+      few: "%{actors} polubili Twój %{post_link}."
+      many: "%{actors} polubili Twój %{post_link}."
       one: "%{actors} polubi@{m:ł|f:ła|n:ł/ła} Twój %{post_link}."
       other: "%{actors} polubili Twój %{post_link}."
-      zero: "%{actors} polibi@{m:ł|f:ła|n:ł/ła} Twój wpis."
+      zero: "%{actors} polubi@{m:ł|f:ła|n:ł/ła} Twój %{post_link}."
     liked_post_deleted:
-      few: "%{actors} polubiło Twój usunięty wpis."
+      few: "%{actors} polubili Twój usunięty wpis."
+      many: "%{actors} polubili Twój usunięty wpis."
       one: "%{actors} polubi@{m:ł|f:ła|n:ł/ła} Twój usunięty wpis."
-      other: "%{actors} polubi@{m:ł|f:ła|n:ł/ła} Twój usunięty wpis."
-      zero: "%{actors} polubiło Twój usunięty wpis."
+      other: "%{actors} polubiło Twój usunięty wpis."
+      zero: "%{actors} polubi@{m:ł|f:ła|n:ł/ła} Twój usunięty wpis."
     mentioned:
       few: "%{actors} wspomnieli o Tobie we %{post_link}ie."
-      one: "%{actors} wspomniał(a) o Tobie we %{post_link}ie."
+      many: "%{actors} wspomnieli o Tobie we %{post_link}ie."
+      one: "%{actors} wspomnia@{m:ł|f:ła|n:ł/ła} o Tobie we %{post_link}ie."
       other: "%{actors} wspomnieli o Tobie we %{post_link}ie."
-      zero: "%{actors} wspomnia@{m:ł|f:ła|n:ł} o Tobie we %{post_link}ie."
+      zero: "%{actors} wspomnia@{m:ł|f:ła|n:ł/ła} o Tobie we %{post_link}ie."
     mentioned_deleted:
-      few: "%{actors} wspomnieli o tobie w już usuniętym wpisie."
-      one: "%{actors} wspomniał(a) o tobie w już usuniętym wpisie."
-      other: "%{actors} wspomniał o tobie w usuniętym już wpisie."
-      zero: "%{actors} wspomniał o tobie w usuniętym wpisie."
+      few: "%{actors} wspomnieli o Tobie w usuniętym już wpisie."
+      many: "%{actors} wspomnieli o Tobie w usuniętym już wpisie."
+      one: "%{actors} wspomnia@{m:ł|f:ła|n:ł/ła} o Tobie w usuniętym już wpisie."
+      other: "%{actors} wspomniało o Tobie w usuniętym już wpisie."
+      zero: "%{actors} wspomnieli o Tobie w usuniętym już wpisie."
     post: "wpis"
     private_message:
       few: "%{actors} wysłali Ci wiadomość."
-      one: "%{actors} wysłał Ci wiadomość."
+      many: "%{actors} wysłali Ci wiadomość."
+      one: "%{actors} wysła@{m:ł|f:ła|n:ł/ła} Ci wiadomość."
       other: "%{actors} wysłali Ci wiadomość."
       zero: "%{actors} wysłał Ci wiadomość."
     reshared:
       few: "%{actors} przekazali dalej Twój %{post_link}."
-      one: "%{actors} podzielił się twoim wpisem %{post_link}."
+      many: "%{actors} przekazali dalej Twój %{post_link}."
+      one: "%{actors} przekaza@{m:ł|f:ła|n:ł/ła} dalej Twój %{post_link}."
       other: "%{actors} przekazali dalej Twój %{post_link}."
-      zero: "%{actors} przekazał dalej Twój %{post_link}."
+      zero: "%{actors} przekaza@{m:ł|f:ła|n:ł/ła} dalej Twój %{post_link}."
     reshared_post_deleted:
       few: "%{actors} przekazali dalej Twój usunięty wpis."
-      one: "%{actors} przekaza@{m:ł|f:ła|n:ło} dalej Twój usunięty wpis."
-      other: "%{actors} przekazali ponownie Twój usunięty wpis."
+      many: "%{actors} przekazali dalej Twój usunięty wpis."
+      one: "%{actors} przekaza@{m:ł|f:ła|n:ł/ła} dalej Twój usunięty wpis."
+      other: "%{actors} przekazało dalej Twój usunięty wpis."
       zero: "%{actors} przekazali dalej Twój usunięty wpis."
     started_sharing:
       few: "%{actors} zaczęli Ci udostępniać."
+      many: "%{actors} zaczęli Ci udostępniać."
       one: "%{actors} zacz@{m:ął|f:ęła|n:ęło} Ci udostępniać"
       other: "%{actors} zaczęli Ci udostępniać."
       zero: "%{actors} zaczęli Ci udostępniać."
   notifier:
     a_post_you_shared: "wpis."
-    accept_invite: "Zaakceptuj zaproszenie do Diaspory*!"
+    accept_invite: "Zaakceptuj zaproszenie do diaspory*!"
     click_here: "kliknij tutaj"
     comment_on_post:
       reply: "Odpowiedz lub wyświetl wpis użytkownika %{name} >"
@@ -506,25 +728,25 @@ pl:
       message: |-
           Cześć!
 
-          Zaproszono Cię do dołączenia do Diaspory*!
+          Zaproszono Cię do diaspory*!
 
-          Kliknij poniższe łącze, aby rozpocząć
+          Kliknij ten link, aby rozpocząć
 
           [%{invite_url}][1]
 
 
           Z poważaniem
 
-          Robot e-mail Diaspory*!
+          Automat e-mailowy diaspory*!
 
           [1]: %{invite_url}
-    invited_you: "%{name} zaprasza Cię do Diaspory*"
+    invited_you: "%{name} zaprosi@{m:ł|f:ła|n:ło} Cię do diaspory*"
     liked:
       liked: "%{name} polubi@{m:ł|f:ła|n:ł/ła} Twój wpis"
       view_post: "Wyświetl wpis >"
     mentioned:
       mentioned: "wspomniał(a) o Tobie we wpisie:"
-      subject: "%{name} wspomina o Tobie na Diasporze*"
+      subject: "%{name} wspomniał o Tobie na diasporze*"
     private_message:
       reply_to_or_view: "Odpowiedz lub wyświetl wątek >"
     reshared:
@@ -535,7 +757,7 @@ pl:
       subject: "Wiadomość dotycząca konta na Diasporze:"
     started_sharing:
       sharing: "od teraz udostępnia Ci na Diasporze!"
-      subject: "%{name} od teraz udostępnia Ci na Diasporze*"
+      subject: "%{name} od teraz udostępnia Ci na diasporze*"
       view_profile: "Wyświetl profil użytkownika %{name}"
     thanks: "Dzięki,"
     to_change_your_notification_settings: "aby zmienić ustawienia powiadomień"
@@ -553,7 +775,8 @@ pl:
       edit_membership: "edycja przynależności do aspektów"
     few: "Osoby: %{count}"
     helper:
-      is_sharing: "%{name} dzieli się z tobą."
+      is_not_sharing: "%{name} Ci nie udostępnia."
+      is_sharing: "%{name} udostępnia Ci."
       people_on_pod_are_aware_of: "osoby na podzie wiedzą, że"
       results_for: "wyniki dla %{params}"
     index:
@@ -563,7 +786,6 @@ pl:
       no_results: "Hej! Musisz coś wpisać w pole wyszukiwarki!"
       results_for: "wyniki wyszukiwania dla"
       searching: "wyszukiwanie, proszę czekać..."
-    last_post: "Ostatni wpis"
     many: "Osoby: %{count}"
     one: "1 osoba"
     other: "Osoby: %{count}"
@@ -573,12 +795,13 @@ pl:
       pending_request: "Oczekujące zaproszenia"
       thats_you: "To Ty!"
     profile_sidebar:
-      bio: "notka biograficzna"
-      born: "urodziny"
+      bio: "Notka biograficzna"
+      born: "Urodziny"
       edit_my_profile: "Edycja mojego profilu"
-      gender: "płeć"
+      gender: "Płeć"
       in_aspects: "w aspektach"
-      location: "lokalizacja"
+      location: "Lokalizacja"
+      photos: "Zdjęcia"
       remove_contact: "usuń kontakt"
       remove_from: "Usunąć %{name} z aspektu %{aspect}?"
     show:
@@ -647,6 +870,7 @@ pl:
       permalink: "link bezpośredni"
       photos_by:
         few: "%{count} zdjęcia od %{author}"
+        many: "%{count} zdjęć od %{author}"
         one: "Jedno zdjęcie od %{author}"
         other: "%{count} zdjęcia od %{author}"
         zero: "Brak zdjęć od %{author}"
@@ -661,9 +885,10 @@ pl:
       edit_profile: "Edycja profilu"
       first_name: "Imię"
       last_name: "Nazwisko"
+      nsfw_check: "Oznacz wszystko co udostępniam jako NSFW"
+      nsfw_explanation: "NSFW (‘nieodpowiedni w pracy’, ang. 'not safe for work') jest standardem ustalanym przez samorządną społeczność diaspory* określającym zawartość, która może nie być odpowiedznia do przeglądania w czasie pracy. Jeśli planujesz często udostępniać taką zawartość, prosimy zaznacz to pole - sprawi to, że te wpisy będą zasłonięte w strumieniu dopóki użytkownik nie zdecyduje się ich zobaczyć."
+      nsfw_explanation2: "Jeśli zdecydujesz się nie zaznaczać tej opcji, prosimy dodawaj tag #nsfw za każdym razem kiedy udostępniasz taką zawartość."
       update_profile: "Aktualizacja profilu"
-      you_are_nsfw: "Oznaczyłeś/aś siebie jako NSFW, wszystkie dodane przez Ciebie treści nie będą wyświetlane osobom, które zrezygnowały z wyświetlania dyskusyjnych treści w strumieniach."
-      you_are_safe_for_work: "Oznaczyłeś/aś siebie jako osobę udostępniającą treści, które można bez problemu oglądać w pracy, oznacza to, że publikowane przez Ciebie treści są zgodne z zasadami panującymi w społeczności."
       your_bio: "O Tobie"
       your_birthday: "Twoje urodziny"
       your_gender: "Twoja płeć"
@@ -698,7 +923,7 @@ pl:
     new:
       continue: "Kontynuuj"
       create_my_account: "Utwórz konto!"
-      diaspora: "<3 Diaspora*"
+      diaspora: "<3 diaspora*"
       email: "E-MAIL"
       enter_email: "Wpisz adres e-mail"
       enter_password: "Podaj hasło (maks. 6 znaków)"
@@ -710,6 +935,7 @@ pl:
       password_confirmation: "POTWIERDZENIE HASŁA"
       sign_up: "REJESTRACJA"
       sign_up_message: "Social Networking z ♥"
+      submitting: "Wysyłanie..."
       username: "NAZWA UŻYTKOWNIKA"
   requests:
     create:
@@ -721,9 +947,10 @@ pl:
       success: "Jesteście teraz znajomymi."
     helper:
       new_requests:
-        few: "Nowe zaproszenia: %{count}"
-        one: "Nowe zaproszenie!"
-        other: "Nowe zaproszenia: %{count}"
+        few: "%{count} nowe zaproszenia"
+        many: "%{count} nowych zaproszeń"
+        one: "nowe zaproszenie!"
+        other: "%{count} nowych zaproszeń"
         zero: "brak nowych zaproszeń"
     manage_aspect_contacts:
       existing: "Istniejące kontakty"
@@ -738,6 +965,7 @@ pl:
       deleted: "Oryginał został usunięty przez autora."
       reshare:
         few: "Przekazano dalej: %{count}"
+        many: "Przekazano dalej: %{count}"
         one: "Przekazano dalej: 1"
         other: "Przekazano dalej: %{count}"
         zero: "Przekaż dalej"
@@ -750,6 +978,7 @@ pl:
     create:
       already_authorized: "Użytkownik o identyfikatorze w diasporze \"%{diaspora_id}\" już autoryzował to konto w usłudze \"%{service_name}\"."
       failure: "Uwierzytelnianie nie powiodło się."
+      read_only_access: "Tryb tylko do odczytu. Spróbuj powtórzyć autoryzację za jakiś czas."
       success: "Pomyślnie uwierzytelniono."
     destroy:
       success: "Pomyślnie usunięto dane uwierzytelniające."
@@ -763,14 +992,16 @@ pl:
       connect_to_facebook: "Połącz z Facebookiem"
       connect_to_tumblr: "Połącz z Tumblrem"
       connect_to_twitter: "Połącz z Twitterem"
+      connect_to_wordpress: "Połącz z Wordpressem"
       disconnect: "rozłącz"
       edit_services: "Edycja usług"
       logged_in_as: "zalogowano jako"
       no_services: "Żadne usługi nie zostały jeszcze połączone."
       really_disconnect: "odłączyć %{service}?"
+      services_explanation: "Podłączenie usług umożliwia jednoczesne publikowanie w nich postów w momencie publikacji na Diasporze."
     inviter:
       click_link_to_accept_invitation: "Kliknij to łącze, aby przyjąć zaproszenie"
-      join_me_on_diaspora: "Dołącz do mnie w serwisie DIASPORA*"
+      join_me_on_diaspora: "Dołącz do mnie na diasporze*"
     remote_friend:
       invite: "zaproś"
       not_on_diaspora: "Nie ma jeszcze konta na Diasporze"
@@ -791,9 +1022,10 @@ pl:
     aspect_dropdown:
       add_to_aspect: "Dodaj kontakt"
       toggle:
-        few: "W aspektach: %{count}"
-        one: "W aspektach: %{count}"
-        other: "W aspektach: %{count}"
+        few: "W %{count} aspektach"
+        many: "W %{count} aspektach"
+        one: "W %{count} aspekcie"
+        other: "W %{count} aspektach"
         zero: "Dodaj kontakt"
     contact_list:
       all_contacts: "Wszystkie kontakty"
@@ -816,7 +1048,7 @@ pl:
       atom_feed: "Kanał Atom"
       control_your_audience: "Dostosuj swoją publiczność"
       logged_in: "zalogowano do %{service}"
-      manage: "zarządzaj powiązanymi usługami"
+      manage: "Zarządzaj powiązanymi usługami"
       new_user_welcome_message: "Używaj #znaczników, aby opisywać swoje wpisy i znajdować osoby o podobnych zainteresowaniach. Zawołaj ciekawych ludzi dzięki @wzmiankom"
       outside: "Publiczna wiadomość będzie widoczna dla wszystkich spoza Diaspory."
       share: "Podziel się"
@@ -826,6 +1058,7 @@ pl:
       all: "wszyscy"
       all_contacts: "wszystkim kontaktom"
       discard_post: "Porzuć wpis"
+      formatWithMarkdown: "Możesz użyć %{markdown_link} aby sformatować swój wpis"
       get_location: "Ustal twoją lokalizację"
       make_public: "upublicznij"
       new_user_prefill:
@@ -858,6 +1091,13 @@ pl:
       via: "przez %{link}"
       via_mobile: "przez urządzenie przenośne"
       viewable_to_anyone: "Ten wpis jest widoczny dla każdego"
+  simple_captcha:
+    label: "Wpisz kod z obrazka"
+    message:
+      default: "Sekretny Kod nie pasuje do obrazka"
+      failed: "Weryfikacja człowieka nie powidła się"
+      user: "Sekretny obrazek i kod są różne"
+    placeholder: "Wpisz tekst z obrazka"
   status_messages:
     create:
       success: "Pomyślnie wspomniano o: %{names}"
@@ -869,15 +1109,17 @@ pl:
       mentioning: "Wspominasz o: %{person}"
     too_long:
       few: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
+      many: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
       one: "skróć swoje wiadomości statusowe do mniej niż %{count} znaku"
       other: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
       zero: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
   stream_helper:
     hide_comments: "Ukryj wszystkie komentarze"
     show_comments:
-      few: "Wyświetl %{count} więcej komentarzy"
+      few: "Wyświetl %{count} komentarze więcej"
+      many: "Wyświetl %{count} komentarzy więcej"
       one: "Wyświetl jeden komentarz więcej"
-      other: "Wyświetl %{count} więcej komentarzy"
+      other: "Wyświetl %{count} komentarzy więcej"
       zero: "Nie ma więcej komentarzy"
   streams:
     activity:
@@ -910,7 +1152,7 @@ pl:
       title: "Działalność publiczna"
     tags:
       contacts_title: "Osoby, które wykopały ten znacznik"
-      tag_prefill_text: "Rzecz o %{tag_link} jest..."
+      tag_prefill_text: "Jeśli chodzi o %{tag_name}, to... "
       title: "Oznaczone wpisy: %{tags}"
   tag_followings:
     create:
@@ -923,7 +1165,12 @@ pl:
   tags:
     show:
       follow: "Obserwuj #%{tag}"
-      followed_by: "obserwowane przez"
+      followed_by_people:
+        few: "obserwowane przez %{count} osoby"
+        many: "obserwowane przez %{count} osób"
+        one: "obserwowane przez jedną osobę"
+        other: "obserwowane przez %{count} osób/-by."
+        zero: "nie obserwowane przez nikogo"
       following: "Obserwowanie #%{tag}"
       nobody_talking: "Nikt jeszcze nie rozmawia o %{tag}."
       none: "Pusty znacznik nie istnieje!"
@@ -970,7 +1217,7 @@ pl:
         make_diaspora_better: "Pomóż nam uczynić Diasporę jeszcze lepszą, zamiast nas opuszczać. Jeśli naprawdę odchodzisz, chcemy poinformować Cię o tym, co się stanie."
         mr_wiggles: "Pan Łaskotka będzie niepocieszony, widząc, że odchodzisz"
         no_turning_back: "Aktualnie, nie ma odwrotu."
-        what_we_delete: "Usuniemy wszystkie Twoje wpisy i dane profilu, najszybciej jak tylko człowiek jest w stanie to zrobić. Twoje komentarze pozostaną tam gdzie były, ale będą skojarzone bezpośrednio z Twoim Identyfikatorem Diaspory."
+        what_we_delete: "Usuniemy wszystkie Twoje wpisy i dane profilu najszybciej jak tylko człowiek jest w stanie to zrobić. Twoje komentarze pozostaną tam gdzie były, ale będą skojarzone z Twoim Identyfikatorem Diaspory zamiast z imieniem."
       close_account_text: "Zamknij konto"
       comment_on_post: "...ktoś dodał komentarz do mojego wpisu"
       current_password: "Bieżące hasło"
@@ -996,7 +1243,7 @@ pl:
       your_email: "Adres e-mail"
       your_handle: "Twój Identyfikator Diaspory"
     getting_started:
-      awesome_take_me_to_diaspora: "Świetnie! Zabierz mnie do Diaspory*"
+      awesome_take_me_to_diaspora: "Świetnie! Zabierz mnie na diasporę*"
       community_welcome: "Społeczność Diaspory cieszy się, że ​​jesteś na pokładzie!"
       connect_to_facebook: "Możemy nieco przyśpieszyć poprzez %{link} do Diaspory. To spowoduje pobranie Twojej nazwy i zdjęcia i włączy publikowanie krzyżowe."
       connect_to_facebook_link: "podpinanie konta na Facebooku"

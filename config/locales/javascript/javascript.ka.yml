@@ -9,16 +9,12 @@ ka:
     aspect_dropdown:
       add_to_aspect: "კონტაქტის დამატება"
       all_aspects: "ყველა ასპექტი"
-      error: "{{name}}-თან გაზიარების დაწყება ვერ მოხერხდა. იგნორირება ხომ არ გაუკეთეთ მას?"
+      error: "<%= name %>-თან გაზიარების დაწყება ვერ მოხერხდა. იგნორირება ხომ არ გაუკეთეთ მას?"
       select_aspects: "აირჩიეთ ასპექტები"
-      started_sharing_with: "თქვნ დაიწყეთ {{name}}-თან გაზიარება!"
-      stopped_sharing_with: "თქვენ შეწყვიტეთ {{name}}-თან გაზიარება."
+      started_sharing_with: "თქვნ დაიწყეთ <%= name %>-თან გაზიარება!"
+      stopped_sharing_with: "თქვენ შეწყვიტეთ <%= name %>-თან გაზიარება."
       toggle:
-        few: "{{count}} ასპექტში"
-        many: "{{count}} ასპექტში"
-        one: "{{count}} ასპექტში"
-        other: "{{count}} ასპექტში"
-        two: "{{count}} ასპექტში"
+        other: "<%= count %> ასპექტში"
         zero: "აირჩიეთ ასპექტები"
     aspect_navigation:
       deselect_all: "მონიშვნის მოხსნა"
@@ -33,7 +29,7 @@ ka:
     failed_to_post_message: "შეტყობინების გამოქვეყნება ვერ მოხერხდა!"
     getting_started:
       alright_ill_wait: "კარგი, მოვიცდი."
-      hey: "ჰეი, {{name}}!"
+      hey: "ჰეი, <%= name %>!"
       no_tags: "თქვენ არ მიყვებით არცერთ ტეგს! მაინც გსურთ გაგრძელება?"
       preparing_your_stream: "თქვენი პერსონალიზებული სესია მზადდება..."
     header:
@@ -96,7 +92,7 @@ ka:
       unfollow: "გაყოლის შეწყვეტა"
       unlike: "არ მომწონს"
     tags:
-      wasnt_that_interesting: "კარგი, მე ვფიქრობ რომ #{{tagName}} არც ისე საინტერესო იყო..."
+      wasnt_that_interesting: "კარგი, მე ვფიქრობ რომ #<%= tagName %> არც ისე საინტერესო იყო..."
     timeago:
       day: "დღე"
       days: "%d დღე"
@@ -115,4 +111,4 @@ ka:
       years: "%d წელი"
     videos:
       unknown: "ვიდეოს ტიპი უცნობია"
-      watch: "ვიდეოს ნახვა საიტზე {{provider}}"
+      watch: "ვიდეოს ნახვა საიტზე <%= provider %>"

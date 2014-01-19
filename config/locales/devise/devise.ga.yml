@@ -8,8 +8,6 @@ ga:
   devise:
     mailer:
       hello: "Haileo %{email}!"
-      invitation_instructions:
-        love: "Grá"
       welcome: "Fáilte %{email}!"
     sessions:
       new:

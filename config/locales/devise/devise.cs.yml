@@ -30,31 +30,6 @@ cs:
         subject: "Informace o potvrzení"
         you_can_confirm: "Váš účet můžete potvrdit kliknutím na tento odkaz:"
       hello: "Zdravím %{email}!"
-      invitation_instructions:
-        accept: "Přijmout pozvání"
-        be_yourself: "Buďte sami sebou"
-        cubbies: "Cubbi.es"
-        displaying_correctly: "E-mail se nezobrazuje správně? %{link}"
-        email_address: "questions@joindiaspora.com"
-        email_us: "Máte-li nějaké dotazy nebo potřebujete-li pomoci s vaším Diaspora účtem, kontaktujte nás prosím na e-mailu %{email}."
-        finally: "Konečně — je to tady"
-        friends_saying: "Co říkají vaši přátelé…"
-        get_connected: "Připojte se"
-        have_fun: "Bavte se"
-        help_fund: "pomozte financovat Diasporu"
-        here: "zde"
-        ignore: "Pokud nechcete přijmout pozvání, prosím ignorujte tento e-mail."
-        join_team: "Přidejte se k nám"
-        love: "S láskou,"
-        made_by_people: "%{strong_diaspora} je tvořena lidmi, kteří milují internet tak jako vy. %{jointeam} nebo %{helpfund}!"
-        more_people: "A ještě další lidé se těší na to, až vás uvidí!"
-        no_account_till: "Váš účet nebude vytvořen, dokud nenavštívíte uvedený odkaz a nezaregistrujete se."
-        or: "nebo"
-        sign_up_now: "Přihlaste se ještě dnes →"
-        subject: "Byli jste pozváni na Diasporu!"
-        team_diaspora: "Tým Diaspory"
-        unsubscribe: "Pro odhlášení klikněte na %{link}."
-        view_in: "Zobrazte si jej ve svém prohlížeči."
       inviter:
         accept_at: "na %{url}, přijmout pozvání můžete pomocí odkazu níže."
         has_invited_you: "%{name}"
@@ -86,9 +61,6 @@ cs:
       updated: "Úspěšně jste upravili svůj účet."
     sessions:
       new:
-        alpha_software: "Používáte testovací verzi."
-        bugs_and_feedback: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám použít tlačítko Zpětná vazba na pravé straně vašeho prohlížeče pro nahlášení problémů! Budeme pracovat nejrychleji, jak můžeme, abychom vyřešili nahlášené problémy."
-        bugs_and_feedback_mobile: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám, abyste hlásili jakékoli problémy. Budeme pracovat nejrychleji, jak můžeme, abychom vyřešili nahlášené problémy."
         login: "Přihlásit"
         modern_browsers: "podporuje pouze moderní prohlížeče."
         password: "Heslo"
@@ -105,8 +77,6 @@ cs:
         sign_in: "Přihlášení"
         sign_up: "Zapsat se"
         sign_up_closed: "Momentálně jsou další registrace pozastavené."
-      mail_signup_form:
-        sign_up_for_an_invite: "Požádat o pozvánku!"
     unlocks:
       new:
         resend_unlock: "Znovu zaslat instrukce k odemknutí účtu."

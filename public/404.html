@@ -1,85 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <style type="text/css">
-    @font-face{font-family:Roboto;src:url(https://s3.amazonaws.com/joindiaspora/fonts/Roboto-Regular.ttf)}
-    @font-face{font-family:Roboto-BoldCondensed;src:url(https://s3.amazonaws.com/joindiaspora/fonts/Roboto-BoldCondensed.ttf)}
-
-    body,
-    html {
-      overflow-y : hidden;
-    }
-
-    body {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      margin-top: 5%;
-      background-color: #fff;
-      color: #666;
-      text-align: center;
-      font-family: Roboto, Helvetica, Arial, sans-serif;
-      background-image: url(https://joindiaspora.s3.amazonaws.com/assets/pattern-4deadcd0b3ee298c791c9055bdef3377.png);
-      text-shadow: 0 1px 0 #fff;
-    }
-
-    #big-number {
-      font-family: Roboto-BoldCondensed, Helvetica, Arial, sans-serif;
-      font-size: 250px;
-      text-shadow: 0 2px 0 #fff, 0 -1px 0 #999;
-      color: #ddd;
-    }
-
-    a {
-      text-decoration : none;
-      color : rgb(42,156,235);
-    }
-
-    a:hover {
-      text-decoration : underline;
-    }
-
-    .transparent {
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-      filter: alpha(opacity=80);
-      -moz-opacity: 0.8;
-      -khtml-opacity: 0.8;
-      opacity: 0.8;
-    }
-
-    #cat-footer {
-      width: 100%;
-      position: fixed;
-      text-align: center;
-      bottom : -8px;
-      left : 0;
-    }
-
-    #content {
-      z-index: 3;
-      position: relative;
-    }
-
-  </style>
-</head>
-
-<body>
-  <!-- This file lives in public/404.html -->
-  <div id="big-number" class="transparent">
-    404
-  </div>
-
-  <div id="content">
-    These are not the kittens you're looking for.  Move along.
-    <br/>
-    <br/>
-    <a href="/">
-      Go Back?
-    </a>
-  </div>
-
-  <div id="cat-footer" class="transparent">
-    <img src="https://s3.amazonaws.com/joindiaspora/peeping-tom.png">
-  </div>
-</body>
+	<head>
+		<title>The page you were looking for doesn't exist (404)</title>
+		<link href="/favicon.ico" rel="shortcut icon">
+		<link href="/404.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<!-- This file lives in public/404.html -->
+		<div id="big-number" class="transparent">404</div>
+		<p>These are not the kittens you're looking for. Move along.</p>
+		<p><a href="javascript:history.back()">Go Back?</a></p>
+	</body>
 </html>

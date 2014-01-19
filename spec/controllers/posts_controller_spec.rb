@@ -148,7 +148,7 @@ describe PostsController do
     end
 
     it 'sends a retraction on delete' do
-      controller.stub!(:current_user).and_return alice
+      controller.stub(:current_user).and_return alice
       message = alice.post(:status_message, :text => "hey", :to => alice.aspects.first.id)
       alice.should_receive(:retract).with(message)
       delete :destroy, :format => :js, :id => message.id
@@ -165,60 +165,6 @@ describe PostsController do
       message = eve.post(:status_message, :text => "hey", :to => eve.aspects.first.id)
       expect { delete :destroy, :format => :js, :id => message.id }.to raise_error(ActiveRecord::RecordNotFound)
       StatusMessage.exists?(message.id).should be_true
-    end
-  end
-
-  describe "#next" do
-    before do
-      sign_in alice
-      Post.stub(:find_by_guid_or_id_with_user).and_return(mock_model(Post, :author => 4))
-      Post.stub_chain(:visible_from_author, :newer).and_return(next_post)
-    end
-
-    let(:next_post){ mock_model(StatusMessage, :id => 34)}
-
-    context "GET .json" do
-      let(:mock_presenter) { mock(:as_json => {:title => "the unbearable lightness of being"}) }
-
-      it "should return a show presenter the next post" do
-        PostPresenter.should_receive(:new).with(next_post, alice).and_return(mock_presenter)
-        get :next, :id => 14, :format => :json
-        response.body.should == {:title => "the unbearable lightness of being"}.to_json
-      end
-    end
-
-    context "GET .html" do
-      it "should redirect to the next post" do
-        get :next, :id => 14
-        response.should redirect_to(post_path(next_post))
-      end
-    end
-  end
-
-  describe "previous" do
-    before do
-      sign_in alice
-      Post.stub(:find_by_guid_or_id_with_user).and_return(mock_model(Post, :author => 4))
-      Post.stub_chain(:visible_from_author, :older).and_return(previous_post)
-    end
-
-    let(:previous_post){ mock_model(StatusMessage, :id => 11)}
-
-    context "GET .json" do
-      let(:mock_presenter) { mock(:as_json => {:title => "existential crises"})}
-
-      it "should return a show presenter the next post" do
-        PostPresenter.should_receive(:new).with(previous_post, alice).and_return(mock_presenter)
-        get :previous, :id => 14, :format => :json
-        response.body.should == {:title => "existential crises"}.to_json
-      end
-    end
-
-    context "GET .html" do
-      it "should redirect to the next post" do
-        get :previous, :id => 14
-        response.should redirect_to(post_path(previous_post))
-      end
     end
   end
 end

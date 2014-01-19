@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe EmailInviter do
   before do
-    @user = stub(:invitation_code => 'coolcodebro', :present? => true, 
+    @user = double(:invitation_code => 'coolcodebro', :present? => true, 
                  :email => 'foo@bar.com')
     @emails = "mbs333@gmail.com, foo1@bar.com maxwell@dude.com"
   end

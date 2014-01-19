@@ -50,7 +50,6 @@ ja:
   all_aspects: "全てのアスペクト"
   application:
     helper:
-      diaspora_alpha: "ダイアスポラ＊アルファ"
       unknown_person: "不明な連絡先"
       video_title:
         unknown: "不明な動画タイトル"
@@ -119,7 +118,6 @@ ja:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: コミュニティによるチュートリアル、ハウツーやニュース"
       introduce_yourself: "これがあなたのストリームです。  飛び込んで自己紹介をしてみましょう。"
       new_here:
         follow: "%{link}をフォローしてダイアスポラ*の新しいユーザーを歓迎しましょう!"
@@ -143,6 +141,7 @@ ja:
       create: "新規作成"
       name: "Name"
     no_contacts_message:
+      community_spotlight: "コミュニティスポットライト"
       or_spotlight: "または%{link}に共有することができます"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "もっと連絡先を追加しましょう!"
@@ -158,6 +157,7 @@ ja:
     selected_contacts:
       manage_your_aspects: "アスペクトを管理する"
       no_contacts: "ここにはまだ連絡先がありません。"
+      view_all_community_spotlight: "すべてのコミュニティスポットライトを見る"
       view_all_contacts: "すべての連絡先を見る"
     show:
       edit_aspect: "アスペクトを編集する"
@@ -197,6 +197,7 @@ ja:
       add_to_aspect: "Add contacts to %{name}"
       add_to_aspect_link: "%{name}さんを連絡先に追加する"
       all_contacts: "すべての連絡先"
+      community_spotlight: "コミュニティスポットライト"
       many_people_are_you_sure: "本当に%{suggested_limit}以上の連絡先と非公開の会話を開始しますか? このアスペクトに投稿する方が、彼らと連絡を取るより良い方法かもしれません。"
       my_contacts: "私の連絡先"
       no_contacts: "No contacts."
@@ -212,6 +213,8 @@ ja:
     other: "連絡先%{count}件"
     sharing:
       people_sharing: "あなたに共有している人たち:"
+    spotlight:
+      community_spotlight: "コミュニティスポットライト"
     two: "連絡先%{count}件"
     zero: "連絡先無し"
   conversations:
@@ -486,7 +489,6 @@ ja:
       no_results: "何かを検索しないといけません。"
       results_for: "検索結果："
       searching: "検索中です。もうしばらくお待ちください..."
-    last_post: "最新の投稿"
     many: "%{count}人の連絡先"
     one: "1人の連絡先"
     other: "%{count}人の連絡先"
@@ -586,8 +588,6 @@ ja:
       first_name: "名"
       last_name: "姓"
       update_profile: "プロフィール更新"
-      you_are_nsfw: "あなた自身を職場での閲覧には不適切と標記しています。あなたのコンテンツは、不快なコンテンツをストリームに表示しない設定にしている人は見られなくなります。"
-      you_are_safe_for_work: "あなた自身を職場での閲覧に問題がないと標記しています。これはあなたがコミュニティのガイドラインに沿ったコンテンツを投稿することに賛成しているという意味です。"
       your_bio: "略歴"
       your_birthday: "誕生日"
       your_gender: "性別"
@@ -792,6 +792,7 @@ ja:
   streams:
     aspects:
       title: "Your Aspects"
+    community_spotlight_stream: "コミュニティスポットライト"
     followed_tag:
       add_a_tag: "タグを追加する"
       follow: "フォロー"

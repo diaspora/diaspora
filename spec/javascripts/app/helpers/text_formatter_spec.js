@@ -158,6 +158,24 @@ describe("app.helpers.textFormatter", function(){
         expect(parsed).toContain(text);
       });
 
+      context("percent-encoded input url", function() {
+        beforeEach(function() {
+          this.input = "http://www.soilandhealth.org/01aglibrary/010175.tree%20crops.pdf"  // #4507
+          this.correctHref = 'href="'+this.input+'"';
+        });
+
+        it("doesn't get double-encoded", function(){
+          var parsed = this.formatter.markdownify(this.input);
+          expect(parsed).toContain(this.correctHref);
+        });
+
+        it("gets correctly decoded, even when multiply encoded", function() {
+          var uglyUrl = encodeURI(encodeURI(encodeURI(this.input)));
+          var parsed = this.formatter.markdownify(uglyUrl);
+          expect(parsed).toContain(this.correctHref);
+        });
+      });
+
       it("tests a bunch of benchmark urls", function(){
         var self = this;
         $.ajax({

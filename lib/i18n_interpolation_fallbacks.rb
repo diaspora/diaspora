@@ -10,11 +10,12 @@ module I18n
             result = super(fallback, key, options)
             return result unless result.nil?
           rescue I18n::MissingInterpolationArgument
+          rescue I18n::InvalidPluralizationData
           end
         end
 
         return super(locale, nil, options) if default
-        raise(I18n::MissingInterpolationArgument.new(options, "key: #{key} in locale: #{locale}"))
+        raise(I18n::MissingInterpolationArgument.new(key, options, locale))
       end
     end
   end

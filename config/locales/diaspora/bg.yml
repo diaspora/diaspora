@@ -110,7 +110,6 @@ bg:
         tag_bug: "бъг"
         tag_feature: "функция"
         tag_question: "въпрос"
-        tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum} - ръководства, съвети и новини от общността."
       introduce_yourself: "Това е вашият поток.  Включете се и се представете."
       new_here:
         follow: "Следете %{link} и приветствайте новите потребители на Diaspora*!"
@@ -791,7 +790,6 @@ bg:
   tags:
     show:
       follow: "Следете #%{tag}"
-      followed_by: "се следи от"
       following: "Следите #%{tag}"
       nobody_talking: "Никой не е говорил за %{tag}."
       none: "Не съществува празна марка!"

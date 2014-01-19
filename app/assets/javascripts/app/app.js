@@ -40,6 +40,7 @@ var app = {
     this.setupHeader();
     this.setupBackboneLinks();
     this.setupGlobalViews();
+    this.setupDisabledLinks();
   },
 
   hasPreload : function(prop) {
@@ -100,13 +101,20 @@ var app = {
   setupGlobalViews: function() {
     app.hovercard = new app.views.Hovercard();
     app.aspectMemberships = new app.views.AspectMembership();
+    app.sidebar = new app.views.Sidebar();
   },
 
   /* mixpanel wrapper function */
   instrument : function(type, name, object, callback) {
     if(!window.mixpanel) { return }
     window.mixpanel[type](name, object, callback)
-  }
+  },
+
+  setupDisabledLinks: function() {
+    $("a.disabled").click(function(event) {
+      event.preventDefault();
+    });
+  },
 };
 
 $(function() {

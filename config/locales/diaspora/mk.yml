@@ -5,7 +5,9 @@
 
 
 mk:
+  _applications: "Апликации"
   _comments: "Коментари"
+  _contacts: "Контакти"
   _home: "Дома"
   _photos: "фотографии"
   _services: "Сервиси"
@@ -13,41 +15,69 @@ mk:
   activerecord:
     errors:
       models:
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "е веќе искористено."
         reshare:
           attributes:
             root_guid:
               taken: "You've already reshared that post!"
         user:
           attributes:
+            email:
+              taken: "е веќе искористена."
             username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
+              taken: "е веќе искористено."
   ago: "%{time} пред"
   all_aspects: "All aspects"
   application:
     helper:
       unknown_person: "непозната личност"
+      video_title:
+        unknown: "Непознат наслов на видео"
+  are_you_sure: "Дали сте сигурни?"
+  are_you_sure_delete_account: "Дали сте сигурни дека сакате да ја избришете вашата корисничка сметка? После ова не можете да ја вратите."
   aspects:
     add_to_aspect:
       failure: "Неуспешно додавање на контактот во аспект."
       success: "Успешно додаден контактот во аспект."
+    aspect_listings:
+      edit_aspect: "Измени %{name}"
+      select_all: "Одбери сѐ"
     create:
       failure: "Неуспешно креирање на аспект."
       success: "Вашиот нов аспект %{name} е креиран"
     destroy:
       success: "%{name} е отстранет успешно."
     edit:
+      add_existing: "Додади постоечки контакт"
+      done: "Завршено"
       make_aspect_list_visible: "make aspect list visible?"
+      rename: "реименувај"
+      update: "ажурирај"
+      updating: "ажурирање"
     few: "%{count} aspects"
     helper:
       aspect_not_empty: "Аспектот не е празен"
       remove: "одстрани"
     index:
+      cubbies:
+        learn_more: "Научи повеќе"
+      donate: "Донирај"
       handle_explanation: "Ова е вашето diaspora корисничко име. Исто како е-маил адреса, можете да го давате на луѓе за да се сврзат со вас."
       help:
+        do_you: "Дали"
+        have_a_question: "...има %{link}"
         here_to_help: "Diaspora community is here to help!"
+        need_help: "Помош?"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
+      new_here:
+        learn_more: "Научи повеќе"
+      no_contacts: "Нема контакти"
       no_tags: "No tags"
     many: "%{count} aspects"
     move_contact:
@@ -55,6 +85,7 @@ mk:
       failure: "не проработи %{inspect}"
       success: "Личноста е преместена во нов аспект"
     new:
+      create: "Направи"
       name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
@@ -64,7 +95,11 @@ mk:
     other: "%{count} aspects"
     seed:
       family: "Фамилија"
+      friends: "Пријатели"
       work: "Работа"
+    selected_contacts:
+      no_contacts: "Тука сеуште немате контакти."
+      view_all_contacts: "Сите контакти"
     show:
       edit_aspect: "уреди аспект"
     two: "%{count} aspects"
@@ -82,12 +117,34 @@ mk:
     new_comment:
       comment: "Коментар"
       commenting: "Коментирање..."
+    one: "1 коментар"
+    other: "%{count} коментари"
+    two: "%{count} коментари"
+    zero: "нема коментари"
   contacts:
+    create:
+      failure: "Неуспешно креирање на контакт"
     few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
+      all_contacts: "Сите контакти"
+      my_contacts: "Мои контакти"
       no_contacts: "No contacts."
+      no_contacts_message: "Провери %{community_spotlight}"
+      start_a_conversation: "Започни разговор"
+      title: "Контакти"
+      your_contacts: "Ваши контакти"
+    many: "%{count} контакти"
+    one: "1 контакт"
+    sharing:
+      people_sharing: "Луѓе што споделуваат со тебе:"
+    two: "%{count} контакти"
   conversations:
+    create:
+      fail: "Невалидна порака"
+      sent: "Пораката е пратена"
+    destroy:
+      success: "Разговорот е успешно избришан"
     helper:
       new_messages:
         few: "%{count} new messages"
@@ -96,6 +153,23 @@ mk:
         other: "%{count} new messages"
         two: "%{count} new messages"
         zero: "no new messages"
+    index:
+      create_a_new_message: "Направи нова порака"
+      inbox: "Сандаче"
+      message_inbox: "Сандаче"
+      new_message: "Нова порака"
+      no_conversation_selected: "нема селектирани разговори"
+      no_messages: "нема пораки"
+    new:
+      send: "Прати"
+      sending: "Праќање..."
+      subject: "Наслов"
+      to: "до"
+    new_message:
+      fail: "Невалидна порака"
+    show:
+      delete: "избриши и блокирај разговор"
+      reply: "врати"
   delete: "Избриши"
   email: "Е-маил"
   error_messages:
@@ -103,17 +177,26 @@ mk:
       correct_the_following_errors_and_try_again: "Поправете ги следниве грешки и обидете се повторно."
       invalid_fields: "Невалидни полиња"
   fill_me_out: "Пополни ме"
-  find_people: "Find people"
+  find_people: "Пронајди пријатели или #тагови"
+  hide: "Сокриј"
   invitations:
+    a_facebook_user: "Facebook корисник"
     check_token:
       not_found: "Токенот за поканата не е пронајден"
     create:
+      already_contacts: "Веќе сте се поврзале со оваа личност"
+      already_sent: "Веќе сте ја поканиле оваа личност."
       no_more: "Немате повеќе покани."
+      own_address: "Не можете да испратите покана на вашата адреса."
       rejected: "Следните е-маил адреси имаа проблем:"
       sent: "Поканите беа испратени кон:"
+    edit:
+      accept_your_invitation: "Прифатија поканата"
     new:
       already_invited: "Already invited"
       invite_someone_to_join: "Поканете некој да се придружи на Diaspora!"
+      language: "Јазик"
+      personal_message: "Лична порака"
       send_an_invitation: "Испрати покана"
       send_invitation: "Испрати покана"
       to: "До"
@@ -121,11 +204,15 @@ mk:
     application:
       toggle: "toggle mobile site"
     header:
+      admin: "админ"
       blog: "блог"
+      code: "код"
       login: "најави се"
       logout: "одјави се"
       profile: "profile"
+      recent_notifications: "Последни известувања"
       settings: "settings"
+      view_all: "Види се"
   likes:
     likes:
       people_dislike_this:
@@ -149,6 +236,10 @@ mk:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
+  limited: "Ограничено"
+  more: "Повеќе"
+  next: "следно"
+  no_results: "Нема резултати"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -276,7 +367,7 @@ mk:
       pending_request: "престоечко барање"
       thats_you: "тоа си ти!"
     profile_sidebar:
-      bio: "биографија"
+      bio: "Биографија"
       born: "роденден"
       edit_my_profile: "Уреди го мојот профил"
       gender: "пол"
@@ -322,11 +413,15 @@ mk:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
+  previous: "претходно"
+  privacy: "Приватност"
+  privacy_policy: "Политика за приватност"
   profile: "Профил"
   profiles:
     edit:
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+  public: "Јавно"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
@@ -358,12 +453,9 @@ mk:
       success: "Сега сте пријатели."
     helper:
       new_requests:
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        two: "%{count} new requests!"
-        zero: "no new requests"
+        one: "ново барање!"
+        other: "%{count} нови барања!"
+        zero: "немате нови барања"
     manage_aspect_contacts:
       existing: "Постоечки контакти"
       manage_within: "Менаџирај контакти во"
@@ -474,9 +566,11 @@ mk:
     destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
+  terms_and_conditions: "Услови и правила"
   tokens:
     show:
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+  undo: "Откажи"
   username: "Корисничко име"
   users:
     confirm_email:
@@ -509,3 +603,4 @@ mk:
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger:
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
+  welcome: "Добредојдовте!"

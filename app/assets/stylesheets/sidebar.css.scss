@@ -3,17 +3,18 @@ $bluebg: #e7f2f7;
 #home_user_badge {
 	min-height: 50px;
 	margin-bottom: 20px;
-	
+	margin-left: 4px;
+
 	img {
 		float: left;
 	}
-	
+
 	h4 {
 		margin-left: 60px;
 		padding-top: 15px;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		
+
 		a {
 			color: inherit;
 			font-weight: bold;
@@ -26,28 +27,28 @@ $bluebg: #e7f2f7;
 	margin: 0px;
 	margin-right: 10px;
 	color: #222222;
-	
+
 	ul {
 		margin: 0px;
 		padding: 0px;
 	}
 	
 	a {
-		color: #777777;
+		color: $link-grey;
 		font-weight: bold;
 		text-decoration: none;
 	}
-	
+
+	.selected { color: $black; }
+	.selected a { color: $black; }
+
 	.hoverable {
 		display: block;
 		margin-right: 6px;
 		padding: 4px;
-		
-		&:hover {
-			background-color: $bluebg;
-		}
+		&:hover { background-color: $bluebg; }
 	}
-	
+
 	.selectable {
 		display: block;
 		margin-left: 21px;
@@ -90,10 +91,13 @@ $bluebg: #e7f2f7;
 	.selected + a {
 		color: #333333;
 	}
+}
 
-	.modify_aspect {
-		background: url("icons/pencil.png") no-repeat;
-	}
+.modify_aspect {
+	background: url("icons/pencil.png") no-repeat;
+	width: 12px;
+	height: 12px;
+	display: inline-block;
 }
 
 #tags_list {

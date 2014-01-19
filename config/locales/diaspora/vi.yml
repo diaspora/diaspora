@@ -8,6 +8,7 @@ vi:
   _applications: "Ứng dụng"
   _comments: "Bình luận"
   _contacts: "Liên lạc"
+  _help: "Trợ giúp"
   _home: "Trang chủ"
   _photos: "ảnh"
   _services: "Dịch vụ"
@@ -81,7 +82,6 @@ vi:
   all_aspects: "Tất cả mối quan hệ"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "người lạ"
       video_title:
         unknown: "Chưa biết tựa đề video"
@@ -154,7 +154,6 @@ vi:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Kinh nghiệm, thủ thuật, giải đáp và tin tức từ cộng đồng"
       introduce_yourself: "Đây là luồng của bạn. Hãy tự giới thiệu mình ở đây."
       keep_diaspora_running: "Đóng góp hàng tháng để giúp phát triển Diaspora nhanh hơn!"
       keep_pod_running: "Đóng góp hàng tháng để giúp %{pod} chạy nhanh và duy trì các phí khác!"
@@ -317,6 +316,10 @@ vi:
     post_not_public: "Bài đăng bạn muốn xem không được công khai!"
   fill_me_out: "Điền đầy đủ"
   find_people: "Tìm người hoặc #tags"
+  help:
+    irc: "IRC"
+    markdown: "Markdown"
+    wiki: "wiki"
   hide: "Ẩn"
   invitation_codes:
     excited: "%{name} muốn nhìn thấy bạn ở đây."
@@ -519,7 +522,6 @@ vi:
       no_results: "Bạn cần tìm gì đó."
       results_for: "kết quả tìm kiếm cho"
       searching: "đang tìm, vui lòng chờ..."
-    last_post: "Bài đăng cuối"
     many: "%{count} người"
     one: "1 người"
     other: "%{count} người"
@@ -535,6 +537,7 @@ vi:
       gender: "Giới tính"
       in_aspects: "trong mối quan hệ"
       location: "Nơi ở"
+      photos: "Hình ảnh"
       remove_contact: "loại bỏ liên lạc"
       remove_from: "Loại bỏ %{name} khỏi %{aspect}?"
     show:
@@ -616,8 +619,6 @@ vi:
       first_name: "Tên"
       last_name: "Họ"
       update_profile: "Cập nhật hồ sơ"
-      you_are_nsfw: "Bạn đã đánh dấu bản thân không an toàn cho công việc, nội dung của bạn sẽ không hiện cho những ai không cần chúng."
-      you_are_safe_for_work: "Đánh dấu tùy chọn bên dưới để xác nhận nội dung bài đăng có nội dung không an toàn, bài đăng sẽ chỉ hiện trong thẻ #nsfw"
       your_bio: "Tiểu sử"
       your_birthday: "Ngày sinh"
       your_gender: "Giới tính"
@@ -867,7 +868,6 @@ vi:
   tags:
     show:
       follow: "Theo dõi #%{tag}"
-      followed_by: "được theo dõi bởi"
       following: "Đang theo dõi #%{tag}"
       nobody_talking: "Không có ai đang nói về %{tag}."
       none: "Thẻ rỗng không tồn tại!"

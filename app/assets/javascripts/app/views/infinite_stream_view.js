@@ -8,16 +8,22 @@
 
 app.views.InfScroll = app.views.Base.extend({
   setupInfiniteScroll : function() {
-    this.postViews = this.postViews || []
+    this.postViews = this.postViews || [];
+    this._resetPostFragments();
 
-    this.bind("loadMore", this.fetchAndshowLoader, this)
-    this.stream.bind("fetched", this.hideLoader, this)
-    this.stream.bind("allItemsLoaded", this.unbindInfScroll, this)
+    this.bind("loadMore", this.fetchAndshowLoader, this);
+    this.stream.bind("fetched", this.finishedLoading, this);
+    this.stream.bind("allItemsLoaded", this.unbindInfScroll, this);
 
     this.collection.bind("add", this.addPostView, this);
 
     var throttledScroll = _.throttle(_.bind(this.infScroll, this), 200);
     $(window).scroll(throttledScroll);
+  },
+
+  _resetPostFragments: function() {
+    this.appendedPosts  = document.createDocumentFragment();
+    this.prependedPosts = document.createDocumentFragment();
   },
 
   postRenderTemplate : function() {
@@ -26,13 +32,23 @@ app.views.InfScroll = app.views.Base.extend({
 
   createPostView : function(post){
     var postView = new this.postClass({ model: post, stream: this.stream });
-    this.postViews.push(postView)
-    return postView
+    if (this.collection.at(0).id == post.id) {
+      // post is first in collection - insert view at top of the list
+      this.postViews.unshift(postView);
+    } else {
+      this.postViews.push(postView);
+    }
+    return postView;
   },
 
+  // called for every item inserted in this.collection
   addPostView : function(post) {
-    var placeInStream = (this.collection.at(0).id == post.id) ? "prepend" : "append";
-    this.$el[placeInStream](this.createPostView(post).render().el);
+    var el = this.createPostView(post).render().el;
+    if (this.collection.at(0).id == post.id) {
+        this.prependedPosts.insertBefore(el, this.prependedPosts.firstChild);
+    } else {
+        this.appendedPosts.appendChild(el);
+    }
   },
 
   unbindInfScroll : function() {
@@ -44,24 +60,38 @@ app.views.InfScroll = app.views.Base.extend({
   },
 
   renderInitialPosts : function(){
-    this.$el.empty()
+    this.$el.empty();
+    var els = document.createDocumentFragment();
     this.stream.items.each(_.bind(function(post){
-      this.$el.append(this.createPostView(post).render().el);
+      els.appendChild(this.createPostView(post).render().el);
     }, this))
+    this.$el.html(els);
   },
 
   fetchAndshowLoader : function(){
-    if(this.stream.isFetching()) { return false }
-    this.stream.fetch()
-    this.showLoader()
+    if( this.stream.isFetching() ) return false;
+
+    this.stream.fetch();
+    this.showLoader();
   },
 
   showLoader: function(){
     $("#paginate .loader").removeClass("hidden")
   },
 
+  finishedAdding: function() {
+    this.$el.prepend(this.prependedPosts);
+    this.$el.append(this.appendedPosts);
+    this._resetPostFragments();
+  },
+
+  finishedLoading: function() {
+    this.finishedAdding();
+    this.hideLoader();
+  },
+
   hideLoader: function() {
-    $("#paginate .loader").addClass("hidden")
+    $("#paginate .loader").addClass("hidden");
   },
 
   infScroll : function() {
@@ -71,7 +101,7 @@ app.views.InfScroll = app.views.Base.extend({
       , bufferPx = 500;
 
     if(distFromBottom < bufferPx) {
-      this.trigger("loadMore")
+      this.trigger("loadMore");
     }
   }
 });

@@ -14,7 +14,6 @@
       = status.error_messages
       %div
         %params
-          #fileInfo
           #publisher_textarea_wrapper
             = link_to(content_tag(:div, nil, :class => 'icons-deletelabel'), "#", :id => "hide_publisher", :title => t('.discard_post'))
             %ul#photodropzone
@@ -27,6 +26,8 @@
             = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
 
             #publisher-images
+              %span.markdownIndications
+                != t('.formatWithMarkdown', markdown_link: link_to(t('help.markdown'), 'https://diasporafoundation.org/formatting', target: :blank))
               #locator.btn{:title => t('.get_location')}
                 = image_tag 'icons/marker.png', :alt => t('.get_location').titleize, :class => 'publisher_image'
               #file-upload.btn{:title => t('.upload_photos')}
@@ -90,5 +91,3 @@
 
 
     #publisher_photo_upload
-      = render 'photos/new_photo', :aspect_ids => aspect_ids.join(',')
-

@@ -8,6 +8,7 @@ ml:
   _applications: "പ്രയോഗങ്ങള്‍"
   _comments: "അഭിപ്രായങ്ങള്‍"
   _contacts: "സമ്പര്‍ക്കങ്ങള്‍"
+  _help: "സഹായം"
   _home: "പൂമുഖം"
   _photos: "ചിത്രങ്ങള്‍"
   _services: "സേവനങ്ങള്‍"
@@ -18,28 +19,34 @@ ml:
         contact:
           attributes:
             person_id:
-              taken: "ഈ ഉപയോകതാവിന്റെ സമ്പര്‍ക്കങ്ങളുടേതില്‍നിന്നും വ്യത്യസ്തമായിരിക്കണം."
+              taken: "ഈ ഉപയോക്താവിന്റെ സമ്പര്‍ക്കങ്ങളുടേതില്‍നിന്നും വ്യത്യസ്തമായിരിക്കണം."
         person:
           attributes:
             diaspora_handle:
-              taken: "നേരത്തേ എടുത്തിട്ടുണ്ട്."
+              taken: "മുൻപേ ഉപയോഗത്തിലുണ്ട്."
         request:
           attributes:
             from_id:
               taken: "നിലവിലുള്ള ഒരു അപേക്ഷയുടെ പകര്‍പ്പാണ്."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "അത്ര നല്ലതോ? താങ്കള്‍ ഇതിനകം തന്നെ അത് വീണ്ടും പങ്കിട്ടു കഴിഞ്ഞു!"
         user:
           attributes:
             email:
-              taken: "നേരത്തേ എടുത്തിട്ടുണ്ട്."
+              taken: "മുൻപേ ഉപയോഗത്തിലുണ്ട്."
             person:
               invalid: "സാധുവല്ല."
             username:
-              taken: "നേരത്തേ എടുത്തിട്ടുണ്ട്."
+              invalid: "അസാധുവാണ്. ഞങ്ങള്‍ അക്ഷരങ്ങള്‍, അക്കങ്ങള്‍, താഴ്‌ന്ന വര എന്നിവയേ അനുവദിക്കൂ"
+              taken: "മുൻപേ ഉപയോഗത്തിലുണ്ട്."
   admins:
     admin_bar:
       correlations: "പരസ്പരബന്ധം"
       pages: "താളുകൾ"
       pod_stats: "പോഡിന്റെ അവസ്ഥ"
+      sidekiq_monitor: "സൈഡ്കിക്ക് നിരീക്ഷകൻ"
       user_search: "ഉപയോക്താക്കളെ തിരയുക"
       weekly_user_stats: "ആഴ്ചതോറുമുള്ള അവസ്ഥ"
     correlations:
@@ -74,6 +81,7 @@ ml:
     user_search:
       add_invites: "കുടുതല്‍ ക്ഷണിക്കുക"
       email_to: "ക്ഷണിക്കേണ്ട ഇമെയില്‍"
+      under_13: "പതിമൂന്ന് വയസ്സില്‍ താഴെയുള്ള ഉപയോക്താക്കളെ കാണിക്കുക (COPPA)"
       users:
         one: "%{count} ഉപയോക്താവിനെ കണ്ടെത്തി"
         other: "%{count} ഉപയോക്താക്കളെ കണ്ടെത്തി"
@@ -86,15 +94,14 @@ ml:
         zero: "ഈ ആഴ്ചയിലെ പുതിയ ഉപയോക്താക്കളുടെ എണ്ണം :ഒന്നുമില്ല"
       current_server: "നിലവിലുള്ള സെർവർ ദിവസം %{date} ആണ്"
   ago: "%{time} മുന്‍പ്"
-  all_aspects: "എല്ലാം"
+  all_aspects: "എല്ലാ ഭാവങ്ങളും"
   application:
     helper:
-      diaspora_alpha: "ഡയസ്പോറ* ആൽഫ"
       unknown_person: "അറിയാത്ത വ്യക്തി"
       video_title:
-        unknown: "ചലചിത്രത്തിന്റെ തലക്കെട്ട് അറിയില്ല"
+        unknown: "ചലച്ചിത്രത്തിന്റെ തലക്കെട്ട് അറിയില്ല"
   are_you_sure: "താങ്കള്‍ക്ക് ഉറപ്പാണോ?"
-  are_you_sure_delete_account: "താങ്കളുടെ അക്കൗണ്ട് നിർത്തണം എന്ന് താങ്കൾക്ക്ഉറപ്പാണോ?? ഈ പ്രവൃത്തി വീണ്ടെടുക്കാൻ കഴിയില്ല!"
+  are_you_sure_delete_account: "താങ്കളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കണം എന്ന് താങ്കൾക്ക്ഉറപ്പാണോ?? ഈ പ്രവൃത്തി വീണ്ടെടുക്കാൻ കഴിയില്ല!"
   aspect_memberships:
     destroy:
       failure: "ഈ വ്യക്തിയെ പരിചയത്തില്‍ നിന്ന് മാറ്റാന്‍ കഴിഞ്ഞില്ല"
@@ -107,12 +114,14 @@ ml:
     aspect_contacts:
       done_editing: "മാറ്റം വരുത്തി കഴിഞ്ഞു"
     aspect_listings:
-      add_an_aspect: "+ഒരു ഭാവം ചേർക്കുക"
+      add_an_aspect: "+ഒരു പരിചയം ചേർക്കുക"
       deselect_all: "ഒന്നും തിരഞ്ഞെടുക്കാതിരിക്കുക"
       edit_aspect: "%{name} തിരുത്തു"
       select_all: "എല്ലാം തെരഞ്ഞെടുക്കുക"
     aspect_stream:
       make_something: "എന്തെങ്കിലും സൃഷ്ടിക്കുക"
+      stay_updated: "മാറ്റങ്ങള്‍ മനസ്സിലാക്കിയിരിക്കുക"
+      stay_updated_explanation: "താങ്കളുടെ പ്രധാന സ്ട്രീം നിറയെ താങ്കളുടെ സമ്പര്‍ക്കങ്ങളും, താങ്കള്‍ പിന്തുടരുന്ന ടാഗുകളും, കൂട്ടായ്മയിലെ സര്‍ഗ്ഗാത്മകതയുള്ള ചില അംഗങ്ങളുടെ പോസ്റ്റുകളും ആണ്."
     contacts_not_visible: "ഈ പരിചയത്തില്‍പ്പെട്ട സമ്പര്‍ക്കങ്ങള്‍ക്ക് പരസ്പരം കാണാന്‍ സാധിക്കുകയില്ല "
     contacts_visible: "ഈ പരിചയത്തിലുള്ള സമ്പര്‍ക്കങ്ങള്‍ക്ക് പരസ്പരം കാണാന്‍ സാധിക്കുന്നതാണ്."
     create:
@@ -130,7 +139,7 @@ ml:
       make_aspect_list_visible: "പരിചയം ദൃശ്യമാക്കുക"
       remove_aspect: "ഈ പരിചയം നീക്കം ചെയ്യുക"
       rename: "പേര് മാറ്റുക"
-      update: "പുതുക്കു"
+      update: "പുതുക്കുക"
       updating: "പുതുക്കുന്നു"
     few: "%{count} പരിചയങ്ങള്‍"
     helper:
@@ -139,41 +148,61 @@ ml:
       remove: "നീക്കം ചെയ്യു"
     index:
       cubbies:
+        explanation: "ഡയസ്പോറയുടെ കീഴില്‍ വികസിപ്പിച്ചുകൊണ്ടിരിക്കുന്ന ആദ്യത്തെ പ്രയോഗമാണ് Cubbi.es"
+        heading: "Cubbi.es-മായി ബന്ധപ്പെടുത്തുക"
         learn_more: "കൂടുതല്‍ അറിയുക"
       diaspora_id:
-        content_1: "നിങ്ങളുടെ ഡയസ്പോറ ഐഡി:"
-        heading: "ഡയസ്പോറ ഐഡി"
+        content_1: "നിങ്ങളുടെ ഡയാസ്പുറ ഐഡി:"
+        content_2: "ഇവ ആര്‍ക്ക് കൊടുക്കുന്നുവോ അവര്‍ക്ക് നിങ്ങളെ ഡയസ്പുറയില്‍ കണ്ട്പിടിക്കാനാകും."
+        heading: "ഡയാസ്പുറ ഐഡി"
       donate: "സംഭാവന"
-      handle_explanation: "ഇത് താങ്കളുടെ ഡയസ്പോറ ഐഡിയാണ്. അളുകള്‍ക്ക് താങ്കളെ ബന്ധപെടാന്‍ ഇത് ഇമെയില്‍ പോലെ കൊടുക്കാം."
+      handle_explanation: "ഇത് താങ്കളുടെ ഡയാസ്പുറ ഐഡിയാണ്. അളുകള്‍ക്ക് താങ്കളെ ബന്ധപെടാന്‍ ഇത് ഇമെയില്‍ പോലെ കൊടുക്കാം."
       help:
         any_problem: "എന്തെങ്കിലും പ്രശ്നം?"
         contact_podmin: "താങ്കളുടെ പോഡിന്റെ കാര്യനിർവാഹകനെ ബന്ധപ്പെടുക"
+        do_you: "നിങ്ങൾ"
+        email_feedback: "താങ്കള്‍ക്ക് താല്‍പര്യമുണ്ടെങ്കില്‍ താങ്കളുടെ പ്രതികരണം %{link} അയക്കൂ."
         email_link: "ഈമെയിൽ"
+        feature_suggestion: "%{link} നിര്‍ദ്ദേശങ്ങള്‍ എന്തെങ്കിലും ഉണ്ടോ?"
+        find_a_bug: "%{link} കണ്ടെത്തുക?"
+        have_a_question: "%{link} ഉണ്ടോ?"
+        here_to_help: "ഡയാസ്പുറ സമൂഹം ഇവിടെ ഉണ്ട്!"
         mail_podmin: "പോഡ്മിൻ ഈമെയിൽ"
         need_help: "സഹായം വേണോ?"
         tag_bug: "bug"
         tag_feature: "പ്രത്യേകത"
-        tag_question: "question"
+        tag_question: "ചോദ്യം"
+        tutorial_link_text: "പഠനോപകരണങ്ങള്‍"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: നിങ്ങളുടെ ആദ്യ ചുവടുകള്‍ക്ക് സഹായം."
+      introduce_yourself: "ഇത് താങ്കളുടെ സ്ട്രീമാണ്. വന്ന് സ്വയം പരിചയപ്പെടുത്തൂ."
       keep_diaspora_running: "ഒരു സംഭാവനയിലൂടെ ഡയസ്പോറ വികസനം വേഗത്തിലാക്കുക"
       keep_pod_running: "ഒരു സംഭാവന കൊണ്ട് %{pod} സുഗമമായി പ്രവർത്തിപ്പിക്കുന്നതിലും സെർവറുകൾ നിലനിർത്തുന്നതിലും സഹായിക്കുക"
       new_here:
+        follow: "%{link} പിന്തുടര്‍ന്ന് പുതിയ ഉപയോക്താക്കളെ ഡയസ്പുറയിലേക്ക് സ്വാഗതം ചെയ്യുക!"
         learn_more: "കൂടുതല്‍ അറിയുക"
         title: "പുതിയ ഉപയോക്താക്കളെ സ്വാഗതം ചെയ്യുക"
       no_contacts: "സമ്പര്‍ക്കങ്ങളില്ല"
-      post_a_message: "ഒരു കത്തയക്കുക >>"
+      no_tags: "+ പിന്തുടരാൻ ഒരു ടാഗ് കണ്ടെത്തുക"
+      people_sharing_with_you: "താങ്കളുമായി പങ്കിടുന്ന ആളുകള്‍"
+      post_a_message: "ഒരു സന്ദേശമയയ്ക്കുക >>"
       services:
-        content: "താഴെപ്പറയുന്ന സേവനങ്ങളുമായി ബന്ധപ്പെടാം"
-        heading: "സേവനങ്ങൾ ഉൾപ്പെടുത്തുക"
+        content: "താഴെപ്പറയുന്ന സേവനങ്ങളുമായി ബന്ധിപ്പിക്കാം"
+        heading: "സേവനങ്ങൾ ബന്ധിപ്പിക്കുക"
       unfollow_tag: "#%{tag} പിന്തുടരുന്നത് നിർത്തുക"
-      welcome_to_diaspora: "ഡയസ്പോറയിലേക്ക് സ്വഗതം, %{name}!"
+      welcome_to_diaspora: "ഡയാസ്പുറയിലേക്ക് സ്വഗതം, %{name}!"
     many: "%{count} പരിചയങ്ങള്‍"
     move_contact:
       error: "സമ്പര്‍ക്കം മാറ്റാന്‍ സാധിക്കുന്നില്ല : %{inspect}"
       failure: "ശരിയായില്ല. %{inspect}"
       success: "വ്യക്തിയെ പുതിയ പരിചയത്തിലേക്ക് മാറ്റിയിരിക്കുന്നു"
     new:
-      create: "ഉണ്ടാക്കു"
-      name: "പേര്"
+      create: "സൃഷ്ടിക്കൂ"
+      name: "പേരു്"
+    no_contacts_message:
+      community_spotlight: "സാമൂഹിക പ്രാധാന്യം"
+      or_spotlight: "അല്ലെങ്കില്‍ താങ്കള്‍ക്ക് %{link} ഉപയോഗിച്ച് പങ്കിടാവുന്നതാണ്"
+      try_adding_some_more_contacts: "താങ്കള്‍ക്ക് കൂടുതല്‍ സമ്പര്‍ക്കങ്ങളേ തിരയുകയോ ക്ഷണിക്കുകയോ ചെയ്യാവുന്നതാണ്."
+      you_should_add_some_more_contacts: "താങ്കള്‍ കുറച്ചുകൂടി സമ്പര്‍ക്കങ്ങള്‍ ചേര്‍ക്കണം!"
     no_posts_message:
       start_talking: "ആരും ഇതുവരെ ഒന്നും പറഞ്ഞില്ല!"
     one: "ഒരു പരിചയം"
@@ -184,11 +213,13 @@ ml:
       friends: "കൂട്ടുകാര്‍"
       work: "ജോലി"
     selected_contacts:
+      manage_your_aspects: "താങ്കളുടെ പരിചയങ്ങളെ ക്രമീകരിക്കുക"
       no_contacts: "നിങ്ങൾക്കിതുവരെ സമ്പർക്കങ്ങളൊന്നുമില്ല"
+      view_all_community_spotlight: "സാമൂഹിക പ്രാധാന്യം എല്ലാം കാണുക"
       view_all_contacts: "എല്ലാ സമ്പർക്കങ്ങളും കാണുക"
     show:
       edit_aspect: "പരിചയം ചിട്ടപെടുത്തുക"
-    two: "%{count} aspects"
+    two: "%{count} പരിചയങ്ങള്‍"
     update:
       failure: "താങ്കള്‍ നല്കിയ %{name} എന്ന പരിചയത്തിന്റെ പേര് അനുവദിനീയമായതിലും വലുതാണ്."
       success: "നിങ്ങളുടെ പരിചയം, %{name}, വിജയകരമായി ചിട്ടപ്പെടുത്തി."
@@ -210,10 +241,10 @@ ml:
       failure: "I couldn't stop ignoring that user.  #evasion"
       success: "Let's see what they have to say! #sayhello"
   bookmarklet:
-    explanation: "എവിടെ നിന്നും ഡയസ്പോറയിലേക്ക് കുറിക്കുവാനായി ഈ ലിങ്ക് ബുക്ക്മാര്‍ക്ക് ചെയ്യുക => %{link}."
+    explanation: "എവിടെ നിന്നും ഡയാസ്പുറയിലേക്ക് കുറിപ്പയയ്ക്കുവാനായി ഈ ലിങ്ക് ബുക്ക്മാര്‍ക്ക് ചെയ്യുക => %{link}."
     heading: "അടയാളക്കുറിപ്പാക്കുക"
-    post_something: "ഡയസ്പോറയിലേക്ക് കുറിക്കുക"
-    post_success: "കുറിച്ചു! അടയ്ക്കുന്നു!"
+    post_something: "ഡയാസ്പുറയിലേക്ക് കുറിപ്പയയ്ക്കുക"
+    post_success: "കുറിപ്പിട്ടു! അടയ്ക്കുന്നു!"
   cancel: "റദ്ദാക്കുക"
   comments:
     few: "%{count} അഭിപ്രായങ്ങള്‍"
@@ -230,9 +261,18 @@ ml:
       failure: "സമ്പര്‍ക്കം ഉണ്ടാക്കാനാകുന്നില്ല"
     few: "%{count} സമ്പര്‍ക്കങ്ങള്‍"
     index:
+      add_a_new_aspect: "പുതിയ പരിചയം ചേര്‍ക്കൂ"
+      add_to_aspect: "സമ്പര്‍ക്കങ്ങള്‍ %{name} പരിചയത്തിലേക്ക് ചേര്‍ക്കുക"
+      add_to_aspect_link: "സമ്പര്‍ക്കങ്ങള്‍ %{name} പരിചയത്തിലേക്ക് ചേര്‍ക്കുക"
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
+      community_spotlight: "സാമൂഹിക പ്രാധാന്യം"
+      many_people_are_you_sure: "%{suggested_limit}നെക്കാള്‍ കൂടുതല്‍ സമ്പര്‍ക്കങ്ങളുമായി ഒരു സ്വകാര്യസംഭാഷണം തുടങ്ങണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ. ഈ പരിചയത്തിലേക്ക് കുറിപ്പ് ചേര്‍ക്കുന്നതായിരിക്കും അവരെ ബന്ധപ്പെടാനുള്ള കൂടുതല്‍ നല്ല മാര്‍ഗ്ഗം."
       my_contacts: "എന്റെ സമ്പര്‍ക്കങ്ങള്‍"
+      no_contacts: "കണ്ടിട്ട് താങ്കള്‍ പുതിയ ചില സമ്പര്‍ക്കങ്ങള്‍ ചേര്‍ക്കേണ്ടതുണ്ട് എന്ന് തോന്നുന്നു!"
+      no_contacts_message: "%{community_spotlight} കണ്ടുനോക്കു"
+      no_contacts_message_with_aspect: "%{community_spotlight} കണ്ടുനോക്കു അല്ലെങ്കില്‍ %{add_to_aspect_link}"
       only_sharing_with_me: "നിങ്ങളുമായി മാത്രം പങ്ക് വച്ചത്"
+      remove_person_from_aspect: "\"%{aspect_name}\" - ഇല്‍നിന്ന് %{person_name} ഒഴിവാക്കുക"
       start_a_conversation: "സംഭാഷണം ആരംഭിക്കൂ"
       title: "സമ്പര്‍ക്കങ്ങള്‍"
       your_contacts: "നിങ്ങളുടെ സമ്പര്‍ക്കങ്ങള്‍"
@@ -242,8 +282,9 @@ ml:
     sharing:
       people_sharing: "നിങ്ങളുമായി പങ്കിടുന്ന സുഹൃത്തുക്കൾ"
     spotlight:
+      community_spotlight: "സാമൂഹിക പ്രാധാന്യം"
       suggest_member: "ഒരു ഉപയോക്ത്താവിനെ നിർദ്ദേശിക്കുക"
-    two: "%{count} contacts"
+    two: "%{count} സമ്പര്‍ക്കങ്ങള്‍"
     zero: "സമ്പര്‍ക്കമൊന്നുമില്ല"
   conversations:
     conversation:
@@ -265,11 +306,12 @@ ml:
     index:
       create_a_new_message: "പുതിയ സന്ദേശം ഉണ്ടാക്കുക"
       inbox: "ഇന്‍ബോക്സ്"
-      message_inbox: "സന്ദേശ ഇന്‍ബോക്സ്"
+      message_inbox: "സന്ദേശപ്പെട്ടി"
       new_message: "പുതിയ സന്ദേശം"
       no_conversation_selected: "സംവാദങ്ങളൊന്നും തിരഞ്ഞെടുത്തില്ല"
       no_messages: "സന്ദേശങ്ങളൊന്നുമില്ല"
     new:
+      abandon_changes: "മാറ്റങ്ങള്‍ ഉപേക്ഷിക്കണോ?"
       send: "അയക്കു"
       sending: "അയയ്ക്കുന്നു..."
       subject: "വിഷയം"
@@ -293,8 +335,140 @@ ml:
       invalid_fields: "അസാധുവായ കള്ളികള്‍"
     login_try_again: "ദയവായി <a href='%{login_link}'>ലോഗിൻ ചെയ്തിട്ട്</a> വീണ്ടും ശ്രമിക്കുക."
     post_not_public: "താങ്കൾ കാണാൻ ശ്രമിക്കുന്ന കുറിപ്പ് പൊതുദർശനത്തിനുള്ളതല്ല!"
-  fill_me_out: "എന്നെ പൂരിപ്പിക്കു"
-  hide: "മറയ്ക്കു"
+  fill_me_out: "ഇത് പൂരിപ്പിക്കൂ"
+  find_people: "ഉപയോക്താക്കളെയോ #tags -കളോ കണ്ടെത്തുക"
+  help:
+    account_and_data_management:
+      close_account_a: "സജ്ജീകരണം താളിന്റെ അവസാനം ചെന്നിട്ട് അക്കൌണ്ട് അടയ്ക്കാനുള്ള ബട്ടണ്‍ തെരഞ്ഞെടുക്കുക"
+      close_account_q: "എന്റെ അക്കൗണ്ട്‌ നീക്കം ചെയ്യുന്നതെങ്ങനെ?"
+      data_other_podmins_q: "മറ്റു പോഡുകളുടെ കാര്യനിർവ്വാഹകർക്ക് എന്റെ വിവരങ്ങൾ കാണാൻ സാധ്യമാണോ?"
+      data_visible_to_podmin_q: "എന്റെ എത്രത്തോളം വിവരങ്ങള്‍ എന്റെ പോഡ്കാര്യനിര്‍വാഹകനു കാണാന്‍  കഴിയും?"
+      download_data_a: "സാധിക്കും. സജ്ജീകരണം താളിലെ അക്കൗണ്ട് ടാബില്‍ അവസാനം അവിടെ രണ്ട് ബട്ടണുകള്‍ വിവരങ്ങള്‍ ഡൗൺലോഡ് ചെയ്യാന്‍ ഉണ്ട്."
+      download_data_q: "എന്റെ അക്കൗണ്ടില്‍ ഉള്ള എല്ലാ വിവരങ്ങളും എനിക്ക് ഡൗൺലോഡ് ചെയ്യാൻ സാധിക്കുമോ?"
+      move_pods_q: "എന്റെ അക്കൗണ്ട്‌ ഒരു പോഡിൽ നിന്നും മറ്റൊന്നിലേക്ക് മാറ്റുന്നതെങ്ങനെ?"
+      title: "അക്കൗണ്ട്, വിവരങ്ങളുടെ പരിപാലനം"
+    aspects:
+      change_aspect_of_post_a: "ഇല്ല. പക്ഷെ താങ്കള്‍ക്കു എപ്പൊളും പുതിയ കുറിപ്പുകള്‍ ഒരേ വിവരം ഉപയോഗിച്ചു നിര്‍മ്മിക്കാനും വ്യത്യസ്ത പരിചയങ്ങളിലേക്കു പോസ്റ്റ് ചെയ്യാനും കഴിയും"
+      change_aspect_of_post_q: "ഞാനൊരിക്കല്‍ പോസ്റ്റ് ചെയ്ത് കഴിഞ്ഞാല്‍ അത് കാണാന്‍ സാധിക്കുന്ന് പരിചയങ്ങള്‍ തിരുത്താമോ?"
+      contacts_know_aspect_a: "ഇല്ല. അവര്‍ക്കു ഒരു സാഹചര്യത്തിലും പരിചയത്തിന്റെ പേര് കാണാന്‍ കഴിയുന്നതല്ല."
+      contacts_know_aspect_q: "എന്റെ സമ്പര്‍ക്കങ്ങള്‍ക്ക് ഏത് പരിചയത്തിലാണു ഞാന്‍ അവരെ സ്ഥാപിച്ചിരിക്കുന്നതെന്നു അറിയുവാന്‍ കഴിയുമൊ?"
+      contacts_visible_q: "\"പരിചയം ദൃശ്യമാക്കുക\" എന്നാൽ എന്താണ്?"
+      delete_aspect_q: "എനിക്ക് എങ്ങനെ ഒരു പരിചയം ഒഴിവാക്കാന്‍ സാധിക്കും?"
+      person_multiple_aspects_q: "എനിക്ക് ഒരു വ്യക്ത്തിയെ പല പരിചയങ്ങളിലേക്ക് ചേര്‍ക്കാന്‍ സാധിക്കുമോ?"
+      post_multiple_aspects_q: "എനിക്ക് പല പരിചയങ്ങളിലേക്ക് ഒരേ സമയം ഒരാശയം പോസ്റ്റ് ചെയ്യാന്‍ സാധിക്കുമോ?"
+      remove_notification_a: "ഇല്ല."
+      remove_notification_q: "ഞാന്‍ ഒരാളെ അല്ലെങ്കില്‍ എല്ലാവരെയും എന്റെ പരിചയത്തില്‍ നീന്നു ഒഴിവാക്കുമ്പോള്‍ അവരത് അറിയുമൊ?"
+      rename_aspect_q: "എനിക്ക് ഒരു പരിചയത്തിന് വേറെ പേര് നല്‍കാനാകുമോ?"
+      restrict_posts_i_see_q: "പ്രത്യേക പരിചയങ്ങളിലെ പോസ്റ്റുകള്‍ മാത്രമായി കാണാന്‍ വഴിയുണ്ടോ?"
+      title: "പരിചയങ്ങള്‍"
+      what_is_an_aspect_a: "ഡയസ്പോറയില്‍ നിങ്ങളുടെ സമ്പര്‍ക്കങ്ങളെ വര്‍ഗ്ഗീകരിക്കാനുള്ള ഒരു വഴിയാണ് പരിചയങ്ങള്‍. നിങ്ങള്‍ ലോകത്തിന് മുന്നില്‍ കാണിക്കുന്ന ഒരു മുഖമാണ് പരിചയങ്ങള്‍. അത് ജോലിയില്‍, കുടുബത്തില്‍, നിങ്ങളുടെ ക്ലബ്ബിലെ സുഹൃത്തുക്കളുടെ മുന്നില്‍ നിങ്ങള്‍ എങ്ങനെ വേണെ എന്ന് തീരുമാനിക്കുന്നു"
+      what_is_an_aspect_q: "എന്താണ് ഒരു പരിചയം?"
+      who_sees_post_a: "ഒരു പരിമിത പോസ്റ്റ് ഉണ്ടാക്കിയാല്‍, അത് ആ പരിചയത്തിലോ പരിചയങ്ങളിലോ ഉള്ള ആളുകള്‍ക്ക് മാത്രമേ കാണാന്‍ പറ്റു. നിങ്ങള്‍ പൊതു ആക്കിയിട്ടില്ലെങ്കില്‍ ആ പരിചയത്തിന് പുറത്തുള്ള ആളുകള്‍ കാണാന്‍ യാതൊരു വഴിയുമില്ല. പരിചയത്തിലില്ലാത്ത ആളുകള്‍ക്ക് നിങ്ങളുടെ പൊതു പോസ്റ്റുകള്‍ മാത്രമേ കാണാനാകു."
+      who_sees_post_q: "ഞാന്‍ ഒരു പരിചയത്തില്‍ പോസ്റ്റ് ചെയ്യുമ്പോള്‍ അത് ആരൊക്കെ കാണും?"
+    foundation_website: "ഡയസ്പോറ ഫൌണ്ടേഷന്‍ വെബ്സൈറ്റ്"
+    getting_help:
+      get_support_a_hashtag: "%{question} ഹാഷ്‌ടാഗ് ഉപയോഗിച്ച് പൊതു കുറിപ്പായി ഡയസ്പോറയില്‍* ചോദ്യം ചോദിക്കാവുന്നതാണ്"
+      get_support_a_irc: "%{irc} ല്‍ ഞങ്ങളോടൊപ്പെ ചേരുക (തത്സമയ സംഭാഷണം)"
+      get_support_a_tutorials: "നമ്മുടെ %{tutorials} കാണുക"
+      get_support_a_website: "%{link} സന്ദര്‍ശിക്കുക"
+      get_support_a_wiki: "%{link} തെരയുക"
+      get_support_q: "എന്റെ ചോദ്യത്തിന് FAQ - ല്‍ ഉത്തരമില്ലെങ്കിലോ? വേറെവിടെനിന്നെനിക്ക് സഹായം ലഭിക്കും?"
+      getting_started_q: "സഹായിക്കുക! എനിക്ക് തുടങ്ങാൻ കുറച്ച് പ്രാഥമികസഹായം ആവശ്യമാണ്!"
+      title: "സഹായം കിട്ടാന്‍"
+    getting_started_tutorial: "തുടക്കം കുറിക്കുന്നതിനുള്ള പഠനോപകരണങ്ങളുടെ ശ്രേണി"
+    here: "ഇവിടെ"
+    irc: "ഐ. ആര്‍. സി ."
+    markdown: "മാര്‍ക്ക്ഡൌണ്‍"
+    mentions:
+      how_to_mention_q: "ഒരു പോസ്റ്റ് ഉണ്ടാക്കുമ്പോള്‍ എങ്ങനെ ഒരാളെ സൂചിപ്പിക്കാം?"
+      mention_in_comment_a: "ഇല്ല, ഇപ്പോഴില്ല."
+      mention_in_comment_q: "അഭിപ്രായത്തില്‍ ഒരാളെ സൂചിപ്പിക്കാന്‍ പറ്റുമോ?"
+      see_mentions_a: "പൂമുഖത്തിന്റെ ഇടതുവശത്തെ \"സൂചനകള്‍\" നോക്കു."
+      see_mentions_q: "എന്നെ സൂചിപ്പിച്ച പോസ്റ്റുകള്‍ കാണാന്‍ വഴിയുണ്ടോ?"
+      title: "സൂചനകള്‍"
+      what_is_a_mention_a: "പോസ്റ്റില്‍ കാണുന്ന വ്യക്തിയുടെ പ്രൊഫൈലിലേക്കുള്ള കണ്ണിയാണ് സൂചന. ആരെയെങ്കിലും സൂചിപ്പിക്കുമ്പോള്‍ അവരുടെ ശ്രദ്ധ ക്ഷണിക്കുന്നതിലേക്കായി അറിയിപ്പ് ലഭിക്കും."
+      what_is_a_mention_q: "എന്താണ് \"സുചന\"?"
+    miscellaneous:
+      back_to_top_a: "സാധിക്കും. ഒരു പേജിന്റെ താഴേക്ക് നീങ്ങിയ ശേഷം, താങ്കളുടെ ബ്രൗസറിന്റെ താഴെ വലത് മൂലയില്‍ വരുന്ന ചാരനിറത്തിലുള്ള \"അമ്പ്\" അടയാളം ഞെക്കുക."
+      back_to_top_q: "ഒരു പേജിന്റെ താഴേക്ക് നീങ്ങിയ ശേഷം മുകളിലേക്ക് തിരിച്ചെത്താൻ എളുപ്പവഴിയുണ്ടോ?"
+      diaspora_app_a: "വികസനത്തിന്റെ ആരംഭദശയിലുള്ള അനവധി ആൻഡ്രോയിഡ് ആപ്പുകള്‍ ഉണ്ട്. വളരെ നാളായി ഉപേക്ഷിക്കപ്പെട്ട ചിലത് ഡയസ്പോറയുടെ ഇപ്പോളത്തെ പതിപ്പുമായി ചേർന്ന് ഫലവത്തായി പ്രവര്‍ത്തിക്കില്ല. ഈ ആപ്പുകളില്‍ നിന്ന് കൂടുതലൊന്നും ഇപ്പോള്‍ പ്രതീക്ഷിക്കരുത്. തല്‍ക്കാലം, താങ്കളുടെ മൊബൈലില്‍ നിന്നും ഡയസ്പോറ* എടുക്കാനുള്ള ഏറ്റവും നല്ല വഴി ഒരു ബ്രൗസറില്‍ കൂടിയാണ്, എന്തെന്നാല്‍ ഞങ്ങള്‍ സൈറ്റിന്റെ എല്ലാ ഉപകരണത്തിലും പ്രവര്‍ത്തിക്കുന്ന ഒരു മൊബൈല്‍ പതിപ്പ് സൃഷ്ടിച്ചിട്ടുണ്ട്. iOSനും തല്‍ക്കാലം ഒരു ആപ്പ് ഇല്ല. അതിലും ബ്രൗസറില്‍ കൂടി ഡയസ്പോറ* നന്നായി പ്രവര്‍ത്തിക്കും."
+      diaspora_app_q: "ആൻഡ്രോയിഡിനോ, iOSനോ വേണ്ടിയുള്ള ഒരു ഡയസ്പോറ ആപ്പ് എവിടെ?"
+      photo_albums_a: "തല്‍ക്കാലം ഇല്ല. എന്നിരുന്നാലും, താങ്കള്‍ക്ക് അവരുടെ അപ്‌ലോഡ് ചെയ്ത ചിത്രങ്ങളുടെ ഒരു നിര, അവരുടെ പ്രൊഫൈല്‍ പേജിന്റെ വശത്തെ പട്ടയിലുള്ള ചിത്രങ്ങള്‍ എന്ന വിഭാഗത്തില്‍ കാണാവുന്നതാണ്."
+      photo_albums_q: "ചിത്രങ്ങളുടെ അല്ലെങ്കില്‍ ചലച്ചിത്രങ്ങളുടെ ആല്‍ബങ്ങള്‍ ഉണ്ടോ?"
+      subscribe_feed_a: "സാധിക്കും, പക്ഷേ അത് ഇപ്പോഴും അത്ര വെടിപ്പാക്കിയിട്ടുള്ള പ്രത്യേകത അല്ല. അതിനാല്‍ തന്നെ ഫലങ്ങളുടെ ക്രമീകരണം ഇപ്പോഴും അത്ര ശരിയല്ല. താങ്കള്‍ക്ക് എങ്ങനെയെങ്കിലും അത് ശ്രമിച്ചു നോക്കണമെന്നുണ്ടെങ്കില്‍, ആരുടെയെങ്കിലും പ്രൊഫൈല്‍ താളില്‍ പോയി, താങ്കളുടെ ബ്രൗസറിലെ ഫീഡ് ബട്ടൺ ഞെക്കുകയോ, അല്ലെങ്കില്‍ പ്രൊഫൈലിന്റെ വിലാസം ( ഉദാ: https://joindiaspora.com/people/somenumber) പകര്‍ത്തി ഒരു ഫീഡ് റീഡറിലേക്ക് നിക്ഷേപിക്കുകയോ ചെയ്യാം. പരിണിതഫലം ഇങ്ങനെ ആയിരിക്കും :  https://joindiaspora.com/public/username.atom . ഡയസ്പോറ RSSനേക്കാള്‍ ആറ്റമാണ് ഉപയോഗിക്കുന്നത്."
+      subscribe_feed_q: "വേറൊരാളുടെ പൊതുവായ കുറിപ്പുകളിലേക്ക് എനിക്ക് ഒരു ഫീഡ് റീഡര്‍ ഉപയോഗിച്ച് വരിക്കാരനാകാമോ?"
+      title: "ബഹുവിധമായ"
+    pods:
+      find_people_a: "വലതുവശത്തെ കണ്ണിയില്‍ നിന്നും നിങ്ങളുടെ സുഹൃത്തുക്കളെ ക്ഷണിക്കുക. #ടാഗുകള്‍ പിന്‍തുടര്‍ന്ന് നിങ്ങളുടെ അതേ താല്പര്യമുള്ളവരെ കണ്ടെത്തുക, അതില്‍ നിങ്ങള്‍ക്ക് ഇഷ്ട്ടപെടുന്ന കാര്യങ്ങള്‍ പങ്കിടുന്ന ആളുകളെ ഒരു പരിചയത്തില്‍ ചേര്‍ക്കുക. ഒരു പൊതു പോസ്റ്റില്‍ #newhere എന്ന് പറയുക."
+      find_people_q: "ഞാനൊരു പോഡില്‍ ചേര്‍ന്നു, പങ്കിടേണ്ട ആളുകളെ എങ്ങനെ കണ്ടെത്താം?"
+      title: "പോഡുകള്‍"
+      use_search_box_q: "ഒരു പ്രത്യേക ആളിനെ എങ്ങനെ തെരഞ്ഞ് കണ്ടുപിടിക്കാം?"
+      what_is_a_pod_q: "എന്താണ് പോഡ്?"
+    posts_and_posting:
+      char_limit_services_q: "എത്രയാണു ചെറിയ അക്ഷര പരിധിയുള്ള ബന്ധപ്പെട്ട സേവനങ്ങള്‍ വഴി പങ്കു വച്ച കുറിപ്പുകള്‍ടെ അക്ഷര പരിധി?"
+      character_limit_a: "65,535 അക്ഷരങ്ങള്‍. അതായത് ടിറ്ററിനെക്കാള്‍ 65,395 അക്ഷരങ്ങള്‍ കൂടുതല്‍! ;)"
+      character_limit_q: "എത്രയാണു കുറിപ്പിന്റെ അക്ഷര പരിധി?"
+      embed_multimedia_q: "ഞാന്‍ എങ്ങനെ വീഡിയോ, ഓഡിയോ, അല്ലെങ്കില്‍ മറ്റു മള്‍ട്ടിമീഡിയ വിവരങ്ങള്‍ കുറിപ്പിലെക്കു ഉറപ്പിക്കും?"
+      format_text_q: "എനിക്ക് എന്റെ കുറിപ്പുകളിലെ അക്ഷരങ്ങള്‍ എങ്ങനെ മാറ്റം വരുത്താം(കട്ടിയെഴുത്ത്,ചെരിവെഴുത്ത്‌, തുടങ്ങിയവ.)?"
+      hide_posts_q: "എങ്ങനെ ഒരു കുറിപ്പ് മറയ്ക്കാം.?/ എങ്ങനെ ഞാന്‍ അഭിപ്രായം രേഖപ്പെടുതിയ ഒരു കുറിപ്പിനെ കുറിച്ചുള്ള അറിയിപ്പുകള്‍ ലഭിക്കുന്നത് നിര്‍ത്തലാക്കാം?"
+      image_text: "അടികുറുപ്പ്"
+      image_url: "ചിത്രത്തിന്റെ വിലാസം."
+      insert_images_comments_a1: "താഴെയുള്ള മാര്‍ക്ക്ഡൌണ്‍ കോഡ്"
+      insert_images_comments_a2: "കുറിപ്പുകളില്‍ എന്നപോലെ അഭിപ്രായവും ചിത്രമായി വെബില്‍ നീന്നു ചേര്‍ക്കാവുന്നതാണു."
+      insert_images_comments_q: "അഭിപ്രായം രേഖപ്പെടുത്തുമ്പോള്‍ ചിത്രങ്ങളും ഉള്‍പ്പെടുത്താമോ?"
+      insert_images_q: "ചിത്രങ്ങൾ എപ്രകാരം പോസ്റ്റിൽ ഉൾപ്പെടുത്താം?"
+      size_of_images_a: "ഇല്ല. ചിത്രങ്ങള്‍ സ്ട്രീമിലേക്ക് കൊള്ളിക്കുന്നതിനായി തനിയെ വലിപ്പം മാറ്റും. മാര്‍ക്ക്ഡൌണില്‍ വലിപ്പം പറയാനുള്ള കോഡില്ല"
+      size_of_images_q: "എനിക്ക് കുറിപ്പുകളിലെയും അഭിപ്രായങ്ങളിലെയും ചിത്രങ്ങളുടെ വലുപ്പം ക്രമീകരിക്കന്‍ കഴിയുമൊ?"
+      stream_full_of_posts_a1: "താങ്കളുടെ സ്ട്രീമ് മൂന്നു തരം കുറിപ്പുകള്‍ കൊണ്ടു രൂപികരിച്ചതാണു."
+      stream_full_of_posts_li2: "പൊതു കുറിപ്പുകളില്‍ താങ്കള്‍ പിന്തുടരുന്ന ഏതെങ്കിലും ടാഗ് ഉണ്ടായിരിക്കും. ഇത് ഒഴിവാക്കാനായി ആ ടാഗ് പിന്തുടരുന്നത് നിര്‍ത്തുക."
+      stream_full_of_posts_q: "എന്ത്കൊണ്ടാണു എന്റെ സ്ട്രീമ് നിറയെ ഞാന്‍ അറിയാത്തവരുടെയും ഞാന്‍ പങ്കുവെക്കാത്തവരുടെയും കുറിപ്പുകള്‍?"
+      title: "കുറിപ്പുകള്‍"
+    private_posts:
+      can_comment_a: "തങ്കളുടെ ആ പരിചയത്തില്‍ ഉള്ളതും ഡയസ്പോറയില്‍ പ്രവേശിച്ചിട്ടുള്ളതും ആയ ഉപയോക്താക്കള്‍ക്കു മാത്രമേ താങ്കളുടെ സ്വകാര്യ കുറുപ്പുകളില്‍ അഭിപ്രായം രേഖ്പ്പെടുത്താനും ഇഷ്ട്പ്പെടാനും കഴിയു."
+      can_comment_q: "ആര്‍ക്കാണു എന്റെ സ്വകാര്യ പോസ്റ്റില്‍ അഭിപ്രായം രേഖപ്പെടുത്താന്‍ കഴിയുക?"
+      can_reshare_a: "ആര്‍ക്കും പറ്റില്ല. സ്വകാര്യ കുറിപ്പുകള്‍ വീണ്ടും പങ്കിടാന്‍ പറ്റില്ല. പക്ഷേ, ലോഗിന്‍ ചെയ്തിരിക്കുന്ന അതേ പരിചയത്തിലുള്ള ഡയസ്പോറ* ഉപയോക്താക്കള്‍ക്ക് പകര്‍ത്തി ഒട്ടിക്കാന്‍ പറ്റും"
+      can_reshare_q: "ആര്‍ക്കാണു എന്റെ കുറിപ്പു വീണ്ടും പങ്കിടാന്‍ കഴിയുക?"
+      see_comment_q: "ഞാന്‍ ഒരു സ്വകാര്യ കുറിപ്പില്‍ അഭിപ്രായം രേഖപ്പെടുത്തുകയോ ഇഷ്ടപ്പെടുകയൊ ചെയ്താല്‍ ആര്‍ക്കാണു കാണാന്‍ കഴിയുക?"
+      title: "സ്വകാര്യ പോസ്റ്റുകള്‍"
+      who_sees_post_a: "ആ പരിചയത്തില്‍ ഉള്ള ഡയസ്പോറയില്‍ പ്രവേശിച്ചിരിക്കുന്ന ഉപയോക്താക്കള്‍ക്കു മാത്രമേ താങ്കളുടെ സ്വകാര്യ കുറിപ്പുകള്‍ കാണാന്‍ കഴിയു."
+      who_sees_post_q: "ഞാന്‍ ഒരു ഭാവത്തിലേക്കു സന്ദേശം  പോസ്റ്റ് ചെയ്തത് (i.e., സ്വകാര്യ കുറിപ്പുകള്‍), ആര്‍ക്കെല്ലാം കാണാന്‍ കഴിയും?"
+    private_profiles:
+      title: "സ്വകാര്യ പ്രൊഫൈലുകൾ"
+      whats_in_profile_q: "എന്റെ സ്വകാര്യ പ്രൊഫൈലിൽ എന്തെല്ലാം ഉൾപ്പെടുന്നു?"
+      who_sees_profile_q: "ആര്‍ക്കെല്ലാം എന്റെ സ്വകാര്യ പ്രൊഫൈല്‍ കാണാന്‍ കഴിയും?"
+      who_sees_updates_a: "താങ്കളുടെ പരിചയത്തില്‍ ഉള്ളവര്‍ക്കെല്ലാം താങ്കളുടെ സ്വകാര്യ പ്രൊഫൈലിലെ മാറ്റങ്ങള്‍ കാണാന്‍ കഴിയും. "
+      who_sees_updates_q: "ആർക്കെല്ലാം എന്റെ സ്വകാര്യ പ്രൊഫൈലിലെ മാറ്റങ്ങള്‍ കാണാന്‍ കഴിയും?"
+    public_posts:
+      can_comment_reshare_like_a: "എല്ലാ പ്രവേശിച്ചിരിക്കുന്ന ഡയസ്പോറ* ഉപയോക്താക്കള്‍ക്കും അഭിപ്രായം, ഇഷ്ട്ടപ്പെടല്‍, വീണ്ടും പങ്കിടല്‍ തുടങ്ങിയവ ചെയ്യാനാകും"
+      can_comment_reshare_like_q: "എന്റെ പൊതു കുറിപ്പില്‍ അര്‍ക്കാക്കെ ഇഷ്ട്ടപ്പെടാന്‍, അഭിപ്രായം പറയാന്‍, വീണ്ടും പങ്കിടാന്‍ പറ്റും?"
+      find_public_post_q: "എന്റെ പൊതു കുറിപ്പുകൾ എങ്ങനെ മറ്റുള്ളവർ കാണും?"
+      title: "പൊതുവായ കുറിപ്പുകൾ"
+      who_sees_post_a: "ഇന്റെര്‍നെറ്റ് ഉപയോഗിക്കുന്ന ഏതൊരാള്‍ക്കും നിങ്ങളുടെ പൊതു കുറിപ്പ് കാണാന്‍ പറ്റും. അതുകൊണ്ട് കുറിപ്പ് പൊതുവാക്കണോ എന്ന് ശരിക്ക് ഉറപ്പാക്കുക. അത് എല്ലാവരിലേക്കും എത്താന്‍ വളരെ നല്ല ഒരു വഴിയാണ്"
+      who_sees_post_q: "ഞാനെന്തെങ്കിലും പൊതുവായി കൂറിക്കുമ്പോള്‍ ആര്‍ക്കൊക്കെ കാണാന്‍ പറ്റും?"
+    public_profiles:
+      title: "പൊതുവായ പ്രൊഫൈലുകൾ"
+      what_do_tags_do_q: "എന്റെ പൊതു പ്രൊഫൈലിലുള്ള ടാഗുകള്‍ എന്താ ചെയ്യുന്നത്?"
+      whats_in_profile_q: "എന്റെ പൊതു പ്രൊഫൈലില്‍ എന്താണുള്ളത്?"
+      who_sees_profile_q: "എന്റെ പൊതു പ്രൊഫൈല്‍ ആരൊക്കെ കാണും?"
+      who_sees_updates_a: "താങ്കളുടെ പ്രൊഫൈല്‍ സന്ദര്‍ശിക്കുന്ന ആര്‍ക്കും മാറ്റങ്ങള്‍ കാണാം"
+      who_sees_updates_q: "എന്റെ പൊതു പ്രാഫൈലിലെ പുതുക്കലുകള്‍ ആര്‍ക്കൊക്കെ കാണാന്‍ പറ്റും?"
+    resharing_posts:
+      reshare_private_post_aspects_q: "ചില പരിചയങ്ങള്‍ക്ക് മാത്രമായി സ്വകാര്യ പോസ്റ്റ് പങ്കിടാന്‍ പറ്റുമോ?"
+      reshare_public_post_aspects_q: "പൊതു കുറിപ്പുകള്‍ പ്രത്യേക പരിചയത്തിലായി മാത്രം പങ്കിടാന്‍ പറ്റുമോ?"
+      title: "കുറിപ്പുകള്‍ പങ്കിടല്‍"
+    sharing:
+      add_to_aspect_li7: "ബെന്നിന്റെ സമ്പര്‍ക്ക താളില്‍ \"നിങ്ങളുമായി മാത്രം പങ്ക് വച്ചത്\" നു തഴെ ആമി കാണപ്പെടം."
+      only_sharing_q: "എന്റെ സമ്പര്‍ക്ക താളില്‍ \"നിങ്ങളുമായി മാത്രം പങ്ക് വച്ചത്\" ല്‍ കാണിക്കുന്ന സുഹൃത്തുക്കൾ ആരൊക്കെ?"
+      title: "പങ്കുവെക്കൽ"
+    tags:
+      title: "ടാഗുകള്‍"
+      what_are_tags_for_q: "ടാഗുകള്‍ എന്തിനാണ്?"
+    third_party_tools: "മൂന്നാം കക്ഷി ഉപകരണങ്ങള്‍"
+    tutorial: "പഠനോപകരണങ്ങള്‍"
+    tutorials: "പഠനോപകരണങ്ങള്‍"
+    wiki: "വിക്കി"
+  hide: "മറയ്ക്കുക"
+  ignore: "അവഗണിക്കുക"
   invitation_codes:
     excited: "%{name} താങ്കളെ ഇവിടെ കണ്ടതിൽ ആഹ്ലാദിക്കുന്നു."
   invitations:
@@ -307,20 +481,25 @@ ml:
       empty: "ദയവായി കുറഞ്ഞത് ഒരു ഈമെയിൽ വിലാസമെങ്കിലും നൽകുക"
       no_more: "താങ്കള്‍ക്ക് ഇനി ക്ഷണങ്ങളൊന്നും ബാക്കിയില്ല."
       note_already_sent: "ക്ഷണക്കത്തുകൾ മുൻപേ തന്നെ അയച്ചിട്ടുണ്ട്: %{emails}"
+      own_address: "നിങ്ങളുടെ സ്വന്തം വിലാസത്തിലേക്ക് ക്ഷണം അയക്കാന്‍ സാധിക്കില്ല."
       rejected: "ഈ ഇമെയില്‍ വിലാസങ്ങള്‍ക്ക് പ്രശ്നങ്ങളുണ്ട്: "
+      sent: "%{emails} ലേക്ക് ക്ഷണം അയച്ചു"
     edit:
       accept_your_invitation: "നിങ്ങൾക്കുള്ള ക്ഷണം സ്വീകരിക്കുക"
+      your_account_awaits: "താങ്കളുടെ അക്കൗണ്ട് കാത്തിരിക്കുന്നു!"
     new:
+      already_invited: "ഇപ്പറയുന്ന ആള്‍ക്കാര്‍ നിങ്ങളുടെ ക്ഷണം സ്വീകരിച്ചിട്ടില്ല."
       aspect: "പരിചയം"
+      check_out_diaspora: "ഡയസ്പുറ ഉപയോഗിച്ചുനോക്കു!"
       codes_left:
         one: "ഈ ക്ഷണക്കത്തിൽ ഒരു ക്ഷണം ബാക്കിയുണ്ട്."
         other: "ഈ ക്ഷണക്കത്തിൽ %{count} ക്ഷണങ്ങൾ ബാക്കിയുണ്ട്."
         zero: "ഈ ക്ഷണക്കത്തിൽ ക്ഷണങ്ങൾ ഒന്നും ബാക്കിയില്ല"
       comma_separated_plz: "താങ്കള്‍ക്ക് കോമാ ഉപയോഗിച്ച് ഒന്നില്‍ കൂടൂതല്‍ ഇമെയില്‍ വിലാസങ്ങള്‍ ചേര്‍ക്കാം."
       if_they_accept_info: "അവര്‍ അംഗീകരിക്കുകയാണെങ്കില്‍, അവരെ താങ്കള്‍ ക്ഷണിച്ച പരിചയത്തിലേയ്ക്ക് ചേര്‍ക്കും."
-      invite_someone_to_join: "ഡയസ്പോറയില്‍ ചേരാന്‍ ആരെയെങ്കിലും ക്ഷണിക്കു!"
+      invite_someone_to_join: "ഡയാസ്പുറയില്‍ ചേരാന്‍ ആരെയെങ്കിലും ക്ഷണിയ്ക്കു!"
       language: "ഭാഷ"
-      paste_link: "താങ്കളുടെ സുഹൃത്തുക്കളെ ഡയസ്പോറ*യിലേക്ക് ക്ഷണിക്കാൻ ഈ ലിങ്ക് അവരുമായി പങ്കുവയ്ക്കുക അല്ലെങ്കിൽ അവർക്ക് ഈ ലിങ്ക് നേരിട്ട് ഈമെയിൽ അയയ്ക്കുക."
+      paste_link: "താങ്കളുടെ സുഹൃത്തുക്കളെ ഡയസ്പോറ*യിലേക്ക് ക്ഷണിക്കാൻ ഈ ലിങ്ക് അവരുമായി പങ്കുവയ്ക്കുക, അല്ലെങ്കിൽ അവർക്ക് ഈ ലിങ്ക് നേരിട്ട് ഈമെയിൽ അയയ്ക്കുക."
       personal_message: "വ്യക്തിപരമായ സന്ദേശം"
       resend: "വീണ്ടും അയയ്ക്കുക"
       send_an_invitation: "ഒരു ക്ഷണം അയയ്ക്കു"
@@ -330,7 +509,7 @@ ml:
   layouts:
     application:
       back_to_top: "തിരികെ മുകളിലേക്ക്"
-      powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
+      powered_by: "ഡയാസ്പുറയാല്‍* ശക്തമാക്കിയത്"
       public_feed: "%{name} -ന്റെ പൊതു ഡയസ്പോറ ഫീഡ്"
       source_package: "സോഴ്സ് കോഡ് പൊതിക്കെട്ട് സൂക്ഷിക്കുക"
       toggle: "മൊബൈല്‍ സൈറ്റിലേക്ക് മാറുക"
@@ -340,6 +519,7 @@ ml:
       admin: "കാര്യനിർവാഹകൻ"
       blog: "ബ്ലോഗ്"
       code: "കോഡ്"
+      help: "സഹായം"
       login: "അകത്ത് കടക്കുക"
       logout: "പുറത്ത് കടക്കു"
       profile: "പ്രൊഫൈല്‍"
@@ -357,20 +537,17 @@ ml:
         other: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
         zero: "ആരും ഇത് ഇഷ്ടപ്പെടുന്നില്ല."
       people_like_this_comment:
-        one: "%{count} ഇഷ്ട്ടപ്പെടല്‍"
-        other: "%{count} ഇഷ്ട്ടപ്പെടലുകള്‍"
-        zero: "ഇഷ്ട്ടപ്പെടലുകളില്ല"
+        one: "%{count} ഇഷ്ടപ്പെടല്‍"
+        other: "%{count} ഇഷ്ടപ്പെടലുകള്‍"
+        zero: "ഇഷ്ടപ്പെടലുകള്‍ ഇല്ല"
   limited: "പരിമിതം"
   more: "കൂടുതല്‍"
   next: "അടുത്തത്"
   no_results: "ഫലങ്ങളൊന്നും കണ്ടെത്താനായില്ല."
   notifications:
     also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
       one: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} commented on a deleted post."
@@ -379,13 +556,6 @@ ml:
       other: "%{actors} commented on a deleted post."
       two: "%{actors} commented on a deleted post."
       zero: "%{actors} commented on a deleted post."
-    comment_on_post:
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
     helper:
       new_notifications:
         few: "%{count} new notifications"
@@ -436,12 +606,9 @@ ml:
       zero: "%{actors} mentioned you in a deleted post."
     post: "കുറിപ്പ്"
     private_message:
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
-      two: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
+      one: "%{actors} താങ്കള്‍ക്ക് ഒരു സന്ദേശം അയച്ചു."
+      other: "%{actors} താങ്കള്‍ക്ക് ഒരു സന്ദേശം അയച്ചു."
+      zero: "%{actors} താങ്കള്‍ക്ക് ഒരു സന്ദേശം അയച്ചു."
     reshared:
       few: "%{actors} have reshared your %{post_link}."
       many: "%{actors} have reshared your %{post_link}."
@@ -460,6 +627,11 @@ ml:
     a_post_you_shared: "ഒരു കുറിപ്പ്."
     accept_invite: "താങ്കളുടെ ഡയസ്പോറ* ക്ഷണം സ്വീകരിക്കുക!"
     click_here: "ഇവിടെ ഞെക്കുക"
+    comment_on_post:
+      reply: "%{name} - ന്റെ കുറിപ്പ് കാണുകയോ അതിന് മറുപടി  അയക്കുകയോ ചെയ്യുക >"
+    confirm_email:
+      click_link: "താങ്കളുടെ ഈമെയില്‍ ഐഡി %{unconfirmed_email} പ്രയോഗക്ഷമമാക്കാൻ ഈ കണ്ണി പിന്തുടരുക:"
+      subject: "താങ്കളുടെ ഈമെയില്‍ ഐഡി %{unconfirmed_email} ദയവായി പ്രയോഗക്ഷമമാക്കുക"
     email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "നമസ്‌കാരം %{name}!"
     invite:
@@ -484,17 +656,22 @@ ml:
       view_post: "കുറിപ്പ് കാണുക >"
     mentioned:
       mentioned: "താങ്കളെ ഒരു കുറിപ്പില്‍ സൂചിപ്പിച്ചു:"
-      subject: "%{name} താങ്കളെ ഡയസ്പോറയില്‍* സൂചിപ്പിച്ചു"
+      subject: "%{name} താങ്കളെ ഡയാസ്പുറയില്‍* സൂചിപ്പിച്ചു"
+    private_message:
+      reply_to_or_view: "ഈ സംഭാഷണം കാണുകയോ മറുപടി അയക്കുകയോ ചെയ്യുക >"
     reshared:
+      reshared: "%{name} നിങ്ങളുടെ കുറിപ്പ് വീണ്ടും പങ്കുവെച്ചിരിക്കുന്നു"
       view_post: "കുറിപ്പ് കാണുക >"
     single_admin:
-      admin: "നിങ്ങളുടെ ഡയസ്പോറ മേല്‍നോട്ടക്കാരന്‍"
-      subject: "നിങ്ങളുടെ ഡയസ്പോറ അക്കൌണ്ടിനെ സംബന്ധിച്ച് ഒരു സന്ദേശം:"
+      admin: "നിങ്ങളുടെ ഡയാസ്പുറ മേല്‍നോട്ടക്കാരന്‍"
+      subject: "നിങ്ങളുടെ ഡയാസ്പുറ അക്കൌണ്ടിനെ സംബന്ധിച്ച് ഒരു സന്ദേശം:"
     started_sharing:
       sharing: "നിങ്ങളുമായി പങ്കിടാൻ ആരംഭിച്ചിരിക്കുന്നു"
-      subject: "%{name} താങ്കളുമായി ഡയസ്പോറയില്‍ പങ്കിടാന്‍ തുടങ്ങി"
+      subject: "%{name} താങ്കളുമായി ഡയാസ്പുറയില്‍ പങ്കിടാന്‍ തുടങ്ങി"
+      view_profile: "%{name} - ന്റെ പ്രൊഫൈല്‍ കാണുക"
     thanks: "നന്ദിയോടെ,"
     to_change_your_notification_settings: "അറിയിപ്പുകളെപ്പറ്റിയുള്ള സജ്ജീകരണങ്ങളിൽ മാറ്റം വരുത്തുക"
+  nsfw: "ജോലിക്ക് സുരക്ഷിതമല്ല"
   ok: "ശരി"
   or: "അല്ലെങ്കില്‍"
   password: "അടയാളവാക്ക്"
@@ -508,15 +685,17 @@ ml:
       edit_membership: "പരിചയത്തിലെ അംഗത്വം തിരുത്തു"
     few: "%{count} ആളുകള്‍"
     helper:
+      is_not_sharing: "%{name} നിങ്ങളുമായി പങ്കുവെയ്ക്കുന്നില്ല."
+      is_sharing: "%{name} നിങ്ങളുമായി പങ്കുവെയ്ക്കുന്നു."
       people_on_pod_are_aware_of: " ഈ പോഡിലെ ആളുകള്‍ക്ക് ഇതിനെകുറിച്ച് അറിവുണ്ട്"
       results_for: " %{params} ന്റെ ഫലങ്ങള്‍"
     index:
       couldnt_find_them_send_invite: "കണ്ടുപിടിയ്ക്കാനാകുന്നില്ലേ? ഒരു ക്ഷണം അയക്കു!"
+      looking_for: "%{tag_link} എന്ന ടാഗ് ചേര്‍ത്തിരിക്കുന്ന കുറിപ്പുകള്‍ക്കായി തിരയുകയാണോ?"
       no_one_found: "...പക്ഷേ, ഒരാളെയും കണ്ടുപിടിച്ചില്ല."
       no_results: "താങ്കള്‍ എന്തിനെങ്കിലും വേണ്ടി തിരയേണ്ടതുണ്ട്."
       results_for: "വിവരങ്ങള്‍ക്കായി തെരയുക"
       searching: "തിരഞ്ഞുകൊണ്ടിരിക്കുന്നു, ദയവായി കാത്തിരിക്കുക..."
-    last_post: "അവസാനത്തെ കുറിപ്പ്"
     many: "%{count} ആളുകള്‍"
     one: "ഒരാള്‍"
     other: "%{count} ആളുകള്‍"
@@ -532,11 +711,14 @@ ml:
       gender: "ലിംഗം"
       in_aspects: "പരിചയത്തില്‍"
       location: "സ്ഥലം"
+      photos: "ചിത്രങ്ങള്‍"
       remove_contact: "സമ്പര്‍ക്കം മാറ്റുക"
       remove_from: "%{name} നെ %{aspect} നിന്ന് മാറ്റട്ടേ?"
     show:
+      closed_account: "ഈ അക്കൗണ്ട് പൂട്ടിയിരിക്കുന്നു."
       does_not_exist: "വ്യക്തി നിലവിലില്ല!"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      ignoring: "നിങ്ങള്‍ %{name} - ഇല്‍ നിന്നുള്ളാ എല്ലാ കുറിപ്പുകളും അവഗണിക്കുന്നു."
       incoming_request: "%{name} നിങ്ങളുമായി പങ്കിടാന്‍ ആഗ്രഹിക്കുന്നു"
       mention: "സൂചിപ്പിച്ചു"
       message: "സന്ദേശം"
@@ -550,6 +732,7 @@ ml:
     sub_header:
       add_some: "എന്തെങ്കിലും ചേർക്കൂ"
       edit: "തിരുത്തുക"
+      you_have_no_tags: "താങ്കള്‍ക്ക് ഒരു ടാഗ് പോലുമില്ല!"
     two: "%{count} ആളുകള്‍"
     webfinger:
       fail: "ക്ഷമിക്കണം, ഞങ്ങള്‍ക്ക് %{handle} കണ്ടെത്താനായില്ല.."
@@ -596,26 +779,21 @@ ml:
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        one: "%{author} ല്‍ നിന്നും %{count} ചിത്രങ്ങള്‍"
+        other: "%{author} ല്‍ നിന്നും %{count} ചിത്രങ്ങള്‍"
+        zero: "%{author} ല്‍ നിന്നും ഒരു ചിത്രം"
       reshare_by: "Reshare by %{author}"
-  previous: "മുന്‍‌പത്തെ"
-  privacy: "സ്വകര്യത"
-  privacy_policy: "സ്വകര്യത നയം"
+  previous: "മുൻപത്തേത്"
+  privacy: "സ്വകാര്യത"
+  privacy_policy: "സ്വകാര്യതാനയം"
   profile: "പ്രൊഫൈല്‍"
   profiles:
     edit:
-      allow_search: "ഡയസ്പോറയ്ക്കകത്ത് മറ്റുള്ളവര്‍ എന്നെ കണ്ടെത്താന്‍ അനുവദിക്കുക"
+      allow_search: "ഡയാസ്പുറയ്ക്കകത്ത് മറ്റുള്ളവര്‍ എന്നെ കണ്ടെത്താന്‍ അനുവദിക്കുക"
       edit_profile: "പ്രൊഫൈല്‍ തിരുത്തുക"
       first_name: "ആദ്യ പേര്"
       last_name: "അവസാന പേര്"
       update_profile: "പ്രൊഫൈല്‍ പുതുക്കുക"
-      you_are_nsfw: "You have marked yourself not safe for work, your content will not show up in people who have opted out of seeing objectionable content's streams."
-      you_are_safe_for_work: "You have marked yourself as safe for work, this means you agree the content you post will agree with the community guidelines."
       your_bio: "നിങ്ങളുടെ സ്വയം വിവരണം"
       your_birthday: "താങ്കളുടെ ജന്മദിനം"
       your_gender: "താങ്കളുടെ ലിംഗം"
@@ -629,13 +807,13 @@ ml:
     update:
       failed: "പ്രൊഫൈല്‍ തിരുത്തുന്നത് പരാജയപ്പെട്ടിരിക്കുന്നു."
       updated: "പ്രൊഫൈല്‍ വിജയകരമായൊ തിരുത്തിയിരിക്കുന്നു."
-  public: "പൊതുവായ"
+  public: "പൊതുവായി"
   reactions:
     one: "ഒരു പ്രതികരണം"
     other: "%{count} പ്രതികരണങ്ങള്‍"
     zero: "0 പ്രതികരണങ്ങള്‍"
   registrations:
-    closed: "ഈ ഡയസ്പോറ പോഡില്‍ ചേരുന്നത് അടച്ചിരിക്കുന്നു."
+    closed: "ഈ ഡയാസ്പുറ പോഡില്‍ ചേരുന്നത് അടച്ചിരിക്കുന്നു."
     create:
       success: "താങ്കള്‍ ഡയസ്പോറയില്‍ ചേര്‍ന്നിരിക്കുന്നു!"
     edit:
@@ -648,11 +826,11 @@ ml:
     invalid_invite: "താങ്കൾ നൽകിയ ക്ഷണക്കത്ത് സാധുവല്ല!"
     new:
       continue: "തുടരുക"
-      create_my_account: "Create my account"
+      create_my_account: "എന്റെ അക്കൌണ്ട് സൃഷ്ടിക്കൂ!"
       diaspora: "<3 ഡയസ്പോറ*"
       email: "ഈമെയിൽ"
       enter_email: "Enter an email"
-      enter_password: "അടയാളവാക്ക് നല്‍കുക"
+      enter_password: "അടയാളവാക്ക് നല്‍കുക (ആറ് അക്ഷരമെങ്കിലും)"
       enter_password_again: "അടയാളവാക്ക് വീണ്ടും നല്‍കുക"
       enter_username: "ഉപഭാക്തൃ നാമം തിരഞ്ഞെടുക്കുക (അക്ഷരങ്ങളും സംഖ്യകളും അണ്ടര്‍ സ്കോറും മാത്രം)"
       hey_make: "നമസ്കാരം, എന്തെങ്കിലും <br/>ഉണ്ടാക്കുക<br/>"
@@ -702,6 +880,7 @@ ml:
     create:
       already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
       failure: "Authentication failed."
+      read_only_access: "പ്രവേശനതലം വായിക്കാൻ മാത്രമുള്ളതാണ്, ദയവായി അംഗീകാരം നല്‍കാൻ കുറച്ചു കഴിഞ്ഞ് ശ്രമിക്കുക"
       success: "തിരിച്ചറിയല്‍ വിജയകരം."
     destroy:
       success: "തിരിച്ചറിയല്‍ വിജയകരമായി നീക്കം ചെയ്തു."
@@ -720,9 +899,10 @@ ml:
       logged_in_as: "ആയി പ്രവേശിച്ചിരിക്കുന്നു"
       no_services: "You have not connected any services yet."
       really_disconnect: "%{service} വിച്ഛേദിക്കണോ?"
+      services_explanation: "സേവനങ്ങളുമായി ബന്ധിപ്പിക്കുന്നതിലൂടെ താങ്കള്‍ ഡയസ്പോറയിലെഴുതുന്ന മുറക്ക് കുറിപ്പുകള്‍ അവയിലേക്ക് പ്രസിദ്ധീകരിക്കുവാനുള്ള കഴിവ് താങ്കള്‍ക്ക് ലഭിക്കുന്നു."
     inviter:
       click_link_to_accept_invitation: "ക്ഷണം സ്വീകരിക്കുന്നതിനായി കണ്ണിയില്‍ അമര്‍ത്തുക"
-      join_me_on_diaspora: "എന്നെ ഡയസ്പോറ*യില്‍ ചേര്‍ക്കൂ*"
+      join_me_on_diaspora: "ഡയാസ്പുറ*യില്‍ എന്നോടൊപ്പം ചേരു"
     remote_friend:
       invite: "ക്ഷണിക്കു"
       not_on_diaspora: "Not yet on Diaspora"
@@ -735,11 +915,11 @@ ml:
   shared:
     add_contact:
       add_new_contact: "Add a new contact"
-      create_request: "ഡയസ്പോറ ഐഡി വെച്ച് കണ്ട് പിടിക്കുക"
+      create_request: "ഡയാസ്പുറ  ഐഡി വെച്ച് കണ്ട് പിടിക്കുക"
       diaspora_handle: "diaspora@pod.org"
-      enter_a_diaspora_username: "ഒരു ഡയസ്പോറ ഉപയോക്തനാമം നല്‍കുക :"
+      enter_a_diaspora_username: "ഒരു ഡയാസ്പുറ ഉപയോക്തനാമം നല്‍കുക :"
       know_email: "ആളിന്റെ ഇമെയില്‍ വിലാസം അറിയാമോ? നിങ്ങള്‍ക്ക് ആ വ്യക്തിയെ ക്ഷണിക്കാം."
-      your_diaspora_username_is: "താങ്കളുടെ ഡയസ്പോറ ഉപയോക്തൃ നാമം: %{diaspora_handle}"
+      your_diaspora_username_is: "താങ്കളുടെ ഡയാസ്പുറ ഉപയോക്തൃ നാമം: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Add contact"
       toggle:
@@ -757,12 +937,12 @@ ml:
     invitations:
       by_email: "ഇമെയില്‍ വഴി"
       dont_have_now: "താങ്കള്‍ക്ക് ക്ഷണമൊന്നും ബാക്കിയില്ല, പക്ഷേ കൂടുതല്‍ വരുന്നുണ്ട്!"
-      from_facebook: "ഫേസ്ബുക്കില്‍ നിന്ന്"
+      from_facebook: "ഫേസ്‌ബുക്കില്‍ നിന്ന്"
       invitations_left: "%{count}ക്ഷണങ്ങള്‍ ബാക്കി"
       invite_someone: "ആരെയെങ്കിലും ക്ഷണിക്കുക"
       invite_your_friends: "നിങ്ങളുടെ കൂട്ടുകാരെ ക്ഷണിക്കു."
       invites: "ക്ഷണങ്ങള്‍"
-      invites_closed: "ഈ ഡയസ്പോറ പോഡിലെ ക്ഷണങ്ങള്‍ നിര്‍ത്തിവെച്ചിരിക്കുന്നു"
+      invites_closed: "ഈ ഡയാസ്പുറ പോഡിലെ ക്ഷണങ്ങള്‍ നിര്‍ത്തിവെച്ചിരിക്കുന്നു"
       share_this: "ഈ ലിങ്ക് ഈമെയിൽ വഴിയോ, ബ്ലോഗ് വഴിയോ അല്ലെങ്കിൽ ഇഷ്ടപ്പെട്ട സോഷ്യൽ നെറ്റ്‌വർക്ക് വഴിയോ പങ്കിടുക"
     notification:
       new: "പുതിയ %{type} %{from} ല്‍ നിന്ന്"
@@ -774,7 +954,7 @@ ml:
       new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
       outside: "പൊതു സന്ദേശങ്ങള്‍ ഡയസ്പോറയ്ക്ക് വെളിയിലുള്ളവര്‍ക്കും കാണാനാകും."
       share: "Share"
-      title: "നിങ്ങള്‍ ഒരു പൊതു സന്ദേശം കുറിക്കുവാന്‍ പോകുന്നു!"
+      title: "ബന്ധപ്പെട്ട സേവനങ്ങള്‍ സ്ഥാപിക്കുക"
       visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
     publisher:
       all: "എല്ലാം"
@@ -881,7 +1061,6 @@ ml:
   tags:
     show:
       follow: "Follow #%{tag}"
-      followed_by: "followed by"
       following: "Following #%{tag}"
       nobody_talking: "നിലവില്‍ ആരും %{tag}-നെ കുറിച്ച് സംസാരിക്കുന്നില്ല."
       none: "The empty tag does not exist!"
@@ -893,7 +1072,7 @@ ml:
     show:
       connect_to_cubbies: "Connect to Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is simple!  Just enter your Diaspora ID (<b>%{diaspora_id}</b>) from your cubbies <a href='%{href_link}'>settings page</a> and hit connect."
-      daniels_account: "Daniel's Diaspora account"
+      daniels_account: "ഡാനിയേലിന്റെ ഡയസ്പോറ അക്കൌണ്ട്"
       love_to_try: "We'd love for you to try it out."
       making_the_connection: "Making the Connection"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
@@ -921,15 +1100,15 @@ ml:
       change_password: "അടയാളവാക്ക് മാറ്റു"
       character_minimum_expl: "കുറഞ്ഞത് ആറ് അക്ഷരങ്ങള്‍ വേണം"
       close_account:
-        dont_go: "Hey, please don't go!"
+        dont_go: "ദയവുണ്ടായി പോകരുത്!"
         if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
         lock_username: "This will lock your username if you decided to sign back up."
         locked_out: "You will get signed out and locked out of your account."
         make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
-        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        mr_wiggles: "ശ്രീമാന്‍ വിഗ്ലെസ് തങ്കള്‍ പോകുന്നത് കാണുന്നതില്‍ വിഷമിക്കുന്നതായിരിക്കും."
         no_turning_back: "Currently, there is no turning back."
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      close_account_text: "Close Account"
+      close_account_text: "അക്കൗണ്ട് ഇല്ലാതാക്കുക"
       comment_on_post: "...താങ്കളുടെ പോസ്റ്റില്‍ ആരെങ്കിലും അഭിപ്രായമിടുമ്പോള്‍?"
       current_password: "ഇപ്പോഴത്തെ അടയാളവാക്ക്"
       current_password_expl: "താങ്കൾ സൈൻ ഇൻ ചെയ്യുന്ന ആ ഒരെണ്ണം."
@@ -937,13 +1116,13 @@ ml:
       download_xml: "എന്റെ എക്സ് എം എല്‍ ഇറക്കു"
       edit_account: "അക്കൌണ്ട് തിരുത്തു"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."
-      export_data: "വിവരങ്ങള്‍ കയറ്റുമതി ചെയ്യു"
+      export_data: "വിവരങ്ങള്‍ ഇറക്കുമതി ചെയ്യു"
       following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "...someone likes your post?"
       mentioned: "...ഒരു കുറിപ്പില്‍ ആരെങ്കിലും സൂചിപ്പിക്കുമ്പോള്‍?"
       new_password: "പുതിയ അടയാളവാക്ക്"
-      photo_export_unavailable: "Photo exporting currently unavailable"
+      photo_export_unavailable: "ഫോട്ടോ ഇറക്കുമതി നിലവിൽ ലഭ്യമല്ല"
       private_message: "...ഒരു സ്വകാര്യ സന്ദേശം കിട്ടുമ്പോള്‍?"
       receive_email_notifications: "ഇമെയില്‍ അറിയിപ്പുകള്‍ വേണോ?"
       reshared: "...someone reshares your post?"
@@ -954,7 +1133,7 @@ ml:
       your_email: "താങ്കളുടെ ഈമെയില്‍"
       your_handle: "താങ്കളുടെ ഡയസ്പോറ ഐഡി"
     getting_started:
-      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
+      awesome_take_me_to_diaspora: "കിടിലം! എന്നെ ഡയസ്പോറ*യിലെത്തിക്കു"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to_facebook: "ഡയസ്പോറയിലേക്ക് %{link} വഴി ഞങ്ങൾക്ക് കാര്യങ്ങൾ കുറച്ചുകൂടി വേഗത്തിലാക്കാൻ പറ്റും. ഇങ്ങനെ ചെയ്യുന്നത് താങ്കളുടെ പേരും ചിത്രവും വലിച്ചെടുക്കുകയും, ക്രോസ് പോസ്റ്റിങ്ങ് സാധുവാക്കുകയും ചെയ്യും."
       connect_to_facebook_link: "താങ്കളുടെ ഫേസ്ബുക്ക് അക്കൗണ്ട് ബന്ധിപ്പിക്കുക"
@@ -965,9 +1144,9 @@ ml:
       what_are_you_in_to: "What are you into?"
       who_are_you: "Who are you?"
     privacy_settings:
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      ignored_users: "അവഗണിച്ച ഉപയോക്താക്കൾ"
+      stop_ignoring: "അവഗണിക്കുന്നതു് നിർത്തുക"
+      title: "സ്വകാര്യത ക്രമീകരണങ്ങൾ"
     public:
       does_not_exist: "%{username} ഉപയോക്താവ് നിലവിലില്ല!"
     update:

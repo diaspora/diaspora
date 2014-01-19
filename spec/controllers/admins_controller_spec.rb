@@ -95,7 +95,7 @@ describe AdminsController do
       end
 
       it 'invites a new user' do
-        EmailInviter.should_receive(:new).and_return(stub.as_null_object)
+        EmailInviter.should_receive(:new).and_return(double.as_null_object)
         get :admin_inviter, :identifier => 'bob@moms.com'
         response.should redirect_to user_search_path
         flash.notice.should include("invitation sent")

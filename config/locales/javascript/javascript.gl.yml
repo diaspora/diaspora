@@ -42,7 +42,7 @@ gl:
       at_least_one_aspect: "Ten que publicalo polo menos nun aspecto."
       limited: "Limitado. Só poderá velo a xente coa que comparte."
       public: "Público. Poderá velo calquera, e aparecerá nos motores de busca."
-      near_from: "Preto de <%= location %>"
+      near_from: "Publicado desde <%= location %>"
     infinite_scroll:
       no_more: "Non hai máis publicacións."
     aspect_dropdown:
@@ -64,8 +64,9 @@ gl:
     failed_to_like: "Non foi posíbel indicar que lle gusta a publicación!"
     failed_to_post_message: "Non foi posíbel publicar a mensaxe!"
     comments:
-      hide: "Agochar os comentarios"
       show: "Amosar os comentarios"
+      hide: "Agochar os comentarios"
+      no_comments: "Aínda non hai comentarios."
     reshares:
       duplicate: "Moi interesante ten que ser iso para que o repitas outra vez!"
       successful: "A publicación repetiuse correctamente."
@@ -133,6 +134,7 @@ gl:
       profile: "Perfil"
       contacts: "Contactos"
       settings: "Configuración"
+      help: "Axuda"
       admin: "Administración"
       log_out: "Saír"
 

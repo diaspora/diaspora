@@ -1,0 +1,133 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ta:
+  _applications: "பயன்பாடுகள்"
+  _comments: "முந்தைய"
+  _contacts: "தொடர்புகள்"
+  _home: "முகப்பு"
+  _photos: "புகைப்படங்கள்"
+  _services: "சேவைகள்"
+  account: "கணக்கு"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "இந்த பயனர் தொடர்புகள் மத்தியில் தனிப்பட இருக்க வேண்டும்."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "ஏற்கனவே எடுக்கப்பட்டுவிட்டது"
+        request:
+          attributes:
+            from_id:
+              taken: "இது முன் இருக்கும் கோரிக்கையின் நகல் ஆகும்."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "இது நன்றாக இருக்கிறதா? நீங்கள் ஏற்கனவே இந்த பதிவை பகிர்ந்துள்ளிர்கள்!"
+        user:
+          attributes:
+            email:
+              taken: "ஏற்கனவே எடுக்கப்பட்டுவிட்டது."
+            person:
+              invalid: "தவறானது"
+            username:
+              invalid: "தவறானது. எங்களால் எழுத்துக்கள், எண்கள், மற்றும் அடிக்கோடு மட்டுமே அனுமதிக்கப்படும்."
+              taken: "ஏற்கனவே எடுக்கப்பட்டுவிட்டது"
+  ago: "%{time}முன்பு"
+  all_aspects: "அனைத்து அம்சங்களிலும்"
+  application:
+    helper:
+      unknown_person: "தெரியாத நபர்"
+      video_title:
+        unknown: "தெரியாத ஒளிதோற்ற தலைப்பு"
+  are_you_sure: "நீங்கள் உறுதியாக இருக்கிறீர்களா?"
+  are_you_sure_delete_account: "நீங்கள் உங்கள் கணக்கை மூட வேண்டுமா? இதை தவிர்க்க முடியாது!"
+  aspects:
+    aspect_contacts:
+      done_editing: "திருத்தம் முடிந்தது"
+    aspect_listings:
+      deselect_all: "அனைத்தையும் தேர்வுநீக்கம் செய்க"
+      edit_aspect: "மாற்று %{name}"
+      select_all: "அனைத்தையும் தேர்வு செய்"
+    contacts_not_visible: "இந்த அம்சத்தில் உள்ள தொடர்புகளை ஒருவருக்கொருவர் பார்க்க முடியாது."
+    contacts_visible: "இந்த அம்சத்தில் உள்ள தொடர்புகளை ஒருவருக்கொருவர் பார்க்க முடியும்."
+    destroy:
+      failure: "%{name} காலியாக இல்லை ஆகையால் நீக்க முடியவில்லை"
+      success: "%{name} வெற்றிகரமாக நீக்கப்பட்டது"
+    edit:
+      add_existing: "ஏற்கனவே இருக்கும் தொடர்பை சேர்க்க."
+      aspect_list_is_not_visible: "அம்சம் பட்டியல் அம்சங்களிலுள்ள மற்றவர்களுக்கு மறைக்கப்பட்டது"
+      aspect_list_is_visible: "அம்சம் பட்டியல் அம்சங்களிலுள்ள மற்றவர்களால் பார்க்க இயலும்"
+      confirm_remove_aspect: "நீங்கள் இந்த அம்சத்தை நீக்க வேண்டுமா?"
+      done: "முடிக்கப்பட்டது."
+      make_aspect_list_visible: "இந்த அம்சத்தில் உள்ள தொடர்புகளை ஒருவருகொற்ருவர் பார்க்க இயலுமா?"
+      remove_aspect: "இந்த அம்சத்தை நீக்கு"
+      rename: "மறுபெயர்"
+      update: "புதுப்பிக்க"
+      updating: "புதுப்பித்தல் நடக்கிறது"
+    helper:
+      remove: "அகற்று"
+    index:
+      donate: "நன்கொடை"
+      help:
+        tag_feature: "சிறப்பம்சம்"
+        tag_question: "கேள்வி"
+      new_here:
+        title: "வரவேற்கிறோம் புதிய பயனர்கள்"
+      no_contacts: "தொடர்புகள் எதுவும் இல்லை"
+      unfollow_tag: "#%{tag} ஐ பின்தொடர்வதை நிறுத்து"
+    new:
+      create: "உருவாக்கு"
+      name: "பெயர்(உங்களுக்கு மட்டுமே தெரியும்)"
+    no_contacts_message:
+      community_spotlight: "சமூகத்தின் கவனத்தில்"
+      you_should_add_some_more_contacts: "நீங்கள் கண்டிப்பாக மேலும் சில தொடர்புகளை சேர்க்க வேண்டும்!"
+    no_posts_message:
+      start_talking: "யாரும் எதுவும் கூறவில்லை!"
+    one: "ஒரு அம்சம்"
+    seed:
+      acquaintances: "அறிமுகமானவர்கள்"
+      family: "குடும்பம்"
+      friends: "நண்பர்கள்"
+      work: "வேலை"
+    show:
+      edit_aspect: "அம்சத்தை திருத்த"
+    two: "%{count} அம்சங்கள்"
+    zero: "இல்லாத அம்சங்கள்"
+  back: "பின்"
+  cancel: "ரத்துசெய்"
+  delete: "நீக்கு"
+  email: "மின்னஞ்சல்"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "கொடுக்கப்பட்டுள்ள பிழைகளை சரிசெய்து மீண்டும் முயற்சிக்கவும்."
+      invalid_fields: "தவறான புலங்கள்"
+  fill_me_out: "என்னை நிரப்பு"
+  hide: "மறை"
+  limited: "வரம்புக்குட்பட்ட"
+  more: "மேலும்"
+  next: "அடுத்து"
+  no_results: "முடிவுகள் எதுவும் கண்டறியப்படவில்லை"
+  nsfw: "nsfw"
+  ok: "சரி"
+  or: "அல்லது"
+  password: "கடவுச்சொல்"
+  password_confirmation: "கடவுச்சொல்லை உருதிசெய்"
+  previous: "முந்தைய"
+  privacy: "தனியுரிமை"
+  privacy_policy: "தனியுரிமை கொள்கை"
+  profile: "தன்விவரம்"
+  public: "பொது"
+  search: "தேடல்"
+  settings: "அமைப்புகள்"
+  terms_and_conditions: "விதிமுறைகள் மற்றும் நிபந்தனைகள்"
+  undo: "செயல்தவிர்க்க"
+  username: "பயனர்பெயர்"
+  welcome: "நல்வரவு!"

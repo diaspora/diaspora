@@ -13,7 +13,7 @@ class Like < Federated::Relayable
     end
   end
 
-  after_create do
+  after_commit :on => :create do
     self.parent.update_likes_counter
   end
 

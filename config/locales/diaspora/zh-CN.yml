@@ -88,7 +88,6 @@ zh-CN:
   all_aspects: "所有分组"
   application:
     helper:
-      diaspora_alpha: "DIASPORA* 预览版"
       unknown_person: "未知用户"
       video_title:
         unknown: "未知影片标题"
@@ -161,7 +160,6 @@ zh-CN:
         tag_bug: "#bug"
         tag_feature: "#特色"
         tag_question: "#问题"
-        tutorials_wiki_and_forum: "%{tutorial} 和 %{wiki} 和 %{forum}：社区运作的入门，指南和新闻网站"
       introduce_yourself: "这是您的动态。介绍一下自己吧！"
       keep_diaspora_running: "每月捐赠让 Diaspora 开发更快速！"
       keep_pod_running: "让 %{pod} 高速运转，需要您的每月捐助，供应服务器的耗材！"
@@ -502,7 +500,6 @@ zh-CN:
       no_results: "嘿！ 搜索必须要有目标呀。"
       results_for: "搜索结果："
       searching: "搜索中，请稍候…"
-    last_post: "最新内容"
     many: "%{count} 个好友"
     one: "1 个好友"
     other: "%{count} 个好友"
@@ -599,8 +596,6 @@ zh-CN:
       first_name: "名"
       last_name: "姓"
       update_profile: "更新个人档案"
-      you_are_nsfw: "您将自己标记为 NSFW(工作不宜)，过滤争议内容的人将不会看到您的内容。"
-      you_are_safe_for_work: "您取消了 NSFW(工作不宜) 标记，表示您发布的内容符合社群共识。"
       your_bio: "您的自我介绍"
       your_birthday: "您的生日"
       your_gender: "您的性别"
@@ -845,7 +840,6 @@ zh-CN:
   tags:
     show:
       follow: "关注 #%{tag}"
-      followed_by: "关注者："
       following: "正在关注 #%{tag}"
       nobody_talking: "还没有人在讨论 %{tag}。"
       none: "不存在空白标签！"

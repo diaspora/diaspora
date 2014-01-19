@@ -24,8 +24,12 @@ module ContactsHelper
 
   def start_a_conversation_link(aspect, contacts_size)
     suggested_limit = 16
-    conv_opts = { :class => "button conversation_button", :rel => "facebox"}
-    conv_opts[:title] = t('.many_people_are_you_sure', :suggested_limit => suggested_limit) if contacts_size > suggested_limit
-    link_to t('.start_a_conversation'), new_conversation_path(:aspect_id => aspect.id, :name => aspect.name), conv_opts
+    conv_opts = { class: "button conversation_button", rel: "facebox"}
+    conv_opts[:title] = t('.many_people_are_you_sure', suggested_limit: suggested_limit) if contacts_size > suggested_limit
+    
+    link_to new_conversation_path(aspect_id: aspect.id, name: aspect.name), conv_opts do
+      concat t('.start_a_conversation')
+      concat content_tag(:span, nil, class: "icons-mail")
+    end
   end
 end

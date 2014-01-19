@@ -29,9 +29,6 @@ mk:
         subject: "Инструкции за потврдување"
         you_can_confirm: "Можете да ја потврдите вашата корисничка сметка на долниот линк:"
       hello: "Здраво %{email}!"
-      invitation_instructions:
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        view_in: "View in"
       reset_password_instructions:
         change: "Промени лозинка"
         ignore: "Ако не го побаравте ова, ве молиме игнорирајте го овој е-маил."
@@ -59,8 +56,6 @@ mk:
       updated: "Ажурирањето на вашата корисничка сметка е успешно."
     sessions:
       new:
-        alpha_software: "На пат сте на користење на експериментален софтвер."
-        bugs_and_feedback: "Внимание, ќе искусите софтверски грешки. За пријавување на такви грешки, можете да го користите Feedback копчето на десната страна од вашиот прелистувач! Ние ќе се потрудиме што побргу да го решиме пријавениот проблем."
         login: "Најави се"
         modern_browsers: "подржува само современи прелистувачи."
         password: "Лозинка"

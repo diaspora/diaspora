@@ -4,7 +4,7 @@
 .span-24.prepend-4
 
   %h3
-    != t('.you_currently', :user_invitation => current_user.invitation_code.count, :link => link_to(t(".add_invites"), add_invites_path(current_user.invitation_code)))
+    != t('.you_currently', :count => current_user.invitation_code.count, :link => link_to(t(".add_invites"), add_invites_path(current_user.invitation_code)))
     
     = form_tag 'admin_inviter', :method => :get do
       = t('.email_to')

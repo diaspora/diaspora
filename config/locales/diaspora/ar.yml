@@ -54,7 +54,6 @@ ar:
   all_aspects: "كل الفئات"
   application:
     helper:
-      diaspora_alpha: "دياسبرا* ألفا"
       unknown_person: "شخص مجهول"
       video_title:
         unknown: "فيديو غير مُعَنْوَن"
@@ -125,7 +124,6 @@ ar:
         tag_bug: "#bug"
         tag_feature: "ميزة"
         tag_question: "سؤال"
-        tutorials_wiki_and_forum: "%{tutorial} و %{wiki} و %{forum} : دروس وشروحات وأخبار من المُجتمع."
       introduce_yourself: "هذه هى ساحة مشاركاتك.  هيا قدم نفسك."
       keep_diaspora_running: "حافظ على التطور السريع ل ديسبرا بتبرعاتك الشهرية"
       new_here:
@@ -298,6 +296,7 @@ ar:
     new:
       already_invited: "لم يقبل هؤلاء الأشخاص دعوتك:"
       aspect: "فئة"
+      check_out_diaspora: "تحقق من  دياسبورا"
       if_they_accept_info: "إذا قبلوا دعوتك ، سيتم إضافتهم إلى الفئة التي دعوتهم إليها"
       invite_someone_to_join: "دعوة صديق للإنضمام إلى دياسبرا"
       language: "اللغة"
@@ -511,7 +510,6 @@ ar:
       no_results: "يجب تحديد شيء للبحث عنه"
       results_for: "نتائج البحث عن"
       searching: "جارى البحث، كن صبوراً من فضلك..."
-    last_post: "آخر مشاركة"
     many: "%{count} أعضاء"
     one: "1شخص"
     other: "%{count} عضو"
@@ -866,7 +864,6 @@ ar:
   tags:
     show:
       follow: "تابع #%{tag}"
-      followed_by: "يُتابع بواسطة"
       following: "أنت تتابع #%{tag}"
       nobody_talking: "لم يتحدث أحدٌ عن %{tag} بعد"
       none: "الوسم الفارغ غير موجود!"

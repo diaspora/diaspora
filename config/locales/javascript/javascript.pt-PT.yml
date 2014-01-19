@@ -37,7 +37,7 @@ pt-PT:
     failed_to_post_message: "Falhou ao publicar a mensagem!"
     getting_started:
       alright_ill_wait: "Tudo bem, eu esperarei."
-      hey: "Ei, {{name}}!"
+      hey: "Ei, <%= name %>!"
       no_tags: "Ei, não está a seguir nenhuma etiqueta! Continuar mesmo assim?"
       preparing_your_stream: "A preparar o seu fluxo personalizado..."
     header:
@@ -73,7 +73,7 @@ pt-PT:
     publisher:
       at_least_one_aspect: "Tem de publicar em pelo menos um grupo"
       limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está a partilhar"
-      near_from: "Perto de: <%= location %>"
+      near_from: "Publicado em: <%= location %>"
       public: "Público - A sua publicação será visível para todos e encontrada por motores de busca"
     reshares:
       duplicate: "Que bom, hein? Você já republicou essa mensagem!"
@@ -117,7 +117,7 @@ pt-PT:
       unfollow: "Não seguir"
       unlike: "Não gostar"
     tags:
-      wasnt_that_interesting: "OK, suponho que #{{tagName}} não era assim tão interessante..."
+      wasnt_that_interesting: "OK, suponho que #<%= tagName %> não era assim tão interessante..."
     timeago:
       day: "um dia"
       days: "%d dias"
@@ -127,7 +127,7 @@ pt-PT:
       minutes: "%d minutos"
       month: "cerca de um mês"
       months: "%d meses"
-      prefixAgo: "Há"
+      prefixAgo: ""
       prefixFromNow: ""
       seconds: "menos de um minuto"
       suffixAgo: ""

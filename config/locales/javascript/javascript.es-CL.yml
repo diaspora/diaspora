@@ -12,7 +12,7 @@ es-CL:
       error: "No pudiste empezas a compartir con <%= name %>. ¿Lo estás ignorando?"
       select_aspects: "Seleccionar aspectos"
       started_sharing_with: "¡Has empezado a compartir con <%= name%>!"
-      stopped_sharing_with: "Has dejado de compartir con <%= name =%>"
+      stopped_sharing_with: "Has dejado de compartir con <%= name %>"
       toggle:
         one: "En <%= count %> aspectos"
         other: "En <%= count %> aspectos"
@@ -31,7 +31,7 @@ es-CL:
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
       hey: "¡Hola, <%= name %>!"
-      no_tags: "¡Oye, no has seguido ningún tag!  ¿Continuar de todos modos?"
+      no_tags: "¡Parece que no has seguido ningún tag!  ¿Deseas continuar de todos modos?"
       preparing_your_stream: "Preparando tu entrada personalizada..."
     header:
       admin: "Administración"
@@ -52,14 +52,17 @@ es-CL:
       no_more: "No más publicaciones."
     my_activity: "Mi Actividad"
     my_stream: "Entrada"
+    people:
+      not_found: "y nadie fue encontrado..."
     photo_uploader:
       looking_good: "¡Guau, te ves genial!"
     publisher:
       at_least_one_aspect: "Debes publicar para al menos un aspecto"
-      limited: "Limitado - tu post sólo será visto por gente con la que compartes"
+      limited: "Limitada - tu publicación sólo será visto por gente con la que compartes"
       public: "Público - tu post será visible para todos y encontrado por mecanismos de búsqueda"
     reshares:
       duplicate: "¿Es genial, cierto?  ¡Ya has compartido esa publicación!"
+      successful: "¡La publicación se compartió correctamente!"
     search_for: "Buscar <%= name%>"
     show_more: "mostrar más"
     stream:
@@ -102,7 +105,10 @@ es-CL:
       unknown: "Tipo de video desconocido"
       watch: "Mira este video en <%= provider %>"
     viewer:
+      comment: "Comentar"
       follow_post: "Seguir esta publicación"
       like: "Me gusta"
+      reshare: "Compartir"
+      reshared: "Compartido"
       stop_following_post: "Dejar de seguir esta publicación"
       unlike: "No me gusta"

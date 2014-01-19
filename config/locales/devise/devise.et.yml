@@ -29,30 +29,6 @@ et:
         subject: "Kinnitamise juhised"
         you_can_confirm: "Sa saad oma konto kinnitada järgneva lingi abil:"
       hello: "Tere %{email}!"
-      invitation_instructions:
-        accept: "Aksepteeri kutse"
-        arrived: "Sotsiaalvõrgustik mida oled kaua oodanud on saabunud. Uudne, turvalisem ja lõbusam, %{strong_diaspora} on valmis aitama sul jagada ja avastada täiesti uudsel viisil."
-        be_yourself: "Ole Sina ise"
-        be_yourself_paragraph: "Internet on andnud meile unikaalseid viise enda väljendamiseks.  %{strong_diaspora} laseb sul olla sina ise ja teistega jagada ükskõik kuidas ja mida sa soovid, anonüümselt või sinu tegeliku identiteediga."
-        cubbies: "Cubbi.es"
-        email_address: "questions@joindiaspora.com"
-        email_us: "Üldisteks päringuteks või toeks seoses sinu Diaspora kontoga saada meile kiri %{email}."
-        friends_saying: "Mida sinu sõbrad ütlevad..."
-        get_connected: "Saa ühendatud"
-        have_fun: "Lõbutse"
-        have_fun_paragraph: "%{strong_diaspora} on selleks, et avastada hämmastavat sisu ja inimesi,  %{link}, esimene %{strong_diaspora} rakendus maailmas on vaid algus. Kogu infot ja jaga seda veebis terves selle hiilguses."
-        help_fund: "aita Diasporat finantseerida"
-        here: "siin"
-        ignore: "Kui sa ei soovi liituda, siis ignoreeri seda e-kirja."
-        join_team: "Liitu meie meeskonnaga"
-        love: "Kõike head,"
-        made_by_people: "%{strong_diaspora} on loodud inimeste poolt, kes armastavad Internetti sama palju kui sina. %{jointeam} või %{helpfund}!"
-        more_people: "Veelgi rohkem inimesi on huvitatud sinu nägemisest!"
-        no_account_till: "Sinu kontot ei looda kui sa ei lähe ülalolevale lingile ja ei registreeru."
-        or: "või"
-        sign_up_now: "Liitu nüüd →"
-        subject: "Sa oled kutsutud liituma Disaporaga!"
-        team_diaspora: "Diaspora meeskond"
       inviter:
         accept_at: "aadressil %{url}, sa saad kutse aksepteerida.kasutades alljärgnevat linki."
         has_invited_you: "%{name}"
@@ -76,9 +52,6 @@ et:
       updated: "Sinu konto on edukalt uuendatud."
     sessions:
       new:
-        alpha_software: "Sa hakkad kasutama alfa-staatuses tarkvara."
-        bugs_and_feedback: "Sa kohtad vigu. Palun kasuta brauseri paremas ääres asuvat tagasiside nuppu ja kirjuta meile nendest vigadest. Me teeme oma parima, et võimalikult kiiresti parandada kõik vead, millest on teatatud."
-        bugs_and_feedback_mobile: "Sa kohtad vigu. Palun anna meile nendest vigadest teada. Me teeme oma parima, et võimalikult kiiresti parandada kõik vead, millest on teatatud."
         login: "Logi sisse"
         modern_browsers: "toetab ainult kaasaegseid brausereid."
         password: "Salasõna"
@@ -95,8 +68,6 @@ et:
         sign_in: "Logi sisse"
         sign_up: "Liitu"
         sign_up_closed: "Avatud liitumised on hetkel peatatud."
-      mail_signup_form:
-        sign_up_for_an_invite: "Liitu, et kutset saada!"
     unlocks:
       new:
         resend_unlock: "Saada uuesti juhised konto avamiseks"
