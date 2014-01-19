@@ -25,7 +25,7 @@ en_shaw:
     failed_to_like: "𐑓𐑱𐑤𐑛 𐑑 𐑤𐑲𐑒!"
     failed_to_post_message: "𐑓𐑱𐑤𐑛 𐑑 𐑐𐑴𐑕𐑑 𐑥𐑧𐑕𐑩𐑡!"
     getting_started:
-      hey: "Hey, {{name}}!"
+      hey: "Hey, <%= name %>!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       search: "Find people or #tags"
@@ -60,7 +60,7 @@ en_shaw:
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     timeago:
       day: "𐑩 𐑛𐑱"
       days: "%d 𐑛𐑱𐑟"

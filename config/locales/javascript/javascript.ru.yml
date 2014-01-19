@@ -30,6 +30,7 @@ ru:
     comma: ","
     comments:
       hide: "скрыть комментарии"
+      no_comments: "Комментариев ещё нет."
       show: "Показать все комментарии"
     confirm_dialog: "Вы уверены? "
     conversation:
@@ -38,6 +39,7 @@ ru:
     edit: "Изменить"
     failed_to_like: "Не удалось!"
     failed_to_post_message: "Не удалось отправить сообщение!"
+    failed_to_remove: "Удаление не завершено!"
     getting_started:
       alright_ill_wait: "Хорошо, я подожду."
       hey: "Привет, <%= name %>!"
@@ -47,6 +49,7 @@ ru:
       admin: "Администратор"
       close: "закрыть"
       contacts: "Контакты"
+      help: "Помощь"
       home: "Главная"
       log_out: "Выйти"
       mark_all_as_read: "Пометить как прочитанные"
@@ -66,17 +69,18 @@ ru:
     my_aspects: "Мои аспекты"
     my_stream: "Поток"
     people:
-      not_found: "и не найдено никого..."
+      not_found: "никого не найдено..."
     photo_uploader:
       completed: "<%= file %> готово"
       empty: "{file} пуст, выберите пожалуйста файл повторно."
+      error: "Возникла проблема при загрузке <%= file %>"
       invalid_ext: "{file} имеет недопустимое расширение. Разрешены только {extensions}."
-      looking_good: "Боже мой, вы выглядите потрясающе!"
+      looking_good: "Чёрт возьми, вы выглядите потрясающе!"
       size_error: "{file} имеет слишком большой размер, максимальный размер файла: {sizeLimit}."
     publisher:
       at_least_one_aspect: "Вам надо создать как минимум один аспект"
       limited: "Ограниченная - ваша запись будет видна только указанным вами людям"
-      near_from: "Рядом с: <%= location %>"
+      near_from: "Отправлено из: <%= location %>"
       public: "Публичная - ваша запись будет видна всем, включая поисковые системы"
     reshares:
       duplicate: "Настолько круто, да? Вы уже поделились этой записью!"
@@ -122,9 +126,9 @@ ru:
       show_nsfw_post: "Показать запись"
       show_nsfw_posts: "Показать все"
       tags:
-        follow: "Следить за меткой #<%= tag %>"
-        following: "Вы следите за меткой #<%= tag %>"
-        stop_following: "Не следить за меткой #<%= tag %>"
+        follow: "Подписаться на метку #<%= tag %>"
+        following: "Вы подписались на метку #<%= tag %>"
+        stop_following: "Отписаться от метки #<%= tag %>"
       unfollow: "Не следить"
       unlike: "Не нравится"
     tags:
@@ -138,9 +142,9 @@ ru:
       minutes: "%d минут[-ы]"
       month: "около месяца"
       months: "%d месяца[-ев]"
-      prefixAgo: "до"
-      prefixFromNow: "через"
-      seconds: "несколько секунд"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "меньше минуты"
       suffixAgo: "назад"
       suffixFromNow: "с этого момента"
       year: "около года"
@@ -152,8 +156,8 @@ ru:
       comment: "Комментировать"
       follow_post: "Следить за записью"
       home: "ДОМОЙ"
-      like: "Мне нравится"
+      like: "Нравится"
       reshare: "Поделиться"
       reshared: "Поделились"
       stop_following_post: "Не следить за записью"
-      unlike: "Мне не нравится"
+      unlike: "Не нравится"

@@ -138,7 +138,7 @@ ml:
       years: "%d വര്‍ഷങ്ങള്‍ക്ക്"
     videos:
       unknown: "അജ്ഞാതമായ തരം വീഡിയോ"
-      watch: "ഈ വീഡിയോ {{provider}}ല്‍ കാണുക"
+      watch: "ഈ വീഡിയോ <%= provider %>ല്‍ കാണുക"
     viewer:
       comment: "അഭിപ്രായം"
       follow_post: "കുറിപ്പിനെ പിന്തുടരുക"

@@ -28,13 +28,6 @@ en_1337:
         subject: "C0NF1RM471ON 1N57RUC71ONS"
         you_can_confirm: "4CC C0MF1RM471ON -> L1NK B3L0W"
       hello: "H3Y %{email}!"
-      invitation_instructions:
-        accept: "J01N!"
-        displaying_correctly: "M41L != C0RR3C7? %{link} 1N UR BR0W53R"
-        ignore: "1M 4 N00B!"
-        no_account_till: "51GN UP -> L1NK!"
-        subject: "U H4V3 B33N 1NV173D 70 D*!"
-        view_in: "V13W 1N"
       inviter:
         accept_at: "@ %{url}, U C4N 4CC3P7 17 -> L1NK!"
         have_invited_you: "%{names} H4V3 1NV173D Y0U 2 J01N!"
@@ -65,9 +58,6 @@ en_1337:
       updated: "4CC UPD473 C0NF1RM3D!"
     sessions:
       new:
-        alpha_software: "U U53 3XP3R3M3NT4L 57UFF!"
-        bugs_and_feedback: "G0NN4 3XP3R13NC3 BUGZ!"
-        bugs_and_feedback_mobile: "G0NN4 3XP3R13NC3 BUGZ!"
         login: "L0G1N"
         modern_browsers: "N0 IE < 9!"
         password: "*****"
@@ -84,8 +74,6 @@ en_1337:
         sign_in: "51GN 1N!"
         sign_up: "51GN UP!"
         sign_up_closed: "N0 N00BZ!"
-      mail_signup_form:
-        sign_up_for_an_invite: "W4NNA J01N? -> 51GN UP!"
     unlocks:
       new:
         resend_unlock: "R353ND UNL0CK 1N57RUC71ON5!"

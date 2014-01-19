@@ -790,7 +790,6 @@ bg:
   tags:
     show:
       follow: "Следете #%{tag}"
-      followed_by: "се следи от"
       following: "Следите #%{tag}"
       nobody_talking: "Никой не е говорил за %{tag}."
       none: "Не съществува празна марка!"

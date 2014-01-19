@@ -70,6 +70,7 @@ sk:
     photo_uploader:
       completed: "<%= file %> hotovo"
       empty: "Súbor {file} je prázdny; vyber, prosím, znova všetky súbory okrem tohto."
+      error: "Pri nahrávaní súboru<%= file %> sa vyskytla chyba"
       invalid_ext: "Súbor {file} má neplatnú príponu. Povolené sú len prípony {extensions}."
       looking_good: "No teda, vyzeráš super!"
       size_error: "Súbor {file} je príliš veľký, maximálna povolená veľkosť je {sizeLimit}."

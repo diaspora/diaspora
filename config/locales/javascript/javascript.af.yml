@@ -1,0 +1,20 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+af:
+  javascripts:
+    and: "en"
+    comma: ","
+    header:
+      search: "Soek"
+    my_aspects: "My Aspekte"
+    stream:
+      show_nsfw_posts: "Wys al"
+    timeago:
+      prefixAgo: ""
+      prefixFromNow: ""
+      suffixAgo: ""
+      suffixFromNow: ""

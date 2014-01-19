@@ -570,7 +570,6 @@ es-MX:
       no_results: "¡Eh! Necesitas buscar algo."
       results_for: "buscar resultados para"
       searching: "buscando, por favor sé paciente…"
-    last_post: "Última publicación"
     many: "%{count} personas"
     one: "1 persona"
     other: "%{count} personas"
@@ -669,8 +668,6 @@ es-MX:
       first_name: "Nombre"
       last_name: "Apellidos"
       update_profile: "Actualizar perfil"
-      you_are_nsfw: "Has marcado tu perfil como no apto para todo público, tu contenido no se mostrará a las personas que han optado por no ver publicaciones con contenido indeseable."
-      you_are_safe_for_work: "Has marcado tu perfil como apto para todo público, esto significa que aceptas que el contenido que publiques estará de acuerdo con las normas de la comunidad."
       your_bio: "Biografía"
       your_birthday: "Cumpleaños"
       your_gender: "Género"
@@ -926,7 +923,6 @@ es-MX:
   tags:
     show:
       follow: "Seguir #%{tag}"
-      followed_by: "seguido por"
       following: "Siguiendo #%{tag}"
       nobody_talking: "Nadie está hablando acerca de %{tag} todavía."
       none: "¡La etiqueta vacía no existe!"

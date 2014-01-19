@@ -28,33 +28,6 @@ ms:
         confirm: "Sahkan akaun saya"
         subject: "pengesahan tunjuk-cara"
         you_can_confirm: "Anda boleh mengesahkan akaun anda melalui link di bawah:"
-      invitation_instructions:
-        accept: "menerima jemputan"
-        arrived: "Rangkaian sosial yang anda tunggu telah tiba. Dirombak, lebih selamat, dan lebih menyenangkan,% {strong_diaspora} bersedia untuk membantu anda berkongsi dan meneroka web dengan cara yang baru."
-        be_yourself: "Jadi Diri Sendiri"
-        be_yourself_paragraph: "Internet telah mencipta cara-cara baru yang unik bagi kita untuk menyatakan diri kita sendiri. % {strong_diaspora} membolehkan anda menjadi diri sendiri dan berkongsi walau bagaimanapun anda mahu, dengan atau tanpa nama sebenar anda."
-        displaying_correctly: "E-mel tidak memaparkan dengan betul? % {link} dalam pelayar anda"
-        email_us: "Untuk sebarang pertanyaan umum atau sokongan dengan akaun Diaspora anda, sila e-mel kepada kami di% {email}."
-        finally: "Akhirnya - ia telah tiba"
-        friends_saying: "Apa yang rakan anda katakan ..."
-        get_connected: "Dapatkan Sambungkan"
-        get_connected_paragraph: "Satu pergerakan antarabangsa dengan wawasan yang dikongsi bersama bagi \"web\" yang lebih baik, ciri #1 % {strong_diaspora} adalah komunitinya. Bertemu orang baru, berhubung dengan rakan-rakan, dan menyertai keseronokan."
-        have_fun: "Dapat Keseronokan"
-        have_fun_paragraph: "% {strong_diaspora} adalah untuk menemui kandungan baru yang menakjubkan dan orang-orang dalam talian. % {link},% adalah aplikasi {strong_diaspora} yang pertama di dunia hanyalah satu permulaan. Mengumpul dan berkongsi laman web di dalam semua kemuliaan."
-        help_fund: "Bantuan dana Diaspora"
-        here: "di sini"
-        ignore: "Jika anda tidak mahu menerima jemputan, sila abaikan email ini."
-        join_team: "Sertai pasukan kami"
-        love: "Yang menyayangi,"
-        made_by_people: "% {strong_diaspora} dibuat oleh orang-orang yang suka internet sebanyak seperti yang anda lakukan. % {jointeam}, atau% {helpfund}!"
-        more_people: "Lebih ramai orang teruja untuk melihat anda!"
-        no_account_till: "Akaun anda tidak akan diwujudkan sehingga anda mengakses pautan di atas dan daftar."
-        or: "atau"
-        sign_up_now: "Daftar sekarang &rarr;"
-        subject: "Anda telah dijemput untuk menyertai Diaspora!"
-        team_diaspora: "Kumpulan Diaspora"
-        unsubscribe: "Untuk menghentikan langganan, sila klik %{link}."
-        view_in: "Lihat dalam"
       inviter:
         accept_at: "pada% {url}, anda boleh menerimanya melalui link di bawah."
         have_invited_you: "%{names} telah menjemput anda untuk menyertai Diaspora"
@@ -85,9 +58,6 @@ ms:
       updated: "Anda mengemas kini akaun anda dengan jayanya."
     sessions:
       new:
-        alpha_software: "Anda akan menggunakan perisian alfa."
-        bugs_and_feedback: "Dinasihatkan, anda akan mengalami ralat. Kami menggalakkan anda untuk menggunakan butang Maklum balas pada sebelah kanan pelayar anda untuk melaporkan sebarang rintangan! Kita akan berusaha secepat mungkin agar kita boleh menyelesaikan apa-apa isu yang anda laporkan."
-        bugs_and_feedback_mobile: "Dinasihatkan, anda akan mengalami ralat. Kami menggalakkan anda untuk melaporkan apa-apa rintangan! Kita akan berusaha secepat mungkin agar kita boleh menyelesaikan apa-apa isu yang anda laporkan."
         login: "Masuk"
         modern_browsers: "hanya menyokong pelayar moden."
         password: "Kata Laluan"
@@ -104,8 +74,6 @@ ms:
         sign_in: "Daftar masuk"
         sign_up: "Daftar"
         sign_up_closed: "Pendaftaran terbuka ditutup pada masa ini."
-      mail_signup_form:
-        sign_up_for_an_invite: "Daftar untuk jemputan!"
     unlocks:
       new:
         resend_unlock: "Hantar semula arahan membuka kunci"

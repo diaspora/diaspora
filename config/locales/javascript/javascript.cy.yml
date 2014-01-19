@@ -9,10 +9,10 @@ cy:
     aspect_dropdown:
       add_to_aspect: "Ychwanegu cysylltiad"
       all_aspects: "Agweddau i gŷd"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
       select_aspects: "Dewis agweddau"
-      started_sharing_with: "Rydych chi'n rhannu gyda {{name}}!"
-      stopped_sharing_with: "Dydych chi ddim yn rhannu nawr gyda {{name}}."
+      started_sharing_with: "Rydych chi'n rhannu gyda <%= name %>!"
+      stopped_sharing_with: "Dydych chi ddim yn rhannu nawr gyda <%= name %>."
       toggle:
         few: "Mewn {{count}} agweddau"
         many: "Mewn {{count}} agweddau"
@@ -32,7 +32,7 @@ cy:
     failed_to_post_message: "Methwyd i bostio neges!"
     getting_started:
       alright_ill_wait: "O'r gorau - 'dwi'n aros..."
-      hey: "Hei, {{name}}!"
+      hey: "Hei, <%= name %>!"
       no_tags: "Hei, dydych chi ddim yn dilyn unrhyw tagiau! Dal ymlaen beth bynnag?"
       preparing_your_stream: "Preparing your personalised stream..."
     header:
@@ -43,7 +43,7 @@ cy:
       looking_good: "OMG, rydych chi'n ymddangos yn neis iawn!"
     reshares:
       duplicate: "Mae hynny'n dda, eh? Rydych chi wedi rhannu'r bost eisoes!"
-    search_for: "Chwilio am {{name}}"
+    search_for: "Chwilio am <%= name %>"
     show_more: "dangos mwy"
     stream:
       likes:
@@ -68,7 +68,7 @@ cy:
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "OK, mae'n debyg nid yw #{{tagName}} yn ddiddorol iawn..."
+      wasnt_that_interesting: "OK, mae'n debyg nid yw #<%= tagName %> yn ddiddorol iawn..."
     timeago:
       day: "diwrnod"
       days: "%d diwrnod"
@@ -87,4 +87,4 @@ cy:
       years: "%d blyddynoedd"
     videos:
       unknown: "Math o fideo anhysbys"
-      watch: "Gwyliwch y fideo ar {{provider}}"
+      watch: "Gwyliwch y fideo ar <%= provider %>"

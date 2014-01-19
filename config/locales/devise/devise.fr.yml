@@ -30,35 +30,6 @@ fr:
         subject: "Instructions de confirmation"
         you_can_confirm: "Vous pouvez confirmer votre compte en cliquant sur le lien ci-dessous :"
       hello: "Bonjour %{email} !"
-      invitation_instructions:
-        accept: "Accepter l'invitation"
-        arrived: "Le réseau social que vous avez tant attendu est arrivé. Redessiné, plus sûr et plus fun, %{strong_diaspora} est prêt à vous aider pour partager et explorer le web d'une toute nouvelle manière."
-        be_yourself: "Soyez vous-même"
-        be_yourself_paragraph: "L'Internet a créé de nouvelles façons uniques pour nous de nous exprimer. %{strong_diaspora} vous permet d'être vous-même et de partager comme vous le voulez, avec ou sans votre vrai nom."
-        cubbies: "Cubbi.es"
-        displaying_correctly: "Ce courriel ne s'affiche pas correctement ? %{link}"
-        email_address: "questions@joindiaspora.com"
-        email_us: "Pour des renseignements généraux ou de l'aide sur votre compte Diaspora, merci de nous envoyer un courriel à %{email}."
-        finally: "Enfin - c'est ici"
-        friends_saying: "Ce que disent vos amis..."
-        get_connected: "Soyez connecté-e"
-        get_connected_paragraph: "Un mouvement international avec une vision partagée pour un meilleur web, la première caractéristique de %{strong_diaspora} est sa communauté. Rencontrez de nouvelles personnes, connectez-vous avec vos amis, et amusez-vous."
-        have_fun: "Prenez plaisir"
-        have_fun_paragraph: "%{strong_diaspora} est tout un projet étonnant permettant de découvrir de nouveaux contenus et des gens en ligne. %{link}, la première application %{strong_diaspora}, et c'est juste le commencement. Recueillir et partager sur le Web dans toute sa gloire."
-        help_fund: "aider à financer Diaspora"
-        here: "ici"
-        ignore: "Si vous ne voulez pas accepter l'invitation, merci d'ignorer ce courriel."
-        join_team: "Rejoignez notre Équipe"
-        love: "Cordialement,"
-        made_by_people: "%{strong_diaspora} est fait par des gens qui aiment l'Internet autant que vous. %{jointeam} ou %{helpfund} !"
-        more_people: "Encore plus de gens sont ravis de vous voir !"
-        no_account_till: "Votre compte ne sera créé que lorsque vous irez sur le lien ci-dessus et que vous vous inscrirez."
-        or: "ou"
-        sign_up_now: "Inscrivez-vous →"
-        subject: "Vous avez été invité à rejoindre Diaspora !"
-        team_diaspora: "L'Équipe Diaspora"
-        unsubscribe: "Pour vous désinscrire, merci de cliquer sur %{link}."
-        view_in: "L'afficher dans votre navigateur."
       inviter:
         accept_at: "à %{url}, vous pouvez l'accepter à travers le lien ci-dessous."
         has_invited_you: "%{name}"
@@ -66,7 +37,7 @@ fr:
       reset_password_instructions:
         change: "Changer mon mot de passe"
         ignore: "Si vous n'avez pas demandé cela, merci d'ignorer ce courriel."
-        someone_requested: "Quelqu'un a demandé un lien pour changer votre mot de passe, vous pouvez effectuer cela en cliquant sur le lien ci-dessous."
+        someone_requested: "Une personne a demandé la génération d'un lien pour modifier votre mot de passe. Si vous êtes à l'origine de cette demande, vous pouvez le faire en cliquant sur le lien ci-dessous."
         subject: "Instructions de réinitialisation de mot de passe"
         wont_change: "Votre mot de passe ne changera pas tant que vous n'en aurez pas créé un nouveau en accédant au lien ci-dessus."
       unlock_instructions:
@@ -80,19 +51,16 @@ fr:
         change_password: "Changer mon mot de passe"
       new:
         forgot_password: "Mot de passe oublié ?"
-        no_account: "Aucun compte n'est associé à cette adresse de courrier électronique. Si vous attendez une invitation, nous les distribuons aussi vite que possible."
+        no_account: "Aucun compte n'est associé à cette adresse de courrier électronique."
         send_password_instructions: "Envoyez-moi les instructions de réinitialisation de mot de passe"
       send_instructions: "Vous allez recevoir dans quelques minutes un courriel contenant les instructions pour réinitialiser votre mot de passe."
       updated: "Votre mot de passe a été modifié. Vous êtes à présent connecté-e."
     registrations:
-      destroyed: "Au revoir ! Votre compte a été résilié. Nous espérons vous revoir très bientôt."
+      destroyed: "Votre compte a été supprimé avec succès. Nous espérons vous revoir très bientôt. Au revoir !"
       signed_up: "Votre inscription a été effectuée. Si cette dernière est activée, une confirmation a été envoyée à votre adresse de courrier électronique."
       updated: "Vous avez mis à jour votre compte."
     sessions:
       new:
-        alpha_software: "Vous êtes sur le point d'utiliser un logiciel en version alpha."
-        bugs_and_feedback: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à utiliser le bouton Feedback sur le côté droit de votre navigateur pour signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
-        bugs_and_feedback_mobile: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à nous signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
         login: "Se connecter"
         modern_browsers: "supporte seulement des navigateurs modernes."
         password: "Mot de passe"
@@ -109,8 +77,6 @@ fr:
         sign_in: "Connexion"
         sign_up: "Inscription"
         sign_up_closed: "Les inscriptions sont fermées pour l'instant."
-      mail_signup_form:
-        sign_up_for_an_invite: "Demander une invitation !"
     unlocks:
       new:
         resend_unlock: "Renvoyer les instructions de déblocage"

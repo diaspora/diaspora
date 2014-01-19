@@ -39,6 +39,7 @@ fr:
     edit: "Éditer"
     failed_to_like: "Impossible d'aimer !"
     failed_to_post_message: "Impossible de partager le message !"
+    failed_to_remove: "L'entrée n'a pu être supprimée"
     getting_started:
       alright_ill_wait: "Bon, je vais attendre."
       hey: "Hey, <%= name %> !"
@@ -72,6 +73,7 @@ fr:
     photo_uploader:
       completed: "<%= file %> complété"
       empty: "{file} est vide, merci de sélectionner d'autres fichiers."
+      error: "Un problème a eu lieu pendant l'envoi du fichier <%= file %>"
       invalid_ext: "{file} a une extension invalide. Seules {extensions} sont permises."
       looking_good: "Impressionnant, vous avez un super look !"
       size_error: "{file} est trop gros, la taille maximum est {sizeLimit}."

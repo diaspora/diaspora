@@ -719,7 +719,6 @@ es-CL:
       no_results: "¡Oye! Tienes que buscar algo."
       results_for: "resultados de búsqueda para"
       searching: "Buscando, por favor sé paciente..."
-    last_post: "Última publicación"
     many: "%{count} personas"
     one: "1 persona"
     other: "%{count} personas"
@@ -821,8 +820,6 @@ es-CL:
       first_name: "Nombre"
       last_name: "Apellido"
       update_profile: "Actualizar perfil"
-      you_are_nsfw: "Te has marcado como no apto para todo público, tu contenido no se mostrará a personas que han seleccionado no ver contenido dudoso en sus entradas."
-      you_are_safe_for_work: "Te has marcado como apto para todo público, esto significa que estás de acuerdo con que el contenido que publiques respetará las normas de la comunidad."
       your_bio: "Tu biografía"
       your_birthday: "Tu cumpleaños"
       your_gender: "Tu genero"
@@ -1096,7 +1093,6 @@ es-CL:
   tags:
     show:
       follow: "Seguir a #%{tag}"
-      followed_by: "seguido por"
       following: "Siguiendo a #%{tag}"
       nobody_talking: "Todavía nadie habla de %{tag}."
       none: "¡La etiqueta vacía no existe!"

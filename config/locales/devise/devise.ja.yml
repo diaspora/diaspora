@@ -29,23 +29,6 @@ ja:
         subject: "認証手続き"
         you_can_confirm: "次のリンクからアカウントが認証できます。"
       hello: "%{email}さん、こんにちは！"
-      invitation_instructions:
-        accept: "招待を受ける"
-        cubbies: "Cubbi.es"
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        email_address: "questions@joindiaspora.com"
-        email_us: "ダイアスポラアカウントの全般的な質問やサポートは、%{email}からメールを送ってください"
-        help_fund: "ダイアスポラへの資金援助"
-        ignore: "もし招待を受けたくなければ、このメールを無視してください。"
-        join_team: "私たちのチームに参加する"
-        love: "愛を込めて,"
-        made_by_people: "%{strong_diaspora}はあなたと同じようにインターネットを愛する人々によって作られています。 %{jointeam}や%{helpfund}をしてください!"
-        no_account_till: "アカウントはリンクにアクセスして登録するまで作成されません。"
-        sign_up_now: "今すぐ登録する &rarr;"
-        subject: "ダイアスポラに招待されています!"
-        team_diaspora: "チーム ダイアスポラ"
-        unsubscribe: "取り消すには%{link}をクリックしてください。"
-        view_in: "View in"
       inviter:
         has_invited_you: "%{name}さん"
         have_invited_you: "%{names}さんがダイアスポラに招待しています"
@@ -76,9 +59,6 @@ ja:
       updated: "アカウントの更新に成功しました。"
     sessions:
       new:
-        alpha_software: "これから使うソフトはアルファ版です。"
-        bugs_and_feedback: "バク発生に覚悟してください。小さな支障でもページ右側の「フィードバック」ボタンからご報告願います！頂いた問題報告はなるべく早く解決できるよう努力します。"
-        bugs_and_feedback_mobile: "バク発生に覚悟してください。小さな支障でもご報告願います！頂いた問題報告はなるべく早く解決できるよう努力します。"
         login: "ログイン"
         modern_browsers: "最新型のブラウザにしか対応していません。"
         password: "パスワード"
@@ -95,8 +75,6 @@ ja:
         sign_in: "ログイン"
         sign_up: "新規登録"
         sign_up_closed: "一般の新規登録は現在受け付けていません。"
-      mail_signup_form:
-        sign_up_for_an_invite: "参加招待の希望者として登録したい！"
     unlocks:
       new:
         resend_unlock: "ロック解除手続きメールを再送する"

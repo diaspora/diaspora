@@ -8,12 +8,6 @@ wo:
   devise:
     mailer:
       hello: "Na nga def %{email}?"
-      invitation_instructions:
-        cubbies: "Cubbi.es"
-        friends_saying: "Li say xarit wax..."
-        here: "fii"
-        or: "walla"
-        sign_up_now: "Sos am sàq léegi &rarr;"
       reset_password_instructions:
         change: "Soppil sama baatujàll"
       welcome: "Dalal-jàmm %{email}!"

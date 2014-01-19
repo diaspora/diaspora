@@ -30,35 +30,6 @@ es-AR:
         subject: "Instrucciones para la confirmación"
         you_can_confirm: "Podés confirmar tu cuenta a través del siguiente enlace:"
       hello: "¡Hola %{email}!"
-      invitation_instructions:
-        accept: "Aceptar la invitación"
-        arrived: "La red social por la que estuviste esperando ha llegado. Renovada, más segura, y más divertida, %{strong_diaspora} está lista para ayudarte a compartir y explorar la web en una forma totalmente nueva."
-        be_yourself: "Sé vos mismo/a"
-        be_yourself_paragraph: "Internet creó nuevas formas únicas para que nos expresemos. %{strong_diaspora} te permite ser uno mismo y compartir lo que te parezca, con o sin tu nombre real."
-        cubbies: "Cubbi.es"
-        displaying_correctly: "¿El email no se ve correctamente? %{link}"
-        email_address: "questions@joindiaspora.com"
-        email_us: "Para consultas generales o pedido de ayuda con su cuenta de Diaspora, por favor envianos un email a %{email}."
-        finally: "Por fin - Ya llegó"
-        friends_saying: "Lo que tus amigos están diciendo..."
-        get_connected: "Conectate"
-        get_connected_paragraph: "Un movimiento internacional que comparte la visión de una red mejor, la principal característica de %{strong_diaspora} es su comunidad. Conocé gente nueva, conectáte con amigos y unite a la diversión."
-        have_fun: "Divertite"
-        have_fun_paragraph: "%{strong_diaspora} es descubrir contenido nuevo y sorprendente de personas que están online. %{link}, la primera aplicación del mundo para %{strong_diaspora} es sólo el comienzo. Recopilar y compartir en la web en toda su gloria."
-        help_fund: "ayudá a financiar Diaspora"
-        here: "aquí"
-        ignore: "Si no querés aceptar la invitación, por favor ignorá este correo."
-        join_team: "Unite a nuestro Equipo"
-        love: "Con amor,"
-        made_by_people: "%{strong_diaspora} está hecha por personas que aman Internet tanto como vos. ¡%{jointeam} o %{helpfund}!"
-        more_people: "¡Incluso más personas están emocionadas por verte!"
-        no_account_till: "Tu cuenta no será creada hasta que accedas al anterior enlace y te registres."
-        or: "o"
-        sign_up_now: "Registrate ahora &rarr;"
-        subject: "¡Te invitaron a unirte a Diáspora*!"
-        team_diaspora: "Equipo Diaspora"
-        unsubscribe: "Para desuscribirte cliqueá %{link}."
-        view_in: "Ver en tu navegador."
       inviter:
         accept_at: "en %{url}, podes aceptarlo desde el link  de abajo "
         has_invited_you: "%{name} te ha invitado a unirte a Diaspora"
@@ -80,7 +51,7 @@ es-AR:
         change_password: "Cambiar mi contraseña"
       new:
         forgot_password: "¿Olvidaste tu contraseña?"
-        no_account: "No hay ninguna cuenta con esta dirección de correo electrónico.  Si estás esperando una invitación, te la enviaremos tan pronto como sea posible"
+        no_account: "No hay ninguna cuenta con esta dirección de correo electrónico. Si estás esperando una invitación, te la enviaremos tan pronto como sea posible."
         send_password_instructions: "Enviame instrucciones para cambiar mi contraseña."
       send_instructions: "En unos minutos vas a recibir un correo electrónico con instrucciones para cambiar tu contraseña."
       updated: "Tu contraseña se cambió sin problemas. Ya estás conectado."
@@ -90,9 +61,6 @@ es-AR:
       updated: "Tu cuenta fue actualizada sin problemas."
     sessions:
       new:
-        alpha_software: "Estás por usar un software en estado alfa."
-        bugs_and_feedback: "Tené en cuenta que podés experimentar errores.  ¡Te alentamos a usar el botón de \"Feedback\" situado a la derecha de tu navegador para reportarnos cualquier inconveniente!  Trabajaremos tan rápido como podamos para resolver cualquier problema que reportes."
-        bugs_and_feedback_mobile: "Tené en cuenta que podés experimentar errores.  ¡Te alentamos informarnos cualquier inconveniente!  Trabajaremos tan rápido como podamos para resolver cualquier problema que reportes."
         login: "Iniciar sesión"
         modern_browsers: "Sólo es compatible con navegadores modernos."
         password: "Contraseña"
@@ -109,8 +77,6 @@ es-AR:
         sign_in: "Conectarse"
         sign_up: "Registrarse"
         sign_up_closed: "El registro sin invitacíon está cerrado en este momento."
-      mail_signup_form:
-        sign_up_for_an_invite: "¡Registrate por una invitación!"
     unlocks:
       new:
         resend_unlock: "Reenviarme instrucciones para desbloquear mi cuenta"

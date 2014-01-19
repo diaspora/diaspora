@@ -9,16 +9,12 @@ ms:
     aspect_dropdown:
       add_to_aspect: "Tambah kenalan"
       all_aspects: "Semua aspek"
-      error: "Tidak dapat berkongsi dengan {{name}}.  Adakah anda mengabaikan mereka?"
+      error: "Tidak dapat berkongsi dengan <%= name %>.  Adakah anda mengabaikan mereka?"
       select_aspects: "Pilih kenalan"
-      started_sharing_with: "Anda telah mula berkongsi dengan {{name}}!"
-      stopped_sharing_with: "Anda telah berhenti berkongsi dengan {{name}}."
+      started_sharing_with: "Anda telah mula berkongsi dengan <%= name %>!"
+      stopped_sharing_with: "Anda telah berhenti berkongsi dengan <%= name %>."
       toggle:
-        few: "Dalam {{count}} aspek"
-        many: "Dalam {{count}} aspek"
-        one: "Dalam {{count}} aspek"
-        other: "dalam {{count}} aspek"
-        two: "Dalam {{count}} aspek"
+        other: "dalam <%= count %> aspek"
         zero: "Pilih aspek"
     aspect_navigation:
       deselect_all: "menyahpilih semua"
@@ -32,7 +28,7 @@ ms:
     failed_to_post_message: "Gagal untuk pos mesej!"
     getting_started:
       alright_ill_wait: "Baiklah, saya akan tunggu."
-      hey: "Hei, {{name}}!"
+      hey: "Hei, <%= name %>!"
       no_tags: "Hei, anda tidak mengikuti mana-mana tag! Teruskan juga?"
       preparing_your_stream: "Menyediakan strim peribadi anda..."
     header:
@@ -47,7 +43,7 @@ ms:
       public: "Awam - Pos anda akan dilihat oleh semua orang dan dijumpai oleh enjin carian"
     reshares:
       duplicate: "Yang baik, kan? Anda telah berkongsi semula pos itu!"
-    search_for: "Mencari {{name}}"
+    search_for: "Mencari <%= name %>"
     show_more: "tunjuk lagi"
     stream:
       likes:
@@ -72,7 +68,7 @@ ms:
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "OK, saya mengandaikan # {{tagName}} tidak semua yang menarik..."
+      wasnt_that_interesting: "OK, saya mengandaikan #<%= tagName %> tidak semua yang menarik..."
     timeago:
       day: "sehari"
       days: "%d hari"
@@ -91,4 +87,4 @@ ms:
       years: "%d tahun"
     videos:
       unknown: "Jenis video tidak diketahui"
-      watch: "Tonton video ini di {{provider}}"
+      watch: "Tonton video ini di <%= provider %>"

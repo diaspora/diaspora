@@ -16,6 +16,7 @@ da:
       invalid: "Forkert brugernavn eller adgangskode."
       invalid_token: "Ugyldig token."
       locked: "Din konto er låst."
+      not_found_in_database: "Forkert e-mail eller kodeord."
       timeout: "Du har været inaktiv for længe. Log ind for at fortsætte."
       unauthenticated: "Du skal logge ind eller oprette en konto for at fortsætte."
       unconfirmed: "Du skal bekræfte din konto for at fortsætte."
@@ -29,34 +30,9 @@ da:
         subject: "Bekræftelsesinstruktioner"
         you_can_confirm: "Du kan bekræfte din konto via nedenstående link:"
       hello: "Hej %{email}!"
-      invitation_instructions:
-        accept: "Accepter invitation"
-        arrived: "Det sociale netværk du har ventet på, er kommet. Ombygget, sikrere og sjovere, er %{strong_diaspora} klar til at hjælpe dig med at dele og udforske web på en helt ny måde."
-        be_yourself: "Vær dig selv"
-        be_yourself_paragraph: "Internettet har skabt nye unikke måder vi kan udtrykke os på. %{strong_diaspora} lader dig være dig selv og dele som du ønsker det, med eller uden dit rigtige navn."
-        displaying_correctly: "Ser e-mailen forkert ud? %{link}"
-        email_us: "For generelle spørgsmål eller hjælp med din Diaspora-konto, send venligst en email til os på %{email}."
-        finally: "Endelig er det her"
-        friends_saying: "Hvad dine venner siger..."
-        get_connected: "Kobl dig på"
-        get_connected_paragraph: "Som en international bevægelse med en fælles vision for et bedre web, er %{strong_diaspora}'s vigtigste funktion brugerne. Mød nye mennesker, del med vennerne og hav det sjovt med alle andre."
-        have_fun: "Hav det sjovt"
-        have_fun_paragraph: "%{strong_diaspora} handler om at opdage nyt fantastisk indhold og nye mennesker online. %{link}, verdens første %{strong_diaspora} program er kun begyndelsen. Saml og del med hele det utrolige web."
-        help_fund: "støt Diaspora økonomisk"
-        here: "her"
-        ignore: "Hvis du ikke vil acceptere invitationen skal du blot ignorere denne mail."
-        join_team: "Kom med på holdet"
-        love: "Kærlig hilsen,"
-        made_by_people: "%{strong_diaspora} er skabt af folk der elsker internettet lige så meget som du gør. %{jointeam}, eller %{helpfund}!"
-        more_people: "Endnu flere vil gerne møde dig!"
-        no_account_till: "Din konto vil ikke blive oprettet før du har klikket ind på ovenstående link, og skriver dig op."
-        or: "eller"
-        sign_up_now: "Tilmeld dig nu &rarr;"
-        subject: "Du er blevet inviteret til at bruge Diaspora!"
-        unsubscribe: "Hvis du gerne vil holde op med at få e-mails som denne, klik %{link}."
-        view_in: "Se den i din browser."
       inviter:
         accept_at: "på %{url}, du kan acceptere ved at følge linket nedenunder."
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} har inviteret dig til at deltage i Diaspora."
       reset_password_instructions:
         change: "Skift min adgangskode"
@@ -85,9 +61,6 @@ da:
       updated: "Din konto er nu opdateret."
     sessions:
       new:
-        alpha_software: "Du er ved at starte alpha software."
-        bugs_and_feedback: "Vær opmærksom på at du vil opleve fejl og mangler. Vi opfordrer dig til at bruge feedbackknappen i højre side af din browser til at melde de fejl du støder på. Vi arbejder så hurtigt vi kan på at løse de problemer du melder."
-        bugs_and_feedback_mobile: "Vær opmærksom på at du vil opleve fejl. Vi opfordrer dig til at melde enhver fejl du støder på. Vi vil arbejde så hurtigt som muligt for at løse ethvert problem du melder."
         login: "Log ind"
         modern_browsers: "understøtter kun nyere browsere."
         password: "Adgangskode"
@@ -104,8 +77,6 @@ da:
         sign_in: "Log ind"
         sign_up: "Opret en profil"
         sign_up_closed: "Der er på nuværende tidspunkt lukket for fri tilmelding."
-      mail_signup_form:
-        sign_up_for_an_invite: "Anmod om en invitation!"
     unlocks:
       new:
         resend_unlock: "Send vejledningen til aktivering af konto igen"

@@ -9,17 +9,13 @@ ja:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       all_aspects: "全てのアスペクト"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
       error_remove: "アスペクトから<%= name %>さんを削除できませんでした :("
       select_aspects: "アスペクトを選択する"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "You have started sharing with <%= name %>!"
+      stopped_sharing_with: "You have stopped sharing with <%= name %>."
       toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In <%= count %> aspects"
+        other: "In <%= count %> aspects"
         zero: "Add to aspect"
     aspect_navigation:
       add_an_aspect: "+ アスペクトを追加する"
@@ -35,7 +31,7 @@ ja:
     edit: "編集"
     failed_to_post_message: "メッセージの投稿に失敗しました!"
     getting_started:
-      hey: "Hey, {{name}}!"
+      hey: "Hey, <%= name %>!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       close: "閉じる"
@@ -68,7 +64,7 @@ ja:
       duplicate: "You've already reshared that post!"
       post: "<%= name %>さんの投稿を再共有しますか?"
       successful: "投稿は正常に再共有されました!"
-    search_for: "{{name}}を検索する"
+    search_for: "<%= name %>を検索する"
     show_more: "さらに表示する"
     stream:
       comment: "コメント"
@@ -111,7 +107,7 @@ ja:
         stop_following: "#<%= tag %>のフォローを中止する"
       unfollow: "フォロー解除"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     timeago:
       day: "1日"
       days: "%d日"
@@ -130,7 +126,7 @@ ja:
       years: "%d年"
     videos:
       unknown: "動画の種類が不明です"
-      watch: "{{provider}}で動画を視聴する"
+      watch: "<%= provider %>で動画を視聴する"
     viewer:
       comment: "コメント"
       follow_post: "投稿をフォローする"

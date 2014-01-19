@@ -1,0 +1,194 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+io:
+  _applications: "Utilaji"
+  _comments: "Komenti"
+  _contacts: "Konocati"
+  _home: "Frontispico"
+  _photos: "fotografuri"
+  _services: "Servi"
+  account: "Konto"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "mustas esar unika inter la konocati di ta uzero."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "es ja selektita."
+        user:
+          attributes:
+            email:
+              taken: "es ja selektita."
+            person:
+              invalid: "es nevalida"
+            username:
+              invalid: "es nevalida. Ni nur permisas literi, nombri, e sub-strek-izi."
+              taken: "es ja selektita."
+  admins:
+    stats:
+      month: "Monato"
+      week: "Semano"
+  ago: "%{time} ante nun"
+  all_aspects: "Omna Aspekti"
+  application:
+    helper:
+      unknown_person: "nekonocato"
+  are_you_sure: "Ka vu esas certa?"
+  are_you_sure_delete_account: "Ka vu certe volas klozar vua konto? To ne povas esar desfacota."
+  aspects:
+    aspect_contacts:
+      done_editing: "finis redaktar"
+    aspect_listings:
+      add_an_aspect: "+ Adjuntez aspekto"
+      deselect_all: "Des-selektez omna"
+      edit_aspect: "Redaktez %{name}"
+      select_all: "Selektez omna"
+    contacts_not_visible: "Konocati en ita aspekto ne povos vidar l'una l'altra."
+    contacts_visible: "Konocati en ita aspekto povos vidar l'una l'altra."
+    create:
+      failure: "Aspekto kreado ne-sucesis."
+      success: "Tua nov aspekto %{name} kre-esis"
+    destroy:
+      success: "%{name} sucesoze efacesis."
+    edit:
+      add_existing: "Adjuntez existanta konocato"
+      aspect_list_is_not_visible: "Konocati en ita aspekto ne povas vidar l'una l'altra."
+      aspect_list_is_visible: "Konocati en ita aspekto povas vidar l'una l'altra."
+      confirm_remove_aspect: "Ka vu certe volas efacar ita aspekto?"
+      done: "Finis"
+      make_aspect_list_visible: "igar konocati en ita aspekto videbla a l'una l'altra?"
+      remove_aspect: "Efacez ita aspekto"
+      rename: "ri-nomizez"
+      update: "aktualigez"
+      updating: "aktualigas"
+    few: "%{count} aspekti"
+    index:
+      cubbies:
+        learn_more: "Lernez plusa"
+      donate: "Donacar"
+      help:
+        do_you: "Ka vu:"
+        here_to_help: "Yen la Diaspora komuneso!"
+        need_help: "Ka Vu Bezonas Helpo?"
+      new_here:
+        learn_more: "Lektez pluse"
+        title: "Bonvenez Nova Uzanti"
+    many: "%{count} aspekti"
+    new:
+      create: "Kreez"
+      name: "Nomo (nur videbla da tu)"
+    no_contacts_message:
+      try_adding_some_more_contacts: "Vu povas serchar od invitar plusa konocati."
+      you_should_add_some_more_contacts: "Vu devas adjuntar plusa konocati!"
+    no_posts_message:
+      start_talking: "Nulu dicis irgo ankore!"
+    one: "1 aspekto"
+    other: "%{count} aspekti"
+    seed:
+      acquaintances: "Konocati"
+      family: "Familio"
+      friends: "Amiki"
+    selected_contacts:
+      manage_your_aspects: "Direktar tua aspekti."
+      no_contacts: "Tu ankore ne havas konocati hike"
+      view_all_contacts: "Regardez omna konocati"
+    show:
+      edit_aspect: "redaktez aspekto"
+    two: "%{count} aspekti"
+  back: "Retro-irar"
+  cancel: "Anular"
+  contacts:
+    index:
+      start_a_conversation: "Komencez nova debato"
+  conversations:
+    index:
+      new_message: "Nova mesajo"
+  delete: "Efacar"
+  email: "E-posto"
+  find_people: "Serchez personi o #\"tag\" -i"
+  hide: "Celar"
+  invitations:
+    new:
+      language: "Linguo"
+  layouts:
+    header:
+      profile: "Profilo"
+  limited: "Limitizita"
+  more: "Plusa"
+  next: "sequanta"
+  no_results: "Nula rezultajo trovesis"
+  nsfw: "NSFW"
+  ok: "Bone"
+  or: "od"
+  password: "Pasovorto"
+  password_confirmation: "Konfirmo di pasovorto"
+  people:
+    person:
+      add_contact: "adjuntez konocato"
+    profile_sidebar:
+      born: "Naskodio"
+      location: "Loko"
+    show:
+      message: "Mesajo"
+      see_all: "Videz omno"
+    sub_header:
+      edit: "redaktar"
+  photos:
+    destroy:
+      notice: "Fotografuro efacata"
+    new:
+      new_photo: "Nova Fotografuro"
+    show:
+      delete_photo: "Efacar fotografuro"
+      edit: "redaktar"
+  posts:
+    show:
+      destroy: "Efacar"
+  previous: "antea"
+  privacy: "Privateso"
+  privacy_policy: "Politiko pri privateso"
+  profile: "Profilo"
+  profiles:
+    edit:
+      your_birthday: "Tua naskodio"
+      your_name: "Tua nomo"
+      your_photo: "Tua fotografuro"
+  public: "Publika"
+  registrations:
+    new:
+      continue: "Durar"
+      password: "PASOVORTO"
+  search: "Serchar"
+  services:
+    remote_friend:
+      invite: "invitez"
+      resend: "risendez"
+  settings: "Selektaji"
+  shared:
+    contact_list:
+      all_contacts: "Omna konocati"
+    publisher:
+      all_contacts: "omna konocati"
+  streams:
+    followed_tag:
+      follow: "Sequez"
+  terms_and_conditions: "Reguli e Kondicioni"
+  undo: "Ka desfacar?"
+  username: "Uzantonomo"
+  users:
+    edit:
+      change: "Chanjar"
+      change_language: "Chanjez linguo"
+      change_password: "Chanjez pasovorto"
+      current_password: "Nuna pasovorto"
+      download_photos: "Deskargez mea fotografuri"
+      new_password: "Nova pasovorto"
+  welcome: "Esez Bonvenanta!"

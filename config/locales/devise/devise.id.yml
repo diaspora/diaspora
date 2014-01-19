@@ -29,34 +29,6 @@ id:
         subject: "Instruksi pengesahan / konfirmasi"
         you_can_confirm: "Anda dapat mengkonfirmasi akun anda melalui link (tautan) di bawah ini:"
       hello: "Halo %{email}!"
-      invitation_instructions:
-        accept: "Setuju menerima undangan"
-        arrived: "Jaringan sosial yang Anda nantikan telah tiba. Berbeda, lebih aman, dan lebih menyenangkan, %{strong_diaspora} siap untuk membantu Anda berbagi dan menjelajahi internet dengan cara yang baru."
-        be_yourself: "Jadilah diri anda sendiri"
-        be_yourself_paragraph: "Internet telah membuat cara baru yang unik untuk kita berekspresi. %{strong_diaspora} memungkinkan anda untuk menjadi diri anda sendiri dan berbagi dengan siapa saja yang anda inginkan, dengan atau tanpa nama asli mu"
-        displaying_correctly: "Email tidak terlihat dengan benar ? %{link}"
-        email_address: "questions@joindiaspora.com"
-        email_us: "Untuk pertanyaan-pertanyaan atau bantuan terkait dengan akun Diaspora anda, kirim email ke kami di %{email}."
-        finally: "Akhirnya - Dia di sini."
-        friends_saying: "Apa yang teman-teman anda katakan..."
-        get_connected: "Terhubunglah"
-        get_connected_paragraph: "Gerakan internasional dengan visi berbagi untuk duinia internet yang lebih baik, fitur %{strong_diaspora} nomor satu adalah komunitas nya. Bertemu dengan orang-orang baru, ter-koneksi dengan teman-teman, dan bergabunglah dengan kegembiraan ini."
-        have_fun: "Bersenang senang lah"
-        have_fun_paragraph: "%{strong_diaspora} adalah bagaimana anda menemukan konten baru dan orang-orang yang luar biasa secara online. %{link}, aplikasi %{strong_diaspora} hanyalah permulaan. Temukan dan berbagilah di internet dengan segala kebaikan nya."
-        help_fund: "Bantu untuk mendanai DIaspora"
-        here: "disini"
-        ignore: "Mohon abaikan e-mail ini, jika anda tidak setuju untuk menerima undangan ini."
-        join_team: "Bergabunglah dengan tim kami"
-        love: "Dengan Hormat,"
-        made_by_people: "%{strong_diaspora} di buat oleh orang-orang yang mencintai internet sama seperti anda. %{jointeam}, atau %{helpfund}!"
-        more_people: "Semakin banyak orang yang senang melihatmu!"
-        no_account_till: "Akun anda tidak akan dibuat sampai anda mengakses link (tautan) di atas dan mendaftar."
-        or: "atau"
-        sign_up_now: "Daftar sekarang"
-        subject: "Anda telah diundang untuk bergabung di Diaspora!"
-        team_diaspora: "Tim Diaspora"
-        unsubscribe: "Untuk berhenti berlangganan klik %{link}."
-        view_in: "Lihat di browser anda"
       inviter:
         accept_at: "di %{url}, anda dapat menerimanya melalui link (tautan) di bawah ini."
         has_invited_you: "%{name}"
@@ -88,9 +60,6 @@ id:
       updated: "Anda berhasil memperbarui akun anda."
     sessions:
       new:
-        alpha_software: "Anda akan menggunakan perangkat lunak alpha."
-        bugs_and_feedback: "Untuk di perhatikan, anda (mungkin) akan mengalami gangguan. Kami mendorong anda untuk menggunakan tombol Umpan balik / Saran yang berada di bagian kanan penjelajah internet anda untuk melaporkan gangguan sekecil apapun! Kami akan bekerja secepat mungkin untuk menyelesaikan masalah apapun yang anda laporkan."
-        bugs_and_feedback_mobile: "Untuk di perhatikan, Anda (mungkin) akan mengalami gangguan. Kami mendorong Anda untuk melaporkan gangguan kecil apapun! Kami akan bekerja secepat mungkin untuk menyelesaikan masalah apapun yang Anda laporkan."
         login: "Masuk"
         modern_browsers: "hanya mendukung penjelajah-penjelajah (browser) internet modern."
         password: "Kata sandi"
@@ -107,8 +76,6 @@ id:
         sign_in: "Masuk"
         sign_up: "Mendaftar"
         sign_up_closed: "Pendaftaran terbuka sedang ditutup saat ini."
-      mail_signup_form:
-        sign_up_for_an_invite: "Mendaftar untuk undangan!"
     unlocks:
       new:
         resend_unlock: "Kirim ulang instruksi untuk membuka"

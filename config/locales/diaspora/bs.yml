@@ -647,7 +647,6 @@ bs:
       no_results: "Hej! Trebate tražiti nešto."
       results_for: "rezultati pretrage za"
       searching: "pretraživanje, molimo budite strpljivi"
-    last_post: "Zadnja Objava"
     many: "%{count} ljudi"
     one: "1 osoba"
     other: "%{count} ljudi"
@@ -748,8 +747,6 @@ bs:
       first_name: "Ime"
       last_name: "Prezime"
       update_profile: "Ažuriraj Profil"
-      you_are_nsfw: "Označili ste se nesigurnim za posao, vaš sadržaj se neće pojavljivati kod ljudi koji su se opredijelili za nevidljivost neprihvatljivog sadržaja toka."
-      you_are_safe_for_work: "Označili ste se sigurnim za posao, ovo znači da se slažete da će se sadržaj koji objavljujete slagati sa smjernicama zajednice."
       your_bio: "Vaša biografija"
       your_birthday: "Vaš rođendan"
       your_gender: "Vaš spol"
@@ -1017,7 +1014,6 @@ bs:
   tags:
     show:
       follow: "Prati #%{tag}"
-      followed_by: "praćeno od"
       following: "Pratim #%{tag}"
       nobody_talking: "Niko još ne razgovara o %{tag}"
       none: "Prazna oznaka ne postoji!"

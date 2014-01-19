@@ -132,13 +132,15 @@ es-AR:
       success: "%{name} se eliminó con éxito."
     edit:
       add_existing: "Agregar un contacto existente"
-      aspect_list_is_not_visible: "la lista de contactos del aspecto es invisible"
-      aspect_list_is_visible: "la lista de contactos del aspecto es visible"
+      aspect_list_is_not_visible: "La lista de contactos de este aspecto NO es visible"
+      aspect_list_is_visible: "La lista de contactos de este aspecto es visible"
       confirm_remove_aspect: "¿Estás seguro de que querés eliminar este aspecto?"
       done: "Listo"
       make_aspect_list_visible: "¿Hacer visible los contactos del aspecto entre ellos?"
+      manage: "Administrar"
       remove_aspect: "Eliminar este aspecto"
       rename: "renombrar"
+      set_visibility: "Establecer visibilidad"
       update: "actualizar"
       updating: "actualizando"
     few: "%{count} aspectos"
@@ -761,7 +763,6 @@ es-AR:
       no_results: "¡Che! Necesitás buscar algo."
       results_for: "buscar resultados para"
       searching: "buscando, por favor sé paciente…"
-    last_post: "Última publicación"
     many: "%{count} personas"
     one: "1 persona"
     other: "%{count} personas"
@@ -859,9 +860,10 @@ es-AR:
       edit_profile: "Editar perfil"
       first_name: "Tu nombre de pila"
       last_name: "Tu apellido"
+      nsfw_check: "Marcar todo lo que comparto como NSFW (\"no es seguro para el trabajo\")"
+      nsfw_explanation: "\"No es seguro para el trabajo\" (NSFW-'not safe for work') es un estándar autónomo de la comunidad de diaspora* para el contenido que puede no ser adecuado para ver mientras estás trabajando. Si planeas compartir este material con frecuencia, por favor marca esta opción para que todo lo que compartas esté oculto para los demás usuarios a menos que ellos elijan verlo."
+      nsfw_explanation2: "Si eliges no marcar esta opción, por favor agrega la etiqueta #nsfw cada vez que compartas un material de este tipo."
       update_profile: "Actualizar perfil"
-      you_are_nsfw: "Has marcado tu perfil como no apto para todo público, tu contenido no se mostrará a las personas que hayan descartado ver ese tipo de publicaciones."
-      you_are_safe_for_work: "Has marcado tu perfil como apto para todo público, esto significa que aceptas que el contenido que publiques respetará las normas de toda la comunidad."
       your_bio: "Tu biografía"
       your_birthday: "Tu cumpleaños"
       your_gender: "Tu género"
@@ -1030,6 +1032,7 @@ es-AR:
       all: "todo"
       all_contacts: "todos los contactos"
       discard_post: "Descartar publicación"
+      formatWithMarkdown: "Puedes usar %{markdown_link} para darle formato a tu publicación"
       get_location: "Obtener tu ubicación"
       make_public: "hacer público"
       new_user_prefill:
@@ -1062,6 +1065,13 @@ es-AR:
       via: "vía %{link}"
       via_mobile: "vía celular"
       viewable_to_anyone: "Esta publicación puede ser vista por cualquiera en la web"
+  simple_captcha:
+    label: "Ingresa el código en el recuadro de abajo"
+    message:
+      default: "El código secreto no coincide con la imagen"
+      failed: "Falló la verificación humana"
+      user: "La imagen secreta y el código son diferentes"
+    placeholder: "Ingresa el valor de la imagen"
   status_messages:
     create:
       success: "Se mencionó a: %{names}"
@@ -1128,7 +1138,10 @@ es-AR:
   tags:
     show:
       follow: "Seguir #%{tag}"
-      followed_by: "seguido por"
+      followed_by_people:
+        one: "Seguido por una persona"
+        other: "Seguido por %{count} personas"
+        zero: "Seguido por nadie"
       following: "Siguiendo #%{tag}"
       nobody_talking: "Nadie está hablado sobre %{tag} todavía."
       none: "La etiqueta en blanco no existe!"

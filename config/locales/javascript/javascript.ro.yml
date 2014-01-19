@@ -6,6 +6,7 @@
 
 ro:
   javascripts:
+    and: "și"
     aspect_dropdown:
       add_to_aspect: "Adaugă la contacte"
       all_aspects: "Toate aspectele"
@@ -24,23 +25,28 @@ ro:
       deselect_all: "Deselectează tot"
       no_aspects: "Niciun aspect selectat"
       select_all: "Selectează tot"
+    comma: ","
     comments:
       hide: "ascunde comentariile"
+      no_comments: "Nu există comentarii"
       show: "arată toate comentarile"
     confirm_dialog: "Sunteţi sigur?"
     delete: "Şterge"
+    edit: "Modifică"
     failed_to_like: "Nu sa reusit operatia de \"imi place\"!"
     failed_to_post_message: "Nu sa reusit trimiterea mesajului!"
     getting_started:
       alright_ill_wait: "In regulă, o să aștept."
-      hey: "Salutare, {{name}}!"
+      hey: "Salutare, <%= name %>!"
       no_tags: "Hopa, nu urmati nicio eticheta! Continuati si asa ?"
       preparing_your_stream: "Se pregateste fluxul personalizat pentru dvs..."
     header:
-      admin: "Administrator"
+      admin: "Administrare"
+      close: "închide"
       contacts: "Contacte"
+      help: "Ajutor"
       home: "Acasă"
-      log_out: "Ieşire"
+      log_out: "Deautentificare"
       mark_all_as_read: "Marchează-le pe toate ca citite"
       messages: "Mesaje"
       notifications: "Notificări"
@@ -52,13 +58,17 @@ ro:
     ignore: "Ignoră"
     infinite_scroll:
       no_more: "Nu mai sunt posturi."
+      no_more_contacts: "Niciun contact"
     my_activity: "Activitatea proprie"
     my_stream: "Flux"
     photo_uploader:
+      invalid_ext: "{file} are o extensie invalidă. Doar extensiile {extensions} sunt permise."
       looking_good: "WOW, arati super!"
+      size_error: "{file} este prea mare, mărimea maximă a unui fişier este {sizeLimit}."
     publisher:
       at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
       limited: "Limitat - publicatia va fi vazuta doar de catre persoanele cu care imparti publicatii"
+      near_from: "Publicat din <%= location %>"
       public: "Public - articolul tău va fi vizibil tuturor şi va fi accesibilă prin motoarele de căutare"
     reshares:
       duplicate: "E chiar asa de tare, hmm?  Ati mai raspandit o data aceasta publicatie!"
@@ -67,6 +77,9 @@ ro:
     stream:
       comment: "Comentariu"
       follow: "Urmează"
+      followed_tag:
+        add_a_tag: "Adaugă o etichetă"
+        follow: "Urmează"
       hide: "Ascunde"
       hide_nsfw_posts: "Ascunde #nsfw articole"
       like: "Îmi place"
@@ -97,10 +110,12 @@ ro:
         zero: "<%= count %> Reshares"
       show_nsfw_post: "Afișare articol"
       show_nsfw_posts: "Arată tot"
+      tags:
+        following: "Urmărind #<%= tag %>"
       unfollow: "Nu mai urmări"
       unlike: "Nu ȋmi place"
     tags:
-      wasnt_that_interesting: "Bine, presupun ca #{{tagName}} nu a fost chiar atat de interesant..."
+      wasnt_that_interesting: "Bine, presupun ca #<%= tagName %> nu a fost chiar atat de interesant..."
     timeago:
       day: "o zi"
       days: "%d zile"
@@ -120,3 +135,5 @@ ro:
     videos:
       unknown: "Format de video necunoscut"
       watch: "Vizualizează acest video pe {{provider}}"
+    viewer:
+      home: "Pagina de start"

@@ -6,10 +6,12 @@
 
 da:
   javascripts:
+    and: "og"
     aspect_dropdown:
       add_to_aspect: "Tilføj kontakt"
       all_aspects: "Alle aspekter"
       error: "Kunne ikke begynde at dele med <%= name %>.  Ignorerer du vedkommende?"
+      error_remove: "Kunne ikke fjerne <%= name %> fra aspektet. :("
       select_aspects: "Vælg aspekter"
       started_sharing_with: "Du er begyndt at dele med <%= name %>!"
       stopped_sharing_with: "Du deler ikke længere med <%= name %>."
@@ -21,14 +23,20 @@ da:
         two: "I <%= count %> aspekter"
         zero: "Vælg aspekter"
     aspect_navigation:
+      add_an_aspect: "+ Tilføj et aspekt"
       deselect_all: "Fravælg alle"
       no_aspects: "Ingen valgte aspekter"
       select_all: "Vælg alle"
+    comma: ","
     comments:
       hide: "Skjul kommentarer"
+      no_comments: "Der er endnu ingen kommentarer."
       show: "Vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
+    conversation:
+      participants: "Deltagere"
     delete: "Slet"
+    edit: "Rediger"
     failed_to_like: "Kunne ikke synes om!"
     failed_to_post_message: "Kunne ikke indsende besked!"
     getting_started:
@@ -37,7 +45,10 @@ da:
       no_tags: "Du har ikke fulgt nogen tags! Vil du fortsætte alligevel?"
       preparing_your_stream: "Forbereder din personlige strøm..."
     header:
+      admin: "Admin"
+      close: "luk"
       contacts: "Kontakter"
+      help: "Hjælp"
       home: "Hjem"
       log_out: "Log ud"
       mark_all_as_read: "Marker alle som læst"
@@ -49,23 +60,41 @@ da:
       settings: "Indstillinger"
       view_all: "Se alle"
     ignore: "Ignorer"
+    ignore_user: "Ignorer denne bruger?"
     infinite_scroll:
       no_more: "Ikke flere indlæg."
+      no_more_contacts: "Ikke flere kontakter."
     my_activity: "Min aktivitet"
+    my_aspects: "Mine aspekter"
     my_stream: "Strøm"
+    people:
+      not_found: "og ingen blev fundet ..."
     photo_uploader:
+      completed: "<%= file %> fuldført."
+      empty: "{file} er tom. Vælg venligst filer igen uden den."
+      error: "Der er opstået et problem med at lægge filen <%= file %> op."
+      invalid_ext: "{file} har en ugyldig filtype. Kun {extensions} er tilladt."
       looking_good: "OMG, du ser sej ud!"
+      size_error: "{file} er for stor. Maksimal filstørrelse er {sizeLimit}."
     publisher:
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
       limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
+      near_from: "Sendt fra: <%= location %>"
       public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
     reshares:
       duplicate: "Du har allerede delt indlægget!"
+      post: "Videredel <%= name %>s indlæg?"
+      successful: "Indlægget er blevet videredelt!"
     search_for: "Søg efter <%= name %>"
     show_more: "Vis mere"
     stream:
       comment: "Kommentér"
       follow: "Følg"
+      followed_tag:
+        add_a_tag: "Tilføj et tag"
+        contacts_title: "Folk der kan lide disse tags"
+        follow: "Følg"
+        title: "#Fulgte tags"
       hide: "Skjul"
       hide_nsfw_posts: "Skjul #nsfw indlæg"
       like: "Synes om"
@@ -96,6 +125,10 @@ da:
         zero: "<%= count %> videredelinger"
       show_nsfw_post: "Vis indlæg"
       show_nsfw_posts: "Vis alle"
+      tags:
+        follow: "Følg #<%= tag %>"
+        following: "Følger #<%= tag %>"
+        stop_following: "Hold op med at følge #<%= tag %>"
       unfollow: "Følg ikke"
       unlike: "Synes ikke om"
     tags:
@@ -119,3 +152,12 @@ da:
     videos:
       unknown: "Ukendt videotype"
       watch: "Se denne video på <%= provider %>"
+    viewer:
+      comment: "Kommentér"
+      follow_post: "Følg indlæg"
+      home: "HJEM"
+      like: "Like"
+      reshare: "Videredel"
+      reshared: "Videredelt"
+      stop_following_post: "Ophør med at følge indlæg"
+      unlike: "Unlike"

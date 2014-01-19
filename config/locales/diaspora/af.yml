@@ -1,0 +1,20 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+af:
+  _help: "Hulp"
+  admins:
+    stats:
+      daily: "Daglike"
+      month: "Maand"
+      week: "Week"
+  aspects:
+    index:
+      help:
+        tutorial_link_text: "Tutoriale"
+  people:
+    profile_sidebar:
+      photos: "Fotos"

@@ -547,7 +547,6 @@ ko:
       no_results: "검색 결과가 없습니다"
       results_for: "검색 결과:"
       searching: "검색중입니다, 잠시만 기다려주십시오···"
-    last_post: "최근 게시물"
     many: "%{count}명"
     one: "한 명"
     other: "%{count}명"
@@ -649,8 +648,6 @@ ko:
       first_name: "이름"
       last_name: "성"
       update_profile: "프로필 업데이트"
-      you_are_nsfw: "스스로를 유해매체로 지정했습니다. 내 콘텐트가 불쾌한 콘텐트 스트림을 거부한 사람들에게 보이지 않습니다."
-      you_are_safe_for_work: "스스로를 유해매체가 아니라고 지정했습니다. 내가 게시하는 콘텐트는 커뮤니티 지침을 동의할 것입니다."
       your_bio: "자기소개"
       your_birthday: "생년월일"
       your_gender: "성별"
@@ -915,7 +912,6 @@ ko:
   tags:
     show:
       follow: "#%{tag} 태그 팔로우하기"
-      followed_by: "팔로우한 사람들"
       following: "#%{tag} 태그 팔로우중"
       nobody_talking: "아직 %{tag} 태그가 달린 게시물이 없습니다."
       none: "빈 태그는 존재하지 않습니다!"

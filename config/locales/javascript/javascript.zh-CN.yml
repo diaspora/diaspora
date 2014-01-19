@@ -64,7 +64,7 @@ zh-CN:
       duplicate: "您已经转发过了。"
       post: "要转发 <%= name %> 的内容吗？"
       successful: "转发成功"
-    search_for: "搜索 {{name}}"
+    search_for: "搜索 <%= name %>"
     show_more: "查看更多"
     stream:
       comment: "评论"
@@ -109,7 +109,7 @@ zh-CN:
       years: "%d 年"
     videos:
       unknown: "未知视频格式"
-      watch: "在 {{provider}} 上看观看视频"
+      watch: "在 <%= provider %> 上看观看视频"
     viewer:
       comment: "评论"
       follow_post: "关注内容"

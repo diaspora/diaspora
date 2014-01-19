@@ -290,11 +290,7 @@ tr:
       success: "Konuşma başarıyla kaldırıldı"
     helper:
       new_messages:
-        few: "%{count} yeni mesaj"
-        many: "%{count} yeni mesaj"
-        one: "1 yeni mesaj"
         other: "%{count} yeni ileti"
-        two: "%{count} yeni mesaj"
         zero: "Yeni ileti yok"
     index:
       create_a_new_message: "yeni mesaj oluştur"
@@ -332,6 +328,7 @@ tr:
   find_people: "Kişi ve #tag bul"
   help:
     account_and_data_management:
+      close_account_a: "Ayarlar sayfanızın sonuna gidin ve Hesabımı Kapat butonuna tıklayın."
       title: "Hesap ve veri yönetimi"
     aspects:
       remove_notification_a: "Hayır."
@@ -370,7 +367,7 @@ tr:
     third_party_tools: "üçüncü taraf araçları"
     tutorial: "öğretici"
     tutorials: "öğreticiler"
-    wiki: "viki"
+    wiki: "wiki"
   hide: "Gizle"
   invitation_codes:
     excited: "%{name}, sizi burada gördüğü için heyecanlı."
@@ -381,7 +378,7 @@ tr:
     create:
       already_contacts: "Bu kişiyle zaten bağlantı kurdun"
       already_sent: "Bu kişiyi zaten davet ettin."
-      empty: "En azından bir e-posta adresi giriniz."
+      empty: "En az bir e-posta adresi girin."
       no_more: "Başka davetiyeniz yok."
       note_already_sent: "Davetiyeler %{emails}ne gönderilmiştir."
       own_address: "Kendi adresinize davetiye gönderemezsiniz."
@@ -470,11 +467,7 @@ tr:
       two: "%{actors} silinmiş gönderinize yorum yazdı."
       zero: "%{actors} silinmiş gönderinize yorum yazdı."
     comment_on_post:
-      few: "%{actors} %{post_link}yi yorumladı."
-      many: "%{actors} %{post_link}yi yorumladı."
-      one: "%{actors} %{post_link}yi yorumladı."
       other: "%{actors} %{post_link} gönderinizi yorumladı."
-      two: "%{actors} %{post_link}yi yorumladı."
       zero: "%{actors} %{post_link} gönderinizi yorumladı."
     helper:
       new_notifications:
@@ -507,11 +500,7 @@ tr:
       two: "%{actors} silinen gönderiyi iğneledi."
       zero: "%{actors} silinmiş gönderinizi iğnelemedi."
     mentioned:
-      few: "%{actors} %{post_link} senden bahsetti."
-      many: "%{actors} %{post_link} senden bahsetti."
-      one: "%{actors} kişisi %{post_link} gönderisinde senden bahsetti."
       other: "%{actors} bir %{post_link} içinde seni andı."
-      two: "%{actors} senden %{post_link} unsurunda bahsetti."
       zero: "%{actors} bir %{post_link} içinde seni andı."
     mentioned_deleted:
       few: "%{actors} silinmiş gönderide senden bahsetti."
@@ -522,18 +511,10 @@ tr:
       zero: "%{actors} silinmiş gönderide senden bahsetti."
     post: "gönderi"
     private_message:
-      few: "%{actors} mesaj gönderdi."
-      many: "%{actors} mesaj gönderdi."
-      one: "%{actors} mesaj gönderdi."
       other: "%{actors} ileti gönderdi."
-      two: "%{actors} size bir mesaj gönderdi."
       zero: "%{actors} ileti gönderdi."
     reshared:
-      few: "%{actors} %{post_link}yi tekrar paylaştı."
-      many: "%{actors} %{post_link}yi tekrar paylaştı."
-      one: "%{actors} tekrar paylaştı %{post_link}."
       other: "%{actors} %{post_link} gönderinizi paylaştı"
-      two: "%{actors} %{post_link}yi tekrar paylaştı."
       zero: "%{actors} %{post_link} gönderinizi paylaştı."
     reshared_post_deleted:
       few: "%{actors} silenen gönderiyi tekrar paylaştı."
@@ -622,7 +603,6 @@ tr:
       no_results: "Hey! Bir şeyi araman lazım."
       results_for: "arama sonuçları"
       searching: "aranıyor, biraz sabırlı olun..."
-    last_post: "Son Gönderi"
     many: "%{count} kişi"
     one: "1 kişi"
     other: "%{count} kişi"
@@ -724,8 +704,6 @@ tr:
       first_name: "Ad"
       last_name: "Soyad"
       update_profile: "Profili Güncelle"
-      you_are_nsfw: "Kendinizi çalışmak için güvenli değil olarak işaretlediniz, içeriğiniz uygunsuz içerik akışlarının dışında kalan insanlarda gözükmeyecektir."
-      you_are_safe_for_work: "Kendinizi çalışmak için güvenli olarak işaretlediniz, yani gönderdiğiniz içeriğin topluluk ilkelerine uygun olduğunu kabul etmektesiniz."
       your_bio: "Hakkında"
       your_birthday: "Doğum günün"
       your_gender: "Cinsiyetin"
@@ -995,7 +973,6 @@ tr:
   tags:
     show:
       follow: "Takip et: #%{tag}"
-      followed_by: "takip edenler:"
       following: "#%{tag} takip ediliyor"
       nobody_talking: "%{tag} hakkında konuşan yok henüz."
       none: "Boş etiketi yoktur!"

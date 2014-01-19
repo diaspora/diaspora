@@ -69,6 +69,7 @@ es:
     photo_uploader:
       completed: "<%= file %> completado"
       empty: "{file} está vacío, por favor selecciona otros archivos."
+      error: "Un problema a ocurrido mientras se cargaba el archivo <%= file %>"
       invalid_ext: "{file} tiene una extensión inválida. Solo se permiten {extensions}."
       looking_good: "¡Guau, estás increíble!"
       size_error: "{file} es demasiado grande, el tamaño máximo de un archivo es de {sizeLimit}."

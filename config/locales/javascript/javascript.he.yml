@@ -36,7 +36,7 @@ he:
     failed_to_post_message: "פרסום ההודעה נכשל!"
     getting_started:
       alright_ill_wait: "בסדר, אני אמתין."
-      hey: "שלום, {{name}}!"
+      hey: "שלום, <%= name %>!"
       no_tags: "?היי, לא עקבת אחרי אף תגית! לאן אתה רוצה להמשיך"
       preparing_your_stream: "החדשות האישיות שלך בשלבי הכנה"
     header:
@@ -119,7 +119,7 @@ he:
       unfollow: "הפסק לעקוב"
       unlike: "לא אהבתי"
     tags:
-      wasnt_that_interesting: "...זה לא היה כל כך מעניין#{{tagName}} אוקיי, אני מניח "
+      wasnt_that_interesting: "...זה לא היה כל כך מעניין#<%= tagName %> אוקיי, אני מניח"
     timeago:
       day: "יום"
       days: "%d ימים"

@@ -11,6 +11,7 @@ ta:
   _home: "முகப்பு"
   _photos: "புகைப்படங்கள்"
   _services: "சேவைகள்"
+  account: "கணக்கு"
   activerecord:
     errors:
       models:
@@ -39,7 +40,7 @@ ta:
             username:
               invalid: "தவறானது. எங்களால் எழுத்துக்கள், எண்கள், மற்றும் அடிக்கோடு மட்டுமே அனுமதிக்கப்படும்."
               taken: "ஏற்கனவே எடுக்கப்பட்டுவிட்டது"
-  ago: "முன்பு காலம்"
+  ago: "%{time}முன்பு"
   all_aspects: "அனைத்து அம்சங்களிலும்"
   application:
     helper:
@@ -52,9 +53,14 @@ ta:
     aspect_contacts:
       done_editing: "திருத்தம் முடிந்தது"
     aspect_listings:
+      deselect_all: "அனைத்தையும் தேர்வுநீக்கம் செய்க"
+      edit_aspect: "மாற்று %{name}"
       select_all: "அனைத்தையும் தேர்வு செய்"
     contacts_not_visible: "இந்த அம்சத்தில் உள்ள தொடர்புகளை ஒருவருக்கொருவர் பார்க்க முடியாது."
     contacts_visible: "இந்த அம்சத்தில் உள்ள தொடர்புகளை ஒருவருக்கொருவர் பார்க்க முடியும்."
+    destroy:
+      failure: "%{name} காலியாக இல்லை ஆகையால் நீக்க முடியவில்லை"
+      success: "%{name} வெற்றிகரமாக நீக்கப்பட்டது"
     edit:
       add_existing: "ஏற்கனவே இருக்கும் தொடர்பை சேர்க்க."
       aspect_list_is_not_visible: "அம்சம் பட்டியல் அம்சங்களிலுள்ள மற்றவர்களுக்கு மறைக்கப்பட்டது"
@@ -66,14 +72,34 @@ ta:
       rename: "மறுபெயர்"
       update: "புதுப்பிக்க"
       updating: "புதுப்பித்தல் நடக்கிறது"
+    helper:
+      remove: "அகற்று"
+    index:
+      donate: "நன்கொடை"
+      help:
+        tag_feature: "சிறப்பம்சம்"
+        tag_question: "கேள்வி"
+      new_here:
+        title: "வரவேற்கிறோம் புதிய பயனர்கள்"
+      no_contacts: "தொடர்புகள் எதுவும் இல்லை"
+      unfollow_tag: "#%{tag} ஐ பின்தொடர்வதை நிறுத்து"
+    new:
+      create: "உருவாக்கு"
+      name: "பெயர்(உங்களுக்கு மட்டுமே தெரியும்)"
     no_contacts_message:
       community_spotlight: "சமூகத்தின் கவனத்தில்"
       you_should_add_some_more_contacts: "நீங்கள் கண்டிப்பாக மேலும் சில தொடர்புகளை சேர்க்க வேண்டும்!"
     no_posts_message:
       start_talking: "யாரும் எதுவும் கூறவில்லை!"
     one: "ஒரு அம்சம்"
+    seed:
+      acquaintances: "அறிமுகமானவர்கள்"
+      family: "குடும்பம்"
+      friends: "நண்பர்கள்"
+      work: "வேலை"
     show:
       edit_aspect: "அம்சத்தை திருத்த"
+    two: "%{count} அம்சங்கள்"
     zero: "இல்லாத அம்சங்கள்"
   back: "பின்"
   cancel: "ரத்துசெய்"

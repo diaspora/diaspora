@@ -6,10 +6,12 @@
 
 cs:
   javascripts:
+    and: "a"
     aspect_dropdown:
       add_to_aspect: "Přidat kontakt"
       all_aspects: "Všechny aspekty"
       error: "Nelze zahájit sdílení s <%= name %>.  Neignorujete je?"
+      error_remove: "Nepodařilo se odstranit <%= name %> z aspektu :("
       select_aspects: "Vybrat aspekty"
       started_sharing_with: "Začali jste sdílet s <%= name %>!"
       stopped_sharing_with: "Přestali jste sdílet s <%= name %>."
@@ -23,8 +25,10 @@ cs:
       deselect_all: "Odznačit vše"
       no_aspects: "Nebyl vybrán žádný aspekt"
       select_all: "Vybrat vše"
+    comma: ","
     comments:
       hide: "skrýt komentáře"
+      no_comments: "Zatím nejsou žádné komentáře."
       show: "zobrazit všechny komentáře"
     confirm_dialog: "Jste si jisti?"
     conversation:
@@ -40,7 +44,9 @@ cs:
       preparing_your_stream: "Připravuji váš osobní proud…"
     header:
       admin: "Administrace"
+      close: "zavřít"
       contacts: "Kontakty"
+      help: "Nápověda"
       home: "Domů"
       log_out: "Odhlásit se"
       mark_all_as_read: "Označit vše jako přečtené"
@@ -55,16 +61,22 @@ cs:
     ignore_user: "Ignorovat tohoto uživatele?"
     infinite_scroll:
       no_more: "Žádné další příspěvky."
+      no_more_contacts: "Žádné další kontakty."
     my_activity: "Moje aktivita"
     my_aspects: "Moje aspekty"
     my_stream: "Proud"
     people:
       not_found: "… a nikdo nebyl nalezen."
     photo_uploader:
+      completed: "<%= file %> dokončen"
+      empty: "{file} je prázdný, prosím vyberte soubory znovu bez něho."
+      invalid_ext: "{file} má chybnou příponu. Jsou povoleny pouze {extensions}."
       looking_good: "Tedy, vypadáte úžasně!"
+      size_error: "{file} je přiliš veliký, maximální velikost je {sizeLimit}."
     publisher:
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
       limited: "Omezený — váš příspěvek bude přístupný pouze lidem, se kterými sdílíte"
+      near_from: "Odesláno z: <%= location %>"
       public: "Veřejný — váš příspěvek si bude moci přečíst kdokoliv a může být nalezen vyhledávači"
     reshares:
       duplicate: "Tento příspěvek už sdílíte!"

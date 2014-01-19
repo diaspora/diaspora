@@ -132,13 +132,15 @@ fr:
       success: "%{name} a été supprimé."
     edit:
       add_existing: "Ajouter un contact existant"
-      aspect_list_is_not_visible: "la liste d'aspect est masquée pour les autres membres de cet aspect"
-      aspect_list_is_visible: "la liste d'aspect est visible pour les autres membres de cet aspect"
+      aspect_list_is_not_visible: "Les contacts dans cet aspect ne peuvent pas se voir entre eux."
+      aspect_list_is_visible: "Les contacts dans cet aspect peuvent se voir entre eux."
       confirm_remove_aspect: "Voulez-vous vraiment supprimer cet aspect ?"
       done: "Terminé"
       make_aspect_list_visible: "permettre aux contacts de cet aspect de se voir entre eux ?"
+      manage: "Gérer"
       remove_aspect: "Supprimer cet aspect"
       rename: "renommer"
+      set_visibility: "Régler la visibilité"
       update: "mettre à jour"
       updating: "mise à jour"
     few: "%{count} aspects"
@@ -742,7 +744,6 @@ fr:
       no_results: "Hé ! Vous devez rechercher quelque chose."
       results_for: "résultats de la recherche pour"
       searching: "Recherche en cours, veuillez patienter ..."
-    last_post: "Dernier message"
     many: "%{count} personnes"
     one: "1 personne"
     other: "%{count} personnes"
@@ -840,9 +841,10 @@ fr:
       edit_profile: "Modifier le profil"
       first_name: "Prénom"
       last_name: "Nom de famille"
+      nsfw_check: "Marquer tout ce que je poste comme #NSFW"
+      nsfw_explanation: "NSFW ('Not Safe For Work') est une convention pour le contenu qui n'est pas visualisable au travail. Si vous prévoyez de partager ce genre de contenu fréquemment, vous pouvez cocher cette option pour que tous vos messages soient masqués aux autres utilisateurs jusqu'à ce qu'ils les affichent manuellement."
+      nsfw_explanation2: "Si vous choisissez de ne pas cocher cette option, veuillez ajouter le tag #nsfw à chaque fois que vous postez du contenu choquant."
       update_profile: "Mettre à jour le profil"
-      you_are_nsfw: "Vous vous êtes marqué-e comme « non sûr » (NSFW). Vos messages ne seront pas affichés pas chez les personnes qui ont demandé que les contenus non sûrs ne soient pas visibles dans leur flux."
-      you_are_safe_for_work: "Vous vous êtes marqué-e comme « sûr » (SFW) : cela signifie que vos messages devront suivre les règles de la communauté."
       your_bio: "Votre biographie"
       your_birthday: "Votre anniversaire"
       your_gender: "Votre sexe"
@@ -964,7 +966,7 @@ fr:
       invite: "inviter"
       not_on_diaspora: "Pas encore sur Diaspora"
       resend: "envoyer à nouveau"
-  settings: "Options"
+  settings: "Paramètres"
   share_visibilites:
     update:
       post_hidden_and_muted: "La publication de %{name} a été masquée et vous ne serez plus notifié."
@@ -1017,6 +1019,7 @@ fr:
       all: "tous"
       all_contacts: "tous les contacts"
       discard_post: "Supprimer la publication"
+      formatWithMarkdown: "Vous pouvez utiliser la syntaxe %{markdown_link} pour mettre en forme votre message"
       get_location: "Ajouter votre emplacement"
       make_public: "rendre public"
       new_user_prefill:
@@ -1049,6 +1052,13 @@ fr:
       via: "via %{link}"
       via_mobile: "envoyé d'un mobile"
       viewable_to_anyone: "Publication visible par n'importe qui sur le web"
+  simple_captcha:
+    label: "Entrez le code dans le champ"
+    message:
+      default: "Le code ne correspond pas à l'image"
+      failed: "La vérification anti-robot a échoué"
+      user: "L'image et le code sont différents"
+    placeholder: "Saisissez le contenu de l'image"
   status_messages:
     create:
       success: "Mention de : %{names}"
@@ -1115,7 +1125,10 @@ fr:
   tags:
     show:
       follow: "Suivre #%{tag}"
-      followed_by: "suivi par"
+      followed_by_people:
+        one: "suivi par une personne"
+        other: "suivi par %{count} personnes"
+        zero: "suivi par personne"
       following: "Suivre #%{tag}"
       nobody_talking: "Personne ne parle encore de %{tag}."
       none: "Le tag vide n'existe pas !"

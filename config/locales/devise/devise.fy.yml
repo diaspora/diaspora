@@ -13,12 +13,6 @@ fy:
       confirmation_instructions:
         confirm: "Myn akkount befêstigje"
       hello: "Guoi %{email}!"
-      invitation_instructions:
-        accept: "Útnoeging akseptearje"
-        love: "Leafde,"
-        or: "of"
-        subject: "Do wiest útnoadige foar Diaspora!"
-        team_diaspora: "Team Diaspora"
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} ha dy útnoadige om jin oan te slute by Diaspora"

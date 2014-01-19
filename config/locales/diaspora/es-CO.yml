@@ -78,8 +78,8 @@ es-CO:
       success: "%{name} fue eliminado exitosamente."
     edit:
       add_existing: "Añade un contacto existente"
-      aspect_list_is_not_visible: "la lista de aspectospermanece oculta a los demás en este aspecto"
-      aspect_list_is_visible: "la lista de aspectos es visible a los demás en este aspecto"
+      aspect_list_is_not_visible: "La lista de aspectos permanece oculta a los demás en este aspecto"
+      aspect_list_is_visible: "La lista de aspectos es visible a los demás en este aspecto"
       confirm_remove_aspect: "¿Estás seguro que quieres eliminar este aspecto?"
       done: "Hecho"
       make_aspect_list_visible: "¿Hacer visibles entre ellos a los contactos de este aspecto?"
@@ -398,6 +398,7 @@ es-CO:
     other: "%{count} personas"
     person:
       add_contact: "añadir contacto"
+      already_connected: "Ya estás conectado"
       pending_request: "Solicitud pendiente"
       thats_you: "¡Ese eres tú!"
     profile_sidebar:
@@ -475,6 +476,18 @@ es-CO:
   privacy: "Privacidad"
   privacy_policy: "Política de Privacidad"
   profile: "Perfil"
+  profiles:
+    edit:
+      first_name: "Nombre"
+      last_name: "Apellido"
+      your_bio: "Biografía"
+      your_birthday: "Cumpleaños"
+      your_gender: "Género"
+      your_name: "Tu Nombre"
+      your_private_profile: "Tu Perfil Privado"
+      your_public_profile: "Tu Perfil Público"
+      your_tags: "Descríbete en 5 palabras"
+      your_tags_placeholder: "como #películas #gatos #viajes #profesor #bogotá"
   public: "Público"
   reactions:
     one: "%{count} reacción"
@@ -482,6 +495,9 @@ es-CO:
     zero: "Ninguna reacción"
   search: "Buscar"
   settings: "Configuración"
+  share_visibilites:
+    update:
+      post_hidden_and_muted: "La publicación de %{name} se ha ocultado, así como las notificaciones."
   terms_and_conditions: "Términos y Condiciones"
   undo: "¿Deshacer?"
   username: "Nombre de usuario"

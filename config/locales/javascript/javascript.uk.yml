@@ -9,16 +9,15 @@ uk:
     aspect_dropdown:
       add_to_aspect: "Додати контакт"
       all_aspects: "Усі аспекти"
-      error: "Неможливо почати ділитися з користувачем {{name}}. Можливо, ви його заблокували?"
+      error: "Неможливо почати ділитися з користувачем <%= name %>. Можливо, ви його заблокували?"
       select_aspects: "Вибрати аспекти"
-      started_sharing_with: "Ви почали ділитися з {{name}}!"
-      stopped_sharing_with: "Ви перестали ділитися з {{name}}."
+      started_sharing_with: "Ви почали ділитися з <%= name %>!"
+      stopped_sharing_with: "Ви перестали ділитися з <%= name %>."
       toggle:
-        few: "У {{count}} аспектах"
-        many: "У {{count}} аспектах"
-        one: "У {{count}} аспектах"
-        other: "У {{count}} аспектах"
-        two: "У {{count}} аспектах"
+        few: "У <%= count %> аспектах"
+        many: "У <%= count %> аспектах"
+        one: "У <%= count %> аспектах"
+        other: "У <%= count %> аспектах"
         zero: "Вибрати аспекти"
     aspect_navigation:
       deselect_all: "Зняти вибір з усіх"
@@ -33,7 +32,7 @@ uk:
     failed_to_post_message: "Не вдалося надіслати повідомлення!"
     getting_started:
       alright_ill_wait: "Добре, я почекаю."
-      hey: "Привіт, {{name}}!"
+      hey: "Привіт, <%= name %>!"
       no_tags: "Ви не стежите ні за однією міткою! Все одно продовжити?"
       preparing_your_stream: "Підготовка вашого особистого потоку..."
     header:
@@ -66,7 +65,7 @@ uk:
     reshares:
       duplicate: "Настільки круто, так? Ви вже поділилися цим записом!"
       post: "Поширити допис <%= name %>?"
-    search_for: "Шукати {{name}}"
+    search_for: "Шукати <%= name %>"
     show_more: "показати більше"
     stream:
       comment: "Коментувати"
@@ -104,7 +103,7 @@ uk:
       unfollow: "Не слідкувати"
       unlike: "Hе подобається"
     tags:
-      wasnt_that_interesting: "Гаразд, мабуть, стежити за міткою #{{tagName}} було не так вже цікаво..."
+      wasnt_that_interesting: "Гаразд, мабуть, стежити за міткою #<%= tagName %> було не так вже цікаво..."
     timeago:
       day: "день"
       days: "%d днів[-я]"
@@ -123,7 +122,7 @@ uk:
       years: "%d років"
     videos:
       unknown: "Невідомий відеоформат"
-      watch: "Дивитися це відео на {{provider}}"
+      watch: "Дивитися це відео на <%= provider %>"
     viewer:
       comment: "Коментувати"
       follow_post: "Слідкувати за записом"

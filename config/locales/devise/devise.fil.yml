@@ -8,10 +8,6 @@ fil:
   devise:
     mailer:
       hello: "Kumusta %{email}!"
-      invitation_instructions:
-        finally: "Sa wakas - naandito na"
-        here: "dito"
-        or: "o"
     sessions:
       new:
         remember_me: "Tandaan Ako"
