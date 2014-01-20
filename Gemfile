@@ -101,6 +101,7 @@ gem 'gon',                     '4.1.1'
 gem 'haml',                    '4.0.5'
 gem 'mobile-fu',               '1.2.2'
 gem 'will_paginate',           '3.0.5'
+gem 'rails-timeago'
 
 # Workarounds
 # https://github.com/rubyzip/rubyzip#important-note
@@ -128,8 +129,6 @@ group :assets do
   gem 'backbone-on-rails', '1.1.0'
   gem 'handlebars_assets', '0.12.0'
   gem 'jquery-rails',      '2.1.4'
-
-  gem 'rails-timeago'
 
   # Windows and OSX have an execjs compatible runtime built-in, Linux users should
   # install Node.js or use 'therubyracer'.
