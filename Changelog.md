@@ -4,10 +4,14 @@
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
-* Fix regression caused by using after_commit with nested '#save' which lead to an infinite recursion [#4715](https://github.com/diaspora/diaspora/issues/4715)
 
 ## Features
 * You can report a single post by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517)
+
+# 0.3.0.1
+
+## Bug fixes
+* Fix regression caused by using after_commit with nested '#save' which lead to an infinite recursion [#4715](https://github.com/diaspora/diaspora/issues/4715)
 
 # 0.3.0.0
 
