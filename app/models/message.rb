@@ -11,13 +11,14 @@ class Message < ActiveRecord::Base
 
   belongs_to :author, :class_name => 'Person'
   belongs_to :conversation, :touch => true
-  
+
   delegate :name, to: :author, prefix: true
 
   validates :text, :presence => true
   validate :participant_of_parent_conversation
 
-  after_commit :on => :create do
+  after_create do  # don't use 'after_commit' here since there is a call to 'save!'
+                   # inside, which would cause an infinite recursion 
     #sign comment as commenter
     self.author_signature = self.sign_with_key(self.author.owner.encryption_key) if self.author.owner
 
