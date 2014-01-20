@@ -1,3 +1,8 @@
+# 0.3.0.1
+
+## Bug fixes
+* Fix regression caused by using after_commit with nested '#save' which lead to an infinite recursion [#4715](https://github.com/diaspora/diaspora/issues/4715)
+
 # 0.3.0.0
 
 ## Pod statistics
