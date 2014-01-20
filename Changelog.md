@@ -4,6 +4,8 @@
 
 ## Bug fixes
 
+Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
+
 ## Features
 
 # 0.3.0.0

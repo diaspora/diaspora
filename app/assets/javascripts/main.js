@@ -11,7 +11,7 @@
 //= require jquery-ui-1.8.9.custom.min
 //= require jquery.charcount
 //= require jquery.placeholder
-//= require timeago
+//= require rails-timeago
 //= require facebox
 //= require jquery.events.input
 //= require jquery.elastic

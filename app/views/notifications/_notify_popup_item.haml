@@ -2,6 +2,5 @@
   = person_image_tag n.actors.first, :thumb_small
   = notification_message_for(n)
   %div
-    %time
-      = timeago(n.created_at)
+    = timeago(n.created_at)
     = link_to t('notifications.index.mark_unread'), "#", :class => "unread-setter"
