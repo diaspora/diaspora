@@ -91,6 +91,7 @@ en:
       user_search: "User Search"
       weekly_user_stats: "Weekly User Stats"
       pod_stats: "Pod Stats"
+      post_report: "Reported Posts"
       correlations: "Correlations"
       sidekiq_monitor: "Sidekiq monitor"
     correlations:
@@ -721,6 +722,9 @@ en:
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
+    post_report_email:
+        subject: "A new post was marked as offensive"
+        body: "Please review as soon as possible!"
     accept_invite: "Accept Your diaspora* invite!"
     invited_you: "%{name} invited you to diaspora*"
     invite:
@@ -848,6 +852,19 @@ en:
         one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
       reshare_by: "Reshare by %{author}"
+
+  post_report:
+    title: "Marked Reports Overview"
+    post_label: "<b>Post</b>: %{title}"
+    reported_label: "<b>Reported by</b> %{person}"
+    reason_label: "Reason: %{text}"
+    review_link: "Mark as reviewed"
+    delete_link: "Delete post"
+    status:
+      marked: "The report was marked as reviewed"
+      destroyed: "The post was destroyed"
+      created: "A report was created"
+      failed: "Something went wrong"
 
   share_visibilites:
     update:
