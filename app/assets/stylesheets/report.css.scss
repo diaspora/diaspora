@@ -1,4 +1,4 @@
-#post_report {
+#report {
   padding-top: 2em;
   span {
     display: block;
@@ -11,6 +11,8 @@
   }
   .clear {
     clear: both;
+    border-bottom: 1px solid #808080;
     padding-bottom: 1em;
+    margin-bottom: 1em;
   }
 }

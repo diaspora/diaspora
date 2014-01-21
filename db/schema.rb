@@ -410,6 +410,18 @@ ActiveRecord::Schema.define(:version => 20140308154022) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
+  create_table "reports", :force => true do |t|
+    t.integer  "post_id",                       :null => false
+    t.string   "post_type",                     :null => false
+    t.string   "user_id"
+    t.boolean  "reviewed",   :default => false
+    t.text     "text"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "reports", ["post_id"], :name => "index_post_reports_on_post_id"
+
   create_table "roles", :force => true do |t|
     t.integer  "person_id"
     t.string   "name"

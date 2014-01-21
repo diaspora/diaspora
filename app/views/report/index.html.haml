@@ -1,0 +1,21 @@
+.span-24
+  = render :partial => 'admins/admin_bar'
+
+.span-24.last
+  %h1
+    = t('report.title')
+  %div#report
+    - @report.each do |r|
+      %div.content
+        %span
+          = report_content(r.post_id, r.post_type)
+        %span
+          = raw t('report.reported_label', person: link_to(r.user_id, user_profile_path(r.user_id)))
+        %span
+          = t('report.reason_label', text: r.text)
+      %div.options
+        %span
+          = link_to t('report.review_link'), report_path(r.post_id, :type => r.post_type), method: :put
+        %span
+          = link_to t('report.delete_link'), report_path(r.post_id, :type => r.post_type), method: :delete
+      %div.clear

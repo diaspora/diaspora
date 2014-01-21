@@ -13,5 +13,20 @@ app.views.Post = app.views.Base.extend({
 
   showPost : function() {
     return (app.currentUser.get("showNsfw")) || !this.model.get("nsfw")
+  },
+
+  report: function(evt) {
+    if(evt) { evt.preventDefault(); }
+    var report = new app.models.Report();
+    var msg = report.getReason();
+    if (msg !== null) {
+      var id = this.model.id;
+      var type = $(evt.currentTarget).data("type");
+      report.fetch({
+        data: { id: id, type: type, text: msg },
+        type: 'POST'
+      });
+    }
   }
+
 });

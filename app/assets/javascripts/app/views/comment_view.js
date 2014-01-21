@@ -5,7 +5,8 @@ app.views.Comment = app.views.Content.extend({
 
   events : function() {
     return _.extend({}, app.views.Content.prototype.events, {
-      "click .comment_delete": "destroyModel"
+      "click .comment_delete": "destroyModel",
+      "click .comment_report": "report"
     });
   },
 
@@ -31,6 +32,20 @@ app.views.Comment = app.views.Content.extend({
 
   canRemove : function() {
     return app.currentUser.authenticated() && (this.ownComment() || this.postOwner())
+  },
+
+  report: function(evt) {
+    if(evt) { evt.preventDefault(); }
+    var report = new app.models.Report();
+    var msg = report.getReason();
+    if (msg !== null) {
+      var id = this.model.id;
+      var type = $(evt.currentTarget).data("type");
+      report.fetch({
+        data: { id: id, type: type, text: msg },
+        type: 'POST'
+      });
+    }
   }
 });
 

@@ -61,6 +61,12 @@
       i.comment:hover {
         color: #424242;
       }
+      i.report.gray:hover {
+        color: $red;
+      }
+      i.report.red:hover {
+        color: #f55f5a;
+      }
       i.heart.gray:hover {
         color: $red;
       }
