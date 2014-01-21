@@ -16,10 +16,6 @@ class Stream::Tag < Stream::Base
     @tag ||= ActsAsTaggableOn::Tag.named(tag_name).first
   end
 
-  def tag_follow_count
-    @tag_follow_count ||= tag.try(:followed_count).to_i
-  end
-
   def display_tag_name
     @display_tag_name ||= "##{tag_name}"
   end

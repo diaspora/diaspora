@@ -2,10 +2,6 @@ class ActsAsTaggableOn::Tag
 
   self.include_root_in_json = false
 
-  def followed_count
-   @followed_count ||= TagFollowing.where(:tag_id => self.id).count
-  end
-
   def self.tag_text_regexp
     @@tag_text_regexp ||= "[[:alnum:]]_-"
   end

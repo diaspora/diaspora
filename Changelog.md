@@ -1,6 +1,7 @@
 # Head
 
 ## Refactor
+* Drop number of followers from tags page [#4717](https://github.com/diaspora/diaspora/issues/4717)
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
