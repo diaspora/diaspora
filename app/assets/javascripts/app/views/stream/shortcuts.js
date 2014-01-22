@@ -1,7 +1,6 @@
 app.views.StreamShortcuts = {
 
   _headerSize: 50,
-  _borderStyle: "3px solid rgb(63, 143, 186)",
 
 
   setupShortcuts : function() {
@@ -97,12 +96,10 @@ app.views.StreamShortcuts = {
   selectPost: function(element){
     //remove the selection and selected-class from all posts
     var selected=this.$('div.stream_element.loaded.shortcut_selected');
-    selected.css( "border-left", "" );
-    selected.removeClass('shortcut_selected');
+    selected.removeClass('shortcut_selected').removeClass('highlighted');
     //move to new post
     window.scrollTo(window.pageXOffset, element.offsetTop-this._headerSize);
     //add the selection and selected-class to new post
-    element.style.borderLeft=this._borderStyle;
-    element.className+=" shortcut_selected";	
+    element.className+=" shortcut_selected highlighted";	
   },
 };

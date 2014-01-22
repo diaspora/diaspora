@@ -8,6 +8,7 @@
 
 ## Features
 * You can report a single post by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517)
+* Add permalinks for comments [#4577](https://github.com/diaspora/diaspora/pull/4577)
 
 # 0.3.0.1
 
