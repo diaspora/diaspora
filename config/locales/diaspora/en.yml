@@ -253,10 +253,6 @@ en:
         any_problem: "Any Problem?"
         contact_podmin: "Contact the administrator of your pod!"
         mail_podmin: "Podmin E-Mail"
-      cubbies:
-        heading: "Connect to Cubbi.es"
-        explanation: "Cubbi.es is the first Diaspora application under development."
-        learn_more: "Learn more"
       diaspora_id:
         heading: "Diaspora ID"
         content_1: "Your Diaspora ID is:"
@@ -1122,28 +1118,6 @@ en:
     destroy:
       success: "Alas! You aren't following #%{name} anymore."
       failure: "Failed to stop following #%{name}. Maybe you already stopped following it?"
-
-  tokens:
-    show:
-      connect_to_cubbies: "Connect to Cubbi.es"
-      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-      love_to_try: "We'd love for you to try it out."
-      sign_up_today: "Sign up today!"
-      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
-      typical_userpage: "A typical cubbi.es userpage"
-      daniels_account: "Daniel's Diaspora account"
-      making_the_connection: "Making the Connection"
-      connecting_is_simple: "Connecting your Diaspora account is simple!  Just enter your Diaspora ID (<b>%{diaspora_id}</b>) from your cubbies <a href='%{href_link}'>settings page</a> and hit connect."
-      via: "(via %{link})"
-
-  authorizations:
-    index:
-      revoke_access: "Revoke Access"
-      no_applications: "You haven't registered any applications yet."
-    new:
-      cubbies_will: "Cubbies will be able to post photos on your behalf"
-      authorize: "Authorize"
-      nope: "No"
 
   streams:
     community_spotlight_stream: "Community Spotlight"
