@@ -11,7 +11,6 @@
 //= require_tree ./pages
 //= require_tree ./collections
 //= require_tree ./views
-//= require_tree ./forms
 
 var app = {
   collections: {},
