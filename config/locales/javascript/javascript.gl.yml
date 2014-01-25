@@ -7,8 +7,11 @@
 gl:
   javascripts:
     confirm_dialog: "Está seguro?"
+    post_report_prompt: "Explique o motivo:"
+    post_report_prompt_default: "Contido ofensivo"
     delete: "Eliminar"
     ignore: "Ignorar"
+    post_report: "Denunciar"
     ignore_user: "Ignorar este usuario?"
     and: "e"
     comma: ","
@@ -63,6 +66,7 @@ gl:
     show_more: "Amosar máis"
     failed_to_like: "Non foi posíbel indicar que lle gusta a publicación!"
     failed_to_post_message: "Non foi posíbel publicar a mensaxe!"
+    failed_to_remove: "Non foi posíbel eliminar a publicación!"
     comments:
       show: "Amosar os comentarios"
       hide: "Agochar os comentarios"

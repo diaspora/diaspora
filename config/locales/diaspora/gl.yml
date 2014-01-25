@@ -91,6 +91,7 @@ gl:
       user_search: "Busca de usuarios"
       weekly_user_stats: "Estatísticas semanais de usuarios"
       pod_stats: "Estatísticas do servidor"
+      post_report: "Publicacións denunciadas"
       correlations: "Correlacións"
       sidekiq_monitor: "Monitor Sidekiq"
     correlations:
@@ -268,10 +269,6 @@ gl:
         any_problem: "Algún problema?"
         contact_podmin: "Contacte co administrador do seu servidor!"
         mail_podmin: "Enderezo do administrador"
-      cubbies:
-        heading: "Conectarse a Cubbi.es"
-        explanation: "Cubbi.es é o primeiro aplicativo en desenvolverse para Diaspora."
-        learn_more: "Informarse"
       diaspora_id:
         heading: "Identificador de Diaspora"
         content_1: "O seu identificador de Diaspora é:"
@@ -794,8 +791,11 @@ gl:
     confirm_email:
       subject: "Active o seu novo enderezo de correo, «%{unconfirmed_email}»."
       click_link: "Para activar o seu novo enderezo de correo, «%{unconfirmed_email}», prema a seguinte ligazón:"
-    accept_invite: "Accept Your Diaspora* invite!"
-    invited_you: "%{name} invited you to Diaspora*"
+    post_report_email:
+      subject: "Unha nova publicación foi marcada como ofensiva."
+      body: "Revísea canto antes!"
+    accept_invite: "Acepte a súa invitación a Diaspora!"
+    invited_you: "%{name} convidouno a Diaspora!"
     invite:
       message: |-
         Ola!
@@ -924,6 +924,19 @@ gl:
         other: "%{count} imaxes de %{author}."
       reshare_by: "Repetido por %{author}."
 
+  post_report:
+    title: "Resumo das denuncias marcadas"
+    post_label: "<b>Publicacións</b>: %{title}"
+    reported_label: "<b>Denunciante</b>: %{person}"
+    reason_label: "Motivo: %{text}"
+    review_link: "Marcar como revisada"
+    delete_link: "Eliminar a publicación"
+    status:
+      marked: "Marcouse a denuncia como revisada."
+      destroyed: "Eliminouse a publicación."
+      created: "Creouse unha denuncia."
+      failed: "Algo saíu mal."
+
   share_visibilites:
     update:
       post_hidden_and_muted: "A publicación de %{name} ocultouse e anuláronse as notificacións."
@@ -948,8 +961,9 @@ gl:
       update_profile: "Gardar os cambios"
       allow_search: "Aparecer nas buscas en Diaspora."
       edit_profile: "Modificar o perfil"
-      you_are_nsfw: "Marcouse a vostede mesmo como non apto para todos os públicos, a xente que decidise non visualizar contido que puidese ofender algunhas sensibilidades non verá o que publique."
-      you_are_safe_for_work: "Marcouse a vostede mesmo como apto para todos os públicos, indicando así que o que vostede publique é acorde ás directrices da comunidade."
+      nsfw_explanation: "«Non apto para o traballo» («NSFW» polas súas siglas en inglés) é o estándar da comunidade de Diaspora para contido que podería non ser axeitado para visualizar cando se está no traballo. Se ten pensado compartir material deste tipo acotío, marque esta opción de xeito que todo o que comparta se oculte das ondas daquelas persoas que non queiran ver este tipo de contidos."
+      nsfw_explanation2: "Se non marca esta opción, use a etiqueta #nsfw cando comparta este tipo de contidos."
+      nsfw_check: "Marcar todo o que comparta como non apto para o traballo («NSFW»)."
     update:
       updated: "Actualizouse o perfil."
       failed: "Non foi posíbel actualizar o perfil."
@@ -1077,6 +1091,7 @@ gl:
         many: "En %{count} aspectos"
         other: "En %{count} aspectos"
     publisher:
+      formatWithMarkdown: "Pode usar %{markdown_link} para dar formato á súa publicación"
       posting: "Publicando…"
       share: "Compartir"
       preview: "Vista previa"
@@ -1195,29 +1210,6 @@ gl:
     destroy:
       success: "Deixou de seguir «#%{name}»."
       failure: "Non foi posíbel deixar e seguir «#%{name}». Será que xa deixou de seguila?"
-
-  tokens:
-    show:
-      connect_to_cubbies: "Conectar con Cubbi.es"
-      what_is_cubbies: "Cubbi.es é o primeiro aplicativo de Diaspora, e a mellor forma de recoller imaxes na rede."
-      love_to_try: "Gustaríanos que o probase."
-      sign_up_today: "Rexístrese agora!"
-      screenshot_explanation: "%{link1}. Este faiado particular está ligado á %{link2}."
-      typical_userpage: "Unha páxina de usuario típica de cubbi.es"
-      daniels_account: "Conta de Diaspora de Daniel"
-      making_the_connection: "Conectar"
-      connecting_is_simple: "Conectar unha conta de Diaspora é moi sinxelo! Só ten que escribir o seu enderezo de Diaspora (<b>%{diaspora_id}</b>) na súa <a href='%{href_link}'>páxina de configuración</a> de cubbi.es e premer «Conectar»."
-      via: "(vía %{link})"
-
-
-  authorizations:
-    index:
-      revoke_access: "Revogar o permiso de acceso"
-      no_applications: "Aínda non rexistrou ningún aplicativo."
-    new:
-      cubbies_will: "Cubbies poderá publicar imaxes por vostede."
-      autorize: "Autorizar"
-      nope: "Non"
 
   streams:
     community_spotlight_stream: "Estrelas da comunidade"
@@ -1370,3 +1362,11 @@ gl:
     xrd_fetch_failed: "Non foi posíbel obter o “xrd” de «%{account}»."
     not_enabled: "Parece que no servidor no que está a conta «%{account}» non está activado o “webfinger”."
     no_person_constructed: "Non foi posíbel configurar unha persoa a partir desta tarxeta “hcard”."
+
+  simple_captcha:
+    placeholder: "Introduza o código da imaxe"
+    label: "Escriba o código na caixa:"
+    message:
+      default: "O código non se correspondía co da imaxe."
+      user: "O código da imaxe e o introducido eran distintos."
+      failed: "Non foi posíbel demostrar que é unha persoa."
