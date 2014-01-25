@@ -41,7 +41,7 @@ Given /^I have several oEmbed data in cache$/ do
         "thumbnail_width" => 480,
       },
       "link_url" => "http://youtube.com/watch?v=M3r2XDceM6A&format=json",
-      "oembed_get_request" => "http://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
+      "oembed_get_request" => "http://www.youtube.com/oembed?scheme=https&format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
     },
 
     "unsecure_video" => {
@@ -86,7 +86,7 @@ Given /^I have several oEmbed data in cache$/ do
         "thumbnail_width" => 480,
       },
       "link_url" => "http://yourichtube.com/watch?v=M3r2XDceM6A&format=json",
-      "oembed_get_request" => "http://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
+      "oembed_get_request" => "http://www.youtube.com/oembed?scheme=https&format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
     },
 
     "unsecure_rich" => {
