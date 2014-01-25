@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Post do
+describe Post, :test_commit do
   before do
     @user = alice
     @aspect = @user.aspects.create(:name => "winners")

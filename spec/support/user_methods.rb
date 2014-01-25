@@ -1,5 +1,7 @@
 class User
   include Rails.application.routes.url_helpers
+  include ::HelperMethods::Rspec
+
   def default_url_options
     {:host => AppConfig.pod_uri.host}
   end

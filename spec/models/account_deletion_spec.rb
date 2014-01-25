@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe AccountDeletion do
+describe AccountDeletion, :test_commit do
   it 'assigns the diaspora_handle from the person object' do
     a = AccountDeletion.new(:person => alice.person)
     a.diaspora_handle.should == alice.person.diaspora_handle
@@ -25,7 +25,7 @@ describe AccountDeletion do
       AccountDeleter.should_receive(:new).with(alice.person.diaspora_handle).and_return(double(:perform! => true))
       @ad.perform!
     end
-    
+
     it 'dispatches the account deletion if the user exists' do
       @ad.should_receive(:dispatch)
       @ad.perform!
@@ -78,7 +78,7 @@ describe AccountDeletion do
     it 'should have a diaspora_handle' do
       @xml.include?(alice.person.diaspora_handle).should == true
     end
-    
+
     it 'marshals the xml' do
       AccountDeletion.from_xml(@xml).should be_valid
     end

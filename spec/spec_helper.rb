@@ -2,6 +2,10 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require 'pathname'
+
+SPEC_ROOT = Pathname.new(File.dirname(__FILE__))
+
 prefork = proc do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
@@ -11,88 +15,78 @@ prefork = proc do
   #Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
 
   ENV["RAILS_ENV"] ||= 'test'
-  require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
-  require Rails.root.join('spec', 'helper_methods')
-  require Rails.root.join('spec', 'spec-doc')
+  require SPEC_ROOT.join('..', 'config', 'environment')
+  require SPEC_ROOT.join('helper_methods')
+  require SPEC_ROOT.join('spec-doc')
+
   require 'rspec/rails'
   require 'webmock/rspec'
   require 'factory_girl'
   require 'sidekiq/testing'
+  require 'database_cleaner'
 
-  include HelperMethods
 
-  Dir["#{File.dirname(__FILE__)}/shared_behaviors/**/*.rb"].each do |f|
+  Dir[SPEC_ROOT.join("shared_behaviors", "**", "*.rb")].each do |f|
     require f
   end
 
   ProcessedImage.enable_processing = false
   UnprocessedImage.enable_processing = false
 
-  def set_up_friends
-    [local_luke, local_leia, remote_raphael]
-  end
-
-  def alice
-    @alice ||= User.where(:username => 'alice').first
-  end
-
-  def bob
-    @bob ||= User.where(:username => 'bob').first
-  end
-
-  def eve
-    @eve ||= User.where(:username => 'eve').first
-  end
-
-  def local_luke
-    @local_luke ||= User.where(:username => 'luke').first
-  end
-
-  def local_leia
-    @local_leia ||= User.where(:username => 'leia').first
-  end
-
-  def remote_raphael
-    @remote_raphael ||= Person.where(:diaspora_handle => 'raphael@remote.net').first
-  end
-
-  def photo_fixture_name
-    @photo_fixture_name = File.join(File.dirname(__FILE__), 'fixtures', 'button.png')
-  end
-
-  # Force fixture rebuild
-  FileUtils.rm_f(Rails.root.join('tmp', 'fixture_builder.yml'))
-
-  # Requires supporting files with custom matchers and macros, etc,
-  # in ./support/ and its subdirectories.
-  fixture_builder_file = "#{File.dirname(__FILE__)}/support/fixture_builder.rb"
-  support_files = Dir["#{File.dirname(__FILE__)}/support/**/*.rb"] - [fixture_builder_file]
-  support_files.each {|f| require f }
-  require fixture_builder_file
+  # require support files
+  require SPEC_ROOT.join("helper_methods")
+  require SPEC_ROOT.join("support", "fake_typhoeus")
+  require SPEC_ROOT.join("support", "fake_http_request")
+  require SPEC_ROOT.join("support", "fixture_generation")  # for jasmine fixtures
+  require SPEC_ROOT.join("support", "inlined_jobs")
+  require SPEC_ROOT.join("support", "user_methods")
 
   RSpec.configure do |config|
-    config.include Devise::TestHelpers, :type => :controller
+    config.treat_symbols_as_metadata_keys_with_true_values = true
+    config.use_transactional_fixtures = false
     config.mock_with :rspec
-
     config.render_views
-    config.use_transactional_fixtures = true
+
+    config.include HelperMethods::Rspec
+    config.include Devise::TestHelpers, :type => :controller
+
+    config.before(:suite) do
+      DatabaseCleaner.orm = :active_record
+      DatabaseCleaner.strategy = :transaction
+
+      # truncate and create fresh fixtures for a clean start
+      DatabaseCleaner.clean_with :truncation
+      HelperMethods.build_db_fixtures
+    end
 
     config.before(:each) do
+      if example.metadata[:test_commit]
+        DatabaseCleaner.strategy = :truncation
+      else
+        DatabaseCleaner.strategy = :transaction
+        DatabaseCleaner.start
+      end
+
       I18n.locale = :en
       stub_request(:post, "https://pubsubhubbub.appspot.com/")
       disable_typhoeus
       $process_queue = false
+
       Postzord::Dispatcher::Public.any_instance.stub(:deliver_to_remote)
       Postzord::Dispatcher::Private.any_instance.stub(:deliver_to_remote)
     end
 
-
+    config.after(:each) do
+      DatabaseCleaner.clean
+      HelperMethods.build_db_fixtures if example.metadata[:test_commit]  #??
+    end
 
     config.after(:all) do
       `rm -rf #{Rails.root}/tmp/uploads/*`
     end
   end
 end
+
 
 begin
   require 'spork'
@@ -105,11 +99,11 @@ rescue LoadError
 end
 
 # https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
-RSpec.configure do |config|
-  config.before(:all) do
-    DeferredGarbageCollection.start
-  end
-  config.after(:all) do
-    DeferredGarbageCollection.reconsider
-  end
-end
+# RSpec.configure do |config|
+#   config.before(:all) do
+#     DeferredGarbageCollection.start
+#   end
+#   config.after(:all) do
+#     DeferredGarbageCollection.reconsider
+#   end
+# end

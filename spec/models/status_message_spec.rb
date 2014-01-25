@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe StatusMessage do
+describe StatusMessage, :test_commit do
   include PeopleHelper
 
   before do

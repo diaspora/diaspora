@@ -3,9 +3,8 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require Rails.root.join("spec", "shared_behaviors", "relayable")
 
-describe Like do
+describe Like, :test_commit do
   before do
     @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
   end
