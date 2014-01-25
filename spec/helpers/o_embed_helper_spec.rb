@@ -29,7 +29,7 @@ describe OEmbedHelper do
           "type" => "video",
           "width" => 425,
           "height" => 344,
-          'trusted_endpoint_url' => ::OEmbed::Providers::Youtube.endpoint,
+          "trusted_endpoint_url" => ::OEmbed::Providers::Youtube.endpoint,
           "title" => "Amazing Nintendo Facts",
           "html" => "<object width=\"425\" height=\"344\">
               <param name=\"movie\" value=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"></param>
@@ -41,7 +41,7 @@ describe OEmbedHelper do
             </object>",
         },
         "link_url" => "http://youtube.com/watch?v=M3r2XDceM6A&format=json",
-        "oembed_get_request" => "http://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
+        "oembed_get_request" => "http://www.youtube.com/oembed?scheme=https&format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
       },
 
       "unsecure_video" => {
@@ -69,7 +69,7 @@ describe OEmbedHelper do
           "type" => "rich",
           "width" => 425,
           "height" => 344,
-          'trusted_endpoint_url' => ::OEmbed::Providers::Youtube.endpoint,
+          "trusted_endpoint_url" => ::OEmbed::Providers::Youtube.endpoint,
           "title" => "Amazing Nintendo Facts",
           "html" => "<object width=\"425\" height=\"344\">
               <param name=\"movie\" value=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"></param>
@@ -81,7 +81,7 @@ describe OEmbedHelper do
             </object>",
         },
         "link_url" => "http://youtube.com/watch?v=M3r2XDceM6A&format=json",
-        "oembed_get_request" => "http://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
+        "oembed_get_request" => "http://www.youtube.com/oembed?scheme=https&format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
       },
 
       "unsecure_rich" => {
