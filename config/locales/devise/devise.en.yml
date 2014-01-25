@@ -61,7 +61,7 @@ en:
         confirm: "Confirm my account"
       reset_password_instructions:
         subject: 'Reset password instructions'
-        someone_requested: "Someone has requested a link to change your password, If it was you, you can do this through the link below."
+        someone_requested: "Someone has requested a link to change your password. If it was you, you can do this through the link below."
         change: "Change my password"
         wont_change: "Your password won't change until you access the link above and create a new one."
         ignore: "If you didn't request this, please ignore this email."
