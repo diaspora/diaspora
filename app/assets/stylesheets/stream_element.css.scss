@@ -33,6 +33,8 @@
 }
 
 .stream_element {
+  &.highlighted { border-left: 3px solid $blue; }
+
   a.author {
     font-weight: bold;
     unicode-bidi: bidi-override;
