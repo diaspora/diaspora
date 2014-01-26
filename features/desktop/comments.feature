@@ -27,10 +27,7 @@ Feature: commenting
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"
-    When I focus the comment field
-    And I fill in the following:
-        | text            | is that a poodle?    |
-    And I press "Comment"
+    When I comment "is that a poodle?" on "Look at this dog"
     And I click to delete the first comment
     And I confirm the alert
     Then I should not see "is that a poodle?"
