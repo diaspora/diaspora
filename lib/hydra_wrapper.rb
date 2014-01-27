@@ -94,6 +94,7 @@ class HydraWrapper
           event: "http_multi_fail",
           sender_id: @user.id,
           url: response.effective_url,
+          response_code: response.code,
           return_code: response.return_code
         }
         Rails.logger.info message.to_a.map { |k,v| "#{k}=#{v}" }.join(' ')
