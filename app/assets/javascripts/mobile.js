@@ -8,6 +8,7 @@
 //= require mbp-helper
 //= require jquery.autoSuggest.custom
 //= require fileuploader-custom
+//= require rails-timeago
 
 $(document).ready(function(){
 

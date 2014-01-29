@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def timeago(time, options={})
-    timeago_tag(time, options.merge(:title => time.iso8601)) if time
+    timeago_tag(time, options.merge(:class => 'timeago', :title => time.iso8601, :force => true)) if time
   end
 
   def bookmarklet

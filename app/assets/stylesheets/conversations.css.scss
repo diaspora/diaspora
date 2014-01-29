@@ -95,7 +95,7 @@
     .last_message {
       color: $white;
     }
-    .timestamp { color: $background-grey; }
+    .timeago { color: $background-grey; }
   }
   &.selected:hover { background-color: lighten($blue,5%); }
   &:hover { cursor: pointer; }
@@ -130,7 +130,7 @@
     }
   }
 
-  .timestamp {
+  .timeago {
     float: right;
     line-height: normal;
     font-weight: normal;
@@ -150,7 +150,7 @@
   .last_message {
     color: $white;
   }
-  .timestamp { color: $background-grey; }
+  .timeago { color: $background-grey; }
 }
 
 #left_pane {
