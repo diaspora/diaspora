@@ -4,32 +4,44 @@
 
 #single-post-content {
   #head {
-    color: #aaaaaa;
-    font-size: 12px;
-    #author {
-      .img {
-        max-width: 25%;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $border-grey;
+    #post-info {
+      .info {
+        color: $text-grey;
+        font-size: 12px;
+        .post-time { color: $grey; }
+        i { margin-right: 5px; }
+        .status-message-location { 
+          padding-top: 2px; 
+          line-height: 14px;
+        }
       }
-      .avatar {}
+      .avatar.medium {
+        max-width: 75px;
+      }
       .bd {
         padding-left: 10px;
-        .retweet {
-          i {
-            margin: 0 3px;
-          }
+      }
+      .retweet {
+        color: $grey;
+        line-height: 14px;
+        padding-top: 2px; 
+        i { 
+          font-size: 28px;
+          line-height: 28px;
+        }
+        .post-time { display: block; }
+        .avatar { 
+          height: 28px;
+          width: 28px;
         }
       }
     }
     #single-post-actions {
-      .buttons {
-        position: relative;
-        top: 6px;
-        clear: right;
-      }
-      .public-info > i {
-        float: left;
-        margin: 2px 4px 0 0;
-      }
+      color: $text-grey;
+      font-size: 12px;
+      i { line-height: 50px; }
       i.comment:hover {
         color: #424242;
       }
