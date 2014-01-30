@@ -31,6 +31,7 @@ en:
       months: "%d months"
       year: "about a year"
       years: "%d years"
+      wordSeparator: " "
 
     my_activity: "My Activity"
     my_stream: "Stream"
