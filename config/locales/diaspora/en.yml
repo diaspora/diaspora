@@ -327,7 +327,7 @@ en:
 
   conversations:
     index:
-      message_inbox: "Conversations – Inbox"
+      conversations_inbox: "Conversations – Inbox"
       new_message: "New Message"
       no_conversation_selected: "no conversation selected"
       create_a_new_message: "create a new message"

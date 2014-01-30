@@ -1,5 +1,5 @@
 @javascript
-Feature: private messages
+Feature: private conversations
     In order to be talkative
     As a User
     I want to converse with people
