@@ -20,7 +20,7 @@ body {
   float: right;
 }
 
-#notification_badge, #message_inbox_badge {
+#notification_badge, #conversations_badge {
   margin: 0 10px 0 -5px;
 }
 
@@ -42,11 +42,11 @@ body {
   margin-left: 3px;
 }
 
-#notification_badge, #message_inbox_badge {
+#notification_badge, #conversations_badge {
   margin: 0 10px 0 -5px;
 }
 
-#notification_badge a, #message_inbox_badge a {
+#notification_badge a, #conversations_badge a {
   right: 0;
 }
 

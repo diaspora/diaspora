@@ -26,10 +26,10 @@
     autocompleteInput.focus();
   });
 
-.span6#new_message_pane
+.span6#new_conversation_pane
   .span5#facebox_header
     %h3
-      = t('conversations.index.new_message')
+      = t('conversations.index.new_conversation')
 
   = form_for Conversation.new, html: {class: "new_conversation form_do_not_clear"}, remote: true do |conversation|
 

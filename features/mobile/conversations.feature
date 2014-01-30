@@ -1,5 +1,5 @@
 @javascript
-Feature: private messages mobile
+Feature: private conversations mobile
     In order to be talkative
     As a mobile user
     I want to converse with people

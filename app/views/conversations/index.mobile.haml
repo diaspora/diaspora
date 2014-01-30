@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 .right
-  = link_to t('.new_message'), new_conversation_path, :class => 'btn'
+  = link_to t('.new_conversation'), new_conversation_path, :class => 'btn'
 
 - flash.each do |name, msg|
   %div{:id => "flash_#{name}", :class => "expose"}
