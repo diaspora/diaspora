@@ -1,70 +1,86 @@
 <div id='head' class='row-fluid'>
-  <div id='post-info' class='span8'>
-    <div class="img pull-left">
-      {{#if root}}
-        {{{personImage root.author 'medium'}}}
-      {{else}}
-        {{{personImage author 'medium'}}}
-      {{/if}}
-    </div>
+  <div class='row-fluid'>
+    <div id='post-info' class='span8'>
+      <div class="img pull-left">
+        {{#if root}}
+          {{{personImage root.author 'medium'}}}
+        {{else}}
+          {{{personImage author 'medium'}}}
+        {{/if}}
+      </div>
 
-    <div class="bd">
-      <span class='author'>
-        {{#if root}}
-          {{#linkToPerson root.author}}
-            {{name}}
-          {{/linkToPerson}}
-        {{else}}
-          {{#linkToPerson author}}
-            {{name}}
-          {{/linkToPerson}}
-        {{/if}}
-      </span>
-          
-      <div class='info'>
-        <span class='post_scope'>
-          {{#if public}}
-            <i class="entypo globe small" data-original-title="{{t "stream.public"}}"></i>
-          {{else}}
-            <i class="entypo lock small" data-original-title="{{t "stream.limited"}}"></i>
-          {{/if}}
-        </span>
-        <span class="post-time">
+      <div class="bd">
+        <span class='author'>
           {{#if root}}
-            <time datetime="{{root.created_at}}" title="{{localTime root.created_at}}" />
+            {{#linkToPerson root.author}}
+              {{name}}
+            {{/linkToPerson}}
           {{else}}
-            <time datetime="{{created_at}}" title="{{localTime created_at}}" />
-          {{/if}}
-        </span>
-        {{#if root}}
-          {{#if root.provider_display_name}}
-            via {{root.provider_display_name}}
-          {{/if}}
-        {{else}}
-          {{#if provider_display_name}}
-            via {{provider_display_name}}
-          {{/if}}
-        {{/if}}
-        <div class='status-message-location' />
-        {{#if root}}
-          <div class='retweet'>
-            <i class='entypo retweet small pull-left'></i>
-            <div class="img pull-left">
-              {{{personImage author 'small'}}}
-            </div>
             {{#linkToPerson author}}
               {{name}}
             {{/linkToPerson}}
-            <span class="post-time">
-              <time datetime="{{created_at}}" title="{{localTime created_at}}" />
+          {{/if}}
+        </span>
+            
+        <div class='info'>
+          {{#if public}}
+            <span class='post_scope' title="{{t "stream.public"}}">
+              <i class="entypo globe small"></i>
             </span>
-          </div>
-        {{/if}}
+          {{else}}
+            <span class='post_scope' title="{{t "stream.limited"}}">
+              <i class="entypo lock small"></i>
+            </span>
+          {{/if}}
+          <span class="post-time">
+            {{#if root}}
+              <a href="/posts/{{root.id}}">
+                <time datetime="{{root.created_at}}" title="{{localTime root.created_at}}" />
+              </a>
+            {{else}}
+              <a href="/posts/{{id}}">
+                <time datetime="{{created_at}}" title="{{localTime created_at}}" />
+              </a>
+            {{/if}}
+          </span>
+          {{#if root}}
+            {{#if root.provider_display_name}}
+              {{t "stream.via" provider=root.provider_display_name}}
+            {{/if}}
+          {{else}}
+            {{#if provider_display_name}}
+              {{t "stream.via" provider=provider_display_name}}
+            {{/if}}
+          {{/if}}
+          <div class='status-message-location' />
+        </div>
       </div>
     </div>
+    {{#unless root}}
+      <div id='single-post-actions' class='span4' />
+    {{/unless}}
   </div>
-  <div id='single-post-actions' class='span4'>
-  </div>
+  {{#if root}}
+    <div class='row-fluid reshare'>
+      <div class='pull-left' id='reshare-info'>
+        <i class='entypo retweet small pull-left'></i>
+        <div class="img pull-left">
+          {{{personImage author 'small'}}}
+        </div>
+        <span class="author">
+          {{#linkToPerson author}}
+            {{name}}
+          {{/linkToPerson}}
+        </span>
+        <span class="post-time">
+          <a href="/posts/{{id}}">
+            <time datetime="{{created_at}}" title="{{localTime created_at}}" />
+          </a>
+        </span>
+      </div>
+      <div id='single-post-actions' class='pull-right' />
+    </div>
+  {{/if}}
 </div>
 <div id='body' class='row-fluid'>
   <div id='real-post-content' class='span12'>

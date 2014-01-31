@@ -1,6 +1,5 @@
 app.views.SinglePostActions = app.views.Feedback.extend({
   templateName: "single-post-viewer/single-post-actions",
-  tooltipSelector: "time",
 
   events: function() {
     return _.defaults({

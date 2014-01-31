@@ -4,14 +4,15 @@
 
 #single-post-content {
   #head {
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     border-bottom: 1px solid $border-grey;
     #post-info {
+      .author{ color: $grey; }
       .info {
-        color: $text-grey;
+        color: lighten($text-grey,10%);
         font-size: 12px;
-        .post-time { color: $grey; }
-        i { margin-right: 5px; }
+        .post-time a { color: $grey; }
+        .post_scope { margin-right: 5px; }
         .status-message-location { 
           padding-top: 2px; 
           line-height: 14px;
@@ -23,25 +24,38 @@
       .bd {
         padding-left: 10px;
       }
-      .retweet {
-        color: $grey;
-        line-height: 14px;
-        padding-top: 2px; 
-        i { 
-          font-size: 28px;
-          line-height: 28px;
-        }
-        .post-time { display: block; }
-        .avatar { 
-          height: 28px;
-          width: 28px;
-        }
+    }
+    .reshare {
+      border-top: 1px solid lighten($border-grey,5%);
+      padding-top: 10px; 
+      margin-top: 10px; 
+    }
+    #reshare-info {
+      line-height: 15px;
+      i.retweet {
+        color: $text-dark-grey;
+        font-size: 28px;
+        line-height: 30px;
+        margin-left: 8px;
+        margin-right: 8px;
       }
+      .post-time a {
+        color: $grey;
+        display: block;
+        font-size: 12px;
+      }
+      .avatar { 
+        height: 30px;
+        width: 30px;
+      }
+      .img { margin-right: 10px; }
     }
     #single-post-actions {
-      color: $text-grey;
-      font-size: 12px;
-      i { line-height: 50px; }
+      padding-right: 5px;
+      i {
+        font-size: 28px;
+        line-height: 30px;
+      }
       i.comment:hover {
         color: #424242;
       }
