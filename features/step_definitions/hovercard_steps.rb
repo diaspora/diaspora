@@ -13,3 +13,9 @@ end
 Then(/^I should not see a hovercard$/) do
   page.should_not have_css '#hovercard'
 end
+
+When (/^I activate hovercard for "([^"]*)" within "([^"]*)"$/) do |name, selector|
+  with_scope(selector) do
+    page.execute_script("$('.author').filter(function(index){return $(this).text() === \"#{name}\";}).trigger('mouseenter');")
+  end
+end
