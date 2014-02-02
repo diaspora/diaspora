@@ -126,10 +126,12 @@ $(document).ready(function(){
             link.addClass('active');
             existingCommentsContainer.show();
             scrollToOffset(parent, commentsContainer());
+            commentsContainer().find('time.timeago').timeago();
           }
         });
       } else {
         existingCommentsContainer.show();
+        existingCommentsContainer.find('time.timeago').timeago();
       }
 
       link.addClass('active');
@@ -141,10 +143,10 @@ $(document).ready(function(){
           parent.append(data);
           link.addClass('active');
           scrollToOffset(parent, commentsContainer());
+          commentsContainer().find('time.timeago').timeago();
         }
       });
     }
-
   });
 
   var scrollToOffset = function(parent, commentsContainer){
@@ -232,6 +234,7 @@ $(document).ready(function(){
       reactionLink.text(reactionLink.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
       commentCount.text(commentCount.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
       commentActionLink.addClass("inactive");
+      bottomBar.find('time.timeago').timeago();
     }, 'html');
   });
 
