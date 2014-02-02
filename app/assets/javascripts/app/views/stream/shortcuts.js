@@ -9,6 +9,8 @@ app.views.StreamShortcuts = {
 
     this.on('hotkey:gotoNext', this.gotoNext, this);
     this.on('hotkey:gotoPrev', this.gotoPrev, this);
+    this.on('hotkey:gotoNextComment', this.gotoNextComment, this);
+    this.on('hotkey:gotoPrevComment', this.gotoPrevComment, this);
     this.on('hotkey:likeSelected', this.likeSelected, this);
     this.on('hotkey:commentSelected', this.commentSelected, this);
   },
@@ -27,6 +29,12 @@ app.views.StreamShortcuts = {
         break;
       case "k":
         this.trigger('hotkey:gotoPrev');
+        break;
+      case "n":
+        this.trigger('hotkey:gotoNextComment');
+        break;
+      case "p":
+        this.trigger('hotkey:gotoPrevComment');
         break;
       default:
     }
@@ -82,6 +90,28 @@ app.views.StreamShortcuts = {
       this.selectPost(stream_elements[0]);
     }
   },
+
+  gotoNextComment: function() {
+    var selectedPost = this.$('div.stream_element.loaded.shortcut_selected');
+    if (selectedPost.length > 0) {
+      var comments = selectedPost.find('div.comment_stream > div.comments > div.comment');
+      var selectCommentIndex = 0;
+      comments.each(function(index, element) {
+        console.log($(element));
+        if ($(element).hasClass('shortcut_selected')) {
+          selectCommentIndex = index+1;
+        }
+      });
+      this.selectComment(comments.get(selectCommentIndex));
+      //TODO index > size expand hidden comments prev comment
+    } else {
+      //no post selected
+    }
+  },
+
+  gotoPrevComment: function() {
+    console.log("hit p");
+  },
     
   commentSelected: function() {
     $('a.focus_comment_textarea',this.$('div.stream_element.loaded.shortcut_selected')).click();
@@ -91,7 +121,7 @@ app.views.StreamShortcuts = {
     $('a.like:first',this.$('div.stream_element.loaded.shortcut_selected')).click();
   },
     
-  selectPost: function(element){
+  selectPost: function(element) {
     //remove the selection and selected-class from all posts
     var selected=this.$('div.stream_element.loaded.shortcut_selected');
     selected.removeClass('shortcut_selected').removeClass('highlighted');
@@ -102,4 +132,14 @@ app.views.StreamShortcuts = {
     //post element can listen to keybord in put now
     $(element).attr('tabindex','0').focus();
   },
+
+  selectComment: function(element) {
+    //remove the selection and selected-class from all comments
+    var selected=this.$('div.comment.shortcut_selected');
+    selected.removeClass('shortcut_selected').removeClass('highlighted');
+    //move to new post
+    window.scrollTo(window.pageXOffset, element.offsetTop-this._headerSize);
+    //add the selection and selected-class to new post
+    element.className+=" shortcut_selected highlighted";
+  }
 };
