@@ -23,7 +23,7 @@ end
 
 Then /^I send a mobile message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/ do |subject, text, person|
   step %(I am on the conversations page)
-  step %(I follow "New Message")
+  step %(I follow "New conversation")
   step %(I fill in "contact_autocomplete" with "#{person}")
   step %(I press the first ".as-result-item" within ".as-results")
   step %(I fill in "conversation_subject" with "#{subject}")
