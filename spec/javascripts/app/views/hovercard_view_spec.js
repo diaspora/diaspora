@@ -5,6 +5,11 @@ describe("app.views.Hovercard", function(){
   });
 
   afterEach(function() {
+    this.view = new app.views.Hovercard();
+    this.view.initialize();
+  });
+
+  afterEach(function() {
   });
 
   describe("._positionHovercard", function(){
