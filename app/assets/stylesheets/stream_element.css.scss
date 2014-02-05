@@ -124,6 +124,10 @@
 }
 
 .comment {
+  &.highlighted {
+    border-left:3px solid $blue;
+  }
+
   &.media {
     margin-left: 0;
     margin-right: 0;
