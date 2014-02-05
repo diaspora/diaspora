@@ -24,7 +24,6 @@ describe("app.views.Hovercard", function(){
     '</a>';
     $('body').append(html);
     this.view = new app.views.Hovercard();
-    this.view.initialize();
   });
 
   afterEach(function() {
