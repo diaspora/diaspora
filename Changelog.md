@@ -7,7 +7,7 @@
 * Update image branding to the new decided standard [#4702](https://github.com/diaspora/diaspora/pull/4702)
 * Consistent naming of conversations and messages [#4756](https://github.com/diaspora/diaspora/pull/4756)
 * Improve stream generation time [#4769](https://github.com/diaspora/diaspora/pull/4769)
-
+* Change jQuery CDN to jquery.com from googleapis.com [#4765](https://github.com/diaspora/diaspora/pull/4765)
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
