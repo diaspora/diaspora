@@ -68,10 +68,8 @@ module User::Querying
   end
 
   def construct_public_followings_sql(opts)
-    aspects = Aspect.where(:id => opts[:by_members_of])
-    person_ids = Person.connection.select_values(people_in_aspects(aspects).select("people.id").to_sql)
-
-    query = opts[:klass].where(:author_id => person_ids, :public => true, :pending => false)
+    Rails.logger.debug("[EVIL-QUERY] user.construct_public_followings_sql")
+    query = opts[:klass].where(:author_id => Person.in_aspects(opts[:by_members_of]).select("people.id"), :public => true, :pending => false)
 
     unless(opts[:klass] == Photo)
       query = query.where(:type => opts[:type])
