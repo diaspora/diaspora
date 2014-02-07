@@ -1,5 +1,6 @@
 app.views.CommentStream = app.views.Base.extend({
-
+  _selectedComment: -1,
+  _headerSize: 50,
   templateName: "comment-stream",
 
   className : "comment_stream",
@@ -88,5 +89,36 @@ app.views.CommentStream = app.views.Base.extend({
         self.model.trigger("commentsExpanded", self)
       }
     });
+  },
+
+  deselectComment: function() {
+    this._selectedComment = -1;
+    var selected = this.$('div.comment.shortcut_selected');
+    selected.removeClass('shortcut_selected').removeClass('highlighted');
+  },
+
+  selectNextComment: function() {
+    if (++this._selectedComment == this.model.comments.length) {
+      this._selectedComment = this.model.comments.length-1;
+    }
+    this.selectComment(this._selectedComment);
+  },
+
+  selectPrevComment: function() {
+    if (--this._selectedComment < 0) {
+      this._selectedComment = 0;
+    } 
+    this.selectComment(this._selectedComment);
+  },
+
+  selectComment: function(index) {
+    this.listenToOnce(this.model,'commentsExpanded', function() {
+      //TODO expand long comments
+      var element =  this.$el.find('.comment').get(index);
+      $(element).addClass('shortcut_selected highlighted');
+      window.scrollTo(window.pageXOffset, element.offsetTop-this._headerSize);
+      this._selectedComment = index;
+    });
+    this.expandComments();
   }
 });
