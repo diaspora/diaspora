@@ -20,7 +20,9 @@ app.views.StreamPost = app.views.Post.extend({
     "click .remove_post": "destroyModel",
     "click .hide_post": "hidePost",
     "click .post_report": "postReport",
-    "click .block_user": "blockUser"
+    "click .block_user": "blockUser",
+    "keydown": "onKeyDown",
+    "blur" : "onBlur"
   },
 
   tooltipSelector : ".timeago, .post_scope, .block_user, .delete",
@@ -127,6 +129,22 @@ app.views.StreamPost = app.views.Post.extend({
     this.$(".comment_box").focus();
 
     return this;
-  }
+  },
 
-})
+  onBlur: function(evt) {
+    this.commentStreamView.deselectComment();
+  },
+
+  onKeyDown: function(evt) {
+    // trigger the events based on what key was pressed
+    switch (String.fromCharCode( event.which ).toLowerCase()) {
+      case "n":
+        this.commentStreamView.selectNextComment();
+        break;
+      case "p":
+        this.commentStreamView.selectPrevComment();
+        break;
+      default:
+    }
+  }
+});
