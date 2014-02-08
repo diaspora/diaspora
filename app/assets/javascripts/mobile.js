@@ -33,13 +33,7 @@ $(document).ready(function(){
   });
 
   var toggleDrawerMenu = function(){
-    var app = $("#app");
-
-    if (app.hasClass('draw')){
-      app.removeClass('draw');
-    } else {
-      app.addClass('draw');
-    }
+    $("#app").toggleClass('draw');
   };
   
   /* Show / hide aspects in the drawer */
@@ -49,13 +43,7 @@ $(document).ready(function(){
   });
 
   var toggleAspectsMenu = function(){
-    var aspect_list = $("#all_aspects + li");
-
-    if (aspect_list.hasClass('hide')){
-      aspect_list.removeClass('hide');
-    } else {
-      aspect_list.addClass('hide');
-    }
+    $("#all_aspects + li").toggleClass('hide');
   };
   
 

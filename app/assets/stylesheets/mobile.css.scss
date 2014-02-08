@@ -120,7 +120,6 @@ h3 {
       line-height: 25px;
       font-weight: bold;
       color: $light-grey;
-      padding: 12px 25px;
       border-bottom: solid rgb(53, 53, 53) 2px;
     }
 
@@ -128,7 +127,7 @@ h3 {
       padding: 0px;
       border-bottom: 0px;
       
-      > ul > li {
+      > ul > li > a {
         font-size: 14px;
         padding: 8px 42px;
       }
@@ -146,8 +145,10 @@ h3 {
   }
   
   a {
+    display: block;
     color: $light-grey;
     text-decoration: none;
+    padding: 12px 25px;
   }
 
   ul {

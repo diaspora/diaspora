@@ -102,8 +102,9 @@
                       %li
                         = link_to aspect.name, aspects_stream_path(a_ids: [aspect.id])
                 %li
-                  = link_to t('layouts.header.profile'), user_profile_path(current_user.username)
-                  = person_image_tag(current_user)
+                  = link_to user_profile_path(current_user.username) do
+                    = t('layouts.header.profile')
+                    = person_image_tag(current_user)
                 %li
                   = link_to t('_contacts'), contacts_path
                 %li
