@@ -55,7 +55,7 @@ module ApplicationHelper
     buf = []
     if AppConfig.privacy.jquery_cdn?
       version = Jquery::Rails::JQUERY_VERSION
-      buf << [ javascript_include_tag("//ajax.googleapis.com/ajax/libs/jquery/#{version}/jquery.min.js") ]
+      buf << [ javascript_include_tag("//code.jquery.com/jquery-#{version}.min.js") ]
       buf << [ javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag("jquery")}'));") ]
     else
       buf << [ javascript_include_tag('jquery') ]
