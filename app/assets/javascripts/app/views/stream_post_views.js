@@ -41,7 +41,7 @@ app.views.StreamPost = app.views.Post.extend({
   },
 
   feedbackView : function(){
-    if(!app.currentUser.authenticated()) { return null }
+    if(!app.currentUser.authenticated()) { return null; }
     return new app.views.Feedback({model : this.model});
   },
 
@@ -49,7 +49,7 @@ app.views.StreamPost = app.views.Post.extend({
     var normalizedClass = this.model.get("post_type").replace(/::/, "__")
       , postClass = app.views[normalizedClass] || app.views.StatusMessage;
 
-    return new postClass({ model : this.model })
+    return new postClass({ model : this.model });
   },
 
   postLocationStreamView : function(){
@@ -58,7 +58,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   removeNsfwShield: function(evt){
     if(evt){ evt.preventDefault(); }
-    this.model.set({nsfw : false})
+    this.model.set({nsfw : false});
     this.render();
   },
 
@@ -70,32 +70,32 @@ app.views.StreamPost = app.views.Post.extend({
 
   blockUser: function(evt){
     if(evt) { evt.preventDefault(); }
-    if(!confirm(Diaspora.I18n.t('ignore_user'))) { return }
+    if(!confirm(Diaspora.I18n.t('ignore_user'))) { return; }
 
     var personId = this.model.get("author").id;
     var block = new app.models.Block();
 
     block.save({block : {person_id : personId}}, {
       success : function(){
-        if(!app.stream) { return }
+        if(!app.stream) { return; }
 
         _.each(app.stream.posts.models, function(model){
           if(model.get("author").id == personId) {
             app.stream.posts.remove(model);
           }
-        })
+        });
       }
-    })
+    });
   },
 
   remove : function() {
-    $(this.el).slideUp(400, _.bind(function(){this.$el.remove()}, this));
-    return this
+    $(this.el).slideUp(400, _.bind(function(){this.$el.remove();}, this));
+    return this;
   },
 
   hidePost : function(evt) {
     if(evt) { evt.preventDefault(); }
-    if(!confirm(Diaspora.I18n.t('confirm_dialog'))) { return }
+    if(!confirm(Diaspora.I18n.t('confirm_dialog'))) { return; }
 
     $.ajax({
       url : "/share_visibilities/42",
@@ -103,7 +103,7 @@ app.views.StreamPost = app.views.Post.extend({
       data : {
         post_id : this.model.id
       }
-    })
+    });
 
     this.remove();
   },
@@ -137,7 +137,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   onKeyDown: function(evt) {
     // trigger the events based on what key was pressed
-    switch (String.fromCharCode( event.which ).toLowerCase()) {
+    switch (String.fromCharCode( evt.which ).toLowerCase()) {
       case "n":
         this.commentStreamView.selectNextComment();
         break;
