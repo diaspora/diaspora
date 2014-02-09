@@ -27,10 +27,12 @@ app.views.Content = app.views.Base.extend({
 
 
   expandPost: function(evt) {
+    var me = this;
     var el = $(this.el).find('.collapsible');
     el.removeClass('collapsed').addClass('opened');
     el.animate({'height':el.data('orig-height')}, 550, function() {
       el.css('height','auto');
+      me.trigger('postExpanded');
     });
     $(evt.currentTarget).hide();
   },
