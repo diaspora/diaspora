@@ -1,4 +1,5 @@
 app.views.CommentStream = app.views.Base.extend({
+  _commentViews: [],
   _selectedComment: -1,
   _headerSize: 50,
   templateName: "comment-stream",
@@ -36,7 +37,7 @@ app.views.CommentStream = app.views.Base.extend({
       moreCommentsCount : (this.model.interactions.commentsCount() - 3),
       showExpandCommentsLink : (this.model.interactions.commentsCount() > 3),
       commentsCount : this.model.interactions.commentsCount()
-    })
+    });
   },
 
   createComment: function(evt) {
@@ -55,7 +56,7 @@ app.views.CommentStream = app.views.Base.extend({
 
   keyDownOnCommentBox: function(evt) {
     if(evt.keyCode == 13 && evt.ctrlKey) {
-      this.$("form").submit()
+      this.$("form").submit();
       return false;
     }
   },
@@ -63,11 +64,14 @@ app.views.CommentStream = app.views.Base.extend({
   appendComment: function(comment) {
     // Set the post as the comment's parent, so we can check
     // on post ownership in the Comment view.
-    comment.set({parent : this.model.toJSON()})
-
-    this.$(".comments").append(new app.views.Comment({
+    comment.set({parent : this.model.toJSON()});
+   
+    var commentView = new app.views.Comment({
       model: comment
-    }).render().el);
+    });
+
+    this.$(".comments").append(commentView.render().el);
+    this._commentViews.push(commentView);
   },
 
   commentTextareaFocused: function(evt){
@@ -84,9 +88,9 @@ app.views.CommentStream = app.views.Base.extend({
         self.model.set({
           comments : resp.models,
           all_comments_loaded : true
-        })
+        });
 
-        self.model.trigger("commentsExpanded", self)
+        self.model.trigger("commentsExpanded", self);
       }
     });
   },
@@ -112,12 +116,29 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   selectComment: function(index) {
+    //1. expand hidden comments
+    //2. expand long comments
+    //3. select comment
+    this._selectedComment = index;
+    var me = this;
     this.listenToOnce(this.model,'commentsExpanded', function() {
-      //TODO expand long comments
-      var element =  this.$el.find('.comment').get(index);
-      $(element).addClass('shortcut_selected highlighted');
-      window.scrollTo(window.pageXOffset, element.offsetTop-this._headerSize);
-      this._selectedComment = index;
+      //long comments are collapsed (see comment_view.js postRenderTemplate) we need to wait for that
+      _.defer(_.bind(function() {
+      	//expand long comments
+      	$(this._commentViews).each(function(index, commentView) {
+      		var expander = commentView.$el.find('.expander');
+      		if (expander) {
+            var meagain = me; 
+      		  me.listenTo(this, 'postExpanded', function() {
+      		    var element =  meagain.$el.find('.comment').get(meagain._selectedComment);
+              $(element).addClass('shortcut_selected highlighted');
+              window.scrollTo(window.pageXOffset, element.offsetTop-meagain._headerSize);
+      		  });
+      		  expander.trigger('click');  
+      		}
+      		
+      	});
+      }, this));
     });
     this.expandComments();
   }
