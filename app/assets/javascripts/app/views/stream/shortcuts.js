@@ -55,7 +55,6 @@ app.views.StreamShortcuts = {
     // select next post: take the first post under the header
     var stream_elements = this.$('div.stream_element.loaded');
     var posUser = window.pageYOffset;
-     
     for (var i = 0; i < stream_elements.length; i++) {
       if(stream_elements[i].offsetTop>posUser+this._headerSize){
         this.selectPost(stream_elements[i]);
@@ -72,7 +71,6 @@ app.views.StreamShortcuts = {
     // select previous post: take the first post above the header
     var stream_elements = this.$('div.stream_element.loaded');
     var posUser = window.pageYOffset;
-      
     for (var i = stream_elements.length-1; i >=0; i--) {
       if(stream_elements[i].offsetTop<posUser+this._headerSize){
         this.selectPost(stream_elements[i]);
@@ -101,6 +99,7 @@ app.views.StreamShortcuts = {
     window.scrollTo(window.pageXOffset, element.offsetTop-this._headerSize);
     //add the selection and selected-class to new post
     element.className+=" shortcut_selected highlighted";
+    //post element can listen to keybord in put now
     $(element).attr('tabindex','0').focus();
   },
 };
