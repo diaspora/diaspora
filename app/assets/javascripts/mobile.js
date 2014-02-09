@@ -29,23 +29,14 @@ $(document).ready(function(){
   /* Drawer menu */
   $('#menu_badge').bind("tap click", function(evt){
     evt.preventDefault();
-    toggleDrawerMenu();
-  });
-
-  var toggleDrawerMenu = function(){
     $("#app").toggleClass('draw');
-  };
+  });
   
   /* Show / hide aspects in the drawer */
   $('#all_aspects').bind("tap click", function(evt){
     evt.preventDefault();
-    toggleAspectsMenu();
-  });
-
-  var toggleAspectsMenu = function(){
     $("#all_aspects + li").toggleClass('hide');
-  };
-  
+  });  
 
   /* Heart toggle */
   $(".like_action", ".stream").bind("tap click", function(evt){

@@ -33,21 +33,17 @@ h3 {
   clear: both;
 }
 
-#app {
+#main {
   position: relative;
-  left: 0;
-  -moz-transition:left 0.35s;
-  -webkit-transition:left 0.35s;
-  -o-transition:left 0.35s;
-  transition:left 0.35s;
 }
 
-#main_nav {
+#main_nav, #main {
   -moz-transition:left 0.35s;
   -webkit-transition:left 0.35s;
   -o-transition:left 0.35s;
   transition:left 0.35s;
-  height: 45px;
+  
+  left: 0;
 }
 
 #drawer {
@@ -62,6 +58,10 @@ h3 {
   -webkit-transition:left 0.35s;
   -o-transition:left 0.35s;
   transition:left 0.35s;
+  
+  -webkit-box-shadow: -2px 0px 2px 1px #333;
+  -moz-box-shadow: -2px 0px 2px 1px #333;
+  box-shadow: -2px 0px 2px 1px #333;
 
   header {
     position: static;
@@ -109,7 +109,7 @@ h3 {
   }
   
   nav {
-    position: fixed;
+    position: absolute;
     top: 45px;
     bottom: 0px;
     overflow: auto;
@@ -158,17 +158,18 @@ h3 {
 }
 
 #app.draw {
-  left: -80%;
 
-  #main_nav {
+  /* Turn the main content to fixed to avoid it to be scrollable, so to have only
+   * one scroll when the height of nav in the drawer is bigger than the screen
+   */
+  #main_nav,
+  #main {
+    position: fixed;
     left: -80%;
   }
+  
   #drawer {
     left: 20%;
-
-    -webkit-box-shadow: -2px 0px 2px 1px #333;
-    -moz-box-shadow: -2px 0px 2px 1px #333;
-    box-shadow: -2px 0px 2px 1px #333;
   }
 }
 
@@ -466,6 +467,7 @@ h3 {
 
 header {
   position: fixed;
+  height: 45px;
   top: 0px;
   left: 0px;
   right: 0px;
