@@ -15,6 +15,8 @@ oembed_provider_list = [
   OEmbed::Providers::Flickr
 ]
 
+OEmbed::Providers::Youtube.endpoint += "?scheme=https"
+
 oembed_providers = YAML.load_file(Rails.root.join("config", "oembed_providers.yml"))
 
 oembed_providers.each do |provider_name, provider|
