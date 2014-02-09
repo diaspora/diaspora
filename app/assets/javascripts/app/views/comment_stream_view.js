@@ -116,30 +116,25 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   selectComment: function(index) {
-    //1. expand hidden comments
-    //2. expand long comments
-    //3. select comment
     this._selectedComment = index;
-    var me = this;
     this.listenToOnce(this.model,'commentsExpanded', function() {
-      //long comments are collapsed (see comment_view.js postRenderTemplate) we need to wait for that
+      //long comments are collapsed (see comment_view.js postRenderTemplate) we need to wait for that before expand them again
       _.defer(_.bind(function() {
-      	//expand long comments
       	$(this._commentViews).each(function(index, commentView) {
       		var expander = commentView.$el.find('.expander');
-      		if (expander) {
-            var meagain = me; 
-      		  me.listenTo(this, 'postExpanded', function() {
-      		    var element =  meagain.$el.find('.comment').get(meagain._selectedComment);
-              $(element).addClass('shortcut_selected highlighted');
-              window.scrollTo(window.pageXOffset, element.offsetTop-meagain._headerSize);
-      		  });
-      		  expander.trigger('click');  
-      		}
-      		
+      		expander.trigger('expandWithoutAnimation');
       	});
       }, this));
+      
+      //wait for expanding long comments then select the comment
+      _.defer(_.bind(function() {
+        var element =  this.$el.find('.comment').get(this._selectedComment);
+        $(element).addClass('shortcut_selected highlighted');
+        window.scrollTo(window.pageXOffset, element.offsetTop-this._headerSize);  
+      }, this));
     });
+    
+    
     this.expandComments();
   }
 });
