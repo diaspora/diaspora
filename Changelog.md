@@ -8,6 +8,7 @@
 * Consistent naming of conversations and messages [#4756](https://github.com/diaspora/diaspora/pull/4756)
 * Improve stream generation time [#4769](https://github.com/diaspora/diaspora/pull/4769)
 * Port help pages to backbone [#4768](https://github.com/diaspora/diaspora/pull/4768)
+* Add participants to conversations menu [#4656](https://github.com/diaspora/diaspora/pull/4656)
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
