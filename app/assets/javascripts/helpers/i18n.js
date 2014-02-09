@@ -7,7 +7,7 @@
    locale: {},
 
    loadLocale: function(locale, language) {
-     this.locale = locale;
+     this.locale = $.extend(this.locale, locale);
      this.language = language;
      rule = this.t('pluralization_rule');
      if (rule === "")

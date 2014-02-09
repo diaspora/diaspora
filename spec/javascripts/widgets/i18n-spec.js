@@ -28,6 +28,16 @@ describe("Diaspora", function() {
 
           expect(Diaspora.I18n.locale).toEqual(locale);
         });
+
+        it("extends the class's locale variable on multiple calls", function() {
+          var data = {another: 'section'},
+              extended = $.extend(locale, data);
+
+          Diaspora.I18n.loadLocale(locale);
+          Diaspora.I18n.loadLocale(data;
+
+          expect(Diaspora.I18n.locale).toEqual(extended);
+        });
       });
 
       describe("t", function() {

@@ -7,14 +7,14 @@ module LanguageHelper
     options.sort_by { |o| o[0] }
   end
 
-  def get_javascript_strings_for(language)
-    defaults = I18n.t('javascripts', :locale => DEFAULT_LANGUAGE)
+  def get_javascript_strings_for(language, section)
+    defaults = I18n.t(section, :locale => DEFAULT_LANGUAGE)
 
     if language != DEFAULT_LANGUAGE
-      translations = I18n.t('javascripts', :locale => language)
+      translations = I18n.t(section, :locale => language)
       defaults.deep_merge!(translations)
     end
-    
+
     defaults['pluralization_rule'] = I18n.t('i18n.plural.js_rule', :locale => language)
     defaults['pod_name'] = pod_name
     defaults
