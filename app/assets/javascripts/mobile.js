@@ -26,6 +26,18 @@ $(document).ready(function(){
          .toggleClass('inactive');
   };
 
+  /* Drawer menu */
+  $('#menu_badge').bind("tap click", function(evt){
+    evt.preventDefault();
+    $("#app").toggleClass('draw');
+  });
+  
+  /* Show / hide aspects in the drawer */
+  $('#all_aspects').bind("tap click", function(evt){
+    evt.preventDefault();
+    $("#all_aspects + li").toggleClass('hide');
+  });  
+
   /* Heart toggle */
   $(".like_action", ".stream").bind("tap click", function(evt){
     evt.preventDefault();
@@ -270,7 +282,7 @@ $(document).ready(function(){
       );
     }
   });
-  
+
   $("#submit_new_message").bind("tap click", function(evt){
     evt.preventDefault();
     $("#new_status_message").submit();

@@ -25,3 +25,7 @@ end
 When /^I visit the mobile search page$/ do
   visit('/people.mobile')
 end
+
+When /^I open the drawer$/ do
+  find('#menu_badge').click
+end
