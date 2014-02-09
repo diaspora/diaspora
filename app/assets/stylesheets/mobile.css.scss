@@ -17,7 +17,12 @@ body {
     /* scale background image down for iOS retina display */
     size: 200px;
   }
-  padding-top: 55px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#main.container {
+  margin: 55px 10px 0px 10px;
 }
 
 h3 {
@@ -26,6 +31,146 @@ h3 {
 
 .clear {
   clear: both;
+}
+
+#main {
+  position: relative;
+}
+
+#main_nav, #main {
+  -moz-transition:left 0.35s;
+  -webkit-transition:left 0.35s;
+  -o-transition:left 0.35s;
+  transition:left 0.35s;
+  
+  left: 0;
+}
+
+#drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 80%;
+  left: 100%;
+  background-color: #444;
+
+  -moz-transition:left 0.35s;
+  -webkit-transition:left 0.35s;
+  -o-transition:left 0.35s;
+  transition:left 0.35s;
+  
+  -webkit-box-shadow: -2px 0px 2px 1px #333;
+  -moz-box-shadow: -2px 0px 2px 1px #333;
+  box-shadow: -2px 0px 2px 1px #333;
+
+  header {
+    position: static;
+    height: 45px;
+    border-radius: 0;
+
+    #global_search {
+      margin-right: 20px;
+      margin-left: 10px;
+      position: relative;
+
+      form {
+        position: absolute;
+        width: 100%;
+        margin-right: 20px;
+
+        input {
+          @include box-shadow(0, 1px, 1px, #444);
+          @include border-radius(15px);
+          @include transition(width);
+          width: 100%;
+          margin-top: 7px;
+          background-color: #444;
+          border: 1px solid #222;
+          font-size: 13px;
+          padding: 4px;
+
+          color: black;
+
+          &.active {
+            background-color: $highlight-white;
+            background-color: rgba(160,160,160,0.6);
+          }
+
+          &:focus {
+            outline: none;
+            background-color: white;
+          }
+
+          &::-webkit-input-placeholder { text-shadow: none; }
+          &:-moz-placeholder { text-shadow: none; }
+        }
+      }
+    }
+  }
+  
+  nav {
+    position: absolute;
+    top: 45px;
+    bottom: 0px;
+    overflow: auto;
+    width: 100%;
+
+    li {
+      font-size: 25px;
+      line-height: 25px;
+      font-weight: bold;
+      color: $light-grey;
+      border-bottom: solid rgb(53, 53, 53) 2px;
+    }
+
+    .no_border {
+      padding: 0px;
+      border-bottom: 0px;
+      
+      > ul > li > a {
+        font-size: 14px;
+        padding: 8px 42px;
+      }
+    }
+    
+    .hide {
+      display: none;
+    }
+    
+    .avatar {
+      height: 35px;
+      width: 35px;
+      margin: -2px 5px;
+    }
+  }
+  
+  a {
+    display: block;
+    color: $light-grey;
+    text-decoration: none;
+    padding: 12px 25px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0px;
+  }
+}
+
+#app.draw {
+
+  /* Turn the main content to fixed to avoid it to be scrollable, so to have only
+   * one scroll when the height of nav in the drawer is bigger than the screen
+   */
+  #main_nav,
+  #main {
+    position: fixed;
+    left: -80%;
+  }
+  
+  #drawer {
+    left: 20%;
+  }
 }
 
 .message {
@@ -78,7 +223,7 @@ h3 {
   .timeago {
     font: {
       weight: normal; }; }
-  padding: 0 !important; 
+  padding: 0 !important;
 }
 .shield{
   padding: 10px;
@@ -174,8 +319,6 @@ h3 {
 
 
 #main_stream {
-  margin-left: -10px;
-  margin-right: -10px;
   .from {
     white-space: nowrap;
     overflow: hidden;
@@ -241,9 +384,9 @@ h3 {
 
   .photo {
     text-align: center;
-    background-color: #FFFFFF; 
-    border-style: solid; 
-    border-width: 1px; 
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     border-color: #DDDDDD #BBBBBB #AAAAAA;
     border-bottom-width: 0px;
@@ -273,7 +416,7 @@ h3 {
     shadow: 0 1px 2px #333;
     decoration: none; };
   padding: 0;
-  position: fixed; 
+  position: fixed;
   bottom: 10%;
   z-index: 1;
   height: 50px;
@@ -299,7 +442,7 @@ h3 {
     margin-right: 10px;
     float: left;
   }
-  
+
   .content {
     padding-left: 100px;
   }
@@ -324,65 +467,55 @@ h3 {
 
 header {
   position: fixed;
+  height: 45px;
   top: 0px;
   left: 0px;
   right: 0px;
-  min-width: 250px;
+  width: 100%;
   z-index: 10;
   background: url("header-bg-long.jpg") rgb(40,35,35);
   @include box-shadow(0, 1px, 2px, #333);
-  border-bottom: 1px solid #222;  
+  border-bottom: 1px solid #222;
 
-  #header_title { display: inline-block; }
-  
+  #header_title {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+  }
+
   #nav_badges {
     float: right;
-    margin: 4px 12px;
-    
+    margin: 7px 0px;
+    display: inline-block;
+
     .badge {
       display: inline;
-      margin-left: 3px;
-      padding: 8px 3px;
-      padding-bottom: 9px;
+      margin: 0px 4px;
+      padding: 10px 6px;
       font-weight: bold;
       font-size: smaller;
-      width: 28px;
+      background-color: #333333;
+      
+      img {
+        height: 30px;
+        width: 30px;
+      }
+    }
+
+    .badge_count {
+      @include border-radius(2px);
+      z-index: 3;
+      position: absolute;
+      top: 3px;
+      padding: 1px 3px;
+      background-color: $red;
+      margin-left: -8px;
     }
     
-    .badge:hover .badge_count {
-        background-color: #bd0902;
+    #conversation_icon {
+      height: 18px;
     }
-    
-    a {
-      padding: 5px 0px;
-    }
-  }
-
-  .badge_count {
-    -moz-border-radius: 2px 2px 2px 2px;
-    -webkit-border-radius: 2px 2px 2px 2px;
-    border-radius: 2px 2px 2px 2px;
-    z-index: 3;
-    position: absolute;
-    top: 1px;
-    padding: 0 2px;
-      padding-bottom: 1px;
-    background-color: $red;
-    line-height: 12px;
-    color: white;
-    font-size: smaller;
-  }
-
-  #notification {
-    right: 140px;
-  }
-
-  #conversation {
-    right: 110px;
-  }
-
-  .badge-inverse {
-    background-color: #333333 !important;
   }
 }
 
@@ -548,12 +681,7 @@ footer {
 }
 
 #new_status_message {
-  text-align: left;
-  position: absolute;
-  left: 0;
-  top: 40px;
-  width: 100%;
-  min-height: 250px;
+  margin: 0px;
 
   fieldset {
     padding: 10px;
@@ -567,26 +695,19 @@ footer {
     }
   }
 
-  #message_container {
-    @include box-shadow(0, 2px, 3px, #999);
-    background-color: #fff;
-    padding: 5px;
-    border: {
-      bottom: 1px solid $border-dark-grey;
-    }
-    .counter {
-      font-size: 14px;
-    }
+  .counter {
+    font-size: 14px;
   }
 
   textarea {
     @include border-radius(0);
-    left: 0;
+    @include box-shadow(0, 2px, 3px, #999);
     border: none;
-    margin: 10px 0;
+    border-bottom: 1px solid $border-dark-grey;
+    width: 96%;
+    padding: 2%;
+    margin: 0px;
     font-size: 14px;
-    padding: 0;
-    min-width: 100%;
   }
 }
 
@@ -660,12 +781,6 @@ select {
   }
 }
 
-.compose_icon {
-  height: 28px;
-  width: 28px;
-  margin-left: 10px;
-}
-
 .navbar-inner .right {
   position: absolute;
   right: 12px;
@@ -694,28 +809,6 @@ select {
 
 .notification_day_header {
   margin-bottom: 5px;
-}
-
-#header-nav {
-    font-weight: bold;
-    height: 100%;
-    margin-right: 5px;
-    margin-top: 3px;
-display: inline-block;
-}
-
-#header-nav a {
-    padding: 0 10px;
-    width: 100%;
-    color: $text-grey;
-}
-
-#header-nav > div {
-  display: inline;
-    font-weight: bold;
-    margin: 0 2px;
-    position: relative;
-    width: 28px;
 }
 
 .message_count {
@@ -806,18 +899,18 @@ form#new_conversation.new_conversation {
   h4 {
     font-size: 14px;
     font-weight: normal;
-    line-height: 20px;  
+    line-height: 20px;
   }
   .span-10 {
     margin: 5px;
-  }   
+  }
 }
 
 .span-2 {
    margin: 5px 5px;
    text-transform: uppercase;
 }
-  
+
 .span-10 {
   width: 100%;
 }
@@ -906,7 +999,7 @@ textarea#conversation_text {
 .registrations_error,
 .registrations_notice {
   color: #DF0101;
-  text-shadow: 1px 1px 5px #666; 
+  text-shadow: 1px 1px 5px #666;
 }
 
 .registrations {
@@ -947,7 +1040,7 @@ form#new_user.new_user input.btn {
 input#user_password, #user_username, #user_password_confirmation, #user_email {
   height: 30px;
 }
-  
+
 #flash_notice,
 #flash_alert,
 #flash_error {
@@ -970,7 +1063,7 @@ input#user_password, #user_username, #user_password_confirmation, #user_email {
 }
 
 h1.session {
-  font-size: 40px; 
+  font-size: 40px;
   font-weight: 200;
 }
 
@@ -1006,7 +1099,7 @@ form p.checkbox_select {
   img {
     @include border-radius(5px);
     @include box-shadow(0,1px,2px,#666);
-  
+
     position: absolute;
     left: 0;
     height: 100px;
@@ -1113,7 +1206,7 @@ select#aspect_ids_ {
   float: left;
   padding: 3px 12px;
   cursor: pointer;
-  
+
   &:hover img {
       @include opacity(0.4);
   }
@@ -1169,11 +1262,11 @@ select#aspect_ids_ {
     li {
       display: table-cell;
       padding-right: 4px;
-      
+
       img {
         max-height: 55px;
       }
-      
+
       .circle {
         @include border-radius(20px);
         z-index: 1;
@@ -1187,7 +1280,7 @@ select#aspect_ids_ {
         max-height: 20px;
         border: 1px solid #fff;
       }
-      
+
       .x  {
         z-index: 2;
         position: absolute;
@@ -1264,7 +1357,7 @@ select#aspect_ids_ {
   h1 { font-size: 25px; }
   h2 { font-size: 20px; }
   h3 { font-size: 15px; }
-  
+
   h2, #awesome_button {
     margin-top: 30px;
   }
