@@ -3,6 +3,7 @@
 ## Refactor
 * Drop number of followers from tags page [#4717](https://github.com/diaspora/diaspora/issues/4717)
 * Remove some unused beta code [#4738](https://github.com/diaspora/diaspora/issues/4738)
+* Style improvements for SPV, use original author's avatar for reshares [#4754](https://github.com/diaspora/diaspora/issue/4754)
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)

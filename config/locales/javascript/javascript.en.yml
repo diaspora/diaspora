@@ -112,6 +112,7 @@ en:
       hide_nsfw_posts: "Hide #nsfw posts"
       follow: "Follow"
       unfollow: "Unfollow"
+      via: "via <%= provider %>"
 
       likes:
         zero: "<%= count %> Likes"
