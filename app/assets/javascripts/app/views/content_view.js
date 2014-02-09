@@ -1,6 +1,8 @@
 app.views.Content = app.views.Base.extend({
   events: {
-    "click .expander": "expandPost"
+    "click .expander": "expandPost",
+    "expandWithoutAnimation" :  "expandWithoutAnimation"
+    
   },
 
   presenter : function(){
@@ -32,9 +34,16 @@ app.views.Content = app.views.Base.extend({
     el.removeClass('collapsed').addClass('opened');
     el.animate({'height':el.data('orig-height')}, 550, function() {
       el.css('height','auto');
-      me.trigger('postExpanded');
     });
     $(evt.currentTarget).hide();
+  },
+  
+  expandWithoutAnimation: function(evt) {
+    var el = $(this.el).find('.collapsible');
+    el.removeClass('collapsed').addClass('opened');
+    el.attr("height", el.data('orig-height'));
+    el.css('height','auto');
+    $(this.el).find('.expander').hide();
   },
 
   location: function(){
@@ -70,7 +79,7 @@ app.views.Content = app.views.Base.extend({
   },
 
   postRenderTemplate : function(){
-    _.defer(_.bind(this.collapseOversized, this))
+    _.defer(_.bind(this.collapseOversized, this));
   }
 });
 
