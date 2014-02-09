@@ -32,7 +32,9 @@ a { color : $link-blue  }
   }
 }
 
-#login {
+#login,
+#forgot_password,
+#reset_password {
   background-image : image_url("texture/light-bg.png");
   height: 100%;
 }
