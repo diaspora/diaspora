@@ -136,6 +136,12 @@ app.views.StreamPost = app.views.Post.extend({
   },
 
   onKeyDown: function(evt) {
+    //make sure that the user is not typing in an input field
+    var textAcceptingInputTypes = ["textarea", "select", "text", "password", "number", "email", "url", "range", "date", "month", "week", "time", "datetime", "datetime-local", "search", "color"];
+    if(jQuery.inArray(event.target.type, textAcceptingInputTypes) > -1){
+      return;
+    }
+    
     // trigger the events based on what key was pressed
     switch (String.fromCharCode( evt.which ).toLowerCase()) {
       case "n":
