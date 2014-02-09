@@ -327,10 +327,10 @@ en:
 
   conversations:
     index:
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
+      conversations_inbox: "Conversations – Inbox"
+      new_conversation: "New conversation"
       no_conversation_selected: "no conversation selected"
-      create_a_new_message: "create a new message"
+      create_a_new_conversation: "start a new conversation"
       no_messages: "no messages"
       inbox: "Inbox"
     conversation:
@@ -354,7 +354,7 @@ en:
       sent: "Message sent"
       fail: "Invalid message"
       no_contact: "Hey, you need to add the contact first!"
-    new_message:
+    new_conversation:
       fail: "Invalid message"
     destroy:
       success: "Conversation successfully removed"

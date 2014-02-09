@@ -5,6 +5,7 @@
 * Remove some unused beta code [#4738](https://github.com/diaspora/diaspora/issues/4738)
 * Style improvements for SPV, use original author's avatar for reshares [#4754](https://github.com/diaspora/diaspora/issue/4754)
 * Update image branding to the new decided standard [#4702](https://github.com/diaspora/diaspora/pull/4702)
+* Consistent naming of conversations and messages [#4756](https://github.com/diaspora/diaspora/pull/4756)
 
 
 ## Bug fixes

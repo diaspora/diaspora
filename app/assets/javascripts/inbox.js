@@ -34,7 +34,7 @@ $(document).ready(function(){
     history.pushState(null, "", conversation_path);
 
     var conv = $(this).children('.stream_element'),
-        cBadge = $("#message_inbox_badge .badge_count");
+        cBadge = $("#conversations_badge .badge_count");
     if(conv.hasClass('unread') ){
       conv.removeClass('unread');
     }
