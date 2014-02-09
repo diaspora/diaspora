@@ -11,7 +11,7 @@
       .info {
         color: lighten($text-grey,10%);
         font-size: 12px;
-        .post-time a { color: $grey; }
+        .post-time a { color: $text-grey; }
         .post_scope { margin-right: 5px; }
         .status-message-location { 
           padding-top: 2px; 
@@ -25,7 +25,7 @@
         padding-left: 10px;
       }
     }
-    .reshare {
+    .row-fluid.reshare {
       border-top: 1px solid lighten($border-grey,5%);
       padding-top: 10px; 
       margin-top: 10px; 
@@ -40,7 +40,7 @@
         margin-right: 8px;
       }
       .post-time a {
-        color: $grey;
+        color: $text-grey;
         display: block;
         font-size: 12px;
       }
