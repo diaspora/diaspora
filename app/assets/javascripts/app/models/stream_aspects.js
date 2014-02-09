@@ -18,10 +18,7 @@ app.models.StreamAspects = app.models.Stream.extend({
     if(this.isFetching()){ return false }
     var url = this.url();
     var ids = this.aspects_ids;
-    this.deferred = this.items.fetch({
-        add : true,
-        url : url,
-        data : { 'a_ids': ids }
-    }).done(_.bind(this.triggerFetchedEvents, this))
+    this.deferred = this.items.fetch(this._fetchOpts({url : url, data : { 'a_ids': ids }}))
+      .done(_.bind(this.triggerFetchedEvents, this));
   }
 });
