@@ -11,7 +11,7 @@ module LanguageHelper
     defaults = I18n.t(section, :locale => DEFAULT_LANGUAGE)
 
     if language != DEFAULT_LANGUAGE
-      translations = I18n.t('javascripts', :locale => language)
+      translations = I18n.t(section, :locale => language)
       defaults.deep_merge!(translations)
     end
 
