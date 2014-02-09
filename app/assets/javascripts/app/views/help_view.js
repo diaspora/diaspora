@@ -113,7 +113,11 @@ app.views.Help = app.views.StaticContentView.extend({
   renderStaticSection: function(section, template, subs) {
     this.clearItems();
     data = $.extend(Diaspora.I18n.locale[section], { className: section });
-    help_section = new app.views.HelpSectionView( template, data, subs );
+    help_section = new app.views.HelpSectionView({
+      template: template,
+      data: data,
+      subs: subs
+    });
     this.$('#faq').append(help_section.render().el);
   },
 

@@ -4,9 +4,9 @@ app.views.HelpSectionView = app.views.StaticContentView.extend({
     "click .question.collapsible a.toggle" : "toggled"
   },
 
-  initialize : function(templateName, data, subs) {
-    this.templateName = templateName;
-    this.data = this.makeSubs(data, subs);
+  initialize : function(options) {
+    this.templateName = options.template;
+    this.data = this.makeSubs(options.data, options.subs);
 
     return this;
   },
