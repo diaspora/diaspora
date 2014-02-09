@@ -46,6 +46,7 @@ pl:
       correlations: "Współzależności"
       pages: "Strony"
       pod_stats: "Statystyki dla Podu"
+      post_report: "Zgłoszone Wpisy"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Wyszukiwanie użytkowników"
       weekly_user_stats: "Tygodniowe statystyki użytkownika"
@@ -747,6 +748,9 @@ pl:
     mentioned:
       mentioned: "wspomniał(a) o Tobie we wpisie:"
       subject: "%{name} wspomniał o Tobie na diasporze*"
+    post_report_email:
+      body: "Proszę sprawdź ten wpis najszybciej jak to możliwe!"
+      subject: "Nowy wpis został zgłoszony jako obraźliwy"
     private_message:
       reply_to_or_view: "Odpowiedz lub wyświetl wątek >"
     reshared:
@@ -861,6 +865,17 @@ pl:
     update:
       error: "Błąd podczas edycji zdjęcia."
       notice: "Pomyślnie zaktualizowano zdjęcie."
+  post_report:
+    delete_link: "Usuń wpis"
+    post_label: "<b>Wpis:</b> %{title}"
+    reason_label: "Powód: %{text}"
+    reported_label: "<b>Zgłoszony przez:</b> %{person}"
+    review_link: "Oznacz jako sprawdzony"
+    status:
+      created: "Zgłoszenie zostało utworzone"
+      destroyed: "Wpis został zniszczony"
+      failed: "Coś poszło  nie tak"
+      marked: "Zgłoszenie zostało oznaczone jako sprawdzone"
   posts:
     presenter:
       title: "Wpis od %{name}"

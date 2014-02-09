@@ -46,6 +46,7 @@ es-AR:
       correlations: "Similitudes"
       pages: "Páginas"
       pod_stats: "Estadísticas del servidor"
+      post_report: "Publicaciones informadas"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Búsqueda de usuarios"
       weekly_user_stats: "Estadísticas semanales de usuario"
@@ -724,6 +725,9 @@ es-AR:
     mentioned:
       mentioned: "te mencionó en una publicación:"
       subject: "%{name} te mencionó en diaspora*"
+    post_report_email:
+      body: "¡Por favor revísala lo antes posible!"
+      subject: "Una nueva publicación ha sido marcada como ofensiva"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
     reshared:
@@ -838,6 +842,18 @@ es-AR:
     update:
       error: "Error al editar la foto."
       notice: "La foto se subió correctamente."
+  post_report:
+    delete_link: "Borrar publicación"
+    post_label: "<b>Publicación</b>: %{title}"
+    reason_label: "Motivo: %{text}"
+    reported_label: "<b>Informada por</b> %{person}"
+    review_link: "Marcar como revisada"
+    status:
+      created: "El informe ha sido creado"
+      destroyed: "La publicación ha sido eliminada"
+      failed: "Algo salió mal"
+      marked: "El informe ha sido marcado como revisado"
+    title: "Resúmen de Informes marcados"
   posts:
     presenter:
       title: "Una publicación de %{name}"

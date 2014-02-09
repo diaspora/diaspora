@@ -386,7 +386,7 @@ de_formal:
       get_support_a_website: "Besuchen Sie unsere %{link}"
       get_support_a_wiki: "Durchsuchen Sie das %{link}"
       get_support_q: "Was ist, wenn meine Frage in der FAQ nicht beantwortet wird? Wo kann ich sonst Hilfe bekommen?"
-      getting_started_a: "Sie haben Glück! Schauen Sie sich die %{tutorial_series} auf unserer Projektseite an. Sie wird Sie Schritt für Schritt durch den Anmeldeprozess begleiten und Ihnen alles notwendige über diaspora* beibringen."
+      getting_started_a: "Sie haben Glück! Schauen Sie sich die %{tutorial_series} auf unserer Projektseite an. Sie wird Sie Schritt für Schritt durch den Anmeldeprozess begleiten und Ihnen alles Notwendige über Diaspora beibringen."
       getting_started_q: "Hilfe! Ich brauche grundlegende Hilfe um anzufangen!"
       title: "Erhalten Sie Hilfe"
     getting_started_tutorial: "„Erste Schritte“ Anleitungsreihe"

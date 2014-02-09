@@ -46,6 +46,7 @@ sv:
       correlations: "Korrelationer"
       pages: "Sidor"
       pod_stats: "Podstatistik"
+      post_report: "Anmälda inlägg"
       sidekiq_monitor: "Sidekiq-övervakare"
       user_search: "Användarsökning"
       weekly_user_stats: "Veckovis användarstatistik"
@@ -132,7 +133,7 @@ sv:
       success: "Din nya aspekt %{name} har skapats"
     destroy:
       failure: "%{name} är inte tom och kan därför inte tas bort"
-      success: "Aspekten %{name} togs bort."
+      success: "%{name} togs bort."
     edit:
       add_existing: "Lägg till en befintlig kontakt"
       aspect_list_is_not_visible: "Aspektens kontakter kan inte se vilka som hör till aspekten."
@@ -168,7 +169,7 @@ sv:
         do_you: "Har du:"
         email_feedback: "%{link}a din respons, om du föredrar det"
         email_link: "E-post"
-        feature_suggestion: "... ett %{link} på funktionalitet?"
+        feature_suggestion: "... har du ett %{link}-förslag?"
         find_a_bug: "... hittat en %{link}?"
         have_a_question: "... en %{link}?"
         here_to_help: "Diaspora-gemenskapen finns här!"
@@ -207,7 +208,7 @@ sv:
       community_spotlight: "gemenskapens rampljus"
       or_spotlight: "Du kan också dela med %{link}"
       try_adding_some_more_contacts: "Du kan söka efter eller bjuda in fler personer."
-      you_should_add_some_more_contacts: "Du borde lägga till några fler kontakter!"
+      you_should_add_some_more_contacts: "Du borde lägga till fler kontakter!"
     no_posts_message:
       start_talking: "Ingen har sagt någonting än!"
     one: "En aspekt"
@@ -573,9 +574,9 @@ sv:
       source_package: "ladda ned källkodspaketet"
       toggle: "byt mobilanpassning"
       whats_new: "vad är nytt?"
-      your_aspects: "Aspekter"
+      your_aspects: "dina aspekter"
     header:
-      admin: "admin"
+      admin: "administratör"
       blog: "blogg"
       code: "källkod"
       help: "Hjälp"
@@ -703,6 +704,9 @@ sv:
     mentioned:
       mentioned: "nämnde dig i ett inlägg:"
       subject: "%{name} har nämnt dig på Diaspora*"
+    post_report_email:
+      body: "Var god och gå igenom detta så snart du kan!"
+      subject: "Ett nytt inlägg har betecknats som kränkade"
     private_message:
       reply_to_or_view: "Svara på eller läs denna konversation >"
     reshared:
@@ -817,6 +821,18 @@ sv:
     update:
       error: "Misslyckades med att ändra fotot."
       notice: "Fotot är nu uppdaterat."
+  post_report:
+    delete_link: "Borttag inlägg"
+    post_label: "<b>Inlägg</b>: %{title}"
+    reason_label: "Anledning: %{text}"
+    reported_label: "<b>Anmält av</b> %{person}"
+    review_link: "Markera som genomgånget"
+    status:
+      created: "En anmälan skapades"
+      destroyed: "Inlägget har förintats"
+      failed: "Någonting har gått snett"
+      marked: "Anmälningen har markerats som genomgånget"
+    title: "Översikt av markerade anmälningar"
   posts:
     presenter:
       title: "Ett inlägg från %{name}"
@@ -842,6 +858,9 @@ sv:
       edit_profile: "Redigera profil"
       first_name: "Förnamn"
       last_name: "Efternamn"
+      nsfw_check: "Markera allting som jag delar som icke arbetsplatssäker (NSFW)"
+      nsfw_explanation: "NSFW (\"not safe for work\", inte arbetsplatssäker) är Diasporas självständiga samfund för innehåll som kanske inte passar sig på arbetsplatser. Om du har planer på att ofta dela med dig av material som är av denna natur, var god och använd inställningen så att dina inlägg döljs i personers strömmar, tills de själva väljer att se inläggen."
+      nsfw_explanation2: "Om du inte använder inställningen, var god och använd taggen #nsfw när du delar sådant material."
       update_profile: "Uppdatera profil"
       your_bio: "Din biografi"
       your_birthday: "Din födelsedag"
@@ -947,7 +966,7 @@ sv:
       logged_in_as: "inloggad som"
       no_services: "Du har inte kopplat ihop några tjänster."
       really_disconnect: "vill du koppla från %{service}?"
-      services_explanation: "Genom att ansluta till andra tjänster möjliggör det för dig att att skicka dina inlägg till dem samtidigt som på Diaspora."
+      services_explanation: "Genom att ansluta till andra tjänster, möjliggör det dig att skicka dina inlägg till dem samtidigt som på Diaspora."
     inviter:
       click_link_to_accept_invitation: "Följ länken för att acceptera din inbjudan"
       join_me_on_diaspora: "Gå med mig på Diaspora*"
@@ -1150,7 +1169,7 @@ sv:
     edit:
       also_commented: "... någon annan också kommenterar din kontakts inlägg?"
       auto_follow_aspect: "Den aspekt som automatiskt följda användare skall läggas i:"
-      auto_follow_back: "Följ automatiskt de som börjar följa dig"
+      auto_follow_back: "Följ automatiskt dem som börjar följa dig"
       change: "Ändra"
       change_email: "Ändra e-postadress"
       change_language: "Ändra språk"
@@ -1183,7 +1202,7 @@ sv:
       private_message: "... du mottager ett privat meddelande."
       receive_email_notifications: "Skicka notiser via e-post när..."
       reshared: "... någon delar vidare dina inlägg."
-      show_community_spotlight: "Ska gemenskapens rampljus visas i din ström?"
+      show_community_spotlight: "Ska gemenskapens rampljus visas i ditt flöde?"
       show_getting_started: "Återaktivera \"Komma igång\""
       started_sharing: "... någon börjar dela med sig till dig."
       stream_preferences: "Inställningar för din ström"

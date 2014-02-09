@@ -77,6 +77,9 @@ de:
       invalid_ext: "{file} hat eine ungültige Erweiterung. Nur {extensions} sind erlaubt."
       looking_good: "OMG, du siehst toll aus!"
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
+    post_report: "Melden"
+    post_report_prompt: "Bitte gib einen Grund an:"
+    post_report_prompt_default: "anstößiger Inhalt"
     publisher:
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
