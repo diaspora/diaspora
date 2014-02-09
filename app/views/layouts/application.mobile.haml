@@ -48,7 +48,6 @@
   %body
     #app
       %header#main_nav
-        = link_to(image_tag('icons/asterisk_white_mobile.png'), stream_path, id: 'header_title')
         - if user_signed_in?
           #nav_badges
             -# Notifications
@@ -67,6 +66,7 @@
             = link_to(image_tag('icons/compose_mobile.png'), new_status_message_path, class: "badge", id: "compose_badge")
             -# Menu
             = link_to(image_tag('icons/menu.png'), "#", id: "menu_badge", class: "badge")
+        = link_to(image_tag('icons/asterisk_white_mobile.png'), stream_path, id: 'header_title')
 
 
 
