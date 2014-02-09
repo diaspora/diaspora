@@ -16,6 +16,7 @@ Feature: private conversations
     And I should see "Greetings" within "#conversation_show"
     And I should see "less than a minute ago" within "#conversation_inbox"
     And I should see "less than a minute ago" within "#conversation_show"
+    And I should see "Alice Awesome" as a participant
     And "Alice Awesome" should be part of active conversation
     And I should see "hello, alice!" within ".stream_container"
     When I sign in as "alice@alice.alice"
