@@ -2,9 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-#this module attempts to be what you need to mix into 
+#this module attempts to be what you need to mix into
 # base level federation objects that are not relayable, and not persistable
-#assumes there is an author, author_id, id, 
+#assumes there is an author, author_id, id,
 module Diaspora
   module Federated
     module Shareable
@@ -85,7 +85,7 @@ module Diaspora
           known_shareable = user.find_visible_shareable_by_id(self.class.base_class, self.guid, :key => :guid)
           if known_shareable
             if known_shareable.mutable?
-              known_shareable.update_attributes(self.attributes)
+              known_shareable.update_attributes(self.attributes.except("id"))
               true
             else
               Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason=immutable") #existing_shareable=#{known_shareable.id}")
