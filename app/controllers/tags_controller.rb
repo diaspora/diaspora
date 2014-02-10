@@ -57,9 +57,9 @@ class TagsController < ApplicationController
   end
 
   def prep_tags_for_javascript
-    @tags.map! do |tag|
+    @tags = @tags.map {|tag|
       { :name  => ("#" + tag.name) }
-    end
+    }
 
     @tags << { :name  => ('#' + params[:q]) }
     @tags.uniq!
