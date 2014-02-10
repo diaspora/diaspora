@@ -21,6 +21,13 @@ class NotificationsController < ApplicationController
     end
   end
 
+  def count
+    result = Notification.where(:recipient_id => current_user.id, :unread => 1).count()
+    respond_to do |format|
+      format.json { render :json => result }
+    end
+  end
+
   def index
     conditions = {:recipient_id => current_user.id}
     page = params[:page] || 1

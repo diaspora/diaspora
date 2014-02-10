@@ -76,6 +76,7 @@ Diaspora::Application.routes.draw do
   end
 
   get 'notifications/read_all' => 'notifications#read_all'
+  get 'notifications/count' => 'notifications#count'
   resources :notifications, :only => [:index, :update] do
   end
 

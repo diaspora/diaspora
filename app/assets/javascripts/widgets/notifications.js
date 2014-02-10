@@ -42,6 +42,7 @@
         $(event.target).addClass("disabled");
         return false;
       });
+      setInterval(function(){self.refreshCount()}, 120000);
     });
     this.setUpNotificationPage = function( contentArea ) {
       self.notificationArea = contentArea;
@@ -69,13 +70,22 @@
         success: self.clickSuccess
       });
     };
+    this.refreshCount = function() {
+      $.ajax({
+        url: "/notifications/count.json",
+        dataType: 'json',
+        success: function(count) {
+            self.setNotificationCount(count);
+        }
+      });
+    };
     this.setUpUnread = function( an_obj ) {
       an_obj.removeClass("read").addClass( "unread" );
       an_obj.find('.unread-setter').hide();
       an_obj.find('.unread-setter').unbind("click");
       an_obj.unbind( "mouseenter mouseleave" );
       an_obj.click(self.readClick);
-    }
+    };
     this.setUpRead = function( an_obj ) {
       an_obj.removeClass("unread").addClass( "read" );
       an_obj.unbind( "click" );
@@ -88,7 +98,7 @@
           $(this).find(".unread-setter").hide();
         }
       );
-    }
+    };
     this.clickSuccess = function( data ) {
       var itemID = data["guid"]
       var isUnread = data["unread"]
@@ -137,17 +147,21 @@
       if ( self.notificationArea )
         self.notificationArea.find( ".notification_count" ).text(self.count);
 
-      if(self.count === 0) {
+      if(self.count <= 0) {
         self.badge.addClass("hidden");
         if ( self.notificationArea )
           self.notificationArea.find( ".notification_count" ).removeClass("unread");
       }
-      else if(self.count === 1) {
+      else if(self.count > 0) {
         self.badge.removeClass("hidden");
         if ( self.notificationArea )
           self.notificationArea.find( ".notification_count" ).addClass("unread");
       }
     };
+    this.setNotificationCount = function(count) {
+      self.count = count;
+      this.changeNotificationCount(0);
+    },
     this.resetCount = function(change) {
       self.count = 0;
       this.changeNotificationCount(0);
