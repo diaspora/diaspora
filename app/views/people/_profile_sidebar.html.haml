@@ -4,7 +4,8 @@
 
 #profile
   .profile_photo
-    = person_image_link(person, :size => :thumb_large, :to => :photos)
+    = person_image_link(person, :size => :thumb_large, :to => :Photos)
+    = link_to person_link(person, :size => :thumb_large, :to => :Profile)
 
   - if user_signed_in?
     - if person != current_user.person
@@ -66,7 +67,6 @@
               = image_tag(photo.url(:thumb_small))
             %br
               = link_to t('layouts.header.view_all'),  person_photos_path(person)
-              = link_to person_link(person)
               
         - if person == current_user.person
           %li.image_list
