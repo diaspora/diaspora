@@ -116,14 +116,14 @@ class StatusMessage < Post
 
   def update_and_dispatch_attached_photos(sender)
     if self.photos.any?
-      self.photos.update_all(:public => self.public)
+      Photo.where(status_message_guid: guid).update_all(:public => self.public)
       self.photos.each do |photo|
         if photo.pending
           sender.add_to_streams(photo, self.aspects)
           sender.dispatch_post(photo)
         end
       end
-      self.photos.update_all(:pending => false)
+      Photo.where(status_message_guid: guid).update_all(:pending => false)
     end
   end
 
