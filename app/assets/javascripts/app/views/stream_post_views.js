@@ -111,14 +111,16 @@ app.views.StreamPost = app.views.Post.extend({
     var text = prompt(Diaspora.I18n.t('post_report_prompt'),
 		      Diaspora.I18n.t('post_report_prompt_default'));
 
-    var postReport = new app.models.PostReport();
-    postReport.fetch({
-      data: {
-        post_id: this.model.id,
-        text: text
-      },
-      type: 'POST'
-    });
+    if(text !== null) {
+      var postReport = new app.models.PostReport();
+      postReport.fetch({
+        data: {
+          post_id: this.model.id,
+          text: text
+        },
+        type: 'POST'
+      });
+    }
   },
 
   focusCommentTextarea: function(evt){
