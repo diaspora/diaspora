@@ -22,6 +22,7 @@
 * You can report a single post by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517)
 * Add permalinks for comments [#4577](https://github.com/diaspora/diaspora/pull/4577)
 * New menu for the mobile version [#4673](https://github.com/diaspora/diaspora/pull/4673)
+* Always update last_sign_in_at on new user session [#4734](https://github.com/diaspora/diaspora/issues/4734)
 
 # 0.3.0.1
 

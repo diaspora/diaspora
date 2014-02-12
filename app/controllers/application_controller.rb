@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   before_filter :mobile_switch
   before_filter :gon_set_current_user
   before_filter :gon_set_preloads
+  before_filter :update_last_sign_in_at
 
   inflection_method :grammatical_gender => :gender
 
@@ -149,6 +150,13 @@ class ApplicationController < ActionController::Base
   def gon_set_preloads
     return unless gon.preloads.nil?
     gon.preloads = {}
+  end
+  
+  def update_last_sign_in_at
+    if user_signed_in? && !session[:logged_signin]
+      sign_in(current_user, :force => true)
+      session[:logged_signin] = true
+    end
   end
 
 end
