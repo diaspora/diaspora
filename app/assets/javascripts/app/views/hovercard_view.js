@@ -69,7 +69,7 @@ app.views.Hovercard = Backbone.View.extend({
     hc.prependTo(el);
     this._positionHovercard();
     this._populateHovercard();
-  }, 500, true),
+  }, 500),
 
   _populateHovercard: function() {
     var href = this.href();

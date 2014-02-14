@@ -17,6 +17,7 @@
 * Use youtube HTTPS scheme for oEmbed [#4743](https://github.com/diaspora/diaspora/pull/4743)
 * Fix infinite scroll on aspect streams [#4729](https://github.com/diaspora/diaspora/issues/4729)
 * Do not add a space after adding a mention [#4767](https://github.com/diaspora/diaspora/issues/4767)
+* Fix hovercards [#4782](https://github.com/diaspora/diaspora/pull/4782)
 
 ## Features
 * You can report a single post by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517)
