@@ -1,28 +1,10 @@
-# Head
-
-## Refactor
-* Drop number of followers from tags page [#4717](https://github.com/diaspora/diaspora/issues/4717)
-* Remove some unused beta code [#4738](https://github.com/diaspora/diaspora/issues/4738)
-* Style improvements for SPV, use original author's avatar for reshares [#4754](https://github.com/diaspora/diaspora/issue/4754)
-* Update image branding to the new decided standard [#4702](https://github.com/diaspora/diaspora/pull/4702)
-* Consistent naming of conversations and messages [#4756](https://github.com/diaspora/diaspora/pull/4756)
-* Improve stream generation time [#4769](https://github.com/diaspora/diaspora/pull/4769)
-* Port help pages to backbone [#4768](https://github.com/diaspora/diaspora/pull/4768)
-* Add participants to conversations menu [#4656](https://github.com/diaspora/diaspora/pull/4656)
-* Update forgot_password and reset_password pages [#4707](https://github.com/diaspora/diaspora/pull/4707)
-* Change jQuery CDN to jquery.com from googleapis.com [#4765](https://github.com/diaspora/diaspora/pull/4765)
+# 0.3.0.2
 
 ## Bug fixes
-* Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
 * Use youtube HTTPS scheme for oEmbed [#4743](https://github.com/diaspora/diaspora/pull/4743)
 * Fix infinite scroll on aspect streams [#4729](https://github.com/diaspora/diaspora/issues/4729)
-* Do not add a space after adding a mention [#4767](https://github.com/diaspora/diaspora/issues/4767)
 * Fix hovercards [#4782](https://github.com/diaspora/diaspora/pull/4782)
-
-## Features
-* You can report a single post by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517)
-* Add permalinks for comments [#4577](https://github.com/diaspora/diaspora/pull/4577)
-* New menu for the mobile version [#4673](https://github.com/diaspora/diaspora/pull/4673)
+* Bump kaminari to fix admin panel [#4714](https://github.com/diaspora/diaspora/issues/4714)
 
 # 0.3.0.1
 
