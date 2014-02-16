@@ -34,7 +34,7 @@ describe("Diaspora", function() {
               extended = $.extend(locale, data);
 
           Diaspora.I18n.loadLocale(locale);
-          Diaspora.I18n.loadLocale(data;
+          Diaspora.I18n.loadLocale(data);
 
           expect(Diaspora.I18n.locale).toEqual(extended);
         });

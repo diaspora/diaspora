@@ -71,4 +71,28 @@ describe("app.views.Header", function() {
       expect(this.view.$(".dropdown")).not.toHaveClass("active");
     });
   });
+
+
+  describe("search", function() {
+    var input;
+
+    beforeEach(function() {
+      $('#jasmine_content').html(this.view.el);
+      input = $(this.view.el).find('#q');
+    });
+
+    describe("focus", function() {
+      it("adds the class 'active' when the user focuses the text field", function() {
+        input.trigger('focus');
+        expect(input).toHaveClass("active");
+      });
+    });
+
+    describe("blur", function() {
+      it("removes the class 'active' when the user blurs the text field", function() {
+        input.focus().blur();
+        expect(input).not.toHaveClass("active");
+      });
+    });
+  });
 });

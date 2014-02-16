@@ -5,7 +5,9 @@ app.views.Header = app.views.Base.extend({
   className : "dark-header",
 
   events : {
-    "click ul.dropdown li:first-child" : "toggleDropdown"
+    "click ul.dropdown li:first-child" : "toggleDropdown",
+    "focus #q": "toggleSearchActive",
+    "blur #q": "toggleSearchActive"
   },
 
   initialize : function(options) {
@@ -31,5 +33,10 @@ app.views.Header = app.views.Base.extend({
     if(this.menuElement().hasClass("active") && !$(evt.target).parents("#user_menu").length) {
       this.menuElement().removeClass("active");
     }
+  },
+
+  toggleSearchActive: function(ev) {
+    $(ev.target).toggleClass('active', ev.type=='focusin');
+    return false;
   }
 });
