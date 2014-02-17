@@ -9,7 +9,7 @@ app.views.LikesInfo = app.views.Base.extend({
   tooltipSelector : ".avatar",
 
   initialize : function() {
-    this.model.interactions.bind('change', this.render, this)
+    this.model.interactions.bind('change', this.render, this);
   },
 
   presenter : function() {

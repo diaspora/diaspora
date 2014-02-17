@@ -90,7 +90,7 @@ describe("app.views.Header", function() {
 
     describe("blur", function() {
       it("removes the class 'active' when the user blurs the text field", function() {
-        input.focus().blur();
+        input.trigger('focus').trigger('blur');
         expect(input).not.toHaveClass("active");
       });
     });
