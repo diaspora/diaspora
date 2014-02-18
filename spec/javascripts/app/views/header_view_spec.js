@@ -84,7 +84,12 @@ describe("app.views.Header", function() {
     describe("focus", function() {
       it("adds the class 'active' when the user focuses the text field", function() {
         input.trigger('focus');
-        expect(input).toHaveClass("active");
+        waitsFor(function() {
+          return input.is('.active');
+        });
+        runs(function() {
+          expect(input).toHaveClass("active");
+        });
       });
     });
 
