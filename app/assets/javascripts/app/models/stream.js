@@ -15,13 +15,18 @@ app.models.Stream = Backbone.Collection.extend({
     return _.any(this.items.models) ? this.timeFilteredPath() : this.basePath()
   },
 
+  _fetchOpts: function(opts) {
+    var defaultOpts = {
+      remove: false  // tell backbone to keep existing items in the collection
+    };
+    return _.extend({}, defaultOpts, opts);
+  },
+
   fetch: function() {
     if( this.isFetching() ) return false;
     var url = this.url();
-    this.deferred = this.items.fetch({
-        remove : false,
-        url : url
-    }).done(_.bind(this.triggerFetchedEvents, this))
+    this.deferred = this.items.fetch(this._fetchOpts({url : url}))
+      .done(_.bind(this.triggerFetchedEvents, this));
   },
 
   isFetching : function() {

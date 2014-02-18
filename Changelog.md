@@ -1,3 +1,11 @@
+# 0.3.0.2
+
+## Bug fixes
+* Use youtube HTTPS scheme for oEmbed [#4743](https://github.com/diaspora/diaspora/pull/4743)
+* Fix infinite scroll on aspect streams [#4729](https://github.com/diaspora/diaspora/issues/4729)
+* Fix hovercards [#4782](https://github.com/diaspora/diaspora/pull/4782)
+* Bump kaminari to fix admin panel [#4714](https://github.com/diaspora/diaspora/issues/4714)
+
 # 0.3.0.1
 
 ## Bug fixes
