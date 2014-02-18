@@ -6,8 +6,8 @@ app.views.Header = app.views.Base.extend({
 
   events : {
     "click ul.dropdown li:first-child" : "toggleDropdown",
-    "focus #q": "toggleSearchActive",
-    "blur #q": "toggleSearchActive"
+    "focusin #q": "toggleSearchActive",
+    "focusout #q": "toggleSearchActive"
   },
 
   initialize : function(options) {

@@ -83,7 +83,7 @@ describe("app.views.Header", function() {
 
     describe("focus", function() {
       it("adds the class 'active' when the user focuses the text field", function() {
-        input.trigger('focus');
+        input.trigger('focusin');
         waitsFor(function() {
           return input.is('.active');
         });
@@ -95,7 +95,7 @@ describe("app.views.Header", function() {
 
     describe("blur", function() {
       it("removes the class 'active' when the user blurs the text field", function() {
-        input.trigger('focus').trigger('blur');
+        input.trigger('focusin').trigger('focusout');
         expect(input).not.toHaveClass("active");
       });
     });
