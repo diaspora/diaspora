@@ -14,15 +14,20 @@
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
-* Use youtube HTTPS scheme for oEmbed [#4743](https://github.com/diaspora/diaspora/pull/4743)
-* Fix infinite scroll on aspect streams [#4729](https://github.com/diaspora/diaspora/issues/4729)
 * Do not add a space after adding a mention [#4767](https://github.com/diaspora/diaspora/issues/4767)
-* Fix hovercards [#4782](https://github.com/diaspora/diaspora/pull/4782)
 
 ## Features
 * You can report a single post by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517)
 * Add permalinks for comments [#4577](https://github.com/diaspora/diaspora/pull/4577)
 * New menu for the mobile version [#4673](https://github.com/diaspora/diaspora/pull/4673)
+
+# 0.3.0.2
+
+## Bug fixes
+* Use youtube HTTPS scheme for oEmbed [#4743](https://github.com/diaspora/diaspora/pull/4743)
+* Fix infinite scroll on aspect streams [#4729](https://github.com/diaspora/diaspora/issues/4729)
+* Fix hovercards [#4782](https://github.com/diaspora/diaspora/pull/4782)
+* Bump kaminari to fix admin panel [#4714](https://github.com/diaspora/diaspora/issues/4714)
 
 # 0.3.0.1
 
