@@ -752,9 +752,11 @@ en:
       thats_you: "That's you!"
       add_contact: "add contact"
     index:
-      results_for: "search results for"
+      results_for: "Users matching %{search_term}"
       no_results: "Hey! You need to search for something."
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      couldnt_find_them: "Couldn't find them?"
+      search_handle: "Use their diaspora* ID (username@pod.tld) to be sure to find your friends."
+      send_invite: "Still nothing? Send an invite!"
       no_one_found: "...and no one was found."
       searching: "searching, please be patient..."
       looking_for: "Looking for posts tagged %{tag_link}?"
@@ -791,7 +793,6 @@ en:
       remove_from: "Remove %{name} from %{aspect}?"
     helper:
       results_for: " results for %{params}"
-      people_on_pod_are_aware_of: " people on pod are aware of"
       is_sharing: "%{name} is sharing with you"
       is_not_sharing: "%{name} is not sharing with you"
     aspect_list:
@@ -1042,7 +1043,7 @@ en:
       invite_your_friends: "Invite your friends"
       from_facebook: "From Facebook"
       by_email: "By email"
-      share_this: "Share this link via email, blog, or favorite social network!"
+      share_this: "Share this link via email, blog, or social networks!"
     reshare:
       reshare: "Reshare"
     public_explain:
