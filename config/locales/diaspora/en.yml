@@ -220,15 +220,15 @@ en:
     index:
       donate: "Donate"
       keep_pod_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
-      keep_diaspora_running: "Keep Diaspora development fast with a monthly donation!"
+      keep_diaspora_running: "Keep diaspora* development fast with a monthly donation!"
       no_tags: "+ Find a tag to follow"
       unfollow_tag: "Stop following #%{tag}"
-      handle_explanation: "This is your Diaspora ID. Like an email address, you can give this to people to reach you."
+      handle_explanation: "This is your diaspora* ID. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
       people_sharing_with_you: "People sharing with you"
 
-      welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
+      welcome_to_diaspora: "Welcome to diaspora*, %{name}!"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
 
       new_here:
@@ -238,7 +238,7 @@ en:
 
       help:
         need_help: "Need Help?"
-        here_to_help: "The Diaspora community is here!"
+        here_to_help: "The diaspora* community is here!"
         do_you: "Do you:"
         have_a_question: "... have a %{link}?"
         tag_question: "question"
@@ -254,12 +254,12 @@ en:
         contact_podmin: "Contact the administrator of your pod!"
         mail_podmin: "Podmin E-Mail"
       diaspora_id:
-        heading: "Diaspora ID"
-        content_1: "Your Diaspora ID is:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "diaspora* ID"
+        content_1: "Your diaspora* ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on diaspora*."
       services:
         heading: "Connect Services"
-        content: "You can connect the following services to Diaspora:"
+        content: "You can connect the following services to diaspora*:"
 
     aspect_stream:
       stay_updated: "Stay Updated"
@@ -275,8 +275,8 @@ en:
   bookmarklet:
     heading: "Bookmarklet"
     post_success: "Posted! Closing!"
-    post_something: "Post to Diaspora"
-    explanation: "Post to Diaspora from anywhere by bookmarking this link => %{link}."
+    post_something: "Post to diaspora*"
+    explanation: "Post to diaspora* from anywhere by bookmarking this link => %{link}."
 
   comments:
     zero: "no comments"
@@ -548,7 +548,7 @@ en:
       photo_albums_q: "Are there photo or video albums?"
       photo_albums_a: "No, not currently. However you can view a stream of their uploaded pictures from the Photos section in the side-bar of their profile page."
       subscribe_feed_q: "Can I subscribe to someone's public posts with a feed reader?"
-      subscribe_feed_a: "Yes, but this is still not a polished feature and the formatting of the results is still pretty rough. If you want to try it anyway, go to someone's profile page and click the feed button in your browser, or you can copy the profile URL (i.e. https://joindiaspora.com/people/somenumber), and paste it into a feed reader. The resulting feed address looks like this: https://joindiaspora.com/public/username.atom Diaspora uses Atom rather than RSS."
+      subscribe_feed_a: "Yes, but this is still not a polished feature and the formatting of the results is still pretty rough. If you want to try it anyway, go to someone's profile page and click the feed button in your browser, or you can copy the profile URL (i.e. https://joindiaspora.com/people/somenumber), and paste it into a feed reader. The resulting feed address looks like this: https://joindiaspora.com/public/username.atom – diaspora* uses Atom rather than RSS."
       diaspora_app_q: "Is there a diaspora* app for Android or iOS?"
       diaspora_app_a: "There are several Android apps in very early development. Several are long-abandoned projects and so do not work well with the current version of diaspora*. Don't expect much from these apps at the moment. Currently the best way to access diaspora* from your mobile device is through a browser, because we've designed a mobile version of the site which should work well on all devices. There is currently no app for iOS. Again, diaspora* should work fine via your browser."
 
@@ -566,7 +566,7 @@ en:
       note_already_sent: "Invitations have already been sent to: %{emails}"
     new:
       language: "Language"
-      invite_someone_to_join: "Invite someone to join Diaspora!"
+      invite_someone_to_join: "Invite someone to join diaspora*!"
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       comma_separated_plz: "You can enter multiple email addresses separated by commas."
       check_out_diaspora: "Hey! You should check out diaspora*"
@@ -583,7 +583,7 @@ en:
       aspect: "Aspect"
       already_invited: "The following people have not accepted your invitation:"
       resend: "Resend"
-      check_out_diaspora: "Check out Diaspora!"
+      check_out_diaspora: "Check out diaspora*!"
     check_token:
       not_found: "Invitation token not found"
     edit:
@@ -607,7 +607,7 @@ en:
       powered_by: "POWERED BY diaspora*"
       whats_new: "what's new?"
       toggle: "toggle mobile"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "Public diaspora* feed for %{name}"
       your_aspects: "your aspects"
       back_to_top: "Back to top"
       source_package: "download the source code package"
@@ -696,8 +696,8 @@ en:
     thanks: "Thanks,"
     to_change_your_notification_settings: "to change your notification settings"
     single_admin:
-        subject: "A message about your Diaspora account:"
-        admin: "Your Diaspora administrator"
+        subject: "A message about your diaspora* account:"
+        admin: "Your diaspora* administrator"
     started_sharing:
         subject: "%{name} started sharing with you on diaspora*"
         sharing: "has started sharing with you!"
@@ -884,7 +884,7 @@ en:
       your_location: "Your location"
       your_photo: "Your photo"
       update_profile: "Update Profile"
-      allow_search: "Allow for people to search for you within Diaspora"
+      allow_search: "Allow for people to search for you within diaspora*"
       edit_profile: "Edit profile"
       nsfw_explanation: "NSFW (‘not safe for work’) is diaspora*’s self-governing community standard for content which may not be suitable to view while at work. If you plan to share such material frequently, please check this option so that everything you share will be hidden from people’s streams unless they choose to view them."
       nsfw_explanation2: "If you choose not to select this option, please add the #nsfw tag each time you share such material."
@@ -914,7 +914,7 @@ en:
       continue: "Continue"
       submitting: "Submitting..."
     create:
-      success: "You've joined Diaspora!"
+      success: "You've joined diaspora*!"
     edit:
       edit: "Edit %{name}"
       leave_blank: "(leave blank if you don't want to change it)"
@@ -922,7 +922,7 @@ en:
       unhappy: "Unhappy?"
       update: "Update"
       cancel_my_account: "Cancel my account"
-    closed: "Signups are closed on this Diaspora pod."
+    closed: "Signups are closed on this diaspora* pod."
     invalid_invite: "The invite link you provided is no longer valid!"
 
   requests:
@@ -935,7 +935,7 @@ en:
       ignore: "Ignored contact request."
     create:
       sending: "Sending"
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      sent: "You've asked to share with %{name}.  They should see it next time they log in to diaspora*."
     new_request_to_person:
       sent: "sent!"
     helper:
@@ -968,7 +968,7 @@ en:
       connect_to_wordpress: "Connect to Wordpress"
       edit_services: "Edit services"
       no_services: 'You have not connected any services yet.'
-      services_explanation: 'Connecting to services gives you the ability to publish your posts to them as you write them in Diaspora.'
+      services_explanation: 'Connecting to services gives you the ability to publish your posts to them as you write them in diaspora*.'
     create:
       success: "Authentication successful."
       failure: "Authentication failed."
@@ -982,13 +982,13 @@ en:
       join_me_on_diaspora: "Join me on diaspora*"
       click_link_to_accept_invitation: "Follow this link to accept your invitation"
     finder:
-      fetching_contacts: "Diaspora is populating your %{service} friends, please check back in a few minutes."
+      fetching_contacts: "diaspora* is populating your %{service} friends, please check back in a few minutes."
       service_friends: "%{service} Friends"
       no_friends: "No Facebook friends found."
     remote_friend:
       resend: "resend"
       invite: "invite"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "Not yet on diaspora*"
 
   blocks:
     create:
@@ -1026,9 +1026,9 @@ en:
         i_like: "I'm interested in %{tags}. "
         invited_by: "Thanks for the invite, "
     add_contact:
-      enter_a_diaspora_username: "Enter a Diaspora username:"
-      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
-      create_request: "Find by Diaspora ID"
+      enter_a_diaspora_username: "Enter a diaspora* username:"
+      your_diaspora_username_is: "Your diaspora* username is: %{diaspora_handle}"
+      create_request: "Find by diaspora* ID"
       diaspora_handle: "diaspora@pod.org"
       know_email: "Know their email address? You should invite them"
       add_new_contact: "Add a new contact"
@@ -1037,7 +1037,7 @@ en:
       invite_someone: "Invite someone"
       invitations_left: "%{count} left"
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
-      invites_closed: "Invites are currently closed on this Diaspora pod"
+      invites_closed: "Invites are currently closed on this diaspora* pod"
       invite_your_friends: "Invite your friends"
       from_facebook: "From Facebook"
       by_email: "By email"
@@ -1050,7 +1050,7 @@ en:
       visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
       title: "Set up connected services"
       share: "Share"
-      outside: "Public messages will be available for others outside of Diaspora to see."
+      outside: "Public messages will be available for others outside of diaspora* to see."
       logged_in: "logged in to %{service}"
       manage: "Manage connected services"
       atom_feed: "Atom feed"
@@ -1175,7 +1175,7 @@ en:
       character_minimum_expl: "must be at least six characters"
       download_xml: "download my xml"
       download_photos: "download my photos"
-      your_handle: "Your Diaspora ID"
+      your_handle: "Your diaspora* ID"
       your_email: "Your email"
       edit_account: "Edit account"
       receive_email_notifications: "Receive email notifications when..."
@@ -1198,9 +1198,9 @@ en:
 
       close_account:
         dont_go: "Hey, please don't go!"
-        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        make_diaspora_better: "We want you to help us make diaspora* better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
         mr_wiggles: 'Mr Wiggles will be sad to see you go'
-        what_we_delete: "We will delete all of your posts and profile data as soon as humanly possible. Your comments will hang around, but they would be associated with your Diaspora ID instead of your name."
+        what_we_delete: "We will delete all of your posts and profile data as soon as humanly possible. Your comments will hang around, but they would be associated with your diaspora* ID instead of your name."
         locked_out: "You will get signed out and locked out of your account."
         lock_username: "This will lock your username if you decided to sign back up."
         no_turning_back: "Currently, there is no turning back."
@@ -1212,21 +1212,21 @@ en:
       stop_ignoring: "Stop ignoring"
 
     destroy:
-      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying diaspora*."
       no_password: "Please enter your current password to close your account."
       wrong_password: "The entered password didn't match your current password."
     getting_started:
       well_hello_there: "Well, hello there!"
-      community_welcome: "Diaspora's community is happy to have you aboard!"
+      community_welcome: "diaspora*'s community is happy to have you aboard!"
 
       awesome_take_me_to_diaspora: "Awesome! Take me to diaspora*"
 
       who_are_you: "Who are you?"
-      connect_to_facebook: "We can speed things up a bit by %{link} to Diaspora. This will pull your name and photo, and enable cross-posting."
+      connect_to_facebook: "We can speed things up a bit by %{link} to diaspora*. This will pull your name and photo, and enable cross-posting."
       connect_to_facebook_link: "hooking up your Facebook account"
 
       what_are_you_in_to: "What are you into?"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on diaspora*."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
 
       saved: "Saved!"
@@ -1267,6 +1267,6 @@ en:
     placeholder: "Enter the image value"
     label: "Enter the code in the box:"
     message:
-      default: "Secret Code did not match with the Image"
-      user: "The secret Image and code were different"
+      default: "The secret code did not match with the image"
+      user: "The secret image and code were different"
       failed: "Human verification failed"
