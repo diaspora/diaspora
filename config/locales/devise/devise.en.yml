@@ -76,7 +76,7 @@ en:
         unlock: "Unlock my account"
       inviter:
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join diaspora*"
         accept_at: "at %{url}, you can accept it through the link below."
     shared:
       links:
