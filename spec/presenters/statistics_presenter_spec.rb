@@ -17,6 +17,7 @@ describe StatisticsPresenter do
     it 'provides generic pod data in json' do
       AppConfig.privacy.statistics.user_counts = false
       AppConfig.privacy.statistics.post_counts = false
+      AppConfig.privacy.statistics.comment_counts = false
       @presenter.as_json.should == {
         "name" => AppConfig.settings.pod_name,
         "version" => AppConfig.version_string,
@@ -27,7 +28,8 @@ describe StatisticsPresenter do
     it 'provides generic pod data and counts in json' do
       AppConfig.privacy.statistics.user_counts = true
       AppConfig.privacy.statistics.post_counts = true
-      
+      AppConfig.privacy.statistics.comment_counts = true
+
       @presenter.as_json.should == {
         "name" => AppConfig.settings.pod_name,
         "version" => AppConfig.version_string,
@@ -35,7 +37,8 @@ describe StatisticsPresenter do
         "total_users" => User.count,
         "active_users_halfyear" => User.halfyear_actives.count,
         "active_users_monthly" => User.monthly_actives.count,
-        "local_posts" => @presenter.local_posts
+        "local_posts" => @presenter.local_posts,
+        "local_comments" => @presenter.local_comments
       }
     end
 

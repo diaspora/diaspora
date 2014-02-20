@@ -52,6 +52,7 @@ defaults:
     statistics:
       user_counts: false
       post_counts: false
+      comment_counts: false
   settings:
     pod_name: 'diaspora*'
     enable_registrations: true

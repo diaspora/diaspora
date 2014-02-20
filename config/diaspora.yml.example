@@ -200,6 +200,7 @@ configuration: ## Section
       #user_counts: true
       ## Local post total count
       #post_counts: true
+      #comment_counts: true
   
   ## General settings
   settings: ## Section
