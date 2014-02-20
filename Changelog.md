@@ -120,6 +120,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Add indication about markdown formatting in the publisher [#4589](https://github.com/diaspora/diaspora/pull/4589)
 * Add captcha to signup form [#4659](https://github.com/diaspora/diaspora/pull/4659)
 * Update Underscore.js 1.3.1 to 1.5.2, update Backbone.js 0.9.2 to 1.1.0 [#4662](https://github.com/diaspora/diaspora/pull/4662)
+* Display more than 8 pictures on a post [#4796](https://github.com/diaspora/diaspora/pull/4796)
 
 ## Gem updates
 Added:
