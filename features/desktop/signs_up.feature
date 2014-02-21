@@ -4,10 +4,11 @@ Feature: new user registration
   Background:
     When I go to the new user registration page
     And I fill in the following:
-        | user_username              |     ohai              |
-        | user_email                 |   ohai@example.com    |
-        | user_password              |     secret            |
-        | user_password_confirmation |     secret            |
+        | user_username              | ohai              |
+        | user_email                 | ohai@example.com  |
+        | user_password              | secret            |
+        | user_password_confirmation | secret            |
+        | user_captcha               | 123456            |
     And I press "Continue"
     Then I should be on the getting started page
     And I should see "Well, hello there!" and "Who are you?" and "What are you into?"
