@@ -59,6 +59,17 @@ module UserCukeHelpers
     find("#user_menu li:last-child a").click
   end
 
+  def fill_in_new_user_form
+    fill_in('user_username', with: 'ohai')
+    fill_in('user_email', with: 'ohai@example.com')
+    fill_in('user_password', with: 'secret')
+    fill_in('user_password_confirmation', with: 'secret')
+
+    # captcha needs to be filled out, because the field is required (HTML5)
+    # in test env, the captcha will always pass successfully
+    fill_in('user_captcha', with: '123456')
+  end
+
   # fill change password section on the user edit page
   def fill_change_password_section(cur_pass, new_pass, confirm_pass)
     fill_in 'user_current_password', :with => cur_pass
@@ -87,6 +98,10 @@ module UserCukeHelpers
     find(".button").click
   end
 
+  def confirm_not_signed_up
+    confirm_on_page('the new user registration page')
+    confirm_form_validation_error('form#new_user')
+  end
 end
 
 World(UserCukeHelpers)

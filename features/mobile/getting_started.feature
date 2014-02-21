@@ -3,11 +3,7 @@ Feature: editing the gettig started in the mobile view
 
   Scenario: editing gettig started fields
     When I go to the new user registration page
-    And I fill in the following:
-        | user_username              |     amparito          |
-        | user_email                 |   amp@arito.com       |
-        | user_password              |     secret            |
-        | user_password_confirmation |     secret            |
+    And I fill in the new user form
     And I press "Continue"
     And I visit the mobile getting started page
     And I should see "Well, hello there!" and "Who are you?" and "What are you into?"

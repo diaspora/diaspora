@@ -277,3 +277,7 @@ Given /^"([^"]*)" is hidden$/ do |selector|
   page.should have_selector(selector, visible: false)
   page.should_not have_selector(selector)
 end
+
+Then(/^I should have a validation error on "(.*?)"$/) do |field_list|
+  check_fields_validation_error field_list
+end
