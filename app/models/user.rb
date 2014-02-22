@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   apply_simple_captcha :message => I18n.t('simple_captcha.message.failed'), :add_to_base => true
 
-  scope :logged_in_since, lambda { |time| where('last_sign_in_at > ?', time) }
+  scope :logged_in_since, lambda { |time| where('last_seen > ?', time) }
   scope :monthly_actives, lambda { |time = Time.now| logged_in_since(time - 1.month) }
   scope :daily_actives, lambda { |time = Time.now| logged_in_since(time - 1.day) }
   scope :yearly_actives, lambda { |time = Time.now| logged_in_since(time - 1.year) }
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :lockable, :lock_strategy => :none, :unlock_strategy => :none
+         :lockable, :lastseenable, :lock_strategy => :none, :unlock_strategy => :none
 
   before_validation :strip_and_downcase_username
   before_validation :set_current_language, :on => :create
