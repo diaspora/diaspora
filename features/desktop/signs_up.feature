@@ -6,7 +6,7 @@ Feature: new user registration
     And I fill in the new user form
     And I press "Continue"
     Then I should be on the getting started page
-    And I should see "Well, hello there!" and "Who are you?" and "What are you into?"
+    Then I should see the 'getting started' contents
 
   Scenario: new user goes through the setup wizard
     When I fill in the following:

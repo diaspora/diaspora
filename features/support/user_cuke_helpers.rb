@@ -60,8 +60,9 @@ module UserCukeHelpers
   end
 
   def fill_in_new_user_form
-    fill_in('user_username', with: 'ohai')
-    fill_in('user_email', with: 'ohai@example.com')
+    @username = "ohai"
+    fill_in('user_username', with: @username)
+    fill_in('user_email', with: "#{@username}@example.com")
     fill_in('user_password', with: 'secret')
     fill_in('user_password_confirmation', with: 'secret')
 
@@ -101,6 +102,15 @@ module UserCukeHelpers
   def confirm_not_signed_up
     confirm_on_page('the new user registration page')
     confirm_form_validation_error('form#new_user')
+  end
+
+  def confirm_getting_started_contents
+    page.should have_content("Well, hello there!")
+    page.should have_content("Who are you?")
+    page.should have_content("What are you into?")
+
+    # the username that was just entered for registration
+    page.should have_content(@username)
   end
 end
 

@@ -6,8 +6,7 @@ Feature: editing the gettig started in the mobile view
     And I fill in the new user form
     And I press "Continue"
     And I visit the mobile getting started page
-    And I should see "Well, hello there!" and "Who are you?" and "What are you into?"
-    And I should see "amparito"
+    Then I should see the 'getting started' contents
 
     When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
     And I confirm the alert

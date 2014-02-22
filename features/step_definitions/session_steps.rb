@@ -62,3 +62,7 @@ end
 Then(/^I should not be able to sign up$/) do
   confirm_not_signed_up
 end
+
+Then (/^I should see the 'getting started' contents$/) do
+  confirm_getting_started_contents
+end
