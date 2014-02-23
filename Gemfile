@@ -97,7 +97,6 @@ gem 'typhoeus',           '0.6.7'
 
 # Views
 
-gem 'client_side_validations', '3.2.6'
 gem 'gon',                     '4.1.1'
 gem 'haml',                    '4.0.5'
 gem 'mobile-fu',               '1.2.2'
@@ -129,7 +128,7 @@ group :assets do
 
   gem 'backbone-on-rails', '1.1.0'
   gem 'handlebars_assets', '0.12.0'
-  gem 'jquery-rails',      '2.1.4'
+  gem 'jquery-rails',      '3.0.4'
 
   # Windows and OSX have an execjs compatible runtime built-in, Linux users should
   # install Node.js or use 'therubyracer'.

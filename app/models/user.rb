@@ -245,8 +245,6 @@ class User < ActiveRecord::Base
   end
 
   def add_to_streams(post, aspects_to_insert)
-    inserted_aspect_ids = aspects_to_insert.map{|x| x.id}
-
     aspects_to_insert.each do |aspect|
       aspect << post
     end
@@ -419,14 +417,6 @@ class User < ActiveRecord::Base
 
     if unconfirmed_email_changed?
       self.confirm_email_token = unconfirmed_email ? SecureRandom.hex(15) : nil
-    end
-  end
-
-  def reorder_aspects(aspect_order)
-    i = 0
-    aspect_order.each do |id|
-      self.aspects.find(id).update_attributes({ :order_id => i })
-      i += 1
     end
   end
 

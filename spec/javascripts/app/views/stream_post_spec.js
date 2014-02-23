@@ -58,13 +58,13 @@ describe("app.views.StreamPost", function(){
 
     context("likes", function(){
       it("displays a like count", function(){
-        this.statusMessage.set({likes_count : 1})
+        this.statusMessage.interactions.set({likes_count : 1})
         var view = new this.PostViewClass({model : this.statusMessage}).render();
 
         expect($(view.el).html()).toContain(Diaspora.I18n.t('stream.likes', {count: 1}))
       })
       it("does not display a like count for 'zero'", function(){
-        this.statusMessage.set({likes_count : 0})
+        this.statusMessage.interactions.set({likes_count : 0})
         var view = new this.PostViewClass({model : this.statusMessage}).render();
 
         expect($(view.el).html()).not.toContain("0 Likes")

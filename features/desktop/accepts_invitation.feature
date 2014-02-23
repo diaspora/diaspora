@@ -3,11 +3,7 @@ Feature: invitation acceptance
     Scenario: accept invitation from admin
       Given I have been invited by an admin
       And I am on my acceptance form page
-      And I fill in the following:
-        | user_username              | ohai           |
-        | user_email                 | woot@sweet.com |
-        | user_password              | secret         |
-        | user_password_confirmation | secret         |
+      And I fill in the new user form
       And I press "Continue"
       Then I should be on the getting started page
       And I should see "Well, hello there!"
@@ -21,11 +17,7 @@ Feature: invitation acceptance
     Scenario: accept invitation from user
       Given I have been invited by bob
       And I am on my acceptance form page
-      And I fill in the following:
-        | user_username              | ohai           |
-        | user_email                 | woot@sweet.com |
-        | user_password              | secret         |
-        | user_password_confirmation | secret         |
+      And I fill in the new user form
       And I press "Continue"
       Then I should be on the getting started page
       And I should see "Well, hello there!"

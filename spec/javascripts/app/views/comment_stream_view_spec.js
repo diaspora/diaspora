@@ -53,7 +53,7 @@ describe("app.views.CommentStream", function(){
       });
 
       it("adds the comment to the view", function() {
-        this.request.response({status: 200});
+        this.request.response({status: 200, responseText: '[]'});
         expect(this.view.$(".comment-content p").text()).toEqual("a new comment");
       });
 

@@ -88,7 +88,7 @@ var app = {
     Backbone.history.start({pushState: true});
 
     // there's probably a better way to do this...
-    $("a[rel=backbone]").live("click", function(evt){
+    $(document).on("click", "a[rel=backbone]", function(evt){
       evt.preventDefault();
       var link = $(this);
 
