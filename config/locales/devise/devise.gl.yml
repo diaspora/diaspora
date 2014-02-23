@@ -34,9 +34,13 @@ gl:
       updated: 'O seu contrasinal cambiouse correctamente, e xa está identificado co novo.'
       edit:
         change_password: "Cambiar o contrasinal"
+        new_password: "Novo contrasinal"
+        confirm_password: "Confirmar o contrasinal"
       new:
         forgot_password: "Esqueceu o contrasinal?"
         no_account: 'O enderezo non se corresponde con ningunha conta.'
+        reset_password: "Restablecer o contrasinal"
+        email: "Enderezo de correo"
         send_password_instructions: "Recibir instrucións para cambiar de contrasinal"
     confirmations:
       send_instructions: 'Nuns minutos recibirá un correo electrónico con instrucións para confirmar a súa conta.'
@@ -76,7 +80,7 @@ gl:
         unlock: "Desbloquear a conta"
       inviter:
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} invitárono a unirse a Diaspora"
+        have_invited_you: "%{names} invitárono a unirse a diaspora*"
         accept_at: "en %{url}, pode aceptar seguindo a seguinte ligazón."
     shared:
       links:
