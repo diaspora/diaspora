@@ -14,3 +14,12 @@
 - if AppConfig.bitcoin_donation_address
   Bitcoin:
   %input{:type => "text", :id => "bitcoin_address", :value => AppConfig.bitcoin_donation_address, :readonly => true}
+  - bitcoin_qr_code = RQRCode::QRCode.new("bitcoin:#{AppConfig.bitcoin_donation_address}", size: 6, level: :h)
+  %table.qrcode
+    - bitcoin_qr_code.modules.each_index do |x|
+      %tr
+        - bitcoin_qr_code.modules.each_index do |y|
+          - if bitcoin_qr_code.dark?(x,y)
+            %td.black
+          - else
+            %td.white
