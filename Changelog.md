@@ -24,6 +24,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 * Replace .rvmrc by .ruby-version and .ruby-gemset [#4854](https://github.com/diaspora/diaspora/pull/4855)
 * Reorder and reword items on user settings page [#4912](https://github.com/diaspora/diaspora/pull/4912)
 * SPV: Improve padding and interaction counts [#4426](https://github.com/diaspora/diaspora/pull/4426)
+* Remove auto 'mark as read' for notifications [#4810](https://github.com/diaspora/diaspora/pull/4810)
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
