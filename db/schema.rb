@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213171804) do
+ActiveRecord::Schema.define(:version => 20140222162826) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -493,6 +493,7 @@ ActiveRecord::Schema.define(:version => 20131213171804) do
     t.integer  "auto_follow_back_aspect_id"
     t.text     "hidden_shareables"
     t.datetime "reset_password_sent_at"
+    t.datetime "last_seen"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

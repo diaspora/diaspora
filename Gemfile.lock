@@ -103,6 +103,13 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise_lastseenable (0.0.4)
+      devise
+      devise
+      rails (>= 3.0.4)
+      rails (>= 3.0.4)
+      warden
+      warden
     diff-lcs (1.2.5)
     eco (1.0.0)
       coffee-script
@@ -460,6 +467,7 @@ DEPENDENCIES
   cucumber-rails (= 1.4.0)
   database_cleaner (= 1.2.0)
   devise (= 3.2.2)
+  devise_lastseenable (= 0.0.4)
   entypo-rails
   factory_girl_rails (= 4.3.0)
   faraday (= 0.8.9)
