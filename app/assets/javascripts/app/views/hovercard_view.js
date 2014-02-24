@@ -3,9 +3,9 @@ app.views.Hovercard = Backbone.View.extend({
   el: '#hovercard_container',
 
   initialize: function() {
-    $('.hovercardable')
-      .live('mouseenter', _.bind(this._mouseenterHandler, this))
-      .live('mouseleave', _.bind(this._mouseleaveHandler, this));
+    $(document)
+      .on('mouseenter', '.hovercardable', _.bind(this._mouseenterHandler, this))
+      .on('mouseleave', '.hovercardable', _.bind(this._mouseleaveHandler, this));
 
     this.show_me = false;
 

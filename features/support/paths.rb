@@ -65,6 +65,11 @@ module NavigationHelpers
       find(await_elem.delete(:selector), await_elem)
     end
   end
+
+  def confirm_on_page(page_name)
+    current_path = URI.parse(current_url).path
+    current_path.should == path_to(page_name)
+  end
 end
 
 World(NavigationHelpers)

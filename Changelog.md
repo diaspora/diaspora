@@ -11,6 +11,7 @@
 * Add participants to conversations menu [#4656](https://github.com/diaspora/diaspora/pull/4656)
 * Update forgot_password and reset_password pages [#4707](https://github.com/diaspora/diaspora/pull/4707)
 * Change jQuery CDN to jquery.com from googleapis.com [#4765](https://github.com/diaspora/diaspora/pull/4765)
+* Update to jQuery 10
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)

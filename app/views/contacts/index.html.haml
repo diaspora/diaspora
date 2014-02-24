@@ -18,7 +18,7 @@
   #people_stream.stream.contacts
     - if @aspect
       #aspect_controls
-        - if @contacts_size > 0 && @contacts_size < 20 #TODO Fla: why 20? Technical restriction? We already warn the user if > 16
+        - if @contacts_size > 0 && @contacts_size < 20
           = start_a_conversation_link(@aspect, @contacts_size)
         = link_to edit_aspect_path(@aspect), rel: "facebox", class: "button" do
           = t('aspects.edit.manage')

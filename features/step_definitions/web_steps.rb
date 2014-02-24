@@ -169,8 +169,7 @@ Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
-  current_path = URI.parse(current_url).path
-  current_path.should == path_to(page_name)
+  confirm_on_page(page_name)
 end
 
 Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
