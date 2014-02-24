@@ -81,6 +81,20 @@ app.views.Base = Backbone.View.extend({
     }
   },
 
+  report: function(evt) {
+    if(evt) { evt.preventDefault(); }
+    var msg = prompt(Diaspora.I18n.t('report_prompt'), Diaspora.I18n.t('report_prompt_default'));
+    if (msg !== null) {
+      var report = new app.models.Report();
+      var id = this.model.id;
+      var type = $(evt.currentTarget).data("type");
+      report.fetch({
+        data: { id: id, type: type, text: msg },
+        type: 'POST'
+      });
+    }
+  },
+
   destroyModel: function(evt) {
     evt && evt.preventDefault();
     var self = this;
