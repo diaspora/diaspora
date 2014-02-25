@@ -19,6 +19,7 @@ app.views.Publisher = Backbone.View.extend({
     "focus textarea" : "open",
     "click #hide_publisher" : "clear",
     "submit form" : "createStatusMessage",
+    "click #submit" : "createStatusMessage",
     "click .post_preview_button" : "createPostPreview",
     "textchange #status_message_fake_text": "handleTextchange",
     "click #locator" : "showLocation",
@@ -33,7 +34,7 @@ app.views.Publisher = Backbone.View.extend({
     this.el_input = this.$('#status_message_fake_text');
     this.el_hiddenInput = this.$('#status_message_text');
     this.el_wrapper = this.$('#publisher_textarea_wrapper');
-    this.el_submit = this.$('input[type=submit]');
+    this.el_submit = this.$('input[type=submit], button#submit');
     this.el_preview = this.$('button.post_preview_button');
     this.el_photozone = this.$('#photodropzone');
 
@@ -260,7 +261,7 @@ app.views.Publisher = Backbone.View.extend({
 
   keyDown : function(evt) {
     if( evt.keyCode == 13 && evt.ctrlKey ) {
-      this.$("form").submit();
+      this.el_submit.click();
       this.open();
       return false;
     }

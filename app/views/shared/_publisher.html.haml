@@ -100,7 +100,8 @@
               %button{ :disabled => ("disabled" if publisher_hidden_text.blank?), :class => 'btn btn-default post_preview_button'}
                 = t('.preview')
 
-              = status.submit t('.share'), :disabled => publisher_hidden_text.blank?, :class => 'btn btn-primary creation', :tabindex => 2
+              %button#submit.btn.btn-primary.creation{ :disabled => ("disabled" if publisher_hidden_text.blank?), :tabindex => 2}
+                = t('.share')
 
             .facebox_content
               #question_mark_pane
