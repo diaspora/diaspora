@@ -34,7 +34,7 @@
 
     / Stylesheets
 
-    = stylesheet_link_tag :mobile, :format => 'all'
+    = stylesheet_link_tag 'mobile/mobile', :format => 'all'
     = yield(:custom_css)
 
 
@@ -62,23 +62,13 @@
               - if current_user.unread_message_count > 0
                 %span.badge_count{id: "conversation"}
                   = current_user.unread_message_count
-            -# Composition
+            -# Publisher
             = link_to(image_tag('icons/compose_mobile.png'), new_status_message_path, class: "badge", id: "compose_badge")
             -# Menu
             = link_to(image_tag('icons/menu.png'), "#", id: "menu_badge", class: "badge")
         = link_to(image_tag('icons/asterisk_white_mobile.png'), stream_path, id: 'header_title')
-
-
-
-      #main.container{:role => "main"}
-        - if current_page?(:activity_stream)
-          %h3
-            = t('streams.activity.title')
-        = yield
-
+        
       - if user_signed_in?
-        = render :partial =>'shared/footer'
-
         #drawer
           %header
             #global_search
@@ -87,32 +77,40 @@
                   = hidden_field_tag "utf8", "✓"
                   = search_field_tag "q", nil, id: "q", placeholder: t("search"), results: "5", autocomplete: "off", class: "ac_input"
 
-          .container
-            %nav
-              %ul
-                %li
-                  = link_to t("streams.activity.title"), activity_stream_path
-                %li
-                  = link_to t("streams.mentions.title"), mentioned_stream_path
-                %li#all_aspects
-                  = link_to t('streams.aspects.title'), "#"
-                %li.no_border.hide
-                  %ul
-                    - current_user.aspects.each do |aspect|
-                      %li
-                        = link_to aspect.name, aspects_stream_path(a_ids: [aspect.id])
-                %li
-                  = link_to user_profile_path(current_user.username) do
-                    = t('layouts.header.profile')
-                    = person_image_tag(current_user)
-                %li
-                  = link_to t('_contacts'), contacts_path
-                %li
-                  = link_to t('layouts.header.settings'), users_edit_path
-                %li
-                  = link_to t('layouts.application.toggle'), toggle_mobile_path
-                %li
-                  = link_to t('layouts.header.logout'), destroy_user_session_path, method: :delete
+          %nav
+            %ul
+              %li
+                = link_to t("streams.activity.title"), activity_stream_path
+              %li
+                = link_to t("streams.mentions.title"), mentioned_stream_path
+              %li#all_aspects
+                = link_to t('streams.aspects.title'), "#"
+              %li.no_border.hide
+                %ul
+                  - current_user.aspects.each do |aspect|
+                    %li
+                      = link_to aspect.name, aspects_stream_path(a_ids: [aspect.id])
+              %li
+                = link_to user_profile_path(current_user.username) do
+                  = t('layouts.header.profile')
+                  = person_image_tag(current_user)
+              %li
+                = link_to t('_contacts'), contacts_path
+              %li
+                = link_to t('layouts.header.settings'), users_edit_path
+              %li
+                = link_to t('layouts.application.toggle'), toggle_mobile_path
+              %li
+                = link_to t('layouts.header.logout'), destroy_user_session_path, method: :delete
+
+      #main{:role => "main"}
+        - if current_page?(:activity_stream)
+          %h3
+            = t('streams.activity.title')
+        = yield
+
+      - if user_signed_in?
+        = render :partial =>'shared/footer'
 
     / javascripts at the bottom
     = jquery_include_tag

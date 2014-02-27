@@ -5,6 +5,8 @@
 @import 'vendor/autoSuggest';
 @import '_flash_messages.scss';
 
+@import 'header';
+
 a {
   color: #2489ce;
   text-decoration: none;
@@ -17,12 +19,7 @@ body {
     /* scale background image down for iOS retina display */
     size: 200px;
   }
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-#main.container {
-  margin: 55px 10px 0px 10px;
+  padding: 0px;
 }
 
 h3 {
@@ -33,144 +30,12 @@ h3 {
   clear: both;
 }
 
+#app {
+  transition: all 0.25s ease;
+}
+
 #main {
-  position: relative;
-}
-
-#main_nav, #main {
-  -moz-transition:left 0.35s;
-  -webkit-transition:left 0.35s;
-  -o-transition:left 0.35s;
-  transition:left 0.35s;
-  
-  left: 0;
-}
-
-#drawer {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 80%;
-  left: 100%;
-  background-color: #444;
-
-  -moz-transition:left 0.35s;
-  -webkit-transition:left 0.35s;
-  -o-transition:left 0.35s;
-  transition:left 0.35s;
-  
-  -webkit-box-shadow: -2px 0px 2px 1px #333;
-  -moz-box-shadow: -2px 0px 2px 1px #333;
-  box-shadow: -2px 0px 2px 1px #333;
-
-  header {
-    position: static;
-    height: 45px;
-    border-radius: 0;
-
-    #global_search {
-      margin-right: 20px;
-      margin-left: 10px;
-      position: relative;
-
-      form {
-        position: absolute;
-        width: 100%;
-        margin-right: 20px;
-
-        input {
-          @include box-shadow(0, 1px, 1px, #444);
-          @include border-radius(15px);
-          @include transition(width);
-          width: 100%;
-          margin-top: 7px;
-          background-color: #444;
-          border: 1px solid #222;
-          font-size: 13px;
-          padding: 4px;
-
-          color: black;
-
-          &.active {
-            background-color: $highlight-white;
-            background-color: rgba(160,160,160,0.6);
-          }
-
-          &:focus {
-            outline: none;
-            background-color: white;
-          }
-
-          &::-webkit-input-placeholder { text-shadow: none; }
-          &:-moz-placeholder { text-shadow: none; }
-        }
-      }
-    }
-  }
-  
-  nav {
-    position: absolute;
-    top: 45px;
-    bottom: 0px;
-    overflow: auto;
-    width: 100%;
-
-    li {
-      font-size: 25px;
-      line-height: 25px;
-      font-weight: bold;
-      color: $light-grey;
-      border-bottom: solid rgb(53, 53, 53) 2px;
-    }
-
-    .no_border {
-      padding: 0px;
-      border-bottom: 0px;
-      
-      > ul > li > a {
-        font-size: 14px;
-        padding: 8px 42px;
-      }
-    }
-    
-    .hide {
-      display: none;
-    }
-    
-    .avatar {
-      height: 35px;
-      width: 35px;
-      margin: -2px 5px;
-    }
-  }
-  
-  a {
-    display: block;
-    color: $light-grey;
-    text-decoration: none;
-    padding: 12px 25px;
-  }
-
-  ul {
-    list-style: none;
-    margin: 0px;
-  }
-}
-
-#app.draw {
-
-  /* Turn the main content to fixed to avoid it to be scrollable, so to have only
-   * one scroll when the height of nav in the drawer is bigger than the screen
-   */
-  #main_nav,
-  #main {
-    position: fixed;
-    left: -80%;
-  }
-  
-  #drawer {
-    left: 20%;
-  }
+  padding: 55px 10px 0px 10px;
 }
 
 .message {
@@ -463,60 +328,6 @@ h3 {
 
 .right {
   float: right;
-}
-
-header {
-  position: fixed;
-  height: 45px;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  z-index: 10;
-  background: url("header-bg-long.jpg") rgb(40,35,35);
-  @include box-shadow(0, 1px, 2px, #333);
-  border-bottom: 1px solid #222;
-
-  #header_title {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    padding: 7px;
-  }
-
-  #nav_badges {
-    float: right;
-    margin: 7px 0px;
-    display: inline-block;
-
-    .badge {
-      display: inline;
-      margin: 0px 4px;
-      padding: 10px 6px;
-      font-weight: bold;
-      font-size: smaller;
-      background-color: #333333;
-      
-      img {
-        height: 30px;
-        width: 30px;
-      }
-    }
-
-    .badge_count {
-      @include border-radius(2px);
-      z-index: 3;
-      position: absolute;
-      top: 3px;
-      padding: 1px 3px;
-      background-color: $red;
-      margin-left: -8px;
-    }
-    
-    #conversation_icon {
-      height: 18px;
-    }
-  }
 }
 
 footer {
