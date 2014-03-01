@@ -6,7 +6,7 @@ describe("app.models.StreamAspects", function() {
     beforeEach(function(){
       fetch = new $.Deferred();
       stream = new app.models.StreamAspects([], {aspects_ids: [1,2]});
-      spyOn(stream.items, "fetch").andCallFake(function(options){
+      spyOn(stream.items, "fetch").and.callFake(function(options){
         stream.items.set([{name: 'a'}, {name: 'b'}, {name: 'c'}], options);
         fetch.resolve();
         return fetch;
