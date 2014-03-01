@@ -8,7 +8,7 @@
   .row-fluid
     %h4
       =t('bookmarklet.post_something')
-    = render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids, :bootstrap => 'true' }
+    = render :partial => 'publisher/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
 
 :javascript
   app.publisher = new app.views.Publisher({

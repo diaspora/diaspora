@@ -10,7 +10,7 @@
 
 = form_for StatusMessage.new, {:data => {:ajax => false}} do |status|
   = status.hidden_field :provider_display_name, :value => 'mobile'
-  = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :rows => 4, :autofocus => "autofocus"
+  = status.text_area :text, :placeholder => t('shared.publisher.whats_on_your_mind'), :rows => 4, :autofocus => "autofocus"
 
   %fieldset
     %span#publisher_service_icons
@@ -34,9 +34,9 @@
       %ul#photodropzone
     #fileInfo-publisher
 
-    #file-upload-publisher{:title => t('.upload_photos'), :class => 'btn'}
-      = image_tag 'icons/camera.png', alt: t('.upload_photos').titleize
+    #file-upload-publisher{:title => t('shared.publisher.upload_photos'), :class => 'btn'}
+      = image_tag 'icons/camera.png', alt: t('shared.publisher.upload_photos').titleize
     #publisher_mobile
-      = submit_tag t('.share'), :class => 'btn primary', :id => "submit_new_message"
+      = submit_tag t('shared.publisher.share'), :class => 'btn primary', :id => "submit_new_message"
 
     #publisher_photo_upload
