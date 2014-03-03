@@ -47,6 +47,7 @@ h3 {
   overflow: auto;
   position: relative;
   text-align: left;
+  padding: 10px 0;
   * {
     max-width: 100%; }
   min-height: 34px;
@@ -76,9 +77,8 @@ h3 {
 
   > .content,
   .reshare > .content {
-    padding: 10px {
-      bottom: 0; }; }
-  padding: 10px 0;
+    padding: 5px;
+  }
   .info {
     margin: {
       top: 0; }; }
