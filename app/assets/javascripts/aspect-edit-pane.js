@@ -17,7 +17,7 @@ function updatePageAspectName( an_id, new_name) {
 }
 
 $(document).ready(function() {
-  $('#aspect_name_title').on('click', '#rename_aspect_link', function(){
+  $(document).on('click', '#rename_aspect_link', function(){
     toggleAspectTitle();
   });
 
