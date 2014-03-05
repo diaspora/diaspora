@@ -1,33 +1,27 @@
 describe('app.Router', function () {
   describe('followed_tags', function() {
+    beforeEach(function() {
+      factory.preloads({tagFollowings: []});
+    });
+
     it('decodes name before passing it into TagFollowingAction', function () {
-      var followed_tags = spyOn(app.router, 'followed_tags').andCallThrough();
-      var tag_following_action = spyOn(app.views, 'TagFollowingAction').andCallFake(function(data) {
+      var followed_tags = spyOn(app.router, 'followed_tags').and.callThrough();
+      var tag_following_action = spyOn(app.views, 'TagFollowingAction').and.callFake(function(data) {
         return {render: function() { return {el: ""}}};
       });
-      spyOn(window.history, 'pushState').andCallFake(function (data, title, url) {
-        var route = app.router._routeToRegExp("tags/:name");
-        var args = app.router._extractParameters(route, url.replace(/^\//, ""));
-        app.router.followed_tags(args[0]);
-      });
-      window.preloads = {tagFollowings: []};
-      app.router.navigate('/tags/'+encodeURIComponent('օբյեկտիվ'));
+
+      app.router.followed_tags(encodeURIComponent('օբյեկտիվ'));
       expect(followed_tags).toHaveBeenCalled();
       expect(tag_following_action).toHaveBeenCalledWith({tagText: 'օբյեկտիվ'});
     });
 
     it('navigates to the downcase version of the corresponding tag', function () {
-      var followed_tags = spyOn(app.router, 'followed_tags').andCallThrough();
-      var tag_following_action = spyOn(app.views, 'TagFollowingAction').andCallFake(function(data) {
+      var followed_tags = spyOn(app.router, 'followed_tags').and.callThrough();
+      var tag_following_action = spyOn(app.views, 'TagFollowingAction').and.callFake(function(data) {
         return {render: function() { return {el: ""}}};
       });
-      spyOn(window.history, 'pushState').andCallFake(function (data, title, url) {
-        var route = app.router._routeToRegExp("tags/:name");
-        var args = app.router._extractParameters(route, url.replace(/^\//, ""));
-        app.router.followed_tags(args[0]);
-      });
-      window.preloads = {tagFollowings: []};
-      app.router.navigate('/tags/'+encodeURIComponent('SomethingWithCapitalLetters'));
+
+      app.router.followed_tags('SomethingWithCapitalLetters');
       expect(followed_tags).toHaveBeenCalled();
       expect(tag_following_action).toHaveBeenCalledWith({tagText: 'somethingwithcapitalletters'});
     });
@@ -42,31 +36,28 @@ describe('app.Router', function () {
       router = new app.Router();
     });
 
-    it('calls hideInactiveStreamLists', function () {
-      var hideInactiveStreamLists = spyOn(router, 'hideInactiveStreamLists').andCallThrough();
-
-      router.stream();
-      expect(hideInactiveStreamLists).toHaveBeenCalled();
-    });
-
     it('hides the aspects list', function(){
-      aspects = new app.collections.Aspects([{ name: 'Work', selected: true  }]);
-      var aspectsListView = new app.views.AspectsList({collection: aspects});
-      var hideAspectsList = spyOn(aspectsListView, 'hideAspectsList').andCallThrough();
+      setFixtures('<div id="aspects_list" />');
+      aspects = new app.collections.Aspects([
+        { name: 'Work', selected: true  },
+        { name: 'Fun',  selected: false }
+      ]);
+      var aspectsListView = new app.views.AspectsList({collection: aspects}).render();
       router.aspects_list = aspectsListView;
 
+      expect(aspectsListView.$el.html()).not.toBe("");
       router.stream();
-      expect(hideAspectsList).toHaveBeenCalled();
+      expect(aspectsListView.$el.html()).toBe("");
     });
 
     it('hides the followed tags view', function(){
       tagFollowings = new app.collections.TagFollowings();
-      var followedTagsView = new app.views.TagFollowingList({collection: tagFollowings});
-      var hideFollowedTags = spyOn(followedTagsView, 'hideFollowedTags').andCallThrough();
+      var followedTagsView = new app.views.TagFollowingList({collection: tagFollowings}).render();
       router.followedTagsView = followedTagsView;
 
+      expect(followedTagsView.$el.html()).not.toBe("");
       router.stream();
-      expect(hideFollowedTags).toHaveBeenCalled();
+      expect(followedTagsView.$el.html()).toBe("");
     });
   });
 

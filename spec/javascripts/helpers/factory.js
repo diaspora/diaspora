@@ -151,14 +151,23 @@ factory = {
 
   comment: function(overrides) {
     var defaultAttrs = {
-      "text" : "This is an awesome comment!",
-      "created_at" : "2012-01-03T19:53:13Z",
-      "author" : this.author(),
-      "guid" : this.guid(),
-      "id": this.id.next()
-    }
+      id:     this.id.next(),
+      guid:   this.guid(),
+      text:   "This is an awesome comment!",
+      author: this.author(),
+      created_at: "2012-01-03T19:53:13Z"
+    };
 
     return new app.models.Comment(_.extend(defaultAttrs, overrides))
+  },
+
+  preloads: function(overrides) {
+    var defaults = {
+      aspect_ids: []
+    };
+
+    window.gon = { preloads: {} };
+    _.extend(window.gon.preloads, defaults, overrides);
   }
 }
 
