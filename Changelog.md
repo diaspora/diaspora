@@ -23,6 +23,7 @@
 * Add permalinks for comments [#4577](https://github.com/diaspora/diaspora/pull/4577)
 * New menu for the mobile version [#4673](https://github.com/diaspora/diaspora/pull/4673)
 * Added comment count to statistic to enable calculations of posts/comments ratios [#4799](https://github.com/diaspora/diaspora/pull/4799)
+* Do not truncate notification emails anymore [#4342](https://github.com/diaspora/diaspora/issues/4342)
 * Fix mentions in email notifications [#4294](https://github.com/diaspora/diaspora/issues/4294)
 * Interpret markdown in email notifications
 
