@@ -142,6 +142,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Allow to set unhosted button and currency for paypal donation [#5452](https://github.com/diaspora/diaspora/pull/5452)
 * Add followed tags in the mobile menu [#5468](https://github.com/diaspora/diaspora/pull/5468)
 * Replace Pagedown with markdown-it [#5526](https://github.com/diaspora/diaspora/pull/5526)
+* Do not truncate notification emails anymore [#4342](https://github.com/diaspora/diaspora/issues/4342)
 
 # 0.4.1.2
 
