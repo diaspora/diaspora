@@ -24,9 +24,9 @@ Feature: Hovercards
   Scenario: Hovercards on the main stream in reshares
     When I am on "bob@bob.bob"'s page
     Then I should see "alice public stuff" within ".reshare"
-    When I activate hovercard for "Alice" within ".reshare"
+    When I hover "Alice" within ".reshare"
     Then I should not see a hovercard
     When I am on "alice@alice.alice"'s page
     Then I should see "public stuff" within ".reshare"
-    When I activate hovercard for "Bob Jones" within ".reshare"
+    When I hover "Bob Jones" within ".reshare"
     Then I should see a hovercard
