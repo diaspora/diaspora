@@ -1,5 +1,5 @@
 When(/^I activate the first hovercard$/) do
-  page.execute_script("$('.hovercardable').first().trigger('mouseenter');")
+  first('.hovercardable').hover
 end
 
 Then(/^I should see a hovercard$/) do
@@ -16,6 +16,6 @@ end
 
 When (/^I activate hovercard for "([^"]*)" within "([^"]*)"$/) do |name, selector|
   with_scope(selector) do
-    page.execute_script("$('.author').filter(function(index){return $(this).text() === \"#{name}\";}).trigger('mouseenter');")
+    find(".author", text: name).hover
   end
 end
