@@ -22,11 +22,11 @@ Feature: Hovercards
     Then I should not see a hovercard
 
   Scenario: Hovercards on the main stream in reshares
-    When I am on "bob@bob.bob"'s page
-    Then I should see "alice public stuff" within ".reshare"
+    Given I am on "bob@bob.bob"'s page
+    Then I should see "public stuff" within ".stream_element"
     When I hover "Alice" within ".reshare"
     Then I should not see a hovercard
     When I am on "alice@alice.alice"'s page
-    Then I should see "public stuff" within ".reshare"
+    Then I should see "public stuff" within ".stream_element"
     When I hover "Bob Jones" within ".reshare"
     Then I should see a hovercard
