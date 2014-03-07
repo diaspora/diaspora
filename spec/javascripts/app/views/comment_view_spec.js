@@ -49,15 +49,15 @@ describe("app.views.Comment", function(){
   describe("canRemove", function(){
     context("is truthy", function(){
       it("when ownComment is true", function(){
-        spyOn(this.view, "ownComment").andReturn(true)
-        spyOn(this.view, "postOwner").andReturn(false)
+        spyOn(this.view, "ownComment").and.returnValue(true)
+        spyOn(this.view, "postOwner").and.returnValue(false)
 
         expect(this.view.canRemove()).toBe(true)
       })
 
       it("when postOwner is true", function(){
-        spyOn(this.view, "postOwner").andReturn(true)
-        spyOn(this.view, "ownComment").andReturn(false)
+        spyOn(this.view, "postOwner").and.returnValue(true)
+        spyOn(this.view, "ownComment").and.returnValue(false)
 
         expect(this.view.canRemove()).toBe(true)
       })
@@ -65,8 +65,8 @@ describe("app.views.Comment", function(){
 
     context("is falsy", function(){
       it("when postOwner and ownComment are both false", function(){
-        spyOn(this.view, "postOwner").andReturn(false)
-        spyOn(this.view, "ownComment").andReturn(false)
+        spyOn(this.view, "postOwner").and.returnValue(false)
+        spyOn(this.view, "ownComment").and.returnValue(false)
 
         expect(this.view.canRemove()).toBe(false)
       })
