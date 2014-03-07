@@ -1,6 +1,6 @@
 describe("app.views.Aspect", function(){
   beforeEach(function(){
-    this.aspect = new app.models.Aspect({ name: 'Acquaintances', selected: true });
+    this.aspect = factory.aspect({selected:true});
     this.view = new app.views.Aspect({ model: this.aspect });
   });
 
@@ -14,14 +14,14 @@ describe("app.views.Aspect", function(){
     });
 
     it('should show the name of the aspect', function(){
-      expect(this.view.$el.children('a.selectable').text()).toMatch('Acquaintances');
+      expect(this.view.$el.children('a.selectable').text()).toMatch(this.aspect.get('name'));
     });
 
     describe('selecting aspects', function(){
       beforeEach(function(){
         app.router = new app.Router();
         spyOn(app.router, 'aspects_stream');
-        spyOn(this.view, 'toggleAspect').andCallThrough();
+        spyOn(this.view, 'toggleAspect').and.callThrough();
         this.view.delegateEvents();
       });
 

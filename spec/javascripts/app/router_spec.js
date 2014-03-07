@@ -39,8 +39,8 @@ describe('app.Router', function () {
     it('hides the aspects list', function(){
       setFixtures('<div id="aspects_list" />');
       aspects = new app.collections.Aspects([
-        { name: 'Work', selected: true  },
-        { name: 'Fun',  selected: false }
+        factory.aspectAttrs({selected:true}),
+        factory.aspectAttrs()
       ]);
       var aspectsListView = new app.views.AspectsList({collection: aspects}).render();
       router.aspects_list = aspectsListView;

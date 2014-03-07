@@ -40,8 +40,8 @@ describe("app.views.AspectsList", function(){
         beforeEach(function(){
           app.router = new app.Router();
           spyOn(app.router, 'aspects_stream');
-          spyOn(this.view, 'toggleAll').andCallThrough();
-          spyOn(this.view, 'toggleSelector').andCallThrough();
+          spyOn(this.view, 'toggleAll').and.callThrough();
+          spyOn(this.view, 'toggleSelector').and.callThrough();
           this.view.delegateEvents();
           this.view.$('.toggle_selector').click();
         });

@@ -161,6 +161,20 @@ factory = {
     return new app.models.Comment(_.extend(defaultAttrs, overrides))
   },
 
+  aspectAttrs: function(overrides) {
+    var names = ['Work','School','Family','Friends','Just following','People','Interesting'];
+    var defaultAttrs = {
+      name: names[Math.floor(Math.random()*names.length)]+' '+Math.floor(Math.random()*100),
+      selected: false
+    };
+
+    return _.extend({}, defaultAttrs, overrides);
+  },
+
+  aspect: function(overrides) {
+    return new app.models.Aspect(this.aspectAttrs(overrides));
+  },
+
   preloads: function(overrides) {
     var defaults = {
       aspect_ids: []
