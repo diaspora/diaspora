@@ -1037,6 +1037,9 @@ en:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}. "
         invited_by: "Thanks for the invite, "
+      poll:
+        remove_poll_answer: "Remove answer"
+        add_poll_answer: "Add answer"
     add_contact:
       enter_a_diaspora_username: "Enter a diaspora* username:"
       your_diaspora_username_is: "Your diaspora* username is: %{diaspora_handle}"

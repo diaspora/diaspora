@@ -23,6 +23,9 @@ app.views.Publisher = Backbone.View.extend({
     "click .post_preview_button" : "createPostPreview",
     "textchange #status_message_fake_text": "handleTextchange",
     "click #locator" : "showLocation",
+    "click #poll_creator" : "showPollCreator",
+    "click #add_poll_answer" : "addPollAnswer",
+    "click .remove_poll_answer" : "removePollAnswer",
     "click #hide_location" : "destroyLocation",
     "keypress #location_address" : "avoidEnter"
   },
@@ -37,6 +40,8 @@ app.views.Publisher = Backbone.View.extend({
     this.el_submit = this.$('input[type=submit], button#submit');
     this.el_preview = this.$('button.post_preview_button');
     this.el_photozone = this.$('#photodropzone');
+    this.el_poll_creator = this.$('#poll_creator_wrapper');
+    this.el_poll_answer = this.$('#poll_creator_wrapper .poll_answer');
 
     // init mentions plugin
     Mentions.initialize(this.el_input);
@@ -127,7 +132,6 @@ app.views.Publisher = Backbone.View.extend({
 
     // lulz this code should be killed.
     var statusMessage = new app.models.Post();
-
     statusMessage.save({
       "status_message" : {
         "text" : serializedForm["status_message[text]"]
@@ -136,10 +140,12 @@ app.views.Publisher = Backbone.View.extend({
       "photos" : serializedForm["photos[]"],
       "services" : serializedForm["services[]"],
       "location_address" : $("#location_address").val(),
-      "location_coords" : serializedForm["location[coords]"]
+      "location_coords" : serializedForm["location[coords]"],
+      "poll_question" : serializedForm["poll_question"]
     }, {
       url : "/status_messages",
       success : function() {
+        console.log(statusMessage);
         if(app.publisher) {
           $(app.publisher.el).trigger('ajax:success');
         }
@@ -171,6 +177,23 @@ app.views.Publisher = Backbone.View.extend({
     }
   },
 
+  showPollCreator: function(){
+    this.el_poll_creator.toggle();
+  },
+
+  addPollAnswer: function(){
+    var clone = this.el_poll_answer.clone();
+    var count_of_answers = this.el_poll_answer.size()+1;
+    clone.attr("name", "poll_answer_"+count_of_answers)
+    this.el_poll_answer.last().after(clone);
+  },
+
+  removePollAnswer: function(evt){
+    if($(".poll_answer_input").size() > 1) {
+      $(evt.target).parent().remove();
+    }
+    return false;
+  },
   // avoid submitting form when pressing Enter key
   avoidEnter: function(evt){
     if(evt.keyCode == 13)
@@ -323,7 +346,7 @@ app.views.Publisher = Backbone.View.extend({
     $(this.el).addClass("closed");
     this.el_wrapper.removeClass("active");
     this.el_input.css('height', '');
-
+    this.el_poll_creator.hide();
     return this;
   },
 

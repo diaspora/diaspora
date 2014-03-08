@@ -309,8 +309,25 @@
       }
     }
   }
+  #poll_creator {
+    @extend #locator;
+    right: 50px;
+  }
+
   .btn {
     height: 19px;
     width: 19px;
   }
+}
+
+#poll_creator_wrapper {
+  display:none;
+}
+
+.remove_poll_answer {
+  display:inline-block;
+}
+
+.poll_answer_input {
+  display:inline-block !important;
 }
