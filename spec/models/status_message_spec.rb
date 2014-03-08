@@ -150,18 +150,6 @@ STR
       @sm = FactoryGirl.create(:status_message, :text => @test_string )
     end
 
-    describe '#formatted_message' do
-      it 'escapes the message' do
-        xss = "</a> <script> alert('hey'); </script>"
-        @sm.text << xss
-
-        @sm.formatted_message.should_not include xss
-      end
-      it 'is html_safe' do
-        @sm.formatted_message.html_safe?.should be_true
-      end
-    end
-
     describe '#create_mentions' do
       it 'creates a mention for everyone mentioned in the message' do
         Diaspora::Mentionable.should_receive(:people_from_string).and_return(@people)

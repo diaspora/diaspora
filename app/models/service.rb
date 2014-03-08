@@ -3,11 +3,8 @@
 #   the COPYRIGHT file.
 
 class Service < ActiveRecord::Base
-  include ActionView::Helpers::TextHelper
-  include MarkdownifyHelper
-
   attr_accessor :provider, :info, :access_level
-  
+
   belongs_to :user
   validates_uniqueness_of :uid, :scope => :type
 
@@ -26,12 +23,12 @@ class Service < ActiveRecord::Base
     end
 
     def first_from_omniauth( auth_hash )
-      @@auth = auth_hash 
+      @@auth = auth_hash
       where( type: service_type, uid: options[:uid] ).first
     end
 
     def initialize_from_omniauth( auth_hash )
-      @@auth = auth_hash 
+      @@auth = auth_hash
       service_type.constantize.new( options )
     end
 
@@ -44,7 +41,7 @@ class Service < ActiveRecord::Base
     end
 
     def options
-      { 
+      {
         nickname:      auth['info']['nickname'],
         access_token:  auth['credentials']['token'],
         access_secret: auth['credentials']['secret'],

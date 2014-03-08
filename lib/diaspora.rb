@@ -7,6 +7,7 @@ module Diaspora
   require 'diaspora/parser'
   require 'diaspora/fetcher'
   require 'diaspora/markdownify'
+  require 'diaspora/message_renderer'
   require 'diaspora/mentionable'
   require 'diaspora/exporter'
   require 'diaspora/federated'

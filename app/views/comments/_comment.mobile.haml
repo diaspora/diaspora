@@ -16,4 +16,4 @@
           = timeago(comment.created_at ? comment.created_at : Time.now)
 
     %div{:class => direction_for(comment.text)}
-      = markdownify(comment)
+      = comment.message.markdownified

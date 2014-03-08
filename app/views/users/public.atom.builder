@@ -27,12 +27,11 @@ atom_feed({'xmlns:thr' => 'http://purl.org/syndication/thread/1.0',
   end
 
   @posts.each do |post|
-    post = post.absolute_root unless post.absolute_root.nil? if post.is_a? Reshare
     feed.entry post, :url => "#{@user.url}p/#{post.id}",
       :id => "#{@user.url}p/#{post.id}" do |entry|
 
-      entry.title post_page_title(post)
-      entry.content markdownify(post), :type => 'html'
+      entry.title post.message.title
+      entry.content post.message.markdownified(disable_hovercards: true), :type => 'html'
       entry.tag! 'activity:verb', 'http://activitystrea.ms/schema/1.0/post'
       entry.tag! 'activity:object-type', 'http://activitystrea.ms/schema/1.0/note'
     end

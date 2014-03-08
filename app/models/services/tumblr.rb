@@ -1,7 +1,4 @@
 class Services::Tumblr < Service
-  include ActionView::Helpers::TextHelper
-  include ActionView::Helpers::TagHelper
-
   MAX_CHARACTERS = 1000
 
   def provider
@@ -38,10 +35,10 @@ class Services::Tumblr < Service
   def tumblr_template(post, url)
     html = ''
     post.photos.each do |photo|
-      html += "![photo](#{photo.url(:scaled_full)})\n\n"
+      html << "![photo](#{photo.url(:scaled_full)})\n\n"
     end
-    html += post.text
-    html += "\n\n[original post](#{url})"
+    html << post.message.html(mentioned_people: [])
+    html << "\n\n[original post](#{url})"
   end
 
   def delete_post(post)

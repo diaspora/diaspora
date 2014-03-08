@@ -1,6 +1,5 @@
 class OEmbedPresenter
   include PostsHelper
-  include ActionView::Helpers::TextHelper
 
   def initialize(post, opts = {})
     @post = post
@@ -13,14 +12,14 @@ class OEmbedPresenter
 
   def as_json(opts={})
     {
-      :provider_name => "Diaspora", 
+      :provider_name => "Diaspora",
       :provider_url => AppConfig.pod_uri.to_s,
       :type => 'rich',
       :version => '1.0',
       :title => post_title,
       :author_name => post_author,
       :author_url => post_author_url,
-      :width => @opts.fetch(:maxwidth, 516), 
+      :width => @opts.fetch(:maxwidth, 516),
       :height => @opts.fetch(:maxheight, 320),
       :html => iframe_html
     }

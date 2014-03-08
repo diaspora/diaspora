@@ -15,7 +15,7 @@
       = image_tag post.image_url
 
 %div{:class => direction_for(post.text)}
-  != markdownify(post)
+  != post.message.markdownified
   - if post.o_embed_cache
     != o_embed_html post.o_embed_cache
   -if post.open_graph_cache

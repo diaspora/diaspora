@@ -1,9 +1,8 @@
 class Services::Facebook < Service
   include Rails.application.routes.url_helpers
-  include MarkdownifyHelper
 
   OVERRIDE_FIELDS_ON_FB_UPDATE = [:contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username]
-  MAX_CHARACTERS = 63206 
+  MAX_CHARACTERS = 63206
 
   def provider
     "facebook"
@@ -22,11 +21,16 @@ class Services::Facebook < Service
   end
 
   def create_post_params(post)
-    message = strip_markdown(post.text(:plain_text => true))
+    message = post.message.plain_text_without_markdown
     if post.photos.any?
-      message += " " + Rails.application.routes.url_helpers.short_post_url(post, :protocol => AppConfig.pod_uri.scheme, :host => AppConfig.pod_uri.authority)
+      message += " " + short_post_url(post, protocol: AppConfig.pod_uri.scheme,
+                                            host: AppConfig.pod_uri.authority)
     end
-    {:message => message, :access_token => self.access_token, :link => URI.extract(message, ['https', 'http']).first}
+
+    {message: message,
+     access_token: access_token,
+     link: URI.extract(message, ['https', 'http']).first
+    }
   end
 
   def profile_photo_url
