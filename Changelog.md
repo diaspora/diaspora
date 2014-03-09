@@ -18,6 +18,7 @@
 * Do not add a space after adding a mention [#4767](https://github.com/diaspora/diaspora/issues/4767)
 * Fix active user statistics by saving a last seen timestamp for users [#4734](https://github.com/diaspora/diaspora/issues/4734)
 * Render HTML in atom user feed [#4835](https://github.com/diaspora/diaspora/pull/4835)
+* Fix plaintext mode of Mentionable [#4294](https://github.com/diaspora/diaspora/issues/4294)
 
 ## Features
 * You can report a single post by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517)
