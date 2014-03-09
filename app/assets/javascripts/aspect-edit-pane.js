@@ -1,3 +1,4 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 /*   Copyright (c) 2010-2011, Diaspora Inc.  This file is
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
@@ -118,3 +119,4 @@ _.extend(app.tmp.ContactAspectsBox.prototype, {
 $(function() {
   var contact_aspects_box = new app.tmp.ContactAspectsBox();
 });
+// @license-end
