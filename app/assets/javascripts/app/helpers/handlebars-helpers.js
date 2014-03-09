@@ -1,3 +1,4 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 Handlebars.registerHelper('t', function(scope, values) {
   return Diaspora.I18n.t(scope, values.hash)
 });
@@ -44,3 +45,4 @@ Handlebars.registerHelper('personImage', function(person, size, imageClass) {
 Handlebars.registerHelper('localTime', function(timestamp) {
   return new Date(timestamp).toLocaleString();
 });
+// @license-end
