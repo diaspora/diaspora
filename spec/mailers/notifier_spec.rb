@@ -119,7 +119,7 @@ describe Notifier do
       @mail.to.should == [alice.email]
     end
 
-    it 'BODY: contains the truncated original post' do
+    it 'BODY: contains the original post' do
       @mail.body.encoded.should include(@sm.formatted_message)
     end
 
@@ -149,7 +149,7 @@ describe Notifier do
       @mail.to.should == [alice.email]
     end
 
-    it 'BODY: contains the truncated original post' do
+    it 'BODY: contains the original post' do
       @mail.body.encoded.should include(@sm.formatted_message)
     end
 
