@@ -1,3 +1,4 @@
+// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
 /*
  * jQuery Form Plugin
  * version: 2.02 (12/16/2007)
@@ -870,3 +871,4 @@ $.fn.select = function(select) {
 };
 
 })(jQuery);
+// @license-end

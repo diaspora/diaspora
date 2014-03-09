@@ -1,3 +1,4 @@
+// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
 /*! http://mths.be/placeholder v1.8.7 by @mathias */
 ;(function(window, document, $) {
 
@@ -102,3 +103,4 @@
 	}
 
 }(this, document, jQuery));
+// @license-end
