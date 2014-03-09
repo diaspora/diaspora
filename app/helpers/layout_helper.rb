@@ -31,8 +31,10 @@ module LayoutHelper
   def load_javascript_locales(section = 'javascripts')
     content_tag(:script) do
       <<-JS.html_safe
+        // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
         Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale, section).to_json}, "#{I18n.locale}");
         Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
+        // @license-end
       JS
     end
   end
@@ -65,6 +67,7 @@ module LayoutHelper
   def old_browser_js_support
     content_tag(:script) do
       <<-JS.html_safe
+        // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
         if(Array.isArray === undefined) {
           Array.isArray = function (arg) {
             return Object.prototype.toString.call(arg) == '[object Array]';
@@ -73,6 +76,7 @@ module LayoutHelper
         if ((window.history) && (window.history.pushState === undefined)) {
           window.history.pushState = function() { };
         }
+        // @license-end
       JS
     end
   end
