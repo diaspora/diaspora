@@ -91,7 +91,7 @@ module Diaspora::Mentionable
     def self.mention_link(person, fallback_name, *opts)
       return fallback_name unless person.present?
 
-      if opts.include?(:plain_text)
+      if opts.include?(:plain_text=>true)
         person.name
       else
         person_link(person, class: PERSON_HREF_CLASS)
