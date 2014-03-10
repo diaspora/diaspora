@@ -85,4 +85,7 @@ module LayoutHelper
     end.join(' ').html_safe
   end
 
+  def bootstrap?
+    @css_framework == :bootstrap
+  end
 end

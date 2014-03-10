@@ -15,7 +15,7 @@
       %div
         %params
           #publisher_textarea_wrapper
-            = link_to(content_tag(:div, nil, :class => 'icons-deletelabel'), "#", :id => "hide_publisher", :title => t('.discard_post'))
+            = link_to(content_tag(:div, nil, :class => 'icons-deletelabel'), "#", :id => "hide_publisher", :title => t('shared.publisher.discard_post'))
             %ul#photodropzone
             - if current_user.getting_started?
               = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",
@@ -27,12 +27,13 @@
 
             #publisher-images
               %span.markdownIndications
-                != t('.formatWithMarkdown', markdown_link: link_to(t('help.markdown'), 'https://diasporafoundation.org/formatting', target: :blank))
-              #locator.btn{:title => t('.get_location')}
-                = image_tag 'icons/marker.png', :alt => t('.get_location').titleize, :class => 'publisher_image'
-              #file-upload.btn{:title => t('.upload_photos')}
-                = image_tag 'icons/camera.png', :alt => t('.upload_photos').titleize, :class => 'publisher_image'
+                != t('shared.publisher.formatWithMarkdown', markdown_link: link_to(t('help.markdown'), 'https://diasporafoundation.org/formatting', target: :blank))
+              #locator.btn{:title => t('shared.publisher.get_location')}
+                = image_tag 'icons/marker.png', :alt => t('shared.publisher.get_location').titleize, :class => 'publisher_image'
+              #file-upload.btn{:title => t('shared.publisher.upload_photos')}
+                = image_tag 'icons/camera.png', :alt => t('shared.publisher.upload_photos').titleize, :class => 'publisher_image'
             = hidden_field :location, :coords
+          #location_container
 
       - if publisher_public
         = hidden_field_tag 'aspect_ids[]', "public"
@@ -80,9 +81,9 @@
                   = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )
 
           %button{ :disabled => ("disabled" if publisher_hidden_text.blank?), :class => 'button post_preview_button'}
-            = t('.preview')
+            = t('shared.publisher.preview')
 
-          = status.submit t('.share'), :disabled => publisher_hidden_text.blank?, :class => 'button creation', :tabindex => 2
+          = status.submit t('shared.publisher.share'), :disabled => publisher_hidden_text.blank?, :class => 'button creation', :tabindex => 2
 
           .facebox_content
             #question_mark_pane

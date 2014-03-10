@@ -10,7 +10,7 @@
       %h3
         = t('.mentioning', :person => @person.name)
 
-    = render :partial => 'shared/publisher', :locals => { :aspect => @aspect, :aspect_ids => @aspect_ids, :selected_aspects => @aspects_with_person, :person => @person}
+    = render :partial => 'publisher/publisher', :locals => { :aspect => @aspect, :aspect_ids => @aspect_ids, :selected_aspects => @aspects_with_person, :person => @person}
 
 :javascript
   $(function() {
