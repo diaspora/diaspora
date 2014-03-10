@@ -26,9 +26,8 @@ atom_feed({'xmlns:thr' => 'http://purl.org/syndication/thread/1.0',
     author.tag! 'poco:displayName', @user.name
   end
 
-
   @posts.each do |post|
-    post = post.absolute_root if post.is_a? Reshare
+    post = post.absolute_root unless post.absolute_root.nil? if post.is_a? Reshare
     feed.entry post, :url => "#{@user.url}p/#{post.id}",
       :id => "#{@user.url}p/#{post.id}" do |entry|
 
