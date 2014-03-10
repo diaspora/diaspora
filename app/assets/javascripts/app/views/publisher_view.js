@@ -261,7 +261,7 @@ app.views.Publisher = Backbone.View.extend({
 
   keyDown : function(evt) {
     if( evt.keyCode == 13 && evt.ctrlKey ) {
-      this.el_submit.click();
+      this.$("form").submit();
       this.open();
       return false;
     }
