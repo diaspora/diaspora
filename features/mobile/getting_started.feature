@@ -1,7 +1,7 @@
 @javascript
-Feature: editing the gettig started in the mobile view
+Feature: editing the getting started in the mobile view
 
-  Scenario: editing gettig started fields
+  Scenario: editing getting started fields
     When I go to the new user registration page
     And I fill in the following:
         | user_username              |     amparito          |
