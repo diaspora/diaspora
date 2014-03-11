@@ -53,11 +53,19 @@ describe UsersController do
       get :public, :username => @user.username, :format => :atom
       response.body.should include('a href')
     end
-
+    
     it 'includes reshares in the atom feed' do
       reshare = FactoryGirl.create(:reshare, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
       response.body.should include reshare.root.raw_message
+    end
+
+    it 'do not show reshares in atom feed if origin post is deleted' do
+      post = FactoryGirl.create(:status_message, :public => true);
+      reshare = FactoryGirl.create(:reshare, :root => post, :author => @user.person)
+      post.delete
+      get :public, :username => @user.username, :format => :atom
+      response.code.should == '200'
     end
 
     it 'redirects to a profile page if html is requested' do
