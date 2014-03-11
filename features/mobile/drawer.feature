@@ -17,7 +17,7 @@ Feature: Naviguate between pages using the header menu and the drawer
     
   Scenario: naviguate to the stream page
     When I open the drawer
-    And I follow "My Activity"
+    And I follow "My activity"
     And I click on selector "#header_title"
     Then I should see "There are no posts yet." within "#main_stream"
     
@@ -31,7 +31,7 @@ Feature: Naviguate between pages using the header menu and the drawer
     
   Scenario: naviguate to the publisher page
     When I click on selector "#compose_badge"
-    Then I should see "All Aspects" within "#new_status_message"
+    Then I should see "All aspects" within "#new_status_message"
     
   Scenario: search a user
     When I open the drawer
@@ -45,8 +45,8 @@ Feature: Naviguate between pages using the header menu and the drawer
     
   Scenario: naviguate to my activity page
     When I open the drawer
-    And I follow "My Activity"
-    Then I should see "My Activity" within "#main"
+    And I follow "My activity"
+    Then I should see "My activity" within "#main"
     
   Scenario: naviguate to my mentions page
     Given Alice has a post mentioning Bob
@@ -58,7 +58,7 @@ Feature: Naviguate between pages using the header menu and the drawer
   Scenario: naviguate to my aspects page
     Given "bob@bob.bob" has a public post with text "bob's text"
     When I open the drawer
-    And I follow "My Aspects"
+    And I follow "My aspects"
     Then I should see "Besties" within "#all_aspects + li > ul"
     And I follow "Besties"
     Then I should see "bob's text" within "#main_stream"
@@ -66,7 +66,7 @@ Feature: Naviguate between pages using the header menu and the drawer
   Scenario: naviguate to the followed tags page
     Given "bob@bob.bob" has a public post with text "bob is da #boss"
     When I open the drawer
-    And I follow "#Followed Tags"
+    And I follow "#Followed tags"
     Then I should see "#boss" within "#followed_tags + li > ul"
     And I follow "#boss"
     Then I should see "bob is da #boss" within "#main_stream"
