@@ -42,6 +42,7 @@ Updated [#3855](https://github.com/diaspora/diaspora/pull/3855)
 * devise 3.2.2 -> 3.2.3
 * rack-google-analytic 0.14.0 -> 1.0.0
 * rack-cors 0.2.8 -> 0.2.9
+* redcarpet 3.0.0 -> 3.1.1
 
 # 0.3.0.3
 
