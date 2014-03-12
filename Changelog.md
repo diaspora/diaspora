@@ -35,6 +35,8 @@ Updated [#3855](https://github.com/diaspora/diaspora/pull/3855)
 * omniauth 1.1.4 -> 1.2.1
 * fog 1.19.0 -> 1.20.0
 * sidekiq 2.17.2 -> 2.17.7
+* unicorn 4.8.0 -> 4.8.2
+
 
 # 0.3.0.3
 
