@@ -84,6 +84,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Update activerecord-import gem to latest version [#3855](https://github.com/diaspora/diaspora/pull/3855)
 * Update carrierwave gem to latest version [#3855](https://github.com/diaspora/diaspora/pull/3855)
 * Update messagebus_ruby_api gem to latest version [#3855](https://github.com/diaspora/diaspora/pull/3855)
+* Update omniauth gem to latest version [#3855](https://github.com/diaspora/diaspora/pull/3855)
 
 ## Bug fixes
 * Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
