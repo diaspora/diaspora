@@ -40,6 +40,7 @@ Updated [#3855](https://github.com/diaspora/diaspora/pull/3855)
 * roxml 3.1.6 -> 3.3.1
 * acts-as-taggable-on 2.4.1 -> 3.0.1
 * devise 3.2.2 -> 3.2.3
+* rack-google-analytic 0.14.0 -> 1.0.0
 
 # 0.3.0.3
 
