@@ -101,7 +101,7 @@ gem 'gon',                     '4.1.1'
 gem 'haml',                    '4.0.5'
 gem 'mobile-fu',               '1.2.2'
 gem 'will_paginate',           '3.0.5'
-gem 'rails-timeago'
+gem 'rails-timeago',           '2.8.1'
 
 # Workarounds
 # https://github.com/rubyzip/rubyzip#important-note
