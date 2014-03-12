@@ -44,6 +44,7 @@ Updated [#3855](https://github.com/diaspora/diaspora/pull/3855)
 * rack-cors 0.2.8 -> 0.2.9
 * redcarpet 3.0.0 -> 3.1.1
 * rails-timeago 2.4.0 -> 2.8.1
+* mobile-fu 1.2.2 -> 1.3.1
 
 # 0.3.0.3
 
