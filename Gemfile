@@ -86,7 +86,7 @@ gem 'omniauth-wordpress','0.2.0'
 
 # Tags
 
-gem 'acts-as-taggable-on', '2.4.1'
+gem 'acts-as-taggable-on', '3.0.1'
 
 # URIs and HTTP
 
