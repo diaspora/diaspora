@@ -46,7 +46,7 @@ gem 'foreigner',           '1.6.1'
 # File uploading
 
 gem 'carrierwave', '0.10.0'
-gem 'fog',         '1.19.0'
+gem 'fog',         '1.20.0'
 gem 'mini_magick', '3.7.0'
 gem 'remotipart',  '1.2.1'
 
