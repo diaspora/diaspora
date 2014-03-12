@@ -36,7 +36,7 @@ Updated [#3855](https://github.com/diaspora/diaspora/pull/3855)
 * fog 1.19.0 -> 1.20.0
 * sidekiq 2.17.2 -> 2.17.7
 * unicorn 4.8.0 -> 4.8.2
-
+* foreman 0.62 -> 0.63.0
 
 # 0.3.0.3
 

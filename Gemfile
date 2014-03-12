@@ -155,7 +155,7 @@ group :production do # we don't install these on travis to speed up test runs
 
   # Process management
 
-  gem 'foreman', '0.62'
+  gem 'foreman', '0.63.0'
 
   # Redirects
 
