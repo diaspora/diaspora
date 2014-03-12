@@ -37,6 +37,7 @@ Updated [#3855](https://github.com/diaspora/diaspora/pull/3855)
 * sidekiq 2.17.2 -> 2.17.7
 * unicorn 4.8.0 -> 4.8.2
 * foreman 0.62 -> 0.63.0
+* roxml 3.1.6 -> 3.3.1
 
 # 0.3.0.3
 
