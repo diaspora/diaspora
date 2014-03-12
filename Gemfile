@@ -40,12 +40,12 @@ ENV['DB'] ||= 'mysql'
 gem 'mysql2', '0.3.14' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg',     '0.17.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 
-gem 'activerecord-import', '0.3.1'
+gem 'activerecord-import', '0.4.1'
 gem 'foreigner',           '1.6.1'
 
 # File uploading
 
-gem 'carrierwave', '0.9.0'
+gem 'carrierwave', '0.10.0'
 gem 'fog',         '1.19.0'
 gem 'mini_magick', '3.7.0'
 gem 'remotipart',  '1.2.1'
