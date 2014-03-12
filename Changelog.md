@@ -27,6 +27,15 @@
 * New menu for the mobile version [#4673](https://github.com/diaspora/diaspora/pull/4673)
 * Added comment count to statistic to enable calculations of posts/comments ratios [#4799](https://github.com/diaspora/diaspora/pull/4799)
 
+## Gem updates
+Updated [#3855](https://github.com/diaspora/diaspora/pull/3855)
+* activerecord-import 0.3.1 -> 0.4.1
+* carrierwave 0.9.0 -> 0.10.0
+* messagebus_ruby_api 1.0.3 -> 3.0.7
+* omniauth 1.1.4 -> 1.2.1
+* fog 1.19.0 -> 1.20.0
+* sidekiq 2.17.2 -> 2.17.7
+
 # 0.3.0.3
 
 * Bump Rails to 3.2.17, fixes CVE-2014-0081, CVE-2014-0082. For more information see http://weblog.rubyonrails.org/2014/2/18/Rails_3_2_17_4_0_3_and_4_1_0_beta2_have_been_released/
@@ -81,11 +90,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Port conversations to Bootstrap [#4622](https://github.com/diaspora/diaspora/pull/4622)
 * Remove participants popover and improve conversations menu [#4644](https://github.com/diaspora/diaspora/pull/4644)
 * Refactor right side bar [#4793](https://github.com/diaspora/diaspora/pull/4793)
-* Update activerecord-import gem to latest version [#3855](https://github.com/diaspora/diaspora/pull/3855)
-* Update carrierwave gem to latest version [#3855](https://github.com/diaspora/diaspora/pull/3855)
-* Update messagebus_ruby_api gem to latest version [#3855](https://github.com/diaspora/diaspora/pull/3855)
-* Update omniauth gem to latest version [#3855](https://github.com/diaspora/diaspora/pull/3855)
-* Update fog gem to latest version [#3855](https://github.com/diaspora/diaspora/pull/3855)
+
 
 ## Bug fixes
 * Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
