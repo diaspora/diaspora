@@ -46,6 +46,7 @@ Updated [#3855](https://github.com/diaspora/diaspora/pull/3855)
 * rails-timeago 2.4.0 -> 2.8.1
 * mobile-fu 1.2.2 -> 1.3.1
 * rack-protection 1.2 -> 1.5.2
+* gon 4.1.1 -> 5.0.4
 
 # 0.3.0.3
 

@@ -166,7 +166,7 @@ GEM
     galetahub-simple_captcha (0.1.5)
     gherkin (2.12.2)
       multi_json (~> 1.3)
-    gon (4.1.1)
+    gon (5.0.4)
       actionpack (>= 2.3.0)
       json
     guard (2.2.5)
@@ -479,7 +479,7 @@ DEPENDENCIES
   foreman (= 0.63.0)
   fuubar (= 1.3.2)
   galetahub-simple_captcha (= 0.1.5)
-  gon (= 4.1.1)
+  gon (= 5.0.4)
   guard-cucumber (= 1.4.1)
   guard-rspec (= 4.2.4)
   guard-spork (= 1.5.1)
