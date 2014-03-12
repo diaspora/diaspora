@@ -41,6 +41,7 @@ Updated [#3855](https://github.com/diaspora/diaspora/pull/3855)
 * acts-as-taggable-on 2.4.1 -> 3.0.1
 * devise 3.2.2 -> 3.2.3
 * rack-google-analytic 0.14.0 -> 1.0.0
+* rack-cors 0.2.8 -> 0.2.9
 
 # 0.3.0.3
 
