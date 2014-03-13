@@ -18,7 +18,10 @@
       .icon-refresh { display: inline-block;}
       .icon-ok { display: none;}
     }
-    a { cursor: pointer; }
+    a {
+      cursor: pointer;
+      padding-left: 10px;
+    }
   }
 }
 

@@ -5,8 +5,25 @@
   border: 1px solid darken($button-border-color,20%);
 
   &:hover {
-    @include button-gradient-hover($creation-blue);
     background: $creation-blue;
     border: 1px solid darken($button-border-color,35%);
   }
+}
+.btn-group.open > .btn.creation {
+  background: $creation-blue;
+}
+
+.btn.green {
+  $button-border-color: #aaa;
+  @include button-gradient($green);
+  color: $grey;
+  border: 1px solid darken($button-border-color,20%);
+
+  &:hover {
+    background: $green;
+    border: 1px solid darken($button-border-color,35%);
+  }
+}
+.btn-group.open > .btn.green {
+  background: $green;
 }

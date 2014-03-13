@@ -1,4 +1,4 @@
-// require ../aspects_dropdown_view
+//= require ../aspects_dropdown_view
 
 /*
  * Aspects view for the publisher.

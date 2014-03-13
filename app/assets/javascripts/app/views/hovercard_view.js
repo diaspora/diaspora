@@ -103,10 +103,14 @@ app.views.Hovercard = Backbone.View.extend({
 
     // set aspect dropdown
     var href = this.href();
-    href += "/aspect_membership_button"
+    href += "/aspect_membership_button";
+    if(gon.bootstrap == true){
+      href += "?bootstrap=true";
+    }
     $.get(href, function(response) {
       self.dropdown_container.html(response);
     });
+    var aspect_membership = new app.views.AspectMembership({el: self.dropdown_container});
   },
 
   _positionHovercard: function() {
