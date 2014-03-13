@@ -25,7 +25,7 @@
               = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}..."
             = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
 
-            #publisher-images
+            %span#publisher-images
               %span.markdownIndications
                 != t('shared.publisher.formatWithMarkdown', markdown_link: link_to(t('help.markdown'), 'https://diasporafoundation.org/formatting', target: :blank))
               #locator.btn{:title => t('shared.publisher.get_location')}
