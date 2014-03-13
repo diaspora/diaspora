@@ -32,6 +32,7 @@
 * Add permalinks for comments [#4577](https://github.com/diaspora/diaspora/pull/4577)
 * New menu for the mobile version [#4673](https://github.com/diaspora/diaspora/pull/4673)
 * Added comment count to statistic to enable calculations of posts/comments ratios [#4799](https://github.com/diaspora/diaspora/pull/4799)
+* Add filters to notifications controller [#4814](https://github.com/diaspora/diaspora/pull/4814)
 
 # 0.3.0.3
 

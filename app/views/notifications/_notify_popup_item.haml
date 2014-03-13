@@ -1,4 +1,4 @@
-.notification_element{:data=>{:guid => n.id}, :class => (n.unread ? "unread" : "read")}
+.notification_element{:data=>{:guid => n.id, :type => (Notification.types.key(n.type) || '')}, :class => (n.unread ? "unread" : "read")}
   = person_image_tag n.actors.first, :thumb_small
   = notification_message_for(n)
   %div
