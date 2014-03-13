@@ -73,5 +73,16 @@ Feature: Notifications
     When I sign in as "bob@bob.bob"
     And I follow "Notifications" in the header
     Then the notification dropdown should be visible
-    Then I should see "mentioned you in a post"
+    Then I should see "mentioned you in the post"
     And I should have 1 email delivery
+
+  Scenario: filter notifications
+    Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
+    And Alice has a post mentioning Bob
+    When I sign in as "bob@bob.bob"
+    And I am on the notifications page
+    Then I should see "mentioned you in the post"
+    When I filter notifications by likes
+    Then I should not see "mentioned you in the post"
+    When I filter notifications by mentions
+    Then I should see "mentioned you in the post"
