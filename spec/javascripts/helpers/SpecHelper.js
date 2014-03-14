@@ -1,5 +1,7 @@
 // for docs, see http://jasmine.github.io
 
+var realXMLHttpRequest = window.XMLHttpRequest;
+
 beforeEach(function() {
   $('#jasmine_content').html(spec.readFixture("underscore_templates"));
 
@@ -164,7 +166,7 @@ spec.retrieveFixture = function(fixtureName) {
 
   // retrieve the fixture markup via xhr request to jasmine server
   try {
-    xhr = new XMLHttpRequest();
+    xhr = new realXMLHttpRequest();
     xhr.open("GET", path, false);
     xhr.send(null);
   } catch(e) {
