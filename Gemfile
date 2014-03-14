@@ -4,7 +4,7 @@ gem 'rails', '3.2.17'
 
 # Appserver
 
-gem 'unicorn', '4.8.0', :require => false
+gem 'unicorn', '4.8.2', :require => false
 
 # API and JSON
 
@@ -13,7 +13,7 @@ gem 'json',        '1.8.1'
 
 # Authentication
 
-gem 'devise', '3.2.2'
+gem 'devise', '3.2.3'
 gem 'devise_lastseenable', '0.0.4'
 
 # Captcha
@@ -22,7 +22,7 @@ gem 'galetahub-simple_captcha', '0.1.5', :require => 'simple_captcha'
 
 # Background processing
 
-gem 'sidekiq', '2.17.2'
+gem 'sidekiq', '2.17.7'
 gem 'sinatra', '1.3.3'
 
 # Configuration
@@ -31,7 +31,7 @@ gem 'configurate', '0.0.8'
 
 # Cross-origin resource sharing
 
-gem 'rack-cors', '0.2.8', :require => 'rack/cors'
+gem 'rack-cors', '0.2.9', :require => 'rack/cors'
 
 # Database
 
@@ -40,13 +40,13 @@ ENV['DB'] ||= 'mysql'
 gem 'mysql2', '0.3.14' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg',     '0.17.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 
-gem 'activerecord-import', '0.3.1'
+gem 'activerecord-import', '0.4.1'
 gem 'foreigner',           '1.6.1'
 
 # File uploading
 
-gem 'carrierwave', '0.9.0'
-gem 'fog',         '1.19.0'
+gem 'carrierwave', '0.10.0'
+gem 'fog',         '1.20.0'
 gem 'mini_magick', '3.7.0'
 gem 'remotipart',  '1.2.1'
 
@@ -59,14 +59,14 @@ gem 'rails-i18n',           '0.7.4'
 # Mail
 
 gem 'markerb',             '1.0.1'
-gem 'messagebus_ruby_api', '1.0.3'
+gem 'messagebus_ruby_api', '3.0.7'
 
 # Parsing
 
 gem 'nokogiri',         '1.6.1'
 gem 'rails_autolink',   '1.1.5'
-gem 'redcarpet',        '3.0.0'
-gem 'roxml',            '3.1.6'
+gem 'redcarpet',        '3.1.1'
+gem 'roxml',            '3.3.1'
 gem 'ruby-oembed',      '0.8.9'
 gem 'opengraph_parser', '0.2.3'
 
@@ -77,7 +77,7 @@ gem 'strong_parameters'
 
 # Services
 
-gem 'omniauth',          '1.1.4'
+gem 'omniauth',          '1.2.1'
 gem 'omniauth-facebook', '1.6.0'
 gem 'omniauth-tumblr',   '1.1'
 gem 'omniauth-twitter',  '1.0.1'
@@ -86,7 +86,7 @@ gem 'omniauth-wordpress','0.2.0'
 
 # Tags
 
-gem 'acts-as-taggable-on', '2.4.1'
+gem 'acts-as-taggable-on', '3.0.1'
 
 # URIs and HTTP
 
@@ -97,11 +97,11 @@ gem 'typhoeus',           '0.6.7'
 
 # Views
 
-gem 'gon',                     '4.1.1'
+gem 'gon',                     '5.0.4'
 gem 'haml',                    '4.0.5'
-gem 'mobile-fu',               '1.2.2'
+gem 'mobile-fu',               '1.3.1'
 gem 'will_paginate',           '3.0.5'
-gem 'rails-timeago'
+gem 'rails-timeago',           '2.8.1'
 
 # Workarounds
 # https://github.com/rubyzip/rubyzip#important-note
@@ -146,16 +146,16 @@ group :production do # we don't install these on travis to speed up test runs
 
   # Analytics
 
-  gem 'rack-google-analytics', '0.14.0', :require => 'rack/google-analytics'
+  gem 'rack-google-analytics', '1.0.0', :require => 'rack/google-analytics'
   gem 'rack-piwik',            '0.2.2',  :require => 'rack/piwik'
 
   # Click-jacking protection
 
-  gem 'rack-protection', '1.2'
+  gem 'rack-protection', '1.5.2'
 
   # Process management
 
-  gem 'foreman', '0.62'
+  gem 'foreman', '0.63.0'
 
   # Redirects
 
