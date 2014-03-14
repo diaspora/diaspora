@@ -224,6 +224,7 @@ GEM
       rack (>= 1.2.1)
       rake
     jasmine-core (2.0.0)
+    jasmine-jquery-rails (2.0.2)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -506,6 +507,7 @@ DEPENDENCIES
   http_accept_language (= 1.0.2)
   i18n-inflector-rails (= 1.0.7)
   jasmine (= 2.0.0)
+  jasmine-jquery-rails (= 2.0.2)
   jquery-rails (= 3.0.4)
   json (= 1.8.1)
   markerb (= 1.0.2)

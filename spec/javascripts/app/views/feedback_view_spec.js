@@ -41,7 +41,7 @@ describe("app.views.Feedback", function(){
 
       context("when the user likes the post", function(){
         it("the like action should be 'Unlike'", function(){
-          spyOn(this.post.interactions, "userLike").andReturn(factory.like());
+          spyOn(this.post.interactions, "userLike").and.returnValue(factory.like());
           this.view.render()
           expect(this.link().text()).toContain(Diaspora.I18n.t('stream.unlike'))
         })
@@ -137,8 +137,8 @@ describe("app.views.Feedback", function(){
     })
 
     it("reshares the model", function(){
-      spyOn(window, "confirm").andReturn(true);
-      spyOn(this.view.model.reshare(), "save").andReturn(new $.Deferred)
+      spyOn(window, "confirm").and.returnValue(true);
+      spyOn(this.view.model.reshare(), "save").and.returnValue(new $.Deferred)
       this.view.$("a.reshare").first().click();
       expect(this.view.model.reshare().save).toHaveBeenCalled();
     })
