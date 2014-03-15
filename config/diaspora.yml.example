@@ -201,6 +201,8 @@ configuration: ## Section
       ## Local post total count
       #post_counts: true
       #comment_counts: true
+      ## List of known Pods
+      #expose_known_pods: true
   
   ## General settings
   settings: ## Section

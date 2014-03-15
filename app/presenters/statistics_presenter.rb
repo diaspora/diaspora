@@ -17,9 +17,20 @@ class StatisticsPresenter
     if AppConfig.privacy.statistics.comment_counts?
       result['local_comments'] = self.local_comments
     end
+    if AppConfig.privacy.statistics.expose_known_pods?
+      result['known_pods'] = self.known_pods
+    end
     result
   end
-  
+
+  def known_pods
+    podlist = [];
+    Pod.all.each do |pod|
+      podlist << pod.host
+    end
+    return podlist
+  end
+
   def local_posts
     Post.where(:type => "StatusMessage").joins(:author).where("owner_id IS NOT null").count
   end
