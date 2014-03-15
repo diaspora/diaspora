@@ -133,8 +133,11 @@ module User::Querying
     ::EvilQuery::ShareablesFromPerson.new(self, Post, person).make_relation!
   end
 
-  def photos_from(person)
+  def photos_from(person, opts={})
+    opts = prep_opts(Photo, opts)
     ::EvilQuery::ShareablesFromPerson.new(self, Photo, person).make_relation!
+      .by_max_time(opts[:max_time])
+      .limit(opts[:limit])
   end
 
   protected

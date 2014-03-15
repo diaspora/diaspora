@@ -101,6 +101,14 @@ describe PhotosController do
       response.headers['Content-Type'].should match 'application/json.*'
       save_fixture(response.body, "photos_json")
     end
+    
+    it 'displays by date of creation' do
+      max_time = bob.photos.first.created_at - 1.day
+      get :index, person_id: bob.person.guid.to_s, 
+                  max_time: max_time.to_i
+
+      assigns[:posts].should be_empty
+    end
   end
 
   describe '#edit' do
