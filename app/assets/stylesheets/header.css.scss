@@ -165,7 +165,7 @@ body > header {
 
         &:hover { background-color: $highlight-white; }
 
-        .avatar {
+        > .avatar {
           height: 30px;
           width: 30px;
           float: left;
