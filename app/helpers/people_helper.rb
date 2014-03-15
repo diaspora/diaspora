@@ -9,21 +9,12 @@ module PeopleHelper
     if search_query.blank?
       content_tag(:h2, t('people.index.no_results'))
     else
-      content_tag(:h2, :id => 'search_title') do
-        t('people.index.results_for').html_safe + ' ' +
-        content_tag(:span, search_query, :class => 'term')
+      content_tag(:h2, id: 'search_title') do
+        t('people.index.results_for', search_term: content_tag(:span, search_query, class: 'term')).html_safe + looking_for_tag_link
       end
     end
   end
-
-  def search_or_index
-    if search_query
-      I18n.t 'people.helper.results_for',:params => search_query
-    else
-      I18n.t "people.helper.people_on_pod_are_aware_of"
-    end
-  end
-
+  
   def birthday_format(bday)
     if bday.year == 1000
       I18n.l bday, :format => I18n.t('date.formats.birthday')

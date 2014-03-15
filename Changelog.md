@@ -13,6 +13,7 @@
 * Change jQuery CDN to jquery.com from googleapis.com [#4765](https://github.com/diaspora/diaspora/pull/4765)
 * Update to jQuery 10
 * Port publisher and bookmarklet to Bootstrap [#4678](https://github.com/diaspora/diaspora/pull/4678)
+* Improve search page, add better indications [#4794](https://github.com/diaspora/diaspora/pull/4794)
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
