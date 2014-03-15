@@ -11,7 +11,7 @@ header {
 }
 
 #main_nav {
-  width: 100%;
+  width: 100%;  
 
   #header_title {
     display: inline-block;
@@ -163,7 +163,7 @@ header {
 }
 
 /* This class is added when the user open the drawer */
-#app.draw {
+#app.draw > * {
           transform: translateX(-80%);
        -o-transform: translateX(-80%);
       -ms-transform: translateX(-80%);
