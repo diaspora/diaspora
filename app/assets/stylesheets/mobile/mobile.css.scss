@@ -330,19 +330,6 @@ h3 {
   float: right;
 }
 
-footer {
-  text-align: center;
-  a,
-  a:visited {
-    color: $text-grey;
-    margin: 10px;
-  }
-  padding: {
-    top: 20px;
-    bottom: 20px;
-  }
-}
-
 .bottom_bar {
   @include border-radius(0, 0, 5px, 5px);
   z-index: 3;

@@ -109,9 +109,6 @@
             = t('streams.activity.title')
         = yield
 
-      - if user_signed_in?
-        = render :partial =>'shared/footer'
-
     / javascripts at the bottom
     = jquery_include_tag
     = javascript_include_tag :mobile
