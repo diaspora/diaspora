@@ -24,7 +24,6 @@
 * Fixed Atom Feed Error if reshared Post is deleted [#4638] (https://github.com/diaspora/diaspora/issues/4638)
 * Show hovercards in the notification drop-down for users on the same pod [#4843](https://github.com/diaspora/diaspora/pull/4843)
 * The photo stream no longer repeats after the last photo [#4726](https://github.com/diaspora/diaspora/issues/4726)
-* Stop parsing hashtags inside markdown links [#3692](https://github.com/diaspora/diaspora/issues/3692)
 * Fix hovercards in the notificaitons dropdown [#4693](https://github.com/diaspora/diaspora/issues/4693)
 
 ## Features
