@@ -238,6 +238,13 @@ describe("app.helpers.textFormatter", function(){
 
         expect(formattedText).toContain("/tags/parties")
       })
+
+      it("doesn't create tag if the text is a link", function(){
+        var link = $('<a/>', { href: 'http://me.co' }).html('#me')[0].outerHTML;
+        var result = this.formatter.hashtagify(link);
+
+        expect(result).toEqual(link);
+      })
     })
   })
 
