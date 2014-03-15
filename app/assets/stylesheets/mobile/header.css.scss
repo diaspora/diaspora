@@ -69,8 +69,9 @@ header {
      -moz-box-shadow: -2px 0px 2px 1px #333;
   -webkit-box-shadow: -2px 0px 2px 1px #333;
 
-  header {    
-    width: 80%;
+  header {
+    left: 100%;
+    right: -80%;
     
     #global_search {
       margin-left: 10px;
