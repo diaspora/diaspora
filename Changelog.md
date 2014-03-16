@@ -25,6 +25,7 @@
 * Show hovercards in the notification drop-down for users on the same pod [#4843](https://github.com/diaspora/diaspora/pull/4843)
 * The photo stream no longer repeats after the last photo [#4726](https://github.com/diaspora/diaspora/issues/4726)
 * Fix hovercards in the notificaitons dropdown [#4693](https://github.com/diaspora/diaspora/issues/4693)
+* Do not parse hashtags inside Markdown links [#3692](https://github.com/diaspora/diaspora/issues/3692)
 
 ## Features
 * You can report a single post by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517)
