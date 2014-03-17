@@ -68,6 +68,10 @@ When /^I press the aspect dropdown$/ do
   find('.dropdown .button').click
 end
 
+Then /^the aspect dropdown should be visible$/ do
+  find(:css, '.aspect_membership.dropdown.active').should be_visible
+end
+
 And /^I toggle the aspect "([^"]*)"$/ do |aspect_name|
   aspect = @me.aspects.where(:name => aspect_name).first
   find(".dropdown li[data-aspect_id='#{aspect.id}']").click
@@ -280,4 +284,9 @@ end
 
 Then(/^I should have a validation error on "(.*?)"$/) do |field_list|
   check_fields_validation_error field_list
+end
+
+And /^I active the first hovercard after loading the notifications page$/ do
+  page.should have_css '.notifications .hovercardable'
+  first('.notifications .hovercardable').hover
 end
