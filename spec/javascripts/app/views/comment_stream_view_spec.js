@@ -98,7 +98,10 @@ describe("app.views.CommentStream", function(){
 
       this.view.expandComments();
 
-      mostRecentAjaxRequest().response({ comments : [] });
+      mostRecentAjaxRequest().response({ 
+        status: 200,
+        responseText: JSON.stringify([factory.comment()])
+      });
 
       expect(this.view.$("textarea").val()).toEqual("great post!");
     });
