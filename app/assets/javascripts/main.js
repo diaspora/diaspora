@@ -22,6 +22,8 @@
 //= require fileuploader-custom
 //= require handlebars-1.0.0.beta.6
 //= require markdown
+//= require emojify
+//= require diaspora-emojify
 //= require punycode
 //= require parse_url
 //= require clear-form

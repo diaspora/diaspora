@@ -8,11 +8,12 @@ $(function() {
   //make it so I take text and mentions rather than the modelapp.helpers.textFormatter(
   var textFormatter = function textFormatter(text, model) {
     var mentions = model.get("mentioned_people");
-
-    return textFormatter.mentionify(
-      textFormatter.hashtagify(
-        textFormatter.markdownify(text)
-        ), mentions
+    return textFormatter.emojify(
+      textFormatter.mentionify(
+        textFormatter.hashtagify(
+          textFormatter.markdownify(text)
+          ), mentions
+        )
       )
   };
 
@@ -130,6 +131,11 @@ $(function() {
 
       return personText
     })
+  }
+
+  textFormatter.emojify = function diasporaEmojify(text){
+    //Uses the Emojify library from https://github.com/hassankhan/emojify.js
+    return emojify.replace(text);
   }
 
   app.helpers.textFormatter = textFormatter;
