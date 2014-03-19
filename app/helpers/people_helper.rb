@@ -39,7 +39,8 @@ module PeopleHelper
     if opts[:to] == :photos
       link_to person_image_tag(person, opts[:size]), person_photos_path(person)
     else
-      "<a #{person_href(person)} class='#{opts[:class]}' #{ ("target=" + opts[:target]) if opts[:target]}>
+      remote_or_hovercard_link = Rails.application.routes.url_helpers.person_path(person).html_safe
+      "<a href='#{remote_or_hovercard_link}' class='#{opts[:class]}' #{ ("target=" + opts[:target]) if opts[:target]}>
       #{person_image_tag(person, opts[:size])}
       </a>".html_safe
     end

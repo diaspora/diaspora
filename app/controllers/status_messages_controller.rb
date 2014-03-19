@@ -7,7 +7,7 @@ class StatusMessagesController < ApplicationController
 
   before_filter :remove_getting_started, :only => [:create]
 
-  before_filter -> { @css_framework = :bootstrap }, :only => [:bookmarklet]
+  use_bootstrap_for :bookmarklet
 
   respond_to :html,
              :mobile,
