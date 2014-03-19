@@ -91,4 +91,15 @@ private
   def self.suppress_notification?(recipient, post)
     post.is_a?(Post) && recipient.is_shareable_hidden?(post)
   end
+
+  def self.types
+    {
+      "also_commented" => "Notifications::AlsoCommented",
+      "comment_on_post" => "Notifications::CommentOnPost",
+      "liked" => "Notifications::Liked",
+      "mentioned" => "Notifications::Mentioned",
+      "reshared" => "Notifications::Reshared",
+      "started_sharing" => "Notifications::StartedSharing"
+    }
+  end
 end

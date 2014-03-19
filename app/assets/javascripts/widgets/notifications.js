@@ -12,8 +12,8 @@
       $.extend(self, {
         badge: badge,
         count: parseInt(badge.html()) || 0,
-        notificationArea: null,
-        notificationMenu: notificationMenu
+        notificationMenu: notificationMenu,
+        notificationPage: null
       });
 
       $("a.more").click( function(evt) {
@@ -31,11 +31,6 @@
             self.notificationMenu.find('.unread').each(function(index) {
               self.setUpRead( $(this) );
             });
-            if ( self.notificationArea ) {
-              self.notificationArea.find('.unread').each(function(index) {
-                self.setUpRead( $(this) );
-              });
-            }
             self.resetCount();
           }
         });
@@ -43,15 +38,8 @@
         return false;
       });
     });
-    this.setUpNotificationPage = function( contentArea ) {
-      self.notificationArea = contentArea;
-      contentArea.find(".unread,.read").each(function(index) {
-        if ( $(this).hasClass("unread") ) {
-          self.setUpUnread( $(this) );
-        } else {
-          self.setUpRead( $(this) );
-        }
-      });
+    this.setUpNotificationPage = function( page ) {
+      self.notificationPage = page;
     }
     this.unreadClick = function() {
       $.ajax({
@@ -106,16 +94,9 @@
           }
         }
       });
-      if ( self.notificationArea ) {
-        self.notificationArea.find('.read,.unread').each(function(index) {
-          if ( $(this).data("guid") == itemID ) {
-            if ( isUnread ) {
-              self.setUpUnread( $(this) )
-            } else {
-              self.setUpRead( $(this) )
-            }
-          }
-        });
+      if ( self.notificationPage != null ) {
+        var type = $('.notification_element[data-guid=' + data["guid"] + ']').data('type');
+        self.notificationPage.updateView(data["guid"], type, isUnread);
       }
     };
     this.showNotification = function(notification) {
@@ -134,18 +115,12 @@
     this.changeNotificationCount = function(change) {
       self.count = Math.max( self.count + change, 0 )
       self.badge.text(self.count);
-      if ( self.notificationArea )
-        self.notificationArea.find( ".notification_count" ).text(self.count);
 
       if(self.count === 0) {
         self.badge.addClass("hidden");
-        if ( self.notificationArea )
-          self.notificationArea.find( ".notification_count" ).removeClass("unread");
       }
       else if(self.count === 1) {
         self.badge.removeClass("hidden");
-        if ( self.notificationArea )
-          self.notificationArea.find( ".notification_count" ).addClass("unread");
       }
     };
     this.resetCount = function(change) {

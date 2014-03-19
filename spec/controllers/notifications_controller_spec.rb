@@ -120,7 +120,21 @@ describe NotificationsController do
 
         Nokogiri(response.body).css('.aspect_membership').should_not be_empty
       end
-      
+    end
+
+    describe "filter notifications" do
+      it "supports filtering by notification type" do
+        eve.share_with(alice.person, eve.aspects.first)
+        get :index, "type" => "started_sharing"
+        assigns[:notifications].count.should == 1
+      end
+
+      it "supports filtering by read/unread" do
+        get :read_all
+        2.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
+        get :index, "show" => "unread"
+        assigns[:notifications].count.should == 2
+      end
     end
   end
 end

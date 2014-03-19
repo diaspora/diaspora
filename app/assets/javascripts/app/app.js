@@ -99,7 +99,7 @@ var app = {
 
   setupGlobalViews: function() {
     app.hovercard = new app.views.Hovercard();
-    app.aspectMemberships = new app.views.AspectMembership();
+    app.aspectMembershipsBlueprint = new app.views.AspectMembershipBlueprint();
     app.sidebar = new app.views.Sidebar();
   },
 

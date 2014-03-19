@@ -49,21 +49,24 @@
   };
 
   h4 {
+    margin-top: 0px;
     margin-bottom: 0px;
     padding-bottom: 0px;
-  }
-
-  a {
-    color: $blue;
-    font-weight: bold !important;
+    font-size: 16px;
+    a {
+      color: $blue;
+      font-weight: bold !important;
+    }
   }
 
   p {
     color: $text-grey;
     padding-top: 0px;
     margin-top: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
+
+  .btn-group.aspect_membership_dropdown { margin: 0 !important; }
 
   .hovercard_footer {
     position: absolute;

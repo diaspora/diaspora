@@ -98,6 +98,10 @@ en:
     conversation:
       participants: "Participants"
 
+    notifications:
+      mark_read: "Mark read"
+      mark_unread: "Mark unread"
+
     stream:
       hide: "Hide"
       public: "Public"

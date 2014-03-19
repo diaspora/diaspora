@@ -1,0 +1,13 @@
+.media.stream_element{:data=>{:guid => note.id, :type => (Notification.types.key(note.type) || '') }, :class => (note.unread ? 'unread' : 'read')}
+  %button.btn.btn-link.btn-small.unread-toggle
+    = note.unread ? t('notifications.index.mark_read') : t('notifications.index.mark_unread')
+  - if note.type == "Notifications::StartedSharing" && contact = current_user.contact_for(note.effective_target)
+    .pull-right
+      = aspect_membership_dropdown(contact, note.effective_target, 'left')
+
+  .media-object.pull-left
+    = person_image_link note.actors.first, :size => :thumb_small, :class => 'hovercardable'
+  .media-body
+    = notification_message_for(note)
+    %div
+      = timeago(note.created_at)
