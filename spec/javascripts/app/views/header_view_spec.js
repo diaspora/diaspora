@@ -82,20 +82,23 @@ describe("app.views.Header", function() {
     });
 
     describe("focus", function() {
-      it("adds the class 'active' when the user focuses the text field", function() {
+      beforeEach(function(done){
         input.trigger('focusin');
-        waitsFor(function() {
-          return input.is('.active');
-        });
-        runs(function() {
-          expect(input).toHaveClass("active");
-        });
+        done();
+      });
+
+      it("adds the class 'active' when the user focuses the text field", function() {
+        expect(input).toHaveClass("active");
       });
     });
 
     describe("blur", function() {
-      it("removes the class 'active' when the user blurs the text field", function() {
+      beforeEach(function(done) {
         input.trigger('focusin').trigger('focusout');
+        done();
+      });
+
+      it("removes the class 'active' when the user blurs the text field", function() {
         expect(input).not.toHaveClass("active");
       });
     });
