@@ -8,6 +8,7 @@
         color: $text-dark-grey;
         margin-right: 5px;
       }
+      .badge.badge-default { display: none; }
     }
     li.active > a {
       background-color: $background-grey;
@@ -27,11 +28,13 @@
     }
 
     .day_group {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed $border-grey;
+      &:last-child { border-bottom: none; }
       .date {
         text-align: center;
         color: $light-grey;
-        margin-bottom: 5px;
         .day {
           font-size: 40px;
           line-height: 40px;

@@ -68,14 +68,14 @@ app.views.Notifications = Backbone.View.extend({
     type_notes.text( function(i,text) { return parseInt(text) + change });
     header_badge.text( function(i,text) { return parseInt(text) + change });
     if(all_notes.text()>0){
-      all_notes.addClass('badge-important');
+      all_notes.addClass('badge-important').removeClass('badge-default');
     } else {
-      all_notes.removeClass('badge-important');
+      all_notes.removeClass('badge-important').addClass('badge-default');
     }
     if(type_notes.text()>0){
-      type_notes.addClass('badge-important');
+      type_notes.addClass('badge-important').removeClass('badge-default');
     } else {
-      type_notes.removeClass('badge-important');
+      type_notes.removeClass('badge-important').addClass('badge-default');
     }
     if(header_badge.text()>0){
       header_badge.removeClass('hidden');
