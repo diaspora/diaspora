@@ -6,13 +6,13 @@
       %ul.nav.nav-tabs.nav-stacked
         %li{ :class => ('active' unless params[:type] && @grouped_unread_notification_counts.has_key?(params[:type])) }
           %a{ :href => '/notifications' + (params[:show] == 'unread' ? '?show=unread' : '') }
-            %span.pull-right.badge{:class => ('badge-important' if @unread_notification_count > 0)}
+            %span.pull-right.badge{:class => (@unread_notification_count > 0 ? 'badge-important' : 'badge-default')}
               = @unread_notification_count
             = t('.all_notifications')
         - @grouped_unread_notification_counts.each do |key, count|
           %li{ :class => ('active' if params[:type] == key), :data => { :type => key } }
             %a{ :href => '/notifications?type=' + key + (params[:show] == 'unread' ? '&show=unread' : '') }
-              %span.pull-right.badge{ :class => ('badge-important' if count > 0) }
+              %span.pull-right.badge{ :class => (count > 0 ? 'badge-important' :'badge-default') }
                 = count
               - case key
                 - when 'also_commented', 'comment_on_post'
