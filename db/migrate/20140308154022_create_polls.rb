@@ -4,6 +4,7 @@ class CreatePolls < ActiveRecord::Migration
       t.string :question, :null => false
       t.belongs_to :status_message, :null => false
       t.boolean :status
+      t.string :guid
       t.timestamps
     end
     add_index :polls, :status_message_id
@@ -11,6 +12,7 @@ class CreatePolls < ActiveRecord::Migration
     create_table :poll_answers do |t|
       t.string :answer, :null => false
       t.belongs_to :poll, :null => false
+      t.string :guid
     end
     add_index :poll_answers, :poll_id
 
@@ -18,7 +20,9 @@ class CreatePolls < ActiveRecord::Migration
       t.belongs_to :poll_answer, :null => false
       t.belongs_to :author, :null => false
       t.belongs_to :poll, :null => false
-      t.datetime :time
+      t.string :guid
+      t.text :author_signature
+      t.text :parent_author_signature
 
       t.timestamps
     end

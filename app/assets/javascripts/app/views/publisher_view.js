@@ -183,8 +183,8 @@ app.views.Publisher = Backbone.View.extend({
 
   addPollAnswer: function(){
     var clone = this.el_poll_answer.clone();
-    var count_of_answers = this.el_poll_answer.size()+1;
-    clone.attr("name", "poll_answer_"+count_of_answers)
+    var count_of_answers = $('.poll_answer_input').size()+1;
+    clone.children('.poll_answer_input').attr("name", "poll_answer_"+count_of_answers);
     this.el_poll_answer.last().after(clone);
   },
 

@@ -322,12 +322,10 @@
 
 #poll_creator_wrapper {
   display:none;
+  border: 1px solid $border-dark-grey;
+  padding:5px;
 }
 
 .remove_poll_answer {
-  display:inline-block;
-}
-
-.poll_answer_input {
-  display:inline-block !important;
+  display:inline;
 }

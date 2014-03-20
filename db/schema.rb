@@ -286,17 +286,20 @@ ActiveRecord::Schema.define(:version => 20140308154022) do
   create_table "poll_answers", :force => true do |t|
     t.string  "answer",  :null => false
     t.integer "poll_id", :null => false
+    t.string  "guid"
   end
 
   add_index "poll_answers", ["poll_id"], :name => "index_poll_answers_on_poll_id"
 
   create_table "poll_participations", :force => true do |t|
-    t.integer  "poll_answer_id", :null => false
-    t.integer  "author_id",      :null => false
-    t.integer  "poll_id",        :null => false
-    t.datetime "time"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "poll_answer_id",          :null => false
+    t.integer  "author_id",               :null => false
+    t.integer  "poll_id",                 :null => false
+    t.string   "guid"
+    t.text     "author_signature"
+    t.text     "parent_author_signature"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   add_index "poll_participations", ["poll_id"], :name => "index_poll_participations_on_poll_id"
@@ -305,6 +308,7 @@ ActiveRecord::Schema.define(:version => 20140308154022) do
     t.string   "question",          :null => false
     t.integer  "status_message_id", :null => false
     t.boolean  "status"
+    t.string   "guid"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end

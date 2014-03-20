@@ -13,6 +13,11 @@ module User::SocialActions
     Like::Generator.new(self, target).create!(opts)
   end
 
+  def participate_in_poll!(target, answer, opts={})
+    find_or_create_participation!(target)
+    PollParticipation::Generator.new(self, target, answer).create!(opts)
+  end
+
   def reshare!(target, opts={})
     find_or_create_participation!(target)
     reshare = build_post(:reshare, :root_guid => target.guid)

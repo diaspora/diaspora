@@ -83,4 +83,14 @@ describe User::SocialActions do
       @status.reload.likes.should == likes
     end
   end
+
+  describe 'User#participate_in_poll!' do
+    before do
+      @bobs_aspect = bob.aspects.where(:name => "generic").first
+      poll = Poll.new(:poll_answers => [PollAnswer.new(:answer => "1"), PollAnswer.new(:answer => "2")])
+      @status = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id, :poll => poll)
+    end
+    it "sets the poll answer id" do
+      alice.participate_in_poll!(@status, 1).poll_answer.answer.should == "1"
+    end
 end
