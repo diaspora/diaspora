@@ -11,9 +11,9 @@ describe("Diaspora.Widgets.Notifications", function() {
 
     notifications = Diaspora.BaseWidget.instantiate("Notifications", this.view.$("#notification_badge .badge_count"), this.view.$(".notifications"));
 
-    changeNotificationCountSpy = spyOn(notifications, "changeNotificationCount").andCallThrough();
-    incrementCountSpy = spyOn(notifications, "incrementCount").andCallThrough();
-    decrementCountSpy = spyOn(notifications, "decrementCount").andCallThrough();
+    changeNotificationCountSpy = spyOn(notifications, "changeNotificationCount").and.callThrough();
+    incrementCountSpy = spyOn(notifications, "incrementCount").and.callThrough();
+    decrementCountSpy = spyOn(notifications, "decrementCount").and.callThrough();
   });
 
   describe("clickSuccess", function(){

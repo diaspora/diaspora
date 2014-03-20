@@ -10,7 +10,7 @@ describe("Contact List", function() {
         spyOn($,'ajax');
         List.disconnectUser(id);
         expect($.ajax).toHaveBeenCalled();
-        var option_hash = $.ajax.mostRecentCall.args[0];
+        var option_hash = $.ajax.calls.mostRecent().args[0];
         expect(option_hash.url).toEqual("/contacts/" + id);
         expect(option_hash.type).toEqual("DELETE");
         expect(option_hash.success).toBeDefined();

@@ -66,7 +66,7 @@ describe("app.views.Base", function(){
         spyOn($.fn, "timeago")
         this.view.render()
         expect($.fn.timeago).toHaveBeenCalled()
-        expect($.fn.timeago.mostRecentCall.object.selector).toBe("time")
+        expect($.fn.timeago.calls.mostRecent().object.selector).toBe("time")
       })
 
 
@@ -75,7 +75,7 @@ describe("app.views.Base", function(){
 
         spyOn($.fn, "tooltip")
         this.view.render()
-        expect($.fn.tooltip.mostRecentCall.object.selector).toBe(".christopher_columbus, .barrack_obama, .block_user")
+        expect($.fn.tooltip.calls.mostRecent().object.selector).toBe(".christopher_columbus, .barrack_obama, .block_user")
       })
     })
   })

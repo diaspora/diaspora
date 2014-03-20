@@ -156,12 +156,12 @@ describe("app.views.StreamPost", function(){
       })
 
       it("destroys the view when they delete a their post from the show page", function(){
-        spyOn(window, "confirm").andReturn(true);
+        spyOn(window, "confirm").and.returnValue(true);
 
         this.view.$(".remove_post").click();
 
         expect(window.confirm).toHaveBeenCalled();
-        expect(this.view).not.toExist();
+        expect(this.view.el).not.toBeInDOM();
       })
     })
 

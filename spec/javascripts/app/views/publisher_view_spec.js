@@ -166,7 +166,7 @@ describe("app.views.Publisher", function() {
       it("should submit the form when ctrl+enter is pressed", function(){
         this.view.render();
         var form = this.view.$("form")
-        var submitCallback = jasmine.createSpy().andReturn(false);
+        var submitCallback = jasmine.createSpy().and.returnValue(false);
         form.submit(submitCallback);
 
         var e = $.Event("keydown", { keyCode: 13 });
@@ -499,7 +499,7 @@ describe("app.views.Publisher", function() {
           '</li>'
         );
 
-        spyOn(jQuery, 'ajax').andCallFake(function(opts) { opts.success(); });
+        spyOn(jQuery, 'ajax').and.callFake(function(opts) { opts.success(); });
         this.view.el_photozone.find('.x').click();
       });
 

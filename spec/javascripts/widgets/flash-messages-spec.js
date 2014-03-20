@@ -14,7 +14,7 @@ describe("Diaspora", function() {
         });
 
         it("is called when the DOM is ready", function() {
-          spyOn(flashMessages, "animateMessages").andCallThrough();
+          spyOn(flashMessages, "animateMessages").and.callThrough();
           flashMessages.publish("widget/ready");
           expect(flashMessages.animateMessages).toHaveBeenCalled();
         });

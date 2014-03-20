@@ -7,13 +7,13 @@ describe("app.views.TagFollowingAction", function(){
 
   describe("render", function(){
     it("shows the output of followString", function(){
-      spyOn(this.view, "tag_is_followed").andReturn(false)
-      spyOn(this.view, "followString").andReturn("a_follow_string")
+      spyOn(this.view, "tag_is_followed").and.returnValue(false)
+      spyOn(this.view, "followString").and.returnValue("a_follow_string")
       expect(this.view.render().$('input').val()).toMatch(/^a_follow_string$/)
     })
 
     it("should have the extra classes if the tag is followed", function(){
-      spyOn(this.view, "tag_is_followed").andReturn(true)
+      spyOn(this.view, "tag_is_followed").and.returnValue(true)
       expect(this.view.render().$('input').hasClass("red_on_hover")).toBe(true)
       expect(this.view.render().$('input').hasClass("in_aspects")).toBe(true)
     })
@@ -26,7 +26,7 @@ describe("app.views.TagFollowingAction", function(){
       this.view.model.set("id", 3);
 
       expect(this.view.tag_is_followed()).toBe(true);
-      spyOn(this.view.model, "destroy").andCallFake(_.bind(function(){
+      spyOn(this.view.model, "destroy").and.callFake(_.bind(function(){
         // model.destroy leads to collection.remove, which is bound to getTagFollowing
         this.view.getTagFollowing();
       }, this) )
@@ -39,7 +39,7 @@ describe("app.views.TagFollowingAction", function(){
 
     it("toggles the tagFollowed from unfollowed to followed", function(){
       expect(this.view.tag_is_followed()).toBe(false);
-      spyOn(app.tagFollowings, "create").andCallFake(function(model){
+      spyOn(app.tagFollowings, "create").and.callFake(function(model){
         // 'save' the model by giving it an id
         model.set("id", 3)
       })
