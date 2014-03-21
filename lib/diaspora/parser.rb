@@ -5,7 +5,6 @@
 module Diaspora
   module Parser
     def self.from_xml(xml)
-      puts xml
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
       return unless body = doc.xpath("/XML/post").children.first
       class_name = body.name.gsub('-', '/')

@@ -13,6 +13,7 @@ class CreatePolls < ActiveRecord::Migration
       t.string :answer, :null => false
       t.belongs_to :poll, :null => false
       t.string :guid
+      t.integer :vote_count, :default => 0
     end
     add_index :poll_answers, :poll_id
 

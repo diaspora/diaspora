@@ -9,6 +9,13 @@ class PollParticipation < ActiveRecord::Base
   belongs_to :author, :class_name => 'Person', :foreign_key => :author_id
   xml_attr :diaspora_handle
   xml_attr :poll_answer_guid
+  validate :not_already_participated
+
+  after_commit :update_vote_counter, :on => :create
+
+  def update_vote_counter
+    self.poll_answer.update_vote_counter
+  end
 
   def parent_class
     Poll
@@ -37,6 +44,18 @@ class PollParticipation < ActiveRecord::Base
   def diaspora_handle= nh
     self.author = Webfinger.new(nh).fetch
   end
+
+  def not_already_participated
+    if self.poll == nil
+     return
+    end
+
+    existing = PollParticipation.where(author_id: self.author.id, poll_id: self.poll.id)
+    if existing.first != self and existing.count != 0
+      self.errors.add(:poll, I18n.t("errors.models.poll_participations.attributes.poll.already_participated"))
+    end
+  end
+
 
   class Generator < Federated::Generator
     def self.federated_class

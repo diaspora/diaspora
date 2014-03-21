@@ -12,6 +12,23 @@ describe PollParticipation do
     @status.poll = @poll
   end
 
+  describe 'validation' do
+    it 'does forbid multiple participations in the same poll' do
+      expect {
+        2.times do |run|
+          bob.participate_in_poll!(@status, @poll.poll_answers.first)
+        end
+      }.to raise_error
+    end
+
+    it 'does allow a one time participation in a poll' do
+      expect {
+        bob.participate_in_poll!(@status, @poll.poll_answers.first)
+      }.to_not raise_error
+    end
+
+  end
+
 	describe 'xml' do
     before do
       @poll_participant = FactoryGirl.create(:user)
@@ -61,18 +78,18 @@ describe PollParticipation do
 	  before do
 	    @local_luke, @local_leia, @remote_raphael = set_up_friends
 	    @remote_parent = FactoryGirl.build(:status_message_with_poll, :author => @remote_raphael)
-      
+
 	    @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
       @poll2 = Poll.new(:question => 'Who is now in charge?')
       @poll2.poll_answers.build(:answer => "a")
       @poll2.poll_answers.build(:answer => "b")
       @local_parent.poll = @poll2
 
-	    @object_by_parent_author = @local_luke.participate_in_poll!(@local_parent, @poll.poll_answers.first)
-	    @object_by_recipient = @local_leia.participate_in_poll!(@local_parent, @poll.poll_answers.first)
+	    @object_by_parent_author = @local_luke.participate_in_poll!(@local_parent, @poll2.poll_answers.first)
+	    @object_by_recipient = @local_leia.participate_in_poll!(@local_parent, @poll2.poll_answers.first)
 	    @dup_object_by_parent_author = @object_by_parent_author.dup
 
-	    @object_on_remote_parent = @local_luke.participate_in_poll!(@remote_parent, @poll.poll_answers.first)
+	    @object_on_remote_parent = @local_luke.participate_in_poll!(@remote_parent, @remote_parent.poll.poll_answers.first)
 	  end
 
   let(:build_object) { PollParticipation::Generator.new(alice, @status, @poll.poll_answers.first).build }

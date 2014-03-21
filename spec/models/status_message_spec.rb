@@ -353,14 +353,14 @@ STR
 
     context 'with a poll' do
       before do
-        @message.poll = Poll.new(coordinates: "1, 2").tap(&:save)
+        @message.poll = FactoryGirl.create(:poll, :status_message => @message)
         @xml = @message.to_xml.to_s
       end
 
-      it 'serializes the location' do
-        @xml.should include "location"
-        @xml.should include "lat"
-        @xml.should include "lng"
+      it 'serializes the poll' do
+        @xml.should include "poll"
+        @xml.should include "question"
+        @xml.should include "poll_answer"
       end
 
       describe ".from_xml" do
@@ -368,8 +368,12 @@ STR
           @marshalled = StatusMessage.from_xml(@xml)
         end
 
-        it 'marshals the location' do
-          @marshalled.location.should be_present
+        it 'marshals the poll' do
+          @marshalled.poll.should be_present
+        end
+
+        it 'marshals the poll answers' do
+          @marshalled.poll.poll_answers.size.should == 2
         end
       end
     end

@@ -284,9 +284,10 @@ ActiveRecord::Schema.define(:version => 20140308154022) do
   end
 
   create_table "poll_answers", :force => true do |t|
-    t.string  "answer",  :null => false
-    t.integer "poll_id", :null => false
+    t.string  "answer",                    :null => false
+    t.integer "poll_id",                   :null => false
     t.string  "guid"
+    t.integer "vote_count", :default => 0
   end
 
   add_index "poll_answers", ["poll_id"], :name => "index_poll_answers_on_poll_id"

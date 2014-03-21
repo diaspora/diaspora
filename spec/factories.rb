@@ -116,7 +116,8 @@ FactoryGirl.define do
   factory(:poll) do
     sequence(:question) { |n| "What do you think about #{n} ninjas?" }
     after(:build) do |p|
-      FactoryGirl.create(:poll_answer, :poll => p)
+      p.poll_answers << FactoryGirl.build(:poll_answer)
+      p.poll_answers << FactoryGirl.build(:poll_answer)
     end
   end
 
