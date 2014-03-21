@@ -29,7 +29,7 @@ describe PollParticipation do
 
   end
 
-	describe 'xml' do
+  describe 'xml' do
     before do
       @poll_participant = FactoryGirl.create(:user)
       @poll_participant_aspect = @poll_participant.aspects.create(:name => "bruisers")
@@ -75,22 +75,22 @@ describe PollParticipation do
   end
 
   describe 'it is relayable' do
-	  before do
-	    @local_luke, @local_leia, @remote_raphael = set_up_friends
-	    @remote_parent = FactoryGirl.build(:status_message_with_poll, :author => @remote_raphael)
+    before do
+      @local_luke, @local_leia, @remote_raphael = set_up_friends
+      @remote_parent = FactoryGirl.build(:status_message_with_poll, :author => @remote_raphael)
 
-	    @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
+      @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
       @poll2 = Poll.new(:question => 'Who is now in charge?')
       @poll2.poll_answers.build(:answer => "a")
       @poll2.poll_answers.build(:answer => "b")
       @local_parent.poll = @poll2
 
-	    @object_by_parent_author = @local_luke.participate_in_poll!(@local_parent, @poll2.poll_answers.first)
-	    @object_by_recipient = @local_leia.participate_in_poll!(@local_parent, @poll2.poll_answers.first)
-	    @dup_object_by_parent_author = @object_by_parent_author.dup
+      @object_by_parent_author = @local_luke.participate_in_poll!(@local_parent, @poll2.poll_answers.first)
+      @object_by_recipient = @local_leia.participate_in_poll!(@local_parent, @poll2.poll_answers.first)
+      @dup_object_by_parent_author = @object_by_parent_author.dup
 
-	    @object_on_remote_parent = @local_luke.participate_in_poll!(@remote_parent, @remote_parent.poll.poll_answers.first)
-	  end
+      @object_on_remote_parent = @local_luke.participate_in_poll!(@remote_parent, @remote_parent.poll.poll_answers.first)
+    end
 
   let(:build_object) { PollParticipation::Generator.new(alice, @status, @poll.poll_answers.first).build }
   it_should_behave_like 'it is relayable'

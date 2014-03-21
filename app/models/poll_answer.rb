@@ -9,8 +9,8 @@ class PollAnswer < ActiveRecord::Base
   xml_attr :answer
 
   def update_vote_counter
-  	self.vote_count = self.vote_count + 1
-  	self.save!
+    self.vote_count = self.vote_count + 1
+    self.save!
   end
 
 end

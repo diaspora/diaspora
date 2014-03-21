@@ -15,7 +15,7 @@ class Poll < ActiveRecord::Base
   validate :enough_poll_answers
 
   def enough_poll_answers
-  	errors.add(:poll_answers, I18n.t("activerecord.errors.models.poll.attributes.poll_answers.not_enough_poll_answers")) if poll_answers.size < 2
+    errors.add(:poll_answers, I18n.t("activerecord.errors.models.poll.attributes.poll_answers.not_enough_poll_answers")) if poll_answers.size < 2
   end
 
 end

@@ -52,7 +52,7 @@ class PollParticipation < ActiveRecord::Base
 
     existing = PollParticipation.where(author_id: self.author.id, poll_id: self.poll.id)
     if existing.first != self and existing.count != 0
-      self.errors.add(:poll, I18n.t("errors.models.poll_participations.attributes.poll.already_participated"))
+      self.errors.add(:poll, I18n.t("activerecord.errors.models.poll_participations.attributes.poll.already_participated"))
     end
   end
 
