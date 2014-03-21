@@ -1221,6 +1221,7 @@ en:
       edit_account: "Edit account"
       receive_email_notifications: "Receive email notifications when:"
       started_sharing: "someone starts sharing with you"
+      someone_reported: "someone sent a report"
       mentioned: "you are mentioned in a post"
       liked: "someone likes your post"
       reshared: "someone reshares your post"

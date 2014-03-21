@@ -9,8 +9,11 @@ class ReportMailer < ActionMailer::Base
       :id => id
     }
     Role.admins.each do |role|
-      resource[:email] = User.find_by_id(role.person_id).email
-      format(resource).deliver
+      user = User.find_by_id(role.person_id)
+      if !user.user_preferences.exists?(:email_type => :someone_reported)
+        resource[:email] = user.email
+        format(resource).deliver
+      end
     end
   end
 

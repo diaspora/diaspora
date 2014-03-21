@@ -125,9 +125,20 @@
 
     = f.fields_for :email_preferences do |type|
       #email_prefs
+        - if current_user.admin?
+          %p.checkbox_select
+            = type.label :someone_reported, t('.someone_reported')
+            = type.check_box :someone_reported, {:checked =>  @email_prefs['someone_reported']}, false, true
+
+          %br
         %p.checkbox_select
           = type.label :started_sharing, t('.started_sharing')
           = type.check_box :started_sharing, {:checked =>  @email_prefs['started_sharing']}, false, true
+        %br
+
+        %p.checkbox_select
+          = type.label :also_commented, t('.also_commented')
+          = type.check_box :also_commented, {:checked =>  @email_prefs['also_commented']}, false, true
         %br
 
         %p.checkbox_select

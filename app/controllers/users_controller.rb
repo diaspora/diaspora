@@ -179,6 +179,7 @@ class UsersController < ApplicationController
       :remember_me,
       :getting_started,
       email_preferences: [
+        :someone_reported,
         :also_commented,
         :mentioned,
         :comment_on_post,
