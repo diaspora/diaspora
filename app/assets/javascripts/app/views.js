@@ -90,7 +90,13 @@ app.views.Base = Backbone.View.extend({
     var type = $(evt.currentTarget).data("type");
     
     report.fetch({
-      data: { id: id, type: type, text: msg },
+      data: {
+        report: {
+          post_id: id,
+          post_type: type,
+          text: msg
+        }
+      },
       type: 'POST',
       statusCode: {
         200: function(xhr) {

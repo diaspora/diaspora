@@ -4,8 +4,8 @@
 .span-24.last
   %h1
     = t('report.title')
-  %div#report
-    - @report.each do |r|
+  %div#reports
+    - @reports.each do |r|
       %div.content
         %span
           = report_content(r.post_id, r.post_type)
@@ -15,7 +15,7 @@
           = t('report.reason_label', text: r.text)
       %div.options
         %span
-          = link_to t('report.review_link'), report_path(r.post_id, :type => r.post_type), method: :put
+          = link_to t('report.review_link'), report_path(r.id, :type => r.post_type), method: :put
         %span
-          = link_to t('report.delete_link'), report_path(r.post_id, :type => r.post_type), method: :delete
+          = link_to t('report.delete_link'), report_path(r.id, :type => r.post_type), method: :delete
       %div.clear

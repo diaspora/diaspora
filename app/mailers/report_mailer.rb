@@ -2,14 +2,12 @@ class ReportMailer < ActionMailer::Base
   default :from => AppConfig.mail.sender_address
 
   def new_report(type, id)
-    url = AppConfig.pod_uri.to_s
-    url << report_index_path
-    resource = Hash[
+    resource = {
       :subject => I18n.t('notifier.report_email.subject', :type => type),
-      :url => url,
+      :url => report_index_url,
       :type => type,
       :id => id
-    ]
+    }
     Role.admins.each do |role|
       resource[:email] = User.find_by_id(role.person_id).email
       format(resource).deliver
