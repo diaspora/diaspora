@@ -6,6 +6,10 @@ describe PollParticipation do
   before do
     @alices_aspect = alice.aspects.first
     @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
+    @poll = Poll.new(:question => 'Who is in charge?')
+    @poll.poll_answers.build(:answer => "a")
+    @poll.poll_answers.build(:answer => "b")
+    @status.poll = @poll
   end
 
 	describe 'xml' do
@@ -53,26 +57,25 @@ describe PollParticipation do
     end
   end
 
-  # describe 'it is relayable' do
-	 #  before do
-  #     @poll = Poll.new
-  #     @poll_answer = PollAnswer.new(:answer => '1')
-  #     @poll_answer2 = PollAnswer.new(:answer => '1')
-  #     @poll.answers << [poll_answer, poll_answer2]
-  #     @status.poll = @poll
+  describe 'it is relayable' do
+	  before do
+	    @local_luke, @local_leia, @remote_raphael = set_up_friends
+	    @remote_parent = FactoryGirl.build(:status_message_with_poll, :author => @remote_raphael)
+      
+	    @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
+      @poll2 = Poll.new(:question => 'Who is now in charge?')
+      @poll2.poll_answers.build(:answer => "a")
+      @poll2.poll_answers.build(:answer => "b")
+      @local_parent.poll = @poll2
 
-	 #    @local_luke, @local_leia, @remote_raphael = set_up_friends
-	 #    @remote_parent = FactoryGirl.build(:status_message, :author => @remote_raphael)
-	 #    @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
+	    @object_by_parent_author = @local_luke.participate_in_poll!(@local_parent, @poll.poll_answers.first)
+	    @object_by_recipient = @local_leia.participate_in_poll!(@local_parent, @poll.poll_answers.first)
+	    @dup_object_by_parent_author = @object_by_parent_author.dup
 
-	 #    @object_by_parent_author = @local_luke.vote!(@local_parent, @poll_answer)
-	 #    @object_by_recipient = @local_leia.vote!(@local_parent, @poll_answer)
-	 #    @dup_object_by_parent_author = @object_by_parent_author.dup
+	    @object_on_remote_parent = @local_luke.participate_in_poll!(@remote_parent, @poll.poll_answers.first)
+	  end
 
-	 #    @object_on_remote_parent = @local_luke.comment!(@remote_parent, "Yeah, it was great")
-	 #  end
-
-  # let(:build_object) { alice.build_poll_participation(:poll => @poll, :poll_answer => @poll_answer) }
-  # it_should_behave_like 'it is relayable'
-  # end
+  let(:build_object) { PollParticipation::Generator.new(alice, @status, @poll.poll_answers.first).build }
+  it_should_behave_like 'it is relayable'
+  end
 end
