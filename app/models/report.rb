@@ -10,7 +10,7 @@ class Report < ActiveRecord::Base
   belongs_to :post
   belongs_to :comment
 
-  after_create :send_report_notification
+  after_commit :send_report_notification, :on => :create
 
   def entry_exists
     if Report.where(post_id: post_id, post_type: post_type).exists?(user_id: user_id)
@@ -50,9 +50,7 @@ class Report < ActiveRecord::Base
   end
 
   def mark_as_reviewed
-    if reports = Report.where(post_id: post_id, post_type: post_type)
-      reports.update_all(reviewed: true)
-    end
+    Report.where(post_id: post_id, post_type: post_type).update_all(reviewed: true)
   end
 
   def send_report_notification
