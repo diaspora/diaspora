@@ -737,6 +737,9 @@ en:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
     report_email:
+        type:
+          post: "post"
+          comment: "comment"
         subject: "A new %{type} was marked as offensive"
         body: |-
           Hello,

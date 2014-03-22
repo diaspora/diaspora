@@ -2,10 +2,11 @@ class ReportMailer < ActionMailer::Base
   default :from => AppConfig.mail.sender_address
 
   def new_report(type, id)
+    report_type = I18n.t('notifier.report_email.type.' + type)
     resource = {
-      :subject => I18n.t('notifier.report_email.subject', :type => type),
+      :subject => I18n.t('notifier.report_email.subject', :type => report_type),
       :url => report_index_url,
-      :type => type,
+      :type => report_type,
       :id => id
     }
     Role.admins.each do |role|
