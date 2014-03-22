@@ -46,16 +46,13 @@ class PollParticipation < ActiveRecord::Base
   end
 
   def not_already_participated
-    if self.poll == nil
-     return
-    end
+    return if poll.nil?
 
-    existing = PollParticipation.where(author_id: self.author.id, poll_id: self.poll.id)
-    if existing.first != self and existing.count != 0
+    other_participations = PollParticipation.where(author_id: self.author.id, poll_id: self.poll.id).to_a-[self]
+    if other_participations.present?
       self.errors.add(:poll, I18n.t("activerecord.errors.models.poll_participations.attributes.poll.already_participated"))
     end
   end
-
 
   class Generator < Federated::Generator
     def self.federated_class

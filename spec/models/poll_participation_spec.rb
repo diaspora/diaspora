@@ -13,7 +13,7 @@ describe PollParticipation do
   end
 
   describe 'validation' do
-    it 'does forbid multiple participations in the same poll' do
+    it 'forbids multiple participations in the same poll' do
       expect {
         2.times do |run|
           bob.participate_in_poll!(@status, @poll.poll_answers.first)
@@ -21,7 +21,7 @@ describe PollParticipation do
       }.to raise_error
     end
 
-    it 'does allow a one time participation in a poll' do
+    it 'allows a one time participation in a poll' do
       expect {
         bob.participate_in_poll!(@status, @poll.poll_answers.first)
       }.to_not raise_error
