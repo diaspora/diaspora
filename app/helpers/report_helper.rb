@@ -4,10 +4,11 @@
 
 module ReportHelper
   def report_content(id, type)
-    if type.eql? "post"
-      raw t('report.post_label', title: link_to(post_page_title(Post.find_by_id(id)), post_path(id)))
-    elsif type.eql? "comment"
-      raw t('report.comment_label', data: comment_message(Comment.find_by_id(id)))
+    raw case type
+      when 'post'
+        t('report.post_label', title: link_to(post_page_title(Post.find_by_id(id)), post_path(id)))
+      when 'comment'
+        t('report.comment_label', data: comment_message(Comment.find_by_id(id)))
     end
   end
 end
