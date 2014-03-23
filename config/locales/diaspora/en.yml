@@ -1046,8 +1046,11 @@ en:
         i_like: "I'm interested in %{tags}. "
         invited_by: "Thanks for the invite, "
       poll:
-        remove_poll_answer: "Remove answer"
-        add_poll_answer: "Add answer"
+        remove_poll_answer: "Remove option"
+        add_poll_answer: "Add option"
+        add_a_poll: "Add a poll"
+        question: "Question"
+        option: "Option 1"
     add_contact:
       enter_a_diaspora_username: "Enter a diaspora* username:"
       your_diaspora_username_is: "Your diaspora* username is: %{diaspora_handle}"

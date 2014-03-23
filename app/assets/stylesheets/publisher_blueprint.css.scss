@@ -324,8 +324,36 @@
   display:none;
   border: 1px solid $border-dark-grey;
   padding:5px;
+  @include border-radius(2px);
 }
 
 .remove_poll_answer {
-  display:inline;
+  visibility:hidden;
+  float:right;
+  display: table-cell;
+}
+
+.poll_answer_input {
+  width:100%;
+}
+
+#add_poll_answer_wrapper {
+  padding:5px 0 5px 0;
+  display:block;
+}
+
+#poll_question {
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.poll_answer {
+  display: table;
+  width: 100%;
+}
+
+.poll_answer_input_wrapper {
+  display: table-cell;
 }

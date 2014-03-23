@@ -32,6 +32,7 @@ app.views.Publisher = Backbone.View.extend({
 
   initialize : function(opts){
     this.standalone = opts ? opts.standalone : false;
+    this.option_counter = 1;
 
     // init shortcut references to the various elements
     this.el_input = this.$('#status_message_fake_text');
@@ -182,16 +183,29 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   addPollAnswer: function(){
+    if($(".poll_answer").size() == 1) {
+      $(".remove_poll_answer").css("visibility","visible");
+    }
+
+    this.option_counter++;
     var clone = this.el_poll_answer.clone();
-    var count_of_answers = $('.poll_answer_input').size()+1;
-    clone.children('.poll_answer_input').attr("name", "poll_answer_"+count_of_answers);
-    this.el_poll_answer.last().after(clone);
+
+    var answer = clone.find('.poll_answer_input');
+    answer.attr("name", "poll_answer_" + this.option_counter);
+
+    var placeholder = answer.attr("placeholder");
+    var expression = /[^0-9]+/;
+    answer.attr("placeholder", expression.exec(placeholder) + this.option_counter);
+
+    $('#poll_creator_wrapper .poll_answer').last().after(clone);
   },
 
   removePollAnswer: function(evt){
-    if($(".poll_answer_input").size() > 1) {
-      $(evt.target).parent().remove();
+    $(evt.target).parent().remove();
+    if($(".poll_answer").size() == 1) {
+       $(".remove_poll_answer").css("visibility","hidden");;
     }
+
     return false;
   },
   // avoid submitting form when pressing Enter key

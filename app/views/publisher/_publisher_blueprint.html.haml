@@ -38,15 +38,16 @@
           #location_container
           %br
           #poll_creator_wrapper
-            = 'Poll creation'
-            %br
-            %input{:id => 'poll_question', :placeholder => 'Question', :name => 'poll_question', :class => 'span-12'}
-            %div{:class => 'poll_answer span-12'}
-              %input{:class => 'poll_answer_input span-8', :placeholder => 'Answer', :name => 'poll_answer_1'}
-              %a{:class => 'remove_poll_answer span-3'}
+            = t('shared.publisher.poll.add_a_poll')
+            %input{:id => 'poll_question', :placeholder => t('shared.publisher.poll.question'), :name => 'poll_question'}
+            .poll_answer
+              %span{:class => 'poll_answer_input_wrapper'}
+                %input{:class => 'poll_answer_input', :placeholder => t('shared.publisher.poll.option'), :name => 'poll_answer_1'}
+              %a{:class => 'remove_poll_answer'}
                 = t('shared.publisher.poll.remove_poll_answer')
-            %div{:id => 'add_poll_answer', :class => 'button creation'}
-              = t('shared.publisher.poll.add_poll_answer')
+            #add_poll_answer_wrapper
+              #add_poll_answer{:class => 'button creation'}
+                = t('shared.publisher.poll.add_poll_answer')
 
       - if publisher_public
         = hidden_field_tag 'aspect_ids[]', "public"
