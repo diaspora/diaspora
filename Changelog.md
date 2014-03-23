@@ -52,7 +52,7 @@
 
 ## Bug fixes
 * Fix regression caused by using after_commit with nested '#save' which lead to an infinite recursion [#4715](https://github.com/diaspora/diaspora/issues/4715)
-
+* Save textarea value before rendering comments when clicked 'show more...' [#4514](https://github.com/diaspora/diaspora/issues/4514)
 # 0.3.0.0
 
 ## Pod statistics
