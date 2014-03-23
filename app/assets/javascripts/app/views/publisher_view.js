@@ -133,6 +133,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // lulz this code should be killed.
     var statusMessage = new app.models.Post();
+
     statusMessage.save({
       "status_message" : {
         "text" : serializedForm["status_message[text]"]
@@ -142,11 +143,11 @@ app.views.Publisher = Backbone.View.extend({
       "services" : serializedForm["services[]"],
       "location_address" : $("#location_address").val(),
       "location_coords" : serializedForm["location[coords]"],
-      "poll_question" : serializedForm["poll_question"]
+      "poll_question" : serializedForm["poll_question"],
+      "poll_answers" : serializedForm["poll_answers[]"]
     }, {
       url : "/status_messages",
       success : function() {
-        console.log(statusMessage);
         if(app.publisher) {
           $(app.publisher.el).trigger('ajax:success');
         }
@@ -191,7 +192,7 @@ app.views.Publisher = Backbone.View.extend({
     var clone = this.el_poll_answer.clone();
 
     var answer = clone.find('.poll_answer_input');
-    answer.attr("name", "poll_answer_" + this.option_counter);
+    //answer.attr("name", "poll_answer_" + this.option_counter);
 
     var placeholder = answer.attr("placeholder");
     var expression = /[^0-9]+/;

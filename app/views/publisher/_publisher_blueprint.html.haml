@@ -29,7 +29,7 @@
               %span.markdownIndications
                 != t('shared.publisher.formatWithMarkdown', markdown_link: link_to(t('help.markdown'), 'https://diasporafoundation.org/formatting', target: :blank))
               #poll_creator.btn{:title => t('.create_poll')}
-                = image_tag 'icons/marker.png', :alt => t('.create_poll').titleize, :class => 'publisher_image'              
+                = image_tag 'icons/poll.png', :alt => t('.create_poll').titleize, :class => 'publisher_image'              
               #locator.btn{:title => t('shared.publisher.get_location')}
                 = image_tag 'icons/marker.png', :alt => t('shared.publisher.get_location').titleize, :class => 'publisher_image'
               #file-upload.btn{:title => t('shared.publisher.upload_photos')}
@@ -42,7 +42,7 @@
             %input{:id => 'poll_question', :placeholder => t('shared.publisher.poll.question'), :name => 'poll_question'}
             .poll_answer
               %span{:class => 'poll_answer_input_wrapper'}
-                %input{:class => 'poll_answer_input', :placeholder => t('shared.publisher.poll.option'), :name => 'poll_answer_1'}
+                %input{:class => 'poll_answer_input', :placeholder => t('shared.publisher.poll.option'), :name => 'poll_answers[]'}
               %a{:class => 'remove_poll_answer'}
                 = t('shared.publisher.poll.remove_poll_answer')
             #add_poll_answer_wrapper
