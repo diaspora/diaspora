@@ -27,6 +27,7 @@
 * The photo stream no longer repeats after the last photo [#4726](https://github.com/diaspora/diaspora/issues/4726)
 * Fix hovercards in the notificaitons dropdown [#4693](https://github.com/diaspora/diaspora/issues/4693)
 * Do not parse hashtags inside Markdown links [#3692](https://github.com/diaspora/diaspora/issues/3692)
+* Restore comment textarea content after revealing more comments [#4514](https://github.com/diaspora/diaspora/issues/4514)
 
 ## Features
 * You can report a single post by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517)
@@ -52,7 +53,7 @@
 
 ## Bug fixes
 * Fix regression caused by using after_commit with nested '#save' which lead to an infinite recursion [#4715](https://github.com/diaspora/diaspora/issues/4715)
-
+* Save textarea value before rendering comments when clicked 'show more...' [#4514](https://github.com/diaspora/diaspora/issues/4514)
 # 0.3.0.0
 
 ## Pod statistics
