@@ -51,11 +51,7 @@ class StatusMessagesController < ApplicationController
     @status_message.build_location(:address => params[:location_address], :coordinates => params[:location_coords]) if params[:location_address].present?
     if params[:poll_question].present?
       @status_message.build_poll(:question => params[:poll_question]) 
-      poll_answers = params[:poll_answers]
-      if params[:poll_answers].instance_of? String
-        poll_answers = [params[:poll_answers]]
-      end 
-      poll_answers.each do |poll_answer|
+      [*params[:poll_answers]].each do |poll_answer|
         @status_message.poll.poll_answers.build(:answer => poll_answer)
       end
     end
