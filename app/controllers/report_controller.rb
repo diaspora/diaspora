@@ -14,12 +14,8 @@ class ReportController < ApplicationController
   end
 
   def destroy
-    if report = Report.where(id: params[:id]).first
-      if report.destroy_reported_item
-        flash[:notice] = I18n.t 'report.status.destroyed'
-      else
-        flash[:error] = I18n.t 'report.status.failed'
-      end
+    if (report = Report.where(id: params[:id]).first) && report.destroy_reported_item
+      flash[:notice] = I18n.t 'report.status.destroyed'
     else
       flash[:error] = I18n.t 'report.status.failed'
     end
