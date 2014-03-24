@@ -27,7 +27,8 @@ class ReportController < ApplicationController
   end
 
   def create
-    if current_user.reports.create! report_params
+    report = current_user.reports.new(report_params)
+    if report.save
       flash.now[:notice] = I18n.t 'report.status.created'
       render :nothing => true, :status => 200
     else

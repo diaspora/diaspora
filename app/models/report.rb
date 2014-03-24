@@ -4,7 +4,7 @@ class Report < ActiveRecord::Base
   validates :post_type, presence: true
   validates :text, presence: true
 
-  validate :entry_exists, :on => :create
+  validate :entry_does_not_exist, :on => :create
 
   belongs_to :user
   belongs_to :post
@@ -12,7 +12,7 @@ class Report < ActiveRecord::Base
 
   after_commit :send_report_notification, :on => :create
 
-  def entry_exists
+  def entry_does_not_exist
     if Report.where(post_id: post_id, post_type: post_type).exists?(user_id: user_id)
       errors[:base] << 'You cannot report the same post twice.'
     end
