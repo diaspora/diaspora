@@ -34,14 +34,14 @@ describe ReportController do
 
     context 'report offensive post' do
       it 'succeeds' do
-        put :create, :id => @message.id, :type => 'post', :text => 'offensive content'
+        put :create, :report => { :post_id => @message.id, :post_type => 'post', :text => 'offensive content' }
         response.status.should == 200
         Report.exists?(:post_id => @message.id, :post_type => 'post').should be_true
       end
     end
     context 'report offensive comment' do
       it 'succeeds' do
-        put :create, :id => @comment.id, :type => 'comment', :text => 'offensive content'
+        put :create, :report => { :post_id => @comment.id, :post_type => 'comment', :text => 'offensive content' }
         response.status.should == 200
         Report.exists?(:post_id => @comment.id, :post_type => 'comment').should be_true
       end
