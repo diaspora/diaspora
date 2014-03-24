@@ -35,6 +35,7 @@ class PostPresenter
         :root => root,
         :title => title,
         :address => @post.address,
+        :poll => @post.poll,
 
         :interactions => {
             :likes => [user_like].compact,

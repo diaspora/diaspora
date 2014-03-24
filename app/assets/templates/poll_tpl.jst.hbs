@@ -1,0 +1,19 @@
+{{#if poll}}
+  <div class="poll_form">
+    <p class="poll_statistic">{{t "poll.result" votes=poll.participation_count}}</p>
+    <strong>{{poll.question}}</strong><br/>
+    {{#poll.poll_answers}}
+      <div class="poll_answer_entry">
+        <input type="radio" name="vote" value="{{id}}"/>
+        <div class="poll_result">
+          <div class="poll_progress_bar_wrapper">
+            <div class="poll_progress_bar"> </div>
+          </div>
+          {{answer}}
+        </div> 
+      </div>
+      <br/>
+    {{/poll.poll_answers}}
+    <input type="submit" class="button submit" style="float:right;" value="{{t "poll.vote"}}"/>
+  </div>
+{{/if}}

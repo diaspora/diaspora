@@ -172,3 +172,7 @@ en:
       reshared: "Reshared"
       comment: "Comment"
       home: "HOME"
+
+    poll:
+      vote: "Vote"
+      result: "<%=votes%> votes so far"

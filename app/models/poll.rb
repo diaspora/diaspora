@@ -14,8 +14,26 @@ class Poll < ActiveRecord::Base
 
   validate :enough_poll_answers
 
+  #TODO check if user has the right to vote
+  
+  self.include_root_in_json = false
+
   def enough_poll_answers
     errors.add(:poll_answers, I18n.t("activerecord.errors.models.poll.attributes.poll_answers.not_enough_poll_answers")) if poll_answers.size < 2
   end
 
+  def as_json(options={})
+    {
+      :poll_id => self.id,
+      :post_id => self.status_message.id,
+      :question => self.question,
+      :poll_answers => self.poll_answers,
+      :participation_count => self.participation_count
+      #TODO already participated?
+    }
+  end
+
+  def participation_count
+    poll_answers.sum("vote_count")
+  end
 end

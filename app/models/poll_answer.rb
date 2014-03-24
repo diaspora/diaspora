@@ -8,6 +8,8 @@ class PollAnswer < ActiveRecord::Base
 
   xml_attr :answer
 
+  self.include_root_in_json = false
+
   def update_vote_counter
     self.vote_count = self.vote_count + 1
     self.save!

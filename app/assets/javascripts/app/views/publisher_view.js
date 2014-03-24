@@ -192,7 +192,7 @@ app.views.Publisher = Backbone.View.extend({
     var clone = this.el_poll_answer.clone();
 
     var answer = clone.find('.poll_answer_input');
-    //answer.attr("name", "poll_answer_" + this.option_counter);
+    answer.val("");
 
     var placeholder = answer.attr("placeholder");
     var expression = /[^0-9]+/;

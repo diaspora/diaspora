@@ -31,10 +31,14 @@ Diaspora::Application.routes.draw do
       get :interactions
     end
 
+    resources :poll_participations, :only => [:create]
+
     resources :likes, :only => [:create, :destroy, :index ]
     resources :participations, :only => [:create, :destroy, :index]
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
+
+
 
   get 'p/:id' => 'posts#show', :as => 'short_post'
   get 'posts/:id/iframe' => 'posts#iframe', :as => 'iframe'
