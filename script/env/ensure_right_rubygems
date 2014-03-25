@@ -1,3 +1,0 @@
-if [ "$(gem --version)" != "$rubygems_version" ]; then
-  rvm rubygems "$rubygems_version"
-fi
