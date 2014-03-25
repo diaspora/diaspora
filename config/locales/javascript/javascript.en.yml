@@ -175,4 +175,6 @@ en:
 
     poll:
       vote: "Vote"
-      result: "<%=votes%> votes so far"
+      result: "Result"
+      count: "<%=votes%> votes so far"
+      toggle_result: "Toggle result"

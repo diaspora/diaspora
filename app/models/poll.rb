@@ -13,8 +13,6 @@ class Poll < ActiveRecord::Base
   delegate :author, :author_id, :public?, :subscribers, to: :status_message
 
   validate :enough_poll_answers
-
-  #TODO check if user has the right to vote
   
   self.include_root_in_json = false
 
@@ -28,12 +26,15 @@ class Poll < ActiveRecord::Base
       :post_id => self.status_message.id,
       :question => self.question,
       :poll_answers => self.poll_answers,
-      :participation_count => self.participation_count
-      #TODO already participated?
+      :participation_count => self.participation_count,
     }
   end
 
   def participation_count
     poll_answers.sum("vote_count")
+  end
+
+  def already_participated?(user)
+    poll_participations.where(:author_id => user.person.id).present?
   end
 end

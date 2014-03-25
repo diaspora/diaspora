@@ -75,7 +75,7 @@ app.views.Publisher = Backbone.View.extend({
     });
 
     this.initSubviews();
-
+    this.addPollAnswer();
     return this;
   },
 
@@ -202,7 +202,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   removePollAnswer: function(evt){
-    $(evt.target).parent().remove();
+    $(evt.target).parents().eq(1).remove();
     if($(".poll_answer").size() == 1) {
        $(".remove_poll_answer").css("visibility","hidden");;
     }

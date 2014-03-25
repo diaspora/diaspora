@@ -311,7 +311,8 @@
   }
   #poll_creator {
     @extend #locator;
-    right: 50px;
+    right: 60px;
+    margin-bottom:-5px;
   }
 
   .btn {
@@ -331,6 +332,12 @@
   visibility:hidden;
   float:right;
   display: table-cell;
+
+  .icons-deletelabel {
+    height: 14px;
+    width: 14px;
+    margin-top:5px;
+  }
 }
 
 .poll_answer_input {
@@ -340,6 +347,10 @@
 #add_poll_answer_wrapper {
   padding:5px 0 5px 0;
   display:block;
+}
+
+#poll_question_wrapper {
+    margin-right:24px;
 }
 
 #poll_question {

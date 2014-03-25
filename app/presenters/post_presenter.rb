@@ -35,7 +35,8 @@ class PostPresenter
         :root => root,
         :title => title,
         :address => @post.address,
-        :poll => @post.poll,
+        :poll => @post.poll(),
+        :already_participated_in_poll => already_participated_in_poll,
 
         :interactions => {
             :likes => [user_like].compact,
@@ -71,6 +72,14 @@ class PostPresenter
 
   def user_signed_in?
     @current_user.present?
+  end
+
+  private
+
+  def already_participated_in_poll
+    if @post.poll
+      @post.poll.already_participated?(current_user)
+    end
   end
 
 end

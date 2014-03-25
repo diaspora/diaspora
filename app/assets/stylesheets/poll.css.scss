@@ -14,16 +14,15 @@
 
 .poll_result {
   width:100%px;
-  display:inline;
 }
 
 .poll_progress_bar {
   position:absolute;
-  width:100px;
+  width:0px;
   height:15px;
   top:-10px;
   z-index:-1;
-  background-color:#3f8fba;
+  background-color:$background-grey;
 }
 
 .poll_statistic{
@@ -38,6 +37,9 @@
 }
 
 .poll_answer_entry{
-  display:inline;
   width:100%;
+}
+
+.percentage {
+  display:inline;
 }
