@@ -23,6 +23,8 @@ describe PeopleController do
 
   describe '#aspect_membership_dropdown' do
     before do
+      aspect = bob.aspects.create name: 'Testing'
+      bob.share_with alice.person, aspect
       sign_in :user, bob
     end
 

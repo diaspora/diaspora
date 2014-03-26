@@ -7,6 +7,7 @@ describe("app.views.AspectMembership", function(){
     spec.loadFixture("aspect_membership_dropdown_bootstrap");
     this.view = new app.views.AspectMembership({el: $('.aspect_membership_dropdown')});
     this.person_id = $('.dropdown-menu').data('person_id');
+    this.person_name = $('.dropdown-menu').data('person-short-name');
     Diaspora.I18n.load({
       aspect_dropdown: {
         started_sharing_with: 'you started sharing with <%= name %>',
@@ -36,7 +37,7 @@ describe("app.views.AspectMembership", function(){
       jasmine.Ajax.requests.mostRecent().response(resp_success);
 
       expect($('[id^="flash"]')).toBeSuccessFlashMessage(
-        Diaspora.I18n.t('aspect_dropdown.started_sharing_with', {name: this.person.name})
+        Diaspora.I18n.t('aspect_dropdown.started_sharing_with', {name: this.person_name})
       );
     });
 
@@ -45,14 +46,14 @@ describe("app.views.AspectMembership", function(){
       jasmine.Ajax.requests.mostRecent().response(resp_fail);
 
       expect($('[id^="flash"]')).toBeErrorFlashMessage(
-        Diaspora.I18n.t('aspect_dropdown.error', {name: this.person.name})
+        Diaspora.I18n.t('aspect_dropdown.error', {name: this.person_name})
       );
     });
   });
 
   context('removing from aspects', function(){
     beforeEach(function() {
-      this.oldAspect = $('li.selected');
+      this.oldAspect = $('li.selected').first();
       this.oldMembershipId = this.oldAspect.data('membership_id');
     });
 
@@ -69,7 +70,7 @@ describe("app.views.AspectMembership", function(){
       jasmine.Ajax.requests.mostRecent().response(resp_success);
 
       expect($('[id^="flash"]')).toBeSuccessFlashMessage(
-        Diaspora.I18n.t('aspect_dropdown.stopped_sharing_with', {name: this.person.name})
+        Diaspora.I18n.t('aspect_dropdown.stopped_sharing_with', {name: this.person_name})
       );
     });
 
@@ -78,12 +79,12 @@ describe("app.views.AspectMembership", function(){
       jasmine.Ajax.requests.mostRecent().response(resp_fail);
 
       expect($('[id^="flash"]')).toBeErrorFlashMessage(
-        Diaspora.I18n.t('aspect_dropdown.error_remove', {name: this.person.name})
+        Diaspora.I18n.t('aspect_dropdown.error_remove', {name: this.person_name})
       );
     });
   });
 
-  context('updateSummary', function() {
+  context('button summary text', function() {
     beforeEach(function() {
       this.Aspect = $('li:eq(0)');
     });
