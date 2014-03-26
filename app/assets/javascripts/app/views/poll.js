@@ -9,7 +9,6 @@ app.views.Poll = app.views.Base.extend({
   initialize : function(options) {
     this.poll = this.model.attributes.poll;
     this.progressBarFactor = 3;
-    //this.model.bind('remove', this.remove, this);
   },
 
   postRenderTemplate : function() {

@@ -202,7 +202,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   removePollAnswer: function(evt){
-    $(evt.target).parents().eq(1).remove();
+    $(evt.currentTarget).parent().remove();
     if($(".poll_answer").size() == 1) {
        $(".remove_poll_answer").css("visibility","hidden");;
     }

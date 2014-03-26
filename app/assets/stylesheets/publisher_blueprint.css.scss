@@ -310,9 +310,22 @@
     }
   }
   #poll_creator {
-    @extend #locator;
-    right: 60px;
-    margin-bottom:-5px;
+    bottom: 1px !important;
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+    position: absolute !important;
+    right: 55px;
+    i {
+      @include opacity(0.4);
+    }
+    &:hover {
+      color: $text-dark-grey;
+      cursor: pointer;
+      i {
+        @include opacity(1);
+      }
+    }
   }
 
   .btn {
