@@ -9,19 +9,21 @@ app.views.Poll = app.views.Base.extend({
   initialize : function(options) {
     this.poll = this.model.attributes.poll;
     this.progressBarFactor = 3;
+    this.toggleMode = 0;
   },
 
   postRenderTemplate : function() {
     if(this.poll) {
       this.setProgressBar();
-      this.hideResult();
     }
   },
 
-  hideResult : function() {
-    if(!this.model.attributes.already_participated_in_poll) {
-      this.$('.poll_result').hide();
-    }
+  removeForm : function() {
+      var cnt = this.$("form").contents();
+      this.$("form").replaceWith(cnt);
+      this.$('input').remove();
+      this.$('submit').remove();
+      this.$('.toggle_result_wrapper').remove();
   },
 
   setProgressBar : function() {
@@ -32,14 +34,23 @@ app.views.Poll = app.views.Base.extend({
         percentage = answers[index].vote_count / this.poll.participation_count * 100;
       }
       var progressBar = this.$(".poll_progress_bar[data-answerid="+answers[index].id+"]");
-      progressBar.parents().eq(1).find(".percentage").html(" - " + percentage + "%");
+      progressBar.parent().next().html(" - " + percentage + "%");
       var width = percentage * this.progressBarFactor;
       progressBar.css("width", width + "px");
     }
   },
 
   toggleResult : function(e) {
-    $('.poll_result').toggle();
+    this.$('.poll_progress_bar_wrapper').toggle();
+    this.$('.percentage').toggle();
+    if(this.toggleMode == 0) {
+      this.$('.toggle_result').html(Diaspora.I18n.t("poll.close_result"));
+      this.toggleMode = 1;
+    }else{
+      this.$('.toggle_result').html(Diaspora.I18n.t("poll.show_result"));
+      this.toggleStringMode = 0;
+    }
+
     return false;
   },
 
@@ -50,7 +61,7 @@ app.views.Poll = app.views.Base.extend({
 
   updateCounter : function(answerId) {
     this.poll.participation_count++;
-    this.$('.poll_statistic').html(Diaspora.I18n.t("poll.count", {"votes" : this.poll.participation_count}));
+    this.$('.poll_statistic').html(Diaspora.I18n.t("poll.count", {"count" : this.poll.participation_count}));
     var answers = this.poll.poll_answers;
     for(index = 0; index < answers.length; ++index) {
       if(answers[index].id == answerId) {
@@ -70,10 +81,12 @@ app.views.Poll = app.views.Base.extend({
     },{
       url : "/posts/"+this.poll.post_id+"/poll_participations",
       success : function(model, response) {
-        parent.$('.poll_form form').remove();
-        parent.$('.toggle_result_wrapper').remove();
-        parent.$('.poll_result').show();
+        parent.removeForm();
         parent.refreshResult(result);
+        if(parent.toggleMode == 0) {
+          parent.toggleResult(null);
+        }
+
       }
     });
     return false;
