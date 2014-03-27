@@ -48,9 +48,8 @@ app.views.Poll = app.views.Base.extend({
       this.toggleMode = 1;
     }else{
       this.$('.toggle_result').html(Diaspora.I18n.t("poll.show_result"));
-      this.toggleStringMode = 0;
+      this.toggleMode = 0;
     }
-
     return false;
   },
 
