@@ -43,6 +43,10 @@ describe PollParticipation do
       @xml = @poll_participation.to_xml.to_s
     end
 
+    it 'serializes the class name' do
+      @xml.include?(PollParticipation.name.underscore.to_s).should be_true
+    end
+
     it 'serializes the sender handle' do
       @xml.include?(@poll_participation.diaspora_handle).should be_true
     end
