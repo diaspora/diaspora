@@ -9,6 +9,7 @@ class PollParticipation < ActiveRecord::Base
   belongs_to :author, :class_name => 'Person', :foreign_key => :author_id
   xml_attr :diaspora_handle
   xml_attr :poll_answer_guid
+  xml_convention :underscore
   validate :not_already_participated
 
   after_commit :update_vote_counter, :on => :create
