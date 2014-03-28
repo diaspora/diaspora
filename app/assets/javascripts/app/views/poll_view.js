@@ -76,7 +76,7 @@ app.views.Poll = app.views.Base.extend({
     var parent = this;
     pollParticipation.save({
       "poll_answer_id" : result,
-      "poll_id" : this.poll.poll_id,
+      "poll_id" : this.poll.poll_id
     },{
       url : "/posts/"+this.poll.post_id+"/poll_participations",
       success : function(model, response) {
