@@ -31,7 +31,7 @@ app.views.Poll = app.views.Base.extend({
     for(index = 0; index < answers.length; ++index) {
       var percentage = 0;
       if(this.poll.participation_count != 0) {
-        percentage = answers[index].vote_count / this.poll.participation_count * 100;
+        percentage = Math.round(answers[index].vote_count / this.poll.participation_count * 100);
       }
       var progressBar = this.$(".poll_progress_bar[data-answerid="+answers[index].id+"]");
       progressBar.parent().next().html(" - " + percentage + "%");

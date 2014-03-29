@@ -180,4 +180,4 @@ en:
         one: "1 vote so far"
         other: "<%=count%> votes so far"
       show_result: "Show result"
-      close_result: "Close result"
+      close_result: "Hide result"
