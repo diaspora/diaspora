@@ -10,9 +10,4 @@ class PollAnswer < ActiveRecord::Base
 
   self.include_root_in_json = false
 
-  def update_vote_counter
-    self.vote_count += 1
-    self.save!
-  end
-
 end

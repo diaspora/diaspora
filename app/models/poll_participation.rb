@@ -5,18 +5,12 @@ class PollParticipation < ActiveRecord::Base
   include Diaspora::Guid
   include Diaspora::Relayable
   belongs_to :poll
-  belongs_to :poll_answer
+  belongs_to :poll_answer, counter_cache: :vote_count
   belongs_to :author, :class_name => 'Person', :foreign_key => :author_id
   xml_attr :diaspora_handle
   xml_attr :poll_answer_guid
   xml_convention :underscore
   validate :not_already_participated
-
-  after_commit :update_vote_counter, :on => :create
-
-  def update_vote_counter
-    self.poll_answer.update_vote_counter
-  end
 
   def parent_class
     Poll

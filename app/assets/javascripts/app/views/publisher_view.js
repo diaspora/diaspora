@@ -333,11 +333,19 @@ app.views.Publisher = Backbone.View.extend({
     // clear location
     this.destroyLocation();
 
+    // clear poll form
+    this.clearPollForm();
+
     // force textchange plugin to update lastValue
     this.el_input.data('lastValue', '');
     this.el_hiddenInput.data('lastValue', '');
 
     return this;
+  },
+
+  clearPollForm : function(){
+    this.$('#poll_question').val('');
+    this.$('.poll_answer_input').val('');
   },
 
   tryClose : function(){
