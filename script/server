@@ -125,6 +125,18 @@ application, run:
     bundle exec rake assets:precompile"
 fi
 
+# Check for old curl versions (see https://github.com/diaspora/diaspora/issues/4202)
+if [ `curl -V | grep AsynchDNS | wc -l` -ne 1 ]
+then
+  warning "
+*****************************************************************
+curl does not support async DNS, this can cause Sidekiq to crash!
+Please update curl to version 7.32, see issue
+https://github.com/diaspora/diaspora/issues/4202 for details
+*****************************************************************
+"
+fi
+
 # Start Diaspora
 echo -n "Starting Diaspora in $RAILS_ENV mode on port $port "
 if [ "$embed_sidekiq_worker" = "true" ]
