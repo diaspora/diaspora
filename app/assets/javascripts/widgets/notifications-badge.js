@@ -24,12 +24,10 @@
         });
       }
 
-      self.dropdown.click(function(evt) {
-        evt.stopPropagation();
-      });
-
       self.documentBody.click(function(evt) {
-        if(self.dropdownShowing()) {
+        var inDropdown = $(evt.target).parents().is(self.dropdown);
+
+        if(!inDropdown && self.dropdownShowing()) {
           self.badgeLink.click();
         }
       });
