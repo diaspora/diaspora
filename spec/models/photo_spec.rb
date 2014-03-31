@@ -11,7 +11,7 @@ def with_carrierwave_processing(&block)
   val
 end
 
-describe Photo do
+describe Photo, :test_commit do
   before do
     @user = alice
     @aspect = @user.aspects.first

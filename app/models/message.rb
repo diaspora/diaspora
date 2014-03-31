@@ -18,7 +18,7 @@ class Message < ActiveRecord::Base
   validate :participant_of_parent_conversation
 
   after_create do  # don't use 'after_commit' here since there is a call to 'save!'
-                   # inside, which would cause an infinite recursion 
+                   # inside, which would cause an infinite recursion
     #sign comment as commenter
     self.author_signature = self.sign_with_key(self.author.owner.encryption_key) if self.author.owner
 

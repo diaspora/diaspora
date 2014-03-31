@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Reshare do
+describe Reshare, :test_commit do
   include Rails.application.routes.url_helpers
 
   it 'has a valid Factory' do

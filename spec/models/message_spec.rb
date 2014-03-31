@@ -3,9 +3,8 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require Rails.root.join("spec", "shared_behaviors", "relayable")
 
-describe Message do
+describe Message, :test_commit do
   before do
     @create_hash = {
       :author => bob.person,
