@@ -16,6 +16,7 @@
 * Improve search page, add better indications [#4794](https://github.com/diaspora/diaspora/pull/4794)
 * Port notifications and hovercards to Bootstrap [#4814](https://github.com/diaspora/diaspora/pull/4814)
 * Replace .rvmrc by .ruby-version and .ruby-gemset [#4854](https://github.com/diaspora/diaspora/pull/4855)
+* Add box shadow and radius to avatars [#4887](https://github.com/diaspora/diaspora/pull/4887)
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
