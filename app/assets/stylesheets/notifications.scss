@@ -78,6 +78,10 @@
       .avatar {
         width: 35px;
         height: 35px;
+        box-shadow: 0px 1px 2px 0px #666;
+        -webkit-box-shadow: 0px 1px 2px 0px #666;
+        -moz-box-shadow: 0px 1px 2px 0px #666;
+        border-radius: 3px;
       }
 
       .unread-toggle {
