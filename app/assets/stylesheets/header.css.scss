@@ -170,6 +170,11 @@ body > header {
           width: 30px;
           float: left;
           margin-left: -40px;
+          margin-top: 5px;
+          box-shadow: 0px 1px 2px 0px #666;
+          -webkit-box-shadow: 0px 1px 2px 0px #666;
+          -moz-box-shadow: 0px 1px 2px 0px #666;
+          border-radius: 3px;
         }
 
         &.unread {
@@ -290,6 +295,7 @@ body > header {
     left: 7px;
     top: 9px;
     display: block;
+    border-radius: 3px;
   }
 
   .header-nav {

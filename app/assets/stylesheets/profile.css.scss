@@ -3,6 +3,10 @@
   img {
     height: auto;
     width: 200px;
+    @include border-top-left-radius(8px);
+    @include border-top-right-radius(8px);
+    @include border-bottom-left-radius(0px);
+    @include border-bottom-right-radius(0px)
   }
 }
 

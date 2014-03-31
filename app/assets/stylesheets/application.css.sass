@@ -92,9 +92,8 @@ ul > li
   :display none
 
 .avatar
-  :-webkit-box-shadow rgba(0,0,0,0.12) 0px 0px 5px inset
-  :-moz-box-shadow rgba(0,0,0,0.12) 0px 0px 5px inset
-
+  @include box-shadow(0px, 1px, 2px, #666)
+  
   :background
     :color $background-grey
 
@@ -551,7 +550,7 @@ h3 span.current_gs_step
 
   .notification
     @include border-radius(5px)
-    @include box-shadow(0,2px,3px,#333)
+    @include box-shadow(0px, 1px, 2px, #666)
 
     :margin
       :bottom 10px
