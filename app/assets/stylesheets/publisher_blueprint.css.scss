@@ -338,6 +338,7 @@
   display:none;
   border: 1px solid $border-dark-grey;
   padding:5px;
+  margin-top:1em;
   @include border-radius(2px);
 }
 
@@ -363,7 +364,6 @@
 }
 
 #poll_question_wrapper {
-    margin-right:24px;
 }
 
 #poll_question {

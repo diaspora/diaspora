@@ -87,6 +87,9 @@
         display:none;
         border-top: 1px dashed $border-grey;
         padding:4px 6px 4px 6px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
       }
 
       &.with_location .row-fluid#location_container {

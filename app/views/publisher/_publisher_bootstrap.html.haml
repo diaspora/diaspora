@@ -22,8 +22,7 @@
             %ul#photodropzone
           .row-fluid#location_container
             = hidden_field :location, :coords
-          .row-fluid#poll_creator_wrapper 
-            = t('shared.publisher.poll.add_a_poll')
+          .row-fluid#poll_creator_wrapper
             #poll_question_wrapper{:class => "input-block-level"}
               %input{:id => 'poll_question', :placeholder => t('shared.publisher.poll.question'), :name => 'poll_question', :class=> "form-control"}
             .poll_answer
