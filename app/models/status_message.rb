@@ -20,10 +20,13 @@ class StatusMessage < Post
   xml_attr :raw_message
   xml_attr :photos, :as => [Photo]
   xml_attr :location, :as => Location
+  xml_attr :poll, :as => Poll
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
   has_one :location
+  has_one :poll, autosave: true
+
 
   # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
   # therefore, we put the validation in a before_destory callback instead of a validation

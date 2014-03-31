@@ -49,6 +49,14 @@ class StatusMessagesController < ApplicationController
 
     @status_message = current_user.build_post(:status_message, params[:status_message])
     @status_message.build_location(:address => params[:location_address], :coordinates => params[:location_coords]) if params[:location_address].present?
+    if params[:poll_question].present?
+      @status_message.build_poll(:question => params[:poll_question]) 
+      [*params[:poll_answers]].each do |poll_answer|
+        @status_message.poll.poll_answers.build(:answer => poll_answer)
+      end
+    end
+
+
     @status_message.attach_photos_by_ids(params[:photos])
 
     if @status_message.save
@@ -78,7 +86,7 @@ class StatusMessagesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to :back }
         format.mobile { redirect_to stream_path }
-        format.json { render :nothing => true , :status => 403 }
+        format.json { render :nothing => true, :status => 403 }
       end
     end
   end

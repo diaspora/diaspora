@@ -309,8 +309,75 @@
       }
     }
   }
+  #poll_creator {
+    bottom: 1px !important;
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+    position: absolute !important;
+    right: 55px;
+    i {
+      @include opacity(0.4);
+    }
+    &:hover {
+      color: $text-dark-grey;
+      cursor: pointer;
+      i {
+        @include opacity(1);
+      }
+    }
+  }
+
   .btn {
     height: 19px;
     width: 19px;
   }
+}
+
+#poll_creator_wrapper {
+  display:none;
+  border: 1px solid $border-dark-grey;
+  padding:5px;
+  margin-top:1em;
+  @include border-radius(2px);
+}
+
+.remove_poll_answer {
+  visibility:hidden;
+  float:right;
+  display: table-cell;
+
+  .icons-deletelabel {
+    height: 14px;
+    width: 14px;
+    margin-top:5px;
+  }
+}
+
+.poll_answer_input {
+  width:100%;
+}
+
+#add_poll_answer_wrapper {
+  padding:5px 0 5px 0;
+  display:block;
+}
+
+#poll_question_wrapper {
+}
+
+#poll_question {
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.poll_answer {
+  display: table;
+  width: 100%;
+}
+
+.poll_answer_input_wrapper {
+  display: table-cell;
 }

@@ -277,6 +277,40 @@ describe("app.views.Publisher", function() {
 
   });
 
+  context("poll", function(){
+    beforeEach(function() {
+      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      spec.loadFixture("aspects_index");
+      $("#poll_creator_wrapper").hide(); //css not loaded? :-/
+      this.view = new app.views.Publisher();
+    });
+
+    describe('#showPollCreator', function(){
+      it("Shows the poll creator", function(){
+        expect($("#poll_creator_wrapper").is(":visible")).toBe(false);
+        this.view.showPollCreator();
+        expect($("#poll_creator_wrapper").is(":visible")).toBe(true);
+      })
+    });
+
+    describe("#addPollAnswer", function(){
+      it("should add a poll answer if clicked", function(){
+        expect($("#poll_creator_wrapper .poll_answer").length).toBe(2);
+        this.view.addPollAnswer();
+        expect($("#poll_creator_wrapper .poll_answer").length).toBe(3);
+      })
+    });
+
+    describe("#removePollAnswer", function(){
+      it("should remove a poll answer if clicked", function(){
+        var answer_count = $('.poll_answer').length;
+        var evt = {'currentTarget' : $("#poll_creator_wrapper .poll_answer:first .remove_poll_answer")};
+        this.view.removePollAnswer(evt);
+        expect($("#poll_creator_wrapper .poll_answer").length).toBe(answer_count-1);
+      })
+    });
+  });
+
   context("locator", function() {
     beforeEach(function() {
       // should be jasmine helper

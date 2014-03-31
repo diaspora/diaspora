@@ -77,6 +77,14 @@ en:
           attributes:
             root_guid:
               taken: "That good, huh?  You've already reshared that post!"
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "Not enough poll options provided."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "You've already participated in this poll!"
   error_messages:
     helper:
       invalid_fields: "Invalid Fields"
@@ -1037,6 +1045,12 @@ en:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}. "
         invited_by: "Thanks for the invite, "
+      poll:
+        remove_poll_answer: "Remove option"
+        add_poll_answer: "Add option"
+        add_a_poll: "Add a poll"
+        question: "Question"
+        option: "Option 1"
     add_contact:
       enter_a_diaspora_username: "Enter a diaspora* username:"
       your_diaspora_username_is: "Your diaspora* username is: %{diaspora_handle}"

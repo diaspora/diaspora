@@ -72,6 +72,9 @@ class Post < ActiveRecord::Base
   def address
   end
 
+  def poll
+  end
+
   def self.excluding_blocks(user)
     people = user.blocks.map{|b| b.person_id}
     scope = scoped

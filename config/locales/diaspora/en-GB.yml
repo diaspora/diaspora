@@ -26,3 +26,11 @@
                   attributes:
                       from_id:
                           taken: "is a duplicate of a pre-existing request."
+              poll:
+                  attributes:
+                      poll_answers:
+                          not_enough_poll_answers: "Not enough poll options provided."
+              poll_participation:
+                  attributes:
+                      poll:
+                          already_participated: "You've already participated in this poll!"
