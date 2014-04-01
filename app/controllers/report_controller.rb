@@ -29,10 +29,8 @@ class ReportController < ApplicationController
   def create
     report = current_user.reports.new(report_params)
     if report.save
-      flash.now[:notice] = I18n.t 'report.status.created'
-      render :nothing => true, :status => 200
+      render :json => true, :status => 200
     else
-      flash.now[:error] = I18n.t 'report.status.failed'
       render :nothing => true, :status => 409
     end
   end

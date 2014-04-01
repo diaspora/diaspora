@@ -84,33 +84,30 @@ app.views.Base = Backbone.View.extend({
   report: function(evt) {
     if(evt) { evt.preventDefault(); }
     var msg = prompt(Diaspora.I18n.t('report.prompt'), Diaspora.I18n.t('report.prompt_default'));
-    if (msg == null) return;
+    if (msg == null) {
+      return;
+    }
+    var data = {
+      report: {
+        post_id: this.model.id,
+        post_type: $(evt.currentTarget).data("type"),
+        text: msg
+      }
+    };
+
     var report = new app.models.Report();
-    var id = this.model.id;
-    var type = $(evt.currentTarget).data("type");
-    
-    report.fetch({
-      data: {
-        report: {
-          post_id: id,
-          post_type: type,
-          text: msg
-        }
+    report.save(data, {
+      success: function(model, response) {
+        Diaspora.page.flashMessages.render({
+          success: true,
+          notice: Diaspora.I18n.t('report.status.created')
+        });
       },
-      type: 'POST',
-      statusCode: {
-        200: function(xhr) {
-          Diaspora.page.flashMessages.render({
-            success: true,
-            notice: Diaspora.I18n.t('report.status.created')
-          });
-        },
-        400: function(xhr) {
-          Diaspora.page.flashMessages.render({
-            success: false,
-            notice: Diaspora.I18n.t('report.status.exists')
-          });
-        }
+      error: function(model, response) {
+        Diaspora.page.flashMessages.render({
+          success: false,
+          notice: Diaspora.I18n.t('report.status.exists')
+        });
       }
     });
   },
