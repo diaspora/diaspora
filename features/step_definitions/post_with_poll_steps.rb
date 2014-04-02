@@ -19,11 +19,12 @@ When /^I fill in the following for the options:$/ do |table|
 end
 
 When /^I check the first option$/ do
-  sleep 1
+  page.should have_css('.poll_form input')
   first(".poll_form input").click
 end
 
 And /^I press the element "([^"]*)"$/ do |selector|
+  page.should have_css(selector)
   find(selector).click
 end
 

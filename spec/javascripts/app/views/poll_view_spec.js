@@ -21,25 +21,17 @@ describe("app.views.Poll", function(){
     })
   });
 
-  describe("updateCounter", function(){
-    it("updates the counter after a vote", function(){
-      var pc = this.view.poll.participation_count;
-      var answerCount = this.view.poll.poll_answers[0].vote_count;
-      this.view.updateCounter(1);
-      expect(this.view.poll.participation_count).toBe(pc+1);
-      expect(this.view.poll.poll_answers[0].vote_count).toBe(answerCount+1);
-    })
-  });
-
   describe("vote", function(){
     it("checks the ajax call for voting", function(){
       spyOn($, "ajax");
-      var radio = this.view.$('input[name="vote"]:first');
-      radio.attr('checked', true);
-      this.view.vote({'target' : radio});
+      var answer = this.view.poll.poll_answers[0];
+      var poll = this.view.poll;
+
+      this.view.vote(answer.id);
+
       var obj = JSON.parse($.ajax.mostRecentCall.args[0].data);
-      expect(obj.poll_id).toBe(this.view.poll.poll_id);
-      expect(obj.poll_answer_id).toBe(this.view.poll.poll_answers[0].id);
+      expect(obj.poll_id).toBe(poll.poll_id);
+      expect(obj.poll_answer_id).toBe(answer.id);
     })
   })
 });
