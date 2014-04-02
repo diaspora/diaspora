@@ -1,5 +1,5 @@
 app.models.PollParticipation = Backbone.Model.extend({
-  url : function(){
-    "/poll_participations"
+  urlRoot: function(){
+    return 'posts/' + this.get('post_id') + "/poll_participations";
   }
 });

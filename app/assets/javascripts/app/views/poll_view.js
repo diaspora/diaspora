@@ -1,94 +1,81 @@
 app.views.Poll = app.views.Base.extend({
-  templateName : "poll",
+  templateName: "poll",
 
-  events : {
-    "click .submit" : "vote",
+  events: {
+    "click .submit" : "clickSubmit",
     "click .toggle_result" : "toggleResult"
   },
 
-  initialize : function(options) {
+  initialize: function(options) {
+    this.model.bind('change', this.render, this);
+  },
+
+  postRenderTemplate: function() {
     this.poll = this.model.attributes.poll;
     this.progressBarFactor = 3;
-    this.toggleMode = 0;
-  },
-
-  postRenderTemplate : function() {
-    if(this.poll) {
-      this.setProgressBar();
-    }
-  },
-
-  removeForm : function() {
-      var cnt = this.$("form").contents();
-      this.$("form").replaceWith(cnt);
-      this.$('input').remove();
-      this.$('submit').remove();
-      this.$('.toggle_result_wrapper').remove();
-  },
-
-  setProgressBar : function() {
-    var answers = this.poll.poll_answers;
-    for(index = 0; index < answers.length; ++index) {
-      var percentage = 0;
-      if(this.poll.participation_count != 0) {
-        percentage = Math.round(answers[index].vote_count / this.poll.participation_count * 100);
-      }
-      var progressBar = this.$(".poll_progress_bar[data-answerid="+answers[index].id+"]");
-      progressBar.parent().next().html(" - " + percentage + "%");
-      var width = percentage * this.progressBarFactor;
-      progressBar.css("width", width + "px");
-    }
-  },
-
-  toggleResult : function(e) {
-    this.$('.poll_progress_bar_wrapper').toggle();
-    this.$('.percentage').toggle();
-    if(this.toggleMode == 0) {
-      this.$('.toggle_result').html(Diaspora.I18n.t("poll.close_result"));
-      this.toggleMode = 1;
-    }else{
-      this.$('.toggle_result').html(Diaspora.I18n.t("poll.show_result"));
-      this.toggleMode = 0;
-    }
-    return false;
-  },
-
-  refreshResult : function(answerId) {
-    this.updateCounter(answerId);
     this.setProgressBar();
   },
 
-  updateCounter : function(answerId) {
-    this.poll.participation_count++;
-    this.$('.poll_statistic').html(Diaspora.I18n.t("poll.count", {"count" : this.poll.participation_count}));
+  setProgressBar: function() {
+    if(!this.poll) return;
+
     var answers = this.poll.poll_answers;
-    for(index = 0; index < answers.length; ++index) {
-      if(answers[index].id == answerId) {
-        answers[index].vote_count++;
-        return;
+    var participation_count = this.poll.participation_count;
+    var _this = this;
+
+    _.each(answers, function(answer){
+      var percent = 0;
+      if(participation_count > 0) {
+        percent = Math.round(answer.vote_count / participation_count * 100);
       }
+
+      var progressBar = _this.$(".poll_progress_bar[data-answerid="+answer.id+"]");
+      var width = percent * _this.progressBarFactor;
+
+      progressBar.parent().next().html(" - " + percent + "%");
+      progressBar.css("width", width + "px");
+    });
+  },
+
+  toggleResult: function(e) {
+    if(e)
+      e.preventDefault();
+
+    this.$('.poll_progress_bar_wrapper').toggle();
+    this.$('.percentage').toggle();
+
+    var toggle_result = this.$('.toggle_result');
+
+    if(!this.toggleMode) {
+      toggle_result.html(Diaspora.I18n.t("poll.close_result"));
+      this.toggleMode = 1;
+    }
+    else {
+      toggle_result.html(Diaspora.I18n.t("poll.show_result"));
+      this.toggleMode = 0;
     }
   },
 
-  vote : function(evt){
-    var result = parseInt($(evt.target).parent().find("input[name=vote]:checked").val());
-    var pollParticipation = new app.models.PollParticipation();
-    var parent = this;
-    pollParticipation.save({
-      "poll_answer_id" : result,
-      "poll_id" : this.poll.poll_id
-    },{
-      url : "/posts/"+this.poll.post_id+"/poll_participations",
-      success : function(model, response) {
-        parent.removeForm();
-        parent.refreshResult(result);
-        if(parent.toggleMode == 0) {
-          parent.toggleResult(null);
-        }
+  clickSubmit: function(evt) {
+    evt.preventDefault();
 
+    var answer_id = parseInt($(evt.target).parent().find("input[name=vote]:checked").val());
+    this.vote(answer_id);
+  },
+
+  vote: function(answer_id){
+    var pollParticipation = new app.models.PollParticipation({
+      poll_answer_id: answer_id,
+      poll_id: this.poll.poll_id,
+      post_id: this.poll.post_id, 
+    });
+    var _this = this;
+
+    pollParticipation.save({},{
+      success : function() {
+        _this.model.fetch();
       }
     });
-    return false;
   }
 
 });
