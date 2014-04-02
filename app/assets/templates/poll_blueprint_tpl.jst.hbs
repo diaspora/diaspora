@@ -1,0 +1,32 @@
+{{#if poll}}
+  <div class="poll_form">
+    <p class="poll_statistic">{{t "poll.count" count=poll.participation_count}}</p>
+    <strong>{{poll.question}}</strong><br/>
+    {{#unless already_participated_in_poll}}
+      <form action="/posts/{{poll.post_id}}/poll_participations" method="POST">
+        {{#poll.poll_answers}}
+          <input type="radio" name="vote" value="{{id}}"/>
+          <div class="poll_progress_bar_wrapper" style="display:none;">
+            <div class="poll_progress_bar" data-answerid="{{id}}"></div>
+          </div>
+          {{answer}}
+          <p class="percentage" style="display:none;"></p>
+          <br/>
+        {{/poll.poll_answers}}
+        <input type="submit" class="button submit" style="float:right;" value="{{t "poll.vote"}}"/>
+      </form>
+      <p class="toggle_result_wrapper">
+        <br/><a href="#" class="toggle_result">{{t "poll.show_result"}}</a><br/>
+      </p>
+    {{else}}
+      {{#poll.poll_answers}}
+        <div class="poll_progress_bar_wrapper">
+          <div class="poll_progress_bar" data-answerid="{{id}}"></div>
+        </div>
+        {{answer}}
+        <p class="percentage"></p>
+        <br/>
+      {{/poll.poll_answers}}
+    {{/unless}}
+  </div>
+{{/if}}

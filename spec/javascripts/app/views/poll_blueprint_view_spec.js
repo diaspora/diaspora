@@ -1,7 +1,7 @@
-describe("app.views.Poll", function(){
+describe("app.views.PollBlueprint", function(){
   beforeEach(function() {
     loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
-    this.view = new app.views.Poll({ "model" : factory.postWithPoll()});
+    this.view = new app.views.PollBlueprint({ model: factory.postWithPoll()});
     this.view.render();
   });
 

@@ -12,7 +12,6 @@ app.views.Poll = app.views.Base.extend({
 
   postRenderTemplate: function() {
     this.poll = this.model.attributes.poll;
-    this.progressBarFactor = 3;
     this.setProgressBar();
   },
 
@@ -30,19 +29,20 @@ app.views.Poll = app.views.Base.extend({
       }
 
       var progressBar = _this.$(".poll_progress_bar[data-answerid="+answer.id+"]");
-      var width = percent * _this.progressBarFactor;
 
-      progressBar.parent().next().html(" - " + percent + "%");
-      progressBar.css("width", width + "px");
+      _this.setProgressBarData(progressBar, percent);
     });
   },
 
-  toggleResult: function(e) {
-    if(e)
-      e.preventDefault();
+  setProgressBarData: function(progressBar, percent) {
+    progressBar.css("width", percent + "%");
+    progressBar.parents('.result-row').find('.percentage').text(percent + "%");
+  },
 
-    this.$('.poll_progress_bar_wrapper').toggle();
-    this.$('.percentage').toggle();
+  toggleResult: function(evt) {
+    if(evt) evt.preventDefault();
+
+    this.toggleElements();
 
     var toggle_result = this.$('.toggle_result');
 
@@ -54,6 +54,11 @@ app.views.Poll = app.views.Base.extend({
       toggle_result.html(Diaspora.I18n.t("poll.show_result"));
       this.toggleMode = 0;
     }
+  },
+
+  toggleElements: function() {
+    this.$('.percentage').toggle();
+    this.$('.progress').toggle();
   },
 
   clickSubmit: function(evt) {

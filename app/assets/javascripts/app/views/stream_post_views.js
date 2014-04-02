@@ -32,7 +32,7 @@ app.views.StreamPost = app.views.Post.extend({
     this.commentStreamView = new app.views.CommentStream({model : this.model});
     this.oEmbedView = new app.views.OEmbed({model : this.model});
     this.openGraphView = new app.views.OpenGraph({model : this.model});
-    this.pollView = new app.views.Poll({model : this.model});
+    this.pollView = new app.views.PollBlueprint({model : this.model});
   },
 
 
