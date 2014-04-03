@@ -62,9 +62,6 @@ si:
       aspect_not_empty: "අංගය හිස්ව නැත"
       remove: "ඉවත්කරන්න"
     index:
-      cubbies:
-        heading: "Cubbi.es සම්බන්ධ කරන්න"
-        learn_more: "තව දැනගන්න"
       diaspora_id:
         content_1: "මෙය ඔබගේ ඩයස්පෝරා ID එකයි:"
         heading: "ඩයස්පෝරා ID එක"
@@ -124,8 +121,6 @@ si:
     destroy:
       success: "සංවාදය සාර්ථකව ඉවත් කරන ලදී"
     index:
-      create_a_new_message: "අලුත් පණිවිඩයක් සාදන්න"
-      new_message: "අලුත් පණිවිඩයක්"
       no_conversation_selected: "කිසිම සංවාදයක් තෝරාගෙන නැහැ"
       no_messages: "පණිවිඩ නැත"
     new:

@@ -96,10 +96,6 @@ fil:
       work: "Shipmates"
     two: "%{count} aspects"
     zero: "no aspects"
-  authorizations:
-    index:
-      no_applications: "Hindi ka pa nakapag-sumite ng applikasyon."
-      revoke_access: "Bawiin ang Access"
   contacts:
     few: "%{count} contacts"
     index:
@@ -254,7 +250,6 @@ fil:
       add_contact_from_tag: "magdagdag ng kakilala mula sa tag"
     few: "%{count} na tao"
     helper:
-      people_on_pod_are_aware_of: " mga tao sa pod ay may kamalayan sa"
       results_for: " mga resulta para sa %{params}"
     many: "%{count} na tao"
     one: "1 person"

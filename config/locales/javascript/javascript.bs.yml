@@ -50,7 +50,6 @@ bs:
       home: "Početna"
       log_out: "Odjava"
       mark_all_as_read: "Označi sve kao pročitano"
-      messages: "Poruke"
       notifications: "Obavijesti"
       profile: "Profil"
       recent_notifications: "Skorašnje Obavijesti"

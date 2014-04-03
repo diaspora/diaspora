@@ -49,11 +49,11 @@ de:
       admin: "Admin"
       close: "schließen"
       contacts: "Kontakte"
+      conversations: "Konversationen"
       help: "Hilfe"
       home: "Startseite"
       log_out: "Abmelden"
       mark_all_as_read: "Alle als gelesen markieren"
-      messages: "Nachrichten"
       notifications: "Benachrichtigungen"
       profile: "Profil"
       recent_notifications: "Neuste Benachrichtigungen"
@@ -132,6 +132,7 @@ de:
         stop_following: "Aufhören #<%= tag %> zu folgen"
       unfollow: "Nicht mehr folgen"
       unlike: "Gefällt mir nicht mehr"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "OK, #<%= tagName %> war wohl doch nicht so interessant..."
     timeago:
@@ -148,6 +149,7 @@ de:
       seconds: "weniger als eine Minute"
       suffixAgo: ""
       suffixFromNow: "ab jetzt"
+      wordSeparator: " "
       year: "etwa einem Jahr"
       years: "%d Jahren"
     videos:

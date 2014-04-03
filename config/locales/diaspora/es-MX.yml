@@ -150,10 +150,6 @@ es-MX:
       aspect_not_empty: "El aspecto no está vacío"
       remove: "quitar"
     index:
-      cubbies:
-        explanation: "Cubbi.es es la primera aplicación en desarrollo de Diaspora."
-        heading: "Conectarse a Cubbi.es"
-        learn_more: "Aprende más"
       diaspora_id:
         content_1: "Tu ID de Diaspora es:"
         content_2: "Dáselo a quien quieras y podrán encontrarte en Diaspora."
@@ -227,14 +223,6 @@ es-MX:
       failure: "Tu aspecto, %{name}, tenía un nombre muy largo para ser guardado."
       success: "Tu aspecto, %{name}, fue editado exitosamente."
     zero: "no hay aspectos"
-  authorizations:
-    index:
-      no_applications: "Aún no has registrado ninguna aplicación."
-      revoke_access: "Revocar acceso"
-    new:
-      authorize: "Autorizar"
-      cubbies_will: "Cubbies podrá publicar fotos por ti"
-      nope: "No"
   back: "Atrás"
   blocks:
     create:
@@ -304,10 +292,10 @@ es-MX:
         other: "%{count} mensajes nuevos"
         zero: "No hay mensajes nuevos"
     index:
-      create_a_new_message: "crear un nuevo mensaje"
+      conversations_inbox: "Conversaciones – Bandeja de entrada"
+      create_a_new_conversation: "iniciar una nueva conversación"
       inbox: "Bandeja de entrada"
-      message_inbox: "Bandeja de entrada"
-      new_message: "Nuevo mensaje"
+      new_conversation: "Nueva conversación"
       no_conversation_selected: "ninguna conversación seleccionada"
       no_messages: "no hay mensajes"
     new:
@@ -316,7 +304,7 @@ es-MX:
       sending: "Enviando…"
       subject: "asunto"
       to: "para"
-    new_message:
+    new_conversation:
       fail: "Mensaje inválido"
     show:
       delete: "eliminar y bloquer conversación"
@@ -713,10 +701,8 @@ es-MX:
     helper:
       is_not_sharing: "%{name} no está compartiendo contigo"
       is_sharing: "%{name} está compartiendo contigo"
-      people_on_pod_are_aware_of: " la gente en el servidor está consciente de"
       results_for: " resultados para %{params}"
     index:
-      couldnt_find_them_send_invite: "¿No los pudiste encontrar? ¡Envíales una invitación!"
       looking_for: "¿Buscando publicaciones etiquetadas con %{tag_link}?"
       no_one_found: "…y nadie fue encontrado."
       no_results: "¡Eh! Necesitas buscar algo."
@@ -1111,18 +1097,6 @@ es-MX:
       posts_tagged_with: "Publicaciones etiquetadas con #%{tag}"
       stop_following: "Dejar de seguir #%{tag}"
   terms_and_conditions: "Términos y condiciones"
-  tokens:
-    show:
-      connect_to_cubbies: "Conectar a Cubbi.es"
-      connecting_is_simple: "¡Conectar tu cuenta de Diaspora es sencillo! Simplemente ingresa tu ID de Diaspora (<b>%{diaspora_id}</b>) desde tu página de <a href='%{href_link}'>ajustes</a> de cubbies y pulsa conectar."
-      daniels_account: "La cuenta de Diaspora de Daniel"
-      love_to_try: "Nos encantaría que lo pruebes."
-      making_the_connection: "Creando la conexión"
-      screenshot_explanation: "%{link1}. Este cubby en particular está enlazado a %{link2}."
-      sign_up_today: "¡Regístrate hoy mismo!"
-      typical_userpage: "Una típica página de usuario de cubbi.es"
-      via: "(vía %{link})"
-      what_is_cubbies: "Cubbi.es es la primera aplicación de Diaspora en el mundo. También es la mejor forma de coleccionar fotos en línea."
   undo: "¿Deshacer?"
   username: "Nombre de usuario"
   users:

@@ -47,7 +47,6 @@ pt-PT:
       home: "Inicio "
       log_out: "Sair"
       mark_all_as_read: "Marcar tudo como lido"
-      messages: "Mensagens"
       notifications: "Notificações"
       profile: "Perfil"
       recent_notifications: "Últimas Notificações"
@@ -112,7 +111,7 @@ pt-PT:
       show_nsfw_posts: "Mostrar todos"
       tags:
         follow: "Seguir #<%= tag %>"
-        following: "Seguindo #<%= tag %>"
+        following: "A Seguir #<%= tag %>"
         stop_following: "Parar de Seguir #<%= tag %>"
       unfollow: "Não seguir"
       unlike: "Não gostar"

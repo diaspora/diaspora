@@ -22,7 +22,7 @@ br:
         reshare:
           attributes:
             root_guid:
-              taken: "You've already reshared that post!"
+              taken: "Ken mat se? Rannet hoc'h eus ar post-mañ c'hoazh!"
         user:
           attributes:
             email:
@@ -72,9 +72,6 @@ br:
       aspect_not_empty: "Ar gwel-mañ n'eo ket goullo."
       remove: "skarzhañ"
     index:
-      cubbies:
-        heading: "Kennaskañ ouzh Cubbi.es"
-        learn_more: "Gouzout hiroc'h"
       diaspora_id:
         content_1: "Hoc'h ID e Diaspora a zo :"
         content_2: "Roit anezhañ da unan bennak hag gallout a rejont hoc'h heuliañ"
@@ -129,9 +126,6 @@ br:
       edit_aspect: "aozañ ar gwel"
     two: "%{count} arvez"
     zero: "arvez ebet"
-  authorizations:
-    new:
-      authorize: "Aotren"
   back: "Distreiñ"
   bookmarklet:
     explanation: "%{link} adalek pep lec'h dre lakaat al liamm-se e-barzh ho sinedoù."
@@ -178,10 +172,7 @@ br:
         other: "%{count} a gemennadennoù nevez"
         zero: "kemennadenn nevez ebet"
     index:
-      create_a_new_message: "sevel ur gemennadenn nevez"
       inbox: "Boest-lizhiri"
-      message_inbox: "Boest kemennadennoù"
-      new_message: "Kemennadenn Nevez"
       no_conversation_selected: "n'eus bet diuzet kaoz ebet"
       no_messages: "kemennadenn ebet"
     new:
@@ -190,8 +181,6 @@ br:
       sending: "O kas..."
       subject: "sujed"
       to: "da"
-    new_message:
-      fail: "kemennadenn direizh"
     show:
       delete: "dilemel ha sparlañ ar gaoz"
       reply: "respont"
@@ -200,7 +189,7 @@ br:
   email: "Postel"
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Divankit ar fazioù da-heul ha kalskit adarre."
+      correct_the_following_errors_and_try_again: "Divankit ar fazioù da heul ha kalskit adarre."
       invalid_fields: "Maezennoù direizh"
   find_people: "Kavout tud"
   hide: "Kuzhaat"
@@ -259,7 +248,7 @@ br:
         zero: "no likes"
   limited: "Bevennet"
   more: "Muioc'h"
-  next: "da-heul"
+  next: "da heul"
   no_results: "Disoc'h Ebet"
   notifications:
     also_commented:
@@ -600,12 +589,6 @@ br:
       nobody_talking: "N'eus den o kaozeal diwar-benn %{tag} c'hoazh."
       people_tagged_with: "Tud bet merket gant %{tag}"
       posts_tagged_with: "Skridoù bet merket gant #%{tag}"
-  tokens:
-    show:
-      connect_to_cubbies: "Kevreañ ouzh Cubbi.es"
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-      making_the_connection: "o kevreañ"
-      sign_up_today: "Lakait hoc'h anv diouzhtu!"
   undo: "Mont war-gil?"
   username: "Anv-implijer"
   users:

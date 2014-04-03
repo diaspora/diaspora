@@ -37,7 +37,7 @@ pl:
       reset_password_instructions:
         change: "Zmiana hasła"
         ignore: "Jeśli nie chcesz zmienić hasła, zignoruj tę wiadomość."
-        someone_requested: "Odebraliśmy zgłoszenie zmiany hasła, jeśli chcesz to zrobić kliknij poniższy odnośnik:"
+        someone_requested: "Odebraliśmy zgłoszenie zmiany hasła. Jeśli to ty je wysłał@{f:aś|m:eś|n:aś/eś}, hasło możesz zmienić używając linku poniżej."
         subject: "Instrukcja resetowania hasła"
         wont_change: "Hasło nie zostanie zmienione do momentu kliknięcia powyższego łącza i utworzenia nowego."
       unlock_instructions:
@@ -49,14 +49,18 @@ pl:
     passwords:
       edit:
         change_password: "Zmień hasło"
+        confirm_password: "Potwierdź hasło"
+        new_password: "Nowe hasło"
       new:
+        email: "Adres email"
         forgot_password: "Nie pamiętasz hasła?"
-        no_account: "Konto z przypisanym podanym adresem e-mail nie istnieje. Jeżeli czekasz na nowe zaproszenia, wysyłamy je tak szybko, jak to tylko możliwe."
+        no_account: "Konto z podanym adresem e-mail nie istnieje"
+        reset_password: "Resetuj hasło"
         send_password_instructions: "Wyślij mi instrukcję resetowania hasła"
       send_instructions: "W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję resetowania hasła."
       updated: "Hasło zostało zmienione. Zalogowano pomyślnie."
     registrations:
-      destroyed: "Do widzenia! Konto zostało pomyślnie zamknięte. Mamy nadzieję, że wkrótce zobaczymy Cię ponownie!"
+      destroyed: "Do widzenia! Konto zostało pomyślnie zamknięte. Mamy nadzieję, że wkrótce zobaczymy Cię ponownie."
       signed_up: "Rejestracja przebiegła pomyślnie. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie e-mail potwierdzający ten fakt."
       updated: "Pomyślnie zaktualizowano konto."
     sessions:

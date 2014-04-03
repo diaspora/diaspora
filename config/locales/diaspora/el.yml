@@ -145,10 +145,6 @@ el:
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
       remove: "αφαίρεση"
     index:
-      cubbies:
-        explanation: "Το Cubbi.es είναι η πρώτη εφαρμογή του Diaspora υπό κατασκευή."
-        heading: "Συνδεθείτε στο Cubbi.es"
-        learn_more: "Μάθετε περισσότερα"
       diaspora_id:
         content_1: "Το Diaspora αναγνωριστικό σας (ID) είναι:"
         content_2: "Δώστε το σε κάποιον και θα μπορεί να σας βρει στο Diaspora."
@@ -222,14 +218,6 @@ el:
       failure: "Η πτυχή σας, %{name}, έχει πολύ μεγάλο όνομα για να αποθηκευτεί."
       success: "Έγινε επιτυχώς η επεξεργασία της πτυχής σας, %{name}."
     zero: "καμία πτυχή"
-  authorizations:
-    index:
-      no_applications: "Δεν έχετε εσισάγει καμία εφαρμογή ακόμα. "
-      revoke_access: "Ανάκληση Πρόσβασης"
-    new:
-      authorize: "Εξουσιοδότηση"
-      cubbies_will: "Το Cubbies θα είναι σε θέση να δημοσιεύει φωτογραφίες για λογαριασμό σας"
-      nope: "Όχι"
   back: "Πίσω"
   blocks:
     create:
@@ -302,10 +290,7 @@ el:
         two: "%{count} νέα μηνύματα"
         zero: "Κανένα νέο μήνυμα"
     index:
-      create_a_new_message: "δημιουργία νέου μηνύματος"
       inbox: "Εισερχόμενα"
-      message_inbox: "Εισερχόμενα"
-      new_message: "Νέο Μήνυμα"
       no_conversation_selected: "δεν επιλέχτηκε συζήτηση"
       no_messages: "κανένα μήνυμα"
     new:
@@ -314,8 +299,6 @@ el:
       sending: "Αποστολή..."
       subject: "θέμα"
       to: "στον"
-    new_message:
-      fail: "Μη έγκυρο μήνυμα"
     show:
       delete: "διαγραφή και φραγή συζήτησης"
       reply: "απάντηση"
@@ -581,10 +564,8 @@ el:
     helper:
       is_not_sharing: "Ο/Η %{name} δεν διαμοιράζεται μαζί σας"
       is_sharing: "Ο/Η %{name} διαμοιράζεται μαζί σας"
-      people_on_pod_are_aware_of: "άνθρωποι στο pod γνωρίζουν ότι"
       results_for: "αποτελέσματα για %{params}"
     index:
-      couldnt_find_them_send_invite: "Δεν τους βρήκατε;  Στείλτε μια πρόσκληση!"
       looking_for: "Ψάχνετε για αναρτήσεις με την ετικέτα %{tag_link};"
       no_one_found: "...κανένας δεν βρέθηκε. "
       no_results: "Επ! Χρειάζεται να ψάξετε για κάτι."
@@ -967,18 +948,6 @@ el:
       posts_tagged_with: "Αναρτήσεις με την ετικέτα #%{tag}"
       stop_following: "Σταματήσατε να ακολουθείτε την ετικέτα #%{tag}"
   terms_and_conditions: "Όροι και Προϋποθέσεις"
-  tokens:
-    show:
-      connect_to_cubbies: "Σύνδεση με Cubbi.es"
-      connecting_is_simple: "Η σύνδεση του Diaspora λογαριασμού σας είναι απλούστατη! Απλά εισάγετε το Diaspora Αναγνωριστικό σας (ID) (<b>%{diaspora_id}</b>) από το cubbies <a href='%{href_link}'>settings page</a> και πατήστε Σύνδεση. "
-      daniels_account: "Diaspora λογαριασμό του Daniel"
-      love_to_try: "Θα χαιρόμασταν αν το δοκιμάζατε."
-      making_the_connection: "Σύνδεση"
-      screenshot_explanation: "%{link1}.  Αυτό το συγκεκριμένο cubby συνδέεται στον %{link2}."
-      sign_up_today: "Συνδεθείτε σήμερα!"
-      typical_userpage: "Μία τυπική cubbi.es σελίδα χρήστη"
-      via: "(μέσω %{link})"
-      what_is_cubbies: "Το Cubbi.es είναι παγκοσμίως η πρώτη εφαρμογή για το Diaspora. Είναι επίσης ο καλύτερος τρόπος συλλογής φωτογραφιών στο διαδίκτυο."
   undo: "Αναίρεση;"
   username: "Όνομα Χρήστη"
   users:

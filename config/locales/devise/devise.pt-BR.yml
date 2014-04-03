@@ -33,7 +33,7 @@ pt-BR:
       inviter:
         accept_at: "em %{url}, você pode aceitar através do link abaixo."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} convidou você para participar em Diaspora"
+        have_invited_you: "%{names} convidou você para participar de diaspora*"
       reset_password_instructions:
         change: "Alterar minha senha"
         ignore: "Se você não fez esta solicitação, por favor ignore este email."
@@ -49,9 +49,13 @@ pt-BR:
     passwords:
       edit:
         change_password: "Mudar minha senha"
+        confirm_password: "Confirmar senha"
+        new_password: "Nova senha"
       new:
+        email: "Endereço de email"
         forgot_password: "Esqueceu sua senha?"
         no_account: "Não há nenhuma conta com este email"
+        reset_password: "Resetar senha"
         send_password_instructions: "Envie-me instruções para redefinir minha senha."
       send_instructions: "Você receberá em breve um email com instruções sobre como redefinir sua senha."
       updated: "Sua senha foi alterada com sucesso."

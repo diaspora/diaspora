@@ -94,10 +94,6 @@ ro:
       aspect_not_empty: "Aspectul nu este gol"
       remove: "şterge"
     index:
-      cubbies:
-        explanation: "Cubbi.es este prima aplicație Diaspora în dezvoltare"
-        heading: "Conectarea la Cubbi.es"
-        learn_more: "Află mai multe"
       diaspora_id:
         content_1: "ID-ul tău Diaspora este:"
         content_2: "Transmite-l tuturor și ei vor putea să te găsească pe Diaspora."
@@ -220,10 +216,7 @@ ro:
         two: "%{count} mesaje noi"
         zero: "no new messages"
     index:
-      create_a_new_message: "crează un mesaj nou"
       inbox: "Casuta postala"
-      message_inbox: "Casuta postala"
-      new_message: "Mesaj Nou"
       no_conversation_selected: "nicio conversaţie selectată"
       no_messages: "niciun mesaj"
     new:
@@ -451,10 +444,8 @@ ro:
       edit_membership: "editati apartenenta la aspect"
     few: "%{count} persoane"
     helper:
-      people_on_pod_are_aware_of: "persoanele de pe acest pod stiu despre"
       results_for: "rezultate pentru %{params}"
     index:
-      couldnt_find_them_send_invite: "Nu i-ati gasit? Trimiteti o invitatie!"
       looking_for: "Cautati publicatii marcate cu %{tag_link}?"
       no_one_found: "...nimeni nu a fost găsit."
       no_results: "Hey! Trebuie sa cautati ceva."
@@ -761,13 +752,6 @@ ro:
       posts_tagged_with: "Publicatii marcate cu #%{tag}"
       stop_following: "Nu mai urmari #%{tag}"
   terms_and_conditions: "Termeni și Condiții de utilizare:"
-  tokens:
-    show:
-      connect_to_cubbies: "Conectarea la Cubbi.es"
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-      daniels_account: "Contul Diaspora a lui Daniel"
-      sign_up_today: "Ȋnregistrează-te astăzi!"
-      what_is_cubbies: "Cubbi.es este prima aplicaţie Diaspora din lume.  Este cea mai bună metodă de a colecta imagini online."
   undo: "refacem?"
   username: "Nume de utilizator"
   users:

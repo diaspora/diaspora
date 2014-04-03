@@ -48,7 +48,6 @@ ko:
       home: "처음"
       log_out: "로그아웃"
       mark_all_as_read: "읽음으로 표시"
-      messages: "쪽지"
       notifications: "알림"
       profile: "프로필"
       recent_notifications: "최근 알림"

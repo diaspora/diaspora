@@ -86,10 +86,6 @@ ur-PK:
       aspect_not_empty: "پہلو خالی نہیں ہے"
       remove: "ہٹائیے"
     index:
-      cubbies:
-        explanation: "ڈایسپورا کی پہلی ایپلی کیشن ہے جو ابھی تعمیر کے مرحلے میں ہے۔ cubbi.es"
-        heading: "سے رابطہ قائم کریں Cubbi.es"
-        learn_more: "مزید جانیے"
       diaspora_id:
         content_1: "آپکی ڈایسپورا شناخت"
         content_2: "یہ کسی کو بھی دیں تو وہ آپکو تلاش کر لے گا۔"
@@ -140,10 +136,6 @@ ur-PK:
       failure: "آپکے پہلو کا نام, %{name}, محفوظ کرنے کی حد سے لمبا ہے۔"
       success: "آپکے پہلو, %{name}, میں ترمیم ہو گئ ہے۔"
     zero: "کوئ پہلو نہیں"
-  authorizations:
-    index:
-      no_applications: "آپ نے ابھی تک کسی بھی ایپلیکیشن کا اندرج نہیں کیا ہے۔"
-      revoke_access: "رسائی منسوخ کیجیے"
   back: "واپس"
   contacts:
     few: "%{count} contacts"

@@ -46,11 +46,11 @@ es-AR:
       admin: "Administrador"
       close: "Cerrar"
       contacts: "Contactos"
+      conversations: "Conversaciones"
       help: "Ayuda"
       home: "Inicio"
       log_out: "Salir"
       mark_all_as_read: "Marcar todo como leído"
-      messages: "Mensajes"
       notifications: "Notificaciones"
       profile: "Perfil"
       recent_notifications: "Notificaciones recientes"
@@ -65,6 +65,9 @@ es-AR:
     my_activity: "Mi actividad"
     my_aspects: "Mis aspectos"
     my_stream: "Entrada"
+    notifications:
+      mark_read: "Marcar como leído"
+      mark_unread: "Marcar como no leído"
     people:
       not_found: "...y no se encontró a nadie."
     photo_uploader:
@@ -123,6 +126,7 @@ es-AR:
         stop_following: "Dejar de seguir #<%= tag %>"
       unfollow: "Dejar de seguir"
       unlike: "No me gusta"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "Bueno, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
@@ -139,6 +143,7 @@ es-AR:
       seconds: "menos de un minuto"
       suffixAgo: ""
       suffixFromNow: "desde ahora"
+      wordSeparator: " "
       year: "cerca de un año"
       years: "%d años"
     videos:

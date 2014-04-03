@@ -30,9 +30,10 @@ te:
       admin: "నిర్వాహకుడు"
       close: "మూసివేయి"
       contacts: "పరిచయాలు"
+      conversations: "సంభాషణలు"
+      help: "సహాయం"
       home: "నివాసము"
       log_out: "నిష్క్రమించు"
-      messages: "సందేశాలు"
       notifications: "గమనికలు"
       profile: "ప్రవర"
       recent_notifications: "ఇటీవలి గమనికలు"
@@ -100,7 +101,7 @@ te:
       years: "%d సంవత్సరాల"
     videos:
       unknown: "తెలియని వీడియో రకం"
-      watch: "ఈ వీడియోని <%= provider %>లో చూడండి"
+      watch: "ఈ వీడియోను <%= provider %>లో చూడండి"
     viewer:
       comment: "వ్యాఖ్య"
       home: "నివాసం"

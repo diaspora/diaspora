@@ -92,10 +92,6 @@ sr:
       aspect_not_empty: "Поглед није празан"
       remove: "уклони"
     index:
-      cubbies:
-        explanation: "Cubbi.es је прва апликација у развоју на Дијаспори"
-        heading: "Повежи се на Cubbi.es"
-        learn_more: "Сазнај више"
       diaspora_id:
         content_1: "Твој Дијаспора ИД је:"
         content_2: "Дај га било коме и моћи ће да те нађе на Дијаспори."
@@ -178,8 +174,6 @@ sr:
       title: "Контакти"
       your_contacts: "Твоји контакти"
   conversations:
-    index:
-      new_message: "Нова порука"
     new:
       send: "Пошаљи"
       sending: "Шаљем..."

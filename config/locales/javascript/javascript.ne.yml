@@ -10,7 +10,6 @@ ne:
     header:
       contacts: "सम्पर्कहरु"
       home: "गृहपृष्ठ"
-      messages: "सन्देशहरु"
       search: "खोज"
       view_all: "सबै हेर्नुहोस्"
     show_more: "अरु हेर्नुहोस्"

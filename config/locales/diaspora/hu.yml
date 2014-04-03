@@ -143,10 +143,6 @@ hu:
       aspect_not_empty: "A csoport nem üres"
       remove: "eltávolítás"
     index:
-      cubbies:
-        explanation: "Cubbi.es az első fejlesztés alatt álló Diaspora alkalmazás."
-        heading: "Kapcsolódás: Cubbi.es"
-        learn_more: "Tudj meg többet"
       diaspora_id:
         content_1: "A te Diaspora azonosítód:"
         content_2: "Add meg bárkinek és ez alapján meg tud találni a Diaspora-n."
@@ -220,14 +216,6 @@ hu:
       failure: "A %{name} nevű csoportodnak túl hosszú a neve."
       success: "%{name} csoport szerkesztve."
     zero: "nincs csoport"
-  authorizations:
-    index:
-      no_applications: "Még nem kezdtél el használni egyetlen alkalmazást sem."
-      revoke_access: "Hozzáférés visszavonása"
-    new:
-      authorize: "engedélyezés"
-      cubbies_will: "A Cubbies jogosult fotókat küldeni a nevedben"
-      nope: "nem"
   back: "Vissza"
   blocks:
     create:
@@ -300,10 +288,10 @@ hu:
         two: "%{count} új üzenet"
         zero: "nincs új üzenet"
     index:
-      create_a_new_message: "új üzenet írása"
+      conversations_inbox: "Beszélgetések - levelesláda"
+      create_a_new_conversation: "indíts új beszélgetést"
       inbox: "Bejövő"
-      message_inbox: "Bejövő üzenetek"
-      new_message: "Új üzenet"
+      new_conversation: "Új beszélgetés"
       no_conversation_selected: "nincs beszélgetés kiválasztva"
       no_messages: "nincs üzenet"
     new:
@@ -312,7 +300,7 @@ hu:
       sending: "Küldés ..."
       subject: "tárgy"
       to: "címzett"
-    new_message:
+    new_conversation:
       fail: "Érvénytelen üzenet"
     show:
       delete: "beszélgetés törlése és blokkolása"
@@ -678,10 +666,8 @@ hu:
     helper:
       is_not_sharing: "%{name} nem oszt meg veled tartalmakat"
       is_sharing: "%{name} megoszt veled"
-      people_on_pod_are_aware_of: "az emberek tisztában vannak"
       results_for: "eredmények %{params}"
     index:
-      couldnt_find_them_send_invite: "Nem találod őket? Küldj meghívót nekik!"
       looking_for: "%{tag_link} címkéjű bejegyzéseket keresel?"
       no_one_found: "...és nem találni senkit."
       no_results: "Hé! Valamit keresned kell."
@@ -762,6 +748,11 @@ hu:
     update:
       error: "Nem sikerült szerkeszteni a képet."
       notice: "Kép szerkesztése sikerült."
+  post_report:
+    delete_link: "Bejegyzés törlése"
+    status:
+      destroyed: "Bejegyzés megsemmisítve"
+      failed: "Valami hiba történt."
   posts:
     presenter:
       title: "%{name} bejegyzése"
@@ -1068,18 +1059,6 @@ hu:
       posts_tagged_with: "Bejegyzések felcímkézve: #%{tag}"
       stop_following: "Címke-követés leállítása #%{tag}"
   terms_and_conditions: "Felhasználási feltételek"
-  tokens:
-    show:
-      connect_to_cubbies: "Csatlakozás ehhez: Cubbi.es"
-      connecting_is_simple: "A csatlakozás sima ügy, csak írd be a Diaspora azonosítódat."
-      daniels_account: "Adam Diaspora* fiókja"
-      love_to_try: "Szeretnénk, ha kipróbálnád."
-      making_the_connection: "Kapcsolat létrehozása"
-      screenshot_explanation: "%{link1}.  Ez a cubby a következőre mutat: %{link2}."
-      sign_up_today: "Iratkozz fel még ma!"
-      typical_userpage: "Tipikus 'cubbi.es' oldal"
-      via: "(forrás: %{link})"
-      what_is_cubbies: "Cubbi.es a világ első Diaspora* alkalmazása. Egyben a legjobb mód az online fotógyűjtésre!"
   undo: "Visszavonod?"
   username: "Felhasználónév"
   users:

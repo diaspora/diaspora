@@ -71,10 +71,7 @@ fy:
         other: "%{count} nije berjochten"
         zero: "Gjin nije berjochten"
     index:
-      create_a_new_message: "in nij berjocht oanmeitsje"
       inbox: "Ynbox"
-      message_inbox: "Berjocht Ynbox"
-      new_message: "Nij Berjocht"
       no_messages: "gjin berjochten"
     new:
       send: "Ferstjoere"

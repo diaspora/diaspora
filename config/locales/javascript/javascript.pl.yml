@@ -49,11 +49,11 @@ pl:
       admin: "Administrator"
       close: "zamknij"
       contacts: "Kontakty"
+      conversations: "Rozmowy"
       help: "Pomoc"
       home: "Strona główna"
       log_out: "Wyloguj"
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
-      messages: "Wiadomości"
       notifications: "Powiadomienia"
       profile: "Profil"
       recent_notifications: "Ostatnie powiadomienia"
@@ -68,6 +68,9 @@ pl:
     my_activity: "Moja aktywność"
     my_aspects: "Moje aspekty"
     my_stream: "Strumień"
+    notifications:
+      mark_read: "Oznacz jako przeczytane"
+      mark_unread: "Oznacz jako nieprzeczytane"
     people:
       not_found: "...i nikogo nie odnaleziono."
     photo_uploader:
@@ -77,7 +80,20 @@ pl:
       invalid_ext: "{file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia to: {extensions}."
       looking_good: "O rety! Świetnie wyglądasz!"
       size_error: "{file} jest za duży. Maksymalny rozmiar pliku to {sizeLimit}."
+    poll:
+      close_result: "Ukryj wynik"
+      count:
+        few: "<%=count%> głosy jak do tej pory"
+        many: "<%=count%> głosów jak do tej pory"
+        one: "<%=count%> głos jak do tej pory"
+        other: "<%=count%> głosów"
+        zero: "Żaden głos nie został na razie oddany"
+      result: "Wynik"
+      show_result: "Pokaż wynik"
+      vote: "Zagłosuj"
+    post_report: "Zgłoś"
     post_report_prompt: "Proszę podaj powód:"
+    post_report_prompt_default: "obraźliwa zawartość"
     publisher:
       at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
       limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"
@@ -130,6 +146,7 @@ pl:
         stop_following: "Przestań obserwować #<%= tag %>"
       unfollow: "Nie obserwuj"
       unlike: "Nie lubię"
+      via: "przez <%= provider %>"
     tags:
       wasnt_that_interesting: "OK, przypuszczam, że #<%= tagName %> nie był, aż tak interesujący..."
     timeago:
@@ -146,6 +163,7 @@ pl:
       seconds: "mniej niż minutę"
       suffixAgo: "temu"
       suffixFromNow: "od teraz"
+      wordSeparator: " "
       year: "około roku"
       years: "%d lat"
     videos:

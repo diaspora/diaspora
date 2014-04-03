@@ -144,10 +144,6 @@ hy:
       aspect_not_empty: "Խումբը դատարկ չէ"
       remove: "հեռացնել"
     index:
-      cubbies:
-        explanation: "Cubbi.es-ը Diaspora-ի՝ մշակման փուլում գտնվող առաջին հավելվածն է։"
-        heading: "Միանալ Cubbi․es-ին"
-        learn_more: "Իմանալ ավելին"
       diaspora_id:
         content_1: "Քո Diaspora ID-ն՝"
         content_2: "Հաղորդիր սա որևիցե մեկին, և նա կկարողանա գտնել քեզ Diaspora-ում։"
@@ -216,12 +212,6 @@ hy:
       failure: "Քո՝ %{name} խմբի անունը շատ երկար է և չի կարող պահպանվել։"
       success: "Քո՝ %{name} խումբը հաջողությամբ փոփոխվեց։"
     zero: "ոչ մի խումբ չկա"
-  authorizations:
-    index:
-      no_applications: "Դու չես գրանցել որևէ applications դեռևս։"
-    new:
-      cubbies_will: "Cubbies -ով կկարողանաս նկարներ վերբեռնես քո կայֆին:"
-      nope: "Ոչ"
   back: "Ետ"
   blocks:
     create:
@@ -284,10 +274,7 @@ hy:
         other: "%{count} նոր նամակներ"
         zero: "Նոր նամակ չկա"
     index:
-      create_a_new_message: "նոր նամակ գրել"
       inbox: "Մուտքային նամակներ"
-      message_inbox: "Փոստարկղ"
-      new_message: "Նոր նամակ"
       no_conversation_selected: "ոչ մի խոսակցություն չի ընտրվել"
       no_messages: "նամակ չկա"
     new:
@@ -296,8 +283,6 @@ hy:
       sending: "Ուղարկվում է․․․"
       subject: "թեմա"
       to: ""
-    new_message:
-      fail: "Չստացված նամակ"
     show:
       delete: "ջնջել և արգելափակել խոսակցությունը"
       reply: "պատասխանել"
@@ -510,10 +495,8 @@ hy:
       edit_membership: "փոփոխել խմբի անդամներին"
     few: "%{count} մարդ"
     helper:
-      people_on_pod_are_aware_of: " փոդի մարդիկ տեղյակ են՝"
       results_for: " արդյունքներ %{params}-ի համար"
     index:
-      couldnt_find_them_send_invite: "Չե՞ս գտնում նրանց։  Հրավե՛ր ուղարկիր։"
       looking_for: "%{tag_link} պիտակո՞վ գրառումներ ես փնտրում։"
       no_one_found: "...և ոչ ոք չգտնվեց։"
       no_results: "Հե՜յ։ Մի բան գտնելու կարիք ունես։"
@@ -859,14 +842,6 @@ hy:
       posts_tagged_with: "Գրառումը պիտակավորված է #%{tag}-ով"
       stop_following: "Դադարել հետևել #%{tag}-ին"
   terms_and_conditions: "Պայմաններ ու դրույթներ"
-  tokens:
-    show:
-      connect_to_cubbies: "Միանալ Cubbi․es-ին"
-      daniels_account: "Դանիելի Diaspora հաշիվը"
-      love_to_try: "Ուրախ կլինեինք, եթե փորձարկեիր դա։"
-      making_the_connection: "Կատարում ենք միացումը"
-      sign_up_today: "Գրանցվի՛ր այսօր։"
-      what_is_cubbies: "Cubbi.es-ը աշխարհում Diaspora-ի առաջին հավելվածն է։  Այն նաև օնլայն նկարներ հավաքելու լավագույն ճանապարհն է։"
   undo: "Չեղարկե՞լ"
   username: "Օգտանուն"
   users:

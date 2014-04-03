@@ -24,9 +24,9 @@ ru:
         zero: "Выбрать аспекты"
     aspect_navigation:
       add_an_aspect: "+ Добавить аспект"
-      deselect_all: "Выключить все"
+      deselect_all: "Снять выделение"
       no_aspects: "Аспект не выбран"
-      select_all: "Включить все"
+      select_all: "Выделить всё"
     comma: ","
     comments:
       hide: "скрыть комментарии"
@@ -43,23 +43,23 @@ ru:
     getting_started:
       alright_ill_wait: "Хорошо, я подожду."
       hey: "Привет, <%= name %>!"
-      no_tags: "Вы не следите ни за одной меткой! Все равно продолжить?"
+      no_tags: "Вы не следите ни за одной меткой! Всё равно продолжить?"
       preparing_your_stream: "Подготовка вашего личного потока..."
     header:
       admin: "Администратор"
       close: "закрыть"
       contacts: "Контакты"
+      conversations: "Обсуждения"
       help: "Помощь"
       home: "Главная"
       log_out: "Выйти"
       mark_all_as_read: "Пометить как прочитанные"
-      messages: "Сообщения"
       notifications: "Уведомления"
       profile: "Профиль"
       recent_notifications: "Последние уведомления"
       search: "Поиск"
       settings: "Настройки"
-      view_all: "Посмотреть все"
+      view_all: "Посмотреть всё"
     ignore: "Блокировать"
     ignore_user: "Игнорировать этого пользователя?"
     infinite_scroll:
@@ -68,6 +68,9 @@ ru:
     my_activity: "Моя активность"
     my_aspects: "Мои аспекты"
     my_stream: "Поток"
+    notifications:
+      mark_read: "Прочитанное"
+      mark_unread: "Непрочитанное"
     people:
       not_found: "никого не найдено..."
     photo_uploader:
@@ -77,13 +80,16 @@ ru:
       invalid_ext: "{file} имеет недопустимое расширение. Разрешены только {extensions}."
       looking_good: "Чёрт возьми, вы выглядите потрясающе!"
       size_error: "{file} имеет слишком большой размер, максимальный размер файла: {sizeLimit}."
+    post_report: "Отчёт"
+    post_report_prompt: "Пожалуйста, укажите причину:"
+    post_report_prompt_default: "нежелательное содержание"
     publisher:
       at_least_one_aspect: "Вам надо создать как минимум один аспект"
       limited: "Ограниченная - ваша запись будет видна только указанным вами людям"
       near_from: "Отправлено из: <%= location %>"
       public: "Публичная - ваша запись будет видна всем, включая поисковые системы"
     reshares:
-      duplicate: "Настолько круто, да? Вы уже поделились этой записью!"
+      duplicate: "Настолько здорово, да? Вы уже поделились этой записью!"
       post: "Поделиться записью пользователя <%= name %>?"
       successful: "Вы успешно поделились записью!"
     search_for: "Искать <%= name %>"
@@ -108,11 +114,11 @@ ru:
         zero: "Понравилось: <%= count %>"
       limited: "Ограниченная"
       more_comments:
-        few: "Еще <%= count %> комментария"
-        many: "Еще <%= count %> комментариев"
-        one: "Еще <%= count %> комментарий"
-        other: "Еще <%= count %> комментариев"
-        zero: "Еще <%= count %> комментариев"
+        few: "Ещё <%= count %> комментария"
+        many: "Ещё <%= count %> комментариев"
+        one: "Ещё <%= count %> комментарий"
+        other: "Ещё <%= count %> комментариев"
+        zero: "Ещё <%= count %> комментариев"
       original_post_deleted: "Исходная запись удалена автором."
       public: "Публичная"
       reshare: "Поделиться"
@@ -124,13 +130,14 @@ ru:
         two: "Поделились: <%= count %>"
         zero: "Поделились: <%= count %>"
       show_nsfw_post: "Показать запись"
-      show_nsfw_posts: "Показать все"
+      show_nsfw_posts: "Показать всё"
       tags:
         follow: "Подписаться на метку #<%= tag %>"
         following: "Вы подписались на метку #<%= tag %>"
         stop_following: "Отписаться от метки #<%= tag %>"
       unfollow: "Не следить"
       unlike: "Не нравится"
+      via: "через <%= provider %>"
     tags:
       wasnt_that_interesting: "Что ж, видимо, метка #<%= tagName %> была не такой уж интересной..."
     timeago:
@@ -150,8 +157,8 @@ ru:
       year: "около года"
       years: "%d лет"
     videos:
-      unknown: "Неизвестный видеоформат"
-      watch: "Смотреть это видео на <%= provider %>"
+      unknown: "Ролик имеет неизвестный кодек"
+      watch: "Смотреть этот ролик на <%= provider %>"
     viewer:
       comment: "Комментировать"
       follow_post: "Следить за записью"

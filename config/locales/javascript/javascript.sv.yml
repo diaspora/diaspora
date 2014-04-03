@@ -49,11 +49,11 @@ sv:
       admin: "Administratör"
       close: "stäng"
       contacts: "Kontakter"
+      conversations: "Konversationer"
       help: "Hjälp"
       home: "Hem"
       log_out: "Logga ut"
       mark_all_as_read: "Markera alla som lästa"
-      messages: "Meddelanden"
       notifications: "Notiser"
       profile: "Profil"
       recent_notifications: "Tidigare notiser"
@@ -126,6 +126,7 @@ sv:
         stop_following: "Sluta följa #<%= tag %>"
       unfollow: "Sluta följ"
       unlike: "Sluta gilla"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "Ok, jag antar att #<%= tagName %> inte var så intressant..."
     timeago:
@@ -142,6 +143,7 @@ sv:
       seconds: "mindre än en minut"
       suffixAgo: "sedan"
       suffixFromNow: "från nu"
+      wordSeparator: " "
       year: "ungefär ett år"
       years: "%d år"
     videos:

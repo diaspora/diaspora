@@ -93,10 +93,6 @@ es-CO:
       aspect_not_empty: "El aspecto no está vacío"
       remove: "eliminar"
     index:
-      cubbies:
-        explanation: "Cubbi.es es la primera aplicación en desarrollo de Diaspora."
-        heading: "Conectar a Cubbi.es"
-        learn_more: "Aprende más"
       diaspora_id:
         content_1: "Tu ID de Diaspora es:"
         content_2: "Dáselo a quien quieras y podrán encontrarte en Diaspora."
@@ -220,10 +216,7 @@ es-CO:
         other: "%{count} mensajes nuevos"
         zero: "No hay mensajes nuevos"
     index:
-      create_a_new_message: "crear un nuevo mensaje"
       inbox: "Buzón de Entrada"
-      message_inbox: "Bandeja de Entrada"
-      new_message: "Nuevo Mensaje"
       no_conversation_selected: "ninguna conversación seleccionada"
       no_messages: "no hay mensajes"
     new:
@@ -232,8 +225,6 @@ es-CO:
       sending: "Enviando..."
       subject: "asunto"
       to: "a"
-    new_message:
-      fail: "Mensaje inválido"
     show:
       delete: "eliminar y bloquer conversación"
       reply: "responder"
@@ -385,10 +376,8 @@ es-CO:
       edit_membership: "editar miembros del aspecto"
     few: "%{count} personas"
     helper:
-      people_on_pod_are_aware_of: " la gente en el servidor está consciente de"
       results_for: " resultados para %{params}"
     index:
-      couldnt_find_them_send_invite: "¿No los pudiste encontrar? ¡Envíales una invitación!"
       looking_for: "¿Buscando publicaciones etiquetadas con %{tag_link}?"
       no_one_found: "…no se encontró a nadie."
       no_results: "¡Oye! Necesitas buscar algo."

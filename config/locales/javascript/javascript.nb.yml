@@ -52,7 +52,6 @@ nb:
       home: "Hjem"
       log_out: "Logg ut"
       mark_all_as_read: "Merk alle som lest"
-      messages: "Meldinger"
       notifications: "Varsler"
       profile: "Profil"
       recent_notifications: "Nylige varsel"

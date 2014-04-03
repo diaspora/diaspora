@@ -37,7 +37,7 @@ es-MX:
       reset_password_instructions:
         change: "Cambiar mi contraseña"
         ignore: "Si no solicitaste esto, por favor, ignora este correo."
-        someone_requested: "Alguien ha solicitado un enlace para cambiar tu contraseña, si fuiste tú, puedes cambiarlo siguiendo el enlace siguiente."
+        someone_requested: "Alguien ha solicitado un enlace para cambiar tu contraseña. Si fuiste tú, puedes cambiarlo a través del enlace siguiente."
         subject: "Instrucciones para reestablecer la contraseña"
         wont_change: "Tu contraseña no cambiará hasta que accedas al enlace anterior y crees una nueva."
       unlock_instructions:
@@ -50,8 +50,10 @@ es-MX:
       edit:
         change_password: "Cambiar mi contraseña"
       new:
+        email: "Dirección de correo electrónico"
         forgot_password: "¿Olvidaste tu contraseña?"
         no_account: "No existe una cuenta con este correo electrónico."
+        reset_password: "Restablecer contraseña"
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña."
       send_instructions: "Recibirás un correo electrónico con instrucciones para restablecer tu contraseña dentro de pocos minutos."
       updated: "Tu contraseña se ha modificado exitosamente. Has accedido a tu cuenta."

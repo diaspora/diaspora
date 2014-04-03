@@ -46,8 +46,6 @@ ga:
     helper:
       remove: "bain"
     index:
-      cubbies:
-        learn_more: "Breis eolais"
       diaspora_id:
         heading: "ID Diaspora"
       help:
@@ -87,9 +85,7 @@ ga:
     zero: "teagmhálacha"
   conversations:
     index:
-      create_a_new_message: "cruthaigh teachtaireacht nua"
       inbox: "post isteach"
-      new_message: "Teachtaireacht Nua"
     new:
       send: "Seol"
       subject: "ábhar"

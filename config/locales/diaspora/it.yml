@@ -137,6 +137,7 @@ it:
       confirm_remove_aspect: "Sei sicuro di voler eliminare questo aspetto?"
       done: "Fatto"
       make_aspect_list_visible: "Vuoi che i contatti di questo aspetto vedano gli altri che ne fanno parte?"
+      manage: "Gestisci"
       remove_aspect: "Elimina questo aspetto"
       rename: "rinomina"
       update: "aggiorna"
@@ -147,16 +148,12 @@ it:
       aspect_not_empty: "Aspetto non vuoto"
       remove: "rimuovi"
     index:
-      cubbies:
-        explanation: "Cubbi.es è la prima applicazione in sviluppo per Diaspora."
-        heading: "Connettiti a Cubbi.es"
-        learn_more: "Per saperne di più"
       diaspora_id:
         content_1: "Il tuo ID è:"
         content_2: "Chi lo conosce potrà trovarti facilmente su Diaspora, spargi la voce!"
         heading: "ID Diaspora"
       donate: "Fai una donazione"
-      handle_explanation: "Questo è il tuo ID su Diaspora. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
+      handle_explanation: "Questo è il tuo ID su Diaspora*. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
       help:
         any_problem: "Qualche problema?"
         contact_podmin: "Contatta l'amministratore del tuo pod!"
@@ -224,14 +221,6 @@ it:
       failure: "Il tuo aspetto, %{name}, ha un nome troppo lungo per poter essere salvato."
       success: "Il tuo aspetto, %{name}, è stato modificato con successo."
     zero: "nessun aspetto"
-  authorizations:
-    index:
-      no_applications: "Non hai ancora autorizzato nessuna applicazione."
-      revoke_access: "Revoca l'autorizzazione"
-    new:
-      authorize: "Autorizza"
-      cubbies_will: "Cubbies potrà pubblicare le foto sul tuo account"
-      nope: "No"
   back: "Indietro"
   blocks:
     create:
@@ -301,10 +290,9 @@ it:
         other: "%{count} nuovi messaggi"
         zero: "Nessun nuovo messaggio"
     index:
-      create_a_new_message: "scrivi un nuovo messaggio"
+      create_a_new_conversation: "Inizia una nuova conversazione"
       inbox: "In arrivo"
-      message_inbox: "Messaggi in arrivo"
-      new_message: "Nuovo Messaggio"
+      new_conversation: "Nuova conversazione"
       no_conversation_selected: "nessuna conversazione selezionata"
       no_messages: "nessun messaggio"
     new:
@@ -313,8 +301,6 @@ it:
       sending: "Invio in corso..."
       subject: "oggetto"
       to: "a"
-    new_message:
-      fail: "Messaggio non valido"
     show:
       delete: "elimina e blocca la conversazione"
       reply: "rispondi"
@@ -353,7 +339,7 @@ it:
       contacts_know_aspect_a: "No. Non possono sapere in nessun caso il nome dell'aspetto di cui fanno parte."
       contacts_know_aspect_q: "I miei contatti possono scoprire in quali aspetti li ho messi?"
       contacts_visible_a: "Se scegli questa opzione, i contatti di quell'aspetto potranno vedere tutti gli altri che ne fanno parte sotto la tua foto. E' opportuno scegliere questa opzione solo se i contatti nell'aspetto si conoscono già tra loro. Comunque non potranno sapere il nome che hai dato all'aspetto."
-      contacts_visible_q: "Cosa significa \"Vuoi che i contatti di questo aspetto vedano gli altri che ne fanno parte?\""
+      contacts_visible_q: "Cosa significa \"rendi i contatti in questo aspetto visibili gli uni agli altri\"?"
       delete_aspect_a: "Nella lista dei tuoi aspetti, sulla colonna laterale della pagina principale, passa con il mouse sull'aspetto che vuoi eliminare. Clicca sulla piccola matita che comparirà a destra. Nel riquadro che comparirà dovrai premere il bottone per eliminare l'aspetto."
       delete_aspect_q: "Come posso eliminare un aspetto?"
       person_multiple_aspects_a: "Sì. Vai alla pagina dei contatti. Per ogni contatto potrai usare il menu a destra per aggiungerlo o toglierlo da quanti aspetti vorrai. Oppure potrai aggiungerlo a un aspetto (o rimuoverlo) cliccando sul bottone di selezione degli aspetti presente sul suo profilo. Puoi anche passare con il mouse sul nome. Comparirà la scheda del contatto con la possibilità di gestire gli aspetti."
@@ -373,14 +359,14 @@ it:
       who_sees_post_q: "Quando pubblico un contenuto ad un aspetto, chi lo vede?"
     foundation_website: "Sito web diaspora foundation"
     getting_help:
-      get_support_a_hashtag: "Invia la domanda in un post pubblico usando %{question} come hashtag"
-      get_support_a_irc: "contattaci in %{irc} (Live chat)"
+      get_support_a_hashtag: "Invia la domanda in un post pubblico in diaspora* usando %{question} come hashtag"
+      get_support_a_irc: "raggiungici in %{irc} (Live chat)"
       get_support_a_tutorials: "Controlla i nostri %{tutorials}"
       get_support_a_website: "visita il nostro %{link}"
-      get_support_a_wiki: "cerca in %{link}"
+      get_support_a_wiki: "cerca il %{link}"
       get_support_q: "Cosa fare se la mia domanda non è in queste FAQ? Dove altro posso avere supporto?"
       getting_started_a: "Sei fortunato. Prova i %{tutorial_series} sul nostro sito. Ti guideranno passo passo nella registrazione e ti spiegheranno i concetti base di cui hai bisogno per iniziare ad usare diaspora"
-      getting_started_q: "Aiuto! Ho bisogno di informazioni di base per iniziare"
+      getting_started_q: "Aiuto! Ho bisogno di informazioni di base per iniziare!"
       title: "Ottenere aiuto"
     getting_started_tutorial: "Serie di tutorial \"per inziare\""
     here: "qui"
@@ -401,7 +387,7 @@ it:
       find_people_q: "Mi sono appena registrato su un pod, come trovo persone con cui condividere?"
       title: "Pod"
       use_search_box_a: "Se conosci il loro identificativo su diaspora* (del tipo nomeutente@nomepod.org), puoi usarlo per effettuare la ricerca. Se siete sullo stesso pod puoi effettuare la ricerca anche con il solo nome utente. Un'alternativa è cercare il nome che hanno scelto per il loro profilo (il nome che compare a schermo). Se una ricerca non ha risultati al primo tentativo prova di nuovo."
-      use_search_box_q: "Come uso il campo di ricerca per trovare delle persone?"
+      use_search_box_q: "Come uso il campo di ricerca per trovare qualcuno in particolare?"
       what_is_a_pod_a: "Un pod è un server con installato il software diaspora* ed è connesso alla rete di diaspora*. \"Pod\" è una metafora, come per una pianta lo stelo sostiene i semi, il server conserva gli account degli utenti. Ci sono molti pod differenti al mondo, ma puoi aggiungere amici da tutti i pod e comunicare con loro. Il funzionamento di diaspora* è simile a quello del sistema email: ci sono molti server pubblici, quelli privati e, con un po' di impegno, puoi creare anche un tuo server personale."
       what_is_a_pod_q: "Cosa è un pod?"
     posts_and_posting:
@@ -432,13 +418,59 @@ it:
     private_posts:
       can_comment_a: "Solo gli utenti loggati in diaspora che hai inserito in questo aspect possono commentare o apprezzare il tuo post privato"
       can_comment_q: "Chi può commentare o apprezzare il mio post privato?"
+      can_reshare_a: "Nessuno. I post privati non sono ri-condivisibili. Gli utenti loggati in diaspora* in quell'Aspetto, tuttavia, possono potenzialmente copiarli e incollarli."
       can_reshare_q: "Chi può ricondividere il mio post privato?"
-      title: "Post privato"
+      see_comment_a: "Solo le persone con cui quel post era stato condiviso (le persone che sono nell'Aspetto selezionato dal postatore originale) possono vedere i suoi commenti e i suoi \"mi piace\". "
+      see_comment_q: "Quando commento o metto mi piace su un post privato, chi può vederlo?"
+      title: "Post privati"
+      who_sees_post_a: "Solo gli utenti loggati in diaspora* che hai inserito in quell'Aspetto possono vedere i tuoi post privati."
+      who_sees_post_q: "Quando posto un messaggio ad un Aspetto (es: un messaggio privato), chi può vederlo?"
+    private_profiles:
+      title: "Profili privati"
+      whats_in_profile_q: "Cosa c'è nel mio profilo privato?"
+      who_sees_profile_a: "Qualunque utente loggato con cui lo stai condividendo (cioè, lo hai aggiunto ad uno dei tuoi aspetti). Tuttavia, le persone che ti seguono, ma che tu non segui, vedranno solo le tue informazioni pubbliche."
+      who_sees_profile_q: "Chi vede il mio profilo privato?"
+      who_sees_updates_a: "Chiunque nei tuoi aspetti vede i cambiamenti del tuo profilo privato "
+      who_sees_updates_q: "Chi vede gli aggiornamenti del mio profilo privato?"
+    public_posts:
+      can_comment_reshare_like_a: "Qualunque utente di diaspora* loggato può commentare, ri-condividere, o mettere mi piace sul tuo post pubblico."
+      can_comment_reshare_like_q: "Chi può commentare, ri-condividere, o mettere mi piace sul mio post pubblico?"
+      deselect_aspect_posting_q: "Cosa succede quando deseleziono uno o più Aspetti quando creo un post pubblico?"
+      find_public_post_q: "Le altre persone come possono trovare i miei post?"
+      title: "Post pubblici"
+      who_sees_post_a: "Potenzialmente chiunque stia utilizzando internet può vedere un post che hai segnato come pubblico, perciò assicurati di voler rendere per davvero il tuo post pubblico. E' un fantastico modo di allungarsi verso il mondo."
+      who_sees_post_q: "Quando posto qualcosa pubblicamente, chi può vederla?"
+    public_profiles:
+      title: "Profili pubblici"
+      what_do_tags_do_a: "Aiutano le persone a conoscerti. L'immagine del tuo profilo apparirà anch'essa a sinistra di quelle particolari pagine di tag, insieme con chiunque altro le abbia nel loro profilo pubblico."
+      what_do_tags_do_q: "Cosa fanno le tag nel mio profilo pubblico?"
+      whats_in_profile_a: "Il tuo nome, le cinque tag che hai scelto per descriverti, e la tua foto. Sono le cose nella sezione superiore della pagina modificabile del profilo. Puoi rendere queste informazioni di profilo quanto anonime o identificabili desideri. Le tue pagine di profilo mostrano anche qualunque post pubblico che hai creato."
+      whats_in_profile_q: "Cosa c'è nel mio profilo pubblico"
+      who_sees_profile_a: "Qualunque utente loggato in diaspora*, così come il più ampio internet, può vederlo. Ogni profilo ha una URL diretta, perciò potrebbe essere linkata direttamente da siti esterni. Potrebbe essere indicizzata da motori di ricerca."
+      who_sees_profile_q: "Chi vede il mio profilo pubblico?"
+      who_sees_updates_a: "Chiunque visiti la tua pagina del profilo può vedere i cambiamenti."
+      who_sees_updates_q: "Chi vede gli aggiornamenti del mio profilo pubblico?"
+    resharing_posts:
+      title: "Ri-condividere post"
+    sharing:
+      add_to_aspect_a1: "Poniamo che Amy aggiunga Ben ad un Aspetto, ma Ben non abbia (ancora) aggiunto Amy ad un Aspetto."
+      add_to_aspect_li1: "Bill riceverà una notifica che dirà che Amy ha \"iniziato a condividere\" con lui."
+      add_to_aspect_li2: "Amy inizierà a vedere i post pubblici di Ben nel suo profilo."
+      add_to_aspect_li3: "Amy non vedrà alcun post privato di Ben."
+      add_to_aspect_li4: "Ben non vedrà i post pubblici o privati di Amy nel suo stream."
+      add_to_aspect_li5: "Ma se Ben andrà nella pagina del profilo di Amy, allora vedrà i messaggi privati di Amy che lei crea per il suo Aspetto in cui c'è lui (e anche i suoi post pubblici che chiunque può vedere)."
+      add_to_aspect_li6: "Ben potrà vedere il profilo privato di Amy (biografia, luogo, sesso, compleanno)."
+      title: "Condividendo"
+    tags:
+      tags_in_comments_q: "Posso mettere dei tag nei commenti o solo nei post?"
+      title: "Tag"
+      what_are_tags_for_q: "A cosa servono i tag?"
     third_party_tools: "tool di terze parti"
     tutorial: "guida"
     tutorials: "guide"
     wiki: "wiki"
   hide: "Nascondi"
+  ignore: "Ignora"
   invitation_codes:
     excited: "%{name} è entusiasta di vederti qui."
   invitations:
@@ -489,6 +521,7 @@ it:
       admin: "admin"
       blog: "blog"
       code: "codice"
+      help: "Aiuto"
       login: "accedi"
       logout: "Esci"
       profile: "Profilo"
@@ -553,8 +586,12 @@ it:
         two: "e altre %{count} persone"
         zero: "e nessun altro"
       mark_all_as_read: "Segna come lette"
+      mark_read: "Segna come letto"
       mark_unread: "Segna come non letti"
+      mentioned: "Menzionato"
       notifications: "Notifiche"
+      reshared: "Ri-condiviso"
+      show_all: "Mostra tutto"
     liked:
       few: "A %{actors} piace il tuo %{post_link}."
       many: "A %{actors} piace il tuo %{post_link}."
@@ -664,15 +701,16 @@ it:
     helper:
       is_not_sharing: "%{name} non condivide con te"
       is_sharing: "%{name} sta condividendo con te"
-      people_on_pod_are_aware_of: " le persone sul pod sanno che"
       results_for: " risultati per %{params}"
     index:
-      couldnt_find_them_send_invite: "Non li trovi? Manda loro un invito!"
+      couldnt_find_them: "Non sei riuscito a trovarli?"
       looking_for: "Cerchi i post con il tag %{tag_link}?"
       no_one_found: "...e nessuno è stato trovato."
       no_results: "Ehi! Devi inserire qualcosa da cercare."
       results_for: "risultati della ricerca di"
+      search_handle: "Utilizza la loro ID diaspora* (nomeutente@pod.tld) per essere sicuro di trovare i tuoi amici."
       searching: "ricerca in corso, devi avere pazienza..."
+      send_invite: "Ancora niente? Manda un invito!"
     many: "%{count} persone"
     one: "una persona"
     other: "%{count} persone"
@@ -822,6 +860,7 @@ it:
       password_confirmation: "CONFERMA PASSWORD"
       sign_up: "ISCRIVITI"
       sign_up_message: "Il Social Network con un ♥ così"
+      submitting: "Invio..."
       username: "NOME UTENTE"
   requests:
     create:
@@ -877,6 +916,7 @@ it:
       connect_to_facebook: "Connettiti a Facebook"
       connect_to_tumblr: "Connettiti a Tumblr"
       connect_to_twitter: "Connettiti a Twitter"
+      connect_to_wordpress: "Connetti a Wordpress"
       disconnect: "disconnetti"
       edit_services: "Modifica servizi"
       logged_in_as: "accesso effettuato come"
@@ -954,6 +994,7 @@ it:
       posting: "Invio in corso..."
       preview: "Anteprima"
       publishing_to: "stai condividendo con: "
+      remove_location: "Rimuovi posizione"
       share: "Condividi"
       share_with: "condividi con"
       upload_photos: "Carica foto"
@@ -975,6 +1016,12 @@ it:
       via: "via %{link}"
       via_mobile: "via mobile"
       viewable_to_anyone: "Questo post è visibile a tutti sul web"
+  simple_captcha:
+    label: "Inserisci il codice nel box"
+    message:
+      default: "Il codice segreto non corrisponde all'immagine"
+      user: "L'immagine segreta e il codice non coincidevano"
+    placeholder: "Inserisci il valore nell'immagine"
   status_messages:
     create:
       success: "Menzionati con successo: %{names}"
@@ -1038,6 +1085,10 @@ it:
   tags:
     show:
       follow: "Segui #%{tag}"
+      followed_by_people:
+        one: "Seguita da una persona"
+        other: "Seguito da %{count} persone"
+        zero: "Seguito da nessuno"
       following: "Stai seguendo #%{tag}"
       nobody_talking: "Nessuno sta ancora parlando di %{tag}."
       none: "Il tag vuoto non esiste!"
@@ -1045,18 +1096,6 @@ it:
       posts_tagged_with: "Post con il tag #%{tag}"
       stop_following: "Smetti di seguire #%{tag}"
   terms_and_conditions: "Termini e condizioni d'uso"
-  tokens:
-    show:
-      connect_to_cubbies: "Connettiti a Cubbi.es"
-      connecting_is_simple: "Connettere il tuo account Diaspora è semplice! Inserisci il tuo ID (<b>%{diaspora_id}</b>) nella <a href='%{href_link}'>pagina delle impostazioni</a> di cubbies e premi <i>connect</i>."
-      daniels_account: "account Diaspora di Daniel"
-      love_to_try: "Ci farebbe piacere che tu lo provassi."
-      making_the_connection: "Effettua la connessione"
-      screenshot_explanation: "%{link1}. Questa pagina di cubby è collegata a %{link2}."
-      sign_up_today: "Registrati oggi!"
-      typical_userpage: "Una tipica pagina personale su cubbi.es"
-      via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es è la prima applicazione Diaspora al mondo. È anche il miglior modo di raccogliere le foto online."
   undo: "Annullare?"
   username: "Nome Utente"
   users:

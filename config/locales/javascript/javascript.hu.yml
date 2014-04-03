@@ -39,6 +39,7 @@ hu:
     edit: "Szerkesztés"
     failed_to_like: "Hiba"
     failed_to_post_message: "Üzenet elküldése sikertelen!"
+    failed_to_remove: "Nem sikerült eltávolítani az elemet!"
     getting_started:
       alright_ill_wait: "Rendben, várok!"
       hey: "Szia <%= name %>!"
@@ -52,7 +53,6 @@ hu:
       home: "Kezdőlap"
       log_out: "Kijelentkezés"
       mark_all_as_read: "Összes olvasottnak jelölése"
-      messages: "Üzenetek"
       notifications: "Értesítések"
       profile: "Adatlap"
       recent_notifications: "Friss értesítések"
@@ -75,6 +75,7 @@ hu:
       invalid_ext: "{file} érvénytelen kiterjesztésű. Csak {extensions} használata megengedett."
       looking_good: "Azta! Remekül nézek ki!"
       size_error: "{file} túl nagy, az állomány mérete legfeljebb {sizeLimit} lehet."
+    post_report_prompt: "Kérlek indokold meg a szándékod:"
     publisher:
       at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
