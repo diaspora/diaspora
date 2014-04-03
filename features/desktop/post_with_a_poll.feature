@@ -63,3 +63,17 @@ Feature: posting with a poll
       Then I should see an element ".poll_progress_bar"
       And I should see an element ".percentage"
       And I should see "1 vote so far" within ".poll_statistic"
+
+  Scenario: click to show result
+    Given I expand the publisher
+    And I press the element "#poll_creator"
+    When I fill in the following:
+        | status_message_fake_text    | I am eating yogurt |
+        | poll_question               | What kind of yogurt do you like? |
+    And I fill in the following for the options:
+        | normal |
+        | not normal  |
+    And I press "Share"
+
+    And I press the element ".toggle_result"
+    Then I should see an element ".percentage"

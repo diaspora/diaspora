@@ -1,32 +1,42 @@
 {{#if poll}}
   <div class="poll_form">
-    <p class="poll_statistic">{{t "poll.count" count=poll.participation_count}}</p>
-    <strong>{{poll.question}}</strong><br/>
-    {{#unless already_participated_in_poll}}
-      <form action="/posts/{{poll.post_id}}/poll_participations" method="POST">
-        {{#poll.poll_answers}}
-          <input type="radio" name="vote" value="{{id}}"/>
-          <div class="poll_progress_bar_wrapper" style="display:none;">
-            <div class="poll_progress_bar" data-answerid="{{id}}"></div>
+    <div class="row-fluid poll_head">
+      <strong>{{{poll.question}}}</strong>
+      <div class="poll_statistic pull-right">
+        {{t "poll.count" count=poll.participation_count}}
+      </div>
+    </div>
+    <div class="row-fluid poll_content">
+      {{#unless already_participated_in_poll}}
+        <form action="/posts/{{poll.post_id}}/poll_participations" method="POST">
+          {{#poll.poll_answers}}
+            <label class="radio result-row">
+              <input type="radio" name="vote" value="{{id}}"/>
+              {{answer}} 
+              <span class="percentage pull-right" style="display: none;"></span>
+              <div class="poll_progress_bar_wrapper progress" style="display: none">
+                <div class="poll_progress_bar bar" data-answerid="{{id}}">
+              </div>
+            </div>
+            </label>  
+          {{/poll.poll_answers}}
+          <div class="toggle_result_wrapper">
+            <a class="toggle_result" href="#">{{t "poll.show_result"}}</a>
           </div>
-          {{answer}}
-          <p class="percentage" style="display:none;"></p>
-          <br/>
+          <input type="submit" class="button submit pull-rigth btn" style="float:right;" value="{{t "poll.vote"}}"/>
+        </form>
+      {{else}}
+        {{#poll.poll_answers}}
+          <div class="result-row">
+            {{answer}}
+            <span class="percentage pull-right"></span>
+            <div class="poll_progress_bar_wrapper progress">
+              <div class="poll_progress_bar bar" data-answerid="{{id}}">
+              </div>
+            </div>
+          </div>
         {{/poll.poll_answers}}
-        <input type="submit" class="button submit" style="float:right;" value="{{t "poll.vote"}}"/>
-      </form>
-      <p class="toggle_result_wrapper">
-        <br/><a href="#" class="toggle_result">{{t "poll.show_result"}}</a><br/>
-      </p>
-    {{else}}
-      {{#poll.poll_answers}}
-        <div class="poll_progress_bar_wrapper">
-          <div class="poll_progress_bar" data-answerid="{{id}}"></div>
-        </div>
-        {{answer}}
-        <p class="percentage"></p>
-        <br/>
-      {{/poll.poll_answers}}
-    {{/unless}}
+      {{/unless}}
+    </div>
   </div>
 {{/if}}
