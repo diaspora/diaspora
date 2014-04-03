@@ -70,14 +70,17 @@ header {
   -webkit-box-shadow: -2px 0px 2px 1px #333;
 
   header {
+    position: static;
     left: 100%;
     right: -80%;
     
     #global_search {
-      margin-left: 10px;
+      position: relative;
 
       form {
-        margin-right: 20px;
+        position: absolute;
+        left: 5px;
+        right: 15px;
 
         input {
           @include box-shadow(0, 1px, 1px, #444);
