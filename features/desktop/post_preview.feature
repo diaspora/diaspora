@@ -70,3 +70,18 @@ Feature: preview posts in the stream
       And I press "Preview"
       Then "This preview rocks" should be post 1
       And the first post should be a preview
+
+    Scenario: preview a post with the poll
+      Given I expand the publisher
+      When I fill in the following:
+          | status_message_fake_text    | I am eating yogurt    |
+      And I press the element "#poll_creator"
+      When I fill in the following:
+          | status_message_fake_text    | I am eating yogurt |
+          | poll_question               | What kind of yogurt do you like? |
+      And I fill in the following for the options:
+          | normal |
+          | not normal  |
+      And I press "Preview"
+      Then I should see a ".poll_form" within ".stream_element"
+      And I should see a "form" within ".stream_element"
