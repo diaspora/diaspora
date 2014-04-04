@@ -12,6 +12,7 @@ app.views.Poll = app.views.Base.extend({
 
   postRenderTemplate: function() {
     this.poll = this.model.attributes.poll;
+    this.pollButtons();
     this.setProgressBar();
   },
 
@@ -39,9 +40,21 @@ app.views.Poll = app.views.Base.extend({
     progressBar.parents('.result-row').find('.percentage').text(percent + "%");
   },
 
-  toggleResult: function(evt) {
-    if(evt) evt.preventDefault();
+  pollButtons: function() {
+    if(!this.poll || !this.poll.post_id) {
+      this.$('.submit').attr('disabled', true);
+      this.$('.toggle_result').attr('disabled', true);
+    }
+  },
 
+  toggleResult: function(evt) {
+    if(evt) {
+      evt.preventDefault();
+      // Disable link
+      if($(evt.target).attr('disabled')) {
+        return false;
+      }
+    }
     this.toggleElements();
 
     var toggle_result = this.$('.toggle_result');
@@ -64,7 +77,7 @@ app.views.Poll = app.views.Base.extend({
   clickSubmit: function(evt) {
     evt.preventDefault();
 
-    var answer_id = parseInt($(evt.target).parent().find("input[name=vote]:checked").val());
+    var answer_id = parseInt(this.$("input[name=vote]:checked").val());
     this.vote(answer_id);
   },
 

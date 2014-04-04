@@ -254,6 +254,23 @@ app.views.Publisher = Backbone.View.extend({
     }
 
     var date = (new Date()).toISOString();
+
+    var poll = undefined;
+    var poll_question = serializedForm["poll_question"];
+    var poll_answers_arry = _.flatten([serializedForm["poll_answers[]"]]); 
+    var poll_answers = _.map(poll_answers_arry, function(answer){
+      if(answer) return { 'answer' : answer };
+    });
+    poll_answers = _.without(poll_answers, undefined);
+
+    if(poll_question && poll_answers.length) {
+      poll = {
+        'question': poll_question,
+        'poll_answers' : poll_answers,
+        'participation_count': '0'
+      };
+    }
+
     var previewMessage = {
       "id" : 0,
       "text" : serializedForm["status_message[text]"],
@@ -267,9 +284,9 @@ app.views.Publisher = Backbone.View.extend({
       "frame_name" : "status",
       "title" : serializedForm["status_message[text]"],
       "address" : $("#location_address").val(),
-      "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0}
-    }
-
+      "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0},
+      'poll': poll, 
+    };
     if(app.stream) {
       this.removePostPreview();
       app.stream.addNow(previewMessage);
