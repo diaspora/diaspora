@@ -41,7 +41,7 @@
 * Added comment count to statistic to enable calculations of posts/comments ratios [#4799](https://github.com/diaspora/diaspora/pull/4799)
 * Add filters to notifications controller [#4814](https://github.com/diaspora/diaspora/pull/4814)
 * Activate hovercards in SPV and conversations [#4870](https://github.com/diaspora/diaspora/pull/4870)
-* Added possibility to conduct polls [#4861](https://github.com/diaspora/diaspora/pull/4861) [#4894](https://github.com/diaspora/diaspora/pull/4894)
+* Added possibility to conduct polls [#4861](https://github.com/diaspora/diaspora/pull/4861) [#4894](https://github.com/diaspora/diaspora/pull/4894) [#4897](https://github.com/diaspora/diaspora/pull/4897)
 
 # 0.3.0.3
 

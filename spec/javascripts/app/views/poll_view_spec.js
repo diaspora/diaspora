@@ -1,15 +1,15 @@
-describe("app.views.PollBlueprint", function(){
+describe("app.views.Poll", function(){
   beforeEach(function() {
     loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
-    this.view = new app.views.PollBlueprint({ model: factory.postWithPoll()});
+    this.view = new app.views.Poll({ model: factory.postWithPoll()});
     this.view.render();
   });
 
   describe("setProgressBar", function(){
     it("sets the progress bar according to the voting result", function(){
       var percentage = (this.view.poll.poll_answers[0].vote_count / this.view.poll.participation_count)*100;
-      expect(this.view.$('.poll_progress_bar:first').css('width')).toBe(this.view.progressBarFactor * percentage+"px");
-      expect(this.view.$(".percentage:first").text()).toBe(" - " + percentage + "%");
+      expect(this.view.$('.poll_progress_bar:first').css('width')).toBe(percentage+"%");
+      expect(this.view.$(".percentage:first").text()).toBe(percentage + "%");
     })
   });
 
