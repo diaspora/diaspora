@@ -168,10 +168,6 @@ group :production do # we don't install these on travis to speed up test runs
 end
 
 group :development do
-  # Comparison images
-
-  gem 'rmagick', '2.13.2', :require => false
-
   # Automatic test runs
   gem 'guard-cucumber', '1.4.1'
   gem 'guard-rspec',    '4.2.4'
