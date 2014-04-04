@@ -32,4 +32,12 @@
       text-align: left;
     }
   }
+  .submit[disabled] {
+    cursor: default;
+    color: $light-grey;
+
+    &:hover, &:active {
+      background-image: none;
+    }
+  }
 }
