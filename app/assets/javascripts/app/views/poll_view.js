@@ -10,6 +10,16 @@ app.views.Poll = app.views.Base.extend({
     this.model.bind('change', this.render, this);
   },
 
+  presenter: function(){
+    var defaultPresenter = this.defaultPresenter();
+    var show_form = defaultPresenter.loggedIn && 
+                    !this.model.attributes.already_participated_in_poll;
+
+    return _.extend(defaultPresenter, {
+      show_form: show_form 
+    });
+  },
+
   postRenderTemplate: function() {
     this.poll = this.model.attributes.poll;
     this.pollButtons();

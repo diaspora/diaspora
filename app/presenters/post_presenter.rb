@@ -77,7 +77,7 @@ class PostPresenter
   private
 
   def already_participated_in_poll
-    if @post.poll
+    if @post.poll && user_signed_in?
       @post.poll.already_participated?(current_user)
     end
   end
