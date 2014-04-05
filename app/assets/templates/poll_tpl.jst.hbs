@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="row-fluid poll_content">
-      {{#unless already_participated_in_poll}}
+      {{#if show_form}}
         <form action="/posts/{{poll.post_id}}/poll_participations" method="POST">
           {{#poll.poll_answers}}
             <label class="radio result-row">
@@ -36,7 +36,7 @@
             </div>
           </div>
         {{/poll.poll_answers}}
-      {{/unless}}
+      {{/if}}
     </div>
   </div>
 {{/if}}

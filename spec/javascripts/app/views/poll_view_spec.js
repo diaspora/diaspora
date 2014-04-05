@@ -33,5 +33,21 @@ describe("app.views.Poll", function(){
       expect(obj.poll_id).toBe(poll.poll_id);
       expect(obj.poll_answer_id).toBe(answer.id);
     })
-  })
+  });
+
+  describe("vote form", function(){
+    it('show vote form when user is logged in and not voted before', function(){
+      expect(this.view.$('form').length).toBe(1);
+    });
+    it('hide vote form when user voted before', function(){
+      this.view.model.attributes.already_participated_in_poll = true;
+      this.view.render();
+      expect(this.view.$('form').length).toBe(0);
+    });
+    it("hide vote form when user not logged in", function(){
+      logout();
+      this.view.render();
+      expect(this.view.$('form').length).toBe(0);
+    });
+  });
 });
