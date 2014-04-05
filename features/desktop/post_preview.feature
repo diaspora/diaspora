@@ -76,6 +76,7 @@ Feature: preview posts in the stream
       When I fill in the following:
           | status_message_fake_text    | I am eating yogurt    |
       And I press the element "#poll_creator"
+      And I press the element ".add-answer .button.creation"
       When I fill in the following:
           | status_message_fake_text    | I am eating yogurt |
           | poll_question               | What kind of yogurt do you like? |
