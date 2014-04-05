@@ -45,7 +45,7 @@ class PollParticipation < ActiveRecord::Base
 
     other_participations = PollParticipation.where(author_id: self.author.id, poll_id: self.poll.id).to_a-[self]
     if other_participations.present?
-      self.errors.add(:poll, I18n.t("activerecord.errors.models.poll_participations.attributes.poll.already_participated"))
+      self.errors.add(:poll, I18n.t("activerecord.errors.models.poll_participation.attributes.poll.already_participated"))
     end
   end
 
