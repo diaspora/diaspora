@@ -59,7 +59,7 @@ header {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 80%;
+  width: 100%;
   left: 100%;
   background-color: #444;
   
@@ -80,7 +80,7 @@ header {
       form {
         position: absolute;
         left: 5px;
-        right: 15px;
+        right: 22%;
 
         input {
           @include box-shadow(0, 1px, 1px, #444);
@@ -116,7 +116,6 @@ header {
     bottom: 0px;
     overflow: auto;
     width: 100%;
-    height: 100%;
 
     li {
       font-size: 25px;
@@ -133,6 +132,10 @@ header {
     .no_border {
       padding: 0px;
       border-bottom: 0px;
+      
+      &:hover {
+        background-color: transparent;
+      }
       
       > ul > li > a {
         font-size: 14px;

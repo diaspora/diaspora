@@ -30,7 +30,7 @@ h3 {
   clear: both;
 }
 
-#app {
+#app > * {
   transition: all 0.25s ease;
 }
 
