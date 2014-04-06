@@ -37,17 +37,7 @@
                 = image_tag 'icons/camera.png', :alt => t('shared.publisher.upload_photos').titleize, :class => 'publisher_image'
             = hidden_field :location, :coords
           #location_container
-          #poll_creator_wrapper
-            #poll_question_wrapper
-              %input{:id => 'poll_question', :placeholder => t('shared.publisher.poll.question'), :name => 'poll_question'}
-            .poll_answer
-              %span{:class => 'poll_answer_input_wrapper'}
-                %input{:class => 'poll_answer_input', :placeholder => t('shared.publisher.poll.option'), :name => 'poll_answers[]'}
-              %a{:class => 'remove_poll_answer', :title => t('shared.publisher.poll.remove_poll_answer')}
-                .icons-deletelabel
-            #add_poll_answer_wrapper
-              #add_poll_answer{:class => 'button creation'}
-                = t('shared.publisher.poll.add_poll_answer')
+          #publisher-poll-creator
 
       - if publisher_public
         = hidden_field_tag 'aspect_ids[]', "public"

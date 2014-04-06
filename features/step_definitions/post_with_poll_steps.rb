@@ -1,19 +1,19 @@
 Then /^I should see ([1-9]+) options?$/ do |number|
-  find("#poll_creator_wrapper").all(".poll_answer").count.should eql(number.to_i)
+  find("#publisher-poll-creator").all(".poll-answer").count.should eql(number.to_i)
 end
 
-And /^I delete the first option$/ do
-  find("#poll_creator_wrapper").all(".poll_answer .remove_poll_answer").first.click
+And /^I delete the last option$/ do
+  find("#publisher-poll-creator").all(".poll-answer .remove-answer").first.click
 end
 
 And /^I should not see a remove icon$/ do
-  page.should_not have_css(".remove_poll_answer")
+  page.should_not have_css(".remove-answer")
 end
 
 When /^I fill in the following for the options:$/ do |table|
   i = 0
   table.raw.flatten.each do |value|
-    all(".poll_answer_input")[i].set(value)
+    all(".poll-answer input")[i].set(value)
     i+=1
   end
 end

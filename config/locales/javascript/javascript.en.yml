@@ -102,6 +102,11 @@ en:
       mark_read: "Mark read"
       mark_unread: "Mark unread"
 
+    publisher:
+      option: "Option <%= nr %>"
+      add_option: "Add option"
+      question: "Question"
+
     stream:
       hide: "Hide"
       public: "Public"

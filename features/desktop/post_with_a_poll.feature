@@ -9,28 +9,29 @@ Feature: posting with a poll
       And I am on the home page
       
     Scenario: expanding the publisher
-      Given "#poll_creator_wrapper" is hidden
+      Given "#publisher-poll-creator" is hidden
       When I expand the publisher
       Then I should see an element "#poll_creator"
 
     Scenario: expanding the poll creator
-      Given "#poll_creator_wrapper" is hidden
+      Given "#publisher-poll-creator" is hidden
       When I expand the publisher
       And I press the element "#poll_creator"
-      Then I should see an element "#poll_creator_wrapper"
+      Then I should see an element "#publisher-poll-creator"
 
     Scenario: adding option to poll
-      Given "#poll_creator_wrapper" is hidden
+      Given "#publisher-poll-creator" is hidden
       When I expand the publisher
       And I press the element "#poll_creator"
-      And I press the element "#add_poll_answer"
-      Then I should see 3 options
+      And I press the element ".add-answer .button.creation"
+      Then I should see 2 options
 
     Scenario: delete an option
-      Given "#poll_creator_wrapper" is hidden
+      Given "#publisher-poll-creator" is hidden
       When I expand the publisher
       And I press the element "#poll_creator"
-      And I delete the first option
+      And I press the element ".add-answer .button.creation"
+      And I delete the last option
       Then I should see 1 option
       And I should not see a remove icon
 
@@ -40,6 +41,7 @@ Feature: posting with a poll
       When I fill in the following:
           | status_message_fake_text    | I am eating yogurt |
           | poll_question               | What kind of yogurt do you like? |
+      And I press the element ".add-answer .button.creation"
       And I fill in the following for the options:
           | normal |
           | not normal  |
@@ -50,6 +52,7 @@ Feature: posting with a poll
     Scenario: vote for an option
       Given I expand the publisher
       And I press the element "#poll_creator"
+      And I press the element ".add-answer .button.creation"
       When I fill in the following:
           | status_message_fake_text    | I am eating yogurt |
           | poll_question               | What kind of yogurt do you like? |
@@ -67,6 +70,7 @@ Feature: posting with a poll
   Scenario: click to show result
     Given I expand the publisher
     And I press the element "#poll_creator"
+    And I press the element ".add-answer .button.creation"
     When I fill in the following:
         | status_message_fake_text    | I am eating yogurt |
         | poll_question               | What kind of yogurt do you like? |
