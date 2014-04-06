@@ -16,6 +16,7 @@
 * Improve search page, add better indications [#4794](https://github.com/diaspora/diaspora/pull/4794)
 * Port notifications and hovercards to Bootstrap [#4814](https://github.com/diaspora/diaspora/pull/4814)
 * Replace .rvmrc by .ruby-version and .ruby-gemset [#4854](https://github.com/diaspora/diaspora/pull/4855)
+* Reorder and reword items on user settings page [#4912](https://github.com/diaspora/diaspora/pull/4912)
 
 ## Bug fixes
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
