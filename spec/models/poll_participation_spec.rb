@@ -78,6 +78,31 @@ describe PollParticipation do
     end
   end
 
+  describe 'federation' do
+    before do
+      #Alice is on pod A and another person is on pod B. Alice posts a poll and participates in the poll.
+      @poll_participant = FactoryGirl.create(:user)
+      @poll_participant_aspect = @poll_participant.aspects.create(:name => "bruisers")
+      connect_users(alice, @alices_aspect, @poll_participant, @poll_participant_aspect)
+      @poll = Poll.new(:question => "hi")
+      @poll.poll_answers.build(:answer => "a")
+      @poll.poll_answers.build(:answer => "b")
+      @post = alice.post :status_message, :text => "hello", :to => @alices_aspect.id
+      @post.poll = @poll
+      @poll_participation_alice = alice.participate_in_poll!(@post, @poll.poll_answers.first)
+    end
+
+    it 'is saved without errors in a simulated A-B node environment' do
+      #stubs needed because the poll participation is already saved in the test db. This is just a simulated federation!
+      PollParticipation.any_instance.stub(:save!).and_return(true)
+      Person.any_instance.stub(:local?).and_return(false)
+      expect{
+        salmon = Salmon::Slap.create_by_user_and_activity(alice, @poll_participation_alice.to_diaspora_xml).xml_for(@poll_participant)
+        Postzord::Receiver::Public.new(salmon).save_object
+      }.to_not raise_error
+    end
+  end
+
   describe 'it is relayable' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
