@@ -10,7 +10,7 @@ class Poll < ActiveRecord::Base
   xml_attr :poll_answers, :as => [PollAnswer]
 
   #forward some requests to status message, because a poll is just attached to a status message and is not sharable itself
-  delegate :author, :author_id, :public?, :subscribers, to: :status_message
+  delegate :author, :author_id, :diaspora_handle, :public?, :subscribers, to: :status_message
 
   validate :enough_poll_answers
   
