@@ -8,6 +8,8 @@ class PollAnswer < ActiveRecord::Base
 
   xml_attr :answer
 
+  validates :answer, presence: true
+
   self.include_root_in_json = false
 
 end

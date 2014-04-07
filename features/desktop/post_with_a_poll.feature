@@ -24,7 +24,7 @@ Feature: posting with a poll
       When I expand the publisher
       And I press the element "#poll_creator"
       And I press the element ".add-answer .button.creation"
-      Then I should see 2 options
+      Then I should see 3 options
 
     Scenario: delete an option
       Given "#publisher-poll-creator" is hidden
@@ -32,7 +32,7 @@ Feature: posting with a poll
       And I press the element "#poll_creator"
       And I press the element ".add-answer .button.creation"
       And I delete the last option
-      Then I should see 1 option
+      Then I should see 2 option
       And I should not see a remove icon
 
     Scenario: post with an attached poll
@@ -41,7 +41,6 @@ Feature: posting with a poll
       When I fill in the following:
           | status_message_fake_text    | I am eating yogurt |
           | poll_question               | What kind of yogurt do you like? |
-      And I press the element ".add-answer .button.creation"
       And I fill in the following for the options:
           | normal |
           | not normal  |
@@ -52,7 +51,6 @@ Feature: posting with a poll
     Scenario: vote for an option
       Given I expand the publisher
       And I press the element "#poll_creator"
-      And I press the element ".add-answer .button.creation"
       When I fill in the following:
           | status_message_fake_text    | I am eating yogurt |
           | poll_question               | What kind of yogurt do you like? |
@@ -70,7 +68,6 @@ Feature: posting with a poll
   Scenario: click to show result
     Given I expand the publisher
     And I press the element "#poll_creator"
-    And I press the element ".add-answer .button.creation"
     When I fill in the following:
         | status_message_fake_text    | I am eating yogurt |
         | poll_question               | What kind of yogurt do you like? |
@@ -78,6 +75,18 @@ Feature: posting with a poll
         | normal |
         | not normal  |
     And I press "Share"
-
     And I press the element ".toggle_result"
     Then I should see an element ".percentage"
+
+  Scenario: validate answer input
+    Given I expand the publisher
+    And I press the element "#poll_creator"
+    When I fill in the following:
+        | status_message_fake_text    | I am eating yogurt |
+        | poll_question               | What kind of yogurt do you like? |
+    And I fill in the following for the options:
+        | normal |
+        |  |
+    And I press the element "#publisher-poll-creator"
+    And I press the element "input[type=submit]"
+    Then I should see an element ".poll-answer.error"

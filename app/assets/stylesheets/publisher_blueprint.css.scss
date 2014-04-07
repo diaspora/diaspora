@@ -356,6 +356,18 @@
     float: none;
     z-index: none;
   }
+  .control-group {
+    &.error {
+        color: $red;
+        background: transparent;
+        border: none;
+        padding: 0px;
+
+        input {
+          border-color: $red;
+        }
+      }
+  }
   .poll-answer {
     input {
       width: 96%;
