@@ -19,6 +19,7 @@ app.views.CommentStream = app.views.Base.extend({
 
   setupBindings: function() {
     this.model.comments.bind('add', this.appendComment, this);
+    this.model.bind("commentsExpanded", this.storeTextareaValue, this);
     this.model.bind("commentsExpanded", this.render, this);
   },
 
@@ -28,6 +29,7 @@ app.views.CommentStream = app.views.Base.extend({
 
     // add autoexpanders to new comment textarea
     this.$("textarea").autoResize({'extraSpace' : 10});
+    this.$('textarea').val(this.textareaValue);
   },
 
   presenter: function(){
@@ -71,6 +73,10 @@ app.views.CommentStream = app.views.Base.extend({
 
   commentTextareaFocused: function(evt){
     this.$("form").removeClass('hidden').addClass("open");
+  },
+
+  storeTextareaValue: function(){
+    this.textareaValue = this.$('textarea').val();
   },
 
   expandComments: function(evt){

@@ -87,7 +87,7 @@ module Diaspora
       default.css
       error_pages.css
       login.css
-      mobile.css
+      mobile/mobile.css
       new-templates.css
       rtl.css
     }

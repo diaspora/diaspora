@@ -24,18 +24,18 @@ describe("app.views.Header", function() {
       })
     })
 
-    context("messages badge", function(){
+    context("conversations badge", function(){
       it("displays a count when the current user has a notification", function(){
         loginAs(_.extend(this.userAttrs, {unread_messages_count : 1}))
         this.view.render();
-        expect(this.view.$("#message_inbox_badge .badge_count").hasClass('hidden')).toBe(false);
-        expect(this.view.$("#message_inbox_badge .badge_count").text()).toContain("1");
+        expect(this.view.$("#conversations_badge .badge_count").hasClass('hidden')).toBe(false);
+        expect(this.view.$("#conversations_badge .badge_count").text()).toContain("1");
       })
 
       it("does not display a count when the current user has a notification", function(){
         loginAs(_.extend(this.userAttrs, {unread_messages_count : 0}))
         this.view.render();
-        expect(this.view.$("#message_inbox_badge .badge_count").hasClass('hidden')).toBe(true);
+        expect(this.view.$("#conversations_badge .badge_count").hasClass('hidden')).toBe(true);
       })
     })
 
@@ -69,6 +69,35 @@ describe("app.views.Header", function() {
 
       this.view.hideDropdown($.Event());
       expect(this.view.$(".dropdown")).not.toHaveClass("active");
+    });
+  });
+
+
+  describe("search", function() {
+    var input;
+
+    beforeEach(function() {
+      $('#jasmine_content').html(this.view.el);
+      input = $(this.view.el).find('#q');
+    });
+
+    describe("focus", function() {
+      it("adds the class 'active' when the user focuses the text field", function() {
+        input.trigger('focusin');
+        waitsFor(function() {
+          return input.is('.active');
+        });
+        runs(function() {
+          expect(input).toHaveClass("active");
+        });
+      });
+    });
+
+    describe("blur", function() {
+      it("removes the class 'active' when the user blurs the text field", function() {
+        input.trigger('focusin').trigger('focusout');
+        expect(input).not.toHaveClass("active");
+      });
     });
   });
 });

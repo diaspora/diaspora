@@ -11,16 +11,12 @@
       = search_field_tag :q, nil, :placeholder => t('find_people'), :class => 'search'
     = submit_tag t('search'), 'data-inline' => 'true', :class => 'btn'
 
-
 - if params[:q].blank?
   %h4
-    =t('.no_results')
+    = t('.no_results')
 - else
   %h4#search_title
-    =t('.results_for')
-    %span.term
-      = params[:q]
-
+    = t('.results_for', search_term: params[:q])
 
   - if @hashes.empty?
     %p

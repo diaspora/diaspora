@@ -46,6 +46,7 @@ fr:
       correlations: "Corrélations"
       pages: "Pages"
       pod_stats: "Statistiques du pod"
+      post_report: "Messages signalés"
       sidekiq_monitor: "Moniteur Sidekiq"
       user_search: "Chercher un utilisateur"
       weekly_user_stats: "Statistiques hebdomadaires"
@@ -705,6 +706,8 @@ fr:
     mentioned:
       mentioned: "vous a mentionné(e) dans un message :"
       subject: "%{name} vous a mentionné(e) sur diaspora*"
+    post_report_email:
+      subject: "Un nouveau message a été marqué comme offensant"
     private_message:
       reply_to_or_view: "Répondre ou voir cette conversation >"
     reshared:
@@ -819,6 +822,12 @@ fr:
     update:
       error: "La modification de la photo a échoué."
       notice: "La photo a été mise à jour."
+  post_report:
+    delete_link: "Supprimer le message"
+    post_label: "<b>Message</b>: %{title}"
+    reason_label: "Motif: %{text}"
+    status:
+      destroyed: "Le message a été détruit"
   posts:
     presenter:
       title: "Un message de %{name}"
@@ -1019,7 +1028,7 @@ fr:
       all: "tous"
       all_contacts: "tous les contacts"
       discard_post: "Supprimer la publication"
-      formatWithMarkdown: "Vous pouvez utiliser la syntaxe %{markdown_link} pour mettre en forme votre message"
+      formatWithMarkdown: "Utilisez la syntaxe %{markdown_link} pour mettre en forme votre message"
       get_location: "Ajouter votre emplacement"
       make_public: "rendre public"
       new_user_prefill:
@@ -1085,7 +1094,7 @@ fr:
     activity:
       title: "Mon activité"
     aspects:
-      title: "Vos aspects"
+      title: "Mes aspects"
     aspects_stream: "Aspects"
     comment_stream:
       contacts_title: "Les personnes dont vous avez commenté les messages"

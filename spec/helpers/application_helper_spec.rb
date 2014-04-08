@@ -55,13 +55,13 @@ describe ApplicationHelper do
   end
 
   describe "#jquery_include_tag" do
-    describe "with google cdn" do
+    describe "with jquery cdn" do
       before do
         AppConfig.privacy.jquery_cdn = true
       end
 
-      it 'inclues jquery.js from google cdn' do
-        jquery_include_tag.should match(/googleapis\.com/)
+      it 'inclues jquery.js from jquery cdn' do
+        jquery_include_tag.should match(/jquery\.com/)
       end
 
       it 'falls back to asset pipeline on cdn failure' do
@@ -69,14 +69,14 @@ describe ApplicationHelper do
       end
     end
 
-    describe "without google cdn" do
+    describe "without jquery cdn" do
       before do
         AppConfig.privacy.jquery_cdn = false
       end
 
       it 'includes jquery.js from asset pipeline' do
         jquery_include_tag.should match(/jquery\.js/)
-        jquery_include_tag.should_not match(/googleapis\.com/)
+        jquery_include_tag.should_not match(/jquery\.com/)
       end
     end
 

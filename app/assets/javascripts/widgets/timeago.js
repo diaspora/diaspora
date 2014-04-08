@@ -8,8 +8,15 @@
 
     this.subscribe("widget/ready", function() {
       if(Diaspora.I18n.language !== "en") {
-        $.each($.timeago.settings.strings, function(index) {
-          $.timeago.settings.strings[index] = Diaspora.I18n.t("timeago." + index);
+        $.timeago.settings.lang = Diaspora.I18n.language;
+        $.timeago.settings.strings[Diaspora.I18n.language] = {}
+        $.each($.timeago.settings.strings["en"], function(index) {
+          if(index == "numbers") {
+            $.timeago.settings.strings[Diaspora.I18n.language][index] = [];
+          }
+          else {
+            $.timeago.settings.strings[Diaspora.I18n.language][index] = Diaspora.I18n.t("timeago." + index);
+          }
         });
       }
     });

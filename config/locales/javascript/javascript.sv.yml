@@ -39,6 +39,7 @@ sv:
     edit: "Ändra"
     failed_to_like: "Misslyckades med att gilla!"
     failed_to_post_message: "Misslyckades att posta meddelande!"
+    failed_to_remove: "Misslyckades med att borttaga inlägget!"
     getting_started:
       alright_ill_wait: "Okej, jag väntar."
       hey: "Hej, <%= name %>!"
@@ -71,11 +72,14 @@ sv:
       not_found: "och ingen hittades..."
     photo_uploader:
       completed: "<%= file %> klar"
-      empty: "{file} är tom, var vänlig och välj filerna igen utan den."
+      empty: "{file} är tom, var vänlig och välj filer igen utan den."
       error: "Ett problem uppstod när filen <%= file %> laddades upp"
       invalid_ext: "{file} har otillåten filändelse. Endast {extensions} tillåts."
       looking_good: "OMG, du ser grym ut!"
-      size_error: "{file} är för stor, största tillåtna filstorlek är {sizeLimit}."
+      size_error: "{file} är för stor, den största tillåtna filstorleken är {sizeLimit}."
+    post_report: "Anmäl"
+    post_report_prompt: "Var god och ge en orsak:"
+    post_report_prompt_default: "kränkande innehåll"
     publisher:
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
       limited: "Begränsad - ditt inlägg visas endast för personer som du delar med"

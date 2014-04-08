@@ -39,6 +39,7 @@ da:
     edit: "Rediger"
     failed_to_like: "Kunne ikke synes om!"
     failed_to_post_message: "Kunne ikke indsende besked!"
+    failed_to_remove: "Det lykkedes ikke at fjerne indlægget!"
     getting_started:
       alright_ill_wait: "Okay, jeg venter."
       hey: "Hej <%= name %>!"
@@ -76,6 +77,9 @@ da:
       invalid_ext: "{file} har en ugyldig filtype. Kun {extensions} er tilladt."
       looking_good: "OMG, du ser sej ud!"
       size_error: "{file} er for stor. Maksimal filstørrelse er {sizeLimit}."
+    post_report: "Rapport"
+    post_report_prompt: "Vær venlig at give en grund:"
+    post_report_prompt_default: "stødende indhold"
     publisher:
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
       limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
@@ -156,7 +160,7 @@ da:
       comment: "Kommentér"
       follow_post: "Følg indlæg"
       home: "HJEM"
-      like: "Like"
+      like: "Synes om"
       reshare: "Videredel"
       reshared: "Videredelt"
       stop_following_post: "Ophør med at følge indlæg"

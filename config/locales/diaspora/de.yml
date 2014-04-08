@@ -46,6 +46,7 @@ de:
       correlations: "Korrelationen"
       pages: "Seiten"
       pod_stats: "Pod Statistik"
+      post_report: "Gemeldete Beiträge"
       sidekiq_monitor: "Sidekiq-Monitor"
       user_search: "Benutzer Suche"
       weekly_user_stats: "Wöchentliche Benutzerstatistik"
@@ -747,6 +748,9 @@ de:
     mentioned:
       mentioned: "hat dich in einem Beitrag erwähnt:"
       subject: "%{name} hat dich auf diaspora* erwähnt"
+    post_report_email:
+      body: "Bitte überprüfe ihn so schnell wie möglich!"
+      subject: "Ein neuer Beitrag wurde als anstößig markiert"
     private_message:
       reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
     reshared:
@@ -861,6 +865,18 @@ de:
     update:
       error: "Bearbeiten des Fotos fehlgeschlagen."
       notice: "Foto erfolgreich aktualisiert."
+  post_report:
+    delete_link: "Beitrag löschen"
+    post_label: "<b>Beitrag</b>: %{title}"
+    reason_label: "Grund: %{text}"
+    reported_label: "<b>Gemeldet von</b> %{person}"
+    review_link: "Als überprüft markieren"
+    status:
+      created: "Der Beitrag wurde gemeldet"
+      destroyed: "Der Beitrag wurde gelöscht"
+      failed: "Ein Fehler ist aufgetreten"
+      marked: "Die Meldung wurde als überprüft markiert"
+    title: "Meldungsübersicht"
   posts:
     presenter:
       title: "Ein Beitrag von %{name}"
@@ -1064,7 +1080,7 @@ de:
       all: "alle"
       all_contacts: "Alle Kontakte"
       discard_post: "Beitrag verwerfen"
-      formatWithMarkdown: "Du kannst %{markdown_link} verwenden um dein Beitrag zu formatieren."
+      formatWithMarkdown: "Du kannst %{markdown_link} verwenden, um deinen Beitrag zu formatieren."
       get_location: "Deinen Standort ermitteln"
       make_public: "veröffentlichen"
       new_user_prefill:

@@ -6,8 +6,11 @@
 en:
   javascripts:
     confirm_dialog: "Are you sure?"
+    post_report_prompt: "Please enter a reason:"
+    post_report_prompt_default: "offensive content"
     delete: "Delete"
     ignore: "Ignore"
+    post_report: "Report"
     ignore_user: "Ignore this user?"
     and: "and"
     comma: ","
@@ -28,6 +31,7 @@ en:
       months: "%d months"
       year: "about a year"
       years: "%d years"
+      wordSeparator: " "
 
     my_activity: "My Activity"
     my_stream: "Stream"
@@ -94,6 +98,10 @@ en:
     conversation:
       participants: "Participants"
 
+    notifications:
+      mark_read: "Mark read"
+      mark_unread: "Mark unread"
+
     stream:
       hide: "Hide"
       public: "Public"
@@ -108,6 +116,7 @@ en:
       hide_nsfw_posts: "Hide #nsfw posts"
       follow: "Follow"
       unfollow: "Unfollow"
+      via: "via <%= provider %>"
 
       likes:
         zero: "<%= count %> Likes"
@@ -145,7 +154,7 @@ en:
       log_out: "Log out"
 
       notifications: "Notifications"
-      messages: "Messages"
+      conversations: "Conversations"
 
       search: "Search"
 

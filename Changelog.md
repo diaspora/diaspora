@@ -1,3 +1,43 @@
+# Head
+
+## Refactor
+* Drop number of followers from tags page [#4717](https://github.com/diaspora/diaspora/issues/4717)
+* Remove some unused beta code [#4738](https://github.com/diaspora/diaspora/issues/4738)
+* Style improvements for SPV, use original author's avatar for reshares [#4754](https://github.com/diaspora/diaspora/issue/4754)
+* Update image branding to the new decided standard [#4702](https://github.com/diaspora/diaspora/pull/4702)
+* Consistent naming of conversations and messages [#4756](https://github.com/diaspora/diaspora/pull/4756)
+* Improve stream generation time [#4769](https://github.com/diaspora/diaspora/pull/4769)
+* Port help pages to backbone [#4768](https://github.com/diaspora/diaspora/pull/4768)
+* Add participants to conversations menu [#4656](https://github.com/diaspora/diaspora/pull/4656)
+* Update forgot_password and reset_password pages [#4707](https://github.com/diaspora/diaspora/pull/4707)
+* Change jQuery CDN to jquery.com from googleapis.com [#4765](https://github.com/diaspora/diaspora/pull/4765)
+* Update to jQuery 10
+* Port publisher and bookmarklet to Bootstrap [#4678](https://github.com/diaspora/diaspora/pull/4678)
+* Improve search page, add better indications [#4794](https://github.com/diaspora/diaspora/pull/4794)
+* Port notifications and hovercards to Bootstrap [#4814](https://github.com/diaspora/diaspora/pull/4814)
+* Replace .rvmrc by .ruby-version and .ruby-gemset [#4854](https://github.com/diaspora/diaspora/pull/4855)
+
+## Bug fixes
+* Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
+* Do not add a space after adding a mention [#4767](https://github.com/diaspora/diaspora/issues/4767)
+* Fix active user statistics by saving a last seen timestamp for users [#4734](https://github.com/diaspora/diaspora/issues/4734)
+* Render HTML in atom user feed [#4835](https://github.com/diaspora/diaspora/pull/4835)
+* Fix plaintext mode of Mentionable [#4294](https://github.com/diaspora/diaspora/issues/4294)
+* Fixed Atom Feed Error if reshared Post is deleted [#4638] (https://github.com/diaspora/diaspora/issues/4638)
+* Show hovercards in the notification drop-down for users on the same pod [#4843](https://github.com/diaspora/diaspora/pull/4843)
+* The photo stream no longer repeats after the last photo [#4726](https://github.com/diaspora/diaspora/issues/4726)
+* Fix hovercards in the notificaitons dropdown [#4693](https://github.com/diaspora/diaspora/issues/4693)
+* Do not parse hashtags inside Markdown links [#3692](https://github.com/diaspora/diaspora/issues/3692)
+* Restore comment textarea content after revealing more comments [#4514](https://github.com/diaspora/diaspora/issues/4514)
+
+## Features
+* You can report a single post by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517)
+* Add permalinks for comments [#4577](https://github.com/diaspora/diaspora/pull/4577)
+* New menu for the mobile version [#4673](https://github.com/diaspora/diaspora/pull/4673)
+* Added comment count to statistic to enable calculations of posts/comments ratios [#4799](https://github.com/diaspora/diaspora/pull/4799)
+* Add filters to notifications controller [#4814](https://github.com/diaspora/diaspora/pull/4814)
+* Activate hovercards in SPV and conversations [#4870](https://github.com/diaspora/diaspora/pull/4870)
+
 # 0.3.0.3
 
 * Bump Rails to 3.2.17, fixes CVE-2014-0081, CVE-2014-0082. For more information see http://weblog.rubyonrails.org/2014/2/18/Rails_3_2_17_4_0_3_and_4_1_0_beta2_have_been_released/
@@ -14,7 +54,7 @@
 
 ## Bug fixes
 * Fix regression caused by using after_commit with nested '#save' which lead to an infinite recursion [#4715](https://github.com/diaspora/diaspora/issues/4715)
-
+* Save textarea value before rendering comments when clicked 'show more...' [#4514](https://github.com/diaspora/diaspora/issues/4514)
 # 0.3.0.0
 
 ## Pod statistics
@@ -51,6 +91,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Slight redesign of mobile publisher [#4604](https://github.com/diaspora/diaspora/pull/4604)
 * Port conversations to Bootstrap [#4622](https://github.com/diaspora/diaspora/pull/4622)
 * Remove participants popover and improve conversations menu [#4644](https://github.com/diaspora/diaspora/pull/4644)
+* Refactor right side bar [#4793](https://github.com/diaspora/diaspora/pull/4793)
 
 ## Bug fixes
 * Highlight down arrow at the user menu on hover [#4441](https://github.com/diaspora/diaspora/pull/4441)
@@ -97,6 +138,7 @@ For more details see https://wiki.diasporafoundation.org/Updating
 * Add indication about markdown formatting in the publisher [#4589](https://github.com/diaspora/diaspora/pull/4589)
 * Add captcha to signup form [#4659](https://github.com/diaspora/diaspora/pull/4659)
 * Update Underscore.js 1.3.1 to 1.5.2, update Backbone.js 0.9.2 to 1.1.0 [#4662](https://github.com/diaspora/diaspora/pull/4662)
+* Display more than 8 pictures on a post [#4796](https://github.com/diaspora/diaspora/pull/4796)
 
 ## Gem updates
 Added:

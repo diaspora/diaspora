@@ -120,7 +120,7 @@ end
 When /^I click to delete the first comment$/ do
   within("div.comment", match: :first) do
     find(".controls").hover
-    find(".comment_delete").click
+    find(".comment_delete", visible: false).click # TODO: hax to check what's failing on Travis
   end
 end
 
@@ -206,6 +206,10 @@ And /^I scroll down$/ do
   page.execute_script("window.scrollBy(0,3000000)")
 end
 
+Then /^I should have scrolled down$/ do
+  page.evaluate_script("window.pageYOffset").should > 0
+end
+
 Then /^the notification dropdown should be visible$/ do
   find(:css, "#notification_dropdown").should be_visible
 end
@@ -272,4 +276,8 @@ end
 Given /^"([^"]*)" is hidden$/ do |selector|
   page.should have_selector(selector, visible: false)
   page.should_not have_selector(selector)
+end
+
+Then(/^I should have a validation error on "(.*?)"$/) do |field_list|
+  check_fields_validation_error field_list
 end

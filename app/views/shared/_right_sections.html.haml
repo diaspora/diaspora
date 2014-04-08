@@ -18,7 +18,7 @@
     %h5.title-header
       = t('aspects.index.new_here.title')
   .content
-    != t('aspects.index.new_here.follow', :link => link_to("#"+t('shared.publisher.new_user_prefill.newhere'), tag_path(:name => t('shared.publisher.new_user_prefill.newhere'))))
+    != t('aspects.index.new_here.follow', link: link_to("#"+t('shared.publisher.new_user_prefill.newhere'), tag_path(name: t('shared.publisher.new_user_prefill.newhere'))))
     %br
     = link_to(t('aspects.index.new_here.learn_more'), "http://wiki.diasporafoundation.org/Welcoming_Committee")
 
@@ -28,20 +28,20 @@
     %h5.title-header
       = t('aspects.index.help.need_help')
   .content
-    = t('aspects.index.help.here_to_help')
-    %br
-    = t('aspects.index.help.do_you')
-    %br
-    != t('aspects.index.help.have_a_question', :link => link_to("#"+t('aspects.index.help.tag_question'), tag_path(:name => t('aspects.index.help.tag_question'))))
-    %br
-    != t('aspects.index.help.find_a_bug', :link => link_to("#"+t('aspects.index.help.tag_bug'), tag_path(:name => t('aspects.index.help.tag_bug'))))
-    %br
-    != t('aspects.index.help.feature_suggestion', :link => link_to("#"+t('aspects.index.help.tag_feature'), tag_path(:name => t('aspects.index.help.tag_feature'))))
-    %br
-    %br
+    %p
+      = t('aspects.index.help.here_to_help')
+    %p
+      = t('aspects.index.help.do_you')
+    %ul
+      %li
+        != t('aspects.index.help.have_a_question', :link => link_to("#"+t('aspects.index.help.tag_question'), tag_path(:name => t('aspects.index.help.tag_question'))))
+      %li
+        != t('aspects.index.help.find_a_bug', :link => link_to("#"+t('aspects.index.help.tag_bug'), tag_path(:name => t('aspects.index.help.tag_bug'))))
+      %li
+        != t('aspects.index.help.feature_suggestion', :link => link_to("#"+t('aspects.index.help.tag_feature'), tag_path(:name => t('aspects.index.help.tag_feature'))))
     %p
       != t('aspects.index.help.tutorials_and_wiki',
-           :faq => link_to(t('_help'), faq_getting_help_path),
+           :faq => link_to(t('_help'), help_path),
            :tutorial => link_to(t('aspects.index.help.tutorial_link_text'), "https://diasporafoundation.org/tutorials", :target => '_blank'),
            :wiki => link_to('Wiki','http://wiki.diasporafoundation.org', :target => '_blank'), :target => '_blank')
 
@@ -75,8 +75,8 @@
       %h5.title-header
         = t('aspects.index.donate')
     .content
-      = t('aspects.index.keep_pod_running', :pod => AppConfig.pod_uri.host)
-      %br
+      %p
+        = t('aspects.index.keep_pod_running', :pod => AppConfig.pod_uri.host)
       = render 'shared/donatepod'
 
 - if AppConfig.admins.podmin_email.present?
@@ -86,10 +86,10 @@
       %h5.title-header
         = t('aspects.index.help.any_problem')
     .content
-      = t('aspects.index.help.contact_podmin')
-      %br
-      %br
-      = link_to t('aspects.index.help.mail_podmin'), "mailto:#{AppConfig.admins.podmin_email}", :class => "button"
+      %p
+        = t('aspects.index.help.contact_podmin')
+      %p
+        = link_to t('aspects.index.help.mail_podmin'), "mailto:#{AppConfig.admins.podmin_email}", :class => "button"
 
 .section
   .title

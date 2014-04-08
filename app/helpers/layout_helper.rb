@@ -28,10 +28,10 @@ module LayoutHelper
     end
   end
 
-  def load_javascript_locales
+  def load_javascript_locales(section = 'javascripts')
     content_tag(:script) do
       <<-JS.html_safe
-        Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
+        Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale, section).to_json}, "#{I18n.locale}");
         Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
       JS
     end
@@ -85,4 +85,7 @@ module LayoutHelper
     end.join(' ').html_safe
   end
 
+  def bootstrap?
+    @css_framework == :bootstrap
+  end
 end

@@ -9,18 +9,14 @@
   = javascript_include_tag :people
   = javascript_include_tag 'contact-list'
 
-.span-24.last
-  = search_header
-  = looking_for_tag_link
-.span-15
-  %hr
-.clearfix
+#section_header
+  = search_header     
 .span-15.append-1
   #people_stream.stream
     - if @hashes.empty?
       - if @background_query.present?
 
-        / this is gross, and should be extracted!
+        / TODO this is gross, and should be extracted!
         :javascript
           $(document).ready( function() {
             List.startSearchDelay('#{@background_query}')
@@ -41,6 +37,10 @@
 - if AppConfig.settings.invitations.open?
   .span-8.last
     %h4
-      = t('.couldnt_find_them_send_invite')
+      = t('.couldnt_find_them')
+    %p
+      = t('.search_handle')
+    %h4
+      = t('.send_invite')
     = render "shared/invitations"
 

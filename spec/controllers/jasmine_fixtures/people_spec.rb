@@ -20,4 +20,20 @@ describe PeopleController do
       save_fixture(html_for("body"), "pending_external_people_search")
     end
   end
+
+  describe '#aspect_membership_dropdown' do
+    before do
+      sign_in :user, bob
+    end
+
+    it "generates a jasmine fixture using Blueprint", :fixture => true do
+      get :aspect_membership_dropdown, :person_id => alice.person.guid
+      save_fixture(html_for("body"), "aspect_membership_dropdown_blueprint")
+    end
+
+    it "generates a jasmine fixture using Bootstrap", :fixture => true do
+      get :aspect_membership_dropdown, :person_id => alice.person.guid, :bootstrap => true
+      save_fixture(html_for("body"), "aspect_membership_dropdown_bootstrap")
+    end
+  end
 end

@@ -1,40 +1,22 @@
-
 describe("app.views.AspectMembership", function(){
   beforeEach(function() {
     // mock a dummy aspect dropdown
-    this.person = factory.author({name: "My Name"});
-    spec.content().html(
-      '<div class="aspect_membership dropdown">'+
-      '  <div class="button toggle">The Button</div>'+
-      '  <ul class="dropdown_list" data-person-short-name="'+this.person.name+'" data-person_id="'+this.person.id+'">'+
-      '    <li data-aspect_id="10">Aspect 10</li>'+
-      '    <li data-membership_id="99" data-aspect_id="11" class="selected">Aspect 11</li>'+
-      '    <li data-aspect_id="12">Aspect 12</li>'+
-      '  </ul>'+
-      '</div>'
-    );
-
-    this.view = new app.views.AspectMembership();
-  });
-
-  it('attaches to the aspect selector', function(){
-    spyOn($.fn, 'on');
-    view = new app.views.AspectMembership();
-
-    expect($.fn.on).toHaveBeenCalled();
+    spec.loadFixture("aspect_membership_dropdown_bootstrap");
+    this.view = new app.views.AspectMembership({el: $('.aspect_membership_dropdown')});
+    this.person_id = $('.dropdown-menu').data('person_id');
   });
 
   context('adding to aspects', function() {
     beforeEach(function() {
-      this.newAspect = spec.content().find('li:eq(0)');
-      this.newAspectId = 10;
+      this.newAspect = $('li:not(.selected)');
+      this.newAspectId = this.newAspect.data('aspect_id');
     });
 
     it('calls "addMembership"', function() {
        spyOn(this.view, "addMembership");
        this.newAspect.trigger('click');
 
-       expect(this.view.addMembership).toHaveBeenCalledWith(this.person.id, this.newAspectId);
+       expect(this.view.addMembership).toHaveBeenCalledWith(this.person_id, this.newAspectId);
     });
 
     it('tries to create a new AspectMembership', function() {
@@ -58,8 +40,8 @@ describe("app.views.AspectMembership", function(){
 
   context('removing from aspects', function(){
     beforeEach(function() {
-      this.oldAspect = spec.content().find('li:eq(1)');
-      this.oldMembershipId = 99;
+      this.oldAspect = $('li.selected');
+      this.oldMembershipId = this.oldAspect.data('membership_id');
     });
 
     it('calls "removeMembership"', function(){
@@ -88,43 +70,23 @@ describe("app.views.AspectMembership", function(){
     });
   });
 
-  context('summary text in the button', function() {
+  context('updateSummary', function() {
     beforeEach(function() {
-      this.btn = spec.content().find('div.button.toggle');
-      this.btn.text(""); // reset
-      this.view.dropdown = spec.content().find('ul.dropdown_list');
+      this.Aspect = $('li:eq(0)');
     });
 
-    it('shows "no aspects" when nothing is selected', function() {
-      spec.content().find('li[data-aspect_id]').removeClass('selected');
-      this.view.updateSummary();
+    it('calls "_toggleCheckbox"', function() {
+      spyOn(this.view, "_toggleCheckbox");
+      this.view.updateSummary(this.Aspect);
 
-      expect(this.btn.text()).toContain(Diaspora.I18n.t('aspect_dropdown.toggle.zero'));
+      expect(this.view._toggleCheckbox).toHaveBeenCalledWith(this.Aspect);
     });
 
-    it('shows "all aspects" when everything is selected', function() {
-      spec.content().find('li[data-aspect_id]').addClass('selected');
-      this.view.updateSummary();
+    it('calls "_updateButton"', function() {
+      spyOn(this.view, "_updateButton");
+      this.view.updateSummary(this.Aspect);
 
-      expect(this.btn.text()).toContain(Diaspora.I18n.t('aspect_dropdown.all_aspects'));
-    });
-
-    it('shows the name of the selected aspect ( == 1 )', function() {
-      var list = spec.content().find('li[data-aspect_id]');
-      list.removeClass('selected'); // reset
-      list.eq(1).addClass('selected');
-      this.view.updateSummary();
-
-      expect(this.btn.text()).toContain(list.eq(1).text());
-    });
-
-    it('shows the number of selected aspects ( > 1)', function() {
-      var list = spec.content().find('li[data-aspect_id]');
-      list.removeClass('selected'); // reset
-      $([list.eq(1), list.eq(2)]).addClass('selected');
-      this.view.updateSummary();
-
-      expect(this.btn.text()).toContain(Diaspora.I18n.t('aspect_dropdown.toggle', { 'count':2 }));
+      expect(this.view._updateButton).toHaveBeenCalledWith('green');
     });
   });
 });

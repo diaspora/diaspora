@@ -1,126 +1,102 @@
-describe("app.views.AspectsDropdown", function () {
-  function selectedAspects(view){
-    return _.pluck(view.$("input.aspect_ids").serializeArray(), "value")
-  }
+describe("app.views.AspectsDropdown", function(){
+  beforeEach(function() {
+    spec.loadFixture("bookmarklet");
+    this.view = new app.views.AspectsDropdown({el: $('.aspect_dropdown')});
+  });
 
-  beforeEach(function () {
-    loginAs({
-      aspects:[
-        { id:3, name:"sauce" },
-        { id:5, name:"conf" },
-        { id:7, name:"lovers" }
-      ]
-    })
+  context('_toggleCheckbox', function() {
+    beforeEach(function() {
+      this.view.$('li.selected').removeClass('selected');
+      this.view.$('li.all_aspects.radio').addClass('selected');
+    });
 
-    this.view = new app.views.AspectsDropdown({model:factory.statusMessage({aspect_ids:undefined})})
-  })
+    it('deselects all radio buttons', function() {
+      this.view._toggleCheckbox(this.view.$('li.aspect_selector:eq(0)'));
+      expect(this.view.$('li.all_aspects.radio').hasClass('selected')).toBeFalsy();
+    });
 
-  describe("rendering", function () {
-    beforeEach(function () {
-      this.view.render()
-    })
-    it("sets aspect_ids to 'public' by default", function () {
-      expect(this.view.$("input.aspect_ids:checked").val()).toBe("public")
-    })
+    it('selects the clicked aspect', function() {
+      this.view._toggleCheckbox(this.view.$('li.aspect_selector:eq(0)'));
+      expect(this.view.$('li.aspect_selector:eq(0)').hasClass('selected')).toBeTruthy();
+    });
 
-    it("defaults to Public Visibility", function () {
-      expect(this.view.$("input.aspect_ids.public")).toBeChecked()
-      expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("Public")
-    })
+    it('selects multiple aspects', function() {
+      this.view._toggleCheckbox(this.view.$('li.aspect_selector:eq(0)'));
+      this.view._toggleCheckbox(this.view.$('li.aspect_selector:eq(1)'));
+      expect(this.view.$('li.aspect_selector:eq(0)').hasClass('selected')).toBeTruthy();
+      expect(this.view.$('li.aspect_selector:eq(1)').hasClass('selected')).toBeTruthy();
+    });
+  });
 
-    it("sets aspect_ids to 'public'", function () {
-      expect(selectedAspects(this.view)).toEqual(["public"])
-    })
+  context('_toggleRadio', function(){
+    beforeEach(function() {
+      this.view.$('li.selected').removeClass('selected');
+      this.view.$('li.aspect_selector:eq(0)').addClass('selected');
+      this.view.$('li.aspect_selector:eq(1)').addClass('selected');
+    });
 
-    it("sets the dropdown title to 'public'", function () {
-      expect(this.view.$(".dropdown-toggle .text").text()).toBe("Public")
-    })
+    it('deselects all checkboxes', function() {
+      this.view._toggleRadio(this.view.$('li.all_aspects.radio'));
+      expect(this.view.$('li.aspect_selector:eq(0)').hasClass('selected')).toBeFalsy();
+      expect(this.view.$('li.aspect_selector:eq(1)').hasClass('selected')).toBeFalsy();
+    });
 
-    describe("setVisibility", function () {
-      function checkInput(input){
-        input.attr("checked", "checked")
-        input.trigger("change")
-      }
+    it('toggles the clicked radio buttons', function() {
+      this.view._toggleRadio(this.view.$('li.all_aspects.radio'));
+      expect(this.view.$('li.all_aspects.radio').hasClass('selected')).toBeTruthy();
+      expect(this.view.$('li.public.radio').hasClass('selected')).toBeFalsy();
+      this.view._toggleRadio(this.view.$('li.public.radio'));
+      expect(this.view.$('li.all_aspects.radio').hasClass('selected')).toBeFalsy();
+      expect(this.view.$('li.public.radio').hasClass('selected')).toBeTruthy();
+      this.view._toggleRadio(this.view.$('li.all_aspects.radio'));
+      expect(this.view.$('li.all_aspects.radio').hasClass('selected')).toBeTruthy();
+      expect(this.view.$('li.public.radio').hasClass('selected')).toBeFalsy();
+    });
+  });
 
-      function uncheckInput(input){
-        input.attr("checked", false)
-        input.trigger("change")
-      }
+  context('_selectAspects', function(){
+    beforeEach(function() {
+      this.view.$('li.selected').removeClass('selected');
+      this.view.$('li.aspect_selector:eq(0)').addClass('selected');
+    });
 
-      describe("selecting All Aspects", function () {
-        beforeEach(function () {
-          this.input = this.view.$("input#aspect_ids_all_aspects")
-          checkInput(this.input)
-        })
+    it('select aspects in the dropdown by a given list of ids', function() {
+      this.ids = [this.view.$('li.aspect_selector:eq(1)').data('aspect_id'),'public'];
+      this.view._selectAspects(this.ids);
+      expect(this.view.$('li.all_aspects.radio').hasClass('selected')).toBeFalsy();
+      expect(this.view.$('li.public.radio').hasClass('selected')).toBeTruthy();
+      expect(this.view.$('li.aspect_selector:eq(0)').hasClass('selected')).toBeFalsy();
+      expect(this.view.$('li.aspect_selector:eq(1)').hasClass('selected')).toBeTruthy();
+    });
+  });
+  
+  context('_updateButton', function() {
+    beforeEach(function() {
+      this.view.$('li.selected').removeClass('selected');
+    });
 
-        it("calls set aspect_ids to 'all'", function () {
-          expect(selectedAspects(this.view)).toEqual(["all_aspects"])
-        })
+    it('shows "Select aspects" when nothing is selected', function() {
+      this.view._updateButton('inAspectClass');
+      expect(this.view.$('.btn.dropdown-toggle > .text').text()).toContain(Diaspora.I18n.t('aspect_dropdown.select_aspects'));
+    });
 
-        it("sets the dropdown title to 'public'", function () {
-          expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("All Aspects")
-        })
-      })
+    it('shows the name of the selected radio button', function() {
+      this.view.$('li.all_aspects.radio').addClass('selected');
+      this.view._updateButton('inAspectClass');
+      expect(this.view.$('.btn.dropdown-toggle > .text').text()).toContain(Diaspora.I18n.t('aspect_dropdown.all_aspects'));
+    });
 
-      describe("selecting An Aspect", function () {
-        beforeEach(function () {
-          this.input = this.view.$("input[name='lovers']")
-          checkInput(this.input)
-        })
+    it('shows the name of the selected aspect ( == 1 )', function() {
+      this.view.$('li.aspect_selector:eq(1)').addClass('selected');
+      this.view._updateButton('inAspectClass');
+      expect(this.view.$('.btn.dropdown-toggle > .text').text()).toContain(this.view.$('li.aspect_selector:eq(1) .text').text());
+    });
 
-        it("sets the dropdown title to the aspect title", function () {
-          expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("lovers")
-        })
-
-        it("sets aspect_ids to to the aspect id", function () {
-          expect(selectedAspects(this.view)).toEqual(["7"])
-        })
-
-        describe("selecting another aspect", function () {
-          beforeEach(function () {
-            this.input = this.view.$("input[name='sauce']")
-            checkInput(this.input)
-          })
-
-          it("sets aspect_ids to the selected aspects", function () {
-            expect(selectedAspects(this.view)).toEqual(["3", "7"])
-          })
-
-          it("sets the button text to the number of selected aspects", function () {
-            expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("In 2 aspects")
-            checkInput(this.view.$("input[name='conf']"))
-            expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("In 3 aspects")
-            uncheckInput(this.view.$("input[name='conf']"))
-            expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("In 2 aspects")
-          })
-
-          describe("deselecting another aspect", function () {
-            it("removes the clicked aspect", function () {
-              expect(selectedAspects(this.view)).toEqual(["3", "7"])
-              expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("In 2 aspects")
-              uncheckInput(this.view.$("input[name='lovers']"))
-              expect(selectedAspects(this.view)).toEqual(["3"])
-              expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("sauce")
-            })
-          })
-
-          describe("selecting all_aspects", function () {
-            it("sets aspect_ids to all_aspects", function () {
-              expect(selectedAspects(this.view)).toEqual(["3", "7"])
-              checkInput(this.view.$("input[name='All Aspects']"))
-              expect(selectedAspects(this.view)).toEqual(["all_aspects"])
-            })
-          })
-
-          describe("selecting public", function () {
-            it("sets aspect_ids to public", function () {
-              expect(selectedAspects(this.view)).toEqual(["3", "7"])
-              checkInput(this.view.$("input[name='Public']"))
-              expect(selectedAspects(this.view)).toEqual(["public"])
-            })
-          })
-        })
-      })
-    })
-  })
-})
+    it('shows the number of selected aspects ( > 1)', function() {
+      this.view.$('li.aspect_selector:eq(0)').addClass('selected');
+      this.view.$('li.aspect_selector:eq(1)').addClass('selected');
+      this.view._updateButton('inAspectClass');
+      expect(this.view.$('.btn.dropdown-toggle > .text').text()).toContain(Diaspora.I18n.t('aspect_dropdown.toggle', { 'count':2 }));
+    });
+  });
+});

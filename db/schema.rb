@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213171804) do
+ActiveRecord::Schema.define(:version => 20140222162826) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -283,6 +283,17 @@ ActiveRecord::Schema.define(:version => 20131213171804) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "post_reports", :force => true do |t|
+    t.integer  "post_id",                       :null => false
+    t.string   "user_id"
+    t.boolean  "reviewed",   :default => false
+    t.text     "text"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "post_reports", ["post_id"], :name => "index_post_reports_on_post_id"
+
   create_table "posts", :force => true do |t|
     t.integer  "author_id",                                              :null => false
     t.boolean  "public",                              :default => false, :null => false
@@ -316,8 +327,8 @@ ActiveRecord::Schema.define(:version => 20131213171804) do
     t.boolean  "favorite",                            :default => false
     t.string   "facebook_id"
     t.string   "tweet_id"
-    t.text     "tumblr_ids"
     t.integer  "open_graph_cache_id"
+    t.text     "tumblr_ids"
   end
 
   add_index "posts", ["author_id", "root_guid"], :name => "index_posts_on_author_id_and_root_guid", :unique => true
@@ -482,6 +493,7 @@ ActiveRecord::Schema.define(:version => 20131213171804) do
     t.integer  "auto_follow_back_aspect_id"
     t.text     "hidden_shareables"
     t.datetime "reset_password_sent_at"
+    t.datetime "last_seen"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

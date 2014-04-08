@@ -1,5 +1,6 @@
 app.views.SinglePostContent = app.views.Base.extend({
   templateName: 'single-post-viewer/single-post-content',
+  tooltipSelector: "time, .post_scope",
 
   subviews : {
     "#single-post-actions" : "singlePostActionsView",

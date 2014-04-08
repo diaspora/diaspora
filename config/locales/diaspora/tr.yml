@@ -46,6 +46,7 @@ tr:
       correlations: "Bağıntılar"
       pages: "Sayfalar"
       pod_stats: "Pod İstatistikleri"
+      sidekiq_monitor: "Sidekiq göstergesi"
       user_search: "Kullanıcı Arama"
       weekly_user_stats: "Haftalık Kullanıcı İstatistikleri"
     correlations:
@@ -80,7 +81,9 @@ tr:
       users:
         other: "%{count} kullanıcı bulundu"
         zero: "%{count} kullanıcı bulundu"
-      you_currently: "şu anda %{user_invitation} davetiyeniz var %{link}"
+      you_currently:
+        other: "%{link} için %{count} davetiye daha var"
+        zero: "%{link} için bir davetiniz kalmadı"
     weekly_user_stats:
       amount_of:
         other: "bu haftaki kullanıcı sayısı: %{count}"
@@ -329,9 +332,24 @@ tr:
   help:
     account_and_data_management:
       close_account_a: "Ayarlar sayfanızın sonuna gidin ve Hesabımı Kapat butonuna tıklayın."
+      close_account_q: "Tohumumu(hesabımı) nasıl silerim?"
+      data_other_podmins_a: "Bir kez başka bir poddaki biriyle paylaştıktan sonra, onunla paylaştığınız gönderiler ve profil verinizin bir kopyası o podda da saklanır, ve haliyle o podun veri tabanı yöneticisi de ona erişebilir. Bir gönderi ya da profil verisini sildiğinizde diğer podlardan da kendiliğinden silinirler."
+      data_other_podmins_q: "Diğer podların yöneticileri bilgimi görebiliyor mu?"
+      data_visible_to_podmin_a: "Podlar *arası* iletişim her zaman SSL ve diaspora*nın kendi aktarım şifresi ile şifrelenir, ancak pod içinde saklı olan veri şifresizdir. İsterse, podunuzun veri tabanı yöneticisi (genelde podu çalıştıran kişi uğraşır) tüm profil verinize ve (kullanıcı verilerini saklayan diğer sitelerde de olduğu gibi) tüm gönderilerinize erişebilir. Kendi podunuzu çalıştırmak daha fazla mahremiyet sağlar çünkü o zaman veri tabanı erişimini de siz denetlersiniz."
+      data_visible_to_podmin_q: "Pod yöneticisi ne kadar bilgime erişebiliyor?"
+      download_data_a: "Evet. Hesap sekmesinde veriyi indirmek için iki düğme var."
+      download_data_q: "Tohumum(hesabım)daki tüm veriyi indirebilir miyim?"
+      move_pods_a: "İleride tohumunuzu bir poddan diğerine aktarabileceksiniz, ancak şimdilik bu mümkün değil. Her zaman yeni bir hesap açıp, kişileri yeni tohumunuzdaki bakışlara ekleyip, karşınızdaki kişilerden de aynını yapmalarını isteyebilirsiniz."
+      move_pods_q: "Tohumumu (hesabımı) başka bir poda nasıl taşırım?"
       title: "Hesap ve veri yönetimi"
     aspects:
+      contacts_know_aspect_a: "Hayır. Bakışın adını hiçbir şekilde göremezler."
+      contacts_know_aspect_q: "Diğerleri onları hangi bakışlara koyduğumu bilebilir mi?"
       remove_notification_a: "Hayır."
+      rename_aspect_a: "Evet. Bakışlar listesinde yeniden adlandırmak istediğiniz bakışın üzerine gelip yandaki kaleme tıklayın. Gözüken kutuda 'yeniden adlandır' ı tıklayın."
+      rename_aspect_q: "Bakışın adını değiştirebilir miyim?"
+      restrict_posts_i_see_a: "Evet. Kenar çubuğundaki Bakışlarım'a tıklayın ve seçiminizi değiştirmek için ilgili bakışlara tıklayın. Yalnızca seçili bakışlardan gelen gönderiler size görünür olacak."
+      restrict_posts_i_see_q: "Gördüğüm gönderileri sadece belli bakışlara  kısıtlayabilir miyim?"
     foundation_website: "diaspora vakfı web sitesi"
     getting_help:
       get_support_a_hashtag: "%{question} etiketini kullanarak diaspora* üzerinde açık bir gönderiyle sorun"
@@ -357,13 +375,31 @@ tr:
       what_is_a_mention_q: "\"Birisini anmak\" nedir?"
     posts_and_posting:
       character_limit_a: "65,535 karakter. Yani, Twitter'da izin verilenden 65,395 daha fazla karakter! ;)"
+      character_limit_q: "En fazla kaç karakter gönderebilirim?"
+      embed_multimedia_a: "Genelde URL'yi yapıştırmanız gömme işleminin gerçekleşmesi için yeterli olur: YouTube, Vimeo, SoundCloud, Flickr ve birkaç site daha desteklenir. diaspora* bunu oEmbed yardımıyla gerçekleştirir. Her an yeni sitelere açığız. Basit göndermeyi unutmayın: tam bağlantılar:kısaltma servisler kulllanmayın; temel URL'den sonra ?#&!= kullanmayın; ve önizlemeyi görebilmek için bir süre bekleyin."
       embed_multimedia_q: "Bir gönderiye video, ses ya da başka bir içerik nasıl eklerim?"
+      format_text_a: "%{markdown} sistemini kullanarak. Tüm Markdown sözdizimine %{here} erişebilirsiniz. Önizleme düğmesinin yardımı dokunur, böylece paylaşmadan önce nasıl görüneceğine bakabilirsiniz."
+      format_text_q: "Gönderilerimi nasıl biçimlendirebilirim(kalın, İtalik, vs.)?"
       image_text: "resim metni"
       image_url: "resim url'si"
       insert_images_comments_a1: "Aşağıda not düşülen kod"
       insert_images_comments_q: "Yorumlara resim ekleyebilir miyim?"
+      size_of_images_a: "Yapamazsınız. Resimler kendiliğinden akış genişliğine uyacak şekilde boyutlandırılırlar. Markdown içinde resim boyutunu belirleyecek bir kod yoktur."
+      size_of_images_q: "Gönderi ve yorumlardaki resimleri nasıl boyutlandırabilirim?"
     private_posts:
+      can_reshare_a: "Hiç kimse. Özel gönderiler yeniden paylaşılamaz, ancak diaspora* nın kopyala-yapıştır koruması yoktur."
+      can_reshare_q: "Özel gönderimi kim paylaşabilir?"
       title: "Özel gönderiler"
+    private_profiles:
+      title: "Özel profiller"
+    public_posts:
+      title: "Genel gönderiler"
+    public_profiles:
+      title: "Genel profiller"
+    resharing_posts:
+      reshare_public_post_aspects_a: "Hayır, onları yeniden paylaştığınızda kendiliğinden genel gönderi olarak paylaşılırlar. Belirli bakışlarla paylaşmak için, kopyala-yapıştır yöntemini kullanabilirsiniz. diaspora* nın kopyala-yapıştır koruması yoktur."
+      reshare_public_post_aspects_q: "Genel bir gönderiyi belli bakışlarla yeniden paylaşabilir miyim?"
+      title: "Gönderileri yeniden paylaşmak"
     third_party_tools: "üçüncü taraf araçları"
     tutorial: "öğretici"
     tutorials: "öğreticiler"
@@ -453,11 +489,7 @@ tr:
   no_results: "Sonuç Bulunamadı"
   notifications:
     also_commented:
-      few: "%{actors} %{post_author} kişisinin %{post_link}sini yorumladı."
-      many: "%{actors} %{post_author} kişisinin %{post_link}sini yorumladı."
-      one: "%{actors} %{post_author} kişisinin %{post_link}sini yorumladı."
       other: "%{actors} %{post_author} kişisinin %{post_link}sini yorumladı."
-      two: "%{actors} %{post_author} kişisinin %{post_link}sini yorumladı."
       zero: "%{actors} %{post_author} kişisinin %{post_link}sini yorumladı."
     also_commented_deleted:
       few: "%{actors} silinmiş gönderinize yorum yazdı."
@@ -471,20 +503,12 @@ tr:
       zero: "%{actors} %{post_link} gönderinizi yorumladı."
     helper:
       new_notifications:
-        few: "%{count} yeni bildirim"
-        many: "%{count} yeni bildirim"
-        one: "1 yeni bildirim"
         other: "%{count} yeni bildirim"
-        two: "%{count} yeni bildirim"
         zero: "Yeni bildirim yok"
     index:
       and: "ve"
       and_others:
-        few: "ve %{count} diğer kişi"
-        many: "ve %{count} diğer kişi"
-        one: "ve bir kişi daha"
         other: "ve %{count} diğer kişi"
-        two: "ve %{count} diğer kişi"
         zero: "ve başka hiç kimse"
       mark_all_as_read: "Tümünü okundu olarak işaretle"
       mark_unread: "Okunmadı olarak işaretle"
@@ -493,21 +517,13 @@ tr:
       other: "%{actors} senin %{post_link} gönderini beğendi."
       zero: "%{actors} senin %{post_link} gönderini beğendi."
     liked_post_deleted:
-      few: "%{actors} silinmiş gönderinizi iğneledi."
-      many: "%{actors} silinmiş gönderinizi iğneledi."
-      one: "%{actors} silinmiş gönderinizi iğneledi."
       other: "%{actors} silinmiş gönderinizi iğneledi."
-      two: "%{actors} silinen gönderiyi iğneledi."
       zero: "%{actors} silinmiş gönderinizi iğnelemedi."
     mentioned:
       other: "%{actors} bir %{post_link} içinde seni andı."
       zero: "%{actors} bir %{post_link} içinde seni andı."
     mentioned_deleted:
-      few: "%{actors} silinmiş gönderide senden bahsetti."
-      many: "%{actors} silinmiş gönderide senden bahsetti."
-      one: "%{actors} silinmiş gönderide senden bahsetti."
       other: "%{actors} silinmiş gönderide senden bahsetti."
-      two: "%{actors} silinmiş bir gönderiden bahsetti."
       zero: "%{actors} silinmiş gönderide senden bahsetti."
     post: "gönderi"
     private_message:
@@ -517,12 +533,8 @@ tr:
       other: "%{actors} %{post_link} gönderinizi paylaştı"
       zero: "%{actors} %{post_link} gönderinizi paylaştı."
     reshared_post_deleted:
-      few: "%{actors} silenen gönderiyi tekrar paylaştı."
-      many: "%{actors} silinen gönderiyi tekrar paylaştı."
-      one: "%{actors} silenen gönderiyi tekrar paylaştı."
-      other: "%{actors} silenen gönderiyi tekrar paylaştı."
-      two: "%{actors} silinmiş gönderiyi tekrar paylaştı."
-      zero: "%{actors} silenen gönderiyi tekrar paylaştı."
+      other: "%{actors} silinen gönderiyi tekrar paylaştı."
+      zero: "%{actors} silinen gönderiyi tekrar paylaştı."
     started_sharing:
       few: "%{actors} sizinle paylaşıma başladı."
       many: "%{actors} sizinle paylaşıma başladı."
@@ -686,11 +698,7 @@ tr:
       not_found: "Üzgünüz, bu gönderi bulamadı."
       permalink: "kalıcı bağlantı"
       photos_by:
-        few: "%{author} tarafından %{count} fotoğraf"
-        many: "%{author} tarafından %{count} fotoğraf"
-        one: "%{author} tarafından bir fotoğraf"
         other: "%{author} tarafından %{count} fotoğraf"
-        two: "%{author} tarafından iki fotoğraf"
         zero: "%{author} tarafından fotoğraf yok"
       reshare_by: "%{author} tarafından tekrar paylaşım"
   previous: "önceki"
@@ -777,11 +785,7 @@ tr:
     reshare:
       deleted: "Gönderi yazarı tarafından silindi."
       reshare:
-        few: "%{count} tekrar paylaşım"
-        many: "%{count} tekrar paylaşım"
-        one: "1 tekrar paylaşım"
         other: "%{count} tekrar paylaşım"
-        two: "%{count} tekrar paylaşım"
         zero: "Tekrar paylaş"
       reshare_confirmation: "Tekrar paylaş %{author} - %{text}?"
       reshare_original: "Orijinali tekrar paylaş"
@@ -835,11 +839,7 @@ tr:
     aspect_dropdown:
       add_to_aspect: "Yönüne ekle"
       toggle:
-        few: "%{count} yönde"
-        many: "%{count} yönde"
-        one: "%{count} yönde"
         other: "%{count} yönde"
-        two: "%{count} yönde"
         zero: "Yönüne ekle"
     contact_list:
       all_contacts: "Bütün kişiler"
@@ -914,20 +914,12 @@ tr:
     new:
       mentioning: "Bahseden: %{person}"
     too_long:
-      few: "durum mesajları %{count} karakterden az olmalıdır."
-      many: "durum mesajları %{count} karakterden az olmalıdır."
-      one: "durum mesajları %{count} karakterden az olmalıdır."
       other: "durum mesajları %{count} karakterden az olmalıdır."
-      two: "lütfen durum güncellerken %{count} karakterden az kullanın"
       zero: "durum mesajları %{count} karakterden az olmalıdır."
   stream_helper:
     hide_comments: "Yorumları gizle"
     show_comments:
-      few: "%{count} yorum daha göster"
-      many: "%{count} yorum daha göster"
-      one: "Ek bir yorum göster"
       other: "%{count} ek yorum göster"
-      two: "İki yorum daha göster"
       zero: "Daha fazla yorum yok"
   streams:
     activity:

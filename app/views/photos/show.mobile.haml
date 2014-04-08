@@ -14,8 +14,9 @@
         = person_image_link(photo.author, :size => :thumb_small)
         = person_link(photo.author)
         .info
-          %span.time{:integer => photo.created_at.to_i}
-            = link_to(t('ago', :time => time_ago_in_words(photo.created_at)), post_path(photo))
+          %span
+            = link_to(post_path(photo)) do
+              = timeago(photo.created_at)
 
 -if additional_photos && additional_photos.length > 1
   #photo_controls

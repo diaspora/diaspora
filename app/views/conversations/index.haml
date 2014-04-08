@@ -7,7 +7,7 @@
   = javascript_include_tag :inbox
 
 - content_for :page_title do
-  = t('.message_inbox')
+  = t('.conversations_inbox')
 
 .container-fluid.conversations_container
   .row-fluid
@@ -16,7 +16,7 @@
         #left_pane_header
           %h3
             .pull-right
-              = link_to t('.new_message'), new_conversation_path, :class => 'btn btn-default', :rel => 'facebox'
+              = link_to t('.new_conversation'), new_conversation_path, :class => 'btn btn-default', :rel => 'facebox'
             = t('.inbox')
 
         #conversation_inbox
@@ -38,4 +38,4 @@
             #no_conversation_text
               = t('.no_conversation_selected')
             #no_conversation_controls
-              = link_to t('.create_a_new_message'), new_conversation_path, :rel => 'facebox'
+              = link_to t('.create_a_new_conversation'), new_conversation_path, :rel => 'facebox'

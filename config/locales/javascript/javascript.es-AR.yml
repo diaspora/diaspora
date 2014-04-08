@@ -74,6 +74,9 @@ es-AR:
       invalid_ext: "El archivo {file} tiene una extensión inválida. Solo las extensiones {extensions} están permitidas."
       looking_good: "¡Apa, te ves muy bien!"
       size_error: "El archivo {file} es demasiado grande, el tamaño máximo permitido es {sizeLimit}."
+    post_report: "Informar"
+    post_report_prompt: "Por favor introduce el motivo:"
+    post_report_prompt_default: "contenido ofensivo"
     publisher:
       at_least_one_aspect: "Tenés que publicarlo en, por lo menos, un aspecto"
       limited: "Limitada - tu publicación sera vista solo por la gente con quien la compartes "

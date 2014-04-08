@@ -46,6 +46,7 @@ fi:
       correlations: "Vastaavuudet"
       pages: "Sivut"
       pod_stats: "Podin tilastot"
+      post_report: "Ilmoitetut Julkaisut"
       sidekiq_monitor: "Sidekiq tarkkailija"
       user_search: "Käyttäjähaku"
       weekly_user_stats: "Viikottaiset käyttäjätilastot"
@@ -712,6 +713,9 @@ fi:
     mentioned:
       mentioned: "mainitsi sinut viestissään:"
       subject: "%{name} on maininnut sinut Diaspora*:ssa"
+    post_report_email:
+      body: "Ole hyvä ja arvioi niin pian kuin mahdollista!"
+      subject: "Uusi julkaisu merkittiin loukkaavaksi"
     private_message:
       reply_to_or_view: "Lue tai osallistu keskusteluun >"
     reshared:
@@ -826,6 +830,18 @@ fi:
     update:
       error: "Kuvan muokkaus epäonnistui."
       notice: "Kuva päivitettiin onnistuneesti."
+  post_report:
+    delete_link: "Poista julkaisu"
+    post_label: "<b>Julkaisu</b>: %{title}"
+    reason_label: "Syy %{text}"
+    reported_label: "<b>Ilmoituksen teki</b> %{person}"
+    review_link: "Merkitse tarkistetuksi"
+    status:
+      created: "Ilmoitus on luotu"
+      destroyed: "Julkaisu tuhottiin"
+      failed: "Jotain meni pieleen"
+      marked: "Ilmoitus merkittiin tarkistetuksi"
+    title: "Merkittyjen Ilmoitusten Yleiskatsaus"
   posts:
     presenter:
       title: "Julkaisu käyttäjältä %{name}"
@@ -1014,7 +1030,7 @@ fi:
       all: "kaikki"
       all_contacts: "kaikki henkilöt"
       discard_post: "Hylkää julkaisu"
-      formatWithMarkdown: "Voit käyttää %{markdown_link} muotoillaksesi julkaisuasi"
+      formatWithMarkdown: "Voit käyttää %{markdown_link}-merkintäkieltä muotoillaksesi julkaisuasi"
       get_location: "Nouda sijaintisi"
       make_public: "tee julkiseksi"
       new_user_prefill:

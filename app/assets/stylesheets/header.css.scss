@@ -95,12 +95,12 @@ body > header {
       }
     }
 
-    #notification_badge, #message_inbox_badge {
+    #notification_badge, #conversations_badge {
       float: left;
       padding: 0px 3px;
     }
 
-    #message_inbox_badge {
+    #conversations_badge {
       padding-top: 3px;
       margin-right: 0px;
       padding-right: 0px;
@@ -165,7 +165,7 @@ body > header {
 
         &:hover { background-color: $highlight-white; }
 
-        .avatar {
+        > .avatar {
           height: 30px;
           width: 30px;
           float: left;

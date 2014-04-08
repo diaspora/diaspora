@@ -28,7 +28,7 @@
     }
 
     .new_message { border-bottom: none; }
-    .timeago { font-size: 11px; }
+    .timestamp { font-size: 11px; }
   }
 }
 
@@ -84,7 +84,7 @@
 .stream_element.conversation {
   padding: 8px;
   .media { 
-    margin-bottom: 5px; 
+    margin-bottom: 0px; 
     margin-left: 0px;
   }
 
@@ -95,7 +95,7 @@
     .last_message {
       color: $white;
     }
-    .timestamp { color: $background-grey; }
+    .timeago { color: $background-grey; }
   }
   &.selected:hover { background-color: lighten($blue,5%); }
   &:hover { cursor: pointer; }
@@ -120,7 +120,41 @@
     font-size: 12px;
     font-weight: normal;
   }
-  
+
+  .participants_count {
+    @include opacity(0.5);
+    &:before { content: '+'; }
+    float: left;
+    background-color: #fff;
+    margin-top: 35px;
+    margin-left: -50px;
+    text-align: center;
+    width: 50px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .participants {
+    display: none;
+    float: left;
+    clear: both;
+    margin-top: 5px;
+    padding-top: 5px;
+    height: 25px;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px dotted $border-grey;
+    .avatar {
+      margin: 0 5px 0 0;
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  .img { line-height: 15px; }
+
   .subject {
     font-size: 14px;
     > * {
@@ -130,7 +164,7 @@
     }
   }
 
-  .timestamp {
+  .timeago {
     float: right;
     line-height: normal;
     font-weight: normal;
@@ -150,7 +184,7 @@
   .last_message {
     color: $white;
   }
-  .timestamp { color: $background-grey; }
+  .timeago { color: $background-grey; }
 }
 
 #left_pane {
@@ -189,7 +223,7 @@
   font-size: 12px;
 }
 
-#new_message_pane {
+#new_conversation_pane {
   ul.as-selections { width: 100% !important; }
   input#contact_ids { box-shadow: none; }
   textarea { width: 98%; }

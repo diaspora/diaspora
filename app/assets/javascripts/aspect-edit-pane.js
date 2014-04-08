@@ -17,11 +17,11 @@ function updatePageAspectName( an_id, new_name) {
 }
 
 $(document).ready(function() {
-  $('#rename_aspect_link').live('click', function(){
+  $(document).on('click', '#rename_aspect_link', function(){
     toggleAspectTitle();
   });
 
-  $('form.edit_aspect').live('ajax:success', function(evt, data, status, xhr) {
+  $(document).on('ajax:success', 'form.edit_aspect', function(evt, data, status, xhr) {
     updateAspectName(data['name']);
     updatePageAspectName( data['id'], data['name'] );
     toggleAspectTitle();

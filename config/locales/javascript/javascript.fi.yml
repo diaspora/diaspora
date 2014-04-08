@@ -77,6 +77,9 @@ fi:
       invalid_ext: "Tiedostolla {file} on epäkelpo tiedostopääte. Vain {extensions} päätteet ovat sallittuja."
       looking_good: "OMG, näytät upealta!"
       size_error: "Tiedosto {file} on liian iso, suurin sallittu tiedostokoko on {sizeLimit}"
+    post_report: "Tee ilmoitus"
+    post_report_prompt: "Ole hyvä, kirjoita syy:"
+    post_report_prompt_default: "loukkaavaa sisältöä"
     publisher:
       at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
       limited: "Rajoitettu - julkaisusi näkyy vain ihmisille, joiden kanssa jaat"

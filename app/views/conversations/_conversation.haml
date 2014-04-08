@@ -9,6 +9,9 @@
         - other_participants = ordered_participants[conversation.id] - [current_user.person]
         - if other_participants.first.present?
           = person_image_tag(other_participants.first)
+          - if other_participants.count > 1
+            .participants_count
+              = other_participants.count - 1
 
       .bg
         .badge.badge-dafault.message_count
@@ -20,11 +23,15 @@
         .subject
           %div{ :class => direction_for(conversation.subject) }
             = conversation.subject
-        %time.timeago.timestamp{:datetime => conversation.updated_at.iso8601}
-          = t('ago', :time =>  time_ago_in_words(conversation.updated_at))
+        .timestamp
+          = timeago(conversation.updated_at)
         .last_author
           - if authors[conversation.id].present?
             = authors[conversation.id].name
         .last_message
           - if conversation.messages.present?
             = '»' + conversation.messages.last.text + '«'
+        - if other_participants.count > 1
+          .participants
+            - other_participants.drop(1).take(15).each do |participant|
+              = person_image_tag(participant)

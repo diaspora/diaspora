@@ -1,0 +1,4 @@
+- if bootstrap?
+  = render :partial => 'publisher/publisher_bootstrap', :locals => { :aspect => aspect, :selected_aspects => selected_aspects,  :aspect_ids => aspect_ids }
+- else
+  = render :partial => 'publisher/publisher_blueprint', :locals => { :aspect => aspect, :selected_aspects => selected_aspects,  :aspect_ids => aspect_ids }

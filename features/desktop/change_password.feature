@@ -14,11 +14,11 @@ Feature: Change password
   Scenario: Reset my password
     Given a user with email "forgetful@users.net"
     Given I am on forgot password page
-    When I fill out forgot password form with "Forgetful@users.net"
+    When I fill out forgot password form with "forgetful@users.net"
     And I submit forgot password form
     Then I should see "You will receive an email with instructions"
     When I follow the "Change my password" link from the last sent email
-    Then I should see "Change my password"
+    Then I should see "NEW PASSWORD"
     When I fill out reset password form with "supersecret" and "supersecret"
     And I submit reset password form
     Then I should be on the stream page

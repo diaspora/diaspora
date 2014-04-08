@@ -30,9 +30,13 @@ en:
       updated: 'Your password was changed successfully. You are now signed in.'
       edit:
         change_password: "Change my password"
+        new_password: "New password"
+        confirm_password: "Confirm password"
       new:
         forgot_password: "Forgot your password?"
         no_account: 'No account with this email exists'
+        reset_password: "Reset password"
+        email: "Email address"
         send_password_instructions: "Send me reset password instructions"
     confirmations:
       send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
@@ -61,7 +65,7 @@ en:
         confirm: "Confirm my account"
       reset_password_instructions:
         subject: 'Reset password instructions'
-        someone_requested: "Someone has requested a link to change your password, If it was you, you can do this through the link below."
+        someone_requested: "Someone has requested a link to change your password. If it was you, you can do this through the link below."
         change: "Change my password"
         wont_change: "Your password won't change until you access the link above and create a new one."
         ignore: "If you didn't request this, please ignore this email."
@@ -72,7 +76,7 @@ en:
         unlock: "Unlock my account"
       inviter:
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join diaspora*"
         accept_at: "at %{url}, you can accept it through the link below."
     shared:
       links:

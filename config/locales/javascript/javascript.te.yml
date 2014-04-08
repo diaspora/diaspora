@@ -51,6 +51,8 @@ te:
     stream:
       comment: "వ్యాఖ్య"
       follow: "అనుసరించు"
+      followed_tag:
+        title: "#అనుసరించే కొసలు"
       hide: "దాచు"
       like: "ఇష్టం"
       likes:

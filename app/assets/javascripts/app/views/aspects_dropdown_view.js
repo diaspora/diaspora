@@ -1,67 +1,50 @@
-/**
- * the aspects dropdown specifies the scope of a posted status message.
- *
- * this view is part of the publisher where users are presented the options
- * 'public', 'all aspects' and a list of their personal aspects, for limiting
- * 'the audience of created contents.
+/* 
+ * Aspects view for the publishers aspect dropdown and the aspect membership dropdown.
  */
 app.views.AspectsDropdown = app.views.Base.extend({
-  templateName : "aspects-dropdown",
-  events : {
-    "change .dropdown-menu input" : "setVisibility"
+  _toggleCheckbox: function(target) {
+    this.$('.dropdown-menu > li.radio').removeClass('selected');
+    target.toggleClass('selected');
   },
 
-  presenter : function(){
-    var selectedAspects = this.model.get("aspect_ids")
-      , parsedIds = _.map(selectedAspects, parseInt)
-
-    return {
-      aspects : _.map(app.currentUser.get('aspects'), function(aspect){
-        return _.extend({}, aspect, {checked :_.include(parsedIds, aspect.id) })
-      }),
-
-      public :_.include(selectedAspects, "public"),
-      'all-aspects' :_.include(selectedAspects, "all_aspects")
-    }
+  _toggleRadio: function(target) {
+    this.$('.dropdown-menu > li').removeClass('selected');
+    target.toggleClass('selected');
   },
 
-  postRenderTemplate : function(){
-    if(this.model.get("aspect_ids")) {
-      this.setDropdownText()
-    } else {
-      this.setVisibility({target : this.$("input[value='public']").first()})
-    }
+  // select aspects in the dropdown by a given list of ids
+  _selectAspects: function(ids) {
+    this.$('.dropdown-menu > li').each(function(){
+      var el = $(this);
+      if(_.contains(ids, el.data('aspect_id'))){
+        el.addClass('selected');
+      }
+      else {
+        el.removeClass('selected');
+      }
+    });
   },
 
-  setVisibility : function(evt){
-    var input = $(evt.target).closest("input")
-
-    if(_.include(['public', 'all_aspects'], input.val())) {
-      this.$("input").attr("checked", false)
-      input.attr("checked", "checked")
-    } else {
-      this.$("input.public, input.all_aspects").attr("checked", false)
+  // change class and text of the dropdown button
+  _updateButton: function(inAspectClass) {
+    var button = this.$('.btn.dropdown-toggle'),
+      selectedAspects = this.$(".dropdown-menu > li.selected").length,
+      buttonText;
+    
+    if(selectedAspects == 0){
+      button.removeClass(inAspectClass).addClass('btn-default');
+      buttonText = Diaspora.I18n.t("aspect_dropdown.select_aspects");
+    }
+    else{
+      button.removeClass('btn-default').addClass(inAspectClass);
+      if(selectedAspects == 1){
+        buttonText = this.$(".dropdown-menu > li.selected .text").first().text();
+      }
+      else{
+        buttonText = Diaspora.I18n.t("aspect_dropdown.toggle", { count: selectedAspects.toString() });
+      }
     }
 
-    this.setDropdownText()
-  },
-
-  setDropdownText : function(){
-    var selected = this.$("input").serializeArray()
-      , text;
-
-    switch (selected.length) {
-      case 0:
-        text = "Private"
-        break
-      case 1:
-        text = selected[0].name
-        break
-      default:
-        text = ["In", selected.length, "aspects"].join(" ")
-        break
-    }
-
-    $.trim(this.$(".dropdown-toggle .text").text(text))
+    button.find('.text').text(buttonText);
   }
 });

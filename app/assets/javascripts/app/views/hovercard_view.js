@@ -3,9 +3,9 @@ app.views.Hovercard = Backbone.View.extend({
   el: '#hovercard_container',
 
   initialize: function() {
-    $('.hovercardable')
-      .live('mouseenter', _.bind(this._mouseenterHandler, this))
-      .live('mouseleave', _.bind(this._mouseleaveHandler, this));
+    $(document)
+      .on('mouseenter', '.hovercardable', _.bind(this._mouseenterHandler, this))
+      .on('mouseleave', '.hovercardable', _.bind(this._mouseleaveHandler, this));
 
     this.show_me = false;
 
@@ -103,10 +103,14 @@ app.views.Hovercard = Backbone.View.extend({
 
     // set aspect dropdown
     var href = this.href();
-    href += "/aspect_membership_button"
+    href += "/aspect_membership_button";
+    if(gon.bootstrap == true){
+      href += "?bootstrap=true";
+    }
     $.get(href, function(response) {
       self.dropdown_container.html(response);
     });
+    var aspect_membership = new app.views.AspectMembership({el: self.dropdown_container});
   },
 
   _positionHovercard: function() {

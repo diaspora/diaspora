@@ -7,8 +7,11 @@
 gl:
   javascripts:
     confirm_dialog: "Está seguro?"
+    post_report_prompt: "Explique o motivo:"
+    post_report_prompt_default: "Contido ofensivo"
     delete: "Eliminar"
     ignore: "Ignorar"
+    post_report: "Denunciar"
     ignore_user: "Ignorar este usuario?"
     and: "e"
     comma: ","
@@ -29,6 +32,7 @@ gl:
       months: "%d meses."
       year: "un ano."
       years: "%d anos."
+      wordSeparator: " "
 
     my_activity: "Actividade"
     my_stream: "Onda"
@@ -60,12 +64,13 @@ gl:
         few: "En <%= count %> aspectos"
         many: "En <%= count %> aspectos"
         other: "En <%= count %> aspectos"
-    show_more: "Amosar máis"
+    show_more: "Mostrar máis"
     failed_to_like: "Non foi posíbel indicar que lle gusta a publicación!"
     failed_to_post_message: "Non foi posíbel publicar a mensaxe!"
+    failed_to_remove: "Non foi posíbel eliminar a publicación!"
     comments:
-      show: "Amosar os comentarios"
-      hide: "Agochar os comentarios"
+      show: "Mostrar os comentarios"
+      hide: "Ocultar os comentarios"
       no_comments: "Aínda non hai comentarios."
     reshares:
       duplicate: "Moi interesante ten que ser iso para que o repitas outra vez!"
@@ -93,7 +98,7 @@ gl:
       participants: "Participantes"
 
     stream:
-      hide: "Agochar"
+      hide: "Ocultar"
       public: "Público"
       limited: "Limitado"
       like: "Gústame"
@@ -101,9 +106,11 @@ gl:
       reshare: "Repetir"
       comment: "Comentar"
       original_post_deleted: "O autor eliminou a publicación orixinal."
-      show_post: "Amosar a publicación"
+      show_post: "Mostrar a publicación"
+      hide_nsfw_posts: "Ocultar contido etiquetado con #nsfw"
       follow: "Seguir"
       unfollow: "Deixar de seguir"
+      via: "mediante <%= provider %>"
 
       likes:
         zero: "Non lle gusta a ninguén."
@@ -123,11 +130,11 @@ gl:
 
       more_comments:
         zero: "Non hai máis comentarios"
-        one: "Amosar o comentario que falta"
-        two: "Amosar os dous comentarios que faltan"
-        few: "Amosar <%= count %> comentarios máis"
-        many: "Amosar <%= count %> comentarios máis"
-        other: "Amosar <%= count %> comentarios máis"
+        one: "Mostrar o comentario que falta"
+        two: "Mostrar os dous comentarios que faltan"
+        few: "Mostrar <%= count %> comentarios máis"
+        many: "Mostrar <%= count %> comentarios máis"
+        other: "Mostrar <%= count %> comentarios máis"
 
     header:
       home: "Inicio"
@@ -139,7 +146,7 @@ gl:
       log_out: "Saír"
 
       notifications: "Notificacións"
-      messages: "Mensaxes"
+      conversations: "Conversas"
 
       search: "Atopar xente ou #etiquetas"
 

@@ -4,31 +4,57 @@
 
 #single-post-content {
   #head {
-    color: #aaaaaa;
-    font-size: 12px;
-    #author {
-      .img {
-        max-width: 25%;
-      }
-      .avatar {}
-      .bd {
-        padding-left: 10px;
-        .retweet {
-          i {
-            margin: 0 3px;
-          }
+    padding-bottom: 10px;
+    border-bottom: 1px solid $border-grey;
+    #post-info {
+      .author{ color: $grey; }
+      .info {
+        color: lighten($text-grey,10%);
+        font-size: 12px;
+        .post-time a { color: $text-grey; }
+        .post_scope { margin-right: 5px; }
+        .status-message-location { 
+          padding-top: 2px; 
+          line-height: 14px;
         }
       }
+      .avatar.medium {
+        max-width: 75px;
+      }
+      .bd {
+        padding-left: 10px;
+      }
+    }
+    .row-fluid.reshare {
+      border-top: 1px solid lighten($border-grey,5%);
+      padding-top: 10px; 
+      margin-top: 10px; 
+    }
+    #reshare-info {
+      line-height: 15px;
+      i.retweet {
+        color: $text-dark-grey;
+        font-size: 28px;
+        line-height: 30px;
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      .post-time a {
+        color: $text-grey;
+        display: block;
+        font-size: 12px;
+      }
+      .avatar { 
+        height: 30px;
+        width: 30px;
+      }
+      .img { margin-right: 10px; }
     }
     #single-post-actions {
-      .buttons {
-        position: relative;
-        top: 6px;
-        clear: right;
-      }
-      .public-info > i {
-        float: left;
-        margin: 2px 4px 0 0;
+      padding-right: 5px;
+      i {
+        font-size: 28px;
+        line-height: 30px;
       }
       i.comment:hover {
         color: #424242;
@@ -159,6 +185,12 @@
       @include opacity(0.3);
     }
   }
+
+  >.highlighted {
+    border-left: 3px solid $blue;
+    padding-left: 3px;
+  }
+
   .controls {
     @include transition(opacity);
     @include opacity(0);

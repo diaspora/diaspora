@@ -217,6 +217,7 @@ en_pirate:
       liked: "%{name} just liked yer post"
     reshared:
       reshared: "%{name} just reshared yer post"
+  ok: "Aye"
   people:
     few: "%{count} people"
     many: "%{count} people"

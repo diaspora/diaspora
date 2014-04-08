@@ -1,0 +1,42 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :head do
+  = jquery_include_tag
+  = javascript_include_tag :main
+  = load_javascript_locales
+  = include_gon
+
+= form_for StatusMessage.new, {:data => {:ajax => false}} do |status|
+  = status.hidden_field :provider_display_name, :value => 'mobile'
+  = status.text_area :text, :placeholder => t('shared.publisher.whats_on_your_mind'), :rows => 4, :autofocus => "autofocus"
+
+  %fieldset
+    %span#publisher_service_icons
+      - if current_user.services
+        - for service in current_user.services
+          = image_tag "social_media_logos/#{service.provider}-32x32.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
+
+    %select{:id => "aspect_ids_", :name => "aspect_ids[]"}
+      %option{:value => 'public'}
+        = t('public')
+
+      %option{:value => 'all_aspects', :selected => true}
+        = t('all_aspects')
+
+      - current_user.aspects.each do |aspect|
+        %option{:value => aspect.id}
+          = "· #{aspect.name}"
+    
+    .clear
+    #publisher_textarea_wrapper
+      %ul#photodropzone
+    #fileInfo-publisher
+
+    #file-upload-publisher{:title => t('shared.publisher.upload_photos'), :class => 'btn'}
+      = image_tag 'icons/camera.png', alt: t('shared.publisher.upload_photos').titleize
+    #publisher_mobile
+      = submit_tag t('shared.publisher.share'), :class => 'btn primary', :id => "submit_new_message"
+
+    #publisher_photo_upload

@@ -2,7 +2,7 @@ class ConversationsController < ApplicationController
   before_filter :authenticate_user!
 
   layout ->(c) { request.format == :mobile ? "application" : "with_header" }
-  before_filter -> { @css_framework = :bootstrap }
+  use_bootstrap_for :index, :show, :new
 
   respond_to :html, :mobile, :json, :js
 

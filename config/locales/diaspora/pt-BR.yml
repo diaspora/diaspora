@@ -46,6 +46,7 @@ pt-BR:
       correlations: "Correlações"
       pages: "Páginas"
       pod_stats: "Status do Servidor"
+      post_report: "Publicações Relatadas"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Busca de Usuários"
       weekly_user_stats: "Estatísticas Semanais"
@@ -135,8 +136,8 @@ pt-BR:
       success: "%{name} foi removido com sucesso."
     edit:
       add_existing: "Adicione um contato existente"
-      aspect_list_is_not_visible: "Contactos neste grupo não podem ver-se uns aos outros."
-      aspect_list_is_visible: "Contactos neste grupo podem ver-se uns aos outros."
+      aspect_list_is_not_visible: "Contatos neste aspecto não podem ver uns aos outros."
+      aspect_list_is_visible: "Contatos neste aspecto podem ver uns aos outros."
       confirm_remove_aspect: "Tem certeza que deseja deletar este aspecto?"
       done: "Feito"
       make_aspect_list_visible: "Tornar contatos nesse aspecto visíveis entre si?"
@@ -169,8 +170,8 @@ pt-BR:
         email_feedback: "%{link} seu feedback, se você preferir"
         email_link: "Email"
         feature_suggestion: "... tem uma sugestão de %{link}?"
-        find_a_bug: "... encontrar um %{link}?"
-        have_a_question: "... Tem um %{link}?"
+        find_a_bug: "... encontrou um %{link}?"
+        have_a_question: "... Tem uma %{link}?"
         here_to_help: "A comunidade do Diaspora está aqui!"
         mail_podmin: "E-mail do Podmin"
         need_help: "Quer Ajuda?"
@@ -624,9 +625,9 @@ pt-BR:
   no_results: "Nenhum Resultado Encontrado"
   notifications:
     also_commented:
-      one: "%{actors} também comentou sobre %{post_link} de %{post_author}."
-      other: "%{actors} também comentaram sobre %{post_link} de %{post_author}."
-      zero: "Ninguém mais comentou sobre %{post_link} de %{post_author}."
+      one: "%{actors} também comentou sobre a %{post_link} de %{post_author}."
+      other: "%{actors} também comentaram sobre a %{post_link} de %{post_author}."
+      zero: "Ninguém mais comentou sobre a %{post_link} de %{post_author}."
     also_commented_deleted:
       one: "%{actors} comentou em uma publicação apagada."
       other: "%{actors} comentaram em uma publicação apagada."
@@ -652,13 +653,13 @@ pt-BR:
         other: "e %{count} outros"
         two: "e %{count} outros"
         zero: "e mais ninguém"
-      mark_all_as_read: "Marcar Tudo como Lido"
+      mark_all_as_read: "Marcar Todas como Lidas"
       mark_unread: "Marcar como não lida"
       notifications: "Notificações"
     liked:
-      one: "%{actors} curtiu sua publicação %{post_link}."
-      other: "%{actors} curtiram sua publicação %{post_link}."
-      zero: "%{actors} curtiu sua publicação %{post_link}."
+      one: "%{actors} curtiu sua %{post_link}."
+      other: "%{actors} curtiram sua %{post_link}."
+      zero: "%{actors} curtiu sua %{post_link}."
     liked_post_deleted:
       one: "%{actors} curtiu sua publicação apagada."
       other: "%{actors} curtiram sua publicação apagada."
@@ -677,9 +678,9 @@ pt-BR:
       other: "%{actors} te enviaram uma mensagem."
       zero: "Ninguém te enviou uma mensagem."
     reshared:
-      one: "%{actors} recompartilhou o seu %{post_link}."
-      other: "%{actors} recompartilharam o seu %{post_link}."
-      zero: "%{actors} recompartilhou o seu %{post_link}."
+      one: "%{actors} recompartilhou a sua %{post_link}."
+      other: "%{actors} recompartilharam a sua %{post_link}."
+      zero: "%{actors} recompartilhou a sua %{post_link}."
     reshared_post_deleted:
       one: "%{actors} recompartilhou sua publicação apagada."
       other: "%{actors} recompartilharam sua publicação apagada."
@@ -721,6 +722,9 @@ pt-BR:
     mentioned:
       mentioned: "mencionou você em uma publicação:"
       subject: "%{name} mencionou você em Diaspora*"
+    post_report_email:
+      body: "Por favor revise o mais breve possível!"
+      subject: "Uma nova publicação foi marcada como ofensiva"
     private_message:
       reply_to_or_view: "Responder ou visualizar esta conversa >"
     reshared:
@@ -835,6 +839,18 @@ pt-BR:
     update:
       error: "Falha ao tentar enviar a foto."
       notice: "A foto foi enviada com sucesso."
+  post_report:
+    delete_link: "Apagar publicação"
+    post_label: "<b>Publicação</b>: %{title}"
+    reason_label: "Motivo: %{text}"
+    reported_label: "<b>Relatado por</b> %{person}"
+    review_link: "Marcar como revisado"
+    status:
+      created: "Um relatório foi criado"
+      destroyed: "A publicação foi destruída"
+      failed: "Alguma coisa deu errado"
+      marked: "O relatório foi marcado como revisado"
+    title: "Visão Geral de Relatórios Marcados"
   posts:
     presenter:
       title: "Uma publicação de %{name}"
@@ -857,6 +873,9 @@ pt-BR:
       edit_profile: "Editar perfil"
       first_name: "Primeiro Nome"
       last_name: "Sobrenome"
+      nsfw_check: "Marque tudo que eu compartilho como NSFW"
+      nsfw_explanation: "NSFW ('conteúdo inapropriado') é um padrão de autogovernança da comunidade diaspora* para conteúdos que podem não ser adequados para serem vistos enquanto estiver no trabalho. Se você planeja compartilhar esse tipo de material frequentemente, por favor marque esta opção, então tudo aquilo que você compartilhar ficará oculto nos fluxos das pessoas, a menos que elas escolham vê-los."
+      nsfw_explanation2: "Se você escolher não selecionar esta opção, por favor adicione a tag #nsfw toda vez que você compartilhar esse tipo de material."
       update_profile: "Atualizar perfil"
       your_bio: "Sobre você"
       your_birthday: "Data de nascimento"
@@ -1026,7 +1045,7 @@ pt-BR:
       all: "todos"
       all_contacts: "Todos os contatos"
       discard_post: "Descartar publicação"
-      formatWithMarkdown: "Você pode usar %{markdown_link} para formatar seu post"
+      formatWithMarkdown: "Você pode usar %{markdown_link} para formatar sua publicação"
       get_location: "Obter a sua localização"
       make_public: "Tornar público"
       new_user_prefill:
@@ -1060,12 +1079,12 @@ pt-BR:
       via_mobile: "pelo celular"
       viewable_to_anyone: "Essa publicação é visível para qualquer pessoa na internet"
   simple_captcha:
-    label: "Preencha o código no caixa de texto:"
+    label: "Digite o código na caixa de texto:"
     message:
-      default: "O código secreto não bate com a imagem"
+      default: "O código secreto não confere com a imagem"
       failed: "Verificação humana falhou"
       user: "A imagem secreta e o código são diferentes"
-    placeholder: "Preencha o valor da imagem"
+    placeholder: "Digite o valor da imagem"
   status_messages:
     create:
       success: "Mencionados com sucesso: %{names}"

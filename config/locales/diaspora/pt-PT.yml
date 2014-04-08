@@ -417,13 +417,18 @@ pt-PT:
       hide_posts_q: "Como é que eu oculto uma publicação? Como é que eu deixo de receber notificações sobre uma publicação com o meu comentário?"
       image_text: "texto da imagem"
       image_url: "URL da imagem"
+      insert_images_comments_a1: "O código seguinte \"Mardown\""
+      insert_images_comments_a2: "pode ser utilizado para inserir imagens da web para os comentários, bem como, nas publicações."
       insert_images_comments_q: "Posso inserir imagens em comentários?"
       insert_images_q: "Como insiro imagens em publicações?"
+      size_of_images_a: "Não. As imagens são redimensionadas automaticamente para se ajustarem ao fluxo. A redução não tem um código para especificar o tamanho de uma imagem."
       size_of_images_q: "Posso personalizar o tamanho das imagens em publicações ou comentários?"
       title: "Publicações e publicar"
     private_posts:
       can_comment_q: "Quem é que pode comentar ou gostar da minha publicação privada?"
       can_reshare_q: "Quem é que pode recompartilhar a minha publicação privada?"
+      see_comment_a: "Só as pessoas que compartilham a publicação (as pessoas que foram selecionadas em aspeto por quem publica o original) podem ver os seus comentários e o gosto. "
+      see_comment_q: "Quando comento ou gosto de uma publicação privada, quem é que pode ver?"
       title: "Publicações Privadas"
     private_profiles:
       title: "Perfis Privados"
@@ -489,7 +494,7 @@ pt-PT:
   layouts:
     application:
       back_to_top: "Voltar ao topo"
-      powered_by: "PRODUZIDO POR DIASPORA*"
+      powered_by: "DESENVOLVIDO POR DIASPORA*"
       public_feed: "Fonte pública do Diaspora para %{name}"
       source_package: "baixando o pacote de código fonte"
       toggle: "ligar modo móvel"

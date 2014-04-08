@@ -18,17 +18,15 @@ module Diaspora::Mentionable
   # @param [Array<Person>] list of mentioned people
   # @param [Hash] formatting options
   # @return [String] formatted message
-  def self.format(msg_text, people, *opts)
+  def self.format(msg_text, people, opts={})
     people = [*people]
-    fmt_msg = msg_text.to_s.gsub(REGEX) do |match_str|
-      # for some reason gsub doesn't always produce MatchData...
-      m = REGEX.match(match_str)
-      person = people.detect{ |p| p.diaspora_handle == m[2] }
 
-      ERB::Util.h(MentionsInternal.mention_link(person, m[1], *opts))
-    end
+    msg_text.to_s.gsub(REGEX) {|match_str|
+      name, handle = match_str.match(REGEX).captures
+      person = people.find {|p| p.diaspora_handle == handle }
 
-    fmt_msg
+      ERB::Util.h(MentionsInternal.mention_link(person, name, opts))
+    }
   end
 
   # takes a message text and returns an array of people constructed from the
@@ -37,9 +35,7 @@ module Diaspora::Mentionable
   # @param [String] text containing mentions
   # @return [Array<Person>] array of people
   def self.people_from_string(msg_text)
-    identifiers = msg_text.to_s.scan(REGEX).map do |match|
-      match.last
-    end
+    identifiers = msg_text.to_s.scan(REGEX).map(&:last)
 
     return [] if identifiers.empty?
     Person.where(diaspora_handle: identifiers)
@@ -61,18 +57,14 @@ module Diaspora::Mentionable
                                   .includes(:contact => :person)
                                   .map(&:person)
 
-    filtered_msg = msg_text.to_s.gsub(REGEX) do |match_str|
-      # for some reason gsub doesn't always produce MatchData...
-      m = REGEX.match(match_str)
-      person = mentioned_ppl.detect{ |p| p.diaspora_handle == m[2] }
+    msg_text.to_s.gsub(REGEX) {|match_str|
+      name, handle = match_str.match(REGEX).captures
+      person = mentioned_ppl.find {|p| p.diaspora_handle == handle }
 
-      mention = match_str
-      mention = MentionsInternal.profile_link(person, m[1]) unless aspects_ppl.include?(person)
+      mention = MentionsInternal.profile_link(person, name) unless aspects_ppl.include?(person)
 
-      mention
-    end
-
-    filtered_msg
+      mention || match_str
+    }
   end
 
   private
@@ -88,10 +80,10 @@ module Diaspora::Mentionable
     # @param [Person] AR Person
     # @param [String] fallback name
     # @param [Hash] formatting options
-    def self.mention_link(person, fallback_name, *opts)
+    def self.mention_link(person, fallback_name, opts)
       return fallback_name unless person.present?
 
-      if opts.include?(:plain_text)
+      if opts[:plain_text]
         person.name
       else
         person_link(person, class: PERSON_HREF_CLASS)
@@ -120,11 +112,11 @@ module Diaspora::Mentionable
     def self.get_aspect_ids(user, *aspects)
       return [] if aspects.empty?
 
-      if (!aspects.first.kind_of?(Integer)) && aspects.first.to_sym == :all
+      if (!aspects.first.is_a?(Integer)) && aspects.first.to_s == 'all'
         return user.aspects.pluck(:id)
       end
 
-      ids = aspects.select { |id| Integer(id) != nil } # only numeric
+      ids = aspects.reject {|id| Integer(id) == nil } # only numeric
 
       #make sure they really belong to the user
       user.aspects.where(id: ids).pluck(:id)

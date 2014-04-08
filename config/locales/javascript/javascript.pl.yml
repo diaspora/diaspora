@@ -77,6 +77,7 @@ pl:
       invalid_ext: "{file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia to: {extensions}."
       looking_good: "O rety! Świetnie wyglądasz!"
       size_error: "{file} jest za duży. Maksymalny rozmiar pliku to {sizeLimit}."
+    post_report_prompt: "Proszę podaj powód:"
     publisher:
       at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
       limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"

@@ -1,3 +1,30 @@
+.aspect_dropdown {
+  
+  li {
+    .status_indicator {
+      width: 19px;
+      height: 14px;
+      display: inline-block;
+    }
+    .icon-ok, .icon-refresh {
+      padding-right: 5px;
+      display: none;
+    }
+    &.selected {
+      .icon-ok { display: inline-block;}
+      .icon-refresh { display: none;}
+    }
+    &.loading {
+      .icon-refresh { display: inline-block;}
+      .icon-ok { display: none;}
+    }
+    a {
+      cursor: pointer;
+      padding-left: 10px;
+    }
+  }
+}
+
 
 /* -- Used in contacts/index.html.haml -- */
 #aspect_controls {

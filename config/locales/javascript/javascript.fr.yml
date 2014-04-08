@@ -76,7 +76,8 @@ fr:
       error: "Un problème a eu lieu pendant l'envoi du fichier <%= file %>"
       invalid_ext: "{file} a une extension invalide. Seules {extensions} sont permises."
       looking_good: "Impressionnant, vous avez un super look !"
-      size_error: "{file} est trop gros, la taille maximum est {sizeLimit}."
+      size_error: "{file} est trop gros, la taille maximum est de {sizeLimit}."
+    post_report_prompt: "Merci de saisir un motif:"
     publisher:
       at_least_one_aspect: "Vous devez créer au moins un aspect"
       limited: "Limité - votre message ne sera vu que par des gens avec qui vous partagez"
