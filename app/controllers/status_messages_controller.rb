@@ -29,11 +29,13 @@ class StatusMessagesController < ApplicationController
         @contacts_of_contact = @contact.contacts
         render :layout => nil
       end
-    else
+    elsif(request.format == :mobile)
       @aspect = :all
       @aspects = current_user.aspects
       @aspect_ids = @aspects.map{ |a| a.id }
       gon.aspect_ids = @aspect_ids
+    else
+      redirect_to stream_path
     end
   end
 
