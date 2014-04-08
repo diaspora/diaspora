@@ -58,6 +58,11 @@ describe StatusMessagesController do
       response.should be_success
     end
 
+    it 'should redirect on desktop version' do
+      get :new
+      response.should redirect_to(stream_path)
+    end
+
     it 'generates a jasmine fixture', :fixture => true do
       contact = alice.contact_for(bob.person)
       aspect = alice.aspects.create(:name => 'people')
