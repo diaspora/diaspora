@@ -9,14 +9,14 @@ describe Diaspora::Mentionable do
     @test_txt = <<-STR
 This post contains a lot of mentions
 one @{Alice A; #{@people[0].diaspora_handle}},
-two @{Bob B ; #{@people[1].diaspora_handle}}and finally
-three @{Eve E; #{@people[2].diaspora_handle}}.
+two @{Bob B; #{@people[1].diaspora_handle}} and finally
+three @{"Eve> E; #{@people[2].diaspora_handle}}.
 STR
     @test_txt_plain = <<-STR
 This post contains a lot of mentions
 one Alice A,
 two Bob B and finally
-three Eve E.
+three &quot;Eve&gt; E.
 STR
     @status_msg = FactoryGirl.build(:status_message, text: @test_txt)
   end
@@ -25,6 +25,15 @@ STR
     context 'html output' do
       it 'adds the links to the formatted message' do
         fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people)
+
+        @people.each do |person|
+          fmt_msg.should include person_link(person, class: 'mention hovercardable')
+        end
+      end
+
+      it 'should work correct when message is escaped html' do
+        raw_msg = @status_msg.raw_message
+        fmt_msg = Diaspora::Mentionable.format(CGI::escapeHTML(raw_msg), @people)
 
         @people.each do |person|
           fmt_msg.should include person_link(person, class: 'mention hovercardable')

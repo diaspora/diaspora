@@ -5,10 +5,20 @@ module Diaspora::Mentionable
   # ex.
   #   "message @{User Name; user@pod.net} text"
   #   will yield "User Name" and "user@pod.net"
-  REGEX = /@\{([^;]+); ([^\}]+)\}/
+  REGEX = /(@\{([^\}]+)\})/
 
   # class attribute that will be added to all mention html links
   PERSON_HREF_CLASS = "mention hovercardable"
+
+  def self.mention_attrs(mention_str)
+    mention = mention_str.match(REGEX)[2]
+    del_pos = mention.rindex(/;/)
+
+    name   = mention[0..(del_pos-1)].strip
+    handle = mention[(del_pos+1)..-1].strip
+
+    [name, handle]
+  end
 
   # takes a message text and returns the text with mentions in (html escaped)
   # plain text or formatted with html markup linking to user profiles.
@@ -22,7 +32,7 @@ module Diaspora::Mentionable
     people = [*people]
 
     msg_text.to_s.gsub(REGEX) {|match_str|
-      name, handle = match_str.match(REGEX).captures
+      name, handle = mention_attrs(match_str)
       person = people.find {|p| p.diaspora_handle == handle }
 
       ERB::Util.h(MentionsInternal.mention_link(person, name, opts))
@@ -35,7 +45,10 @@ module Diaspora::Mentionable
   # @param [String] text containing mentions
   # @return [Array<Person>] array of people
   def self.people_from_string(msg_text)
-    identifiers = msg_text.to_s.scan(REGEX).map(&:last)
+    identifiers = msg_text.to_s.scan(REGEX).map do |match_str|
+      _, handle = mention_attrs(match_str.first)
+      handle
+    end
 
     return [] if identifiers.empty?
     Person.where(diaspora_handle: identifiers)
@@ -58,9 +71,8 @@ module Diaspora::Mentionable
                                   .map(&:person)
 
     msg_text.to_s.gsub(REGEX) {|match_str|
-      name, handle = match_str.match(REGEX).captures
+      name, handle = mention_attrs(match_str)
       person = mentioned_ppl.find {|p| p.diaspora_handle == handle }
-
       mention = MentionsInternal.profile_link(person, name) unless aspects_ppl.include?(person)
 
       mention || match_str
