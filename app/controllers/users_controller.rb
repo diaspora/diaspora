@@ -4,6 +4,7 @@
 
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:new, :create, :public, :user_photo]
+  before_filter -> { @css_framework = :bootstrap }, only: [:privacy_settings, :edit]
 
   respond_to :html
 
