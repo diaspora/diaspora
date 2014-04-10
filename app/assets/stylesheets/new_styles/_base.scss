@@ -152,6 +152,16 @@ $bring-dark-accent-forward-color: #DDD;
   padding-top: 40px;
 }
 
+/* general purpose classes */
+
+.small-horizontal-spacer {
+  height: 20px;
+}
+
+.big-horizontal-spacer {
+  height: 50px;
+}
+
 /* responsive */
 @media (max-width: 767px) {
   body {

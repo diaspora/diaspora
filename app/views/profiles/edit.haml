@@ -10,8 +10,8 @@
 
 .span12
   - content_for :submit_block do
-    = link_to t('cancel'), local_or_remote_person_path(current_user.person), :class => "button"
-    = submit_tag t('.update_profile'), :class => "creation"
+    = link_to t('cancel'), local_or_remote_person_path(current_user.person), :class => "btn"
+    = submit_tag t('.update_profile'), :class => "btn btn-primary"
   = render :partial => 'edit', :locals => {:person => @person, 
     :profile => @profile, :aspect => @aspect, :step => @step}
 
