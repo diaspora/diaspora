@@ -138,10 +138,6 @@ ko:
       aspect_not_empty: "애스펙이 비어있지 않습니다"
       remove: "지우기"
     index:
-      cubbies:
-        explanation: "Cubbi.es는 첫 디아스포라 애플리케이션이며 개발중입니다."
-        heading: "Cubbi.es에 연결하세요"
-        learn_more: "자세히"
       diaspora_id:
         content_1: "내 디아스포라 아이디:"
         content_2: "내 아이디를 주면 누구든지 디아스포라에서 날 찾을수 있습니다."
@@ -213,14 +209,6 @@ ko:
       failure: "%{name} 애스펙은 이름이 너무 길어 저장할 수 없습니다."
       success: "%{name} 애스펙을 성공적으로 고쳤습니다."
     zero: "애스펙 없음"
-  authorizations:
-    index:
-      no_applications: "아직 애플리케이션을 등록하지 않았습니다."
-      revoke_access: "접속권한 취소"
-    new:
-      authorize: "허가"
-      cubbies_will: "Cubbies가 나를 대신하여 사진을 게시할 수 있게 됩니다"
-      nope: "아니오"
   back: "돌아가기"
   blocks:
     create:
@@ -290,10 +278,7 @@ ko:
         two: "새 쪽지 %{count}개"
         zero: "새 쪽지 없음"
     index:
-      create_a_new_message: "쪽지 보내기"
       inbox: "쪽지함"
-      message_inbox: "쪽지함"
-      new_message: "새 쪽지"
       no_conversation_selected: "대화를 고르지 않았습니다"
       no_messages: "쪽지 없음"
     new:
@@ -302,8 +287,6 @@ ko:
       sending: "보내는 중···"
       subject: "제목"
       to: "받는이"
-    new_message:
-      fail: "유효하지 않은 쪽지"
     show:
       delete: "지운 뒤 대화를 차단합니다"
       reply: "답장"
@@ -538,10 +521,8 @@ ko:
       edit_membership: "속한 애스펙 고치기"
     few: "%{count}명"
     helper:
-      people_on_pod_are_aware_of: "팟의 사람들이 알고 있는"
       results_for: "%{params} 결과"
     index:
-      couldnt_find_them_send_invite: "못 찾았나요? 초대장을 보내세요!"
       looking_for: "%{tag_link} 태그가 달린 게시물을 찾고있나요?"
       no_one_found: "검색 결과가 없습니다"
       no_results: "검색 결과가 없습니다"
@@ -919,18 +900,6 @@ ko:
       posts_tagged_with: "#%{tag} 태그가 달린 게시물"
       stop_following: "#%{tag} 태그 팔로우 멈추기"
   terms_and_conditions: "이용약관"
-  tokens:
-    show:
-      connect_to_cubbies: "Cubbi.es에 연결하기"
-      connecting_is_simple: "내 디아스포라 계정을 쉽게 연결할 수 있어요! 내 cubbies의 <a href='%{href_link}'>설정 페이지</a>에 내 디아스포라 아이디 (<b>%{diaspora_id}</b>)를 입력하고 'connect' 단추를 누르기만 하면 됩니다."
-      daniels_account: "Daniel님의 디아스포라 계정"
-      love_to_try: "꼭 써보세요!"
-      making_the_connection: "연결하기"
-      screenshot_explanation: "%{link1}. 이 cubby는 %{link2}에 연결되어 있습니다."
-      sign_up_today: "지금 가입하세요!"
-      typical_userpage: "전형적인 cubbi.es 사용자 페이지"
-      via: "(%{link}에서)"
-      what_is_cubbies: "Cubbi.es 는 세계 최초의 디아스포라 애플리케이션입니다. 온라인으로 사진을 모을 수 있는 가장 좋은 방법이기도 합니다."
   undo: "돌이키겠습니까?"
   username: "사용자 이름"
   users:

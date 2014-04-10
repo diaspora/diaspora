@@ -138,10 +138,6 @@ zh-CN:
       aspect_not_empty: "此分组不是空的"
       remove: "删除"
     index:
-      cubbies:
-        explanation: "Cubbi.es 是 Diaspora 的第一个应用，目前正在开发。"
-        heading: "与 Cubbi.es 连接"
-        learn_more: "进一步了解。"
       diaspora_id:
         content_1: "您的 Diaspora 通行证是："
         content_2: "把它告诉其他人，让他们可以在 Diaspora 找到您。"
@@ -210,14 +206,6 @@ zh-CN:
       failure: "分组 %{name} 名称太长了，不能保存"
       success: "分组 %{name} 编辑成功。"
     zero: "尚未添加分组"
-  authorizations:
-    index:
-      no_applications: "尚未注册任何应用。"
-      revoke_access: "取消权限"
-    new:
-      authorize: "授权"
-      cubbies_will: "Cubbies 将可以以您的身份发布照片"
-      nope: "不"
   back: "后退"
   blocks:
     create:
@@ -282,10 +270,7 @@ zh-CN:
         other: "%{count} 条新消息"
         zero: "暂无新消息"
     index:
-      create_a_new_message: "发送消息"
       inbox: "收件箱"
-      message_inbox: "消息收件箱"
-      new_message: "新消息"
       no_conversation_selected: "未选择任何对话"
       no_messages: "没消息"
     new:
@@ -294,8 +279,6 @@ zh-CN:
       sending: "发送中..."
       subject: "主题"
       to: "收件人"
-    new_message:
-      fail: "无效的信息"
     show:
       delete: "删除并中止对话"
       reply: "回复"
@@ -491,10 +474,8 @@ zh-CN:
       edit_membership: "编辑所属分组"
     few: "%{count} 个好友"
     helper:
-      people_on_pod_are_aware_of: " Pod上已知的人"
       results_for: " %{params} 的搜索结果"
     index:
-      couldnt_find_them_send_invite: "找不到他们？邀请加入 Diaspora 吧！"
       looking_for: "在找标记为 %{tag_link} 的内容吗？"
       no_one_found: "找不到相关内容。"
       no_results: "嘿！ 搜索必须要有目标呀。"
@@ -847,18 +828,6 @@ zh-CN:
       posts_tagged_with: "标记为 #%{tag} 的内容"
       stop_following: "停止关注 #%{tag}"
   terms_and_conditions: "服务条款与细则"
-  tokens:
-    show:
-      connect_to_cubbies: "与 Cubbi.es 连接"
-      connecting_is_simple: "与 Diaspora 帐号连接很简单，您只需要在 (<b>%{diaspora_id}</b>) Cubbi.es <a href='%{href_link}'>帐号页面</a>填写两个信息。"
-      daniels_account: "Daniel 的 Diaspora 帐号"
-      love_to_try: "希望您能一试。"
-      making_the_connection: "建立连接"
-      screenshot_explanation: "%{link1}。这个cubby页面链接至%{link2}。"
-      sign_up_today: "现在就注册！"
-      typical_userpage: "典型的 Cubbi.es 个人页面"
-      via: "（通过 %{link}）"
-      what_is_cubbies: "Cubbi.es 是 Diaspora 的第一个应用，它是收集在线照片的最佳方式。"
   undo: "撤消？"
   username: "帐号"
   users:

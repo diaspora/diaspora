@@ -32,11 +32,11 @@ pt-PT:
       inviter:
         accept_at: "em %{url}, pode aceitá-lo através da hiperligação abaixo."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} convidaram-no para se juntar ao Diaspora"
+        have_invited_you: "%{names} convidaram-no para se juntar ao diaspora*"
       reset_password_instructions:
         change: "Alterar a minha palavra-passe"
         ignore: "Se não fez este pedido, por favor ignore este email."
-        someone_requested: "Alguém solicitou uma hiperligação para alterar a sua senha, se foi você mesmo, pode efetuar a mesma através da hiperligação abaixo."
+        someone_requested: "Alguém solicitou uma hiperligação para alterar a sua senha. Se foi você mesmo, pode efetuar isto através da hiperligação abaixo."
         subject: "Instruções para redefinir palavra-passe"
         wont_change: "A sua palavra-passe não será alterada até que aceda à hiperligação em cima e crie uma nova palavra-passe."
       unlock_instructions:

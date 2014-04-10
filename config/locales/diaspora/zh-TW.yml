@@ -143,10 +143,6 @@ zh-TW:
       aspect_not_empty: "面向不是空的"
       remove: "刪除"
     index:
-      cubbies:
-        explanation: "Cubbi.es 是 Diaspora 的第一個應用程式，目前正在開發中。"
-        heading: "與 Cubbi.es 連結"
-        learn_more: "進一步了解"
       diaspora_id:
         content_1: "你的 Diaspora 識別碼是："
         content_2: "把它給任何人，讓他們可以在 Diaspora 找到你。"
@@ -220,14 +216,6 @@ zh-TW:
       failure: "你的面向%{name}名稱太長了無法儲存。"
       success: "你的面向%{name}已經編輯完成了。"
     zero: "沒有面向"
-  authorizations:
-    index:
-      no_applications: "還沒註冊任何應用程式。"
-      revoke_access: "撤銷存取權"
-    new:
-      authorize: "授權"
-      cubbies_will: "Cubbies 將可以以你的身份發表相片"
-      nope: "不要"
   back: "後退"
   blocks:
     create:
@@ -296,10 +284,7 @@ zh-TW:
         other: "有%{count}則新訊息"
         zero: "沒有新訊息"
     index:
-      create_a_new_message: "編寫新訊息"
       inbox: "收件匣"
-      message_inbox: "訊息信箱"
-      new_message: "發新訊息"
       no_conversation_selected: "沒有選取任何對話"
       no_messages: "沒有訊息"
     new:
@@ -308,8 +293,6 @@ zh-TW:
       sending: "傳送中..."
       subject: "主旨"
       to: "收件人"
-    new_message:
-      fail: "無效的訊息"
     show:
       delete: "刪除並中止對話"
       reply: "回覆"
@@ -570,10 +553,8 @@ zh-TW:
     helper:
       is_not_sharing: "%{name} 沒有跟你分享"
       is_sharing: "%{name} 正在跟你分享中"
-      people_on_pod_are_aware_of: " 個在豆莢裡的人都知道了"
       results_for: "%{params}的搜尋結果"
     index:
-      couldnt_find_them_send_invite: "找不到他們嗎？寄一封邀請卡吧！"
       looking_for: "在找標記為 %{tag_link} 的貼文嗎？"
       no_one_found: "...找不到任何東西。"
       no_results: "喂！搜尋要有目標。"
@@ -960,18 +941,6 @@ zh-TW:
       posts_tagged_with: "標記為 #%{tag} 的貼文"
       stop_following: "停止追蹤 #%{tag}"
   terms_and_conditions: "服務條款與細則"
-  tokens:
-    show:
-      connect_to_cubbies: "與 Cubbi.es 連結"
-      connecting_is_simple: "跟 Diapora 帳號連結很簡單！只要從 cubbies <a href='%{href_link}'>設定頁面</a>輸入你的 Diaspora 識別碼，再按下\"連結\"就可以了。"
-      daniels_account: "Daniel 的 Diaspora 帳號"
-      love_to_try: "希望你能試試看。"
-      making_the_connection: "建立連結"
-      screenshot_explanation: "%{link1}。這個cubby頁面是連結至%{link2}。"
-      sign_up_today: "今天就來註冊！"
-      typical_userpage: "典型的 cubbi.es 個人頁面"
-      via: "(經由%{link})"
-      what_is_cubbies: "Cubbi.es 是世界上第一個 Diaspora 應用程式。它也是收集線上照片的最佳方式。"
   undo: "要復原嗎？"
   username: "使用者名稱"
   users:

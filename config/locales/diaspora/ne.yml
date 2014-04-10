@@ -26,8 +26,6 @@ ne:
       work: "सहकर्मी"
   cancel: "रद्द गर्नुहोस्"
   conversations:
-    index:
-      new_message: "नयाँ सन्देश"
     new:
       send: "पठाउनुहोस्"
   delete: "मेट्नुहोस्"

@@ -144,10 +144,6 @@ eu:
       aspect_not_empty: "Arlo ez hutsa"
       remove: "ezabatu"
     index:
-      cubbies:
-        explanation: "Cubbi.es garapenean dagoen lehenengo Diaspora aplikazioa da."
-        heading: "Cubbi.esera lotu"
-        learn_more: "Gehiago ikasi"
       diaspora_id:
         content_1: "Zure Diaspora ID honakoa da:"
         content_2: "Emaiozu edonori eta Diasporan aurkituko zaituzte hura erabiliz."
@@ -216,14 +212,6 @@ eu:
       failure: "Zure arloak, %{name}(e)k, izen luzeegia du."
       success: "Zure arloa, %{name}, eraldatua izan da."
     zero: "arlorik ez"
-  authorizations:
-    index:
-      no_applications: "Aplikaziorik ez duzu erregistratu oraindik."
-      revoke_access: "Sarbidea Baliogabetu"
-    new:
-      authorize: "Baimendu"
-      cubbies_will: "Cubbies gai izango da zure erabiltzailean argazkiak jartzeko"
-      nope: "Ez"
   back: "Atzera"
   blocks:
     create:
@@ -292,10 +280,7 @@ eu:
         two: "%{count} new messages"
         zero: "Mezu pribatu berririk ez"
     index:
-      create_a_new_message: "mezu berria sortu"
       inbox: "Sarrera-ontzia"
-      message_inbox: "Sarrera-ontzia"
-      new_message: "Mezu Berria"
       no_conversation_selected: "ez da aukeratu elkarrizketarik"
       no_messages: "mezurik ez"
     new:
@@ -304,8 +289,6 @@ eu:
       sending: "Bidaltzen..."
       subject: "gaia"
       to: "nori:"
-    new_message:
-      fail: "Mezu baliogabea"
     show:
       delete: "ezabatu eta giltzapetu elkarrizketa"
       reply: "erantzun"
@@ -566,10 +549,8 @@ eu:
       edit_membership: "aldatu arloaren bazkidetza"
     few: "%{count} pertsona"
     helper:
-      people_on_pod_are_aware_of: "zerbitzariko jendeak honen kontziente dira:"
       results_for: " %{params}(r)entzat emaitzak"
     index:
-      couldnt_find_them_send_invite: "Aurkitu ezinik? Bidali gonbidapen bat!"
       looking_for: "%{tag_link} etiketadun mrezuak bilatzen?"
       no_one_found: "... ez da inor aurkitu."
       no_results: "Aizu! Zerbait bilatu behar duzu."
@@ -947,18 +928,6 @@ eu:
       posts_tagged_with: "#%{tag} etiketadun mezuak"
       stop_following: "Ez Jarraitu #%{tag}"
   terms_and_conditions: "Termino eta Baldintzak"
-  tokens:
-    show:
-      connect_to_cubbies: "Cubbi.es-era lotu"
-      connecting_is_simple: "Zure Diaspora kontua lotzea erraza da! Idatzi zure Diaspora IDa (<b>%{diaspora_id}</b>) zure cubbiesen <a href='%{href_link}'>ezarpenen orrialdetik</a> eta sakatu lotu."
-      daniels_account: "Danielen Diaspora kontua"
-      love_to_try: "Zuk probatzea gustatuko litzaiguke."
-      making_the_connection: "Lotura Ezartzen"
-      screenshot_explanation: "%{link1}. Cubby hau %{link2}(r)ekin lotuta dago."
-      sign_up_today: "Izena eman oraintxe!"
-      typical_userpage: "Cubbi.es erabiltzaile orrialde tipiko bat"
-      via: "(%{link}(r)en bidez)"
-      what_is_cubbies: "Cubbi.es munduko lehen Diaspora aplikazioa da. Argazkiak metatzeko biderik onena ere da."
   undo: "Desegin?"
   username: "Erabiltzailea"
   users:

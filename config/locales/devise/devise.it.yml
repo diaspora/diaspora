@@ -16,6 +16,7 @@ it:
       invalid: "Nome utente o password errati."
       invalid_token: "Token di autenticazione non valido."
       locked: "Il tuo account è bloccato."
+      not_found_in_database: "E-mail o password non valida."
       timeout: "La tua sessione è scaduta, effettua di nuovo l'accesso per continuare."
       unauthenticated: "Devi effettuare l'accesso o registrarti prima di continuare."
       unconfirmed: "Devi confermare il tuo account prima di continuare."
@@ -36,7 +37,7 @@ it:
       reset_password_instructions:
         change: "Cambia la mia password"
         ignore: "Se non hai effettuato la richiesta, per favore ignora questa email."
-        someone_requested: "Qualcuno ha richiesto un link per cambiare la tua password, puoi farlo cliccando sul link sottostante."
+        someone_requested: "Qualcuno ha richiesto un link per cambiare la tua password. Se sei stato tu, puoi farlo cliccando sul link qui sotto."
         subject: "Istruzioni per reimpostare la password"
         wont_change: "La tua password non verrà cambiata finché non visiterai il link creandone una nuova."
       unlock_instructions:
@@ -48,9 +49,13 @@ it:
     passwords:
       edit:
         change_password: "Cambia la mia password"
+        confirm_password: "Conferma password"
+        new_password: "Nuova password"
       new:
+        email: "Indirizzo e-mail"
         forgot_password: "Hai dimenticato la password?"
         no_account: "Non esiste un account per questo indirizzo email. Se sei in attesa di un invito, considera che li stiamo spedendo il più velocemente possibile."
+        reset_password: "Resetta password"
         send_password_instructions: "Inviami le istruzioni per reimpostare la password."
       send_instructions: "Tra pochi minuti riceverai una email con le istruzioni su come cambiare la tua password."
       updated: "La tua password è stata modificata. Hai appena effettuato l'accesso."

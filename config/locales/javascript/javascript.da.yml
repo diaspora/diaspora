@@ -49,11 +49,11 @@ da:
       admin: "Admin"
       close: "luk"
       contacts: "Kontakter"
+      conversations: "Samtaler"
       help: "Hjælp"
       home: "Hjem"
       log_out: "Log ud"
       mark_all_as_read: "Marker alle som læst"
-      messages: "Beskeder"
       notifications: "Meddelelser"
       profile: "Profil"
       recent_notifications: "Seneste Meddelelser"
@@ -68,6 +68,9 @@ da:
     my_activity: "Min aktivitet"
     my_aspects: "Mine aspekter"
     my_stream: "Strøm"
+    notifications:
+      mark_read: "Marker som læst"
+      mark_unread: "Marker som ulæst"
     people:
       not_found: "og ingen blev fundet ..."
     photo_uploader:
@@ -77,6 +80,14 @@ da:
       invalid_ext: "{file} har en ugyldig filtype. Kun {extensions} er tilladt."
       looking_good: "OMG, du ser sej ud!"
       size_error: "{file} er for stor. Maksimal filstørrelse er {sizeLimit}."
+    poll:
+      close_result: "Gem resultat"
+      count:
+        one: "<%=count%> stemme, indtil nu"
+        other: "<%=count%> stemmer, indtil nu"
+      result: "Resultat"
+      show_result: "Vis resultat"
+      vote: "Stem"
     post_report: "Rapport"
     post_report_prompt: "Vær venlig at give en grund:"
     post_report_prompt_default: "stødende indhold"
@@ -135,6 +146,7 @@ da:
         stop_following: "Hold op med at følge #<%= tag %>"
       unfollow: "Følg ikke"
       unlike: "Synes ikke om"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "OK, jeg formoder #<%= tagName %> ikke var så spændende igen..."
     timeago:
@@ -151,6 +163,7 @@ da:
       seconds: "mindre end et minut"
       suffixAgo: "siden"
       suffixFromNow: "fra nu"
+      wordSeparator: " javascripts.timeago.wordSeparator "
       year: "ca. et år"
       years: "%d år"
     videos:

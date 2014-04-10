@@ -87,10 +87,6 @@ fa:
       aspect_not_empty: "منظر خالی نیست"
       remove: "حذف"
     index:
-      cubbies:
-        explanation: "Cubbi.es اولین برنامه‌ی کاربردی دیاسپورا هست که در دست توسعه می‌باشد."
-        heading: "اتصال به Cubbi.es"
-        learn_more: "بیشتر بدانید"
       diaspora_id:
         content_1: "آدرس شناسایی دیاسپورای شما:"
         content_2: "در اختیار هرکسی که قادر به یافتن شما در دیاسپورا هست قرار دهید."

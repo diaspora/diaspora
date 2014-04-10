@@ -309,8 +309,80 @@
       }
     }
   }
+  #poll_creator {
+    bottom: 1px !important;
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+    position: absolute !important;
+    right: 55px;
+    i {
+      @include opacity(0.4);
+    }
+    &:hover {
+      color: $text-dark-grey;
+      cursor: pointer;
+      i {
+        @include opacity(1);
+      }
+    }
+  }
+
   .btn {
     height: 19px;
     width: 19px;
+  }
+}
+
+#publisher-poll-creator {
+  border: 1px solid $border-dark-grey;
+  padding: 5px;
+  margin-top: 5px;
+  @include border-radius(2px);
+  display: none;
+
+  &.active {
+    display: block;
+  }
+  input {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 0px;
+  }
+  .poll-question input {
+    width: 100%;
+  }
+  .controls {
+    float: none;
+    z-index: none;
+  }
+  .poll-answer {
+    input {
+      width: 96%;
+      display: inline-block;
+      vertical-align: bottom;
+    }
+    .remove-answer {
+      width: 14px;
+      height: 14px;
+      @include opacity(0.4);
+      cursor: pointer;
+      vertical-align: top;
+      margin-top: 7px;
+      display: none;
+
+      &:hover {
+        @include opacity(1);
+      }
+      &.active {
+        display: inline-block;
+      }
+    }
+  }
+  .control-group {
+    margin-bottom: 5px;
+  }
+  .add-answer {
+    padding-top: 5px;
   }
 }

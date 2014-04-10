@@ -1,0 +1,42 @@
+{{#if poll}}
+  <div class="poll_form">
+    <div class="row-fluid poll_head">
+      <strong>{{{poll.question}}}</strong>
+      <div class="poll_statistic pull-right">
+        {{t "poll.count" count=poll.participation_count}}
+      </div>
+    </div>
+    <div class="row-fluid poll_content">
+      {{#if show_form}}
+        <form action="/posts/{{poll.post_id}}/poll_participations" method="POST">
+          {{#poll.poll_answers}}
+            <label class="radio result-row">
+              <input type="radio" name="vote" value="{{id}}"/>
+              {{answer}} 
+              <span class="percentage pull-right" style="display: none;"></span>
+              <div class="poll_progress_bar_wrapper progress" style="display: none">
+                <div class="poll_progress_bar bar" data-answerid="{{id}}">
+              </div>
+            </div>
+            </label>  
+          {{/poll.poll_answers}}
+          <div class="toggle_result_wrapper">
+            <a class="toggle_result" href="#">{{t "poll.show_result"}}</a>
+          </div>
+          <input type="submit" class="button submit pull-rigth btn" style="float:right;" value="{{t "poll.vote"}}"/>
+        </form>
+      {{else}}
+        {{#poll.poll_answers}}
+          <div class="result-row">
+            {{answer}}
+            <span class="percentage pull-right"></span>
+            <div class="poll_progress_bar_wrapper progress">
+              <div class="poll_progress_bar bar" data-answerid="{{id}}">
+              </div>
+            </div>
+          </div>
+        {{/poll.poll_answers}}
+      {{/if}}
+    </div>
+  </div>
+{{/if}}

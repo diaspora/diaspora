@@ -8,6 +8,7 @@ uk:
   _applications: "Додатки"
   _comments: "Коментарі"
   _contacts: "Контакти"
+  _help: "Довідка"
   _home: "Головна"
   _photos: "фотографій"
   _services: "Сервіси"
@@ -97,7 +98,7 @@ uk:
         one: "%{count} новий користувач цього тижня"
         zero: "Немає нових користувачів цього тижня"
       current_server: "Дата зараз на сервері: %{date}"
-  ago: "%{time} назад"
+  ago: "%{time} тому назад"
   all_aspects: "Усі аспекти"
   application:
     helper:
@@ -151,10 +152,6 @@ uk:
       aspect_not_empty: "Аспект не порожній"
       remove: "вилучити"
     index:
-      cubbies:
-        explanation: "Cubbi.es це перша програма з розвитку діаспори."
-        heading: "Підключення до Cubbi.es"
-        learn_more: "Дізнатися більше"
       diaspora_id:
         content_1: "Ваш ідентифікатор в Діаспорі:"
         content_2: "За ним будь-хто зможе знайти вас в Діаспорі."
@@ -188,7 +185,7 @@ uk:
         content: "Ви можете під’єднати до Діаспори такі служби:"
         heading: "Підключення служб"
       unfollow_tag: "Не стежити за міткою #%{tag}"
-      welcome_to_diaspora: "Ласкаво просимо до DIASPORA* %{name}!"
+      welcome_to_diaspora: "Ласкаво просимо до Diaspora*, %{name}!"
     many: "%{count} аспект[-и, -ів]"
     move_contact:
       error: "Помилка при переміщенні контакту : %{inspect}"
@@ -223,14 +220,6 @@ uk:
       failure: "Ваш аспект %{name} має занадто довге ім'я для збереження."
       success: "Ваш аспект %{name} успішно відредагований."
     zero: "немає аспектів"
-  authorizations:
-    index:
-      no_applications: "Ви ще не зареєстрували жодного додатку."
-      revoke_access: "Відкликати доступ"
-    new:
-      authorize: "Авторизувати"
-      cubbies_will: "Cubbies зможе публікувати фотографії від вашого імені"
-      nope: "Ні"
   back: "Назад"
   blocks:
     create:
@@ -282,6 +271,7 @@ uk:
       people_sharing: "діляться з вами:"
     spotlight:
       community_spotlight: "У центрі уваги"
+      suggest_member: "Запропонуйте учасника"
     two: "%{count} контакту"
     zero: "контактів"
   conversations:
@@ -299,10 +289,9 @@ uk:
         two: "%{count} нових повідомлень"
         zero: "Нових повідомлень немає"
     index:
-      create_a_new_message: "написати нове повідомлення"
+      create_a_new_conversation: "Розпочати нову розмову"
       inbox: "Вхідні"
-      message_inbox: "Вхідні повідомлення"
-      new_message: "Нове повідомлення"
+      new_conversation: "Нова розмова"
       no_conversation_selected: "розмова не вибрана"
       no_messages: "немає повідомлень"
     new:
@@ -311,8 +300,6 @@ uk:
       sending: "Надсилання..."
       subject: "тема"
       to: "кому"
-    new_message:
-      fail: "Невірне повідомлення"
     show:
       delete: "вилучити й заблокувати розмову"
       reply: "відповісти"
@@ -332,6 +319,32 @@ uk:
     post_not_public: "Повідомлення, яке ви намагаєтесь переглянути, не є публічним."
   fill_me_out: "Заповнити"
   find_people: "Пошук людей або міток"
+  help:
+    account_and_data_management:
+      close_account_q: "Як я можу видалити свій акаунт?"
+      download_data_a: "Так. Внизу акаунтової інформації на вашій сторінці налаштувань є дві кнопки для завантаження ваших даних."
+      download_data_q: "Чи можу я завантажити копії усіх моїх даних, розміщених у моєму акаунті?"
+    aspects:
+      remove_notification_a: "Ні."
+    getting_help:
+      get_support_a_tutorials: "подивіться в наших %{tutorials}"
+      get_support_a_website: "Відвідайте %{link}"
+      get_support_q: "А що робити, якщо відповіді на моє питання немає у цьому FAQ? Де ще я  можу отримати технічну підтримку?"
+    here: "сюди"
+    posts_and_posting:
+      character_limit_a: "65,535 символів. Це на 65,395 більше, ніж ви можете використати у Twitter-і! ;)"
+      character_limit_q: "Яка максимальна кількість символів для написання поста?"
+      embed_multimedia_a: "Для цього вам достатньо просто вставити посилання (наприклад http://www.youtube.com/watch?v=nnnnnnnnnnn ) у ваш пост і відео або аудіо буде додано автоматично. Сайти, які підтримуються: YouTube, Vimeo, SoundCloud, Flickr та деякі інші. Цей список постійно поповнюється. Пам'ятайте завжди використовувати прості, повні посилання; не укорочені; жодних операторів після основного посилання; і зачекайте трохи перед тим як перезавантажувати сторінку після викладення поста, задля того аби побачити попередній вигляд."
+      embed_multimedia_q: "Як я можу прикріплювати відео, аудіо, чи інший мультимедійний контент у мої пости?"
+      size_of_images_q: "Чи можу я налаштовувати розміри зображень у постах чи коментарях?"
+    private_posts:
+      can_reshare_a: "Ніхто. Приватні пости неможливо поширювати. Проте зареєстровані користувачі, які знаходяться у колі людей, яким ви надали доступ, можуть його скопіювати і вставити."
+      can_reshare_q: "Хто може поширювати мої приватні пости?"
+      see_comment_a: "Лише люди, які можуть бачити сам пост, можуть бачити його коментарі і лайки. "
+      see_comment_q: "Коли я коментую чи оцінюю приватний пост, хто може бачити це?"
+    private_profiles:
+      whats_in_profile_q: "Що знаходиться в моєму приватному профілі?"
+    wiki: "вікі"
   hide: "Приховати"
   invitation_codes:
     excited: "%{name} радий(-а) бачити вас тут."
@@ -342,10 +355,11 @@ uk:
     create:
       already_contacts: "Ви вже пов'язані з цією людиною"
       already_sent: "Ви вже запросили цю людину."
+      empty: "Будь-ласка, введіть хоча б одну електронну пошту."
       no_more: "У вас закінчилися запрошення."
       own_address: "Ви не можете відправити запрошення на вашу власну адресу."
       rejected: "Такі адреси електронної пошти мають проблеми: "
-      sent: "Ваші запрошення відправлені:"
+      sent: "Ваші запрошення відправлені: %{emails}"
     edit:
       accept_your_invitation: "Прийняти ваше запрошення"
       your_account_awaits: "Ваш аккаунт чекає вас!"
@@ -381,6 +395,7 @@ uk:
       admin: "адмін"
       blog: "блог"
       code: "код"
+      help: "Довідка"
       login: "увійти"
       logout: "вийти"
       profile: "профіль"
@@ -561,6 +576,7 @@ uk:
       view_profile: "%{name} - подивитися профіль"
     thanks: "Спасибі,"
     to_change_your_notification_settings: "щоб змінити ваші налаштування повідомлень"
+  nsfw: "Еротіка"
   ok: "Гаразд"
   or: "або"
   password: "Пароль"
@@ -574,10 +590,8 @@ uk:
       edit_membership: "редагувати учасників аспекту"
     few: "%{count} людина[и]"
     helper:
-      people_on_pod_are_aware_of: "люди на сервері знають про"
       results_for: "результати для %{params}"
     index:
-      couldnt_find_them_send_invite: "Не можете їх знайти? Відправте їм запрошення!"
       looking_for: "Повідомлення, відмічені як %{tag_link}?"
       no_one_found: "...не вдалося нікого знайти."
       no_results: "Введіть текст для пошуку."
@@ -598,6 +612,7 @@ uk:
       gender: "стать"
       in_aspects: "у аспектах"
       location: "розташування"
+      photos: "Фото"
       remove_contact: "вилучити контакт"
       remove_from: "Видалити %{name} з %{aspect}?"
     show:
@@ -792,6 +807,7 @@ uk:
       logged_in_as: "Ви увійшли як"
       no_services: "Ви ще не підключили жодної служби."
       really_disconnect: "відключити %{service}?"
+      services_explanation: "З'єднання з сторонніми сервісами дає вам можливість публікувати ваші пости в тому вигляді, у якому ви написали їх у Діаспорі."
     inviter:
       click_link_to_accept_invitation: "Перейдіть за цим посиланням для прийняття вашого запрошення"
       join_me_on_diaspora: "Приєднуйтеся до мене в DIASPORA*"
@@ -958,18 +974,6 @@ uk:
       posts_tagged_with: "Записи з міткою #%{tag}"
       stop_following: "Не стежити за міткою #%{tag}"
   terms_and_conditions: "Умови надання послуг"
-  tokens:
-    show:
-      connect_to_cubbies: "Підключення до Cubbi.es"
-      connecting_is_simple: "Під’єднати обліковий запис DIASPORA* легко! Просто введіть ваш ідентифікатор в DIASPORA* (<b>%{diaspora_id}</b>) на <a href='%{href_link}'>сторінці налаштувань</a> cubbies і натисніть \"під’єднати\"."
-      daniels_account: "аккаунт Деніела"
-      love_to_try: "Ми будемо раді, якщо ви спробуєте це."
-      making_the_connection: "Створення підключення"
-      screenshot_explanation: "%{link1}. Це особливо пов'язано з %{link2}."
-      sign_up_today: "Зареєструйтеся прямо зараз!"
-      typical_userpage: "Типова cubbi.es сторінка"
-      via: "(через %{link})"
-      what_is_cubbies: "Cubbi.es - це перший у світі додаток для DIASPORA*. Крім того, це найкращий спосіб створення колекції фотографій в Інтернеті."
   undo: "Повернути?"
   username: "Ім'я користувача"
   users:

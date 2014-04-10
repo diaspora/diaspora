@@ -156,10 +156,6 @@ sl:
       aspect_not_empty: "Vidik ni prazen"
       remove: "odstrani"
     index:
-      cubbies:
-        explanation: "Cubbi.es je prva aplikacija Diaspore in je v razvoju."
-        heading: "Povežite se z Cubbi.es"
-        learn_more: "Več informacij"
       diaspora_id:
         content_1: "Vaš Diaspora ID je:"
         content_2: "Svoj Diaspora ID delite z drugimi, da vas bodo lahko našli."
@@ -167,6 +163,8 @@ sl:
       donate: "Prispevajte"
       handle_explanation: "To je vaš Diaspora ID. Uporabite ga lahko, da drugi stopijo v stik z vami, podobno kot vaš e-naslov."
       help:
+        any_problem: "Imate problem?"
+        contact_podmin: "Kontaktirajte administratorja vašega pod-a!"
         do_you: "Ali:"
         email_feedback: "če želite, %{link} povratno informacijo"
         email_link: "pošljite"
@@ -174,6 +172,7 @@ sl:
         find_a_bug: "... ste našli hrošča(%{link})?"
         have_a_question: "... imate vprašanje(%{link})?"
         here_to_help: "Skupnost Diaspora je tukaj!"
+        mail_podmin: "Elektronski naslov podmin-a"
         need_help: "Potrebujete pomoč?"
         tag_bug: "bug"
         tag_feature: "feature"
@@ -228,14 +227,6 @@ sl:
       failure: "Vidik %{name} ima predolgo ime, zato ga ni mogoče shraniti."
       success: "Vaš vidik %{name} je bil uspešno posodobljen."
     zero: "brez vidikov"
-  authorizations:
-    index:
-      no_applications: "Niste povezali še nobene aplikacije."
-      revoke_access: "Prekliči dostop"
-    new:
-      authorize: "Pooblasti"
-      cubbies_will: "Cubbies lahko objavi slike namesto vas."
-      nope: "Ne"
   back: "Nazaj"
   blocks:
     create:
@@ -287,6 +278,7 @@ sl:
       people_sharing: "Ljudje, ki delijo z vami:"
     spotlight:
       community_spotlight: "Središče pozornosti skupnosti"
+      suggest_member: "Predlagaj člana"
     two: "%{count} stika"
     zero: "stiki"
   conversations:
@@ -303,10 +295,7 @@ sl:
         two: "%{count} novi sporočili"
         zero: "Nobenih novih sporočil"
     index:
-      create_a_new_message: "ustvari novo sporočilo"
       inbox: "Prejeto"
-      message_inbox: "Prejeta sporočila"
-      new_message: "Novo sporočilo"
       no_conversation_selected: "označen ni bil noben pogovor"
       no_messages: "ni sporočil"
     new:
@@ -315,8 +304,6 @@ sl:
       sending: "Pošiljanje ..."
       subject: "zadeva"
       to: "za"
-    new_message:
-      fail: "Neveljavno sporočilo"
     show:
       delete: "izbriši in blokiraj pogovor"
       reply: "odgovori"
@@ -346,7 +333,9 @@ sl:
     create:
       already_contacts: "S to osebo ste že povezani"
       already_sent: "To osebo ste že povabili."
+      empty: "Prosim vnesite vsaj en elektronski poštni naslov."
       no_more: "Nimate več povabil."
+      note_already_sent: "Povabila so bila že poslana na: %{emails}"
       own_address: "Povabila ne morete poslati na lasten e-naslov."
       rejected: "Sledeči e-naslovi imajo težave: "
       sent: "Povabila so bila poslana naslednjim: "
@@ -378,6 +367,7 @@ sl:
       back_to_top: "Na vrh"
       powered_by: "STRAN POGANJA DIASPORA*"
       public_feed: "Javni vir Diaspore za %{name}"
+      source_package: "prenesi paket izvorne kode"
       toggle: "preklop mobilne strani"
       whats_new: "kaj je novega?"
       your_aspects: "vaši vidiki"
@@ -564,10 +554,8 @@ sl:
       edit_membership: "urejanje članstva vidikov"
     few: "%{count} osebe"
     helper:
-      people_on_pod_are_aware_of: " ljudje v Podu so seznanjeni z"
       results_for: "zadetkov za %{params}"
     index:
-      couldnt_find_them_send_invite: "Jih niste našli? Pošljite povabilo!"
       looking_for: "Iščete morda objave z oznako %{tag_link}?"
       no_one_found: "...nikogar ni bilo mogoče najti."
       no_results: "Hej! Za iskanje je potrebno vpisati nekaj."
@@ -716,6 +704,7 @@ sl:
       hey_make: "HEJ,<br/>NAREDI<br/>NEKAJ."
       join_the_movement: "Pridružite se gibanju!"
       password: "GESLO"
+      password_confirmation: "POTRDITEV GESLA"
       sign_up: "VPIS"
       sign_up_message: "Socialno omrežje s ♥"
       username: "UPORABNIK"
@@ -943,18 +932,6 @@ sl:
       posts_tagged_with: "Objave označene z #%{tag}"
       stop_following: "Prenehaj slediti #%{tag}"
   terms_and_conditions: "Pravila in pogoji"
-  tokens:
-    show:
-      connect_to_cubbies: "Povežite se Cubbi.es"
-      connecting_is_simple: "Povezovanje računa Diaspore je preprosta!  Samo vnesite svoj ID Diaspore (<b>%{diaspora_id}</b>) iz vaše <a href='%{href_link}'>nastavitvene strani</a> cubbies in kliknite poveži."
-      daniels_account: "Danielov račun na Diaspori"
-      love_to_try: "Radi bi, da jo preizkusite."
-      making_the_connection: "Povezovanje"
-      screenshot_explanation: "%{link1}.  Ta cubby je povezan z  %{link2}."
-      sign_up_today: "Vpišite se še danes!"
-      typical_userpage: "Tipična uporabniška stran cubbi.es"
-      via: "(preko %{link})"
-      what_is_cubbies: "Cubbi.es je prva aplikacija Diaspore na svetu. Ta aplikacija je tudi najboljši način za zbiranje fotografij na spletu."
   undo: "Razveljavi?"
   username: "Uporabniško ime"
   users:
@@ -1010,6 +987,8 @@ sl:
     getting_started:
       awesome_take_me_to_diaspora: "Popelji me v Diasporo*"
       community_welcome: "Skupnost Diaspora je vesela, da vas ima na krovu!"
+      connect_to_facebook: "Stvari lahko malo pospešimo s %{link} z diasporo*. Uvozili vam bom vaše ime z fotografijo ter omogočili hkratno objavljanje na diaspori* in Facebook-u."
+      connect_to_facebook_link: "povezavo vašega računa Facebook"
       hashtag_explanation: "Oznake vam omogočajo, da govorite in sledite vašim interesom. So tudi dober način za iskanje novih ljudi na Diaspori."
       hashtag_suggestions: "Poskusite lahko oznake, kot so #art, #movies, #gif in podobno."
       saved: "Shranjeno!"

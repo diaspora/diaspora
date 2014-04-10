@@ -14,8 +14,6 @@ hi:
     edit:
       add_existing: "मौजूदा संपर्क जोड़ें"
     index:
-      cubbies:
-        learn_more: "और जानें"
       help:
         tag_question: "प्रश्न"
   cancel: "रद्द करें"

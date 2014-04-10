@@ -49,11 +49,11 @@ fi:
       admin: "Ylläpitäjä"
       close: "sulje"
       contacts: "Henkilöt"
+      conversations: "Keskustelut"
       help: "Apua"
       home: "Koti"
       log_out: "Kirjaudu ulos"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
-      messages: "Viestit"
       notifications: "Ilmoitukset"
       profile: "Profiili"
       recent_notifications: "Tuoreet ilmoitukset"
@@ -68,6 +68,9 @@ fi:
     my_activity: "Oma toimintani"
     my_aspects: "Omat näkymäni"
     my_stream: "Virta"
+    notifications:
+      mark_read: "Merkitse luetuksi"
+      mark_unread: "Merkitse lukemattomaksi"
     people:
       not_found: "...ketään ei löytynyt."
     photo_uploader:
@@ -77,6 +80,14 @@ fi:
       invalid_ext: "Tiedostolla {file} on epäkelpo tiedostopääte. Vain {extensions} päätteet ovat sallittuja."
       looking_good: "OMG, näytät upealta!"
       size_error: "Tiedosto {file} on liian iso, suurin sallittu tiedostokoko on {sizeLimit}"
+    poll:
+      close_result: "Piilota tulokset"
+      count:
+        one: "<%=count%> ääni tähän mennessä"
+        other: "<%=count%> ääntä tähän mennessä"
+      result: "Tulos"
+      show_result: "Näytä tulokset"
+      vote: "Äänestä"
     post_report: "Tee ilmoitus"
     post_report_prompt: "Ole hyvä, kirjoita syy:"
     post_report_prompt_default: "loukkaavaa sisältöä"
@@ -135,6 +146,7 @@ fi:
         stop_following: "Lopeta seuraamasta tagia #<%= tag %>"
       unfollow: "Lopeta seuraaminen"
       unlike: "Peru tykkäys"
+      via: "<%= provider %> kautta"
     tags:
       wasnt_that_interesting: "OK, #<%= tagName %> ei tainnut ollakaan kovin kiinnostava aihe..."
     timeago:
@@ -146,11 +158,12 @@ fi:
       minutes: "%d minuuttia"
       month: "noin kuukausi"
       months: "%d kuukautta"
-      prefixAgo: "sitten"
+      prefixAgo: ""
       prefixFromNow: "tästä alkaen"
       seconds: "alle minuutti"
       suffixAgo: "sitten"
       suffixFromNow: "tästä alkaen"
+      wordSeparator: " "
       year: "noin vuosi"
       years: "%d vuotta"
     videos:

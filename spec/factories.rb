@@ -92,6 +92,12 @@ FactoryGirl.define do
     end
   end
 
+  factory(:status_message_with_poll, :parent => :status_message) do
+    after(:build) do |sm|
+      FactoryGirl.create(:poll, :status_message => sm)
+    end
+  end
+
   factory(:status_message_with_photo, :parent => :status_message) do
     sequence(:text) { |n| "There are #{n} ninjas in this photo." }
     after(:build) do |sm|
@@ -105,6 +111,18 @@ FactoryGirl.define do
       sm.author = FactoryGirl.create(:user_with_aspect).person
       sm.aspects << sm.author.owner.aspects.first
     end
+  end
+
+  factory(:poll) do
+    sequence(:question) { |n| "What do you think about #{n} ninjas?" }
+    after(:build) do |p|
+      p.poll_answers << FactoryGirl.build(:poll_answer)
+      p.poll_answers << FactoryGirl.build(:poll_answer)
+    end
+  end
+
+  factory(:poll_answer) do
+    sequence(:answer) { |n| "#{n} questionmarks" }
   end
 
   factory(:photo) do

@@ -14,7 +14,7 @@ app.views.Hovercard = Backbone.View.extend({
     this.dropdown_container = this.$('#hovercard_dropdown_container');
     this.hashtags = this.$('.hashtags');
     this.person_link = this.$('a.person');
-    this.person_handle = this.$('p.handle');
+    this.person_handle = this.$('div.handle');
     this.active = true;
   },
 

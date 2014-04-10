@@ -49,9 +49,13 @@ sv:
     passwords:
       edit:
         change_password: "Ändra mitt lösenord"
+        confirm_password: "Bekräfta lösenord"
+        new_password: "Nytt lösenord"
       new:
+        email: "E-postadress"
         forgot_password: "Har du glömt ditt lösenord?"
         no_account: "Det finns inget konto med den här e-postadressen."
+        reset_password: "Återställ lösenord"
         send_password_instructions: "Skicka information om hur jag återställer lösenordet"
       send_instructions: "Du kommer att få ett e-brev med instruktioner för att återställa lösenordet inom några minuter."
       updated: "Ditt lösenord har ändrats och du är inloggad."

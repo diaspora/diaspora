@@ -82,6 +82,16 @@
       &.with_attachments .row-fluid#photodropzone_container {
         border-top: 1px dashed $border-grey; 
       }
+
+      #poll_creator_wrapper {
+        display:none;
+        border-top: 1px dashed $border-grey;
+        padding:4px 6px 4px 6px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+      }
+
       &.with_location .row-fluid#location_container {
         height: 30px;
         #hide_location { display: none !important; }
@@ -162,6 +172,7 @@
         margin-right: 5px;
         #file-upload,
         #locator,
+        #poll_creator,
         #hide_location {
           text-decoration: none !important;
           font-size: 16px;

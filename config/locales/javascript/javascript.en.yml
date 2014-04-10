@@ -102,6 +102,11 @@ en:
       mark_read: "Mark read"
       mark_unread: "Mark unread"
 
+    publisher:
+      option: "Option <%= nr %>"
+      add_option: "Add option"
+      question: "Question"
+
     stream:
       hide: "Hide"
       public: "Public"
@@ -172,3 +177,12 @@ en:
       reshared: "Reshared"
       comment: "Comment"
       home: "HOME"
+
+    poll:
+      vote: "Vote"
+      result: "Result"
+      count:
+        one: "1 vote so far"
+        other: "<%=count%> votes so far"
+      show_result: "Show result"
+      close_result: "Hide result"

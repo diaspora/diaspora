@@ -35,9 +35,6 @@ yi:
       family: "משפּחה"
       friends: "חבֿרים"
       work: "אַרבעט"
-  authorizations:
-    new:
-      nope: "ניין"
   back: "צוריק"
   cancel: "אַנוליר"
   conversations:

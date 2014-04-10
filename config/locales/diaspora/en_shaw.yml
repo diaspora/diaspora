@@ -83,10 +83,6 @@ en_shaw:
       aspect_not_empty: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑯𐑪𐑑 𐑧𐑥𐑐𐑑𐑦"
       remove: "𐑮𐑦𐑥𐑵𐑝"
     index:
-      cubbies:
-        explanation: "Cubbi.es 𐑦𐑟 𐑞 𐑓𐑻𐑕𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯 𐑳𐑯𐑛𐑼 𐑛𐑦𐑝𐑧𐑤𐑩𐑐𐑥𐑧𐑯𐑑."
-        heading: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"
-        learn_more: "𐑤𐑻𐑯 𐑥𐑹"
       diaspora_id:
         content_1: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑯 𐑦𐑟:"
         content_2: "𐑜𐑦𐑝 𐑦𐑑 𐑑 𐑧𐑯𐑦𐑢𐑩𐑯 𐑯 𐑞𐑱𐑤 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑓𐑲𐑯𐑛 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
@@ -135,9 +131,6 @@ en_shaw:
       failure: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑛 𐑑𐑵 𐑤𐑪𐑙 𐑩 𐑯𐑱𐑥 𐑑 𐑚𐑰 𐑕𐑱𐑝𐑛."
       success: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑧𐑛𐑦𐑑𐑩𐑛."
     zero: "𐑯𐑴 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-  authorizations:
-    index:
-      revoke_access: "𐑮𐑦𐑝𐑴𐑒 𐑨𐑒𐑕𐑧𐑕"
   back: "𐑚𐑨𐑒"
   bookmarklet:
     explanation: "𐑐𐑴𐑕𐑑 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑓𐑮𐑳𐑥 𐑨𐑯𐑦𐑢𐑺 𐑚𐑲 𐑚𐑫𐑒𐑥𐑸𐑒𐑦𐑙 %{link}."
@@ -192,10 +185,7 @@ en_shaw:
         two: "%{count} new messages"
         zero: "𐑯𐑴 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
     index:
-      create_a_new_message: "𐑒𐑮𐑦𐑱𐑑 𐑩 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡"
       inbox: "𐑦𐑯𐑚𐑪𐑒𐑕"
-      message_inbox: "𐑥𐑧𐑕𐑩𐑡 𐑦𐑯𐑚𐑪𐑒𐑕"
-      new_message: "𐑯𐑿 𐑥𐑧𐑕𐑩𐑡"
       no_conversation_selected: "𐑯𐑴 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑩𐑤𐑧𐑒𐑑𐑩𐑛"
       no_messages: "𐑯𐑴 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
     new:
@@ -416,10 +406,8 @@ en_shaw:
       edit_membership: "𐑧𐑛𐑦𐑑 𐑨𐑕𐑐𐑧𐑒𐑑 𐑥𐑧𐑥𐑚𐑼𐑖𐑦𐑐"
     few: "%{count} 𐑐𐑰𐑐𐑩𐑤"
     helper:
-      people_on_pod_are_aware_of: " 𐑐𐑰𐑐𐑤 𐑪𐑯 𐑐𐑪𐑛 𐑸 𐑩𐑢𐑺 𐑝"
       results_for: " 𐑮𐑦𐑟𐑫𐑤𐑑 𐑓𐑹 %{params}"
     index:
-      couldnt_find_them_send_invite: "𐑒𐑫𐑛𐑯𐑑 𐑓𐑲𐑯𐑛 𐑞𐑧𐑥?  𐑕𐑧𐑯𐑛 𐑩𐑯 𐑦𐑯𐑝𐑲𐑑!"
       no_one_found: "...𐑯 𐑯𐑴 𐑢𐑳𐑯 𐑢𐑪𐑟 𐑓𐑬𐑯𐑛."
       no_results: "𐑣𐑱! 𐑿 𐑯𐑰𐑛 𐑑 𐑕𐑻𐑗 𐑓𐑹 𐑕𐑳𐑥𐑔𐑦𐑙."
       results_for: "𐑕𐑻𐑗 𐑮𐑦𐑟𐑫𐑤𐑑𐑕 𐑓𐑹"
@@ -717,18 +705,6 @@ en_shaw:
       people_tagged_with: "𐑐𐑰𐑐𐑩𐑤 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 %{tag}"
       posts_tagged_with: "𐑐𐑴𐑕𐑑𐑕 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 #%{tag}"
       stop_following: "𐑕𐑑𐑪𐑐 𐑓𐑪𐑤𐑴𐑦𐑙 #%{tag}"
-  tokens:
-    show:
-      connect_to_cubbies: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"
-      connecting_is_simple: "𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑 𐑦𐑟 𐑕𐑦𐑥𐑐𐑩𐑤! 𐑡𐑳𐑕𐑑 𐑧𐑯𐑑𐑼 𐑿𐑼 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯 (<b>%{diaspora_id}</b>) 𐑓𐑮𐑳𐑥 𐑿𐑼 𐑒𐑳𐑚𐑦𐑟 <a href='%{href_link}'>settings page</a> 𐑯 𐑣𐑦𐑑 𐑒𐑩𐑯𐑧𐑒𐑑."
-      daniels_account: "·𐑛𐑨𐑯𐑘𐑩𐑤𐑟 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑"
-      love_to_try: "𐑢𐑰'𐑛 𐑤𐑳𐑝 𐑓𐑹 𐑿 𐑑 𐑑𐑮𐑲 𐑦𐑑 𐑬𐑑."
-      making_the_connection: "𐑥𐑱𐑒𐑦𐑙 𐑞 𐑒𐑩𐑯𐑧𐑒𐑖𐑩𐑯"
-      screenshot_explanation: "%{link1}.  𐑞𐑦𐑕 𐑐𐑼𐑑𐑦𐑒𐑿𐑤𐑼 𐑒𐑩𐑚𐑦 𐑦𐑟 𐑤𐑦𐑙𐑒𐑑 𐑑 %{link2}."
-      sign_up_today: "𐑕𐑲𐑯 𐑳𐑐 𐑑𐑩𐑛𐑱!"
-      typical_userpage: "𐑩 𐑑𐑦𐑐𐑦𐑒𐑩𐑤 cubbi.es 𐑿𐑟𐑼𐑐𐑱𐑡"
-      via: "(𐑝𐑾 %{link})"
-      what_is_cubbies: "Cubbi.es 𐑦𐑟 𐑞 𐑢𐑻𐑤𐑛𐑟 𐑓𐑻𐑕𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯.  𐑦𐑑𐑕 𐑷𐑤𐑕𐑴 𐑞 𐑚𐑧𐑕𐑑 𐑢𐑱 𐑑 𐑒𐑩𐑤𐑧𐑒𐑑 𐑓𐑴𐑑𐑴𐑟 𐑪𐑯𐑤𐑲𐑯."
   undo: "𐑩𐑯𐑛𐑵?"
   username: "𐑿𐑟𐑼𐑯𐑱𐑥"
   users:

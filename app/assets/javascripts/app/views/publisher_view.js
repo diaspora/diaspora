@@ -23,6 +23,7 @@ app.views.Publisher = Backbone.View.extend({
     "click .post_preview_button" : "createPostPreview",
     "textchange #status_message_fake_text": "handleTextchange",
     "click #locator" : "showLocation",
+    "click #poll_creator" : "togglePollCreator",
     "click #hide_location" : "destroyLocation",
     "keypress #location_address" : "avoidEnter"
   },
@@ -69,7 +70,6 @@ app.views.Publisher = Backbone.View.extend({
     });
 
     this.initSubviews();
-
     return this;
   },
 
@@ -103,6 +103,11 @@ app.views.Publisher = Backbone.View.extend({
       publisher: this
     });
     this.view_uploader.on('change', this.checkSubmitAvailability, this);
+    
+    this.view_poll_creator = new app.views.PublisherPollCreator({
+      el: this.$('#publisher-poll-creator')
+    });
+    this.view_poll_creator.render();
 
   },
 
@@ -136,7 +141,9 @@ app.views.Publisher = Backbone.View.extend({
       "photos" : serializedForm["photos[]"],
       "services" : serializedForm["services[]"],
       "location_address" : $("#location_address").val(),
-      "location_coords" : serializedForm["location[coords]"]
+      "location_coords" : serializedForm["location[coords]"],
+      "poll_question" : serializedForm["poll_question"],
+      "poll_answers" : serializedForm["poll_answers[]"]
     }, {
       url : "/status_messages",
       success : function() {
@@ -169,6 +176,11 @@ app.views.Publisher = Backbone.View.extend({
       this.el_wrapper.removeClass('with_location');
       delete this.view_locator;
     }
+  },
+
+  togglePollCreator: function(){
+    this.view_poll_creator.$el.toggleClass('active');
+    this.el_input.focus();
   },
 
   // avoid submitting form when pressing Enter key
@@ -216,6 +228,23 @@ app.views.Publisher = Backbone.View.extend({
     }
 
     var date = (new Date()).toISOString();
+
+    var poll = undefined;
+    var poll_question = serializedForm["poll_question"];
+    var poll_answers_arry = _.flatten([serializedForm["poll_answers[]"]]); 
+    var poll_answers = _.map(poll_answers_arry, function(answer){
+      if(answer) return { 'answer' : answer };
+    });
+    poll_answers = _.without(poll_answers, undefined);
+
+    if(poll_question && poll_answers.length) {
+      poll = {
+        'question': poll_question,
+        'poll_answers' : poll_answers,
+        'participation_count': '0'
+      };
+    }
+
     var previewMessage = {
       "id" : 0,
       "text" : serializedForm["status_message[text]"],
@@ -229,9 +258,9 @@ app.views.Publisher = Backbone.View.extend({
       "frame_name" : "status",
       "title" : serializedForm["status_message[text]"],
       "address" : $("#location_address").val(),
-      "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0}
-    }
-
+      "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0},
+      'poll': poll, 
+    };
     if(app.stream) {
       this.removePostPreview();
       app.stream.addNow(previewMessage);
@@ -295,11 +324,19 @@ app.views.Publisher = Backbone.View.extend({
     // clear location
     this.destroyLocation();
 
+    // clear poll form
+    this.view_poll_creator.clearInputs();
+
     // force textchange plugin to update lastValue
     this.el_input.data('lastValue', '');
     this.el_hiddenInput.data('lastValue', '');
 
     return this;
+  },
+
+  clearPollForm : function(){
+    this.$('#poll_question').val('');
+    this.$('.poll_answer_input').val('');
   },
 
   tryClose : function(){
@@ -323,7 +360,7 @@ app.views.Publisher = Backbone.View.extend({
     $(this.el).addClass("closed");
     this.el_wrapper.removeClass("active");
     this.el_input.css('height', '');
-
+    this.view_poll_creator.$el.removeClass('active');
     return this;
   },
 

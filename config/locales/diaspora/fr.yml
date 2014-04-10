@@ -24,6 +24,14 @@ fr:
           attributes:
             diaspora_handle:
               taken: "est déjà pris."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "Il n'y a pas assez de choix possible"
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Vous avez déjà participé à ce sondage !"
         request:
           attributes:
             from_id:
@@ -150,10 +158,6 @@ fr:
       aspect_not_empty: "L’aspect n’est pas vide"
       remove: "supprimer"
     index:
-      cubbies:
-        explanation: "Cubbi.es est la première application Diaspora en cours de développement."
-        heading: "Connectez-vous à Cubbi.es"
-        learn_more: "En savoir plus"
       diaspora_id:
         content_1: "Votre identifiant Diaspora est :"
         content_2: "Communiquez-le à tout le monde et ils pourront vous trouver sur Diaspora."
@@ -227,14 +231,6 @@ fr:
       failure: "Votre aspect %{name} a un nom trop long pour être enregistré."
       success: "Votre aspect « %{aspect_name} » a été modifié."
     zero: "aucun aspect"
-  authorizations:
-    index:
-      no_applications: "Vous n'avez pas encore enregistré d'application."
-      revoke_access: "Révoquer l'accès"
-    new:
-      authorize: "Autoriser"
-      cubbies_will: "Cubbies pourra poster des photos en votre nom"
-      nope: "Non"
   back: "Retour"
   blocks:
     create:
@@ -307,10 +303,10 @@ fr:
         two: "%{count} nouveaux messages"
         zero: "Aucun nouveau message"
     index:
-      create_a_new_message: "créer un nouveau message"
+      conversations_inbox: "Discussions - Boîte de réception"
+      create_a_new_conversation: "commencer une nouvelle discussion"
       inbox: "Boîte de réception"
-      message_inbox: "Messages reçus"
-      new_message: "Nouveau message"
+      new_conversation: "Nouvelle discussion"
       no_conversation_selected: "aucune conversation sélectionnée"
       no_messages: "aucun message"
     new:
@@ -319,7 +315,7 @@ fr:
       sending: "Envoi…"
       subject: "sujet"
       to: "pour"
-    new_message:
+    new_conversation:
       fail: "Message invalide"
     show:
       delete: "supprimer et bloquer la conversation"
@@ -629,6 +625,8 @@ fr:
         two: "%{count} nouvelles notifications"
         zero: "Aucune nouvelle notification"
     index:
+      all_notifications: "Toutes les notifications"
+      also_commented: "Aussi commenté"
       and: "et"
       and_others:
         few: "et %{count} autres"
@@ -637,9 +635,17 @@ fr:
         other: "et %{count} autres"
         two: "et %{count} autres"
         zero: "et personne d'autre"
+      comment_on_post: "Commentaire sur un de vos messages"
+      liked: "Aimé"
       mark_all_as_read: "Tout marquer comme lu"
+      mark_read: "Marquer comme lu"
       mark_unread: "Marquer comme non lu"
+      mentioned: "Vous mentionnant"
       notifications: "Notifications"
+      reshared: "Repartagé"
+      show_all: "montrer tout"
+      show_unread: "montrer les non-lus"
+      started_sharing: "A commencé à partager"
     liked:
       one: "%{actors} a aimé votre %{post_link}."
       other: "%{actors} ont aimé votre %{post_link}."
@@ -707,6 +713,7 @@ fr:
       mentioned: "vous a mentionné(e) dans un message :"
       subject: "%{name} vous a mentionné(e) sur diaspora*"
     post_report_email:
+      body: "Merci de l'examiner dès que possible !"
       subject: "Un nouveau message a été marqué comme offensant"
     private_message:
       reply_to_or_view: "Répondre ou voir cette conversation >"
@@ -738,15 +745,16 @@ fr:
     helper:
       is_not_sharing: "%{name} ne partage pas avec vous"
       is_sharing: "%{name} partage avec vous"
-      people_on_pod_are_aware_of: "les personnes sur le pod sont au courant de"
       results_for: "résultats pour %{params}"
     index:
-      couldnt_find_them_send_invite: "Vous ne les trouvez pas ? Envoyez-leur une invitation !"
+      couldnt_find_them: "Vous ne les trouvez pas ?"
       looking_for: "Rechercher des commentaires taggés %{tag_link}?"
       no_one_found: "… et personne n'a été trouvé."
       no_results: "Hé ! Vous devez rechercher quelque chose."
-      results_for: "résultats de la recherche pour"
+      results_for: "Utilisateurs correspondant à %{search_term}"
+      search_handle: "Utilisez leur identifiant diaspora* (nomutilisateur@urldupod) pour être sûr de trouver vos amis."
       searching: "Recherche en cours, veuillez patienter ..."
+      send_invite: "Toujours rien ? Envoyez leur une invitation !"
     many: "%{count} personnes"
     one: "1 personne"
     other: "%{count} personnes"
@@ -826,8 +834,14 @@ fr:
     delete_link: "Supprimer le message"
     post_label: "<b>Message</b>: %{title}"
     reason_label: "Motif: %{text}"
+    reported_label: "<b>Rapporté par</b> %{person}"
+    review_link: "Marqué comme revu."
     status:
+      created: "Un rapport a été créé"
       destroyed: "Le message a été détruit"
+      failed: "Il y a eu un problème."
+      marked: "Ce rapport a été marqué comme revu?"
+    title: "Vue d'ensemble des rapports marqués."
   posts:
     presenter:
       title: "Un message de %{name}"
@@ -1036,10 +1050,17 @@ fr:
         i_like: "Je suis intéressé par %{tags}."
         invited_by: "Merci pour l'invitation, "
         newhere: "nouveauici"
+      poll:
+        add_a_poll: "Ajouter un sondage"
+        add_poll_answer: "Ajouter un choix"
+        option: "Option 1"
+        question: "Question"
+        remove_poll_answer: "Enlever ce choix"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
       preview: "Aperçu"
       publishing_to: "publication vers : "
+      remove_location: "Supprimer l'emplacement"
       share: "Partager"
       share_with: "Partager avec"
       upload_photos: "Envoyer des photos"
@@ -1145,18 +1166,6 @@ fr:
       posts_tagged_with: "Publications taguées avec #%{tag}"
       stop_following: "Arrêter de suivre #%{tag}"
   terms_and_conditions: "Conditions d'utilisation"
-  tokens:
-    show:
-      connect_to_cubbies: "Se connecter à Cubbi.es"
-      connecting_is_simple: "Pour vous connecter à votre compte Diaspora, c'est facile ! Il vous suffit d'entrer votre ID Diaspora (<b>%{diaspora_id}</b>) sur votre <a href='%{href_link}'>page des paramètres</a> cubbies et de cliquer sur \"connect\"."
-      daniels_account: "compte Diaspora de Daniel"
-      love_to_try: "Nous aimerions beaucoup que vous essayiez."
-      making_the_connection: "Créez la connexion"
-      screenshot_explanation: "%{link1}. Cette page cubbi est liée au %{link2}."
-      sign_up_today: "Inscrivez-vous dès aujourd'hui !"
-      typical_userpage: "Une page d'utilisateur typique sur cubbi.es"
-      via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es est la toute première application Diaspora. C'est aussi la meilleure manière de collectionner des photos en ligne."
   undo: "Annuler ?"
   username: "Nom d'utilisateur"
   users:

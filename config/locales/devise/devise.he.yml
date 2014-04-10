@@ -7,22 +7,23 @@
 he:
   devise:
     confirmations:
-      confirmed: "חשבונך אומת בהצלחה. נכנסת כעת"
+      confirmed: "חשבונך אומת בהצלחה. התחברת כעת."
       new:
-        resend_confirmation: "שלח הוראות אימות מחדש"
-      send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאמת את חשבונך"
+        resend_confirmation: "שליחת הוראות האימות מחדש"
+      send_instructions: "בעוד מספר דקות תתקבל בתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאמת את חשבונך."
     failure:
-      inactive: "חשבונך לא הופעל עדיין"
-      invalid: "שם המשתמש או הססמה שגויים"
-      invalid_token: "אסימון האימות שגוי"
-      locked: "חשבונך נעול"
-      timeout: "ההפעלה שלך פגה, עליך להירשם שוב כדי להמשיך"
-      unauthenticated: "עליך להיכנס או להירשם לפני המשך הפעילות"
-      unconfirmed: "עליך לאמת את חשבונך לפני שתוכל להמשיך"
+      inactive: "חשבונך לא הופעל עדיין."
+      invalid: "שם משתמש או סיסמה שגויים."
+      invalid_token: "אסימון האימות שגוי."
+      locked: "חשבונך נעול."
+      not_found_in_database: "שם משתמש או סיסמה שגויים."
+      timeout: "זמן החיבור שלך הסתיים, יש להתחבר בשנית בשביל להמשיך."
+      unauthenticated: "יש להתחבר או להירשם לפני המשך הפעילות."
+      unconfirmed: "יש לאמת את חשבונך לפני המשך הפעילות."
     invitations:
-      invitation_token_invalid: "אסימון ההזמנה שסופק אינו תקף"
-      send_instructions: "ההזמנה שלך נשלחה"
-      updated: "הססמה שלך הוגדרה בהצלחה. נכנסת כעת"
+      invitation_token_invalid: "התנצלותינו! אסימון ההזמנה שסופק אינו תקף."
+      send_instructions: "ההזמנה שלך נשלחה."
+      updated: "הססמה שלך הוגדרה בהצלחה. התחברת כעת."
     mailer:
       confirmation_instructions:
         confirm: "אימות החשבון שלי"
@@ -32,55 +33,59 @@ he:
       inviter:
         accept_at: "בכתובת %{url}, באפשרותך לקבל זאת באמצעות הקישור שלהלן."
         has_invited_you: "%{name}"
-        have_invited_you: "הוזמנת על-ידי %{names} להצטרף לדיאספורה"
+        have_invited_you: "הוזמנת על ידי %{names} להצטרף לדיאספורה*"
       reset_password_instructions:
-        change: "החלפת הססמה שלי"
+        change: "שינוי הסיסמה שלי"
         ignore: "אם לא ביקשת זאת, ניתן להתעלם מהודעה זו."
-        someone_requested: "התקבלה בקשה לקישור לשינוי הססמה שלך, ניתן לעשות זאת דרך הקישור שלהלן."
-        subject: "הנחיות לאיפוס הססמה"
-        wont_change: "הססמה שלך לא תוחלף עד לכניסה לקישור שלהלן ויצירת אחת חדשה."
+        someone_requested: "התקבלה בקשה לשליחת קישור עבור שינוי הסיסמה שלך. אם את/ה ביקשת זאת, ניתן לשנות את סיסמתך באמצעות הקישור שלמטה."
+        subject: "הנחיות לאיפוס הסיסמה"
+        wont_change: "הסיסמה שלך לא תוחלף עד לכניסה לקישור שלהלן ויצירת אחת חדשה."
       unlock_instructions:
         account_locked: "חשבונך ננעל עקב מספר רב של ניסיונות כניסה כושלים."
         click_to_unlock: "יש ללחוץ על הקישור שלהלן כדי לשחרר את חשבונך:"
-        subject: "הנחיות לשחרור"
+        subject: "הנחיות לביטול הנעילה"
         unlock: "שחרור החשבון שלי"
       welcome: "ברוך בואך %{email}!"
     passwords:
       edit:
-        change_password: "החלפת הססמה שלי"
+        change_password: "שינוי הסיסמה שלי"
+        confirm_password: "אישור סיסמה"
+        new_password: "סיסמה חדשה"
       new:
-        forgot_password: "שכחת את ססמתך?"
-        no_account: "לא נמצא חשבון עם כתובת דוא״ל זו.  אם הנך בהמתנה להזמנה, אנו נשתדל להפיץ את ההזמנות במהירות האפשרית"
+        email: "כתובת דוא\"ל"
+        forgot_password: "שכחת את סיסמתך?"
+        no_account: "לא קיים חשבון עם כתובת דוא״ל זו"
+        reset_password: "איפוס סיסמה"
         send_password_instructions: "שליחת הנחיות איפוס הססמה אלי"
-      send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאפס את ססמתך."
-      updated: "ססמתך הוחלפה בהצלחה. נכנסת כעת."
+      send_instructions: "בעוד מספר דקות תתקבל בתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאפס את סיסמתך."
+      updated: "סיסמתך שונתה בהצלחה. התחברת כעת."
     registrations:
-      destroyed: "להתראות! חשבונך בוטל בהצלחה. מקווים לראותך שוב בקרוב."
-      signed_up: "נרשמת בהצלחה. הודעת אימות תישלח אליך לדוא״ל במידה שהוגדרה."
+      destroyed: "להתראות! חשבונך נמחק בהצלחה. אנחנו מקווים לראותך שוב בקרוב."
+      signed_up: "נרשמת בהצלחה. הודעת אימות נשלחה לדוא״ל שלך, אם כך הוגדר במערכת."
       updated: "חשבונך עודכן בהצלחה."
     sessions:
       new:
-        login: "כניסה"
+        login: "התחברות"
         modern_browsers: "תומכת בדפדפנים מודרניים בלבד."
-        password: "ססמה"
-        remember_me: "שמירת פרטי הגישה שלי"
-        sign_in: "כניסה"
+        password: "סיסמה"
+        remember_me: "זכור אותי"
+        sign_in: "התחברות"
         username: "שם משתמש"
-      signed_in: "נכנסת בהצלחה."
-      signed_out: "יצאת בהצלחה."
+      signed_in: "התחברת בהצלחה."
+      signed_out: "התנתקת בהצלחה."
     shared:
       links:
-        forgot_your_password: "שכחת את ססמתך?"
+        forgot_your_password: "שכחת את סיסמתך?"
         receive_confirmation: "לא קיבלת הוראות אישור?"
         receive_unlock: "לא קיבלת הוראות שחרור?"
-        sign_in: "כניסה"
+        sign_in: "התחברות"
         sign_up: "הרשמה"
         sign_up_closed: "לא ניתן להירשם באופן חופשי נכון לעכשיו."
     unlocks:
       new:
-        resend_unlock: "שליחת הוראות שחרור מחדש"
-      send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לשחרר את חשבונך."
-      unlocked: "חשבונך שוחרר בהצלחה. נכנסת כעת."
+        resend_unlock: "שליחה מחדש של הנחיות השחרור."
+      send_instructions: "בעוד מספר דקות תתקבל בתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לשחרר את חשבונך."
+      unlocked: "חשבונך שוחרר בהצלחה. התחברת כעת."
   errors:
     messages:
       already_confirmed: "כבר אושר"

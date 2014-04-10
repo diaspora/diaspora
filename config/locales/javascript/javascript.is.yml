@@ -49,7 +49,6 @@ is:
       home: "Heim"
       log_out: "Aftengjast"
       mark_all_as_read: "Merkja allt sem lesið"
-      messages: "Skilaboð"
       notifications: "Tilkynningar"
       profile: "Síðan mín"
       recent_notifications: "Nýlegar tilkynningar"
@@ -61,6 +60,9 @@ is:
       no_more: "Engin fleirri skeyti."
       no_more_contacts: "Engir fleirri tengiliðir"
     my_aspects: "Mínar sýnir"
+    notifications:
+      mark_read: "Merkja sem lesið"
+      mark_unread: "Merkja sem ólesið"
     people:
       not_found: "og enginn fannst..."
     photo_uploader:
@@ -69,6 +71,10 @@ is:
       invalid_ext: "{file} hefur ógilt viðskeyti. Aðeins {extensions} eru leyfð."
       looking_good: "Vá, þú lítur vel út!"
       size_error: "{file} skráin er of stór, mesta stærð er {sizeLimit}."
+    poll:
+      close_result: "Fela niðurstöður"
+      result: "Niðurstaða"
+      show_result: "Birta niðurstöður"
     publisher:
       at_least_one_aspect: "Þú verður að opna á að minnsta kosti eina sýn"
       limited: "Takmarkað - skeytið verður eingögnu sýnilegt þeim sem þú veitir leyfi"

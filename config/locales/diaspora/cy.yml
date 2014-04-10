@@ -39,8 +39,6 @@ cy:
       are_you_sure: "A ydych yn siŵr eich bod am ddileu yr agwedd hon?"
       aspect_not_empty: "Agwedd nid ar wag"
     index:
-      cubbies:
-        heading: "Cysylltu i Cubbi.es"
       diaspora_id:
         heading: "ID Diaspora"
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
@@ -112,9 +110,6 @@ cy:
         other: "%{count} new messages"
         two: "%{count} new messages"
         zero: "no new messages"
-    index:
-      message_inbox: "Neges Inbox"
-      new_message: "Neges Newydd"
   delete: "Dileu"
   email: "E-bost"
   find_people: "Dod o hyd i bobl neu # tagiau"
@@ -491,9 +486,6 @@ cy:
   tags:
     show:
       nobody_talking: "Does neb yn siarad am %{tag} eto."
-  tokens:
-    show:
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
   username: "Enw Defnyddiwr"
   users:
     confirm_email:

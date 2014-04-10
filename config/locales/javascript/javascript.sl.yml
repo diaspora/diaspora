@@ -42,7 +42,6 @@ sl:
       home: "Domov"
       log_out: "Odjava"
       mark_all_as_read: "Označi vse kot prebrano"
-      messages: "Sporočila"
       notifications: "Obvestila"
       profile: "Profil"
       recent_notifications: "Nedavna obvestila"

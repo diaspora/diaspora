@@ -39,7 +39,6 @@ bg:
       home: "Начало"
       log_out: "Отписване"
       mark_all_as_read: "Маркирай вс. като прочетени"
-      messages: "Съобщения"
       notifications: "Известия"
       profile: "Профил"
       recent_notifications: "Скорошни"

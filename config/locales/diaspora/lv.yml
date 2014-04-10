@@ -1,0 +1,26 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+lv:
+  _comments: "Komentāri"
+  _home: "Mājās"
+  account: "Konts"
+  back: "Atpakaļ"
+  cancel: "Atcelt"
+  delete: "Dzēst"
+  hide: "Slēpt"
+  more: "Vairāk"
+  next: "nākamais"
+  password: "Parole"
+  password_confirmation: "Paroles apstiprinājums"
+  previous: "iepriekšējais"
+  privacy: "Privātums"
+  privacy_policy: "Privātuma politika"
+  profile: "Profils"
+  public: "Publisks"
+  search: "Meklēt"
+  settings: "Iestatījumi"
+  username: "Lietotājvārds"

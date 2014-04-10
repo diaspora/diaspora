@@ -124,9 +124,29 @@ factory = {
     return new app.models.Post(_.extend(defaultAttrs, overrides))
   },
 
+  postWithPoll :  function(overrides) {
+    defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
+    defaultAttrs = _.extend(defaultAttrs,  {"already_participated_in_poll" : false});
+    defaultAttrs = _.extend(defaultAttrs,  {"poll" : factory.poll()});
+    return new app.models.Post(_.extend(defaultAttrs, overrides));
+  },
+
   statusMessage : function(overrides){
     //intentionally doesn't have an author to mirror creation process, maybe we should change the creation process
     return new app.models.StatusMessage(_.extend(factory.postAttrs(), overrides))
+  },
+
+  poll: function(overrides){
+    return {
+      "question" : "This is an awesome question",
+      "created_at" : "2012-01-03T19:53:13Z",
+      "author" : this.author(),
+      "post_id" : 1,
+      "poll_answers" : [{"answer" : "yes", "id" : 1, "vote_count" : 9}, {"answer" : "no", "id" : 2, "vote_count" : 1}],
+      "guid" : this.guid(),
+      "poll_id": this.id.next(),
+      "participation_count" : 10
+    }
   },
 
   comment: function(overrides) {

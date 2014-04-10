@@ -131,10 +131,6 @@ vi:
       aspect_not_empty: "Mối quan hệ không rỗng"
       remove: "loại bỏ"
     index:
-      cubbies:
-        explanation: "Cubbi.es là ứng dụng được phát triển đầu tiên của Diaspora."
-        heading: "Kết nối đến Cubbi.es"
-        learn_more: "Tìm hiểu thêm"
       diaspora_id:
         content_1: "ID Diaspora:"
         content_2: "Cho người khác biết và họ có thể tìm thấy bạn trên Diaspora."
@@ -204,14 +200,6 @@ vi:
       failure: "Mối quan hệ %{name} có tên quá dài, không thể lưu."
       success: "Mối quan hệ %{name} đã được chỉnh sửa."
     zero: "không có mối quan hệ"
-  authorizations:
-    index:
-      no_applications: "Bạn chưa đăng kí bất kì ứng dụng nào."
-      revoke_access: "Thu hồi quyền truy cập"
-    new:
-      authorize: "Xác thực"
-      cubbies_will: "Cubbies sẽ có thể đăng ảnh bằng tên của bạn"
-      nope: "Không"
   back: "Trở lại"
   blocks:
     create:
@@ -283,10 +271,7 @@ vi:
         two: "%{count} tin nhắn mới"
         zero: "Không có tin nhắn mới"
     index:
-      create_a_new_message: "viết tin nhắn mới"
       inbox: "Hộp thư đến"
-      message_inbox: "Hộp tin nhắn"
-      new_message: "Tin nhắn mới"
       no_conversation_selected: "không có cuộc trò chuyện nào được chọn"
       no_messages: "không có tin nhắn"
     new:
@@ -295,8 +280,6 @@ vi:
       sending: "Đang gửi..."
       subject: "tựa đề"
       to: "người nhận"
-    new_message:
-      fail: "Tin nhắn không hợp lệ"
     show:
       delete: "xóa và khóa cuộc trò chuyện"
       reply: "trả lời"
@@ -516,7 +499,6 @@ vi:
       is_sharing: "%{name} đang chia sẻ với bạn"
       results_for: " kết quả cho %{params}"
     index:
-      couldnt_find_them_send_invite: "Không thể tìm thấy họ?  Hãy gửi thư mời!"
       looking_for: "Tìm các bài đăng có thẻ %{tag_link}?"
       no_one_found: "...và không tìm thấy ai."
       no_results: "Bạn cần tìm gì đó."
@@ -875,17 +857,6 @@ vi:
       posts_tagged_with: "Những bài đăng được gán thẻ #%{tag}"
       stop_following: "Dừng theo dõi #%{tag}"
   terms_and_conditions: "Điều khoản và điều kiện"
-  tokens:
-    show:
-      connect_to_cubbies: "Kết nối với Cubbi.es"
-      connecting_is_simple: "Chỉ cần nhập ID Diaspora của bạn (<b>%{diaspora_id}</b>) từ %{href_link}<a href='%{href_link}'>trang thiết lập cubbies</a> và nhấn kết nối"
-      daniels_account: "Tài khoản Diaspora của Daniel"
-      love_to_try: "Xin mời bạn dùng thử."
-      making_the_connection: "Tạo kết nối"
-      sign_up_today: "Đăng kí!"
-      typical_userpage: "Trang người dùng điển hình của cubbi.es"
-      via: "(thông qua %{link})"
-      what_is_cubbies: "Cubbi.es là ứng dụng đầu tiên của Diaspora.  Đó cũng là cách tốt nhất để thu thập ảnh trực tuyến."
   undo: "Hoàn lại?"
   username: "Tên người dùng"
   users:

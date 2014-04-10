@@ -3,6 +3,7 @@ require 'spec_helper'
 describe PostPresenter do
   before do
     @sm = FactoryGirl.create(:status_message, :public => true)
+    @sm_with_poll = FactoryGirl.create(:status_message_with_poll, public: true)
     @presenter = PostPresenter.new(@sm, bob)
     @unauthenticated_presenter = PostPresenter.new(@sm)
   end
@@ -94,6 +95,13 @@ describe PostPresenter do
         @presenter.post = @sm
         @presenter.title.should == "A post from #{@sm.author.name}"
       end
+    end
+  end
+
+  describe '#poll' do
+    it 'works without a user' do
+      presenter = PostPresenter.new(@sm_with_poll)
+      presenter.as_json.should be_a(Hash)
     end
   end
 end

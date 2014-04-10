@@ -5,6 +5,7 @@
 
 
 id:
+  _applications: "Aplikasi"
   _comments: "Komentar"
   _contacts: "Kontak"
   _home: "Beranda"
@@ -48,62 +49,167 @@ id:
         unknown: "Judul Video Tidak Diketahui"
   are_you_sure: "Anda yakin?"
   are_you_sure_delete_account: "Anda yakin akan menghapus akun anda? ini tidak dapat di batalkan!"
+  aspect_memberships:
+    destroy:
+      failure: "Gagal menghapus pribadi dari Aspek"
+      no_membership: "Tidak dapat menemukan orang dicari pada aspek tersebut"
+      success: "Berhasil menghapus pribadi dari Aspek"
   aspects:
     add_to_aspect:
       failure: "Failed to add friend to aspect."
       success: "Successfully added friend to aspect."
     aspect_contacts:
       done_editing: "Selesai"
+    aspect_listings:
+      add_an_aspect: "+ Tambah satu aspek"
+      deselect_all: "Batalkan semua pilihan"
+      edit_aspect: "Ubah %{name}"
+      select_all: "Pilih semua"
+    aspect_stream:
+      stay_updated: "Selalu Terbarui"
+      stay_updated_explanation: "Aliran utamamu dipenuhi oleh semua kontakmu, tandai yang kamu ikuti, dan kirimkan beberapa anggota komunitas."
+    contacts_not_visible: "Kontak di aspek ini tidak dapat saling melihat."
+    contacts_visible: "Kontak di aspek ini dapat saling melihat."
     create:
       failure: "Aspek gagal dibuat."
       success: "Klik pada tanda plus di sisi kiri untuk memberitahu Diaspora siapa yang dapat melihat aspek baru Anda."
     destroy:
+      failure: "%{name} tidak terisi dan tidak dapat dihapus."
       success: "%{name} berhasil dihapus."
     edit:
+      add_existing: "Tambah kontak yang sudah ada"
+      aspect_list_is_not_visible: "Kontak di dalam aspek ini tidak dapat saling melihat"
+      aspect_list_is_visible: "Kontak di dalam aspek ini dapat saling melihat."
+      confirm_remove_aspect: "Anda yakin ingin menghapus aspek ini?"
+      done: "Selesai"
       make_aspect_list_visible: "make aspect list visible?"
+      remove_aspect: "Hapus aspek ini"
+      rename: "Ganti nama"
       update: "Perbarui"
       updating: "Memperbarui"
-    few: "%{count} aspects"
+    few: "%{count} aspek"
     helper:
+      are_you_sure: "apakah anda yakin untuk menghapus aspek ini?"
       aspect_not_empty: "Aspek tidak kosong"
       remove: "hapus"
     index:
+      diaspora_id:
+        content_1: "ID diaspora* anda:"
+        content_2: "Berikan ke semua orang dan mereka akan dapat menemukanmu di diaspora*"
+        heading: "ID diaspora*"
+      donate: "Donasi"
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       help:
+        do_you: "Apakah kamu:"
+        email_feedback: "%{link} timbal balik, jika anda ingin"
+        feature_suggestion: "... punya %{link} anjuran?"
+        find_a_bug: ".... menemukan %{link}"
+        have_a_question: "... punya %{link}"
         here_to_help: "Diaspora community is here to help!"
+        need_help: "Butuh bantuan?"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
+      introduce_yourself: "Ini merupakan aliran anda.  Ikutan dan kenalkan diri anda"
+      new_here:
+        follow: "Ikuti %{link} dan selamat datang di diaspora*!"
+        learn_more: "Pelajari"
+        title: "Selamat Datang Pengguna Baru"
+      no_contacts: "Tak ada kontak"
       no_tags: "No tags"
-    many: "%{count} aspects"
+      people_sharing_with_you: "Orang orang yang berbagi dengan anda"
+      post_a_message: "Kirim pesan"
+      services:
+        content: "Anda dapat menyambungkan layanan berikut ke diaspora*:"
+        heading: "Sambungkan Layanan"
+      unfollow_tag: "Berhenti mengikuti #%{tag}"
+      welcome_to_diaspora: "Selamat datang di diaspora*, %{name}"
+    many: "%{count} aspek"
+    move_contact:
+      error: "Galat memindahkan kontak : %{inspect}"
+      failure: "tidak bekerja %{inspect}"
+      success: "Orang tersebut dipindahkan ke Aspek baru"
     new:
+      create: "Buat"
       name: "Name"
     no_contacts_message:
+      community_spotlight: "Sorotan komunitas"
+      or_spotlight: "Atau anda dapat berbagi dengan %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      you_should_add_some_more_contacts: "Anda perlu menambahkan beberapa kontak baru!"
     no_posts_message:
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
-    one: "1 aspect"
-    other: "%{count} aspects"
-    two: "%{count} aspects"
+    one: "1 aspek"
+    other: "%{count} aspek"
+    seed:
+      acquaintances: "Kenalan"
+      family: "Keluarga"
+      friends: "Teman"
+      work: "Kerja"
+    selected_contacts:
+      manage_your_aspects: "Kelola aspek anda."
+      no_contacts: "Anda belum memiliki kontak di sini."
+      view_all_community_spotlight: "Lihat semua sorotan komunitas"
+      view_all_contacts: "Lihat semua kontak"
+    show:
+      edit_aspect: "Ubah aspek"
+    two: "%{count} aspek"
     update:
+      failure: "Nama aspek anda, %{name}, terlalu panjang untuk disimpan."
       success: "Aspek anda, %{name}, telah berhasil diubah."
     zero: "Tak ada apapun yang di pilih"
   back: "Kembali"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     heading: "Diaspora Bookmarklet"
+    post_something: "Kirimkan ke diaspora*"
+    post_success: "Terkirim! Menutup!"
   cancel: "Batal"
   comments:
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment:
       comment: "Komentar"
+      commenting: "Mengomentari"
+    one: "1 komentar"
+    other: "%{count} komentar"
+    two: "%{count} komentar"
+    zero: "tak ada komentar"
   contacts:
+    create:
+      failure: "gagal membuat kontak"
     few: "%{count} contacts"
     index:
+      add_a_new_aspect: "Tambahkan aspek baru"
       add_to_aspect: "Add contacts to %{name}"
+      add_to_aspect_link: "tambahkan kontak dengan %{name}"
+      all_contacts: "Semua Kontak"
+      community_spotlight: "Sorotan komunitas"
+      many_people_are_you_sure: "Apakah kamu mau memulai perbincangan pribadi lebih dari %{suggested_limit} kontak? Mengirim ke Aspek ini mungkin cara yang lebih baik untuk menghubungi mereka."
+      my_contacts: "Kontakku"
       no_contacts: "No contacts."
+      no_contacts_message: "Lihat juga %{community_spotlight}"
+      no_contacts_message_with_aspect: "Lihat %{community_spotlight} atau %{add_to_aspect_link}"
+      only_sharing_with_me: "Hanya berbagi dengan saya"
+      remove_person_from_aspect: "Hapus %{aspect_name} dari \"%{person_name}\""
+      start_a_conversation: "Mulai pembicaraan"
+      title: "Kontak"
+      your_contacts: "Kontakmu"
+    many: "%{count} kontak"
+    one: "1 kontak"
+    other: "%{count} kontak"
+    sharing:
+      people_sharing: "Orang-orang yang berbagi dengan anda"
+    spotlight:
+      community_spotlight: "Sorotan Komunitas"
+    two: "%{count} kontak"
+    zero: "kontak"
   conversations:
+    create:
+      fail: "Pesan tak valid"
+      sent: "Pesan terkirim"
+    destroy:
+      success: "Pembicaraan berhasil dihapus"
     helper:
       new_messages:
         few: "%{count} new messages"
@@ -112,34 +218,77 @@ id:
         other: "%{count} new messages"
         two: "%{count} new messages"
         zero: "no new messages"
+    index:
+      inbox: "Kotak Masuk"
+      no_conversation_selected: "tidak ada pembicaraan yang dipilih"
+      no_messages: "tak ada pesan"
+    new:
+      abandon_changes: "Abaikan perubahan?"
+      send: "Kirim"
+      sending: "Mengirim..."
+      subject: "subjek"
+      to: "ke"
+    show:
+      delete: "hapus dan blok pembicaraan"
+      reply: "balas"
+      replying: "Membalas..."
+  date:
+    formats:
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Hapus"
   email: "E-mail"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Perbaiki kesalahan berikut dan coba lagi."
       invalid_fields: "Field tidak valid"
+  fill_me_out: "Isi di sini"
   find_people: "Temukan orang"
   hide: "Sembunyikan"
   invitations:
+    a_facebook_user: "Seorang pengguna Facebook"
     check_token:
       not_found: "Token undangan tidak ditemukan"
     create:
+      already_contacts: "Kamu sudah tersambung dengan orang ini"
+      already_sent: "Kamu sudah mengajak orang ini"
       no_more: "Anda tidak dapat memberikan undangan lagi."
+      own_address: "Kamu tidak dapat mengirim undangan ke alamatmu sendiri."
+      rejected: "Alamat email berikut bermasalah dengan: "
       sent: "Undangan telah dikirimkan ke:"
+    edit:
+      accept_your_invitation: "Terima undanganmu"
+      your_account_awaits: "Akunmu sudah menunggu!"
     new:
       already_invited: "Already invited"
+      aspect: "Aspek"
+      check_out_diaspora: "Lihat diaspora*!"
+      if_they_accept_info: "Jika mereka menerima, mereka akan ditambahkan ke Aspek yang kamu undang."
       invite_someone_to_join: "Undang seseorang untuk bergabung di Diaspora!"
+      language: "Bahasa"
+      personal_message: "Pesan pribadi"
+      resend: "Kirim ulang"
       send_an_invitation: "Kirim sebuah undangan"
       send_invitation: "Kirim undangan"
       to: "Ke"
   layouts:
     application:
+      back_to_top: "Kembali ke atas"
+      powered_by: "DIDUKUNG OLEH diaspora*"
       toggle: "toggle mobile site"
+      whats_new: "apa yang baru?"
+      your_aspects: "Aspekmu"
     header:
+      admin: "Admin"
+      blog: "blog"
+      code: "Kode"
       login: "login"
       logout: "logout"
       profile: "profile"
+      recent_notifications: "Pemberitahuan baru-baru ini"
       settings: "settings"
+      view_all: "Lihat semua"
   likes:
     likes:
       people_dislike_this:
@@ -198,6 +347,7 @@ id:
         two: "%{count} new notifications"
         zero: "no new notifications"
     index:
+      and: "dan"
       and_others:
         few: "and %{count} others"
         many: "and %{count} others"
@@ -205,6 +355,8 @@ id:
         other: "and %{count} others"
         two: "and %{count} others"
         zero: "and nobody else"
+      mark_all_as_read: "Tandai semua sudah dibaca"
+      notifications: "Pemberitahuan"
     liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
@@ -233,6 +385,7 @@ id:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
+    post: "kirim"
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."
@@ -262,43 +415,98 @@ id:
       two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier:
+    a_post_you_shared: "sebuah kiriman"
+    click_here: "klik disini"
+    comment_on_post:
+      reply: "Balas atau lihat kiriman %{name}"
     confirm_email:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "Email ini dikirim oleh %{pod_name}. Jika kamu ingin berhenti mendapatkan email seperti ini,"
     hello: "Halo %{name}!"
     liked:
       liked: "%{name} has just liked your post: "
+      view_post: "Lihat kiriman >"
+    mentioned:
+      mentioned: "menyebut anda di kiriman:"
+      subject: "%{name} menyebutmu di diaspora*"
+    private_message:
+      reply_to_or_view: "Balas atau lihat pembicaraan ini >"
     reshared:
       reshared: "%{name} just reshared your post"
+      view_post: "Lihat kiriman >"
     single_admin:
+      admin: "Administrator diaspora* mu"
       subject: "A message from your Diaspora administrator:"
     started_sharing:
+      sharing: "mulai berbagi denganmu!"
       subject: "%{name} has started sharing with you on Diaspora*"
+      view_profile: "Lihat profil %{name}"
+    thanks: "Terimakasih,"
+    to_change_your_notification_settings: "untuk mengganti pengaturan pemberitahuan"
   nsfw: "Konten Dewasa"
   ok: "Oke"
   or: "atau"
   password: "Kata sandi"
   password_confirmation: "Pengesahan kata sandi"
   people:
+    add_contact_small:
+      add_contact_from_tag: "tambah kontak dari tag"
+    aspect_list:
+      edit_membership: "sunting keanggotaan Aspek"
     few: "%{count} people"
+    helper:
+      results_for: " hasil untuk %{params}"
     index:
+      looking_for: "Mencari kiriman dengan tag %{tag_link}"
+      no_one_found: "...dan tak menemukan siapapun."
+      no_results: "Hei! Kamu harus cari sesuatu."
       results_for: "hasil pencarian untuk"
     many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
     person:
+      add_contact: "tambah kontak"
+      already_connected: "Sudah terhubung"
       pending_request: "permintaan tertunda"
       thats_you: "Itu anda!"
     profile_sidebar:
+      bio: "Biografi"
       born: "born"
       edit_my_profile: "Sunting profil saya"
+      gender: "Gender"
+      in_aspects: "pada Aspek"
+      location: "Lokasi"
+      remove_contact: "hapus kontak"
+      remove_from: "hapus %{name} dari %{aspect}?"
     show:
+      closed_account: "Akun ini telah ditutup."
       does_not_exist: "Orang tidak ada!"
+      has_not_shared_with_you_yet: "%{name} belum berbagi apapun dengan kamu!"
+      ignoring: "Kamu mengabaikan semua kiriman dari %{name}"
       incoming_request: "You have an incoming request from this person."
+      mention: "Panggilan"
+      message: "Pesan"
       not_connected: "You are not connected with this person"
+      recent_posts: "Kiriman baru-baru ini"
+      recent_public_posts: "Kiriman Publik baru-baru ini"
+      return_to_aspects: "Kembali ke laman Aspek-mu"
+      see_all: "Lihat semua"
+      start_sharing: "mulai berbagi"
+      to_accept_or_ignore: "terima atau abaikan"
+    sub_header:
+      add_some: "tambah beberapa"
+      edit: "sunting"
+      you_have_no_tags: "kamu tak punya tag!"
     two: "%{count} people"
+    webfinger:
+      fail: "Maaf, kita tak dapat mencari %{handle}"
     zero: "no people"
   photos:
+    create:
+      integrity_error: "Pengunggahan foto gagal.  Itu tadi beneran gambar?"
+      runtime_error: "Pengunggahan foto gagal.  Apakah kamu yakin sudah pakai sarung?"
+      type_error: "Pengunggahan foto gagal.  Kamu yakin sudah menambahkan gambar?"
     destroy:
       notice: "Foto dihapus."
     edit:
@@ -307,9 +515,20 @@ id:
       back_to_list: "Kembali ke Daftar"
       new_photo: "Foto Baru"
       post_it: "posting!"
+    new_photo:
+      empty: "{file} kosong, mohon pilih berkas lagi tanpanya."
+      invalid_ext: "ekstensi {file} tak valid. Hanya {extensions} yang diperbolehkan."
+      size_error: "{file} terlalu besar, ukuran maksimal berkas adalah {sizeLimit}"
+    photo:
+      view_all: "lihat semua foto %{name}"
     show:
+      collection_permalink: "koleksi permalink"
       delete_photo: "Hapus Foto"
+      edit: "sunting"
+      edit_delete_photo: "Sunting deskripsi foto / hapus foto"
       make_profile_photo: "membuat foto profil"
+      show_original_post: "Perlihatkan kiriman asli"
+      update_photo: "Perbarui Foto"
     update:
       error: "Gagal mengubah foto."
       notice: "Foto berhasil diperbarui."
@@ -448,10 +667,8 @@ id:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
   terms_and_conditions: "Syarat dan Ketentuan"
-  tokens:
-    show:
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
   undo: "Batalkan?"
+  username: "Username"
   users:
     confirm_email:
       email_confirmed: "E-Mail %{email} activated"

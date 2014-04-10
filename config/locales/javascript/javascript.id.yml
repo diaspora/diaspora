@@ -8,9 +8,9 @@ id:
   javascripts:
     aspect_dropdown:
       add_to_aspect: "Tambahkan kontak"
-      all_aspects: "Semua Hal"
+      all_aspects: "Semua aspek"
       error: "Tidak bisa berbagi dengan <%= name %>. Apakah anda mengabaikan mereka ?"
-      select_aspects: "Tentukan salah satu Hal"
+      select_aspects: "Pilih salah satu aspek"
       started_sharing_with: "Anda mulai berbagi dengan <%= name %> !"
       stopped_sharing_with: "Anda berhenti berbagi dengan <%= name %>"
       toggle:
@@ -36,11 +36,11 @@ id:
       search: "Temukan nama orang atau #tags"
     ignore: "Abaikan"
     infinite_scroll:
-      no_more: "Tidak ada lagi data"
+      no_more: "Tidak ada post lagi"
     my_activity: "Aktifitas Saya"
     my_stream: "Stream"
     photo_uploader:
-      looking_good: "Oh Tuhan, anda terlihat luar biasa!"
+      looking_good: "Puji Tuhan, anda terlihat luar biasa!"
     publisher:
       at_least_one_aspect: "Anda harus mempublikasi, setidaknya satu hal"
       limited: "Di Limitasi - Apa yang anda publikasi hanya dapat di lihat oleh orang-orang yang berbagi dengan anda."
@@ -51,7 +51,7 @@ id:
     show_more: "Tampilkan lebih banyak lagi"
     stream:
       comment: "Komentar"
-      follow: "Ikuti ('Follow')"
+      follow: "Ikuti"
       hide: "Sembunyikan"
       hide_nsfw_posts: "Sembunyikan #nsfw"
       like: "Suka"
@@ -78,7 +78,7 @@ id:
         zero: "<%= count %> Reshares"
       show_nsfw_post: "Tampilkan"
       show_nsfw_posts: "Tampilkan semua"
-      unfollow: "Jangan ikuti ('Unfollow')"
+      unfollow: "Berhenti ikuti"
       unlike: "Tidak Suka"
     tags:
       wasnt_that_interesting: "OK, sepertinya #<%= tagName %> tidak terlalu menarik..."
