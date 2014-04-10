@@ -11,14 +11,15 @@
     = t('privacy')
   = render 'shared/settings_nav'
 
-.span12
-  %h3
-    = t('.ignored_users')
+.row-fluid
+  .span12
+    %h3
+      = t('.ignored_users')
 
-  - @blocks.each do |block|
-    = block.person_name
-    \-
-    = link_to t('.stop_ignoring'), block_path(block),
-      :method => :delete
-    %br
+    - @blocks.each do |block|
+      = block.person_name
+      \-
+      = link_to t('.stop_ignoring'), block_path(block),
+        :method => :delete
+      %br
 
