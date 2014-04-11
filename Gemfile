@@ -50,6 +50,9 @@ gem 'fog',         '1.19.0'
 gem 'mini_magick', '3.7.0'
 gem 'remotipart',  '1.2.1'
 
+# GUID generation
+gem 'uuid', '2.3.7'
+
 # Localization
 
 gem 'http_accept_language', '1.0.2'
