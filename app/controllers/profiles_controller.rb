@@ -4,6 +4,7 @@
 
 class ProfilesController < ApplicationController
   before_filter :authenticate_user!, :except => ['show']
+  before_filter -> { @css_framework = :bootstrap }, only: [:show, :edit]
 
   respond_to :html, :except => [:show]
   respond_to :js, :only => :update
