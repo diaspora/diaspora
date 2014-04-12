@@ -14,5 +14,6 @@ class Stream::Activity < Stream::Base
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     @posts ||= EvilQuery::Participation.new(user).posts
+    #binding.pry
   end
 end

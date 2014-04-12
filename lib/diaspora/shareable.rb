@@ -35,6 +35,7 @@ module Diaspora
         end
 
         def self.for_visible_shareable_sql(max_time, order, limit = 15, types = Stream::Base::TYPES_OF_POST_IN_STREAM)
+          #binding.pry
           by_max_time(max_time, order).
           where(:type => types).
           limit(limit)

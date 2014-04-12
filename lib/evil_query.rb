@@ -10,6 +10,18 @@ module EvilQuery
     end
   end
 
+  class Blog < Base
+    def initialize(user)
+      @user = user
+      @class = Post
+    end
+
+    def posts
+      Post.joins(:participations).where(:participations => {:author_id => @user.person.id}).order("posts.interacted_at DESC")
+      #binding.pry
+    end
+  end
+
   class Participation < Base
     def initialize(user)
       @user = user
@@ -18,6 +30,7 @@ module EvilQuery
 
     def posts
       Post.joins(:participations).where(:participations => {:author_id => @user.person.id}).order("posts.interacted_at DESC")
+      #binding.pry
     end
   end
 
@@ -55,6 +68,7 @@ module EvilQuery
       post_ids = aspects_post_ids! + ids!(followed_tags_posts!) + ids!(mentioned_posts)
       post_ids += ids!(community_spotlight_posts!) if @include_spotlight
       Post.where(:id => post_ids)
+      #binding.pry
     end
 
     def aspects_post_ids!
@@ -70,6 +84,7 @@ module EvilQuery
     def mentioned_posts
       Rails.logger.debug("[EVIL-QUERY] mentioned_posts")
       StatusMessage.where_person_is_mentioned(@user.person)
+      #binding.pry
     end
 
     def community_spotlight_posts!

@@ -4,6 +4,7 @@ app.models.Stream = Backbone.Collection.extend({
   initialize : function(models, options){
     var collectionClass = options && options.collection || app.collections.Posts;
     this.items = new collectionClass([], this.collectionOptions());
+    console.log("ilake:initialize model stream");
   },
 
   collectionOptions :function(){
@@ -19,14 +20,17 @@ app.models.Stream = Backbone.Collection.extend({
     var defaultOpts = {
       remove: false  // tell backbone to keep existing items in the collection
     };
+    console.log("ilake:_fetchOpts:");
+    console.log(opts);
     return _.extend({}, defaultOpts, opts);
   },
 
   fetch: function() {
     if( this.isFetching() ) return false;
     var url = this.url();
+    console.log("ilake:fetch model:"+this.url());
     this.deferred = this.items.fetch(this._fetchOpts({url : url}))
-      .done(_.bind(this.triggerFetchedEvents, this));
+    .done(_.bind(this.triggerFetchedEvents, this));
   },
 
   isFetching : function() {
@@ -34,6 +38,8 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   triggerFetchedEvents : function(resp){
+    console.log("ilake:triggerFetchedEvents:");
+    console.log(resp);
     this.trigger("fetched", this);
     // all loaded?
     var respItems = this.items.parse(resp);

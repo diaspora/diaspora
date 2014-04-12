@@ -103,7 +103,7 @@ class Post < ActiveRecord::Base
       includes_for_a_stream
 
     scope = scope.excluding_hidden_content(user) if user.present?
-
+    #binding.pry
     scope
   end
 

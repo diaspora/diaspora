@@ -38,7 +38,8 @@ describe StreamsController do
       :liked => Stream::Likes,
       :mentioned => Stream::Mention,
       :followed_tags => Stream::FollowedTag,
-      :activity => Stream::Activity
+      :activity => Stream::Activity,
+      :blog => Stream::Blog
   }
 
   streams.each do |stream_path, stream_class|

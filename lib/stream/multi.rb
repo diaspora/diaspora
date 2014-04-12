@@ -17,6 +17,7 @@ class Stream::Multi < Stream::Base
 
   def posts
     @posts ||= ::EvilQuery::MultiStream.new(user, order, max_time, include_community_spotlight?).make_relation!
+    #binding.pry
   end
 
   #emits an enum of the groups which the post appeared

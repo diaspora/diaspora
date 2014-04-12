@@ -27,7 +27,6 @@ describe StreamHelper do
     it 'works for activity page when current page is not stream' do
       helper.stub("current_page?").and_return(false)
       helper.stub(:controller).and_return(build_controller(StreamsController))
-      # binding.pry
       helper.next_page_path.should include activity_stream_path
     end
   end
