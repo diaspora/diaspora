@@ -30,7 +30,7 @@ describe NotifierHelper do
     end
   end
 
-  describe '#comment_message' do
+   describe '#comment_message' do
     before do
       # comment for truncate test
       @comment = FactoryGirl.create(:comment)

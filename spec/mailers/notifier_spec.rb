@@ -228,10 +228,6 @@ describe Notifier do
       end
 
       context 'BODY' do
-        it "contains the comment" do
-          comment_mail.body.encoded.should include(comment.text)
-        end
-
         it "contains the original post's link" do
           comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
         end
@@ -240,7 +236,6 @@ describe Notifier do
           comment_mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
         end
       end
-
       [:reshare].each do |post_type|
         context post_type.to_s do
           let(:commented_post) { FactoryGirl.create(post_type, :author => bob.person) }
@@ -269,10 +264,6 @@ describe Notifier do
       end
 
       context 'BODY' do
-        it "contains the comment" do
-          comment_mail.body.encoded.should include(comment.text)
-        end
-
         it "contains the original post's link" do
           comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
         end
