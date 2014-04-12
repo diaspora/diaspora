@@ -66,7 +66,7 @@
               = image_tag(photo.url(:thumb_small))
             %br
               = link_to t('layouts.header.view_all'),  person_photos_path(person)
-  
+              
         - if person == current_user.person
           %li.image_list
             %h4
