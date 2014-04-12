@@ -9,6 +9,13 @@ describe EvilQuery::MultiStream do
   end
 end
 
+describe EvilQuery::Blog do
+  it "includes posts of blog by the user" do
+    EvilQuery::Blog.new(alice).posts.should == 1
+  end
+end
+
+
 describe EvilQuery::Participation do
   before do
     @status_message = FactoryGirl.create(:status_message, :author => bob.person)

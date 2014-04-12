@@ -888,6 +888,8 @@ zh-TW:
       other: "顯示另外%{count}個意見"
       zero: "沒有其它意見"
   streams:
+    blog:
+      title: "我的部落格"
     activity:
       title: "我的活動"
     aspects:

@@ -39,6 +39,8 @@
       = render 'aspects/aspect_listings', :stream => @stream
     %li
       = render 'tags/followed_tags_listings'
+    %li.hoverable{:data => {:stream => 'blog'}}
+      = link_to t('streams.blog.title'), blog_stream_path, :rel => 'backbone'
 
 
 

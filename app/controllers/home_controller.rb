@@ -22,6 +22,7 @@ class HomeController < ApplicationController
       render file: Rails.root.join("public", "default.html"),
              layout: 'application'
     end
+
   end
 
   def toggle_mobile

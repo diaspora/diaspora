@@ -23,11 +23,13 @@ class StreamsController < ApplicationController
   end
 
   def activity
+    #binding.pry
     stream_responder(Stream::Activity)
   end
 
   def multi
-      stream_responder(Stream::Multi)
+    #binding.pry
+    stream_responder(Stream::Multi)
   end
 
   def commented
@@ -39,8 +41,14 @@ class StreamsController < ApplicationController
   end
 
   def mentioned
+    #binding.pry
     stream_responder(Stream::Mention)
   end
+
+  def blog
+    stream_responder(Stream::Blog)
+  end
+
 
   def followed_tags
     gon.preloads[:tagFollowings] = tags
@@ -53,12 +61,13 @@ class StreamsController < ApplicationController
     if stream_klass.present?
       @stream ||= stream_klass.new(current_user, :max_time => max_time)
     end
-
-    respond_with do |format|
+    respond_with do |format|  
+      #binding.pry 
       format.html { render 'streams/main_stream' }
       format.mobile { render 'streams/main_stream' }
       format.json { render :json => @stream.stream_posts.map {|p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
     end
+    ##binding.pry
   end
 
   def save_selected_aspects

@@ -37,6 +37,9 @@ GEM
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
     addressable (2.3.5)
+    annotate (2.6.3)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (3.0.3)
     asset_sync (1.0.0)
       activemodel
@@ -48,9 +51,15 @@ GEM
       jquery-rails
       rails (>= 3.1)
     bcrypt-ruby (3.1.2)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.0.4)
+    callsite (0.0.11)
     capybara (2.2.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -74,6 +83,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    columnize (0.3.6)
     compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -96,6 +106,13 @@ GEM
       nokogiri (>= 1.5.0)
       rails (>= 3.0.0)
     database_cleaner (1.2.0)
+    debug_inspector (0.0.2)
+    debugger (1.6.6)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.3.2)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.3.2)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -229,6 +246,10 @@ GEM
     markerb (1.0.1)
       redcarpet (>= 2.0)
     messagebus_ruby_api (1.0.3)
+    meta_request (0.2.8)
+      callsite
+      rack-contrib
+      railties
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_magick (3.7.0)
@@ -281,9 +302,19 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-debugger (0.2.2)
+      debugger (~> 1.3)
+      pry (~> 0.9.10)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
+    pry-stack_explorer (0.4.9.1)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
     rack-cors (0.2.8)
       rack
     rack-google-analytics (0.14.0)
@@ -455,8 +486,11 @@ DEPENDENCIES
   acts-as-taggable-on (= 2.4.1)
   acts_as_api (= 0.4.2)
   addressable (= 2.3.5)
+  annotate (>= 2.6.0)
   asset_sync (= 1.0.0)
   backbone-on-rails (= 1.1.0)
+  better_errors
+  binding_of_caller
   bootstrap-sass (= 2.2.2.0)
   capybara (= 2.2.1)
   carrierwave (= 0.9.0)
@@ -489,6 +523,7 @@ DEPENDENCIES
   json (= 1.8.1)
   markerb (= 1.0.1)
   messagebus_ruby_api (= 1.0.3)
+  meta_request
   mini_magick (= 3.7.0)
   mobile-fu (= 1.2.2)
   mysql2 (= 0.3.14)
@@ -499,6 +534,10 @@ DEPENDENCIES
   omniauth-twitter (= 1.0.1)
   omniauth-wordpress (= 0.2.0)
   opengraph_parser (= 0.2.3)
+  pry
+  pry-debugger
+  pry-rails
+  pry-stack_explorer
   rack-cors (= 0.2.8)
   rack-google-analytics (= 0.14.0)
   rack-piwik (= 0.2.2)

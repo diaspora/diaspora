@@ -182,6 +182,16 @@ group :development do
 
   gem 'guard-spork', '1.5.1'
   gem 'spork',       '1.0.0rc4'
+
+  gem 'pry-rails'
+  gem 'pry'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'annotate', ">=2.6.0"
 end
 
 group :test do
@@ -217,3 +227,5 @@ group :development, :test do
   gem 'jasmine', '1.3.2'
   gem 'sinon-rails',	    '1.7.3'
 end
+
+

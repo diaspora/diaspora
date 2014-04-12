@@ -7,6 +7,7 @@ app.Router = Backbone.Router.extend({
     "p/:id": "singlePost",
 
     //oldness
+    "blog": "stream",
     "activity": "stream",
     "stream": "stream",
     "participate": "stream",
@@ -36,23 +37,25 @@ app.Router = Backbone.Router.extend({
 
   renderPage : function(pageConstructor){
     app.page && app.page.unbind && app.page.unbind() //old page might mutate global events $(document).keypress, so unbind before creating
-    app.page = pageConstructor() //create new page after the world is clean (like that will ever happen)
-    $("#container").html(app.page.render().el)
+    app.page = pageConstructor(); //create new page after the world is clean (like that will ever happen)
+    $("#container").html(app.page.render().el);
   },
 
   //below here is oldness
 
   stream : function(page) {
+    console.log("ilake:app.models.Stream");
     app.stream = new app.models.Stream();
     app.stream.fetch();
+    console.log("ilake:app.views.Stream");
     app.page = new app.views.Stream({model : app.stream});
     app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
-
     var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
-
     $("#main_stream").html(app.page.render().el);
+    
     $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
     this.hideInactiveStreamLists();
+    console.log("ilake:stream ok");
   },
 
   photos : function() {
