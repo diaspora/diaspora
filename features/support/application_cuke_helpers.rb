@@ -7,6 +7,10 @@ module ApplicationCukeHelpers
     flash_message(selector: "error").visible?
   end
 
+  def flash_message_alert?
+    flash_message(selector: "alert").visible?
+  end
+
   def flash_message_containing?(text)
     flash_message(text: text).should be_visible
   end

@@ -11,7 +11,7 @@
 .span-12.prepend-5.last
   - content_for :submit_block do
     = link_to t('cancel'), local_or_remote_person_path(current_user.person), :class => "button"
-    = submit_tag t('.update_profile'), :class => "creation"
+    = submit_tag t('.update_profile'), :class => "creation", :id => "update_profile"
   = render :partial => 'edit', :locals => {:person => @person, 
     :profile => @profile, :aspect => @aspect, :step => @step}
 
