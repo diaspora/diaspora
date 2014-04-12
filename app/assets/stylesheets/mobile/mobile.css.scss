@@ -30,7 +30,7 @@ h3 {
   clear: both;
 }
 
-#app {
+#app > * {
   transition: all 0.25s ease;
 }
 
@@ -328,19 +328,6 @@ h3 {
 
 .right {
   float: right;
-}
-
-footer {
-  text-align: center;
-  a,
-  a:visited {
-    color: $text-grey;
-    margin: 10px;
-  }
-  padding: {
-    top: 20px;
-    bottom: 20px;
-  }
 }
 
 .bottom_bar {
@@ -811,10 +798,6 @@ textarea#conversation_text {
 .registrations_notice {
   color: #DF0101;
   text-shadow: 1px 1px 5px #666;
-}
-
-.registrations {
-  margin: -45px;
 }
 
 form#new_user.new_user input.btn {
