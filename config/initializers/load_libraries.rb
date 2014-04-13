@@ -13,9 +13,6 @@ require 'typhoeus'
 # Presenters
 require 'post_presenter'
 
-# Helpers
-require 'markdownify_helper'
-
 # Our libs
 require 'collect_user_photos'
 require 'diaspora'

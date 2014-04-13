@@ -1,7 +1,5 @@
 class Services::Twitter < Service
-  include ActionView::Helpers::TextHelper
   include Rails.application.routes.url_helpers
-  include MarkdownifyHelper
 
   MAX_CHARACTERS = 140
   SHORTENED_URL_LENGTH = 21
@@ -40,7 +38,7 @@ class Services::Twitter < Service
 
   def attempt_post post, retry_count=0
     message = build_twitter_post post, retry_count
-    tweet = client.update message
+    client.update message
   rescue Twitter::Error::Forbidden => e
     if ! e.message.include? 'is over 140' || retry_count == 20
       raise e
@@ -52,7 +50,7 @@ class Services::Twitter < Service
   def build_twitter_post post, retry_count=0
     max_characters = MAX_CHARACTERS - retry_count
 
-    post_text = strip_markdown post.text(plain_text: true)
+    post_text = post.message.plain_text_without_markdown
     truncate_and_add_post_link post, post_text, max_characters
   end
 
@@ -65,7 +63,7 @@ class Services::Twitter < Service
       host: AppConfig.pod_uri.authority
     )
 
-    truncated_text = truncate post_text, length: max_characters - SHORTENED_URL_LENGTH + 1
+    truncated_text = post_text.truncate max_characters - SHORTENED_URL_LENGTH + 1
     truncated_text = restore_truncated_url truncated_text, post_text, max_characters
 
     "#{truncated_text} #{post_url}"
@@ -95,11 +93,9 @@ class Services::Twitter < Service
     return truncated_text if truncated_text !~ /#{LINK_PATTERN}\Z/
 
     url = post_text.match(LINK_PATTERN, truncated_text.rindex('http'))[0]
-    truncated_text = truncate(
-      post_text,
-      length: max_characters - SHORTENED_URL_LENGTH + 2,
-      separator: ' ',
-      omission: ''
+    truncated_text = post_text.truncate(
+      max_characters - SHORTENED_URL_LENGTH + 2,
+      separator: ' ', omission: ''
     )
 
     "#{truncated_text} #{url} ..."

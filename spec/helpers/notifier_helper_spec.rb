@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe NotifierHelper do
-  include MarkdownifyHelper
-
   describe '#post_message' do
     before do
       # post for truncate test

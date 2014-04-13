@@ -38,9 +38,10 @@ describe Services::Twitter do
     end
 
     it 'removes text formatting markdown from post text' do
-      message = "Text with some **bolded** and _italic_ parts."
-      post = double(:text => message, :photos => [])
-      @service.send(:build_twitter_post, post).should match "Text with some bolded and italic parts."
+      message = double
+      message.should_receive(:plain_text_without_markdown).and_return("")
+      post = double(message: message, photos: [])
+      @service.send(:build_twitter_post, post)
     end
 
   end
@@ -53,19 +54,19 @@ describe Services::Twitter do
 
     it "should not truncate a short message" do
       short_message = SecureRandom.hex(20)
-      short_post = double(:text => short_message, :photos => [])
+      short_post = double(message: double(plain_text_without_markdown: short_message), photos: [])
       @service.send(:build_twitter_post, short_post).should match short_message
     end
 
     it "should truncate a long message" do
       long_message = SecureRandom.hex(220)
-      long_post = double(:text => long_message, :id => 1, :photos => [])
+      long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
       @service.send(:build_twitter_post, long_post).length.should be < long_message.length
     end
 
     it "should not truncate a long message with an http url" do
       long_message = " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
-      long_post = double(:text => long_message, :id => 1, :photos => [])
+      long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
       @post.text = long_message
       answer = @service.send(:build_twitter_post, @post)
 
@@ -74,7 +75,7 @@ describe Services::Twitter do
 
     it "should not cut links when truncating a post" do
       long_message = SecureRandom.hex(40) + " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + SecureRandom.hex(55)
-      long_post = double(:text => long_message, :id => 1, :photos => [])
+      long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
       answer = @service.send(:build_twitter_post, long_post)
 
       answer.should match /\.\.\./
@@ -83,7 +84,7 @@ describe Services::Twitter do
 
     it "should append the otherwise-cut link when truncating a post" do
       long_message = "http://joindiaspora.com/a-very-long-decoy-url.html " + SecureRandom.hex(20) + " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + SecureRandom.hex(55) + " http://joindiaspora.com/a-very-long-decoy-url-part-2.html"
-      long_post = double(:text => long_message, :id => 1, :photos => [])
+      long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
       answer = @service.send(:build_twitter_post, long_post)
 
       answer.should match /\.\.\./
@@ -99,7 +100,7 @@ describe Services::Twitter do
 
     it "should truncate a long message with an ftp url" do
       long_message = @long_message_start + " ftp://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
-      long_post = double(:text => long_message, :id => 1, :photos => [])
+      long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
       answer = @service.send(:build_twitter_post, long_post)
 
       answer.should match /\.\.\./
@@ -107,7 +108,7 @@ describe Services::Twitter do
 
     it "should not truncate a message of maximum length" do
         exact_size_message = SecureRandom.hex(70)
-        exact_size_post = double(:text => exact_size_message, :id => 1, :photos => [])
+        exact_size_post = double(message: double(plain_text_without_markdown: exact_size_message), id:  1, photos: [])
         answer = @service.send(:build_twitter_post, exact_size_post)
 
         answer.should match exact_size_message

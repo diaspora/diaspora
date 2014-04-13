@@ -12,30 +12,11 @@ describe PostsHelper do
     end
 
     context 'with posts with text' do
-      context 'when :length is passed in parameters' do
-        it 'returns string of size less or equal to :length' do
-          @sm = double(:text => "## My title\n Post content...")
-          string_size = 12
-          post_page_title(@sm, :length => string_size ).size.should <= string_size
-        end
-      end
-      context 'when :length is not passed in parameters' do
-        context 'with a Markdown header of less than 200 characters on first line'do
-          it 'returns atx style header' do
-            @sm = double(:text => "## My title\n Post content...")
-            post_page_title(@sm).should == "## My title"
-          end
-          it 'returns setext style header' do
-            @sm = double(:text => "My title \n======\n Post content...")
-            post_page_title(@sm).should ==  "My title \n======"
-          end
-        end
-        context 'without a Markdown header of less than 200 characters on first line 'do
-          it 'truncates posts to the 20 first characters' do
-            @sm = double(:text => "Very, very, very long post")
-            post_page_title(@sm).should == "Very, very, very ..."
-          end
-        end
+      it "delegates to message.title" do
+        message = double
+        message.should_receive(:title)
+        post = double(message: message)
+        post_page_title(post)
       end
     end
   end

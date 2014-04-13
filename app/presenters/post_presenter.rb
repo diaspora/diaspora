@@ -1,6 +1,5 @@
 class PostPresenter
   include PostsHelper
-  include ActionView::Helpers::TextHelper
 
   attr_accessor :post, :current_user
 
@@ -49,7 +48,7 @@ class PostPresenter
   end
 
   def title
-    @post.text.present? ? post_page_title(@post) : I18n.translate('posts.presenter.title', :name => @post.author_name)
+    @post.message.present? ? @post.message.title : I18n.t('posts.presenter.title', name: @post.author_name)
   end
 
   def root

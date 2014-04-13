@@ -98,7 +98,11 @@ class UsersController < ApplicationController
     if @user = User.find_by_username(params[:username])
       respond_to do |format|
         format.atom do
-          @posts = Post.where(:author_id => @user.person_id, :public => true).order('created_at DESC').limit(25)
+          @posts = Post.where(author_id: @user.person_id, public: true)
+                    .order('created_at DESC')
+                    .limit(25)
+                    .map {|post| post.is_a?(Reshare) ? post.absolute_root : post }
+                    .compact
         end
 
         format.any { redirect_to person_path(@user.person) }
