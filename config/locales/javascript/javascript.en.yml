@@ -218,6 +218,7 @@ en:
 
     poll:
       vote: "Vote"
+      vote_original_post: 'Vote original post'
       result: "Result"
       count:
         one: "1 vote so far"
