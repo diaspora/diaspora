@@ -48,6 +48,7 @@ describe Report do
     describe '.post' do
       it 'should destroy it' do
         @post.destroy_reported_item.should be_true
+        expect { Post.find(@post) }.to raise_error(ActiveRecord::RecordNotFound)
       end
 
       it 'should be marked' do
@@ -60,9 +61,7 @@ describe Report do
     describe '.comment' do
       it 'should destroy it' do
         @comment.destroy_reported_item.should be_true
-      end
-
-      xit 'nothing' do
+        expect { Comment.find(@comment) }.to raise_error(ActiveRecord::RecordNotFound)
       end
 
       it 'should be marked' do
