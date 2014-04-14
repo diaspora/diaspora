@@ -49,6 +49,10 @@ class Reshare < Post
     absolute_root.try(:location).try(:address)
   end
 
+  def poll
+    absolute_root.try(:poll) || super
+  end
+
   def receive(recipient, sender)
     local_reshare = Reshare.where(:guid => self.guid).first
     if local_reshare && local_reshare.root.author_id == recipient.person.id

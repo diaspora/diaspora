@@ -12,13 +12,13 @@
           {{#poll.poll_answers}}
             <label class="radio result-row">
               <input type="radio" name="vote" value="{{id}}"/>
-              {{answer}} 
+              {{answer}}
               <span class="percentage pull-right" style="display: none;"></span>
               <div class="poll_progress_bar_wrapper progress" style="display: none">
                 <div class="poll_progress_bar bar" data-answerid="{{id}}">
               </div>
             </div>
-            </label>  
+            </label>
           {{/poll.poll_answers}}
           <div class="toggle_result_wrapper">
             <a class="toggle_result" href="#">{{t "poll.show_result"}}</a>
@@ -37,6 +37,13 @@
           </div>
         {{/poll.poll_answers}}
       {{/if}}
+
+      {{#if is_reshare_post }}
+        <div class="poll_footer">
+          <a class="root_post_link" href="/posts/{{root.id}}">{{t "poll.vote_original_post" }}</a>
+        </div>
+      {{/if}}
+
     </div>
   </div>
 {{/if}}
