@@ -26,6 +26,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 * SPV: Improve padding and interaction counts [#4426](https://github.com/diaspora/diaspora/pull/4426)
 
 ## Bug fixes
+* Fix email body language when invite a friend [#4832](https://github.com/diaspora/diaspora/issues/4832)
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
 * Do not add a space after adding a mention [#4767](https://github.com/diaspora/diaspora/issues/4767)
 * Fix active user statistics by saving a last seen timestamp for users [#4734](https://github.com/diaspora/diaspora/issues/4734)
