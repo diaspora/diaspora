@@ -124,6 +124,15 @@ describe("app.views.Publisher", function() {
       })
     });
 
+    describe('#setText', function() {
+      it('sets the content text', function() {
+        this.view.setText('FOO bar');
+
+        expect(this.view.el_input.val()).toEqual('FOO bar');
+        expect(this.view.el_hiddenInput.val()).toEqual('FOO bar');
+      });
+    });
+
     describe("publishing a post with keyboard", function(){
       it("should submit the form when ctrl+enter is pressed", function(){
         this.view.render();

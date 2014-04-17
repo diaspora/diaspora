@@ -103,7 +103,7 @@ app.views.Publisher = Backbone.View.extend({
       publisher: this
     });
     this.view_uploader.on('change', this.checkSubmitAvailability, this);
-    
+
     this.view_poll_creator = new app.views.PublisherPollCreator({
       el: this.$('#publisher-poll-creator')
     });
@@ -117,21 +117,34 @@ app.views.Publisher = Backbone.View.extend({
     this.view_aspect_selector_blueprint.updateAspectsSelector(ids);
   },
 
+  // inject content into the publisher textarea
+  setText: function(txt) {
+    this.el_input.val(txt);
+    this.el_hiddenInput.val(txt);
+
+    this.el_input.trigger('input');
+  },
+
   // show the "getting started" popups around the publisher
   triggerGettingStarted: function() {
     this.view_getting_started.show();
   },
 
   createStatusMessage : function(evt) {
+    var self = this;
+
     if(evt){ evt.preventDefault(); }
 
     //add missing mentions at end of post:
     this.handleTextchange();
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
+    // disable input while posting, must be after the form is serialized
+    this.setInputEnabled(false);
 
     // lulz this code should be killed.
     var statusMessage = new app.models.Post();
+    if( app.publisher ) app.publisher.trigger('publisher:add');
 
     statusMessage.save({
       "status_message" : {
@@ -147,17 +160,22 @@ app.views.Publisher = Backbone.View.extend({
     }, {
       url : "/status_messages",
       success : function() {
-        if(app.publisher) {
-          $(app.publisher.el).trigger('ajax:success');
+        if( app.publisher ) {
+          app.publisher.$el.trigger('ajax:success');
+          app.publisher.trigger('publisher:sync');
         }
         if(app.stream) {
           app.stream.addNow(statusMessage.toJSON());
         }
+
+        // clear state
+        self.clear();
+      },
+      error: function() {
+        if( app.publisher ) app.publisher.trigger('publisher:error');
+        self.setInputEnabled(true);
       }
     });
-
-    // clear state
-    this.clear();
   },
 
   // creates the location
@@ -231,7 +249,7 @@ app.views.Publisher = Backbone.View.extend({
 
     var poll = undefined;
     var poll_question = serializedForm["poll_question"];
-    var poll_answers_arry = _.flatten([serializedForm["poll_answers[]"]]); 
+    var poll_answers_arry = _.flatten([serializedForm["poll_answers[]"]]);
     var poll_answers = _.map(poll_answers_arry, function(answer){
       if(answer) return { 'answer' : answer };
     });
@@ -259,7 +277,7 @@ app.views.Publisher = Backbone.View.extend({
       "title" : serializedForm["status_message[text]"],
       "address" : $("#location_address").val(),
       "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0},
-      'poll': poll, 
+      'poll': poll,
     };
     if(app.stream) {
       this.removePostPreview();
@@ -321,6 +339,9 @@ app.views.Publisher = Backbone.View.extend({
     // disable submitting
     this.checkSubmitAvailability();
 
+    // enable input
+    this.setInputEnabled(true);
+
     // clear location
     this.destroyLocation();
 
@@ -376,6 +397,12 @@ app.views.Publisher = Backbone.View.extend({
     bool = !bool;
     this.el_submit.prop({disabled: bool});
     this.el_preview.prop({disabled: bool});
+  },
+
+  setInputEnabled: function(bool) {
+    bool = !bool;
+    this.el_input.prop({disabled: bool});
+    this.el_hiddenInput.prop({disabled: bool});
   },
 
   // determine submit availability

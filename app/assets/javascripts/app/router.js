@@ -21,7 +21,9 @@ app.Router = Backbone.Router.extend({
     "people/:id/photos": "photos",
 
     "people/:id": "stream",
-    "u/:name": "stream"
+    "u/:name": "stream",
+
+    "bookmarklet": "bookmarklet"
   },
 
   help: function() {
@@ -110,5 +112,12 @@ app.Router = Backbone.Router.extend({
     if(this.followedTagsView && Backbone.history.fragment != "followed_tags")
       this.followedTagsView.hideFollowedTags();
   },
+
+  bookmarklet: function() {
+    var contents = (window.gon) ? gon.preloads.bookmarklet : {}
+    app.bookmarklet = new app.views.Bookmarklet(
+      _.extend({}, {el: $('#bookmarklet')}, contents)
+    ).render();
+  }
 });
 

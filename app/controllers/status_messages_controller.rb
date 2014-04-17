@@ -42,6 +42,13 @@ class StatusMessagesController < ApplicationController
   def bookmarklet
     @aspects = current_user.aspects
     @aspect_ids = @aspects.map{|x| x.id}
+
+    gon.preloads[:bookmarklet] = {
+      content: params[:content],
+      title: params[:title],
+      url: params[:url],
+      notes: params[:notes]
+    }
   end
 
   def create
@@ -52,7 +59,7 @@ class StatusMessagesController < ApplicationController
     @status_message = current_user.build_post(:status_message, params[:status_message])
     @status_message.build_location(:address => params[:location_address], :coordinates => params[:location_coords]) if params[:location_address].present?
     if params[:poll_question].present?
-      @status_message.build_poll(:question => params[:poll_question]) 
+      @status_message.build_poll(:question => params[:poll_question])
       [*params[:poll_answers]].each do |poll_answer|
         @status_message.poll.poll_answers.build(:answer => poll_answer)
       end
