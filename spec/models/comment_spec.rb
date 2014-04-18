@@ -80,6 +80,10 @@ describe Comment do
       @xml.include?(@commenter.diaspora_handle).should be_true
     end
 
+    it 'serializes the created_at timestamp' do
+      @xml.include?(@comment.remote_created).should be_true
+    end
+
     it 'serializes the post_guid' do
       @xml.should include(@post.guid)
     end
@@ -91,6 +95,10 @@ describe Comment do
 
       it 'marshals the author' do
         @marshalled_comment.author.should == @commenter.person
+      end
+
+      it 'marshals the created_at' do
+        @marshalled_comment.created_at.to_s.should == @comment.created_at.to_s
       end
 
       it 'marshals the post' do
