@@ -318,7 +318,7 @@ ActiveRecord::Schema.define(:version => 20140308154022) do
 
   create_table "post_reports", :force => true do |t|
     t.integer  "post_id",                       :null => false
-    t.string   "user_id"
+    t.integer  "user_id"
     t.boolean  "reviewed",   :default => false
     t.text     "text"
     t.datetime "created_at",                    :null => false
