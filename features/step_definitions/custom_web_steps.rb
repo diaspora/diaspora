@@ -64,37 +64,12 @@ And /^I expand the publisher$/ do
  click_publisher
 end
 
-When /^I press the aspect dropdown$/ do
-  find('.dropdown .button').click
-end
-
-Then /^the aspect dropdown should be visible$/ do
-  find(:css, '.aspect_membership.dropdown.active').should be_visible
-end
-
-And /^I toggle the aspect "([^"]*)"$/ do |aspect_name|
-  aspect = @me.aspects.where(:name => aspect_name).first
-  find(".dropdown li[data-aspect_id='#{aspect.id}']").click
-end
-
 Then /^the publisher should be expanded$/ do
   find("#publisher")["class"].should_not include("closed")
 end
 
 Then /^the text area wrapper mobile should be with attachments$/ do
   find("#publisher_textarea_wrapper")["class"].should include("with_attachments")
-end
-
-When /^I append "([^"]*)" to the publisher$/ do |stuff|
-  elem = find('#status_message_fake_text')
-  elem.native.send_keys(' ' + stuff)
-end
-
-When /^I append "([^"]*)" to the publisher mobile$/ do |stuff|
-  elem = find('#status_message_text')
-  elem.native.send_keys(' ' + stuff)
-
-  find('#status_message_text').value.should include(stuff)
 end
 
 And /^I want to mention (?:him|her) from the profile$/ do
