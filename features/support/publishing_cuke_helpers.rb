@@ -1,6 +1,10 @@
 module PublishingCukeHelpers
+  def write_in_publisher(txt)
+    fill_in 'status_message_fake_text', with: txt
+  end
+
   def make_post(text)
-    fill_in 'status_message_fake_text', :with => text
+    write_in_publisher(txt)
     find(".creation").click
     page.should have_content text unless page.has_css? '.nsfw-shield'
   end
