@@ -8,13 +8,16 @@ describe Report do
   before do
     #:report => { :post_id => @message.id, :post_type => 'post', :text => 'offensive content' }
     @user = bob
-    @valid_post = {
-      :post_id => 666,
+    @bob_post = @user.post(:status_message, :text => "hello", :to => @user.aspects.first.id)
+    @bob_comment = @user.comment!(@bob_post, "welcome")
+
+    @valid_post_report = {
+      :post_id => @bob_post.id,
       :post_type => 'post',
       :text => 'offensive content'
     }
-    @valid_comment = {
-      :post_id => 666,
+    @valid_comment_report = {
+      :post_id => @bob_comment.id,
       :post_type => 'comment',
       :text => 'offensive content'
     }
@@ -30,44 +33,46 @@ describe Report do
     end
 
     it 'validates that entry does not exist' do
-      @user.reports.build(@valid_post).should be_valid
+      @user.reports.build(@valid_post_report).should be_valid
     end
     
     it 'validates that entry does exist' do
-      @user.reports.create(@valid_post)
-      @user.reports.build(@valid_post).should_not be_valid
+      @user.reports.create(@valid_post_report)
+      @user.reports.build(@valid_post_report).should_not be_valid
     end
   end
 
   describe '#destroy_reported_item' do
-    before do
-      @post = @user.reports.create(@valid_post)
-      @comment = @user.reports.create(@valid_comment)
+    before(:each) do
+      @post_report = @user.reports.create(@valid_post_report)
+      @comment_report = @user.reports.create(@valid_comment_report)
     end
 
     describe '.post' do
       it 'should destroy it' do
-        @post.destroy_reported_item.should be_true
-        expect { Post.find(@post) }.to raise_error(ActiveRecord::RecordNotFound)
+        expect {
+          @post_report.destroy_reported_item
+        }.to change { Post.count }.by(-1)
       end
 
       it 'should be marked' do
         expect {
-          @post.destroy_reported_item
-        }.to change{ Report.where(@valid_post).first.reviewed }.to(true).from(false)
+          @post_report.destroy_reported_item
+        }.to change { Report.where(@valid_post_report).first.reviewed }.to(true).from(false)
       end
     end
 
     describe '.comment' do
       it 'should destroy it' do
-        @comment.destroy_reported_item.should be_true
-        expect { Comment.find(@comment) }.to raise_error(ActiveRecord::RecordNotFound)
+        expect {
+          @comment_report.destroy_reported_item
+        }.to change { Comment.count }.by(-1)
       end
 
       it 'should be marked' do
         expect {
-          @comment.destroy_reported_item
-        }.to change{ Report.where(@valid_comment).first.reviewed }.to(true).from(false)
+          @comment_report.destroy_reported_item
+        }.to change { Report.where(@valid_comment_report).first.reviewed }.to(true).from(false)
       end
     end
   end
