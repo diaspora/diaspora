@@ -7,14 +7,15 @@
 
   <div class="bd">
     <div class="controls">
+    {{#unless authorIsCurrentUser}}
+      <a href="#" data-type="comment" class="comment_report" title="{{t "report.name"}}">
+        <div class="icons-report"/>
+      </a>
+    {{/unless}}
     {{#if canRemove}}
       <a href="#" class="delete comment_delete" title="{{t "delete"}}">
         <div alt="Deletelabel" class="icons-deletelabel" />
       <a/>
-    {{else}}
-      <a href="#" data-type="comment" class="comment_report" title="{{t "report.name"}}">
-        <div class="icons-report control_icon"/>
-      </a>
     {{/if}}
     </div>
 
