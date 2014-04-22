@@ -1,11 +1,9 @@
 class PostReport < ActiveRecord::Base
-  validates :user_id, presence: true
-  validates :post_id, presence: true
+  validates :user, presence: true
+  validates :post, presence: true
 
   belongs_to :user
   belongs_to :post
-
-  has_many :post_reports  
 
   after_create :send_report_notification
 

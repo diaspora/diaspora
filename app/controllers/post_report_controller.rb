@@ -22,11 +22,11 @@ class PostReportController < ApplicationController
   end
 
   def create
-    username = current_user.username
-    unless PostReport.where(post_id: params[:post_id]).exists?(user_id: username)
+    user_id = current_user.id
+    unless PostReport.where(post_id: params[:post_id]).exists?(user_id: user_id)
       post = PostReport.new(
         :post_id => params[:post_id],
-        :user_id => username,
+        :user_id => user_id,
         :text => params[:text])
       result = post.save
       status(( 200 if result ) || ( 422 if !result ))
