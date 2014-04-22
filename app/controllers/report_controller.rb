@@ -37,6 +37,6 @@ class ReportController < ApplicationController
 
   private
     def report_params
-      params.require(:report).permit(:post_id, :post_type, :text)
+      params.require(:report).permit(:item_id, :item_type, :text)
     end
 end

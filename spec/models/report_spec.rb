@@ -6,30 +6,30 @@ require 'spec_helper'
 
 describe Report do
   before do
-    #:report => { :post_id => @message.id, :post_type => 'post', :text => 'offensive content' }
+    #:report => { :item_id => @message.id, :item_type => 'post', :text => 'offensive content' }
     @user = bob
     @bob_post = @user.post(:status_message, :text => "hello", :to => @user.aspects.first.id)
     @bob_comment = @user.comment!(@bob_post, "welcome")
 
     @valid_post_report = {
-      :post_id => @bob_post.id,
-      :post_type => 'post',
+      :item_id => @bob_post.id,
+      :item_type => 'post',
       :text => 'offensive content'
     }
     @valid_comment_report = {
-      :post_id => @bob_comment.id,
-      :post_type => 'comment',
+      :item_id => @bob_comment.id,
+      :item_type => 'comment',
       :text => 'offensive content'
     }
   end
 
   describe '#validation' do
     it 'validates that post ID is required' do
-      @user.reports.build(:post_type => 'post', :text => 'blub').should_not be_valid
+      @user.reports.build(:item_type => 'post', :text => 'blub').should_not be_valid
     end
     
     it 'validates that post type is required' do
-      @user.reports.build(:post_id => 666, :text => 'blub').should_not be_valid
+      @user.reports.build(:item_id => 666, :text => 'blub').should_not be_valid
     end
 
     it 'validates that entry does not exist' do

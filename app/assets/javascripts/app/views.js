@@ -89,8 +89,8 @@ app.views.Base = Backbone.View.extend({
     }
     var data = {
       report: {
-        post_id: this.model.id,
-        post_type: $(evt.currentTarget).data("type"),
+        item_id: this.model.id,
+        item_type: $(evt.currentTarget).data("type"),
         text: msg
       }
     };

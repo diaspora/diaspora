@@ -6,16 +6,17 @@
     = t('report.title')
   %div#reports
     - @reports.each do |r|
+      - username = User.find_by_id(r.user_id).username
       %div.content
         %span
-          = report_content(r.post_id, r.post_type)
+          = report_content(r.item_id, r.item_type)
         %span
-          = raw t('report.reported_label', person: link_to(r.user_id, user_profile_path(r.user_id)))
+          = raw t('report.reported_label', person: link_to(username, user_profile_path(username)))
         %span
           = t('report.reason_label', text: r.text)
       %div.options
         %span
-          = link_to t('report.review_link'), report_path(r.id, :type => r.post_type), method: :put
+          = link_to t('report.review_link'), report_path(r.id, :type => r.item_type), method: :put
         %span
-          = link_to t('report.delete_link'), report_path(r.id, :type => r.post_type), method: :delete
+          = link_to t('report.delete_link'), report_path(r.id, :type => r.item_type), method: :delete
       %div.clear
