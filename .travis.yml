@@ -1,7 +1,6 @@
 branches:
   only:
-    - 'master'
-    - 'develop'
+    - 'travis'
 
 language: ruby
 rvm:
@@ -20,8 +19,3 @@ script: "./script/ci/build.sh"
 
 addons:
   firefox: "26.0"
-
-notifications:
-  irc:
-    channels:
-      - "irc.freenode.org:6667#diaspora-dev"
