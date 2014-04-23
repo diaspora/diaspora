@@ -50,7 +50,7 @@ class AccountDeleter
   end
 
   def ignored_ar_user_associations
-    [:followed_tags, :invited_by, :contact_people, :aspect_memberships, :ignored_people, :conversation_visibilities, :conversations]
+    [:followed_tags, :invited_by, :contact_people, :aspect_memberships, :ignored_people, :conversation_visibilities, :conversations, :reports]
   end
 
   def delete_standard_user_associations
