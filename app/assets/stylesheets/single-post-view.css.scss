@@ -207,6 +207,13 @@
     &:hover {
       @include opacity(1);
     }
+    .comment_report {
+      display: inline-block;
+      .icons-report {
+        height: 14px;
+        width: 14px;
+      }
+    }
     .delete {
       display: inline-block;
       .icons-deletelabel {
