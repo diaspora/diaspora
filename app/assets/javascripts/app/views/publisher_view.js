@@ -30,6 +30,7 @@ app.views.Publisher = Backbone.View.extend({
 
   initialize : function(opts){
     this.standalone = opts ? opts.standalone : false;
+    this.disabled   = false;
 
     // init shortcut references to the various elements
     this.el_input = this.$('#status_message_fake_text');
@@ -123,6 +124,7 @@ app.views.Publisher = Backbone.View.extend({
     this.el_hiddenInput.val(txt);
 
     this.el_input.trigger('input');
+    this.handleTextchange();
   },
 
   // show the "getting started" popups around the publisher
@@ -164,12 +166,14 @@ app.views.Publisher = Backbone.View.extend({
           app.publisher.$el.trigger('ajax:success');
           app.publisher.trigger('publisher:sync');
         }
-        if(app.stream) {
-          app.stream.addNow(statusMessage.toJSON());
-        }
+
+        if(app.stream) app.stream.addNow(statusMessage.toJSON());
 
         // clear state
         self.clear();
+
+        // standalone means single-shot posting (until further notice)
+        if( self.standalone ) self.setEnabled(false);
       },
       error: function() {
         if( app.publisher ) app.publisher.trigger('publisher:error');
@@ -368,6 +372,8 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   open : function() {
+    if( this.disabled ) return;
+
     // visually 'open' the publisher
     this.$el.removeClass('closed');
     this.el_wrapper.addClass('active');
@@ -393,6 +399,13 @@ app.views.Publisher = Backbone.View.extend({
     }
   },
 
+  setEnabled: function(bool) {
+    this.setInputEnabled(bool);
+    this.disabled = !bool;
+
+    this.handleTextchange();
+  },
+
   setButtonsEnabled: function(bool) {
     bool = !bool;
     this.el_submit.prop({disabled: bool});
@@ -410,7 +423,7 @@ app.views.Publisher = Backbone.View.extend({
     var onlyWhitespaces = ($.trim(this.el_input.val()) === ''),
         isPhotoAttached = (this.el_photozone.children().length > 0);
 
-    return (!onlyWhitespaces || isPhotoAttached);
+    return (!onlyWhitespaces || isPhotoAttached) && !this.disabled;
   },
 
   handleTextchange: function() {

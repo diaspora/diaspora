@@ -45,4 +45,18 @@ describe('app.views.Bookmarklet', function() {
 
     expect(app.publisher.el_hiddenInput.val()).toMatch(/.+A$/);
   });
+
+  it('keeps the publisher disabled after successful post creation', function() {
+    jasmine.Ajax.useMock();
+
+    init_bookmarklet(test_data);
+    spec.content().find('form').submit();
+
+    mostRecentAjaxRequest().response({
+      status: 200,  // success!
+      responseText: "{}"
+    });
+
+    expect(app.publisher.disabled).toBeTruthy();
+  });
 });
