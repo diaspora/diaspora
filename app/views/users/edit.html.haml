@@ -26,7 +26,7 @@
         .span6
           %h3
             = t('.your_email')
-          = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
+          = form_for 'user', :url => user_path, :html => { :class => "form-inline", :method => :put } do |f|
             = f.error_messages
             %p
               = f.text_field :email, :value => @user.unconfirmed_email || @user.email
@@ -61,12 +61,10 @@
 
         %h3 
           = t('.change_language')
-        = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
+        = form_for 'user', :url => user_path, :html => { :class => "form-inline", :method => :put } do |f|
           = f.error_messages
-
-          %p
-            = f.select :language, available_language_options
-            = f.submit t('.change_language'), :class => "btn"
+          = f.select :language, available_language_options
+          = f.submit t('.change_language'), :class => "btn"
 
         %hr
 
