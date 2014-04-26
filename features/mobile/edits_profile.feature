@@ -19,7 +19,7 @@ Feature: editing the profile in the mobile view
     And I fill in "profile[tag_string]" with "#starwars"
     And I press the first ".as-result-item" within ".as-results"
 
-    And I press "Update Profile"
+    And I press "Update profile"
 
     Then I should be on my edit profile page
     And I should see "Profile updated"
@@ -36,7 +36,7 @@ Feature: editing the profile in the mobile view
     When I fill in "profile[tag_string]" with "#kamino"
     And I press the first ".as-result-item" within ".as-results"
 
-    And I press "Update Profile"
+    And I press "Update profile"
     Then I should see "#kamino" within "ul#as-selections-tags"
     And I should see "#starwars" within "ul#as-selections-tags"
 

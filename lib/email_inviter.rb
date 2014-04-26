@@ -2,6 +2,7 @@ class EmailInviter
   attr_accessor :emails, :message, :inviter, :locale
 
   def initialize(emails, inviter, options={})
+    options = options.symbolize_keys
     self.message = options[:message]
     self.locale = options.fetch(:locale, 'en')
     self.inviter = inviter 

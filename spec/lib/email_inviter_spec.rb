@@ -41,6 +41,11 @@ describe EmailInviter do
       inviter.locale.should == 'en'
     end
 
+    it 'should symbolize keys' do
+      inviter = EmailInviter.new(@emails, @user, 'locale' => 'es')
+      inviter.locale.should == 'es'
+    end
+
     it 'listens to the langauge option' do
       inviter = EmailInviter.new(@emails, @user, :locale => 'es')
       inviter.locale.should == 'es'

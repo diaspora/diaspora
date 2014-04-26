@@ -44,6 +44,9 @@ Sidekiq.configure_server do |config|
     ENV['DATABASE_URL'] = "#{database_url}?pool=#{AppConfig.environment.sidekiq.concurrency.get}"
     ActiveRecord::Base.establish_connection
   end
+  
+  # Make sure each Sidekiq process has its own sequence of UUIDs
+  UUID.generator.next_sequence
 end
 
 Sidekiq.configure_client do |config|

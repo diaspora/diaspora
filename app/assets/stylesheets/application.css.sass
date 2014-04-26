@@ -239,6 +239,12 @@ ul.as-selections
 .grey *
   :color $text-grey
 
+.pull-left
+  :float left
+
+.pull-right
+  :float right
+
 .details,
 .details *
   :font
@@ -542,39 +548,6 @@ input[type="search"]
 
 h3 span.current_gs_step
   :color #22C910
-
-#notifications
-  :z-index 10
-  :position fixed
-  :bottom 21px
-  :right 12px
-
-  .notification
-    @include border-radius(5px)
-    @include box-shadow(0,2px,3px,#333)
-
-    :margin
-      :bottom 10px
-
-    :background
-      :color rgb(30,30,30)
-      :color rgba(30,30,30,0.9)
-
-    :min-width 200px
-    :padding 12px
-    :color #fff
-
-    :vertical
-      :align middle
-
-    .avatar
-      :display inline-block
-      :height 20px
-      :width 20px
-      :margin
-        :right 5px
-      :vertical
-        :align middle
 
 ul#request_result
   :padding 0
@@ -948,27 +921,6 @@ h1.tag
 
   .month
     :font-size 14px
-
-.notification_count
-  :background
-    :color #f0f0f0
-  :color $text-grey
-  :font
-    :weight normal
-
-  :padding 0 5px
-    :left 11px
-  :margin
-    :right 5px
-  :border
-    :radius 5px
-
-  &.unread
-    :background
-      :color lighten($red, 5%)
-    :color #eee !important
-    :font
-      :weight bold
 
 .subtle
   :color $text-grey

@@ -41,6 +41,10 @@ class Reshare < Post
     self.root ? root.raw_message : super
   end
 
+  def message
+    absolute_root.message if root.present?
+  end
+
   def mentioned_people
     self.root ? root.mentioned_people : super
   end

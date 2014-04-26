@@ -110,7 +110,7 @@ module UserCukeHelpers
     page.should have_content("What are you into?")
 
     # the username that was just entered for registration
-    page.should have_content(@username)
+    page.should have_field("profile_first_name", with: @username)
   end
 end
 

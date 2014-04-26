@@ -1,9 +1,8 @@
 class Notifier < ActionMailer::Base
   helper :application
-  helper :markdownify
   helper :notifier
   helper :people
-  
+
   def self.admin(string, recipients, opts = {})
     mails = []
     recipients.each do |rec|
@@ -16,7 +15,7 @@ class Notifier < ActionMailer::Base
   def single_admin(string, recipient, opts={})
     @receiver = recipient
     @string = string.html_safe
-    
+
     if attach = opts.delete(:attachments)
       attach.each{ |f|
         attachments[f[:name]] = f[:file]

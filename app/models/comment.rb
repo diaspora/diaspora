@@ -5,7 +5,7 @@
 class Comment < ActiveRecord::Base
 
   include Diaspora::Federated::Base
-  
+
   include Diaspora::Guid
   include Diaspora::Relayable
 
@@ -22,7 +22,7 @@ class Comment < ActiveRecord::Base
   belongs_to :commentable, :touch => true, :polymorphic => true
   alias_attribute :post, :commentable
   belongs_to :author, :class_name => 'Person'
-  
+
   delegate :name, to: :author, prefix: true
   delegate :comment_email_subject, to: :parent
   delegate :author_name, to: :parent, prefix: true
@@ -77,6 +77,10 @@ class Comment < ActiveRecord::Base
 
   def parent= parent
     self.post = parent
+  end
+
+  def message
+    @message ||= Diaspora::MessageRenderer.new text
   end
 
   def text= text

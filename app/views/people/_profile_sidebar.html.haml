@@ -15,35 +15,35 @@
           .profile_button
             = link_to content_tag(:div, nil, :class => 'icons-mention', :title => t('people.show.mention'), :id => 'mention_button'), new_status_message_path(:person_id => @person.id), :rel => 'facebox'
           .white_bar
-        
+
         - if @contact.mutual?
-          
-          
+
+
           .profile_button
             = link_to content_tag(:div, nil, :class => 'icons-message', :title => t('people.show.message'), :id => 'message_button'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name), :rel => 'facebox'
           .white_bar
-        
+
         .profile_button
           = link_to content_tag(:div, nil, :class => 'icons-ignoreuser block_user', :title => t('ignore'), :id => 'block_user_button', :data => { :person_id => @person.id }), '#', :rel => "nofollow" if @block.blank?
-               
 
-      %br 
+
+      %br
 
     -if contact.sharing? || person == current_user.person
       %ul#profile_information
-      
+
         - unless person.bio.blank?
           %li
             %h4
               =t('.bio')
             %div{ :class => direction_for(person.bio) }
-              = markdownify(person.profile.bio, :oembed => true, :newlines => true)
+              = person.profile.bio_message.markdownified
         - unless person.profile.location.blank?
           %li
             %h4
               =t('.location')
             %div{ :class => direction_for(person.location) }
-              = markdownify(person.location, :oembed => true, :newlines => true)
+              = person.profile.location_message.markdownified
 
         - unless person.gender.blank?
           %li
@@ -66,7 +66,7 @@
               = image_tag(photo.url(:thumb_small))
             %br
               = link_to t('layouts.header.view_all'),  person_photos_path(person)
-  
+
         - if person == current_user.person
           %li.image_list
             %h4

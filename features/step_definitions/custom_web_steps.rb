@@ -245,6 +245,14 @@ Then /^I should see a flash message indicating success$/ do
   flash_message_success?.should be_true
 end
 
+Then /^I should see a flash message indicating failure$/ do
+  flash_message_failure?.should be_true
+end
+
+Then /^I should see a flash message with a warning$/ do
+  flash_message_alert?.should be_true
+end
+
 Then /^I should see a flash message containing "(.+)"$/ do |text|
   flash_message_containing? text
 end

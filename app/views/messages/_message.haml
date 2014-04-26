@@ -11,4 +11,4 @@
       = timeago(message.created_at)
 
       %div{ :class => direction_for(message.text) }
-        = markdownify(message, :oembed => true)
+        = message.message.markdownified

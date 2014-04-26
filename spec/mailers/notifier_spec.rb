@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 describe Notifier do
-  include ActionView::Helpers::TextHelper
-  include MarkdownifyHelper
-
   let(:person) { FactoryGirl.create(:person) }
 
   before do
@@ -120,7 +117,7 @@ describe Notifier do
     end
 
     it 'BODY: contains the truncated original post' do
-      @mail.body.encoded.should include(@sm.formatted_message)
+      @mail.body.encoded.should include(@sm.message.plain_text)
     end
 
     it 'BODY: contains the name of person liking' do
@@ -150,7 +147,7 @@ describe Notifier do
     end
 
     it 'BODY: contains the truncated original post' do
-      @mail.body.encoded.should include(@sm.formatted_message)
+      @mail.body.encoded.should include(@sm.message.plain_text)
     end
 
     it 'BODY: contains the name of person liking' do
@@ -224,7 +221,7 @@ describe Notifier do
       end
 
       it 'SUBJECT: has a snippet of the post contents, without markdown and without newlines' do
-        comment_mail.subject.should == "Re: Headline It's really sunny outside today, and this is a super long ..."
+        comment_mail.subject.should == "Re: Headline"
       end
 
       context 'BODY' do
@@ -265,7 +262,7 @@ describe Notifier do
       end
 
       it 'SUBJECT: has a snippet of the post contents, without markdown and without newlines' do
-        comment_mail.subject.should == "Re: Headline It's really sunny outside today, and this is a super long ..."
+        comment_mail.subject.should == "Re: Headline"
       end
 
       context 'BODY' do

@@ -50,6 +50,9 @@ gem 'fog',         '1.19.0'
 gem 'mini_magick', '3.7.0'
 gem 'remotipart',  '1.2.1'
 
+# GUID generation
+gem 'uuid', '2.3.7'
+
 # Localization
 
 gem 'http_accept_language', '1.0.2'
@@ -65,7 +68,7 @@ gem 'messagebus_ruby_api', '1.0.3'
 
 gem 'nokogiri',         '1.6.1'
 gem 'rails_autolink',   '1.1.5'
-gem 'redcarpet',        '3.0.0'
+gem 'redcarpet',        '3.1.1'
 gem 'roxml',            '3.1.6'
 gem 'ruby-oembed',      '0.8.9'
 gem 'opengraph_parser', '0.2.3'

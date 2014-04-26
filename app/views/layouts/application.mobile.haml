@@ -76,7 +76,6 @@
                 %div
                   = hidden_field_tag "utf8", "✓"
                   = search_field_tag "q", nil, id: "q", placeholder: t("search"), results: "5", autocomplete: "off", class: "ac_input"
-
           %nav
             %ul
               %li
@@ -108,9 +107,6 @@
           %h3
             = t('streams.activity.title')
         = yield
-
-      - if user_signed_in?
-        = render :partial =>'shared/footer'
 
     / javascripts at the bottom
     = jquery_include_tag
