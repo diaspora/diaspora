@@ -10,6 +10,8 @@ class ServicesController < ApplicationController
   before_filter :abort_if_already_authorized, :abort_if_read_only_access, :only => :create
   before_filter -> { @css_framework = :bootstrap }, only: [:index]
 
+  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }
+
   respond_to :html
   respond_to :json, :only => :inviter
 
