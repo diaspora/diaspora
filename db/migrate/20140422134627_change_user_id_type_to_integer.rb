@@ -1,9 +1,12 @@
 class ChangeUserIdTypeToInteger < ActiveRecord::Migration
   def up
-    change_column :reports, :user_id, :integer
+    remove_column :reports, :user_id
+    add_column :reports, :user_id, :integer, :null => false, :default => 1
+    change_column_default :reports, :user_id, nil
   end
 
   def down
-    change_column :reports, :user_id, :string
+    remove_column :reports, :user_id
+    add_column :reports, :user_id, :string
   end
 end

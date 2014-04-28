@@ -1,7 +1,8 @@
 class Report < ActiveRecord::Base
   validates :user_id, presence: true
   validates :item_id, presence: true
-  validates :item_type, presence: true
+  validates :item_type, presence: true, :inclusion => { :in => %w(post comment),
+    :message => 'Type should match `post` or `comment`!'}
   validates :text, presence: true
 
   validate :entry_does_not_exist, :on => :create

@@ -402,11 +402,11 @@ ActiveRecord::Schema.define(:version => 20140422134627) do
   create_table "reports", :force => true do |t|
     t.integer  "item_id",                       :null => false
     t.string   "item_type",                     :null => false
-    t.integer  "user_id"
     t.boolean  "reviewed",   :default => false
     t.text     "text"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.integer  "user_id",                       :null => false
   end
 
   add_index "reports", ["item_id"], :name => "index_post_reports_on_post_id"
