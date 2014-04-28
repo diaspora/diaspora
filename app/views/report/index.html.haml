@@ -16,7 +16,12 @@
           = t('report.reason_label', text: r.text)
       %div.options
         %span
-          = link_to t('report.review_link'), report_path(r.id, :type => r.item_type), method: :put
+          = button_to t('report.review_link'), report_path(r.id, :type => r.item_type),
+            :class => "button",
+            method: :put
         %span
-          = link_to t('report.delete_link'), report_path(r.id, :type => r.item_type), method: :delete
+          = button_to t('report.delete_link'), report_path(r.id, :type => r.item_type),
+            :data => { :confirm => t('report.confirm_deletion') },
+            :class => "button delete",
+            method: :delete
       %div.clear

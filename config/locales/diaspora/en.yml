@@ -892,7 +892,8 @@ en:
     reported_label: "<b>Reported by</b> %{person}"
     reason_label: "Reason: %{text}"
     review_link: "Mark as reviewed"
-    delete_link: "Delete post"
+    delete_link: "Delete item"
+    confirm_deletion: "Are you sure to delete the item?"
     status:
       marked: "The report was marked as reviewed"
       destroyed: "The post was destroyed"
