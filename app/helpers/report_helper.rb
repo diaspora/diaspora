@@ -8,7 +8,9 @@ module ReportHelper
       when 'post'
         t('report.post_label', title: link_to(post_page_title(Post.find_by_id(id)), post_path(id)))
       when 'comment'
-        t('report.comment_label', data: comment_message(Comment.find_by_id(id)))
+        # comment_message is not html_safe. To prevent
+        # cross-site-scripting we have to escape html
+        t('report.comment_label', data: h(comment_message(Comment.find_by_id(id))))
     end
   end
 end
