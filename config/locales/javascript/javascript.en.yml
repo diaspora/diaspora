@@ -46,6 +46,10 @@ en:
       limited: "Limited - your post will only be seen by people you are sharing with"
       public: "Public - your post will be visible to everyone and found by search engines"
       near_from: "Posted from: <%= location %>"
+    bookmarklet:
+      post_submit: "Submitting post..."
+      post_success: "Posted! Closing popup window..."
+      post_error: "An error occurred, try again later."
     infinite_scroll:
       no_more: "No more posts."
       no_more_contacts: "No more contacts."

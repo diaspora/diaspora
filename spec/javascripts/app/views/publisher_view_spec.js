@@ -39,6 +39,12 @@ describe("app.views.Publisher", function() {
         this.view.open($.Event());
         expect($(this.view.el)).not.toHaveClass("closed");
       });
+
+      it("won't open when disabled", function() {
+        this.view.disabled = true;
+        this.view.open($.Event());
+        expect($(this.view.el)).toHaveClass("closed");
+      });
     });
 
     describe("#close", function() {
@@ -122,6 +128,36 @@ describe("app.views.Publisher", function() {
         this.view.createStatusMessage($.Event());
         expect(this.view.handleTextchange).toHaveBeenCalled();
       })
+    });
+
+    describe('#setText', function() {
+      it('sets the content text', function() {
+        this.view.setText('FOO bar');
+
+        expect(this.view.el_input.val()).toEqual('FOO bar');
+        expect(this.view.el_hiddenInput.val()).toEqual('FOO bar');
+      });
+    });
+
+    describe('#setEnabled', function() {
+      it('disables the publisher', function() {
+        expect(this.view.disabled).toBeFalsy();
+        this.view.setEnabled(false);
+
+        expect(this.view.disabled).toBeTruthy();
+        expect(this.view.el_input.prop('disabled')).toBeTruthy();
+        expect(this.view.el_hiddenInput.prop('disabled')).toBeTruthy();
+      });
+
+      it("disables submitting", function() {
+        this.view.setText('TESTING');
+        expect(this.view.el_submit.prop('disabled')).toBeFalsy();
+        expect(this.view.el_preview.prop('disabled')).toBeFalsy();
+
+        this.view.setEnabled(false);
+        expect(this.view.el_submit.prop('disabled')).toBeTruthy();
+        expect(this.view.el_preview.prop('disabled')).toBeTruthy();
+      });
     });
 
     describe("publishing a post with keyboard", function(){

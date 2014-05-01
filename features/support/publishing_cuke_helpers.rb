@@ -1,8 +1,25 @@
 module PublishingCukeHelpers
+  def write_in_publisher(txt)
+    fill_in 'status_message_fake_text', with: txt
+  end
+
+  def append_to_publisher(txt, input_selector='#status_message_fake_text')
+    elem = find(input_selector)
+    elem.native.send_keys(' ' + txt)
+
+    # make sure the other text field got the new contents
+    find('#status_message_text', visible: false).value.should include(txt)
+  end
+
   def make_post(text)
-    fill_in 'status_message_fake_text', :with => text
-    find(".creation").click
-    page.should have_content text unless page.has_css? '.nsfw-shield'
+    write_in_publisher(text)
+    submit_publisher
+  end
+
+  def submit_publisher
+    txt = find('#publisher #status_message_fake_text').value
+    find('#publisher .creation').click
+    page.should have_content(txt) unless page.has_css?('.nsfw-shield')
   end
 
   def click_and_post(text)

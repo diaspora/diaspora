@@ -7,7 +7,7 @@ end
 
 And /^I mention Alice in the publisher$/ do
   alice = User.find_by_email 'alice@alice.alice'
-  fill_in 'status_message_fake_text', :with => "@{Alice Smith ; #{alice.person.diaspora_handle}}"
+  write_in_publisher("@{Alice Smith ; #{alice.person.diaspora_handle}}")
 end
 
 And /^I click on the first user in the mentions dropdown list$/ do
