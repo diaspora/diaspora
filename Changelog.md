@@ -29,6 +29,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 * Refactor publisher: trigger events for certain actions, introduce 'disabled' state [#4932](https://github.com/diaspora/diaspora/pull/4932)
 
 ## Bug fixes
+* Fix user account deletion [#4792](https://github.com/diaspora/diaspora/issues/4792)
 * Fix email body language when invite a friend [#4832](https://github.com/diaspora/diaspora/issues/4832)
 * Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
 * Do not add a space after adding a mention [#4767](https://github.com/diaspora/diaspora/issues/4767)
