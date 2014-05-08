@@ -4,6 +4,9 @@
 
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:new, :create, :public, :user_photo]
+  before_filter -> { @css_framework = :bootstrap }, only: [:privacy_settings, :edit]
+
+  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }
 
   respond_to :html
 
