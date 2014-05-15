@@ -6,11 +6,15 @@
 en:
   javascripts:
     confirm_dialog: "Are you sure?"
-    post_report_prompt: "Please enter a reason:"
-    post_report_prompt_default: "offensive content"
     delete: "Delete"
     ignore: "Ignore"
-    post_report: "Report"
+    report:
+      prompt: "Please enter a reason:"
+      prompt_default: "offensive content"
+      name: "Report"
+      status:
+        created: "The report was successfully created"
+        exists: "The report already exists"
     ignore_user: "Ignore this user?"
     and: "and"
     comma: ","

@@ -4,7 +4,8 @@ class UserPreference < ActiveRecord::Base
   validate :must_be_valid_email_type
 
   VALID_EMAIL_TYPES =
-    ["mentioned",
+    ["someone_reported",
+   "mentioned",
    "comment_on_post",
    "private_message",
    "started_sharing",

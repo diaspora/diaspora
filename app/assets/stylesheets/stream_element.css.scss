@@ -133,17 +133,17 @@
     padding-top: 10px;
 
     .controls {
-      .comment_delete {
+      .comment_delete, .comment_report {
         @include transition(opacity);
         @include opacity(0);
       }
     }
     &:hover {
       .controls {
-        .comment_delete {
+        .comment_delete, .comment_report {
           @include opacity(0.3);
         }
-        .comment_delete:hover {
+        .comment_delete:hover, .comment_report:hover {
           @include opacity(1);
         }
       }

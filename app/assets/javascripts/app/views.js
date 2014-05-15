@@ -81,6 +81,37 @@ app.views.Base = Backbone.View.extend({
     }
   },
 
+  report: function(evt) {
+    if(evt) { evt.preventDefault(); }
+    var msg = prompt(Diaspora.I18n.t('report.prompt'), Diaspora.I18n.t('report.prompt_default'));
+    if (msg == null) {
+      return;
+    }
+    var data = {
+      report: {
+        item_id: this.model.id,
+        item_type: $(evt.currentTarget).data("type"),
+        text: msg
+      }
+    };
+
+    var report = new app.models.Report();
+    report.save(data, {
+      success: function(model, response) {
+        Diaspora.page.flashMessages.render({
+          success: true,
+          notice: Diaspora.I18n.t('report.status.created')
+        });
+      },
+      error: function(model, response) {
+        Diaspora.page.flashMessages.render({
+          success: false,
+          notice: Diaspora.I18n.t('report.status.exists')
+        });
+      }
+    });
+  },
+
   destroyModel: function(evt) {
     evt && evt.preventDefault();
     var self = this;

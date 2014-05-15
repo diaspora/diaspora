@@ -61,6 +61,9 @@
       i.comment:hover {
         color: #424242;
       }
+      .post_report i.gray:hover {
+        color: $red;
+      }
       i.heart.gray:hover {
         color: $red;
       }
@@ -203,6 +206,13 @@
     float: right;
     &:hover {
       @include opacity(1);
+    }
+    .comment_report {
+      display: inline-block;
+      .icons-report {
+        height: 14px;
+        width: 14px;
+      }
     }
     .delete {
       display: inline-block;
