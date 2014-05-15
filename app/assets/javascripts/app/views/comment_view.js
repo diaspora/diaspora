@@ -5,7 +5,8 @@ app.views.Comment = app.views.Content.extend({
 
   events : function() {
     return _.extend({}, app.views.Content.prototype.events, {
-      "click .comment_delete": "destroyModel"
+      "click .comment_delete": "destroyModel",
+      "click .comment_report": "report"
     });
   },
 

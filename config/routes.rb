@@ -5,7 +5,7 @@
 require 'sidekiq/web'
 
 Diaspora::Application.routes.draw do
-  resources :post_report, :except => [:edit]
+  resources :report, :except => [:edit, :new]
 
   if Rails.env.production?
     mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'

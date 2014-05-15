@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140308154022) do
+ActiveRecord::Schema.define(:version => 20140422134627) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -316,17 +316,6 @@ ActiveRecord::Schema.define(:version => 20140308154022) do
 
   add_index "polls", ["status_message_id"], :name => "index_polls_on_status_message_id"
 
-  create_table "post_reports", :force => true do |t|
-    t.integer  "post_id",                       :null => false
-    t.string   "user_id"
-    t.boolean  "reviewed",   :default => false
-    t.text     "text"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-  end
-
-  add_index "post_reports", ["post_id"], :name => "index_post_reports_on_post_id"
-
   create_table "posts", :force => true do |t|
     t.integer  "author_id",                                              :null => false
     t.boolean  "public",                              :default => false, :null => false
@@ -409,6 +398,18 @@ ActiveRecord::Schema.define(:version => 20140308154022) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "reports", :force => true do |t|
+    t.integer  "item_id",                       :null => false
+    t.string   "item_type",                     :null => false
+    t.boolean  "reviewed",   :default => false
+    t.text     "text"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "user_id",                       :null => false
+  end
+
+  add_index "reports", ["item_id"], :name => "index_post_reports_on_post_id"
 
   create_table "roles", :force => true do |t|
     t.integer  "person_id"

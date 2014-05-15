@@ -6,7 +6,8 @@ app.views.Feedback = app.views.Base.extend({
   events: {
     "click *[rel='auth-required']" : "requireAuth",
     "click .like" : "toggleLike",
-    "click .reshare" : "resharePost"
+    "click .reshare" : "resharePost",
+    "click .post_report" : "report"
   },
 
   tooltipSelector : ".label",
