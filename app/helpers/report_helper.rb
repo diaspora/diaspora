@@ -4,13 +4,14 @@
 
 module ReportHelper
   def report_content(id, type)
-    raw case type
-      when 'post'
-        t('report.post_label', title: link_to(post_page_title(Post.find_by_id(id)), post_path(id)))
-      when 'comment'
-        # comment_message is not html_safe. To prevent
-        # cross-site-scripting we have to escape html
-        t('report.comment_label', data: h(comment_message(Comment.find_by_id(id))))
+    if type == 'post' && !(post = Post.find_by_id(id)).nil?
+      raw t('report.post_label', title: link_to(post_page_title(post), post_path(id)))
+    elsif type == 'comment' && !(comment = Comment.find_by_id(id)).nil?
+      # comment_message is not html_safe. To prevent
+      # cross-site-scripting we have to escape html
+      raw t('report.comment_label', data: h(comment_message(comment)))
+    else
+      raw t('report.not_found')
     end
   end
 end
