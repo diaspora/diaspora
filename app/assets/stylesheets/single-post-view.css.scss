@@ -20,6 +20,7 @@
           line-height: 14px;
         }
       }
+
       .avatar.medium {
         max-width: 75px;
       }
@@ -73,9 +74,15 @@
       i.retweet:hover {
         color: #3f8fba;
       }
+      i.cross:hover {
+        color: #424242;
+      }
+      i.mute:hover {
+        color: #424242;
+      }
       time {
         float: right;
-        margin-left: 3px;
+        margin-left: 7px;
       }
       a {
         margin: 0 0 0 6px;

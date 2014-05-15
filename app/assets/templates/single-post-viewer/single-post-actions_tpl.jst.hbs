@@ -26,5 +26,23 @@
     <a href="#" rel="auth-required" data-type="post" class="post_report" title="{{t "report.name"}}">
       <i class="entypo gray large">&#x21;</i>
     </a>
+
+    {{#if loggedIn}}
+        {{#unless authorIsCurrentUser}}
+            <a href="#" rel="auth-required" class="ignore-user" title="{{t "ignore"}}">
+                <i class="entypo mute gray large"></i>
+            </a>
+        {{/unless}}
+
+        {{#if authorIsCurrentUser}}
+            <a href="#" rel="auth-required" class="delete-post" title="{{t "delete"}}">
+                <i class="entypo cross gray large"></i>
+            </a>
+        {{else}}
+            <a href="#" rel="nofollow" class="hide-post" title="{{t "stream.hide"}}">
+                <i class="entypo cross gray large"></i>
+            </a>
+        {{/if}}
+    {{/if}}
   </div>
 </div>
