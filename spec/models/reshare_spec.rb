@@ -83,10 +83,37 @@ describe Reshare do
       rs1 = FactoryGirl.build(:reshare, :root=>@sm)
       rs2 = FactoryGirl.build(:reshare, :root=>rs1)
       @rs3 = FactoryGirl.build(:reshare, :root=>rs2)
+      
+     sm = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
+     rs1 = FactoryGirl.create(:reshare, :root => sm)
+     @of_deleted = FactoryGirl.build(:reshare, :root => rs1)
+     sm.destroy
+     rs1.reload
     end
 
     it 'resolves root posts to the top level' do
       @rs3.absolute_root.should == @sm
+    end
+
+    it 'can handle deleted reshares' do
+      expect(@of_deleted.absolute_root).to be_nil
+    end
+
+    it 'is used everywhere' do
+      expect(@rs3.message).to eq @sm.message
+      expect(@of_deleted.message).to be_nil
+      expect(@rs3.photos).to eq @sm.photos
+      expect(@of_deleted.photos).to be_empty
+      expect(@rs3.o_embed_cache).to eq @sm.o_embed_cache
+      expect(@of_deleted.o_embed_cache).to be_nil
+      expect(@rs3.open_graph_cache).to eq @sm.open_graph_cache
+      expect(@of_deleted.open_graph_cache).to be_nil
+      expect(@rs3.mentioned_people).to eq @sm.mentioned_people
+      expect(@of_deleted.mentioned_people).to be_empty
+      expect(@rs3.nsfw).to eq @sm.nsfw
+      expect(@of_deleted.nsfw).to be_nil
+      expect(@rs3.address).to eq @sm.location.try(:address)
+      expect(@of_deleted.address).to be_nil
     end
   end
 
