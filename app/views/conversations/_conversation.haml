@@ -30,7 +30,8 @@
             = authors[conversation.id].name
         .last_message
           - if conversation.messages.present?
-            = '»' + conversation.messages.last.text + '«'
+            %em
+              = conversation.messages.last.text
         - if other_participants.count > 1
           .participants
             - other_participants.drop(1).take(15).each do |participant|
