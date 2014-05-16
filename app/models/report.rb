@@ -6,6 +6,7 @@ class Report < ActiveRecord::Base
   validates :text, presence: true
 
   validate :entry_does_not_exist, :on => :create
+  validate :post_or_comment_does_exist, :on => :create
 
   belongs_to :user
   belongs_to :post
@@ -16,6 +17,12 @@ class Report < ActiveRecord::Base
   def entry_does_not_exist
     if Report.where(item_id: item_id, item_type: item_type).exists?(user_id: user_id)
       errors[:base] << 'You cannot report the same post twice.'
+    end
+  end
+
+  def post_or_comment_does_exist
+    if Post.find_by_id(item_id).nil? && Comment.find_by_id(item_id).nil?
+      errors[:base] << 'Post or comment was already deleted or doesn\'t exists.'
     end
   end
 
