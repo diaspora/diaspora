@@ -25,11 +25,27 @@ describe Report do
 
   describe '#validation' do
     it 'validates that post ID is required' do
-      @user.reports.build(:item_type => 'post', :text => 'blub').should_not be_valid
+      report = @valid_post_report
+      report.delete(:item_id)
+      @user.reports.build(report).should_not be_valid
     end
     
     it 'validates that post type is required' do
-      @user.reports.build(:item_id => 666, :text => 'blub').should_not be_valid
+      report = @valid_post_report
+      report.delete(:item_type)
+      @user.reports.build(report).should_not be_valid
+    end
+
+    it 'validates that post does exist' do
+      report = @valid_post_report
+      report[:item_id] = 666;
+      @user.reports.build(report).should_not be_valid
+    end
+
+    it 'validates that comment does exist' do
+      report = @valid_comment_report
+      report[:item_id] = 666;
+      @user.reports.build(report).should_not be_valid
     end
 
     it 'validates that entry does not exist' do

@@ -8,7 +8,7 @@
     - @reports.each do |r|
       - username = User.find_by_id(r.user_id).username
       %div.content
-        %span
+        %span.text
           = report_content(r.item_id, r.item_type)
         %span
           = raw t('report.reported_label', person: link_to(username, user_profile_path(username)))
