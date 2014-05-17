@@ -75,11 +75,6 @@ is:
       close_result: "Fela niðurstöður"
       result: "Niðurstaða"
       show_result: "Birta niðurstöður"
-    publisher:
-      at_least_one_aspect: "Þú verður að opna á að minnsta kosti eina sýn"
-      limited: "Takmarkað - skeytið verður eingögnu sýnilegt þeim sem þú veitir leyfi"
-      near_from: "Sennt inn nálægt: <%= location %>"
-      public: "Aðgengilegt - skeytið verður sýnilegt öllum, leitarvélar geta einnig fundið póstinn"
     reshares:
       duplicate: "You've already reshared that post!"
       post: "Deila áfram skeyti frá <%= name %>?"

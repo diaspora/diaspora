@@ -88,14 +88,10 @@ fi:
       result: "Tulos"
       show_result: "Näytä tulokset"
       vote: "Äänestä"
-    post_report: "Tee ilmoitus"
-    post_report_prompt: "Ole hyvä, kirjoita syy:"
-    post_report_prompt_default: "loukkaavaa sisältöä"
     publisher:
-      at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
-      limited: "Rajoitettu - julkaisusi näkyy vain ihmisille, joiden kanssa jaat"
-      near_from: "Lähetetty sijainnista: <%= location %>"
-      public: "Julkinen - julkaisusi näkyvät kaikille mukaan lukien hakukoneet ja niiden tulokset"
+      add_option: "Lisää vastaus"
+      option: "Vastaus <%= nr %>"
+      question: "Kysymys"
     reshares:
       duplicate: "Olet jo uudelleenjakanut tämän julkaisun!"
       post: "Jaa käyttäjän <%= name %> julkaisu?"

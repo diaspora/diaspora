@@ -24,6 +24,14 @@ sv:
           attributes:
             diaspora_handle:
               taken: "är upptaget."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "Otillräckligt antal alternativ."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Du har redan deltagit i denna undersökning."
         request:
           attributes:
             from_id:
@@ -46,7 +54,6 @@ sv:
       correlations: "Korrelationer"
       pages: "Sidor"
       pod_stats: "Podstatistik"
-      post_report: "Anmälda inlägg"
       sidekiq_monitor: "Sidekiq-övervakare"
       user_search: "Användarsökning"
       weekly_user_stats: "Veckovis användarstatistik"
@@ -594,9 +601,9 @@ sv:
   no_results: "Inga sökresultat"
   notifications:
     also_commented:
-      one: "%{actors} till har kommenterat %{post_author}s %{post_link}."
-      other: "%{actors} har också kommenterat %{post_author}s %{post_link}."
-      zero: "ingen mer har kommenterat %{post_author}s %{post_link}."
+      one: "%{actors} har kommenterat inlägget %{post_link} av %{post_author}."
+      other: "%{actors} har kommenterat inlägget %{post_link} av %{post_author}."
+      zero: "%{actors} andra har kommenterat inlägget %{post_link} av %{post_author}"
     also_commented_deleted:
       one: "%{actors} har kommenterat ett borttaget inlägg."
       other: "%{actors} har kommenterat ett borttaget inlägg."
@@ -614,6 +621,8 @@ sv:
         two: "Två nya notiser"
         zero: "Inga nya notiser"
     index:
+      all_notifications: "Alla notiser"
+      also_commented: "Även kommenterade"
       and: "och"
       and_others:
         few: "och %{count} till"
@@ -622,9 +631,17 @@ sv:
         other: "och %{count} till"
         two: "och två till"
         zero: "och ingen mer"
+      comment_on_post: "Kommentera ett inlägg"
+      liked: "Gillad"
       mark_all_as_read: "Markera alla som lästa"
+      mark_read: "Lästmärk"
       mark_unread: "Markera som oläst"
+      mentioned: "Omnämnd"
       notifications: "Notiser"
+      reshared: "Återdelad"
+      show_all: "visa alla"
+      show_unread: "visa olästa"
+      started_sharing: "Började dela"
     liked:
       one: "%{actors} din %{post_link}."
       other: "%{actors} gillar din %{post_link}."
@@ -692,9 +709,6 @@ sv:
     mentioned:
       mentioned: "nämnde dig i ett inlägg:"
       subject: "%{name} har nämnt dig på Diaspora*"
-    post_report_email:
-      body: "Var god och gå igenom detta så snart du kan!"
-      subject: "Ett nytt inlägg har betecknats som kränkade"
     private_message:
       reply_to_or_view: "Svara på eller läs denna konversation >"
     reshared:
@@ -810,18 +824,6 @@ sv:
     update:
       error: "Misslyckades med att ändra fotot."
       notice: "Fotot är nu uppdaterat."
-  post_report:
-    delete_link: "Borttag inlägg"
-    post_label: "<b>Inlägg</b>: %{title}"
-    reason_label: "Anledning: %{text}"
-    reported_label: "<b>Anmält av</b> %{person}"
-    review_link: "Markera som genomgånget"
-    status:
-      created: "En anmälan skapades"
-      destroyed: "Inlägget har förintats"
-      failed: "Någonting har gått snett"
-      marked: "Anmälningen har markerats som genomgånget"
-    title: "Översikt av markerade anmälningar"
   posts:
     presenter:
       title: "Ett inlägg från %{name}"
@@ -1016,7 +1018,7 @@ sv:
       all: "alla"
       all_contacts: "alla kontakter"
       discard_post: "Släng inlägg"
-      formatWithMarkdown: "Använd %{markdown_link} för formatera dina inlägg."
+      formatWithMarkdown: "Använd %{markdown_link} för att formatera dina inlägg."
       get_location: "Hämta din position"
       make_public: "gör publik"
       new_user_prefill:
@@ -1024,6 +1026,12 @@ sv:
         i_like: "Jag är intresserad av %{tags}."
         invited_by: "Tack för inbjudan, "
         newhere: "NyHär"
+      poll:
+        add_a_poll: "Lägg till en undersökning"
+        add_poll_answer: "Lägg till alternativ"
+        option: "Alternativ 1"
+        question: "Fråga"
+        remove_poll_answer: "Ta bort alternativ"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: "Skickar..."
       preview: "Förhandsgranska"
@@ -1145,8 +1153,8 @@ sv:
       success: "Ditt konto har låsts. Det kan ta upp till 20 minuter för oss att avsluta ditt konto. Tack för att du testade Diaspora."
       wrong_password: "Det angivna lösenordet stämde inte med ditt nuvarande lösenord."
     edit:
-      also_commented: "... någon annan också kommenterar din kontakts inlägg?"
-      auto_follow_aspect: "Den aspekt som automatiskt följda användare skall läggas i:"
+      also_commented: "någon har kommenterat ett inlägg som du också kommenterat"
+      auto_follow_aspect: "Aspekten som dem automatiskt följda användarna:"
       auto_follow_back: "Följ automatiskt dem som börjar följa dig"
       change: "Ändra"
       change_email: "Ändra e-postadress"
@@ -1163,7 +1171,7 @@ sv:
         no_turning_back: "Nu finns det ingen återvändo."
         what_we_delete: "Vi kommer att radera alla dina inlägg och din profil så fort som det bara går. Dina kommentarer kommer att finnas kvar men vara associerade med ditt Diaspora-id och inte ditt namn."
       close_account_text: "Stäng kontot"
-      comment_on_post: "... någon kommenterar ditt inlägg?"
+      comment_on_post: "någon kommenterar dina inlägg"
       current_password: "Nuvarande lösenord"
       current_password_expl: "den som du loggar in med..."
       download_photos: "ladda ner mina foton"
@@ -1171,19 +1179,19 @@ sv:
       edit_account: "Ändra konto"
       email_awaiting_confirmation: "Vi har skickat dig en länk till %{unconfirmed_email} för aktivering. Innan du har aktiverat din nya adress, kommer vi fortsätta att använda %{email}."
       export_data: "Exportera data"
-      following: "Inställningar för att följa"
+      following: "Delningsinställningar"
       getting_started: "Inställningar för nya användare"
-      liked: "... någon gillar ditt inlägg."
-      mentioned: "... du omnämns i ett inlägg."
+      liked: "någon gillar dina inlägg."
+      mentioned: "du nämns i ett inlägg."
       new_password: "Nytt lösenord"
       photo_export_unavailable: "Det går för tillfället inte att exportera foton"
-      private_message: "... du mottager ett privat meddelande."
-      receive_email_notifications: "Skicka notiser via e-post när..."
-      reshared: "... någon delar vidare dina inlägg."
-      show_community_spotlight: "Ska gemenskapens rampljus visas i ditt flöde?"
-      show_getting_started: "Återaktivera \"Komma igång\""
-      started_sharing: "... någon börjar dela med sig till dig."
-      stream_preferences: "Inställningar för din ström"
+      private_message: "mottager ett privat meddelande."
+      receive_email_notifications: "Skicka notiser via e-post när:"
+      reshared: "någon delar vidare dina inlägg."
+      show_community_spotlight: "Visa gemenskapens rampljus i ditt flöde"
+      show_getting_started: "Visa tips för att komma igång"
+      started_sharing: "någon börjar dela med sig till dig."
+      stream_preferences: "Ströminställningar"
       your_email: "Din e-post"
       your_handle: "Ditt Diaspora-id"
     getting_started:

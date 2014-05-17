@@ -88,14 +88,10 @@ da:
       result: "Resultat"
       show_result: "Vis resultat"
       vote: "Stem"
-    post_report: "Rapport"
-    post_report_prompt: "Vær venlig at give en grund:"
-    post_report_prompt_default: "stødende indhold"
     publisher:
-      at_least_one_aspect: "Du skal dele med mindst et aspekt"
-      limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
-      near_from: "Sendt fra: <%= location %>"
-      public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
+      add_option: "Tilføj mulighed"
+      option: "Mulighed <%= nr %>"
+      question: "Spørgsmål"
     reshares:
       duplicate: "Du har allerede delt indlægget!"
       post: "Videredel <%= name %>s indlæg?"

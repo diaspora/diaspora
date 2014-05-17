@@ -37,10 +37,6 @@ ms:
       no_more: "Tiada lagi pos."
     photo_uploader:
       looking_good: "Wah, anda nampak hebat! \n"
-    publisher:
-      at_least_one_aspect: "Anda perlu menerbitkan sekurang-kurangnya satu aspek"
-      limited: "Terhad - catatan anda hanya akan dilihat oleh orang-orang yang berkongsi dengan anda"
-      public: "Awam - Pos anda akan dilihat oleh semua orang dan dijumpai oleh enjin carian"
     reshares:
       duplicate: "Yang baik, kan? Anda telah berkongsi semula pos itu!"
     search_for: "Mencari <%= name %>"

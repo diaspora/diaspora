@@ -10,15 +10,15 @@ ro:
     aspect_dropdown:
       add_to_aspect: "Adaugă la contacte"
       all_aspects: "Toate aspectele"
-      error: "Nu sa putut incepe impartirea de publicatii cu {{name}}. Ii ignorati cumva ?"
+      error: "Nu sa putut incepe impartirea de publicatii cu <%= name %>. Ii ignorati cumva ?"
       select_aspects: "Selectează aspecte"
-      started_sharing_with: "Ati inceput sa impartiti publicatii cu {{name}}!"
-      stopped_sharing_with: "Nu mai imparti publicatii cu {{name}}."
+      started_sharing_with: "Ati inceput sa impartiti publicatii cu <%= name %>!"
+      stopped_sharing_with: "Nu mai imparti publicatii cu <%= name %>."
       toggle:
-        few: "În {{count}} aspecte"
+        few: "În <%= count %> aspecte"
         many: "În {{count}} aspecte"
-        one: "În {{count}} aspect"
-        other: "În {{count}} aspecte"
+        one: "În <%= count %> aspect"
+        other: "În <%= count %> aspecte"
         two: "In {{count}} aspecte"
         zero: "Selectati aspecte"
     aspect_navigation:
@@ -64,14 +64,9 @@ ro:
       invalid_ext: "{file} are o extensie invalidă. Doar extensiile {extensions} sunt permise."
       looking_good: "WOW, arati super!"
       size_error: "{file} este prea mare, mărimea maximă a unui fişier este {sizeLimit}."
-    publisher:
-      at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
-      limited: "Limitat - publicatia va fi vazuta doar de catre persoanele cu care imparti publicatii"
-      near_from: "Publicat din <%= location %>"
-      public: "Public - articolul tău va fi vizibil tuturor şi va fi accesibilă prin motoarele de căutare"
     reshares:
       duplicate: "E chiar asa de tare, hmm?  Ati mai raspandit o data aceasta publicatie!"
-    search_for: "Caută {{name}}"
+    search_for: "Caută <%= name %>"
     show_more: "arată mai mult"
     stream:
       comment: "Comentariu"
@@ -133,6 +128,6 @@ ro:
       years: "%d ani"
     videos:
       unknown: "Format de video necunoscut"
-      watch: "Vizualizează acest video pe {{provider}}"
+      watch: "Vizualizează acest video pe <%= provider %>"
     viewer:
       home: "Pagina de start"

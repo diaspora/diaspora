@@ -65,11 +65,6 @@ ia:
       invalid_ext: "{file} ha un extension inadmissibile. Solmente {extensions} es permittite."
       looking_good: "Oh, tu pare splendide!"
       size_error: "{file} es troppo grande. Le dimension maxime es {sizeLimit}."
-    publisher:
-      at_least_one_aspect: "Le publication debe esser includite in al minus un aspecto"
-      limited: "Limitate: le message es visibile solmente pro le personas con qui tu lo divide"
-      near_from: "Vicinitate de: <%= location %>"
-      public: "Public: le message es visibile pro tote le mundo e trovabile pro motores de recerca"
     reshares:
       duplicate: "Tu ha jam repetite iste entrata."
       post: "Repeter le entrata de <%= name %>?"

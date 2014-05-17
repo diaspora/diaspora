@@ -54,11 +54,6 @@ ja:
     photo_uploader:
       empty: "{file}は空のファイルです。他のファイルを選択してください。"
       size_error: "{file}は大きすぎます。ファイルサイズの上限は{sizeLimit}です。"
-    publisher:
-      at_least_one_aspect: "アスペクトを選択してから投稿してください。"
-      limited: "限定公開 - 投稿はあなたが共有している人だけが見られるようになります"
-      near_from: "<%= location %>からの投稿"
-      public: "公開 - 投稿は全ての人から見ることができ、検索エンジンで見つかるようになります"
     reshares:
       duplicate: "You've already reshared that post!"
       post: "<%= name %>さんの投稿を再共有しますか?"

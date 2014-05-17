@@ -54,7 +54,6 @@ fi:
       correlations: "Vastaavuudet"
       pages: "Sivut"
       pod_stats: "Podin tilastot"
-      post_report: "Ilmoitetut Julkaisut"
       sidekiq_monitor: "Sidekiq tarkkailija"
       user_search: "Käyttäjähaku"
       weekly_user_stats: "Viikottaiset käyttäjätilastot"
@@ -626,6 +625,7 @@ fi:
         zero: "Ei uusia ilmoituksia"
     index:
       all_notifications: "Kaikki ilmoitukset"
+      also_commented: "Myös kommentoidut"
       and: "ja"
       and_others:
         few: "ja %{count} muuta"
@@ -646,9 +646,9 @@ fi:
       show_unread: "näytä lukemattomat"
       started_sharing: "Aloitti jakamaan"
     liked:
-      one: "%{actors} tykkäsi %{post_link}stäsi."
-      other: "%{actors} on tykännyt %{post_link}stäsi."
-      zero: "%{actors} tykkäsi %{post_link}stäsi."
+      one: "%{actors} tykkäsi julkaisustasi %{post_link}."
+      other: "%{actors} on tykännyt julkaisustasi %{post_link}."
+      zero: "%{actors} tykkäsi julkaisustasi %{post_link}."
     liked_post_deleted:
       one: "%{actors} tykkäsi poistamastasi julkaisusta."
       other: "%{actors} on tykännyt poistamastasi julkaisusta."
@@ -670,9 +670,9 @@ fi:
       other: "%{actors} lähettivät sinulle viestin."
       zero: "%{actors} lähetti sinulle viestin."
     reshared:
-      one: "%{actors} on jakanut %{post_link}si uudelleen."
-      other: "%{actors} on jakanut %{post_link}si uudelleen."
-      zero: "%{actors} on jakanut %{post_link}si uudelleen."
+      one: "%{actors} on jakanut julkaisusi %{post_link} uudelleen."
+      other: "%{actors} on jakanut julkaisusi %{post_link} uudelleen."
+      zero: "%{actors} on jakanut julkaisusi %{post_link} uudelleen."
     reshared_post_deleted:
       one: "%{actors} jakoi poistamasi julkaisun uudelleen."
       other: "%{actors} jakoivat poistamasi julkaisun uudelleen."
@@ -718,9 +718,6 @@ fi:
     mentioned:
       mentioned: "mainitsi sinut viestissään:"
       subject: "%{name} on maininnut sinut Diaspora*:ssa"
-    post_report_email:
-      body: "Ole hyvä ja arvioi niin pian kuin mahdollista!"
-      subject: "Uusi julkaisu merkittiin loukkaavaksi"
     private_message:
       reply_to_or_view: "Lue tai osallistu keskusteluun >"
     reshared:
@@ -757,7 +754,7 @@ fi:
       looking_for: "Etsitkö tägillä %{tag_link} merkittyjä viestejä?"
       no_one_found: "...ketään ei löytynyt."
       no_results: "Hei! Sinun tulisi etsiä jotakin."
-      results_for: "hakutulokset kohteelle"
+      results_for: "Käyttäjät jotka vastaavat hakua %{search_term}"
       search_handle: "Käytä heidän diaspora* ID:tään (käyttäjänimi@pod.tld) löytääksesi ystäväsi varmasti."
       searching: "etsitään, pieni hetki..."
       send_invite: "Ei edelleenkään mitään? Lähetä kutsu!"
@@ -836,18 +833,6 @@ fi:
     update:
       error: "Kuvan muokkaus epäonnistui."
       notice: "Kuva päivitettiin onnistuneesti."
-  post_report:
-    delete_link: "Poista julkaisu"
-    post_label: "<b>Julkaisu</b>: %{title}"
-    reason_label: "Syy %{text}"
-    reported_label: "<b>Ilmoituksen teki</b> %{person}"
-    review_link: "Merkitse tarkistetuksi"
-    status:
-      created: "Ilmoitus on luotu"
-      destroyed: "Julkaisu tuhottiin"
-      failed: "Jotain meni pieleen"
-      marked: "Ilmoitus merkittiin tarkistetuksi"
-    title: "Merkittyjen Ilmoitusten Yleiskatsaus"
   posts:
     presenter:
       title: "Julkaisu käyttäjältä %{name}"
@@ -994,7 +979,7 @@ fi:
   shared:
     add_contact:
       add_new_contact: "Lisää uusi kontakti"
-      create_request: "Etsi Diaspora-tunnuksella"
+      create_request: "Etsi Diaspora-ID:llä"
       diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Anna Diaspora-käyttäjätunnus:"
       know_email: "Tiedätkö heidän sähköpostiosoitteitansa? Kutsu heidät!"
@@ -1171,9 +1156,9 @@ fi:
       success: "Tilisi on lukittu. Meiltä voi mennä 20 minuuttia tilisi sulkemiseen. Kiitos, kun kokeilit Diasporaa."
       wrong_password: "Syötetty salasana ei vastannut nykyistä salasanaasi."
     edit:
-      also_commented: "...joku myös kommentoi kontaktisi julkaisua?"
+      also_commented: "...joku kommentoi julkaisua jota olet myös itse kommentoinut"
       auto_follow_aspect: "Näkymä automaattisesti seurattaville käyttäjille:"
-      auto_follow_back: "Seuraa automaattisesti henkilöitä, jotka seuraavat sinua"
+      auto_follow_back: "Ryhdy jakamaan automaattisesti niiden henkilöiden kanssa, jotka alkavat jakamaan sinun kanssasi"
       change: "Vaihda"
       change_email: "Vaihda sähköpostiosoite"
       change_language: "Vaihda kieli"
@@ -1189,7 +1174,7 @@ fi:
         no_turning_back: "Tällä hetkellä tästä ei ole paluuta."
         what_we_delete: "Poistamme kaikki julkaisusi ja profiilisi tiedot niin pian kuin se on inhimillisesti mahdollista. Kommenttisi jäävät paikoilleen, mutta ne yhdistetään Diaspora-tunnukseesi nimesi sijasta."
       close_account_text: "Sulje käyttäjätili"
-      comment_on_post: "...joku kommentoi julkaisuasi?"
+      comment_on_post: "...joku kommentoi julkaisuasi"
       current_password: "Nykyinen salasana"
       current_password_expl: "se, jolla kirjaudut sisään..."
       download_photos: "Lataa kaikki kuvat"
@@ -1197,18 +1182,18 @@ fi:
       edit_account: "Muokkaa käyttäjätiliä"
       email_awaiting_confirmation: "Olemme lähettäneet sinulle aktivointilinkin osoitteeseen %{unconfirmed_email}. Jatkamme alkuperäisen osoitteesi %{email} käyttämistä siihen saakka, kunnes aktivoit uuden osoitteesi kyseisen linkin kautta."
       export_data: "Vie tietoja"
-      following: "Seuraamisasetukset"
+      following: "Jakamisen asetukset"
       getting_started: "Uudet käyttäjäasetukset"
-      liked: "...tykkää julkaisustasi?"
-      mentioned: "...sinut mainitaan julkaisuasi?"
+      liked: "joku tykkää julkaisustasi"
+      mentioned: "...sinut mainitaan julkaisussa"
       new_password: "Uusi salasana"
       photo_export_unavailable: "Kuvien vienti ei tällä hetkellä mahdollista"
-      private_message: "...saat yksityisviestin?"
-      receive_email_notifications: "Vastaanota sähköposti-ilmoituksia, kun.."
-      reshared: "...joku jakaa julkaisusi uudelleen?"
-      show_community_spotlight: "Näytetäänkö Yhteisön valokeila virrassa?"
+      private_message: "...saat yksityisviestin"
+      receive_email_notifications: "Vastaanota sähköposti-ilmoituksia, kun:"
+      reshared: "...joku jakaa julkaisusi uudelleen"
+      show_community_spotlight: "Näytä Yhteisön Valokeila virrassa"
       show_getting_started: "Ota aloitusohjeet uudelleen käyttöön"
-      started_sharing: "...aloittaa jakamaan kanssasi?"
+      started_sharing: "...aloittaa jakamaan kanssasi"
       stream_preferences: "Virran asetukset"
       your_email: "Sähköpostiosoitteesi"
       your_handle: "Diaspora-tunnuksesi"

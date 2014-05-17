@@ -45,9 +45,7 @@ kn:
   nsfw: "ಎನ್ ಎಸ್ ಎಫ್ ಡಬೣಯೂ"
   ok: "ಒಪ್ಪಿಗೆ"
   or: "ಅಥವಾ"
-  password: |-
-
-      ಸಂಜ್ಞೆ
+  password: "ಸಂಜ್ಞೆ"
   password_confirmation: "ಸಂಜ್ಞೆ ದೃಢೀಕರಣ"
   previous: "ಹಿಂದಿನ"
   privacy: "ಖಾಸಗಿತನ"

@@ -72,11 +72,6 @@ cs:
       invalid_ext: "{file} má chybnou příponu. Jsou povoleny pouze {extensions}."
       looking_good: "Tedy, vypadáte úžasně!"
       size_error: "{file} je přiliš veliký, maximální velikost je {sizeLimit}."
-    publisher:
-      at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
-      limited: "Omezený — váš příspěvek bude přístupný pouze lidem, se kterými sdílíte"
-      near_from: "Odesláno z: <%= location %>"
-      public: "Veřejný — váš příspěvek si bude moci přečíst kdokoliv a může být nalezen vyhledávači"
     reshares:
       duplicate: "Tento příspěvek už sdílíte!"
       post: "Sdílet příspěvek uživatele <%= name %>?"

@@ -41,10 +41,6 @@ id:
     my_stream: "Stream"
     photo_uploader:
       looking_good: "Puji Tuhan, anda terlihat luar biasa!"
-    publisher:
-      at_least_one_aspect: "Anda harus mempublikasi, setidaknya satu hal"
-      limited: "Di Limitasi - Apa yang anda publikasi hanya dapat di lihat oleh orang-orang yang berbagi dengan anda."
-      public: "Publik - Apa yang anda publikasi dapat di lihat oleh siapa saja dan dapat di temukan oleh mesin pencari."
     reshares:
       duplicate: "Menarik ? Anda telah membagikan ulang posting tersebut!"
     search_for: "Mencari <%= name %>"

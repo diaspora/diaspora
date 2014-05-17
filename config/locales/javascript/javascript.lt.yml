@@ -53,10 +53,6 @@ lt:
     my_stream: "Srautas"
     photo_uploader:
       looking_good: "Wow, Jūs atrodote nuostabiai!"
-    publisher:
-      at_least_one_aspect: "Jums reikia paviešinti bent vieną kategoriją"
-      limited: "Ribotas - Jūsų įrašą galės peržiūrėti tik žmonės, su kuriais Jūs dalijatės"
-      public: "Viešas - Jūsų įrašus galės peržiūrėti visi, taip pat jie bus randami paieškos sistemose."
     reshares:
       duplicate: "Šitas geras, ne? Jūs jau dalijotės šiuo įrašu!"
     search_for: "Ieškoti <%= name %>"

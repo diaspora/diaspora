@@ -77,14 +77,18 @@ pt-BR:
       invalid_ext: "{file} possui extensão inválida. Somente {extensions} são permitidas."
       looking_good: "OMG, veja você é incrível!"
       size_error: "{file} é muito grande, o tamanho máximo do arquivo é {sizeLimit}."
-    post_report: "Relatar"
-    post_report_prompt: "Por favor entre um motivo:"
-    post_report_prompt_default: "conteúdo ofensivo"
+    poll:
+      close_result: "Ocultar resultado"
+      count:
+        one: "<%=count%> voto até agora"
+        other: "<%=count%> votos até agora"
+      result: "Resultado"
+      show_result: "Mostrar resultado"
+      vote: "Votar"
     publisher:
-      at_least_one_aspect: "Você deve publicar em pelo menos um aspecto"
-      limited: "Limitada - a sua publicação será visível apenas para as pessoas com quem você compartilha."
-      near_from: "Publicado de: <%= location %>"
-      public: "Pública - a sua publicação será totalmente visível na web e poderá ser encontrada por mecanismos de buscas, como Google, Bing e etc..."
+      add_option: "Adicionar opção"
+      option: "Opção <%= nr %>"
+      question: "Pergunta"
     reshares:
       duplicate: "Que bom, hein? Você já recompartilhou essa publicação."
       post: "Recompartilhar a publicação de <%= name %>?"

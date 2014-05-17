@@ -24,6 +24,14 @@ ru:
           attributes:
             diaspora_handle:
               taken: "уже занято."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "Недостаточно вариантов ответа."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Вы уже участвовали в этом опросе!"
         request:
           attributes:
             from_id:
@@ -46,7 +54,6 @@ ru:
       correlations: "Корреляции"
       pages: "Страницы"
       pod_stats: "Статистика пода"
-      post_report: "Отправлено"
       sidekiq_monitor: "Монитор Sidekiq"
       user_search: "Поиск пользователей"
       weekly_user_stats: "Еженедельная пользовательская статистика"
@@ -754,9 +761,6 @@ ru:
     mentioned:
       mentioned: "упомянул вас в сообщении:"
       subject: "%{name} упомянул вас в Диаспоре*"
-    post_report_email:
-      body: "Пожалуйста, ознакомьтесь как можно скорее!"
-      subject: "Новая запись была помечена как нежелательная"
     private_message:
       reply_to_or_view: "Ответить или посмотреть эту беседу >"
     reshared:
@@ -872,18 +876,6 @@ ru:
     update:
       error: "Не удалось изменить фотографию."
       notice: "Фотография успешно загружена."
-  post_report:
-    delete_link: "Удалить запись"
-    post_label: "<b>Запись</b>: %{title}"
-    reason_label: "Причина: %{text}"
-    reported_label: "<b>Отправлено</b> %{person}"
-    review_link: "Рассмотренное"
-    status:
-      created: "Отчёт был создан"
-      destroyed: "Запись была уничтожена"
-      failed: "Что-то пошло не так. Попробуйте ещё раз."
-      marked: "Отчёт был рассмотрен"
-    title: "Рассмотренные отчёты"
   posts:
     presenter:
       title: "Запись %{name}"
@@ -1090,6 +1082,12 @@ ru:
         i_like: "Мне интересны метки %{tags}. "
         invited_by: "Спасибо за приглашение, "
         newhere: "новичок"
+      poll:
+        add_a_poll: "Добавить опрос"
+        add_poll_answer: "Добавить вариант"
+        option: "Вариант 1"
+        question: "Вопрос"
+        remove_poll_answer: "Убрать вариант"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: "Отправка..."
       preview: "Предварительный просмотр"

@@ -54,7 +54,6 @@ nl:
       correlations: "Correlaties"
       pages: "Pagina's"
       pod_stats: "Pod Statistieken"
-      post_report: "Gemelde berichten"
       sidekiq_monitor: "Sidekiq monitor"
       user_search: "Gebruiker Zoeken"
       weekly_user_stats: "Wekelijkse Gebruiker Statistieken"
@@ -627,11 +626,8 @@ nl:
       two: "%{actors} hebben gereageerd op een verwijderde post."
       zero: "%{actors} heeft gereageerd op een verwijderd bericht."
     comment_on_post:
-      few: "%{actors} hebben op jouw %{post_link} gereageerd."
-      many: "%{actors} hebben op jouw %{post_link} gereageerd."
       one: "%{actors} heeft op jouw %{post_link} gereageerd."
       other: "%{actors} hebben op jouw %{post_link} gereageerd."
-      two: "%{actors} heeft gereageerd op jou %{post_link}."
       zero: "%{actors} hebben op jouw %{post_link} gereageerd."
     helper:
       new_notifications:
@@ -741,9 +737,6 @@ nl:
     mentioned:
       mentioned: "heeft jou vermeld in een bericht:"
       subject: "%{name} heeft jou vermeld op diaspora*"
-    post_report_email:
-      body: "Beoordeel het zo snel mogelijk!"
-      subject: "Er is een nieuw bericht als aanstootgevend gemeld"
     private_message:
       reply_to_or_view: "Reageer op of bekijk dit privégesprek >"
     reshared:
@@ -824,7 +817,7 @@ nl:
     two: "%{count} mensen"
     webfinger:
       fail: "Sorry, we konden %{handle} niet vinden."
-    zero: "geen mensen"
+    zero: "niemand"
   photos:
     comment_email_subject: "%{name}'s foto"
     create:
@@ -859,18 +852,6 @@ nl:
     update:
       error: "Foto veranderen niet gelukt."
       notice: "Foto succesvol veranderd."
-  post_report:
-    delete_link: "Verwijderen bericht"
-    post_label: "<b>Bericht</b>: %{title}"
-    reason_label: "Reden: %{text}"
-    reported_label: "<b>Gemeld door</b> %{person}"
-    review_link: "Markeren als beoordeeld"
-    status:
-      created: "Een melding is aangemaakt"
-      destroyed: "Het bericht is vernietigd"
-      failed: "Er ging iets fout"
-      marked: "De melding is gemarkeerd als beoordeeld"
-    title: "Gemarkeerde meldingen overzicht"
   posts:
     presenter:
       title: "Een bericht van %{name}"

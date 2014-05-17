@@ -36,6 +36,7 @@ de_formal:
     edit: "Bearbeiten"
     failed_to_like: "Gefällt mir fehlgeschlagen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"
+    failed_to_remove: "Fehler beim Entfernen des Beitrags!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
       hey: "Hey, <%= name %>!"
@@ -45,6 +46,7 @@ de_formal:
       admin: "Administration"
       close: "schließen"
       contacts: "Kontakte"
+      conversations: "Konversationen"
       help: "Hilfe"
       home: "Startseite"
       log_out: "Abmelden"
@@ -63,19 +65,27 @@ de_formal:
     my_activity: "Meine Aktivitäten"
     my_aspects: "Ihre Aspekte"
     my_stream: "Stream"
+    notifications:
+      mark_read: "Als gelesen markieren"
+      mark_unread: "Als ungelesen markieren"
     people:
       not_found: "niemand wurde gefunden..."
     photo_uploader:
       completed: "<%= file %> hochgeladen"
       empty: "{file} ist leer, bitte wählen Sie erneut Dateien aus."
+      error: "Es ist ein Fehler aufgetreten, während <%= file %> hochgeladen wurde"
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
       looking_good: "OMG, Sie sehen toll aus!"
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
+    poll:
+      close_result: "Ergebnis ausblenden"
+      result: "Ergebnis"
+      show_result: "Ergebnis anzeigen"
+      vote: "Abstimmen"
     publisher:
-      at_least_one_aspect: "Sie müssen zumindest zu einem Aspekt posten"
-      limited: "Eingeschränkt - Ihr Beitrag wird nur Leuten sichtbar sein, mit denen Sie teilen"
-      near_from: "In der Nähe von <%= location %>"
-      public: "Öffentlich - Ihr Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
+      add_option: "Option hinzufügen"
+      option: "Option <%= nr %>"
+      question: "Frage"
     reshares:
       duplicate: "Sie haben diesen Beitrag bereits weitergesagt!"
       post: "<%= name %>s Beitrag weitersagen?"
@@ -117,6 +127,7 @@ de_formal:
         stop_following: "Aufhören #<%= tag %> zu folgen"
       unfollow: "Nicht mehr folgen"
       unlike: "Gefällt mir nicht mehr"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "OK, ich nehme an, #<%= tagName %> war nicht so interessant..."
     timeago:

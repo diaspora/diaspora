@@ -54,7 +54,6 @@ fr:
       correlations: "Corrélations"
       pages: "Pages"
       pod_stats: "Statistiques du pod"
-      post_report: "Messages signalés"
       sidekiq_monitor: "Moniteur Sidekiq"
       user_search: "Chercher un utilisateur"
       weekly_user_stats: "Statistiques hebdomadaires"
@@ -368,11 +367,11 @@ fr:
       rename_aspect_a: "Oui. Dans votre liste d'aspects sur le côté gauche de la page principale, placez votre souris sur l'aspect que vous voulez renommer. Cliquez sur le petit crayon \"éditer\" qui apparaît sur la droite. Cliquez sur \"renommer\" dans la boîte qui apparaît."
       rename_aspect_q: "Puis-je renommer un aspect ?"
       restrict_posts_i_see_a: "Oui. Cliquez sur Mes Aspects dans la barre latérale puis cliquez sur des aspects individuels dans la liste pour les sélectionner ou les déselectionner. Seuls les messages des personnes de ces aspects apparaîtront dans votre flux."
-      restrict_posts_i_see_q: "Puis-je restreindre les messages que je vois de seulement de certains aspects ?"
+      restrict_posts_i_see_q: "Puis-je afficher uniquement les messages de certains aspects ?"
       title: "Aspects"
-      what_is_an_aspect_a: "Les Aspects sont un moyen de grouper vos contacts sur diaspora*. Un Aspect est l'une des facettes que vous montrez au monde. Cela pourrait être qui vous êtes au travail, ou qui vous êtes pour votre famille, ou qui vous êtes pour les amis du club dans lequel vous vous rendez."
+      what_is_an_aspect_a: "Les Aspects sont un moyen de grouper vos contacts sur diaspora*. Un Aspect est l'une des facettes que vous montrez au monde. Cela pourrait être qui vous êtes au travail, ou qui vous êtes pour votre famille, ou qui vous êtes pour les amis de votre club ou association."
       what_is_an_aspect_q: "Qu'est-ce qu'un aspect ?"
-      who_sees_post_a: "Si vous créez un message limité, il sera uniquement visible par les gens que vous avez placé dans cet aspect (ou les aspects, si vous le publiez à plusieurs aspects). Les contacts que vous avez et qui ne sont pas dans ces aspects n'ont aucun moyen de voir le message, sauf si vous l'avez rendu public. Seuls les messages publics seront visibles à quiconque ne sera pas placé dans vos aspects."
+      who_sees_post_a: "Si vous créez un message privé, il sera uniquement visible par les gens que vous avez placé dans cet aspect (ou les aspects, si vous le publiez à plusieurs aspects). Les contacts que vous avez et qui ne sont pas dans ces aspects n'ont aucun moyen de voir le message, sauf si vous l'avez rendu public. Seuls les messages publics seront visibles à quiconque ne sera pas placé dans vos aspects."
       who_sees_post_q: "Lorsque je publie un message dans un aspect, qui peut le voir ?"
     foundation_website: "site internet de la fondation diaspora"
     getting_help:
@@ -712,9 +711,6 @@ fr:
     mentioned:
       mentioned: "vous a mentionné(e) dans un message :"
       subject: "%{name} vous a mentionné(e) sur diaspora*"
-    post_report_email:
-      body: "Merci de l'examiner dès que possible !"
-      subject: "Un nouveau message a été marqué comme offensant"
     private_message:
       reply_to_or_view: "Répondre ou voir cette conversation >"
     reshared:
@@ -830,18 +826,6 @@ fr:
     update:
       error: "La modification de la photo a échoué."
       notice: "La photo a été mise à jour."
-  post_report:
-    delete_link: "Supprimer le message"
-    post_label: "<b>Message</b>: %{title}"
-    reason_label: "Motif: %{text}"
-    reported_label: "<b>Rapporté par</b> %{person}"
-    review_link: "Marqué comme revu."
-    status:
-      created: "Un rapport a été créé"
-      destroyed: "Le message a été détruit"
-      failed: "Il y a eu un problème."
-      marked: "Ce rapport a été marqué comme revu?"
-    title: "Vue d'ensemble des rapports marqués."
   posts:
     presenter:
       title: "Un message de %{name}"

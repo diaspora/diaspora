@@ -68,11 +68,6 @@ vi:
       invalid_ext: "Tập tin {file} có phần mở rộng không hợp lệ. Chỉ chấp nhận {extensions}."
       looking_good: "Ôi, trông bạn thật tuyệt!"
       size_error: "Tập tin {file} quá lớn, dung lượng tối đa là {sizeLimit}."
-    publisher:
-      at_least_one_aspect: "Bạn phải công khai ít nhất một mối quan hệ"
-      limited: "Giới hạn - bài đăng của bạn được những người chỉ định nhìn thấy"
-      near_from: "Gửi từ: <%= location %>"
-      public: "Công khai - bài đăng của bạn được mọi người và máy tìm kiếm nhìn thấy"
     reshares:
       duplicate: "Bạn đã chia sẻ lại tin đó!"
       post: "Chia sẻ lại bài đăng của <%= name %>?"
@@ -129,7 +124,7 @@ vi:
       years: "%d năm"
     videos:
       unknown: "Chưa biết kiểu video"
-      watch: "Xem video này trên {{provider}}"
+      watch: "Xem video này trên <%= provider %>"
     viewer:
       comment: "Bình luận"
       follow_post: "Theo dõi bài đăng"

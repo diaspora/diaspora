@@ -27,6 +27,10 @@ hu:
       deselect_all: "Összes kijelölés megszüntetése"
       no_aspects: "Nincs csoport kiválasztva"
       select_all: "Mindent kijelöl"
+    bookmarklet:
+      post_error: "Hiba történt, próbáld újra később."
+      post_submit: "Bejegyzés közzététele..."
+      post_success: "Közzétéve! A felugró ablak bezáródik..."
     comma: ","
     comments:
       hide: "hozzászólások elrejtése"
@@ -72,15 +76,19 @@ hu:
     photo_uploader:
       completed: "<%= file %> feltöltve"
       empty: "{file} üres, kérlek válassz képeket újra, mellőzve a jelenlegit."
+      error: "Hiba történt a(z) \"<%= file %>\" nevű állomány feltöltésekor"
       invalid_ext: "{file} érvénytelen kiterjesztésű. Csak {extensions} használata megengedett."
       looking_good: "Azta! Remekül nézek ki!"
       size_error: "{file} túl nagy, az állomány mérete legfeljebb {sizeLimit} lehet."
-    post_report_prompt: "Kérlek indokold meg a szándékod:"
+    poll:
+      close_result: "Eredmény rejtése"
+      count:
+        other: "<%=count%> szavazat eddig"
+      result: "Eredmény"
+      show_result: "Eredmény mutatása"
+      vote: "Szavazás"
     publisher:
-      at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"
-      limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
-      near_from: "<%= location %> közelében"
-      public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
+      question: "Kérdés"
     reshares:
       duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"
       post: "Szeretnéd újra megosztani <%= name %> bejegyzését?"

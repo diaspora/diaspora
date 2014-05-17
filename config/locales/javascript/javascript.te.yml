@@ -8,9 +8,9 @@ te:
   javascripts:
     aspect_dropdown:
       add_to_aspect: "పరిచయాన్ని జతచేయి"
-      error: "Couldn't start sharing with <%= name %>. Are you ignoring them?"
-      started_sharing_with: "You have started sharing with <%= name %>!"
-      stopped_sharing_with: "You have stopped sharing with <%= name %>."
+      error: "<%= name %>తో పంచుకోవడం వీలుకాదు. మీరు వారిని విస్మరిస్తారా?"
+      started_sharing_with: "మీరు <%= name %>తో పంచుకోవడం ప్రారంభించారు!"
+      stopped_sharing_with: "మీరు <%= name %> తో పంచుకోవడం ఆపివేసారు."
       toggle:
         one: "In <%= count %> aspect"
         other: "In <%= count %> aspects"
@@ -62,27 +62,21 @@ te:
         zero: "<%= count %> ఇష్టాలు"
       limited: "పరిమితం"
       more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        one: "మరో <%= count %> వ్యాఖ్యను చూపించు"
+        other: "మరో <%= count %> వ్యాఖ్యలను చూపించు"
+        zero: "మరో <%= count %> వ్యాఖ్యలను చూపించు"
       public: "బహిరంగం"
       reshare: "మరలపంచుకొను"
       reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+        one: "<%= count %> పంచుకోలు"
+        other: "<%= count %> పంచుకోళ్ళు"
+        zero: "<%= count %> పంచుకోళ్ళు"
       show_nsfw_post: "టపాను చూపించు"
       show_nsfw_posts: "అన్నీ చూపించు"
       unfollow: "అనుసరించవద్దు"
       unlike: "అయిష్టం"
     tags:
-      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
+      wasnt_that_interesting: "సరే, #<%= tagName %> మొత్తం అంత ఆసక్తికరంగా లేదని నేను అనుకుంటున్నాను..."
     timeago:
       day: "ఒక రోజు"
       days: "%d రోజుల"

@@ -91,14 +91,10 @@ pl:
       result: "Wynik"
       show_result: "Pokaż wynik"
       vote: "Zagłosuj"
-    post_report: "Zgłoś"
-    post_report_prompt: "Proszę podaj powód:"
-    post_report_prompt_default: "obraźliwa zawartość"
     publisher:
-      at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
-      limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"
-      near_from: "Blisko <%= location %>"
-      public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
+      add_option: "Dodaj opcję"
+      option: "Opcja <%= nr %>"
+      question: "Pytanie"
     reshares:
       duplicate: "Już przekaza@{m:łeś|f:łaś|n:no} dalej ten wpis!"
       post: "Przesłać dalej wpis użytkownika <%= name %>?"

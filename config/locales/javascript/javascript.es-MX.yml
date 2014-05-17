@@ -73,14 +73,6 @@ es-MX:
       invalid_ext: "El archivo {file} tiene una extensión inválida. Solo las extensiones {extensions} están permitidas."
       looking_good: "¡Ah, te ves increíble!"
       size_error: "El archivo {file} es demasiado grande, el tamaño máximo de un archivo es {sizeLimit}."
-    post_report: "Reportar"
-    post_report_prompt: "Por favor introduce el motivo:"
-    post_report_prompt_default: "contenido ofensivo"
-    publisher:
-      at_least_one_aspect: "Debes publicar al menos en un aspecto"
-      limited: "Limitado – tu publicación solo será vista por ia gente con quien compartes"
-      near_from: "Publicado desde: <%= location %>"
-      public: "Público – tu publicación será visible para todos, y encontrada por buscadores"
     reshares:
       duplicate: "Qué bien, ¿eh? ¡Ya has compartido esa publicación!"
       post: "¿Compartir la publicación de <%= name %>?"

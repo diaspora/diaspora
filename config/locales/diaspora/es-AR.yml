@@ -24,6 +24,14 @@ es-AR:
           attributes:
             diaspora_handle:
               taken: "ya está ocupado."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "No hay suficientes opciones para la encuesta."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "¡Ya has participado en esta encuesta!"
         request:
           attributes:
             from_id:
@@ -46,7 +54,6 @@ es-AR:
       correlations: "Similitudes"
       pages: "Páginas"
       pod_stats: "Estadísticas del servidor"
-      post_report: "Publicaciones informadas"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Búsqueda de usuarios"
       weekly_user_stats: "Estadísticas semanales de usuario"
@@ -90,9 +97,9 @@ es-AR:
       you_currently: "Actualmente te quedan %{user_invitation} invitaciones para enviar %{link}"
     weekly_user_stats:
       amount_of:
-        one: "cantidad de nuevos usuarios esta semana: %{count}"
-        other: "cantidad de nuevos usuarios esta semana: %{count}"
-        zero: "cantidad de nuevos usuarios esta semana: ninguno"
+        one: "Cantidad de nuevos usuarios esta semana: %{count}"
+        other: "Cantidad de nuevos usuarios esta semana: %{count}"
+        zero: "Cantidad de nuevos usuarios esta semana: ninguno"
       current_server: "La fecha actual del servidor es %{date}"
   ago: "hace %{time}"
   all_aspects: "Todos los aspectos"
@@ -618,7 +625,7 @@ es-AR:
         zero: "Ninguna notificacíon nueva"
     index:
       all_notifications: "Todas las Notificaciones"
-      also_commented: "Otros comentarios"
+      also_commented: "También comentados"
       and: "y"
       and_others:
         few: "y otros %{count}"
@@ -637,7 +644,7 @@ es-AR:
       reshared: "Compartidos"
       show_all: "mostrar todo"
       show_unread: "mostrar no leídos"
-      started_sharing: "Comenzaron a compartir"
+      started_sharing: "Usuarios que comparten con vos"
     liked:
       one: "A %{actors} le gustó tu publicación %{post_link}."
       other: "A %{actors} les gustó tu publicación %{post_link}."
@@ -717,9 +724,6 @@ es-AR:
     mentioned:
       mentioned: "te mencionó en una publicación:"
       subject: "%{name} te mencionó en diaspora*"
-    post_report_email:
-      body: "¡Por favor revísala lo antes posible!"
-      subject: "Una nueva publicación ha sido marcada como ofensiva"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
     reshared:
@@ -835,18 +839,6 @@ es-AR:
     update:
       error: "Error al editar la foto."
       notice: "La foto se subió correctamente."
-  post_report:
-    delete_link: "Borrar publicación"
-    post_label: "<b>Publicación</b>: %{title}"
-    reason_label: "Motivo: %{text}"
-    reported_label: "<b>Informada por</b> %{person}"
-    review_link: "Marcar como revisada"
-    status:
-      created: "El informe ha sido creado"
-      destroyed: "La publicación ha sido eliminada"
-      failed: "Algo salió mal"
-      marked: "El informe ha sido marcado como revisado"
-    title: "Resúmen de Informes marcados"
   posts:
     presenter:
       title: "Una publicación de %{name}"
@@ -1049,6 +1041,12 @@ es-AR:
         i_like: " Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación, "
         newhere: "Hola"
+      poll:
+        add_a_poll: "Crear una encuesta"
+        add_poll_answer: "Añadir opción"
+        option: "Opción 1"
+        question: "Pregunta"
+        remove_poll_answer: "Quitar opción"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando..."
       preview: "Vista previa"
@@ -1171,7 +1169,7 @@ es-AR:
       wrong_password: "La contraseña ingresada no coincide con tu contraseña actual."
     edit:
       also_commented: "...alguien también comenta en una publicación en la que comentaste?"
-      auto_follow_aspect: "Selecciona el aspecto al que se incuirán los usuarios a quienes sigues automáticamente:"
+      auto_follow_aspect: "Selecciona el aspecto al que se incluirán los usuarios a quienes sigues automáticamente:"
       auto_follow_back: "Seguir automáticamente a los usuarios que te sigan"
       change: "Cambiar"
       change_email: "Cambiar E-Mail"
@@ -1205,10 +1203,10 @@ es-AR:
       private_message: "...recibís un mensaje privado?"
       receive_email_notifications: "¿Recibir notificaciones por correo electrónico cuando..."
       reshared: "...alguien compartió tu publicación?"
-      show_community_spotlight: "¿Mostrar \"Comunidad Creativa\" en tu Stream?"
+      show_community_spotlight: "¿Mostrar \"Comunidad Creativa\" en tu Entrada?"
       show_getting_started: "Volver a activar la Introducción de Ayuda"
       started_sharing: "...alguien comienza a compartir con vos?"
-      stream_preferences: "Preferencias de Stream"
+      stream_preferences: "Preferencias de la Entrada"
       your_email: "Tu correo electrónico"
       your_handle: "Tu ID de diaspora*"
     getting_started:

@@ -75,11 +75,6 @@ it:
       invalid_ext: "{file} ha un'estensione non valida. Sono permesse soltanto {extensions}."
       looking_good: "Accidenti, sei in splendida forma!"
       size_error: "{file} è troppo grande, la dimensione massima è {sizeLimit}."
-    publisher:
-      at_least_one_aspect: "Devi scegliere almeno un aspetto"
-      limited: "Non pubblico - il tuo post sarà visibile solamente a coloro con cui lo condividi"
-      near_from: "Vicino a: <%= location %>"
-      public: "Pubblico - il tuo post sarà visibile a tutti, inclusi i motori di ricerca"
     reshares:
       duplicate: "Bello eh? Ma hai già condiviso quel post!"
       post: "Vuoi condividere il post di <%= name %>?"

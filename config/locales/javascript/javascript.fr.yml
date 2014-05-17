@@ -88,14 +88,10 @@ fr:
       result: "Résultat"
       show_result: "Afficher les résultats"
       vote: "Vote"
-    post_report: "Rapport"
-    post_report_prompt: "Merci de saisir un motif:"
-    post_report_prompt_default: "Contenu agressif"
     publisher:
-      at_least_one_aspect: "Vous devez créer au moins un aspect"
-      limited: "Limité - votre message ne sera vu que par des gens avec qui vous partagez"
-      near_from: "Posté à : <%= location %>"
-      public: "Public - votre message sera visible de tous et trouvé par les moteurs de recherche"
+      add_option: "Ajouter un choix"
+      option: "Choix <%= nr %>"
+      question: "Question"
     reshares:
       duplicate: "C'est si bien que ça ? Vous avez déjà repartagé ce message !"
       post: "Repartager le message de <%= name %> ?"

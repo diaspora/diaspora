@@ -24,6 +24,14 @@ pt-BR:
           attributes:
             diaspora_handle:
               taken: "já foi escolhido."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "Opções fornecidas pela enquete insuficientes."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Você já participou desta enquete!"
         request:
           attributes:
             from_id:
@@ -46,7 +54,6 @@ pt-BR:
       correlations: "Correlações"
       pages: "Páginas"
       pod_stats: "Status do Servidor"
-      post_report: "Publicações Relatadas"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Busca de Usuários"
       weekly_user_stats: "Estatísticas Semanais"
@@ -720,9 +727,6 @@ pt-BR:
     mentioned:
       mentioned: "mencionou você em uma publicação:"
       subject: "%{name} mencionou você em Diaspora*"
-    post_report_email:
-      body: "Por favor revise o mais breve possível!"
-      subject: "Uma nova publicação foi marcada como ofensiva"
     private_message:
       reply_to_or_view: "Responder ou visualizar esta conversa >"
     reshared:
@@ -838,18 +842,6 @@ pt-BR:
     update:
       error: "Falha ao tentar enviar a foto."
       notice: "A foto foi enviada com sucesso."
-  post_report:
-    delete_link: "Apagar publicação"
-    post_label: "<b>Publicação</b>: %{title}"
-    reason_label: "Motivo: %{text}"
-    reported_label: "<b>Relatado por</b> %{person}"
-    review_link: "Marcar como revisado"
-    status:
-      created: "Um relatório foi criado"
-      destroyed: "A publicação foi destruída"
-      failed: "Alguma coisa deu errado"
-      marked: "O relatório foi marcado como revisado"
-    title: "Visão Geral de Relatórios Marcados"
   posts:
     presenter:
       title: "Uma publicação de %{name}"
@@ -1052,6 +1044,12 @@ pt-BR:
         i_like: "Estou interessado em %{tags}."
         invited_by: "Obrigado pelo convite, "
         newhere: "Novato"
+      poll:
+        add_a_poll: "Adcionar uma enquete"
+        add_poll_answer: "Adicionar opção"
+        option: "Opção 1"
+        question: "Pergunta"
+        remove_poll_answer: "Remover opção"
       post_a_message_to: "Publicar uma mensagem para %{aspect}"
       posting: "Publicando..."
       preview: "Visualizar"

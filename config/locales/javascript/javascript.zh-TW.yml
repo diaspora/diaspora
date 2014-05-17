@@ -72,11 +72,6 @@ zh-TW:
       invalid_ext: "檔案 {file} 的副檔名不合格。僅接受 {extensions}。"
       looking_good: "天啊，你看起來真帥！"
       size_error: "檔案 {file} 太大了，上限是{sizeLimit}。"
-    publisher:
-      at_least_one_aspect: "發表時請至少選擇一個面向"
-      limited: "有限 - 只有你想分享的人才看得到你的貼文"
-      near_from: "貼文地點：<%= location %>"
-      public: "公開 - 所有人都能看到你的貼文，包括搜尋引擎"
     reshares:
       duplicate: "很棒對吧？你已經轉貼過該篇貼文了！"
       post: "要轉貼 <%= name %> 的貼文嗎？"

@@ -85,14 +85,10 @@ he:
       result: "תוצאה"
       show_result: "הצגת תוצאה"
       vote: "הצבעה"
-    post_report: "דיווח"
-    post_report_prompt: "אנא רשמו סיבה:"
-    post_report_prompt_default: "תוכן פוגעני"
     publisher:
-      at_least_one_aspect: "יש לפרסם להיבט אחד לפחות"
-      limited: "מוגבל - הודעתך תהיה גלויה רק לאנשים שאיתם בחרת לשתף"
-      near_from: "פורסם מ<%= location %>"
-      public: "ציבורי - הודעתך תהיה גלויה לכולם וניתן יהיה למצוא אותה במנועי חיפוש"
+      add_option: "הוספת אפשרות"
+      option: "אפשרות <%= nr %>"
+      question: "שאלה"
     reshares:
       duplicate: "כבר שיתפת מחדש את ההודעה הזו."
       post: "האם לשתף מחדש את ההודעה של <%= name %>?"

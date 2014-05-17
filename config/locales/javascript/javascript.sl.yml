@@ -57,10 +57,6 @@ sl:
       not_found: "nikogar ni bilo mogoče najti ..."
     photo_uploader:
       looking_good: "OMG, izgledaš super!"
-    publisher:
-      at_least_one_aspect: "Objaviti morate v vsaj en vidik"
-      limited: "Omejeno - Vaša objava bo vidna le ljudem, s katerimi delite"
-      public: "Javno - Vaša objava bo vidna vsem, prikazana bo tudi v spletnih iskalnikih"
     reshares:
       duplicate: "To objavo ste že ponovno delili"
       post: "Ponovno deli objavo osebe <%= name %>?"

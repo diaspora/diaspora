@@ -55,10 +55,6 @@ ar:
     my_stream: "ساحة المشاركات"
     photo_uploader:
       looking_good: "يا إلهى , تبدو رائعاً !"
-    publisher:
-      at_least_one_aspect: "حدد فئة واحدة على الأقل"
-      limited: "محدودة - مشاركتك ستكون متاحة لجهات إتصالك فقط"
-      public: "عام - مشاركتك ستكون متاحة للجميع ومفهرسة في محركات البحث"
     reshares:
       duplicate: "رائع، أليس كذلك؟ أعدت نشر هذه المشاركة مسبقا"
     search_for: "إبحث عن <%= name %>"

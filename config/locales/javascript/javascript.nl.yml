@@ -88,14 +88,10 @@ nl:
       result: "Resultaat"
       show_result: "Toon resultaat"
       vote: "Stem"
-    post_report: "Melden"
-    post_report_prompt: "Geef de reden op:"
-    post_report_prompt_default: "aanstootgevende inhoud"
     publisher:
-      at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
-      limited: "Gelimiteerd - je post is alleen zichtbaar voor de mensen waarmee je hem deelt"
-      near_from: "Geplaatst vanaf: <%= location %>"
-      public: "Openbaar - je post is zichtbaar voor iedereen en kan gevonden worden door zoekmachines"
+      add_option: "Keuzemogelijkheid toevoegen"
+      option: "Keuze <%= nr %>"
+      question: "Vraag"
     reshares:
       duplicate: "Je hebt dit bericht al doorgegeven! Is hij echt zo goed?"
       post: "Deel <%= name %>'s bericht?"

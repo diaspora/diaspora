@@ -53,7 +53,7 @@ tr:
       correlations_count: "Giriş Sayısı ile Bağıntılar:"
     stats:
       2weeks: "2 Hafta"
-      50_most: "50 en çok tutulan etiket"
+      50_most: "En popüler 50 etiket"
       comments:
         other: "%{count} yorum"
         zero: "%{count} yorum"
@@ -68,7 +68,7 @@ tr:
       shares:
         other: "%{count} paylaşım"
         zero: "%{count} paylaşım"
-      tag_name: "etiket adı: %{name_tag} sayı: %{count_tag}"
+      tag_name: "Etiket Adı: %{name_tag} Sayı: %{count_tag}"
       usage_statistic: "Kullanıcı İstatistikleri"
       users:
         other: "%{count} kişi"

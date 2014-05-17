@@ -24,6 +24,14 @@ de_formal:
           attributes:
             diaspora_handle:
               taken: "wird schon benutzt."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "Nicht genügend Auswahloptionen."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Sie haben an dieser Umfrage bereits teilgenommen!"
         request:
           attributes:
             from_id:
@@ -297,7 +305,10 @@ de_formal:
         two: "%{count} neue Nachrichten"
         zero: "Keine neuen Nachrichten"
     index:
+      conversations_inbox: "Konversationen – Eingang"
+      create_a_new_conversation: "beginnen Sie eine neue Konversation"
       inbox: "Eingang"
+      new_conversation: "Neue Konversation"
       no_conversation_selected: "Keine Konversation ausgewählt"
       no_messages: "Keine Nachrichten"
     new:
@@ -306,6 +317,8 @@ de_formal:
       sending: "Senden …"
       subject: "Betreff"
       to: "An"
+    new_conversation:
+      fail: "Ungültige Nachricht"
     show:
       delete: "Diese Konversation löschen und blockieren"
       reply: "Antworten"
@@ -629,6 +642,8 @@ de_formal:
         two: "%{count} neue Benachrichtigungen"
         zero: "Keine neuen Benachrichtigungen"
     index:
+      all_notifications: "Alle Benachrichtigungen"
+      also_commented: "Auch kommentiert"
       and: "und"
       and_others:
         few: "und %{count} anderen"
@@ -637,9 +652,17 @@ de_formal:
         other: "und %{count} anderen"
         two: "und %{count} andere"
         zero: "und niemand sonst"
+      comment_on_post: "Einen Beitrag Kommentiert"
+      liked: "Gefällt"
       mark_all_as_read: "Markiere alle als gelesen"
+      mark_read: "Als gelesen markieren"
       mark_unread: "als ungelesen markieren"
+      mentioned: "Erwähnt"
       notifications: "Benachrichtigungen"
+      reshared: "Weitergesagt"
+      show_all: "alle zeigen"
+      show_unread: "Ungelesene anzeigen"
+      started_sharing: "Angefangen zu teilen"
     liked:
       few: "%{actors} gefällt Ihr %{post_link}."
       many: "%{actors} gefällt Ihr %{post_link}."
@@ -762,11 +785,14 @@ de_formal:
       is_sharing: "%{name} teilt mit Ihnen"
       results_for: "Ergebnisse für %{params}"
     index:
+      couldnt_find_them: "Sie konnten sie nicht finden?"
       looking_for: "Suchen Sie mit %{tag_link} getaggte Beiträge?"
       no_one_found: "… und niemand wurde gefunden."
       no_results: "Hey! Sie müssen nach etwas suchen."
       results_for: "Suchergebnisse für"
+      search_handle: "Nutzen Sie die diaspora* ID (nutzername@pod.tld) Ihrer Freunde, um sie leichter zu finden."
       searching: "suche, bitte warten..."
+      send_invite: "Immer noch nichts? Verschicken Sie eine Einladung!"
     many: "%{count} Personen"
     one: "Eine Person"
     other: "%{count} Personen"
@@ -864,6 +890,9 @@ de_formal:
       edit_profile: "Profil bearbeiten"
       first_name: "Vorname"
       last_name: "Nachname"
+      nsfw_check: "Markiere alles, was ich teile, als NSFW"
+      nsfw_explanation: "NSFW („Not safe for work“, dt. „Unpassend für den Arbeitsplatz“) ist Diasporas sich selbst verwaltender Community-Standard für Inhalte, die für das Ansehen während der Arbeit möglicherweise ungeeignet sind. Bitte aktivieren Sie diese Option, wenn Sie häufig derartiges Material teilen möchten, damit es in den Streams anderer Leute, die es nicht sehen wollen, ausgeblendet wird."
+      nsfw_explanation2: "Wenn Sie diese Option nicht verwenden möchten, markieren Sie entsprechendes Material bitte mit dem Tag #nsfw."
       update_profile: "Profil aktualisieren"
       your_bio: "Ihre Beschreibung"
       your_birthday: "Ihr Geburtstag"
@@ -1033,6 +1062,7 @@ de_formal:
       all: "alle"
       all_contacts: "Alle Kontakte"
       discard_post: "Beitrag verwerfen"
+      formatWithMarkdown: "Sie können %{markdown_link} verwenden, um Ihren Beitrag zu formatieren"
       get_location: "Ihren Standort ermitteln"
       make_public: "veröffentlichen"
       new_user_prefill:
@@ -1040,10 +1070,17 @@ de_formal:
         i_like: "Ich interessiere mich für %{tags}."
         invited_by: "Danke für die Einladung, "
         newhere: "Neuhier"
+      poll:
+        add_a_poll: "Eine Umfrage hinzufügen"
+        add_poll_answer: "Option hinzufügen"
+        option: "Option 1"
+        question: "Frage"
+        remove_poll_answer: "Option entfernen"
       post_a_message_to: "Senden Sie eine Nachricht an %{aspect}"
       posting: "Senden …"
       preview: "Vorschau"
       publishing_to: "Veröffentlichen an: "
+      remove_location: "Position entfernen"
       share: "Teilen"
       share_with: "Teilen Sie mit"
       upload_photos: "Fotos hochladen"
@@ -1065,6 +1102,13 @@ de_formal:
       via: "via %{link}"
       via_mobile: "via mobile"
       viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
+  simple_captcha:
+    label: "Geben Sie den Code in das Feld ein:"
+    message:
+      default: "Der Sicherheitsschlüssel entsprach nicht dem aus dem Bild"
+      failed: "Menschlichkeitsprüfung fehlgeschlagen"
+      user: "Der eingegebene Code unterschied sich vom abgebildeten"
+    placeholder: "Geben Sie die dargestellten Zeichen ein"
   status_messages:
     create:
       success: "Erfolgreich erwähnt: %{names}"
@@ -1131,6 +1175,10 @@ de_formal:
   tags:
     show:
       follow: "#%{tag} folgen"
+      followed_by_people:
+        one: "von einer Person gefolgt"
+        other: "von %{count} Personen gefolgt"
+        zero: "von keiner Person gefolgt"
       following: "#%{tag} folgen"
       nobody_talking: "Niemand hat bisher etwas über %{tag} gesagt."
       none: "Der leere Tag existiert nicht!"

@@ -72,11 +72,6 @@ bs:
       invalid_ext: "{file} ima nevažeću ekstenziju. Samo {extensions} su dozvoljene."
       looking_good: "Bože, izgledate fenomenalno!"
       size_error: "{file} je prevelika, maksimalna veličina datoteke je {sizeLimit}."
-    publisher:
-      at_least_one_aspect: "Morate objaviti za najmanje jedan aspekt"
-      limited: "Ograničeno - vaša objava će biti vidljiva od ljudi s kojima dijelite"
-      near_from: "Objavljeno sa: <%= location %>"
-      public: "Javno - vaša objava će biti vidljiva svima i može biti pronađena od pretraživača"
     reshares:
       duplicate: "Tako dobro, ha?  Već ste ponovo dijelili tu objavu!"
       post: "Ponovo dijeli objavu od <%= name %>?"

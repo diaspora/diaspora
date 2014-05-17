@@ -68,6 +68,9 @@ sv:
     my_activity: "Min aktivitet"
     my_aspects: "Mina aspekter"
     my_stream: "Ström"
+    notifications:
+      mark_read: "Lästmärk"
+      mark_unread: "Olästmarkera"
     people:
       not_found: "och ingen hittades..."
     photo_uploader:
@@ -77,14 +80,18 @@ sv:
       invalid_ext: "{file} har otillåten filändelse. Endast {extensions} tillåts."
       looking_good: "OMG, du ser grym ut!"
       size_error: "{file} är för stor, den största tillåtna filstorleken är {sizeLimit}."
-    post_report: "Anmäl"
-    post_report_prompt: "Var god och ge en orsak:"
-    post_report_prompt_default: "kränkande innehåll"
+    poll:
+      close_result: "Göm resultat"
+      count:
+        one: "<%=count%> röst lagd"
+        other: "<%=count%> röster lagda"
+      result: "Resultat"
+      show_result: "Visa resultat"
+      vote: "Rösta"
     publisher:
-      at_least_one_aspect: "Du måste publicera till minst en aspekt."
-      limited: "Begränsad - ditt inlägg visas endast för personer som du delar med"
-      near_from: "Sänt från: <%= location %>"
-      public: "Publikt - ditt inlägg visas för alla och i söktjänster"
+      add_option: "Lägg till alternativ"
+      option: "Alternativ <%= nr %>"
+      question: "Fråga"
     reshares:
       duplicate: "Du gillar detta va? Du har nämligen redan delat vidare detta inlägg!"
       post: "Vill du dela vidare <%= name %>s inlägg?"

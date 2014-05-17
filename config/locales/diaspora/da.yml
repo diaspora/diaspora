@@ -54,7 +54,6 @@ da:
       correlations: "Korrelationer"
       pages: "Sider"
       pod_stats: "Statistik for Pod"
-      post_report: "Indrapporterede indlæg"
       sidekiq_monitor: "Sidekiq monitor"
       user_search: "Søg efter brugere"
       weekly_user_stats: "Ugentlig bruger-statistik"
@@ -734,9 +733,6 @@ da:
     mentioned:
       mentioned: "omtalte dig i et indlæg:"
       subject: "%{name} har omtalt dig på Diaspora*"
-    post_report_email:
-      body: "Gennemgå venligst hurtigst muligt!"
-      subject: "Et nyt indlæg blev markeret som anstødeligt"
     private_message:
       reply_to_or_view: "Besvar eller se denne samtale >"
     reshared:
@@ -852,18 +848,6 @@ da:
     update:
       error: "Kunne ikke redigere billede."
       notice: "Billedet blev opdateret."
-  post_report:
-    delete_link: "Slet indlæg"
-    post_label: "<b>Indlæg</b>: %{title}"
-    reason_label: "Begrundelse: %{text}"
-    reported_label: "<b>Indrapporteret af</b> %{person}"
-    review_link: "Marker som set"
-    status:
-      created: "Der er blevet lavet en rapport"
-      destroyed: "Indlægget er blevet ødelagt"
-      failed: "Noget gik galt"
-      marked: "Rapporten er blevet markeret som set"
-    title: "Oversigt over markerede rapporter"
   posts:
     presenter:
       title: "Et opslag fra %{name}"
@@ -1199,8 +1183,8 @@ da:
       success: "Din konto er nu låst. Det kan tage 20 minutter for os at blive færdige med at lukke den helt. Tak fordi du prøvede Diaspora*."
       wrong_password: "Det indtastede kodeord stemmer ikke overens med dit nuværende kodeord."
     edit:
-      also_commented: "...nogen har kommenteret på en af dine kontakters indlæg?"
-      auto_follow_aspect: "Aspekt for brugere du automatisk følger:"
+      also_commented: "... nogen har kommenteret et indlæg du tidligere har kommenteret."
+      auto_follow_aspect: "Aspekt for automatisk tilføjede kontakter:"
       auto_follow_back: "Følg automatisk brugere der følger dig"
       change: "Skift"
       change_email: "Skift e-mail"
@@ -1217,7 +1201,7 @@ da:
         no_turning_back: "Nu er der ingen vej tilbage."
         what_we_delete: "Vi sletter alle dine indlæg og profildata så hurtigt som overhovedet muligt. Dine kommentarer vil forblive, men være forbundet til dit Diaspora*-ID og ikke dit navn."
       close_account_text: "Luk konto"
-      comment_on_post: "...nogen har kommenteret dit indlæg?"
+      comment_on_post: "... nogen har kommenteret dit indlæg."
       current_password: "Nuværende adgangskode"
       current_password_expl: "det du loggede ind med..."
       download_photos: "Download mine billeder"
@@ -1225,19 +1209,19 @@ da:
       edit_account: "Rediger konto"
       email_awaiting_confirmation: "Vi har sendt dig et aktiveringslink til %{unconfirmed_email}. Indtil du følger dette link og aktiverer den nye adresse, vil vi fortsætte med at bruge din oprindelige adresse %{email}."
       export_data: "Eksportér data"
-      following: "Følgeskabsindstillinger"
+      following: "Delingsindstillinger"
       getting_started: "Ny bruger opsætning"
-      liked: "...nogen synes om dit indlæg?"
-      mentioned: "...du er nævnt i et indlæg?"
+      liked: "... nogen synes om dit indlæg."
+      mentioned: "... du er nævnt i et indlæg."
       new_password: "Nyt adgangskode"
       photo_export_unavailable: "Følg"
-      private_message: "...du har modtaget en besked?"
-      receive_email_notifications: "Modtag e-mail notifikation når..."
-      reshared: "... nogen deler dit indlæg?"
+      private_message: "... du har modtaget en privat besked."
+      receive_email_notifications: "Modtag en besked på e-mail når:"
+      reshared: "... nogen deler dit indlæg."
       show_community_spotlight: "Vis kreative medlemmer i din hovedstrøm?"
       show_getting_started: "Genaktivér 'Kom godt i gang'"
-      started_sharing: "...nogen er begyndt at dele med dig?"
-      stream_preferences: "Strøm opsætning"
+      started_sharing: "... nogen er begyndt at dele med dig."
+      stream_preferences: "Opsætning af din Strøm"
       your_email: "Din e-mail"
       your_handle: "Dit Diaspora*-ID"
     getting_started:

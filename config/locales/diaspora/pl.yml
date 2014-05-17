@@ -54,7 +54,6 @@ pl:
       correlations: "Współzależności"
       pages: "Strony"
       pod_stats: "Statystyki dla Podu"
-      post_report: "Zgłoszone Wpisy"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Wyszukiwanie użytkowników"
       weekly_user_stats: "Tygodniowe statystyki użytkownika"
@@ -177,10 +176,10 @@ pl:
     index:
       diaspora_id:
         content_1: "Twój identyfikator w sieci Diaspora* to:"
-        content_2: "Możesz dać go każdemu - dzięki niemu można cię znaleźć na Diasporze."
+        content_2: "Osoby którym go przekażesz będą mogły odnaleźć cię na Diasporze*."
         heading: "Identyfikator Diaspory*"
       donate: "Wspomóż"
-      handle_explanation: "Oto Twój identyfikator Diaspory. Tak jak adres e-mail, możesz podać go osobom, z którymi chcesz być w kontakcie."
+      handle_explanation: "Oto Twój identyfikator Diaspory. Możesz podawać go osobom z którymi chcesz być w kontakcie, podobnie jak adres e-mail."
       help:
         any_problem: "Jakiś problem?"
         contact_podmin: "Skontaktuj się z administratorem swojego poda!"
@@ -257,7 +256,7 @@ pl:
       failure: "Nie mogę przestać ignorować tego użytkownika.  #evasion"
       success: "Zobaczmy co mają do powiedzenia! #sayhello"
   bookmarklet:
-    explanation: "Publikuj w sieci Diaspora* z dowolnego miejsca, dodając ten link do zakładek => %{link}"
+    explanation: "Publikuj w sieci Diaspora* z dowolnego miejsca poprzez dodanie tego linku do zakładek => %{link}"
     heading: "Bookmarklet"
     post_something: "Opublikuj w Diasporze"
     post_success: "Wpis został opublikowany! Okno zostanie zamknięte!"
@@ -583,7 +582,7 @@ pl:
   layouts:
     application:
       back_to_top: "Powrót na górę"
-      powered_by: "DZIAŁA NA diasporze*"
+      powered_by: "Działa na oprogramowaniu diaspora*"
       public_feed: "Publiczny kanał Diaspory użytkownika %{name}"
       source_package: "pobierz pakiet z kodem źródłowym"
       toggle: "przełącz widok mobilny"
@@ -754,9 +753,6 @@ pl:
     mentioned:
       mentioned: "wspomniał(a) o Tobie we wpisie:"
       subject: "%{name} wspomniał o Tobie na diasporze*"
-    post_report_email:
-      body: "Proszę sprawdź ten wpis najszybciej jak to możliwe!"
-      subject: "Nowy wpis został zgłoszony jako obraźliwy"
     private_message:
       reply_to_or_view: "Odpowiedz lub wyświetl wątek >"
     reshared:
@@ -872,18 +868,6 @@ pl:
     update:
       error: "Błąd podczas edycji zdjęcia."
       notice: "Pomyślnie zaktualizowano zdjęcie."
-  post_report:
-    delete_link: "Usuń wpis"
-    post_label: "<b>Wpis:</b> %{title}"
-    reason_label: "Powód: %{text}"
-    reported_label: "<b>Zgłoszony przez:</b> %{person}"
-    review_link: "Oznacz jako sprawdzony"
-    status:
-      created: "Zgłoszenie zostało utworzone"
-      destroyed: "Wpis został zniszczony"
-      failed: "Coś poszło  nie tak"
-      marked: "Zgłoszenie zostało oznaczone jako sprawdzone"
-    title: "Podgląd Oznaczonych Zgłoszeń"
   posts:
     presenter:
       title: "Wpis od %{name}"
@@ -904,7 +888,7 @@ pl:
   profile: "Profil"
   profiles:
     edit:
-      allow_search: "Pozwól ludziom znaleźć Cię w Diasporze"
+      allow_search: "Pozwól na wyszukanie ciebie w Diasporze"
       edit_profile: "Edycja profilu"
       first_name: "Imię"
       last_name: "Nazwisko"
@@ -932,7 +916,7 @@ pl:
     other: "Reakcje: %{count}"
     zero: "0 reakcji"
   registrations:
-    closed: "Ten pod sieci Diaspora* nie udostępnia rejestracji."
+    closed: "Ten pod sieci Diaspora* nie zezwala na rejestrację nowych użytkowników."
     create:
       success: "Dołączył@{f:aś|m:eś|n:aś/eś} do Diaspory!"
     edit:
@@ -1073,7 +1057,7 @@ pl:
       logged_in: "zalogowano do %{service}"
       manage: "Zarządzaj powiązanymi usługami"
       new_user_welcome_message: "Używaj #znaczników, aby opisywać swoje wpisy i znajdować osoby o podobnych zainteresowaniach. Zawołaj ciekawych ludzi dzięki @wzmiankom"
-      outside: "Publiczna wiadomość będzie widoczna dla wszystkich spoza Diaspory."
+      outside: "Wiadomości publiczne będą widoczne dla wszystkich spoza Diaspory."
       share: "Podziel się"
       title: "Konfiguracja połączonych usług"
       visibility_dropdown: "Użyj tej listy rozwijalnej, aby zmienić widoczność swojego wpisu.  (Proponujemy, aby ten pierwszy był publiczny.)"
@@ -1216,7 +1200,7 @@ pl:
       email_not_confirmed: "Nie można aktywować adresu e-mail. Nieprawidłowe łącze?"
     destroy:
       no_password: "Wpisz hasło, aby zamknąć konto."
-      success: "Konto zostało zablokowane. Zakończenie zamykania konta może zająć do 20 minut. Dziękujemy za wypróbowanie Diaspory."
+      success: "Konto zostało zablokowane. Dokończymy usuwanie Twojego konta w ciągu najbliższych 20 minut. Dziękujemy za wypróbowanie Diaspory."
       wrong_password: "Wprowadzone hasło nie jest zgodne z aktualnym hasłem."
     edit:
       also_commented: "...ktoś także skomentuje wpis jednego z moich kontaktów"
@@ -1232,7 +1216,7 @@ pl:
         if_you_want_this: "Jeśli naprawdę tego chcesz, wpisz swoje hasło poniżej i kliknij \"Zamknij konto\"."
         lock_username: "Nazwa użytkownika zostanie zablokowana, jeśli zdecydujesz się wrócić."
         locked_out: "Zostaniesz wylogowa@{m:ny|f:na|n:ny(na)} i konto zostanie zablokowane."
-        make_diaspora_better: "Pomóż nam uczynić Diasporę lepszą, zamiast opuszczać sieć. Jeśli naprawdę odchodzisz, chcemy poinformować Cię o tym, co się potem stanie."
+        make_diaspora_better: "Pomóż nam ulepszyć Diasporę, zamiast opuszczać sieć. Jeśli naprawdę odchodzisz, chcemy poinformować Cię o tym, co się potem stanie."
         mr_wiggles: "Pan Łaskotka będzie niepocieszony, widząc, że odchodzisz"
         no_turning_back: "Aktualnie, nie ma odwrotu."
         what_we_delete: "Usuniemy wszystkie Twoje wpisy i dane profilu najszybciej jak to tylko możliwe. Twoje komentarze pozostaną tam gdzie były, ale będą skojarzone z Twoim Identyfikatorem Diaspory zamiast z imieniem."
@@ -1263,7 +1247,7 @@ pl:
     getting_started:
       awesome_take_me_to_diaspora: "Świetnie! Zabierz mnie na diasporę*"
       community_welcome: "Społeczność sieci Diaspora* cieszy się, że ​​jesteś na pokładzie!"
-      connect_to_facebook: "Możemy nieco przyśpieszyć poprzez %{link} do Diaspory. To spowoduje pobranie Twojej nazwy i zdjęcia i włączy publikowanie krzyżowe."
+      connect_to_facebook: "Możemy nieco przyśpieszyć poprzez %{link} do Diaspory. To spowoduje pobranie Twojej nazwy i zdjęcia i włączy równoczesne publikowanie postów w obu serwisach."
       connect_to_facebook_link: "podpinanie konta na Facebooku"
       hashtag_explanation: "Znaczniki pozwalają łatwo odnaleźć interesujące Cię tematy. Są także świetnym sposobem na nawiązywanie znajomości na Diasporze."
       hashtag_suggestions: "Spróbuj obserwować znaczniki takie jak #sztuka, #filmy, #gif, itd."

@@ -305,6 +305,7 @@ sk:
         zero: "Žiadne nové správy"
     index:
       inbox: "Poštová schránka"
+      new_conversation: "Nová konverzácia"
       no_conversation_selected: "Nevybral(a) si žiaden rozhovor"
       no_messages: "žiadne správy"
     new:
@@ -313,6 +314,8 @@ sk:
       sending: "Posiela sa..."
       subject: "predmet"
       to: "príjemca"
+    new_conversation:
+      fail: "Neplatná správa"
     show:
       delete: "odstrániť a zablokovať rozhovor"
       reply: "Odpovedať"
@@ -396,11 +399,13 @@ sk:
       image_url: "adresa obrázka"
       insert_images_comments_q: "Môžem vložiť obrázok do komentáru?"
       insert_images_q: "Ako môžem vložiť obrázok do príspevku?"
-      size_of_images_q: "Môžem upraviť veľkosť obrázku v príspevku alebo komentári"
+      size_of_images_q: "Môžem upraviť veľkosť obrázku v príspevku alebo komentári?"
       title: "Príspevky a ich posielanie"
     private_posts:
       title: "Súkromné príspevky"
     private_profiles:
+      title: "Súkromné profily"
+      whats_in_profile_q: "Čo obsahuje môj súkromný profil?"
       who_sees_profile_q: "Kto vidí môj osobný profil?"
     public_posts:
       find_public_post_q: "Ako môžu ľudia nájsť môj verejný príspevok?"
@@ -525,6 +530,7 @@ sk:
         two: "%{count} nové oznamy"
         zero: "Žiadne nové oznamy"
     index:
+      all_notifications: "Všetky oznamy"
       and: "a"
       and_others:
         few: " a ďalšie %{count}"
@@ -534,6 +540,7 @@ sk:
       mark_all_as_read: "Všetky označiť ako prečítané"
       mark_unread: "Označiť ako neprečítané"
       notifications: "Oznamy"
+      show_all: "zobraziť všetko"
     liked:
       few: "%{actors} označili, že sa im páči %{post_link}."
       one: "%{actors} označil(a), že sa mu/jej páči %{post_link}."
@@ -643,7 +650,7 @@ sk:
       looking_for: "Hľadáš príspevky označené značkou %{tag_link}?"
       no_one_found: "...a nikto sa nenašiel."
       no_results: "Hej! Musíš niečo hľadať."
-      results_for: "Výsledky vyhľadávania pre"
+      results_for: "Výsledky vyhľadávania pre %{search_term}"
       searching: "hľadá sa, prosím buď trpezlivý (-á)."
     many: "%{count} ľudí"
     one: "1 človek"
@@ -918,10 +925,13 @@ sk:
         i_like: "Zaujíma ma %{tags}."
         invited_by: "Vďaka za pozvanie, "
         newhere: "Nováčik"
+      poll:
+        question: "Otázka"
       post_a_message_to: "Poslať správu na %{aspect}"
       posting: "Posiela sa..."
       preview: "Ukážka"
       publishing_to: "Publikuje sa na: "
+      remove_location: "Odstrániť umiestnenie"
       share: "Uverejniť"
       share_with: "podeliť sa s"
       upload_photos: "Nahrať fotky"

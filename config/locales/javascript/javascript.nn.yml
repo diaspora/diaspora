@@ -63,10 +63,6 @@ nn:
     photo_uploader:
       completed: "<%= file %> ferdig"
       looking_good: "Du verda, du ser flott ut!"
-    publisher:
-      at_least_one_aspect: "Du må offentleggjera til minst eitt aspekt"
-      limited: "Avgrensa - berre personar du deler med vil kunna sjå meldinga"
-      public: "Offentleg - alle kan sjå meldinga di og ho kan bli funnen av søkjemotorar"
     reshares:
       duplicate: "Så bra, altså? Men du har allereie delt meldinga :-)"
       post: "Vil du dele <%= name %> sin post?"

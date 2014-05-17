@@ -33,7 +33,7 @@ fi:
       inviter:
         accept_at: "osoitteessa %{url}, hyväksyminen alla olevasta linkistä."
         has_invited_you: "%{names}"
-        have_invited_you: "%{names} on kutsunut sinut Diasporan käyttäjäksi"
+        have_invited_you: "%{names} on kutsunut sinut liittymään Diasporan käyttäjäksi"
       reset_password_instructions:
         change: "Vaihda salasanani"
         ignore: "Jos et pyytänyt tätä, voit jättää tämän sähköpostin huomiotta."

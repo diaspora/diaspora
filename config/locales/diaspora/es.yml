@@ -24,6 +24,14 @@ es:
           attributes:
             diaspora_handle:
               taken: "está en uso."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "No hay suficientes opciones para la encuesta."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "¡Ya has participado en esta encuesta!"
         request:
           attributes:
             from_id:
@@ -46,7 +54,6 @@ es:
       correlations: "Similitudes"
       pages: "Páginas"
       pod_stats: "Estadísticas del Servidor"
-      post_report: "Publicaciones reportadas"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Buscar usuario"
       weekly_user_stats: "Estadísticas Semanales del Usuario"
@@ -696,9 +703,6 @@ es:
     mentioned:
       mentioned: "te mencionó en una publicación:"
       subject: "%{name} te mencionó en diaspora*"
-    post_report_email:
-      body: "¡Por favor revísalo lo antes posible!"
-      subject: "Un nuevo mensaje fue marcado como ofensivo"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
     reshared:
@@ -814,18 +818,6 @@ es:
     update:
       error: "Error editando la foto."
       notice: "Foto actualizada con éxito."
-  post_report:
-    delete_link: "Borrar mensaje"
-    post_label: "<b>Entrada</b>: %{title}"
-    reason_label: "Razón: %{text}"
-    reported_label: "<b>Notificado por</b> %{person}"
-    review_link: "Marcar como revisado"
-    status:
-      created: "Un informe fue creado"
-      destroyed: "El mensaje fue eliminado"
-      failed: "¡Lo sentimos: algo salió mal!"
-      marked: "El informe fue marcado como revisado"
-    title: "Resumen de los informes marcados"
   posts:
     presenter:
       title: "Una publicación de %{name}"
@@ -1022,6 +1014,12 @@ es:
         i_like: "Tengo interés en %{tags}. "
         invited_by: "Gracias por la invitación, "
         newhere: "Hola"
+      poll:
+        add_a_poll: "Crear una encuesta"
+        add_poll_answer: "Añadir opción"
+        option: "Opción 1"
+        question: "Pregunta"
+        remove_poll_answer: "Quitar opción"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando..."
       preview: "Vista previa"
@@ -1140,7 +1138,7 @@ es:
       success: "Tu cuenta ha sido bloqueda.  Llevará unos 20 minutos cerrarla y destruirla.  Gracias por probar Diaspora."
       wrong_password: "La contraseña introducida no coincide con la contraseña actual."
     edit:
-      also_commented: "...alguien comenta en la publicación de tu contacto?"
+      also_commented: "alguien comenta en una publicación que has comentado"
       auto_follow_aspect: "Aspecto para los usuarios seguidos automáticamente:"
       auto_follow_back: "Seguir automáticamente a otros usuarios"
       change: "Cambiar"
@@ -1157,8 +1155,8 @@ es:
         mr_wiggles: "El Tío la Vara estará triste si te vas"
         no_turning_back: "Actualmente, no hay vuelta atrás."
         what_we_delete: "Eliminaremos todas tus publicaciones y datos del perfil, tan pronto como sea humanamente posible. Tus comentarios seguirán en línea, pero asociados a tu dirección Diaspora* en lugar de a tu nombre."
-      close_account_text: "Eliminar Cuenta"
-      comment_on_post: "...alguien comenta en tu publicación?"
+      close_account_text: "Eliminar cuenta"
+      comment_on_post: "...alguien comenta en tu publicación"
       current_password: "Contraseña actual"
       current_password_expl: "con la que inicias sesión..."
       download_photos: "Descargar mis fotos"
@@ -1168,16 +1166,16 @@ es:
       export_data: "Exportar datos"
       following: "Ajustes de Seguimiento"
       getting_started: "Preferencias del Nuevo Usuario"
-      liked: "…a alguien le gusta tu publicación?"
-      mentioned: "...eres mencionad@ en una publicación?"
+      liked: "a alguien le gusta tu publicación"
+      mentioned: "te mencionan en una publicación"
       new_password: "Nueva contraseña"
       photo_export_unavailable: "Exportar fotos no está disponible actualmente"
-      private_message: "...recibes un mensaje privado?"
-      receive_email_notifications: "¿Recibir notificaciones por correo cuando..."
-      reshared: "...alguien compartió tu publicación?"
+      private_message: "recibes un mensaje privado"
+      receive_email_notifications: "Recibir notificaciones por correo cuando..."
+      reshared: "alguien comparte una de tus publicaciones"
       show_community_spotlight: "¿Mostrar la \"Comunidad Creativa\" en tu Entrada?"
       show_getting_started: "Reiniciar la Introducción de Ayuda"
-      started_sharing: "...alquien empieza a seguir tus mensajes púbicos?"
+      started_sharing: "alguien empieza a compartir contigo"
       stream_preferences: "Preferencias de Entrada"
       your_email: "Tu correo"
       your_handle: "Tu ID de Diaspora*"

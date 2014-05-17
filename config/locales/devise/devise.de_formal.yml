@@ -49,9 +49,13 @@ de_formal:
     passwords:
       edit:
         change_password: "Mein Kennwort ändern"
+        confirm_password: "Passwort bestätigen"
+        new_password: "Neues Passwort"
       new:
+        email: "E-Mail-Adresse"
         forgot_password: "Kennwort vergessen?"
         no_account: "Es existiert kein Benutzerkonto mit dieser E-Mail-Adresse. Falls Sie auf eine Einladung warten, dann geben wir Ihnen sobald wie möglich eine"
+        reset_password: "Passwort zurücksetzen"
         send_password_instructions: "Anleitung zum Zurücksetzen des Кennworts anfordern"
       send_instructions: "Sie werden in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie Sie Ihr Kennwort zurücksetzen."
       updated: "Ihr Kennwort wurde erfolgreich geändert. Sie sind nun angemeldet."

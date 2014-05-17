@@ -54,10 +54,6 @@ tr:
       not_found: "...ve hiç kimse bulunamadı."
     photo_uploader:
       looking_good: "OMG, harika görünüyorsun!"
-    publisher:
-      at_least_one_aspect: "En az bir yönünün yayınlanması zorunludur"
-      limited: "Sınırlı - gönderi sadece paylaşılan kişiler tarafından görünür"
-      public: "Genel - gönderi herkes tarafından görünür ve arama motorları tarafından bulunur olacak"
     reshares:
       duplicate: "Bu iyi, değil mi? Zaten bu gönderiyi tekrar paylaştın!"
       post: "<%= name %> kişisinin gönderisini yeniden paylaşamak istiyor musun?"
