@@ -137,11 +137,6 @@
         %br
 
         %p.checkbox_select
-          = type.label :also_commented, t('.also_commented')
-          = type.check_box :also_commented, {:checked =>  @email_prefs['also_commented']}, false, true
-        %br
-
-        %p.checkbox_select
           = type.label :mentioned, t('.mentioned') 
           = type.check_box :mentioned, {:checked =>  @email_prefs['mentioned']}, false, true
         %br
