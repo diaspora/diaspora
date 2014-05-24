@@ -18,4 +18,17 @@ describe PollAnswer do
 
   end
 
+  describe 'validation' do
+    it 'should validate pressence of answer' do
+      answer = PollAnswer.new
+      answer.valid?
+      answer.errors.should have_key(:answer)
+    end
+    it 'answer should not empty' do
+      answer = PollAnswer.new answer: '  '
+      answer.valid?
+      answer.errors.should have_key(:answer)
+    end
+  end
+
 end

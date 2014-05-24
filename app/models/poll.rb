@@ -13,6 +13,7 @@ class Poll < ActiveRecord::Base
   delegate :author, :author_id, :diaspora_handle, :public?, :subscribers, to: :status_message
 
   validate :enough_poll_answers
+  validates :question, presence: true
   
   self.include_root_in_json = false
 

@@ -51,4 +51,11 @@ describe('app.views.PublisherPollCreator', function(){
       expect(this.view.$(remove_btn).hasClass('active')).toBe(false);
     });
   });
+  describe('#validateInput', function(){
+    it('should invalid blank value', function(){
+      var input = this.view.$('input');
+      input.val('  ');
+      expect(this.view.validateInput(input)).toBe(false);
+    }):
+  });
 });

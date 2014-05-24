@@ -16,5 +16,11 @@ describe Poll do
     	@poll.poll_answers.build(:answer => '2')
     	@poll.should be_valid
     end
+
+    it 'should not create a poll when question in blank' do
+      @poll.question = '   '
+      @poll.valid?
+      @poll.errors.should have_key(:question)
+    end
   end
 end
