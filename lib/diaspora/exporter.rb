@@ -83,10 +83,7 @@ module Diaspora
           }
         end
 
-        # This is a hack.  Nokogiri interprets *.to_xml as a string.
-        # we want to inject document objects, instead.  See lines: 25,35,40.
-        # Solutions?
-        CGI.unescapeHTML(builder.to_xml.to_s)
+        builder.to_xml.to_s
       end
     end
   end
