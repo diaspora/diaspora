@@ -16,6 +16,13 @@ Feature: new user registration
     Then I should be on the stream page
     And I should not see "awesome_button"
 
+  Scenario: new user tries to XSS itself
+    When I fill in the following:
+      | profile_first_name | <script>alert(0)// |
+    And I focus the "follow_tags" field
+    Then I should see a flash message containing "Hey, <script>alert(0)//!"
+
+
   Scenario: new user does not add any tags in setup wizard and cancel the alert
     When I fill in the following:
       | profile_first_name | some name     |

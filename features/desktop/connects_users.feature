@@ -44,6 +44,19 @@ Feature: following and being followed
     When I am on the home page
     Then I should see "I am ALICE"
 
+  Scenario: I follow a malicious user
+    When I sign in as "bob@bob.bob"
+    And I go to the edit profile page
+    And I fill in the following:
+      | profile_first_name         | <script>alert(0)//   |
+    And I press "update_profile"
+    Then I should be on my edit profile page
+
+    When I sign in as "alice@alice.alice"
+    And I am on "bob@bob.bob"'s page
+    And I add the person to my "Besties" aspect
+    Then I should see a flash message containing "You have started sharing with <script>alert(0)//!"
+
   Scenario: seeing non-public posts of someone you follow who also follows you
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
@@ -87,7 +100,7 @@ Feature: following and being followed
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
 
-    Then I should see "Besties" 
+    Then I should see "Besties"
     Then I should see a "#mention_button" within "#profile"
     Then I should not see a "#message_button" within "#profile"
 
@@ -107,6 +120,6 @@ Feature: following and being followed
     And I add the person to my "Unicorns" aspect
 
     When I go to "bob@bob.bob"'s page
-    Then I should see "All Aspects" 
-    Then I should see a "#mention_button" within "#profile" 
+    Then I should see "All Aspects"
+    Then I should see a "#mention_button" within "#profile"
     Then I should see a "#message_button" within "#profile"

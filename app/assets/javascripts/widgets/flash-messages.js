@@ -19,7 +19,7 @@
       .html($("<div/>", {
         'class': "message"
         })
-        .html(result.notice))
+        .text(result.notice))
       .prependTo(document.body);
 
 
