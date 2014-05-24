@@ -316,7 +316,7 @@ describe User do
         alice.should_not be_valid
       end
 
-      it "requires a vaild email address" do
+      it "requires a valid email address" do
         alice.email = "somebody@anywhere"
         alice.should_not be_valid
       end
@@ -336,7 +336,7 @@ describe User do
         alice.should be_valid
       end
 
-      it "requires a vaild unconfirmed_email address" do
+      it "requires a valid unconfirmed_email address" do
         alice.unconfirmed_email = "somebody@anywhere"
         alice.should_not be_valid
       end
