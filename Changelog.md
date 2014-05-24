@@ -47,6 +47,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 * Do not replace earlier appearances of the name while mentioning somebody [#4868](https://github.com/diaspora/diaspora/issues/4868)
 * Catch exceptions when trying to decode an invalid URI [#4874](https://github.com/diaspora/diaspora/issues/4874)
 * Redirect to the stream when switching the mobile publisher to desktop [#4806](https://github.com/diaspora/diaspora/issues/4806)
+* Parsing mention witch contain in username special characters [#4919](https://github.com/diaspora/diaspora/pull/4919)
 
 ## Features
 * You can report a single post or comment by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517) [#4781](https://github.com/diaspora/diaspora/pull/4781)
