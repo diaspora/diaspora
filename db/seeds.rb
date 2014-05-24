@@ -19,6 +19,17 @@ alice = FactoryGirl.create(:user_with_aspect, :username => "alice", :password =>
 bob   = FactoryGirl.create(:user_with_aspect, :username => "bob", :password => 'evankorth')
 eve   = FactoryGirl.create(:user_with_aspect, :username => "eve", :password => 'evankorth')
 
+#Adds the following languages to the table
+Language.create(:name => "dutch")
+Language.create(:name => "english")
+Language.create(:name => "farsi")
+Language.create(:name => "russian")
+Language.create(:name => "french")
+Language.create(:name => "german")
+Language.create(:name => "portugese")
+Language.create(:name => "spanish")
+Language.create(:name => "pinyin")
+
 def url_hash(name)
   image_url = "/assets/user/#{name}.jpg"
   {
