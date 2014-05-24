@@ -150,6 +150,8 @@ describe("app.views.Publisher", function() {
       });
 
       it("disables submitting", function() {
+        this.view.togglePollCreator();
+
         this.view.setText('TESTING');
         expect(this.view.el_submit.prop('disabled')).toBeFalsy();
         expect(this.view.el_preview.prop('disabled')).toBeFalsy();

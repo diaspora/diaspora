@@ -202,7 +202,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   togglePollCreator: function(){
-    this.view_poll_creator.$el.toggleClass('active');
+    this.view_poll_creator.$el.toggle();
     this.el_input.focus();
   },
 
@@ -419,9 +419,9 @@ app.views.Publisher = Backbone.View.extend({
     var onlyWhitespaces = ($.trim(this.el_input.val()) === ''),
         isPhotoAttached = (this.el_photozone.children().length > 0),
         isValidPoll = this.view_poll_creator.isValidPoll();
-    
+
     // show poll errors
-    this.view_poll_creator.validatePoll();  
+    this.view_poll_creator.validatePoll();
 
     return (!onlyWhitespaces || isPhotoAttached) && isValidPoll && !this.disabled;
   },
