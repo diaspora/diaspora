@@ -47,7 +47,6 @@ describe Diaspora::Exporter do
     end
 
     it 'includes the profile as xml' do
-      puts exported.to_s
       expect(user_xml).to include "<profile>"
     end
   end
