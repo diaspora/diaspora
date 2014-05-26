@@ -67,6 +67,7 @@
                 = t('public')
               - elsif all_aspects_selected?(selected_aspects)
                 = t('all_aspects')
+                = content_tag(:span, nil, class: "icons-padlock-closed")
               - elsif selected_aspects.size == 1
                 = selected_aspects.first.name
               - else
