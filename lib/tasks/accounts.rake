@@ -7,9 +7,9 @@ namespace :accounts do
         account_delete.perform!
       end
       puts "OK."
+    else
+      puts "No acccount deletions to run."
     end
-
-    puts "No acccount deletions to run."
   end
 
 end

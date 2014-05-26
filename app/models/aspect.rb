@@ -8,7 +8,7 @@ class Aspect < ActiveRecord::Base
   has_many :aspect_memberships, :dependent => :destroy
   has_many :contacts, :through => :aspect_memberships
 
-  has_many :aspect_visibilities
+  has_many :aspect_visibilities, :dependent => :destroy
   has_many :posts, :through => :aspect_visibilities, :source => :shareable, :source_type => 'Post'
   has_many :photos, :through => :aspect_visibilities, :source => :shareable, :source_type => 'Photo'
 

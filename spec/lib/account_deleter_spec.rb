@@ -73,7 +73,7 @@ describe AccountDeleter do
     it 'removes all standard user associaltions' do
       @account_deletion.normal_ar_user_associates_to_delete.each do |asso|
         association_double = double
-        association_double.should_receive(:delete)
+        association_double.should_receive(:destroy)
         bob.should_receive(asso).and_return([association_double])
       end
 
@@ -88,7 +88,7 @@ describe AccountDeleter do
     it 'removes all standard person associaltions' do
       @account_deletion.normal_ar_person_associates_to_delete.each do |asso|
         association_double = double
-        association_double.should_receive(:delete_all)
+        association_double.should_receive(:destroy_all)
         bob.person.should_receive(asso).and_return(association_double)
       end
 
