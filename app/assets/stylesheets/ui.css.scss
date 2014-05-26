@@ -120,7 +120,6 @@ input.button {
     z-index: 20;
     position: absolute;
     width: 140px;
-    padding: 4px 0;
     margin-top: 2px;
     background-color: #fff;
     border: 1px solid $border-dark-grey;
@@ -144,7 +143,7 @@ input.button {
         &.selected {
           background: {
             image: image-url('icons/check_yes_ok.png');
-            position: 3px 3px;
+            position: 3px 6px;
             repeat: no-repeat;
           }
         }
@@ -152,8 +151,7 @@ input.button {
         &.selected:hover {
           background: {
             image: image-url('icons/check_yes_ok_white.png');
-            /* bump top position up 1px to compensate for the 1px added top border */
-            position: 3px 0px;
+            position: 3px 4px;
           }
         }
 
