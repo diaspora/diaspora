@@ -183,6 +183,7 @@ app.views.Publisher = Backbone.View.extend({
         self.setInputEnabled(true);
         self.setButtonsEnabled(true);
         self.$('#publisher_spinner').addClass('hidden');
+        Diaspora.page.flashMessages.render({ 'success':false, 'notice':Diaspora.I18n.t('failed_to_post_message') });
       }
     });
   },
