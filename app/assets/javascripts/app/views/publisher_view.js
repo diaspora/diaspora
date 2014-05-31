@@ -144,6 +144,8 @@ app.views.Publisher = Backbone.View.extend({
     var serializedForm = $(evt.target).closest("form").serializeObject();
     // disable input while posting, must be after the form is serialized
     this.setInputEnabled(false);
+    this.setButtonsEnabled(false);
+    this.$('#publisher_spinner').removeClass('hidden');
 
     // lulz this code should be killed.
     var statusMessage = new app.models.Post();
@@ -179,6 +181,8 @@ app.views.Publisher = Backbone.View.extend({
       error: function() {
         if( app.publisher ) app.publisher.trigger('publisher:error');
         self.setInputEnabled(true);
+        self.setButtonsEnabled(true);
+        self.$('#publisher_spinner').addClass('hidden');
       }
     });
   },
@@ -346,6 +350,12 @@ app.views.Publisher = Backbone.View.extend({
 
     // enable input
     this.setInputEnabled(true);
+    
+    // enable buttons
+    this.setButtonsEnabled(false);
+    
+    // hide spinner
+    this.$('#publisher_spinner').addClass('hidden');
 
     // clear location
     this.destroyLocation();

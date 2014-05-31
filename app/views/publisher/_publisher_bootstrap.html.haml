@@ -60,6 +60,8 @@
               =t('cancel')
 
           .btn-toolbar.pull-right
+            %span#publisher_spinner{:class => 'hidden'}
+              = image_tag 'ajax-loader.gif'
             %span#publisher_service_icons
               - if current_user.services
                 - for service in current_user.services
