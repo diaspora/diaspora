@@ -25,16 +25,10 @@ module Diaspora
     end
 
     def tag_strings
-      regex = /(?:^|\s)#([#{ActsAsTaggableOn::Tag.tag_text_regexp}]+|<3)/u
-      matches = self.
-        send( self.class.field_with_tags ).
-        scan(regex).
-        map { |match| match[0] }
-      unique_matches = matches.inject(Hash.new) do |h,element|
-        h[element.downcase] = element unless h[element.downcase]
-        h
-      end
-      unique_matches.values
+      (send(self.class.field_with_tags) || "")
+        .scan(/(?:^|\s)#([#{ActsAsTaggableOn::Tag.tag_text_regexp}]+|<3)/u)
+        .map(&:first)
+        .uniq(&:downcase)
     end
 
     def self.format_tags(text, opts={})

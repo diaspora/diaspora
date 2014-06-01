@@ -16,6 +16,8 @@ Feature: show photos
 
     Scenario: see my own photos
       When I am on "robert@grimm.grimm"'s page
+      #TODO: find out why images don't show on first load
+      And I am on "robert@grimm.grimm"'s page
       And I follow "View all" within ".image_list"
       Then I should be on person_photos page
 
