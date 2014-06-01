@@ -12,16 +12,20 @@
         ajaxLoader: dropdown.find(".ajax_loader")
       });
 
-      if( ! $.browser.msie ) {
-        self.badge.on('click', self.badgeLink, function(evt){
-          evt.preventDefault();
-          evt.stopPropagation();
-          if (self.dropdownShowing()){
-            self.hideDropdown();
-          } else {
-            self.showDropdown();
-          }
-        });
+      try {
+        if( ! $.browser.msie ) {
+          self.badge.on('click', self.badgeLink, function(evt){
+            evt.preventDefault();
+            evt.stopPropagation();
+            if (self.dropdownShowing()){
+              self.hideDropdown();
+            } else {
+              self.showDropdown();
+            }
+          });
+        }
+      } catch (e) {
+        console.info("Suppressed error: "+e.message);
       }
 
       self.documentBody.click(function(evt) {

@@ -9,7 +9,11 @@ var View = {
     $("input:submit").addClass("button");
 
     /* label placeholders */
-    $("input, textarea").placeholder();
+    try {
+      $("input, textarea").placeholder();
+    } catch (e) {
+      console.info("Suppressed error: "+e.message);
+    }
 
     /* "Toggling" the search input */
     $(this.search.selector)
@@ -63,7 +67,11 @@ var View = {
 
     $(document.body).click(this.dropdowns.removeFocus);
 
-    $('a[rel*=facebox]').facebox();
+    try {
+      $('a[rel*=facebox]').facebox();
+    } catch (e) {
+      console.info("Suppressed error: "+e.message);
+    }
     $(document).bind('reveal.facebox', function() {
       Diaspora.page.directionDetector.updateBinds();
     });

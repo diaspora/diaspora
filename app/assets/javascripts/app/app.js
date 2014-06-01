@@ -79,9 +79,13 @@ var app = {
   },
 
   setupFacebox: function() {
-    $.facebox.settings.closeImage = app.baseImageUrl()+'facebox/closelabel.png';
-    $.facebox.settings.loadingImage = app.baseImageUrl()+'facebox/loading.gif';
-    $.facebox.settings.opacity = 0.75;
+    try {
+      $.facebox.settings.closeImage = app.baseImageUrl()+'facebox/closelabel.png';
+      $.facebox.settings.loadingImage = app.baseImageUrl()+'facebox/loading.gif';
+      $.facebox.settings.opacity = 0.75;
+    } catch (e) {
+      console.info("Suppressed error: "+e.message);
+    }
   },
 
   setupBackboneLinks: function() {

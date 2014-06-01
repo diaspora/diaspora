@@ -370,4 +370,8 @@ function createUploader(){
 
    });
 }
-createUploader();
+try {
+  createUploader();
+} catch (e) {
+  console.info("Suppressed error: "+e.message);
+}

@@ -22,9 +22,13 @@
         }
       });
 
-      self.searchInput.autocomplete(self.searchFormAction + ".json", $.extend(self.options, {
-        element: self.searchInput
-      }));
+      try {
+        self.searchInput.autocomplete(self.searchFormAction + ".json", $.extend(self.options, {
+          element: self.searchInput
+        }));
+      } catch (e) {
+        console.info("Suppressed error: "+ e.message);
+      }
     });
 
     this.formatItem = function(row) {
