@@ -318,7 +318,7 @@ GEM
     rack-protection (1.2.0)
       rack
     rack-rewrite (1.5.0)
-    rack-ssl (1.3.3)
+    rack-ssl (1.4.1)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -527,7 +527,7 @@ DEPENDENCIES
   rack-piwik (= 0.2.2)
   rack-protection (= 1.2)
   rack-rewrite (= 1.5.0)
-  rack-ssl (= 1.3.3)
+  rack-ssl (= 1.4.1)
   rails (= 4.0.5)
   rails-i18n (= 4.0.2)
   rails-timeago (= 2.4.0)
