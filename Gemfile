@@ -120,7 +120,7 @@ group :assets do
   # CSS
 
   gem 'bootstrap-sass', '2.2.2.0'
-  gem 'compass-rails',  '1.0.3'
+  gem 'compass-rails',  '1.1.7'
   gem 'sass-rails',     '3.2.6'
 
   # Compression
