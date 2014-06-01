@@ -162,7 +162,7 @@ group :production do # we don't install these on travis to speed up test runs
   # Redirects
 
   gem 'rack-rewrite', '1.5.0', :require => false
-  gem 'rack-ssl',     '1.3.3', :require => 'rack/ssl'
+  gem 'rack-ssl',     '1.4.1', :require => 'rack/ssl'
 
   # Third party asset hosting
 
