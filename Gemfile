@@ -175,7 +175,7 @@ group :development do
   gem 'guard-cucumber', '1.4.1'
   gem 'guard-rspec',    '4.2.9'
   gem 'rb-fsevent',     '0.9.4', :require => false
-  gem 'rb-inotify',     '0.9.3', :require => false
+  gem 'rb-inotify',     '0.9.4', :require => false
 
   # Preloading environment
 
