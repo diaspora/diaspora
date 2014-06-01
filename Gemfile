@@ -199,7 +199,7 @@ group :test do
 
   # General helpers
 
-  gem 'factory_girl_rails', '4.3.0'
+  gem 'factory_girl_rails', '4.4.1'
   gem 'timecop',            '0.7.1'
   gem 'webmock',            '1.16.1', :require => false
 end
