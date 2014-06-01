@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140422134627) do
+ActiveRecord::Schema.define(:version => 20140601102543) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -482,7 +482,8 @@ ActiveRecord::Schema.define(:version => 20140422134627) do
   add_index "taggings", ["taggable_id", "taggable_type", "tag_id"], :name => "index_taggings_uniquely", :unique => true
 
   create_table "tags", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "taggings_count", :default => 0
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
