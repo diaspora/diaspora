@@ -115,17 +115,17 @@ describe Diaspora::MessageRenderer do
       it "should leave tags intact" do
         expect(
           message("I love #markdown").markdownified
-        ).to match %r{<a href="/tags/markdown" class="tag">#markdown</a>}
+        ).to match %r{<a class="tag" href="/tags/markdown">#markdown</a>}
       end
 
       it 'should leave multi-underscore tags intact' do
         expect(
           message("Here is a #multi_word tag").markdownified
-        ).to match  %r{Here is a <a href="/tags/multi_word" class="tag">#multi_word</a> tag}
+        ).to match  %r{Here is a <a class="tag" href="/tags/multi_word">#multi_word</a> tag}
 
         expect(
           message("Here is a #multi_word_tag yo").markdownified
-        ).to match %r{Here is a <a href="/tags/multi_word_tag" class="tag">#multi_word_tag</a> yo}
+        ).to match %r{Here is a <a class="tag" href="/tags/multi_word_tag">#multi_word_tag</a> yo}
       end
 
       it "should leave mentions intact" do
@@ -147,7 +147,7 @@ describe Diaspora::MessageRenderer do
       it 'should process text with both a hashtag and a link' do
         expect(
           message("Test #tag?\nhttps://joindiaspora.com\n").markdownified
-        ).to eq %{<p>Test <a href="/tags/tag" class="tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" target="_blank">https://joindiaspora.com</a></p>\n}
+        ).to eq %{<p>Test <a class="tag" href="/tags/tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" target="_blank">https://joindiaspora.com</a></p>\n}
       end
 
       it 'should process text with a header' do

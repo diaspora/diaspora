@@ -9,7 +9,7 @@ class ReportController < ApplicationController
   use_bootstrap_for :index
 
   def index
-    @reports = Report.where(reviewed: false).all
+    @reports = Report.where(reviewed: false)
   end
 
   def update
