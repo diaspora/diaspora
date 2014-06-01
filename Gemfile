@@ -96,7 +96,7 @@ gem 'acts-as-taggable-on', '2.4.1'
 gem 'addressable',        '2.3.6', :require => 'addressable/uri'
 gem 'faraday',            '0.8.9'
 gem 'faraday_middleware', '0.9.0'
-gem 'typhoeus',           '0.6.7'
+gem 'typhoeus',           '0.6.8'
 
 # Views
 
