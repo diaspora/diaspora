@@ -68,7 +68,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def receive(user, person)
-    cnv = Conversation.find_or_create_by(self.attributes)
+    cnv = Conversation.find_or_create_by!(self.attributes)
 
     self.participants.each do |participant|
       ConversationVisibility.find_or_create_by(conversation_id: cnv.id, person_id: participant.id)

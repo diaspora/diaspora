@@ -32,5 +32,7 @@ Feature: Close account
     And I press "close_account_confirm" in the modal window
     And I confirm the alert
     Then I sign in as "alice@alice.alice"
+    #TODO: find out why the automatic login here doesn't work anymore
+    And I try to sign in manually
     And I am on the home page
     Then I should see "Bob Jones"
