@@ -31,7 +31,7 @@ gem 'configurate', '0.0.8'
 
 # Cross-origin resource sharing
 
-gem 'rack-cors', '0.2.8', :require => 'rack/cors'
+gem 'rack-cors', '0.2.9', :require => 'rack/cors'
 
 # Database
 
