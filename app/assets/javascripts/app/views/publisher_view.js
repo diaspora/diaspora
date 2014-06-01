@@ -69,6 +69,18 @@ app.views.Publisher = Backbone.View.extend({
           _this.tryClose()
         }
     });
+    
+    // close publisher on post
+    this.on('publisher:add', function() {
+      this.close();
+      this.showSpinner(true);
+    });
+    
+    // open publisher on post error
+    this.on('publisher:error', function() {
+      this.open();
+      this.showSpinner(false);
+    });
 
     this.initSubviews();
     return this;
@@ -134,6 +146,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   createStatusMessage : function(evt) {
+    this.setButtonsEnabled(false);
     var self = this;
 
     if(evt){ evt.preventDefault(); }
@@ -178,6 +191,9 @@ app.views.Publisher = Backbone.View.extend({
       },
       error: function() {
         if( app.publisher ) app.publisher.trigger('publisher:error');
+        self.setInputEnabled(true);
+        Diaspora.page.flashMessages.render({ 'success':false, 'notice':Diaspora.I18n.t('failed_to_post_message') });
+        self.setButtonsEnabled(true);
         self.setInputEnabled(true);
       }
     });
@@ -344,8 +360,14 @@ app.views.Publisher = Backbone.View.extend({
     // disable submitting
     this.checkSubmitAvailability();
 
+    // hide spinner
+    this.showSpinner(false);
+
     // enable input
     this.setInputEnabled(true);
+    
+    // enable buttons
+    this.setButtonsEnabled(true);
 
     // clear location
     this.destroyLocation();
@@ -386,7 +408,14 @@ app.views.Publisher = Backbone.View.extend({
     this.view_poll_creator.$el.removeClass('active');
     return this;
   },
-
+  
+  showSpinner: function(bool) {
+    if (bool)
+      this.$('#publisher_spinner').removeClass('hidden');
+    else
+      this.$('#publisher_spinner').addClass('hidden');
+  },
+  
   checkSubmitAvailability: function() {
     if( this._submittable() ) {
       this.setButtonsEnabled(true);

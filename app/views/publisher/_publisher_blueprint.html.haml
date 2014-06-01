@@ -47,6 +47,8 @@
         - for aspect_id in aspect_ids
           = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
+      #publisher_spinner{:class => 'hidden'}
+        = image_tag 'ajax-loader.gif'
       .options_and_submit
         .public_toggle
           %span#publisher_service_icons
