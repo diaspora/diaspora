@@ -75,7 +75,7 @@ gem 'opengraph_parser', '0.2.3'
 
 
 # Please remove when migrating to Rails 4
-gem 'strong_parameters'
+gem 'strong_parameters', '0.2.3'
 
 
 # Services
