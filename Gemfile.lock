@@ -455,8 +455,8 @@ GEM
       rack (>= 1.0)
     warden (1.2.3)
       rack (>= 1.0)
-    webmock (1.16.1)
-      addressable (>= 2.2.7)
+    webmock (1.18.0)
+      addressable (>= 2.3.6)
       crack (>= 0.3.2)
     websocket (1.0.7)
     will_paginate (3.0.5)
@@ -550,6 +550,6 @@ DEPENDENCIES
   uglifier (= 2.5.0)
   unicorn (= 4.8.3)
   uuid (= 2.3.7)
-  webmock (= 1.16.1)
+  webmock (= 1.18.0)
   will_paginate (= 3.0.5)
   zip-zip
