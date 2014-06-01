@@ -214,5 +214,5 @@ group :development, :test do
 
   # Jasmine (client side application tests (JS))
   gem 'jasmine', '1.3.2'
-  gem 'sinon-rails',	    '1.7.3'
+  gem 'sinon-rails',	    '1.9.0'
 end
