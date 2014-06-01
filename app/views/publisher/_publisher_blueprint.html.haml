@@ -66,13 +66,18 @@
           .dropdown{ ! current_user.getting_started? ? {:class => "hang_right"} : { :class => "hang_right", :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_audience')}"), 'data-content'=> t('shared.public_explain.visibility_dropdown')} }
             .button.toggle.publisher
               - if publisher_public
-                = t('public')
-              - elsif all_aspects_selected?(selected_aspects)
-                = t('all_aspects')
-              - elsif selected_aspects.size == 1
-                = selected_aspects.first.name
+                %i#visibility-icon.entypo.small.globe
+                %span.text
+                  = t('public')
               - else
-                = t('shared.aspect_dropdown.toggle', :count => selected_aspects.size)
+                %i#visibility-icon.entypo.small.lock
+                %span.text
+                  - if all_aspects_selected?(selected_aspects)
+                    = t('all_aspects')
+                  - elsif selected_aspects.size == 1
+                    = selected_aspects.first.name
+                  - else
+                    = t('shared.aspect_dropdown.toggle', :count => selected_aspects.size)
               &#9660;
 
             .wrapper
