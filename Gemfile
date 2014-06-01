@@ -56,7 +56,7 @@ ENV['DB'] ||= 'mysql'
 gem 'mysql2', '0.3.16' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg',     '0.17.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 
-gem 'activerecord-import', '0.4.1'
+gem 'activerecord-import', '0.5.0'
 gem 'foreigner',           '1.6.1'
 
 # File uploading
