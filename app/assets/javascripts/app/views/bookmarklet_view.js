@@ -40,6 +40,6 @@ app.views.Bookmarklet = Backbone.View.extend({
   },
 
   _postError: function(evt) {
-    this.$('h4').text(Diaspora.I18n.t('bookmarklet.post_error'));
+    this.$('h4').text(Diaspora.I18n.t('bookmarklet.post_something'));
   }
 });

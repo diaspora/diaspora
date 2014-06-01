@@ -54,9 +54,9 @@ en:
       add_option: "Add option"
       question: "Question"
     bookmarklet:
+      post_something: "Post to diaspora*"
       post_submit: "Submitting post..."
       post_success: "Posted! Closing popup window..."
-      post_error: "An error occurred, try again later."
     infinite_scroll:
       no_more: "No more posts."
       no_more_contacts: "No more contacts."
