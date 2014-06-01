@@ -189,7 +189,7 @@ group :test do
   gem 'fixture_builder',   '0.3.6'
   gem 'fuubar',            '1.3.3'
   gem 'rspec-instafail',   '0.2.4', :require => false
-  gem 'test_after_commit', '0.2.2'
+  gem 'test_after_commit', '0.2.3'
 
   # Cucumber (integration tests)
 
