@@ -115,7 +115,7 @@ gem 'zip-zip'
 group :assets do
 
   # Icons
-  gem 'entypo-rails'
+  gem 'entypo-rails', '2.2.1'
 
   # CSS
 
