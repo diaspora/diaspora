@@ -24,9 +24,9 @@ Feature: Hovercards
   Scenario: Hovercards on the main stream in reshares
     Given I am on "bob@bob.bob"'s page
     Then I should see "Alice" within "#main_stream"
-    When I hover "Alice" within ".reshare"
+    When I hover "Alice" within "#main_stream"
     Then I should not see a hovercard
     When I am on "alice@alice.alice"'s page
     Then I should see "Bob Jones" within "#main_stream"
-    When I hover "Bob Jones" within ".reshare"
+    When I hover "Bob Jones" within "#main_stream"
     Then I should see a hovercard
