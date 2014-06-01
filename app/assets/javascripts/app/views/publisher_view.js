@@ -191,7 +191,6 @@ app.views.Publisher = Backbone.View.extend({
       },
       error: function() {
         if( app.publisher ) app.publisher.trigger('publisher:error');
-        self.setButtonsEnabled(true);
         self.setInputEnabled(true);
         Diaspora.page.flashMessages.render({ 'success':false, 'notice':Diaspora.I18n.t('failed_to_post_message') });
         self.setButtonsEnabled(true);
