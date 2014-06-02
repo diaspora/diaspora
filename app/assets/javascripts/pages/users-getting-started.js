@@ -78,5 +78,37 @@ Diaspora.Pages.UsersGettingStarted = function() {
         }
       }
     });
+
+    var autocompleteLanguage = $("prefer_language");
+    var languageFollowings = new app.collections.TagFollowings();
+
+    autocompleteLanguage.autoSuggest("/languages", {
+      selectedItemProp: "name",
+      selectedValuesProp: "name",
+      searchObjProps: "name",
+      asHtmlID: "tags",
+      neverSubmit: true,
+      retrieveLimit: 10,
+      selectionLimit: false,
+      minChars: 2,
+      keyDelay: 200,
+      startText: "",
+      emptyText: "no_results",
+      selectionAdded: function(elem){languageFollowings.create({"name":$(elem[0]).text().substring(2)})},
+      selectionRemoved: function(elem){ 
+        languageFollowings.where({"name":$(elem[0]).text().substring(2)})[0].destroy();
+        elem.remove();
+      }
+      });
+
+    autocompleteLanguage.bind('keydown', function(evt){
+      if(evt.keyCode == 13 || evt.keyCode == 9 || evt.keyCode == 32){
+        evt.preventDefault();
+        if( $('li.as-result-item.active').length == 0 ){
+          $('li.as-result-item').first().click();
+        }
+      }
+    });
+
   });
 };

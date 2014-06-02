@@ -1276,6 +1276,10 @@ en:
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on diaspora*."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
 
+      what_are_your_preferred_languages: "What are your preferred languages?"
+      language_explanation: "Preferred languages allow you to see only posts and comments of your relevant languages on your stream."
+      language_suggestions: "Try entries like english, dutch, french, etc."
+
       saved: "Saved!"
 
     update:
