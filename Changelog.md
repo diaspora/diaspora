@@ -56,6 +56,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 * Parsing mention witch contain in username special characters [#4919](https://github.com/diaspora/diaspora/pull/4919)
 * Do not show your own hovercard [#4724](https://github.com/diaspora/diaspora/issues/4724)
 * Hit Nominatim via https [#4967](https://github.com/diaspora/diaspora/issues/4967)
+* Fix services regression in mobile bookmarklet [#4985](https://github.com/diaspora/diaspora/pull/4985)
 
 ## Features
 * You can report a single post or comment by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517) [#4781](https://github.com/diaspora/diaspora/pull/4781)
