@@ -84,7 +84,7 @@
                 - for aspect in all_aspects
                   = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )
           
-          .dropdown{ ! current_user.getting_started? ? {:class => "hang_right"} : { :class => "hang_right", :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_language')}"), 'data-content'=> t('shared.public_explain.language_dropdown')} }
+          .dropdown{ ! current_user.getting_started? ? {:class => "hang_righter"} : { :class => "hang_righter", :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_language')}"), 'data-content'=> t('shared.public_explain.language_dropdown')} }
             .button.toggle.publisher
               = t('language_select')
               &#9660;       
