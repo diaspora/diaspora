@@ -7,7 +7,7 @@
     $(document).ready(function() {
         if( app.publisher ) app.publisher.triggerGettingStarted();
       });
-
+= include_gon
 #publisher{:class => ((aspect == :profile || publisher_open) ? "mention_popup" : "closed")}
   .content_creation
     = form_for(StatusMessage.new) do |status|
@@ -83,6 +83,27 @@
 
                 - for aspect in all_aspects
                   = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )
+          
+          .dropdown{ ! current_user.getting_started? ? {:class => "hang_right"} : { :class => "hang_right", :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_language')}"), 'data-content'=> t('shared.public_explain.language_dropdown')} }
+            .button.toggle.publisher
+              = t('language_select')
+              &#9660;       
+
+            .wrapper 
+              %ul.dropdown_list                
+                %li.divider.language_auto.radio{:style => "padding-bottom: 5px; border-bottom: 1px solid #ddd;", "data-language_id" => "auto_language", :class => ("selected") }
+                  = t('auto_language')
+                %li.english.radio{"data-language_id" => "english" , :class => ("unselected")}
+                  = t('english')  
+                %li.finnish.radio{"data-language_id" => "finnish", :class => ("unselected")}
+                  = t('finnish')
+                %li.finnish.radio{"data-language_id" => "dutch", :class => ("unselected")}
+                  = t('dutch') 
+                %li.finnish.radio{"data-language_id" => "farsi", :class => ("unselected")}
+                  = t('farsi')
+                %li.finnish.radio{"data-language_id" => "russian", :class => ("unselected")}
+                  = t('russian') 
+
 
           %button{ :disabled => ("disabled" if publisher_hidden_text.blank?), :class => 'button post_preview_button'}
             = t('shared.publisher.preview')
