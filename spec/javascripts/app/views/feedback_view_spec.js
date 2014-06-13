@@ -9,6 +9,11 @@ describe("app.views.Feedback", function(){
       'limited' : "Limted"
     }})
 
+    var my_aspects = [{ id: 1, name: 'Work',          selected: true  },
+                      { id: 2, name: 'Friends',       selected: false },
+                      { id: 3, name: 'Acquaintances', selected: false }];
+    app.aspects = new app.collections.Aspects(my_aspects);
+
     var posts = $.parseJSON(spec.readFixture("stream_json"));
 
     this.post = new app.models.Post(posts[0]);
@@ -75,6 +80,7 @@ describe("app.views.Feedback", function(){
     context("when the post is public", function(){
       beforeEach(function(){
         this.post.attributes.public = true;
+        this.post.attributes.aspect_ids = [];
         this.view.render();
       })
 
@@ -91,6 +97,10 @@ describe("app.views.Feedback", function(){
         this.view.render();
         expect(this.view.$("a.reshare")).not.toExist()
       })
+
+      it("does not list the post's aspects", function(){
+        expect(this.view.$(".post_scope").data("original-title")).toBe("");
+      })
     })
 
     context("when the post is not public", function(){
@@ -102,6 +112,13 @@ describe("app.views.Feedback", function(){
 
       it("shows 'Limited'", function(){
         expect($(this.view.el).html()).toContain(Diaspora.I18n.t('stream.limited'))
+      })
+
+      it("lists the post's aspects", function(){
+        this.post.attributes.aspect_ids = [1, 3];
+        this.view.render();
+
+        expect(this.view.$(".post_scope").data("original-title")).toBe("Work, Acquaintances")
       })
 
       it("does not show a reshare_action link", function(){

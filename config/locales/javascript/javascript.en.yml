@@ -116,7 +116,9 @@ en:
     stream:
       hide: "Hide"
       public: "Public"
+      public_long: "The whole Internet"
       limited: "Limited"
+      nobody: "Nobody"
       like: "Like"
       unlike: "Unlike"
       reshare: "Reshare"

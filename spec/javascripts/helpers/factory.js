@@ -29,7 +29,7 @@ factory = {
       "id" : this.id.next(),
       "text" : "This is a comment!"
     }
-    
+
     return new app.models.Comment(_.extend(defaultAttrs, overrides))
   },
 
@@ -58,6 +58,7 @@ factory = {
       "created_at" : "2012-01-03T19:53:13Z",
       "interacted_at" : '2012-01-03T19:53:13Z',
       "public" : false,
+      "aspect_ids" : [1],
       "guid" : this.guid(),
       "image_url" : null,
       "o_embed_cache" : null,
