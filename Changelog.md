@@ -94,6 +94,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 * Add filters to notifications controller [#4814](https://github.com/diaspora/diaspora/pull/4814)
 * Activate hovercards in SPV and conversations [#4870](https://github.com/diaspora/diaspora/pull/4870)
 * Added possibility to conduct polls [#4861](https://github.com/diaspora/diaspora/pull/4861) [#4894](https://github.com/diaspora/diaspora/pull/4894) [#4897](https://github.com/diaspora/diaspora/pull/4897) [#4899](https://github.com/diaspora/diaspora/pull/4899)
+* Show aspects when hovering a post's scope [#4995](https://github.com/diaspora/diaspora/pull/4995)
 
 # 0.3.0.3
 
