@@ -79,7 +79,7 @@ Diaspora.Pages.UsersGettingStarted = function() {
       }
     });
 
-    var autocompleteLanguage = $("prefer_language");
+    var autocompleteLanguage = $("prefer_languages");
     var languageFollowings = new app.collections.TagFollowings();
 
     autocompleteLanguage.autoSuggest("/languages", {
