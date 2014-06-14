@@ -34,17 +34,11 @@ app.views.Feedback = app.views.Base.extend({
     var aspect_ids = this.model.get("aspect_ids");
     var aspect_names = [];
 
-    if (this.model.get("public")) {
-      aspect_names = Diaspora.I18n.t("stream.public_long");
+    if (this.model.get("public") || !aspect_ids || aspect_ids.length === 0) {
+      return []; 
     }
-    else if (!aspect_ids || aspect_ids.length === 0) {
-      aspect_names = Diaspora.I18n.t("stream.nobody");
-    }
-    else if (aspect_ids === "all_aspects") {
-      aspect_names = app.aspects.map(function(aspect){
-        return aspect.get("name");
-      })
-      aspect_names = aspect_names.join(', ');
+    else if (aspect_ids === "all_aspects" || aspect_ids.length === app.aspects.length) {
+      aspect_names = Diaspora.I18n.t("aspect_dropdown.all_aspects");
     }
     else {
       for (var id of aspect_ids) {
