@@ -41,7 +41,8 @@ app.views.Feedback = app.views.Base.extend({
       aspect_names = Diaspora.I18n.t("aspect_dropdown.all_aspects");
     }
     else {
-      for (var id of aspect_ids) {
+      for (var i=0; i<aspect_ids.length; i++) {
+        var id = aspect_ids[i];
         var aspect = app.aspects.get(id);
 
         aspect_names.push(aspect.get("name"));
