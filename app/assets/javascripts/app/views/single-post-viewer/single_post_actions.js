@@ -7,6 +7,12 @@ app.views.SinglePostActions = app.views.Feedback.extend({
     }, app.views.Feedback.prototype.events);
   },
 
+  presenter: function() {
+    return _.extend(this.defaultPresenter(), {
+      authorIsNotCurrentUser : this.authorIsNotCurrentUser(),
+    })
+  },
+
   renderPluginWidgets : function() {
     app.views.Base.prototype.renderPluginWidgets.apply(this);
     this.$('a').tooltip({placement: 'bottom'});
@@ -16,6 +22,10 @@ app.views.SinglePostActions = app.views.Feedback.extend({
     $('.comment_stream .comment_box').focus();
     $('html,body').animate({scrollTop: $('.comment_stream .comment_box').offset().top - ($('.comment_stream .comment_box').height() + 20)});
     return false;
+  },
+
+  authorIsNotCurrentUser: function() {
+    return app.currentUser.authenticated() && this.model.get("author").id != app.user().id
   }
 
 });
