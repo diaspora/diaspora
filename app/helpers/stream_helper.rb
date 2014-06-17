@@ -14,8 +14,7 @@ module StreamHelper
       if current_page?(:stream)
         stream_path(:max_time => time_for_scroll(@stream))
       elsif current_page?(:aspects_stream)
-        aspect_ids = (session[:a_ids] || [])
-        aspects_stream_path(:max_time => time_for_scroll(@stream), a_ids: aspect_ids)
+        aspects_stream_path(:max_time => time_for_scroll(@stream), :a_ids => session[:a_ids])
       else
         activity_stream_path(:max_time => time_for_scroll(@stream))
       end
