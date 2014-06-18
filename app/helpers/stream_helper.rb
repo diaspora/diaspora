@@ -10,9 +10,11 @@ module StreamHelper
       local_or_remote_person_path(@person, :max_time => time_for_scroll(@stream))
     elsif controller.instance_of?(PostsController)
       public_stream_path(:max_time => time_for_scroll(@stream))
-    elsif controller.instance_of?(StreamsController) 
+    elsif controller.instance_of?(StreamsController)
       if current_page?(:stream)
         stream_path(:max_time => time_for_scroll(@stream))
+      elsif current_page?(:aspects_stream)
+        aspects_stream_path(:max_time => time_for_scroll(@stream), :a_ids => session[:a_ids])
       else
         activity_stream_path(:max_time => time_for_scroll(@stream))
       end

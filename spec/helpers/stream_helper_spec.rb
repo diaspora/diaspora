@@ -19,13 +19,21 @@ describe StreamHelper do
     end
 
     it 'works for stream page when current page is stream' do
-      helper.stub(:current_page?).and_return(true)
+      helper.stub(:current_page?).and_return(false)
+      helper.should_receive(:current_page?).with(:stream).and_return(true)
       helper.stub(:controller).and_return(build_controller(StreamsController))
       helper.next_page_path.should include stream_path
     end
 
-    it 'works for activity page when current page is not stream' do
-      helper.stub("current_page?").and_return(false)
+    it 'works for aspects page when current page is aspects' do
+      helper.stub(:current_page?).and_return(false)
+      helper.should_receive(:current_page?).with(:aspects_stream).and_return(true)
+      helper.stub(:controller).and_return(build_controller(StreamsController))
+      helper.next_page_path.should include aspects_stream_path
+    end
+
+    it 'works for activity page when current page is not stream or aspects' do
+      helper.stub(:current_page?).and_return(false)
       helper.stub(:controller).and_return(build_controller(StreamsController))
       # binding.pry
       helper.next_page_path.should include activity_stream_path
