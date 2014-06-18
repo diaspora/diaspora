@@ -8,8 +8,13 @@ app.views.SinglePostActions = app.views.Feedback.extend({
   },
 
   presenter: function() {
+    var interactions = this.model.interactions
+
     return _.extend(this.defaultPresenter(), {
       authorIsNotCurrentUser : this.authorIsNotCurrentUser(),
+      userCanReshare : interactions.userCanReshare(),
+      userLike : interactions.userLike(),
+      userReshare : interactions.userReshare()
     })
   },
 
