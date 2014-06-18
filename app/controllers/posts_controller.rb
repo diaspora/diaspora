@@ -91,7 +91,7 @@ class PostsController < ApplicationController
     end
 
     # For mentions
-    mention = @post.mentions.where(person_id: current_user.id).first
+    mention = @post.mentions.where(person_id: current_user.person_id).first
     Notification.where(recipient_id: current_user.id, target_type: "Mention", target_id: mention.id, unread: true).first.try(:set_read_state, true) if mention
   end
 end
