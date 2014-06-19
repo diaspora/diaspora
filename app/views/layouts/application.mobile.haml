@@ -42,6 +42,13 @@
 
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'
+      
+    :javascript
+        var MOBILE = true;
+    = jquery_include_tag
+    = include_gon
+    = javascript_include_tag :diaspora, :"helpers/i18n", :mobile
+    = include_chartbeat
 
     = yield(:head)
 
@@ -107,8 +114,3 @@
           %h3
             = t('streams.activity.title')
         = yield
-
-    / javascripts at the bottom
-    = jquery_include_tag
-    = javascript_include_tag :mobile
-    = include_chartbeat
