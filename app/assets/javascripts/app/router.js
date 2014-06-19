@@ -21,9 +21,14 @@ app.Router = Backbone.Router.extend({
     "people/:id/photos": "photos",
 
     "people/:id": "stream",
-    "u/:name": "stream",
-
-    "bookmarklet": "bookmarklet"
+    "u/:name": "stream"
+  },
+  
+  initialize: function() {
+    // To support encoded linefeeds (%0A) we need to specify
+    // our own internal router.route call with the correct regexp.
+    // see: https://github.com/diaspora/diaspora/issues/4994#issuecomment-46431124
+    this.route(/^bookmarklet(?:\?(.*))?/, "bookmarklet");
   },
 
   help: function() {

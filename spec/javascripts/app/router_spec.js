@@ -69,4 +69,14 @@ describe('app.Router', function () {
       expect(hideFollowedTags).toHaveBeenCalled();
     });
   });
+
+  describe("bookmarklet", function() {
+    it('routes to bookmarklet even if params have linefeeds', function()  {
+      router = new app.Router();
+      var route = jasmine.createSpy('bookmarklet route');
+      router.on('route:bookmarklet', route);
+      router.navigate("/bookmarklet?\n\nfeefwefwewef\n", {trigger: true});
+      expect(route).toHaveBeenCalled();
+    });
+  });
 });
