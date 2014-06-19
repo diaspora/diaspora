@@ -64,10 +64,8 @@ class StatusMessagesController < ApplicationController
         @status_message.poll.poll_answers.build(:answer => poll_answer)
       end
     end
-
-
     @status_message.attach_photos_by_ids(params[:photos])
-
+    @status_message.text = @status_message.text +"          "+ params[:language]
     if @status_message.save
       aspects = current_user.aspects_from_ids(destination_aspect_ids)
       current_user.add_to_streams(@status_message, aspects)
