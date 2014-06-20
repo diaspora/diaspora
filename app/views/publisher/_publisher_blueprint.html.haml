@@ -89,18 +89,18 @@
               &#9660;       
 
             .wrapper 
-              %ul.dropdown_list{:id => "language", :name => "language"}                
-                %li.divider.language_auto.radio{:style => "padding-bottom: 5px; border-bottom: 1px solid #ddd;", "data-language_id" => "auto_language", :class => ("selected") }
+              %select               
+                %option{:style => "padding-bottom: 5px; border-bottom: 1px solid #ddd;", "data-language_id" => "auto_language", :class => ("selected"), :selected => params[:language] == "auto" }
                   = t('auto_language')
-                %li.english.radio{"data-language_id" => "english" , :class => ("unselected")}
+                %option{"data-language_id" => "english" , :class => ("unselected"), :selected => params[:language] == "english"}
                   = t('english')  
-                %li.finnish.radio{"data-language_id" => "finnish", :class => ("unselected")}
+                %option{"data-language_id" => "finnish", :class => ("unselected"), :selected => params[:language] == "finnish"}
                   = t('finnish')
-                %li.finnish.radio{"data-language_id" => "dutch", :class => ("unselected")}
+                %option{"data-language_id" => "dutch", :class => ("unselected"), :selected => params[:language] == "dutch"}
                   = t('dutch') 
-                %li.finnish.radio{"data-language_id" => "farsi", :class => ("unselected")}
+                %option{"data-language_id" => "farsi", :class => ("unselected"), :selected => params[:language] == "farsi"}
                   = t('farsi')
-                %li.finnish.radio{"data-language_id" => "russian", :class => ("unselected")}
+                %option{"data-language_id" => "russian", :class => ("unselected"), :selected => params[:language] == "russian"}
                   = t('russian') 
 
 
