@@ -107,7 +107,7 @@ then
     tar czf public/source.tar.gz  $(git ls-tree -r $branch | awk '{print $4}')
   else
     fatal "Can't generate public/source.tar.gz for you.
-Please tar up a copy of your Diaspora installtion and place it there."
+Please tar up a copy of your Diaspora installation and place it there."
   fi
 fi
 
