@@ -77,6 +77,8 @@ class PeopleController < ApplicationController
     authenticate_user! if remote_profile_with_no_user_session?
     raise Diaspora::AccountClosed if @person.closed_account?
 
+    mark_corresponding_notifications_read if user_signed_in?
+
     @post_type = :all
     @aspect = :profile
     @stream = Stream::Person.new(current_user, @person, :max_time => max_time)
@@ -200,5 +202,11 @@ class PeopleController < ApplicationController
     end
 
     photos.order('created_at desc')
+  end
+
+  def mark_corresponding_notifications_read
+    Notification.where(recipient_id: current_user.id, target_type: "Person", target_id: @person.id, unread: true).each do |n|
+      n.set_read_state( true )
+    end
   end
 end
