@@ -68,7 +68,7 @@ class StatusMessagesController < ApplicationController
     @status_message.attach_photos_by_ids(params[:photos])
     if params[:language].eql? "auto"
       params[:language] = (@status_message.text).language
-      params[:language] = params[:language][1,params[:language].length]
+      params[:language] = params[:language][0,params[:language].length]
     end
     @status_message.text = @status_message.text+"                            "+params[:language]
     if @status_message.save

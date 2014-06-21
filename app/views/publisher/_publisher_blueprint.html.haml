@@ -90,17 +90,17 @@
 
             .wrapper 
               %select#language{:name => 'language'}             
-                %option{:style => "padding-bottom: 5px; border-bottom: 1px solid #ddd;", :value => "auto", :class => ("selected"),}
+                %option{:style => "padding-bottom: 5px; border-bottom: 1px solid #ddd;", :value => "auto", :class => ("selected")}
                   = t('auto_language')
-                %option{:value => "en" , :class => ("unselected"), :selected => params[:language] == "english"}
+                %option{:value => "en" , :class => ("unselected")}
                   = t('english')  
-                %option{:value => "fi", :class => ("unselected"), :selected => params[:language] == "finnish"}
+                %option{:value => "fi", :class => ("unselected")}
                   = t('finnish')
-                %option{:value => "nl", :class => ("unselected"), :selected => params[:language] == "dutch"}
+                %option{:value => "nl", :class => ("unselected")}
                   = t('dutch') 
-                %option{:value => "fa", :class => ("unselected"), :selected => params[:language] == "farsi"}
+                %option{:value => "fa", :class => ("unselected")}
                   = t('farsi')
-                %option{:value => "ru", :class => ("unselected"), :selected => params[:language] == "russian"}
+                %option{:value => "ru", :class => ("unselected")}
                   = t('russian') 
 
 
