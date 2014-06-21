@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 class StatusMessagesController < ApplicationController
+  require 'whatlanguage'
   before_filter :authenticate_user!
 
   before_filter :remove_getting_started, :only => [:create]
@@ -65,7 +66,11 @@ class StatusMessagesController < ApplicationController
       end
     end
     @status_message.attach_photos_by_ids(params[:photos])
-    @status_message.text = @status_message.text +"          "+ params[:language]
+    if params[:language].eql? "auto"
+      params[:language] = (@status_message.text).language
+      params[:language] = params[:language][1,params[:language].length]
+    end
+    @status_message.text = @status_message.text+"                            "+params[:language]
     if @status_message.save
       aspects = current_user.aspects_from_ids(destination_aspect_ids)
       current_user.add_to_streams(@status_message, aspects)

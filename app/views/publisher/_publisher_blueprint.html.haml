@@ -89,18 +89,18 @@
               &#9660;       
 
             .wrapper 
-              %select               
-                %option{:style => "padding-bottom: 5px; border-bottom: 1px solid #ddd;", "data-language_id" => "auto_language", :class => ("selected"), :selected => params[:language] == "auto" }
+              %select#language{:name => 'language'}             
+                %option{:style => "padding-bottom: 5px; border-bottom: 1px solid #ddd;", :value => "auto", :class => ("selected"),}
                   = t('auto_language')
-                %option{"data-language_id" => "english" , :class => ("unselected"), :selected => params[:language] == "english"}
+                %option{:value => "en" , :class => ("unselected"), :selected => params[:language] == "english"}
                   = t('english')  
-                %option{"data-language_id" => "finnish", :class => ("unselected"), :selected => params[:language] == "finnish"}
+                %option{:value => "fi", :class => ("unselected"), :selected => params[:language] == "finnish"}
                   = t('finnish')
-                %option{"data-language_id" => "dutch", :class => ("unselected"), :selected => params[:language] == "dutch"}
+                %option{:value => "nl", :class => ("unselected"), :selected => params[:language] == "dutch"}
                   = t('dutch') 
-                %option{"data-language_id" => "farsi", :class => ("unselected"), :selected => params[:language] == "farsi"}
+                %option{:value => "fa", :class => ("unselected"), :selected => params[:language] == "farsi"}
                   = t('farsi')
-                %option{"data-language_id" => "russian", :class => ("unselected"), :selected => params[:language] == "russian"}
+                %option{:value => "ru", :class => ("unselected"), :selected => params[:language] == "russian"}
                   = t('russian') 
 
 
