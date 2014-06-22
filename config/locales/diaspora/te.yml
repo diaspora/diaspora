@@ -8,6 +8,7 @@ te:
   _applications: "అనువర్తనాలు"
   _comments: "వ్యాఖ్యలు"
   _contacts: "పరిచయాలు"
+  _help: "సహాయం"
   _home: "ముంగిలి"
   _photos: "ఛాయాచిత్రాలు"
   _services: "సేవలు"
@@ -43,25 +44,36 @@ te:
   admins:
     admin_bar:
       pages: "పుటలు"
+      pod_stats: "పాడ్ గణాంకాలు"
+      user_search: "వాడుకరి శోధన"
+      weekly_user_stats: "వారపు వాడుకరి గణాంకాలు"
     stats:
       2weeks: "2 వారాలు"
       50_most: "50 ప్రజాదరణ పొందిన కొసలు"
       comments:
         one: "%{count} వ్యాఖ్య"
         other: "%{count} వ్యాఖ్యలు"
-        zero: "%{count} వ్యాఖ్యలు"
+        zero: "0 వ్యాఖ్యలు"
+      daily: "ప్రతిదినం"
       go: "వెళ్లు"
       month: "నెల"
       posts:
         one: "%{count} టపా"
         other: "%{count} టపాలు"
-        zero: "%{count} టపాలు"
+        zero: "0 టపాలు"
+      shares:
+        one: "ఒక పంచుకోలు"
+        other: "%{count} పంచుకోళ్ళు"
+        zero: "0 పంచుకోళ్ళు"
+      usage_statistic: "వాడుక గణాంకాలు"
       users:
         one: "%{count} వాడుకరి"
         other: "%{count} వాడుకరులు"
-        zero: "%{count} వాడుకరులు"
+        zero: "0 వాడుకరులు"
       week: "వారం"
     user_search:
+      add_invites: "ఆహ్వానాలను జతచేయి"
+      email_to: "ఆహ్వానించుటకు ఈమెయిలు చేయండి"
       users:
         one: "%{count} వాడుకరి కనబడ్డారు"
         other: "%{count} వాడుకరులు కనబడ్డారు"
@@ -74,110 +86,134 @@ te:
       video_title:
         unknown: "తెలియని వీడియో శీర్షిక"
   are_you_sure: "మీరు కచ్చితంగా ఉన్నారా?"
-  are_you_sure_delete_account: "మీరు కచ్చితంగా మీ ఖాతాని ముయాలనుకుంటున్నారా ? ఒక సారి ముస్తే అంతే!"
+  are_you_sure_delete_account: "మీరు నిజంగానే మీ ఖాతాని మూసివేయాలి అనుకుంటున్నారా? ఒకసారి మూసివేస్తే ఇక తిరిగిరాదు!"
   aspect_memberships:
     destroy:
-      failure: "వ్యక్తిని కోణంనుంచి తొలగించలేకపొయాము"
-      no_membership: "ఎన్నుకున్న వ్యక్తిని కోణం లో వెతుకలేకపొయాము"
-      success: "జయప్రదంగా వ్యక్తిని కోణంనుంచి తొలగించాము"
+      failure: "కోణం నుండి వ్యక్తిని తొలగించలేకపొయాము"
+      no_membership: "ఎన్నుకున్న వ్యక్తిని ఆ కోణంలో కనుగొనలేకపోయాము"
+      success: "కోణం నుండి వ్యక్తిని విజయవంతంగా తొలగించాము"
   aspects:
     add_to_aspect:
-      failure: "పరిచయాన్ని కోణం లో చేర్చలేకపోయాము."
-      success: "పరిచయాన్ని కోణం లో చేర్చాము"
+      failure: "పరిచయాన్ని కోణానికి జతచేయుటలో విఫలమైంది."
+      success: "పరిచయం కోణానికి విజయవంతంగా జోడించబడింది."
     aspect_contacts:
       done_editing: "సవరణ పూర్తయింది"
     aspect_listings:
-      add_an_aspect: "+కొత్త కోణాన్ని జత చేయండి"
+      add_an_aspect: "+ కొత్త కోణాన్ని చేర్చండి"
       deselect_all: "ఎంపిక మొత్తం రద్దుచేయి"
       edit_aspect: "%{name} సవరించు"
       select_all: "అన్నీ ఎంపికచేయి"
+    aspect_stream:
+      stay_updated: "తాజాగా ఉండండి"
+      stay_updated_explanation: "మీ ప్రధాన ప్రవాహం మొత్తం మీ పరిచయాలు, మీరు అనుసరించే కొసలు, మరియు కొంతమంది సంఘపు సృజనాత్మక సభ్యుల టపాలతో నిండివుంటుంది."
     contacts_not_visible: "ఈ కోణంలో ఉన్న పరిచయాలు ఒకరిని ఒకరు చూడలేరు."
     contacts_visible: "ఈ కోణంలో ఉన్న పరిచయాలు ఒకరిని ఒకరు చూడగలరు."
     create:
       failure: "కోణం సృష్థించలేకపోయాము."
-      success: "మీ కొత్త కోణం %{name} సృష్థించబడినది"
+      success: "మీ కొత్త కోణం %{name} సృష్టించబడింది"
     destroy:
       failure: "%{name} ఖాళీగా లేదు అందువల్ల తీయలేకపోయాము"
-      success: "%{name} జయప్రదంగా తొలగించబడినది"
+      success: "%{name} విజయవంతంగా తొలగించబడినది"
     edit:
-      add_existing: "ఇప్పటికే ఉన్న పరిచయాన్ని చేర్చు"
-      aspect_list_is_not_visible: "కోణాల జాబితా కోణంలో ఉన్న వారి నుంది దాచబడ్డది"
-      aspect_list_is_visible: "కోణాల జాబితా కోణంలో ఉన్న అందరికీ కనిపిస్తుంది"
-      confirm_remove_aspect: "కోణాన్ని కచ్చితంగా తొలగించాలా?"
+      add_existing: "ఇప్పటికే ఉన్న పరిచయాన్ని జతచేయి"
+      aspect_list_is_not_visible: "ఈ కోణంలోని పరిచయాలు ఒకరికొకరు చూడలేరు."
+      aspect_list_is_visible: "ఈ కోణంలోని పరిచయాలు ఒకరికొకరు చూడగలరు."
+      confirm_remove_aspect: "మీరు నిజంగానే ఈ కోణాన్ని తొలగించాలని అనుకుంటున్నారా?"
       done: "పూర్తయ్యింది"
       make_aspect_list_visible: "ఈ కోణంలో ఉన్న పరిచయాలు ఒకరికొకరు కనిపిచ్చేలా చెయ్యాలా?"
-      remove_aspect: "కోణాన్ని తొలగించు"
+      remove_aspect: "ఈ కోణాన్ని తొలగించు"
       rename: "పేరుమార్చు"
       update: "నవీకరించు"
       updating: "నవీకరిస్తున్నాము"
-    few: "%{count} aspects"
+    few: "%{count} కోణాలు"
     helper:
-      are_you_sure: "కోణాన్ని కచ్చితంగా తొలగించాలా?"
+      are_you_sure: "ఈ కోణాన్ని ఖచ్ఛితంగా తొలగించాలా?"
       aspect_not_empty: "కోణం ఖాళీగాలేదు"
       remove: "తీసివేయి"
     index:
-      cubbies:
-        explanation: "Cubbi.es డయాస్పొరా లో మొట్టమొదటి తయారి లో ఉన్న కార్యక్రమం"
-        heading: "Cubbi.es కి కనక్ట్ అవ్వు"
-        learn_more: "మరింత తెలుసుకోండి"
       diaspora_id:
-        content_1: "మీ డయాస్పోరా గుచి:"
-        content_2: "ఎవరికైనా ఇయ్యి నిన్ను డయాస్పొరా లో వెతికి కనుక్కోగలరు."
-        heading: "డయస్పోరా గుచి"
+        content_1: "మీ డయాస్పోరా* గుర్తింపు:"
+        content_2: "దీన్ని మీరు ఎవరికైనా ఇస్తే, వారు దీని ద్వారా మిమ్మల్ని డయాస్పోరా*లో కనుగొనగలరు."
+        heading: "డయస్పోరా* గుర్తింపు"
       donate: "విరాలమివ్వండి"
-      handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
+      handle_explanation: "ఇది మీ డయాస్పోరా గుచి. ఈమెయిల్ చిరునామా వంటిది, మిమ్మల్ని సంప్రదించుటకై దీనిని వ్యక్తులకు ఇవ్వవచ్చు."
       help:
+        any_problem: "ఏదైనా సమస్యా?"
+        contact_podmin: "మీ పాడ్ యొక్క నిర్వాహకున్ని సంప్రదించండి!"
+        do_you: "మీకు ఏమైనా:"
+        email_feedback: "మీ ప్రతిస్పందనను %{link}"
         email_link: "ఈమెయిల్"
-        find_a_bug: "%{link}ని వెతకాలా?"
-        have_a_question: "%{link} ఉందా ?"
+        feature_suggestion: "... %{link} సూచన ఇవ్వాలనుకుంటున్నారా?"
+        find_a_bug: "... %{link}ని వెతకాలా?"
+        have_a_question: "... %{link} ఉందా?"
+        here_to_help: "డయాస్పోరా* సంఘం ఇక్కడ!"
         need_help: "సహాయం కావాలా?"
         tag_bug: "లోపం"
+        tag_feature: "విశిష్టత"
         tag_question: "ప్రశ్న"
+        tutorial_link_text: "ఉపశిక్షణ"
+        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: మీ మొదటి అడుగుల కోసం సహాయం"
+      introduce_yourself: "ఇది మీ ప్రవాహం.  లోపలికి దూకి, మీ గురించి పరిచయం చేస్కోండి."
       new_here:
+        follow: "%{link} అనుసరించి, డయాస్పోరా*కు వచ్చే కొత్త వాడుకరులను స్వాగతించండి!"
         learn_more: "మరింత తెలుసుకోండి"
         title: "కొత్త వాడుకరులకు స్వాగతం"
       no_contacts: "పరిచయాలేమీ లేవు"
-      no_tags: "+ అనుసరించయానికి విశేషాన్ని వెతుకు"
-      people_sharing_with_you: "మీ తో పంచుకునే వ్యక్తులు:"
+      no_tags: "+ అనుసరించడానికి కొసను వెతుకు"
+      people_sharing_with_you: "మీతో పంచుకునే వ్యక్తులు"
       post_a_message: "ఒక సందేశాన్ని పోస్టుచేయండి >>"
       services:
-        content: "మీరు ఈ వెబ్ సర్వీసులను డయాస్పొరా తో జత చేయొచ్చు"
-        heading: "వెబ్ సర్వీసులను జత చేయి"
-      unfollow_tag: "%{tag}ని  అనుసరించటం మానేయి"
-      welcome_to_diaspora: "%{name} డయాస్పొరాకు స్వాగతం"
-    many: "%{count} aspects"
+        content: "క్రింది పేర్కొన్న సేవలను మీరు డయాస్పోరా*కు అనుసంధానం చేయవచ్చు."
+        heading: "సేవలకు అనుసంధానం కండి"
+      unfollow_tag: "%{tag}ని అనుసరించడం మానేయి"
+      welcome_to_diaspora: "%{name}, డయాస్పొరా*కు స్వాగతం!"
+    many: "%{count} కోణాలు"
     move_contact:
-      error: "కొణాన్ని జరిపేతప్పుడు తప్పు జరిగింది: %{inspect}"
-      failure: "పని చేయలేదు %{inspect}"
-      success: "వ్యక్తిని వెరే కొణానికి జరిపాము"
+      error: "కోణాన్ని తరలించేటప్పుడు పొరపాటు జరిగింది: %{inspect}"
+      failure: "%{inspect} పని చేయలేదు"
+      success: "వ్యక్తి కొత్త కోణానికి తరలివెళ్ళారు"
     new:
       create: "సృష్టించు"
       name: "పేరు (మీకు మాత్రమే కనిపిస్తుంది)"
     no_contacts_message:
-      or_spotlight: "లేకపోతే %{link} తొ పంచుకోవచ్చు"
-      try_adding_some_more_contacts: "మీరు మరికొన్ని పరిచయాల్ని వెతకొచ్చు లేక ఆహ్వానించొచ్చు"
-      you_should_add_some_more_contacts: "మీరు ఇంకొెంతమంది పరిచయాల్ని పెంచుకొవాలి"
+      community_spotlight: "సంఘపు స్పాట్​లైట్"
+      or_spotlight: "లేకపోతే %{link} తో పంచుకోవచ్చు"
+      try_adding_some_more_contacts: "మీరు మరికొన్ని పరిచయాల్ని వెతకవచ్చు లేక ఆహ్వానించవచ్చు."
+      you_should_add_some_more_contacts: "మీరు ఇంకొంత మంది పరిచయాల్ని చేర్చుకోవాలి!"
     no_posts_message:
-      start_talking: "ఎవరు ఇంకా ఏమి చెప్పలేదు!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+      start_talking: "ఇంకా ఎవరూ ఏమీ చెప్పలేదు!"
+    one: "1 కోణం"
+    other: "%{count} కోణాలు"
     seed:
-      acquaintances: "భహుశా తెలుసు"
+      acquaintances: "తెలిసినవారు"
       family: "కుటుంబం"
       friends: "స్నేహితులు"
       work: "సహోద్యోగులు"
     selected_contacts:
       manage_your_aspects: "మీ కోణాల్ని నిర్వహించండి."
-      no_contacts: "మీకింకా పరిచయాలు లేరు"
+      no_contacts: "మీకు ఇక్కడ ఇంకా పరిచయాలు లేరు."
+      view_all_community_spotlight: "మొత్తం సంఘపు స్పాట్​లైట్ చూడండి"
       view_all_contacts: "అన్ని పరిచయాలను వీక్షించండి"
     show:
       edit_aspect: "కోణాన్ని మార్చు"
-    two: "%{count} aspects"
+    two: "%{count} కోణాలు"
     update:
-      failure: "మీకోణం %{name} దాచుటకు చానా పెద్ద పేరు ఇచ్చారు."
-      success: "మీకోణం %{name} జయప్రదంగా మార్చాము."
-    zero: "no aspects"
+      failure: "మీకోణం, %{name}, భద్రపరుచుటకు చాలా పెద్ద పేరు ఇచ్చారు."
+      success: "మీకోణం, %{name}, విజయవంతంగా సవరించబడింది."
+    zero: "ఏ కోణాలు లేవు"
   back: "వెనుకకు"
+  blocks:
+    create:
+      failure: "నేను ఆ వాడుకరిని విస్మరించలేకపోతున్నాను.  #తప్పించుకోవడం"
+      success: "సరే, ఆ వాడుకరి మీ ప్రవాహంలో ఇక కనిపించరు. #నిశ్శబ్దం!"
+    destroy:
+      failure: "ఆ వాడుకరిని విస్మరించడం ఆపలేకపోతున్నాం.  #evasion"
+      success: "వారేమి చెప్పాలో చూద్దాం! #హలోచెప్పండి"
+  bookmarklet:
+    explanation: "ఈ లంకెను ఇష్టాంశంగా చేర్చుకోవడం ద్వారా డయాస్పోరా*కు ఎక్కడి నుండైనా టపా వేయవచ్చు => %{link}"
+    heading: "బుక్‌మార్క్‌లెట్"
+    post_something: "డయాస్పోరా*కు టపా పెట్టండి"
+    post_success: "టపా వేయబడింది! మూసివేస్తున్నాం!"
   cancel: "రద్దుచేయి"
   comments:
     few: "%{count} వ్యాఖ్యలు"
@@ -194,16 +230,18 @@ te:
       failure: "పరిచయాన్ని సృష్టించుటలో విఫలమైంది"
     few: "%{count} పరిచయాలు"
     index:
-      add_a_new_aspect: "కొత్త కొణాన్ని జత చేయి"
-      add_to_aspect: "%{name}కి పరిచయాల్ను జత చేయి"
-      add_to_aspect_link: "%{name}కు పరిచయాల్ని చేర్చు"
+      add_a_new_aspect: "ఒక కొత్త కోణాన్ని జతచేయి"
+      add_to_aspect: "%{name}కి పరిచయాలను జతచేయి"
+      add_to_aspect_link: "%{name}కు పరిచయాలను జతచేయి"
       all_contacts: "అన్ని పరిచయాలు"
+      community_spotlight: "సంఘపు స్పాట్​లైట్"
+      many_people_are_you_sure: "మీరు ఖచ్ఛితంగా %{suggested_limit} పరిచయాలతో కంటే ఎక్కువ పరిచయాలతో రహస్య సంభాషణం ప్రారంభించాలనుకుంటున్నారా? వారిని సంప్రదించడానికి ఈ కోణానికి టపా వేయడం ఉత్తమ మార్గం."
       my_contacts: "నా పరిచయాలు"
-      no_contacts: "మీరు ఇంకా ఎవర్ని పరిచయాలలో చేర్చుకున్నట్లు లేరు!"
-      no_contacts_message: "%{community_spotlight}ని సందర్శించంది"
-      no_contacts_message_with_aspect: "%{add_to_aspect_link} లేక %{community_spotlight}ని సందర్శించంది"
-      only_sharing_with_me: "నా తో మాత్రమే పంచుకునే వారు"
-      remove_person_from_aspect: "%{aspect_name}నుంచి %{person_name}ని తొలగించు"
+      no_contacts: "మీరు ఇంకా ఎవర్నీ పరిచయాలలో చేర్చుకున్నట్లు లేరు!"
+      no_contacts_message: "%{community_spotlight}ని సందర్శించండి"
+      no_contacts_message_with_aspect: "%{add_to_aspect_link} లేక %{community_spotlight}ని సందర్శించండి"
+      only_sharing_with_me: "నాతో మాత్రమే పంచుకునే వారు"
+      remove_person_from_aspect: "\"%{aspect_name}\" నుంచి %{person_name}ని తొలగించు"
       start_a_conversation: "సంభాషణను ప్రారంభించండి"
       title: "పరిచయాలు"
       your_contacts: "మీ పరిచయాలు"
@@ -212,11 +250,17 @@ te:
     other: "%{count} పరిచయాలు"
     sharing:
       people_sharing: "మీతో పంచుకునే వ్యక్తులు:"
+    spotlight:
+      community_spotlight: "సంఘపు స్పాట్​లైట్"
+      suggest_member: "ఒక సభ్యున్ని సూచించండి"
     two: "%{count} పరిచయాలు"
     zero: "పరిచయాలు"
   conversations:
+    conversation:
+      participants: "అభ్యర్థులు"
     create:
       fail: "చెల్లని సందేశం"
+      no_contact: "ఓయ్, ముందుగా మీరు పరిచయాన్ని జతచేసుకోవాలి!"
       sent: "సందేశం పంపబడింది"
     destroy:
       success: "సంభాషణ విజయవంతంగా తీసివేయబడింది"
@@ -229,9 +273,8 @@ te:
         two: "%{count} కొత్త సందేశాలు"
         zero: "కొత్త సందేశాలు లేవు"
     index:
-      create_a_new_message: "ఒక కొత్త సందేశాన్ని సృష్టించండి"
       inbox: "తపాలాపెట్టె"
-      new_message: "కొత్త సందేశం"
+      no_conversation_selected: "సంభాషణ ఏదీ ఎంచుకోలేదు"
       no_messages: "సందేశాలేమి లేవు"
     new:
       abandon_changes: "మార్పులను వదిలివేయాలా?"
@@ -239,9 +282,8 @@ te:
       sending: "పంపుతున్నాము..."
       subject: "విషయం"
       to: "వీరికి"
-    new_message:
-      fail: "చెల్లని సందేశం"
     show:
+      delete: "సంభాషణను తొలగించి, నిరోధించు"
       reply: "స్పందించు"
       replying: "స్పందిస్తున్నారు..."
   date:
@@ -257,41 +299,83 @@ te:
       invalid_fields: "చెల్లని క్షేత్రాలు"
   fill_me_out: "పూరించండి"
   find_people: "వ్యక్తులను లేదా ట్యాగులను కనుగొనండి"
+  help:
+    account_and_data_management:
+      title: "ఖాతా మరియు దత్తాంశ నిర్వహణ"
+    foundation_website: "డయాస్పోరా సంస్థ జాలగూడు"
+    getting_help:
+      get_support_a_tutorials: "మా %{tutorials}ను సందర్శించండి"
+      get_support_a_website: "మా %{link}ను సందర్శించండి"
+      title: "సహాయం పొందడం"
+    here: "ఇక్కడ"
+    irc: "ఐఆర్‌సీ"
+    markdown: "మార్క్‌డౌన్"
+    posts_and_posting:
+      character_limit_q: "టపాలకు అక్షరాల పరిమితి ఎంత?"
+      image_text: "బొమ్మ పాఠ్యం"
+      image_url: "బొమ్మ url"
+    private_posts:
+      title: "అంతరంగిక టపాలు"
+    public_posts:
+      find_public_post_q: "నా బహిరంగ టపాలను ఇతరులు ఎలా కనుగొనగలరు?"
+      title: "బహిరంగ టపాలు"
+      who_sees_post_q: "నేను ఏదైనా బహిరంగంగా ప్రచురించినపుడు, దాన్ని ఎవరు చూడగలరు?"
+    public_profiles:
+      title: "బహిరంగ ప్రవరలు"
+    third_party_tools: "మూడవ పక్ష పనిముట్లు"
+    tutorial: "ఉపశిక్షణ"
+    tutorials: "ఉపశిక్షణ"
+    wiki: "వికీ"
   hide: "దాచు"
+  invitation_codes:
+    excited: "మిమ్మల్ని ఇక్కడ చూసినందుకు %{name} ఆనందించారు."
   invitations:
-    a_facebook_user: "ఫేస్ బుక్ వినియొగదారి"
+    a_facebook_user: "ఫేస్‌బుక్ వాడుకరి"
     check_token:
-      not_found: "ఆహ్వాన టొకెన్ దొరకలేదు"
+      not_found: "ఆహ్వాన టోకెన్ కనపడలేదు"
     create:
+      already_contacts: "ఈ వ్యక్తితో మీరు ఇదివరకే అనుసంధానమై ఉన్నారు"
       already_sent: "ఈ వ్యక్తిని మీరు ఇప్పటికే ఆహ్వానించారు."
+      empty: "దయచేసి ఒక్క ఈమెయిలు చిరునామానైనా ఇవ్వండి."
       no_more: "మీకు ఆహ్వానాలేమీ లేవు."
+      note_already_sent: "ఆహ్వానాలు ఇంతకుముందే వీరికి పంపబడ్డాయి: %{emails}"
       own_address: "మీరు మీ సొంత చిరునామాకు ఆహ్వానం పంపలేరు."
-      sent: "%{emails} కు ఆహ్వానాలు పంపబడ్డాయి"
+      rejected: "క్రిందిపేర్కొన్న ఈమెయిలు చిరునామాకు సమస్యలు ఉన్నాయి: "
+      sent: "%{emails}:కు ఆహ్వానాలు పంపబడ్డాయి"
     edit:
       accept_your_invitation: "ఆహ్వానాన్ని అంగీకరించండి"
-      your_account_awaits: "మీ ఖాతా మీ కోసం వేచి ఉన్నది!"
+      your_account_awaits: "మీ ఖాతా ఎదురుచూస్తూంది!"
     new:
-      already_invited: "ఈ క్రింది ఉన్న వ్యక్తులు మీ ఆహ్వానాన్ని స్వీకరించలేదు:"
+      already_invited: "ఈ క్రింది వ్యక్తులు మీ ఆహ్వానాన్ని ఇంకా అంగీకరించలేదు:"
       aspect: "కోణం"
-      check_out_diaspora: "డయస్పొరాను సందర్శించండి"
-      invite_someone_to_join: "డయాస్పోరా లో చేరేందుకు ఆహ్వానం పంపండి"
+      check_out_diaspora: "డయస్పోరా*ను సందర్శించండి!"
+      codes_left:
+        one: "ఈ సంకేతంపై ఒక ఆహ్వానం మిగిలివుంది"
+        other: "ఈ సంకేతంపై %{count} ఆహ్వానాలు మిగిలివున్నాయి"
+        zero: "ఈ సంకేతంపై ఎటువంటి ఆహ్వానాలు మిగిలిలేవు"
+      if_they_accept_info: "ఒకవేళ వారు సమ్మతిస్తే, మీరు ఆహ్వానించే కోణానికి వారు జతచేయబడతారు."
+      invite_someone_to_join: "డయాస్పోరా*లో చేరమని ఎవరినైనా ఆహ్వానించండి!"
       language: "భాష"
+      paste_link: "మీ మిత్రులను డయాస్పోరా*కు ఆహ్వానించడానికి ఈ లంకెను వారితో పంచుకోండి, లేదా లంకెను నేరుగా వారికి ఈమెయిలు చేయండి."
       personal_message: "వ్యక్తిగత సందేశం"
       resend: "మరలా పంపు"
       send_an_invitation: "ఒక ఆహ్వానాన్ని పంపండి"
       send_invitation: "సందేశాన్ని పంపండి"
+      sending_invitation: "ఆహ్వానాన్ని పంపుతున్నాము..."
       to: "వీరికి"
   layouts:
     application:
       back_to_top: "పైకి వెళ్ళు"
       powered_by: "డయాస్పోరా* చే శక్తివంతం"
-      public_feed: "%{name} యొక్క బహిరంగ డయాస్పోరా ఫీడు"
-      toggle: "మొబైలు లా చూడు"
+      public_feed: "%{name} కొరకు బహిరంగ డయాస్పోరా* ఫీడు"
+      source_package: "సోర్సు కోడ్ ప్యాకేజీని దింపుకోండి"
+      toggle: "మొబైలులా చూడు"
       whats_new: "కొత్తగా ఏమున్నాయి?"
       your_aspects: "మీ కోణాలు"
     header:
       admin: "నిర్వాహకుడు"
       blog: "బ్లాగు"
+      code: "సంకేతం"
       login: "ప్రవేశించండి"
       logout: "నిష్క్రమించండి"
       profile: "ప్రవర"
@@ -322,63 +406,49 @@ te:
       other: "%{actors} కూడా %{post_author}'గారి %{post_link} పై వ్యాఖ్యానించారు."
       zero: "%{actors} కూడా %{post_author}'గారి %{post_link} పై వ్యాఖ్యానించారు."
     also_commented_deleted:
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
-      two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
+      one: "%{actors} తొలగించిన టపాపై వ్యాఖ్య నుంచారు."
+      other: "%{actors} తొలగించిన టపాపై వ్యాఖ్య నుంచారు."
+      zero: "%{actors} తొలగించిన టపాపై వ్యాఖ్య నుంచారు."
     comment_on_post:
       one: "%{actors} మీ టపా %{post_link} పై వ్యాఖ్య నుంచారు."
       other: "%{actors} మీ టపా %{post_link} పై వ్యాఖ్య నుంచారు."
       zero: "%{actors} మీ టపా %{post_link} పై వ్యాఖ్య నుంచారు."
     helper:
       new_notifications:
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notification"
-        other: "%{count} new notifications"
-        two: "%{count} new notifications"
-        zero: "No new notifications"
+        one: "1 కొత్త గమనిక"
+        other: "%{count} కొత్త గమనికలు"
+        zero: "కొత్త గమనికలేమీ లేవు"
     index:
       and: "మరియు"
       and_others:
-        few: "ఇంకా %{count}గురు ఇతరులు"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        two: "and %{count} others"
-        zero: "and nobody else"
+        one: "మరియు ఇంకా ఒకరు"
+        other: "మరియు ఇంకా %{count} ఇతరులు"
+        zero: "ఇంకెవరూ లేరు"
       mark_all_as_read: "అన్నీ చదివినట్లుగా గుర్తుపెట్టు"
+      mark_unread: "చదవనట్టుగా గుర్తుపెట్టు"
       notifications: "గమనికలు"
     liked:
       few: "%{actors} have liked your %{post_link}."
       many: "%{actors} have liked your %{post_link}."
-      one: "%{actors} has liked your %{post_link}."
-      other: "%{actors} have liked your %{post_link}."
+      one: "%{actors} మీ %{post_link}ను మెచ్చుకున్నారు."
+      other: "%{actors} మీ %{post_link}ను మెచ్చుకున్నారు."
       two: "%{actors} have liked your %{post_link}."
-      zero: "%{actors} have liked your %{post_link}."
+      zero: "%{actors} మీ %{post_link}ను మెచ్చుకున్నారు."
     liked_post_deleted:
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
-      other: "%{actors} liked your deleted post."
-      two: "%{actors} liked your deleted post."
-      zero: "%{actors} liked your deleted post."
+      one: "%{actors} మీరు తొలగించిన టపాను ఇష్టపడ్డారు."
+      other: "%{actors} మీరు తొలగించిన టపాను ఇష్టపడ్డారు."
+      zero: "%{actors} మీరు తొలగించిన టపాను ఇష్టపడ్డారు."
     mentioned:
       few: "%{actors} have mentioned you in a %{post_link}."
       many: "%{actors} have mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} have mentioned you in a %{post_link}."
+      one: "%{actors} మిమ్మల్ని %{post_link} లో పేర్కొన్నారు."
+      other: "%{actors} మిమ్మల్ని %{post_link} లో పేర్కొన్నారు."
       two: "%{actors} have mentioned you in a %{post_link}."
-      zero: "%{actors} have mentioned you in a %{post_link}."
+      zero: "%{actors} మిమ్మల్ని %{post_link} లో పేర్కొన్నారు."
     mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} మిమ్మల్ని ఒక తొలగించిన టపాలో ప్రస్తావించారు."
+      other: "%{actors} మిమ్మల్ని ఒక తొలగించిన టపాలో ప్రస్తావించారు."
+      zero: "%{actors} మిమ్మల్ని ఒక తొలగించిన టపాలో ప్రస్తావించారు."
     post: "టపా"
     private_message:
       one: "%{actors} మీకొక సందేశాన్ని పంపారు."
@@ -387,45 +457,63 @@ te:
     reshared:
       few: "%{actors} have reshared your %{post_link}."
       many: "%{actors} have reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} have reshared your %{post_link}."
+      one: "%{actors} మీ టపా %{post_link}ను మళ్ళీ పంచుకున్నారు."
+      other: "%{actors} మీ టపా %{post_link}ను మళ్ళీ పంచుకున్నారు."
       two: "%{actors} have reshared your %{post_link}."
-      zero: "%{actors} have reshared your %{post_link}."
+      zero: "%{actors} మీ టపా %{post_link}ను మళ్ళీ పంచుకున్నారు."
     reshared_post_deleted:
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      one: "%{actors} మీరు తొలగించిన టపాను మరలా పంచుకున్నారు."
+      other: "%{actors} మీరు తొలగించిన టపాను మరలా పంచుకున్నారు."
+      zero: "%{actors} మీరు తొలగించిన టపాను మరలా పంచుకున్నారు."
     started_sharing:
       one: "%{actors} మీతో పంచుకోవడం ప్రారంభించారు."
       other: "%{actors} మీతో పంచుకోవడం ప్రారంభించారు."
       zero: "%{actors} మీతో పంచుకోవడం ప్రారంభించారు."
   notifier:
-    a_post_you_shared: "ఒక టపా"
+    a_post_you_shared: "ఒక టపా."
+    accept_invite: "మీ డయాస్పోరా* ఆహ్వానం అంగీకరించండి!"
     click_here: "ఇక్కడ నొక్కండి"
     comment_on_post:
-      reply: "స్పందించు లేక %{name} టపాని చూడు"
-    email_sent_by_diaspora: "ఈ ఇ-మెయిలు %{pod_name} చే పంపబడినది . ఇలాంటి సందేశాలు ఆపాలా,"
+      reply: "స్పందించండి లేక %{name} టపాని చూడండి >"
+    confirm_email:
+      click_link: "మీ కొత్త ఈమెయిలు చిరునామా %{unconfirmed_email} చేతనం కావాడానికి, ఈ లంకెను అనుసరించండి:"
+      subject: "దయచేసి మీ కొత్త ఈమెయిలు చిరునామా %{unconfirmed_email} ను చేతనం చేసుకోండి"
+    email_sent_by_diaspora: "ఈ మెయిలు %{pod_name} చే పంపబడినది. ఒకవేళ ఇలాంటి సందేశాలు వద్దనుకుంటే,"
     hello: "నమస్కారం %{name} గారు!"
+    invite:
+      message: |-
+          హలో! 
+           
+          మీరు డయాస్పోరా*లో చేరుటకు ఆహ్వానించబడ్డారు! 
+           
+          ప్రారంభించుటకు ఈ లంకెను నొక్కండి 
+           
+          [%{invite_url}][1] 
+           
+           
+          ప్రేమతో, 
+           
+          డయాస్పోరా* ఈమెయిలు రోబో! 
+           
+          [1]: %{invite_url}
+    invited_you: "%{name} మిమ్మల్ని డయాస్పోరా*కు ఆహ్వానించారు"
     liked:
       liked: "%{name}కు మీ టపా నచ్చింది"
       view_post: "టపాను చూడండి >"
     mentioned:
-      mentioned: "ఒక టపా లో మిమ్మల్ని ప్రస్తావించారు :"
-      subject: "%{name} డయాస్పొరా* లో మిమ్మల్ని ప్రస్తావించారు"
+      mentioned: "మిమ్మల్ని ఒక టపాలో ప్రస్తావించారు:"
+      subject: "%{name} డయాస్పొరా*లో మిమ్మల్ని ప్రస్తావించారు"
     private_message:
-      reply_to_or_view: "సంభాషణాన్ని స్పందించు లేక చూడు"
+      reply_to_or_view: "ఈ సంభాషణను చూడండి లేదా దానిపై స్పందించండి >"
     reshared:
       reshared: "%{name} మీ టపాని మరలాపంచారు"
       view_post: "టపాను చూడండి >"
     single_admin:
-      admin: "మీ డయాస్పొరా నిర్వాహకుడు"
-      subject: "మీ డయాస్పొరా ఖాతా గురించి ఒక సందేశం:"
+      admin: "మీ డయాస్పొరా* నిర్వాహకుడు"
+      subject: "మీ డయస్పోరా* ఖాతా గురించి ఒక సందేశం:"
     started_sharing:
-      sharing: "మీ తో పంచటం మొదలు పెట్టారు"
-      subject: "%{name} డయస్పొరాలో మీ తో పంచటం మొదలు పెట్టారు"
+      sharing: "మీతో పంచుకోవటం మొదలుపెట్టారు!"
+      subject: "డయస్పొరా*లో %{name} మీతో పంచుకోవటం మొదలుపెట్టారు"
       view_profile: "%{name} ప్రవరని దర్శించు"
     thanks: "ధన్యవాదములు,"
     to_change_your_notification_settings: "మీ గమనిక అమరికలను మార్చాలంటే"
@@ -435,79 +523,116 @@ te:
   password: "సంకేతపదం"
   password_confirmation: "సంకేతపదపు నిర్ధారణ"
   people:
+    add_contact:
+      invited_by: "మీరు వీరిచే ఆహ్వానించబడ్డారు"
     add_contact_small:
-      add_contact_from_tag: "విశేషము ద్వారా పరిచయాన్ని జత చేయి"
+      add_contact_from_tag: "కొస ద్వారా పరిచయాన్ని జతచేయి"
+    aspect_list:
+      edit_membership: "కోణం సభ్యత్వం సవరించు"
     few: "%{count} people"
     helper:
-      people_on_pod_are_aware_of: " ఈ సర్వర్లో వ్యక్తులకి తెలుసు"
+      is_not_sharing: "%{name} మీతో పంచుకోవడం లేదు"
+      is_sharing: "%{name} మీతో పంచుకుంటున్నారు"
       results_for: " %{params} కొరకు ఫలితాలు"
     index:
-      couldnt_find_them_send_invite: "వారు దొరకలేదా?  అయితే ఆహ్వానం పంపండి!"
+      looking_for: "%{tag_link} కొసతో కూడిన టపాల కోసం చూస్తున్నారా?"
       no_one_found: "... ఎవరు దొరకలేదు."
+      no_results: "ఓయ్! మీరు వేరే పేరుతో వెతకాల్సివుంది."
+      results_for: "%{search_term}తో సరిపోలిన వాడుకరులు"
+      searching: "వెతుకుతున్నాం, దయచేసి ఓపిక వహించండి…"
     many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
     person:
       add_contact: "పరిచయాన్ని జతచేయండి"
+      already_connected: "ఇదివరకే అనుసంధానమైనారు"
+      pending_request: "పెండింగు అభ్యర్థన"
       thats_you: "అది మీరే!"
     profile_sidebar:
+      bio: "స్వపరిచయం"
       born: "పుట్టిన రోజు"
       edit_my_profile: "నా ప్రవరను సవరించు"
       gender: "లింగం"
+      in_aspects: "కోణాలలో"
       location: "ప్రాంతం"
+      photos: "ఛాయాచిత్రాలు"
       remove_contact: "పరిచయాన్ని తీసివేయి"
+      remove_from: "%{aspect} నుండి %{name} ను తొలగించాలా?"
     show:
       closed_account: "ఈ ఖాతా మూసివేయబడినది"
+      does_not_exist: "అటువంటి వ్యక్తి లేనే లేరు!"
+      has_not_shared_with_you_yet: "%{name} ఇంకా మీతో టపాలు ఏవీ పంచుకోలేదు!"
+      ignoring: "%{name} నుండి వచ్చే అన్ని టపాలను మీరు విస్మరిస్తున్నారు."
       incoming_request: "%{name} మీతో పంచుకోవాలనుకుంటున్నారు"
       mention: "పేర్కొను"
       message: "సందేశం"
       not_connected: "మీరు ఈ వ్యక్తితో పంచుకోవట్లేదు"
       recent_posts: "ఇటీవలి టపాలు"
       recent_public_posts: "ఇటీవలి బహిరంగ టపాలు"
+      return_to_aspects: "తిరిగి మీ కోణాల పుటకు వెళ్ళండి"
       see_all: "అందరినీ చూడండి"
       start_sharing: "పంచుకోవటం మొదలుపెట్టండి"
     sub_header:
       add_some: "మరికొన్ని చేర్చండి"
       edit: "సవరించు"
-      you_have_no_tags: "మీకు ఏ విశేషములు వాడలేదు"
+      you_have_no_tags: "మీరు ఏ కొసలను వాడలేదు"
     two: "%{count} people"
-    zero: "no people"
+    webfinger:
+      fail: "క్షమించండి, మేము %{handle}ను కనుగొనలేకపోయాం"
+    zero: "ఎవరూ లేరు"
   photos:
     comment_email_subject: "%{name} యొక్క ఛాయాచిత్రం"
+    create:
+      integrity_error: "ఛాయాచిత్ర ఎక్కింపు విఫలమైంది.  మీరు ఎక్కించింది ఖచ్ఛితంగా బొమ్మేనా?"
+      runtime_error: "ఛాయాచిత్ర ఎక్కింపు విఫలమైంది.  "
+      type_error: "ఛాయాచిత్ర ఎక్కింపు విఫలమైంది.  మీరు ఖచ్ఛితంగా బొమ్మనే జోడించారా?"
     destroy:
       notice: "ఛాయాచిత్రం తొలగించబడింది"
     edit:
       editing: "మార్చబడుతున్నది"
     new:
-      back_to_list: "జాబితా కి వెనుకకి వెళ్ళు"
-      new_photo: "కొత్త చిత్రం"
+      back_to_list: "తిరిగి జాబితాకి వెళ్ళు"
+      new_photo: "కొత్త ఛాయాచిత్రం"
+      post_it: "టపా కట్టండి!"
+    new_photo:
+      empty: "{file} ఖాళీగావుంది, దయచేసి అదికాకుండా వేరే దస్త్రాలను ఎంచుకోండి."
+      invalid_ext: "{file} చెల్లని పొడిగింతను కలిగివుంది. కేవలం {extensions} మాత్రమే అనుమతించబడును."
+      size_error: "{file} చాలా పెద్దగావుంది, గరిష్ట దస్త్ర పరిమాణం {sizeLimit}."
+    new_profile_photo:
+      or_select_one_existing: "లేదా మీ ఇంతకుముందు ఉన్న %{photos} ల నుండి ఒకటి ఎంచుకోండి"
+      upload: "ఒక కొత్త ప్రవర ఛాయాచిత్రాన్ని ఎక్కించండి!"
+    photo:
+      view_all: "%{name} యొక్క అన్ని ఛాయాచిత్రాలను చూడండి"
     show:
+      collection_permalink: "సేకరణ స్థిరలంకె"
       delete_photo: "ఛాయాచిత్రాన్ని తొలగించు"
       edit: "మార్చు"
-      edit_delete_photo: "చిత్రం యొక్క వివరము ని మార్చు లేక చిత్రాన్ని తొలగించు"
+      edit_delete_photo: "ఛాయాచిత్రం యొక్క వివరణను మార్చు లేక చిత్రాన్ని తొలగించు"
       make_profile_photo: "ప్రవర ఛాయాచిత్రంగా వాడు"
       show_original_post: "అసలు టపాని చూపించు"
       update_photo: "ఛాయాచిత్రాన్ని నవీకరించండి"
     update:
       error: "ఛాయాచిత్రాన్ని సవరించుటలో వైఫల్యం."
+      notice: "ఛాయాచిత్రం విజయవంతంగా నవీకరించబడింది."
   posts:
+    presenter:
+      title: "%{name} నుండి ఒక టపా"
     show:
       destroy: "తొలగించు"
       not_found: "క్షమించండి, ఆ టపాను మేము కనుగొనలేకపోతున్నాము."
       permalink: "స్థిరలంకె"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        one: "%{author} నుండి ఒక ఛాయాచిత్రం ఉంది"
+        other: "%{author} నుండి %{count} ఛాయాచిత్రాలు ఉన్నాయి"
+        zero: "%{author} ఎటువంటి ఛాయాచిత్రాలు పెట్టలేదు"
+      reshare_by: "%{author} చేత మరలాపంచబడింది"
   previous: "మునుపటి"
   privacy: "అంతరంగికత"
   privacy_policy: "అంతరంగికత విధానం"
   profile: "ప్రవర"
   profiles:
     edit:
+      allow_search: "మీ కోసం డయాస్పోరా*లో వెతకడానికి వ్యక్తులను అనుమతించండి"
       edit_profile: "ప్రవరను సవరించు"
       first_name: "మొదటి పేరు"
       last_name: "ఇంటి పేరు"
@@ -520,6 +645,8 @@ te:
       your_photo: "మీ ఫొటో"
       your_private_profile: "మీ రహస్య ప్రవర"
       your_public_profile: "మీ బహిరంగ ప్రవర"
+      your_tags: "5 పదాల్లో మీ గురించి చెప్పండి"
+      your_tags_placeholder: "#movies #python #teacher #తెలుగు #సంగీతం #హైదరాబాద్ వంటివి"
     update:
       failed: "ప్రవరను నవీకరించుటలో విఫలమయ్యాము"
       updated: "ప్రవర నవీకరించబడింది"
@@ -529,35 +656,48 @@ te:
     other: "%{count} ప్రతిస్పందనలు"
     zero: "0 ప్రతిస్పందన"
   registrations:
-    closed: "ఈ డయాస్పోరా పాడ్ పై కొత్త చేరికలు మూసివేయబడ్డాయి."
+    closed: "ఈ డయాస్పోరా* పాడ్ పై కొత్త ప్రవేశాలు మూసివేయబడ్డాయి."
     create:
-      success: "డయాస్పోరాలో మీ చేరిక విజయవంతం!"
+      success: "డయాస్పోరా*లో మీ చేరిక విజయవంతం!"
     edit:
       cancel_my_account: "నా ఖాతాను రద్దుచేయి"
       edit: "%{name} ను సవరించుకోండి"
+      leave_blank: "(మార్చుకోవద్దనుకుంటే ఖాళీగా వదిలేయండి)"
+      password_to_confirm: "(మార్పులను నిర్ధారించడానకి మీ ప్రస్తుత సంకేతపదం కావాలి)"
+      unhappy: "అసంతృప్తా?"
       update: "నవీకరించుకోండి"
+    invalid_invite: "మీరు ఇచ్చిన ఆహ్వానపు లంకె చెల్లుబాటులో లేదు!"
     new:
       continue: "కొనసాగు"
       create_my_account: "నా ఖాతాను సృష్టించు!"
+      diaspora: "<3 డయాస్పోరా*"
       email: "ఈమెయిల్"
       enter_email: "ఒక ఈమెయిలును ప్రవేశపెట్టండి"
+      enter_password: "సంకేతపదాన్ని ఇవ్వండి (కనీసం ఆరు అక్షరాలు)"
+      enter_password_again: "అదే సంకేతపదాన్ని మళ్ళీ ఇవ్వండి"
       enter_username: "ఒక వాడుకరిపేరును ఎంచుకోండి (అక్షరాలు, సంఖ్యలు, మరియు క్రిందిగీతలు మాత్రమే స్వీకరించబడును)"
       join_the_movement: "ఈ ఉద్యమంలో చేరండి!"
       password: "సంకేతపదం"
+      password_confirmation: "సంకేతపదం నిర్ధారణ"
+      sign_up: "నమోదవ్వండి"
+      sign_up_message: "♥ తో ఒక సామాజిక అనుసంధాన వేదిక"
       username: "వాడుకరిపేరు"
   requests:
     create:
       sending: "పంపుతున్నాము"
+      sent: "మీరు %{name} తో పంచుకోవడానికి అడిగారు.  వారి తదుపరి డయాస్పోరా* ప్రవేశంలో దీనిని చూస్తారు."
+    destroy:
+      error: "దయచేసి ఒక కోణాన్ని ఎంచుకోండి!"
+      ignore: "పరిచయం అభ్యర్థన విస్మరించబడింది."
+      success: "మీరిప్పుడు పంచుకుంటున్నారు."
     helper:
       new_requests:
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        two: "%{count} new requests!"
-        zero: "no new requests"
+        one: "కొత్త అభ్యర్థన!"
+        other: "%{count} కొత్త అభ్యర్థనలు!"
+        zero: "ఎటువంటి కొత్త అభ్యర్థనలు లేవు"
     manage_aspect_contacts:
       existing: "ఉన్నటువంటి పరిచయాలు"
+      manage_within: "ఇందులోనే పరిచయాలను నిర్వహించు"
     new_request_to_person:
       sent: "పంపబడింది!"
   reshares:
@@ -566,138 +706,255 @@ te:
     reshare:
       deleted: "అసలు టపా రచయితచే తొలగించబడింది."
       reshare:
-        few: "%{count} reshares"
-        many: "%{count} reshares"
         one: "1 పంచుకోలు"
         other: "%{count} పంచుకోళ్ళు"
-        two: "%{count} పంచుకోళ్ళు"
-        zero: "Reshare"
+        zero: "పంచుకోండి"
       reshare_confirmation: "%{author} యొక్క టపాను మరలాపంచుతారా?"
       reshare_original: "అసలుని మరలాపంచుకోండి"
+      reshared_via: "వీరి ద్వారా మరలాపంచుకున్నారు"
       show_original: "అసలుని చూపించు"
   search: "వెతుకు"
   services:
     create:
+      already_authorized: "డయాస్పోరా గుచి %{diaspora_id}తో ఒక వాడుకరి ఇదివరకే %{service_name} ఖాతాను ధృవీకరించారు."
       failure: "ధృవీకరణ విఫలం."
       success: "ధృవీకరణ విజయవంతం."
     destroy:
       success: "ధృవీకరణ విజయవంతంగా తొలగించబడింది."
+    failure:
+      error: "ఆ సేవకు అనుసంధానించుటలో దోషం ఉన్నది."
     finder:
+      fetching_contacts: "మీ %{service} మిత్రులను డయాస్పోరా* పాపులేట్ చేస్తోంది, దయచేసి కొన్ని నిమిషాలలో సరిచూసుకోండి."
       no_friends: "ఎటువంటి ఫేస్‌బుక్ మిత్రులు కనపడలేదు."
       service_friends: "%{service} మిత్రులు"
     index:
       connect_to_facebook: "ఫేస్‌బుక్‌కు అనుసంధానించండి"
+      connect_to_tumblr: "టంబ్లర్​కు అనుసంధానించండి"
       connect_to_twitter: "ట్విట్టర్‍కు అనుసంధానించండి"
+      connect_to_wordpress: "వర్డ్‌ప్రెస్‌కు అనుసంధానమవ్వండి"
+      disconnect: "నిరనుసంధానించు"
       edit_services: "సేవలను సవరించండి"
+      logged_in_as: "వలె ప్రవేశించారు"
+      no_services: "మీరు ఇంకా ఎటువంటి సేవలకు అనుసంధానం కాలేదు."
+      really_disconnect: "%{service} నిరనుసంధానించాలా?"
     inviter:
-      join_me_on_diaspora: "డయాస్పోరా*లో నన్ను చేర్చుకో"
+      click_link_to_accept_invitation: "మీ ఆహ్వానాన్ని అంగీకరించుటకు ఈ లంకెను అనుసరించండి"
+      join_me_on_diaspora: "డయాస్పోరా*లో నన్ను చేర్చుకోండి"
     remote_friend:
       invite: "ఆహ్వానించండి"
+      not_on_diaspora: "ఇంకా డయాస్పోరా*లో చేరలేదు"
       resend: "మరలా పంపు"
   settings: "అమరికలు"
+  share_visibilites:
+    update:
+      post_hidden_and_muted: "%{name} యొక్క టపా దాయబడింది, మరియు గమనింపులు నిశ్శబ్దించబడినవి."
+      see_it_on_their_profile: "ఒకవేళ మీరు ఈ టపాపై తాజాకరణలు కావాలనుకుంటే, %{name} యొక్క ప్రవర పుటను సందర్శించండి."
   shared:
     add_contact:
       add_new_contact: "ఒక కొత్త పరిచయాన్ని జతచేయండి"
+      create_request: "డయాస్పోరా* గుచి ద్వారా కనుగొనండి"
       diaspora_handle: "diaspora@pod.org"
+      enter_a_diaspora_username: "ఒక డయాస్పోరా* వాడుకరిపేరును ఇవ్వండి:"
       know_email: "మీ వారి ఈమెయిల్ చిరునామాలు తెలుసా? అయితే మీరు వారిని తప్పక ఆహ్వానించాలి"
-      your_diaspora_username_is: "మీ డయస్పోరా వాడుకరి పేరు: %{diaspora_handle}"
+      your_diaspora_username_is: "మీ డయస్పోరా* వాడుకరి పేరు: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "పరిచయాన్ని జతచేయి"
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add contact"
+        one: "%{count} కోణంలో"
+        other: "%{count} కోణాలలో"
+        zero: "పరిచయాన్ని జతచేయి"
     contact_list:
       all_contacts: "అన్ని పరిచయాలు"
+    footer:
+      logged_in_as: "%{name} వలె ప్రవేశించారు"
+      your_aspects: "మీ కోణాలు"
     invitations:
       by_email: "ఈమెయిల్ ద్వారా"
+      dont_have_now: "ఇప్పుడు మీ వద్ద ఆహ్వానాలు ఏమీ లేదు, కానీ తర్వలోనే వస్తాయి!"
       from_facebook: "ఫేస్‌బుక్ నుండి"
+      invitations_left: "%{count} ఉన్నాయి"
+      invite_someone: "ఎవరినైనా ఆహ్వానించండి"
       invite_your_friends: "మీ మిత్రులను ఆహ్వానించండి"
       invites: "ఆహ్వానాలు"
+      invites_closed: "ఈ డయాస్పోరా* పాడ్ పై ప్రస్తుతం ఆహ్వానాలు మూసివేయబడ్డాయి"
+      share_this: "ఈ లంకెను ఈమెయిలు, బ్లాగు, లేదా సమాజిక అనుసంధాన వేదికల ద్వారా పంచుకోండి!"
     public_explain:
       atom_feed: "ఆటమ్ ఫీడ్"
+      control_your_audience: "మీ ప్రేక్షకులను నియంత్రించండి"
+      logged_in: "%{service} లోకి ప్రవేశించారు"
       manage: "అనుసంధానమయిన సేవలను నిర్వహించండి"
+      outside: "బహిరంగ సందేశాలు డయాస్పోరా*కు బయటవున్న వారు కూడా చూడగలరు."
+      share: "పంచుకోండి"
+      title: "అనుసంధానిత సేవలను అమర్చండి"
+      visibility_dropdown: "మీ టపా దృగ్గోచరతను మార్చడానికి ఈ జారుడుపట్టీని వాడండి.  (మొదటి టపాను బహిరంగంగా ఉంచమని మీకు సూచిస్తున్నాం.)"
     publisher:
       all: "అన్నీ"
       all_contacts: "అన్ని పరిచయాలు"
+      discard_post: "టపాను రద్దుచేయి"
+      formatWithMarkdown: "మీ టపాను అలంకరించడానికి %{markdown_link} వాడవచ్చు"
+      get_location: "మీ స్థానాన్ని పొందండి"
       make_public: "బహిర్గతం చేయి"
       new_user_prefill:
+        hello: "అందరికీ నమస్కారం, నేను #%{new_user_tag}. "
+        i_like: "%{tags} లలో నాకు ఆసక్తి ఉంది. "
         invited_by: "ఆహ్వానం పంపినందుకు ధన్యవాదములు, "
-      share: "పంచుకొను"
+        newhere: "కొత్తఇక్కడ"
+      post_a_message_to: "%{aspect} కు ఒక సందేశం పంపండి"
+      posting: "టపాకడుతూంది..."
+      preview: "మునుజూపు"
+      publishing_to: "వీటికి ప్రచురిస్తోంది: "
+      share: "పంచుకోండి"
       share_with: "వీరితో పంచుకోండి"
       upload_photos: "ఛాయాచిత్రాలను ఎక్కించండి"
       whats_on_your_mind: "మీ బుర్రలో ఏం మెదులుతోంది?"
+    reshare:
+      reshare: "మరలపంచుకోండి"
     stream_element:
+      connect_to_comment: "టపాపై వ్యాఖ్యానించుటకు ఈ వాడుకరితో అనుసంధానమవ్వండి"
+      currently_unavailable: "వ్యాఖ్యానించుట ప్రస్తుతం అందుబాటులోలేదు"
       dislike: "అయిష్టం"
+      hide_and_mute: "టపాను దాచి, నిశ్శబ్దించు"
+      ignore_user: "%{name}ను విస్మరించండి"
+      ignore_user_description: "అన్ని కోణాల నుండి వాడుకరిని విస్మరించి, తీసివేయాలా?"
       like: "ఇష్టం"
+      shared_with: "వీటిలో పంచుకున్నారు: %{aspect_names}"
       show: "చూపించు"
       unlike: "అయిష్టం"
+      via: "%{link} ద్వారా"
       via_mobile: "మొబైల్ ద్వారా"
+      viewable_to_anyone: "ఈ టపాను జాలంలో ఎవరైనా చూడగలరు"
   status_messages:
+    create:
+      success: "విజయవంతంగా పేర్కొన్నారు: %{names}"
     destroy:
       failure: "టపాని తొలగించలేకపోయాము"
     helper:
       no_message_to_display: "చూపించడానికి ఏ సందేశాలు లేవు."
+    new:
+      mentioning: "పేర్కోలు: %{person}"
     too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+      one: "దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి"
+      other: "దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి"
+      zero: "దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి"
   stream_helper:
     hide_comments: "అన్ని వ్యాఖ్యలను దాచు"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      one: "మరొక్క వ్యాఖ్యను చూపించు"
+      other: "మరో %{count} వ్యాఖ్యలను చూపించు"
+      zero: "ఇంకేమీ వ్యాఖ్యలు లేవు"
   streams:
     activity:
       title: "నా క్రియాశీలత"
     aspects:
-      title: "Your Aspects"
+      title: "నా కోణాలు"
+    aspects_stream: "కోణాలు"
+    comment_stream:
+      contacts_title: "మీరు వ్యాఖ్యానించిన వ్యక్తుల టపాలు"
+      title: "వ్యాఖ్యానించిన టపాలు"
+    community_spotlight_stream: "సంఘపు స్పాట్​లైట్"
     followed_tag:
+      add_a_tag: "ఒక కొసను జతచేయండి"
+      contacts_title: "ఈ కొసలను తవ్విన వ్యక్తులు"
       follow: "అనుసరించు"
+      title: "#అనుసరించే కొసలు"
+    followed_tags_stream: "#అనుసరించే కొసలు"
+    like_stream:
+      contacts_title: "మీరు మెచ్చుకున్న వ్యక్తుల టపాలు"
+    mentioned_stream: "@పేర్కోలు"
+    mentions:
+      contacts_title: "మిమ్మల్ని ప్రస్తావించిన వ్యక్తులు"
+      title: "@పేర్కోలు"
     multi:
+      contacts_title: "మీ ప్రవాహంలోని వ్యక్తులు"
       title: "ప్రవాహం"
     public:
       contacts_title: "ఇటీవలి టపాకులు"
       title: "బహిరంగ క్రియాశీలత"
+    tags:
+      contacts_title: "ఈ కొసను తవ్విన వ్యక్తులు"
+  tag_followings:
+    create:
+      failure: "#%{name} అనుసరించుటలో విఫలం.  మీరు ఇంతకుముందు నుండే అనుసరిస్తున్నారా?"
+      none: "మీరు ఖాళీ కొసను అనుసరించలేరు!"
+      success: "హుర్రే!  మీరిప్పుడు #%{name} ను అనుసరిస్తున్నారు."
+    destroy:
+      failure: "#%{name} అనుసరణ ఆపుటలో విఫలం. మీరు ఇంతకుముందే అనుసరణను ఆపివేసివుండవచ్చు?"
+  tags:
+    show:
+      follow: "#%{tag}ను అనుసరించు"
+      followed_by_people:
+        one: "ఒకరిచే అనుసరించబడుతున్నారు"
+        other: "%{count} వ్యక్తులచే అనుసరించబడుతున్నారు"
+        zero: "ఎవరిచేత అనుసరించబడుటలేదు"
+      following: "#%{tag}ను అనుసరిస్తున్నారు"
+      nobody_talking: "%{tag} గురించి ఇంకా ఎవరూ మాట్లాడుకోవడం లేదు."
+      none: "ఖాళీ కొస చెల్లదు!"
+      people_tagged_with: "%{tag} తో కొసవేయబడిన వ్యక్తులు"
+      posts_tagged_with: "#%{tag} తో కొసవేయబడిన టపాలు"
+      stop_following: "#%{tag}ను అనుసరించడం మానివేయి"
   terms_and_conditions: "నియమాలు మరియు నిబంధనలు"
   undo: "రద్దుచేయాలా?"
   username: "వాడుకరిపేరు"
   users:
+    confirm_email:
+      email_confirmed: "ఈమెయిల్ %{email} క్రియాశీలించబడింది"
+      email_not_confirmed: "ఈమెయిలు క్రియాశీలించుట వీలుకాదు. తప్పుడు లంకెనా?"
+    destroy:
+      no_password: "మీ ఖాతాను మూసివేయడానికి, మీ ప్రస్తుత సంకేతపదాన్ని ఇవ్వండి."
+      wrong_password: "మీరు ఇచ్చిన సంకేతపదం మీ ప్రస్తుత సంకేతపదంలో సరిపోలలేదు."
     edit:
+      also_commented: "మీరు వ్యాఖ్యానించిన టపాపై ఎవరో వ్యాఖ్యను పెట్టారు"
+      auto_follow_aspect: "స్వయంచాలకంగా జతచేయబడిన పరిచయాల కోణం:"
+      auto_follow_back: "మీతో పంచుకోవడం ప్రారంభించిన వాడుకరులతో స్వయంచాలకంగా పంచుకొనుము"
       change: "మార్చు"
       change_email: "ఈమెయిల్ మార్చండి"
       change_language: "భాష మార్పు"
       change_password: "సంకేతపదం మార్పు"
+      character_minimum_expl: "కనీసం ఆరు అక్షరాలు ఉండాలి"
       close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      close_account_text: "ఖాతా మూసివేత"
+        dont_go: "ఓయ్, దయచేసి వదిలి వెళ్ళవద్దు!"
+        make_diaspora_better: "డయాస్పోరా*ను మరింత మెరుగ్గా చేయడంలో మీ సహాయం ఆశించాం, అందువల్ల మీరు వదిలివెళ్లకుండా మాకు సహాయపడాలి. ఒకవేళ మీరు వదిలివెళ్ళాలని నిశ్చయించుకుంటే, తరువాత ఏం జరగబోతోందో మీరు తెలుసుకోవాలనుకుంటున్నాము."
+        mr_wiggles: "మీ నిష్క్రమణ మిస్టర్ విగిల్స్‌కు విచారం కలిగిస్తుంది"
+      close_account_text: "ఖాతాను మూసివేయి"
+      comment_on_post: "ఎవరో మీ టపాపై వ్యాఖ్యానించారు"
       current_password: "ప్రస్తుత సంకేతపదం"
       download_photos: "నా ఛాయాచిత్రాలను దింపుము"
+      download_xml: "నా xml దింపు"
       edit_account: "ఖాతాను సవరించు"
-      getting_started: "కొత్త వాడుకరి ప్రాధాన్యతలు"
+      email_awaiting_confirmation: "మేము మీకొక క్రియాశీలించు లంకెను %{unconfirmed_email} కు పంపాము. మీరు ఈ లంకెను అనుసరించి కొత్త చిరునామాను క్రియాశీలించేంతవరకూ, మీ అసలు చిరునామా %{email} ను వాడతాము."
+      export_data: "దత్తాంశాన్ని ఎగుమతించు"
+      following: "పంచుకోలు అమరికలు"
+      getting_started: "కొత్త వాడుకరి అభిరుచులు"
+      liked: "ఎవరో మీ టపాను మెచ్చుకున్నారు"
+      mentioned: "మీరు టపాలో ప్రస్తావించబడ్డారు"
       new_password: "కొత్త సంకేతపదం"
-      stream_preferences: "ప్రవాహపు ప్రాధాన్యతలు"
+      photo_export_unavailable: "ఛాయాచిత్ర ఎగుమతి ప్రస్తుతం అందుబాటులో లేదు"
+      private_message: "మీకు రహస్య సందేశం వచ్చింది"
+      receive_email_notifications: "ఈమెయిలు గమనింపులను ఎప్పుడు అందుకుంటారు:"
+      reshared: "ఎవరో మీ టపాను మరలా పంచుకున్నారు"
+      show_community_spotlight: "ప్రవాహంలో సంఘపు స్పాట్‌లైట్‌ను చూపించు"
+      show_getting_started: "మొదలుపెట్టు సూచనలను చూపించు"
+      started_sharing: "ఎవరో మీతో పంచుకోవడం మొదలుపెట్టారు"
+      stream_preferences: "ప్రవాహపు అభిరుచులు"
       your_email: "మీ ఈమెయిలు"
-      your_handle: "మీ డయస్పోరా గుర్తింపు"
+      your_handle: "మీ డయస్పోరా* గుర్తింపు"
     getting_started:
+      awesome_take_me_to_diaspora: "అదిరిపోయింది! నన్ను డయాస్పోరా*కు తీసుకువెళ్ళు"
+      connect_to_facebook_link: "మీ ఫేస్‌బుక్ ఖాతాతో లంకె వేస్తున్నాం"
+      hashtag_suggestions: "#art, #movies, #gif, వంటి తదితర కొసలను అనుసరించి చూడండి."
       saved: "భద్రపరచబడింది!"
+      what_are_you_in_to: "మీకు ఏం ఇష్టం?"
       who_are_you: "మీరెవరు?"
     privacy_settings:
+      ignored_users: "విస్మరించబడిన వాడుకరులు"
+      stop_ignoring: "విస్మరించుట ఆపివేయి"
       title: "అంతరంగికత అమరికలు"
     public:
       does_not_exist: "%{username} అనే వాడుకరి లేనే లేరు!"
     update:
       email_notifications_changed: "ఈమెయిల్ గమనికలు మార్చబడ్డాయి"
+      follow_settings_changed: "అనుసరణ అమరికలు మార్చబడినవి"
+      follow_settings_not_changed: "అనుసరణ అమరికల మార్పు విఫలమైంది."
       language_changed: "భాషను మార్చాం"
       language_not_changed: "భాష మార్పు విఫలమైంది"
       password_changed: "సంకేతపదాన్ని మార్చాం.  మీరు ఇప్పుడు మీ కొత్త సంకేతపదంలో ప్రవేశించవచ్చు."
@@ -708,5 +965,5 @@ te:
       unconfirmed_email_not_changed: "ఈమెయిల్ మార్పు విఫలం"
   welcome: "స్వాగతం!"
   will_paginate:
-    next_label: "తదుపరి &raquo;"
-    previous_label: "&laquo; గత"
+    next_label: "తదుపరివి &raquo;"
+    previous_label: "&laquo; మునుపటివి"

@@ -16,7 +16,6 @@ env:
 
 
 bundler_args: "--without development production heroku"
-before_install: "./script/ci/before_install.sh"
 script: "./script/ci/build.sh"
 
 addons:

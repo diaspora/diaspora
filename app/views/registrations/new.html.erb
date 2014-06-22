@@ -19,7 +19,7 @@
           <%= t('.sign_up') %>
         </h4>
 
-        <%= form_for(resource, :validate => true, :url => registration_path(resource_name), :html => {:class => "form-horizontal block-form", :autocomplete => "off"}) do |f| %>
+        <%= form_for(resource, :url => registration_path(resource_name), :html => {:class => "form-horizontal block-form", :autocomplete => "off"}) do |f| %>
             <fieldset>
               <div class="control-group">
                 <label class="control-label" for="user_email">

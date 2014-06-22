@@ -4,43 +4,8 @@
 
 = javascript_include_tag :home
 
-#new_status_message_pane
-  .span-15.last
+.container-fluid#bookmarklet
+  .row-fluid
     %h4
       =t('bookmarklet.post_something')
-    = render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
-
-:javascript
-  app.publisher = new app.views.Publisher({
-    standalone: true
-  });
-
-  var contents = "#{escape_javascript params[:content]}";
-  if(!contents){
-    contents  = "#{escape_javascript params[:title]} - #{escape_javascript params[:url]}";
-    var notes = "#{escape_javascript params[:notes]}";
-    if (notes.length > 0){
-      contents += " - " + notes;
-    }
-  }
-
-  $("#publisher").bind('ajax:success', function(){
-    $('h4').text("#{t('bookmarklet.post_success')}");
-    app.publisher.close();
-    window.setTimeout(window.close, 2000, true);
-  });
-
-  // this has to happen after the publisher has finished loading, otherwise
-  // the textarea is cleared again by the initialization of the mentions plugin
-  $(function(){
-    $("#publisher #status_message_fake_text").val(contents);
-    $("#publisher #status_message_text").val(contents);
-    $('input.button')[0].removeAttribute('disabled');
-  });
-
-- content_for(:head) do
-  :css
-    body { padding:0; margin-top: 0; }
-    .container { width: auto; }
-    #new_status_message_pane { margin: 1em 0 0; }
-    #new_status_message_pane h4 { margin: 0 0 0 1em; }
+    = render :partial => 'publisher/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }

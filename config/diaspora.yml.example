@@ -170,7 +170,7 @@ configuration: ## Section
   ## Settings probably affecting the privacy of your users 
   privacy: ## Section
     
-    ## Include jQuery from Google's CDN
+    ## Include jQuery from jquery.com's CDN
     ## This potentially saves you some traffic and speeds up
     ## load time since most clients already have this one cached
     #jquery_cdn: true
@@ -200,6 +200,7 @@ configuration: ## Section
       #user_counts: true
       ## Local post total count
       #post_counts: true
+      #comment_counts: true
   
   ## General settings
   settings: ## Section

@@ -1,0 +1,21 @@
+#reports {
+  padding-top: 2em;
+  .content {
+    float: left;
+    span {
+      display: block;
+    }
+    span.text {
+      padding-bottom: 1em;
+    }
+  }
+  .options {
+    float: right;
+  }
+  .clear {
+    clear: both;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+  }
+}

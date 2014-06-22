@@ -1,6 +1,5 @@
 class PostPresenter
   include PostsHelper
-  include ActionView::Helpers::TextHelper
 
   attr_accessor :post, :current_user
 
@@ -35,6 +34,8 @@ class PostPresenter
         :root => root,
         :title => title,
         :address => @post.address,
+        :poll => @post.poll(),
+        :already_participated_in_poll => already_participated_in_poll,
 
         :interactions => {
             :likes => [user_like].compact,
@@ -47,7 +48,7 @@ class PostPresenter
   end
 
   def title
-    @post.text.present? ? post_page_title(@post) : I18n.translate('posts.presenter.title', :name => @post.author_name)
+    @post.message.present? ? @post.message.title : I18n.t('posts.presenter.title', name: @post.author_name)
   end
 
   def root
@@ -70,6 +71,14 @@ class PostPresenter
 
   def user_signed_in?
     @current_user.present?
+  end
+
+  private
+
+  def already_participated_in_poll
+    if @post.poll && user_signed_in?
+      @post.poll.already_participated?(current_user)
+    end
   end
 
 end

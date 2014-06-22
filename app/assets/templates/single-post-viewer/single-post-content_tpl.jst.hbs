@@ -1,30 +1,93 @@
 <div id='head' class='row-fluid'>
-  <div id='author' class='span8'>
-    <div class="img pull-left">
-      {{{personImage author 'medium'}}}
-    </div>
-
-    <div class="bd">
-      {{#linkToPerson author}}
-          {{name}}
-      {{/linkToPerson}}
-
-      {{#if root}}
-      <span class="retweet">
-        <i class="icon-retweet"></i>
+  <div class='row-fluid'>
+    <div id='post-info' class='span8'>
+      <div class="img pull-left">
+        {{#if root}}
           {{#linkToPerson root.author}}
+            {{{personImage this 'medium'}}}
+          {{/linkToPerson}}
+        {{else}}
+          {{#linkToPerson author}}
+            {{{personImage this 'medium'}}}
+          {{/linkToPerson}}
+        {{/if}}
+      </div>
+
+      <div class="bd">
+        <span class='author'>
+          {{#if root}}
+            {{#linkToPerson root.author}}
+              {{name}}
+            {{/linkToPerson}}
+          {{else}}
+            {{#linkToPerson author}}
+              {{name}}
+            {{/linkToPerson}}
+          {{/if}}
+        </span>
+            
+        <div class='info'>
+          {{#if public}}
+            <span class='post_scope' title="{{t "stream.public"}}">
+              <i class="entypo globe small"></i>
+            </span>
+          {{else}}
+            <span class='post_scope' title="{{t "stream.limited"}}">
+              <i class="entypo lock small"></i>
+            </span>
+          {{/if}}
+          <span class="post-time">
+            {{#if root}}
+              <a href="/posts/{{root.id}}">
+                <time datetime="{{root.created_at}}" title="{{localTime root.created_at}}" />
+              </a>
+            {{else}}
+              <a href="/posts/{{id}}">
+                <time datetime="{{created_at}}" title="{{localTime created_at}}" />
+              </a>
+            {{/if}}
+          </span>
+          {{#if root}}
+            {{#if root.provider_display_name}}
+              {{t "stream.via" provider=root.provider_display_name}}
+            {{/if}}
+          {{else}}
+            {{#if provider_display_name}}
+              {{t "stream.via" provider=provider_display_name}}
+            {{/if}}
+          {{/if}}
+          <div class='status-message-location' />
+        </div>
+      </div>
+    </div>
+    {{#unless root}}
+      <div id='single-post-actions' class='span4' />
+    {{/unless}}
+  </div>
+  {{#if root}}
+    <div class='row-fluid reshare'>
+      <div class='span8' id='reshare-info'>
+        <i class='entypo retweet small pull-left'></i>
+        <div class="img pull-left">
+          {{#linkToPerson author}}
+            {{{personImage this 'small'}}}
+          {{/linkToPerson}}
+        </div>
+        <span class="author">
+          {{#linkToPerson author}}
             {{name}}
           {{/linkToPerson}}
-      </span>
-      {{/if}}
-
-      <div class='status-message-location' />
+        </span>
+        <span class="post-time">
+          <a href="/posts/{{id}}">
+            <time datetime="{{created_at}}" title="{{localTime created_at}}" />
+          </a>
+        </span>
+      </div>
+      <div id='single-post-actions' class='span4' />
     </div>
-  </div>
-  <div id='single-post-actions' class='span4'>
-  </div>
+  {{/if}}
 </div>
-<hr />
 <div id='body' class='row-fluid'>
   <div id='real-post-content' class='span12'>
   </div>

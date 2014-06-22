@@ -1,37 +1,33 @@
 <div class='pull-right'>
-  <span class='public-info'>
-    {{#if public}}
-      <i class="entypo globe small"> </i>
+  {{#if loggedIn}}
+    <a href="#" class="like" title="{{#if userLike}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
+    {{#if userLike}}
+      <i class="entypo heart red large"></i>
     {{else}}
-      <i class="entypo lock small"> </i>
+      <i class="entypo heart gray large"></i>
     {{/if}}
-  </span>
-  <span class="post-time">
-    <time datetime="{{created_at}}" title="{{localTime created_at}}" />
-  </span>
-  <div class="buttons pull-right">
-    <a href="#" rel="auth-required" class="like" title="{{#if userLike}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
-        {{#if userLike}}
-            <i class="entypo heart red large"></i>
-        {{else}}
-            <i class="entypo heart gray large"></i>
-        {{/if}}
     </a>
-
-    <a href="#" rel="auth-required" class="focus-comment" title="{{t "viewer.comment"}}">
+    
+    <a href="#" class="focus-comment" title="{{t "viewer.comment"}}">
       <i class="entypo comment gray large"></i>
     </a>
-
+    
     {{#if userCanReshare}}
-        <a href="#" rel="auth-required" class="reshare" title="{{t "viewer.reshare"}}">
-          <i class="entypo retweet gray large"></i>
-        </a>
+      <a href="#" class="reshare" title="{{t "viewer.reshare"}}">
+        <i class="entypo retweet gray large"></i>
+      </a>
     {{else}}
-        {{#if userReshare}}
-            <a href="#" rel="auth-required" class="reshare-viewonly" title="{{t "viewer.reshared"}}">
-              <i class="entypo retweet blue large"></i>
-            </a>
-        {{/if}}
+      {{#if userReshare}}
+        <a href="#" class="reshare-viewonly" title="{{t "viewer.reshared"}}">
+          <i class="entypo retweet blue large"></i>
+        </a>
+      {{/if}}
     {{/if}}
-  </div>
+   
+    {{#if authorIsNotCurrentUser}}
+      <a href="#" data-type="post" class="post_report" title="{{t "report.name"}}">
+        <i class="entypo gray large">&#x21;</i>
+      </a>
+    {{/if}}
+  {{/if}}
 </div>

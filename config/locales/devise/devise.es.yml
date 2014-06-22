@@ -37,21 +37,25 @@ es:
       reset_password_instructions:
         change: "Cambiar mi contraseña"
         ignore: "Si no has solicitado esto, por favor ignora este mensaje."
-        someone_requested: "Alguien ha solicitado un enlace para cambiar tu contraseña, puedes cambiarla a través del siguiente enlace."
+        someone_requested: "Alguien ha solicitado un enlace para cambiar tu contraseña. Si fuiste tú, puedes hacerlo a través del siguiente enlace."
         subject: "Instrucciones para cambiar tu contraseña"
         wont_change: "Tu contraseña no cambiará hasta que accedas al enlace anterior y crees una nueva."
       unlock_instructions:
-        account_locked: "Tu cuenta ha sido bloqueada debido a una excesiva cantidad de intentos de ingreso fallidos."
+        account_locked: "Tu cuenta ha sido bloqueada debido a demasiados intentos de ingreso fallidos."
         click_to_unlock: "Sigue el siguiente enlace para desbloquear tu cuenta:"
-        subject: "Instrucciones para desbloquear tu cuenta"
+        subject: "Instrucciones para desbloquear la cuenta"
         unlock: "Desbloquear mi cuenta"
       welcome: "¡Bienvenid@ %{email}!"
     passwords:
       edit:
         change_password: "Cambiar mi contraseña"
+        confirm_password: "Confirmar Contraseña"
+        new_password: "Nueva contraseña"
       new:
+        email: "Dirección de correo"
         forgot_password: "¿Has olvidado tu contraseña?"
-        no_account: "No existe una cuenta con ese correo. Si estás esperando una invitación, las haremos llegar tan pronto como nos sea posible."
+        no_account: "No existe una cuenta con ese correo"
+        reset_password: "Resetear contraseña"
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
       send_instructions: "Recibirás un correo con instrucciones para cambiar tu contraseña en unos minutos."
       updated: "Has modificado tu contraseña. ¡Ya estás dentro!"

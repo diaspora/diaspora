@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   before_filter :set_format_if_malformed_from_status_net, :only => :show
   before_filter :find_post, :only => [:show, :interactions]
 
-  before_filter -> { @css_framework = :bootstrap }
+  use_bootstrap_for :show
 
   respond_to :html,
              :mobile,

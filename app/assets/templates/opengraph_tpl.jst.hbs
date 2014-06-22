@@ -1,11 +1,12 @@
 {{#unless o_embed_cache}}
   {{#if open_graph_cache}}
-    <a href="{{open_graph_cache.url}}" target="_blank">
-      <div>
+    <div class="opengraph-container">
+      <a href="{{open_graph_cache.url}}" target="_blank">
         <img src="{{open_graph_cache.image}}" />
-        <strong>{{open_graph_cache.title}}</strong>
-        <p>{{open_graph_cache.description}}</p>
-      </div>
-    </a>
+        <p class="og-title">{{open_graph_cache.title}}</p>
+      </a>
+      <p class="og-description">{{open_graph_cache.description}}</p>
+    </div>
   {{/if}}
 {{/unless}}
+

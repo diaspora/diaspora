@@ -33,30 +33,34 @@ pt-BR:
       inviter:
         accept_at: "em %{url}, você pode aceitar através do link abaixo."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} convidou você para participar em Diaspora"
+        have_invited_you: "%{names} convidou você para participar de diaspora*"
       reset_password_instructions:
         change: "Alterar minha senha"
         ignore: "Se você não fez esta solicitação, por favor ignore este email."
-        someone_requested: "Recebemos um pedido para alterar a sua senha, e você pode fazer isso através do link abaixo."
+        someone_requested: "Alguém solicitou um link para alterar a sua senha. Se foi você, você pode fazer isso através do link abaixo."
         subject: "Instruções para redefinição de senha"
         wont_change: "Sua senha permanecerá a mesma até que você acesse o link acima e a altere."
       unlock_instructions:
-        account_locked: "Sua conta foi bloqueada devido a uma quantidade excessiva de tentativas de entrar."
+        account_locked: "Sua conta foi bloqueada devido a um número excessivo de tentativas de entrar sem sucesso."
         click_to_unlock: "Clique no link abaixo para desbloquear a sua conta:"
-        subject: "Instruções para Desbloqueio"
+        subject: "Instruções para desbloqueio"
         unlock: "Desbloquear minha conta"
       welcome: "Bem-vindo(a) %{email}!"
     passwords:
       edit:
         change_password: "Mudar minha senha"
+        confirm_password: "Confirmar senha"
+        new_password: "Nova senha"
       new:
+        email: "Endereço de email"
         forgot_password: "Esqueceu sua senha?"
-        no_account: "Não há nenhuma conta com este email. Se você aguarda por um convite, seja paciente: estamos trabalhando para enviá-lo o quanto antes."
+        no_account: "Não há nenhuma conta com este email"
+        reset_password: "Resetar senha"
         send_password_instructions: "Envie-me instruções para redefinir minha senha."
       send_instructions: "Você receberá em breve um email com instruções sobre como redefinir sua senha."
       updated: "Sua senha foi alterada com sucesso."
     registrations:
-      destroyed: "Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
+      destroyed: "Tchau! Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
       signed_up: "Você se inscreveu com êxito. Se habilitado, a confirmação foi enviada para seu e-mail."
       updated: "Você atualizou a sua conta com sucesso."
     sessions:

@@ -107,7 +107,7 @@ describe Person do
     end
   end
 
-  describe "vaild url" do
+  describe "valid url" do
     it 'should allow for https urls' do
       person = FactoryGirl.build(:person, :url => "https://example.com")
       person.should be_valid

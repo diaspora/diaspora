@@ -10,6 +10,9 @@
     {{#if loggedIn}}
       <div class="controls">
         {{#unless authorIsCurrentUser}}
+          <a href="#" rel="nofollow" data-type="post" class="post_report" title="{{t "report.name"}}">
+            <div class="icons-report control_icon"/>
+          </a>
           <a href="#" rel="nofollow" class="block_user" title="{{t "ignore"}}">
             <div class="icons-ignoreuser control_icon"></div>
           </a>

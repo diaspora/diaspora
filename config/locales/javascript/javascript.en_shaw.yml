@@ -8,15 +8,12 @@ en_shaw:
   javascripts:
     aspect_dropdown:
       add_to_aspect: "𐑨𐑛 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
+      started_sharing_with: "You have started sharing with <%= name %>!"
+      stopped_sharing_with: "You have stopped sharing with <%= name %>."
       toggle:
-        few: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-        many: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-        one: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑"
-        other: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-        two: "In <%= count %> aspects"
+        one: "𐑦𐑯 <%= count %> 𐑨𐑕𐑐𐑧𐑒𐑑"
+        other: "𐑦𐑯 <%= count %> 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
         zero: "𐑨𐑛 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
     comments:
       hide: "𐑣𐑲𐑛 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
@@ -35,7 +32,7 @@ en_shaw:
       at_least_one_aspect: "𐑿 𐑥𐑳𐑕𐑑 𐑐𐑳𐑚𐑤𐑦𐑖 𐑑 𐑨𐑑 𐑤𐑰𐑕𐑑 𐑢𐑳𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
     reshares:
       duplicate: "𐑿𐑝 𐑷𐑤𐑮𐑧𐑛𐑦 𐑮𐑦𐑖𐑺𐑛 𐑞𐑨𐑑 𐑐𐑴𐑕𐑑!"
-    search_for: "𐑕𐑻𐑗 𐑓𐑹 {{name}}"
+    search_for: "𐑕𐑻𐑗 𐑓𐑹 <%= name %>"
     show_more: "𐑖𐑴 𐑥𐑹"
     stream:
       likes:
@@ -79,4 +76,4 @@ en_shaw:
       years: "%d 𐑘𐑽𐑟"
     videos:
       unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑐"
-      watch: "𐑢𐑷𐑗 𐑞𐑦𐑕 𐑝𐑦𐑛𐑦𐑴 𐑪𐑯 {{provider}}"
+      watch: "𐑢𐑷𐑗 𐑞𐑦𐑕 𐑝𐑦𐑛𐑦𐑴 𐑪𐑯 <%= provider %>"

@@ -22,6 +22,9 @@ ja:
       deselect_all: "全て選択解除"
       no_aspects: "どのアスペクトも選択されていません"
       select_all: "全て選択"
+    bookmarklet:
+      post_something: "ダイアスポラに投稿"
+      post_success: "投稿しました! ウインドウを閉じています..."
     comma: ","
     comments:
       hide: "コメントを隠す"
@@ -36,10 +39,10 @@ ja:
     header:
       close: "閉じる"
       contacts: "連絡先"
+      help: "ヘルプ"
       home: "ホーム"
       log_out: "ログアウト"
       mark_all_as_read: "全て既読にする"
-      messages: "メッセージ"
       notifications: "通知"
       profile: "プロフィール"
       recent_notifications: "最近の通知"
@@ -52,14 +55,24 @@ ja:
       no_more: "投稿はこれ以上ありません。"
       no_more_contacts: "これ以上連絡先はありません。"
     my_aspects: "私のアスペクト"
+    notifications:
+      mark_read: "既読にする"
+      mark_unread: "未読にする"
     photo_uploader:
       empty: "{file}は空のファイルです。他のファイルを選択してください。"
       size_error: "{file}は大きすぎます。ファイルサイズの上限は{sizeLimit}です。"
+    poll:
+      close_result: "結果を非表示にする"
+      show_result: "結果を表示する"
     publisher:
       at_least_one_aspect: "アスペクトを選択してから投稿してください。"
       limited: "限定公開 - 投稿はあなたが共有している人だけが見られるようになります"
       near_from: "<%= location %>からの投稿"
       public: "公開 - 投稿は全ての人から見ることができ、検索エンジンで見つかるようになります"
+    report:
+      name: "報告"
+      prompt: "理由を入力してください:"
+      prompt_default: "攻撃的なコンテンツ"
     reshares:
       duplicate: "You've already reshared that post!"
       post: "<%= name %>さんの投稿を再共有しますか?"

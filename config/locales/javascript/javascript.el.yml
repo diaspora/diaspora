@@ -47,7 +47,6 @@ el:
       home: "Αρχική"
       log_out: "Αποσύνδεση"
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
-      messages: "Μηνύματα"
       notifications: "Ειδοποιήσεις"
       profile: "Προφίλ"
       recent_notifications: "Πρόσφατες Ειδοποιήσεις"

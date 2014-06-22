@@ -1,5 +1,5 @@
 @javascript
-Feature: Close Account
+Feature: Close account
  In order to close an existing account
  As a user
  I want to sign in, close my account and try to log in again
@@ -7,15 +7,15 @@ Feature: Close Account
   Scenario: user closes account
     Given I am signed in
     When I go to the users edit page
-    And I follow "Close Account"
+    And I follow "close_account"
     And I put in my password in "close_account_password" in the modal window
-    And I press "Close Account" in the modal window
+    And I press "close_account_confirm" in the modal window
     And I confirm the alert
     Then I should be on the new user session page
 
     When I try to sign in manually
     Then I should be on the new user session page
-    And I should see a flash message containing "Invalid username or password"
+    And I should see a flash message with a warning
 
   Scenario: post display should not throw error when mention is removed for the user whose account is closed
     Given following users exist:
@@ -27,9 +27,9 @@ Feature: Close Account
 
     Then I sign in as "bob@bob.bob"
     When I go to the users edit page
-    And I follow "Close Account"
+    And I follow "close_account"
     And I put in my password in "close_account_password" in the modal window
-    And I press "Close Account" in the modal window
+    And I press "close_account_confirm" in the modal window
     And I confirm the alert
     Then I sign in as "alice@alice.alice"
     And I am on the home page

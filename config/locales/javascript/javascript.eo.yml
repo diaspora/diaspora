@@ -12,8 +12,8 @@ eo:
       all_aspects: "Ĉiuj aspektoj"
       error: "Ne eblis konigi enhavon al <%= name %>. Ĉu vi ignoras ilin?"
       select_aspects: "Elekti aspektojn"
-      started_sharing_with: "Vi komencis komunigi kun {{name}}!"
-      stopped_sharing_with: "Vi ĉesis komunigi kun {{name}}."
+      started_sharing_with: "Vi komencis komunigi kun <%= name %>!"
+      stopped_sharing_with: "Vi ĉesis komunigi kun <%= name %>."
       toggle:
         one: "En <%= count %> aspekto"
         other: "En <%= count %> aspektoj"
@@ -44,7 +44,6 @@ eo:
       home: "Ĉefpaĝo"
       log_out: "Elsaluti"
       mark_all_as_read: "Marku ĉiujn kiel legitaj"
-      messages: "Mesaĝoj"
       notifications: "Sciigoj"
       profile: "Profilo"
       recent_notifications: "Freŝaj sciigoj"
@@ -70,7 +69,7 @@ eo:
       duplicate: "Nu, ĉu tiel bone? Vi jam rekonigis tiun afiŝon!"
       post: "Ĉu vi deziras rekonigi la mesaĝon de <%= name %>?"
       successful: "La afiŝo estis sukcese rekonigita!"
-    search_for: "Serĉi por {{name}}"
+    search_for: "Serĉi por <%= name %>"
     show_more: "vidi plu"
     stream:
       comment: "Komenti"

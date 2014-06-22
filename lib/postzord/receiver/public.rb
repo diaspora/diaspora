@@ -10,7 +10,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
     @salmon = Salmon::Slap.from_xml(xml)
     @author = Webfinger.new(@salmon.author_id).fetch
 
-    FEDERATION_LOGGER.info("Receving public post from person:#{@author.id}")
+    FEDERATION_LOGGER.info("Receiving public object from person:#{@author.id}")
   end
 
   # @return [Boolean]

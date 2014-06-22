@@ -1,29 +1,39 @@
-<div class="img">
-  {{#linkToPerson author}}
-    {{{personImage this "small" "small"}}}
-  {{/linkToPerson}}
-</div>
-
-<div class="bd">
-  {{#if canRemove}}
-    <div class="controls">
-      <a href="#" class="delete comment_delete" title="{{t "delete"}}">
-        <div alt="Deletelabel" class="icons-deletelabel" />
-      <a/>
-    </div>
-  {{/if}}
-
-  {{#with author}}
-    <a href="/people/{{guid}}" class="author author-name {{hovercardable this}}">
-      {{name}}
-    </a>
-  {{/with}}
-
-  <div class="collapsible comment-content">
-    {{{text}}}
+<div id="{{guid}}">
+  <div class="img">
+    {{#linkToPerson author}}
+      {{{personImage this "small" "small"}}}
+    {{/linkToPerson}}
   </div>
 
-  <div class="info">
-    <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"/>
+  <div class="bd">
+    <div class="controls">
+    {{#if loggedIn}}
+      {{#if canRemove}}
+        <a href="#" class="delete comment_delete" title="{{t "delete"}}">
+          <div alt="Deletelabel" class="icons-deletelabel" />
+        <a/>
+      {{else}}
+        <a href="#" data-type="comment" class="comment_report" title="{{t "report.name"}}">
+          <div class="icons-report"/>
+        </a>
+      {{/if}}
+    {{/if}}
+    </div>
+
+    {{#with author}}
+      <a href="/people/{{guid}}" class="author author-name {{hovercardable this}}">
+        {{name}}
+      </a>
+    {{/with}}
+
+    <div class="collapsible comment-content">
+      {{{text}}}
+    </div>
+    
+    <div class="info">
+      <a href="/posts/{{parent.id}}#{{guid}}" class="permalink_comment">
+        <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"/>
+      </a>
+    </div>
   </div>
 </div>

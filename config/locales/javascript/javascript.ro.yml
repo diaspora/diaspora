@@ -10,16 +10,14 @@ ro:
     aspect_dropdown:
       add_to_aspect: "Adaugă la contacte"
       all_aspects: "Toate aspectele"
-      error: "Nu sa putut incepe impartirea de publicatii cu {{name}}. Ii ignorati cumva ?"
+      error: "Nu sa putut incepe impartirea de publicatii cu <%= name %>. Ii ignorati cumva ?"
       select_aspects: "Selectează aspecte"
-      started_sharing_with: "Ati inceput sa impartiti publicatii cu {{name}}!"
-      stopped_sharing_with: "Nu mai imparti publicatii cu {{name}}."
+      started_sharing_with: "Ati inceput sa impartiti publicatii cu <%= name %>!"
+      stopped_sharing_with: "Nu mai imparti publicatii cu <%= name %>."
       toggle:
-        few: "În {{count}} aspecte"
-        many: "În {{count}} aspecte"
-        one: "În {{count}} aspect"
-        other: "În {{count}} aspecte"
-        two: "In {{count}} aspecte"
+        few: "În <%= count %> aspecte"
+        one: "În <%= count %> aspect"
+        other: "În <%= count %> aspecte"
         zero: "Selectati aspecte"
     aspect_navigation:
       deselect_all: "Deselectează tot"
@@ -48,7 +46,6 @@ ro:
       home: "Acasă"
       log_out: "Deautentificare"
       mark_all_as_read: "Marchează-le pe toate ca citite"
-      messages: "Mesaje"
       notifications: "Notificări"
       profile: "Profil"
       recent_notifications: "Notificări recente"
@@ -72,7 +69,7 @@ ro:
       public: "Public - articolul tău va fi vizibil tuturor şi va fi accesibilă prin motoarele de căutare"
     reshares:
       duplicate: "E chiar asa de tare, hmm?  Ati mai raspandit o data aceasta publicatie!"
-    search_for: "Caută {{name}}"
+    search_for: "Caută <%= name %>"
     show_more: "arată mai mult"
     stream:
       comment: "Comentariu"
@@ -99,7 +96,7 @@ ro:
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
       original_post_deleted: "Publicaţia originală a fost ştearsă de autorul ei."
-      public: "publică"
+      public: "Public"
       reshare: "Redistribuie"
       reshares:
         few: "<%= count %> Reshares"
@@ -134,6 +131,6 @@ ro:
       years: "%d ani"
     videos:
       unknown: "Format de video necunoscut"
-      watch: "Vizualizează acest video pe {{provider}}"
+      watch: "Vizualizează acest video pe <%= provider %>"
     viewer:
       home: "Pagina de start"

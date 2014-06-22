@@ -383,9 +383,6 @@ pa:
     destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
-  tokens:
-    show:
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
   username: "ਯੂਜ਼ਰ ਨਾਂ"
   users:
     confirm_email:

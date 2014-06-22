@@ -5,7 +5,6 @@
 class StatusMessage < Post
   include Diaspora::Taggable
 
-  include ActionView::Helpers::TextHelper
   include PeopleHelper
 
   acts_as_taggable_on :tags
@@ -20,10 +19,13 @@ class StatusMessage < Post
   xml_attr :raw_message
   xml_attr :photos, :as => [Photo]
   xml_attr :location, :as => Location
+  xml_attr :poll, :as => Poll
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
   has_one :location
+  has_one :poll, autosave: true
+
 
   # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
   # therefore, we put the validation in a before_destory callback instead of a validation
@@ -56,10 +58,6 @@ class StatusMessage < Post
       tag_stream(tag_ids)
   end
 
-  def text(opts = {})
-    self.formatted_message(opts)
-  end
-
   def raw_message
     read_attribute(:text)
   end
@@ -77,12 +75,8 @@ class StatusMessage < Post
     self.raw_message.match(/#nsfw/i) || super
   end
 
-  def formatted_message(opts={})
-    return self.raw_message unless self.raw_message
-
-    escaped_message = opts[:plain_text] ? self.raw_message : ERB::Util.h(self.raw_message)
-    mentioned_message = Diaspora::Mentionable.format(escaped_message, self.mentioned_people, opts)
-    Diaspora::Taggable.format_tags(mentioned_message, opts.merge(:no_escape => true))
+  def message
+    @message ||= Diaspora::MessageRenderer.new raw_message, mentioned_people: mentioned_people
   end
 
   def mentioned_people
@@ -134,7 +128,7 @@ class StatusMessage < Post
   end
 
   def comment_email_subject
-    formatted_message(:plain_text => true)
+    message.title length: 70
   end
 
   def first_photo_url(*args)
@@ -142,7 +136,7 @@ class StatusMessage < Post
   end
 
   def text_and_photos_blank?
-    self.text.blank? && self.photos.blank?
+    self.raw_message.blank? && self.photos.blank?
   end
 
   def queue_gather_oembed_data

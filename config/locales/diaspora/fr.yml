@@ -24,6 +24,14 @@ fr:
           attributes:
             diaspora_handle:
               taken: "est déjà pris."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "Il n'y a pas assez de choix possible"
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Vous avez déjà participé à ce sondage !"
         request:
           attributes:
             from_id:
@@ -46,6 +54,7 @@ fr:
       correlations: "Corrélations"
       pages: "Pages"
       pod_stats: "Statistiques du pod"
+      report: "Rapports"
       sidekiq_monitor: "Moniteur Sidekiq"
       user_search: "Chercher un utilisateur"
       weekly_user_stats: "Statistiques hebdomadaires"
@@ -149,10 +158,6 @@ fr:
       aspect_not_empty: "L’aspect n’est pas vide"
       remove: "supprimer"
     index:
-      cubbies:
-        explanation: "Cubbi.es est la première application Diaspora en cours de développement."
-        heading: "Connectez-vous à Cubbi.es"
-        learn_more: "En savoir plus"
       diaspora_id:
         content_1: "Votre identifiant Diaspora est :"
         content_2: "Communiquez-le à tout le monde et ils pourront vous trouver sur Diaspora."
@@ -226,14 +231,6 @@ fr:
       failure: "Votre aspect %{name} a un nom trop long pour être enregistré."
       success: "Votre aspect « %{aspect_name} » a été modifié."
     zero: "aucun aspect"
-  authorizations:
-    index:
-      no_applications: "Vous n'avez pas encore enregistré d'application."
-      revoke_access: "Révoquer l'accès"
-    new:
-      authorize: "Autoriser"
-      cubbies_will: "Cubbies pourra poster des photos en votre nom"
-      nope: "Non"
   back: "Retour"
   blocks:
     create:
@@ -306,10 +303,10 @@ fr:
         two: "%{count} nouveaux messages"
         zero: "Aucun nouveau message"
     index:
-      create_a_new_message: "créer un nouveau message"
+      conversations_inbox: "Discussions - Boîte de réception"
+      create_a_new_conversation: "commencer une nouvelle discussion"
       inbox: "Boîte de réception"
-      message_inbox: "Messages reçus"
-      new_message: "Nouveau message"
+      new_conversation: "Nouvelle discussion"
       no_conversation_selected: "aucune conversation sélectionnée"
       no_messages: "aucun message"
     new:
@@ -318,7 +315,7 @@ fr:
       sending: "Envoi…"
       subject: "sujet"
       to: "pour"
-    new_message:
+    new_conversation:
       fail: "Message invalide"
     show:
       delete: "supprimer et bloquer la conversation"
@@ -371,11 +368,11 @@ fr:
       rename_aspect_a: "Oui. Dans votre liste d'aspects sur le côté gauche de la page principale, placez votre souris sur l'aspect que vous voulez renommer. Cliquez sur le petit crayon \"éditer\" qui apparaît sur la droite. Cliquez sur \"renommer\" dans la boîte qui apparaît."
       rename_aspect_q: "Puis-je renommer un aspect ?"
       restrict_posts_i_see_a: "Oui. Cliquez sur Mes Aspects dans la barre latérale puis cliquez sur des aspects individuels dans la liste pour les sélectionner ou les déselectionner. Seuls les messages des personnes de ces aspects apparaîtront dans votre flux."
-      restrict_posts_i_see_q: "Puis-je restreindre les messages que je vois de seulement de certains aspects ?"
+      restrict_posts_i_see_q: "Puis-je afficher uniquement les messages de certains aspects ?"
       title: "Aspects"
-      what_is_an_aspect_a: "Les Aspects sont un moyen de grouper vos contacts sur diaspora*. Un Aspect est l'une des facettes que vous montrez au monde. Cela pourrait être qui vous êtes au travail, ou qui vous êtes pour votre famille, ou qui vous êtes pour les amis du club dans lequel vous vous rendez."
+      what_is_an_aspect_a: "Les Aspects sont un moyen de grouper vos contacts sur diaspora*. Un Aspect est l'une des facettes que vous montrez au monde. Cela pourrait être qui vous êtes au travail, ou qui vous êtes pour votre famille, ou qui vous êtes pour les amis de votre club ou association."
       what_is_an_aspect_q: "Qu'est-ce qu'un aspect ?"
-      who_sees_post_a: "Si vous créez un message limité, il sera uniquement visible par les gens que vous avez placé dans cet aspect (ou les aspects, si vous le publiez à plusieurs aspects). Les contacts que vous avez et qui ne sont pas dans ces aspects n'ont aucun moyen de voir le message, sauf si vous l'avez rendu public. Seuls les messages publics seront visibles à quiconque ne sera pas placé dans vos aspects."
+      who_sees_post_a: "Si vous créez un message privé, il sera uniquement visible par les gens que vous avez placé dans cet aspect (ou les aspects, si vous le publiez à plusieurs aspects). Les contacts que vous avez et qui ne sont pas dans ces aspects n'ont aucun moyen de voir le message, sauf si vous l'avez rendu public. Seuls les messages publics seront visibles à quiconque ne sera pas placé dans vos aspects."
       who_sees_post_q: "Lorsque je publie un message dans un aspect, qui peut le voir ?"
     foundation_website: "site internet de la fondation diaspora"
     getting_help:
@@ -569,7 +566,7 @@ fr:
     application:
       back_to_top: "Retour en haut"
       powered_by: "PROPULSÉ PAR diaspora*"
-      public_feed: "Flux Diaspora public pour %{name}"
+      public_feed: "Flux diaspora* public pour %{name}"
       source_package: "téléchargez le code source"
       toggle: "activer/désactiver la version mobile"
       whats_new: "Quoi de neuf ?"
@@ -616,8 +613,8 @@ fr:
       other: "%{actors} ont commenté votre message supprimé."
       zero: "%{actors} a commenté votre message supprimé."
     comment_on_post:
-      one: "%{actors} a commenté sur votre %{post_link}."
-      other: "%{actors} ont commenté sur votre %{post_link}."
+      one: "%{actors} a commenté votre message %{post_link}."
+      other: "%{actors} ont commenté votre message %{post_link}."
       zero: "%{actors} a commenté sur votre %{post_link}."
     helper:
       new_notifications:
@@ -628,6 +625,8 @@ fr:
         two: "%{count} nouvelles notifications"
         zero: "Aucune nouvelle notification"
     index:
+      all_notifications: "Toutes les notifications"
+      also_commented: "Aussi commenté"
       and: "et"
       and_others:
         few: "et %{count} autres"
@@ -636,9 +635,17 @@ fr:
         other: "et %{count} autres"
         two: "et %{count} autres"
         zero: "et personne d'autre"
+      comment_on_post: "Commentaire sur un de vos messages"
+      liked: "Aimé"
       mark_all_as_read: "Tout marquer comme lu"
+      mark_read: "Marquer comme lu"
       mark_unread: "Marquer comme non lu"
+      mentioned: "Vous mentionnant"
       notifications: "Notifications"
+      reshared: "Repartagé"
+      show_all: "montrer tout"
+      show_unread: "montrer les non-lus"
+      started_sharing: "A commencé à partager"
     liked:
       one: "%{actors} a aimé votre %{post_link}."
       other: "%{actors} ont aimé votre %{post_link}."
@@ -707,6 +714,26 @@ fr:
       subject: "%{name} vous a mentionné(e) sur diaspora*"
     private_message:
       reply_to_or_view: "Répondre ou voir cette conversation >"
+    report_email:
+      body: |-
+          Bonjour,
+
+          le %{type} avec l'identifiant %{id} a été marqué comme offensant.
+
+          [%{url}][1]
+
+          Merci de le vérifier dès que possible !
+
+
+          Cordialement,
+
+          Le robot d'email de diaspora*
+
+          [1]: %{url}
+      subject: "Un nouveau %{type} a été marqué comme offensant."
+      type:
+        comment: "commentaire"
+        post: "Message"
     reshared:
       reshared: "%{name} a repartagé votre message"
       view_post: "Voir le message >"
@@ -735,15 +762,16 @@ fr:
     helper:
       is_not_sharing: "%{name} ne partage pas avec vous"
       is_sharing: "%{name} partage avec vous"
-      people_on_pod_are_aware_of: "les personnes sur le pod sont au courant de"
       results_for: "résultats pour %{params}"
     index:
-      couldnt_find_them_send_invite: "Vous ne les trouvez pas ? Envoyez-leur une invitation !"
+      couldnt_find_them: "Vous ne les trouvez pas ?"
       looking_for: "Rechercher des commentaires taggés %{tag_link}?"
       no_one_found: "… et personne n'a été trouvé."
       no_results: "Hé ! Vous devez rechercher quelque chose."
-      results_for: "résultats de la recherche pour"
+      results_for: "Utilisateurs correspondant à %{search_term}"
+      search_handle: "Utilisez leur identifiant diaspora* (nomutilisateur@urldupod) pour être sûr de trouver vos amis."
       searching: "Recherche en cours, veuillez patienter ..."
+      send_invite: "Toujours rien ? Envoyez leur une invitation !"
     many: "%{count} personnes"
     one: "1 personne"
     other: "%{count} personnes"
@@ -895,6 +923,21 @@ fr:
       sign_up_message: "Le réseau social avec un ♥"
       submitting: "Envoi en cours..."
       username: "NOM D'UTILISATEUR"
+  report:
+    comment_label: "<b>Commentaire</b>:<br>%{data}"
+    confirm_deletion: "Etes vous vraiment sur de vouloir supprimer cet élément ?"
+    delete_link: "Supprimer l’élément"
+    not_found: "<u>Le message/commentaire n'a pas été trouvé. Il a pu être supprimé par l'utilisateur !</u>"
+    post_label: "<b>Message</b>: %{title}"
+    reason_label: "Raison : %{text}"
+    reported_label: "<b>Reporté par</b> %{person}"
+    review_link: "Marqué comme revu."
+    status:
+      created: "Un rapport a été créé"
+      destroyed: "Le message a été détruit"
+      failed: "Il y a eu un problème."
+      marked: "Ce rapport a été marqué comme revu"
+    title: "Vue d'ensemble des rapports."
   requests:
     create:
       sending: "En cours d'envoi"
@@ -1019,7 +1062,7 @@ fr:
       all: "tous"
       all_contacts: "tous les contacts"
       discard_post: "Supprimer la publication"
-      formatWithMarkdown: "Vous pouvez utiliser la syntaxe %{markdown_link} pour mettre en forme votre message"
+      formatWithMarkdown: "Utilisez la syntaxe %{markdown_link} pour mettre en forme votre message"
       get_location: "Ajouter votre emplacement"
       make_public: "rendre public"
       new_user_prefill:
@@ -1027,10 +1070,17 @@ fr:
         i_like: "Je suis intéressé par %{tags}."
         invited_by: "Merci pour l'invitation, "
         newhere: "nouveauici"
+      poll:
+        add_a_poll: "Ajouter un sondage"
+        add_poll_answer: "Ajouter un choix"
+        option: "Option 1"
+        question: "Question"
+        remove_poll_answer: "Enlever ce choix"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
       preview: "Aperçu"
       publishing_to: "publication vers : "
+      remove_location: "Supprimer l'emplacement"
       share: "Partager"
       share_with: "Partager avec"
       upload_photos: "Envoyer des photos"
@@ -1085,7 +1135,7 @@ fr:
     activity:
       title: "Mon activité"
     aspects:
-      title: "Vos aspects"
+      title: "Mes aspects"
     aspects_stream: "Aspects"
     comment_stream:
       contacts_title: "Les personnes dont vous avez commenté les messages"
@@ -1136,18 +1186,6 @@ fr:
       posts_tagged_with: "Publications taguées avec #%{tag}"
       stop_following: "Arrêter de suivre #%{tag}"
   terms_and_conditions: "Conditions d'utilisation"
-  tokens:
-    show:
-      connect_to_cubbies: "Se connecter à Cubbi.es"
-      connecting_is_simple: "Pour vous connecter à votre compte Diaspora, c'est facile ! Il vous suffit d'entrer votre ID Diaspora (<b>%{diaspora_id}</b>) sur votre <a href='%{href_link}'>page des paramètres</a> cubbies et de cliquer sur \"connect\"."
-      daniels_account: "compte Diaspora de Daniel"
-      love_to_try: "Nous aimerions beaucoup que vous essayiez."
-      making_the_connection: "Créez la connexion"
-      screenshot_explanation: "%{link1}. Cette page cubbi est liée au %{link2}."
-      sign_up_today: "Inscrivez-vous dès aujourd'hui !"
-      typical_userpage: "Une page d'utilisateur typique sur cubbi.es"
-      via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es est la toute première application Diaspora. C'est aussi la meilleure manière de collectionner des photos en ligne."
   undo: "Annuler ?"
   username: "Nom d'utilisateur"
   users:
@@ -1196,6 +1234,7 @@ fr:
       reshared: "...quelqu'un a partagé votre message ?"
       show_community_spotlight: "Afficher les actualités de la communauté dans votre flux ?"
       show_getting_started: "Réactiver la page de découverte"
+      someone_reported: "Quelqu'un a envoyé un rapport"
       started_sharing: "... quelqu'un commence à partager avec vous ?"
       stream_preferences: "Préférences du flux"
       your_email: "Votre adresse électronique"

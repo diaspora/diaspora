@@ -23,7 +23,7 @@ prefork = proc do
   # Capybara.default_wait_time = 30
 
   # While there are a lot of failures, wait less, avoiding travis timeout
-  Capybara.default_wait_time = 10
+  Capybara.default_wait_time = 15
 
   # If you set this to false, any error raised from within your app will bubble
   # up to your step definition and out to cucumber unless you catch it somewhere
@@ -117,5 +117,5 @@ end
 #   DeferredGarbageCollection.start
 # end
 # After do
-#   DeferredGarbageCollection.reconsider 
+#   DeferredGarbageCollection.reconsider
 # end

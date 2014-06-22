@@ -16,9 +16,14 @@ Feature: Aspect navigation on the left menu
       Then I should see "Others" aspect selected
 
     Scenario: Aspects selection is remembered through site navigation
+      When I select only "Besties" aspect
+      And I click the publisher and post "Hey besties!"
+
       When I go to the aspects page
       And I select only "Besties" aspect
-      And I go to the contacts page
+      Then I should see "Hey besties!"
+
+      When I go to the contacts page
       And I go to the aspects page
       Then I should see "Besties" aspect selected
       Then I should see "Unicorns" aspect unselected

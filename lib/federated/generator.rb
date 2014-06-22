@@ -11,8 +11,6 @@ module Federated
         FEDERATION_LOGGER.info("user:#{@user.id} dispatching #{relayable.class}:#{relayable.guid}")
         Postzord::Dispatcher.defer_build_and_post(@user, relayable)
         relayable
-      else
-        false
       end
     end
 

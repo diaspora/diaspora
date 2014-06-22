@@ -5,6 +5,8 @@
 require 'sidekiq/web'
 
 Diaspora::Application.routes.draw do
+  resources :report, :except => [:edit, :new]
+
   if Rails.env.production?
     mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
   end
@@ -29,10 +31,14 @@ Diaspora::Application.routes.draw do
       get :interactions
     end
 
+    resources :poll_participations, :only => [:create]
+
     resources :likes, :only => [:create, :destroy, :index ]
     resources :participations, :only => [:create, :destroy, :index]
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
+
+
 
   get 'p/:id' => 'posts#show', :as => 'short_post'
   get 'posts/:id/iframe' => 'posts#iframe', :as => 'iframe'
@@ -85,10 +91,6 @@ Diaspora::Application.routes.draw do
 
   resources :apps, :only => [:show]
 
-  #Cubbies info page
-
-  resource :token, :only => :show
-
   # Users and people
 
   resource :user, :only => [:edit, :update, :destroy], :shallow => true do
@@ -110,7 +112,7 @@ Diaspora::Application.routes.draw do
   match 'users/edit' => redirect('/user/edit')
 
   devise_for :users, :controllers => {:registrations => "registrations",
-                                      :password      => "devise/passwords",
+                                      :passwords     => "passwords",
                                       :sessions      => "sessions"}
 
   #legacy routes to support old invite routes
@@ -207,24 +209,8 @@ Diaspora::Application.routes.draw do
 
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
 
-  # Help
-  get 'help' => 'help#getting_help', :as => 'faq_getting_help'
-  
-  scope path: "/help/faq", :controller => :help, :as => 'faq' do
-    get :account_and_data_management
-    get :aspects
-    get :mentions
-    get :miscellaneous
-    get :pods
-    get :posts_and_posting
-    get :private_posts
-    get :private_profiles
-    get :public_posts
-    get :public_profiles
-    get :resharing_posts
-    get :sharing
-    get :tags
-  end
+  # help
+  get 'help' => 'help#faq', :as => 'help'
 
   #Protocol Url
   get 'protocol' => redirect("http://wiki.diasporafoundation.org/Federation_Protocol_Overview")

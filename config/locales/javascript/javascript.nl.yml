@@ -11,6 +11,7 @@ nl:
       add_to_aspect: "Voeg contact toe"
       all_aspects: "Alle aspecten"
       error: "Je kan niet delen met <%= name %>.  Negeer je hem?"
+      error_remove: "Kon <%= name %> niet uit het aspect verwijderen :("
       select_aspects: "Selecteer aspecten"
       started_sharing_with: "Je deelt nu met <%= name %>!"
       stopped_sharing_with: "Je deelt niet meer met <%= name %>."
@@ -26,6 +27,10 @@ nl:
       deselect_all: "Alles deselecteren"
       no_aspects: "Geen aspecten geselecteerd"
       select_all: "Alles selecteren"
+    bookmarklet:
+      post_something: "Plaatsen op diaspora*"
+      post_submit: "Bericht aanmelden..."
+      post_success: "Geplaatst! Sluit nu pop-up venster..."
     comma: ","
     comments:
       hide: "verberg reacties"
@@ -38,6 +43,7 @@ nl:
     edit: "Bewerken"
     failed_to_like: "Leuk vinden mislukt!"
     failed_to_post_message: "Bericht plaatsen mislukt!"
+    failed_to_remove: "Kon het bericht niet verwijderen!"
     getting_started:
       alright_ill_wait: "Prima, ik wacht wel."
       hey: "Hallo, <%= name %>!"
@@ -47,11 +53,11 @@ nl:
       admin: "Beheer"
       close: "sluit"
       contacts: "Contacten"
+      conversations: "Conversaties"
       help: "Help"
       home: "Home"
       log_out: "Uitloggen"
       mark_all_as_read: "Markeer alles gelezen"
-      messages: "Berichten"
       notifications: "Notificaties"
       profile: "Profiel"
       recent_notifications: "Recente Notificaties"
@@ -66,17 +72,41 @@ nl:
     my_activity: "Mijn activiteit"
     my_aspects: "Mijn aspecten"
     my_stream: "Stream"
+    notifications:
+      mark_read: "Markeren als gelezen"
+      mark_unread: "Markeren als ongelezen"
     people:
       not_found: "en niemand is gevonden..."
     photo_uploader:
       completed: "<%= file %> gereed"
+      empty: "{file} is leeg. Selecteer de bestanden opnieuw, zonder deze."
       error: "Er ontstond een probleem bij het uploaden van bestand <%= file %>"
+      invalid_ext: "{file} heeft een ongeldige extensie. Alleen {extensions} zijn toegelaten."
       looking_good: "Wow, wat ben je knap!"
+      size_error: "{file} is te groot, maximum omvang is {sizeLimit}."
+    poll:
+      close_result: "Verberg resultaat"
+      count:
+        one: "1 stem tot dit moment"
+        other: "<%=count%> stemmen tot dit moment"
+      result: "Resultaat"
+      show_result: "Toon resultaat"
+      vote: "Stem"
     publisher:
+      add_option: "Keuzemogelijkheid toevoegen"
       at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
       limited: "Gelimiteerd - je post is alleen zichtbaar voor de mensen waarmee je hem deelt"
       near_from: "Geplaatst vanaf: <%= location %>"
+      option: "Keuze <%= nr %>"
       public: "Openbaar - je post is zichtbaar voor iedereen en kan gevonden worden door zoekmachines"
+      question: "Vraag"
+    report:
+      name: "Melding"
+      prompt: "Geef de reden op:"
+      prompt_default: "aanstootgevende inhoud"
+      status:
+        created: "Het is succesvol gemeld"
+        exists: "De melding bestaat al"
     reshares:
       duplicate: "Je hebt dit bericht al doorgegeven! Is hij echt zo goed?"
       post: "Deel <%= name %>'s bericht?"
@@ -88,6 +118,7 @@ nl:
       follow: "Volgen"
       followed_tag:
         add_a_tag: "Voeg een label toe"
+        contacts_title: "Mensen die deze tags leuk vinden"
         follow: "Volgen"
         title: "#Gevolgde tags"
       hide: "Verberg"
@@ -117,6 +148,7 @@ nl:
         stop_following: "Stop met volgen #<%= tag %>"
       unfollow: "Niet meer volgen"
       unlike: "Loslaten"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "#<%= tagName %> zal dan toch niet zo interessant geweest zijn..."
     timeago:
@@ -133,6 +165,7 @@ nl:
       seconds: "iets minder dan een minuut"
       suffixAgo: "geleden"
       suffixFromNow: "vanaf nu"
+      wordSeparator: ""
       year: "ongeveer een jaar"
       years: "%d jaar"
     videos:

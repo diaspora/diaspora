@@ -27,6 +27,10 @@ hu:
       deselect_all: "Összes kijelölés megszüntetése"
       no_aspects: "Nincs csoport kiválasztva"
       select_all: "Mindent kijelöl"
+    bookmarklet:
+      post_something: "Hozz létre bejegyzést"
+      post_submit: "Bejegyzés közzététele..."
+      post_success: "Közzétéve! A felugró ablak bezáródik..."
     comma: ","
     comments:
       hide: "hozzászólások elrejtése"
@@ -39,6 +43,7 @@ hu:
     edit: "Szerkesztés"
     failed_to_like: "Hiba"
     failed_to_post_message: "Üzenet elküldése sikertelen!"
+    failed_to_remove: "Nem sikerült eltávolítani az elemet!"
     getting_started:
       alright_ill_wait: "Rendben, várok!"
       hey: "Szia <%= name %>!"
@@ -48,11 +53,11 @@ hu:
       admin: "Adminisztráció"
       close: "bezárás"
       contacts: "Ismerősök"
+      conversations: "Beszélgetések"
       help: "Súgó"
       home: "Kezdőlap"
       log_out: "Kijelentkezés"
       mark_all_as_read: "Összes olvasottnak jelölése"
-      messages: "Üzenetek"
       notifications: "Értesítések"
       profile: "Adatlap"
       recent_notifications: "Friss értesítések"
@@ -67,19 +72,40 @@ hu:
     my_activity: "Tevékenységeim"
     my_aspects: "Csoportjaim"
     my_stream: "Hírfolyam"
+    notifications:
+      mark_read: "Olvasottnak jelöl"
+      mark_unread: "Olvasatlannak jelöl"
     people:
       not_found: "és nem találni senkit..."
     photo_uploader:
       completed: "<%= file %> feltöltve"
       empty: "{file} üres, kérlek válassz képeket újra, mellőzve a jelenlegit."
+      error: "Hiba történt a(z) \"<%= file %>\" nevű állomány feltöltésekor"
       invalid_ext: "{file} érvénytelen kiterjesztésű. Csak {extensions} használata megengedett."
       looking_good: "Azta! Remekül nézek ki!"
       size_error: "{file} túl nagy, az állomány mérete legfeljebb {sizeLimit} lehet."
+    poll:
+      close_result: "Eredmény rejtése"
+      count:
+        other: "<%=count%> szavazat eddig"
+      result: "Eredmény"
+      show_result: "Eredmény mutatása"
+      vote: "Szavazás"
     publisher:
+      add_option: "Lehetőség hozzáadása"
       at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
       near_from: "<%= location %> közelében"
+      option: "<%= nr %> számú lehetőség"
       public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
+      question: "Kérdés"
+    report:
+      name: "Jelentés"
+      prompt: "Kérünk adj meg egy indokot:"
+      prompt_default: "sértő tartalom"
+      status:
+        created: "A jelentés sikeresen létrehozva"
+        exists: "A jelentés már létezik"
     reshares:
       duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"
       post: "Szeretnéd újra megosztani <%= name %> bejegyzését?"
@@ -126,6 +152,7 @@ hu:
         stop_following: "követés leállítása #<%= tag %>"
       unfollow: "Nem követem"
       unlike: "Nem tetszik"
+      via: "<%= provider %> használatával"
     tags:
       wasnt_that_interesting: "Oké, azt hiszem a #<%= tagName %> nem volt annyira érdekes."
     timeago:
@@ -142,6 +169,7 @@ hu:
       seconds: "kevesebb mint egy perccel"
       suffixAgo: "ezelőtt"
       suffixFromNow: "mostantól"
+      wordSeparator: ""
       year: "körülbelül egy évvel"
       years: "%d évvel"
     videos:

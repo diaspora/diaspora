@@ -27,6 +27,10 @@ sv:
       deselect_all: "Visa ingen"
       no_aspects: "Ingen aspekt är vald"
       select_all: "Visa alla"
+    bookmarklet:
+      post_something: "Dela på Diaspora*"
+      post_submit: "Skickar inlägg..."
+      post_success: "Sänt! Stänger popupfönster..."
     comma: ","
     comments:
       hide: "dölj kommentarer"
@@ -39,6 +43,7 @@ sv:
     edit: "Ändra"
     failed_to_like: "Misslyckades med att gilla!"
     failed_to_post_message: "Misslyckades att posta meddelande!"
+    failed_to_remove: "Misslyckades med att borttaga inlägget!"
     getting_started:
       alright_ill_wait: "Okej, jag väntar."
       hey: "Hej, <%= name %>!"
@@ -48,11 +53,11 @@ sv:
       admin: "Administratör"
       close: "stäng"
       contacts: "Kontakter"
+      conversations: "Konversationer"
       help: "Hjälp"
       home: "Hem"
       log_out: "Logga ut"
       mark_all_as_read: "Markera alla som lästa"
-      messages: "Meddelanden"
       notifications: "Notiser"
       profile: "Profil"
       recent_notifications: "Tidigare notiser"
@@ -67,20 +72,41 @@ sv:
     my_activity: "Min aktivitet"
     my_aspects: "Mina aspekter"
     my_stream: "Ström"
+    notifications:
+      mark_read: "Lästmärk"
+      mark_unread: "Olästmarkera"
     people:
       not_found: "och ingen hittades..."
     photo_uploader:
       completed: "<%= file %> klar"
-      empty: "{file} är tom, var vänlig och välj filerna igen utan den."
+      empty: "{file} är tom, var vänlig och välj filer igen utan den."
       error: "Ett problem uppstod när filen <%= file %> laddades upp"
       invalid_ext: "{file} har otillåten filändelse. Endast {extensions} tillåts."
       looking_good: "OMG, du ser grym ut!"
-      size_error: "{file} är för stor, största tillåtna filstorlek är {sizeLimit}."
+      size_error: "{file} är för stor, den största tillåtna filstorleken är {sizeLimit}."
+    poll:
+      close_result: "Göm resultat"
+      count:
+        one: "<%=count%> röst lagd"
+        other: "<%=count%> röster lagda"
+      result: "Resultat"
+      show_result: "Visa resultat"
+      vote: "Rösta"
     publisher:
+      add_option: "Lägg till alternativ"
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
       limited: "Begränsad - ditt inlägg visas endast för personer som du delar med"
       near_from: "Sänt från: <%= location %>"
+      option: "Alternativ <%= nr %>"
       public: "Publikt - ditt inlägg visas för alla och i söktjänster"
+      question: "Fråga"
+    report:
+      name: "Anmälan"
+      prompt: "Var god ange orsak:"
+      prompt_default: "kränkande innehåll"
+      status:
+        created: "Anmälan skapad"
+        exists: "Anmälan finns redan"
     reshares:
       duplicate: "Du gillar detta va? Du har nämligen redan delat vidare detta inlägg!"
       post: "Vill du dela vidare <%= name %>s inlägg?"
@@ -122,6 +148,7 @@ sv:
         stop_following: "Sluta följa #<%= tag %>"
       unfollow: "Sluta följ"
       unlike: "Sluta gilla"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "Ok, jag antar att #<%= tagName %> inte var så intressant..."
     timeago:
@@ -138,6 +165,7 @@ sv:
       seconds: "mindre än en minut"
       suffixAgo: "sedan"
       suffixFromNow: "från nu"
+      wordSeparator: " "
       year: "ungefär ett år"
       years: "%d år"
     videos:

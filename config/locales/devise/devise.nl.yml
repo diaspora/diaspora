@@ -33,7 +33,7 @@ nl:
       inviter:
         accept_at: "op %{url}, je kunt deze accepteren via onderstaande link."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} hebben je uitgenodigd om lid te worden van Diaspora"
+        have_invited_you: "%{names} heeft je uitgenodigd om lid te worden van diaspora*"
       reset_password_instructions:
         change: "Wijzig mijn wachtwoord"
         ignore: "Als je hier niet om hebt gevraagd kun je deze mail gewoon negeren."
@@ -49,9 +49,13 @@ nl:
     passwords:
       edit:
         change_password: "Wijzig mijn wachtwoord"
+        confirm_password: "Bevestig wachtwoord"
+        new_password: "Nieuw wachtwoord"
       new:
+        email: "E-mailadres"
         forgot_password: "Wachtwoord vergeten?"
-        no_account: "Er bestaat geen account met dit e-mailadres.  Mocht je op een uitnodiging wachten; deze komen zo snel mogelijk beschikbaar."
+        no_account: "Er bestaat geen account met dit e-mailadres"
+        reset_password: "Herstel wachtwoord"
         send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
       send_instructions: "Je ontvangt binnen enkele minuten een e-mail met instructies om je wachtwoord opnieuw in te stellen."
       updated: "Je wachtwoord is veranderd. Je bent nu ingelogd."

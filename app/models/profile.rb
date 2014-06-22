@@ -55,7 +55,7 @@ class Profile < ActiveRecord::Base
   def receive(user, person)
     Rails.logger.info("event=receive payload_type=profile sender=#{person} to=#{user}")
     profiles_attr = self.attributes.merge('tag_string' => self.tag_string).slice('diaspora_handle', 'first_name', 'last_name', 'image_url', 'image_url_small', 'image_url_medium', 'birthday', 'gender', 'bio', 'location', 'searchable', 'nsfw', 'tag_string')
-    person.profile.update_attributes(profiles_attr) 
+    person.profile.update_attributes(profiles_attr)
 
     person.profile
   end
@@ -78,13 +78,13 @@ class Profile < ActiveRecord::Base
 
   def from_omniauth_hash(omniauth_user_hash)
     mappings = {"description" => "bio",
-               'image' => 'image_url', 
-               'name' => 'first_name',  
+               'image' => 'image_url',
+               'name' => 'first_name',
                'location' =>  'location',
                 }
 
     update_hash = Hash[ omniauth_user_hash.map {|k, v| [mappings[k], v] } ]
-    
+
     self.attributes.merge(update_hash){|key, old, new| old.blank? ? new : old}
   end
 
@@ -132,6 +132,13 @@ class Profile < ActiveRecord::Base
     birthday.to_s(:long).gsub(', 1000', '') if birthday.present?
   end
 
+  def bio_message
+    @bio_message ||= Diaspora::MessageRenderer.new(bio)
+  end
+
+  def location_message
+    @location_message ||= Diaspora::MessageRenderer.new(location)
+  end
 
   def tag_string
     if @tag_string

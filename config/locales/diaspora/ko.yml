@@ -46,6 +46,8 @@ ko:
       correlations: "상관 관계"
       pages: "페이지"
       pod_stats: "팟 통계"
+      report: "보고서"
+      sidekiq_monitor: "사이드킥 모니터"
       user_search: "사용자 찾기"
       weekly_user_stats: "주간 사용자 통계"
     correlations:
@@ -59,6 +61,7 @@ ko:
       current_segment: "<b>%{post_day}</b>, 현재 분기는 사용자당 게시물 <b>%{post_yest}</b>개로 추정하고 있습니다"
       daily: "매일"
       display_results: "%{segment} 분기 결과 표시"
+      go: "이동"
       month: "한 달"
       posts:
         other: "게시물 %{count}개"
@@ -75,6 +78,7 @@ ko:
     user_search:
       add_invites: "초대 추가"
       email_to: "이메일 초대"
+      under_13: "13세 이하 사용자 보이기"
       users:
         other: "%{count}명의 사용자를 찾았습니다"
         zero: "%{count}명의 사용자를 찾았습니다"
@@ -128,6 +132,7 @@ ko:
       confirm_remove_aspect: "이 애스펙을 지우려는게 확실합니까?"
       done: "완료"
       make_aspect_list_visible: "이 애스펙의 컨택이 서로 볼 수 있게 할까요?"
+      manage: "관리"
       remove_aspect: "이 애스펙 지우기"
       rename: "이름 바꾸기"
       update: "갱신"
@@ -138,10 +143,6 @@ ko:
       aspect_not_empty: "애스펙이 비어있지 않습니다"
       remove: "지우기"
     index:
-      cubbies:
-        explanation: "Cubbi.es는 첫 디아스포라 애플리케이션이며 개발중입니다."
-        heading: "Cubbi.es에 연결하세요"
-        learn_more: "자세히"
       diaspora_id:
         content_1: "내 디아스포라 아이디:"
         content_2: "내 아이디를 주면 누구든지 디아스포라에서 날 찾을수 있습니다."
@@ -163,6 +164,7 @@ ko:
         tag_bug: "버그"
         tag_feature: "기능"
         tag_question: "질문"
+        tutorial_link_text: "간단 설명서"
       introduce_yourself: "내 스트림입니다. 자기소개 어때요?"
       keep_diaspora_running: "정기 후원으로 디아스포라 개발을 빠르게 유지해주세요!"
       keep_pod_running: "%{pod} 팟이 빠르게 동작하고 서버와 디아스포라 팀이 마시는 커피를 살 수 있도록 정기후원을 해 주세요!"
@@ -213,14 +215,6 @@ ko:
       failure: "%{name} 애스펙은 이름이 너무 길어 저장할 수 없습니다."
       success: "%{name} 애스펙을 성공적으로 고쳤습니다."
     zero: "애스펙 없음"
-  authorizations:
-    index:
-      no_applications: "아직 애플리케이션을 등록하지 않았습니다."
-      revoke_access: "접속권한 취소"
-    new:
-      authorize: "허가"
-      cubbies_will: "Cubbies가 나를 대신하여 사진을 게시할 수 있게 됩니다"
-      nope: "아니오"
   back: "돌아가기"
   blocks:
     create:
@@ -275,6 +269,8 @@ ko:
     two: "컨택 %{count}명"
     zero: "컨택"
   conversations:
+    conversation:
+      participants: "참여자"
     create:
       fail: "유효하지 않은 쪽지"
       no_contact: "컨택부터 추가하세요!"
@@ -290,10 +286,10 @@ ko:
         two: "새 쪽지 %{count}개"
         zero: "새 쪽지 없음"
     index:
-      create_a_new_message: "쪽지 보내기"
+      conversations_inbox: "대화 - 수신함"
+      create_a_new_conversation: "새 대화"
       inbox: "쪽지함"
-      message_inbox: "쪽지함"
-      new_message: "새 쪽지"
+      new_conversation: "새로운 대화"
       no_conversation_selected: "대화를 고르지 않았습니다"
       no_messages: "쪽지 없음"
     new:
@@ -302,8 +298,6 @@ ko:
       sending: "보내는 중···"
       subject: "제목"
       to: "받는이"
-    new_message:
-      fail: "유효하지 않은 쪽지"
     show:
       delete: "지운 뒤 대화를 차단합니다"
       reply: "답장"
@@ -330,8 +324,28 @@ ko:
       download_data_a: "네. 설정 페이지의 계정 탭 아래에 자료를 다운받는 두 버튼이 있습니다."
       download_data_q: "내 시드(계정)에 있는 자료를 다운받을 수 있나요?"
       move_pods_q: "내 시드(계정)를 다른 팟으로 어떻게 옮기나요?"
+      title: "계정 및 자료 관리"
+    aspects:
+      title: "애스펙"
     foundation_website: "디아스포라 재단 웹사이트"
+    getting_help:
+      title: "도움말"
+    irc: "IRC"
     markdown: "마크다운"
+    miscellaneous:
+      title: "기타"
+    private_posts:
+      title: "혼자 보는 글"
+    private_profiles:
+      title: "개인 프로필"
+    public_posts:
+      title: "공개 게시물"
+    sharing:
+      title: "공유"
+    tags:
+      title: "태그"
+    tutorials: "간단 설명서"
+    wiki: "위키"
   hide: "숨기기"
   invitation_codes:
     excited: "%{name}님이 나를 기다리고 있습니다."
@@ -382,6 +396,7 @@ ko:
       admin: "관리자"
       blog: "블로그"
       code: "코드"
+      help: "도움"
       login: "로그인"
       logout: "로그아웃"
       profile: "프로필"
@@ -426,8 +441,11 @@ ko:
       and_others:
         other: "+ %{count}명"
       mark_all_as_read: "모두 읽음으로 표시"
+      mark_read: "읽음으로 표시"
       mark_unread: "읽지 않음으로 표시"
       notifications: "알림"
+      reshared: "재공유"
+      show_all: "모두 보기"
     liked:
       few: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
       many: "%{actors}님이 내 %{post_link}을 좋아합니다."
@@ -512,6 +530,9 @@ ko:
       subject: "%{name}님이 디아스포라*에서 나를 멘션했습니다"
     private_message:
       reply_to_or_view: "이 쪽지 답장 또는 보기 >"
+    report_email:
+      type:
+        post: "게시물"
     reshared:
       reshared: "%{name}님이 내 게시물을 재공유했습니다"
       view_post: "게시물 보기 >"
@@ -538,10 +559,8 @@ ko:
       edit_membership: "속한 애스펙 고치기"
     few: "%{count}명"
     helper:
-      people_on_pod_are_aware_of: "팟의 사람들이 알고 있는"
       results_for: "%{params} 결과"
     index:
-      couldnt_find_them_send_invite: "못 찾았나요? 초대장을 보내세요!"
       looking_for: "%{tag_link} 태그가 달린 게시물을 찾고있나요?"
       no_one_found: "검색 결과가 없습니다"
       no_results: "검색 결과가 없습니다"
@@ -697,6 +716,11 @@ ko:
       sign_up: "가입"
       sign_up_message: "소셜 네트워크♡"
       username: "사용자 이름"
+  report:
+    delete_link: "항목 삭제"
+    status:
+      failed: "오류가 발생했습니다"
+    title: "보고서 개요"
   requests:
     create:
       sending: "공유를 요청하고 있습니다."
@@ -822,10 +846,15 @@ ko:
         i_like: "제 관심사는 %{tags} 입니다."
         invited_by: "초대해주셔서 고맙습니다,"
         newhere: "새로가입"
+      poll:
+        add_a_poll: "설문 추가"
+        add_poll_answer: "선택 사항 추가"
+        question: "질문"
       post_a_message_to: "%{aspect} 애스펙에 메시지 게시하기"
       posting: "올리는 중···"
       preview: "미리보기"
       publishing_to: "올릴 곳: "
+      remove_location: "위치 삭제"
       share: "공유"
       share_with: "공유하기: "
       upload_photos: "사진 올리기"
@@ -919,18 +948,6 @@ ko:
       posts_tagged_with: "#%{tag} 태그가 달린 게시물"
       stop_following: "#%{tag} 태그 팔로우 멈추기"
   terms_and_conditions: "이용약관"
-  tokens:
-    show:
-      connect_to_cubbies: "Cubbi.es에 연결하기"
-      connecting_is_simple: "내 디아스포라 계정을 쉽게 연결할 수 있어요! 내 cubbies의 <a href='%{href_link}'>설정 페이지</a>에 내 디아스포라 아이디 (<b>%{diaspora_id}</b>)를 입력하고 'connect' 단추를 누르기만 하면 됩니다."
-      daniels_account: "Daniel님의 디아스포라 계정"
-      love_to_try: "꼭 써보세요!"
-      making_the_connection: "연결하기"
-      screenshot_explanation: "%{link1}. 이 cubby는 %{link2}에 연결되어 있습니다."
-      sign_up_today: "지금 가입하세요!"
-      typical_userpage: "전형적인 cubbi.es 사용자 페이지"
-      via: "(%{link}에서)"
-      what_is_cubbies: "Cubbi.es 는 세계 최초의 디아스포라 애플리케이션입니다. 온라인으로 사진을 모을 수 있는 가장 좋은 방법이기도 합니다."
   undo: "돌이키겠습니까?"
   username: "사용자 이름"
   users:

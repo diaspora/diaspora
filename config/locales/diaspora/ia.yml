@@ -123,10 +123,6 @@ ia:
       aspect_not_empty: "Aspecto non vacue"
       remove: "remover"
     index:
-      cubbies:
-        explanation: "Cubbi.es es le prime application de Diaspora in disveloppamento."
-        heading: "Connecter a Cubbi.es"
-        learn_more: "Leger plus"
       diaspora_id:
         content_1: "Tu identitate in Diaspora es:"
         content_2: "Da lo a alteres e illes potera trovar te in Diaspora."
@@ -200,14 +196,6 @@ ia:
       failure: "Tu aspecto, %{name}, ha un nomine troppo longe e non pote esser salveguardate."
       success: "Tu aspecto, %{name}, ha essite modificate con successo."
     zero: "nulle aspecto"
-  authorizations:
-    index:
-      no_applications: "Tu non ha ancora registrate alcun application."
-      revoke_access: "Revocar accesso"
-    new:
-      authorize: "Autorisar"
-      cubbies_will: "Cubbies potera publicar photos in tu nomine"
-      nope: "No"
   back: "Retornar"
   blocks:
     create:
@@ -272,10 +260,7 @@ ia:
     destroy:
       success: "Conversation removite con successo"
     index:
-      create_a_new_message: "crear un nove message"
       inbox: "Cassa de entrata"
-      message_inbox: "Cassa de entrata de messages"
-      new_message: "Nove message"
       no_conversation_selected: "nulle conversation seligite"
       no_messages: "nulle message"
     new:
@@ -284,8 +269,6 @@ ia:
       sending: "Invia…"
       subject: "subjecto"
       to: "a"
-    new_message:
-      fail: "Message non valide"
     show:
       delete: "deler e blocar conversation"
       reply: "responder"
@@ -593,10 +576,8 @@ ia:
     helper:
       is_not_sharing: "%{name} non divide cosas con te"
       is_sharing: "%{name} is sharing with you"
-      people_on_pod_are_aware_of: " personas in iste pod es conscie de"
       results_for: " resultatos pro %{params}"
     index:
-      couldnt_find_them_send_invite: "Non trovate? Invia un invitation!"
       looking_for: "Cerca entratas con le etiquetta %{tag_link}?"
       no_one_found: "…e nemo ha essite trovate."
       no_results: "Un momento! Tu debe cercar qualcosa."
@@ -933,18 +914,6 @@ ia:
       posts_tagged_with: "Messages con etiquetta #%{tag}"
       stop_following: "Non plus sequer #%{tag}"
   terms_and_conditions: "Terminos e conditiones"
-  tokens:
-    show:
-      connect_to_cubbies: "Connecter a Cubbi.es"
-      connecting_is_simple: "Es simple connecter tu conto de Diaspora! Scribe tu ID de Diaspora (<b>%{diaspora_id}</b>) in le <a href='%{href_link}'>pagina de configuration</a> de tu cubby e preme Connecter."
-      daniels_account: "Le conto de Diaspora de Daniel"
-      love_to_try: "Nos amarea que tu lo essaya."
-      making_the_connection: "Como facer le connexion"
-      screenshot_explanation: "%{link1}. Iste cubby particular es ligate a %{link2}."
-      sign_up_today: "Inscribe te hodie mesmo!"
-      typical_userpage: "Un pagina de usator typic de cubbi.es"
-      via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es es le prime application de Diaspora in le mundo. In ultra, illo es optime modo de colliger photographias in linea."
   undo: "Disfacer?"
   username: "Nomine de usator"
   users:

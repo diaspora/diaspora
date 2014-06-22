@@ -1,9 +1,25 @@
 app.views.SinglePostCommentStream = app.views.CommentStream.extend({
   tooltipSelector: "time, .controls a",
 
+  initialize: function(){
+    $(window).on('hashchange',this.highlightPermalinkComment);
+  },
+ 
+  highlightPermalinkComment: function() {
+    if(document.location.hash){
+      element=$(document.location.hash);
+      headerSize=50;
+      $(".highlighted").removeClass("highlighted");
+      element.addClass("highlighted");
+      pos=element.offset().top-headerSize;
+      $("html").animate({scrollTop:pos});
+    }
+  },
+
   postRenderTemplate: function() {
     app.views.CommentStream.prototype.postRenderTemplate.apply(this)
     this.$(".new_comment_form_wrapper").removeClass('hidden')
+    _.defer(this.highlightPermalinkComment)
   },
 
   appendComment: function(comment) {

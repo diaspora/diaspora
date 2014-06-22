@@ -30,6 +30,7 @@ it:
     comma: ","
     comments:
       hide: "nascondi i commenti"
+      no_comments: "Non ci sono commenti al momento."
       show: "mostra tutti i commenti"
     confirm_dialog: "Sei sicuro?"
     conversation:
@@ -47,10 +48,11 @@ it:
       admin: "Amministrazione"
       close: "chiudi"
       contacts: "Contatti"
+      conversations: "Conversazioni"
+      help: "Aiuto"
       home: "Home"
       log_out: "Esci"
       mark_all_as_read: "Segna tutti come letti"
-      messages: "Messaggi"
       notifications: "Notifiche"
       profile: "Profilo"
       recent_notifications: "Notifiche recenti"

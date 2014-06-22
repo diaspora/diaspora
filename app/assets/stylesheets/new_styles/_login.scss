@@ -1,4 +1,6 @@
-#login {
+#login,
+#forgot_password,
+#reset_password {
   position : absolute;
   top : 0;
   left : 0;
@@ -7,6 +9,10 @@
 
   //color : #fff;
   text-align : center;
+
+  label {
+    text-transform: uppercase;
+  }
 
   input[type=text],
   input[type=password] {

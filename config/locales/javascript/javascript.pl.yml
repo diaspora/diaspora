@@ -27,6 +27,10 @@ pl:
       deselect_all: "Odznacz wszystkie"
       no_aspects: "Nie wybrano aspektów"
       select_all: "Zaznacz wszystkie"
+    bookmarklet:
+      post_something: "Udostępnij na diasporze*"
+      post_submit: "Wysyłanie wpisu..."
+      post_success: "Wysłano! Zamykam okno..."
     comma: ","
     comments:
       hide: "ukryj komentarze"
@@ -49,11 +53,11 @@ pl:
       admin: "Administrator"
       close: "zamknij"
       contacts: "Kontakty"
+      conversations: "Rozmowy"
       help: "Pomoc"
       home: "Strona główna"
       log_out: "Wyloguj"
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
-      messages: "Wiadomości"
       notifications: "Powiadomienia"
       profile: "Profil"
       recent_notifications: "Ostatnie powiadomienia"
@@ -68,20 +72,44 @@ pl:
     my_activity: "Moja aktywność"
     my_aspects: "Moje aspekty"
     my_stream: "Strumień"
+    notifications:
+      mark_read: "Oznacz jako przeczytane"
+      mark_unread: "Oznacz jako nieprzeczytane"
     people:
       not_found: "...i nikogo nie odnaleziono."
     photo_uploader:
       completed: "<%= file %> ukończono"
       empty: "{file} jest pusty. Proszę dokonać nowego wyboru bez tego pliku."
-      error: "Wystąpił problem w trakcji przesyłania pliku <%= file %>"
+      error: "Wystąpił problem w trakcie przesyłania pliku <%= file %>"
       invalid_ext: "{file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia to: {extensions}."
       looking_good: "O rety! Świetnie wyglądasz!"
       size_error: "{file} jest za duży. Maksymalny rozmiar pliku to {sizeLimit}."
+    poll:
+      close_result: "Ukryj wynik"
+      count:
+        few: "<%=count%> głosy jak do tej pory"
+        many: "<%=count%> głosów jak do tej pory"
+        one: "<%=count%> głos jak do tej pory"
+        other: "<%=count%> głosów"
+        zero: "Żaden głos nie został na razie oddany"
+      result: "Wynik"
+      show_result: "Pokaż wynik"
+      vote: "Zagłosuj"
     publisher:
+      add_option: "Dodaj opcję"
       at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
       limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"
       near_from: "Blisko <%= location %>"
+      option: "Opcja <%= nr %>"
       public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
+      question: "Pytanie"
+    report:
+      name: "Zgłoś"
+      prompt: "Proszę podaj powód:"
+      prompt_default: "obraźliwa zawartość"
+      status:
+        created: "Zgłoszenie zostało pomyślnie utworzone"
+        exists: "Zgłoszenie już istnieje"
     reshares:
       duplicate: "Już przekaza@{m:łeś|f:łaś|n:no} dalej ten wpis!"
       post: "Przesłać dalej wpis użytkownika <%= name %>?"
@@ -129,6 +157,7 @@ pl:
         stop_following: "Przestań obserwować #<%= tag %>"
       unfollow: "Nie obserwuj"
       unlike: "Nie lubię"
+      via: "przez <%= provider %>"
     tags:
       wasnt_that_interesting: "OK, przypuszczam, że #<%= tagName %> nie był, aż tak interesujący..."
     timeago:
@@ -145,6 +174,7 @@ pl:
       seconds: "mniej niż minutę"
       suffixAgo: "temu"
       suffixFromNow: "od teraz"
+      wordSeparator: " "
       year: "około roku"
       years: "%d lat"
     videos:

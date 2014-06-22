@@ -103,10 +103,6 @@ ar:
       aspect_not_empty: "الفئة ليست فارغة"
       remove: "حذف"
     index:
-      cubbies:
-        explanation: "Cubbi.es هو أول تطبيق تحت التطوير لديسبورا."
-        heading: "صِل حسابك بـ Cubbi.es"
-        learn_more: "اعرف المزيد"
       diaspora_id:
         content_1: "معرف دياسبرا الخاص بك هو:"
         content_2: "أعطه لأي شخص وسيتمكن من إيجادك على دياسبرا."
@@ -173,13 +169,6 @@ ar:
       failure: "فئتك, %{name}, اسمها طويل ولا يمكن حفظها."
       success: ".بنجاح %{name} تم تعديل"
     zero: "لا فئات"
-  authorizations:
-    index:
-      no_applications: "لم تُسجِّل أي تطبيقات بعد."
-      revoke_access: "إلغاء الوصول"
-    new:
-      authorize: "صرح"
-      nope: "لا"
   back: "عودة"
   blocks:
     create:
@@ -247,10 +236,7 @@ ar:
         two: "%{count} رسالتان جديدتان"
         zero: "لا توجد رسائل جديدة"
     index:
-      create_a_new_message: "إنشئ رسالة جديدة."
       inbox: "الوارد"
-      message_inbox: "البريد الوارد"
-      new_message: "رسالة جديدة"
       no_conversation_selected: "لم تحدد أية محادثة"
       no_messages: "لا توجد رسائل"
     new:
@@ -259,8 +245,6 @@ ar:
       sending: "يُرسـَل..."
       subject: "موضوع"
       to: "إلى"
-    new_message:
-      fail: "رسالة غير صالحة"
     show:
       delete: "احْذِف واحْظُر المحادثة"
       reply: "رُدَّ"
@@ -501,10 +485,8 @@ ar:
       edit_membership: "تعديل العضويات بالفئات"
     few: "%{count} أعضاء"
     helper:
-      people_on_pod_are_aware_of: " الأعضاء بالموقع مقبلون على"
       results_for: " نتائج من أجل %{params}"
     index:
-      couldnt_find_them_send_invite: "لم تجدهم؟ أرسل دعوة"
       looking_for: "تبحث عن مشاركات مَوسومة بـ %{tag_link} ؟"
       no_one_found: "...ولم يعثر على أحد"
       no_results: "يجب تحديد شيء للبحث عنه"
@@ -871,18 +853,6 @@ ar:
       posts_tagged_with: "مشاركات موسومة بـ #%{tag}"
       stop_following: "أوقف متابعة #%{tag}"
   terms_and_conditions: "الشروط والأحكام"
-  tokens:
-    show:
-      connect_to_cubbies: "صِل حسابك بـ Cubbi.es"
-      connecting_is_simple: "توصيل حساب دياسبرا الخاص بك بسيط! فقط أدخل معرف دياسبرا الخاص بك (<b>%{diaspora_id}</b>) من <a href='%{href_link}'>صفحة إعداداتك</a> في Cubbies ثم اضغط \"اتصِل\"."
-      daniels_account: "حساب دياسبرا الخاص بدانييل"
-      love_to_try: "نحبذ أن تجربه."
-      making_the_connection: "ابدأ الإتصال"
-      screenshot_explanation: "%{link1}.  هذا الـ cubby خاص بـ %{link2}."
-      sign_up_today: "سجل الآن!"
-      typical_userpage: "حساب cubbi.es نموذجي"
-      via: "(عبر %{link})"
-      what_is_cubbies: "Cubbi.es هو أول تطبيق دياسبرا في العالم.  وأيضا أفضل وسيلة لتجميع الصور على الويب."
   undo: "أَأَتَرَاجَع؟"
   username: "إسم المستخدم"
   users:

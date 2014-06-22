@@ -45,7 +45,6 @@ nn:
       home: "Heim"
       log_out: "Logg ut"
       mark_all_as_read: "Merk alle som lesne"
-      messages: "Meldingar"
       notifications: "Varsel"
       profile: "Profil"
       recent_notifications: "Nylege varsel"

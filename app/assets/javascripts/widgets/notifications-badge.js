@@ -13,15 +13,21 @@
       });
 
       if( ! $.browser.msie ) {
-        self.badgeLink.toggle(self.showDropdown, self.hideDropdown);
+        self.badge.on('click', self.badgeLink, function(evt){
+          evt.preventDefault();
+          evt.stopPropagation();
+          if (self.dropdownShowing()){
+            self.hideDropdown();
+          } else {
+            self.showDropdown();
+          }
+        });
       }
 
-      self.dropdown.click(function(evt) {
-        evt.stopPropagation();
-      });
-
       self.documentBody.click(function(evt) {
-        if(self.dropdownShowing()) {
+        var inDropdown = $(evt.target).parents().is(self.dropdown);
+
+        if(!inDropdown && self.dropdownShowing()) {
           self.badgeLink.click();
         }
       });
@@ -32,9 +38,7 @@
       return this.dropdown.css("display") === "block";
     };
 
-    this.showDropdown = function(evt) {
-      evt.preventDefault();
-
+    this.showDropdown = function() {
       self.ajaxLoader.show();
       self.badge.addClass("active");
       self.dropdown.css("display", "block");
@@ -42,9 +46,7 @@
       self.getNotifications();
     };
 
-    this.hideDropdown = function(evt) {
-      evt.preventDefault();
-
+    this.hideDropdown = function() {
       self.badge.removeClass("active");
       self.dropdown.css("display", "none");
     };
@@ -64,20 +66,13 @@
           self.dropdownNotifications.append(notification.note_html);
         });
       });
-      self.dropdownNotifications.find("abbr.timeago").timeago();
+      self.dropdownNotifications.find("time.timeago").timeago();
 
       self.dropdownNotifications.find('.unread').each(function(index) {
         Diaspora.page.header.notifications.setUpUnread( $(this) );
       });
       self.dropdownNotifications.find('.read').each(function(index) {
         Diaspora.page.header.notifications.setUpRead( $(this) );
-      });
-      self.dropdownNotifications.find('.unread').each(function(index) {
-        var myItem = $(this);
-        setTimeout(function(){
-          if ( self.dropdownNotifications.is(":visible") )
-            myItem.trigger('click');
-        }, 2000 );
       });
       self.ajaxLoader.hide();
     };

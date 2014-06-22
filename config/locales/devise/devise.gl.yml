@@ -26,9 +26,6 @@ gl:
         password: 'Contrasinal'
         sign_in: 'Acceder'
         remember_me: "Lembrar os datos."
-        alpha_software: 'Vai empregar software nas súas primeiras etapas de desenvolvemento (“alfa”).'
-        bugs_and_feedback: 'Queda avisado de que atopará erros. Animámoslle a usar o botón «Informar» —situado na parte dereita de calquera páxina— para informar de calquera erro que atope, por pequeno que pareza. Intentaremos solucionalos canto antes.'
-        bugs_and_feedback_mobile: 'Queda avisado de que atopará erros. Animámoslle a que nos informe deles para que podamos solucionalos canto antes.'
         modern_browsers: 'só é compatíbel con navegadores web modernos.'
       signed_in: 'Accedeu correctamente.'
       signed_out: 'Saíu correctamente.'
@@ -37,9 +34,13 @@ gl:
       updated: 'O seu contrasinal cambiouse correctamente, e xa está identificado co novo.'
       edit:
         change_password: "Cambiar o contrasinal"
+        new_password: "Novo contrasinal"
+        confirm_password: "Confirmar o contrasinal"
       new:
         forgot_password: "Esqueceu o contrasinal?"
-        no_account: 'O enderezo non se corresponde con ningunha conta. Se está a agardar a que lle chegue unha invitación, saiba que facemos todo canto está nas nosas mans para repartilas canto antes.'
+        no_account: 'O enderezo non se corresponde con ningunha conta.'
+        reset_password: "Restablecer o contrasinal"
+        email: "Enderezo de correo"
         send_password_instructions: "Recibir instrucións para cambiar de contrasinal"
     confirmations:
       send_instructions: 'Nuns minutos recibirá un correo electrónico con instrucións para confirmar a súa conta.'
@@ -49,7 +50,7 @@ gl:
     registrations:
       signed_up: 'Rexistrouse correctamente. Se así o solicitou, enviaráselle un correo electrónico de confirmación.'
       updated: 'A súa conta actualizouse correctamente.'
-      destroyed: 'A súa conta cancelouse correctamente. Ata outra!'
+      destroyed: 'A súa conta eliminouse correctamente. Ata outra!'
     unlocks:
       send_instructions: 'Nuns minutos recibirá un correo electrónico con instrucións para desbloquear a súa conta.'
       unlocked: 'Desbloqueouse a súa conta, e xa está identificado con ela.'
@@ -68,7 +69,7 @@ gl:
         confirm: "Confirmar a conta"
       reset_password_instructions:
         subject: 'Instrucións para cambiar o contrasinal'
-        someone_requested: "Alguén (probabelmente vostede) solicitou cambiar de contrasinal. Para facelo, siga a seguinte ligazón:"
+        someone_requested: "Alguén solicitou unha ligazón para cambiar de contrasinal. Se foi vostede, siga a seguinte ligazón:"
         change: "Cambiar de contrasinal"
         wont_change: "Para cambiar de contrasinal, prema a seguinte ligazón e escolla un novo."
         ignore: "Se non foi vostede quen solicitou o cambio, pode ignorar esta mensaxe."
@@ -77,42 +78,11 @@ gl:
         account_locked: "A súa conta bloqueouse por mor do gran número de intentos errados de identificarse con ela."
         click_to_unlock: "Siga a seguinte ligazón para desbloqueala:"
         unlock: "Desbloquear a conta"
-      invitation_instructions:
-        displaying_correctly: "Non se amosa correctamente o enderezo de correo electrónico? %{link}"
-        view_in: "Velo no navegador web."
-        finally: "Por fin chegou!"
-        arrived: "Chegou a rede social que estaba esperando. Cun novo deseño, maior seguridade, e con moita máis diversión, %{strong_diaspora} axudaralle a compartir e explorar a web como nunca antes o fixera."
-        sign_up_now: "Rexístrese &rarr;"
-        friends_saying: "O que contan os seus contactos…"
-        more_people: "E hai máis xente esperándoo!"
-        get_connected: "Conéctese"
-        get_connected_paragraph: "Un movemento internacional cunha visión en común por unha web mellor, a primeira funcionalidade de %{strong_diaspora} é a comunidade. Coñeza xente, conéctese cos seus amigos, e a pasalo ben!"
-        be_yourself: "Sexa vostede mesmo"
-        be_yourself_paragraph: "A Internet tróuxonos formas únicas de expresarnos. %{strong_diaspora} permítelle ser vostede mesmo e compartir como queira, con ou sen o seu nome real."
-        have_fun: "Páseo ben"
-        cubbies: "Cubbi.es"
-        have_fun_paragraph: "%{strong_diaspora} consiste en descubrir persoas e contidos interesantes na rede. %{link}, o primeiro aplicativo %{strong_diaspora}, non é máis que o principio. Coleccione e comparta a web en todo o seu esplendor."
-        made_by_people: "%{strong_diaspora} está feita por xente que gusta da Internet tanto coma vostede. %{jointeam}, ou %{helpfund}!"
-        join_team: "Únase a nós"
-        or: "ou"
-        help_fund: "axude a manter Diaspora"
-        unsubscribe: "Siga a ligazón «%{link}» para cancelar a súa subscrición."
-        here: "aquí"
-        love: "Amor,"
-        team_diaspora: "Equipo de Diaspora"
-        email_us: "Para consultas xerais ou axuda coa súa conta en Diaspora, envíenos un correo electrónico a %{email}."
-        email_address: "questions@joindiaspora.com"
-        subject: "Invitárono a unirse a Diaspora!"
-        accept: "Acertar a invitación"
-        ignore: "Se non quere aceptar a invitación, non ten máis que ignorar esta mensaxe."
-        no_account_till: "Non se creará a súa conta ata que siga a anterior ligazón e se rexistre."
       inviter:
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} invitárono a unirse a Diaspora"
+        have_invited_you: "%{names} invitárono a unirse a diaspora*"
         accept_at: "en %{url}, pode aceptar seguindo a seguinte ligazón."
     shared:
-      mail_signup_form:
-        sign_up_for_an_invite: "Solicitar unha invitación!"
       links:
         sign_in: 'Acceder'
         sign_up: 'Rexistrarse'

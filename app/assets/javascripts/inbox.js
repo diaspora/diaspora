@@ -24,7 +24,17 @@ $(document).ready(function(){
     jqe.attr('title', '');
   });
 
-  $('.conversation-wrapper').live('click', function(){
+  $('.stream_element.conversation').hover(
+    function(){
+      $(this).find('.participants').slideDown('300');
+    },
+
+    function(){
+      $(this).find('.participants').slideUp('300');
+    }
+  );
+
+  $(document).on('click', '.conversation-wrapper', function(){
     var conversation_path = $(this).data('conversation-path');
 
     $.getScript(conversation_path, function() {
@@ -34,7 +44,7 @@ $(document).ready(function(){
     history.pushState(null, "", conversation_path);
 
     var conv = $(this).children('.stream_element'),
-        cBadge = $("#message_inbox_badge .badge_count");
+        cBadge = $("#conversations_badge .badge_count");
     if(conv.hasClass('unread') ){
       conv.removeClass('unread');
     }
@@ -90,12 +100,5 @@ $(document).ready(function(){
   // remove the paginator when we're done.
   $(document).ajaxError(function(e,xhr,opt){
     if (xhr.status == 404) { $('a.next_page').remove(); }
-  });
-
-  $('#reply_to_conversation').live('click', function(evt) {
-    evt.preventDefault();
-     $('html, body').animate({scrollTop:$(window).height()}, 'medium', function(){
-      $('#message_text').focus();
-     });
   });
 });

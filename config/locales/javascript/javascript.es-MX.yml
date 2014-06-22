@@ -27,6 +27,7 @@ es-MX:
     comma: ","
     comments:
       hide: "ocultar comentarios"
+      no_comments: "Aún no hay comentarios."
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     conversation:
@@ -35,6 +36,7 @@ es-MX:
     edit: "Editar"
     failed_to_like: "¡No se pudo marcar como «Me gusta»!"
     failed_to_post_message: "¡No se pudo publicar el mensaje!"
+    failed_to_remove: "¡Se produjo un error al eliminar la entrada!"
     getting_started:
       alright_ill_wait: "Muy bien, esperaré."
       hey: "¡Hola, <%= name %>!"
@@ -44,10 +46,10 @@ es-MX:
       admin: "Administrador"
       close: "cerrar"
       contacts: "Contactos"
+      help: "Ayuda"
       home: "Inicio"
       log_out: "Salir"
       mark_all_as_read: "Marcar todo como leído"
-      messages: "Mensajes"
       notifications: "Notificaciones"
       profile: "Perfil"
       recent_notifications: "Notificaciones recientes"
@@ -67,13 +69,14 @@ es-MX:
     photo_uploader:
       completed: "<%= file %> completado"
       empty: "El archivo {file} está vacío, por favor selecciona los archivos nuevamente sin incluir este."
-      invalid_ext: "El archivo {file} tiene una extensión inválida. Solo las extensiones {extensions} son permitidas."
+      error: "Ocurrió un problema al cargar el archivo <%= file %>"
+      invalid_ext: "El archivo {file} tiene una extensión inválida. Solo las extensiones {extensions} están permitidas."
       looking_good: "¡Ah, te ves increíble!"
-      size_error: "El archivo {file} es demasiado grande, el tamaño máximo permitido es {sizeLimit}."
+      size_error: "El archivo {file} es demasiado grande, el tamaño máximo de un archivo es {sizeLimit}."
     publisher:
       at_least_one_aspect: "Debes publicar al menos en un aspecto"
       limited: "Limitado – tu publicación solo será vista por ia gente con quien compartes"
-      near_from: "Cerca de: <%= location %>"
+      near_from: "Publicado desde: <%= location %>"
       public: "Público – tu publicación será visible para todos, y encontrada por buscadores"
     reshares:
       duplicate: "Qué bien, ¿eh? ¡Ya has compartido esa publicación!"

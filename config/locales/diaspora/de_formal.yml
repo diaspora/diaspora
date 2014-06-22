@@ -24,6 +24,14 @@ de_formal:
           attributes:
             diaspora_handle:
               taken: "wird schon benutzt."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "Nicht genügend Auswahloptionen."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Sie haben an dieser Umfrage bereits teilgenommen!"
         request:
           attributes:
             from_id:
@@ -46,6 +54,7 @@ de_formal:
       correlations: "Korrelationen"
       pages: "Seiten"
       pod_stats: "Pod Statistik"
+      report: "Meldungen"
       sidekiq_monitor: "Sidekiq-Monitor"
       user_search: "Benutzersuche"
       weekly_user_stats: "Wöchentliche Benutzerstatistik"
@@ -140,8 +149,10 @@ de_formal:
       confirm_remove_aspect: "Sind Sie sich sicher, dass Sie diesen Aspekt löschen möchten?"
       done: "Fertig"
       make_aspect_list_visible: "Kontakte aus diesem Aspekt öffentlich machen?"
+      manage: "Verwalten"
       remove_aspect: "Diesen Aspekt löschen"
       rename: "umbenennen"
+      set_visibility: "Sichtbarkeit festlegen"
       update: "Ändern"
       updating: "Ändere …"
     few: "%{count} Aspekte"
@@ -150,10 +161,6 @@ de_formal:
       aspect_not_empty: "Aspekt ist nicht leer"
       remove: "entfernen"
     index:
-      cubbies:
-        explanation: "Cubbi.es ist die erste diaspora* Anwendung."
-        heading: "Mit Cubbi.es verbinden"
-        learn_more: "Mehr erfahren"
       diaspora_id:
         content_1: "Ihre diaspora* ID ist:"
         content_2: "Geben Sie diese weiter und seien Sie somit auf diaspora* leicht zu finden."
@@ -227,14 +234,6 @@ de_formal:
       failure: "%{name} ist ein zu langer Name, um gespeichert zu werden."
       success: "Aspekt %{name} erfolgreich bearbeitet."
     zero: "keine Aspekte"
-  authorizations:
-    index:
-      no_applications: "Sie haben noch keine Anwendung registriert."
-      revoke_access: "Zugriff widerrufen"
-    new:
-      authorize: "Autorisieren"
-      cubbies_will: "Cubbies wird in Ihrem Namen Fotos posten können"
-      nope: "Nie"
   back: "Zurück"
   blocks:
     create:
@@ -307,10 +306,10 @@ de_formal:
         two: "%{count} neue Nachrichten"
         zero: "Keine neuen Nachrichten"
     index:
-      create_a_new_message: "Erstellen Sie eine neue Nachricht"
+      conversations_inbox: "Konversationen – Eingang"
+      create_a_new_conversation: "beginnen Sie eine neue Konversation"
       inbox: "Eingang"
-      message_inbox: "Nachrichteneingang"
-      new_message: "Neue Nachricht"
+      new_conversation: "Neue Konversation"
       no_conversation_selected: "Keine Konversation ausgewählt"
       no_messages: "Keine Nachrichten"
     new:
@@ -319,7 +318,7 @@ de_formal:
       sending: "Senden …"
       subject: "Betreff"
       to: "An"
-    new_message:
+    new_conversation:
       fail: "Ungültige Nachricht"
     show:
       delete: "Diese Konversation löschen und blockieren"
@@ -386,7 +385,7 @@ de_formal:
       get_support_a_website: "Besuchen Sie unsere %{link}"
       get_support_a_wiki: "Durchsuchen Sie das %{link}"
       get_support_q: "Was ist, wenn meine Frage in der FAQ nicht beantwortet wird? Wo kann ich sonst Hilfe bekommen?"
-      getting_started_a: "Sie haben Glück! Schauen Sie sich die %{tutorial_series} auf unserer Projektseite an. Sie wird Sie Schritt für Schritt durch den Anmeldeprozess begleiten und Ihnen alles notwendige über diaspora* beibringen."
+      getting_started_a: "Sie haben Glück! Schauen Sie sich die %{tutorial_series} auf unserer Projektseite an. Sie wird Sie Schritt für Schritt durch den Anmeldeprozess begleiten und Ihnen alles Notwendige über Diaspora beibringen."
       getting_started_q: "Hilfe! Ich brauche grundlegende Hilfe um anzufangen!"
       title: "Erhalten Sie Hilfe"
     getting_started_tutorial: "„Erste Schritte“ Anleitungsreihe"
@@ -644,6 +643,8 @@ de_formal:
         two: "%{count} neue Benachrichtigungen"
         zero: "Keine neuen Benachrichtigungen"
     index:
+      all_notifications: "Alle Benachrichtigungen"
+      also_commented: "Auch kommentiert"
       and: "und"
       and_others:
         few: "und %{count} anderen"
@@ -652,9 +653,17 @@ de_formal:
         other: "und %{count} anderen"
         two: "und %{count} andere"
         zero: "und niemand sonst"
+      comment_on_post: "Einen Beitrag Kommentiert"
+      liked: "Gefällt"
       mark_all_as_read: "Markiere alle als gelesen"
+      mark_read: "Als gelesen markieren"
       mark_unread: "als ungelesen markieren"
+      mentioned: "Erwähnt"
       notifications: "Benachrichtigungen"
+      reshared: "Weitergesagt"
+      show_all: "alle zeigen"
+      show_unread: "Ungelesene anzeigen"
+      started_sharing: "Angefangen zu teilen"
     liked:
       few: "%{actors} gefällt Ihr %{post_link}."
       many: "%{actors} gefällt Ihr %{post_link}."
@@ -747,6 +756,25 @@ de_formal:
       subject: "%{name} hat Sie auf diaspora* erwähnt"
     private_message:
       reply_to_or_view: "Antworten Sie oder sehen Sie sich diese Unterhaltung an >"
+    report_email:
+      body: |-
+          Hallo,
+
+          der %{type} mit der ID %{id} wurde als anstößig markiert.
+
+          [%{url}][1]
+
+          Bitte überprüfen Sie das so bald wie möglich!
+
+          Grüße,
+
+          Der diaspora* E-Mail-Roboter!
+
+          [1]: %{url}             
+      subject: "Ein neuer %{type} wurde als anstößig markiert"
+      type:
+        comment: "Kommentar"
+        post: "Beitrag"
     reshared:
       reshared: "%{name} hat Ihren Beitrag weitergesagt"
       view_post: "Beitrag anzeigen >"
@@ -775,15 +803,16 @@ de_formal:
     helper:
       is_not_sharing: "%{name} teilt nicht mit Ihnen"
       is_sharing: "%{name} teilt mit Ihnen"
-      people_on_pod_are_aware_of: "Leute auf dem Pod wissen von"
       results_for: "Ergebnisse für %{params}"
     index:
-      couldnt_find_them_send_invite: "Konnten Sie die gesuchte Person nicht finden? Schicken Sie eine Einladung!"
+      couldnt_find_them: "Sie konnten sie nicht finden?"
       looking_for: "Suchen Sie mit %{tag_link} getaggte Beiträge?"
       no_one_found: "… und niemand wurde gefunden."
       no_results: "Hey! Sie müssen nach etwas suchen."
       results_for: "Suchergebnisse für"
+      search_handle: "Nutzen Sie die diaspora* ID (nutzername@pod.tld) Ihrer Freunde, um sie leichter zu finden."
       searching: "suche, bitte warten..."
+      send_invite: "Immer noch nichts? Verschicken Sie eine Einladung!"
     many: "%{count} Personen"
     one: "Eine Person"
     other: "%{count} Personen"
@@ -881,6 +910,9 @@ de_formal:
       edit_profile: "Profil bearbeiten"
       first_name: "Vorname"
       last_name: "Nachname"
+      nsfw_check: "Markiere alles, was ich teile, als NSFW"
+      nsfw_explanation: "NSFW („Not safe for work“, dt. „Unpassend für den Arbeitsplatz“) ist Diasporas sich selbst verwaltender Community-Standard für Inhalte, die für das Ansehen während der Arbeit möglicherweise ungeeignet sind. Bitte aktivieren Sie diese Option, wenn Sie häufig derartiges Material teilen möchten, damit es in den Streams anderer Leute, die es nicht sehen wollen, ausgeblendet wird."
+      nsfw_explanation2: "Wenn Sie diese Option nicht verwenden möchten, markieren Sie entsprechendes Material bitte mit dem Tag #nsfw."
       update_profile: "Profil aktualisieren"
       your_bio: "Ihre Beschreibung"
       your_birthday: "Ihr Geburtstag"
@@ -932,6 +964,21 @@ de_formal:
       sign_up_message: "Soziales Netzwerken mit <3"
       submitting: "Absenden..."
       username: "BENUTZERNAME"
+  report:
+    comment_label: "<b>Kommentar</b>:<br>%{data}"
+    confirm_deletion: "Sind Sie sich sicher, dass Sie das Objekt löschen wollen?"
+    delete_link: "Lösche Objekt"
+    not_found: "<u>Der Beitrag/Kommentar wurde nicht gefunden. Es sieht so aus, als ob er vom Benutzer gelöscht wurde!</u>"
+    post_label: "<b>Beitrag</b>: %{title}"
+    reason_label: "Grund: %{text}"
+    reported_label: "<b>Gemeldet von</b> %{person}"
+    review_link: "Als überprüft markieren"
+    status:
+      created: "Eine Meldung wurde erstellt"
+      destroyed: "Der Beitrag wurde gelöscht"
+      failed: "Ein Fehler ist aufgetreten"
+      marked: "Die Meldung wurde als überprüft markiert"
+    title: "Meldungsübersicht"
   requests:
     create:
       sending: "Senden …"
@@ -1050,6 +1097,7 @@ de_formal:
       all: "alle"
       all_contacts: "Alle Kontakte"
       discard_post: "Beitrag verwerfen"
+      formatWithMarkdown: "Sie können %{markdown_link} verwenden, um Ihren Beitrag zu formatieren"
       get_location: "Ihren Standort ermitteln"
       make_public: "veröffentlichen"
       new_user_prefill:
@@ -1057,10 +1105,17 @@ de_formal:
         i_like: "Ich interessiere mich für %{tags}."
         invited_by: "Danke für die Einladung, "
         newhere: "Neuhier"
+      poll:
+        add_a_poll: "Eine Umfrage hinzufügen"
+        add_poll_answer: "Option hinzufügen"
+        option: "Option 1"
+        question: "Frage"
+        remove_poll_answer: "Option entfernen"
       post_a_message_to: "Senden Sie eine Nachricht an %{aspect}"
       posting: "Senden …"
       preview: "Vorschau"
       publishing_to: "Veröffentlichen an: "
+      remove_location: "Position entfernen"
       share: "Teilen"
       share_with: "Teilen Sie mit"
       upload_photos: "Fotos hochladen"
@@ -1082,6 +1137,13 @@ de_formal:
       via: "via %{link}"
       via_mobile: "via mobile"
       viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
+  simple_captcha:
+    label: "Geben Sie den Code in das Feld ein:"
+    message:
+      default: "Der Sicherheitsschlüssel entsprach nicht dem aus dem Bild"
+      failed: "Menschlichkeitsprüfung fehlgeschlagen"
+      user: "Der eingegebene Code unterschied sich vom abgebildeten"
+    placeholder: "Geben Sie die dargestellten Zeichen ein"
   status_messages:
     create:
       success: "Erfolgreich erwähnt: %{names}"
@@ -1148,6 +1210,10 @@ de_formal:
   tags:
     show:
       follow: "#%{tag} folgen"
+      followed_by_people:
+        one: "von einer Person gefolgt"
+        other: "von %{count} Personen gefolgt"
+        zero: "von keiner Person gefolgt"
       following: "#%{tag} folgen"
       nobody_talking: "Niemand hat bisher etwas über %{tag} gesagt."
       none: "Der leere Tag existiert nicht!"
@@ -1155,18 +1221,6 @@ de_formal:
       posts_tagged_with: "Beiträge, die mit #%{tag} getagt sind"
       stop_following: "#%{tag} nicht mehr folgen"
   terms_and_conditions: "Nutzungsbedingungen"
-  tokens:
-    show:
-      connect_to_cubbies: "Mit Cubbi.es verbinden"
-      connecting_is_simple: "Ihr diaspora*-Konto mit Cubbi.es zu verbinden ist einfach! Tragen Sie einfach Ihre diaspora* ID (<b>%{diaspora_id}</b>) in der Cubbi.es <a href='%{href_link}'>Einstellungsseite</a> ein und verbinden Sie die Konten!"
-      daniels_account: "Daniels diaspora*-Konto"
-      love_to_try: "Es wäre toll, wenn Sie es ausprobieren würden."
-      making_the_connection: "Die Verbindung herstellen"
-      screenshot_explanation: "%{link1}. Dieses \"Cubby\" ist verlinkt auf %{link2}."
-      sign_up_today: "Jetzt registrieren!"
-      typical_userpage: "Eine typische cubbi.es Benutzerseite"
-      via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es ist die erste diaspora* Anwendung der Welt. Sie ist auch der beste Weg, um online Fotos zu sammeln."
   undo: "Rückgängig machen?"
   username: "Benutzername"
   users:
@@ -1215,6 +1269,7 @@ de_formal:
       reshared: "… jemand Ihren Beitrag weitersagt?"
       show_community_spotlight: "Gemeinschafts-Schaukasten im Stream anzeigen?"
       show_getting_started: "Einstieg reaktivieren"
+      someone_reported: "jemand hat eine Meldung gesendet"
       started_sharing: "… jemand mit Ihnen zu teilen anfängt?"
       stream_preferences: "Stream-Einstellungen"
       your_email: "Ihre E-Mail-Adresse"

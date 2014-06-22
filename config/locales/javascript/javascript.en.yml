@@ -8,6 +8,13 @@ en:
     confirm_dialog: "Are you sure?"
     delete: "Delete"
     ignore: "Ignore"
+    report:
+      prompt: "Please enter a reason:"
+      prompt_default: "offensive content"
+      name: "Report"
+      status:
+        created: "The report was successfully created"
+        exists: "The report already exists"
     ignore_user: "Ignore this user?"
     and: "and"
     comma: ","
@@ -28,6 +35,7 @@ en:
       months: "%d months"
       year: "about a year"
       years: "%d years"
+      wordSeparator: " "
 
     my_activity: "My Activity"
     my_stream: "Stream"
@@ -42,6 +50,13 @@ en:
       limited: "Limited - your post will only be seen by people you are sharing with"
       public: "Public - your post will be visible to everyone and found by search engines"
       near_from: "Posted from: <%= location %>"
+      option: "Option <%= nr %>"
+      add_option: "Add option"
+      question: "Question"
+    bookmarklet:
+      post_something: "Post to diaspora*"
+      post_submit: "Submitting post..."
+      post_success: "Posted! Closing popup window..."
     infinite_scroll:
       no_more: "No more posts."
       no_more_contacts: "No more contacts."
@@ -94,6 +109,10 @@ en:
     conversation:
       participants: "Participants"
 
+    notifications:
+      mark_read: "Mark read"
+      mark_unread: "Mark unread"
+
     stream:
       hide: "Hide"
       public: "Public"
@@ -108,6 +127,7 @@ en:
       hide_nsfw_posts: "Hide #nsfw posts"
       follow: "Follow"
       unfollow: "Unfollow"
+      via: "via <%= provider %>"
 
       likes:
         zero: "<%= count %> Likes"
@@ -145,7 +165,7 @@ en:
       log_out: "Log out"
 
       notifications: "Notifications"
-      messages: "Messages"
+      conversations: "Conversations"
 
       search: "Search"
 
@@ -163,3 +183,12 @@ en:
       reshared: "Reshared"
       comment: "Comment"
       home: "HOME"
+
+    poll:
+      vote: "Vote"
+      result: "Result"
+      count:
+        one: "1 vote so far"
+        other: "<%=count%> votes so far"
+      show_result: "Show result"
+      close_result: "Hide result"

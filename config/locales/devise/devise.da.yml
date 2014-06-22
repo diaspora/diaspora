@@ -33,25 +33,29 @@ da:
       inviter:
         accept_at: "på %{url}, du kan acceptere ved at følge linket nedenunder."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} har inviteret dig til at deltage i Diaspora."
+        have_invited_you: "%{names} har inviteret dig til at deltage i Diaspora*."
       reset_password_instructions:
         change: "Skift min adgangskode"
         ignore: "Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail."
-        someone_requested: "Nogen har anmodet om et link til at ændre din adgangskode. Du kan gøre dette via linket nedenfor."
+        someone_requested: "Nogen har anmodet om et link til at ændre din adgangskode. Hvis det var dig, kan du gøre dette via linket nedenfor."
         subject: "Instruktioner til nulstilling af adgangskode"
         wont_change: "Din adgangskode vil ikke blive ændret før du klikker på linket ovenfor og opretter en ny."
       unlock_instructions:
         account_locked: "Din konto er blevet låst på grund af en stor mængde mislykkede log ind forsøg."
         click_to_unlock: "Klik på linket nedenfor for at aktivere din konto:"
-        subject: "Aktiveringsinstruktioner"
+        subject: "Aktiver instruktioner"
         unlock: "Aktivér min konto"
       welcome: "Velkommen %{email}!"
     passwords:
       edit:
         change_password: "skift adgangskode"
+        confirm_password: "Bekræft kodeord"
+        new_password: "Nyt kodeord"
       new:
+        email: "E-mail adresse"
         forgot_password: "Glemt din adgangskode?"
-        no_account: "Ingen konto med den email adresse eksisterer. Hvis du venter på invitation, så åbner vi så snart som muligt"
+        no_account: "Ingen konto med den email adresse eksisterer."
+        reset_password: "Nulstil kodeord"
         send_password_instructions: "Send mig instruktioner til nulstilning af adgangskode"
       send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du kan nulstille din adgangskode om et par minutter."
       updated: "Dit adgangskode er nu ændret. Du er nu logget ind."

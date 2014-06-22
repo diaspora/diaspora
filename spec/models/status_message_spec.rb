@@ -150,18 +150,6 @@ STR
       @sm = FactoryGirl.create(:status_message, :text => @test_string )
     end
 
-    describe '#formatted_message' do
-      it 'escapes the message' do
-        xss = "</a> <script> alert('hey'); </script>"
-        @sm.text << xss
-
-        @sm.formatted_message.should_not include xss
-      end
-      it 'is html_safe' do
-        @sm.formatted_message.html_safe?.should be_true
-      end
-    end
-
     describe '#create_mentions' do
       it 'creates a mention for everyone mentioned in the message' do
         Diaspora::Mentionable.should_receive(:people_from_string).and_return(@people)
@@ -350,6 +338,35 @@ STR
         end
       end
     end
+
+    context 'with a poll' do
+      before do
+        @message.poll = FactoryGirl.create(:poll, :status_message => @message)
+        @xml = @message.to_xml.to_s
+      end
+
+      it 'serializes the poll' do
+        @xml.should include "poll"
+        @xml.should include "question"
+        @xml.should include "poll_answer"
+      end
+
+      describe ".from_xml" do
+        before do
+          @marshalled = StatusMessage.from_xml(@xml)
+        end
+
+        it 'marshals the poll' do
+          @marshalled.poll.should be_present
+        end
+
+        it 'marshals the poll answers' do
+          @marshalled.poll.poll_answers.size.should == 2
+        end
+      end
+    end
+
+
   end
 
   describe '#after_dispatch' do

@@ -11,8 +11,9 @@
       = link_to(image_tag('deletelabel.png'), post_path(post), :method => :delete, :data => { :confirm => "#{t('are_you_sure')}" }, :class => "remove")
 
   .info
-    %span.time{:integer => post.created_at.to_i}
-      = link_to(t('ago', :time => time_ago_in_words(post.created_at)), post_path(post))
+    %span
+      = link_to(post_path(post)) do
+        = timeago(post.created_at)
     %span.via
       - if post.activity_streams?
         = t('shared.stream_element.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe

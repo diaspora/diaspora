@@ -8,6 +8,7 @@ eo:
   _applications: "Aplikaĵoj"
   _comments: "Komentoj"
   _contacts: "Kontaktoj"
+  _help: "Helpo"
   _home: "Hejmo"
   _photos: "bildoj"
   _services: "Servoj"
@@ -139,10 +140,6 @@ eo:
       aspect_not_empty: "Aspekto ne malplenas"
       remove: "forigi"
     index:
-      cubbies:
-        explanation: "Cubbi.es estas la unua DIASPORA*-programeto nun kreata."
-        heading: "Konekti al Cubbi.es"
-        learn_more: "Lerni pli"
       diaspora_id:
         content_1: "Via DIASPORA* uzantnomo estas:"
         content_2: "Donu ĝin al iu ajn, kaj tiu povos trovi vin ĉe DIASPORA*."
@@ -150,6 +147,7 @@ eo:
       donate: "Donaci"
       handle_explanation: "Tiu ĉi estas via DIASPORA*-uzantnomo. Vi povas doni ĝin al aliaj homoj same kiel retpoŝtan adreson, por ke ili vin kontaktu."
       help:
+        any_problem: "Ĉu iu problemo?"
         do_you: "Ĉu vi:"
         email_feedback: "%{link} viajn respondojn, se vi volas"
         email_link: "Retpoŝtadreso"
@@ -161,6 +159,7 @@ eo:
         tag_bug: "cimo"
         tag_feature: "trajtpeto"
         tag_question: "demando"
+        tutorials_and_wiki: "%{faq}, %{tutorial} kaj %{wiki}: helpoj por via unuaj paŝoj."
       introduce_yourself: "Tio estas via torento. Ensaltu kaj prezentu vin mem."
       keep_diaspora_running: "Tenu la DIASPORA-evoluadon rapida per monata donacado!"
       keep_pod_running: "Helpu al %{pod} rapide funkcii kaj aĉeti por niaj servistoj ilian \"kaforiparon\" per ĉiumonata donacado!"
@@ -211,14 +210,6 @@ eo:
       failure: "Via aspekto, %{name}, havis tro longan nomon por konserviĝi."
       success: "Via aspekto, %{name}, sukcese redaktiĝis."
     zero: "neniuj aspektoj"
-  authorizations:
-    index:
-      no_applications: "Vi ne jam registris iujn programetojn."
-      revoke_access: "Revoki Permeson"
-    new:
-      authorize: "Rajtigi"
-      cubbies_will: "Cobbies rajtos afiŝi fotojn en via nomo"
-      nope: "Ne"
   back: "Malantaŭen"
   blocks:
     create:
@@ -274,6 +265,8 @@ eo:
     two: "%{count} kontaktoj"
     zero: "kontaktoj"
   conversations:
+    conversation:
+      participants: "Partoprenantoj"
     create:
       fail: "Malĝusta mesaĝo"
       sent: "Mesaĝo sendiĝis."
@@ -285,10 +278,7 @@ eo:
         other: "%{count} novaj mesaĝoj"
         zero: "Neniuj novaj mesaĝoj"
     index:
-      create_a_new_message: "krei novan mesaĝon"
       inbox: "Poŝtujo"
-      message_inbox: "Poŝtujo"
-      new_message: "Nova mesaĝo"
       no_conversation_selected: "neniu interparolado elektita"
       no_messages: "neniuj mesaĝoj"
     new:
@@ -297,8 +287,6 @@ eo:
       sending: "Poŝtanta..."
       subject: "temo"
       to: "al"
-    new_message:
-      fail: "Malĝusta poŝto"
     show:
       delete: "forigi kaj bloki interparoladon"
       reply: "respondi"
@@ -315,8 +303,16 @@ eo:
       correct_the_following_errors_and_try_again: "Ĝustigu la sekvajn erarojn kaj reprovu."
       invalid_fields: "Nevalidaj kampoj"
     login_try_again: "Bonvole <a href='%{login_link}'>ensalutu</a> kaj provu denove."
+    post_not_public: "La afiŝo, kiun vi klopodas vidi, ne estas publika!"
   fill_me_out: "Plenumigu min"
   find_people: "Trovi homojn aŭ #etikedojn"
+  help:
+    foundation_website: "Retejo de Fondaĵo Diaspora"
+    getting_help:
+      get_support_a_website: "vizitu nian %{link}"
+    here: "ĉi tie"
+    irc: "IRC"
+    wiki: "vikio"
   hide: "Kaŝi"
   invitation_codes:
     excited: "%{name} estas ĝojega vidi vin ĉi tie."
@@ -327,7 +323,9 @@ eo:
     create:
       already_contacts: "Vi jam konektiĝis kun tiu persono."
       already_sent: "Vi jam invitis tiun personon."
+      empty: "Bonvole tajpu almenaŭ unu retpoŝtadreson."
       no_more: "Vi ne plu havas invitojn."
+      note_already_sent: "Invitoj estas ĵus senditaj al: %{emails}"
       own_address: "Vi ne povas sendi inviton al via propra adreso."
       rejected: "La postaj retpoŝtadresoj estis problemaj:"
       sent: "Invitoj estas sendita al: %{emails}"
@@ -358,6 +356,7 @@ eo:
       back_to_top: "Reen al la supro"
       powered_by: "FUNKCIAS PER DIASPORA*"
       public_feed: "Publika DIASPORA* Afiŝostrio de %{name}"
+      source_package: "elŝutu la pakaĵon kun la fontkodo"
       toggle: "ŝalti inter tiu kaj poŝtelefona versio"
       whats_new: "kio estas nova?"
       your_aspects: "viaj aspektoj"
@@ -535,11 +534,10 @@ eo:
       edit_membership: "redakti membraron de aspekto"
     few: "%{count} personoj"
     helper:
+      is_not_sharing: "%{name} ne kunhavigas kun vi"
       is_sharing: "%{name} nun kunhavigas kun vi"
-      people_on_pod_are_aware_of: " homoj ĉe tiu ĉi Pod (Diaspora-servilo) konscias pri"
       results_for: "rezultoj por %{params}"
     index:
-      couldnt_find_them_send_invite: "Ĉu vi ne povis trovi tiun? Sendu inviton!"
       looking_for: "Ĉu vi serĉas afiŝojn etikeditaj %{tag_link}?"
       no_one_found: "...kaj neniu troviĝis."
       no_results: "Hej! Vi devas serĉi ion."
@@ -560,6 +558,7 @@ eo:
       gender: "sekso"
       in_aspects: "en aspektoj"
       location: "loko"
+      photos: "Fotoj"
       remove_contact: "forigi kontakton"
       remove_from: "Ĉu forigi %{name} de %{aspect}?"
     show:
@@ -687,6 +686,7 @@ eo:
       hey_make: "HEJ, <br/>FARU<br/>ION."
       join_the_movement: "Aniĝu je la movado!"
       password: "Pasvorto"
+      password_confirmation: "KONFIRMADO DE PASVORTO"
       sign_up: "Enskribiĝi"
       sign_up_message: "Interkona retkonektado kun ♥"
       username: "Uzantnomo"
@@ -811,6 +811,7 @@ eo:
       all: "ĉiuj"
       all_contacts: "ĉiuj kontaktoj"
       discard_post: "Forviŝi afiŝon"
+      get_location: "Obteni lokadon"
       make_public: "publikigi"
       new_user_prefill:
         hello: "Saluton al ĉiu, mi estas #%{new_user_tag}. "
@@ -819,6 +820,7 @@ eo:
         newhere: "NewHere"
       post_a_message_to: "Afiŝi al %{aspect}"
       posting: "Afiŝanta..."
+      preview: "Antaŭrigardo"
       publishing_to: "koniganta al: "
       share: "Konigi"
       share_with: "konigi al"
@@ -914,18 +916,6 @@ eo:
       posts_tagged_with: "Afiŝoj etikeditaj per #%{tag}"
       stop_following: "Malaboni de #%{tag}"
   terms_and_conditions: "Reguloj kaj kondiĉoj"
-  tokens:
-    show:
-      connect_to_cubbies: "Konekti al Cubbi.es"
-      connecting_is_simple: "Konekti vian DIASPORA* konton estas facila!  Skribu vian DIASPORA* uzantnomon (<b>%{diaspora_id}</b>) de via cubbi.es <a href='%{href_link}'>agordo-paĝo</a> kaj klaku \"connect\"/konektu."
-      daniels_account: "La DIASPORA* konto de Daniel"
-      love_to_try: "Ni tre ŝatus, se vi provus ĝin."
-      making_the_connection: "Konektanta"
-      screenshot_explanation: "%{link1}.  Tiu aparta cubby estas ligita kun %{link2}."
-      sign_up_today: "Registriĝi hodiaŭ!"
-      typical_userpage: "Tipa cubbi.es uzantpaĝo"
-      via: "(per %{link})"
-      what_is_cubbies: "Cubbi.es estas la unua DIASPORA*-programeto en la tuta mondo.  Ĝi krome estas la plej bona maniero por rete kunigi bildojn."
   undo: "Ĉu malfari?"
   username: "Uzantnomo"
   users:

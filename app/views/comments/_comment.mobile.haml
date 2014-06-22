@@ -12,8 +12,8 @@
       = person_image_link(comment.author)
       = person_link(comment.author)
       .info
-        %span.time.timeago{:datetime => comment.created_at}
-          = comment.created_at ? time_ago_in_words(comment.created_at) : time_ago_in_words(Time.now)
+        %span
+          = timeago(comment.created_at ? comment.created_at : Time.now)
 
     %div{:class => direction_for(comment.text)}
-      = markdownify(comment)
+      = comment.message.markdownified

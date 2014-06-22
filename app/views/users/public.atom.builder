@@ -26,14 +26,12 @@ atom_feed({'xmlns:thr' => 'http://purl.org/syndication/thread/1.0',
     author.tag! 'poco:displayName', @user.name
   end
 
-
   @posts.each do |post|
-    post = post.absolute_root if post.is_a? Reshare
     feed.entry post, :url => "#{@user.url}p/#{post.id}",
       :id => "#{@user.url}p/#{post.id}" do |entry|
 
-      entry.title truncate(post.formatted_message(:plain_text => true), :length => 50)
-      entry.content auto_link(post.formatted_message(:plain_text => true)), :type => 'html'
+      entry.title post.message.title
+      entry.content post.message.markdownified(disable_hovercards: true), :type => 'html'
       entry.tag! 'activity:verb', 'http://activitystrea.ms/schema/1.0/post'
       entry.tag! 'activity:object-type', 'http://activitystrea.ms/schema/1.0/note'
     end

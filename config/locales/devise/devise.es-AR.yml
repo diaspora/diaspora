@@ -33,11 +33,11 @@ es-AR:
       inviter:
         accept_at: "en %{url}, podes aceptarlo desde el link  de abajo "
         has_invited_you: "%{name} te ha invitado a unirte a Diaspora"
-        have_invited_you: "%{names} te han invitado a unirte a Diaspora"
+        have_invited_you: "%{names} te han invitado a unirte a diaspora*"
       reset_password_instructions:
         change: "Cambiar mi contraseña"
         ignore: "Si vos no hiciste la solicitud, por favor ignorá este correo."
-        someone_requested: "Alguien solicitó un enlace para cambiar tu contraseña, podés hacerlo a través del siguiente enlace."
+        someone_requested: "Alguien solicitó un enlace para cambiar tu contraseña. Si eras tú, entonces podés hacerlo a través del siguiente enlace."
         subject: "Instrucciones para cambiar la contraseña"
         wont_change: "Tu contraseña no cambiará hasta que no accedas al enlace anterior e indiques una nueva."
       unlock_instructions:
@@ -49,9 +49,13 @@ es-AR:
     passwords:
       edit:
         change_password: "Cambiar mi contraseña"
+        confirm_password: "Confirmar contraseña"
+        new_password: "Nueva contraseña"
       new:
+        email: "Correo electrónico"
         forgot_password: "¿Olvidaste tu contraseña?"
         no_account: "No hay ninguna cuenta con esta dirección de correo electrónico. Si estás esperando una invitación, te la enviaremos tan pronto como sea posible."
+        reset_password: "Resetear contraseña"
         send_password_instructions: "Enviame instrucciones para cambiar mi contraseña."
       send_instructions: "En unos minutos vas a recibir un correo electrónico con instrucciones para cambiar tu contraseña."
       updated: "Tu contraseña se cambió sin problemas. Ya estás conectado."

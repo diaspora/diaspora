@@ -10,11 +10,11 @@ pt-PT:
     aspect_dropdown:
       add_to_aspect: "Adicionar contacto"
       all_aspects: "Todos os grupos"
-      error: "Não foi possível começar a partilhar com {{name}}. Você está a ignorá-los?"
+      error: "Não foi possível começar a partilhar com <%= name %>. Você está a ignorá-los?"
       error_remove: "Não pode remover <%= name %> nesse grupo :("
       select_aspects: "Selecionar grupos"
       started_sharing_with: "Começou a partilhar com <%= name %>!"
-      stopped_sharing_with: "Deixou de partilhar com {{name}}."
+      stopped_sharing_with: "Deixou de partilhar com <%= name %>."
       toggle:
         one: "Em <%=count %> grupo"
         other: "Em <%=count %> grupos"
@@ -47,7 +47,6 @@ pt-PT:
       home: "Inicio "
       log_out: "Sair"
       mark_all_as_read: "Marcar tudo como lido"
-      messages: "Mensagens"
       notifications: "Notificações"
       profile: "Perfil"
       recent_notifications: "Últimas Notificações"
@@ -66,10 +65,10 @@ pt-PT:
       not_found: "e ninguém foi encontrado..."
     photo_uploader:
       completed: "<%= file %> completado"
-      empty: "{file} está vazio, por favor seleccione novamente os arquivos, sem este."
-      invalid_ext: "{file} tem uma extensão inválida. Apenas são permitidas as extensões {extensions}."
+      empty: "O {file} não tem dados, por favor, selecione novamente os ficheiros, sem este."
+      invalid_ext: "O {file} tem uma extensão inválida. Só são permitidas as extensões {extensions}."
       looking_good: "OMD, tu estás fantástico(a)!"
-      size_error: "{file} é muito grande, o tamanho máximo do ficheiro é {sizeLimit}."
+      size_error: "O {file} é muito grande, o tamanho máximo do ficheiro é {sizeLimit}."
     publisher:
       at_least_one_aspect: "Tem de publicar em pelo menos um grupo"
       limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está a partilhar"
@@ -79,7 +78,7 @@ pt-PT:
       duplicate: "Que bom, hein? Você já republicou essa mensagem!"
       post: "Repartilhar a publicação de <%= name %>?"
       successful: "A publicação foi repartilhada com sucesso!"
-    search_for: "Procurar por {{name}}"
+    search_for: "Procurar por <%= name %>"
     show_more: "mostrar mais"
     stream:
       comment: "Comentar"
@@ -112,7 +111,7 @@ pt-PT:
       show_nsfw_posts: "Mostrar todos"
       tags:
         follow: "Seguir #<%= tag %>"
-        following: "Seguindo #<%= tag %>"
+        following: "A Seguir #<%= tag %>"
         stop_following: "Parar de Seguir #<%= tag %>"
       unfollow: "Não seguir"
       unlike: "Não gostar"
@@ -136,7 +135,7 @@ pt-PT:
       years: "%d anos"
     videos:
       unknown: "Formato de vídeo desconhecido"
-      watch: "Veja este vídeo no {{provider}}"
+      watch: "Veja este vídeo no <%= provider %>"
     viewer:
       comment: "Comentário"
       follow_post: "Seguir a publicação"

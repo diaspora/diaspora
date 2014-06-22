@@ -160,7 +160,8 @@ class PeopleController < ApplicationController
     return render :text => I18n.t('people.person.thats_you') if @person == current_user.person
 
     @contact = current_user.contact_for(@person) || Contact.new
-    render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
+    bootstrap = params[:bootstrap] || false
+    render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left', :bootstrap => bootstrap}
   end
 
   private

@@ -159,10 +159,6 @@ sk:
       aspect_not_empty: "Kategória nie je prázdna"
       remove: "odstrániť"
     index:
-      cubbies:
-        explanation: "Cubbi.es je prvá aplikácia, ktorá sa vyvíja v Diaspore."
-        heading: "Pripojiť sa na Cubbi.es"
-        learn_more: "Zistiť viac"
       diaspora_id:
         content_1: "Tvoje ID na Diasporu je:"
         content_2: "Daj ho hocikomu a bude ťa môcť nájsť na Diaspore."
@@ -236,14 +232,6 @@ sk:
       failure: "Tvoja kategória %{name} má príliš dlhý názov."
       success: "Úspešne si upravil(a) kategóriu %{name}."
     zero: "žiadne kategórie"
-  authorizations:
-    index:
-      no_applications: "Ešte si nezaregistroval(a) žiadne aplikácie."
-      revoke_access: "Zamedziť prístup"
-    new:
-      authorize: "Povoliť"
-      cubbies_will: "Cubbies bude môcť posielať fotky v tvojom mene"
-      nope: "Nie"
   back: "Späť"
   blocks:
     create:
@@ -316,10 +304,8 @@ sk:
         two: "%{count} nové správy"
         zero: "Žiadne nové správy"
     index:
-      create_a_new_message: "vytvoriť novú správu"
       inbox: "Poštová schránka"
-      message_inbox: "Poštová schránka"
-      new_message: "Nová správa"
+      new_conversation: "Nová konverzácia"
       no_conversation_selected: "Nevybral(a) si žiaden rozhovor"
       no_messages: "žiadne správy"
     new:
@@ -328,7 +314,7 @@ sk:
       sending: "Posiela sa..."
       subject: "predmet"
       to: "príjemca"
-    new_message:
+    new_conversation:
       fail: "Neplatná správa"
     show:
       delete: "odstrániť a zablokovať rozhovor"
@@ -413,11 +399,13 @@ sk:
       image_url: "adresa obrázka"
       insert_images_comments_q: "Môžem vložiť obrázok do komentáru?"
       insert_images_q: "Ako môžem vložiť obrázok do príspevku?"
-      size_of_images_q: "Môžem upraviť veľkosť obrázku v príspevku alebo komentári"
+      size_of_images_q: "Môžem upraviť veľkosť obrázku v príspevku alebo komentári?"
       title: "Príspevky a ich posielanie"
     private_posts:
       title: "Súkromné príspevky"
     private_profiles:
+      title: "Súkromné profily"
+      whats_in_profile_q: "Čo obsahuje môj súkromný profil?"
       who_sees_profile_q: "Kto vidí môj osobný profil?"
     public_posts:
       find_public_post_q: "Ako môžu ľudia nájsť môj verejný príspevok?"
@@ -542,6 +530,7 @@ sk:
         two: "%{count} nové oznamy"
         zero: "Žiadne nové oznamy"
     index:
+      all_notifications: "Všetky oznamy"
       and: "a"
       and_others:
         few: " a ďalšie %{count}"
@@ -551,6 +540,7 @@ sk:
       mark_all_as_read: "Všetky označiť ako prečítané"
       mark_unread: "Označiť ako neprečítané"
       notifications: "Oznamy"
+      show_all: "zobraziť všetko"
     liked:
       few: "%{actors} označili, že sa im páči %{post_link}."
       one: "%{actors} označil(a), že sa mu/jej páči %{post_link}."
@@ -655,14 +645,12 @@ sk:
     few: "%{count} ľudia"
     helper:
       is_sharing: "%{name} sa s Tebou o niečo delí"
-      people_on_pod_are_aware_of: "Ľudia na pode sú si vedomí"
       results_for: "výsledky pre %{params}"
     index:
-      couldnt_find_them_send_invite: "Nenašiel (-la) si ich?  Pozvi ich!"
       looking_for: "Hľadáš príspevky označené značkou %{tag_link}?"
       no_one_found: "...a nikto sa nenašiel."
       no_results: "Hej! Musíš niečo hľadať."
-      results_for: "Výsledky vyhľadávania pre"
+      results_for: "Výsledky vyhľadávania pre %{search_term}"
       searching: "hľadá sa, prosím buď trpezlivý (-á)."
     many: "%{count} ľudí"
     one: "1 človek"
@@ -937,10 +925,13 @@ sk:
         i_like: "Zaujíma ma %{tags}."
         invited_by: "Vďaka za pozvanie, "
         newhere: "Nováčik"
+      poll:
+        question: "Otázka"
       post_a_message_to: "Poslať správu na %{aspect}"
       posting: "Posiela sa..."
       preview: "Ukážka"
       publishing_to: "Publikuje sa na: "
+      remove_location: "Odstrániť umiestnenie"
       share: "Uverejniť"
       share_with: "podeliť sa s"
       upload_photos: "Nahrať fotky"
@@ -1039,18 +1030,6 @@ sk:
       posts_tagged_with: "Príspevky označené značkou #%{tag}"
       stop_following: "Prestať sledovať #%{tag}"
   terms_and_conditions: "Podmienky"
-  tokens:
-    show:
-      connect_to_cubbies: "Pripojiť sa na Cubbi.es"
-      connecting_is_simple: "Pripojiť sa na účet na Diaspore je jednoduché! Stačí zadať ID na Diasporu.(<b>%{diaspora_id}</b>)  zo <a href='%{href_link}'>stránky  s nastaveniami</a> tvojich prvkov cubby  a stlačiť tlačidlo Pripojiť sa."
-      daniels_account: "Danielov účet na Diaspore"
-      love_to_try: "Bolo by super, keby si to vyskúšal(a)."
-      making_the_connection: "Vytvára sa prepojenie"
-      screenshot_explanation: "%{link1}.  Táto konkrétna cubby je napojená na %{link2}."
-      sign_up_today: "Zaregistruj sa dnes!"
-      typical_userpage: "Typická používateľská stránka na cubbi.es"
-      via: "(na %{link})"
-      what_is_cubbies: "Cubbi.es je celosvetovo prvá aplikácia Diaspory. Je to  aj najlepší spôsob na vytváranie fotoalbumov online."
   undo: "Vrátiť zmeny?"
   username: "Používateľské meno"
   users:

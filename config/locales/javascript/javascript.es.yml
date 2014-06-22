@@ -24,6 +24,10 @@ es:
       deselect_all: "Desmarcar todos"
       no_aspects: "No hay aspectos seleccionados"
       select_all: "Marcar todos"
+    bookmarklet:
+      post_something: "Publicar en Diaspora*"
+      post_submit: "Enviando mensaje..."
+      post_success: "Publicado! Cerrando ventana emergente..."
     comma: ","
     comments:
       hide: "ocultar comentarios"
@@ -36,6 +40,7 @@ es:
     edit: "Editar"
     failed_to_like: "\"Me gusta\" no ha funcionado."
     failed_to_post_message: "¡Error al publicar el mensaje!"
+    failed_to_remove: "¡Se produjo un error al eliminar la entrada!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
       hey: "¡Hola, <%= name %>!"
@@ -45,11 +50,11 @@ es:
       admin: "Administrar"
       close: "cerrar"
       contacts: "Contactos"
+      conversations: "Conversaciones"
       help: "Ayuda"
       home: "Inicio"
       log_out: "Salir"
       mark_all_as_read: "Marcar todo como leido"
-      messages: "Mensajes"
       notifications: "Notificaciones"
       profile: "Perfil"
       recent_notifications: "Notificaciones recientes"
@@ -63,7 +68,10 @@ es:
       no_more_contacts: "No hay más contactos."
     my_activity: "Mi Actividad"
     my_aspects: "Mis aspectos"
-    my_stream: "Entrada"
+    my_stream: "Portada"
+    notifications:
+      mark_read: "Marcar como leído"
+      mark_unread: "Marcar como no leído"
     people:
       not_found: "...y no se encontró a nadie."
     photo_uploader:
@@ -72,12 +80,30 @@ es:
       error: "Un problema a ocurrido mientras se cargaba el archivo <%= file %>"
       invalid_ext: "{file} tiene una extensión inválida. Solo se permiten {extensions}."
       looking_good: "¡Guau, estás increíble!"
-      size_error: "{file} es demasiado grande, el tamaño máximo de un archivo es de {sizeLimit}."
+      size_error: "{file} es demasiado grande, el tamaño máximo es de {sizeLimit}."
+    poll:
+      close_result: "Ocultar resultados"
+      count:
+        one: "<%=count%> voto por ahora"
+        other: "<%=count%> votos por ahora"
+      result: "Resultados"
+      show_result: "Mostrar resultados"
+      vote: "Votar"
     publisher:
+      add_option: "Añadir opción"
       at_least_one_aspect: "Debes publicarlo al menos en un aspecto"
       limited: "Limitado - tu publicación solo es visible para gente con quien compartes"
       near_from: "Cerca de: <%= location %>"
+      option: "Opción <%= nr %>"
       public: "Público - tu publicación es visible para todos, incluyendo buscadores"
+      question: "Pregunta"
+    report:
+      name: "Informar"
+      prompt: "Por favor introduce un motivo:"
+      prompt_default: "contenido ofensivo"
+      status:
+        created: "El informe fue creado correctamente"
+        exists: "El informe ya existe"
     reshares:
       duplicate: "¿Verdad que te ha gustado? Pero ya has esa publicación."
       post: "¿Compartir la publicación de <%= name %>?"
@@ -119,6 +145,7 @@ es:
         stop_following: "Dejar de seguir #<%= tag %>"
       unfollow: "Dejar de seguir"
       unlike: "No me gusta"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "Muy bien, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
@@ -135,6 +162,7 @@ es:
       seconds: "menos de 1 minuto"
       suffixAgo: ""
       suffixFromNow: ""
+      wordSeparator: " "
       year: "un año aproximadamente"
       years: "%d años"
     videos:

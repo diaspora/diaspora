@@ -84,9 +84,6 @@ be:
       aspect_not_empty: "Аспект не пусты."
       remove: "Выдаліць"
     index:
-      cubbies:
-        heading: "Падключыць Cubbi.es"
-        learn_more: "паказаць больш"
       diaspora_id:
         content_1: "твой Diaspora ID:"
         heading: "Diaspora ID"

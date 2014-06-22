@@ -25,17 +25,17 @@ describe Services::Facebook do
     end
 
     it 'removes text formatting markdown from post text' do
-      message = "Text with some **bolded** and _italic_ parts."
-      post = double(:text => message, :photos => [])
+      message = double
+      message.should_receive(:plain_text_without_markdown).and_return("")
+      post = double(message: message, photos: [])
       post_params = @service.create_post_params(post)
-      post_params[:message].should match "Text with some bolded and italic parts."
     end
 
     it 'does not add post link when no photos' do
-      message = "Text with some **bolded** and _italic_ parts."
-      post = double(:text => message, :photos => [])
+      message = "Some text."
+      post = double(message: double(plain_text_without_markdown: message), photos: [])
       post_params = @service.create_post_params(post)
-      post_params[:message].should match "Text with some bolded and italic parts."
+      post_params[:message].should_not include "http"
     end
 
     it 'sets facebook id on post' do

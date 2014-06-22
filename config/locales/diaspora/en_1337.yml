@@ -89,9 +89,6 @@ en_1337:
       aspect_not_empty: "45P3C7 N07 3MP7Y!"
       remove: "R3M0V3"
     index:
-      cubbies:
-        explanation: "CUBB1.35 15 7H3 F1R57 4PP F0R D*!"
-        heading: "C0NN3C7 70 CUBB1.35"
       diaspora_id:
         content_1: "Y0UR D* 1D 15:"
         content_2: "G1V3 7H3M 2 N00B5 4ND 7H3Y W1LL F1ND U!"
@@ -148,10 +145,6 @@ en_1337:
       failure: "45P3C7 %{name} H4D 2 L0NG N4M3 -> F41L!"
       success: "45P3C7 %{name} H45 B33N 5UCC35FULLY 3D173D!"
     zero: "n0 45p3c7z"
-  authorizations:
-    index:
-      no_applications: "U H4V3N7 R3G1573R3D 4NY 4PP Y37!"
-      revoke_access: "R3V0K3 4CC355"
   back: "<-"
   bookmarklet:
     explanation: "5P4M FR0M 4NYWH3R3, 4NY71M3! %{link}."
@@ -208,10 +201,7 @@ en_1337:
         two: "%{count} N3W M3554G35"
         zero: "N0 N3W M3554G35"
     index:
-      create_a_new_message: "5P4M 50M30N3!"
       inbox: "1NB0X"
-      message_inbox: "M3554G3 1NB0X"
-      new_message: "N3W 5P4M"
       no_conversation_selected: "N0 C0NV3R54710N 53L3C73D!"
       no_messages: "N0 5P4M5"
     new:
@@ -220,8 +210,6 @@ en_1337:
       sending: "5P4MM1NG..."
       subject: "N00B"
       to: "2"
-    new_message:
-      fail: "1NV4L1D M3554G3!"
     show:
       delete: "PWN 7H47 C0NV3R54710N!"
       reply: "R3PLY"
@@ -443,10 +431,8 @@ en_1337:
       edit_membership: "3D17 45P3C7 M3MB3R5H1P"
     few: "%{count} N00B5"
     helper:
-      people_on_pod_are_aware_of: " N00B5 0N P0D 4R3 4W4R3 0F"
       results_for: " R35UL75 F0R %{params}"
     index:
-      couldnt_find_them_send_invite: "C0ULDN7 F1ND 7H3M?  53ND 4N 1NV173 5P4M!"
       no_one_found: "...4ND N0 0N3 W45 F0UND!"
       no_results: "H3Y! U N33D 2 534RCH F0R 50M37H1NG!"
       results_for: "534RCH R35UL75 F0R"
@@ -765,18 +751,6 @@ en_1337:
       posts_tagged_with: "5P4M 74GG3D W17H #%{tag}"
       stop_following: "570P F0LL0W1NG #%{tag}"
   terms_and_conditions: "T&C"
-  tokens:
-    show:
-      connect_to_cubbies: "C0NN3C7 2 CUBB1.35!"
-      connecting_is_simple: "C0NN3C71NG Y0UR D* 4CC0UN7 15 51MPL3! JU57 3N73R Y0UR D* 1D (<b>%{diaspora_id}</b>) FR0M Y0UR CUBB135 <a href='%{href_link}'>settings page</a> 4ND H17 C0NN3C7!"
-      daniels_account: "D4N13L5 D* 4CC0UN7"
-      love_to_try: "W3D L0V3 F0R U 2 7RY 11 0U7!\""
-      making_the_connection: "M4K1NG 7H3 C0NN3C710N"
-      screenshot_explanation: "%{link1}.  7H15 P4R71CUL4R CUBB13 15 L1NK3D 2 %{link2}."
-      sign_up_today: "51GN UP 2D4Y!"
-      typical_userpage: "4 7YP1C4L CUBB135 N00B P4G3"
-      via: "(V14 %{link})"
-      what_is_cubbies: "CUBB135 15 7H3 W0RLD5 F1R57 D* 4PPL1C4710N! 175 4L50 7H3 B357 W4Y 2 C0LL3C7 P1C5 0NL1N3!"
   undo: "Ctrl+Z?"
   username: "n!ck"
   users:

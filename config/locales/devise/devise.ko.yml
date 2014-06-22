@@ -16,6 +16,7 @@ ko:
       invalid: "유효하지 않은 사용자 이름과 암호."
       invalid_token: "유효하지 않은 인증 토큰."
       locked: "계정이 잠깁니다."
+      not_found_in_database: "잘못 된 이메일 또는 비밀 번호입니다."
       timeout: "세션이 만료되었습니다. 다시 로그인하세요."
       unauthenticated: "더 나아가기 전에 로그인하거나 가입해야 합니다."
       unconfirmed: "더 나아가기 전에 계정을 확인해야 합니다."
@@ -48,9 +49,13 @@ ko:
     passwords:
       edit:
         change_password: "암호 바꾸기"
+        confirm_password: "암호 확인"
+        new_password: "새 암호"
       new:
+        email: "이메일"
         forgot_password: "암호를 잊었습니까?"
         no_account: "등록되지 않은 이메일 주소입니다."
+        reset_password: "암호 재설정"
         send_password_instructions: "암호 재설정 메일 보내기"
       send_instructions: "몇 분 안으로 암호를 초기화하기 위한 이메일이 도착합니다."
       updated: "암호를 성공적으로 바꾼 뒤 로그인했습니다."

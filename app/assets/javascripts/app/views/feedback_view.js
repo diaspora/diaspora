@@ -4,9 +4,9 @@ app.views.Feedback = app.views.Base.extend({
   className : "info",
 
   events: {
-    "click *[rel='auth-required']" : "requireAuth",
     "click .like" : "toggleLike",
-    "click .reshare" : "resharePost"
+    "click .reshare" : "resharePost",
+    "click .post_report" : "report"
   },
 
   tooltipSelector : ".label",
@@ -38,11 +38,5 @@ app.views.Feedback = app.views.Base.extend({
     if(evt) { evt.preventDefault(); }
     if(!window.confirm(Diaspora.I18n.t("reshares.post", {name: this.model.reshareAuthor().name}))) { return }
     this.model.interactions.reshare();
-  },
-
-  requireAuth : function(evt) {
-    if( app.currentUser.authenticated() ) { return }
-    alert("you must be logged in to do that!")
-    return false;
   }
 });

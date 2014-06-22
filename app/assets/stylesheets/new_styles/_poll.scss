@@ -1,0 +1,43 @@
+@import '../colors';
+@import '../mixins';
+@import 'new_mixins';
+
+.poll_form {
+  border-top: 1px solid $border-grey;
+  border-bottom: 1px solid $border-grey;
+  margin: 10px 0px 10px 0px;
+  padding: 10px 0px 5px 0px;
+
+  .poll_content {
+    margin-top: 5px;
+  }
+  .toggle_result_wrapper {
+    display: inline-block;
+    margin-top: 10px;
+  }
+  form {
+    margin-bottom: 0px;
+  }
+
+  .progress {
+    background-image: none;
+    @include box-shadow(0, 0, 0);
+    margin-bottom: 5px;
+    height: 10px !important;
+
+    .bar {
+      background-image: none;
+      background-color: $border-dark-grey;
+      color: $text-dark-grey;
+      text-align: left;
+    }
+  }
+  .submit[disabled] {
+    cursor: default;
+    color: $light-grey;
+
+    &:hover, &:active {
+      background-image: none;
+    }
+  }
+}

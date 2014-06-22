@@ -71,8 +71,6 @@ io:
       updating: "aktualigas"
     few: "%{count} aspekti"
     index:
-      cubbies:
-        learn_more: "Lernez plusa"
       donate: "Donacar"
       help:
         do_you: "Ka vu:"
@@ -108,9 +106,6 @@ io:
   contacts:
     index:
       start_a_conversation: "Komencez nova debato"
-  conversations:
-    index:
-      new_message: "Nova mesajo"
   delete: "Efacar"
   email: "E-posto"
   find_people: "Serchez personi o #\"tag\" -i"
@@ -191,4 +186,4 @@ io:
       current_password: "Nuna pasovorto"
       download_photos: "Deskargez mea fotografuri"
       new_password: "Nova pasovorto"
-  welcome: "Esez Bonvenanta!"
+  welcome: "Bonveno!"

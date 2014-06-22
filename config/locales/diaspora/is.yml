@@ -40,6 +40,16 @@ is:
             username:
               invalid: "er ógilt. Aðeins eru leyfðir stafir, tölur og undirskor."
               taken: "er þegar í notkun."
+  admins:
+    admin_bar:
+      pages: "Síður"
+      user_search: "Leit að notanda"
+    stats:
+      2weeks: "2 vikur"
+      daily: "Daglega"
+      month: "Mánuður"
+      usage_statistic: "Tölfræði notkunar"
+      week: "Vika"
   ago: "%{time} síðan"
   all_aspects: "Allar ásýndir"
   application:
@@ -65,6 +75,8 @@ is:
       deselect_all: "Velja ekkert"
       edit_aspect: "Breyta %{name}"
       select_all: "Velja allt"
+    aspect_stream:
+      stay_updated: "Fylgstu með"
     contacts_not_visible: "Tengiliðir í þessari ásýnd geta ekki séð hvern annan."
     contacts_visible: "Tengiliðir í þessari ásýnd geta séð hvern annan."
     create:
@@ -80,8 +92,10 @@ is:
       confirm_remove_aspect: "Ertu viss um að þú viljir eyða þessari ásýnd?"
       done: "Búið"
       make_aspect_list_visible: "gera þáttökulista ásýndar sýnilegan öðrum?"
+      manage: "Stjórna"
       remove_aspect: "Eyða þessari ásýnd"
       rename: "breyta nafni"
+      set_visibility: "Stilla sýnileika"
       update: "uppfæra"
       updating: "uppfæri"
     few: "%{count} ásýndir"
@@ -90,16 +104,19 @@ is:
       aspect_not_empty: "Ásýnd er ekki tóm"
       remove: "fjarlægja"
     index:
-      cubbies:
-        heading: "Tengjast Cubbi.es"
-        learn_more: "Vita meira"
       diaspora_id:
-        content_1: "Diaspora-auðkennið þitt er:"
-        heading: "Díaspora auðkenni"
+        content_1: "Diaspora*-auðkennið þitt er:"
+        heading: "Díaspora* auðkenni"
       donate: "Styrkja"
-      handle_explanation: "Þetta er netfangið þitt hjá Díaspora. Eins og með venjulegt netfang, geturðu gefið fólki það svo þau geti haft samband við þig. "
+      handle_explanation: "Þetta er auðkennið þitt hjá Díaspora*. Eins og með venjulegt netfang, geturðu gefið fólki það svo þau geti haft samband við þig."
       help:
-        here_to_help: "Diaspora community is here to help!"
+        any_problem: "Einhver vandamál?"
+        do_you: "Þú:"
+        email_link: "Netfang"
+        feature_suggestion: "... ert með %{link} uppástungu?"
+        find_a_bug: "... fannst %{link}?"
+        have_a_question: "... ert með %{link}?"
+        here_to_help: "Diaspora*-félagarnir eru hér til að hjálpa!"
         need_help: "Vantar aðstoð?"
         tag_bug: "#bug"
         tag_feature: "#feature"
@@ -108,9 +125,12 @@ is:
         learn_more: "Vita meira"
       no_contacts: "Engir tengiliðir"
       no_tags: "+ finna merki til að fylgjast með"
+      people_sharing_with_you: "Fólk sem deilir með þér:"
       post_a_message: "skrifa skilaboð >>"
+      services:
+        heading: "Tengja tjónustur"
       unfollow_tag: "Hætta að fylgjast með #%{tag}"
-      welcome_to_diaspora: "Velkomin í Diaspora %{name}!"
+      welcome_to_diaspora: "Velkomin í Diaspora* %{name}!"
     many: "%{count} ásýndir"
     move_contact:
       error: "Villa við að breyta tengiliði: %{inspect}"
@@ -120,6 +140,7 @@ is:
       create: "Búa til"
       name: "Nafn (sýnilegt þér einum)"
     no_contacts_message:
+      community_spotlight: "efst á baugi í samfélaginu"
       or_spotlight: "Eða þú getur deilt með %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "Þú ættir að bæta við tengiliðum!"
@@ -135,6 +156,7 @@ is:
     selected_contacts:
       manage_your_aspects: "Sýsla með ásýndir."
       no_contacts: "Þú ert ekki enn með neina tengiliði hér."
+      view_all_community_spotlight: "Sjá allt sem efst er á baugi í samfélaginu"
       view_all_contacts: "Sjá alla tengiliði"
     show:
       edit_aspect: "breyta ásýndum"
@@ -147,6 +169,8 @@ is:
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     heading: "Diaspora Bookmarklet"
+    post_something: "Senda á Diaspora*"
+    post_success: "Sent! Loka!"
   cancel: "Hætta við"
   comments:
     few: "%{count} comments"
@@ -164,7 +188,9 @@ is:
     few: "%{count} tengsl"
     index:
       add_to_aspect: "Add contacts to %{name}"
+      add_to_aspect_link: "bæta tengiliðum við %{name}"
       all_contacts: "Allir tengiliðir"
+      community_spotlight: "Efst á baugi í samfélaginu"
       my_contacts: "Tengiliðirnir mínir"
       no_contacts: "No contacts."
       start_a_conversation: "Hefja umræðu"
@@ -175,6 +201,8 @@ is:
     other: "%{count} tengiliðir"
     sharing:
       people_sharing: "Fólk sem deilir með þér:"
+    spotlight:
+      community_spotlight: "Efst á baugi í samfélaginu"
     two: "%{count} tengiliðir"
     zero: "tengiliðir"
   conversations:
@@ -189,10 +217,7 @@ is:
         other: "%{count} ný skilaboð"
         zero: "Engin ný skilaboð"
     index:
-      create_a_new_message: "búa til ný skilaboð"
       inbox: "Innhólf"
-      message_inbox: "Skilaboð inn"
-      new_message: "Ný skilaboð"
       no_conversation_selected: "engin umræða valin"
       no_messages: "engin skilaboð"
     new:
@@ -201,8 +226,6 @@ is:
       sending: "Sendi..."
       subject: "efni"
       to: "til"
-    new_message:
-      fail: "Ógild skilaboð"
     show:
       reply: "svar"
       replying: "Svara..."
@@ -226,6 +249,10 @@ is:
     aspects:
       person_multiple_aspects_a: "Já.  Farðu á síðuna með tengiliðum þínum og smelltu á Mínir tengiliðir.  Þú getur notað valmyndina til hægri til að bæta tengilið (eða taka úr) eins mörgum sýnum og þú vilt.  Þú getur einnig bætt þeim við nýja sýn með því að ýta á Velja Sýn takkan á upplýsingasíðu viðkomandi.  Einnig getur þú haldið músini fyrir ofan nafn þeirra þar sem nafn þeirra birtist á straumnum þínum og birtist þá lítill val gluggi.  Þar getur þú breytt í hvaða sýnum viðkomandi er."
       post_multiple_aspects_a: "Já.  Þegar þú getur notað 'sýn' takkan til að velja og hafna hvaða sýn skeytið sem þú ert að skrifa birtist í.  Skeytið mun vera sýnilegt í öllum þeim sýnum sem þú hefur valið.  Þú getur einnig valið í hvaða sýn skilaboðin birtast á hliðarslánni.  Þegar þú sendir skilaboðin munu þær sýnir sem þú hefur valið vistast og vera valdar þegar þú skrifar næst skilaboð."
+    getting_help:
+      title: "Að fá hjálp"
+    here: "hér"
+    irc: "IRC spjallrás"
     miscellaneous:
       diaspora_app_a: "Það er til nokkur Android forrit sem eru enn i þróun.  Sum eru löngu yfirgefin og virka því ekki vel með núverandi útgáfu af diaspora*.  Ekki búast við of mikklu af þessum forritum eins og stendur.  Það er einfaldlega best að nota diaspora* beint á vafranum í símanum þar sem hannað hefur verið viðmót sem ætti að hennta flestum tækjum.  Eins og er eru engin forrit fyrir diaspora* á iOS, en enn og aftur virkar diaspora* vel í vafranum."
       diaspora_app_q: "Er til diaspora* app fyrir Android eða iOS?"
@@ -236,6 +263,7 @@ is:
     private_profiles:
       whats_in_profile_a: "Ferilskráin, staðsetning, kyn og fæðingardagur.  Þetta eru allt hlutir sem eru neðst á Síðunni Þinni.  Þú ræður hvort þú setur upplýsingar þar inn.  Eingöngu einstaklingar sem þú hefur bætt í eina af þínum sýnum, og eru skráðir inn, geta séð þessar upplýsingar.  Þegar þeir fara á síðuna þína geta þeir séð þau skeyti sem þú hefur deilt með öllum, sem og þau skeyti sem þú hefur valið að deila með sýnum sem þeir eru í."
   hide: "Fela"
+  ignore: "Hunsa"
   invitations:
     a_facebook_user: "Facebook-notandi"
     create:
@@ -247,9 +275,9 @@ is:
     new:
       already_invited: "Nu þegar boðið"
       aspect: "Ásýnd"
-      check_out_diaspora: "Skoðaðu Díaspora!"
+      check_out_diaspora: "Skoðaðu Díaspora*!"
       if_they_accept_info: "ef þau þiggja boðið, verður þeim bætt við þá ásýnd sem þú bauðst þeim á."
-      invite_someone_to_join: "Bjóddu einhverjum að tengjast Díaspora!"
+      invite_someone_to_join: "Bjóddu einhverjum að tengjast Díaspora*!"
       language: "Tungumál"
       personal_message: "Persónuleg skilaboð"
       resend: "Endursenda"
@@ -258,18 +286,22 @@ is:
       to: "Til"
   layouts:
     application:
+      back_to_top: "Fara efst"
       powered_by: "KEYRT AF díaspora*"
       toggle: "toggle mobile site"
       whats_new: "hvað er að frétta?"
       your_aspects: "þínar ásýndir"
     header:
+      admin: "kerfisstjóri"
       blog: "blogg"
       code: "kóði"
       help: "Hjálp"
       login: "Innskráning"
       logout: "Útskrá"
       profile: "profile"
+      recent_notifications: "Nýlegar tilkynningar"
       settings: "settings"
+      view_all: "Skoða allt"
   likes:
     likes:
       people_dislike_this:
@@ -310,12 +342,19 @@ is:
         other: "%{count} ný skilaboð"
         zero: "engin ný skilaboð"
     index:
+      all_notifications: "Allar tilkynningar"
+      and: "og"
       and_others:
         one: "og einn annar"
         other: "og %{count} aðrir"
         zero: "og enginn annar"
+      liked: "Líkaði"
       mark_all_as_read: "Merkja allt sem lesið"
+      mark_read: "Merkja sem lesið"
+      mark_unread: "Merkja sem ólesið"
       notifications: "Tilkynningar"
+      show_all: "sýna allt"
+      show_unread: "sýna ólesið"
     liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
@@ -368,10 +407,27 @@ is:
       other: "%{actors} hafa byrjað að deila með þér."
       zero: "%{actors} hafa byrjað að deila með þér."
   notifier:
+    click_here: "smelltu hér"
     confirm_email:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
     hello: "Halló %{name}!"
+    invite:
+      message: |-
+          Halló!
+
+          Þér hefur verið boðið að vera með á Diaspora*!
+
+          Smelltu á þennan tengil til að hefjast handa
+
+          [%{invite_url}][1]
+
+
+          Bestu kveðjur,
+
+          Diaspora* póst-róbótinn!
+
+          [1]: %{invite_url}
     liked:
       liked: "%{name} has just liked your post: "
     mentioned:
@@ -380,7 +436,7 @@ is:
     reshared:
       reshared: "%{name} just reshared your post"
     single_admin:
-      subject: "Skilaboð um notandastillingar þínar í Diaspora:"
+      subject: "Skilaboð um notandastillingar þínar í Diaspora*:"
     started_sharing:
       subject: "%{name} hefur byrjað að deila með þér á Diaspora*"
     thanks: "Takk,"
@@ -390,16 +446,17 @@ is:
   password: "Lykilorð"
   password_confirmation: "Staðfesting lykilorðs"
   people:
+    add_contact:
+      invited_by: "þér var boðið af"
     aspect_list:
       edit_membership: "breyta aðild að ásýnd"
     few: "%{count} people"
     helper:
       results_for: " niðurstöður fyrir %{params}"
     index:
-      couldnt_find_them_send_invite: "Þau fundust ekki?  Senda boðsmiða!"
       no_one_found: "...og enginn fannst."
       no_results: "Hey! Þú þarft að leita að einhverju."
-      results_for: "leitarniðurstöður fyrir"
+      results_for: "Notendur sem samsvara %{search_term}"
     many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
@@ -413,20 +470,26 @@ is:
       edit_my_profile: "Breyta síðunni minni"
       gender: "Kyn"
       in_aspects: "í ásýnd"
+      location: "Staðsetning"
       remove_contact: "fjarlægja tengilið"
       remove_from: "Fjarlægja %{name} úr %{aspect}?"
     show:
       does_not_exist: "Manneskjan er ekki til!"
       incoming_request: "%{name} vill samnýta með þér"
+      message: "Skilaboð"
       not_connected: "Þú samnýtir ekki með %{name}"
       recent_posts: "Nýlegar færslur"
+      see_all: "Sjá allt"
       start_sharing: "Byrja að samnýta"
       to_accept_or_ignore: "að samþykkja eða hunsa það."
+    sub_header:
+      edit: "breyta"
     two: "%{count} people"
     webfinger:
       fail: "Því miður, %{handle} fannst ekki."
     zero: "no people"
   photos:
+    comment_email_subject: "Mynd af %{name}"
     create:
       integrity_error: "Innhlöðunn myndar mistókst. Ertu viss um að þetta hafi verið mynd?"
       runtime_error: "Innsetning á mynd mistóḱst.  Ertu viss um að sætisbeltin séu spennt?"
@@ -437,12 +500,14 @@ is:
       editing: "Breyti"
     new:
       back_to_list: "Til baka í listann"
+      new_photo: "Ný mynd"
       post_it: "færa inn!"
     new_photo:
       empty: "{file} skráin er tóm, veldu vinsamlegast skrárnar aftur en slepptu henni."
       invalid_ext: "{file} hefur ógilt viðskeyti. Aðeins {extensions} eru leyfð."
       size_error: "{file} skráin er of stór, mesta stærð er {sizeLimit}."
     new_profile_photo:
+      or_select_one_existing: "eða velja eina af þeim %{photos} sem þú átt fyrir"
       upload: "Setja upp nýja mynd!"
     photo:
       view_all: "skoða allar myndir hjá notandanum %{name}'"
@@ -452,22 +517,26 @@ is:
       edit: "breyta"
       edit_delete_photo: "Breyta lýsingu við mynd / eyða mynd"
       make_profile_photo: "setja mynd á síðuna mína"
+      show_original_post: "Birta upprunalegan póst"
       update_photo: "Uppfæra mynd"
     update:
       error: "Ekki tókst að breyta mynd."
       notice: "Velheppnuð uppfærsla á mynd. "
   posts:
     show:
+      destroy: "Eyða"
+      permalink: "varanlegur tengill"
       photos_by:
         one: "Ein mynd frá %{author}"
         other: "%{count} myndir frá %{author}"
         zero: "Engar myndir frá %{author}"
   previous: "fyrra"
   privacy: "Gagnaleynd"
+  privacy_policy: "Stefna varðandi gagnaleynd"
   profile: "Síðan mín"
   profiles:
     edit:
-      allow_search: "Leyfa fólki að leita að þér á Díaspora"
+      allow_search: "Leyfa fólki að leita að þér á Díaspora*"
       edit_profile: "Breyta síðunni minni"
       first_name: "Fornafn"
       last_name: "Kenninafn/Eftirnafn"
@@ -475,6 +544,7 @@ is:
       your_bio: "Ferilskrá þín"
       your_birthday: "Fæðingardagur þinn"
       your_gender: "Kyn þitt"
+      your_location: "Staðsetning þín"
       your_name: "Nafn þitt"
       your_photo: "Mynd þín"
       your_tags: "You: in 5 #tags"
@@ -488,9 +558,9 @@ is:
     other: "%{count} viðbrögð"
     zero: "0 viðbrögð"
   registrations:
-    closed: "Innskráningar eru lokaðar á þessum Diaspora pod."
+    closed: "Lokað er fyrir innskráningar á þessum Diaspora* pod."
     create:
-      success: "Nú hefurðu tengst Diaspora!"
+      success: "Nú hefurðu tengst Diaspora*!"
     edit:
       cancel_my_account: "Aflýsa mínum notandastillingum"
       edit: "Breyta %{name}"
@@ -499,12 +569,19 @@ is:
       unhappy: "Óhamingjusamur?"
       update: "Uppfæra"
     new:
+      continue: "Halda áfram"
       create_my_account: "Create my account"
+      email: "NETFANG"
       enter_email: "Gefðu upp netfang"
       enter_password: "Skrifaðu lykilorð (lágmark sex stafir)"
       enter_password_again: "Skrifaðu sama lykilorð og áður"
       enter_username: "Veldu notandanafn (aðeins bókstafi, tölur, og undirstrikun)"
+      password: "LYKILORÐ"
+      password_confirmation: "STAÐFESTING LYKILORÐS"
+      sign_up: "STOFNA AÐGANG"
       sign_up_message: "Social Networking with a <3"
+      submitting: "Sendi inn..."
+      username: "NOTANDANAFN"
   requests:
     create:
       sending: "Sendi"
@@ -521,6 +598,8 @@ is:
     manage_aspect_contacts:
       existing: "Núverandi tengiliðir"
       manage_within: "Umsjón tengiliða innan"
+    new_request_to_person:
+      sent: "sent!"
   reshares:
     reshare:
       reshare:
@@ -553,11 +632,11 @@ is:
   settings: "Stillingar"
   shared:
     add_contact:
-      create_request: "Finna fólk eftir Díaspora netfangi"
+      create_request: "Leita eftir Díaspora* auðkenni"
       diaspora_handle: "diaspora@handle.org"
-      enter_a_diaspora_username: "Skrifaðu notandanafn hjá Diaspora:"
+      enter_a_diaspora_username: "Settu inn notandanafn hjá Diaspora*:"
       know_email: "Veistu netföngin þeirra? Þú ættir að senda þeim boðsmiða"
-      your_diaspora_username_is: "Þitt Diaspora notandanafn er: %{diaspora_handle}"
+      your_diaspora_username_is: "Notandanafn þitt hjá Diaspora* er: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       toggle:
@@ -596,6 +675,7 @@ is:
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"
       like: "I like this"
+      via_mobile: "á farsíma"
   status_messages:
     destroy:
       failure: "Ekki tókst að eyða færslu"
@@ -629,9 +709,6 @@ is:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
   terms_and_conditions: "Skilmálar"
-  tokens:
-    show:
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
   undo: "Afturkalla?"
   username: "Notandanafn"
   users:
@@ -652,7 +729,7 @@ is:
       new_password: "Nýtt lykilorð"
       receive_email_notifications: "Fá tilkynningar í tölvupósti?"
       your_email: "Netfangið þitt"
-      your_handle: "Díaspora netfangið þitt."
+      your_handle: "Díaspora* auðkennið þitt"
     public:
       does_not_exist: "Notandinn %{username} er ekki til!"
     update:

@@ -14,11 +14,10 @@ cy:
       started_sharing_with: "Rydych chi'n rhannu gyda <%= name %>!"
       stopped_sharing_with: "Dydych chi ddim yn rhannu nawr gyda <%= name %>."
       toggle:
-        few: "Mewn {{count}} agweddau"
-        many: "Mewn {{count}} agweddau"
-        one: "Mewn {{count}} agwedd"
-        other: "Mewn {{count}} agweddau"
-        two: "Mewn {{count}} agweddau"
+        many: "Mewn <%= count %> agweddau"
+        one: "Mewn <%= count %> agwedd"
+        other: "Mewn <%= count %> agweddau"
+        two: "Mewn <%= count %> agweddau"
         zero: "Dewiswch agweddau"
     aspect_navigation:
       deselect_all: "Dad-ddewis i gŷd"

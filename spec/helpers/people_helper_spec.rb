@@ -58,6 +58,10 @@ describe PeopleHelper do
       @person.profile.last_name = "I'm <h1>Evil"
       person_link(@person).should_not include("<h1>")
     end
+    
+    it 'links by id for a local user' do
+      person_link(@user.person).should include "href='#{person_path(@user.person)}'"
+    end
   end
 
   describe "#person_href" do

@@ -5,7 +5,7 @@
 
 var List = {
   initialize: function() {
-    $(".contact_list_search").live("keyup", function(e) {
+    $(document).on("keyup", ".contact_list_search", function(e) {
       var search = $(this);
       var list   = $(".contacts", ".searchable");
       var query  = new RegExp(search.val(),'i');

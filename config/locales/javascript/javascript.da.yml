@@ -27,6 +27,10 @@ da:
       deselect_all: "Fravælg alle"
       no_aspects: "Ingen valgte aspekter"
       select_all: "Vælg alle"
+    bookmarklet:
+      post_something: "Slå op på diaspora*"
+      post_submit: "Indsender indlæg"
+      post_success: "Det er indsendt! lukker popup vinduet ..."
     comma: ","
     comments:
       hide: "Skjul kommentarer"
@@ -39,6 +43,7 @@ da:
     edit: "Rediger"
     failed_to_like: "Kunne ikke synes om!"
     failed_to_post_message: "Kunne ikke indsende besked!"
+    failed_to_remove: "Det lykkedes ikke at fjerne indlægget!"
     getting_started:
       alright_ill_wait: "Okay, jeg venter."
       hey: "Hej <%= name %>!"
@@ -48,11 +53,11 @@ da:
       admin: "Admin"
       close: "luk"
       contacts: "Kontakter"
+      conversations: "Samtaler"
       help: "Hjælp"
       home: "Hjem"
       log_out: "Log ud"
       mark_all_as_read: "Marker alle som læst"
-      messages: "Beskeder"
       notifications: "Meddelelser"
       profile: "Profil"
       recent_notifications: "Seneste Meddelelser"
@@ -67,6 +72,9 @@ da:
     my_activity: "Min aktivitet"
     my_aspects: "Mine aspekter"
     my_stream: "Strøm"
+    notifications:
+      mark_read: "Marker som læst"
+      mark_unread: "Marker som ulæst"
     people:
       not_found: "og ingen blev fundet ..."
     photo_uploader:
@@ -76,11 +84,29 @@ da:
       invalid_ext: "{file} har en ugyldig filtype. Kun {extensions} er tilladt."
       looking_good: "OMG, du ser sej ud!"
       size_error: "{file} er for stor. Maksimal filstørrelse er {sizeLimit}."
+    poll:
+      close_result: "Gem resultat"
+      count:
+        one: "<%=count%> stemme, indtil nu"
+        other: "<%=count%> stemmer, indtil nu"
+      result: "Resultat"
+      show_result: "Vis resultat"
+      vote: "Stem"
     publisher:
+      add_option: "Tilføj mulighed"
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
       limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
       near_from: "Sendt fra: <%= location %>"
+      option: "Mulighed <%= nr %>"
       public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
+      question: "Spørgsmål"
+    report:
+      name: "Anmeld"
+      prompt: "Vær venlig at give en grund:"
+      prompt_default: "stødende indhold"
+      status:
+        created: "Der blev lavet en rapport"
+        exists: "Der eksisterer allerede en rapport"
     reshares:
       duplicate: "Du har allerede delt indlægget!"
       post: "Videredel <%= name %>s indlæg?"
@@ -131,6 +157,7 @@ da:
         stop_following: "Hold op med at følge #<%= tag %>"
       unfollow: "Følg ikke"
       unlike: "Synes ikke om"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "OK, jeg formoder #<%= tagName %> ikke var så spændende igen..."
     timeago:
@@ -147,6 +174,7 @@ da:
       seconds: "mindre end et minut"
       suffixAgo: "siden"
       suffixFromNow: "fra nu"
+      wordSeparator: " javascripts.timeago.wordSeparator "
       year: "ca. et år"
       years: "%d år"
     videos:
@@ -156,7 +184,7 @@ da:
       comment: "Kommentér"
       follow_post: "Følg indlæg"
       home: "HJEM"
-      like: "Like"
+      like: "Synes om"
       reshare: "Videredel"
       reshared: "Videredelt"
       stop_following_post: "Ophør med at følge indlæg"

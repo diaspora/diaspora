@@ -23,7 +23,7 @@ app.views.PublisherServices = Backbone.View.extend({
 
   // visually toggle the icon and handle all other actions for cross-posting
   toggleService: function(evt) {
-    var el = $(evt.target);
+    var el = $(evt.target).closest('.service_icon');
     var provider = el.attr('id');
 
     el.toggleClass("dim");

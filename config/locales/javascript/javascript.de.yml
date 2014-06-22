@@ -27,6 +27,10 @@ de:
       deselect_all: "Auswahl aufheben"
       no_aspects: "Keine Aspekte ausgewählt"
       select_all: "Alle auswählen"
+    bookmarklet:
+      post_something: "Erstelle einen Beitrag in diaspora*"
+      post_submit: "Beitrag einreichen..."
+      post_success: "Gepostet! Popup-Fenster wird geschlossen..."
     comma: ","
     comments:
       hide: "Kommentare verbergen"
@@ -49,11 +53,11 @@ de:
       admin: "Admin"
       close: "schließen"
       contacts: "Kontakte"
+      conversations: "Konversationen"
       help: "Hilfe"
       home: "Startseite"
       log_out: "Abmelden"
       mark_all_as_read: "Alle als gelesen markieren"
-      messages: "Nachrichten"
       notifications: "Benachrichtigungen"
       profile: "Profil"
       recent_notifications: "Neuste Benachrichtigungen"
@@ -68,20 +72,41 @@ de:
     my_activity: "Meine Aktivitäten"
     my_aspects: "Meine Aspekte"
     my_stream: "Stream"
+    notifications:
+      mark_read: "Als gelesen markieren"
+      mark_unread: "Als ungelesen markieren"
     people:
       not_found: "und niemand wurde gefunden..."
     photo_uploader:
       completed: "<%= file %> hochgeladen"
-      empty: "Die Datei {file} ist leer. Bitte treffen sie eine erneute Auswahl ohne diese Datei."
-      error: "Es ist ein Fehler aufgetreten während <%= file %> hochgeladen wurde."
+      empty: "Die Datei {file} ist leer. Bitte treffe eine erneute Auswahl ohne diese Datei."
+      error: "Es ist ein Fehler aufgetreten, während <%= file %> hochgeladen wurde"
       invalid_ext: "{file} hat eine ungültige Erweiterung. Nur {extensions} sind erlaubt."
       looking_good: "OMG, du siehst toll aus!"
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
+    poll:
+      close_result: "Ergebnis ausblenden"
+      count:
+        one: "Bisher eine Stimme"
+        other: "Bisher <%=count%> Stimmen."
+      result: "Ergebnis"
+      show_result: "Ergebnis anzeigen"
+      vote: "Abstimmen"
     publisher:
+      add_option: "Option hinzufügen"
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
       near_from: "Gesendet aus <%= location %>"
+      option: "Option <%= nr %>"
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
+      question: "Frage"
+    report:
+      name: "Meldung"
+      prompt: "Bitte gebe einen Grund an:"
+      prompt_default: "anstößiger Inhalt"
+      status:
+        created: "Die Meldung wurde erfolgreich erstellt"
+        exists: "Die Meldung existiert bereits"
     reshares:
       duplicate: "Du hast diesen Beitrag bereits weitergesagt!"
       post: "<%= name %>s Beitrag weitersagen?"
@@ -129,6 +154,7 @@ de:
         stop_following: "Aufhören #<%= tag %> zu folgen"
       unfollow: "Nicht mehr folgen"
       unlike: "Gefällt mir nicht mehr"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "OK, #<%= tagName %> war wohl doch nicht so interessant..."
     timeago:
@@ -145,6 +171,7 @@ de:
       seconds: "weniger als eine Minute"
       suffixAgo: ""
       suffixFromNow: "ab jetzt"
+      wordSeparator: " "
       year: "etwa einem Jahr"
       years: "%d Jahren"
     videos:

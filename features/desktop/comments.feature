@@ -27,10 +27,7 @@ Feature: commenting
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"
-    When I focus the comment field
-    And I fill in the following:
-        | text            | is that a poodle?    |
-    And I press "Comment"
+    When I comment "is that a poodle?" on "Look at this dog"
     And I click to delete the first comment
     And I confirm the alert
     Then I should not see "is that a poodle?"
@@ -58,3 +55,32 @@ Feature: commenting
     Then I should see "less than a minute ago" within "#comments"
     When I go to "alice@alice.alice"'s page
     Then I should see "I think thats a cat"
+
+  Scenario: permalink to comment from within a users stream
+    When I sign in as "bob@bob.bob"
+    And I am on "alice@alice.alice"'s page
+    Then I should see "Look at this dog"
+    When I comment a lot on "Look at this dog"
+    And I focus the comment field
+    And I fill in the following:
+        | text            | I think thats a cat    |
+    And I press "Comment"
+    Then I should see "I think thats a cat" within ".comment:last-child"
+    When I follow "less than a minute ago" within ".comment:last-child"
+    Then I should see "I think thats a cat" within ".comment .highlighted"
+    And I should have scrolled down
+
+  Scenario: permalink to comment from a status show page
+    When I sign in as "bob@bob.bob"
+    And I am on "alice@alice.alice"'s page
+    Then I should see "Look at this dog"
+    When I comment a lot on "Look at this dog"
+    When I focus the comment field
+    And I fill in the following:
+        | text            | I think thats a cat    |
+    And I press "Comment"
+    When I follow "less than a minute ago" within "span.details.grey"
+    Then I should see "I think thats a cat" within ".comments .comment:last-child"
+    When I follow "less than a minute ago" within ".comments .comment:last-child"
+    Then I should see "I think thats a cat" within ".comments .comment .highlighted"
+    And I should have scrolled down

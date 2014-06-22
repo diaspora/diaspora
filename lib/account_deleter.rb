@@ -23,20 +23,22 @@ class AccountDeleter
   end
 
   def perform!
-    #person
-    delete_standard_person_associations
-    remove_conversation_visibilities
-    remove_share_visibilities_on_persons_posts
-    delete_contacts_of_me
-    tombstone_person_and_profile
+    ActiveRecord::Base.transaction do
+      #person
+      delete_standard_person_associations
+      remove_conversation_visibilities
+      remove_share_visibilities_on_persons_posts
+      delete_contacts_of_me
+      tombstone_person_and_profile
 
-    if self.user
-      #user deletion methods
-      remove_share_visibilities_on_contacts_posts
-      delete_standard_user_associations
-      disassociate_invitations
-      disconnect_contacts
-      tombstone_user
+      if self.user
+        #user deletion methods
+        remove_share_visibilities_on_contacts_posts
+        delete_standard_user_associations
+        disassociate_invitations
+        disconnect_contacts
+        tombstone_user
+      end
     end
   end
 
@@ -50,18 +52,18 @@ class AccountDeleter
   end
 
   def ignored_ar_user_associations
-    [:followed_tags, :invited_by, :contact_people, :aspect_memberships, :ignored_people, :conversation_visibilities, :conversations]
+    [:followed_tags, :invited_by, :contact_people, :aspect_memberships, :ignored_people, :conversation_visibilities, :conversations, :reports]
   end
 
   def delete_standard_user_associations
     normal_ar_user_associates_to_delete.each do |asso|
-      self.user.send(asso).each{|model| model.delete}
+      self.user.send(asso).each{|model| model.destroy }
     end
   end
 
   def delete_standard_person_associations
     normal_ar_person_associates_to_delete.each do |asso|
-      self.person.send(asso).delete_all
+      self.person.send(asso).destroy_all
     end
   end
 

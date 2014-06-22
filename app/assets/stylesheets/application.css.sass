@@ -10,12 +10,15 @@
 @import 'header'
 @import 'footer'
 @import 'opengraph'
+@import 'poll'
 @import 'help'
 @import 'profile'
-@import 'publisher'
+@import 'publisher_blueprint'
 @import 'facebox'
 @import 'aspects'
 @import 'popover'
+@import 'stream_element'
+@import 'report'
 
 /* ====== media ====== */
 .media
@@ -154,33 +157,6 @@ ul.as-selections
   time
     :color #333 !important
 
-.stream
-  audio
-    :display block
-    :margin 5px 0
-
-  .stream_element
-    :border
-      :bottom 1px solid $border-grey
-
-    p
-      &:last-child
-        :padding-bottom 0
-        :margin-bottom 0
-
-    &:first-child
-      :border
-        :top none
-
-    ul
-      li
-        :list-style disc
-
-    .youtube-player, .vimeo-player
-      :border none
-      :height 304px
-      :width 410px
-
 #author_info
   :position relative
 
@@ -228,48 +204,19 @@ ul.as-selections
     :margin
       :bottom 10px
 
-.stream_element
-  a.author
-    :font-weight bold
-    :unicode-bidi bidi-override
-
-  .photo_attachments
-    :margin
-      :top 7px
-
-  img
-    :max-width 100%
-
-  .bd
-    > img
-      :height 30px
-      :width 30px
-      :float left
-      :margin
-        :right 10px
-
-  .stream_photo
-    :float left
-    :margin
-      :top 6px
-
-  .controls:first-child
-    .control_icon
-      @include transition(opacity)
-      @include opacity(0)
-  &:hover
-    .controls:first-child
-      .control_icon
-        @include opacity(0.3)
-      .control_icon:hover
-        @include opacity(1)
-
 .info
   :font-size smaller
 
 .controls
   :z-index 6
   :float right
+
+  .post_report, .comment_report
+    :display inline-block
+
+    .icons-report
+      :height 14px
+      :width 14px
 
   .block_user
     :display inline-block
@@ -288,23 +235,20 @@ ul.as-selections
   a:hover
     :text-decoration none
 
-.status_message_show
-  .comment_box
-    :width 653px
-    :margin
-      :bottom 5px
-
 .grey,
 .grey *
   :color $text-grey
+
+.pull-left
+  :float left
+
+.pull-right
+  :float right
 
 .details,
 .details *
   :font
     :weight normal
-
-.post_scope
-  :cursor default
 
 .time,
 .via
@@ -359,98 +303,6 @@ ul.as-selections
 .submit_button
   input
     :float right
-
-.stream_element .reshare,
-.comment
-  .avatar
-    :width 30px
-    :height 30px
-
-.likes,
-.stream_element div.reshare
-  :font
-    :size 12px
-
-.comment.no-border
-  &.media
-    :border none
-    :padding 0
-
-.comment
-  &.media
-    :margin
-      :left 0
-      :right 0
-
-    :border
-      :top 1px dotted #aaa
-
-    :padding
-      :top 10px
-
-    .controls
-      .comment_delete
-        @include transition(opacity)
-        @include opacity(0)
-    &:hover
-      .controls
-        .comment_delete
-          @include opacity(0.3)
-        .comment_delete:hover
-          @include opacity(1)
-
-  .youtube-player, .vimeo-player
-    :border none
-    :height 250px
-    :width 400px
-
-  .ltr
-    ol, ul
-      :padding-left 2em
-      li
-        :padding 0px
-        :border none
-        :list-style inherit
-
-  .right
-    :right 4px
-
-.stream_element
-  .new_comment_form_wrapper
-    :width 415px
-
-.stream_element .bd
-  & > .likes, & > .comments
-    :margin-right 15px
-
-.status-message-location
-  .near-from
-    :font-size smaller
-    :color #aaa
-    :width 100%
-    :float left
-  .address
-    :font-size 11px
-    :color #bbb
-
-.stream_element .post-content .reshare
-  :border-left 2px solid $border-grey
-
-.stream_element.loaded .media .bd .feedback
-  :clear both
-
-form.new_comment
-  input
-    :display none
-
-  textarea
-    :height 21px
-    :font-size 12px
-    :width 364px
-
-  &.open
-    input
-      :display block
 
 #photo_container
   :text
@@ -643,7 +495,7 @@ input[type="search"]
   :margin
     :bottom 2em
   :padding
-    :bottom 1em
+    :bottom 0.4em
 
   h2
     :display inline
@@ -651,6 +503,11 @@ input[type="search"]
   .right
     :margin
       :top 10px
+      
+  h4
+    :display inline
+    :margin
+      :left 1em
 
 .photo_options
   :color $text-grey
@@ -691,39 +548,6 @@ input[type="search"]
 
 h3 span.current_gs_step
   :color #22C910
-
-#notifications
-  :z-index 10
-  :position fixed
-  :bottom 21px
-  :right 12px
-
-  .notification
-    @include border-radius(5px)
-    @include box-shadow(0,2px,3px,#333)
-
-    :margin
-      :bottom 10px
-
-    :background
-      :color rgb(30,30,30)
-      :color rgba(30,30,30,0.9)
-
-    :min-width 200px
-    :padding 12px
-    :color #fff
-
-    :vertical
-      :align middle
-
-    .avatar
-      :display inline-block
-      :height 20px
-      :width 20px
-      :margin
-        :right 5px
-      :vertical
-        :align middle
 
 ul#request_result
   :padding 0
@@ -926,25 +750,6 @@ ul#press_logos
 #aspects_list
   :height auto
 
-.notifications_for_day
-  .stream_element
-    :padding 0.2em 0.5em
-    :width 500px
-
-.day_group
-  :min-height 100px
-  :margin
-    :bottom 10px
-  .stream_element
-    &:last-child
-      :border none
-
-.stream.notifications
-  > li:hover
-    :background none
-    :border
-      :bottom 1px solid #eee
-
 .show_comments
   :border
     :top 1px solid $border-grey
@@ -1037,56 +842,6 @@ ul#press_logos
 .public_icon, .service_icon
   :cursor pointer
 
-.stream_element
-  .subject
-    :font
-      :size 13px
-      :weight bold
-    :color #444
-    :overflow hidden
-    :white-space nowrap
-
-  .last_author
-    :font
-      :size 12px
-    :color $text-dark-grey
-
-  .collapsible
-    :overflow hidden
-    :position relative
-    p
-      :margin 0 0 0.8em
-    p:last-of-type
-      :margin 0
-
-    .expander
-      :position absolute
-      :bottom 0
-      :left 0
-      :right 0
-      :height 30px
-      :text-align center
-      :line-height 48px
-      :font-size .8em
-      :color $grey
-      :text-shadow 0 0 7px #FFF
-      :cursor pointer
-      :border-bottom 2px solid $border-grey
-      @include border-radius(0, 0, 3px, 3px)
-      @include linear-gradient(rgba(255,255,255,0) , #EEE, 0%, 95%)
-      :background-color transparent
-
-    .oembed
-      :background image-url('ajax-loader2.gif') no-repeat center center
-      :float left
-      :width 100%
-
-      .thumb
-        @include video-overlay()
-
-      iframe, .thumb img
-        :width 100%
-
 #contact_visibility_padlock:hover
   @include opacity(0.7)
 
@@ -1098,6 +853,7 @@ ul#press_logos
 
 .tag
   :display inline-block
+  :max-width 100%
   &:hover
     :text
       :decoration underline
@@ -1166,123 +922,10 @@ h1.tag
   .month
     :font-size 14px
 
-.notification_count
-  :background
-    :color #f0f0f0
-  :color $text-grey
-  :font
-    :weight normal
-
-  :padding 0 5px
-    :left 11px
-  :margin
-    :right 5px
-  :border
-    :radius 5px
-
-  &.unread
-    :background
-      :color lighten($red, 5%)
-    :color #eee !important
-    :font
-      :weight bold
-
-.rightBar
-  .title
-    :position relative
-    :border
-      :bottom 1px solid $border-grey
-    :padding 2px 0
-      :top 0
-
-    &.no_icon
-      :padding
-        :left 8px
-
-    .right
-      :right 4px
-      :top 3px
-      :font-size smaller
-      :font-weight bold
-      :color $text-dark-grey
-
-    .icons-plus,
-    .icons-heart,
-    .icons-question,
-    .icons-monotone_wrench_settings,
-    .icons-coffee,
-    .icons-mail,
-    .icons-bookmark,
-      :position absolute
-      :margin-left 3px
-
-    .icons-plus
-      :width  14px
-      :height 14px
-
-    .icons-heart
-      :width  13px
-      :height 13px
-
-    .icons-question
-      :width  16px
-      :height 16px
-
-    .icons-monotone_wrench_settings
-      :width  16px
-      :height 16px
-
-    .icons-bookmark
-      :width  14px
-      :height 16px
-
-    .icons-coffee
-      :width  16px
-      :height 14px
-
-    .icons-mail
-      :width 16px
-      :height 13px
-
-    h5.title-header
-      :margin-left 22px
-
-    h5
-      :font-size 12px
-      :margin 0
-      :color $text-dark-grey
-
-  .section
-    .content
-      :padding 8px
-      :color $text-grey
-      :font-size 11px
-    li
-      :list-style none
-      :float left
-      :padding-right 10px
-    :margin
-      :bottom 25px
-
-    #invite_code
-      :width 100%
-      @include box-sizing(border-box)
-
 .subtle
   :color $text-grey
   :font
     :style italic
-
-.cubbies_steps
-  li
-    :margin
-      :bottom 12px
-    :vertical-align top
-
-.cubbies-settings-image
-  @include box-shadow(3px, 3px, 15px, #333)
-  :margin
-    :bottom 5px
 
 .button.sign_up
   @include linear-gradient(#D9FFA9,#B9E68A)

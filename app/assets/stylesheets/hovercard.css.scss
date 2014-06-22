@@ -30,11 +30,11 @@
 
   $image_width: 80px; /* including margin */
 
-  & > h4, & > div, & > p {
+  & > h4, & > div {
     margin-left: $image_width;
   }
 
-  & > h4, & > div, & > p, .hashtags {
+  & > h4, & > div, .hashtags {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -49,21 +49,25 @@
   };
 
   h4 {
+    margin-top: 0px;
     margin-bottom: 0px;
     padding-bottom: 0px;
+    font-size: 16px;
+    a {
+      color: $blue;
+      font-weight: bold !important;
+    }
   }
 
-  a {
-    color: $blue;
-    font-weight: bold !important;
-  }
-
-  p {
+  .handle {
     color: $text-grey;
+    line-height: 18px;
     padding-top: 0px;
     margin-top: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
+
+  .btn-group.aspect_membership_dropdown { margin: 0 !important; }
 
   .hovercard_footer {
     position: absolute;
@@ -75,7 +79,8 @@
     width: 100%;
     min-height: 19px;
 
-    font-size: smaller;
+    font-size: 10px;
+    line-height: 18px;
 
     border-top: 1px solid #cccccc;
 

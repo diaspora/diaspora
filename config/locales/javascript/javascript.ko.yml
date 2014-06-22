@@ -31,6 +31,8 @@ ko:
       hide: "댓글 숨기기"
       show: "모든 댓글 보기"
     confirm_dialog: "확실합니까?"
+    conversation:
+      participants: "참여자"
     delete: "지우기"
     edit: "고치기"
     failed_to_like: "좋아요를 실패했습니다!"
@@ -44,11 +46,11 @@ ko:
       admin: "관리"
       close: "닫기"
       contacts: "컨택"
+      conversations: "대화"
       help: "도움말"
       home: "처음"
       log_out: "로그아웃"
       mark_all_as_read: "읽음으로 표시"
-      messages: "쪽지"
       notifications: "알림"
       profile: "프로필"
       recent_notifications: "최근 알림"
@@ -71,11 +73,16 @@ ko:
       invalid_ext: "{file} 파일의 확장자가 유효하지 않습니다. {extensions} 확장자만 사용할 수 있습니다."
       looking_good: "와! 멋져요!"
       size_error: "{file}파일이 너무 큽니다. 최대크기는 {sizeLimit} 입니다."
+    poll:
+      close_result: "결과 숨기기"
+      result: "결과"
     publisher:
+      add_option: "선택 사항 추가"
       at_least_one_aspect: "공유하려면 적어도 한 애스펙을 골라야 합니다."
       limited: "제한됨 - 내 게시물을 나와 공유하고 있는 사람들만 볼 수 있습니다"
       near_from: "<%= location %> 근처"
       public: "공개 - 내 게시물을 누구나 볼 수 있고 검색 엔진으로 찾을 수 있습니다"
+      question: "질문"
     reshares:
       duplicate: "이미 재공유된 게시물입니다!"
       post: "<%= name %>님의 게시물을 재공유할까요?"

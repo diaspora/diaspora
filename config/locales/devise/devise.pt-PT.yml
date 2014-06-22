@@ -32,15 +32,15 @@ pt-PT:
       inviter:
         accept_at: "em %{url}, pode aceitá-lo através da hiperligação abaixo."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} convidaram-no para se juntar ao Diaspora"
+        have_invited_you: "%{names} convidaram-no para se juntar ao diaspora*"
       reset_password_instructions:
         change: "Alterar a minha palavra-passe"
         ignore: "Se não fez este pedido, por favor ignore este email."
-        someone_requested: "Alguém pediu para alterar a sua palavra-passe, e pode fazer isso através da seguinte hiperligação."
+        someone_requested: "Alguém solicitou uma hiperligação para alterar a sua senha. Se foi você mesmo, pode efetuar isto através da hiperligação abaixo."
         subject: "Instruções para redefinir palavra-passe"
         wont_change: "A sua palavra-passe não será alterada até que aceda à hiperligação em cima e crie uma nova palavra-passe."
       unlock_instructions:
-        account_locked: "A sua conta foi bloqueada devido a um número excessivo de tentativas de início de sessão falhadas."
+        account_locked: "A sua conta foi bloqueada devido a um número excessivo de tentativas falhadas para iniciar a sessão."
         click_to_unlock: "Clique na seguinte hiperligação para desbloquear a sua conta:"
         subject: "Instruções de desbloqueio"
         unlock: "Desbloquear a minha conta"
@@ -50,12 +50,12 @@ pt-PT:
         change_password: "Alterar a minha palavra-passe"
       new:
         forgot_password: "Esqueceu a sua palavra-passe?"
-        no_account: "Não existe nenhuma conta com este endereço de email.  Se está à espera de um convite, estamos a distribuí-los tão rapidamente quanto é possível"
+        no_account: "Não existe nenhuma conta com este e-mail."
         send_password_instructions: "Enviem-me instruções para redefinir a minha palavra-passe"
       send_instructions: "Vai receber um email com instruções sobre como alterar a sua palavra-passe dentro de alguns minutos."
       updated: "A sua palavra-passe foi alterada com sucesso. A sessão foi iniciada."
     registrations:
-      destroyed: "Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
+      destroyed: "Adeus! A sua conta foi cancelada com sucesso. Nós esperamos vê-lo de novo em breve."
       signed_up: "Registou-se com sucesso. Caso tenha selecionado essa opção, uma confirmação foi enviada para o seu endereço de email."
       updated: "Atualizou a sua conta com sucesso."
     sessions:

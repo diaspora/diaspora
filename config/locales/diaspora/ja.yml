@@ -41,6 +41,7 @@ ja:
               taken: "既に使われています。"
   admins:
     admin_bar:
+      report: "レポート"
       user_search: "ユーザー検索"
     stats:
       50_most: "最も人気のある50のタグ"
@@ -98,9 +99,6 @@ ja:
       aspect_not_empty: "アスペクトは空ではありません。"
       remove: "削除"
     index:
-      cubbies:
-        heading: "Cubbi.esと連携する"
-        learn_more: "さらに詳しく"
       diaspora_id:
         content_1: "あなたのダイアスポラIDは:"
         heading: "ダイアスポラID"
@@ -232,10 +230,7 @@ ja:
         two: "%{count} new messages"
         zero: "新着メッセージ無し"
     index:
-      create_a_new_message: "新しいメッセージを作成する"
       inbox: "受信トレイ"
-      message_inbox: "メッセージ受信トレイ"
-      new_message: "新しいメッセージ"
       no_conversation_selected: "選択中の会話がありません"
       no_messages: "メッセージがありません"
     new:
@@ -244,8 +239,8 @@ ja:
       sending: "送信中…"
       subject: "件名"
       to: "宛先"
-    new_message:
-      fail: "無効なメッセージです。"
+    new_conversation:
+      fail: "無効なメッセージ"
     show:
       delete: "会話を削除して、ブロックする"
       reply: "返信"
@@ -379,8 +374,12 @@ ja:
         two: "and %{count} others"
         zero: "and nobody else"
       mark_all_as_read: "全件を既読にする"
+      mark_read: "既読にする"
       mark_unread: "未読にする"
       notifications: "通知"
+      show_all: "全件表示"
+      show_unread: "未開封メッセージを表示"
+      started_sharing: "共有を開始しました"
     liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
@@ -455,6 +454,8 @@ ja:
     mentioned:
       mentioned: "さんは投稿であなたをメンションしました。"
       subject: "%{name}さんはダイアスポラ＊であなたをメンションしました。"
+    report_email:
+      subject: "%{type}が新しく攻撃的だとマークされました"
     reshared:
       reshared: "%{name} just reshared your post"
       view_post: "投稿を見る >"
@@ -480,10 +481,8 @@ ja:
     few: "%{count}人の連絡先"
     helper:
       is_sharing: "%{name}さんがあなたに共有しています"
-      people_on_pod_are_aware_of: "人のポッドメンバーが知っています"
       results_for: "%{params}の検索結果"
     index:
-      couldnt_find_them_send_invite: "見つかりませんでしたか。招待メールを送信しましょう！"
       looking_for: "タグ%{tag_link}の付いた投稿をお探しですか?"
       no_one_found: "…1人も見つかりませんでした。"
       no_results: "何かを検索しないといけません。"
@@ -822,12 +821,6 @@ ja:
       people_tagged_with: "%{tag}とタグ付けられている人々"
       posts_tagged_with: "#%{tag}とタグ付けられている投稿"
       stop_following: "#%{tag}のフォローを中止する"
-  tokens:
-    show:
-      connect_to_cubbies: "Cubbi.esと連携する"
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-      daniels_account: "ダニエルのダイアスポラアカウント"
-      via: "(via %{link})"
   undo: "元に戻す"
   username: "ユーザ名"
   users:

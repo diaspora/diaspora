@@ -30,9 +30,9 @@
       </div>
     </div>
 
-    <div class="badge badge-inverse" id="message_inbox_badge">
+    <div class="badge badge-inverse" id="conversations_badge">
      <div class="icons-mail_grey" >
-        <a href="/conversations" title="{{t "header.messages"}}" class="badge_link" >
+        <a href="/conversations" title="{{t "header.conversations"}}" class="badge_link" >
           <div class="badge_count {{#unless current_user.unread_messages_count}} hidden {{/unless}}">
             {{current_user.unread_messages_count}}
           </div>
@@ -43,14 +43,9 @@
 
       <div id="notification_dropdown">
         <div class="header">
-          <div class="right">
-
+          <div class="pull-right">
             <a href="#" id="mark_all_read_link" class="{{#unless current_user.notifications_count}}disabled{{/unless}}">
               {{t "header.mark_all_as_read"}}
-            </a>
-            |
-            <a href="/notifications" id="view_all_notifications">
-              {{t "header.view_all"}}
             </a>
           </div>
 
@@ -64,6 +59,11 @@
             <img alt="Ajax-loader" src="{{imageUrl "ajax-loader.gif"}}">
           </div>
         </div>
+        <div class="view_all">
+          <a href="/notifications" id="view_all_notifications">
+            {{t "header.view_all"}}
+          </a>
+        </div>
       </div>
   </div>
 
@@ -74,7 +74,7 @@
       <h4>
         <a class="person"></a>
       </h4>
-      <p class="handle"></p>
+      <div class="handle"></div>
       <div id="hovercard_dropdown_container"></div>
       <div class="hovercard_footer">
         <div class="footer_container">

@@ -88,7 +88,8 @@ describe("app.helpers.textFormatter", function(){
           "http://موقع.وزارة-الاتصالات.مصر/", // example from #3082
           "http:///scholar.google.com/citations?view_op=top_venues",
           "http://lyricstranslate.com/en/someone-you-നിന്നെ-പോലൊരാള്‍.html", // example from #3063,
-          "http://de.wikipedia.org/wiki/Liste_der_Abkürzungen_(Netzjargon)" // #3645
+          "http://de.wikipedia.org/wiki/Liste_der_Abkürzungen_(Netzjargon)", // #3645
+          "http://wiki.com/?query=Kr%E4fte", // #4874
         ];
         this.asciiUrls = [
           "http://www.xn--brgerentscheid-krankenhuser-xkc78d.de",
@@ -96,7 +97,8 @@ describe("app.helpers.textFormatter", function(){
           "http://xn--4gbrim.xn----ymcbaaajlc6dj7bxne2c.xn--wgbh1c/",
           "http:///scholar.google.com/citations?view_op=top_venues",
           "http://lyricstranslate.com/en/someone-you-%E0%B4%A8%E0%B4%BF%E0%B4%A8%E0%B5%8D%E0%B4%A8%E0%B5%86-%E0%B4%AA%E0%B5%8B%E0%B4%B2%E0%B5%8A%E0%B4%B0%E0%B4%BE%E0%B4%B3%E0%B5%8D%E2%80%8D.html",
-          "http://de.wikipedia.org/wiki/Liste_der_Abk%C3%BCrzungen_%28Netzjargon%29"
+          "http://de.wikipedia.org/wiki/Liste_der_Abk%C3%BCrzungen_%28Netzjargon%29",
+          "http://wiki.com/?query=Kr%E4fte",
         ];
       });
 
@@ -237,6 +239,25 @@ describe("app.helpers.textFormatter", function(){
         var formattedText = this.formatter.hashtagify("#PARTIES, I love")
 
         expect(formattedText).toContain("/tags/parties")
+      })
+
+      it("doesn't create tag if the text is a link", function(){
+        var tags = ['diaspora', 'twitter', 'hrabrahabr'];
+
+        var text = $('<a/>', { href: 'http://me.co' }).html('#me')[0].outerHTML;
+        _.each(tags, function(tagName){
+          text += ' #'+tagName+',';
+        });
+        text += 'I love';
+
+        var formattedText = this.formatter.hashtagify(text);
+        var wrapper = $('<div>').html(formattedText);
+
+        expect(wrapper.find("a[href='http://me.co']").text()).toContain('#me');
+        _.each(tags, function(tagName){
+          expect(wrapper.find("a[href='/tags/"+tagName+"']").text()).toContain('#'+tagName);
+        });
+
       })
     })
   })

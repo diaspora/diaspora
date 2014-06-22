@@ -1,313 +1,232 @@
 #publisher {
   z-index: 1;
   color: $text-grey;
-  position: relative;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0 12px 22px 12px;
-  top: 0;
-  border-bottom: 1px #eee solid;
-
-  form {
-    textarea {
-      resize: none;
-      height: 50px;
-      margin: 0;
-    }
-  }
-
-  &.mention_popup {
-    padding: 1px 12px;
-    margin-bottom: 0;
-    border-bottom: none;
-  }
-
+  
   &.closed {
+    #button_container,
+    #location_container,
+    #hide_publisher,
+    #photodropzone_container,
     .options_and_submit {
       display: none !important;
     }
-
-    .counter {
-      display: none;
-    }
-  }
-
-  &:not(.closed) {
-    textarea {
-      margin-bottom: 30px;
-    }
+    
+    #publisher_textarea_wrapper { border: 1px solid $border-grey !important; }
   }
   
-  .mentions-autocomplete-list ul {
-    width: 483px;
-  }
-
-  .options_and_submit {
-    min-height: 21px;
-    clear: both;
-    position: relative;
-    padding-top: 6px;
-    margin-bottom: -2px;
-
-    input {
-      display: inline;
-    }
-
-    .public_toggle {
-      text-align: right;
-      .dropdown {
-        text-align: left;
-      }
-
-      .icons-monotone_wrench_settings {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-      }
-
-      a.question_mark {
-        text-decoration: none;
-      }
-    }
-
-    #publisher_service_icons {
-      position: relative;
-      top: 3px;
-      margin-right: 10px;
-
-      .social_media_logos-facebook-16x16,
-      .social_media_logos-twitter-16x16,
-      .social_media_logos-tumblr-16x16,
-      .social_media_logos-wordpress-16x16,
-      .social_media_logos-email-16x16,
-      .social_media_logos-feed-16x16,
-      .social_media_logos-website-16x16 {
-        display: inline-block;
-        height: 16px;
-        width: 16px;
-      }
-    }
-
-    #fileInfo {
-      display: inline;
-      position: relative;
-      top: -2px;
-    }
-  }
-
-  #status_message_fake_text {
-    min-height: 20px;
-  }
-
-  .content_creation {
-    margin-top: 1em;
-  }
-
-  #file-upload {
-    bottom: 1px !important;
-    display: inline-block;
+  .mentions-autocomplete-list ul { width: 100% !important; }
+  
+  form {
     margin: 0;
-    padding: .3em .3em 3px;
-    position: absolute !important;
-    right: 6px;
-    cursor: pointer;
-
-    input[type='file'] {
-      cursor: pointer;
-      right: initial !important;
-      height: 100%;
-      width: 100%;
-      &::-webkit-file-upload-button {
-        cursor: pointer;
-      }
+    #fileInfo { display: none !important; }
+    #hide_publisher {
+      margin-top: 10px;
     }
-
-    img {
-      @include opacity(0.4);
-      vertical-align: bottom;
+    
+    #publisher_spinner {
+      text-align: center;
     }
-
-    &:hover {
-      color: $text-dark-grey;
-      cursor: pointer;
-
-      img {
-        @include opacity(0.8);
-      }
-    }
-
-    &:active {
-      color: #444;
-      text-shadow: 0 1px 0 #fafafa;
-
-      img {
-        @include opacity(1);
-      }
-    }
-
-    &.loading {
-      @include opacity(0.5);
-    }
-  }
-}
-
-#publisher_textarea_wrapper {
-  #hide_publisher {
-    @include opacity(0.3);
-    z-index: 5;
-    padding: 3px;
-    position: absolute;
-    right: 6px;
-    margin-top: 9px;
-
-    .icons-deletelabel {
-      height: 14px;
-      width: 14px;
-    }
-
-    &:hover {
-      @include opacity(1);
-    }
-  }
-  
-  .markdownIndications {
-    position: absolute;
-    bottom: 0px;
-  }
-
-  @include border-radius(2px);
-
-  border: 1px solid #ccc;
-  background: #fff;
-
-  &.active {
-    border: 1px solid $border-dark-grey;
-  }
-
-  position: relative;
-  padding-right: 10px;
-
-  textarea {
-    z-index: 2;
-    border: none;
-
-    &:focus {
-      outline: 0;
-      background: transparent;
-    }
-  }
-
-  &.with_attachments {
-    padding-bottom: 38px;
-  }
-
-  #photodropzone {
-    z-index: 3;
-    position: absolute;
-    bottom: 15px;
-    right: 35px;
-    width: 430px;
-    left: 5px;
-    padding: 0;
-
-    li {
-      display: inline-block;
-      margin-right: 4px;
-      img {
-        width: 50px;
-        max-height: 55px;
-      }
-      .circle {
-        @include border-radius(20px);
-
-        display: none;
-        z-index: 1;
-        position: absolute;
-        right: -7px;
-        top: -5px;
-        background-color: #333;
-
-        width: 20px;
-        max-width: 20px;
-        height: 20px;
-        max-height: 20px;
-        border: 1px solid #fff;
-      }
-
-      .x {
-        display: none;
-        z-index: 2;
-        position: absolute;
-        top: -3px;
-        right: -1px;
-        font-size: small;
-        font-weight: bold;
-      }
-
-      &:hover {
-        cursor: default;
-        .circle {
-          display: block;
+    
+    .options_and_submit {
+      #publisher_service_icons {
+        .btn-link { text-decoration: none; }
+        .btn-link.question_mark .entypo { color: $text-grey; }
+        .btn-link.question_mark:hover .entypo { color: $black; }
+        .btn-link.service_icon {
+          padding-left: 5px;
+          padding-right: 5px;
         }
-        .x {
-          display: block;
+        .dim { @include opacity(0.3); }
+        .social_media_logos-wordpress-16x16 {
+          display: inline-block;
+          height: 16px;
+          width: 16px;
         }
       }
     }
-  }
+    
+    #publisher_textarea_wrapper {
+      background-color: white;
+      border-radius: 3px;
+      border: 1px solid $border-dark-grey;
 
-  .counter {
-    position: absolute;
-    font-size: 13px;
-    padding: 12px 0 0 5px;
-  }
-  .warning {
-    color: orange;
-  }
-  .exceeded {
-    color: red;
-  }
-}
-
-#publisher.closed {
-  #publisher_textarea_wrapper #hide_publisher,
-  .markdownIndications {
-    display: none;
-  }
-}
-
-#publisher_photo_upload {
-  position: absolute;
-  display: inline;
-  left: 600px;
-  top: 0;
-  z-index: 10;
-}
-
-#publisher-images {
-  padding-left: 5px;
-
-  #locator {
-    bottom: 1px !important;
-    display: inline-block;
-    margin: 0;
-    position: absolute !important;
-    right: 30px;
-    cursor: pointer;
-    img {
-      padding-top: 2px;
-      @include opacity(0.4);
-    }
-    &:hover {
-      color: $text-dark-grey;
-      cursor: pointer;
-      img {
-        @include opacity(0.8);
+      input[type='text'] {
+        border: none;
+        box-shadow: none;
+        margin: none;
       }
-    }
+
+      textarea {
+        border: none;
+        margin: 0;
+        box-shadow: none;
+        resize: none;
+        height: 50px;
+      }
+
+      &.active textarea {
+        min-height: 70px;
+      }
+      
+      .help-block {
+        font-size: 13px;
+        line-height: 30px;
+        padding-left: 10px;
+        margin-bottom: 0;
+        color: lighten($text-grey,20%);
+        a { color: lighten($blue,20%); }
+      }
+     
+      .mentions-input-box .mentions {
+        padding: 4px 6px !important;
+        line-height: 20px !important;
+        width: 100% !important;
+      }
+
+      &.with_attachments .row-fluid#photodropzone_container {
+        border-top: 1px dashed $border-grey; 
+      }
+
+      #poll_creator_wrapper {
+        display:none;
+        border-top: 1px dashed $border-grey;
+        padding:4px 6px 4px 6px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+      }
+
+      &.with_location .row-fluid#location_container {
+        height: 30px;
+        #hide_location { display: none !important; }
+        border-top: 1px dashed $border-grey;
+        input[type='text'] { 
+          margin-bottom: 0;
+          color: $text-grey;
+        }
+      }
+      &.active .row-fluid#button_container { 
+        border-top: 1px solid $border-grey;
+      }
+
+      #photodropzone {
+        margin: 0;
+        > li.publisher_photo {
+          list-style: none;
+          float: left;
+          margin: 8px;
+          height: 80px;
+          width: 80px;
+          overflow: hidden;
+          line-height: 80px;
+          vertical-align: middle;
+            
+          img {
+            vertical-align: middle;
+            width: 80px;
+          }
+
+          .x { 
+            display: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            text-align: center;
+            background-color: white;
+            color: black;
+            font-size: 50px;
+            line-height: 50px;
+            font-style: bold;
+            position: absolute;
+            z-index: 2;
+            @include opacity(0.85);
+            cursor: pointer;
+            top: 15px;
+            left: 15px;
+            
+            &:before {
+              content: '\2716';
+              font-family: 'entypo';
+            }
+          }
+
+          &:hover .x {
+            display: inline-block;
+          }
+          
+          .progress { 
+            width: 100%;
+            height: 20px;
+            margin: 30px 0;
+          }
+          
+          .ajax-loader { display: none; }
+        }
+      }
+      
+      #upload_error {
+        color: white;
+        font-style: bold;
+        border-top: 1px solid white;
+        background-color: $red;
+        text-align: center;
+      }
+      
+      #publisher-images {
+        margin-right: 5px;
+        #file-upload,
+        #locator,
+        #poll_creator,
+        #hide_location {
+          text-decoration: none !important;
+          font-size: 16px;
+          padding: 4px 5px;
+          i { 
+            color: $text-grey;
+          }
+          &:hover{
+            i { color: black; }
+          }
+          input[type='file'] { 
+            cursor: pointer;
+            &::-webkit-file-upload-button {
+              cursor: pointer;
+            }
+          }
+        }
+        #hide_location {
+          display: none;
+        }
+      }
+      &.with_location #publisher-images {
+        #hide_location { display: inline-block; }
+        #locator { display: none; }
+      }
+
+      .counter {
+        height: 30px;
+        line-height: 30px;
+        position: absolute;
+        right: 70px;
+        bottom: -31px;
+        font-size: 13px;
+      }
+      &.with_location .counter {
+        bottom: -62px;
+      }
+      .warning {
+        color: orange;
+      }
+      .exceeded {
+        color: red;
+      }
+    } 
   }
-  .btn {
-    height: 19px;
-    width: 19px;
+
+  .aspect_dropdown {
+    .radio {
+      min-height: 0px;
+      padding-left: 0px;
+    }
   }
 }

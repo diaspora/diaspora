@@ -18,3 +18,13 @@ end
 When /^I make a show page comment "([^"]*)"$/ do |comment_text|
   comment_on_show_page(comment_text)
 end
+
+When /^I comment a lot on "([^"]*)"$/ do |post_text|
+  within_post(post_text) do
+    (1..10).each do |n|
+      focus_comment_box
+      make_comment(n)
+    end
+  end
+end
+

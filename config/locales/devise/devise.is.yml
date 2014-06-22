@@ -33,7 +33,7 @@ is:
       inviter:
         accept_at: "á %{url}. Þú getur þegið boðið með því að fylgja hlekknum hér fyrir neðan."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} hafa boðið þér að vera með í Diaspora"
+        have_invited_you: "%{names} hafa boðið þér að vera með í Diaspora*"
       reset_password_instructions:
         change: "Breyta lykilorðinu mínu"
         ignore: "Ef þú baðst ekki um þetta, vinsamlegast gefðu þessum tölvupósti þá engan gaum."
@@ -43,15 +43,19 @@ is:
       unlock_instructions:
         account_locked: "Aðgangi þínum hefur verið læst vegna þess að of oft hefur verið að reynt að opna hann án árangurs."
         click_to_unlock: "Eltu hlekkinn hér fyrir neðan til að taka aðgang þinn úr lás."
-        subject: "Aflæsingarleiðbeiningar"
+        subject: "Leiðbeiningar fyrir aflæsingu"
         unlock: "Taka aðgang minn úr lás"
       welcome: "Velkomin/n %{email}!"
     passwords:
       edit:
         change_password: "Breyta lykilorði"
+        confirm_password: "Staðfestu lykilorð"
+        new_password: "Nýtt lykilorð"
       new:
+        email: "Netfang"
         forgot_password: "Gleymdirðu lykilorðinu þínu?"
         no_account: "Enginn notandi með þetta netfang ert til. Ef þú ert að bíða eftir boði, þá erum við að senda þau út eins fljótt og auðið er"
+        reset_password: "Endurstilla lykilorð"
         send_password_instructions: "Senda mér leiðbeiningar um hvernig ég get endurstillt lykilorðið mitt"
       send_instructions: "Þú munt fá tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú getur endurstillt lykilorð þitt."
       updated: "Lykilorði þínu hefur hér með verið breytt. Þú ert nú skráð/ur inn."

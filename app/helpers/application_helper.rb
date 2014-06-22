@@ -17,20 +17,15 @@ module ApplicationHelper
     url
   end
 
-  def how_long_ago(obj)
-    timeago(obj.created_at)
-  end
-
   def timeago(time, options={})
-    options[:class] ||= "timeago"
-    content_tag(:abbr, time.to_s, options.merge(:title => time.iso8601)) if time
+    timeago_tag(time, options.merge(:class => 'timeago', :title => time.iso8601, :force => true)) if time
   end
 
   def bookmarklet
     raw_bookmarklet
   end
 
-  def raw_bookmarklet( height = 250, width = 620)
+  def raw_bookmarklet( height = 400, width = 620)
     "javascript:(function(){f='#{AppConfig.pod_uri.to_s}bookmarklet?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=no,toolbar=no,width=#{width},height=#{height}'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
   end
 
@@ -60,7 +55,7 @@ module ApplicationHelper
     buf = []
     if AppConfig.privacy.jquery_cdn?
       version = Jquery::Rails::JQUERY_VERSION
-      buf << [ javascript_include_tag("//ajax.googleapis.com/ajax/libs/jquery/#{version}/jquery.min.js") ]
+      buf << [ javascript_include_tag("//code.jquery.com/jquery-#{version}.min.js") ]
       buf << [ javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag("jquery")}'));") ]
     else
       buf << [ javascript_include_tag('jquery') ]

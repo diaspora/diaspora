@@ -95,12 +95,12 @@ body > header {
       }
     }
 
-    #notification_badge, #message_inbox_badge {
+    #notification_badge, #conversations_badge {
       float: left;
       padding: 0px 3px;
     }
 
-    #message_inbox_badge {
+    #conversations_badge {
       padding-top: 3px;
       margin-right: 0px;
       padding-right: 0px;
@@ -124,16 +124,7 @@ body > header {
       width: 380px;
       display: none;
       float: left;
-      color: #444;
-
-      .right {
-        font-size: smaller;
-        display: inline;
-        position: relative;
-        float: right;
-        top: 4px;
-        font-weight: bold;
-      }
+      color: $grey;
 
       a { color: $blue; }
       a.disabled {
@@ -142,16 +133,21 @@ body > header {
       }
 
       .header {
-        padding: 10px;
+        border-bottom: 1px solid $border-grey;
+        padding: 5px 10px 5px 5px;
 
         h4 {
           padding-bottom: 0;
           margin-bottom: 0;
+          font-size: 16px;
+          color: $black;
+        }
+
+        a {
+          font-size: 11px;
+          font-weight: bold;
         }
       }
-
-      .notification_element,
-      .header { border-bottom: 1px solid $border-grey; }
 
       .ajax_loader {
         text-align: center;
@@ -159,22 +155,49 @@ body > header {
       }
 
       .notification_element {
-        padding: 10px;
-        padding-left: 50px;
-        min-height: 30px;
+        border-bottom: 1px solid $border-grey;
+        padding: 5px;
+        min-height: 35px;
+        line-height: 18px;
 
-        &:hover { background-color: $highlight-white; }
-
-        .avatar {
-          height: 30px;
-          width: 30px;
+        > .avatar {
+          height: 35px;
+          width: 35px;
           float: left;
-          margin-left: -40px;
+        }
+
+        .notification_message {
+          margin-left: 40px;
+        }
+
+        .unread-toggle {
+          padding: 9px 5px;
+          .entypo {
+            cursor: pointer;
+            color: lighten($black,75%);
+            font-size: 17px;
+            line-height: 17px;
+          }
         }
 
         &.unread {
           background-color: $background-grey;
-          color: #000;
+          color: $black;
+          .unread-toggle {
+            .entypo { color: $black; }
+          }
+        }
+      }
+
+      .view_all {
+        background-color: $blue;
+        border-bottom: 1px solid $border-dark-grey;
+        text-align: center;
+        a {
+          display: block;
+          padding: 5px;
+          color: white;
+          font-size: 12px;
           font-weight: bold;
         }
       }

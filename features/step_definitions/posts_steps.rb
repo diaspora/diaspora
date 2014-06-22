@@ -38,6 +38,10 @@ And /^the post with text "([^"]*)" is reshared by "([^"]*)"$/ do |text, email|
   user.post(:reshare, :root_guid => root.guid, :public => true, :to => user.aspects)
 end
 
+And /^I submit the publisher$/ do
+  submit_publisher
+end
+
 When /^I click on the first block button/ do
   find(".stream_element", match: :first).hover
   find(".block_user").click
@@ -63,8 +67,20 @@ When /^I post an extremely long status message$/ do
   click_and_post("I am a very interesting message " * 64)
 end
 
+When /^I write the status message "([^"]*)"$/ do |text|
+  write_in_publisher(text)
+end
+
 When /^I insert an extremely long status message$/ do
-  fill_in 'status_message_fake_text', :with => "I am a very interesting message " * 64
+  write_in_publisher("I am a very interesting message " * 64)
+end
+
+When /^I append "([^"]*)" to the publisher$/ do |text|
+  append_to_publisher(text)
+end
+
+When /^I append "([^"]*)" to the publisher mobile$/ do |text|
+  append_to_publisher(text, '#status_message_text')
 end
 
 When /^I open the show page of the "([^"]*)" post$/ do |post_text|

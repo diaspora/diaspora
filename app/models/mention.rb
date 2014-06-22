@@ -22,6 +22,6 @@ class Mention < ActiveRecord::Base
   end
 
   def delete_notification
-    Notification.where(:target_type => self.class.name, :target_id => self.id).delete_all
+    Notification.where(:target_type => self.class.name, :target_id => self.id).destroy_all
   end
 end

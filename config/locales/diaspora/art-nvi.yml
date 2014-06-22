@@ -35,9 +35,6 @@ art-nvi:
     edit:
       done: "Hasey"
     index:
-      cubbies:
-        heading: "'awstengyem ne Cubbi.es"
-        learn_more: "nume nì'ul"
       diaspora_id:
         content_1: "Ngeyä Diaspora Tstxo lu:"
         content_2: "Fpe' fì'u"
@@ -66,9 +63,6 @@ art-nvi:
       family: "Soaia"
       friends: "Eylan"
       work: "Tìkangkem"
-  authorizations:
-    new:
-      nope: "Kea"
   back: "ne'ìm"
   cancel: "Ftang"
   comments:
@@ -95,14 +89,10 @@ art-nvi:
         zero: "kea 'upxare amip"
     index:
       inbox: "'Upxare tsenge"
-      message_inbox: "'Upxare tsenge"
-      new_message: "'Upxare amip"
       no_messages: "Kea upxare"
     new:
       send: "fpe'"
       sending: "fpere'"
-    new_message:
-      fail: "kxeyey 'upxare"
     show:
       reply: "'eyng"
       replying: "'ereyng..."
@@ -227,9 +217,6 @@ art-nvi:
       contacts_title: "Sute ngeyä Payfyamì"
       title: "Payfya"
   terms_and_conditions: "Horen"
-  tokens:
-    show:
-      via: "(ìlä %{link})"
   undo: "Tätxaw srefxiset?"
   username: "Tstxo"
   users:

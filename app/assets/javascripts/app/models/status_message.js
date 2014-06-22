@@ -13,7 +13,8 @@ app.models.StatusMessage = app.models.Post.extend({
       status_message : _.clone(this.attributes),
       aspect_ids : this.get("aspect_ids"),
       photos : this.photos && this.photos.pluck("id"),
-      services : this.get("services")
+      services : this.get("services"),
+      poll : this.get("poll")
     }
   }
 });

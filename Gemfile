@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.17'
+gem 'rails', '3.2.18'
 
 # Appserver
 
-gem 'unicorn', '4.8.0', :require => false
+gem 'unicorn', '4.8.3', :require => false
 
 # API and JSON
 
@@ -13,7 +13,8 @@ gem 'json',        '1.8.1'
 
 # Authentication
 
-gem 'devise', '3.2.2'
+gem 'devise', '3.2.4'
+gem 'devise_lastseenable', '0.0.4'
 
 # Captcha
 
@@ -30,13 +31,13 @@ gem 'configurate', '0.0.8'
 
 # Cross-origin resource sharing
 
-gem 'rack-cors', '0.2.8', :require => 'rack/cors'
+gem 'rack-cors', '0.2.9', :require => 'rack/cors'
 
 # Database
 
 ENV['DB'] ||= 'mysql'
 
-gem 'mysql2', '0.3.14' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
+gem 'mysql2', '0.3.16' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg',     '0.17.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 
 gem 'activerecord-import', '0.3.1'
@@ -44,10 +45,13 @@ gem 'foreigner',           '1.6.1'
 
 # File uploading
 
-gem 'carrierwave', '0.9.0'
-gem 'fog',         '1.19.0'
+gem 'carrierwave', '0.10.0'
+gem 'fog',         '1.22.1'
 gem 'mini_magick', '3.7.0'
 gem 'remotipart',  '1.2.1'
+
+# GUID generation
+gem 'uuid', '2.3.7'
 
 # Localization
 
@@ -57,31 +61,31 @@ gem 'rails-i18n',           '0.7.4'
 
 # Mail
 
-gem 'markerb',             '1.0.1'
+gem 'markerb',             '1.0.2'
 gem 'messagebus_ruby_api', '1.0.3'
 
 # Parsing
 
 gem 'nokogiri',         '1.6.1'
 gem 'rails_autolink',   '1.1.5'
-gem 'redcarpet',        '3.0.0'
+gem 'redcarpet',        '3.1.2'
 gem 'roxml',            '3.1.6'
 gem 'ruby-oembed',      '0.8.9'
 gem 'opengraph_parser', '0.2.3'
 
 
 # Please remove when migrating to Rails 4
-gem 'strong_parameters'
+gem 'strong_parameters', '0.2.3'
 
 
 # Services
 
-gem 'omniauth',          '1.1.4'
+gem 'omniauth',          '1.2.1'
 gem 'omniauth-facebook', '1.6.0'
 gem 'omniauth-tumblr',   '1.1'
 gem 'omniauth-twitter',  '1.0.1'
 gem 'twitter',           '4.8.1'
-gem 'omniauth-wordpress','0.2.0'
+gem 'omniauth-wordpress','0.2.1'
 
 # Tags
 
@@ -89,18 +93,18 @@ gem 'acts-as-taggable-on', '2.4.1'
 
 # URIs and HTTP
 
-gem 'addressable',        '2.3.5', :require => 'addressable/uri'
+gem 'addressable',        '2.3.6', :require => 'addressable/uri'
 gem 'faraday',            '0.8.9'
 gem 'faraday_middleware', '0.9.0'
-gem 'typhoeus',           '0.6.7'
+gem 'typhoeus',           '0.6.8'
 
 # Views
 
-gem 'client_side_validations', '3.2.6'
-gem 'gon',                     '4.1.1'
+gem 'gon',                     '5.0.4'
 gem 'haml',                    '4.0.5'
 gem 'mobile-fu',               '1.2.2'
 gem 'will_paginate',           '3.0.5'
+gem 'rails-timeago',           '2.4.0'
 
 # Workarounds
 # https://github.com/rubyzip/rubyzip#important-note
@@ -111,23 +115,23 @@ gem 'zip-zip'
 group :assets do
 
   # Icons
-  gem 'entypo-rails'
+  gem 'entypo-rails', '2.2.1'
 
   # CSS
 
   gem 'bootstrap-sass', '2.2.2.0'
-  gem 'compass-rails',  '1.0.3'
+  gem 'compass-rails',  '1.1.7'
   gem 'sass-rails',     '3.2.6'
 
   # Compression
 
-  gem 'uglifier', '2.1.2'
+  gem 'uglifier', '2.5.0'
 
   # JavaScript
 
-  gem 'backbone-on-rails', '1.1.0'
+  gem 'backbone-on-rails', '1.1.1'
   gem 'handlebars_assets', '0.12.0'
-  gem 'jquery-rails',      '2.1.4'
+  gem 'jquery-rails',      '3.0.4'
 
   # Windows and OSX have an execjs compatible runtime built-in, Linux users should
   # install Node.js or use 'therubyracer'.
@@ -167,16 +171,11 @@ group :production do # we don't install these on travis to speed up test runs
 end
 
 group :development do
-  # Comparison images
-
-  gem 'rmagick', '2.13.2', :require => false
-
   # Automatic test runs
-
   gem 'guard-cucumber', '1.4.1'
-  gem 'guard-rspec',    '4.2.4'
+  gem 'guard-rspec',    '4.2.9'
   gem 'rb-fsevent',     '0.9.4', :require => false
-  gem 'rb-inotify',     '0.9.3', :require => false
+  gem 'rb-inotify',     '0.9.4', :require => false
 
   # Preloading environment
 
@@ -188,32 +187,32 @@ group :test do
   # RSpec (unit tests, some integration tests)
 
   gem 'fixture_builder',   '0.3.6'
-  gem 'fuubar',            '1.3.2'
+  gem 'fuubar',            '1.3.3'
   gem 'rspec-instafail',   '0.2.4', :require => false
-  gem 'test_after_commit', '0.2.2'
+  gem 'test_after_commit', '0.2.3'
 
   # Cucumber (integration tests)
 
   gem 'capybara',           '2.2.1'
-  gem 'database_cleaner',   '1.2.0'
-  gem 'selenium-webdriver', '2.39.0'
+  gem 'database_cleaner',   '1.3.0'
+  gem 'selenium-webdriver', '2.42.0'
 
   # General helpers
 
-  gem 'factory_girl_rails', '4.3.0'
+  gem 'factory_girl_rails', '4.4.1'
   gem 'timecop',            '0.7.1'
-  gem 'webmock',            '1.16.1', :require => false
+  gem 'webmock',            '1.18.0', :require => false
 end
 
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails",     '2.14.1'
+  gem "rspec-rails",     '2.14.2'
 
   # Cucumber (integration tests)
-  gem 'cucumber-rails',     '1.4.0', :require => false
+  gem 'cucumber-rails',     '1.4.1', :require => false
 
   # Jasmine (client side application tests (JS))
   gem 'jasmine', '1.3.2'
-  gem 'sinon-rails',	    '1.7.3'
+  gem 'sinon-rails',	    '1.9.0'
 end

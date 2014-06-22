@@ -1,8 +1,5 @@
 module NotificationMailers
   class AlsoCommented < NotificationMailers::Base
-    include ActionView::Helpers::TextHelper
-    include MarkdownifyHelper
-
     attr_accessor :comment
     delegate :post, to: :comment, prefix: true
 
@@ -11,8 +8,7 @@ module NotificationMailers
 
       if mail?
         @headers[:from] = "\"#{@comment.author_name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
-        @headers[:subject] = truncate(strip_markdown(@comment.comment_email_subject.squish), :length => TRUNCATION_LEN)
-        @headers[:subject] = "Re: #{@headers[:subject]}"
+        @headers[:subject] = "Re: #{@comment.comment_email_subject}"
       end
     end
 

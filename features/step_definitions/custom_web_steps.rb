@@ -64,33 +64,12 @@ And /^I expand the publisher$/ do
  click_publisher
 end
 
-When /^I press the aspect dropdown$/ do
-  find('.dropdown .button').click
-end
-
-And /^I toggle the aspect "([^"]*)"$/ do |aspect_name|
-  aspect = @me.aspects.where(:name => aspect_name).first
-  find(".dropdown li[data-aspect_id='#{aspect.id}']").click
-end
-
 Then /^the publisher should be expanded$/ do
   find("#publisher")["class"].should_not include("closed")
 end
 
 Then /^the text area wrapper mobile should be with attachments$/ do
   find("#publisher_textarea_wrapper")["class"].should include("with_attachments")
-end
-
-When /^I append "([^"]*)" to the publisher$/ do |stuff|
-  elem = find('#status_message_fake_text')
-  elem.native.send_keys(' ' + stuff)
-end
-
-When /^I append "([^"]*)" to the publisher mobile$/ do |stuff|
-  elem = find('#status_message_text')
-  elem.native.send_keys(' ' + stuff)
-
-  find('#status_message_text').value.should include(stuff)
 end
 
 And /^I want to mention (?:him|her) from the profile$/ do
@@ -120,7 +99,7 @@ end
 When /^I click to delete the first comment$/ do
   within("div.comment", match: :first) do
     find(".controls").hover
-    find(".comment_delete").click
+    find(".comment_delete", visible: false).click # TODO: hax to check what's failing on Travis
   end
 end
 
@@ -206,6 +185,10 @@ And /^I scroll down$/ do
   page.execute_script("window.scrollBy(0,3000000)")
 end
 
+Then /^I should have scrolled down$/ do
+  page.evaluate_script("window.pageYOffset").should > 0
+end
+
 Then /^the notification dropdown should be visible$/ do
   find(:css, "#notification_dropdown").should be_visible
 end
@@ -235,6 +218,14 @@ end
 
 Then /^I should see a flash message indicating success$/ do
   flash_message_success?.should be_true
+end
+
+Then /^I should see a flash message indicating failure$/ do
+  flash_message_failure?.should be_true
+end
+
+Then /^I should see a flash message with a warning$/ do
+  flash_message_alert?.should be_true
 end
 
 Then /^I should see a flash message containing "(.+)"$/ do |text|
@@ -272,4 +263,13 @@ end
 Given /^"([^"]*)" is hidden$/ do |selector|
   page.should have_selector(selector, visible: false)
   page.should_not have_selector(selector)
+end
+
+Then(/^I should have a validation error on "(.*?)"$/) do |field_list|
+  check_fields_validation_error field_list
+end
+
+And /^I active the first hovercard after loading the notifications page$/ do
+  page.should have_css '.notifications .hovercardable'
+  first('.notifications .hovercardable').hover
 end

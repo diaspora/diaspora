@@ -147,10 +147,6 @@ ml:
       aspect_not_empty: "പരിചയം ശൂന്യമല്ല "
       remove: "നീക്കം ചെയ്യു"
     index:
-      cubbies:
-        explanation: "ഡയസ്പോറയുടെ കീഴില്‍ വികസിപ്പിച്ചുകൊണ്ടിരിക്കുന്ന ആദ്യത്തെ പ്രയോഗമാണ് Cubbi.es"
-        heading: "Cubbi.es-മായി ബന്ധപ്പെടുത്തുക"
-        learn_more: "കൂടുതല്‍ അറിയുക"
       diaspora_id:
         content_1: "നിങ്ങളുടെ ഡയാസ്പുറ ഐഡി:"
         content_2: "ഇവ ആര്‍ക്ക് കൊടുക്കുന്നുവോ അവര്‍ക്ക് നിങ്ങളെ ഡയസ്പുറയില്‍ കണ്ട്പിടിക്കാനാകും."
@@ -224,14 +220,6 @@ ml:
       failure: "താങ്കള്‍ നല്കിയ %{name} എന്ന പരിചയത്തിന്റെ പേര് അനുവദിനീയമായതിലും വലുതാണ്."
       success: "നിങ്ങളുടെ പരിചയം, %{name}, വിജയകരമായി ചിട്ടപ്പെടുത്തി."
     zero: "പരിചയങ്ങള്‍ ഇല്ല"
-  authorizations:
-    index:
-      no_applications: "You haven't registered any applications yet."
-      revoke_access: "Revoke Access"
-    new:
-      authorize: "അധികാരപ്പെടുത്തുക"
-      cubbies_will: "Cubbiesന് താങ്കൾക്ക് വേണ്ടി ചിത്രങ്ങൾ ഇടാൻ ആകും"
-      nope: "ഇല്ല"
   back: "പിന്നോട്ട്"
   blocks:
     create:
@@ -304,10 +292,7 @@ ml:
         two: "%{count} new messages"
         zero: "പുതിയ സന്ദേശങ്ങളില്ല"
     index:
-      create_a_new_message: "പുതിയ സന്ദേശം ഉണ്ടാക്കുക"
       inbox: "ഇന്‍ബോക്സ്"
-      message_inbox: "സന്ദേശപ്പെട്ടി"
-      new_message: "പുതിയ സന്ദേശം"
       no_conversation_selected: "സംവാദങ്ങളൊന്നും തിരഞ്ഞെടുത്തില്ല"
       no_messages: "സന്ദേശങ്ങളൊന്നുമില്ല"
     new:
@@ -316,8 +301,6 @@ ml:
       sending: "അയയ്ക്കുന്നു..."
       subject: "വിഷയം"
       to: "സ്വീകര്‍ത്താവ്"
-    new_message:
-      fail: "സാധുവല്ലാത്ത സന്ദേശം"
     show:
       delete: "സംഭാഷണം തടഞ്ഞ് നീക്കം ചെയ്യുക."
       reply: "മറുപടി"
@@ -687,10 +670,8 @@ ml:
     helper:
       is_not_sharing: "%{name} നിങ്ങളുമായി പങ്കുവെയ്ക്കുന്നില്ല."
       is_sharing: "%{name} നിങ്ങളുമായി പങ്കുവെയ്ക്കുന്നു."
-      people_on_pod_are_aware_of: " ഈ പോഡിലെ ആളുകള്‍ക്ക് ഇതിനെകുറിച്ച് അറിവുണ്ട്"
       results_for: " %{params} ന്റെ ഫലങ്ങള്‍"
     index:
-      couldnt_find_them_send_invite: "കണ്ടുപിടിയ്ക്കാനാകുന്നില്ലേ? ഒരു ക്ഷണം അയക്കു!"
       looking_for: "%{tag_link} എന്ന ടാഗ് ചേര്‍ത്തിരിക്കുന്ന കുറിപ്പുകള്‍ക്കായി തിരയുകയാണോ?"
       no_one_found: "...പക്ഷേ, ഒരാളെയും കണ്ടുപിടിച്ചില്ല."
       no_results: "താങ്കള്‍ എന്തിനെങ്കിലും വേണ്ടി തിരയേണ്ടതുണ്ട്."
@@ -1068,18 +1049,6 @@ ml:
       posts_tagged_with: "#%{tag} ചേര്‍ത്തിട്ടുള്ള കുറിപ്പുകള്‍"
       stop_following: "Stop Following #%{tag}"
   terms_and_conditions: "വ്യവസ്ഥകളും നിബന്ധനകളും"
-  tokens:
-    show:
-      connect_to_cubbies: "Connect to Cubbi.es"
-      connecting_is_simple: "Connecting your Diaspora account is simple!  Just enter your Diaspora ID (<b>%{diaspora_id}</b>) from your cubbies <a href='%{href_link}'>settings page</a> and hit connect."
-      daniels_account: "ഡാനിയേലിന്റെ ഡയസ്പോറ അക്കൌണ്ട്"
-      love_to_try: "We'd love for you to try it out."
-      making_the_connection: "Making the Connection"
-      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
-      sign_up_today: "Sign up today!"
-      typical_userpage: "A typical cubbi.es userpage"
-      via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
   undo: "പൂര്‍വരൂപത്തിലാക്കണോ?"
   username: "ഉപയോക്തൃനാമം"
   users:

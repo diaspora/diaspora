@@ -89,10 +89,6 @@ bg:
       aspect_not_empty: "Аспектът не е празен"
       remove: "премахване"
     index:
-      cubbies:
-        explanation: "Cubbi.es е първото приложение за Diaspora и все още се разработва."
-        heading: "Свързване с Cubbi.es"
-        learn_more: "Научете повече"
       diaspora_id:
         content_1: "Вашият адрес в Diaspora е:"
         content_2: "Споделете го с който и да е и той ще Ви намери в Diaspora."
@@ -157,10 +153,6 @@ bg:
       failure: "Аспектът \"%{name}\" има твърде дълго име. Не може да бъде запаметен."
       success: "Аспектът \"%{name}\" е успешно редактиран."
     zero: "няма аспекти"
-  authorizations:
-    index:
-      no_applications: "Все още не сте регистрирали нито едно приложение."
-      revoke_access: "Прекратяване на достъпа"
   back: "Назад"
   blocks:
     create:
@@ -226,10 +218,7 @@ bg:
         two: "%{count} нови съобщения"
         zero: "Няма нови съобщения"
     index:
-      create_a_new_message: "създаване на съобщение"
       inbox: "Входящи"
-      message_inbox: "Входяща кутия"
-      new_message: "Ново съобщение"
       no_conversation_selected: "няма избран разговор"
       no_messages: "няма съобщения"
     new:
@@ -238,8 +227,6 @@ bg:
       sending: "Изпращане..."
       subject: "тема"
       to: "до"
-    new_message:
-      fail: "Невалидно съобщение"
     show:
       delete: "изтриване и блокиране на разговора"
       reply: "отговор"
@@ -441,7 +428,6 @@ bg:
     helper:
       results_for: " резултата за %{params}"
     index:
-      couldnt_find_them_send_invite: "Не можете да намерите приятелите си? Пратете им покана!"
       looking_for: "Търсите публикации с марка %{tag_link}?"
       no_one_found: "...и никой не е намерен."
       no_results: "Хей! Въведете нещо за търсене."
@@ -797,18 +783,6 @@ bg:
       posts_tagged_with: "Публикации с марка #%{tag}"
       stop_following: "Прекратяване следването на #%{tag}"
   terms_and_conditions: "Общи условия и правила"
-  tokens:
-    show:
-      connect_to_cubbies: "Свързване с Cubbi.es"
-      connecting_is_simple: "За свързване на акаунта Ви в Diaspora е необходимо да въведете вашият адрес в Diaspora (<b>%{diaspora_id}</b>) в <a href='%{href_link}'>страницата с настройки</a> на Cubbi.es и да натиснете \"Connect\"."
-      daniels_account: "акаунта на Daniel в Diaspora"
-      love_to_try: "Бихме се радвали ако го пробвате!"
-      making_the_connection: "Създаване на връзката"
-      screenshot_explanation: "%{link1}.  Тази cubby страница е свързана с %{link2}."
-      sign_up_today: "Регистрирайте се днес!"
-      typical_userpage: "Типична потребителска страница от cubbi.es"
-      via: "(чрез %{link})"
-      what_is_cubbies: "Cubbi.es е първото приложение за Diaspora. Също така е и най-добрият начин за събиране на изображения."
   undo: "Отмяна?"
   username: "Потребителско име"
   users:

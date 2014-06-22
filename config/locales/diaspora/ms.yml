@@ -68,10 +68,6 @@ ms:
       aspect_not_empty: "Aspek tidak kosong"
       remove: "buang"
     index:
-      cubbies:
-        explanation: "Cubbi.es adalah aplikasi pertama Diaspora dalam pembangunan."
-        heading: "Sambung kepada Cubbi.es"
-        learn_more: "Ketahui lebih lanjut"
       diaspora_id:
         content_1: "ID Diaspora anda adalah:"
         content_2: "Beri kepada sesiapa dan mereka akan dapat mencari anda di Diaspora."
@@ -143,10 +139,7 @@ ms:
         two: "%{count} new messages"
         zero: "Tiada mesej baru"
     index:
-      create_a_new_message: "membuat mesej baru"
       inbox: "Peti masuk"
-      message_inbox: "Mesej Peti Masuk"
-      new_message: "Mesej Baru"
       no_conversation_selected: "tiada perbualan dipilih"
       no_messages: "tiada mesej"
     new:
@@ -155,8 +148,6 @@ ms:
       sending: "Menghantar..."
       subject: "subjek"
       to: "kepada"
-    new_message:
-      fail: "mesej tidak sah"
     show:
       delete: "memadam dan menyekat perbualan"
       reply: "balas"

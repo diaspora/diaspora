@@ -1,6 +1,4 @@
 module NotificationMailers
-  TRUNCATION_LEN = 70
-
   class Base
     attr_accessor :recipient, :sender
 

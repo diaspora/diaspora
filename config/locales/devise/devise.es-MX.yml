@@ -16,6 +16,7 @@ es-MX:
       invalid: "Nombre de usuario o contraseña inválidos."
       invalid_token: "Identificador de autenticación inválido."
       locked: "Tu cuenta está bloqueada."
+      not_found_in_database: "Contraseña o correo electrónico inválido."
       timeout: "Tu sesión ha caducado, por favor accede nuevamente para continuar."
       unauthenticated: "Necesitas iniciar sesión o registrarte antes de continuar."
       unconfirmed: "Tienes que confirmar tu cuenta antes de continuar."
@@ -36,7 +37,7 @@ es-MX:
       reset_password_instructions:
         change: "Cambiar mi contraseña"
         ignore: "Si no solicitaste esto, por favor, ignora este correo."
-        someone_requested: "Alguien ha solicitado un enlace para cambiar tu contraseña, y puedes hacerlo a través del siguiente enlace."
+        someone_requested: "Alguien ha solicitado un enlace para cambiar tu contraseña. Si fuiste tú, puedes cambiarlo a través del enlace siguiente."
         subject: "Instrucciones para reestablecer la contraseña"
         wont_change: "Tu contraseña no cambiará hasta que accedas al enlace anterior y crees una nueva."
       unlock_instructions:
@@ -49,13 +50,15 @@ es-MX:
       edit:
         change_password: "Cambiar mi contraseña"
       new:
+        email: "Dirección de correo electrónico"
         forgot_password: "¿Olvidaste tu contraseña?"
-        no_account: "No existe una cuenta con este correo. Si estás esperando una invitación, te la enviaremos lo antes posible."
+        no_account: "No existe una cuenta con este correo electrónico."
+        reset_password: "Restablecer contraseña"
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña."
       send_instructions: "Recibirás un correo electrónico con instrucciones para restablecer tu contraseña dentro de pocos minutos."
       updated: "Tu contraseña se ha modificado exitosamente. Has accedido a tu cuenta."
     registrations:
-      destroyed: "¡Adiós! Tu cuenta ha sido cancelada exitosamente. Esperamos verte de nuevo pronto."
+      destroyed: "¡Adiós! Tu cuenta ha sido eliminada exitosamente. Esperamos verte de nuevo pronto."
       signed_up: "Te has registrado exitosamente. Un mensaje de confirmación ha sido enviado a tu correo electrónico."
       updated: "Has actualizado exitosamente tu cuenta."
     sessions:

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   apply_simple_captcha :message => I18n.t('simple_captcha.message.failed'), :add_to_base => true
 
-  scope :logged_in_since, lambda { |time| where('last_sign_in_at > ?', time) }
+  scope :logged_in_since, lambda { |time| where('last_seen > ?', time) }
   scope :monthly_actives, lambda { |time = Time.now| logged_in_since(time - 1.month) }
   scope :daily_actives, lambda { |time = Time.now| logged_in_since(time - 1.day) }
   scope :yearly_actives, lambda { |time = Time.now| logged_in_since(time - 1.year) }
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :lockable, :lock_strategy => :none, :unlock_strategy => :none
+         :lockable, :lastseenable, :lock_strategy => :none, :unlock_strategy => :none
 
   before_validation :strip_and_downcase_username
   before_validation :set_current_language, :on => :create
@@ -68,6 +68,8 @@ class User < ActiveRecord::Base
   has_many :conversations, through: :conversation_visibilities, order: 'updated_at DESC'
 
   has_many :notifications, :foreign_key => :recipient_id
+
+  has_many :reports
 
   before_save :guard_unconfirmed_email,
               :save_person!
@@ -245,8 +247,6 @@ class User < ActiveRecord::Base
   end
 
   def add_to_streams(post, aspects_to_insert)
-    inserted_aspect_ids = aspects_to_insert.map{|x| x.id}
-
     aspects_to_insert.each do |aspect|
       aspect << post
     end
@@ -419,14 +419,6 @@ class User < ActiveRecord::Base
 
     if unconfirmed_email_changed?
       self.confirm_email_token = unconfirmed_email ? SecureRandom.hex(15) : nil
-    end
-  end
-
-  def reorder_aspects(aspect_order)
-    i = 0
-    aspect_order.each do |id|
-      self.aspects.find(id).update_attributes({ :order_id => i })
-      i += 1
     end
   end
 

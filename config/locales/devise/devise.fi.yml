@@ -33,7 +33,7 @@ fi:
       inviter:
         accept_at: "osoitteessa %{url}, hyväksyminen alla olevasta linkistä."
         has_invited_you: "%{names}"
-        have_invited_you: "%{names} on kutsunut sinut Diasporan käyttäjäksi"
+        have_invited_you: "%{names} on kutsunut sinut liittymään Diasporan käyttäjäksi"
       reset_password_instructions:
         change: "Vaihda salasanani"
         ignore: "Jos et pyytänyt tätä, voit jättää tämän sähköpostin huomiotta."
@@ -49,9 +49,13 @@ fi:
     passwords:
       edit:
         change_password: "Vaihda salasanani"
+        confirm_password: "Vahvista salasana"
+        new_password: "Uusi salasana"
       new:
+        email: "Sähköpostiosoite"
         forgot_password: "Unohditko salasanasi?"
         no_account: "Tunnusta tälle sähköpostiosoitteelle ei ole olemassa."
+        reset_password: "Vaihda salasana"
         send_password_instructions: "Lähetä minulle salasanan uudelleenasettamisohjeet"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten voit asettaa salasanasi uudelleen."
       updated: "Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään."

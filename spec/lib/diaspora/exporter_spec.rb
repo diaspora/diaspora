@@ -12,33 +12,49 @@ describe Diaspora::Exporter do
     @user2 =  FactoryGirl.create(:user)
     @user3 =  bob
 
+    @user1.person.profile.first_name = "<script>"
+    @user1.person.profile.gender = "<script>"
+    @user1.person.profile.bio = "<script>"
+    @user1.person.profile.location = "<script>"
+    @user1.person.profile.save
+
     @aspect  =  @user1.aspects.first
     @aspect1 =  @user1.aspects.create(:name => "Work")
     @aspect2 =  @user2.aspects.create(:name => "Family")
     @aspect3 =  @user3.aspects.first
+    @aspect.name = "<script>"
+    @aspect.save
 
     @status_message1 =  @user1.post(:status_message, :text => "One", :public => true, :to => @aspect1.id)
     @status_message2 =  @user1.post(:status_message, :text => "Two", :public => true, :to => @aspect1.id)
     @status_message3 =  @user2.post(:status_message, :text => "Three", :public => false, :to => @aspect2.id)
+    @status_message4 =  @user1.post(:status_message, :text => "<script>", :public => true, :to => @aspect2.id)
   end
 
   def exported
     Nokogiri::XML(Diaspora::Exporter.new(Diaspora::Exporters::XML).execute(@user1))
   end
 
+  it 'escapes xml relevant characters' do
+    expect(exported.to_s).to_not include "<script>"
+  end
+
   context '<user/>' do
-    before do
-      @user_xml = exported.xpath('//user').to_s
-    end
+    let(:user_xml) { exported.xpath('//user').to_s }
+
     it 'includes a users private key' do
-      @user_xml.to_s.should include @user1.serialized_private_key
+      expect(user_xml).to include @user1.serialized_private_key
+    end
+
+    it 'includes the profile as xml' do
+      expect(user_xml).to include "<profile>"
     end
   end
 
   context '<aspects/>' do
+    let(:aspects_xml) { exported.xpath('//aspects').to_s }
 
     it 'includes the post_ids' do
-      aspects_xml = exported.xpath('//aspects').to_s
       aspects_xml.should include @status_message1.id.to_s
       aspects_xml.should include @status_message2.id.to_s
     end
@@ -47,6 +63,8 @@ describe Diaspora::Exporter do
   context '<contacts/>' do
 
     before do
+      @aspect.name = "Safe"
+      @aspect.save
       @user1.add_contact_to_aspect(@user1.contact_for(@user3.person), @aspect1)
       @user1.reload
     end
@@ -101,7 +119,7 @@ describe Diaspora::Exporter do
       created_at_text = doc.xpath('//posts/status_message').detect do |status|
         status.to_s.include?(@status_message1.guid)
       end.xpath('created_at').text
-      
+
       Time.zone.parse(created_at_text).to_i.should == @status_message1.created_at.to_i
     end
   end

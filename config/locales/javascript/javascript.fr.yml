@@ -27,6 +27,10 @@ fr:
       deselect_all: "Désélectionner tout"
       no_aspects: "Aucun aspect sélectionné"
       select_all: "Sélectionner tout"
+    bookmarklet:
+      post_something: "Publier sur diaspora*"
+      post_submit: "Message en cours de publication ..."
+      post_success: "Publié ! Fermeture de la fenêtre popup ..."
     comma: ","
     comments:
       hide: "Masquer les commentaires"
@@ -49,11 +53,11 @@ fr:
       admin: "Administration"
       close: "fermer"
       contacts: "Contacts"
+      conversations: "Discussions"
       help: "Aide"
       home: "Accueil"
       log_out: "Se déconnecter"
       mark_all_as_read: "Tout marquer comme lu"
-      messages: "Messages"
       notifications: "Notifications"
       profile: "Profil"
       recent_notifications: "Notifications récentes"
@@ -68,6 +72,9 @@ fr:
     my_activity: "Mon activité"
     my_aspects: "Mes Aspects"
     my_stream: "Flux"
+    notifications:
+      mark_read: "Marquer comme lu"
+      mark_unread: "Marquer comme non lu"
     people:
       not_found: "Et personne n'a été trouvé ..."
     photo_uploader:
@@ -76,12 +83,30 @@ fr:
       error: "Un problème a eu lieu pendant l'envoi du fichier <%= file %>"
       invalid_ext: "{file} a une extension invalide. Seules {extensions} sont permises."
       looking_good: "Impressionnant, vous avez un super look !"
-      size_error: "{file} est trop gros, la taille maximum est {sizeLimit}."
+      size_error: "{file} est trop gros, la taille maximum est de {sizeLimit}."
+    poll:
+      close_result: "Masquer les résultats"
+      count:
+        one: "<%=count%> vote pour le moment"
+        other: "<%=count%> votes pour le moment"
+      result: "Résultat"
+      show_result: "Afficher les résultats"
+      vote: "Vote"
     publisher:
+      add_option: "Ajouter un choix"
       at_least_one_aspect: "Vous devez créer au moins un aspect"
       limited: "Limité - votre message ne sera vu que par des gens avec qui vous partagez"
       near_from: "Posté à : <%= location %>"
+      option: "Choix <%= nr %>"
       public: "Public - votre message sera visible de tous et trouvé par les moteurs de recherche"
+      question: "Question"
+    report:
+      name: "Rapport"
+      prompt: "Merci de saisir un motif :"
+      prompt_default: "Contenu offensant"
+      status:
+        created: "Le rapport a été crée avec succès."
+        exists: "Le rapport existe déjà"
     reshares:
       duplicate: "C'est si bien que ça ? Vous avez déjà repartagé ce message !"
       post: "Repartager le message de <%= name %> ?"
@@ -129,6 +154,7 @@ fr:
         stop_following: "Arrêter de suivre #<%= tag %>"
       unfollow: "Ne pas suivre"
       unlike: "Je n'aime plus"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "Ok, je suppose que #<%= tagName %> n'est pas la seule chose qui vous intéresse..."
     timeago:
@@ -145,6 +171,7 @@ fr:
       seconds: "moins d'une minute"
       suffixAgo: ""
       suffixFromNow: "maintenant"
+      wordSeparator: " "
       year: "un an"
       years: "%d ans"
     videos:

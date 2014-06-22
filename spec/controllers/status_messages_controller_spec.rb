@@ -15,12 +15,6 @@ describe StatusMessagesController do
   end
 
   describe '#bookmarklet' do
-    def pass_test_args(text='cute kitty')
-      get :bookmarklet, {:url => 'https://www.youtube.com/watch?v=0Bmhjf0rKe8',
-                         :title => 'Surprised Kitty',
-                         :notes => text}
-    end
-
     it 'succeeds' do
       get :bookmarklet
       response.should be_success
@@ -32,23 +26,13 @@ describe StatusMessagesController do
       doc = Nokogiri(response.body)
       doc.xpath('//head').count.should equal 1
       doc.xpath('//body').count.should equal 1
-
-      save_fixture(html_for('body'), 'empty_bookmarklet')
     end
 
     it 'accepts get params' do
-      pass_test_args
+      get :bookmarklet, { url:   'https://www.youtube.com/watch?v=0Bmhjf0rKe8',
+                          title: 'Surprised Kitty',
+                          notes: 'cute kitty' }
       response.should be_success
-
-      save_fixture(html_for('body'), 'prefilled_bookmarklet')
-    end
-
-    it 'correctly deals with dirty input' do
-      test_text = "**love** This is such a\n\n great \"cute kitty\" '''blabla'''"
-      pass_test_args(test_text)
-      response.should be_success
-
-      save_fixture(html_for('body'), 'prefilled_bookmarklet_dirty')
     end
   end
 
@@ -56,6 +40,11 @@ describe StatusMessagesController do
     it 'succeeds' do
       get :new, :person_id => bob.person.id
       response.should be_success
+    end
+
+    it 'should redirect on desktop version' do
+      get :new
+      response.should redirect_to(stream_path)
     end
 
     it 'generates a jasmine fixture', :fixture => true do
@@ -205,7 +194,7 @@ describe StatusMessagesController do
         inlined_jobs do
           post :create, @hash
         end
-        
+
         @photo1.reload.pending.should be_false
         @photo2.reload.pending.should be_false
       end

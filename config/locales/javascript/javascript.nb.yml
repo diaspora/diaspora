@@ -10,17 +10,14 @@ nb:
     aspect_dropdown:
       add_to_aspect: "Legg til kategori"
       all_aspects: "Alle kategorier"
-      error: "Kunne ikke begynne å dele med {{name}}.  Ignorerer du dem?"
+      error: "Kunne ikke begynne å dele med <%= name %>.  Ignorerer du dem?"
       error_remove: "Kunne ikke flytte <%= name %> fra aspektet :("
       select_aspects: "Velg kategori"
-      started_sharing_with: "Du har begynt å dele med {{name}}!"
-      stopped_sharing_with: "Du har sluttet å dele med {{name}}."
+      started_sharing_with: "Du har begynt å dele med <%= name %>!"
+      stopped_sharing_with: "Du har sluttet å dele med <%= name %>."
       toggle:
-        few: "I {{count}} kategorier"
-        many: "I {{count}} kategorier"
-        one: "I {{count}} kategori"
-        other: "I {{count}} kategorier"
-        two: "I {{count}} kategorier"
+        one: "I <%= count %> kategori"
+        other: "I <%= count %> kategorier"
         zero: "Legg til kategori"
     aspect_navigation:
       add_an_aspect: "+ Legg til et aspekt"
@@ -52,7 +49,6 @@ nb:
       home: "Hjem"
       log_out: "Logg ut"
       mark_all_as_read: "Merk alle som lest"
-      messages: "Meldinger"
       notifications: "Varsler"
       profile: "Profil"
       recent_notifications: "Nylige varsel"
@@ -85,7 +81,7 @@ nb:
       duplicate: "du har allerede delt denne posten!"
       post: "Videredel <%= name %> sitt innhold?"
       successful: "Dette innholdet ble videredelt"
-    search_for: "Søk etter {{name}}"
+    search_for: "Søk etter <%= name %>"
     show_more: "vis mer"
     stream:
       comment: "Kommenter"
@@ -142,7 +138,7 @@ nb:
       years: "%d år"
     videos:
       unknown: "Ukjent videotype"
-      watch: "Se denne videoen på {{provider}}"
+      watch: "Se denne videoen på <%= provider %>"
     viewer:
       comment: "Kommenter"
       follow_post: "Følg post"

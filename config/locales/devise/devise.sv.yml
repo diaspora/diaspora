@@ -41,22 +41,26 @@ sv:
         subject: "Instruktioner för att återställa lösenordet"
         wont_change: "Ditt lösenord kommer inte ändras förrän du klickat på länken och ändrat det."
       unlock_instructions:
-        account_locked: "Ditt konto har låsts eftersom du eller någon annan har angett fel lösenord för många gånger."
+        account_locked: "Ditt konto har låsts eftersom fel lösenord har angivits för många gånger."
         click_to_unlock: "Klicka på länken nedan för att låsa upp ditt konto:"
-        subject: "Instruktioner för upplåsning"
+        subject: "Upplåsningsinstruktioner"
         unlock: "Lås upp mitt konto"
       welcome: "Välkommen %{email}!"
     passwords:
       edit:
         change_password: "Ändra mitt lösenord"
+        confirm_password: "Bekräfta lösenord"
+        new_password: "Nytt lösenord"
       new:
+        email: "E-postadress"
         forgot_password: "Har du glömt ditt lösenord?"
-        no_account: "Det finns inget konto med den här e-postadressen. Väntar du på en inbjudan så skickar vi ut dem så snart som möjligt."
+        no_account: "Det finns inget konto med den här e-postadressen."
+        reset_password: "Återställ lösenord"
         send_password_instructions: "Skicka information om hur jag återställer lösenordet"
       send_instructions: "Du kommer att få ett e-brev med instruktioner för att återställa lösenordet inom några minuter."
       updated: "Ditt lösenord har ändrats och du är inloggad."
     registrations:
-      destroyed: "Ditt konto är avslutat. Välkommen åter!"
+      destroyed: "Ditt konto är avslutat. På återseende!"
       signed_up: "Du har skapat ett konto. Beroende på dina inställningar kan en bekräftelse ha skickats till din e-postadress."
       updated: "Ditt konto har uppdateras."
     sessions:

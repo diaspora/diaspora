@@ -23,7 +23,15 @@ es:
         person:
           attributes:
             diaspora_handle:
-              taken: "ya está ocupado."
+              taken: "está en uso."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "No hay suficientes opciones para la encuesta."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "¡Ya has participado en esta encuesta!"
         request:
           attributes:
             from_id:
@@ -35,17 +43,18 @@ es:
         user:
           attributes:
             email:
-              taken: "ya está ocupado."
+              taken: "está en uso."
             person:
               invalid: "no es válido."
             username:
               invalid: "es invalido. Sólo permitimos letras, numeros y guiones bajos."
-              taken: "ya está ocupado."
+              taken: "está en uso."
   admins:
     admin_bar:
       correlations: "Similitudes"
       pages: "Páginas"
       pod_stats: "Estadísticas del Servidor"
+      report: "Informes"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Buscar usuario"
       weekly_user_stats: "Estadísticas Semanales del Usuario"
@@ -92,11 +101,11 @@ es:
         zero: "actualmente te queda una invitación pendiente %{link}"
     weekly_user_stats:
       amount_of:
-        one: "un usuario nuevo esta semana: %{count}"
-        other: "usuarios nuevos esta semana: %{count}"
-        zero: "usuarios nuevos esta semana: ninguno"
+        one: "Usuarios nuevos esta semana: %{count}"
+        other: "Usuarios nuevos esta semana: %{count}"
+        zero: "Usuarios nuevos esta semana: ninguno"
       current_server: "La fecha del servidor es %{date}"
-  ago: "Hace %{time}"
+  ago: "hace %{time}"
   all_aspects: "Todos los aspectos"
   application:
     helper:
@@ -123,8 +132,8 @@ es:
       select_all: "Marcar todos"
     aspect_stream:
       make_something: "Haz algo"
-      stay_updated: "Mantente Actualizad@"
-      stay_updated_explanation: "Tu entrada principal la forman todos tus contactos, las etiquetas que sigues, y si lo deseas, las publicaciones de diferentes miembros creativos de la comunidad."
+      stay_updated: "Mantente Actualizado"
+      stay_updated_explanation: "Tu página principal la forman todos tus contactos, las etiquetas que sigues, y si lo deseas, las publicaciones de diferentes miembros creativos de la comunidad."
     contacts_not_visible: "Los contactos en este aspecto no podrán verse entre ellos."
     contacts_visible: "Los contactos de este aspecto podrán verse entre ellos."
     create:
@@ -152,26 +161,22 @@ es:
       aspect_not_empty: "El aspecto no está vacío"
       remove: "eliminar"
     index:
-      cubbies:
-        explanation: "Cubbi.es es la primera aplicación de Diaspora* en desarrollo."
-        heading: "Conecta con Cubbi.es"
-        learn_more: "Ver más"
       diaspora_id:
-        content_1: "Tu identidad Diaspora es:"
-        content_2: "Compártela con quien quieras que te encuentre rápidamente."
-        heading: "Identidad Diaspora*"
+        content_1: "Tu ID de Diaspora* es:"
+        content_2: "Compártela con quien quieras y podrán encontrarte en Diaspora*."
+        heading: "ID de Diaspora*"
       donate: "Donar"
-      handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de correo electrónico, puedes dársela a la gente para que te encuentre."
+      handle_explanation: "Éste es tu ID de Diaspora*. Como una dirección de correo electrónico, puedes dársela a la gente para que te encuentre."
       help:
         any_problem: "¿Algún problema?"
         contact_podmin: "¡Contacta con el administrador de tu pod!"
         do_you: "Tal vez:"
         email_feedback: "Si lo prefieres, envía tus comentarios a este %{link}."
         email_link: "Correo Electrónico"
-        feature_suggestion: "- Sugieras alguna %{link}."
-        find_a_bug: "- Encuentres algún %{link}."
-        have_a_question: "- Realices alguna %{link}."
-        here_to_help: "¡La comunidad Diaspora está aquí!"
+        feature_suggestion: "... tienes alguna %{link} sugerencia?"
+        find_a_bug: "... encuentras algún %{link}?"
+        have_a_question: "... tienes %{link}?"
+        here_to_help: "¡La comunidad Diaspora* está aquí!"
         mail_podmin: "Correo del podmin (administrador de pod)"
         need_help: "Ayuda"
         tag_bug: "error"
@@ -179,11 +184,11 @@ es:
         tag_question: "pregunta"
         tutorial_link_text: "Tutoriales"
         tutorials_and_wiki: "%{faq}, %{tutorial} y %{wiki}: Ayuda para dar tus primeros pasos."
-      introduce_yourself: "Esta es tu entrada principal. Adelante, preséntate..."
+      introduce_yourself: "Ésta es tu página principal.  Adelante, preséntate..."
       keep_diaspora_running: "¡Haz que el desarrollo de Diaspora vaya más rápido con una donación mensual!"
-      keep_pod_running: "Haz que %{pod} vaya más rápido, ¡deja a nuestros servidores su dosis de café mensual con una doncación mensual!"
+      keep_pod_running: "Haz que %{pod} vaya más rápido, ¡invita a café a nuestros servidores con una donación mensual!"
       new_here:
-        follow: "¡Sigue %{link} y da la bienvenida a los nuevos miembros de diaspora*!"
+        follow: "¡Sigue %{link} y da la bienvenida a los nuevos miembros de Diaspora*!"
         learn_more: "Más información"
         title: "Bienvenida"
       no_contacts: "No hay contactos"
@@ -194,7 +199,7 @@ es:
         content: "Puedes conectar los siguientes servicios a Diaspora:"
         heading: "Servicios"
       unfollow_tag: "Dejar de seguir a #%{tag}"
-      welcome_to_diaspora: "¡Bienvenid@ a Diaspora, %{name}!"
+      welcome_to_diaspora: "¡Bienvenido a Diaspora*, %{name}!"
     many: "%{count} aspectos"
     move_contact:
       error: "Error moviendo el contacto: %{inspect}"
@@ -209,11 +214,11 @@ es:
       try_adding_some_more_contacts: "Puedes buscar o invitar a más contactos."
       you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos más!"
     no_posts_message:
-      start_talking: "Nadie dijo nada aún. ¡Sé el primero!"
+      start_talking: "¡Nadie ha dicho nada todavía!"
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed:
-      acquaintances: "Conocid@s"
+      acquaintances: "Conocidos"
       family: "Familia"
       friends: "Contactos"
       work: "Trabajo"
@@ -229,14 +234,6 @@ es:
       failure: "Tu aspecto, %{name}, tenía un nombre muy largo para guardarlo."
       success: "Tu aspecto, %{name}, fue editado con éxito."
     zero: "no hay aspectos"
-  authorizations:
-    index:
-      no_applications: "Aún no tienes registrada ninguna aplicación."
-      revoke_access: "Revocar acceso"
-    new:
-      authorize: "Autorizar"
-      cubbies_will: "Cubbies podrá publicar fotos por ti"
-      nope: "No"
   back: "Atrás"
   blocks:
     create:
@@ -248,7 +245,7 @@ es:
   bookmarklet:
     explanation: "Publica en Diaspora* desde cualquier página agregando a tus marcadores este enlace => %{link}."
     heading: "Marcador"
-    post_something: "Publicar en Diaspora*"
+    post_something: "Publica en Diaspora*"
     post_success: "¡Publicado! ¡Cerrando!"
   cancel: "Cancelar"
   comments:
@@ -306,10 +303,10 @@ es:
         other: "%{count} mensajes nuevos"
         zero: "No hay mensajes nuevos"
     index:
-      create_a_new_message: "crear un nuevo mensaje"
-      inbox: "Mensajes"
-      message_inbox: "Bandeja de entrada"
-      new_message: "Nuevo"
+      conversations_inbox: "Conversaciones – Bandeja de entrada"
+      create_a_new_conversation: "Empieza una nueva conversación"
+      inbox: "Bandeja de entrada"
+      new_conversation: "Nueva conversación"
       no_conversation_selected: "ninguna conversación seleccionada"
       no_messages: "sin mensajes"
     new:
@@ -318,7 +315,7 @@ es:
       sending: "Enviando..."
       subject: "asunto"
       to: "para"
-    new_message:
+    new_conversation:
       fail: "Mensaje no válido"
     show:
       delete: "Eliminar y bloquear conversación"
@@ -409,7 +406,7 @@ es:
       diaspora_app_q: "¿Existe una aplicación diaspora* para Android o iOS?"
       photo_albums_a: "No, no actualmente. De todas formas puedes ver un flujo de sus fotos subidas desde la sección de Fotos en la barra lateral de su pagina de perfil."
       photo_albums_q: "¿Hay álbumes de fotos o videos?"
-      subscribe_feed_a: "Sí, pero esto aún no es una funcionalidad completamente pulida y el formateo de los resultados es todavia un poco tosco. Si deseas probarlo de todas maneras, ve hacia alguna página de perfil y has click en el botón feed de tu navegador, o puedes copiar la URL del perfil (ej.: https://joindiaspora.com/people/somenumber), y pegarla dentro del lector de feed. La dirección que resulta de esto es parecida a: https//joindiaspora.com/public/username.atom diaspora* usa Atom en lugar de RSS."
+      subscribe_feed_a: "Sí, pero esto aún no es una funcionalidad completamente pulida y el formateo de los resultados es todavia un poco tosco. Si deseas probarlo de todas maneras, ve hacia alguna página de perfil y has click en el botón feed de tu navegador, o puedes copiar la URL del perfil (ej.: https://joindiaspora.com/people/somenumber), y pegarla dentro del lector de feed. La dirección que resulta de esto es parecida a: https//joindiaspora.com/public/username.atom – Diaspora* usa Atom en lugar de RSS."
       subscribe_feed_q: "¿Puedo suscribirme a las publicaciones públicas de alguien usando un lector de feeds?"
       title: "Miscelánea"
     pods:
@@ -535,7 +532,7 @@ es:
     check_token:
       not_found: "Identificación de invitación no encontrada"
     create:
-      already_contacts: "Ya estás conectad@ con esa persona"
+      already_contacts: "Ya estás conectado con esta persona"
       already_sent: "Ya has invitado a esta persona."
       empty: "Por favor, introduce al menos una dirección de correo electrónico."
       no_more: "No tienes más invitaciones."
@@ -605,9 +602,9 @@ es:
   no_results: "No hay resultados"
   notifications:
     also_commented:
-      one: "%{actors} también ha comentado la %{post_link} de %{post_author}."
-      other: "%{actors} también han comentado la %{post_link} de %{post_author}."
-      zero: "%{actors} también han comentado la %{post_link} de %{post_author}."
+      one: "%{actors} comentario en %{post_link} de %{post_author}."
+      other: "%{actors} también han comentado %{post_link} de %{post_author}."
+      zero: "%{actors} comentarios en  %{post_link} de %{post_author}."
     also_commented_deleted:
       one: "%{actors} ha comentado una publicación eliminada."
       other: "%{actors} han comentado una publicación eliminada."
@@ -615,21 +612,31 @@ es:
     comment_on_post:
       one: "%{actors} ha comentado tu %{post_link}."
       other: "%{actors} han comentado tu %{post_link}."
-      zero: "%{actors} han comentado tu %{post_link}."
+      zero: "%{actors} comentarios en tu %{post_link}."
     helper:
       new_notifications:
         one: "1 notificación nueva"
         other: "%{count} notificaciones nuevas"
         zero: "No hay notificaciones nuevas"
     index:
+      all_notifications: "Todas las Notificaciones"
+      also_commented: "Otros comentarios"
       and: "y"
       and_others:
         one: "y uno más"
         other: "y %{count} más"
         zero: "y nadie más"
+      comment_on_post: "Comentar en el post"
+      liked: "Te gustó"
       mark_all_as_read: "Marcar todo como leído"
+      mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
+      mentioned: "Mencionado"
       notifications: "Notificaciones"
+      reshared: "Compartido"
+      show_all: "mostrar todo"
+      show_unread: "mostrar no leídos"
+      started_sharing: "Comenzó a compartir"
     liked:
       one: "A %{actors} le ha gustado tu %{post_link}."
       other: "A %{actors} les ha gustado tu %{post_link}."
@@ -641,7 +648,7 @@ es:
     mentioned:
       one: "%{actors} te ha mencionado en %{post_link}."
       other: "%{actors} te han mencionado en %{post_link}."
-      zero: "%{actors} te han mencionado en %{post_link}."
+      zero: "%{actors} menciones en %{post_link}."
     mentioned_deleted:
       one: "%{actors} te ha mencionado en una publicación eliminada."
       other: "%{actors} te han mencionado en una publicación eliminada."
@@ -699,6 +706,26 @@ es:
       subject: "%{name} te mencionó en diaspora*"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
+    report_email:
+      body: |-
+          Hola,
+
+          el %{type} con ID %{id} fue marcado como ofensivo.
+
+          [%{url}][1]
+
+          Por favor, revísalo cuanto antes!
+
+
+          Saludos,
+
+          El robot de correo electrónico de Diaspora*
+
+          [1]: %{url}
+      subject: "Un nuevo %{type} se marcó como ofensivo"
+      type:
+        comment: "comentar"
+        post: "mensaje"
     reshared:
       reshared: "%{name} compartió tu publicación"
       view_post: "Ver publicación >"
@@ -727,15 +754,16 @@ es:
     helper:
       is_not_sharing: "%{name} no está compartiendo contigo"
       is_sharing: "%{name} está compartiendo contigo"
-      people_on_pod_are_aware_of: "la gente que está en el POD es consciente de"
       results_for: "resultados para %{params}"
     index:
-      couldnt_find_them_send_invite: "¿No les puedes encontrar? ¡Envíales una invitación!"
+      couldnt_find_them: "¿No pudiste encontrarlos?"
       looking_for: "¿Buscando publicaciones sobre %{tag_link}?"
       no_one_found: "...y nadie fue encontrado."
       no_results: "¡Eh! Tienes que buscar algo."
-      results_for: "buscar resultados para"
+      results_for: "Usuarios que coinciden con %{search_term}"
+      search_handle: "Utiliza su ID de Diaspora* (usuario@pod.tld) para estar seguro de que encontrarás a tus amigos."
       searching: "buscando, por favor sé paciente…"
+      send_invite: "¿Todavía nadie? ¡Envía una invitación!"
     many: "%{count} personas"
     one: "1 persona"
     other: "%{count} personas"
@@ -884,10 +912,25 @@ es:
       sign_up_message: "Redes Sociales con un ♥"
       submitting: "En proceso..."
       username: "NOMBRE"
+  report:
+    comment_label: "<b>Comentario</b>:<br>%{data}"
+    confirm_deletion: "¿Seguro que quieres borrar esto?"
+    delete_link: "Borrar"
+    not_found: "No se encontró la noticia o comentario. ¡Parece que fue borrado por el usuario!"
+    post_label: "<b>Publicación</b>: %{title}"
+    reason_label: "Razón: %{text}"
+    reported_label: "<b>Reportado por</b> %{person}"
+    review_link: "Marcar como revisado"
+    status:
+      created: "El informe ha sido creado"
+      destroyed: "La publicación ha sido eliminada"
+      failed: "Algo salió mal"
+      marked: "El informe ha sido marcado como revisado"
+    title: "Resúmen de Informes"
   requests:
     create:
       sending: "Enviando"
-      sent: "Quisieras compartir con %{name}. Lo verá la próxima vez que entre en Diaspora*."
+      sent: "Quieres compartir con %{name}?. Será visible la próxima vez que entre/n en Diaspora*."
     destroy:
       error: "¡Selecciona un aspecto!"
       ignore: "Solicitud de contacto ignorada."
@@ -928,7 +971,7 @@ es:
     failure:
       error: "hubo un error conectando ese servicio"
     finder:
-      fetching_contacts: "Diaspora está trasladando a tus contactos de %{service}; vuelve a intentarlo en unos minutos."
+      fetching_contacts: "Diaspora está trasladando tus contactos de %{service}; vuelve a intentarlo en unos minutos."
       no_friends: "No se han encontrados contactos en Facebook."
       service_friends: "Contactos de %{service}"
     index:
@@ -941,13 +984,13 @@ es:
       logged_in_as: "conectado como"
       no_services: "Aún no has conectado ningún servicio."
       really_disconnect: "¿Desconectar %{service}?"
-      services_explanation: "Conectar a servicios que ofrece la posibilidad de publicar sus mensajes a medida que se escriben en diaspora."
+      services_explanation: "Conectar con servicios te da la posibilidad de publicar tus mensajes en ellos a medida que los escribes en diaspora."
     inviter:
       click_link_to_accept_invitation: "Sigue este enlace para aceptar tu invitación"
       join_me_on_diaspora: "Nos vemos en diaspora*."
     remote_friend:
       invite: "invitar"
-      not_on_diaspora: "Aún no en Diaspora*"
+      not_on_diaspora: "Aún no está en Diaspora"
       resend: "reenviar"
   settings: "Ajustes"
   share_visibilites:
@@ -957,9 +1000,9 @@ es:
   shared:
     add_contact:
       add_new_contact: "Añade un nuevo contacto"
-      create_request: "Encontrar por la dirección Diaspora*"
+      create_request: "Encontrar por el ID de Diaspora*"
       diaspora_handle: "diaspora@pod.org"
-      enter_a_diaspora_username: "Ingresa un nombre de usuario de Diaspora:"
+      enter_a_diaspora_username: "Introduce un nombre de usuario de Diaspora*:"
       know_email: "¿Conoces sus direcciones de correo? Podrías invitarles"
       your_diaspora_username_is: "Tu nombre de usuario Diaspora* es: %{diaspora_handle}"
     aspect_dropdown:
@@ -981,8 +1024,8 @@ es:
       invite_someone: "Invita a alguien"
       invite_your_friends: "Invita a tus contactos"
       invites: "Invitaciones"
-      invites_closed: "Las invitaciones en este servidor Diaspora* están actualmente cerradas."
-      share_this: "Comparte este enlace por correo, blog o red social favorita!"
+      invites_closed: "Las invitaciones en este servidor diaspora* están cerradas actualmente"
+      share_this: "¡Comparte este enlace a través de correo electrónico, blog o tu red social favorita!"
     notification:
       new: "Nuevo %{type} de %{from}"
     public_explain:
@@ -991,7 +1034,7 @@ es:
       logged_in: "conectado a %{service}"
       manage: "Gestionar servicios conectados"
       new_user_welcome_message: "Utiliza #etiquetas para clasificar tus publicaciones y encontrar gente que comparta tus intereses. Llama a gente asombrosa usando las @Menciones"
-      outside: "Los mensajes públicos también podrán verse fuera de Diaspora*."
+      outside: "Los mensajes públicos podrán ser vistos por otros fuera de Diaspora*."
       share: "Comparte"
       title: "Configurar los servicios conectados"
       visibility_dropdown: "Usa este menú desplegable para cambiar la visibilidad de tu publicación. (Sugerimos hacerlo público la primera vez.)"
@@ -1007,10 +1050,17 @@ es:
         i_like: "Tengo interés en %{tags}. "
         invited_by: "Gracias por la invitación, "
         newhere: "Hola"
+      poll:
+        add_a_poll: "Crear una encuesta"
+        add_poll_answer: "Añadir opción"
+        option: "Opción 1"
+        question: "Pregunta"
+        remove_poll_answer: "Quitar opción"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando..."
       preview: "Vista previa"
       publishing_to: "publicar en:"
+      remove_location: "Eliminar ubicación"
       share: "Compartir"
       share_with: "compartir con"
       upload_photos: "Subir fotos"
@@ -1067,7 +1117,7 @@ es:
     comment_stream:
       contacts_title: "Gente cuyas publicaciones comentaste"
       title: "Comentado"
-    community_spotlight_stream: "Comunidad Creativa"
+    community_spotlight_stream: "Lo más destacado"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
       contacts_title: "Gente con esas etiquetas"
@@ -1082,8 +1132,8 @@ es:
       contacts_title: "Personas que te han mencionado"
       title: "@Menciones"
     multi:
-      contacts_title: "Gente en tu Entrada"
-      title: "Entrada"
+      contacts_title: "Gente en tu línea"
+      title: "Inicio"
     public:
       contacts_title: "Publicadores recientes"
       title: "Actividad Pública"
@@ -1113,18 +1163,6 @@ es:
       posts_tagged_with: "Publicaciones con #%{tag}"
       stop_following: "Dejar de seguir #%{tag}"
   terms_and_conditions: "Términos y Condiciones"
-  tokens:
-    show:
-      connect_to_cubbies: "Conecta con Cubbi.es"
-      connecting_is_simple: "Conectar tu cuenta de Diaspora* es sencillo. Solo introduce tu identidad Diaspora*(<b>%{diaspora_id}</b>) desde tu página de <a href='%{href_link}'>ajustes</a> de cubbi y dale a conectar."
-      daniels_account: "La cuenta de Diaspora de Daniel"
-      love_to_try: "Nos encantaría que lo probases."
-      making_the_connection: "Creando la conexión"
-      screenshot_explanation: "%{link1}. Este cubby en particular está conectado con %{link2}."
-      sign_up_today: "¡Regístrate hoy mismo!"
-      typical_userpage: "Una página de un usuario de cubbi.es"
-      via: "(vía %{link})"
-      what_is_cubbies: "Cubbi.es es la primera aplicación de Diaspora en el mundo.  Es también la mejor forma de coleccionar fotos en línea."
   undo: "¿Deshacer?"
   username: "Nombre de usuario"
   users:
@@ -1133,12 +1171,12 @@ es:
       email_not_confirmed: "El correo no pudo ser activado. ¿Enlace erróneo?"
     destroy:
       no_password: "Por favor, introduce tu contraseña actual para cerrar tu cuenta."
-      success: "Tu cuenta ha sido bloqueda.  Tomará unos 20 minutos cerrarla y destruirla.  Gracias por probar Diaspora."
+      success: "Tu cuenta ha sido bloqueda.  Llevará unos 20 minutos cerrarla y destruirla.  Gracias por probar Diaspora."
       wrong_password: "La contraseña introducida no coincide con la contraseña actual."
     edit:
-      also_commented: "...alguien comenta en la publicación de tu contacto?"
+      also_commented: "alguien comenta en una publicación que has comentado"
       auto_follow_aspect: "Aspecto para los usuarios seguidos automáticamente:"
-      auto_follow_back: "Seguir automáticamente a otros usuarios"
+      auto_follow_back: "Seguir automáticamente a los usuarios que te sigan"
       change: "Cambiar"
       change_email: "Cambiar correo"
       change_language: "Cambiar idioma"
@@ -1149,12 +1187,12 @@ es:
         if_you_want_this: "Si realmente quieres eliminarla, teclea tu contraseña debajo y haz clic en 'Eliminar Cuenta'"
         lock_username: "Esto bloquerá tu nombre de usuario si decides volver a registrarte."
         locked_out: "Saldrás y eliminarás tu cuenta."
-        make_diaspora_better: "Queremos que nos ayudes a hacer Diaspora mejor, podrías hacerlo. Si te vas, queremos que sepas que pasa después."
+        make_diaspora_better: "Queremos que nos ayudes a hacer Diaspora * mejor, por lo que podrías ayudarnos en lugar de dejarnos. Si quieres irte, queremos que sepas lo que sucede a continuación."
         mr_wiggles: "El Tío la Vara estará triste si te vas"
         no_turning_back: "Actualmente, no hay vuelta atrás."
-        what_we_delete: "Eliminamos todas tus publicaciones y datos del perfil, tan pronto como es humanamente posible. Tus comentarios seguirán en línea, pero asociados a tu dirección Diaspora*."
-      close_account_text: "Eliminar Cuenta"
-      comment_on_post: "...alguien comenta en tu publicación?"
+        what_we_delete: "Eliminaremos todas tus publicaciones y datos del perfil, tan pronto como sea humanamente posible. Tus comentarios seguirán en línea, pero asociados a tu dirección Diaspora* en lugar de a tu nombre."
+      close_account_text: "Eliminar cuenta"
+      comment_on_post: "...alguien comentó en tu publicación"
       current_password: "Contraseña actual"
       current_password_expl: "con la que inicias sesión..."
       download_photos: "Descargar mis fotos"
@@ -1164,19 +1202,20 @@ es:
       export_data: "Exportar datos"
       following: "Ajustes de Seguimiento"
       getting_started: "Preferencias del Nuevo Usuario"
-      liked: "…a alguien le gusta tu publicación?"
-      mentioned: "...eres mencionad@ en una publicación?"
+      liked: "a alguien le gusta tu publicación"
+      mentioned: "te mencionan en una publicación"
       new_password: "Nueva contraseña"
       photo_export_unavailable: "Exportar fotos no está disponible actualmente"
-      private_message: "...recibes un mensaje privado?"
-      receive_email_notifications: "¿Recibir notificaciones por correo cuando..."
-      reshared: "...alguien compartió tu publicación?"
-      show_community_spotlight: "¿Mostrar la \"Comunidad Creativa\" en tu Entrada?"
-      show_getting_started: "Reiniciar la Introducción de Ayuda"
-      started_sharing: "...alquien empieza a seguir tus mensajes púbicos?"
-      stream_preferences: "Preferencias de Entrada"
+      private_message: "has recibido un mensaje privado"
+      receive_email_notifications: "Recibir notificaciones por correo cuando..."
+      reshared: "alguien ha compartido una de tus publicaciones"
+      show_community_spotlight: "¿Mostrar lo más destacado en la portada?"
+      show_getting_started: "Mostrar los Consejos de Inicio"
+      someone_reported: "alguien envió un informe"
+      started_sharing: "alguien empieza a compartir contigo"
+      stream_preferences: "Preferencias de la portada"
       your_email: "Tu correo"
-      your_handle: "Tu dirección Diaspora*"
+      your_handle: "Tu ID de Diaspora*"
     getting_started:
       awesome_take_me_to_diaspora: "¡Increíble! Llévame a diaspora*"
       community_welcome: "¡La comunidad de Diaspora está feliz de tenerte a bordo!"
@@ -1212,7 +1251,7 @@ es:
     no_person_constructed: "Ninguna persona pudo ser creada a partir de este hcard."
     not_enabled: "El webfinger parece no estar habilitado para el host de %{account}"
     xrd_fetch_failed: "Hubo un error al recibir el xrd desde la cuenta %{account}"
-  welcome: "¡Bienvenid@!"
+  welcome: "Bienvenido!"
   will_paginate:
     next_label: "siguiente »"
     previous_label: "« anterior"

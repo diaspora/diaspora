@@ -12,8 +12,8 @@
       $.extend(self, {
         badge: badge,
         count: parseInt(badge.html()) || 0,
-        notificationArea: null,
-        notificationMenu: notificationMenu
+        notificationMenu: notificationMenu,
+        notificationPage: null
       });
 
       $("a.more").click( function(evt) {
@@ -31,11 +31,6 @@
             self.notificationMenu.find('.unread').each(function(index) {
               self.setUpRead( $(this) );
             });
-            if ( self.notificationArea ) {
-              self.notificationArea.find('.unread').each(function(index) {
-                self.setUpRead( $(this) );
-              });
-            }
             self.resetCount();
           }
         });
@@ -43,15 +38,8 @@
         return false;
       });
     });
-    this.setUpNotificationPage = function( contentArea ) {
-      self.notificationArea = contentArea;
-      contentArea.find(".unread,.read").each(function(index) {
-        if ( $(this).hasClass("unread") ) {
-          self.setUpUnread( $(this) );
-        } else {
-          self.setUpRead( $(this) );
-        }
-      });
+    this.setUpNotificationPage = function( page ) {
+      self.notificationPage = page;
     }
     this.unreadClick = function() {
       $.ajax({
@@ -63,7 +51,7 @@
     };
     this.readClick = function() {
       $.ajax({
-        url: "/notifications/" + $(this).data("guid"),
+        url: "/notifications/" + $(this).closest(".stream_element,.notification_element").data("guid"),
         data: { set_unread: false },
         type: "PUT",
         success: self.clickSuccess
@@ -71,51 +59,48 @@
     };
     this.setUpUnread = function( an_obj ) {
       an_obj.removeClass("read").addClass( "unread" );
-      an_obj.find('.unread-setter').hide();
-      an_obj.find('.unread-setter').unbind("click");
-      an_obj.unbind( "mouseenter mouseleave" );
-      an_obj.click(self.readClick);
+      an_obj.find('.unread-toggle')
+        .unbind("click")
+        .click(self.readClick)
+        .find('.entypo')
+        .tooltip('destroy')
+        .removeAttr('data-original-title')
+        .attr('title', Diaspora.I18n.t('notifications.mark_read'))
+        .tooltip();
     }
     this.setUpRead = function( an_obj ) {
       an_obj.removeClass("unread").addClass( "read" );
-      an_obj.unbind( "click" );
-      an_obj.find(".unread-setter").click(Diaspora.page.header.notifications.unreadClick);
-      an_obj.hover(
-        function () {
-          $(this).find(".unread-setter").show();
-        },
-        function () {
-          $(this).find(".unread-setter").hide();
-        }
-      );
+      an_obj.find('.unread-toggle')
+        .unbind("click")
+        .click(self.unreadClick)
+        .find('.entypo')
+        .tooltip('destroy')
+        .removeAttr('data-original-title')
+        .attr('title', Diaspora.I18n.t('notifications.mark_unread'))
+        .tooltip();
     }
     this.clickSuccess = function( data ) {
       var itemID = data["guid"]
       var isUnread = data["unread"]
-      if ( isUnread ) {
-        self.incrementCount();
-      }else{
-        self.decrementCount();
-      }
       self.notificationMenu.find('.read,.unread').each(function(index) {
         if ( $(this).data("guid") == itemID ) {
           if ( isUnread ) {
+            self.notificationMenu.find('a#mark_all_read_link').removeClass('disabled')
             self.setUpUnread( $(this) )
           } else {
             self.setUpRead( $(this) )
           }
         }
       });
-      if ( self.notificationArea ) {
-        self.notificationArea.find('.read,.unread').each(function(index) {
-          if ( $(this).data("guid") == itemID ) {
-            if ( isUnread ) {
-              self.setUpUnread( $(this) )
-            } else {
-              self.setUpRead( $(this) )
-            }
-          }
-        });
+      if ( self.notificationPage == null ) {
+        if ( isUnread ) {
+          self.incrementCount();
+        }else{
+          self.decrementCount();
+        }
+      } else {
+        var type = $('.notification_element[data-guid=' + data["guid"] + ']').data('type');
+        self.notificationPage.updateView(data["guid"], type, isUnread);
       }
     };
     this.showNotification = function(notification) {
@@ -134,18 +119,12 @@
     this.changeNotificationCount = function(change) {
       self.count = Math.max( self.count + change, 0 )
       self.badge.text(self.count);
-      if ( self.notificationArea )
-        self.notificationArea.find( ".notification_count" ).text(self.count);
 
       if(self.count === 0) {
         self.badge.addClass("hidden");
-        if ( self.notificationArea )
-          self.notificationArea.find( ".notification_count" ).removeClass("unread");
       }
       else if(self.count === 1) {
         self.badge.removeClass("hidden");
-        if ( self.notificationArea )
-          self.notificationArea.find( ".notification_count" ).addClass("unread");
       }
     };
     this.resetCount = function(change) {

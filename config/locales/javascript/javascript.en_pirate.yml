@@ -8,15 +8,12 @@ en_pirate:
   javascripts:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      error: "Couldn't start sharing with <%= name %>. Are you ignoring them?"
+      started_sharing_with: "You have started sharing with <%= name %>!"
+      stopped_sharing_with: "You have stopped sharing with <%= name %>."
       toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In <%= count %> aspects"
+        one: "In <%= count %> aspect"
+        other: "In <%= count %> aspects"
         zero: "Add to aspect"
     getting_started:
       hey: "Hey, <%= name %>!"
@@ -25,7 +22,7 @@ en_pirate:
       search: "Find people or #tags"
     reshares:
       duplicate: "You've already reshared that post!"
-    search_for: "Search for {{name}}"
+    search_for: "Search for <%= name %>"
     stream:
       likes:
         few: "<%= count %> Likes"
@@ -56,4 +53,4 @@ en_pirate:
       suffixAgo: ""
       suffixFromNow: ""
     videos:
-      watch: "Watch this video on {{provider}}"
+      watch: "Watch this video on <%= provider %>"

@@ -157,10 +157,6 @@ cs:
       aspect_not_empty: "Aspekt není prázdný"
       remove: "odebrat"
     index:
-      cubbies:
-        explanation: "Cubbi.es je první aplikace pro Diasporu ve vývoji."
-        heading: "Připojit se na Cubbi.es"
-        learn_more: "Dozvědět se více"
       diaspora_id:
         content_1: "Vaše Diaspora ID je:"
         content_2: "Dejte to někomu a bude vás moci najít na Diaspoře."
@@ -234,14 +230,6 @@ cs:
       failure: "Váš aspekt %{name} má příliš dlouhý název na to, aby mohl být uložen."
       success: "Váš aspekt %{name} byl úspěšně upraven."
     zero: "žádné aspekty"
-  authorizations:
-    index:
-      no_applications: "Nemáte registrovanou žádnou aplikaci."
-      revoke_access: "Zrušit přístup"
-    new:
-      authorize: "Povolit"
-      cubbies_will: "Cubbies budou moci odesílat fotografie vaším jménem"
-      nope: "Ne"
   back: "Zpět"
   blocks:
     create:
@@ -314,10 +302,7 @@ cs:
         two: "%{count} nové zprávy"
         zero: "Žádné nové zprávy"
     index:
-      create_a_new_message: "vytvořit novou zprávu"
       inbox: "Doručená pošta"
-      message_inbox: "Doručené zprávy"
-      new_message: "Nová zpráva"
       no_conversation_selected: "není výbrána žádná konverzace"
       no_messages: "žádné zprávy"
     new:
@@ -326,8 +311,6 @@ cs:
       sending: "Posílám..."
       subject: "předmět"
       to: "pro"
-    new_message:
-      fail: "Neplatná zpráva"
     show:
       delete: "smazat a blokovat konverzaci"
       reply: "odpověď"
@@ -713,10 +696,8 @@ cs:
     helper:
       is_not_sharing: "%{name} s vámi nesdílí"
       is_sharing: "%{name} s vámi sdílí"
-      people_on_pod_are_aware_of: " lidé na podu jsou si vědomi"
       results_for: " výsledky pro %{params}"
     index:
-      couldnt_find_them_send_invite: "Nemůžete je najít? Pošlete pozvánku!"
       looking_for: "Hledáte příspěvky označené %{tag_link}?"
       no_one_found: "… a nikdo nebyl nalezen."
       no_results: "Hej! Musíte něco hledat."
@@ -1094,18 +1075,6 @@ cs:
       posts_tagged_with: "Příspěvky označené #%{tag}"
       stop_following: "Přestat odebírat #%{tag}"
   terms_and_conditions: "Podmínky používání"
-  tokens:
-    show:
-      connect_to_cubbies: "Připojit na Cubbi.es"
-      connecting_is_simple: "Připojení účtu z Diaspory je tak jednoduché!  Zadejte své Diaspora ID (<b>%{diaspora_id}</b>) z <a href='%{href_link}'>nastavení cubbies</a> a připojte se."
-      daniels_account: "Danielův účet na Diaspoře"
-      love_to_try: "Rádi bychom, abyste ji vyzkoušeli."
-      making_the_connection: "Vytvářím spojení"
-      screenshot_explanation: "%{link1}. Tato konkrétní cubby je připojena na %{link2}."
-      sign_up_today: "Registrujte se ještě dnes!"
-      typical_userpage: "Typická uživatelská stránka na cubbi.es"
-      via: "(pomocí %{link})"
-      what_is_cubbies: "Cubbi.es je celosvětově první aplikace pro Diasporu.  Je to také nejlepší způsob, jak shromažďovat fotografie online."
   undo: "Vrátit zpět?"
   username: "Uživatelské jméno"
   users:

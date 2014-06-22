@@ -3,6 +3,7 @@ require 'spec_helper'
 describe PostPresenter do
   before do
     @sm = FactoryGirl.create(:status_message, :public => true)
+    @sm_with_poll = FactoryGirl.create(:status_message_with_poll, public: true)
     @presenter = PostPresenter.new(@sm, bob)
     @unauthenticated_presenter = PostPresenter.new(@sm)
   end
@@ -65,35 +66,27 @@ describe PostPresenter do
 
   describe '#title' do
     context 'with posts with text' do
-      context 'with a Markdown header of less than 200 characters on first line'do
-        it 'returns atx style header' do
-          @sm = double(:text => "## My title\n Post content...")
-          @presenter.post = @sm
-          @presenter.title.should == "## My title"
-        end
-
-        it 'returns setext style header' do
-          @sm = double(:text => "My title \n======\n Post content...")
-          @presenter.post = @sm
-          @presenter.title.should == "My title \n======"
-        end
-      end
-
-      context 'without a Markdown header of less than 200 characters on first line 'do
-        it 'truncates post to the 20 first characters' do
-          @sm = double(:text => "Very, very, very long post")
-          @presenter.post = @sm
-          @presenter.title.should == "Very, very, very ..."
-        end
+      it "delegates to message.title" do
+        message = double(present?: true)
+        message.should_receive(:title)
+        @presenter.post = double(message: message)
+        @presenter.title
       end
     end
 
     context 'with posts without text' do
       it ' displays a messaage with the post class' do
-        @sm = double(:text => "", :author => bob.person, :author_name => bob.person.name)
+        @sm = double(message: double(present?: false), author: bob.person, author_name: bob.person.name)
         @presenter.post = @sm
         @presenter.title.should == "A post from #{@sm.author.name}"
       end
+    end
+  end
+
+  describe '#poll' do
+    it 'works without a user' do
+      presenter = PostPresenter.new(@sm_with_poll)
+      presenter.as_json.should be_a(Hash)
     end
   end
 end

@@ -34,7 +34,7 @@
 
     / Stylesheets
 
-    = stylesheet_link_tag :mobile, :format => 'all'
+    = stylesheet_link_tag 'mobile/mobile', :format => 'all'
     = yield(:custom_css)
 
 
@@ -46,35 +46,67 @@
     = yield(:head)
 
   %body
-    %header    
-      = link_to(image_tag('branding/header-logo2x.png', height: 40, width: 40), stream_path, id: 'header_title')
-
+    #app
+      %header#main_nav
+        - if user_signed_in?
+          #nav_badges
+            -# Notifications
+            = link_to notifications_path, class: "badge", id: "notification_badge" do
+              = image_tag('icons/notifications_white.png')
+              - if current_user.unread_notifications.size > 0
+                %span.badge_count{id: "notification"}
+                  = current_user.unread_notifications.size
+            -# Conversations
+            = link_to conversations_path, class: "badge", id: "conversations_badge" do
+              = image_tag('icons/mail_white.png', id: 'conversation_icon')
+              - if current_user.unread_message_count > 0
+                %span.badge_count{id: "conversation"}
+                  = current_user.unread_message_count
+            -# Publisher
+            = link_to(image_tag('icons/compose_mobile.png'), new_status_message_path, class: "badge", id: "compose_badge")
+            -# Menu
+            = link_to(image_tag('icons/menu.png'), "#", id: "menu_badge", class: "badge")
+        = link_to(image_tag('icons/asterisk_white_mobile.png'), stream_path, id: 'header_title')
+        
       - if user_signed_in?
-        #nav_badges
-          = link_to(image_tag('icons/my_activity.png', class: 'my_activity'), activity_stream_path, class: "badge badge-inverse", id: "my_activity_badge")
-          = link_to(image_tag('icons/notifications_grey.png', height: 16, width: 16, id: 'notification-flag'), notifications_path, class: "badge badge-inverse", id: "notification_badge")
-          - if current_user.unread_notifications.count > 0
-            .badge_count{id: "notification"}
-              = current_user.unread_notifications.count
-          = link_to(image_tag('icons/mail_grey.png', height: 11, width: 17), conversations_path, class: "badge badge-inverse", id: "conversations_badge")
-          - if current_user.unread_message_count > 0
-            .badge_count{id: "conversation"}
-              = current_user.unread_message_count
-          = link_to(image_tag('icons/search_grey.png', height: 14, width: 14), people_path, class: "badge badge-inverse", id: "people_badge")
-          = link_to(image_tag('icons/user_grey.png', height: 16, width: 16), contacts_path, class: "badge badge-inverse", id: "contacts_badge")
-          - if yield(:header_action).present?
-            = yield(:header_action)
-          - else
-            = link_to(image_tag('icons/compose_mobile2.png', class: 'compose_icon'), new_status_message_path)
+        #drawer
+          %header
+            #global_search
+              = form_tag('/search', method: 'get', class: 'search_form', "accept-charset" => "UTF-8") do
+                %div
+                  = hidden_field_tag "utf8", "✓"
+                  = search_field_tag "q", nil, id: "q", placeholder: t("search"), results: "5", autocomplete: "off", class: "ac_input"
+          %nav
+            %ul
+              %li
+                = link_to t("streams.activity.title"), activity_stream_path
+              %li
+                = link_to t("streams.mentions.title"), mentioned_stream_path
+              %li#all_aspects
+                = link_to t('streams.aspects.title'), "#"
+              %li.no_border.hide
+                %ul
+                  - current_user.aspects.each do |aspect|
+                    %li
+                      = link_to aspect.name, aspects_stream_path(a_ids: [aspect.id])
+              %li
+                = link_to user_profile_path(current_user.username) do
+                  = t('layouts.header.profile')
+                  = person_image_tag(current_user)
+              %li
+                = link_to t('_contacts'), contacts_path
+              %li
+                = link_to t('layouts.header.settings'), users_edit_path
+              %li
+                = link_to t('layouts.application.toggle'), toggle_mobile_path
+              %li
+                = link_to t('layouts.header.logout'), destroy_user_session_path, method: :delete
 
-    #main.container{:role => "main"}
-      - if current_page?(:activity_stream)
-        %h3
-          = t('streams.activity.title')
-      = yield
-
-    - if user_signed_in?
-      = render :partial =>'shared/footer'
+      #main{:role => "main"}
+        - if current_page?(:activity_stream)
+          %h3
+            = t('streams.activity.title')
+        = yield
 
     / javascripts at the bottom
     = jquery_include_tag

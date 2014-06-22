@@ -9,16 +9,15 @@ describe Diaspora::Mentionable do
     @test_txt = <<-STR
 This post contains a lot of mentions
 one @{Alice A; #{@people[0].diaspora_handle}},
-two @{Bob B ; #{@people[1].diaspora_handle}}and finally
-three @{Eve E; #{@people[2].diaspora_handle}}.
+two @{Bob B; #{@people[1].diaspora_handle}} and finally
+three @{"Eve> E; #{@people[2].diaspora_handle}}.
 STR
     @test_txt_plain = <<-STR
 This post contains a lot of mentions
 one Alice A,
 two Bob B and finally
-three Eve E.
+three &quot;Eve&gt; E.
 STR
-    @short_txt = "@{M1; m1@a.at} text @{M2 ; m2@b.be}text @{M3; m3@c.ca}"
     @status_msg = FactoryGirl.build(:status_message, text: @test_txt)
   end
 
@@ -27,9 +26,18 @@ STR
       it 'adds the links to the formatted message' do
         fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people)
 
-        fmt_msg.should include(person_link(@people[0], class: 'mention hovercardable'))
-        fmt_msg.should include(person_link(@people[1], class: 'mention hovercardable'))
-        fmt_msg.should include(person_link(@people[2], class: 'mention hovercardable'))
+        @people.each do |person|
+          fmt_msg.should include person_link(person, class: 'mention hovercardable')
+        end
+      end
+
+      it 'should work correct when message is escaped html' do
+        raw_msg = @status_msg.raw_message
+        fmt_msg = Diaspora::Mentionable.format(CGI::escapeHTML(raw_msg), @people)
+
+        @people.each do |person|
+          fmt_msg.should include person_link(person, class: 'mention hovercardable')
+        end
       end
 
       it 'escapes the link title (name)' do
@@ -46,10 +54,12 @@ STR
 
     context 'plain text output' do
       it 'removes mention markup and displays unformatted name' do
-        s_msg = FactoryGirl.build(:status_message, text: @short_txt)
-        fmt_msg = Diaspora::Mentionable.format(s_msg.raw_message, @people, plain_text: true)
+        fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people, plain_text: true)
 
-        fmt_msg.should eql "M1 text M2 text M3"
+        @people.each do |person|
+          fmt_msg.should include person.first_name
+        end
+        fmt_msg.should_not include "<a", "</a>", "hovercardable"
       end
     end
 
@@ -95,8 +105,6 @@ STR
       @test_txt_B = "mentioning #{@mention_B}"
       @test_txt_C = "mentioning #{@mention_C}"
       @test_txt_BC = "mentioning #{@mention_B}} and #{@mention_C}"
-
-      Diaspora::Mentionable.stub(:current_user).and_return(@user_A)
     end
 
     it 'filters mention, if contact is not in a given aspect' do

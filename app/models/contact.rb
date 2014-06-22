@@ -11,7 +11,7 @@ class Contact < ActiveRecord::Base
   delegate :name, :diaspora_handle, :guid, :first_name,
            to: :person, prefix: true
 
-  has_many :aspect_memberships
+  has_many :aspect_memberships, :dependent => :destroy
   has_many :aspects, :through => :aspect_memberships
 
   has_many :share_visibilities, :source => :shareable, :source_type => 'Post'
@@ -51,7 +51,7 @@ class Contact < ActiveRecord::Base
     Notification.where(:target_type => "Person",
                        :target_id => person_id,
                        :recipient_id => user_id,
-                       :type => "Notifications::StartedSharing").delete_all
+                       :type => "Notifications::StartedSharing").destroy_all
   end
 
   def dispatch_request

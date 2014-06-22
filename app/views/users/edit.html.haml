@@ -70,7 +70,6 @@
   %br
   %br
   %hr
-
   %br
 
   %h3#stream-preferences
@@ -78,12 +77,19 @@
   = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
     = f.error_messages
 
-    %p.checkbox_select
-      = f.label :show_community_spotlight_in_stream, t('.show_community_spotlight')
-      = f.check_box :show_community_spotlight_in_stream
+    = f.fields_for :stream_preferences do |type|
+      #stream_prefs
+      %p.checkbox_select
+        = f.label :show_community_spotlight_in_stream, t('.show_community_spotlight')
+        = f.check_box :show_community_spotlight_in_stream
 
-    %br
-    = f.submit t('.change'), :class => 'button'
+      %br
+      %p.checkbox_select
+        = f.label :getting_started, t('.show_getting_started')
+        = f.check_box :getting_started
+
+      %br
+      = f.submit t('.change'), :class => 'button'
 
   %br
   %br
@@ -112,23 +118,6 @@
   %hr
   %br
 
-
-  %h3#getting-started-preferences
-    = t('.show_getting_started') 
-  = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
-    = f.error_messages
-
-    %p.checkbox_select
-      = f.label :getting_started, t('.show_getting_started')
-      = f.check_box :getting_started
-
-    %br
-    = f.submit t('.change'), :class => 'button'
-
-  %br
-  %br
-  %hr
-  %br
   %h3 
     = t('.receive_email_notifications')
   = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
@@ -136,39 +125,46 @@
 
     = f.fields_for :email_preferences do |type|
       #email_prefs
+        - if current_user.admin?
+          %p.checkbox_select
+            = type.label :someone_reported, t('.someone_reported')
+            = type.check_box :someone_reported, {:checked =>  @email_prefs['someone_reported']}, false, true
+
+          %br
+        %p.checkbox_select
+          = type.label :started_sharing, t('.started_sharing')
+          = type.check_box :started_sharing, {:checked =>  @email_prefs['started_sharing']}, false, true
+        %br
+
+        %p.checkbox_select
+          = type.label :mentioned, t('.mentioned') 
+          = type.check_box :mentioned, {:checked =>  @email_prefs['mentioned']}, false, true
+        %br
+        
+        %p.checkbox_select
+          = type.label :liked, t('.liked')
+          = type.check_box :liked, {:checked =>  @email_prefs['liked']}, false, true
+        %br
+        
+        %p.checkbox_select
+          = type.label :reshared, t('.reshared')
+          = type.check_box :reshared, {:checked =>  @email_prefs['reshared']}, false, true
+        %br
+        
+        %p.checkbox_select
+          = type.label :comment_on_post, t('.comment_on_post')
+          = type.check_box :comment_on_post, {:checked =>  @email_prefs['comment_on_post']}, false, true
+        %br
+        
         %p.checkbox_select
           = type.label :also_commented, t('.also_commented')
           = type.check_box :also_commented, {:checked =>  @email_prefs['also_commented']}, false, true
         %br
-        %p.checkbox_select
-          = type.label :mentioned, t('.mentioned') 
-          = type.check_box :mentioned, {:checked =>  @email_prefs['mentioned']}, false, true
-
-
-        %br
-        %p.checkbox_select
-          = type.label :comment_on_post, t('.comment_on_post')
-          = type.check_box :comment_on_post, {:checked =>  @email_prefs['comment_on_post']}, false, true
-
-        %br
+        
         %p.checkbox_select
           = type.label :private_message, t('.private_message')
           = type.check_box :private_message, {:checked =>  @email_prefs['private_message']}, false, true
 
-        %br
-        %p.checkbox_select
-          = type.label :started_sharing, t('.started_sharing')
-          = type.check_box :started_sharing, {:checked =>  @email_prefs['started_sharing']}, false, true
-
-        %br
-        %p.checkbox_select
-          = type.label :liked, t('.liked')
-          = type.check_box :liked, {:checked =>  @email_prefs['liked']}, false, true
-
-        %br
-        %p.checkbox_select
-          = type.label :reshared, t('.reshared')
-          = type.check_box :reshared, {:checked =>  @email_prefs['reshared']}, false, true
     %br
     = f.submit t('.change'), :class => "button"
 
@@ -188,7 +184,7 @@
   .span-5.last
     %h3
       = t('.close_account_text')
-    =link_to t('.close_account_text'), '#close_account_pane', :rel => 'facebox', :class => "button"
+    =link_to t('.close_account_text'), '#close_account_pane', :rel => 'facebox', :class => "button", :id => "close_account"
 
     .hidden#close_account_pane{:rel => 'facebox'}
       #inner_account_delete
@@ -222,4 +218,4 @@
               = f.label :close_account_password, t('.current_password'), :for => :close_account_password
               = f.password_field :current_password, :id => :close_account_password
             %p
-              = f.submit t('.close_account_text'), :data => { :confirm => t('are_you_sure_delete_account') }
+              = f.submit t('.close_account_text'), :id => "close_account_confirm", :data => { :confirm => t('are_you_sure_delete_account') }

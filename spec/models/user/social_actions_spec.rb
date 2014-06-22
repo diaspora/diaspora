@@ -16,7 +16,7 @@ describe User::SocialActions do
       alice.participations.last.target.should == @status
     end
 
-    it "creates the like" do
+    it "creates the comment" do
       lambda{ alice.comment!(@status, "bro") }.should change(Comment, :count).by(1)
     end
 
@@ -81,6 +81,33 @@ describe User::SocialActions do
       expect { alice.like!(@status) }.to raise_error
 
       @status.reload.likes.should == likes
+    end
+  end
+
+  describe 'User#participate_in_poll!' do
+    before do
+      @bobs_aspect = bob.aspects.where(:name => "generic").first
+      @status = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
+      @poll = FactoryGirl.create(:poll, :status_message => @status)
+      @answer = @poll.poll_answers.first
+    end
+
+    it "federates" do
+      Participation::Generator.any_instance.stub(:create!)
+      Postzord::Dispatcher.should_receive(:defer_build_and_post)
+      alice.participate_in_poll!(@status, @answer)
+    end
+
+    it "creates a partcipation" do
+      lambda{ alice.participate_in_poll!(@status, @answer) }.should change(Participation, :count).by(1)
+    end
+
+    it "creates the poll participation" do
+      lambda{ alice.participate_in_poll!(@status, @answer) }.should change(PollParticipation, :count).by(1)
+    end
+
+    it "sets the poll answer id" do
+      alice.participate_in_poll!(@status, @answer).poll_answer.should == @answer
     end
   end
 end

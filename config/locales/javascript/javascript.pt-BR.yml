@@ -24,6 +24,10 @@ pt-BR:
       deselect_all: "Desmarcar tudo"
       no_aspects: "Sem aspecto selecionado"
       select_all: "Marcar tudo"
+    bookmarklet:
+      post_something: "Publicar em diaspora*"
+      post_submit: "Enviando publicação..."
+      post_success: "Publicado! Fechando janela popup..."
     comma: ","
     comments:
       hide: "ocultar comentários"
@@ -36,6 +40,7 @@ pt-BR:
     edit: "Editar"
     failed_to_like: "Falhou ao curtir!"
     failed_to_post_message: "Falha na publicação da mensagem!"
+    failed_to_remove: "Falha ao remover a entrada!"
     getting_started:
       alright_ill_wait: "Tudo bem, eu esperarei."
       hey: "Ei, <%= name %>!"
@@ -45,11 +50,11 @@ pt-BR:
       admin: "Administrador"
       close: "fechar"
       contacts: "Contatos"
+      conversations: "Conversas"
       help: "Ajuda"
       home: "Páginal Inicial"
       log_out: "Sair"
       mark_all_as_read: "Marcar Todas como Lidas"
-      messages: "Mensagens"
       notifications: "Notificações"
       profile: "Perfil"
       recent_notifications: "Notificações Recentes"
@@ -64,6 +69,9 @@ pt-BR:
     my_activity: "Minhas Atividades"
     my_aspects: "Meus Aspectos"
     my_stream: "Fluxo"
+    notifications:
+      mark_read: "Marcar como lida"
+      mark_unread: "Marcar como não lida"
     people:
       not_found: "e ninguém foi encontrado..."
     photo_uploader:
@@ -73,11 +81,29 @@ pt-BR:
       invalid_ext: "{file} possui extensão inválida. Somente {extensions} são permitidas."
       looking_good: "OMG, veja você é incrível!"
       size_error: "{file} é muito grande, o tamanho máximo do arquivo é {sizeLimit}."
+    poll:
+      close_result: "Ocultar resultado"
+      count:
+        one: "<%=count%> voto até agora"
+        other: "<%=count%> votos até agora"
+      result: "Resultado"
+      show_result: "Mostrar resultado"
+      vote: "Votar"
     publisher:
+      add_option: "Adicionar opção"
       at_least_one_aspect: "Você deve publicar em pelo menos um aspecto"
       limited: "Limitada - a sua publicação será visível apenas para as pessoas com quem você compartilha."
       near_from: "Publicado de: <%= location %>"
+      option: "Opção <%= nr %>"
       public: "Pública - a sua publicação será totalmente visível na web e poderá ser encontrada por mecanismos de buscas, como Google, Bing e etc..."
+      question: "Pergunta"
+    report:
+      name: "Relatório"
+      prompt: "Por favor entre um motivo:"
+      prompt_default: "conteúdo ofensivo"
+      status:
+        created: "O relatório foi criado com sucesso"
+        exists: "O relatório já existe"
     reshares:
       duplicate: "Que bom, hein? Você já recompartilhou essa publicação."
       post: "Recompartilhar a publicação de <%= name %>?"
@@ -119,6 +145,7 @@ pt-BR:
         stop_following: "Parar de Seguir #<%= tag %>"
       unfollow: "Parar de seguir"
       unlike: "Descurtir"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "Ok, eu acho que #<%= tagName %> não era tão interessante..."
     timeago:
@@ -135,6 +162,7 @@ pt-BR:
       seconds: "menos de um minuto"
       suffixAgo: "atrás"
       suffixFromNow: "a partir de agora"
+      wordSeparator: " "
       year: "cerca de um ano"
       years: "%d anos"
     videos:

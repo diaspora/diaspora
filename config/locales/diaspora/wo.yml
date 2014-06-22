@@ -42,9 +42,6 @@ wo:
       family: "Waakër"
       friends: "Xarit"
       work: "Ligéey"
-  authorizations:
-    new:
-      nope: "Déedéet"
   back: "Dellu"
   blocks:
     destroy:
@@ -182,10 +179,6 @@ wo:
       follow: "Toppal #%{tag}"
       following: "Dangay topp #%{tag}"
       stop_following: "Bul Topp #%{tag}"
-  tokens:
-    show:
-      sign_up_today: "Sos am sàq tey!"
-      via: "(cib %{link})"
   username: "Turu Jëfandikukat"
   users:
     edit:

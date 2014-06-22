@@ -27,6 +27,8 @@ mk:
           attributes:
             email:
               taken: "е веќе искористена."
+            person:
+              invalid: "е навалиден."
             username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "е веќе искористено."
@@ -63,8 +65,6 @@ mk:
       aspect_not_empty: "Аспектот не е празен"
       remove: "одстрани"
     index:
-      cubbies:
-        learn_more: "Научи повеќе"
       donate: "Донирај"
       handle_explanation: "Ова е вашето diaspora корисничко име. Исто како е-маил адреса, можете да го давате на луѓе за да се сврзат со вас."
       help:
@@ -154,10 +154,7 @@ mk:
         two: "%{count} new messages"
         zero: "no new messages"
     index:
-      create_a_new_message: "Направи нова порака"
       inbox: "Сандаче"
-      message_inbox: "Сандаче"
-      new_message: "Нова порака"
       no_conversation_selected: "нема селектирани разговори"
       no_messages: "нема пораки"
     new:
@@ -165,8 +162,6 @@ mk:
       sending: "Праќање..."
       subject: "Наслов"
       to: "до"
-    new_message:
-      fail: "Невалидна порака"
     show:
       delete: "избриши и блокирај разговор"
       reply: "врати"
@@ -347,6 +342,7 @@ mk:
       subject: "A message from your Diaspora administrator:"
     started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
+  nsfw: "За возрасни"
   ok: "ОК"
   or: "или"
   password: "Лозинка"
@@ -354,7 +350,6 @@ mk:
   people:
     few: "%{count} people"
     helper:
-      people_on_pod_are_aware_of: " достапните луѓе се запознаени со"
       results_for: " резултати за %{params}"
     index:
       results_for: "резултати од пребарување за"
@@ -567,9 +562,6 @@ mk:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
   terms_and_conditions: "Услови и правила"
-  tokens:
-    show:
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
   undo: "Откажи"
   username: "Корисничко име"
   users:

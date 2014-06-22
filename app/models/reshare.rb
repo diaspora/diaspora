@@ -29,24 +29,24 @@ class Reshare < Post
     self.root.author.diaspora_handle
   end
 
-  def o_embed_cache
-    self.root ? root.o_embed_cache : super
-  end
-
-  def open_graph_cache
-    self.root ? root.open_graph_cache : super
-  end
+  delegate :o_embed_cache, :open_graph_cache,
+           :message, :nsfw,
+           to: :absolute_root, allow_nil: true
 
   def raw_message
-    self.root ? root.raw_message : super
+    absolute_root.try(:raw_message) || super
   end
 
   def mentioned_people
-    self.root ? root.mentioned_people : super
+    absolute_root.try(:mentioned_people) || super
   end
 
   def photos
-    self.root ? root.photos : []
+    absolute_root.try(:photos) || super
+  end
+
+  def address
+    absolute_root.try(:location).try(:address)
   end
 
   def receive(recipient, sender)
@@ -65,21 +65,10 @@ class Reshare < Post
     Notifications::Reshared if root.author == user.person
   end
 
-  def nsfw
-    root.try(:nsfw)
-  end
-
   def absolute_root
-    current = self
-    while( current.is_a?(Reshare) )
-      current = current.root
-    end
-
-    current
-  end
-
-  def address
-    absolute_root.try(:location).try(:address)
+    @absolute_root ||= self
+    @absolute_root = @absolute_root.root while @absolute_root.is_a? Reshare
+    @absolute_root
   end
 
   private

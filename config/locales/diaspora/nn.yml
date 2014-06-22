@@ -146,10 +146,6 @@ nn:
       aspect_not_empty: "Aspektet er ikkje tomt"
       remove: "fjern"
     index:
-      cubbies:
-        explanation: "Cubbi.es er den første Diaspora-applikasjonen som vert utvikla."
-        heading: "Kopla til Cubbi.es"
-        learn_more: "Lær meir"
       diaspora_id:
         content_1: "Diaspora-ID-en din er:"
         content_2: "Gje han til kven som helst så kan dei finna deg på Diaspora."
@@ -221,14 +217,6 @@ nn:
       failure: "Aspektet ditt, %{name}, hadde eit for langt namn til å bli lagra."
       success: "Aspektet ditt, %{name}, er vorte endra."
     zero: "ingen aspekt"
-  authorizations:
-    index:
-      no_applications: "Du har enno ikkje registrert nokon applikasjonar."
-      revoke_access: "Trekk attende tilgangen"
-    new:
-      authorize: "Autoriser"
-      cubbies_will: "Cubbies vil kunne legge ut bilete på vegne av deg"
-      nope: "Nei"
   back: "Attende"
   blocks:
     create:
@@ -301,10 +289,7 @@ nn:
         two: "%{count} nye meldingar"
         zero: "Ingen nye meldingar"
     index:
-      create_a_new_message: "skriv ei ny melding"
       inbox: "Innkorg"
-      message_inbox: "Innkorga"
-      new_message: "Ny melding"
       no_conversation_selected: "ingen samtale er vald"
       no_messages: "ingen meldingar"
     new:
@@ -313,8 +298,6 @@ nn:
       sending: "Sender …"
       subject: "emne"
       to: "til"
-    new_message:
-      fail: "Ugyldig melding"
     show:
       delete: "slett og blokker samtalen"
       reply: "svar"
@@ -555,10 +538,8 @@ nn:
       edit_membership: "endra aspektmedlemskap"
     few: "%{count} personar"
     helper:
-      people_on_pod_are_aware_of: "personar på tenaren er kjende med "
       results_for: " resultat for %{params}"
     index:
-      couldnt_find_them_send_invite: "Finn du dei ikkje? Send dei ei innbyding."
       looking_for: "Ser du etter innlegg merka med %{tag_link}?"
       no_one_found: "… og ingen vart funnen."
       no_results: "Du må søkja etter noko."
@@ -930,18 +911,6 @@ nn:
       posts_tagged_with: "Meldingar som er merka med #%{tag}"
       stop_following: "Følg ikkje #%{tag} lenger"
   terms_and_conditions: "Vilkår og retningslinjer"
-  tokens:
-    show:
-      connect_to_cubbies: "Kopla deg til Cubbi.es"
-      connecting_is_simple: "Det er lett å kopla til Diaspora-kontoen. Skriv berre inn Diaspora-ID-en din (<b>%{diaspora_id}</b>) frå <a href='%{href_link}'>innstillingssida</a> di på cubbi.es og trykk 'kopla til'."
-      daniels_account: "Daniel sin Diaspora-konto"
-      love_to_try: "Vi vonar du vil prøva det."
-      making_the_connection: "Koplar til"
-      screenshot_explanation: "%{link1}. Denne cubbyen er lenka til %{link2}."
-      sign_up_today: "Registrer deg no"
-      typical_userpage: "Ei typisk brukarside på cubbie.es"
-      via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es er det første Diaspora-programmet i verda og er òg den beste måten å samla bilete på nettet."
   undo: "Gjera om?"
   username: "Brukarnamn"
   users:

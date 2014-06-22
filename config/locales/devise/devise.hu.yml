@@ -33,11 +33,11 @@ hu:
       inviter:
         accept_at: "Meghívás elfogadása: %{url}"
         has_invited_you: "%{name} meghívott a Diaspora* közösségi oldalra."
-        have_invited_you: "%{names} meghívott a Diaspora* közösségi oldalra."
+        have_invited_you: "%{names} meghívott a diaspora* közösségi oldalra."
       reset_password_instructions:
         change: "Jelszavam módosítása"
         ignore: "Ha nem kérted ezt, hagyd figyelmen kívül a levelet."
-        someone_requested: "Valaki jelszóváltoztatást kért, és ezen a linken keresztül tudod megtenni."
+        someone_requested: "Valaki jelszóváltoztatást kért. Ha te voltál az, a következő link segítségével tudod véghezvinni."
         subject: "Utasítások jelszó alaphelyzetbe állításához"
         wont_change: "A jelszavad addig nem változik meg, amíg a fenti linken keresztül nem hozol létre egy újat."
       unlock_instructions:
@@ -49,9 +49,13 @@ hu:
     passwords:
       edit:
         change_password: "Megváltoztatom a jelszavamat"
+        confirm_password: "Jelszó megerősítése"
+        new_password: "Új jelszó"
       new:
+        email: "E-mail cím"
         forgot_password: "Elfelejtetted a jelszavad?"
         no_account: "Ehhez az e-mail címhez nem tartozik fiók."
+        reset_password: "Jelszó visszaállítása"
         send_password_instructions: "Küldd el nekem a jelszó alaphelyzetbe állításához szükséges utasításokat"
       send_instructions: "Néhány perc múlva kapsz egy e-mailt arról, hogyan állíthatod alaphelyzetbe a jelszavadat."
       updated: "A jelszavad megváltozott. Be vagy jelentkezve vele."
