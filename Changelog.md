@@ -13,9 +13,9 @@ This version will break federation to pods running on versions prior 0.1.1.0.
 Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883](https://github.com/diaspora/diaspora/pull/4883)
 
 ## Refactor
-* Drop number of followers from tags page [#4717](https://github.com/diaspora/diaspora/issues/4717)
-* Remove some unused beta code [#4738](https://github.com/diaspora/diaspora/issues/4738)
-* Style improvements for SPV, use original author's avatar for reshares [#4754](https://github.com/diaspora/diaspora/issue/4754)
+* Drop number of followers from tags page [#4717](https://github.com/diaspora/diaspora/pull/4717)
+* Remove some unused beta code [#4738](https://github.com/diaspora/diaspora/pull/4738)
+* Style improvements for SPV, use original author's avatar for reshares [#4754](https://github.com/diaspora/diaspora/pull/4754)
 * Update image branding to the new decided standard [#4702](https://github.com/diaspora/diaspora/pull/4702)
 * Consistent naming of conversations and messages [#4756](https://github.com/diaspora/diaspora/pull/4756)
 * Improve stream generation time [#4769](https://github.com/diaspora/diaspora/pull/4769)
@@ -35,27 +35,27 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 * Refactor publisher: trigger events for certain actions, introduce 'disabled' state [#4932](https://github.com/diaspora/diaspora/pull/4932)
 
 ## Bug fixes
-* Fix user account deletion [#4792](https://github.com/diaspora/diaspora/issues/4792)
+* Fix user account deletion [#4953](https://github.com/diaspora/diaspora/pull/4953) and [#4963](https://github.com/diaspora/diaspora/pull/4963)
 * Fix email body language when invite a friend [#4832](https://github.com/diaspora/diaspora/issues/4832)
-* Improve time agos by updating the plugin [#4280](https://github.com/diaspora/diaspora/issues/4280)
+* Improve time agos by updating the plugin [#4281](https://github.com/diaspora/diaspora/pull/4281)
 * Do not add a space after adding a mention [#4767](https://github.com/diaspora/diaspora/issues/4767)
-* Fix active user statistics by saving a last seen timestamp for users [#4734](https://github.com/diaspora/diaspora/issues/4734)
+* Fix active user statistics by saving a last seen timestamp for users [#4802](https://github.com/diaspora/diaspora/pull/4802)
 * Render HTML in atom user feed [#4835](https://github.com/diaspora/diaspora/pull/4835)
-* Fix plaintext mode of Mentionable [#4294](https://github.com/diaspora/diaspora/issues/4294)
-* Fixed Atom Feed Error if reshared Post is deleted [#4638] (https://github.com/diaspora/diaspora/issues/4638)
+* Fix plaintext mode of Mentionable [#4831](https://github.com/diaspora/diaspora/pull/4831)
+* Fixed Atom Feed Error if reshared Post is deleted [#4841](https://github.com/diaspora/diaspora/pull/4841)
 * Show hovercards in the notification drop-down for users on the same pod [#4843](https://github.com/diaspora/diaspora/pull/4843)
-* The photo stream no longer repeats after the last photo [#4726](https://github.com/diaspora/diaspora/issues/4726)
-* Fix hovercards in the notificaitons dropdown [#4693](https://github.com/diaspora/diaspora/issues/4693)
-* Do not parse hashtags inside Markdown links [#3692](https://github.com/diaspora/diaspora/issues/3692)
-* Restore comment textarea content after revealing more comments [#4514](https://github.com/diaspora/diaspora/issues/4514)
-* OpenGraph: don't make description into links [#4492](https://github.com/diaspora/diaspora/issues/4492)
-* Don't cut off long tags in stream posts [#4864](https://github.com/diaspora/diaspora/issues/4864)
-* Do not replace earlier appearances of the name while mentioning somebody [#4868](https://github.com/diaspora/diaspora/issues/4868)
-* Catch exceptions when trying to decode an invalid URI [#4874](https://github.com/diaspora/diaspora/issues/4874)
-* Redirect to the stream when switching the mobile publisher to desktop [#4806](https://github.com/diaspora/diaspora/issues/4806)
+* The photo stream no longer repeats after the last photo [#4787](https://github.com/diaspora/diaspora/pull/4787)
+* Fix avatar alignment for hovercards in the notifications dropdown [#4853](https://github.com/diaspora/diaspora/pull/4853)
+* Do not parse hashtags inside Markdown links [#4856](https://github.com/diaspora/diaspora/pull/4856)
+* Restore comment textarea content after revealing more comments [#4858](https://github.com/diaspora/diaspora/pull/4858)
+* OpenGraph: don't make description into links [#4708](https://github.com/diaspora/diaspora/pull/4708)
+* Don't cut off long tags in stream posts [#4878](https://github.com/diaspora/diaspora/pull/4878)
+* Do not replace earlier appearances of the name while mentioning somebody [#4882](https://github.com/diaspora/diaspora/pull/4882)
+* Catch exceptions when trying to decode an invalid URI [#4889](https://github.com/diaspora/diaspora/pull/4889)
+* Redirect to the stream when switching the mobile publisher to desktop [#4917](https://github.com/diaspora/diaspora/pull/4917)
 * Parsing mention witch contain in username special characters [#4919](https://github.com/diaspora/diaspora/pull/4919)
-* Do not show your own hovercard [#4724](https://github.com/diaspora/diaspora/issues/4724)
-* Hit Nominatim via https [#4967](https://github.com/diaspora/diaspora/issues/4967)
+* Do not show your own hovercard [#4758](https://github.com/diaspora/diaspora/pull/4758)
+* Hit Nominatim via https [#4968](https://github.com/diaspora/diaspora/pull/4968)
 * Fix services regression in mobile bookmarklet [#4985](https://github.com/diaspora/diaspora/pull/4985)
 
 ## Features
@@ -75,7 +75,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 
 ## Bug fixes
 * Use youtube HTTPS scheme for oEmbed [#4743](https://github.com/diaspora/diaspora/pull/4743)
-* Fix infinite scroll on aspect streams [#4729](https://github.com/diaspora/diaspora/issues/4729)
+* Fix infinite scroll on aspect streams [#4747](https://github.com/diaspora/diaspora/pull/4747)
 * Fix hovercards [#4782](https://github.com/diaspora/diaspora/pull/4782)
 * Bump kaminari to fix admin panel [#4714](https://github.com/diaspora/diaspora/issues/4714)
 
@@ -83,7 +83,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 
 ## Bug fixes
 * Fix regression caused by using after_commit with nested '#save' which lead to an infinite recursion [#4715](https://github.com/diaspora/diaspora/issues/4715)
-* Save textarea value before rendering comments when clicked 'show more...' [#4514](https://github.com/diaspora/diaspora/issues/4514)
+* Save textarea value before rendering comments when clicked 'show more...' [#4858](https://github.com/diaspora/diaspora/pull/4858)
 
 # 0.3.0.0
 
