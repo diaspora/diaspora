@@ -16,11 +16,8 @@ nb:
       started_sharing_with: "Du har begynt å dele med <%= name %>!"
       stopped_sharing_with: "Du har sluttet å dele med <%= name %>."
       toggle:
-        few: "I {{count}} kategorier"
-        many: "I {{count}} kategorier"
         one: "I <%= count %> kategori"
         other: "I <%= count %> kategorier"
-        two: "I {{count}} kategorier"
         zero: "Legg til kategori"
     aspect_navigation:
       add_an_aspect: "+ Legg til et aspekt"
@@ -75,6 +72,11 @@ nb:
       invalid_ext: "{file} har en ugyldig utvidelse. Bare {extensions} er tillatt."
       looking_good: "Wow, du ser fantastisk ut!"
       size_error: "{file} er for stor, maksimal filstørrelse er {sizeLimit}"
+    publisher:
+      at_least_one_aspect: "Du må poste til minst ett aspekt"
+      limited: "Begrenset - posten din vil bare være synlig for de du deler med"
+      near_from: "Publisert fra: <%= location %>"
+      public: "Offentlig - posten din vil være synlig for alle og kan bli funnet av søkemotorer"
     reshares:
       duplicate: "du har allerede delt denne posten!"
       post: "Videredel <%= name %> sitt innhold?"

@@ -54,6 +54,7 @@ sv:
       correlations: "Korrelationer"
       pages: "Sidor"
       pod_stats: "Podstatistik"
+      report: "Anmälningar"
       sidekiq_monitor: "Sidekiq-övervakare"
       user_search: "Användarsökning"
       weekly_user_stats: "Veckovis användarstatistik"
@@ -643,7 +644,7 @@ sv:
       show_unread: "visa olästa"
       started_sharing: "Började dela"
     liked:
-      one: "%{actors} din %{post_link}."
+      one: "%{actors} gillar din %{post_link}."
       other: "%{actors} gillar din %{post_link}."
       zero: "ingen gillar din %{post_link}."
     liked_post_deleted:
@@ -666,7 +667,7 @@ sv:
     reshared:
       one: "%{actors} har delat vidare ditt inlägg %{post_link}."
       other: "%{actors} har delat vidare ditt inlägg %{post_link}."
-      zero: "Ingen har delat vidare ditt inlägg %{post_link}."
+      zero: "ingen har delat vidare ditt inlägg %{post_link}."
     reshared_post_deleted:
       one: "%{actors} delade vidare ditt raderade inlägg."
       other: "%{actors} delade vidare ditt raderade inlägg."
@@ -711,6 +712,26 @@ sv:
       subject: "%{name} har nämnt dig på Diaspora*"
     private_message:
       reply_to_or_view: "Svara på eller läs denna konversation >"
+    report_email:
+      body: |-
+          Tjenare,
+
+          %{type} med id:et %{id} var märt som stötande.
+
+          [%{url}][1]
+
+          Var god och se över det snarast!
+
+
+          Tack ska du ha,
+
+          Diaspora*:s e-postbot!
+
+          [1]: %{url}             
+      subject: "En ny %{type} var märkt som stötande"
+      type:
+        comment: "kommentar"
+        post: "inlägg"
     reshared:
       reshared: "%{name} delar ditt inlägg vidare."
       view_post: "Se inlägg >"
@@ -900,6 +921,21 @@ sv:
       sign_up_message: "Socialt nätverkande med ♥"
       submitting: "Sänder..."
       username: "ANVÄNDARNAMN"
+  report:
+    comment_label: "<b>Kommentar</b>:<br>%{data}"
+    confirm_deletion: "Vill de radera objektet?"
+    delete_link: "Radera objekt"
+    not_found: "<u>Inlägget eller kommentarer fanns inte. Det tycks har blivit borttaget av användaren.</u>"
+    post_label: "<b>Inlägg</b>: %{title}"
+    reason_label: "Orsak: %{text}"
+    reported_label: "<b>Anmält av</b> %{person}"
+    review_link: "Markera som genomgånget"
+    status:
+      created: "En anmälan har skapats"
+      destroyed: "Inlägget har förintats"
+      failed: "Någonting gick snett"
+      marked: "Anmälningen har markerats som genomgånget"
+    title: "Översikt av anmälningar"
   requests:
     create:
       sending: "Skickar"
@@ -1190,6 +1226,7 @@ sv:
       reshared: "någon delar vidare dina inlägg."
       show_community_spotlight: "Visa gemenskapens rampljus i ditt flöde"
       show_getting_started: "Visa tips för att komma igång"
+      someone_reported: "någon sände en anmälan"
       started_sharing: "någon börjar dela med sig till dig."
       stream_preferences: "Ströminställningar"
       your_email: "Din e-post"

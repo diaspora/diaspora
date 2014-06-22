@@ -54,6 +54,7 @@ es:
       correlations: "Similitudes"
       pages: "Páginas"
       pod_stats: "Estadísticas del Servidor"
+      report: "Informes"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Buscar usuario"
       weekly_user_stats: "Estadísticas Semanales del Usuario"
@@ -705,6 +706,26 @@ es:
       subject: "%{name} te mencionó en diaspora*"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
+    report_email:
+      body: |-
+          Hola,
+
+          el %{type} con ID %{id} fue marcado como ofensivo.
+
+          [%{url}][1]
+
+          Por favor, revísalo cuanto antes!
+
+
+          Saludos,
+
+          El robot de correo electrónico de Diaspora*
+
+          [1]: %{url}
+      subject: "Un nuevo %{type} se marcó como ofensivo"
+      type:
+        comment: "comentar"
+        post: "mensaje"
     reshared:
       reshared: "%{name} compartió tu publicación"
       view_post: "Ver publicación >"
@@ -891,6 +912,21 @@ es:
       sign_up_message: "Redes Sociales con un ♥"
       submitting: "En proceso..."
       username: "NOMBRE"
+  report:
+    comment_label: "<b>Comentario</b>:<br>%{data}"
+    confirm_deletion: "¿Seguro que quieres borrar esto?"
+    delete_link: "Borrar"
+    not_found: "No se encontró la noticia o comentario. ¡Parece que fue borrado por el usuario!"
+    post_label: "<b>Publicación</b>: %{title}"
+    reason_label: "Razón: %{text}"
+    reported_label: "<b>Reportado por</b> %{person}"
+    review_link: "Marcar como revisado"
+    status:
+      created: "El informe ha sido creado"
+      destroyed: "La publicación ha sido eliminada"
+      failed: "Algo salió mal"
+      marked: "El informe ha sido marcado como revisado"
+    title: "Resúmen de Informes"
   requests:
     create:
       sending: "Enviando"
@@ -1081,7 +1117,7 @@ es:
     comment_stream:
       contacts_title: "Gente cuyas publicaciones comentaste"
       title: "Comentado"
-    community_spotlight_stream: "Comunidad Creativa"
+    community_spotlight_stream: "Lo más destacado"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
       contacts_title: "Gente con esas etiquetas"
@@ -1140,7 +1176,7 @@ es:
     edit:
       also_commented: "alguien comenta en una publicación que has comentado"
       auto_follow_aspect: "Aspecto para los usuarios seguidos automáticamente:"
-      auto_follow_back: "Seguir automáticamente a otros usuarios"
+      auto_follow_back: "Seguir automáticamente a los usuarios que te sigan"
       change: "Cambiar"
       change_email: "Cambiar correo"
       change_language: "Cambiar idioma"
@@ -1156,7 +1192,7 @@ es:
         no_turning_back: "Actualmente, no hay vuelta atrás."
         what_we_delete: "Eliminaremos todas tus publicaciones y datos del perfil, tan pronto como sea humanamente posible. Tus comentarios seguirán en línea, pero asociados a tu dirección Diaspora* en lugar de a tu nombre."
       close_account_text: "Eliminar cuenta"
-      comment_on_post: "...alguien comenta en tu publicación"
+      comment_on_post: "...alguien comentó en tu publicación"
       current_password: "Contraseña actual"
       current_password_expl: "con la que inicias sesión..."
       download_photos: "Descargar mis fotos"
@@ -1170,13 +1206,14 @@ es:
       mentioned: "te mencionan en una publicación"
       new_password: "Nueva contraseña"
       photo_export_unavailable: "Exportar fotos no está disponible actualmente"
-      private_message: "recibes un mensaje privado"
+      private_message: "has recibido un mensaje privado"
       receive_email_notifications: "Recibir notificaciones por correo cuando..."
-      reshared: "alguien comparte una de tus publicaciones"
-      show_community_spotlight: "¿Mostrar la \"Comunidad Creativa\" en tu Entrada?"
-      show_getting_started: "Reiniciar la Introducción de Ayuda"
+      reshared: "alguien ha compartido una de tus publicaciones"
+      show_community_spotlight: "¿Mostrar lo más destacado en la portada?"
+      show_getting_started: "Mostrar los Consejos de Inicio"
+      someone_reported: "alguien envió un informe"
       started_sharing: "alguien empieza a compartir contigo"
-      stream_preferences: "Preferencias de Entrada"
+      stream_preferences: "Preferencias de la portada"
       your_email: "Tu correo"
       your_handle: "Tu ID de Diaspora*"
     getting_started:

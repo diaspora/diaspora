@@ -54,6 +54,7 @@ de_formal:
       correlations: "Korrelationen"
       pages: "Seiten"
       pod_stats: "Pod Statistik"
+      report: "Meldungen"
       sidekiq_monitor: "Sidekiq-Monitor"
       user_search: "Benutzersuche"
       weekly_user_stats: "Wöchentliche Benutzerstatistik"
@@ -755,6 +756,25 @@ de_formal:
       subject: "%{name} hat Sie auf diaspora* erwähnt"
     private_message:
       reply_to_or_view: "Antworten Sie oder sehen Sie sich diese Unterhaltung an >"
+    report_email:
+      body: |-
+          Hallo,
+
+          der %{type} mit der ID %{id} wurde als anstößig markiert.
+
+          [%{url}][1]
+
+          Bitte überprüfen Sie das so bald wie möglich!
+
+          Grüße,
+
+          Der diaspora* E-Mail-Roboter!
+
+          [1]: %{url}             
+      subject: "Ein neuer %{type} wurde als anstößig markiert"
+      type:
+        comment: "Kommentar"
+        post: "Beitrag"
     reshared:
       reshared: "%{name} hat Ihren Beitrag weitergesagt"
       view_post: "Beitrag anzeigen >"
@@ -944,6 +964,21 @@ de_formal:
       sign_up_message: "Soziales Netzwerken mit <3"
       submitting: "Absenden..."
       username: "BENUTZERNAME"
+  report:
+    comment_label: "<b>Kommentar</b>:<br>%{data}"
+    confirm_deletion: "Sind Sie sich sicher, dass Sie das Objekt löschen wollen?"
+    delete_link: "Lösche Objekt"
+    not_found: "<u>Der Beitrag/Kommentar wurde nicht gefunden. Es sieht so aus, als ob er vom Benutzer gelöscht wurde!</u>"
+    post_label: "<b>Beitrag</b>: %{title}"
+    reason_label: "Grund: %{text}"
+    reported_label: "<b>Gemeldet von</b> %{person}"
+    review_link: "Als überprüft markieren"
+    status:
+      created: "Eine Meldung wurde erstellt"
+      destroyed: "Der Beitrag wurde gelöscht"
+      failed: "Ein Fehler ist aufgetreten"
+      marked: "Die Meldung wurde als überprüft markiert"
+    title: "Meldungsübersicht"
   requests:
     create:
       sending: "Senden …"
@@ -1234,6 +1269,7 @@ de_formal:
       reshared: "… jemand Ihren Beitrag weitersagt?"
       show_community_spotlight: "Gemeinschafts-Schaukasten im Stream anzeigen?"
       show_getting_started: "Einstieg reaktivieren"
+      someone_reported: "jemand hat eine Meldung gesendet"
       started_sharing: "… jemand mit Ihnen zu teilen anfängt?"
       stream_preferences: "Stream-Einstellungen"
       your_email: "Ihre E-Mail-Adresse"

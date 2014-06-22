@@ -54,6 +54,7 @@ es-AR:
       correlations: "Similitudes"
       pages: "Páginas"
       pod_stats: "Estadísticas del servidor"
+      report: "Reportes"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Búsqueda de usuarios"
       weekly_user_stats: "Estadísticas semanales de usuario"
@@ -726,6 +727,26 @@ es-AR:
       subject: "%{name} te mencionó en diaspora*"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
+    report_email:
+      body: |-
+          Hola,
+
+          la %{type} con la ID %{id} ha sido marcada como ofensiva.
+
+          [%{url}][1]
+
+          ¡Por favor revísala lo antes posible!
+
+
+          Saludos,
+
+          The diaspora* email robot!
+
+          [1]: %{url}
+      subject: "Una nueva %{type} ha sido marcada como ofensiva"
+      type:
+        comment: "comentario"
+        post: "publicación"
     reshared:
       reshared: "%{name} compartió tu publicación"
       view_post: "Ver publicación >"
@@ -915,6 +936,21 @@ es-AR:
       sign_up_message: "Redes Sociales con un <3"
       submitting: "Enviar"
       username: "NOMBRE DE USUARIO"
+  report:
+    comment_label: "<b>Comentario</b>:<br>%{data}"
+    confirm_deletion: "¿Está seguro de borrar el item?"
+    delete_link: "Borrar item"
+    not_found: "<u>La publicación/comentario no se ha encontrado. ¡Al parecer ha sido borrada por el usuario!</u>"
+    post_label: "<b>Publicación</b>: %{title}"
+    reason_label: "Motivo: %{text}"
+    reported_label: "<b>Reportada por</b> %{person}"
+    review_link: "Marcar como revisada"
+    status:
+      created: "El reporte ha sido creado"
+      destroyed: "La publicación ha sido eliminada"
+      failed: "Algo salió mal"
+      marked: "El reporte ha sido marcado como revisado"
+    title: "Resumen de reportes"
   requests:
     create:
       sending: "Enviando"
@@ -1205,6 +1241,7 @@ es-AR:
       reshared: "...alguien compartió tu publicación?"
       show_community_spotlight: "¿Mostrar \"Comunidad Creativa\" en tu Entrada?"
       show_getting_started: "Volver a activar la Introducción de Ayuda"
+      someone_reported: "alguien ha enviado un reporte"
       started_sharing: "...alguien comienza a compartir con vos?"
       stream_preferences: "Preferencias de la Entrada"
       your_email: "Tu correo electrónico"

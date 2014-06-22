@@ -87,6 +87,7 @@ br:
       vote: "Vot"
     publisher:
       add_option: "Ouzhpennañ un dibarzh"
+      at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
       option: "Dibarzh <%= nr %>"
       question: "Goulenn"
     reshares:

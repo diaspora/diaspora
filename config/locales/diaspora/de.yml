@@ -163,7 +163,7 @@ de:
     index:
       diaspora_id:
         content_1: "Deine diaspora* ID ist:"
-        content_2: "Gib diese weiter und sei somit auf diaspora* leicht zu finden."
+        content_2: "Gib diese an andere weiter und sie werden dich leicht auf diaspora* finden können."
         heading: "diaspora* ID"
       donate: "Spenden"
       handle_explanation: "Das ist deine diaspora* ID. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
@@ -409,7 +409,7 @@ de:
       diaspora_app_q: "Gibt es eine diaspora* App für Android oder iOS?"
       photo_albums_a: "Nein, momentan nicht. Aber du kannst dir die hochgeladenen Bilder in der Fotosektion in der linke Leiste auf dem Profil ansehen."
       photo_albums_q: "Gibt es Foto oder Videoalben?"
-      subscribe_feed_a: "Ja, allerdings ist diese Funktion noch immer nicht ganz ausgereift und das Ergebnis wird nicht ganz richtig formatiert. Wenn du die Funktion dennoch benutzen willst, gehe einfach zu der Profilseite der Person und klicke auf die Feed-Schaltfläche deines Browsers oder kopiere die Profil-URL (z.B. https://joindiaspora.com/people/irgendeinenummer) und füge sie in den Feedreader ein. Die resultierenden Feed-Adressen sehen aus wie https://joindiaspora.com/public/benutzername.atom. diaspora* benutzt Atom an Stelle von RSS."
+      subscribe_feed_a: "Ja, allerdings ist diese Funktion noch immer nicht ganz ausgereift und das Ergebnis wird nicht ganz richtig formatiert. Wenn du die Funktion dennoch benutzen willst, gehe einfach zu der Profilseite der Person und klicke auf die Feed-Schaltfläche deines Browsers oder kopiere die Profil-URL (z.B. https://joindiaspora.com/people/irgendeinenummer) und füge sie in einen Feedreader ein. Die resultierenden Feed-Adressen sehen z.B. so aus: https://joindiaspora.com/public/benutzername.atom – diaspora* benutzt Atom anstelle von RSS."
       subscribe_feed_q: "Kann ich die öffentlichen Beiträge einer Person mit einem Feedreader verfolgen?"
       title: "Diverses"
     pods:
@@ -758,11 +758,11 @@ de:
 
           [%{url}][1]
 
-          Bitte überprüfe das sobald wie möglich!
+          Bitte überprüfe das so bald wie möglich!
 
           Grüße,
 
-          Der diaspora* E-Mail robot!
+          Der diaspora* E-Mail-Roboter!
 
           [1]: %{url}
       subject: "Ein neuer %{type} wurde als anstößig markiert"
@@ -1039,7 +1039,7 @@ de:
       logged_in_as: "angemeldet als"
       no_services: "Du hast noch keine Dienste verbunden."
       really_disconnect: "Verbindung mit %{service} entfernen?"
-      services_explanation: "Das Verbinden zu anderen Diensten gibt dir die Möglichkeit, Beiträge die du in diaspora* schreibst, auch dort zu veröffentlichen."
+      services_explanation: "Das Verbinden zu anderen Diensten gibt dir die Möglichkeit, Beiträge, die du in diaspora* schreibst, auch dort zu veröffentlichen."
     inviter:
       click_link_to_accept_invitation: "Öffne diesen Link, um die Einladung zu akzeptieren:"
       join_me_on_diaspora: "Folge mir auf diaspora*"
@@ -1083,7 +1083,7 @@ de:
       invite_your_friends: "Lade deine Freunde ein"
       invites: "Einladungen"
       invites_closed: "Einladungen sind auf diesem diaspora*-Pod derzeit nicht verfügbar."
-      share_this: "Teile diesen Link per Email, Blog oder deinem beliebtesten sozialen Netzwerk!"
+      share_this: "Teile diesen Link per Email, Blog oder sozialen Netzwerken!"
     notification:
       new: "Neue %{type} von %{from}"
     public_explain:
@@ -1251,7 +1251,7 @@ de:
         if_you_want_this: "Wenn du das wirklich möchtest, gib dein Kennwort ein und klicke auf 'Konto schließen'"
         lock_username: "Das wird deinen Benutzernamen sperren, falls du dich dazu entscheidest, dich neu anzumelden."
         locked_out: "Du wirst abgemeldet und von deinem Account ausgesperrt."
-        make_diaspora_better: "Wir möchten, dass du uns dabei hilfst diaspora* besser zu machen, anstatt zu gehen. Wenn du wirklich gehen möchtest, wollen wir dich auf dem Laufenden halten."
+        make_diaspora_better: "Wir möchten, dass du uns dabei hilfst, diaspora* besser zu machen, anstatt zu gehen. Wenn du wirklich gehen möchtest, wollen wir dich auf dem Laufenden halten."
         mr_wiggles: "Mr. Wiggles wird traurig sein, wenn du gehst"
         no_turning_back: "Momentan gibt es kein Zurück."
         what_we_delete: "Wir löschen alle deine Beiträge und dein Profil so schnell wie möglich. Deine Kommentare bleiben hier, werden jedoch mit deiner diaspora* ID anstatt deinem Namen verbunden."

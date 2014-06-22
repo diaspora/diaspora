@@ -54,6 +54,7 @@ nl:
       correlations: "Correlaties"
       pages: "Pagina's"
       pod_stats: "Pod Statistieken"
+      report: "Rapporten"
       sidekiq_monitor: "Sidekiq monitor"
       user_search: "Gebruiker Zoeken"
       weekly_user_stats: "Wekelijkse Gebruiker Statistieken"
@@ -100,9 +101,9 @@ nl:
         zero: "je hebt geen uitnodingen over %{link}"
     weekly_user_stats:
       amount_of:
-        one: "aantal nieuwe gebruikers deze week: %{count}"
-        other: "aantal nieuwe gebruikers deze week: %{count}"
-        zero: "aantal nieuwe gebruikers deze week: geen"
+        one: "Aantal nieuwe gebruikers deze week: %{count}"
+        other: "Aantal nieuwe gebruikers deze week: %{count}"
+        zero: "Aantal nieuwe gebruikers deze week: geen"
       current_server: "Huidige server datum is %{date}"
   ago: "%{time} geleden"
   all_aspects: "Alle Aspecten"
@@ -356,11 +357,11 @@ nl:
       contacts_know_aspect_q: "Weten mijn contacten in welke aspecten ik ze heb gestopt?"
       contacts_visible_a: "Als je deze optie aankruist, dan kunnen de contactpersonen in dat aspect op jouw profielpagina de andere leden van dat aspect zien. Je kunt dit het beste alleen selecteren als de contactpersonen elkaar toch al kennen. Ze kunnen niet zien hoe je het aspect hebt genoemd."
       contacts_visible_q: "Wat betekent \"maak alle contacten in dit aspect zichtbaar voor elkaar\"?"
-      delete_aspect_a: "Selecteer het betreffende aspect in de lijst in de linkerkolom. Klik op de naam en druk op de 'bewerk' pen. In het popup venstertje kies je daarna op de verwijder knop."
+      delete_aspect_a: "Selecteer het betreffende aspect in de lijst in de linkerkolom. Klik op de naam en druk op de 'bewerk' pen. In het popup venstertje klik je daarna op de verwijder knop."
       delete_aspect_q: "Hoe verwijder ik een aspect?"
       person_multiple_aspects_a: "Ja. Ga naar je contacten pagina en klik op Mijn contacten. Voor elk contact kun je het menu rechts gebruiken om ze aan aspecten toe te voegen of ze eruit te verwijderen. Of je kunt ze aan een of meer aspecten koppelen op hun eigen profielpagina. Of je kunt ergens waar je hun naam op het scherm  ziet met de muis eroverheen gaan en meteen daar in het popup venstertje de aspecten (de)selecteren."
       person_multiple_aspects_q: "Kan ik iemand in meerdere aspecten plaatsen?"
-      post_multiple_aspects_a: "Ja. Als je een bericht maak, kun je de aspecten selector gebruiken om aspecten te selecteren of deselecteren. Je bericht zal alleen zichtbaar zijn voor alle aspecten die je selecteert. Je kunt ook aspecten in de linker zijbalk selecteren. Als je dan een bericht plaatst, zal het zichtbaar zijn voor de dan geselecteerde aspecten."
+      post_multiple_aspects_a: "Ja. Als je een bericht plaatst, kun je de aspecten selector gebruiken om aspecten te selecteren of deselecteren. Je bericht zal alleen zichtbaar zijn voor alle aspecten die je selecteert. Je kunt ook aspecten in de linker zijbalk selecteren. Als je dan een bericht plaatst, zal het zichtbaar zijn voor de dan geselecteerde aspecten."
       post_multiple_aspects_q: "Kan ik in één keer een bericht plaatsen voor meerdere aspecten tegelijk?"
       remove_notification_a: "Nee."
       remove_notification_q: "Als ik iemand uit een aspect verwijder, wordt die persoon daarover dan geïnformeerd?"
@@ -417,7 +418,7 @@ nl:
       title: "Pods"
       use_search_box_a: "Als je de volledige diaspora* ID kent (bijvoorbeeld gebruikersnaam@podnaam.org), dan kun je die persoon vinden door naar die ID te zoeken. Als je iemand op je eigen pod zoekt, dan hoef je alleen naar de gebruikersnaam te zoeken. Alternatief is om te zoeken naar de profielnaam (de naam die je op het scherm ziet). Als een zoekopdracht geen resultaat toont, probeer het dan nog een keer."
       use_search_box_q: "Hoe gebruik ik de zoekoptie om iemand te vinden?"
-      what_is_a_pod_a: "Een pod is een server die de diaspora* software draait en die is verbonden met het diaspora* netwerk. \"Pod\" is een metafoor die verwijst naar de pods (zaadbol) op een plant en die de zaden bevat, net zoals een server een aantal accounts bevat. Er zijn verschillende soorten pods. Je kunt vrienden van andere pods toevoegen aan jouw netwerk en met hen communiceren. Een diaspora* pad lijkt wel een beetje op een e-mailprovider: er zijn publieke pods, besloten pods en met enige moeite kun je ook je eigen pod draaien."
+      what_is_a_pod_a: "Een pod is een server die de diaspora* software draait en die is verbonden met het diaspora* netwerk. \"Pod\" is een metafoor die verwijst naar de pods (zaadbol) op een plant en die de zaden bevat, net zoals een server een aantal accounts bevat. Er zijn verschillende soorten pods. Je kunt vrienden van andere pods toevoegen aan jouw netwerk en met hen communiceren. Een diaspora* pod lijkt wel een beetje op een e-mailprovider: er zijn publieke pods, besloten pods en met enige moeite kun je ook je eigen pod draaien."
       what_is_a_pod_q: "Wat is een pod?"
     posts_and_posting:
       char_limit_services_a: "In dat geval wordt je bericht beperkt tot het kleinere aantal (140 in geval van Twitter, 1000 bij Tumblr) en het resterende aantal tekens wordt getoond als het pictogram van de betreffende dienst oplicht. Je kunt wel langere berichten delen, maar de tekst wordt voor die diensten ingekort."
@@ -431,7 +432,7 @@ nl:
       embed_multimedia_q: "Hoe plaats ik video-, audio- of multimediabestanden in een bericht?"
       format_text_a: "Je kunt een eenvoudige methode gebruiken die %{markdown} heet. Je vindt de volledige syntax %{here}. De voorbeeld-knop is handig, want daardoor kun je zien hoe het bericht eruit gaat zien als je het later plaatst."
       format_text_q: "Hoe kan ik de tekst in mij berichten opmaken (vet, schuin etc.)?"
-      hide_posts_a: "Als je met de muis aan de bovenkant van een bericht staat, verschijnt er een X rechts ervan. Klik daarop on het bericht te verergen en om notificaties erover te onderdrukken. Je kunt het bericht nog wel zien op de profielpagina van de persoon die het geplaatst had."
+      hide_posts_a: "Als je met de muis aan de bovenkant van een bericht staat, verschijnt er een X rechts ervan. Klik daarop om het bericht te verbergen en om notificaties erover te onderdrukken. Je kunt het bericht nog wel zien op de profielpagina van de persoon die het geplaatst had."
       hide_posts_q: "Hoe verberg ik een bericht? Hoe voorkom ik notificaties over bericht waarop ik heb gereageerd?"
       image_text: "afbeeldingstekst"
       image_url: "afbeeldingsURL"
@@ -670,10 +671,10 @@ nl:
     mentioned:
       few: "%{actors} hebben je genoemd in een %{post_link}."
       many: "%{actors} hebben je genoemd in een %{post_link}."
-      one: "%{actors} heeft je genoemd in een %{post_link}."
-      other: "%{actors} hebben je genoemd in een %{post_link}."
+      one: "%{actors} heeft je vermeld in een %{post_link}."
+      other: "%{actors} hebben je vermeld in een %{post_link}."
       two: "%{actors} hebben je genoemd in een %{post_link}."
-      zero: "%{actors} hebben je genoemd in een %{post_link}."
+      zero: "%{actors} hebben je vermeld in een %{post_link}."
     mentioned_deleted:
       few: "%{actors} hebben jouw genoemd in een verwijderde post."
       many: "%{actors} hebben jou genoemd in een verwijderde post."
@@ -739,6 +740,24 @@ nl:
       subject: "%{name} heeft jou vermeld op diaspora*"
     private_message:
       reply_to_or_view: "Reageer op of bekijk dit privégesprek >"
+    report_email:
+      body: |-
+          Hallo,
+
+          het %{type} met ID %{id} werd als aanstootgevend gemarkeerd.
+
+          [%{url}]
+
+          Beoordeel het zo snel mogelijk.
+
+          Groetjes,
+
+          De diaspora* e-mailrobot!
+          [1]: %{url}
+      subject: "Een nieuw %{type} is als aanstootgevend gemarkeerd"
+      type:
+        comment: "reactie"
+        post: "bericht"
     reshared:
       reshared: "%{name} heeft jouw bericht doorgegeven"
       view_post: "Bekijk bericht >"
@@ -931,6 +950,21 @@ nl:
       sign_up_message: "Social Networking met een ♥"
       submitting: "Verwerken..."
       username: "GEBRUIKER"
+  report:
+    comment_label: "<b>Reactie</b>:</b>%{data}"
+    confirm_deletion: "Weet je zeker dat je het wilt verwijderen?"
+    delete_link: "Verwijder bericht"
+    not_found: "<u>Het bericht/de reactie is niet gevonden. Het lijkt erop dat de gebruiker het al heeft verwijderd!</u>"
+    post_label: "<b>Bericht</b>: %{title}"
+    reason_label: "Reden: %{text}"
+    reported_label: "<b>Gemeld door</b> %{person}"
+    review_link: "Markeren als beoordeeld"
+    status:
+      created: "Er is een melding gemaakt"
+      destroyed: "Het bericht is vernietigd"
+      failed: "Er ging iets verkeerd"
+      marked: "De melding is gemarkeerd als beoordeeld"
+    title: "Meldingenoverzicht"
   requests:
     create:
       sending: "Versturen..."
@@ -1190,9 +1224,9 @@ nl:
       success: "Je account is op slot gezet. Het kan tot 20 minuten duren voordat het sluiten van je account voltooid is. Bedankt voor het uitproberen van diaspora*."
       wrong_password: "Het ingevoerde wachtwoord komt niet overeen met je huidige wachtwoord."
     edit:
-      also_commented: "...iemand na jou op de post van jouw contact reageert?"
-      auto_follow_aspect: "Aspect voor automatische gevolgde gebruikers:"
-      auto_follow_back: "Automatisch terug volgen wanneer iemand jou volgt"
+      also_commented: "iemand na jou op een bericht van jouw contact reageert"
+      auto_follow_aspect: "Aspect voor automatisch gevolgde gebruikers:"
+      auto_follow_back: "Automatisch terugvolgen wanneer iemand jou volgt"
       change: "Verander"
       change_email: "Verander e-mailadres"
       change_language: "Taal wijzigen"
@@ -1203,12 +1237,12 @@ nl:
         if_you_want_this: "Als je dit echt wilt, typ je wachtwoord onder in en klik 'Sluit Account'"
         lock_username: "Dit vergrendelt je gebruikersnaam als je besluit om weer te registeren."
         locked_out: "Je wordt afgemeld en buitengesloten van je account."
-        make_diaspora_better: "We willen graag dat je ons helpt om Diaspora te verbeteren, dus blijf in plaats van weg te gaan. Als je wel weg wilt gaan, willen we dat je weet wat er dan gebeurt."
+        make_diaspora_better: "We willen graag dat je ons helpt om diaspora* te verbeteren, dus help ons in plaats van weg te gaan. Als je wel weg wilt gaan, dan vertellen we je wat er dan gebeurt."
         mr_wiggles: "Mr Wiggles zal het niet leuk vinden je te zien gaan"
         no_turning_back: "Op het moment is er geen weg terug."
-        what_we_delete: "We verwijderen al je berichten en profiel gegevens zo snel mogelijk. Reacties blijven ten behoeve van de context bewaard en zijn geassocieerd met jouw diaspora ID."
-      close_account_text: "Sluit Account"
-      comment_on_post: "...iemand op jouw post reageert?"
+        what_we_delete: "We verwijderen al je berichten en profielgegevens zo snel mogelijk. Je reacties blijven bewaard ten behoeve van de context maar zijn gekoppeld aan je diaspora* ID,  niet aan jouw naam."
+      close_account_text: "Sluit account"
+      comment_on_post: "iemand op jouw bericht reageert"
       current_password: "Huidig wachtwoord"
       current_password_expl: "het wachtwoord waar je mee inlogt..."
       download_photos: "download mijn foto's"
@@ -1217,18 +1251,19 @@ nl:
       email_awaiting_confirmation: "We hebben een activatielink verzonden naar %{unconfirmed_email}. Totdat je het adres geactiveerd hebt zullen we je originele adress blijven gebruiken %{email}."
       export_data: "Exporteer data"
       following: "Volgvoorkeuren"
-      getting_started: "Nieuwe Gebruikers Voorkeuren"
-      liked: "...iemand vindt je bericht leuk?"
-      mentioned: "...je genoemd word in een post?"
+      getting_started: "Nieuwe gebruikersvoorkeuren"
+      liked: "iemand je bericht leuk vindt"
+      mentioned: "je genoemd wordt in een bericht"
       new_password: "Nieuw wachtwoord"
       photo_export_unavailable: "Foto's exporteren is op dit moment niet beschikbaar"
-      private_message: "...je een privébericht ontvangt?"
-      receive_email_notifications: "Ontvang e-mail notificaties wanneer..."
-      reshared: "...iemand jou bericht doorgeeft?"
-      show_community_spotlight: "Laat Community Spotlight zien in Stream?"
-      show_getting_started: "Maak Beginnen Opnieuw Mogelijk"
-      started_sharing: "...iemand met je begint te delen?"
-      stream_preferences: "Stream Voorkeuren"
+      private_message: "je een privébericht ontvangt"
+      receive_email_notifications: "Ontvang e-mail notificaties wanneer:"
+      reshared: "iemand jouw bericht doorgeeft"
+      show_community_spotlight: "Laat Community Spotlight zien in Stream"
+      show_getting_started: "Maak Beginnen opnieuw mogelijk"
+      someone_reported: "iemand zond een melding in"
+      started_sharing: "iemand met je begint te delen"
+      stream_preferences: "Stream voorkeuren"
       your_email: "Jouw e-mail"
       your_handle: "Jouw diaspora* ID"
     getting_started:

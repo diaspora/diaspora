@@ -54,6 +54,7 @@ fi:
       correlations: "Vastaavuudet"
       pages: "Sivut"
       pod_stats: "Podin tilastot"
+      report: "Raportit"
       sidekiq_monitor: "Sidekiq tarkkailija"
       user_search: "Käyttäjähaku"
       weekly_user_stats: "Viikottaiset käyttäjätilastot"
@@ -720,6 +721,9 @@ fi:
       subject: "%{name} on maininnut sinut Diaspora*:ssa"
     private_message:
       reply_to_or_view: "Lue tai osallistu keskusteluun >"
+    report_email:
+      type:
+        comment: "kommentti"
     reshared:
       reshared: "%{name} jakoi julkaisusi uudelleen"
       view_post: "Näytä julkaisu >"
@@ -906,6 +910,18 @@ fi:
       sign_up_message: "Yhteisöpalvelu suurella ♥:llä"
       submitting: "Lähettää..."
       username: "KÄYTTÄJÄNIMI"
+  report:
+    confirm_deletion: "Oletko varma, että haluat poistaa kohteen?"
+    delete_link: "Poista kohde"
+    reason_label: "Syy: %{text}"
+    reported_label: "<b>Ilmoituksen teki</b> %{person}"
+    review_link: "Merkitse tarkistetuksi"
+    status:
+      created: "Ilmoitus on luotu"
+      destroyed: "Julkaisu on poistettu"
+      failed: "Jotain meni vikaan"
+      marked: "Ilmoitus merkittiin tarkistetuksi"
+    title: "Merkittyjen Ilmoitusten Yleiskatsaus"
   requests:
     create:
       sending: "Lähetetään"
@@ -1193,6 +1209,7 @@ fi:
       reshared: "...joku jakaa julkaisusi uudelleen"
       show_community_spotlight: "Näytä Yhteisön Valokeila virrassa"
       show_getting_started: "Ota aloitusohjeet uudelleen käyttöön"
+      someone_reported: "joku lähetti ilmoituksen"
       started_sharing: "...aloittaa jakamaan kanssasi"
       stream_preferences: "Virran asetukset"
       your_email: "Sähköpostiosoitteesi"

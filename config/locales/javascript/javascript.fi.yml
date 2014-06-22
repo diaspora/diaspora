@@ -27,6 +27,10 @@ fi:
       deselect_all: "Poista valinnat"
       no_aspects: "Näkymiä ei ole valittu"
       select_all: "Valitse kaikki"
+    bookmarklet:
+      post_something: "Lähetä julkaisu Diasporaan"
+      post_submit: "Lähettää julkaisua..."
+      post_success: "Julkaistu! Suljetaan ponnahdusikkuna"
     comma: ","
     comments:
       hide: "piilota kommentit"
@@ -90,8 +94,19 @@ fi:
       vote: "Äänestä"
     publisher:
       add_option: "Lisää vastaus"
+      at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
+      limited: "Rajoitettu - julkaisusi näkyy vain ihmisille, joiden kanssa jaat"
+      near_from: "Lähetetty sijainnista: <%= location %>"
       option: "Vastaus <%= nr %>"
+      public: "Julkinen - julkaisusi näkyvät kaikille mukaan lukien hakukoneet ja niiden tulokset"
       question: "Kysymys"
+    report:
+      name: "Tee ilmoitus"
+      prompt: "Ole hyvä, kirjoita syy:"
+      prompt_default: "loukkaavaa sisältöä"
+      status:
+        created: "Ilmoitus luotiin onnistuneesti"
+        exists: "Ilmoitus on jo olemassa"
     reshares:
       duplicate: "Olet jo uudelleenjakanut tämän julkaisun!"
       post: "Jaa käyttäjän <%= name %> julkaisu?"

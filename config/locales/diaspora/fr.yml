@@ -54,6 +54,7 @@ fr:
       correlations: "Corrélations"
       pages: "Pages"
       pod_stats: "Statistiques du pod"
+      report: "Rapports"
       sidekiq_monitor: "Moniteur Sidekiq"
       user_search: "Chercher un utilisateur"
       weekly_user_stats: "Statistiques hebdomadaires"
@@ -565,7 +566,7 @@ fr:
     application:
       back_to_top: "Retour en haut"
       powered_by: "PROPULSÉ PAR diaspora*"
-      public_feed: "Flux Diaspora public pour %{name}"
+      public_feed: "Flux diaspora* public pour %{name}"
       source_package: "téléchargez le code source"
       toggle: "activer/désactiver la version mobile"
       whats_new: "Quoi de neuf ?"
@@ -612,8 +613,8 @@ fr:
       other: "%{actors} ont commenté votre message supprimé."
       zero: "%{actors} a commenté votre message supprimé."
     comment_on_post:
-      one: "%{actors} a commenté sur votre %{post_link}."
-      other: "%{actors} ont commenté sur votre %{post_link}."
+      one: "%{actors} a commenté votre message %{post_link}."
+      other: "%{actors} ont commenté votre message %{post_link}."
       zero: "%{actors} a commenté sur votre %{post_link}."
     helper:
       new_notifications:
@@ -713,6 +714,26 @@ fr:
       subject: "%{name} vous a mentionné(e) sur diaspora*"
     private_message:
       reply_to_or_view: "Répondre ou voir cette conversation >"
+    report_email:
+      body: |-
+          Bonjour,
+
+          le %{type} avec l'identifiant %{id} a été marqué comme offensant.
+
+          [%{url}][1]
+
+          Merci de le vérifier dès que possible !
+
+
+          Cordialement,
+
+          Le robot d'email de diaspora*
+
+          [1]: %{url}
+      subject: "Un nouveau %{type} a été marqué comme offensant."
+      type:
+        comment: "commentaire"
+        post: "Message"
     reshared:
       reshared: "%{name} a repartagé votre message"
       view_post: "Voir le message >"
@@ -902,6 +923,21 @@ fr:
       sign_up_message: "Le réseau social avec un ♥"
       submitting: "Envoi en cours..."
       username: "NOM D'UTILISATEUR"
+  report:
+    comment_label: "<b>Commentaire</b>:<br>%{data}"
+    confirm_deletion: "Etes vous vraiment sur de vouloir supprimer cet élément ?"
+    delete_link: "Supprimer l’élément"
+    not_found: "<u>Le message/commentaire n'a pas été trouvé. Il a pu être supprimé par l'utilisateur !</u>"
+    post_label: "<b>Message</b>: %{title}"
+    reason_label: "Raison : %{text}"
+    reported_label: "<b>Reporté par</b> %{person}"
+    review_link: "Marqué comme revu."
+    status:
+      created: "Un rapport a été créé"
+      destroyed: "Le message a été détruit"
+      failed: "Il y a eu un problème."
+      marked: "Ce rapport a été marqué comme revu"
+    title: "Vue d'ensemble des rapports."
   requests:
     create:
       sending: "En cours d'envoi"
@@ -1198,6 +1234,7 @@ fr:
       reshared: "...quelqu'un a partagé votre message ?"
       show_community_spotlight: "Afficher les actualités de la communauté dans votre flux ?"
       show_getting_started: "Réactiver la page de découverte"
+      someone_reported: "Quelqu'un a envoyé un rapport"
       started_sharing: "... quelqu'un commence à partager avec vous ?"
       stream_preferences: "Préférences du flux"
       your_email: "Votre adresse électronique"

@@ -27,6 +27,10 @@ nl:
       deselect_all: "Alles deselecteren"
       no_aspects: "Geen aspecten geselecteerd"
       select_all: "Alles selecteren"
+    bookmarklet:
+      post_something: "Plaatsen op diaspora*"
+      post_submit: "Bericht aanmelden..."
+      post_success: "Geplaatst! Sluit nu pop-up venster..."
     comma: ","
     comments:
       hide: "verberg reacties"
@@ -90,8 +94,19 @@ nl:
       vote: "Stem"
     publisher:
       add_option: "Keuzemogelijkheid toevoegen"
+      at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
+      limited: "Gelimiteerd - je post is alleen zichtbaar voor de mensen waarmee je hem deelt"
+      near_from: "Geplaatst vanaf: <%= location %>"
       option: "Keuze <%= nr %>"
+      public: "Openbaar - je post is zichtbaar voor iedereen en kan gevonden worden door zoekmachines"
       question: "Vraag"
+    report:
+      name: "Melding"
+      prompt: "Geef de reden op:"
+      prompt_default: "aanstootgevende inhoud"
+      status:
+        created: "Het is succesvol gemeld"
+        exists: "De melding bestaat al"
     reshares:
       duplicate: "Je hebt dit bericht al doorgegeven! Is hij echt zo goed?"
       post: "Deel <%= name %>'s bericht?"

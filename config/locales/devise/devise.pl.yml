@@ -33,11 +33,11 @@ pl:
       inviter:
         accept_at: "na %{url}, możesz je zaakceptować używając poniższego łącza."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} zaprosili Cię do Diaspory"
+        have_invited_you: "%{names} zaprasza Cię do diaspory*"
       reset_password_instructions:
         change: "Zmiana hasła"
         ignore: "Jeśli nie chcesz zmienić hasła, zignoruj tę wiadomość."
-        someone_requested: "Odebraliśmy zgłoszenie zmiany hasła. Jeśli to ty je wysłał@{f:aś|m:eś|n:aś/eś}, hasło możesz zmienić używając linku poniżej."
+        someone_requested: "Ktoś poprosił o zmianę hasła. Jeśli to ty, to hasło możesz zmienić używając linku poniżej."
         subject: "Instrukcja resetowania hasła"
         wont_change: "Hasło nie zostanie zmienione do momentu kliknięcia powyższego łącza i utworzenia nowego."
       unlock_instructions:
@@ -49,10 +49,10 @@ pl:
     passwords:
       edit:
         change_password: "Zmień hasło"
-        confirm_password: "Potwierdź hasło"
+        confirm_password: "Powtórz hasło"
         new_password: "Nowe hasło"
       new:
-        email: "Adres email"
+        email: "Adres e-mail"
         forgot_password: "Nie pamiętasz hasła?"
         no_account: "Konto z podanym adresem e-mail nie istnieje"
         reset_password: "Resetuj hasło"
@@ -66,7 +66,7 @@ pl:
     sessions:
       new:
         login: "Zaloguj się"
-        modern_browsers: "obsługuje wyłącznie nowoczesne przeglądarki."
+        modern_browsers: "obsługuje wyłącznie współczesne przeglądarki."
         password: "Hasło"
         remember_me: "Pamiętaj mnie"
         sign_in: "Zaloguj się"

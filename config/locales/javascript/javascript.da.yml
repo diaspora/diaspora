@@ -27,6 +27,10 @@ da:
       deselect_all: "Fravælg alle"
       no_aspects: "Ingen valgte aspekter"
       select_all: "Vælg alle"
+    bookmarklet:
+      post_something: "Slå op på diaspora*"
+      post_submit: "Indsender indlæg"
+      post_success: "Det er indsendt! lukker popup vinduet ..."
     comma: ","
     comments:
       hide: "Skjul kommentarer"
@@ -90,8 +94,19 @@ da:
       vote: "Stem"
     publisher:
       add_option: "Tilføj mulighed"
+      at_least_one_aspect: "Du skal dele med mindst et aspekt"
+      limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
+      near_from: "Sendt fra: <%= location %>"
       option: "Mulighed <%= nr %>"
+      public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
       question: "Spørgsmål"
+    report:
+      name: "Anmeld"
+      prompt: "Vær venlig at give en grund:"
+      prompt_default: "stødende indhold"
+      status:
+        created: "Der blev lavet en rapport"
+        exists: "Der eksisterer allerede en rapport"
     reshares:
       duplicate: "Du har allerede delt indlægget!"
       post: "Videredel <%= name %>s indlæg?"

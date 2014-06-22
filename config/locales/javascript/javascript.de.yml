@@ -28,7 +28,7 @@ de:
       no_aspects: "Keine Aspekte ausgewählt"
       select_all: "Alle auswählen"
     bookmarklet:
-      post_error: "Ein Fehler ist aufgetreten, bitte versuche es später noch einmal."
+      post_something: "Erstelle einen Beitrag in diaspora*"
       post_submit: "Beitrag einreichen..."
       post_success: "Gepostet! Popup-Fenster wird geschlossen..."
     comma: ","
@@ -94,7 +94,11 @@ de:
       vote: "Abstimmen"
     publisher:
       add_option: "Option hinzufügen"
+      at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
+      limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
+      near_from: "Gesendet aus <%= location %>"
       option: "Option <%= nr %>"
+      public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
       question: "Frage"
     report:
       name: "Meldung"

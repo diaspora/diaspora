@@ -12,11 +12,8 @@ en_pirate:
       started_sharing_with: "You have started sharing with <%= name %>!"
       stopped_sharing_with: "You have stopped sharing with <%= name %>."
       toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
         one: "In <%= count %> aspect"
         other: "In <%= count %> aspects"
-        two: "In <%= count %> aspects"
         zero: "Add to aspect"
     getting_started:
       hey: "Hey, <%= name %>!"

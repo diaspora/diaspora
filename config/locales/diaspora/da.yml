@@ -54,6 +54,7 @@ da:
       correlations: "Korrelationer"
       pages: "Sider"
       pod_stats: "Statistik for Pod"
+      report: "Rapporter"
       sidekiq_monitor: "Sidekiq monitor"
       user_search: "Søg efter brugere"
       weekly_user_stats: "Ugentlig bruger-statistik"
@@ -735,6 +736,26 @@ da:
       subject: "%{name} har omtalt dig på Diaspora*"
     private_message:
       reply_to_or_view: "Besvar eller se denne samtale >"
+    report_email:
+      body: |-
+          Hej,
+
+          %{type} med ID %{id} er blevet markeret som stødende.
+
+          [%{url}][1]
+
+          Vær venlig at se på det så snart som muligt!
+
+
+          Venlig hilsen,
+
+          Diasporas email-robot
+
+          [1]:%{url}
+      subject: "%{type} blev markeret som stødende"
+      type:
+        comment: "kommentar"
+        post: "indlæg"
     reshared:
       reshared: "%{name} har lige delt dit indlæg"
       view_post: "Vis indlæg >"
@@ -924,6 +945,21 @@ da:
       sign_up_message: "Socialt netværk med et <3"
       submitting: "Sender ..."
       username: "BRUGERNAVN"
+  report:
+    comment_label: "<b>Kommentar</b>:<br>%{data}"
+    confirm_deletion: "Er du sikker på at du vil slette det valgte?"
+    delete_link: "Slet det valgte"
+    not_found: "<u>Indlægget/kommentaren blev ikke fundet. Det ser ud til at være blevet slettet af brugeren!</u>"
+    post_label: "<b>Indlæg</b>: %{title}"
+    reason_label: "Begrundelse: %{text}"
+    reported_label: "<b>Indrapporteret af</b> %{person}"
+    review_link: "Marker som bedømt"
+    status:
+      created: "Der er blevet lavet en rapport"
+      destroyed: "Indlægget er blevet ødelagt"
+      failed: "Noget gik galt"
+      marked: "Rapporten er blevet markeret som bedømt"
+    title: "Rapport oversigt"
   requests:
     create:
       sending: "Sender"
@@ -1220,6 +1256,7 @@ da:
       reshared: "... nogen deler dit indlæg."
       show_community_spotlight: "Vis kreative medlemmer i din hovedstrøm?"
       show_getting_started: "Genaktivér 'Kom godt i gang'"
+      someone_reported: "Der er en der har sendt en rapport"
       started_sharing: "... nogen er begyndt at dele med dig."
       stream_preferences: "Opsætning af din Strøm"
       your_email: "Din e-mail"

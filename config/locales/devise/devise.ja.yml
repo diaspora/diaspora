@@ -16,6 +16,7 @@ ja:
       invalid: "ユーザ名またはパスワードが不正です。"
       invalid_token: "無効な認証トークンです。"
       locked: "アカウントがロックされています。"
+      not_found_in_database: "メールアドレスまたはパスワードが無効です。"
       timeout: "セッション切れになりました。続くにはもう一度ログインしてください。"
       unauthenticated: "進むにはログインまたは新規登録する必要があります。"
       unconfirmed: "進にはアカウントを確認する必要があります。"
@@ -47,9 +48,13 @@ ja:
     passwords:
       edit:
         change_password: "パスワードを変更する"
+        confirm_password: "パスワード確認"
+        new_password: "新しいパスワード"
       new:
+        email: "メールアドレス"
         forgot_password: "パスワードを忘れましたか。"
         no_account: "このメールアドレスに一致するアカウントは存在しません。招待待ちの方は、なるべく早く出せるように努力していますので、もう少々お待ちください。"
+        reset_password: "パスワードの再設定"
         send_password_instructions: "パスワード再発行の手続きメールを送ってください。"
       send_instructions: "数分後にパスワード再発行の手続きメールが届きます。"
       updated: "パスワードの変更に成功しました。既にログイン済みです。"

@@ -54,6 +54,7 @@ pt-BR:
       correlations: "Correlações"
       pages: "Páginas"
       pod_stats: "Status do Servidor"
+      report: "Relatórios"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Busca de Usuários"
       weekly_user_stats: "Estatísticas Semanais"
@@ -729,6 +730,26 @@ pt-BR:
       subject: "%{name} mencionou você em Diaspora*"
     private_message:
       reply_to_or_view: "Responder ou visualizar esta conversa >"
+    report_email:
+      body: |-
+          Olá,
+
+          o %{type} com ID %{id} foi marcado como ofensivo.
+
+          [%{url}][1]
+
+          Por favor, revise o mais breve possível!
+
+
+          Saudações,
+
+          O robô de email diaspora*
+
+          [1]: %{url}
+      subject: "Um novo %{type} foi marcado como ofensivo"
+      type:
+        comment: "comentário"
+        post: "publicação"
     reshared:
       reshared: "%{name} recompartilhou sua publicação"
       view_post: "Ver publicação >"
@@ -918,6 +939,21 @@ pt-BR:
       sign_up_message: "Rede social com um ♥"
       submitting: "Enviando..."
       username: "USUÁRIO"
+  report:
+    comment_label: "<b>Comentário</b>:<br>%{data}"
+    confirm_deletion: "Tem certeza que quer apagar o item?"
+    delete_link: "Apagar item"
+    not_found: "<u>A publicação/comentário não foi encontrada. Parece que ela foi apagada pelo usuário!</u>"
+    post_label: "<b>Publicação</b>: %{title}"
+    reason_label: "Motivo: %{text}"
+    reported_label: "<b>Relatado por</b> %{person}"
+    review_link: "Marcar como revisado"
+    status:
+      created: "Um relatório foi criado"
+      destroyed: "A publicação foi destruída"
+      failed: "Alguma coisa deu errado"
+      marked: "O relatório foi marcado como revisado"
+    title: "Visão Geral de Relatórios"
   requests:
     create:
       sending: "Enviando"
@@ -1168,9 +1204,9 @@ pt-BR:
       success: "Sua conta foi bloqueada. Pode levar até 20 minutos para encerrarmos a sua conta. Obrigado por utilizar diaspora*."
       wrong_password: "A senha digitada não corresponde com sua senha atual."
     edit:
-      also_commented: "...alguém comentar nas publicações dos seus contatos?"
-      auto_follow_aspect: "Aspecto para usuários seguidos automaticamente:"
-      auto_follow_back: "Seguir automaticamente quem me seguir"
+      also_commented: "alguém comenta uma publicação que você tenha comentado"
+      auto_follow_aspect: "Aspecto para contatos adicionados automaticamente:"
+      auto_follow_back: "Compartilhar automaticamente com usuários que começam a compartilhar com você"
       change: "Alterar"
       change_email: "Alterar Email"
       change_language: "Alterar Idioma"
@@ -1185,28 +1221,29 @@ pt-BR:
         mr_wiggles: "Mr Wiggles ficará triste se você for."
         no_turning_back: "Atualmente, não tem volta."
         what_we_delete: "Vamos deletar todas as suas publicações e informações do perfil assim que possível. Seus comentários ainda ficarão, mas serão associados ao seu diaspora* ID ao invés do seu nome."
-      close_account_text: "Cancelar Conta"
-      comment_on_post: "...alguém comentar em sua publicação?"
+      close_account_text: "Encerrar conta"
+      comment_on_post: "alguém comenta sua publicação"
       current_password: "Senha Atual"
       current_password_expl: "o que você usa atualmente..."
       download_photos: "Baixar minhas fotos"
       download_xml: "Baixar meu XML"
       edit_account: "Editar Conta"
       email_awaiting_confirmation: "Temos que lhe enviar um link para a confirmação do email %{unconfirmed_email}. Enquanto você não confirmar o seu novo endereço de email, nós continuaremos utilizando o endereço antigo: %{email}."
-      export_data: "Exportar Dados"
-      following: "Configurações de Seguimento"
-      getting_started: "Preferência de Novo Usuário"
-      liked: "...alguém curtir sua publicação?"
-      mentioned: "...você for mencionado(a) em uma publicação?"
+      export_data: "Exportar dados"
+      following: "Configurações de compartilhamento"
+      getting_started: "Preferências de novo usuário"
+      liked: "alguém curte sua publicação"
+      mentioned: "você é mencionado(a) em uma publicação"
       new_password: "Nova senha"
       photo_export_unavailable: "Exportação de fotos indisponível no momento."
-      private_message: "...você receber uma mensagem privada?"
-      receive_email_notifications: "Receber notificações por email quando..."
-      reshared: "...alguém recompartilhar sua publicação?"
-      show_community_spotlight: "Mostrar Destaque da Comunidade no seu Fluxo?"
-      show_getting_started: "Reativar Introdução"
-      started_sharing: "...alguém começar a compartilhar com você?"
-      stream_preferences: "Preferências de Fluxos"
+      private_message: "você recebe uma mensagem privada"
+      receive_email_notifications: "Receber notificações por email quando:"
+      reshared: "alguém recompartilha sua publicação"
+      show_community_spotlight: "Mostrar Destaque da Comunidade no fluxo"
+      show_getting_started: "Mostrar dicas de Como Começar"
+      someone_reported: "alguém enviou um relatório"
+      started_sharing: "alguém começa a compartilhar com você"
+      stream_preferences: "Preferências do fluxo"
       your_email: "Seu Email"
       your_handle: "Seu diaspora* ID"
     getting_started:
@@ -1230,7 +1267,7 @@ pt-BR:
       email_notifications_changed: "Notificação de email alterado."
       follow_settings_changed: "Configurações de seguimento alteradas"
       follow_settings_not_changed: "A alteração das configurações de seguimento falhou."
-      language_changed: "O idioma foi alterado."
+      language_changed: "Idioma alterado"
       language_not_changed: "Alteração do idioma falhou!"
       password_changed: "Senha alterada com sucesso! Agora você poderá se conectar com a sua nova senha."
       password_not_changed: "Alteração da senha falhou!"

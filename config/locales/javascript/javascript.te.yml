@@ -18,6 +18,8 @@ te:
     aspect_navigation:
       deselect_all: "ఎంపిక మొత్తం రద్దుచేయి"
       select_all: "అన్నిటినీ ఎంచుకో"
+    bookmarklet:
+      post_something: "డయాస్పోరా*కు టపా పెట్టండి"
     comments:
       hide: "వ్యాఖ్యలను దాచు"
       show: "అన్ని వ్యాఖ్యలను చూపించు"
@@ -34,6 +36,7 @@ te:
       help: "సహాయం"
       home: "నివాసము"
       log_out: "నిష్క్రమించు"
+      mark_all_as_read: "అన్నీ చదివినట్లుగా గుర్తుపెట్టు"
       notifications: "గమనికలు"
       profile: "ప్రవర"
       recent_notifications: "ఇటీవలి గమనికలు"
@@ -45,6 +48,8 @@ te:
       no_more: "ఇంక టపాలు లేవు."
     my_activity: "నా క్రియాశీలత"
     my_stream: "ప్రవాహం"
+    notifications:
+      mark_unread: "చదవనట్టుగా గుర్తుపెట్టు"
     reshares:
       duplicate: "ఓహో, అది బాగుందా?  ఆ టపాని మీరు ఇప్పటికే పంచుకున్నారు!"
     search_for: "<%= name %> కోసం వెతకండి"

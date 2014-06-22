@@ -24,6 +24,10 @@ es:
       deselect_all: "Desmarcar todos"
       no_aspects: "No hay aspectos seleccionados"
       select_all: "Marcar todos"
+    bookmarklet:
+      post_something: "Publicar en Diaspora*"
+      post_submit: "Enviando mensaje..."
+      post_success: "Publicado! Cerrando ventana emergente..."
     comma: ","
     comments:
       hide: "ocultar comentarios"
@@ -64,7 +68,7 @@ es:
       no_more_contacts: "No hay más contactos."
     my_activity: "Mi Actividad"
     my_aspects: "Mis aspectos"
-    my_stream: "Entrada"
+    my_stream: "Portada"
     notifications:
       mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
@@ -87,8 +91,19 @@ es:
       vote: "Votar"
     publisher:
       add_option: "Añadir opción"
+      at_least_one_aspect: "Debes publicarlo al menos en un aspecto"
+      limited: "Limitado - tu publicación solo es visible para gente con quien compartes"
+      near_from: "Cerca de: <%= location %>"
       option: "Opción <%= nr %>"
+      public: "Público - tu publicación es visible para todos, incluyendo buscadores"
       question: "Pregunta"
+    report:
+      name: "Informar"
+      prompt: "Por favor introduce un motivo:"
+      prompt_default: "contenido ofensivo"
+      status:
+        created: "El informe fue creado correctamente"
+        exists: "El informe ya existe"
     reshares:
       duplicate: "¿Verdad que te ha gustado? Pero ya has esa publicación."
       post: "¿Compartir la publicación de <%= name %>?"

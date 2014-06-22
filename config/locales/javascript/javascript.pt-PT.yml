@@ -69,6 +69,11 @@ pt-PT:
       invalid_ext: "O {file} tem uma extensão inválida. Só são permitidas as extensões {extensions}."
       looking_good: "OMD, tu estás fantástico(a)!"
       size_error: "O {file} é muito grande, o tamanho máximo do ficheiro é {sizeLimit}."
+    publisher:
+      at_least_one_aspect: "Tem de publicar em pelo menos um grupo"
+      limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está a partilhar"
+      near_from: "Publicado em: <%= location %>"
+      public: "Público - A sua publicação será visível para todos e encontrada por motores de busca"
     reshares:
       duplicate: "Que bom, hein? Você já republicou essa mensagem!"
       post: "Repartilhar a publicação de <%= name %>?"

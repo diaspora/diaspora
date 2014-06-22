@@ -24,6 +24,10 @@ pt-BR:
       deselect_all: "Desmarcar tudo"
       no_aspects: "Sem aspecto selecionado"
       select_all: "Marcar tudo"
+    bookmarklet:
+      post_something: "Publicar em diaspora*"
+      post_submit: "Enviando publicação..."
+      post_success: "Publicado! Fechando janela popup..."
     comma: ","
     comments:
       hide: "ocultar comentários"
@@ -87,8 +91,19 @@ pt-BR:
       vote: "Votar"
     publisher:
       add_option: "Adicionar opção"
+      at_least_one_aspect: "Você deve publicar em pelo menos um aspecto"
+      limited: "Limitada - a sua publicação será visível apenas para as pessoas com quem você compartilha."
+      near_from: "Publicado de: <%= location %>"
       option: "Opção <%= nr %>"
+      public: "Pública - a sua publicação será totalmente visível na web e poderá ser encontrada por mecanismos de buscas, como Google, Bing e etc..."
       question: "Pergunta"
+    report:
+      name: "Relatório"
+      prompt: "Por favor entre um motivo:"
+      prompt_default: "conteúdo ofensivo"
+      status:
+        created: "O relatório foi criado com sucesso"
+        exists: "O relatório já existe"
     reshares:
       duplicate: "Que bom, hein? Você já recompartilhou essa publicação."
       post: "Recompartilhar a publicação de <%= name %>?"

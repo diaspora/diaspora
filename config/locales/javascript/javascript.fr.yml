@@ -27,6 +27,10 @@ fr:
       deselect_all: "Désélectionner tout"
       no_aspects: "Aucun aspect sélectionné"
       select_all: "Sélectionner tout"
+    bookmarklet:
+      post_something: "Publier sur diaspora*"
+      post_submit: "Message en cours de publication ..."
+      post_success: "Publié ! Fermeture de la fenêtre popup ..."
     comma: ","
     comments:
       hide: "Masquer les commentaires"
@@ -90,8 +94,19 @@ fr:
       vote: "Vote"
     publisher:
       add_option: "Ajouter un choix"
+      at_least_one_aspect: "Vous devez créer au moins un aspect"
+      limited: "Limité - votre message ne sera vu que par des gens avec qui vous partagez"
+      near_from: "Posté à : <%= location %>"
       option: "Choix <%= nr %>"
+      public: "Public - votre message sera visible de tous et trouvé par les moteurs de recherche"
       question: "Question"
+    report:
+      name: "Rapport"
+      prompt: "Merci de saisir un motif :"
+      prompt_default: "Contenu offensant"
+      status:
+        created: "Le rapport a été crée avec succès."
+        exists: "Le rapport existe déjà"
     reshares:
       duplicate: "C'est si bien que ça ? Vous avez déjà repartagé ce message !"
       post: "Repartager le message de <%= name %> ?"

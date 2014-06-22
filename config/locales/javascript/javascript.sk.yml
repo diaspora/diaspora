@@ -80,6 +80,10 @@ sk:
       show_result: "Zobraziť výsledok"
       vote: "Hlasovať"
     publisher:
+      at_least_one_aspect: "Musíš publikovať aspoň jednu kategóriu"
+      limited: "Vyhradený – tvoj príspevok uvidia len ľudia, s ktorými sa oň podelíš"
+      near_from: "Odoslané z obce:<%= location %>"
+      public: "Verejný – tvoj príspevok pomocou vyhľadávačov uvidí a nájde každý"
       question: "Otázka"
     reshares:
       duplicate: "Je to dobré, čo? O tento príspevok si sa už raz znova podelil(a)!"
