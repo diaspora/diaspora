@@ -87,12 +87,12 @@ class PeopleController < ApplicationController
       if current_user
         @block = current_user.blocks.where(:person_id => @person.id).first
         @contact = current_user.contact_for(@person)
-        if @contact && !params[:only_posts]
-          @contacts_of_contact_count = @contact.contacts.count
-          @contacts_of_contact = @contact.contacts.limit(8)
-        else
-          @contact ||= Contact.new
+
+        if !params[:only_posts]
+          @contacts_count, @contacts = person_contacts(@person)
         end
+
+        @contact ||= Contact.new
       end
     end
 
@@ -139,7 +139,10 @@ class PeopleController < ApplicationController
 
   def contacts
     @person = Person.find_by_guid(params[:person_id])
-    if @person
+
+    if current_user && current_user.person == @person
+     redirect_to contacts_path 
+    elsif @person
       @contact = current_user.contact_for(@person)
       @aspect = :profile
       @contacts_of_contact = @contact.contacts.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
@@ -200,5 +203,23 @@ class PeopleController < ApplicationController
     end
 
     photos.order('created_at desc')
+  end
+
+  def person_contacts(person)
+    contacts = if person == current_user.person
+      aspect_ids = current_user.aspects.map(&:id)
+      people = Person.unique_from_aspects(aspect_ids, current_user)
+      people
+    else
+      contact = current_user.contact_for(person)
+      contact ? contact.contacts : nil
+    end
+
+    if contacts
+      count = contacts.count
+      contacts = contacts.limit(8)
+    end
+
+    [count || 0, contacts || []]
   end
 end

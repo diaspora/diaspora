@@ -417,6 +417,11 @@ describe PeopleController do
       flash[:error].should be_present
       response.should redirect_to people_path
     end
+
+    it 'redirect to contacts if person is current user' do
+      get :contacts, person_id: @user.person.to_param
+      response.should redirect_to contacts_path
+    end
   end
 
   describe '#diaspora_id?' do
@@ -450,6 +455,26 @@ describe PeopleController do
 
     it 'returns false for invalid usernames' do
       @controller.send(:diaspora_id?, "ilya_2%3@joindiaspora.com").should be_false
+    end
+  end
+
+  describe '#person_contacts' do
+    it 'return contacts of a person' do
+      contact = @user.contact_for(bob.person)
+      all_contacts = contact.contacts
+      contacts = all_contacts.limit(8)
+      count = all_contacts.count
+
+      @controller.send(:person_contacts, bob.person).should == [count, contacts]
+    end
+    
+    it 'return contacts of a current user from aspects' do
+      aspect_ids = @user.aspects.map(&:id)
+      all_contacts = Person.unique_from_aspects(aspect_ids, @user)
+      count = all_contacts.count
+      contacts = all_contacts.limit(8)
+
+      @controller.send(:person_contacts, @user.person).should == [count, contacts]
     end
   end
 end
