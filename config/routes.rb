@@ -128,6 +128,7 @@ Diaspora::Application.routes.draw do
     get   :admin_inviter
     get   :weekly_user_stats
     get   :correlations
+    delete :remove_spammer
     get   :stats, :as => 'pod_stats'
     get   "add_invites/:invite_code_id" => 'admins#add_invites', :as => 'add_invites'
   end

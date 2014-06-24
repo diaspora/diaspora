@@ -9,6 +9,12 @@ class AdminsController < ApplicationController
     @users = (@users || User).where(params[:user]) if params[:user].present?
     @users ||= []
   end
+  
+  def remove_spammer
+    user = User.find(params[:user_id])
+    user.close_account!
+    redirect_to root_url, notice:"this account will be deleted in a few moments"
+  end
 
   def admin_inviter
     inviter = InvitationCode.default_inviter_or(current_user)
