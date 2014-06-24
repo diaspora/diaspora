@@ -90,3 +90,7 @@
 
         %br
         %br
+          
+
+    - if current_user.admin? && person.owner.present?
+      = link_to 'Disable Account', remove_spammer_path(user_id:person.owner.id), method: :delete, data:{confirm:'Are you sure you want to disable this account?  It will delete all data associated.'}

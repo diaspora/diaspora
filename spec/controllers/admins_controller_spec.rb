@@ -102,6 +102,17 @@ describe AdminsController do
       end
     end
   end
+  
+  describe '#remove_spammer' do
+    it 'it queues a job to disable the given account' do
+
+      other_user = FactoryGirl.create :user
+      
+      User.stub(:find).and_return(other_user)
+      delete :remove_spammer, user_id: other_user.id
+      other_user.should_receive(:close_account)
+    end
+  end
 
   describe '#stats' do
     before do
