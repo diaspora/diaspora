@@ -69,7 +69,7 @@ app.views.Publisher = Backbone.View.extend({
           _this.tryClose()
         }
     });
-    
+
     // close publisher on post
     this.on('publisher:add', function() {
       this.close();
@@ -405,10 +405,10 @@ app.views.Publisher = Backbone.View.extend({
     $(this.el).addClass("closed");
     this.el_wrapper.removeClass("active");
     this.el_input.css('height', '');
-    this.view_poll_creator.$el.removeClass('active');
+    this.view_poll_creator.$el.hide();
     return this;
   },
-  
+
   showSpinner: function(bool) {
     if (bool)
       this.$('#publisher_spinner').removeClass('hidden');
