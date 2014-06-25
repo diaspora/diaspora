@@ -27,6 +27,9 @@ app.views.StreamPost = app.views.Post.extend({
   tooltipSelector : ".timeago, .post_scope, .block_user, .delete",
 
   initialize : function(){
+    var personId = this.model.get('author').id;
+    app.vent.on('remove:author:posts:'+personId, this.remove, this);
+
     this.model.on('remove', this.remove, this);
     //subviews
     this.commentStreamView = new app.views.CommentStream({model : this.model});
@@ -77,13 +80,7 @@ app.views.StreamPost = app.views.Post.extend({
 
     block.save({block : {person_id : personId}}, {
       success : function(){
-        if(!app.stream) { return }
-
-        _.each(app.stream.posts.models, function(model){
-          if(model.get("author").id == personId) {
-            app.stream.posts.remove(model);
-          }
-        })
+        app.vent.trigger('remove:author:posts:'+personId);
       }
     })
   },

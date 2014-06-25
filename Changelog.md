@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+* Fix which allow to remove ignored users posts without page refresh [#2875](https://github.com/diaspora/diaspora/issues/2875)
 
 ## Features
 
