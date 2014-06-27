@@ -323,6 +323,15 @@ describe PeopleController do
         get :show, :id => @user.person.to_param
         assigns[:stream].posts.map { |x| x.id }.should include(reshare.id)
       end
+
+      it 'marks a corresponding notifications as read' do
+        note = FactoryGirl.create(:notification, :recipient => @user, :target => @person, :unread => true)
+
+        expect {
+          get :show, :id => @person.to_param
+          note.reload
+        }.to change(Notification.where(:unread => true), :count).by(-1)
+      end
     end
 
     context "when the person is not a contact of the current user" do
