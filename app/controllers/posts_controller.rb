@@ -85,9 +85,13 @@ class PostsController < ApplicationController
   end
 
   def mark_corresponding_notifications_read
-    Notification.where(recipient_id: current_user.id, target_id: @post.id, unread: true).each do |n|
-      n.unread = false
-      n.save!
+    # For comments, reshares, likes
+    Notification.where(recipient_id: current_user.id, target_type: "Post", target_id: @post.id, unread: true).each do |n|
+      n.set_read_state( true )
     end
+
+    # For mentions
+    mention = @post.mentions.where(person_id: current_user.person_id).first
+    Notification.where(recipient_id: current_user.id, target_type: "Mention", target_id: mention.id, unread: true).first.try(:set_read_state, true) if mention
   end
 end
