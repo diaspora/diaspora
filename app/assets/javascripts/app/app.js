@@ -19,6 +19,7 @@ var app = {
   views: {},
   pages: {},
   forms: {},
+  vent: _.extend({}, Backbone.Events),
 
   user: function(userAttrs) {
     if(userAttrs) { return this._user = new app.models.User(userAttrs) }
