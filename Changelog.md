@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+* Fix hiding of poll publisher on close [#5029](https://github.com/diaspora/diaspora/issues/5029)
 
 ## Features
 
