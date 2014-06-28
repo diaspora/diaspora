@@ -9,13 +9,14 @@
 
 .container
   .row-fluid
-    .span-12
+    .span12
       #section_header
         %h2
           = t('privacy')
         = render 'shared/settings_nav'
 
-    .span-12
+  .row-fluid
+    .span8
       %h3
         = t('.ignored_users')
 
@@ -25,4 +26,4 @@
         = link_to t('.stop_ignoring'), block_path(block),
           :method => :delete
         %br
-
+    .span4
