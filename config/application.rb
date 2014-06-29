@@ -86,6 +86,7 @@ module Diaspora
       bootstrap-responsive.css
       default.css
       error_pages.css
+      admin.css
       login.css
       mobile/mobile.css
       new-templates.css

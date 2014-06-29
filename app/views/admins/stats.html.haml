@@ -1,37 +1,28 @@
 
-.span-24
+%div
   = render :partial => 'admins/admin_bar'
-%br
-%br
 
-.span-24.last
-  %h1
-    = t('.usage_statistic')
-    %div{:style => "float:right;"}
-      = form_tag('/admins/stats', :method => 'get') do
-        %select{:name => 'range'}
-          %option{:value => 'daily', :selected => ('selected' if params[:range] == 'daily')}
-            = t('.daily')
-          %option{:value => 'week', :selected => ('selected' if params[:range] == 'week')}
-            = t('.week')
-          %option{:value => '2weeks', :selected => ('selected' if params[:range] == '2weeks')}
-            = t('.2weeks')
-          %option{:value => 'month', :selected => ('selected' if params[:range] == 'month')}
-            = t('.month')
+%h1
+  = t('.usage_statistic')
 
-        = submit_tag t('.go')
-  %br
-  %h3
-    != t('.display_results', :segment => @segment)
-    
-  %br
-  %br
-  %br
+%div.pull-right
+  = form_tag('/admins/stats', :method => 'get', class: 'form-inline') do
+    %select{:name => 'range'}
+      %option{:value => 'daily', :selected => ('selected' if params[:range] == 'daily')}
+        = t('.daily')
+      %option{:value => 'week', :selected => ('selected' if params[:range] == 'week')}
+        = t('.week')
+      %option{:value => '2weeks', :selected => ('selected' if params[:range] == '2weeks')}
+        = t('.2weeks')
+      %option{:value => 'month', :selected => ('selected' if params[:range] == 'month')}
+        = t('.month')
 
-%hr
-.clearfix
+    = submit_tag t('.go'), class: 'btn btn-primary'
 
-.span-24.last
+%h3
+  != t('.display_results', :segment => @segment)
+
+%div.row
   - [:posts, :comments, :aspect_memberships, :users].each do |name|
     - model = eval("@#{name.to_s}")
     - if name == :aspect_memberships
@@ -43,7 +34,7 @@
     - if name == :users
       - name = t('.users', :count => model[:yesterday])
 
-    .span-6{:class => ('last' if name == t('.users', :count => model[:yesterday]))}
+    .span3
       %h2{:style => 'font-weight:bold;'}
         = name.to_s
       %h4
@@ -51,17 +42,15 @@
         %span.percent_change{:class => (model[:change] > 0 ? "green" : "red")}
           = "(#{model[:change]}%)"
 
-  %br
-  %br
-  %br
-  %hr
+%div.row
+  %div.span12
+    %p.alert.alert-info.text-center
+      != t('.current_segment', :post_yest => @posts[:yesterday]/@user_count.to_f, :post_day => @posts[:day_before]/@user_count.to_f)
 
-  %p{:style => "text-align:center;"}
-    != t('.current_segment', :post_yest => @posts[:yesterday]/@user_count.to_f, :post_day => @posts[:day_before]/@user_count.to_f)
-
-.span-24.last
-  %h3
-    = t('.50_most')
-  - @popular_tags.each do |name,count|
-    != t('.tag_name', :name_tag => name, :count_tag => count)
-    %br
+%div.row
+  %div.span12
+    %h3= t('.50_most')
+    %ul
+    - @popular_tags.each do |name,count|
+      %li
+        != t('.tag_name', :name_tag => name, :count_tag => count)

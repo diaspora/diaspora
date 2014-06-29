@@ -10,7 +10,8 @@
 * Fix self-XSS when renaming an aspect [#5048](https://github.com/diaspora/diaspora/pull/5048)
 * Fix live updating when renaming an aspect [#5049](https://github.com/diaspora/diaspora/pull/5049)
 
-## FeatureS
+## Features
+* Port admin pages to bootstrap, polish user search results, allow accounts to be closed from the backend [#5046](https://github.com/diaspora/diaspora/pull/5046)
 
 # 0.4.0.1
 

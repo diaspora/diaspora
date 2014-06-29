@@ -109,13 +109,28 @@ en:
         zero: "you currently have no invites left %{link}"
         one: "you currently have one invite left %{link}"
         other: "you currently have %{count} invites left %{link}"
+      view_profile: "view profile"
       add_invites: "add invites"
+      close_account: "close account"
+      are_you_sure: "Are you sure you want to close this account?"
+      account_closing_scheduled: "The account of %{name} is scheduled to be closed. It will be processed in a few moments..."
       email_to: "Email to Invite"
       under_13: "Show users that are under 13 (COPPA)"
       users:
         zero: "%{count} users found"
         one: "%{count} user found"
         other: "%{count} users found"
+    user_entry:
+      id: 'ID'
+      guid: 'GUID'
+      email: 'Email'
+      diaspora_handle: 'Diaspora handle'
+      last_seen: 'last seen'
+      account_closed: 'account closed'
+      nsfw: '#nsfw'
+      unknown: 'unknown'
+      'yes': 'yes'
+      'no': 'no'
     weekly_user_stats:
       current_server: "Current server date is %{date}"
       amount_of:
