@@ -26,6 +26,7 @@ app.views.Help = app.views.StaticContentView.extend({
     };
 
     this.data = {
+      title_header: Diaspora.I18n.t( 'title_header' ),
       title_getting_help: Diaspora.I18n.t( 'getting_help.title' ),
       title_account_and_data_management: Diaspora.I18n.t( 'account_and_data_management.title' ),
       title_aspects: Diaspora.I18n.t( 'aspects.title' ),
