@@ -8,8 +8,9 @@
 * Fix hiding of poll publisher on close [#5029](https://github.com/diaspora/diaspora/issues/5029)
 * Fix padding in user menu [#5047](https://github.com/diaspora/diaspora/pull/5047)
 * Fix self-XSS when renaming an aspect [#5048](https://github.com/diaspora/diaspora/pull/5048)
+* Fix live updating when renaming an aspect [#5049](https://github.com/diaspora/diaspora/pull/5049)
 
-## Features
+## FeatureS
 
 # 0.4.0.1
 
