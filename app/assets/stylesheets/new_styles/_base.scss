@@ -146,6 +146,11 @@ $bring-dark-accent-forward-color: #DDD;
   }
 }
 
+/* padder helper to push content below the header, to be removed when porting to bootstrap is complete */
+.bootstrap_header_padding {
+  padding-top: 40px;
+}
+
 /* responsive */
 @media (max-width: 767px) {
   body {
