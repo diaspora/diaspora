@@ -256,7 +256,7 @@ body > header {
     top: -4px;
     float: right;
     margin: -2px -5px 0px 0px;
-    padding: 5px 7px 5px 32px;
+    padding: 0;
 
     border-left: 1px solid #333;
     border-right: 1px solid #333;
@@ -270,7 +270,7 @@ body > header {
   }
 
   .user-menu-item a {
-    padding: 4px;
+    padding: 4px 8px 4px 40px;
     height: 100%;
     color: $text-grey;
 
@@ -282,7 +282,7 @@ body > header {
   }
 
   .user-menu-trigger {
-    padding: 5px 0;
+    padding: 10px 25px 10px 40px;
 
     &:hover {
       color: $highlight-white;
@@ -291,7 +291,6 @@ body > header {
   }
 
   .user-name {
-    padding: 4px 15px 4px 4px;
 
     &:hover {
       background-color: transparent;
@@ -307,11 +306,11 @@ body > header {
   }
 
   .user-menu-avatar {
-    height: 22px;
-    width: 22px;
+    height: 25px;
+    width: 25px;
     position: absolute;
-    left: 7px;
-    top: 9px;
+    left: 8px;
+    top: 8px;
     display: block;
   }
 
