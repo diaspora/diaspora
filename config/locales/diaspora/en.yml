@@ -374,6 +374,7 @@ en:
       birthday_with_year: "%B %d %Y"
 
   help:
+    title_header: "Help"
     tutorials: "tutorials"
     tutorial: "tutorial"
     irc: "IRC"
