@@ -15,24 +15,21 @@ class Notification < ActiveRecord::Base
   end
 
   def self.notify(recipient, target, actor)
-    if target.respond_to? :notification_type
-      if note_type = target.notification_type(recipient, actor)
-        if(target.is_a? Comment) || (target.is_a? Like)
-          n = note_type.concatenate_or_create(recipient, target.parent, actor, note_type)
-        elsif(target.is_a? Reshare)
-          n = note_type.concatenate_or_create(recipient, target.root, actor, note_type)
-        else
-          n = note_type.make_notification(recipient, target, actor, note_type)
-        end
+    return nil unless target.respond_to? :notification_type
 
-        if n
-          n.email_the_user(target, actor)
-          n
-        else
-          nil
-        end
-       end
+    note_type = target.notification_type(recipient, actor)
+    return nil unless note_type
+
+    return_note = if [Comment, Like, Reshare].any? { |klass| target.is_a?(klass) }
+      s_target = target.is_a?(Reshare) ? target.root : target.parent
+      note_type.concatenate_or_create(recipient, s_target,
+                                          actor, note_type)
+    else
+      note_type.make_notification(recipient, target,
+                                      actor, note_type)
     end
+    return_note.email_the_user(target, actor) if return_note
+    return_note 
   end
 
   def as_json(opts={})
