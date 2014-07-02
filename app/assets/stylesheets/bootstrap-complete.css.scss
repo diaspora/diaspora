@@ -1,3 +1,9 @@
 // Calling this file bootstrap would cause an infinite recursion during asset compilation.
 @import 'bootstrap';
 @import 'bootstrap-responsive';
+
+
+// according to the docs, this is part of bootstrap 2.3.x
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }

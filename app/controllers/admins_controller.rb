@@ -1,12 +1,16 @@
-class AdminsController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :redirect_unless_admin
+class AdminsController < Admin::AdminController
+
+  use_bootstrap_for :user_search, :weekly_user_stats, :stats, :correlations
 
   def user_search
-    params[:user] ||= {}
-    params[:user].delete_if {|key, value| value.blank? }
-    @users = User.joins(person: :profile).where(["profiles.birthday > ?", Date.today - 13.years]) if params[:under13]
-    @users = (@users || User).where(params[:user]) if params[:user].present?
+    if params[:admins_controller_user_search]
+      search_params = params.require(:admins_controller_user_search)
+                            .permit(:username, :email, :guid, :under13)
+      @search = UserSearch.new(search_params)
+      @users = @search.perform
+    end
+
+    @search ||= UserSearch.new
     @users ||= []
   end
 
@@ -94,5 +98,55 @@ class AdminsController < ApplicationController
       @#{plural}[:change] = percent_change(@#{plural}[:yesterday], @#{plural}[:day_before])
 DATA
     )
+  end
+
+
+  # TODO action needed after rails4 update
+  class UserSearch
+    #include ActiveModel::Model  # rails4
+    include ActiveModel::Conversion
+    include ActiveModel::Validations
+    include ActiveModel::MassAssignmentSecurity
+
+    attr_accessor :username, :email, :guid, :under13
+
+    validate :any_searchfield_present?
+
+    def initialize(attributes={})
+      assign_attributes(attributes)
+      yield(self) if block_given?
+    end
+
+    def assign_attributes(values, options={})
+      sanitize_for_mass_assignment(values, options[:as]).each do |k, v|
+        send("#{k}=", v)
+      end
+    end
+
+    # TODO remove this once ActiveModel is included
+    def persisted?
+      false
+    end
+
+    def any_searchfield_present?
+      if %w(username email guid under13).all? { |attr| self.send(attr).blank? }
+        errors.add :base, "no fields for search set"
+      end
+    end
+
+    def perform
+      #return User.none unless valid?  # rails4
+      return [] unless valid?
+
+      users = User.arel_table
+      people = Person.arel_table
+      profiles = Profile.arel_table
+      res = User.joins(person: :profile)
+      res = res.where(users[:username].matches("%#{username}%")) unless username.blank?
+      res = res.where(users[:email].matches("%#{email}%")) unless email.blank?
+      res = res.where(people[:guid].matches("%#{guid}%")) unless guid.blank?
+      res = res.where(profiles[:birthday].gt(Date.today-13.years)) if under13 == '1'
+      res
+    end
   end
 end

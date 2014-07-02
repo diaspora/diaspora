@@ -1,47 +1,49 @@
 
-.span-24
+%div
   = render :partial => 'admins/admin_bar'
-.span-24.prepend-4
 
-  %h3
+%div.row
+  %div.user_search.span9
+    %h3= t('admins.admin_bar.user_search')
+    = form_for @search, url: {action: 'user_search'}, html: {method: :get, class: 'form-horizontal'} do |f|
+      %div.control-group
+        = f.label :username, t('username'), class: 'control-label'
+        %div.controls
+          = f.text_field :username
+
+      %div.control-group
+        = f.label :email, t('email'), class: 'control-label'
+        %div.controls
+          = f.text_field :email
+
+      %div.control-group
+        = f.label :guid, t('admins.user_entry.guid'), class: 'control-label'
+        %div.controls
+          = f.text_field :guid
+
+      %div.control-group
+        %div.controls
+          = f.label :under13 do
+            = f.check_box :under13
+            = t('.under_13')
+          = submit_tag t('admins.stats.go')
+
+  %div.more_invites.span3
+    %h3= t('shared.invitations.invites')
+
     != t('.you_currently', :count => current_user.invitation_code.count, :link => link_to(t(".add_invites"), add_invites_path(current_user.invitation_code)))
-    
-    = form_tag 'admin_inviter', :method => :get do
+
+    = form_tag 'admin_inviter', method: :get do
       = t('.email_to')
       = text_field_tag 'identifier'
       = submit_tag t('services.remote_friend.invite')
 
+%div.row
+  %div.span12
+    %div.alert.alert-info.text-center= t('.users', :count => @users.count)
 
-
-  %h3
-    = t('admins.admin_bar.user_search')
-  = form_tag 'user_search', :method => :get do
-    = t('username')
-    = text_field_tag 'user[username]', params[:user][:username]
-
-    = t('email')
-    = text_field_tag 'user[email]', params[:user][:email]
-
-    = t('.under_13')
-    = check_box_tag 'under13', params[:under13]
-
-    = submit_tag t('admins.stats.go')
-
-
-  = t('.users', :count => @users.count)
-  %br
-  %br
-  - @users.each do |user|
-    = user.inspect
-    %br
-    - if user.person
-      = user.person.inspect
-      %br
-      - if user.person.profile
-        = user.person.profile.inspect
-      %br
-    = "invite token: #{invite_code_url(user.invited_by.invite_code)}" if user.invited_by.present?
-    = link_to t(".add_invites"), add_invites_path(user.invitation_code)
-    %br
-    %br
-    %br
+%div.row
+  %div.users.span12
+    %ul.media-list
+      - @users.each do |user|
+        = render partial: 'user_entry', locals: { user: user }

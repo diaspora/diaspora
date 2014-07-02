@@ -123,6 +123,8 @@ Diaspora::Application.routes.draw do
 
   get 'login' => redirect('/users/sign_in')
 
+  # Admin backend routes
+
   scope 'admins', :controller => :admins do
     match :user_search
     get   :admin_inviter
@@ -130,6 +132,10 @@ Diaspora::Application.routes.draw do
     get   :correlations
     get   :stats, :as => 'pod_stats'
     get   "add_invites/:invite_code_id" => 'admins#add_invites', :as => 'add_invites'
+  end
+
+  namespace :admin do
+    post 'users/:id/close_account' => 'users#close_account', :as => 'close_account'
   end
 
   resource :profile, :only => [:edit, :update]
@@ -214,7 +220,7 @@ Diaspora::Application.routes.draw do
 
   #Protocol Url
   get 'protocol' => redirect("http://wiki.diasporafoundation.org/Federation_Protocol_Overview")
-  
+
   #Statistics
   get :statistics, controller: :statistics
 

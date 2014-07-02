@@ -1,27 +1,29 @@
-.span-24
+
+%div
   = render :partial => 'admins/admin_bar'
 
-.span-24.last
-  %h1
-    = t('report.title')
-  %div#reports
-    - @reports.each do |r|
-      - username = User.find_by_id(r.user_id).username
-      %div.content
-        %span.text
-          = report_content(r.item_id, r.item_type)
-        %span
-          = raw t('report.reported_label', person: link_to(username, user_profile_path(username)))
-        %span
-          = t('report.reason_label', text: r.text)
-      %div.options
-        %span
-          = button_to t('report.review_link'), report_path(r.id, :type => r.item_type),
-            :class => "button",
-            method: :put
-        %span
-          = button_to t('report.delete_link'), report_path(r.id, :type => r.item_type),
-            :data => { :confirm => t('report.confirm_deletion') },
-            :class => "button delete",
-            method: :delete
-      %div.clear
+%div.row
+  %div.span12
+    %h1
+      = t('report.title')
+    %div#reports
+      - @reports.each do |r|
+        - username = User.find_by_id(r.user_id).username
+        %div.content
+          %span.text
+            = report_content(r.item_id, r.item_type)
+          %span
+            = raw t('report.reported_label', person: link_to(username, user_profile_path(username)))
+          %span
+            = t('report.reason_label', text: r.text)
+        %div.options.text-right
+          %span
+            = button_to t('report.review_link'), report_path(r.id, :type => r.item_type),
+              :class => "btn btn-info btn-small",
+              method: :put
+          %span
+            = button_to t('report.delete_link'), report_path(r.id, :type => r.item_type),
+              :data => { :confirm => t('report.confirm_deletion') },
+              :class => "btn btn-danger btn-small",
+              method: :delete
+        %div.clear

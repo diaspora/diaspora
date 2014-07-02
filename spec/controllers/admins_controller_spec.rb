@@ -35,26 +35,12 @@ describe AdminsController do
       end
 
       it 'searches on username' do
-        get :user_search, :user => {:username => @user.username}
+        get :user_search, admins_controller_user_search: { username: @user.username }
         assigns[:users].should == [@user]
       end
 
       it 'searches on email' do
-        get :user_search, :user => {:email => @user.email}
-        assigns[:users].should == [@user]
-      end
-
-      it 'searches on invitation_identifier' do
-        @user.invitation_identifier = "La@foo.com"
-        @user.save!
-        get :user_search, :user => {:invitation_identifier => @user.invitation_identifier}
-        assigns[:users].should == [@user]
-      end
-
-      it 'searches on invitation_token' do
-        @user.invitation_token = "akjsdhflhasdf"
-        @user.save
-        get :user_search, :user => {:invitation_token => @user.invitation_token}
+        get :user_search, admins_controller_user_search: { email: @user.email }
         assigns[:users].should == [@user]
       end
 
@@ -67,7 +53,7 @@ describe AdminsController do
         o_13.profile.birthday = 20.years.ago.to_date
         o_13.profile.save!
 
-        get :user_search, under13: true
+        get :user_search, admins_controller_user_search: { under13: '1' }
 
         assigns[:users].should include(u_13)
         assigns[:users].should_not include(o_13)
