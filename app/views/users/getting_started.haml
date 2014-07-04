@@ -5,42 +5,43 @@
 - content_for :head do
   = javascript_include_tag :profile
 
-%section#hello-there
-  .hero-unit
-    %h1.center
-      = t('.well_hello_there')
-    %h3.center
-      = t(".community_welcome")
+.container
+  .row
+    %section#hello-there.span12
+      .hero-unit
+        %h1.text-center
+          = t('.well_hello_there')
+        %h3.text-center
+          = t(".community_welcome")
 
-    = invited_by_message
-    
-    %h2
-      = t(".who_are_you")
+        = invited_by_message
 
-    - if AppConfig.configured_services.include? :facebook
-      %p
-        != t('.connect_to_facebook', :link => link_to(t('.connect_to_facebook_link'), "auth/facebook?callback_url=#{getting_started_url}"))
+        %h2
+          = t(".who_are_you")
 
-    = form_tag profile_path, :method => :put, :remote => true, :id => 'edit_profile' do
-      %fieldset
-        = label_tag 'profile[first_name]', t('profiles.edit.your_name')
-        = text_field_tag 'profile[first_name]', current_user.first_name
-        = image_tag 'ajax-loader.gif', :id => "gs-name-form-spinner", :class => "hidden"
-        = label_tag :your_photo, t('profiles.edit.your_photo')
-        = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person
+        - if AppConfig.configured_services.include? :facebook
+          %p
+            != t('.connect_to_facebook', :link => link_to(t('.connect_to_facebook_link'), "auth/facebook?callback_url=#{getting_started_url}"))
 
-    %h2
-      = t('.what_are_you_in_to')
+        = form_tag profile_path, :method => :put, :remote => true, :id => 'edit_profile' do
+          %fieldset
+            = label_tag 'profile[first_name]', t('profiles.edit.your_name')
+            = text_field_tag 'profile[first_name]', current_user.first_name
+            = image_tag 'ajax-loader.gif', :id => "gs-name-form-spinner", :class => "hidden"
+            = label_tag :your_photo, t('profiles.edit.your_photo')
+            = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person
 
-    %p
-      = t('.hashtag_explanation')
+        %h2
+          = t('.what_are_you_in_to')
 
-    = form_tag(tag_followings_path, :method => 'get', :class => "tag_input search_form") do
-      %fieldset
-        = label_tag 'follow_tags', t('.hashtag_suggestions')
-        #tags_list
-          = text_field_tag 'follow_tags', nil, :class => "nostrap"
+        %p
+          = t('.hashtag_explanation')
 
-    .awesome
-      = link_to "#{t('.awesome_take_me_to_diaspora')} »", stream_path, :id => "awesome_button", :class => "button creation"
+        = form_tag(tag_followings_path, :method => 'get', :class => "tag_input search_form") do
+          %fieldset
+            = label_tag 'follow_tags', t('.hashtag_suggestions')
+            #tags_list
+              = text_field_tag 'follow_tags', nil, :class => "nostrap"
 
+        .awesome
+          = link_to "#{t('.awesome_take_me_to_diaspora')} »", stream_path, :id => "awesome_button", :class => "btn creation"
