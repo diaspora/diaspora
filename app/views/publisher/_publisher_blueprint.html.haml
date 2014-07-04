@@ -7,7 +7,6 @@
     $(document).ready(function() {
         if( app.publisher ) app.publisher.triggerGettingStarted();
       });
-
 #publisher{:class => ((aspect == :profile || publisher_open) ? "mention_popup" : "closed")}
   .content_creation
     = form_for(StatusMessage.new) do |status|
@@ -85,6 +84,27 @@
 
                 - for aspect in all_aspects
                   = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )
+          
+          .dropdown{ ! current_user.getting_started? ? {:class => "hang_right"} : { :class => "hang_right", :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_language')}"), 'data-content'=> t('shared.public_explain.language_dropdown')} }
+            .button.toggle.publisher
+              = t('language_select')
+              &#9660;       
+
+            .wrapper 
+              %select#language{:name => 'language'}             
+                %option{:style => "padding-bottom: 5px; border-bottom: 1px solid #ddd;", :value => "auto", :class => ("selected")}
+                  = t('auto_language')
+                %option{:value => "en" , :class => ("unselected")}
+                  = t('english')  
+                %option{:value => "fi", :class => ("unselected")}
+                  = t('finnish')
+                %option{:value => "nl", :class => ("unselected")}
+                  = t('dutch') 
+                %option{:value => "fa", :class => ("unselected")}
+                  = t('farsi')
+                %option{:value => "ru", :class => ("unselected")}
+                  = t('russian') 
+
 
           %button{ :disabled => ("disabled" if publisher_hidden_text.blank?), :class => 'button post_preview_button'}
             = t('shared.publisher.preview')

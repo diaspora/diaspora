@@ -33,6 +33,13 @@ en:
   fill_me_out: "Fill me out"
   back: "Back"
   public: "Public"
+  english: "English"
+  dutch: "Dutch"
+  finnish: "Finnish"
+  farsi: "Farsi"
+  russian: "Russian"
+  auto_language: "Auto Tag"
+  language_select: "Language"
   limited: "Limited"
   search: "Search"
   nsfw: "NSFW"
@@ -1065,6 +1072,7 @@ en:
       posting: "Posting..."
       share: "Share"
       preview: "Preview"
+      auto_tag_language: "Auto Detect Language"
       post_a_message_to: "Post a message to %{aspect}"
       make_public: "make public"
       all: "all"
@@ -1108,8 +1116,10 @@ en:
       reshare: "Reshare"
     public_explain:
       control_your_audience: "Control your Audience"
+      control_your_language: "Control language of your post"
       new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
       visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
+      language_dropdown: "Use this dropdown to change the language of your post or automatically tag your post"
       title: "Set up connected services"
       share: "Share"
       outside: "Public messages will be available for others outside of diaspora* to see."
@@ -1291,6 +1301,10 @@ en:
       what_are_you_in_to: "What are you into?"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on diaspora*."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
+
+      what_are_your_preferred_languages: "What are your preferred languages?"
+      language_explanation: "Preferred languages allow you to see only posts and comments of your relevant languages on your stream."
+      language_suggestions: "Try entries like english, dutch, french, etc."
 
       saved: "Saved!"
 

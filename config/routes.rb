@@ -84,6 +84,7 @@ Diaspora::Application.routes.draw do
   end
 
   resources :tags, :only => [:index]
+  resources :languages, :only => [:index]
 
   resources "tag_followings", :only => [:create, :destroy, :index]
 
