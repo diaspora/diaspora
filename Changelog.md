@@ -11,6 +11,7 @@
 * Fix self-XSS when renaming an aspect [#5048](https://github.com/diaspora/diaspora/pull/5048)
 * Fix live updating when renaming an aspect [#5049](https://github.com/diaspora/diaspora/pull/5049)
 * Use double quotes when embedding translations into Javascript [#5055](https://github.com/diaspora/diaspora/issues/5055)
+* Fix regression in mobile sign-in ([commit](https://github.com/diaspora/diaspora/commit/4a2836b108f8a9eb6f46ca58cfcb7b23f40bb076))
 
 ## Features
 * Port admin pages to bootstrap, polish user search results, allow accounts to be closed from the backend [#5046](https://github.com/diaspora/diaspora/pull/5046)
