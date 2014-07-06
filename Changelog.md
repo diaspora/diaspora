@@ -14,6 +14,7 @@
 
 ## Features
 * Port admin pages to bootstrap, polish user search results, allow accounts to be closed from the backend [#5046](https://github.com/diaspora/diaspora/pull/5046)
+* Reference Salmon endpoint in Webfinger XRD to aid discovery by alternative implementations [#5062](https://github.com/diaspora/diaspora/pull/5062)
 
 # 0.4.0.1
 
