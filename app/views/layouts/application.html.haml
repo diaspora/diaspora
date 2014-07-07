@@ -24,7 +24,7 @@
     - if @css_framework == :bootstrap && !@include_application_css
       = stylesheet_link_tag :default, 'new-templates', :media => 'all'
     - else
-      = stylesheet_link_tag 'login', 'application', 'default'
+      = stylesheet_link_tag 'application', 'default'
 
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'

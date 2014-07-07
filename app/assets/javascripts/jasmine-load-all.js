@@ -5,7 +5,6 @@
 //= require home
 //= require finder
 //= require inbox
-//= require login
 //= require mobile
 //= require profile
 //= require people

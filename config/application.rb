@@ -68,7 +68,6 @@ module Diaspora
       jquery.js
       jquery_ujs.js
       jquery.textchange.js
-      login.js
       mailchimp.js
       main.js
       mobile.js
@@ -87,7 +86,6 @@ module Diaspora
       default.css
       error_pages.css
       admin.css
-      login.css
       mobile/mobile.css
       new-templates.css
       rtl.css
