@@ -42,7 +42,7 @@
   %h4
     = t('search')
  
-  .well
+  .well.enclosed-checkbox
     = label_tag 'profile[searchable]', :class => "checkbox" do
       = check_box_tag 'profile[searchable]', true, profile.searchable
       = t('profiles.edit.allow_search')
@@ -51,8 +51,9 @@
 
   %h4
     = t('nsfw')
-  = t('profiles.edit.nsfw_explanation')
-  .well
+  %p
+    = t('profiles.edit.nsfw_explanation')
+  .well.enclosed-checkbox
     = label_tag 'profile[nsfw]', :class => "checkbox" do
       = check_box_tag 'profile[nsfw]', true, profile.nsfw?
       = t('profiles.edit.nsfw_check')
