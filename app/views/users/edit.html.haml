@@ -16,7 +16,8 @@
         = render 'shared/settings_nav'
 
   .row-fluid
-    .span7
+    .span3
+    .span6
       .row-fluid
         .span6
           %h3
@@ -222,4 +223,4 @@
                     %p
                       = f.submit t('.close_account_text'), :class => "btn btn-danger", :id => "close_account_confirm", :data => { :confirm => t('are_you_sure_delete_account') }
 
-    .span5
+    .span3
