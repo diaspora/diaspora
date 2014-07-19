@@ -1,6 +1,6 @@
 - unless person == current_user.person
   - contact = current_user.contacts.find_by_person_id(person.id)
   - contact ||= Contact.new(:person => person)
-  = aspect_membership_dropdown(contact, person, 'left')
+  = aspect_membership_dropdown(contact, person, 'right')
 -else
   = t('people.person.thats_you')

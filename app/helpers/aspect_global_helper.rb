@@ -41,7 +41,7 @@ LISTITEM
   end
 
   def dropdown_may_create_new_aspect
-    @aspect == :profile || @aspect == :tag || @aspect == :search || @aspect == :notification || params[:action] == "getting_started"
+    @aspect == :profile || @aspect == :tag || @aspect == :notification || params[:action] == "getting_started"
   end
 
   def aspect_options_for_select(aspects)

@@ -19,6 +19,7 @@
 @import 'popover'
 @import 'stream_element'
 @import 'report'
+@import 'tag'
 
 /* ====== media ====== */
 .media
@@ -850,37 +851,6 @@ ul#press_logos
     :padding 10px 0
   .avatar
     :float left
-
-.tag
-  :display inline-block
-  :max-width 100%
-  &:hover
-    :text
-      :decoration underline
-    :background
-      :color lighten($blue, 47%)
-
-  :font
-    :weight bold
-
-h1.tag
-  :border
-    :bottom 2px dotted $blue
-  &:hover
-    :border
-      :bottom 2px dotted $blue
-
-.info
-  .tag
-    :background
-      :color #efefef
-    :color $text-grey
-    :border
-      :bottom 1px dotted $border-dark-grey
-
-    &:hover
-      :border
-        :bottom 1px solid $border-dark-grey
 
 .diaspora_handle
   :font
