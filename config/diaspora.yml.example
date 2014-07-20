@@ -59,7 +59,7 @@ configuration: ## Section
     ## Require SSL, default true.
     ## When set, your pod will force you to use https in production.
     ## Since OAuth2 requires SSL Diasporas future API might not work if you're not
-    ## on SSL. Also no gurantee that posting to services is given if SSL
+    ## on SSL. Also no guarantee that posting to services is given if SSL
     ## is disabled.
     #require_ssl: true
     
