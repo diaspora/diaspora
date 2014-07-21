@@ -17,6 +17,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 
 ## Refactor
 * Redesign contacts page [#5153](https://github.com/diaspora/diaspora/pull/5153)
+* Improve profile page design on mobile
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)

@@ -10,6 +10,10 @@
         = @person.name
       %span.description
         = @person.diaspora_handle
+      .clear
+    .bottom_bar
+      - if !@person.tag_string.blank? && user_signed_in?
+        = Diaspora::Taggable.format_tags(@person.profile.tag_string)
 
 .span12.profile_stream
   - if @stream.stream_posts.length > 0

@@ -19,7 +19,7 @@
   .description
     - if !person.tag_string.blank? && user_signed_in?
       = Diaspora::Taggable.format_tags(person.profile.tag_string)
-      - if user_signed_in? && person == current_user.person
+      - if person == current_user.person
         %span.hover_edit
           = link_to t('.edit'), edit_profile_path
     - else

@@ -48,9 +48,10 @@ h3 {
   position: relative;
   text-align: left;
   padding: 10px 0;
-  * {
-    max-width: 100%; }
   min-height: 34px;
+  
+  * { max-width: 100%; }
+  
   .avatar {
     @include border-radius(4px);
 
@@ -151,7 +152,8 @@ h3 {
   }
 }
 
-.stream_element, #login_form {
+.stream_element,
+#login_form {
   @include border-radius(5px);
   @include box-shadow(0, 1px, 2px, rgba(0, 0, 0, 0.2));
 
@@ -297,27 +299,42 @@ h3 {
 }
 
 #author_info {
-  height: 100%;
-  position: relative;
+  margin: -10px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  background-color: #fff;
+  border-bottom: 1px solid #aaa;
   word-wrap: break-word;
 
   img {
-    height: 90px;
-    width: 90px;
-    margin-right: 10px;
+    @include border-radius(4px);
+    
+    height: 70px;
+    width: 70px;
+    margin: 10px;
     float: left;
   }
 
   .content {
-    padding-left: 100px;
-  }
+    padding-left: 90px;
+    
+    h2 {
+      font-size: 20px;
+      line-height: 20px;
+      margin-bottom: 0px;
+    }
 
-  .description {
-    font: {
-      weight: normal;
-      size: small;
-    };
-    color: $text-grey;
+    .description {
+      font: {
+        weight: normal;
+        size: small;
+      };
+      color: $text-grey;
+    }
+  }
+  
+  .bottom_bar {
+    position: static;
   }
 }
 
