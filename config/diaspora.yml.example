@@ -325,7 +325,7 @@ configuration: ## Section
       ## Automatically enable TLS? Ignored if authentication is set to none
       #starttls_auto: true
       
-      ## The domain for the HELLO command if needed
+      ## The domain for the HELO command if needed
       #domain: 'smtp.example.org'
       
       ## OpenSSL verify mode used when connecting to a
