@@ -38,9 +38,23 @@ chk_service()
   esac
 }
 
+# Determine the correct Ruby instance to use.
+chk_interpreter()
+{
+  ## This is needed because it's possible to have multiple Ruby installations. Using the Gem environment
+  ## guarantees that we'll use the correct interpreter for the install.
+  ## Also conveniently serves as a check to prevent startup if environment's borked.
+  interpreter=$(gem environment | grep "RUBY EXECUTABLE" | cut -d : -f 2)
+  if [ -z $interpreter ]; then
+      fatal "Could not determine Ruby executable with Gem!"
+  fi
+}
+
+# Set up our interpreter right away.
+chk_interpreter
 
 # ensure right directory
-realpath=$( ruby -e "puts File.expand_path(\"$0\")")
+realpath=$( $interpreter -e "puts File.expand_path(\"$0\")")
 cd $(dirname $realpath)/..
 
 #Warn if legacy config exists
@@ -64,14 +78,14 @@ fi
 # Setup environment
 if [ -z "$RAILS_ENV" ]
 then
-  RAILS_ENV=$(bundle exec ruby ./script/get_config.rb server.rails_environment)
+  RAILS_ENV=$(bundle exec $interpreter ./script/get_config.rb server.rails_environment)
   on_failure "Couldn't parse config/diaspora.yml!"
   export RAILS_ENV
 fi
 
 
 os=$(uname -s)
-vars=$(bundle exec ruby ./script/get_config.rb \
+vars=$(bundle exec $interpreter ./script/get_config.rb \
   port=server.port \
   single_process_mode=environment.single_process_mode? \
   embed_sidekiq_worker=server.embed_sidekiq_worker \
