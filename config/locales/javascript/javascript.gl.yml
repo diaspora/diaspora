@@ -7,11 +7,18 @@
 gl:
   javascripts:
     confirm_dialog: "Está seguro?"
-    post_report_prompt: "Explique o motivo:"
-    post_report_prompt_default: "Contido ofensivo"
+    report:
+      prompt: "Explique o motivo:"
+      prompt_default: "Contido ofensivo"
+      name: "Denunciar"
+      status:
+        created: "Interpúxose a denuncia."
+        exists: "A denuncia xa fora interposta."
+    report_prompt: "Explique o motivo:"
+    report_prompt_default: "Contido ofensivo"
     delete: "Eliminar"
     ignore: "Ignorar"
-    post_report: "Denunciar"
+    report: "Denunciar"
     ignore_user: "Ignorar este usuario?"
     and: "e"
     comma: ","
@@ -47,6 +54,13 @@ gl:
       limited: "Limitado. Só poderá velo a xente coa que comparte."
       public: "Público. Poderá velo calquera, e aparecerá nos motores de busca."
       near_from: "Publicado desde <%= location %>"
+      option: "Opción <%= nr %>"
+      add_option: "Engadir unha opción"
+      question: "Cuestión"
+    bookmarklet:
+      post_something: "Publicar en diaspora*"
+      post_submit: "Enviando a publicación…"
+      post_success: "Publicouse! Pechando a xanela emerxente…"
     infinite_scroll:
       no_more: "Non hai máis publicacións."
     aspect_dropdown:
@@ -96,6 +110,10 @@ gl:
 
     conversation:
       participants: "Participantes"
+
+    notifications:
+      mark_read: "Marcar como lido"
+      mark_unread: "Marcar como non lido"
 
     stream:
       hide: "Ocultar"
@@ -164,4 +182,15 @@ gl:
       reshared: "Repetida"
       comment: "Comentar"
       home: "Inicio"
+
+    poll:
+      vote: "Votar"
+      result: "Resultado"
+      count:
+        zero: "Aínda non votou ninguén."
+        one: "Votou unha persoa."
+        other: "Votaron <%=count%> persoas."
+      show_result: "Mostrar o resultado"
+      close_result: "Agochar o resultado"
+
 
