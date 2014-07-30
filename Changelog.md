@@ -21,6 +21,7 @@
 ## Features
 * Port admin pages to bootstrap, polish user search results, allow accounts to be closed from the backend [#5046](https://github.com/diaspora/diaspora/pull/5046)
 * Reference Salmon endpoint in Webfinger XRD to aid discovery by alternative implementations [#5062](https://github.com/diaspora/diaspora/pull/5062)
+* Change minimal birth year for the birthday field to 1910 [#5083](https://github.com/diaspora/diaspora/pull/5083)
 
 # 0.4.0.1
 
