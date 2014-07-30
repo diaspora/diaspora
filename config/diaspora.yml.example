@@ -18,7 +18,7 @@
 ## - Strip the top level namespace (configuration, production, etc.)
 ## - Build the path to the setting, for example environment.s3.enable
 ## - Replace the dots with underscores: environment_s3_enable
-## - Upcase everything: ENVIRONMENT_S3_ENABLE
+## - Capitalize everything: ENVIRONMENT_S3_ENABLE
 ## - Specify lists/arrays as comma separated values
 ##
 ## - For example, on Heroku:
@@ -31,7 +31,7 @@ configuration: ## Section
   environment: ## Section
     
     ## Set the hostname of the machine you're running Diaspora on, as seen
-    ## from the internet. This should be the URL you want to use to
+    ## from the Internet. This should be the URL you want to use to
     ## access the pod. So if you plan to  reverse proxy it, it should be
     ## the URL the proxy listens on.
     ## DO NOT CHANGE THIS AFTER INITIAL SETUP
@@ -67,7 +67,7 @@ configuration: ## Section
     ## If set to true Diaspora will work with just the appserver,
     ## thin by default, running, however this makes it quite slow as
     ## all the time intensive jobs must be run inside the request cycle.
-    ## So this is higly unrecommended for production setups.
+    ## So this is highly unrecommended for production setups.
     #single_process_mode: true
 
     ## Sidekiq - background processing
@@ -253,7 +253,7 @@ configuration: ## Section
       ## Set this to true if you want users to be able to send invites.
       #open: true
       
-      ## The default amount of invitiations an invite link has.
+      ## The default amount of invitations an invite link has.
       ## Every user has such a link. Default count is 25, uncomment to set
       ## another value.
       #count: 25
@@ -376,14 +376,14 @@ configuration: ## Section
     
     ## Set the admin account.
     ## This doesn't make the user an admin but is used when a generic
-    ## admin contact is neeeded, much like the postmaster role in mail
+    ## admin contact is needed, much like the postmaster role in mail
     ## systems. Set only the username, NOT the full ID.
     #account: "podmaster"
 
     ## E-Mail address users can contact the administrator
     #podmin_email: 'podmin@example.org'
   
-## Here you can make overides to settings defined above if you need
+## Here you can make overrides to settings defined above if you need
 ## to have them different in different environments.
 production: ## Section
   environment: ## Section
