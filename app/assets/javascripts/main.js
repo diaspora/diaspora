@@ -40,5 +40,6 @@
 //= require bootstrap-popover
 //= require bootstrap-dropdown
 //= require bootstrap-scrollspy-custom
+//= require bootstrap-modal
 //= require osmlocator
 //= require flexime
