@@ -1,7 +1,8 @@
 ## Some notes about this file:
 ## - All comments start with a double #
 ## - All settings are commented out with a single #
-##   You need to uncomment them in order to change the default settings.
+##   To change the default settings, you need both to uncomment the lines
+##   AND, in most cases, to change the value that is given.
 ## - Take care to keep proper indentation, that is by simply deleting
 ##   the original #, with no additional space before the setting's name.
 ## - Take care to keep proper quoting. All ' must have a matching ' at
@@ -55,15 +56,15 @@ configuration: ## Section
     ## When set, your pod will force the use of HTTPS in production mode. Since
     ## OAuth2 requires SSL Diaspora's future API might not work if you're not using
     ## SSL. Also there is no guarantee that posting to services will be possible
-    ## if SSL is disabled. Do not uncomment this line unless you are sure!
-    #require_ssl: false
+    ## if SSL is disabled. Do not change this default unless you are sure!
+    #require_ssl: true
     
     ## Single-process mode (default=false)
     ## If set to true Diaspora will work with just the appserver (Unicorn by default)
     ## running. However, this makes it quite slow as intensive jobs must be run
-    ## all the time inside the request cycle.
-    ## So we strongly recommended you leave this disabled for production setups.
-    #single_process_mode: true
+    ## all the time inside the request cycle. We strongly recommended you leave
+    ## this disabled for production setups. Set to true to enable.
+    #single_process_mode: false
 
     ## Sidekiq - background processing
     sidekiq: ## Section
@@ -73,14 +74,14 @@ configuration: ## Section
       ## a value that's at minimum close to this! You can safely increase it 
       ## to 25 and more on a medium-sized pod. This applies per started Sidekiq
       ## worker, so if you set it to 25 and start two workers you'll process
-      ## up to 50 jobs in parallel. Set n to the required value.
-      #concurrency: n
+      ## up to 50 jobs in parallel.
+      #concurrency: 5
 
       ## Number of times a job is retried (default=10)
-      ## There's an exponential effect to this: if you set this too
-      ## high you might get too many jobs in the queue.
-      ## Set n to the required value. Set it to false to disable it completely.
-      #retry: n
+      ## There's an exponential effect to this: if you set this too high you
+      ## might get too many jobs building up in the queue.
+      ## Set it to false to disable it completely.
+      #retry: 10
 
       ## Namespace to use in Redis. Useful if you need to run
       ## multiple instances of Diaspora using the same Redis instance.
@@ -89,10 +90,10 @@ configuration: ## Section
       ## Lines of backtrace that are stored on failure (default=15)
       ## Set n to the required value. Set this to false to reduce memory
       ## usage (and log size) if you're not interested in this data.
-      #backtrace: n
+      #backtrace: 15
 
       ## Log file for Sidekiq (default="log/sidekiq.log")
-      #log: "path/to/log"
+      #log: "log/sidekiq.log"
     
     ## Use Amazon S3 instead of your local filesystem
     ## to handle uploaded pictures (disabled by default)
@@ -108,7 +109,7 @@ configuration: ## Section
       ## When true, this allows locally cached images to be served for up to
       ## 1 year. This can improve load speed and save requests to the image host.
       ## Set to false to revert to browser defaults (usually less than 1 year).
-      #cache : false
+      #cache : true
     
     ## Set redirect URL for an external image host (Amazon S3 or other)
     ## If hosting images for your pod on an external server (even your own),
@@ -121,10 +122,10 @@ configuration: ## Section
       ## Serve static assets via the appserver (default=false)
       ## This is highly discouraged for production use. Let your reverse
       ## proxy/webserver do it by serving the files under public/ directly.
-      #serve: true
+      #serve: false
       
       ## Upload your assets to S3 (default=false)
-      #upload: true
+      #upload: false
       
       ## Specify an asset host. Ensure it does not have a trailing slash (/).
       #host: http://cdn.example.org/diaspora
@@ -132,14 +133,13 @@ configuration: ## Section
     ## Pubsub server (default='https://pubsubhubbub.appspot.com/')
     ## Diaspora is only tested against the default pubsub server.
     ## You probably don't want to uncomment or change this.
-    #pubsub_server: 'https://pubsubserver.example.org/'
+    #pubsub_server: 'https://pubsubhubbub.appspot.com/'
   
   ## Settings affecting how ./script/server behaves.
   server: ## Section
 
     ## The port on which the appserver should listen (default=3000):
-    ## Set nnnn to the port number you wish to use.
-    #port: nnnn
+    #port: 3000
 
     ## Rails environment (default='production')
     ## The environment in which the server should be started by default.
@@ -151,33 +151,32 @@ configuration: ## Section
     #stdout_log: '/usr/local/app/diaspora/log/unicorn-stdout.log'
     
     ## Number of Unicorn worker processes (default=2)
-    ## Increase this if you have many users. Set n to the required value.
-    #unicorn_worker: n
+    ## Increase this if you have many users.
+    #unicorn_worker: 2
 
     ## Number of seconds before a request is aborted (default=90)
     ## Increase if you get empty responses, or if large image uploads fail.
     ## Decrease if you're under heavy load and don't care if some
-    ## requests fail. Set n to the required value.
-    #unicorn_timeout: n
+    ## requests fail.
+    #unicorn_timeout: 90
     
     ## Embed a Sidekiq worker inside the unicorn process (default=false)
     ## Useful for minimal Heroku setups.
-    #embed_sidekiq_worker: true
+    #embed_sidekiq_worker: false
 
     ## Number of Sidekiq worker processes (default=1)
-    ## Set n to the required value. In most cases it is better to
+    ## In most cases it is better to
     ## increase environment.sidekiq.concurrency instead!
-    #sidekiq_workers: n
+    #sidekiq_workers: 1
   
   ## Settings potentially affecting the privacy of your users 
   privacy: ## Section
     
     ## Include jQuery from jquery.com's CDN (default=true)
-    ## This can save you some traffic and speeds up load time
-    ## since most clients already have this one cached.
-    ## Uncomment this line if you want jQuery library to be loaded from
-    ## your pod's own resources.
-    #jquery_cdn: false
+    ## This can save you some traffic and speeds up load time since most
+    ## clients already have this one cached. Set this to false if you want
+    ## the jQuery library to be loaded from your pod's own resources.
+    #jquery_cdn: true
     
     ## Google Analytics (disabled by default)
     ## Provide a key to enable tracking by Google Analytics 
@@ -216,37 +215,36 @@ configuration: ## Section
   
     ## Pod name (default="diaspora*")
     ## The pod name displayed in various locations, including the header.
-    #pod_name: "My Diaspora pod"
+    #pod_name: "diaspora*"
 
     ## Allow registrations (default=true)
     ## Set this to false to prevent people from signing up for your pod
     ## without an invitation. Note that this needs to be set to true
     ## (or commented out) to enable the first registration (you).
-    #enable_registrations: false
+    #enable_registrations: true
     
     ## Auto-follow on sign-up (default=true)
     ## Users will automatically follow a specified account on creation.
     ## Set this to false if you don't want your users to automatically
     ## follow an account upon creation.
-    #autofollow_on_join: false
+    #autofollow_on_join: true
  
     ## Auto-follow account (default='diasporahq@joindiaspora.com')
     ## The diaspora* HQ account keeps users up to date with news about Diaspora.
     ## If you set another auto-follow account (for example your podmin account),
     ## please consider resharing diaspora* HQ's posts for your pod's users!
-    #autofollow_on_join_user: 'autofollow_account@podname.tld'
+    #autofollow_on_join_user: 'diasporahq@joindiaspora.com'
 
     ## Invitation settings
     invitations: ## Section
       
       ## Enable invitations (default=true)
       ## Set this to false if you don't want users to be able to send invites.
-      #open: false
+      #open: true
       
       ## Number of invitations per invite link (default=25)
-      ## Every user has such a link if you have enabled invitations on your pod.
-      ## Set n to the required value.
-      #count: n
+      ## Every user will see such a link if you have enabled invitations on your pod.
+      #count: 25
     
     ## Paypal donations
     ## You can provide the ID of a hosted Paypal button here to allow your users
@@ -274,38 +272,36 @@ configuration: ## Section
     ## CURL debug (default=false)
     ## Turn on extra verbose output when sending stuff. Note: you
     ## don't need to touch this unless explicitly told to.
-    #typhoeus_verbose: true
+    #typhoeus_verbose: false
   
     ## Maximum number of parallel HTTP requests made to other pods (default=20)
     ## Be careful, raising this setting will heavily increase the memory usage
-    ## of your Sidekiq workers. Set n to the required value.
-    #typhoeus_concurrency: n
+    ## of your Sidekiq workers.
+    #typhoeus_concurrency: 20
 
     ## Captcha settings
     captcha: ## Section
 
       ## Enable captcha (default=true)
       ## Set this to false if you don't want to use captcha for signup process.
-      #enable: false
+      #enable: true
 
       ## Captcha image size (default='120x20')
-      ## Set n and m to the required values (leave the x in the middle!).
-      #image_size: 'nxm'
+      #image_size: '120x20'
 
       ## Length of captcha text (default=5)
-      ## Set n to the required value.
-      #captcha_length: n
+      #captcha_length: 5
 
       ## Captcha image style (default='simply_green')
       ## Available options for captcha image styles are: 'simply_blue',
       ## 'simply_red' 'simply_green', 'charcoal_grey', 'embossed_silver',
       ## 'all_black', 'distorted_black', 'almost_invisible', 'random'
-      #image_style: 'your_choice'
+      #image_style: 'simply_green'
 
       ## Captcha image distortion (default='low')
       ## Sets the level of image distortion used in the captcha.
       ## Available options are: 'low', 'medium', 'high', 'random'
-      #distortion: 'your_choice'
+      #distortion: 'low'
 
   ## Posting from Diaspora to external services (all are disabled by default)
   services: ## Section
@@ -350,21 +346,21 @@ configuration: ## Section
     ## This selects which mailer should be used. Use 'smtp' for a smtp
     ## connection, 'sendmail' to use the sendmail binary or
     ## 'messagebus' to use the messagebus service.
-    #method: 'change_me'
+    #method: 'smtp'
     
     ## Ignore if method isn't 'smtp'
     smtp: ## Section
 
       ## Host and port of the smtp server handling outgoing mail.
       ## This should match the common name of the certificate sent by
-      ## the SMTP server, if it sends one. (Default port=587)
+      ## the SMTP server, if it sends one. (default port=587)
       #host: 'smtp.example.org'
-      #port: nnn
+      #port: 587
       
       ## Authentication required to send mail (default='plain')
       ## Use one of 'plain', 'login' or 'cram_md5'. Use 'none'
       ## if server does not support authentication.
-      #authentication: 'change_me'
+      #authentication: 'plain'
       
       ## Credentials to log in to the SMTP server
       ## May be necessary if authentication is not 'none'.
@@ -373,7 +369,7 @@ configuration: ## Section
       
       ## Automatically enable TLS (default=true)
       ## Leave this commented out if authentication is set to 'none'.
-      #starttls_auto: false
+      #starttls_auto: true
       
       ## The domain for the HELO command, if needed
       #domain: 'smtp.example.org'
@@ -381,16 +377,16 @@ configuration: ## Section
       ## OpenSSL verify mode used when connecting to a SMTP server with TLS
       ## Set this to 'none' if you have a self-signed certificate. Possible
       ## values: 'none', 'peer', 'client_once', 'fail_if_no_peer_cert'.
-      #openssl_verify_mode: 'change_me'
+      #openssl_verify_mode: 'none'
     
     ## Ignore if method isn't 'sendmail'
     sendmail: ## Section
 
       ## The path to the sendmail binary (default='/usr/sbin/sendmail')
-      #location: '/path/to/binary'
+      #location: '/usr/sbin/sendmail'
       
       ## Use exim and sendmail (default=false)
-      #exim_fix: true
+      #exim_fix: false
     
     ## Ignore if method isn't 'messagebus'
     #message_bus_api_key: 'abcdef'
