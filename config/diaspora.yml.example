@@ -11,7 +11,7 @@
 ## - The values true, false and numbers should have no quote marks.
 ##   Single words don't need quote marks, but it doesn't do any harm to have them.
 ##
-## You can set and/or over-ride all these settings through environment variables
+## You can set and/or override all these settings through environment variables
 ## with the following conversion rules:
 ## - Strip the top level namespace (configuration, production, etc.)
 ## - Build the path to the setting, for example environment.s3.enable
@@ -107,6 +107,7 @@ configuration: ## Section
       ## Use max-age header on Amazon S3 resources (default=true)
       ## When true, this allows locally cached images to be served for up to
       ## 1 year. This can improve load speed and save requests to the image host.
+      ## Set to false to revert to browser defaults (usually less than 1 year).
       #cache : false
     
     ## Set redirect URL for an external image host (Amazon S3 or other)
@@ -154,7 +155,7 @@ configuration: ## Section
     #unicorn_worker: n
 
     ## Number of seconds before a request is aborted (default=90)
-    ## Increase if you get empty responses, or large image uploads fail.
+    ## Increase if you get empty responses, or if large image uploads fail.
     ## Decrease if you're under heavy load and don't care if some
     ## requests fail. Set n to the required value.
     #unicorn_timeout: n
@@ -164,7 +165,7 @@ configuration: ## Section
     #embed_sidekiq_worker: true
 
     ## Number of Sidekiq worker processes (default=1)
-    ## Set n to the required value. Most of the time you will want to
+    ## Set n to the required value. In most cases it is better to
     ## increase environment.sidekiq.concurrency instead!
     #sidekiq_workers: n
   
@@ -198,15 +199,14 @@ configuration: ## Section
     #chartbeat_uid:
     
     ## Statistics
-    ## Your pod will report its name, software version and whether or not
-    ## registrations are open via /statistics.json. Uncomment the options
-    ## below to enable more statistics. 
-    ## If you want your pod's statistics to be included in our statistics
-    ## hub, register your pod at http://pods.jasonrobinson.me/
+    ## Your pod will report its name, software version and whether
+    ## or not registrations are open via /statistics.json.
+    ## Uncomment the options below to enable more statistics. 
     statistics: ## Section
 
       ## Local user total and 6 month active counts
       #user_counts: true
+
       ## Local post total count
       #post_counts: true
       #comment_counts: true
@@ -231,9 +231,9 @@ configuration: ## Section
     #autofollow_on_join: false
  
     ## Auto-follow account (default='diasporahq@joindiaspora.com')
-    ## The diaspora* HQ account keeps users up to date with news about Diaspora
+    ## The diaspora* HQ account keeps users up to date with news about Diaspora.
     ## If you set another auto-follow account (for example your podmin account),
-    ## please consider resharing diaspora* HQ's posts for your pod users!
+    ## please consider resharing diaspora* HQ's posts for your pod's users!
     #autofollow_on_join_user: 'autofollow_account@podname.tld'
 
     ## Invitation settings
@@ -264,7 +264,9 @@ configuration: ## Section
     ## think are interesting in Diaspora's community. To add an account
     ## to the community spotlight add the 'spotlight' role to it.
     community_spotlight: ## Section
+
       #enable: true
+
       ## E-mail address to which users can make suggestions about who
       ## should be in the community spotlight (optional).
       #suggest_email: 'admin@example.org'
@@ -283,7 +285,7 @@ configuration: ## Section
     captcha: ## Section
 
       ## Enable captcha (default=true)
-      ## Set this to false if you don't want to use captcha for signup process
+      ## Set this to false if you don't want to use captcha for signup process.
       #enable: false
 
       ## Captcha image size (default='120x20')
@@ -310,24 +312,28 @@ configuration: ## Section
 
     ## OAuth credentials for Facebook:
     facebook: ## Section
+
       #enable: true
       #app_id: 'abcdef'
       #secret: 'change_me'
     
     ## OAuth credentials for Twitter:
     twitter: ## Section
+
       #enable: true
       #key: 'abcdef'
       #secret: 'change_me'
     
     ## OAuth credentials for Tumblr
     tumblr: ## Section
+
       #enable: true
       #key: 'abcdef'
       #secret: 'change_me'
       
     ## OAuth credentials for Wordpress
     wordpress: ## Section
+
       #enable: true
       #client_id: 'abcdef'
       #secret: 'change_me'
@@ -335,7 +341,7 @@ configuration: ## Section
   ## Enable pod users to send e-mails from Diaspora (disabled by default)
   mail: ## Section
   
-    ## First you need to enable it ;)
+    ## First you need to enable it.
     #enable: true
     
     ## Sender address used in mail sent by Diaspora
@@ -401,7 +407,7 @@ configuration: ## Section
     ## E-mail address to contact the administrator
     #podmin_email: 'podmin@example.org'
   
-## Here you can over-ride settings defined above if you need
+## Here you can override settings defined above if you need
 ## to have them different in different environments.
 production: ## Section
   environment: ## Section
