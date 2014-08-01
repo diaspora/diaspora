@@ -1149,7 +1149,7 @@ en:
       failure: "Failed to delete post"
     too_long:
       zero: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
+      one: "please make your status messages less than %{count} characters"
       other: "please make your status messages less than %{count} characters"
 
   stream_helper:
