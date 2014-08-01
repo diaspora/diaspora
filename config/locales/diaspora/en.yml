@@ -565,6 +565,14 @@ en:
       people_tag_page_a: "They are people who have listed that tag to describe themselves in their public profile."
       filter_tags_q: "How can I filter/exclude some tags from my stream?"
       filter_tags_a: "This is not yet available directly through diaspora*, but some %{third_party_tools} have been written that might provide this."
+    keyboard_shortcuts:
+      keyboard_shortcuts_q: "What keyboard shortcuts are available?"
+      keyboard_shortcuts_a1: "In the stream view you can use the following keyboard shortcuts:"
+      keyboard_shortcuts_li1: "j - jump to the next post"
+      keyboard_shortcuts_li2: "k - jump to the previous post"
+      keyboard_shortcuts_li3: "c - comment the current post"
+      keyboard_shortcuts_li4: "l - like the current post"
+      title: "Keyboard shortcuts"
     miscellaneous:
       title: "Miscellaneous"
       back_to_top_q: "Is there a quick way to go back to the top of a page after I scroll down?"
