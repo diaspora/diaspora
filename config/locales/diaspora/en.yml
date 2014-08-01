@@ -570,7 +570,7 @@ en:
       keyboard_shortcuts_a1: "In the stream view you can use the following keyboard shortcuts:"
       keyboard_shortcuts_li1: "j - jump to the next post"
       keyboard_shortcuts_li2: "k - jump to the previous post"
-      keyboard_shortcuts_li3: "c - comment the current post"
+      keyboard_shortcuts_li3: "c - comment on the current post"
       keyboard_shortcuts_li4: "l - like the current post"
       title: "Keyboard shortcuts"
     miscellaneous:
