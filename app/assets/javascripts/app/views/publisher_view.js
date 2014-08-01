@@ -158,8 +158,8 @@ app.views.Publisher = Backbone.View.extend({
     // disable input while posting, must be after the form is serialized
     this.setInputEnabled(false);
 
-    // lulz this code should be killed.
-    var statusMessage = new app.models.Post();
+    // lulz this code should be killed.  <- Trying to change it...
+    var statusMessage = new app.models.StatusMessage();
     if( app.publisher ) app.publisher.trigger('publisher:add');
 
     statusMessage.save({
