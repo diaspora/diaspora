@@ -28,9 +28,12 @@ jQuery.fn.center = (function() {
     this.subscribe("widget/ready", function(evt) {
       $.extend(self, {
         lightbox: $("#lightbox"),
+        navigation: $("#lightbox-navigation"),
         imageset: $("#lightbox-imageset"),
         backdrop: $("#lightbox-backdrop"),
         closelink: $("#lightbox-close-link"),
+        scrollleft: $("#lightbox-scrollleft"),
+        scrollright: $("#lightbox-scrollright"),
         image: $("#lightbox-image"),
         body: $(document.body),
         window: $(window)
@@ -47,12 +50,23 @@ jQuery.fn.center = (function() {
         evt.preventDefault();
         self.resetLightbox();
       });
-      self.backdrop.click(self.resetLightbox);
       self.lightbox.click(self.resetLightbox);
 
       self.backdrop.click(function(evt) {
         evt.preventDefault();
         self.resetLightbox();
+      });
+
+      self.scrollleft.click(function(evt){
+        evt.preventDefault();
+        evt.stopPropagation();
+        self.navigation.scrollLeft(self.navigation.scrollLeft() - (self.window.width() - 150));
+      });
+
+      self.scrollright.click(function(evt){
+        evt.preventDefault();
+        evt.stopPropagation();
+        self.navigation.scrollLeft(self.navigation.scrollLeft() + (self.window.width() - 150));
       });
 
       self.body.keydown(function(evt) {
