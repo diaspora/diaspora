@@ -77,6 +77,11 @@ describe("app.views.Help", function(){
       expect(this.view.$el.find('#faq').children().first().hasClass('faq_question_tags')).toBeTruthy();
     });
 
+    it('should show keyboard shortcuts section', function(){
+      this.view.$el.find('a[data-section=keyboard_shortcuts]').trigger('click');
+      expect(this.view.$el.find('#faq').children().first().data('template') == 'faq_keyboard_shortcuts').toBeTruthy();
+    });
+
     it('should show miscellaneous section', function(){
       this.view.$el.find('a[data-section=miscellaneous]').trigger('click');
       expect(this.view.$el.find('#faq').children().first().hasClass('faq_question_miscellaneous')).toBeTruthy();
