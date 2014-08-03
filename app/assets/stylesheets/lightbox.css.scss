@@ -88,16 +88,44 @@
   display: none;
 }
 
-#lightbox-imageset{
+#lightbox-navigation{
   z-index: 1004;
   position: fixed;
   width: 100%;
   left: 0;
   bottom: 0;
-  display: none;
   text-align: center;
   background-color: rgba(0,0,0,0.4);
   padding: 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#lightbox-scrollleft, #lightbox-scrollright{
+  z-index: 1005;
+  color: #fff;
+  background-color: #0f0f0f;
+  display: inline-block;
+  height: 70px;
+  width: 30px;
+  position: fixed;
+  cursor: pointer;
+  font-size: 3em;
+}
+
+#lightbox-scrollleft{
+  left: 0px;
+}
+
+#lightbox-scrollright{
+  right: 0px;
+}
+
+#lightbox-imageset{
+  display: inline-block;
+  vertical-align: bottom;
+  padding-left: 50px;
+  padding-right: 50px;
 
   img{
     @include transition(opacity, 0.2s);
@@ -120,8 +148,7 @@
 
 body.lightboxed{
   overflow: hidden;
-  #lightbox-backdrop,
-  #lightbox-imageset{
+  #lightbox-backdrop{
     display: block;
   }
 }
