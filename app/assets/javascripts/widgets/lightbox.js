@@ -60,13 +60,13 @@ jQuery.fn.center = (function() {
       self.scrollleft.click(function(evt){
         evt.preventDefault();
         evt.stopPropagation();
-        self.navigation.scrollLeft(self.navigation.scrollLeft() - (self.window.width() - 150));
+        self.navigation.animate({scrollLeft: (self.navigation.scrollLeft() - (self.window.width() - 150))}, 200, 'swing');
       });
 
       self.scrollright.click(function(evt){
         evt.preventDefault();
         evt.stopPropagation();
-        self.navigation.scrollLeft(self.navigation.scrollLeft() + (self.window.width() - 150));
+        self.navigation.animate({scrollLeft: (self.navigation.scrollLeft() + (self.window.width() - 150))}, 200, 'swing');
       });
 
       self.body.keydown(function(evt) {
@@ -136,6 +136,8 @@ jQuery.fn.center = (function() {
       self
         .selectImage(imageThumb)
         .revealLightbox();
+
+      self.scrollToThumbnail(imageThumb);
     };
 
     this.imagesetImageClicked = function(evt) {
@@ -145,10 +147,16 @@ jQuery.fn.center = (function() {
       self.selectImage($(this));
     };
 
+    this.scrollToThumbnail = function(imageThumb) {
+      self.navigation.animate({scrollLeft: (self.navigation.scrollLeft() + imageThumb.offset().left +35 - (self.window.width() / 2))}, 200, 'swing');
+    }
+
     this.selectImage = function(imageThumb) {
       $(".selected", self.imageset).removeClass("selected");
       imageThumb.addClass("selected");
       self.image.attr("src", imageThumb.attr("data-full-photo"));
+
+      self.scrollToThumbnail(imageThumb);
 
       return self;
     };
