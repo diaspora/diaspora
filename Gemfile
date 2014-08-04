@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.5'
+gem 'rails', '4.0.8'
 
 # Legacy Rails features, remove me!
 
@@ -46,7 +46,7 @@ gem 'rack-cors', '0.2.9', :require => 'rack/cors'
 # CSS
 
 gem 'bootstrap-sass', '2.3.2.2'
-gem 'compass-rails',  '1.1.7'
+gem 'compass-rails',  '2.0.0'
 gem 'sass-rails',     '4.0.3'
 
 # Database
