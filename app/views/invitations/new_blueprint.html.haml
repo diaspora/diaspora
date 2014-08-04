@@ -31,4 +31,4 @@
         %br
 
         %p
-          = submit_tag t('invitations.new.send_an_invitation'), :disable_with => t('invitations.new.sending_invitation')
+          = submit_tag t('invitations.new.send_an_invitation'), data: {disable_with: t('invitations.new.sending_invitation')}
