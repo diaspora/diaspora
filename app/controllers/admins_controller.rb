@@ -101,12 +101,10 @@ DATA
   end
 
 
-  # TODO action needed after rails4 update
   class UserSearch
-    #include ActiveModel::Model  # rails4
+    include ActiveModel::Model
     include ActiveModel::Conversion
     include ActiveModel::Validations
-    include ActiveModel::MassAssignmentSecurity
 
     attr_accessor :username, :email, :guid, :under13
 
@@ -117,26 +115,20 @@ DATA
       yield(self) if block_given?
     end
 
-    def assign_attributes(values, options={})
-      sanitize_for_mass_assignment(values, options[:as]).each do |k, v|
-        send("#{k}=", v)
+    def assign_attributes(values)
+      values.each do |k, v|
+        public_send("#{k}=", v)
       end
     end
 
-    # TODO remove this once ActiveModel is included
-    def persisted?
-      false
-    end
-
     def any_searchfield_present?
-      if %w(username email guid under13).all? { |attr| self.send(attr).blank? }
+      if %w(username email guid under13).all? { |attr| public_send(attr).blank? }
         errors.add :base, "no fields for search set"
       end
     end
 
     def perform
-      #return User.none unless valid?  # rails4
-      return [] unless valid?
+      return User.none unless valid?
 
       users = User.arel_table
       people = Person.arel_table
