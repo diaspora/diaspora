@@ -2,7 +2,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
   templateName: "poll_creator",
   
   events: {
-    'click .add-answer .button': 'clickAddAnswer',
+    'keypress input:last': 'addAnswer',
     'click .remove-answer': 'removeAnswer',
     'blur input': 'validate',
     'input input': 'validate'
@@ -12,13 +12,13 @@ app.views.PublisherPollCreator = app.views.Base.extend({
     this.$pollAnswers = this.$('.poll-answers');
     this.inputCount = 2;
     this.trigger('change');
+    this.bind('publisher:sync', this.render, this);
   },
-  
-  clickAddAnswer: function(evt){
-    evt.preventDefault();
 
-    this.addAnswerInput();
-    this.trigger('change');
+  addAnswer: function(evt){
+    if (!$(evt.target).val()) {
+      this.addAnswerInput();
+    }
   },
   
   addAnswerInput: function(){
@@ -45,6 +45,13 @@ app.views.PublisherPollCreator = app.views.Base.extend({
   removeAnswerInput: function(input){
     input.parents('.poll-answer').remove();
     this.toggleRemoveAnswer();
+  },
+
+  removeLastAnswer: function (){
+    var inputs = this.$pollAnswers.find('input');
+    if(inputs.length > 2) {
+      this.$el.find('.poll-answer:last').remove();
+    }
   },
 
   toggleRemoveAnswer: function(){
@@ -96,7 +103,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
     var _this = this;
 
     return _.every(this.$('input:visible'), function(input){
-      if(_this.isValidInput($(input))) 
+      if(_this.isValidInput($(input)))
         return true;
     });
   }

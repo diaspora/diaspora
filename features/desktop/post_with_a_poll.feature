@@ -23,14 +23,16 @@ Feature: posting with a poll
       Given "#publisher-poll-creator" is hidden
       When I expand the publisher
       And I press the element "#poll_creator"
-      And I press the element ".add-answer .button.creation"
+      And I fill in values for the first two options
+      And I lose focus 
       Then I should see 3 options
 
     Scenario: delete an option
       Given "#publisher-poll-creator" is hidden
       When I expand the publisher
       And I press the element "#poll_creator"
-      And I press the element ".add-answer .button.creation"
+      And I fill in values for the first two options
+      And I lose focus 
       And I delete the last option
       Then I should see 2 option
       And I should not see a remove icon

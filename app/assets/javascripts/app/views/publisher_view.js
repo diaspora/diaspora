@@ -82,6 +82,11 @@ app.views.Publisher = Backbone.View.extend({
       this.showSpinner(false);
     });
 
+    // resetting the poll view 
+    this.on('publisher:sync', function() {
+      this.view_poll_creator.render();
+    });
+
     this.initSubviews();
     return this;
   },
@@ -150,6 +155,7 @@ app.views.Publisher = Backbone.View.extend({
     var self = this;
 
     if(evt){ evt.preventDefault(); }
+    this.view_poll_creator.removeLastAnswer();
 
     //add missing mentions at end of post:
     this.handleTextchange();
@@ -179,6 +185,7 @@ app.views.Publisher = Backbone.View.extend({
         if( app.publisher ) {
           app.publisher.$el.trigger('ajax:success');
           app.publisher.trigger('publisher:sync');
+          self.view_poll_creator.trigger('publisher:sync');
         }
 
         if(app.stream) app.stream.addNow(statusMessage.toJSON());
