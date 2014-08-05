@@ -172,11 +172,11 @@ configuration: ## Section
   ## Settings potentially affecting the privacy of your users 
   privacy: ## Section
     
-    ## Include jQuery from jquery.com's CDN (default=true)
-    ## This can save you some traffic and speeds up load time since most
-    ## clients already have this one cached. Set this to false if you want
-    ## the jQuery library to be loaded from your pod's own resources.
-    #jquery_cdn: true
+    ## Include jQuery from jquery.com's CDN (default=false)
+    ## Enabling this can reduce traffic and speed up load time since most
+    ## clients already have this one cached. When set to false (the default),
+    ## the jQuery library will be loaded from your pod's own resources.
+    #jquery_cdn: false
     
     ## Google Analytics (disabled by default)
     ## Provide a key to enable tracking by Google Analytics 
