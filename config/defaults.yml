@@ -41,7 +41,7 @@ defaults:
     embed_sidekiq_worker: false
     sidekiq_workers: 1
   privacy:
-    jquery_cdn: true
+    jquery_cdn: false
     google_analytics_key:
     piwik:
       enable: false
