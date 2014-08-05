@@ -5,6 +5,7 @@
 * Refactor Notification#notify [#4945](https://github.com/diaspora/diaspora/pull/4945)
 * Port getting started to Bootstrap [#5057](https://github.com/diaspora/diaspora/pull/5057)
 * Port people search page to Bootstrap [#5077](https://github.com/diaspora/diaspora/pull/5077)
+* Clarify explanations and defaults in diaspora.yml.example [#5088](https://github.com/diaspora/diaspora/pull/5088)
 
 ## Bug fixes
 * Fix hiding of poll publisher on close [#5029](https://github.com/diaspora/diaspora/issues/5029)
