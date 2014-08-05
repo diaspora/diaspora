@@ -3,3 +3,5 @@
 %li= link_to t('layouts.application.whats_new'), changelog_url
 %li= link_to(t('layouts.header.code') + " " + pod_version, "#{root_path.chomp('/')}/source.tar.gz", {:title => t('layouts.application.source_package')}) unless request.url.match(/joindiaspora.com/)
 %li= link_to(t('layouts.application.toggle'), toggle_mobile_path)
+- if AppConfig.settings.terms.enable?
+    %li= link_to(t('_terms'), terms_path)

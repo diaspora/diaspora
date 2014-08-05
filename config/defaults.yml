@@ -89,6 +89,10 @@ defaults:
       captcha_length: 5
       image_style: 'simply_green'
       distortion: 'low'
+    terms:
+      enable: false
+      jurisdiction: false
+      minimum_age: false
   services:
     facebook:
       enable: false

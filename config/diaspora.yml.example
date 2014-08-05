@@ -302,6 +302,34 @@ configuration: ## Section
       ## Sets the level of image distortion used in the captcha.
       ## Available options are: 'low', 'medium', 'high', 'random'
       #distortion: 'low'
+      
+    ## Terms of Service
+    ## Show a default or customized terms of service for users.
+    ## You can create a custom Terms of Service by placing a template
+    ## as app/views/terms/terms.haml or app/views/terms/terms.erb
+    ## The default terms of service that can be extended is
+    ## at app/views/terms/default.haml
+    ## NOTE! The default terms have not been checked over by a lawyer and
+    ## thus are unlikely to provide full legal protection for all situations
+    ## for a podmin using them. They are also not specific to all countries
+    ## and jurisdictions. If you are unsure, please check with a lawyer.
+    ## We provide these for podmins as some basic rules that podmins
+    ## can communicate to users easily via the diaspora* server software.
+    ## Uncomment to enable this feature.
+    terms: ## Section
+      # First enable it by uncommenting
+      #enable: true
+      ## Important! If you enable the terms, you should always
+      ## set a location under which laws any disputes are governed
+      ## under. For example, country or state/country, depending
+      ## on the country in question.
+      ## If this is not set, the whole paragraph about governing
+      ## laws *is not shown* in the terms page.
+      #jurisdiction: ""
+      ## Age limit for signups
+      ## Set a number to activate this setting. This age limit is shown
+      ## in the default ToS document.
+      #minimum_age: false
 
   ## Posting from Diaspora to external services (all are disabled by default)
   services: ## Section
