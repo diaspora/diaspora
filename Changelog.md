@@ -30,6 +30,7 @@
 * Add scrolling thumbnail switcher in the lightbox [#5102](https://github.com/diaspora/diaspora/pull/5102)
 * Add help section about keyboard shortcuts [#5100](https://github.com/diaspora/diaspora/pull/5100)
 * Automatically add poll answers as needed [#5109](https://github.com/diaspora/diaspora/pull/5109)
+* Add Terms of Service as an option for podmins, includes base template [#5104](https://github.com/diaspora/diaspora/pull/5104)
 
 # 0.4.0.1
 

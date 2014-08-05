@@ -42,5 +42,10 @@
     .controls {
       float : right;
     }
+    
+    #terms > a {
+      color: inherit;
+      text-decoration: underline;
+    }
   }
 }
