@@ -39,6 +39,6 @@ When(/^I lose focus$/) do
   find("#publisher-poll-creator").click
 end
 
-Then /^I should see an element '([^"]*)'$/ do |selector|
+Then /^I should see an element "([^"]*)"$/ do |selector|
   page.should have_css(selector)
 end

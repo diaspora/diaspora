@@ -26,11 +26,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
     var input_wrapper = this.$('.poll-answer:first').clone();
     var input = input_wrapper.find('input');
 
-    var text = Diaspora.I18n.t('publisher.option', {
-      nr: this.inputCount
-    });
-
-    input.attr('placeholder', text);
+    input.attr('placeholder', Diaspora.I18n.t('publisher.add_option'));
     input.val('');
     this.$pollAnswers.append(input_wrapper);
     this.toggleRemoveAnswer();
@@ -49,7 +45,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
 
   removeLastAnswer: function (){
     var inputs = this.$pollAnswers.find('input');
-    if(inputs.length > 2) {
+    if(inputs.length > 2 && !inputs[inputs.length - 1].value) {
       this.$el.find('.poll-answer:last').remove();
     }
   },
@@ -70,7 +66,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
 
   validate: function(evt){
     var input = $(evt.target);
-    this.validateInput(input);
+    this.validatePoll();
     this.trigger('change');
   },
 
@@ -94,18 +90,17 @@ app.views.PublisherPollCreator = app.views.Base.extend({
 
   validatePoll: function() {
     var _this = this;
-    _.each(this.$('input:visible'), function(input){
-      _this.validateInput($(input));
-    });
-  },
+    var inputs = this.$('input:visible');
+    var pollValid = true;
 
-  isValidPoll: function(){
-    var _this = this;
-
-    return _.every(this.$('input:visible'), function(input){
-      if(_this.isValidInput($(input)))
-        return true;
+    _.each(inputs, function(input, i){
+      // Validate the input unless it is the last one, or there are only the
+      // question field and two options
+      if( i !== inputs.length - 1 || inputs.length <= 3) {
+        if(_this.validateInput($(input)) == false) pollValid = false;
+      }      
     });
+
+    return pollValid;
   }
-
 });
