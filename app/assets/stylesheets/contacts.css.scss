@@ -30,6 +30,10 @@
   .stream_element {
     border-bottom: 1px solid $border-grey;
 
+    .icons-monotone_close_exit_delete {
+      margin-top: 8px;
+    }
+
     .media {
       margin: 10px;
     }
