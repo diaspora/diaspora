@@ -50,7 +50,7 @@ module AspectsHelper
       title = t('aspects.edit.aspect_list_is_not_visible');
     end
     
-    link_to aspect_toggle_contact_visibility_path(@aspect), class: 'contact_visibility_link button', title: title, method: :put, remote: true do
+    link_to aspect_toggle_contact_visibility_path(@aspect), class: 'contact_visibility_link btn', title: title, method: :put, remote: true do
       concat t('aspects.edit.set_visibility')
       concat content_tag(:span, nil, class: "contact_visibility_padlock " + icon)
     end

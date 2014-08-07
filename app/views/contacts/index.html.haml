@@ -23,11 +23,11 @@
         #aspect_controls
           - if @contacts_size > 0 && @contacts_size < 20
             = start_a_conversation_link(@aspect, @contacts_size)
-          = link_to edit_aspect_path(@aspect), rel: "facebox", class: "button" do
+          = link_to edit_aspect_path(@aspect), rel: "facebox", class: "btn" do
             = t('aspects.edit.manage')
             %span.modify_aspect
           = aspect_visibility_link(@aspect)
-          = link_to @aspect, method: "delete", data: { confirm: t('aspects.edit.confirm_remove_aspect') }, class: 'button delete' do
+          = link_to @aspect, method: "delete", data: { confirm: t('aspects.edit.confirm_remove_aspect') }, class: 'btn delete' do
             = t('delete')
             %span.icons-monotone_close_exit_delete
 
