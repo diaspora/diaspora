@@ -5,7 +5,7 @@
 class ContactsController < ApplicationController
   before_filter :authenticate_user!
 
-  use_bootstrap_for :index
+  use_bootstrap_for :index, :spotlight
 
   def index
     respond_to do |format|

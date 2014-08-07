@@ -8,23 +8,24 @@
 - content_for :head do
   = javascript_include_tag :people
 
-#section_header
-  %h2
-    = t('contacts.index.title')
+.row
+  .span12
+    #section_header
+      %h3
+        = t('contacts.index.title')
 
-= render 'shared/contact_sidebar'
+.row
+  = render 'shared/contact_sidebar'
 
-.span-18.last{:style => "position:relative;"}
+  .span9
+    - if AppConfig.settings.community_spotlight.suggest_email.present?
+      .right
+        = link_to t('contacts.spotlight.suggest_member'), "mailto:#{AppConfig.settings.community_spotlight.suggest_email}", :class => "button"
 
-  - if AppConfig.settings.community_spotlight.suggest_email.present?
-    .right
-      = link_to t('contacts.spotlight.suggest_member'), "mailto:#{AppConfig.settings.community_spotlight.suggest_email}", :class => "button"
+    %h3
+      = t('contacts.spotlight.community_spotlight')
 
-  %h3
-    = t('contacts.spotlight.community_spotlight')
-  %br
-
-  #community_spotlight
-    - unless @people.blank?
-      - @people.each do |person|
-        = render 'community_spotlight/user', :person => person
+    #community_spotlight
+      - unless @people.blank?
+        - @people.each do |person|
+          = render 'community_spotlight/user', :person => person
