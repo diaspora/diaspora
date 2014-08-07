@@ -1,0 +1,37 @@
+#section_header {
+  h3 {
+    border-bottom: 1px solid $border-grey;
+  }
+}
+
+#people_stream {
+  .bd {
+    font-size: 13px;
+    line-height: 19.5px;
+  }
+
+  .btn-group {
+    margin-top: 5px;
+
+    .caret {
+      margin-top: 8px;
+    }
+
+    .text {
+      text-shadow: none;
+    }
+  }
+
+  .info {
+    font-size: 11px;
+    line-height: 16.5px;
+  }
+
+  .stream_element {
+    border-bottom: 1px solid $border-grey;
+
+    .media {
+      margin: 10px;
+    }
+  }
+}

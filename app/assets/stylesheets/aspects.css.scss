@@ -1,3 +1,5 @@
+$bluebg: #e7f2f7;
+
 .aspect_dropdown {
   
   li {
@@ -54,6 +56,10 @@
     height: 13px;
     margin-bottom: -1px;
   }
+}
+
+#aspect_nav {
+  list-style-type: none;
 }
 
 .contact_visibility_padlock {
@@ -265,5 +271,56 @@
     .creation {
       float: right;
     }
+  }
+}
+
+#leftNavBar {
+  color: #222222;
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  a {
+    color: $link-grey;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .selected { color: $black; }
+  .selected a { color: $black; }
+
+  .hoverable {
+    display: block;
+    margin-right: 6px;
+    padding: 4px;
+    &:hover { background-color: $bluebg; }
+
+    .label {
+      background-color: $background-grey;
+      color: $text-grey;
+      float: right;
+      padding: 3px 5px;
+    }
+  }
+
+  .selectable {
+    display: block;
+    margin-left: 21px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .action {
+    width: 12px;
+    height: 12px;
+    display: none;
+    float: right;
+    margin: 3px;
+  }
+
+  .hoverable:hover  > .action {
+    display: block;
   }
 }
