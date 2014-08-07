@@ -5,6 +5,7 @@ body {
 }
 
 body {
+  margin-top: 40px;
   padding : none;
 
   &.lock {
@@ -145,12 +146,6 @@ $bring-dark-accent-forward-color: #DDD;
     border : 2px solid #fff;
   }
 }
-
-/* padder helper to push content below the header, to be removed when porting to bootstrap is complete */
-.bootstrap_header_padding {
-  padding-top: 40px;
-}
-
 
 #back-to-top {
   display: block;
