@@ -49,7 +49,7 @@
 
     = form_tag(tag_followings_path, :method => 'get', :class => "tag_input search_form") do
       %fieldset
-        = select_tag :pref_languages , options_for_select([['English','en'],['French','fr'],['Dutch','du']]), :multiple=>true
+        = select_tag :pref_languages , options_from_collection_for_select(@languagelist,'iso_code','name'), :multiple=>true
         = #label_tag 'prefer_languages', t('.language_suggestions')
         #languages_list
           = #text_field_tag 'prefer_languages', nil, :class => "nostrap"

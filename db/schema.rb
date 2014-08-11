@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140619110552) do
+ActiveRecord::Schema.define(:version => 20140811103318) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -369,6 +369,13 @@ ActiveRecord::Schema.define(:version => 20140619110552) do
   add_index "posts", ["status_message_guid"], :name => "index_posts_on_status_message_guid"
   add_index "posts", ["tweet_id"], :name => "index_posts_on_tweet_id"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
+
+  create_table "preferedlanguages", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "iso_code",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "profiles", :force => true do |t|
     t.string   "diaspora_handle"
