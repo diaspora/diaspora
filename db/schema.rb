@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140811103318) do
+ActiveRecord::Schema.define(:version => 20140811110101) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -375,6 +375,11 @@ ActiveRecord::Schema.define(:version => 20140811103318) do
     t.string   "iso_code",   :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "preferedlanguages_users", :id => false, :force => true do |t|
+    t.integer "preferedlanguage_id"
+    t.integer "user_id"
   end
 
   create_table "profiles", :force => true do |t|
