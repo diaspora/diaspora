@@ -26,6 +26,7 @@
 * Change minimal birth year for the birthday field to 1910 [#5083](https://github.com/diaspora/diaspora/pull/5083)
 * Add scrolling thumbnail switcher in the lightbox [#5102](https://github.com/diaspora/diaspora/pull/5102)
 * Add help section about keyboard shortcuts [#5100](https://github.com/diaspora/diaspora/pull/5100)
+* Automatically add poll answers as needed [#5109](https://github.com/diaspora/diaspora/pull/5109)
 
 # 0.4.0.1
 

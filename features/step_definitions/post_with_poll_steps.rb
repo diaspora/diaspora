@@ -23,9 +23,20 @@ When /^I check the first option$/ do
   first(".poll_form input").click
 end
 
-And /^I press the element "([^"]*)"$/ do |selector|
+When(/^I press the element "(.*?)"$/) do |selector|
   page.should have_css(selector)
   find(selector).click
+end
+
+
+When(/^I fill in values for the first two options$/) do
+  all(".poll-answer input").each_with_index do |answer, i|
+    answer.set "answer option #{i}"
+  end
+end
+
+When(/^I lose focus$/) do
+  find("#publisher-poll-creator").click
 end
 
 Then /^I should see an element "([^"]*)"$/ do |selector|
