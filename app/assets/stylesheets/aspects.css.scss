@@ -370,3 +370,14 @@ $bluebg: #e7f2f7;
     display: block;
   }
 }
+
+#new_aspect {
+  #aspect_contacts_visible.checkbox {
+    margin: 0px;
+  }
+
+  label[for="aspect_contacts_visible"] {
+    display: inline;
+  }
+}
+
