@@ -27,6 +27,12 @@ $bluebg: #e7f2f7;
   }
 }
 
+.btn {
+  &.delete {
+    color: desaturate($red,10%);
+  }
+}
+
 .modify_aspect {
   background: url("icons/pencil.png") no-repeat;
   width: 12px;
@@ -46,12 +52,6 @@ $bluebg: #e7f2f7;
   
   .button, .button_to {
     margin-right: 5px;
-  }
-
-  .btn {
-    &.delete {
-      color: desaturate($red,10%);
-    }
   }
 
   .button_to { display: inline-block; }
@@ -173,12 +173,17 @@ $bluebg: #e7f2f7;
     margin-bottom: 5px;
   }
 
+  #aspect_name_title {
+    margin: 0px 0px 5px 0px;
+  }
+
   #contact_list_search {
     width: 200px;
+    margin-bottom: 2px;
     margin-top: 0px;
     float: right;
   }
-  
+
   .contact_list,
   .aspect_list {
     @include border-radius(3px);
@@ -232,18 +237,28 @@ $bluebg: #e7f2f7;
         border: 1px solid $border-dark-grey;
 
         &.hidden { display: none; }
-        & > .name { white-space: nowrap; }
         &.remote_friend { width: 285px; }
 
-        a.button {
+        & > .name {
+          font-size: 16px;
+          margin: 0px 0px 5px 0px;
+          white-space: nowrap;
+        }
+
+        a.btn {
           @include box-shadow(0,0,0);
           border-bottom: none;
-          min-width: auto;
+          min-width: 90px;
           float: right;
-          padding: 2px 4px;
+          padding: 2px 0px;
           margin-top: 5px;
+          margin-right: -5px;
 
-          &.added { @include linear-gradient(rgb(158,255,153), rgb(92,199,86)); }
+          &.added {
+            @include linear-gradient(rgb(158,255,153), rgb(92,199,86));
+            background-color: rgb(92,199,86);
+          }
+
           &.added.remove {
             @include linear-gradient(rgb(255,153,153), rgb(199,86,86));
 
@@ -296,6 +311,7 @@ $bluebg: #e7f2f7;
   
     form {
       display: inline-block;
+      margin: 0px;
     }
     
     .creation {

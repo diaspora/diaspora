@@ -41,8 +41,8 @@ app.tmp || (app.tmp = {});
 
 // on the contacts page, viewing the facebox for single aspect
 app.tmp.ContactAspectsBox = function() {
-  $('body').on('click', '#aspect_edit_pane a.add.button', _.bind(this.addToAspect, this));
-  $('body').on('click', '#aspect_edit_pane a.added.button', _.bind(this.removeFromAspect, this));
+  $('body').on('click', '#aspect_edit_pane a.add.btn', _.bind(this.addToAspect, this));
+  $('body').on('click', '#aspect_edit_pane a.added.btn', _.bind(this.removeFromAspect, this));
 };
 _.extend(app.tmp.ContactAspectsBox.prototype, {
   addToAspect: function(evt) {

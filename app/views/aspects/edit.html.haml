@@ -12,13 +12,13 @@
     #aspect_name_edit.hidden
       = form_for @aspect, :remote => true do |aspect|
         = aspect.text_field :name, :maxlength => 20
-        = aspect.submit t('.update'), 'data-disable-with' => t('.updating'), :class => 'button'
+        = aspect.submit t('.update'), 'data-disable-with' => t('.updating'), :class => 'btn'
 
   - if @contacts.count > 0
     = render 'shared/contact_list', :aspect => @aspect, :contacts => @contacts
 
   .bottom_submit_section
-    = button_to t('delete'), @aspect, :method => "delete", :data => { :confirm => t('.confirm_remove_aspect') }, :class => 'button delete'
+    = button_to t('delete'), @aspect, :method => "delete", :data => { :confirm => t('.confirm_remove_aspect') }, :class => 'btn delete'
     = aspect_visibility_link(@aspect)
-    = submit_tag t('.done'), :class => 'button creation', :rel => 'close'
+    = submit_tag t('.done'), :class => 'btn creation', :rel => 'close'
 

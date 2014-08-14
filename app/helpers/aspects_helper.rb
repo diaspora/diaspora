@@ -12,7 +12,7 @@ module AspectsHelper
         :person_id => person_id
       },
       :method => 'post',
-      :class => 'add button',
+      :class => 'add btn',
       'data-aspect_id' => aspect_id,
       'data-person_id' => person_id
   end
@@ -24,7 +24,7 @@ module AspectsHelper
         :id => membership_id
       },
       :method => 'delete',
-      :class => 'added button',
+      :class => 'added btn',
       'data-membership_id' => membership_id,
       'data-aspect_id' => aspect_id,
       'data-person_id' => person_id
