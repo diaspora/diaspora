@@ -42,14 +42,14 @@ When /^I select "([^"]*)" aspect as well$/ do |aspect_name|
 end
 
 When /^I check the first contact list button$/ do
-  find(".contact_list .button", match: :first).tap do |button|
+  find(".contact_list .btn", match: :first).tap do |button|
     button.click
     button.parent.should have_css ".added"
   end
 end
 
 When /^I uncheck the first contact list button$/ do
-  find(".contact_list .button", match: :first).tap do |button|
+  find(".contact_list .btn", match: :first).tap do |button|
     button.click
     button.parent.should have_css ".add"
     sleep 1 # The expectation above should wait for the request to finsh, but that doesn't work for some reason
