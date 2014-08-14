@@ -1,5 +1,3 @@
-$bluebg: #e7f2f7;
-
 .aspect_dropdown {
   
   li {
@@ -341,7 +339,7 @@ $bluebg: #e7f2f7;
     display: block;
     margin-right: 6px;
     padding: 4px;
-    &:hover { background-color: $bluebg; }
+    &:hover { background-color: $background-blue; }
 
     .label {
       background-color: $background-grey;
