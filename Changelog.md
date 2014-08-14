@@ -7,6 +7,7 @@
 * Port people search page to Bootstrap [#5077](https://github.com/diaspora/diaspora/pull/5077)
 * Clarify explanations and defaults in diaspora.yml.example [#5088](https://github.com/diaspora/diaspora/pull/5088)
 * Consistent header spacing on Bootstrap pages [#5108](https://github.com/diaspora/diaspora/pull/5108)
+* Port settings pages (account, profile, privacy, services) to Bootstrap [#5039](https://github.com/diaspora/diaspora/pull/5039)
 
 ## Bug fixes
 * Fix hiding of poll publisher on close [#5029](https://github.com/diaspora/diaspora/issues/5029)

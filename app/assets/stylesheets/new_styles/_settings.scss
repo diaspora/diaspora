@@ -1,0 +1,17 @@
+/* Specific styles for the settings pages (profile, user account, privacy, services) */
+#inner_account_delete {
+	width: 700px;
+}
+
+.as-selections #tags {
+	border: none;
+	box-shadow: none;
+}
+
+.enclosed-checkbox label {
+	margin-bottom: 0;
+}
+
+#profile_photo_upload .avatar {
+	max-width: 150px;
+}
