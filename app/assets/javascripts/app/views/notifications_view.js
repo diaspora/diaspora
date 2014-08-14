@@ -6,9 +6,6 @@ app.views.Notifications = Backbone.View.extend({
 
   initialize: function() {
     Diaspora.page.header.notifications.setUpNotificationPage(this);
-    $('.aspect_membership_dropdown').each(function(){
-      new app.views.AspectMembership({el: this});
-    });
   },
 
   toggleUnread: function(evt) {
