@@ -25,6 +25,20 @@
   }
 }
 
+.btn {
+  &.delete {
+    color: desaturate($red,10%);
+  }
+}
+
+.modify_aspect {
+  background: url("icons/pencil.png") no-repeat;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+}
+
+
 
 /* -- Used in contacts/index.html.haml -- */
 #aspect_controls {
@@ -37,7 +51,7 @@
   .button, .button_to {
     margin-right: 5px;
   }
-  
+
   .button_to { display: inline-block; }
   
   .contact_visibility_padlock,
@@ -53,6 +67,26 @@
     width: 16px;
     height: 13px;
     margin-bottom: -1px;
+  }
+}
+
+#aspect_nav {
+  list-style-type: none;
+
+  .icons-check_yes_ok {
+    height:18px;
+    width:18px;
+    background: url('icons/check_yes_ok.png') no-repeat;
+    float: left;
+    visibility: hidden;
+
+    &.selected {
+      visibility: visible;
+    }
+
+    &.selected + a {
+      color: #333333;
+    }
   }
 }
 
@@ -137,12 +171,17 @@
     margin-bottom: 5px;
   }
 
+  #aspect_name_title {
+    margin: 0px 0px 5px 0px;
+  }
+
   #contact_list_search {
     width: 200px;
+    margin-bottom: 2px;
     margin-top: 0px;
     float: right;
   }
-  
+
   .contact_list,
   .aspect_list {
     @include border-radius(3px);
@@ -196,18 +235,28 @@
         border: 1px solid $border-dark-grey;
 
         &.hidden { display: none; }
-        & > .name { white-space: nowrap; }
         &.remote_friend { width: 285px; }
 
-        a.button {
+        & > .name {
+          font-size: 16px;
+          margin: 0px 0px 5px 0px;
+          white-space: nowrap;
+        }
+
+        a.btn {
           @include box-shadow(0,0,0);
           border-bottom: none;
-          min-width: auto;
+          min-width: 90px;
           float: right;
-          padding: 2px 4px;
+          padding: 2px 0px;
           margin-top: 5px;
+          margin-right: -5px;
 
-          &.added { @include linear-gradient(rgb(158,255,153), rgb(92,199,86)); }
+          &.added {
+            @include linear-gradient(rgb(158,255,153), rgb(92,199,86));
+            background-color: rgb(92,199,86);
+          }
+
           &.added.remove {
             @include linear-gradient(rgb(255,153,153), rgb(199,86,86));
 
@@ -260,6 +309,7 @@
   
     form {
       display: inline-block;
+      margin: 0px;
     }
     
     .creation {
@@ -267,3 +317,65 @@
     }
   }
 }
+
+#leftNavBar {
+  color: #222222;
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  a {
+    color: $link-grey;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .selected { color: $black; }
+  .selected a { color: $black; }
+
+  .hoverable {
+    display: block;
+    margin-right: 6px;
+    padding: 4px;
+    &:hover { background-color: $background-blue; }
+
+    .label {
+      background-color: $background-grey;
+      color: $text-grey;
+      float: right;
+      padding: 3px 5px;
+    }
+  }
+
+  .selectable {
+    display: block;
+    margin-left: 21px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .action {
+    width: 12px;
+    height: 12px;
+    display: none;
+    float: right;
+    margin: 3px;
+  }
+
+  .hoverable:hover  > .action {
+    display: block;
+  }
+}
+
+#new_aspect {
+  #aspect_contacts_visible.checkbox {
+    margin: 0px;
+  }
+
+  label[for="aspect_contacts_visible"] {
+    display: inline;
+  }
+}
+

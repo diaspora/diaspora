@@ -82,7 +82,7 @@ Feature: User manages contacts
 
     And I click on my name in the header
     When I follow "Contacts"
-    Then I should see "Community Spotlight" within ".span-18"
+    Then I should see "Community Spotlight" within ".span9"
 
   Scenario: clicking on the contacts link in the header with contacts does not send a user to the featured users page
     Given I am signed in
