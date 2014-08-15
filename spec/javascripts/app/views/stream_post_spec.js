@@ -21,7 +21,7 @@ describe("app.views.StreamPost", function(){
     beforeEach(function(){
       loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
-      Diaspora.I18n.loadLocale({stream : {
+      Diaspora.I18n.load({stream : {
         reshares : {
           one : "<%= count %> reshare",
           other : "<%= count %> reshares"
