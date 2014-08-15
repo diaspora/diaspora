@@ -58,7 +58,7 @@ describe("app.views.CommentStream", function(){
       });
 
       it("doesn't add the comment to the view, when the request fails", function(){
-        Diaspora.I18n.loadLocale({failed_to_post_message: "posting failed!"});
+        Diaspora.I18n.load({failed_to_post_message: "posting failed!"});
         this.request.response({status: 500});
 
         expect(this.view.$(".comment-content p").text()).not.toEqual("a new comment");

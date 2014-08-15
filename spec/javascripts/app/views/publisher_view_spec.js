@@ -431,7 +431,7 @@ describe("app.views.Publisher", function() {
 
       context('successful completion', function() {
         beforeEach(function() {
-          Diaspora.I18n.loadLocale({ photo_uploader: { completed: '<%= file %> completed' }});
+          Diaspora.I18n.load({ photo_uploader: { completed: '<%= file %> completed' }});
           $('#photodropzone').html('<li class="publisher_photo loading"><img src="" /></li>');
 
           this.uploader.onComplete(null, 'test.jpg', {
@@ -469,7 +469,7 @@ describe("app.views.Publisher", function() {
 
       context('unsuccessful completion', function() {
         beforeEach(function() {
-          Diaspora.I18n.loadLocale({ photo_uploader: { completed: '<%= file %> completed' }});
+          Diaspora.I18n.load({ photo_uploader: { completed: '<%= file %> completed' }});
           $('#photodropzone').html('<li class="publisher_photo loading"><img src="" /></li>');
 
           this.uploader.onComplete(null, 'test.jpg', {

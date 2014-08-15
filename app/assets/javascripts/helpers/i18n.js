@@ -1,47 +1,70 @@
-/*   Copyright (c) 2010-2011, Diaspora Inc.  This file is
- *   licensed under the Affero General Public License version 3 or later.  See
- *   the COPYRIGHT file.
- */
-
 Diaspora.I18n = {
   language: "en",
-  locale: {},
+  locale: {
+    pluralizationKey: function(n) { return this.fallback.pluralizationKey(n); },
+    data: {},
+    fallback: {
+      pluralizationKey: function(n) { return n == 1 ? "one" : "other"; },
+      data: {}
+    }
+  },
 
-  loadLocale: function(locale, language) {
-    this.locale = $.extend(this.locale, locale);
+  load: function(locale, language, fallbackLocale) {
+    this.updateLocale(this.locale, locale);
+    this.updateLocale(this.locale.fallback, fallbackLocale);
     this.language = language;
-    rule = this.t('pluralization_rule');
-    if (rule === "")
-    rule = 'function (n) { return n == 1 ? "one" : "other" }';
-    eval("this.pluralizationKey = "+rule);
+  },
+
+  updateLocale: function(locale, data) {
+    locale.data = $.extend(locale.data, data);
+
+    rule = this.resolve(locale, ['pluralization_rule']);
+    if (rule !== "") {
+      eval("locale.pluralizationKey = "+rule);
+    }
   },
 
   t: function(item, views) {
-    var items = item.split("."),
-      translatedMessage,
-      nextNamespace;
+    var items = item.split(".");
+    return this.resolve(this.locale, items, views);
+  },
+
+  resolve: function(locale, items, views) {
+      var translatedMessage, nextNamespace, originalItems = items.slice();
 
     if(views && typeof views.count !== "undefined") {
-      items.push(this.pluralizationKey(views.count));
+      items.push(locale.pluralizationKey(views.count));
     }
 
     while(nextNamespace = items.shift()) {
       translatedMessage = (translatedMessage)
         ? translatedMessage[nextNamespace]
-        : this.locale[nextNamespace];
+        : locale.data[nextNamespace];
 
       if(typeof translatedMessage === "undefined") {
-        return "";
+        if (typeof locale.fallback === "undefined") {
+          return "";
+        } else {
+          return this.resolve(locale.fallback, originalItems, views);
+        }
       }
     }
 
-    return _.template(translatedMessage, views || {});
+    try {
+      return _.template(translatedMessage, views || {});
+    } catch (e) {
+      if (typeof locale.fallback === "undefined") {
+        return "";
+      } else {
+        return this.resolve(locale.fallback, originalItems, views);
+      }
+    }
   },
 
   reset: function() {
-    this.locale = {};
+    this.locale.data = {};
 
     if( arguments.length > 0 && !(_.isEmpty(arguments[0])) )
-      this.locale = arguments[0];
+      this.locale.data = arguments[0];
   }
 };

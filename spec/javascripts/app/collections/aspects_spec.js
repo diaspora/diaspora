@@ -1,6 +1,6 @@
 describe("app.collections.Aspects", function(){
   beforeEach(function(){
-    Diaspora.I18n.loadLocale({
+    Diaspora.I18n.load({
       'and' : "and",
       'comma' : ",",
       'my_aspects' : "My Aspects"

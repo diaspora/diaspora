@@ -1,7 +1,7 @@
 describe("app.views.AspectsList", function(){
   beforeEach(function(){
     setFixtures('<ul id="aspects_list"></ul>');
-    Diaspora.I18n.loadLocale({ aspect_navigation : {
+    Diaspora.I18n.load({ aspect_navigation : {
       'select_all' : 'Select all',
       'deselect_all' : 'Deselect all'
     }});

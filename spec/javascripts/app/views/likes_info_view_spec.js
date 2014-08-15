@@ -2,7 +2,7 @@ describe("app.views.LikesInfo", function(){
   beforeEach(function(){
     loginAs({id : -1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
-    Diaspora.I18n.loadLocale({stream : {
+    Diaspora.I18n.load({stream : {
       pins : {
         zero : "<%= count %> Pins",
         one : "<%= count %> Pin"}
