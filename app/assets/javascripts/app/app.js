@@ -100,6 +100,9 @@ var app = {
   setupGlobalViews: function() {
     app.hovercard = new app.views.Hovercard();
     app.aspectMembershipsBlueprint = new app.views.AspectMembershipBlueprint();
+    $('.aspect_membership_dropdown').each(function(){
+      new app.views.AspectMembership({el: this});
+    });
     app.sidebar = new app.views.Sidebar();
   },
 
