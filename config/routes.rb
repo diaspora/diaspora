@@ -193,10 +193,6 @@ Diaspora::Application.routes.draw do
       match ':provider/callback' => :create
       match :failure
     end
-    scope 'services' do
-      match 'inviter/:provider' => :inviter, :as => 'service_inviter'
-      match 'finder/:provider'  => :finder,  :as => 'friend_finder'
-    end
   end
 
   scope 'api/v0', :controller => :apis do

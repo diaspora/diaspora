@@ -2,23 +2,6 @@
 //   licensed under the Affero General Public License version 3 or later.  See
 //   the COPYRIGHT file.
 
-var ContactEdit = {
-  inviteFriend: function(li, evt) {
-    $.post('/services/inviter/facebook.json', {
-      "aspect_id" : li.data("aspect_id"),
-      "uid" : li.parent().data("service_uid")
-    }, function(data){
-      ContactEdit.processSuccess(li, evt, data);
-    });
-  }
-};
-
-/*
-  TODO remove me
-  ContactEdit.toggleCheckbox(li);
-  Diaspora.page.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").parent(".right").html()]);
-*/
-
 /**
  * TEMPORARY SOLUTION
  * TODO remove me, when the contacts section is done with Backbone.js ...
