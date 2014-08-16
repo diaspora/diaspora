@@ -94,6 +94,55 @@
       }
     }
   }
+  
+  .aspect_membership_dropdown{
+      a{
+        .text {
+          color: $text-dark-grey;
+          font-weight: bold;
+          font-size: small;         
+        }    
+
+        &:hover {
+          background: $text-dark-grey;
+
+          .text {
+            color: white;
+          }  
+
+          .status_indicator i{
+            background-image: image_url("glyphicons-halflings-white.png");      
+          }
+        }
+      }    
+    }
+
+    .btn-group{
+      .btn.green{
+        color: $text-dark-grey;
+        .caret{
+          display: none;
+        }
+
+        .text{
+          font-weight: bold;
+          -webkit-shadow: none;
+          -moz-shadow: none;
+          text-shadow: none;
+
+          &:after{
+            content: '▼';
+          }
+   
+        }    
+      }    
+
+      &.open .btn.green {
+        background: $text-dark-grey;
+        color: $white;
+      }
+    }
+
 }
 
 #hovercard_container {
