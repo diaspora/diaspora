@@ -91,4 +91,4 @@ Feature: User manages contacts
 
     And I click on my name in the header
     When I follow "Contacts"
-    Then I should not see "Featured Users" within "#section_header"
+    Then I should not see "Community Spotlight" within ".span9"

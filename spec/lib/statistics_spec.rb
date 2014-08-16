@@ -168,9 +168,6 @@ describe Statistics do
     describe '#completed_getting_started_count_sql' do
     end
 
-    describe 'used_cubbies_sql' do
-    end
-
     describe '.sign_up_method_sql' do
     end
   end

@@ -61,7 +61,6 @@ module Diaspora
     config.assets.precompile += %w{
       aspect-contacts.js 
       contact-list.js
-      finder.js
       home.js
       ie.js
       inbox.js
@@ -73,7 +72,6 @@ module Diaspora
       mobile.js
       profile.js
       people.js
-      photos.js
       profile.js
       publisher.js
       templates.js
