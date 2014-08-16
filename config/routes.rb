@@ -79,9 +79,12 @@ Diaspora::Application.routes.draw do
     delete 'visibility' => 'conversation_visibilities#destroy'
   end
 
-  get 'notifications/read_all' => 'notifications#read_all'
   resources :notifications, :only => [:index, :update] do
+    collection do
+      get :read_all
+    end
   end
+  
 
   resources :tags, :only => [:index]
 

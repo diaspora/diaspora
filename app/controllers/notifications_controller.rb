@@ -65,12 +65,21 @@ class NotificationsController < ApplicationController
   end
 
   def read_all
-    Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
+    if params[:type]
+      Notification.where(:recipient_id => current_user.id, :type => Notification.types[params[:type]]).update_all(:unread => false)
+    else
+      Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
+    end
     respond_to do |format|
-      format.html { redirect_to stream_path }
-      format.mobile{ redirect_to stream_path}
-      format.xml { render :xml => {}.to_xml }
-      format.json { render :json => {}.to_json }
+      if current_user.unread_notifications.count > 0
+        format.html { redirect_to notifications_path}
+        format.mobile{ redirect_to notifications_path}
+      else
+        format.html { redirect_to stream_path }
+        format.mobile{ redirect_to stream_path}
+      end
+        format.xml { render :xml => {}.to_xml }
+        format.json { render :json => {}.to_json }
     end
   end
 
