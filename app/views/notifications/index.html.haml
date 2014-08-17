@@ -37,7 +37,10 @@
               %a.btn.btn-default{ :class => ('active' if params[:show] == 'unread'), :href => '/notifications?show=unread' + (params[:type] ? '&type=' + params[:type] : '') }
                 = t('.show_unread')
             %a.btn.btn-default{:href => read_all_notifications_path(:type => params[:type] ), :class => ('disabled' unless @unread_notification_count > 0)}
-              = t('.mark_all_as_read')
+              -if params[:type]
+                = t('.mark_all_shown_as_read')
+              -else
+                = t('.mark_all_as_read')
       - @group_days.each do |day, notes|
         .day_group.row-fluid
           .date.span2
