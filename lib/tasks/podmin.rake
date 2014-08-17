@@ -16,10 +16,14 @@ namespace :podmin do
     mails = Notifier.admin(msg.html_safe, users, :subject => args[:subject])
     count = 0
     mails.each do |mail|
-      mail.deliver
-      count += 1
-      if count % 100 == 0
-        puts "#{count} out of #{mails.count} delivered"
+      begin
+        mail.deliver
+        count += 1
+        if count % 100 == 0
+          puts "#{count} out of #{mails.count} delivered"
+        end
+      rescue
+        puts $!, $@
       end
     end
     puts "#{count} out of #{mails.count} delivered"
