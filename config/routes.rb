@@ -87,7 +87,8 @@ Diaspora::Application.routes.draw do
   resources :languages, :only => [:index]
 
   resources "tag_followings", :only => [:create, :destroy, :index]
-
+  resources "preferedlang", :only => [:create]
+  get '/preferedlang'  => 'preferedlang#create'
   get 'tags/:name' => 'tags#show', :as => 'tag'
 
   resources :apps, :only => [:show]

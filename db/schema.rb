@@ -378,8 +378,8 @@ ActiveRecord::Schema.define(:version => 20140811110101) do
   end
 
   create_table "preferedlanguages_users", :id => false, :force => true do |t|
-    t.integer "preferedlanguage_id"
     t.integer "user_id"
+    t.integer "preferedlanguage_id"
   end
 
   create_table "profiles", :force => true do |t|

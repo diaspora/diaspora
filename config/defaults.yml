@@ -5,7 +5,7 @@
 defaults:
   version:
     number: "head" # Do not touch unless doing a release, do not backport the version number that's in master but keep develop to always say "head"
-  heroku: false
+  heroku: true
   environment:
     url: "http://localhost:3000/"
     certificate_authorities:
