@@ -21,7 +21,7 @@ describe("app.views.StreamPost", function(){
       it("setup remove:author:posts:#{id} to #remove", function(){
         spyOn(_PostViewClass.prototype, 'remove');
         view = new _PostViewClass({model : this.statusMessage});
-        app.vent.trigger('remove:author:posts:'+authorId);
+        app.events.trigger('person:block:'+authorId);
         expect(_PostViewClass.prototype.remove).toHaveBeenCalled();
       });
     });

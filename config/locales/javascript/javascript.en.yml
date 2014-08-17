@@ -16,6 +16,7 @@ en:
         created: "The report was successfully created"
         exists: "The report already exists"
     ignore_user: "Ignore this user?"
+    ignore_failed: "Unable to ignore this user"
     and: "and"
     comma: ","
     edit: "Edit"
