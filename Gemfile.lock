@@ -278,6 +278,7 @@ GEM
       addressable
       nokogiri
     orm_adapter (0.5.0)
+    pg (0.17.1)
     polyglot (0.3.4)
     pry (0.9.12.4)
       coderay (~> 1.0)
@@ -504,6 +505,7 @@ DEPENDENCIES
   omniauth-twitter (= 1.0.1)
   omniauth-wordpress (= 0.2.0)
   opengraph_parser (= 0.2.3)
+  pg
   rack-cors (= 0.2.8)
   rack-google-analytics (= 0.14.0)
   rack-piwik (= 0.2.2)
