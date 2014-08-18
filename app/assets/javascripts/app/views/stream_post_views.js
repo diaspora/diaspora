@@ -27,6 +27,9 @@ app.views.StreamPost = app.views.Post.extend({
   tooltipSelector : ".timeago, .post_scope, .block_user, .delete",
 
   initialize : function(){
+    var personId = this.model.get('author').id;
+    app.events.on('person:block:'+personId, this.remove, this);
+
     this.model.on('remove', this.remove, this);
     //subviews
     this.commentStreamView = new app.views.CommentStream({model : this.model});
@@ -72,20 +75,13 @@ app.views.StreamPost = app.views.Post.extend({
     if(evt) { evt.preventDefault(); }
     if(!confirm(Diaspora.I18n.t('ignore_user'))) { return }
 
-    var personId = this.model.get("author").id;
-    var block = new app.models.Block();
-
-    block.save({block : {person_id : personId}}, {
-      success : function(){
-        if(!app.stream) { return }
-
-        _.each(app.stream.posts.models, function(model){
-          if(model.get("author").id == personId) {
-            app.stream.posts.remove(model);
-          }
-        })
-      }
-    })
+    this.model.blockAuthor()
+      .fail(function() {
+        Diaspora.page.flashMessages.render({
+          success: false,
+          notice: Diaspora.I18n.t('ignore_failed')
+        });
+      });
   },
 
   remove : function() {

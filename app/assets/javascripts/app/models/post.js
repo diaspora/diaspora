@@ -27,6 +27,14 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
     return this.get("author")
   },
 
+  blockAuthor: function() {
+    var personId = this.get("author").id;
+    var block = new app.models.Block();
+
+    return block.save({block : {person_id : personId}})
+             .done(function(){ app.events.trigger('person:block:'+personId); });
+  },
+
   toggleFavorite : function(options){
     this.set({favorite : !this.get("favorite")})
 
