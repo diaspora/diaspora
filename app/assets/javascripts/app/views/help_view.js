@@ -115,7 +115,7 @@ app.views.Help = app.views.StaticContentView.extend({
 
   renderStaticSection: function(section, template, subs) {
     this.clearItems();
-    data = $.extend(Diaspora.I18n.locale[section], { className: section });
+    data = $.extend(Diaspora.I18n.resolve(section), { className: section });
     help_section = new app.views.HelpSectionView({
       template: template,
       data: data,

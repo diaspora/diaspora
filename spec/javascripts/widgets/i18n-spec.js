@@ -78,6 +78,13 @@ describe("Diaspora.I18n", function() {
     });
   });
 
+  describe("::resolve", function() {
+    it("allows to retrieve entire sections", function() {
+      Diaspora.I18n.load(locale, "en", {});
+      expect(Diaspora.I18n.resolve("namespace")).toEqual(locale["namespace"]);
+    });
+  });
+
   describe("::reset", function(){
     it("clears the current locale", function() {
       Diaspora.I18n.load(locale, "en", locale);
