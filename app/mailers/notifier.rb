@@ -3,16 +3,16 @@ class Notifier < ActionMailer::Base
   helper :notifier
   helper :people
 
-  def self.admin(string, recipients, opts = {})
+  def self.admin(string, recipients, opts = {}, subject=nil)
     mails = []
     recipients.each do |rec|
-      mail = single_admin(string, rec, opts.dup)
+      mail = single_admin(string, rec, opts.dup, subject)
       mails << mail
     end
     mails
   end
 
-  def single_admin(string, recipient, opts={})
+  def single_admin(string, recipient, opts={}, subject=nil)
     @receiver = recipient
     @string = string.html_safe
 
@@ -22,12 +22,14 @@ class Notifier < ActionMailer::Base
       }
     end
 
+    unless subject
+      subject = I18n.t('notifier.single_admin.subject')
+    end
+
     default_opts = {:to => @receiver.email,
          :from => AppConfig.mail.sender_address,
-         :subject => I18n.t('notifier.single_admin.subject'),  :host => AppConfig.pod_uri.host}
+         :subject => subject, :host => AppConfig.pod_uri.host}
     default_opts.merge!(opts)
-
-
 
     mail(default_opts) do |format|
       format.text
