@@ -18,7 +18,7 @@ Diaspora.I18n = {
   updateLocale: function(locale, data) {
     locale.data = $.extend(locale.data, data);
 
-    rule = this.resolve(locale, ['pluralization_rule']);
+    rule = this._resolve(locale, ['pluralization_rule']);
     if (rule !== "") {
       eval("locale.pluralizationKey = "+rule);
     }
@@ -26,15 +26,15 @@ Diaspora.I18n = {
 
   t: function(item, views) {
     var items = item.split(".");
-    return this.resolve(this.locale, items, views);
+    return this._render(this.locale, item.split("."), views);
   },
 
-  resolve: function(locale, items, views) {
-      var translatedMessage, nextNamespace, originalItems = items.slice();
+  resolve: function(item) {
+    return this._resolve(this.locale, item.split("."));
+  },
 
-    if(views && typeof views.count !== "undefined") {
-      items.push(locale.pluralizationKey(views.count));
-    }
+  _resolve: function(locale, items) {
+    var translatedMessage, nextNamespace, originalItems = items.slice();
 
     while(nextNamespace = items.shift()) {
       translatedMessage = (translatedMessage)
@@ -45,18 +45,28 @@ Diaspora.I18n = {
         if (typeof locale.fallback === "undefined") {
           return "";
         } else {
-          return this.resolve(locale.fallback, originalItems, views);
+          return this._resolve(locale.fallback, originalItems);
         }
       }
     }
+   
+    return translatedMessage;
+  },
+
+  _render: function(locale, items, views) {
+    var originalItems = items.slice();
+
+    if(views && typeof views.count !== "undefined") {
+      items.push(locale.pluralizationKey(views.count));
+    }
 
     try {
-      return _.template(translatedMessage, views || {});
+      return _.template(this._resolve(locale, items), views || {});
     } catch (e) {
       if (typeof locale.fallback === "undefined") {
         return "";
       } else {
-        return this.resolve(locale.fallback, originalItems, views);
+        return this._render(locale.fallback, originalItems, views);
       }
     }
   },
