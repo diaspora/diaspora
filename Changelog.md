@@ -33,6 +33,7 @@
 * Add Terms of Service as an option for podmins, includes base template [#5104](https://github.com/diaspora/diaspora/pull/5104)
 * Add rake task to send a mail to all users [#5111](https://github.com/diaspora/diaspora/pull/5111)
 * Expose which services are configured in /statistics.json [#5121](https://github.com/diaspora/diaspora/pull/5121)
+* In filtered notification views, replace "Mark all as read" with "Mark shown as read" [#5122](https://github.com/diaspora/diaspora/pull/5122)
 
 # 0.4.0.1
 

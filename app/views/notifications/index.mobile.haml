@@ -2,8 +2,10 @@
   = t('.notifications')
 
 .right
-  = link_to t('.mark_all_as_read'), notifications_read_all_path, :class => 'btn'
-
+  -if params[:type]
+    = link_to t('.mark_all_shown_as_read'), read_all_notifications_path(:type => params[:type] ), :class => 'btn'
+  -else
+    = link_to t('.mark_all_as_read'), read_all_notifications_path, :class => 'btn'
 %ul.notifications
   - @group_days.each do |day, notes|
     %li
