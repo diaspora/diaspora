@@ -25,7 +25,6 @@ Diaspora.I18n = {
   },
 
   t: function(item, views) {
-    var items = item.split(".");
     return this._render(this.locale, item.split("."), views);
   },
 
