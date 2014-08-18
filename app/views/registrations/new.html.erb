@@ -68,8 +68,11 @@
               <% end %>
               <%= invite_hidden_tag(invite) %>
             </fieldset>
-
-
+            <% if AppConfig.settings.terms.enable? %>
+              <div id="terms" class="text-center">
+                <%= t('.terms', terms_link: link_to(t('.terms_link'), terms_path, target: "_blank")).html_safe %>
+              </div>
+            <% end %>
             <%= f.submit t('.continue'), :class => "new-btn", :disable_with => t('.submitting') %>
         <% end %>
       </div>

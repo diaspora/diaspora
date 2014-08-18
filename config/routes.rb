@@ -219,6 +219,11 @@ Diaspora::Application.routes.draw do
 
   #Statistics
   get :statistics, controller: :statistics
+  
+  # Terms
+  if AppConfig.settings.terms.enable?
+    get 'terms' => 'terms#index'
+  end
 
   # Startpage
   root :to => 'home#show'
