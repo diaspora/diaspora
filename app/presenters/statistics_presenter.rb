@@ -17,9 +17,15 @@ class StatisticsPresenter
     if AppConfig.privacy.statistics.comment_counts?
       result['local_comments'] = self.local_comments
     end
+
+    AppConfig.services.each do |service, options|
+      result[service] = options ? !!options["enable"] : false
+    
+    end
+
     result
   end
-  
+
   def local_posts
     Post.where(:type => "StatusMessage").joins(:author).where("owner_id IS NOT null").count
   end
