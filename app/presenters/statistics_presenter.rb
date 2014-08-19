@@ -20,7 +20,6 @@ class StatisticsPresenter
 
     AppConfig.services.each do |service, options|
       result[service] = options ? !!options["enable"] : false
-    
     end
 
     result
