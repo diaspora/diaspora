@@ -26,6 +26,18 @@ describe StatisticsPresenter do
         "facebook" => false
       }
     end
+
+    it 'should show top fifty tags' do
+      before do
+        AppConfig.privacy.statistics.user_counts = true
+        AppConfig.privacy.statistics.post_counts = true
+        AppConfig.privacy.statistics.comment_counts = true
+      end
+
+      AppConfig.privacy.statistics.tags.popular = {
+        
+      }
+    end
     
     context 'when services are enabled' do
       before do

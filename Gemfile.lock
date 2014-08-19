@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/wegotcoders/acts-as-taggable-on.git
+  revision: 472554b5af4004646f5c9cbcc4d1d505855c37f4
+  branch: popular-feature
+  specs:
+    acts-as-taggable-on (3.3.0)
+      activerecord (>= 3, < 5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -30,8 +38,6 @@ GEM
     activesupport (3.2.19)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    acts-as-taggable-on (3.2.6)
-      activerecord (>= 3, < 5)
     acts_as_api (0.4.2)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -470,7 +476,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import (= 0.3.1)
-  acts-as-taggable-on (= 3.2.6)
+  acts-as-taggable-on!
   acts_as_api (= 0.4.2)
   addressable (= 2.3.6)
   asset_sync (= 1.0.0)
