@@ -1,6 +1,5 @@
 app.Router = Backbone.Router.extend({
   routes: {
-    "users/sign_in": "login",
     "help": "help",
 
     //new hotness
@@ -30,10 +29,6 @@ app.Router = Backbone.Router.extend({
     // our own internal router.route call with the correct regexp.
     // see: https://github.com/diaspora/diaspora/issues/4994#issuecomment-46431124
     this.route(/^bookmarklet(?:\?(.*))?/, "bookmarklet");
-  },
-
-  login: function() {
-    $('#huge-text').flexime(1.05, {responsive:true});
   },
 
   help: function() {

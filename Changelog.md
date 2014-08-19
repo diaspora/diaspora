@@ -18,7 +18,6 @@
 * Fix live updating when renaming an aspect [#5049](https://github.com/diaspora/diaspora/pull/5049)
 * Use double quotes when embedding translations into Javascript [#5055](https://github.com/diaspora/diaspora/issues/5055)
 * Fix regression in mobile sign-in ([commit](https://github.com/diaspora/diaspora/commit/4a2836b108f8a9eb6f46ca58cfcb7b23f40bb076))
-* Fit pod name to page size on the sign in page [#5056](https://github.com/diaspora/diaspora/pull/5056)
 * Set mention notification as read when viewing post [#5006](https://github.com/diaspora/diaspora/pull/5006)
 * Set sharing notification as read when viewing profile [#5009](https://github.com/diaspora/diaspora/pull/5009)
 * Ensure a consistent border on text input elements [#5069](https://github.com/diaspora/diaspora/pull/5069)
