@@ -18,7 +18,7 @@ app.views.Photo = app.views.Base.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      authorIsCurrentUser : this.authorIsCurrentUser(),
+      authorIsCurrentUser : app.currentUser.isAuthorOf(this.model),
     });
   }
 });
