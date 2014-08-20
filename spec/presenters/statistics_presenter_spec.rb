@@ -23,7 +23,8 @@ describe StatisticsPresenter do
         "name" => AppConfig.settings.pod_name,
         "version" => AppConfig.version_string,
         "registrations_open" => AppConfig.settings.enable_registrations,
-        "facebook" => false
+        "facebook" => false,
+        "popular_tags" => []
       }
     end
     
@@ -53,7 +54,8 @@ describe StatisticsPresenter do
           "facebook" => true,
           "twitter" => true,
           "tumblr" => false,
-          "wordpress" => false
+          "wordpress" => false,
+          "popular_tags" => []
         }
       end
     end
