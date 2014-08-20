@@ -10,6 +10,7 @@ app.views.StreamPost = app.views.Post.extend({
     ".oembed" : "oEmbedView",
     ".opengraph" : "openGraphView",
     ".poll" : "pollView",
+    ".language" : "languageView",
     ".status-message-location" : "postLocationStreamView"
   },
 
@@ -47,6 +48,13 @@ app.views.StreamPost = app.views.Post.extend({
 
   postContentView: function(){
     var normalizedClass = this.model.get("post_type").replace(/::/, "__")
+      , postClass = app.views[normalizedClass] || app.views.StatusMessage;
+
+    return new postClass({ model : this.model })
+  },
+
+  languageView: function(){
+    var normalizedClass = this.model.get("post_language_name").replace(/::/, "__")
       , postClass = app.views[normalizedClass] || app.views.StatusMessage;
 
     return new postClass({ model : this.model })
