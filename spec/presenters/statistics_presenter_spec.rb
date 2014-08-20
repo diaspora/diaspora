@@ -23,8 +23,14 @@ describe StatisticsPresenter do
         "name" => AppConfig.settings.pod_name,
         "version" => AppConfig.version_string,
         "registrations_open" => AppConfig.settings.enable_registrations,
+<<<<<<< HEAD
         "facebook" => false
       })
+=======
+        "facebook" => false,
+        "popular_tags" => []
+      }
+>>>>>>> Edited test suite
     end
     
     context 'when services are enabled' do
@@ -53,8 +59,10 @@ describe StatisticsPresenter do
           "facebook" => true,
           "twitter" => true,
           "tumblr" => false,
-          "wordpress" => false
-        })
+          "wordpress" => false,
+          "popular_tags" => []
+        }
+
       end
     end
 
