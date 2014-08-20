@@ -68,30 +68,8 @@
                 %i.entypo.small.cog
 
             = render :partial => "publisher/aspect_dropdown", :locals => { :selected_aspects => selected_aspects } 
+            = render :partial => "publisher/aspect_language", :locals => { :selected_aspects => selected_aspects } 
                       
-
-            .dropdown{ ! current_user.getting_started? ? {:class => "hang_right"} : { :class => "hang_right", :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_language')}"), 'data-content'=> t('shared.public_explain.language_dropdown')} }
-            
-              .button.toggle.publisher
-                = t('language_select')
-                &#9660;       
-
-             
-              ..wrapper 
-                %select#language{:name => 'language'}         
-                  %option{:style => "padding-bottom: 5px; border-bottom: 1px solid #ddd;", :value => "auto", :class => ("selected")}
-                    = t('auto_language')
-                  %option{:value => "en" , :class => ("unselected")}
-                    = t('english')  
-                  %option{:value => "fi", :class => ("unselected")}
-                    = t('finnish')
-                  %option{:value => "nl", :class => ("unselected")}
-                    = t('dutch') 
-                  %option{:value => "fa", :class => ("unselected")}
-                    = t('farsi')
-                  %option{:value => "ru", :class => ("unselected")}
-                    = t('russian') 
-
             %button{ :disabled => ("disabled" if publisher_hidden_text.blank?), :class => 'btn btn-default post_preview_button'}
               %span.text
                 = t('shared.publisher.preview')

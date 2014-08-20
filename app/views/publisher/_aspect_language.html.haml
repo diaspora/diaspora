@@ -1,0 +1,14 @@
+.btn-group.aspect_dropdown
+    %button.btn.btn-default.dropdown-toggle{ ! current_user.getting_started? ? {'data-toggle' => 'dropdown'} : {'data-toggle' => 'dropdown', :title => popover_with_close_html("2. #{t('language_select')}"), 'data-content'=> t('shared.public_explain.language_dropdown')} }
+            
+                %span.text
+                  = t('public')
+                %span.caret
+                  &#9660;       
+              %ul.dropdown-menu.pull-right{ :unSelectable => 'on' }
+                    %li.public.radio{ :value => "en", :class => ("unselected")}
+                    %a
+                      %span.status_indicator
+                                  %i.icon-ok
+                      %span.text
+                        = t('english')

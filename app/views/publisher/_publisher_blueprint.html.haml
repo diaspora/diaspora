@@ -88,21 +88,20 @@
               = t('language_select')
               &#9660;       
 
-            .wrapper 
-              %select#language{:name => 'language'}             
-                %option{:style => "padding-bottom: 5px; border-bottom: 1px solid #ddd;", :value => "auto", :class => ("selected")}
+            .wrapper
+              %ul.dropdown_list{:unSelectable => 'on'}
+                %li.public.radio{:value => "auto", :class => ("unselected")}
                   = t('auto_language')
-                %option{:value => "en" , :class => ("unselected")}
-                  = t('english')  
-                %option{:value => "fi", :class => ("unselected")}
+                %li.public.radio{:value => "en", :class => ("unselected")}
+                  = t('english')
+                %li.public.radio{:value => "fi", :class => ("unselected")}
                   = t('finnish')
-                %option{:value => "nl", :class => ("unselected")}
-                  = t('dutch') 
-                %option{:value => "fa", :class => ("unselected")}
+                %li.public.radio{:value => "nl", :class => ("unselected")}
+                  = t('dutch')
+                %li.public.radio{:value => "fa", :class => ("unselected")}
                   = t('farsi')
-                %option{:value => "ru", :class => ("unselected")}
-                  = t('russian') 
-
+                %li.public.radio{:value => "ru", :class => ("unselected")}
+                  = t('russian')
 
           %button{ :disabled => ("disabled" if publisher_hidden_text.blank?), :class => 'button post_preview_button'}
             = t('shared.publisher.preview')
