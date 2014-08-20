@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140422134627) do
+ActiveRecord::Schema.define(:version => 20140811110101) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -133,6 +133,12 @@ ActiveRecord::Schema.define(:version => 20140422134627) do
   add_index "invitations", ["aspect_id"], :name => "index_invitations_on_aspect_id"
   add_index "invitations", ["recipient_id"], :name => "index_invitations_on_recipient_id"
   add_index "invitations", ["sender_id"], :name => "index_invitations_on_sender_id"
+
+  create_table "languages", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "likes", :force => true do |t|
     t.boolean  "positive",                              :default => true
@@ -351,6 +357,7 @@ ActiveRecord::Schema.define(:version => 20140422134627) do
     t.string   "tweet_id"
     t.integer  "open_graph_cache_id"
     t.text     "tumblr_ids"
+    t.string   "language_name"
   end
 
   add_index "posts", ["author_id", "root_guid"], :name => "index_posts_on_author_id_and_root_guid", :unique => true
@@ -362,6 +369,18 @@ ActiveRecord::Schema.define(:version => 20140422134627) do
   add_index "posts", ["status_message_guid"], :name => "index_posts_on_status_message_guid"
   add_index "posts", ["tweet_id"], :name => "index_posts_on_tweet_id"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
+
+  create_table "preferedlanguages", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "iso_code",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "preferedlanguages_users", :id => false, :force => true do |t|
+    t.integer "preferedlanguage_id"
+    t.integer "user_id"
+  end
 
   create_table "profiles", :force => true do |t|
     t.string   "diaspora_handle"
