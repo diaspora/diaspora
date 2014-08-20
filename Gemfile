@@ -118,7 +118,8 @@ gem 'omniauth-wordpress','0.2.1'
 
 # Tags
 
-gem 'acts-as-taggable-on', :github => 'wegotcoders/acts-as-taggable-on', :branch => 'popular-feature'#'3.2.6'
+# gem 'acts-as-taggable-on', :github => 'wegotcoders/acts-as-taggable-on', :branch => 'popular-feature'#'3.2.6'
+gem 'acts-as-taggable-on', :path => '/Users/dami/projects/acts-as-taggable-on'
 
 # URIs and HTTP
 

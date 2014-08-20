@@ -26,18 +26,6 @@ describe StatisticsPresenter do
         "facebook" => false
       })
     end
-
-    it 'should show top fifty tags' do
-      before do
-        AppConfig.privacy.statistics.user_counts = true
-        AppConfig.privacy.statistics.post_counts = true
-        AppConfig.privacy.statistics.comment_counts = true
-      end
-
-      AppConfig.privacy.statistics.tags.popular = {
-        
-      }
-    end
     
     context 'when services are enabled' do
       before do
@@ -67,6 +55,21 @@ describe StatisticsPresenter do
           "tumblr" => false,
           "wordpress" => false
         })
+      end
+    end
+
+    context "with some tags" do
+      before do
+        @tags = %w(music sport films linux ruby)
+        @tags.each { |t| ActsAsTaggableOn::Tag.create(:name =>  t) }
+      end
+
+      it 'should show top fifty tags' do
+        expect(@presenter.as_json["popular_tags"]).to eq(@tags)
+
+        # AppConfig.privacy.statistics.tags.popular = {
+        #   ActsAsTaggableOn::Tag.popular(50)
+        # }
       end
     end
 

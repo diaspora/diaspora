@@ -4,7 +4,8 @@ class StatisticsPresenter
     result = {
       'name' => AppConfig.settings.pod_name,
       'version' => AppConfig.version_string,
-      'registrations_open' => AppConfig.settings.enable_registrations
+      'registrations_open' => AppConfig.settings.enable_registrations,
+      'popular_tags' => ActsAsTaggableOn::Tag.popular(50).pluck(:name)
     }
     if AppConfig.privacy.statistics.user_counts?
       result['total_users'] = User.count
@@ -21,6 +22,10 @@ class StatisticsPresenter
     AppConfig.services.each do |service, options|
       result[service] = options ? !!options["enable"] : false
     end
+
+    # AppConfig.privacy.statistics.tags.popular = {
+    #   ActsAsTaggableOn::Tag.popular(50)
+    # }
 
     result
   end
