@@ -69,9 +69,6 @@ describe StatisticsPresenter do
       it 'should show top fifty tags' do
         expect(@presenter.as_json["popular_tags"]).to eq(@tags)
 
-        # AppConfig.privacy.statistics.tags.popular = {
-        #   ActsAsTaggableOn::Tag.popular(50)
-        # }
       end
     end
 
