@@ -70,7 +70,7 @@ class StatusMessagesController < ApplicationController
       params[:language] = (@status_message.text).language
       params[:language] = params[:language][0,params[:language].length]
     end
-    @status_message.text = @status_message.text+"                            "+params[:language]
+    @status_message.text = @status_message.text
     if @status_message.save
       aspects = current_user.aspects_from_ids(destination_aspect_ids)
       current_user.add_to_streams(@status_message, aspects)
