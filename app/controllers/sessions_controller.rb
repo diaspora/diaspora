@@ -4,7 +4,7 @@
 
 class SessionsController < Devise::SessionsController
 
-  layout "with_header_with_footer", :only => [:new]
+  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }, :only => [:new]
   use_bootstrap_for :new
 
 end
