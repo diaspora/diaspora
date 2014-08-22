@@ -3,9 +3,9 @@ app.views.TagFollowingAction = app.views.Base.extend({
   templateName: "tag_following_action",
 
   events : {
-    "mouseenter .button.red_on_hover": "mouseIn",
-    "mouseleave .button.red_on_hover": "mouseOut",
-    "click .button": "tagAction"
+    "mouseenter .btn.followed": "mouseIn",
+    "mouseleave .btn.followed": "mouseOut",
+    "click .btn": "tagAction"
   },
 
   initialize : function(options){
@@ -41,12 +41,12 @@ app.views.TagFollowingAction = app.views.Base.extend({
   },
 
   mouseIn : function(){
-    this.$("input").removeClass("in_aspects");
+    this.$("input").removeClass("green").addClass("btn-danger");
     this.$("input").val( Diaspora.I18n.t('stream.tags.stop_following', {tag: this.model.attributes.name} ) );
   },
 
   mouseOut : function() {
-    this.$("input").addClass("in_aspects");
+    this.$("input").removeClass("btn-danger").addClass("green");
     this.$("input").val( Diaspora.I18n.t('stream.tags.following', {"tag" : this.model.attributes.name} ) );
   },
 

@@ -22,7 +22,7 @@ describe TagsController, :type => :request do
       get "/tags/#{tag}", page: 2
 
       expect(response.status).to eq(200)
-      expect(response.body).to match(/<em class="current">2<\/em>/)
+      expect(response.body).to match(/<li class="active"><a href="\/tags\/diaspora\?page=2">2<\/a><\/li>/)
     end
   end
 end

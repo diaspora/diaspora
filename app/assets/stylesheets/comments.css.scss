@@ -1,0 +1,41 @@
+.comment_stream {
+  .show_comments {
+    margin-top: 5px;
+    border-top: 1px solid $border-grey;
+    a {
+      color: $text-grey;
+      font-size: 13px;
+    }
+    .media { margin-top: 10px; }
+  }
+  .comments > .comment {
+    .avatar {
+      height: 30px;
+      width: 30px;
+    }
+    margin: 0;
+    border-top: 1px dotted $border-grey;
+    &.no-border { border: none; }
+    padding: 10px 0;
+    .comment-content p:last-of-type { margin-bottom: 0; }
+
+    .info {
+      margin-top: 5px;
+      font-size: 11px;
+      line-height: 11px;
+    }
+
+    >.highlighted {
+      border-left: 3px solid $blue;
+      padding-left: 3px;
+    }
+  }
+  .submit_button {
+    input {
+      float: right;
+    }
+    padding-left: 12px;
+    width: 95%;
+  }
+  .comment_box { width: 95%; }
+}
