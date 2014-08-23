@@ -25,12 +25,6 @@
   }
 }
 
-.btn {
-  &.delete {
-    color: desaturate($red,10%);
-  }
-}
-
 .modify_aspect {
   background: url("icons/pencil.png") no-repeat;
   width: 12px;
@@ -97,68 +91,6 @@
   display: inline-block;
   margin-left: 4px;
   margin-bottom: -2px;
-}
-
-#people_stream.contacts {
-  .stream_element {
-    padding: 10px;
-    min-height: 30px;
-    
-    .media { overflow: visible; }
-    
-    .float-right {
-      top: 16px;
-
-      a {
-        @include opacity(1);
-
-        &:hover {
-          @include opacity(0.6);
-        }
-      }
-    }
-    
-    .info { margin-top: -2px; }
-  }
-  
-  .avatar {
-    height: 30px;
-    width: 30px;
-  }
-
-  .icons-monotone_close_exit_delete {
-    height: 14px;
-    width: 14px;
-  }
-  
-  .no_contacts {
-    text-align: center;
-    margin-top: 50px;
-  }
-}
-
-#selected_aspect_contacts .avatar {
-    height: 32px;
-    width: 32px;
-    margin-bottom: -2px;
-}
-
-.stream-faces a:hover { text-decoration: none; }
-
-#view_all_contacts_link {
-  @include border-radius(2px);
-  display: block;
-  padding: 5px;
-  border: 1px dotted #aaa;
-  text-align: center;
-  margin: 5px 0px;
-}
-
-#no_contacts {
-  text-align: center;
-  padding: 10px;
-  background-color: #eee;
-  color: $text-dark-grey;
 }
 
 /* -- Used in aspects/edit.haml and in contacts/sharing.haml -- */
@@ -318,57 +250,6 @@
   }
 }
 
-#leftNavBar {
-  color: #222222;
-
-  ul {
-    margin: 0px;
-    padding: 0px;
-  }
-
-  a {
-    color: $link-grey;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  .selected { color: $black; }
-  .selected a { color: $black; }
-
-  .hoverable {
-    display: block;
-    margin-right: 6px;
-    padding: 4px;
-    &:hover { background-color: $background-blue; }
-
-    .label {
-      background-color: $background-grey;
-      color: $text-grey;
-      float: right;
-      padding: 3px 5px;
-    }
-  }
-
-  .selectable {
-    display: block;
-    margin-left: 21px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .action {
-    width: 12px;
-    height: 12px;
-    display: none;
-    float: right;
-    margin: 3px;
-  }
-
-  .hoverable:hover  > .action {
-    display: block;
-  }
-}
-
 #new_aspect {
   #aspect_contacts_visible.checkbox {
     margin: 0px;
@@ -378,4 +259,3 @@
     display: inline;
   }
 }
-

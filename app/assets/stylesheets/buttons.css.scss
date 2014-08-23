@@ -27,3 +27,5 @@
 .btn-group.open > .btn.green {
   background: $green;
 }
+
+.btn.delete { color: desaturate($red,10%); }
