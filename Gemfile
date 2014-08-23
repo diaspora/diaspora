@@ -22,7 +22,7 @@ gem 'galetahub-simple_captcha', '0.1.5', :require => 'simple_captcha'
 
 # Background processing
 
-gem 'sidekiq', '2.17.2'
+gem 'sidekiq', '2.17.7'
 gem 'sinatra', '1.3.3'
 
 # Configuration
