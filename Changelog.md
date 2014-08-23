@@ -23,6 +23,7 @@ Diaspora::Application.config.secret_key_base = '*************...'
 * Port settings pages (account, profile, privacy, services) to Bootstrap [#5039](https://github.com/diaspora/diaspora/pull/5039)
 * Port contacts and community spotlight pages to Bootstrap [#5118](https://github.com/diaspora/diaspora/pull/5118)
 * Redesign login page [#5112](https://github.com/diaspora/diaspora/pull/5112)
+* Change mark read link on notifications page [#5141](https://github.com/diaspora/diaspora/pull/5141)
 
 ## Bug fixes
 * Fix hiding of poll publisher on close [#5029](https://github.com/diaspora/diaspora/issues/5029)
