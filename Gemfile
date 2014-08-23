@@ -71,7 +71,7 @@ gem 'uuid', '2.3.7'
 
 # Icons
 
-gem 'entypo-rails', '2.2.1'
+gem 'entypo-rails', '2.2.2'
 
 # JavaScript
 
