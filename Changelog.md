@@ -34,6 +34,7 @@
 * Expose which services are configured in /statistics.json [#5121](https://github.com/diaspora/diaspora/pull/5121)
 * In filtered notification views, replace "Mark all as read" with "Mark shown as read" [#5122](https://github.com/diaspora/diaspora/pull/5122)
 * When ignoring a user remove his posts from the stream instantly [#5127](https://github.com/diaspora/diaspora/pull/5127)
+* Allow to delete photos from the pictures stream [#5131](https://github.com/diaspora/diaspora/pull/5131)
 
 # 0.4.0.1
 
