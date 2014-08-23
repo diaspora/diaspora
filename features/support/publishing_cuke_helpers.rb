@@ -74,6 +74,7 @@ module PublishingCukeHelpers
   end
 
   def find_post_by_text(text)
+    page.should have_text(text)
     find(".stream_element", text: text)
   end
 

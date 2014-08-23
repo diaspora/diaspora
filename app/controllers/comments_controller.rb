@@ -47,7 +47,9 @@ class CommentsController < ApplicationController
   end
 
   def new
-    render :layout => false
+    respond_to do |format|
+      format.mobile { render :layout => false }
+    end
   end
 
   def index
