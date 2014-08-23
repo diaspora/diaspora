@@ -121,7 +121,10 @@ end
 When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect$/ do |aspect_name|
     aspects_dropdown = find(".aspect_membership .toggle.button", match: :first)
     aspects_dropdown.click
-    find(".dropdown.active .dropdown_list li", text: aspect_name).click
+    aspect = find(".dropdown.active .dropdown_list li", text: aspect_name)
+    aspect.click
+    aspect.parent.should have_css(".loading")
+    aspect.parent.should_not have_css(".loading")
     aspects_dropdown.click
 end
 

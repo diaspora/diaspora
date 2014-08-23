@@ -18,17 +18,19 @@ Feature: reactions mobile post
     When I should see "0 reactions" within ".show_comments"
     And I click on selector "span.show_comments"
     And I click on selector "a.image_link.like_action.inactive"
-    Then I go to the stream page
+    Then I should see a "a.image_link.like_action.active"
+    When I go to the stream page
     And I should see "1 reaction" within ".show_comments"
     And I click on selector "a.show_comments"
-    And I should see "1" within ".like_count"
+    Then I should see "1" within ".like_count"
 
   Scenario: comment and delete a mobile post
     When I click on selector "a.image_link.comment_action.inactive"
     And I fill in the following:
         | text            | is that a poodle?    |
     And I press "Comment"
-    Then I go to the stream page
+    Then I should see "is that a poodle?"
+    When I go to the stream page
     And I should see "1 reaction" within ".show_comments"
     And I click on selector "a.show_comments"
     And I should see "1" within ".comment_count"
