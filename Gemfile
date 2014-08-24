@@ -33,7 +33,7 @@ gem 'sinatra', '1.3.3'
 
 # Compression
 
-gem 'uglifier', '2.5.0'
+gem 'uglifier', '2.5.3'
 
 # Configuration
 
