@@ -31,8 +31,7 @@ Feature: Close account
     And I put in my password in "close_account_password" in the modal window
     And I press "close_account_confirm" in the modal window
     And I confirm the alert
-    Then I sign in as "alice@alice.alice"
-    #TODO: find out why the automatic login here doesn't work anymore
-    And I try to sign in manually
+    Then I should be on the new user session page
+    When I sign in as "alice@alice.alice"
     And I am on the home page
     Then I should see "Bob Jones"
