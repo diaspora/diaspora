@@ -1159,10 +1159,7 @@ en:
       no_message_to_display: "No message to display."
     destroy:
       failure: "Failed to delete post"
-    too_long:
-      zero: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} characters"
-      other: "please make your status messages less than %{count} characters"
+    too_long: "Please make your status message fewer than %{count} characters. Right now it is %{current_length} characters"
 
   stream_helper:
     show_comments:
