@@ -5,6 +5,7 @@
 ## Bug fixes
 
 ## Features
+* Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
 
 # 0.4.1.0
 
