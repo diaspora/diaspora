@@ -28,7 +28,7 @@ class Post < ActiveRecord::Base
 
   validates_uniqueness_of :id
 
-  after_commit :on => :create do
+  after_create do
     self.touch(:interacted_at)
   end
 
