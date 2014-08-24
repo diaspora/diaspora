@@ -39,6 +39,43 @@
     }
   }
 }
+#people_stream.contacts {
+  .stream_element {
+    padding: 10px;
+    min-height: 30px;
+
+    .media { overflow: visible; }
+
+    .float-right {
+      top: 16px;
+
+      a {
+        @include opacity(1);
+
+        &:hover {
+          @include opacity(0.6);
+        }
+      }
+    }
+
+    .info { margin-top: -2px; }
+  }
+
+  .avatar {
+    height: 30px;
+    width: 30px;
+  }
+
+  .icons-monotone_close_exit_delete {
+    height: 14px;
+    width: 14px;
+  }
+
+  .no_contacts {
+    text-align: center;
+    margin-top: 50px;
+  }
+}
 
 #community_spotlight {
   .avatar {
@@ -79,4 +116,11 @@
       color: $text-grey;
     }
   }
+}
+
+#no_contacts {
+  text-align: center;
+  padding: 10px;
+  background-color: #eee;
+  color: $text-dark-grey;
 }
