@@ -1,4 +1,4 @@
-# Head
+# 0.4.1.0
 
 ## Rails 4 - Manual action required
 Please edit `config/initializers/secret_token.rb`, replacing `secret_token` with
