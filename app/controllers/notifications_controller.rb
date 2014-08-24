@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class NotificationsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }
   use_bootstrap_for :index
@@ -33,13 +33,11 @@ class NotificationsController < ApplicationController
     page = params[:page] || 1
     per_page = params[:per_page] || 25
     @notifications = WillPaginate::Collection.create(page, per_page, Notification.where(conditions).count ) do |pager|
-      result = Notification.find(:all,
-                                 :conditions => conditions,
-                                 :order => 'created_at desc',
-                                 :include => [:target, {:actors => :profile}],
-                                 :limit => pager.per_page,
-                                 :offset => pager.offset
-                                )
+      result = Notification.where(conditions)
+                           .includes(:target, :actors => :profile)
+                           .order('created_at desc')
+                           .limit(pager.per_page)
+                           .offset(pager.offset)
 
       pager.replace(result)
     end

@@ -8,7 +8,7 @@ module Diaspora
     def self.included(model)
       model.instance_eval do
 
-        has_many :aspect_visibilities, :as => :shareable
+        has_many :aspect_visibilities, :as => :shareable, :validate => false
         has_many :aspects, :through => :aspect_visibilities
 
         has_many :share_visibilities, :as => :shareable
@@ -19,7 +19,7 @@ module Diaspora
         delegate :id, :name, :first_name, to: :author, prefix: true
 
         #scopes
-        scope :all_public, where(:public => true, :pending => false)
+        scope :all_public, -> { where(:public => true, :pending => false) }
 
         def self.owned_or_visible_by_user(user)
           self.joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = posts.id AND share_visibilities.shareable_type = 'Post'").

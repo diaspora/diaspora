@@ -113,7 +113,7 @@ describe User::Connecting do
 
     it 'adds a contact to an aspect' do
       contact = alice.contacts.create(:person => eve.person)
-      alice.contacts.stub(:find_or_initialize_by_person_id).and_return(contact)
+      alice.contacts.stub(:find_or_initialize_by).and_return(contact)
 
       lambda {
         alice.share_with(eve.person, alice.aspects.first)
@@ -128,7 +128,7 @@ describe User::Connecting do
     context 'dispatching' do
       it 'dispatches a request on initial request' do
         contact = alice.contacts.new(:person => eve.person)
-        alice.contacts.stub(:find_or_initialize_by_person_id).and_return(contact)
+        alice.contacts.stub(:find_or_initialize_by).and_return(contact)
 
         contact.should_receive(:dispatch_request)
         alice.share_with(eve.person, alice.aspects.first)
@@ -138,7 +138,7 @@ describe User::Connecting do
         eve.share_with(alice.person, eve.aspects.first)
 
         contact = alice.contact_for(eve.person)
-        alice.contacts.stub(:find_or_initialize_by_person_id).and_return(contact)
+        alice.contacts.stub(:find_or_initialize_by).and_return(contact)
 
         contact.should_receive(:dispatch_request)
         alice.share_with(eve.person, alice.aspects.first)
@@ -148,7 +148,7 @@ describe User::Connecting do
         a2 = alice.aspects.create(:name => "two")
 
         contact = alice.contacts.create(:person => eve.person, :receiving => true)
-        alice.contacts.stub(:find_or_initialize_by_person_id).and_return(contact)
+        alice.contacts.stub(:find_or_initialize_by).and_return(contact)
 
         contact.should_not_receive(:dispatch_request)
         alice.share_with(eve.person, a2)

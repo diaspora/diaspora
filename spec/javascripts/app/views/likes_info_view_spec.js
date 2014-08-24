@@ -16,13 +16,13 @@ describe("app.views.LikesInfo", function(){
 
   describe(".render", function(){
     it("displays a the like count if it is above zero", function() {
-      spyOn(this.view.model.interactions, "likesCount").andReturn(3);
+      spyOn(this.view.model.interactions, "likesCount").and.returnValue(3);
       this.view.render();
       expect($(this.view.el).find(".expand_likes").length).toBe(1)
     })
 
     it("does not display the like count if it is zero", function() {
-      spyOn(this.view.model.interactions, "likesCount").andReturn(0);
+      spyOn(this.view.model.interactions, "likesCount").and.returnValue(0);
       this.view.render();
       expect($(this.view.el).html().trim()).toBe("");
     })
@@ -36,7 +36,7 @@ describe("app.views.LikesInfo", function(){
 
   describe("showAvatars", function(){
     beforeEach(function(){
-      spyOn(this.post.interactions, "fetch").andCallThrough()
+      spyOn(this.post.interactions, "fetch").and.callThrough()
     })
 
     it("calls fetch on the model's like collection", function(){

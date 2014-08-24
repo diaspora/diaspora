@@ -31,6 +31,7 @@ Feature: Close account
     And I put in my password in "close_account_password" in the modal window
     And I press "close_account_confirm" in the modal window
     And I confirm the alert
-    Then I sign in as "alice@alice.alice"
+    Then I should be on the new user session page
+    When I sign in as "alice@alice.alice"
     And I am on the home page
     Then I should see "Bob Jones"

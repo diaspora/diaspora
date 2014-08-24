@@ -5,9 +5,9 @@
 class PostsController < ApplicationController
   include PostsHelper
 
-  before_filter :authenticate_user!, :except => [:show, :iframe, :oembed, :interactions]
-  before_filter :set_format_if_malformed_from_status_net, :only => :show
-  before_filter :find_post, :only => [:show, :interactions]
+  before_action :authenticate_user!, :except => [:show, :iframe, :oembed, :interactions]
+  before_action :set_format_if_malformed_from_status_net, :only => :show
+  before_action :find_post, :only => [:show, :interactions]
 
   use_bootstrap_for :show
 

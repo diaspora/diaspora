@@ -36,12 +36,9 @@ module Diaspora
         message << options[:append_after_truncate].to_s
       end
 
-      include ActionView::Helpers::TagHelper
       def escape
         if options[:escape]
-          # TODO: On Rails 4 port change this to ERB::Util.html_escape_once
-          # and remove the include
-          @message = escape_once message
+          @message = ERB::Util.html_escape_once message
 
           # Special case Hex entities since escape_once
           # doesn't catch them.

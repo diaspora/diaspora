@@ -1,5 +1,6 @@
 describe("Locator", function(){
-  navigator.geolocation['getCurrentPosition'] = function(myCallback){
+  navigator.geolocation = {};
+  navigator.geolocation.getCurrentPosition = function(myCallback){
     lat = 1;
     lon = 2;
     position = { coords: { latitude: lat, longitude: lon} }

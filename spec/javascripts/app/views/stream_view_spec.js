@@ -40,20 +40,21 @@ describe("app.views.Stream", function() {
   describe("infScroll", function() {
     // NOTE: inf scroll happens at 500px
     beforeEach(function(){
-      spyOn($.fn, "height").andReturn(0);
-      spyOn($.fn, "scrollTop").andReturn(100);
+      spyOn($.fn, "height").and.returnValue(0);
+      spyOn($.fn, "scrollTop").and.returnValue(100);
       spyOn(this.view.model, "fetch");
 
     });
 
-    it("fetches moar when the user is at the bottom of the page", function() {
-      this.view.infScroll();
+    describe('fetching more', function() {
+      beforeEach(function(done) {
+        this.view.on('loadMore', function() {
+          done();
+        });
+        this.view.infScroll();
+      });
 
-      waitsFor(function(){
-        return this.view.model.fetch.wasCalled
-      }, "the infinite scroll function didn't fetch the stream");
-
-      runs(function(){
+      it("fetches moar when the user is at the bottom of the page", function() {
         expect(this.view.model.fetch).toHaveBeenCalled()
       });
     });

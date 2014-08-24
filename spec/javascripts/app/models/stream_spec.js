@@ -1,55 +1,59 @@
 describe("app.models.Stream", function() {
+  var stream,
+      expectedPath;
+
   beforeEach(function(){
-    this.stream = new app.models.Stream(),
-    this.expectedPath = document.location.pathname;
-  })
+    stream = new app.models.Stream();
+    expectedPath = document.location.pathname;
+  });
 
-  describe(".fetch", function() {
-    var postFetch
-    beforeEach(function(){
-      postFetch = new $.Deferred()
-
-      spyOn(this.stream.items, "fetch").andCallFake(function(){
-        return postFetch
-      })
-    })
-
+  describe("#_fetchOpts", function() {
     it("it fetches posts from the window's url, and ads them to the collection", function() {
-      this.stream.fetch()
-      expect(this.stream.items.fetch).toHaveBeenCalledWith({ remove: false, url: this.expectedPath});
+      expect( stream._fetchOpts() ).toEqual({ remove: false, url: expectedPath});
     });
 
     it("returns the json path with max_time if the collection has models", function() {
-      var post = new app.models.Post();
-      spyOn(post, "createdAt").andReturn(1234);
-      this.stream.add(post);
+      var post = new app.models.Post({created_at: 1234000});
+      stream.add(post);
 
-      this.stream.fetch()
-      expect(this.stream.items.fetch).toHaveBeenCalledWith({ remove: false, url: this.expectedPath + "?max_time=1234"});
+      expect( stream._fetchOpts() ).toEqual({ remove: false, url: expectedPath + "?max_time=1234"});
+    });
+  });
+
+  describe("events", function() {
+    var postFetch,
+        fetchedSpy;
+
+    beforeEach(function(){
+      postFetch = new $.Deferred();
+      fetchedSpy = jasmine.createSpy();
+      spyOn(stream.items, "fetch").and.callFake(function(){
+        return postFetch;
+      });
     });
 
     it("triggers fetched on the stream when it is fetched", function(){
-      var fetchedSpy = jasmine.createSpy()
-      this.stream.bind('fetched', fetchedSpy)
-      this.stream.fetch()
-      postFetch.resolve([1,2,3])
-      expect(fetchedSpy).toHaveBeenCalled()
-    })
+      stream.bind('fetched', fetchedSpy);
+      stream.fetch();
+      postFetch.resolve([1,2,3]);
+
+      expect(fetchedSpy).toHaveBeenCalled();
+    });
 
     it("triggers allItemsLoaded on the stream when zero posts are returned", function(){
-      var fetchedSpy = jasmine.createSpy()
-      this.stream.bind('allItemsLoaded', fetchedSpy)
-      this.stream.fetch()
-      postFetch.resolve([])
-      expect(fetchedSpy).toHaveBeenCalled()
-    })
+      stream.bind('allItemsLoaded', fetchedSpy);
+      stream.fetch();
+      postFetch.resolve([]);
+
+      expect(fetchedSpy).toHaveBeenCalled();
+    });
 
     it("triggers allItemsLoaded on the stream when a Post is returned", function(){
-      var fetchedSpy = jasmine.createSpy()
-      this.stream.bind('allItemsLoaded', fetchedSpy)
-      this.stream.fetch()
-      postFetch.resolve(factory.post().attributes)
-      expect(fetchedSpy).toHaveBeenCalled()
-    })
+      stream.bind('allItemsLoaded', fetchedSpy);
+      stream.fetch();
+      postFetch.resolve(factory.post().attributes);
+
+      expect(fetchedSpy).toHaveBeenCalled();
+    });
   });
 });

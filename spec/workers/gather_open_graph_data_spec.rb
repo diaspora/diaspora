@@ -51,7 +51,7 @@ describe Workers::GatherOpenGraphData do
       ogc.description.should == @ogsite_description
 
       Workers::GatherOpenGraphData.new.perform(@status_message.id, @ogsite_url)
-      OpenGraphCache.count(:conditions => {:url => @ogsite_url}).should == 1
+      OpenGraphCache.where(url: @ogsite_url).count.should == 1
     end
 
     it 'creates no cache entry for unsupported pages' do

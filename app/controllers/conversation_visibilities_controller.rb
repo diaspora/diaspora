@@ -4,7 +4,7 @@
 #
 
 class ConversationVisibilitiesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def destroy
     @vis = ConversationVisibility.where(:person_id => current_user.person.id,

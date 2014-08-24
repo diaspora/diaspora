@@ -144,8 +144,8 @@ class Profile < ActiveRecord::Base
     if @tag_string
       @tag_string
     else
-      rows = connection.select_rows( self.tags.scoped.to_sql )
-      rows.inject(""){|string, row| string << "##{row[1]} " }
+      tags = self.tags.pluck(:name)
+      tags.inject(""){|string, tag| string << "##{tag} " }
     end
   end
 
@@ -186,7 +186,7 @@ class Profile < ActiveRecord::Base
 
   private
   def clearable_fields
-    self.attributes.keys - Profile.protected_attributes.to_a - ["created_at", "updated_at", "person_id"]
+    self.attributes.keys - ["id", "created_at", "updated_at", "person_id"]
   end
 
   def absolutify_local_url url

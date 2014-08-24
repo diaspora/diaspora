@@ -1,7 +1,7 @@
 class Poll < ActiveRecord::Base
   include Diaspora::Federated::Base
   include Diaspora::Guid
-  attr_accessible :question, :poll_answers
+
   belongs_to :status_message
   has_many :poll_answers
   has_many :poll_participations
@@ -14,7 +14,7 @@ class Poll < ActiveRecord::Base
 
   validate :enough_poll_answers
   validates :question, presence: true
-  
+
   self.include_root_in_json = false
 
   def enough_poll_answers

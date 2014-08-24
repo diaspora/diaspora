@@ -1,6 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.19'
+gem 'rails', '4.0.8'
+
+# Legacy Rails features, remove me!
+
+# caches_page
+gem 'actionpack-action_caching'
+gem 'actionpack-page_caching'
 
 # Appserver
 
@@ -18,12 +24,16 @@ gem 'devise_lastseenable', '0.0.4'
 
 # Captcha
 
-gem 'galetahub-simple_captcha', '0.1.5', :require => 'simple_captcha'
+gem 'simple_captcha2', '0.2.1', :require => 'simple_captcha'
 
 # Background processing
 
 gem 'sidekiq', '2.17.7'
 gem 'sinatra', '1.3.3'
+
+# Compression
+
+gem 'uglifier', '2.5.0'
 
 # Configuration
 
@@ -33,6 +43,12 @@ gem 'configurate', '0.0.8'
 
 gem 'rack-cors', '0.2.9', :require => 'rack/cors'
 
+# CSS
+
+gem 'bootstrap-sass', '2.3.2.2'
+gem 'compass-rails',  '2.0.0'
+gem 'sass-rails',     '4.0.3'
+
 # Database
 
 ENV['DB'] ||= 'mysql'
@@ -40,7 +56,7 @@ ENV['DB'] ||= 'mysql'
 gem 'mysql2', '0.3.16' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg',     '0.17.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 
-gem 'activerecord-import', '0.3.1'
+gem 'activerecord-import', '0.5.0'
 gem 'foreigner',           '1.6.1'
 
 # File uploading
@@ -53,11 +69,21 @@ gem 'remotipart',  '1.2.1'
 # GUID generation
 gem 'uuid', '2.3.7'
 
+# Icons
+
+gem 'entypo-rails', '2.2.2'
+
+# JavaScript
+
+gem 'backbone-on-rails', '1.1.1'
+gem 'handlebars_assets', '0.12.0'
+gem 'jquery-rails',      '3.0.4'
+
 # Localization
 
 gem 'http_accept_language', '1.0.2'
 gem 'i18n-inflector-rails', '1.0.7'
-gem 'rails-i18n',           '0.7.4'
+gem 'rails-i18n',           '4.0.2'
 
 # Mail
 
@@ -72,10 +98,6 @@ gem 'redcarpet',        '3.1.2'
 gem 'roxml',            '3.1.6'
 gem 'ruby-oembed',      '0.8.9'
 gem 'opengraph_parser', '0.2.3'
-
-
-# Please remove when migrating to Rails 4
-gem 'strong_parameters', '0.2.3'
 
 
 # Services
@@ -102,7 +124,7 @@ gem 'typhoeus',           '0.6.8'
 
 gem 'gon',                     '5.0.4'
 gem 'haml',                    '4.0.5'
-gem 'mobile-fu',               '1.2.2'
+gem 'mobile-fu',               '1.3.1'
 gem 'will_paginate',           '3.0.5'
 gem 'rails-timeago',           '2.4.0'
 
@@ -110,42 +132,19 @@ gem 'rails-timeago',           '2.4.0'
 # https://github.com/rubyzip/rubyzip#important-note
 gem 'zip-zip'
 
-### GROUPS ####
 
-group :assets do
+# Windows and OSX have an execjs compatible runtime built-in, Linux users should
+# install Node.js or use 'therubyracer'.
+#
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
 
-  # Icons
-  gem 'entypo-rails', '2.2.1'
-
-  # CSS
-
-  gem 'bootstrap-sass', '2.2.2.0'
-  gem 'compass-rails',  '1.1.7'
-  gem 'sass-rails',     '3.2.6'
-
-  # Compression
-
-  gem 'uglifier', '2.5.0'
-
-  # JavaScript
-
-  gem 'backbone-on-rails', '1.1.1'
-  gem 'handlebars_assets', '0.12.0'
-  gem 'jquery-rails',      '3.0.4'
-
-  # Windows and OSX have an execjs compatible runtime built-in, Linux users should
-  # install Node.js or use 'therubyracer'.
-  #
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-
-  # gem 'therubyracer', :platform => :ruby
-end
+# gem 'therubyracer', :platform => :ruby
 
 group :production do # we don't install these on travis to speed up test runs
 
   # Administration
 
-  gem 'rails_admin', '0.4.9'
+  gem 'rails_admin', '0.6.2'
 
   # Analytics
 
@@ -163,7 +162,7 @@ group :production do # we don't install these on travis to speed up test runs
   # Redirects
 
   gem 'rack-rewrite', '1.5.0', :require => false
-  gem 'rack-ssl',     '1.3.3', :require => 'rack/ssl'
+  gem 'rack-ssl',     '1.4.1', :require => 'rack/ssl'
 
   # Third party asset hosting
 
@@ -193,7 +192,7 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem 'capybara',           '2.2.1'
+  gem 'capybara',           '2.4.1'
   gem 'database_cleaner',   '1.3.0'
   gem 'selenium-webdriver', '2.42.0'
 
@@ -213,6 +212,7 @@ group :development, :test do
   gem 'cucumber-rails',     '1.4.1', :require => false
 
   # Jasmine (client side application tests (JS))
-  gem 'jasmine', '1.3.2'
-  gem 'sinon-rails',	    '1.9.0'
+  gem 'jasmine',              '2.0.2'
+  gem 'jasmine-jquery-rails', '2.0.3'
+  gem 'sinon-rails',	      '1.9.0'
 end

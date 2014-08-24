@@ -4,7 +4,7 @@
 
 class CommentsController < ApplicationController
   include ApplicationHelper
-  before_filter :authenticate_user!, :except => [:index]
+  before_action :authenticate_user!, :except => [:index]
 
   respond_to :html,
              :mobile,
@@ -47,7 +47,9 @@ class CommentsController < ApplicationController
   end
 
   def new
-    render :layout => false
+    respond_to do |format|
+      format.mobile { render :layout => false }
+    end
   end
 
   def index

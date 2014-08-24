@@ -90,7 +90,7 @@ describe AspectMembershipsController do
       delete :destroy, :format => :json, :id => membership.id
       response.should be_success
       @aspect1.reload
-      @aspect1.contacts.include?(@contact).should be false
+      @aspect1.contacts.to_a.should_not include @contact
     end
 
     it 'does not 500 on an html request' do
@@ -98,7 +98,7 @@ describe AspectMembershipsController do
       delete :destroy, :id => membership.id
       response.should redirect_to :back
       @aspect1.reload
-      @aspect1.contacts.include?(@contact).should be false
+      @aspect1.contacts.to_a.should_not include @contact
     end
 
     it 'aspect membership does not exist' do

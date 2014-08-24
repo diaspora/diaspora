@@ -139,12 +139,12 @@ describe CommentsController do
     it 'returns all the comments for a post' do
       comments = [alice, bob, eve].map{ |u| u.comment!(@message, "hey") }
 
-      get :index, :post_id => @message.id, :format => 'js'
+      get :index, :post_id => @message.id, :format => :json
       assigns[:comments].map(&:id).should =~ comments.map(&:id)
     end
 
     it 'returns a 404 on a nonexistent post' do
-      get :index, :post_id => 235236, :format => 'js'
+      get :index, :post_id => 235236, :format => :json
       response.status.should == 404
     end
 

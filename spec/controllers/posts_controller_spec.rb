@@ -17,7 +17,7 @@ describe PostsController do
   describe '#show' do
     context 'user signed in' do
       before do
-        sign_in alice
+        sign_in :user, alice
       end
 
       it 'succeeds' do

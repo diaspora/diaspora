@@ -37,7 +37,7 @@ module Diaspora
                   #}
 
                   xml.post_ids {
-                    aspect.posts.find_all_by_author_id(user_person_id).each do |post|
+                    aspect.posts.where(author_id: user_person_id).each do |post|
                       xml.post_id post.id
                     end
                   }
@@ -64,7 +64,7 @@ module Diaspora
             }
 
             xml.posts {
-              user.visible_shareables(Post).find_all_by_author_id(user_person_id).each do |post|
+              user.visible_shareables(Post).where(author_id: user_person_id).each do |post|
                 #post.comments.each do |comment|
                 #  post_doc << comment.to_xml
                 #end

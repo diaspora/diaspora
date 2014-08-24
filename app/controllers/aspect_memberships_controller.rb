@@ -4,7 +4,7 @@
 #
 
 class AspectMembershipsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   respond_to :html, :json
 
@@ -31,7 +31,7 @@ class AspectMembershipsController < ApplicationController
       flash.now[:error] = I18n.t 'aspect_memberships.destroy.failure'
     end
 
-    respond_with do |format|
+    respond_to do |format|
       format.json do
         if success
           render :json => {

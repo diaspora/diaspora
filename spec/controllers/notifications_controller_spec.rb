@@ -14,20 +14,20 @@ describe NotificationsController do
       note = mock_model( Notification )
       Notification.should_receive( :where ).and_return( [note] )
       note.should_receive( :set_read_state ).with( true )
-      get :update, "id" => note.id
+      get :update, "id" => note.id, :format => :json
     end
     it 'marks a notification as read if it is told to' do
       note = mock_model( Notification )
       Notification.should_receive( :where ).and_return( [note] )
       note.should_receive( :set_read_state ).with( true )
-      get :update, "id" => note.id, :set_unread => "false"
+      get :update, "id" => note.id, :set_unread => "false", :format => :json
     end
 
     it 'marks a notification as unread if it is told to' do
       note = mock_model( Notification )
       Notification.should_receive( :where ).and_return( [note] )
       note.should_receive( :set_read_state ).with( false )
-      get :update, "id" => note.id, :set_unread => "true"
+      get :update, "id" => note.id, :set_unread => "true", :format => :json
     end
 
     it 'only lets you read your own notifications' do
@@ -36,7 +36,7 @@ describe NotificationsController do
       FactoryGirl.create(:notification, :recipient => alice)
       note = FactoryGirl.create(:notification, :recipient => user2)
 
-      get :update, "id" => note.id, :set_unread => "false"
+      get :update, "id" => note.id, :set_unread => "false", :format => :json
 
       Notification.find(note.id).unread.should == true
     end
@@ -64,7 +64,7 @@ describe NotificationsController do
       get :index, :format => :mobile
       response.should be_success
     end
-    
+
     it 'paginates the notifications' do
       25.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
       get :index
@@ -76,7 +76,7 @@ describe NotificationsController do
     it "supports a limit per_page parameter" do
       5.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
       get :index, "per_page" => 5
-      assigns[:notifications].count.should == 5 
+      assigns[:notifications].count.should == 5
     end
 
     describe "special case for start sharing notifications" do

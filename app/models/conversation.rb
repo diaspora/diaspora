@@ -10,7 +10,7 @@ class Conversation < ActiveRecord::Base
 
   has_many :conversation_visibilities, :dependent => :destroy
   has_many :participants, :class_name => 'Person', :through => :conversation_visibilities, :source => :person
-  has_many :messages, :order => 'created_at ASC'
+  has_many :messages, -> { order('created_at ASC') }
 
   belongs_to :author, :class_name => 'Person'
 
@@ -36,7 +36,7 @@ class Conversation < ActiveRecord::Base
 
   def first_unread_message(user)
     if visibility = self.conversation_visibilities.where(:person_id => user.person.id).where('unread > 0').first
-      self.messages.all[-visibility.unread]
+      self.messages.to_a[-visibility.unread]
     end
   end
 
@@ -68,10 +68,10 @@ class Conversation < ActiveRecord::Base
   end
 
   def receive(user, person)
-    cnv = Conversation.find_or_create_by_guid(self.attributes)
+    cnv = Conversation.find_or_create_by!(self.attributes)
 
     self.participants.each do |participant|
-      ConversationVisibility.find_or_create_by_conversation_id_and_person_id(cnv.id, participant.id)
+      ConversationVisibility.find_or_create_by(conversation_id: cnv.id, person_id: participant.id)
     end
 
     self.messages.each do |msg|

@@ -47,7 +47,7 @@ module Configuration
           `bundle exec rake generate:secret_token`
         end
         require token_file
-        Rails.application.config.secret_token
+        Diaspora::Application.config.secret_key_base
       end
     end
 

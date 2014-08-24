@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class ContactsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   use_bootstrap_for :index, :spotlight
 

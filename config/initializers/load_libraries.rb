@@ -3,7 +3,6 @@ require 'cgi'
 require 'uri'
 
 # Not auto required gems
-require 'active_support/base64'
 require 'builder/xchar'
 require 'carrierwave/orm/activerecord'
 require 'erb'

@@ -1,13 +1,17 @@
 describe("app.collections.Aspects", function(){
   beforeEach(function(){
-    Diaspora.I18n.load({
-      'and' : "and",
-      'comma' : ",",
-      'my_aspects' : "My Aspects"
-    });
-    var my_aspects = [{ name: 'Work',          selected: true  },
-                      { name: 'Friends',       selected: false },
-                      { name: 'Acquaintances', selected: false }]
+    var locale = {
+      and:        'and',
+      comma:      ',',
+      my_aspects: 'My Aspects'
+    };
+    var my_aspects = [
+      { name: 'Work',          selected: true  },
+      { name: 'Friends',       selected: false },
+      { name: 'Acquaintances', selected: false }
+    ];
+
+    Diaspora.I18n.load(locale);
     this.aspects = new app.collections.Aspects(my_aspects);
   });
 
@@ -44,25 +48,21 @@ describe("app.collections.Aspects", function(){
   describe("#toSentence", function(){
     describe('without aspects', function(){
       beforeEach(function(){
-        this.aspects = new app.collections.Aspects({ name: 'Work', selected: false })
-        spyOn(this.aspects, 'selectedAspects').andCallThrough();
+        this.aspects = new app.collections.Aspects([{ name: 'Work', selected: false }]);
       });
 
       it("returns the name of the aspect", function(){
         expect(this.aspects.toSentence()).toEqual('My Aspects');
-        expect(this.aspects.selectedAspects).toHaveBeenCalled();
       });
     });
 
     describe("with one aspect", function(){
       beforeEach(function(){
-        this.aspects = new app.collections.Aspects({ name: 'Work', selected: true })
-        spyOn(this.aspects, 'selectedAspects').andCallThrough();
+        this.aspects = new app.collections.Aspects([{ name: 'Work', selected: true }]);
       });
 
       it("returns the name of the aspect", function(){
         expect(this.aspects.toSentence()).toEqual('Work');
-        expect(this.aspects.selectedAspects).toHaveBeenCalled();
       });
     });
 
