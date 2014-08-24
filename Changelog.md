@@ -1,4 +1,4 @@
-# Head
+# 0.4.1.0
 
 ## Refactor
 * Port help pages to Bootstrap [#5050](https://github.com/diaspora/diaspora/pull/5050)
