@@ -61,16 +61,16 @@ describe("app.views.Notifications", function(){
       expect(parseInt(badge.text())).toBe(count);
     });
 
-    it('toggles the unread class and changes the link text', function() {
+    it('toggles the unread class and changes the title', function() {
       this.view.updateView(this.readN.data('guid'), this.readN.data('type'), true);
       expect(this.readN.hasClass('unread')).toBeTruethy;
       expect(this.readN.hasClass('read')).toBeFalsy;
-      expect(this.readN.find('.unread-toggle').text()).toContain(Diaspora.I18n.t('notifications.mark_read'));
+      expect(this.readN.find('.unread-toggle .entypo').data('original-title')).toBe(Diaspora.I18n.t('notifications.mark_read'));
 
       this.view.updateView(this.readN.data('guid'), this.readN.data('type'), false);
       expect(this.readN.hasClass('read')).toBeTruethy;
       expect(this.readN.hasClass('unread')).toBeFalsy;
-      expect(this.readN.find('.unread-toggle').text()).toContain(Diaspora.I18n.t('notifications.mark_unread'));
+      expect(this.readN.find('.unread-toggle .entypo').data('original-title')).toBe(Diaspora.I18n.t('notifications.mark_unread'));
     });
   });
 });
