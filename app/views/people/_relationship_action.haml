@@ -3,4 +3,5 @@
   - contact ||= Contact.new(:person => person)
   = aspect_membership_dropdown(contact, person, 'right')
 -else
-  = t('people.person.thats_you')
+  %span.thats_you
+    = t('people.person.thats_you')

@@ -1,6 +1,7 @@
 app.Router = Backbone.Router.extend({
   routes: {
     "help": "help",
+    "contacts": "contacts",
 
     //new hotness
     "posts/:id": "singlePost",
@@ -35,6 +36,10 @@ app.Router = Backbone.Router.extend({
     app.help = new app.views.Help();
     $("#help").prepend(app.help.el);
     app.help.render();
+  },
+
+  contacts: function() {
+    app.contacts = new app.views.Contacts();
   },
 
   singlePost : function(id) {

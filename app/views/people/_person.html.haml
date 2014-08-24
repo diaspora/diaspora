@@ -1,20 +1,13 @@
--#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3 or later.  See
--#   the COPYRIGHT file.
-
-.stream_element{:id => person.id}
-  %div{:style => "float:right;margin-top:2px;"}
+.media.stream_element{:id => person.id}
+  .pull-right
     = render :partial => 'people/relationship_action',
              :locals => { :person => person, :contact => contact,
                           :current_user => current_user }
-
-  .media
-    .img
-      = person_image_link(person)
-
-    .bd
-      =person_link(person)
-
-      .info
-        = Diaspora::Taggable.format_tags(person.profile.tag_string)
-
+  .media-object.pull-left
+    = person_image_link(person)
+  .media-body
+    = person_link(person)
+    .info.diaspora_handle
+      = person.diaspora_handle
+    .info.tags
+      = Diaspora::Taggable.format_tags(person.profile.tag_string)

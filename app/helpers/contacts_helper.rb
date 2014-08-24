@@ -3,7 +3,7 @@ module ContactsHelper
     membership = contact.aspect_memberships.where(:aspect_id => @aspect.id).first unless @aspect.nil?
 
     if membership
-      link_to(content_tag(:div, nil, :class => 'icons-monotone_close_exit_delete'),
+      link_to(content_tag(:i, nil, :class => 'entypo circled-cross'),
         { :controller => "aspect_memberships",
           :action => 'destroy',
           :id => membership.id
@@ -24,12 +24,11 @@ module ContactsHelper
 
   def start_a_conversation_link(aspect, contacts_size)
     suggested_limit = 16
-    conv_opts = { class: "btn conversation_button", rel: "facebox"}
+    conv_opts = { class: "conversation_button", rel: "facebox"}
     conv_opts[:title] = t('.many_people_are_you_sure', suggested_limit: suggested_limit) if contacts_size > suggested_limit
     
     link_to new_conversation_path(aspect_id: aspect.id, name: aspect.name), conv_opts do
-      concat t('.start_a_conversation')
-      concat content_tag(:span, nil, class: "icons-mail")
+      content_tag(:i, nil, :class => 'entypo mail', :title => t('contacts.index.start_a_conversation'))
     end
   end
 end

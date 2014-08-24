@@ -9,8 +9,7 @@
 @import 'sprites';
 
 @import 'new_styles/base';
-@import 'new_styles/viewer_nav';
-@import 'buttons';
+@import 'new_styles/buttons';
 
 /* font overrides */
 @import 'new_styles/typography';
@@ -21,6 +20,9 @@
 @import 'new_styles/landing';
 
 @import 'new_styles/forms';
+
+/* navs */
+@import 'new_styles/navs';
 
 /* profile and settings pages */
 @import 'new_styles/settings';
