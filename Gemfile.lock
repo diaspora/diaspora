@@ -402,7 +402,7 @@ GEM
       rspec-mocks (~> 2.14.0)
     ruby-oembed (0.8.10)
     ruby-progressbar (1.5.1)
-    rubyzip (1.1.4)
+    rubyzip (1.1.6)
     safe_yaml (1.0.3)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -482,7 +482,7 @@ GEM
     will_paginate (3.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
-    zip-zip (0.2)
+    zip-zip (0.3)
       rubyzip (>= 1.0.0)
 
 PLATFORMS
