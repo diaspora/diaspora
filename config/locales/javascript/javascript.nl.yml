@@ -165,7 +165,7 @@ nl:
       seconds: "iets minder dan een minuut"
       suffixAgo: "geleden"
       suffixFromNow: "vanaf nu"
-      wordSeparator: ""
+      wordSeparator: " "
       year: "ongeveer een jaar"
       years: "%d jaar"
     videos:
