@@ -123,7 +123,7 @@ When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect$/ do |aspect
     aspects_dropdown.click
     aspect = find(".dropdown.active .dropdown_list li", text: aspect_name)
     aspect.click
-    aspect.parent.should have_css(".loading")
+    aspect.parent.has_css?(".loading")
     aspect.parent.should_not have_css(".loading")
     aspects_dropdown.click
 end
