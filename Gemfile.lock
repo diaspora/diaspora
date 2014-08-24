@@ -150,10 +150,11 @@ GEM
     fixture_builder (0.3.6)
       activerecord (>= 2)
       activesupport (>= 2)
-    fog (1.22.1)
+    fog (1.23.0)
       fog-brightbox
-      fog-core (~> 1.22)
+      fog-core (~> 1.23)
       fog-json
+      fog-softlayer
       ipaddress (~> 0.5)
       nokogiri (~> 1.5, >= 1.5.11)
     fog-brightbox (0.3.0)
@@ -169,6 +170,9 @@ GEM
       net-ssh (>= 2.1.3)
     fog-json (1.0.0)
       multi_json (~> 1.0)
+    fog-softlayer (0.3.15)
+      fog-core
+      fog-json
     font-awesome-rails (4.0.3.1)
       railties (>= 3.2, < 5.0)
     foreigner (1.6.1)
@@ -503,7 +507,7 @@ DEPENDENCIES
   faraday (= 0.8.9)
   faraday_middleware (= 0.9.0)
   fixture_builder (= 0.3.6)
-  fog (= 1.22.1)
+  fog (= 1.23.0)
   foreigner (= 1.6.1)
   foreman (= 0.62)
   fuubar (= 1.3.3)
