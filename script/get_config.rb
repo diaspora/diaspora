@@ -14,7 +14,6 @@ require 'pathname'
 require 'active_support/core_ext/class/attribute_accessors'
 require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/module/delegation'
-require 'active_support/core_ext/module/method_names'
 
 class Rails
   def self.root
