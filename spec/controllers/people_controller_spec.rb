@@ -118,7 +118,7 @@ describe PeopleController do
 
   describe '#tag_index' do
     it 'works for js' do
-      get :tag_index, :name => 'jellybeans', :format => :js
+      xhr :get, :tag_index, :name => 'jellybeans', :format => :js
       response.should be_success
     end
 
@@ -126,7 +126,7 @@ describe PeopleController do
       f = FactoryGirl.create(:person)
       f.profile.tag_string = "#seeded"
       f.profile.save
-      get :tag_index, :name => 'seeded', :format => :js
+      xhr :get, :tag_index, :name => 'seeded', :format => :js
       assigns[:people].count.should == 1
     end
   end

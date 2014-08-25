@@ -261,7 +261,7 @@ describe ConversationsController do
     end
 
     it 'succeeds with js' do
-      get :show, :id => @conversation.id, :format => :js
+      xhr :get, :show, :id => @conversation.id, :format => :js
       response.should be_success
       assigns[:conversation].should == @conversation
     end

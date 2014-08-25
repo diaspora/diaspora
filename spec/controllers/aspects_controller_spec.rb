@@ -162,7 +162,7 @@ describe AspectsController do
       @alices_aspect_1.contacts_visible = false
       @alices_aspect_1.save
 
-      get :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
+      xhr :get, :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
       @alices_aspect_1.reload.contacts_visible.should be_true
     end
 
@@ -170,7 +170,7 @@ describe AspectsController do
       @alices_aspect_1.contacts_visible = true
       @alices_aspect_1.save
 
-      get :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
+      xhr :get, :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
       @alices_aspect_1.reload.contacts_visible.should be_false
     end
   end
