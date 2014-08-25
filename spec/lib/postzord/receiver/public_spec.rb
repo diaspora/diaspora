@@ -22,7 +22,7 @@ describe Postzord::Receiver::Public do
       bob.destroy
       comment.destroy
       expect{
-        receiver = Postzord::Receiver::Public.new(xml) 
+        receiver = Postzord::Receiver::Public.new(xml)
         receiver.perform!
       }.to change(Comment, :count).by(1)
     end
@@ -61,7 +61,7 @@ describe Postzord::Receiver::Public do
         @receiver.perform!
       end
 
-      it 'enqueues a Workers::ReceiveLocalBatch' do 
+      it 'enqueues a Workers::ReceiveLocalBatch' do
         Workers::ReceiveLocalBatch.should_receive(:perform_async).with(anything, anything, anything)
         @receiver.perform!
       end
@@ -84,13 +84,13 @@ describe Postzord::Receiver::Public do
 
   describe '#recipient_user_ids' do
     it 'calls User.all_sharing_with_person' do
-      User.should_receive(:all_sharing_with_person).and_return(double(:select => []))
+      User.should_receive(:all_sharing_with_person).and_return(double(:pluck => []))
       receiver = Postzord::Receiver::Public.new(@xml)
       receiver.perform!
     end
   end
 
-  describe '#receive_relayable' do 
+  describe '#receive_relayable' do
     before do
       @comment = bob.build_comment(:text => 'yo', :post => FactoryGirl.create(:status_message))
       @comment.save

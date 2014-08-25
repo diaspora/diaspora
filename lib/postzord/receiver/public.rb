@@ -64,7 +64,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   # @return [Array<Integer>] User ids
   def recipient_user_ids
-    User.all_sharing_with_person(@author).select('users.id').map!{ |u| u.id }
+    User.all_sharing_with_person(@author).pluck('users.id')
   end
 
   def xml_author

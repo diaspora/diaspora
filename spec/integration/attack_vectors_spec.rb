@@ -212,7 +212,7 @@ describe "attack vectors" do
         expect {
           receive_post(retraction, :from => alice, :by => bob)
         }.to raise_error Diaspora::AuthorXMLAuthorMismatch
-      }.to_not change(bob.visible_shareables(Post), :count)
+      }.to_not change { bob.visible_shareables(Post).count(:all) }
 
     end
 

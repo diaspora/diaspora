@@ -101,10 +101,10 @@ describe PhotosController do
       response.headers['Content-Type'].should match 'application/json.*'
       save_fixture(response.body, "photos_json")
     end
-    
+
     it 'displays by date of creation' do
       max_time = bob.photos.first.created_at - 1.day
-      get :index, person_id: bob.person.guid.to_s, 
+      get :index, person_id: bob.person.guid.to_s,
                   max_time: max_time.to_i
 
       assigns[:posts].should be_empty
@@ -130,7 +130,7 @@ describe PhotosController do
     end
 
     it 'will let you delete your profile picture' do
-      get :make_profile_photo, :photo_id => @alices_photo.id, :format => :js
+      xhr :get, :make_profile_photo, :photo_id => @alices_photo.id, :format => :js
       delete :destroy, :id => @alices_photo.id
       Photo.find_by_id(@alices_photo.id).should be_nil
     end
@@ -182,7 +182,7 @@ describe PhotosController do
 
   describe "#make_profile_photo" do
     it 'should return a 201 on a js success' do
-      get :make_profile_photo, :photo_id => @alices_photo.id, :format => 'js'
+      xhr :get, :make_profile_photo, :photo_id => @alices_photo.id, :format => 'js'
       response.code.should == "201"
     end
 
