@@ -139,7 +139,7 @@ describe Diaspora::Fetcher::Public do
         public_fetcher.instance_eval {
           @person = FactoryGirl.create(:person, {:fetch_status => Diaspora::Fetcher::Public::Status_Unfetchable})
           qualifies_for_fetching?
-        }.should be_false
+        }.should be false
       end
 
       it 'returns false and sets the person unfetchable for a local account' do
@@ -147,7 +147,7 @@ describe Diaspora::Fetcher::Public do
         public_fetcher.instance_eval {
           @person = user.person
           qualifies_for_fetching?
-        }.should be_false
+        }.should be false
         user.person.fetch_status.should eql Diaspora::Fetcher::Public::Status_Unfetchable
       end
 
@@ -158,7 +158,7 @@ describe Diaspora::Fetcher::Public do
         public_fetcher.instance_eval {
           @person = person
           qualifies_for_fetching?
-        }.should be_false
+        }.should be false
       end
 
       it "returns true, if the user is remote and hasn't been fetched" do
@@ -166,7 +166,7 @@ describe Diaspora::Fetcher::Public do
         public_fetcher.instance_eval {
           @person = person
           qualifies_for_fetching?
-        }.should be_true
+        }.should be true
       end
     end
 
@@ -193,19 +193,19 @@ describe Diaspora::Fetcher::Public do
         public_fetcher.should_receive(:check_public).and_return(true)
         public_fetcher.should_receive(:check_type).and_return(true)
 
-        public_fetcher.instance_eval { validate({}) }.should be_true
+        public_fetcher.instance_eval { validate({}) }.should be true
       end
     end
 
     describe '#check_existing' do
       it 'returns false if a post with the same guid exists' do
         post = {'guid' => FactoryGirl.create(:status_message).guid}
-        public_fetcher.instance_eval { check_existing post }.should be_false
+        public_fetcher.instance_eval { check_existing post }.should be false
       end
 
       it 'returns true if the guid cannot be found' do
         post = {'guid' => SecureRandom.hex(8)}
-        public_fetcher.instance_eval { check_existing post }.should be_true
+        public_fetcher.instance_eval { check_existing post }.should be true
       end
     end
 
@@ -219,36 +219,36 @@ describe Diaspora::Fetcher::Public do
 
       it "returns false if the person doesn't match" do
         post = { 'author' => { 'guid' => SecureRandom.hex(8) } }
-        public_fetcher.instance_eval { check_author post }.should be_false
+        public_fetcher.instance_eval { check_author post }.should be false
       end
 
       it "returns true if the persons match" do
         post = { 'author' => { 'guid' => some_person.guid } }
-        public_fetcher.instance_eval { check_author post }.should be_true
+        public_fetcher.instance_eval { check_author post }.should be true
       end
     end
 
     describe '#check_public' do
       it "returns false if the post is not public" do
         post = {'public' => false}
-        public_fetcher.instance_eval { check_public post }.should be_false
+        public_fetcher.instance_eval { check_public post }.should be false
       end
 
       it "returns true if the post is public" do
         post = {'public' => true}
-        public_fetcher.instance_eval { check_public post }.should be_true
+        public_fetcher.instance_eval { check_public post }.should be true
       end
     end
 
     describe '#check_type' do
       it "returns false if the type is anything other that 'StatusMessage'" do
         post = {'post_type'=>'Reshare'}
-        public_fetcher.instance_eval { check_type post }.should be_false
+        public_fetcher.instance_eval { check_type post }.should be false
       end
 
       it "returns true if the type is 'StatusMessage'" do
         post = {'post_type'=>'StatusMessage'}
-        public_fetcher.instance_eval { check_type post }.should be_true
+        public_fetcher.instance_eval { check_type post }.should be true
       end
     end
   end

@@ -76,6 +76,7 @@ prefork = proc do
 
     config.render_views
     config.use_transactional_fixtures = true
+    config.infer_spec_type_from_file_location!
 
     config.before(:each) do
       I18n.locale = :en

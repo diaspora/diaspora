@@ -43,28 +43,28 @@ describe Stream::Base do
 
     it 'allows me to comment on my local contacts post' do
       post = FactoryGirl.create(:status_message, :author => bob.person)
-      @stream.can_comment?(post).should be_true
+      @stream.can_comment?(post).should be true
     end
 
     it 'allows me to comment on my own post' do
       post = FactoryGirl.create(:status_message, :author => alice.person)
-      @stream.can_comment?(post).should be_true
+      @stream.can_comment?(post).should be true
     end
 
     it 'allows me to comment on any local public post' do
       post = FactoryGirl.create(:status_message, :author => eve.person)
-      @stream.can_comment?(post).should be_true
+      @stream.can_comment?(post).should be true
     end
 
     it 'allows me to comment on a remote contacts post' do
       Contact.create!(:user => @stream.user, :person => @person)
       post = FactoryGirl.create(:status_message, :author => @person)
-      @stream.can_comment?(post).should be_true
+      @stream.can_comment?(post).should be true
     end
 
     it 'returns false if person is remote and not a contact' do
       post = FactoryGirl.create(:status_message, :author => @person)
-      @stream.can_comment?(post).should be_false
+      @stream.can_comment?(post).should be false
     end
   end
 

@@ -28,13 +28,13 @@ describe HomeController do
     it 'changes :mobile to :html' do
       session[:mobile_view] = true
       get :toggle_mobile
-      session[:mobile_view].should be_false
+      session[:mobile_view].should be false
     end
 
     it 'changes :html to :mobile' do
       session[:mobile_view] = nil
       get :toggle_mobile
-      session[:mobile_view].should be_true
+      session[:mobile_view].should be true
     end
   end
 end

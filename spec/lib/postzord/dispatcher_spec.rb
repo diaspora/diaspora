@@ -243,28 +243,28 @@ describe Postzord::Dispatcher do
     describe '#object_should_be_processed_as_public?' do
       it 'returns true with a comment on a public post' do
         f = FactoryGirl.create(:comment, :post => FactoryGirl.build(:status_message, :public => true))
-        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_true
+        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be true
       end
 
       it 'returns false with a comment on a private post' do
         f = FactoryGirl.create(:comment, :post => FactoryGirl.build(:status_message, :public => false))
-        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
+        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be false
       end
 
       it 'returns true with a like on a comment on a public post' do
         f = FactoryGirl.create(:like, :target => FactoryGirl.build(:comment, :post => FactoryGirl.build(:status_message, :public => true)))
-        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_true
+        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be true
       end
 
       it 'returns false with a like on a comment on a private post' do
         f = FactoryGirl.create(:like, :target => FactoryGirl.build(:comment, :post => FactoryGirl.build(:status_message, :public => false)))
-        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
+        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be false
       end
 
       it 'returns false for a relayable_retraction' do
         f = RelayableRetraction.new
         f.target = FactoryGirl.create(:status_message, :public => true)
-        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
+        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be false
       end
     end
 

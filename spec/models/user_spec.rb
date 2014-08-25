@@ -171,13 +171,13 @@ describe User do
     describe 'toggle_hidden_shareable' do
       it 'calls add_hidden_shareable if the key does not exist, and returns true' do
         alice.should_receive(:add_hidden_shareable).with(@sm_class, @sm_id)
-        alice.toggle_hidden_shareable(@sm).should be_true
+        alice.toggle_hidden_shareable(@sm).should be true
       end
 
       it 'calls remove_hidden_shareable if the key exists' do
         alice.should_receive(:remove_hidden_shareable).with(@sm_class, @sm_id)
         alice.add_hidden_shareable(@sm_class, @sm_id)
-        alice.toggle_hidden_shareable(@sm).should be_false
+        alice.toggle_hidden_shareable(@sm).should be false
       end
     end
 
@@ -185,12 +185,12 @@ describe User do
       it 'returns true if the shareable is hidden' do
         post = FactoryGirl.create(:status_message)
         bob.toggle_hidden_shareable(post)
-        bob.is_shareable_hidden?(post).should be_true
+        bob.is_shareable_hidden?(post).should be true
       end
 
       it 'returns false if the shareable is not present' do
         post = FactoryGirl.create(:status_message)
-        bob.is_shareable_hidden?(post).should be_false
+        bob.is_shareable_hidden?(post).should be false
       end
     end
   end
@@ -217,7 +217,7 @@ describe User do
           params[:id] = alice.id
       new_user = User.build(params)
       new_user.save
-      new_user.persisted?.should be_true
+      new_user.persisted?.should be true
       new_user.id.should_not == alice.id
     end
   end
@@ -384,16 +384,16 @@ describe User do
       end
 
       it "does not save" do
-        @user.persisted?.should be_false
-        @user.person.persisted?.should be_false
+        @user.persisted?.should be false
+        @user.person.persisted?.should be false
         User.find_by_username("ohai").should be_nil
       end
 
       it 'saves successfully' do
         @user.should be_valid
-        @user.save.should be_true
-        @user.persisted?.should be_true
-        @user.person.persisted?.should be_true
+        @user.save.should be true
+        @user.persisted?.should be true
+        @user.person.persisted?.should be true
         User.find_by_username("ohai").should == @user
       end
     end
@@ -413,7 +413,7 @@ describe User do
       end
 
       it "does not save" do
-        User.build(@invalid_params).save.should be_false
+        User.build(@invalid_params).save.should be false
       end
 
       it 'does not save a person' do
@@ -474,7 +474,7 @@ describe User do
       expect {
         alice.update_user_preferences({'mentioned' => false})
       }.to change(alice.user_preferences, :count).by(@pref_count-1)
-      alice.reload.disable_mail.should be_false
+      alice.reload.disable_mail.should be false
     end
   end
 
@@ -510,24 +510,24 @@ describe User do
       @params = {:tag_string => '#what #hey'}
       mailman = Postzord::Dispatcher.build(alice, Profile.new)
       Postzord::Dispatcher.should_receive(:build).and_return(mailman)
-      alice.update_profile(@params).should be_true
+      alice.update_profile(@params).should be true
     end
 
     it 'sends a profile to their contacts' do
       mailman = Postzord::Dispatcher.build(alice, Profile.new)
       Postzord::Dispatcher.should_receive(:build).and_return(mailman)
-      alice.update_profile(@params).should be_true
+      alice.update_profile(@params).should be true
     end
 
     it 'updates names' do
-      alice.update_profile(@params).should be_true
+      alice.update_profile(@params).should be true
       alice.reload.profile.first_name.should == 'bob'
     end
 
     it 'updates image_url' do
       params = {:image_url => "http://clown.com"}
 
-      alice.update_profile(params).should be_true
+      alice.update_profile(params).should be true
       alice.reload.profile.image_url.should == "http://clown.com"
     end
 
@@ -542,7 +542,7 @@ describe User do
       end
 
       it 'updates image_url' do
-        alice.update_profile(@params).should be_true
+        alice.update_profile(@params).should be true
         alice.reload
 
         alice.profile.image_url.should =~ Regexp.new(@photo.url(:thumb_large))
@@ -555,7 +555,7 @@ describe User do
         @photo.save!
         @photo.reload
         alice.update_profile(@params).should be true
-        @photo.reload.pending.should be_false
+        @photo.reload.pending.should be false
       end
     end
   end
@@ -662,7 +662,7 @@ describe User do
       end
 
       it 'returns true if they are already in the aspect' do
-        alice.add_contact_to_aspect(@contact, @original_aspect).should be_true
+        alice.add_contact_to_aspect(@contact, @original_aspect).should be true
       end
     end
   end
@@ -690,12 +690,12 @@ describe User do
 
     describe '#liked?' do
       it "returns true if there's a like" do
-        alice.liked?(@message).should be_true
-        bob.liked?(@message).should be_true
+        alice.liked?(@message).should be true
+        bob.liked?(@message).should be true
       end
 
       it "returns false if there's no like" do
-        alice.liked?(@message2).should be_false
+        alice.liked?(@message2).should be false
       end
     end
   end
@@ -939,7 +939,7 @@ describe User do
     describe "#close_account!" do
       it 'locks the user out' do
         @user.close_account!
-        @user.reload.access_locked?.should be_true
+        @user.reload.access_locked?.should be true
       end
 
       it 'creates an account deletion' do

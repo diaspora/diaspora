@@ -16,8 +16,8 @@ describe Person do
   end
 
   it 'does not save automatically' do
-    Person.new.persisted?.should be_false
-    Person.new.profile.persisted?.should be_false
+    Person.new.persisted?.should be false
+    Person.new.profile.persisted?.should be false
   end
 
   context 'scopes' do
@@ -445,13 +445,13 @@ describe Person do
   end
   describe '#has_photos?' do
     it 'returns false if the user has no photos' do
-      alice.person.has_photos?.should be_false
+      alice.person.has_photos?.should be false
     end
 
     it 'returns true if the user has photos' do
       alice.post(:photo, :user_file => uploaded_photo, :to => alice.aspects.first.id)
 
-      alice.person.has_photos?.should be_true
+      alice.person.has_photos?.should be true
     end
   end
 
@@ -514,7 +514,7 @@ describe Person do
   describe '#lock_access!' do
     it 'sets the closed_account flag' do
       @person.lock_access!
-      @person.reload.closed_account.should be_true
+      @person.reload.closed_account.should be true
     end
   end
 

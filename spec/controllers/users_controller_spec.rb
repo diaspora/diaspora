@@ -186,7 +186,7 @@ describe UsersController do
     describe 'getting started' do
       it 'can be reenabled' do
         put :update, user: {getting_started: true}
-        @user.reload.getting_started?.should be_true
+        @user.reload.getting_started?.should be true
       end
     end
   end
@@ -207,7 +207,7 @@ describe UsersController do
     it 'set @email_pref to false when there is a user pref' do
       @user.user_preferences.create(:email_type => 'mentioned')
       get 'edit', :id => @user.id
-      assigns[:email_prefs]['mentioned'].should be_false
+      assigns[:email_prefs]['mentioned'].should be false
     end
 
     it 'does not allow token auth' do

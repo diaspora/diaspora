@@ -209,11 +209,11 @@ describe Contact do
       block = alice.blocks.create(:person => person)
       bad_contact = alice.contacts.create(:person => person)
 
-      bad_contact.send(:not_blocked_user).should be_false
+      bad_contact.send(:not_blocked_user).should be false
     end
 
     it "does not add to errors" do
-      @contact.send(:not_blocked_user).should be_true
+      @contact.send(:not_blocked_user).should be true
     end
   end
 end

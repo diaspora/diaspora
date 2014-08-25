@@ -7,19 +7,19 @@ describe TagFollowing do
   end
 
   it 'validates uniqueness of tag_following scoped through user' do
-    TagFollowing.new(:tag => @tag, :user => alice).valid?.should be_false
+    TagFollowing.new(:tag => @tag, :user => alice).valid?.should be false
   end
 
   it 'allows multiple tag followings for different users' do
-    TagFollowing.new(:tag => @tag, :user => bob).valid?.should be_true
+    TagFollowing.new(:tag => @tag, :user => bob).valid?.should be true
   end
 
   it 'user is following a tag' do
-    TagFollowing.user_is_following?(alice, @tag.name).should be_true
+    TagFollowing.user_is_following?(alice, @tag.name).should be true
   end
 
   it 'user not following a tag' do
-    TagFollowing.user_is_following?(bob, @tag.name).should be_false
+    TagFollowing.user_is_following?(bob, @tag.name).should be false
   end
   
 end

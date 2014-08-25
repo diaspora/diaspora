@@ -34,7 +34,7 @@ describe Stream::Tag do
    end
 
     it 'displays a post with a comment containing the tag search' do
-      pending "this code is way too slow. need to re-implement in a way that doesn't suck"
+      skip "this code is way too slow. need to re-implement in a way that doesn't suck"
       other_post = bob.post(:status_message, :text => "sup y'all", :to => 'all')
       FactoryGirl.create(:comment, :text => "#what", :post => other_post)
       @stream.posts.should == [other_post]

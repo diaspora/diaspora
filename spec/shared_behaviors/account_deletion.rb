@@ -22,7 +22,7 @@ shared_examples_for 'it removes the person associations' do
   end
 
   it 'sets the person object as closed and the profile is cleared' do
-    @person.reload.closed_account.should  be_true
+    @person.reload.closed_account.should  be true
 
     @person.profile.reload.first_name.should  be_blank
     @person.profile.reload.last_name.should  be_blank

@@ -19,7 +19,7 @@ describe Reshare do
   end
 
   it 'forces public' do
-    FactoryGirl.create(:reshare, :public => false).public.should be_true
+    FactoryGirl.create(:reshare, :public => false).public.should be true
   end
 
   describe "#receive" do
@@ -58,8 +58,8 @@ describe Reshare do
     end
 
     it 'deletates #nsfw to the root post' do
-      @sfw_reshare.nsfw.should_not be_true
-      @nsfw_reshare.nsfw.should be_true
+      @sfw_reshare.nsfw.should_not be true
+      @nsfw_reshare.nsfw.should be_truthy
     end
   end
 

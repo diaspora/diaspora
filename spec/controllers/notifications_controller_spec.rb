@@ -11,20 +11,21 @@ describe NotificationsController do
 
   describe '#update' do
     it 'marks a notification as read if it gets no other information' do
-      note = mock_model( Notification )
+      note = FactoryGirl.create(:notification)
       Notification.should_receive( :where ).and_return( [note] )
       note.should_receive( :set_read_state ).with( true )
       get :update, "id" => note.id, :format => :json
     end
+
     it 'marks a notification as read if it is told to' do
-      note = mock_model( Notification )
+      note = FactoryGirl.create(:notification)
       Notification.should_receive( :where ).and_return( [note] )
       note.should_receive( :set_read_state ).with( true )
       get :update, "id" => note.id, :set_unread => "false", :format => :json
     end
 
     it 'marks a notification as unread if it is told to' do
-      note = mock_model( Notification )
+      note = FactoryGirl.create(:notification)
       Notification.should_receive( :where ).and_return( [note] )
       note.should_receive( :set_read_state ).with( false )
       get :update, "id" => note.id, :set_unread => "true", :format => :json

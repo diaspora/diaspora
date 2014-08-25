@@ -16,13 +16,13 @@ describe GettingStartedHelper do
     it 'returns true if the current user has completed getting started' do
       @current_user.getting_started = false
       @current_user.save
-      has_completed_getting_started?.should be_true
+      has_completed_getting_started?.should be true
     end
 
     it 'returns false if the current user has not completed getting started' do
       @current_user.getting_started = true
       @current_user.save
-      has_completed_getting_started?.should be_false
+      has_completed_getting_started?.should be false
     end
   end
 end

@@ -41,25 +41,25 @@ describe ApplicationController do
       request.format = :html
       session[:mobile_view] = true
       get :index
-      request.format.mobile?.should be_true
+      request.format.mobile?.should be true
     end
 
     it 'uses :html for :tablets' do
       request.format = :tablet
       session[:tablet_view] = true
       get :index
-      request.format.html?.should be_true
+      request.format.html?.should be true
     end
 
     it "doesn't mess up other formats, like json" do
       get :index, :format => 'json'
-      request.format.json?.should be_true
+      request.format.json?.should be true
     end
 
     it "doesn't mess up other formats, like xml, even with :mobile session" do
       session[:mobile_view] = true
       get :index, :format => 'xml'
-      request.format.xml?.should be_true
+      request.format.xml?.should be true
     end
   end
 

@@ -100,7 +100,7 @@ describe Conversation do
         }.should change(ConversationVisibility, :count).by(@participant_ids.size)
       end
       it 'does not save before receive' do
-        Diaspora::Parser.from_xml(@xml).persisted?.should be_false
+        Diaspora::Parser.from_xml(@xml).persisted?.should be false
       end
       it 'notifies for the message' do
         Notification.should_receive(:notify).once

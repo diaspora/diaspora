@@ -430,35 +430,35 @@ describe PeopleController do
 
   describe '#diaspora_id?' do
     it 'returns true for pods on urls' do
-      @controller.send(:diaspora_id?, "ilya_123@pod.geraspora.de").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@pod.geraspora.de").should be true
     end
 
     it 'returns true for pods on urls with port' do
-      @controller.send(:diaspora_id?, "ilya_123@pod.geraspora.de:12314").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@pod.geraspora.de:12314").should be true
     end
 
     it 'returns true for pods on localhost' do
-      @controller.send(:diaspora_id?, "ilya_123@localhost").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@localhost").should be true
     end
 
     it 'returns true for pods on localhost and port' do
-      @controller.send(:diaspora_id?, "ilya_123@localhost:1234").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@localhost:1234").should be true
     end
 
     it 'returns true for pods on ip' do
-      @controller.send(:diaspora_id?, "ilya_123@1.1.1.1").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@1.1.1.1").should be true
     end
 
     it 'returns true for pods on ip and port' do
-      @controller.send(:diaspora_id?, "ilya_123@1.2.3.4:1234").should be_true
+      @controller.send(:diaspora_id?, "ilya_123@1.2.3.4:1234").should be true
     end
 
     it 'returns false for pods on with invalid url characters' do
-      @controller.send(:diaspora_id?, "ilya_123@join_diaspora.com").should be_false
+      @controller.send(:diaspora_id?, "ilya_123@join_diaspora.com").should be false
     end
 
     it 'returns false for invalid usernames' do
-      @controller.send(:diaspora_id?, "ilya_2%3@joindiaspora.com").should be_false
+      @controller.send(:diaspora_id?, "ilya_2%3@joindiaspora.com").should be false
     end
   end
 end
