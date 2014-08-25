@@ -1,0 +1,54 @@
+mysql: &mysql
+  adapter: mysql2
+  host: "localhost"
+  port: 3306
+  username: "root"
+  password: ""
+#  socket: /tmp/mysql.sock
+  charset: utf8
+  collation: utf8_bin
+
+postgres: &postgres
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  username: postgres
+  password:
+  encoding: unicode
+
+# Comment the the mysql line and uncomment the postgres line
+# if you want to use postgres
+common: &common
+  # Choose one of the following
+  <<: *mysql
+  #<<: *postgres
+
+  # Should match environment.sidekiq.concurrency
+  #pool: 25
+  
+##################################################
+#### CONFIGURE ABOVE #############################
+##################################################
+
+# Normally you don't need to touch anything here
+
+postgres_travis: &postgres_travis
+  adapter: postgresql
+  username: postgres
+combined: &combined
+  <<: *common
+development:
+  <<: *combined
+  database: diaspora_development
+production:
+  <<: *combined
+  database: diaspora_production
+test:
+  <<: *combined
+  database: "diaspora_test"
+integration1:
+  <<: *combined
+  database: diaspora_integration1
+integration2:
+  <<: *combined
+  database: diaspora_integration2
