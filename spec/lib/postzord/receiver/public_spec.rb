@@ -61,7 +61,7 @@ describe Postzord::Receiver::Public do
         @receiver.perform!
       end
 
-      it 'enqueues a Workers::ReceiveLocalBatch' do 
+      it 'enqueues a Workers::ReceiveLocalBatch' do
         expect(Workers::ReceiveLocalBatch).to receive(:perform_async).with(anything, anything, anything)
         @receiver.perform!
       end
