@@ -39,7 +39,7 @@ describe 'locale files' do
       describe file do
         it "has no syntax errors if it exists" do
           file = Rails.root.join("config", "locales", file)
-          pending "Not yet available" unless File.exists? file
+          skip "Not yet available" unless File.exists? file
           expect {
             YAML.load_file file
           }.to_not raise_error

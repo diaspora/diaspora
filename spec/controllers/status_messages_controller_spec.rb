@@ -195,8 +195,8 @@ describe StatusMessagesController do
           post :create, @hash
         end
 
-        @photo1.reload.pending.should be_false
-        @photo2.reload.pending.should be_false
+        @photo1.reload.pending.should be false
+        @photo2.reload.pending.should be false
       end
     end
   end

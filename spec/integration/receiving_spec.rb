@@ -227,11 +227,9 @@ describe 'a user receives a post' do
 
         m = double()
         Webfinger.should_receive(:new).twice.with(eve.person.diaspora_handle).and_return(m)
-        m.should_receive(:fetch).twice.and_return{
-          remote_person.save(:validate => false)
-          remote_person.profile = FactoryGirl.create(:profile, :person => remote_person)
-          remote_person
-        }
+        remote_person.save(:validate => false)
+        remote_person.profile = FactoryGirl.create(:profile, :person => remote_person)
+        m.should_receive(:fetch).twice.and_return(remote_person)
 
         bob.reload.visible_shareables(Post).size.should == 1
         post_in_db = StatusMessage.find(@post.id)
@@ -307,7 +305,7 @@ describe 'a user receives a post' do
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
       zord.perform!
 
-      bob.visible_shareables(Post).include?(post).should be_true
+      bob.visible_shareables(Post).include?(post).should be true
     end
   end
 

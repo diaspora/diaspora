@@ -45,12 +45,12 @@ describe ApplicationHelper do
 
     it 'returns true if all networks are connected' do
       3.times { |t| @current_user.services << FactoryGirl.build(:service) }
-      all_services_connected?.should be_true
+      all_services_connected?.should be true
     end
 
     it 'returns false if not all networks are connected' do
       @current_user.services.delete_all
-      all_services_connected?.should be_false
+      all_services_connected?.should be false
     end
   end
 

@@ -39,8 +39,8 @@ describe 'mentioning' do
 
   # see: https://github.com/diaspora/diaspora/issues/4160
   it 'only mentions people that are in the target aspect' do
-    users_connected?(@user1, @user2).should be_true
-    users_connected?(@user1, @user3).should be_false
+    users_connected?(@user1, @user2).should be true
+    users_connected?(@user1, @user3).should be false
 
     status_msg = nil
     lambda do
@@ -48,7 +48,7 @@ describe 'mentioning' do
     end.should change(Post, :count).by(1)
 
     status_msg.should_not be_nil
-    status_msg.public?.should be_false
+    status_msg.public?.should be false
     status_msg.text.should include(@user3.name)
 
     notifications_about_mentioning(@user3).should be_empty

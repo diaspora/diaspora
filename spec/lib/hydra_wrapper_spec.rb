@@ -78,7 +78,7 @@ describe HydraWrapper do
   describe '#redirecting_to_https?!' do
     it 'does not execute unless response has a 3xx code' do
       resp = double code: 200
-      @wrapper.send(:redirecting_to_https?, resp).should be_false
+      @wrapper.send(:redirecting_to_https?, resp).should be false
     end
 
     it "returns true if just the protocol is different" do
@@ -91,7 +91,7 @@ describe HydraWrapper do
         }
       )
 
-      @wrapper.send(:redirecting_to_https?, resp).should be_true
+      @wrapper.send(:redirecting_to_https?, resp).should be true
     end
 
     it "returns false if not just the protocol is different" do
@@ -104,7 +104,7 @@ describe HydraWrapper do
         }
       )
 
-      @wrapper.send(:redirecting_to_https?, resp).should be_false
+      @wrapper.send(:redirecting_to_https?, resp).should be false
     end
   end
 end

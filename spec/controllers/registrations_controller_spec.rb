@@ -70,7 +70,7 @@ describe RegistrationsController do
 
       it "assigns @user" do
         get :create, @valid_params
-        assigns(:user).should be_true
+        assigns(:user).should be_truthy
       end
 
       it "sets the flash" do

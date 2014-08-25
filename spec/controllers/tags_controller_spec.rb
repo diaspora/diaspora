@@ -92,11 +92,11 @@ describe TagsController do
 
       it 'returns true if the following already exists and should be case insensitive' do
         TagFollowing.create!(:tag => @tag, :user => bob )
-        @controller.send(:tag_followed?).should be_true
+        @controller.send(:tag_followed?).should be true
       end
 
       it 'returns false if the following does not already exist' do
-        @controller.send(:tag_followed?).should be_false
+        @controller.send(:tag_followed?).should be false
       end
     end
   end

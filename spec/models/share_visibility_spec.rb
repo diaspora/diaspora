@@ -14,7 +14,7 @@ describe ShareVisibility do
     it 'returns false if share is public' do
       @post.public = true
       @post.save
-      ShareVisibility.batch_import([@contact.id], @post).should be_false
+      ShareVisibility.batch_import([@contact.id], @post).should be false
     end
 
     it 'creates a visibility for each user' do

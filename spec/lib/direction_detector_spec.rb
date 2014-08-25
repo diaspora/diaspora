@@ -26,65 +26,65 @@ describe String do
 
   describe "#stats_with_rtl_char?" do
     it 'returns true or false correctly' do
-      english.starts_with_rtl_char?.should be_false
-      chinese.starts_with_rtl_char?.should be_false
-      arabic.starts_with_rtl_char?.should be_true
-      hebrew.starts_with_rtl_char?.should be_true
-      hebrew_arabic.starts_with_rtl_char?.should be_true
+      english.starts_with_rtl_char?.should be false
+      chinese.starts_with_rtl_char?.should be false
+      arabic.starts_with_rtl_char?.should be true
+      hebrew.starts_with_rtl_char?.should be true
+      hebrew_arabic.starts_with_rtl_char?.should be true
     end
 
     it 'only looks at the first char' do
-      english_chinese.starts_with_rtl_char?.should be_false
-      chinese_english.starts_with_rtl_char?.should be_false
-      english_arabic.starts_with_rtl_char?.should be_false
-      hebrew_english.starts_with_rtl_char?.should be_true
-      arabic_chinese.starts_with_rtl_char?.should be_true
+      english_chinese.starts_with_rtl_char?.should be false
+      chinese_english.starts_with_rtl_char?.should be false
+      english_arabic.starts_with_rtl_char?.should be false
+      hebrew_english.starts_with_rtl_char?.should be true
+      arabic_chinese.starts_with_rtl_char?.should be true
     end
     
     it 'ignores whitespaces' do
-      " \n \r \t".starts_with_rtl_char?.should be_false
-      " #{arabic} ".starts_with_rtl_char?.should be_true
+      " \n \r \t".starts_with_rtl_char?.should be false
+      " #{arabic} ".starts_with_rtl_char?.should be true
     end
   end
 
   describe "#is_rtl?" do
     it 'returns true or false correctly' do
-      english.is_rtl?.should be_false
-      chinese.is_rtl?.should be_false
-      arabic.is_rtl?.should be_true
-      hebrew.is_rtl?.should be_true
+      english.is_rtl?.should be false
+      chinese.is_rtl?.should be false
+      arabic.is_rtl?.should be true
+      hebrew.is_rtl?.should be true
     end
 
     it 'respects all words' do
-      chinese_arabic.is_rtl?.should be_true
-      chinese_hebrew.is_rtl?.should be_true
-      english_hebrew.is_rtl?.should be_false
-      hebrew_arabic.is_rtl?.should be_true
-      "#{english} #{arabic} #{chinese}".is_rtl?.should be_false
-      "Translated to arabic, Hello World means: #{arabic}".is_rtl?.should be_false
-      "#{english} #{arabic} #{arabic}".is_rtl?.should be_true
+      chinese_arabic.is_rtl?.should be true
+      chinese_hebrew.is_rtl?.should be true
+      english_hebrew.is_rtl?.should be false
+      hebrew_arabic.is_rtl?.should be true
+      "#{english} #{arabic} #{chinese}".is_rtl?.should be false
+      "Translated to arabic, Hello World means: #{arabic}".is_rtl?.should be false
+      "#{english} #{arabic} #{arabic}".is_rtl?.should be true
     end
 
     it "fallbacks to the first word if there's no majority" do
-      hebrew_english.is_rtl?.should be_true
-      english_hebrew.is_rtl?.should be_false
-      arabic_english.is_rtl?.should be_true
-      english_arabic.is_rtl?.should be_false
+      hebrew_english.is_rtl?.should be true
+      english_hebrew.is_rtl?.should be false
+      arabic_english.is_rtl?.should be true
+      english_arabic.is_rtl?.should be false
     end
 
     it 'ignores whitespaces' do
-      " \n \r \t".is_rtl?.should be_false
-      " #{arabic} ".is_rtl?.should be_true
+      " \n \r \t".is_rtl?.should be false
+      " #{arabic} ".is_rtl?.should be true
     end
   end
 
   describe '#cleaned_is_rtl?' do
     it 'should clean the string' do
-      "RT: #{arabic}".cleaned_is_rtl?.should be_true
-      "#{hebrew} RT: #{arabic}".cleaned_is_rtl?.should be_true
-      "@foo #{arabic}".cleaned_is_rtl?.should be_true 
-      "#{hebrew} #example".cleaned_is_rtl?.should be_true 
-      "♺: #{arabic} ♻: #{hebrew}".cleaned_is_rtl?.should be_true 
+      "RT: #{arabic}".cleaned_is_rtl?.should be true
+      "#{hebrew} RT: #{arabic}".cleaned_is_rtl?.should be true
+      "@foo #{arabic}".cleaned_is_rtl?.should be true
+      "#{hebrew} #example".cleaned_is_rtl?.should be true
+      "♺: #{arabic} ♻: #{hebrew}".cleaned_is_rtl?.should be true
     end
   end
 end

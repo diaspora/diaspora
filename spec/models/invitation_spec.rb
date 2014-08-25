@@ -58,7 +58,7 @@ describe Invitation do
     it 'returns an array of invites based on the emails passed in' do
       invites = Invitation.batch_invite(@emails, @opts)
       invites.count.should be 2
-      invites.all?{|x| x.persisted?}.should be_true
+      invites.all?{|x| x.persisted?}.should be true
     end
 
     it 'shares with people who are already on the pod' do

@@ -25,7 +25,7 @@ describe EvilQuery::Participation do
   end
 
   it "should include your statusMessages" do
-    pending
+    skip
   end
 
   describe "ordering" do

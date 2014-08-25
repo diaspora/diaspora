@@ -59,7 +59,7 @@ describe Like do
       @xml = @like.to_xml.to_s
     end
     it 'serializes the sender handle' do
-      @xml.include?(@liker.diaspora_handle).should be_true
+      @xml.include?(@liker.diaspora_handle).should be true
     end
     it' serializes the post_guid' do
       @xml.should include(@post.guid)

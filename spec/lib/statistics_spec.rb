@@ -156,7 +156,7 @@ describe Statistics do
 
   context 'todos' do
     before do
-      pending
+      skip
     end
 
     # requires a threshold

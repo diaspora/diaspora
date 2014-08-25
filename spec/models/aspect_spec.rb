@@ -37,7 +37,7 @@ describe Aspect do
     end
 
     it 'has a contacts_visible? method' do
-      alice.aspects.first.contacts_visible?.should be_true
+      alice.aspects.first.contacts_visible?.should be true
     end
   end
 

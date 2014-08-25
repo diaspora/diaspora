@@ -28,11 +28,11 @@ shared_examples_for "it is relayable" do
 
         it "is invalid" do
           @relayable.should_not be_valid
-          @relayable.should have(1).error_on(:author_id)
+          @relayable.errors[:author_id].size.should == 1
         end
 
         it "sends a retraction for the object" do
-          pending 'need to figure out how to test this'
+          skip 'need to figure out how to test this'
           RelayableRetraction.should_receive(:build)
           Postzord::Dispatcher.should_receive(:build)
           @relayable.valid?
@@ -58,26 +58,26 @@ shared_examples_for "it is relayable" do
   context 'encryption' do
     describe '#parent_author_signature' do
       it 'should sign the object if the user is the post author' do
-        @object_by_parent_author.verify_parent_author_signature.should be_true
+        @object_by_parent_author.verify_parent_author_signature.should be true
       end
 
       it 'does not sign as the parent author is not parent' do
         @object_by_recipient.author_signature = @object_by_recipient.send(:sign_with_key, @local_leia.encryption_key)
-        @object_by_recipient.verify_parent_author_signature.should be_false
+        @object_by_recipient.verify_parent_author_signature.should be false
       end
 
       it 'should verify a object made on a remote post by a different contact' do
         @object_by_recipient.author_signature = @object_by_recipient.send(:sign_with_key, @local_leia.encryption_key)
         @object_by_recipient.parent_author_signature = @object_by_recipient.send(:sign_with_key, @local_luke.encryption_key)
-        @object_by_recipient.verify_parent_author_signature.should be_true
+        @object_by_recipient.verify_parent_author_signature.should be true
       end
     end
 
     describe '#author_signature' do
       it 'should sign as the object author' do
-        @object_on_remote_parent.signature_valid?.should be_true
-        @object_by_parent_author.signature_valid?.should be_true
-        @object_by_recipient.signature_valid?.should be_true
+        @object_on_remote_parent.signature_valid?.should be true
+        @object_by_parent_author.signature_valid?.should be true
+        @object_by_recipient.signature_valid?.should be true
       end
     end
   end

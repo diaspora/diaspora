@@ -64,8 +64,8 @@ describe Photo do
 
     context "with user file" do
       it 'builds the photo without saving' do
-        @photo.created_at.nil?.should be_true
-        @photo.unprocessed_image.read.nil?.should be_false
+        @photo.created_at.nil?.should be true
+        @photo.unprocessed_image.read.nil?.should be false
       end
     end
 
@@ -117,7 +117,7 @@ describe Photo do
     end
     it 'should have text' do
       @photo.text= "cool story, bro"
-      @photo.save.should be_true
+      @photo.save.should be true
     end
 
     it 'should remove its reference in user profile if it is referred' do

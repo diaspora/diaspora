@@ -9,7 +9,7 @@ describe Pod do
 
     it 'sets ssl boolean(side-effect)' do
       pod = Pod.find_or_create_by(url: 'https://joindiaspora.com/maxwell')
-      pod.ssl.should be_true
+      pod.ssl.should be true
     end
   end
 end
