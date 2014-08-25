@@ -151,6 +151,11 @@ body > header {
         text-align: center;
         padding: 15px;
       }
+      .notifications{
+        overflow: hidden;
+        position: relative;
+        max-height: 325px;
+      }
 
       .notification_element {
         border-bottom: 1px solid $border-grey;
@@ -169,12 +174,16 @@ body > header {
         }
 
         .unread-toggle {
-          padding: 9px 5px;
+          padding: 9px 9px;
+          position: relative;
           .entypo {
             cursor: pointer;
             color: lighten($black,75%);
             font-size: 17px;
             line-height: 17px;
+          }
+          .tooltip {
+            position: fixed;
           }
         }
 

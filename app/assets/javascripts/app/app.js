@@ -12,6 +12,8 @@
 //= require_tree ./collections
 //= require_tree ./views
 
+//= require perfect-scrollbar
+
 var app = {
   collections: {},
   models: {},
