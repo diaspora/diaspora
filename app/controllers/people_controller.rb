@@ -92,7 +92,7 @@ class PeopleController < ApplicationController
         @block = current_user.blocks.where(:person_id => @person.id).first
         @contact = current_user.contact_for(@person)
         if @contact && !params[:only_posts]
-          @contacts_of_contact_count = @contact.contacts.count
+          @contacts_of_contact_count = @contact.contacts.count(:all)
           @contacts_of_contact = @contact.contacts.limit(8)
         else
           @contact ||= Contact.new
@@ -147,7 +147,7 @@ class PeopleController < ApplicationController
       @contact = current_user.contact_for(@person)
       @aspect = :profile
       @contacts_of_contact = @contact.contacts.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
-      @contacts_of_contact_count = @contact.contacts.count
+      @contacts_of_contact_count = @contact.contacts.count(:all)
       @hashes = hashes_for_people @contacts_of_contact, @aspects
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'

@@ -61,7 +61,7 @@
             %h4
               = t('.photos')
               .item_count
-                = "#{@photos.count}"
+                = "#{@photos.count(:all)}"
             - @photos.limit(8).each do |photo|
               = image_tag(photo.url(:thumb_small))
             %br

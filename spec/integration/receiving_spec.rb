@@ -51,7 +51,11 @@ describe 'a user receives a post', :type => :request do
       bob.dispatch_post(sm, :to => @bobs_aspect)
     end
 
+<<<<<<< HEAD
     expect(alice.visible_shareables(Post).count).to eq(1)
+=======
+    alice.visible_shareables(Post).count(:all).should == 1
+>>>>>>> develop
   end
 
   context 'with mentions, ' do
@@ -257,7 +261,7 @@ describe 'a user receives a post', :type => :request do
         inlined_jobs do
           @comment = bob.comment!(@post, 'tada')
           @xml = @comment.to_diaspora_xml
-            
+
           expect {
             receive_with_zord(alice, bob.person, @xml)
           }.to_not raise_exception
@@ -360,7 +364,6 @@ describe 'a user receives a post', :type => :request do
 
     #Build xml for profile
     xml = new_profile.to_diaspora_xml
-
     #Marshal profile
     zord = Postzord::Receiver::Private.new(alice, :person => person)
     zord.parse_and_receive(xml)

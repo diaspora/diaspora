@@ -111,7 +111,7 @@ describe User::Querying, :type => :model do
   describe "#visible_shareables" do
     it 'never contains posts from people not in your aspects' do
       FactoryGirl.create(:status_message, :public => true)
-      expect(bob.visible_shareables(Post).count).to eq(0)
+      expect(bob.visible_shareables(Post).count(:all)).to eq(0)
     end
 
     context 'with two posts with the same timestamp' do

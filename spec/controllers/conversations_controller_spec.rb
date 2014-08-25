@@ -261,9 +261,15 @@ describe ConversationsController, :type => :controller do
     end
 
     it 'succeeds with js' do
+<<<<<<< HEAD
       get :show, :id => @conversation.id, :format => :js
       expect(response).to be_success
       expect(assigns[:conversation]).to eq(@conversation)
+=======
+      xhr :get, :show, :id => @conversation.id, :format => :js
+      response.should be_success
+      assigns[:conversation].should == @conversation
+>>>>>>> develop
     end
 
     it 'succeeds with json' do
