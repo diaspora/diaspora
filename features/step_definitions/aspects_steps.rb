@@ -6,12 +6,12 @@ module AspectCukeHelpers
   def toggle_aspect(a_name)
     a_id = @me.aspects.where(name: a_name).pluck(:id).first
     aspect_css = ".dropdown li[data-aspect_id='#{a_id}']"
-    page.should have_selector(aspect_css)
+    expect(page).to have_selector(aspect_css)
     find(aspect_css).click
   end
 
   def aspect_dropdown_visible?
-    find('.aspect_membership.dropdown.active').should be_visible
+    expect(find('.aspect_membership.dropdown.active')).to be_visible
   end
 end
 World(AspectCukeHelpers)
