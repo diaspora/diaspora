@@ -33,7 +33,7 @@ module AspectGlobalHelper
     klass = am_id.present? ? "selected" : ""
 
     str = <<LISTITEM
-<li data-aspect_id="#{aspect.id}" data-membership_id="#{am_id}" class="#{klass} aspect_selector">
+<li data-aspect_id="#{aspect.id}" data-membership_id="#{am_id}" class="#{klass} aspect_selector" tabindex="0">
   #{aspect.name}
 </li>
 LISTITEM

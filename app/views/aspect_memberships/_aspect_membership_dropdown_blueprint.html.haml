@@ -1,5 +1,5 @@
 .dropdown{:class => ["hang_#{hang}", defined?(dropdown_class) && dropdown_class]}
-  .button.toggle{:class => ("in_aspects" if selected_aspects.size > 0)}
+  .button.toggle{:class => ("in_aspects" if selected_aspects.size > 0), :tabindex => '0'}
     - if selected_aspects.size == all_aspects.size
       = t('all_aspects')
     - elsif selected_aspects.size == 1
