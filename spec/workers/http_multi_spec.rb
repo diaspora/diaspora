@@ -132,8 +132,7 @@ describe Workers::HttpMulti do
     person.serialized_public_key = "-----BEGIN RSA PUBLIC KEY-----\nPsych!\n-----END RSA PUBLIC KEY-----"
     person.save
 
-    # Should be possible to drop when converting should_receive to expect(...).to
-    RSpec::Mocks.proxy_for(Salmon::EncryptedSlap).reset
+    allow(@salmon).to receive(:xml_for).and_call_original
 
     Typhoeus.stub(person.receive_url).and_return @response
     Typhoeus.stub(@people[1].receive_url).and_return @response
