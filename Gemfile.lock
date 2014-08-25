@@ -214,7 +214,7 @@ GEM
       tilt
     hashie (2.1.2)
     hike (1.2.3)
-    http_accept_language (1.0.2)
+    http_accept_language (2.0.2)
     i18n (0.6.11)
     i18n-inflector (2.6.7)
       i18n (>= 0.4.1)
@@ -522,7 +522,7 @@ DEPENDENCIES
   guard-spork (= 1.5.1)
   haml (= 4.0.5)
   handlebars_assets (= 0.12.0)
-  http_accept_language (= 1.0.2)
+  http_accept_language (= 2.0.2)
   i18n-inflector-rails (= 1.0.7)
   jasmine (= 2.0.2)
   jasmine-jquery-rails (= 2.0.3)
