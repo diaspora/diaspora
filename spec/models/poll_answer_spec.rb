@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PollAnswer do
+describe PollAnswer, :type => :model do
   before do
     @status = FactoryGirl.create(:status_message_with_poll)
     @user = alice
@@ -9,9 +9,9 @@ describe PollAnswer do
 
   describe 'counter cache' do
     it 'increments the counter cache on the answer' do
-      lambda {
+      expect {
         alice.participate_in_poll!(@status, @answer)
-      }.should change{
+      }.to change{
         @answer.reload.vote_count
       }.by(1)
     end
@@ -22,12 +22,12 @@ describe PollAnswer do
     it 'should validate pressence of answer' do
       answer = PollAnswer.new
       answer.valid?
-      answer.errors.should have_key(:answer)
+      expect(answer.errors).to have_key(:answer)
     end
     it 'answer should not empty' do
       answer = PollAnswer.new answer: '  '
       answer.valid?
-      answer.errors.should have_key(:answer)
+      expect(answer.errors).to have_key(:answer)
     end
   end
 

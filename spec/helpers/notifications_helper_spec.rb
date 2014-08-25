@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe NotificationsHelper do
+describe NotificationsHelper, :type => :helper do
   include ApplicationHelper
 
   before do
@@ -38,28 +38,28 @@ describe NotificationsHelper do
       end
 
       it 'with two, does not comma seperate two actors' do
-        @note.stub(:actors).and_return([@max, @sarah])
-        output.scan(/,/).should be_empty
-        output.scan(/and/).count.should be 1
+        allow(@note).to receive(:actors).and_return([@max, @sarah])
+        expect(output.scan(/,/)).to be_empty
+        expect(output.scan(/and/).count).to be 1
       end
 
       it 'with three, comma seperates the first two, and and the last actor' do
-        @note.stub(:actors).and_return([@max, @sarah, @daniel])
-        output.scan(/,/).count.should be 2
-        output.scan(/and/).count.should be 1
+        allow(@note).to receive(:actors).and_return([@max, @sarah, @daniel])
+        expect(output.scan(/,/).count).to be 2
+        expect(output.scan(/and/).count).to be 1
       end
 
       it 'with more than three, lists the first three, then the others tag' do
-        @note.stub(:actors).and_return([@max, @sarah, @daniel, @ilya])
-        output.scan(/,/).count.should be 3
-        output.scan(/and/).count.should be 2
+        allow(@note).to receive(:actors).and_return([@max, @sarah, @daniel, @ilya])
+        expect(output.scan(/,/).count).to be 3
+        expect(output.scan(/and/).count).to be 2
       end
     end
     describe 'for a like' do
       it 'displays #{list of actors}' do
         output = notification_people_link(@notification)
-        output.should include @person2.name
-        output.should include @person.name
+        expect(output).to include @person2.name
+        expect(output).to include @person.name
       end
     end
   end
@@ -69,12 +69,12 @@ describe NotificationsHelper do
     describe 'for a like' do
       it 'should include a link to the post' do
         output = object_link(@notification, notification_people_link(@notification))
-        output.should include post_path(@post)
+        expect(output).to include post_path(@post)
       end
 
       it 'includes the boilerplate translation' do
         output = object_link(@notification, notification_people_link(@notification))
-        output.should include I18n.t("#{@notification.popup_translation_key}",
+        expect(output).to include I18n.t("#{@notification.popup_translation_key}",
                                      :actors => notification_people_link(@notification),
                                      :count => @notification.actors.count,
                                      :post_link => link_to(post_page_title(@post), post_path(@post), 'data-ref' => @post.id, :class => 'hard_object_link').html_safe)
@@ -88,7 +88,7 @@ describe NotificationsHelper do
 
         it 'displays that the post was deleted' do
           @post.destroy
-          object_link(@notification,  notification_people_link(@notification)).should == t('notifications.liked_post_deleted.one', :actors => notification_people_link(@notification))
+          expect(object_link(@notification,  notification_people_link(@notification))).to eq(t('notifications.liked_post_deleted.one', :actors => notification_people_link(@notification)))
         end
       end
     end

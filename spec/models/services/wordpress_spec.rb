@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Services::Wordpress do
+describe Services::Wordpress, :type => :model do
   
   before do
     @user = alice
@@ -23,10 +23,10 @@ describe Services::Wordpress do
   
   describe "#post_body" do
     it "truncates content for use in title" do
-      @service.post_body(@post)[:title].should eq("Hello there. This is a Wordpress post...")
+      expect(@service.post_body(@post)[:title]).to eq("Hello there. This is a Wordpress post...")
     end
     it "converts markdown tags" do
-      @service.post_body(@post)[:content].should match("<strong>Wordpress</strong>")
+      expect(@service.post_body(@post)[:content]).to match("<strong>Wordpress</strong>")
     end
   end
   

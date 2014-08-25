@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe StreamsController do
+describe StreamsController, :type => :controller do
   before do
     sign_in alice
   end
@@ -13,24 +13,24 @@ describe StreamsController do
     it 'will succeed if admin' do
       Role.add_admin(alice.person)
       get :public
-      response.should be_success
+      expect(response).to be_success
     end
 
     it 'will redirect if not' do
       get :public
-      response.should be_redirect
+      expect(response).to be_redirect
     end
   end
 
   describe '#multi' do
     it 'succeeds' do
       get :multi
-      response.should be_success
+      expect(response).to be_success
     end
 
     it 'succeeds on mobile' do
       get :multi, :format => :mobile
-      response.should be_success
+      expect(response).to be_success
     end
   end
 
@@ -45,8 +45,8 @@ describe StreamsController do
     describe "a GET to #{stream_path}" do
       it 'assigns a stream of the proper class' do
         get stream_path
-        response.should be_success
-        assigns[:stream].should be_a stream_class
+        expect(response).to be_success
+        expect(assigns[:stream]).to be_a stream_class
       end
     end
   end

@@ -11,8 +11,8 @@ describe Workers::Mail::Reshared do
       reshare = FactoryGirl.build(:reshare, :author => alice.person, :root=> sm)
 
       mail_double = double()
-      mail_double.should_receive(:deliver)
-      Notifier.should_receive(:reshared).with(bob.id, reshare.author.id, reshare.id).and_return(mail_double)
+      expect(mail_double).to receive(:deliver)
+      expect(Notifier).to receive(:reshared).with(bob.id, reshare.author.id, reshare.id).and_return(mail_double)
 
       Workers::Mail::Reshared.new.perform(bob.id, reshare.author.id, reshare.id)
     end

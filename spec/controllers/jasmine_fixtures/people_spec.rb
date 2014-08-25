@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe PeopleController do
+describe PeopleController, :type => :controller do
   describe '#index' do
     before do
       sign_in :user, bob

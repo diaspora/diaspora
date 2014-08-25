@@ -1,7 +1,7 @@
 
 require 'spec_helper'
 
-describe Admin::UsersController do
+describe Admin::UsersController, :type => :controller do
   before do
     @user = FactoryGirl.create :user
     Role.add_admin(@user.person)
@@ -12,8 +12,8 @@ describe Admin::UsersController do
   describe '#close_account' do
     it 'queues a job to disable the given account' do
       other_user = FactoryGirl.create :user
-      other_user.should_receive(:close_account!)
-      User.stub(:find).and_return(other_user)
+      expect(other_user).to receive(:close_account!)
+      allow(User).to receive(:find).and_return(other_user)
 
       post :close_account, id: other_user.id
     end
