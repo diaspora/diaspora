@@ -1,5 +1,27 @@
 # Head
 
+## Rails 4 - Manual action required
+Please edit `config/initializers/secret_token.rb`, replacing `secret_token` with
+`secret_key_base`.
+
+```ruby
+# Old
+Rails.application.config.secret_token = '***********...'
+
+# New
+Diaspora::Application.config.secret_key_base = '*************...'
+```
+
+
+## Refactor
+
+## Bug fixes
+
+## Features
+* Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
+
+# 0.4.1.0
+
 ## Refactor
 
 ## Bug fixes
@@ -52,6 +74,11 @@ Diaspora::Application.config.secret_key_base = '*************...'
 * Add help section about keyboard shortcuts [#5100](https://github.com/diaspora/diaspora/pull/5100)
 * Automatically add poll answers as needed [#5109](https://github.com/diaspora/diaspora/pull/5109)
 * Add Terms of Service as an option for podmins, includes base template [#5104](https://github.com/diaspora/diaspora/pull/5104)
+* Add rake task to send a mail to all users [#5111](https://github.com/diaspora/diaspora/pull/5111)
+* Expose which services are configured in /statistics.json [#5121](https://github.com/diaspora/diaspora/pull/5121)
+* In filtered notification views, replace "Mark all as read" with "Mark shown as read" [#5122](https://github.com/diaspora/diaspora/pull/5122)
+* When ignoring a user remove his posts from the stream instantly [#5127](https://github.com/diaspora/diaspora/pull/5127)
+* Allow to delete photos from the pictures stream [#5131](https://github.com/diaspora/diaspora/pull/5131)
 
 # 0.4.0.1
 
