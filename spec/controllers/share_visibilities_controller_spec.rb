@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe ShareVisibilitiesController do
+describe ShareVisibilitiesController, :type => :controller do
   before do
     @status = alice.post(:status_message, :text => "hello", :to => alice.aspects.first)
     sign_in :user, bob
@@ -14,11 +14,11 @@ describe ShareVisibilitiesController do
     context "on a post you can see" do
       it 'succeeds' do
         put :update, :format => :js, :id => 42, :post_id => @status.id
-        response.should be_success
+        expect(response).to be_success
       end
 
       it 'it calls toggle_hidden_shareable' do
-        @controller.current_user.should_receive(:toggle_hidden_shareable).with(an_instance_of(Post))
+        expect(@controller.current_user).to receive(:toggle_hidden_shareable).with(an_instance_of(Post))
         put :update, :format => :js, :id => 42, :post_id => @status.id
       end
     end
@@ -30,7 +30,7 @@ describe ShareVisibilitiesController do
       @controller.params[:post_id] = id
       @controller.params[:shareable_type] = 'Post'
 
-      Post.should_receive(:where).with(hash_including(:id => id)).once.and_return(double.as_null_object)
+      expect(Post).to receive(:where).with(hash_including(:id => id)).once.and_return(double.as_null_object)
       2.times do |n|
         @controller.send(:accessible_post)
       end

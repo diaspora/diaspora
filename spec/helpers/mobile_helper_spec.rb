@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe MobileHelper do
+describe MobileHelper, :type => :helper do
   
   describe "#aspect_select_options" do
     it "adds an all option to the list of aspects" do
@@ -13,7 +13,7 @@ describe MobileHelper do
       n = FactoryGirl.create(:aspect)
       
       options = aspect_select_options([n], n).split('\n')
-      options.first.should =~ /All/
+      expect(options.first).to match(/All/)
     end
   end
 end

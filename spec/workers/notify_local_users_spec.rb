@@ -10,9 +10,9 @@ describe Workers::NotifyLocalUsers do
       person = FactoryGirl.create :person
       post = FactoryGirl.create :status_message
 
-      StatusMessage.should_receive(:find_by_id).with(post.id).and_return(post)
+      expect(StatusMessage).to receive(:find_by_id).with(post.id).and_return(post)
       #User.should_receive(:where).and_return([alice, eve])
-      Notification.should_receive(:notify).with(instance_of(User), instance_of(StatusMessage), instance_of(Person)).twice
+      expect(Notification).to receive(:notify).with(instance_of(User), instance_of(StatusMessage), instance_of(Person)).twice
 
       Workers::NotifyLocalUsers.new.perform([alice.id, eve.id], post.class.to_s, post.id, person.id)
     end

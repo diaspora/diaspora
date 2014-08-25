@@ -12,8 +12,8 @@ describe Workers::Mail::Mentioned do
       m = Mention.new(:person => user.person, :post=> sm)
 
       mail_double = double()
-      mail_double.should_receive(:deliver)
-      Notifier.should_receive(:mentioned).with(user.id, sm.author.id, m.id).and_return(mail_double)
+      expect(mail_double).to receive(:deliver)
+      expect(Notifier).to receive(:mentioned).with(user.id, sm.author.id, m.id).and_return(mail_double)
 
       Workers::Mail::Mentioned.new.perform(user.id, sm.author.id, m.id)
     end

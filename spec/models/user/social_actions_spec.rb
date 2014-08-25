@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe User::SocialActions do
+describe User::SocialActions, :type => :model do
   before do
     @bobs_aspect = bob.aspects.where(:name => "generic").first
     @status = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
@@ -8,39 +8,39 @@ describe User::SocialActions do
 
   describe 'User#comment!' do
     it "sets the comment text" do
-      alice.comment!(@status, "unicorn_mountain").text.should == "unicorn_mountain"
+      expect(alice.comment!(@status, "unicorn_mountain").text).to eq("unicorn_mountain")
     end
 
     it "creates a partcipation" do
-      lambda{ alice.comment!(@status, "bro") }.should change(Participation, :count).by(1)
-      alice.participations.last.target.should == @status
+      expect{ alice.comment!(@status, "bro") }.to change(Participation, :count).by(1)
+      expect(alice.participations.last.target).to eq(@status)
     end
 
     it "creates the comment" do
-      lambda{ alice.comment!(@status, "bro") }.should change(Comment, :count).by(1)
+      expect{ alice.comment!(@status, "bro") }.to change(Comment, :count).by(1)
     end
 
     it "federates" do
-      Participation::Generator.any_instance.stub(:create!)
-      Postzord::Dispatcher.should_receive(:defer_build_and_post)
+      allow_any_instance_of(Participation::Generator).to receive(:create!)
+      expect(Postzord::Dispatcher).to receive(:defer_build_and_post)
       alice.comment!(@status, "omg")
     end
   end
 
   describe 'User#like!' do
     it "creates a partcipation" do
-      lambda{ alice.like!(@status) }.should change(Participation, :count).by(1)
-      alice.participations.last.target.should == @status
+      expect{ alice.like!(@status) }.to change(Participation, :count).by(1)
+      expect(alice.participations.last.target).to eq(@status)
     end
 
     it "creates the like" do
-      lambda{ alice.like!(@status) }.should change(Like, :count).by(1)
+      expect{ alice.like!(@status) }.to change(Like, :count).by(1)
     end
 
     it "federates" do
       #participation and like
-      Participation::Generator.any_instance.stub(:create!)
-      Postzord::Dispatcher.should_receive(:defer_build_and_post)
+      allow_any_instance_of(Participation::Generator).to receive(:create!)
+      expect(Postzord::Dispatcher).to receive(:defer_build_and_post)
       alice.like!(@status)
     end
   end
@@ -52,27 +52,27 @@ describe User::SocialActions do
     end
 
     it "creates a partcipation" do
-      lambda{ alice.like!(@status) }.should change(Participation, :count).by(1)
+      expect{ alice.like!(@status) }.to change(Participation, :count).by(1)
     end
 
     it "creates the like" do
-      lambda{ alice.like!(@status) }.should change(Like, :count).by(1)
+      expect{ alice.like!(@status) }.to change(Like, :count).by(1)
     end
 
     it "federates" do
       #participation and like
-      Postzord::Dispatcher.should_receive(:defer_build_and_post).twice
+      expect(Postzord::Dispatcher).to receive(:defer_build_and_post).twice
       alice.like!(@status)
     end
 
     it "should be able to like on one's own status" do
       like = alice.like!(@status)
-      @status.reload.likes.first.should == like
+      expect(@status.reload.likes.first).to eq(like)
     end
 
     it "should be able to like on a contact's status" do
       like = bob.like!(@status)
-      @status.reload.likes.first.should == like
+      expect(@status.reload.likes.first).to eq(like)
     end
 
     it "does not allow multiple likes" do
@@ -80,7 +80,7 @@ describe User::SocialActions do
       likes = @status.likes
       expect { alice.like!(@status) }.to raise_error
 
-      @status.reload.likes.should == likes
+      expect(@status.reload.likes).to eq(likes)
     end
   end
 
@@ -93,21 +93,21 @@ describe User::SocialActions do
     end
 
     it "federates" do
-      Participation::Generator.any_instance.stub(:create!)
-      Postzord::Dispatcher.should_receive(:defer_build_and_post)
+      allow_any_instance_of(Participation::Generator).to receive(:create!)
+      expect(Postzord::Dispatcher).to receive(:defer_build_and_post)
       alice.participate_in_poll!(@status, @answer)
     end
 
     it "creates a partcipation" do
-      lambda{ alice.participate_in_poll!(@status, @answer) }.should change(Participation, :count).by(1)
+      expect{ alice.participate_in_poll!(@status, @answer) }.to change(Participation, :count).by(1)
     end
 
     it "creates the poll participation" do
-      lambda{ alice.participate_in_poll!(@status, @answer) }.should change(PollParticipation, :count).by(1)
+      expect{ alice.participate_in_poll!(@status, @answer) }.to change(PollParticipation, :count).by(1)
     end
 
     it "sets the poll answer id" do
-      alice.participate_in_poll!(@status, @answer).poll_answer.should == @answer
+      expect(alice.participate_in_poll!(@status, @answer).poll_answer).to eq(@answer)
     end
   end
 end

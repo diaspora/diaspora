@@ -7,8 +7,8 @@ describe StatisticsPresenter do
 
   describe '#as_json' do
     it 'works' do
-      @presenter.as_json.should be_present
-      @presenter.as_json.should be_a Hash
+      expect(@presenter.as_json).to be_present
+      expect(@presenter.as_json).to be_a Hash
     end
   end
 
@@ -19,12 +19,12 @@ describe StatisticsPresenter do
       AppConfig.privacy.statistics.post_counts = false
       AppConfig.privacy.statistics.comment_counts = false
       AppConfig.services = {"facebook" => nil}
-      @presenter.as_json.should == {
+      expect(@presenter.as_json).to eq({
         "name" => AppConfig.settings.pod_name,
         "version" => AppConfig.version_string,
         "registrations_open" => AppConfig.settings.enable_registrations,
         "facebook" => false
-      }
+      })
     end
     
     context 'when services are enabled' do
@@ -41,7 +41,7 @@ describe StatisticsPresenter do
       end
 
       it 'provides generic pod data and counts in json' do
-        @presenter.as_json.should == {
+        expect(@presenter.as_json).to eq({
           "name" => AppConfig.settings.pod_name,
           "version" => AppConfig.version_string,
           "registrations_open" => AppConfig.settings.enable_registrations,
@@ -54,7 +54,7 @@ describe StatisticsPresenter do
           "twitter" => true,
           "tumblr" => false,
           "wordpress" => false
-        }
+        })
       end
     end
 

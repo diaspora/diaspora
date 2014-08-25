@@ -14,8 +14,8 @@ describe 'user encryption' do
     it 'should encrypt a string' do
       string = "Secretsauce"
       ciphertext = @user.person.encrypt string
-      ciphertext.include?(string).should be false
-      @user.decrypt(ciphertext).should == string
+      expect(ciphertext.include?(string)).to be false
+      expect(@user.decrypt(ciphertext)).to eq(string)
     end
   end
 end

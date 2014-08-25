@@ -9,8 +9,8 @@ describe Workers::ResendInvitation do
     it 'should call .resend on the object' do
       invite = FactoryGirl.build(:invitation, :service => 'email', :identifier => 'foo@bar.com')
 
-      Invitation.stub(:find).and_return(invite)
-      invite.should_receive(:resend)
+      allow(Invitation).to receive(:find).and_return(invite)
+      expect(invite).to receive(:resend)
       Workers::ResendInvitation.new.perform(invite.id)
     end
   end
