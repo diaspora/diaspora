@@ -1,4 +1,4 @@
-# Head
+# 0.4.1.0
 
 ## Rails 4 - Manual action required
 Please edit `config/initializers/secret_token.rb`, replacing `secret_token` with
@@ -24,6 +24,27 @@ Diaspora::Application.config.secret_key_base = '*************...'
 * Remember whether a AccountDeletion was performed [#5156](https://github.com/diaspora/diaspora/pull/5156)
 
 # 0.4.1.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
+# 0.4.1.0
+
+## Rails 4 - Manual action required
+Please edit `config/initializers/secret_token.rb`, replacing `secret_token` with
+`secret_key_base`.
+
+```ruby
+# Old
+Rails.application.config.secret_token = '***********...'
+
+# New
+Diaspora::Application.config.secret_key_base = '*************...'
+```
+
 
 ## Refactor
 * Port help pages to Bootstrap [#5050](https://github.com/diaspora/diaspora/pull/5050)

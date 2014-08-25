@@ -18,9 +18,18 @@
       .icon-refresh { display: inline-block;}
       .icon-ok { display: none;}
     }
+    
     a {
       cursor: pointer;
       padding-left: 10px;
+
+      .text {
+      color: #333333;       
+      }    
+
+    &:hover {
+      background: $background-grey;
+      }
     }
   }
 }
