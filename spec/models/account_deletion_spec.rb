@@ -32,9 +32,15 @@ describe AccountDeletion do
     end
 
     it 'does not dispatch an account deletion for non-local people' do
-      deletion =  AccountDeletion.new(:person => remote_raphael)
+      deletion = AccountDeletion.new(:person => remote_raphael)
       deletion.should_not_receive(:dispatch)
       deletion.perform!
+    end
+
+    it 'marks an AccountDeletion as completed when successful' do
+      ad = AccountDeletion.create(:person => alice.person)
+      ad.perform!
+      ad.reload.completed_at.should_not be_nil
     end
   end
 
