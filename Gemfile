@@ -19,12 +19,12 @@ gem 'json',        '1.8.1'
 
 # Authentication
 
-gem 'devise', '3.2.4'
+gem 'devise', '3.3.0'
 gem 'devise_lastseenable', '0.0.4'
 
 # Captcha
 
-gem 'simple_captcha2', '0.2.1', :require => 'simple_captcha'
+gem 'simple_captcha2', '0.3.2', :require => 'simple_captcha'
 
 # Background processing
 
@@ -33,7 +33,7 @@ gem 'sinatra', '1.3.3'
 
 # Compression
 
-gem 'uglifier', '2.5.0'
+gem 'uglifier', '2.5.3'
 
 # Configuration
 
@@ -62,8 +62,8 @@ gem 'foreigner',           '1.6.1'
 # File uploading
 
 gem 'carrierwave', '0.10.0'
-gem 'fog',         '1.22.1'
-gem 'mini_magick', '3.7.0'
+gem 'fog',         '1.23.0'
+gem 'mini_magick', '3.8.0'
 gem 'remotipart',  '1.2.1'
 
 # GUID generation
@@ -81,7 +81,7 @@ gem 'jquery-rails',      '3.0.4'
 
 # Localization
 
-gem 'http_accept_language', '1.0.2'
+gem 'http_accept_language', '2.0.2'
 gem 'i18n-inflector-rails', '1.0.7'
 gem 'rails-i18n',           '4.0.2'
 
@@ -93,10 +93,10 @@ gem 'messagebus_ruby_api', '1.0.3'
 # Parsing
 
 gem 'nokogiri',         '1.6.1'
-gem 'rails_autolink',   '1.1.5'
+gem 'rails_autolink',   '1.1.6'
 gem 'redcarpet',        '3.1.2'
 gem 'roxml',            '3.1.6'
-gem 'ruby-oembed',      '0.8.9'
+gem 'ruby-oembed',      '0.8.10'
 gem 'opengraph_parser', '0.2.3'
 
 
@@ -111,22 +111,22 @@ gem 'omniauth-wordpress','0.2.1'
 
 # Tags
 
-gem 'acts-as-taggable-on', '3.2.6'
+gem 'acts-as-taggable-on', '3.3.0'
 
 # URIs and HTTP
 
 gem 'addressable',        '2.3.6', :require => 'addressable/uri'
-gem 'faraday',            '0.8.9'
-gem 'faraday_middleware', '0.9.0'
-gem 'typhoeus',           '0.6.8'
+gem 'faraday',            '0.9.0'
+gem 'faraday_middleware', '0.9.1'
+gem 'typhoeus',           '0.6.9'
 
 # Views
 
-gem 'gon',                     '5.0.4'
+gem 'gon',                     '5.1.2'
 gem 'haml',                    '4.0.5'
 gem 'mobile-fu',               '1.3.1'
-gem 'will_paginate',           '3.0.5'
-gem 'rails-timeago',           '2.4.0'
+gem 'will_paginate',           '3.0.7'
+gem 'rails-timeago',           '2.11.0'
 
 # Workarounds
 # https://github.com/rubyzip/rubyzip#important-note
@@ -144,12 +144,12 @@ group :production do # we don't install these on travis to speed up test runs
 
   # Administration
 
-  gem 'rails_admin', '0.6.2'
+  gem 'rails_admin', '0.6.3'
 
   # Analytics
 
-  gem 'rack-google-analytics', '0.14.0', :require => 'rack/google-analytics'
-  gem 'rack-piwik',            '0.2.2',  :require => 'rack/piwik'
+  gem 'rack-google-analytics', '1.2.0'
+  gem 'rack-piwik',            '0.3.0',  :require => 'rack/piwik'
 
   # Click-jacking protection
 
@@ -166,15 +166,15 @@ group :production do # we don't install these on travis to speed up test runs
 
   # Third party asset hosting
 
-  gem 'asset_sync', '1.0.0', :require => false
+  gem 'asset_sync', '1.1.0', :require => false
 end
 
 group :development do
   # Automatic test runs
   gem 'guard-cucumber', '1.4.1'
-  gem 'guard-rspec',    '4.2.9'
+  gem 'guard-rspec',    '4.3.1'
   gem 'rb-fsevent',     '0.9.4', :require => false
-  gem 'rb-inotify',     '0.9.4', :require => false
+  gem 'rb-inotify',     '0.9.5', :require => false
 
   # Preloading environment
 
@@ -187,8 +187,8 @@ group :test do
 
   gem 'fixture_builder',   '0.3.6'
   gem 'fuubar',            '1.3.3'
-  gem 'rspec-instafail',   '0.2.4', :require => false
-  gem 'test_after_commit', '0.2.3'
+  gem 'rspec-instafail',   '0.2.5', :require => false
+  gem 'test_after_commit', '0.2.5'
 
   # Cucumber (integration tests)
 
@@ -214,5 +214,5 @@ group :development, :test do
   # Jasmine (client side application tests (JS))
   gem 'jasmine',              '2.0.2'
   gem 'jasmine-jquery-rails', '2.0.3'
-  gem 'sinon-rails',	      '1.9.0'
+  gem 'sinon-rails',	      '1.10.3'
 end
