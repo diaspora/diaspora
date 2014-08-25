@@ -5,6 +5,7 @@
 class AccountDeletion < ActiveRecord::Base
   include Diaspora::Federated::Base
 
+  scope :uncompleted, -> { where('completed_at is null') }
 
   belongs_to :person
   after_commit :queue_delete_account, :on => :create
