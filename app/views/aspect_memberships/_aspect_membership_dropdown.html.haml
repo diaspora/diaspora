@@ -1,5 +1,5 @@
 .btn-group.aspect_dropdown.aspect_membership_dropdown
-  %button.btn.btn-small.dropdown-toggle{:class => selected_aspects.size>0 ? "green" : "btn-default", "data-toggle" => "dropdown"}
+  %button.btn.btn-small.dropdown-toggle{:class => selected_aspects.size>0 ? "green" : "btn-default", "data-toggle" => "dropdown", :tabindex => '0'}
     %span.text
       - if selected_aspects.size == all_aspects.size
         = t('all_aspects')
@@ -11,7 +11,7 @@
 
   %ul.dropdown-menu{:class => ["pull-#{hang}", defined?(dropdown_class) && dropdown_class], :unSelectable => 'on', 'data-person_id' => (person.id if defined?(person) && person), 'data-service_uid' => (service_uid if defined?(service_uid)), 'data-person-short-name' => (person.first_name if defined?(person) && person)}
     - for aspect in all_aspects
-      %li.aspect_selector{ :class => ('selected' if aspect_membership_ids[aspect.id].present?), 'data-aspect_id' => aspect.id, 'data-membership_id' => aspect_membership_ids[aspect.id] }
+      %li.aspect_selector{ :class => ('selected' if aspect_membership_ids[aspect.id].present?), 'data-aspect_id' => aspect.id, 'data-membership_id' => aspect_membership_ids[aspect.id], :tabindex => '0' }
         %a
           %span.status_indicator
             %i.icon-ok

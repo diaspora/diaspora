@@ -12,7 +12,8 @@ app.views.AspectMembershipBlueprint = Backbone.View.extend({
     var selector = '.dropdown.aspect_membership .dropdown_list > li';
     $('body')
       .off('click', selector)
-      .on('click', selector, _.bind(this._clickHandler, this));
+      .on('click', selector, _.bind(this._clickHandler, this))
+      .on('keypress', selector, _.bind(this._clickHandler, this));
 
     this.list_item = null;
     this.dropdown  = null;

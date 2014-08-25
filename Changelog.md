@@ -16,11 +16,13 @@ Diaspora::Application.config.secret_key_base = '*************...'
 ## Refactor
 
 ## Bug fixes
+* orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
 * Better character limit message [#5151](https://github.com/diaspora/diaspora/pull/5151)
 * Remember whether a AccountDeletion was performed [#5156](https://github.com/diaspora/diaspora/pull/5156)
+
 # 0.4.1.0
 
 ## Refactor

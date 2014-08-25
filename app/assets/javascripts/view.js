@@ -21,7 +21,8 @@ var View = {
 
     /* Dropdowns */
     $(document)
-      .on('click', this.dropdowns.selector, this.dropdowns.click);
+      .on('click', this.dropdowns.selector, this.dropdowns.click)
+      .on('keypress', this.dropdowns.selector, this.dropdowns.click);
 
     /* Avatars */
     $(this.avatars.selector).error(this.avatars.fallback);
