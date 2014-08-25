@@ -19,7 +19,7 @@ describe Comment do
 
     it 'returns false if the comment is not on a post you own and no one "also_commented"' do
       comment = alice.comment!(@status, "I simply felt like issuing a greeting.  Do step off.")
-      comment.notification_type(eve, alice.person).should be_false
+      comment.notification_type(eve, alice.person).should be false
     end
 
     context "also commented" do
@@ -77,7 +77,7 @@ describe Comment do
     end
 
     it 'serializes the sender handle' do
-      @xml.include?(@commenter.diaspora_handle).should be_true
+      @xml.include?(@commenter.diaspora_handle).should be true
     end
 
     it 'serializes the post_guid' do

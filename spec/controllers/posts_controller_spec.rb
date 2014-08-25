@@ -169,13 +169,13 @@ describe PostsController do
     it 'will not let you destroy posts visible to you' do
       message = bob.post(:status_message, :text => "hey", :to => bob.aspects.first.id)
       expect { delete :destroy, :format => :js, :id => message.id }.to raise_error(ActiveRecord::RecordNotFound)
-      StatusMessage.exists?(message.id).should be_true
+      StatusMessage.exists?(message.id).should be true
     end
 
     it 'will not let you destory posts you do not own' do
       message = eve.post(:status_message, :text => "hey", :to => eve.aspects.first.id)
       expect { delete :destroy, :format => :js, :id => message.id }.to raise_error(ActiveRecord::RecordNotFound)
-      StatusMessage.exists?(message.id).should be_true
+      StatusMessage.exists?(message.id).should be true
     end
   end
 end

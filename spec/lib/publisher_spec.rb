@@ -26,11 +26,11 @@ describe Publisher do
   ["open", "public", "explain"].each do |property|
     describe "##{property}?" do
       it 'defaults to closed' do
-        @publisher.send("#{property}?".to_sym).should be_false
+        @publisher.send("#{property}?".to_sym).should be_falsey
       end
 
       it 'listens to the opts' do
-        Publisher.new(alice, {property.to_sym => true}).send("#{property}?".to_sym).should be_true
+        Publisher.new(alice, {property.to_sym => true}).send("#{property}?".to_sym).should be true
       end
     end
   end

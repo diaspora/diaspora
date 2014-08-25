@@ -50,15 +50,15 @@ describe ServicesController do
       before { Services::Twitter.create!(uid: omniauth_auth['uid'], user_id: user.id) }
 
       it 'doesnt create a new service' do
-        expect {
+        service_count = Service.count
         post :create, :provider => 'twitter'
-      }.to_not change(Service, :count).by(1)
+        Service.count.should == service_count
       end
 
       it 'flashes an already_authorized error with the diaspora handle for the user'  do
         post :create, :provider => 'twitter'
-        flash[:error].include?(user.profile.diaspora_handle).should be_true
-        flash[:error].include?( 'already authorized' ).should be_true
+        flash[:error].include?(user.profile.diaspora_handle).should be true
+        flash[:error].include?( 'already authorized' ).should be true
       end
     end
 
@@ -76,14 +76,14 @@ describe ServicesController do
         end
 
         it 'doesnt create a new service' do
-          expect {
-            post :create, :provider => 'twitter'
-          }.to_not change(Service, :count).by(1)
+          service_count = Service.count
+          post :create, :provider => 'twitter'
+          Service.count.should == service_count
         end
 
         it 'flashes an read-only access error'  do
           post :create, :provider => 'twitter'
-          flash[:error].include?( 'Access level is read-only' ).should be_true
+          flash[:error].include?( 'Access level is read-only' ).should be true
         end
       end
     end

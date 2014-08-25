@@ -170,9 +170,9 @@ describe User::Connecting do
     it "should mark the corresponding notification as 'read'" do
       notification = FactoryGirl.create(:notification, :target => eve.person)
 
-      Notification.where(:target_id => eve.person.id).first.unread.should be_true
+      Notification.where(:target_id => eve.person.id).first.unread.should be true
       alice.share_with(eve.person, aspect)
-      Notification.where(:target_id => eve.person.id).first.unread.should be_false
+      Notification.where(:target_id => eve.person.id).first.unread.should be false
     end
   end
 end

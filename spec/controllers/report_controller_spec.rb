@@ -40,14 +40,14 @@ describe ReportController do
       it 'succeeds' do
         put :create, :report => { :item_id => @message.id, :item_type => 'post', :text => 'offensive content' }
         response.status.should == 200
-        Report.exists?(:item_id => @message.id, :item_type => 'post').should be_true
+        Report.exists?(:item_id => @message.id, :item_type => 'post').should be true
       end
     end
     context 'report offensive comment' do
       it 'succeeds' do
         put :create, :report => { :item_id => @comment.id, :item_type => 'comment', :text => 'offensive content' }
         response.status.should == 200
-        Report.exists?(:item_id => @comment.id, :item_type => 'comment').should be_true
+        Report.exists?(:item_id => @comment.id, :item_type => 'comment').should be true
       end
     end
   end
@@ -57,14 +57,14 @@ describe ReportController do
       it 'is behind redirect_unless_admin' do
         put :update, :id => @message.id, :type => 'post'
         response.should redirect_to stream_path
-        Report.where(:reviewed => false, :item_id => @message.id, :item_type => 'post').should be_true
+        Report.where(:reviewed => false, :item_id => @message.id, :item_type => 'post').should be_truthy
       end
     end
     context 'mark comment report as user' do
       it 'is behind redirect_unless_admin' do
         put :update, :id => @comment.id, :type => 'comment'
         response.should redirect_to stream_path
-        Report.where(:reviewed => false, :item_id => @comment.id, :item_type => 'comment').should be_true
+        Report.where(:reviewed => false, :item_id => @comment.id, :item_type => 'comment').should be_truthy
       end
     end
 
@@ -75,7 +75,7 @@ describe ReportController do
       it 'succeeds' do
         put :update, :id => @message.id, :type => 'post'
         response.status.should == 302
-        Report.where(:reviewed => true, :item_id => @message.id, :item_type => 'post').should be_true
+        Report.where(:reviewed => true, :item_id => @message.id, :item_type => 'post').should be_truthy
       end
     end
     context 'mark comment report as admin' do
@@ -85,7 +85,7 @@ describe ReportController do
       it 'succeeds' do
         put :update, :id => @comment.id, :type => 'comment'
         response.status.should == 302
-        Report.where(:reviewed => true, :item_id => @comment.id, :item_type => 'comment').should be_true
+        Report.where(:reviewed => true, :item_id => @comment.id, :item_type => 'comment').should be_truthy
       end
     end
   end
@@ -95,14 +95,14 @@ describe ReportController do
       it 'is behind redirect_unless_admin' do
         delete :destroy, :id => @message.id, :type => 'post'
         response.should redirect_to stream_path
-        Report.where(:reviewed => false, :item_id => @message.id, :item_type => 'post').should be_true
+        Report.where(:reviewed => false, :item_id => @message.id, :item_type => 'post').should be_truthy
       end
     end
     context 'destroy comment as user' do
       it 'is behind redirect_unless_admin' do
         delete :destroy, :id => @comment.id, :type => 'comment'
         response.should redirect_to stream_path
-        Report.where(:reviewed => false, :item_id => @comment.id, :item_type => 'comment').should be_true
+        Report.where(:reviewed => false, :item_id => @comment.id, :item_type => 'comment').should be_truthy
       end
     end
 
@@ -113,7 +113,7 @@ describe ReportController do
       it 'succeeds' do
         delete :destroy, :id => @message.id, :type => 'post'
         response.status.should == 302
-        Report.where(:reviewed => true, :item_id => @message.id, :item_type => 'post').should be_true
+        Report.where(:reviewed => true, :item_id => @message.id, :item_type => 'post').should be_truthy
       end
     end
     context 'destroy comment as admin' do
@@ -123,7 +123,7 @@ describe ReportController do
       it 'succeeds' do
         delete :destroy, :id => @comment.id, :type => 'comment'
         response.status.should == 302
-        Report.where(:reviewed => true, :item_id => @comment.id, :item_type => 'comment').should be_true
+        Report.where(:reviewed => true, :item_id => @comment.id, :item_type => 'comment').should be_truthy
       end
     end
   end

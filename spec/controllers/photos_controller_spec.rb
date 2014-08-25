@@ -143,13 +143,13 @@ describe PhotosController do
 
     it 'will not let you destroy posts visible to you' do
       delete :destroy, :id => @bobs_photo.id
-      Photo.find_by_id(@bobs_photo.id).should be_true
+      Photo.find_by_id(@bobs_photo.id).should be_truthy
     end
 
     it 'will not let you destroy posts you do not own' do
       eves_photo = eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
       delete :destroy, :id => eves_photo.id
-      Photo.find_by_id(eves_photo.id).should be_true
+      Photo.find_by_id(eves_photo.id).should be_truthy
     end
   end
 

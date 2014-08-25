@@ -76,12 +76,12 @@ describe Stream::Multi do
 
     it 'returns true if user is getting started' do
       alice.getting_started = true
-      @stream.send(:welcome?).should be_true
+      @stream.send(:welcome?).should be true
     end
 
     it 'returns false if user is getting started' do
       alice.getting_started = false
-      @stream.send(:welcome?).should be_false
+      @stream.send(:welcome?).should be false
     end
   end
 end

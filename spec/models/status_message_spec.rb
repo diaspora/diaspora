@@ -185,11 +185,11 @@ STR
 
     describe "#mentions?" do
       it 'returns true if the person was mentioned' do
-        @sm.mentions?(@people[0]).should be_true
+        @sm.mentions?(@people[0]).should be true
       end
 
       it 'returns false if the person was not mentioned' do
-        @sm.mentions?(FactoryGirl.build(:person)).should be_false
+        @sm.mentions?(FactoryGirl.build(:person)).should be false
       end
     end
 
@@ -226,12 +226,12 @@ STR
   describe "#nsfw" do
     it 'returns MatchObject (true) if the post contains #nsfw (however capitalised)' do
       status  = FactoryGirl.build(:status_message, :text => "This message is #nSFw")
-      status.nsfw.should be_true
+      status.nsfw.should be_truthy
     end
 
     it 'returns nil (false) if the post does not contain #nsfw' do
       status  = FactoryGirl.build(:status_message, :text => "This message is #sFW")
-      status.nsfw.should be_false
+      status.nsfw.should be false
     end
   end
 
@@ -384,7 +384,7 @@ STR
     end
     it 'sets pending to false on any attached photos' do
       @status_message.after_dispatch(alice)
-      @photos.all?{|p| p.reload.pending}.should be_false
+      @photos.all?{|p| p.reload.pending}.should be false
     end
     it 'dispatches any attached photos' do
       alice.should_receive(:dispatch_post).twice

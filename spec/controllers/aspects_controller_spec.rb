@@ -152,7 +152,7 @@ describe AspectsController do
     it 'eager loads the aspect memberships for all the contacts' do
       get :edit, :id => @alices_aspect_2.id
       assigns[:contacts].each do |c|
-        c.aspect_memberships.loaded?.should be_true
+        c.aspect_memberships.loaded?.should be true
       end
     end
   end
@@ -163,7 +163,7 @@ describe AspectsController do
       @alices_aspect_1.save
 
       get :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
-      @alices_aspect_1.reload.contacts_visible.should be_true
+      @alices_aspect_1.reload.contacts_visible.should be true
     end
 
     it 'sets contacts hidden' do
@@ -171,7 +171,7 @@ describe AspectsController do
       @alices_aspect_1.save
 
       get :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
-      @alices_aspect_1.reload.contacts_visible.should be_false
+      @alices_aspect_1.reload.contacts_visible.should be false
     end
   end
 end

@@ -17,7 +17,7 @@ describe Services::Facebook do
     end
 
     it 'swallows exception raised by facebook always being down' do
-      pending "temporarily disabled to figure out while some requests are failing"
+      skip "temporarily disabled to figure out while some requests are failing"
 
       stub_request(:post,"https://graph.facebook.com/me/feed").
         to_raise(StandardError)

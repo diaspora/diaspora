@@ -174,15 +174,15 @@ describe ConversationsController do
       end
 
       it 'does not create a conversation' do
-        lambda {
-          post :create, @hash
-        }.should_not change(Conversation, :count).by(1)
+        count = Conversation.count
+        post :create, @hash
+        Conversation.count.should == count
       end
 
       it 'does not create a message' do
-        lambda {
-          post :create, @hash
-        }.should_not change(Message, :count).by(1)
+        count = Message.count
+        post :create, @hash
+        Message.count.should == count
       end
 
       it 'should set response with success to false and message to create fail' do
@@ -205,15 +205,15 @@ describe ConversationsController do
       end
 
       it 'does not create a conversation' do
-        lambda {
-          post :create, @hash
-        }.should_not change(Conversation, :count).by(1)
+        count = Conversation.count
+        post :create, @hash
+        Conversation.count.should == count
       end
 
       it 'does not create a message' do
-        lambda {
-          post :create, @hash
-        }.should_not change(Message, :count).by(1)
+        count = Message.count
+        post :create, @hash
+        Message.count.should == count
       end
 
       it 'should set response with success to false and message to fail due to no contact' do
@@ -236,15 +236,15 @@ describe ConversationsController do
       end
 
       it 'does not create a conversation' do
-        lambda {
-          post :create, @hash
-        }.should_not change(Conversation, :count).by(1)
+        count = Conversation.count
+        post :create, @hash
+        Conversation.count.should == count
       end
 
       it 'does not create a message' do
-        lambda {
-          post :create, @hash
-        }.should_not change(Message, :count).by(1)
+        count = Message.count
+        post :create, @hash
+        Message.count.should == count
       end
     end
   end

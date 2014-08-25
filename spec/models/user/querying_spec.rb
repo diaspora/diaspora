@@ -81,13 +81,13 @@ describe User::Querying do
       end
 
       it "pulls back non hidden posts" do
-        alice.visible_shareable_ids(Post).include?(@status.id).should be_true
+        alice.visible_shareable_ids(Post).include?(@status.id).should be true
       end
 
       it "does not pull back hidden posts" do
         visibility = @status.share_visibilities(Post).where(:contact_id => alice.contact_for(bob.person).id).first
         visibility.update_attributes(:hidden => true)
-        alice.visible_shareable_ids(Post).include?(@status.id).should be_false
+        alice.visible_shareable_ids(Post).include?(@status.id).should be false
       end
     end
   end
@@ -250,7 +250,7 @@ describe User::Querying do
       it 'returns a contact' do
         contact = Contact.create(:user => alice, :person => person_one, :aspects => [aspect])
         alice.contacts << contact
-        alice.contact_for_person_id(person_one.id).should be_true
+        alice.contact_for_person_id(person_one.id).should be_truthy
       end
 
       it 'returns the correct contact' do

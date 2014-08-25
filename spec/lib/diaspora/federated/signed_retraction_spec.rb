@@ -32,7 +32,7 @@ describe SignedRetraction do
       }
 
       remote_retraction.dup.perform(bob)
-      Post.exists?(:id => remote_post.id).should be_false
+      Post.exists?(:id => remote_post.id).should be false
 
       dis = double
       Postzord::Dispatcher.should_receive(:build){ |sender, retraction|

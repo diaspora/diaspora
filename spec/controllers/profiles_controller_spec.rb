@@ -10,7 +10,7 @@ describe ProfilesController do
   end
 
   describe '#show' do
-    let(:mock_person) {mock_model(User)}
+    let(:mock_person) { FactoryGirl.create(:user) }
     let(:mock_presenter) { double(:as_json => {:rock_star => "Jamie Cai"})}
 
     it "returns a post Presenter" do
