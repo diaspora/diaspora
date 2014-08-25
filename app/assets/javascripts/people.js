@@ -2,7 +2,6 @@
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
  */
-//= require aspect-edit-pane
 //= require fileuploader-custom
 //= require jquery.autoSuggest.custom
 

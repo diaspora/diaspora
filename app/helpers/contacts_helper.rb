@@ -3,16 +3,11 @@ module ContactsHelper
     membership = contact.aspect_memberships.where(:aspect_id => @aspect.id).first unless @aspect.nil?
 
     if membership
-      link_to(content_tag(:i, nil, :class => 'entypo circled-cross'),
-        { :controller => "aspect_memberships",
-          :action => 'destroy',
-          :id => membership.id
-        },
-        :title => t('contacts.index.remove_person_from_aspect', :person_name => contact.person_first_name, :aspect_name => @aspect.name),
-        :class => 'contact_remove-from-aspect',
-        :method => 'delete',
-        'data-membership_id' => membership.id
-      )
+      content_tag(:i, nil, :class => 'entypo circled-cross contact_remove-from-aspect',
+                  :title => t('contacts.index.remove_person_from_aspect', :person_name => contact.person_first_name, :aspect_name => @aspect.name),
+                  'data-aspect_id' => @aspect.id,
+                  'data-person_id' => contact.person_id, 
+                  'data-membership_id' => membership.id )
 
     elsif @aspect.nil?
       render :partial => 'people/relationship_action',
@@ -20,18 +15,10 @@ module ContactsHelper
                            :contact => contact,
                            :current_user => current_user }
     else
-      link_to(content_tag(:i, nil, :class => 'entypo circled-plus'),
-        { :controller => "aspect_memberships",
-          :action => 'create',
-          :person_id => contact.person_id,
-          :aspect_id => @aspect.id
-        },
-        :title => t('people.person.add_contact'),
-        :class => 'contact_add-to-aspect',
-        :method => 'create',
-        'data-aspect_id' => @aspect.id,
-        'data-person_id' => contact.person_id
-      )
+      content_tag(:i, nil, :class => 'entypo circled-plus contact_add-to-aspect',
+                  :title => t('people.person.add_contact'),
+                  'data-aspect_id' => @aspect.id,
+                  'data-person_id' => contact.person_id )
     end
   end
 

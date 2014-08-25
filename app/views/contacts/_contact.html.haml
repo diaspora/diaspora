@@ -1,10 +1,11 @@
-.media.stream_element{:id => contact.person_id}
+- membership = contact.aspect_memberships.where(:aspect_id => @aspect.id).first unless @aspect.nil?
+.media.stream_element{:id => contact.person_id, :class => ("not_in_aspect" unless membership)}
   .pull-right
     = contact_aspect_dropdown(contact)
   .media-object.pull-left
     = person_image_link(contact.person, :size => :thumb_small)
   .media-body
-    = person_link(contact.person)
+    = person_link(contact.person, :class => 'name')
     .info.diaspora_handle
       = contact.person_diaspora_handle
     .info.tags

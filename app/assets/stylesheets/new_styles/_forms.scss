@@ -86,7 +86,7 @@ form.block-form {
   }
 }
 
-textarea, input[type=text], input[type=password] {
+textarea, input[type=text], input[type=password], input[type=search] {
   &:focus, &:invalid:focus {
     border: 1px solid $border-dark-grey;
     outline: none;
