@@ -84,7 +84,7 @@ describe User::Connecting, :type => :model do
 
   describe '#register_share_visibilities' do
     it 'creates post visibilites for up to 100 posts' do
-      Post.stub_chain(:where, :limit).and_return([FactoryGirl.create(:status_message)])
+      allow(Post).to receive_message_chain(:where, :limit).and_return([FactoryGirl.create(:status_message)])
       c = Contact.create!(:user_id => alice.id, :person_id => eve.person.id)
       expect{
         alice.register_share_visibilities(c)

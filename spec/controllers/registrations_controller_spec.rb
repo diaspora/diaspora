@@ -16,7 +16,7 @@ describe RegistrationsController, :type => :controller do
       :password_confirmation => "password"
       }
     }
-    Webfinger.stub_chain(:new, :fetch).and_return(FactoryGirl.create(:person))
+    allow(Webfinger).to receive_message_chain(:new, :fetch).and_return(FactoryGirl.create(:person))
   end
 
   describe '#check_registrations_open!' do

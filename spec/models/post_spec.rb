@@ -396,7 +396,7 @@ describe Post, :type => :model do
     end
 
     it "raises Diaspora::NonPublic for a non-existing id without a user" do
-      Post.stub where: double(includes: double(first: nil))
+      allow(Post).to receive_messages where: double(includes: double(first: nil))
       expect {
         Post.find_by_guid_or_id_with_user 123
       }.to raise_error Diaspora::NonPublic

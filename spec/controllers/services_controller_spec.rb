@@ -71,7 +71,7 @@ describe ServicesController, :type => :controller do
         let(:provider) { {'provider' => 'twitter'} }
 
         before do 
-          access_token.stub_chain(:response, :header).and_return header
+          allow(access_token).to receive_message_chain(:response, :header).and_return header
           request.env['omniauth.auth'] = omniauth_auth.merge!( provider).merge!( extra )
         end
 
