@@ -200,10 +200,10 @@ app.views.Publisher = Backbone.View.extend({
         // standalone means single-shot posting (until further notice)
         if( self.standalone ) self.setEnabled(false);
       },
-      error: function() {
+      error: function(model, resp, options) {
         if( app.publisher ) app.publisher.trigger('publisher:error');
         self.setInputEnabled(true);
-        Diaspora.page.flashMessages.render({ 'success':false, 'notice':Diaspora.I18n.t('failed_to_post_message') });
+        Diaspora.page.flashMessages.render({ 'success':false, 'notice':resp.responseText });
         self.setButtonsEnabled(true);
         self.setInputEnabled(true);
       }
