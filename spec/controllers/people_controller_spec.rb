@@ -118,26 +118,16 @@ describe PeopleController, :type => :controller do
 
   describe '#tag_index' do
     it 'works for js' do
-<<<<<<< HEAD
-      get :tag_index, :name => 'jellybeans', :format => :js
-      expect(response).to be_success
-=======
       xhr :get, :tag_index, :name => 'jellybeans', :format => :js
-      response.should be_success
->>>>>>> develop
+      expect(response).to be_success
     end
 
     it 'returns awesome people who have that tag' do
       f = FactoryGirl.create(:person)
       f.profile.tag_string = "#seeded"
       f.profile.save
-<<<<<<< HEAD
-      get :tag_index, :name => 'seeded', :format => :js
-      expect(assigns[:people].count).to eq(1)
-=======
       xhr :get, :tag_index, :name => 'seeded', :format => :js
-      assigns[:people].count.should == 1
->>>>>>> develop
+      expect(assigns[:people].count).to eq(1)
     end
   end
 

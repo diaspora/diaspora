@@ -182,13 +182,8 @@ describe PhotosController, :type => :controller do
 
   describe "#make_profile_photo" do
     it 'should return a 201 on a js success' do
-<<<<<<< HEAD
-      get :make_profile_photo, :photo_id => @alices_photo.id, :format => 'js'
-      expect(response.code).to eq("201")
-=======
       xhr :get, :make_profile_photo, :photo_id => @alices_photo.id, :format => 'js'
-      response.code.should == "201"
->>>>>>> develop
+      expect(response.code).to eq("201")
     end
 
     it 'should return a 422 on failure' do

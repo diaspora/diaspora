@@ -162,26 +162,16 @@ describe AspectsController, :type => :controller do
       @alices_aspect_1.contacts_visible = false
       @alices_aspect_1.save
 
-<<<<<<< HEAD
-      get :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
-      expect(@alices_aspect_1.reload.contacts_visible).to be true
-=======
       xhr :get, :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
-      @alices_aspect_1.reload.contacts_visible.should be_true
->>>>>>> develop
+      expect(@alices_aspect_1.reload.contacts_visible).to be true
     end
 
     it 'sets contacts hidden' do
       @alices_aspect_1.contacts_visible = true
       @alices_aspect_1.save
 
-<<<<<<< HEAD
-      get :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
-      expect(@alices_aspect_1.reload.contacts_visible).to be false
-=======
       xhr :get, :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
-      @alices_aspect_1.reload.contacts_visible.should be_false
->>>>>>> develop
+      expect(@alices_aspect_1.reload.contacts_visible).to be false
     end
   end
 end

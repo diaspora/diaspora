@@ -51,11 +51,7 @@ describe 'a user receives a post', :type => :request do
       bob.dispatch_post(sm, :to => @bobs_aspect)
     end
 
-<<<<<<< HEAD
-    expect(alice.visible_shareables(Post).count).to eq(1)
-=======
-    alice.visible_shareables(Post).count(:all).should == 1
->>>>>>> develop
+    expect(alice.visible_shareables(Post).count(:all)).to eq(1)
   end
 
   context 'with mentions, ' do

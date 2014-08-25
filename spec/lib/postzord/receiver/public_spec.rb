@@ -61,13 +61,8 @@ describe Postzord::Receiver::Public do
         @receiver.perform!
       end
 
-<<<<<<< HEAD
-      it 'enqueues a Workers::ReceiveLocalBatch' do 
-        expect(Workers::ReceiveLocalBatch).to receive(:perform_async).with(anything, anything, anything)
-=======
       it 'enqueues a Workers::ReceiveLocalBatch' do
-        Workers::ReceiveLocalBatch.should_receive(:perform_async).with(anything, anything, anything)
->>>>>>> develop
+        expect(Workers::ReceiveLocalBatch).to receive(:perform_async).with(anything, anything, anything)
         @receiver.perform!
       end
 
@@ -89,11 +84,7 @@ describe Postzord::Receiver::Public do
 
   describe '#recipient_user_ids' do
     it 'calls User.all_sharing_with_person' do
-<<<<<<< HEAD
-      expect(User).to receive(:all_sharing_with_person).and_return(double(:select => []))
-=======
-      User.should_receive(:all_sharing_with_person).and_return(double(:pluck => []))
->>>>>>> develop
+      expect(User).to receive(:all_sharing_with_person).and_return(double(:pluck => []))
       receiver = Postzord::Receiver::Public.new(@xml)
       receiver.perform!
     end
