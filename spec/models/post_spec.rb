@@ -43,7 +43,7 @@ describe Post do
       end
 
       it 'should return the three visible posts' do
-        StatusMessage.owned_or_visible_by_user(@you).count.should == 3
+        StatusMessage.owned_or_visible_by_user(@you).count(:all).should == 3
       end
     end
 
