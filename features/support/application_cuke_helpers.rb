@@ -23,7 +23,7 @@ module ApplicationCukeHelpers
 
   def confirm_form_validation_error(element)
     is_invalid = page.evaluate_script("$('#{element}').is(':invalid')")
-    is_invalid.should be_true
+    is_invalid.should be true
   end
 
   def check_fields_validation_error(field_list)

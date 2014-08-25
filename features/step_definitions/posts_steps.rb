@@ -19,7 +19,7 @@ Then /^I should not see any posts in my stream$/ do
 end
 
 Then /^I should not be able to submit the publisher$/ do
-  expect(publisher_submittable?).to be_false
+  expect(publisher_submittable?).to be false
 end
 
 Given /^"([^"]*)" has a public post with text "([^"]*)"$/ do |email, text|

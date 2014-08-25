@@ -42,7 +42,7 @@ module PublishingCukeHelpers
   def expand_first_post
     within(".stream_element", match: :first) do
       find(".expander").click
-      has_css?(".expander").should be_false
+      has_css?(".expander").should be false
     end
   end
 
