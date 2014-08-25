@@ -4,18 +4,18 @@
 
 require 'spec_helper'
 
-describe LayoutHelper do
+describe LayoutHelper, :type => :helper do
   describe "#page_title" do
     context "passed blank text" do
       it "returns Diaspora*" do
-        page_title.to_s.should == pod_name
+        expect(page_title.to_s).to eq(pod_name)
       end
     end
 
     context "passed text" do
       it "returns the text" do
         text = "This is the title"
-        page_title(text).should == text
+        expect(page_title(text)).to eq(text)
       end
     end
   end

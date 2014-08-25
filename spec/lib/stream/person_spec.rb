@@ -28,7 +28,7 @@ describe Stream::Person do
     posts = posts.reverse.slice(0..14)
     fetched_posts = fetched_posts.slice(0..14)
 
-    fetched_posts.should == posts
+    expect(fetched_posts).to eq(posts)
   end
 
 end

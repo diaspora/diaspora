@@ -185,10 +185,10 @@ end
 group :test do
   # RSpec (unit tests, some integration tests)
 
-  gem 'fixture_builder',   '0.3.6'
-  gem 'fuubar',            '1.3.3'
-  gem 'rspec-instafail',   '0.2.4', :require => false
-  gem 'test_after_commit', '0.2.3'
+  gem 'fixture_builder',         '0.3.6'
+  gem 'fuubar',                  '2.0.0'
+  gem 'rspec-instafail',         '0.2.4', :require => false
+  gem 'test_after_commit',       '0.2.3'
 
   # Cucumber (integration tests)
 
@@ -206,7 +206,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem 'rspec-rails',     '2.99'
+  gem 'rspec-rails',     '3.0.0'
 
   # Cucumber (integration tests)
   gem 'cucumber-rails',     '1.4.1', :require => false

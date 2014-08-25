@@ -15,7 +15,7 @@ describe Retraction do
     it 'should have a post id after serialization' do
       retraction = described_class.for(@post)
       xml = retraction.to_xml.to_s
-      xml.include?(@post.guid.to_s).should == true
+      expect(xml.include?(@post.guid.to_s)).to eq(true)
     end
   end
 
@@ -28,7 +28,7 @@ describe Retraction do
       end
 
       it 'returns the subscribers to the post for all objects other than person' do
-        @retraction.subscribers(alice).map(&:id).should =~ @wanted_subscribers.map(&:id)
+        expect(@retraction.subscribers(alice).map(&:id)).to match_array(@wanted_subscribers.map(&:id))
       end
 
       it 'does not return the authors of reshares' do
@@ -36,7 +36,7 @@ describe Retraction do
         @post.save!
 
         @wanted_subscribers -= [bob.person]
-        @retraction.subscribers(alice).map(&:id).should =~ @wanted_subscribers.map(&:id)
+        expect(@retraction.subscribers(alice).map(&:id)).to match_array(@wanted_subscribers.map(&:id))
       end
     end
 
@@ -45,15 +45,15 @@ describe Retraction do
         retraction = described_class.for(alice)
         obj = retraction.instance_variable_get(:@object)
 
-        lambda {
+        expect {
           retraction.subscribers(alice)
-        }.should raise_error
+        }.to raise_error
       end
 
       it 'returns manually set subscribers' do
         retraction = described_class.for(alice)
         retraction.subscribers = "fooey"
-        retraction.subscribers(alice).should == 'fooey'
+        expect(retraction.subscribers(alice)).to eq('fooey')
       end
     end
   end

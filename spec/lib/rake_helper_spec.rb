@@ -23,7 +23,7 @@ describe RakeHelpers do
 
     it 'should send emails to each email' do
 
-      EmailInviter.should_receive(:new).exactly(3).times.and_return(double.as_null_object)
+      expect(EmailInviter).to receive(:new).exactly(3).times.and_return(double.as_null_object)
       process_emails(@csv, 100, 1, false)
     end
   end

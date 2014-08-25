@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe PasswordsController do
+describe PasswordsController, :type => :controller do
   include Devise::TestHelpers
 
   before do
@@ -15,21 +15,21 @@ describe PasswordsController do
     context "when there is no such user" do
       it "succeeds" do
         post :create, "user" => {"email" => "foo@example.com"}
-        response.should be_success
+        expect(response).to be_success
       end
 
       it "doesn't send email" do
-        Workers::ResetPassword.should_not_receive(:perform_async)
+        expect(Workers::ResetPassword).not_to receive(:perform_async)
         post :create, "user" => {"email" => "foo@example.com"}
       end
     end
     context "when there is a user with that email" do
       it "redirects to the login page" do
         post :create, "user" => {"email" => alice.email}
-        response.should redirect_to(new_user_session_path)
+        expect(response).to redirect_to(new_user_session_path)
       end
       it "sends email (enqueued to Sidekiq)" do
-        Workers::ResetPassword.should_receive(:perform_async).with(alice.id)
+        expect(Workers::ResetPassword).to receive(:perform_async).with(alice.id)
         post :create, "user" => {"email" => alice.email}
       end
     end
