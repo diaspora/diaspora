@@ -2,7 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 options = {
-  timeout: 25,
+  request: {
+    timeout: 25
+  },
   ssl: {
     ca_file: AppConfig.environment.certificate_authorities.get
   }

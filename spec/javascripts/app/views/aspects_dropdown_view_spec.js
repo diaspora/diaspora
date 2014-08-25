@@ -1,6 +1,10 @@
 describe("app.views.AspectsDropdown", function(){
   beforeEach(function() {
     spec.loadFixture("bookmarklet");
+    Diaspora.I18n.load({
+      'aspect_dropdown': {
+        'select_aspects': "Select aspects"
+    });
     this.view = new app.views.AspectsDropdown({el: $('.aspect_dropdown')});
   });
 
@@ -69,7 +73,7 @@ describe("app.views.AspectsDropdown", function(){
       expect(this.view.$('li.aspect_selector:eq(1)').hasClass('selected')).toBeTruthy();
     });
   });
-  
+
   context('_updateButton', function() {
     beforeEach(function() {
       this.view.$('li.selected').removeClass('selected');

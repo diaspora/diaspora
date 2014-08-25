@@ -80,8 +80,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       I18n.locale = current_user.language
     else
-      locale = request.preferred_language_from AVAILABLE_LANGUAGE_CODES
-      locale ||= request.compatible_language_from AVAILABLE_LANGUAGE_CODES
+      locale = http_accept_language.language_region_compatible_from AVAILABLE_LANGUAGE_CODES
       locale ||= DEFAULT_LANGUAGE
       I18n.locale = locale
     end
