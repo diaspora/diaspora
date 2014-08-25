@@ -10,7 +10,7 @@
         -else
           %i.entypo.lock.contacts-header-icon{:title => t('aspects.edit.aspect_list_is_not_visible')}
 
-      = link_to @aspect, method: "delete", data: { confirm: t('aspects.edit.confirm_remove_aspect') }, class: 'delete' do
+      = link_to @aspect, method: "delete", data: { confirm: t('aspects.edit.confirm_remove_aspect') }, class: 'delete', id: 'delete_aspect' do
         %i.entypo.trash.contacts-header-icon{:title => t('delete')}
     .pull-right
       = search_field_tag :contact_search, "", id: "contact_list_search", placeholder: t('contacts.index.user_search')

@@ -24,7 +24,7 @@ app.Router = Backbone.Router.extend({
     "people/:id": "stream",
     "u/:name": "stream"
   },
-  
+
   initialize: function() {
     // To support encoded linefeeds (%0A) we need to specify
     // our own internal router.route call with the correct regexp.

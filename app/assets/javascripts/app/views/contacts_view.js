@@ -52,23 +52,24 @@ app.views.Contacts = Backbone.View.extend({
   addContactToAspect: function(e){
     var contact = $(e.currentTarget);
     var aspect_membership = new app.models.AspectMembership({
-      'person_id': contact.data('person_id'),
-      'aspect_id': contact.data('aspect_id')
+      'person_id': contact.attr('data-person_id'),
+      'aspect_id': contact.attr('data-aspect_id')
     });
 
-    aspect_membership.save({
+    aspect_membership.save({},{
       success: function(model,response){
         contact.attr('data-membership_id',model.id)
                .tooltip('destroy')
                .removeAttr('data-original-title')
-               .removeClass("contact_add-to_aspect").removeClass("circled-plus")
-               .addClass("contact_remove-from_aspect").addClass("circled-cross")
-               .attr('title', Diaspora.I18n.t('contacts.add_contact'))
+               .removeClass("contact_add-to-aspect").removeClass("circled-plus")
+               .addClass("contact_remove-from-aspect").addClass("circled-cross")
+               .attr('title', Diaspora.I18n.t('contacts.remove_contact'))
                .tooltip()
-               .closest('.stream_element').removeClass('not_in_aspect');
+               .closest('.stream_element').addClass('in_aspect');
       },
       error: function(model,response){
-        alert("SAVE ERROR " + JSON.stringify(model));
+        var msg = Diaspora.I18n.t('contacts.error_add', { 'name':contact.closest('.stream_element').find('.name').text() });
+        Diaspora.page.flashMessages.render({ 'success':false, 'notice':msg });
       }
     });
   },
@@ -76,7 +77,7 @@ app.views.Contacts = Backbone.View.extend({
   removeContactFromAspect: function(e){
     var contact = $(e.currentTarget);
     var aspect_membership = new app.models.AspectMembership({
-      'id': contact.data('membership_id')
+      'id': contact.attr('data-membership_id')
     });
 
     aspect_membership.destroy({
@@ -84,14 +85,15 @@ app.views.Contacts = Backbone.View.extend({
         contact.removeAttr('data-membership_id')
                .tooltip('destroy')
                .removeAttr('data-original-title')
-               .removeClass("contact_remove-from_aspect").removeClass("circled-cross")
-               .addClass("contact_add-to_aspect").addClass("circled-plus")
+               .removeClass("contact_remove-from-aspect").removeClass("circled-cross")
+               .addClass("contact_add-to-aspect").addClass("circled-plus")
                .attr('title', Diaspora.I18n.t('contacts.add_contact'))
                .tooltip()
-               .closest('.stream_element').addClass('not_in_aspect');
+               .closest('.stream_element').removeClass('in_aspect');
       },
       error: function(model,response){
-        alert("DESTROY ERROR " + JSON.stringify(model));
+        var msg = Diaspora.I18n.t('contacts.error_remove', { 'name':contact.closest('.stream_element').find('.name').text() });
+        Diaspora.page.flashMessages.render({ 'success':false, 'notice':msg });
       }
     });
   },

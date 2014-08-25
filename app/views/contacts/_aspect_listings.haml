@@ -11,7 +11,7 @@
         = t('contacts.index.my_contacts')
         .badge.badge-default.pull-right
           = my_contacts_count
-    
+
     - all_aspects.each do |aspect|
       %li.aspect{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
         %a{:href => contacts_path(:a_id => aspect.id)}

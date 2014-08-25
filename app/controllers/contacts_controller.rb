@@ -34,29 +34,40 @@ class ContactsController < ApplicationController
   private
 
   def set_up_contacts
-    c = Contact.arel_table
-    @contacts = case params[:set]
-      when "only_sharing"
-        current_user.contacts.only_sharing.to_a.sort_by { |c| c.person.name }
-      when "all"
-        current_user.contacts.to_a.sort_by { |c| c.person.name }
-      else
-        if params[:a_id]
-          @aspect = current_user.aspects.find(params[:a_id])
-          @contacts_in_aspect = @aspect.contacts.includes(:aspect_memberships, :person => :profile).to_a.sort_by { |c| c.person.name }
-          if @contacts_in_aspect.empty?
-            @contacts_not_in_aspect = current_user.contacts.includes(:aspect_memberships, :person => :profile).to_a.sort_by { |c| c.person.name }
-          else
-            @contacts_not_in_aspect = current_user.contacts.where(c[:id].not_in(@contacts_in_aspect.map(&:id))).includes(:aspect_memberships, :person => :profile).to_a.sort_by { |c| c.person.name }
-          end
-          @contacts_in_aspect + @contacts_not_in_aspect
-        else
-          current_user.contacts.receiving.to_a.sort_by { |c| c.person.name }
-        end
-    end
+    type = params[:set].presence
+    type ||= "by_aspect" if params[:a_id].present?
+    type ||= "receiving"
+
+    @contacts = contacts_by_type(type)
     @contacts_size = @contacts.length
   end
-  
+
+  def contacts_by_type(type)
+    contacts = case type
+      when "all"
+        [current_user.contacts]
+      when "only_sharing"
+        [current_user.contacts.only_sharing]
+      when "receiving"
+        [current_user.contacts.receiving]
+      when "by_aspect"
+        @aspect = current_user.aspects.find(params[:a_id])
+        @contacts_in_aspect = @aspect.contacts
+        @contacts_not_in_aspect = current_user.contacts.where.not(contacts: {id: @contacts_in_aspect.pluck(:id) })
+        [@contacts_in_aspect, @contacts_not_in_aspect].map {|relation|
+          relation.includes(:aspect_memberships)
+        }
+      else
+        raise ArgumentError, "unknown type #{type}"
+      end
+
+    contacts.map {|relation|
+      relation.includes(:person => :profile).to_a.tap {|contacts|
+        contacts.sort_by! {|contact| contact.person.name }
+      }
+    }.inject(:+)
+  end
+
   def set_up_contacts_mobile
     @contacts = case params[:set]
       when "only_sharing"

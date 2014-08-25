@@ -1,5 +1,5 @@
 - membership = contact.aspect_memberships.where(:aspect_id => @aspect.id).first unless @aspect.nil?
-.media.stream_element{:id => contact.person_id, :class => ("not_in_aspect" unless membership)}
+.media.stream_element{:id => contact.person_id, :class => ("in_aspect" if membership)}
   .pull-right
     = contact_aspect_dropdown(contact)
   .media-object.pull-left

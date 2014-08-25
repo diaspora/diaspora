@@ -7,7 +7,6 @@ describe("List", function() {
   describe("runDelayedSearch", function() {
     beforeEach( function(){
       spec.loadFixture('empty_people_search');
-      List.initialize();
     });
 
     it('inserts contact html', function(){

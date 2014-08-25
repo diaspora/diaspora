@@ -87,6 +87,7 @@ class AspectsController < ApplicationController
       @aspect.contacts_visible = true
     end
     @aspect.save
+    render :nothing => true
   end
 
   private

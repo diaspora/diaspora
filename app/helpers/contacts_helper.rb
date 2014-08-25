@@ -4,9 +4,9 @@ module ContactsHelper
 
     if membership
       content_tag(:i, nil, :class => 'entypo circled-cross contact_remove-from-aspect',
-                  :title => t('contacts.index.remove_person_from_aspect', :person_name => contact.person_first_name, :aspect_name => @aspect.name),
+                  :title => t('contacts.index.remove_contact'),
                   'data-aspect_id' => @aspect.id,
-                  'data-person_id' => contact.person_id, 
+                  'data-person_id' => contact.person_id,
                   'data-membership_id' => membership.id )
 
     elsif @aspect.nil?
@@ -16,7 +16,7 @@ module ContactsHelper
                            :current_user => current_user }
     else
       content_tag(:i, nil, :class => 'entypo circled-plus contact_add-to-aspect',
-                  :title => t('people.person.add_contact'),
+                  :title => t('contacts.index.add_contact'),
                   'data-aspect_id' => @aspect.id,
                   'data-person_id' => contact.person_id )
     end
@@ -26,7 +26,7 @@ module ContactsHelper
     suggested_limit = 16
     conv_opts = { class: "conversation_button", rel: "facebox"}
     conv_opts[:title] = t('.many_people_are_you_sure', suggested_limit: suggested_limit) if contacts_size > suggested_limit
-    
+
     link_to new_conversation_path(aspect_id: aspect.id, name: aspect.name), conv_opts do
       content_tag(:i, nil, :class => 'entypo mail contacts-header-icon', :title => t('contacts.index.start_a_conversation'))
     end
