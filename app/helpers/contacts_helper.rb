@@ -14,11 +14,24 @@ module ContactsHelper
         'data-membership_id' => membership.id
       )
 
-    else
+    elsif @aspect.nil?
       render :partial => 'people/relationship_action',
               :locals => { :person => contact.person,
                            :contact => contact,
                            :current_user => current_user }
+    else
+      link_to(content_tag(:i, nil, :class => 'entypo circled-plus'),
+        { :controller => "aspect_memberships",
+          :action => 'create',
+          :person_id => contact.person_id,
+          :aspect_id => @aspect.id
+        },
+        :title => t('people.person.add_contact'),
+        :class => 'contact_add-to-aspect',
+        :method => 'create',
+        'data-aspect_id' => @aspect.id,
+        'data-person_id' => contact.person_id
+      )
     end
   end
 
@@ -28,7 +41,7 @@ module ContactsHelper
     conv_opts[:title] = t('.many_people_are_you_sure', suggested_limit: suggested_limit) if contacts_size > suggested_limit
     
     link_to new_conversation_path(aspect_id: aspect.id, name: aspect.name), conv_opts do
-      content_tag(:i, nil, :class => 'entypo mail', :title => t('contacts.index.start_a_conversation'))
+      content_tag(:i, nil, :class => 'entypo mail contacts-header-icon', :title => t('contacts.index.start_a_conversation'))
     end
   end
 end

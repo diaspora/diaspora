@@ -14,20 +14,20 @@
         }
         .btn { margin-top: 10px; }
       }
-      a { 
+      & > a, #aspect_controls > a { 
         text-decoration: none;
         margin-right: 25px;
       }
-      .entypo {
+      .entypo.contacts-header-icon {
         font-size: 24.5px;
         line-height: 40px;
         color: lighten($black,75%);
         &:hover { color: $black; }
       }
-      .btn { margin-top: 8px; }
+      #suggest_member.btn { margin-top: 8px; }
     }
 
-    .contact_remove-from-aspect {
+    .contact_remove-from-aspect, .contact_add-to-aspect {
       text-decoration: none;
       .entypo {
         font-size: 20px;

@@ -4,7 +4,7 @@ app.views.Contacts = Backbone.View.extend({
 
   events: {
     "click #contacts_visibility_toggle" : "toggleContactVisibility",
-    "click #change_aspect_name" : "showNameChangeForm"
+    "click #change_aspect_name" : "showAspectNameForm"
   },
 
   initialize: function() {
@@ -33,7 +33,7 @@ app.views.Contacts = Backbone.View.extend({
     }
   },
 
-  showNameChangeForm: function() {
+  showAspectNameForm: function() {
     $(".header > h3").hide();
     $(".header > #aspect_name_form").show();
   },

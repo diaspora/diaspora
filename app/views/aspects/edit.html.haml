@@ -1,0 +1,13 @@
+#people_stream.stream.contacts
+  - @contacts.each do |contact|
+    .media.stream_element{:id => contact.person_id}
+      .pull-right.contact_add-to-aspect
+        %i.entypo.circled-plus{:title => t('people.person.add_contact')}
+      .media-object.pull-left
+        = person_image_link(contact.person, :size => :thumb_small)
+      .media-body
+        = person_link(contact.person)
+        .info.diaspora_handle
+          = contact.person_diaspora_handle
+        .info.tags
+          = Diaspora::Taggable.format_tags(contact.person.profile.tag_string)

@@ -1,34 +1,3 @@
-/*   Copyright (c) 2010-2011, Diaspora Inc.  This file is
- *   licensed under the Affero General Public License version 3 or later.  See
- *   the COPYRIGHT file.
- */
-
-function toggleAspectTitle(){
-  $("#aspect_name_title").toggleClass('hidden');
-  $("#aspect_name_edit").toggleClass('hidden');
-}
-
-function updateAspectName(new_name) {
-  $('#aspect_name_title .name').text(new_name);
-  $('input#aspect_name').val(new_name);
-}
-function updatePageAspectName( an_id, new_name) {
-  $('ul#aspect_nav [data-aspect-id="'+an_id+'"] .selectable').text(new_name);
-}
-
-$(document).ready(function() {
-  $(document).on('click', '#rename_aspect_link', function(){
-    toggleAspectTitle();
-  });
-
-  $(document).on('ajax:success', 'form.edit_aspect', function(evt, data, status, xhr) {
-    updateAspectName(data['name']);
-    updatePageAspectName( data['id'], data['name'] );
-    toggleAspectTitle();
-  });
-});
-
-
 /**
  * TEMPORARY SOLUTION
  * TODO remove me, when the contacts section is done with Backbone.js ...

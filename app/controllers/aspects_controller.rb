@@ -78,7 +78,7 @@ class AspectsController < ApplicationController
       @contacts_not_in_aspect = current_user.contacts.where(c[:id].not_in(@contacts_in_aspect.map(&:id))).includes(:aspect_memberships, :person => :profile).to_a.sort_by { |c| c.person.name }
     end
 
-    @contacts = @contacts_in_aspect + @contacts_not_in_aspect
+    @contacts = @contacts_not_in_aspect
 
     unless @aspect
       render :file => Rails.root.join('public', '404.html').to_s, :layout => false, :status => 404
