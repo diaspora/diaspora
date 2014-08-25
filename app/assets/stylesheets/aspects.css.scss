@@ -19,6 +19,12 @@
       .icon-ok { display: none;}
     }
     a {
+      .text {
+        color: #333333;
+      }
+      &:hover {
+        background: $background-grey;
+      }
       cursor: pointer;
       padding-left: 10px;
     }
