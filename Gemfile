@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 gem 'rails', '4.1.5'
 
@@ -78,6 +79,11 @@ gem 'entypo-rails', '2.2.2'
 gem 'backbone-on-rails', '1.1.1'
 gem 'handlebars_assets', '0.12.0'
 gem 'jquery-rails',      '3.0.4'
+
+# jQuery plugins
+
+gem 'rails-assets-perfect-scrollbar', '0.4.11'
+gem 'rails-assets-jquery', '1.10.2'
 
 # Localization
 

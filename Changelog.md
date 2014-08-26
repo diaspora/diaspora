@@ -22,6 +22,7 @@ Diaspora::Application.config.secret_key_base = '*************...'
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
 * Better character limit message [#5151](https://github.com/diaspora/diaspora/pull/5151)
 * Remember whether a AccountDeletion was performed [#5156](https://github.com/diaspora/diaspora/pull/5156)
+* Increased the number of notifications shown in drop down bar to 15 [#5129](https://github.com/diaspora/diaspora/pull/5129)
 
 # 0.4.1.0
 
