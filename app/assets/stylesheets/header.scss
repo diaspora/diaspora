@@ -23,7 +23,6 @@ header > .dark-header > nav {
     }
     .navbar-nav:not(.nav-badges) > li > a { font-weight: bold; }
     .nav-badges {
-      margin-left: 20px;
       & > li { height: 50px; }
       .dropdown > a:focus { outline: 0px none; }
       .dropdown-open {
