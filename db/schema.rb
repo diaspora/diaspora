@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824230505) do
+ActiveRecord::Schema.define(version: 20140826165533) do
 
   create_table "account_deletions", force: true do |t|
     t.string   "diaspora_handle"
@@ -449,7 +449,7 @@ ActiveRecord::Schema.define(version: 20140824230505) do
 
   create_table "simple_captcha_data", force: true do |t|
     t.string   "key",        limit: 40
-    t.string   "value",      limit: 6
+    t.string   "value",      limit: 12
     t.datetime "created_at"
     t.datetime "updated_at"
   end
