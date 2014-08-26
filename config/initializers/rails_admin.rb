@@ -40,10 +40,41 @@ if Rails.env.production?
 
     #  ==> Included models
     # Add all excluded models here:
-    config.excluded_models = [AspectMembership, AspectVisibility, ShareVisibility, ConversationVisibility,  NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, Reshare, Services::Facebook, Services::Tumblr, Services::Twitter, UserPreference, ActsAsTaggableOn::Tag]
+    #config.excluded_models = []
 
     # Add models here if you want to go 'whitelist mode':
-    # config.included_models = [AccountDeletion, ActsAsTaggableOn::Tag, Aspect, AspectMembership, AspectVisibility, Block, Comment, Contact, Conversation, ConversationVisibility, Invitation, InvitationCode, Like, Mention, Message, Notification, NotificationActor, Notifications::AlsoCommented, Notifications::CommentOnPost, Notifications::Liked, Notifications::Mentioned, Notifications::PrivateMessage, Notifications::RequestAccepted, Notifications::Reshared, Notifications::StartedSharing, OEmbedCache, Participation, Person, Photo, Pod, Post, Profile, Reshare, Service, ServiceUser, Services::Facebook, Services::Tumblr, Services::Twitter, ShareVisibility, StatusMessage, TagFollowing, User, UserPreference]
+    config.included_models = %w[
+        AccountDeletion
+        Aspect
+        AspectMembership
+        Block
+        Comment
+        Contact
+        Conversation
+        Invitation
+        InvitationCode
+        Like
+        Location
+        Mention
+        Message
+        OEmbedCache
+        OpenGraphCache
+        Person
+        Photo
+        Profile
+        Pod
+        Poll
+        PollAnswer
+        Post
+        Profile
+        Report
+        Reshare
+        Role
+        Service
+        StatusMessage
+        User
+        UserPreference
+    ]
 
     # Application wide tried label methods for models' instances
     # config.label_methods << :description # Default is [:name, :title]
