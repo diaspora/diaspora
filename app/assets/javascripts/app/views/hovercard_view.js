@@ -116,6 +116,11 @@ app.views.Hovercard = Backbone.View.extend({
   _positionHovercard: function() {
     var p = this.$el.parent();
     var p_pos = p.position();
+    if (p_pos.left + $(this.$el).width() > $(window).width()) {
+        // 50 is padding to deal with scrollbar and to provide some space
+        p_pos.left = $(window).width() - $(this.$el).width() - 50;
+    }
+
     var p_height = p.height();
 
     this.$el.css({
