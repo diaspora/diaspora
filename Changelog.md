@@ -25,6 +25,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 * Better character limit message [#5151](https://github.com/diaspora/diaspora/pull/5151)
 * Remember whether a AccountDeletion was performed [#5156](https://github.com/diaspora/diaspora/pull/5156)
 * Increased the number of notifications shown in drop down bar to 15 [#5129](https://github.com/diaspora/diaspora/pull/5129)
+* Increase possible captcha length [#5169](https://github.com/diaspora/diaspora/pull/5169)
 
 # 0.4.1.0
 

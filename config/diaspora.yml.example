@@ -289,7 +289,7 @@ configuration: ## Section
       ## Captcha image size (default='120x20')
       #image_size: '120x20'
 
-      ## Length of captcha text (default=5)
+      ## Length of captcha text (default=5)(max=12)
       #captcha_length: 5
 
       ## Captcha image style (default='simply_green')
