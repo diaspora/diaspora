@@ -259,6 +259,7 @@ GEM
       rails
     multi_json (1.10.1)
     multi_test (0.1.1)
+    multi_xml (0.5.5)
     multipart-post (1.2.0)
     mysql2 (0.3.16)
     nested_form (0.3.2)
