@@ -52,8 +52,9 @@ describe StatusMessage, :type => :model do
 
       describe '.user_tag_stream' do
         it 'returns tag stream thats owned or visible by' do
-          expect(StatusMessage).to receive(:owned_or_visible_by_user).with(bob).and_return(StatusMessage)
-          expect(StatusMessage).to receive(:tag_stream).with([@tag_id])
+          relation = double
+          expect(StatusMessage).to receive(:owned_or_visible_by_user).with(bob).and_return(relation)
+          expect(relation).to receive(:tag_stream).with([@tag_id])
 
           StatusMessage.user_tag_stream(bob, [@tag_id])
         end
