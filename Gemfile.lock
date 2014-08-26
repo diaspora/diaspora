@@ -405,7 +405,7 @@ GEM
       rspec
     rspec-mocks (3.0.4)
       rspec-support (~> 3.0.0)
-    rspec-rails (3.0.0)
+    rspec-rails (3.0.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -572,7 +572,7 @@ DEPENDENCIES
   remotipart (= 1.2.1)
   roxml (= 3.1.6)
   rspec-instafail (= 0.2.5)
-  rspec-rails (= 3.0.0)
+  rspec-rails (= 3.0.2)
   ruby-oembed (= 0.8.10)
   sass-rails (= 4.0.3)
   selenium-webdriver (= 2.42.0)
