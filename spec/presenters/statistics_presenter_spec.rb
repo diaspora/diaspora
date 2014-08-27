@@ -74,7 +74,6 @@ describe StatisticsPresenter do
 
       it 'should show top fifty tags' do
         expect(@presenter.as_json["popular_tags"]).to eq(@tags)
-
       end
     end
 
