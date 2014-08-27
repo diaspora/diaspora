@@ -16,6 +16,7 @@ Diaspora::Application.config.secret_key_base = '*************...'
 The default for including jQuery from a CDN has changed. If you want to continue to include it from a CDN, please explicitly set the `jquery_cdn` setting to `true` in diaspora.yml.
 
 ## Refactor
+* Update to rspec 3.0.2 [#5170](https://github.com/diaspora/diaspora/pull/5170)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
