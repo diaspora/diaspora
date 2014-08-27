@@ -7,11 +7,12 @@ var AspectsDropdown = {
     var button = dropdown.parents(".dropdown").children('.button.toggle'),
         selectedAspects = dropdown.children(".selected").length,
         allAspects = dropdown.children().length,
-        replacement;
+        replacement,
+        isInPublisher = dropdown.closest('#publisher').length;
 
     if (number == 0) {
       button.removeClass(inAspectClass);
-      if( dropdown.closest('#publisher').length ) {
+      if (isInPublisher) {
         replacement = Diaspora.I18n.t("aspect_dropdown.select_aspects");
       } else {
         replacement = Diaspora.I18n.t("aspect_dropdown.add_to_aspect");
@@ -19,21 +20,34 @@ var AspectsDropdown = {
         var message = Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", {name: dropdown.data('person-short-name')});
         Diaspora.page.flashMessages.render({success: true, notice: message});
       }
-    }else if (selectedAspects == allAspects) {
+    } else if (selectedAspects == allAspects) {
       replacement = Diaspora.I18n.t('aspect_dropdown.all_aspects');
-    }else if (number == 1) {
+    } else if (number == 1) {
       button.addClass(inAspectClass);
       replacement = dropdown.find(".selected").first().text();
       /* flash message prompt */
-      if( dropdown.closest('#publisher').length == 0 ) {
+      if (!isInPublisher) {
         var message = Diaspora.I18n.t("aspect_dropdown.started_sharing_with", {name: dropdown.data('person-short-name')});
         Diaspora.page.flashMessages.render({success: true, notice: message});
       }
-    }else {
+    } else {
       replacement = Diaspora.I18n.t('aspect_dropdown.toggle', { count: number.toString()})
     }
 
-    button.text(replacement + ' ▼');
+    // if we are in the publisher, we add the visibility icon
+    if (isInPublisher) {
+      var icon = $('#visibility-icon');      
+      if (replacement.trim() == Diaspora.I18n.t('stream.public')) {
+        icon.removeClass('lock');
+        icon.addClass('globe');
+      } else {
+        icon.removeClass('globe');
+        icon.addClass('lock');
+      }
+      button.find('.text').text(replacement);
+    } else {
+      button.text(replacement + ' ▼');
+    }
   },
 
   toggleCheckbox: function(check) {
