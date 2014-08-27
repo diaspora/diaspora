@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
   create_table "aspect_memberships", force: true do |t|
     t.integer  "aspect_id",  null: false
     t.integer  "contact_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "aspect_memberships", ["aspect_id", "contact_id"], name: "index_aspect_memberships_on_aspect_id_and_contact_id", unique: true, using: :btree
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
   create_table "aspect_visibilities", force: true do |t|
     t.integer  "shareable_id",                    null: false
     t.integer  "aspect_id",                       null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "shareable_type", default: "Post", null: false
   end
 
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
   create_table "aspects", force: true do |t|
     t.string   "name",                            null: false
     t.integer  "user_id",                         null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "contacts_visible", default: true, null: false
     t.integer  "order_id"
   end
@@ -66,21 +66,21 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.string   "guid",                                                null: false
     t.text     "author_signature"
     t.text     "parent_author_signature"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "likes_count",                        default: 0,      null: false
     t.string   "commentable_type",        limit: 60, default: "Post", null: false
   end
 
-  add_index "comments", ["author_id"], name: "index_comments_on_person_id", using: :btree
+  add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
   add_index "comments", ["guid"], name: "index_comments_on_guid", unique: true, using: :btree
 
   create_table "contacts", force: true do |t|
     t.integer  "user_id",                    null: false
     t.integer  "person_id",                  null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "sharing",    default: false, null: false
     t.boolean  "receiving",  default: false, null: false
   end
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.integer  "conversation_id",             null: false
     t.integer  "person_id",                   null: false
     t.integer  "unread",          default: 0, null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "conversation_visibilities", ["conversation_id", "person_id"], name: "index_conversation_visibilities_usefully", unique: true, using: :btree
@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.string   "subject"
     t.string   "guid",       null: false
     t.integer  "author_id",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "conversations", ["author_id"], name: "conversations_author_id_fk", using: :btree
@@ -114,8 +114,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.string   "token"
     t.integer  "user_id"
     t.integer  "count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "invitations", force: true do |t|
@@ -123,8 +123,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.integer  "aspect_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "service"
     t.string   "identifier"
     t.boolean  "admin",        default: false
@@ -142,23 +142,23 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.string   "guid"
     t.text     "author_signature"
     t.text     "parent_author_signature"
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "target_type",             limit: 60,                null: false
   end
 
   add_index "likes", ["author_id"], name: "likes_author_id_fk", using: :btree
   add_index "likes", ["guid"], name: "index_likes_on_guid", unique: true, using: :btree
   add_index "likes", ["target_id", "author_id", "target_type"], name: "index_likes_on_target_id_and_author_id_and_target_type", unique: true, using: :btree
-  add_index "likes", ["target_id"], name: "index_likes_on_post_id", using: :btree
+  add_index "likes", ["target_id"], name: "index_likes_on_target_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string   "address"
     t.string   "lat"
     t.string   "lng"
     t.integer  "status_message_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "mentions", force: true do |t|
@@ -175,8 +175,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.integer  "author_id",               null: false
     t.string   "guid",                    null: false
     t.text     "text",                    null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text     "author_signature"
     t.text     "parent_author_signature"
   end
@@ -187,8 +187,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
   create_table "notification_actors", force: true do |t|
     t.integer  "notification_id"
     t.integer  "person_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "notification_actors", ["notification_id", "person_id"], name: "index_notification_actors_on_notification_id_and_person_id", unique: true, using: :btree
@@ -200,8 +200,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.integer  "target_id"
     t.integer  "recipient_id",                null: false
     t.boolean  "unread",       default: true, null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "type"
   end
 
@@ -231,8 +231,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.integer  "author_id"
     t.text     "author_signature"
     t.text     "parent_author_signature"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "participations", ["guid"], name: "index_participations_on_guid", using: :btree
@@ -244,8 +244,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.string   "diaspora_handle",                       null: false
     t.text     "serialized_public_key",                 null: false
     t.integer  "owner_id"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "closed_account",        default: false
     t.integer  "fetch_status",          default: 0
   end
@@ -280,8 +280,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
   create_table "pods", force: true do |t|
     t.string   "host"
     t.boolean  "ssl"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "poll_answers", force: true do |t|
@@ -300,8 +300,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.string   "guid"
     t.text     "author_signature"
     t.text     "parent_author_signature"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "poll_participations", ["poll_id"], name: "index_poll_participations_on_poll_id", using: :btree
@@ -311,8 +311,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.integer  "status_message_id", null: false
     t.boolean  "status"
     t.string   "guid"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "polls", ["status_message_id"], name: "index_polls_on_status_message_id", using: :btree
@@ -329,8 +329,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.string   "remote_photo_name"
     t.string   "random_string"
     t.string   "processed_image"
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "unprocessed_image"
     t.string   "object_url"
     t.string   "image_url"
@@ -355,7 +355,7 @@ ActiveRecord::Schema.define(version: 20140826165533) do
   end
 
   add_index "posts", ["author_id", "root_guid"], name: "index_posts_on_author_id_and_root_guid", unique: true, using: :btree
-  add_index "posts", ["author_id"], name: "index_posts_on_person_id", using: :btree
+  add_index "posts", ["author_id"], name: "index_posts_on_author_id", using: :btree
   add_index "posts", ["guid"], name: "index_posts_on_guid", unique: true, using: :btree
   add_index "posts", ["id", "type", "created_at"], name: "index_posts_on_id_and_type_and_created_at", using: :btree
   add_index "posts", ["root_guid"], name: "index_posts_on_root_guid", using: :btree
@@ -376,8 +376,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.text     "bio"
     t.boolean  "searchable",                   default: true,  null: false
     t.integer  "person_id",                                    null: false
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "location"
     t.string   "full_name",        limit: 70
     t.boolean  "nsfw",                         default: false
@@ -394,8 +394,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.string   "table"
     t.integer  "month",      limit: 2
     t.integer  "year",       limit: 8
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
@@ -405,18 +405,18 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.string   "item_type",                  null: false
     t.boolean  "reviewed",   default: false
     t.text     "text"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id",                    null: false
   end
 
-  add_index "reports", ["item_id"], name: "index_post_reports_on_post_id", using: :btree
+  add_index "reports", ["item_id"], name: "index_reports_on_item_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.integer  "person_id"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "services", force: true do |t|
@@ -426,8 +426,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.string   "access_token"
     t.string   "access_secret"
     t.string   "nickname"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "services", ["type", "uid"], name: "index_services_on_type_and_uid", using: :btree
@@ -435,23 +435,23 @@ ActiveRecord::Schema.define(version: 20140826165533) do
 
   create_table "share_visibilities", force: true do |t|
     t.integer  "shareable_id",                               null: false
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "hidden",                    default: false,  null: false
     t.integer  "contact_id",                                 null: false
     t.string   "shareable_type", limit: 60, default: "Post", null: false
   end
 
-  add_index "share_visibilities", ["contact_id"], name: "index_post_visibilities_on_contact_id", using: :btree
+  add_index "share_visibilities", ["contact_id"], name: "index_share_visibilities_on_contact_id", using: :btree
   add_index "share_visibilities", ["shareable_id", "shareable_type", "contact_id"], name: "shareable_and_contact_id", using: :btree
   add_index "share_visibilities", ["shareable_id", "shareable_type", "hidden", "contact_id"], name: "shareable_and_hidden_and_contact_id", using: :btree
-  add_index "share_visibilities", ["shareable_id"], name: "index_post_visibilities_on_post_id", using: :btree
+  add_index "share_visibilities", ["shareable_id"], name: "index_share_visibilities_on_post_id", using: :btree
 
   create_table "simple_captcha_data", force: true do |t|
     t.string   "key",        limit: 40
     t.string   "value",      limit: 12
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
@@ -459,8 +459,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
   create_table "tag_followings", force: true do |t|
     t.integer  "tag_id",     null: false
     t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "tag_followings", ["tag_id", "user_id"], name: "index_tag_followings_on_tag_id_and_user_id", unique: true, using: :btree
@@ -492,8 +492,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
   create_table "user_preferences", force: true do |t|
     t.string   "email_type"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -513,8 +513,8 @@ ActiveRecord::Schema.define(version: 20140826165533) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                                     null: false
-    t.datetime "updated_at",                                                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "invitation_service",                 limit: 127
     t.string   "invitation_identifier",              limit: 127
     t.integer  "invitation_limit"
