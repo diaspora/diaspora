@@ -173,7 +173,7 @@ GEM
     fog-softlayer (0.3.15)
       fog-core
       fog-json
-    font-awesome-rails (4.1.0.0)
+    font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
     foreigner (1.6.1)
       activerecord (>= 3.0.0)
