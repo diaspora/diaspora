@@ -7,7 +7,7 @@ describe AspectPresenter do
 
   describe '#to_json' do
     it 'works' do
-      @presenter.to_json.should be_present
+      expect(@presenter.to_json).to be_present
     end
   end
 end

@@ -10,6 +10,6 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe InvitationCodesHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe InvitationCodesHelper, :type => :helper do
+  skip "add some examples to (or delete) #{__FILE__}"
 end

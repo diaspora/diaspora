@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Invitation do
+describe Invitation, :type => :model do
   let(:user) { alice }
 
   before do
@@ -17,35 +17,35 @@ describe Invitation do
     end
 
     it 'is valid' do
-      @invitation.sender.should == user
-      @invitation.recipient.should == nil
-      @invitation.aspect.should == user.aspects.first
-      @invitation.language.should == "de"
-      @invitation.should be_valid
+      expect(@invitation.sender).to eq(user)
+      expect(@invitation.recipient).to eq(nil)
+      expect(@invitation.aspect).to eq(user.aspects.first)
+      expect(@invitation.language).to eq("de")
+      expect(@invitation).to be_valid
     end
 
     it 'ensures the sender is placing the recipient into one of his aspects' do
       @invitation.aspect = FactoryGirl.build(:aspect)
-      @invitation.should_not be_valid
+      expect(@invitation).not_to be_valid
     end
   end
 
   describe '#language' do  
     it 'returns the correct language if the language is set' do
       @invitation = FactoryGirl.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first, :language => "de")
-      @invitation.language.should == "de"
+      expect(@invitation.language).to eq("de")
     end  
 
     it 'returns en if no language is set' do
       @invitation = FactoryGirl.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first)
-      @invitation.language.should == "en"
+      expect(@invitation.language).to eq("en")
     end
   end
 
   it 'has a message' do
     @invitation = FactoryGirl.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first, :language => user.language)
     @invitation.message = "!"
-    @invitation.message.should == "!"
+    expect(@invitation.message).to eq("!")
   end
 
  
@@ -57,8 +57,8 @@ describe Invitation do
 
     it 'returns an array of invites based on the emails passed in' do
       invites = Invitation.batch_invite(@emails, @opts)
-      invites.count.should be 2
-      invites.all?{|x| x.persisted?}.should be_true
+      expect(invites.count).to be 2
+      expect(invites.all?{|x| x.persisted?}).to be true
     end
 
     it 'shares with people who are already on the pod' do
@@ -67,7 +67,7 @@ describe Invitation do
       expect{
         invites = Invitation.batch_invite(@emails, @opts)
       }.to change(eve.contacts, :count).by(1)
-      invites.count.should be 2
+      expect(invites.count).to be 2
 
     end
   end

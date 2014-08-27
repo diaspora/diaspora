@@ -4,47 +4,47 @@
 
 require 'spec_helper'
 
-describe StatusMessagesController do
+describe StatusMessagesController, :type => :controller do
   before do
     @aspect1 = alice.aspects.first
 
     request.env["HTTP_REFERER"] = ""
     sign_in :user, alice
-    @controller.stub(:current_user).and_return(alice)
+    allow(@controller).to receive(:current_user).and_return(alice)
     alice.reload
   end
 
   describe '#bookmarklet' do
     it 'succeeds' do
       get :bookmarklet
-      response.should be_success
+      expect(response).to be_success
     end
 
     it 'contains a complete html document' do
       get :bookmarklet
 
       doc = Nokogiri(response.body)
-      doc.xpath('//head').count.should equal 1
-      doc.xpath('//body').count.should equal 1
+      expect(doc.xpath('//head').count).to equal 1
+      expect(doc.xpath('//body').count).to equal 1
     end
 
     it 'accepts get params' do
       get :bookmarklet, { url:   'https://www.youtube.com/watch?v=0Bmhjf0rKe8',
                           title: 'Surprised Kitty',
                           notes: 'cute kitty' }
-      response.should be_success
+      expect(response).to be_success
     end
   end
 
   describe '#new' do
     it 'succeeds' do
       get :new, :person_id => bob.person.id
-      response.should be_success
+      expect(response).to be_success
     end
 
     it 'should redirect on desktop version' do
       get :new
-      response.should redirect_to(stream_path)
+      expect(response).to redirect_to(stream_path)
     end
 
     it 'generates a jasmine fixture', :fixture => true do
@@ -68,51 +68,51 @@ describe StatusMessagesController do
 
     it 'creates with valid html' do
       post :create, status_message_hash
-      response.status.should == 302
-      response.should be_redirect
+      expect(response.status).to eq(302)
+      expect(response).to be_redirect
     end
 
     it 'creates with invalid html' do
       post :create, status_message_hash.merge(:status_message => { :text => "0123456789" * 7000 })
-      response.status.should == 302
-      response.should be_redirect
+      expect(response.status).to eq(302)
+      expect(response).to be_redirect
     end
 
     it 'creates with valid json' do
       post :create, status_message_hash.merge(:format => 'json')
-      response.status.should == 201
+      expect(response.status).to eq(201)
     end
 
     it 'creates with invalid json' do
       post :create, status_message_hash.merge(:status_message => { :text => "0123456789" * 7000 }, :format => 'json')
-      response.status.should == 403
+      expect(response.status).to eq(403)
     end
 
     it 'creates with valid mobile' do
       post :create, status_message_hash.merge(:format => 'mobile')
-      response.status.should == 302
-      response.should be_redirect
+      expect(response.status).to eq(302)
+      expect(response).to be_redirect
     end
 
     it 'creates with invalid mobile' do
       post :create, status_message_hash.merge(:status_message => { :text => "0123456789" * 7000 }, :format => 'mobile')
-      response.status.should == 302
-      response.should be_redirect
+      expect(response.status).to eq(302)
+      expect(response).to be_redirect
     end
 
     it 'removes getting started from new users' do
-      @controller.should_receive(:remove_getting_started)
+      expect(@controller).to receive(:remove_getting_started)
       post :create, status_message_hash
     end
 
     it 'takes public in aspect ids' do
       post :create, status_message_hash.merge(:aspect_ids => ['public'])
-      response.status.should == 302
+      expect(response.status).to eq(302)
     end
 
     it 'takes all_aspects in aspect ids' do
       post :create, status_message_hash.merge(:aspect_ids => ['all_aspects'])
-      response.status.should == 302
+      expect(response.status).to eq(302)
     end
 
     it "dispatches the post to the specified services" do
@@ -121,7 +121,7 @@ describe StatusMessagesController do
       alice.services << Services::Twitter.new
       status_message_hash[:services] = ['facebook']
       service_types = Service.titles(status_message_hash[:services])
-      alice.should_receive(:dispatch_post).with(anything(), hash_including(:service_types => service_types))
+      expect(alice).to receive(:dispatch_post).with(anything(), hash_including(:service_types => service_types))
       post :create, status_message_hash
     end
 
@@ -129,7 +129,7 @@ describe StatusMessagesController do
       s1 = Services::Facebook.new
       alice.services << s1
       status_message_hash[:services] = "facebook"
-      alice.should_receive(:dispatch_post).with(anything(), hash_including(:service_types => ["Services::Facebook"]))
+      expect(alice).to receive(:dispatch_post).with(anything(), hash_including(:service_types => ["Services::Facebook"]))
       post :create, status_message_hash
     end
 
@@ -137,19 +137,19 @@ describe StatusMessagesController do
       status_message_hash[:status_message][:author_id] = bob.person.id
       post :create, status_message_hash
       new_message = StatusMessage.find_by_text(status_message_hash[:status_message][:text])
-      new_message.author_id.should == alice.person.id
+      expect(new_message.author_id).to eq(alice.person.id)
     end
 
     it "doesn't overwrite id" do
       old_status_message = alice.post(:status_message, :text => "hello", :to => @aspect1.id)
       status_message_hash[:status_message][:id] = old_status_message.id
       post :create, status_message_hash
-      old_status_message.reload.text.should == 'hello'
+      expect(old_status_message.reload.text).to eq('hello')
     end
 
     it 'calls dispatch post once subscribers is set' do
-      alice.should_receive(:dispatch_post){|post, opts|
-        post.subscribers(alice).should == [bob.person]
+      expect(alice).to receive(:dispatch_post){|post, opts|
+        expect(post.subscribers(alice)).to eq([bob.person])
       }
       post :create, status_message_hash
     end
@@ -158,7 +158,7 @@ describe StatusMessagesController do
       status_message_hash.merge!(:aspect_ids => ['public'])
       status_message_hash[:status_message].merge!(:provider_display_name => "mobile")
       post :create, status_message_hash
-      StatusMessage.first.provider_display_name.should == 'mobile'
+      expect(StatusMessage.first.provider_display_name).to eq('mobile')
     end
 
 # disabled to fix federation
@@ -182,12 +182,12 @@ describe StatusMessagesController do
       it "will post a photo without text" do
         @hash.delete :text
         post :create, @hash
-        response.should be_redirect
+        expect(response).to be_redirect
       end
 
       it "attaches all referenced photos" do
         post :create, @hash
-        assigns[:status_message].photos.map(&:id).should =~ [@photo1, @photo2].map(&:id)
+        expect(assigns[:status_message].photos.map(&:id)).to match_array([@photo1, @photo2].map(&:id))
       end
 
       it "sets the pending bit of referenced photos" do
@@ -195,8 +195,8 @@ describe StatusMessagesController do
           post :create, @hash
         end
 
-        @photo1.reload.pending.should be_false
-        @photo2.reload.pending.should be_false
+        expect(@photo1.reload.pending).to be false
+        expect(@photo2.reload.pending).to be false
       end
     end
   end

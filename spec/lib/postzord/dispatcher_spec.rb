@@ -9,31 +9,31 @@ describe Postzord::Dispatcher do
     @sm = FactoryGirl.create(:status_message, :public => true, :author => alice.person)
     @subscribers = []
     5.times{@subscribers << FactoryGirl.create(:person)}
-    @sm.stub(:subscribers).and_return(@subscribers)
+    allow(@sm).to receive(:subscribers).and_return(@subscribers)
     @xml = @sm.to_diaspora_xml
   end
 
   describe '.initialize' do
     it 'sets @sender, @object, @xml' do
       zord = Postzord::Dispatcher.build(alice, @sm)
-      zord.sender.should == alice
-      zord.object.should == @sm
-      zord.xml.should == @sm.to_diaspora_xml
+      expect(zord.sender).to eq(alice)
+      expect(zord.object).to eq(@sm)
+      expect(zord.xml).to eq(@sm.to_diaspora_xml)
     end
 
     context 'setting @subscribers' do
       it 'sets @subscribers from object' do
-        @sm.should_receive(:subscribers).and_return(@subscribers)
+        expect(@sm).to receive(:subscribers).and_return(@subscribers)
         zord = Postzord::Dispatcher.build(alice, @sm)
-        zord.subscribers.should == @subscribers
+        expect(zord.subscribers).to eq(@subscribers)
       end
 
       it 'accepts additional subscribers from opts' do
         new_person = FactoryGirl.create(:person)
 
-        @sm.should_receive(:subscribers).and_return(@subscribers)
+        expect(@sm).to receive(:subscribers).and_return(@subscribers)
         zord = Postzord::Dispatcher.build(alice, @sm, :additional_subscribers => new_person)
-        zord.subscribers.should == @subscribers | [new_person]
+        expect(zord.subscribers).to eq(@subscribers | [new_person])
       end
     end
 
@@ -55,17 +55,17 @@ describe Postzord::Dispatcher do
     describe '#post' do
       it 'calls Array#partition on subscribers' do
         @zord.instance_variable_set(:@subscribers, @subscribers)
-        @subscribers.should_receive(:partition).and_return([@remote_people, @local_people])
+        expect(@subscribers).to receive(:partition).and_return([@remote_people, @local_people])
         @zord.post
       end
 
       it 'calls #deliver_to_local with local people' do
-        @zord.should_receive(:deliver_to_local).with(@local_people)
+        expect(@zord).to receive(:deliver_to_local).with(@local_people)
         @zord.post
       end
 
       it 'calls #deliver_to_remote with remote people' do
-        @zord.should_receive(:deliver_to_remote).with(@remote_people)
+        expect(@zord).to receive(:deliver_to_remote).with(@remote_people)
         @zord.post
       end
     end
@@ -90,17 +90,17 @@ describe Postzord::Dispatcher do
             end
 
             it 'calls deliver_to_local with local_luke' do
-              @mailman.should_receive(:deliver_to_local).with([@local_luke.person])
+              expect(@mailman).to receive(:deliver_to_local).with([@local_luke.person])
               @mailman.post
             end
 
             it 'calls deliver_to_remote with nobody' do
-              @mailman.should_receive(:deliver_to_remote).with([])
+              expect(@mailman).to receive(:deliver_to_remote).with([])
               @mailman.post
             end
 
             it 'does not call notify_users' do
-              @mailman.should_not_receive(:notify_users)
+              expect(@mailman).not_to receive(:notify_users)
               @mailman.post
             end
           end
@@ -110,17 +110,17 @@ describe Postzord::Dispatcher do
             end
 
             it 'does not call deliver_to_local' do
-              @mailman.should_not_receive(:deliver_to_local)
+              expect(@mailman).not_to receive(:deliver_to_local)
               @mailman.post
             end
 
             it 'calls deliver_to_remote with remote raphael' do
-              @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
+              expect(@mailman).to receive(:deliver_to_remote).with([@remote_raphael])
               @mailman.post
             end
 
             it 'calls notify_users' do
-              @mailman.should_receive(:notify_users).with([@local_leia])
+              expect(@mailman).to receive(:notify_users).with([@local_leia])
               @mailman.post
             end
           end
@@ -134,17 +134,17 @@ describe Postzord::Dispatcher do
           end
 
           it 'does not call deliver_to_local' do
-            @mailman.should_not_receive(:deliver_to_local)
+            expect(@mailman).not_to receive(:deliver_to_local)
             @mailman.post
           end
 
           it 'calls deliver_to_remote with remote_raphael' do
-            @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
+            expect(@mailman).to receive(:deliver_to_remote).with([@remote_raphael])
             @mailman.post
           end
 
           it 'calls notify_users' do
-            @mailman.should_receive(:notify_users).with([@local_leia])
+            expect(@mailman).to receive(:notify_users).with([@local_leia])
             @mailman.post
           end
         end
@@ -157,17 +157,17 @@ describe Postzord::Dispatcher do
           end
 
           it 'does not call deliver_to_local' do
-            @mailman.should_not_receive(:deliver_to_local)
+            expect(@mailman).not_to receive(:deliver_to_local)
             @mailman.post
           end
 
           it 'calls deliver_to_remote with remote_raphael' do
-            @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
+            expect(@mailman).to receive(:deliver_to_remote).with([@remote_raphael])
             @mailman.post
           end
 
           it 'calls notify_users' do
-            @mailman.should_receive(:notify_users).with([@local_leia])
+            expect(@mailman).to receive(:notify_users).with([@local_leia])
             @mailman.post
           end
         end
@@ -182,17 +182,17 @@ describe Postzord::Dispatcher do
         end
 
         it 'calls deliver_to_remote with remote_raphael' do
-          @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
+          expect(@mailman).to receive(:deliver_to_remote).with([@remote_raphael])
           @mailman.post
         end
 
         it 'calls deliver_to_local with nobody' do
-          @mailman.should_receive(:deliver_to_local).with([])
+          expect(@mailman).to receive(:deliver_to_local).with([])
           @mailman.post
         end
 
         it 'does not call notify_users' do
-          @mailman.should_not_receive(:notify_users)
+          expect(@mailman).not_to receive(:notify_users)
           @mailman.post
         end
       end
@@ -204,15 +204,15 @@ describe Postzord::Dispatcher do
         @remote_people << alice.person
         @mailman = Postzord::Dispatcher.build(alice, @sm)
         @hydra = double()
-        Typhoeus::Hydra.stub(:new).and_return(@hydra)
+        allow(Typhoeus::Hydra).to receive(:new).and_return(@hydra)
       end
 
       it 'should queue an HttpMultiJob for the remote people' do
-        Postzord::Dispatcher::Public.any_instance.unstub(:deliver_to_remote)
-        Workers::HttpMulti.should_receive(:perform_async).with(alice.id, anything, @remote_people.map{|p| p.id}, anything).once
+        allow_any_instance_of(Postzord::Dispatcher::Public).to receive(:deliver_to_remote).and_call_original
+        expect(Workers::HttpMulti).to receive(:perform_async).with(alice.id, anything, @remote_people.map{|p| p.id}, anything).once
         @mailman.send(:deliver_to_remote, @remote_people)
 
-        Postzord::Dispatcher::Public.stub(:deliver_to_remote)
+        allow(Postzord::Dispatcher::Public).to receive(:deliver_to_remote)
       end
     end
 
@@ -224,18 +224,18 @@ describe Postzord::Dispatcher do
       it 'queues a batch receive' do
         local_people = []
         local_people << alice.person
-        Workers::ReceiveLocalBatch.should_receive(:perform_async).with(@sm.class.to_s, @sm.id, [alice.id]).once
+        expect(Workers::ReceiveLocalBatch).to receive(:perform_async).with(@sm.class.to_s, @sm.id, [alice.id]).once
         @mailman.send(:deliver_to_local, local_people)
       end
 
       it 'returns if people are empty' do
-        Workers::ReceiveLocalBatch.should_not_receive(:perform_async)
+        expect(Workers::ReceiveLocalBatch).not_to receive(:perform_async)
         @mailman.send(:deliver_to_local, [])
       end
 
       it 'returns if the object is a profile' do
         @mailman.instance_variable_set(:@object, Profile.new)
-        Workers::ReceiveLocalBatch.should_not_receive(:perform_async)
+        expect(Workers::ReceiveLocalBatch).not_to receive(:perform_async)
         @mailman.send(:deliver_to_local, [1])
       end
     end
@@ -243,28 +243,28 @@ describe Postzord::Dispatcher do
     describe '#object_should_be_processed_as_public?' do
       it 'returns true with a comment on a public post' do
         f = FactoryGirl.create(:comment, :post => FactoryGirl.build(:status_message, :public => true))
-        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_true
+        expect(Postzord::Dispatcher.object_should_be_processed_as_public?(f)).to be true
       end
 
       it 'returns false with a comment on a private post' do
         f = FactoryGirl.create(:comment, :post => FactoryGirl.build(:status_message, :public => false))
-        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
+        expect(Postzord::Dispatcher.object_should_be_processed_as_public?(f)).to be false
       end
 
       it 'returns true with a like on a comment on a public post' do
         f = FactoryGirl.create(:like, :target => FactoryGirl.build(:comment, :post => FactoryGirl.build(:status_message, :public => true)))
-        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_true
+        expect(Postzord::Dispatcher.object_should_be_processed_as_public?(f)).to be true
       end
 
       it 'returns false with a like on a comment on a private post' do
         f = FactoryGirl.create(:like, :target => FactoryGirl.build(:comment, :post => FactoryGirl.build(:status_message, :public => false)))
-        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
+        expect(Postzord::Dispatcher.object_should_be_processed_as_public?(f)).to be false
       end
 
       it 'returns false for a relayable_retraction' do
         f = RelayableRetraction.new
         f.target = FactoryGirl.create(:status_message, :public => true)
-        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
+        expect(Postzord::Dispatcher.object_should_be_processed_as_public?(f)).to be false
       end
     end
 
@@ -277,8 +277,8 @@ describe Postzord::Dispatcher do
       end
 
       it 'queues a job to notify the hub' do
-        Workers::PostToService.stub(:perform_async).with(anything, anything, anything)
-        Workers::PublishToHub.should_receive(:perform_async).with(alice.public_url)
+        allow(Workers::PostToService).to receive(:perform_async).with(anything, anything, anything)
+        expect(Workers::PublishToHub).to receive(:perform_async).with(alice.public_url)
         @zord.send(:deliver_to_services, nil, [])
       end
 
@@ -286,7 +286,7 @@ describe Postzord::Dispatcher do
        @sm     = FactoryGirl.create(:status_message)
        mailman = Postzord::Dispatcher.build(alice, @sm, :url => "http://joindiaspora.com/p/123")
 
-       mailman.should_not_receive(:deliver_to_hub)
+       expect(mailman).not_to receive(:deliver_to_hub)
        mailman.post
       end
 
@@ -297,17 +297,17 @@ describe Postzord::Dispatcher do
        alice.services << @s2
        mailman = Postzord::Dispatcher.build(alice, FactoryGirl.create(:status_message), :url => "http://joindiaspora.com/p/123", :services => [@s1])
 
-       Workers::PublishToHub.stub(:perform_async).with(anything)
-       Workers::HttpMulti.stub(:perform_async).with(anything, anything, anything)
-       Workers::PostToService.should_receive(:perform_async).with(@s1.id, anything, anything)
+       allow(Workers::PublishToHub).to receive(:perform_async).with(anything)
+       allow(Workers::HttpMulti).to receive(:perform_async).with(anything, anything, anything)
+       expect(Workers::PostToService).to receive(:perform_async).with(@s1.id, anything, anything)
        mailman.post
       end
 
       it 'does not push to services if none are specified' do
        mailman = Postzord::Dispatcher.build(alice, FactoryGirl.create(:status_message), :url => "http://joindiaspora.com/p/123")
 
-       Workers::PublishToHub.stub(:perform_async).with(anything)
-       Workers::PostToService.should_not_receive(:perform_async).with(anything, anything, anything)
+       allow(Workers::PublishToHub).to receive(:perform_async).with(anything)
+       expect(Workers::PostToService).not_to receive(:perform_async).with(anything, anything, anything)
        mailman.post
       end
 
@@ -315,7 +315,7 @@ describe Postzord::Dispatcher do
         retraction = SignedRetraction.build(alice, FactoryGirl.create(:status_message))
         mailman = Postzord::Dispatcher.build(alice, retraction,  :url => "http://joindiaspora.com/p/123", :services => [@service])
 
-        Workers::DeletePostFromService.should_receive(:perform_async).with(anything, anything)
+        expect(Workers::DeletePostFromService).to receive(:perform_async).with(anything, anything)
         mailman.post
       end
 
@@ -323,14 +323,14 @@ describe Postzord::Dispatcher do
 
     describe '#and_notify_local_users' do
       it 'calls notifiy_users' do
-        @zord.should_receive(:notify_users).with([bob])
+        expect(@zord).to receive(:notify_users).with([bob])
         @zord.send(:notify_local_users, [bob.person])
       end
     end
 
     describe '#notify_users' do
       it 'enqueues a NotifyLocalUsers job' do
-        Workers::NotifyLocalUsers.should_receive(:perform_async).with([bob.id], @zord.object.class.to_s, @zord.object.id, @zord.object.author.id)
+        expect(Workers::NotifyLocalUsers).to receive(:perform_async).with([bob.id], @zord.object.class.to_s, @zord.object.id, @zord.object.author.id)
         @zord.send(:notify_users, [bob])
       end
     end

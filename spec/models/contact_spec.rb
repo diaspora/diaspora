@@ -4,12 +4,12 @@
 
 require 'spec_helper'
 
-describe Contact do
+describe Contact, :type => :model do
   describe 'aspect_memberships' do
     it 'deletes dependent aspect memberships' do
-      lambda{
+      expect{
         alice.contact_for(bob.person).destroy
-      }.should change(AspectMembership, :count).by(-1)
+      }.to change(AspectMembership, :count).by(-1)
     end
   end
 
@@ -18,12 +18,12 @@ describe Contact do
 
     it 'requires a user' do
       contact.valid?
-      contact.errors.full_messages.should include "User can't be blank"
+      expect(contact.errors.full_messages).to include "User can't be blank"
     end
 
     it 'requires a person' do
       contact.valid?
-      contact.errors.full_messages.should include "Person can't be blank"
+      expect(contact.errors.full_messages).to include "Person can't be blank"
     end
 
     it 'ensures user is not making a contact for himself' do
@@ -31,18 +31,18 @@ describe Contact do
       contact.user = alice
 
       contact.valid?
-      contact.errors.full_messages.should include "Cannot create self-contact"
+      expect(contact.errors.full_messages).to include "Cannot create self-contact"
     end
 
     it 'validates uniqueness' do
       person = FactoryGirl.create(:person)
 
       contact2 = alice.contacts.create(:person=>person)
-      contact2.should be_valid
+      expect(contact2).to be_valid
 
       contact.user = alice
       contact.person = person
-      contact.should_not be_valid
+      expect(contact).not_to be_valid
     end
 
     it "validates that the person's account is not closed" do
@@ -50,18 +50,18 @@ describe Contact do
 
       contact = alice.contacts.new(:person=>person)
 
-      contact.should_not be_valid
-      contact.errors.full_messages.should include "Cannot be in contact with a closed account"
+      expect(contact).not_to be_valid
+      expect(contact.errors.full_messages).to include "Cannot be in contact with a closed account"
     end
   end
 
   context 'scope' do
     describe 'sharing' do
       it 'returns contacts with sharing true' do
-        lambda {
+        expect {
           alice.contacts.create!(:sharing => true, :person => FactoryGirl.create(:person))
           alice.contacts.create!(:sharing => false, :person => FactoryGirl.create(:person))
-        }.should change{
+        }.to change{
           Contact.sharing.count
         }.by(1)
       end
@@ -69,10 +69,10 @@ describe Contact do
 
     describe 'receiving' do
       it 'returns contacts with sharing true' do
-        lambda {
+        expect {
           alice.contacts.create!(:receiving => true, :person => FactoryGirl.build(:person))
           alice.contacts.create!(:receiving => false, :person => FactoryGirl.build(:person))
-        }.should change{
+        }.to change{
           Contact.receiving.count
         }.by(1)
       end
@@ -80,12 +80,12 @@ describe Contact do
 
     describe 'only_sharing' do
       it 'returns contacts with sharing true and receiving false' do
-        lambda {
+        expect {
           alice.contacts.create!(:receiving => true, :sharing => true, :person => FactoryGirl.build(:person))
           alice.contacts.create!(:receiving => false, :sharing => true, :person => FactoryGirl.build(:person))
           alice.contacts.create!(:receiving => false, :sharing => true, :person => FactoryGirl.build(:person))
           alice.contacts.create!(:receiving => true, :sharing => false, :person => FactoryGirl.build(:person))
-        }.should change{
+        }.to change{
           Contact.receiving.count
         }.by(2)
       end
@@ -97,7 +97,7 @@ describe Contact do
         contact1 = FactoryGirl.create(:contact, :person => person)
         contact2 = FactoryGirl.create(:contact)
         contacts = Contact.all_contacts_of_person(person)
-        contacts.should == [contact1]
+        expect(contacts).to eq([contact1])
       end
     end
   end
@@ -137,19 +137,19 @@ describe Contact do
       end
 
       it "returns the target local user's contacts that are in the same aspect" do
-        @contact.contacts.map{|p| p.id}.should =~ [@eve.person].concat(@people1).map{|p| p.id}
+        expect(@contact.contacts.map{|p| p.id}).to match_array([@eve.person].concat(@people1).map{|p| p.id})
       end
 
       it 'returns nothing if contacts_visible is false in that aspect' do
         @original_aspect.contacts_visible = false
         @original_aspect.save
-        @contact.contacts.should == []
+        expect(@contact.contacts).to eq([])
       end
 
       it 'returns no duplicate contacts' do
         [@alice, @eve].each {|c| @bob.add_contact_to_aspect(@bob.contact_for(c.person), @bob.aspects.last)}
         contact_ids = @contact.contacts.map{|p| p.id}
-        contact_ids.uniq.should == contact_ids
+        expect(contact_ids.uniq).to eq(contact_ids)
       end
     end
 
@@ -158,7 +158,7 @@ describe Contact do
         @contact = @bob.contact_for @people1.first
       end
       it 'returns an empty array' do
-        @contact.contacts.should == []
+        expect(@contact.contacts).to eq([])
       end
     end
   end
@@ -175,20 +175,20 @@ describe Contact do
 
     describe '#generate_request' do
       it 'makes a request' do
-        @contact.stub(:user).and_return(@user)
+        allow(@contact).to receive(:user).and_return(@user)
         request = @contact.generate_request
 
-        request.sender.should == @user.person
-        request.recipient.should == @person
+        expect(request.sender).to eq(@user.person)
+        expect(request.recipient).to eq(@person)
       end
     end
 
     describe '#dispatch_request' do
       it 'pushes to people' do
-        @contact.stub(:user).and_return(@user)
+        allow(@contact).to receive(:user).and_return(@user)
         m = double()
-        m.should_receive(:post)
-        Postzord::Dispatcher.should_receive(:build).and_return(m)
+        expect(m).to receive(:post)
+        expect(Postzord::Dispatcher).to receive(:build).and_return(m)
         @contact.dispatch_request
       end
     end
@@ -200,7 +200,7 @@ describe Contact do
     end
 
     it "is called on validate" do
-      @contact.should_receive(:not_blocked_user)
+      expect(@contact).to receive(:not_blocked_user)
       @contact.valid?
     end
 
@@ -209,11 +209,11 @@ describe Contact do
       block = alice.blocks.create(:person => person)
       bad_contact = alice.contacts.create(:person => person)
 
-      bad_contact.send(:not_blocked_user).should be_false
+      expect(bad_contact.send(:not_blocked_user)).to be false
     end
 
     it "does not add to errors" do
-      @contact.send(:not_blocked_user).should be_true
+      expect(@contact.send(:not_blocked_user)).to be true
     end
   end
 end

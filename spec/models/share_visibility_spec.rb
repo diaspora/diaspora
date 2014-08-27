@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe ShareVisibility do
+describe ShareVisibility, :type => :model do
   describe '.batch_import' do
     before do
       @post = FactoryGirl.create(:status_message, :author => alice.person)
@@ -14,22 +14,22 @@ describe ShareVisibility do
     it 'returns false if share is public' do
       @post.public = true
       @post.save
-      ShareVisibility.batch_import([@contact.id], @post).should be_false
+      expect(ShareVisibility.batch_import([@contact.id], @post)).to be false
     end
 
     it 'creates a visibility for each user' do
-      lambda {
+      expect {
         ShareVisibility.batch_import([@contact.id], @post)
-      }.should change {
+      }.to change {
         ShareVisibility.exists?(:contact_id => @contact.id, :shareable_id => @post.id, :shareable_type => 'Post')
       }.from(false).to(true)
     end
 
     it 'does not raise if a visibility already exists' do
       ShareVisibility.create!(:contact_id => @contact.id, :shareable_id => @post.id, :shareable_type => 'Post')
-      lambda {
+      expect {
         ShareVisibility.batch_import([@contact.id], @post)
-      }.should_not raise_error
+      }.not_to raise_error
     end
 
     context "scopes" do
@@ -40,7 +40,7 @@ describe ShareVisibility do
 
         it 'searches for share visibilies for all users contacts' do
           contact_ids = alice.contacts.map(&:id)
-          ShareVisibility.for_a_users_contacts(alice).should == ShareVisibility.where(:contact_id => contact_ids).to_a
+          expect(ShareVisibility.for_a_users_contacts(alice)).to eq(ShareVisibility.where(:contact_id => contact_ids).to_a)
         end
       end
 

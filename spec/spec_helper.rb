@@ -76,17 +76,20 @@ prefork = proc do
 
     config.render_views
     config.use_transactional_fixtures = true
+    config.infer_spec_type_from_file_location!
 
     config.before(:each) do
       I18n.locale = :en
       stub_request(:post, "https://pubsubhubbub.appspot.com/")
       disable_typhoeus
       $process_queue = false
-      Postzord::Dispatcher::Public.any_instance.stub(:deliver_to_remote)
-      Postzord::Dispatcher::Private.any_instance.stub(:deliver_to_remote)
+      allow_any_instance_of(Postzord::Dispatcher::Public).to receive(:deliver_to_remote)
+      allow_any_instance_of(Postzord::Dispatcher::Private).to receive(:deliver_to_remote)
     end
 
-
+    config.expect_with :rspec do |expect_config|
+      expect_config.syntax = :expect
+    end
 
     config.after(:all) do
       `rm -rf #{Rails.root}/tmp/uploads/*`

@@ -1,11 +1,10 @@
 require 'spec_helper'
 
-describe Block do
+describe Block, :type => :model do
   describe 'validations' do
     it 'doesnt allow you to block yourself' do
       block = alice.blocks.create(:person => alice.person)
-
-      block.should have(1).error_on(:person_id)
+      expect(block.errors[:person_id].size).to eq(1)
     end
   end
 end

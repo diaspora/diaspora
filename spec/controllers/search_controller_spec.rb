@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SearchController do
+describe SearchController, :type => :controller do
   before do
     @user = alice
     @aspect = @user.aspects.first
@@ -13,7 +13,7 @@ describe SearchController do
                                                                    :last_name => "w", :searchable => false))
     it 'goes to people index page' do
       get :search, :q => 'eugene'
-      response.should be_redirect
+      expect(response).to be_redirect
     end
   end
 
@@ -21,17 +21,17 @@ describe SearchController do
   describe 'query is a tag' do
     it 'goes to a tag page' do
       get :search, :q => '#cats'
-      response.should redirect_to(tag_path('cats'))
+      expect(response).to redirect_to(tag_path('cats'))
     end
     
     it 'removes dots from the query' do
       get :search, :q => '#cat.s'
-      response.should redirect_to(tag_path('cats'))
+      expect(response).to redirect_to(tag_path('cats'))
     end
 
     it 'stay on the page if you search for the empty hash' do
       get :search, :q => '#'
-      flash[:error].should be_present
+      expect(flash[:error]).to be_present
     end
   end
 

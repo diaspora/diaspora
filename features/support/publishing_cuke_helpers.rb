@@ -8,7 +8,7 @@ module PublishingCukeHelpers
     elem.native.send_keys(' ' + txt)
 
     # make sure the other text field got the new contents
-    find('#status_message_text', visible: false).value.should include(txt)
+    expect(find('#status_message_text', visible: false).value).to include(txt)
   end
 
   def make_post(text)
@@ -19,7 +19,7 @@ module PublishingCukeHelpers
   def submit_publisher
     txt = find('#publisher #status_message_fake_text').value
     find('#publisher .creation').click
-    page.should have_content(txt) unless page.has_css?('.nsfw-shield')
+    expect(page).to have_content(txt) unless page.has_css?('.nsfw-shield')
   end
 
   def click_and_post(text)
@@ -42,19 +42,19 @@ module PublishingCukeHelpers
   def expand_first_post
     within(".stream_element", match: :first) do
       find(".expander").click
-      has_css?(".expander").should be_false
+      expect(has_css?(".expander")).to be false
     end
   end
 
   def first_post_collapsed?
-    find(".stream_element .collapsible", match: :first).should have_css(".expander")
-    page.should have_css(".stream_element .collapsible.collapsed", match: :first)
+    expect(find(".stream_element .collapsible", match: :first)).to have_css(".expander")
+    expect(page).to have_css(".stream_element .collapsible.collapsed", match: :first)
   end
 
   def first_post_expanded?
-    page.should have_no_css(".stream_element .expander", match: :first)
-    page.should have_no_css(".stream_element .collapsible.collapsed", match: :first)
-    page.should have_css(".stream_element .collapsible.opened", match: :first)
+    expect(page).to have_no_css(".stream_element .expander", match: :first)
+    expect(page).to have_no_css(".stream_element .collapsible.collapsed", match: :first)
+    expect(page).to have_css(".stream_element .collapsible.opened", match: :first)
   end
 
   def first_post_text
@@ -74,7 +74,7 @@ module PublishingCukeHelpers
   end
 
   def find_post_by_text(text)
-    page.should have_text(text)
+    expect(page).to have_text(text)
     find(".stream_element", text: text)
   end
 
@@ -119,7 +119,7 @@ module PublishingCukeHelpers
 
   def assert_nsfw(text)
     post = find_post_by_text(text)
-    post.find(".nsfw-shield").should be_present
+    expect(post.find(".nsfw-shield")).to be_present
   end
 end
 

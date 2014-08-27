@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe ContactsController do
+describe ContactsController, :type => :controller do
   describe '#index' do
     before do
       @aspect = bob.aspects.create(:name => "another aspect")

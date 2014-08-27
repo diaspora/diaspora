@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe ServicesController do
+describe ServicesController, :type => :controller do
   let(:omniauth_auth) do
     { 'provider' => 'facebook',
       'uid'      => '2',
@@ -15,7 +15,7 @@ describe ServicesController do
 
   before do
     sign_in :user, user
-    @controller.stub(:current_user).and_return(user)
+    allow(@controller).to receive(:current_user).and_return(user)
   end
 
   describe '#index' do
@@ -25,7 +25,7 @@ describe ServicesController do
 
     it "displays user's connected services" do
       get :index
-      assigns[:services].should == user.services
+      expect(assigns[:services]).to eq(user.services)
     end
   end
 
@@ -43,22 +43,22 @@ describe ServicesController do
 
     it 'saves the provider' do
       post :create, :provider => 'facebook'
-      user.reload.services.first.class.name.should == "Services::Facebook"
+      expect(user.reload.services.first.class.name).to eq("Services::Facebook")
     end
 
     context 'when service exists with the same uid' do
       before { Services::Twitter.create!(uid: omniauth_auth['uid'], user_id: user.id) }
 
       it 'doesnt create a new service' do
-        expect {
+        service_count = Service.count
         post :create, :provider => 'twitter'
-      }.to_not change(Service, :count).by(1)
+        expect(Service.count).to eq(service_count)
       end
 
       it 'flashes an already_authorized error with the diaspora handle for the user'  do
         post :create, :provider => 'twitter'
-        flash[:error].include?(user.profile.diaspora_handle).should be_true
-        flash[:error].include?( 'already authorized' ).should be_true
+        expect(flash[:error].include?(user.profile.diaspora_handle)).to be true
+        expect(flash[:error].include?( 'already authorized' )).to be true
       end
     end
 
@@ -71,19 +71,19 @@ describe ServicesController do
         let(:provider) { {'provider' => 'twitter'} }
 
         before do 
-          access_token.stub_chain(:response, :header).and_return header
+          allow(access_token).to receive_message_chain(:response, :header).and_return header
           request.env['omniauth.auth'] = omniauth_auth.merge!( provider).merge!( extra )
         end
 
         it 'doesnt create a new service' do
-          expect {
-            post :create, :provider => 'twitter'
-          }.to_not change(Service, :count).by(1)
+          service_count = Service.count
+          post :create, :provider => 'twitter'
+          expect(Service.count).to eq(service_count)
         end
 
         it 'flashes an read-only access error'  do
           post :create, :provider => 'twitter'
-          flash[:error].include?( 'Access level is read-only' ).should be_true
+          expect(flash[:error].include?( 'Access level is read-only' )).to be true
         end
       end
     end
@@ -110,17 +110,17 @@ describe ServicesController do
       end
 
       it 'does not queue a job if the profile photo is set' do
-        @controller.stub(:no_profile_image?).and_return false
+        allow(@controller).to receive(:no_profile_image?).and_return false
 
-        Workers::FetchProfilePhoto.should_not_receive(:perform_async)
+        expect(Workers::FetchProfilePhoto).not_to receive(:perform_async)
 
         post :create, :provider => 'twitter'
       end
 
       it 'queues a job to save user photo if the photo does not exist' do
-        @controller.stub(:no_profile_image?).and_return true
+        allow(@controller).to receive(:no_profile_image?).and_return true
 
-        Workers::FetchProfilePhoto.should_receive(:perform_async).with(user.id, anything(), "https://service.com/fallback_lowres.jpg")
+        expect(Workers::FetchProfilePhoto).to receive(:perform_async).with(user.id, anything(), "https://service.com/fallback_lowres.jpg")
 
         post :create, :provider => 'twitter'
       end
@@ -133,9 +133,9 @@ describe ServicesController do
     end
 
     it 'destroys a service selected by id' do
-      lambda{
+      expect{
         delete :destroy, :id => @service1.id
-      }.should change(user.services, :count).by(-1)
+      }.to change(user.services, :count).by(-1)
     end
   end
 end

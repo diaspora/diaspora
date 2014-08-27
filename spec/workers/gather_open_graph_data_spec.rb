@@ -28,7 +28,7 @@ describe Workers::GatherOpenGraphData do
     it 'requests not data from the internet' do
       Workers::GatherOpenGraphData.new.perform(@status_message.id, @ogsite_url)
 
-      a_request(:get, @ogsite_url).should have_been_made
+      expect(a_request(:get, @ogsite_url)).to have_been_made
     end
 
     it 'requests not data from the internet only once' do
@@ -36,7 +36,7 @@ describe Workers::GatherOpenGraphData do
         Workers::GatherOpenGraphData.new.perform(@status_message.id, @ogsite_url)
       end
 
-      a_request(:get, @ogsite_url).should have_been_made.times(1)
+      expect(a_request(:get, @ogsite_url)).to have_been_made.times(1)
     end
 
     it 'creates one cache entry' do
@@ -44,20 +44,20 @@ describe Workers::GatherOpenGraphData do
 
       ogc = OpenGraphCache.find_by_url(@ogsite_url)
 
-      ogc.title.should == @ogsite_title
-      ogc.ob_type.should == @ogsite_type
-      ogc.image.should == @ogsite_url + @ogsite_image
-      ogc.url.should == @ogsite_url
-      ogc.description.should == @ogsite_description
+      expect(ogc.title).to eq(@ogsite_title)
+      expect(ogc.ob_type).to eq(@ogsite_type)
+      expect(ogc.image).to eq(@ogsite_url + @ogsite_image)
+      expect(ogc.url).to eq(@ogsite_url)
+      expect(ogc.description).to eq(@ogsite_description)
 
       Workers::GatherOpenGraphData.new.perform(@status_message.id, @ogsite_url)
-      OpenGraphCache.where(url: @ogsite_url).count.should == 1
+      expect(OpenGraphCache.where(url: @ogsite_url).count).to eq(1)
     end
 
     it 'creates no cache entry for unsupported pages' do
       Workers::GatherOpenGraphData.new.perform(@status_message.id, @no_open_graph_url)
 
-      OpenGraphCache.find_by_url(@no_open_graph_url).should be_nil
+      expect(OpenGraphCache.find_by_url(@no_open_graph_url)).to be_nil
     end
 
     it 'gracefully handles a deleted post' do

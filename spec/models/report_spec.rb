@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Report do
+describe Report, :type => :model do
   before do
     #:report => { :item_id => @message.id, :item_type => 'post', :text => 'offensive content' }
     @user = bob
@@ -27,34 +27,34 @@ describe Report do
     it 'validates that post ID is required' do
       report = @valid_post_report
       report.delete(:item_id)
-      @user.reports.build(report).should_not be_valid
+      expect(@user.reports.build(report)).not_to be_valid
     end
-    
+
     it 'validates that post type is required' do
       report = @valid_post_report
-      report.delete(:item_type)
-      @user.reports.build(report).should_not be_valid
+      report[:item_type] = nil
+      expect(@user.reports.build(report)).not_to be_valid
     end
 
     it 'validates that post does exist' do
       report = @valid_post_report
       report[:item_id] = 666;
-      @user.reports.build(report).should_not be_valid
+      expect(@user.reports.build(report)).not_to be_valid
     end
 
     it 'validates that comment does exist' do
       report = @valid_comment_report
       report[:item_id] = 666;
-      @user.reports.build(report).should_not be_valid
+      expect(@user.reports.build(report)).not_to be_valid
     end
 
     it 'validates that entry does not exist' do
-      @user.reports.build(@valid_post_report).should be_valid
+      expect(@user.reports.build(@valid_post_report)).to be_valid
     end
-    
+
     it 'validates that entry does exist' do
       @user.reports.create(@valid_post_report)
-      @user.reports.build(@valid_post_report).should_not be_valid
+      expect(@user.reports.build(@valid_post_report)).not_to be_valid
     end
   end
 
