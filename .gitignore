@@ -52,6 +52,8 @@ tmp/
 .idea
 .redcar
 .rvmrc
+.floo
+.flooignore
 .stgit*
 *.swap
 *.swo
