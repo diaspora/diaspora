@@ -1,5 +1,7 @@
-PATH
-  remote: /Users/dami/projects/acts-as-taggable-on
+GIT
+  remote: git://github.com/wegotcoders/acts-as-taggable-on.git
+  revision: 963782f6fb7198013e83d2769fd929634bfa3b9d
+  branch: popular-feature
   specs:
     acts-as-taggable-on (3.3.0)
       activerecord (>= 3, < 5)
