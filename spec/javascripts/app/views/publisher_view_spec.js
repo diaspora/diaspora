@@ -6,7 +6,7 @@
 describe("app.views.Publisher", function() {
   describe("standalone", function() {
     beforeEach(function() {
-      // should be jasmine helper
+      // TODO should be jasmine helper
       loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
       spec.loadFixture("aspects_index");
@@ -26,7 +26,7 @@ describe("app.views.Publisher", function() {
 
   context("plain publisher", function() {
     beforeEach(function() {
-      // should be jasmine helper
+      // TODO should be jasmine helper
       loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
       spec.loadFixture("aspects_index");
@@ -245,9 +245,11 @@ describe("app.views.Publisher", function() {
   context("aspect selection", function(){
     beforeEach( function(){
       spec.loadFixture('status_message_new');
+      Diaspora.I18n.load({ stream: { public: 'Public' }});
 
       this.radio_els = $('#publisher .dropdown li.radio');
       this.check_els = $('#publisher .dropdown li.aspect_selector');
+      this.visibility_icon = $('#visibility-icon');
 
       this.view = new app.views.Publisher();
       this.view.open();
@@ -260,17 +262,50 @@ describe("app.views.Publisher", function() {
       _.each(this.check_els, function(el){
         expect($(el).hasClass('selected')).toBeFalsy();
       });
+      expect(this.visibility_icon.hasClass('globe')).toBeFalsy();
+      expect(this.visibility_icon.hasClass('lock')).toBeTruthy();
     });
 
     it("toggles the selected entry visually", function(){
+      // click on the last aspect
       this.check_els.last().trigger('click');
-
+      // public and "all aspects" are deselected
       _.each(this.radio_els, function(el){
         expect($(el).hasClass('selected')).toBeFalsy();
       });
-
+      // the first aspect is not selected
       expect(this.check_els.first().hasClass('selected')).toBeFalsy();
+      // the last aspect is selected
       expect(this.check_els.last().hasClass('selected')).toBeTruthy();
+      // visibility icon is set to the lock icon
+      expect(this.visibility_icon.hasClass('globe')).toBeFalsy();
+      expect(this.visibility_icon.hasClass('lock')).toBeTruthy();
+      
+      // click on public
+      this.radio_els.first().trigger('click');
+      // public is selected, "all aspects" is deselected
+      expect(this.radio_els.first().hasClass('selected')).toBeTruthy();
+      expect(this.radio_els.last().hasClass('selected')).toBeFalsy();
+      // the aspects are deselected
+      _.each(this.check_els, function(el){
+        expect($(el).hasClass('selected')).toBeFalsy();
+      });
+      // visibility icon is set to the globe icon
+      expect(this.visibility_icon.hasClass('globe')).toBeTruthy();
+      expect(this.visibility_icon.hasClass('lock')).toBeFalsy();
+      
+      // click on "all aspects"
+      this.radio_els.last().trigger('click');
+      // public is deselected, "all aspects" is selected      
+      expect(this.radio_els.first().hasClass('selected')).toBeFalsy();
+      expect(this.radio_els.last().hasClass('selected')).toBeTruthy();
+      // the aspects are deselected
+      _.each(this.check_els, function(el){
+        expect($(el).hasClass('selected')).toBeFalsy();
+      });
+      // visibility icon is set to the lock icon
+      expect(this.visibility_icon.hasClass('globe')).toBeFalsy();
+      expect(this.visibility_icon.hasClass('lock')).toBeTruthy();      
     });
 
     describe("hidden form elements", function(){
@@ -312,7 +347,6 @@ describe("app.views.Publisher", function() {
         expect(this.view.$('input[name="aspect_ids[]"][value="99"]').length).toBe(1);
       });
     });
-
   });
 
   context("locator", function() {

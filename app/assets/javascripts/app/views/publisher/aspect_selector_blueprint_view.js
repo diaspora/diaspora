@@ -30,7 +30,6 @@ app.views.PublisherAspectSelectorBlueprint  = Backbone.View.extend({
 
     // update the selection summary
     this._updateAspectsNumber(el);
-
     this._updateSelectedAspectIds();
   },
 
