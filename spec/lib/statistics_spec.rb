@@ -3,12 +3,12 @@ require 'spec_helper'
 describe Statistics do
 
   def result_should_equal( actual )
-    actual.count.should == @result.count
+    expect(actual.count).to eq(@result.count)
     @result.each do |expected_hash|
-      actual.find { |actual_hash|
+      expect(actual.find { |actual_hash|
         actual_hash['id'].to_i == expected_hash['id'].to_i &&
         actual_hash['count'].to_i == expected_hash['count'].to_i
-      }.should_not be_nil
+      }).not_to be_nil
     end
   end
 
@@ -98,7 +98,7 @@ describe Statistics do
                  {"id" => local_luke.id , "count" => 0, "connected" => 0 },
                  {"id" => local_leia.id , "count" => 0, "connected" => 0 }]
 
-      @stats.fb_connected_distribution.should =~ @result
+      expect(@stats.fb_connected_distribution).to match_array(@result)
     end
   end
 
@@ -106,15 +106,15 @@ describe Statistics do
     "mentions_count", "sign_in_count", "contacts_sharing_with_count" ].each do |method|
 
     it "#{method}_sql calls where_sql" do
-      @stats.should_receive(:where_clause_sql)
+      expect(@stats).to receive(:where_clause_sql)
 
       @stats.send("#{method}_sql".to_sym)
     end
 
     if !["sign_in_count", "tags_followed_count"].include?(method)
       it "#generate_correlations calls correlate with #{method} and sign_in_count" do
-        @stats.stub(:correlate).and_return(0.5)
-        @stats.should_receive(:correlate).with(method.to_sym,:sign_in_count).and_return(0.75)
+        allow(@stats).to receive(:correlate).and_return(0.5)
+        expect(@stats).to receive(:correlate).with(method.to_sym,:sign_in_count).and_return(0.75)
         @stats.generate_correlations
       end
     end
@@ -123,8 +123,8 @@ describe Statistics do
 
   describe "#correlation" do
     it 'returns the correlation coefficient' do
-      @stats.correlation([1,2],[1,2]).to_s.should == 1.0.to_s
-      @stats.correlation([1,2,1,2],[1,1,2,2]).to_s.should == 0.0.to_s
+      expect(@stats.correlation([1,2],[1,2]).to_s).to eq(1.0.to_s)
+      expect(@stats.correlation([1,2,1,2],[1,1,2,2]).to_s).to eq(0.0.to_s)
     end
   end
   describe "#generate_correlations" do
@@ -133,21 +133,21 @@ describe Statistics do
       bob.post(:status_message, :text => "here is a message")
       bob.save!
 
-      c = @stats.generate_correlations[:posts_count].round(1).should == 1.0
+      c = expect(@stats.generate_correlations[:posts_count].round(1)).to eq(1.0)
     end
   end
 
   describe "#correlate" do
     it 'calls correlation with post' do
-      User.connection.should_receive(:select_all).and_return([{"id"=> 1, "count" => 7},
+      expect(User.connection).to receive(:select_all).and_return([{"id"=> 1, "count" => 7},
                                                             {"id" => 2, "count" => 8},
                                                             {"id" => 3, "count" => 9}],
                                                             [{"id"=> 1, "count" => 17},
                                                             {"id" => 3, "count" => 19}]
                                                             )
 
-      @stats.should_receive(:correlation).with([7,9],[17,19]).and_return(0.5)
-      @stats.correlate(:posts_count,:sign_in_count).should == 0.5
+      expect(@stats).to receive(:correlation).with([7,9],[17,19]).and_return(0.5)
+      expect(@stats.correlate(:posts_count,:sign_in_count)).to eq(0.5)
     end
   end
 
@@ -156,7 +156,7 @@ describe Statistics do
 
   context 'todos' do
     before do
-      pending
+      skip
     end
 
     # requires a threshold

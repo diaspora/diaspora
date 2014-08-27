@@ -4,29 +4,30 @@
 
 require 'spec_helper'
 
-describe NotificationsController do
+describe NotificationsController, :type => :controller do
   before do
     sign_in :user, alice
   end
 
   describe '#update' do
     it 'marks a notification as read if it gets no other information' do
-      note = mock_model( Notification )
-      Notification.should_receive( :where ).and_return( [note] )
-      note.should_receive( :set_read_state ).with( true )
+      note = FactoryGirl.create(:notification)
+      expect(Notification).to receive( :where ).and_return( [note] )
+      expect(note).to receive( :set_read_state ).with( true )
       get :update, "id" => note.id, :format => :json
     end
+
     it 'marks a notification as read if it is told to' do
-      note = mock_model( Notification )
-      Notification.should_receive( :where ).and_return( [note] )
-      note.should_receive( :set_read_state ).with( true )
+      note = FactoryGirl.create(:notification)
+      expect(Notification).to receive( :where ).and_return( [note] )
+      expect(note).to receive( :set_read_state ).with( true )
       get :update, "id" => note.id, :set_unread => "false", :format => :json
     end
 
     it 'marks a notification as unread if it is told to' do
-      note = mock_model( Notification )
-      Notification.should_receive( :where ).and_return( [note] )
-      note.should_receive( :set_read_state ).with( false )
+      note = FactoryGirl.create(:notification)
+      expect(Notification).to receive( :where ).and_return( [note] )
+      expect(note).to receive( :set_read_state ).with( false )
       get :update, "id" => note.id, :set_unread => "true", :format => :json
     end
 
@@ -38,7 +39,7 @@ describe NotificationsController do
 
       get :update, "id" => note.id, :set_unread => "false", :format => :json
 
-      Notification.find(note.id).unread.should == true
+      expect(Notification.find(note.id).unread).to eq(true)
     end
   end
 
@@ -50,33 +51,33 @@ describe NotificationsController do
 
     it 'succeeds' do
       get :index
-      response.should be_success
-      assigns[:notifications].count.should == 1
+      expect(response).to be_success
+      expect(assigns[:notifications].count).to eq(1)
     end
 
     it 'succeeds for notification dropdown' do
       get :index, :format => :json
-      response.should be_success
-      response.body.should =~ /note_html/
+      expect(response).to be_success
+      expect(response.body).to match(/note_html/)
     end
 
     it 'succeeds on mobile' do
       get :index, :format => :mobile
-      response.should be_success
+      expect(response).to be_success
     end
 
     it 'paginates the notifications' do
       25.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
       get :index
-      assigns[:notifications].count.should == 25
+      expect(assigns[:notifications].count).to eq(25)
       get :index, "page" => 2
-      assigns[:notifications].count.should == 1
+      expect(assigns[:notifications].count).to eq(1)
     end
 
     it "supports a limit per_page parameter" do
       5.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
       get :index, "per_page" => 5
-      assigns[:notifications].count.should == 5
+      expect(assigns[:notifications].count).to eq(5)
     end
 
     describe "special case for start sharing notifications" do
@@ -84,14 +85,14 @@ describe NotificationsController do
         2.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
         get :index, "per_page" => 5
 
-        Nokogiri(response.body).css('.aspect_membership').should be_empty
+        expect(Nokogiri(response.body).css('.aspect_membership')).to be_empty
       end
       it "should provide a contacts menu for start sharing notifications" do
         2.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
         eve.share_with(alice.person, eve.aspects.first)
         get :index, "per_page" => 5
 
-        Nokogiri(response.body).css('.aspect_membership').should_not be_empty
+        expect(Nokogiri(response.body).css('.aspect_membership')).not_to be_empty
       end
     end
 
@@ -99,14 +100,14 @@ describe NotificationsController do
       it "supports filtering by notification type" do
         eve.share_with(alice.person, eve.aspects.first)
         get :index, "type" => "started_sharing"
-        assigns[:notifications].count.should == 1
+        expect(assigns[:notifications].count).to eq(1)
       end
 
       it "supports filtering by read/unread" do
         get :read_all
         2.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
         get :index, "show" => "unread"
-        assigns[:notifications].count.should == 2
+        expect(assigns[:notifications].count).to eq(2)
       end
     end
   end
@@ -117,44 +118,44 @@ describe NotificationsController do
       FactoryGirl.create(:notification, :recipient => alice)
       FactoryGirl.create(:notification, :recipient => alice)
 
-      Notification.where(:unread => true).count.should == 2
+      expect(Notification.where(:unread => true).count).to eq(2)
       get :read_all
-      Notification.where(:unread => true).count.should == 0
+      expect(Notification.where(:unread => true).count).to eq(0)
     end
     it 'marks all notifications in the current filter as read' do
       request.env["HTTP_REFERER"] = "I wish I were spelled right"
       FactoryGirl.create(:notification, :recipient => alice)
       eve.share_with(alice.person, eve.aspects.first)
-      Notification.where(:unread => true).count.should == 2
+      expect(Notification.where(:unread => true).count).to eq(2)
       get :read_all, "type" => "started_sharing"
-      Notification.where(:unread => true).count.should == 1
+      expect(Notification.where(:unread => true).count).to eq(1)
     end
     it "should redirect back in the html version if it has > 0 notifications" do
       FactoryGirl.create(:notification, :recipient => alice)
       eve.share_with(alice.person, eve.aspects.first)
       get :read_all, :format => :html, "type" => "started_sharing"
-      response.should redirect_to(notifications_path)
+      expect(response).to redirect_to(notifications_path)
     end
     it "should redirect back in the mobile version if it has > 0 notifications" do
       FactoryGirl.create(:notification, :recipient => alice)
       eve.share_with(alice.person, eve.aspects.first)
       get :read_all, :format => :mobile, "type" => "started_sharing"
-      response.should redirect_to(notifications_path)
+      expect(response).to redirect_to(notifications_path)
     end
     it "should redirect to stream in the html version if it has 0 notifications" do
       FactoryGirl.create(:notification, :recipient => alice)
       get :read_all, :format => :html
-      response.should redirect_to(stream_path)
+      expect(response).to redirect_to(stream_path)
     end
     it "should redirect back in the mobile version if it has 0 notifications" do
       FactoryGirl.create(:notification, :recipient => alice)
       get :read_all, :format => :mobile
-      response.should redirect_to(stream_path)
+      expect(response).to redirect_to(stream_path)
     end
     it "should return a dummy value in the json version" do
       FactoryGirl.create(:notification, :recipient => alice)
       get :read_all, :format => :json
-      response.should_not be_redirect
+      expect(response).not_to be_redirect
     end
   end
 end

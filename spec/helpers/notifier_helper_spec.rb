@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe NotifierHelper do
+describe NotifierHelper, :type => :helper do
   describe '#post_message' do
     before do
       # post for truncate test
@@ -19,12 +19,12 @@ describe NotifierHelper do
 
     it 'truncates in the post' do
       opts = {:length => @post.text.length - 10}
-      post_message(@post, opts).should == @truncated_post
+      expect(post_message(@post, opts)).to eq(@truncated_post)
     end
 
     it 'strip markdown in the post' do
       opts = {:length => @markdown_post.text.length}
-      post_message(@markdown_post, opts).should == @striped_markdown_post
+      expect(post_message(@markdown_post, opts)).to eq(@striped_markdown_post)
     end
   end
 
@@ -42,12 +42,12 @@ describe NotifierHelper do
 
     it 'truncates in the comment' do
       opts = {:length => @comment.text.length - 10}
-      comment_message(@comment, opts).should == @truncated_comment
+      expect(comment_message(@comment, opts)).to eq(@truncated_comment)
     end
 
     it 'strip markdown in the comment' do
       opts = {:length => @markdown_comment.text.length}
-      comment_message(@markdown_comment, opts).should == @striped_markdown_comment
+      expect(comment_message(@markdown_comment, opts)).to eq(@striped_markdown_comment)
     end
   end
 end

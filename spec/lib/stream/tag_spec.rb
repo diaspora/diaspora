@@ -14,30 +14,30 @@ describe Stream::Tag do
 
    it 'displays your own post' do
      my_post = alice.post(:status_message, :text => "#what", :to => 'all')
-     @stream.posts.should == [my_post]
+     expect(@stream.posts).to eq([my_post])
    end
 
    it "displays a friend's post" do
      other_post = bob.post(:status_message, :text => "#what", :to => 'all')
-     @stream.posts.should == [other_post]
+     expect(@stream.posts).to eq([other_post])
    end
 
    it 'displays a public post' do
      other_post = eve.post(:status_message, :text => "#what", :public => true, :to => 'all')
-     @stream.posts.should == [other_post]
+     expect(@stream.posts).to eq([other_post])
    end
 
    it 'displays a public post that was sent to no one' do
      stranger = FactoryGirl.create(:user_with_aspect)
      stranger_post = stranger.post(:status_message, :text => "#what", :public => true, :to => 'all')
-     @stream.posts.should == [stranger_post]
+     expect(@stream.posts).to eq([stranger_post])
    end
 
     it 'displays a post with a comment containing the tag search' do
-      pending "this code is way too slow. need to re-implement in a way that doesn't suck"
+      skip "this code is way too slow. need to re-implement in a way that doesn't suck"
       other_post = bob.post(:status_message, :text => "sup y'all", :to => 'all')
       FactoryGirl.create(:comment, :text => "#what", :post => other_post)
-      @stream.posts.should == [other_post]
+      expect(@stream.posts).to eq([other_post])
     end
   end
 
@@ -50,7 +50,7 @@ describe Stream::Tag do
 
     it "displays only public posts with the tag" do
       stream = Stream::Tag.new(nil, "what")
-      stream.posts.should == [@post]
+      expect(stream.posts).to eq([@post])
     end
   end
 
@@ -58,7 +58,7 @@ describe Stream::Tag do
     it "assigns the set of people who authored a post containing the tag" do
       alice.post(:status_message, :text => "#what", :public => true, :to => 'all')
       stream = Stream::Tag.new(nil, "what")
-      stream.people.should == [alice.person]
+      expect(stream.people).to eq([alice.person])
     end
   end
 
@@ -68,7 +68,7 @@ describe Stream::Tag do
       alice.profile.tag_string = "#whatevs"
       alice.profile.build_tags
       alice.profile.save!
-      stream.tagged_people.should == [alice.person]
+      expect(stream.tagged_people).to eq([alice.person])
     end
   end
 
@@ -81,7 +81,7 @@ describe Stream::Tag do
 
     it 'returns posts regardless of the tag case' do
       stream = Stream::Tag.new(nil, "newhere")
-      stream.posts.should =~ [@post_lc, @post_uc, @post_cp]
+      expect(stream.posts).to match_array([@post_lc, @post_uc, @post_cp])
     end
   end
 
@@ -95,18 +95,18 @@ describe Stream::Tag do
   describe '#tag_name=' do
     it 'downcases the tag' do
       stream = Stream::Tag.new(nil, "WHAT")
-      stream.tag_name.should == 'what'
+      expect(stream.tag_name).to eq('what')
     end
 
     it 'removes #es' do
       stream = Stream::Tag.new(nil, "#WHAT")
-      stream.tag_name.should == 'what'
+      expect(stream.tag_name).to eq('what')
     end
   end
 
   describe "#publisher" do
     it 'creates a publisher with the tag prefill' do
-      Publisher.should_receive(:new).with(anything(), anything)
+      expect(Publisher).to receive(:new).with(anything(), anything)
       @stream = Stream::Tag.new(alice, "what")
     end
   end

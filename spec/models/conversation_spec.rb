@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Conversation do
+describe Conversation, :type => :model do
   before do
     @user1 = alice
     @user2 = bob
@@ -19,16 +19,16 @@ describe Conversation do
   end
 
   it 'creates a message on create' do
-    lambda{
+    expect{
       Conversation.create(@create_hash)
-    }.should change(Message, :count).by(1)
+    }.to change(Message, :count).by(1)
   end
 
   describe '#last_author' do
     it 'returns the last author to a conversation' do
       cnv = Conversation.create(@create_hash)
       Message.create(:author => @user2.person, :created_at => Time.now + 100, :text => "last", :conversation_id => cnv.id)
-      cnv.reload.last_author.id.should == @user2.person.id
+      expect(cnv.reload.last_author.id).to eq(@user2.person.id)
     end
   end
 
@@ -45,7 +45,7 @@ describe Conversation do
 
     it 'returns nil if there are no unread messages in a conversation' do
       @cnv.conversation_visibilities.where(:person_id => @user1.person.id).first.tap { |cv| cv.unread = 0 }.save
-      @cnv.first_unread_message(@user1).should be_nil
+      expect(@cnv.first_unread_message(@user1)).to be_nil
     end
   end
 
@@ -58,23 +58,23 @@ describe Conversation do
 
     describe 'serialization' do
       it 'serializes the message' do
-        @xml.gsub(/\s/, '').should include(@message.to_xml.to_s.gsub(/\s/, ''))
+        expect(@xml.gsub(/\s/, '')).to include(@message.to_xml.to_s.gsub(/\s/, ''))
       end
 
       it 'serializes the participants' do
         @create_hash[:participant_ids].each{|id|
-          @xml.should include(Person.find(id).diaspora_handle)
+          expect(@xml).to include(Person.find(id).diaspora_handle)
         }
       end
 
       it 'serializes the created_at time' do
-        @xml.should include(@message.created_at.to_s)
+        expect(@xml).to include(@message.created_at.to_s)
       end
     end
 
     describe '#subscribers' do
       it 'returns the recipients for the post owner' do
-        @cnv.subscribers(@user1).should == @user1.contacts.map{|c| c.person}
+        expect(@cnv.subscribers(@user1)).to eq(@user1.contacts.map{|c| c.person})
       end
     end
 
@@ -85,25 +85,25 @@ describe Conversation do
       end
 
       it 'creates a message' do
-        lambda{
+        expect{
           Diaspora::Parser.from_xml(@xml).receive(@user1, @user2.person)
-        }.should change(Message, :count).by(1)
+        }.to change(Message, :count).by(1)
       end
       it 'creates a conversation' do
-        lambda{
+        expect{
           Diaspora::Parser.from_xml(@xml).receive(@user1, @user2.person)
-        }.should change(Conversation, :count).by(1)
+        }.to change(Conversation, :count).by(1)
       end
       it 'creates appropriate visibilities' do
-        lambda{
+        expect{
           Diaspora::Parser.from_xml(@xml).receive(@user1, @user2.person)
-        }.should change(ConversationVisibility, :count).by(@participant_ids.size)
+        }.to change(ConversationVisibility, :count).by(@participant_ids.size)
       end
       it 'does not save before receive' do
-        Diaspora::Parser.from_xml(@xml).persisted?.should be_false
+        expect(Diaspora::Parser.from_xml(@xml).persisted?).to be false
       end
       it 'notifies for the message' do
-        Notification.should_receive(:notify).once
+        expect(Notification).to receive(:notify).once
         Diaspora::Parser.from_xml(@xml).receive(@user1, @user2.person)
       end
     end

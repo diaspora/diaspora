@@ -11,8 +11,8 @@ describe Workers::ResetPassword do
     it "correctly sets the message parameters" do
       Workers::ResetPassword.new.perform(alice.id)
       mail = Devise.mailer.deliveries.last
-      mail.to.should == [alice.email]
-      mail.body.should include("change your password")
+      expect(mail.to).to eq([alice.email])
+      expect(mail.body).to include("change your password")
     end
   end
 end
