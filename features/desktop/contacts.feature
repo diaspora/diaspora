@@ -16,7 +16,7 @@ Feature: show contacts
     And I press the first "a" within ".section.contact_pictures"
     Then I should see "Alice Smith"
 
-  Scenario: see contacts of a visible aspect list 
+  Scenario: see contacts of a visible aspect list
     When I am on "bob@bob.bob"'s page
     And I add the person to my "Unicorns" aspect
     And I sign out
@@ -25,14 +25,12 @@ Feature: show contacts
     And I press the first "a" within ".section.contact_pictures"
     Then I should see "Bob Jones"
 
-  Scenario: don't see contacts of an invisible aspect list 
+  Scenario: don't see contacts of an invisible aspect list
     When I am on "bob@bob.bob"'s page
     And I add the person to my "Unicorns" aspect
     And I am on the contacts page
     And I follow "Unicorns"
-    And I follow "Manage"
-    And I press the first "a.contact_visibility_link" in the modal window
-    And I press "Done" in the modal window
+    And I press the first "a#contacts_visibility_toggle"
     And I sign out
 
     And I sign in as "alice@alice.alice"

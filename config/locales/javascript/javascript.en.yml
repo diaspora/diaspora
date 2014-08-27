@@ -38,6 +38,14 @@ en:
       years: "%d years"
       wordSeparator: " "
 
+    contacts:
+      add_contact: "Add contact"
+      aspect_list_is_visible: "Contacts in this aspect are able to see each other."
+      aspect_list_is_not_visible: "Contacts in this aspect are not able to see each other."
+      remove_contact: "Remove contact"
+      error_add: "Couldn't add <%= name %> to the aspect :("
+      error_remove: "Couldn't remove <%= name %> from the aspect :("
+
     my_activity: "My Activity"
     my_stream: "Stream"
     my_aspects: "My Aspects"

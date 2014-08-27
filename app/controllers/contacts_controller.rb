@@ -5,16 +5,17 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!
 
+  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }
   use_bootstrap_for :index, :spotlight
 
   def index
     respond_to do |format|
 
-      # Used for normal requests to contacts#index and subsequent infinite scroll calls
+      # Used for normal requests to contacts#index
       format.html { set_up_contacts }
 
       # Used by the mobile site
-      format.mobile { set_up_contacts }
+      format.mobile { set_up_contacts_mobile }
 
       # Used to populate mentions in the publisher
       format.json {
@@ -25,11 +26,6 @@ class ContactsController < ApplicationController
     end
   end
 
-  def sharing
-    @contacts = current_user.contacts.sharing.includes(:aspect_memberships)
-    render :layout => false
-  end
-
   def spotlight
     @spotlight = true
     @people = Person.community_spotlight
@@ -38,6 +34,41 @@ class ContactsController < ApplicationController
   private
 
   def set_up_contacts
+    type = params[:set].presence
+    type ||= "by_aspect" if params[:a_id].present?
+    type ||= "receiving"
+
+    @contacts = contacts_by_type(type)
+    @contacts_size = @contacts.length
+  end
+
+  def contacts_by_type(type)
+    contacts = case type
+      when "all"
+        [current_user.contacts]
+      when "only_sharing"
+        [current_user.contacts.only_sharing]
+      when "receiving"
+        [current_user.contacts.receiving]
+      when "by_aspect"
+        @aspect = current_user.aspects.find(params[:a_id])
+        @contacts_in_aspect = @aspect.contacts
+        @contacts_not_in_aspect = current_user.contacts.where.not(contacts: {id: @contacts_in_aspect.pluck(:id) })
+        [@contacts_in_aspect, @contacts_not_in_aspect].map {|relation|
+          relation.includes(:aspect_memberships)
+        }
+      else
+        raise ArgumentError, "unknown type #{type}"
+      end
+
+    contacts.map {|relation|
+      relation.includes(:person => :profile).to_a.tap {|contacts|
+        contacts.sort_by! {|contact| contact.person.name }
+      }
+    }.inject(:+)
+  end
+
+  def set_up_contacts_mobile
     @contacts = case params[:set]
       when "only_sharing"
         current_user.contacts.only_sharing

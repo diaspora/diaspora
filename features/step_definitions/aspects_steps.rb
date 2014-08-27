@@ -41,17 +41,17 @@ When /^I select "([^"]*)" aspect as well$/ do |aspect_name|
   step %Q(I should see "#{aspect_name}" aspect selected)
 end
 
-When /^I check the first contact list button$/ do
-  find(".contact_list .btn", match: :first).tap do |button|
+When /^I add the first person to the aspect$/ do
+  find(".contact_add-to-aspect", match: :first).tap do |button|
     button.click
-    button.parent.should have_css ".added"
+    button.parent.should have_css ".contact_remove-from-aspect"
   end
 end
 
-When /^I uncheck the first contact list button$/ do
-  find(".contact_list .btn", match: :first).tap do |button|
+When /^I remove the first person from the aspect$/ do
+  find(".contact_remove-from-aspect", match: :first).tap do |button|
     button.click
-    button.parent.should have_css ".add"
+    button.parent.should have_css ".contact_add-to-aspect"
     sleep 1 # The expectation above should wait for the request to finsh, but that doesn't work for some reason
   end
 end

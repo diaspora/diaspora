@@ -1,0 +1,7 @@
+%h3
+  = t('contacts.index.title')
+= render 'contacts/aspect_listings'
+- if AppConfig.settings.community_spotlight.enable?
+  %hr
+  .text-center.spotlight
+    = link_to t('contacts.spotlight.community_spotlight'), community_spotlight_path, :class => "element_selector"

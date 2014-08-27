@@ -84,7 +84,7 @@ Diaspora::Application.routes.draw do
       get :read_all
     end
   end
-  
+
 
   resources :tags, :only => [:index]
 
@@ -146,7 +146,6 @@ Diaspora::Application.routes.draw do
 
 
   resources :contacts,           :except => [:update, :create] do
-    get :sharing, :on => :collection
   end
   resources :aspect_memberships, :only  => [:destroy, :create]
   resources :share_visibilities,  :only => [:update]
@@ -222,7 +221,7 @@ Diaspora::Application.routes.draw do
 
   #Statistics
   get :statistics, controller: :statistics
-  
+
   # Terms
   if AppConfig.settings.terms.enable?
     get 'terms' => 'terms#index'

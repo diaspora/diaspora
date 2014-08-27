@@ -1,36 +1,31 @@
--#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3 or later.  See
--#   the COPYRIGHT file.
+#aspect_nav
+  %ul.nav.nav-tabs.nav-stacked
+    %li.all_contacts{:class => ("active" if params["set"] == "all")}
+      %a{:href => contacts_path(:set => "all")}
+        = t('contacts.index.all_contacts')
+        .badge.badge-default.pull-right
+          = all_contacts_count
 
-%ul#aspect_nav
-  %li.all_aspects{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing" && !@spotlight)}
-    %a.home_selector.hoverable{:href => contacts_path, :class => ("sub_selected" if params["a_id"])}
-      = t('contacts.index.my_contacts')
-      .label.pull-right
-        = my_contacts_count
+    %li.all_aspects{:class => ("active" if !params["set"] && !params["a_id"] && !@spotlight)}
+      %a{:href => contacts_path}
+        = t('contacts.index.my_contacts')
+        .badge.badge-default.pull-right
+          = my_contacts_count
 
-    %ul.sub_nav#aspects_list
-      - all_aspects.each do |aspect|
-        %li.hoverable{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
-          .label.pull-right
+    - all_aspects.each do |aspect|
+      %li.aspect{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
+        %a{:href => contacts_path(:a_id => aspect.id)}
+          .badge.badge-default.pull-right
             = aspect.contacts.size
-          .icons-check_yes_ok{:class => ("selected" if params["a_id"].to_i == aspect.id) }
-          %a.selectable{:href => contacts_path(:a_id => aspect.id)}
+          .name
             = aspect
 
-      %li.hoverable
-        = link_to t('aspects.aspect_listings.add_an_aspect'), new_aspect_path, :class => "selectable new_aspect", :rel => "facebox"
+    %li.new_aspect
+      %a{:href => new_aspect_path, :rel => "facebox"}
+        = t('aspects.aspect_listings.add_an_aspect')
 
-  %li.all_contacts{:class => ("active" if params["set"] == "all" || params["set"] == "only_sharing")}
-    %a.home_selector.hoverable{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
-      = t('contacts.index.all_contacts')
-      .label.pull-right
-        = all_contacts_count
-
-    %ul.sub_nav
-      %li.hoverable{:class => ("active" if params["set"] == "only_sharing")}
-        .icons-check_yes_ok{:class => ("invisible" if params["set"] == "only_sharing")}
-        %a.selectable{:href => contacts_path(:set => "only_sharing")}
-          = t('contacts.index.only_sharing_with_me')
-          .label.pull-right
-            = only_sharing_count
+    %li.only_sharing{:class => ("active" if params["set"] == "only_sharing")}
+      %a{:href => contacts_path(:set => "only_sharing")}
+        = t('contacts.index.only_sharing_with_me')
+        .badge.badge-default.pull-right
+          = only_sharing_count

@@ -25,55 +25,42 @@ Feature: User manages contacts
     And I have an aspect called "People"
     When I am on the contacts page
     And I follow "People"
-    And I follow "add contacts to People"
-    And I press "Delete" in the modal window
+    And I click on selector "#delete_aspect"
     And I confirm the alert
     Then I should be on the contacts page
-    And I should not see "People" within "#aspects_list"
+    And I should not see "People" within "#aspect_nav"
 
   Scenario: deleting an aspect from homepage
     Given I am signed in
     And I have an aspect called "People"
     When I am on the aspects page
     And I click on "People" aspect edit icon
-    And I follow "Delete" within "#aspect_controls"
+    And I click on selector "#delete_aspect"
     And I confirm the alert
     Then I should be on the contacts page
-    And I should not see "People" within "#aspects_list"
+    And I should not see "People" within "#aspect_nav"
 
-  Scenario: Editing the aspect memberships of a contact from the aspect edit facebox
+  Scenario: Editing the aspect memberships of a contact from the contacts page
     Given I am signed in
     And I have 2 contacts
     And I have an aspect called "Cat People"
     When I am on the contacts page
     And I follow "Cat People"
-    And I follow "add contacts to Cat People"
-    And I check the first contact list button
+    And I add the first person to the aspect
     Then I should have 1 contact in "Cat People"
 
-    When I uncheck the first contact list button
+    When I remove the first person from the aspect
     Then I should have 0 contacts in "Cat People"
-    
+
   Scenario: Renaming an aspect
     Given I am signed in
     And I have an aspect called "Cat People"
     When I am on the contacts page
     And I follow "Cat People"
-    And I follow "Manage" within "#aspect_controls"
-    And I follow "rename"
+    And I click on selector "#change_aspect_name"
     And I fill in "aspect_name" with "Unicorn People"
     And I press "update"
-    Then I should see "Unicorn People" within "#aspect_name_title"
-
-  Scenario: infinite scroll on contacts index
-    Given I am signed in
-    And I resize my window to 800x600
-    And I have 30 contacts
-    And I am on the contacts page
-    Then I should see 25 contacts
-
-    When I scroll down
-    Then I should see 30 contacts
+    Then I should see "Unicorn People" within "#aspect_name"
 
   Scenario: clicking on the contacts link in the header with zero contacts directs a user to the featured users page
     Given I am signed in

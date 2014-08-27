@@ -16,6 +16,7 @@ Diaspora::Application.config.secret_key_base = '*************...'
 The default for including jQuery from a CDN has changed. If you want to continue to include it from a CDN, please explicitly set the `jquery_cdn` setting to `true` in diaspora.yml.
 
 ## Refactor
+* Redesign contacts page [#5153](https://github.com/diaspora/diaspora/pull/5153)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
@@ -107,7 +108,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 * Reorder and reword items on user settings page [#4912](https://github.com/diaspora/diaspora/pull/4912)
 * SPV: Improve padding and interaction counts [#4426](https://github.com/diaspora/diaspora/pull/4426)
 * Remove auto 'mark as read' for notifications [#4810](https://github.com/diaspora/diaspora/pull/4810)
-* Improve set read/unread in notifications dropdown [#4869](https://github.com/diaspora/diaspora/pull/4869) 
+* Improve set read/unread in notifications dropdown [#4869](https://github.com/diaspora/diaspora/pull/4869)
 * Refactor publisher: trigger events for certain actions, introduce 'disabled' state [#4932](https://github.com/diaspora/diaspora/pull/4932)
 
 ## Bug fixes

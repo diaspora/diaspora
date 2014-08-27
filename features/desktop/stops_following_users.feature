@@ -27,14 +27,13 @@ Feature: Unfollowing
 
     Then I should not see "is sharing with you."
 
-  Scenario: stop following someone while on the aspect edit page
+  Scenario: stop following someone while on the contacts page
     When I go to the home page
     And I go to the contacts page
 
     And I follow "Besties"
-    And I follow "Manage"
 
-    And I press the first ".added" within "#facebox .contact_list ul > li:first-child"
+    And I remove the first person from the aspect
 
     When I follow "My Contacts"
     Then I should have 0 contacts in "Besties"

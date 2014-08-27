@@ -7,11 +7,13 @@ require 'spec_helper'
 describe ContactsController do
   describe '#index' do
     before do
+      @aspect = bob.aspects.create(:name => "another aspect")
+      bob.share_with alice.person, @aspect
       sign_in :user, bob
     end
 
     it "generates a jasmine fixture", :fixture => true do
-      get :index
+      get :index, :a_id => @aspect.id
       save_fixture(html_for("body"), "aspects_manage")
     end
   end

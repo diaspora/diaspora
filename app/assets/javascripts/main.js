@@ -32,8 +32,6 @@
 //= require_tree ./widgets
 //= require view
 //= require aspects-dropdown
-//= require contact-edit
-//= require contact-list
 //= require mentions
 //= require bootstrap-tooltip
 //= require bootstrap-popover

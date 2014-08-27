@@ -343,8 +343,10 @@ en:
       my_contacts: "My Contacts"
       all_contacts: "All Contacts"
       only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      add_contact: "Add contact"
+      remove_contact: "Remove contact"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      user_search: "User Search"
     spotlight:
       community_spotlight: "Community Spotlight"
       suggest_member: "Suggest a member"

@@ -10,23 +10,6 @@ describe ContactsController do
     @controller.stub(:current_user).and_return(bob)
   end
 
-  describe '#sharing' do
-    it "succeeds" do
-      get :sharing
-      response.should be_success
-    end
-
-    it 'eager loads the aspects' do
-      get :sharing
-      assigns[:contacts].first.aspect_memberships.loaded?.should be_true
-    end
-
-    it "assigns only the people sharing with you with 'share_with' flag" do
-      get :sharing, :id => 'share_with'
-      assigns[:contacts].to_set.should == bob.contacts.sharing.to_set
-    end
-  end
-
   describe '#index' do
     context 'format mobile' do
       it "succeeds" do
@@ -51,7 +34,7 @@ describe ContactsController do
         contact = bob.contacts.first
         contact.update_attributes(:sharing => false)
 
-        get :index, :set => "mine"
+        get :index
         contacts = assigns(:contacts)
         contacts.to_set.should == bob.contacts.receiving.to_set
       end

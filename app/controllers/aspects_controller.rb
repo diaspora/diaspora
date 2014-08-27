@@ -67,28 +67,6 @@ class AspectsController < ApplicationController
     end
   end
 
-  def edit
-    @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts => {:person => :profile}).first
-
-    @contacts_in_aspect = @aspect.contacts.includes(:aspect_memberships, :person => :profile).to_a.sort_by { |c| c.person.name }
-    c = Contact.arel_table
-    if @contacts_in_aspect.empty?
-      @contacts_not_in_aspect = current_user.contacts.includes(:aspect_memberships, :person => :profile).to_a.sort_by { |c| c.person.name }
-    else
-      @contacts_not_in_aspect = current_user.contacts.where(c[:id].not_in(@contacts_in_aspect.map(&:id))).includes(:aspect_memberships, :person => :profile).to_a.sort_by { |c| c.person.name }
-    end
-
-    @contacts = @contacts_in_aspect + @contacts_not_in_aspect
-
-    unless @aspect
-      render :file => Rails.root.join('public', '404.html').to_s, :layout => false, :status => 404
-    else
-      @aspect_ids = [@aspect.id]
-      @aspect_contacts_count = @aspect.contacts.size
-      render :layout => false
-    end
-  end
-
   def update
     @aspect = current_user.aspects.where(:id => params[:id]).first
 
@@ -109,6 +87,7 @@ class AspectsController < ApplicationController
       @aspect.contacts_visible = true
     end
     @aspect.save
+    render :nothing => true
   end
 
   private

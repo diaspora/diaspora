@@ -1,17 +1,7 @@
 #notifications_container {
   .nav.nav-tabs{
     li > a {
-      color: $text-dark-grey;
-      .entypo {
-        color: $text-dark-grey;
-        margin-right: 5px;
-      }
       .badge.badge-default { display: none; }
-    }
-    li.active > a {
-      background-color: $background-grey;
-      color: $black;
-      .entypo { color: $black; }
     }
   }
 

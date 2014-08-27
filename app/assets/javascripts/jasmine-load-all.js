@@ -7,4 +7,5 @@
 //= require mobile
 //= require profile
 //= require people
+//= require contact-list
 //= require sinon
