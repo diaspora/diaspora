@@ -18,9 +18,6 @@ env:
 bundler_args: "--without development production heroku"
 script: "./script/ci/build.sh"
 
-addons:
-  firefox: "31.0"
-
 notifications:
   irc:
     channels:
