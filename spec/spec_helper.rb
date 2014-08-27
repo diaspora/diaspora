@@ -87,7 +87,9 @@ prefork = proc do
       allow_any_instance_of(Postzord::Dispatcher::Private).to receive(:deliver_to_remote)
     end
 
-
+    config.expect_with :rspec do |expect_config|
+      expect_config.syntax = :expect
+    end
 
     config.after(:all) do
       `rm -rf #{Rails.root}/tmp/uploads/*`

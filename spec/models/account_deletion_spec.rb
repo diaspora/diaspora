@@ -40,7 +40,7 @@ describe AccountDeletion, :type => :model do
     it 'marks an AccountDeletion as completed when successful' do
       ad = AccountDeletion.create(:person => alice.person)
       ad.perform!
-      ad.reload.completed_at.should_not be_nil
+      expect(ad.reload.completed_at).not_to be_nil
     end
   end
 
