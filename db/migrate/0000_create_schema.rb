@@ -137,6 +137,15 @@ class CreateSchema < ActiveRecord::Migration
   add_index "likes", ["target_id", "author_id", "target_type"], :name => "index_likes_on_target_id_and_author_id_and_target_type", :unique => true
   add_index "likes", ["target_id"], :name => "index_likes_on_post_id"
 
+  create_table "locations", :force => true do |t|
+    t.string   "address"
+    t.string   "lat"
+    t.string   "lng"
+    t.integer  "status_message_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
   create_table "mentions", :force => true do |t|
     t.integer "post_id",   :null => false
     t.integer "person_id", :null => false
@@ -445,35 +454,35 @@ class CreateSchema < ActiveRecord::Migration
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
-  add_foreign_key "aspect_memberships", "aspects", :name => "aspect_memberships_aspect_id_fk", :dependent => :delete
-  add_foreign_key "aspect_memberships", "contacts", :name => "aspect_memberships_contact_id_fk", :dependent => :delete
+  add_foreign_key "aspect_memberships", "aspects", name: "aspect_memberships_aspect_id_fk", dependent: :delete
+  add_foreign_key "aspect_memberships", "contacts", name: "aspect_memberships_contact_id_fk", dependent: :delete
 
-  add_foreign_key "aspect_visibilities", "aspects", :name => "aspect_visibilities_aspect_id_fk", :dependent => :delete
+  add_foreign_key "aspect_visibilities", "aspects", name: "aspect_visibilities_aspect_id_fk", dependent: :delete
 
-  add_foreign_key "comments", "people", :name => "comments_author_id_fk", :column => "author_id", :dependent => :delete
+  add_foreign_key "comments", "people", name: "comments_author_id_fk", column: "author_id", dependent: :delete
 
-  add_foreign_key "contacts", "people", :name => "contacts_person_id_fk", :dependent => :delete
+  add_foreign_key "contacts", "people", name: "contacts_person_id_fk", dependent: :delete
 
-  add_foreign_key "conversation_visibilities", "conversations", :name => "conversation_visibilities_conversation_id_fk", :dependent => :delete
-  add_foreign_key "conversation_visibilities", "people", :name => "conversation_visibilities_person_id_fk", :dependent => :delete
+  add_foreign_key "conversation_visibilities", "conversations", name: "conversation_visibilities_conversation_id_fk", dependent: :delete
+  add_foreign_key "conversation_visibilities", "people", name: "conversation_visibilities_person_id_fk", dependent: :delete
 
-  add_foreign_key "conversations", "people", :name => "conversations_author_id_fk", :column => "author_id", :dependent => :delete
+  add_foreign_key "conversations", "people", name: "conversations_author_id_fk", column: "author_id", dependent: :delete
 
-  add_foreign_key "invitations", "users", :name => "invitations_recipient_id_fk", :column => "recipient_id", :dependent => :delete
-  add_foreign_key "invitations", "users", :name => "invitations_sender_id_fk", :column => "sender_id", :dependent => :delete
+  add_foreign_key "invitations", "users", name: "invitations_recipient_id_fk", column: "recipient_id", dependent: :delete
+  add_foreign_key "invitations", "users", name: "invitations_sender_id_fk", column: "sender_id", dependent: :delete
 
-  add_foreign_key "likes", "people", :name => "likes_author_id_fk", :column => "author_id", :dependent => :delete
+  add_foreign_key "likes", "people", name: "likes_author_id_fk", column: "author_id", dependent: :delete
 
-  add_foreign_key "messages", "conversations", :name => "messages_conversation_id_fk", :dependent => :delete
-  add_foreign_key "messages", "people", :name => "messages_author_id_fk", :column => "author_id", :dependent => :delete
+  add_foreign_key "messages", "conversations", name: "messages_conversation_id_fk", dependent: :delete
+  add_foreign_key "messages", "people", name: "messages_author_id_fk", column: "author_id", dependent: :delete
 
-  add_foreign_key "notification_actors", "notifications", :name => "notification_actors_notification_id_fk", :dependent => :delete
+  add_foreign_key "notification_actors", "notifications", name: "notification_actors_notification_id_fk", dependent: :delete
 
-  add_foreign_key "posts", "people", :name => "posts_author_id_fk", :column => "author_id", :dependent => :delete
+  add_foreign_key "posts", "people", name: "posts_author_id_fk", column: "author_id", dependent: :delete
 
-  add_foreign_key "profiles", "people", :name => "profiles_person_id_fk", :dependent => :delete
+  add_foreign_key "profiles", "people", name: "profiles_person_id_fk", dependent: :delete
 
-  add_foreign_key "services", "users", :name => "services_user_id_fk", :dependent => :delete
+  add_foreign_key "services", "users", name: "services_user_id_fk", dependent: :delete
 
-  add_foreign_key "share_visibilities", "contacts", :name => "post_visibilities_contact_id_fk", :dependent => :delete
+  add_foreign_key "share_visibilities", "contacts", name: "post_visibilities_contact_id_fk", dependent: :delete
 end
