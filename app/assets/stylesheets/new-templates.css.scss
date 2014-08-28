@@ -10,6 +10,7 @@
 
 @import 'new_styles/base';
 @import 'new_styles/buttons';
+@import 'new_styles/interactions';
 
 /* font overrides */
 @import 'new_styles/typography';
@@ -62,6 +63,9 @@
 /* stream */
 @import 'tag';
 @import 'stream-faces';
+@import 'stream';
+@import 'stream_element';
+@import 'comments';
 
 /* contacts */
 @import 'contacts';

@@ -21,6 +21,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 * Redesign contacts page [#5153](https://github.com/diaspora/diaspora/pull/5153)
 * Improve profile page design on mobile [#5084](https://github.com/diaspora/diaspora/pull/5084)
 * Port testsuite to RSpec 3 [#5170](https://github.com/diaspora/diaspora/pull/5170)
+* Port tag stream to Bootstrap [#5138](https://github.com/diaspora/diaspora/pull/5138)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)

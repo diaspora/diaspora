@@ -20,3 +20,7 @@ h1.tag {
     &:hover { border-bottom: 1px solid $border-dark-grey; }
   }
 }
+
+#tags_show {
+  .span3 { border-right: 1px solid $border-grey; }
+}
