@@ -31,12 +31,12 @@ $(document).ready(function(){
     evt.preventDefault();
     $("#app").toggleClass('draw');
   });
-  
+
   /* Show / hide aspects in the drawer */
   $('#all_aspects').bind("tap click", function(evt){
     evt.preventDefault();
     $("#all_aspects + li").toggleClass('hide');
-  });  
+  });
 
   /* Heart toggle */
   $(".like_action", ".stream").bind("tap click", function(evt){
@@ -319,7 +319,7 @@ function createUploader(){
         $('#publisher_textarea_wrapper').addClass("with_attachments");
         $('#photodropzone').append(
           "<li class='publisher_photo loading' style='position:relative;'>" +
-            "<img alt='Ajax-loader2' src='/assets/ajax-loader2.gif' />" +
+            "<img alt='Ajax-loader2' src='"+ImagePaths.get('ajax-loader2.gif')+"' />" +
           "</li>"
           );
        },

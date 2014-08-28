@@ -3,7 +3,7 @@ Handlebars.registerHelper('t', function(scope, values) {
 });
 
 Handlebars.registerHelper('imageUrl', function(path){
-  return app.baseImageUrl() + path;
+  return ImagePaths.get(path);
 });
 
 Handlebars.registerHelper('linkToPerson', function(context, block) {

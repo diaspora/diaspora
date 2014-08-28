@@ -115,7 +115,7 @@ var View = {
 
   avatars: {
     fallback: function(evt) {
-      $(this).attr("src", "/assets/user/default.png");
+      $(this).attr("src", ImagePaths.get("user/default.png"));
     },
     selector: "img.avatar"
   }

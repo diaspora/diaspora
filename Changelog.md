@@ -12,6 +12,8 @@ Rails.application.config.secret_token = '***********...'
 Diaspora::Application.config.secret_key_base = '*************...'
 ```
 
+You also need to take care to set `RAILS_ENV` while precompiling assets: `RAILS_ENV=production bundle exec rake assets:precompile`
+
 ## Change in defaults.yml
 The default for including jQuery from a CDN has changed. If you want to continue to include it from a CDN, please explicitly set the `jquery_cdn` setting to `true` in diaspora.yml.
 
