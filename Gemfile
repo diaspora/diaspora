@@ -79,6 +79,7 @@ gem 'entypo-rails', '2.2.2'
 gem 'backbone-on-rails', '1.1.1'
 gem 'handlebars_assets', '0.12.0'
 gem 'jquery-rails',      '3.0.4'
+gem 'js_image_paths',    '0.0.1'
 
 # jQuery plugins
 

@@ -37,11 +37,6 @@ var app = {
     return this._user || false
   },
 
-  baseImageUrl: function(baseUrl){
-    if(baseUrl) { return this._baseImageUrl = baseUrl }
-    return this._baseImageUrl || "assets/"
-  },
-
   initialize: function() {
     app.router = new app.Router();
 
@@ -91,8 +86,8 @@ var app = {
   },
 
   setupFacebox: function() {
-    $.facebox.settings.closeImage = app.baseImageUrl()+'facebox/closelabel.png';
-    $.facebox.settings.loadingImage = app.baseImageUrl()+'facebox/loading.gif';
+    $.facebox.settings.closeImage = ImagePaths.get('facebox/closelabel.png');
+    $.facebox.settings.loadingImage = ImagePaths.get('facebox/loading.gif');
     $.facebox.settings.opacity = 0.75;
   },
 

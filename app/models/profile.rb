@@ -74,7 +74,7 @@ class Profile < ActiveRecord::Base
              else
                self[:image_url]
              end
-    result || '/assets/user/default.png'
+    result || ActionController::Base.helpers.image_path('user/default.png')
   end
 
   def from_omniauth_hash(omniauth_user_hash)

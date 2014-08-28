@@ -5,7 +5,7 @@
 
 body > header {
   @include box-shadow(0,1px,3px,rgba(0,0,0,0.9));
-  background: url('header-bg.png') rgb(40,35,35);
+  background: image-url('header-bg.png') rgb(40,35,35);
   z-index: 1001;
   padding: 6px 0;
   color: #CCC;

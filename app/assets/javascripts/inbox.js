@@ -81,7 +81,7 @@ $(document).ready(function(){
     debug: false,
     donetext: "no more.",
     loadingText: "",
-    loadingImg: '/assets/ajax-loader.gif'
+    loadingImg: ImagePaths.get('ajax-loader.gif')
   }, function(){
     $('.conversation-wrapper', '.stream').bind('mousedown', function(){
       bindIt($(this));

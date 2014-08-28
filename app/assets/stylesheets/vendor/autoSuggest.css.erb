@@ -9,13 +9,13 @@ ul.as-selections {
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
-	/* 1% padding (all sides) + 98% width = 100% */  
+	/* 1% padding (all sides) + 98% width = 100% */
 	padding: 1%;
 	width: 98%;
 }
 
 ul.as-selections.loading {
-  background: url("/assets/ajax-loader.gif") right center no-repeat;
+  background: url('<%= image_path("ajax-loader.gif") %>')  right center no-repeat;
 }
 
 ul.as-selections li {
@@ -171,20 +171,20 @@ li.as-result-item.active {
 	text-shadow: 0 1px 2px #122042;
 }
 
-li.as-result-item em { 
-	font-style: normal; 
-	background: #444;  
+li.as-result-item em {
+	font-style: normal;
+	background: #444;
 	padding: 0 2px;
 	color: #fff;
 }
 
-li.as-result-item.active em { 
-	background: #253f7a;  
+li.as-result-item.active em {
+	background: #253f7a;
 	color: #fff;
 }
 
 /* Webkit Hacks  */
-@media screen and (-webkit-min-device-pixel-ratio:0) {	
+@media screen and (-webkit-min-device-pixel-ratio:0) {
 	ul.as-selections li.as-selection-item {
 		padding-top: 6px;
 		padding-bottom: 6px;
@@ -218,7 +218,7 @@ ul.as-selections li.as-selection-item a.as-close {
 }
 
 /* Firefox 3.0 Hacks */
-ul.as-list,  x:-moz-any-link, x:default { 
+ul.as-list,  x:-moz-any-link, x:default {
 	border: 1px solid #ccc;
 }
 BODY:first-of-type ul.as-list, x:-moz-any-link, x:default { /* Target FF 3.5+ */

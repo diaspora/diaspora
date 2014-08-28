@@ -176,7 +176,7 @@ jQuery.fn.center = (function() {
     this.resetLightbox = function() {
       self.lightbox.hide();
       self.body.removeClass("lightboxed");
-      self.image.attr("src", "assets/ajax-loader2.gif");
+      self.image.attr("src", ImagePaths.get("ajax-loader2.gif"));
       self.imageset.html("");
     };
 

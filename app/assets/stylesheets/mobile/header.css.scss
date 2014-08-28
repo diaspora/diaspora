@@ -5,13 +5,13 @@ header {
   height: 45px;
   top: 0px;
   z-index: 10;
-  background: url('../header-bg-long.jpg') rgb(40,35,35);
+  background: image-url('header-bg-long.jpg') rgb(40,35,35);
   @include box-shadow(0, 1px, 2px, #333);
   border-bottom: 1px solid #222;
 }
 
 #main_nav {
-  width: 100%;  
+  width: 100%;
 
   #header_title {
     display: inline-block;
@@ -32,7 +32,7 @@ header {
       font-weight: bold;
       font-size: smaller;
       background-color: transparent;
-      
+
       img {
         height: 30px;
         width: 30px;
@@ -48,7 +48,7 @@ header {
       background-color: $red;
       margin-left: -8px;
     }
-    
+
     #conversation_icon {
       height: 18px;
     }
@@ -62,7 +62,7 @@ header {
   width: 100%;
   left: 100%;
   background-color: #444;
-  
+
           box-shadow: -2px 0px 2px 1px #333;
        -o-box-shadow: -2px 0px 2px 1px #333;
       -ms-box-shadow: -2px 0px 2px 1px #333;
@@ -73,7 +73,7 @@ header {
     position: static;
     left: 100%;
     right: -80%;
-    
+
     #global_search {
       position: relative;
 
@@ -109,7 +109,7 @@ header {
       }
     }
   }
-  
+
   nav {
     position: absolute;
     top: 45px;
@@ -124,7 +124,7 @@ header {
       color: $light-grey;
       border-bottom: solid rgb(53, 53, 53) 2px;
     }
-    
+
     li:hover {
       background-color: $link-grey;
     }
@@ -132,21 +132,21 @@ header {
     .no_border {
       padding: 0px;
       border-bottom: 0px;
-      
+
       &:hover {
         background-color: transparent;
       }
-      
+
       > ul > li > a {
         font-size: 14px;
         padding: 8px 42px;
       }
     }
-    
+
     .hide {
       display: none;
     }
-    
+
     .avatar {
       height: 35px;
       width: 35px;
@@ -154,7 +154,7 @@ header {
       float: right;
     }
   }
-  
+
   a {
     display: block;
     color: $light-grey;
