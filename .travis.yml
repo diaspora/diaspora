@@ -5,8 +5,8 @@ branches:
 
 language: ruby
 rvm:
-  - 2.0.0
-  - 1.9.3
+  - 2.1
+  - 2.0
 
 env:
   - DB=postgres BUILD_TYPE=other
