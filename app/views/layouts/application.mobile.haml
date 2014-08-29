@@ -45,6 +45,7 @@
 
     = yield(:head)
 
+    = include_gon(:camel_case => true)
   %body
     #app
       %header#main_nav
@@ -67,7 +68,7 @@
             -# Menu
             = link_to(image_tag('icons/menu.png'), "#", id: "menu_badge", class: "badge")
         = link_to(image_tag('icons/asterisk_white_mobile.png'), stream_path, id: 'header_title')
-        
+
       - if user_signed_in?
         #drawer
           %header

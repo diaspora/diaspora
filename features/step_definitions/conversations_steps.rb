@@ -6,12 +6,13 @@ end
 
 Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/ do |subject, text, person|
   step %(I am on the conversations page)
-  step %(I follow "New conversation")
-  step %(I fill in "contact_autocomplete" with "#{person}" in the modal window)
-  step %(I press the first ".as-result-item" within ".as-results" in the modal window)
-  step %(I fill in "conversation_subject" with "#{subject}" in the modal window)
-  step %(I fill in "conversation_text" with "#{text}" in the modal window)
-  step %(I press "Send" in the modal window)
+  within("#conversation_new", match: :first) do
+    step %(I fill in "contact_autocomplete" with "#{person}")
+    step %(I press the first ".as-result-item" within ".as-results")
+    step %(I fill in "conversation_subject" with "#{subject}")
+    step %(I fill in "conversation_text" with "#{text}")
+    step %(I press "Send")
+  end
 end
 
 When /^I reply with "([^"]*)"$/ do |text|

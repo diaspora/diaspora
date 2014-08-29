@@ -1,13 +1,7 @@
-.conversations_container {
+#conversations_container {
   .stream_element {
     border-bottom: 1px solid $border-grey;
-    &:first-child {
-      border-top: none;
-    }
-    .last_author {
-      font-size: 12px;
-      color: $text-dark-grey;
-    }
+    &:first-child { border-top: none; }
     a.author{
       font-weight: bold;
       unicode-bidi: bidi-override;
@@ -17,16 +11,110 @@
       width: 50px;
       height: 50px;
     }
-  }
-  .stream .stream_element {
+
     p {
       margin: 0 0 1em 0;
       word-wrap: break-word;
       &:last-child { margin-bottom: 0; }
     }
-
     .new_message { border-bottom: none; }
     .timestamp { font-size: 11px; }
+  }
+
+  .stream_element.conversation {
+    padding: 8px;
+    .media {
+      margin-bottom: 0px;
+      margin-left: 0px;
+    }
+
+    &:hover:not(.selected), &.selected {
+      .subject,
+      .last_author,
+      .last_message {
+        color: $white;
+      }
+      .timeago { color: $background-grey; }
+    }
+
+    &:hover, &.unread:hover, &.selected:hover {
+      background-color: lighten($blue,5%);
+      cursor: pointer;
+    }
+    &.unread { background-color: darken($background-white, 5%); }
+    &.selected { background-color: $blue; }
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      float: left;
+    }
+
+    .last_author, .last_message {
+      font-size: 12px;
+      line-height: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .last_author { color: $text-dark-grey; }
+
+    .message_count, .unread_message_count {
+      margin-left: 3px;
+      float: right;
+      font-size: 12px;
+      font-weight: normal;
+    }
+
+    .participants_count {
+      @include opacity(0.5);
+      &:before { content: '+'; }
+      float: left;
+      background-color: #fff;
+      margin-top: 35px;
+      margin-left: -50px;
+      text-align: center;
+      width: 50px;
+      height: 15px;
+      line-height: 15px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .participants {
+      display: none;
+      float: left;
+      clear: both;
+      margin-top: 5px;
+      padding-top: 5px;
+      height: 25px;
+      width: 100%;
+      overflow: hidden;
+      border-top: 1px dotted $border-grey;
+      .avatar {
+        margin: 0 5px 0 0;
+        height: 25px;
+        width: 25px;
+      }
+    }
+
+    .img { line-height: 15px; }
+
+    .subject {
+      font-size: 14px;
+      > * {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .timeago {
+      float: right;
+      line-height: normal;
+      font-weight: normal;
+      color: $blue;
+    }
   }
 }
 
@@ -35,7 +123,7 @@
     box-shadow: 0 2px 3px -3px #666;
     -webkit-box-shadow: 0 2px 3px -3px #666;
     -moz-box-shadow: 0 2px 3px -3px #666;
-    
+
     background-color: $background-white;
     margin-bottom: 5px;
     border-bottom: 1px solid $border-grey;
@@ -62,127 +150,21 @@
       text-align: right;
       margin-top: 9px;
     }
-    
+
     a img { margin-bottom: 4px; }
 
     .conversation_controls {
       margin-bottom: 10px;
-      
+
       a { margin-right: 10px; }
     }
   }
 
   .conversation_participants a:hover { text-decoration: none; }
-  
+
   .stream .stream_element {
     padding: 10px;
   }
-}
-
-.stream_element.conversation {
-  padding: 8px;
-  .media { 
-    margin-bottom: 0px; 
-    margin-left: 0px;
-  }
-
-  &:hover:not(.selected) { 
-    background-color: lighten($blue,5%);
-    .subject,
-    .last_author,
-    .last_message {
-      color: $white;
-    }
-    .timeago { color: $background-grey; }
-  }
-  &.selected:hover { background-color: lighten($blue,5%); }
-  &:hover { cursor: pointer; }
- 
-  .avatar {
-    width: 50px;
-    height: 50px;
-    float: left;
-  }
-  
-  .last_author, .last_message {
-    font-size: 12px;
-    line-height: 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .message_count, .unread_message_count {
-    margin-left: 3px;
-    float: right;
-    font-size: 12px;
-    font-weight: normal;
-  }
-
-  .participants_count {
-    @include opacity(0.5);
-    &:before { content: '+'; }
-    float: left;
-    background-color: #fff;
-    margin-top: 35px;
-    margin-left: -50px;
-    text-align: center;
-    width: 50px;
-    height: 15px;
-    line-height: 15px;
-    font-size: 13px;
-    font-weight: bold;
-  }
-
-  .participants {
-    display: none;
-    float: left;
-    clear: both;
-    margin-top: 5px;
-    padding-top: 5px;
-    height: 25px;
-    width: 100%;
-    overflow: hidden;
-    border-top: 1px dotted $border-grey;
-    .avatar {
-      margin: 0 5px 0 0;
-      height: 25px;
-      width: 25px;
-    }
-  }
-
-  .img { line-height: 15px; }
-
-  .subject {
-    font-size: 14px;
-    > * {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-  }
-
-  .timeago {
-    float: right;
-    line-height: normal;
-    font-weight: normal;
-    color: $blue;
-  }
-}
-
-.conversation.unread {
-  background-color: darken($background-white, 5%);
-}
-
-.conversation.selected {
-  background-color: $blue;
-    
-  .subject,
-  .last_author,
-  .last_message {
-    color: $white;
-  }
-  .timeago { color: $background-grey; }
 }
 
 #left_pane {
@@ -202,6 +184,10 @@
       text-decoration: none;
     }
   }
+}
+
+#conversation_new {
+  label { font-weight: bold; }
 }
 
 #no_conversations,
@@ -225,7 +211,7 @@
   ul.as-selections { width: 100% !important; }
   input#contact_ids { box-shadow: none; }
   textarea { width: 98%; }
-  
+
   .bottom_submit_section {
     text-align: right;
   }

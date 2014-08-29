@@ -5,35 +5,6 @@
 //= require jquery.autoSuggest.custom
 
 $(document).ready(function(){
-
-  if ($('#first_unread').length > 0) {
-    $("html").scrollTop($('#first_unread').offset().top-45);
-  }
-
-  $('time.timeago').each(function(i,e) {
-    var jqe = $(e);
-    jqe.attr('data-original-title', new Date(jqe.attr('datetime')).toLocaleString());
-    jqe.attr('title', '');
-  });
-
-  $('.timeago').tooltip();
-  $('.timeago').timeago();
-
-  $('time.timeago').each(function(i,e) {
-    var jqe = $(e);
-    jqe.attr('title', '');
-  });
-
-  $('.stream_element.conversation').hover(
-    function(){
-      $(this).find('.participants').slideDown('300');
-    },
-
-    function(){
-      $(this).find('.participants').slideUp('300');
-    }
-  );
-
   $(document).on('click', '.conversation-wrapper', function(){
     var conversation_path = $(this).data('conversation-path');
 
