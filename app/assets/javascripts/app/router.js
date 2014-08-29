@@ -22,8 +22,8 @@ app.Router = Backbone.Router.extend({
     "tags/:name": "followed_tags",
     "people/:id/photos": "photos",
 
-    "people/:id": "stream",
-    "u/:name": "stream"
+    "people/:id": "profile",
+    "u/:name": "profile"
   },
 
   initialize: function() {
@@ -52,9 +52,13 @@ app.Router = Backbone.Router.extend({
   },
 
   renderPage : function(pageConstructor){
-    app.page && app.page.unbind && app.page.unbind() //old page might mutate global events $(document).keypress, so unbind before creating
-    app.page = pageConstructor() //create new page after the world is clean (like that will ever happen)
-    $("#container").html(app.page.render().el)
+    app.page && app.page.unbind && app.page.unbind(); //old page might mutate global events $(document).keypress, so unbind before creating
+    app.page = pageConstructor(); //create new page after the world is clean (like that will ever happen)
+
+    if( !$.contains(document, app.page.el) ) {
+      // view element isn't already attached to the DOM, insert it
+      $("#container").empty().append(app.page.render().el);
+    }
   },
 
   //below here is oldness
@@ -133,6 +137,13 @@ app.Router = Backbone.Router.extend({
     app.bookmarklet = new app.views.Bookmarklet(
       _.extend({}, {el: $('#bookmarklet')}, contents)
     ).render();
+  },
+
+  profile: function() {
+    this.renderPage(function() { return new app.pages.Profile({
+      el: $('body > .container')
+    }); });
+    // TODO call `this.stream()`
   }
 });
 
