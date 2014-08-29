@@ -152,6 +152,15 @@ ActiveRecord::Schema.define(version: 20140824230505) do
   add_index "likes", ["target_id", "author_id", "target_type"], name: "index_likes_on_target_id_and_author_id_and_target_type", unique: true, using: :btree
   add_index "likes", ["target_id"], name: "index_likes_on_post_id", using: :btree
 
+  create_table "locations", force: true do |t|
+    t.string   "address"
+    t.string   "lat"
+    t.string   "lng"
+    t.integer  "status_message_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "mentions", force: true do |t|
     t.integer "post_id",   null: false
     t.integer "person_id", null: false
