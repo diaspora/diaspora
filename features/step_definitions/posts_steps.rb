@@ -79,7 +79,7 @@ When /^I append "([^"]*)" to the publisher$/ do |text|
   append_to_publisher(text)
 end
 
-When /^I append "([^"]*)" to the publisher mobile$/ do |text|
+When /^I append "([^"]*)" to the mobile publisher$/ do |text|
   append_to_publisher(text, '#status_message_text')
 end
 

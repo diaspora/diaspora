@@ -11,8 +11,8 @@ Feature: reactions mobile post
       | Alice Smith | alice@alice.alice |
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     When "alice@alice.alice" has posted a status message with a photo
-    And I sign in as "bob@bob.bob"
     And I toggle the mobile view
+    And I sign in as "bob@bob.bob"
 
   Scenario: like on a mobile post
     When I should see "0 reactions" within ".show_comments"

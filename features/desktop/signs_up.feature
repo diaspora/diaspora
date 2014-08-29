@@ -4,7 +4,7 @@ Feature: new user registration
   Background:
     When I go to the new user registration page
     And I fill in the new user form
-    And I press "Continue"
+    And I submit the form
     Then I should be on the getting started page
     Then I should see the 'getting started' contents
 
@@ -21,7 +21,6 @@ Feature: new user registration
       | profile_first_name | <script>alert(0)// |
     And I focus the "follow_tags" field
     Then I should see a flash message containing "Hey, <script>alert(0)//!"
-
 
   Scenario: new user does not add any tags in setup wizard and cancel the alert
     When I fill in the following:
@@ -46,7 +45,7 @@ Feature: new user registration
     And I wait for the popovers to appear
     And I click close on all the popovers
     And I go to the home page
-    Then I should not see "Welcome to Diaspora"
+    Then I should not see "Welcome to diaspora*"
 
   Scenario: user fills in bogus data - client side validation
     When I log out manually
