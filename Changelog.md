@@ -14,6 +14,13 @@ Diaspora::Application.config.secret_key_base = '*************...'
 
 You also need to take care to set `RAILS_ENV` while precompiling assets: `RAILS_ENV=production bundle exec rake assets:precompile`
 
+## Supported Ruby versions
+This release drops official support for the Ruby 1.9 series. This means we will no longer test against this Ruby version or take care to choose libraries
+that work with it. However that doesn't mean we won't accept patches that improve running diaspora* on it.
+
+At the same time we adopt support for the Ruby 2.1 series and recommend running on the latest Ruby version of that branch. We continue to support the Ruby 2.0
+series and run our comphrensive testsuite against it.
+
 ## Change in defaults.yml
 The default for including jQuery from a CDN has changed. If you want to continue to include it from a CDN, please explicitly set the `jquery_cdn` setting to `true` in diaspora.yml.
 
