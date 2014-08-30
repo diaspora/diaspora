@@ -10,15 +10,13 @@ describe ConversationsController, :type => :controller do
   end
 
   describe '#new' do
-    before do
-      get :new
-    end
-
     it 'succeeds' do
+      get :new
       expect(response).to be_success
     end
 
     it "assigns a json list of contacts that are sharing with the person" do
+      get :new
       expect(assigns(:contacts_json)).to include(alice.contacts.where(:sharing => true).first.person.name)
       alice.contacts << Contact.new(:person_id => eve.person.id, :user_id => alice.id, :sharing => false, :receiving => true)
       expect(assigns(:contacts_json)).not_to include(alice.contacts.where(:sharing => false).first.person.name)
@@ -40,6 +38,16 @@ describe ConversationsController, :type => :controller do
         get :new, name: xss
         expect(response.body).not_to include xss
       end
+    end
+
+    it "does not allow XSS via the profile name" do
+      xss = "<script>alert(0);</script>"
+      contact = alice.contacts.first
+      contact.person.profile.update_attribute(:first_name, xss)
+      get :new
+      json = JSON.parse(assigns(:contacts_json)).first
+      expect(json['value']).to eq(contact.id.to_s)
+      expect(json['name']).to_not include(xss)
     end
   end
 

@@ -60,6 +60,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 * Set mention notification as read when viewing post [#5006](https://github.com/diaspora/diaspora/pull/5006)
 * Set sharing notification as read when viewing profile [#5009](https://github.com/diaspora/diaspora/pull/5009)
 * Ensure a consistent border on text input elements [#5069](https://github.com/diaspora/diaspora/pull/5069)
+* Escape person name in contacts json returned by Conversations#new
 
 ## Features
 * Port admin pages to bootstrap, polish user search results, allow accounts to be closed from the backend [#5046](https://github.com/diaspora/diaspora/pull/5046)
