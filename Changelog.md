@@ -23,6 +23,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 * Port testsuite to RSpec 3 [#5170](https://github.com/diaspora/diaspora/pull/5170)
 * Port tag stream to Bootstrap [#5138](https://github.com/diaspora/diaspora/pull/5138)
 * Consolidate migrations, if you need a migration prior 2013, checkout the latest release in the 0.4.x series first [#5173](https://github.com/diaspora/diaspora/pull/5173)
+* Add tests for mobile sign up [#5185](https://github.com/diaspora/diaspora/pull/5185)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
