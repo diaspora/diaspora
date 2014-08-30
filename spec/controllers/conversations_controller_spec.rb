@@ -46,7 +46,7 @@ describe ConversationsController do
       contact.person.profile.update_attribute(:first_name, xss)
       get :new
       json = JSON.parse(assigns(:contacts_json)).first
-      expect(json['value']).to eq(contact.id.to_s)
+      expect(json['value'].to_s).to eq(contact.id.to_s)
       expect(json['name']).to_not include(xss)
     end
   end
