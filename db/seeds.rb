@@ -30,6 +30,13 @@ Language.create(:name => "portugese")
 Language.create(:name => "spanish")
 Language.create(:name => "pinyin")
 
+Preferedlanguage.create(:name => "dutch",:iso_code => 'du')
+Preferedlanguage.create(:name => "english", :iso_code => 'en')
+Preferedlanguage.create(:name => "farsi", :iso_code => 'fa')
+Preferedlanguage.create(:name => "russian", :iso_code => 'ru')
+Preferedlanguage.create(:name => "french", :iso_code => 'fr')
+Preferedlanguage.create(:name => "german", :iso_code => 'gr')
+
 def url_hash(name)
   image_url = "/assets/user/#{name}.jpg"
   {
