@@ -44,7 +44,6 @@ Feature: new user registration
     And I have turned off jQuery effects
     And I wait for the popovers to appear
     And I click close on all the popovers
-    And I go to the home page
     Then I should not see "Welcome to diaspora*"
 
   Scenario: user fills in bogus data - client side validation
