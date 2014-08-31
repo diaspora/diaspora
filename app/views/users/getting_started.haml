@@ -53,7 +53,6 @@
         = #label_tag 'prefer_languages', t('.language_suggestions')
         #languages_list
           = #text_field_tag 'prefer_languages', nil, :class => "nostrap"
-        = submit_tag "Update"
 
     .awesome
       = link_to "#{t('.awesome_take_me_to_diaspora')} »", stream_path, :id => "awesome_button", :class => "button creation"
