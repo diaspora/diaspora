@@ -7,8 +7,8 @@ Feature: private conversations
   Background:
     Given a user named "Robert Grimm" with email "bob@bob.bob"
     And a user named "Alice Awesome" with email "alice@alice.alice"
-    When I sign in as "bob@bob.bob"
     And a user with username "robert_grimm" is connected with "alice_awesome"
+    When I sign in as "bob@bob.bob"
 
   Scenario: send a message
     Given I send a message with subject "Greetings" and text "hello, alice!" to "Alice Awesome"

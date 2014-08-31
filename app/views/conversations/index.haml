@@ -1,22 +1,17 @@
--#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3 or later.  See
--#   the COPYRIGHT file.
-
-
 - content_for :head do
   = javascript_include_tag :inbox
 
 - content_for :page_title do
   = t('.conversations_inbox')
 
-.container-fluid.conversations_container
+.container-fluid#conversations_container
   .row-fluid
     .span4
       #left_pane
         #left_pane_header
           %h3
-            .pull-right
-              = link_to t('.new_conversation'), new_conversation_path, :class => 'btn btn-default', :rel => 'facebox'
+            .pull-right{ :class => ("hidden" unless @conversation)}
+              = link_to t('.new_conversation'), conversations_path, :class => 'btn btn-default'
             = t('.inbox')
 
         #conversation_inbox
@@ -28,14 +23,16 @@
                 = t('.no_messages')
             = will_paginate @conversations, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
 
-
     .span8
-      .stream_container
-        #conversation_show
-          - if @conversation
+      - if @conversation
+        .stream_container
+          #conversation_show
             = render 'conversations/show', :conversation => @conversation
-          - else
-            #no_conversation_text
-              = t('.no_conversation_selected')
-            #no_conversation_controls
-              = link_to t('.create_a_new_conversation'), new_conversation_path, :rel => 'facebox'
+      - else
+        .stream_container.hidden
+          #conversation_show
+        #conversation_new.row-fluid
+          %h3.text-center
+            = t('conversations.index.new_conversation')
+          .span10.offset
+            = render 'conversations/new'

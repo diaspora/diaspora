@@ -27,7 +27,7 @@ module ContactsHelper
     conv_opts = { class: "conversation_button", rel: "facebox"}
     conv_opts[:title] = t('.many_people_are_you_sure', suggested_limit: suggested_limit) if contacts_size > suggested_limit
 
-    link_to new_conversation_path(aspect_id: aspect.id, name: aspect.name), conv_opts do
+    link_to new_conversation_path(aspect_id: aspect.id, name: aspect.name, facebox: true), conv_opts do
       content_tag(:i, nil, :class => 'entypo mail contacts-header-icon', :title => t('contacts.index.start_a_conversation'))
     end
   end

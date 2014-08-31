@@ -1,3 +1,9 @@
+if($('.stream_container').hasClass('hidden')){
+  $('#conversation_new').hide();
+  $('.stream_container').removeClass('hidden');
+  $('#left_pane_header .pull-right').removeClass('hidden');
+}
+
 $('#conversation_show').html("<%= escape_javascript(render('conversations/show', :conversation => @conversation)) %>");
 
 $(".stream_element", "#conversation_inbox").removeClass('selected');
@@ -10,7 +16,7 @@ $('time.timeago').each(function(i,e) {
 });
 
 if ($('#first_unread') > 0) {
-  $("html").scrollTop($('#first_unread').offset().top-45);
+  $("html").scrollTop($('#first_unread').offset().top-50);
 }
 
 $(".timeago").tooltip();

@@ -20,6 +20,7 @@ en:
     and: "and"
     comma: ","
     edit: "Edit"
+    no_results: "No Results Found"
     timeago:
       prefixAgo: ""
       prefixFromNow: ""

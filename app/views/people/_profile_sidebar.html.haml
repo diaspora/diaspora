@@ -20,7 +20,7 @@
 
 
           .profile_button
-            = link_to content_tag(:div, nil, :class => 'icons-message', :title => t('people.show.message'), :id => 'message_button'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name), :rel => 'facebox'
+            = link_to content_tag(:div, nil, :class => 'icons-message', :title => t('people.show.message'), :id => 'message_button'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name, :facebox => true), :rel => 'facebox'
           .white_bar
 
         .profile_button

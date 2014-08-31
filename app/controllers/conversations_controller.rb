@@ -27,6 +27,8 @@ class ConversationsController < ApplicationController
     @ordered_participants = {}
     @conversations.each { |c| @ordered_participants[c.id] = (c.messages.map{|m| m.author}.reverse + c.participants).uniq }
 
+    gon.contacts = contacts_data
+
     respond_with do |format|
       format.html
       format.json { render :json => @conversations, :status => 200 }
@@ -82,25 +84,33 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    all_contacts_and_ids = Contact.connection.select_rows(
-      Contact.connection.unprepared_statement {
-        current_user.contacts.where(:sharing => true).joins(:person => :profile).
-          select("contacts.id, profiles.first_name, profiles.last_name, people.diaspora_handle").to_sql
-      }
-    ).map{|r| {:value => r[0], :name => ERB::Util.h(Person.name_from_attrs(r[1], r[2], r[3]).gsub(/(")/, "'"))} }
+    if !params[:facebox] && session[:mobile_view] == false && request.format.html?
+      redirect_to conversations_path
+      return
+    end
 
+    @contacts_json = contacts_data.to_json
     @contact_ids = ""
 
-    @contacts_json = all_contacts_and_ids.to_json
     if params[:contact_id]
       @contact_ids = current_user.contacts.find(params[:contact_id]).id
     elsif params[:aspect_id]
       @contact_ids = current_user.aspects.find(params[:aspect_id]).contacts.map{|c| c.id}.join(',')
     end
     if session[:mobile_view] == true && request.format.html?
-    render :layout => true
-    elsif
-    render :layout => false
+      render :layout => true
+    else
+      render :layout => false
     end
+  end
+
+  private
+
+  def contacts_data
+    current_user.contacts.sharing.joins(person: :profile)
+      .pluck(*%w(contacts.id profiles.first_name profiles.last_name people.diaspora_handle))
+      .map {|contact_id, *name_attrs|
+        {value: contact_id, name: ERB::Util.h(Person.name_from_attrs(*name_attrs)) }
+      }
   end
 end
