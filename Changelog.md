@@ -1,5 +1,13 @@
 # Head
 
+## Major Sidekiq update
+This release includes a major upgrade of the background processing system Sidekiq. To upgrade cleanly:
+
+1. Stop diaspora*
+2. Run `RAILS_ENV=production bundle exec sidekiq` and wait 5-10 minutes, then stop it again (hit `CTRL+C`)
+3. Do a normal upgrade of diaspora*
+4. Start diaspora*
+
 ## Rails 4 - Manual action required
 Please edit `config/initializers/secret_token.rb`, replacing `secret_token` with
 `secret_key_base`.
