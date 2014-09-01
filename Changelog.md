@@ -20,7 +20,7 @@ Rails.application.config.secret_token = '***********...'
 Diaspora::Application.config.secret_key_base = '*************...'
 ```
 
-You also need to take care to set `RAILS_ENV` while precompiling assets: `RAILS_ENV=production bundle exec rake assets:precompile`
+You also need to take care to set `RAILS_ENV` and to clear the cache while precompiling assets: `RAILS_ENV=production bundle exec rake tmp:cache:clear assets:precompile`
 
 ## Supported Ruby versions
 This release drops official support for the Ruby 1.9 series. This means we will no longer test against this Ruby version or take care to choose libraries
