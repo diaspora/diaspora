@@ -426,7 +426,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
-    sidekiq (3.2.2)
+    sidekiq (3.2.3)
       celluloid (>= 0.15.2)
       connection_pool (>= 2.0.0)
       json
@@ -574,7 +574,7 @@ DEPENDENCIES
   ruby-oembed (= 0.8.10)
   sass-rails (= 4.0.3)
   selenium-webdriver (= 2.42.0)
-  sidekiq (= 3.2.2)
+  sidekiq (= 3.2.3)
   simple_captcha2 (= 0.3.2)
   sinatra (= 1.3.3)
   sinon-rails (= 1.10.3)
