@@ -78,6 +78,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 * Set sharing notification as read when viewing profile [#5009](https://github.com/diaspora/diaspora/pull/5009)
 * Ensure a consistent border on text input elements [#5069](https://github.com/diaspora/diaspora/pull/5069)
 * Escape person name in contacts json returned by Conversations#new
+* Make sure all parts of the hovercard are always in front [#5188](https://github.com/diaspora/diaspora/pull/5188)
 
 ## Features
 * Port admin pages to bootstrap, polish user search results, allow accounts to be closed from the backend [#5046](https://github.com/diaspora/diaspora/pull/5046)
