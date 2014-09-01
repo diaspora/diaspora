@@ -109,7 +109,7 @@ gem 'opengraph_parser', '0.2.3'
 
 # Services
 
-gem 'omniauth',          '1.2.1'
+gem 'omniauth',          '1.2.2'
 gem 'omniauth-facebook', '1.6.0'
 gem 'omniauth-tumblr',   '1.1'
 gem 'omniauth-twitter',  '1.0.1'
