@@ -117,10 +117,17 @@ app.views.Hovercard = Backbone.View.extend({
     var p = this.$el.parent();
     var p_pos = p.position();
     var p_height = p.height();
+   
+    var hovercardWidth = this.$el.width();
+    var leftCorner = p_pos.left;
+    var rightCorner = leftCorner+hovercardWidth;
+    if(rightCorner > $(window).width()) {
+      leftCorner = p_pos.left - hovercardWidth;
+    } 
 
     this.$el.css({
       top: p_pos.top + p_height - 25,
-      left: p_pos.left
+      left: leftCorner
     });
   }
 });
