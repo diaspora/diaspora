@@ -141,9 +141,9 @@ configuration: ## Section
     ## The port on which the appserver should listen (default=3000):
     #port: 3000
 
-    ## Rails environment (default='production')
+    ## Rails environment (default='development')
     ## The environment in which the server should be started by default.
-    ## Only change this if you wish to run a development or test environment.
+    ## Change this if you wish to run a production environment.
     #rails_environment: 'development'
    
     ## Write unicorn stderr and stdout log
