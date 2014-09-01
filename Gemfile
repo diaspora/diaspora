@@ -77,7 +77,7 @@ gem 'entypo-rails', '2.2.2'
 # JavaScript
 
 gem 'backbone-on-rails',   '1.1.1'
-gem 'handlebars_assets',   '0.12.0'
+gem 'handlebars_assets',   '0.17.1'
 gem 'jquery-rails',        '3.1.1'
 gem 'rails-assets-jquery', '1.11.1' # Should be kept in sync with jquery-rails
 gem 'js_image_paths',      '0.0.1'
