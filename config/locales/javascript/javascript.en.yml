@@ -18,6 +18,7 @@ en:
     ignore_user: "Ignore this user?"
     ignore_failed: "Unable to ignore this user"
     unblock_failed: "Unblocking this user has failed"
+    collapse_post: "collapse post"
     and: "and"
     comma: ","
     edit: "Edit"

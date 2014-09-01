@@ -71,6 +71,7 @@
       color: $text-grey;
     }
     .grey { color: $text-grey; }
+    .post-content { position: relative; }
     .post-content p:last-of-type { margin-bottom: 0; }
     .nsfw-shield {
       color: $text-grey;
@@ -88,6 +89,25 @@
     & > .media .avatar {
       height: 30px;
       width: 30px;
+    }
+  }
+
+  .collapse_post {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0px 5px;
+    font-size: 1.4em;
+    cursor: pointer;
+    @include opacity(0);
+  }
+
+  &:hover {
+    .collapse_post {
+      @include opacity(0.3);
+    }
+    .collapse_post:hover {
+      @include opacity(1);
     }
   }
 
