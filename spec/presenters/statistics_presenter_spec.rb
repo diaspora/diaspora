@@ -19,18 +19,14 @@ describe StatisticsPresenter do
       AppConfig.privacy.statistics.post_counts = false
       AppConfig.privacy.statistics.comment_counts = false
       AppConfig.services = {"facebook" => nil}
+      AppConfig.privacy.statistics.popular_tags = false
       expect(@presenter.as_json).to eq({
         "name" => AppConfig.settings.pod_name,
         "version" => AppConfig.version_string,
         "registrations_open" => AppConfig.settings.enable_registrations,
-<<<<<<< HEAD
-        "facebook" => false
-      })
-=======
         "facebook" => false,
         "popular_tags" => []
-      }
->>>>>>> Edited test suite
+      })
     end
     
     context 'when services are enabled' do
@@ -61,15 +57,18 @@ describe StatisticsPresenter do
           "tumblr" => false,
           "wordpress" => false,
           "popular_tags" => []
-        }
+        })
 
       end
     end
 
     context "with some tags" do
       before do
+        AppConfig.privacy.statistics.popular_tags = true
         @tags = %w(music sport films linux ruby)
-        @tags.each { |t| ActsAsTaggableOn::Tag.create(:name =>  t) }
+        @post = FactoryGirl.create(:status_message, :public => true)
+        @post.tag_list.add('music', 'sport','films','linux','ruby')
+        @post.save
       end
 
       it 'should show top fifty tags' do

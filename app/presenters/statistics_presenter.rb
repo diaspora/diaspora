@@ -5,8 +5,9 @@ class StatisticsPresenter
       'name' => AppConfig.settings.pod_name,
       'version' => AppConfig.version_string,
       'registrations_open' => AppConfig.settings.enable_registrations,
-      'popular_tags' => ActsAsTaggableOn::Tag.most_used(50).pluck(:name)
+      # #TODO make this a AppConfig.settings method that returns an Array of Strings
     }
+
     if AppConfig.privacy.statistics.user_counts?
       result['total_users'] = User.count
       result['active_users_halfyear'] = User.halfyear_actives.count
@@ -18,12 +19,22 @@ class StatisticsPresenter
     if AppConfig.privacy.statistics.comment_counts?
       result['local_comments'] = self.local_comments
     end
+    if AppConfig.privacy.statistics.popular_tags?
+      # require 'pry'
+      # binding.pry
+      result['popular_tags'] = self.popular_tags
+    end
 
     AppConfig.services.each do |service, options|
       result[service] = options ? !!options["enable"] : false
     end
 
     result
+  end
+
+  def popular_tags
+    filters = ['Post', 'Photo']
+    ActsAsTaggableOn::Tag.joins(:taggings).where('taggings.taggable_type IN (?)', filters).most_used(50).pluck(:name)
   end
 
   def local_posts
