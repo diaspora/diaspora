@@ -52,6 +52,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 * Increased the number of notifications shown in drop down bar to 15 [#5129](https://github.com/diaspora/diaspora/pull/5129)
 * Increase possible captcha length [#5169](https://github.com/diaspora/diaspora/pull/5169)
 * Display visibility icon in publisher aspects dropdown [#4982](https://github.com/diaspora/diaspora/pull/4982)
+* Save blueprint of message on client side using localStorage [#5087](https://github.com/diaspora/diaspora/pull/5201) 
 
 # 0.4.1.0
 
