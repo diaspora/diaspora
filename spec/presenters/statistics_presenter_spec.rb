@@ -58,7 +58,6 @@ describe StatisticsPresenter do
           "wordpress" => false,
           "popular_tags" => []
         })
-
       end
     end
 
@@ -72,6 +71,17 @@ describe StatisticsPresenter do
         @alices_aspect = alice.aspects.first
         @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
         @comment = eve.comment!(@status, "I also commented on the first user's post")
+      end
+
+      it 'should show top fifty tags' do
+        expect(@presenter.as_json["popular_tags"]).to eq(@tags)
+      end
+    end
+
+    context "with some tags" do
+      before do
+        @tags = %w(music sport films linux ruby)
+        @tags.each { |t| ActsAsTaggableOn::Tag.create(:name =>  t) }
       end
 
       it 'should show top fifty tags' do

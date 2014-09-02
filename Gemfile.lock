@@ -1,6 +1,10 @@
 GIT
   remote: git://github.com/wegotcoders/acts-as-taggable-on.git
+<<<<<<< HEAD
   revision: 34a2fd51eceac53dfc839b22fd934fa983c115d3
+=======
+  revision: 963782f6fb7198013e83d2769fd929634bfa3b9d
+>>>>>>> 8016954a764829d4b2311ceb774440a546905275
   branch: popular-feature
   specs:
     acts-as-taggable-on (3.3.0)
@@ -27,6 +31,7 @@ GEM
       activesupport (= 4.1.5)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+<<<<<<< HEAD
     activemodel (4.1.5)
       activesupport (= 4.1.5)
       builder (~> 3.1)
@@ -46,6 +51,29 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+=======
+      journey (~> 1.0.4)
+      rack (~> 1.4.5)
+      rack-cache (~> 1.2)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.2.1)
+    activemodel (3.2.19)
+      activesupport (= 3.2.19)
+      builder (~> 3.0.0)
+    activerecord (3.2.19)
+      activemodel (= 3.2.19)
+      activesupport (= 3.2.19)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activerecord-import (0.3.1)
+      activerecord (~> 3.0)
+    activeresource (3.2.19)
+      activemodel (= 3.2.19)
+      activesupport (= 3.2.19)
+    activesupport (3.2.19)
+      i18n (~> 0.6, >= 0.6.4)
+      multi_json (~> 1.0)
+>>>>>>> 8016954a764829d4b2311ceb774440a546905275
     acts_as_api (0.4.2)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)

@@ -4,8 +4,7 @@ class StatisticsPresenter
     result = {
       'name' => AppConfig.settings.pod_name,
       'version' => AppConfig.version_string,
-      'registrations_open' => AppConfig.settings.enable_registrations,
-      # #TODO make this a AppConfig.settings method that returns an Array of Strings
+      'registrations_open' => AppConfig.settings.enable_registrations
     }
 
     if AppConfig.privacy.statistics.user_counts?
@@ -20,8 +19,6 @@ class StatisticsPresenter
       result['local_comments'] = self.local_comments
     end
     if AppConfig.privacy.statistics.popular_tags?
-      # require 'pry'
-      # binding.pry
       result['popular_tags'] = self.popular_tags
     end
 
