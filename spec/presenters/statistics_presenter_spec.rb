@@ -69,6 +69,9 @@ describe StatisticsPresenter do
         @post = FactoryGirl.create(:status_message, :public => true)
         @post.tag_list.add('music', 'sport','films','linux','ruby')
         @post.save
+        @alices_aspect = alice.aspects.first
+        @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
+        @comment = eve.comment!(@status, "I also commented on the first user's post")
       end
 
       it 'should show top fifty tags' do
