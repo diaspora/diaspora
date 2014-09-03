@@ -17,6 +17,10 @@ body > header {
   left: 0;
   border-bottom: 1px solid #000;
 
+  > div > div.container {
+    height: 26px;
+  }
+
   .diaspora_header_logo {
     float: left;
     margin-top: -6px;
@@ -260,19 +264,35 @@ body > header {
     cursor: pointer;
     z-index: 10;
     display: inline;
+    visibility: hidden;
     top: -4px;
     float: right;
-    margin: -2px -5px 0px 0px;
+    margin: -2px -3px 0px 0px;
     padding: 0;
 
-    border-left: 1px solid #333;
-    border-right: 1px solid #333;
+    > li {
+      display: block;
+      padding-right: 5px;
+      border-left: 1px solid #333;
+      border-right: 1px solid #333;
+
+      &:first-child {
+        visibility: visible;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid #333;
+      }
+    }
 
     &.active {
-      margin-top: -3px;
       @include dropdown-shadow;
       background-color: rgb(34,30,30);
-      border: 1px solid $border-dark-grey;
+      visibility: visible;
+
+      > li {
+        border-color: $border-dark-grey;
+      }
     }
   }
 
