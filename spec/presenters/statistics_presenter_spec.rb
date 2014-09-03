@@ -64,27 +64,17 @@ describe StatisticsPresenter do
     context "with some tags" do
       before do
         AppConfig.privacy.statistics.popular_tags = true
+        AppConfig.privacy.statistics.popular_tags_filters = ['Post']
         @tags = %w(music sport films linux ruby)
         @post = FactoryGirl.create(:status_message, :public => true)
-        @post.tag_list.add('music', 'sport','films','linux','ruby')
-        @post.save
-        @alices_aspect = alice.aspects.first
-        @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
-        @comment = eve.comment!(@status, "I also commented on the first user's post")
+        @post.tag_list.add(@tags)
+        @post.save!
+        @comment = FactoryGirl.create(:comment)
+        @comment.tag_list.add('pets')
+        @comment.save!
       end
 
-      it 'should show top fifty tags' do
-        expect(@presenter.as_json["popular_tags"]).to eq(@tags)
-      end
-    end
-
-    context "with some tags" do
-      before do
-        @tags = %w(music sport films linux ruby)
-        @tags.each { |t| ActsAsTaggableOn::Tag.create(:name =>  t) }
-      end
-
-      it 'should show top fifty tags' do
+      it 'should show top fifty tags filtered by Post' do
         expect(@presenter.as_json["popular_tags"]).to eq(@tags)
       end
     end

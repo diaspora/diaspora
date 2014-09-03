@@ -30,7 +30,7 @@ class StatisticsPresenter
   end
 
   def popular_tags
-    filters = ['Post', 'Photo']
+    filters = AppConfig.privacy.statistics.popular_tags_filters
     ActsAsTaggableOn::Tag.joins(:taggings).where('taggings.taggable_type IN (?)', filters).most_used(50).pluck(:name)
   end
 
