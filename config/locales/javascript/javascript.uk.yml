@@ -131,7 +131,6 @@ uk:
         many: "Сподобалося: <%= count %>"
         one: "Сподобалося: <%= count %>"
         other: "Сподобалося: <%= count %>"
-        two: "<%= count %> Likes"
         zero: "Сподобалося: <%= count %> "
       limited: "Обмежений"
       more_comments:
@@ -139,7 +138,6 @@ uk:
         many: "Ще <%= count %> коментарів"
         one: "Ще <%= count %> коментар"
         other: "Ще <%= count %> коментарів"
-        two: "Показати ще <%= count %> відгуків"
         zero: "Ще <%= count %> коментарів"
       original_post_deleted: "Початкове повідомлення було вилучено автором."
       public: "Публічна"
@@ -149,7 +147,6 @@ uk:
         many: "Поділилися: <%= count %>"
         one: "Поділилися: <%= count %>"
         other: "Поділилися: <%= count %>"
-        two: "<%= count %> поширень"
         zero: "Поділилися: <%= count %>"
       show_nsfw_post: "Переглянути запис"
       show_nsfw_posts: "Показати все"

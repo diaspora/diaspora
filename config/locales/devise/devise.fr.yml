@@ -56,7 +56,7 @@ fr:
         forgot_password: "Mot de passe oublié ?"
         no_account: "Aucun compte n'est associé à cette adresse de courrier électronique."
         reset_password: "Réinitialiser le mot de passe"
-        send_password_instructions: "Envoyez-moi les instructions de réinitialisation de mot de passe"
+        send_password_instructions: "Envoyer les instructions de réinitialisation de mot de passe"
       send_instructions: "Vous allez recevoir dans quelques minutes un courriel contenant les instructions pour réinitialiser votre mot de passe."
       updated: "Votre mot de passe a été modifié. Vous êtes à présent connecté-e."
     registrations:

@@ -149,7 +149,7 @@ he:
       prefixAgo: "לפני"
       prefixFromNow: "מעכשיו"
       seconds: "פחות מדקה"
-      suffixAgo: "לפני"
+      suffixAgo: ""
       suffixFromNow: "מעכשיו"
       year: "כשנה"
       years: "%d שנים"

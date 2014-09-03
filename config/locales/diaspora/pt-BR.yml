@@ -87,14 +87,31 @@ pt-BR:
         other: "%{count} usuários"
         zero: "%{count} usuário"
       week: "Semana"
+    user_entry:
+      account_closed: "conta encerrada"
+      diaspora_handle: "Diaspora ID"
+      email: "Email"
+      guid: "GUID"
+      id: "ID"
+      last_seen: "visto por último"
+      ? "no"
+      : não
+      nsfw: "#nsfw"
+      unknown: "desconhecido"
+      ? "yes"
+      : sim
     user_search:
+      account_closing_scheduled: "A conta de %{name} está programada para ser encerrada. Isto acontecerá em alguns instantes..."
       add_invites: "adicionar convites"
+      are_you_sure: "Tem certeza que deseja encerrar esta conta?"
+      close_account: "Encerrar conta"
       email_to: "Email para convidar"
       under_13: "Mostrar usuários menores de 13 anos"
       users:
         one: "%{count} usuário encontrado"
         other: "%{count} usuários encontrados"
         zero: "%{count} usuário encontrado."
+      view_profile: "Visualizar perfil"
       you_currently:
         one: "você tem atualmente um convite para enviar %{link}"
         other: "você tem atualmente %{count} convites para enviar %{link}"
@@ -275,7 +292,7 @@ pt-BR:
       no_contacts_message_with_aspect: "Veja %{community_spotlight} ou %{add_to_aspect_link}"
       only_sharing_with_me: "Só compartilhando comigo"
       remove_person_from_aspect: "Remover %{person_name} de \"%{aspect_name}\""
-      start_a_conversation: "Iniciar um conversa"
+      start_a_conversation: "Iniciar uma conversa"
       title: "Contatos"
       your_contacts: "Seus Contatos"
     many: "%{count} contatos"
@@ -391,6 +408,14 @@ pt-BR:
     getting_started_tutorial: "tutorial da série 'Começando'"
     here: "aqui"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_a1: "Na visualização do fluxo você pode usar as seguintes teclas de atalho:"
+      keyboard_shortcuts_li1: "j - pular para a próxima publicação"
+      keyboard_shortcuts_li2: "k - pular para a publicação anterior"
+      keyboard_shortcuts_li3: "c - comentar a publicação atual"
+      keyboard_shortcuts_li4: "l - curtir a publicação atual"
+      keyboard_shortcuts_q: "Quais teclas de atalho estão disponíveis?"
+      title: "Teclas de atalho"
     markdown: "Markdown"
     mentions:
       how_to_mention_a: "Digite o símbolo \"@\" e comece a digitar o nome da pessoa. Um menu de lista deve aparecer para que você escolha mais facilmente. Note que somente é possível mencionar pessoas que você adicionou a algum aspecto."
@@ -533,6 +558,7 @@ pt-BR:
       what_are_tags_for_a: "Tags são uma maneira de categorizar uma publicação, normalmente por tópico. Buscando por uma tag mostra todas as publicações com aquela tag que você pode ver (ambas publicações públicas e privadas). Isso possibilita que pessoas que estão interessadas em um determinado tópico encontrem publicações públicas sobre este tópico."
       what_are_tags_for_q: "Para que servem as tags?"
     third_party_tools: "ferramentas de terceiros"
+    title_header: "Ajuda"
     tutorial: "tutorial"
     tutorials: "tutoriais"
     wiki: "wiki"

@@ -436,6 +436,9 @@ ia:
       add_to_aspect_li2: "Julia videra ab iste momento in su fluxo le entratas public de Mario."
       add_to_aspect_li3: "Julia non videra alcun entrata private de Mario."
       add_to_aspect_li4: "Mario non videra in su fluxo le entratas public o private de Julia."
+      add_to_aspect_li5: "Ma si Ben va al pagina de profilo de Amy, alora ille videra le entratas private de Amy que illa invia a su aspecto que le include (assi como le entratas public de illa que omnes pote vider)."
+      add_to_aspect_li6: "Ben potera vider le profilo private de Amy (biographia, loco, sexo, die de nascentia)."
+      add_to_aspect_li7: "Amy apparera sub \"Divide solmente con me\" in le pagina de contactos de Ben."
       add_to_aspect_q: "Que eveni quando io adde un persona a un de mi aspectos, o quando un persona me adde a un de su aspectos?"
       title: "Divider"
     tags:

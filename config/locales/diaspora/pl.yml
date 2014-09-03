@@ -96,7 +96,10 @@ pl:
         zero: "Żaden użytkownik"
       week: "Tydzień"
     user_search:
+      account_closing_scheduled: "Konto należące do %{name} jest przewidziane do zamknięcia. Zostanie to wykonane w przecigu kilku minut..."
       add_invites: "dodaj zaproszenia"
+      are_you_sure: "Czy na pewno chcesz zamknąć to konto?"
+      close_account: "zamknij konto"
       email_to: "Zaproś przez e-mail"
       under_13: "Wyświetl użytkowników młodszych niż 13 lat."
       users:
@@ -105,6 +108,7 @@ pl:
         one: "%{count} znaleziony użytkownik"
         other: "%{count} znalezionych użytkowników"
         zero: "%{count} znalezionych użytkowników"
+      view_profile: "zobacz profil"
       you_currently:
         few: "pozostały Ci jeszcze %{count} zaproszenia %{link}"
         many: "pozostało Ci jeszcze %{count} zaproszeń %{link}"
@@ -536,6 +540,7 @@ pl:
       what_are_tags_for_a: "Tagi są sposobem na grupowanie wpisów, zazwyczaj ze względu na tematykę. Wyszukiwanie konkretnego tagu pokaże ci wszystkie wpisy zawierające dany tag (zarówno prywatne jak i publiczne). Pozwala to ludziom odnaleźć publiczne wpisy dotyczące spraw, które ich interesują"
       what_are_tags_for_q: "Do czego służą tagi?"
     third_party_tools: "narzędzia innych dostawców"
+    title_header: "Pomoc"
     tutorial: "samouczek"
     tutorials: "samouczki"
     wiki: "wiki"

@@ -65,6 +65,7 @@ nl:
       settings: "Instellingen"
       view_all: "Bekijk alle"
     ignore: "Negeer"
+    ignore_failed: "Kan deze gebruiker niet negeren"
     ignore_user: "Wilt u deze gebruiker negeren?"
     infinite_scroll:
       no_more: "Geen berichten meer."
@@ -165,7 +166,7 @@ nl:
       seconds: "iets minder dan een minuut"
       suffixAgo: "geleden"
       suffixFromNow: "vanaf nu"
-      wordSeparator: ""
+      wordSeparator: " "
       year: "ongeveer een jaar"
       years: "%d jaar"
     videos:

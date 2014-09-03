@@ -25,6 +25,10 @@ sk:
       deselect_all: "Odznačiť všetky"
       no_aspects: "Nevybral(a) si žiadne kategórie"
       select_all: "Označiť všetky"
+    bookmarklet:
+      post_something: "Poslať na diasporu*"
+      post_submit: "Posiela sa príspevok..."
+      post_success: "Odoslané! Vyskakovacie okno sa zatvára..."
     comma: ","
     comments:
       hide: "Skryť komentáre"
@@ -46,7 +50,7 @@ sk:
       admin: "Administrátor"
       close: "zatvoriť"
       contacts: "Kontakty"
-      conversations: "Konverzácie"
+      conversations: "Rozhovory"
       help: "Pomoc"
       home: "Úvodná stránka"
       log_out: "Odhlásiť sa"
@@ -65,6 +69,8 @@ sk:
     my_activity: "Moja aktivita"
     my_aspects: "Moje kategórie"
     my_stream: "Nástenka"
+    notifications:
+      mark_unread: "Označiť ako neprečítané"
     people:
       not_found: "...a nikto sa nenašiel."
     photo_uploader:
@@ -76,15 +82,28 @@ sk:
       size_error: "Súbor {file} je príliš veľký, maximálna povolená veľkosť je {sizeLimit}."
     poll:
       close_result: "Skryť výsledok"
+      count:
+        few: "zatiaľ <%=count%> hlasy"
+        one: "zatiaľ <%=count%> hlas"
+        other: "zatiaľ <%=count%> hlasov"
       result: "Výsledok"
       show_result: "Zobraziť výsledok"
       vote: "Hlasovať"
     publisher:
+      add_option: "Pridať možnosť"
       at_least_one_aspect: "Musíš publikovať aspoň jednu kategóriu"
       limited: "Vyhradený – tvoj príspevok uvidia len ľudia, s ktorými sa oň podelíš"
       near_from: "Odoslané z obce:<%= location %>"
+      option: "Možnosť <%= nr %>"
       public: "Verejný – tvoj príspevok pomocou vyhľadávačov uvidí a nájde každý"
       question: "Otázka"
+    report:
+      name: "Správa"
+      prompt: "Prosím uveďte dôvod:"
+      prompt_default: "urážajúci obsah"
+      status:
+        created: "Úspešne si vytvoril(a) správu"
+        exists: "Správa už existuje"
     reshares:
       duplicate: "Je to dobré, čo? O tento príspevok si sa už raz znova podelil(a)!"
       post: "Znova ukázať priateľom príspevok, ktorý napísal(a) <%= name %>?"

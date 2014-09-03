@@ -78,6 +78,12 @@ te:
         one: "%{count} వాడుకరి కనబడ్డారు"
         other: "%{count} వాడుకరులు కనబడ్డారు"
         zero: "%{count} వాడుకరులు కనబడ్డారు"
+    weekly_user_stats:
+      amount_of:
+        one: "ఈ వారంలో కొత్త వాడుకరుల సంఖ్య: %{count}"
+        other: "ఈ వారంలో కొత్త వాడుకరుల సంఖ్య: %{count}"
+        zero: "ఈ వారంలో కొత్త వాడుకరుల సంఖ్య: ఎవరూలేరు"
+      current_server: "ప్రస్తుత సేవకం తేదీ %{date}"
   ago: "%{time} క్రితం"
   all_aspects: "అన్ని కోణాలు"
   application:
@@ -104,6 +110,7 @@ te:
       edit_aspect: "%{name} సవరించు"
       select_all: "అన్నీ ఎంపికచేయి"
     aspect_stream:
+      make_something: "ఏమైనా చెయ్యండి"
       stay_updated: "తాజాగా ఉండండి"
       stay_updated_explanation: "మీ ప్రధాన ప్రవాహం మొత్తం మీ పరిచయాలు, మీరు అనుసరించే కొసలు, మరియు కొంతమంది సంఘపు సృజనాత్మక సభ్యుల టపాలతో నిండివుంటుంది."
     contacts_not_visible: "ఈ కోణంలో ఉన్న పరిచయాలు ఒకరిని ఒకరు చూడలేరు."
@@ -144,15 +151,16 @@ te:
         email_feedback: "మీ ప్రతిస్పందనను %{link}"
         email_link: "ఈమెయిల్"
         feature_suggestion: "... %{link} సూచన ఇవ్వాలనుకుంటున్నారా?"
-        find_a_bug: "... %{link}ని వెతకాలా?"
+        find_a_bug: "... %{link} వెతకాలా?"
         have_a_question: "... %{link} ఉందా?"
         here_to_help: "డయాస్పోరా* సంఘం ఇక్కడ!"
+        mail_podmin: "పాడ్ నిర్వాహకుని ఈమెయిలు"
         need_help: "సహాయం కావాలా?"
-        tag_bug: "లోపం"
-        tag_feature: "విశిష్టత"
-        tag_question: "ప్రశ్న"
+        tag_bug: "లోపాన్ని"
+        tag_feature: "ప్రత్యేక"
+        tag_question: "సందేహం"
         tutorial_link_text: "ఉపశిక్షణ"
-        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: మీ మొదటి అడుగుల కోసం సహాయం"
+        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: మీ తొలి అడుగుల కోసం సహాయం"
       introduce_yourself: "ఇది మీ ప్రవాహం.  లోపలికి దూకి, మీ గురించి పరిచయం చేస్కోండి."
       new_here:
         follow: "%{link} అనుసరించి, డయాస్పోరా*కు వచ్చే కొత్త వాడుకరులను స్వాగతించండి!"
@@ -212,7 +220,7 @@ te:
   bookmarklet:
     explanation: "ఈ లంకెను ఇష్టాంశంగా చేర్చుకోవడం ద్వారా డయాస్పోరా*కు ఎక్కడి నుండైనా టపా వేయవచ్చు => %{link}"
     heading: "బుక్‌మార్క్‌లెట్"
-    post_something: "డయాస్పోరా*కు టపా పెట్టండి"
+    post_something: "డయాస్పోరా*కు టపా వేయండి"
     post_success: "టపా వేయబడింది! మూసివేస్తున్నాం!"
   cancel: "రద్దుచేయి"
   comments:
@@ -297,11 +305,21 @@ te:
     helper:
       correct_the_following_errors_and_try_again: "క్రింది తప్పులను సరిచేసి, మరలా ప్రయత్నించండి."
       invalid_fields: "చెల్లని క్షేత్రాలు"
+    login_try_again: "దయచేసి<a href='%{login_link}'>ప్రవేశించి</a>, మరలా ప్రయత్నించండి."
+    post_not_public: "మీరు చూడాలనుకుంటున్న టపా బహిరంగంగా లేదు!"
   fill_me_out: "పూరించండి"
   find_people: "వ్యక్తులను లేదా ట్యాగులను కనుగొనండి"
   help:
     account_and_data_management:
       title: "ఖాతా మరియు దత్తాంశ నిర్వహణ"
+    aspects:
+      delete_aspect_q: "కోణాన్ని తొలగించడం ఎలా?"
+      person_multiple_aspects_q: "ఒక వ్యక్తిని బహుళ కోణాలకు చేర్చడం ఎలా?"
+      post_multiple_aspects_q: "ఒకేసారి బహుళ కోణాలకు విషయాన్ని టపా చేయవచ్చా?"
+      remove_notification_a: "వద్దు."
+      rename_aspect_q: "కోణం పేరుమార్చడం ఎలా?"
+      title: "కోణాలు"
+      what_is_an_aspect_q: "కోణం అంటే ఏమిటి?"
     foundation_website: "డయాస్పోరా సంస్థ జాలగూడు"
     getting_help:
       get_support_a_tutorials: "మా %{tutorials}ను సందర్శించండి"
@@ -310,12 +328,19 @@ te:
     here: "ఇక్కడ"
     irc: "ఐఆర్‌సీ"
     markdown: "మార్క్‌డౌన్"
+    mentions:
+      title: "పేర్కోలు"
+    pods:
+      title: "పాడ్లు"
+      what_is_a_pod_q: "పాడ్ అంటే ఏమిటి?"
     posts_and_posting:
       character_limit_q: "టపాలకు అక్షరాల పరిమితి ఎంత?"
       image_text: "బొమ్మ పాఠ్యం"
       image_url: "బొమ్మ url"
     private_posts:
       title: "అంతరంగిక టపాలు"
+    private_profiles:
+      title: "రహస్య ప్రవరలు"
     public_posts:
       find_public_post_q: "నా బహిరంగ టపాలను ఇతరులు ఎలా కనుగొనగలరు?"
       title: "బహిరంగ టపాలు"
@@ -428,22 +453,16 @@ te:
       mark_unread: "చదవనట్టుగా గుర్తుపెట్టు"
       notifications: "గమనికలు"
     liked:
-      few: "%{actors} have liked your %{post_link}."
-      many: "%{actors} have liked your %{post_link}."
       one: "%{actors} మీ %{post_link}ను మెచ్చుకున్నారు."
       other: "%{actors} మీ %{post_link}ను మెచ్చుకున్నారు."
-      two: "%{actors} have liked your %{post_link}."
       zero: "%{actors} మీ %{post_link}ను మెచ్చుకున్నారు."
     liked_post_deleted:
       one: "%{actors} మీరు తొలగించిన టపాను ఇష్టపడ్డారు."
       other: "%{actors} మీరు తొలగించిన టపాను ఇష్టపడ్డారు."
       zero: "%{actors} మీరు తొలగించిన టపాను ఇష్టపడ్డారు."
     mentioned:
-      few: "%{actors} have mentioned you in a %{post_link}."
-      many: "%{actors} have mentioned you in a %{post_link}."
       one: "%{actors} మిమ్మల్ని %{post_link} లో పేర్కొన్నారు."
       other: "%{actors} మిమ్మల్ని %{post_link} లో పేర్కొన్నారు."
-      two: "%{actors} have mentioned you in a %{post_link}."
       zero: "%{actors} మిమ్మల్ని %{post_link} లో పేర్కొన్నారు."
     mentioned_deleted:
       one: "%{actors} మిమ్మల్ని ఒక తొలగించిన టపాలో ప్రస్తావించారు."
@@ -455,11 +474,8 @@ te:
       other: "%{actors} మీకొక సందేశాన్ని పంపారు."
       zero: "%{actors} మీకొక సందేశాన్ని పంపారు."
     reshared:
-      few: "%{actors} have reshared your %{post_link}."
-      many: "%{actors} have reshared your %{post_link}."
       one: "%{actors} మీ టపా %{post_link}ను మళ్ళీ పంచుకున్నారు."
       other: "%{actors} మీ టపా %{post_link}ను మళ్ళీ పంచుకున్నారు."
-      two: "%{actors} have reshared your %{post_link}."
       zero: "%{actors} మీ టపా %{post_link}ను మళ్ళీ పంచుకున్నారు."
     reshared_post_deleted:
       one: "%{actors} మీరు తొలగించిన టపాను మరలా పంచుకున్నారు."
@@ -676,6 +692,7 @@ te:
       enter_password: "సంకేతపదాన్ని ఇవ్వండి (కనీసం ఆరు అక్షరాలు)"
       enter_password_again: "అదే సంకేతపదాన్ని మళ్ళీ ఇవ్వండి"
       enter_username: "ఒక వాడుకరిపేరును ఎంచుకోండి (అక్షరాలు, సంఖ్యలు, మరియు క్రిందిగీతలు మాత్రమే స్వీకరించబడును)"
+      hey_make: "హేయ్, <br/>ఏమైనా<br/>చెయ్యండి."
       join_the_movement: "ఈ ఉద్యమంలో చేరండి!"
       password: "సంకేతపదం"
       password_confirmation: "సంకేతపదం నిర్ధారణ"
@@ -711,7 +728,7 @@ te:
         zero: "పంచుకోండి"
       reshare_confirmation: "%{author} యొక్క టపాను మరలాపంచుతారా?"
       reshare_original: "అసలుని మరలాపంచుకోండి"
-      reshared_via: "వీరి ద్వారా మరలాపంచుకున్నారు"
+      reshared_via: "వీరి నుండి మరలాపంచుకున్నారు"
       show_original: "అసలుని చూపించు"
   search: "వెతుకు"
   services:
@@ -798,7 +815,7 @@ te:
         hello: "అందరికీ నమస్కారం, నేను #%{new_user_tag}. "
         i_like: "%{tags} లలో నాకు ఆసక్తి ఉంది. "
         invited_by: "ఆహ్వానం పంపినందుకు ధన్యవాదములు, "
-        newhere: "కొత్తఇక్కడ"
+        newhere: "NewHere"
       post_a_message_to: "%{aspect} కు ఒక సందేశం పంపండి"
       posting: "టపాకడుతూంది..."
       preview: "మునుజూపు"
@@ -901,6 +918,7 @@ te:
       email_not_confirmed: "ఈమెయిలు క్రియాశీలించుట వీలుకాదు. తప్పుడు లంకెనా?"
     destroy:
       no_password: "మీ ఖాతాను మూసివేయడానికి, మీ ప్రస్తుత సంకేతపదాన్ని ఇవ్వండి."
+      success: "మీ ఖాతా తాళం వేయబడింది.  మీ ఖాతాను మూసివేయుటకు మాకు 20 నిమిషాలు పట్టవచ్చు.  డయాస్పోరా*ను ప్రయత్నించినందుకు ధన్యవాదములు."
       wrong_password: "మీరు ఇచ్చిన సంకేతపదం మీ ప్రస్తుత సంకేతపదంలో సరిపోలలేదు."
     edit:
       also_commented: "మీరు వ్యాఖ్యానించిన టపాపై ఎవరో వ్యాఖ్యను పెట్టారు"
@@ -915,6 +933,7 @@ te:
         dont_go: "ఓయ్, దయచేసి వదిలి వెళ్ళవద్దు!"
         make_diaspora_better: "డయాస్పోరా*ను మరింత మెరుగ్గా చేయడంలో మీ సహాయం ఆశించాం, అందువల్ల మీరు వదిలివెళ్లకుండా మాకు సహాయపడాలి. ఒకవేళ మీరు వదిలివెళ్ళాలని నిశ్చయించుకుంటే, తరువాత ఏం జరగబోతోందో మీరు తెలుసుకోవాలనుకుంటున్నాము."
         mr_wiggles: "మీ నిష్క్రమణ మిస్టర్ విగిల్స్‌కు విచారం కలిగిస్తుంది"
+        no_turning_back: "ప్రస్తుతం, తిరిగి వెనక్కి వెళ్ళడమనేది లేదు."
       close_account_text: "ఖాతాను మూసివేయి"
       comment_on_post: "ఎవరో మీ టపాపై వ్యాఖ్యానించారు"
       current_password: "ప్రస్తుత సంకేతపదం"
