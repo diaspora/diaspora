@@ -1,16 +1,15 @@
-app.views.Draft = app.views.Base.extend({
+app.views.MessageView = app.views.Base.extend({
 
   el: "#conversation_new",
 
   events: {
-    "keypress #contact_autocomplete": "setTo",
-    "keypress #conversation_subject": "setSubject",
-    "keypress #conversation_text": "setText"
+    "keyup #contact_autocomplete": "setTo",
+    "keyup #conversation_subject": "setSubject",
+    "keyup #conversation_text": "setText"
   },
 
   initialize: function(options) {
-    this.model = new app.models.Draft();
-    this.model.set(this.model.getDraft());
+    this.model = new app.models.Message();
   },
 
   render: function() {
@@ -21,17 +20,13 @@ app.views.Draft = app.views.Base.extend({
 
   setTo: function(e) {
    this.model.set("to", e.currentTarget.value);
-   this.model.saveDraft();
   },
 
   setSubject: function(e) {
    this.model.set("subject", e.currentTarget.value);
-   this.model.saveDraft();
   },
 
   setText: function(e) {
    this.model.set("text", e.currentTarget.value);
-   this.model.saveDraft();
   }
-
 });
