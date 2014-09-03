@@ -83,6 +83,9 @@ de_formal:
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
     poll:
       close_result: "Ergebnis ausblenden"
+      count:
+        one: "Bisher eine Stimme"
+        other: "Bisher <%=count%> Stimmen."
       result: "Ergebnis"
       show_result: "Ergebnis anzeigen"
       vote: "Abstimmen"

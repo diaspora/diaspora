@@ -65,6 +65,7 @@ hu:
       settings: "Beállítások"
       view_all: "Összes"
     ignore: "Mellőzés"
+    ignore_failed: "Nem sikerült mellőzni ezt a felhasználót"
     ignore_user: "Felhasználó mellőzése?"
     infinite_scroll:
       no_more: "Nincs több bejegyzés."
@@ -92,11 +93,11 @@ hu:
       show_result: "Eredmény mutatása"
       vote: "Szavazás"
     publisher:
-      add_option: "Lehetőség hozzáadása"
+      add_option: "Válasz hozzáadása"
       at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
       near_from: "<%= location %> közelében"
-      option: "<%= nr %> számú lehetőség"
+      option: "Válasz"
       public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
       question: "Kérdés"
     report:
@@ -169,7 +170,7 @@ hu:
       seconds: "kevesebb mint egy perccel"
       suffixAgo: "ezelőtt"
       suffixFromNow: "mostantól"
-      wordSeparator: ""
+      wordSeparator: " "
       year: "körülbelül egy évvel"
       years: "%d évvel"
     videos:

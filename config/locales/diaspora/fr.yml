@@ -12,6 +12,7 @@ fr:
   _home: "Accueil"
   _photos: "Photos"
   _services: "Services"
+  _terms: "conditions d'utilisation"
   account: "Compte"
   activerecord:
     errors:
@@ -54,7 +55,7 @@ fr:
       correlations: "Corrélations"
       pages: "Pages"
       pod_stats: "Statistiques du pod"
-      report: "Rapports"
+      report: "Signalements"
       sidekiq_monitor: "Moniteur Sidekiq"
       user_search: "Chercher un utilisateur"
       weekly_user_stats: "Statistiques hebdomadaires"
@@ -87,14 +88,31 @@ fr:
         other: "%{count} utilisateurs"
         zero: "Aucun utilisateur"
       week: "Hebdomadaire"
+    user_entry:
+      account_closed: "Compte fermé"
+      diaspora_handle: "identifiant diaspora*"
+      email: "E-mail"
+      guid: "GUID"
+      id: "ID"
+      last_seen: "Dernière connexion"
+      ? "no"
+      : Non
+      nsfw: "#nsfw"
+      unknown: "inconnu"
+      ? "yes"
+      : Oui
     user_search:
+      account_closing_scheduled: "La fermeture du compte %{name} est plannifiée. Elle sera effectuée sous peu."
       add_invites: "ajouter des invitations"
+      are_you_sure: "Êtes-vous sûr de vouloir fermer ce compte ?"
+      close_account: "Fermer ce compte"
       email_to: "Adresse électronique de la personne à inviter"
       under_13: "Afficher les utilisateurs de moins de 13 ans"
       users:
         one: "%{count} utilisateur trouvé"
         other: "%{count} utilisateurs trouvés"
         zero: "aucun utilisateur trouvé"
+      view_profile: "Afficher le profil"
       you_currently: "Il vous reste actuellement %{user_invitation} invitations %{link}"
     weekly_user_stats:
       amount_of:
@@ -159,11 +177,11 @@ fr:
       remove: "supprimer"
     index:
       diaspora_id:
-        content_1: "Votre identifiant Diaspora est :"
+        content_1: "Votre identifiant diaspora* est :"
         content_2: "Communiquez-le à tout le monde et ils pourront vous trouver sur Diaspora."
-        heading: "Identifiant Diaspora"
+        heading: "Identifiant diaspora*"
       donate: "Faire un don"
-      handle_explanation: "Ceci est votre identifiant Diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
+      handle_explanation: "Ceci est votre identifiant diaspora*. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
       help:
         any_problem: "Un problème ?"
         contact_podmin: "Contacter l'administrateur de votre pod !"
@@ -320,7 +338,7 @@ fr:
     show:
       delete: "supprimer et bloquer la conversation"
       reply: "répondre"
-      replying: "En réponse..."
+      replying: "Réponse en cours d'envoi..."
   date:
     formats:
       birthday: "%d %B"
@@ -388,6 +406,14 @@ fr:
     getting_started_tutorial: "Série de tutoriels \"Mes premiers pas\""
     here: "ici"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_a1: "Dans le flux, vous pouvez utiliser les raccourcis clavier suivant :"
+      keyboard_shortcuts_li1: "j - Aller au message suivant"
+      keyboard_shortcuts_li2: "k - Aller au message précédent"
+      keyboard_shortcuts_li3: "c - Commenter le message courant"
+      keyboard_shortcuts_li4: "l - Aimer le message courant"
+      keyboard_shortcuts_q: "Quels sont les raccourcis clavier existants ?"
+      title: "Raccourcis clavier"
     markdown: "Markdown"
     mentions:
       how_to_mention_a: "Tapez le symbole \"@\" et commencez à taper leur nom. Un menu déroulant devrait apparaître pour vous permettre de les choisir plus facilement. Notez qu'il est uniquement possible de mentionner des gens que vous avez ajouté à un aspect."
@@ -520,6 +546,7 @@ fr:
       what_are_tags_for_a: "Les tags sont une manière de catégoriser un message, généralement par sujets. Rechercher un tag montre tous les messages avec ce tag que vous pouvez voir (à la fois dans les messages publics et privés). Cela laisse les personnes qui sont intéressées par un sujet précis trouver les messages publics le concernant."
       what_are_tags_for_q: "A quoi servent les tags ?"
     third_party_tools: "outils tiers"
+    title_header: "Aide"
     tutorial: "tutoriel"
     tutorials: "tutoriels"
     wiki: "wiki"
@@ -638,6 +665,7 @@ fr:
       comment_on_post: "Commentaire sur un de vos messages"
       liked: "Aimé"
       mark_all_as_read: "Tout marquer comme lu"
+      mark_all_shown_as_read: "Tout marquer comme lu"
       mark_read: "Marquer comme lu"
       mark_unread: "Marquer comme non lu"
       mentioned: "Vous mentionnant"
@@ -922,6 +950,8 @@ fr:
       sign_up: "INSCRIVEZ-VOUS"
       sign_up_message: "Le réseau social avec un ♥"
       submitting: "Envoi en cours..."
+      terms: "En créant un compte, vous acceptez les %{terms_link}"
+      terms_link: "conditions d'utilisation"
       username: "NOM D'UTILISATEUR"
   report:
     comment_label: "<b>Commentaire</b>:<br>%{data}"
@@ -930,14 +960,14 @@ fr:
     not_found: "<u>Le message/commentaire n'a pas été trouvé. Il a pu être supprimé par l'utilisateur !</u>"
     post_label: "<b>Message</b>: %{title}"
     reason_label: "Raison : %{text}"
-    reported_label: "<b>Reporté par</b> %{person}"
+    reported_label: "<b>Signalé par</b> %{person}"
     review_link: "Marqué comme revu."
     status:
       created: "Un rapport a été créé"
       destroyed: "Le message a été détruit"
       failed: "Il y a eu un problème."
       marked: "Ce rapport a été marqué comme revu"
-    title: "Vue d'ensemble des rapports."
+    title: "Vue d'ensemble des signalements."
   requests:
     create:
       sending: "En cours d'envoi"
@@ -1017,7 +1047,7 @@ fr:
   shared:
     add_contact:
       add_new_contact: "Ajouter un nouveau contact"
-      create_request: "Rechercher par identifiant Diaspora"
+      create_request: "Rechercher par identifiant diaspora*"
       diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Entrez un nom d'utilisateur Diaspora :"
       know_email: "Connaissez-vous leur adresse de courrier électronique ? Vous devriez les inviter"
@@ -1213,7 +1243,7 @@ fr:
         make_diaspora_better: "Nous avons besoin de vous pour rendre Diaspora meilleur, vous devriez nous aider au lieu de partir. Si vous voulez partir, on voudrait que vous sachiez ce qu'il se passera prochainement."
         mr_wiggles: "Mr Wiggles sera triste de vous voir partir."
         no_turning_back: "Pour l'instant, on ne peut pas revenir en arrière."
-        what_we_delete: "Nous supprimerons tous vos envois et les données de votre profil dès que possible. Vos commentaires resteront sur le site, mais seront associés à votre identifiant Diaspora plutôt qu'à votre nom.."
+        what_we_delete: "Nous supprimerons tous vos envois et les données de votre profil dès que possible. Vos commentaires resteront sur le site, mais seront associés à votre identifiant diaspora* plutôt qu'à votre nom.."
       close_account_text: "Fermer le compte"
       comment_on_post: "…quelqu'un commente votre publication ?"
       current_password: "Mot de passe actuel"
@@ -1234,11 +1264,11 @@ fr:
       reshared: "...quelqu'un a partagé votre message ?"
       show_community_spotlight: "Afficher les actualités de la communauté dans votre flux ?"
       show_getting_started: "Réactiver la page de découverte"
-      someone_reported: "Quelqu'un a envoyé un rapport"
+      someone_reported: "Quelqu'un a signalé un message"
       started_sharing: "... quelqu'un commence à partager avec vous ?"
       stream_preferences: "Préférences du flux"
       your_email: "Votre adresse électronique"
-      your_handle: "Votre identifiant Diaspora"
+      your_handle: "Votre identifiant diaspora*"
     getting_started:
       awesome_take_me_to_diaspora: "Impressionnant ! Guidez-moi vers diaspora*"
       community_welcome: "La communauté Diaspora* est heureuse de vous avoir à bord !"

@@ -87,14 +87,31 @@ fi:
         other: "%{count} käyttäjää"
         zero: "ei yhtään käyttäjää"
       week: "Viikko"
+    user_entry:
+      account_closed: "käyttäjätili suljettu"
+      diaspora_handle: "Diaspora kahva"
+      email: "Sähköposti"
+      guid: "GUID"
+      id: "Tunnus"
+      last_seen: "nähty viimeksi"
+      ? "no"
+      : ei
+      nsfw: "#nsfw"
+      unknown: "tuntematon"
+      ? "yes"
+      : kyllä
     user_search:
+      account_closing_scheduled: "Käyttäjätili %{name} on ajastettu suljettavaksi. Suoritus tapahtuu muutaman hetken kuluttua..."
       add_invites: "lisää kutsuja"
+      are_you_sure: "Haluatko varmasti sulkea tämä käyttäjätilin?"
+      close_account: "sulje käyttäjätili"
       email_to: "Lähetä sähköposti kutsuaksesi"
       under_13: "Näytä käyttäjät jotka ovat alle 13 (COPPA)"
       users:
         one: "%{count} käyttäjä löytyi"
         other: "%{count} käyttäjää löytyi"
         zero: "Yhtään käyttäjää ei löytynyt"
+      view_profile: "näytä profiili"
       you_currently:
         one: "sinulla on tällä hetkellä %{count} kutsu jäljellä %{link}"
         other: "sinulla on tällä hetkellä %{count} kutsua jäljellä %{link}"
@@ -391,6 +408,14 @@ fi:
     getting_started_tutorial: "'Näin pääset alkuun' kurssit"
     here: "tässä"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_a1: "Virtanäkymässä voit käyttää seuraavia näppäinoikoteitä?"
+      keyboard_shortcuts_li1: "j - siirry seuraavaan julkaisuun"
+      keyboard_shortcuts_li2: "k - siirry edelliseen julkaisuun"
+      keyboard_shortcuts_li3: "c - kommentoi nykyistä julkaisua"
+      keyboard_shortcuts_li4: "I - tykkää nykyistä julkaisua"
+      keyboard_shortcuts_q: "MItä näppäinoikoteitä on käytettävissä?"
+      title: "Näppäinoikotiet"
     markdown: "Markdown"
     mentions:
       how_to_mention_a: "Kirjoita \"@\" merkki ja ryhdy kirjoittamaan hänen nimeään. Alasvetovalikon pitäisi ilmestyä, josta voit valita hänet helpommin. Huomioi, että voit mainita ainoastaan henkilöitä, joita olet lisännyt johonkin näkymään."
@@ -523,6 +548,7 @@ fi:
       what_are_tags_for_a: "Tagit on tapa luokitella julkaisuja, yleensä aiheen mukaan. Tagin etsiminen näyttää kaikki kyseisellä tagilla merkityt julkaisut, jotka ovat sinun nähtävissäsi (sekä julkiset, että yksityiset). Tällä tavalla kyseisestä aiheesta kiinnostuneet ihmiset voivat löytää aiheeseen liittyvät julkiset julkaisut."
       what_are_tags_for_q: "Mihin tageja tarvitaan?"
     third_party_tools: "kolmannen osapuolen työkalut"
+    title_header: "Apua"
     tutorial: "Opastus"
     tutorials: "ohjeita"
     wiki: "wiki"
@@ -722,8 +748,25 @@ fi:
     private_message:
       reply_to_or_view: "Lue tai osallistu keskusteluun >"
     report_email:
+      body: |-
+          Hei,
+
+          %{type} ID:llä %{id} merkittiin loukkaavaksi.
+
+          [%{url}][1]
+
+          Ole hyvä ja tarkista niin pian, kuin mahdollista!
+
+
+          Kiittäen,
+
+          diaspora* sähköpostirobotti!
+
+          [1]: %{url}
+      subject: "Uusi %{type} merkittiin loukkaavaksi"
       type:
         comment: "kommentti"
+        post: "julkaisu"
     reshared:
       reshared: "%{name} jakoi julkaisusi uudelleen"
       view_post: "Näytä julkaisu >"
@@ -911,8 +954,11 @@ fi:
       submitting: "Lähettää..."
       username: "KÄYTTÄJÄNIMI"
   report:
+    comment_label: "<b>Kommentti</b>:<br>%{data}"
     confirm_deletion: "Oletko varma, että haluat poistaa kohteen?"
     delete_link: "Poista kohde"
+    not_found: "<u>Julkaisua tai kommenttia ei löytynyt. Vaikuttaa siltä, että käyttäjä on poistanut sen!</u>"
+    post_label: "<b>Julkaisu</b>: %{title}"
     reason_label: "Syy: %{text}"
     reported_label: "<b>Ilmoituksen teki</b> %{person}"
     review_link: "Merkitse tarkistetuksi"
@@ -1047,10 +1093,10 @@ fi:
         newhere: "UusiTäällä"
       poll:
         add_a_poll: "Lisää kysely"
-        add_poll_answer: "Lisää vastaus"
+        add_poll_answer: "Lisää vastausvaihtoehto"
         option: "Vaihtoehto 1"
         question: "Kysymys"
-        remove_poll_answer: "Poista vastaus"
+        remove_poll_answer: "Poista vastausvaihtoehto"
       post_a_message_to: "Lähetä julkaisu näkymään %{aspect}"
       posting: "Lähetetään..."
       preview: "Esikatselu"
@@ -1075,7 +1121,7 @@ fi:
       show: "näytä"
       unlike: "Peru tykkäys"
       via: "%{link} kautta"
-      via_mobile: "puhelimen välityksellä"
+      via_mobile: "mobiililaitteen kautta"
       viewable_to_anyone: "Kuka tahansa verkossa näkee tämän julkaisun"
   simple_captcha:
     label: "Kirjoita kentässä oleva koodi:"

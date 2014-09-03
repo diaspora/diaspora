@@ -93,7 +93,7 @@ fi:
       show_result: "Näytä tulokset"
       vote: "Äänestä"
     publisher:
-      add_option: "Lisää vastaus"
+      add_option: "Lisää vastausvaihtoehto"
       at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
       limited: "Rajoitettu - julkaisusi näkyy vain ihmisille, joiden kanssa jaat"
       near_from: "Lähetetty sijainnista: <%= location %>"

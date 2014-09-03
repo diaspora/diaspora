@@ -12,6 +12,7 @@ da:
   _home: "Hjem"
   _photos: "Billeder"
   _services: "Tjenester"
+  _terms: "Betingelser"
   account: "Konto"
   activerecord:
     errors:
@@ -87,14 +88,31 @@ da:
         other: "%{count} brugere"
         zero: "%{count} brugere"
       week: "Uge"
+    user_entry:
+      account_closed: "konto lukket"
+      diaspora_handle: "Diaspora navn"
+      email: "E-mail"
+      guid: "GUID"
+      id: "ID"
+      last_seen: "sidst set"
+      ? "no"
+      : nej
+      nsfw: "#nsfw"
+      unknown: "ukendt"
+      ? "yes"
+      : ja
     user_search:
+      account_closing_scheduled: "Kontoen med navnet: %{name} vil blive lukket om et øjeblik ..."
       add_invites: "Tilføj invitationer"
+      are_you_sure: "Er du sikker på at du vil lukke denne konto?"
+      close_account: "Luk konto"
       email_to: "Inviter på e-mail"
       under_13: "Vis brugere der er under 13 (COPPA)"
       users:
         one: "%{count} bruger fundet"
         other: "%{count} brugere fundet"
         zero: "Ingen brugere fundet"
+      view_profile: "Se profil"
       you_currently:
         one: "Du har en invitation tilbage %{link}"
         other: "Du har %{count} invitationer tilbage %{link}"
@@ -391,6 +409,14 @@ da:
     getting_started_tutorial: "'At komme i gang' en serie af guider"
     here: "her"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_a1: "På siden med din Strøm kan du bruge følgende tastaturgenveje:"
+      keyboard_shortcuts_li1: "j - gå til næste indlæg"
+      keyboard_shortcuts_li2: "k - gå til forrige indlæg"
+      keyboard_shortcuts_li3: "c - kommenter det nuværende indlæg"
+      keyboard_shortcuts_li4: "l - marker at du synes om det nuværende indlæg"
+      keyboard_shortcuts_q: "Hvilke tastaturgenveje er til rådighed?"
+      title: "Tastaturgenveje"
     markdown: "Markdown"
     mentions:
       how_to_mention_a: "Skriv \"@\" efterfulgt af deres navn. En rullemenu skulle herefter nemt lade dig vælge dem. Bemærk at det kun er muligt at nævne folk som du har tilføjet til et af dine aspekter."
@@ -523,6 +549,7 @@ da:
       what_are_tags_for_a: "Tags er en måde at kategorisere indlæg på, normalt efter emne. Hvis du søger efter et tag vil du se alle de indlæg der indeholder tagget og som du har tilladelse til at se (både offentlige og private indlæg). Dette lader folk der er interesserede i et bestemt emne finde offentlige indlæg der handler om netop det."
       what_are_tags_for_q: "Hvad bruger man tags til?"
     third_party_tools: "tredjeparts værktøjer"
+    title_header: "Hjælp"
     tutorial: "guide"
     tutorials: "guider"
     wiki: "wiki"
@@ -644,6 +671,7 @@ da:
       comment_on_post: "Kommenter indlæg"
       liked: "syntes om"
       mark_all_as_read: "Marker alle som læst"
+      mark_all_shown_as_read: "Marker alle viste som læst"
       mark_read: "Marker som læst"
       mark_unread: "Marker som ulæst"
       mentioned: "omtalte"
@@ -944,6 +972,8 @@ da:
       sign_up: "TILMELD DIG"
       sign_up_message: "Socialt netværk med et <3"
       submitting: "Sender ..."
+      terms: "Ved at oprette en konto accepterer du %{terms_link}."
+      terms_link: "Servicevilkår"
       username: "BRUGERNAVN"
   report:
     comment_label: "<b>Kommentar</b>:<br>%{data}"

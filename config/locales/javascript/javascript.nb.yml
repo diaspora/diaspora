@@ -24,6 +24,10 @@ nb:
       deselect_all: "Avmerk alle"
       no_aspects: "Ingen kategorier valgt"
       select_all: "Merk alle"
+    bookmarklet:
+      post_something: "Post noe på Diaspora"
+      post_submit: "Sender innlegg..."
+      post_success: "Lukker popup vinduet..."
     comma: ","
     comments:
       hide: "skjul kommentarer"
@@ -36,6 +40,7 @@ nb:
     edit: "Rediger"
     failed_to_like: "Klarte ikke å like!"
     failed_to_post_message: "Klarte ikke å publisere post!"
+    failed_to_remove: "Noe gikk galt i forsøket på å fjerne innlegget!"
     getting_started:
       alright_ill_wait: "Greit, jeg venter."
       hey: "Hei, <%= name %>!"
@@ -45,6 +50,7 @@ nb:
       admin: "Admin"
       close: "lukk"
       contacts: "Kontakter"
+      conversations: "Samtaler"
       help: "Hjelp"
       home: "Hjem"
       log_out: "Logg ut"
@@ -56,6 +62,7 @@ nb:
       settings: "Innstillinger"
       view_all: "Vis alle"
     ignore: "Ignorer"
+    ignore_failed: "Ikke mulig å ignorere brukeren"
     ignore_user: "Overse denne brukeren?"
     infinite_scroll:
       no_more: "Ingen flere innlegg."
@@ -63,20 +70,42 @@ nb:
     my_activity: "Min Aktivitet"
     my_aspects: "Mine Aspekter"
     my_stream: "Stream"
+    notifications:
+      mark_read: "Merk som lest"
+      mark_unread: "Merk som ulest"
     people:
       not_found: "og ingen ble funnet ..."
     photo_uploader:
       completed: "<%= file %> ferdig"
       empty: "{file} er tom, vennligst velg filer igjen uten å bruke den."
       error: "Et problem oppstod under opplastning av filen <%= file %>"
-      invalid_ext: "{file} har en ugyldig utvidelse. Bare {extensions} er tillatt."
+      invalid_ext: "{file} har et ugyldig etternavn. Bare {extensions} er tillatt."
       looking_good: "Wow, du ser fantastisk ut!"
       size_error: "{file} er for stor, maksimal filstørrelse er {sizeLimit}"
+    poll:
+      close_result: "Skjul resultat"
+      count:
+        one: "1 stemme til nå"
+        other: "<%=count%> stemmer til nå"
+        zero: "ingen stemmer til nå"
+      result: "Resultat"
+      show_result: "Vis resultat"
+      vote: "Stem"
     publisher:
+      add_option: "Legg til valg"
       at_least_one_aspect: "Du må poste til minst ett aspekt"
       limited: "Begrenset - posten din vil bare være synlig for de du deler med"
       near_from: "Publisert fra: <%= location %>"
+      option: "Valg <%= nr %>"
       public: "Offentlig - posten din vil være synlig for alle og kan bli funnet av søkemotorer"
+      question: "Spørsmål"
+    report:
+      name: "Rapport"
+      prompt: "Angi en årsak:"
+      prompt_default: "støtende innhold"
+      status:
+        created: "Rapporten er opprettet"
+        exists: "Rapporten eksisterer allerede"
     reshares:
       duplicate: "du har allerede delt denne posten!"
       post: "Videredel <%= name %> sitt innhold?"
@@ -118,6 +147,7 @@ nb:
         stop_following: "Stopp å følge #<%= tag %>"
       unfollow: "Ikke følg"
       unlike: "Liker ikke"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "OK, jeg skjønner at #<%= tagName %> ikke var så spennende likevel ..."
     timeago:
@@ -134,6 +164,7 @@ nb:
       seconds: "under ett minutt"
       suffixAgo: "siden"
       suffixFromNow: "fra nå"
+      wordSeparator: " javascripts.timeago.wordSeparator "
       year: "ca. et år"
       years: "%d år"
     videos:

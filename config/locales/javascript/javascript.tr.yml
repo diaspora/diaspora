@@ -46,6 +46,7 @@ tr:
       settings: "Ayarlar"
       view_all: "Tümünü gör"
     ignore: "Yoksay"
+    ignore_failed: "Bu kullanıcı ihmal edilemiyor"
     infinite_scroll:
       no_more: "Daha fazla gönderi yok."
     my_activity: "Etkinliklerim"

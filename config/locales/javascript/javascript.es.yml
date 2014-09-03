@@ -62,6 +62,7 @@ es:
       settings: "Ajustes"
       view_all: "Ver todo"
     ignore: "Ignorar"
+    ignore_failed: "Imposible ignorar a este usuario"
     ignore_user: "¿Ignorar a este usuario?"
     infinite_scroll:
       no_more: "No hay más publicaciones."
@@ -90,11 +91,11 @@ es:
       show_result: "Mostrar resultados"
       vote: "Votar"
     publisher:
-      add_option: "Añadir opción"
+      add_option: "Añadir una respuesta"
       at_least_one_aspect: "Debes publicarlo al menos en un aspecto"
       limited: "Limitado - tu publicación solo es visible para gente con quien compartes"
       near_from: "Cerca de: <%= location %>"
-      option: "Opción <%= nr %>"
+      option: "Respuesta"
       public: "Público - tu publicación es visible para todos, incluyendo buscadores"
       question: "Pregunta"
     report:

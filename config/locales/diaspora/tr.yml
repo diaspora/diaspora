@@ -357,6 +357,12 @@ tr:
     getting_started_tutorial: "'Başlangıç' öğretim dizisi"
     here: "burada"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_li1: "j - sonraki gönderiye atla"
+      keyboard_shortcuts_li2: "k - önceki gönderiye atla"
+      keyboard_shortcuts_li3: "c - bu gönderiye yorum yaz"
+      keyboard_shortcuts_li4: "l - bu gönderiyi beğen"
+      title: "Klavye kısayolları"
     markdown: "Not düş"
     mentions:
       how_to_mention_a: "@ yazın ve kullanıcının adını yazmaya başlayın. Açılır menü, seçiminizi kolaylaştırmak üzere belirecektir. Yalnızca bir bakışa eklediğiniz kişiden bahsedebilirsiniz."
@@ -778,6 +784,8 @@ tr:
       sign_up: "KAYDOL"
       sign_up_message: "♥ ile Sosyal Ağ"
       submitting: "Gönderiliyor..."
+      terms: "Bir hesap oluşturarak %{terms_link}'teki koşulları kabul etmiş sayılırsınız."
+      terms_link: "hizmet koşulları"
       username: "KULLANICI ADI"
   requests:
     create:

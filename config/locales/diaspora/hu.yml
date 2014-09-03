@@ -83,13 +83,25 @@ hu:
         other: "%{count} felhasználó"
         zero: "%{count} felhasználó"
       week: "hét"
+    user_entry:
+      account_closed: "fiók törölve"
+      ? "no"
+      : nem
+      nsfw: "#nsfw"
+      unknown: "ismeretlen"
+      ? "yes"
+      : igen
     user_search:
+      account_closing_scheduled: "%{name} felhasználó fiókjának törlése időzítve. Feldolgozása néhány pillanat múlva megtörténik..."
       add_invites: "meghívók hozzáadása"
+      are_you_sure: "Biztosan törölni szeretnéd ezt a fiókot?"
+      close_account: "fiók törlése"
       email_to: "a meghívandó személy email címe"
       under_13: "13 éven aluli felhasználók mutatása (az USA COPPA szabályzata szerint)"
       users:
         other: "%{count} felhasználó található"
         zero: "nem található felhasználó"
+      view_profile: "adatlap megtekintése"
       you_currently:
         other: "jelenleg %{count} meghívó áll még rendelkezésedre %{link}"
         zero: "jelenleg nem áll rendelkezésedre meghívó %{link}"
@@ -536,11 +548,7 @@ hu:
         other: "%{count} ember kedveli"
         zero: "senki nem kedveli"
       people_like_this_comment:
-        few: "%{count} kedveli"
-        many: "%{count} kedveli"
-        one: "%{count} kedveli"
         other: "%{count} embernek tetszik"
-        two: "%{count} ember kedveli"
         zero: "még senki nem kedvelte"
   limited: "Korlátozott"
   more: "Bővebben"
@@ -562,11 +570,7 @@ hu:
       two: "%{actors} hozzászólt egy törölt bejegyzéshez."
       zero: "%{actors} hozzászólt egy törölt bejegyzéshez."
     comment_on_post:
-      few: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
-      many: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
-      one: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
       other: "%{actors} hozzászólt a bejegyzésedhez (%{post_link})."
-      two: "%{actors} hozzászólt ehhez: %{post_link}."
       zero: "%{actors} hozzászólt a bejegyzésedhez (%{post_link})."
     helper:
       new_notifications:
@@ -591,11 +595,7 @@ hu:
       show_unread: "olvasatlanok megjelenítése"
       started_sharing: "Elkezdett megosztani"
     liked:
-      few: "%{actors} kedveli a %{post_link}edet."
-      many: "%{actors} kedveli a %{post_link}edet."
-      one: "%{actors} kedveli a %{post_link}edet."
       other: "%{actors} kedveli a bejegyzésedet (%{post_link})."
-      two: "%{actors} kedveli a %{post_link}edet."
       zero: "%{actors} kedveli a bejegyzésedet (%{post_link})."
     liked_post_deleted:
       few: "%{actors} kedveli a már törölt bejegyzésedet."
@@ -605,11 +605,7 @@ hu:
       two: "%{actors} kedvelte a törölt hozzászólásod."
       zero: "%{actors} kedveli a már törölt bejegyzésedet."
     mentioned:
-      few: "%{actors} megemlített téged egy %{post_link}ben."
-      many: "%{actors} megemlített téged egy %{post_link}ben."
-      one: "%{actors} megemlített téged egy %{post_link}ben."
       other: "%{actors} megemlített téged a következő bejegyzésben: %{post_link}."
-      two: "%{actors} megemlített téged egy %{post_link}ben."
       zero: "%{actors} megemlített téged a következő bejegyzésben: %{post_link}."
     mentioned_deleted:
       few: "%{actors} megemlített téged egy, már törölt bejegyzésben."
@@ -627,11 +623,7 @@ hu:
       two: "%{actors} küldött egy üzenetet."
       zero: "%{actors} üzenetet küldött neked."
     reshared:
-      few: "%{actors} újraosztotta a %{post_link}edet."
-      many: "%{actors} újraosztotta a %{post_link}edet."
-      one: "%{actors} újraosztotta a bejegyzésedet: %{post_link}."
       other: "%{actors} újraosztotta a bejegyzésedet (%{post_link})."
-      two: "%{actors} újraosztotta a %{post_link}edet."
       zero: "%{actors} újraosztotta a bejegyzésedet (%{post_link})."
     reshared_post_deleted:
       few: "%{actors} újraosztotta a már törölt bejegyzésedet."
@@ -1089,12 +1081,8 @@ hu:
     new:
       mentioning: "Megemlít: %{person}"
     too_long:
-      few: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
-      many: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
-      one: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
-      other: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
-      two: "Az állapotfrissítésednek %{count} karakternél rövidebbnek kell lennie"
-      zero: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
+      other: "Rövidíts. Az állapotfrissítésed hossza nem lehet több %{count} leütésnél"
+      zero: "Rövidíts. Az állapotfrissítésed hossza nem lehet több %{count} leütésnél"
   stream_helper:
     hide_comments: "hozzászólások elrejtése"
     show_comments:

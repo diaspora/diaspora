@@ -33,7 +33,7 @@ nb:
       inviter:
         accept_at: "via %{url}, kan du akseptere lenken du ser under"
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} har invitert deg til Diaspora"
+        have_invited_you: "%{names} har invitert deg til diaspora*"
       reset_password_instructions:
         change: "Endre passordet mitt"
         ignore: "Hvis du ikke har bedt om det, kan du overse denne e-posten."
@@ -49,14 +49,18 @@ nb:
     passwords:
       edit:
         change_password: "Endre passordet mitt"
+        confirm_password: "Gjenta passord"
+        new_password: "Nytt passord"
       new:
+        email: "E-post"
         forgot_password: "Glemt passordet?"
-        no_account: "Det finnes ingen bruker med denne e-postadressen. Hvis du venter på en invitasjon, sender vi dem ut så snart vi kan."
+        no_account: "Det finnes ingen bruker med denne e-post adressen. Hvis du venter på en invitasjon, sender vi dem ut så snart vi kan."
+        reset_password: "Resett passord"
         send_password_instructions: "Send meg instruksjoner for å tilbakestille passordet"
       send_instructions: "Du vil få en e-post med instrukser om hvordan du tilbakestiller passordet ditt om kort tid."
       updated: "Passordet ditt er nå endra, og du har logga inn."
     registrations:
-      destroyed: "Ha det! Brukeren din er nå sagt opp. Vi håper å se deg igjen snart."
+      destroyed: "Ha det! Brukeren din er nå slettet. Vi håper å se deg igjen snart."
       signed_up: "Du har nå laga en bruker. Hvis du valgte å få en e-post med bekreftelse på dette, er den nå sendt."
       updated: "Du har oppdatert brukeren din."
     sessions:

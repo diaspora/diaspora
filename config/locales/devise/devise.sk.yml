@@ -33,17 +33,17 @@ sk:
       inviter:
         accept_at: "Kliknutím na odkaz na stránku %{url} ju môžeš prijať."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} ťa pozvali na Diasporu"
+        have_invited_you: "%{names} ťa pozvali na diasporu*"
       reset_password_instructions:
         change: "Zmeniť si heslo"
         ignore: "Ak si o to nežiadal(a), tento e-mail, prosím, ignoruj."
-        someone_requested: "Požiadal(a) si o zmenu hesla; môžeš to urobiť kliknutím na tento odkaz."
+        someone_requested: "Nieko požiadal o zmenu tvojho hesla. Ak si to bol(a) ty, môžeš to urobiť kliknutím na tento odkaz."
         subject: "Pokyny na zmenu hesla"
         wont_change: "Tvoje heslo sa nezmení, kým neklikneš na odkaz, ktorý je napísaný vyššie, a nevytvoríš si nové."
       unlock_instructions:
         account_locked: "Tvoj účet bol zablokovaný kvôli vysokému počtu neúspešných prihlásení."
         click_to_unlock: "Klikni na tento odkaz a tvoj účet sa odomkne:"
-        subject: "Pokyny na odomknutie účtu"
+        subject: "Pokyny na odomknutie"
         unlock: "Odomknúť môj účet"
       welcome: "Vitaj %{email}!"
     passwords:
@@ -52,7 +52,7 @@ sk:
         confirm_password: "Potvrdenie hesla"
         new_password: "Nové heslo"
       new:
-        email: "E-mail adresa"
+        email: "E-mailová adresa"
         forgot_password: "Zabudol (-la) si heslo?"
         no_account: "Účet s takouto e-mailovou adresou neexistuje"
         reset_password: "Obnoviť heslo"

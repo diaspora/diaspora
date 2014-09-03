@@ -19,7 +19,7 @@ te:
       deselect_all: "ఎంపిక మొత్తం రద్దుచేయి"
       select_all: "అన్నిటినీ ఎంచుకో"
     bookmarklet:
-      post_something: "డయాస్పోరా*కు టపా పెట్టండి"
+      post_something: "డయాస్పోరా*కు టపా వేయండి"
     comments:
       hide: "వ్యాఖ్యలను దాచు"
       show: "అన్ని వ్యాఖ్యలను చూపించు"

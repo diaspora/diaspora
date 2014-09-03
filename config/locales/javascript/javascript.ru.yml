@@ -47,7 +47,7 @@ ru:
     getting_started:
       alright_ill_wait: "Хорошо, я подожду."
       hey: "Привет, <%= name %>!"
-      no_tags: "Вы не подписаны ни на один тэг! Всё равно продолжить?"
+      no_tags: "Вы не следите ни за одной меткой! Все равно продолжить?"
       preparing_your_stream: "Подготовка вашего личного потока..."
     header:
       admin: "Администратор"
@@ -104,7 +104,7 @@ ru:
       public: "Публичная - ваша запись будет видна всем, включая поисковые системы"
       question: "Вопрос"
     report:
-      name: "Донести"
+      name: "Пожаловаться"
       prompt: "Пожалуйста, укажите причину:"
       prompt_default: "оскорбительное содержание"
       status:
@@ -120,10 +120,10 @@ ru:
       comment: "Комментировать"
       follow: "Следить"
       followed_tag:
-        add_a_tag: "Добавить тэг"
-        contacts_title: "Люди, которые интересуются этими тэгами"
-        follow: "Подписаться"
-        title: "#Тэги"
+        add_a_tag: "Добавить метку"
+        contacts_title: "Интересуются этими метками"
+        follow: "Следить"
+        title: "#Метки"
       hide: "Скрыть"
       hide_nsfw_posts: "Скрыть записи #nsfw"
       like: "Нравится"
@@ -153,14 +153,14 @@ ru:
       show_nsfw_post: "Показать запись"
       show_nsfw_posts: "Показать всё"
       tags:
-        follow: "Подписаться на тэг #<%= tag %>"
-        following: "Вы подписались на тэг #<%= tag %>"
-        stop_following: "Отписаться от тэга #<%= tag %>"
+        follow: "Следить за меткой #<%= tag %>"
+        following: "Вы следите за меткой #<%= tag %>"
+        stop_following: "Не следить за меткой #<%= tag %>"
       unfollow: "Не следить"
       unlike: "Не нравится"
       via: "через <%= provider %>"
     tags:
-      wasnt_that_interesting: "Что ж, видимо, тэг #<%= tagName %> был не таким уж интересным..."
+      wasnt_that_interesting: "Что ж, видимо, метка #<%= tagName %> была не такой уж интересной..."
     timeago:
       day: "день"
       days: "%d дней[-я]"
