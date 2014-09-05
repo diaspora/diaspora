@@ -44,7 +44,7 @@
       width: 50px;
     }
   }
-  .only_sharing {
+  .sharing {
     background-color: rgb(142, 222, 61);
     .profile_button {
       width: 150px;
@@ -77,7 +77,7 @@
       background-color: white;
       @include border-bottom-left-radius(8px);
     }
-    
+
     .profile_button {
       display: inline-block;
       text-align: center;
@@ -85,13 +85,13 @@
 
     a { @include opacity(0.5); }
     a:hover { @include opacity(1); }
-    
-    .icons-check_yes_ok { 
+
+    .icons-check_yes_ok {
       display: inline-block;
       height: 18px;
       width: 18px;
     }
-    .icons-circle { 
+    .icons-circle {
       display: inline-block;
       height: 18px;
       width: 18px;

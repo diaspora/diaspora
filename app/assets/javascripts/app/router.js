@@ -54,10 +54,11 @@ app.Router = Backbone.Router.extend({
   renderPage : function(pageConstructor){
     app.page && app.page.unbind && app.page.unbind(); //old page might mutate global events $(document).keypress, so unbind before creating
     app.page = pageConstructor(); //create new page after the world is clean (like that will ever happen)
+    app.page.render();
 
     if( !$.contains(document, app.page.el) ) {
       // view element isn't already attached to the DOM, insert it
-      $("#container").empty().append(app.page.render().el);
+      $("#container").empty().append(app.page.el);
     }
   },
 

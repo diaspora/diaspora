@@ -14,7 +14,7 @@ module PeopleHelper
       end
     end
   end
-  
+
   def birthday_format(bday)
     if bday.year == 1000
       I18n.l bday, :format => I18n.t('date.formats.birthday')
@@ -96,7 +96,7 @@ module PeopleHelper
     elsif contact.mutual?
       'mutual'
     elsif contact.sharing?
-      'only_sharing'
+      'sharing'
     elsif contact.receiving?
       'receiving'
     else

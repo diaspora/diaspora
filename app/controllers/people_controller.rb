@@ -76,36 +76,51 @@ class PeopleController < ApplicationController
   def show
     @person = Person.find_from_guid_or_username(params)
 
+    # view this profile on the home pod, if you don't want to sign in...
     authenticate_user! if remote_profile_with_no_user_session?
     raise Diaspora::AccountClosed if @person.closed_account?
 
     mark_corresponding_notifications_read if user_signed_in?
 
-    @post_type = :all
-    @aspect = :profile
-    @stream = Stream::Person.new(current_user, @person, :max_time => max_time)
-    @profile = @person.profile
-    @photos = photos_from(@person)
-
-    unless params[:format] == "json" # hovercard
-      if current_user
-        @block = current_user.blocks.where(:person_id => @person.id).first
-        @contact = current_user.contact_for(@person)
-        if @contact && !params[:only_posts]
-          @contacts_of_contact_count = @contact.contacts.count(:all)
-          @contacts_of_contact = @contact.contacts.limit(8)
-        else
-          @contact ||= Contact.new
-        end
-      end
-    end
+    @aspect = :profile  # what does this do?
+    @post_type = :all  # for mobile
+    @person_json = PersonPresenter.new(@person, current_user).full_hash_with_profile
 
     respond_to do |format|
       format.all do
+        @profile = @person.profile
+        @photos = photos_from(@person)
+        if current_user
+          @block = current_user.blocks.where(:person_id => @person.id).first
+          @contact = current_user.contact_for(@person)
+          if @contact && !params[:only_posts]
+            @contacts_of_contact_count = @contact.contacts.count(:all)
+            @contacts_of_contact = @contact.contacts.limit(8)
+          else
+            @contact ||= Contact.new
+          end
+        end
+
+        gon.preloads[:person] = @person_json
         respond_with @person, :locals => {:post_type => :all}
       end
 
-      format.json { render :json => @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
+      format.json { render :json => @person_json }
+    end
+  end
+
+  def stream
+    @person = Person.find_from_guid_or_username(params)
+
+    authenticate_user! if remote_profile_with_no_user_session?
+    raise Diaspora::AccountClosed if @person.closed_account?
+
+    respond_to do |format|
+      format.all { redirect_to person_path(@person) }
+      format.json do
+        @stream = Stream::Person.new(current_user, @person, max_time: max_time)
+        render json: @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }
+      end
     end
   end
 

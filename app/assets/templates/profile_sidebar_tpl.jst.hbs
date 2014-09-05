@@ -1,0 +1,36 @@
+
+<div class="profile_photo">
+  {{#linkToPerson this}}
+    {{{personImage this "l"}}}
+  {{/linkToPerson}}
+</div>
+
+{{#if do_profile_btns}}
+  <div id="profile_buttons" class="{{relationship}}">
+    {{{sharingBadge this}}}
+
+    {{#if is_receiving}}
+      <div class="profile_button">
+        <a href="" rel="facebox">
+          <div id="mention_button" class="icons-mention" title="{{t 'people.mention'}}" data-placement="bottom"></div>
+        </a>
+      </div>
+    {{/if}}
+
+    {{#if is_mutual}}
+      <div class="profile_button">
+        <a href="" rel="facebox">
+          <div id="message_button" class="icons-message" title="{{t 'people.message'}}" data-placement="bottom"></div>
+        </a>
+      </div>
+    {{/if}}
+
+    {{#if is_not_blocked}}
+      <div class="profile_button">
+        <a href="#" rel="nofollow">
+          <div id="block_user_button" class="icons-ignoreuser block_user" title="{{t 'ignore'}}" data-placement="bottom"></div>
+        </a>
+      </div>
+    {{/if}}
+  </div>
+{{/if}}

@@ -115,6 +115,11 @@ en:
       wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     people:
       not_found: "and no one was found..."
+      mention: "Mention"
+      message: "Message"
+      helper:
+        is_sharing: "<%= name %> is sharing with you"
+        is_not_sharing: "<%= name %> is not sharing with you"
 
     conversation:
       participants: "Participants"

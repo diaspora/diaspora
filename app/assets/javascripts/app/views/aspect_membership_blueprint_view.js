@@ -23,6 +23,7 @@ app.views.AspectMembershipBlueprint = Backbone.View.extend({
   //   -> addMembership
   //   -> removeMembership
   _clickHandler: function(evt) {
+    var promise = null;
     this.list_item = $(evt.target);
     this.dropdown  = this.list_item.parent();
 
@@ -30,12 +31,17 @@ app.views.AspectMembershipBlueprint = Backbone.View.extend({
 
     if( this.list_item.is('.selected') ) {
       var membership_id = this.list_item.data('membership_id');
-      this.removeMembership(membership_id);
+      promise = this.removeMembership(membership_id);
     } else {
       var aspect_id = this.list_item.data('aspect_id');
       var person_id = this.dropdown.data('person_id');
-      this.addMembership(person_id, aspect_id);
+      promise = this.addMembership(person_id, aspect_id);
     }
+
+    promise && promise.always(function() {
+      // trigger a global event
+      app.events.trigger('aspect_membership:update');
+    });
 
     return false; // stop the event
   },
@@ -57,7 +63,7 @@ app.views.AspectMembershipBlueprint = Backbone.View.extend({
       this._displayError('aspect_dropdown.error');
     }, this);
 
-    aspect_membership.save();
+    return aspect_membership.save();
   },
 
   _successSaveCb: function(aspect_membership) {
@@ -100,7 +106,7 @@ app.views.AspectMembershipBlueprint = Backbone.View.extend({
       this._displayError('aspect_dropdown.error_remove');
     }, this);
 
-    aspect_membership.destroy();
+    return aspect_membership.destroy();
   },
 
   _successDestroyCb: function(aspect_membership) {

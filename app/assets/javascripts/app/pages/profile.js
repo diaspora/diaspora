@@ -1,44 +1,47 @@
 
-// TODO: this view should be model-driven an re-render when it was updated,
-//   instead of changing classes/attributes on elements.
-app.pages.Profile = Backbone.View.extend({
+// TODO: update the aspect_membership dropdown, too, every time we render the view...
+app.pages.Profile = app.views.Base.extend({
   events: {
     'click #block_user_button': 'blockPerson'
   },
 
+  subviews: {
+    '#profile .badge': 'sidebarView'
+  },
+
+  tooltipSelector: '.profile_button div, .sharing_message_container',
+
   initialize: function(opts) {
-    // cache element references
-    this.el_profile_btns = this.$('#profile_buttons');
-    this.el_sharing_msg  = this.$('#sharing_message');
+    if( app.hasPreload('person') )
+      this.model = new app.models.Person(app.parsePreload('person'));
 
-    // init tooltips
-    this.el_profile_btns.find('.profile_button div, .sharin_message_container')
-      .tooltip({placement: 'bottom'});
+    this.model.on('change', this.render, this);
 
-    // respond to global events
-    var person_id = this.$('#profile .avatar:first').data('person_id');
-    app.events.on('person:block:'+person_id, this._markBlocked, this);
+    // bind to global events
+    var id = this.model.get('id');
+    app.events.on('person:block:'+id, this.reload, this);
+    app.events.on('aspect_membership:update', this.reload, this);
+  },
+
+  sidebarView: function() {
+    return new app.views.ProfileSidebar({model: this.model});
   },
 
   blockPerson: function(evt) {
     if( !confirm(Diaspora.I18n.t('ignore_user')) ) return;
 
-    var person_id = $(evt.target).data('person-id');
-    var block = new app.models.Block({block: {person_id: person_id}});
-    block.save()
-      .done(function() { app.events.trigger('person:block:'+person_id); })
-      .fail(function() { Diaspora.page.flashMessages.render({
+    var block = this.model.block();
+    block.fail(function() {
+      Diaspora.page.flashMessages.render({
         success: false,
         notice: Diaspora.I18n.t('ignore_failed')
-      }); });
+      });
+    });
 
     return false;
   },
 
-  _markBlocked: function() {
-    this.el_profile_btns.attr('class', 'blocked');
-    this.el_sharing_msg.attr('class', 'icons-circle');
-
-    this.el_profile_btns.find('.profile_button, .white_bar').remove();
+  reload: function() {
+    this.model.fetch();
   }
 });
