@@ -157,7 +157,7 @@ GEM
       fog-softlayer
       ipaddress (~> 0.5)
       nokogiri (~> 1.5, >= 1.5.11)
-    fog-brightbox (0.4.1)
+    fog-brightbox (0.5.0)
       fog-core (~> 1.22)
       fog-json
       inflecto
