@@ -1,14 +1,14 @@
-describe("app.models.Draft", function() {
+describe("app.models.Message", function() {
 
   beforeEach(function() {
-    this.draft = new app.models.Draft();
+    this.message = new app.models.Message();
   });
 
   describe("saveDraft", function() {
 
     beforeEach(function() {
-      this.draft.set("text", "Cool Beans");
-      this.draft.saveDraft();
+      this.message.set("text", "Cool Beans");
+      this.message.saveDraft();
     });
 
     it("should store the text in localStorage", function() {
@@ -19,7 +19,7 @@ describe("app.models.Draft", function() {
     describe("getDraft", function() {
 
       it("should retrieve the text in localStorage", function() {
-        var messageAttributes = this.draft.getDraft().text;
+        var messageAttributes = this.message.getDraft().text;
         expect(messageAttributes).toEqual("Cool Beans");
       });
     });
