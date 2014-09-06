@@ -317,6 +317,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-debundle (0.8)
+      pry
     rack (1.5.2)
     rack-cors (0.2.9)
     rack-google-analytics (1.2.0)
@@ -554,6 +556,8 @@ DEPENDENCIES
   omniauth-twitter (= 1.0.1)
   omniauth-wordpress (= 0.2.1)
   opengraph_parser (= 0.2.3)
+  pry
+  pry-debundle
   rack-cors (= 0.2.9)
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
