@@ -19,7 +19,7 @@ describe Diaspora::Fetcher::Public do
 
     stub_request(:get, /remote-testpod.net\/people\/.*/)
       .with(headers: {
-            'Accept'=>'application/json', 
+            'Accept'=>'application/json',
             'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
             'User-Agent'=>'diaspora-fetcher'
       }).to_return(:body => @fixture)
