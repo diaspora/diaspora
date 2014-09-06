@@ -78,7 +78,7 @@ gem 'entypo-rails', '2.2.2'
 
 gem 'backbone-on-rails',   '1.1.1'
 gem 'handlebars_assets',   '0.17.1'
-gem 'jquery-rails',        '3.1.1'
+gem 'jquery-rails',        '3.1.2'
 gem 'rails-assets-jquery', '1.11.1' # Should be kept in sync with jquery-rails
 gem 'js_image_paths',      '0.0.1'
 
@@ -90,7 +90,7 @@ gem 'rails-assets-perfect-scrollbar', '0.4.11'
 
 gem 'http_accept_language', '2.0.2'
 gem 'i18n-inflector-rails', '1.0.7'
-gem 'rails-i18n',           '4.0.2'
+gem 'rails-i18n',           '4.0.3'
 
 # Mail
 
@@ -195,7 +195,7 @@ group :test do
   gem 'fixture_builder',   '0.3.6'
   gem 'fuubar',            '2.0.0'
   gem 'rspec-instafail',   '0.2.5', :require => false
-  gem 'test_after_commit', '0.2.5'
+  gem 'test_after_commit', '0.2.6'
 
   # Cucumber (integration tests)
 
@@ -213,7 +213,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem 'rspec-rails',     '3.0.2'
+  gem 'rspec-rails',     '3.1.0'
 
   # Cucumber (integration tests)
   gem 'cucumber-rails',     '1.4.1', :require => false
