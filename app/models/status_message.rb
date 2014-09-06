@@ -187,5 +187,10 @@ class StatusMessage < Post
   def self.tag_stream(tag_ids)
     joins(:taggings).where('taggings.tag_id IN (?)', tag_ids)
   end
+
+  def after_parse
+    # Make sure already received photos don't invalidate the model
+    self.photos = photos.select(&:valid?)
+  end
 end
 

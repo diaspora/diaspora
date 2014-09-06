@@ -258,116 +258,104 @@ STR
   end
 
   describe "XML" do
-    before do
-      @message = FactoryGirl.build(:status_message, :text => "I hate WALRUSES!", :author => @user.person)
-      @xml = @message.to_xml.to_s
-    end
+    let(:message) { FactoryGirl.build(:status_message, text: "I hate WALRUSES!", author: @user.person) }
+    let(:xml) { message.to_xml.to_s }
+    let(:marshalled) { StatusMessage.from_xml(xml) }
+
     it 'serializes the escaped, unprocessed message' do
       text = "[url](http://example.org)<script> alert('xss should be federated');</script>"
-      @message.text = text
-      expect(@message.to_xml.to_s).to include Builder::XChar.encode(text)
+      message.text = text
+      expect(xml).to include Builder::XChar.encode(text)
     end
 
     it 'serializes the message' do
-      expect(@xml).to include "<raw_message>I hate WALRUSES!</raw_message>"
+      expect(xml).to include "<raw_message>I hate WALRUSES!</raw_message>"
     end
 
     it 'serializes the author address' do
-      expect(@xml).to include(@user.person.diaspora_handle)
+      expect(xml).to include(@user.person.diaspora_handle)
     end
 
     describe '.from_xml' do
-      before do
-        @marshalled = StatusMessage.from_xml(@xml)
-      end
       it 'marshals the message' do
-        expect(@marshalled.text).to eq("I hate WALRUSES!")
+        expect(marshalled.text).to eq("I hate WALRUSES!")
       end
+
       it 'marshals the guid' do
-        expect(@marshalled.guid).to eq(@message.guid)
+        expect(marshalled.guid).to eq(message.guid)
       end
+
       it 'marshals the author' do
-        expect(@marshalled.author).to eq(@message.author)
+        expect(marshalled.author).to eq(message.author)
       end
+
       it 'marshals the diaspora_handle' do
-        expect(@marshalled.diaspora_handle).to eq(@message.diaspora_handle)
+        expect(marshalled.diaspora_handle).to eq(message.diaspora_handle)
       end
     end
 
     context 'with some photos' do
       before do
-        @message.photos << FactoryGirl.build(:photo)
-        @message.photos << FactoryGirl.build(:photo)
-        @xml = @message.to_xml.to_s
+        message.photos << FactoryGirl.build(:photo)
+        message.photos << FactoryGirl.build(:photo)
       end
 
       it 'serializes the photos' do
-        expect(@xml).to include "photo"
-        expect(@xml).to include @message.photos.first.remote_photo_path
+        expect(xml).to include "photo"
+        expect(xml).to include message.photos.first.remote_photo_path
       end
 
       describe '.from_xml' do
-        before do
-          @marshalled = StatusMessage.from_xml(@xml)
+        it 'marshals the photos' do
+          expect(marshalled.photos.size).to eq(2)
         end
 
-        it 'marshals the photos' do
-          expect(@marshalled.photos.size).to eq(2)
+        it 'handles existing photos' do
+          message.photos.each(&:save!)
+          expect(marshalled).to be_valid
         end
       end
     end
 
     context 'with a location' do
       before do
-        @message.location = Location.new(coordinates: "1, 2").tap(&:save)
-        @xml = @message.to_xml.to_s
+        message.location = FactoryGirl.build(:location)
       end
 
       it 'serializes the location' do
-        expect(@xml).to include "location"
-        expect(@xml).to include "lat"
-        expect(@xml).to include "lng"
+        expect(xml).to include "location"
+        expect(xml).to include "lat"
+        expect(xml).to include "lng"
       end
 
       describe ".from_xml" do
-        before do
-          @marshalled = StatusMessage.from_xml(@xml)
-        end
-
         it 'marshals the location' do
-          expect(@marshalled.location).to be_present
+          expect(marshalled.location).to be_present
         end
       end
     end
 
     context 'with a poll' do
       before do
-        @message.poll = FactoryGirl.create(:poll, :status_message => @message)
-        @xml = @message.to_xml.to_s
+        message.poll = FactoryGirl.build(:poll)
       end
 
       it 'serializes the poll' do
-        expect(@xml).to include "poll"
-        expect(@xml).to include "question"
-        expect(@xml).to include "poll_answer"
+        expect(xml).to include "poll"
+        expect(xml).to include "question"
+        expect(xml).to include "poll_answer"
       end
 
       describe ".from_xml" do
-        before do
-          @marshalled = StatusMessage.from_xml(@xml)
-        end
-
         it 'marshals the poll' do
-          expect(@marshalled.poll).to be_present
+          expect(marshalled.poll).to be_present
         end
 
         it 'marshals the poll answers' do
-          expect(@marshalled.poll.poll_answers.size).to eq(2)
+          expect(marshalled.poll.poll_answers.size).to eq(2)
         end
       end
     end
-
-
   end
 
   describe '#after_dispatch' do
