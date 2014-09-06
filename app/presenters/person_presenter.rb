@@ -11,6 +11,7 @@ class PersonPresenter < BasePresenter
     base_hash.merge({
       relationship: relationship,
       block: is_blocked? ? BlockPresenter.new(current_user_person_block).base_hash : false,
+      contact: { id: current_user_person_contact.id },
       is_own_profile: own_profile?
     })
   end
@@ -44,7 +45,7 @@ class PersonPresenter < BasePresenter
   end
 
   def relationship
-    contact = current_user.contact_for(@presentable)
+    contact = current_user_person_contact
 
     is_mutual    = contact ? contact.mutual?    : false
     is_sharing   = contact ? contact.sharing?   : false
@@ -66,6 +67,10 @@ class PersonPresenter < BasePresenter
 
   def current_user_person_block
     @block ||= current_user.blocks.where(person_id: id).limit(1).first
+  end
+
+  def current_user_person_contact
+    @contact ||= current_user.contact_for(@presentable)
   end
 
   def is_blocked?

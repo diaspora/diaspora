@@ -15,4 +15,9 @@ app.views.ProfileSidebar = app.views.Base.extend({
   _shouldDoProfileBtns: function() {
     return (app.currentUser.authenticated() && !this.model.get('is_own_profile'));
   },
+
+  postRenderTemplate: function() {
+    // UGLY (re-)attach the facebox
+    this.$('a[rel*=facebox]').facebox();
+  }
 });

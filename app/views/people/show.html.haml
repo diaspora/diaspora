@@ -15,8 +15,10 @@
   = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
 
 .span-18.last
-  .stream_container
+  .profile_header
     = render 'people/sub_header', :person => @person, :contact => @contact
+
+  .stream_container
 
     #main_stream.stream
       - if @block.present?

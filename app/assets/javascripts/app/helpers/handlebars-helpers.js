@@ -6,6 +6,15 @@ Handlebars.registerHelper('imageUrl', function(path){
   return ImagePaths.get(path);
 });
 
+Handlebars.registerHelper('urlTo', function(path_helper, id, data){
+  if( !data ) {
+    // only one argument given to helper, mangle parameters
+    data = id;
+    return Routes[path_helper+'_path'](data.hash);
+  }
+  return Routes[path_helper+'_path'](id, data.hash);
+});
+
 Handlebars.registerHelper('linkToPerson', function(context, block) {
   if( !context ) context = this;
   var html = "<a href=\"/people/" + context.guid + "\" class=\"author-name ";

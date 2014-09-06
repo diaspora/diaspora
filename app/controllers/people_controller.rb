@@ -82,8 +82,8 @@ class PeopleController < ApplicationController
 
     mark_corresponding_notifications_read if user_signed_in?
 
-    @aspect = :profile  # what does this do?
-    @post_type = :all  # for mobile
+    @aspect = :profile  # let aspect dropdown create new aspects
+    @post_type = :all   # for mobile
     @person_json = PersonPresenter.new(@person, current_user).full_hash_with_profile
 
     respond_to do |format|
@@ -179,7 +179,9 @@ class PeopleController < ApplicationController
     return render :text => I18n.t('people.person.thats_you') if @person == current_user.person
 
     @contact = current_user.contact_for(@person) || Contact.new
+    @aspect = :profile if params[:create]  # let aspect dropdown create new aspects
     bootstrap = params[:bootstrap] || false
+
     render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left', :bootstrap => bootstrap}
   end
 

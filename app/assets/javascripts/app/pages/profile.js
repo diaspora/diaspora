@@ -1,5 +1,4 @@
 
-// TODO: update the aspect_membership dropdown, too, every time we render the view...
 app.pages.Profile = app.views.Base.extend({
   events: {
     'click #block_user_button': 'blockPerson',
@@ -8,7 +7,7 @@ app.pages.Profile = app.views.Base.extend({
 
   subviews: {
     '#profile .badge': 'sidebarView',
-    '.stream_container': 'streamView'
+    '.profile_header': 'headerView'
   },
 
   tooltipSelector: '.profile_button div, .sharing_message_container',
@@ -30,8 +29,8 @@ app.pages.Profile = app.views.Base.extend({
     return new app.views.ProfileSidebar({model: this.model});
   },
 
-  streamView: function() {
-    return new app.views.ProfileStream({model: this.model});
+  headerView: function() {
+    return new app.views.ProfileHeader({model: this.model});
   },
 
   blockPerson: function(evt) {
