@@ -62,7 +62,7 @@ class Reshare < Post
   end
 
   def notification_type(user, person)
-    Notifications::Reshared if root.author == user.person
+    Notifications::Reshared if root.try(:author) == user.person
   end
 
   def absolute_root
