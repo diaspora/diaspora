@@ -35,5 +35,17 @@ app.models.Person = Backbone.Model.extend({
     // return the jqXHR with Promise interface
     return block.save()
       .done(function() { app.events.trigger('person:block:'+self.id); });
+  },
+
+  unblock: function() {
+    var self = this;
+    if( !this.get('block') ) {
+      var def = $.Deferred();
+      return def.reject();
+    }
+
+    var block = new app.models.Block({id: this.get('block').id});
+    return block.destroy()
+      .done(function() { app.events.trigger('person:unblock:'+self.id); });
   }
 });

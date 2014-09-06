@@ -1,0 +1,22 @@
+<div id="author_info">
+  <div class="right">
+    {{#if loggedIn}}
+      {{#if is_own_profile}}
+        {{!-- can't block myself, so don't check it here --}}
+        <a href="TODO" class="button creation">{{t 'people.edit_my_profile'}}</a>
+      {{/if}}
+      {{#if is_blocked}}
+        <a href="#" id="unblock_user_button" class="button">{{t 'people.stop_ignoring'}}</a>
+      {{else}}
+        <div class="placeholder aspect_membership_dropdown"></div>
+      {{/if}}
+    {{/if}}
+  </div>
+
+  <h2>{{name}}</h2>
+  <span class="diaspora_handle">{{diaspora_id}}</span>
+
+  <div class="description">
+
+  </div>
+</div>

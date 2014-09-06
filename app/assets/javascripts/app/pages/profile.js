@@ -2,11 +2,13 @@
 // TODO: update the aspect_membership dropdown, too, every time we render the view...
 app.pages.Profile = app.views.Base.extend({
   events: {
-    'click #block_user_button': 'blockPerson'
+    'click #block_user_button': 'blockPerson',
+    'click #unblock_user_button': 'unblockPerson'
   },
 
   subviews: {
-    '#profile .badge': 'sidebarView'
+    '#profile .badge': 'sidebarView',
+    '.stream_container': 'streamView'
   },
 
   tooltipSelector: '.profile_button div, .sharing_message_container',
@@ -20,11 +22,16 @@ app.pages.Profile = app.views.Base.extend({
     // bind to global events
     var id = this.model.get('id');
     app.events.on('person:block:'+id, this.reload, this);
+    app.events.on('person:unblock:'+id, this.reload, this);
     app.events.on('aspect_membership:update', this.reload, this);
   },
 
   sidebarView: function() {
     return new app.views.ProfileSidebar({model: this.model});
+  },
+
+  streamView: function() {
+    return new app.views.ProfileStream({model: this.model});
   },
 
   blockPerson: function(evt) {
@@ -38,6 +45,17 @@ app.pages.Profile = app.views.Base.extend({
       });
     });
 
+    return false;
+  },
+
+  unblockPerson: function(evt) {
+    var block = this.model.unblock();
+    block.fail(function() {
+      Diaspora.page.flashMessages.render({
+        success: false,
+        notice: Diaspora.I18.t('unblock_failed')
+      });
+    });
     return false;
   },
 

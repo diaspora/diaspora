@@ -6,7 +6,18 @@
   %h3#aspect_stream_header.stream_title
     = stream.title
 
-= render 'publisher/publisher', :selected_aspects => stream.aspects, :aspect_ids => stream.aspect_ids, :aspect => stream.aspect
+- aspects = current_user.aspects
+- aspect  = aspects.first
+- aspect_ids = aspects.map { |a| a.id }
+- if stream
+  - aspects = stream.aspects
+  - aspect  = stream.aspect
+  - aspect_ids = stream.aspect_ids
+
+= render 'publisher/publisher',
+    selected_aspects: aspects,
+    aspect_ids: aspect_ids,
+    aspect: aspect
 = render 'aspects/no_posts_message'
 
 #gs-shim{:title => popover_with_close_html("3. #{t('.stay_updated')}"), 'data-content' => t('.stay_updated_explanation')}
