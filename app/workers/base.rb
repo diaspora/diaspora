@@ -12,7 +12,9 @@ module Workers
     def suppress_annoying_errors(&block)
       yield
     rescue Diaspora::ContactRequiredUnlessRequest,
-           Diaspora::RelayableObjectWithoutParent => e
+           Diaspora::RelayableObjectWithoutParent,
+            # Friendica seems to provoke these
+           Diaspora::AuthorXMLAuthorMismatch => e
       Rails.logger.info("error on receive: #{e.class}")
     rescue ActiveRecord::RecordInvalid => e
       Rails.logger.info("failed to save received object: #{e.record.errors.full_messages}")
