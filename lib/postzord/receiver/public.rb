@@ -57,6 +57,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def save_object
     @object = Diaspora::Parser::from_xml(@salmon.parsed_data)
     raise "Object is not public" if object_can_be_public_and_it_is_not?
+    raise Diaspora::RelayableObjectWithoutParent if object_must_have_parent_and_does_not?
     raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
     @object.save! if @object && @object.respond_to?(:save!)
     @object
@@ -87,5 +88,13 @@ class Postzord::Receiver::Public < Postzord::Receiver
   # @return [Boolean]
   def object_can_be_public_and_it_is_not?
     @object.respond_to?(:public) && !@object.public?
+  end
+
+  def object_must_have_parent_and_does_not?
+    if @object.respond_to?(:relayable?) # comment, like
+      @object.parent.nil?
+    else
+      false
+    end
   end
 end

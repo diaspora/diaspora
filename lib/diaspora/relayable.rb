@@ -51,7 +51,8 @@ module Diaspora
     end
 
     def parent_guid= new_parent_guid
-      self.parent = parent_class.where(:guid => new_parent_guid).first
+      @parent_guid = new_parent_guid
+      self.parent = parent_class.where(guid: new_parent_guid).first
     end
 
     # @return [Array<Person>]
@@ -66,7 +67,7 @@ module Diaspora
     end
 
     def receive(user, person=nil)
-      comment_or_like = self.class.where(:guid => self.guid).first || self
+      comment_or_like = self.class.where(guid: self.guid).first || self
 
       # Check to make sure the signature of the comment or like comes from the person claiming to author it
       unless comment_or_like.parent_author == user.person || comment_or_like.verify_parent_author_signature
@@ -133,6 +134,18 @@ module Diaspora
     # @param parent An instance of Relayable#parent_class
     def parent= parent
       raise NotImplementedError.new('you must override parent= in order to enable relayable on this model')
+    end
+
+    # ROXML hook ensuring our own hooks are called
+    def after_parse
+      if @parent_guid
+        self.parent ||= fetch_parent(@parent_guid)
+      end
+    end
+
+    # Childs should override this to support fetching a missing parent
+    # @param guid the parents guid
+    def fetch_parent guid
     end
   end
 end
