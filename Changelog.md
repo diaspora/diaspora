@@ -44,6 +44,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
 * Move submit button to the right in conversations view [#4960](https://github.com/diaspora/diaspora/pull/4960)
+* Handle long URLs and titles in OpenGraph descriptions [#5208](https://github.com/diaspora/diaspora/pull/5208)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)

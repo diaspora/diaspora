@@ -26,7 +26,7 @@ class OpenGraphCache < ActiveRecord::Base
 
     return if response.blank? || response.type.blank?
 
-    self.title = response.title
+    self.title = response.title.truncate(255)
     self.ob_type = response.type
     self.image = response.images[0]
     self.url = response.url

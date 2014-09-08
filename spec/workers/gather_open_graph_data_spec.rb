@@ -16,12 +16,25 @@ describe Workers::GatherOpenGraphData do
       <meta property=\"og:description\" content=\"#{@ogsite_description}\" />
       </head><body></body></html>"
 
+    @oglong_title = "D" * 256
+    @oglong_url = 'http://www.we-are-too-long.com'
+    @oglong_body =
+      "<html><head><title>#{@oglong_title}</title>
+      <meta property=\"og:title\" content=\"#{@oglong_title}\"/>
+      <meta property=\"og:type\" content=\"#{@ogsite_type}\" />
+      <meta property=\"og:image\" content=\"#{@ogsite_image}\" />
+      <meta property=\"og:url\" content=\"#{@oglong_url}\" />
+      <meta property=\"og:description\" content=\"#{@ogsite_description}\" />
+      </head><body></body></html>"
+
     @no_open_graph_url = 'http://www.we-do-not-support-open-graph.com/index.html'
 
     @status_message = FactoryGirl.create(:status_message)
 
     stub_request(:get, @ogsite_url).to_return(:status => 200, :body => @ogsite_body)
     stub_request(:get, @no_open_graph_url).to_return(:status => 200, :body => '<html><body>hello there</body></html>')
+    stub_request(:get, @oglong_url).to_return(:status => 200, :body => @oglong_body)
+
   end
 
   describe '.perform' do
@@ -64,6 +77,12 @@ describe Workers::GatherOpenGraphData do
       expect {
         Workers::GatherOpenGraphData.new.perform(0, @ogsite_url)
       }.to_not raise_error
+    end
+    it 'truncates + inserts titles that are too long' do
+      Workers::GatherOpenGraphData.new.perform(@status_message.id, @oglong_url)
+      ogc = OpenGraphCache.find_by_url(@oglong_url)
+      expect(ogc).to be_truthy
+      expect(ogc.title.length).to be <= 255
     end
   end
 end
