@@ -16,12 +16,12 @@
 
 .span-18.last
   .profile_header
-    = render 'people/sub_header', :person => @person, :contact => @contact
+    -# = render 'people/sub_header', :person => @person, :contact => @contact
 
   .stream_container
 
     #main_stream.stream
-      - if @block.present?
+      -# - if @block.present?
         .dull
           = t('.ignoring', :name => @person.first_name)
 

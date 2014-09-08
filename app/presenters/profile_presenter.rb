@@ -3,7 +3,7 @@ class ProfilePresenter < BasePresenter
 
   def base_hash
     {  id: id,
-       tags: tag_string,
+       tags: tags.pluck(:name),
        bio: bio,
        location: location,
        gender: gender,

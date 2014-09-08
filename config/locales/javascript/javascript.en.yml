@@ -124,7 +124,11 @@ en:
         is_sharing: "<%= name %> is sharing with you"
         is_not_sharing: "<%= name %> is not sharing with you"
     profile:
-      bio: 'Bio'
+      edit: "edit"
+      add_some: "add some"
+      you_have_no_tags: "you have no tags!"
+      ignoring: "You are ignoring all posts from <%= name %>."
+      bio: "Bio"
       location: "Location"
       gender: "Gender"
       born: "Birthday"

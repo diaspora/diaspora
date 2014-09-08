@@ -4,8 +4,13 @@ app.views.ProfileHeader = app.views.Base.extend({
 
   presenter: function() {
     return _.extend({}, this.defaultPresenter(), {
-      is_blocked: this.model.isBlocked()
+      is_blocked: this.model.isBlocked(),
+      has_tags: this._hasTags()
     });
+  },
+
+  _hasTags: function() {
+    return (this.model.get('profile')['tags'].length > 0);
   },
 
   postRenderTemplate: function() {

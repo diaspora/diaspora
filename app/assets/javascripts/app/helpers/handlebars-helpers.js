@@ -77,6 +77,15 @@ Handlebars.registerHelper('localTime', function(timestamp) {
   return new Date(timestamp).toLocaleString();
 });
 
+Handlebars.registerHelper('fmtTags', function(tags) {
+  var links = _.map(tags, function(tag) {
+    return '<a class="tag" href="' + Routes.tag_path(tag) + '">' +
+           '  #' + tag +
+           '</a>';
+  }).join(' ');
+  return new Handlebars.SafeString(links);
+});
+
 Handlebars.registerHelper('fmtText', function(text) {
   return new Handlebars.SafeString(app.helpers.textFormatter(text, null));
 });

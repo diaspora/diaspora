@@ -185,7 +185,8 @@ class PeopleController < ApplicationController
   private
 
   def find_person
-    @person = Person.find_from_guid_or_username(params)
+    person_id = params[:id] || params[:person_id]
+    @person = Person.find_from_guid_or_username({id: person_id})
 
     # view this profile on the home pod, if you don't want to sign in...
     authenticate_user! if remote_profile_with_no_user_session?
@@ -219,6 +220,7 @@ class PeopleController < ApplicationController
   end
 
   def photos_from(person)
+    return Photo.none unless user_signed_in?
     @photos ||= if user_signed_in?
       current_user.photos_from(person)
     else
@@ -230,6 +232,8 @@ class PeopleController < ApplicationController
   # or use your own contacts if it's yourself
   # see: `Contact#contacts`
   def contact_contacts
+    return Contact.none unless user_signed_in?
+
     @contact_contacts ||= if @person == current_user.person
       current_user.contact_people
     else

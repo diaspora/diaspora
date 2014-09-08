@@ -45,6 +45,7 @@ class PersonPresenter < BasePresenter
   end
 
   def relationship
+    return false unless current_user
     contact = current_user_person_contact
 
     is_mutual    = contact ? contact.mutual?    : false
@@ -66,11 +67,11 @@ class PersonPresenter < BasePresenter
   private
 
   def current_user_person_block
-    @block ||= current_user.blocks.where(person_id: id).limit(1).first
+    @block ||= (current_user ? current_user.blocks.where(person_id: id).limit(1).first : Block.none)
   end
 
   def current_user_person_contact
-    @contact ||= current_user.contact_for(@presentable)
+    @contact ||= (current_user ? current_user.contact_for(@presentable) : Contact.none)
   end
 
   def has_contact?

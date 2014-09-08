@@ -2,7 +2,10 @@
 //= require ../collections/photos
 app.models.Stream = Backbone.Collection.extend({
   initialize : function(models, options){
-    var collectionClass = options && options.collection || app.collections.Posts;
+    if( options ) {
+      var collectionClass = options.collection || app.collections.Posts;
+      this.streamPath = options.basePath;
+    }
     this.items = new collectionClass([], this.collectionOptions());
   },
 
@@ -42,7 +45,7 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   basePath : function(){
-    return document.location.pathname;
+    return this.streamPath || document.location.pathname;
   },
 
   timeFilteredPath : function(){

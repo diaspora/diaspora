@@ -144,7 +144,6 @@ app.Router = Backbone.Router.extend({
     this.renderPage(function() { return new app.pages.Profile({
       el: $('body > .container')
     }); });
-    // TODO call `this.stream()`
   }
 });
 

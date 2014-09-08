@@ -27,7 +27,7 @@
           .profile_button
             = link_to content_tag(:div, nil, :class => 'icons-ignoreuser block_user', :title => t('ignore'), :id => 'block_user_button', :data => { :person_id => @person.id }), '#', :rel => "nofollow" if @block.blank?
 
-  -if contact.sharing? || person == current_user.person
+  -if user_signed_in? && (contact.sharing? || person == current_user.person)
     %ul#profile_information
 
       - unless person.bio.blank?

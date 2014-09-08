@@ -7,7 +7,8 @@ app.pages.Profile = app.views.Base.extend({
 
   subviews: {
     '#profile': 'sidebarView',
-    '.profile_header': 'headerView'
+    '.profile_header': 'headerView',
+    '#main_stream': 'streamView'
   },
 
   tooltipSelector: '.profile_button div, .sharing_message_container',
@@ -39,6 +40,20 @@ app.pages.Profile = app.views.Base.extend({
 
   headerView: function() {
     return new app.views.ProfileHeader({model: this.model});
+  },
+
+  streamView: function() {
+    if( this.model.isBlocked() ) {
+      $('#main_stream').empty().html(
+        '<div class="dull">'+
+        Diaspora.I18n.t('profile.ignoring', {name: this.model.get('name')}) +
+        '</div>');
+      return false;
+    }
+
+    app.stream = new app.models.Stream(null, {basePath: Routes.person_stream_path(app.page.model.get('guid'))});
+    app.stream.fetch();
+    return new app.views.Stream({model: app.stream});
   },
 
   blockPerson: function(evt) {
