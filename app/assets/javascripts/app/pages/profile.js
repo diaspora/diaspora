@@ -14,12 +14,22 @@ app.pages.Profile = app.views.Base.extend({
   tooltipSelector: '.profile_button div, .sharing_message_container',
 
   initialize: function(opts) {
-    if( app.hasPreload('person') )
+    if( app.hasPreload('person') ) {
       this.model = new app.models.Person(app.parsePreload('person'));
+    } else if(opts && opts.person_id) {
+      this.model = new app.models.Person({guid: opts.person_id});
+      this.model.fetch();
+    } else {
+      throw new Error("unable to load person");
+    }
+
     if( app.hasPreload('photos') )
       this.photos = app.parsePreload('photos');  // we don't interact with it, so no model
     if( app.hasPreload('contacts') )
       this.contacts = app.parsePreload('contacts');  // we don't interact with it, so no model
+
+    this.streamCollection = _.has(opts, 'streamCollection') ? opts.streamCollection : null;
+    this.streamViewClass = _.has(opts, 'streamView') ? opts.streamView : null;
 
     this.model.on('change', this.render, this);
 
@@ -31,6 +41,7 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   sidebarView: function() {
+    if( !this.model.has('profile') ) return false;
     return new app.views.ProfileSidebar({
       model: this.model,
       photos: this.photos,
@@ -39,10 +50,12 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   headerView: function() {
+    if( !this.model.has('profile') ) return false;
     return new app.views.ProfileHeader({model: this.model});
   },
 
   streamView: function() {
+    if( !this.model.has('profile') ) return false;
     if( this.model.isBlocked() ) {
       $('#main_stream').empty().html(
         '<div class="dull">'+
@@ -51,9 +64,16 @@ app.pages.Profile = app.views.Base.extend({
       return false;
     }
 
-    app.stream = new app.models.Stream(null, {basePath: Routes.person_stream_path(app.page.model.get('guid'))});
+    // a collection is set, this means we want to view photos
+    var route = this.streamCollection ? 'person_photos_path' : 'person_stream_path';
+    var view = this.streamViewClass ? this.streamViewClass : app.views.Stream;
+
+    app.stream = new app.models.Stream(null, {
+      basePath: Routes[route](app.page.model.get('guid')),
+      collection: this.streamCollection
+    });
     app.stream.fetch();
-    return new app.views.Stream({model: app.stream});
+    return new view({model: app.stream});
   },
 
   blockPerson: function(evt) {

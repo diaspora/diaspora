@@ -77,10 +77,15 @@ app.Router = Backbone.Router.extend({
     this._hideInactiveStreamLists();
   },
 
-  photos : function() {
-    app.photos = new app.models.Stream([], {collection: app.collections.Photos});
-    app.page = new app.views.Photos({model : app.photos});
-    $("#main_stream").html(app.page.render().el);
+  photos : function(guid) {
+    this.renderPage(function() {
+      return new app.pages.Profile({
+        person_id: guid,
+        el: $('body > .container'),
+        streamCollection: app.collections.Photos,
+        streamView: app.views.Photos
+      });
+    });
   },
 
   followed_tags : function(name) {
