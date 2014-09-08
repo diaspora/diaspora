@@ -123,6 +123,13 @@ en:
       helper:
         is_sharing: "<%= name %> is sharing with you"
         is_not_sharing: "<%= name %> is not sharing with you"
+    profile:
+      bio: 'Bio'
+      location: "Location"
+      gender: "Gender"
+      born: "Birthday"
+      photos: "Photos"
+      contacts: "Contacts"
 
     conversation:
       participants: "Participants"

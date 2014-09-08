@@ -2,6 +2,10 @@ Handlebars.registerHelper('t', function(scope, values) {
   return Diaspora.I18n.t(scope, values.hash)
 });
 
+Handlebars.registerHelper('txtDirClass', function(str) {
+  return app.helpers.txtDirection.classFor(str);
+});
+
 Handlebars.registerHelper('imageUrl', function(path){
   return ImagePaths.get(path);
 });
@@ -71,4 +75,8 @@ Handlebars.registerHelper('personImage', function(person, size, imageClass) {
 
 Handlebars.registerHelper('localTime', function(timestamp) {
   return new Date(timestamp).toLocaleString();
+});
+
+Handlebars.registerHelper('fmtText', function(text) {
+  return new Handlebars.SafeString(app.helpers.textFormatter(text, null));
 });

@@ -1,4 +1,6 @@
 class ProfilePresenter < BasePresenter
+  include PeopleHelper
+
   def base_hash
     {  id: id,
        tags: tag_string,
@@ -14,5 +16,9 @@ class ProfilePresenter < BasePresenter
     base_hash.merge({
       avatar: AvatarPresenter.new(@presentable).base_hash,
     })
+  end
+
+  def formatted_birthday
+    birthday_format(birthday) if birthday
   end
 end

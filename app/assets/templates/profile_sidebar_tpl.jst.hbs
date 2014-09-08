@@ -1,5 +1,5 @@
 
-<div class="profile_photo">
+<div id="profile_photo" class="profile_photo">
   {{#linkToPerson this}}
     {{{personImage this "l"}}}
   {{/linkToPerson}}
@@ -36,4 +36,67 @@
       </div>
     {{/if}}
   </div>
+{{/if}}
+
+{{#if do_profile_info}}
+  <ul id="profile_information">
+    {{#with profile}}
+      {{#if bio}}
+        <li>
+          <h4>{{t 'profile.bio'}}</h4>
+          <div class="{{txtDirClass bio}}">{{fmtText bio}}</div>
+        </li>
+      {{/if}}
+      {{#if location}}
+        <li>
+          <h4>{{t 'profile.location'}}</h4>
+          <div class="{{txtDirClass location}}">{{fmtText location}}</div>
+        </li>
+      {{/if}}
+      {{#if gender}}
+        <li>
+          <h4>{{t 'profile.gender'}}</h4>
+          {{gender}}
+        </li>
+      {{/if}}
+      {{#if birthday}}
+        <li>
+          <h4>{{t 'profile.born'}}</h4>
+          {{birthday}}
+        </li>
+      {{/if}}
+    {{/with}}
+    {{#if do_photos}}
+      <li class="image_list">
+        <h4>
+          {{t 'profile.photos'}}
+          <div class="item_count">{{photos.count}}</div>
+        </h4>
+        <div class="section photo_pictures">
+          {{#each photos.items}}
+            <img src="{{sizes.s}}" alt="{{guid}}" />
+          {{/each}}
+        </div>
+        <p class="see_all">
+          <a href="{{urlTo 'person_photos' guid}}">{{t 'header.view_all'}}</a>
+        </p>
+      </li>
+    {{/if}}
+    {{#if do_contacts}}
+      <li class="image_list">
+        <h4>
+          {{t 'profile.contacts'}}
+          <div class="item_count">{{contacts.count}}</div>
+        </h4>
+        <div class="section contact_pictures">
+          {{#each contacts.items}}
+            {{#linkToPerson this}}{{{personImage this "s"}}}{{/linkToPerson}}
+          {{/each}}
+        </div>
+        <p class="see_all">
+          <a href="{{urlTo 'person_contacts' guid}}">{{t 'header.view_all'}}</a>
+        </p>
+      </li>
+    {{/if}}
+  </ul>
 {{/if}}

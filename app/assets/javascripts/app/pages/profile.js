@@ -6,7 +6,7 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   subviews: {
-    '#profile .badge': 'sidebarView',
+    '#profile': 'sidebarView',
     '.profile_header': 'headerView'
   },
 
@@ -15,6 +15,10 @@ app.pages.Profile = app.views.Base.extend({
   initialize: function(opts) {
     if( app.hasPreload('person') )
       this.model = new app.models.Person(app.parsePreload('person'));
+    if( app.hasPreload('photos') )
+      this.photos = app.parsePreload('photos');  // we don't interact with it, so no model
+    if( app.hasPreload('contacts') )
+      this.contacts = app.parsePreload('contacts');  // we don't interact with it, so no model
 
     this.model.on('change', this.render, this);
 
@@ -26,7 +30,11 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   sidebarView: function() {
-    return new app.views.ProfileSidebar({model: this.model});
+    return new app.views.ProfileSidebar({
+      model: this.model,
+      photos: this.photos,
+      contacts: this.contacts
+    });
   },
 
   headerView: function() {

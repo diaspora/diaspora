@@ -18,7 +18,7 @@ class BasePresenter
   end
 
   def method_missing(method, *args)
-    @presentable.send(method, *args) if @presentable.respond_to?(method)
+    @presentable.public_send(method, *args)
   end
 
   class NilPresenter
