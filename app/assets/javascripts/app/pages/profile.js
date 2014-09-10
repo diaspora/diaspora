@@ -37,6 +37,7 @@ app.pages.Profile = app.views.Base.extend({
     var id = this.model.get('id');
     app.events.on('person:block:'+id, this.reload, this);
     app.events.on('person:unblock:'+id, this.reload, this);
+    app.events.on('aspect:create', this.reload, this);
     app.events.on('aspect_membership:update', this.reload, this);
   },
 

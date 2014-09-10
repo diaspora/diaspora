@@ -67,7 +67,7 @@ class PersonPresenter < BasePresenter
   private
 
   def current_user_person_block
-    @block ||= (current_user ? current_user.blocks.where(person_id: id).limit(1).first : Block.none)
+    @block ||= (current_user ? current_user.block_for(@presentable) : Block.none)
   end
 
   def current_user_person_contact

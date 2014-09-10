@@ -3,8 +3,8 @@
 #   the COPYRIGHT file.
 
 class PeopleController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :last_post]
-  before_action :find_person, only: [:show, :stream]
+  before_action :authenticate_user!, except: [:show, :stream, :last_post]
+  before_action :find_person, only: [:show, :stream, :hovercard]
 
   use_bootstrap_for :index
 
@@ -78,23 +78,10 @@ class PeopleController < ApplicationController
     mark_corresponding_notifications_read if user_signed_in?
 
     @aspect = :profile  # let aspect dropdown create new aspects
-    @post_type = :all   # for mobile
     @person_json = PersonPresenter.new(@person, current_user).full_hash_with_profile
 
     respond_to do |format|
       format.all do
-        @profile = @person.profile
-        if current_user
-          @block = current_user.blocks.where(:person_id => @person.id).first
-          @contact = current_user.contact_for(@person)
-          if @contact && !params[:only_posts]
-            @contacts_of_contact_count = contact_contacts.count(:all)
-            @contacts_of_contact = contact_contacts.limit(8)
-          else
-            @contact ||= Contact.new
-          end
-        end
-
         gon.preloads[:person] = @person_json
         gon.preloads[:photos] = {
           count: photos_from(@person).count(:all),
@@ -104,29 +91,31 @@ class PeopleController < ApplicationController
           count: contact_contacts.count(:all),
           items: PersonPresenter.as_collection(contact_contacts.limit(8), :full_hash_with_avatar, current_user)
         }
-        respond_with @person, :locals => {:post_type => :all}
+        respond_with @person
       end
 
-      format.json { render :json => @person_json }
+      format.mobile do
+        @post_type = :all
+        person_stream
+        respond_with @person
+      end
+
+      format.json { render json: @person_json }
     end
   end
 
   def stream
     respond_to do |format|
       format.all { redirect_to person_path(@person) }
-      format.json do
-        @stream = Stream::Person.new(current_user, @person, max_time: max_time)
-        render json: @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }
-      end
+      format.json {
+        render json: person_stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }
+      }
     end
   end
 
   # hovercards fetch some the persons public profile data via json and display
   # it next to the avatar image in a nice box
   def hovercard
-    @person = Person.find_from_guid_or_username({:id => params[:person_id]})
-    raise Diaspora::AccountClosed if @person.closed_account?
-
     respond_to do |format|
       format.all do
         redirect_to :action => "show", :id => params[:person_id]
@@ -220,7 +209,6 @@ class PeopleController < ApplicationController
   end
 
   def photos_from(person)
-    return Photo.none unless user_signed_in?
     @photos ||= if user_signed_in?
       current_user.photos_from(person)
     else
@@ -246,5 +234,9 @@ class PeopleController < ApplicationController
     Notification.where(recipient_id: current_user.id, target_type: "Person", target_id: @person.id, unread: true).each do |n|
       n.set_read_state( true )
     end
+  end
+
+  def person_stream
+    @stream ||= Stream::Person.new(current_user, @person, max_time: max_time)
   end
 end

@@ -12,7 +12,8 @@
   = @person.name
 
 .span-6
-  = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
+  #profile
+    -# = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
 
 .span-18.last
   .profile_header

@@ -2,9 +2,10 @@
 //= require ../collections/photos
 app.models.Stream = Backbone.Collection.extend({
   initialize : function(models, options){
+    var collectionClass = app.collections.Posts
     if( options ) {
-      var collectionClass = options.collection || app.collections.Posts;
-      this.streamPath = options.basePath;
+      options.collection && (collectionClass = options.collection);
+      options.basePath && (this.streamPath = options.basePath);
     }
     this.items = new collectionClass([], this.collectionOptions());
   },

@@ -2,6 +2,10 @@
 app.views.ProfileHeader = app.views.Base.extend({
   templateName: 'profile_header',
 
+  initialize: function() {
+    app.events.on('aspect:create', this.postRenderTemplate, this);
+  },
+
   presenter: function() {
     return _.extend({}, this.defaultPresenter(), {
       is_blocked: this.model.isBlocked(),
@@ -25,6 +29,9 @@ app.views.ProfileHeader = app.views.Base.extend({
     $.get(href, function(resp) {
       dropdownEl.html(resp);
       new app.views.AspectMembership({el: dropdownEl});
-    })
+
+      // UGLY (re-)attach the facebox
+      self.$('a[rel*=facebox]').facebox();
+    });
   }
 });
