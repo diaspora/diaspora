@@ -46,18 +46,14 @@ class PersonPresenter < BasePresenter
 
   def relationship
     return false unless current_user
+    return :blocked if is_blocked?
+
     contact = current_user_person_contact
+    return :not_sharing unless contact
 
-    is_mutual    = contact ? contact.mutual?    : false
-    is_sharing   = contact ? contact.sharing?   : false
-    is_receiving = contact ? contact.receiving? : false
-
-    if is_blocked?     then :blocked
-    elsif is_mutual    then :mutual
-    elsif is_sharing   then :sharing
-    elsif is_receiving then :receiving
-    else                    :not_sharing
-    end
+    [:mutual, :sharing, :receiving].find do |status|
+      contact.public_send("#{status}?")
+    end || :not_sharing
   end
 
   def person_is_following_current_user

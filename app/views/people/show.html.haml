@@ -13,18 +13,16 @@
 
 .span-6
   #profile
-    -# = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
+    -# here be JS
 
 .span-18.last
   .profile_header
-    -# = render 'people/sub_header', :person => @person, :contact => @contact
+    -# more JS
 
   .stream_container
 
     #main_stream.stream
-      -# - if @block.present?
-        .dull
-          = t('.ignoring', :name => @person.first_name)
+      -# JS
 
     #paginate
 

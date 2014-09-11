@@ -1,8 +1,6 @@
 app.models.Person = Backbone.Model.extend({
-  urlRoot: '/people',
-
   url: function() {
-    return this.urlRoot + '/' + this.get('guid');
+    return Routes.person_path(this.get('guid'));
   },
 
   initialize: function() {

@@ -3,13 +3,13 @@ class PhotoPresenter < BasePresenter
     { id: id,
       guid: guid,
       dimensions: {
-        h: height,
-        w: width
+        height: height,
+        width: width
       },
       sizes: {
-        s: url(:thumb_small),
-        m: url(:thumb_medium),
-        l: url(:scaled_full)
+        small: url(:thumb_small),
+        medium: url(:thumb_medium),
+        large: url(:scaled_full)
       }
     }
   end

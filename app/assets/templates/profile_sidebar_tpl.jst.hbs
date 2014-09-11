@@ -1,7 +1,7 @@
 
 <div id="profile_photo" class="profile_photo">
   {{#linkToPerson this}}
-    {{{personImage this "l"}}}
+    {{{personImage this "large"}}}
   {{/linkToPerson}}
 </div>
 
@@ -74,7 +74,7 @@
         </h4>
         <div class="section photo_pictures">
           {{#each photos.items}}
-            <img src="{{sizes.s}}" alt="{{guid}}" />
+            <img src="{{sizes.small}}" alt="{{guid}}" />
           {{/each}}
         </div>
         <p class="see_all">
@@ -90,7 +90,7 @@
         </h4>
         <div class="section contact_pictures">
           {{#each contacts.items}}
-            {{#linkToPerson this}}{{{personImage this "s"}}}{{/linkToPerson}}
+            {{#linkToPerson this}}{{{personImage this "small"}}}{{/linkToPerson}}
           {{/each}}
         </div>
         <p class="see_all">

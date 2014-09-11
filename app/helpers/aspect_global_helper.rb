@@ -65,6 +65,6 @@ LISTITEM
       return {}
     end
 
-    { aspects: aspects, aspect: aspect, aspect_ids: aspect_ids }
+    { selected_aspects: aspects, aspect: aspect, aspect_ids: aspect_ids }
   end
 end

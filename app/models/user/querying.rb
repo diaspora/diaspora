@@ -106,7 +106,7 @@ module User::Querying
 
   def block_for(person)
     return nil unless person
-    self.blocks.where(person_id: person.id).limit(1).first
+    self.blocks.where(person_id: person.id).first
   end
 
   def aspects_with_shareable(base_class_name_or_class, shareable_id)
