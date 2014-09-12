@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
-gem 'rails', '4.1.5'
+gem 'rails', '4.1.6'
 
 # Legacy Rails features, remove me!
 
@@ -29,7 +29,7 @@ gem 'simple_captcha2', '0.3.2', :require => 'simple_captcha'
 
 # Background processing
 
-gem 'sidekiq', '3.2.3'
+gem 'sidekiq', '3.2.5'
 gem 'sinatra', '1.3.3'
 
 # Compression
@@ -64,7 +64,7 @@ gem 'foreigner',           '1.6.1'
 
 gem 'carrierwave', '0.10.0'
 gem 'fog',         '1.23.0'
-gem 'mini_magick', '3.8.0'
+gem 'mini_magick', '3.8.1'
 gem 'remotipart',  '1.2.1'
 
 # GUID generation
@@ -77,7 +77,7 @@ gem 'entypo-rails', '2.2.2'
 # JavaScript
 
 gem 'backbone-on-rails',   '1.1.1'
-gem 'handlebars_assets',   '0.17.1'
+gem 'handlebars_assets',   '0.18.0'
 gem 'jquery-rails',        '3.1.2'
 gem 'rails-assets-jquery', '1.11.1' # Should be kept in sync with jquery-rails
 gem 'js_image_paths',      '0.0.1'
@@ -195,13 +195,13 @@ group :test do
   gem 'fixture_builder',   '0.3.6'
   gem 'fuubar',            '2.0.0'
   gem 'rspec-instafail',   '0.2.5', :require => false
-  gem 'test_after_commit', '0.2.6'
+  gem 'test_after_commit', '0.2.7'
 
   # Cucumber (integration tests)
 
   gem 'capybara',           '2.4.1'
   gem 'database_cleaner',   '1.3.0'
-  gem 'selenium-webdriver', '2.42.0'
+  gem 'selenium-webdriver', '2.43.0'
 
   # General helpers
 
