@@ -59,8 +59,9 @@ Handlebars.registerHelper('hovercardable', function(person) {
 Handlebars.registerHelper('personImage', function(person, size, imageClass) {
   /* we return here if person.avatar is blank, because this happens when a
    * user is unauthenticated.  we don't know why this happens... */
+  if( !person.avatar &&
+      !(person.profile && person.profile.avatar) ) return;
   var avatar = person.avatar || person.profile.avatar;
-  if( !avatar ) return;
 
   var name = ( person.name ) ? person.name : 'avatar';
   size = ( !_.isString(size) ) ? "small" : size;
