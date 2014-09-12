@@ -6,7 +6,9 @@ require 'spec_helper'
 
 describe HydraWrapper do
   before do
-    @people = ["person", "person2", "person3"]
+    @people = %w[person person2 person3].map.with_index {|name, id|
+      double(id: id, name: name)
+    }
     @wrapper = HydraWrapper.new double, @people, "<encoded_xml>", double
   end
 
@@ -61,7 +63,7 @@ describe HydraWrapper do
       @wrapper.dispatcher_class = double salmon: double(xml_for: "<XML>")
       allow(@wrapper).to receive(:grouped_people).and_return('https://foo.com' => @wrapper.people)
       expect(@wrapper.people).to receive(:first).once
-      expect(@wrapper).to receive(:insert_job).with('https://foo.com', "<XML>", @wrapper.people).once
+      expect(@wrapper).to receive(:insert_job).with('https://foo.com', "<XML>", @wrapper.people.map(&:id)).once
       @wrapper.enqueue_batch
     end
 

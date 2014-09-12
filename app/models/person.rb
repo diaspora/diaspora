@@ -304,12 +304,10 @@ class Person < ActiveRecord::Base
   end
 
   # Update an array of people given a url, and set it as the new destination_url
-  # @param people [Array<People>]
+  # @param people_ids [Array<Integer>]
   # @param url [String]
-  def self.url_batch_update(people, url)
-    people.each do |person|
-      person.update_url(url)
-    end
+  def self.url_batch_update(people_ids, url)
+    where(id: people_ids).update_all(url: sanitize_url(url))
   end
 
   #gross method pulled out from controller, not exactly sure how it should be used.
@@ -317,14 +315,17 @@ class Person < ActiveRecord::Base
     user.contacts.receiving.where(:person_id => self.id).first if user
   end
 
-  # @param person [Person]
   # @param url [String]
   def update_url(url)
+    self.update_attributes(url: self.class.sanitize_url(url))
+  end
+
+  # @param url [String]
+  def self.sanitize_url url
     location = URI.parse(url)
     newuri = "#{location.scheme}://#{location.host}"
     newuri += ":#{location.port}" unless ["80", "443"].include?(location.port.to_s)
     newuri += "/"
-    self.update_attributes(:url => newuri)
   end
 
   def lock_access!

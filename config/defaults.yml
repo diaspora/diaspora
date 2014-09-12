@@ -68,6 +68,7 @@ defaults:
       suggest_email:
     typhoeus_verbose: false
     typhoeus_concurrency: 20
+    typhoeus_connects: 10
     username_blacklist:
       - 'admin'
       - 'administrator'

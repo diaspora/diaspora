@@ -71,7 +71,7 @@ configuration: ## Section
 
       ## Number of parallel threads Sidekiq uses (default=5)
       ## If you touch this please set the pool setting in your database.yml to
-      ## a value that's at minimum close to this! You can safely increase it 
+      ## a value that's at minimum close to this! You can safely increase it
       ## to 25 and more on a medium-sized pod. This applies per started Sidekiq
       ## worker, so if you set it to 25 and start two workers you'll process
       ## up to 50 jobs in parallel.
@@ -179,7 +179,7 @@ configuration: ## Section
     #jquery_cdn: false
     
     ## Google Analytics (disabled by default)
-    ## Provide a key to enable tracking by Google Analytics 
+    ## Provide a key to enable tracking by Google Analytics
     #google_analytics_key:
     
     ## Piwik Tracking (disabled by default)
@@ -200,7 +200,7 @@ configuration: ## Section
     ## Statistics
     ## Your pod will report its name, software version and whether
     ## or not registrations are open via /statistics.json.
-    ## Uncomment the options below to enable more statistics. 
+    ## Uncomment the options below to enable more statistics.
     statistics: ## Section
 
       ## Local user total and 6 month active counts
@@ -278,6 +278,11 @@ configuration: ## Section
     ## Be careful, raising this setting will heavily increase the memory usage
     ## of your Sidekiq workers.
     #typhoeus_concurrency: 20
+
+    ## Maximum number of open connections to other pods (default=10)
+    ## Raising this will make delivering posts to other pods faster
+    ## but also increase memory usage.
+    #typhoeus_connects: 10
 
     ## Captcha settings
     captcha: ## Section

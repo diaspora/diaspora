@@ -15,6 +15,7 @@ describe Workers::HttpMulti do
     @people = [FactoryGirl.create(:person), FactoryGirl.create(:person)]
     @post_xml = Base64.encode64 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH"
 
+    HydraWrapper::GlobalHydra.instance.reset!
     @hydra = Typhoeus::Hydra.new
     allow(Typhoeus::Hydra).to receive(:new).and_return(@hydra)
     @salmon = Salmon::EncryptedSlap.create_by_user_and_activity bob, Base64.decode64(@post_xml)

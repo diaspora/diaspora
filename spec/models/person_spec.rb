@@ -491,11 +491,14 @@ describe Person, :type => :model do
     end
 
     describe '.url_batch_update' do
-      it "calls #update_person_url given an array of users and a url" do
-        people = [double.as_null_object, double.as_null_object, double.as_null_object]
-        people.each do |person|
-          expect(person).to receive(:update_url).with(@url)
-        end
+      it "sanitizes and updates the URL" do
+        people = double
+        collection = double
+        url = double
+        expect(Person).to receive(:sanitize_url).with(@url).and_return(url)
+        expect(Person).to receive(:where).with(id: people).and_return(collection)
+        expect(collection).to receive(:update_all).with(url: url)
+
         Person.url_batch_update(people, @url)
       end
     end
