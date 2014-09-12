@@ -209,7 +209,7 @@ GEM
       spork (>= 0.8.4)
     haml (4.0.5)
       tilt
-    handlebars_assets (0.17.1)
+    handlebars_assets (0.18)
       execjs (>= 1.2.9)
       multi_json
       sprockets (>= 2.0.3)
@@ -529,7 +529,7 @@ DEPENDENCIES
   guard-rspec (= 4.3.1)
   guard-spork (= 1.5.1)
   haml (= 4.0.5)
-  handlebars_assets (= 0.17.1)
+  handlebars_assets (= 0.18.0)
   http_accept_language (= 2.0.2)
   i18n-inflector-rails (= 1.0.7)
   jasmine (= 2.0.2)
