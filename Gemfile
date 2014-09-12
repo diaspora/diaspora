@@ -201,7 +201,7 @@ group :test do
 
   gem 'capybara',           '2.4.1'
   gem 'database_cleaner',   '1.3.0'
-  gem 'selenium-webdriver', '2.42.0'
+  gem 'selenium-webdriver', '2.43.0'
 
   # General helpers
 
