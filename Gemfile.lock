@@ -170,7 +170,7 @@ GEM
       net-ssh (>= 2.1.3)
     fog-json (1.0.0)
       multi_json (~> 1.0)
-    fog-softlayer (0.3.16)
+    fog-softlayer (0.3.17)
       fog-core
       fog-json
     font-awesome-rails (4.2.0.0)
