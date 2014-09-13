@@ -17,7 +17,7 @@
       });
     });
 
-    this.isRTL = app.helpers.txtDirection;
+    this.isRTL = app.helpers.txtDirection.isRTL;
 
     this.updateBinds = function() {
       $.each(self.binds, function(index, bind) {

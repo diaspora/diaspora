@@ -79,8 +79,8 @@ factory = {
     }
   },
 
-  profile : function(overrides) {
-    var id = overrides && overrides.id || factory.id.next()
+  profileAttrs: function(overrides) {
+    var id = (overrides && overrides.id) ? overrides.id : factory.id.next();
     var defaults = {
       "bio": "I am a cat lover and I love to run",
       "birthday": "2012-04-17",
@@ -99,9 +99,38 @@ factory = {
       "person_id": "person" + id,
       "searchable": true,
       "updated_at": "2012-04-17T23:48:36Z"
-    }
+    };
+    return _.extend({}, defaults, overrides);
+  },
 
-    return new app.models.Profile(_.extend(defaults, overrides))
+  profile : function(overrides) {
+    return new app.models.Profile(factory.profileAttrs(overrides));
+  },
+
+  personAttrs: function(overrides) {
+    var id = (overrides && overrides.id) ? overrides.id : factory.id.next();
+    var defaults = {
+      "id": id,
+      "guid": factory.guid(),
+      "name": "Bob Grimm",
+      "diaspora_id": "bob@localhost:3000",
+      "relationship": "sharing",
+      "is_own_profile": false
+    };
+    return _.extend({}, defaults, overrides);
+  },
+
+  person: function(overrides) {
+    return new app.models.Person(factory.personAttrs(overrides));
+  },
+
+  personWithProfile: function(overrides) {
+    var profile_overrides = _.clone(overrides.profile);
+    delete overrides.profile;
+    var defaults = {
+      profile: factory.profileAttrs(profile_overrides)
+    };
+    return factory.person(_.extend({}, defaults, overrides));
   },
 
   photoAttrs : function(overrides){

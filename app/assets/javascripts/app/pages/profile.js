@@ -14,13 +14,8 @@ app.pages.Profile = app.views.Base.extend({
   tooltipSelector: '.profile_button div, .sharing_message_container',
 
   initialize: function(opts) {
-    if( app.hasPreload('person') ) {
-      this.model = new app.models.Person(app.parsePreload('person'));
-    } else if(opts && opts.person_id) {
-      this.model = new app.models.Person({guid: opts.person_id});
-      this.model.fetch();
-    } else {
-      throw new Error("unable to load person");
+    if( !this.model ) {
+      this._populateModel(opts);
     }
 
     if( app.hasPreload('photos') )
@@ -39,6 +34,17 @@ app.pages.Profile = app.views.Base.extend({
     app.events.on('person:unblock:'+id, this.reload, this);
     app.events.on('aspect:create', this.reload, this);
     app.events.on('aspect_membership:update', this.reload, this);
+  },
+
+  _populateModel: function(opts) {
+    if( app.hasPreload('person') ) {
+      this.model = new app.models.Person(app.parsePreload('person'));
+    } else if(opts && opts.person_id) {
+      this.model = new app.models.Person({guid: opts.person_id});
+      this.model.fetch();
+    } else {
+      throw new Error("unable to load person");
+    }
   },
 
   sidebarView: function() {

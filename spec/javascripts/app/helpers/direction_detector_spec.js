@@ -32,6 +32,3 @@ describe("app.helpers.txtDirection", function() {
     });
   });
 });
-
-
-101
