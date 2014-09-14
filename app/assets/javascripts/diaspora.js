@@ -78,7 +78,8 @@
       Diaspora.page = new Page();
     }
 
-    if(!$.mobile)//why does this need this?
+    if (typeof MOBILE == "undefined" || !MOBILE)
+	  // don't init BasePage on mobile
       $.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
     Diaspora.page.publish("page/ready", [$(document.body)])
   };

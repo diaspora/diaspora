@@ -5,8 +5,9 @@
 - content_for :page_title do
   = t('.title')
 
-- content_for :head do
-  = javascript_include_tag :people
+- if ! in_mobile_view?
+  - content_for :head do
+    = javascript_include_tag :people
 
 #section_header
   %h2
