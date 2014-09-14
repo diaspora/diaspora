@@ -61,20 +61,17 @@ module Diaspora
     config.assets.precompile += %w{
       aspect-contacts.js 
       contact-list.js
-      finder.js
       home.js
       ie.js
       inbox.js
       jquery.js
       jquery_ujs.js
       jquery.textchange.js
-      login.js
       mailchimp.js
       main.js
       mobile.js
       profile.js
       people.js
-      photos.js
       profile.js
       publisher.js
       templates.js
@@ -86,7 +83,7 @@ module Diaspora
       bootstrap-responsive.css
       default.css
       error_pages.css
-      login.css
+      admin.css
       mobile/mobile.css
       new-templates.css
       rtl.css

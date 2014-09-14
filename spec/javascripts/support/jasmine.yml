@@ -28,10 +28,7 @@ stylesheets:
   - assets/blueprint.css
   - assets/bootstrap.css
   - assets/default.css
-  - assets/login.css
-  #- assets/mobile.css
   - assets/new-templates.css
-  #- assets/rtl.css
 
 # helpers
 #

@@ -25,14 +25,10 @@ app.views.SinglePostContent = app.views.Base.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      authorIsCurrentUser : this.authorIsCurrentUser(),
+      authorIsCurrentUser :app.currentUser.isAuthorOf(this.model),
       showPost : this.showPost(),
       text : app.helpers.textFormatter(this.model.get("text"), this.model)
     })
-  },
-
-  authorIsCurrentUser : function() {
-    return app.currentUser.authenticated() && this.model.get("author").id == app.user().id
   },
 
   showPost : function() {

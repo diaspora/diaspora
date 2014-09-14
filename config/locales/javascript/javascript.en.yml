@@ -16,6 +16,7 @@ en:
         created: "The report was successfully created"
         exists: "The report already exists"
     ignore_user: "Ignore this user?"
+    ignore_failed: "Unable to ignore this user"
     and: "and"
     comma: ","
     edit: "Edit"
@@ -50,8 +51,8 @@ en:
       limited: "Limited - your post will only be seen by people you are sharing with"
       public: "Public - your post will be visible to everyone and found by search engines"
       near_from: "Posted from: <%= location %>"
-      option: "Option <%= nr %>"
-      add_option: "Add option"
+      option: "Answer"
+      add_option: "Add an answer"
       question: "Question"
     bookmarklet:
       post_something: "Post to diaspora*"

@@ -22,7 +22,8 @@ app.views.Content = app.views.Base.extend({
   smallPhotos : function() {
     var photos = this.model.get("photos")
     if(!photos || photos.length < 2) { return }
-    return photos
+    photos.splice(0, 1); // remove first photo as it is already shown as largePhoto
+    return photos;
   },
 
 

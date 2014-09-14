@@ -1,3 +1,9 @@
+h2.help_header {
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
 ul#help_nav {
   display: inline;
   padding: 0;
@@ -23,12 +29,17 @@ ul#help_nav {
     font-weight: 700;
   }
   ul {
+    list-style: none;
     padding: 0;
+    margin: 0;
     li {
       font-weight: 700;
       margin-bottom: 10px;
       a {
         font-weight: normal;
+      }
+      .section-selected {
+        font-weight: bold;
       }
     }
   }
@@ -55,7 +66,10 @@ ul#help_nav {
     background-color: rgb(242, 242, 242);
     margin-bottom: 10px;
     @include border-radius(4px);
-    a.toggle { text-decoration: none; }
+    a.toggle {
+      text-decoration: none; 
+      color: black;
+    }
     h4 { 
       text-align: left;
       font-weight: 700;
@@ -74,7 +88,7 @@ ul#help_nav {
       }
     }
     .answer {
-      @include border-bottom-radius(4px);
+      @include border-radius(0px, 0px, 4px, 4px);
       background-color: white;
       padding: 10px 20px;
     }

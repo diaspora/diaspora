@@ -3,7 +3,7 @@ When(/^I activate the first hovercard$/) do
 end
 
 Then(/^I should see a hovercard$/) do
-  page.should have_css('#hovercard')
+  page.should have_css('#hovercard', visible: true)
 end
 
 When(/^I deactivate the first hovercard$/) do
@@ -11,7 +11,7 @@ When(/^I deactivate the first hovercard$/) do
 end
 
 Then(/^I should not see a hovercard$/) do
-  page.should_not have_css('#hovercard')
+  page.should_not have_css('#hovercard', visible: true)
 end
 
 When (/^I hover "([^"]*)" within "([^"]*)"$/) do |name, selector|

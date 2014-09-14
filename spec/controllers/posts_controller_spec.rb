@@ -50,6 +50,17 @@ describe PostsController do
         }.to change(Notification.where(:unread => true), :count).by(-2)
       end
 
+      it 'marks a corresponding mention notification as read' do
+        status_msg = bob.post(:status_message, {text: "this is a text mentioning @{Mention User ; #{alice.diaspora_handle}} ... have fun testing!", :public => true, :to => 'all'})
+        mention = status_msg.mentions.where(person_id: alice.person.id).first
+        note = FactoryGirl.create(:notification, :recipient => alice, :target_type => "Mention", :target_id => mention.id, :unread => true)
+
+        expect {
+          get :show, :id => status_msg.id
+          note.reload
+        }.to change(Notification.where(:unread => true), :count).by(-1)
+      end
+
       it '404 if the post is missing' do
         expect {
           get :show, :id => 1234567

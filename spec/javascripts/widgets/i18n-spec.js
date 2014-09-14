@@ -24,27 +24,28 @@ describe("Diaspora.I18n", function() {
     Diaspora.I18n.reset();   // run tests with clean locale
   });
 
-  describe("::loadLocale", function() {
+  describe("::load", function() {
     it("sets the class's locale variable", function() {
-      Diaspora.I18n.loadLocale(locale);
+      Diaspora.I18n.load(locale, "en", locale);
 
-      expect(Diaspora.I18n.locale).toEqual(locale);
+      expect(Diaspora.I18n.locale.data).toEqual(locale);
+      expect(Diaspora.I18n.locale.fallback.data).toEqual(locale);
     });
 
     it("extends the class's locale variable on multiple calls", function() {
       var data = {another: 'section'},
           extended = $.extend(locale, data);
 
-      Diaspora.I18n.loadLocale(locale);
-      Diaspora.I18n.loadLocale(data);
+      Diaspora.I18n.load(locale, "en", locale);
+      Diaspora.I18n.load(data, "en", data);
 
-      expect(Diaspora.I18n.locale).toEqual(extended);
+      expect(Diaspora.I18n.locale.data).toEqual(extended);
     });
   });
 
   describe("::t", function() {
     var translation;
-    beforeEach(function() { Diaspora.I18n.loadLocale(locale); });
+    beforeEach(function() { Diaspora.I18n.load(locale, "en", {fallback: "fallback", namespace: {template: "no template"}}); });
 
     it("returns the specified translation", function() {
       translation = Diaspora.I18n.t("namespace.message");
@@ -67,20 +68,35 @@ describe("Diaspora.I18n", function() {
     it("returns an empty string if the translation is not found", function() {
       expect(Diaspora.I18n.t("missing.locale")).toEqual("");
     });
+
+    it("falls back on missing key", function() {
+      expect(Diaspora.I18n.t("fallback")).toEqual("fallback");
+    });
+
+    it("falls back on interpolation errors", function() {
+      expect(Diaspora.I18n.t("namespace.template")).toEqual("no template");
+    });
+  });
+
+  describe("::resolve", function() {
+    it("allows to retrieve entire sections", function() {
+      Diaspora.I18n.load(locale, "en", {});
+      expect(Diaspora.I18n.resolve("namespace")).toEqual(locale["namespace"]);
+    });
   });
 
   describe("::reset", function(){
     it("clears the current locale", function() {
-      Diaspora.I18n.loadLocale(locale);
+      Diaspora.I18n.load(locale, "en", locale);
       Diaspora.I18n.reset()
-      expect(Diaspora.I18n.locale).toEqual({});
+      expect(Diaspora.I18n.locale.data).toEqual({});
     });
 
     it("sets the locale to only a specific value", function() {
       var data = { some: 'value' };
-      Diaspora.I18n.loadLocale(locale);
+      Diaspora.I18n.load(locale, "en", locale);
       Diaspora.I18n.reset(data);
-      expect(Diaspora.I18n.locale).toEqual(data);
+      expect(Diaspora.I18n.locale.data).toEqual(data);
     });
   });
 });

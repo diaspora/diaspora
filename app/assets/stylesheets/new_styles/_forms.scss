@@ -86,6 +86,14 @@ form.block-form {
   }
 }
 
+textarea, input[type=text], input[type=password] {
+  &:focus, &:invalid:focus {
+    border: 1px solid $border-dark-grey;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
 
 /* buttons to be extracted? */
 .new-btn {

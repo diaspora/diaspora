@@ -20,6 +20,16 @@ var app = {
   pages: {},
   forms: {},
 
+  // global event broker - use event names in the form of "object:action:data"
+  //   [object]: the class of the acting object
+  //   [action]: infinitive verb naming the performed action
+  //   [data]:   (optional) unique name or ID of the specific instance
+  // e.g. "person:ignore:123"
+  // if your event has to pass more than one datum (singular) - or in case you
+  // need structured data - specify them as arguments to the `#trigger` call
+  // e.g. `app.events.trigger('example:event', {more: 'data'})`
+  events: _.extend({}, Backbone.Events),
+
   user: function(userAttrs) {
     if(userAttrs) { return this._user = new app.models.User(userAttrs) }
     return this._user || false
@@ -100,6 +110,9 @@ var app = {
   setupGlobalViews: function() {
     app.hovercard = new app.views.Hovercard();
     app.aspectMembershipsBlueprint = new app.views.AspectMembershipBlueprint();
+    $('.aspect_membership_dropdown').each(function(){
+      new app.views.AspectMembership({el: this});
+    });
     app.sidebar = new app.views.Sidebar();
   },
 

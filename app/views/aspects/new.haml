@@ -2,7 +2,9 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.span-12.last
+-# TODO: remove Blueprint classes when everything is ported to Bootstrap
+
+.span6.span-12.last
   #facebox_header
     %h3
       = t('contacts.index.add_a_new_aspect')
@@ -16,11 +18,11 @@
       = aspect.text_field :name, :maxlength => 20
 
     %p.checkbox_select
+      = aspect.check_box :contacts_visible, :checked => false, class: 'checkbox'
       = aspect.label :contacts_visible, t('aspects.edit.make_aspect_list_visible')
-      = aspect.check_box :contacts_visible, :checked => false
 
     %br
 
     .bottom_submit_section
-      = submit_tag t('cancel'), :class => 'button', :type => :reset, :rel => "close"
-      = aspect.submit t('.create'), :class => 'button creation'
+      = submit_tag t('cancel'), :class => 'button btn', :type => :reset, :rel => "close"
+      = aspect.submit t('.create'), :class => 'button btn creation'

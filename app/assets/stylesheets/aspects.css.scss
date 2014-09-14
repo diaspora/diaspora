@@ -19,11 +19,25 @@
       .icon-ok { display: none;}
     }
     a {
+      .text {
+        color: #333333;
+      }
+      &:hover {
+        background: $background-grey;
+      }
       cursor: pointer;
       padding-left: 10px;
     }
   }
 }
+
+.modify_aspect {
+  background: url("icons/pencil.png") no-repeat;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+}
+
 
 
 /* -- Used in contacts/index.html.haml -- */
@@ -37,7 +51,7 @@
   .button, .button_to {
     margin-right: 5px;
   }
-  
+
   .button_to { display: inline-block; }
   
   .contact_visibility_padlock,
@@ -56,6 +70,26 @@
   }
 }
 
+#aspect_nav {
+  list-style-type: none;
+
+  .icons-check_yes_ok {
+    height:18px;
+    width:18px;
+    background: url('icons/check_yes_ok.png') no-repeat;
+    float: left;
+    visibility: hidden;
+
+    &.selected {
+      visibility: visible;
+    }
+
+    &.selected + a {
+      color: #333333;
+    }
+  }
+}
+
 .contact_visibility_padlock {
   height: 16px;
   width: 16px;
@@ -63,68 +97,6 @@
   display: inline-block;
   margin-left: 4px;
   margin-bottom: -2px;
-}
-
-#people_stream.contacts {
-  .stream_element {
-    padding: 10px;
-    min-height: 30px;
-    
-    .media { overflow: visible; }
-    
-    .float-right {
-      top: 16px;
-
-      a {
-        @include opacity(1);
-
-        &:hover {
-          @include opacity(0.6);
-        }
-      }
-    }
-    
-    .info { margin-top: -2px; }
-  }
-  
-  .avatar {
-    height: 30px;
-    width: 30px;
-  }
-
-  .icons-monotone_close_exit_delete {
-    height: 14px;
-    width: 14px;
-  }
-  
-  .no_contacts {
-    text-align: center;
-    margin-top: 50px;
-  }
-}
-
-#selected_aspect_contacts .avatar {
-    height: 32px;
-    width: 32px;
-    margin-bottom: -2px;
-}
-
-.stream-faces a:hover { text-decoration: none; }
-
-#view_all_contacts_link {
-  @include border-radius(2px);
-  display: block;
-  padding: 5px;
-  border: 1px dotted #aaa;
-  text-align: center;
-  margin: 5px 0px;
-}
-
-#no_contacts {
-  text-align: center;
-  padding: 10px;
-  background-color: #eee;
-  color: $text-dark-grey;
 }
 
 /* -- Used in aspects/edit.haml and in contacts/sharing.haml -- */
@@ -137,12 +109,17 @@
     margin-bottom: 5px;
   }
 
+  #aspect_name_title {
+    margin: 0px 0px 5px 0px;
+  }
+
   #contact_list_search {
     width: 200px;
+    margin-bottom: 2px;
     margin-top: 0px;
     float: right;
   }
-  
+
   .contact_list,
   .aspect_list {
     @include border-radius(3px);
@@ -196,18 +173,28 @@
         border: 1px solid $border-dark-grey;
 
         &.hidden { display: none; }
-        & > .name { white-space: nowrap; }
         &.remote_friend { width: 285px; }
 
-        a.button {
+        & > .name {
+          font-size: 16px;
+          margin: 0px 0px 5px 0px;
+          white-space: nowrap;
+        }
+
+        a.btn {
           @include box-shadow(0,0,0);
           border-bottom: none;
-          min-width: auto;
+          min-width: 90px;
           float: right;
-          padding: 2px 4px;
+          padding: 2px 0px;
           margin-top: 5px;
+          margin-right: -5px;
 
-          &.added { @include linear-gradient(rgb(158,255,153), rgb(92,199,86)); }
+          &.added {
+            @include linear-gradient(rgb(158,255,153), rgb(92,199,86));
+            background-color: rgb(92,199,86);
+          }
+
           &.added.remove {
             @include linear-gradient(rgb(255,153,153), rgb(199,86,86));
 
@@ -260,10 +247,21 @@
   
     form {
       display: inline-block;
+      margin: 0px;
     }
     
     .creation {
       float: right;
     }
+  }
+}
+
+#new_aspect {
+  #aspect_contacts_visible.checkbox {
+    margin: 0px;
+  }
+
+  label[for="aspect_contacts_visible"] {
+    display: inline;
   }
 }

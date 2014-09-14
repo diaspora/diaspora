@@ -87,14 +87,31 @@ de_formal:
         other: "%{count} Benutzer"
         zero: "%{count} Benutzer"
       week: "Woche"
+    user_entry:
+      account_closed: "Konto wurde geschlossen."
+      diaspora_handle: "Diaspora Handle"
+      email: "E-Mail"
+      guid: "GUID"
+      id: "ID"
+      last_seen: "Zuletzt gesehen"
+      ? "no"
+      : Nein
+      nsfw: "NSFW (unpassend für den Arbeitsplatz)"
+      unknown: "Unbekannt"
+      ? "yes"
+      : ja
     user_search:
+      account_closing_scheduled: "Das Konto von %{name} soll geschlossen werden. Dies dauert ein paar Augenblicke..."
       add_invites: "Einladungen hinzufügen"
+      are_you_sure: "Möchten Sie Ihr Konto wirklich schließen?"
+      close_account: "Konto schließen"
       email_to: "per E-Mail einladen"
       under_13: "Zeige Benutzer, die unter 13 Jahre alt sind (COPPA)"
       users:
         one: "%{count} Benutzer gefunden"
         other: "%{count} Benutzer gefunden"
         zero: "%{count} Benutzer gefunden"
+      view_profile: "Profil anzeigen"
       you_currently:
         one: "Sie haben derzeit %{count} Einladung übrig %{link}"
         other: "Sie haben derzeit %{count} Einladungen übrig %{link}"
@@ -391,6 +408,14 @@ de_formal:
     getting_started_tutorial: "„Erste Schritte“ Anleitungsreihe"
     here: "hier"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_a1: "In der Streamansicht können Sie folgende Tastenkürzel benutzen:"
+      keyboard_shortcuts_li1: "j - zum nächsten Beitrag springen"
+      keyboard_shortcuts_li2: "k - zum vorigen Beitrag springen"
+      keyboard_shortcuts_li3: "c - den aktuellen Beitrag kommentieren"
+      keyboard_shortcuts_li4: "l - den aktuellen Beitrag mit „Gefällt mir“ markieren"
+      keyboard_shortcuts_q: "Welche Tastenkürzel gibt es?"
+      title: "Tastenkürzel"
     markdown: "Markdown"
     mentions:
       how_to_mention_a: "Tippen Sie das \"@\"-Zeichen und beginnen Sie seinen Namen einzugeben. Ein Dropdown-Menü sollte erscheinen, um das Einfügen zu erleichtern. Beachten Sie, dass Sie nur Leute erwähnen können, die Sie zu einem Ihrer Aspekte hinzugefügt haben."
@@ -523,6 +548,7 @@ de_formal:
       what_are_tags_for_a: "Tags sind eine Methode, um Beiträge zu kategorisieren, normalerweise nach dem Thema. Wenn Sie nach einem Tag suchen, werden Ihnen alle Beiträge mit dem Tag angezeigt, die Sie sehen können (sowohl öffentliche als auch private). So können Leute, die an einem bestimmten Thema interessiert sind, Beiträge darüber finden."
       what_are_tags_for_q: "Wozu gibt es Tags?"
     third_party_tools: "Drittanwendungen"
+    title_header: "Hilfe"
     tutorial: "Anleitung"
     tutorials: "Anleitungen"
     wiki: "Wiki"

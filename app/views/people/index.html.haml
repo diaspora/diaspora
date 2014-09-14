@@ -9,38 +9,43 @@
   = javascript_include_tag :people
   = javascript_include_tag 'contact-list'
 
-#section_header
-  = search_header     
-.span-15.append-1
-  #people_stream.stream
-    - if @hashes.empty?
-      - if @background_query.present?
+.container-fluid#people_search
+  .row-fluid
+    .page-header
+      = search_header
+  .row-fluid
+    .span8
+      #people_stream.stream
+        - if @hashes.empty?
+          - if @background_query.present?
 
-        / TODO this is gross, and should be extracted!
-        :javascript
-          $(document).ready( function() {
-            List.startSearchDelay('#{@background_query}')
-          } );
+            / TODO this is gross, and should be extracted!
+            :javascript
+              $(document).ready( function() {
+                List.startSearchDelay('#{@background_query}')
+              } );
 
+            %p
+              = t('.searching')
+              = image_tag('static-loader.png', :class => 'loader')
+          - else
+            %p
+              = t('.no_one_found')
+        - else
+          - for hash in @hashes
+            = render :partial => 'people/person', :locals => hash
+
+          = will_paginate(@people)
+
+        %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
+          &#8679;
+
+    .span4
+      - if AppConfig.settings.invitations.open?
+        %h4
+          = t('.couldnt_find_them')
         %p
-          = t('.searching')
-          = image_tag('static-loader.png', :class => 'loader')
-      - else
-        %p
-          = t('.no_one_found')
-    - else
-      - for hash in @hashes
-        = render :partial => 'people/person', :locals => hash
-
-      = will_paginate(@people)
-
-- if AppConfig.settings.invitations.open?
-  .span-8.last
-    %h4
-      = t('.couldnt_find_them')
-    %p
-      = t('.search_handle')
-    %h4
-      = t('.send_invite')
-    = render "shared/invitations"
-
+          = t('.search_handle')
+        %h4
+          = t('.send_invite')
+        = render "shared/invitations"

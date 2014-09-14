@@ -12,6 +12,7 @@ es:
   _home: "Inicio"
   _photos: "Fotos"
   _services: "Servicios"
+  _terms: ""
   account: "Cuenta"
   activerecord:
     errors:
@@ -87,14 +88,31 @@ es:
         other: "%{count} usuarios"
         zero: "%{count} usuarios"
       week: "Semana"
+    user_entry:
+      account_closed: "cuenta cerrada"
+      diaspora_handle: "Administrar Diaspora"
+      email: "Correo Electrónico"
+      guid: "GUID"
+      id: "identificador"
+      last_seen: "visto por última vez"
+      ? "no"
+      : "no"
+      nsfw: "#nsfw"
+      unknown: "desconocido"
+      ? "yes"
+      : sí
     user_search:
+      account_closing_scheduled: "El cierre de la cuenta de %{name} se ha añadido a la lista de tareas. Será procesado en unos minutos..."
       add_invites: "añadir invitaciones"
+      are_you_sure: "¿Estás seguro de que quieres eliminar tu cuenta?"
+      close_account: "cerrar cuenta"
       email_to: "Correo electrónico a invitar"
       under_13: "Mostrar usuarios menores de 13 años (COPPA)"
       users:
         one: "se ha encontrado %{count} usuario"
         other: "se han encontrado %{count} usuarios"
         zero: "se han encontrado %{count} usuarios"
+      view_profile: "ver perfil"
       you_currently:
         one: "actualmente tienes %{count} invitaciones pendientes %{link}"
         other: "actualmente no tienes invitaciones pendientes %{link}"
@@ -388,6 +406,14 @@ es:
     getting_started_tutorial: "Tutoriales de la serie 'Empezando'"
     here: "aquí"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_a1: "En la vista principal puedes usar los siguientes atajos de teclado:"
+      keyboard_shortcuts_li1: "j - salta al siguiente post"
+      keyboard_shortcuts_li2: "k - salta al post anterior"
+      keyboard_shortcuts_li3: "c - comentar el post actual"
+      keyboard_shortcuts_li4: "l - \"me gusta\" el post actual"
+      keyboard_shortcuts_q: "¿Qué atajos de teclado están disponibles?"
+      title: "Atajos de teclado"
     markdown: "Markdown"
     mentions:
       how_to_mention_a: "Escribe \"@\" y empieza a escribir su(s) nombre(s). Debería aparecer un menú desplegable para ayudarte en la selección. Ten en cuenta que solo es posible mencionar personas a aquellas personas que se encuentren en tus aspectos."
@@ -520,6 +546,7 @@ es:
       what_are_tags_for_a: "Las etiquetas son una manera de categorizar una publicación, usualmente por un tema. Buscando por etiquetas se mostraran todas las publicaciones con dicha etiqueta que puedes ver (ambos públicos y privados). Esto permite a las personas que están interesadas en un tema en particular encontrar todas las publicaciones públicas sobre él."
       what_are_tags_for_q: "¿Para qué sirven las etiquetas?"
     third_party_tools: "herramientas de terceros"
+    title_header: "Ayuda"
     tutorial: "tutorial"
     tutorials: "tutoriales"
     wiki: "wiki"
@@ -629,6 +656,7 @@ es:
       comment_on_post: "Comentar en el post"
       liked: "Te gustó"
       mark_all_as_read: "Marcar todo como leído"
+      mark_all_shown_as_read: "Marcar todos como leídos"
       mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
       mentioned: "Mencionado"
@@ -911,6 +939,8 @@ es:
       sign_up: "REGISTRARSE"
       sign_up_message: "Redes Sociales con un ♥"
       submitting: "En proceso..."
+      terms: "Creando una cuenta, usted acepta los %{terms_link}"
+      terms_link: "términos del servicio"
       username: "NOMBRE"
   report:
     comment_label: "<b>Comentario</b>:<br>%{data}"

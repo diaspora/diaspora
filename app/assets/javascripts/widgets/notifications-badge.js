@@ -26,8 +26,9 @@
 
       self.documentBody.click(function(evt) {
         var inDropdown = $(evt.target).parents().is(self.dropdown);
+        var inHovercard = $.contains(app.hovercard.el, evt.target);
 
-        if(!inDropdown && self.dropdownShowing()) {
+        if(!inDropdown && !inHovercard && self.dropdownShowing()) {
           self.badgeLink.click();
         }
       });

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.18'
+gem 'rails', '3.2.19'
 
 # Appserver
 
@@ -22,7 +22,7 @@ gem 'galetahub-simple_captcha', '0.1.5', :require => 'simple_captcha'
 
 # Background processing
 
-gem 'sidekiq', '2.17.2'
+gem 'sidekiq', '2.17.7'
 gem 'sinatra', '1.3.3'
 
 # Configuration
@@ -89,7 +89,7 @@ gem 'omniauth-wordpress','0.2.1'
 
 # Tags
 
-gem 'acts-as-taggable-on', '2.4.1'
+gem 'acts-as-taggable-on', '3.2.6'
 
 # URIs and HTTP
 

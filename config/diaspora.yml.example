@@ -1,203 +1,211 @@
 ## Some notes about this file:
 ## - All comments start with a double #
-## - All settings are by default commented out with a single #
-##   You need to uncomment them in order to work.
-## - Take care to keep proper indentation, that is keeping the indentation
-##   of the original #, with no additional space before the settings
-##   name.
-## - Take care to keep proper quoting. All ' should have a matching ' at
-##   the end of the same line. Same goes for "
-## - Lines containing "## Section" are sections, categories or however you
-##   like to name them. Do not edit those!
+## - All settings are commented out with a single #
+##   To change the default settings, you need both to uncomment the lines
+##   AND, in most cases, to change the value that is given.
+## - Take care to keep proper indentation, that is by simply deleting
+##   the original #, with no additional space before the setting's name.
+## - Take care to keep proper quoting. All ' must have a matching ' at
+##   the end of the same line. The same goes for "
+## - Lines containing "## Section" are section headings. Do not edit them!
 ## - Lists need the space after the -
-## - true, false and numbers should have no quoting.
-##   Single words could have none, but doesn't do any harm to them.
+## - The values true, false and numbers should have no quote marks.
+##   Single words don't need quote marks, but it doesn't do any harm to have them.
 ##
-## You can set and/or override all this settings through environment variables
+## You can set and/or override all these settings through environment variables
 ## with the following conversion rules:
 ## - Strip the top level namespace (configuration, production, etc.)
 ## - Build the path to the setting, for example environment.s3.enable
 ## - Replace the dots with underscores: environment_s3_enable
-## - Upcase everything: ENVIRONMENT_S3_ENABLE
-## - Specify lists/arrays as comma separated values
+## - Convert to upper case: ENVIRONMENT_S3_ENABLE
+## - Specify lists/arrays as comma-separated values
 ##
 ## - For example, on Heroku:
-##   heroku config:set SERVICES_FACEBOOK_APP_ID=whateeryourappid SERVICES_FACEBOOK_SECRET=whateeryourappsecret
+##   heroku config:set SERVICES_FACEBOOK_APP_ID=yourappid SERVICES_FACEBOOK_SECRET=yourappsecret
 
 configuration: ## Section
   
-  ## Settings you need to change or at least review
-  ## in order for your pod to basically work
+  ## You need to change or at least review the settings in this section
+  ## in order for your pod to work
   environment: ## Section
     
     ## Set the hostname of the machine you're running Diaspora on, as seen
     ## from the internet. This should be the URL you want to use to
-    ## access the pod. So if you plan to  reverse proxy it, it should be
-    ## the URL the proxy listens on.
-    ## DO NOT CHANGE THIS AFTER INITIAL SETUP
-    ## UNLESS YOU KNOW WHAT YOU'RE DOING!
+    ## access the pod. So if you plan to use a reverse proxy, it should be
+    ## the URL the proxy listens on. DO NOT CHANGE THIS AFTER INITIAL SETUP!
     ## However changing http to https is okay and has no consequences.
-    ## If you do change it you have to start over as it's hardcoded into
-    ## the database.
+    ## If you do change the URL, you will have to start again as the URL
+    ## will be hardcoded into the database.
     #url: "https://example.org/"
     
-    ## Setting the bundle of certificate authorities (CA) certificates.
-    ## This is operating system specific.
-    ## Examples, uncomment one or add your own:
-    ## Debian, Ubuntu, Archlinux, Gentoo (package ca-certificates)
+    ## Set the bundle of certificate authorities (CA) certificates.
+    ## This is specific to your operating system.
+    ## Examples (uncomment the relevant one or add your own):
+    ## For Debian, Ubuntu, Archlinux, Gentoo (package ca-certificates):
     #certificate_authorities: '/etc/ssl/certs/ca-certificates.crt'
-    ## CentOS, Fedora
+    ## For CentOS, Fedora:
     #certificate_authorities: '/etc/pki/tls/certs/ca-bundle.crt'
     
-    ## URL for a remote redis.
-    ## Don't forget to restrict the IP access!
-    ## Leave it commented out for the default (localhost)
-    #redis: 'redis://exmaple_host'
+    ## URL for a remote Redis (default=localhost)
+    ## Don't forget to restrict IP access if you uncomment these!
+    #redis: 'redis://example_host'
     #redis: 'redis://username:password@host:6379/0'
     #redis: 'unix:///tmp/redis.sock'
     
-    ## Require SSL, default true.
-    ## When set, your pod will force you to use https in production.
-    ## Since OAuth2 requires SSL Diasporas future API might not work if you're not
-    ## on SSL. Also no gurantee that posting to services is given if SSL
-    ## is disabled.
+    ## Require SSL (default=true)
+    ## When set, your pod will force the use of HTTPS in production mode. Since
+    ## OAuth2 requires SSL Diaspora's future API might not work if you're not using
+    ## SSL. Also there is no guarantee that posting to services will be possible
+    ## if SSL is disabled. Do not change this default unless you are sure!
     #require_ssl: true
     
-    ## Single process mode
-    ## If set to true Diaspora will work with just the appserver,
-    ## thin by default, running, however this makes it quite slow as
-    ## all the time intensive jobs must be run inside the request cycle.
-    ## So this is higly unrecommended for production setups.
-    #single_process_mode: true
+    ## Single-process mode (default=false)
+    ## If set to true Diaspora will work with just the appserver (Unicorn by default)
+    ## running. However, this makes it quite slow as intensive jobs must be run
+    ## all the time inside the request cycle. We strongly recommended you leave
+    ## this disabled for production setups. Set to true to enable.
+    #single_process_mode: false
 
     ## Sidekiq - background processing
     sidekiq: ## Section
-      ## Number of parallel threads Sidekiq uses
-      ## If you touch this please set the pool setting
-      ## in your database.yml to a value that's at minimum
-      ## close to this! The default value is 5 but you can safely
-      ## increase it to 25 and more on a medium sized pod.
-      ## This applies per started Sidekiq worker, so if you set it to
-      ## 25 and start two workers you'll process up to 50 jobs in parallel.
-      #concurrency: 25
 
-      ## Number of times a job is retried
-      ## There's an exponential backoff, if you set this too
-      ## high you might get too many jobs in the queue
-      ## Set this to false to disable it completely 
+      ## Number of parallel threads Sidekiq uses (default=5)
+      ## If you touch this please set the pool setting in your database.yml to
+      ## a value that's at minimum close to this! You can safely increase it 
+      ## to 25 and more on a medium-sized pod. This applies per started Sidekiq
+      ## worker, so if you set it to 25 and start two workers you'll process
+      ## up to 50 jobs in parallel.
+      #concurrency: 5
+
+      ## Number of times a job is retried (default=10)
+      ## There's an exponential effect to this: if you set this too high you
+      ## might get too many jobs building up in the queue.
+      ## Set it to false to disable it completely.
       #retry: 10
 
-      ## Namespace to use in Redis, useful if you need to run
-      ## multiple instances of Diaspora using the same Redis instance
+      ## Namespace to use in Redis. Useful if you need to run
+      ## multiple instances of Diaspora using the same Redis instance.
       #namespace: "diaspora"
 
-      ## Lines of backtrace that is stored on failure
-      ## Set this to false if you're not interested in this data to
-      ## reduce memory usage (and log size)
+      ## Lines of backtrace that are stored on failure (default=15)
+      ## Set n to the required value. Set this to false to reduce memory
+      ## usage (and log size) if you're not interested in this data.
       #backtrace: 15
 
-      ## Log file for Sidekiq
+      ## Log file for Sidekiq (default="log/sidekiq.log")
       #log: "log/sidekiq.log"
     
     ## Use Amazon S3 instead of your local filesystem
-    ## to handle uploaded pictures.
+    ## to handle uploaded pictures (disabled by default)
     s3: ## Section
+
       #enable: true
-      #key: 'changeme'
-      #secret: 'changeme'
+      #key: 'change_me'
+      #secret: 'change_me'
       #bucket: 'my_photos'
       #region: 'us-east-1'
 
-      # Use max-age header on Amazon S3 resources.
-      # this would set a max-age value of 1 year
+      ## Use max-age header on Amazon S3 resources (default=true)
+      ## When true, this allows locally cached images to be served for up to
+      ## 1 year. This can improve load speed and save requests to the image host.
+      ## Set to false to revert to browser defaults (usually less than 1 year).
       #cache : true
     
-    ## Related to S3 you can set a url to redirect all requests to uploaded
-    ## images to another host. If you for example set
-    ## https://images.example.org here, all requests made to
-    ## pictures under /uploads/images will be redirected to
-    ## https://images.example.org/uploads/images/...
+    ## Set redirect URL for an external image host (Amazon S3 or other)
+    ## If hosting images for your pod on an external server (even your own),
+    ## add its URL here. All requests made to images under /uploads/images
+    ## will be redirected to https://yourhost.tld/uploads/images/
     #image_redirect_url: 'https://images.example.org'
     
     assets: ## Section
-      ## Serve static assets via the appserver.
-      ## This is highly discouraged for production use,
-      ## let your reverse proxy/webserver do it by serving the files
-      ## under public/ directly.
-      #serve: true
+
+      ## Serve static assets via the appserver (default=false)
+      ## This is highly discouraged for production use. Let your reverse
+      ## proxy/webserver do it by serving the files under public/ directly.
+      #serve: false
       
-      ## Upload your assets to S3
-      #upload: true
+      ## Upload your assets to S3 (default=false)
+      #upload: false
       
       ## Specify an asset host. Ensure it does not have a trailing slash (/).
       #host: http://cdn.example.org/diaspora
-    
-    ## Diaspora is only tested against this default pubsub server.
-    ## You likely don't want to change this.
+
+    ## Pubsub server (default='https://pubsubhubbub.appspot.com/')
+    ## Diaspora is only tested against the default pubsub server.
+    ## You probably don't want to uncomment or change this.
     #pubsub_server: 'https://pubsubhubbub.appspot.com/'
   
   ## Settings affecting how ./script/server behaves.
   server: ## Section
-    ## The port on which the appserver should listen
+
+    ## The port on which the appserver should listen (default=3000):
     #port: 3000
-    
+
+    ## Rails environment (default='development')
     ## The environment in which the server should be started by default.
-    #rails_environment: 'production'
+    ## Change this if you wish to run a production environment.
+    #rails_environment: 'development'
    
     ## Write unicorn stderr and stdout log
     #stderr_log: '/usr/local/app/diaspora/log/unicorn-stderr.log'
     #stdout_log: '/usr/local/app/diaspora/log/unicorn-stdout.log'
     
-    ## Number of Unicorn worker processes, increase this if
-    ## you have many users
+    ## Number of Unicorn worker processes (default=2)
+    ## Increase this if you have many users.
     #unicorn_worker: 2
 
-    ## Number of seconds before a request is aborted, increase if
-    ## you get empty responses, or large image uploads fail.
-    ## Decrease if you're under heavy load and don't care for some
-    ## requests to fail.
+    ## Number of seconds before a request is aborted (default=90)
+    ## Increase if you get empty responses, or if large image uploads fail.
+    ## Decrease if you're under heavy load and don't care if some
+    ## requests fail.
     #unicorn_timeout: 90
     
-    ## Embed a Sidekiq worker inside the unicorn process, useful for
-    ## minimal Heroku setups
-    #embed_sidekiq_worker: true
+    ## Embed a Sidekiq worker inside the unicorn process (default=false)
+    ## Useful for minimal Heroku setups.
+    #embed_sidekiq_worker: false
 
-    ## Number of Sidekiq worker processes
-    ## Most of the time you want to increase
-    ## environment.sidekiq.concurrency instead!
+    ## Number of Sidekiq worker processes (default=1)
+    ## In most cases it is better to
+    ## increase environment.sidekiq.concurrency instead!
     #sidekiq_workers: 1
   
-  ## Settings probably affecting the privacy of your users 
+  ## Settings potentially affecting the privacy of your users 
   privacy: ## Section
     
-    ## Include jQuery from jquery.com's CDN
-    ## This potentially saves you some traffic and speeds up
-    ## load time since most clients already have this one cached
+    ## Include jQuery from jquery.com's CDN (default=true)
+    ## This can save you some traffic and speeds up load time since most
+    ## clients already have this one cached. Set this to false if you want
+    ## the jQuery library to be loaded from your pod's own resources.
     #jquery_cdn: true
     
+    ## Google Analytics (disabled by default)
     ## Provide a key to enable tracking by Google Analytics 
     #google_analytics_key:
     
-    ## Piwik Tracking
+    ## Piwik Tracking (disabled by default)
     ## Provide a site ID and the host piwik is running on to enable
     ## tracking through Piwik.
     piwik: ## Section
+
       #enable: true
       #host: 'stats.example.org'
       #site_id: 1
     
-    ## Mixpanel event tracking
+    ## Mixpanel event tracking (disabled by default)
     #mixpanel_uid:
     
-    ## Chartbeat tracking
+    ## Chartbeat tracking (disabled by default)
     #chartbeat_uid:
     
     ## Statistics
-    ## By default pod name, version and whether registrations are
-    ## open or not is reported. Enable more statistics below.
+    ## Your pod will report its name, software version and whether
+    ## or not registrations are open via /statistics.json.
+    ## Uncomment the options below to enable more statistics. 
     statistics: ## Section
+
       ## Local user total and 6 month active counts
       #user_counts: true
+
       ## Local post total count
       #post_counts: true
       #comment_counts: true
@@ -205,185 +213,225 @@ configuration: ## Section
   ## General settings
   settings: ## Section
   
-    ## The name of your pod displayed in various locations,
-    ## including the header.
-    #pod_name: "Diaspora*"
-    
+    ## Pod name (default="diaspora*")
+    ## The pod name displayed in various locations, including the header.
+    #pod_name: "diaspora*"
+
+    ## Allow registrations (default=true)
     ## Set this to false to prevent people from signing up for your pod
-    ## without an invitation. Note that this needs to be true even for
-    ## the first registration (you).
+    ## without an invitation. Note that this needs to be set to true
+    ## (or commented out) to enable the first registration (you).
     #enable_registrations: true
     
-    ## Users will automatically follow a specified account on creation
+    ## Auto-follow on sign-up (default=true)
+    ## Users will automatically follow a specified account on creation.
     ## Set this to false if you don't want your users to automatically
     ## follow an account upon creation.
     #autofollow_on_join: true
  
-    ## The diasporahq account helps users start with some activity in
-    ## their stream and get news about Diaspora, but if you don't want
-    ## your server to contact joindiaspora.com, you can change account
-    ## below or set autofollow_on_join to false
+    ## Auto-follow account (default='diasporahq@joindiaspora.com')
+    ## The diaspora* HQ account keeps users up to date with news about Diaspora.
+    ## If you set another auto-follow account (for example your podmin account),
+    ## please consider resharing diaspora* HQ's posts for your pod's users!
     #autofollow_on_join_user: 'diasporahq@joindiaspora.com'
 
-    ## Settings about captcha
-    captcha: ## Section
-
-      ## Set this to false if you don't want to use captcha for signup process
-      #enable: true
-
-      ## Change this value to use different captcha image size
-      #image_size: '120x20'
-
-      ## Length of captcha text. Default value is 5
-      #captcha_length: 5
-
-      ## Change this value to use various image style.
-      ## Available options are: 'simply_blue', 'simply_red'
-      ## 'simply_green', 'charcoal_grey', 'embosed_silver', 'all_black',
-      ## 'distorted_black', 'almost_invisible', 'random'
-      #image_style: 'simply_green'
-
-      ## Set this value to use various level of distortion
-      ## Available options are: 'low', 'medium', 'high', 'random'
-      #distortion: 'low'
-
-    ## Settings about invitations
+    ## Invitation settings
     invitations: ## Section
       
-      ## Set this to true if you want users to be able to send invites.
+      ## Enable invitations (default=true)
+      ## Set this to false if you don't want users to be able to send invites.
       #open: true
       
-      ## The default amount of invitiations an invite link has.
-      ## Every user has such a link. Default count is 25, uncomment to set
-      ## another value.
+      ## Number of invitations per invite link (default=25)
+      ## Every user will see such a link if you have enabled invitations on your pod.
       #count: 25
     
     ## Paypal donations
-    ## You can provide the ID of a hosted Paypal button here to kindly ask
-    ## your users for donations to run their pod. If you leave this out
-    ## we kindly ask your users to donate to the Diaspora Foundation :)
-    #paypal_hosted_button_id: ""
+    ## You can provide the ID of a hosted Paypal button here to allow your users
+    ## to send donations to help run their pod. If you leave this out your users
+    ## will see a button to donate to the Diaspora Foundation instead :)
+    #paypal_hosted_button_id: "change_me"
     
     ## Bitcoin donations
-    ## You can provide a bitcoin address here to kindly ask
-    ## your users for donations to run their pod.
-    #bitcoin_address: ""
+    ## You can provide a bitcoin address here to allow your users to provide
+    ## donations towards the running of their pod.
+    #bitcoin_address: "change_me"
     
-    ## Community Spotlight
-    ## The community spotlight gives new users a starting point on who
-    ## could be interesting Diasporas community. To add a person
-    ## to the spotlight add the 'spotlight' role to it.
+    ## Community spotlight (disabled by default)
+    ## The community spotlight shows new users public posts from people you
+    ## think are interesting in Diaspora's community. To add an account
+    ## to the community spotlight add the 'spotlight' role to it.
     community_spotlight: ## Section
-      #enable: false
-      ## E-Mail address users can make suggestions about who should be
-      ## in the spotlight to.
+
+      #enable: true
+
+      ## E-mail address to which users can make suggestions about who
+      ## should be in the community spotlight (optional).
       #suggest_email: 'admin@example.org'
     
-
-    ## Maximum number of parallel HTTP requests made to other pods
-    ## Be careful, raising this setting will heavily increase the
-    ## memory usage of your Sidekiq workers
+    ## CURL debug (default=false)
+    ## Turn on extra verbose output when sending stuff. Note: you
+    ## don't need to touch this unless explicitly told to.
+    #typhoeus_verbose: false
+  
+    ## Maximum number of parallel HTTP requests made to other pods (default=20)
+    ## Be careful, raising this setting will heavily increase the memory usage
+    ## of your Sidekiq workers.
     #typhoeus_concurrency: 20
 
-    ## CURL debug
-    ## Turn on extra verbose output when sending stuff. No you
-    ## don't need to touch this unless explicitly told to.
-    #typhoeus_verbose: true
+    ## Captcha settings
+    captcha: ## Section
+
+      ## Enable captcha (default=true)
+      ## Set this to false if you don't want to use captcha for signup process.
+      #enable: true
+
+      ## Captcha image size (default='120x20')
+      #image_size: '120x20'
+
+      ## Length of captcha text (default=5)
+      #captcha_length: 5
+
+      ## Captcha image style (default='simply_green')
+      ## Available options for captcha image styles are: 'simply_blue',
+      ## 'simply_red' 'simply_green', 'charcoal_grey', 'embossed_silver',
+      ## 'all_black', 'distorted_black', 'almost_invisible', 'random'
+      #image_style: 'simply_green'
+
+      ## Captcha image distortion (default='low')
+      ## Sets the level of image distortion used in the captcha.
+      ## Available options are: 'low', 'medium', 'high', 'random'
+      #distortion: 'low'
+      
+    ## Terms of Service
+    ## Show a default or customized terms of service for users.
+    ## You can create a custom Terms of Service by placing a template
+    ## as app/views/terms/terms.haml or app/views/terms/terms.erb
+    ## The default terms of service that can be extended is
+    ## at app/views/terms/default.haml
+    ## NOTE! The default terms have not been checked over by a lawyer and
+    ## thus are unlikely to provide full legal protection for all situations
+    ## for a podmin using them. They are also not specific to all countries
+    ## and jurisdictions. If you are unsure, please check with a lawyer.
+    ## We provide these for podmins as some basic rules that podmins
+    ## can communicate to users easily via the diaspora* server software.
+    ## Uncomment to enable this feature.
+    terms: ## Section
+      # First enable it by uncommenting
+      #enable: true
+      ## Important! If you enable the terms, you should always
+      ## set a location under which laws any disputes are governed
+      ## under. For example, country or state/country, depending
+      ## on the country in question.
+      ## If this is not set, the whole paragraph about governing
+      ## laws *is not shown* in the terms page.
+      #jurisdiction: ""
+      ## Age limit for signups
+      ## Set a number to activate this setting. This age limit is shown
+      ## in the default ToS document.
+      #minimum_age: false
+
+  ## Posting from Diaspora to external services (all are disabled by default)
+  services: ## Section
+
+    ## OAuth credentials for Facebook:
+    facebook: ## Section
+
+      #enable: true
+      #app_id: 'abcdef'
+      #secret: 'change_me'
+    
+    ## OAuth credentials for Twitter:
+    twitter: ## Section
+
+      #enable: true
+      #key: 'abcdef'
+      #secret: 'change_me'
+    
+    ## OAuth credentials for Tumblr
+    tumblr: ## Section
+
+      #enable: true
+      #key: 'abcdef'
+      #secret: 'change_me'
+      
+    ## OAuth credentials for Wordpress
+    wordpress: ## Section
+
+      #enable: true
+      #client_id: 'abcdef'
+      #secret: 'change_me'
   
-  ## Setup E-Mail
+  ## Enable pod users to send e-mails from Diaspora (disabled by default)
   mail: ## Section
   
-    ## First you need to enable it ;)
+    ## First you need to enable it.
     #enable: true
     
-    ## Sender address used in mail send by Diaspora
+    ## Sender address used in mail sent by Diaspora
     #sender_address: 'no-reply@example.org'
     
-    ## This selects which mailer should be used. Take 'smtp' for a smtp
+    ## This selects which mailer should be used. Use 'smtp' for a smtp
     ## connection, 'sendmail' to use the sendmail binary or
     ## 'messagebus' to use the messagebus service.
     #method: 'smtp'
     
     ## Ignore if method isn't 'smtp'
     smtp: ## Section
+
       ## Host and port of the smtp server handling outgoing mail.
-      ## This should match the common name of the certificate
-      ## the SMTP server sends. If he sends one.
+      ## This should match the common name of the certificate sent by
+      ## the SMTP server, if it sends one. (default port=587)
       #host: 'smtp.example.org'
       #port: 587
       
-      ## Authentication required to send mail. Use one of 'plain',
-      ## 'login' or 'cram_md5'. Use 'none' if server does not support
-      ## authentication
+      ## Authentication required to send mail (default='plain')
+      ## Use one of 'plain', 'login' or 'cram_md5'. Use 'none'
+      ## if server does not support authentication.
       #authentication: 'plain'
       
-      ## Credentials to log in to the SMTP server - may be necessary if
-      ## authentication is not 'none'
-      #username: 'changeme'
-      #password: 'changeme'
+      ## Credentials to log in to the SMTP server
+      ## May be necessary if authentication is not 'none'.
+      #username: 'change_me'
+      #password: 'change_me'
       
-      ## Automatically enable TLS? Ignored if authentication is set to none
+      ## Automatically enable TLS (default=true)
+      ## Leave this commented out if authentication is set to 'none'.
       #starttls_auto: true
       
-      ## The domain for the HELO command if needed
+      ## The domain for the HELO command, if needed
       #domain: 'smtp.example.org'
       
-      ## OpenSSL verify mode used when connecting to a
-      ## SMTP server with TLS. Set this to none if you have
-      ## a self signed certificate. Possible values:
-      ## 'none', 'peer', 'client_once', 'fail_if_no_peer_cert'
+      ## OpenSSL verify mode used when connecting to a SMTP server with TLS
+      ## Set this to 'none' if you have a self-signed certificate. Possible
+      ## values: 'none', 'peer', 'client_once', 'fail_if_no_peer_cert'.
       #openssl_verify_mode: 'none'
     
     ## Ignore if method isn't 'sendmail'
     sendmail: ## Section
-      ## The path to the sendmail binary.
+
+      ## The path to the sendmail binary (default='/usr/sbin/sendmail')
       #location: '/usr/sbin/sendmail'
       
-      ## Set this to true if you want to use exim and sendmail
-      #exim_fix: true
+      ## Use exim and sendmail (default=false)
+      #exim_fix: false
     
     ## Ignore if method isn't 'messagebus'
     #message_bus_api_key: 'abcdef'
   
-  ## Settings around Diasporas capabilities to post to services
-  services: ## Section
-    ## OAuth credentials for Facebook:
-    facebook: ## Section
-      #enable: true
-      #app_id: 'abcdef'
-      #secret: 'changeme'
-    
-    ## OAuth credentials for Twitter:
-    twitter: ## Section
-      #enable: true
-      #key: 'abcdef'
-      #secret: 'changeme'
-    
-    ## OAuth credentials for Tumblr
-    tumblr: ## Section
-      #enable: true
-      #key: 'abcdef'
-      #secret: 'changeme'
-      
-    ## OAuth credentials for Wordpress
-    wordpress: ## Section
-      #enable: true
-      #client_id: 'abcdef'
-      #secret: 'changeme'
-  
-  ## Settings relevant to administrators
+  ## Administrator settings
   admins: ## Section
     
-    ## Set the admin account.
+    ## Set the admin account
     ## This doesn't make the user an admin but is used when a generic
-    ## admin contact is neeeded, much like the postmaster role in mail
+    ## admin contact is needed, much like the postmaster role in mail
     ## systems. Set only the username, NOT the full ID.
     #account: "podmaster"
 
-    ## E-Mail address users can contact the administrator
+    ## E-mail address to contact the administrator
     #podmin_email: 'podmin@example.org'
   
-## Here you can make overides to settings defined above if you need
+## Here you can override settings defined above if you need
 ## to have them different in different environments.
 production: ## Section
   environment: ## Section

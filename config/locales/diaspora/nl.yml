@@ -12,6 +12,7 @@ nl:
   _home: "Home"
   _photos: "foto's"
   _services: "Diensten"
+  _terms: "voorwaarden"
   account: "Account"
   activerecord:
     errors:
@@ -87,14 +88,31 @@ nl:
         other: "%{count} gebruikers"
         zero: "%{count} gebruikers"
       week: "Week"
+    user_entry:
+      account_closed: "account afgesloten"
+      diaspora_handle: "Diaspora id"
+      email: "E-mailadres"
+      guid: "GUID"
+      id: "ID"
+      last_seen: "laatst gezien"
+      ? "no"
+      : nee
+      nsfw: "#nsfw"
+      unknown: "onbekend"
+      ? "yes"
+      : ja
     user_search:
+      account_closing_scheduled: "Het account van %{name} is ingepland om te worden beëindigd. Dit zal over enkele momenten worden verwerkt..."
       add_invites: "voeg uitnodigingen toe"
+      are_you_sure: "Weet je zeker dat je dit account wilt beëindigen?"
+      close_account: "afsluiten account"
       email_to: "E-mail om uit te nodigen"
       under_13: "Toon gebruikers onder de 13 (COPPA)"
       users:
         one: "%{count} gebruiker gevonden"
         other: "%{count} gebruikers gevonden"
         zero: "%{count} gebruikers gevonden"
+      view_profile: "bekijk profiel"
       you_currently:
         one: "je hebt %{count} uitnodiging over %{link}"
         other: "je hebt %{count} uitnodigingen over %{link}"
@@ -388,6 +406,14 @@ nl:
     getting_started_tutorial: "'Beginnen met diaspora*' instructies"
     here: "hier"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_a1: "In de Stream kun je de volgende sneltoetsen gebruiken:"
+      keyboard_shortcuts_li1: "j - ga naar het volgende bericht"
+      keyboard_shortcuts_li2: "k - ga naar het vorige bericht"
+      keyboard_shortcuts_li3: "c - reageer op het huidige bericht"
+      keyboard_shortcuts_li4: "l - vind het huidige bericht leuk"
+      keyboard_shortcuts_q: "Welke sneltoetsen kunnen worden gebruikt?"
+      title: "Sneltoetsen"
     markdown: "Opmaak"
     mentions:
       how_to_mention_a: "Type het \"@\"-teken en begin met het typen van de naam. Een uitklaplijst toont relevante namen waar je makkelijk uit kunt kiezen. Dit kan alleen voor mensen die je in een aspect hebt opgenomen."
@@ -422,13 +448,13 @@ nl:
       what_is_a_pod_q: "Wat is een pod?"
     posts_and_posting:
       char_limit_services_a: "In dat geval wordt je bericht beperkt tot het kleinere aantal (140 in geval van Twitter, 1000 bij Tumblr) en het resterende aantal tekens wordt getoond als het pictogram van de betreffende dienst oplicht. Je kunt wel langere berichten delen, maar de tekst wordt voor die diensten ingekort."
-      char_limit_services_q: "Wat is het maximum aantal tekens voor delen van berichten met diensten die een kleiner maiximum aantal hanteren?"
+      char_limit_services_q: "Wat is het maximum aantal tekens voor delen van berichten met diensten die een kleiner maximum aantal hanteren?"
       character_limit_a: "65.535 tekens. Dat is 65.395 meer dan bij Twtter! ;)"
       character_limit_q: "Wat is het maximale aantal tekens per bericht?"
       embed_multimedia_a: |-
           Je kunt gewoon de URL (bijv. http://www.youtube.com/watch?v=nnnnnnnnn) in een bericht plakken en de video of audio wordt automatisch ingebed.
           Sites de worden ondersteund zijn bijvoorbeeld YouTube, Vimeo, SoundCloud, Flickr en nog een paar. diaspora* gebruikt oEmbed voor deze mogelijkheden. We blijven nieuwe formaten toevoegen.
-          Let erop om altijd de enkelvoudige, niet verkorte links te plaatsen. Zet ook geen andere commando's achter de URL en heb even geduld voordat je de pagina ververs om een voorbeeld te zien.
+          Let erop om altijd de enkelvoudige, niet verkorte links te plaatsen. Zet ook geen andere commando's achter de URL en heb even geduld voordat je de pagina ververst om een voorbeeld te zien.
       embed_multimedia_q: "Hoe plaats ik video-, audio- of multimediabestanden in een bericht?"
       format_text_a: "Je kunt een eenvoudige methode gebruiken die %{markdown} heet. Je vindt de volledige syntax %{here}. De voorbeeld-knop is handig, want daardoor kun je zien hoe het bericht eruit gaat zien als je het later plaatst."
       format_text_q: "Hoe kan ik de tekst in mij berichten opmaken (vet, schuin etc.)?"
@@ -446,7 +472,7 @@ nl:
       stream_full_of_posts_a1: "Je stream bestaat uit drie soorten berichten:"
       stream_full_of_posts_li1: |-
           Berichten van mensen met wie je deelt, zijn er in twee soorten:
-          openbare berichten en beperkte berichten die worden gedeeld binnen hun aspecten waar toe behoort. Om deze berichten in jouw stream te verwijderen kun je gewoon stoppen met volgen van de betreffende persoon.
+          openbare berichten en beperkte gedeelde berichten die worden gedeeld binnen hun aspecten waartoe jij behoort. Om deze berichten in jouw stream te verwijderen kun je gewoon stoppen met volgen van de betreffende persoon.
       stream_full_of_posts_li2: "Openbare berichten met een tag die jij volgt. Om die te verwijderen, kun je stoppen met die tag te volgen."
       stream_full_of_posts_li3: "Openbare berichten van personen die in de Community Spotlight staan. Die kunnen worden verwijderd door \"Laat Community Spotlight zien in je Stream\" uit de kruisen in het account tabblad van je instellingen."
       stream_full_of_posts_q: "Waarom staat mijn stream vol met berichten van mensen die ik niet ken en met wie ik niet deel?"
@@ -462,7 +488,7 @@ nl:
       who_sees_post_a: "Alleen de in diaspora* ingelogde gebruikers die jij in dat aspect hebt geplaatst, kunnen jouw privébericht zien."
       who_sees_post_q: "Als ik een bericht plaats voor een aspect (bijvoorbeeld een privébericht), wie kan dat dan zien?"
     private_profiles:
-      title: "Privé profielen"
+      title: "Privéprofielen"
       whats_in_profile_a: "Biografie, locatie, geslacht en geboortedatum. De zaken onderaan de profielpagina. Al deze informatie is optioneel, je bepaalt zelf wat je invult. Ingelogde gebruikers die je in een van je aspecten hebt geplaatst, zijn de enige personen die je privéprofiel kunnen zien. Ze zien ook de privéberichten die je plaatst voor de aspecten waar ze lid van zijn, samen met je openbare berichten als ze jouw profielpagina bezoeken."
       whats_in_profile_q: "Wat staat er in mijn privéprofiel?"
       who_sees_profile_a: "Iedere ingelogde gebruiker met wie jij deelt (oftewel die jij in een aspect hebt geplaatst) kan het zien. Maar mensen die jou volgen, terwijl jij ze niet volgt, zien alleen je openbare informatie."
@@ -528,6 +554,7 @@ nl:
       what_are_tags_for_a: "Tags gebruik je om berichten te categoriseren, meestal per onderwerp. Als je zoekt op tags, dan zie alles berichten die met die tag zijn geplaatst (zowel openbare als besloten). Dit laat mensen die geïnteresseerd zijn in een bepaald onderwerp de openbare berichten erover makkelijk vinden."
       what_are_tags_for_q: "Waar gebruik je tags voor?"
     third_party_tools: "tools van derde partijen"
+    title_header: "Hulp"
     tutorial: "instructie"
     tutorials: "instructies"
     wiki: "wiki"
@@ -652,6 +679,7 @@ nl:
       comment_on_post: "Reageren op bericht"
       liked: "Leuk gevonden"
       mark_all_as_read: "Markeer alles als gelezen"
+      mark_all_shown_as_read: "Markeer alles als gelezen"
       mark_read: "Markeren als gelezen"
       mark_unread: "Markeer ongelezen"
       mentioned: "Vermeld"
@@ -669,11 +697,8 @@ nl:
       other: "%{actors} vonden jouw inmiddels verwijderde bericht leuk."
       zero: "%{actors} vonden jouw inmiddels verwijderde bericht leuk."
     mentioned:
-      few: "%{actors} hebben je genoemd in een %{post_link}."
-      many: "%{actors} hebben je genoemd in een %{post_link}."
       one: "%{actors} heeft je vermeld in een %{post_link}."
       other: "%{actors} hebben je vermeld in een %{post_link}."
-      two: "%{actors} hebben je genoemd in een %{post_link}."
       zero: "%{actors} hebben je vermeld in een %{post_link}."
     mentioned_deleted:
       few: "%{actors} hebben jouw genoemd in een verwijderde post."
@@ -949,6 +974,8 @@ nl:
       sign_up: "AANMELDEN"
       sign_up_message: "Social Networking met een ♥"
       submitting: "Verwerken..."
+      terms: "Door het aanmaken van een account accepteer je de %{terms_link}."
+      terms_link: "gebruiksvoorwaarden"
       username: "GEBRUIKER"
   report:
     comment_label: "<b>Reactie</b>:</b>%{data}"
@@ -1143,12 +1170,9 @@ nl:
     new:
       mentioning: "Noem: %{person}"
     too_long:
-      few: "statusberichten mogen niet langer zijn dan %{count} tekens"
-      many: "statusberichten mogen niet langer zijn dan %{count} tekens"
-      one: "statusberichten mogen niet langer zijn dan %{count} tekens"
-      other: "statusberichten mogen niet langer zijn dan %{count} tekens"
-      two: "maak je status bericht niet langer dan %{count} karakters"
-      zero: "statusberichten mogen niet langer zijn dan %{count} tekens"
+      one: "zorg ervoor dat je statusbericht korter is dan %{count} teken"
+      other: "zorg ervoor dat je statusberichten korter zijn dan %{count} tekens"
+      zero: "zorg ervoor dat je statusberichten korter zijn dan %{count} tekens"
   stream_helper:
     hide_comments: "Verberg alle reacties"
     show_comments:
@@ -1240,7 +1264,7 @@ nl:
         make_diaspora_better: "We willen graag dat je ons helpt om diaspora* te verbeteren, dus help ons in plaats van weg te gaan. Als je wel weg wilt gaan, dan vertellen we je wat er dan gebeurt."
         mr_wiggles: "Mr Wiggles zal het niet leuk vinden je te zien gaan"
         no_turning_back: "Op het moment is er geen weg terug."
-        what_we_delete: "We verwijderen al je berichten en profielgegevens zo snel mogelijk. Je reacties blijven bewaard ten behoeve van de context maar zijn gekoppeld aan je diaspora* ID,  niet aan jouw naam."
+        what_we_delete: "We verwijderen al je berichten en profielgegevens zo snel mogelijk. Je reacties blijven bewaard ten behoeve van de context maar zijn gekoppeld aan je diaspora* ID, niet aan jouw naam."
       close_account_text: "Sluit account"
       comment_on_post: "iemand op jouw bericht reageert"
       current_password: "Huidig wachtwoord"

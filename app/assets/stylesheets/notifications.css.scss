@@ -1,6 +1,4 @@
 #notifications_container {
-  padding-top: 50px;
-
   .nav.nav-tabs{
     li > a {
       color: $text-dark-grey;
@@ -60,7 +58,10 @@
 
       &.unread {
         background-color: $background-grey;
-        .unread-toggle { opacity: 1 !important; }
+        .unread-toggle {
+          opacity: 1 !important;
+          .entypo { color: $black; }
+        }
       }
 
       &:hover {
@@ -73,9 +74,14 @@
       }
 
       .unread-toggle {
+        padding: 9px 5px;
+        .entypo {
+          cursor: pointer;
+          color: lighten($black,75%);
+          font-size: 17px;
+          line-height: 17px;
+        }
         opacity: 0;
-        margin-top: 4px;
-        float: right;
       }
 
       .btn-group.aspect_membership_dropdown { margin: 5px 0; }

@@ -46,6 +46,7 @@ en:
   no_results: "No Results Found"
   _contacts: "Contacts"
   welcome: "Welcome!"
+  _terms: "terms"
 
   #for reference translation, the real activerecord english transations are actually
   #in en-US, en-GB, and en-AU yml files
@@ -109,13 +110,28 @@ en:
         zero: "you currently have no invites left %{link}"
         one: "you currently have one invite left %{link}"
         other: "you currently have %{count} invites left %{link}"
+      view_profile: "view profile"
       add_invites: "add invites"
+      close_account: "close account"
+      are_you_sure: "Are you sure you want to close this account?"
+      account_closing_scheduled: "The account of %{name} is scheduled to be closed. It will be processed in a few moments..."
       email_to: "Email to Invite"
       under_13: "Show users that are under 13 (COPPA)"
       users:
         zero: "%{count} users found"
         one: "%{count} user found"
         other: "%{count} users found"
+    user_entry:
+      id: 'ID'
+      guid: 'GUID'
+      email: 'Email'
+      diaspora_handle: 'Diaspora handle'
+      last_seen: 'last seen'
+      account_closed: 'account closed'
+      nsfw: '#nsfw'
+      unknown: 'unknown'
+      'yes': 'yes'
+      'no': 'no'
     weekly_user_stats:
       current_server: "Current server date is %{date}"
       amount_of:
@@ -374,6 +390,7 @@ en:
       birthday_with_year: "%B %d %Y"
 
   help:
+    title_header: "Help"
     tutorials: "tutorials"
     tutorial: "tutorial"
     irc: "IRC"
@@ -549,6 +566,14 @@ en:
       people_tag_page_a: "They are people who have listed that tag to describe themselves in their public profile."
       filter_tags_q: "How can I filter/exclude some tags from my stream?"
       filter_tags_a: "This is not yet available directly through diaspora*, but some %{third_party_tools} have been written that might provide this."
+    keyboard_shortcuts:
+      keyboard_shortcuts_q: "What keyboard shortcuts are available?"
+      keyboard_shortcuts_a1: "In the stream view you can use the following keyboard shortcuts:"
+      keyboard_shortcuts_li1: "j - jump to the next post"
+      keyboard_shortcuts_li2: "k - jump to the previous post"
+      keyboard_shortcuts_li3: "c - comment on the current post"
+      keyboard_shortcuts_li4: "l - like the current post"
+      title: "Keyboard shortcuts"
     miscellaneous:
       title: "Miscellaneous"
       back_to_top_q: "Is there a quick way to go back to the top of a page after I scroll down?"
@@ -684,6 +709,7 @@ en:
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark all as read"
+      mark_all_shown_as_read: "Mark all shown as read"
       mark_read: "Mark read"
       mark_unread: "Mark unread"
       show_all: "show all"
@@ -952,6 +978,8 @@ en:
       password_confirmation: "PASSWORD CONFIRMATION"
       continue: "Continue"
       submitting: "Submitting..."
+      terms: "By creating an account you accept the %{terms_link}."
+      terms_link: "terms of service"
     create:
       success: "You've joined diaspora*!"
     edit:
@@ -1133,7 +1161,7 @@ en:
       failure: "Failed to delete post"
     too_long:
       zero: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
+      one: "please make your status messages less than %{count} characters"
       other: "please make your status messages less than %{count} characters"
 
   stream_helper:

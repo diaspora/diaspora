@@ -79,9 +79,12 @@ Diaspora::Application.routes.draw do
     delete 'visibility' => 'conversation_visibilities#destroy'
   end
 
-  get 'notifications/read_all' => 'notifications#read_all'
   resources :notifications, :only => [:index, :update] do
+    collection do
+      get :read_all
+    end
   end
+  
 
   resources :tags, :only => [:index]
 
@@ -123,6 +126,8 @@ Diaspora::Application.routes.draw do
 
   get 'login' => redirect('/users/sign_in')
 
+  # Admin backend routes
+
   scope 'admins', :controller => :admins do
     match :user_search
     get   :admin_inviter
@@ -130,6 +135,10 @@ Diaspora::Application.routes.draw do
     get   :correlations
     get   :stats, :as => 'pod_stats'
     get   "add_invites/:invite_code_id" => 'admins#add_invites', :as => 'add_invites'
+  end
+
+  namespace :admin do
+    post 'users/:id/close_account' => 'users#close_account', :as => 'close_account'
   end
 
   resource :profile, :only => [:edit, :update]
@@ -187,10 +196,6 @@ Diaspora::Application.routes.draw do
       match ':provider/callback' => :create
       match :failure
     end
-    scope 'services' do
-      match 'inviter/:provider' => :inviter, :as => 'service_inviter'
-      match 'finder/:provider'  => :finder,  :as => 'friend_finder'
-    end
   end
 
   scope 'api/v0', :controller => :apis do
@@ -214,9 +219,14 @@ Diaspora::Application.routes.draw do
 
   #Protocol Url
   get 'protocol' => redirect("http://wiki.diasporafoundation.org/Federation_Protocol_Overview")
-  
+
   #Statistics
   get :statistics, controller: :statistics
+  
+  # Terms
+  if AppConfig.settings.terms.enable?
+    get 'terms' => 'terms#index'
+  end
 
   # Startpage
   root :to => 'home#show'

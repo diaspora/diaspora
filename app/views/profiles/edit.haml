@@ -2,16 +2,24 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+.bootstrap_header_padding
 
-#section_header
-  %h2
-    = t('settings')
-  = render 'shared/settings_nav'
+.container
+  .row-fluid
+    .span12
+      #section_header
+        %h2
+          = t('settings')
+        = render 'shared/settings_nav'
 
-.span-12.prepend-5.last
-  - content_for :submit_block do
-    = link_to t('cancel'), local_or_remote_person_path(current_user.person), :class => "button"
-    = submit_tag t('.update_profile'), :class => "creation", :id => "update_profile"
-  = render :partial => 'edit', :locals => {:person => @person, 
-    :profile => @profile, :aspect => @aspect, :step => @step}
+.container
+  .row-fluid
+    .span3
+    .span6
+      - content_for :submit_block do
+        = link_to t('cancel'), local_or_remote_person_path(current_user.person), :class => "btn"
+        = submit_tag t('.update_profile'), :class => "creation", :id => "update_profile", :class => "btn"
+      = render :partial => 'edit', :locals => {:person => @person, 
+        :profile => @profile, :aspect => @aspect, :step => @step}
+    .span3
 

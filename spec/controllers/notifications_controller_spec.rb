@@ -42,33 +42,6 @@ describe NotificationsController do
     end
   end
 
-  describe "#read_all" do
-    it 'marks all notifications as read' do
-      request.env["HTTP_REFERER"] = "I wish I were spelled right"
-      FactoryGirl.create(:notification, :recipient => alice)
-      FactoryGirl.create(:notification, :recipient => alice)
-
-      Notification.where(:unread => true).count.should == 2
-      get :read_all
-      Notification.where(:unread => true).count.should == 0
-    end
-    it "should redirect to the stream in the html version" do
-      FactoryGirl.create(:notification, :recipient => alice)
-      get :read_all, :format => :html
-      response.should redirect_to(stream_path)
-    end
-    it "should redirect to the stream in the mobile version" do
-      FactoryGirl.create(:notification, :recipient => alice)
-      get :read_all, :format => :mobile
-      response.should redirect_to(stream_path)
-    end
-    it "should return a dummy value in the json version" do
-      FactoryGirl.create(:notification, :recipient => alice)
-      get :read_all, :format => :json
-      response.should_not be_redirect
-    end
-  end
-
   describe '#index' do
     before do
       @post = FactoryGirl.create(:status_message)
@@ -135,6 +108,53 @@ describe NotificationsController do
         get :index, "show" => "unread"
         assigns[:notifications].count.should == 2
       end
+    end
+  end
+
+  describe "#read_all" do
+    it 'marks all notifications as read' do
+      request.env["HTTP_REFERER"] = "I wish I were spelled right"
+      FactoryGirl.create(:notification, :recipient => alice)
+      FactoryGirl.create(:notification, :recipient => alice)
+
+      Notification.where(:unread => true).count.should == 2
+      get :read_all
+      Notification.where(:unread => true).count.should == 0
+    end
+    it 'marks all notifications in the current filter as read' do
+      request.env["HTTP_REFERER"] = "I wish I were spelled right"
+      FactoryGirl.create(:notification, :recipient => alice)
+      eve.share_with(alice.person, eve.aspects.first)
+      Notification.where(:unread => true).count.should == 2
+      get :read_all, "type" => "started_sharing"
+      Notification.where(:unread => true).count.should == 1
+    end
+    it "should redirect back in the html version if it has > 0 notifications" do
+      FactoryGirl.create(:notification, :recipient => alice)
+      eve.share_with(alice.person, eve.aspects.first)
+      get :read_all, :format => :html, "type" => "started_sharing"
+      response.should redirect_to(notifications_path)
+    end
+    it "should redirect back in the mobile version if it has > 0 notifications" do
+      FactoryGirl.create(:notification, :recipient => alice)
+      eve.share_with(alice.person, eve.aspects.first)
+      get :read_all, :format => :mobile, "type" => "started_sharing"
+      response.should redirect_to(notifications_path)
+    end
+    it "should redirect to stream in the html version if it has 0 notifications" do
+      FactoryGirl.create(:notification, :recipient => alice)
+      get :read_all, :format => :html
+      response.should redirect_to(stream_path)
+    end
+    it "should redirect back in the mobile version if it has 0 notifications" do
+      FactoryGirl.create(:notification, :recipient => alice)
+      get :read_all, :format => :mobile
+      response.should redirect_to(stream_path)
+    end
+    it "should return a dummy value in the json version" do
+      FactoryGirl.create(:notification, :recipient => alice)
+      get :read_all, :format => :json
+      response.should_not be_redirect
     end
   end
 end

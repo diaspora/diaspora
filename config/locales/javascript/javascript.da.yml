@@ -65,6 +65,7 @@ da:
       settings: "Indstillinger"
       view_all: "Se alle"
     ignore: "Ignorer"
+    ignore_failed: "Kan ikke ignorere denne bruger"
     ignore_user: "Ignorer denne bruger?"
     infinite_scroll:
       no_more: "Ikke flere indlæg."
@@ -93,11 +94,11 @@ da:
       show_result: "Vis resultat"
       vote: "Stem"
     publisher:
-      add_option: "Tilføj mulighed"
+      add_option: "Tilføj et svar"
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
       limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
       near_from: "Sendt fra: <%= location %>"
-      option: "Mulighed <%= nr %>"
+      option: "Svar"
       public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
       question: "Spørgsmål"
     report:
@@ -139,7 +140,7 @@ da:
         other: "Vis <%= count %> ekstra kommentarer"
         two: "Vis <%= count %> ekstra kommentarer"
         zero: "Vis <%= count %> ekstra kommentarer"
-      original_post_deleted: "Originalt indlæg er slettet af forfatteren."
+      original_post_deleted: "Oprindeligt indlæg er slettet af forfatteren."
       public: "Offentlig"
       reshare: "Videredel"
       reshares:
@@ -169,12 +170,12 @@ da:
       minutes: "%d minutter"
       month: "ca. en måned"
       months: "%d måneder"
-      prefixAgo: "for"
-      prefixFromNow: "om"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "mindre end et minut"
       suffixAgo: "siden"
       suffixFromNow: "fra nu"
-      wordSeparator: " javascripts.timeago.wordSeparator "
+      wordSeparator: " "
       year: "ca. et år"
       years: "%d år"
     videos:

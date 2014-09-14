@@ -3,11 +3,8 @@
 //= require templates
 //= require main
 //= require home
-//= require finder
 //= require inbox
-//= require login
 //= require mobile
 //= require profile
 //= require people
-//= require photos
 //= require sinon

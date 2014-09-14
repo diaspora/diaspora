@@ -1,3 +1,87 @@
+# 0.4.1.0
+
+## New 'Terms of Service' feature and template
+
+This release brings a new ToS feature that allows pods to easily display to users the terms of service they are operating on. This feature is not enabled by default. If you want to enable it, please add under `settings` in `config/diaspora.yml` the following and restart diaspora. If in doubt see `config/diaspora.yml.example`:
+
+    terms:
+      enable: true
+
+When enabled, the footer and sidebar will have a link to terms page, and signup will have a disclaimer indicating that creating an account means the user accepts the terms of use.
+
+While the project itself doesn't restrict what kind of terms pods run on, we realize not all podmins want to spend time writing them from scratch. Thus there is a basic ToS template included that will be used unless a custom one available.
+
+To modify (or completely rewrite) the terms template, create a file called `app/views/terms/terms.haml` or `app/views/terms/terms.erb` and it will automatically replace the default template, which you can find at `app/views/terms/default.haml`.
+
+There are also two configuration settings to customize the terms (when using the default template). These are optional.
+
+* `settings.terms.jurisdiction` - indicate here in which country or state any legal disputes are handled.
+* `settings.terms.minimum_age` - indicate here if you want to show a minimum required age for creating an account.
+
+## Rake task to email users
+
+There is a new Rake task `podmin:admin_mail` available to allow podmins to easily send news and notices to users. The rake task triggers emails via the normal diaspora mailer mechanism (so they are embedded in the standard template) and takes the following parameters:
+
+1) Users definition
+
+* `all` - all users in the database (except deleted)
+* `active_yearly` - users logged in within the last year
+* `active_monthly` - users logged in within the last month
+* `active_halfyear` - users logged in within the last 6 months
+
+2) Path to message file
+
+* Give here a path to a HTML or plain text file that contains the message.
+
+3) Subject
+
+* A subject for the email
+
+Example shell command (depending on your environment);
+
+`RAILS_ENV=production bundle exec rake podmin:admin_mail['active_monthly','./message.html','Important message from pod']`
+
+Read more about [specifying arguments to Rake tasks](http://stackoverflow.com/a/825832/1489738).
+
+## Refactor
+* Port help pages to Bootstrap [#5050](https://github.com/diaspora/diaspora/pull/5050)
+* Refactor Notification#notify [#4945](https://github.com/diaspora/diaspora/pull/4945)
+* Port getting started to Bootstrap [#5057](https://github.com/diaspora/diaspora/pull/5057)
+* Port people search page to Bootstrap [#5077](https://github.com/diaspora/diaspora/pull/5077)
+* Clarify explanations and defaults in diaspora.yml.example [#5088](https://github.com/diaspora/diaspora/pull/5088)
+* Consistent header spacing on Bootstrap pages [#5108](https://github.com/diaspora/diaspora/pull/5108)
+* Port settings pages (account, profile, privacy, services) to Bootstrap [#5039](https://github.com/diaspora/diaspora/pull/5039)
+* Port contacts and community spotlight pages to Bootstrap [#5118](https://github.com/diaspora/diaspora/pull/5118)
+* Redesign login page [#5112](https://github.com/diaspora/diaspora/pull/5112)
+* Change mark read link on notifications page [#5141](https://github.com/diaspora/diaspora/pull/5141)
+
+## Bug fixes
+* Fix hiding of poll publisher on close [#5029](https://github.com/diaspora/diaspora/issues/5029)
+* Fix padding in user menu [#5047](https://github.com/diaspora/diaspora/pull/5047)
+* Fix self-XSS when renaming an aspect [#5048](https://github.com/diaspora/diaspora/pull/5048)
+* Fix live updating when renaming an aspect [#5049](https://github.com/diaspora/diaspora/pull/5049)
+* Use double quotes when embedding translations into Javascript [#5055](https://github.com/diaspora/diaspora/issues/5055)
+* Fix regression in mobile sign-in ([commit](https://github.com/diaspora/diaspora/commit/4a2836b108f8a9eb6f46ca58cfcb7b23f40bb076))
+* Set mention notification as read when viewing post [#5006](https://github.com/diaspora/diaspora/pull/5006)
+* Set sharing notification as read when viewing profile [#5009](https://github.com/diaspora/diaspora/pull/5009)
+* Ensure a consistent border on text input elements [#5069](https://github.com/diaspora/diaspora/pull/5069)
+* Escape person name in contacts json returned by Conversations#new
+* Make sure all parts of the hovercard are always in front [#5188](https://github.com/diaspora/diaspora/pull/5188)
+
+## Features
+* Port admin pages to bootstrap, polish user search results, allow accounts to be closed from the backend [#5046](https://github.com/diaspora/diaspora/pull/5046)
+* Reference Salmon endpoint in Webfinger XRD to aid discovery by alternative implementations [#5062](https://github.com/diaspora/diaspora/pull/5062)
+* Change minimal birth year for the birthday field to 1910 [#5083](https://github.com/diaspora/diaspora/pull/5083)
+* Add scrolling thumbnail switcher in the lightbox [#5102](https://github.com/diaspora/diaspora/pull/5102)
+* Add help section about keyboard shortcuts [#5100](https://github.com/diaspora/diaspora/pull/5100)
+* Automatically add poll answers as needed [#5109](https://github.com/diaspora/diaspora/pull/5109)
+* Add Terms of Service as an option for podmins, includes base template [#5104](https://github.com/diaspora/diaspora/pull/5104)
+* Add rake task to send a mail to all users [#5111](https://github.com/diaspora/diaspora/pull/5111)
+* Expose which services are configured in /statistics.json [#5121](https://github.com/diaspora/diaspora/pull/5121)
+* In filtered notification views, replace "Mark all as read" with "Mark shown as read" [#5122](https://github.com/diaspora/diaspora/pull/5122)
+* When ignoring a user remove his posts from the stream instantly [#5127](https://github.com/diaspora/diaspora/pull/5127)
+* Allow to delete photos from the pictures stream [#5131](https://github.com/diaspora/diaspora/pull/5131)
+
 # 0.4.0.1
 
 ## Bug fixes

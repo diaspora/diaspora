@@ -6,13 +6,13 @@
   %li.all_aspects{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing" && !@spotlight)}
     %a.home_selector.hoverable{:href => contacts_path, :class => ("sub_selected" if params["a_id"])}
       = t('contacts.index.my_contacts')
-      .item_count
+      .label.pull-right
         = my_contacts_count
 
     %ul.sub_nav#aspects_list
       - all_aspects.each do |aspect|
         %li.hoverable{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
-          .item_count
+          .label.pull-right
             = aspect.contacts.size
           .icons-check_yes_ok{:class => ("selected" if params["a_id"].to_i == aspect.id) }
           %a.selectable{:href => contacts_path(:a_id => aspect.id)}
@@ -24,7 +24,7 @@
   %li.all_contacts{:class => ("active" if params["set"] == "all" || params["set"] == "only_sharing")}
     %a.home_selector.hoverable{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
       = t('contacts.index.all_contacts')
-      .item_count
+      .label.pull-right
         = all_contacts_count
 
     %ul.sub_nav
@@ -32,6 +32,5 @@
         .icons-check_yes_ok{:class => ("invisible" if params["set"] == "only_sharing")}
         %a.selectable{:href => contacts_path(:set => "only_sharing")}
           = t('contacts.index.only_sharing_with_me')
-          .item_count
+          .label.pull-right
             = only_sharing_count
-

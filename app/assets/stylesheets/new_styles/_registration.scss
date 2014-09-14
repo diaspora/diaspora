@@ -4,8 +4,6 @@
   min-height: 100%;
   background-color : #afc652;
   color: #fff;
-  
-  .container { margin-top: 50px; }
 
   #create-something-text {
     font-family : Roboto-Light;
@@ -43,6 +41,11 @@
 
     .controls {
       float : right;
+    }
+    
+    #terms > a {
+      color: inherit;
+      text-decoration: underline;
     }
   }
 }

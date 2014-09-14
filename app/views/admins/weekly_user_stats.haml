@@ -1,15 +1,14 @@
-.span-24
-  = render partial: 'admins/admin_bar'
-%br
-%br
 
-.span-24.last
-  %h2
-    = t('.current_server', date: Time.now.to_date)
+%div
+  = render :partial => 'admins/admin_bar'
 
-= form_tag('/admins/weekly_user_stats', method: 'get') do
-  = select_tag(:week, options_for_select(@created_users_by_week.keys), selected: @selected_week)
-  = submit_tag t('admins.stats.go')
+%h2
+  = t('.current_server', date: Time.now.to_date)
+
+%div.pull-right
+  = form_tag('/admins/weekly_user_stats', method: 'get', class: 'form-inline') do
+    = select_tag(:week, options_for_select(@created_users_by_week.keys), selected: @selected_week)
+    = submit_tag t('admins.stats.go'), class: 'btn btn-primary'
 
 = t('.amount_of', count: @counter)
 %br

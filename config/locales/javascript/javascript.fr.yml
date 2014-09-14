@@ -65,6 +65,7 @@ fr:
       settings: "Paramètres"
       view_all: "Tout afficher"
     ignore: "Ignorer"
+    ignore_failed: "Impossible d'ignorer cet utilisateur"
     ignore_user: "Ignorer cet utilisateur ?"
     infinite_scroll:
       no_more: "Pas d'autres messages."
@@ -97,7 +98,7 @@ fr:
       at_least_one_aspect: "Vous devez créer au moins un aspect"
       limited: "Limité - votre message ne sera vu que par des gens avec qui vous partagez"
       near_from: "Posté à : <%= location %>"
-      option: "Choix <%= nr %>"
+      option: "Choix"
       public: "Public - votre message sera visible de tous et trouvé par les moteurs de recherche"
       question: "Question"
     report:

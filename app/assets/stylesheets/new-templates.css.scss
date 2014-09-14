@@ -21,6 +21,9 @@
 
 @import 'new_styles/forms';
 
+/* profile and settings pages */
+@import 'new_styles/settings';
+
 /* new SPV */
 @import 'header';
 @import 'footer';
@@ -42,3 +45,21 @@
 
 /* notifications */
 @import 'notifications';
+
+/* help */
+@import 'help';
+
+/* getting started */
+@import 'getting-started';
+
+/* people */
+@import 'people';
+@import 'invitations';
+
+/* stream */
+@import 'tag';
+@import 'stream-faces';
+
+/* contacts */
+@import 'contacts';
+@import 'leftnavbar';

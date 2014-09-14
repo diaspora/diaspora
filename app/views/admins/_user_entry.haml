@@ -1,0 +1,64 @@
+
+%li.user.media
+  %div.pull-left
+    - if user.person
+      %span.media-object
+        = person_image_tag(user.person)
+
+  %div.media-body.row
+    %div.pull-right
+      %span.label
+        = t('.id')
+        = user.id
+      %span.label.label-info
+        = t('.guid')
+        = user.person.guid if user.person
+
+    %h4.media-heading
+      = user.person.name if user.person
+
+    %div.pull-right
+      %ul.unstyled.text-right.actions
+        %li= link_to t('admins.user_search.view_profile'), person_path(user.person), class: 'btn btn-mini'
+        %li= link_to t('admins.user_search.add_invites'), add_invites_path(user.invitation_code), class: 'btn btn-info btn-mini'
+        - unless user.person.closed_account
+          %li= link_to t('admins.user_search.close_account'), admin_close_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure') }, class: 'btn btn-danger btn-mini'
+
+    %div.row
+      %div.span5
+        %dl.dl-horizontal
+          %dt= t('username')
+          %dd= user.username
+          %dt= t('.email')
+          %dd= user.email
+          %dt= t('.diaspora_handle')
+          %dd= user.person.diaspora_handle
+          %dt= t('.last_seen')
+          %dd= user.last_seen || t('.unknown')
+          -if user.invited_by.present?
+            %dt= t('.invite_token')
+            %dd= invite_code_url(user.invited_by.invitation_code)
+          %dt= t('.account_closed')
+          %dd
+            - if user.person.closed_account
+              %span.badge.badge-warning= t('.yes')
+            - else
+              %span.badge.badge-success= t('.no')
+          %dt= t('.nsfw')
+          %dd
+            - if user.person.profile.nsfw
+              %span.badge.badge-warning= t('.yes')
+            - else
+              %span.badge.badge-success= t('.no')
+
+        %h4= t('layouts.header.profile')
+
+        %dl.dl-horizontal
+          %dt= t('people.profile_sidebar.born')
+          %dd= user.person.profile.birthday
+          %dt= t('people.profile_sidebar.gender')
+          %dd= user.person.profile.gender
+          %dt= t('people.profile_sidebar.location')
+          %dd= user.person.profile.location
+          %dt= t('people.profile_sidebar.bio')
+          %dd= user.person.profile.bio

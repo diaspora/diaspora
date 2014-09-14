@@ -10,15 +10,13 @@ describe ConversationsController do
   end
 
   describe '#new' do
-    before do
-      get :new
-    end
-
     it 'succeeds' do
+      get :new
       response.should be_success
     end
 
     it "assigns a json list of contacts that are sharing with the person" do
+      get :new
       assigns(:contacts_json).should include(alice.contacts.where(:sharing => true).first.person.name)
       alice.contacts << Contact.new(:person_id => eve.person.id, :user_id => alice.id, :sharing => false, :receiving => true)
       assigns(:contacts_json).should_not include(alice.contacts.where(:sharing => false).first.person.name)
@@ -41,6 +39,16 @@ describe ConversationsController do
         response.body.should_not include xss
       end
     end
+
+    it "does not allow XSS via the profile name" do
+      xss = "<script>alert(0);</script>"
+      contact = alice.contacts.first
+      contact.person.profile.update_attribute(:first_name, xss)
+      get :new
+      json = JSON.parse(assigns(:contacts_json)).first
+      expect(json['value'].to_s).to eq(contact.id.to_s)
+      expect(json['name']).to_not include(xss)
+    end
   end
 
   describe '#index' do
@@ -53,20 +61,20 @@ describe ConversationsController do
       }
       @conversations = Array.new(3) { Conversation.create(hash) }
     end
-    
+
     it 'succeeds' do
       get :index
       response.should be_success
       assigns[:conversations].should =~ @conversations
     end
-    
+
     it 'succeeds with json' do
       get :index, :format => :json
       response.should be_success
       json = JSON.parse(response.body)
       json.first['conversation'].should be_present
     end
-    
+
     it 'retrieves all conversations for a user' do
       get :index
       assigns[:conversations].count.should == 3
@@ -254,13 +262,13 @@ describe ConversationsController do
       }
       @conversation = Conversation.create(hash)
     end
-    
+
     it 'succeeds with js' do
       get :show, :id => @conversation.id, :format => :js
       response.should be_success
       assigns[:conversation].should == @conversation
     end
-    
+
     it 'succeeds with json' do
       get :show, :id => @conversation.id, :format => :json
       response.should be_success
@@ -273,7 +281,7 @@ describe ConversationsController do
       response.should redirect_to(conversations_path(:conversation_id => @conversation.id))
       assigns[:conversation].should == @conversation
     end
-    
+
     it 'does not let you access conversations where you are not a recipient' do
       sign_in :user, eve
 

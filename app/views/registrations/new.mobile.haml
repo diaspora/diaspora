@@ -2,10 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= javascript_include_tag "validation"
-
-= stylesheet_link_tag :mobile
-
 :css
   div.navbar.navbar-fixed-top{ display:none;}
 
@@ -46,6 +42,9 @@
                 
             - if AppConfig.settings.captcha.enable?
               = show_simple_captcha(:object => 'user', :code_type => 'numeric')
+            
+            - if AppConfig.settings.terms.enable?
+              = t('registrations.new.terms', terms_link: link_to(t('registrations.new.terms_link'), terms_path, target: "_blank")).html_safe
 
             .controls
               = f.submit t('registrations.new.create_my_account'), :class => 'btn primary', :disable_with => t('registrations.new.submitting')

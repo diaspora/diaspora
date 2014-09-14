@@ -48,7 +48,15 @@ ast:
         unknown: "Títulu de videu desconocíu"
   are_you_sure: "¿Tas seguru?"
   are_you_sure_delete_account: "¿Tas seguru de que quies zarrar la cuenta? ¡Esto nun pue desfacese!"
+  aspect_memberships:
+    destroy:
+      failure: "Nun pudo desaniciase la persona del aspeutu"
+      no_membership: "Nun pudo alcontrase la persona seleicionada nesi aspeutu"
+      success: "Desaniciose correutamente la persona del aspeutu"
   aspects:
+    add_to_aspect:
+      failure: "Nun pudo amestase'l contautu al aspeutu."
+      success: "Amestóse'l contautu al aspeutu correutamente."
     aspect_contacts:
       done_editing: "edición terminada"
     aspect_listings:
@@ -56,12 +64,16 @@ ast:
       deselect_all: "Nun seleicionar nada"
       edit_aspect: "Editar %{name}"
       select_all: "Seleicionar too"
+    aspect_stream:
+      stay_updated: "Sigui al día"
+      stay_updated_explanation: "Na to canal principal apaecen los tos contautos, etiquetes que sigues, y publicaciones d'algunos miembros creativos de la comunidá."
     contacts_not_visible: "Los contactos d'esti aspeutu nun podrán vese unos a otros."
     contacts_visible: "Los contactos d'esti aspeutu podrán vese unos a otros."
     create:
       failure: "Falló la creación del aspeutu."
       success: "Creóse'l nuevu aspeutu %{name}"
     destroy:
+      failure: "%{name} nun ta baleru nun pudo desaniciase."
       success: "%{name} desanicióse correutamente."
     edit:
       add_existing: "Amestar un contautu esistente"
@@ -75,7 +87,47 @@ ast:
       update: "anovar"
       updating: "anovando"
     few: "%{count} aspeutos"
+    helper:
+      are_you_sure: "¿Tas seguru de que quies desaniciar esti aspeutu?"
+      aspect_not_empty: "L'aspeutu nun ta baleru"
+      remove: "desaniciar"
+    index:
+      diaspora_id:
+        content_1: "La to ID de diaspora* ye:"
+        content_2: "Compártila per uquiera y podrán alcontrate'n Diaspora*."
+        heading: "ID de diaspora*"
+      donate: "Donar"
+      handle_explanation: "Esta ye la to ID de diaspora*. Como una direición de corréu, pues dala pa que la xente t'alcuentre."
+      help:
+        do_you: "¿Seique:"
+        email_feedback: "Si lo prefieres, manda la to opinión %{link}"
+        feature_suggestion: "... tienes %{link} que suxerir?"
+        find_a_bug: "... alcuentres %{link}?"
+        have_a_question: "... tienes %{link}?"
+        here_to_help: "¡La comunidá de diaspora* ta equí p'ayudate!"
+        need_help: "¿Necesites ayuda?"
+        tag_bug: "un fallu"
+        tag_feature: "una carauterística"
+        tag_question: "una entruga"
+      introduce_yourself: "Esta ye la to canal.  Entra y preséntati."
+      new_here:
+        follow: "¡Sigui %{link} y da la bienvenida a diaspora* a los usuarios nuevos!"
+        learn_more: "Más información"
+        title: "Da la bienvenida a los usuarios nuevos"
+      no_contacts: "Nun hai contautos"
+      no_tags: "+ Alcontrar una etiqueta pa siguila"
+      people_sharing_with_you: "Persones que comparten contigo"
+      post_a_message: "publica un mensaxe >>"
+      services:
+        content: "Pues coneutar los servicios siguientes a diaspora*:"
+        heading: "Coneutar servicios"
+      unfollow_tag: "Dexar de siguir #%{tag}"
+      welcome_to_diaspora: "¡Afáyati en diaspora*, %{name}!"
     many: "%{count} aspeutos"
+    move_contact:
+      error: "Error al mover el contautu: %{inspect}"
+      failure: "%{inspect} nun funcionó"
+      success: "La persona movióse a un aspeutu nuevu"
     new:
       create: "Crear"
       name: "Nome (visible pa ti namái)"
@@ -88,6 +140,11 @@ ast:
       start_talking: "¡Inda naide dixo nada!"
     one: "1 aspeutu"
     other: "%{count} aspeutos"
+    seed:
+      acquaintances: "Conocíos"
+      family: "Familia"
+      friends: "Amigos"
+      work: "Trabayu"
     selected_contacts:
       manage_your_aspects: "Alministrar los aspeutos."
       no_contacts: "Inda nun tienes contautos equí."
@@ -96,9 +153,36 @@ ast:
     show:
       edit_aspect: "editar aspeutu"
     two: "%{count} aspeutos"
+    update:
+      failure: "El to aspeutu, %{name}, tenía un nome llargu enforma pa poder guardalu."
+      success: "Editóse correutamente'l to aspeutu, %{name}."
     zero: "nun hai aspeutos"
   back: "Anterior"
+  bookmarklet:
+    explanation: "Publicar en diaspora* dende uquiera poniendo esti enllaz nos marcadores => %{link}."
+    heading: "Bookmarklet"
+    post_something: "Publicar en diaspora*"
+    post_success: "¡Publicao! Zarrando."
   cancel: "Encaboxar"
+  comments:
+    few: "%{count} comentarios"
+    many: "%{count} comentarios"
+    new_comment:
+      comment: "Comentariu"
+      commenting: "Comentando..."
+    one: "1 comentariu"
+    other: "%{count} comentarios"
+    two: "%{count} comentarios"
+    zero: "nun hai comentarios"
+  contacts:
+    create:
+      failure: "Nun pudo crease'l contautu"
+    few: "%{count} contautos"
+    many: "%{count} contautos"
+    one: "1 contautu"
+    other: "%{count} contautos"
+    two: "%{count} contautos"
+    zero: "contautos"
   delete: "Desaniciar"
   email: "Corréu electrónicu"
   error_messages:
@@ -122,6 +206,10 @@ ast:
   privacy_policy: "Política d'intimidá"
   profile: "Perfil"
   public: "Públicu"
+  reactions:
+    one: "1 reacción"
+    other: "%{count} reacciones"
+    zero: "0 reacciones"
   search: "Guetar"
   settings: "Preferencies"
   terms_and_conditions: "Términos y condiciones"

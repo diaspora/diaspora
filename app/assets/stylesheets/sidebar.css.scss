@@ -1,5 +1,3 @@
-$bluebg: #e7f2f7;
-
 #home_user_badge {
 	min-height: 50px;
 	margin-bottom: 20px;
@@ -26,47 +24,6 @@ $bluebg: #e7f2f7;
 	float: left;
 	margin: 0px;
 	margin-right: 10px;
-	color: #222222;
-
-	ul {
-		margin: 0px;
-		padding: 0px;
-	}
-	
-	a {
-		color: $link-grey;
-		font-weight: bold;
-		text-decoration: none;
-	}
-
-	.selected { color: $black; }
-	.selected a { color: $black; }
-
-	.hoverable {
-		display: block;
-		margin-right: 6px;
-		padding: 4px;
-		&:hover { background-color: $bluebg; }
-	}
-
-	.selectable {
-		display: block;
-		margin-left: 21px;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-
-	.action {
-		width: 12px;
-		height: 12px;
-		display: none;
-		float: right;
-		margin: 3px;
-	}
-
-	.hoverable:hover  > .action {
-		display: block;
-	}
 }
 
 #stream_selection {
@@ -87,7 +44,7 @@ $bluebg: #e7f2f7;
 	.selected {
 		visibility: visible;
 	}
-	
+
 	.selected + a {
 		color: #333333;
 	}
@@ -104,36 +61,36 @@ $bluebg: #e7f2f7;
 	.delete_tag_following {
 		background: url("icons/deletelabel.png") no-repeat;
 	}
-	
+
 	/* ---- override app/stylesheets/vendor/autoSuggest.css ---- */
 	.tag_input {
 		width: 100%;
 	}
-	
+
 	.as-result {
 		margin-top: -1px;
 		margin-left: 1px;
 	}
-	
+
 	.as-list {
 		em {
 			background-color: #aabbcc;
 			color: black;
 			padding: 0px;
 		}
-		
+
 		color: black;
 		position: static; /* override absolute */
 		margin: 0px;
 		border-radius: 0px 0px 3px 3px;
 		box-shadow: 0px 1px 1px #666;
 	}
-	
+
 	.as-result-item.active {
 		color: black;
 		text-shadow: none;
-		background-color: $bluebg;
-		border-color: $bluebg;		
+		background-color: $background-blue;
+		border-color: $background-blue;
 	}
 	/* ---- end override app/stylesheets/vendor/autoSuggest.css ---- */
 }
@@ -141,7 +98,7 @@ $bluebg: #e7f2f7;
 .rightBar {
   .section {
     margin-bottom: 20px;
-    
+
     .title {
       position: relative;
       border-bottom: 1px solid $border-grey;
@@ -156,7 +113,7 @@ $bluebg: #e7f2f7;
         font-weight: bold;
         color: $text-dark-grey;
       }
-      
+
       .icons-plus,
       .icons-heart,
       .icons-question,
@@ -210,19 +167,19 @@ $bluebg: #e7f2f7;
         color: $text-dark-grey;
       }
     }
-    
+
     .content {
       padding: 8px;
       color: $text-grey;
       font-size: 11px;
-          
+
       p, ul {
         margin: 5px 0px;
       }
 
       ul {
         padding-left: 0;
-      
+
         li {
           list-style: none;
         }

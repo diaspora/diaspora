@@ -5,6 +5,7 @@
 
 
 ja:
+  _applications: "アプリケーション"
   _comments: "コメント"
   _contacts: "連絡先"
   _home: "ホーム"
@@ -70,6 +71,7 @@ ja:
     aspect_listings:
       add_an_aspect: "アスペクトを追加する"
       deselect_all: "すべて選択解除"
+      edit_aspect: "%{name}を編集する"
       select_all: "すべて選択"
     aspect_stream:
       stay_updated: "常に最新情報を表示する"
@@ -333,7 +335,7 @@ ja:
   limited: "限定公開"
   more: "続き"
   next: "次へ"
-  no_results: "詮索結果はありません"
+  no_results: "結果が見つかりません"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -821,6 +823,7 @@ ja:
       people_tagged_with: "%{tag}とタグ付けられている人々"
       posts_tagged_with: "#%{tag}とタグ付けられている投稿"
       stop_following: "#%{tag}のフォローを中止する"
+  terms_and_conditions: "利用規約"
   undo: "元に戻す"
   username: "ユーザ名"
   users:

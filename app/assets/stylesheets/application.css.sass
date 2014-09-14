@@ -6,6 +6,7 @@
 @import 'new_styles/_spinner'
 
 @import 'sidebar'
+@import 'leftnavbar'
 @import 'sprites'
 @import 'header'
 @import 'footer'
@@ -16,9 +17,13 @@
 @import 'publisher_blueprint'
 @import 'facebox'
 @import 'aspects'
+@import 'stream-faces'
 @import 'popover'
 @import 'stream_element'
 @import 'report'
+@import 'new_styles/_forms'
+@import 'tag'
+@import 'photo'
 
 /* ====== media ====== */
 .media
@@ -503,7 +508,7 @@ input[type="search"]
   .right
     :margin
       :top 10px
-      
+
   h4
     :display inline
     :margin
@@ -851,37 +856,6 @@ ul#press_logos
   .avatar
     :float left
 
-.tag
-  :display inline-block
-  :max-width 100%
-  &:hover
-    :text
-      :decoration underline
-    :background
-      :color lighten($blue, 47%)
-
-  :font
-    :weight bold
-
-h1.tag
-  :border
-    :bottom 2px dotted $blue
-  &:hover
-    :border
-      :bottom 2px dotted $blue
-
-.info
-  .tag
-    :background
-      :color #efefef
-    :color $text-grey
-    :border
-      :bottom 1px dotted $border-dark-grey
-
-    &:hover
-      :border
-        :bottom 1px solid $border-dark-grey
-
 .diaspora_handle
   :font
     :size 12px
@@ -1174,22 +1148,6 @@ a.toggle_selector
   &:hover
     :color $link-grey
 
-.cubbies_collage
-  :position absolute
-  :right 50px
-  :top -50px
-  :z-index -1
-
-.cubbies_screenshot
-  :position absolute
-  :right -20px
-  :z-index 1
-
-.cubbies_infographic
-  :height 450px
-  :margin
-    :top 30px
-
 #community_spotlight
   .avatar
     :height 140px
@@ -1250,44 +1208,6 @@ a.toggle_selector
   a
     :display inline-block
 
-.cubbies_images
-  :margin-left 15px
-
-.cubbies_user_page_small
-  :position absolute
-  :left 270px
-
-#featured_users_pane
-  :padding 10px 0
-
-  .featured_user_card_small
-    :height 30px
-
-    :vertical-align top
-    :position relative
-
-    :border
-      :bottom 1px solid $border-grey
-
-    :padding 5px
-    :margin
-      :bottom 5px
-
-    a
-      :font
-        :weight bold
-
-    .tags
-      a
-        :color $text-grey
-
-    .avatar
-      :height 30px
-      :width 30px
-      :margin
-        :right 5px
-      :float left
-
 .action_item
   :padding-right 5px
 
@@ -1328,20 +1248,6 @@ a.toggle_selector
     :color black
     &:hover
       :text-decoration none
-
-#admin_nav
-  :font-size 1em
-  :border
-    :bottom 2px solid #777
-  :margin
-    :bottom 20px
-  ul
-    :display inline
-  li
-    :font-size 0.8em
-    :display inline
-    :margin
-      :right 0.5em
 
 #grey_header
   @include box-shadow(0,1px,1px,#eee)
@@ -1429,7 +1335,7 @@ a.toggle_selector
     :margin-top 60px
     .creation
       :font-size 16px
-      
+
 #profile_photo_upload
   #fileInfo
     :margin-top 12px

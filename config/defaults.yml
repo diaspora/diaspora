@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.4.0.1" # Do not touch unless doing a release, do not backport the version number that's in master but keep develop to always say "head"
+    number: "0.4.1.0" # Do not touch unless doing a release, do not backport the version number that's in master but keep develop to always say "head"
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -89,6 +89,10 @@ defaults:
       captcha_length: 5
       image_style: 'simply_green'
       distortion: 'low'
+    terms:
+      enable: false
+      jurisdiction: false
+      minimum_age: false
   services:
     facebook:
       enable: false

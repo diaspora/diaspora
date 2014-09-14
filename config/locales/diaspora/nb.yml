@@ -12,6 +12,7 @@ nb:
   _home: "Hjem"
   _photos: "bilder"
   _services: "Tjenester"
+  _terms: "bruksvilkår"
   account: "Konto"
   activerecord:
     errors:
@@ -24,6 +25,14 @@ nb:
           attributes:
             diaspora_handle:
               taken: "er allerede tatt."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "Du har ikke oppgitt nok valg."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Du har allerede deltatt i denne spørreundersøkelsen!"
         request:
           attributes:
             from_id:
@@ -46,6 +55,7 @@ nb:
       correlations: "Korrellert med"
       pages: "Sider"
       pod_stats: "Pod statistikk"
+      report: "Rapporter"
       sidekiq_monitor: "Sidekiq overvåke"
       user_search: "Brukersøk"
       weekly_user_stats: "Ukentlig brukerstatistikk"
@@ -78,14 +88,31 @@ nb:
         other: "%{count} brukere"
         zero: "%{count} brukere"
       week: "Uke"
+    user_entry:
+      account_closed: "konto avsluttet"
+      diaspora_handle: "Diaspora handle"
+      email: "e-post"
+      guid: "GUID"
+      id: "ID"
+      last_seen: "Sist sett"
+      ? "no"
+      : nei
+      nsfw: "#nsfw"
+      unknown: "ukjent"
+      ? "yes"
+      : ja
     user_search:
+      account_closing_scheduled: "Kontoen %{name} blir avsluttet. Dette vil bli gjennomført innen noen strakser...."
       add_invites: "legg til invitasjoner"
+      are_you_sure: "Er du sikker på at du vil avslutte denne kontoen?"
+      close_account: "Avslutt konto"
       email_to: "E-post for invitasjon"
       under_13: "Vis deltakere under 13 (COPPA)"
       users:
         one: "%{count} bruker funnet"
         other: "%{count} brukere funnet"
         zero: "%{count} brukere funnet"
+      view_profile: "Vis profil"
       you_currently:
         one: "du har en invitasjon igjen %{link}"
         other: "du har %{count} invitasjoner igjen %{link}"
@@ -153,11 +180,11 @@ nb:
       remove: "fjern"
     index:
       diaspora_id:
-        content_1: "Diaspora-ID-en din er:"
-        content_2: "Gi det til noen, og de vil kunne finne deg på Diaspora."
-        heading: "Diaspora-ID"
+        content_1: "diaspora* ID'en din er:"
+        content_2: "Gi det til noen, og de vil kunne finne deg på diaspora*."
+        heading: "diaspora* ID"
       donate: "Doner"
-      handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
+      handle_explanation: "Dette er din diaspora* ID. Det fungerer som en e-post adresse, du kan gi denne ID'en til venner som vil kontakte deg."
       help:
         any_problem: "Noen problemer?"
         contact_podmin: "Kontakt administratoren til din \"pod\"!"
@@ -176,7 +203,7 @@ nb:
         tutorial_link_text: "Veiledninger"
         tutorials_and_wiki: "%{faq}, %{tutorial} og %{wiki}: Hjelp for dine første skritt"
       introduce_yourself: "Dette er stream-en din. Hopp inn og presenter deg selv."
-      keep_diaspora_running: "Sørg for Diasporautvikling går hurtig ved å gi en månedlig donasjon!"
+      keep_diaspora_running: "Bidra til kontinuerlig utvikling av diaspora* ved å gi en månedlig donasjon!"
       keep_pod_running: "Sørg for at %{pod} går kjapt ved å kjøpe kaffe-fiks til dem med en månedlig donasjon!"
       new_here:
         follow: "Følg denne %{link} og ønsk nye brukere velkommen til diaspora*!"
@@ -187,7 +214,7 @@ nb:
       people_sharing_with_you: "Folk som deler med deg"
       post_a_message: "legg ut en melding >>"
       services:
-        content: "Du kan koble følgende tjenester til Diaspora:"
+        content: "Du kan koble følgende tjenester til diaspora*:"
         heading: "Koble til tjenester"
       unfollow_tag: "Slutt å følge #%{tag}"
       welcome_to_diaspora: "Velkommen til Diaspora, %{name}!"
@@ -234,9 +261,9 @@ nb:
       failure: "Jeg klarte ikke å slutte å ignorere den brukeren. #evasion"
       success: "La oss se hva de har å si! #sihallo"
   bookmarklet:
-    explanation: "%{link} fra hvor som helst ved å bokmerke denne linken."
+    explanation: "Post til diaspora* fra hvor som helst ved å bokmerke denne linken => %{link}"
     heading: "Diaspora Bookmarklet"
-    post_something: "Post noe på Diaspora"
+    post_something: "Post noe på diaspora*"
     post_success: "Postet! Lukker!"
   cancel: "Avbryt"
   comments:
@@ -297,7 +324,10 @@ nb:
         two: "%{count} nye beskjeder"
         zero: "ingen nye meldinger"
     index:
+      conversations_inbox: "Samtale - Inbox"
+      create_a_new_conversation: "start en ny samtale"
       inbox: "Innboks"
+      new_conversation: "Ny samtale"
       no_conversation_selected: "ingen samtaler valgt"
       no_messages: "ingen meldinger"
     new:
@@ -306,6 +336,8 @@ nb:
       sending: "Sender ..."
       subject: "emne"
       to: "til"
+    new_conversation:
+      fail: "Ugyldig melding"
     show:
       delete: "slett og blokkér samtalen"
       reply: "svar"
@@ -325,7 +357,7 @@ nb:
     post_not_public: "Innholdet som du forsøker å titte på er ikke alment tilgjengelig!"
     post_not_public_or_not_exist: "Innlegget du prøver å vise er ikke offentlig, eller eksisterer ikke!"
   fill_me_out: "Fortell meg"
-  find_people: "Find folk eller #knagger"
+  find_people: "Finn folk eller #knagger"
   help:
     account_and_data_management:
       close_account_a: "Gå til bunnen av instillings-siden din og klikk Slett bruker-knappen."
@@ -377,6 +409,14 @@ nb:
     getting_started_tutorial: "'Komme i gang' veiledninger"
     here: "her"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_a1: "I din egen strøm/feed har du nå følgende tastatursnarveier tilgjengelig:"
+      keyboard_shortcuts_li1: "j - gå til neste post"
+      keyboard_shortcuts_li2: "k - gå til forrige post"
+      keyboard_shortcuts_li3: "c - kommentar på gjeldene post"
+      keyboard_shortcuts_li4: "l - 'lik' gjeldene post"
+      keyboard_shortcuts_q: "Hvilke tastatursnarveier er mulig?"
+      title: "Tastatursnarveier"
     markdown: "Markdown"
     mentions:
       how_to_mention_a: "«»"
@@ -395,7 +435,7 @@ nb:
       diaspora_app_q: "Finnes en diaspora* app for Android eller iOS?"
       photo_albums_a: "Nei, ikke for tiden. Imidlertid kan du se en stream av deres opplastete bilder fra Photos-seksjonen i sidebar-en på profilsiden deres."
       photo_albums_q: "Finnes det foto eller video albumene?"
-      subscribe_feed_a: "Ja, men dette er fremdeles ikke en helt finpusset funksjon, og formateringen av resultatet er fremdeles temmelig røff. Hvis du likevel ønsker å prøve den, gå til noen profilside og klikk på feed-knappen i din nettleser, eller du kan kopiere profilens URL (dvs. https://joindiaspora.com/people/somenumber), og lime inn i en feed-leser. Den resulterende feed-adressen ser sånn ut: https://joindiaspora.com/public/username.atom Diaspora bruker Atom fremfor RSS."
+      subscribe_feed_a: "Ja, men dette er fremdeles ikke en helt finpusset funksjon, og formateringen av resultatet er fremdeles temmelig røff. Hvis du likevel ønsker å prøve den, gå til noen profilside og klikk på feed-knappen i din nettleser, eller du kan kopiere profilens URL (dvs. https://joindiaspora.com/people/somenumber), og lime inn i en feed-leser. Den resulterende feed-adressen ser sånn ut: https://joindiaspora.com/public/username.atom diaspora* bruker Atom fremfor RSS."
       subscribe_feed_q: "Kan jeg abonnere på noens offentlige innlegg med en feed-leser?"
       title: "Diverse"
     pods:
@@ -509,6 +549,7 @@ nb:
       what_are_tags_for_a: "Tag-er er en måte å kategorisere en post, vanligvis etter tema. Søk etter en tag viser alle poster med den tag-en som du kan se (både offentlige og private poster). Dette lar folk som er interessert i et gitt tema finne offentlige poster om det."
       what_are_tags_for_q: "Hva er tag-er for?"
     third_party_tools: "tredjeparts-verktøy"
+    title_header: "Hjelp"
     tutorial: "veiledning"
     tutorials: "veiledninger"
     wiki: "wiki"
@@ -535,14 +576,14 @@ nb:
     new:
       already_invited: "Allerede innvitert"
       aspect: "Aspekt"
-      check_out_diaspora: "Sjekk ut Diaspora!"
+      check_out_diaspora: "Sjekk ut diaspora*!"
       codes_left:
         one: "En invitasjon er igjen med denne koden"
         other: "%{count} invitasjoner er igjen med denne koden"
         zero: "Ingen flere invitasjoner kan gjøres med denne koden"
       comma_separated_plz: "Du kan skrive inn flere e-post adresser adskilt med komma."
       if_they_accept_info: "Hvis de aksepterer, vil de bli lagt til i aspektet du valgte."
-      invite_someone_to_join: "Inviter noen til Diaspora!"
+      invite_someone_to_join: "Inviter noen til diaspora*!"
       language: "Språk"
       paste_link: "Del denne lenken med vennene dine for å invitere dem til Diaspora* eller send e-post til dem med lenken direkte."
       personal_message: "Personlig melding"
@@ -555,7 +596,7 @@ nb:
     application:
       back_to_top: "Til toppen"
       powered_by: "DREVET AV DIASPORA*"
-      public_feed: "Offentlig Diaspora feed for %{name}"
+      public_feed: "Offentlig diaspora* feed for %{name}"
       source_package: "Last ned kildekodepakken"
       toggle: "vis mobilsiden"
       whats_new: "hva er nytt?"
@@ -626,6 +667,8 @@ nb:
         two: "%{count} nye varsler"
         zero: "ingen nye varsler"
     index:
+      all_notifications: "Alle notifikasjoner"
+      also_commented: "Kommenterte også"
       and: "og"
       and_others:
         few: "og %{count} andre"
@@ -634,9 +677,18 @@ nb:
         other: "og %{count} andre"
         two: "og %{count} andre"
         zero: "og ingen andre"
+      comment_on_post: "Kommenter på innlegget"
+      liked: "Likte"
       mark_all_as_read: "Merk alle som leste"
+      mark_all_shown_as_read: "Marker alle som lest"
+      mark_read: "Marker som lest"
       mark_unread: "Merk som ulest"
+      mentioned: "Nevnte"
       notifications: "Varsler"
+      reshared: "Delt"
+      show_all: "vis alle"
+      show_unread: "Vis uleste"
+      started_sharing: "Startet å dele"
     liked:
       one: "%{actors} liker ditt %{post_link}."
       other: "%{actors} liker ditt %{post_link}."
@@ -718,12 +770,31 @@ nb:
       subject: "%{name} har nevnt deg på diaspora*"
     private_message:
       reply_to_or_view: "Svar eller se på denne samtalen >"
+    report_email:
+      body: |-
+          Hei,
+
+          følgende %{type} med ID %{id} ble markert som støtende.
+
+          %{url}[1]
+
+          Vennligst skriv om dette så raskt som mulig.
+
+          Hilsen,
+
+          Diaspora* e-post robot!
+
+          [1]:%{url}
+      subject: "En ny %{type} ble markert som støtende"
+      type:
+        comment: "kommentar"
+        post: "post"
     reshared:
       reshared: "%{name} just reshared your post"
       view_post: "Se innlegg >"
     single_admin:
-      admin: "Din Diaspora administrator"
-      subject: "A message from your Diaspora administrator:"
+      admin: "Din diaspora* administrator"
+      subject: "En melding om din diaspora* konto:"
     started_sharing:
       sharing: "har begynt å dele med deg!"
       subject: "%{name} har startet å dele med deg på diaspora*"
@@ -748,11 +819,14 @@ nb:
       is_sharing: "%{name} deler med deg"
       results_for: " resultater for %{params}"
     index:
+      couldnt_find_them: "Kan ikke finne de?"
       looking_for: "Ser du etter innlegg tagget %{tag_link}?"
       no_one_found: "... og ingen ble funnet."
       no_results: "Hei! Du må søke etter noe."
       results_for: "søkeresultater for"
+      search_handle: "Benytt diaspora* ID (brukernavn@pod.tid) for å finne dine venner."
       searching: "Søker. Vennligst vent ..."
+      send_invite: "Finner fremdeles ikke de du søker? Send en invitasjon!"
     many: "%{count} personer"
     one: "1 person"
     other: "%{count} personer"
@@ -846,10 +920,13 @@ nb:
   profile: "Profil"
   profiles:
     edit:
-      allow_search: "Tillat folk å søke på deg i Diaspora"
+      allow_search: "Tillat folk å søke på deg i diaspora*"
       edit_profile: "Endre profil"
       first_name: "Fornavn"
       last_name: "Etternavn"
+      nsfw_check: "Marker alt jeg deler som NSFW"
+      nsfw_explanation: "NSFW ('not safe for work') er diaspora*'s felleskaps standard for innhold som muligens ikke er passende å vise når man er f.eks på jobb. Hvis du ønsker å dele slikt materiale jevnlig, vennligsk velg denne opsjonen, slik at alt du deler ikke vises for personer som ikke ønsker å se det."
+      nsfw_explanation2: "Hvis du ikke velger denne opsjonen, vennligst legg til #nsfw tag for hver gang du deler slikt materiale"
       update_profile: "Oppdater Profil"
       your_bio: "Om meg"
       your_birthday: "Din fødselsdato"
@@ -873,9 +950,9 @@ nb:
     two: "%{count} reaksjoner"
     zero: "0 reaksjoner"
   registrations:
-    closed: "Registreringer er stengt på denne Diaspora poden."
+    closed: "Registreringer er stengt på denne diaspora* poden."
     create:
-      success: "Du er nå med i Diaspora!"
+      success: "Du er nå med i diaspora*!"
     edit:
       cancel_my_account: "Avbryt kontoen min"
       edit: "Endre %{name}"
@@ -900,11 +977,28 @@ nb:
       sign_up: "REGISTRER DEG"
       sign_up_message: "Sosiale nettverk med et ♥"
       submitting: "Sender ..."
+      terms: "Ved å opprette kontoen aksepterer du %{terms_link}"
+      terms_link: "Vilkår for bruk"
       username: "BRUKERNAVN"
+  report:
+    comment_label: "<b>Kommentar</b>:<br>%{data}"
+    confirm_deletion: "Er du sikker på at du vil slette dette?"
+    delete_link: "Slett element"
+    not_found: "<u>Fant ikke innlegget/kommentaren. Det ser ut til at den ble slettet av brukeren!</u>"
+    post_label: "<b>Post</b>: %{title}"
+    reason_label: "Årsak: %{text}"
+    reported_label: "<b>Rapportert av</b> %{person}"
+    review_link: "Markert som verifisert"
+    status:
+      created: "Rapporten er opprettet"
+      destroyed: "Innlegget ble slettet"
+      failed: "Noe gikk galt..."
+      marked: "Rapporten ble markert som verifisert"
+    title: "Oversikt over rapporter"
   requests:
     create:
       sending: "Sender ..."
-      sent: "Du har bedt om å dele med %{name}.  De burde se det neste gang de logger inn på Diaspora"
+      sent: "Du har bedt om å dele med %{name}.  De burde se det neste gang de logger inn på diaspora*"
     destroy:
       error: "Velg et aspekt først!"
       ignore: "Ignorerte venneforespørsel"
@@ -948,7 +1042,7 @@ nb:
     failure:
       error: "feil under tilkobling av tjenesten"
     finder:
-      fetching_contacts: "Diaspora finner dine %{service} venner, vær så snill og sjekk igjen om noen få minutter."
+      fetching_contacts: "diaspora* finner dine %{service} venner, vær så snill og sjekk igjen om noen få minutter."
       no_friends: "Ingen Facebook-venner ble funnet."
       service_friends: "%{service}-venner"
     index:
@@ -961,13 +1055,13 @@ nb:
       logged_in_as: "logget inn som"
       no_services: "Du har ikke koblet til noen tjenester ennå."
       really_disconnect: "koble fra %{service}?"
-      services_explanation: "Ved å koble til tjenester får du muligheten å publisere dine innlegg til dem mens du skriver dem i Diaspora."
+      services_explanation: "Ved å koble til andre sosiale tjenester, får du muligheten å publisere til disse tjenestene idet du poster til diaspora*."
     inviter:
       click_link_to_accept_invitation: "Klikk denne linken for å akseptere invitasjonen din"
       join_me_on_diaspora: "Bli med meg på diaspora*"
     remote_friend:
       invite: "inviter"
-      not_on_diaspora: "Finnes ikke på Diaspora ennå."
+      not_on_diaspora: "Finnes ikke på diaspora* ennå."
       resend: "send på nytt"
   settings: "Innstillinger"
   share_visibilites:
@@ -977,11 +1071,11 @@ nb:
   shared:
     add_contact:
       add_new_contact: "Legg til en ny kontakt"
-      create_request: "Finn etter Diaspora brukernavn"
+      create_request: "Finn etter diaspora* brukernavn"
       diaspora_handle: "Diaspora handle"
       enter_a_diaspora_username: "Skriv inn et Diaspora brukernavn:"
       know_email: "Kan du epostadressen deres? Inviter dem!"
-      your_diaspora_username_is: "Ditt Diaspora brukernavn er: %{diaspora_handle}"
+      your_diaspora_username_is: "Ditt diaspora* brukernavn er: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       toggle:
@@ -1001,7 +1095,7 @@ nb:
       invite_someone: "Inviter noen"
       invite_your_friends: "Innviter vennene dine"
       invites: "Invitasjoner "
-      invites_closed: "Invites are currently closed on this Diaspora seed"
+      invites_closed: "Invitasjoner er foreløpig stengt på denne diaspora* poden"
       share_this: "Del denne lenken via e-post, blogg eller ditt foretrukne sosiale nettverk!"
     notification:
       new: "Ny %{type} fra %{from}"
@@ -1011,7 +1105,7 @@ nb:
       logged_in: "innlogget på %{service}"
       manage: "Behandle tilkoblede tjenester"
       new_user_welcome_message: "Bruk #hashtags for å sette merkelapp på innleggene dine og finne folk som deler samme interessefelt. Rop ut til bra folk med @Mentions"
-      outside: "Offentlige meldinger vil være synlige for personer utenfor Diaspora."
+      outside: "Offentlige meldinger vil være synlige for personer utenfor diaspora*."
       share: "Del"
       title: "Du er i ferd med å poste et offentlig innlegg!"
       visibility_dropdown: "Bruk denne menyen for å endre publikum for ditt innlegg. (Vi foreslår at du gjør dette første innlegget offentlig.)\n"
@@ -1019,6 +1113,7 @@ nb:
       all: "alle"
       all_contacts: "alle kontakter"
       discard_post: "Forkast det innsendte/registrerte"
+      formatWithMarkdown: "Du kan benytte %{markdown_link} til å formatere din post"
       get_location: "Hent din posisjon"
       make_public: "gjør offentlig"
       new_user_prefill:
@@ -1026,10 +1121,17 @@ nb:
         i_like: "Jeg er interessert i %{tags}."
         invited_by: "Takk for invitasjonen,  "
         newhere: "NyHer"
+      poll:
+        add_a_poll: "Legg til en spørreundersøkelse"
+        add_poll_answer: "Legg til valg"
+        option: "Valg 1"
+        question: "Spørsmål"
+        remove_poll_answer: "Fjern valg"
       post_a_message_to: "Post et innlegg til %{aspect}"
       posting: "Poster ..."
       preview: "Forhåndsvisning"
       publishing_to: "publiserer til:"
+      remove_location: "Fjern lokasjon"
       share: "Del"
       share_with: "del med"
       upload_photos: "Last opp bilder"
@@ -1051,6 +1153,13 @@ nb:
       via: "via %{link}"
       via_mobile: "via mobil"
       viewable_to_anyone: "Denne posten er synlig for alle på Internett"
+  simple_captcha:
+    label: "Oppgi koden i feltet:"
+    message:
+      default: "Koden samsvarer ikke med den som er på bildet"
+      failed: "Verifisering mislyktes"
+      user: "Koden i bildet samsvarer ikke med koden du oppga"
+    placeholder: "Oppgi verdien vist i bildet"
   status_messages:
     create:
       success: "Nevnte :%{navn}"
@@ -1136,12 +1245,12 @@ nb:
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy:
       no_password: "Skriv inn ditt nåværende passord for å stenge din konto."
-      success: "Kontoen din har blitt stengt. Det kan ta oss opp til 20 minutter for å gjøre ferdig stengningen av din konto. Takk for at du prøvde Diaspora."
+      success: "Kontoen din har blitt stengt. Det kan ta oss opp til 20 minutter for å gjøre ferdig stengningen av din konto. Takk for at du prøvde diaspora*."
       wrong_password: "Passordet du skrev inn er ikke lik ditt nåværende passord."
     edit:
-      also_commented: "... noen andre også kommenterte på din kontakts innlegg?"
+      also_commented: "noen andre har kommentert et innlegg du kommenterte på"
       auto_follow_aspect: "Aspekt for automatisk fulgte brukere:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
+      auto_follow_back: "Del automatisk med brukere som starter å dele med deg"
       change: "Endre"
       change_email: "Endre e-post"
       change_language: "Endre språk"
@@ -1155,9 +1264,9 @@ nb:
         make_diaspora_better: "Vi ønsker at du hjelper oss å gjøre Diaspora bedre, så det hadde vært fint om du hjalp oss i stedet for å forlate oss. Hvis du allikevel ønsker å forsvinne så vil vi gjerne at du skal få vite hva som skjer videre."
         mr_wiggles: "Mr Wiggles blir lei seg om du forlater oss nå"
         no_turning_back: "På dette tidspunktet er det ingen vei tilbake."
-        what_we_delete: "Vi kommer til å slette dine tidligere innlegg og profildata så snart som menneskelig mulig. Dine kommentarer vil fortsatt stå, men vil bli assosiert med din Diaspora ID istedet for ditt navn."
+        what_we_delete: "Vi kommer til å slette dine tidligere innlegg og profildata så snart som mulig. Dine kommentarer vil fortsatt stå, men vil bli assosiert med din diaspora* ID istedet for ditt navn."
       close_account_text: "Avslutt Konto"
-      comment_on_post: "... noen kommenterer på dine innlegg?"
+      comment_on_post: "noen kommenterer på ditt innlegg"
       current_password: "Nåverende passord"
       current_password_expl: "den som du logger på med ..."
       download_photos: "last ned mine bilder"
@@ -1165,27 +1274,28 @@ nb:
       edit_account: "Endre konto"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Eksporter Data"
-      following: "Følgende innstillinger"
-      getting_started: "Ny bruker preferences"
-      liked: "... noen liker innlegget ditt?"
-      mentioned: "... du er omtalt i et innlegg?"
+      following: "Deler innstillinger"
+      getting_started: "Ny bruker innstillinger"
+      liked: "noen liker innlegget ditt"
+      mentioned: "du er omtalt i et innlegg"
       new_password: "Nytt Passord"
       photo_export_unavailable: "Eksportering av bilder er for øyeblikket utilgjengelig"
-      private_message: "... du mottar en privat melding?"
-      receive_email_notifications: "Motta varsler på epost når:"
-      reshared: "... noen deler igjen ditt innlegg?"
-      show_community_spotlight: "Vis sosiale rampelys i stream-en?"
-      show_getting_started: "Skru på Start igjen."
-      started_sharing: "... noen begynner å dele med deg?"
+      private_message: "du har mottatt en privat melding"
+      receive_email_notifications: "Motta varsler på e-post når:"
+      reshared: "noen delte ditt innlegg"
+      show_community_spotlight: "Vis felleskaps meldinger i strømmen"
+      show_getting_started: "Skru på oppstart veiledning"
+      someone_reported: "en bruker sendte en rapport"
+      started_sharing: "noen startet å dele med deg"
       stream_preferences: "Innstillinger for stream"
       your_email: "Din epost"
-      your_handle: "Ditt Diaspora brukernavn"
+      your_handle: "Ditt diaspora* brukernavn"
     getting_started:
       awesome_take_me_to_diaspora: "Supert! Ta meg til Diaspora*"
-      community_welcome: "Diaspora-felleskapet er glad for å ha deg med på laget!"
-      connect_to_facebook: "Vi kan gjøre dette litt kjappere ved hjelp av %{link} til Diaspora*. Dette vil trekke ut ditt navn og foto og tillate krysslagring/oppdatering av innhold."
+      community_welcome: "diaspora* felleskapet er glad for å ha deg med på laget!"
+      connect_to_facebook: "Vi kan gjøre dette litt kjappere ved hjelp av %{link} til diaspora*. Dette vil trekke ut ditt navn og foto og tillate krysslagring/oppdatering av innhold."
       connect_to_facebook_link: "kobler opp til din Facebook konto"
-      hashtag_explanation: "Hastags lar deg beskrive og følge dine interesser. De er også en fin måte å finne nye folk i Diaspora."
+      hashtag_explanation: "Hastags lar deg beskrive og følge dine interesser. De er også en fin måte å finne nye folk i diaspora*."
       hashtag_suggestions: "Prøv å følge tags som #art, #movies, #gif, osv."
       saved: "Lagret!"
       well_hello_there: "Vel, hallo !"

@@ -1,47 +1,79 @@
-/*   Copyright (c) 2010-2011, Diaspora Inc.  This file is
- *   licensed under the Affero General Public License version 3 or later.  See
- *   the COPYRIGHT file.
- */
-
 Diaspora.I18n = {
   language: "en",
-  locale: {},
+  locale: {
+    pluralizationKey: function(n) { return this.fallback.pluralizationKey(n); },
+    data: {},
+    fallback: {
+      pluralizationKey: function(n) { return n == 1 ? "one" : "other"; },
+      data: {}
+    }
+  },
 
-  loadLocale: function(locale, language) {
-    this.locale = $.extend(this.locale, locale);
+  load: function(locale, language, fallbackLocale) {
+    this.updateLocale(this.locale, locale);
+    this.updateLocale(this.locale.fallback, fallbackLocale);
     this.language = language;
-    rule = this.t('pluralization_rule');
-    if (rule === "")
-    rule = 'function (n) { return n == 1 ? "one" : "other" }';
-    eval("this.pluralizationKey = "+rule);
+  },
+
+  updateLocale: function(locale, data) {
+    locale.data = $.extend(locale.data, data);
+
+    rule = this._resolve(locale, ['pluralization_rule']);
+    if (rule !== "") {
+      eval("locale.pluralizationKey = "+rule);
+    }
   },
 
   t: function(item, views) {
-    var items = item.split("."),
-      translatedMessage,
-      nextNamespace;
+    return this._render(this.locale, item.split("."), views);
+  },
 
-    if(views && typeof views.count !== "undefined") {
-      items.push(this.pluralizationKey(views.count));
-    }
+  resolve: function(item) {
+    return this._resolve(this.locale, item.split("."));
+  },
+
+  _resolve: function(locale, items) {
+    var translatedMessage, nextNamespace, originalItems = items.slice();
 
     while(nextNamespace = items.shift()) {
       translatedMessage = (translatedMessage)
         ? translatedMessage[nextNamespace]
-        : this.locale[nextNamespace];
+        : locale.data[nextNamespace];
 
       if(typeof translatedMessage === "undefined") {
-        return "";
+        if (typeof locale.fallback === "undefined") {
+          return "";
+        } else {
+          return this._resolve(locale.fallback, originalItems);
+        }
       }
     }
+   
+    return translatedMessage;
+  },
 
-    return _.template(translatedMessage, views || {});
+  _render: function(locale, items, views) {
+    var originalItems = items.slice();
+
+    if(views && typeof views.count !== "undefined") {
+      items.push(locale.pluralizationKey(views.count));
+    }
+
+    try {
+      return _.template(this._resolve(locale, items), views || {});
+    } catch (e) {
+      if (typeof locale.fallback === "undefined") {
+        return "";
+      } else {
+        return this._render(locale.fallback, originalItems, views);
+      }
+    }
   },
 
   reset: function() {
-    this.locale = {};
+    this.locale.data = {};
 
     if( arguments.length > 0 && !(_.isEmpty(arguments[0])) )
-      this.locale = arguments[0];
+      this.locale.data = arguments[0];
   }
 };

@@ -25,7 +25,6 @@
 //= require punycode
 //= require parse_url
 //= require clear-form
-//= require validation
 //= require app/app
 //= require diaspora
 //= require_tree ./helpers
@@ -39,5 +38,5 @@
 //= require bootstrap-tooltip
 //= require bootstrap-popover
 //= require bootstrap-dropdown
-//= require bootstrap-scrollspy-custom
+//= require bootstrap-modal
 //= require osmlocator

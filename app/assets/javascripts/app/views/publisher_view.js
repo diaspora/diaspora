@@ -69,7 +69,7 @@ app.views.Publisher = Backbone.View.extend({
           _this.tryClose()
         }
     });
-    
+
     // close publisher on post
     this.on('publisher:add', function() {
       this.close();
@@ -80,6 +80,11 @@ app.views.Publisher = Backbone.View.extend({
     this.on('publisher:error', function() {
       this.open();
       this.showSpinner(false);
+    });
+
+    // resetting the poll view 
+    this.on('publisher:sync', function() {
+      this.view_poll_creator.render();
     });
 
     this.initSubviews();
@@ -151,6 +156,11 @@ app.views.Publisher = Backbone.View.extend({
 
     if(evt){ evt.preventDefault(); }
 
+    // Auto-adding a poll answer always leaves an empty box when the user starts
+    // typing in the last box. We'll delete the last one to avoid submitting an 
+    // empty poll answer and failing validation.
+    this.view_poll_creator.removeLastAnswer();
+
     //add missing mentions at end of post:
     this.handleTextchange();
 
@@ -179,6 +189,7 @@ app.views.Publisher = Backbone.View.extend({
         if( app.publisher ) {
           app.publisher.$el.trigger('ajax:success');
           app.publisher.trigger('publisher:sync');
+          self.view_poll_creator.trigger('publisher:sync');
         }
 
         if(app.stream) app.stream.addNow(statusMessage.toJSON());
@@ -405,10 +416,10 @@ app.views.Publisher = Backbone.View.extend({
     $(this.el).addClass("closed");
     this.el_wrapper.removeClass("active");
     this.el_input.css('height', '');
-    this.view_poll_creator.$el.removeClass('active');
+    this.view_poll_creator.$el.hide();
     return this;
   },
-  
+
   showSpinner: function(bool) {
     if (bool)
       this.$('#publisher_spinner').removeClass('hidden');
@@ -447,10 +458,7 @@ app.views.Publisher = Backbone.View.extend({
   _submittable: function() {
     var onlyWhitespaces = ($.trim(this.el_input.val()) === ''),
         isPhotoAttached = (this.el_photozone.children().length > 0),
-        isValidPoll = this.view_poll_creator.isValidPoll();
-
-    // show poll errors
-    this.view_poll_creator.validatePoll();
+        isValidPoll = this.view_poll_creator.validatePoll();
 
     return (!onlyWhitespaces || isPhotoAttached) && isValidPoll && !this.disabled;
   },

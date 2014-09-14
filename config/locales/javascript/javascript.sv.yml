@@ -65,6 +65,7 @@ sv:
       settings: "Inställningar"
       view_all: "Visa alla"
     ignore: "Ignorera"
+    ignore_failed: "Lyckades inte ignorera denna användare"
     ignore_user: "Vill du ignorera den här användaren?"
     infinite_scroll:
       no_more: "Inga fler inlägg."
@@ -97,7 +98,7 @@ sv:
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
       limited: "Begränsad - ditt inlägg visas endast för personer som du delar med"
       near_from: "Sänt från: <%= location %>"
-      option: "Alternativ <%= nr %>"
+      option: "Alternativ"
       public: "Publikt - ditt inlägg visas för alla och i söktjänster"
       question: "Fråga"
     report:
@@ -122,7 +123,7 @@ sv:
         follow: "Följ"
         title: "#Följda taggar"
       hide: "Göm"
-      hide_nsfw_posts: "Dölj #nsfw-inlägg"
+      hide_nsfw_posts: "Dölj inlägg märkta #nsfw"
       like: "Gilla"
       likes:
         one: "En gillar"

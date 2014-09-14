@@ -65,6 +65,7 @@ de:
       settings: "Einstellungen"
       view_all: "Alle anzeigen"
     ignore: "Ignorieren"
+    ignore_failed: "Konnte Benutzer nicht ignorieren"
     ignore_user: "Benutzer ignorieren?"
     infinite_scroll:
       no_more: "Keine weiteren Beiträge."
@@ -80,7 +81,7 @@ de:
     photo_uploader:
       completed: "<%= file %> hochgeladen"
       empty: "Die Datei {file} ist leer. Bitte treffe eine erneute Auswahl ohne diese Datei."
-      error: "Es ist ein Fehler aufgetreten, während <%= file %> hochgeladen wurde"
+      error: "Beim Hochladen von <%= file %> ist ein Fehler aufgetreten."
       invalid_ext: "{file} hat eine ungültige Erweiterung. Nur {extensions} sind erlaubt."
       looking_good: "OMG, du siehst toll aus!"
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
@@ -93,11 +94,11 @@ de:
       show_result: "Ergebnis anzeigen"
       vote: "Abstimmen"
     publisher:
-      add_option: "Option hinzufügen"
+      add_option: "Antwortmöglichkeit hinzufügen"
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
       near_from: "Gesendet aus <%= location %>"
-      option: "Option <%= nr %>"
+      option: "Antwort <%= nr %>"
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
       question: "Frage"
     report:

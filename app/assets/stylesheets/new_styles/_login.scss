@@ -1,4 +1,3 @@
-#login,
 #forgot_password,
 #reset_password {
   position : absolute;
@@ -30,5 +29,53 @@
     margin : 40px;
     color : $text-grey;
     clear : all;
+  }
+}
+
+#login {
+  padding-top: 20px;
+  .branding-asterisk {
+    margin: auto;
+    width: 154px;
+    height: 154px;
+  }
+  .form-signin {
+    margin-bottom: 30px;
+
+    .form-control {
+      font-size: 16px;
+      height: auto;
+      padding: 10px;
+      padding-left: 40px;
+    }
+    fieldset {
+      margin-bottom: 20px;
+    }
+    .entypo {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      text-align: center;
+      top: -6px;
+      left: 12px;
+      color: $text-grey;
+      font-size: 20px;
+    }
+    input[type=text], input[type=password] {
+      &:focus {
+        border: 1px solid #ccc;
+      }
+    }
+    input[type=text] {
+      margin-bottom: -24px;
+      @include border-radius(5px, 5px, 0, 0);
+    }
+    input[type=password] {
+      margin-bottom: -23px;
+      @include border-radius(0, 0, 5px, 5px);
+    }
+    #forgot_password_link {
+      margin-top: 20px;
+    }
   }
 }
