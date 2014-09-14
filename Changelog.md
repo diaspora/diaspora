@@ -1,5 +1,23 @@
 # 0.4.1.0
 
+## New 'Terms of Service' feature and template
+
+This release brings a new ToS feature that allows pods to easily display to users the terms of service they are operating on. This feature is not enabled by default. If you want to enable it, please add under `settings` in `config/diaspora.yml` the following and restart diaspora. If in doubt see `config/diaspora.yml.example`:
+
+    terms:
+      enable: true
+
+When enabled, the footer and sidebar will have a link to terms page, and signup will have a disclaimer indicating that creating an account means the user accepts the terms of use.
+
+While the project itself doesn't restrict what kind of terms pods run on, we realize not all podmins want to spend time writing them from scratch. Thus there is a basic ToS template included that will be used unless a custom one available.
+
+To modify (or completely rewrite) the terms template, create a file called `app/views/terms/terms.haml` or `app/views/terms/terms.erb` and it will automatically replace the default template, which you can find at `app/views/terms/default.haml`.
+
+There are also two configuration settings to customize the terms (when using the default template). These are optional.
+
+* `settings.terms.jurisdiction` - indicate here in which country or state any legal disputes are handled.
+* `settings.terms.minimum_age` - indicate here if you want to show a minimum required age for creating an account.
+
 ## Refactor
 * Port help pages to Bootstrap [#5050](https://github.com/diaspora/diaspora/pull/5050)
 * Refactor Notification#notify [#4945](https://github.com/diaspora/diaspora/pull/4945)
