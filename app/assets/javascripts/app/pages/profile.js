@@ -80,6 +80,11 @@ app.pages.Profile = app.views.Base.extend({
       collection: this.streamCollection
     });
     app.stream.fetch();
+
+    if( this.model.get('is_own_profile') ) {
+      app.publisher = new app.views.Publisher({collection : app.stream.items});
+    }
+
     return new view({model: app.stream});
   },
 

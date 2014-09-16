@@ -21,10 +21,14 @@
 
   .stream_container
 
+    -if user_signed_in? && current_page?(person_path(current_user.person))
+      = render 'publisher/publisher', publisher_aspects_for(nil)
+
     #main_stream.stream
       -# JS
 
     #paginate
+      %span.loader.hidden
 
   %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
     &#8679;

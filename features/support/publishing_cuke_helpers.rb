@@ -4,11 +4,19 @@ module PublishingCukeHelpers
   end
 
   def append_to_publisher(txt, input_selector='#status_message_fake_text')
-    elem = find(input_selector)
+    elem = find(input_selector, visible: false)
     elem.native.send_keys(' ' + txt)
 
     # make sure the other text field got the new contents
     expect(find('#status_message_text', visible: false).value).to include(txt)
+  end
+
+  def upload_file_with_publisher(path)
+    page.execute_script(%q{$("input[name='file']").css("opacity", '1');})
+    with_scope("#publisher_textarea_wrapper") do
+      attach_file("file", Rails.root.join(path).to_s)
+      page.assert_selector(".publisher_photo.loading", count: 0)
+    end
   end
 
   def make_post(text)

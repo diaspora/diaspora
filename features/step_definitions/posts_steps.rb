@@ -15,7 +15,7 @@ Then /^I should not see an uploaded image within the photo drop zone$/ do
 end
 
 Then /^I should not see any posts in my stream$/ do
-  all(".stream_element").should be_empty
+  page.assert_selector(".stream_element", count: 0)
 end
 
 Then /^I should not be able to submit the publisher$/ do
@@ -81,6 +81,10 @@ end
 
 When /^I append "([^"]*)" to the mobile publisher$/ do |text|
   append_to_publisher(text, '#status_message_text')
+end
+
+When /^I attach "([^"]*)" to the publisher$/ do |path|
+  upload_file_with_publisher(path)
 end
 
 When /^I open the show page of the "([^"]*)" post$/ do |post_text|

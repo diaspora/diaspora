@@ -34,11 +34,9 @@ Feature: posting from own profile page
 
     Scenario: post a photo with text
       Given I expand the publisher
-      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
-      When I fill in the following:
-          | status_message_fake_text    | who am I?    |
-
-      And I press "Share"
+      When I write the status message "who am I?"
+      And I attach "spec/fixtures/button.png" to the publisher
+      And I submit the publisher
 
       When I am on the home page
       Then I should see a "img" within ".stream_element div.photo_attachments"
@@ -47,6 +45,6 @@ Feature: posting from own profile page
     Scenario: back out of posting a photo-only post
       Given I expand the publisher
       And I have turned off jQuery effects
-      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+      And I attach "spec/fixtures/button.png" to the publisher
       And I click to delete the first uploaded photo
       Then I should not see an uploaded image within the photo drop zone
