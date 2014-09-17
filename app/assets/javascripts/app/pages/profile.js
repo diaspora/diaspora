@@ -27,6 +27,7 @@ app.pages.Profile = app.views.Base.extend({
     this.streamViewClass = _.has(opts, 'streamView') ? opts.streamView : null;
 
     this.model.on('change', this.render, this);
+    this.model.on('sync', this._done, this);
 
     // bind to global events
     var id = this.model.get('id');
@@ -114,6 +115,14 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   reload: function() {
-    this.model.fetch();
+    this.$('#profile').addClass('loading');
+
+    this.asyncSubHeader = $.Deferred();
+    $.when(this.model.fetch(), this.asyncSubHeader)
+      .done(_.bind(this._done, this));
+  },
+
+  _done: function() {
+    this.$('#profile').removeClass('loading');
   }
 });

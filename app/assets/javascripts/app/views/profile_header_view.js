@@ -20,7 +20,10 @@ app.views.ProfileHeader = app.views.Base.extend({
   postRenderTemplate: function() {
     var self = this;
     var dropdownEl = this.$('.aspect_membership_dropdown.placeholder');
-    if( dropdownEl.length == 0 ) return;
+    if( dropdownEl.length == 0 ) {
+      this._done();
+      return;
+    }
 
     // TODO render me client side!!!
     var href = this.model.url() + '/aspect_membership_button?create=true';
@@ -32,6 +35,11 @@ app.views.ProfileHeader = app.views.Base.extend({
 
       // UGLY (re-)attach the facebox
       self.$('a[rel*=facebox]').facebox();
+      this._done();
     });
+  },
+
+  _done: function() {
+    app.page.asyncSubHeader && app.page.asyncSubHeader.resovle();
   }
 });

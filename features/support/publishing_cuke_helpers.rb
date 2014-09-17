@@ -15,6 +15,7 @@ module PublishingCukeHelpers
     page.execute_script(%q{$("input[name='file']").css("opacity", '1');})
     with_scope("#publisher_textarea_wrapper") do
       attach_file("file", Rails.root.join(path).to_s)
+      # wait for the image to be ready
       page.assert_selector(".publisher_photo.loading", count: 0)
     end
   end
@@ -27,6 +28,7 @@ module PublishingCukeHelpers
   def submit_publisher
     txt = find('#publisher #status_message_fake_text').value
     find('#publisher .creation').click
+    # wait for the content to appear
     expect(page).to have_content(txt) unless page.has_css?('.nsfw-shield')
   end
 
