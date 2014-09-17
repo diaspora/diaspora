@@ -307,6 +307,20 @@ describe User::Querying, :type => :model do
     end
   end
 
+  describe "#block_for" do
+    let(:person) { FactoryGirl.create :person }
+
+    before do
+      eve.blocks.create({person: person})
+    end
+
+    it 'returns the block' do
+      block = eve.block_for(person)
+      expect(block).to be_present
+      expect(block.person.id).to be person.id
+    end
+  end
+
   describe '#posts_from' do
     before do
       @user3 = FactoryGirl.create(:user)

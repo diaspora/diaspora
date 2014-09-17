@@ -38,6 +38,7 @@ app.views.Base = Backbone.View.extend({
     this.template = HandlebarsTemplates[this.templateName+"_tpl"]
     if(!this.template) {
       console.log(this.templateName ? ("no template for " + this.templateName) : "no templateName specified")
+      return;
     }
 
     this.$el

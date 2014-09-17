@@ -10,6 +10,19 @@ module AspectCukeHelpers
     find(aspect_css).click
   end
 
+  def toggle_aspect_via_ui(aspect_name)
+    aspects_dropdown = find(".aspect_membership .toggle.button", match: :first)
+    aspects_dropdown.click
+    aspect = find(".dropdown.active .dropdown_list li", text: aspect_name)
+    aspect.click
+    aspect.parent.should have_no_css(".loading")
+
+    # close dropdown
+    page.should have_no_css('#profile.loading')
+    aspects_dropdown.click if aspects_dropdown.has_xpath?("..[contains(@class, 'active')]", wait: 3)
+    aspects_dropdown.should have_no_xpath("..[contains(@class, 'active')]")
+  end
+
   def aspect_dropdown_visible?
     expect(find('.aspect_membership.dropdown.active')).to be_visible
   end

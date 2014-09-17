@@ -51,4 +51,20 @@ LISTITEM
     end
     options
   end
+
+  def publisher_aspects_for(stream=nil)
+    if stream
+      aspects = stream.aspects
+      aspect = stream.aspect
+      aspect_ids = stream.aspect_ids
+    elsif current_user
+      aspects = current_user.aspects
+      aspect = aspects.first
+      aspect_ids = current_user.aspect_ids
+    else
+      return {}
+    end
+
+    { selected_aspects: aspects, aspect: aspect, aspect_ids: aspect_ids }
+  end
 end

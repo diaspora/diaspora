@@ -29,7 +29,7 @@ describe("app.views.Poll", function(){
 
       this.view.vote(answer.id);
 
-      var obj = jasmine.Ajax.requests.mostRecent().params);
+      var obj = JSON.parse(jasmine.Ajax.requests.mostRecent().params);
       expect(obj.poll_id).toBe(poll.poll_id);
       expect(obj.poll_answer_id).toBe(answer.id);
     })

@@ -1,0 +1,39 @@
+<div id="author_info">
+  {{#if loggedIn}}
+    <div class="right">
+      {{#if is_own_profile}}
+        {{!-- can't block myself, so don't check it here --}}
+        <a href="{{urlTo 'edit_profile'}}" class="button creation">{{t 'people.edit_my_profile'}}</a>
+      {{else}} {{#if is_blocked}}
+        <a href="#" id="unblock_user_button" class="button">{{t 'people.stop_ignoring'}}</a>
+      {{else}}
+        <div class="placeholder aspect_membership_dropdown"></div>
+      {{/if}}{{/if}}
+    </div>
+  {{/if}}
+
+  <h2>{{name}}</h2>
+  <span class="diaspora_handle">{{diaspora_id}}</span>
+
+  {{#if loggedIn}}
+    <div class="description">
+      {{#if has_tags}}
+        {{fmtTags profile.tags}}
+        {{#if is_own_profile}}
+          <span class="hover_edit">
+            <a href="{{urlTo 'edit_profile'}}">{{t 'profile.edit'}}</a>
+          </span>
+        {{/if}}
+      {{else}}
+        {{#if is_own_profile}}
+          <i>{{t 'profile.you_have_no_tags'}}</i>
+          <span class="add_tags">
+            <a href="{{urlTo 'edit_profile'}}">{{t 'profile.add_some'}}</a>
+          </span>
+        {{/if}}
+      {{/if}}
+    </div>
+  {{/if}}
+</div>
+
+<hr />

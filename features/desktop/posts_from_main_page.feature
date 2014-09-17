@@ -69,7 +69,7 @@ Feature: posting from the main page
 
     Scenario: post a photo with text
       Given I expand the publisher
-      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+      And I attach "spec/fixtures/button.png" to the publisher
       When I write the status message "Look at this dog"
       And I submit the publisher
       And I go to the aspects page
@@ -83,7 +83,7 @@ Feature: posting from the main page
 
     Scenario: post a photo without text
       Given I expand the publisher
-      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+      And I attach "spec/fixtures/button.png" to the publisher
       Then I should see an uploaded image within the photo drop zone
       When I press "Share"
       And I go to the aspects page
@@ -95,12 +95,8 @@ Feature: posting from the main page
 
     Scenario: back out of posting a photo-only post
       Given I expand the publisher
-      And I have turned off jQuery effects
-      When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
-      And I confirm the alert
-      Then I should not see an uploaded image within the photo drop zone
-      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
-      And I click to delete the first uploaded photo
+      And I attach "spec/fixtures/button.png" to the publisher
+      When I click to delete the first uploaded photo
       Then I should not see an uploaded image within the photo drop zone
       And I should not be able to submit the publisher
 
@@ -108,7 +104,7 @@ Feature: posting from the main page
       Given I expand the publisher
       And I have turned off jQuery effects
       When I write the status message "I am eating a yogurt"
-      And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+      And I attach "spec/fixtures/button.png" to the publisher
       And I click to delete the first uploaded photo
       Then I should not see an uploaded image within the photo drop zone
       And the publisher should be expanded
@@ -117,8 +113,8 @@ Feature: posting from the main page
       Given I expand the publisher
       And I have turned off jQuery effects
       When I write the status message "I am eating a yogurt"
-      And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
-      And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+      And I attach "spec/fixtures/button.png" to the publisher
+      And I attach "spec/fixtures/button.png" to the publisher
       And I click to delete the first uploaded photo
       Then I should see an uploaded image within the photo drop zone
       And the publisher should be expanded

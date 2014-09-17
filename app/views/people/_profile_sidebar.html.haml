@@ -2,7 +2,8 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-#profile
+
+.badge
   .profile_photo
     = person_image_link(person, :size => :thumb_large, :to => :photos)
 
@@ -26,67 +27,64 @@
         .profile_button
           = link_to content_tag(:div, nil, :class => 'icons-ignoreuser block_user', :title => t('ignore'), :id => 'block_user_button', :data => { :person_id => @person.id }), '#', :rel => "nofollow" if @block.blank?
 
+-if user_signed_in? && (contact.sharing? || person == current_user.person)
+  %ul#profile_information
 
-      %br
+    - unless person.bio.blank?
+      %li
+        %h4
+          =t('.bio')
+        %div{ :class => direction_for(person.bio) }
+          = person.profile.bio_message.markdownified
+    - unless person.profile.location.blank?
+      %li
+        %h4
+          =t('.location')
+        %div{ :class => direction_for(person.location) }
+          = person.profile.location_message.markdownified
 
-    -if contact.sharing? || person == current_user.person
-      %ul#profile_information
+    - unless person.gender.blank?
+      %li
+        %h4
+          =t('.gender')
+        = person.gender
 
-        - unless person.bio.blank?
-          %li
-            %h4
-              =t('.bio')
-            %div{ :class => direction_for(person.bio) }
-              = person.profile.bio_message.markdownified
-        - unless person.profile.location.blank?
-          %li
-            %h4
-              =t('.location')
-            %div{ :class => direction_for(person.location) }
-              = person.profile.location_message.markdownified
-
-        - unless person.gender.blank?
-          %li
-            %h4
-              =t('.gender')
-            = person.gender
-
-        - unless person.birthday.blank?
-          %li
-            %h4
-              =t('.born')
-            = birthday_format(person.birthday)
-        - if @photos.present?
-          %li.image_list
-            %h4
-              = t('.photos')
-              .item_count
-                = "#{@photos.count(:all)}"
-            - @photos.limit(8).each do |photo|
-              = image_tag(photo.url(:thumb_small))
-            %br
-              = link_to t('layouts.header.view_all'),  person_photos_path(person)
-
-        - if person == current_user.person
-          %li.image_list
-            %h4
-              = t('_contacts')
-              .item_count
-                = all_contacts_count
-            .section.contact_pictures
-              - current_user.contacts.limit(8).each do |contact|
-                = person_image_link contact.person, :size => :thumb_small
-            %p.see_all= link_to t('layouts.header.view_all'), contacts_path
-        - elsif @contact.persisted? && @contacts_of_contact_count > 0
-          %li.image_list
-            %h4
-              = t('_contacts')
-              .item_count
-                = @contacts_of_contact_count
-            .section.contact_pictures
-              -@contacts_of_contact.limit(8).each do |person|
-                = person_image_link person, :size => :thumb_small
-              %p.see_all= link_to t('layouts.header.view_all'), person_contacts_path(@person)
-
+    - unless person.birthday.blank?
+      %li
+        %h4
+          =t('.born')
+        = birthday_format(person.birthday)
+    - if @photos.present?
+      %li.image_list
+        %h4
+          = t('.photos')
+          .item_count
+            = "#{@photos.count(:all)}"
+        - @photos.limit(8).each do |photo|
+          = image_tag(photo.url(:thumb_small))
         %br
-        %br
+          = link_to t('layouts.header.view_all'),  person_photos_path(person)
+
+    - if person == current_user.person
+      %li.image_list
+        %h4
+          = t('_contacts')
+          .item_count
+            = all_contacts_count
+        .section.contact_pictures
+          - current_user.contacts.limit(8).each do |contact|
+            = person_image_link contact.person, :size => :thumb_small
+        %p.see_all= link_to t('layouts.header.view_all'), contacts_path
+    - elsif @contact.persisted? && @contacts_of_contact_count > 0
+      %li.image_list
+        %h4
+          = t('_contacts')
+          .item_count
+            = @contacts_of_contact_count
+        .section.contact_pictures
+          -@contacts_of_contact.limit(8).each do |person|
+            = person_image_link person, :size => :thumb_small
+          %p.see_all= link_to t('layouts.header.view_all'), person_contacts_path(@person)
+
+    %br
+    %br

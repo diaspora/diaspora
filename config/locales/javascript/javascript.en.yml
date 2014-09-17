@@ -17,6 +17,7 @@ en:
         exists: "The report already exists"
     ignore_user: "Ignore this user?"
     ignore_failed: "Unable to ignore this user"
+    unblock_failed: "Unblocking this user has failed"
     and: "and"
     comma: ","
     edit: "Edit"
@@ -115,6 +116,24 @@ en:
       wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     people:
       not_found: "and no one was found..."
+      mention: "Mention"
+      message: "Message"
+      edit_my_profile: "Edit my profile"
+      stop_ignoring: "Stop ignoring"
+      helper:
+        is_sharing: "<%= name %> is sharing with you"
+        is_not_sharing: "<%= name %> is not sharing with you"
+    profile:
+      edit: "edit"
+      add_some: "add some"
+      you_have_no_tags: "you have no tags!"
+      ignoring: "You are ignoring all posts from <%= name %>."
+      bio: "Bio"
+      location: "Location"
+      gender: "Gender"
+      born: "Birthday"
+      photos: "Photos"
+      contacts: "Contacts"
 
     conversation:
       participants: "Participants"

@@ -119,13 +119,7 @@ Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
 end
 
 When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect$/ do |aspect_name|
-    aspects_dropdown = find(".aspect_membership .toggle.button", match: :first)
-    aspects_dropdown.click
-    aspect = find(".dropdown.active .dropdown_list li", text: aspect_name)
-    aspect.click
-    aspect.parent.has_css?(".loading")
-    aspect.parent.should_not have_css(".loading")
-    aspects_dropdown.click
+  toggle_aspect_via_ui(aspect_name)
 end
 
 When /^I post a status with the text "([^\"]*)"$/ do |text|

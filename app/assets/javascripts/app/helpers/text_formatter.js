@@ -7,7 +7,7 @@ $(function() {
 (function(){
   //make it so I take text and mentions rather than the modelapp.helpers.textFormatter(
   var textFormatter = function textFormatter(text, model) {
-    var mentions = model.get("mentioned_people");
+    var mentions = model ? model.get("mentioned_people") : [];
 
     return textFormatter.mentionify(
       textFormatter.hashtagify(

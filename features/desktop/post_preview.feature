@@ -42,7 +42,7 @@ Feature: preview posts in the stream
 
     Scenario: preview a photo with text
       Given I expand the publisher
-      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+      And I attach "spec/fixtures/button.png" to the publisher
       When I fill in the following:
           | status_message_fake_text    | Look at this dog    |
       And I press "Preview"

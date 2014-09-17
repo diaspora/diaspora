@@ -1,0 +1,102 @@
+
+<div id="profile_photo" class="profile_photo">
+  {{#linkToPerson this}}
+    {{{personImage this "large"}}}
+  {{/linkToPerson}}
+</div>
+
+{{#if do_profile_btns}}
+  <div id="profile_buttons" class="{{relationship}}">
+    {{{sharingBadge this}}}
+
+    {{#if is_receiving}}
+      {{!-- create status message with mention --}}
+      <div class="profile_button">
+        <a href="{{urlTo 'new_status_message' person_id=id}}" rel="facebox">
+          <div id="mention_button" class="icons-mention" title="{{t 'people.mention'}}" data-placement="bottom"></div>
+        </a>
+      </div>
+    {{/if}}
+
+    {{#if is_mutual}}
+      {{!-- create private conversation with person --}}
+      <div class="profile_button">
+        <a href="{{urlTo 'new_conversation' contact_id=contact.id name=name facebox=true}}" rel="facebox">
+          <div id="message_button" class="icons-message" title="{{t 'people.message'}}" data-placement="bottom"></div>
+        </a>
+      </div>
+    {{/if}}
+
+    {{#if is_not_blocked}}
+      {{!-- ignore the person --}}
+      <div class="profile_button">
+        <a href="#" rel="nofollow">
+          <div id="block_user_button" class="icons-ignoreuser block_user" title="{{t 'ignore'}}" data-placement="bottom"></div>
+        </a>
+      </div>
+    {{/if}}
+  </div>
+{{/if}}
+
+{{#if do_profile_info}}
+  <ul id="profile_information">
+    {{#with profile}}
+      {{#if bio}}
+        <li>
+          <h4>{{t 'profile.bio'}}</h4>
+          <div class="{{txtDirClass bio}}">{{fmtText bio}}</div>
+        </li>
+      {{/if}}
+      {{#if location}}
+        <li>
+          <h4>{{t 'profile.location'}}</h4>
+          <div class="{{txtDirClass location}}">{{fmtText location}}</div>
+        </li>
+      {{/if}}
+      {{#if gender}}
+        <li>
+          <h4>{{t 'profile.gender'}}</h4>
+          {{gender}}
+        </li>
+      {{/if}}
+      {{#if birthday}}
+        <li>
+          <h4>{{t 'profile.born'}}</h4>
+          {{birthday}}
+        </li>
+      {{/if}}
+    {{/with}}
+    {{#if do_photos}}
+      <li class="image_list">
+        <h4>
+          {{t 'profile.photos'}}
+          <div class="item_count">{{photos.count}}</div>
+        </h4>
+        <div class="section photo_pictures">
+          {{#each photos.items}}
+            <img src="{{sizes.small}}" alt="{{guid}}" />
+          {{/each}}
+        </div>
+        <p class="see_all">
+          <a href="{{urlTo 'person_photos' guid}}">{{t 'header.view_all'}}</a>
+        </p>
+      </li>
+    {{/if}}
+    {{#if do_contacts}}
+      <li class="image_list">
+        <h4>
+          {{t 'profile.contacts'}}
+          <div class="item_count">{{contacts.count}}</div>
+        </h4>
+        <div class="section contact_pictures">
+          {{#each contacts.items}}
+            {{#linkToPerson this}}{{{personImage this "small"}}}{{/linkToPerson}}
+          {{/each}}
+        </div>
+        <p class="see_all">
+          <a href="{{urlTo 'person_contacts' guid}}">{{t 'header.view_all'}}</a>
+        </p>
+      </li>
+    {{/if}}
+  </ul>
+{{/if}}

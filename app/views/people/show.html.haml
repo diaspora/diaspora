@@ -4,7 +4,6 @@
 
 
 - content_for :head do
-  = javascript_include_tag :people
   - if user_signed_in? && @person != current_user.person
     :javascript
       Mentions.options.prefillMention = Mentions._contactToMention(#{j @person.to_json});
@@ -13,18 +12,23 @@
   = @person.name
 
 .span-6
-  = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
+  #profile
+    -# here be JS
 
 .span-18.last
+  .profile_header
+    -# more JS
+
   .stream_container
-    = render 'people/sub_header', :person => @person, :contact => @contact
+
+    -if user_signed_in? && current_page?(person_path(current_user.person))
+      = render 'publisher/publisher', publisher_aspects_for(nil)
 
     #main_stream.stream
-      - if @block.present?
-        .dull
-          = t('.ignoring', :name => @person.first_name)
+      -# JS
 
     #paginate
+      %span.loader.hidden
 
   %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
     &#8679;

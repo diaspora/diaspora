@@ -3,6 +3,7 @@
  *   the COPYRIGHT file.
  */
 //= require js_image_paths
+//= require js-routes
 //= require underscore
 //= require backbone
 //= require jquery.hotkeys

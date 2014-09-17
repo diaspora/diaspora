@@ -174,6 +174,11 @@ describe PeopleController, :type => :controller do
       expect(response.code).to eq("404")
     end
 
+    it 'finds a person via username' do
+      get :show, username: @user.username
+      expect(assigns(:person)).to eq(@user.person)
+    end
+
     it 'redirects home for closed account' do
       @person = FactoryGirl.create(:person, :closed_account => true)
       get :show, :id => @person.to_param
@@ -193,10 +198,12 @@ describe PeopleController, :type => :controller do
     it "doesn't leak photos in the sidebar" do
       private_photo = @user.post(:photo, user_file: uploaded_photo, to: @aspect.id, public: false)
       public_photo = @user.post(:photo, user_file: uploaded_photo, to: @aspect.id, public: true)
+      allow(@user.person).to receive(:remote?) { false }
 
       sign_out :user
       get :show, id: @user.person.to_param
 
+      expect(response).to be_success
       expect(assigns(:photos)).not_to include private_photo
       expect(assigns(:photos)).to include public_photo
     end
@@ -216,23 +223,6 @@ describe PeopleController, :type => :controller do
         get :show, :id => @user.person.to_param
         expect(assigns(:person)).to eq(@user.person)
       end
-
-      it "assigns all the user's posts" do
-        expect(@user.posts).to be_empty
-        @user.post(:status_message, :text => "to one aspect", :to => @aspect.id)
-        @user.post(:status_message, :text => "to all aspects", :to => 'all')
-        @user.post(:status_message, :text => "public", :to => 'all', :public => true)
-        expect(@user.reload.posts.length).to eq(3)
-        get :show, :id => @user.person.to_param
-        expect(assigns(:stream).posts.map(&:id)).to match_array(@user.posts.map(&:id))
-      end
-
-      it "renders the comments on the user's posts" do
-        message = @user.post :status_message, :text => 'test more', :to => @aspect.id
-        @user.comment!(message, 'I mean it')
-        get :show, :id => @user.person.to_param
-        expect(response).to be_success
-      end
     end
 
     context "with no user signed in" do
@@ -249,34 +239,6 @@ describe PeopleController, :type => :controller do
       it 'succeeds on the mobile site' do
         get :show, :id => @person.to_param, :format => :mobile
         expect(response).to be_success
-      end
-
-      context 'with posts' do
-        before do
-          @public_posts = []
-          @public_posts << bob.post(:status_message, :text => "first public ", :to => bob.aspects[0].id, :public => true)
-          bob.post(:status_message, :text => "to an aspect @user is not in", :to => bob.aspects[1].id)
-          bob.post(:status_message, :text => "to all aspects", :to => 'all')
-          @public_posts << bob.post(:status_message, :text => "public", :to => 'all', :public => true)
-          @public_posts.first.created_at -= 1000
-          @public_posts.first.save
-        end
-
-        it "posts include reshares" do
-          reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
-          get :show, :id => @user.person.to_param
-          expect(assigns[:stream].posts.map { |x| x.id }).to include(reshare.id)
-        end
-
-        it "assigns only public posts" do
-          get :show, :id => @person.to_param
-          expect(assigns[:stream].posts.map(&:id)).to match_array(@public_posts.map(&:id))
-        end
-
-        it 'is sorted by created_at desc' do
-          get :show, :id => @person.to_param
-          expect(assigns[:stream].stream_posts).to eq(@public_posts.sort_by { |p| p.created_at }.reverse)
-        end
       end
 
       it 'forces to sign in if the person is remote' do
@@ -303,27 +265,6 @@ describe PeopleController, :type => :controller do
         expect(response).to be_success
       end
 
-      it "assigns only the posts the current user can see" do
-        expect(bob.posts).to be_empty
-        posts_user_can_see = []
-        aspect_user_is_in = bob.aspects.where(:name => "generic").first
-        aspect_user_is_not_in = bob.aspects.where(:name => "empty").first
-        posts_user_can_see << bob.post(:status_message, :text => "to an aspect @user is in", :to => aspect_user_is_in.id)
-        bob.post(:status_message, :text => "to an aspect @user is not in", :to => aspect_user_is_not_in.id)
-        posts_user_can_see << bob.post(:status_message, :text => "to all aspects", :to => 'all')
-        posts_user_can_see << bob.post(:status_message, :text => "public", :to => 'all', :public => true)
-        expect(bob.reload.posts.length).to eq(4)
-
-        get :show, :id => @person.to_param
-        expect(assigns(:stream).posts.map(&:id)).to match_array(posts_user_can_see.map(&:id))
-      end
-
-      it "posts include reshares" do
-        reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
-        get :show, :id => @user.person.to_param
-        expect(assigns[:stream].posts.map { |x| x.id }).to include(reshare.id)
-      end
-
       it 'marks a corresponding notifications as read' do
         note = FactoryGirl.create(:notification, :recipient => @user, :target => @person, :unread => true)
 
@@ -348,6 +289,67 @@ describe PeopleController, :type => :controller do
         get :show, :id => @person.to_param, :format => :mobile
         expect(response).to be_success
       end
+    end
+  end
+
+  describe '#stream' do
+    it "redirects non-json requests" do
+      get :stream, person_id: @user.person.to_param
+      expect(response).to be_redirect
+    end
+
+    context "person is current user" do
+      it "assigns all the user's posts" do
+        expect(@user.posts).to be_empty
+        @user.post(:status_message, :text => "to one aspect", :to => @aspect.id)
+        @user.post(:status_message, :text => "to all aspects", :to => 'all')
+        @user.post(:status_message, :text => "public", :to => 'all', :public => true)
+        expect(@user.reload.posts.length).to eq(3)
+        get :stream, person_id: @user.person.to_param, format: :json
+        expect(assigns(:stream).posts.map(&:id)).to match_array(@user.posts.map(&:id))
+      end
+
+      it "renders the comments on the user's posts" do
+        cmmt = 'I mean it'
+        message = @user.post :status_message, :text => 'test more', :to => @aspect.id
+        @user.comment!(message, cmmt)
+        get :stream, person_id: @user.person.to_param, format: :json
+        expect(response).to be_success
+        expect(response.body).to include(cmmt)
+      end
+    end
+
+    context "person is contact of current user" do
+      before do
+        @person = bob.person
+      end
+
+      it "includes reshares" do
+        reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
+        get :stream, person_id: @user.person.to_param, format: :json
+        expect(assigns[:stream].posts.map { |x| x.id }).to include(reshare.id)
+      end
+
+      it "assigns only the posts the current user can see" do
+        expect(bob.posts).to be_empty
+        posts_user_can_see = []
+        aspect_user_is_in = bob.aspects.where(:name => "generic").first
+        aspect_user_is_not_in = bob.aspects.where(:name => "empty").first
+        posts_user_can_see << bob.post(:status_message, :text => "to an aspect @user is in", :to => aspect_user_is_in.id)
+        bob.post(:status_message, :text => "to an aspect @user is not in", :to => aspect_user_is_not_in.id)
+        posts_user_can_see << bob.post(:status_message, :text => "to all aspects", :to => 'all')
+        posts_user_can_see << bob.post(:status_message, :text => "public", :to => 'all', :public => true)
+        expect(bob.reload.posts.length).to eq(4)
+
+        get :stream, person_id: @person.to_param, format: :json
+        expect(assigns(:stream).posts.map(&:id)).to match_array(posts_user_can_see.map(&:id))
+      end
+    end
+
+    context "person is not contact of current user" do
+      before do
+        @person = eve.person
+      end
 
       it "assigns only public posts" do
         expect(eve.posts).to be_empty
@@ -356,14 +358,49 @@ describe PeopleController, :type => :controller do
         public_post = eve.post(:status_message, :text => "public", :to => 'all', :public => true)
         expect(eve.reload.posts.length).to eq(3)
 
-        get :show, :id => @person.to_param
+        get :stream, person_id: @person.to_param, format: :json
         expect(assigns[:stream].posts.map(&:id)).to match_array([public_post].map(&:id))
       end
 
       it "posts include reshares" do
         reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
-        get :show, :id => @user.person.to_param
+        get :stream, person_id: @user.person.to_param, format: :json
         expect(assigns[:stream].posts.map { |x| x.id }).to include(reshare.id)
+      end
+    end
+
+    context "logged out" do
+      before do
+        sign_out :user
+        @person = bob.person
+      end
+
+      context 'with posts' do
+        before do
+          @public_posts = []
+          @public_posts << bob.post(:status_message, :text => "first public ", :to => bob.aspects[0].id, :public => true)
+          bob.post(:status_message, :text => "to an aspect @user is not in", :to => bob.aspects[1].id)
+          bob.post(:status_message, :text => "to all aspects", :to => 'all')
+          @public_posts << bob.post(:status_message, :text => "public", :to => 'all', :public => true)
+          @public_posts.first.created_at -= 1000
+          @public_posts.first.save
+        end
+
+        it "posts include reshares" do
+          reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
+          get :stream, person_id: @user.person.to_param, format: :json
+          expect(assigns[:stream].posts.map { |x| x.id }).to include(reshare.id)
+        end
+
+        it "assigns only public posts" do
+          get :stream, person_id: @person.to_param, format: :json
+          expect(assigns[:stream].posts.map(&:id)).to match_array(@public_posts.map(&:id))
+        end
+
+        it 'is sorted by created_at desc' do
+          get :stream, person_id: @person.to_param, format: :json
+          expect(assigns[:stream].stream_posts).to eq(@public_posts.sort_by { |p| p.created_at }.reverse)
+        end
       end
     end
   end

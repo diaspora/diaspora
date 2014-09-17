@@ -69,7 +69,7 @@ module User::Querying
 
   def construct_public_followings_sql(opts)
     Rails.logger.debug("[EVIL-QUERY] user.construct_public_followings_sql")
-    
+
     # For PostgreSQL and MySQL/MariaDB we use a different query
     # see issue: https://github.com/diaspora/diaspora/issues/5014
     if AppConfig.postgres?
@@ -102,6 +102,11 @@ module User::Querying
   def contact_for(person)
     return nil unless person
     contact_for_person_id(person.id)
+  end
+
+  def block_for(person)
+    return nil unless person
+    self.blocks.where(person_id: person.id).first
   end
 
   def aspects_with_shareable(base_class_name_or_class, shareable_id)
