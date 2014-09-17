@@ -95,12 +95,8 @@ Feature: posting from the main page
 
     Scenario: back out of posting a photo-only post
       Given I expand the publisher
-      And I have turned off jQuery effects
       And I attach "spec/fixtures/button.png" to the publisher
-      And I confirm the alert
-      Then I should not see an uploaded image within the photo drop zone
-      And I attach "spec/fixtures/button.png" to the publisher
-      And I click to delete the first uploaded photo
+      When I click to delete the first uploaded photo
       Then I should not see an uploaded image within the photo drop zone
       And I should not be able to submit the publisher
 
