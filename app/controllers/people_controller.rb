@@ -174,8 +174,10 @@ class PeopleController < ApplicationController
   private
 
   def find_person
-    person_id = params[:id] || params[:person_id]
-    @person = Person.find_from_guid_or_username({id: person_id})
+    @person = Person.find_from_guid_or_username({
+      id: params[:id] || params[:person_id],
+      username: params[:username]
+    })
 
     # view this profile on the home pod, if you don't want to sign in...
     authenticate_user! if remote_profile_with_no_user_session?

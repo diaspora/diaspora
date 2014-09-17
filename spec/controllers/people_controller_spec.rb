@@ -174,6 +174,11 @@ describe PeopleController, :type => :controller do
       expect(response.code).to eq("404")
     end
 
+    it 'finds a person via username' do
+      get :show, username: @user.username
+      expect(assigns(:person)).to eq(@user.person)
+    end
+
     it 'redirects home for closed account' do
       @person = FactoryGirl.create(:person, :closed_account => true)
       get :show, :id => @person.to_param
