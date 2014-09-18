@@ -147,14 +147,19 @@ class StatusMessage < Post
     Workers::GatherOpenGraphData.perform_async(self.id, self.open_graph_url)
   end
 
+  def unmarkeddown_message
+    # Regex to eliminate markdown syntax before o_embed and open_graph processing
+    return "#{self.raw_message}".gsub(/!?\[[^\[\]]*\]\((?<url>\S+)\)/, '\k<url>')
+  end
+
   def contains_oembed_url_in_text?
-    urls = URI.extract(self.raw_message, ['http', 'https'])
+    urls = URI.extract(self.unmarkeddown_message, ['http', 'https'])
     self.oembed_url = urls.find{ |url| !TRUSTED_OEMBED_PROVIDERS.find(url).nil? }
   end
 
   def contains_open_graph_url_in_text?
     return nil if self.contains_oembed_url_in_text?
-    self.open_graph_url = URI.extract(self.raw_message, ['http', 'https'])[0]
+    self.open_graph_url = URI.extract(self.unmarkeddown_message, ['http', 'https'])[0]
   end
 
   def address
