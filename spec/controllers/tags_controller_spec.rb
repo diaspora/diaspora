@@ -47,36 +47,42 @@ describe TagsController, :type => :controller do
       end
     end
 
-    context 'signed in' do
+    context 'with a tagged post' do
       before do
-        sign_in :user, alice
+        eve.post(:status_message, text: "#what #yes #hellyes #foo", public: true, to: 'all')
       end
 
-      it 'assigns a Stream::Tag object with the current_user' do
-        get :show, :name => 'yes'
-        expect(assigns[:stream].user).to eq(alice)
+      context 'signed in' do
+        before do
+          sign_in :user, alice
+        end
+
+        it 'assigns a Stream::Tag object with the current_user' do
+          get :show, :name => 'yes'
+          expect(assigns[:stream].user).to eq(alice)
+        end
+
+        it 'succeeds' do
+          get :show, :name => 'hellyes'
+          expect(response.status).to eq(200)
+        end
       end
 
-      it 'succeeds' do
-        get :show, :name => 'hellyes'
-        expect(response.status).to eq(200)
-      end
-    end
+      context "not signed in" do
+        it 'assigns a Stream::Tag object with no user' do
+          get :show, :name => 'yes'
+          expect(assigns[:stream].user).to be_nil
+        end
 
-    context "not signed in" do
-      it 'assigns a Stream::Tag object with no user' do
-        get :show, :name => 'yes'
-        expect(assigns[:stream].user).to be_nil
-      end
+        it 'succeeds' do
+          get :show, :name => 'hellyes'
+          expect(response.status).to eq(200)
+        end
 
-      it 'succeeds' do
-        get :show, :name => 'hellyes'
-        expect(response.status).to eq(200)
-      end
-
-      it 'succeeds with mobile' do 
-        get :show, :name => 'foo', :format => :mobile
-        expect(response).to be_success
+        it 'succeeds with mobile' do
+          get :show, :name => 'foo', :format => :mobile
+          expect(response).to be_success
+        end
       end
     end
   end
