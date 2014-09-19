@@ -188,6 +188,12 @@ module Diaspora
       }.html_safe
     end
 
+    # Strips the raw message to remove markdown and keep the URLs
+    # @return raw message without markdown
+    def unmarkeddown_message
+      return "#{@raw_message}".gsub(/!?\[[^\[\]]*\]\((?<url>\S+)\)/, '\k<url>')
+    end
+
     # Get a short summary of the message
     # @param [Hash] opts Additional options
     # @option opts [Integer] :length (20 | first heading) Truncate the title to
