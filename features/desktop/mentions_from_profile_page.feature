@@ -23,10 +23,9 @@ Feature: mentioning a contact from their profile page
 
     Scenario: mentioning while posting to all aspects
       Given I am on "alice@alice.alice"'s page
-      And I have turned off jQuery effects
       And I want to mention her from the profile
       And I append "I am eating a yogurt" to the publisher
-      And I press "Share" in the modal window
+      And I press "Share" in the mention modal
       When I am on the aspects page
       And I follow "PostingTo" within "#aspects_list"
       Then I should see "I am eating a yogurt"
@@ -37,13 +36,12 @@ Feature: mentioning a contact from their profile page
 
     Scenario: mentioning while posting to just one aspect
       Given I am on "alice@alice.alice"'s page
-      And I have turned off jQuery effects
       And I want to mention her from the profile
-      And I press the aspect dropdown in the modal window
-      And I toggle the aspect "NotPostingThingsHere" in the modal window
-      And I press the aspect dropdown in the modal window
+      And I press the aspect dropdown in the mention modal
+      And I toggle the aspect "NotPostingThingsHere" in the mention modal
+      And I press the aspect dropdown in the mention modal
       And I append "I am eating a yogurt" to the publisher
-      And I press "Share" in the modal window
+      And I press "Share" in the mention modal
 
       When I am on the aspects page
       And I select only "PostingTo" aspect

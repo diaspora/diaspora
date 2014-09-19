@@ -7,6 +7,8 @@
   }
 }
 
+a.tag { color: $blue; }
+
 h1.tag {
   border-bottom: 2px dotted $blue;
   &:hover { border-bottom: 2px dotted $blue; }

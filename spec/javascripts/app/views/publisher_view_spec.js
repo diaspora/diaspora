@@ -247,8 +247,8 @@ describe("app.views.Publisher", function() {
       spec.loadFixture('status_message_new');
       Diaspora.I18n.load({ stream: { public: 'Public' }});
 
-      this.radio_els = $('#publisher .dropdown li.radio');
-      this.check_els = $('#publisher .dropdown li.aspect_selector');
+      this.radio_els = $('#publisher .aspect_dropdown li.radio');
+      this.check_els = $('#publisher .aspect_dropdown li.aspect_selector');
       this.visibility_icon = $('#visibility-icon');
 
       this.view = new app.views.Publisher();
@@ -310,8 +310,8 @@ describe("app.views.Publisher", function() {
 
     describe("hidden form elements", function(){
       beforeEach(function(){
-        this.li = $('<li data-aspect_id="42" />');
-        this.view.$('.dropdown_list').append(this.li);
+        this.li = $('<li data-aspect_id="42" class="aspect_selector" />');
+        this.view.$('.dropdown-menu').append(this.li);
       });
 
       it("removes a previous selection and inserts the current one", function() {
@@ -337,8 +337,8 @@ describe("app.views.Publisher", function() {
       });
 
       it("keeps other fields with different values", function() {
-        var li2 = $("<li data-aspect_id=99></li>");
-        this.view.$('.dropdown_list').append(li2);
+        var li2 = $('<li data-aspect_id=99 class="aspect_selector"></li>');
+        this.view.$('.dropdown-menu').append(li2);
 
         this.li.trigger('click');
         li2.trigger('click');

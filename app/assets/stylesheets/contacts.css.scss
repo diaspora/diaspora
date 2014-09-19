@@ -19,7 +19,8 @@
         width: 150px;
         &:focus { width: 250px; }
       }
-      & > a, #aspect_controls > a {
+      #aspect_controls > .contacts_button {
+        cursor: pointer;
         text-decoration: none;
         margin-right: 25px;
       }

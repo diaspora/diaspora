@@ -1,19 +1,21 @@
 module AspectCukeHelpers
   def click_aspect_dropdown
-    find('.dropdown .button').click
+    # blueprint: .dropdown .button, bootstrap: .aspect_dropdown .dropdown-toggle
+    find('.dropdown .button, .aspect_dropdown .dropdown-toggle').click
   end
 
   def toggle_aspect(a_name)
+    # blueprint: .dropdown li, bootstrap: .aspect_dropdown li
     a_id = @me.aspects.where(name: a_name).pluck(:id).first
-    aspect_css = ".dropdown li[data-aspect_id='#{a_id}']"
+    aspect_css = ".dropdown li[data-aspect_id='#{a_id}'], .aspect_dropdown li[data-aspect_id='#{a_id}']"
     expect(page).to have_selector(aspect_css)
     find(aspect_css).click
   end
 
   def toggle_aspect_via_ui(aspect_name)
-    aspects_dropdown = find(".aspect_membership .toggle.button", match: :first)
+    aspects_dropdown = find(".aspect_membership_dropdown .dropdown-toggle", match: :first)
     aspects_dropdown.click
-    aspect = find(".dropdown.active .dropdown_list li", text: aspect_name)
+    aspect = find(".aspect_membership_dropdown.open .dropdown-menu li", text: aspect_name)
     aspect.click
     aspect.parent.should have_no_css(".loading")
 

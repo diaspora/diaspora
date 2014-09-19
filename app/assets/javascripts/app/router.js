@@ -21,6 +21,7 @@ app.Router = Backbone.Router.extend({
     "followed_tags": "followed_tags",
     "tags/:name": "followed_tags",
     "people/:id/photos": "photos",
+    "people/:id/contacts": "profile",
 
     "people/:id": "profile",
     "u/:name": "profile"
@@ -81,7 +82,7 @@ app.Router = Backbone.Router.extend({
     this.renderPage(function() {
       return new app.pages.Profile({
         person_id: guid,
-        el: $('body > .container'),
+        el: $('body > .container-fluid'),
         streamCollection: app.collections.Photos,
         streamView: app.views.Photos
       });
@@ -147,7 +148,7 @@ app.Router = Backbone.Router.extend({
 
   profile: function() {
     this.renderPage(function() { return new app.pages.Profile({
-      el: $('body > .container')
+      el: $('body > .container-fluid')
     }); });
   }
 });

@@ -101,26 +101,4 @@ describe PeopleHelper, :type => :helper do
       expect(local_or_remote_person_path(@person)).to eq(person_path(@person))
     end
   end
-
-  describe '#sharing_message' do
-    before do
-      @contact = FactoryGirl.create(:contact, :person => @person)
-    end
-
-    context 'when the contact is sharing' do
-      it 'shows the sharing message' do
-        message = I18n.t('people.helper.is_sharing', :name => @person.name)
-        allow(@contact).to receive(:sharing?).and_return(true)
-        expect(sharing_message(@person, @contact)).to include(message)
-      end
-    end
-
-    context 'when the contact is not sharing' do
-      it 'does show the not sharing message' do
-        message = I18n.t('people.helper.is_not_sharing', :name => @person.name)
-        allow(@contact).to receive(:sharing?).and_return(false)
-        expect(sharing_message(@person, @contact)).to include(message)
-      end
-    end
-  end
 end

@@ -89,6 +89,17 @@ class Contact < ActiveRecord::Base
     end
   end
 
+  def self.contact_contacts_for(user, person)
+    return none unless user
+
+    if person == user.person
+      user.contact_people
+    else
+      contact = user.contact_for(person)
+      contact.try(:contacts) || none
+    end
+  end
+
   private
   def not_contact_with_closed_account
     if person_id && person.closed_account?

@@ -16,33 +16,33 @@ describe ConversationsController, :type => :controller do
     end
   end
 
-  describe '#new facebox' do
+  describe '#new modal' do
     it 'succeeds' do
-      get :new, :facebox => true
+      get :new, :modal => true
       expect(response).to be_success
     end
 
     it "assigns a json list of contacts that are sharing with the person" do
-      get :new, :facebox => true
+      get :new, :modal => true
       expect(assigns(:contacts_json)).to include(alice.contacts.where(:sharing => true).first.person.name)
       alice.contacts << Contact.new(:person_id => eve.person.id, :user_id => alice.id, :sharing => false, :receiving => true)
       expect(assigns(:contacts_json)).not_to include(alice.contacts.where(:sharing => false).first.person.name)
     end
 
     it "assigns a contact if passed a contact id" do
-      get :new, :contact_id => alice.contacts.first.id, :facebox => true
+      get :new, :contact_id => alice.contacts.first.id, :modal => true
       expect(assigns(:contact_ids)).to eq(alice.contacts.first.id)
     end
 
     it "assigns a set of contacts if passed an aspect id" do
-      get :new, :aspect_id => alice.aspects.first.id, :facebox => true
+      get :new, :aspect_id => alice.aspects.first.id, :modal => true
       expect(assigns(:contact_ids)).to eq(alice.aspects.first.contacts.map(&:id).join(','))
     end
 
     it "does not allow XSS via the name parameter" do
       ["</script><script>alert(1);</script>",
        '"}]});alert(1);(function f() {var foo = [{b:"'].each do |xss|
-        get :new, :facebox => true, name: xss
+        get :new, :modal => true, name: xss
         expect(response.body).not_to include xss
       end
     end
@@ -51,7 +51,7 @@ describe ConversationsController, :type => :controller do
       xss = "<script>alert(0);</script>"
       contact = alice.contacts.first
       contact.person.profile.update_attribute(:first_name, xss)
-      get :new, :facebox => true
+      get :new, :modal => true
       json = JSON.parse(assigns(:contacts_json)).first
       expect(json['value'].to_s).to eq(contact.id.to_s)
       expect(json['name']).to_not include(xss)

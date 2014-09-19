@@ -84,7 +84,7 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    if !params[:facebox] && !session[:mobile_view] && request.format.html?
+    if !params[:modal] && !session[:mobile_view] && request.format.html?
       redirect_to conversations_path
       return
     end

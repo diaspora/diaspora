@@ -1,4 +1,4 @@
-#main_stream .stream_element {
+#main_stream .stream_element, #main_stream .photo {
   padding: 10px;
   border-bottom: 1px solid $border-grey;
 
@@ -13,6 +13,7 @@
       margin-bottom: 4px;
       unicode-bidi: bidi-override;
     }
+    a.author { color: $blue; }
     .feedback {
       margin-top: 5px;
       font-size: 11px;

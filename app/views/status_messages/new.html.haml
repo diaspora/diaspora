@@ -1,21 +1,19 @@
--#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3 or later.  See
--#   the COPYRIGHT file.
-
 = javascript_include_tag :home
 
-#new_status_message_pane
-  .span-15.last
-    #facebox_header
-      %h3
-        = t('.mentioning', :person => @person.name)
-
-    = render :partial => 'publisher/publisher', :locals => { :aspect => @aspect, :aspect_ids => @aspect_ids, :selected_aspects => @aspects_with_person, :person => @person}
+= render :partial => 'publisher/publisher_bootstrap',
+         :locals => { :aspect => @aspect,
+                      :aspect_ids => @aspect_ids,
+                      :selected_aspects => @aspects_with_person,
+                      :person => @person }
 
 :javascript
   $(function() {
     app.publisher = new app.views.Publisher({
       standalone: true
     });
-    $("#publisher").bind('ajax:success', function(){ location.reload(); });
+    app.publisher.open();
+    $("#publisher").bind('ajax:success', function(){
+      $("#mentionModal").modal('hide');
+      location.reload();
+    });
   });

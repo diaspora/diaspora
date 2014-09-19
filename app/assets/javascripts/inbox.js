@@ -2,7 +2,6 @@
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
  */
-//= require jquery.autoSuggest.custom
 
 $(document).ready(function(){
   $(document).on('click', '.conversation-wrapper', function(){

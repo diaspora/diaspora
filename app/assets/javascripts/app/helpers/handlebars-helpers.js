@@ -31,18 +31,18 @@ Handlebars.registerHelper('linkToPerson', function(context, block) {
 });
 
 // relationship indicator for profile page
-Handlebars.registerHelper('sharingBadge', function(person) {
+Handlebars.registerHelper('sharingMessage', function(person) {
   var i18n_scope = 'people.helper.is_not_sharing';
-  var icon  = 'icons-circle';
+  var icon = "circle";
   if( person.is_sharing ) {
     i18n_scope = 'people.helper.is_sharing';
-    icon = 'icons-check_yes_ok';
+    icon = "entypo check";
   }
 
   var title = Diaspora.I18n.t(i18n_scope, {name: person.name});
-  var html = '<div class="sharing_message_container" title="'+title+'" data-placement="bottom">'+
-             '  <div id="sharing_message" class="'+icon+'"></div>'+
-             '</div>';
+  var html = '<span class="sharing_message_container" title="'+title+'" data-placement="bottom">'+
+             '  <i id="sharing_message" class="'+icon+'"></i>'+
+             '</span>';
   return html;
 });
 
@@ -89,4 +89,19 @@ Handlebars.registerHelper('fmtTags', function(tags) {
 
 Handlebars.registerHelper('fmtText', function(text) {
   return new Handlebars.SafeString(app.helpers.textFormatter(text, null));
+});
+
+Handlebars.registerHelper('isCurrentPage', function(path_helper, id, options){
+  var currentPage = "/"+Backbone.history.fragment;
+  if (currentPage == Handlebars.helpers.urlTo(path_helper, id, options.data)) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
+Handlebars.registerHelper('isCurrentProfilePage', function(id, diaspora_handle, options){
+  var username = diaspora_handle.split("@")[0];
+  return Handlebars.helpers.isCurrentPage('person', id, options) ||
+         Handlebars.helpers.isCurrentPage('user_profile', username, options);
 });
