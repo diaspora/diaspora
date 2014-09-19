@@ -48,6 +48,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 * Move submit button to the right in conversations view [#4960](https://github.com/diaspora/diaspora/pull/4960)
 * Handle long URLs and titles in OpenGraph descriptions [#5208](https://github.com/diaspora/diaspora/pull/5208)
 * Fix deformed getting started popover [#5227](https://github.com/diaspora/diaspora/pull/5227)
+* Use correct locale for invitation subject [#5232](https://github.com/diaspora/diaspora/pull/5232)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
