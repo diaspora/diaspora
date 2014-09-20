@@ -326,4 +326,14 @@ describe Notifier, :type => :mailer do
       expect(mail.body.encoded).to match "<p><a href=\"http://localhost:9887/tags/welcome\">#Welcome</a> to bureaucracy!</p>"
     end
   end
+
+  describe "base" do
+    it "handles idn addresses" do
+      # user = FactoryGirl.create(:user, email: "ŧoo@ŧexample.com")
+      bob.update_attribute(:email, "ŧoo@ŧexample.com")
+      expect {
+        Notifier.started_sharing(bob.id, person.id)
+      }.to_not raise_error
+    end
+  end
 end
