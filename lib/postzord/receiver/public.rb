@@ -26,15 +26,15 @@ class Postzord::Receiver::Public < Postzord::Receiver
     return false unless save_object
 
     FEDERATION_LOGGER.info("received a #{@object.inspect}")
-    if @object.respond_to?(:relayable?)
-      receive_relayable
-    elsif @object.is_a?(AccountDeletion)
-      #nothing
-    elsif @object.is_a?(SignedRetraction) # feels like a hack
+    if @object.is_a?(SignedRetraction) # feels like a hack
       self.recipient_user_ids.each do |user_id|
         user = User.where(id: user_id).first
         @object.perform user if user
       end
+    elsif @object.respond_to?(:relayable?)
+      receive_relayable
+    elsif @object.is_a?(AccountDeletion)
+      #nothing
     else
       Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, self.recipient_user_ids)
       true

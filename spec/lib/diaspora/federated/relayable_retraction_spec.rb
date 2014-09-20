@@ -98,6 +98,13 @@ describe RelayableRetraction do
         expect(Postzord::Dispatcher).not_to receive(:build)
         @retraction.receive(@recipient, @remote_raphael)
       end
+
+      it 'performs through postzord' do
+        xml = Salmon::Slap.create_by_user_and_activity(@local_luke, @retraction.to_diaspora_xml).xml_for(nil)
+        expect {
+          Postzord::Receiver::Public.new(xml).perform!
+        }.to change(Comment, :count).by(-1)
+      end
     end
   end
 
