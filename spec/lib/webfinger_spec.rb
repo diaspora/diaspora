@@ -36,7 +36,7 @@ describe Webfinger do
       Webfinger.in_background(account)
     end
   end
-  
+
   describe '#fetch' do
     it 'works' do
       finger = Webfinger.new(account_in_fixtures)
@@ -72,14 +72,15 @@ describe Webfinger do
 
       expect(a_request(:get, redirect_url)).to have_been_made
     end
-    
-    it 'returns false on 404' do
+
+    it 'raises on 404' do
       url ="https://bar.com/.well-known/host-meta"
       stub_request(:get, url).
         to_return(:status => 404, :body => nil)
 
-      expect(finger.get(url)).not_to eq(nil)
-      expect(finger.get(url)).to eq(false)
+      expect {
+        expect(finger.get(url)).to eq(false)
+      }.to raise_error
     end
   end
 
@@ -190,7 +191,7 @@ describe Webfinger do
       expect(Person).to receive(:create_from_webfinger).with("webfinger_profile", "hcard")
       finger.make_person_from_webfinger
     end
-    
+
     it 'with an false xrd it does not call Person.create_from_webfinger' do
       allow(finger).to receive(:webfinger_profile_xrd).and_return(false)
       expect(Person).not_to receive(:create_from_webfinger)
