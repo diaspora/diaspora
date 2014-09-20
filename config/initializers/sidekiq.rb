@@ -11,6 +11,9 @@ if AppConfig.environment.single_process_mode? && Rails.env != "test"
   require 'sidekiq/testing/inline'
 end
 
+def (Sidekiq::Logging).logger
+  defined?(@logger) ? @logger : (AppConfig.heroku? ? initialize_logger : initialize_logger(AppConfig.sidekiq_log))
+end
 
 Sidekiq.configure_server do |config|
   config.redis = AppConfig.get_redis_options
@@ -35,8 +38,6 @@ Sidekiq.configure_server do |config|
   config.server_middleware do |chain|
     chain.add SidekiqMiddlewares::CleanAndShortBacktraces
   end
-
-  Sidekiq::Logging.initialize_logger AppConfig.sidekiq_log unless AppConfig.heroku?
 
   # Set connection pool on Heroku
   database_url = ENV['DATABASE_URL']
