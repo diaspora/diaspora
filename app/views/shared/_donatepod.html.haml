@@ -12,6 +12,4 @@
     %input{:name => "currency_code", :type => "hidden", :value => "USD"}
     %input{:name => "submit", :type => "submit", :value => t('aspects.index.donate')}
 - if AppConfig.settings.bitcoin_wallet_id.present?
-  Bitcoin:
-  %input{:type => "text", :id => "bitcoin_address", :value => AppConfig.settings.bitcoin_wallet_id, :readonly => true}
-  
+  %a{:href => "bitcoin:{AppConfig.settings.bitcoin_wallet_id}", :id => "bitcoin_address", :style => "color:#666;background-color:#ddd;padding:5px;margin:3px;border:2px #aaa solid;text-decoration:none;border-radius:3px;"} Donate Pod with Bitcoins
