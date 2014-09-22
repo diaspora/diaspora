@@ -12,4 +12,4 @@
     %input{:name => "currency_code", :type => "hidden", :value => "USD"}
     %input{:name => "submit", :type => "submit", :value => t('aspects.index.donate')}
 - if AppConfig.bitcoin_donation_address
-  %a{:href => "bitcoin:{AppConfig.settings.bitcoin_address}", :id => "bitcoin_address", :class => "button"} Bitcoin - Donate Pod
+  %a{:href => "bitcoin:{AppConfig.settings.bitcoin_address}", :id => "bitcoin_address", :class => "button"} Bitcoin - Donate
