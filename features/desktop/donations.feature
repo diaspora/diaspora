@@ -13,4 +13,4 @@ Feature: donations
   Scenario: Bitcoin donations
     Given I have configured a Bitcoin address
     And I am on the home page
-    Then I should click on the donation with Bitcoin link
+    Then check the valid href on the Bitcoin donation link
