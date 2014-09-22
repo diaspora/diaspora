@@ -13,4 +13,4 @@ Feature: donations
   Scenario: Bitcoin donations
     Given I have configured a Bitcoin address
     And I am on the home page
-    Then I should see the Bitcoin address
+    Then I should click on the donation with Bitcoin link
