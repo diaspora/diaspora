@@ -256,7 +256,7 @@ Given /^I have configured a Bitcoin address$/ do
   AppConfig.settings.bitcoin_address = "1AbCdEfGhIjKlMnOpQrStuVwXyZ0123456"
 end
 
-Then /^I should click on the donation with Bitcoin link$/ do
+Then /^check validity of Bitcoin donation link$/ do
   find("a#bitcoin_address")['href'].should == "bitcoin:1AbCdEfGhIjKlMnOpQrStuVwXyZ0123456"
 end
 
