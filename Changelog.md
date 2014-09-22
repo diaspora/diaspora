@@ -51,6 +51,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 * Fix deformed getting started popover [#5227](https://github.com/diaspora/diaspora/pull/5227)
 * Use correct locale for invitation subject [#5232](https://github.com/diaspora/diaspora/pull/5232)
 * Initial support for IDN emails
+* Fix services settings reported by statistics.json [#5256](https://github.com/diaspora/diaspora/pull/5256)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)

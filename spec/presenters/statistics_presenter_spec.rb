@@ -18,12 +18,14 @@ describe StatisticsPresenter do
       AppConfig.privacy.statistics.user_counts = false
       AppConfig.privacy.statistics.post_counts = false
       AppConfig.privacy.statistics.comment_counts = false
-      AppConfig.services = {"facebook" => nil}
       expect(@presenter.as_json).to eq({
         "name" => AppConfig.settings.pod_name,
         "version" => AppConfig.version_string,
         "registrations_open" => AppConfig.settings.enable_registrations,
-        "facebook" => false
+        "facebook" => true,
+        "twitter" => false,
+        "tumblr" => false,
+        "wordpress" => false,
       })
     end
     
