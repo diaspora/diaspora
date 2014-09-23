@@ -20,12 +20,6 @@
 	}
 }
 
-#leftNavBar {
-	float: left;
-	margin: 0px;
-	margin-right: 10px;
-}
-
 #stream_selection {
 	& > li {
 		margin-bottom: 10px;
@@ -96,6 +90,9 @@
 }
 
 .rightBar {
+
+  padding-top: 20px;
+
   .section {
     margin-bottom: 20px;
 
