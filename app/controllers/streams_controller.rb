@@ -7,6 +7,9 @@ class StreamsController < ApplicationController
   before_action :save_selected_aspects, :only => :aspects
   before_action :redirect_unless_admin, :only => :public
 
+  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }
+  use_bootstrap_for :aspects, :public, :activity, :multi, :commented, :liked, :mentioned, :followed_tags
+
   respond_to :html,
              :mobile,
              :json
@@ -50,6 +53,7 @@ class StreamsController < ApplicationController
   private
 
   def stream_responder(stream_klass=nil)
+    
     if stream_klass.present?
       @stream ||= stream_klass.new(current_user, :max_time => max_time)
     end
