@@ -5,11 +5,19 @@
 }
 
 #invitationsModal {
+  #paste_link_wrapper {
+    font-size: 12px;
+    padding: 10px;  
+  }
   #paste_link { font-weight: 700; }
-  #invite_code { margin-top: 10px; }
+  #invite_code { 
+    padding: 5px;
+    display: block;
+    height: auto;
+  }
   #codes_left { color: $text-grey; }
-  .control-label { width: 120px; }
-  .controls { margin-left: 140px; }
+  .control-label { width: 200px; }
+  .controls { margin-left: 220px; }
   #email_invitation {
     padding-top: 10px;
     margin-top: 20px;
