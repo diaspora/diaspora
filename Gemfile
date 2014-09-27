@@ -188,6 +188,10 @@ group :development do
 
   gem 'guard-spork', '1.5.1'
   gem 'spork',       '1.0.0rc4'
+
+  # Debugging
+  gem 'pry'
+  gem 'pry-debundle'
 end
 
 group :test do

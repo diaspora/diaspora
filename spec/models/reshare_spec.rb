@@ -75,6 +75,13 @@ describe Reshare, :type => :model do
     it 'returns "Reshared" for the original post author' do
       expect(@reshare.notification_type(alice, @reshare.author)).to eq(Notifications::Reshared)
     end
+
+    it 'does not error out if the root was deleted' do
+      @reshare.root = nil
+      expect {
+        @reshare.notification_type(alice, @reshare.author)
+      }.to_not raise_error
+    end
   end
 
   describe '#absolute_root' do
@@ -83,7 +90,7 @@ describe Reshare, :type => :model do
       rs1 = FactoryGirl.build(:reshare, :root=>@sm)
       rs2 = FactoryGirl.build(:reshare, :root=>rs1)
       @rs3 = FactoryGirl.build(:reshare, :root=>rs2)
-      
+
      sm = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
      rs1 = FactoryGirl.create(:reshare, :root => sm)
      @of_deleted = FactoryGirl.build(:reshare, :root => rs1)
@@ -194,13 +201,13 @@ describe Reshare, :type => :model do
         end
 
         context "fetching post" do
-          it "doesn't error out if the post is not found" do
+          it "raises if the post is not found" do
             allow(@response).to receive(:status).and_return(404)
             expect(Faraday.default_connection).to receive(:get).and_return(@response)
 
             expect {
               Reshare.from_xml(@xml)
-            }.to_not raise_error
+            }.to raise_error(Diaspora::PostNotFetchable)
           end
 
           it "raises if there's another error receiving the post" do

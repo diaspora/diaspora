@@ -61,6 +61,12 @@ describe Workers::ProcessPhoto do
     expect{
       result = Workers::ProcessPhoto.new.perform(p.id)
     }.to_not raise_error
-    
+
+  end
+
+  it 'handles already deleted photos gracefully' do
+    expect {
+      Workers::ProcessPhoto.new.perform(0)
+    }.to_not raise_error
   end
 end

@@ -62,7 +62,7 @@ class Reshare < Post
   end
 
   def notification_type(user, person)
-    Notifications::Reshared if root.author == user.person
+    Notifications::Reshared if root.try(:author) == user.person
   end
 
   def absolute_root
@@ -74,33 +74,14 @@ class Reshare < Post
   private
 
   def after_parse
-    root_author = Webfinger.new(@root_diaspora_id).fetch
-    root_author.save! unless root_author.persisted?
-
-    return if Post.exists?(:guid => self.root_guid)
-
-    fetched_post = self.class.fetch_post(root_author, self.root_guid)
-
-    if fetched_post
-      #Why are we checking for this?
-      if root_author.diaspora_handle != fetched_post.diaspora_handle
-        raise "Diaspora ID (#{fetched_post.diaspora_handle}) in the root does not match the Diaspora ID (#{root_author.diaspora_handle}) specified in the reshare!"
+    if root.blank?
+      self.root = Diaspora::Fetcher::Single.find_or_fetch_from_remote root_guid, @root_diaspora_id do |fetched_post, author|
+        # why do we check this?
+        if fetched_post.diaspora_handle != author.diaspora_handle
+          raise Diaspora::PostNotFetchable, "Diaspora ID (#{fetched_post.diaspora_handle}) in the root does not match the Diaspora ID (#{author.diaspora_handle}) specified in the reshare!"
+        end
       end
-
-      fetched_post.save!
     end
-  end
-
-  # Fetch a remote public post, used for receiving reshares of unknown posts
-  # @param [Person] author the remote post's author
-  # @param [String] guid the remote post's guid
-  # @return [Post] an unsaved remote post or false if the post was not found
-  def self.fetch_post author, guid
-    url = author.url + "/p/#{guid}.xml"
-    response = Faraday.get(url)
-    return false if response.status == 404 # Old pod, friendika
-    raise "Failed to get #{url}" unless response.success? # Other error, N/A for example
-    Diaspora::Parser.from_xml(response.body)
   end
 
   def root_must_be_public

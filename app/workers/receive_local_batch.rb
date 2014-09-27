@@ -10,6 +10,7 @@ module Workers
       object = object_class_string.constantize.find(object_id)
       receiver = Postzord::Receiver::LocalBatch.new(object, recipient_user_ids)
       receiver.perform!
+    rescue ActiveRecord::NotFound # Already deleted before the job could run
     end
   end
 end

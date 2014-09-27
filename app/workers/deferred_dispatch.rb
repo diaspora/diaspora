@@ -17,6 +17,7 @@ module Workers
       end
 
       Postzord::Dispatcher.build(user, object, opts).post
+    rescue ActiveRecord::RecordNotFound # The target got deleted before the job was run
     end
   end
 end

@@ -96,6 +96,13 @@ describe Comment, :type => :model do
       it 'marshals the post' do
         expect(@marshalled_comment.post).to eq(@post)
       end
+
+      it 'tries to fetch a missing parent' do
+        guid = @post.guid
+        @post.destroy
+        expect_any_instance_of(Comment).to receive(:fetch_parent).with(guid).and_return(nil)
+        Comment.from_xml(@xml)
+      end
     end
   end
 
