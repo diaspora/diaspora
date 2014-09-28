@@ -117,7 +117,7 @@ then
 fi
 
 # Check if assets are precompiled
-if [ "$RAILS_ENV" = "production" -a ! -e "public/assets/default.css" ]
+if [ "$RAILS_ENV" = "production" -a -z "$(find public/assets -maxdepth 1 -name 'default-*.css' -print -quit)" ]
 then
   fatal "You're running in production mode without having assets
 precompiled. Now and after each update before you restart the
