@@ -119,7 +119,7 @@ gem 'omniauth-wordpress','0.2.1'
 
 # Tags
 
-gem 'acts-as-taggable-on', '3.4.1'
+gem 'acts-as-taggable-on', '3.4.2'
 
 # URIs and HTTP
 
