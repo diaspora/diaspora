@@ -481,12 +481,28 @@ class User < ActiveRecord::Base
     end
   end
 
+  def flag_for_removal(remove_after)
+    # flag inactive user for future removal
+    if AppConfig.settings.maintenance.remove_old_users.enable?
+      self.remove_after = remove_after
+      self.save
+    end
+  end
+  
+  def after_database_authentication
+    # remove any possible remove_after timestamp flag set by maintenance.remove_old_users
+    unless self.remove_after.nil?
+      self.remove_after = nil
+      self.save
+    end
+  end
+
   private
   def clearable_fields
     self.attributes.keys - ["id", "username", "encrypted_password",
                             "created_at", "updated_at", "locked_at",
                             "serialized_private_key", "getting_started",
                             "disable_mail", "show_community_spotlight_in_stream",
-                            "email"]
+                            "email", "remove_after"]
   end
 end

@@ -32,6 +32,10 @@ gem 'simple_captcha2', '0.3.2', :require => 'simple_captcha'
 gem 'sidekiq', '3.2.5'
 gem 'sinatra', '1.3.3'
 
+# Scheduled processing
+
+gem 'sidetiq', '0.6.3'
+
 # Compression
 
 gem 'uglifier', '2.5.3'

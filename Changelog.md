@@ -37,6 +37,11 @@ The way services are shown in the `statistics.json` route is changing. The keys 
 
 The keys will still be available in the root level within the 0.5 release. The old keys will be removed in the 0.6 release.
 
+## New maintenance feature to automatically expire inactive accounts
+Removing of old inactive users can now be done automatically by background processing. The amount of inactivity is set by `after_days`. A warning email will be sent to the user and after an additional `warn_days`, the account will be automatically closed.
+
+This maintenance is not enabled by default. Podmins can enable it by for example copying over the new settings under `settings.maintenance` to their `diaspora.yml` file and setting it enabled. The default setting is to expire accounts that have been inactive for 2 years (no login).
+
 ## Refactor
 * Redesign contacts page [#5153](https://github.com/diaspora/diaspora/pull/5153)
 * Improve profile page design on mobile [#5084](https://github.com/diaspora/diaspora/pull/5084)
@@ -86,6 +91,7 @@ The keys will still be available in the root level within the 0.5 release. The o
 * Strip search query from leading and trailing whitespace [#5317](https://github.com/diaspora/diaspora/pull/5317)
 * Add the "network" key to statistics.json and set it to "Diaspora" [#5308](https://github.com/diaspora/diaspora/pull/5308)
 * Infinite scrolling in the notifications dropdown [#5237](https://github.com/diaspora/diaspora/pull/5237)
+* Maintenance feature to automatically expire inactive accounts [#5288](https://github.com/diaspora/diaspora/pull/5288)
 
 # 0.4.1.1
 

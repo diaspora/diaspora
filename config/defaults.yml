@@ -93,6 +93,12 @@ defaults:
       enable: false
       jurisdiction: false
       minimum_age: false
+    maintenance:
+      remove_old_users:
+        enable: false
+        after_days: 730
+        warn_days: 30
+        limit_removals_to_per_day: 100
   services:
     facebook:
       enable: false

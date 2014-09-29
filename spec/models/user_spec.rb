@@ -1025,4 +1025,30 @@ describe User, :type => :model do
       @user.sign_up
     end
   end
+  
+  describe "maintenance" do
+    before do
+      @user = bob
+      AppConfig.settings.maintenance.remove_old_users.enable = true
+    end
+    
+    it "#flags user for removal" do
+      remove_at = Time.now+5.days
+      @user.flag_for_removal(remove_at)
+      expect(@user.remove_after).to eq(remove_at)
+    end
+  end
+  
+  describe "#auth database auth maintenance" do
+    before do
+      @user = bob
+      @user.remove_after = Time.now
+      @user.save
+    end
+    
+    it "remove_after is cleared" do
+      @user.after_database_authentication
+      expect(@user.remove_after).to eq(nil)
+    end
+  end
 end
