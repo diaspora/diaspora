@@ -221,6 +221,7 @@ ja:
     create:
       fail: "無効なメッセージです。"
       sent: "メッセージを送信しました"
+      no_contact: "一つ以上の有効な宛先をまず追加して下さい"
     destroy:
       success: "会話を削除するのに成功しました。"
     helper:
