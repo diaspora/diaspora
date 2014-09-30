@@ -76,12 +76,13 @@ gem 'entypo-rails', '2.2.2'
 
 # JavaScript
 
-gem 'backbone-on-rails',   '1.1.1'
-gem 'handlebars_assets',   '0.18.0'
-gem 'jquery-rails',        '3.1.2'
-gem 'rails-assets-jquery', '1.11.1' # Should be kept in sync with jquery-rails
-gem 'js_image_paths',      '0.0.1'
-gem 'js-routes',           '0.9.9'
+gem 'backbone-on-rails',     '1.1.1'
+gem 'handlebars_assets',     '0.18.0'
+gem 'jquery-rails',          '3.1.2'
+gem 'rails-assets-jquery',   '1.11.1' # Should be kept in sync with jquery-rails
+gem 'js_image_paths',        '0.0.1'
+gem 'js-routes',             '0.9.9'
+gem 'rails-assets-punycode', '1.3.1'
 
 # jQuery plugins
 
