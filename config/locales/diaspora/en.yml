@@ -922,7 +922,7 @@ en:
     review_link: "Mark as reviewed"
     delete_link: "Delete item"
     confirm_deletion: "Are you sure to delete the item?"
-    not_found: "<u>The post/comment was not found. It seams that it was deleted by the user!</u>"
+    not_found: "<u>The post/comment was not found. It seems that it was deleted by the user!</u>"
     status:
       marked: "The report was marked as reviewed"
       destroyed: "The post was destroyed"
