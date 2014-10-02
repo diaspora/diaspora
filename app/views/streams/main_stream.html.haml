@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :head do
   = javascript_include_tag :home
 
@@ -29,12 +28,12 @@
       = link_to current_user.first_name, local_or_remote_person_path(current_user.person)
 
   %ul#stream_selection
-    %li.hoverable{:data => {:stream => 'stream'}}
-      = link_to t("streams.multi.title"), stream_path, :rel => 'backbone'
-    %li.hoverable{:data => {:stream => 'activity'}}
-      = link_to t("streams.activity.title"), activity_stream_path, :rel => 'backbone'
-    %li.hoverable{:data => {:stream => 'mentions'}}
-      = link_to t('streams.mentions.title'), mentioned_stream_path, :rel => 'backbone'
+    %li{:data => {:stream => 'stream'}}
+      = link_to t("streams.multi.title"), stream_path, :rel => 'backbone', :class => 'hoverable'
+    %li{:data => {:stream => 'activity'}}
+      = link_to t("streams.activity.title"), activity_stream_path, :rel => 'backbone', :class => 'hoverable'
+    %li{:data => {:stream => 'mentions'}}
+      = link_to t('streams.mentions.title'), mentioned_stream_path, :rel => 'backbone', :class => 'hoverable'
     %li.all_aspects
       = render 'aspects/aspect_listings', :stream => @stream
     %li
