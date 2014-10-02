@@ -17,8 +17,8 @@ class StatisticsPresenter
     if AppConfig.privacy.statistics.comment_counts?
       result['local_comments'] = self.local_comments
     end
-    AppConfig.services.each do |service, options|
-      result[service] = AppConfig["services.#{service}.enable"]
+    Configuration::KNOWN_SERVICES.each do |service, options|
+      result[service.to_s] = AppConfig["services.#{service}.enable"]
     end
 
     result
@@ -31,5 +31,5 @@ class StatisticsPresenter
   def local_comments
     Comment.joins(:author).where("owner_id IS NOT null").count
   end
-  
+
 end
