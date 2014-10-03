@@ -1,3 +1,7 @@
+# 0.4.1.1
+
+* Fix XSS issue in poll questions [#5274](https://github.com/diaspora/diaspora/issues/5274)
+
 # 0.4.1.0
 
 ## New 'Terms of Service' feature and template
