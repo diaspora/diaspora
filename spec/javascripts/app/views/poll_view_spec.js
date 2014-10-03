@@ -35,6 +35,15 @@ describe("app.views.Poll", function(){
     })
   });
 
+  describe("render", function() {
+    it("escapes the poll question", function() {
+      var question = "<script>alert(0);</script>";
+      this.view.poll.question = question;
+      this.view.render();
+      expect(this.view.$('.poll_head strong').text()).toBe(question);
+    });
+  });
+
   describe("vote form", function(){
     it('show vote form when user is logged in and not voted before', function(){
       expect(this.view.$('form').length).toBe(1);
