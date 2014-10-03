@@ -1,7 +1,7 @@
 {{#if poll}}
   <div class="poll_form">
     <div class="row-fluid poll_head">
-      <strong>{{{poll.question}}}</strong>
+      <strong>{{poll.question}}</strong>
       <div class="poll_statistic pull-right">
         {{t "poll.count" count=poll.participation_count}}
       </div>
@@ -12,13 +12,13 @@
           {{#poll.poll_answers}}
             <label class="radio result-row">
               <input type="radio" name="vote" value="{{id}}"/>
-              {{answer}} 
+              {{answer}}
               <span class="percentage pull-right" style="display: none;"></span>
               <div class="poll_progress_bar_wrapper progress" style="display: none">
                 <div class="poll_progress_bar bar" data-answerid="{{id}}">
               </div>
             </div>
-            </label>  
+            </label>
           {{/poll.poll_answers}}
           <div class="toggle_result_wrapper">
             <a class="toggle_result" href="#">{{t "poll.show_result"}}</a>
