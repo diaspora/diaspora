@@ -13,31 +13,44 @@ describe StatisticsPresenter do
   end
 
   describe '#statistics contents' do
-
-    it 'provides generic pod data in json' do
+    before do
       AppConfig.privacy.statistics.user_counts = false
       AppConfig.privacy.statistics.post_counts = false
       AppConfig.privacy.statistics.comment_counts = false
-      AppConfig.services = {"facebook" => nil}
+    end
+
+    after do
+      AppConfig.privacy = nil
+    end
+
+    it 'provides generic pod data in json' do
       expect(@presenter.as_json).to eq({
         "name" => AppConfig.settings.pod_name,
         "version" => AppConfig.version_string,
         "registrations_open" => AppConfig.settings.enable_registrations,
-        "facebook" => false
+        "facebook" => true,
+        "twitter" => false,
+        "tumblr" => false,
+        "wordpress" => false,
       })
     end
-    
+
     context 'when services are enabled' do
       before do
         AppConfig.privacy.statistics.user_counts = true
         AppConfig.privacy.statistics.post_counts = true
         AppConfig.privacy.statistics.comment_counts = true
         AppConfig.services = {
-          "facebook" => {"enable" => true}, 
-          "twitter" => {"enable" => true}, 
+          "facebook" => {"enable" => true},
+          "twitter" => {"enable" => true},
           "wordpress" => {"enable" => false},
           "tumblr" => {"enable" => false}
         }
+      end
+
+      after do
+        AppConfig.services = nil
+        AppConfig.privacy = nil
       end
 
       it 'provides generic pod data and counts in json' do
