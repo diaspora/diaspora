@@ -19,10 +19,6 @@ describe StatisticsPresenter do
       AppConfig.privacy.statistics.comment_counts = false
     end
 
-    after do
-      AppConfig.privacy = nil
-    end
-
     it 'provides generic pod data in json' do
       expect(@presenter.as_json).to eq({
         "name" => AppConfig.settings.pod_name,
@@ -48,11 +44,6 @@ describe StatisticsPresenter do
         }
       end
 
-      after do
-        AppConfig.services = nil
-        AppConfig.privacy = nil
-      end
-
       it 'provides generic pod data and counts in json' do
         expect(@presenter.as_json).to eq({
           "name" => AppConfig.settings.pod_name,
@@ -70,7 +61,5 @@ describe StatisticsPresenter do
         })
       end
     end
-
   end
-
 end

@@ -7,7 +7,7 @@ describe InvitationCode, :type => :model do
 
   it 'sets the count to a default value' do
     code = FactoryGirl.create(:invitation_code)
-    expect(code.count).to be > 0 
+    expect(code.count).to be > 0
   end
 
   describe '#use!' do
@@ -21,16 +21,8 @@ describe InvitationCode, :type => :model do
   end
 
   describe '.default_inviter_or' do
-    before do
-      @old_account = AppConfig.admins.account.get
-      AppConfig.admins.account = 'bob'
-    end
-
-    after do
-      AppConfig.admins.account = @old_account
-    end
-
     it 'grabs the set admin account for the pod...' do
+      AppConfig.admins.account = 'bob'
       expect(InvitationCode.default_inviter_or(alice).username).to eq('bob')
     end
 

@@ -38,7 +38,7 @@ gem 'uglifier', '2.5.3'
 
 # Configuration
 
-gem 'configurate', '0.1.0'
+gem 'configurate', '0.2.0'
 
 # Cross-origin resource sharing
 
@@ -193,6 +193,7 @@ group :development do
   # Debugging
   gem 'pry'
   gem 'pry-debundle'
+  gem 'pry-byebug'
 end
 
 group :test do

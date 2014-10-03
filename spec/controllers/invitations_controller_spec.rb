@@ -119,12 +119,10 @@ describe InvitationsController, :type => :controller do
     end
 
     it 'redirects if invitations are closed' do
-      open_bit = AppConfig.settings.invitations.open?
       AppConfig.settings.invitations.open =  false
 
       post :create, @invite
       expect(response).to be_redirect
-      AppConfig.settings.invitations.open = open_bit
     end
   end
 

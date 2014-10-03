@@ -63,6 +63,10 @@ GEM
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     builder (3.2.2)
+    byebug (3.5.1)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
     capybara (2.4.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -87,13 +91,14 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    columnize (0.8.9)
     compass (0.12.7)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.2.19)
     compass-rails (2.0.0)
       compass (>= 0.12.2)
-    configurate (0.1.0)
+    configurate (0.2.0)
     connection_pool (2.0.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
@@ -110,6 +115,7 @@ GEM
       nokogiri (~> 1.5)
       rails (>= 3, < 5)
     database_cleaner (1.3.0)
+    debugger-linecache (1.2.0)
     devise (3.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -317,6 +323,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (2.0.0)
+      byebug (~> 3.4)
+      pry (~> 0.10)
     pry-debundle (0.8)
       pry
     rack (1.5.2)
@@ -514,7 +523,7 @@ DEPENDENCIES
   capybara (= 2.4.1)
   carrierwave (= 0.10.0)
   compass-rails (= 2.0.0)
-  configurate (= 0.1.0)
+  configurate (= 0.2.0)
   cucumber-rails (= 1.4.1)
   database_cleaner (= 1.3.0)
   devise (= 3.3.0)
@@ -555,6 +564,7 @@ DEPENDENCIES
   omniauth-wordpress (= 0.2.1)
   opengraph_parser (= 0.2.3)
   pry
+  pry-byebug
   pry-debundle
   rack-cors (= 0.2.9)
   rack-google-analytics (= 1.2.0)

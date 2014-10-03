@@ -24,10 +24,6 @@ describe RegistrationsController, :type => :controller do
       AppConfig.settings.enable_registrations = false
     end
 
-    after do
-      AppConfig.settings.enable_registrations = true
-    end
-
     it 'redirects #new to the login page' do
       get :new
       expect(flash[:error]).to eq(I18n.t('registrations.closed'))
@@ -54,7 +50,7 @@ describe RegistrationsController, :type => :controller do
 
   describe "#create" do
     render_views
-    
+
     context "with valid parameters" do
       before do
         AppConfig.settings.enable_registrations = true
@@ -113,7 +109,7 @@ describe RegistrationsController, :type => :controller do
         get :create, @invalid_params
         expect(response).to render_template("registrations/new")
       end
-      
+
       it "keeps invalid params in form" do
         get :create, @invalid_params
         expect(response.body).to match /jdoe@example.com/m

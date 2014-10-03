@@ -94,6 +94,11 @@ prefork = proc do
     config.after(:all) do
       `rm -rf #{Rails.root}/tmp/uploads/*`
     end
+
+    # Reset overridden settings
+    config.after(:each) do
+      AppConfig.reset_dynamic!
+    end
   end
 end
 

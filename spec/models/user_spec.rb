@@ -896,16 +896,6 @@ describe User, :type => :model do
         FactoryGirl.create(:user)
       }
 
-      before(:each) do
-        @old_autofollow_value = AppConfig.settings.autofollow_on_join?
-        @old_autofollow_user = AppConfig.settings.autofollow_on_join_user
-      end
-
-      after(:each) do
-        AppConfig.settings.autofollow_on_join = @old_followhq_value
-        AppConfig.settings.autofollow_on_join_user = @old_autofollow_user
-      end
-
       context "with autofollow sharing enabled" do
         it "should start sharing with autofollow account" do
           AppConfig.settings.autofollow_on_join = true
@@ -1005,7 +995,7 @@ describe User, :type => :model do
       end
     end
   end
-  
+
   describe "sign up" do
     before do
       params = {:username => "ohai",
@@ -1013,7 +1003,7 @@ describe User, :type => :model do
                 :password => "password",
                 :password_confirmation => "password",
                 :captcha => "12345",
-                
+
                 :person =>
                   {:profile =>
                     {:first_name => "O",
