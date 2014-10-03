@@ -44,6 +44,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 * Pull punycode.js from rails-assets.org [#5263](https://github.com/diaspora/diaspora/pull/5263)
 * Redesign profile page and port to Bootstrap [#4657](https://github.com/diaspora/diaspora/pull/4657)
 * Unify stream selection links in the left sidebar [#5271](https://github.com/diaspora/diaspora/pull/5271)
+* Always reshare absolute root of a post [#5276](https://github.com/diaspora/diaspora/pull/5276)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)

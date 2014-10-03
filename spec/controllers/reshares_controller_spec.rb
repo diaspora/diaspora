@@ -54,6 +54,19 @@ describe ResharesController, :type => :controller do
           expect(response.body.strip).to be_empty
         end
       end
+
+      context 'resharing another user\'s reshare' do
+        before do
+          @root = @post
+          @post = FactoryGirl.create(:reshare, :root => @root, :author => alice.person)
+        end
+
+        it 'reshares the absolute root' do
+          post_request!
+          expect(@post.reshares.count).to eq(0)
+          expect(@root.reshares.count).to eq(2)
+        end
+      end
     end
   end
 end
