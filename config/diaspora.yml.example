@@ -210,9 +210,6 @@ configuration: ## Section
       #post_counts: true
       #comment_counts: true
 
-      ## Also show old services block (enabled by default)
-      #deprecated_format: false
-  
   ## General settings
   settings: ## Section
   

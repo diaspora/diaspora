@@ -19,10 +19,8 @@ class StatisticsPresenter
       result['local_comments'] = self.local_comments
     end
     result["services"] = Configuration::KNOWN_SERVICES.select {|service| AppConfig["services.#{service}.enable"]}.map(&:to_s)
-    if AppConfig.privacy.statistics.deprecated_format?
-      Configuration::KNOWN_SERVICES.each do |service, options|
-        result[service.to_s] = AppConfig["services.#{service}.enable"]
-      end
+    Configuration::KNOWN_SERVICES.each do |service, options|
+      result[service.to_s] = AppConfig["services.#{service}.enable"]
     end
 
     result
