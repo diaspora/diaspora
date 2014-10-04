@@ -6,9 +6,9 @@
     </span>
     <span>
       {{#each reshares}}
-        {{#linkToPerson author}}
-          {{{personImage this 'small' 'micro'}}}
-        {{/linkToPerson}}
+        <a href="{{{urlTo 'post' id}}}">
+          {{{personImage author 'small' 'micro'}}}
+        </a>
       {{/each}}
     </span>
   </div>
