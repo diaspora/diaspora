@@ -42,7 +42,7 @@ The default for including jQuery from a CDN has changed. If you want to continue
 * Display new conversation form on conversations/index [#5178](https://github.com/diaspora/diaspora/pull/5178)
 * Port profile page to Backbone [#5180](https://github.com/diaspora/diaspora/pull/5180)
 * Pull punycode.js from rails-assets.org [#5263](https://github.com/diaspora/diaspora/pull/5263)
-
+* Hidden overflow for long names on tag pages [#5279](https://github.com/diaspora/diaspora/pull/5279)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
