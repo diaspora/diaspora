@@ -4,7 +4,8 @@ class StatisticsPresenter
     result = {
       'name' => AppConfig.settings.pod_name,
       'version' => AppConfig.version_string,
-      'registrations_open' => AppConfig.settings.enable_registrations
+      'registrations_open' => AppConfig.settings.enable_registrations,
+      'services' => []
     }
     if AppConfig.privacy.statistics.user_counts?
       result['total_users'] = User.count
@@ -17,8 +18,11 @@ class StatisticsPresenter
     if AppConfig.privacy.statistics.comment_counts?
       result['local_comments'] = self.local_comments
     end
-    Configuration::KNOWN_SERVICES.each do |service, options|
-      result[service.to_s] = AppConfig["services.#{service}.enable"]
+    result["services"] = Configuration::KNOWN_SERVICES.select {|service| AppConfig["services.#{service}.enable"]}.map(&:to_s)
+    if AppConfig.privacy.statistics.deprecated_format?
+      Configuration::KNOWN_SERVICES.each do |service, options|
+        result[service.to_s] = AppConfig["services.#{service}.enable"]
+      end
     end
 
     result

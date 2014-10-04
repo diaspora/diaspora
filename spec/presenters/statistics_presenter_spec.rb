@@ -17,6 +17,7 @@ describe StatisticsPresenter do
       AppConfig.privacy.statistics.user_counts = false
       AppConfig.privacy.statistics.post_counts = false
       AppConfig.privacy.statistics.comment_counts = false
+      AppConfig.privacy.statistics.deprecated_format = false
     end
 
     it 'provides generic pod data in json' do
@@ -24,10 +25,7 @@ describe StatisticsPresenter do
         "name" => AppConfig.settings.pod_name,
         "version" => AppConfig.version_string,
         "registrations_open" => AppConfig.settings.enable_registrations,
-        "facebook" => true,
-        "twitter" => false,
-        "tumblr" => false,
-        "wordpress" => false,
+        "services"=> ["facebook",]
       })
     end
 
@@ -36,6 +34,7 @@ describe StatisticsPresenter do
         AppConfig.privacy.statistics.user_counts = true
         AppConfig.privacy.statistics.post_counts = true
         AppConfig.privacy.statistics.comment_counts = true
+        AppConfig.privacy.statistics.deprecated_format = true
         AppConfig.services = {
           "facebook" => {"enable" => true},
           "twitter" => {"enable" => true},
@@ -54,6 +53,7 @@ describe StatisticsPresenter do
           "active_users_monthly" => User.monthly_actives.count,
           "local_posts" => @presenter.local_posts,
           "local_comments" => @presenter.local_comments,
+          "services" => ["twitter","facebook"],
           "facebook" => true,
           "twitter" => true,
           "tumblr" => false,

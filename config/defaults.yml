@@ -53,6 +53,7 @@ defaults:
       user_counts: false
       post_counts: false
       comment_counts: false
+      deprecated_format: true
   settings:
     pod_name: 'diaspora*'
     enable_registrations: true
