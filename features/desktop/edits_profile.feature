@@ -43,10 +43,3 @@ Feature: editing your profile
     And I confirm the alert
     And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
     Then I should see a "img" within "#profile_photo_upload"
-
-    When I go to my new profile page
-#   #commented out until we bring back the profile info on new profile
-#    Then I should see "Gender: Fearless"
-    And I should see "Boba Fett"
-#    And I should see "Bio: This is a bio"
-#    And I should see "Birthday: 1986-11-30"

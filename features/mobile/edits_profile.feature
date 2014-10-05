@@ -44,6 +44,3 @@ Feature: editing the profile in the mobile view
     And I confirm the alert
     And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
     Then I should see a "img" within "#profile_photo_upload"
-
-    When I go to my new profile page
-    And I should see "Boba Fett"
