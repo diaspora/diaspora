@@ -47,9 +47,22 @@ describe TagsController, :type => :controller do
       end
     end
 
+    context 'with a tagged user' do
+      before do
+        bob.profile.tag_string = "#cats #diaspora #rad"
+        bob.profile.build_tags
+        bob.profile.save!
+      end
+
+      it 'includes the tagged user' do
+        get :show, :name => 'cats'
+        expect(response.body).to include(bob.diaspora_handle)
+      end
+    end
+
     context 'with a tagged post' do
       before do
-        eve.post(:status_message, text: "#what #yes #hellyes #foo", public: true, to: 'all')
+        @post = eve.post(:status_message, text: "#what #yes #hellyes #foo tagged post", public: true, to: 'all')
       end
 
       context 'signed in' do
@@ -65,6 +78,17 @@ describe TagsController, :type => :controller do
         it 'succeeds' do
           get :show, :name => 'hellyes'
           expect(response.status).to eq(200)
+        end
+
+        it 'includes the tagged post' do
+          get :show, :name => 'foo'
+          expect(assigns[:stream].posts.first.text).to include("tagged post")
+        end
+
+        it 'includes comments of the tagged post' do
+          alice.comment!(@post, "comment on a tagged post")
+          get :show, :name => 'foo', :format => 'json'
+          expect(response.body).to include("comment on a tagged post")
         end
       end
 
