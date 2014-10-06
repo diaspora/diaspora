@@ -46,6 +46,7 @@
       self.ajaxLoader.show();
       self.badge.addClass("active");
       self.dropdown.css("display", "block");
+      $('.notifications').addClass("loading");
       self.getNotifications();
       
     };
@@ -92,12 +93,14 @@
       $('.notifications').perfectScrollbar();
       self.ajaxLoader.hide();
       isLoading = false;
+      $('.notifications').removeClass("loading");
       //Infinite Scrolling
       $('.notifications').scroll(function(e) {
         var bottom = $('.notifications').prop('scrollHeight') - $('.notifications').height();
         var currentPosition = $('.notifications').scrollTop();
+        isLoading = ($('.loading').length == 1);
         if (currentPosition + 50 >= bottom && notificationsLoaded <= self.notifications.length && !isLoading) {
-            isLoading = true;
+            $('.notifications').addClass("loading");
             ++currentPage;
             self.getMoreNotifications();
         }

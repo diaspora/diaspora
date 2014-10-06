@@ -97,3 +97,24 @@ Feature: Notifications
     And I active the first hovercard after loading the notifications page 
     When I press the aspect dropdown
     Then the aspect dropdown should be visible
+
+  Scenario: scrollbar shows up when >5 notifications
+    Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
+    And Alice has 6 posts mentioning Bob
+    When I sign in as "bob@bob.bob"
+    And I follow "Notifications" in the header
+    Then the notification dropdown should be visible
+    Then the notification dropdown scrollbar should be visible
+
+  Scenario: dropdown will load more elements when bottom is reached
+    Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
+    And Alice has 20 posts mentioning Bob
+    When I sign in as "bob@bob.bob"
+    And I follow "Notifications" in the header
+    Then the notification dropdown should be visible
+    Then the notification dropdown scrollbar should be visible
+    Then there should be 10 notifications loaded
+    When I scroll down on the notifications dropdown
+    Then I should have scrolled down on the notification dropdown
+    And I wait for notifications to load
+    Then there should be 15 notifications loaded
