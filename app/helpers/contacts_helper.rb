@@ -24,11 +24,11 @@ module ContactsHelper
 
   def start_a_conversation_link(aspect, contacts_size)
     suggested_limit = 16
-    conv_opts = { class: "conversation_button", rel: "facebox"}
+    conv_opts = { class: "conversation_button contacts_button"}
     conv_opts[:title] = t('.many_people_are_you_sure', suggested_limit: suggested_limit) if contacts_size > suggested_limit
 
-    link_to new_conversation_path(aspect_id: aspect.id, name: aspect.name, facebox: true), conv_opts do
-      content_tag(:i, nil, :class => 'entypo mail contacts-header-icon', :title => t('contacts.index.start_a_conversation'))
+    content_tag :span, conv_opts do
+      content_tag(:i, nil, :class => 'entypo mail contacts-header-icon', :title => t('contacts.index.start_a_conversation'), 'data-toggle' => 'modal', 'data-target' => '#conversationModal')
     end
   end
 end

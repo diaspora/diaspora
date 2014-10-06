@@ -6,7 +6,8 @@ class PeopleController < ApplicationController
   before_action :authenticate_user!, except: [:show, :stream, :last_post]
   before_action :find_person, only: [:show, :stream, :hovercard]
 
-  use_bootstrap_for :index
+  layout ->(c){ request.format == :mobile ? "application" : "with_header_with_footer" }
+  use_bootstrap_for :index, :show, :contacts
 
   respond_to :html, :except => [:tag_index]
   respond_to :json, :only => [:index, :show]
@@ -77,19 +78,19 @@ class PeopleController < ApplicationController
   def show
     mark_corresponding_notifications_read if user_signed_in?
 
-    @aspect = :profile  # let aspect dropdown create new aspects
     @person_json = PersonPresenter.new(@person, current_user).full_hash_with_profile
 
     respond_to do |format|
       format.all do
+        if user_signed_in?
+          @contact = current_user.contact_for(@person)
+        end
         gon.preloads[:person] = @person_json
         gon.preloads[:photos] = {
           count: photos_from(@person).count(:all),
-          items: PhotoPresenter.as_collection(photos_from(@person).limit(8), :base_hash)
         }
         gon.preloads[:contacts] = {
-          count: contact_contacts.count(:all),
-          items: PersonPresenter.as_collection(contact_contacts.limit(8), :full_hash_with_avatar, current_user)
+          count: Contact.contact_contacts_for(current_user, @person).count(:all),
         }
         respond_with @person
       end
@@ -144,12 +145,20 @@ class PeopleController < ApplicationController
 
   def contacts
     @person = Person.find_by_guid(params[:person_id])
+
     if @person
       @contact = current_user.contact_for(@person)
-      @aspect = :profile
-      @contacts_of_contact = contact_contacts.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
-      @contacts_of_contact_count = contact_contacts.count(:all)
+      @contacts_of_contact = Contact.contact_contacts_for(current_user, @person)
       @hashes = hashes_for_people @contacts_of_contact, @aspects
+      gon.preloads[:person] = PersonPresenter.new(@person, current_user).full_hash_with_profile
+      gon.preloads[:photos] = {
+        count: photos_from(@person).count(:all),
+      }
+      gon.preloads[:contacts] = {
+        count: @contacts_of_contact.count(:all),
+      }
+      @contacts_of_contact = @contacts_of_contact.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
+      respond_with @person
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'
       redirect_to people_path
@@ -167,8 +176,9 @@ class PeopleController < ApplicationController
     @contact = current_user.contact_for(@person) || Contact.new
     @aspect = :profile if params[:create]  # let aspect dropdown create new aspects
     bootstrap = params[:bootstrap] || false
+    size = params[:size] || "small"
 
-    render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left', :bootstrap => bootstrap}
+    render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left', :bootstrap => bootstrap, :size => size}
   end
 
   private
@@ -216,20 +226,6 @@ class PeopleController < ApplicationController
     else
       Photo.where(author_id: person.id, public: true)
     end.order('created_at desc')
-  end
-
-  # given a `@person` find the contacts that person has in that aspect(?)
-  # or use your own contacts if it's yourself
-  # see: `Contact#contacts`
-  def contact_contacts
-    return Contact.none unless user_signed_in?
-
-    @contact_contacts ||= if @person == current_user.person
-      current_user.contact_people
-    else
-      contact = current_user.contact_for(@person)
-      contact.try(:contacts) || Contact.none
-    end
   end
 
   def mark_corresponding_notifications_read

@@ -1,5 +1,5 @@
 .btn-group.aspect_dropdown.aspect_membership_dropdown
-  %button.btn.btn-small.dropdown-toggle{:class => selected_aspects.size>0 ? "green" : "btn-default", "data-toggle" => "dropdown", :tabindex => '0'}
+  %button.btn.dropdown-toggle{:class => button_class, "data-toggle" => "dropdown", :tabindex => '0'}
     %span.text
       - if selected_aspects.size == all_aspects.size
         = t('all_aspects')

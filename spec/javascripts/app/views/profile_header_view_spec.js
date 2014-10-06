@@ -4,9 +4,11 @@ describe("app.views.ProfileHeader", function() {
     this.model = factory.personWithProfile({
       diaspora_id: "my@pod",
       name: "User Name",
+      relationship: 'mutual',
       profile: { tags: ['test'] }
     });
     this.view = new app.views.ProfileHeader({model: this.model});
+    loginAs(factory.userAttrs());
   });
 
   context("#presenter", function() {
@@ -17,6 +19,11 @@ describe("app.views.ProfileHeader", function() {
         is_blocked: false,
         is_own_profile: false,
         has_tags: true,
+        show_profile_btns: true,
+        relationship: 'mutual',
+        is_sharing: true,
+        is_receiving: true,
+        is_mutual: true,
         profile: jasmine.objectContaining({
           tags: ['test']
         })

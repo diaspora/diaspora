@@ -24,12 +24,7 @@ describe("app.views.ProfileSidebar", function() {
       console.log(this.view.presenter());
       expect(this.view.presenter()).toEqual(jasmine.objectContaining({
         relationship: 'mutual',
-        do_profile_btns: true,
-        do_profile_info: true,
-        is_sharing: true,
-        is_receiving: true,
-        is_mutual: true,
-        is_not_blocked: true,
+        show_profile_info: true,
         profile: jasmine.objectContaining({
           bio: "confidential",
           location: "underground",
