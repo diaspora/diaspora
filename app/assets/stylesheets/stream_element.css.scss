@@ -75,9 +75,11 @@
     }
   }
 
-  .reshare > .media {
+  .reshare {    
     border-left: 2px solid $border-grey;
-    .avatar {
+    margin-top: 3px;
+  
+    & > .media .avatar {
       height: 30px;
       width: 30px;
     }
