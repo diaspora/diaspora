@@ -8,7 +8,7 @@
 //= require ./publisher/aspect_selector_blueprint_view
 //= require ./publisher/getting_started_view
 //= require ./publisher/uploader_view
-//= require jquery.textchange
+//= require jquery-textchange
 
 app.views.Publisher = Backbone.View.extend({
 

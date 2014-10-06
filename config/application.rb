@@ -57,7 +57,7 @@ module Diaspora
       inbox.js
       jquery.js
       jquery_ujs.js
-      jquery.textchange.js
+      jquery-textchange.js
       mailchimp.js
       main.js
       mobile.js
