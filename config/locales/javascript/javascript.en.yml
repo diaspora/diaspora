@@ -6,6 +6,7 @@
 en:
   javascripts:
     confirm_dialog: "Are you sure?"
+    confirm_unload: "Please confirm that you want to leave this page - data you have entered won't be saved."
     delete: "Delete"
     ignore: "Ignore"
     report:

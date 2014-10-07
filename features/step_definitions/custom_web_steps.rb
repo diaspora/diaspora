@@ -64,6 +64,10 @@ And /^I expand the publisher$/ do
  click_publisher
 end
 
+And /^I close the publisher$/ do
+ find("#publisher #hide_publisher").click
+end
+
 Then /^the publisher should be expanded$/ do
   find("#publisher")["class"].should_not include("closed")
 end

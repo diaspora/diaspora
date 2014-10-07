@@ -86,7 +86,8 @@ Feature: posting from the main page
       And I attach "spec/fixtures/button.png" to the publisher
       Then I should see an uploaded image within the photo drop zone
       When I press "Share"
-      And I go to the aspects page
+      Then I should see a "img" within ".stream_element div.photo_attachments"
+      When I go to the aspects page
       Then I should see a "img" within ".stream_element div.photo_attachments"
       When I log out
       And I sign in as "alice@alice.alice"
@@ -108,6 +109,7 @@ Feature: posting from the main page
       And I click to delete the first uploaded photo
       Then I should not see an uploaded image within the photo drop zone
       And the publisher should be expanded
+      And I close the publisher
 
     Scenario: back out of uploading a picture when another has been attached
       Given I expand the publisher
@@ -118,6 +120,7 @@ Feature: posting from the main page
       And I click to delete the first uploaded photo
       Then I should see an uploaded image within the photo drop zone
       And the publisher should be expanded
+      And I close the publisher
 
     @wip
     Scenario: hide a contact's post

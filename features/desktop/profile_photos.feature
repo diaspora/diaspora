@@ -13,6 +13,7 @@ Feature: show photos
     And I have turned off jQuery effects
     And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
     And I press "Share"
+    Then I should see a "img" within ".stream_element div.photo_attachments"
 
     Scenario: see my own photos
       When I am on "robert@grimm.grimm"'s page

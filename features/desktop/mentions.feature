@@ -29,7 +29,6 @@ Feature: Mentions
       | status_message_fake_text  | @Bo  |
     And I click on the first user in the mentions dropdown list
     And I press "Share"
-    And I follow "Bob Jones"
+    Then I should see "Bob Jones" within ".stream_element"
+    When I follow "Bob Jones"
     Then I should see "Bob Jones"
-
-

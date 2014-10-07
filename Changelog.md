@@ -95,6 +95,7 @@ This maintenance is not enabled by default. Podmins can enable it by for example
 * Infinite scrolling in the notifications dropdown [#5237](https://github.com/diaspora/diaspora/pull/5237)
 * Maintenance feature to automatically expire inactive accounts [#5288](https://github.com/diaspora/diaspora/pull/5288)
 * Add LibreJS markers to JavaScript [5320](https://github.com/diaspora/diaspora/pull/5320)
+* Ask for confirmation when leaving a submittable publisher [#5309](https://github.com/diaspora/diaspora/pull/5309)
 
 # 0.4.1.2
 

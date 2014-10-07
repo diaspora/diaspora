@@ -21,6 +21,7 @@ Feature: Keyboard navigation
     Given I expand the publisher
     When I press the "J" key in the publisher
     Then post 2 should be highlighted
+    And I close the publisher
 
   Scenario: navigate upwards
     When I am on the home page
