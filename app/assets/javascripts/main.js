@@ -10,7 +10,7 @@
 //= require jquery.remotipart
 //= require jquery.autoresize
 //= require jquery.charcount
-//= require jquery.placeholder
+//= require jquery-placeholder
 //= require rails-timeago
 //= require facebox
 //= require browser_detection
