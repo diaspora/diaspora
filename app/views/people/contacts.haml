@@ -21,7 +21,7 @@
         #people_stream.stream
           - @hashes.each do |hash|
             = render :partial => 'people/person', :locals => hash
-        = will_paginate @contacts_of_contact
+        = will_paginate @contacts_of_contact, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
 
       %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
         &#8679;
