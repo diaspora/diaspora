@@ -149,7 +149,6 @@ class PeopleController < ApplicationController
     if @person
       @contact = current_user.contact_for(@person)
       @contacts_of_contact = Contact.contact_contacts_for(current_user, @person)
-      @hashes = hashes_for_people @contacts_of_contact, @aspects
       gon.preloads[:person] = PersonPresenter.new(@person, current_user).full_hash_with_profile
       gon.preloads[:photos] = {
         count: photos_from(@person).count(:all),
@@ -158,6 +157,7 @@ class PeopleController < ApplicationController
         count: @contacts_of_contact.count(:all),
       }
       @contacts_of_contact = @contacts_of_contact.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
+      @hashes = hashes_for_people @contacts_of_contact, @aspects
       respond_with @person
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'
