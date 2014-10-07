@@ -48,6 +48,16 @@ describe StreamsController, :type => :controller do
         expect(response).to be_success
         expect(assigns[:stream]).to be_a stream_class
       end
+
+      it 'renders centered layout without footer' do
+        get stream_path
+        expect(response).to render_template('layouts/centered_with_header')
+      end
+
+      it 'renders the application layout on mobile' do
+        get stream_path, :format => :mobile
+        expect(response).to render_template('layouts/application')
+      end
     end
   end
 end
