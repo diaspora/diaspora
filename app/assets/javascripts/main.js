@@ -17,7 +17,7 @@
 //= require jquery.events.input
 //= require jquery.elastic
 //= require jquery.mentionsInput
-//= require jquery.idle-timer
+//= require jquery-idletimer/dist/idle-timer
 //= require jquery.infinitescroll-custom
 //= require jquery.autocomplete-custom
 //= require keycodes
