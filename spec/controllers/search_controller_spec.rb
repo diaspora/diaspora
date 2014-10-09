@@ -35,5 +35,16 @@ describe SearchController, :type => :controller do
     end
   end
 
+  describe '#search_query' do
+    it 'strips the term parameter' do
+      @controller.params[:term] = ' IN SPACE! '
+      expect(@controller.send(:search_query)).to eq 'IN SPACE!'
+    end
+
+    it 'strips the q parameter' do
+      @controller.params[:q] = ' IN SPACE! '
+      expect(@controller.send(:search_query)).to eq 'IN SPACE!'
+    end
+  end
 
 end
