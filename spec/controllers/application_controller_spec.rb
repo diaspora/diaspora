@@ -91,4 +91,11 @@ describe ApplicationController, :type => :controller do
       end
     end
   end
+
+  describe "#after_sign_out_path_for" do
+    it "can handle a nil HTTP_USER_AGENT" do
+      @request.headers["HTTP_USER_AGENT"] = nil
+      expect(@controller.send(:after_sign_out_path_for, alice)).to eq(new_user_session_path)
+    end
+  end
 end
