@@ -1219,7 +1219,7 @@ en:
     tags:
       title: "Posts tagged: %{tags}"
       contacts_title: "People who dig this tag"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "%{tag_name} "
 
     public:
       title: "Public Activity"
