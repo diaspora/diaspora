@@ -56,6 +56,9 @@ app.views.Publisher = Backbone.View.extend({
     if( this.el_hiddenInput.val() == "" ) {
       this.el_hiddenInput.val( this.el_input.val() );
     }
+    if( this.el_input.val() == "" ) {
+      this.el_input.val( this.el_hiddenInput.val() );
+    }
 
     // hide close and preview buttons, in case publisher is standalone
     // (e.g. bookmarklet, mentions popup)
