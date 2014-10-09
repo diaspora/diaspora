@@ -1,9 +1,15 @@
-#main_stream .stream_element, #main_stream .photo {
-  padding: 10px;
+#main_stream .stream_element,
+#main_stream > div > .photo {
   border-bottom: 1px solid $border-grey;
+  padding: 10px;
 
   & > .media {
-    margin: 0;
+    margin: 0px;
+  }
+}
+
+#main_stream .stream_element {
+  & > .media {
     & > .img > .avatar.small {
       height: 50px;
       width: 50px;
