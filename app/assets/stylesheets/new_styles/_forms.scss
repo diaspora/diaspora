@@ -87,11 +87,16 @@ form.block-form {
 }
 
 textarea, input[type=text], input[type=password], input[type=search] {
-  &:focus, &:invalid:focus {
+  &:focus, 
+  &:invalid,
+  &:invalid:focus,
+  &:invalid:required,
+  &:invalid:required:focus {
     border: 1px solid $border-dark-grey;
     outline: none;
     -webkit-box-shadow: none;
     box-shadow: none;
+    color : $text-dark-grey;
   }
 }
 

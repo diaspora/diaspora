@@ -38,5 +38,5 @@
     width: 95%;
   }
   .comment_box { width: 95%; }
-  .comment_box:focus { min-height: 100px; }
+  .comment_box:focus, .comment_box:valid { min-height: 100px; }
 }
