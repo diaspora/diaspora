@@ -5,6 +5,8 @@
   %h1{id: "huge-text"}= AppConfig.settings.pod_name
 
   = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {:class => "form-horizontal block-form"}, :autocomplete => 'off') do |f|
+    %legend
+      %i=  t('devise.passwords.new.no_account') unless devise_error_messages!.empty?
     %fieldset
       .control-group
         %label{class: "control-label", for: "user_email", style: "width: 40%; text-align: center; padding: 10px 0; overflow: hidden"}
