@@ -244,15 +244,23 @@
       }
 
       .x {
+        color: #fff;
+        cursor: pointer;
         display: none;
-        z-index: 2;
-        position: absolute;
-        top: -3px;
-        right: -1px;
-        font-size: small;
+        font-size: 1.2em;
         font-weight: bold;
+        position: absolute;
+        opacity: 0.7;
+        right: -1px;
+        top: -7.5px;
+        z-index: 2;
+
         &:before {
-          content: 'X';
+          content: '\00d7';
+        }
+
+        &:hover {
+          opacity: 1;
         }
       }
 
@@ -384,13 +392,16 @@
       vertical-align: bottom;
     }
     .remove-answer {
-      width: 14px;
-      height: 14px;
-      @include opacity(0.4);
+      color: #000;
       cursor: pointer;
-      vertical-align: top;
-      margin-top: 7px;
       display: none;
+      font-size: 1.2em;
+      font-weight: bold;
+      height: 14px;
+      margin-left: 3px;
+      @include opacity(0.4);
+      vertical-align: top;
+      width: 11px;
 
       &:hover {
         @include opacity(1);
