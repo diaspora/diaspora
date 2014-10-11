@@ -11,8 +11,8 @@
         = render 'contacts/header'
 
         - if @contacts_size > 0
-          - @contacts.each do |contact|
-            = render 'contacts/contact', :contact => contact
+          = render @contacts
+          = will_paginate @contacts
         - else
           .no_contacts
             %h3
