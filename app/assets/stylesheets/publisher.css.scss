@@ -50,7 +50,7 @@
       border-radius: 3px;
       border: 1px solid $border-dark-grey;
 
-      input[type='text'] {
+      input[type='text']#status_message_text {
         border: none;
         box-shadow: none;
         margin: none;
@@ -87,13 +87,22 @@
         border-top: 1px dashed $border-grey; 
       }
 
-      #poll_creator_wrapper {
-        display:none;
+      .row-fluid#poll_creator_container {
+        display: none;
         border-top: 1px dashed $border-grey;
         padding:4px 6px 4px 6px;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
+        .remove-answer.entypo.cross {
+          display: none;
+          color: lighten($black,75%);
+          &.active { display: block; }
+          &:hover { color: $black; }
+          line-height: 30px;
+          font-size: 18px;
+          cursor: pointer;
+        }
       }
 
       &.with_location .row-fluid#location_container {

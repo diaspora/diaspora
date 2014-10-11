@@ -71,15 +71,14 @@ app.views.PublisherPollCreator = app.views.Base.extend({
   },
 
   validateInput: function(input){
-    var wrapper = input.parents('.control-group');
     var isValid = this.isValidInput(input);
 
     if(isValid){
-      wrapper.removeClass('error');
+      input.removeClass('error');
       return true;
     }
     else {
-      wrapper.addClass('error');
+      input.addClass('error');
       return false;
     }
   },
