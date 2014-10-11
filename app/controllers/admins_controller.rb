@@ -41,7 +41,7 @@ class AdminsController < Admin::AdminController
       @created_users_by_week[week] << u.username
     end
 
-    @selected_week = params[:week] || @created_users_by_week.keys.first
+    @selected_week = params[:week] || @created_users_by_week.keys.last
     @counter = @created_users_by_week[@selected_week].count
   end
 
