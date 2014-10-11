@@ -164,19 +164,18 @@
 #publisher_textarea_wrapper {
   #hide_publisher {
     @include opacity(0.3);
-    z-index: 5;
+    color: #000;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 2px;
     padding: 3px;
     position: absolute;
-    right: 6px;
-    margin-top: 9px;
-
-    .icons-deletelabel {
-      height: 14px;
-      width: 14px;
-    }
+    right: 8px;
+    z-index: 5;
 
     &:hover {
       @include opacity(1);
+      text-decoration: none;
     }
   }
   
