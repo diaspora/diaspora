@@ -282,6 +282,7 @@ sv:
     few: "%{count} kontakter"
     index:
       add_a_new_aspect: "Lägg till en ny aspekt"
+      add_contact: "Lägg till kontakt"
       add_to_aspect: "lägg till kontakter i %{name}"
       add_to_aspect_link: "lägg till kontakter i %{name}"
       all_contacts: "Alla kontakter"
@@ -292,9 +293,10 @@ sv:
       no_contacts_message: "Kolla in %{community_spotlight}"
       no_contacts_message_with_aspect: "Kolla in %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Delar enbart med mig"
-      remove_person_from_aspect: "Ta bort %{person_name} från \"%{aspect_name}\""
+      remove_contact: "Ta bort kontakt"
       start_a_conversation: "Inled en konversation"
       title: "Kontakter"
+      user_search: "Användarsökning"
       your_contacts: "Kontakter"
     many: "%{count} kontakter"
     one: "en kontakt"
@@ -1140,10 +1142,7 @@ sv:
       no_message_to_display: "Inget meddelande att visa."
     new:
       mentioning: "Nämner: %{person}"
-    too_long:
-      one: "ditt statusmeddelande får inte vara längre än en bokstav"
-      other: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
-      zero: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
+    too_long: "Var bussig och håll antalet tecken i inlägget under %{count}. Just nu är det %{current_length} tecken långt."
   stream_helper:
     hide_comments: "Dölj alla kommentarer"
     show_comments:

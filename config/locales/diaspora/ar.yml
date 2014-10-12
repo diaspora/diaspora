@@ -208,7 +208,6 @@ ar:
       no_contacts_message: "انظر في  {community_spotlight}%"
       no_contacts_message_with_aspect: "انظر في %{community_spotlight} او %{add_to_aspect_link}"
       only_sharing_with_me: "فقط يتشاركون معي"
-      remove_person_from_aspect: "احذف %{person_name} من \"%{aspect_name}\""
       start_a_conversation: "ابدأ محادثة"
       title: "جهات الاتصال"
       your_contacts: "جهات الاتصال"
@@ -790,13 +789,7 @@ ar:
       no_message_to_display: "ﻻ توجد رسائل لعرضها."
     new:
       mentioning: "ذكر %{person}"
-    too_long:
-      few: "المرجو ان تكون رسالتك أقل من %{count} حرف"
-      many: "المرجو ان تكون رسالتك أقل من %{count} حرف"
-      one: "المرجو ان تكون رسالتك أقل من %{count} حروف"
-      other: "المرجو ان تكون رسالتك أقل من %{count} حروف"
-      two: "المرجو ان تكون رسالتك أقل من %{count} حرف"
-      zero: "المرجو ان تكون رسالتك أقل من %{count} حروف"
+    too_long: "{\"few\"=>\"المرجو ان تكون رسالتك أقل من %{count} حرف\", \"many\"=>\"المرجو ان تكون رسالتك أقل من %{count} حرف\", \"one\"=>\"المرجو ان تكون رسالتك أقل من %{count} حروف\", \"other\"=>\"المرجو ان تكون رسالتك أقل من %{count} حروف\", \"two\"=>\"المرجو ان تكون رسالتك أقل من %{count} حرف\", \"zero\"=>\"المرجو ان تكون رسالتك أقل من %{count} حروف\"}"
   stream_helper:
     hide_comments: "أخْفِ كل التعليقات"
     show_comments:

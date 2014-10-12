@@ -48,9 +48,12 @@ ms:
       video_title:
         unknown: "Tajuk Wayang Tidak Diketahui"
   are_you_sure: "Anda yakin?"
+  are_you_sure_delete_account: "Adakah anda pasti anda mahu menutup akaun anda? Ini tidak boleh diundur!"
   aspect_memberships:
     destroy:
       failure: "Gagal mengeluarkan individu daripada aspek"
+      no_membership: "Tidak dapat mencari orang yang dipilih dalam aspek itu"
+      success: "Orang berjaya dikeluarkan dari aspek"
   aspects:
     destroy:
       success: "%{name} telah berjaya dikeluarkan."
@@ -105,7 +108,11 @@ ms:
       work: "Kerja"
     two: "%{count} aspects"
     zero: "no aspects"
+  back: "Undur"
   bookmarklet:
+    explanation: "Pos kepada diaspora * dari mana-mana sahaja dengan bookmark link ini => %{link}."
+    heading: "Bookmarklet"
+    post_something: "Pos kepada diaspora*"
     post_success: "Telah Di Pos! Tutup!"
   cancel: "Batal"
   comments:
@@ -153,6 +160,12 @@ ms:
       reply: "balas"
       replying: "Membalas..."
   delete: "Padam"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Betulkan kesilapan-kesilapan berikut dan cuba lagi."
+      invalid_fields: "bidang tidak sah"
+  find_people: "Cari orang atau #tag"
+  hide: "Sembunyikan"
   invitations:
     create:
       already_contacts: "Anda telah disambungkan dengan orang ini"
@@ -306,6 +319,8 @@ ms:
     a_post_you_shared: "pos."
     click_here: "klik di sini"
     to_change_your_notification_settings: "untuk menukar tetapan pemberitahuan anda"
+  nsfw: "NSFW"
+  ok: "Baiklah"
   or: "atau"
   password: "kata laluan"
   password_confirmation: "pengesahan kata laluan"
@@ -355,6 +370,11 @@ ms:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
+  previous: "Terdahulu"
+  privacy: "Privasi"
+  privacy_policy: "Polisi Privasi"
+  profile: "Profil"
+  public: "Awam"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
@@ -380,6 +400,8 @@ ms:
         other: "%{count} reshares"
         two: "%{count} reshares"
         zero: "Reshare"
+  search: "Cari"
+  settings: "Tetapan"
   shared:
     aspect_dropdown:
       toggle:
@@ -390,13 +412,7 @@ ms:
         two: "In %{count} aspects"
         zero: "Add contact"
   status_messages:
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     show_comments:
       few: "Show %{count} more comments"
@@ -408,8 +424,12 @@ ms:
   streams:
     aspects:
       title: "Your Aspects"
+  terms_and_conditions: "Terma dan Syarat"
+  undo: "Batalkan?"
+  username: "Nama Pengguna"
   users:
     edit:
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       your_handle: "Your diaspora id"
+  welcome: "Selamat datang!"

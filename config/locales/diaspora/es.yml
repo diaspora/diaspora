@@ -282,6 +282,7 @@ es:
     few: "%{count} contactos"
     index:
       add_a_new_aspect: "Añade un nuevo aspecto"
+      add_contact: "Añadir contacto"
       add_to_aspect: "Añadir contactos a %{name}"
       add_to_aspect_link: "añade contactos a %{name}"
       all_contacts: "Todos los contactos"
@@ -292,9 +293,10 @@ es:
       no_contacts_message: "Echa un vistazo a la %{community_spotlight}"
       no_contacts_message_with_aspect: "Echa un vistazo a la %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Solo compartiendo conmigo"
-      remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
+      remove_contact: "Eliminar contacto"
       start_a_conversation: "Inicia una conversación"
       title: "Contactos"
+      user_search: "Buscar usuarios"
       your_contacts: "Tus Contactos"
     many: "%{count} contactos"
     one: "1 contacto"
@@ -1128,10 +1130,7 @@ es:
       no_message_to_display: "No hay mensajes que mostrar."
     new:
       mentioning: "Menciones: %{person}"
-    too_long:
-      one: "por favor, escribe tu mensaje con menos de %{count} carácter"
-      other: "por favor, escribe tu mensaje con menos de %{count} caracteres"
-      zero: "por favor, escribe tu mensaje con menos de %{count} caracteres"
+    too_long: "Por favor, pon un mensaje de estado menor de %{count} caracteres. Actualmente ocupa %{current_length} caracteres."
   stream_helper:
     hide_comments: "Ocultar comentarios"
     show_comments:

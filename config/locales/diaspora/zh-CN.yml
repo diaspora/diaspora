@@ -246,7 +246,6 @@ zh-CN:
       no_contacts_message: "来看看 %{community_spotlight}"
       no_contacts_message_with_aspect: "来看看 %{community_spotlight} 或者 %{add_to_aspect_link}"
       only_sharing_with_me: "和我分享内容的人"
-      remove_person_from_aspect: "将 %{person_name} 从 %{aspect_name} 中移除"
       start_a_conversation: "开始对话"
       title: "好友"
       your_contacts: "您的好友"
@@ -769,9 +768,7 @@ zh-CN:
       no_message_to_display: "暂无信息可显示。"
     new:
       mentioning: "提及发布中: %{person}"
-    too_long:
-      other: "请确保您的状态信息不超过 %{count} 个字符"
-      zero: "请确保您的状态信息不超过 %{count} 个字符"
+    too_long: "{\"other\"=>\"请确保您的状态信息不超过 %{count} 个字符\", \"zero\"=>\"请确保您的状态信息不超过 %{count} 个字符\"}"
   stream_helper:
     hide_comments: "隐藏评论"
     show_comments:

@@ -12,6 +12,7 @@ fi:
   _home: "Etusivu"
   _photos: "kuvat"
   _services: "Ulkoiset palvelut"
+  _terms: "Ehdot"
   account: "Käyttäjätili"
   activerecord:
     errors:
@@ -281,6 +282,7 @@ fi:
     few: "%{count} henkilöä"
     index:
       add_a_new_aspect: "Lisää näkymä"
+      add_contact: "Lisää henkilö"
       add_to_aspect: "lisää henkilöitä näkymään %{name}"
       add_to_aspect_link: "lisää henkilöitä näkymään %{name}"
       all_contacts: "Kaikki henkilöt"
@@ -291,9 +293,10 @@ fi:
       no_contacts_message: "Käy katsomassa %{community_spotlight}"
       no_contacts_message_with_aspect: "Käy katsomassa %{community_spotlight} tai %{add_to_aspect_link}"
       only_sharing_with_me: "Jakaa vain kanssani"
-      remove_person_from_aspect: "Poista %{person_name} näkymästä: \"%{aspect_name}\""
+      remove_contact: "Poista kontakti"
       start_a_conversation: "Aloita keskustelu"
       title: "Henkilöt"
+      user_search: "Käyttäjähaku"
       your_contacts: "Kontaktisi"
     many: "%{count} henkilöä"
     one: "1 henkilö"
@@ -631,9 +634,9 @@ fi:
   no_results: "Tuloksia ei löytynyt"
   notifications:
     also_commented:
-      one: "Myös %{actors} kommentoi käyttäjän %{post_author} %{post_link}a."
-      other: "Myös %{actors} kommentoivat käyttäjän %{post_author} %{post_link}a."
-      zero: "Myös %{actors} kommentoi käyttäjän %{post_author} %{post_link}a."
+      one: "Myös %{actors} kommentoi käyttäjän %{post_author} julkaisua %{post_link}."
+      other: "Myös %{actors} kommentoivat käyttäjän %{post_author} julkaisua %{post_link}."
+      zero: "Myös %{actors} kommentoi käyttäjän %{post_author} julkaisua %{post_link}."
     also_commented_deleted:
       one: "%{actors} kommentoi poistettua julkaisuasi."
       other: "%{actors} on kommentoinut poistettua julkaisuasi."
@@ -664,6 +667,7 @@ fi:
       comment_on_post: "Kommentoi julkaisua"
       liked: "Tykätyt"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
+      mark_all_shown_as_read: "Merkitse kaikki näytettäviksi luettuina"
       mark_read: "Merkitse luetuksi"
       mark_unread: "Merkitse lukemattomaksi"
       mentioned: "Mainittu"
@@ -683,10 +687,10 @@ fi:
     mentioned:
       few: "%{actors} ovat maininneet sinut %{post_link}ssä."
       many: "%{actors} ovat maininneet sinut %{post_link}ssä."
-      one: "%{actors} on maininnut sinut %{post_link}ssä."
-      other: "%{actors} ovat maininneet sinut %{post_link}ssä."
+      one: "%{actors} on maininnut sinut julkaisussa %{post_link}."
+      other: "%{actors} ovat maininneet sinut julkaisussa %{post_link}."
       two: "%{actors} ovat maininneet sinut %{post_link}ssä."
-      zero: "%{actors} on maininnut sinut %{post_link}ssä."
+      zero: "%{actors} on maininnut sinut julkaisussa %{post_link}."
     mentioned_deleted:
       one: "%{actors} mainitsi sinut poistetussa julkaisussa."
       other: "%{actors} mainitsivat sinut poistetussa julkaisussa."
@@ -952,6 +956,8 @@ fi:
       sign_up: "REKISTERÖIDY"
       sign_up_message: "Yhteisöpalvelu suurella ♥:llä"
       submitting: "Lähettää..."
+      terms: "Luomalla tilin hyväksyt %{terms_link}"
+      terms_link: "palvelun käyttöehdot"
       username: "KÄYTTÄJÄNIMI"
   report:
     comment_label: "<b>Kommentti</b>:<br>%{data}"
@@ -1139,10 +1145,7 @@ fi:
       no_message_to_display: "Ei näytettäviä viestejä."
     new:
       mentioning: "Mainitse: %{person}"
-    too_long:
-      one: "tilapäivityksen merkkimäärä voi olla enimmillään %{count}"
-      other: "tilapäivityksen merkkimäärä voi olla enimmillään %{count}"
-      zero: "tilapäivityksen merkkimäärä voi olla enimmillään %{count}"
+    too_long: "{\"one\"=>\"tilapäivityksen merkkimäärä voi olla enimmillään %{count}\", \"other\"=>\"tilapäivityksen merkkimäärä voi olla enimmillään %{count}\", \"zero\"=>\"tilapäivityksen merkkimäärä voi olla enimmillään %{count}\"}"
   stream_helper:
     hide_comments: "Piilota kaikki kommentit"
     show_comments:

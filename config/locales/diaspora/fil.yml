@@ -333,13 +333,7 @@ fil:
       hide_and_mute: "Hide and Mute"
       shared_with: "Fired at: %{aspect_names}"
   status_messages:
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     show_comments:
       few: "Show %{count} more comments"

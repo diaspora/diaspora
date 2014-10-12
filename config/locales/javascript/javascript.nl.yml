@@ -37,6 +37,13 @@ nl:
       no_comments: "Er zijn nog geen reacties."
       show: "laat reacties zien"
     confirm_dialog: "Weet je het zeker?"
+    contacts:
+      add_contact: "Toevoegen contact"
+      aspect_list_is_not_visible: "Contactpersonen in dit aspect kunnen elkaar niet zien"
+      aspect_list_is_visible: "Contactpersonen in dit aspect kunnen elkaar zien"
+      error_add: "Kon <%= name %> niet toevoegen aan het aspect :("
+      error_remove: "Kon <%= name %> niet verwijderen uit het aspect :("
+      remove_contact: "verwijder contact"
     conversation:
       participants: "Deelnemers"
     delete: "Verwijder"
@@ -73,11 +80,19 @@ nl:
     my_activity: "Mijn activiteit"
     my_aspects: "Mijn aspecten"
     my_stream: "Stream"
+    no_results: "Geen zoekresultaten"
     notifications:
       mark_read: "Markeren als gelezen"
       mark_unread: "Markeren als ongelezen"
     people:
+      edit_my_profile: "Bewerk mijn profiel"
+      helper:
+        is_not_sharing: "<%= name %> deelr niet met jou"
+        is_sharing: "<%= name %> deelt met jou"
+      mention: "Vermelden"
+      message: "Bericht"
       not_found: "en niemand is gevonden..."
+      stop_ignoring: "Stop negeren"
     photo_uploader:
       completed: "<%= file %> gereed"
       empty: "{file} is leeg. Selecteer de bestanden opnieuw, zonder deze."
@@ -93,6 +108,17 @@ nl:
       result: "Resultaat"
       show_result: "Toon resultaat"
       vote: "Stem"
+    profile:
+      add_some: "voeg wat toe"
+      bio: "Bio"
+      born: "Verjaardag"
+      contacts: "Contacten"
+      edit: "bewerk"
+      gender: "Geslacht"
+      ignoring: "Je negeert alle berichten van <%= name %>"
+      location: "Locatie"
+      photos: "Foto's"
+      you_have_no_tags: "je hebt geen tags!"
     publisher:
       add_option: "Keuzemogelijkheid toevoegen"
       at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
@@ -169,6 +195,7 @@ nl:
       wordSeparator: " "
       year: "ongeveer een jaar"
       years: "%d jaar"
+    unblock_failed: "Deblokkeren van deze gebruiker is mislukt"
     videos:
       unknown: "Onbekend video type"
       watch: "Bekijk deze video op <%= provider %>"

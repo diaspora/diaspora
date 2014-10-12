@@ -272,7 +272,6 @@ bs:
       no_contacts_message: "Probajte %{community_spotlight}"
       no_contacts_message_with_aspect: "Probajte %{community_spotlight} ili %{add_to_aspect_link}"
       only_sharing_with_me: "Samo dijele sa mnom"
-      remove_person_from_aspect: "Ukloni %{person_name} iz \"%{aspect_name}\""
       start_a_conversation: "Započni razgovor"
       title: "Kontakti"
       your_contacts: "Vaši Kontakti"
@@ -937,12 +936,7 @@ bs:
       no_message_to_display: "Nema poruka za prikaz."
     new:
       mentioning: "Spominje %{person}"
-    too_long:
-      few: "molimo da vaše poruke statusa sadrže manje nego %{count} karaktera"
-      many: "molimo da vaše poruke statusa sadrže manje nego %{count} karaktera"
-      one: "molimo da vaše poruke statusa sadrže manje nego %{count} karakter"
-      other: "molimo da vaše poruke statusa sadrže manje nego %{count} karaktera"
-      zero: "molimo da vaše poruke statusa sadrže manje nego %{count} karaktera"
+    too_long: "{\"few\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\", \"many\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\", \"one\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karakter\", \"other\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\", \"zero\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\"}"
   stream_helper:
     hide_comments: "Sakrij sve komentare"
     show_comments:

@@ -34,6 +34,13 @@ es-AR:
       no_comments: "Aún no hay comentarios."
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
+    contacts:
+      add_contact: "Agregar contacto"
+      aspect_list_is_not_visible: "La lista de contactos de este aspecto no es visible."
+      aspect_list_is_visible: "La lista de contactos de este aspecto es visible."
+      error_add: "No se puede agregar a <%= name %> a este aspecto :("
+      error_remove: "No se puede eliminar a <%= name %> de este aspecto :("
+      remove_contact: "Eliminar contacto"
     conversation:
       participants: "Participantes"
     delete: "Borrar"
@@ -70,11 +77,19 @@ es-AR:
     my_activity: "Mi actividad"
     my_aspects: "Mis aspectos"
     my_stream: "Entrada"
+    no_results: "No se encontraron resultados"
     notifications:
       mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
     people:
+      edit_my_profile: "Editar mi perfil"
+      helper:
+        is_not_sharing: "<%= name %> no está compartiendo con vos"
+        is_sharing: "<%= name %> está compartiendo con vos"
+      mention: "Mención"
+      message: "Mensaje"
       not_found: "...y no se encontró a nadie."
+      stop_ignoring: "Dejar de ignorar"
     photo_uploader:
       completed: "<%= file %> completado"
       empty: "El archivo {file} está vacío, por favor selecciona los archivos nuevamente sin incluir este."
@@ -90,6 +105,17 @@ es-AR:
       result: "Resultados"
       show_result: "Mostrar resultados"
       vote: "Votar"
+    profile:
+      add_some: "agregar algunas"
+      bio: "Biografía"
+      born: "Fecha de nacimiento"
+      contacts: "Contactos"
+      edit: "editar"
+      gender: "Género"
+      ignoring: "Estás ignorando todas las publicaciones de <%= name %>."
+      location: "Ubicación"
+      photos: "Fotos"
+      you_have_no_tags: "¡no tienes etiquetas!"
     publisher:
       add_option: "Añadir respuesta"
       at_least_one_aspect: "Tenés que publicarlo en, por lo menos, un aspecto"
@@ -166,6 +192,7 @@ es-AR:
       wordSeparator: " "
       year: "cerca de un año"
       years: "%d años"
+    unblock_failed: "Falló el desbloqueo del usuario"
     videos:
       unknown: "Tipo de video desconocido"
       watch: "Ver este video en <%= provider %>"

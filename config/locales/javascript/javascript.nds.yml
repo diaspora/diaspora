@@ -1,0 +1,116 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+nds:
+  javascripts:
+    and: "un"
+    aspect_dropdown:
+      all_aspects: "Alle Aspekte"
+      toggle:
+        one: "In een Aspekt"
+        other: "In <%= count %> Aspekte"
+        zero: "Aspekte utwählen"
+    aspect_navigation:
+      add_an_aspect: "+ Do een nee’en Aspekt dorto"
+      deselect_all: "Alle afwählen"
+      no_aspects: "Keene Aspekte utwählt"
+      select_all: "Alle utwählen"
+    bookmarklet:
+      post_something: "Schriev wat in diaspora*"
+      post_submit: "Schick Bidrag af..."
+      post_success: "Verfat! Mok Pop-Up-Fenster to..."
+    comma: ","
+    comments:
+      hide: "Kommentore versteken"
+      no_comments: "Dat gift noch keene Kommentore."
+      show: "Alle Kommentore anzeigen"
+    contacts:
+      add_contact: "Kontakt sluten"
+      aspect_list_is_not_visible: "Kontakte in dissen Aspekt künnt sick nich gegensiedich seihn."
+      aspect_list_is_visible: "Kontakte in dissen Aspekt künnt sick gegensiedich seihn."
+      error_add: "Kunn <%= name %> nich ton Aspekt dortodoon :("
+      error_remove: "Kunn <%= name %> nich ut den Aspekt wegmoken :("
+      remove_contact: "Kontakt wegmoken"
+    conversation:
+      participants: "Bedeeligte"
+    edit: "Ännern"
+    failed_to_remove: "Kunn denn Indrag nich wegmoken!"
+    getting_started:
+      hey: "He, <%= name %>!"
+    header:
+      admin: "Admin"
+      close: "sluten"
+      contacts: "Kontakte"
+      conversations: "Snacks"
+      help: "Hülp"
+      home: "Startsiet"
+      log_out: "Afmellen"
+      notifications: "Benarichtigungen"
+      profile: "Profil"
+      search: "Söken"
+      settings: "Instellungen"
+    ignore_failed: "Kunn dissen Bruker nich ignoreren"
+    ignore_user: "Dissen Bruker ignoreren?"
+    infinite_scroll:
+      no_more_contacts: "Keene annern Kontakte."
+    my_aspects: "Miene Aspekte"
+    no_results: "Keene Resultate funnen"
+    notifications:
+      mark_read: "As lesen markeren"
+      mark_unread: "As unlesen markeren"
+    people:
+      not_found: "un keener is funnen worrn..."
+    photo_uploader:
+      error: "Dat geev een Problem bin hoochladen von de Datei <%= file %>"
+      looking_good: "OMG, du sühst toll ut!"
+    poll:
+      close_result: "Resultat versteken"
+      count:
+        one: "Een Stimm bit nu"
+        other: "<%=count%> Stimmen bit nu"
+      result: "Resultat"
+      show_result: "Resultat zeigen"
+      vote: "Afstimmen"
+    publisher:
+      add_option: "Do eene Antwort dorto"
+      near_from: "Verfat von: <%= location %>"
+      option: "Antwort"
+      question: "Froog"
+    report:
+      prompt: "Bidde geev een Grund an:"
+    reshares:
+      post: "<%= name %>s Bidrag wiederseggen?"
+      successful: "De Bidrag is erfolgriek wiederseggt worrn!"
+    show_more: "mehr anzeigen"
+    stream:
+      comment: "Kommentor"
+      hide: "Versteken"
+      hide_nsfw_posts: "#nsfw-Bidräg versteken"
+      likes:
+        one: "Eener mag dat"
+        other: "<%= count %> Lüü mögt dat"
+        zero: "Keener mag dat"
+      more_comments:
+        one: "Zeig een annern Kommentor"
+        other: "Zeig <%= count %> annere Kommentore"
+        zero: "Zeig keene annern Kommentore"
+      original_post_deleted: "Originalbidrag von den Autor löscht."
+      public: "Opentlich"
+      reshares:
+        one: "Een mol wiederseggt"
+        other: "<%= count %> mol wiederseggt"
+        zero: "Keen mol wiederseggt"
+      show_nsfw_post: "Bidrag anzeigen"
+      show_nsfw_posts: "Alle anzeigen"
+      via: "öber <%= provider %>"
+    timeago:
+      prefixAgo: ""
+      prefixFromNow: ""
+      suffixAgo: ""
+      suffixFromNow: ""
+      wordSeparator: " "
+    viewer:
+      home: "STARTSIET"

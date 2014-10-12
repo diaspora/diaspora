@@ -531,13 +531,7 @@ mk:
   status_messages:
     helper:
       no_message_to_display: "Нема пораки за прикажување."
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "hide comments"
     show_comments:

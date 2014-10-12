@@ -190,7 +190,6 @@ bg:
       no_contacts_message: "Проверете %{community_spotlight}"
       no_contacts_message_with_aspect: "Проверете %{community_spotlight} или %{add_to_aspect_link}"
       only_sharing_with_me: "Само споделящите с мен"
-      remove_person_from_aspect: "Премахване на %{person_name} от \"%{aspect_name}\""
       start_a_conversation: "Начало на разговор"
       title: "Контакти"
       your_contacts: "Вашите контакти"
@@ -718,13 +717,7 @@ bg:
       no_message_to_display: "Няма съобщение за изобразяване."
     new:
       mentioning: "Споменаване на %{person}"
-    too_long:
-      few: ", моля съкратете съобщението си до %{count} знака"
-      many: ", моля съкратете съобщението си до %{count} знака"
-      one: ", моля съкратете съобщението си до %{count} знака"
-      other: ", моля съкратете съобщението си до %{count} знака"
-      two: ", моля съкратете съобщението си до %{count} знака"
-      zero: ", моля съкратете съобщението си до %{count} знака"
+    too_long: "{\"few\"=>\", моля съкратете съобщението си до %{count} знака\", \"many\"=>\", моля съкратете съобщението си до %{count} знака\", \"one\"=>\", моля съкратете съобщението си до %{count} знака\", \"other\"=>\", моля съкратете съобщението си до %{count} знака\", \"two\"=>\", моля съкратете съобщението си до %{count} знака\", \"zero\"=>\", моля съкратете съобщението си до %{count} знака\"}"
   stream_helper:
     hide_comments: "Скриване на коментарите"
     show_comments:

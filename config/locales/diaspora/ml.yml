@@ -260,7 +260,6 @@ ml:
       no_contacts_message: "%{community_spotlight} കണ്ടുനോക്കു"
       no_contacts_message_with_aspect: "%{community_spotlight} കണ്ടുനോക്കു അല്ലെങ്കില്‍ %{add_to_aspect_link}"
       only_sharing_with_me: "നിങ്ങളുമായി മാത്രം പങ്ക് വച്ചത്"
-      remove_person_from_aspect: "\"%{aspect_name}\" - ഇല്‍നിന്ന് %{person_name} ഒഴിവാക്കുക"
       start_a_conversation: "സംഭാഷണം ആരംഭിക്കൂ"
       title: "സമ്പര്‍ക്കങ്ങള്‍"
       your_contacts: "നിങ്ങളുടെ സമ്പര്‍ക്കങ്ങള്‍"
@@ -984,13 +983,7 @@ ml:
       no_message_to_display: "സന്ദേശമൊന്നും കാണിക്കാനില്ല."
     new:
       mentioning: "സൂചിപ്പിക്കുന്നു: %{person}"
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "Hide all comments"
     show_comments:

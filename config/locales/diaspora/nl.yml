@@ -282,6 +282,7 @@ nl:
     few: "%{count} contacten"
     index:
       add_a_new_aspect: "Voeg een aspect toe"
+      add_contact: "Toevoegen contactpersoon"
       add_to_aspect: "voeg contacten toe aan %{name}"
       add_to_aspect_link: "contacten toevoegen aan %{name}"
       all_contacts: "Alle Contacten"
@@ -292,9 +293,10 @@ nl:
       no_contacts_message: "Bekijk %{community_spotlight} eens"
       no_contacts_message_with_aspect: "Bekijk %{community_spotlight} eens, of %{add_to_aspect_link}"
       only_sharing_with_me: "Delen alleen met mij"
-      remove_person_from_aspect: "Verwijder %{person_name} uit \"%{aspect_name}\""
+      remove_contact: "verwijder contactpersoon"
       start_a_conversation: "Start een conversatie"
       title: "Contacten"
+      user_search: "Zoek gebruiker"
       your_contacts: "Jouw Contacten"
     many: "%{count} contacten"
     one: "1 contact"
@@ -1169,10 +1171,7 @@ nl:
       no_message_to_display: "Geen bericht om te weergeven."
     new:
       mentioning: "Noem: %{person}"
-    too_long:
-      one: "zorg ervoor dat je statusbericht korter is dan %{count} teken"
-      other: "zorg ervoor dat je statusberichten korter zijn dan %{count} tekens"
-      zero: "zorg ervoor dat je statusberichten korter zijn dan %{count} tekens"
+    too_long: "Zorg ervoor dat je statusbericht korter is dan %{count} tekens. Nu is het %{current_length} tekens lang"
   stream_helper:
     hide_comments: "Verberg alle reacties"
     show_comments:

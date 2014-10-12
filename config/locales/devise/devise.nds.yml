@@ -1,0 +1,57 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+nds:
+  devise:
+    confirmations:
+      confirmed: "Dien Konto is erfolgriek bestätigt worrn. Du bist nu anmellt."
+      new:
+        resend_confirmation: "Bestätigungsanwiesungen nochmol schicken"
+    failure:
+      inactive: "Dien Konto is noch nich in gang set woorn."
+      locked: "Dien Konto is sparrt."
+      not_found_in_database: "Ungüllige E-Mail-Adress or Passwoort."
+      unauthenticated: "Du muss die anmellen or registreren, bevöör du wiedermokst."
+      unconfirmed: "Du muss dien Konto in gang setten, bevöör du wiedermokst."
+    invitations:
+      send_instructions: "Diene Inladung is afschickt worrn."
+      updated: "Dien Passwoort is erfolgriek set worrn. Du bist nu anmellt."
+    mailer:
+      hello: "Hallo %{email}!"
+      welcome: "Willkomen %{email}!"
+    passwords:
+      edit:
+        change_password: "Änner mien Passwoort"
+        confirm_password: "Passwoort bestätigen"
+        new_password: "Nee’es Passwoort"
+      new:
+        email: "E-Mail-Adress"
+        forgot_password: "Hest du dien Passwoort vergeten?"
+        no_account: "Dat gift keen Konto mit disse E-Mail-Adress"
+        reset_password: "Passwoort trüchsetten"
+        send_password_instructions: "Schick mi Anwieungen ton Trüchsetten von mien Passwort"
+      updated: "Dien Passwoort is erfolgriek ännert worrn. Du bist nu anmellt."
+    registrations:
+      updated: "Du hest dien Konto erfolgriek ännert."
+    sessions:
+      new:
+        login: "Anmellen"
+        modern_browsers: "ünnerstütt nur moderne Netkieker."
+        password: "Passwoort"
+        remember_me: "Erinner di an mi"
+        sign_in: "Anmellen"
+        username: "Brukernaam"
+      signed_in: "Erfolgriek anmellt."
+      signed_out: "Erfolgriek afmellt."
+    shared:
+      links:
+        sign_in: "Anmellen"
+        sign_up: "Registreren"
+  errors:
+    messages:
+      already_confirmed: "wöör schon bestätigt"
+      not_found: "nich funnen"
+      not_locked: "wöör nich sparrt"

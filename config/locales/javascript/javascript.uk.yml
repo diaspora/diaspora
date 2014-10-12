@@ -36,6 +36,13 @@ uk:
       no_comments: "Коментарів ще немає."
       show: "Показати усі коментарі"
     confirm_dialog: "Ви упевнені?"
+    contacts:
+      add_contact: "Додати контакт"
+      aspect_list_is_not_visible: "Контакти, з цього аспекту, не можуть бачити один одного."
+      aspect_list_is_visible: "Контакти, із цього аспекту, можуть бачити один одного."
+      error_add: "Неможливо додати <%= name %>  в аспект :("
+      error_remove: "Неможливо видалити <%= name %> з аспекту :("
+      remove_contact: "Видалити контакт"
     conversation:
       participants: "Учасники"
     delete: "Вилучити"
@@ -64,18 +71,27 @@ uk:
       settings: "Налаштування"
       view_all: "Показати все"
     ignore: "Iгнорувати"
+    ignore_failed: "Неможливо ігнорувати цього користувача"
     ignore_user: "Ігнорувати цього користувача?"
     infinite_scroll:
       no_more: "Повідомлень більше немає."
       no_more_contacts: "Контактів більше немає."
-    my_activity: "Моя активність"
+    my_activity: "Моя діяльність"
     my_aspects: "Мої аспекти"
     my_stream: "Мій потік"
+    no_results: "Нічого не знайдено"
     notifications:
       mark_read: "Помітити як прочитане"
       mark_unread: "Помітити як непрочитане"
     people:
+      edit_my_profile: "Редагувати мій профіль"
+      helper:
+        is_not_sharing: "<%= name %> не ділиться з вами"
+        is_sharing: "<%= name %> ділиться з вами"
+      mention: "Згадки"
+      message: "Повідомлення"
       not_found: "нікого не знайдено..."
+      stop_ignoring: "Припинити блокування"
     photo_uploader:
       completed: "<%= file %> готово"
       empty: "{file} порожній, виберіть будь ласка файл повторно."
@@ -94,8 +110,19 @@ uk:
       result: "Результати"
       show_result: "Показати результати"
       vote: "Голосувати"
+    profile:
+      add_some: "додати"
+      bio: "Про себе"
+      born: "День народження"
+      contacts: "Контакти"
+      edit: "редагувати"
+      gender: "Стать"
+      ignoring: "Ви блокуєте усі записи користувача <%= name %>."
+      location: "Адреса"
+      photos: "Світлини"
+      you_have_no_tags: "у вас немає міток!"
     publisher:
-      add_option: "Додати варіант"
+      add_option: "Додати відповідь"
       at_least_one_aspect: "Вам потрібно створити мінімум один аспект"
       limited: "Обмежена - ваш запис буде видимий тільки вказаним вами людям"
       near_from: "Відправлено з: <%= location %>"
@@ -175,6 +202,7 @@ uk:
       suffixFromNow: "з цієї миті"
       year: "біля року"
       years: "%d років"
+    unblock_failed: "Не вдалось розблокувати цього користувача"
     videos:
       unknown: "Невідомий відеоформат"
       watch: "Дивитися це відео на <%= provider %>"

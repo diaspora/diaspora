@@ -37,6 +37,9 @@ hu:
       no_comments: "Még nincs hozzászólás."
       show: "összes hozzászólás"
     confirm_dialog: "Biztos vagy benne?"
+    contacts:
+      aspect_list_is_not_visible: "A csoport tagjai nem láthatják egymást."
+      aspect_list_is_visible: "A csoport tagjai láthatják egymást."
     conversation:
       participants: "Résztvevők"
     delete: "Töröl"
@@ -73,6 +76,7 @@ hu:
     my_activity: "Tevékenységeim"
     my_aspects: "Csoportjaim"
     my_stream: "Hírfolyam"
+    no_results: "Nincs találat"
     notifications:
       mark_read: "Olvasottnak jelöl"
       mark_unread: "Olvasatlannak jelöl"

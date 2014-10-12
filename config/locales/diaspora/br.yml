@@ -101,6 +101,7 @@ br:
     aspect_stream:
       make_something: "Grit un dra bennak"
       stay_updated: "Heuliañ an nevezenti"
+      stay_updated_explanation: "O red pennañ a zo peurleugniet gant o darempredoù, o tagoù heuliet, ha dre mesajoù izili zo ar rouedad."
     contacts_not_visible: "Ne vo ket gouest an darempredoù er strollad-mañ d'en em welet an eil d'egile."
     contacts_visible: "Gouest e vo an darempredoù er strollad-mañ d'en em welet an eil d'egile."
     create:
@@ -137,7 +138,11 @@ br:
         any_problem: "Ur gudenn bennak?"
         contact_podmin: "Kit e darempred gant merour ho pod!"
         do_you: "Hag:"
+        email_feedback: "Kasit ur roudenn dre %{link}, ma'z e fell gwelloc'h deoc'h."
         email_link: "Postel"
+        feature_suggestion: "... ul %{link} ?"
+        find_a_bug: "... kavet ur %{link} ?"
+        have_a_question: "... ul %{link} ?"
         here_to_help: "Izili kumuniezh Diaspora zo aze evit sikour !"
         need_help: "Ezhomm skoazell ?"
         tag_bug: "#draen"
@@ -182,6 +187,7 @@ br:
     selected_contacts:
       manage_your_aspects: "Merañ ho strolladoù"
       no_contacts: "N'hoc'h eus darempred ebet amañ evit poent."
+      view_all_community_spotlight: "Gwellout holl nevezentioù ar c'hevrad"
       view_all_contacts: "Gwelet an holl zarempredoù"
     show:
       edit_aspect: "aozañ ar strollad"
@@ -216,10 +222,13 @@ br:
       add_to_aspect: "Ouzhpennañ darempredoù da %{name}"
       add_to_aspect_link: "ouzhpennañ darempredoù da %{name}"
       all_contacts: "An holl zarempredoù"
+      community_spotlight: "Nevezenti ar rouedad"
+      many_people_are_you_sure: "Sur oc'h kregiñ ur gaozeadenn prevez gant muioc'h evit %{suggested_limit} darempred ? Kas masajoù dre ar strollad-se  a rankfe bezañ un doare gwelloc'h o kontaktiñ."
       my_contacts: "Ma darempredoù"
       no_contacts: "Evit doare hoc'h eus ezhomm da ouzhpennañ un nebeud darempredoù"
+      no_contacts_message: "Klaskit %{community_spotlight}"
+      no_contacts_message_with_aspect: "Klaskit %{community_spotlight} pe %{add_to_aspect_link}"
       only_sharing_with_me: "O rannañ keleier ganin hepken"
-      remove_person_from_aspect: "Lemel %{person_name} kuit diwar %{aspect_name}"
       start_a_conversation: "Boulc'hañ ur gaoz"
       title: "Darempredoù"
       your_contacts: "Ho tarempredoù"
@@ -264,6 +273,11 @@ br:
       delete: "diverkañ ha kraouiañ ar gaoz"
       reply: "respont"
       replying: "O respont..."
+  date:
+    formats:
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Diverkañ"
   email: "Postel"
   error_messages:
@@ -481,6 +495,8 @@ br:
     index:
       couldnt_find_them: "N'eus ket bet gallet kavout anezho ?"
       no_one_found: "... ha n'eus ket bet kavet den."
+      no_results: "Hopala ! Ret e deoc'h klask un dra bennak."
+      results_for: "Implijerien o klotañ %{search_term}"
       search_handle: "Ober gant ho kod anaout diaspora* (username@pod.tld) evit bezañ sur da gavout ho mignoned."
       searching: "O klask, gortozit ur pennadig..."
       send_invite: "Netra c'hoazh ? Kas ur bedadenn !"
@@ -491,6 +507,7 @@ br:
       add_contact: "Ouzhpennañ an darempred"
       already_connected: "Kevreet c'hoazh"
       pending_request: "Rekedoù e-skourr"
+      thats_you: "C'hwi eo !"
     profile_sidebar:
       bio: "Buhez"
       born: "Deiziad ganedigezh"
@@ -503,6 +520,7 @@ br:
       remove_from: "Dilemel %{name} a-ziwar %{aspect}?"
     show:
       does_not_exist: "An den-mañ n'eus ket anezhañ !"
+      incoming_request: "%{name} n'efe c'hoant eskemm diganit"
       mention: "Meneg"
       message: "Kemmenadenn"
       not_connected: "Ne rannit ket keleier gant an den-mañ"
@@ -706,10 +724,7 @@ br:
   status_messages:
     helper:
       no_message_to_display: "Kemennadenn ebet da ziskouez."
-    too_long:
-      one: "Lezit ho kemennadennoù statud dindan %{count}"
-      other: "Lezit ho kemennadennoù statud dindan %{count}"
-      zero: "Lezit ho kemennadennoù statud dindan %{count}"
+    too_long: "{\"one\"=>\"Lezit ho kemennadennoù statud dindan %{count}\", \"other\"=>\"Lezit ho kemennadennoù statud dindan %{count}\", \"zero\"=>\"Lezit ho kemennadennoù statud dindan %{count}\"}"
   stream_helper:
     hide_comments: "Kuzhat an holl evezhiadennoù"
     show_comments:

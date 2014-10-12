@@ -170,7 +170,6 @@ sr:
       all_contacts: "Сви контакти"
       my_contacts: "Моји контакти"
       no_contacts: "Изгледа да треба да додаш неке контакте!"
-      remove_person_from_aspect: "Уклони %{person_name} из аспекта %{aspect_name}"
       title: "Контакти"
       your_contacts: "Твоји контакти"
   conversations:

@@ -33,15 +33,15 @@ fr:
       inviter:
         accept_at: "à %{url}, vous pouvez l'accepter à travers le lien ci-dessous."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} vous a invité à rejoindre Diaspora"
+        have_invited_you: "%{names} vous a invité à rejoindre diaspora*"
       reset_password_instructions:
         change: "Changer mon mot de passe"
         ignore: "Si vous n'avez pas demandé cela, merci d'ignorer ce courriel."
-        someone_requested: "Une personne a demandé la génération d'un lien pour modifier votre mot de passe. Si vous êtes à l'origine de cette demande, vous pouvez le faire en cliquant sur le lien ci-dessous."
+        someone_requested: "Quelqu'un a demandé la génération d'un lien pour modifier votre mot de passe. Si vous êtes à l'origine de cette demande, vous pouvez le faire en cliquant sur le lien ci-dessous."
         subject: "Instructions de réinitialisation de mot de passe"
         wont_change: "Votre mot de passe ne changera pas tant que vous n'en aurez pas créé un nouveau en accédant au lien ci-dessus."
       unlock_instructions:
-        account_locked: "Votre compte a été bloqué à cause d'un nombre excessif de tentatives infructueuses de connexion."
+        account_locked: "Votre compte a été verrouillé en raison d'un nombre excessif de tentatives infructueuses de connexion."
         click_to_unlock: "Cliquez sur le lien ci-dessous pour débloquer votre compte :"
         subject: "Instructions de déverrouillage"
         unlock: "Débloquer mon compte"

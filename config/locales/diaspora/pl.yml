@@ -12,6 +12,7 @@ pl:
   _home: "Główna"
   _photos: "zdjęcia"
   _services: "Usługi"
+  _terms: "warunki"
   account: "Konto"
   activerecord:
     errors:
@@ -95,8 +96,21 @@ pl:
         other: "%{count} użytkowników"
         zero: "Żaden użytkownik"
       week: "Tydzień"
+    user_entry:
+      account_closed: "konto zamknięte"
+      diaspora_handle: "Identyfikator Diaspory"
+      email: "Email"
+      guid: "GUID"
+      id: "ID"
+      last_seen: "ostatnio widziany"
+      ? "no"
+      : nie
+      nsfw: "#nsfw"
+      unknown: "nieznany"
+      ? "yes"
+      : tak
     user_search:
-      account_closing_scheduled: "Konto należące do %{name} jest przewidziane do zamknięcia. Zostanie to wykonane w przecigu kilku minut..."
+      account_closing_scheduled: "Konto należące do %{name} jest przewidziane do zamknięcia. Zostanie to wykonane w przecigu kilku chwil..."
       add_invites: "dodaj zaproszenia"
       are_you_sure: "Czy na pewno chcesz zamknąć to konto?"
       close_account: "zamknij konto"
@@ -282,6 +296,7 @@ pl:
     few: "%{count} kontakty"
     index:
       add_a_new_aspect: "Dodaj aspekt"
+      add_contact: "Dodaj kontakt"
       add_to_aspect: "dodaj kontakty do %{name}"
       add_to_aspect_link: "dodaj kontakty do %{name}"
       all_contacts: "Wszystkie kontakty"
@@ -292,9 +307,10 @@ pl:
       no_contacts_message: "Sprawdź kto jest %{community_spotlight}"
       no_contacts_message_with_aspect: "Sprawdź kto jest w %{community_spotlight} lub %{add_to_aspect_link}"
       only_sharing_with_me: "Udostępniający tylko mnie"
-      remove_person_from_aspect: "Usuń %{person_name} z aspektu \"%{aspect_name}\""
+      remove_contact: "Usuń kontakt"
       start_a_conversation: "Rozpocznij rozmowę"
       title: "Kontakty"
+      user_search: "Wyszukiwanie użytkowników"
       your_contacts: "Twoje kontakty"
     many: "%{count} kontaktów"
     one: "1 kontakt"
@@ -408,6 +424,14 @@ pl:
     getting_started_tutorial: "serię samouczków \"Pierwsze kroki\""
     here: "Tutaj"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_a1: "W widoku strumienia możesz używać tych skrótów:"
+      keyboard_shortcuts_li1: "j - przejdź do następnego wpisu"
+      keyboard_shortcuts_li2: "k - przejdź do poprzedniego wpisu"
+      keyboard_shortcuts_li3: "c - skomentuj bieżacy wpis"
+      keyboard_shortcuts_li4: "l - polub bieżący wpis"
+      keyboard_shortcuts_q: "Jakie skróty klawiszowe są dostępne?"
+      title: "Skróty klawiszowe"
     markdown: "Markdown"
     mentions:
       how_to_mention_a: "Wprowadź znak \"@\", a po nim zacznij wpisywać imię osoby. Pojawi się menu, które pozwoli Ci wybrać tą osobę. Pamiętaj, że w ten sposób wspomnisz tylko o osobach, które dodałeś do któregoś z aspektów."
@@ -668,6 +692,7 @@ pl:
       comment_on_post: "Komentarz do wpisu"
       liked: "Polubili"
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
+      mark_all_shown_as_read: "Oznacz widoczne jako przeczytane"
       mark_read: "Oznacz jako przeczytane"
       mark_unread: "Oznacz jako nieprzeczytane"
       mentioned: "Wspomnieli o tobie"
@@ -968,12 +993,14 @@ pl:
       sign_up: "REJESTRACJA"
       sign_up_message: "Social Networking z ♥"
       submitting: "Wysyłanie..."
+      terms: "Zakładając konto akceptujesz %{terms_link}."
+      terms_link: "warunki korzystania z serwisu"
       username: "NAZWA UŻYTKOWNIKA"
   report:
     comment_label: "<b>Komentarz</b>:<br/>%{data}"
     confirm_deletion: "Czy masz pewność, że chcesz usunąć ten element?"
     delete_link: "Usuń element"
-    not_found: "<u>Ten wpis lub komentarz nie został znaleziony. Wygląda na to, że został usunięty!</u>"
+    not_found: "<u>Ten wpis/komentarz nie został znaleziony. Wygląda na to, że został usunięty przez autora!</u>"
     post_label: "<b>Wpis</b>: %{title}"
     reason_label: "Powód: %{text}"
     reported_label: "<b>Zgłoszony przez</b> %{person}"
@@ -1161,12 +1188,7 @@ pl:
       no_message_to_display: "Brak wiadomości do wyświetlenia."
     new:
       mentioning: "Wspominasz o: %{person}"
-    too_long:
-      few: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
-      many: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
-      one: "skróć swoje wiadomości statusowe do mniej niż %{count} znaku"
-      other: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
-      zero: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
+    too_long: "Skróć swoją wiadomość statusową poniżej %{count} znaków. Obecnie jej długość to %{current_length} znaków."
   stream_helper:
     hide_comments: "Ukryj wszystkie komentarze"
     show_comments:

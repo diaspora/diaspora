@@ -267,7 +267,6 @@ sl:
       no_contacts_message: "Preveri %{community_spotlight}"
       no_contacts_message_with_aspect: "Preveri %{community_spotlight} ali %{add_to_aspect_link}"
       only_sharing_with_me: "Delijo samo z mano"
-      remove_person_from_aspect: "Odstrani %{person_name} iz \"%{aspect_name}\""
       start_a_conversation: "Začni pogovor"
       title: "Stiki"
       your_contacts: "Vaši stiki"
@@ -867,12 +866,7 @@ sl:
       no_message_to_display: "Ni sporočil."
     new:
       mentioning: "Omembe: %{person}"
-    too_long:
-      few: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znake"
-      one: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znak"
-      other: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov"
-      two: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znaka"
-      zero: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov"
+    too_long: "{\"few\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znake\", \"one\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znak\", \"other\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov\", \"two\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znaka\", \"zero\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov\"}"
   stream_helper:
     hide_comments: "Skrij vsa mnenja"
     show_comments:

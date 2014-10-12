@@ -261,7 +261,6 @@ it:
       no_contacts_message: "Scopri gli utenti %{community_spotlight}"
       no_contacts_message_with_aspect: "Scopri gli utenti %{community_spotlight} oppure %{add_to_aspect_link}"
       only_sharing_with_me: "Condividono con me"
-      remove_person_from_aspect: "Rimuovi %{person_name} da \"%{aspect_name}\""
       start_a_conversation: "Inizia una conversazione"
       title: "Contatti"
       your_contacts: "I tuoi contatti"
@@ -1031,10 +1030,7 @@ it:
       no_message_to_display: "Nessun messaggio da visualizzare."
     new:
       mentioning: "Stai menzionando: %{person}"
-    too_long:
-      one: "per favore scrivi i tuoi stati con meno di %{count} carattere"
-      other: "per favore scrivi i tuoi stati con meno di %{count} caratteri"
-      zero: "per favore scrivi i tuoi stati con meno di %{count} caratteri"
+    too_long: "{\"one\"=>\"per favore scrivi i tuoi stati con meno di %{count} carattere\", \"other\"=>\"per favore scrivi i tuoi stati con meno di %{count} caratteri\", \"zero\"=>\"per favore scrivi i tuoi stati con meno di %{count} caratteri\"}"
   stream_helper:
     hide_comments: "Nascondi i commenti"
     show_comments:

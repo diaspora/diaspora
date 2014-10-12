@@ -34,6 +34,13 @@ de_formal:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Sind Sie sich sicher?"
+    contacts:
+      add_contact: "Kontakt hinzufügen"
+      aspect_list_is_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
+      aspect_list_is_visible: "Kontakte in diesem Aspekt können einander sehen"
+      error_add: "Konnte <%= name %> nicht zum Aspekt hinzufügen :("
+      error_remove: "Konnte <%= name %> nicht aus dem Aspekt entfernen :("
+      remove_contact: "Kontakt entfernen"
     conversation:
       participants: "Teilnehmer"
     delete: "Löschen"
@@ -62,6 +69,7 @@ de_formal:
       settings: "Einstellungen"
       view_all: "Alle ansehen"
     ignore: "Ignorieren"
+    ignore_failed: "Konnte Benutzer nicht ignorieren"
     ignore_user: "Benutzer ignorieren?"
     infinite_scroll:
       no_more: "Keine weiteren Beiträge."
@@ -69,6 +77,7 @@ de_formal:
     my_activity: "Meine Aktivitäten"
     my_aspects: "Ihre Aspekte"
     my_stream: "Stream"
+    no_results: "Keine Treffer"
     notifications:
       mark_read: "Als gelesen markieren"
       mark_unread: "Als ungelesen markieren"
@@ -90,11 +99,11 @@ de_formal:
       show_result: "Ergebnis anzeigen"
       vote: "Abstimmen"
     publisher:
-      add_option: "Option hinzufügen"
+      add_option: "Antwortmöglichkeit hinzufügen"
       at_least_one_aspect: "Sie müssen zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - Ihr Beitrag wird nur Leuten sichtbar sein, mit denen Sie teilen"
       near_from: "In der Nähe von <%= location %>"
-      option: "Option <%= nr %>"
+      option: "Antwort"
       public: "Öffentlich - Ihr Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
       question: "Frage"
     report:

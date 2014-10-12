@@ -16,6 +16,7 @@ ia:
       invalid: "Nomine de usator o contrasigno invalide."
       invalid_token: "Indicio de authentication invalide."
       locked: "Tu conto es blocate."
+      not_found_in_database: "E-mail o contrasigno invalide."
       timeout: "Le session ha expirate. Per favor aperi session de novo pro continuar."
       unauthenticated: "Tu debe aperir session o crear un conto ante de continuar."
       unconfirmed: "Tu debe confirmar tu conto ante de continuar."
@@ -32,15 +33,15 @@ ia:
       inviter:
         accept_at: "a %{url}, tu pote acceptar lo per le ligamine sequente."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} te ha invitate a unir te a Diaspora"
+        have_invited_you: "%{names} te ha invitate a unir te a diaspora*"
       reset_password_instructions:
         change: "Cambiar mi contrasigno"
         ignore: "Si tu non ha demandate isto, per favor ignora iste message."
-        someone_requested: "Qualcuno ha demandate un ligamine pro cambiar tu contrasigno. Tu pote facer isto per le ligamine sequente."
+        someone_requested: "Qualcuno ha demandate un ligamine pro cambiar tu contrasigno. Si tu faceva iste demanda, tu pote facer isto per le ligamine sequente."
         subject: "Instructiones pro reinitialisar contrasigno"
         wont_change: "Le contrasigno non cambiara si tu non clicca sur le ligamine precedente e specifica un nove."
       unlock_instructions:
-        account_locked: "Tu conto ha essite blocate a causa de un numero excessive de tentativas fallite de accesso a tu conto."
+        account_locked: "Tu conto ha essite blocate a causa de un numero excessive de tentativas fallite de accesso."
         click_to_unlock: "Clicca sur le ligamine sequente pro disblocar tu conto:"
         subject: "Instructiones pro disblocar"
         unlock: "Disblocar mi conto"
@@ -48,14 +49,18 @@ ia:
     passwords:
       edit:
         change_password: "Cambiar mi contrasigno"
+        confirm_password: "Confirmar contrasigno"
+        new_password: "Nove contrasigno"
       new:
+        email: "Adresse de e-mail"
         forgot_password: "Contrasigno oblidate?"
-        no_account: "Nulle conto con iste adresse de e-mail existe. Si tu attende un invitation, nos te lo inviara le plus tosto possibile."
-        send_password_instructions: "Inviar me instructiones pro reinitialisar mi contrasigno"
+        no_account: "Nulle conto con iste adresse de e-mail existe."
+        reset_password: "Reinitialisar contrasigno"
+        send_password_instructions: "Inviar instructiones pro reinitialisar contrasigno"
       send_instructions: "Tu recipera in pauc minutas un message de e-mail con instructiones pro reinitialisar le contrasigno."
       updated: "Le contrasigno ha essite cambiate con successo. Tu ha aperite session."
     registrations:
-      destroyed: "Adeo! Tu conto ha essite cancellate. Nos spera revider te bentosto."
+      destroyed: "Adeo! Le deletion de tu conto ha succedite. Nos spera revider te bentosto."
       signed_up: "Conto create con successo. Si applicabile, un confirmation ha essite inviate a tu adresse de e-mail."
       updated: "Conto actualisate con successo."
     sessions:

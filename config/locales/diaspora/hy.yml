@@ -8,6 +8,7 @@ hy:
   _applications: "Հավելվածներ"
   _comments: "Մեկնաբանություններ"
   _contacts: "Կոնտակտներ"
+  _help: "Օգնություն"
   _home: "Գլխավոր էջ"
   _photos: "նկարներ"
   _services: "Ծառայություններ"
@@ -45,6 +46,7 @@ hy:
       correlations: "Կախվածություններ"
       pages: "Էջեր"
       pod_stats: "Փոդի վիճակագրություն"
+      sidekiq_monitor: "Sidekiq մոնիտոր"
       user_search: "Օգտատերի որոնում"
       weekly_user_stats: "Օգտատերերի շաբաթական վիճակագրություն"
     correlations:
@@ -79,6 +81,7 @@ hy:
     user_search:
       add_invites: "ավելացնել հրավերներ"
       email_to: "Հրավիրել նամակով"
+      under_13: "Ցուցադրել օգտատերերին որ 13 (COPPA)֊ից ցածր են։"
       users:
         one: "%{count} օգտատեր գտնվեց"
         other: "%{count} օգտատեր գտնվեց"
@@ -134,11 +137,13 @@ hy:
       confirm_remove_aspect: "Վստա՞հ ես, որ ուզում ես ջնջել այս խումբը։"
       done: "Պատրաստ է"
       make_aspect_list_visible: "այս խմբի կոնտակտներին դարձնե՞լ տեսանելի միմյանց համար։"
+      manage: "Կարգավորել"
       remove_aspect: "Ջնջել այս խումբը"
       rename: "վերանվանել"
+      set_visibility: "Կարգավորել տեսանելիությունը"
       update: "թարմացնել"
       updating: "թարմացվում է"
-    few: "%{count} խմբեր"
+    few: "%{count} խումբ"
     helper:
       are_you_sure: "Վստա՞հ ես, որ ուզում ես ջնջել այս խումբը։"
       aspect_not_empty: "Խումբը դատարկ չէ"
@@ -151,17 +156,22 @@ hy:
       donate: "Նվիրաբերել"
       handle_explanation: "Սա քո Diaspora ID-ն է։ Մարդիկ կարող են գտնել քեզ ինչպես քո էլ. հասցեով, այնպես էլ քո Diaspora ID-ով։"
       help:
-        do_you: "Դու."
+        any_problem: "Խնդիրնեն կա՞ն։"
+        contact_podmin: "Կապվի՛ր քո փոդի ադմինի հետ։"
+        do_you: "Արդյո՞ք."
         email_feedback: "Կարող ես նաև %{link}-ին ուղարկել քո կարծիքը։"
         email_link: "էլ․ փոստ"
         feature_suggestion: "… %{link} ունե՞ք։"
-        find_a_bug: "… %{link} ե՞ս գտել։"
-        have_a_question: "… %{link} ունե՞ս։"
+        find_a_bug: "… %{link} ես գտել։"
+        have_a_question: "… %{link} ունես։"
         here_to_help: "Համայնքն այստե՜ղ է։"
+        mail_podmin: "Փոդմինի էլ․փոստը"
         need_help: "Օգնությու՞ն"
         tag_bug: "բագ"
         tag_feature: "առաջարկություն"
         tag_question: "հարց"
+        tutorial_link_text: "Ուսուցանող նյութեր"
+        tutorials_and_wiki: "%{faq}, %{tutorial}, և %{wiki}՝ օգնություն առաջին քայլերիդ համար։"
       introduce_yourself: "Սա քո լրահոսն է։ Ընկղմվիր և ներկայացրու քեզ։"
       keep_diaspora_running: "Օգնի՛ր Diaspora-ի արագ զարգացմանը ամսական նվիրատվությամբ։"
       keep_pod_running: "Փող քցվենք %{pod} -ի առողջության համար:"
@@ -221,6 +231,7 @@ hy:
       failure: "Չստացվեց դադարեցնել արհամարհել այդ օգտատիրոջը։"
       success: "Եկ տեսնենք՝ ինչ ունեն նրանք ասելու։ #sayhello"
   bookmarklet:
+    explanation: "Գրառիր Սփյուռքում* ցանկացած տեղից նշելով այս հղումը => %{link}"
     post_something: "Գրառել Diaspora-ում"
     post_success: "Գրառվեց։ Փակվում եմ։ ։Ճ"
   cancel: "Չեղարկել"
@@ -248,9 +259,8 @@ hy:
       my_contacts: "Իմ ընկերները"
       no_contacts: "Երևում է՝ նոր ընկերների կարիք ունես։"
       no_contacts_message: "Ստուգել %{community_spotlight}"
-      no_contacts_message_with_aspect: "Աչքի անցկացրու %{community_spotlight}-ը կամ %{add_to_aspect_link}"
+      no_contacts_message_with_aspect: "Աչքի անցկացրու %{community_spotlight}ը կամ %{add_to_aspect_link}"
       only_sharing_with_me: "Միայն ինձ հետ կիսվողները"
-      remove_person_from_aspect: "Հեռացնել %{person_name}-ին %{aspect_name}-ից"
       start_a_conversation: "Խոսակցություն սկսել"
       title: "Կոնտակտներ"
       your_contacts: "Քո կոնտակտները"
@@ -261,10 +271,15 @@ hy:
       people_sharing: "Քեզ հետ կիսվող մարդիկ"
     spotlight:
       community_spotlight: "Համայնքի նորությունները"
+      suggest_member: "Անդամ առաջարկի՛ր"
     two: "%{count} ընկեր"
     zero: "կոնտակտ"
   conversations:
+    conversation:
+      participants: "Մասնակիցները"
     create:
+      fail: "Անվավեր հաղորդագրություն"
+      no_contact: "Հեե՜յ, սկզբում կոնտակտին պիտի ավելացնես։"
       sent: "Նամակն ուղարկված է"
     destroy:
       success: "Զրույցը հաջողությամբ ջնջվեց"
@@ -300,16 +315,63 @@ hy:
       invalid_fields: "Անվավեր դաշտեր"
     login_try_again: "<a href='%{login_link}'>մուտք գործիր</a> և փորձիր նորից:"
     post_not_public: "Գրառումը, որ փորձում ես դիտել, հրապարակային չէ։"
+    post_not_public_or_not_exist: "Գրառումը, որ փորձում ես դիտել, հանրային չէ կամ գոյություն չունի։"
   fill_me_out: "Լրացրու՛ ինձ"
   find_people: "Գտնել մարդկանց կամ #պիտակներ"
+  help:
+    account_and_data_management:
+      close_account_a: "Գնա Կարգավորումներ -> Հաշիվ ու սեղմիր էջի ամենաներքևի «Փակել հաշիվս» կոճակը։"
+      close_account_q: "Ինչպե՞ս ջնջեմ իմ հաշիվը։"
+      data_visible_to_podmin_q: "Իմ հաշվում եղած տվյալների ո՞ր մասը կարող է տեսնել իմ փոդի ադմինը։"
+      download_data_a: "Այո՛․ գնա Կարգավորումներ -> Հաշիվ, էջի ամենաներքևում կա երկու կոճակ քո տվյալները ներբեռնելու համար։"
+      download_data_q: "Կարո՞ղ եմ ներբեռնել իմ հաշվում եղած բոլոր տվյալների պատճեն։"
+      move_pods_a: "Հետագայում հնարավոր կլինի տեղափոխել քո հաշիվը մի փոդից դեպի մյուսը, սակայն այժմ դա հնարավոր չէ։ Դու միշտ կարող ես բացել նոր հաշիվ ու ավելացնել քո ընկենրեին այնտեղի խմբերին և խնդրել նրանց, որ ավելացնեն քո նոր հաշիվը իրենց մոտ։"
+      move_pods_q: "Ինչպե՞ս տեղափոխեմ իմ հաշիվը մի փոդից դեպի մյուսը:"
+      title: "Հաշվի և տվյալների կառավարում"
+    aspects:
+      what_is_an_aspect_q: "Ի՞նչ է խումբը։"
+    foundation_website: "Դիասպորա հիմնադրամի կայքը"
+    getting_help:
+      get_support_a_hashtag: "հարցրու Սփյուռքում հրապարակային գրառմամբ ու օգտագործիր %{question} հեշթագը"
+      get_support_a_irc: "միացիր մեզ %{irc}֊ում (Կենդանի չաթ/խոսակցություն)"
+      get_support_a_tutorials: "աչքի անցկացրու մեր %{tutorials}"
+      get_support_a_website: "այցելիր մեր %{link}"
+      get_support_a_wiki: "փորփրիր %{link}֊ը"
+      get_support_q: "Իսկ ի՞նչ, եթե իմ հարցը պատասխան չունի այս ՀՏՀ֊ում։ Ուրիշ որտեղի՞ց կարող եմ օգնություն ստանալ։"
+      getting_started_a: "Դու բախտավոր ե՜ս։ Փորձիր %{tutorial_series} մեր նախագծի կայքում։ Այն քեզ կօգնի քայլ առ քայլ հասկանալ գրանցման գործընթացը և կսովորեցնի բոլոր հիմունքային բաները, որ քեզ անհրաժեշտ են Սփյուռքից (diaspora֊այից) օգտվելու համար։"
+      getting_started_q: "Օգնեե՜ք։ Ես սկզբնական օգնության կարիք ունեմ, որ կարողանամ սկսել։"
+      title: "Օգնություն"
+    getting_started_tutorial: "«ԻՆչպե՞ս սկսել» ուսուցանող նյութերի շարքը"
+    here: "այստեղ"
+    irc: "IRC"
+    markdown: "Նշաձև(Markdown)"
+    mentions:
+      mention_in_comment_a: "Ոչ, դեռ ոչ։"
+      mention_in_comment_q: "Կարո՞ղ եմ նշել ինչ֊որ մեկին մեկնաբանության մեջ։"
+      see_mentions_a: "Ահա, սեղմիր «@Հիշատակումներ»֊ը հիմնական էջի ձախ կողմում։"
+      see_mentions_q: "Կարո՞ղ եմ տեսնել այն գրառումները, ուր ես հիշատակված եմ։"
+    pods:
+      find_people_a: "Հրավիրի՛ր ընկերներիդ օգտագործելով աջ կողմի հղումը։ Հետևերի #թագերին , որպեսզի բացահայտես ուրիշների, որ կիսում են քո հետաքրքրությունները և ավելացրու խմբերում նրանց, ով գրառում է քեզ հետաքրքրող բաներ։ Ասա, #ԵսՆորեկԵմ հանրային գրառմամբ ու մարդիկ կկարողանան գտնել քեզ։"
+      find_people_q: "Ես հենց նոր միացա փոդին, ինչպե՞ս կարող եմ գտնել մարդկանց ու կիսվել նրանց հետ։"
+      title: "Փոդեր"
+      what_is_a_pod_a: "Փոդը այն սերվերն է, որի վրա աշխատում է Դիասպորայի ծրագիրը և որը կապված է Դիասպորայաի ցանցին։ «Փոդը» մետաֆորա է /անգլերենում/, որ վերաբերում է պատիճներին, որ իրենց մեջ պարունակում են սերմեր/հաշիվը անգլերենում կոչում են «սերմ»/, ճիշտ նույն ձև ոնց սերվերը իր մեջ պարունակում է հաշիվները։ Կան բազում տարբեր փոդեր։ Դու կարող ես ընկերներ ավելացնել այլ փոդերից և հաղորդակցվել նրանց հետ։ Կարող ես մտածել, որ Դիասպորայի փոդերը /ինչպիսին է օրինակ Սփյուռքը/ նման են էլ․ փոստ տրամադրողներին․ կան հանրային փոդեր, անձնական փոդեր և որոշ ջանք ներդնելու դեպքում նույնիսկ կարող ես քո սեփականը ստեղծել։"
+      what_is_a_pod_q: "Ի՞նչ է փոդը։"
+    third_party_tools: "երրորդ կողմի գործիքներ"
+    tutorial: "ուսուցանող նյութ"
+    tutorials: "ուսուցանող նյութեր"
+    wiki: "վիկի"
   hide: "Թաքցնել"
+  ignore: "Արհամարհել"
   invitation_codes:
     excited: "%{name} ուրախ է քեզ այստեղ տեսնել։"
   invitations:
     a_facebook_user: "Facebook-յան օգտատեր"
+    check_token:
+      not_found: "Հրավերի համարը(token) չգտնվեց"
     create:
       already_contacts: "Այս մարդու հետ արդեն կապ հաստատել ես"
       already_sent: "Այս մարդուն արդեն հրավիրել ես։"
+      empty: "Գոնե մի էլ․փոստ գրիր։"
       no_more: "Այլևս հրավեր ուղարկելու իրավունք չունես։"
       note_already_sent: "Հրավերները արդեն ուղարկվել են հետևյալ հադցեներին. %{emails}"
       own_address: "Դու չես կարող հրավեր ուղարկել քո սեփական հասցեին։"
@@ -335,6 +397,7 @@ hy:
       resend: "Կրկին ուղարկել"
       send_an_invitation: "Հրավեր ուղարկել"
       send_invitation: "Հրավեր ուղարկել"
+      sending_invitation: "Հրավերը ուղարկվում է․․․"
       to: "Ու՞մ"
   layouts:
     application:
@@ -349,6 +412,7 @@ hy:
       admin: "ղեկավար"
       blog: "բլոգ"
       code: "ծածկագիր"
+      help: "Օգնություն"
       login: "մտնել"
       logout: "Դուրս գալ"
       profile: "Անձնական էջ"
@@ -495,6 +559,8 @@ hy:
       edit_membership: "փոփոխել խմբի անդամներին"
     few: "%{count} մարդ"
     helper:
+      is_not_sharing: "%{name}֊ը հետդ չի կիսվում"
+      is_sharing: "%{name} սկսեց կիսվել քո հետ ։)"
       results_for: " արդյունքներ %{params}-ի համար"
     index:
       looking_for: "%{tag_link} պիտակո՞վ գրառումներ ես փնտրում։"
@@ -517,6 +583,7 @@ hy:
       gender: "սեռ"
       in_aspects: "խմբերում"
       location: "տեղակայություն"
+      photos: "Նկարները"
       remove_contact: "ջնջել ընկերոջը"
       remove_from: "Ջնջե՞լ %{name}-ին %{aspect} խմբից։"
     show:
@@ -662,6 +729,7 @@ hy:
     new_request_to_person:
       sent: "ուղարկվեց"
   reshares:
+    comment_email_subject: "%{resharer}֊ը տարածել է %{author}֊ի գրառումը"
     create:
       failure: "Գրառումը տարածելիս խնդիրներ առաջացան։"
     reshare:
@@ -674,10 +742,11 @@ hy:
       reshare_original: "Տարածել բնօրինակը"
       reshared_via: "Տարածվել է"
       show_original: "Ցույց տալ բնօրինակը"
-  search: "Որոնում"
+  search: "Որոնել"
   services:
     create:
       failure: "Նույնականացումը չստացվեց"
+      read_only_access: "Քեզ միայն հասանելի է կարդալը, փորձիր մի անգամ էլ մուտք գործել մի քիչ ուշ"
       success: "Նույնականացումը բարեհաջող անցավ։"
     destroy:
       success: "Նույնականացումը բարեհաջող ջնջվեց։"
@@ -690,11 +759,13 @@ hy:
       connect_to_facebook: "Միացնել Facebook-ին"
       connect_to_tumblr: "Միացնել Tumblr-ին"
       connect_to_twitter: "Միացնել Twitter-ին"
+      connect_to_wordpress: "Միացնել Wordpress֊ին"
       disconnect: "խզել կապը"
       edit_services: "Փոփոխել ծառայությունները"
       logged_in_as: "համակարգում ես որպես"
       no_services: "Դեռևս որևիցե ծառայություն չես միացրել։"
       really_disconnect: "խզե՞լ կապը %{service}-ի հետ"
+      services_explanation: "Այլ ծառայություններ միացնելը հնարավորություն է տալիս հրապարակել քո գրառումները այդ ծառայություններով Սփյուռքում գրառելուն զուգընթաց։"
     inviter:
       click_link_to_accept_invitation: "Անցիր այս հղումով, որ ընդունես քո հրավերը"
       join_me_on_diaspora: "Միացի՛ր ինձ DIASPORA*-ում"
@@ -717,6 +788,10 @@ hy:
       your_diaspora_username_is: "Քո Diaspora-ի օգտանունն է՝ %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Ավելացնել"
+      toggle:
+        one: "%{count} խմբում"
+        other: "%{count} խմբերում"
+        zero: "Ավելացնել ընկերոջը "
     contact_list:
       all_contacts: "Բոլոր ընկերները"
     footer:
@@ -742,10 +817,14 @@ hy:
       new_user_welcome_message: "Օգտագործիր #hashպիտակները՝ գրառումներդ դասակարգելու և հետաքրքրություններդ կիսող մարդկանց գտնելու համար։ Նշիր ընկերներիդ՝ օգտագործելով @Հիշատակել"
       outside: "Հրապարակային գրառումները տեսանելի կլինեն Diaspora-ից դուրս։"
       share: "Կիսվել"
+      title: "Կարգավորել միացված ծառայությունները"
       visibility_dropdown: "Սեղմիր այս սլաքը՝ քո գրառման տեսանելիությունը ընտրելու համար։  (Խորհուրդ կտանք՝ այս առաջինը հրապարակային նշես։)"
     publisher:
       all: "բոլորը"
       all_contacts: "բոլոր կոնտակտները"
+      discard_post: "Չեղարկել գրառումը"
+      formatWithMarkdown: "Կարող ես օգտագործել %{markdown_link} ֊ը , որպեսզի ձևավորես քո գրառումը"
+      get_location: "Պարզել քո տեղակայությունը"
       make_public: "դարձնել հանրամատչելի"
       new_user_prefill:
         hello: "Ողջու՛յն, ժողովուրդ, #%{new_user_tag}։ "
@@ -754,7 +833,10 @@ hy:
         newhere: "ԵսՆորեկԵմ"
       post_a_message_to: "Գրառել %{aspect}ի կոնտակտների համար"
       posting: "Գրառվում է..."
+      preview: "Նախադիտել"
+      publishing_to: "հրապարակվում է դեպի "
       share: "Կիսվել"
+      share_with: "կիսվել"
       upload_photos: "Վերբեռնել նկարները"
       whats_on_your_mind: "Ի՞նչ կա մտքիդ։"
     reshare:
@@ -768,11 +850,19 @@ hy:
       ignore_user_description: "Ուզում ե՞ս արհամարհել օգտատիրոջն ու ջնջել նրան բոլոր խմբերից"
       like: "Հավանել"
       nsfw: "Այս գրառումը նշված է որպես NSFW հեղինակի կողմից։ %{link}"
+      shared_with: "Տարածվածը տեսանելի է %{aspect_names}֊ին"
       show: "ցուցադրել"
       unlike: "Ապահավանել"
       via: "ըստ %{link}"
       via_mobile: "հեռախոսով"
       viewable_to_anyone: "Այս գրառումը տեսանելի է համացանցում ամենքին"
+  simple_captcha:
+    label: "Ներմուծիր կոդը տուփիկում․"
+    message:
+      default: "Գաղտնի կոդը չի համապատասխանում նկարին"
+      failed: "Կարող ա՞ մարդ չես։ Մարդ լինելու ստուգումը տապալվեց։ Մի հատ կստուգվես։ ;)"
+      user: "Գաղտնի կոդը և նկարը տարբեր են"
+    placeholder: "Ներմուծիր նկարի արժեքը"
   status_messages:
     create:
       success: "%{names} բարեհաջող հիշատակվեցին"
@@ -782,10 +872,7 @@ hy:
       no_message_to_display: "Նամկներ չկան ցույց տալու համար"
     new:
       mentioning: "Հիշատակելով %{person}-ին"
-    too_long:
-      one: "պակասեցրու գրառումդ %{count} նիշով "
-      other: "պակասեցրու գրառումդ %{count} նիշով"
-      zero: "պակասեցրու գրառումդ %{count} նիշով"
+    too_long: "{\"one\"=>\"պակասեցրու գրառումդ %{count} նիշով \", \"other\"=>\"պակասեցրու գրառումդ %{count} նիշով\", \"zero\"=>\"պակասեցրու գրառումդ %{count} նիշով\"}"
   stream_helper:
     hide_comments: "Թաքցնել բոլոր մեկնաբանությունները"
     show_comments:
@@ -865,6 +952,7 @@ hy:
         dont_go: "Հեե՜յ, մի հեռացիր, այստեղ լավ է։"
         if_you_want_this: "Եթե իրոք վստահ ես, ապա ստորև մուտքագրիր գաղտնաբառդ և սեղմիր \"Փակել հաշիվս\""
         lock_username: "Արդյունքում ներկայիս օգտանունդ արգելափակվելու է, եթե որոշես հետագայում ետ գրանցվել։"
+        locked_out: "Դուք դուրս կգաք Ձեր հաշվից և այլևս երբեք չեք կարողանա մտնել։"
         make_diaspora_better: "Կուզենայինք, որ օգնեիր դարձնել Diaspora-ն առավել լավ, այնպես որ հեռանալու փոխարեն լավ կլիներ, որ օգնեիր մեզ այդ հարցում։ Բայց եթե որոշել ես գնալ, ապա ծանոթացիր, թե ինչ կլինի դրա արդյունքում՝"
         mr_wiggles: "Պրն. Փիսոն կտխրի, եթե դու գնաս"
         no_turning_back: "Առայժմ ետդարձի ճանապարհ չկա։"
@@ -896,7 +984,9 @@ hy:
     getting_started:
       awesome_take_me_to_diaspora: "Զի՛լ է։ Տար ինձ Diaspora*"
       community_welcome: "Diaspora-ի համայնքը ուրախ է տեսնել քեզ այստեղ։"
+      connect_to_facebook: "Մենք կարողենք ամենը մի քիչ արագացնել %{link} Դիասպորային։ Դա կներմուծի քո անունը, նկարը և հնարավոր կդարձնի գրառելը երկու տեղում միաժամանակ(cross-posting)։"
       connect_to_facebook_link: "միացրու քո ֆեյսբուքյան հաշվին"
+      hashtag_explanation: "Հեշթեգերը թույլ են տալիս խոսել քո հետաքրքրությունների մասին և հետևել դրանց։  Ինչպես նաև ահավոր հավես ձև է Սփյուռքում* նոր մարդկանց գտնելու համար։"
       hashtag_suggestions: "Փորձիր հետևել պիտակներ, ինչպիսիք են #արվեստ #կինոնկար #gif և այլն։"
       saved: "Պահված է"
       well_hello_there: "Դե ինչ, ողջու՜յն։"
@@ -920,6 +1010,10 @@ hy:
       settings_updated: "Կարգավորումները թարմացված են"
       unconfirmed_email_changed: "Էլ.հասցեն փոխված է և ակտիվացնելու կարիք ունի։"
       unconfirmed_email_not_changed: "Էլ.հասցեի փոփոխումը չհաջողվեց"
+  webfinger:
+    hcard_fetch_failed: "%{account} հաշվի hcard֊ը միացնելիս(fetching) խնդիրներ առաջացան"
+    no_person_constructed: "Անհնար եղավ այս hcard֊ից մարդ ձևավորել։"
+    xrd_fetch_failed: "%{account} հաշվից xrd ստանալիս սխալ եղավ"
   welcome: "Բարի գալու՜ստ"
   will_paginate:
     next_label: "հաջորդ &raquo;"

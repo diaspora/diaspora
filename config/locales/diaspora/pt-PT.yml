@@ -263,7 +263,6 @@ pt-PT:
       no_contacts_message: "Verifique %{community_spotlight}"
       no_contacts_message_with_aspect: "Verifique %{community_spotlight} ou %{add_to_aspect_link}"
       only_sharing_with_me: "Apenas a partilhar comigo"
-      remove_person_from_aspect: "Remover %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Iniciar uma conversa"
       title: "Contactos"
       your_contacts: "Os seus contactos"
@@ -396,10 +395,13 @@ pt-PT:
       what_is_a_pod_a: "Um pod e um servidor a correr o software diaspora* e ligado à rede diaspora*. \"Pod\" e uma metáfora referindo-se às vagens nas plantas que contém sementes, da maneira que um servidor contém um número de contas de usuários. Existem muitos pods diferentes. Pode adicionar amigos de outros pods e comunicar com eles. (Pode pensar num pod diaspora* como sendo parecido a um provedor de serviço de email: há pods públicos, pods privados, e com algum esforço pode até mesmo correr o seu próprio)."
       what_is_a_pod_q: "O que é um servidor?"
     posts_and_posting:
+      char_limit_services_a: "Neste caso a sua publicação é limitada à menor contagem de caracteres (140 no Twitter; 1000 no Tumblr), e o número de caracteres não utilizados é mostrado quando o ícone daquele serviço é assinalado. Ainda poderá publicar nestes serviços se a sua publicação ultrapassar os respetivos limites, no entanto o texto será truncado nesses serviços."
       char_limit_services_q: "Qual é o limite de carateres para publicações compartilhadas através de um servço conetado com um cálculo de carateres pequeno?"
       character_limit_a: "65,535 carateres. Isto é, mais de 65,395 carateres do que o que obtém no Twitter! ;)"
       character_limit_q: "Qual é o limite de caracteres em publicações?"
+      embed_multimedia_a: "Geralmente basta colar a hiperligação (por exemplo: http://www.youtube.com/watch?v=nnnnnnnnn) na sua publicação, e o vídeo ou áudio será incorporado automaticamente. Alguns dos sites suportados são: YouTube, Vimeo, SoundCloud e Flickr entre outros. diaspora* utiliza oEmbed para esse efeito. A todo o momento novos sites vão sendo acrescentados a este suporte. Lembre-se de fazer sempre uma publicação de links simples e completos: não utilize links abreviados; nem caracteres depois da hiperligação base; e aguarde um instante antes de refrescar a página para ver a previsão de como ficará depois de publicar."
       embed_multimedia_q: "Como é que eu integro um vídeo, áudio, ou outro conteúdo de multimédia numa publicação?"
+      format_text_a: "Ao utilizar um sistema simplificado chamado %{markdown}. Pode encontrar a sintaxe Markdown completa %{here}. O botão de pré-visualização é muito útil aqui, pois permite ver como aparecerá a sua mensagem antes de a compartilhar."
       format_text_q: "Como é que eu formato o texto nas minhas publicações (negrito, itálico, etc.)?"
       hide_posts_a: "Se apontar o seu rato no topo de uma publicação, aparece um X à direita. Clique-o para ocultar a publicação e cancelar as notificações sobre a mesma. Ainda pode continuar a ver a publicação se visitar a página de perfil da pessoas que a publicou."
       hide_posts_q: "Como é que eu oculto uma publicação? Como é que eu deixo de receber notificações sobre uma publicação com o meu comentário?"
@@ -413,19 +415,26 @@ pt-PT:
       size_of_images_a: "Não. As imagens são redimensionadas automaticamente para se ajustarem ao fluxo. A redução não tem um código para especificar o tamanho de uma imagem."
       size_of_images_q: "Posso personalizar o tamanho das imagens em publicações ou comentários?"
       stream_full_of_posts_a1: "O seu grupo é constituido até 3 tipos de publicações:"
+      stream_full_of_posts_li1: "Publicações de pessoas com quem você está a compartilhar, que podem ser de dois tipos: publicações públicas ou publicações limitadas compartilhadas com um grupo do qual você faz parte. Para remover essas publicações do seu fluxo, basta parar de compartilhar com essa pessoa."
       stream_full_of_posts_li2: "Publicações públicas contendo uma das etiquetas que segue. Para as remover, deixe de seguir a etiqueta."
+      stream_full_of_posts_li3: "Publicações públicas feitas por pessoas listadas em \"Destaque da Comunidade\". Estas podem ser removidas desmarcando a opção \"Mostrar Destaques da Comunidade no Fluxo?\" na aba \"Conta\" das suas \"Definições\"."
       stream_full_of_posts_q: "Porque é que o meu grupo está cheio de publicações de pessoas que não conheço, e que não compartilho com elas?"
       title: "Publicações e publicar"
     private_posts:
+      can_comment_a: "Apenas os utilizadores logados em diaspora* que associou a esse grupo podem comentar ou gostar da sua publicação privada."
       can_comment_q: "Quem é que pode comentar ou gostar da minha publicação privada?"
+      can_reshare_a: "Ninguém. Publicações privadas não são recompartilháveis. Entretanto, utilizadores logados em diaspora* que estejam nesse grupo podem potencialmente copiar e colar a publicação."
       can_reshare_q: "Quem é que pode recompartilhar a minha publicação privada?"
       see_comment_a: "Só as pessoas que compartilham a publicação (as pessoas que foram selecionadas em aspeto por quem publica o original) podem ver os seus comentários e o gosto. "
       see_comment_q: "Quando comento ou gosto de uma publicação privada, quem é que pode ver?"
       title: "Publicações Privadas"
+      who_sees_post_a: "Apenas os utilizadores logados em diaspora* que associou a esse grupo podem ver a sua publicação privada."
       who_sees_post_q: "Quando eu coloco uma mensagem num aspeto (ex.:, uma publicação privada), quem a pode ver?"
     private_profiles:
       title: "Perfis Privados"
+      whats_in_profile_a: "Biografia, localização, sexo, e data de nascimento. É o que aparece na parte de baixo da página de edição do perfil. Toda esta informação é opcional - depende de você preencher ou não. Os utilizadores logados que você tenha adicionado aos seus grupos são as únicas pessoas que podem ver o seu perfil privado. Eles também verão as publicações privadas feitas no(s) grupos(s) em que os colocou, misturadas com as publicações públicas feitas por si, quando visitarem a sua página de perfil."
       whats_in_profile_q: "O que faz parte do meu perfil privado?"
+      who_sees_profile_a: "Qualquer utilizador logado com quem você esteja a compartilhar (significa que você os adicionou a um dos seus grupos). De qualquer forma, as pessoas que o seguem mas que você não segue, verão apenas a sua informação pública."
       who_sees_profile_q: "Quem vê o meu perfil privado?"
       who_sees_updates_a: "Qualquer pessoa nos seus aspetos, vê as alterações do seu perfil privado. "
       who_sees_updates_q: "Quem vê as atualizações ao meu perfil privado?"
@@ -437,6 +446,7 @@ pt-PT:
       see_comment_reshare_like_a: "Qualquer utilizador do diaspora* com sessão iniciada, e também qualquer outra pessoa na Internet pode comentar e compartilhar publicações pública."
       see_comment_reshare_like_q: "Quando eu comento em, volto a partilhar, ou gosto de uma publicação pública, quem é que pode ver?"
       title: "Publicações Públicas"
+      who_sees_post_a: "Qualquer pessoa que utilize a internet pode potencialmente ver uma publicação marcada por si como pública, por isso assegure-se de que realmente quer que ela seja pública. É uma ótima forma de apelar ao mundo lá fora."
       who_sees_post_q: "Quando eu publico qualquer coisa publicamente, quem é que pode ver?"
     public_profiles:
       title: "Perfis públicos"
@@ -988,10 +998,7 @@ pt-PT:
       no_message_to_display: "Não há mensagens para mostrar."
     new:
       mentioning: "A mencionar: %{person}"
-    too_long:
-      one: "por favour, não utilize mais de %{count} carateres nas suas mensagens de estado"
-      other: "por favour, não utilize mais de %{count} carateres nas suas mensagens de estado"
-      zero: "por favor, não utilize mais de %{count} carateres nas suas mensagens de estado"
+    too_long: "{\"one\"=>\"por favour, não utilize mais de %{count} carateres nas suas mensagens de estado\", \"other\"=>\"por favour, não utilize mais de %{count} carateres nas suas mensagens de estado\", \"zero\"=>\"por favor, não utilize mais de %{count} carateres nas suas mensagens de estado\"}"
   stream_helper:
     hide_comments: "Ocultar todos comentários"
     show_comments:

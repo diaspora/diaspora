@@ -256,7 +256,6 @@ tr:
       no_contacts_message: "%{community_spotlight}'ni ziyaret et"
       no_contacts_message_with_aspect: "%{community_spotlight}'ni ziyaret et ya da %{add_to_aspect_link}"
       only_sharing_with_me: "Benimle paylaşım yapan"
-      remove_person_from_aspect: "%{person_name} kişisini \"%{aspect_name}\" yönünden kaldır"
       start_a_conversation: "Bir iletişim başlatın"
       title: "Kişiler"
       your_contacts: "Kişiler"
@@ -950,9 +949,7 @@ tr:
       no_message_to_display: "Gösterilecek mesaj yok."
     new:
       mentioning: "Bahseden: %{person}"
-    too_long:
-      other: "durum mesajları %{count} karakterden az olmalıdır."
-      zero: "durum mesajları %{count} karakterden az olmalıdır."
+    too_long: "{\"other\"=>\"durum mesajları %{count} karakterden az olmalıdır.\", \"zero\"=>\"durum mesajları %{count} karakterden az olmalıdır.\"}"
   stream_helper:
     hide_comments: "Yorumları gizle"
     show_comments:

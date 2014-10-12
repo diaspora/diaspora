@@ -37,6 +37,13 @@ sv:
       no_comments: "Inga kommentarer finns ännu."
       show: "visa alla kommentarer"
     confirm_dialog: "Är du säker?"
+    contacts:
+      add_contact: "Lägg till kontakt"
+      aspect_list_is_not_visible: "Aspektens kontakter kan inte se vilka som hör till aspekten."
+      aspect_list_is_visible: "Aspektens kontakter kan se vilka som hör till aspekten."
+      error_add: "Kunde inte lägga till <%= name %> till aspekten. :-("
+      error_remove: "Kunde inte ta bort <%= name %> från aspekten. :-("
+      remove_contact: "Ta bort kontakt"
     conversation:
       participants: "Deltagare"
     delete: "Radera"
@@ -73,11 +80,19 @@ sv:
     my_activity: "Min aktivitet"
     my_aspects: "Mina aspekter"
     my_stream: "Ström"
+    no_results: "Inga sökresultat"
     notifications:
       mark_read: "Lästmärk"
       mark_unread: "Olästmarkera"
     people:
+      edit_my_profile: "Ändra min profil"
+      helper:
+        is_not_sharing: "<%= name %> delar inte sina uppdateringar med dig."
+        is_sharing: "<%= name %> delar med sig till dig"
+      mention: "Nämn"
+      message: "Meddelande"
       not_found: "och ingen hittades..."
+      stop_ignoring: "Sluta ignorera"
     photo_uploader:
       completed: "<%= file %> klar"
       empty: "{file} är tom, var vänlig och välj filer igen utan den."
@@ -93,6 +108,17 @@ sv:
       result: "Resultat"
       show_result: "Visa resultat"
       vote: "Rösta"
+    profile:
+      add_some: "lägg till"
+      bio: "Biografi"
+      born: "Födelsedag"
+      contacts: "Kontakter"
+      edit: "ändra"
+      gender: "Kön"
+      ignoring: "Du ignorerar alla inlägg från <%= name %>."
+      location: "Plats"
+      photos: "Foton"
+      you_have_no_tags: "du har inga taggar!"
     publisher:
       add_option: "Lägg till alternativ"
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
@@ -169,6 +195,7 @@ sv:
       wordSeparator: " "
       year: "ungefär ett år"
       years: "%d år"
+    unblock_failed: "Misslyckades med att häva blockeringen"
     videos:
       unknown: "Okänd videotyp"
       watch: "Se den här videon på <%= provider %>"

@@ -34,6 +34,13 @@ es:
       no_comments: "Aún no hay comentarios."
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
+    contacts:
+      add_contact: "Añadir contacto"
+      aspect_list_is_not_visible: "Los contactos de este aspecto no pueden verse entre ellos."
+      aspect_list_is_visible: "Los contactos de este aspecto pueden verse entre ellos."
+      error_add: "No se pudo añadir a <%= name %> al aspecto :("
+      error_remove: "No se pudo eliminar <%= name %> del aspecto :("
+      remove_contact: "Eliminar contacto"
     conversation:
       participants: "Participantes"
     delete: "Eliminar"
@@ -70,11 +77,19 @@ es:
     my_activity: "Mi Actividad"
     my_aspects: "Mis aspectos"
     my_stream: "Portada"
+    no_results: "No se ha encontrado nada"
     notifications:
       mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
     people:
+      edit_my_profile: "Editar mi perfil"
+      helper:
+        is_not_sharing: "<%= name %> no está compartiendo contigo"
+        is_sharing: "<%= name %> está compartiendo contigo"
+      mention: "Mención"
+      message: "Mensaje"
       not_found: "...y no se encontró a nadie."
+      stop_ignoring: "Dejar de ignorar"
     photo_uploader:
       completed: "<%= file %> completado"
       empty: "{file} está vacío, por favor selecciona otros archivos."
@@ -90,6 +105,17 @@ es:
       result: "Resultados"
       show_result: "Mostrar resultados"
       vote: "Votar"
+    profile:
+      add_some: "añadir algo"
+      bio: "Biografía"
+      born: "Cumpleaños"
+      contacts: "Contactos"
+      edit: "editar"
+      gender: "Sexo"
+      ignoring: "Estás ignorando todas las publicaciones de <%= name %>."
+      location: "Ubicación"
+      photos: "Fotos"
+      you_have_no_tags: "¡no tienes etiquetas!"
     publisher:
       add_option: "Añadir una respuesta"
       at_least_one_aspect: "Debes publicarlo al menos en un aspecto"
@@ -166,6 +192,7 @@ es:
       wordSeparator: " "
       year: "un año aproximadamente"
       years: "%d años"
+    unblock_failed: "Falló el desbloqueo del usuario"
     videos:
       unknown: "Tipo de vídeo desconocido"
       watch: "Ver este video con <%= provider %>"

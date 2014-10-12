@@ -279,6 +279,7 @@ es-AR:
     few: "%{count} contactos"
     index:
       add_a_new_aspect: "Añadir un nuevo aspecto"
+      add_contact: "Agregar contacto"
       add_to_aspect: "añade contactos a %{name}"
       add_to_aspect_link: "Agregar contactos a %{name}"
       all_contacts: "Todos los Contactos"
@@ -289,9 +290,10 @@ es-AR:
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"
       no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Compartiendo solo conmigo"
-      remove_person_from_aspect: "Quitar a %{person_name} de \"%{aspect_name}\""
+      remove_contact: "Eliminar contacto"
       start_a_conversation: "Empezar una conversación"
       title: "Contactos"
+      user_search: "Búsqueda de usuarios"
       your_contacts: "Tus contactos"
     many: "%{count} contactos"
     one: "1 contacto"
@@ -1155,10 +1157,7 @@ es-AR:
       no_message_to_display: "No hay mensajes que mostrar."
     new:
       mentioning: "Mencionar a: %{person}"
-    too_long:
-      one: "Por favor, hacé que tu mensaje de estado tenga menos de %{count} caracter"
-      other: "Por favor, hacé que tu mensaje de estado tenga menos de %{count} caracteres"
-      zero: "Por favor, hacé que tu mensaje de estado tenga menos de %{count} caracteres"
+    too_long: "Por favor haz que tu mensaje de estado tenga menos de %{count} caracteres. En este momento el máximo permitido es de %{current_length} caracteres."
   stream_helper:
     hide_comments: "Ocultar comentarios"
     show_comments:

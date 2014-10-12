@@ -96,9 +96,9 @@ de:
       id: "ID"
       last_seen: "Zuletzt gesehen"
       ? "no"
-      : Nein
+      : nein
       nsfw: "NSFW (unpassend für den Arbeitsplatz)"
-      unknown: "Unbekannt"
+      unknown: "unbekannt"
       ? "yes"
       : ja
     user_search:
@@ -112,7 +112,7 @@ de:
         one: "%{count} Benutzer gefunden"
         other: "%{count} Benutzer gefunden"
         zero: "%{count} Benutzer gefunden"
-      view_profile: "Profil anzeigen"
+      view_profile: "Profil ansehen"
       you_currently:
         one: "Du hast noch eine Einladung übrig %{link}"
         other: "Du hast noch %{count} Einladungen übrig %{link}"
@@ -282,6 +282,7 @@ de:
     few: "%{count} Kontakte"
     index:
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
+      add_contact: "Kontakt hinzufügen"
       add_to_aspect: "Füge Kontakte zu %{name} hinzu"
       add_to_aspect_link: "füge Kontakte zu »%{name}« hinzu"
       all_contacts: "Alle Kontakte"
@@ -292,9 +293,10 @@ de:
       no_contacts_message: "Guck’ in den %{community_spotlight}"
       no_contacts_message_with_aspect: "Guck’ in den %{community_spotlight} oder %{add_to_aspect_link}"
       only_sharing_with_me: "Nur mit dir Teilende"
-      remove_person_from_aspect: "Entferne %{person_name} aus \"%{aspect_name}\""
+      remove_contact: "Kontakt entfernen"
       start_a_conversation: "Beginne eine Unterhaltung"
       title: "Kontakte"
+      user_search: "Nutzersuche"
       your_contacts: "Deine Kontakte"
     many: "%{count} Kontakte"
     one: "Ein Kontakt"
@@ -665,7 +667,7 @@ de:
         zero: "Keine neuen Benachrichtigungen"
     index:
       all_notifications: "Alle Benachrichtigungen"
-      also_commented: "Auch Kommentiert"
+      also_commented: "Auch kommentiert"
       and: "und"
       and_others:
         few: "und %{count} anderen"
@@ -958,7 +960,7 @@ de:
     two: "%{count} Reaktionen"
     zero: "Keine Reaktionen"
   registrations:
-    closed: "Neuregistrierungen sind auf diesem Pod geschlossen."
+    closed: "Neuregistrierungen sind auf diesem diaspora*-Pod geschlossen."
     create:
       success: "Du bist diaspora* beigetreten!"
     edit:
@@ -1145,7 +1147,7 @@ de:
       posting: "Senden …"
       preview: "Vorschau"
       publishing_to: "Veröffentlichen an: "
-      remove_location: "Position entfernen"
+      remove_location: "Ort entfernen"
       share: "Teilen"
       share_with: "Teile mit"
       upload_photos: "Fotos hochladen"
@@ -1183,13 +1185,7 @@ de:
       no_message_to_display: "Keine Nachricht zum Anzeigen."
     new:
       mentioning: "Erwähnt: %{person}"
-    too_long:
-      few: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
-      many: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
-      one: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
-      other: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
-      two: "Bitte kürze deinen Beitrag auf unter %{count} Zeichen."
-      zero: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
+    too_long: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen. Im Moment enthält er %{current_length} Zeichen"
   stream_helper:
     hide_comments: "Alle Kommentare verbergen"
     show_comments:

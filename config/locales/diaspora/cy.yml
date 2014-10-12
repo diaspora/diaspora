@@ -91,7 +91,6 @@ cy:
       all_contacts: "Cysylltiadau i gŷd"
       my_contacts: "Fy nghysylltiadau"
       no_contacts: "No contacts."
-      remove_person_from_aspect: "Tynnu %{person_name} oddi ar \"%{aspect_name}\""
       title: "Cysylltiadau"
       your_contacts: "Eich Cysylltiadau chi"
     many: "%{count} contacts"
@@ -445,13 +444,7 @@ cy:
   status_messages:
     helper:
       no_message_to_display: "Dim neges i arddangos."
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "hide comments"
     show_comments:

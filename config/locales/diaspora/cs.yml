@@ -270,7 +270,6 @@ cs:
       no_contacts_message: "Shlédněte %{community_spotlight}"
       no_contacts_message_with_aspect: "Shlédněte %{community_spotlight} nebo %{add_to_aspect_link}"
       only_sharing_with_me: "Pouze sdílejí se mnou"
-      remove_person_from_aspect: "Odstranit %{person_name} z \"%{aspect_name}\""
       start_a_conversation: "Zahájit konverzaci"
       title: "Kontakty"
       your_contacts: "Vaše kontakty"
@@ -1007,11 +1006,7 @@ cs:
       no_message_to_display: "Žádná zpráva k zobrazení."
     new:
       mentioning: "Zmínka: %{person}"
-    too_long:
-      few: "prosím zkraťte svou zprávu na méně než %{count} znaky"
-      one: "prosím zkraťte svou zprávu na méně než %{count} znak"
-      other: "prosím zkraťte svou zprávu na méně než %{count} znaků"
-      zero: "prosím zkraťte svou zprávu na méně než %{count} znaků"
+    too_long: "{\"few\"=>\"prosím zkraťte svou zprávu na méně než %{count} znaky\", \"one\"=>\"prosím zkraťte svou zprávu na méně než %{count} znak\", \"other\"=>\"prosím zkraťte svou zprávu na méně než %{count} znaků\", \"zero\"=>\"prosím zkraťte svou zprávu na méně než %{count} znaků\"}"
   stream_helper:
     hide_comments: "Skrýt všechny komentáře"
     show_comments:

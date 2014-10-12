@@ -292,7 +292,6 @@ nb:
       no_contacts_message: "Sjekk ut %{community_spotlight}"
       no_contacts_message_with_aspect: "Sjekk ut %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Deler bare med meg "
-      remove_person_from_aspect: "Fjern %{person_name} fra «%{aspect_name}»"
       start_a_conversation: "Start en samtale"
       title: "Kontakter"
       your_contacts: "Dine kontakter"
@@ -1169,13 +1168,7 @@ nb:
       no_message_to_display: "Ingen melding å vise."
     new:
       mentioning: "Nevner: %{person}"
-    too_long:
-      few: "du bør begrense statusmeldingene dine til %{count} tegn"
-      many: "Du bør begrense statusmeldingene dine til %{count} characters"
-      one: "du bør begrense statusmeldingene dine til %{count} tegn"
-      other: "du må gjøre statusmeldingene dine kortere enn %{count} tegn"
-      two: "vær så snill og skriv statusoppdateringer som er under %{count} tegn"
-      zero: "Statusmeldinger må være lengre enn ingenting."
+    too_long: "{\"few\"=>\"du bør begrense statusmeldingene dine til %{count} tegn\", \"many\"=>\"Du bør begrense statusmeldingene dine til %{count} characters\", \"one\"=>\"du bør begrense statusmeldingene dine til %{count} tegn\", \"other\"=>\"du må gjøre statusmeldingene dine kortere enn %{count} tegn\", \"two\"=>\"vær så snill og skriv statusoppdateringer som er under %{count} tegn\", \"zero\"=>\"Statusmeldinger må være lengre enn ingenting.\"}"
   stream_helper:
     hide_comments: "Skjul kommentarer"
     show_comments:

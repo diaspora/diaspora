@@ -12,6 +12,7 @@ de_formal:
   _home: "Startseite"
   _photos: "Fotos"
   _services: "Dienste"
+  _terms: "Bedingungen"
   account: "Konto"
   activerecord:
     errors:
@@ -161,8 +162,8 @@ de_formal:
       success: "%{name} wurde erfolgreich entfernt."
     edit:
       add_existing: "Einen bereits bestehenden Kontakt hinzufügen"
-      aspect_list_is_not_visible: "Die Aspektliste wird vor anderen im Aspekt versteckt"
-      aspect_list_is_visible: "Die Aspektliste ist für andere im Aspekt sichtbar"
+      aspect_list_is_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
+      aspect_list_is_visible: "Kontakte in diesem Aspekt können einander sehen."
       confirm_remove_aspect: "Sind Sie sich sicher, dass Sie diesen Aspekt löschen möchten?"
       done: "Fertig"
       make_aspect_list_visible: "Kontakte aus diesem Aspekt öffentlich machen?"
@@ -179,9 +180,9 @@ de_formal:
       remove: "entfernen"
     index:
       diaspora_id:
-        content_1: "Ihre diaspora* ID ist:"
-        content_2: "Geben Sie diese weiter und seien Sie somit auf diaspora* leicht zu finden."
-        heading: "diaspora* ID"
+        content_1: "Ihre diaspora*-ID ist:"
+        content_2: "Geben Sie diese an andere weiter und sie werden Sie leicht auf diaspora* finden können."
+        heading: "diaspora*-ID"
       donate: "Spenden"
       handle_explanation: "Das ist Ihre diaspora* ID. Sie können sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit Ihnen Kontakt aufnehmen können."
       help:
@@ -281,6 +282,7 @@ de_formal:
     few: "%{count} Kontakte"
     index:
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
+      add_contact: "Kontakt hinzufügen"
       add_to_aspect: "Füge Kontakte zu %{name} hinzu"
       add_to_aspect_link: "Füge Kontakte zu %{name} hinzu"
       all_contacts: "Alle Kontakte"
@@ -291,9 +293,10 @@ de_formal:
       no_contacts_message: "Erkunden Sie den %{community_spotlight}"
       no_contacts_message_with_aspect: "Schauen Sie in den %{community_spotlight} oder %{add_to_aspect_link}"
       only_sharing_with_me: "Nur mit Ihnen Teilende"
-      remove_person_from_aspect: "Entferne %{person_name} aus \"%{aspect_name}\""
+      remove_contact: "Kontakt entfernen"
       start_a_conversation: "Starten Sie eine Unterhaltung"
       title: "Kontakte"
+      user_search: "Nutzersuche"
       your_contacts: "Ihre Kontakte"
     many: "%{count} Kontakte"
     one: "Ein Kontakt"
@@ -434,7 +437,7 @@ de_formal:
       diaspora_app_q: "Gibt es eine diaspora* App für Android oder iOS?"
       photo_albums_a: "Nein, momentan nicht. Aber Sie können sich die hochgeladenen Bilder in der Fotosektion in der linke Leiste auf dem Profil ansehen."
       photo_albums_q: "Gibt es Foto- oder Videoalben?"
-      subscribe_feed_a: "Ja, allerdings ist diese Funktion noch immer nicht ganz ausgereift und das Ergebnis wird nicht ganz richtig formatiert. Wenn Sie die Funktion dennoch benutzen wollen, gehen Sie einfach zu der Profilseite der Person und klicken Sie auf die Feed-Schaltfläche deines Browsers oder kopieren Sie die Profil-URL (z.B. https://joindiaspora.com/people/irgendeinenummer) und fügen Sie sie in den Feedreader ein. Die resultierenden Feed-Adressen sehen aus wie https://joindiaspora.com/public/benutzername.atom. diaspora* benutzt Atom an Stelle von RSS."
+      subscribe_feed_a: "Ja, allerdings ist diese Funktion noch immer nicht ganz ausgereift und das Ergebnis wird nicht ganz richtig formatiert. Wenn Sie die Funktion dennoch benutzen wollen, gehen Sie einfach zu der Profilseite der Person und klicken Sie auf die Feed-Schaltfläche deines Browsers oder kopieren Sie die Profil-URL (z.B. https://joindiaspora.com/people/irgendeinenummer) und fügen Sie sie in den Feedreader ein. Die resultierenden Feed-Adressen sehen aus wie https://joindiaspora.com/public/benutzername.atom – diaspora* benutzt Atom an Stelle von RSS."
       subscribe_feed_q: "Kann ich die öffentlichen Beiträge einer Person mit einem Feedreader verfolgen?"
       title: "Diverses"
     pods:
@@ -640,12 +643,9 @@ de_formal:
   no_results: "Keine Ergebnisse gefunden."
   notifications:
     also_commented:
-      few: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
-      many: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
-      one: "%{actors} hat auch %{post_author}s %{post_link} kommentiert."
-      other: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
-      two: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
-      zero: "%{actors} hat auch %{post_author}s %{post_link} kommentiert."
+      one: "%{actors} hat auch %{post_author}s Beitrag %{post_link} kommentiert."
+      other: "%{actors} haben auch %{post_author}s Beitrag %{post_link} kommentiert."
+      zero: "%{actors} hat auch %{post_author}s Beitrag %{post_link} kommentiert."
     also_commented_deleted:
       few: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
       many: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
@@ -654,12 +654,9 @@ de_formal:
       two: "%{actors} haben deinen inzwischen gelöschten Beitrag kommentiert."
       zero: "Niemand hat einen inzwischen gelöschten Beitrag kommentiert."
     comment_on_post:
-      few: "%{actors} haben Ihren %{post_link} kommentiert."
-      many: "%{actors} haben Ihren %{post_link} kommentiert."
-      one: "%{actors} hat Ihren %{post_link} kommentiert."
-      other: "%{actors} haben Ihren %{post_link} kommentiert."
-      two: "%{actors} hat Ihren %{post_link} kommentiert."
-      zero: "Niemand hat Ihren %{post_link} kommentiert."
+      one: "%{actors} hat Ihren Beitrag %{post_link} kommentiert."
+      other: "%{actors} haben Ihren Beitrag %{post_link} kommentiert."
+      zero: "%{actors} hat Ihren Beitrag %{post_link} kommentiert."
     helper:
       new_notifications:
         few: "%{count} neue Benachrichtigungen"
@@ -682,6 +679,7 @@ de_formal:
       comment_on_post: "Einen Beitrag Kommentiert"
       liked: "Gefällt"
       mark_all_as_read: "Markiere alle als gelesen"
+      mark_all_shown_as_read: "Alle angezeigten als gelesen markieren"
       mark_read: "Als gelesen markieren"
       mark_unread: "als ungelesen markieren"
       mentioned: "Erwähnt"
@@ -835,7 +833,7 @@ de_formal:
       looking_for: "Suchen Sie mit %{tag_link} getaggte Beiträge?"
       no_one_found: "… und niemand wurde gefunden."
       no_results: "Hey! Sie müssen nach etwas suchen."
-      results_for: "Suchergebnisse für"
+      results_for: "Suchergebnisse für %{search_term}"
       search_handle: "Nutzen Sie die diaspora* ID (nutzername@pod.tld) Ihrer Freunde, um sie leichter zu finden."
       searching: "suche, bitte warten..."
       send_invite: "Immer noch nichts? Verschicken Sie eine Einladung!"
@@ -989,6 +987,8 @@ de_formal:
       sign_up: "REGISTRIEREN"
       sign_up_message: "Soziales Netzwerken mit <3"
       submitting: "Absenden..."
+      terms: "Indem Sie ein Konto erstellen, akzeptieren Sie die %{terms_link}."
+      terms_link: "Nutzungsbedingungen"
       username: "BENUTZERNAME"
   report:
     comment_label: "<b>Kommentar</b>:<br>%{data}"
@@ -1179,13 +1179,7 @@ de_formal:
       no_message_to_display: "Keine Nachricht zum Anzeigen."
     new:
       mentioning: "Erwähnt: %{person}"
-    too_long:
-      few: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen."
-      many: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen."
-      one: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen."
-      other: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen."
-      two: "Bitte kürzen Sie Ihren Beitrag auf unter %{count} Zeichen."
-      zero: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen."
+    too_long: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen. Im Moment enthält er %{current_length} Zeichen"
   stream_helper:
     hide_comments: "Alle Kommentare verbergen"
     show_comments:
@@ -1259,8 +1253,8 @@ de_formal:
       wrong_password: "Das eingegebene Kennwort stimmt nicht mit Ihrem aktuellen Kennwort überein."
     edit:
       also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert?"
-      auto_follow_aspect: "Aspekt für automatisch gefolgte Benutzer:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
+      auto_follow_aspect: "Aspekt für automatisch gefolgte Kontakte:"
+      auto_follow_back: "Automatisch mit Benutzern teilen, die anfangen, mit Ihnen zu teilen"
       change: "Ändern"
       change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"
@@ -1284,7 +1278,7 @@ de_formal:
       edit_account: "Konto bearbeiten"
       email_awaiting_confirmation: "Wir haben Ihnen einen Aktivierungslink zu %{unconfirmed_email} geschickt. Solange Sie dem Link nicht gefolgt sind und die neue Adresse aktiviert haben, werden wir weiterhin Ihre ursprüngliche E-Mail-Adresse %{email} verwenden."
       export_data: "Daten exportieren"
-      following: "Folgen-Einstellungen"
+      following: "Teilen-Einstellungen"
       getting_started: "Einstellungen für neue Nutzer"
       liked: "… wenn jemandem Ihr Beitrag gefällt?"
       mentioned: "… Sie in einem Beitrag erwähnt werden?"
@@ -1293,8 +1287,8 @@ de_formal:
       private_message: "… Sie eine private Nachricht erhalten?"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
       reshared: "… jemand Ihren Beitrag weitersagt?"
-      show_community_spotlight: "Gemeinschafts-Schaukasten im Stream anzeigen?"
-      show_getting_started: "Einstieg reaktivieren"
+      show_community_spotlight: "Gemeinschafts-Schaukasten im Stream anzeigen"
+      show_getting_started: "Einstiegshinweise anzeigen"
       someone_reported: "jemand hat eine Meldung gesendet"
       started_sharing: "… jemand mit Ihnen zu teilen anfängt?"
       stream_preferences: "Stream-Einstellungen"

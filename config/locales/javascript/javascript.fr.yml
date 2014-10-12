@@ -37,6 +37,13 @@ fr:
       no_comments: "Il n'y a pas encore de commentaires."
       show: "Afficher tous les commentaires"
     confirm_dialog: "Êtes-vous certain-e ?"
+    contacts:
+      add_contact: "Ajouter ce contact"
+      aspect_list_is_not_visible: "Les contacts de cet aspect ne peuvent pas se voir entre eux."
+      aspect_list_is_visible: "Les contacts de cet aspect peuvent se voir entre eux."
+      error_add: "Impossible d'ajouter <%= name %> à cet aspect :("
+      error_remove: "Impossible de retirer <%= name %> de cet aspect :("
+      remove_contact: "Retirer ce contact"
     conversation:
       participants: "Participants"
     delete: "Effacer"
@@ -73,11 +80,19 @@ fr:
     my_activity: "Mon activité"
     my_aspects: "Mes Aspects"
     my_stream: "Flux"
+    no_results: "Aucun résultat"
     notifications:
       mark_read: "Marquer comme lu"
       mark_unread: "Marquer comme non lu"
     people:
+      edit_my_profile: "Modifier mon profil"
+      helper:
+        is_not_sharing: "<%= name %> ne partage pas avec vous"
+        is_sharing: "<%= name %> partage avec vous"
+      mention: "Mentionner"
+      message: "Message"
       not_found: "Et personne n'a été trouvé ..."
+      stop_ignoring: "Ne plus ignorer"
     photo_uploader:
       completed: "<%= file %> complété"
       empty: "{file} est vide, merci de sélectionner d'autres fichiers."
@@ -93,6 +108,17 @@ fr:
       result: "Résultat"
       show_result: "Afficher les résultats"
       vote: "Vote"
+    profile:
+      add_some: "ajouter"
+      bio: "Biographie"
+      born: "Anniversaire"
+      contacts: "Contacts"
+      edit: "modifier"
+      gender: "Genre"
+      ignoring: "Vous ignorez tous les messages de <%= name %>."
+      location: "Localisation"
+      photos: "Photos"
+      you_have_no_tags: "vous n'avez pas de tag !"
     publisher:
       add_option: "Ajouter un choix"
       at_least_one_aspect: "Vous devez créer au moins un aspect"
@@ -153,7 +179,7 @@ fr:
         follow: "Suivre #<%= tag %>"
         following: "Suivant #<%= tag %>"
         stop_following: "Arrêter de suivre #<%= tag %>"
-      unfollow: "Ne pas suivre"
+      unfollow: "Ne plus suivre"
       unlike: "Je n'aime plus"
       via: "via <%= provider %>"
     tags:
@@ -175,6 +201,7 @@ fr:
       wordSeparator: " "
       year: "un an"
       years: "%d ans"
+    unblock_failed: "Impossible de débloquer cet utilisateur"
     videos:
       unknown: "Type de vidéo inconnu"
       watch: "Voir cette vidéo sur <%= provider %>"

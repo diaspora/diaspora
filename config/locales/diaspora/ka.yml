@@ -196,7 +196,6 @@ ka:
       no_contacts_message: "ნახე %{community_spotlight}"
       no_contacts_message_with_aspect: "ნახე %{community_spotlight} ან %{add_to_aspect_link}"
       only_sharing_with_me: "აზიარებს მხოლოდ ჩემთან"
-      remove_person_from_aspect: "ამოშლა %{person_name} \"%{aspect_name}\"-დან"
       start_a_conversation: "დაიწყე საუბარი"
       title: "კონტაქტები"
       your_contacts: "შენი კონტაქტები"
@@ -753,13 +752,7 @@ ka:
       no_message_to_display: "არ არის მესიჯები."
     new:
       mentioning: "Mentioning: %{person}"
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "დამალე ყველა კომენატარი"
     show_comments:

@@ -256,7 +256,6 @@ zh-TW:
       no_contacts_message: "來看看 %{community_spotlight}"
       no_contacts_message_with_aspect: "來看看 %{community_spotlight} 或是 %{add_to_aspect_link}"
       only_sharing_with_me: "和我分享的人"
-      remove_person_from_aspect: "將 %{person_name} 從\"%{aspect_name}\"中移除"
       start_a_conversation: "開始對話"
       title: "聯絡人"
       your_contacts: "你的聯絡人"
@@ -875,13 +874,7 @@ zh-TW:
       no_message_to_display: "沒有訊息可顯示。"
     new:
       mentioning: "指指點點中：%{person}"
-    too_long:
-      few: "請限制狀態訊息在%{count}個字內"
-      many: "請限制狀態訊息在%{count}個字內"
-      one: "請限制狀態訊息在%{count}個字內"
-      other: "請限制狀態訊息在%{count}個字內"
-      two: "請縮短你的狀態訊息在%{count}個字元以下"
-      zero: "請限制狀態訊息在%{count}個字內"
+    too_long: "{\"few\"=>\"請限制狀態訊息在%{count}個字內\", \"many\"=>\"請限制狀態訊息在%{count}個字內\", \"one\"=>\"請限制狀態訊息在%{count}個字內\", \"other\"=>\"請限制狀態訊息在%{count}個字內\", \"two\"=>\"請縮短你的狀態訊息在%{count}個字元以下\", \"zero\"=>\"請限制狀態訊息在%{count}個字內\"}"
   stream_helper:
     hide_comments: "隱藏所有意見"
     show_comments:

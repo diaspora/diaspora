@@ -259,7 +259,6 @@ nn:
       no_contacts_message: "Ta ein titt på %{community_spotlight}"
       no_contacts_message_with_aspect: "Ta ein titt på %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Deler berre med meg"
-      remove_person_from_aspect: "Fjerna %{person_name} frå \"%{aspect_name}\""
       start_a_conversation: "Start ein samtale"
       title: "Kontaktar"
       your_contacts: "Kontaktane dine"
@@ -860,13 +859,7 @@ nn:
       no_message_to_display: "Ingen innlegg kan synast."
     new:
       mentioning: "Nemner: %{person}"
-    too_long:
-      few: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
-      many: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
-      one: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
-      other: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
-      two: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
-      zero: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
+    too_long: "{\"few\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"many\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"one\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"other\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"two\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"zero\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\"}"
   stream_helper:
     hide_comments: "Gøym alle kommentarane"
     show_comments:

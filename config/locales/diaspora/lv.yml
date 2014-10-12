@@ -5,15 +5,213 @@
 
 
 lv:
+  _applications: "Lietotnes"
   _comments: "Komentāri"
+  _contacts: "Kontakti"
   _home: "Mājās"
+  _photos: "Fotogrāfijas:"
+  _services: "Servisi"
   account: "Konts"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "ir jābūt unikālam starp lietotāja kontaktiem."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "ir aizņemts."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Baigi labais, jā? Tu jau esi dalījies ar šo ierakstu!"
+        user:
+          attributes:
+            email:
+              taken: "ir aizņemts."
+            person:
+              invalid: "nav derīgs."
+            username:
+              invalid: "nav derīgs. Ir atļauti tikai burti, cipari un apakšsvītras."
+              taken: "ir aizņemts."
+  ago: "pirms %{time}"
+  all_aspects: "Visas grupas"
+  application:
+    helper:
+      unknown_person: "nezināma persona"
+      video_title:
+        unknown: "Nenosaukts video"
+  are_you_sure: "Vai esi pārliecināts?"
+  are_you_sure_delete_account: "Vai tiešām vēlaties slēgt savu kontu? To nevarēs atjaunot!"
+  aspect_memberships:
+    destroy:
+      failure: "Neizdevās noņemt personu no grupas"
+      success: "Persona tika veiksmīgi noņemta no grupas"
+  aspects:
+    add_to_aspect:
+      failure: "Nesanāca pievienot kontaktu grupai."
+      success: "Kontakts veiksmīgi pievienots grupai."
+    aspect_contacts:
+      done_editing: "pabeigt labošanu"
+    aspect_listings:
+      add_an_aspect: "+ Pievienot grupu"
+      deselect_all: "Atlasīt neko"
+      edit_aspect: "Labot %{name}"
+      select_all: "Izvēlēties visus"
+    contacts_not_visible: "Kontakti šajā grupā nevarēs viens otru redzēs."
+    contacts_visible: "Kontakti šajā grupā varēs viens otru redzēt."
+    create:
+      failure: "Grupas izveide neizdevās."
+      success: "Grupa %{name} tika izveidota."
+    destroy:
+      failure: "%{name} nav tukša un to nevar noņemt."
+      success: "%{name} tika veiksmīgi noņemta."
+    edit:
+      add_existing: "Pievienot esošu kontaktu"
+      aspect_list_is_not_visible: "Kontakti šajā grupā neredz viens otru."
+      aspect_list_is_visible: "Kontakti šajā grupā var redzēt viens otru."
+      confirm_remove_aspect: "Vai jūs tiešām vēlaties dzēst šo grupu?"
+      done: "Gatavs"
+      make_aspect_list_visible: "ļaut kontaktiem šajā grupā viens otru redzēt?"
+      remove_aspect: "Dzēst šo grupu"
+      rename: "pārsaukt"
+      update: "atjaunot"
+      updating: "atjauno"
+    few: "%{count} grupas"
+    helper:
+      are_you_sure: "Vai jūs tiešām vēlaties dzēst šo grupu?"
+      aspect_not_empty: "Grupa nav tukša"
+      remove: "noņemt"
+    index:
+      diaspora_id:
+        content_1: "Tavs diaspora* ID:"
+        content_2: "Dod to citiem, lai viņi varētu tevi atrast diaspora* tīklā."
+        heading: "diaspora* ID"
+      donate: "Ziedot"
+      handle_explanation: "Šis ir tavs diaspora* ID. Tā ir kā e-pasta adrese, kuru tu dod, lai cilvēki varētu ar tevi sazināties."
+      help:
+        do_you: "Ja tev ir:"
+        feature_suggestion: "... %{link}?"
+        find_a_bug: "... zināma %{link}?"
+        have_a_question: "... %{link}?"
+        here_to_help: "Diaspora* kopiena tev palīdzēs!"
+        need_help: "Nepieciešama palīdzība?"
+        tag_bug: "kļūda"
+        tag_feature: "uzlabojums"
+        tag_question: "jautājums"
+      introduce_yourself: "Šī ir tava plūsma. Sāk rakstīt un iepazīstini ar sevi."
+      new_here:
+        follow: "Seko %{link} un sveicini jaunos lietotājus diaspora*!"
+        learn_more: "Lasīt vairāk"
+        title: "Sveicināti, jaunie lietotāji"
+      no_contacts: "Nav kontaktu"
+      no_tags: "+ Atrodi birku, kurai sekot"
+      services:
+        content: "Tu vari pieslēgt šādus servisus savam diaspora* profilam:"
+        heading: "Pieslēgt servisus"
+      unfollow_tag: "Vairs nerādīt %{tag}"
+      welcome_to_diaspora: "Laipni lūgti diaspora*, %{name}!"
+    many: "%{count} grupas"
+    move_contact:
+      error: "Kļūda pārvietojot kontaktu: %{inspect}"
+      success: "Persona ir pārvietota jaunā grupā"
+    new:
+      create: "Izveidot"
+      name: "Nosaukums (redzams tikai tev)"
+    no_contacts_message:
+      community_spotlight: "Kopienas uzmanībā"
+      or_spotlight: "Vai arī tu vari dalīties ar saiti %{link}"
+      try_adding_some_more_contacts: "Tu vari meklēt vai uzaicināt vairāk cilvēku."
+      you_should_add_some_more_contacts: "Pievieno vairāk cilvēku!"
+    one: "1 grupa"
+    other: "%{count} grupas"
+    seed:
+      acquaintances: "Paziņas"
+      family: "Ģimene"
+      friends: "Draugi"
+      work: "Darbs"
+    selected_contacts:
+      manage_your_aspects: "Pārvaldīt grupas."
+      no_contacts: "Tev vēl nav neviena kontakta."
+      view_all_contacts: "Skatīt visus kontaktus"
+    show:
+      edit_aspect: "labot grupu"
+    two: "%{count} grupas"
+    update:
+      failure: "Grupas %{name} nosaukums ir pārāk garš, lai to saglabātu."
+      success: "Grupa %{name} tika veiksmīgi labota."
+    zero: "nav grupu"
   back: "Atpakaļ"
   cancel: "Atcelt"
+  comments:
+    few: "%{count} komentāri"
+    many: "%{count} komentāri"
+    new_comment:
+      comment: "Komentēt"
+      commenting: "Komentē..."
+    one: "1 komentārs"
+    other: "%{count} komentāri"
+    two: "%{count} komentāri"
+    zero: "nav komentāru"
+  contacts:
+    create:
+      failure: "Neizdevās izveidot kontaktu"
+    few: "%{count} kontakti"
+    index:
+      add_a_new_aspect: "Pievienot jaunai grupai"
+      start_a_conversation: "Sākt sarunu"
+      title: "Kontakti"
+      your_contacts: "Tavi kontakti"
+    many: "%{count} kontakti"
+    one: "1 kontakts"
+    other: "%{count} kontakti"
+    two: "%{count} kontakti"
+    zero: "kontakti"
+  conversations:
+    create:
+      sent: "Ziņa aizsūtīta"
+    destroy:
+      success: "Saruna tika veiksmīgi dzēsta"
+    helper:
+      new_messages:
+        one: "1 jauna ziņa"
+        other: "%{count} jaunas ziņas"
+        zero: "Nav jaunu ziņu"
+    index:
+      inbox: "Ienākošās"
+    new:
+      abandon_changes: "Atcelt izmaiņas?"
+      send: "Sūtīt"
+      sending: "Sūta..."
+      subject: "Virsraksts"
+      to: "Adresāts"
+    show:
+      delete: "Dzēst un bloķēt sarunu"
+      reply: "atbildēt"
+      replying: "Atbild..."
   delete: "Dzēst"
+  email: "E-pasts"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Izlabojiet sekojošās kļūdas un mēģiniet vēlreiz."
+      invalid_fields: "Nekorekti lauki"
+  fill_me_out: "Aizpildi mani"
+  find_people: "Meklēt cilvēkus vai #birkas"
   hide: "Slēpt"
+  invitations:
+    create:
+      already_sent: "Tu jau esi ielūdzis šo personu."
+      sent: "Ielūgumi ir aizsūtīt: %{emails}"
+    new:
+      language: "Valoda"
+  limited: "Ierobežota piekļuve"
   more: "Vairāk"
   next: "nākamais"
+  no_results: "Nekas netika atrasts."
+  ok: "Labi"
+  or: "vai"
   password: "Parole"
   password_confirmation: "Paroles apstiprinājums"
   previous: "iepriekšējais"
@@ -23,4 +221,7 @@ lv:
   public: "Publisks"
   search: "Meklēt"
   settings: "Iestatījumi"
+  terms_and_conditions: "Noteikumi un nosacījumi"
+  undo: "Atsaukt"
   username: "Lietotājvārds"
+  welcome: "Sveicināti!"

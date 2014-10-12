@@ -37,6 +37,12 @@ fi:
       no_comments: "Kommentteja ei vielä ole."
       show: "näytä kaikki kommentit"
     confirm_dialog: "Oletko varma?"
+    contacts:
+      add_contact: "Lisää henkilö"
+      aspect_list_is_not_visible: "Henkilöt tässä näkymässä eivät voi nähdä toisiaan."
+      aspect_list_is_visible: "Henkilöt tässä näkymässä voivat nähdä toisensa."
+      error_remove: "Käyttäjää <%= name %> ei voitu poistaa näkymästä :("
+      remove_contact: "Poista henkilö"
     conversation:
       participants: "Osallistujat"
     delete: "Poista"
@@ -72,16 +78,24 @@ fi:
     my_activity: "Oma toimintani"
     my_aspects: "Omat näkymäni"
     my_stream: "Virta"
+    no_results: "Ei tuloksia"
     notifications:
       mark_read: "Merkitse luetuksi"
       mark_unread: "Merkitse lukemattomaksi"
     people:
+      edit_my_profile: "Muokkaa profiiliasi"
+      helper:
+        is_not_sharing: "<%= name %> ei jaa kanssasi"
+        is_sharing: "<%= name %> jakaa kanssasi"
+      mention: "Mainitse"
+      message: "Viesti"
       not_found: "...ketään ei löytynyt."
+      stop_ignoring: "Lakkaa sivuuttamasta"
     photo_uploader:
       completed: "<%= file %> suoritettu"
       empty: "Tiedosto {file} on tyhjä, valitse tiedostot uudelleen ilman kyseistä tiedostoa."
       error: "On tapahtunut virhe lähetettäessä tiedostoa <%= file %>"
-      invalid_ext: "Tiedostolla {file} on epäkelpo tiedostopääte. Vain {extensions} päätteet ovat sallittuja."
+      invalid_ext: "Tiedostolla {file} on epäkelpo tiedostopääte. Vain päätteet {extensions} ovat sallittuja."
       looking_good: "OMG, näytät upealta!"
       size_error: "Tiedosto {file} on liian iso, suurin sallittu tiedostokoko on {sizeLimit}"
     poll:
@@ -92,6 +106,16 @@ fi:
       result: "Tulos"
       show_result: "Näytä tulokset"
       vote: "Äänestä"
+    profile:
+      bio: "Elämäkerta"
+      born: "Syntymäpäivä"
+      contacts: "Henkilöt"
+      edit: "muokkaa"
+      gender: "Sukupuoli"
+      ignoring: "Sivuutat nyt kaikki julkaisut, jotka <%= name %> lähettää."
+      location: "Sijainti"
+      photos: "Kuvat"
+      you_have_no_tags: "sinulla ei ole tageja!"
     publisher:
       add_option: "Lisää vastausvaihtoehto"
       at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."

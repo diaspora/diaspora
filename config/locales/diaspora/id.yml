@@ -191,7 +191,6 @@ id:
       no_contacts_message: "Lihat juga %{community_spotlight}"
       no_contacts_message_with_aspect: "Lihat %{community_spotlight} atau %{add_to_aspect_link}"
       only_sharing_with_me: "Hanya berbagi dengan saya"
-      remove_person_from_aspect: "Hapus %{aspect_name} dari \"%{person_name}\""
       start_a_conversation: "Mulai pembicaraan"
       title: "Kontak"
       your_contacts: "Kontakmu"
@@ -636,13 +635,7 @@ id:
   status_messages:
     helper:
       no_message_to_display: "Tidak ada pesan yang dapat ditampilkan."
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "hide comments"
     show_comments:

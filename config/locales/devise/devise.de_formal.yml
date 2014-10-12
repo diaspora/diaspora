@@ -33,7 +33,7 @@ de_formal:
       inviter:
         accept_at: "unter %{url}, können Sie sie über den untenstehenden Link akzeptieren."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} hat Sie eingeladen diaspora* beizutreten"
+        have_invited_you: "%{names} hat Sie eingeladen, diaspora* beizutreten"
       reset_password_instructions:
         change: "Mein Kennwort ändern"
         ignore: "Wenn Sie dies nicht angefordert haben, ignorieren Sie bitte diese E-Mail."
@@ -43,7 +43,7 @@ de_formal:
       unlock_instructions:
         account_locked: "Ihr Konto wurde aufgrund von zu vielen fehlgeschlagenen Anmeldeversuchen gesperrt."
         click_to_unlock: "Folgen Sie dem unten aufgeführten Link, um Ihr Konto zu entsperren:"
-        subject: "Anweisungen entsperren"
+        subject: "Anweisungen zum Entsperren"
         unlock: "Mein Konto entsperren"
       welcome: "Willkommen %{email}!"
     passwords:

@@ -191,7 +191,6 @@ lt:
       no_contacts_message: "Peržiūrėti %{community_spotlight}"
       no_contacts_message_with_aspect: "Peržiūrėti %{community_spotlight} arba %{add_to_aspect_link}"
       only_sharing_with_me: "Tik tie, kurie su manimi dalijasi"
-      remove_person_from_aspect: "Ištrinti %{person_name} iš kategorijos \"%{aspect_name}\""
       start_a_conversation: "Pradėti pokalbį"
       title: "Kontaktai"
       your_contacts: "Jūsų kontaktai"
@@ -602,11 +601,7 @@ lt:
   status_messages:
     helper:
       no_message_to_display: "Žinučių nėra."
-    too_long:
-      few: "Sutrumpinkite savo statuso pranešimą %{count} ženklais"
-      one: "Sutrumpinkite savo statuso pranešimą %{count} ženklu"
-      other: "Sutrumpinkite savo statuso pranešimą %{count} ženklų"
-      zero: "Sutrumpinkite savo statuso pranešimą %{count} ženklų"
+    too_long: "{\"few\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklais\", \"one\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklu\", \"other\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklų\", \"zero\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklų\"}"
   stream_helper:
     hide_comments: "Slėpti visus komentarus"
     show_comments:

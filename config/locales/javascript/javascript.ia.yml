@@ -20,17 +20,30 @@ ia:
       deselect_all: "Deseliger totes"
       no_aspects: "Nulle aspecto seligite"
       select_all: "Seliger totes"
+    bookmarklet:
+      post_something: "Inviar a diaspora*"
+      post_submit: "Submitte entrata…"
+      post_success: "Inviate! Le fenestra se claude ora…"
     comma: ","
     comments:
       hide: "celar commentos"
+      no_comments: "Il non ha ancora commentos."
       show: "revelar tote le commentos"
     confirm_dialog: "Es tu secur?"
+    contacts:
+      add_contact: "Adder contacto"
+      aspect_list_is_not_visible: "Le contactos in iste aspecto non pote vider le un le altere."
+      aspect_list_is_visible: "Le contactos in iste aspecto pote vider le un le altere."
+      error_add: "Non poteva adder <%= name %> al aspecto."
+      error_remove: "Non poteva remover <%= name %> del aspecto."
+      remove_contact: "Remover contacto"
     conversation:
       participants: "Participantes"
     delete: "Deler"
     edit: "Modificar"
     failed_to_like: "Appreciation fallite!"
     failed_to_post_message: "Publication del entrata fallite!"
+    failed_to_remove: "Le remotion del entrata ha fallite."
     getting_started:
       alright_ill_wait: "Ben, io attendera."
       hey: "Hallo, <%= name %>!"
@@ -40,6 +53,8 @@ ia:
       admin: "Administration"
       close: "clauder"
       contacts: "Contactos"
+      conversations: "Conversationes"
+      help: "Adjuta"
       home: "Initio"
       log_out: "Clauder session"
       mark_all_as_read: "Marcar totes como legite"
@@ -50,6 +65,7 @@ ia:
       settings: "Configuration"
       view_all: "Vider totes"
     ignore: "Ignorar"
+    ignore_failed: "Impossibile ignorar iste usator"
     ignore_user: "Ignorar iste usator?"
     infinite_scroll:
       no_more: "Nulle messages restante."
@@ -57,19 +73,60 @@ ia:
     my_activity: "Mi activitate"
     my_aspects: "Mi aspectos"
     my_stream: "Fluxo"
+    no_results: "Nulle resultato trovate"
+    notifications:
+      mark_read: "Marcar como legite"
+      mark_unread: "Marcar como non legite"
     people:
+      edit_my_profile: "Modificar mi profilo"
+      helper:
+        is_not_sharing: "<%= name %> non divide cosas con te"
+        is_sharing: "<%= name %> divide cosas con te"
+      mention: "Mention"
+      message: "Message"
       not_found: "e nemo ha essite trovate..."
+      stop_ignoring: "Cessar de ignorar"
     photo_uploader:
       completed: "<%= file %> complete"
       empty: "{file} es vacue. Per favor re-selige le files sin iste."
+      error: "Un problema ha occurrite durante le incargamento del file <%= file %>"
       invalid_ext: "{file} ha un extension inadmissibile. Solmente {extensions} es permittite."
       looking_good: "Oh, tu pare splendide!"
       size_error: "{file} es troppo grande. Le dimension maxime es {sizeLimit}."
+    poll:
+      close_result: "Celar resultato"
+      count:
+        one: "1 voto usque ora"
+        other: "<%=count%> votos usque ora"
+      result: "Resultato"
+      show_result: "Monstrar resultato"
+      vote: "Votar"
+    profile:
+      add_some: "adder alcunes"
+      bio: "Bio"
+      born: "Data de nascentia"
+      contacts: "Contactos"
+      edit: "modificar"
+      gender: "Sexo"
+      ignoring: "Tu ignora tote le entratas de <%= name %>."
+      location: "Loco"
+      photos: "Photos"
+      you_have_no_tags: "tu non ha etiquettas!"
     publisher:
+      add_option: "Adder un responsa"
       at_least_one_aspect: "Le publication debe esser includite in al minus un aspecto"
       limited: "Limitate: le message es visibile solmente pro le personas con qui tu lo divide"
-      near_from: "Vicinitate de: <%= location %>"
+      near_from: "Inviate ab: <%= location %>"
+      option: "Responsa"
       public: "Public: le message es visibile pro tote le mundo e trovabile pro motores de recerca"
+      question: "Question"
+    report:
+      name: "Reporto"
+      prompt: "Specifica un motivo:"
+      prompt_default: "contento offensive"
+      status:
+        created: "Le creation del reporto ha succedite"
+        exists: "Le reporto jam existe"
     reshares:
       duplicate: "Tu ha jam repetite iste entrata."
       post: "Repeter le entrata de <%= name %>?"
@@ -99,6 +156,7 @@ ia:
         stop_following: "Cessar de sequer #<%= tag %>"
       unfollow: "Non plus sequer"
       unlike: "Non plus appreciar"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "OK, io suppone que #<%= tagName %> non es si interessante..."
     timeago:
@@ -115,8 +173,10 @@ ia:
       seconds: "minus de un minuta"
       suffixAgo: "retro"
       suffixFromNow: "ab ora"
+      wordSeparator: " "
       year: "circa un anno"
       years: "%d annos"
+    unblock_failed: "Le action de disblocar iste usator ha fallite"
     videos:
       unknown: "Typo de video incognite"
       watch: "Spectar iste video sur <%= provider %>"

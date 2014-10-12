@@ -252,7 +252,6 @@ eu:
       no_contacts_message: "Ikus ezazu %{community_spotlight}"
       no_contacts_message_with_aspect: "Ikus ezazu %{community_spotlight} edo %{add_to_aspect_link}"
       only_sharing_with_me: "Bakarrik nirekin harremanetan"
-      remove_person_from_aspect: "Ezabatu %{person_name} \"%{aspect_name}\"(e)tik"
       start_a_conversation: "Elkarrizketa bat hasi"
       title: "Adiskideak"
       your_contacts: "Zure Adiskideak"
@@ -861,13 +860,7 @@ eu:
       no_message_to_display: "Erakusteko mezurik ez."
     new:
       mentioning: "Aipatzen: %{person}"
-    too_long:
-      few: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
-      many: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
-      one: "mesedez, egin itzazu zure mezuak karaktere %{count} baino motzagoak"
-      other: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
-      two: "mesedez egin itzazu zure mezuak %{count} laraktere baino motzagoak"
-      zero: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
+    too_long: "{\"few\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\", \"many\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\", \"one\"=>\"mesedez, egin itzazu zure mezuak karaktere %{count} baino motzagoak\", \"other\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\", \"two\"=>\"mesedez egin itzazu zure mezuak %{count} laraktere baino motzagoak\", \"zero\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\"}"
   stream_helper:
     hide_comments: "Iruzkin guztiak ezkutatu"
     show_comments:

@@ -37,6 +37,13 @@ de:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
+    contacts:
+      add_contact: "Kontakt hinzufügen"
+      aspect_list_is_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
+      aspect_list_is_visible: "Kontakte in diesem Aspekt können einander sehen"
+      error_add: "Konnte <%= name %> nicht zum Aspekt hinzufügen :("
+      error_remove: "Konnte <%= name %> nicht aus dem Aspekt entfernen :("
+      remove_contact: "Kontakt entfernen"
     conversation:
       participants: "Teilnehmer"
     delete: "Löschen"
@@ -73,11 +80,19 @@ de:
     my_activity: "Meine Aktivitäten"
     my_aspects: "Meine Aspekte"
     my_stream: "Stream"
+    no_results: "Keine Treffer"
     notifications:
       mark_read: "Als gelesen markieren"
       mark_unread: "Als ungelesen markieren"
     people:
+      edit_my_profile: "Mein Profil bearbeiten"
+      helper:
+        is_not_sharing: "<%= name %> teilt nicht mit dir"
+        is_sharing: "<%= name %> teilt mit dir"
+      mention: "Erwähnen"
+      message: "Nachricht"
       not_found: "und niemand wurde gefunden..."
+      stop_ignoring: "Ignorieren beenden"
     photo_uploader:
       completed: "<%= file %> hochgeladen"
       empty: "Die Datei {file} ist leer. Bitte treffe eine erneute Auswahl ohne diese Datei."
@@ -89,16 +104,27 @@ de:
       close_result: "Ergebnis ausblenden"
       count:
         one: "Bisher eine Stimme"
-        other: "Bisher <%=count%> Stimmen."
+        other: "Bisher <%=count%> Stimmen"
       result: "Ergebnis"
       show_result: "Ergebnis anzeigen"
       vote: "Abstimmen"
+    profile:
+      add_some: "Füge neue hinzu"
+      bio: "Bio"
+      born: "Geburtstag"
+      contacts: "Kontakte"
+      edit: "bearbeite"
+      gender: "Geschlecht"
+      ignoring: "Sie ignorieren sämtliche Beiträge von <%= name %>"
+      location: "Ort"
+      photos: "Fotos"
+      you_have_no_tags: "Du hast keine Tags!"
     publisher:
       add_option: "Antwortmöglichkeit hinzufügen"
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
       near_from: "Gesendet aus <%= location %>"
-      option: "Antwort <%= nr %>"
+      option: "Antwort"
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
       question: "Frage"
     report:
@@ -123,7 +149,7 @@ de:
         follow: "Folgen"
         title: "#Tags, denen du folgst"
       hide: "Ausblenden"
-      hide_nsfw_posts: "#nsfw-Posts verstecken"
+      hide_nsfw_posts: "#nsfw-Beiträge verstecken"
       like: "Gefällt mir"
       likes:
         few: "<%= count %> Personen gefällt das"
@@ -175,6 +201,7 @@ de:
       wordSeparator: " "
       year: "etwa einem Jahr"
       years: "%d Jahren"
+    unblock_failed: "Den Benutzer zu entblocken ist fehlgeschlagen."
     videos:
       unknown: "Unbekanntes Videoformat"
       watch: "Dieses Video auf <%= provider %> ansehen"

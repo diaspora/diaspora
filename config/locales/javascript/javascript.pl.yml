@@ -37,6 +37,13 @@ pl:
       no_comments: "Póki co nie ma jeszcze żadnych komentarzy."
       show: "wyświetl wszystkie komentarze"
     confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
+    contacts:
+      add_contact: "Dodaj kontakt"
+      aspect_list_is_not_visible: "Kontakty z tego aspektu nie widzą się nawzajem."
+      aspect_list_is_visible: "Kontakty z tego aspektu mogą zobaczyć się nawzajem."
+      error_add: "Nie udało się dodać <%= name %> do aspektu :("
+      error_remove: "Nie udało się usunąć <%= name %> z aspektu :("
+      remove_contact: "Usuń kontakt"
     conversation:
       participants: "Uczestnicy"
     delete: "Usuń"
@@ -65,6 +72,7 @@ pl:
       settings: "Ustawienia"
       view_all: "Wyświetl wszystko"
     ignore: "Ignoruj"
+    ignore_failed: "Nie można zignorować tego użytkownika"
     ignore_user: "Zignorować tego użytkownika?"
     infinite_scroll:
       no_more: "Nie ma więcej wpisów."
@@ -72,11 +80,19 @@ pl:
     my_activity: "Moja aktywność"
     my_aspects: "Moje aspekty"
     my_stream: "Strumień"
+    no_results: "Brak rezultatów"
     notifications:
       mark_read: "Oznacz jako przeczytane"
       mark_unread: "Oznacz jako nieprzeczytane"
     people:
+      edit_my_profile: "Edytuj profil"
+      helper:
+        is_not_sharing: "<%= name %> Ci nie udostępnia."
+        is_sharing: "<%= name %> Ci udostępnia."
+      mention: "Wzmianka"
+      message: "Wiadomość"
       not_found: "...i nikogo nie odnaleziono."
+      stop_ignoring: "Przestań ignorować"
     photo_uploader:
       completed: "<%= file %> ukończono"
       empty: "{file} jest pusty. Proszę dokonać nowego wyboru bez tego pliku."
@@ -95,12 +111,23 @@ pl:
       result: "Wynik"
       show_result: "Pokaż wynik"
       vote: "Zagłosuj"
+    profile:
+      add_some: "dodaj"
+      bio: "Opis"
+      born: "Urodziny"
+      contacts: "Kontakty"
+      edit: "zmień"
+      gender: "Płeć"
+      ignoring: "Ignorujesz wszystkie wpisy od <%= name %>."
+      location: "Miejscowość"
+      photos: "Zdjęcia"
+      you_have_no_tags: "nie masz tagów!"
     publisher:
-      add_option: "Dodaj opcję"
+      add_option: "Dodaj odpowiedź"
       at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
       limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"
       near_from: "Blisko <%= location %>"
-      option: "Opcja <%= nr %>"
+      option: "Odpowiedź"
       public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
       question: "Pytanie"
     report:
@@ -177,6 +204,7 @@ pl:
       wordSeparator: " "
       year: "około roku"
       years: "%d lat"
+    unblock_failed: "Nie udało się odblokować tego użytkownika"
     videos:
       unknown: "Nieznany typ wideo"
       watch: "Zobacz ten film na <%= provider %>"

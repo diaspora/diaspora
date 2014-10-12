@@ -28,8 +28,8 @@ da:
       no_aspects: "Ingen valgte aspekter"
       select_all: "Vælg alle"
     bookmarklet:
-      post_something: "Slå op på diaspora*"
-      post_submit: "Indsender indlæg"
+      post_something: "Slå op på Diaspora*"
+      post_submit: "Indsender indlæg ..."
       post_success: "Det er indsendt! lukker popup vinduet ..."
     comma: ","
     comments:
@@ -37,6 +37,13 @@ da:
       no_comments: "Der er endnu ingen kommentarer."
       show: "Vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
+    contacts:
+      add_contact: "Tilføj kontakt"
+      aspect_list_is_not_visible: "Kontakter i dette aspekt kan ikke se hinanden"
+      aspect_list_is_visible: "Kontakter i dette aspekt kan se hinanden"
+      error_add: "Kunne ikke tilføje <%= name %> til aspektet :("
+      error_remove: "Kunne ikke fjerne <%= name %> fra aspektet :("
+      remove_contact: "Fjern kontakt"
     conversation:
       participants: "Deltagere"
     delete: "Slet"
@@ -73,11 +80,19 @@ da:
     my_activity: "Min aktivitet"
     my_aspects: "Mine aspekter"
     my_stream: "Strøm"
+    no_results: "Ingen resultater fundet"
     notifications:
       mark_read: "Marker som læst"
       mark_unread: "Marker som ulæst"
     people:
+      edit_my_profile: "Rediger min profil"
+      helper:
+        is_not_sharing: "<%= name %> deler ikke med dig"
+        is_sharing: "<%= name %> deler med dig"
+      mention: "Nævn"
+      message: "Besked"
       not_found: "og ingen blev fundet ..."
+      stop_ignoring: "Hold op med at ignorere"
     photo_uploader:
       completed: "<%= file %> fuldført."
       empty: "{file} er tom. Vælg venligst filer igen uden den."
@@ -93,6 +108,17 @@ da:
       result: "Resultat"
       show_result: "Vis resultat"
       vote: "Stem"
+    profile:
+      add_some: "tilføj nogen"
+      bio: "Biografi"
+      born: "Fødselsdag"
+      contacts: "Kontakter"
+      edit: "rediger"
+      gender: "Køn"
+      ignoring: "Du ignorerer alle indlæg fra <%= name %>"
+      location: "Sted"
+      photos: "Fotos"
+      you_have_no_tags: "du har ingen tags!"
     publisher:
       add_option: "Tilføj et svar"
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
@@ -178,6 +204,7 @@ da:
       wordSeparator: " "
       year: "ca. et år"
       years: "%d år"
+    unblock_failed: "Det lykkedes ikke at afblokere denne bruger"
     videos:
       unknown: "Ukendt videotype"
       watch: "Se denne video på <%= provider %>"

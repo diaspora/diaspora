@@ -250,7 +250,6 @@ eo:
       no_contacts_message: "Esploru %{community_spotlight}"
       no_contacts_message_with_aspect: "Esploru %{community_spotlight} aŭ %{add_to_aspect_link}"
       only_sharing_with_me: "Nur koniganta al mi"
-      remove_person_from_aspect: "Forigi %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Komenci interparoladon"
       title: "Kontaktoj"
       your_contacts: "Viaj kontaktoj"
@@ -852,10 +851,7 @@ eo:
       no_message_to_display: "Neniu afiŝo montrenda."
     new:
       mentioning: "Mencianta: %{person}"
-    too_long:
-      one: "bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj"
-      other: "bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj"
-      zero: "bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj"
+    too_long: "{\"one\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\", \"other\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\", \"zero\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\"}"
   stream_helper:
     hide_comments: "kaŝi ĉiujn komentojn"
     show_comments:

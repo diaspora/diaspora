@@ -272,7 +272,6 @@ sk:
       no_contacts_message: "Pozri si %{community_spotlight}"
       no_contacts_message_with_aspect: "Pozri si %{community_spotlight} alebo %{add_to_aspect_link}"
       only_sharing_with_me: "Ľudia, ktorí majú v kontaktoch iba mňa"
-      remove_person_from_aspect: "Odstrániť použ. %{person_name} z kategórie %{aspect_name}"
       start_a_conversation: "Začať rozhovor"
       title: "Kontakty"
       your_contacts: "Tvoje kontakty"
@@ -986,11 +985,7 @@ sk:
       no_message_to_display: "Žiadna správa na zobrazenie."
     new:
       mentioning: "Spomína sa: %{person}"
-    too_long:
-      few: "prosím, skráť svoje správy v statuse na menej ako %{count} znakov"
-      one: "prosím, skráť svoje správy v statusoch na menej ako %{count} znak"
-      other: "prosím, skráť svoje správy v statuse na menej ako %{count} znakov"
-      zero: "prosím, skráť svoje správy v statusoch na menej ako %{count} znakov"
+    too_long: "{\"few\"=>\"prosím, skráť svoje správy v statuse na menej ako %{count} znakov\", \"one\"=>\"prosím, skráť svoje správy v statusoch na menej ako %{count} znak\", \"other\"=>\"prosím, skráť svoje správy v statuse na menej ako %{count} znakov\", \"zero\"=>\"prosím, skráť svoje správy v statusoch na menej ako %{count} znakov\"}"
   stream_helper:
     hide_comments: "schovať komentáre"
     show_comments:

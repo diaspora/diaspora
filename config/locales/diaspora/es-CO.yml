@@ -191,7 +191,6 @@ es-CO:
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"
       no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Compartiendo solo conmigo"
-      remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Inicia una conversación"
       title: "Contactos"
       your_contacts: "Tus Contactos"

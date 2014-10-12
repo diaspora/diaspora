@@ -204,7 +204,6 @@ ja:
       no_contacts_message: "%{community_spotlight}をチェックアウトする"
       no_contacts_message_with_aspect: "%{community_spotlight}または%{add_to_aspect_link}をチェックアウトする"
       only_sharing_with_me: "自分だけに共有する"
-      remove_person_from_aspect: "%{person_name}さんを%{aspect_name}から削除する"
       start_a_conversation: "会話を開始する"
       title: "連絡先"
       your_contacts: "あなたの連絡先"
@@ -774,13 +773,7 @@ ja:
       no_message_to_display: "表示するメッセージがありません。"
     new:
       mentioning: "%{person}さんのメンション"
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "コメントを非表示にする"
     show_comments:

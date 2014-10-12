@@ -279,9 +279,9 @@ hu:
       no_contacts_message: "Tekintsd meg %{community_spotlight} álló népszerű tagokat"
       no_contacts_message_with_aspect: "Tekintsd meg %{community_spotlight} álló népszerű közösségi tagokat vagy lehetőségedben áll még %{add_to_aspect_link}"
       only_sharing_with_me: "Követők"
-      remove_person_from_aspect: "%{person_name} eltávolítása a(z) \"%{aspect_name}\" csoportból."
       start_a_conversation: "Beszélgetés indítása"
       title: "Ismerősök"
+      user_search: "Felhasználó keresése"
       your_contacts: "Ismerőseid"
     many: "%{count} ismerős"
     one: "1 ismerős"
@@ -1080,9 +1080,7 @@ hu:
       no_message_to_display: "Nincs üzenet."
     new:
       mentioning: "Megemlít: %{person}"
-    too_long:
-      other: "Rövidíts. Az állapotfrissítésed hossza nem lehet több %{count} leütésnél"
-      zero: "Rövidíts. Az állapotfrissítésed hossza nem lehet több %{count} leütésnél"
+    too_long: "Rövidíts. Az állapotfrissítésed nem lehet hosszabb %{count} leütésnél. Jelenleg %{current_length} karakterből áll"
   stream_helper:
     hide_comments: "hozzászólások elrejtése"
     show_comments:

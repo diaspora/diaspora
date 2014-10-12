@@ -5,21 +5,50 @@
 
 
 en_pirate:
+  _applications: "Applications"
+  _comments: "Comments"
   _contacts: "Mateys"
   _home: "Home Port"
   _photos: "Portraits"
+  _services: "Ye Services"
+  account: "Ye account"
   activerecord:
     errors:
       models:
+        contact:
+          attributes:
+            person_id:
+              taken: "must be unique among this matey's mates."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "has been hornswaggled!"
+        request:
+          attributes:
+            from_id:
+              taken: "is a another one of something that already exists ye scallywag!"
         reshare:
           attributes:
             root_guid:
               taken: "Ye've already reshared that post!"
         user:
           attributes:
+            email:
+              taken: "has been hornswaggled!"
+            person:
+              invalid: "be invalid."
             username:
-              invalid: "is invalid. We only allow letters, numbers, 'n underscores"
+              invalid: "is invalid. We only allow letters, numbers, 'n underscores."
+              taken: "has been hornswaggled!"
+  ago: "%{time} ago arrr"
   all_aspects: "Yer Crews"
+  application:
+    helper:
+      unknown_person: "unknown scallywag"
+      video_title:
+        unknown: "Arrgh! Unknown Video Title"
+  are_you_sure: "Are ye sure?"
+  are_you_sure_delete_account: "Are ye sure you want t' walk the plank? Yer account will be shark bait!"
   aspect_memberships:
     destroy:
       failure: "Blast! Failed to kick matey out yer crew"
@@ -29,33 +58,87 @@ en_pirate:
     add_to_aspect:
       failure: "Failed to add contact to crew."
       success: "Successfully added contact to crew."
+    aspect_contacts:
+      done_editing: "done editin' cap'n!"
     aspect_listings:
       add_an_aspect: "+ Add a crew"
-    contacts_not_visible: "Contacts in this crew will nah be able to see each other."
+      deselect_all: "Unchoose all"
+      edit_aspect: "Edit %{name}"
+      select_all: "Choose all"
+    aspect_stream:
+      stay_updated: "Stay up 't date"
+      stay_updated_explanation: "Yer main stream is populated with all of yer contacts, tags ye follow, and posts from some creative members of the community."
+    contacts_not_visible: "Mateys in this crew will nah be able to see each other."
     contacts_visible: "Contacts in this crew will be able to see each other."
     create:
       failure: "Crew creation failed."
       success: "Yer new crew %{name} was created"
+    destroy:
+      failure: "%{name} not be empty and could not be removed YARGH!"
+      success: "%{name} was removed successfully mate."
     edit:
+      add_existing: "Enlist this mate into ye crew"
       aspect_list_is_not_visible: "Yer crew list is hidden to others in crew"
       aspect_list_is_visible: "Yer crew list is visible to others in crew"
       confirm_remove_aspect: "Are ye sure ye wants t' scuttle this crew?"
+      done: "Done, matey"
       make_aspect_list_visible: "make crew list visible?"
       remove_aspect: "Fire this crew"
+      rename: "rename"
+      update: "update"
+      updating: "updatin'"
     few: "%{count} crews"
     helper:
       are_you_sure: "Are ye sure ye want t' scuttle this crew?"
       aspect_not_empty: "Crew not empty"
+      remove: "scuttle"
     index:
-      handle_explanation: "This is yer diaspora id. Like an email address, you can give this to scallywags to reach you."
+      diaspora_id:
+        content_1: "Ye ship name be:"
+        content_2: "Give it to anyone 'n they'll be able to find ye on diaspora*. Yargh."
+        heading: "diaspora* ID"
+      donate: "Give some dubloons!"
+      handle_explanation: "This is yer diaspora id. Like a ship name, ye can give this to mates to reach ye."
       help:
+        do_you: "Do ye:"
+        email_feedback: "%{link} yer feedback, if ye prefer"
+        feature_suggestion: "... do ye have a %{link} suggestion?"
+        find_a_bug: "... ye find a %{link}?"
+        have_a_question: "do ye have a %{link}?"
         here_to_help: "Diaspora community is here to help!"
+        need_help: "S.O.S."
+        tag_bug: "blunder"
+        tag_feature: "addition"
+        tag_question: "wanna know somethin'!"
+      introduce_yourself: "This be yer sea. Make yerself acquainted ye bucko."
+      new_here:
+        follow: "Follow %{link} 'n welcome new mateys 't diaspora*!"
+        learn_more: "Learn more matey"
+        title: "Welcome New Buccaneers"
       no_contacts: "No mateys"
+      no_tags: "+ Find an interestin' somethin' t' follow"
+      people_sharing_with_you: "Buccaneers sharin' with ye"
+      post_a_message: "send a letter"
+      services:
+        content: "Ye can connect the following services to diaspora*:"
+        heading: "Connect ye services"
+      unfollow_tag: "Stop followin' #%{tag}"
+      welcome_to_diaspora: "Welcome to diaspora*, %{name}. Ye old seadog!"
     many: "%{count} crews"
+    move_contact:
+      error: "Problem moving mate: %{inspect} matey!"
+      failure: "didn't work %{inspect} ye scallywag!"
+      success: "Matey moved to new crew!"
     new:
+      create: "Forge"
       name: "Name"
     no_contacts_message:
+      community_spotlight: "crew spotlight"
+      or_spotlight: "Or ye can share with %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more mateys."
+      you_should_add_some_more_contacts: "Ye should add some more contacts!"
+    no_posts_message:
+      start_talking: "None of yer mates has said anything yet!"
     one: "1 crew"
     other: "%{count} crews"
     seed:
@@ -63,36 +146,133 @@ en_pirate:
       family: "Kin"
       friends: "Mateys"
       work: "Shipmates"
+    selected_contacts:
+      manage_your_aspects: "Manage ye crew."
+      no_contacts: "Ye don't have any mates here yet!"
+      view_all_community_spotlight: "See all crew spotlight"
+      view_all_contacts: "View all mateys"
+    show:
+      edit_aspect: "edit crew"
+    two: "%{count} crews"
+    update:
+      failure: "Yer crew, %{name}, had too many words, YARGH!"
+      success: "Yer crew, %{name}. has been edited matey!"
+    zero: "Ye have no crews! Yargh!"
+  back: "Backs"
+  blocks:
+    create:
+      failure: "Could not send'em to the brig!"
+      success: "Alright mate, ye wont see that scallywag in yer sea again. #walkedtheplank!"
+    destroy:
+      failure: "Couldnt stop ignorin' that scallywag."
+  bookmarklet:
+    explanation: "Post to diaspora* from anywhere by marking this link on yer map => %{link}"
+    heading: "Mark on ye map"
+    post_something: "Post 't d*"
+    post_success: "Sent! Closing!"
+  cancel: "Nevermind"
+  comments:
+    few: "%{count} comments mate"
+    many: "%{count} comments mate!"
+    new_comment:
+      comment: "Comm'nt"
+      commenting: "Commentin'"
+    one: "1 comment mate"
+    other: "%{count} comments mate"
+    two: "%{count} comments mate"
+    zero: "no comments mate"
   contacts:
-    few: "%{count} contacts"
+    create:
+      failure: "Failed 't create contact"
+    few: "%{count} mateys"
     index:
+      add_a_new_aspect: "Add a new crew"
       add_to_aspect: "Add more mateys to %{name}"
+      add_to_aspect_link: "add mates to %{name}"
       all_contacts: "All yer mateys"
+      many_people_are_you_sure: "Are ye sure ye want to start a private letter with more than %{suggested_limit} mateys? Posting to this crew may be a better way to talk to them."
       my_contacts: "Me Mateys"
       no_contacts: "No Mateys."
+      only_sharing_with_me: "Mateys only sharin' with me"
+      start_a_conversation: "Send a letter"
       title: "Mateys"
       your_contacts: "Yer Mateys"
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    two: "%{count} contacts"
-    zero: "contacts"
+    many: "%{count} mateys"
+    one: "1 matey"
+    other: "%{count} mateys"
+    sharing:
+      people_sharing: "Buccaneers sharin' with ye:"
+    two: "%{count} mateys"
+    zero: "mates"
   conversations:
+    create:
+      fail: "Problem with letter, YARGH!"
+      sent: "Letter sent"
+    destroy:
+      success: "Letter successfully ripped up"
     helper:
       new_messages:
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        two: "%{count} new messages"
-        zero: "No new messages"
+        one: "1 new letter"
+        other: "%{count} new letters"
+        zero: "No new letters"
+    index:
+      inbox: "Pigeon's nest"
+      no_conversation_selected: "no message chosen, mate"
+      no_messages: "no letters"
+    new:
+      abandon_changes: "Abandon ye changes?"
+      sending: "Sendin'..."
+      to: "'t"
+    show:
+      delete: "scuttle and batten down the discussion"
+      reply: "send a letter back"
+      replying: "Replyin'"
+  delete: "Scuttle"
+  email: "Yer Carrier Pigeon (Email)"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Correct ye blunders 'n try again ye scallywag!"
+      invalid_fields: "N'valid fields"
+  fill_me_out: "Fill me out arrr"
+  find_people: "Scour fer mates or treasures"
+  hide: "Cover"
+  invitations:
+    a_facebook_user: "A Facebook scallywag"
+    create:
+      already_contacts: "Ye are already mates with this buccaneer!"
+      already_sent: "Ye already invited this bucko."
+      no_more: "Ye have no more invitations."
+      own_address: "Ye can't send an invitation t' yer own address ye scallywag."
+      rejected: "Yer pigeon can't deliver to the followin' addresses: "
+      sent: "Invitations have been sent t': %{emails}"
+    edit:
+      accept_your_invitation: "Accept yer invitation"
+      your_account_awaits: "Yer ship awaits!"
+    new:
+      already_invited: "The following landblubbers have not accepted yer invitation:"
+      aspect: "Crew"
+      check_out_diaspora: "Avast ye! Check out diaspora*! ARRR!!"
+      if_they_accept_info: "if they accept, they will be added to the crew ye invited them."
+      invite_someone_to_join: "Invite a bucko t' diaspora*!"
+      language: "What do ye speak?"
+      personal_message: "Personal letter"
+      send_an_invitation: "Send n' invitation"
+      to: "Who's this goin' t'?"
   layouts:
     application:
+      back_to_top: "Back to crow's nest"
+      powered_by: "This ship be POWERED BY diaspora*"
+      public_feed: "Sea-wide diaspora* feed for %{name}"
       toggle: "toggl' mobile site"
+      whats_new: "what be new?"
+      your_aspects: "yer crews"
     header:
+      admin: "cap'n"
+      login: "check in with ye captain"
       logout: "Abandon Ship"
       profile: "Ye Ship"
       settings: "Ye Ships Rigging"
+      view_all: "Show all"
   likes:
     likes:
       people_dislike_this:
@@ -116,6 +296,10 @@ en_pirate:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
+  limited: "Only ye crews"
+  more: "More!"
+  next: "next"
+  no_results: "Ye results be in davey jones' locker. Yargh!"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -147,6 +331,7 @@ en_pirate:
         two: "%{count} new notifications"
         zero: "No new notifications"
     index:
+      and: "'n"
       and_others:
         few: "'n %{count} others"
         many: "'n %{count} others"
@@ -211,37 +396,136 @@ en_pirate:
       two: "%{actors} started sharin' with ye."
       zero: "%{actors} started sharin' with ye."
   notifier:
+    click_here: "look here"
+    comment_on_post:
+      reply: "Reply or see %{name}'s post >"
     confirm_email:
       click_link: "To activate yer new email %{unconfirmed_email} in a bottle coordinates , please click 'tis link."
+      subject: "Please activate yer new email %{unconfirmed_email}"
+    email_sent_by_diaspora: "This letter was sent by %{pod_name}. If ye'd like to stop gettin' letters like this,"
+    hello: "Hello %{name}! How are ye, matey?"
     liked:
-      liked: "%{name} just liked yer post"
+      liked: "%{name} just like'd yer post"
+      view_post: "Read post >"
+    mentioned:
+      mentioned: "mention'd ye in a post:"
+      subject: "%{name} has mention'd ye on diaspora*"
+    private_message:
+      reply_to_or_view: "Reply 't or read this conversation >"
     reshared:
-      reshared: "%{name} just reshared yer post"
+      reshared: "%{name} just reshare'd yer post"
+      view_post: "Read post >"
+    single_admin:
+      admin: "Yer diaspora* cap'n"
+      subject: "A message about yer diaspora* account:"
+    started_sharing:
+      sharing: "has start'd sharin' with ye!"
+      subject: "%{name} started sharin' with ye on diaspora*"
+      view_profile: "Look at %{name}'s ship"
+    to_change_your_notification_settings: "t' change yer notification settin's"
+  nsfw: "Not safe for lad's or lasses'"
   ok: "Aye"
+  or: "er"
+  password: "Secret pact"
+  password_confirmation: "Confirm yer secret pact!"
   people:
+    add_contact_small:
+      add_contact_from_tag: "add matey from tag"
     few: "%{count} people"
+    helper:
+      results_for: " results fer %{params}"
+    index:
+      looking_for: "Lookin' fer posts tagged %{tag_link}?"
+      no_one_found: "...and no landblubbers were found."
+      no_results: "Ahoy! Ye need 't search fer somethin'."
+      results_for: "Scallywags matchin' %{search_term}"
     many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
+    person:
+      add_contact: "add mate"
+      pending_request: "Pendin' request"
+      thats_you: "That's ye!"
     profile_sidebar:
       born: "date o' birth"
+      edit_my_profile: "Edit me profile"
+      gender: "Ye gender"
+      location: "Sea I be in"
+      remove_contact: "remove matey"
+    show:
+      closed_account: "This ship has been sunk."
+      does_not_exist: "Matey does not exist! Arrr"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with ye yet!"
+      ignoring: "Yer ignorin' all posts from %{name}."
+      incoming_request: "%{name} wants 't share with ye"
+      not_connected: "Yer not sharin' with this scallywag."
+      return_to_aspects: "Return 't yer mateys page"
+      start_sharing: "start sharin'"
+      to_accept_or_ignore: "'t accept or deny it."
+    sub_header:
+      you_have_no_tags: "ye have no tags!"
     two: "%{count} people"
+    webfinger:
+      fail: "Sorry mate, we couldnt spot %{handle}."
     zero: "no people"
   photos:
+    comment_email_subject: "%{name}'s portrait"
+    create:
+      integrity_error: "Portrait hanging failed.  Are ye sure that was a portrait?"
+      runtime_error: "Portrait hanging failed.  Are ye sure yer hatches be battened down?"
+      type_error: "Portrait hangin' failed.  Are ye sure a portrait was added mate?"
+    destroy:
+      notice: "Portrait scuttled!"
+    edit:
+      editing: "Editin'"
     new:
       new_photo: "New Portrait"
+      post_it: "Fire!"
+    new_photo:
+      empty: "{file} be empty, choose yer files again without it mate."
+      invalid_ext: "{file} not be valid ye scallywag. Only {extensions} be allowed."
+      size_error: "{file} be 't large mate, the biggest file size be {sizeLimit}."
+    new_profile_photo:
+      or_select_one_existing: "or choose one from yer already existin' %{photos}"
+      upload: "Hang a new portrait in ye ship!"
+    photo:
+      view_all: "look at all of %{name}'s portraits"
+    show:
+      delete_photo: "Delete Portrait"
+      edit_delete_photo: "Edit portrait tale / get rid of portrait"
+      make_profile_photo: "make profile portrait"
+      update_photo: "Update Portrait"
+    update:
+      error: "Failed to change portrait cap'n!"
+      notice: "Portrait changed, cap'n!"
   posts:
     show:
+      destroy: "Scuttle"
+      not_found: "Sorry cap'n, we couldn't find that X."
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        one: "One portrait by %{author}"
+        other: "%{count} portraits by %{author}"
+        zero: "No portraits by %{author}"
+  previous: "previous"
+  privacy: "Ye privacy settin's"
+  privacy_policy: "Ye privacy policy"
+  profile: "Ye duffle"
   profiles:
     edit:
+      allow_search: "Allow fer scallywags to search fer ye within diaspora*"
+      your_bio: "Ye story"
       your_birthday: "Yer day o' birth"
+      your_gender: "Lad, lass, or something else?"
+      your_location: "Where ye be in the sea?"
+      your_name: "Yer name"
+      your_photo: "Ye portrait"
+      your_private_profile: "Ye private profile"
+      your_public_profile: "Ye public profile"
+      your_tags: "Describe yerself in 5 words, mate."
+      your_tags_placeholder: "like #treasure #ships #plunderin #sea #rum"
+    update:
+      failed: "Failed to update profile, matey!"
+  public: "The Sea can see this"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
@@ -250,10 +534,25 @@ en_pirate:
     two: "%{count} reactions"
     zero: "0 reactions"
   registrations:
+    closed: "Signups be closed on this ship!"
+    create:
+      success: "Ye've joined diaspora*! YARGH!"
+    edit:
+      cancel_my_account: "Walk the plank"
+      leave_blank: "(leave blank if ye dont want 't change it)"
+      password_to_confirm: "we need yer current password 'to confirm yer changes)"
     new:
       create_my_account: "Create my account"
+      join_the_movement: "Join the pirate life, YARGH!"
       sign_up_message: "Social Networking with a <3"
   requests:
+    create:
+      sending: "Sendin'"
+      sent: "Ye've asked 't share with %{name}.  They should be able 't see it next time they come aboard diaspora*."
+    destroy:
+      error: "Select a crew!"
+      ignore: "The brig."
+      success: "Ye are now sharin'."
     helper:
       new_requests:
         few: "%{count} new requests!"
@@ -262,7 +561,12 @@ en_pirate:
         other: "%{count} new requests!"
         two: "%{count} new requests!"
         zero: "no new requests"
+    manage_aspect_contacts:
+      existing: "Existin' mates"
+      manage_within: "Manage mates within"
   reshares:
+    create:
+      failure: "There be an error resharin' this post."
     reshare:
       reshare:
         few: "%{count} reshares"
@@ -273,8 +577,26 @@ en_pirate:
         zero: "Reshare"
   search: "Scour"
   services:
+    create:
+      already_authorized: "A matey named %{diaspora_id} already authorized that %{service_name} record. ARR!"
+    failure:
+      error: "there be an error connectin' that service"
+    finder:
+      fetching_contacts: "diaspora* is populatin' yer %{service} mates, come back in a bit mate."
+      no_friends: "Couldnt find any Facebook mateys."
+      service_friends: "%{service} Mateys"
+    index:
+      connect_to_facebook: "Connect 't Facebook"
+      connect_to_tumblr: "Connect 't Tumblr"
+      connect_to_twitter: "Connect 't Twitter"
+      no_services: "Ye have not connected any services yet."
     inviter:
       click_link_to_accept_invitation: "Click this link t' accept yer invitation"
+  settings: "Settin's"
+  share_visibilites:
+    update:
+      post_hidden_and_muted: "%{name}'s be hidden, 'n notifications be muted."
+      see_it_on_their_profile: "If ye be wantin' 't see updates on this post, look at %{name}'s ship, ARRGH!"
   shared:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
@@ -285,23 +607,40 @@ en_pirate:
         other: "In %{count} aspects"
         two: "In %{count} aspects"
         zero: "Add to aspect"
+    footer:
+      your_aspects: "yer mateys"
+    public_explain:
+      logged_in: "on deck at %{service}"
+      new_user_welcome_message: "Use #hashtags t' classify yer posts n' find mateys.  Call out mateys with @Mentions"
+      outside: "Sea-wide messages will be available fer others outside of diaspora* t' see."
+      visibility_dropdown: "Use this dropdown t' change the visibility of yer post.  (It's good idear ye make this first one sea-wide.)"
     publisher:
+      all_contacts: "all mateys"
+      discard_post: "Scuttle post"
       new_user_prefill:
         i_like: "I be interested in %{tags}."
+        newhere: "NewMatey"
+      posting: "Firin!"
       share: "Fire!"
+      upload_photos: "Hang up portraits"
       whats_on_your_mind: "What be botherin' you?"
     stream_element:
+      connect_to_comment: "Connect t' this scallywag t' comm'nt on their post"
+      currently_unavailable: "comm'ntin currently not working"
       hide_and_mute: "Hide and Mute"
       shared_with: "Fired at: %{aspect_names}"
   status_messages:
-    too_long:
-      few: "Ye scallywag, make yer status messages less than %{count} characters"
-      many: "Ye scallywag,make yer status messages less than %{count} characters"
-      one: "Ye scallywag, make yer status messages less than %{count} character"
-      other: "Ye scallywag, make yer status messages less than %{count} characters"
-      two: "Ye scallywag, make yer status messages less than %{count} characters"
-      zero: "Ye scallywag,make yer status messages less than %{count} characters"
+    create:
+      success: "Ye've successfully mentioned: %{names}"
+    destroy:
+      failure: "Failed t' get rid of post"
+    helper:
+      no_message_to_display: "No message t' display."
+    new:
+      mentioning: "Mentionin': %{person}"
+    too_long: "{\"few\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"many\"=>\"Ye scallywag,make yer status messages less than %{count} characters\", \"one\"=>\"Ye scallywag, make yer status messages less than %{count} character\", \"other\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"two\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"zero\"=>\"Ye scallywag,make yer status messages less than %{count} characters\"}"
   stream_helper:
+    hide_comments: "Hide all comm'nts"
     show_comments:
       few: "Show %{count} more comments"
       many: "Show %{count} more comments"
@@ -312,20 +651,44 @@ en_pirate:
   streams:
     aspects:
       title: "Yer Aspects"
+    aspects_stream: "Crews"
     mentions:
+      contacts_title: "Seadogs that mentioned ye"
       title: "Yer Mentions"
+    multi:
+      contacts_title: "Mateys in yer Sea"
+      title: "Sea"
     tags:
       contacts_title: "scallywags who dig these tags"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"
+      none: "Ye cannot follow a blank tag!"
       success: "Successfully followin': #%{name}"
     destroy:
       failure: "Failed to stop followin': #%{name}"
-      success: "Successfully stopped followin': #%{name}"
+      success: "Avast! Successfully stopped followin': #%{name}"
+  tags:
+    show:
+      following: "Followin' #%{tag}"
+      nobody_talking: "Nobody be talkin' about %{tag} yet."
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      stop_following: "Stop Followin' #%{tag}"
+  terms_and_conditions: "Terms 'n conditions"
+  undo: "Undo?"
+  username: "Yer Username"
   users:
     edit:
       auto_follow_back: "Automatically follow back if someone follows ye"
       close_account:
+        dont_go: "Yo Ho HO! No need t' walk the plank!"
+        make_diaspora_better: "We want ye t' make diaspora* better arr, so ye should help before ye walk the plank and feed the fishes. If ye do want t' walk, we want ye t' be savvy on what happens next ye old seadog arrr."
+        mr_wiggles: "Mr Wiggles will be sad t' see ye go mate."
         what_we_delete: "We scuttle all of yer posts, profile data, as soon as humanly possible. Yer comments will hang around, but be associated with yer Diaspora Handle."
+      download_photos: "download ye portraits"
+      download_xml: "download ye booty"
+      show_community_spotlight: "Show Community Spotlight in sea"
+      stream_preferences: "Sea settin's"
+      your_email: "Yer email"
       your_handle: "Yer diaspora id"
+  welcome: "Ahoy, matey!"

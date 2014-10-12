@@ -240,7 +240,6 @@ vi:
       no_contacts_message: "Kiểm tra %{community_spotlight}"
       no_contacts_message_with_aspect: "Kiểm tra %{community_spotlight} hoặc %{add_to_aspect_link}"
       only_sharing_with_me: "Chỉ chia sẻ với tôi"
-      remove_person_from_aspect: "Loại bỏ %{person_name} khỏi \"%{aspect_name}\""
       start_a_conversation: "Bắt đầu một cuộc trò chuyện"
       title: "Liên lạc"
       your_contacts: "Liên lạc của bạn"
@@ -798,9 +797,7 @@ vi:
       no_message_to_display: "Không có tin nhắn."
     new:
       mentioning: "Đang nhắc đến: %{person}"
-    too_long:
-      other: "trạng thái của bạn phải có ít hơn %{count} kí tự"
-      zero: "trạng thái của bạn phải có ít hơn %{count} kí tự"
+    too_long: "{\"other\"=>\"trạng thái của bạn phải có ít hơn %{count} kí tự\", \"zero\"=>\"trạng thái của bạn phải có ít hơn %{count} kí tự\"}"
   stream_helper:
     hide_comments: "Ẩn tất cả bình luận"
     show_comments:

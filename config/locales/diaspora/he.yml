@@ -273,7 +273,6 @@ he:
       no_contacts_message: "כדאי לבדוק %{community_spotlight}"
       no_contacts_message_with_aspect: "כדאי לבדוק %{community_spotlight} או %{add_to_aspect_link}"
       only_sharing_with_me: "רק אלו המשתפים אתי"
-      remove_person_from_aspect: "הסרת %{person_name} מההיבט \"%{aspect_name}\""
       start_a_conversation: "התחלת שיחה"
       title: "אנשי קשר"
       your_contacts: "אנשי הקשר שלך"
@@ -912,10 +911,7 @@ he:
       no_message_to_display: "אין הודעה להצגה."
     new:
       mentioning: "אזכור: %{person}"
-    too_long:
-      one: "נא לקצר את הודעות הסטטוס שלך לפחות מתו אחד"
-      other: "נא לקצר את הודעות הסטטוס שלך לפחות מ-%{count} תווים"
-      zero: "נא לקצר את הודעות הסטטוס שלך לפחות מ-%{count} תווים"
+    too_long: "{\"one\"=>\"נא לקצר את הודעות הסטטוס שלך לפחות מתו אחד\", \"other\"=>\"נא לקצר את הודעות הסטטוס שלך לפחות מ-%{count} תווים\", \"zero\"=>\"נא לקצר את הודעות הסטטוס שלך לפחות מ-%{count} תווים\"}"
   stream_helper:
     hide_comments: "הסתרת כל התגובות"
     show_comments:

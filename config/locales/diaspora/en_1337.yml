@@ -175,7 +175,6 @@ en_1337:
       my_contacts: "Y0UR N00B5"
       no_contacts: "L00K5 L1K3 U N33D 70 PWN M0R3 N00B5!"
       only_sharing_with_me: "0NLY 5H4R1NG W17H U"
-      remove_person_from_aspect: "R3M0V3 %{person_name} FR0M \"%{aspect_name}\""
       start_a_conversation: "574R7 4 N3W C0NV3R54710N!"
       title: "N00B5"
       your_contacts: "Y0UR N00B5"
@@ -710,13 +709,7 @@ en_1337:
       no_message_to_display: "N0 5P4M 2 D15PL4Y!"
     new:
       mentioning: "M3N710N1NG: %{person}"
-    too_long:
-      few: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
-      many: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
-      one: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R\""
-      other: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
-      two: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
-      zero: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+    too_long: "{\"few\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"many\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"one\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R\\\"\", \"other\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"two\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"zero\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\"}"
   stream_helper:
     hide_comments: "H1D3 4LL 5P4M5!"
     show_comments:

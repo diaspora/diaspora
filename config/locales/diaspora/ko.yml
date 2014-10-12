@@ -254,7 +254,6 @@ ko:
       no_contacts_message: "%{community_spotlight}를 확인하세요"
       no_contacts_message_with_aspect: "%{community_spotlight}를 확인하거나 %{add_to_aspect_link}"
       only_sharing_with_me: "나와만 공유하고 있는 사람들"
-      remove_person_from_aspect: "\"%{aspect_name} 애스펙에서 %{person_name}님 지우기"
       start_a_conversation: "대화를 시작하세요"
       title: "컨택"
       your_contacts: "내 컨택"
@@ -885,9 +884,7 @@ ko:
       no_message_to_display: "표시할 게시물이 없습니다."
     new:
       mentioning: "%{person}님을 멘션합니다"
-    too_long:
-      other: "상태 메시지를 %{count}자보다 적게 줄여주세요"
-      zero: "상태 메시지를 %{count}자보다 적게 줄여주세요"
+    too_long: "{\"other\"=>\"상태 메시지를 %{count}자보다 적게 줄여주세요\", \"zero\"=>\"상태 메시지를 %{count}자보다 적게 줄여주세요\"}"
   stream_helper:
     hide_comments: "모든 댓글 숨기기"
     show_comments:

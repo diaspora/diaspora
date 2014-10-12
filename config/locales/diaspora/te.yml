@@ -249,7 +249,6 @@ te:
       no_contacts_message: "%{community_spotlight}ని సందర్శించండి"
       no_contacts_message_with_aspect: "%{add_to_aspect_link} లేక %{community_spotlight}ని సందర్శించండి"
       only_sharing_with_me: "నాతో మాత్రమే పంచుకునే వారు"
-      remove_person_from_aspect: "\"%{aspect_name}\" నుంచి %{person_name}ని తొలగించు"
       start_a_conversation: "సంభాషణను ప్రారంభించండి"
       title: "పరిచయాలు"
       your_contacts: "మీ పరిచయాలు"
@@ -849,10 +848,7 @@ te:
       no_message_to_display: "చూపించడానికి ఏ సందేశాలు లేవు."
     new:
       mentioning: "పేర్కోలు: %{person}"
-    too_long:
-      one: "దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి"
-      other: "దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి"
-      zero: "దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి"
+    too_long: "{\"one\"=>\"దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి\", \"other\"=>\"దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి\", \"zero\"=>\"దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి\"}"
   stream_helper:
     hide_comments: "అన్ని వ్యాఖ్యలను దాచు"
     show_comments:
