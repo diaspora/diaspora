@@ -24,9 +24,10 @@ describe StatisticsPresenter do
         "name" => AppConfig.settings.pod_name,
         "version" => AppConfig.version_string,
         "registrations_open" => AppConfig.settings.enable_registrations,
+        "services"=> ["facebook",],
         "facebook" => true,
-        "twitter" => false,
         "tumblr" => false,
+        "twitter" => false,
         "wordpress" => false,
       })
     end
@@ -54,6 +55,7 @@ describe StatisticsPresenter do
           "active_users_monthly" => User.monthly_actives.count,
           "local_posts" => @presenter.local_posts,
           "local_comments" => @presenter.local_comments,
+          "services" => ["twitter","facebook"],
           "facebook" => true,
           "twitter" => true,
           "tumblr" => false,
