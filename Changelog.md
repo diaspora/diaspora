@@ -59,6 +59,7 @@ The keys will still be available in the root level within the 0.5 release. The o
 * Use correct locale for invitation subject [#5232](https://github.com/diaspora/diaspora/pull/5232)
 * Initial support for IDN emails
 * Fix services settings reported by statistics.json [#5256](https://github.com/diaspora/diaspora/pull/5256)
+* Remove footer on stream pages [#5195](https://github.com/diaspora/diaspora/pull/5195)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
