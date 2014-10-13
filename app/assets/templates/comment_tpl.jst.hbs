@@ -9,9 +9,7 @@
     <div class="controls">
     {{#if loggedIn}}
       {{#if canRemove}}
-        <a href="#" class="delete comment_delete" title="{{t "delete"}}">
-          <div alt="Deletelabel" class="icons-deletelabel" />
-        <a/>
+        <a href="#" class="delete comment_delete" title="{{t "delete"}}">&times;<a/>
       {{else}}
         <a href="#" data-type="comment" class="comment_report" title="{{t "report.name"}}">
           <div class="icons-report"/>

@@ -131,14 +131,12 @@
     line-height: 0px;
 
     a.close_conversation {
+      color: #000;
       display: block;
-      margin-top: 10px;
       float: right;
-
-      .icons-deletelabel {
-        height: 14px;
-        width: 14px;
-      }
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: 2px;
     }
 
     .avatar {

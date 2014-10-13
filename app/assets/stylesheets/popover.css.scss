@@ -2,13 +2,16 @@
   .close {
     @include opacity(0);
     @include transition(opacity, 0.2s);
-    position: relative;
-    top: 1px;
-    right: -5px;
+    color: #000;
     float: right;
-    .icons-deletelabel {
-      height: 14px;
-      width: 14px;
+    font-size: 1.2em;
+    font-weight: bold;
+    position: relative;
+    right: -5px;
+    top: -2px;
+
+    &:hover {
+      text-decoration: none;
     }
 
     img { margin-top: 10px; }
