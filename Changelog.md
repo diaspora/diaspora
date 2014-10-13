@@ -67,6 +67,7 @@ The keys will still be available in the root level within the 0.5 release. The o
 * Increased the number of notifications shown in drop down bar to 15 [#5129](https://github.com/diaspora/diaspora/pull/5129)
 * Increase possible captcha length [#5169](https://github.com/diaspora/diaspora/pull/5169)
 * Display visibility icon in publisher aspects dropdown [#4982](https://github.com/diaspora/diaspora/pull/4982)
+* Save blueprint of message on client side using localStorage [#5087](https://github.com/diaspora/diaspora/pull/5201) 
 
 # 0.4.1.1
 

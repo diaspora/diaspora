@@ -8,6 +8,9 @@ app.views.Conversations = Backbone.View.extend({
   },
 
   initialize: function() {
+    var messageView = new app.views.MessageView();
+    messageView.render();
+
     $("#people_stream.contacts .header .entypo").tooltip({ 'placement': 'bottom'});
     // TODO doesn't work anymore
     if ($('#first_unread').length > 0) {
