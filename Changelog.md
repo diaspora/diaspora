@@ -58,6 +58,7 @@ The keys will still be available in the root level within the 0.5 release. The o
 * Convert some cukes to rspec tests [#5289](https://github.com/diaspora/diaspora/pull/5289)
 * Hidden overflow for long names on tag pages [#5279](https://github.com/diaspora/diaspora/pull/5279)
 * Always reshare absolute root of a post [#5276](https://github.com/diaspora/diaspora/pull/5276)
+* Convert remaining SASS stylesheets to SCSS [#5342](https://github.com/diaspora/diaspora/pull/5342)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
