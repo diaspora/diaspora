@@ -48,7 +48,7 @@ Diaspora.I18n = {
         }
       }
     }
-   
+
     return translatedMessage;
   },
 
@@ -60,7 +60,7 @@ Diaspora.I18n = {
     }
 
     try {
-      return _.template(this._resolve(locale, items), views || {});
+      return _.template(this._resolve(locale, items))(views || {});
     } catch (e) {
       if (typeof locale.fallback === "undefined") {
         return "";

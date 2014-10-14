@@ -12,7 +12,7 @@ Diaspora.Alert = {
     '</div>',
 
   show: function(title, content) {
-    $(_.template(this.faceboxTemplate, {
+    $(_.template(this.faceboxTemplate)({
       title: title,
     content: content
     })).appendTo(document.body);

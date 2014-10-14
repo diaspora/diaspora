@@ -67,7 +67,7 @@ Handlebars.registerHelper('personImage', function(person, size, imageClass) {
   size = ( !_.isString(size) ) ? "small" : size;
   imageClass = ( !_.isString(imageClass) ) ? size : imageClass;
 
-  return _.template('<img src="<%= src %>" class="avatar <%= img_class %>" title="<%= title %>" alt="<%= title %>" />', {
+  return _.template('<img src="<%= src %>" class="avatar <%= img_class %>" title="<%= title %>" alt="<%= title %>" />')({
     'src': avatar[size],
     'img_class': imageClass,
     'title': _.escape(name)
