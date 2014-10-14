@@ -20,7 +20,7 @@ class SearchController < ApplicationController
   private
   
   def search_query
-    @search_query ||= params[:q] || params[:term] || ''
+    @search_query ||= (params[:q] || params[:term] || '').strip
   end
 
 end
