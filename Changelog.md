@@ -50,6 +50,10 @@ The keys will still be available in the root level within the 0.5 release. The o
 * Redesign profile page and port to Bootstrap [#4657](https://github.com/diaspora/diaspora/pull/4657)
 * Unify stream selection links in the left sidebar [#5271](https://github.com/diaspora/diaspora/pull/5271)
 * Refactor schema of statistics.json regarding services [#5296](https://github.com/diaspora/diaspora/pull/5296)
+* Pull jquery.idle-timer.js from rails-assets.org [#5310](https://github.com/diaspora/diaspora/pull/5310)
+* Pull jquery.placeholder.js from rails-assets.org [#5299](https://github.com/diaspora/diaspora/pull/5299)
+* Pull jquery.textchange.js from rails-assets.org [#5297](https://github.com/diaspora/diaspora/pull/5297)
+* Reduce number of useless background job retries and pull public posts when missing [#5209](https://github.com/diaspora/diaspora/pull/5209)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
@@ -59,6 +63,8 @@ The keys will still be available in the root level within the 0.5 release. The o
 * Use correct locale for invitation subject [#5232](https://github.com/diaspora/diaspora/pull/5232)
 * Initial support for IDN emails
 * Fix services settings reported by statistics.json [#5256](https://github.com/diaspora/diaspora/pull/5256)
+* Only collapse empty comment box [#5328](https://github.com/diaspora/diaspora/pull/5328)
+* Fix pagination for people/guid/contacts [#5304](https://github.com/diaspora/diaspora/pull/5304)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
