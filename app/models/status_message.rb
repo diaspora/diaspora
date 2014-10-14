@@ -148,13 +148,13 @@ class StatusMessage < Post
   end
 
   def contains_oembed_url_in_text?
-    urls = URI.extract(self.raw_message, ['http', 'https'])
+    urls = self.message.urls
     self.oembed_url = urls.find{ |url| !TRUSTED_OEMBED_PROVIDERS.find(url).nil? }
   end
 
   def contains_open_graph_url_in_text?
     return nil if self.contains_oembed_url_in_text?
-    self.open_graph_url = URI.extract(self.raw_message, ['http', 'https'])[0]
+    self.open_graph_url = self.message.urls[0]
   end
 
   def address

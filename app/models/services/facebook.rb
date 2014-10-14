@@ -29,7 +29,7 @@ class Services::Facebook < Service
 
     {message: message,
      access_token: access_token,
-     link: URI.extract(message, ['https', 'http']).first
+     link:  post.message.urls.first
     }
   end
 
