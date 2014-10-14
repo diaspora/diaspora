@@ -213,6 +213,13 @@ module Diaspora
       end
     end
 
+    # Extracts all the urls from the raw message and return them in the form of a string
+    # Different URLs are seperated with a space
+    def extract_all_urls
+      urls = Twitter::Extractor.extract_urls(@raw_message).join(" ")
+      urls
+    end
+
     def raw
       @raw_message
     end

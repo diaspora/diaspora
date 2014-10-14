@@ -172,4 +172,11 @@ describe Diaspora::MessageRenderer do
       expect(message(text).plain_text_without_markdown).to eq text
     end
   end
+
+  describe "#extract_all_urls" do
+    it "extracts the urls from the raw message" do
+      text = "[Perdu](http://perdu.com/) and [DuckDuckGo](https://duckduckgo.com/) can help you"
+      expect(message(text).extract_all_urls).to eq "http://perdu.com/ https://duckduckgo.com/"
+    end
+  end
 end
