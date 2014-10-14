@@ -172,4 +172,10 @@ describe Diaspora::MessageRenderer do
       expect(message(text).plain_text_without_markdown).to eq text
     end
   end
+  describe "#unmarkeddown_message" do
+    it "removes markdown syntax leaving URLs unbroken" do
+      text = "Test message [with markdown](http://perdu.com/)"
+      expect(message(text).unmarkeddown_message).to eq "Test message http://perdu.com/"
+    end
+  end
 end
