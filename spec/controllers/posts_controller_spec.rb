@@ -30,6 +30,17 @@ describe PostsController, :type => :controller do
         expect(response).to be_success
       end
 
+      it 'succeeds after removing a mention when closing the mentioned user\'s account' do
+        user = FactoryGirl.create(:user, :username => "user")
+        alice.share_with(user.person, alice.aspects.first)
+        msg = alice.build_post :status_message, text: "Mention @{User ; #{user.diaspora_handle}}", :public => true, :to => 'all'
+        msg.save!
+        expect(msg.mentioned_people.count).to eq(1)
+        user.destroy
+        get :show, "id" => msg.id
+        expect(response).to be_success
+      end
+
       it 'renders the application layout on mobile' do
         get :show, :id => @message.id, :format => :mobile
         expect(response).to render_template('layouts/application')
