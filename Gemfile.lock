@@ -245,7 +245,7 @@ GEM
       railties (>= 3.0.0)
     inflecto (0.0.2)
     ipaddress (0.8.0)
-    jasmine (2.0.2)
+    jasmine (2.0.3)
       jasmine-core (~> 2.0.0)
       phantomjs
       rack (>= 1.2.1)
@@ -564,7 +564,7 @@ DEPENDENCIES
   handlebars_assets (= 0.18.0)
   http_accept_language (= 2.0.2)
   i18n-inflector-rails (= 1.0.7)
-  jasmine (= 2.0.2)
+  jasmine (= 2.0.3)
   jasmine-jquery-rails (= 2.0.3)
   jquery-rails (= 3.1.2)
   js-routes (= 0.9.9)
