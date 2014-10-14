@@ -3,6 +3,7 @@ class StatisticsPresenter
   def as_json(options={})
     result = {
       'name' => AppConfig.settings.pod_name,
+      'network' => "Diaspora",
       'version' => AppConfig.version_string,
       'registrations_open' => AppConfig.settings.enable_registrations,
       'services' => []
