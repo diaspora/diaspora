@@ -217,7 +217,7 @@ group :test do
 
   gem 'factory_girl_rails', '4.4.1'
   gem 'timecop',            '0.7.1'
-  gem 'webmock',            '1.18.0', :require => false
+  gem 'webmock',            '1.19.0', :require => false
 end
 
 
