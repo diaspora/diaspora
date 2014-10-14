@@ -50,7 +50,7 @@ GEM
       activemodel
       fog (>= 1.8.0)
       unf
-    backbone-on-rails (1.1.1.0)
+    backbone-on-rails (1.1.2.0)
       actionmailer
       actionpack
       activemodel
@@ -522,7 +522,7 @@ DEPENDENCIES
   acts_as_api (= 0.4.2)
   addressable (= 2.3.6)
   asset_sync (= 1.1.0)
-  backbone-on-rails (= 1.1.1)
+  backbone-on-rails (= 1.1.2)
   bootstrap-sass (= 2.3.2.2)
   capybara (= 2.4.1)
   carrierwave (= 0.10.0)
