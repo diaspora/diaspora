@@ -53,7 +53,8 @@ The keys will still be available in the root level within the 0.5 release. The o
 * Pull jquery.idle-timer.js from rails-assets.org [#5310](https://github.com/diaspora/diaspora/pull/5310)
 * Pull jquery.placeholder.js from rails-assets.org [#5299](https://github.com/diaspora/diaspora/pull/5299)
 * Pull jquery.textchange.js from rails-assets.org [#5297](https://github.com/diaspora/diaspora/pull/5297)
-* Reduce number of useless background job retries and pull public posts when missing [#5209](https://github.com/diaspora/diaspora/pull/5209)
+* Reduce number of useless background job retries and pull public posts when missing [#5209](https://github.com/diaspora/diaspora/pull/5209
+* Updated Weekly User Stats admin page to show data for the most recent week including reversing the order of the weeks in the drop down to show the most recent. [#5331](https://github.com/diaspora/diaspora/pull/5331)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
