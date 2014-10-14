@@ -10,20 +10,20 @@
         = f.hidden_field :reset_password_token
         %fieldset
           %legend
-            =t('.change_password')
+            =t('devise.passwords.edit.change_password')
 
           .control-group
-            = f.label :password, t('password'), :class => "control-label"
+            = f.label :password, t('devise.passwords.edit.new_password'), :class => "control-label"
             .controls
               = f.password_field :password
 
           .control-group
-            = f.label :password_confirmation, t('password_confirmation'), :class => "control-label"
+            = f.label :password_confirmation, t('devise.passwords.edit.confirm_password'), :class => "control-label"
             .controls
               = f.password_field :password_confirmation
 
           .controls
-            = f.submit t('.change_password'), :class => 'btn primary'
+            = f.submit t('devise.passwords.edit.change_password'), :class => 'btn primary'
 
 %footer
   = link_to t('layouts.application.toggle'), toggle_mobile_path

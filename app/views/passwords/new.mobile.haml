@@ -8,17 +8,17 @@
       = form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f|
         %fieldset
           %legend
-            =t('.forgot_password')
+            =t('devise.passwords.new.forgot_password')
           - unless devise_error_messages!.empty?
-            %i=  t('.no_account')
+            %i=  t('devise.passwords.new.no_account')
 
           .control-group
-            = f.label :email, t('email'), :class => "control-label"
+            = f.label :email, t('devise.passwords.new.email'), :class => "control-label"
             .controls
               = f.text_field :email
 
           .controls
-            = f.submit t('.send_password_instructions'), :class => 'btn'
+            = f.submit t('devise.passwords.new.send_password_instructions'), :class => 'btn'
 
 %footer
   - if display_registration_link?    
