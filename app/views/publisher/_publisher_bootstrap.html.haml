@@ -22,16 +22,8 @@
             %ul#photodropzone
           .row-fluid#location_container
             = hidden_field :location, :coords
-          .row-fluid#poll_creator_wrapper
-            #poll_question_wrapper{:class => "input-block-level"}
-              %input{:id => 'poll_question', :placeholder => t('shared.publisher.poll.question'), :name => 'poll_question', :class=> "form-control"}
-            .poll_answer
-              %input{:class => 'form-control poll_answer_input', :placeholder => t('shared.publisher.poll.option'), :name => 'poll_answers[]'}
-              .remove_poll_answer.btn.btn-link{:title => t('shared.publisher.poll.remove_poll_answer')}
-                %i.entypo.trash
-            #add_poll_answer_wrapper
-              #add_poll_answer{:class => 'btn btn-default'}
-                = t('shared.publisher.poll.add_poll_answer')
+          .row-fluid#poll_creator_container
+            -# handlebars template
           .row-fluid#button_container
             #publisher-images.pull-right
               #poll_creator.btn.btn-link{:title => t('shared.publisher.poll.add_a_poll')}

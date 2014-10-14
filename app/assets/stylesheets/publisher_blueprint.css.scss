@@ -344,7 +344,7 @@
   }
 }
 
-#publisher-poll-creator {
+#poll_creator_container {
   border: 1px solid $border-dark-grey;
   padding: 5px;
   margin-top: 5px;
@@ -379,19 +379,18 @@
       }
   }
   .poll-answer {
+    .span1, .span11 { display: inline-block; }
+    .span11 { width: 96%; }
     input {
-      width: 96%;
+      width: 100%;
       display: inline-block;
       vertical-align: bottom;
     }
     .remove-answer {
-      width: 14px;
-      height: 14px;
       @include opacity(0.4);
       cursor: pointer;
-      vertical-align: top;
-      margin-top: 7px;
       display: none;
+      line-height: 27px;
 
       &:hover {
         @include opacity(1);

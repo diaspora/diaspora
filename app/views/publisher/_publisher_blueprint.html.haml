@@ -37,7 +37,7 @@
                 = image_tag 'icons/camera.png', :alt => t('shared.publisher.upload_photos').titleize, :class => 'publisher_image'
             = hidden_field :location, :coords
           #location_container
-          #publisher-poll-creator
+          #poll_creator_container
 
       - if publisher_public
         = hidden_field_tag 'aspect_ids[]', "public"

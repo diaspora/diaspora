@@ -123,7 +123,7 @@ app.views.Publisher = Backbone.View.extend({
     this.view_uploader.on('change', this.checkSubmitAvailability, this);
 
     this.view_poll_creator = new app.views.PublisherPollCreator({
-      el: this.$('#publisher-poll-creator')
+      el: this.$('#poll_creator_container')
     });
     this.view_poll_creator.on('change', this.checkSubmitAvailability, this);
     this.view_poll_creator.render();
