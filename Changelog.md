@@ -67,6 +67,7 @@ The keys will still be available in the root level within the 0.5 release. The o
 * Only collapse empty comment box [#5328](https://github.com/diaspora/diaspora/pull/5328)
 * Fix pagination for people/guid/contacts [#5304](https://github.com/diaspora/diaspora/pull/5304)
 * Fix poll creation on Bootstrap pages [#5334](https://github.com/diaspora/diaspora/pull/5334)
+* Show error message on invalid reset password attempt [#5325](https://github.com/diaspora/diaspora/pull/5325)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)

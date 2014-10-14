@@ -22,3 +22,9 @@ Feature: Change password
     When I fill out reset password form with "supersecret" and "supersecret"
     And I submit reset password form
     Then I should be on the stream page
+
+  Scenario: Attempt to reset password with invalid email
+    Given I am on forgot password page
+    When I fill out forgot password form with "notanemail"
+    And I submit forgot password form
+    Then I should see "No account with this email exists"   
