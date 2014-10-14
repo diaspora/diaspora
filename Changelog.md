@@ -83,6 +83,7 @@ The keys will still be available in the root level within the 0.5 release. The o
 * Add a link to the reported comment in the admin panel [#5337](https://github.com/diaspora/diaspora/pull/5337)
 * Strip search query from leading and trailing whitespace [#5317](https://github.com/diaspora/diaspora/pull/5317)
 * Add the "network" key to statistics.json and set it to "Diaspora" [#5308](https://github.com/diaspora/diaspora/pull/5308)
+* Infinite scrolling in the notifications dropdown [#5237](https://github.com/diaspora/diaspora/pull/5237)
 
 # 0.4.1.1
 

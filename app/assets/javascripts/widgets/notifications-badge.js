@@ -1,6 +1,9 @@
 (function() {
   var NotificationDropdown = function() {
     var self = this;
+    var currentPage = 2;
+    var notificationsLoaded = 10;
+    var isLoading = false;
 
     this.subscribe("widget/ready",function(evt, badge, dropdown) {
       $.extend(self, {
@@ -43,8 +46,9 @@
       self.ajaxLoader.show();
       self.badge.addClass("active");
       self.dropdown.css("display", "block");
-
+      $('.notifications').addClass("loading");
       self.getNotifications();
+      
     };
 
     this.hideDropdown = function() {
@@ -53,8 +57,17 @@
       $('.notifications').perfectScrollbar('destroy');
     };
 
+    this.getMoreNotifications = function() {
+      $.getJSON("/notifications?per_page=5&page="+currentPage, function(notifications) {
+        for(var i = 0; i < notifications.length; ++i)
+          self.notifications.push(notifications[i]);
+        notificationsLoaded += 5;
+        self.renderNotifications();
+      });
+    };
+
     this.getNotifications = function() {
-      $.getJSON("/notifications?per_page=15", function(notifications) {
+      $.getJSON("/notifications?per_page="+notificationsLoaded, function(notifications) {
         self.notifications = notifications;
         self.renderNotifications();
       });
@@ -62,10 +75,10 @@
 
     this.renderNotifications = function() {
       self.dropdownNotifications.empty();
-
       $.each(self.notifications, function(index, notifications) {
         $.each(notifications, function(index, notification) {
-          self.dropdownNotifications.append(notification.note_html);
+          if($.inArray(notification, notifications) === -1)
+            self.dropdownNotifications.append(notification.note_html);
         });
       });
       self.dropdownNotifications.find("time.timeago").timeago();
@@ -76,9 +89,22 @@
       self.dropdownNotifications.find('.read').each(function(index) {
         Diaspora.page.header.notifications.setUpRead( $(this) );
       });
+      $('.notifications').perfectScrollbar('destroy');
       $('.notifications').perfectScrollbar();
-      $(".notifications").scrollTop(0);
       self.ajaxLoader.hide();
+      isLoading = false;
+      $('.notifications').removeClass("loading");
+      //Infinite Scrolling
+      $('.notifications').scroll(function(e) {
+        var bottom = $('.notifications').prop('scrollHeight') - $('.notifications').height();
+        var currentPosition = $('.notifications').scrollTop();
+        isLoading = ($('.loading').length == 1);
+        if (currentPosition + 50 >= bottom && notificationsLoaded <= self.notifications.length && !isLoading) {
+            $('.notifications').addClass("loading");
+            ++currentPage;
+            self.getMoreNotifications();
+        }
+      });
     };
   };
 
