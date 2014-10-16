@@ -25,7 +25,7 @@ describe Services::Facebook, :type => :model do
     end
 
     it 'removes text formatting markdown from post text' do
-      message = double
+      message = double(urls: [])
       expect(message).to receive(:plain_text_without_markdown).and_return("")
       post = double(message: message, photos: [])
       post_params = @service.create_post_params(post)
@@ -33,7 +33,7 @@ describe Services::Facebook, :type => :model do
 
     it 'does not add post link when no photos' do
       message = "Some text."
-      post = double(message: double(plain_text_without_markdown: message), photos: [])
+      post = double(message: double(plain_text_without_markdown: message, urls: []), photos: [])
       post_params = @service.create_post_params(post)
       expect(post_params[:message]).not_to include "http"
     end

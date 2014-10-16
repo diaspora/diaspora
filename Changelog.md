@@ -74,6 +74,7 @@ The keys will still be available in the root level within the 0.5 release. The o
 * Show error message on invalid reset password attempt [#5325](https://github.com/diaspora/diaspora/pull/5325)
 * Fix translations on mobile password reset pages [#5318](https://github.com/diaspora/diaspora/pull/5318)
 * Handle unset user agent when signing out [#5316](https://github.com/diaspora/diaspora/pull/5316)
+* More robust URL parsing for oEmbed and OpenGraph [#5347](https://github.com/diaspora/diaspora/pull/5347)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
