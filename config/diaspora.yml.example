@@ -330,6 +330,21 @@ configuration: ## Section
       ## Set a number to activate this setting. This age limit is shown
       ## in the default ToS document.
       #minimum_age: false
+      
+    ## Maintenance
+    ## Various pod maintenance related settings are controlled from here.
+    maintenance: ## Section
+      ## Removing of old inactive users can be done automatically by background
+      ## processing. The amount of inactivity is set by `after_days`. A warning
+      ## email will be sent to the user and after an additional `warn_days`, the
+      ## account will be automatically closed.
+      ## This maintenance is not enabled by default.
+      remove_old_users: ## Section
+        #enable: true
+        #after_days: 730
+        #warn_days: 30
+        ## Limit queuing for removal per day.
+        #limit_removals_to_per_day: 100
 
   ## Posting from Diaspora to external services (all are disabled by default)
   services: ## Section

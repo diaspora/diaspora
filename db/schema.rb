@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906192846) do
+ActiveRecord::Schema.define(version: 20141001162851) do
 
   create_table "account_deletions", force: true do |t|
     t.string   "diaspora_handle"
@@ -219,8 +219,8 @@ ActiveRecord::Schema.define(version: 20140906192846) do
   create_table "open_graph_caches", force: true do |t|
     t.string "title"
     t.string "ob_type"
-    t.text "image"
-    t.text "url"
+    t.text   "image"
+    t.text   "url"
     t.text   "description"
   end
 
@@ -530,6 +530,7 @@ ActiveRecord::Schema.define(version: 20140906192846) do
     t.text     "hidden_shareables"
     t.datetime "reset_password_sent_at"
     t.datetime "last_seen"
+    t.datetime "remove_after"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

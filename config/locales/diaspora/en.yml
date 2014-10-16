@@ -802,6 +802,22 @@ en:
         The diaspora* email robot!
 
         [1]: %{invite_url}
+    remove_old_user:
+      subject: "Your diaspora* account has been flagged for removal due to inactivity"
+      body: |-
+        Hello,
+        
+        Due to inactivity on your diaspora* account at %{pod_url}, we regret to inform you that the system has flagged this account for automated removal. This happens automatically after an inactivity period of more than %{after_days} days.
+        
+        You can avoid the loss of this account by logging into the account before %{remove_after}, in which case removal will be automatically cancelled.
+        
+        This maintenance is done to ensure our active users get the most out of the resources of this diaspora* instance. Thank you for your understanding.
+        
+        If you would like to keep your account, please login here: %{login_url}
+        
+        Hoping to see you again,
+
+        The diaspora* email robot!
   people:
     zero: "no people"
     one: "1 person"

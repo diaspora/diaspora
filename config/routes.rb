@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'sidekiq/web'
+require 'sidetiq/web'
 
 Diaspora::Application.routes.draw do
   resources :report, :except => [:edit, :new]
