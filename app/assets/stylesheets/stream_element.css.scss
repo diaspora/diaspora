@@ -99,7 +99,14 @@
     padding: 0px 5px;
     font-size: 1.4em;
     cursor: pointer;
-    @include opacity(0);
+    /*@include opacity(0);*/
+
+    &.collapseFixed {
+      position: fixed;
+      top: 43px;
+      right: auto;
+      background-color: red;
+    }
   }
 
   &:hover {

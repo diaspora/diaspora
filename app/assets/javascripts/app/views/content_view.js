@@ -8,6 +8,11 @@ app.views.Content = app.views.Base.extend({
 
   tooltipSelector: ".collapse_post",
 
+  initialize: function() {
+    // initialize sticky collapse control
+    $(window).scroll(this.collapseControlPositionUpdater);
+  },
+
   presenter : function(){
     return _.extend(this.defaultPresenter(), {
       text : app.helpers.textFormatter(this.model.get("text"), this.model),
@@ -85,6 +90,28 @@ app.views.Content = app.views.Base.extend({
       );
       collapsePostEl.hide();
     }
+  },
+
+  collapseControlPositionUpdater: function() {
+    var navigationBarHeight = 43;
+    var representativeControl = $('.collapse_post:visible').first();
+    var controlWidth = representativeControl.innerWidth();
+    var controlHeight = representativeControl.innerHeight();
+
+    // make controls fixed
+    $("div[data-template='status-message']").each(
+      function(index) {
+        var box = this.getBoundingClientRect();
+
+        // If bottom edge + iconheight is < navigationbar, make the icon normal
+        if(box.y < navigationBarHeight && box.y + box.height - controlHeight > navigationBarHeight) {
+          var posLeft = box.x + box.width - controlWidth;
+          $(this).find('.collapse_post').addClass('collapseFixed').css('left', posLeft);
+        } else {
+          $(this).find('.collapse_post').removeClass('collapseFixed').css('left', 'auto');
+        }
+      }
+    );
   },
 
   postRenderTemplate : function(){
