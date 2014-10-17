@@ -807,13 +807,13 @@ en:
       body: |-
         Hello,
         
-        Due to inactivity on your diaspora* account at %{pod_url}, we regret to inform you that the system has flagged this account for automated removal. This happens automatically after an inactivity period of more than %{after_days} days.
+        It looks as though you no longer want your account at %{pod_url}, as you haven't used it for %{after_days} days. To ensure our active users get the best performance from this diaspora* pod, we'd like to remove unwanted accounts from our database.
         
-        You can avoid the loss of this account by logging into the account before %{remove_after}, in which case removal will be automatically cancelled.
+        We'd love you to stay part of diaspora*'s community, and you're welcome to keep your account live if you want to.
         
-        This maintenance is done to ensure our active users get the most out of the resources of this diaspora* instance. Thank you for your understanding.
+        If you want to keep your account live, all you need to do is to sign in to your account before %{remove_after}. When you sign in, take a moment to have a look around diaspora*. It has changed a lot since you last looked in, and we think you'll like the improvements we've made. Follow some #tags to find content you love.
         
-        If you would like to keep your account, please login here: %{login_url}
+        Sign in here: %{login_url}. If you've forgotten your sign-in details, you can ask for a reminder on that page.
         
         Hoping to see you again,
 
