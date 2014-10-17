@@ -10,6 +10,7 @@ config/heroku.yml
 config/initializers/secret_token.rb
 config/redis.conf
 config/deploy_config.yml
+config/schedule.rb
 .bundle
 vendor/bundle/
 vendor/cache/
@@ -65,3 +66,6 @@ dump.rdb
 
 #IDE
 diaspora.iml
+
+# Dolphin's directory's preferences files
+*.directory
