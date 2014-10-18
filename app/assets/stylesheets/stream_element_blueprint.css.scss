@@ -97,16 +97,19 @@
     position: absolute;
     top: 0;
     right: 0;
-    padding: 0px 5px;
     font-size: 1.4em;
+    line-height: 1.2em;
+    padding: 0em 0.1em;
+    background-color: #fff;
+    border-radius: 0.3em;
+    margin: 0.3em;
     cursor: pointer;
-    /*@include opacity(0);*/
+    @include opacity(0);
 
     &.collapseFixed {
       position: fixed;
-      top: 43px;
+      top: 39px;
       right: auto;
-      background-color: red;
     }
   }
 

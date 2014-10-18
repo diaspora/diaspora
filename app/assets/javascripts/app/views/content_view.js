@@ -8,11 +8,6 @@ app.views.Content = app.views.Base.extend({
 
   tooltipSelector: ".collapse_post",
 
-  initialize: function() {
-    // initialize sticky collapse control
-    $(window).scroll(this.collapseControlPositionUpdater);
-  },
-
   presenter : function(){
     return _.extend(this.defaultPresenter(), {
       text : app.helpers.textFormatter(this.model.get("text"), this.model),
@@ -56,7 +51,19 @@ app.views.Content = app.views.Base.extend({
     var elem = this.$(".collapsible");
     elem.removeClass("opened");
 
-    this.collapseOversized();
+    // scroll to top of the post and collapse
+    var distanceToTop = this.$el.parents().filter('.stream_element').offset().top;
+    if(distanceToTop < $("html, body").scrollTop()) { // scroll upwards only
+      $("html, body").animate(
+        {'scrollTop': (distanceToTop - this.navigationBarHeight - 10)},
+        550,
+        _.bind(function(){
+          this.collapseOversized();
+        }, this)
+      );
+    } else {
+      this.collapseOversized();
+    }
   },
 
   collapseOversized : function() {
@@ -93,29 +100,31 @@ app.views.Content = app.views.Base.extend({
   },
 
   collapseControlPositionUpdater: function() {
-    var navigationBarHeight = 43;
-    var representativeControl = $('.collapse_post:visible').first();
-    var controlWidth = representativeControl.innerWidth();
-    var controlHeight = representativeControl.innerHeight();
+    var box = this.el.getBoundingClientRect();
+    var collapseControl = this.$el.find('.collapse_post');
 
-    // make controls fixed
-    $("div[data-template='status-message']").each(
-      function(index) {
-        var box = this.getBoundingClientRect();
-
-        // If bottom edge + iconheight is < navigationbar, make the icon normal
-        if(box.y < navigationBarHeight && box.y + box.height - controlHeight > navigationBarHeight) {
-          var posLeft = box.x + box.width - controlWidth;
-          $(this).find('.collapse_post').addClass('collapseFixed').css('left', posLeft);
-        } else {
-          $(this).find('.collapse_post').removeClass('collapseFixed').css('left', 'auto');
-        }
-      }
-    );
+    // Top of the post is above viewport-top and bottom is still visible
+    // --> make the collapse control sticky
+    if(box.top < this.navigationBarHeight
+        && box.top + box.height - collapseControl.outerHeight(true) > this.navigationBarHeight) {
+      var posLeft = box.left + box.width - collapseControl.outerWidth(true);
+      collapseControl.addClass('collapseFixed').css('left', posLeft);
+    } else {
+      collapseControl.removeClass('collapseFixed').css('left', 'auto');
+    }
   },
 
   postRenderTemplate : function(){
-    _.defer(_.bind(this.collapseOversized, this))
+    _.defer(_.bind(this.collapseOversized, this));
+
+    _.defer(_.bind(function() {
+      this.navigationBarHeight = $('header').outerHeight();
+
+      var throttledScroll = _.throttle(_.bind(
+        this.collapseControlPositionUpdater, this), 200
+      );
+      $(window).scroll(throttledScroll);
+    }, this));
   }
 });
 

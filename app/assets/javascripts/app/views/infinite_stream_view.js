@@ -19,8 +19,8 @@ app.views.InfScroll = app.views.Base.extend({
 
     this.collection.bind("add", this.addPostView, this);
 
-    var throttledScroll = _.throttle(_.bind(this.infScroll, this), 200);
-    $(window).scroll(throttledScroll);
+    this.throttledScroll = _.throttle(_.bind(this.infScroll, this), 200);
+    $(window).scroll(this.throttledScroll);
   },
 
   _resetPostFragments: function() {
@@ -54,7 +54,7 @@ app.views.InfScroll = app.views.Base.extend({
   },
 
   unbindInfScroll : function() {
-    $(window).unbind("scroll");
+    $(window).unbind("scroll", this.throttledScroll);
   },
 
   renderTemplate : function(){
