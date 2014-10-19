@@ -16,7 +16,7 @@ class PostPresenter
     {
         :id => @post.id,
         :guid => @post.guid,
-        :text => @post.raw_message,
+        :text => @post.message.plain_text_for_json,
         :public => @post.public,
         :created_at => @post.created_at,
         :interacted_at => @post.interacted_at,

@@ -87,6 +87,12 @@ module Diaspora
       def render_tags
         @message = Diaspora::Taggable.format_tags message, no_escape: !options[:escape_tags]
       end
+
+      def camo_urls
+        @message = @message.gsub(/!\[.*?\]\((.+?)\)/) do |link|
+          link.gsub($1, Diaspora::CamoUrl::image_url($1))
+        end
+      end
     end
 
     DEFAULTS = {mentioned_people: [],
@@ -162,6 +168,13 @@ module Diaspora
         strip_markdown
         squish
         append_and_truncate
+      }
+    end
+
+    # @param [Hash] opts Override global output options, see {#initialize}
+    def plain_text_for_json opts={}
+      process(opts) {
+        camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
       }
     end
 

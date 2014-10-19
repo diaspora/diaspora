@@ -54,7 +54,9 @@ defaults:
       post_counts: false
       comment_counts: false
     camo:
-      enable: false
+      proxy_markdown_images: false
+      proxy_opengraph_thumbnails: false
+      proxy_remote_pod_images: false
       root:
       key:
   settings:

@@ -216,8 +216,22 @@ configuration: ## Section
     ## your pod's frontend, but it will increase the traffic on your server.
     camo: ## Section
 
-      ## Enable Camo (default=false)
-      #enable: true
+      ## Proxy imaged embedded via markdown (default=false)
+      ## Embedded images are quite often from non-SSL sites and may cause a
+      ## partial content warning, so this is recommended.
+      #proxy_markdown_images: true
+
+      ## Proxy Open Graph thumbnails (default=false)
+      ## Open Graph thumbnails may or may not be encrypted and loaded from
+      ## servers outside the network. Recommended.
+      #proxy_opengraph_thumbnails: true
+
+      ## Proxy remote pod's images (default=false)
+      ## Profile pictures and photos from other pods usually are encrypted,
+      ## so enabling this is only useful if you want to avoid HTTP requests to
+      ## third-party servers. This will create a lot of traffic on your camo
+      ## instance. You have been warned.
+      #proxy_remote_pod_images: true
 
       ## Root of your Camo installation
       #root: "https://camo.example.com/"
