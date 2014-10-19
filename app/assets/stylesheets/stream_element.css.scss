@@ -145,3 +145,42 @@
     border: 1px solid $creation-blue;
   }
 }
+/*Gallery*/
+#main_stream .photo .media img.big_photo{
+	width:100%;
+	max-width:200px;
+	max-height:200px;
+}
+
+#main_stream .photo .media{
+	width:100%;
+	padding:5px;
+	padding-bottom:15px;
+	margin:5px;
+	max-width:200px;
+	min-width:200px;
+	max-height:220px;
+	min-height:220px;
+	border: solid 1px #EFEFEF;
+	position:justify;
+}
+
+#main_stream .photo .media:hover{
+	padding:5px;
+	padding-bottom:15px;
+	margin:0px;
+	margin-bottom:0px;
+	border: solid 1px #CCC;
+	-moz-box-shadow: 1px 1px 5px #999;
+	-webkit-box-shadow: 1px 1px 5px #999;
+	box-shadow: 1px 1px 5px #999;
+	max-width:220px;
+	float:left;
+}
+
+#main_stream.stream .photo{
+	margin-right:0;
+	max-width:200px;
+	float:left;
+}
+/*Gallery*/
