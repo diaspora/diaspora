@@ -53,6 +53,10 @@ defaults:
       user_counts: false
       post_counts: false
       comment_counts: false
+    camo:
+      enable: false
+      root:
+      key:
   settings:
     pod_name: 'diaspora*'
     enable_registrations: true
