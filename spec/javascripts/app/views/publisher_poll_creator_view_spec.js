@@ -1,6 +1,6 @@
 describe('app.views.PublisherPollCreator', function(){
   beforeEach(function(){
-    this.view = new app.views.PublisherPollCreator();
+    this.view = new app.views.PublisherPollCreator(); // starts with 2 answers
     this.view.render();
     this.input_selector = '.poll-answer input';
   });
@@ -15,18 +15,18 @@ describe('app.views.PublisherPollCreator', function(){
   describe('#addAnswerInput', function(){
     it('should add new answer input', function(){
       this.view.addAnswerInput();
-      expect(this.view.$(this.input_selector).length).toBe(2);
+      expect(this.view.$(this.input_selector).length).toBe(3);
     });
     it('should change input count', function(){
       this.view.addAnswerInput();
-      expect(this.view.inputCount).toBe(2); 
+      expect(this.view.inputCount).toBe(3); 
     });
   });
   describe('#removeAnswerInput', function(){
     it('remove answer input', function(){
       var input = this.view.$('input:first');
       this.view.removeAnswerInput(input);
-      expect(this.view.$(this.input_selector).length).toBe(1);
+      expect(this.view.$(this.input_selector).length).toBe(2);
     });
   });
   describe('#clearInputs', function(){
@@ -56,6 +56,6 @@ describe('app.views.PublisherPollCreator', function(){
       var input = this.view.$('input');
       input.val('  ');
       expect(this.view.validateInput(input)).toBe(false);
-    }):
+    });
   });
 });
