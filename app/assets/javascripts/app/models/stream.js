@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 //= require ../collections/posts
 //= require ../collections/photos
 app.models.Stream = Backbone.Collection.extend({
@@ -91,3 +93,5 @@ app.models.Stream = Backbone.Collection.extend({
     this.trigger("fetched")
   }
 });
+// @license-end
+
