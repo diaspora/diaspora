@@ -93,6 +93,7 @@ This maintenance is not enabled by default. Podmins can enable it by for example
 * Add the "network" key to statistics.json and set it to "Diaspora" [#5308](https://github.com/diaspora/diaspora/pull/5308)
 * Infinite scrolling in the notifications dropdown [#5237](https://github.com/diaspora/diaspora/pull/5237)
 * Maintenance feature to automatically expire inactive accounts [#5288](https://github.com/diaspora/diaspora/pull/5288)
+* Add LibreJS markers to JavaScript [5320](https://github.com/diaspora/diaspora/pull/5320)
 
 # 0.4.1.1
 

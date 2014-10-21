@@ -16,3 +16,4 @@ $.fn.clearForm = function() {
     $(this).blur();
   });
 };
+
