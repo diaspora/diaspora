@@ -31,6 +31,7 @@ Sidekiq.configure_server do |config|
       receive
       receive_salmon
       http
+      maintenance
       default
     }
   })
