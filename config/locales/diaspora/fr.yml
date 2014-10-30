@@ -127,7 +127,7 @@ fr:
       unknown_person: "Personne inconnue"
       video_title:
         unknown: "Titre de vidéo inconnu"
-  are_you_sure: "Êtes-vous certain-e ?"
+  are_you_sure: "Êtes-vous certain ?"
   are_you_sure_delete_account: "Souhaitez-vous vraiment supprimer votre compte ? Cette action est définitive !"
   aspect_memberships:
     destroy:
