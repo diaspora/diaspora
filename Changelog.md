@@ -1,3 +1,7 @@
+# 0.4.1.2
+
+* Update Rails, fixes [CVE-2014-7818](https://groups.google.com/forum/#!topic/rubyonrails-security/dCp7duBiQgo).
+
 # 0.4.1.1
 
 * Fix XSS issue in poll questions [#5274](https://github.com/diaspora/diaspora/issues/5274)
