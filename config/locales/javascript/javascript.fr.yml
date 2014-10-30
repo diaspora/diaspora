@@ -36,7 +36,7 @@ fr:
       hide: "Masquer les commentaires"
       no_comments: "Il n'y a pas encore de commentaires."
       show: "Afficher tous les commentaires"
-    confirm_dialog: "Êtes-vous certain-e ?"
+    confirm_dialog: "Êtes-vous certain ?"
     contacts:
       add_contact: "Ajouter ce contact"
       aspect_list_is_not_visible: "Les contacts de cet aspect ne peuvent pas se voir entre eux."
