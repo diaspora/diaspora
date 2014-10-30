@@ -96,6 +96,10 @@ This maintenance is not enabled by default. Podmins can enable it by for example
 * Maintenance feature to automatically expire inactive accounts [#5288](https://github.com/diaspora/diaspora/pull/5288)
 * Add LibreJS markers to JavaScript [5320](https://github.com/diaspora/diaspora/pull/5320)
 
+# 0.4.1.2
+
+* Update Rails, fixes [CVE-2014-7818](https://groups.google.com/forum/#!topic/rubyonrails-security/dCp7duBiQgo).
+
 # 0.4.1.1
 
 * Fix XSS issue in poll questions [#5274](https://github.com/diaspora/diaspora/issues/5274)
