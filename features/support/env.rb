@@ -3,7 +3,7 @@ require 'rubygems'
 prefork = proc do
   ENV["RAILS_ENV"] ||= "test"
 
-  # Have all rests run with english browser locale
+  # Have all tests run with english browser locale
   ENV['LANG'] = 'C'
   require 'cucumber/rails'
 

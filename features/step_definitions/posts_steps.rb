@@ -59,10 +59,6 @@ When /^I collapse the post$/ do
   collapse_first_post
 end
 
-Then /^I debug and wait for keypress$/ do
-  STDIN.getc
-end
-
 Then /^I should see "([^"]*)" as the first post in my stream$/ do |text|
   first_post_text.should include(text)
 end
