@@ -16,7 +16,6 @@
         %params
           #publisher_textarea_wrapper
             = link_to(content_tag(:div, nil, :class => 'icons-deletelabel'), "#", :id => "hide_publisher", :title => t('shared.publisher.discard_post'))
-            %ul#photodropzone
             - if current_user.getting_started?
               = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",
                 :title => popover_with_close_html( '1. ' + t('shared.public_explain.share') ),
@@ -24,7 +23,7 @@
             - else
               = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}..."
             = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
-
+            %ul#photodropzone
             %span#publisher-images
               %span.markdownIndications
                 != t('shared.publisher.formatWithMarkdown', markdown_link: link_to(t('help.markdown'), 'https://diasporafoundation.org/formatting', target: :blank))
