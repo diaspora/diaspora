@@ -16,7 +16,8 @@ Feature: following and being followed
     And I fill in the following:
         | status_message_fake_text    | I am following you    |
     And I press "Share"
-    Then I sign out
+    Then I should see "I am following you" within "#main_stream"
+    And I sign out
 
   Scenario: seeing a follower's posts on their profile page, but not in your stream
     When I sign in as "alice@alice.alice"
@@ -35,6 +36,7 @@ Feature: following and being followed
     And I press the first ".toggle" within "#publisher"
     And I press the first ".public" within "#publisher"
     And I press "Share"
+    Then I should see "I am ALICE" within "#main_stream"
     And I sign out
 
     When I sign in as "bob@bob.bob"

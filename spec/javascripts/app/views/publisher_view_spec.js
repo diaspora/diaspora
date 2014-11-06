@@ -176,6 +176,32 @@ describe("app.views.Publisher", function() {
         expect(submitCallback).toHaveBeenCalled();
         expect($(this.view.el)).not.toHaveClass("closed");
       })
+    });
+
+    describe("_beforeUnload", function(){
+      beforeEach(function(){
+        Diaspora.I18n.load({ confirm_unload: "Please confirm that you want to leave this page - data you have entered won't be saved."});
+      });
+
+      it("calls _submittable", function(){
+        spyOn(this.view, "_submittable");
+        $(window).trigger('beforeunload');
+        expect(this.view._submittable).toHaveBeenCalled();
+      });
+
+      it("returns a confirmation if the publisher is submittable", function(){
+        spyOn(this.view, "_submittable").and.returnValue(true);
+        var e = $.Event();
+        expect(this.view._beforeUnload(e)).toBe(Diaspora.I18n.t('confirm_unload'));
+        expect(e.returnValue).toBe(Diaspora.I18n.t('confirm_unload'));
+      });
+
+      it("doesn't ask for a confirmation if the publisher isn't submittable", function(){
+        spyOn(this.view, "_submittable").and.returnValue(false);
+        var e = $.Event();
+        expect(this.view._beforeUnload(e)).toBe(undefined);
+        expect(e.returnValue).toBe(undefined);
+      });
     })
   });
 
@@ -280,7 +306,7 @@ describe("app.views.Publisher", function() {
       // visibility icon is set to the lock icon
       expect(this.visibility_icon.hasClass('globe')).toBeFalsy();
       expect(this.visibility_icon.hasClass('lock')).toBeTruthy();
-      
+
       // click on public
       this.radio_els.first().trigger('click');
       // public is selected, "all aspects" is deselected
@@ -293,10 +319,10 @@ describe("app.views.Publisher", function() {
       // visibility icon is set to the globe icon
       expect(this.visibility_icon.hasClass('globe')).toBeTruthy();
       expect(this.visibility_icon.hasClass('lock')).toBeFalsy();
-      
+
       // click on "all aspects"
       this.radio_els.last().trigger('click');
-      // public is deselected, "all aspects" is selected      
+      // public is deselected, "all aspects" is selected
       expect(this.radio_els.first().hasClass('selected')).toBeFalsy();
       expect(this.radio_els.last().hasClass('selected')).toBeTruthy();
       // the aspects are deselected
@@ -305,7 +331,7 @@ describe("app.views.Publisher", function() {
       });
       // visibility icon is set to the lock icon
       expect(this.visibility_icon.hasClass('globe')).toBeFalsy();
-      expect(this.visibility_icon.hasClass('lock')).toBeTruthy();      
+      expect(this.visibility_icon.hasClass('lock')).toBeTruthy();
     });
 
     describe("hidden form elements", function(){

@@ -48,3 +48,4 @@ Feature: posting from own profile page
       And I attach "spec/fixtures/button.png" to the publisher
       And I click to delete the first uploaded photo
       Then I should not see an uploaded image within the photo drop zone
+      And I close the publisher

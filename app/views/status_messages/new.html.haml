@@ -14,6 +14,7 @@
     app.publisher.open();
     $("#publisher").bind('ajax:success', function(){
       $("#mentionModal").modal('hide');
+      app.publisher.clear();
       location.reload();
     });
   });

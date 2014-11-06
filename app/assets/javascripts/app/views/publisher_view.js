@@ -48,6 +48,10 @@ app.views.Publisher = Backbone.View.extend({
     // init autoresize plugin
     this.el_input.autoResize({ 'extraSpace' : 10, 'maxHeight' : Infinity });
 
+    // if there is data in the publisher we ask for a confirmation
+    // before the user is able to leave the page
+    $(window).on('beforeunload', _.bind(this._beforeUnload, this));
+
     // sync textarea content
     if( this.el_hiddenInput.val() == "" ) {
       this.el_hiddenInput.val( this.el_input.val() );
@@ -77,14 +81,14 @@ app.views.Publisher = Backbone.View.extend({
       this.close();
       this.showSpinner(true);
     });
-    
+
     // open publisher on post error
     this.on('publisher:error', function() {
       this.open();
       this.showSpinner(false);
     });
 
-    // resetting the poll view 
+    // resetting the poll view
     this.on('publisher:sync', function() {
       this.view_poll_creator.render();
     });
@@ -159,7 +163,7 @@ app.views.Publisher = Backbone.View.extend({
     if(evt){ evt.preventDefault(); }
 
     // Auto-adding a poll answer always leaves an empty box when the user starts
-    // typing in the last box. We'll delete the last one to avoid submitting an 
+    // typing in the last box. We'll delete the last one to avoid submitting an
     // empty poll answer and failing validation.
     this.view_poll_creator.removeLastAnswer();
 
@@ -378,7 +382,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // enable input
     this.setInputEnabled(true);
-    
+
     // enable buttons
     this.setButtonsEnabled(true);
 
@@ -428,7 +432,7 @@ app.views.Publisher = Backbone.View.extend({
     else
       this.$('#publisher_spinner').addClass('hidden');
   },
-  
+
   checkSubmitAvailability: function() {
     if( this._submittable() ) {
       this.setButtonsEnabled(true);
@@ -472,8 +476,15 @@ app.views.Publisher = Backbone.View.extend({
     this.el_input.mentionsInput("val", function(value){
       self.el_hiddenInput.val(value);
     });
-  }
+  },
 
+  _beforeUnload: function(e) {
+    if(this._submittable()){
+      var confirmationMessage = Diaspora.I18n.t("confirm_unload");
+      (e || window.event).returnValue = confirmationMessage;       //Gecko + IE
+      return confirmationMessage;                                  //Webkit, Safari, Chrome, etc.
+    }
+  }
 });
 
 // jQuery helper for serializing a <form> into JSON
