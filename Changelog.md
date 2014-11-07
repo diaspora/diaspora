@@ -96,6 +96,7 @@ This maintenance is not enabled by default. Podmins can enable it by for example
 * Maintenance feature to automatically expire inactive accounts [#5288](https://github.com/diaspora/diaspora/pull/5288)
 * Add LibreJS markers to JavaScript [5320](https://github.com/diaspora/diaspora/pull/5320)
 * Ask for confirmation when leaving a submittable publisher [#5309](https://github.com/diaspora/diaspora/pull/5309)
+* Allow page-specific styling via individual CSS classes [#5282](https://github.com/diaspora/diaspora/pull/5282)
 
 # 0.4.1.2
 

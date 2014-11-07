@@ -52,7 +52,7 @@
 
     = include_gon(:camel_case => true)
 
-  %body
+  %body{ :class => "page-#{controller_name} action-#{action_name}" }
     = flash_messages
 
     = yield :before_content
