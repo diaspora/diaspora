@@ -66,7 +66,7 @@
     %h5.title-header
       = t('bookmarklet.heading')
   .content
-    != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.post_something'), magic_bookmarklet_link))
+    != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.post_something'), bookmarklet_url))
 
 - if AppConfig.settings.paypal_hosted_button_id.present? || AppConfig.bitcoin_donation_address
   .section
