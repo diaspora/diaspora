@@ -186,6 +186,7 @@ end
 group :test do
   # RSpec (unit tests, some integration tests)
 
+  gem 'minitest',          '4.7.5'
   gem 'fixture_builder',   '0.3.6'
   gem 'fuubar',            '1.3.3'
   gem 'rspec-instafail',   '0.2.4', :require => false
