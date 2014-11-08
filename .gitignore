@@ -69,3 +69,20 @@ dump.rdb
 
 #IDE
 diaspora.iml
+
+# Local
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+.gem/
+.gitconfig
+.gnupg/
+.irb-history
+.profile
+.rvm/
+.ssh/
+.viminfo
+.vimrc
+.zlogin
+.zshrc

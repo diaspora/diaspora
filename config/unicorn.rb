@@ -1,8 +1,8 @@
 require File.expand_path('../load_config', __FILE__)
 
 # Enable and set these to run the worker as a different user/group
-#user  = 'diaspora'
-#group = 'diaspora'
+user  = 'diaspora'
+group = 'diaspora'
 
 worker_processes AppConfig.server.unicorn_worker.to_i
 
@@ -14,9 +14,10 @@ timeout AppConfig.server.unicorn_timeout.to_i
 
 @sidekiq_pid = nil
 
-#pid '/var/run/diaspora/diaspora.pid'
-#listen '/var/run/diaspora/diaspora.sock', :backlog => 2048
+pid '/var/run/diaspora/diaspora.pid'
+listen '/var/run/diaspora/diaspora.sock', :backlog => 1024
 
+working_directory "/var/www/diaspora" # available in 0.94.0+
 
 stderr_path AppConfig.server.stderr_log.get if AppConfig.server.stderr_log.present?
 stdout_path AppConfig.server.stdout_log.get if AppConfig.server.stdout_log.present?
@@ -29,12 +30,13 @@ before_fork do |server, worker|
   unless AppConfig.single_process_mode?
     Sidekiq.redis {|redis| redis.client.disconnect }
   end
-  
-  if AppConfig.server.embed_sidekiq_worker?
-    @sidekiq_pid ||= spawn('bundle exec sidekiq')
-  end
+
+#  if AppConfig.server.embed_sidekiq_worker?
+#    @sidekiq_pid ||= spawn('bundle exec sidekiq')
+#  end
 
   old_pid = '/var/run/diaspora/diaspora.pid.oldbin'
+
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)

@@ -247,6 +247,7 @@ GEM
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
     mini_portile (0.5.3)
+    minitest (4.7.5)
     mobile-fu (1.2.2)
       rack-mobile-detect
       rails
@@ -508,6 +509,7 @@ DEPENDENCIES
   markerb (= 1.0.2)
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.7.0)
+  minitest (= 4.7.5)
   mobile-fu (= 1.2.2)
   mysql2 (= 0.3.16)
   nokogiri (= 1.6.1)
