@@ -89,9 +89,7 @@ module Diaspora
       end
 
       def camo_urls
-        @message = @message.gsub(/!\[.*?\]\((.+?)\)/) do |link|
-          link.gsub($1, Diaspora::CamoUrl::image_url($1))
-        end
+        @message = Diaspora::Camo::from_markdown(@message)
       end
     end
 
