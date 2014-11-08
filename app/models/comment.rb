@@ -83,6 +83,14 @@ class Comment < ActiveRecord::Base
     @message ||= Diaspora::MessageRenderer.new text
   end
 
+  def text
+    if AppConfig.privacy.camo.proxy_markdown_images?
+      Diaspora::Camo::from_markdown(self[:text])
+    else
+      self[:text]
+    end
+  end
+
   def text= text
      self[:text] = text.to_s.strip #to_s if for nil, for whatever reason
   end
