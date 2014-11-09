@@ -142,7 +142,7 @@ GEM
     erubis (2.7.0)
     ethon (0.7.1)
       ffi (>= 1.3.0)
-    excon (0.40.0)
+    excon (0.41.0)
     execjs (2.2.1)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -166,7 +166,7 @@ GEM
       fog-softlayer
       ipaddress (~> 0.5)
       nokogiri (~> 1.5, >= 1.5.11)
-    fog-brightbox (0.5.1)
+    fog-brightbox (0.6.1)
       fog-core (~> 1.22)
       fog-json
       inflecto
@@ -186,10 +186,10 @@ GEM
     fog-sakuracloud (0.1.1)
       fog-core
       fog-json
-    fog-softlayer (0.3.20)
+    fog-softlayer (0.3.24)
       fog-core
       fog-json
-    fog-xml (0.1.0)
+    fog-xml (0.1.1)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
     font-awesome-rails (4.2.0.0)
