@@ -86,7 +86,7 @@ gem 'jquery-rails',          '3.1.2'
 gem 'rails-assets-jquery',   '1.11.1' # Should be kept in sync with jquery-rails
 gem 'js_image_paths',        '0.0.1'
 gem 'js-routes',             '0.9.9'
-gem 'rails-assets-punycode', '1.3.1'
+gem 'rails-assets-punycode', '1.3.2'
 
 # jQuery plugins
 
