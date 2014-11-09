@@ -10,22 +10,22 @@ describe Diaspora::Camo do
     AppConfig.privacy.camo.key = 'kittenpower'
 
     @raw_image_url = 'http://example.com/kitten.jpg'
-    @camo_image_url = "#{AppConfig.privacy.camo.root}5bc5b9d7ebd202841ab0667c4fc8d4304278f902/687474703a2f2f6578616d706c652e636f6d2f6b697474656e2e6a7067"
+    @camo_image_url = AppConfig.privacy.camo.root + '5bc5b9d7ebd202841ab0667c4fc8d4304278f902/687474703a2f2f6578616d706c652e636f6d2f6b697474656e2e6a7067'
   end
 
   describe '#image_url' do
     it 'should not rewrite local URLs' do
-      local_image = "#{AppConfig.environment.url}kitten.jpg"
+      local_image = AppConfig.environment.url + 'kitten.jpg'
       expect(Diaspora::Camo::image_url(local_image)).to eq(local_image)
     end
 
     it 'should not rewrite relative URLs' do
-      relative_image = "/kitten.jpg"
+      relative_image = '/kitten.jpg'
       expect(Diaspora::Camo::image_url(relative_image)).to eq(relative_image)
     end
 
     it 'should not rewrite already camo-fied URLs' do
-      camo_image = "#{AppConfig.privacy.camo.root}1234/56789abcd"
+      camo_image = AppConfig.privacy.camo.root + '1234/56789abcd'
       expect(Diaspora::Camo::image_url(camo_image)).to eq(camo_image)
     end
 
