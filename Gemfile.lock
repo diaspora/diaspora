@@ -276,7 +276,7 @@ GEM
     lumberjack (1.0.9)
     macaddr (1.7.1)
       systemu (~> 2.6.2)
-    mail (2.6.1)
+    mail (2.6.3)
       mime-types (>= 1.16, < 3)
     markerb (1.0.2)
       redcarpet (>= 2.0)
