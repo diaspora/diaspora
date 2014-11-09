@@ -94,7 +94,7 @@ gem 'rails-assets-jeresig--jquery.hotkeys', '0.2.0'
 gem 'rails-assets-jquery-idletimer',        '1.0.1'
 gem 'rails-assets-jquery-placeholder',      '2.0.8'
 gem 'rails-assets-jquery-textchange',       '0.2.3'
-gem 'rails-assets-perfect-scrollbar',       '0.5.2'
+gem 'rails-assets-perfect-scrollbar',       '0.5.7'
 
 # Localization
 
