@@ -111,7 +111,7 @@ gem 'messagebus_ruby_api', '1.0.3'
 
 gem 'nokogiri',         '1.6.4.1'
 gem 'redcarpet',        '3.2.0'
-gem 'twitter-text',     '1.9.2'
+gem 'twitter-text',     '1.10.0'
 gem 'roxml',            '3.1.6'
 gem 'ruby-oembed',      '0.8.11'
 gem 'opengraph_parser', '0.2.3'
