@@ -65,7 +65,7 @@ class ContactsController < ApplicationController
       relation.includes(:person => :profile).to_a.tap {|contacts|
         contacts.sort_by! {|contact| contact.person.name }
       }
-    }.inject(:+)
+    }.inject(:+).paginate(:page => params[:page], :per_page => 25)
   end
 
   def set_up_contacts_mobile
