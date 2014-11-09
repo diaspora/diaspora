@@ -103,6 +103,7 @@ This is disabled by default since it requires the installation of additional pac
 * Add LibreJS markers to JavaScript [5320](https://github.com/diaspora/diaspora/pull/5320)
 * Ask for confirmation when leaving a submittable publisher [#5309](https://github.com/diaspora/diaspora/pull/5309)
 * Allow page-specific styling via individual CSS classes [#5282](https://github.com/diaspora/diaspora/pull/5282)
+* Change diaspora logo in the header on hover [#5355](https://github.com/diaspora/diaspora/pull/5355)
 
 # 0.4.1.2
 
