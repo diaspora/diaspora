@@ -86,6 +86,7 @@ This is disabled by default since it requires the installation of additional pac
 * Fix translations on mobile password reset pages [#5318](https://github.com/diaspora/diaspora/pull/5318)
 * Handle unset user agent when signing out [#5316](https://github.com/diaspora/diaspora/pull/5316)
 * More robust URL parsing for oEmbed and OpenGraph [#5347](https://github.com/diaspora/diaspora/pull/5347)
+* Fix Publisher doesn't expand while uloading images [#3098](https://github.com/diaspora/diaspora/issues/3098)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)

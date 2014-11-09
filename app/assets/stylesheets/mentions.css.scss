@@ -66,19 +66,22 @@
     }
   }
 
+  .mentions-box {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    top: 0px;
+    padding: 4px 6px;
+  }
+
   .mentions {
-    bottom: 0;
     color: white;
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
-    left: 0;
     line-height: normal;
     overflow: hidden;
-    padding: 4px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 445px;
+    width: 100%;
     white-space: pre-wrap;
     word-wrap: break-word;
 

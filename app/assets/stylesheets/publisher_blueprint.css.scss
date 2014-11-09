@@ -36,8 +36,14 @@
     textarea {
       margin-bottom: 30px;
     }
+
+    #publisher_textarea_wrapper.with_attachments {
+      textarea {
+        margin-bottom: 20px;
+      }
+    }
   }
-  
+
   .mentions-autocomplete-list ul {
     width: 483px;
   }
@@ -64,7 +70,7 @@
 
     .public_toggle {
       text-align: right;
-      
+
       .dropdown {
         text-align: left;
       }
@@ -107,6 +113,7 @@
 
   #status_message_fake_text {
     min-height: 20px;
+    padding: 4px 6px;
   }
 
   .content_creation {
@@ -179,10 +186,11 @@
       @include opacity(1);
     }
   }
-  
+
   .markdownIndications {
     position: absolute;
     bottom: 0px;
+    left: 5px;
   }
 
   @include border-radius(2px);
@@ -208,16 +216,11 @@
   }
 
   &.with_attachments {
-    padding-bottom: 38px;
+    padding-bottom: 25px;
   }
 
   #photodropzone {
-    z-index: 3;
-    position: absolute;
-    bottom: 15px;
-    right: 35px;
-    width: 430px;
-    left: 5px;
+    margin: 0 5px;
     padding: 0;
 
     li {
@@ -298,8 +301,6 @@
 }
 
 #publisher-images {
-  padding-left: 5px;
-
   #locator {
     bottom: 1px !important;
     display: inline-block;
