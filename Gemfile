@@ -188,7 +188,7 @@ end
 
 group :development do
   # Automatic test runs
-  gem 'guard-cucumber', '1.4.1'
+  gem 'guard-cucumber', '1.5.1'
   gem 'guard-rspec',    '4.3.1'
   gem 'rb-fsevent',     '0.9.4', :require => false
   gem 'rb-inotify',     '0.9.5', :require => false
