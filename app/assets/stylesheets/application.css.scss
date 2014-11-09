@@ -1,4 +1,6 @@
 @import "compass";
+@import "perfect-scrollbar";
+
 @import "colors";
 @import "ui";
 @import "_mixins";
@@ -24,7 +26,6 @@
 @import "tag";
 @import "photo";
 
-@import "perfect-scrollbar";
 
 /* ====== media ====== */
 .media {
