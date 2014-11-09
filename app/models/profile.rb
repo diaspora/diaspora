@@ -142,22 +142,6 @@ class Profile < ActiveRecord::Base
     birthday.to_s(:long).gsub(', 1000', '') if birthday.present?
   end
 
-  def bio
-    if AppConfig.privacy.camo.proxy_markdown_images?
-      Diaspora::Camo.from_markdown(self[:bio])
-    else
-      self[:bio]
-    end
-  end
-
-  def location
-    if AppConfig.privacy.camo.proxy_markdown_images?
-      Diaspora::Camo.from_markdown(self[:location])
-    else
-      self[:location]
-    end
-  end
-
   def bio_message
     @bio_message ||= Diaspora::MessageRenderer.new(bio)
   end
