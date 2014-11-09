@@ -45,7 +45,7 @@ module OpenGraphHelper
     "  <div>" +
     "    <img src=\"#{cache.image}\" />" +
     "    <strong>#{cache.title}</strong>" +
-    "    <p>#{cache.description}</p>" +
+    "    <p>#{truncate(cache.description, length: 250, separator: ' ')}</p>" +
     "  </div>" +
     "</a>"
   end

@@ -16,7 +16,7 @@ app.views.SinglePostContent = app.views.Base.extend({
   initialize : function() {
     this.singlePostActionsView = new app.views.SinglePostActions({model: this.model});
     this.oEmbedView = new app.views.OEmbed({model : this.model});
-    this.openGraphView = new app.views.OpenGraph({model : this.model});
+    this.openGraphView = new app.views.SPVOpenGraph({model : this.model});
     this.postContentView = new app.views.ExpandedStatusMessage({model: this.model});
     this.pollView = new app.views.Poll({ model: this.model });
   },
