@@ -236,7 +236,7 @@ configuration: ## Section
       #proxy_remote_pod_images: true
 
       ## Root of your Camo installation
-      #root: "https://camo.example.com/"
+      #root: "https://example.com/camo/"
 
       ## Shared key of your Camo installation
       #key: "example123example456example!"

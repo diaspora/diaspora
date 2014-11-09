@@ -16,35 +16,35 @@ describe Diaspora::Camo do
   describe '#image_url' do
     it 'should not rewrite local URLs' do
       local_image = AppConfig.environment.url + 'kitten.jpg'
-      expect(Diaspora::Camo::image_url(local_image)).to eq(local_image)
+      expect(Diaspora::Camo.image_url(local_image)).to eq(local_image)
     end
 
     it 'should not rewrite relative URLs' do
       relative_image = '/kitten.jpg'
-      expect(Diaspora::Camo::image_url(relative_image)).to eq(relative_image)
+      expect(Diaspora::Camo.image_url(relative_image)).to eq(relative_image)
     end
 
     it 'should not rewrite already camo-fied URLs' do
       camo_image = AppConfig.privacy.camo.root + '1234/56789abcd'
-      expect(Diaspora::Camo::image_url(camo_image)).to eq(camo_image)
+      expect(Diaspora::Camo.image_url(camo_image)).to eq(camo_image)
     end
 
     it 'should rewrite external URLs' do
-      expect(Diaspora::Camo::image_url(@raw_image_url)).to eq(@camo_image_url)
+      expect(Diaspora::Camo.image_url(@raw_image_url)).to eq(@camo_image_url)
     end
   end
 
   describe '#from_markdown' do
     it 'should rewrite plain markdown images' do
-      expect(Diaspora::Camo::from_markdown("![](#{@raw_image_url})")).to include(@camo_image_url)
+      expect(Diaspora::Camo.from_markdown("![](#{@raw_image_url})")).to include(@camo_image_url)
     end
 
     it 'should rewrite markdown images with alt texts' do
-      expect(Diaspora::Camo::from_markdown("![a kitten](#{@raw_image_url})")).to include(@camo_image_url)
+      expect(Diaspora::Camo.from_markdown("![a kitten](#{@raw_image_url})")).to include(@camo_image_url)
     end
 
     it 'should rewrite markdown images with title texts' do
-      expect(Diaspora::Camo::from_markdown("![](#{@raw_image_url}) \"title\"")).to include(@camo_image_url)
+      expect(Diaspora::Camo.from_markdown("![](#{@raw_image_url}) \"title\"")).to include(@camo_image_url)
     end
   end
 end

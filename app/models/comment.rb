@@ -85,7 +85,7 @@ class Comment < ActiveRecord::Base
 
   def text
     if AppConfig.privacy.camo.proxy_markdown_images?
-      Diaspora::Camo::from_markdown(self[:text])
+      Diaspora::Camo.from_markdown(self[:text])
     else
       self[:text]
     end

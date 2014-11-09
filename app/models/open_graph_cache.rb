@@ -17,7 +17,7 @@ class OpenGraphCache < ActiveRecord::Base
 
   def image
     if AppConfig.privacy.camo.proxy_opengraph_thumbnails?
-      Diaspora::Camo::image_url(self[:image])
+      Diaspora::Camo.image_url(self[:image])
     else
       self[:image]
     end

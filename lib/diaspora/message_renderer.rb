@@ -89,7 +89,7 @@ module Diaspora
       end
 
       def camo_urls
-        @message = Diaspora::Camo::from_markdown(@message)
+        @message = Diaspora::Camo.from_markdown(@message)
       end
     end
 

@@ -79,7 +79,7 @@ class Profile < ActiveRecord::Base
       ActionController::Base.helpers.image_path('user/default.png')
     else
       if AppConfig.privacy.camo.proxy_remote_pod_images?
-        Diaspora::Camo::image_url(result)
+        Diaspora::Camo.image_url(result)
       else
         result
       end
@@ -144,7 +144,7 @@ class Profile < ActiveRecord::Base
 
   def bio
     if AppConfig.privacy.camo.proxy_markdown_images?
-      Diaspora::Camo::from_markdown(self[:bio])
+      Diaspora::Camo.from_markdown(self[:bio])
     else
       self[:bio]
     end
@@ -152,7 +152,7 @@ class Profile < ActiveRecord::Base
 
   def location
     if AppConfig.privacy.camo.proxy_markdown_images?
-      Diaspora::Camo::from_markdown(self[:location])
+      Diaspora::Camo.from_markdown(self[:location])
     else
       self[:location]
     end

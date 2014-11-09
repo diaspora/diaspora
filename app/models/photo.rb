@@ -116,7 +116,7 @@ class Photo < ActiveRecord::Base
       name = name.to_s + '_' if name
       image_url = remote_photo_path + name.to_s + remote_photo_name
       if AppConfig.privacy.camo.proxy_remote_pod_images?
-        Diaspora::Camo::image_url(image_url)
+        Diaspora::Camo.image_url(image_url)
       else
         image_url
       end

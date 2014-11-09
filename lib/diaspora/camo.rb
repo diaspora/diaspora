@@ -19,7 +19,7 @@ module Diaspora
       )
 
       encoded_url = url.to_enum(:each_byte).map {|byte| '%02x' % byte}.join
-      "#{AppConfig.privacy.camo.root}#{digest}/#{encoded_url}"
+      File.join(AppConfig.privacy.camo.root, digest, encoded_url)
     end
 
     def self.url_eligible?(url)
