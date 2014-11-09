@@ -42,6 +42,11 @@ Removing of old inactive users can now be done automatically by background proce
 
 This maintenance is not enabled by default. Podmins can enable it by for example copying over the new settings under `settings.maintenance` to their `diaspora.yml` file and setting it enabled. The default setting is to expire accounts that have been inactive for 2 years (no login).
 
+## Camo integration to proxy external assets
+It is now possible to enable an automatic proxying of external assets, for example images embedded via Markdown or OpenGraph thumbnails loaded from insecure third party servers through a [Camo proxy](https://github.com/atmos/camo).
+
+This is disabled by default since it requires the installation of additional packages and might cause some traffic. Check the [wiki page](https://wiki.diasporafoundation.org/Installation/Camo) for more information and detailed installation instructions.
+
 ## Refactor
 * Redesign contacts page [#5153](https://github.com/diaspora/diaspora/pull/5153)
 * Improve profile page design on mobile [#5084](https://github.com/diaspora/diaspora/pull/5084)

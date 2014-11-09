@@ -214,6 +214,8 @@ configuration: ## Section
     ## Do not enable this setting unless you have a working Camo setup. Using
     ## camo to proxy embedded images will improve the privacy and security of
     ## your pod's frontend, but it will increase the traffic on your server.
+    ## Check out https://wiki.diasporafoundation.org/Installation/Camo for more
+    ## details and installation instructions.
     camo: ## Section
 
       ## Proxy imaged embedded via markdown (default=false)
