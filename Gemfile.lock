@@ -210,7 +210,7 @@ GEM
       json
       multi_json
       request_store (>= 1.0.5)
-    guard (2.8.2)
+    guard (2.7.3)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
@@ -564,6 +564,7 @@ DEPENDENCIES
   foreman (= 0.62)
   fuubar (= 2.0.0)
   gon (= 5.2.3)
+  guard (= 2.7.3)
   guard-cucumber (= 1.5.1)
   guard-rspec (= 4.3.1)
   guard-spork (= 1.5.1)
