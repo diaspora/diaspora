@@ -191,6 +191,7 @@ module Diaspora
     def markdownified opts={}
       process(opts) {
         process_newlines
+        camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
         markdownify
         render_mentions
         render_tags
