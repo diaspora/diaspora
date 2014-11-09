@@ -139,7 +139,7 @@ gem 'typhoeus',           '0.6.9'
 
 # Views
 
-gem 'gon',                     '5.2.0'
+gem 'gon',                     '5.2.3'
 gem 'haml',                    '4.0.5'
 gem 'mobile-fu',               '1.3.1'
 gem 'will_paginate',           '3.0.7'
