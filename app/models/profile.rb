@@ -74,7 +74,16 @@ class Profile < ActiveRecord::Base
              else
                self[:image_url]
              end
-    result || ActionController::Base.helpers.image_path('user/default.png')
+
+    unless result
+      ActionController::Base.helpers.image_path('user/default.png')
+    else
+      if AppConfig.privacy.camo.proxy_remote_pod_images?
+        Diaspora::Camo.image_url(result)
+      else
+        result
+      end
+    end
   end
 
   def from_omniauth_hash(omniauth_user_hash)

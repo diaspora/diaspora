@@ -114,7 +114,12 @@ class Photo < ActiveRecord::Base
   def url(name = nil)
     if remote_photo_path
       name = name.to_s + '_' if name
-      remote_photo_path + name.to_s + remote_photo_name
+      image_url = remote_photo_path + name.to_s + remote_photo_name
+      if AppConfig.privacy.camo.proxy_remote_pod_images?
+        Diaspora::Camo.image_url(image_url)
+      else
+        image_url
+      end
     elsif processed?
       processed_image.url(name)
     else

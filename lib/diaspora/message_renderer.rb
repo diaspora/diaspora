@@ -87,6 +87,10 @@ module Diaspora
       def render_tags
         @message = Diaspora::Taggable.format_tags message, no_escape: !options[:escape_tags]
       end
+
+      def camo_urls
+        @message = Diaspora::Camo.from_markdown(@message)
+      end
     end
 
     DEFAULTS = {mentioned_people: [],
@@ -166,6 +170,13 @@ module Diaspora
     end
 
     # @param [Hash] opts Override global output options, see {#initialize}
+    def plain_text_for_json opts={}
+      process(opts) {
+        camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
+      }
+    end
+
+    # @param [Hash] opts Override global output options, see {#initialize}
     def html opts={}
       process(opts) {
         escape
@@ -180,6 +191,7 @@ module Diaspora
     def markdownified opts={}
       process(opts) {
         process_newlines
+        camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
         markdownify
         render_mentions
         render_tags

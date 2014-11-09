@@ -53,6 +53,12 @@ defaults:
       user_counts: false
       post_counts: false
       comment_counts: false
+    camo:
+      proxy_markdown_images: false
+      proxy_opengraph_thumbnails: false
+      proxy_remote_pod_images: false
+      root:
+      key:
   settings:
     pod_name: 'diaspora*'
     enable_registrations: true

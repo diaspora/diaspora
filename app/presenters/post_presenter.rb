@@ -13,10 +13,15 @@ class PostPresenter
   end
 
   def as_json(options={})
+    text = if @post.message
+      @post.message.plain_text_for_json
+    else
+      @post.raw_message
+    end
     {
         :id => @post.id,
         :guid => @post.guid,
-        :text => @post.raw_message,
+        :text => text,
         :public => @post.public,
         :created_at => @post.created_at,
         :interacted_at => @post.interacted_at,

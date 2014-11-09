@@ -15,6 +15,14 @@ class OpenGraphCache < ActiveRecord::Base
     t.add :url
   end
 
+  def image
+    if AppConfig.privacy.camo.proxy_opengraph_thumbnails?
+      Diaspora::Camo.image_url(self[:image])
+    else
+      self[:image]
+    end
+  end
+
   def self.find_or_create_by(opts)
     cache = OpenGraphCache.find_or_initialize_by(opts)
     cache.fetch_and_save_opengraph_data! unless cache.persisted?

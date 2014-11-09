@@ -4,8 +4,8 @@ class ProfilePresenter < BasePresenter
   def base_hash
     {  id: id,
        tags: tags.pluck(:name),
-       bio: bio,
-       location: location,
+       bio: bio_message.plain_text_for_json,
+       location: location_message.plain_text_for_json,
        gender: gender,
        birthday: formatted_birthday,
        searchable: searchable
