@@ -20,7 +20,7 @@ gem 'json',        '1.8.1'
 
 # Authentication
 
-gem 'devise', '3.4.0'
+gem 'devise', '3.4.1'
 gem 'devise_lastseenable', '0.0.4'
 
 # Captcha
