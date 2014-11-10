@@ -46,5 +46,10 @@ describe Diaspora::Camo do
     it 'should rewrite markdown images with title texts' do
       expect(Diaspora::Camo.from_markdown("![](#{@raw_image_url}) \"title\"")).to include(@camo_image_url)
     end
+
+    it 'should rewrite URLs inside <img/> tags' do
+      image_tag = '<img src="' + @raw_image_url +  '" />'
+      expect(Diaspora::Camo.from_markdown(image_tag)).to include(@camo_image_url)
+    end
   end
 end
