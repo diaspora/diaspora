@@ -23,12 +23,12 @@ module ApplicationHelper
 
   def bookmarklet_url( height = 400, width = 620)
     "javascript:(function(){" \
+    "t=(window.getSelection?window.getSelection():" \
+    "document.getSelection?document.getSelection():" \
+    "document.selection.createRange().text);" \
     "f='#{AppConfig.pod_uri.to_s}bookmarklet" \
     "?content='+encodeURIComponent('##%20'+document.title+" \
-    "'\n>%20'+"
-    "(window.getSelection?window.getSelection():" \
-    "document.getSelection?document.getSelection():" \
-    "document.selection.createRange().text)" \
+    "(t!=''?('\n>%20'+t):'')" \
     "+'\n\n'+window.location.href)" \
     "+'&v=1&';" \
     "a=function(){" \
