@@ -1,35 +1,35 @@
 #registration {
-  position:absolute;
-  min-width: 100%;
-  min-height: 100%;
-  background-color : #afc652;
-  color: #fff;
+    
+  & > .container-fluid {
+   margin-top: 5%;
+  }
 
   #create-something-text {
-    font-family : Roboto-Light;
     font-size : 100px;
     line-height : 100px;
-    white-space : nowrap;
   }
 
   #diaspora-hearts {
-    font-family : Roboto-Light;
-    font-size : 24px;
+    font-size : 30px;
     margin-top : 0.2em;
     margin-bottom : 1em;
     white-space : nowrap;
   }
+  
+  #pod-name {
+    text-align: center;
+    margin: 12px;
+    font-size : 35px;
+  }
 
   #sign-up-text {
-    font-family : Roboto-Bold;
-    color : #7f9448;
     margin-bottom : 0.5em;
   }
 
-  #collage {
-    width : 344px;
-    height : auto;
-    max-width : 95%;
+  #create-something-text,
+  #diaspora-hearts,
+  #sign-up-text {
+    font-family : Roboto-Light;
   }
 
   form {
