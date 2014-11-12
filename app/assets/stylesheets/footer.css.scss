@@ -18,6 +18,22 @@ footer {
     width: 145px;
   }
 
+  ul#footer_powered {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    float: left;
+
+    > li {
+      display: inline;
+      margin-right: 1em;
+    }
+
+    a {
+      color: $link-grey;
+    }
+  }
+
   ul#footer_nav {
     margin: 0;
     padding: 0;
