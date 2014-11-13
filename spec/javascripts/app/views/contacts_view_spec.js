@@ -18,23 +18,24 @@ describe("app.views.Contacts", function(){
 
   context('toggle chat privilege', function() {
     beforeEach(function() {
-      this.chat_toggle = $("#chat_privilege_toggle .entypo");
+      this.chat_toggle = $("#chat_privilege_toggle");
+      this.chat_icon = $("#chat_privilege_toggle .entypo");
     });
 
     it('updates the title for the tooltip', function() {
-      expect(this.chat_toggle.attr('data-original-title')).toBe(
+      expect(this.chat_icon.attr('data-original-title')).toBe(
         Diaspora.I18n.t("contacts.aspect_chat_is_not_enabled")
       );
       this.chat_toggle.trigger('click');
-      expect(this.chat_toggle.attr('data-original-title')).toBe(
+      expect(this.chat_icon.attr('data-original-title')).toBe(
         Diaspora.I18n.t("contacts.aspect_chat_is_enabled")
       );
     });
 
     it('toggles the chat icon', function() {
-      expect(this.chat_toggle.hasClass('enabled')).toBeFalsy;
+      expect(this.chat_icon.hasClass('enabled')).toBeFalsy;
       this.chat_toggle.trigger('click');
-      expect(this.chat_toggle.hasClass('enabled')).toBeTruethy;
+      expect(this.chat_icon.hasClass('enabled')).toBeTruethy;
     });
   });
 
