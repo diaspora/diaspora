@@ -4,6 +4,9 @@
 
 - content_for :head do
   = javascript_include_tag :home
+  - if AppConfig.chat.enabled?
+    = javascript_include_tag :jsxc, :id => 'jsxc',
+      :data => { :endpoint => get_bosh_endpoint }
 
 - if current_user.getting_started?
   #welcome-to-diaspora
