@@ -64,6 +64,7 @@ Diaspora::Application.routes.draw do
 
   resources :aspects do
     put :toggle_contact_visibility
+    put :toggle_chat_privilege
   end
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
