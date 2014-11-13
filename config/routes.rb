@@ -6,6 +6,7 @@ require 'sidekiq/web'
 require 'sidetiq/web'
 
 Diaspora::Application.routes.draw do
+
   resources :report, :except => [:edit, :new]
 
   if Rails.env.production?
@@ -208,6 +209,9 @@ Diaspora::Application.routes.draw do
     namespace :v0 do
       get "/users/:username" => 'users#show', :as => 'user'
       get "/tags/:name" => 'tags#show', :as => 'tag'
+    end
+    namespace :v1 do
+      resources :tokens, :only => [:create, :destroy]
     end
   end
 
