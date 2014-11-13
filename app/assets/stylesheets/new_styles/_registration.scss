@@ -1,4 +1,12 @@
 #registration {
+  position: absolute;
+  top: 30px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: url('bg-signup3.jpg') no-repeat left center;
+  background-size: cover;
+  color: #fff;
     
   & > .container {
    width: 80%;
