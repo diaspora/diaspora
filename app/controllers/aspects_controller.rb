@@ -78,6 +78,14 @@ class AspectsController < ApplicationController
     render :json => { :id => @aspect.id, :name => @aspect.name }
   end
 
+  def toggle_chat_privilege
+    @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
+
+    @aspect.chat_enabled = !@aspect.chat_enabled
+    @aspect.save
+    render :nothing => true
+  end
+
   def toggle_contact_visibility
     @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
 
@@ -102,6 +110,6 @@ class AspectsController < ApplicationController
   end
 
   def aspect_params
-    params.require(:aspect).permit(:name, :contacts_visible, :order_id)
+    params.require(:aspect).permit(:name, :contacts_visible, :chat_enabled, :order_id)
   end
 end
