@@ -144,6 +144,18 @@ vines=0
 if [ "$chat" = "true" ] && [ "$chat_server" = "true" ]
 then
   vines=1
+  if [ "$chat_bosh_proxy" = "false" ]
+  then
+    warning "
+*****************************************************************
+You enabled the chat feature but haven't configured BOSH! That
+could lead to mixed-content problems with the http clients. Please
+think about editing your proxy configuration as described in:
+
+diaspora.yml.example
+*****************************************************************
+"
+  fi
 fi
 
 # Start Diaspora
