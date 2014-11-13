@@ -27,13 +27,13 @@ app.views.Contacts = Backbone.View.extend({
       this.chat_toggle.tooltip("destroy")
                       .removeClass("enabled")
                       .removeAttr("data-original-title")
-                      .attr("title", Diaspora.I18n.t("contacts.aspect_chat_is_enabled"))
+                      .attr("title", Diaspora.I18n.t("contacts.aspect_chat_is_not_enabled"))
                       .tooltip({'placement': 'bottom'});
     } else {
       this.chat_toggle.tooltip("destroy")
                       .addClass("enabled")
                       .removeAttr("data-original-title")
-                      .attr("title", Diaspora.I18n.t("contacts.aspect_chat_is_not_enabled"))
+                      .attr("title", Diaspora.I18n.t("contacts.aspect_chat_is_enabled"))
                       .tooltip({'placement': 'bottom'});
     }
   },
