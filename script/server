@@ -137,6 +137,7 @@ https://github.com/diaspora/diaspora/issues/4202 for details
 "
 fi
 
+vines=0
 # Start Diaspora
 echo -n "Starting Diaspora in $RAILS_ENV mode on port $port "
 if [ "$embed_sidekiq_worker" = "true" ]
@@ -152,4 +153,4 @@ else
 fi
 echo ""
 
-exec bundle exec foreman start -m "web=1,sidekiq=$workers" -p $port
+exec bundle exec foreman start -m "xmpp=$vines,web=1,sidekiq=$workers" -p $port
