@@ -21,6 +21,10 @@
       = aspect.check_box :contacts_visible, :checked => false, class: 'checkbox'
       = aspect.label :contacts_visible, t('aspects.edit.make_aspect_list_visible')
 
+    %p.checkbox_select
+      = aspect.check_box :chat_enabled, :checked => false, class: 'checkbox'
+      = aspect.label :chat_enabled, t('aspects.edit.grant_contacts_chat_privilege')
+
     %br
 
     .bottom_submit_section
