@@ -407,6 +407,8 @@ GEM
       json
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
+    sidekiq-failures (0.4.3)
+      sidekiq (>= 2.16.0)
     simple_oauth (0.2.0)
     sinatra (1.3.3)
       rack (~> 1.3, >= 1.3.6)
@@ -541,6 +543,7 @@ DEPENDENCIES
   sass-rails (= 3.2.6)
   selenium-webdriver (= 2.42.0)
   sidekiq (= 2.17.7)
+  sidekiq-failures
   sinatra (= 1.3.3)
   sinon-rails (= 1.9.0)
   spork (= 1.0.0rc4)
