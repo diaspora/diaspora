@@ -71,8 +71,8 @@ Diaspora::Application.routes.draw do
     put :make_profile_photo
   end
 
-	#Search
-	get 'search' => "search#search"
+  #Search
+  get 'search' => "search#search"
 
   resources :conversations do
     resources :messages, :only => [:create, :show]
@@ -229,5 +229,13 @@ Diaspora::Application.routes.draw do
   end
 
   # Startpage
+  # Redirect anauthenticated users to signup
+  unauthenticated do
+    devise_scope :user do
+      root to: "registrations#new", as: :unauthenticated_root
+    end
+  end
+
   root :to => 'home#show'
+
 end
