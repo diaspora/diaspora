@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   scope :yearly_actives, ->(time = Time.now) { logged_in_since(time - 1.year) }
   scope :halfyear_actives, ->(time = Time.now) { logged_in_since(time - 6.month) }
 
-  devise :database_authenticatable, :registerable,
+  devise :token_authenticatable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :lastseenable, :lock_strategy => :none, :unlock_strategy => :none
 

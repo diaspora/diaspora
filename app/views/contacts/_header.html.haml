@@ -10,6 +10,12 @@
         -else
           %i.entypo.lock.contacts-header-icon{:title => t('aspects.edit.aspect_list_is_not_visible')}
 
+      = link_to aspect_toggle_chat_privilege_path(@aspect), id: "chat_privilege_toggle", class: "contacts_button", method: :put, remote: true do
+        -if @aspect.chat_enabled?
+          %i.entypo.chat.enabled.contacts-header-icon{:title => t('aspects.edit.aspect_chat_is_enabled')}
+        -else
+          %i.entypo.chat.contacts-header-icon{:title => t('aspects.edit.aspect_chat_is_not_enabled')}
+
       = link_to @aspect, method: "delete", data: { confirm: t('aspects.edit.confirm_remove_aspect') }, class: 'delete contacts_button', id: 'delete_aspect' do
         %i.entypo.trash.contacts-header-icon{:title => t('delete')}
     .pull-right

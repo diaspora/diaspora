@@ -75,7 +75,10 @@ vars=$(bundle exec ruby ./script/get_config.rb \
   port=server.port \
   single_process_mode=environment.single_process_mode? \
   embed_sidekiq_worker=server.embed_sidekiq_worker \
-  workers=server.sidekiq_workers
+  workers=server.sidekiq_workers \
+  chat=chat.enabled \
+  chat_server=chat.server.enabled \
+  chat_bosh_proxy=chat.server.bosh.proxy
 )
 on_failure "Couldn't parse config/diaspora.yml!"
 eval "$vars"
@@ -137,6 +140,24 @@ https://github.com/diaspora/diaspora/issues/4202 for details
 "
 fi
 
+vines=0
+if [ "$chat" = "true" ] && [ "$chat_server" = "true" ]
+then
+  vines=1
+  if [ "$chat_bosh_proxy" = "false" ]
+  then
+    warning "
+*****************************************************************
+You enabled the chat feature but haven't configured BOSH! That
+could lead to mixed-content problems with the http clients. Please
+think about editing your proxy configuration as described in:
+
+diaspora.yml.example
+*****************************************************************
+"
+  fi
+fi
+
 # Start Diaspora
 echo -n "Starting Diaspora in $RAILS_ENV mode on port $port "
 if [ "$embed_sidekiq_worker" = "true" ]
@@ -152,4 +173,4 @@ else
 fi
 echo ""
 
-exec bundle exec foreman start -m "web=1,sidekiq=$workers" -p $port
+exec bundle exec foreman start -m "xmpp=$vines,web=1,sidekiq=$workers" -p $port

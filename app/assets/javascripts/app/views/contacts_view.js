@@ -6,6 +6,7 @@ app.views.Contacts = Backbone.View.extend({
 
   events: {
     "click #contacts_visibility_toggle" : "toggleContactVisibility",
+    "click #chat_privilege_toggle" : "toggleChatPrivilege",
     "click #change_aspect_name" : "showAspectNameForm",
     "click .contact_remove-from-aspect" : "removeContactFromAspect",
     "click .contact_add-to-aspect" : "addContactToAspect",
@@ -14,10 +15,27 @@ app.views.Contacts = Backbone.View.extend({
 
   initialize: function() {
     this.visibility_toggle = $("#contacts_visibility_toggle .entypo");
+    this.chat_toggle = $("#chat_privilege_toggle .entypo");
     $("#people_stream.contacts .header .entypo").tooltip({ 'placement': 'bottom'});
     $(".contact_remove-from-aspect").tooltip();
     $(".contact_add-to-aspect").tooltip();
     $(document).on('ajax:success', 'form.edit_aspect', this.updateAspectName);
+  },
+
+  toggleChatPrivilege: function() {
+    if (this.chat_toggle.hasClass("enabled")) {
+      this.chat_toggle.tooltip("destroy")
+                      .removeClass("enabled")
+                      .removeAttr("data-original-title")
+                      .attr("title", Diaspora.I18n.t("contacts.aspect_chat_is_not_enabled"))
+                      .tooltip({'placement': 'bottom'});
+    } else {
+      this.chat_toggle.tooltip("destroy")
+                      .addClass("enabled")
+                      .removeAttr("data-original-title")
+                      .attr("title", Diaspora.I18n.t("contacts.aspect_chat_is_enabled"))
+                      .tooltip({'placement': 'bottom'});
+    }
   },
 
   toggleContactVisibility: function() {

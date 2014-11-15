@@ -1,2 +1,2 @@
 port: 3000
-formation: web=1,sidekiq=0
+formation: xmpp=0,web=1,sidekiq=0

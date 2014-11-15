@@ -7,10 +7,35 @@ describe("app.views.Contacts", function(){
         add_contact: "Add contact",
         aspect_list_is_visible: "Contacts in this aspect are able to see each other.",
         aspect_list_is_not_visible: "Contacts in this aspect are not able to see each other.",
+        aspect_chat_is_enabled: "Contacts in this aspect are able to chat with you.",
+        aspect_chat_is_not_enabled: "Contacts in this aspect are not able to chat with you.",
         remove_contact: "Remove contact",
         error_add: "Couldn't add <%= name %> to the aspect :(",
         error_remove: "Couldn't remove <%= name %> from the aspect :("
       }
+    });
+  });
+
+  context('toggle chat privilege', function() {
+    beforeEach(function() {
+      this.chat_toggle = $("#chat_privilege_toggle");
+      this.chat_icon = $("#chat_privilege_toggle .entypo");
+    });
+
+    it('updates the title for the tooltip', function() {
+      expect(this.chat_icon.attr('data-original-title')).toBe(
+        Diaspora.I18n.t("contacts.aspect_chat_is_not_enabled")
+      );
+      this.chat_toggle.trigger('click');
+      expect(this.chat_icon.attr('data-original-title')).toBe(
+        Diaspora.I18n.t("contacts.aspect_chat_is_enabled")
+      );
+    });
+
+    it('toggles the chat icon', function() {
+      expect(this.chat_icon.hasClass('enabled')).toBeFalsy;
+      this.chat_toggle.trigger('click');
+      expect(this.chat_icon.hasClass('enabled')).toBeTruethy;
     });
   });
 

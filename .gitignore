@@ -1,3 +1,7 @@
+# xmpp certificates, keys and user data
+config/vines/*.crt
+config/vines/*.key
+
 #trademark sillyness
 app/views/home/_show.*
 app/views/terms/terms.*

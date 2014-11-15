@@ -32,6 +32,9 @@ series and run our comphrensive testsuite against it.
 ## Change in defaults.yml
 The default for including jQuery from a CDN has changed. If you want to continue to include it from a CDN, please explicitly set the `jquery_cdn` setting to `true` in diaspora.yml.
 
+## Experimental chat feature
+This release adds experimental integration with XMPP for realtime chat. Please see  [our wiki](https://wiki.diasporafoundation.org/Vines) for further informations.
+
 ## Change in statistics.json schema
 The way services are shown in the `statistics.json` route is changing. The keys relating to showing whether services are enabled or not are moving to their own container as `"services": {....}`, instead of having them all in the root level of the json.
 

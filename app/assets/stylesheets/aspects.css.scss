@@ -39,11 +39,12 @@
 }
 
 #new_aspect {
-  #aspect_contacts_visible.checkbox {
+  .checkbox {
     margin: 0px;
   }
 
-  label[for="aspect_contacts_visible"] {
+  label[for="aspect_contacts_visible"],
+  label[for="aspect_chat_enabled"] {
     display: inline;
   }
 }
