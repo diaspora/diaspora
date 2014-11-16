@@ -1,0 +1,10 @@
+-if @stream.stream_posts.length == 15
+  #pagination
+    %a.more-link.paginate{:href => next_page_path}
+      %h1
+        = t("more")
+-else
+  #pagination
+    %div.no-more-posts
+      %h2
+        = t("stream_helper.no_more_posts")
