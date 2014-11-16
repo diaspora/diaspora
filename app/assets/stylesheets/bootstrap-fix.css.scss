@@ -1,0 +1,11 @@
+// A temporary fix for broken classes in bootstrap 2.
+// Can probably be removed when migration of bootstrap 3 is done.
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #999999;
+}
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: #999999;
+}
