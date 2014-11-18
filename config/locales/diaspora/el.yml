@@ -79,7 +79,7 @@ el:
       week: "Εβδομάδας"
     user_search:
       add_invites: "προσθήκη προσκλήσεων"
-      email_to: "Ηλεκτρονικό ταχυδρομείο για Πρόσκληση"
+      email_to: "Email για Πρόσκληση"
       users:
         one: "%{count} χρήστης βρέθηκε"
         other: "%{count} χρήστες βρέθηκαν"
@@ -156,12 +156,12 @@ el:
         contact_podmin: "Επικοινωνήστε με τον διαχειριστή του pod!"
         do_you: "Μήπως.."
         email_feedback: "Αν θέλετε, μπορείτε να στείλετε τα σχόλιά σας με %{link}."
-        email_link: "ηλεκτρονικό ταχυδρομείο"
+        email_link: "email"
         feature_suggestion: "... έχετε να προτείνετε μία δυνατότητα %{link} ;"
         find_a_bug: "... βρήκατε ένα σφάλμα %{link} ;"
         have_a_question: "... έχετε μία ερώτηση %{link} ;"
         here_to_help: "Η κοινότητα του Diaspora είναι εδώ για να σας βοηθήσει!"
-        mail_podmin: "Ηλ. διεύθυνση Διαχειριστή"
+        mail_podmin: "Email Διαχειριστή"
         need_help: "Χρειάζεστε βοήθεια;"
         tag_bug: "bug"
         tag_feature: "feature"
@@ -507,24 +507,24 @@ el:
     comment_on_post:
       reply: "Απαντήστε ή δείτε την ανάρτηση του χρήστη %{name} >"
     confirm_email:
-      click_link: "Για να ενεργοποιήσετε την καινούρια διεύθυνση ηλεκτρονικού ταχυδρομείου %{unconfirmed_email}, παρακαλούμε πατήστε στο παρακάτω σύνδεσμο: "
+      click_link: "Για να ενεργοποιήσετε την καινούρια διεύθυνση email %{unconfirmed_email}, παρακαλούμε πατήστε στο παρακάτω σύνδεσμο: "
       subject: "Παρακαλούμε ενεργοποιήστε την καινούρια διεύθυνση ηλεκτρονικού ταχυδρομείου %{unconfirmed_email}"
     email_sent_by_diaspora: "Αυτό το μήνυμα εστάλη από το %{pod_name}. Εάν δεν θέλετε να λαμβάνετε πλέον μηνύματα σαν κι αυτό,"
     hello: "Γειά σου %{name}!"
     invite:
       message: |-
-          Γεια σου!
+          Χαίρετε!
 
-          Έχεις προσκληθεί να συμμετέχεις στο Diapora*
+          Έχεις προσκληθεί στο librenet*, έναν ελληνικό κόμβο του diaspora*, ενός κόσμου κοινωνικής δικτύωσης που εσύ έχεις τον έλεγχο.
 
           Κάνε κλικ στο σύνδεσμο για να ξεκινήσεις
 
           [%{invite_url}][1]
 
 
-          Με Αγάπη,
+          Με Αγάπη ❤
 
-          Το e-mail ρομπότ του Diaspora*!
+          Το email ρομπότ του librenet*
 
           [1]: %{invite_url}
     invited_you: "O/H %{name} σε προσκάλεσε στο Diaspora*"
@@ -706,8 +706,8 @@ el:
       continue: "Συνέχεια"
       create_my_account: "Δημιουργία λογαριασμού!"
       diaspora: "ελευθερία. ιδιωτικότητα. ψυχαγωγία."
-      email: "ΗΛΕΚΤΡΟΝΙΚΟ ΤΑΧΥΔΡΟΜΕΙΟ"
-      enter_email: "Εισάγετε μια διεύθυνση ηλεκτρονικού ταχυδρομείου"
+      email: "EMAIL"
+      enter_email: "Εισάγετε μια διεύθυνση email"
       enter_password: "Εισάγετε έναν κωδικό"
       enter_password_again: "Εισάγετε τον ίδιο κωδικό πάλι"
       enter_username: "Επιλέξτε ένα όνομα χρήστη (μόνο γράμματα, νούμερα και κάτω-παύλα)"
@@ -799,7 +799,7 @@ el:
       create_request: "Εύρεση βάσει Diaspora ID"
       diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Εισάγετε όνομα χρήστη Diaspora:"
-      know_email: "Ξέρετε τις ηλεκτρονικές τους διευθύνσεις; Τότε πρέπει να τους προσκαλέσετε"
+      know_email: "Ξέρετε τις διευθύνσεις email τους; Τότε πρέπει να τους προσκαλέσετε"
       your_diaspora_username_is: "Το όνομα χρήστη σας στο Diaspora είναι: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Προσθήκη επαφής"
@@ -816,7 +816,7 @@ el:
       logged_in_as: "συνδεμένοι ως %{name}"
       your_aspects: "οι πτυχές σας"
     invitations:
-      by_email: "Μέσω ηλεκτρονικού ταχυδρομείου"
+      by_email: "Μέσω email"
       dont_have_now: "Δεν έχετε κάποια τώρα, αλλά περισσότερες προσκλήσεις έρχονται σύντομα!"
       from_facebook: "Από το Facebook"
       invitations_left: "απομένουν %{count}"
@@ -952,8 +952,8 @@ el:
   username: "Όνομα Χρήστη"
   users:
     confirm_email:
-      email_confirmed: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου %{email} ενεργοποιήθηκε"
-      email_not_confirmed: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου δεν ενεργοποιήθηκε. Μήπως ήταν λάθος ο σύνδεσμος;"
+      email_confirmed: "Η διεύθυνση email %{email} ενεργοποιήθηκε"
+      email_not_confirmed: "Η διεύθυνση email δεν ενεργοποιήθηκε. Μήπως ήταν λάθος ο σύνδεσμος;"
     destroy:
       no_password: "Παρακαλώ εισάγετε τον τωρινό κωδικό σας για να κλείσει ο λογαριασμός σας."
       success: "Ο λογαριασμός σας έχει κλειδωθεί. Μπορεί να πάρει 20 λεπτά για να ολοκληρώσουμε το κλείσιμο του λογαριασμού σας. Ευχαριστούμε που δοκιμάσατε το Diaspora."
@@ -963,7 +963,7 @@ el:
       auto_follow_aspect: "Πτυχή για αυτόματη Παρακολούθησης"
       auto_follow_back: "Αυτόματη ακολούθηση αν κάποιος σας ακουλουθήσει"
       change: "Αλλαγή"
-      change_email: "Αλλαγή διεύθυνσης ηλεκτρονικού ταχυδρομείου"
+      change_email: "Αλλαγή διεύθυνσης email"
       change_language: "Αλλαγή γλώσσας"
       change_password: "Αλλαγή κωδικού πρόσβασης"
       character_minimum_expl: "πρέπει να είναι τουλάχιστον έξι χαρακτήρες"
@@ -992,7 +992,7 @@ el:
       new_password: "Νέος κωδικός πρόσβασης"
       photo_export_unavailable: "Η εξαγωγή φωτογραφίας αυτή τη στιγμή δεν είναι διαθέσιμη"
       private_message: "...μόλις λάβατε μία προσωπική ειδοποίηση;"
-      receive_email_notifications: "Να λαμβάνετε ειδοποιήσεις στο ηλεκτρονικό σας ταχυδρομείο όταν..."
+      receive_email_notifications: "Να λαμβάνετε ειδοποιήσεις στο email σας όταν..."
       reshared: "...κάποιος κοινοποίησε τη δημοσίευση σας;"
       show_community_spotlight: "Εμφάνιση Δημοσιεύσεων Κοινότητας στη Ροή σας;"
       show_getting_started: "Επανενεργοποιήση Getting Started"
@@ -1027,8 +1027,8 @@ el:
       password_not_changed: "Η αλλαγή κωδικού απέτυχε"
       settings_not_updated: "Αποτυχία ενημέρωσης ρυθμίσεων"
       settings_updated: "Οι ρυθμίσεις ενημερώθηκαν"
-      unconfirmed_email_changed: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου άλλαξε. Χρειάζεται ενεργοποίηση."
-      unconfirmed_email_not_changed: "Η αλλαγή της διεύθυνσης ηλεκτρονικού ταχυδρομείου απέτυχε."
+      unconfirmed_email_changed: "Η διεύθυνση email άλλαξε. Χρειάζεται ενεργοποίηση."
+      unconfirmed_email_not_changed: "Η αλλαγή της διεύθυνσης email απέτυχε."
   webfinger:
     fetch_failed: "αποτυχία παροχής του προφίλ webfinger για %{profile_url}"
     hcard_fetch_failed: "υπήρξε ενά πρόβλημα παροχής του hcard για #{@account}"

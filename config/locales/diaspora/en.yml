@@ -788,16 +788,16 @@ en:
       message: |-
         Hello!
 
-        You have been invited to join diaspora*!
+        You have been invited to join librenet*, a greek node of diaspora*, a social networking world where you have control.
 
         Click this link to get started
 
         [%{invite_url}][1]
 
 
-        Love,
+        Love ❤
 
-        The diaspora* email robot!
+        The librenet* email robot!
 
         [1]: %{invite_url}
   people:
