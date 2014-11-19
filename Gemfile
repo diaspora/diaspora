@@ -111,6 +111,12 @@ gem 'rails-timeago',           '2.4.0'
 # https://github.com/rubyzip/rubyzip#important-note
 gem 'zip-zip'
 
+# Prevent occasions where minitest is not bundled in
+# packaged versions of ruby.
+# https://github.com/gitlabhq/gitlabhq/issues/3826
+# https://github.com/discourse/discourse/pull/238
+gem 'minitest', '4.7.5'
+
 ### GROUPS ####
 
 group :assets do
@@ -187,7 +193,6 @@ end
 group :test do
   # RSpec (unit tests, some integration tests)
 
-  gem 'minitest',          '4.7.5'
   gem 'fixture_builder',   '0.3.6'
   gem 'fuubar',            '1.3.3'
   gem 'rspec-instafail',   '0.2.4', :require => false
