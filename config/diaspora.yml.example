@@ -504,7 +504,8 @@ configuration: ## Section
       #client_id: 'abcdef'
       #secret: 'change_me'
 
-  ## Enable pod users to send e-mails from Diaspora (disabled by default)
+  ## Allow your pod to send emails for notifications, password recovery
+  ## and other purposes (disabled by default)
   mail: ## Section
 
     ## First you need to enable it.
