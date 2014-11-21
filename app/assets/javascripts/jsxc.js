@@ -21,6 +21,9 @@ $(document).ready(function() {
             online: 1,
             chat: 1
           },
+          displayRosterMinimized: function() {
+            return true;
+          },
           xmpp: {
             url: $('script#jsxc').data('endpoint'),
             username: jid.replace(/@.*?$/g, ''),
