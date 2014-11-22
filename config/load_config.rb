@@ -1,13 +1,18 @@
+require 'pathname'
+require 'bundler/setup'
 require 'configurate'
 
-rails_root = File.expand_path('../../', __FILE__)
-rails_env = ENV['RACK_ENV']
-rails_env ||= ENV['RAILS_ENV']
-rails_env ||= 'development'
+rails_env = ENV['RAILS_ENV'] || ENV['RACK_ENV'] || 'development'
 
-require File.join(rails_root, 'lib', 'configuration_methods')
+module Rails
+  def self.root
+    @__root ||= Pathname.new File.expand_path('../../', __FILE__)
+  end
+end
 
-config_dir = File.join rails_root, 'config'
+require Rails.root.join 'lib', 'configuration_methods'
+
+config_dir = Rails.root.join('config').to_s
 
 
 AppConfig ||= Configurate::Settings.create do

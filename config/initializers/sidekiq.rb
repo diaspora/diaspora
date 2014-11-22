@@ -11,30 +11,8 @@ if AppConfig.environment.single_process_mode? && Rails.env != "test"
   require 'sidekiq/testing/inline'
 end
 
-def (Sidekiq::Logging).logger
-  defined?(@logger) ? @logger : (AppConfig.heroku? ? initialize_logger : initialize_logger(AppConfig.sidekiq_log))
-end
-
 Sidekiq.configure_server do |config|
   config.redis = AppConfig.get_redis_options
-
-  config.options = config.options.merge({
-    concurrency: AppConfig.environment.sidekiq.concurrency.to_i,
-    queues: %w{
-      socket_webfinger
-      photos
-      http_service
-      dispatch
-      mail
-      delete_account
-      receive_local
-      receive
-      receive_salmon
-      http
-      maintenance
-      default
-    }
-  })
 
   config.server_middleware do |chain|
     chain.add SidekiqMiddlewares::CleanAndShortBacktraces
@@ -46,7 +24,7 @@ Sidekiq.configure_server do |config|
     ENV['DATABASE_URL'] = "#{database_url}?pool=#{AppConfig.environment.sidekiq.concurrency.get}"
     ActiveRecord::Base.establish_connection
   end
-  
+
   # Make sure each Sidekiq process has its own sequence of UUIDs
   UUID.generator.next_sequence
 end
