@@ -3,7 +3,7 @@
   background-color: transparent;
   overflow: hidden;
   z-index: 99999;
-  min-width: 247px !important;
+  min-width: 300px !important;
   width: 100%;
 
   -webkit-border-radius: 3px;
@@ -42,6 +42,8 @@
   // in relative units scroll will be broken in firefox
   //:line-height 16px
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .ac_loading {
@@ -70,5 +72,21 @@
     position: absolute;
     left: 5px;
     top: 5px;
+  }
+
+  .search_handle {
+    font-size: 0.8em;
+    color: #999;
+    margin-top: -3px;
+  }
+
+  .ac_over .search_handle{
+    color: #fff;
+  }
+
+  .ac_over .search_handle, .search_handle {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
