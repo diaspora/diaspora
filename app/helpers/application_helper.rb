@@ -4,17 +4,21 @@
 
 module ApplicationHelper
   def pod_name
-    AppConfig.settings.pod_name.present? ? AppConfig.settings.pod_name : "diaspora*"
+    AppConfig.settings.pod_name
   end
 
   def pod_version
-    AppConfig.version.number.present? ? AppConfig.version.number : ""
+    AppConfig.version.number
   end
 
   def changelog_url
     url = "https://github.com/diaspora/diaspora/blob/master/Changelog.md"
     url.sub!('/master/', "/#{AppConfig.git_revision}/") if AppConfig.git_revision.present?
     url
+  end
+
+  def source_url
+    AppConfig.settings.source_url.presence || "#{root_path.chomp('/')}/source.tar.gz"
   end
 
   def timeago(time, options={})
