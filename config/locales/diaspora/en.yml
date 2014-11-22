@@ -1188,6 +1188,8 @@ en:
       one: "Show one more comment"
       other: "Show %{count} more comments"
     hide_comments: "Hide all comments"
+    no_more_posts: "You have reached the end of the stream."
+    no_posts_yet: "There are no posts yet."
 
   tags:
     show:
