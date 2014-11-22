@@ -198,8 +198,18 @@ And /^I scroll down on the notifications dropdown$/ do
   page.execute_script("$('.notifications').scrollTop(350)")
 end
 
+And /^I scroll down by "([^\"]*)"$/ do |scrollAmount|
+  page.execute_script("window.scrollBy(0," + scrollAmount + ")")
+end
+
 Then /^I should have scrolled down$/ do
   page.evaluate_script("window.pageYOffset").should > 0
+end
+
+Then /^I should have scrolled to first post$/ do
+  elem_offset = page.evaluate_script("document.querySelectorAll('.stream_element:first-child')[0].getBoundingClientRect().top")
+  elem_offset.should > 0
+  elem_offset.should < 70
 end
 
 Then /^I should have scrolled down on the notification dropdown$/ do

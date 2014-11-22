@@ -56,15 +56,22 @@ module PublishingCukeHelpers
     end
   end
 
+  def collapse_first_post
+    within(".stream_element", match: :first) do
+      find(".collapse_post").click
+      expect(has_css?(".expander")).to be true
+    end
+  end
+
   def first_post_collapsed?
-    expect(find(".stream_element .collapsible", match: :first)).to have_css(".expander")
-    expect(page).to have_css(".stream_element .collapsible.collapsed", match: :first)
+    expect(find(".stream_element:first-child .collapsible")).to have_css(".expander")
+    expect(page).to have_css(".stream_element:first-child .collapsible.collapsed")
   end
 
   def first_post_expanded?
-    expect(page).to have_no_css(".stream_element .expander", match: :first)
-    expect(page).to have_no_css(".stream_element .collapsible.collapsed", match: :first)
-    expect(page).to have_css(".stream_element .collapsible.opened", match: :first)
+    expect(page).to have_no_css(".stream_element:first-child .expander")
+    expect(page).to have_no_css(".stream_element:first-child .collapsible.collapsed")
+    expect(page).to have_css(".stream_element:first-child .collapsible.opened")
   end
 
   def first_post_text

@@ -72,15 +72,16 @@ describe("app.views.Stream", function() {
 
       this.stream.trigger("allItemsLoaded", this.view);
 
-      expect($.fn.unbind).toHaveBeenCalledWith("scroll");
+      expect($.fn.unbind).toHaveBeenCalledWith("scroll", this.view.throttledScroll);
     });
   });
 
   describe("unbindInfScroll", function() {
     it("unbinds scroll", function() {
       spyOn($.fn, "unbind");
+
       this.view.unbindInfScroll();
-      expect($.fn.unbind).toHaveBeenCalledWith("scroll");
+      expect($.fn.unbind).toHaveBeenCalledWith("scroll", this.view.throttledScroll);
     });
   });
 });

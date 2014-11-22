@@ -2,8 +2,11 @@
 
 app.views.Content = app.views.Base.extend({
   events: {
-    "click .expander": "expandPost"
+    "click .expander": "expandPost",
+    "click .collapse_post": "collapsePost"
   },
+
+  tooltipSelector: ".collapse_post",
 
   presenter : function(){
     return _.extend(this.defaultPresenter(), {
@@ -13,7 +16,6 @@ app.views.Content = app.views.Base.extend({
       location: this.location()
     });
   },
-
 
   largePhoto : function() {
     var photos = this.model.get("photos")
@@ -30,12 +32,14 @@ app.views.Content = app.views.Base.extend({
 
 
   expandPost: function(evt) {
-    var el = $(this.el).find('.collapsible');
+    var el = $(this.el).find('.collapsible')
+      , collapsePostEl = $(this.el).find('.collapse_post');
     el.removeClass('collapsed').addClass('opened');
     el.animate({'height':el.data('orig-height')}, 550, function() {
       el.css('height','auto');
     });
-    $(evt.currentTarget).hide();
+    $(evt.currentTarget).remove();
+    collapsePostEl.show();
   },
 
   location: function(){
@@ -43,17 +47,41 @@ app.views.Content = app.views.Base.extend({
     return address;
   },
 
+  collapsePost : function() {
+    var elem = this.$(".collapsible");
+    elem.removeClass("opened");
+
+    // scroll to top of the post and collapse
+    var distanceToTop = this.$el.parents().filter('.stream_element').offset().top;
+    if(distanceToTop < $("html, body").scrollTop()) { // scroll upwards only
+      $("html, body").animate(
+        {'scrollTop': (distanceToTop - this.navigationBarHeight - 10)},
+        550,
+        _.bind(function(){
+          this.collapseOversized();
+        }, this)
+      );
+    } else {
+      this.collapseOversized();
+    }
+  },
+
   collapseOversized : function() {
     var collHeight = 200
       , elem = this.$(".collapsible")
       , oembed = elem.find(".oembed")
       , opengraph = elem.find(".opengraph")
+      , poll = elem.find(".poll")
+      , collapsePostEl = this.$('.collapse_post')
       , addHeight = 0;
     if($.trim(oembed.html()) != "") {
       addHeight += oembed.height();
     }
     if($.trim(opengraph.html()) != "") {
       addHeight += opengraph.height();
+    }
+    if($.trim(poll.html()) != "") {
+      addHeight += poll.height();
     }
 
     // only collapse if height exceeds collHeight+20%
@@ -67,11 +95,36 @@ app.views.Content = app.views.Base.extend({
           .addClass('expander')
           .text( Diaspora.I18n.t("show_more") )
       );
+      collapsePostEl.hide();
+    }
+  },
+
+  collapseControlPositionUpdater: function() {
+    var box = this.el.getBoundingClientRect();
+    var collapseControl = this.$el.find('.collapse_post');
+
+    // Top of the post is above viewport-top and bottom is still visible
+    // --> make the collapse control sticky
+    if(box.top < this.navigationBarHeight
+        && box.top + box.height - collapseControl.outerHeight(true) > this.navigationBarHeight) {
+      var posLeft = box.left + box.width - collapseControl.outerWidth(true);
+      collapseControl.addClass('collapseFixed').css('left', posLeft);
+    } else {
+      collapseControl.removeClass('collapseFixed').css('left', 'auto');
     }
   },
 
   postRenderTemplate : function(){
-    _.defer(_.bind(this.collapseOversized, this))
+    _.defer(_.bind(this.collapseOversized, this));
+
+    _.defer(_.bind(function() {
+      this.navigationBarHeight = $('header').outerHeight();
+
+      var throttledScroll = _.throttle(_.bind(
+        this.collapseControlPositionUpdater, this), 200
+      );
+      $(window).scroll(throttledScroll);
+    }, this));
   }
 });
 
