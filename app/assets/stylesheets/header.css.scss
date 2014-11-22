@@ -233,6 +233,7 @@ body > header {
         border: 1px solid #222;
         font-size: 13px;
         padding: 4px;
+        margin-top: 1px;
 
         &:hover { background-color: #555; }
 
@@ -345,7 +346,7 @@ body > header {
     float: left;
     height: 100%;
     margin-right: 5px;
-    margin-top: 3px;
+    margin-top: 2px;
 
     a {
       padding: 0 10px;
