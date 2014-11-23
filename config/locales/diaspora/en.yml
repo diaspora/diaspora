@@ -722,6 +722,7 @@ en:
       mentioned: "Mentioned"
       reshared: "Reshared"
       started_sharing: "Started sharing"
+      no_notifications: "You don't have any notifications yet."
       and_others:
         zero: "and nobody else"
         one: "and one more"

@@ -17,13 +17,7 @@ app.views.Conversations = Backbone.View.extend({
     }
 
     new app.views.ConversationsForm({contacts: gon.contacts});
-
-    $('.timeago').each(function(i,e) {
-        var jqe = $(e);
-        jqe.attr('title', new Date(jqe.attr('datetime')).toLocaleString());
-      })
-      .timeago()
-      .tooltip();
+    app.helpers.timeago($(this.el));
   },
 
   hideParticipants: function(e){
