@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
-gem 'rails', '4.1.7'
+gem 'rails', '4.1.8'
 
 # Legacy Rails features, remove me!
 
@@ -30,7 +30,7 @@ gem 'simple_captcha2', '0.3.2', :require => 'simple_captcha'
 
 # Background processing
 
-gem 'sidekiq', '3.2.6'
+gem 'sidekiq', '3.3.0'
 gem 'sinatra', '1.3.3'
 
 # Scheduled processing
@@ -59,7 +59,7 @@ gem 'sass-rails',     '4.0.4'
 
 ENV['DB'] ||= 'mysql'
 
-gem 'mysql2', '0.3.16' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
+gem 'mysql2', '0.3.17' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg',     '0.17.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 
 gem 'activerecord-import', '0.6.0'
@@ -68,8 +68,8 @@ gem 'foreigner',           '1.6.1'
 # File uploading
 
 gem 'carrierwave', '0.10.0'
-gem 'fog',         '1.24.0'
-gem 'mini_magick', '3.8.1'
+gem 'fog',         '1.25.0'
+gem 'mini_magick', '4.0.1'
 gem 'remotipart',  '1.2.1'
 
 # GUID generation
@@ -195,13 +195,13 @@ group :development do
   # Automatic test runs
   gem 'guard-cucumber', '1.5.1'
   gem 'guard-rspec',    '4.3.1'
-  gem 'guard',          '2.7.3', :require => false
+  gem 'guard',          '2.8.2', :require => false
   gem 'rb-fsevent',     '0.9.4', :require => false
   gem 'rb-inotify',     '0.9.5', :require => false
 
   # Preloading environment
 
-  gem 'guard-spork', '1.5.1'
+  gem 'guard-spork', '2.0.1'
   gem 'spork',       '1.0.0rc4'
 
   # Debugging
@@ -240,7 +240,7 @@ group :development, :test do
   gem 'cucumber-rails',     '1.4.2', :require => false
 
   # Jasmine (client side application tests (JS))
-  gem 'jasmine',              '2.0.3'
+  gem 'jasmine',              '2.1.0'
   gem 'jasmine-jquery-rails', '2.0.3'
   gem 'sinon-rails',	      '1.10.3'
 end
