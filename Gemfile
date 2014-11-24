@@ -69,7 +69,7 @@ gem 'foreigner',           '1.6.1'
 
 gem 'carrierwave', '0.10.0'
 gem 'fog',         '1.25.0'
-gem 'mini_magick', '3.8.1'
+gem 'mini_magick', '4.0.1'
 gem 'remotipart',  '1.2.1'
 
 # GUID generation
