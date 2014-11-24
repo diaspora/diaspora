@@ -111,6 +111,7 @@ This is disabled by default since it requires the installation of additional pac
 * Ask for confirmation when leaving a submittable publisher [#5309](https://github.com/diaspora/diaspora/pull/5309)
 * Allow page-specific styling via individual CSS classes [#5282](https://github.com/diaspora/diaspora/pull/5282)
 * Change diaspora logo in the header on hover [#5355](https://github.com/diaspora/diaspora/pull/5355)
+* Display diaspora handle in search results [#5419](https://github.com/diaspora/diaspora/pull/5419)
 
 # 0.4.1.2
 
