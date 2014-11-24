@@ -35,8 +35,6 @@ $(document).ready(function() {
             onlogin: true
           }
         });
-        // TODO unset debug on default (testing version)
-        jsxc.storage.setItem('debug', true);
         jsxc.login();
       } else {
         console.error('No token found! Authenticated!?');
