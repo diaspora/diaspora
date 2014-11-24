@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
   specs:
+    CFPropertyList (2.2.8)
     actionmailer (4.1.8)
       actionpack (= 4.1.8)
       actionview (= 4.1.8)
@@ -167,23 +168,31 @@ GEM
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.6)
+    fission (0.5.0)
+      CFPropertyList (~> 2.2)
     fixture_builder (0.3.6)
       activerecord (>= 2)
       activesupport (>= 2)
-    fog (1.24.0)
-      fog-brightbox
-      fog-core (~> 1.23)
+    fog (1.25.0)
+      fog-brightbox (~> 0.4)
+      fog-core (~> 1.25)
       fog-json
+      fog-profitbricks
       fog-radosgw (>= 0.0.2)
       fog-sakuracloud (>= 0.0.4)
       fog-softlayer
+      fog-terremark
+      fog-vmfusion
+      fog-voxel
+      fog-xml (~> 0.1.1)
       ipaddress (~> 0.5)
       nokogiri (~> 1.5, >= 1.5.11)
+      opennebula
     fog-brightbox (0.6.1)
       fog-core (~> 1.22)
       fog-json
       inflecto
-    fog-core (1.24.0)
+    fog-core (1.25.0)
       builder
       excon (~> 0.38)
       formatador (~> 0.2)
@@ -192,6 +201,10 @@ GEM
       net-ssh (>= 2.1.3)
     fog-json (1.0.0)
       multi_json (~> 1.0)
+    fog-profitbricks (0.0.1)
+      fog-core
+      fog-xml
+      nokogiri
     fog-radosgw (0.0.3)
       fog-core (>= 1.21.0)
       fog-json
@@ -202,6 +215,15 @@ GEM
     fog-softlayer (0.3.24)
       fog-core
       fog-json
+    fog-terremark (0.0.3)
+      fog-core
+      fog-xml
+    fog-vmfusion (0.0.1)
+      fission
+      fog-core
+    fog-voxel (0.0.1)
+      fog-core
+      fog-xml
     fog-xml (0.1.1)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
@@ -347,6 +369,10 @@ GEM
     opengraph_parser (0.2.3)
       addressable
       nokogiri
+    opennebula (4.10.1)
+      json
+      nokogiri
+      rbvmomi
     orm_adapter (0.5.0)
     phantomjs (1.9.7.1)
     pry (0.10.1)
@@ -441,6 +467,10 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    rbvmomi (1.8.2)
+      builder
+      nokogiri (>= 1.4.1)
+      trollop
     redcarpet (3.2.0)
     redis (3.1.0)
     redis-namespace (1.5.1)
@@ -529,6 +559,7 @@ GEM
     timecop (0.7.1)
     timers (4.0.1)
       hitimes
+    trollop (2.0)
     twitter (4.8.1)
       faraday (~> 0.8, < 0.10)
       multi_json (~> 1.0)
@@ -591,7 +622,7 @@ DEPENDENCIES
   faraday (= 0.9.0)
   faraday_middleware (= 0.9.1)
   fixture_builder (= 0.3.6)
-  fog (= 1.24.0)
+  fog (= 1.25.0)
   foreigner (= 1.6.1)
   foreman (= 0.62)
   fuubar (= 2.0.0)
