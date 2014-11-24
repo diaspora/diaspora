@@ -24,15 +24,22 @@ $(document).ready(function() {
           displayRosterMinimized: function() {
             return true;
           },
-          xmpp: {
-            url: $('script#jsxc').data('endpoint'),
-            username: jid.replace(/@.*?$/g, ''),
-            domain: jid.replace(/^.*?@/g, ''),
-            jid: jid,
-            password: data['token'],
-            resource: 'diaspora-jsxc',
-            overwrite: true,
-            onlogin: true
+          loginForm: {
+            form: '#jsxc_loginForm'
+          },
+          loadSettings: function() {
+            return {
+              xmpp: {
+                url: $('script#jsxc').data('endpoint'),
+                username: jid.replace(/@.*?$/g, ''),
+                domain: jid.replace(/^.*?@/g, ''),
+                jid: jid,
+                password: data['token'],
+                resource: 'diaspora-jsxc',
+                overwrite: true,
+                onlogin: true
+              }
+            }
           }
         });
       } else {
