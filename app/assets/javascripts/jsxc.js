@@ -35,7 +35,6 @@ $(document).ready(function() {
             onlogin: true
           }
         });
-        jsxc.login();
       } else {
         console.error('No token found! Authenticated!?');
       }
