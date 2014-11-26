@@ -1,5 +1,6 @@
 %li= link_to 'diaspora*', "https://diasporafoundation.org", :target => "_blank"
 %li= link_to 'uptime', "http://status.librenet.gr", :target => "_blank"
 %li= link_to(t('layouts.application.toggle'), toggle_mobile_path)
+%li= link_to 'source code', "https://github.com/librenet/librenet.gr", :target => "_blank"
 - if AppConfig.settings.terms.enable?
     %li= link_to(t('_terms'), terms_path)
