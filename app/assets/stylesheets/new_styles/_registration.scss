@@ -1,9 +1,12 @@
 #registration {
+  background-image: url('seabg.jpg');
+  background-size: cover;
   position:absolute;
   min-width: 100%;
   min-height: 100%;
-  background-color : #afc652;
+  background-color : #2C2E31;
   color: #fff;
+  padding-top: 10px;
 
   #create-something-text {
     font-family : Roboto-Light;
@@ -20,10 +23,19 @@
     white-space : nowrap;
   }
 
+  #diaspora-about {
+    font-family : Roboto-Light;
+    font-size : 1.2em;
+    line-height: 1.2em;
+    margin-top : 0.2em;
+    margin-bottom : 1em;
+  }
+
   #sign-up-text {
     font-family : Roboto-Bold;
-    color : #7f9448;
+    color : white;
     margin-bottom : 0.5em;
+    padding-top: 10px;
   }
 
   #collage {
