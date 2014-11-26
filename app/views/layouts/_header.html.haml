@@ -5,7 +5,7 @@
 %header
   - unless current_user
     .container{style: "position:relative;"}
-      = link_to content_tag(:div, nil, class: 'diaspora_header_logo branding-header-logo'), root_path
+      = link_to content_tag(:div, AppConfig.settings.pod_name, class: 'diaspora_header_logo'), root_path
 
       %ul#landing_nav
         - unless current_page?(controller: :registrations, action: :new)
