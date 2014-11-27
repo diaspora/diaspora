@@ -34,11 +34,15 @@
       if (typeof row.search !== "undefined") {
         return Diaspora.I18n.t("search_for", row);
       } else {
-				if (row.avatar) {
-					return "<img src='"+ row.avatar +"' class='avatar'/>" + row.name + "<div class='search_handle'>" + row.handle + "</div>";
-				} else {
-					return row.name + "<div class='search_handle'>" + row.handle + "</div>";
-				}
+        var item = "";
+        if (row.avatar) {
+          item += "<img src='"+ row.avatar +"' class='avatar'/>";
+        }
+        item += row.name;
+        if (row.handle) {
+          item += "<div class='search_handle'>" + row.handle + "</div>";
+        }
+        return item;
       }
     };
 
