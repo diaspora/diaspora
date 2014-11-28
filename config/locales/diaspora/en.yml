@@ -1305,6 +1305,7 @@ en:
       title: "Privacy Settings"
       ignored_users: "Ignored Users"
       stop_ignoring: "Stop ignoring"
+      no_user_ignored_message: "You are currently ignoring no other user"
 
     destroy:
       success: "Your account has been locked. It may take 20 minutes for us to finish closing your account. Thank you for trying diaspora*."

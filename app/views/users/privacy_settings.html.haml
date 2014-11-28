@@ -20,6 +20,9 @@
     .span5
       %h3
         = t('.ignored_users')
+      
+      - if @blocks.length.zero?
+        = t('.no_user_ignored_message')
 
       - @blocks.each do |block|
         = block.person_name
