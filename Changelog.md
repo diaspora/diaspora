@@ -112,6 +112,7 @@ This is disabled by default since it requires the installation of additional pac
 * Allow page-specific styling via individual CSS classes [#5282](https://github.com/diaspora/diaspora/pull/5282)
 * Change diaspora logo in the header on hover [#5355](https://github.com/diaspora/diaspora/pull/5355)
 * Display diaspora handle in search results [#5419](https://github.com/diaspora/diaspora/pull/5419)
+* Show a message on the ignored users page when there are none [#5434](https://github.com/diaspora/diaspora/pull/5434)
 
 # 0.4.1.2
 
