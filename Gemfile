@@ -154,6 +154,13 @@ gem 'rails-timeago',           '2.11.0'
 # https://github.com/rubyzip/rubyzip#important-note
 gem 'zip-zip'
 
+# Prevent occasions where minitest is not bundled in
+# packaged versions of ruby. See following issues/prs:
+# https://github.com/gitlabhq/gitlabhq/issues/3826
+# https://github.com/gitlabhq/gitlabhq/pull/3852
+# https://github.com/discourse/discourse/pull/238
+gem 'minitest'
+
 
 # Windows and OSX have an execjs compatible runtime built-in, Linux users should
 # install Node.js or use 'therubyracer'.
