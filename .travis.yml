@@ -11,6 +11,7 @@ env:
   - DB=mysql BUILD_TYPE=cucumber
 
 sudo: false
+cache: bundler
 
 branches:
   only:
