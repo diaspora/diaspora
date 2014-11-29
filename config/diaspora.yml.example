@@ -505,6 +505,11 @@ configuration: ## Section
         ## Limit queuing for removal per day.
         #limit_removals_to_per_day: 100
 
+    ## Source code URL
+    ## URL to the source code your pod is currently running.
+    ## If not set your pod will provide a downloadable archive.
+    #source_url: 'https://example.org/username/diaspora'
+
   ## Posting from Diaspora to external services (all are disabled by default).
   services: ## Section
 

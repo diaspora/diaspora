@@ -133,6 +133,7 @@ defaults:
         after_days: 730
         warn_days: 30
         limit_removals_to_per_day: 100
+    source_url:
   services:
     facebook:
       enable: false
