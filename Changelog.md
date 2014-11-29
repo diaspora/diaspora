@@ -73,7 +73,8 @@ This is disabled by default since it requires the installation of additional pac
 * Hidden overflow for long names on tag pages [#5279](https://github.com/diaspora/diaspora/pull/5279)
 * Always reshare absolute root of a post [#5276](https://github.com/diaspora/diaspora/pull/5276)
 * Convert remaining SASS stylesheets to SCSS [#5342](https://github.com/diaspora/diaspora/pull/5342)
-* Update rack-protection [#5403](https://github.com/diaspora/diaspora/pull/5403
+* Update rack-protection [#5403](https://github.com/diaspora/diaspora/pull/5403)
+* Cleanup diaspora.yml [#5426](https://github.com/diaspora/diaspora/pull/5426)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
