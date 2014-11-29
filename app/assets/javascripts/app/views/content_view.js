@@ -116,7 +116,25 @@ app.views.OEmbed = app.views.Base.extend({
 });
 
 app.views.OpenGraph = app.views.Base.extend({
-  templateName : "opengraph"
+  templateName : "opengraph",
+
+  initialize: function() {
+    this.truncateDescription();
+  },
+
+  truncateDescription: function() {
+    // truncate opengraph description to 250 for stream view
+    if(this.model.has('open_graph_cache')) {
+      var ogdesc = this.model.get('open_graph_cache');
+      ogdesc.description = app.helpers.truncate(ogdesc.description, 250);
+    }
+  }
+});
+
+app.views.SPVOpenGraph = app.views.OpenGraph.extend({
+  truncateDescription: function () {
+    // override with nothing
+  }
 });
 // @license-end
 
