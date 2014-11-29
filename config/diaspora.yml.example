@@ -406,6 +406,11 @@ configuration: ## Section
     ## of your Sidekiq workers.
     #typhoeus_concurrency: 20
 
+    ## Maximum number of open connections to other pods (default=10)
+    ## Raising this will make delivering posts to other pods faster
+    ## but also increase memory usage.
+    #typhoeus_connects: 10
+
     ## Captcha settings
     captcha: ## Section
 

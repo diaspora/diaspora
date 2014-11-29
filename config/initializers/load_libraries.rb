@@ -1,6 +1,7 @@
 # Stdlib
 require 'cgi'
 require 'uri'
+require 'singleton'
 
 # Not auto required gems
 require 'builder/xchar'

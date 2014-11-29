@@ -3,6 +3,41 @@
 #   the COPYRIGHT file.
 
 class HydraWrapper
+  # Make a monitor object to share a global hydra instance
+  class GlobalHydra
+    include Singleton
+
+    def initialize
+      @run_mutex = Mutex.new
+      @queue_mutex = Mutex.new
+    end
+
+    def run
+      @run_mutex.synchronize do
+        hydra.run
+      end
+    end
+
+    def queue *args
+      @queue_mutex.synchronize do
+        hydra.queue *args
+      end
+    end
+
+    # Forget memorized hydra instance
+    def reset!
+      @hydra = nil
+    end
+
+    private
+
+    def hydra
+      @hydra ||= Typhoeus::Hydra.new(
+        maxconnects: AppConfig.settings.typhoeus_connects.to_i,
+        max_concurrency: AppConfig.settings.typhoeus_concurrency.to_i
+      )
+    end
+  end
 
   OPTS = {
     maxredirs: 3,
@@ -36,7 +71,7 @@ class HydraWrapper
   def enqueue_batch
     grouped_people.each do |receive_url, people_for_receive_url|
       if xml = xml_factory.xml_for(people_for_receive_url.first)
-        insert_job(receive_url, xml, people_for_receive_url)
+        insert_job(receive_url, xml, people_for_receive_url.map(&:id))
       end
     end
   end
@@ -52,7 +87,7 @@ class HydraWrapper
   private
 
   def hydra
-    @hydra ||= Typhoeus::Hydra.new(max_concurrency: AppConfig.settings.typhoeus_concurrency.to_i)
+    @hydra ||= GlobalHydra.instance
   end
 
   # @return [Salmon]
@@ -63,7 +98,7 @@ class HydraWrapper
   # Group people on their receiving_urls
   # @return [Hash] People grouped by receive_url ([String] => [Array<Person>])
   def grouped_people
-    @people.group_by { |person|
+    @people.group_by {|person|
       @dispatcher_class.receive_url_for person
     }
   end
@@ -71,22 +106,22 @@ class HydraWrapper
   # Prepares and inserts job into the hydra queue
   # @param url [String]
   # @param xml [String]
-  # @params people [Array<Person>]
-  def insert_job url, xml, people
+  # @params people_ids [Array<Integer>]
+  def insert_job url, xml, people_ids
     request = Typhoeus::Request.new url, OPTS.merge(body: {xml: CGI.escape(xml)})
-    prepare_request request, people
+    prepare_request request, people_ids
     hydra.queue request
   end
 
   # @param request [Typhoeus::Request]
-  # @param person [Person]
-  def prepare_request request, people_for_receive_url
+  # @param people_ids_for_receive_url [Array<Integer>]
+  def prepare_request request, people_ids_for_receive_url
     request.on_complete do |response|
       # Save the reference to the pod to the database if not already present
       Pod.find_or_create_by(url: response.effective_url)
 
       if redirecting_to_https? response
-        Person.url_batch_update people_for_receive_url, response.headers_hash['Location']
+        Person.url_batch_update people_ids_for_receive_url, response.headers_hash['Location']
       end
 
       unless response.success?
@@ -99,7 +134,7 @@ class HydraWrapper
         Rails.logger.info message.to_a.map { |k,v| "#{k}=#{v}" }.join(' ')
 
         if @keep_for_retry_proc.call(response)
-          @people_to_retry += people_for_receive_url.map(&:id)
+          @people_to_retry.concat people_ids_for_receive_url
         end
 
       end
