@@ -114,6 +114,7 @@ This is disabled by default since it requires the installation of additional pac
 * Change diaspora logo in the header on hover [#5355](https://github.com/diaspora/diaspora/pull/5355)
 * Display diaspora handle in search results [#5419](https://github.com/diaspora/diaspora/pull/5419)
 * Show a message on the ignored users page when there are none [#5434](https://github.com/diaspora/diaspora/pull/5434)
+* Truncate too long OpenGraph descriptions [#5387](https://github.com/diaspora/diaspora/pull/5387)
 
 # 0.4.1.2
 
