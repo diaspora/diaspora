@@ -18,7 +18,7 @@ branches:
     - 'master'
     - 'develop'
 
-bundler_args: "--without development production heroku --jobs 3 --retry 3"
+bundler_args: "--without development production heroku --jobs 3 --retry 3 --deployment"
 
 script: "./script/ci/build.sh"
 
