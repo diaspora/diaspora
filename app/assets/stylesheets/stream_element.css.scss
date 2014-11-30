@@ -6,6 +6,10 @@
   & > .media {
     margin: 0px;
   }
+  &.deleting {
+    > .media { opacity: 0.3; }
+    .controls { display: none !important; }
+  }
 }
 
 #main_stream .stream_element {
