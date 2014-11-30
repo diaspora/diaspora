@@ -46,7 +46,7 @@ module Configuration
           File.dirname(__FILE__)
         )
         unless File.exist? token_file
-          `bundle exec rake generate:secret_token`
+          `bin/rake generate:secret_token`
         end
         require token_file
         Diaspora::Application.config.secret_key_base
