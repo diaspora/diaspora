@@ -45,6 +45,7 @@ gl:
   no_results: "Non se atopou nada."
   _contacts: "Contactos"
   welcome: "Benvido!"
+  _terms: "termos"
 
 
   activerecord:
@@ -179,6 +180,7 @@ gl:
     contacts_visible: "Os contactos deste aspecto poderán verse os uns aos outros."
     contacts_not_visible: "Os contactos deste aspecto non poderán verse os uns aos outros."
     edit:
+      grant_contacts_chat_privilege: "Permitir aos contactos do aspecto conversar con vostede?"
       make_aspect_list_visible: "Deixar que os contactos deste aspecto vexan a lista de membros?"
       remove_aspect: "Eliminar o aspecto"
       confirm_remove_aspect: "Está seguro de que quere eliminar este aspecto?"
@@ -189,6 +191,8 @@ gl:
       rename: "Renomear"
       aspect_list_is_visible: "Os contactos do aspecto poden ver a lista dos membros."
       aspect_list_is_not_visible: "Os contactos do aspecto non poden ver a lista dos membros."
+      aspect_chat_is_enabled: "Os contactos do aspecto poden conversar con vostede."
+      aspect_chat_is_not_enabled: "Os contactos do aspecto non poden conversar con vostede."
       update: "Actualizar"
       updating: "Actualizando…"
     aspect_contacts:
@@ -336,8 +340,10 @@ gl:
       my_contacts: "Contactos"
       all_contacts: "Todos os contactos"
       only_sharing_with_me: "Só eles comparten"
-      remove_person_from_aspect: "Eliminar a %{person_name} de «%{aspect_name}»"
+      add_contact: "Engadir un contacto"
+      remove_contact: "Retirar o contacto"
       many_people_are_you_sure: "Está seguro de que quere iniciar unha conversa privada con máis de %{suggested_limit} contactos? Para comunicarse con eles, quizais sexa mellor publicar neste aspecto."
+      user_search: "Busca de usuarios"
     spotlight:
       community_spotlight: "Estrelas da comunidade"
       suggest_member: "Suxerir un membro"
@@ -559,6 +565,14 @@ gl:
       people_tag_page_a: "Trátase de persoas que teñen a etiqueta na lista de etiquetas coas que se describen no seu perfil público."
       filter_tags_q: "Como podo filtrar ou excluír algunha etiqueta da miña onda?"
       filter_tags_a: "Iso aínda non pode facerse directamente a través de diaspora*, aínda que existen algunhas %{third_party_tools} que poderían dispoñer desta funcionalidade."
+    keyboard_shortcuts:
+      keyboard_shortcuts_q: "Que atallos de teclado hai dispoñíbeis?"
+      keyboard_shortcuts_a1: "Na vista da onda pode usar os seguintes atallos:"
+      keyboard_shortcuts_li1: "j — Ir á seguinte publicación"
+      keyboard_shortcuts_li2: "k — Volver á publicación anterior"
+      keyboard_shortcuts_li3: "c — Deixar un comentario na publicación actual"
+      keyboard_shortcuts_li4: "l — Indicar que lle gusta a publicación actual"
+      title: "Atallos de teclado"
     miscellaneous:
       title: "Outras"
       back_to_top_q: "Existe algún xeito de volver rapidamente á parte superior dunha páxina despois de baixar?"
@@ -694,6 +708,7 @@ gl:
     index:
       notifications: "Notificacións"
       mark_all_as_read: "Marcalas todas como lidas"
+      mark_all_shown_as_read: "Marcas todas as mostradas como lidas"
       mark_read: "Marcar como lido"
       mark_unread: "Marcar como non lido"
       show_all: "Mostralo todo"
@@ -782,6 +797,22 @@ gl:
         O robot do correo de diaspora*
 
         [1]: %{invite_url}
+    remove_old_user:
+      subject: "A súa conta de diaspora* marcouse para a súa eliminación por inactividade"
+      body: |-
+        Ola,
+
+        Parece que perdeu interese na súa conta de %{pod_url}, leva %{after_days} días sen usala. Para que os usuarios activos do servidor teñan acceso a máis recursos, gustaríanos eliminar calquera conta non desexada da nosa base de datos.
+
+        Encantaríanos que vostede continuase a formar parte da comunidade de diaspora*, e se quere manter a conta será benvido.
+
+        Para non perder a conta, non ten máis que acceder ao servidor coa conta antes de %{remove_after}. Ao acceder, aproveite para botar un ollo a diaspora*. Cambiou moito desde a súa última visita, e pensamos que as melloras que fixemos han encherlle o ollo. Siga algunhas #etiquetas para atopar contidos que lle interesen.
+
+        Pode acceder ao sitio desde: %{login_url}. Se esqueceu os seus datos de acceso, pode solicitar recuperalos desde a mesma páxina.
+
+        Esperamos volvelo ver axiña,
+
+        O robot de correo electrónico de diaspora*!
   people:
     zero: "ninguén."
     one: "unha persoa."
@@ -956,6 +987,8 @@ gl:
       password: "Contrasinal"
       continue: "Continuar"
       submitting: "Enviando…"
+      terms: "Ao crear unha conta estás a aceptar as %{terms_link}."
+      terms_link: "condicións do servizo"
     create:
       success: "Xa está en diaspora*!"
     edit:
@@ -1138,10 +1171,7 @@ gl:
       no_message_to_display: "Non hai mensaxes que amosar."
     destroy:
       failure: "Non foi posíbel eliminar a publicación."
-    too_long:
-      zero: "As súas mensaxes de estado non poden ter ningún carácter. Curioso, va que si?"
-      one: "As súas mensaxes de estado non poden ter máis dun carácter. Elíxao ben!"
-      other: "As súas mensaxes de estado non poden ter máis de %{count} caracteres."
+    too_long: "A súa mensaxes de estado non pode ter máis de %{count} caracteres. Agora mesmo contén %{current_length} caracteres."
 
   stream_helper:
     show_comments:
@@ -1149,6 +1179,8 @@ gl:
       one: "Amosar o comentario que falta"
       other: "Amosar %{count} comentarios máis"
     hide_comments: "Ocultar os comentarios"
+    no_more_posts: "Chegou ao final da súa onda."
+    no_posts_yet: "Aínda non hai publicacións."
 
   tags:
     show:
@@ -1259,18 +1291,19 @@ gl:
 
       close_account:
         dont_go: "Non marche, por favor!"
-        make_diaspora_better: "Queremos que nos axude a mellorar diaspora*, así que debería axudar en vez de marchar. Pero se vai marchar, queremos que saiba o que lle espera."
+        make_diaspora_better: "Gustaríanos que quedase e nos axudase a mellorar diaspora* en vez de marchar. Pero se de verdade quere marchar, isto será o que suceda a continuación:"
         mr_wiggles: 'Botarémolo de menos.'
-        what_we_delete: "Eliminaranse as súas publicacións e datos do perfil canto antes. Os seus comentarios seguirán por aí, pero pasarán a estar asociados co seu identificador de diaspora* en lugar do seu nome."
-        locked_out: "Pecharase a súas sesión e non poderá volver entrar coa súa conta."
-        lock_username: "Se lle entra a morriña, non poderá volver empregar o seu usuario."
-        no_turning_back: "De momento, non hai xeito de volver atrás."
+        what_we_delete: "Eliminaranse as súas publicacións e datos do perfil canto antes. Os seus comentarios nas publicacións de terceiros seguirán aparecendo, pero pasarán a estar asociados co seu identificador de diaspora* en lugar do seu nome."
+        locked_out: "Pecharase a súas sesión e non poderá volver entrar coa súa conta ata que se elimine."
+        lock_username: "Bloquearase o seu usuario, e non poderá volver a crear unha conta no mesmo servidor co mesmo identificador."
+        no_turning_back: "Non hai volta atrás! Se está seguro, introduza o seu contrasinal a continuación."
         if_you_want_this: "Se está seguro de que isto é o que quere, escriba o seu contrasinal a continuación e prema o botón de «Pechar a conta»."
 
     privacy_settings:
       title: "Configuración da intimidade"
       ignored_users: "Usuarios ignorados"
       stop_ignoring: "Deixar de ignorar"
+      no_user_ignored_message: "De momento non está a ignorar ningún usuario"
 
     destroy:
       success: "Bloqueouse a súa conta. Pode levar ata 20 minutos pechala completamente. Grazas por darlle unha oportunidade a diaspora*."

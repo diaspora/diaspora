@@ -7,6 +7,7 @@
 gl:
   javascripts:
     confirm_dialog: "Está seguro?"
+    confirm_unload: "Confirme que quere abandonar esta páxina. Non se gardarán os datos que introduciu."
     report:
       prompt: "Explique o motivo:"
       prompt_default: "Contido ofensivo"
@@ -20,9 +21,12 @@ gl:
     ignore: "Ignorar"
     report: "Denunciar"
     ignore_user: "Ignorar este usuario?"
+    ignore_failed: "Non é posíbel ignorar a este usuario"
+    unblock_failed: "Non foi posíbel retirarlle o bloqueo a este usuario"
     and: "e"
     comma: ","
     edit: "Editar"
+    no_results: "Non se atoparon resultados"
     timeago:
       prefixAgo: "Hai"
       prefixFromNow: "Dentro de"
@@ -41,6 +45,14 @@ gl:
       years: "%d anos."
       wordSeparator: " "
 
+    contacts:
+      add_contact: "Engadir un contacto"
+      aspect_list_is_visible: "Os contactos deste aspecto poden verse os uns aos outros."
+      aspect_list_is_not_visible: "Os contactos deste aspecto non poden verse os uns aos outros."
+      remove_contact: "Retirar o contacto"
+      error_add: "Non foi posíbel engadir a <%= name %> ao aspecto :("
+      error_remove: "Non foi posíbel retirar a <%= name %> do aspecto :("
+
     my_activity: "Actividade"
     my_stream: "Onda"
     my_aspects: "Aspectos"
@@ -54,8 +66,8 @@ gl:
       limited: "Limitado. Só poderá velo a xente coa que comparte."
       public: "Público. Poderá velo calquera, e aparecerá nos motores de busca."
       near_from: "Publicado desde <%= location %>"
-      option: "Opción <%= nr %>"
-      add_option: "Engadir unha opción"
+      option: "Resposta"
+      add_option: "Engadir unha resposta"
       question: "Cuestión"
     bookmarklet:
       post_something: "Publicar en diaspora*"
@@ -107,6 +119,25 @@ gl:
       wasnt_that_interesting: "Vale, supoño que #<%= tagName %> non era tan interesante…"
     people:
       not_found: "Non se atopou a ninguén."
+      mention: "Mención"
+      message: "Mensaxe"
+      edit_my_profile: "Editar o perfil persoal"
+      stop_ignoring: "Deixar de ignorar"
+      helper:
+        is_sharing: "<%= name %> está a compartir con vostede"
+        is_not_sharing: "<%= name %> non está a compartir con vostede"
+    profile:
+      edit: "Editar"
+      add_some: "Engadir algunhas"
+      you_have_no_tags: "Non ten etiquetas!"
+      ignoring: "Está a ignorar todas as publicacións de <%= name %>."
+      bio: "Biografía"
+      location: "Lugar"
+      gender: "Sexo"
+      born: "Data de nacemento"
+      photos: "Fotos"
+      contacts: "Contactos"
+      posts: "Publicacións"
 
     conversation:
       participants: "Participantes"
