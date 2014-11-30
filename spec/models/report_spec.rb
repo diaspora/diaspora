@@ -38,13 +38,13 @@ describe Report, :type => :model do
 
     it 'validates that post does exist' do
       report = @valid_post_report
-      report[:item_id] = 666;
+      report[:item_id] = 0;
       expect(@user.reports.build(report)).not_to be_valid
     end
 
     it 'validates that comment does exist' do
       report = @valid_comment_report
-      report[:item_id] = 666;
+      report[:item_id] = 0;
       expect(@user.reports.build(report)).not_to be_valid
     end
 
