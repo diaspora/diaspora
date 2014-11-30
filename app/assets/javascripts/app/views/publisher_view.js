@@ -56,6 +56,9 @@ app.views.Publisher = Backbone.View.extend({
     if( this.el_hiddenInput.val() == "" ) {
       this.el_hiddenInput.val( this.el_input.val() );
     }
+    if( this.el_input.val() == "" ) {
+      this.el_input.val( this.el_hiddenInput.val() );
+    }
 
     // hide close and preview buttons, in case publisher is standalone
     // (e.g. bookmarklet, mentions popup)
@@ -146,6 +149,7 @@ app.views.Publisher = Backbone.View.extend({
   setText: function(txt) {
     this.el_input.val(txt);
     this.el_hiddenInput.val(txt);
+    this.prefillText = txt;
 
     this.el_input.trigger('input');
     this.handleTextchange();
@@ -479,7 +483,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   _beforeUnload: function(e) {
-    if(this._submittable()){
+    if(this._submittable() && this.el_input.val() != this.prefillText){
       var confirmationMessage = Diaspora.I18n.t("confirm_unload");
       (e || window.event).returnValue = confirmationMessage;       //Gecko + IE
       return confirmationMessage;                                  //Webkit, Safari, Chrome, etc.

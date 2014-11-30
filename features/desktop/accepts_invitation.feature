@@ -13,6 +13,7 @@ Feature: invitation acceptance
       And I follow "awesome_button"
       And I confirm the alert
       Then I should be on the stream page
+      And I close the publisher
 
     Scenario: accept invitation from user
       Given I have been invited by bob
@@ -27,6 +28,7 @@ Feature: invitation acceptance
       And I follow "awesome_button"
       And I confirm the alert
       Then I should be on the stream page
+      And I close the publisher
       And I log out
       And I sign in as "bob@bob.bob"
       And I follow "By email"

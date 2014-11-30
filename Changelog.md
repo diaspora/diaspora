@@ -96,6 +96,7 @@ This is disabled by default since it requires the installation of additional pac
 * Fix hidden aspect dropdown on getting started page [#5407](https://github.com/diaspora/diaspora/pulls/5407)
 * Fix a few issues on Bootstrap pages [#5401](https://github.com/diaspora/diaspora/pull/5401)
 * Improve handling of the `more` link on mobile stream pages [#5400](https://github.com/diaspora/diaspora/pull/5400)
+* Fix prefilling publisher after getting started [#5442](https://github.com/diaspora/diaspora/pull/5442)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
@@ -117,6 +118,7 @@ This is disabled by default since it requires the installation of additional pac
 * Show a message on the ignored users page when there are none [#5434](https://github.com/diaspora/diaspora/pull/5434)
 * Truncate too long OpenGraph descriptions [#5387](https://github.com/diaspora/diaspora/pull/5387)
 * Make the source code URL configurable [#5410](https://github.com/diaspora/diaspora/pull/5410)
+* Prefill publisher on the tag pages [#5442](https://github.com/diaspora/diaspora/pull/5442)
 
 # 0.4.1.2
 

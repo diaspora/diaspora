@@ -1240,7 +1240,6 @@ en:
     tags:
       title: "Posts tagged: %{tags}"
       contacts_title: "People who dig this tag"
-      tag_prefill_text: "The thing about %{tag_name} is... "
 
     public:
       title: "Public Activity"

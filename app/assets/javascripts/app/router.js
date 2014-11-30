@@ -106,6 +106,7 @@ app.Router = Backbone.Router.extend({
             {tagText: decodeURIComponent(name).toLowerCase()}
           );
       $("#author_info").prepend(followedTagsAction.render().el)
+      app.tags = new app.views.Tags({tagName: name});
     }
     this._hideInactiveStreamLists();
   },
