@@ -131,25 +131,23 @@ describe NotificationsController, :type => :controller do
       expect(Notification.where(:unread => true).count).to eq(1)
     end
     it "should redirect back in the html version if it has > 0 notifications" do
-      FactoryGirl.create(:notification, :recipient => alice)
-      eve.share_with(alice.person, eve.aspects.first)
-      get :read_all, :format => :html, "type" => "started_sharing"
+      FactoryGirl.create(:notification, :recipient => alice, :type => "Notifications::StartedSharing")
+      get :read_all, :format => :html, "type" => "liked"
       expect(response).to redirect_to(notifications_path)
     end
     it "should redirect back in the mobile version if it has > 0 notifications" do
-      FactoryGirl.create(:notification, :recipient => alice)
-      eve.share_with(alice.person, eve.aspects.first)
-      get :read_all, :format => :mobile, "type" => "started_sharing"
+      FactoryGirl.create(:notification, :recipient => alice, :type => "Notifications::StartedSharing")
+      get :read_all, :format => :mobile, "type" => "liked"
       expect(response).to redirect_to(notifications_path)
     end
     it "should redirect to stream in the html version if it has 0 notifications" do
-      FactoryGirl.create(:notification, :recipient => alice)
-      get :read_all, :format => :html
+      FactoryGirl.create(:notification, :recipient => alice, :type => "Notifications::StartedSharing")
+      get :read_all, :format => :html, "type" => "started_sharing"
       expect(response).to redirect_to(stream_path)
     end
     it "should redirect back in the mobile version if it has 0 notifications" do
-      FactoryGirl.create(:notification, :recipient => alice)
-      get :read_all, :format => :mobile
+      FactoryGirl.create(:notification, :recipient => alice, :type => "Notifications::StartedSharing")
+      get :read_all, :format => :mobile, "type" => "started_sharing"
       expect(response).to redirect_to(stream_path)
     end
     it "should return a dummy value in the json version" do
