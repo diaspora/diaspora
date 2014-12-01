@@ -108,4 +108,20 @@ describe Conversation, :type => :model do
       end
     end
   end
+
+  describe '#invalid parameters' do
+    before do
+      @invalid_hash = {
+        :author => peter.person,
+        :participant_ids => [peter.person.id, @user1.person.id],
+        :subject => "cool stuff",
+        :messages_attributes => [ {:author => peter.person, :text => 'hey'} ]
+      }
+    end
+    
+    it 'with invalid recipient' do
+      conversation = Conversation.create(@invalid_hash)
+      expect(conversation).to be_invalid
+    end
+  end
 end
