@@ -29,9 +29,9 @@ before_fork do |server, worker|
   unless AppConfig.single_process_mode?
     Sidekiq.redis {|redis| redis.client.disconnect }
   end
-  
+
   if AppConfig.server.embed_sidekiq_worker?
-    @sidekiq_pid ||= spawn('bundle exec sidekiq')
+    @sidekiq_pid ||= spawn('bin/bundle exec sidekiq')
   end
 
   old_pid = '/var/run/diaspora/diaspora.pid.oldbin'
