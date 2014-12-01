@@ -42,8 +42,8 @@ ActionController::Base.allow_rescue = false
 require 'database_cleaner'
 require 'database_cleaner/cucumber'
 # DatabaseCleaner.strategy = :truncation
-DatabaseCleaner.strategy = :transaction
-# DatabaseCleaner.strategy = :deletion
+# DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.strategy = :deletion
 # DatabaseCleaner.strategy = :truncation, {pre_count: true}
 DatabaseCleaner.orm = "active_record"
 Cucumber::Rails::World.use_transactional_fixtures = false
