@@ -1,5 +1,5 @@
 - content_for :page_title do
-  = "#{AppConfig.settings.pod_name} / #{t('devise.passwords.edit.change_password')}"
+  = "#{AppConfig.settings.pod_name} - #{t('devise.passwords.edit.change_password')}"
 
 #reset_password
   .container-fluid
@@ -7,23 +7,23 @@
       .branding-asterisk
       %h1
         = AppConfig.settings.pod_name
-          
+
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: "form-horizontal block-form", method: :put }, autocomplete: 'off') do |f|
       %fieldset
+        %label{for: "user_password"}
+          = t('devise.passwords.edit.new_password')
+        %i.entypo.lock
+        = f.password_field :password, class: "input-block-level form-control", required: true, placeholder: t('devise.passwords.edit.new_password'), autocapitalize: "none", autocorrect: "off", autofocus: true
+
         = f.hidden_field :reset_password_token
-        .control-group
-          %label{class: "control-label", for: "user_password"}
-            = t('devise.passwords.edit.new_password')
-          .controls
-            = f.password_field :password, required: true, placeholder: "••••••••", autocapitalize: "off", autocorrect: "off", autofocus: true
-        .control-group
-          %label{class: "control-label", for: "user_password_confirmation"}
-            = t('devise.passwords.edit.confirm_password')
-          .controls
-            = f.password_field :password_confirmation, required: true, placeholder: "••••••••", autocapitalize: "off", autocorrect: "off"
-        = hidden_field(:user, :remember_me, value: 1)
+
+        %label{for: "user_password_confirmation"}
+          = t('devise.passwords.edit.confirm_password')
+        %i.entypo.lock
+        = f.password_field :password_confirmation, class: "input-block-level form-control", required: true, placeholder: t('devise.passwords.edit.confirm_password'), autocapitalize: "none", autocorrect: "off"
+
+      = hidden_field(:user, :remember_me, value: 1)
       = f.submit t('devise.passwords.edit.change_password'), class: "btn"
 
     .text-center
       = link_to t('devise.shared.links.sign_in'), new_session_path(resource_name)
-

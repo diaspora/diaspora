@@ -1,91 +1,16 @@
 #login,
 #forgot_password,
 #reset_password {
-  padding-top: 20px;
-  
+  padding-top: 25px;
+
   .branding-asterisk {
     margin: auto;
     width: 154px;
     height: 154px;
-    margin-bottom: 30px;
+    margin-bottom: 12px;
   }
-  
-  .span4.offset4 {
-    margin-bottom: 30px;
-  }
-  
-  label {
-    text-transform: uppercase;
-    text-align: right;
-    padding: 10px 0;
-    overflow: hidden;
-  }
-  
-  #new_user {
-    display: block;
-    margin: auto;
+
+  form.block-form {
     max-width: 400px;
-    margin-bottom: 30px;
-  }
-} 
-
-#login {
-  .form-signin {
-    .form-control {
-      font-size: 16px;
-      height: auto;
-      padding: 10px;
-      padding-left: 40px;
-    }
-    fieldset {
-      margin-bottom: 20px;
-    }
-    .entypo {
-      position: relative;
-      display: inline-block;
-      width: 20px;
-      text-align: center;
-      top: -6px;
-      left: 12px;
-      color: $text-grey;
-      font-size: 20px;
-    }
-    input[type=text], input[type=password] {
-      &:focus {
-        border: 1px solid #ccc;
-      }
-    }
-    input[type=text] {
-      margin-bottom: -24px;
-      border-radius: 5px 5px 0 0;
-    }
-    input[type=password] {
-      margin-bottom: -23px;
-      border-radius: 0 0 5px 5px;
-    }
-  }
-}
-
-#forgot_password {
-  label {
-    width: 40%;
-  }
-    
-  input[type=password] {
-    width: 60%;
-  }
-}
-
-#reset_password {
-  label {
-    width: 45%;
-  }
-   
-  input[type=password] {
-    width: 55%;
-  }
-  
-  #new_user {
-    width: 500px;
   }
 }

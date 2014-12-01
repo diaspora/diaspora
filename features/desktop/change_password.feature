@@ -12,15 +12,17 @@ Feature: Change password
     Then I should be on the stream page
 
   Scenario: Reset my password
-    Given a user with email "forgetful@users.net"
+    Given a user named "Georges Abitbol" with email "forgetful@users.net"
     Given I am on forgot password page
     When I fill out forgot password form with "forgetful@users.net"
     And I submit forgot password form
     Then I should see "You will receive an email with instructions"
     When I follow the "Change my password" link from the last sent email
-    Then I should see "NEW PASSWORD"
     When I fill out reset password form with "supersecret" and "supersecret"
     And I submit reset password form
+    Then I should be on the stream page
+    And I sign out manually
+    And I sign in manually as "georges_abitbol" with password "supersecret"
     Then I should be on the stream page
 
   Scenario: Attempt to reset password with invalid email
