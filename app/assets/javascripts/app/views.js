@@ -121,11 +121,13 @@ app.views.Base = Backbone.View.extend({
     var url = this.model.urlRoot + '/' + this.model.id;
 
     if (confirm(Diaspora.I18n.t("confirm_dialog"))) {
+      this.$el.addClass('deleting');
       this.model.destroy({ url: url })
         .done(function() {
           self.remove();
         })
         .fail(function() {
+          self.$el.removeClass('deleting');
           var flash = new Diaspora.Widgets.FlashMessages;
           flash.render({
             success: false,

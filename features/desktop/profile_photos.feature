@@ -31,5 +31,6 @@ Feature: show photos
       When I am on "robert@grimm.grimm"'s photos page
       And I delete a photo
       And I confirm the alert
-      And I am on "robert@grimm.grimm"'s page
+      Then I should not see ".deleting" within ".stream"
+      When I am on "robert@grimm.grimm"'s page
       Then I should not see "Photos" within "#profile_horizontal_bar"

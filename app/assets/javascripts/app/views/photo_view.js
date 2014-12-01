@@ -14,7 +14,6 @@ app.views.Photo = app.views.Base.extend({
 
   initialize : function() {
     $(this.el).attr("id", this.model.get("guid"));
-    this.model.bind('remove', this.remove, this);
     return this;
   },
 
