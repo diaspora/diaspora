@@ -75,20 +75,19 @@ describe NotificationsController, :type => :controller do
     end
 
     it "supports a limit per_page parameter" do
-      5.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
-      get :index, "per_page" => 5
-      expect(assigns[:notifications].count).to eq(5)
+      2.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
+      get :index, "per_page" => 2
+      expect(assigns[:notifications].count).to eq(2)
     end
 
     describe "special case for start sharing notifications" do
       it "should not provide a contacts menu for standard notifications" do
-        2.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
+        FactoryGirl.create(:notification, :recipient => alice, :target => @post)
         get :index, "per_page" => 5
 
         expect(Nokogiri(response.body).css('.aspect_membership')).to be_empty
       end
       it "should provide a contacts menu for start sharing notifications" do
-        2.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
         eve.share_with(alice.person, eve.aspects.first)
         get :index, "per_page" => 5
 
@@ -98,16 +97,17 @@ describe NotificationsController, :type => :controller do
 
     describe "filter notifications" do
       it "supports filtering by notification type" do
-        eve.share_with(alice.person, eve.aspects.first)
+        FactoryGirl.create(:notification, :recipient => alice, :type => "Notifications::StartedSharing")
         get :index, "type" => "started_sharing"
         expect(assigns[:notifications].count).to eq(1)
       end
 
       it "supports filtering by read/unread" do
+        FactoryGirl.create(:notification, :recipient => alice, :target => @post)
         get :read_all
-        2.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
+        FactoryGirl.create(:notification, :recipient => alice, :target => @post)
         get :index, "show" => "unread"
-        expect(assigns[:notifications].count).to eq(2)
+        expect(assigns[:notifications].count).to eq(1)
       end
     end
   end
@@ -115,8 +115,8 @@ describe NotificationsController, :type => :controller do
   describe "#read_all" do
     it 'marks all notifications as read' do
       request.env["HTTP_REFERER"] = "I wish I were spelled right"
-      FactoryGirl.create(:notification, :recipient => alice)
-      FactoryGirl.create(:notification, :recipient => alice)
+      FactoryGirl.create(:notification, :recipient => alice, :target => @post)
+      FactoryGirl.create(:notification, :recipient => alice, :target => @post)
 
       expect(Notification.where(:unread => true).count).to eq(2)
       get :read_all
@@ -124,8 +124,8 @@ describe NotificationsController, :type => :controller do
     end
     it 'marks all notifications in the current filter as read' do
       request.env["HTTP_REFERER"] = "I wish I were spelled right"
-      FactoryGirl.create(:notification, :recipient => alice)
-      eve.share_with(alice.person, eve.aspects.first)
+      FactoryGirl.create(:notification, :recipient => alice, :target => @post)
+      FactoryGirl.create(:notification, :recipient => alice, :type => "Notifications::StartedSharing")
       expect(Notification.where(:unread => true).count).to eq(2)
       get :read_all, "type" => "started_sharing"
       expect(Notification.where(:unread => true).count).to eq(1)
@@ -151,7 +151,7 @@ describe NotificationsController, :type => :controller do
       expect(response).to redirect_to(stream_path)
     end
     it "should return a dummy value in the json version" do
-      FactoryGirl.create(:notification, :recipient => alice)
+      FactoryGirl.create(:notification, :recipient => alice, :target => @post)
       get :read_all, :format => :json
       expect(response).not_to be_redirect
     end
