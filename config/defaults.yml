@@ -95,7 +95,11 @@ defaults:
     invitations:
       open: true
       count: 25
-    paypal_hosted_button_id:
+    paypal_donations:
+      enable: false
+      currency: USD
+      paypal_hosted_button_id:
+      paypal_unhosted_button_encrypted:
     bitcoin_address:
     community_spotlight:
       enable: false
