@@ -98,6 +98,7 @@ This is disabled by default since it requires the installation of additional pac
 * Improve handling of the `more` link on mobile stream pages [#5400](https://github.com/diaspora/diaspora/pull/5400)
 * Fix prefilling publisher after getting started [#5442](https://github.com/diaspora/diaspora/pull/5442)
 * Fix overflow in profile sidebar [#5450](https://github.com/diaspora/diaspora/pull/5450)
+* Fix code overflow in SPV and improve styling for code tags [#5422](https://github.com/diaspora/diaspora/pull/5422)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
