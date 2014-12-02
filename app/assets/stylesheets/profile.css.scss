@@ -112,6 +112,8 @@
     ul#profile_information {
       margin: 0;
       list-style: none;
+      overflow-x: hidden;
+      word-wrap: break-word;
       > li {
           margin-bottom: 2em;
         h4 { font-weight: bold; }
