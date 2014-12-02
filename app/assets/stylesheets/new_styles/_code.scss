@@ -1,0 +1,10 @@
+code {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre;
+  code { white-space: pre; }
+}
