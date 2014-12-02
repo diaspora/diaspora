@@ -160,7 +160,7 @@ end
 
 Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
-    current_scope.has_css?(selector, :visible => true).should be false
+    current_scope.should have_no_css(selector, :visible => true)
   end
 end
 
