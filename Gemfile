@@ -202,14 +202,15 @@ group :development do
   # Automatic test runs
   gem 'guard-cucumber', '1.5.1'
   gem 'guard-rspec',    '4.3.1'
-  gem 'guard',          '2.8.2', :require => false
+  gem 'guard',          '2.10.0', :require => false
   gem 'rb-fsevent',     '0.9.4', :require => false
   gem 'rb-inotify',     '0.9.5', :require => false
 
   # Preloading environment
 
-  gem 'guard-spork', '2.0.1'
-  gem 'spork',       '1.0.0rc4'
+  gem 'spring', '1.2.0'
+  gem 'spring-commands-rspec', '1.0.2'
+  gem 'spring-commands-cucumber', '1.0.1'
 
   # Debugging
   gem 'pry'
