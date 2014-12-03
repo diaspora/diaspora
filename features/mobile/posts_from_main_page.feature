@@ -11,7 +11,7 @@ Feature: posting from the mobile main page
         | alice      |
       And I toggle the mobile view
       And I am on the home page
-      And I sign in as "bob@bob.bob"
+      And I sign in as "bob@bob.bob" on the mobile website
       And a user with username "bob" is connected with "alice"
       Given I have following aspects:
         | PostingTo            |
@@ -39,7 +39,7 @@ Feature: posting from the mobile main page
       When I visit the mobile stream page
       Then I should see a "img" within ".stream_element div.photo_attachments"
       When I log out
-      And I sign in as "alice@alice.alice"
+      And I sign in as "alice@alice.alice" on the mobile website
       When I visit the mobile stream page
       Then I should see a "img" within ".stream_element div.photo_attachments"
 

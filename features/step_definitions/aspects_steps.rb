@@ -15,13 +15,17 @@ module AspectCukeHelpers
   def toggle_aspect_via_ui(aspect_name)
     aspects_dropdown = find(".aspect_membership_dropdown .dropdown-toggle", match: :first)
     aspects_dropdown.click
+    selected_aspect_count = all(".aspect_membership_dropdown.open .dropdown-menu li.selected").length
     aspect = find(".aspect_membership_dropdown.open .dropdown-menu li", text: aspect_name)
+    aspect_selected = aspect["class"].include? "selected"
     aspect.click
     aspect.parent.should have_no_css(".loading")
 
     # close dropdown
     page.should have_no_css('#profile.loading')
-    aspects_dropdown.click if aspects_dropdown.has_xpath?("..[contains(@class, 'active')]", wait: 3)
+    unless selected_aspect_count == 0 or (selected_aspect_count == 1 and aspect_selected )
+      aspects_dropdown.click
+    end
     aspects_dropdown.should have_no_xpath("..[contains(@class, 'active')]")
   end
 
@@ -42,7 +46,6 @@ end
 When /^I select only "([^"]*)" aspect$/ do |aspect_name|
   click_link 'My Aspects'
   within('#aspects_list') do
-    click_link 'Select all' if has_link? 'Select all'
     click_link 'Deselect all'
     current_scope.should have_no_css '.selected'
   end
@@ -54,6 +57,12 @@ When /^I select "([^"]*)" aspect as well$/ do |aspect_name|
     click_link aspect_name
   end
   step %Q(I should see "#{aspect_name}" aspect selected)
+end
+
+When /^I select all aspects$/ do
+  within('#aspects_list') do
+    click_link "Select all"
+  end
 end
 
 When /^I add the first person to the aspect$/ do

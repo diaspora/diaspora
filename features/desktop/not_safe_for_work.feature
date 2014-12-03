@@ -22,14 +22,11 @@ Scenario: Toggling nsfw state
   Given a nsfw user with email "tommy@pr0nking.com"
   And a user with email "laura@officeworkers.com"
   And a user with email "laura@officeworkers.com" is connected with "tommy@pr0nking.com"
-  When I sign in as "tommy@pr0nking.com"
-  And I click the publisher and post "I love 0bj3ction4bl3 c0nt3nt!"
-  And I click the publisher and post "Sexy Senators Gone Wild!"
-  Then I should have 2 nsfw posts
+  And "tommy@pr0nking.com" has a public post with text "I love 0bj3ction4bl3 c0nt3nt!"
+  And "tommy@pr0nking.com" has a public post with text "Sexy Senators Gone Wild!"
 
   #toggling global nsfw state
-  When I log out
-  And I sign in as "laura@officeworkers.com"
+  When I sign in as "laura@officeworkers.com"
   Then I should not see "I love 0bj3ction4bl3 c0nt3nt!"
   When I toggle nsfw posts
   Then I should see "I love 0bj3ction4bl3 c0nt3nt!" and "Sexy Senators Gone Wild!"

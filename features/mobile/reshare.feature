@@ -43,6 +43,6 @@ Feature: resharing from the mobile
     And I toggle the mobile view
     Then I should see "Original post deleted by author." within ".reshare"
     And I log out
-    And I sign in as "eve@eve.eve"
+    And I sign in as "eve@eve.eve" on the mobile website
     And I toggle the mobile view
     Then I should see "Original post deleted by author." within ".reshare"
