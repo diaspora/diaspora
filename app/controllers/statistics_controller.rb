@@ -3,13 +3,14 @@
 #   the COPYRIGHT file.
 
 class StatisticsController < ApplicationController
+  respond_to :html, :json
+  use_bootstrap_for :statistics
 
-  respond_to :json
-  
   def statistics
+    @statistics = StatisticsPresenter.new
     respond_to do |format|
-      format.json { render :json => StatisticsPresenter.new }
+      format.json { render json: @statistics }
+      format.any(:html, :mobile) { render 'statistics/statistics.html.haml' }
     end
   end
-  
 end
