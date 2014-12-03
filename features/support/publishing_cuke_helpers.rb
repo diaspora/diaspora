@@ -29,7 +29,7 @@ module PublishingCukeHelpers
     txt = find('#publisher #status_message_fake_text').value
     find('#publisher .creation').click
     # wait for the content to appear
-    expect(page).to have_content(txt) unless page.has_css?('.nsfw-shield')
+    expect(find('#main_stream')).to have_content(txt)
   end
 
   def click_and_post(text)
@@ -52,7 +52,7 @@ module PublishingCukeHelpers
   def expand_first_post
     within(".stream_element", match: :first) do
       find(".expander").click
-      expect(has_css?(".expander")).to be false
+      expect(page).to have_no_css(".expander")
     end
   end
 

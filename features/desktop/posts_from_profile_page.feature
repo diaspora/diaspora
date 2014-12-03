@@ -29,7 +29,8 @@ Feature: posting from own profile page
       And I select only "Family" aspect
       Then I should see "I want to understand people"
 
-      When I select only "Work" aspect
+      When I select all aspects
+      And I select only "Work" aspect
       Then I should not see "I want to understand people"
 
     Scenario: post a photo with text

@@ -50,5 +50,6 @@ Feature: mentioning a contact from their profile page
       Then I should see "I am eating a yogurt"
 
       When I am on the aspects page
+      And I select all aspects
       And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt"

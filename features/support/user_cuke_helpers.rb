@@ -47,6 +47,11 @@ module UserCukeHelpers
     page.has_content?("#{@me.first_name} #{@me.last_name}")
   end
 
+  # checks the mobile page content to see, if the login was successful
+  def confirm_login_mobile
+    page.has_css?("#notification_badge")
+  end
+
   # delete all cookies, destroying the current session
   def logout
     $browser.delete_cookie('_session', 'path=/') if $browser

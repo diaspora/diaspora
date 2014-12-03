@@ -7,10 +7,10 @@ Feature: New user registration
   Background:
     Given I toggle the mobile view
     And I am on the login page
-	And I follow "Sign up"
+    And I follow "Sign up"
 
   Scenario: user signs up and goes to getting started
-	When I fill in the new user form
+    When I fill in the new user form
     And I submit the form
     Then I should be on the getting started page
     Then I should see the 'getting started' contents

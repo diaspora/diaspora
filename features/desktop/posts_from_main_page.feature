@@ -42,10 +42,12 @@ Feature: posting from the main page
       Given I expand the publisher
       When I write the status message "The World needs more Cats."
       And I submit the publisher
-
-      And I go to the aspects page
       Then "The World needs more Cats." should be post 1
-      Then "The World needs more Cats." should be post 2
+      And "The World needs more Cats." should be post 2
+
+      When I go to the aspects page
+      Then "The World needs more Cats." should be post 1
+      And "The World needs more Cats." should be post 2
 
     Scenario: posting a message appends it to the top of the stream
       When I click the publisher and post "sup dog"
@@ -60,10 +62,12 @@ Feature: posting from the main page
       And I submit the publisher
 
       When I am on the aspects page
+      And I select all aspects
       And I select only "PostingTo" aspect
       Then I should see "I am eating a yogurt"
 
       When I am on the aspects page
+      And I select all aspects
       And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt"
 
@@ -161,6 +165,7 @@ Feature: posting from the main page
       And I select only "PostingTo" aspect
       Then I should see "I am eating a yogurt"
       When I am on the aspects page
+      And I select all aspects
       And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt"
 
@@ -181,10 +186,12 @@ Feature: posting from the main page
       And I select only "PostingTo" aspect
       Then I should see "I am eating a yogurt" and "And cornflakes also"
       When I am on the aspects page
+      And I select all aspects
       And I select only "Besties" aspect
       Then I should not see "I am eating a yogurt"
       Then I should see "And cornflakes also"
       When I am on the aspects page
+      And I select all aspects
       And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt" and "And cornflakes also"
 
