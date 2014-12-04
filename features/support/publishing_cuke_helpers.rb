@@ -4,11 +4,11 @@ module PublishingCukeHelpers
   end
 
   def append_to_publisher(txt, input_selector='#status_message_fake_text')
-    elem = find(input_selector, visible: false)
+    elem = find(input_selector)
     elem.native.send_keys(' ' + txt)
 
     # make sure the other text field got the new contents
-    expect(page).to have_xpath("//input|textarea/.[@id='status_message_text' and contains(@value, '#{txt}')]", visible: false)
+    expect(find("#status_message_text", visible: false)).to have_value txt
   end
 
   def upload_file_with_publisher(path)
