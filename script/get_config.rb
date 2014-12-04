@@ -15,7 +15,7 @@ require 'active_support/core_ext/class/attribute_accessors'
 require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/module/delegation'
 
-class Rails
+module Rails
   def self.root
     @@root ||= Pathname.new(File.expand_path(File.join(File.dirname(__FILE__), "..")))
   end
