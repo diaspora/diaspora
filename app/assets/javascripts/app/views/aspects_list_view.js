@@ -12,6 +12,7 @@ app.views.AspectsList = app.views.Base.extend({
   initialize: function() {
     this.collection.on('change', this.toggleSelector, this);
     this.collection.on('change', this.updateStreamTitle, this);
+    this.collection.on('aspectStreamFetched', this.updateAspectList, this);
   },
 
   postRenderTemplate: function() {
@@ -30,17 +31,10 @@ app.views.AspectsList = app.views.Base.extend({
   toggleAll: function(evt) {
     if (evt) { evt.preventDefault(); };
 
-    var aspects = this.$('li:not(:last)')
     if (this.collection.allSelected()) {
       this.collection.deselectAll();
-      aspects.each(function(i){
-        $(this).find('.icons-check_yes_ok').removeClass('selected');
-      });
     } else {
       this.collection.selectAll();
-      aspects.each(function(i){
-        $(this).find('.icons-check_yes_ok').addClass('selected');
-      });
     }
 
     this.toggleSelector();
@@ -58,6 +52,17 @@ app.views.AspectsList = app.views.Base.extend({
 
   updateStreamTitle: function() {
     $('.stream_title').text(this.collection.toSentence());
+  },
+
+  updateAspectList: function() {
+    this.collection.each(function(aspect) {
+      var element = this.$("li[data-aspect_id="+aspect.get('id')+"]");
+      if (aspect.get('selected')) {
+        element.find('.icons-check_yes_ok').addClass('selected');
+      } else {
+        element.find('.icons-check_yes_ok').removeClass('selected');
+      }
+    });
   },
 
   hideAspectsList: function() {

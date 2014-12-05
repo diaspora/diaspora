@@ -91,14 +91,14 @@ end
 Then /^I should see "([^"]*)" aspect selected$/ do |aspect_name|
   aspect = @me.aspects.where(:name => aspect_name).first
   within("#aspects_list") do
-    page.should have_css "li[data-aspect_id='#{aspect.id}'] .selected"
+    current_scope.should have_css "li[data-aspect_id='#{aspect.id}'] .selected"
   end
 end
 
 Then /^I should see "([^"]*)" aspect unselected$/ do |aspect_name|
   aspect = @me.aspects.where(:name => aspect_name).first
   within("#aspects_list") do
-    page.should have_no_css "li[data-aspect_id='#{aspect.id}'] .selected"
+    current_scope.should have_no_css "li[data-aspect_id='#{aspect.id}'] .selected"
   end
 end
 

@@ -66,8 +66,7 @@ module NavigationHelpers
   end
 
   def confirm_on_page(page_name)
-    current_path = URI.parse(current_url).path
-    expect(current_path).to eq(path_to(page_name))
+    expect(page).to have_path(path_to(page_name))
   end
 end
 
