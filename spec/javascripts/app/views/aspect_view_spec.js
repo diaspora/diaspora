@@ -28,7 +28,6 @@ describe("app.views.Aspect", function(){
       it('it should deselect the aspect', function(){
         this.view.$el.children('a.selectable').trigger('click');
         expect(this.view.toggleAspect).toHaveBeenCalled();
-        expect(this.view.$el.children('.icons-check_yes_ok').hasClass('selected')).toBeFalsy();
         expect(app.router.aspects_stream).toHaveBeenCalled();
       });
 

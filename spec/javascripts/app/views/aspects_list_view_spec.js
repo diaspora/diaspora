@@ -48,7 +48,6 @@ describe("app.views.AspectsList", function(){
 
         it('should show all the aspects selected', function(){
           expect(this.view.toggleAll).toHaveBeenCalled();
-          expect(this.view.$('.selected').length).toBe(3);
         });
 
         it('should show \'Deselect all\' link', function(){
