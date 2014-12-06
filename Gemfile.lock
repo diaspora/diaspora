@@ -141,6 +141,8 @@ GEM
       http_parser.rb (~> 0.6)
       nokogiri (~> 1.6)
     diff-lcs (1.2.5)
+    domain_name (0.5.22)
+      unf (>= 0.0.5, < 1.0.0)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -165,6 +167,9 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    faraday-cookie_jar (0.0.6)
+      faraday (>= 0.7.4)
+      http-cookie (~> 1.0.0)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.6)
@@ -268,6 +273,8 @@ GEM
     hike (1.2.3)
     hiredis (0.5.2)
     hitimes (1.2.2)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     http_accept_language (2.0.2)
     http_parser.rb (0.6.0)
     i18n (0.6.11)
@@ -361,9 +368,9 @@ GEM
       omniauth-oauth (~> 1.0)
     omniauth-wordpress (0.2.1)
       omniauth-oauth2 (~> 1.1.0)
-    opengraph_parser (0.2.3)
-      addressable
-      nokogiri
+    open_graph_reader (0.3.1)
+      faraday (~> 0.9.0)
+      nokogiri (~> 1.6)
     opennebula (4.10.1)
       json
       nokogiri
@@ -618,6 +625,7 @@ DEPENDENCIES
   entypo-rails (= 2.2.2)
   factory_girl_rails (= 4.5.0)
   faraday (= 0.9.0)
+  faraday-cookie_jar (= 0.0.6)
   faraday_middleware (= 0.9.1)
   fixture_builder (= 0.3.6)
   fog (= 1.25.0)
@@ -650,7 +658,7 @@ DEPENDENCIES
   omniauth-tumblr (= 1.1)
   omniauth-twitter (= 1.0.1)
   omniauth-wordpress (= 0.2.1)
-  opengraph_parser (= 0.2.3)
+  open_graph_reader (= 0.3.1)
   pry
   pry-byebug
   pry-debundle

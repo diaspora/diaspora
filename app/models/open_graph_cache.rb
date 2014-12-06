@@ -30,16 +30,17 @@ class OpenGraphCache < ActiveRecord::Base
   end
 
   def fetch_and_save_opengraph_data!
-    response = OpenGraph.new(self.url)
+    object = OpenGraphReader.fetch!(self.url)
 
-    return if response.blank? || response.type.blank?
+    return unless object
 
-    self.title = response.title.truncate(255)
-    self.ob_type = response.type
-    self.image = response.images[0]
-    self.url = response.url
-    self.description = response.description
+    self.title = object.og.title.truncate(255)
+    self.ob_type = object.og.type
+    self.image = object.og.image.url
+    self.url = object.og.url
+    self.description = object.og.description
 
     self.save
+  rescue OpenGraphReader::NoOpenGraphDataError
   end
 end

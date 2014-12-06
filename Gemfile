@@ -110,12 +110,12 @@ gem 'messagebus_ruby_api', '1.0.3'
 
 # Parsing
 
-gem 'nokogiri',         '1.6.4.1'
-gem 'redcarpet',        '3.2.0'
-gem 'twitter-text',     '1.10.0'
-gem 'roxml',            '3.1.6'
-gem 'ruby-oembed',      '0.8.11'
-gem 'opengraph_parser', '0.2.3'
+gem 'nokogiri',          '1.6.4.1'
+gem 'redcarpet',         '3.2.0'
+gem 'twitter-text',      '1.10.0'
+gem 'roxml',             '3.1.6'
+gem 'ruby-oembed',       '0.8.11'
+gem 'open_graph_reader', '0.3.1'
 
 
 # Services
@@ -140,6 +140,7 @@ gem 'acts-as-taggable-on', '3.4.2'
 gem 'addressable',        '2.3.6', :require => 'addressable/uri'
 gem 'faraday',            '0.9.0'
 gem 'faraday_middleware', '0.9.1'
+gem 'faraday-cookie_jar', '0.0.6'
 gem 'typhoeus',           '0.6.9'
 
 # Views
