@@ -92,13 +92,3 @@ RSpec.configure do |config|
     AppConfig.reset_dynamic!
   end
 end
-
-# https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
-RSpec.configure do |config|
-  config.before(:all) do
-    DeferredGarbageCollection.start
-  end
-  config.after(:all) do
-    DeferredGarbageCollection.reconsider
-  end
-end
