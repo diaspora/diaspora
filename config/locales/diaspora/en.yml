@@ -1266,7 +1266,7 @@ en:
       current_password: "Current password"
       current_password_expl: "the one you sign in with..."
       character_minimum_expl: "must be at least six characters"
-      download_xml: "download my xml"
+      download_profile: "download my profile"
       download_photos: "download my photos"
       your_handle: "Your diaspora* ID"
       your_email: "Your email"

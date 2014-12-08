@@ -124,6 +124,8 @@ This is disabled by default since it requires the installation of additional pac
 * Truncate too long OpenGraph descriptions [#5387](https://github.com/diaspora/diaspora/pull/5387)
 * Make the source code URL configurable [#5410](https://github.com/diaspora/diaspora/pull/5410)
 * Prefill publisher on the tag pages [#5442](https://github.com/diaspora/diaspora/pull/5442)
+* Allows users to export their data in JSON format from their user settings page [#5354](https://github.com/diaspora/diaspora/pull/5354)
+
 
 # 0.4.1.2
 
