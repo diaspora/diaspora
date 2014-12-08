@@ -60,7 +60,7 @@ module Rack
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
       HEAD
 
-      body.gsub!('<head>', "<head>\n" + head )
+      body.gsub!(/<head(.*)>/, "<head\\1>\n" + head )
       body
     end
 

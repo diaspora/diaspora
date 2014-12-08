@@ -139,6 +139,7 @@ defaults:
       enable: false
       app_id:
       secret:
+      open_graph_namespace: 'joindiaspora'
     twitter:
       enable: false
       key:
