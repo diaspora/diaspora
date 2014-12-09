@@ -75,6 +75,7 @@ This is disabled by default since it requires the installation of additional pac
 * Convert remaining SASS stylesheets to SCSS [#5342](https://github.com/diaspora/diaspora/pull/5342)
 * Update rack-protection [#5403](https://github.com/diaspora/diaspora/pull/5403)
 * Cleanup diaspora.yml [#5426](https://github.com/diaspora/diaspora/pull/5426)
+* Replace `opengraph_parser` with `open_graph_reader` [#5462](https://github.com/diaspora/diaspora/pull/5462)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)

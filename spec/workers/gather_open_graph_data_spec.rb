@@ -3,7 +3,7 @@ describe Workers::GatherOpenGraphData do
   before do
     @ogsite_title = 'Homepage'
     @ogsite_type = 'website'
-    @ogsite_image = '/img/something.png'
+    @ogsite_image = 'http://www.we-support-open-graph.com/img/something.png'
     @ogsite_url = 'http://www.we-support-open-graph.com'
     @ogsite_description = 'Homepage'
 
@@ -31,9 +31,12 @@ describe Workers::GatherOpenGraphData do
 
     @status_message = FactoryGirl.create(:status_message)
 
-    stub_request(:get, @ogsite_url).to_return(:status => 200, :body => @ogsite_body)
-    stub_request(:get, @no_open_graph_url).to_return(:status => 200, :body => '<html><body>hello there</body></html>')
-    stub_request(:get, @oglong_url).to_return(:status => 200, :body => @oglong_body)
+    stub_request(:head, @ogsite_url).to_return(status: 200, body: "", headers: {'Content-Type' => 'text/html; utf-8'})
+    stub_request(:get, @ogsite_url).to_return(status: 200, body: @ogsite_body, headers: {'Content-Type' => 'text/html; utf-8'})
+    stub_request(:head, @no_open_graph_url).to_return(status: 200, body: "", headers: {'Content-Type' => 'text/html; utf-8'})
+    stub_request(:get, @no_open_graph_url).to_return(:status => 200, :body => '<html><head><title>Hi</title><body>hello there</body></html>', headers: {'Content-Type' => 'text/html; utf-8'})
+    stub_request(:head, @oglong_url).to_return(status: 200, body: "", headers: {'Content-Type' => 'text/html; utf-8'})
+    stub_request(:get, @oglong_url).to_return(status: 200, body: @oglong_body, headers: {'Content-Type' => 'text/html; utf-8'})
 
   end
 
@@ -59,7 +62,7 @@ describe Workers::GatherOpenGraphData do
 
       expect(ogc.title).to eq(@ogsite_title)
       expect(ogc.ob_type).to eq(@ogsite_type)
-      expect(ogc.image).to eq(@ogsite_url + @ogsite_image)
+      expect(ogc.image).to eq(@ogsite_image)
       expect(ogc.url).to eq(@ogsite_url)
       expect(ogc.description).to eq(@ogsite_description)
 
