@@ -45,7 +45,6 @@ DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.orm = "active_record"
 Cucumber::Rails::World.use_transactional_fixtures = false
 
-require File.join(File.dirname(__FILE__), "database_cleaner_patches")
 require File.join(File.dirname(__FILE__), "integration_sessions_controller")
 require File.join(File.dirname(__FILE__), "poor_mans_webmock")
 
@@ -62,39 +61,3 @@ include HelperMethods
 Before do
   Devise.mailer.deliveries = []
 end
-
-After do
-  if Capybara.current_session.driver.respond_to?(:browser)
-    Capybara.reset_sessions!
-    # Capybara.current_session.driver.browser.manage.delete_all_cookies
-  end
-end
-
-Before('@localserver') do
-  TestServerFixture.start_if_needed
-  CapybaraSettings.instance.save
-  Capybara.current_driver = :selenium
-  Capybara.run_server = false
-end
-
-After('@localserver') do
-  CapybaraSettings.instance.restore
-end
-
-# give firefox more time to complete requests
-# http://ihswebdesign.com/knowledge-base/fixing-selenium-timeouterror/
-After do |scenario|
-  if scenario.exception.is_a? Timeout::Error
-    # restart Selenium driver
-    Capybara.send(:session_pool).delete_if { |key, value| key =~ /selenium/i }
-  end
-end
-
-# # https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
-# require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "deferred_garbage_collection")
-# Before do
-#   DeferredGarbageCollection.start
-# end
-# After do
-#   DeferredGarbageCollection.reconsider
-# end
