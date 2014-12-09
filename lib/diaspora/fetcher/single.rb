@@ -30,7 +30,7 @@ module Diaspora
       # @param [String] guid the remote post's guid
       # @return [Post] an unsaved remote post or false if the post was not found
       def fetch_post author, guid
-        url = author.url + "/p/#{guid}.xml"
+        url = URI.join(author.url, "/p/#{guid}.xml")
         response = Faraday.get(url)
         raise Diaspora::PostNotFetchable if response.status == 404 # Old pod, Friendika, deleted
         raise "Failed to get #{url}" unless response.success? # Other error, N/A for example
