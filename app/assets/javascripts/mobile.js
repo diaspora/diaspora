@@ -40,6 +40,12 @@ $(document).ready(function(){
     $("#all_aspects + li").toggleClass('hide');
   });
 
+  /* Show / hide followed tags in the drawer */
+  $('#followed_tags').bind("tap click", function(evt){
+    evt.preventDefault();
+    $("#followed_tags + li").toggleClass('hide');
+  });
+
   /* Heart toggle */
   $(".like_action", ".stream").bind("tap click", function(evt){
     evt.preventDefault();
