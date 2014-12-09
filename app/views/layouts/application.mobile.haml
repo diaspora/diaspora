@@ -4,14 +4,13 @@
 
 !!!
 %html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
-  %head
+  %head{:prefix => og_prefix}
     %title
       = pod_name
 
     %meta{:name => "description", :content => "diaspora* mobile"}/
     %meta{:name => "author", :content => "Diaspora, Inc."}/
     %meta{:charset => 'utf-8'}/
-    %meta{:property => "og:site_name", :content => "#{AppConfig.settings.pod_name}"}/
 
     / Viewport scale
     %meta{:name =>'viewport', :content => "width=device-width, minimum-scale=1 maximum-scale=1"}/
@@ -29,6 +28,8 @@
     / NOTE(we will enable these once we don't have to rely on back/forward buttons anymore)
     /%meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
     /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
+
+    = render 'layouts/open_graph'
 
     = chartbeat_head_block
 
