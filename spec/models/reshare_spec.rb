@@ -196,7 +196,7 @@ describe Reshare, :type => :model do
 
           allow(@response).to receive(:body).and_return(@root_object.to_diaspora_xml)
 
-          expect(Faraday.default_connection).to receive(:get).with(@original_author.url + short_post_path(@root_object.guid, :format => "xml")).and_return(@response)
+          expect(Faraday.default_connection).to receive(:get).with(URI.join(@original_author.url, short_post_path(@root_object.guid, :format => "xml"))).and_return(@response)
           Reshare.from_xml(@xml)
         end
 
@@ -224,7 +224,7 @@ describe Reshare, :type => :model do
         context 'saving the post' do
           before do
             allow(@response).to receive(:body).and_return(@root_object.to_diaspora_xml)
-            allow(Faraday.default_connection).to receive(:get).with(@reshare.root.author.url + short_post_path(@root_object.guid, :format => "xml")).and_return(@response)
+            allow(Faraday.default_connection).to receive(:get).with(URI.join(@reshare.root.author.url, short_post_path(@root_object.guid, :format => "xml"))).and_return(@response)
           end
 
           it 'fetches the root post from root_guid' do
