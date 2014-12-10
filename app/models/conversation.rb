@@ -15,9 +15,20 @@ class Conversation < ActiveRecord::Base
   belongs_to :author, :class_name => 'Person'
 
   validate :max_participants
+  validate :local_recipients
 
   def max_participants
     errors.add(:max_participants, "too many participants") if participants.count > 20
+  end
+  
+  def local_recipients
+    recipients.each do |recipient|
+      if recipient.local?
+        if recipient.owner.contacts.where(:person_id => self.author.id).count == 0
+          errors.add(:all_recipients, "recipient not allowed")
+        end
+      end
+    end
   end
 
   accepts_nested_attributes_for :messages

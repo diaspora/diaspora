@@ -34,5 +34,14 @@ FixtureBuilder.configure do |fbuilder|
 
     local_leia.contacts.create(:person => remote_raphael, :aspects => [leias_aspect])
     local_luke.contacts.create(:person => remote_raphael, :aspects => [lukes_aspect])
+    
+    # Set up a follower
+    peter = FactoryGirl.create(:user_with_aspect, :username => "peter")
+    peters_aspect = peter.aspects.where(:name => "generic").first
+    
+    peter.contacts.create!(:person => alice.person,
+                           :aspects => [peters_aspect],
+                           :sharing => false,
+                           :receiving => true)
    end
 end

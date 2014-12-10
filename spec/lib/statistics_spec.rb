@@ -19,7 +19,8 @@ describe Statistics do
                  {"id" => bob.id , "count" => 1 },
                  {"id" => eve.id , "count" => 0 },
                  {"id" => local_luke.id , "count" => 0 },
-                 {"id" => local_leia.id , "count" => 0 }]
+                 {"id" => local_leia.id , "count" => 0 },
+                 {"id" => peter.id , "count" => 0 }]
   end
 
   describe '#posts_count_sql' do
@@ -68,7 +69,8 @@ describe Statistics do
                  {"id" => bob.id , "count" => 2 },
                  {"id" => eve.id , "count" => 1 },
                  {"id" => local_luke.id , "count" => 2 },
-                 {"id" => local_leia.id , "count" => 2 }]
+                 {"id" => local_leia.id , "count" => 2 },
+                 {"id" => peter.id , "count" => 1 }]
 
       result_should_equal User.connection.select_all(@stats.contacts_sharing_with_count_sql)
     end
@@ -96,7 +98,8 @@ describe Statistics do
                  {"id" => bob.id , "count" => 1, "connected" => 1 },
                  {"id" => eve.id , "count" => 0, "connected" => 1 },
                  {"id" => local_luke.id , "count" => 0, "connected" => 0 },
-                 {"id" => local_leia.id , "count" => 0, "connected" => 0 }]
+                 {"id" => local_leia.id , "count" => 0, "connected" => 0 },
+                 {"id" => peter.id , "count" => 0, "connected" => 0 }]
 
       expect(@stats.fb_connected_distribution).to match_array(@result)
     end

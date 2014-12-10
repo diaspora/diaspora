@@ -100,6 +100,7 @@ This is disabled by default since it requires the installation of additional pac
 * Fix prefilling publisher after getting started [#5442](https://github.com/diaspora/diaspora/pull/5442)
 * Fix overflow in profile sidebar [#5450](https://github.com/diaspora/diaspora/pull/5450)
 * Fix code overflow in SPV and improve styling for code tags [#5422](https://github.com/diaspora/diaspora/pull/5422)
+* Correctly validate if local recipients actually want to receive a conversation [#5449](https://github.com/diaspora/diaspora/pull/5449)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
