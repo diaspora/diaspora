@@ -46,7 +46,7 @@ module Configuration
           File.dirname(__FILE__)
         )
         unless File.exist? token_file
-          `bin/rake generate:secret_token`
+          `DISABLE_SPRING=1 bin/rake generate:secret_token`
         end
         require token_file
         Diaspora::Application.config.secret_key_base
