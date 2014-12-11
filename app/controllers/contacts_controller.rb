@@ -40,32 +40,24 @@ class ContactsController < ApplicationController
 
     @contacts = contacts_by_type(type)
     @contacts_size = @contacts.length
+    gon.preloads[:contacts] = @contacts.map{ |c| ContactPresenter.new(c, current_user).full_hash_with_person }
   end
 
   def contacts_by_type(type)
-    contacts = case type
+    case type
       when "all"
-        [current_user.contacts]
+        current_user.contacts
       when "only_sharing"
-        [current_user.contacts.only_sharing]
+        current_user.contacts.only_sharing
       when "receiving"
-        [current_user.contacts.receiving]
+        current_user.contacts.receiving
       when "by_aspect"
         @aspect = current_user.aspects.find(params[:a_id])
-        @contacts_in_aspect = @aspect.contacts
-        @contacts_not_in_aspect = current_user.contacts.where.not(contacts: {id: @contacts_in_aspect.pluck(:id) })
-        [@contacts_in_aspect, @contacts_not_in_aspect].map {|relation|
-          relation.includes(:aspect_memberships)
-        }
+        gon.preloads[:aspect] = AspectPresenter.new(@aspect).as_json
+        current_user.contacts
       else
         raise ArgumentError, "unknown type #{type}"
       end
-
-    contacts.map {|relation|
-      relation.includes(:person => :profile).to_a.tap {|contacts|
-        contacts.sort_by! {|contact| contact.person.name }
-      }
-    }.inject(:+).paginate(:page => params[:page], :per_page => 25)
   end
 
   def set_up_contacts_mobile

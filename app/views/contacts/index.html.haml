@@ -11,8 +11,9 @@
         = render 'contacts/header'
 
         - if @contacts_size > 0
-          = render @contacts
-          = will_paginate @contacts
+          #contact_stream
+            -# JS
+
         - else
           .no_contacts
             %h3

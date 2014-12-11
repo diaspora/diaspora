@@ -21,11 +21,20 @@ Handlebars.registerHelper('urlTo', function(path_helper, id, data){
   return Routes[path_helper+'_path'](id, data.hash);
 });
 
-Handlebars.registerHelper('linkToPerson', function(context, block) {
+Handlebars.registerHelper('linkToAuthor', function(context, block) {
   if( !context ) context = this;
   var html = "<a href=\"/people/" + context.guid + "\" class=\"author-name ";
       html += Handlebars.helpers.hovercardable(context);
       html += "\">";
+      html += block.fn(context);
+      html += "</a>";
+
+  return html
+});
+
+Handlebars.registerHelper('linkToPerson', function(context, block) {
+  if( !context ) context = this;
+  var html = "<a href=\"/people/" + context.guid + "\" class=\"name\">";
       html += block.fn(context);
       html += "</a>";
 
@@ -106,6 +115,21 @@ Handlebars.registerHelper('isCurrentProfilePage', function(id, diaspora_handle, 
   var username = diaspora_handle.split("@")[0];
   return Handlebars.helpers.isCurrentPage('person', id, options) ||
          Handlebars.helpers.isCurrentPage('user_profile', username, options);
+});
+
+Handlebars.registerHelper('aspectMembershipIndicator', function(contact,in_aspect) {
+  if(!app.aspect || !app.aspect.get('id')) return '<div class="aspect_membership_dropdown placeholder"></div>';
+
+  var html = '<i class="entypo ';
+  if( in_aspect == 'in_aspect' ) {
+    html += 'circled-cross contact_remove-from-aspect" ';
+    html += 'title="' + Diaspora.I18n.t('contacts.remove_contact') + '" ';
+  } else {
+    html += 'circled-plus contact_add-to-aspect" ';
+    html += 'title="' + Diaspora.I18n.t('contacts.add_contact') + '" ';
+  }
+  html += '></i>';
+  return html;
 });
 // @license-end
 
