@@ -27,16 +27,16 @@ This release drops official support for the Ruby 1.9 series. This means we will 
 that work with it. However that doesn't mean we won't accept patches that improve running diaspora* on it.
 
 At the same time we adopt support for the Ruby 2.1 series and recommend running on the latest Ruby version of that branch. We continue to support the Ruby 2.0
-series and run our comphrensive testsuite against it.
+series and run our comprehensive test suite against it.
 
 ## Change in defaults.yml
 The default for including jQuery from a CDN has changed. If you want to continue to include it from a CDN, please explicitly set the `jquery_cdn` setting to `true` in diaspora.yml.
 
 ## Experimental chat feature
-This release adds experimental integration with XMPP for realtime chat. Please see  [our wiki](https://wiki.diasporafoundation.org/Vines) for further informations.
+This release adds experimental integration with XMPP for real-time chat. Please see  [our wiki](https://wiki.diasporafoundation.org/Vines) for further informations.
 
 ## Change in statistics.json schema
-The way services are shown in the `statistics.json` route is changing. The keys relating to showing whether services are enabled or not are moving to their own container as `"services": {....}`, instead of having them all in the root level of the json.
+The way services are shown in the `statistics.json` route is changing. The keys relating to showing whether services are enabled or not are moving to their own container as `"services": {....}`, instead of having them all in the root level of the JSON.
 
 The keys will still be available in the root level within the 0.5 release. The old keys will be removed in the 0.6 release.
 
@@ -53,7 +53,7 @@ This is disabled by default since it requires the installation of additional pac
 ## Refactor
 * Redesign contacts page [#5153](https://github.com/diaspora/diaspora/pull/5153)
 * Improve profile page design on mobile [#5084](https://github.com/diaspora/diaspora/pull/5084)
-* Port testsuite to RSpec 3 [#5170](https://github.com/diaspora/diaspora/pull/5170)
+* Port test suite to RSpec 3 [#5170](https://github.com/diaspora/diaspora/pull/5170)
 * Port tag stream to Bootstrap [#5138](https://github.com/diaspora/diaspora/pull/5138)
 * Consolidate migrations, if you need a migration prior 2013, checkout the latest release in the 0.4.x series first [#5173](https://github.com/diaspora/diaspora/pull/5173)
 * Add tests for mobile sign up [#5185](https://github.com/diaspora/diaspora/pull/5185)
@@ -67,9 +67,9 @@ This is disabled by default since it requires the installation of additional pac
 * Pull jquery.placeholder.js from rails-assets.org [#5299](https://github.com/diaspora/diaspora/pull/5299)
 * Pull jquery.textchange.js from rails-assets.org [#5297](https://github.com/diaspora/diaspora/pull/5297)
 * Pull jquery.hotkeys.js from rails-assets.org [#5368](https://github.com/diaspora/diaspora/pull/5368)
-* Reduce number of useless background job retries and pull public posts when missing [#5209](https://github.com/diaspora/diaspora/pull/5209
+* Reduce amount of useless background job retries and pull public posts when missing [#5209](https://github.com/diaspora/diaspora/pull/5209)
 * Updated Weekly User Stats admin page to show data for the most recent week including reversing the order of the weeks in the drop down to show the most recent. [#5331](https://github.com/diaspora/diaspora/pull/5331)
-* Convert some cukes to rspec tests [#5289](https://github.com/diaspora/diaspora/pull/5289)
+* Convert some cukes to RSpec tests [#5289](https://github.com/diaspora/diaspora/pull/5289)
 * Hidden overflow for long names on tag pages [#5279](https://github.com/diaspora/diaspora/pull/5279)
 * Always reshare absolute root of a post [#5276](https://github.com/diaspora/diaspora/pull/5276)
 * Convert remaining SASS stylesheets to SCSS [#5342](https://github.com/diaspora/diaspora/pull/5342)
@@ -92,7 +92,7 @@ This is disabled by default since it requires the installation of additional pac
 * Fix translations on mobile password reset pages [#5318](https://github.com/diaspora/diaspora/pull/5318)
 * Handle unset user agent when signing out [#5316](https://github.com/diaspora/diaspora/pull/5316)
 * More robust URL parsing for oEmbed and OpenGraph [#5347](https://github.com/diaspora/diaspora/pull/5347)
-* Fix Publisher doesn't expand while uloading images [#3098](https://github.com/diaspora/diaspora/issues/3098)
+* Fix Publisher doesn't expand while uploading images [#3098](https://github.com/diaspora/diaspora/issues/3098)
 * Drop unneeded and too open crossdomain.xml
 * Fix hidden aspect dropdown on getting started page [#5407](https://github.com/diaspora/diaspora/pulls/5407)
 * Fix a few issues on Bootstrap pages [#5401](https://github.com/diaspora/diaspora/pull/5401)
@@ -101,7 +101,7 @@ This is disabled by default since it requires the installation of additional pac
 * Fix overflow in profile sidebar [#5450](https://github.com/diaspora/diaspora/pull/5450)
 * Fix code overflow in SPV and improve styling for code tags [#5422](https://github.com/diaspora/diaspora/pull/5422)
 * Correctly validate if local recipients actually want to receive a conversation [#5449](https://github.com/diaspora/diaspora/pull/5449)
-* Improvde consistency of poll answer ordering [#5471](https://github.com/diaspora/diaspora/pull/5471)
+* Improve consistency of poll answer ordering [#5471](https://github.com/diaspora/diaspora/pull/5471)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
@@ -142,7 +142,7 @@ This release brings a new ToS feature that allows pods to easily display to user
     terms:
       enable: true
 
-When enabled, the footer and sidebar will have a link to terms page, and signup will have a disclaimer indicating that creating an account means the user accepts the terms of use.
+When enabled, the footer and sidebar will have a link to terms page, and sign up will have a disclaimer indicating that creating an account means the user accepts the terms of use.
 
 While the project itself doesn't restrict what kind of terms pods run on, we realize not all podmins want to spend time writing them from scratch. Thus there is a basic ToS template included that will be used unless a custom one available.
 
