@@ -3,7 +3,7 @@ class Poll < ActiveRecord::Base
   include Diaspora::Guid
 
   belongs_to :status_message
-  has_many :poll_answers
+  has_many :poll_answers, -> { order 'id ASC' }
   has_many :poll_participations
 
   xml_attr :question
