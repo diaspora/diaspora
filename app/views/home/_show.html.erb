@@ -1,6 +1,6 @@
-<% content_for :head do %>
+<%= content_for :head do %>
   <meta property="og:title" content="Diaspora*"/>
-  <meta property="og:description" content="The Community-run, Multi-Installment Social-network"/>
+  <meta property="og:description" content="The community-run, distributed social network"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://joindiaspora.com"/>
   <meta property="og:image" content="https://joindiaspora.com/icon_128.gif"/>
@@ -19,14 +19,14 @@
   <div id="landing_banner">
     <div class="container">
       <span class="landing-banner-right">
-        <a href="http://blog.diasporafoundation.org">Blog</a>
-        <a href="/users/sign_in" class='login-button'>Login</a>
+        <%= link_to 'Blog', 'http://blog.diasporafoundation.org' %>
+        <%= link_to 'Login', '/users/sign_in', :class => 'login-button' %>
       </span>
 
-      <%= image_tag "landing/title.png", :class => "landing-logo" %>
-      <h2>The Community-run, Distributed Social-network</h2>
-      <h4>joindiaspora.com is one of <a href='http://podupti.me'>many installations</a> of
-        <a href='http://github.com/diaspora/diaspora'> Diaspora*</a></h4>
+      <%= image_tag "branding/logo_white4x.png", :class => "landing-logo" %>
+      <h2>The community-run, distributed social network</h2>
+      <h4>JoinDiaspora.com is one of <%= link_to 'many installations', 'http://podupti.me' %> of 
+        <%= link_to 'diaspora*', 'http://github.com/diaspora/diaspora' %></h4>
     </div>
   </div>
 
@@ -36,47 +36,47 @@
       <div class="row-fluid">
         <div id="sign_up" class="span8 offset2">
           <div class="alert alert-warning">
-            <h4>JoinDiaspora.com Registrations are closed</h4>
-            Diaspora is Decentralized! But don't worry! There are lots of <a href="http://podupti.me">other pods</a>
-            you can register at.
-            You can also choose to <a href="https://wiki.diasporafoundation.org/Installation_guides">set up your own pod</a> if you'd like.
-            Thanks to decentralized social networking, any person from any pod can communicate with one another!
+            <h4>JoinDiaspora.com registrations are closed</h4>
+              But don't worry! Diaspora* is completely decentralized, and any person from any pod can communicate with one 
+              another! You can register at any of these <%= link_to 'other pods', 'http://podupti.me' %>. You can also 
+              choose to <%= link_to 'set up your own pod', 'https://wiki.diasporafoundation.org/FAQ_for_pod_maintainers' %> 
+              if you'd like. 
           </div>
 
           <div id="masthead" class="hero">
-            <h1>Diaspora goes Non-Profit</h1>
+            <h1>Diaspora* goes Non-Profit</h1>
 
             <h3>Help support our mission of decentralizing the social web!</h3>
             
-            <h2><%=  link_to 'Learn More', 'https://blog.diasporafoundation.org/1-diaspora-celebrates-one-year-as-a-community-project' %></h2>
+            <h2><%=  link_to 'Learn more', 'https://blog.diasporafoundation.org/1-diaspora-celebrates-one-year-as-a-community-project' %></h2>
           </div>
 
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post"
                 target="_top">
             <input type="hidden" name="cmd" value="_s-xclick">
             <input type="hidden" name="hosted_button_id" value="DWCD6E5578GJJ">
-            <input type="submit" class="btn" name="submit" value="Donate to the FSSN">
+            <input type="submit" class="btn" name="submit" value="Donate to FSSN">
             <img alt="" border="0"
                  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1"
                  height="1">
           </form>
 
 
-          <p>Since August 27th, 2012, all of Diaspora's development has been done entirely by volunteers out in
+          <p>Since August 27th, 2012, all of diaspora*'s development has been done entirely by volunteers out in
             the open. This has allowed the project to grow in remarkable ways. New features, designs, and
-            improvements have made their way into Diaspora's code, and as such, the project has evolved far beyond
+            improvements have made their way into diaspora*'s code, and the project has evolved far beyond
             what its original founders could have ever expected.</p>
 
-          <p>
-            Our community-driven project is now supported and backed by the
-            <%=  link_to 'Free Software Support Network', 'http://freesoftwaresupport.org/'%>
+          <p>Our community-driven project is now supported and backed by the
+            <%=  link_to 'Free Software Support Network', 'http://freesoftwaresupport.org/'%>, 
             a project by
             <%=  link_to 'Eben Moglen','http://en.wikipedia.org/wiki/Eben_Moglen' %>
-            and the <%= link_to 'Software Freedom Law Center', 'http://www.softwarefreedom.org/'%>
+            and the <%= link_to 'Software Freedom Law Center', 'http://www.softwarefreedom.org/'%>.</p>
             
             
-         <p>By Agreement, FSSN is collaborating with Diaspora to provide support for
-management of branding, finances and legal assets.  By donating to our project, you're helping support the goals and visions of our community. We're working hard to make the social web a better place, and together, we believe that we can make something amazing.
+         <p>By agreement, FSSN is collaborating with diaspora* to provide support for management of branding, finances and 
+           legal assets.  By donating to FSSN, you're helping support the goals and visions of diaspora*'s community. We're 
+           working hard to make the social web a better place, and we believe that, together, we can make something amazing.
         </p>
 
 
@@ -84,7 +84,7 @@ management of branding, finances and legal assets.  By donating to our project, 
                 target="_top">
             <input type="hidden" name="cmd" value="_s-xclick">
             <input type="hidden" name="hosted_button_id" value="DWCD6E5578GJJ">
-            <input type="submit" class="btn" name="submit" value="Donate to the FSSN">
+            <input type="submit" class="btn" name="submit" value="Donate to FSSN">
             <img alt="" border="0"
                  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1"
                  height="1">
@@ -99,10 +99,8 @@ management of branding, finances and legal assets.  By donating to our project, 
 
             <h2>Open Source</h2>
 
-            <p>
-              Our software is completely free, so grab the code and host it wherever you want! Diaspora is a community
-              effort - <%= link_to("contribute on Github", "https://github.com/diaspora/diaspora") %>
-            </p>
+            <p>Our software is completely free, so grab the code and host it wherever you want! Diaspora* is a community
+              effort - <%= link_to('contribute on Github', 'https://github.com/diaspora/diaspora') %></p>
           </div>
 
           <div class="span4">
@@ -111,8 +109,7 @@ management of branding, finances and legal assets.  By donating to our project, 
             <h2>Own your data</h2>
 
             <p>Connecting socially is human nature. You shouldn't have to trade away your personal information to
-              participate.
-              <a href='http://diasporafoundation.org'> Learn More at Diaspora Foundation</a></p>
+              participate. <%= link_to('Learn more at Diaspora Foundation', 'http://diasporafoundation.org') %>.</p>
           </div>
 
           <div class="span4">
@@ -120,8 +117,7 @@ management of branding, finances and legal assets.  By donating to our project, 
 
             <h2>Creative Community</h2>
 
-            <p>Meet people from all over the world who love the Internet and want to see it free as much as you
-              do.</p>
+            <p>Meet people from all over the world who love the internet and want to see it free as much as you do.</p>
           </div>
         </div>
       </div>
