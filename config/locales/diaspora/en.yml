@@ -358,7 +358,8 @@ en:
     show:
       reply: "reply"
       replying: "Replying..."
-      delete: "delete and block conversation"
+      hide: "hide and mute conversation"
+      delete: "delete conversation"
     new:
       to: "to"
       subject: "subject"
@@ -377,8 +378,8 @@ en:
     new_conversation:
       fail: "Invalid message"
     destroy:
-      success: "Conversation successfully removed"
-
+      delete_success: "Conversation successfully deleted"
+      hide_success: "Conversation successfully hidden"
   date:
     formats:
       fullmonth_day: "%B %d"

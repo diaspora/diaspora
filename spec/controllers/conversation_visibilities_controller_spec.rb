@@ -33,5 +33,18 @@ describe ConversationVisibilitiesController, :type => :controller do
         delete :destroy, :conversation_id => @conversation.id
       }.not_to change(ConversationVisibility, :count)
     end
+    
+    it 'returns "hidden"' do
+      get :destroy, :conversation_id => @conversation.id
+      expect(flash.notice).to include("hidden")
+    end
+    
+    it 'returns "deleted" when last participant' do
+      get :destroy, :conversation_id => @conversation.id
+      sign_out :user
+      sign_in :user, bob
+      get :destroy, :conversation_id => @conversation.id
+      expect(flash.notice).to include("deleted")
+    end
   end
 end
