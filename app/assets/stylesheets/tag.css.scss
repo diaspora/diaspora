@@ -26,6 +26,7 @@ h1.tag {
 #tags_show {
   .span3 {
     border-right: 1px solid $border-grey;
+    h4 { margin: 25px 0 15px; }
     .side_stream #people_stream {
       .name { display: block; }
       .name, .diaspora_handle, .tags {
