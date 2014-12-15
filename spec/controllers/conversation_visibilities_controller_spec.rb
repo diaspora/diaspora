@@ -26,8 +26,12 @@ describe ConversationVisibilitiesController, :type => :controller do
     end
 
     it 'does not let a user destroy a visibility that is not theirs' do
+      sign_out :user
+      
       user2 = eve
       sign_in :user, user2
+      
+      expect(@controller.current_user.id).to eq(eve.id)
 
       expect {
         delete :destroy, :conversation_id => @conversation.id
