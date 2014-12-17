@@ -12,9 +12,9 @@ describe UsersController, :type => :controller do
   end
 
   describe '#export' do
-    it 'returns an xml file'  do
-      get :export
-      expect(response.header["Content-Type"]).to include "application/xml"
+    it 'can return a json file' do
+      get :export, format: :json
+      expect(response.header["Content-Type"]).to include "application/json"
     end
   end
 

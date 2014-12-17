@@ -43,6 +43,21 @@ describe AccountDeleter do
       end
     end
 
+    context "profile deletion" do
+      before do
+        @profile_deletion = AccountDeleter.new(remote_raphael.diaspora_handle)
+        @profile = remote_raphael.profile
+      end
+
+      it "nulls out fields in the profile" do
+        @profile_deletion.perform!
+        expect(@profile.reload.first_name).to be_blank
+        expect(@profile.last_name).to be_blank
+        expect(@profile.searchable).to be_falsey
+      end
+
+    end
+
     context "person deletion" do
       before do
         @person_deletion = AccountDeleter.new(remote_raphael.diaspora_handle)

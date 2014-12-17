@@ -162,6 +162,8 @@ gem 'zip-zip'
 # https://github.com/discourse/discourse/pull/238
 gem 'minitest'
 
+# Serializers
+gem 'active_model_serializers'
 
 # Windows and OSX have an execjs compatible runtime built-in, Linux users should
 # install Node.js or use 'therubyracer'.

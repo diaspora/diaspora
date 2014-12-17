@@ -180,7 +180,8 @@
         #account_data.span6
           %h3 
             = t('.export_data')
-          = link_to t('.download_xml'), export_user_path, :class => "button"
+          .small-horizontal-spacer          
+          = link_to t('.download_profile'), export_user_path(format: :json), :class => "button"
           .small-horizontal-spacer
           = link_to t('.download_photos'), "#", :class => "button", :id => "photo-export-button", :title => t('.photo_export_unavailable')
 
