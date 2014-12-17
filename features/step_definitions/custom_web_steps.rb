@@ -195,7 +195,7 @@ And /^I scroll down$/ do
   page.execute_script("window.scrollBy(0,3000000)")
 end
 And /^I scroll down on the notifications dropdown$/ do
-  page.execute_script("$('.notifications').scrollTop(350)")
+  page.execute_script("$('#notifications-list').scrollTop(350)")
 end
 
 Then /^I should have scrolled down$/ do
@@ -203,12 +203,12 @@ Then /^I should have scrolled down$/ do
 end
 
 Then /^I should have scrolled down on the notification dropdown$/ do
-  page.evaluate_script("$('.notifications').scrollTop()").should > 0
+  page.evaluate_script("$('#notifications-list').scrollTop()").should > 0
 end
 
 
 Then /^the notification dropdown should be visible$/ do
-  find(:css, "#notification_dropdown").should be_visible
+  find(:css, "#notifications-dropdown").should be_visible
 end
 
 Then /^the notification dropdown scrollbar should be visible$/ do
@@ -301,6 +301,6 @@ Then(/^I should have a validation error on "(.*?)"$/) do |field_list|
 end
 
 And /^I active the first hovercard after loading the notifications page$/ do
-  page.should have_css '.notifications .hovercardable'
-  first('.notifications .hovercardable').hover
+  page.should have_css '#notifications-list .hovercardable'
+  first('#notifications-list .hovercardable').hover
 end

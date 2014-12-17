@@ -6,40 +6,19 @@ app.views.Header = app.views.Base.extend({
 
   className: "dark-header",
 
-  events: {
-    "click ul.dropdown li:first-child": "toggleUserDropdown",
+  events:{
     "focusin #q": "toggleSearchActive",
     "focusout #q": "toggleSearchActive"
   },
 
-  initialize: function(){
-    $(document.body).click($.proxy(this.hideUserDropdown, this));
-
+  initialize: function() {
     return this;
   },
 
   postRenderTemplate: function(){
-    new app.views.Notifications({ el: '#notification_dropdown' });
-    new app.views.NotificationDropdown({ el: '#notification_badge' });
+    new app.views.Notifications({ el: '#notifications-dropdown' });
+    new app.views.NotificationDropdown({ el: '#notification-badge' });
     new app.views.Search({ el: '#header-search-form' });
-  },
-
-  menuElement: function(){ return this.$("ul.dropdown"); },
-
-  toggleUserDropdown: function(evt){
-    if(evt){ evt.preventDefault(); }
-
-    this.menuElement().toggleClass("active");
-
-    if($.browser.msie){
-      this.$("header").toggleClass('ie-user-menu-active');
-    }
-  },
-
-  hideUserDropdown: function(evt){
-    if(this.menuElement().hasClass("active") && !$(evt.target).parents("#user_menu").length){
-      this.menuElement().removeClass("active");
-    }
   },
 
   toggleSearchActive: function(ev){

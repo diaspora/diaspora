@@ -3,21 +3,21 @@
 app.views.Notifications = Backbone.View.extend({
 
   events: {
-    "click .unread-toggle" : "toggleUnread",
-    "click #mark_all_read_link": "markAllRead"
+    'click .unread-toggle' : 'toggleUnread',
+    'click #mark_all_read_link': 'markAllRead'
   },
 
   initialize: function() {
-    $(".unread-toggle .entypo").tooltip();
+    $('.unread-toggle .entypo').tooltip();
     app.helpers.timeago($(document));
   },
 
   toggleUnread: function(evt) {
-    var note = $(evt.target).closest(".stream_element");
-    var unread = note.hasClass("unread");
+    var note = $(evt.target).closest('.stream_element');
+    var unread = note.hasClass('unread');
 
-    if (unread){ this.setRead(note.data("guid")); }
-    else { this.setUnread(note.data("guid")); }
+    if (unread){ this.setRead(note.data('guid')); }
+    else { this.setUnread(note.data('guid')); }
   },
 
   getAllUnread: function(){ return $('.media.stream_element.unread'); },
@@ -28,23 +28,23 @@ app.views.Notifications = Backbone.View.extend({
 
   setUnreadStatus: function(guid, state){
     $.ajax({
-      url: "/notifications/" + guid,
+      url: '/notifications/' + guid,
       data: { set_unread: state },
-      type: "PUT",
+      type: 'PUT',
       context: this,
       success: this.clickSuccess
     });
   },
 
   clickSuccess: function(data) {
-    var type = $('.stream_element[data-guid=' + data["guid"] + ']').data('type');
-    this.updateView(data["guid"], type, data["unread"]);
+    var type = $('.stream_element[data-guid=' + data.guid + ']').data('type');
+    this.updateView(data['guid'], type, data.unread);
   },
 
   markAllRead: function(){
     var self = this;
     this.getAllUnread().each(function(i, el){
-      self.setRead($(el).data("guid"));
+      self.setRead($(el).data('guid'));
     });
   },
 
@@ -52,17 +52,17 @@ app.views.Notifications = Backbone.View.extend({
     var change = unread ? 1 : -1,
         all_notes = $('ul.nav > li:eq(0) .badge'),
         type_notes = $('ul.nav > li[data-type=' + type + '] .badge'),
-        header_badge = $('#notification_badge .badge_count'),
+        header_badge = $('#notification-badge .badge_count'),
         note = $('.stream_element[data-guid=' + guid + ']'),
         markAllReadLink = $('a#mark_all_read_link'),
         translationKey = unread ? 'notifications.mark_read' : 'notifications.mark_unread';
 
-    if(unread){ note.removeClass("read").addClass("unread"); }
-    else { note.removeClass("unread").addClass("read"); }
+    if(unread){ note.removeClass('read').addClass('unread'); }
+    else { note.removeClass('unread').addClass('read'); }
 
-    $(".unread-toggle .entypo", note)
+    $('.unread-toggle .entypo', note)
         .tooltip('destroy')
-        .removeAttr("data-original-title")
+        .removeAttr('data-original-title')
         .attr('title',Diaspora.I18n.t(translationKey))
         .tooltip();
 

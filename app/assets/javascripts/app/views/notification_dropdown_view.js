@@ -2,49 +2,39 @@
 
 app.views.NotificationDropdown = app.views.Base.extend({
   events:{
-    "click #notifications-badge": "toggleDropdown"
+    'click #notifications-button': 'toggleDropdown'
   },
 
   initialize: function(){
-    $(document.body).click($.proxy(this.hideDropdown, this));
-
     this.notifications = [];
     this.perPage = 5;
     this.hasMoreNotifs = true;
     this.badge = this.$el;
-    this.dropdown = $('#notification_dropdown');
-    this.dropdownNotifications = this.dropdown.find('.notifications');
-    this.ajaxLoader = this.dropdown.find('.ajax_loader');
+    this.dropdown = this.$('#notifications-dropdown');
+    this.dropdownNotifications = this.dropdown.find('#notifications-list');
+    this.ajaxLoader = this.dropdown.find('.ajax-loader');
+
+    this.dropdown.on('click', function(evt){ evt.stopPropagation(); });
   },
 
   toggleDropdown: function(evt){
-    evt.preventDefault();
-    evt.stopPropagation();
     if(this.dropdownShowing()){ this.hideDropdown(evt); }
     else{ this.showDropdown(); }
   },
 
   dropdownShowing: function(){
-    return this.dropdown.css('display') === 'block';
+    return this.badge.hasClass('open');
   },
 
   showDropdown: function(){
     this.resetParams();
     this.ajaxLoader.show();
-    this.badge.addClass('active');
-    this.dropdown.css('display', 'block');
     this.dropdownNotifications.addClass('loading');
     this.getNotifications();
   },
 
   hideDropdown: function(evt){
-    var inDropdown = $(evt.target).parents().is(this.dropdown);
-    var inHovercard = $.contains(app.hovercard.el, evt.target);
-    if(!inDropdown && !inHovercard && this.dropdownShowing()){
-      this.badge.removeClass('active');
-      this.dropdown.css('display', 'none');
-      this.dropdownNotifications.perfectScrollbar('destroy');
-    }
+    this.dropdownNotifications.perfectScrollbar('destroy');
   },
 
   dropdownScroll: function(){
@@ -85,8 +75,8 @@ app.views.NotificationDropdown = app.views.Base.extend({
 
   hideAjaxLoader: function(){
     var self = this;
-    this.ajaxLoader.find('img').fadeTo(200, 0, function(){
-      self.ajaxLoader.hide(300, function(){
+    this.ajaxLoader.find('img').fadeTo(150, 0, function(){
+      self.ajaxLoader.hide(200, function(){
         self.ajaxLoader.find('img').css('opacity', 1);
       });
     });

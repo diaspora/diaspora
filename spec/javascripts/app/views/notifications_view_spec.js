@@ -82,7 +82,7 @@ describe("app.views.Notifications", function(){
       });
 
       it("changes the header notifications count", function() {
-        var badge = $("#notification_badge .badge_count");
+        var badge = $("#notification-badge .badge_count");
         var count = parseInt(badge.text(), 10);
 
         this.view.updateView(this.guid, this.type, true);

@@ -20,36 +20,6 @@ body {
   float: right;
 }
 
-#notification_badge, #conversations_badge {
-  margin: 0 10px 0 -5px;
-}
-
-#nav_badges {
-  left: auto;
-  right: 460px;
-  margin-right: -20px;
-}
-
-
-#notification_dropdown {
-  left: auto;
-  right: 507px;
-}
-
-#view_all_notifications {
-  float: left;
-  margin-right: 0;
-  margin-left: 3px;
-}
-
-#notification_badge, #conversations_badge {
-  margin: 0 10px 0 -5px;
-}
-
-#notification_badge a, #conversations_badge a {
-  right: 0;
-}
-
 .append-2 {
   padding-left: 80px;
   padding-right: 0px;
@@ -120,26 +90,6 @@ footer ul#footer_nav {
 #webSocketContainer {
   left: auto !important;
   right: -100px;
-}
-
-header ul#user_menu {
-  padding: 5px 30px 5px 5px;
-  right: auto;
-  margin: -2px 0 0 -5px;
-}
-
-header ul#user_menu .avatar {
-  left: auto;
-  right: 2px;
-}
-
-header ul#user_menu a {
-  padding-left: 15px;
-}
-
-header ul#user_menu .right {
-  right: auto;
-  left: 5px;
 }
 
 #sort_by {

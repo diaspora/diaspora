@@ -16,7 +16,7 @@ Feature: Notifications
     And I add the person to my "Besties" aspect
     And I sign out
     When I sign in as "alice@alice.alice"
-    And I follow "Notifications" in the header
+    And I press "notifications-button" in the header
     Then the notification dropdown should be visible
     Then I should see "started sharing with you"
     And I go to the notifications page
@@ -32,7 +32,7 @@ Feature: Notifications
     And I confirm the alert
     And I sign out
     When I sign in as "alice@alice.alice"
-    And I follow "Notifications" in the header
+    And I press "notifications-button" in the header
     Then the notification dropdown should be visible
     Then I should see "reshared your post"
     And I should have 1 email delivery
@@ -45,7 +45,7 @@ Feature: Notifications
     And I follow "Like"
     And I sign out
     When I sign in as "alice@alice.alice"
-    And I follow "Notifications" in the header
+    And I press "notifications-button" in the header
     Then the notification dropdown should be visible
     Then I should see "liked your post"
     And I should have 1 email delivery
@@ -62,7 +62,7 @@ Feature: Notifications
     Then I should see "less than a minute ago" within ".comment"
     And I sign out
     When I sign in as "alice@alice.alice"
-    And I follow "Notifications" in the header
+    And I press "notifications-button" in the header
     Then the notification dropdown should be visible
     Then I should see "commented on your post"
     And I should have 1 email delivery
@@ -71,7 +71,7 @@ Feature: Notifications
     Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And Alice has a post mentioning Bob
     When I sign in as "bob@bob.bob"
-    And I follow "Notifications" in the header
+    And I press "notifications-button" in the header
     Then the notification dropdown should be visible
     Then I should see "mentioned you in the post"
     And I should have 1 email delivery
@@ -93,8 +93,8 @@ Feature: Notifications
     And I add the person to my "Besties" aspect
     And I sign out
     When I sign in as "alice@alice.alice"
-    And I follow "Notifications" in the header
-    And I active the first hovercard after loading the notifications page
+    And I press "notifications-button" in the header
+    And I active the first hovercard after loading the notifications page 
     When I press the aspect dropdown
     Then the aspect dropdown should be visible
 
@@ -102,7 +102,7 @@ Feature: Notifications
     Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And Alice has 6 posts mentioning Bob
     When I sign in as "bob@bob.bob"
-    And I follow "Notifications" in the header
+    And I press "notifications-button" in the header
     Then the notification dropdown should be visible
     Then the notification dropdown scrollbar should be visible
 
@@ -110,7 +110,7 @@ Feature: Notifications
     Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And Alice has 20 posts mentioning Bob
     When I sign in as "bob@bob.bob"
-    And I follow "Notifications" in the header
+    And I press "notifications-button" in the header
     Then the notification dropdown should be visible
     Then the notification dropdown scrollbar should be visible
     Then there should be 10 notifications loaded

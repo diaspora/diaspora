@@ -1,429 +1,339 @@
-.timeago {
-  color: $text-grey;
-  border-bottom: none;
-}
+//*****************************
+//*         Variables         *
+//*****************************/
+$head_height:38px;
+$font_color: $text-grey;
+$hover_bg_color: $background-grey;
+
+// Variables that let us place an element vertically and
+// horizontally centered on the navbar
+$mrgn_cntr_item: 4px;
+$mrgn_cntr_height: $head_height - 3 * $mrgn_cntr_item;
+$img_height: 0.80*$head_height;
 
 body > header {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.9);
   background: image-url('header-bg.png') rgb(40,35,35);
   z-index: 1001;
-  padding: 6px 0;
-  color: #CCC;
-  height: 26px;
+  height: $head_height;
   position: fixed;
   width: 100%;
-  min-width: 620px;
   top: 0;
   left: 0;
-  border-bottom: 1px solid #000;
-
-  > div > div.container {
-    height: 26px;
-  }
 
   .diaspora_header_logo {
     float: left;
-    margin-top: -6px;
-    height: 38px;
+    height: $head_height;
     width: 65px;
   }
 
-  .ie-user-menu-active { height: 150px; }
+  nav.navbar.navbar-default{ margin: 0; }
 
-  a.header_root_link {
-    display: inline-block;
-    margin-top: 5px;
+  > header, nav, div.container-fluid, ul#user-nav, li#conversations-badge{ height: $head_height; }
+
+  #user-menu, #user-nav > li{
+    &:hover{ background-color: $hover_bg_color; }
   }
 
-  a {
-    color: #CCC;
-    color: rgb(147,147,147);
-
-    &:hover, &:focus {
-      background: none;
-      color: $highlight-white;
-    }
-    &:focus {
-      outline: thin dotted $border-dark-grey;
-      text-decoration: none;
+  #notifications-dropdown, #user-menu > ul {
+    a:hover, a:focus {
+      background: linear-gradient(to bottom, $blue, $dark-blue);
     }
   }
 
-  &.landing {
-    height: 40px;
-    .right { top: 10px; }
-  }
+  // General rules for header dropdowns
+  //***************************************
+  //* ".header-dropdown" to be changed to *
+  //* ".header-dropdown-right" with BS3   *
+  //***************************************
+  div.header-dropdown{
+    background: transparent;
+    height: $head_height;
+    border: none;
+    float: right;
+    padding: 0 6px;
+    margin: 0;
 
-  #nav_badges {
-    display: inline-block;
-    margin-top: 2px;
-    float: left;
-    width: 61px;
+    &.open{
+      background-color: $hover_bg_color;
+    }
 
-    a:hover { text-decoration: none; }
+    img{
+      height: $img_height;
+      margin: 0 1em 0 0;
+      padding: 0;
+    }
 
-    .badge {
-      width: 22px;
-      position: relative;
-      top: 2px;
-      display: inline;
-      margin: 0 2px;
-      font-weight: bold;
-      font-size: smaller;
+    button{
+      background: transparent;
+      color: $font_color;
+      border: none;
+      height: 100%;
+      margin: 0;
+      padding: 0;
 
-      .badge_count {
-        border-radius: 2px;
-        z-index: 3;
-        position: absolute;
-        top: -4px;
-        left: 15px;
-        padding: 1px 2px;
+      #caret{
+        margin: 0;
+        padding: 0;
+        color: $font_color;
+      }
+
+      #user-id{
+        margin-right: 1em;
+      }
+
+      div.badge_count {
         background-color: $red;
-        line-height: 12px;
-        color: #fff;
-      }
-
-      &:hover .badge_count { background-color: lighten($red, 5%); }
-
-      .icons-notifications_grey { height: 16px; }
-
-      &.active .icons-notifications_grey:hover {
-        background-position: sprite-position($icons-sprites, notifications_grey);
-      }
-
-      .icons-mail_grey { height: 11px }
-
-      a.badge_link {
-        display: block;
-        width: 100%;
-        height: 16px;
-        float: left;
+        border-radius: 2px;
+        position: absolute;
+        line-height: 14px;
+        padding: 1px 2px;
+        font-size: 12px;
+        height: 1em;
+        color: $white;
+        z-index: 3;
+        left: 22px;
+        top: 4px;
       }
     }
 
-    #notification_badge, #conversations_badge {
-      float: left;
-      padding: 0px 3px;
-    }
+    ul{
+      border-radius: 0;
+      width: 100%;
+      left: -1px;
+      padding: 0;
+      margin: 0;
 
-    #conversations_badge {
-      padding-top: 3px;
-      margin-right: 0px;
-      padding-right: 0px;
-    }
+      // To be removed with BS3
+      &.pull-right{ right: -1px; }
+      &.dropdown-menu{ border-top: 0; }
 
-    #notification_badge.active {
-      z-index: 10;
-      background-color: #fff;
-      border: 1px solid $border-dark-grey;
-      border-bottom: 0px;
-      margin-left: 0px;
-      padding-bottom: 12px;
-    }
+      li{
+        padding: 0;
+        margin: 0;
 
-    #notification_dropdown {
-      background: white;
-      border: solid $border-dark-grey 1px;
-      box-shadow: 0 0px 13px rgba(20,20,20,0.5);
-      left: 300px;
-      width: 380px;
-      display: none;
-      float: left;
-      color: $grey;
-
-      a { color: $blue; }
-      a.disabled {
-        color: $link-disabled-grey;
-        cursor: default;
-      }
-
-      .header {
-        border-bottom: 1px solid $border-grey;
-        padding: 5px 10px 5px 5px;
-
-        h4 {
-          padding-bottom: 0;
-          margin-bottom: 0;
-          font-size: 16px;
-          color: $black;
+        a{
+          padding: 6px 20px;
+          color: $blue;
         }
 
-        a {
-          font-size: 11px;
-          font-weight: bold;
-        }
-      }
-
-      .ajax_loader {
-        border-bottom: 1px solid $border-grey;
-        text-align: center;
-        padding: 15px;
-      }
-      .notifications{
-        overflow: hidden;
-        position: relative;
-        max-height: 325px;
-
-        .media.stream_element {
+        &.ajax-loader{
+          text-align: center;
+          padding: 15px;
           border-bottom: 1px solid $border-grey;
-          padding: 5px;
-          min-height: 35px;
-          line-height: 18px;
-          margin: 0;
-
-          img.avatar {
-            width: 35px;
-            height: 35px;
+          img{
+            height: 15px;
+            width: 15px;
           }
+        }
+      }
+    }
+  }
 
-          .pull-right > .aspect_membership_dropdown { display: none; }
-          .unread-toggle { margin: 10px; }
+  // Rules for the navigation buttons on the left of the header
+  div.navbar-header > div {
+    ul#user-nav {
+      #notification-badge {
+        padding: 0;
+      }
 
-          .entypo {
-            cursor: pointer;
-            color: lighten($black,75%);
-            font-size: 17px;
-            line-height: 17px;
+      > li > a, button {
+        margin: 0;
+        padding: 9px 15px;
+        text-shadow: 0 0 0;
+        color: $font_color;
+        text-align: center;
+
+        .entypo {
+          color: $font_color;
+          &.bell{ font-size: 16px; }
+          &.mail{ font-size: 18px; }
+        }
+      }
+
+      .header-badge,
+      .header-badge > div,
+      .header-badge > div > button{ width: 45px; }
+    }
+  }
+
+  // Rules for the notitifications dropdown
+  #notifications-dropdown{
+    width: 450px;
+
+    li#title-item{
+      border-bottom: 1px solid $border-grey;
+
+      h4{
+        display: inline-block;
+        margin: 10px;
+        padding: 0;
+      }
+
+      a{
+        display: inline;
+        float: right;
+      }
+    }
+
+    li#notifications-list{
+      max-height: 380px;
+      overflow: hidden;
+      position: relative;
+      border: none;
+
+      .media.stream_element{
+        margin: 0;
+        padding: 10px;
+        min-height: 35px;
+        line-height: 18px;
+        border-bottom: 1px solid $border-grey;
+
+        &:last-child{ border-bottom: none; }
+
+        a{
+          padding: 0;
+
+          &:hover, &:active{
+            background: none;
+            text-decoration: underline;
+            color: $dark-blue;
           }
-          .tooltip {
-            position: fixed;
-          }
+        }
 
-          &.unread {
-            background-color: $background-grey;
-            color: $black;
-            .unread-toggle {
-              .entypo { color: $black; }
+        img.avatar {
+          width: 50px;
+          height: 50px;
+          margin: 6px 1.2em 0 0;
+        }
+
+        .aspect_membership_dropdown{ display: none; }
+
+        .unread-toggle{ margin: 15px; }
+
+        .entypo {
+          cursor: pointer;
+          color: lighten($black, 75%);
+          font-size: 17px;
+          line-height: 17px;
+        }
+
+        .tooltip{ position: fixed; }
+
+        &.unread {
+          background-color: $background-grey;
+          color: $black;
+          .unread-toggle {
+            .entypo {
+              color: $black;
             }
           }
-
         }
       }
+    }
 
-      .view_all {
-        background-color: $blue;
-        border-bottom: 1px solid $border-dark-grey;
-        text-align: center;
-        a {
-          display: block;
-          padding: 5px;
-          color: white;
-          font-size: 12px;
-          font-weight: bold;
-        }
+    #mark_all_read_link, #view_all_notifications {
+      padding: 10px 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #view_all_notifications {
+      background: linear-gradient(to bottom, $blue, $dark-blue);
+      color: $white;
+      border: none;
+    }
+
+    #mark_all_read_link.disabled {
+      color: $link-disabled-grey;
+      &:hover, &:active, &:focus {
+        background: none;
+        cursor: default;
       }
+    }
+  }
+
+  // Overridden rules for header dropdowns
+  div#user-menu{
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+
+    &.open{
+      border-left: 1px solid $font_color;
+      border-right: 1px solid $font_color;
+    }
+
+    ul > li > a{
+      padding-left: $img_height + 26px;
     }
   }
 
   #global_search {
     float: right;
-    margin-right: 10px;
     position: relative;
+    margin: 0;
 
     form {
       position: absolute;
+      height: $head_height - $mrgn_cntr_item;
+      padding: 0 6px;
+      margin: 0;
       right: 0;
 
       input {
         box-shadow: 0 1px 1px #444;
-        border-radius: 15px;
+        border-radius: 4px;
         @include transition(width);
-        width: 100px;
         background-color: #444;
         border: 1px solid #222;
         font-size: 13px;
-        padding: 4px;
-        margin-top: 1px;
+        margin: $mrgn_cntr_item 0;
+        padding: 0 $mrgn_cntr_item;
+        height: $mrgn_cntr_height;
+        width: 100px;
 
         &:hover { background-color: #555; }
 
-        &.active {
-          background-color: $highlight-white;
-          background-color: rgba(160,160,160,0.6);
-        }
+        &.active { background-color: $highlight-white; }
 
         &:focus {
           outline: none;
           background-color: white;
-          width: 200px;
+          width: 150px;
         }
-
-        &::input-placeholder { text-shadow: none; }
-        &::placeholder { text-shadow: none; }
-        &.ac_loading::-webkit-search-cancel-button { -webkit-appearance: none; }
       }
     }
   }
 
-  ul#user_menu {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-shadow: 0 1px 0 #000;
-    color: rgb(147,147,147);
-    min-width: 100px;
-    cursor: pointer;
-    z-index: 10;
-    display: inline;
-    visibility: hidden;
-    top: -4px;
-    float: right;
-    margin: -2px -3px 0px 0px;
-    padding: 0;
-
-    > li {
-      display: block;
-      border-left: 1px solid #333;
-      border-right: 1px solid #333;
-
-      &:first-child {
-        visibility: visible;
-      }
-
-      &:last-child {
-        border-bottom: 1px solid #333;
-      }
-    }
-
-    &.active {
-      box-shadow: 0 0px 13px rgba(20,20,20,0.5);
-      background-color: rgb(34,30,30);
-      visibility: visible;
-
-      > li {
-        border-color: $border-dark-grey;
-      }
-    }
-  }
-
-  .user-menu-item a {
-    padding: 4px 8px 4px 40px;
-    height: 100%;
-    color: $text-grey;
-
-    &:hover {
-      background-color: $blue;
-      color: $highlight-white;
-      text-decoration: none;
-    }
-  }
-
-  .user-menu-trigger {
-    padding: 10px 25px 10px 40px;
-
-    &:hover {
-      color: $highlight-white;
-      .user-name { color: $highlight-white; }
-    }
-  }
-
-  .user-name {
-
-    &:hover {
-      background-color: transparent;
-      text-decoration: none;
-    }
-
-    &:focus { outline: none; }
-  }
-
-  .user-menu-more-indicator {
-    position: absolute;
-    right: 5px;
-  }
-
-  .user-menu-avatar {
-    height: 25px;
-    width: 25px;
-    position: absolute;
-    left: 8px;
-    top: 8px;
-    display: block;
-  }
-
-  .header-nav {
-    font-weight: bold;
-    float: left;
-    height: 100%;
-    margin-right: 5px;
-    margin-top: 2px;
-
-    a {
-      padding: 0 10px;
-      width: 100%;
-      &:hover { text-decoration: none; }
-    }
-
-    > span {
-      height: 100%;
-      display: inline-block;
-      margin-left: -4px;
-      border-left: 1px solid #333;
-      border-right: 1px solid #333;
-
-      &:last-child {
-        margin-left: -5px;
-      }
-    }
-  }
-
-  /* When the user is not connected */
+  // When the user is not connected
   ul#landing_nav {
-    position: absolute;
-    top: 4px;
-    right: 0;
+    height: $head_height;
     margin: 0;
     padding: 0;
 
     > li {
       text-shadow: 0 1px 0 #000;
-      display: inline;
-      margin-right: 0.5em;
+      height: $head_height;
+      padding: 0;
+      margin: 0;
 
       a {
+        margin: 0;
         color: $blue;
+        margin-top: $mrgn_cntr_item;
+        margin-right: $mrgn_cntr_item;
+        height: $mrgn_cntr_height;
+        padding: 0 2 * $mrgn_cntr_item;
+        text-shadow: unset;
 
         &.login {
-          border-radius: 5px;
+          border-radius: 4px;
           box-shadow: 0 1px 1px #666;
-          padding: 5px 8px;
           background-color: #000;
           border-top: 1px solid #000;
 
           &:hover { background-color: #222; }
         }
- 	  }
-
-      &:last-child { margin-right: 0; }
-    }
-  }
-}
-
-
-/*
- * Extract here from application.sass because
- * needed for the header in the bootstrap part
- */
-ul.dropdown {
-  padding: 0px;
-
-  li {
-    display: none;
-
-    a { display: block; }
-
-    &:first-child {
-      display: block;
-
-      a {
-        height: auto;
-        display: inline;
       }
     }
-  }
-
-  &.active {
-    z-index: 30;
-    li { display: block; }
   }
 }
