@@ -173,9 +173,6 @@ en:
   aspects:
     zero: "no aspects"
     one: "1 aspect"
-    two: "%{count} aspects"
-    few: "%{count} aspects"
-    many: "%{count} aspects"
     other: "%{count} aspects"
     contacts_visible: "Contacts in this aspect will be able to see each other."
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
@@ -308,9 +305,6 @@ en:
   comments:
     zero: "no comments"
     one: "1 comment"
-    two: "%{count} comments"
-    few: "%{count} comments"
-    many: "%{count} comments"
     other: "%{count} comments"
     new_comment:
       comment: "Comment"
@@ -324,9 +318,6 @@ en:
   contacts:
     zero: "contacts"
     one: "1 contact"
-    two: "%{count} contacts"
-    few: "%{count} contacts"
-    many: "%{count} contacts"
     other: "%{count} contacts"
     create:
       failure: "Failed to create contact"
@@ -824,9 +815,6 @@ en:
   people:
     zero: "no people"
     one: "1 person"
-    two: "%{count} people"
-    few: "%{count} people"
-    many: "%{count} people"
     other: "%{count} people"
     person:
       pending_request: "Pending request"
@@ -1193,16 +1181,13 @@ en:
 
   tags:
     show:
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
+      tagged_people:
+        zero: "No one tagged with %{tag}"
+        one: "1 person tagged with %{tag}"
+        other: "%{count} people tagged with %{tag}"
       follow: "Follow #%{tag}"
       following: "Following #%{tag}"
       stop_following: "Stop Following #%{tag}"
-      followed_by_people:
-        zero: "followed by nobody"
-        one: "followed by one person"
-        other: "followed by %{count} people"
       none: "The empty tag does not exist!"
   tag_followings:
     create:
