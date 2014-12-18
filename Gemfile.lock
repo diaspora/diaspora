@@ -20,11 +20,11 @@ GEM
       activesupport (= 4.1.8)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-    activemodel (4.1.8)
-      activesupport (= 4.1.8)
     active_model_serializers (0.9.0)
       activemodel (>= 3.2)
       builder (~> 3.1)
+    activemodel (4.1.8)
+      activesupport (= 4.1.8)
     activerecord (4.1.8)
       activemodel (= 4.1.8)
       activesupport (= 4.1.8)
@@ -607,8 +607,8 @@ PLATFORMS
 DEPENDENCIES
   actionpack-action_caching
   actionpack-page_caching
-  activerecord-import (= 0.6.0)
   active_model_serializers
+  activerecord-import (= 0.6.0)
   acts-as-taggable-on (= 3.4.2)
   acts_as_api (= 0.4.2)
   addressable (= 2.3.6)
