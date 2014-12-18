@@ -14,7 +14,7 @@ end
 if defined?(RSpec)
   namespace :tests do
     desc "Run all specs that generate fixtures for rspec or jasmine"
-    RSpec::Core::RakeTask.new(:generate_fixtures) do |t|
+    RSpec::Core::RakeTask.new(:generate_fixtures => 'spec:prepare') do |t|
       t.rspec_opts = ['--tag fixture']
     end
   end
