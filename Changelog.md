@@ -77,6 +77,7 @@ This is disabled by default since it requires the installation of additional pac
 * Cleanup diaspora.yml [#5426](https://github.com/diaspora/diaspora/pull/5426)
 * Replace `opengraph_parser` with `open_graph_reader` [#5462](https://github.com/diaspora/diaspora/pull/5462)
 * Make sure conversations without any visibilities left are deleted [#5478](https://github.com/diaspora/diaspora/pull/5478)
+* Change tooltip for delete button in conversations view [#5477](https://github.com/diaspora/diaspora/pull/5477)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)

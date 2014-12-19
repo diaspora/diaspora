@@ -3,13 +3,21 @@
 -#   the COPYRIGHT file.
 
 .conversation_participants
-  = link_to(content_tag(:div, nil, :class => 'icons-deletelabel'),
-            conversation_visibility_path(conversation),
-            :method => 'delete',
-            :data => { :confirm => "#{t('.delete')}?" },
-            :title => t('.delete'),
-            :class => 'close_conversation')
-
+  - if conversation.participants.count > 1
+    = link_to(content_tag(:div, nil, :class => 'icons-deletelabel'),
+              conversation_visibility_path(conversation),
+              :method => 'delete',
+              :data => { :confirm => "#{t('.hide')}?" },
+              :title => t('.hide'),
+              :class => 'close_conversation')
+  - else
+    = link_to(content_tag(:div, nil, :class => 'icons-deletelabel'),
+              conversation_visibility_path(conversation),
+              :method => 'delete',
+              :data => { :confirm => "#{t('.delete')}?" },
+              :title => t('.delete'),
+              :class => 'close_conversation')
+              
   %h3{ :class => direction_for(conversation.subject) }
     = conversation.subject
 
