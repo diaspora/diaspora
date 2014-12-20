@@ -70,7 +70,7 @@ app.views.Hovercard = app.views.Base.extend({
       this.$el.hide();
     }
 
-    this.dropdown_container.empty();
+    this.dropdown_container.unbind().empty();
     return false;
   },
 
