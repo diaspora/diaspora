@@ -11,6 +11,10 @@
 //= require jquery.autoSuggest.custom
 //= require fileuploader-custom
 //= require rails-timeago
+//= require underscore
+//= require diaspora
+//= require helpers/i18n
+//= require widgets/timeago
 
 $(document).ready(function(){
 

@@ -39,6 +39,9 @@
 
   Diaspora.BaseWidget = {
     instantiate: function(Widget, element) {
+      // Mobile version loads only some widgets
+      if (typeof Diaspora.Widgets[Widget] === 'undefined') return;
+
       $.extend(Diaspora.Widgets[Widget].prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
 
       var widget = new Diaspora.Widgets[Widget](),
