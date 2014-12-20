@@ -7,7 +7,7 @@ class PeopleController < ApplicationController
   before_action :find_person, only: [:show, :stream, :hovercard]
 
   layout ->(c){ request.format == :mobile ? "application" : "with_header_with_footer" }
-  use_bootstrap_for :index, :show, :contacts
+  use_bootstrap_for :index, :show, :contacts, :refresh_search
 
   respond_to :html, :except => [:tag_index]
   respond_to :json, :only => [:index, :show]

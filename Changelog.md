@@ -104,6 +104,7 @@ This is disabled by default since it requires the installation of additional pac
 * Fix code overflow in SPV and improve styling for code tags [#5422](https://github.com/diaspora/diaspora/pull/5422)
 * Correctly validate if local recipients actually want to receive a conversation [#5449](https://github.com/diaspora/diaspora/pull/5449)
 * Improve consistency of poll answer ordering [#5471](https://github.com/diaspora/diaspora/pull/5471)
+* Fix broken aspect selectbox on asynchronous search results [#5488](https://github.com/diaspora/diaspora/pull/5488)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
