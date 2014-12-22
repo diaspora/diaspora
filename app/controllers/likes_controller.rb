@@ -15,7 +15,7 @@ class LikesController < ApplicationController
       @like = if target
         current_user.like!(target)
       end
-    rescue ActiveRecord::RecordInvalid => e
+    rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid => e
       # do nothing
     end
 
