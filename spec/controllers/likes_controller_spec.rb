@@ -72,6 +72,22 @@ describe LikesController, :type => :controller do
             expect(response.code).to eq('422')
           end
         end
+
+        context "when an the exception is raised" do
+          it "should be catched when it means that the target is not found" do
+            allow(@target).to receive(:id).and_return(-1)
+            post :create, like_hash.merge(:format => :json)
+            expect(response.code).to eq('422')
+          end
+
+          it "should not be catched when it is unexpected" do
+            @target = alice.post :status_message, :text => "AWESOME", :to => @alices_aspect.id
+            @target = alice.comment!(@target, "hey") if class_const == Comment
+            allow(alice).to receive(:like!).and_raise("something")
+            allow(@controller).to receive(:current_user).and_return(alice)
+            expect { post :create, like_hash.merge(:format => :json) }.to raise_error("something")
+          end
+        end
       end
 
       describe '#index' do

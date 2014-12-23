@@ -11,7 +11,13 @@ class LikesController < ApplicationController
              :json
 
   def create
-    @like = current_user.like!(target) if target rescue ActiveRecord::RecordInvalid
+    begin
+      @like = if target
+        current_user.like!(target)
+      end
+    rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid => e
+      # do nothing
+    end
 
     if @like
       respond_to do |format|
