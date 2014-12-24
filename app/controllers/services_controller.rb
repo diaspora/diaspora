@@ -23,9 +23,9 @@ class ServicesController < ApplicationController
     service = Service.initialize_from_omniauth( omniauth_hash )
     
     if current_user.services << service
-      current_user.update_profile_with_omniauth( service.info )
-
-      fetch_photo(service) if no_profile_image?
+      no_profile_image_before_update = no_profile_image?
+      current_user.update_profile_with_omniauth(service.info)
+      fetch_photo(service) if no_profile_image_before_update
 
       flash[:notice] = I18n.t 'services.create.success'
     else
