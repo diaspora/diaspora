@@ -291,6 +291,28 @@ class User < ActiveRecord::Base
     end
   end
 
+  ######### Data export ##################
+  mount_uploader :export, ExportedUser
+
+  def queue_export
+    update exporting: true
+    Workers::ExportUser.perform_async(id)
+  end
+
+  def perform_export!
+    export = Tempfile.new([username, '.json.gz'], encoding: 'ascii-8bit')
+    export.write(compressed_export) && export.close
+    if export.present?
+      update exporting: false, export: export, exported_at: Time.zone.now
+    else
+      update exporting: false
+    end
+  end
+
+  def compressed_export
+    ActiveSupport::Gzip.compress Diaspora::Exporter.new(self).execute
+  end
+
   ######### Mailer #######################
   def mail(job, *args)
     pref = job.to_s.gsub('Workers::Mail::', '').underscore
@@ -505,6 +527,6 @@ class User < ActiveRecord::Base
                             "created_at", "updated_at", "locked_at",
                             "serialized_private_key", "getting_started",
                             "disable_mail", "show_community_spotlight_in_stream",
-                            "email", "remove_after"]
+                            "email", "remove_after", "export", "exporting", "exported_at"]
   end
 end

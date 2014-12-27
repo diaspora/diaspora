@@ -135,12 +135,14 @@ class UsersController < ApplicationController
     redirect_to stream_path
   end
 
-  def export
-    if export = Diaspora::Exporter.new(current_user).execute
-      send_data export, filename: "#{current_user.username}_diaspora_data.json", type: :json
-    else
-      head :not_acceptable
-    end
+  def export_profile
+    current_user.queue_export
+    flash[:notice] = I18n.t('users.edit.export_in_progress')
+    redirect_to edit_user_path
+  end
+
+  def download_profile
+    send_data File.open(current_user.export.path).read, type: :json, filename: current_user.export.filename
   end
 
   def export_photos
