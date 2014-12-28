@@ -41,7 +41,7 @@ describe AspectsController, :type => :controller do
       expect(response).to be_redirect
     end
     it 'redirects on an invalid id' do
-      get :show, 'id' => 4341029835
+      get :show, 'id' => 0
       expect(response).to be_redirect
     end
   end
