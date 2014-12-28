@@ -89,5 +89,8 @@ module Diaspora
       g.template_engine :haml
       g.test_framework  :rspec
     end
+
+    # Will be default with Rails 5
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end
