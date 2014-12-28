@@ -1,13 +1,16 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.0'
 
 # Legacy Rails features, remove me!
 
 # caches_page
 gem 'actionpack-action_caching'
 gem 'actionpack-page_caching'
+
+# responders (class level)
+gem 'responders', '2.0.2'
 
 # Appserver
 
