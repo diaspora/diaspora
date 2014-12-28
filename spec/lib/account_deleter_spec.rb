@@ -187,12 +187,12 @@ describe AccountDeleter do
 
   it 'has all user association keys accounted for' do
     all_keys = (@account_deletion.normal_ar_user_associates_to_delete + @account_deletion.special_ar_user_associations + @account_deletion.ignored_ar_user_associations)
-    expect(all_keys.sort{|x, y| x.to_s <=> y.to_s}).to eq(User.reflections.keys.sort{|x, y| x.to_s <=> y.to_s})
+    expect(all_keys.sort{|x, y| x.to_s <=> y.to_s}).to eq(User.reflections.keys.sort{|x, y| x.to_s <=> y.to_s}.map(&:to_sym))
   end
 
   it 'has all person association keys accounted for' do
     all_keys = (@account_deletion.normal_ar_person_associates_to_delete + @account_deletion.ignored_or_special_ar_person_associations)
-    expect(all_keys.sort{|x, y| x.to_s <=> y.to_s}).to eq(Person.reflections.keys.sort{|x, y| x.to_s <=> y.to_s})
+    expect(all_keys.sort{|x, y| x.to_s <=> y.to_s}).to eq(Person.reflections.keys.sort{|x, y| x.to_s <=> y.to_s}.map(&:to_sym))
   end
 end
 
