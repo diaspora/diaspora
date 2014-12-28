@@ -13,7 +13,7 @@ class ReportMailer < ActionMailer::Base
         user = User.find_by_id(person.owner_id)
         unless user.user_preferences.exists?(:email_type => :someone_reported)
           resource[:email] = user.email
-          format(resource).deliver
+          format(resource).deliver_now
         end
       end
     end

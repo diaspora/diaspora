@@ -31,7 +31,7 @@ module Workers
           user.flag_for_removal(remove_at)
           if user.sign_in_count > 0
             # send a warning
-            Maintenance.account_removal_warning(user).deliver
+            Maintenance.account_removal_warning(user).deliver_now
           end
           Workers::RemoveOldUser.perform_in(remove_at+1.day, user.id)
         end

@@ -210,7 +210,7 @@ describe Notifier, :type => :mailer do
     let(:comment) { eve.comment!(commented_post, "Totally is")}
 
     describe ".comment_on_post" do
-      let(:comment_mail) {Notifier.comment_on_post(bob.id, person.id, comment.id).deliver}
+      let(:comment_mail) {Notifier.comment_on_post(bob.id, person.id, comment.id).deliver_now}
 
       it 'TO: goes to the right person' do
         expect(comment_mail.to).to eq([bob.email])
