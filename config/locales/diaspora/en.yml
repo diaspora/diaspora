@@ -731,6 +731,8 @@ en:
 
   notifier:
     a_post_you_shared: "a post."
+    a_private_message: "There's a new private message in diaspora* for you to check out."
+    a_limited_post_comment: "There's a new comment on a limited post in diaspora* for you to check out."
     email_sent_by_diaspora: "This email was sent by %{pod_name}. If you'd like to stop getting emails like this,"
     click_here: "click here"
     hello: "Hello %{name}!"

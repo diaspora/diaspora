@@ -8,12 +8,14 @@ describe NotifierHelper, :type => :helper do
   describe '#post_message' do
     before do
       # post for truncate test
-      @post = FactoryGirl.create(:status_message, text: "hi dude! "*10)
+      @post = FactoryGirl.create(:status_message, text: "hi dude! "*10, public: true)
       @truncated_post = "hi dude! hi dude! hi dude! hi dude! hi dude! hi dude! hi dude! hi dude! hi du..."
       # post for markdown test
       @markdown_post = FactoryGirl.create(:status_message,
-        text: "[link](http://diasporafoundation.org) **bold text** *other text*")
+        text: "[link](http://diasporafoundation.org) **bold text** *other text*", public: true)
       @striped_markdown_post = "link (http://diasporafoundation.org) bold text other text"
+      
+      @limited_post = FactoryGirl.create(:status_message, text: "This is top secret post. Shhhhhhhh!!!", public: false)
     end
 
     it 'truncates in the post' do
@@ -25,6 +27,10 @@ describe NotifierHelper, :type => :helper do
       opts = {:length => @markdown_post.text.length}
       expect(post_message(@markdown_post, opts)).to eq(@striped_markdown_post)
     end
+
+    it 'hides the private content' do
+      expect(post_message(@limited_post)).not_to include("secret post")
+    end
   end
 
   describe '#comment_message' do
@@ -32,11 +38,19 @@ describe NotifierHelper, :type => :helper do
       # comment for truncate test
       @comment = FactoryGirl.create(:comment)
       @comment.text = "hi dude! "*10
+      @comment.post.public = true
       @truncated_comment = "hi dude! hi dude! hi dude! hi dude! hi dude! hi dude! hi dude! hi dude! hi d..."
+
       # comment for markdown test
       @markdown_comment = FactoryGirl.create(:comment)
+      @markdown_comment.post.public = true
       @markdown_comment.text = "[link](http://diasporafoundation.org) **bold text** *other text*"
       @striped_markdown_comment = "link (http://diasporafoundation.org) bold text other text"
+      
+      # comment for limited post
+      @limited_comment = FactoryGirl.create(:comment)
+      @limited_comment.post.public = false
+      @limited_comment.text = "This is top secret comment. Shhhhhhhh!!!"
     end
 
     it 'truncates in the comment' do
@@ -47,6 +61,10 @@ describe NotifierHelper, :type => :helper do
     it 'strip markdown in the comment' do
       opts = {:length => @markdown_comment.text.length}
       expect(comment_message(@markdown_comment, opts)).to eq(@striped_markdown_comment)
+    end
+    
+    it 'hides the private content' do
+      expect(comment_message(@limited_comment)).not_to include("secret comment")
     end
   end
 end
