@@ -36,7 +36,7 @@ Diaspora::Application.routes.draw do
     resources :poll_participations, :only => [:create]
 
     resources :likes, :only => [:create, :destroy, :index ]
-    resources :participations, :only => [:create, :destroy, :index]
+    resource :participation, :only => [:create, :destroy]
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
 

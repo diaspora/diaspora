@@ -23,10 +23,13 @@ app.views.StreamPost = app.views.Post.extend({
     "click .remove_post": "destroyModel",
     "click .hide_post": "hidePost",
     "click .post_report": "report",
-    "click .block_user": "blockUser"
+    "click .block_user": "blockUser",
+
+    "click .create_participation": "createParticipation",
+    "click .destroy_participation": "destroyParticipation"
   },
 
-  tooltipSelector : ".timeago, .post_scope, .block_user, .delete",
+  tooltipSelector : ".timeago, .post_scope, .block_user, .delete, .create_participation, .destroy_participation",
 
   initialize : function(){
     var personId = this.model.get('author').id;
@@ -111,6 +114,22 @@ app.views.StreamPost = app.views.Post.extend({
           notice: Diaspora.I18n.t('hide_post_failed')
         });
       });
+  },
+
+  createParticipation: function (evt) {
+    that = this;
+    $.post("/posts/" + this.model.get("id") + "/participation", {}, function () {
+      that.model.set({participation: true});
+      that.render();
+    });
+  },
+
+  destroyParticipation: function (evt) {
+    that = this;
+    $.post("/posts/" + this.model.get("id") + "/participation", { _method: "delete" }, function () {
+      that.model.set({participation: false});
+      that.render();
+    });
   },
 
   focusCommentTextarea: function(evt){
