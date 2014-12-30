@@ -74,7 +74,7 @@ describe("app.views.Help", function(){
 
     it('should show tags section', function(){
       this.view.$el.find('a[data-section=tags]').trigger('click');
-      expect(this.view.$el.find('#faq').children().first().hasClass('faq_question_tags')).toBeTruthy();
+      expect(this.view.$el.find('#faq').children().first().data('template') == 'faq_tags')).toBeTruthy();
     });
 
     it('should show keyboard shortcuts section', function(){
