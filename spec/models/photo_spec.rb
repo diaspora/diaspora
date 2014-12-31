@@ -140,6 +140,39 @@ describe Photo, :type => :model do
     end
   end
 
+  context 'with a saved photo containing EXIF data' do
+    before do
+      @exif_filename  = 'exif.jpg'
+      @exif_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', @exif_filename)
+    end
+
+    it 'should contain EXIF data if user prefer' do
+      @alice_photo  = alice.build_post(:photo, :user_file => File.open(@exif_name), :to => alice.aspects.first.id)
+
+      with_carrierwave_processing do
+        @alice_photo.unprocessed_image.store! File.open(@exif_name)
+        @alice_photo.save
+      end
+
+      new_filename = File.join(File.dirname(__FILE__), '../../public/', @alice_photo.unprocessed_image.store_dir, @alice_photo.unprocessed_image.filename)
+      image = MiniMagick::Image.new(new_filename)
+      expect(image.exif.length).not_to eq(0)
+    end
+
+    it 'should not contain EXIF data if user prefer' do
+      @bob_photo  = bob.build_post(:photo, :user_file => File.open(@exif_name), :to => @aspect.id)
+
+      with_carrierwave_processing do
+        @bob_photo.unprocessed_image.store! File.open(@exif_name)
+        @bob_photo.save
+      end
+
+      new_filename = File.join(File.dirname(__FILE__), '../../public/', @bob_photo.unprocessed_image.store_dir, @bob_photo.unprocessed_image.filename)
+      image = MiniMagick::Image.new(new_filename)
+      expect(image.exif.length).to eq(0)
+    end
+  end
+  
   describe 'non-image files' do
     it 'should not store' do
       file = File.open(@fail_fixture_name)

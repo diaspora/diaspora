@@ -489,6 +489,7 @@ class User < ActiveRecord::Base
      :show_community_spotlight_in_stream].each do |field|
       self[field] = false
     end
+    self[:strip_exif] = true
     self[:email] = "deletedaccount_#{self[:id]}@example.org"
 
     random_password = SecureRandom.hex(20)
@@ -527,6 +528,6 @@ class User < ActiveRecord::Base
                             "created_at", "updated_at", "locked_at",
                             "serialized_private_key", "getting_started",
                             "disable_mail", "show_community_spotlight_in_stream",
-                            "email", "remove_after", "export", "exporting", "exported_at"]
+                            "strip_exif", "email", "remove_after", "export", "exporting", "exported_at"]
   end
 end

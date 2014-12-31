@@ -7,7 +7,8 @@ module Export
                :disable_mail,
                :show_community_spotlight_in_stream,
                :auto_follow_back,
-               :auto_follow_back_aspect
+               :auto_follow_back_aspect,
+               :strip_exif
     has_one    :profile,  serializer:      Export::ProfileSerializer
     has_many   :aspects,  each_serializer: Export::AspectSerializer
     has_many   :contacts, each_serializer: Export::ContactSerializer

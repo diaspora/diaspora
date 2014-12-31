@@ -37,6 +37,7 @@ describe Diaspora::Exporter do
     it { matches :user, :show_community_spotlight_in_stream }
     it { matches :user, :auto_follow_back }
     it { matches :user, :auto_follow_back_aspect }
+    it { matches :user, :strip_exif }
 
     it { matches :user, :profile, :first_name,      root: @user1.person.profile }
     it { matches :user, :profile, :last_name,       root: @user1.person.profile }
