@@ -36,13 +36,13 @@ class RegistrationsController < Devise::RegistrationsController
     return true if invite.present?
     return true if AppConfig.settings.invitations.open?
     return true if invite && invite.can_be_used?
-    flash[:error] = t('registrations.invite.invalid')
+    flash[:error] = t('registrations.invalid_invite')
     redirect_to new_user_session_path
   end
 
   def check_invitations_open!
     return true if AppConfig.settings.invitations.open?
-    flash[:error] = t('registrations.invite.closed')
+    flash[:error] = t('shared.invitations.invites_closed')
     redirect_to new_user_session_path
   end
 

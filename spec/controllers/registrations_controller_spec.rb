@@ -26,7 +26,7 @@ describe RegistrationsController, :type => :controller do
 
     it 'redirects #new to the login page' do
       get :new
-      expect(flash[:error]).to eq(I18n.t('registrations.invite.closed'))
+      expect(flash[:error]).to eq(I18n.t('shared.invitations.invites_closed'))
       expect(response).to redirect_to new_user_session_path
     end
     
