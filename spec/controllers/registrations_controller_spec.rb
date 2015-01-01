@@ -19,32 +19,33 @@ describe RegistrationsController, :type => :controller do
     allow(Webfinger).to receive_message_chain(:new, :fetch).and_return(FactoryGirl.create(:person))
   end
 
-  describe '#check_registrations_open!' do
+  describe '#check_invitations_open!' do
     before do
-      AppConfig.settings.enable_registrations = false
+      AppConfig.settings.invitations.open = false
     end
 
     it 'redirects #new to the login page' do
       get :new
-      expect(flash[:error]).to eq(I18n.t('registrations.closed'))
+      expect(flash[:error]).to eq(I18n.t('registrations.invite.closed'))
       expect(response).to redirect_to new_user_session_path
     end
+    
+  end
 
-    it 'redirects #create to the login page' do
-      post :create, @valid_params
-      expect(flash[:error]).to eq(I18n.t('registrations.closed'))
-      expect(response).to redirect_to new_user_session_path
+  describe "#check_valid_invite!" do
+    before do
+      AppConfig.settings.invitations.open = true
+    end
+
+    it 'does redirect if there is an  invalid invite token' do
+      get :new, :invite => {:token => 'fssdfsd'}
+      expect(response).to be_redirect
     end
 
     it 'does not redirect if there is a valid invite token' do
       i = InvitationCode.create(:user => bob)
       get :new, :invite => {:token => i.token}
       expect(response).not_to be_redirect
-    end
-
-    it 'does redirect if there is an  invalid invite token' do
-      get :new, :invite => {:token => 'fssdfsd'}
-      expect(response).to be_redirect
     end
   end
 

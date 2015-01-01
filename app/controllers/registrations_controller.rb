@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class RegistrationsController < Devise::RegistrationsController
-  before_action :check_registrations_open_or_valid_invite!, :check_valid_invite!
+  before_action :check_invitations_open!, :check_valid_invite!
 
   layout ->(c) { request.format == :mobile ? "application" : "with_header" }, :only => [:new]
   before_action -> { @css_framework = :bootstrap }, only: [:new, :create]
@@ -33,18 +33,17 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def check_valid_invite!
-    return true if AppConfig.settings.enable_registrations? #this sucks
+    return true if invite.present?
+    return true if AppConfig.settings.invitations.open?
     return true if invite && invite.can_be_used?
-    flash[:error] = t('registrations.invalid_invite')
+    flash[:error] = t('registrations.invite.invalid')
     redirect_to new_user_session_path
   end
 
-  def check_registrations_open_or_valid_invite!
-    return true if invite.present?
-    unless AppConfig.settings.enable_registrations?
-      flash[:error] = t('registrations.closed')
-      redirect_to new_user_session_path
-    end
+  def check_invitations_open!
+    return true if AppConfig.settings.invitations.open?
+    flash[:error] = t('registrations.invite.closed')
+    redirect_to new_user_session_path
   end
 
   def invite
