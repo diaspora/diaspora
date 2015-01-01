@@ -2,7 +2,7 @@ class InvitationCodesController < ApplicationController
   before_action :ensure_valid_invite_code
 
   rescue_from ActiveRecord::RecordNotFound do
-    flash[:error] = t('registrations.invalid_invite')
+    flash[:error] = I18n.t 'registrations.invalid_invite'
     redirect_to new_user_session_path
   end
 
