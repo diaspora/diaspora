@@ -529,6 +529,8 @@ GEM
       json
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
+    sidekiq-failures (0.4.3)
+      sidekiq (>= 2.16.0)
     sidetiq (0.6.3)
       celluloid (>= 0.14.1)
       ice_cube (= 0.11.1)
@@ -694,6 +696,7 @@ DEPENDENCIES
   sass-rails (= 4.0.4)
   selenium-webdriver (= 2.44.0)
   sidekiq (= 3.3.0)
+  sidekiq-failures
   sidetiq (= 0.6.3)
   simple_captcha2 (= 0.3.2)
   sinatra (= 1.4.5)
