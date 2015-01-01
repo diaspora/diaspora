@@ -39,7 +39,7 @@ describe RegistrationsController, :type => :controller do
 
     it 'does redirect if there is an invalid invite token' do
       get :new, :invite => {:token => 'fssdfsd'}
-      flash[:error] = t('registrations.invalid_invite')
+      expect(flash[:error]).to eq(I18n.t('registrations.invalid_invite'))
       expect(response).to redirect_to new_user_session_path
     end
 
