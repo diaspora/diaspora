@@ -12,5 +12,4 @@
     %input{:name => "currency_code", :type => "hidden", :value => "USD"}
     %input{:name => "submit", :type => "submit", :value => t('aspects.index.donate')}
 - if AppConfig.bitcoin_donation_address
-  Bitcoin:
-  %input{:type => "text", :id => "bitcoin_address", :value => AppConfig.bitcoin_donation_address, :readonly => true}
+  %a{:href => "bitcoin:#{AppConfig.settings.bitcoin_address}", :id => "bitcoin_address", :class => "button"} Bitcoin - Donate

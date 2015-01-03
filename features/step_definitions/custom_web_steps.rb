@@ -284,11 +284,11 @@ When /^I focus the "([^"]+)" field$/ do |field|
 end
 
 Given /^I have configured a Bitcoin address$/ do
-  AppConfig.settings.bitcoin_address = "AAAAAA"
+  AppConfig.settings.bitcoin_address = "1AbCdEfGhIjKlMnOpQrStuVwXyZ0123456"
 end
 
-Then /^I should see the Bitcoin address$/ do
-  find("#bitcoin_address")['value'].should == "AAAAAA"
+Then /^check validity of Bitcoin donation link$/ do
+  find("a#bitcoin_address")['href'].should == "bitcoin:1AbCdEfGhIjKlMnOpQrStuVwXyZ0123456"
 end
 
 Given /^"([^"]*)" is hidden$/ do |selector|
