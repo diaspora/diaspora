@@ -44,7 +44,7 @@ Feature: new user registration
     And I confirm the alert
     Then I should be on the stream page
     When I submit the publisher
-    Then "Hey everyone, I'm #NewHere." should be post 1
+    Then "Hey everyone, I’m #NewHere." should be post 1
 
   Scenario: new user with some tags posts first status message
     When I fill in the following:
@@ -54,7 +54,7 @@ Feature: new user registration
     And I follow "awesome_button"
     Then I should be on the stream page
     When I submit the publisher
-    Then "Hey everyone, I'm #NewHere. I'm interested in #rockstar." should be post 1
+    Then "Hey everyone, I’m #NewHere. I’m interested in #rockstar." should be post 1
 
   Scenario: closing a popover clears getting started
     When I follow "awesome_button"

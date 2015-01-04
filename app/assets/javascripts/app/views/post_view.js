@@ -5,7 +5,7 @@ app.views.Post = app.views.Base.extend({
     return _.extend(this.defaultPresenter(), {
       authorIsCurrentUser : app.currentUser.isAuthorOf(this.model), 
       showPost : this.showPost(),
-      text : app.helpers.textFormatter(this.model.get("text"), this.model)
+      text : app.helpers.textFormatter(this.model.get("text"), this.model.get("mentioned_people"))
     })
   },
 

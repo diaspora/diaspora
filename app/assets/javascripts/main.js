@@ -23,7 +23,12 @@
 //= require keycodes
 //= require fileuploader-custom
 //= require handlebars.runtime
-//= require markdown
+//= require posix-bracket-expressions
+//= require markdown-it
+//= require markdown-it-hashtag
+//= require markdown-it-diaspora-linkify
+//= require markdown-it-diaspora-mention
+//= require markdown-it-for-inline
 //= require punycode
 //= require parse_url
 //= require clear-form

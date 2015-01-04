@@ -1102,8 +1102,8 @@ en:
       discard_post: "Discard post"
       new_user_prefill:
         newhere: "NewHere"
-        hello: "Hey everyone, I'm #%{new_user_tag}. "
-        i_like: "I'm interested in %{tags}. "
+        hello: "Hey everyone, I’m #%{new_user_tag}. "
+        i_like: "I’m interested in %{tags}. "
         invited_by: "Thanks for the invite, "
       poll:
         remove_poll_answer: "Remove option"
