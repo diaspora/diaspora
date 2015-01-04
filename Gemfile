@@ -99,6 +99,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.0"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
+  gem 'rails-assets-hammer.js',                           '2.0.4'
 
   # jQuery plugins
 
