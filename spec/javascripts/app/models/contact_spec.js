@@ -10,11 +10,11 @@ describe("app.models.Contact", function() {
 
   describe("inAspect", function(){
     it("returns true if the contact has been added to the aspect", function(){
-      expect(this.contact.inAspect(this.aspect.id)).toBeTruethy;
+      expect(this.contact.inAspect(this.aspect.id)).toBeTruthy();
     });
 
     it("returns false if the contact hasn't been added to the aspect", function(){
-      expect(this.contact.inAspect(this.aspect.id+1)).toBeFalsy;
+      expect(this.contact.inAspect(this.aspect.id+1)).toBeFalsy();
     });
   });
 });

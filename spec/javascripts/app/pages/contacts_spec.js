@@ -33,9 +33,9 @@ describe("app.pages.Contacts", function(){
     });
 
     it('toggles the chat icon', function() {
-      expect(this.chat_icon.hasClass('enabled')).toBeFalsy;
+      expect(this.chat_icon.hasClass('enabled')).toBeFalsy();
       this.chat_toggle.trigger('click');
-      expect(this.chat_icon.hasClass('enabled')).toBeTruethy;
+      expect(this.chat_icon.hasClass('enabled')).toBeTruthy();
     });
   });
 
@@ -58,13 +58,13 @@ describe("app.pages.Contacts", function(){
     });
 
     it('toggles the lock icon', function() {
-      expect(this.lock_icon.hasClass('lock-open')).toBeTruethy;
-      expect(this.lock_icon.hasClass('lock')).toBeFalsy;
+      expect(this.lock_icon.hasClass('lock-open')).toBeTruthy();
+      expect(this.lock_icon.hasClass('lock')).toBeFalsy();
 
       this.visibility_toggle.trigger('click');
 
-      expect(this.lock_icon.hasClass('lock')).toBeTruethy;
-      expect(this.lock_icon.hasClass('lock-open')).toBeFalsy;
+      expect(this.lock_icon.hasClass('lock')).toBeTruthy();
+      expect(this.lock_icon.hasClass('lock-open')).toBeFalsy();
     });
   });
 
