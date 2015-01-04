@@ -35,10 +35,6 @@ h3 {
   clear: both;
 }
 
-#app > * {
-  transition: all 0.25s ease;
-}
-
 #main {
   padding: 55px 10px 0px 10px;
 }
@@ -317,7 +313,6 @@ h3 {
 
   img {
     border-radius: 4px;
-
     height: 70px;
     width: 70px;
     margin: 10px;
