@@ -36,11 +36,11 @@ $(document).ready(function(){
   });
 
   var drawerSlide = new Hammer(document.getElementById('app'));
-  drawerSlide.on('swipeleft', function(evt) {
+  drawerSlide.on('swipeleft', function() {
     $("#app").addClass('draw');
   });
 
-  drawerSlide.on('swiperight', function(evt) {
+  drawerSlide.on('swiperight', function() {
     $("#app").removeClass('draw');
   });
 

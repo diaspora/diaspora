@@ -27,6 +27,11 @@ body {
   padding: 0px;
 }
 
+html, body, #app {
+    height: 100%;
+    width: 100%;
+}
+
 h3 {
   margin-top: 0px;
 }
