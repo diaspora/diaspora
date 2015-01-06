@@ -8,7 +8,7 @@ describe ServicesController, :type => :controller do
   let(:omniauth_auth) do
     { 'provider' => 'facebook',
       'uid'      => '2',
-      'info'   => { 'nickname' => 'grimmin' },
+      'info'   => { 'nickname' => 'grimmin', 'image' => 'http://graph.facebook.com/2/picture' },
       'credentials' => { 'token' => 'tokin', 'secret' =>"not_so_much" }}
     end
   let(:user) { alice }
@@ -44,6 +44,15 @@ describe ServicesController, :type => :controller do
     it 'saves the provider' do
       post :create, :provider => 'facebook'
       expect(user.reload.services.first.class.name).to eq("Services::Facebook")
+    end
+
+    context "when the user hasn't got a profile photo on Diaspora" do
+      before { user.person.profile.update_attribute :image_url, nil }
+
+      it "imports the profile photo from the service" do
+        expect(Workers::FetchProfilePhoto).to receive(:perform_async)
+        post :create, :provider => 'facebook'
+      end
     end
 
     context 'when service exists with the same uid' do

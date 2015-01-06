@@ -113,6 +113,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Improve consistency of poll answer ordering [#5471](https://github.com/diaspora/diaspora/pull/5471)
 * Fix broken aspect selectbox on asynchronous search results [#5488](https://github.com/diaspora/diaspora/pull/5488)
 * Replace %{third_party_tools} by the appropriate hyperlink in tags FAQ [#5509](https://github.com/diaspora/diaspora/pull/5509)
+* Repair downloading the profile image from Facebook [#5493](https://github.com/diaspora/diaspora/pull/5493)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
