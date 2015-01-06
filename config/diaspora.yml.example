@@ -399,11 +399,22 @@ configuration: ## Section
       ## invitations on your pod.
       #count: 25
 
-    ## Paypal donations
-    ## You can provide the ID of a hosted Paypal button here to allow your users
-    ## to send donations to help run their pod. If you leave this out your users
-    ## will see a button to donate to the Diaspora Foundation instead :)
-    #paypal_hosted_button_id: "change_me"
+    ## Paypal donations (disabled by default)
+    ## You can set details for a Paypal button here to allow donations
+    ## towards running the pod.
+    ## First, enable the function, then set the currency in which you
+    ## wish to receive donations, and **either** a hosted button id
+    ## **or** an encrypted key for an unhosted button.
+    paypal_donations: ## Section
+      #enable: false
+    
+      ## Currency used (USD, EUR...)
+      #currency: USD
+    
+      ## hosted Paypal button id
+      #paypal_hosted_button_id: "change_me"
+      ## OR encrypted key of unhosted button
+      #paypal_unhosted_button_encrypted: "-----BEGIN PKCS7-----" 
 
     ## Bitcoin donations
     ## You can provide a bitcoin address here to allow your users to provide

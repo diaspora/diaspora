@@ -50,6 +50,11 @@ It is now possible to enable an automatic proxying of external assets, for examp
 
 This is disabled by default since it requires the installation of additional packages and might cause some traffic. Check the [wiki page](https://wiki.diasporafoundation.org/Installation/Camo) for more information and detailed installation instructions.
 
+## Paypal unhosted button and currency
+Podmins can now set the currency for donations, and use an unhosted button if they can't use
+a hosted one. Note: you need to **copy the new settings from diaspora.yml.example to your
+diaspora.yml file**. The existing settings from 0.4.x and before will not work any more.
+
 ## Refactor
 * Redesign contacts page [#5153](https://github.com/diaspora/diaspora/pull/5153)
 * Improve profile page design on mobile [#5084](https://github.com/diaspora/diaspora/pull/5084)
@@ -131,7 +136,7 @@ This is disabled by default since it requires the installation of additional pac
 * Prefill publisher on the tag pages [#5442](https://github.com/diaspora/diaspora/pull/5442)
 * Allows users to export their data in JSON format from their user settings page [#5354](https://github.com/diaspora/diaspora/pull/5354)
 * Don't include the content of non-public posts into notification mails [#5494](https://github.com/diaspora/diaspora/pull/5494)
-
+* Allow to set unhosted button and currency for paypal donation [#5452](https://github.com/diaspora/diaspora/pull/5452)
 
 # 0.4.1.2
 
