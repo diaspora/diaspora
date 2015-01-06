@@ -14,7 +14,7 @@ describe TagsHelper, :type => :helper do
 
     it 'returns a link to the tag otherwise' do
       allow(helper).to receive(:search_query).and_return('foo')
-      expect(helper.looking_for_tag_link).to include(helper.tag_link)
+      expect(helper.looking_for_tag_link).to include(helper.tag_link('foo'))
     end
   end
 end

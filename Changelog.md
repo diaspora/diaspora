@@ -137,6 +137,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Allows users to export their data in JSON format from their user settings page [#5354](https://github.com/diaspora/diaspora/pull/5354)
 * Don't include the content of non-public posts into notification mails [#5494](https://github.com/diaspora/diaspora/pull/5494)
 * Allow to set unhosted button and currency for paypal donation [#5452](https://github.com/diaspora/diaspora/pull/5452)
+* Add followed tags in the mobile menu [#5468](https://github.com/diaspora/diaspora/pull/5468)
 
 # 0.4.1.2
 

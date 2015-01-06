@@ -175,7 +175,7 @@ end
 When /^I search for "([^\"]*)"$/ do |search_term|
   fill_in "q", :with => search_term
   find_field("q").native.send_key(:enter)
-  find("#tags_show .span3")
+  have_content(search_term)
 end
 
 Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"$/ do |field, selector, value|

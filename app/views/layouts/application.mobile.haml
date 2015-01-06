@@ -91,6 +91,13 @@
                   - current_user.aspects.each do |aspect|
                     %li
                       = link_to aspect.name, aspects_stream_path(a_ids: [aspect.id])
+              %li#followed_tags
+                = link_to t('streams.followed_tag.title'), "#"
+              %li.no_border.hide
+                %ul
+                  - current_user.followed_tags.each do |tag|
+                    %li
+                      = tag_link(tag)
               %li
                 = link_to user_profile_path(current_user.username) do
                   = t('layouts.header.profile')
