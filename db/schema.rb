@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106050733) do
+ActiveRecord::Schema.define(version: 20150106050734) do
 
   create_table "account_deletions", force: true do |t|
     t.string   "diaspora_handle"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20150106050733) do
     t.string  "name"
     t.string  "ask",          limit: 128
     t.string  "subscription", limit: 128, null: false
-    t.text    "groups"
   end
 
   add_index "chat_contacts", ["user_id", "jid"], name: "index_chat_contacts_on_user_id_and_jid", unique: true, using: :btree
@@ -242,7 +241,7 @@ ActiveRecord::Schema.define(version: 20150106050733) do
     t.text   "data",              null: false
   end
 
-  add_index "o_embed_caches", ["url"], name: "index_o_embed_caches_on_url", using: :btree
+  add_index "o_embed_caches", ["url"], name: "index_o_embed_caches_on_url", length: {"url"=>255}, using: :btree
 
   create_table "open_graph_caches", force: true do |t|
     t.string "title"
@@ -430,11 +429,11 @@ ActiveRecord::Schema.define(version: 20150106050733) do
 
   create_table "reports", force: true do |t|
     t.integer  "item_id",                    null: false
+    t.string   "item_type",                  null: false
     t.boolean  "reviewed",   default: false
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "item_type",                  null: false
     t.integer  "user_id",                    null: false
   end
 

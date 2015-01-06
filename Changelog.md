@@ -32,6 +32,10 @@ series and run our comprehensive test suite against it.
 ## Change in defaults.yml
 The default for including jQuery from a CDN has changed. If you want to continue to include it from a CDN, please explicitly set the `jquery_cdn` setting to `true` in diaspora.yml.
 
+## Change in database.yml
+For MySQL databases, replace `charset: utf8` with `encoding: utf8mb4`. This is enables full UTF8 support (4bytes characters), including standard emoji characters. See `database.yml.example` for reference.
+Also, do not forget to remove `collation: utf8_bin`. It will choose a compatible one automatically.
+
 ## Experimental chat feature
 This release adds experimental integration with XMPP for real-time chat. Please see  [our wiki](https://wiki.diasporafoundation.org/Vines) for further informations.
 

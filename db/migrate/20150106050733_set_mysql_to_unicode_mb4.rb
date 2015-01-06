@@ -1,18 +1,20 @@
 class SetMysqlToUnicodeMb4 < ActiveRecord::Migration
 
-  UTF8_PAIRS = {
-    'comments': 'text',
-    'messages': 'text',
-    'poll_answers': 'answer',
-    'polls': 'question',
-    'posts': 'text',
-  }
+  UTF8_PAIRS = {}
+  tables = ActiveRecord::Base.connection.tables
+
+  tables.each do |table|
+    ActiveRecord::Base.connection.columns(table).each do |column|
+      # build a hash with all the columns that contain text
+      UTF8_PAIRS[table] = column.name if (column.type == :string) || (column.type == :text)
+    end
+  end
 
   def self.up
-    if ENV['DB'] == 'mysql'
+    if AppConfig.mysql?
       execute "ALTER DATABASE `#{ActiveRecord::Base.connection.current_database}` CHARACTER SET utf8mb4;"
 
-      ActiveRecord::Base.connection.tables.each do |table|
+      tables.each do |table|
         execute "ALTER TABLE `#{table}` CHARACTER SET = utf8mb4;"
       end
 
@@ -23,10 +25,10 @@ class SetMysqlToUnicodeMb4 < ActiveRecord::Migration
   end
 
   def self.down
-    if ENV['DB'] == 'mysql'
+    if AppConfig.mysql?
       execute "ALTER DATABASE `#{ActiveRecord::Base.connection.current_database}` CHARACTER SET utf8;"
 
-      ActiveRecord::Base.connection.tables.each do |table|
+      tables.each do |table|
         execute "ALTER TABLE `#{table}` CHARACTER SET = utf8;"
       end
 

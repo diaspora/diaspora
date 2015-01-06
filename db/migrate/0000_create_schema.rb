@@ -199,7 +199,7 @@ class CreateSchema < ActiveRecord::Migration
     t.text   "data",                 :null => false
   end
 
-  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=> 191}, using: :btree
 
   create_table "participations", :force => true do |t|
     t.string   "guid"
@@ -227,7 +227,7 @@ class CreateSchema < ActiveRecord::Migration
     t.integer  "fetch_status",          :default => 0
   end
 
-  add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
+  add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true, :length => {"diaspora_handle" => 191}
   add_index "people", ["guid"], :name => "index_people_on_guid", :unique => true
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
 
@@ -265,7 +265,7 @@ class CreateSchema < ActiveRecord::Migration
     t.integer  "author_id",                                              :null => false
     t.boolean  "public",                              :default => false, :null => false
     t.string   "diaspora_handle"
-    t.string   "guid",                                                   :null => false
+    t.string   "guid"
     t.boolean  "pending",                             :default => false, :null => false
     t.string   "type",                  :limit => 40,                    :null => false
     t.text     "text"
@@ -337,7 +337,7 @@ class CreateSchema < ActiveRecord::Migration
     t.datetime "updated_at",              :null => false
   end
 
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories", :length => {"table" => 180}
 
   create_table "roles", :force => true do |t|
     t.integer  "person_id"
@@ -404,7 +404,7 @@ class CreateSchema < ActiveRecord::Migration
     t.string "name"
   end
 
-  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true, :length => {"name" => 191}
 
   create_table "user_preferences", :force => true do |t|
     t.string   "email_type"
@@ -449,7 +449,7 @@ class CreateSchema < ActiveRecord::Migration
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
-  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["email"], :name => "index_users_on_email", length: {"email" => "191"}
   add_index "users", ["invitation_service", "invitation_identifier"], :name => "index_users_on_invitation_service_and_invitation_identifier", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true

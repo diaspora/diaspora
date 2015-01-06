@@ -119,8 +119,11 @@ module Configuration
     end
 
     def postgres?
-      defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) &&
-      ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+      ActiveRecord::Base.connection.adapter_name == "PostgreSQL"
+    end
+
+    def mysql?
+      ActiveRecord::Base.connection.adapter_name == "Mysql2"
     end
 
     def bitcoin_donation_address
