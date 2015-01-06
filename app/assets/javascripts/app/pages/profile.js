@@ -119,10 +119,7 @@ app.pages.Profile = app.views.Base.extend({
 
   reload: function() {
     this.$('#profile').addClass('loading');
-
-    this.asyncSubHeader = $.Deferred();
-    $.when(this.model.fetch(), this.asyncSubHeader)
-      .done(_.bind(this._done, this));
+    this.model.fetch();
   },
 
   _done: function() {

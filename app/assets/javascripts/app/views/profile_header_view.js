@@ -44,7 +44,6 @@ app.views.ProfileHeader = app.views.Base.extend({
     var self = this;
     var dropdownEl = this.$('.aspect_membership_dropdown.placeholder');
     if( dropdownEl.length == 0 ) {
-      this._done();
       return;
     }
 
@@ -58,12 +57,7 @@ app.views.ProfileHeader = app.views.Base.extend({
 
       // UGLY (re-)attach the facebox
       self.$('a[rel*=facebox]').facebox();
-      self._done();
     });
-  },
-
-  _done: function() {
-    app.page.asyncSubHeader && app.page.asyncSubHeader.resovle();
   }
 });
 // @license-end
