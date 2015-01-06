@@ -34,10 +34,7 @@ class AspectMembershipsController < ApplicationController
     respond_to do |format|
       format.json do
         if success
-          render :json => {
-            :person_id  => contact.person_id,
-            :aspect_ids => contact.aspects.map{|a| a.id}
-          }
+          render :json => AspectMembershipPresenter.new(membership).base_hash
         else
           render :text => membership.errors.full_messages, :status => 403
         end
@@ -57,7 +54,9 @@ class AspectMembershipsController < ApplicationController
       flash.now[:notice] =  I18n.t('aspects.add_to_aspect.success')
       respond_with do |format|
         format.json do
-          render :json => AspectMembership.where(:contact_id => @contact.id, :aspect_id => @aspect.id).first.to_json
+          render :json => AspectMembershipPresenter.new(
+            AspectMembership.where(:contact_id => @contact.id, :aspect_id => @aspect.id).first)
+          .base_hash
         end
 
         format.all { redirect_to :back }

@@ -43,7 +43,15 @@ app.Router = Backbone.Router.extend({
   },
 
   contacts: function() {
-    app.contacts = new app.views.Contacts();
+    app.aspect = new app.models.Aspect(gon.preloads.aspect);
+    app.contacts = new app.collections.Contacts(app.parsePreload('contacts'));
+
+    var stream = new app.views.ContactStream({
+      collection: app.contacts,
+      el: $('.stream.contacts #contact_stream'),
+    });
+
+    app.page = new app.pages.Contacts({stream: stream});
   },
 
   conversations: function() {

@@ -48,6 +48,7 @@ en:
       remove_contact: "Remove contact"
       error_add: "Couldn't add <%= name %> to the aspect :("
       error_remove: "Couldn't remove <%= name %> from the aspect :("
+      search_no_results: "No contacts found"
 
     my_activity: "My Activity"
     my_stream: "Stream"

@@ -72,14 +72,14 @@ describe AspectMembershipsController, :type => :controller do
     end
 
     context 'json' do
-      it 'returns a list of aspect ids for the person' do
+      it 'returns the aspect membership' do
         post :create,
         :format => :json,
         :person_id => @person.id,
         :aspect_id => @aspect0.id
 
         contact = @controller.current_user.contact_for(@person)
-        expect(response.body).to eq(contact.aspect_memberships.first.to_json)
+        expect(response.body).to eq(AspectMembershipPresenter.new(contact.aspect_memberships.first).base_hash.to_json)
       end
     end
   end

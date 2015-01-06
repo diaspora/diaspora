@@ -3,26 +3,26 @@
     <div id='post-info' class='span8'>
       <div class="img pull-left">
         {{#if root}}
-          {{#linkToPerson root.author}}
+          {{#linkToAuthor root.author}}
             {{{personImage this 'medium'}}}
-          {{/linkToPerson}}
+          {{/linkToAuthor}}
         {{else}}
-          {{#linkToPerson author}}
+          {{#linkToAuthor author}}
             {{{personImage this 'medium'}}}
-          {{/linkToPerson}}
+          {{/linkToAuthor}}
         {{/if}}
       </div>
 
       <div class="bd">
         <span class='author'>
           {{#if root}}
-            {{#linkToPerson root.author}}
+            {{#linkToAuthor root.author}}
               {{name}}
-            {{/linkToPerson}}
+            {{/linkToAuthor}}
           {{else}}
-            {{#linkToPerson author}}
+            {{#linkToAuthor author}}
               {{name}}
-            {{/linkToPerson}}
+            {{/linkToAuthor}}
           {{/if}}
         </span>
             
@@ -69,14 +69,14 @@
       <div class='span8' id='reshare-info'>
         <i class='entypo retweet small pull-left'></i>
         <div class="img pull-left">
-          {{#linkToPerson author}}
+          {{#linkToAuthor author}}
             {{{personImage this 'small'}}}
-          {{/linkToPerson}}
+          {{/linkToAuthor}}
         </div>
         <span class="author">
-          {{#linkToPerson author}}
+          {{#linkToAuthor author}}
             {{name}}
-          {{/linkToPerson}}
+          {{/linkToAuthor}}
         </span>
         <span class="post-time">
           <a href="/posts/{{id}}">
