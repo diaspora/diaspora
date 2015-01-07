@@ -49,11 +49,11 @@ h3 {
   text-align: left;
   padding: 10px 0;
   min-height: 34px;
-  
+
   * { max-width: 100%; }
-  
+
   .avatar {
-    @include border-radius(4px);
+    border-radius: 4px;
 
     float: left;
     height: 35px;
@@ -154,8 +154,8 @@ h3 {
 
 .stream_element,
 #login_form {
-  @include border-radius(5px);
-  @include box-shadow(0, 1px, 2px, rgba(0, 0, 0, 0.2));
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
   background-color: #fff;
   margin-bottom: 10px;
@@ -180,7 +180,7 @@ h3 {
   padding: 0;
   margin: 0;
   img {
-    @include border-radius(3px);
+    border-radius: 3px;
     margin: 0;
     padding: 0; } }
 
@@ -193,7 +193,7 @@ h3 {
 }
 
 .more-link, .no-more-posts {
-  -webkit-box-shadow: inset 0 1px 5px #777, 0 1px 1px rgba(0,0,0,0.4);
+  box-shadow: inset 0 1px 5px #777, 0 1px 1px rgba(0,0,0,0.4);
   display: block;
   text-align: center;
   padding: 0 10px;
@@ -309,8 +309,8 @@ h3 {
   word-wrap: break-word;
 
   img {
-    @include border-radius(4px);
-    
+    border-radius: 4px;
+
     height: 70px;
     width: 70px;
     margin: 10px;
@@ -319,7 +319,7 @@ h3 {
 
   .content {
     padding-left: 90px;
-    
+
     h2 {
       font-size: 20px;
       line-height: 20px;
@@ -334,7 +334,7 @@ h3 {
       color: $text-grey;
     }
   }
-  
+
   .bottom_bar {
     position: static;
   }
@@ -350,7 +350,7 @@ h3 {
 }
 
 .bottom_bar {
-  @include border-radius(0, 0, 5px, 5px);
+  border-radius: 0 0 5px 5px;
   z-index: 3;
   display: block;
   position: relative;
@@ -437,14 +437,14 @@ h3 {
   float: right; }
 
 .stream_element .photo_attachments {
-  @include border-radius(3px, 3px, 0, 0);
+  border-radius: 3px 3px 0 0;
 
   border: {
     bottom: 1px solid #ccc;
   }
 
   img.big-stream-photo {
-    @include border-radius(3px, 3px, 0, 0);
+    border-radius: 3px 3px 0 0;
     width: 100%;
   }
   a {
@@ -453,7 +453,7 @@ h3 {
 }
 
 .photo_area {
-  @include border-radius(3px);
+  border-radius: 3px;
   text-align: center; }
 
 .image_link {
@@ -507,7 +507,7 @@ h3 {
       cursor: pointer;
 
       &.dim {
-        @include opacity(0.6);
+        opacity: 0.6;
       }
     }
   }
@@ -517,8 +517,8 @@ h3 {
   }
 
   textarea {
-    @include border-radius(0);
-    @include box-shadow(0, 2px, 3px, #999);
+    border-radius: 0;
+    box-shadow: 0 2px 3px #999;
     border: none;
     border-bottom: 1px solid $border-dark-grey;
     width: 96%;
@@ -562,7 +562,7 @@ select {
 }
 
 .additional_photo_count {
-  @include opacity(0.5);
+  opacity: 0.5;
 
   position: absolute;
   padding: 3px 8px;
@@ -761,24 +761,17 @@ textarea#conversation_text {
   vertical-align: middle;
   cursor: pointer;
   background-color: #f5f5f5;
-  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
-  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
   background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
   background-repeat: repeat-x;
   border: 1px solid #cccccc;
   border-color: #e6e6e6 #e6e6e6 #bfbfbf;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   border-bottom-color: #b3b3b3;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
+  border-radius: 4px;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .button.creation:hover,
@@ -801,10 +794,7 @@ textarea#conversation_text {
   color: #333333;
   text-decoration: none;
   background-position: 0 -15px;
-  -webkit-transition: background-position 0.1s linear;
-     -moz-transition: background-position 0.1s linear;
-       -o-transition: background-position 0.1s linear;
-          transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
 }
 
 .button.creation:focus {
@@ -910,8 +900,8 @@ form p.checkbox_select {
   position: relative;
 
   img {
-    @include border-radius(5px);
-    @include box-shadow(0,1px,2px,#666);
+    border-radius: 5px;
+    box-shadow: 0 1px 2px #666;
 
     position: absolute;
     left: 0;
@@ -921,7 +911,7 @@ form p.checkbox_select {
     &.avatar {
       @include transition(opacity, 0.5s);
       &.loading {
-        @include opacity(0.3);
+        opacity: 0.3;
       }
     }
   }
@@ -929,9 +919,9 @@ form p.checkbox_select {
 }
 
 #file-upload.button {
-  @include border-radius(3px);
   @include button-gradient($light-grey);
-  @include box-shadow(0,1px,1px,#cfcfcf);
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #cfcfcf;
   @include transition(border);
 
   display: inline-block;
@@ -987,8 +977,6 @@ select#user_language, #user_auto_follow_back_aspect_id, #aspect_ids_ {
   line-height: 18px;
   color: inherit;
   background-color: $background-grey;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
   border-radius: 10px;
 }
 
@@ -1021,19 +1009,19 @@ select#aspect_ids_ {
   cursor: pointer;
 
   &:hover img {
-      @include opacity(0.4);
+      opacity: 0.4;
   }
 }
 
 #publisher_textarea_wrapper {
-  @include border-radius(2px);
+  border-radius: 2px;
   margin: 12px 0px;
   background: #fff;
   position: relative;
   padding-right: 10px;
 
   #hide_publisher  {
-    @include opacity(0.3);
+    opacity: 0.3;
     z-index: 5;
     padding: 3px;
     position: absolute;
@@ -1041,7 +1029,7 @@ select#aspect_ids_ {
     top: 0;
 
     &:hover {
-      @include opacity(1);
+      opacity: 1;
     }
   }
 
@@ -1081,7 +1069,7 @@ select#aspect_ids_ {
       }
 
       .circle {
-        @include border-radius(20px);
+        border-radius: 20px;
         z-index: 1;
         position: absolute;
         right: -7px;

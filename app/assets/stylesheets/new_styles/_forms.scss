@@ -16,9 +16,6 @@ form.block-form {
     &:invalid,
     &:invalid:required,
     &:invalid:required:focus {
-      -webkit-box-shadow : none;
-      -moz-box-shadow : none;
-      box-shadow : none;
       box-shadow : none;
 
       border : none;
@@ -27,28 +24,21 @@ form.block-form {
   }
 
   fieldset {
-    @include border-radius(5px);
-
-    -webkit-box-shadow : inset 0 1px 1px rgba(0,0,0,0.2), 0 1px 2px rgba(255,255,255,0.7);
-
+    box-shadow : inset 0 1px 1px rgba(0,0,0,0.2), 0 1px 2px rgba(255,255,255,0.7);
     margin-bottom : 1em;
-
     background-color : #fff;
-
     border : 1px solid $border-dark-grey;
+    border-radius: 5px;
 
     input[type=text],
     input[type=email],
     input[type=password] {
-      @include box-shadow(0,0,0,0);
-      @include border-radius(0);
-
-      background : transparent;
-
-      padding : 10px;
-
-      margin-bottom : 0;
+      box-shadow: 0 0 0 0;
+      border-radius: 0;
       border : none;
+      background : transparent;
+      padding : 10px;
+      margin-bottom : 0;
     }
 
   /* mainly bootstrap overrides */
@@ -87,14 +77,13 @@ form.block-form {
 }
 
 textarea, input[type=text], input[type=password], input[type=search] {
-  &:focus, 
+  &:focus,
   &:invalid,
   &:invalid:focus,
   &:invalid:required,
   &:invalid:required:focus {
     border: 1px solid $border-dark-grey;
     outline: none;
-    -webkit-box-shadow: none;
     box-shadow: none;
     color : $text-dark-grey;
   }
@@ -103,12 +92,12 @@ textarea, input[type=text], input[type=password], input[type=search] {
 /* buttons to be extracted? */
 .new-btn {
   @include transition(box-shadow);
-  @include border-radius(5px);
   @include linear-gradient(#fff, rgb(233,233,233));
-  @include box-shadow(0, 1px, 2px, rgba(0,0,0,0));
 
+  box-shadow: 0 1px 2px rgba(0,0,0,0);
   background-color : rgb(233,233,233);
   color : $text-grey;
+  border-radius: 5px;
   border : 1px solid $border-dark-grey;
 
   //font-family : Roboto-Bold;
@@ -116,7 +105,7 @@ textarea, input[type=text], input[type=password], input[type=search] {
   text-shadow : 0 1px 2px #eee;
 
   &:hover {
-    @include box-shadow(0, 1px, 2px, rgba(0,0,0,0.3));
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
   }
 
   &:active {

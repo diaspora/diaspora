@@ -68,11 +68,11 @@
     }
     input[type=text] {
       margin-bottom: -24px;
-      @include border-radius(5px, 5px, 0, 0);
+      border-radius: 5px 5px 0 0;
     }
     input[type=password] {
       margin-bottom: -23px;
-      @include border-radius(0, 0, 5px, 5px);
+      border-radius: 0 0 5px 5px;
     }
     #forgot_password_link {
       margin-top: 20px;

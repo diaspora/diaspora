@@ -31,7 +31,7 @@ footer {
       &.separator {
         margin-left: -.35em;
         margin-right: .65em;
-        @include opacity(.6);
+        opacity: 0.6;
       }
 
       &:last-child {

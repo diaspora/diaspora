@@ -4,7 +4,7 @@
 }
 
 body > header {
-  @include box-shadow(0,1px,3px,rgba(0,0,0,0.9));
+  box-shadow: 0 1px 3px rgba(0,0,0,0.9);
   background: image-url('header-bg.png') rgb(40,35,35);
   z-index: 1001;
   padding: 6px 0;
@@ -68,7 +68,7 @@ body > header {
       font-size: smaller;
 
       .badge_count {
-        @include border-radius(2px);
+        border-radius: 2px;
         z-index: 3;
         position: absolute;
         top: -4px;
@@ -118,10 +118,9 @@ body > header {
     }
 
     #notification_dropdown {
-      @include dropdown-shadow;
-
       background: white;
       border: solid $border-dark-grey 1px;
+      box-shadow: 0 0px 13px rgba(20,20,20,0.5);
       left: 300px;
       width: 380px;
       display: none;
@@ -225,8 +224,8 @@ body > header {
       right: 0;
 
       input {
-        @include box-shadow(0, 1px, 1px, #444);
-        @include border-radius(15px);
+        box-shadow: 0 1px 1px #444;
+        border-radius: 15px;
         @include transition(width);
         width: 100px;
         background-color: #444;
@@ -248,8 +247,8 @@ body > header {
           width: 200px;
         }
 
-        &::-webkit-input-placeholder { text-shadow: none; }
-        &::-moz-placeholder { text-shadow: none; }
+        &::input-placeholder { text-shadow: none; }
+        &::placeholder { text-shadow: none; }
         &.ac_loading::-webkit-search-cancel-button { -webkit-appearance: none; }
       }
     }
@@ -286,7 +285,7 @@ body > header {
     }
 
     &.active {
-      @include dropdown-shadow;
+      box-shadow: 0 0px 13px rgba(20,20,20,0.5);
       background-color: rgb(34,30,30);
       visibility: visible;
 
@@ -384,8 +383,8 @@ body > header {
         color: $blue;
 
         &.login {
-          @include border-radius(5px);
-          @include box-shadow(0, 1px, 1px, #666);
+          border-radius: 5px;
+          box-shadow: 0 1px 1px #666;
           padding: 5px 8px;
           background-color: #000;
           border-top: 1px solid #000;

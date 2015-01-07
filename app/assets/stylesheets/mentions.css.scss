@@ -2,7 +2,7 @@
 @import '_mixins.css.scss';
 
 .mentions-input-box {
-  @include border-radius(3px);
+  border-radius: 3px;
 
   background: #fff;
   position: relative;
@@ -37,7 +37,7 @@
       margin: 0;
       padding: 0;
 
-      @include border-radius(0px, 0px, 5px, 5px);
+      border-radius: 0px 0px 5px 5px;
 
       li {
         color: #444;
@@ -54,7 +54,7 @@
         white-space: nowrap;
 
         &:hover, &.active { background: $background-grey; }
-        &:last-child { @include border-radius(0px, 0px, 5px, 5px); }
+        &:last-child { border-radius: 0px 0px 5px 5px; }
 
         img, div.icon {
           float: left;

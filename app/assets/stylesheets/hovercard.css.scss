@@ -2,8 +2,8 @@
 @import "_mixins.css.scss";
 
 #hovercard {
-  @include border-radius(2px);
-  @include box-shadow(0, 0, 5px, #666666);
+  border-radius: 2px;
+  box-shadow: 0 0 5px #666666;
 
   position: relative;
   display: inline-block;

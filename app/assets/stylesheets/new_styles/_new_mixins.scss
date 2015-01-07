@@ -5,16 +5,6 @@ $night-text-color : #999;
 
 /* mixins */
 @mixin center($orient:vertical) {
-  display: -webkit-box;
-  -webkit-box-orient: $orient;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-
-  display: -moz-box;
-  -moz-box-orient: $orient;
-  -moz-box-pack: center;
-  -moz-box-align: center;
-
   display: box;
   box-orient: $orient;
   box-pack: center;
@@ -28,14 +18,11 @@ $night-text-color : #999;
 
 @mixin background-cover() {
   background: no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
 }
 
 @mixin info-container-base() {
-  @include box-shadow(0, 6px, 20px, #000);
+  box-shadow: 0 6px 20px #000;
   @include dark-hatched-bg();
 
   border-top: 1px solid #555;
@@ -44,7 +31,7 @@ $night-text-color : #999;
 
 @mixin info-container() {
   @include info-container-base();
-  @include border-radius(3px, 0px);
+  border-radius: 3px 0px;
   @include pane-width();
 
   display: inline-block;
@@ -65,11 +52,11 @@ $night-text-color : #999;
 }
 
 @mixin photo-shadow() {
-  @include box-shadow(0, 3px, 15px, rgba(0,0,0,0.7));
+  box-shadow: 0 3px 15px rgba(0,0,0,0.7);
 }
 
 @mixin media-text() {
-  font-size: 2em; 
+  font-size: 2em;
   line-height: 1.2em;
   padding-bottom: 0;
   margin-bottom: 0;

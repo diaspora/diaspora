@@ -67,7 +67,7 @@
     }
 
     .participants_count {
-      @include opacity(0.5);
+      opacity: 0.5;
       &:before { content: '+'; }
       float: left;
       background-color: #fff;
@@ -121,8 +121,6 @@
 #conversation_show {
   .conversation_participants {
     box-shadow: 0 2px 3px -3px #666;
-    -webkit-box-shadow: 0 2px 3px -3px #666;
-    -moz-box-shadow: 0 2px 3px -3px #666;
 
     background-color: $background-white;
     margin-bottom: 5px;

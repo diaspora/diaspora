@@ -22,11 +22,11 @@
   }
 
   .stream_element, .comment, .photo, .stream_element:hover .comment {
-    .controls > a { @include opacity(0); }
+    .controls > a { opacity: 0; }
 
     &:hover .controls {
-      & > a { @include opacity(0.3); }
-      & > a:hover { @include opacity(1); }
+      & > a { opacity: 0.3; }
+      & > a:hover { opacity: 1; }
     }
   }
 }

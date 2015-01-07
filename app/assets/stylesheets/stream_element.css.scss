@@ -85,10 +85,10 @@
     }
   }
 
-  .reshare {    
+  .reshare {
     border-left: 2px solid $border-grey;
     margin-top: 3px;
-  
+
     & > .media .avatar {
       height: 30px;
       width: 30px;
@@ -119,7 +119,7 @@
       text-shadow: 0 0 7px #FFF;
       cursor: pointer;
       border-bottom: 2px solid $border-grey;
-      @include border-radius(0, 0, 3px, 3px);
+      border-radius: 0 0 3px 3px;
       @include linear-gradient(rgba(255,255,255,0) , #EEE, 0%, 95%);
       background-color: transparent;
     }

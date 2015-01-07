@@ -6,7 +6,7 @@ header {
   top: 0px;
   z-index: 10;
   background: image-url('header-bg-long.jpg') rgb(40,35,35);
-  @include box-shadow(0, 1px, 2px, #333);
+  box-shadow: 0 1px 2px #333;
   border-bottom: 1px solid #222;
 }
 
@@ -40,7 +40,7 @@ header {
     }
 
     .badge_count {
-      @include border-radius(2px);
+      border-radius: 2px;
       z-index: 3;
       position: absolute;
       top: 3px;
@@ -62,12 +62,7 @@ header {
   width: 100%;
   left: 100%;
   background-color: #444;
-
-          box-shadow: -2px 0px 2px 1px #333;
-       -o-box-shadow: -2px 0px 2px 1px #333;
-      -ms-box-shadow: -2px 0px 2px 1px #333;
-     -moz-box-shadow: -2px 0px 2px 1px #333;
-  -webkit-box-shadow: -2px 0px 2px 1px #333;
+  box-shadow: -2px 0px 2px 1px #333;
 
   header {
     position: static;
@@ -83,8 +78,8 @@ header {
         right: 22%;
 
         input {
-          @include box-shadow(0, 1px, 1px, #444);
-          @include border-radius(15px);
+          box-shadow: 0 1px 1px #444;
+          border-radius: 15px;
           width: 100%;
           margin-top: 7px;
           background-color: #444;
@@ -103,8 +98,7 @@ header {
             background-color: white;
           }
 
-          &::-webkit-input-placeholder { text-shadow: none; }
-          &:-moz-placeholder { text-shadow: none; }
+          &:placeholder { text-shadow: none; }
         }
       }
     }
@@ -171,8 +165,4 @@ header {
 /* This class is added when the user open the drawer */
 #app.draw > * {
           transform: translateX(-80%);
-       -o-transform: translateX(-80%);
-      -ms-transform: translateX(-80%);
-     -moz-transform: translateX(-80%);
-  -webkit-transform: translateX(-80%);
 }
