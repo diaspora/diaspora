@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106050734) do
+ActiveRecord::Schema.define(version: 20150106050733) do
 
   create_table "account_deletions", force: true do |t|
-    t.string   "diaspora_handle"
+    t.text     "diaspora_handle"
     t.integer  "person_id"
     t.datetime "completed_at"
   end
@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 20150106050734) do
   add_index "aspect_memberships", ["contact_id"], name: "index_aspect_memberships_on_contact_id", using: :btree
 
   create_table "aspect_visibilities", force: true do |t|
-    t.integer  "shareable_id",                    null: false
-    t.integer  "aspect_id",                       null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "shareable_type", default: "Post", null: false
+    t.integer  "shareable_id",   null: false
+    t.integer  "aspect_id",      null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "shareable_type"
   end
 
   add_index "aspect_visibilities", ["aspect_id"], name: "index_aspect_visibilities_on_aspect_id", using: :btree
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150106050734) do
   add_index "aspect_visibilities", ["shareable_id", "shareable_type"], name: "index_aspect_visibilities_on_shareable_id_and_shareable_type", using: :btree
 
   create_table "aspects", force: true do |t|
-    t.string   "name",                             null: false
+    t.string   "name"
     t.integer  "user_id",                          null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20150106050734) do
     t.string  "jid",                      null: false
     t.string  "name"
     t.string  "ask",          limit: 128
-    t.string  "subscription", limit: 128, null: false
+    t.string  "subscription", limit: 128
   end
 
   add_index "chat_contacts", ["user_id", "jid"], name: "index_chat_contacts_on_user_id_and_jid", unique: true, using: :btree
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20150106050734) do
     t.integer "user_id",               null: false
     t.string  "root",      limit: 256, null: false
     t.string  "namespace", limit: 256, null: false
-    t.text    "xml",                   null: false
+    t.text    "xml"
   end
 
   add_index "chat_fragments", ["user_id"], name: "index_chat_fragments_on_user_id", unique: true, using: :btree
@@ -82,21 +82,21 @@ ActiveRecord::Schema.define(version: 20150106050734) do
   create_table "chat_offline_messages", force: true do |t|
     t.string   "from",       null: false
     t.string   "to",         null: false
-    t.text     "message",    null: false
+    t.text     "message"
     t.datetime "created_at", null: false
   end
 
   create_table "comments", force: true do |t|
-    t.text     "text",                                                null: false
-    t.integer  "commentable_id",                                      null: false
-    t.integer  "author_id",                                           null: false
-    t.string   "guid",                                                null: false
+    t.text     "text",                                           null: false
+    t.integer  "commentable_id",                                 null: false
+    t.integer  "author_id",                                      null: false
+    t.string   "guid",                                           null: false
     t.text     "author_signature"
     t.text     "parent_author_signature"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.integer  "likes_count",                        default: 0,      null: false
-    t.string   "commentable_type",        limit: 60, default: "Post", null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.integer  "likes_count",                        default: 0, null: false
+    t.string   "commentable_type",        limit: 60
   end
 
   add_index "comments", ["author_id"], name: "index_comments_on_person_id", using: :btree
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 20150106050734) do
 
   create_table "conversations", force: true do |t|
     t.string   "subject"
-    t.string   "guid",       null: false
+    t.string   "guid"
     t.integer  "author_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 20150106050734) do
     t.string   "service"
     t.string   "identifier"
     t.boolean  "admin",        default: false
-    t.string   "language",     default: "en"
+    t.string   "language"
   end
 
   add_index "invitations", ["aspect_id"], name: "index_invitations_on_aspect_id", using: :btree
@@ -171,7 +171,7 @@ ActiveRecord::Schema.define(version: 20150106050734) do
     t.text     "parent_author_signature"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.string   "target_type",             limit: 60,                null: false
+    t.string   "target_type",             limit: 60
   end
 
   add_index "likes", ["author_id"], name: "likes_author_id_fk", using: :btree
@@ -238,7 +238,7 @@ ActiveRecord::Schema.define(version: 20150106050734) do
 
   create_table "o_embed_caches", force: true do |t|
     t.string "url",  limit: 1024, null: false
-    t.text   "data",              null: false
+    t.text   "data"
   end
 
   add_index "o_embed_caches", ["url"], name: "index_o_embed_caches_on_url", length: {"url"=>255}, using: :btree
@@ -269,7 +269,7 @@ ActiveRecord::Schema.define(version: 20150106050734) do
     t.string   "guid",                                  null: false
     t.text     "url",                                   null: false
     t.string   "diaspora_handle",                       null: false
-    t.text     "serialized_public_key",                 null: false
+    t.text     "serialized_public_key"
     t.integer  "owner_id"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
@@ -461,12 +461,12 @@ ActiveRecord::Schema.define(version: 20150106050734) do
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
 
   create_table "share_visibilities", force: true do |t|
-    t.integer  "shareable_id",                               null: false
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.boolean  "hidden",                    default: false,  null: false
-    t.integer  "contact_id",                                 null: false
-    t.string   "shareable_type", limit: 60, default: "Post", null: false
+    t.integer  "shareable_id",                              null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.boolean  "hidden",                    default: false, null: false
+    t.integer  "contact_id",                                null: false
+    t.string   "shareable_type", limit: 60
   end
 
   add_index "share_visibilities", ["contact_id"], name: "index_post_visibilities_on_contact_id", using: :btree
