@@ -25,7 +25,7 @@
 
       input[type='submit'] {
         @include transition(background);
-        @include box-shadow(0,0,0,0);
+        box-shadow: 0 0 0 0;
 
         font-size:1.2em;
         background : #99CC00;
@@ -38,7 +38,7 @@
         }
 
         &:active {
-          @include box-shadow(0,0,0,0);
+          box-shadow: 0 0 0 0;
           background : darken(rgb(255, 77, 54), 2%);
         }
       }
@@ -92,7 +92,7 @@
     }
 
     .login-button {
-      @include border-radius(3px);
+      border-radius: 3px;
       border:1px solid #666;
       background:#111;
 

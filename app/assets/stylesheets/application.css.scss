@@ -34,7 +34,6 @@
 
 .media, .bd {
   overflow: hidden;
-  _overflow: visible;
   zoom: 1;
 }
 
@@ -124,8 +123,7 @@ ul > li {
 }
 
 .avatar {
-  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 5px inset;
-  -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 5px inset;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 5px inset;
   background: {
     color: $background-grey;
   };
@@ -416,7 +414,7 @@ ul.as-selections {
 
 input:not([type='submit']):not([type='reset']):not([type='hidden']):not(.as-input),
 textarea {
-  @include border-radius(2px);
+  border-radius: 2px;
   background-color: white;
   color: black;
   margin-top: 1px;
@@ -470,11 +468,7 @@ form p.checkbox_select {
 }
 
 /* those can't be combined, see: http://stackoverflow.com/questions/2610497 */
-*::-webkit-input-placeholder {
-  @include placeholder_styles;
-}
-
-*::-moz-placeholder {
+*::input-placeholder {
   @include placeholder_styles;
 }
 
@@ -486,7 +480,7 @@ form p.checkbox_select {
 }
 
 .dim {
-  @include opacity(0.3);
+  opacity: 0.3;
 }
 
 img.thumb_small {
@@ -604,8 +598,7 @@ h2,h3,h4 {
 }
 
 input[type="search"] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 #photo_edit_options {
@@ -657,7 +650,7 @@ input[type="search"] {
 }
 
 .floating {
-  @include box-shadow(0, 1px, 3px, #333333);
+  box-shadow: 0 1px 3px #333333;
   position: relative;
   padding: 12px;
   margin: {
@@ -682,7 +675,7 @@ input[type="search"] {
 
 #user_photo_uploader {
   .avatar {
-    @include border-radius(5px);
+    border-radius: 5px;
     height: 100px;
     width: 100px;
   }
@@ -748,8 +741,6 @@ ul#request_result {
     };
     width: 300px;
     border-radius: 5px 0 0 5px;
-    -webkit-border-radius: 5px 0 0 5px;
-    -moz-border-radius: 5px 0 0 5px;
     position: relative;
     display: inline;
     padding: 12px;
@@ -764,8 +755,6 @@ ul#request_result {
     background: {
       color: $blue;
     };
-    -webkit-border-radius: 0 5px 5px 0;
-    -moz-border-radius: 0 5px 5px 0;
     border-radius: 0 5px 5px 0;
     border: 1px solid #cccccc;
     padding: 12px;
@@ -802,7 +791,7 @@ ul#request_result {
   };
   text-shadow: 0 1px 3px #999999;
   p {
-    @include box-shadow(0, 1px, 3px, #cccccc);
+    box-shadow: 0 1px 3px #cccccc;
     padding: 12px;
     background: {
       color: white;
@@ -988,7 +977,7 @@ ul#press_logos {
 
 .share_with {
   .add_aspect {
-    @include border-radius(5px);
+    border-radius: 5px;
     margin: {
       top: 0.5em;
     };
@@ -1053,7 +1042,7 @@ ul#press_logos {
 }
 
 #contact_visibility_padlock:hover {
-  @include opacity(0.7);
+  opacity: 0.7;
 }
 
 .side_stream {
@@ -1174,7 +1163,7 @@ ul#requested-scopes {
   line-height: 16px;
   text-align: center;
   float: right;
-  @include border-radius(4px);
+  border-radius: 4px;
   margin-top: 1px;
   color: $text-grey;
   background: {
@@ -1233,8 +1222,6 @@ ul.left_nav {
   a.tag_selector,
   a.element_selector {
     &:active {
-      cursor: -webkit-grabbing;
-      cursor: -moz-grabbing;
       cursor: grabbing;
     }
   }
@@ -1250,7 +1237,7 @@ ul.left_nav {
   li.aspect_element,
   a.element_selector {
     &:hover {
-      @include border-radius(2px);
+      border-radius: 2px;
       background: {
         color: lighten($blue, 45%);
       };
@@ -1263,12 +1250,12 @@ ul.left_nav {
     margin-right: 10px;
     margin-top: 4px;
     @include transition(opacity);
-    @include opacity(0.3);
+    opacity: 0.3;
     position: absolute;
     display: none;
     padding: 0 5px;
     &:hover {
-      @include opacity(1);
+      opacity: 1;
     }
   }
   .edit {
@@ -1278,11 +1265,11 @@ ul.left_nav {
     height: 12px;
     margin-top: 6px;
     @include transition(opacity);
-    @include opacity(0.3);
+    opacity: 0.3;
     float: right;
     display: none;
     &:hover {
-      @include opacity(1);
+      opacity: 1;
     }
   }
   ul.sub_nav {
@@ -1356,7 +1343,7 @@ ul.left_nav {
       li.unfollow:hover,
       li.sub_nav_item:hover,
       li.hover {
-        @include border-radius(2px);
+        border-radius: 2px;
         background: {
           color: lighten($blue, 45%);
         };
@@ -1425,8 +1412,8 @@ a.toggle_selector {
 }
 
 .user_card {
-  @include border-radius(3px);
-  @include box-shadow(0, 1px, 5px, #cccccc);
+  border-radius: 3px;
+  box-shadow: 0 1px 5px #cccccc;
   padding: 10px {
     bottom: 30px;
   };
@@ -1536,7 +1523,7 @@ a.toggle_selector {
 }
 
 #grey_header {
-  @include box-shadow(0, 1px, 1px, #eeeeee);
+  box-shadow: 0 1px 1px #eeeeee;
   background: {
     color: #fafafa;
   };
@@ -1565,7 +1552,7 @@ a.toggle_selector {
 .field_with_errors {
   position: relative;
   input {
-    @include box-shadow(0, 0, 8px, lighten(#dd0000, 30%));
+    box-shadow: 0 0 8px lighten(#dd0000, 30%);
     border: 1px solid #dd0000 !important;
   }
 }
@@ -1580,7 +1567,7 @@ a.toggle_selector {
 }
 
 .new_user_form fieldset, .accept_invitation_form fieldset {
-  @include border-radius(3px);
+  border-radius: 3px;
   background: {
     color: white;
     color: rgba(255, 255, 255, 0.95);
@@ -1604,8 +1591,6 @@ a.toggle_selector {
 
 .nostrap,
 .nostrap:focus {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
@@ -1656,8 +1641,7 @@ a.toggle_selector {
 }
 
 #welcome-to-diaspora {
-  -webkit-box-shadow: inset 0 -2px 10px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: inset 0 -2px 10px rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 -2px 10px rgba(0, 0, 0, 0.35);
   position: absolute;
   width: 100%;
   left: 0;
@@ -1674,10 +1658,10 @@ a.toggle_selector {
   background: orange;
   &:hover {
     #gs-skip-x {
-      @include opacity(0.4);
+      opacity: 0.4;
       @include transition(opacity, 0.25s);
       &:hover {
-        @include opacity(1);
+        opacity: 1;
       }
     }
   }
@@ -1689,7 +1673,7 @@ a.toggle_selector {
 }
 
 #gs-skip-x {
-  @include opacity(0);
+  opacity: 0;
   @include transition(opacity, 0.25s);
   img {
     position: relative;
@@ -1730,7 +1714,7 @@ a.toggle_selector {
 }
 
 .nsfw-shield {
-  @include border-radius(3px);
+  border-radius: 3px;
   background-color: $background-grey;
   width: 90%;
   padding: 5px 10px;
@@ -1813,8 +1797,6 @@ a.toggle_selector {
     z-index: 5;
   }
   a#hide_location:hover {
-    @include opacity(0);
-    -khtml-opacity: 1;
     opacity: 1;
     cursor: pointer;
   }

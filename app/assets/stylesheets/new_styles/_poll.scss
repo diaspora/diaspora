@@ -21,7 +21,7 @@
 
   .progress {
     background-image: none;
-    @include box-shadow(0, 0, 0);
+    box-shadow: 0 0 0;
     margin-bottom: 5px;
     height: 10px !important;
 

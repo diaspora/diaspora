@@ -22,7 +22,7 @@ header {
     background: none;
   }
   #notification_badge.active {
-    @include border-radius(0);
+    border-radius: 0;
   }
   #global_search {
     form {

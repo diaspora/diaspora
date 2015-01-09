@@ -7,8 +7,6 @@ ul.as-selections {
 	overflow: auto;
 	background-color: #fff;
 	border-radius: 3px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
 	/* 1% padding (all sides) + 98% width = 100% */
 	padding: 1%;
 	width: 98%;
@@ -29,18 +27,14 @@ ul.as-selections li.as-selection-item {
 	font-size: 13px;
 	text-shadow: 0 1px 1px #fff;
 	background-color: #ddeefe;
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddeefe), to(#bfe0f1));
+	background-image: gradient(linear, 0% 0%, 0% 100%, from(#ddeefe), to(#bfe0f1));
 	border: 1px solid #acc3ec;
 	padding: 0;
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 6px;
 	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	box-shadow: 0 1px 1px #e4edf2;
-	-webkit-box-shadow: 0 1px 1px #e4edf2;
-	-moz-box-shadow: 0 1px 1px #e4edf2;
   line-height: 10px;
   margin-top: -1px;
   margin-bottom: 10px;
@@ -60,18 +54,16 @@ ul.as-selections li.as-selection-item a.as-close {
 	font-size: 14px;
 	font-weight: bold;
 	text-shadow: 0 1px 1px #fff;
-	-webkit-transition: color .1s ease-in;
+	transition: color .1s ease-in;
 }
 
 ul.as-selections li.as-selection-item.blur {
 	color: #666666;
 	background-color: #f4f4f4;
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f4f4f4), to(#d5d5d5));
+	background-image: gradient(linear, 0% 0%, 0% 100%, from(#f4f4f4), to(#d5d5d5));
 	border-color: #bbb;
 	border-top-color: #ccc;
 	box-shadow: 0 1px 1px #e9e9e9;
-	-webkit-box-shadow: 0 1px 1px #e9e9e9;
-	-moz-box-shadow: 0 1px 1px #e9e9e9;
 }
 
 ul.as-selections li.as-selection-item.blur a.as-close {
@@ -81,7 +73,7 @@ ul.as-selections li.as-selection-item.blur a.as-close {
 ul.as-selections li:hover.as-selection-item {
 	color: #2b3840;
 	background-color: #bbd4f1;
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bbd4f1), to(#a3c2e5));
+	background-image: gradient(linear, 0% 0%, 0% 100%, from(#bbd4f1), to(#a3c2e5));
 	border-color: #6da0e0;
 	border-top-color: #8bb7ed;
 }
@@ -135,11 +127,7 @@ ul.as-list {
 	background-color: rgba(255,255,255,0.95);
 	z-index: 2;
 	box-shadow: 0 2px 12px #222;
-	-webkit-box-shadow: 0 2px 12px #222;
-	-moz-box-shadow: 0 2px 12px #222;
 	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 }
 
 li.as-result-item, li.as-message {
@@ -150,8 +138,6 @@ li.as-result-item, li.as-message {
 	border-bottom: 1px solid #ddd;
 	cursor: pointer;
 	border-radius: 3px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
 }
 
 li:first-child.as-result-item {
@@ -165,7 +151,7 @@ li.as-message {
 
 li.as-result-item.active {
 	background-color: #3668d9;
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 64%, from(rgb(110, 129, 245)), to(rgb(62, 82, 242)));
+	background-image: gradient(linear, 0% 0%, 0% 64%, from(rgb(110, 129, 245)), to(rgb(62, 82, 242)));
 	border-color: #3342e8;
 	color: #fff;
 	text-shadow: 0 1px 2px #122042;

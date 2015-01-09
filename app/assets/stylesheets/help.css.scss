@@ -57,38 +57,38 @@ ul#help_nav {
     text-align: left;
   }
   ul > li {
-    list-style-type: disc !important; 
+    list-style-type: disc !important;
   }
-  
+
   text-align: justify;
 
   .question {
     background-color: rgb(242, 242, 242);
     margin-bottom: 10px;
-    @include border-radius(4px);
+    border-radius: 4px;
     a.toggle {
-      text-decoration: none; 
+      text-decoration: none;
       color: black;
     }
-    h4 { 
+    h4 {
       text-align: left;
       font-weight: 700;
       margin: 0px;
-      padding: 10px 20px;    
+      padding: 10px 20px;
     }
-    
+
     &.collapsed {
-      border: 2px solid rgb(242, 242, 242); 
+      border: 2px solid rgb(242, 242, 242);
     }
-    
-    &.opened { 
+
+    &.opened {
       border: 2px solid rgb(142, 222, 61);
       h4 {
         background-color: rgb(142, 222, 61);
       }
     }
     .answer {
-      @include border-radius(0px, 0px, 4px, 4px);
+      border-radius: 0px 0px 4px 4px;
       background-color: white;
       padding: 10px 20px;
     }

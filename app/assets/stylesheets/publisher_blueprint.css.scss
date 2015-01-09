@@ -140,7 +140,7 @@
     }
 
     img {
-      @include opacity(0.4);
+      opacity: 0.4;
       vertical-align: bottom;
     }
 
@@ -149,7 +149,7 @@
       cursor: pointer;
 
       img {
-        @include opacity(0.8);
+        opacity: 0.8;
       }
     }
 
@@ -158,19 +158,19 @@
       text-shadow: 0 1px 0 #fafafa;
 
       img {
-        @include opacity(1);
+        opacity: 1;
       }
     }
 
     &.loading {
-      @include opacity(0.5);
+      opacity: 0.5;
     }
   }
 }
 
 #publisher_textarea_wrapper {
   #hide_publisher {
-    @include opacity(0.3);
+    opacity: 0.3;
     z-index: 5;
     padding: 3px;
     position: absolute;
@@ -183,7 +183,7 @@
     }
 
     &:hover {
-      @include opacity(1);
+      opacity: 1;
     }
   }
 
@@ -193,7 +193,7 @@
     left: 5px;
   }
 
-  @include border-radius(2px);
+  border-radius: 2px;
 
   border: 1px solid #ccc;
   background: #fff;
@@ -231,7 +231,7 @@
         max-height: 55px;
       }
       .circle {
-        @include border-radius(20px);
+        border-radius: 20px;
 
         display: none;
         z-index: 1;
@@ -310,13 +310,13 @@
     cursor: pointer;
     img {
       padding-top: 2px;
-      @include opacity(0.4);
+      opacity: 0.4;
     }
     &:hover {
       color: $text-dark-grey;
       cursor: pointer;
       img {
-        @include opacity(0.8);
+        opacity: 0.8;
       }
     }
   }
@@ -328,13 +328,13 @@
     position: absolute !important;
     right: 55px;
     i {
-      @include opacity(0.4);
+      opacity: 0.4;
     }
     &:hover {
       color: $text-dark-grey;
       cursor: pointer;
       i {
-        @include opacity(1);
+        opacity: 1;
       }
     }
   }
@@ -349,7 +349,7 @@
   border: 1px solid $border-dark-grey;
   padding: 5px;
   margin-top: 5px;
-  @include border-radius(2px);
+  border-radius: 2px;
   display: none;
 
   &.active {
@@ -388,13 +388,13 @@
       vertical-align: bottom;
     }
     .remove-answer {
-      @include opacity(0.4);
+      opacity: 0.4;
       cursor: pointer;
       display: none;
       line-height: 27px;
 
       &:hover {
-        @include opacity(1);
+        opacity: 1;
       }
       &.active {
         display: inline-block;

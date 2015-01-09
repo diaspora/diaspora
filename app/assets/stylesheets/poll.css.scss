@@ -22,7 +22,7 @@
   .progress {
     overflow: hidden;
     background-color: #f6f6f6;
-    @include border-radius(4px);
+    border-radius: 4px;
 
     .bar {
       height: 100%;

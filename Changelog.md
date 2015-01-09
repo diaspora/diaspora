@@ -85,6 +85,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Change tooltip for delete button in conversations view [#5477](https://github.com/diaspora/diaspora/pull/5477)
 * Replace a modifier-rescue with a specific rescue [#5491](https://github.com/diaspora/diaspora/pull/5491)
 * Port contacts page to backbone [#5473](https://github.com/diaspora/diaspora/pull/5473)
+* Replace CSS vendor prefixes automatically [#5532](https://github.com/diaspora/diaspora/pull/5532)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)

@@ -74,17 +74,17 @@
   .controls:first-child {
     .control_icon {
       @include transition(opacity);
-      @include opacity(0);
+      opacity: 0;
     }
   }
 
   &:hover {
     .controls:first-child {
       .control_icon {
-        @include opacity(0.3);
+        opacity: 0.3;
       }
       .control_icon:hover {
-        @include opacity(1);
+        opacity: 1;
       }
     }
   }
@@ -140,16 +140,16 @@
     .controls {
       .comment_delete, .comment_report {
         @include transition(opacity);
-        @include opacity(0);
+        opacity: 0;
       }
     }
     &:hover {
       .controls {
         .comment_delete, .comment_report {
-          @include opacity(0.3);
+          opacity: 0.3;
         }
         .comment_delete:hover, .comment_report:hover {
-          @include opacity(1);
+          opacity: 1;
         }
       }
     }
@@ -266,7 +266,7 @@ form.new_comment {
       text-shadow: 0 0 7px #FFF;
       cursor: pointer;
       border-bottom: 2px solid $border-grey;
-      @include border-radius(0, 0, 3px, 3px);
+      border-radius: 0 0 3px 3px;
       @include linear-gradient(rgba(255,255,255,0) , #EEE, 0%, 95%);
       background-color: transparent;
     }
