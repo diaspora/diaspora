@@ -28,9 +28,7 @@ $default-border-radius: 3px;
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#{$from}, endColorstr=#{$to})";
 
-  background-image: gradient(linear, 0% $start, 0% $end, from($from), to($to));
-  background-image: -moz-linear-gradient(top, $from $start, $to $end);
-  background-image: linear-gradient(top, $from $start, $to $end);
+  background: linear-gradient(to top, $from $start, $to $end);
 }
 
 @mixin horizontal-linear-gradient($from, $to, $start:0%, $end:100%){
