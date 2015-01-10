@@ -99,7 +99,7 @@ Handlebars.registerHelper('fmtTags', function(tags) {
 });
 
 Handlebars.registerHelper('fmtText', function(text) {
-  return new Handlebars.SafeString(app.helpers.textFormatter(text, null));
+  return new Handlebars.SafeString(app.helpers.textFormatter(text));
 });
 
 Handlebars.registerHelper('isCurrentPage', function(path_helper, id, options){

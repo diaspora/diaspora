@@ -7,7 +7,7 @@ app.views.Content = app.views.Base.extend({
 
   presenter : function(){
     return _.extend(this.defaultPresenter(), {
-      text : app.helpers.textFormatter(this.model.get("text"), this.model),
+      text : app.helpers.textFormatter(this.model.get("text"), this.model.get("mentioned_people")),
       largePhoto : this.largePhoto(),
       smallPhotos : this.smallPhotos(),
       location: this.location()

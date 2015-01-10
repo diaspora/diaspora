@@ -33,7 +33,7 @@ app.pages.SinglePostViewer = app.views.Base.extend({
   postRenderTemplate : function() {
     if(this.model.get("title")){
       // formats title to html...
-      var html_title = app.helpers.textFormatter(this.model.get("title"), this.model);
+      var html_title = app.helpers.textFormatter(this.model.get("title"), this.model.get("mentioned_people"));
       //... and converts html to plain text
       document.title = $('<div>').html(html_title).text();
     }
