@@ -116,7 +116,7 @@ describe Notifier, :type => :mailer do
       expect(@mail.to).to eq([alice.email])
     end
 
-    it 'BODY: contains the truncated original post' do
+    it 'BODY: contains the original post' do
       expect(@mail.body.encoded).to include(@post.message.plain_text)
     end
 
