@@ -12,9 +12,11 @@ $(function() {
 
     return textFormatter.mentionify(
       textFormatter.hashtagify(
-        textFormatter.markdownify(text)
-        ), mentions
-      )
+        textFormatter.markdownify(
+          textFormatter.photoify(text, model)
+        )
+      ), mentions
+    )
   };
 
   textFormatter.markdownify = function markdownify(text){
@@ -137,6 +139,21 @@ $(function() {
       }
 
       return personText
+    })
+  }
+
+  textFormatter.photoify = function photoify(text, model) {
+    var photos = model.get("photos");
+    if(!photos || photos.length == 0) { return text }
+    return text.replace(/\[(\d+?)\]/g, function($0, $1) {
+      var pos = parseInt($1) - 1;
+      if (!photos[pos]) { return $0 }
+
+      var converter = Markdown.getSanitizingConverter();
+      var largeSize = photos[pos]["sizes"]["large"];
+
+      photos[pos]["customPosition"] = true;
+      return converter.makeHtml("!" + $0 + "(" + largeSize + ")")
     })
   }
 

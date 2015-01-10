@@ -16,18 +16,28 @@ app.views.Content = app.views.Base.extend({
 
 
   largePhoto : function() {
-    var photos = this.model.get("photos")
+    var photos = this.getPhotos();
     if(!photos || photos.length == 0) { return }
     return photos[0]
   },
 
   smallPhotos : function() {
-    var photos = this.model.get("photos")
+    var photos = this.getPhotos();
     if(!photos || photos.length < 2) { return }
     photos.splice(0, 1); // remove first photo as it is already shown as largePhoto
     return photos;
   },
 
+  getPhotos: function() {
+    var photos = [];
+    var modelPhotos = this.model.get("photos");
+    for (var i in modelPhotos) {
+      if (!modelPhotos[i]["customPosition"] || modelPhotos[i]["customPosition"] != true) {
+        photos.push(modelPhotos[i]);
+      }
+    }
+    return photos
+  },
 
   expandPost: function(evt) {
     var el = $(this.el).find('.collapsible');
