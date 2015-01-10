@@ -268,13 +268,15 @@ describe("app.helpers.textFormatter", function(){
         this.alice = factory.author({
           name : "Alice Smith",
           diaspora_id : "alice@example.com",
-          id : "555"
+          id : "555",
+          guid : "555"
         })
 
         this.bob = factory.author({
           name : "Bob Grimm",
           diaspora_id : "bob@example.com",
-          id : "666"
+          id : "666",
+          guid : "666"
         })
 
         this.statusMessage.set({text: "hey there @{Alice Smith; alice@example.com} and @{Bob Grimm; bob@example.com}"})
@@ -288,6 +290,15 @@ describe("app.helpers.textFormatter", function(){
         _.each([this.alice, this.bob], function(person) {
           expect(wrapper.find("a[href='/people/" + person.guid + "']").text()).toContain(person.name)
         })
+      });
+
+      it("makes mentions hovercardable unless the current user has been mentioned", function(){
+        app.currentUser.get = jasmine.createSpy().and.returnValue(this.alice.guid);
+        var formattedText = this.formatter.mentionify(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"))
+        var wrapper = $("<div>").html(formattedText);
+        
+        expect(wrapper.find("a[href='/people/" + this.alice.guid + "']").hasClass('hovercardable')).toBeFalsy();
+        expect(wrapper.find("a[href='/people/" + this.bob.guid + "']").hasClass('hovercardable')).toBeTruthy();
       });
 
       it("returns mentions for on posts that haven't been saved yet (framer posts)", function(){

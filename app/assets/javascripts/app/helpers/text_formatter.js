@@ -131,7 +131,8 @@ $(function() {
       })
       if(person) {
         var url = person.url || "/people/" + person.guid //jquery.mentionsInput gives us person.url
-          , personText = "<a href='" + url + "' class='mention'>" + fullName + "</a>"
+          , linkClass = app.currentUser.get('guid') == person.guid ? 'mention' : 'mention hovercardable'
+          , personText = "<a href='" + url + "' class='" + linkClass + "'>" + fullName + "</a>";
       } else {
         personText = fullName;
       }
