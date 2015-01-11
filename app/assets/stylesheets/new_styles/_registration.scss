@@ -76,11 +76,11 @@
   background: orange;
   &:hover {
     #gs-skip-x {
-      @include opacity(0.4);
+      opacity: .4;
       @include transition(opacity, 0.25s);
 
       &:hover {
-        @include opacity(1);
+        opacity: 1;
       }
     }
   }
