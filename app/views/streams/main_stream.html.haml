@@ -21,9 +21,9 @@
         %h3
           = t('aspects.index.introduce_yourself')
 
-.container
-  .row
-    .span3#leftNavBar
+.container-fluid
+  .row-fluid
+    .offset1.span2#leftNavBar
       #home_user_badge
         = owner_image_link
         %h4
@@ -45,7 +45,7 @@
       #aspect_stream_container.stream_container
         = render 'aspects/aspect_stream', :stream => @stream
 
-    .span3.rightBar
+    .span2.rightBar
       #selected_aspect_contacts.section
         .title.no_icon
           %h5.stream_title
