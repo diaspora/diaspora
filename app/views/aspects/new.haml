@@ -21,8 +21,6 @@
         = aspect.check_box :contacts_visible, :checked => false, class: 'checkbox'
         = aspect.label :contacts_visible, t('aspects.edit.make_aspect_list_visible')
 
-      %br
-
       .bottom_submit_section
         = submit_tag t('cancel'), :class => 'btn', :type => :reset, :rel => "close"
         = aspect.submit t('.create'), :class => 'btn creation'
