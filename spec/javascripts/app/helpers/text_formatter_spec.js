@@ -20,7 +20,7 @@ describe("app.helpers.textFormatter", function(){
     it("renders tags as links", function() {
       var formattedText = this.formatter('#'+this.tags.join(" #"));
       _.each(this.tags, function(tag) {
-        var link ='<a class="tag" href="/tags/'+tag.toLowerCase()+'">#'+tag+'</a>';
+        var link ='<a href="/tags/'+tag.toLowerCase()+'" class="tag">#'+tag.replace("<","&lt;")+'</a>';
         expect(formattedText).toContain(link);
       });
     });
