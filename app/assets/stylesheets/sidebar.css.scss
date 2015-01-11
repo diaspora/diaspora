@@ -111,57 +111,15 @@
         color: $text-dark-grey;
       }
 
-      .icons-plus,
-      .icons-heart,
-      .icons-question,
-      .icons-monotone_wrench_settings,
-      .icons-coffee,
-      .icons-mail,
-      .icons-bookmark {
-        position: absolute;
-        margin-left: 3px;
-      }
-
-      .icons-plus {
-        width:  14px;
-        height: 14px;
-      }
-
-      .icons-heart {
-        width:  13px;
-        height: 12px;
-      }
-
-      .icons-question,
-      .icons-monotone_wrench_settings {
-        width:  16px;
-        height: 16px;
-      }
-
-      .icons-bookmark {
-        width:  14px;
-        height: 16px;
-      }
-
-      .icons-coffee {
-        width:  16px;
-        height: 14px;
-      }
-
-      .icons-mail {
-        width:  16px;
-        height: 13px;
-      }
-
-
       h5.title-header {
-        margin-left: 22px;
+        margin-left: 5px;
       }
 
       h5 {
         font-size: 12px;
         margin: 0;
         color: $text-dark-grey;
+        font-weight: bold;
       }
     }
 
