@@ -28,7 +28,7 @@
 
     var md = window.markdownit({
       breaks:      true,
-      html:        false,
+      html:        true,
       linkify:     true,
       typographer: true
     });
@@ -60,6 +60,13 @@
 
     var mentionPlugin = window.markdownitDiasporaMention;
     md.use(mentionPlugin, mentions);
+
+    var subPlugin = window.markdownitSub;
+    md.use(subPlugin);
+    var supPlugin = window.markdownitSup;
+    md.use(supPlugin);
+    var sanitizerPlugin = window.markdownitSanitizer;
+    md.use(sanitizerPlugin);
 
     // TODO this is a temporary fix
     // remove it as soon as markdown-it fixes its autolinking feature
