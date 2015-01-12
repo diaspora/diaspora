@@ -1,5 +1,5 @@
 # diaspora* 
-### a privacy aware, distributed, open source social network
+### a privacy-aware, distributed, open source social network
 
 **master:** [![Build Status master](https://secure.travis-ci.org/diaspora/diaspora.png?branch=master)](http://travis-ci.org/diaspora/diaspora)
 **develop:** [![Build Status develop](https://secure.travis-ci.org/diaspora/diaspora.png?branch=develop)](http://travis-ci.org/diaspora/diaspora) |
