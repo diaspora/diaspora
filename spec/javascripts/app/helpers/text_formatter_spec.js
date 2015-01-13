@@ -154,7 +154,7 @@ describe("app.helpers.textFormatter", function(){
 
       it("correctly encodes to punycode", function() {
         _.each(this.evilUrls, function(url, num) {
-          var text = this.formatter( "<" + url + ">" );
+          var text = this.formatter(url);
           expect(text).toContain(this.asciiUrls[num]);
         }, this);
       });
