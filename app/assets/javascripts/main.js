@@ -20,6 +20,7 @@
 //= require jquery-idletimer/dist/idle-timer
 //= require jquery.infinitescroll-custom
 //= require jquery.autocomplete-custom
+//= require jquery-ui
 //= require keycodes
 //= require fileuploader-custom
 //= require handlebars.runtime
@@ -39,6 +40,7 @@
 //= require_tree ./widgets
 //= require view
 //= require aspects-dropdown
+//= require aspects-sorting
 //= require mentions
 //= require bootstrap-tooltip
 //= require bootstrap-popover

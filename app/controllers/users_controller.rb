@@ -70,6 +70,8 @@ class UsersController < ApplicationController
           flash[:error] = I18n.t 'users.update.follow_settings_not_changed'
         end
       end
+    elsif aspect_order = params[:reorder_aspects]
+      @user.reorder_aspects(aspect_order)
     end
     set_email_preferences
 
