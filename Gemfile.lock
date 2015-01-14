@@ -739,6 +739,7 @@ DEPENDENCIES
   jasmine (= 2.2.0)
   jasmine-jquery-rails (= 2.0.3)
   jquery-rails (= 3.1.2)
+  jquery-ui-rails (= 5.0.3)
   js-routes (= 1.0.0)
   js_image_paths (= 0.0.2)
   jshintrb (= 0.3.0)

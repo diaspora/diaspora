@@ -86,6 +86,7 @@ gem "entypo-rails", "2.2.2"
 gem "backbone-on-rails",                                "1.1.2"
 gem "handlebars_assets",                                "0.20.1"
 gem "jquery-rails",                                     "3.1.2"
+gem "jquery-ui-rails",                                  "5.0.3"
 gem "js_image_paths",                                   "0.0.2"
 gem "js-routes",                                        "1.0.0"
 

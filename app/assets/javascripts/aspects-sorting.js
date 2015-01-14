@@ -4,15 +4,14 @@
  */
 
 $(document).ready(function() {
-  $('#aspect_nav.left_nav .all_aspects .sub_nav').sortable({
-    items: "li[data-aspect_id]",
+  $('#aspect_nav .nav').sortable({
+    items: "li.aspect[data-aspect-id]",
     update: function(event, ui) {
-      var order = $(this).sortable("toArray", {attribute: "data-aspect_id"}),
-          obj = { 'reorder_aspects': order, '_method': 'put' };
-      $.ajax('/user', { type: 'post', dataType: 'script', data: obj });
+      var order = $(this).sortable("toArray", {attribute: "data-aspect-id"}),
+          obj = { 'aspect_order': order };
+      $.ajax('/user', { type: 'put', dataType: 'text', data: obj });
     },
     revert: true,
     helper: 'clone'
   });
 });
-

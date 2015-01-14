@@ -20,7 +20,9 @@ class UsersController < ApplicationController
     password_changed = false
     @user = current_user
 
-    if u = user_params
+    if aspect_order = params[:aspect_order]
+      @user.reorder_aspects(aspect_order)
+    elsif u = user_params
 
       # change email notifications
       if u[:email_preferences]
@@ -70,8 +72,6 @@ class UsersController < ApplicationController
           flash[:error] = I18n.t 'users.update.follow_settings_not_changed'
         end
       end
-    elsif aspect_order = params[:reorder_aspects]
-      @user.reorder_aspects(aspect_order)
     end
     set_email_preferences
 
