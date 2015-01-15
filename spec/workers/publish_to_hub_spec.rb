@@ -7,10 +7,10 @@ require 'spec_helper'
 describe Workers::PublishToHub do
   describe '.perform' do
     it 'calls pubsubhubbub' do
-      url = "http://publiczone.com/"
-      m = double()
+      url = 'http://publiczone.com/'
+      m = double
 
-      expect(m).to receive(:publish).with(url+'.atom')
+      expect(m).to receive(:publish).with(url + '.atom')
       expect(Pubsubhubbub).to receive(:new).with(AppConfig.environment.pubsub_server).and_return(m)
       Workers::PublishToHub.new.perform(url)
     end

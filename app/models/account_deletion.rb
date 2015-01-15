@@ -8,11 +8,10 @@ class AccountDeletion < ActiveRecord::Base
   scope :uncompleted, -> { where('completed_at is null') }
 
   belongs_to :person
-  after_commit :queue_delete_account, :on => :create
+  after_commit :queue_delete_account, on: :create
 
   xml_name :account_deletion
   xml_attr :diaspora_handle
-
 
   def person=(person)
     self[:diaspora_handle] = person.diaspora_handle
@@ -25,15 +24,15 @@ class AccountDeletion < ActiveRecord::Base
   end
 
   def queue_delete_account
-    Workers::DeleteAccount.perform_async(self.id)
+    Workers::DeleteAccount.perform_async(id)
   end
 
   def perform!
-    self.dispatch if person.local?
-    AccountDeleter.new(self.diaspora_handle).perform!
+    dispatch if person.local?
+    AccountDeleter.new(diaspora_handle).perform!
   end
 
-  def subscribers(user)
+  def subscribers(_user)
     person.owner.contact_people.remote | Person.who_have_reshared_a_users_posts(person.owner).remote
   end
 

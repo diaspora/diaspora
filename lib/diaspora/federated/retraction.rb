@@ -11,18 +11,18 @@ class Retraction
   attr_accessor :person, :object, :subscribers
 
   def subscribers(user)
-    unless self.type == 'Person'
-      @subscribers ||= self.object.subscribers(user)
-      @subscribers -= self.object.resharers unless self.object.is_a?(Photo)
+    unless type == 'Person'
+      @subscribers ||= object.subscribers(user)
+      @subscribers -= object.resharers unless object.is_a?(Photo)
       @subscribers
     else
-      raise 'HAX: you must set the subscribers manaully before unfriending' if @subscribers.nil?
+      fail 'HAX: you must set the subscribers manaully before unfriending' if @subscribers.nil?
       @subscribers
     end
   end
 
   def self.for(object)
-    retraction = self.new
+    retraction = new
     if object.is_a? User
       retraction.post_guid = object.person.guid
       retraction.type = object.person.class.to_s
@@ -36,27 +36,27 @@ class Retraction
   end
 
   def target
-    @target ||= self.type.constantize.where(:guid => post_guid).first
+    @target ||= type.constantize.where(guid: post_guid).first
   end
 
-  def perform receiving_user
+  def perform(_receiving_user)
     Rails.logger.debug "Performing retraction for #{post_guid}"
 
-    self.target.destroy if self.target
-    Rails.logger.info("event=retraction status=complete type=#{self.type} guid=#{self.post_guid}")
+    target.destroy if target
+    Rails.logger.info("event=retraction status=complete type=#{type} guid=#{post_guid}")
   end
 
   def receive(user, person)
-    if self.type == 'Person'
-      unless self.person.guid.to_s == self.post_guid.to_s
-        Rails.logger.info("event=receive status=abort reason='sender is not the person he is trying to retract' recipient=#{self.diaspora_handle} sender=#{self.person.diaspora_handle} payload_type=#{self.class} retraction_type=person")
+    if type == 'Person'
+      unless self.person.guid.to_s == post_guid.to_s
+        Rails.logger.info("event=receive status=abort reason='sender is not the person he is trying to retract' recipient=#{diaspora_handle} sender=#{self.person.diaspora_handle} payload_type=#{self.class} retraction_type=person")
         return
       end
-      user.disconnected_by(self.target)
-    elsif self.target.nil? || self.target.author != self.person
+      user.disconnected_by(target)
+    elsif target.nil? || target.author != self.person
       Rails.logger.info("event=retraction status=abort reason='no post found authored by retractor' sender=#{person.diaspora_handle} post_guid=#{post_guid}")
     else
-      self.perform(user)
+      perform(user)
     end
     self
   end

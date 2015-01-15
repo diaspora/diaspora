@@ -5,11 +5,11 @@
 
 require 'spec_helper'
 
-shared_examples_for "it is taggable" do
+shared_examples_for 'it is taggable' do
   include ActionView::Helpers::UrlHelper
 
   def tag_link(s)
-    link_to  "##{s}", "/tags/#{s}", :class => 'tag'
+    link_to "##{s}", "/tags/#{s}", class: 'tag'
   end
 
   describe '.format_tags' do
@@ -20,7 +20,7 @@ shared_examples_for "it is taggable" do
       @object.save!
     end
 
-    it "supports non-ascii characters" do
+    it 'supports non-ascii characters' do
       expect(@object.tags(true).map(&:name)).to include('vöglein')
     end
 
@@ -32,7 +32,7 @@ shared_examples_for "it is taggable" do
     end
 
     it 'responds to plain_text' do
-      expect(Diaspora::Taggable.format_tags(@str, :plain_text => true)).to eq(@str)
+      expect(Diaspora::Taggable.format_tags(@str, plain_text: true)).to eq(@str)
     end
 
     it "doesn't mangle text when tags are involved" do
@@ -52,9 +52,9 @@ shared_examples_for "it is taggable" do
         '#12345 tag'             => "#{tag_link('12345')} tag",
         '#12cde tag'             => "#{tag_link('12cde')} tag",
         '#abc45 tag'             => "#{tag_link('abc45')} tag",
-        '#<3'                    => %{<a class="tag" href="/tags/<3">#&lt;3</a>},
-        'i #<3'                  => %{i <a class="tag" href="/tags/<3">#&lt;3</a>},
-        'i #<3 you'              => %{i <a class="tag" href="/tags/<3">#&lt;3</a> you},
+        '#<3'                    => %(<a class="tag" href="/tags/<3">#&lt;3</a>),
+        'i #<3'                  => %(i <a class="tag" href="/tags/<3">#&lt;3</a>),
+        'i #<3 you'              => %(i <a class="tag" href="/tags/<3">#&lt;3</a> you),
         '#<4'                    => '#&lt;4',
         'test#foo test'          => 'test#foo test',
         'test.#joo bar'          => 'test.#joo bar',
@@ -74,10 +74,10 @@ shared_examples_for "it is taggable" do
         '#terminalhyphen- tag'   => "#{tag_link('terminalhyphen-')} tag",
         '#-initialhyphen'        => tag_link('-initialhyphen'),
         '#-initialhyphen tag'    => "#{tag_link('-initialhyphen')} tag",
-        '#-initial-hyphen'       => tag_link('-initial-hyphen'),
+        '#-initial-hyphen'       => tag_link('-initial-hyphen')
       }
 
-      expected.each do |input,output|
+      expected.each do |input, output|
         expect(Diaspora::Taggable.format_tags(input)).to eq(output)
       end
     end
@@ -88,16 +88,16 @@ shared_examples_for "it is taggable" do
       @object.send(@object.class.field_with_tags_setter, '#what')
       @object.build_tags
       expect(@object.tag_list).to eq(['what'])
-      expect {
+      expect do
         @object.save
-      }.to change{@object.tags.count}.by(1)
+      end.to change { @object.tags.count }.by(1)
     end
   end
 
   describe '#tag_strings' do
     it 'returns a string for every #thing' do
       str = '#what #hey #that"smybike. #@hey ##boo # #THATWASMYBIKE #vöglein #hey#there #135440we #abc/23 ### #h!gh #ok? #see: #re:publica'
-      arr = ['what', 'hey', 'that', 'THATWASMYBIKE', 'vöglein', '135440we', 'abc', 'h', 'ok', 'see', 're']
+      arr = %w(what hey that THATWASMYBIKE vöglein 135440we abc h ok see re)
 
       @object.send(@object.class.field_with_tags_setter, str)
       expect(@object.tag_strings).to match_array(arr)
@@ -138,18 +138,18 @@ shared_examples_for "it is taggable" do
         '#terminalhyphen- tag'   => 'terminalhyphen-',
         '#-initialhyphen'        => '-initialhyphen',
         '#-initialhyphen tag'    => '-initialhyphen',
-        '#-initial-hyphen'       => '-initial-hyphen',
+        '#-initial-hyphen'       => '-initial-hyphen'
       }
 
-      expected.each do |text,hashtag|
-        @object.send  @object.class.field_with_tags_setter, text
+      expected.each do |text, hashtag|
+        @object.send @object.class.field_with_tags_setter, text
         expect(@object.tag_strings).to eq([hashtag].compact)
       end
     end
 
     it 'returns no duplicates' do
       str = '#what #what #what #whaaaaaaaaaat'
-      arr = ['what','whaaaaaaaaaat']
+      arr = %w(what whaaaaaaaaaat)
 
       @object.send(@object.class.field_with_tags_setter, str)
       expect(@object.tag_strings).to match_array(arr)

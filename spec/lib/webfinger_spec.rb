@@ -8,19 +8,19 @@ describe Webfinger do
   let(:host_meta_xrd) { File.open(Rails.root.join('spec', 'fixtures', 'host-meta.fixture.html')).read }
   let(:webfinger_xrd) { File.open(Rails.root.join('spec', 'fixtures', 'webfinger.fixture.html')).read }
   let(:hcard_xml) { File.open(Rails.root.join('spec', 'fixtures', 'hcard.fixture.html')).read }
-  let(:account){'foo@bar.com'}
-  let(:account_in_fixtures){"alice@localhost:9887"}
-  let(:finger){Webfinger.new(account)}
-  let(:host_meta_url){"http://#{AppConfig.pod_uri.authority}/webfinger?q="}
+  let(:account) { 'foo@bar.com' }
+  let(:account_in_fixtures) { 'alice@localhost:9887' }
+  let(:finger) { Webfinger.new(account) }
+  let(:host_meta_url) { "http://#{AppConfig.pod_uri.authority}/webfinger?q=" }
 
   describe '#intialize' do
     it 'sets account ' do
-      n = Webfinger.new("mbs348@gmail.com")
+      n = Webfinger.new('mbs348@gmail.com')
       expect(n.account).not_to be nil
     end
 
     it "downcases account and strips whitespace, and gsub 'acct:'" do
-      n = Webfinger.new("acct:BIGBOY@Example.Org ")
+      n = Webfinger.new('acct:BIGBOY@Example.Org ')
       expect(n.account).to eq('bigboy@example.org')
     end
 
@@ -47,26 +47,25 @@ describe Webfinger do
       expect(person).to be_valid
       expect(person).to be_a Person
     end
-
   end
 
   describe '#get' do
     it 'makes a request and grabs the body' do
-      url ="https://bar.com/.well-known/host-meta"
-      stub_request(:get, url).
-        to_return(:status => 200, :body => host_meta_xrd)
+      url = 'https://bar.com/.well-known/host-meta'
+      stub_request(:get, url)
+        .to_return(status: 200, body: host_meta_xrd)
 
       expect(finger.get(url)).to eq(host_meta_xrd)
     end
 
     it 'follows redirects' do
-      redirect_url = "http://whereami.whatisthis/host-meta"
+      redirect_url = 'http://whereami.whatisthis/host-meta'
 
-      stub_request(:get, "https://bar.com/.well-known/host-meta").
-        to_return(:status => 302, :headers => { 'Location' => redirect_url })
+      stub_request(:get, 'https://bar.com/.well-known/host-meta')
+        .to_return(status: 302, headers: { 'Location' => redirect_url })
 
-      stub_request(:get, redirect_url).
-        to_return(:status => 200, :body => host_meta_xrd)
+      stub_request(:get, redirect_url)
+        .to_return(status: 200, body: host_meta_xrd)
 
       finger.host_meta_xrd
 
@@ -74,13 +73,13 @@ describe Webfinger do
     end
 
     it 'raises on 404' do
-      url ="https://bar.com/.well-known/host-meta"
-      stub_request(:get, url).
-        to_return(:status => 404, :body => nil)
+      url = 'https://bar.com/.well-known/host-meta'
+      stub_request(:get, url)
+        .to_return(status: 404, body: nil)
 
-      expect {
+      expect do
         expect(finger.get(url)).to eq(false)
-      }.to raise_error
+      end.to raise_error
     end
   end
 
@@ -111,7 +110,6 @@ describe Webfinger do
       expect(finger.person).to eq(person)
     end
   end
-
 
   describe 'create_or_update_person_from_webfinger_profile!' do
     context 'with a cached_person' do
@@ -177,18 +175,18 @@ describe Webfinger do
 
   describe '#webfinger_profile_xrd' do
     it 'calls #get with the hcard_url' do
-      allow(finger).to receive(:hcard_url).and_return("url")
-      expect(finger).to receive(:get).with("url")
+      allow(finger).to receive(:hcard_url).and_return('url')
+      expect(finger).to receive(:get).with('url')
       finger.hcard_xrd
     end
   end
 
   describe '#make_person_from_webfinger' do
     it 'with an hcard and a webfinger_profile, it calls Person.create_from_webfinger' do
-      allow(finger).to receive(:hcard).and_return("hcard")
-      allow(finger).to receive(:webfinger_profile_xrd).and_return("webfinger_profile_xrd")
-      allow(finger).to receive(:webfinger_profile).and_return("webfinger_profile")
-      expect(Person).to receive(:create_from_webfinger).with("webfinger_profile", "hcard")
+      allow(finger).to receive(:hcard).and_return('hcard')
+      allow(finger).to receive(:webfinger_profile_xrd).and_return('webfinger_profile_xrd')
+      allow(finger).to receive(:webfinger_profile).and_return('webfinger_profile')
+      expect(Person).to receive(:create_from_webfinger).with('webfinger_profile', 'hcard')
       finger.make_person_from_webfinger
     end
 
@@ -199,22 +197,20 @@ describe Webfinger do
     end
   end
 
-
-
   describe '#host_meta_url' do
     it 'should return canonical host-meta url for http' do
       finger.ssl = false
-      expect(finger.host_meta_url).to eq("http://bar.com/.well-known/host-meta")
+      expect(finger.host_meta_url).to eq('http://bar.com/.well-known/host-meta')
     end
 
     it 'can return the https version' do
-      expect(finger.host_meta_url).to eq("https://bar.com/.well-known/host-meta")
+      expect(finger.host_meta_url).to eq('https://bar.com/.well-known/host-meta')
     end
   end
 
   describe 'swizzle' do
     it 'gsubs out {uri} for the account' do
-      string = "{uri} is the coolest"
+      string = '{uri} is the coolest'
       expect(finger.swizzle(string)).to eq("#{finger.account} is the coolest")
     end
   end

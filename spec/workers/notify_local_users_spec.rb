@@ -7,7 +7,7 @@ require 'spec_helper'
 describe Workers::NotifyLocalUsers do
   describe '#perfom' do
     it 'should call Notification.notify for each participant user' do
-      post = double(id: 1234, author: double(diaspora_handle: "foo@bar"))
+      post = double(id: 1234, author: double(diaspora_handle: 'foo@bar'))
       klass_name = double(constantize: double(find_by_id: post))
       person = double(id: 4321)
       allow(Person).to receive(:find_by_id).and_return(person)

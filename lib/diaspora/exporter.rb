@@ -3,9 +3,7 @@
 #   the COPYRIGHT file.
 
 module Diaspora
-
   class Exporter
-
     SERIALIZED_VERSION = '1.0'
 
     def initialize(user)
@@ -21,7 +19,5 @@ module Diaspora
     def serialized_user
       @serialized_user ||= Export::UserSerializer.new(@user).as_json
     end
-
   end
-
 end

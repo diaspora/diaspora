@@ -26,14 +26,14 @@ Devise.setup do |config|
     config.mailer_sender = AppConfig.mail.sender_address
   elsif AppConfig.mail.enable?
     unless Rails.env == 'test'
-      Rails.logger.warn("No smtp sender address set, mail may fail.")
-      warn "WARNING: No smtp sender address set, mail may fail."
+      Rails.logger.warn('No smtp sender address set, mail may fail.')
+      warn 'WARNING: No smtp sender address set, mail may fail.'
     end
-    config.mailer_sender = "please-change-me@config-diaspora-yml.com"
+    config.mailer_sender = 'please-change-me@config-diaspora-yml.com'
   end
 
   # Configure the class responsible to send e-mails.
-  config.mailer = "DiasporaDeviseMailer"
+  config.mailer = 'DiasporaDeviseMailer'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -49,7 +49,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = [ :username ]
+  config.authentication_keys = [:username]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -61,12 +61,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :email, :username ]
+  config.case_insensitive_keys = [:email, :username]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :email, :username ]
+  config.strip_whitespace_keys = [:email, :username]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -115,7 +115,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  config.pepper = "065eb8798b181ff0ea2c5c16aee0ff8b70e04e2ee6bd6e08b49da46924223e39127d5335e466207d42bf2a045c12be5f90e92012a4f05f7fc6d9f3c875f4c95b"
+  config.pepper = '065eb8798b181ff0ea2c5c16aee0ff8b70e04e2ee6bd6e08b49da46924223e39127d5335e466207d42bf2a045c12be5f90e92012a4f05f7fc6d9f3c875f4c95b'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without

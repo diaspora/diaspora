@@ -1,7 +1,7 @@
 
 require 'spec_helper'
 
-describe Admin::UsersController, :type => :controller do
+describe Admin::UsersController, type: :controller do
   before do
     @user = FactoryGirl.create :user
     Role.add_admin(@user.person)
@@ -18,5 +18,4 @@ describe Admin::UsersController, :type => :controller do
       post :close_account, id: other_user.id
     end
   end
-
 end

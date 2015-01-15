@@ -3,28 +3,28 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require Rails.root.join("spec", "shared_behaviors", "relayable")
+require Rails.root.join('spec', 'shared_behaviors', 'relayable')
 
-describe Comment, :type => :model do
+describe Comment, type: :model do
   before do
     @alices_aspect = alice.aspects.first
-    @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
+    @status = bob.post(:status_message, text: 'hello', to: bob.aspects.first.id)
   end
 
   describe 'comment#notification_type' do
     it "returns 'comment_on_post' if the comment is on a post you own" do
-      comment = alice.comment!(@status, "why so formal?")
+      comment = alice.comment!(@status, 'why so formal?')
       expect(comment.notification_type(bob, alice.person)).to eq(Notifications::CommentOnPost)
     end
 
     it 'returns false if the comment is not on a post you own and no one "also_commented"' do
-      comment = alice.comment!(@status, "I simply felt like issuing a greeting.  Do step off.")
+      comment = alice.comment!(@status, 'I simply felt like issuing a greeting.  Do step off.')
       expect(comment.notification_type(eve, alice.person)).to be false
     end
 
-    context "also commented" do
+    context 'also commented' do
       before do
-        alice.comment!(@status, "a-commenta commenta")
+        alice.comment!(@status, 'a-commenta commenta')
         @comment = eve.comment!(@status, "I also commented on the first user's post")
       end
 
@@ -40,27 +40,27 @@ describe Comment, :type => :model do
 
   describe 'User#comment' do
     it "should be able to comment on one's own status" do
-      alice.comment!(@status, "Yeah, it was great")
-      expect(@status.reload.comments.first.text).to eq("Yeah, it was great")
+      alice.comment!(@status, 'Yeah, it was great')
+      expect(@status.reload.comments.first.text).to eq('Yeah, it was great')
     end
 
     it "should be able to comment on a contact's status" do
-      bob.comment!(@status, "sup dog")
-      expect(@status.reload.comments.first.text).to eq("sup dog")
+      bob.comment!(@status, 'sup dog')
+      expect(@status.reload.comments.first.text).to eq('sup dog')
     end
 
     it 'does not multi-post a comment' do
-      expect {
+      expect do
         alice.comment!(@status, 'hello')
-      }.to change { Comment.count }.by(1)
+      end.to change { Comment.count }.by(1)
     end
   end
 
   describe 'counter cache' do
     it 'increments the counter cache on its post' do
-      expect {
-        alice.comment!(@status, "oh yeah")
-      }.to change{
+      expect do
+        alice.comment!(@status, 'oh yeah')
+      end.to change{
         @status.reload.comments_count
       }.by(1)
     end
@@ -69,10 +69,10 @@ describe Comment, :type => :model do
   describe 'xml' do
     before do
       @commenter = FactoryGirl.create(:user)
-      @commenter_aspect = @commenter.aspects.create(:name => "bruisers")
+      @commenter_aspect = @commenter.aspects.create(name: 'bruisers')
       connect_users(alice, @alices_aspect, @commenter, @commenter_aspect)
-      @post = alice.post :status_message, :text => "hello", :to => @alices_aspect.id
-      @comment = @commenter.comment!(@post, "Fool!")
+      @post = alice.post :status_message, text: 'hello', to: @alices_aspect.id
+      @comment = @commenter.comment!(@post, 'Fool!')
       @xml = @comment.to_xml.to_s
     end
 
@@ -109,17 +109,17 @@ describe Comment, :type => :model do
   describe 'it is relayable' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @remote_parent = FactoryGirl.build(:status_message, :author => @remote_raphael)
-      @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
+      @remote_parent = FactoryGirl.build(:status_message, author: @remote_raphael)
+      @local_parent = @local_luke.post :status_message, text: 'hi', to: @local_luke.aspects.first
 
-      @object_by_parent_author = @local_luke.comment!(@local_parent, "yo")
-      @object_by_recipient = @local_leia.build_comment(:text => "yo", :post => @local_parent)
+      @object_by_parent_author = @local_luke.comment!(@local_parent, 'yo')
+      @object_by_recipient = @local_leia.build_comment(text: 'yo', post: @local_parent)
       @dup_object_by_parent_author = @object_by_parent_author.dup
 
-      @object_on_remote_parent = @local_luke.comment!(@remote_parent, "Yeah, it was great")
+      @object_on_remote_parent = @local_luke.comment!(@remote_parent, 'Yeah, it was great')
     end
 
-    let(:build_object) { alice.build_comment(:post => @status, :text => "why so formal?") }
+    let(:build_object) { alice.build_comment(post: @status, text: 'why so formal?') }
     it_should_behave_like 'it is relayable'
   end
 
@@ -129,5 +129,4 @@ describe Comment, :type => :model do
     end
     it_should_behave_like 'it is taggable'
   end
-
 end

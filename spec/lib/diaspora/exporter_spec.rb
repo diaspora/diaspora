@@ -6,24 +6,22 @@ require 'spec_helper'
 require Rails.root.join('lib', 'diaspora', 'exporter')
 
 describe Diaspora::Exporter do
-
   before do
     @user1 =  alice
 
-    @user1.person.profile.first_name = "<script>"
-    @user1.person.profile.gender = "<script>"
-    @user1.person.profile.bio = "<script>"
-    @user1.person.profile.location = "<script>"
+    @user1.person.profile.first_name = '<script>'
+    @user1.person.profile.gender = '<script>'
+    @user1.person.profile.bio = '<script>'
+    @user1.person.profile.location = '<script>'
     @user1.person.profile.save
 
     @aspect  =  @user1.aspects.first
-    @aspect1 =  @user1.aspects.create(:name => "Work", :contacts_visible => false)
-    @aspect.name = "<script>"
+    @aspect1 =  @user1.aspects.create(name: 'Work', contacts_visible: false)
+    @aspect.name = '<script>'
     @aspect.save
   end
 
-  context "json" do
-
+  context 'json' do
     def json
       @json ||= JSON.parse Diaspora::Exporter.new(@user1).execute
     end
@@ -48,16 +46,20 @@ describe Diaspora::Exporter do
     it { matches :user, :profile, :searchable,      root: @user1.person.profile }
     it { matches :user, :profile, :nsfw,            root: @user1.person.profile }
 
-    it { matches_relation :aspects,  :name,
-                                     :contacts_visible,
-                                     :chat_enabled }
+    it do
+      matches_relation :aspects,  :name,
+                       :contacts_visible,
+                       :chat_enabled
+    end
 
-    it { matches_relation :contacts, :sharing,
-                                     :receiving,
-                                     :person_guid,
-                                     :person_name,
-                                     :person_first_name,
-                                     :person_diaspora_handle }
+    it do
+      matches_relation :contacts, :sharing,
+                       :receiving,
+                       :person_guid,
+                       :person_name,
+                       :person_first_name,
+                       :person_diaspora_handle
+    end
 
     private
 
@@ -81,6 +83,5 @@ describe Diaspora::Exporter do
         json
       end
     end
-
   end
 end

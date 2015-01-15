@@ -2,7 +2,7 @@ class Notifications::AlsoCommented < Notification
   def mail_job
     Workers::Mail::AlsoCommented
   end
-  
+
   def popup_translation_key
     'notifications.also_commented'
   end
@@ -12,6 +12,6 @@ class Notifications::AlsoCommented < Notification
   end
 
   def linked_object
-    Post.where(:id => self.target_id).first
+    Post.where(id: target_id).first
   end
 end

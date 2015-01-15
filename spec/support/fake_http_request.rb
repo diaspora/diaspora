@@ -16,19 +16,19 @@ class FakeHttpRequest
     self
   end
 
-  def method_missing(method)
+  def method_missing(_method)
     self
   end
 
-  def post(opts = nil);
+  def post(_opts = nil)
     self
   end
 
-  def get(opts = nil)
+  def get(_opts = nil)
     self
   end
 
-  def publish(opts = nil)
+  def publish(_opts = nil)
     self
   end
 

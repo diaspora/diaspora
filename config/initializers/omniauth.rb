@@ -10,23 +10,23 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       config.consumer_secret = AppConfig.services.twitter.secret
     end
   end
-  
+
   if AppConfig.services.tumblr.enable?
     provider :tumblr, AppConfig.services.tumblr.key, AppConfig.services.tumblr.secret
   end
-  
+
   if AppConfig.services.facebook.enable?
-    provider :facebook, AppConfig.services.facebook.app_id, AppConfig.services.facebook.secret, {
-      display: 'popup',
-      scope: 'publish_actions,publish_stream,offline_access',
-      client_options: {
-        ssl: {
-          ca_file: AppConfig.environment.certificate_authorities
-        }
-      }
-    }  
+    provider :facebook, AppConfig.services.facebook.app_id, AppConfig.services.facebook.secret,
+             display: 'popup',
+             scope: 'publish_actions,publish_stream,offline_access',
+             client_options: {
+               ssl: {
+                 ca_file: AppConfig.environment.certificate_authorities
+               }
+             }
+
   end
-  
+
   if AppConfig.services.wordpress.enable?
     provider :wordpress, AppConfig.services.wordpress.client_id, AppConfig.services.wordpress.secret
   end

@@ -4,11 +4,11 @@
 
 require 'spec_helper'
 
-describe Notifications::Reshared, :type => :model do
+describe Notifications::Reshared, type: :model do
   before do
-    @sm = FactoryGirl.build(:status_message, :author => alice.person, :public => true)
-    @reshare1 = FactoryGirl.build(:reshare, :root => @sm)
-    @reshare2 = FactoryGirl.build(:reshare, :root => @sm)
+    @sm = FactoryGirl.build(:status_message, author: alice.person, public: true)
+    @reshare1 = FactoryGirl.build(:reshare, root: @sm)
+    @reshare2 = FactoryGirl.build(:reshare, root: @sm)
   end
 
   describe 'Notification.notify' do
@@ -20,10 +20,10 @@ describe Notifications::Reshared, :type => :model do
   end
 
   describe '#mail_job' do
-    it "does not raise" do
-      expect{
+    it 'does not raise' do
+      expect do
         Notifications::Reshared.new.mail_job
-      }.not_to raise_error
+      end.not_to raise_error
     end
   end
 
@@ -33,11 +33,11 @@ describe Notifications::Reshared, :type => :model do
       Notifications::Reshared.concatenate_or_create(alice, @reshare1.root, @reshare1.author, Notifications::Reshared)
     end
 
-    it "appends the actors to the aldeady existing notification" do
+    it 'appends the actors to the aldeady existing notification' do
       note = Notifications::Reshared.make_notification(alice, @reshare1.root, @reshare1.author, Notifications::Reshared)
-      expect{
+      expect do
         Notifications::Reshared.concatenate_or_create(alice, @reshare2.root, @reshare2.author, Notifications::Reshared)
-      }.to change(note.actors, :count).by(1)
+      end.to change(note.actors, :count).by(1)
     end
   end
 end

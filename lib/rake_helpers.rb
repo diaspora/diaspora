@@ -2,26 +2,25 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 module RakeHelpers
-
-  def process_emails(csv, num_to_process, offset, test=true)
+  def process_emails(csv, num_to_process, offset, test = true)
     require 'csv'
     backers = CSV.read(csv)
-    puts "DRY RUN" if test
+    puts 'DRY RUN' if test
     churn_through = 0
     num_to_process.times do |n|
-      if backers[n+offset] == nil
+      if backers[n + offset].nil?
         break
       end
       churn_through = n
-      backer_name = backers[n+offset][1].to_s.strip
-      backer_email = backers[n+offset][0].to_s.strip.downcase
-      
+      backer_name = backers[n + offset][1].to_s.strip
+      backer_email = backers[n + offset][0].to_s.strip.downcase
+
       possible_user = User.find_by_email(backer_email)
       possible_invite = Invitation.find_by_identifier(backer_email)
       possible_user ||= possible_invite.recipient if possible_invite.present?
 
       admin_account = User.find_by_username(AppConfig.admins.account.get)
-      raise "no admin account in diaspora.yml" unless admin_account.present?
+      fail 'no admin account in diaspora.yml' unless admin_account.present?
       admin_account.invitation_code.count += num_to_process
       admin_account.invitation_code.save
 

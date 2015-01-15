@@ -16,7 +16,7 @@ describe Workers::GatherOpenGraphData do
       <meta property=\"og:description\" content=\"#{@ogsite_description}\" />
       </head><body></body></html>"
 
-    @oglong_title = "D" * 256
+    @oglong_title = 'D' * 256
     @oglong_url = 'http://www.we-are-too-long.com'
     @oglong_body =
       "<html><head><title>#{@oglong_title}</title>
@@ -31,13 +31,12 @@ describe Workers::GatherOpenGraphData do
 
     @status_message = FactoryGirl.create(:status_message)
 
-    stub_request(:head, @ogsite_url).to_return(status: 200, body: "", headers: {'Content-Type' => 'text/html; utf-8'})
-    stub_request(:get, @ogsite_url).to_return(status: 200, body: @ogsite_body, headers: {'Content-Type' => 'text/html; utf-8'})
-    stub_request(:head, @no_open_graph_url).to_return(status: 200, body: "", headers: {'Content-Type' => 'text/html; utf-8'})
-    stub_request(:get, @no_open_graph_url).to_return(:status => 200, :body => '<html><head><title>Hi</title><body>hello there</body></html>', headers: {'Content-Type' => 'text/html; utf-8'})
-    stub_request(:head, @oglong_url).to_return(status: 200, body: "", headers: {'Content-Type' => 'text/html; utf-8'})
-    stub_request(:get, @oglong_url).to_return(status: 200, body: @oglong_body, headers: {'Content-Type' => 'text/html; utf-8'})
-
+    stub_request(:head, @ogsite_url).to_return(status: 200, body: '', headers: { 'Content-Type' => 'text/html; utf-8' })
+    stub_request(:get, @ogsite_url).to_return(status: 200, body: @ogsite_body, headers: { 'Content-Type' => 'text/html; utf-8' })
+    stub_request(:head, @no_open_graph_url).to_return(status: 200, body: '', headers: { 'Content-Type' => 'text/html; utf-8' })
+    stub_request(:get, @no_open_graph_url).to_return(status: 200, body: '<html><head><title>Hi</title><body>hello there</body></html>', headers: { 'Content-Type' => 'text/html; utf-8' })
+    stub_request(:head, @oglong_url).to_return(status: 200, body: '', headers: { 'Content-Type' => 'text/html; utf-8' })
+    stub_request(:get, @oglong_url).to_return(status: 200, body: @oglong_body, headers: { 'Content-Type' => 'text/html; utf-8' })
   end
 
   describe '.perform' do
@@ -48,7 +47,7 @@ describe Workers::GatherOpenGraphData do
     end
 
     it 'requests not data from the internet only once' do
-      2.times do |n|
+      2.times do |_n|
         Workers::GatherOpenGraphData.new.perform(@status_message.id, @ogsite_url)
       end
 
@@ -77,9 +76,9 @@ describe Workers::GatherOpenGraphData do
     end
 
     it 'gracefully handles a deleted post' do
-      expect {
+      expect do
         Workers::GatherOpenGraphData.new.perform(0, @ogsite_url)
-      }.to_not raise_error
+      end.to_not raise_error
     end
     it 'truncates + inserts titles that are too long' do
       Workers::GatherOpenGraphData.new.perform(@status_message.id, @oglong_url)

@@ -8,19 +8,19 @@ module UnicornKiller
     def quit
       sec = (Time.now - @process_start).to_i
       warn "#{self.class} send SIGQUIT (pid: #{Process.pid})\talive: #{sec} sec"
-      Process.kill :QUIT, Process.pid 
+      Process.kill :QUIT, Process.pid
     end
-  end 
+  end
 
   class Oom
     include Kill
 
-    def initialize(app, memory_size= 512 * 1024, check_cycle = 10)
+    def initialize(app, memory_size = 512 * 1024, check_cycle = 10)
       @app = app
       @memory_size = memory_size
       @check_cycle = check_cycle
       @check_count = 0
-    end 
+    end
 
     def rss
       `ps -o rss= -p #{Process.pid}`.to_i
@@ -40,7 +40,7 @@ module UnicornKiller
     include Kill
 
     def initialize(app, max_requests = 1000)
-      @app = app 
+      @app = app
       @max_requests = max_requests
     end
 

@@ -4,20 +4,17 @@
 
 require 'spec_helper'
 
-describe StatisticsController, :type => :controller do
-
+describe StatisticsController, type: :controller do
   describe '#statistics' do
-    
     it 'responds to format json' do
-      get :statistics, :format => 'json'
+      get :statistics, format: 'json'
       expect(response.code).to eq('200')
     end
-    
+
     it 'contains json' do
-      get :statistics, :format => 'json'
+      get :statistics, format: 'json'
       json = JSON.parse(response.body)
       expect(json['name']).to be_present
     end
   end
-
 end

@@ -6,24 +6,24 @@
 
 class String
   RTL_RANGES = [
-      [1536, 1791], # arabic, persian, urdu, kurdish, ...
-      [65136, 65279], # arabic peresent 2
-      [64336, 65023], # arabic peresent 1
-      [1424, 1535], # hebrew
-      [64256, 64335], # hebrew peresent
-      [1792, 1871], # syriac
-      [1920, 1983], # thaana
-      [1984, 2047], # nko
-      [11568, 11647] # tifinagh
-    ]
-  RTL_CLEANER_REGEXES = [ /@[^ ]+|#[^ ]+/u, # mention, tag
-      /^RT[: ]{1}| RT | RT: |[♺♻:]/u # retweet
-    ]
+    [1536, 1791], # arabic, persian, urdu, kurdish, ...
+    [65_136, 65_279], # arabic peresent 2
+    [64_336, 65_023], # arabic peresent 1
+    [1424, 1535], # hebrew
+    [64_256, 64_335], # hebrew peresent
+    [1792, 1871], # syriac
+    [1920, 1983], # thaana
+    [1984, 2047], # nko
+    [11_568, 11_647] # tifinagh
+  ]
+  RTL_CLEANER_REGEXES = [/@[^ ]+|#[^ ]+/u, # mention, tag
+                         /^RT[: ]{1}| RT | RT: |[♺♻:]/u # retweet
+                        ]
 
   def is_rtl?
-    return false if self.strip.empty?
+    return false if strip.empty?
     count = 0
-    self.split(" ").each do |word|
+    split(' ').each do |word|
       if starts_with_rtl_char?(word)
         count += 1
       else
@@ -31,7 +31,7 @@ class String
       end
     end
     return true if count > 0 # more than half of the words are rtl words
-    return starts_with_rtl_char?(self) # otherwise let the first word decide
+    starts_with_rtl_char?(self) # otherwise let the first word decide
   end
 
   # Diaspora specific
@@ -50,6 +50,6 @@ class String
     RTL_RANGES.each do |limit|
       return true if char >= limit[0] && char <= limit[1]
     end
-    return false
+    false
   end
 end

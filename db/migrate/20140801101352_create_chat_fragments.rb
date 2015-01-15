@@ -7,7 +7,7 @@ class CreateChatFragments < ActiveRecord::Migration
       t.text :xml, null: false
     end
     # That'll wont work due UTF-8 and the limit of 767 bytes
-    #add_index :chat_fragments, [:user_id, :root, :namespace], unique: true
+    # add_index :chat_fragments, [:user_id, :root, :namespace], unique: true
     add_index :chat_fragments, [:user_id], unique: true
   end
 

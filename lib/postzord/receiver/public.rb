@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class Postzord::Receiver::Public < Postzord::Receiver
-
   attr_accessor :salmon, :author
 
   def initialize(xml)
@@ -27,16 +26,16 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
     FEDERATION_LOGGER.info("received a #{@object.inspect}")
     if @object.is_a?(SignedRetraction) # feels like a hack
-      self.recipient_user_ids.each do |user_id|
+      recipient_user_ids.each do |user_id|
         user = User.where(id: user_id).first
         @object.perform user if user
       end
     elsif @object.respond_to?(:relayable?)
       receive_relayable
     elsif @object.is_a?(AccountDeletion)
-      #nothing
+      # nothing
     else
-      Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, self.recipient_user_ids)
+      Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, recipient_user_ids)
       true
     end
   end
@@ -48,17 +47,17 @@ class Postzord::Receiver::Public < Postzord::Receiver
       @object.receive(@object.parent_author.owner, @author)
     end
     # notify everyone who can see the parent object
-    receiver = Postzord::Receiver::LocalBatch.new(@object, self.recipient_user_ids)
+    receiver = Postzord::Receiver::LocalBatch.new(@object, recipient_user_ids)
     receiver.notify_users
     @object
   end
 
   # @return [Object]
   def save_object
-    @object = Diaspora::Parser::from_xml(@salmon.parsed_data)
-    raise "Object is not public" if object_can_be_public_and_it_is_not?
-    raise Diaspora::RelayableObjectWithoutParent if object_must_have_parent_and_does_not?
-    raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
+    @object = Diaspora::Parser.from_xml(@salmon.parsed_data)
+    fail 'Object is not public' if object_can_be_public_and_it_is_not?
+    fail Diaspora::RelayableObjectWithoutParent if object_must_have_parent_and_does_not?
+    fail Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
     @object.save! if @object && @object.respond_to?(:save!)
     @object
   end
@@ -70,8 +69,8 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   def xml_author
     if @object.respond_to?(:relayable?)
-      #this is public, so it would only be owners sending us other people comments etc
-       @object.parent_author.local? ? @object.diaspora_handle : @object.parent_diaspora_handle
+      # this is public, so it would only be owners sending us other people comments etc
+      @object.parent_author.local? ? @object.diaspora_handle : @object.parent_diaspora_handle
     else
       @object.diaspora_handle
     end
@@ -82,7 +81,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def account_deletion_is_from_author
     return true unless @object.is_a?(AccountDeletion)
     return false if @object.diaspora_handle != @author.diaspora_handle
-    return true
+    true
   end
 
   # @return [Boolean]

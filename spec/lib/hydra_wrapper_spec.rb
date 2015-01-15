@@ -6,15 +6,15 @@ require 'spec_helper'
 
 describe HydraWrapper do
   before do
-    @people = ["person", "person2", "person3"]
-    @wrapper = HydraWrapper.new double, @people, "<encoded_xml>", double
+    @people = %w(person person2 person3)
+    @wrapper = HydraWrapper.new double, @people, '<encoded_xml>', double
   end
 
   describe 'initialize' do
     it 'it sets the proper instance variables' do
-      user = "user"
-      encoded_object_xml = "encoded xml"
-      dispatcher_class = "Postzord::Dispatcher::Private"
+      user = 'user'
+      encoded_object_xml = 'encoded xml'
+      dispatcher_class = 'Postzord::Dispatcher::Private'
 
       wrapper = HydraWrapper.new user, @people, encoded_object_xml, dispatcher_class
       expect(wrapper.user).to eq(user)
@@ -44,9 +44,9 @@ describe HydraWrapper do
 
   describe '#grouped_people' do
     it 'groups people given their receive_urls' do
-      expect(@wrapper.dispatcher_class).to receive(:receive_url_for).and_return "foo.com", "bar.com", "bar.com"
+      expect(@wrapper.dispatcher_class).to receive(:receive_url_for).and_return 'foo.com', 'bar.com', 'bar.com'
 
-      expect(@wrapper.send(:grouped_people)).to eq({"foo.com" => [@people[0]], "bar.com" => @people[1,2]})
+      expect(@wrapper.send(:grouped_people)).to eq('foo.com' => [@people[0]], 'bar.com' => @people[1, 2])
     end
   end
 
@@ -58,10 +58,10 @@ describe HydraWrapper do
 
     it 'inserts a job for every group of people' do
       allow(Base64).to receive(:decode64)
-      @wrapper.dispatcher_class = double salmon: double(xml_for: "<XML>")
+      @wrapper.dispatcher_class = double salmon: double(xml_for: '<XML>')
       allow(@wrapper).to receive(:grouped_people).and_return('https://foo.com' => @wrapper.people)
       expect(@wrapper.people).to receive(:first).once
-      expect(@wrapper).to receive(:insert_job).with('https://foo.com', "<XML>", @wrapper.people).once
+      expect(@wrapper).to receive(:insert_job).with('https://foo.com', '<XML>', @wrapper.people).once
       @wrapper.enqueue_batch
     end
 
@@ -72,7 +72,6 @@ describe HydraWrapper do
       expect(@wrapper).not_to receive :insert_job
       @wrapper.enqueue_batch
     end
-
   end
 
   describe '#redirecting_to_https?!' do
@@ -81,8 +80,8 @@ describe HydraWrapper do
       expect(@wrapper.send(:redirecting_to_https?, resp)).to be false
     end
 
-    it "returns true if just the protocol is different" do
-      host = "the-same.com/"
+    it 'returns true if just the protocol is different' do
+      host = 'the-same.com/'
       resp = double(
         request: double(url: "http://#{host}"),
         code: 302,
@@ -94,13 +93,13 @@ describe HydraWrapper do
       expect(@wrapper.send(:redirecting_to_https?, resp)).to be true
     end
 
-    it "returns false if not just the protocol is different" do
-      host = "the-same.com/"
+    it 'returns false if not just the protocol is different' do
+      host = 'the-same.com/'
       resp = double(
         request: double(url: "http://#{host}"),
         code: 302,
         headers_hash: {
-          'Location' => "https://not-the-same/"
+          'Location' => 'https://not-the-same/'
         }
       )
 

@@ -17,10 +17,10 @@ describe 'making sure the spec runner works' do
     end
   end
 
-   describe '#connect_users' do
+  describe '#connect_users' do
     before do
-      @user1 = User.where(:username => 'alice').first
-      @user2 = User.where(:username => 'eve').first
+      @user1 = User.where(username: 'alice').first
+      @user2 = User.where(username: 'eve').first
 
       @aspect1 = @user1.aspects.first
       @aspect2 = @user2.aspects.first
@@ -45,26 +45,26 @@ describe 'making sure the spec runner works' do
     end
 
     it 'allows posting after running' do
-      message = @user1.post(:status_message, :text => "Connection!", :to => @aspect1.id)
+      message = @user1.post(:status_message, text: 'Connection!', to: @aspect1.id)
       expect(@user2.reload.visible_shareables(Post)).to include message
     end
   end
 
   describe '#post' do
     it 'creates a notification with a mention' do
-      expect{
-        alice.post(:status_message, :text => "@{Bob Grimn; #{bob.person.diaspora_handle}} you are silly", :to => alice.aspects.find_by_name('generic'))
-      }.to change(Notification, :count).by(1)
+      expect do
+        alice.post(:status_message, text: "@{Bob Grimn; #{bob.person.diaspora_handle}} you are silly", to: alice.aspects.find_by_name('generic'))
+      end.to change(Notification, :count).by(1)
     end
   end
 
-  describe "#create_conversation_with_message" do
+  describe '#create_conversation_with_message' do
     it 'creates a conversation and a message' do
-      conversation = create_conversation_with_message(alice, bob.person, "Subject", "Hey Bob")
+      conversation = create_conversation_with_message(alice, bob.person, 'Subject', 'Hey Bob')
 
       expect(conversation.participants).to eq([alice.person, bob.person])
-      expect(conversation.subject).to eq("Subject")
-      expect(conversation.messages.first.text).to eq("Hey Bob")
+      expect(conversation.subject).to eq('Subject')
+      expect(conversation.messages.first.text).to eq('Hey Bob')
     end
   end
 end

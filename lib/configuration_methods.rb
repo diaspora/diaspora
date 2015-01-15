@@ -7,7 +7,7 @@ module Configuration
 
       url = environment.url.get
       url = "http://#{url}" unless url =~ /^(https?:\/\/)/
-      url << "/" unless url.end_with?("/")
+      url << '/' unless url.end_with?('/')
 
       begin
         @pod_url = Addressable::URI.parse(url)
@@ -37,7 +37,7 @@ module Configuration
     def secret_token
       if heroku?
         return ENV['SECRET_TOKEN'] if ENV['SECRET_TOKEN']
-        warn "FATAL: Running on Heroku with SECRET_TOKEN unset"
+        warn 'FATAL: Running on Heroku with SECRET_TOKEN unset'
         warn "       Run heroku config:add SECRET_TOKEN=#{SecureRandom.hex(40)}"
         Process.exit(1)
       else
@@ -67,8 +67,8 @@ module Configuration
         @git_available = false
       else
         `which git`
-        `git status 2> /dev/null` if $?.success?
-        @git_available = $?.success?
+        `git status 2> /dev/null` if $CHILD_STATUS.success?
+        @git_available = $CHILD_STATUS.success?
       end
     end
 
@@ -90,7 +90,7 @@ module Configuration
 
     def get_redis_options
       if redistogo_url.present?
-        warn "WARNING: using the REDISTOGO_URL environment variable is deprecated, please use REDIS_URL now."
+        warn 'WARNING: using the REDISTOGO_URL environment variable is deprecated, please use REDIS_URL now.'
         ENV['REDIS_URL'] = redistogo_url
       end
 
@@ -98,10 +98,10 @@ module Configuration
 
       redis_url = ENV['REDIS_URL'] || environment.redis.get
 
-      if ENV['RAILS_ENV']== 'integration2'
-        redis_options[:url] = "redis://localhost:6380"
+      if ENV['RAILS_ENV'] == 'integration2'
+        redis_options[:url] = 'redis://localhost:6380'
       elsif redis_url.present?
-        unless redis_url.start_with?("redis://") || redis_url.start_with?("unix:///")
+        unless redis_url.start_with?('redis://') || redis_url.start_with?('unix:///')
           warn "WARNING: Your redis url (#{redis_url}) doesn't start with redis:// or unix:///"
         end
         redis_options[:url] = redis_url
@@ -120,12 +120,12 @@ module Configuration
 
     def postgres?
       defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) &&
-      ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+        ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
     end
 
     def bitcoin_donation_address
       if AppConfig.settings.bitcoin_wallet_id.present?
-        warn "WARNING: bitcoin_wallet_id is now bitcoin_address. Change in diaspora.yml."
+        warn 'WARNING: bitcoin_wallet_id is now bitcoin_address. Change in diaspora.yml.'
         return AppConfig.settings.bitcoin_wallet_id
       end
 
@@ -141,8 +141,8 @@ module Configuration
 
       git_cmd = `git log -1 --pretty="format:%H %ci"`
       if git_cmd =~ /^(\w+?)\s(.+)$/
-        @git_revision = $1
-        @git_update = $2.strip
+        @git_revision = Regexp.last_match[1]
+        @git_update = Regexp.last_match[2].strip
       end
     end
 

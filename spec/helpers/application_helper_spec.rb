@@ -4,17 +4,15 @@
 
 require 'spec_helper'
 
-describe ApplicationHelper, :type => :helper do
+describe ApplicationHelper, type: :helper do
   before do
     @user = alice
     @person = FactoryGirl.create(:person)
   end
 
-  describe "#contacts_link" do
+  describe '#contacts_link' do
     before do
-      def current_user
-        @current_user
-      end
+      attr_reader :current_user
     end
 
     it 'links to community spotlight' do
@@ -28,13 +26,11 @@ describe ApplicationHelper, :type => :helper do
     end
   end
 
-  describe "#all_services_connected?" do
+  describe '#all_services_connected?' do
     before do
       AppConfig.configured_services = [1, 2, 3]
 
-      def current_user
-        @current_user
-      end
+      attr_reader :current_user
       @current_user = alice
     end
 
@@ -43,7 +39,7 @@ describe ApplicationHelper, :type => :helper do
     end
 
     it 'returns true if all networks are connected' do
-      3.times { |t| @current_user.services << FactoryGirl.build(:service) }
+      3.times { |_t| @current_user.services << FactoryGirl.build(:service) }
       expect(all_services_connected?).to be true
     end
 
@@ -53,8 +49,8 @@ describe ApplicationHelper, :type => :helper do
     end
   end
 
-  describe "#jquery_include_tag" do
-    describe "with jquery cdn" do
+  describe '#jquery_include_tag' do
+    describe 'with jquery cdn' do
       before do
         AppConfig.privacy.jquery_cdn = true
       end
@@ -68,7 +64,7 @@ describe ApplicationHelper, :type => :helper do
       end
     end
 
-    describe "without jquery cdn" do
+    describe 'without jquery cdn' do
       before do
         AppConfig.privacy.jquery_cdn = false
       end
@@ -83,7 +79,7 @@ describe ApplicationHelper, :type => :helper do
       expect(jquery_include_tag).to match(/jquery_ujs\.js/)
     end
 
-    it "disables ajax caching" do
+    it 'disables ajax caching' do
       expect(jquery_include_tag).to match(/jQuery\.ajaxSetup/)
     end
   end
@@ -98,25 +94,24 @@ describe ApplicationHelper, :type => :helper do
       AppConfig.git_revision = '123'
       expect(changelog_url).to eq('https://github.com/diaspora/diaspora/blob/123/Changelog.md')
     end
-
   end
 
   describe '#pod_name' do
     it 'defaults to Diaspora*' do
-      expect(pod_name).to  match /DIASPORA/i
+      expect(pod_name).to match /DIASPORA/i
     end
 
     it 'displays the supplied pod_name if it is set' do
-      AppConfig.settings.pod_name = "Catspora"
+      AppConfig.settings.pod_name = 'Catspora'
       # require 'pry'; binding.pry
-      expect(pod_name).to match "Catspora"
+      expect(pod_name).to match 'Catspora'
     end
   end
 
   describe '#pod_version' do
     it 'displays the supplied pod_version if it is set' do
-      AppConfig.version.number = "0.0.1.0"
-      expect(pod_version).to match "0.0.1.0"
+      AppConfig.version.number = '0.0.1.0'
+      expect(pod_version).to match '0.0.1.0'
     end
   end
 end

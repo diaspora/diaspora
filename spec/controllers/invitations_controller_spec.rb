@@ -4,25 +4,24 @@
 
 require 'spec_helper'
 
-describe InvitationsController, :type => :controller do
-
+describe InvitationsController, type: :controller do
   before do
     AppConfig.settings.invitations.open = true
     @user   = alice
-    @invite = {'email_inviter' => {'message' => "test", 'emails' => "abc@example.com"}}
+    @invite = { 'email_inviter' => { 'message' => 'test', 'emails' => 'abc@example.com' } }
   end
 
-  describe "#create" do
+  describe '#create' do
     before do
       sign_in :user, @user
       allow(@controller).to receive(:current_user).and_return(@user)
       @referer = 'http://test.host/cats/foo'
-      request.env["HTTP_REFERER"] = @referer
+      request.env['HTTP_REFERER'] = @referer
     end
 
-    context "no emails" do
+    context 'no emails' do
       before do
-        @invite = {'email_inviter' => {'message' => "test", 'emails' => ""}}
+        @invite = { 'email_inviter' => { 'message' => 'test', 'emails' => '' } }
       end
 
       it 'does not create an EmailInviter' do
@@ -37,14 +36,14 @@ describe InvitationsController, :type => :controller do
 
       it 'flashes an error' do
         post :create, @invite
-        expect(flash[:error]).to eq(I18n.t("invitations.create.empty"))
+        expect(flash[:error]).to eq(I18n.t('invitations.create.empty'))
       end
     end
 
     context 'only valid emails' do
       before do
         @emails = 'mbs@gmail.com'
-        @invite = {'email_inviter' => {'message' => "test", 'emails' => @emails}}
+        @invite = { 'email_inviter' => { 'message' => 'test', 'emails' => @emails } }
       end
 
       it 'creates an InviteEmail worker'  do
@@ -60,7 +59,7 @@ describe InvitationsController, :type => :controller do
 
       it 'flashes a notice' do
         post :create, @invite
-        expected =  I18n.t('invitations.create.sent', :emails => @emails.split(',').join(', '))
+        expected =  I18n.t('invitations.create.sent', emails: @emails.split(',').join(', '))
         expect(flash[:notice]).to eq(expected)
       end
     end
@@ -68,7 +67,7 @@ describe InvitationsController, :type => :controller do
     context 'only invalid emails' do
       before do
         @emails = 'invalid_email'
-        @invite = {'email_inviter' => {'message' => "test", 'emails' => @emails}}
+        @invite = { 'email_inviter' => { 'message' => 'test', 'emails' => @emails } }
       end
 
       it 'does not create an InviteEmail worker' do
@@ -93,8 +92,8 @@ describe InvitationsController, :type => :controller do
       before do
         @valid_emails = 'foo@bar.com,mbs@gmail.com'
         @invalid_emails = 'invalid'
-        @invite = {'email_inviter' => {'message' => "test", 'emails' =>
-                                       @valid_emails + ',' + @invalid_emails}}
+        @invite = { 'email_inviter' => { 'message' => 'test', 'emails' =>
+                                       @valid_emails + ',' + @invalid_emails } }
       end
 
       it 'creates an InviteEmail worker'  do
@@ -110,10 +109,9 @@ describe InvitationsController, :type => :controller do
 
       it 'flashes a notice' do
         post :create, @invite
-        expected =  I18n.t('invitations.create.sent', :emails =>
-                          @valid_emails.split(',').join(', ')) +
-                          '. ' + I18n.t('invitations.create.rejected') +
-                          @invalid_emails.split(',').join(', ')
+        expected =  I18n.t('invitations.create.sent', emails:                           @valid_emails.split(',').join(', ')) +
+                    '. ' + I18n.t('invitations.create.rejected') +
+                    @invalid_emails.split(',').join(', ')
         expect(flash[:error]).to eq(expected)
       end
     end
@@ -127,19 +125,18 @@ describe InvitationsController, :type => :controller do
   end
 
   describe '#email' do
-
     it 'succeeds' do
-      get :email, :invitation_code => "anycode"
+      get :email, invitation_code: 'anycode'
       expect(response).to be_success
     end
 
     context 'legacy invite tokens' do
       def get_email
-        get :email, :invitation_token => @invitation_token
+        get :email, invitation_token: @invitation_token
       end
 
       context 'invalid token' do
-        @invitation_token = "invalidtoken"
+        @invitation_token = 'invalidtoken'
 
         it 'redirects and flashes if the invitation token is invalid' do
           get_email
@@ -151,7 +148,7 @@ describe InvitationsController, :type => :controller do
         it 'flashes an error if the invitation token is invalid' do
           get_email
 
-          expect(flash[:error]).to eq(I18n.t("invitations.check_token.not_found"))
+          expect(flash[:error]).to eq(I18n.t('invitations.check_token.not_found'))
         end
       end
     end
@@ -194,21 +191,21 @@ describe InvitationsController, :type => :controller do
 
   describe '.html_safe_string_from_session_array' do
     it 'returns "" for blank session[key]' do
-      expect(subject.send(:html_safe_string_from_session_array, :blank)).to eq ""
+      expect(subject.send(:html_safe_string_from_session_array, :blank)).to eq ''
     end
 
     it 'returns "" if session[key] is not an array' do
-      session[:test_key] = "test"
-      expect(subject.send(:html_safe_string_from_session_array, :test_key)).to eq ""
+      session[:test_key] = 'test'
+      expect(subject.send(:html_safe_string_from_session_array, :test_key)).to eq ''
     end
 
     it 'returns the correct value' do
-      session[:test_key] = ["test", "foo"]
-      expect(subject.send(:html_safe_string_from_session_array, :test_key)).to eq "test, foo"
+      session[:test_key] = %w(test foo)
+      expect(subject.send(:html_safe_string_from_session_array, :test_key)).to eq 'test, foo'
     end
 
     it 'sets session[key] to nil' do
-      session[:test_key] = ["test"]
+      session[:test_key] = ['test']
       subject.send(:html_safe_string_from_session_array, :test_key)
       expect(session[:test_key]).to be nil
     end

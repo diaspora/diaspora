@@ -3,14 +3,13 @@
 #   the COPYRIGHT file.
 
 class Stream::Aspect < Stream::Base
-
   # @param user [User]
   # @param inputted_aspect_ids [Array<Integer>] Ids of aspects for given stream
   # @param aspect_ids [Array<Integer>] Aspects this stream is responsible for
   # @opt max_time [Integer] Unix timestamp of stream's post ceiling
   # @opt order [String] Order of posts (i.e. 'created_at', 'updated_at')
   # @return [void]
-  def initialize(user, inputted_aspect_ids, opts={})
+  def initialize(user, inputted_aspect_ids, opts = {})
     super(user, opts)
     @inputted_aspect_ids = inputted_aspect_ids
   end
@@ -23,7 +22,7 @@ class Stream::Aspect < Stream::Base
   def aspects
     @aspects ||= lambda do
       a = user.aspects
-      a = a.where(:id => @inputted_aspect_ids) if @inputted_aspect_ids.any?
+      a = a.where(id: @inputted_aspect_ids) if @inputted_aspect_ids.any?
       a
     end.call
   end
@@ -32,7 +31,7 @@ class Stream::Aspect < Stream::Base
   #
   # @return [Array<Integer>] Aspect ids
   def aspect_ids
-    @aspect_ids ||= aspects.map { |a| a.id }
+    @aspect_ids ||= aspects.map(&:id)
   end
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
@@ -52,7 +51,7 @@ class Stream::Aspect < Stream::Base
   end
 
   # @return [String] URL
-  def link(opts={})
+  def link(opts = {})
     Rails.application.routes.url_helpers.aspects_path(opts)
   end
 
@@ -73,7 +72,7 @@ class Stream::Aspect < Stream::Base
     if self.for_all_aspects?
       I18n.t('streams.aspects.title')
     else
-      self.aspects.to_sentence
+      aspects.to_sentence
     end
   end
 
@@ -89,10 +88,10 @@ class Stream::Aspect < Stream::Base
   #
   # @return [String]
   def contacts_title
-    if self.for_all_aspects? || self.aspect_ids.size > 1
+    if self.for_all_aspects? || aspect_ids.size > 1
       I18n.t('_contacts')
     else
-     "#{self.aspect.name} (#{self.people.size})"
+      "#{aspect.name} (#{people.size})"
     end
   end
 
@@ -104,7 +103,7 @@ class Stream::Aspect < Stream::Base
     if for_all_aspects? || aspect_ids.size > 1
       Rails.application.routes.url_helpers.contacts_path
     else
-      Rails.application.routes.url_helpers.contacts_path(:a_id => aspect.id)
+      Rails.application.routes.url_helpers.contacts_path(a_id: aspect.id)
     end
   end
 
@@ -113,7 +112,7 @@ class Stream::Aspect < Stream::Base
   #
   # @param post [Post]
   # @return [Boolean]
-  def can_comment?(post)
+  def can_comment?(_post)
     true
   end
 end

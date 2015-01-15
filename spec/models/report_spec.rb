@@ -4,22 +4,22 @@
 
 require 'spec_helper'
 
-describe Report, :type => :model do
+describe Report, type: :model do
   before do
     #:report => { :item_id => @message.id, :item_type => 'post', :text => 'offensive content' }
     @user = bob
-    @bob_post = @user.post(:status_message, :text => "hello", :to => @user.aspects.first.id)
-    @bob_comment = @user.comment!(@bob_post, "welcome")
+    @bob_post = @user.post(:status_message, text: 'hello', to: @user.aspects.first.id)
+    @bob_comment = @user.comment!(@bob_post, 'welcome')
 
     @valid_post_report = {
-      :item_id => @bob_post.id,
-      :item_type => 'post',
-      :text => 'offensive content'
+      item_id: @bob_post.id,
+      item_type: 'post',
+      text: 'offensive content'
     }
     @valid_comment_report = {
-      :item_id => @bob_comment.id,
-      :item_type => 'comment',
-      :text => 'offensive content'
+      item_id: @bob_comment.id,
+      item_type: 'comment',
+      text: 'offensive content'
     }
   end
 
@@ -38,13 +38,13 @@ describe Report, :type => :model do
 
     it 'validates that post does exist' do
       report = @valid_post_report
-      report[:item_id] = 0;
+      report[:item_id] = 0
       expect(@user.reports.build(report)).not_to be_valid
     end
 
     it 'validates that comment does exist' do
       report = @valid_comment_report
-      report[:item_id] = 0;
+      report[:item_id] = 0
       expect(@user.reports.build(report)).not_to be_valid
     end
 
@@ -66,29 +66,29 @@ describe Report, :type => :model do
 
     describe '.post' do
       it 'should destroy it' do
-        expect {
+        expect do
           @post_report.destroy_reported_item
-        }.to change { Post.count }.by(-1)
+        end.to change { Post.count }.by(-1)
       end
 
       it 'should be marked' do
-        expect {
+        expect do
           @post_report.destroy_reported_item
-        }.to change { Report.where(@valid_post_report).first.reviewed }.to(true).from(false)
+        end.to change { Report.where(@valid_post_report).first.reviewed }.to(true).from(false)
       end
     end
 
     describe '.comment' do
       it 'should destroy it' do
-        expect {
+        expect do
           @comment_report.destroy_reported_item
-        }.to change { Comment.count }.by(-1)
+        end.to change { Comment.count }.by(-1)
       end
 
       it 'should be marked' do
-        expect {
+        expect do
           @comment_report.destroy_reported_item
-        }.to change { Report.where(@valid_comment_report).first.reviewed }.to(true).from(false)
+        end.to change { Report.where(@valid_comment_report).first.reviewed }.to(true).from(false)
       end
     end
   end

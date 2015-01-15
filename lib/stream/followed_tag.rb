@@ -3,8 +3,7 @@
 #   the COPYRIGHT file.
 
 class Stream::FollowedTag < Stream::Base
-
-  def link(opts={})
+  def link(opts = {})
     Rails.application.routes.url_helpers.tag_followings_path(opts)
   end
 
@@ -24,11 +23,11 @@ class Stream::FollowedTag < Stream::Base
   private
 
   def tag_string
-    @tag_string ||= tags.join(', '){|tag| tag.name}.to_s
+    @tag_string ||= tags.join(', ') { |tag| tag.name }.to_s
   end
 
   def tag_ids
-    tags.map{|x| x.id}
+    tags.map(&:id)
   end
 
   def tags

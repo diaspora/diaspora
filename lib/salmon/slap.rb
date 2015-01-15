@@ -3,36 +3,36 @@
 #   the COPYRIGHT file.
 
 module Salmon
- class Slap
+  class Slap
     attr_accessor :magic_sig, :author, :author_id, :parsed_data
     attr_accessor :aes_key, :iv
 
-    delegate :sig, :data_type, :to => :magic_sig
+    delegate :sig, :data_type, to: :magic_sig
 
     # @param user [User]
     # @param activity [String] A decoded string
     # @return [Slap]
     def self.create_by_user_and_activity(user, activity)
-      salmon = self.new
+      salmon = new
       salmon.author   = user.person
       aes_key_hash    = user.person.gen_aes_key
 
-      #additional headers
+      # additional headers
       salmon.aes_key  = aes_key_hash['key']
       salmon.iv       = aes_key_hash['iv']
 
-      salmon.magic_sig = MagicSigEnvelope.create(user, self.payload(activity, user, aes_key_hash))
+      salmon.magic_sig = MagicSigEnvelope.create(user, payload(activity, user, aes_key_hash))
       salmon
     end
 
-    def self.from_xml(xml, receiving_user=nil)
-      slap = self.new
+    def self.from_xml(xml, receiving_user = nil)
+      slap = new
       doc = Nokogiri::XML(xml)
 
       root_doc = doc.search('diaspora')
 
       ### Header ##
-      header_doc       = slap.salmon_header(doc, receiving_user) 
+      header_doc       = slap.salmon_header(doc, receiving_user)
       slap.process_header(header_doc)
 
       ### Envelope ##
@@ -44,31 +44,31 @@ module Salmon
     end
 
     # @return [String]
-    def self.payload(activity, user=nil, aes_key_hash=nil)
+    def self.payload(activity, _user = nil, _aes_key_hash = nil)
       activity
     end
 
     # Takes in a doc of the header and sets the author id
     # returns an empty hash
-    # @return [String] Author id  
+    # @return [String] Author id
     def process_header(doc)
       self.author_id   = doc.search('author_id').text
     end
 
     # @return [String]
-    def parse_data(user=nil)
-      Slap.decode64url(self.magic_sig.data)
+    def parse_data(_user = nil)
+      Slap.decode64url(magic_sig.data)
     end
 
     # @return [Nokogiri::Doc]
-    def salmon_header(doc, user=nil)
+    def salmon_header(doc, _user = nil)
       doc.search('header')
     end
 
     # @return [String] The constructed salmon, given a person
     # note this memoizes the xml, as for every user for unsigned salmon will be the same
     def xml_for(person)
-      @xml =<<ENTRY
+      @xml = <<ENTRY
     <?xml version='1.0' encoding='UTF-8'?>
     <diaspora xmlns="https://joindiaspora.com/protocol" xmlns:me="http://salmon-protocol.org/ns/magic-env">
       #{header(person)}
@@ -79,14 +79,14 @@ ENTRY
 
     # Wraps plaintext header in <header></header> tags
     # @return [String] Header XML
-    def header(person)
+    def header(_person)
       "<header>#{plaintext_header}</header>"
     end
 
     # Generate a plaintext salmon header (unencrypted), sans <header></header> tags
     # @return [String] Header XML (sans <header></header> tags)
     def plaintext_header
-      header =<<HEADER
+      header = <<HEADER
     <author_id>#{@author.diaspora_handle}</author_id>
 HEADER
     end
@@ -95,7 +95,7 @@ HEADER
     def author
       if @author.nil?
         @author ||= Person.by_account_identifier @author_id
-        raise "did you remember to async webfinger?" if @author.nil?
+        fail 'did you remember to async webfinger?' if @author.nil?
       end
       @author
     end
@@ -120,10 +120,10 @@ HEADER
     #   env.verified_for_key? OpenSSL::PKey::RSA.new(File.open('public_key.pem'))
     #   # -> true
     def verified_for_key?(public_key)
-      signature = Base64.urlsafe_decode64(self.magic_sig.sig)
-      signed_data = self.magic_sig.signable_string# Base64.urlsafe_decode64(self.magic_sig.signable_string)
+      signature = Base64.urlsafe_decode64(magic_sig.sig)
+      signed_data = magic_sig.signable_string # Base64.urlsafe_decode64(self.magic_sig.signable_string)
 
-      public_key.verify(OpenSSL::Digest::SHA256.new, signature, signed_data )
+      public_key.verify(OpenSSL::Digest::SHA256.new, signature, signed_data)
     end
 
     # Decode a string containing URL safe Base64 into an integer
@@ -145,8 +145,8 @@ HEADER
     #   key.e
     #   # -> 65537
     def self.parse_key(str)
-      n,e = str.match(/^RSA.([^.]*).([^.]*)$/)[1..2]
-      build_key(b64_to_n(n),b64_to_n(e))
+      n, e = str.match(/^RSA.([^.]*).([^.]*)$/)[1..2]
+      build_key(b64_to_n(n), b64_to_n(e))
     end
 
     # Take two integers e, n and create a new OpenSSL::PKey::RSA key with them
@@ -158,11 +158,11 @@ HEADER
     #   key.public_encrypt(...) # for sending to strangers
     #   key.public_decrypt(...) # very rarely used
     #   key.verify(...) # for verifying signatures
-    def self.build_key(n,e)
+    def self.build_key(n, e)
       key = OpenSSL::PKey::RSA.new
       key.n = n
       key.e = e
       key
     end
-  end
+   end
 end

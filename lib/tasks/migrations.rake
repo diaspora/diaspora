@@ -3,20 +3,19 @@
 # the COPYRIGHT file.
 
 namespace :migrations do
-
   desc 'copy all hidden share visibilities from share_visibilities to users. Can be run with the site still up.'
-  task :copy_hidden_share_visibilities_to_users => [:environment] do
+  task copy_hidden_share_visibilities_to_users: [:environment] do
     require Rails.root.join('lib', 'share_visibility_converter')
     ShareVisibilityConverter.copy_hidden_share_visibilities_to_users
   end
 
   desc 'puts out information about old invited users'
-  task :invitations => [:environment] do
-    puts "email, invitation_token, :invited_by_id, :invitation_identifier"
+  task invitations: [:environment] do
+    puts 'email, invitation_token, :invited_by_id, :invitation_identifier'
     User.where('username is NULL').select([:id, :email, :invitation_token, :invited_by_id, :invitation_identifier]).find_in_batches do |users|
-      users.each{|x| puts "#{x.email}, #{x.invitation_token}, #{x.invited_by_id}, #{x.invitation_identifier}" }
+      users.each { |x| puts "#{x.email}, #{x.invitation_token}, #{x.invited_by_id}, #{x.invitation_identifier}" }
     end
-    puts "done"
+    puts 'done'
   end
 
   desc 'absolutify all existing image references'
@@ -27,7 +26,7 @@ namespace :migrations do
       unless photo.remote_photo_path
         # extract root
         #
-        pod = URI::parse(photo.person.url)
+        pod = URI.parse(photo.person.url)
         pod_url = "#{pod.scheme}://#{pod.host}"
 
         if photo.image.url
@@ -51,19 +50,20 @@ namespace :migrations do
     require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
     puts AppConfig.environment.s3.key
 
-    connection = Aws::S3.new( AppConfig.environment.s3.key, AppConfig.environment.s3.secret)
+    connection = Aws::S3.new(AppConfig.environment.s3.key, AppConfig.environment.s3.secret)
     bucket = connection.bucket(AppConfig.environment.s3.bucket)
-    dir_name = File.dirname(__FILE__) + "/../../public/uploads/images/"
+    dir_name = File.dirname(__FILE__) + '/../../public/uploads/images/'
 
     count = Dir.foreach(dir_name).count
     current = 0
 
-    Dir.foreach(dir_name){|file_name| puts file_name;
-      if file_name != '.' && file_name != '..';
+    Dir.foreach(dir_name){|file_name|
+      puts file_name
+      if file_name != '.' && file_name != '..'
         begin
-          key = Aws::S3::Key.create(bucket, 'uploads/images/' + file_name);
-          key.put(File.open(dir_name+ '/' + file_name).read, 'public-read');
-          key.public_link();
+          key = Aws::S3::Key.create(bucket, 'uploads/images/' + file_name)
+          key.put(File.open(dir_name + '/' + file_name).read, 'public-read')
+          key.public_link
           puts "Uploaded #{current} of #{count}"
           current += 1
         rescue => e
@@ -72,13 +72,12 @@ namespace :migrations do
         end
       end
     }
-
   end
 
   # removes hashtags with uppercase letters and re-attaches
   # the posts to the lowercase version
-  task :rewire_uppercase_hashtags => :environment do
-    evil_tags = ActsAsTaggableOn::Tag.where("lower(name) != name")
+  task rewire_uppercase_hashtags: :environment do
+    evil_tags = ActsAsTaggableOn::Tag.where('lower(name) != name')
     puts "found #{evil_tags.count} tags to convert..."
 
     evil_tags.each_with_index do |tag, i|
@@ -89,7 +88,7 @@ namespace :migrations do
       deleteme = []
 
       taggings.each do |tagging|
-        if good_tag.taggings.where(:taggable_id => tagging.taggable_id).count > 0
+        if good_tag.taggings.where(taggable_id: tagging.taggable_id).count > 0
           # the same taggable is already tagged with the correct tag
           # just delete the obsolete tagging it
           deleteme << tagging
@@ -100,9 +99,7 @@ namespace :migrations do
         good_tag.taggings << tagging
       end
 
-      deleteme.each do |tagging|
-        tagging.destroy
-      end
+      deleteme.each(&:destroy)
 
       rest = tag.taggings(true) # force reload
       if rest.count > 0
@@ -114,12 +111,12 @@ namespace :migrations do
       tag.destroy
 
       puts "-- converted '#{tag.name}' to '#{good_tag.name}'"
-      puts "\n## #{i+1} tags processed\n\n" if ((i+1) % 50 == 0)
+      puts "\n## #{i + 1} tags processed\n\n" if ((i + 1) % 50 == 0)
     end
   end
 
-  task :remove_uppercase_hashtags => :environment do
-    evil_tags = ActsAsTaggableOn::Tag.where("lower(name) != name")
+  task remove_uppercase_hashtags: :environment do
+    evil_tags = ActsAsTaggableOn::Tag.where('lower(name) != name')
     evil_tags.each do |tag|
       next if tag.taggings.count > 0 # non-ascii tags
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Notifier, :type => :mailer do
+describe Notifier, type: :mailer do
   let(:person) { FactoryGirl.create(:person) }
 
   before do
@@ -9,7 +9,7 @@ describe Notifier, :type => :mailer do
 
   describe '.administrative' do
     it 'mails a user' do
-      mails = Notifier.admin("Welcome to bureaucracy!", [bob])
+      mails = Notifier.admin('Welcome to bureaucracy!', [bob])
       expect(mails.length).to eq(1)
       mail = mails.first
       expect(mail.to).to eq([bob.email])
@@ -25,45 +25,45 @@ describe Notifier, :type => :mailer do
         end
       end
       it 'has a body' do
-        mails = Notifier.admin("Welcome to bureaucracy!", @users)
+        mails = Notifier.admin('Welcome to bureaucracy!', @users)
         expect(mails.length).to eq(5)
-        mails.each{|mail|
-          this_user = @users.detect{|u| mail.to == [u.email]}
+        mails.each do|mail|
+          this_user = @users.detect { |u| mail.to == [u.email] }
           expect(mail.body.encoded).to match /Welcome to bureaucracy!/
           expect(mail.body.encoded).to match /#{this_user.username}/
-        }
+        end
       end
 
-      it "has attachments" do
-        mails = Notifier.admin("Welcome to bureaucracy!", @users, :attachments => [{:name => "retention stats", :file => "here is some file content"}])
+      it 'has attachments' do
+        mails = Notifier.admin('Welcome to bureaucracy!', @users, attachments: [{ name: 'retention stats', file: 'here is some file content' }])
         expect(mails.length).to eq(5)
-        mails.each{|mail|
+        mails.each do|mail|
           expect(mail.attachments.count).to eq(1)
-        }
+        end
       end
     end
   end
 
   describe '.single_admin' do
     it 'mails a user' do
-      mail = Notifier.single_admin("Welcome to bureaucracy!", bob)
+      mail = Notifier.single_admin('Welcome to bureaucracy!', bob)
       expect(mail.to).to eq([bob.email])
       expect(mail.body.encoded).to match /Welcome to bureaucracy!/
       expect(mail.body.encoded).to match /#{bob.username}/
     end
 
     it 'has the layout' do
-      mail = Notifier.single_admin("Welcome to bureaucracy!", bob)
+      mail = Notifier.single_admin('Welcome to bureaucracy!', bob)
       expect(mail.body.encoded).to match /change your notification settings/
     end
 
     it 'has an optional attachment' do
-      mail = Notifier.single_admin("Welcome to bureaucracy!", bob, :attachments => [{:name => "retention stats", :file => "here is some file content"}])
+      mail = Notifier.single_admin('Welcome to bureaucracy!', bob, attachments: [{ name: 'retention stats', file: 'here is some file content' }])
       expect(mail.attachments.length).to eq(1)
     end
   end
 
-  describe ".started_sharing" do
+  describe '.started_sharing' do
     let!(:request_mail) { Notifier.started_sharing(bob.id, person.id) }
 
     it 'goes to the right person' do
@@ -79,11 +79,11 @@ describe Notifier, :type => :mailer do
     end
   end
 
-  describe ".mentioned" do
+  describe '.mentioned' do
     before do
       @user = alice
       @post = FactoryGirl.create(:status_message, public: true)
-      @mention = Mention.create(:person => @user.person, :post => @post)
+      @mention = Mention.create(person: @user.person, post: @post)
 
       @mail = Notifier.mentioned(@user.id, @post.author.id, @mention.id)
     end
@@ -105,10 +105,10 @@ describe Notifier, :type => :mailer do
     end
   end
 
-  describe ".liked" do
+  describe '.liked' do
     before do
-      @post = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
-      @like = @post.likes.create!(:author => bob.person)
+      @post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+      @like = @post.likes.create!(author: bob.person)
       @mail = Notifier.liked(alice.id, @like.author.id, @like.id)
     end
 
@@ -130,15 +130,15 @@ describe Notifier, :type => :mailer do
 
     it 'can handle a reshare' do
       reshare = FactoryGirl.create(:reshare)
-      like = reshare.likes.create!(:author => bob.person)
+      like = reshare.likes.create!(author: bob.person)
       mail = Notifier.liked(alice.id, like.author.id, like.id)
     end
   end
 
-  describe ".reshared" do
+  describe '.reshared' do
     before do
-      @post = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
-      @reshare = FactoryGirl.create(:reshare, :root => @post, :author => bob.person)
+      @post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+      @reshare = FactoryGirl.create(:reshare, root: @post, author: bob.person)
       @mail = Notifier.reshared(alice.id, @reshare.author.id, @reshare.id)
     end
 
@@ -159,17 +159,16 @@ describe Notifier, :type => :mailer do
     end
   end
 
-
-  describe ".private_message" do
+  describe '.private_message' do
     before do
       @user2 = bob
-      @participant_ids = @user2.contacts.map{|c| c.person.id} + [ @user2.person.id]
+      @participant_ids = @user2.contacts.map { |c| c.person.id } + [@user2.person.id]
 
       @create_hash = {
-        :author => @user2.person,
-        :participant_ids => @participant_ids,
-        :subject => "cool stuff",
-        :messages_attributes => [ {:author => @user2.person, :text => 'hey'} ]
+        author: @user2.person,
+        participant_ids: @participant_ids,
+        subject: 'cool stuff',
+        messages_attributes: [{ author: @user2.person, text: 'hey' }]
       }
 
       @cnv = Conversation.create(@create_hash)
@@ -182,7 +181,7 @@ describe Notifier, :type => :mailer do
     end
 
     it "FROM: contains the sender's name" do
-      expect(@mail["From"].to_s).to eq("\"#{@cnv.author.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+      expect(@mail['From'].to_s).to eq("\"#{@cnv.author.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
     end
 
     it 'SUBJECT: has a snippet of the post contents' do
@@ -190,7 +189,7 @@ describe Notifier, :type => :mailer do
     end
 
     it 'SUBJECT: has "Re:" if not the first message in a conversation' do
-      @cnv.messages << Message.new(:text => 'yo', :author => eve.person)
+      @cnv.messages << Message.new(text: 'yo', author: eve.person)
       @mail = Notifier.private_message(bob.id, @cnv.author.id, @cnv.messages.last.id)
 
       expect(@mail.subject).to eq("Re: #{@cnv.subject}")
@@ -205,32 +204,32 @@ describe Notifier, :type => :mailer do
     end
   end
 
-  context "comments" do
-    let(:commented_post) {bob.post(:status_message, :text => "### Headline \r\n It's **really** sunny outside today, and this is a super long status message!  #notreally", :to => :all, :public => true)}
-    let(:comment) { eve.comment!(commented_post, "Totally is")}
+  context 'comments' do
+    let(:commented_post) { bob.post(:status_message, text: "### Headline \r\n It's **really** sunny outside today, and this is a super long status message!  #notreally", to: :all, public: true) }
+    let(:comment) { eve.comment!(commented_post, 'Totally is') }
 
-    describe ".comment_on_post" do
-      let(:comment_mail) {Notifier.comment_on_post(bob.id, person.id, comment.id).deliver}
+    describe '.comment_on_post' do
+      let(:comment_mail) { Notifier.comment_on_post(bob.id, person.id, comment.id).deliver }
 
       it 'TO: goes to the right person' do
         expect(comment_mail.to).to eq([bob.email])
       end
 
       it "FROM: contains the sender's name" do
-        expect(comment_mail["From"].to_s).to eq("\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+        expect(comment_mail['From'].to_s).to eq("\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
       end
 
       it 'SUBJECT: has a snippet of the post contents, without markdown and without newlines' do
-        expect(comment_mail.subject).to eq("Re: Headline")
+        expect(comment_mail.subject).to eq('Re: Headline')
       end
 
       context 'BODY' do
-        it "contains the comment" do
+        it 'contains the comment' do
           expect(comment_mail.body.encoded).to include(comment.text)
         end
 
         it "contains the original post's link" do
-          expect(comment_mail.body.encoded.include?("#{comment.post.id.to_s}")).to be true
+          expect(comment_mail.body.encoded.include?("#{comment.post.id}")).to be true
         end
 
         it 'should not include translation fallback' do
@@ -240,17 +239,17 @@ describe Notifier, :type => :mailer do
 
       [:reshare].each do |post_type|
         context post_type.to_s do
-          let(:commented_post) { FactoryGirl.create(post_type, :author => bob.person) }
+          let(:commented_post) { FactoryGirl.create(post_type, author: bob.person) }
           it 'succeeds' do
-            expect {
+            expect do
               comment_mail
-            }.not_to raise_error
+            end.not_to raise_error
           end
         end
       end
     end
 
-    describe ".also_commented" do
+    describe '.also_commented' do
       let(:comment_mail) { Notifier.also_commented(bob.id, person.id, comment.id) }
 
       it 'TO: goes to the right person' do
@@ -258,20 +257,20 @@ describe Notifier, :type => :mailer do
       end
 
       it 'FROM: has the name of person commenting as the sender' do
-        expect(comment_mail["From"].to_s).to eq("\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+        expect(comment_mail['From'].to_s).to eq("\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
       end
 
       it 'SUBJECT: has a snippet of the post contents, without markdown and without newlines' do
-        expect(comment_mail.subject).to eq("Re: Headline")
+        expect(comment_mail.subject).to eq('Re: Headline')
       end
 
       context 'BODY' do
-        it "contains the comment" do
+        it 'contains the comment' do
           expect(comment_mail.body.encoded).to include(comment.text)
         end
 
         it "contains the original post's link" do
-          expect(comment_mail.body.encoded).to include("#{comment.post.id.to_s}")
+          expect(comment_mail.body.encoded).to include("#{comment.post.id}")
         end
 
         it 'should not include translation fallback' do
@@ -280,19 +279,19 @@ describe Notifier, :type => :mailer do
       end
       [:reshare].each do |post_type|
         context post_type.to_s do
-          let(:commented_post) { FactoryGirl.create(post_type, :author => bob.person) }
+          let(:commented_post) { FactoryGirl.create(post_type, author: bob.person) }
           it 'succeeds' do
-            expect {
+            expect do
               comment_mail
-            }.not_to raise_error
+            end.not_to raise_error
           end
         end
       end
     end
 
-    describe ".confirm_email" do
+    describe '.confirm_email' do
       before do
-        bob.update_attribute(:unconfirmed_email, "my@newemail.com")
+        bob.update_attribute(:unconfirmed_email, 'my@newemail.com')
         @confirm_email = Notifier.confirm_email(bob.id)
       end
 
@@ -313,27 +312,27 @@ describe Notifier, :type => :mailer do
       end
 
       it 'has the activation link in the body' do
-        expect(@confirm_email.body.encoded).to include(confirm_email_url(:token => bob.confirm_email_token))
+        expect(@confirm_email.body.encoded).to include(confirm_email_url(token: bob.confirm_email_token))
       end
     end
   end
 
   describe 'hashtags' do
     it 'escapes hashtags' do
-      mails = Notifier.admin("#Welcome to bureaucracy!", [bob])
+      mails = Notifier.admin('#Welcome to bureaucracy!', [bob])
       expect(mails.length).to eq(1)
       mail = mails.first
       expect(mail.body.encoded).to match "<p><a href=\"http://localhost:9887/tags/welcome\">#Welcome</a> to bureaucracy!</p>"
     end
   end
 
-  describe "base" do
-    it "handles idn addresses" do
+  describe 'base' do
+    it 'handles idn addresses' do
       # user = FactoryGirl.create(:user, email: "ŧoo@ŧexample.com")
-      bob.update_attribute(:email, "ŧoo@ŧexample.com")
-      expect {
+      bob.update_attribute(:email, 'ŧoo@ŧexample.com')
+      expect do
         Notifier.started_sharing(bob.id, person.id)
-      }.to_not raise_error
+      end.to_not raise_error
     end
   end
 end

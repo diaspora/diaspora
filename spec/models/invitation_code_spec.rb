@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe InvitationCode, :type => :model do
+describe InvitationCode, type: :model do
   it 'has a valid factory' do
     expect(FactoryGirl.build(:invitation_code)).to be_valid
   end
@@ -14,9 +14,9 @@ describe InvitationCode, :type => :model do
     it 'decrements the count of the code' do
       code = FactoryGirl.create(:invitation_code)
 
-      expect{
+      expect do
         code.use!
-      }.to change(code, :count).by(-1)
+      end.to change(code, :count).by(-1)
     end
   end
 

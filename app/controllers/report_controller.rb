@@ -3,8 +3,8 @@
 #   the COPYRIGHT file.
 
 class ReportController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :redirect_unless_admin, :except => [:create]
+  before_action :authenticate_user!
+  before_action :redirect_unless_admin, except: [:create]
 
   use_bootstrap_for :index
 
@@ -16,7 +16,7 @@ class ReportController < ApplicationController
     if report = Report.where(id: params[:id]).first
       report.mark_as_reviewed
     end
-    redirect_to :action => :index
+    redirect_to action: :index
   end
 
   def destroy
@@ -25,20 +25,21 @@ class ReportController < ApplicationController
     else
       flash[:error] = I18n.t 'report.status.failed'
     end
-    redirect_to :action => :index
+    redirect_to action: :index
   end
 
   def create
     report = current_user.reports.new(report_params)
     if report.save
-      render :json => true, :status => 200
+      render json: true, status: 200
     else
-      render :nothing => true, :status => 409
+      render nothing: true, status: 409
     end
   end
 
   private
-    def report_params
-      params.require(:report).permit(:item_id, :item_type, :text)
-    end
+
+  def report_params
+    params.require(:report).permit(:item_id, :item_type, :text)
+  end
 end

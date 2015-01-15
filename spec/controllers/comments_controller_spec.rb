@@ -4,40 +4,40 @@
 
 require 'spec_helper'
 
-describe CommentsController, :type => :controller do
+describe CommentsController, type: :controller do
   before do
     allow(@controller).to receive(:current_user).and_return(alice)
     sign_in :user, alice
   end
 
   describe '#create' do
-    let(:comment_hash) {
-      {:text    =>"facebook, is that you?",
-       :post_id =>"#{@post.id}"}
-    }
+    let(:comment_hash) do
+      { text: 'facebook, is that you?',
+        post_id: "#{@post.id}" }
+    end
 
-    context "on my own post" do
+    context 'on my own post' do
       before do
-        aspect_to_post = alice.aspects.where(:name => "generic").first
-        @post = alice.post :status_message, :text => 'GIANTS', :to => aspect_to_post
+        aspect_to_post = alice.aspects.where(name: 'generic').first
+        @post = alice.post :status_message, text: 'GIANTS', to: aspect_to_post
       end
 
       it 'responds to format json' do
-        post :create, comment_hash.merge(:format => 'json')
+        post :create, comment_hash.merge(format: 'json')
         expect(response.code).to eq('201')
         expect(response.body).to match comment_hash[:text]
       end
 
       it 'responds to format mobile' do
-        post :create, comment_hash.merge(:format => 'mobile')
+        post :create, comment_hash.merge(format: 'mobile')
         expect(response).to be_success
       end
     end
 
-    context "on a post from a contact" do
+    context 'on a post from a contact' do
       before do
-        aspect_to_post = bob.aspects.where(:name => "generic").first
-        @post = bob.post :status_message, :text => 'GIANTS', :to => aspect_to_post
+        aspect_to_post = bob.aspects.where(name: 'generic').first
+        @post = bob.post :status_message, text: 'GIANTS', to: aspect_to_post
       end
 
       it 'comments' do
@@ -53,7 +53,7 @@ describe CommentsController, :type => :controller do
       end
 
       it "doesn't overwrite id" do
-        old_comment = alice.comment!(@post, "hello")
+        old_comment = alice.comment!(@post, 'hello')
         comment_hash[:id] = old_comment.id
         post :create, comment_hash
         expect(old_comment.reload.text).to eq('hello')
@@ -61,8 +61,8 @@ describe CommentsController, :type => :controller do
     end
 
     it 'posts no comment on a post from a stranger' do
-      aspect_to_post = eve.aspects.where(:name => "generic").first
-      @post = eve.post :status_message, :text => 'GIANTS', :to => aspect_to_post
+      aspect_to_post = eve.aspects.where(name: 'generic').first
+      @post = eve.post :status_message, text: 'GIANTS', to: aspect_to_post
 
       expect(alice).not_to receive(:comment)
       post :create, comment_hash
@@ -72,8 +72,8 @@ describe CommentsController, :type => :controller do
 
   describe '#destroy' do
     before do
-      aspect_to_post = bob.aspects.where(:name => "generic").first
-      @message = bob.post(:status_message, :text => "hey", :to => aspect_to_post)
+      aspect_to_post = bob.aspects.where(name: 'generic').first
+      @message = bob.post(:status_message, text: 'hey', to: aspect_to_post)
     end
 
     context 'your post' do
@@ -83,43 +83,43 @@ describe CommentsController, :type => :controller do
       end
 
       it 'lets the user delete his comment' do
-        comment = bob.comment!(@message, "hey")
+        comment = bob.comment!(@message, 'hey')
 
         expect(bob).to receive(:retract).with(comment)
-        delete :destroy, :format => "js", :post_id => 1, :id => comment.id
+        delete :destroy, format: 'js', post_id: 1, id: comment.id
         expect(response.status).to eq(204)
       end
 
       it "lets the user destroy other people's comments" do
-        comment = alice.comment!(@message, "hey")
+        comment = alice.comment!(@message, 'hey')
 
         expect(bob).to receive(:retract).with(comment)
-        delete :destroy, :format => "js", :post_id => 1, :id => comment.id
+        delete :destroy, format: 'js', post_id: 1, id: comment.id
         expect(response.status).to eq(204)
       end
     end
 
     context "another user's post" do
       it 'let the user delete his comment' do
-        comment = alice.comment!(@message, "hey")
+        comment = alice.comment!(@message, 'hey')
 
         expect(alice).to receive(:retract).with(comment)
-        delete :destroy, :format => "js", :post_id => 1,  :id => comment.id
+        delete :destroy, format: 'js', post_id: 1,  id: comment.id
         expect(response.status).to eq(204)
       end
 
       it 'does not let the user destroy comments he does not own' do
-        comment1 = bob.comment!(@message, "hey")
-        comment2 = eve.comment!(@message, "hey")
+        comment1 = bob.comment!(@message, 'hey')
+        comment2 = eve.comment!(@message, 'hey')
 
         expect(alice).not_to receive(:retract).with(comment1)
-        delete :destroy, :format => "js", :post_id => 1,  :id => comment2.id
+        delete :destroy, format: 'js', post_id: 1,  id: comment2.id
         expect(response.status).to eq(403)
       end
     end
 
     it 'renders nothing and 404 on a nonexistent comment' do
-      delete :destroy, :post_id => 1, :id => 343415
+      delete :destroy, post_id: 1, id: 343_415
       expect(response.status).to eq(404)
       expect(response.body.strip).to be_empty
     end
@@ -127,32 +127,32 @@ describe CommentsController, :type => :controller do
 
   describe '#index' do
     before do
-      aspect_to_post = bob.aspects.where(:name => "generic").first
-      @message = bob.post(:status_message, :text => "hey", :to => aspect_to_post.id)
+      aspect_to_post = bob.aspects.where(name: 'generic').first
+      @message = bob.post(:status_message, text: 'hey', to: aspect_to_post.id)
     end
 
     it 'works for mobile' do
-      get :index, :post_id => @message.id, :format => 'mobile'
+      get :index, post_id: @message.id, format: 'mobile'
       expect(response).to be_success
     end
 
     it 'returns all the comments for a post' do
-      comments = [alice, bob, eve].map{ |u| u.comment!(@message, "hey") }
+      comments = [alice, bob, eve].map { |u| u.comment!(@message, 'hey') }
 
-      get :index, :post_id => @message.id, :format => :json
+      get :index, post_id: @message.id, format: :json
       expect(assigns[:comments].map(&:id)).to match_array(comments.map(&:id))
     end
 
     it 'returns a 404 on a nonexistent post' do
-      get :index, :post_id => 235236, :format => :json
+      get :index, post_id: 235_236, format: :json
       expect(response.status).to eq(404)
     end
 
     it 'returns a 404 on a post that is not visible to the signed in user' do
-      aspect_to_post = eve.aspects.where(:name => "generic").first
-      message = eve.post(:status_message, :text => "hey", :to => aspect_to_post.id)
-      bob.comment!(@message, "hey")
-      get :index, :post_id => message.id, :format => :json
+      aspect_to_post = eve.aspects.where(name: 'generic').first
+      message = eve.post(:status_message, text: 'hey', to: aspect_to_post.id)
+      bob.comment!(@message, 'hey')
+      get :index, post_id: message.id, format: :json
       expect(response.status).to eq(404)
     end
   end

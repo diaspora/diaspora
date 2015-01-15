@@ -1,46 +1,46 @@
-  #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
 
-describe LikesController, :type => :controller do
+describe LikesController, type: :controller do
   before do
-    @alices_aspect = alice.aspects.where(:name => "generic").first
-    @bobs_aspect = bob.aspects.where(:name => "generic").first
+    @alices_aspect = alice.aspects.where(name: 'generic').first
+    @bobs_aspect = bob.aspects.where(name: 'generic').first
 
     sign_in :user, alice
   end
 
   [Comment, Post].each do |class_const|
     context class_const.to_s do
-        let(:id_field){
-          "#{class_const.to_s.underscore}_id"
-        }
+      let(:id_field)do
+        "#{class_const.to_s.underscore}_id"
+      end
 
       describe '#create' do
-        let(:like_hash) {
-          {:positive => 1,
-           id_field => "#{@target.id}"}
-        }
-        let(:dislike_hash) {
-          {:positive => 0,
-           id_field => "#{@target.id}"}
-        }
+        let(:like_hash) do
+          { :positive => 1,
+            id_field => "#{@target.id}" }
+        end
+        let(:dislike_hash) do
+          { :positive => 0,
+            id_field => "#{@target.id}" }
+        end
 
-        context "on my own post" do
+        context 'on my own post' do
           it 'succeeds' do
-            @target = alice.post :status_message, :text => "AWESOME", :to => @alices_aspect.id
-            @target = alice.comment!(@target, "hey") if class_const == Comment
-            post :create, like_hash.merge(:format => :json)
+            @target = alice.post :status_message, text: 'AWESOME', to: @alices_aspect.id
+            @target = alice.comment!(@target, 'hey') if class_const == Comment
+            post :create, like_hash.merge(format: :json)
             expect(response.code).to eq('201')
           end
         end
 
-        context "on a post from a contact" do
+        context 'on a post from a contact' do
           before do
-            @target = bob.post(:status_message, :text => "AWESOME", :to => @bobs_aspect.id)
-            @target = bob.comment!(@target, "hey") if class_const == Comment
+            @target = bob.post(:status_message, text: 'AWESOME', to: @bobs_aspect.id)
+            @target = bob.comment!(@target, 'hey') if class_const == Comment
           end
 
           it 'likes' do
@@ -60,10 +60,10 @@ describe LikesController, :type => :controller do
           end
         end
 
-        context "on a post from a stranger" do
+        context 'on a post from a stranger' do
           before do
-            @target = eve.post :status_message, :text => "AWESOME", :to => eve.aspects.first.id
-            @target = eve.comment!(@target, "hey") if class_const == Comment
+            @target = eve.post :status_message, text: 'AWESOME', to: eve.aspects.first.id
+            @target = eve.comment!(@target, 'hey') if class_const == Comment
           end
 
           it "doesn't post" do
@@ -73,30 +73,30 @@ describe LikesController, :type => :controller do
           end
         end
 
-        context "when an the exception is raised" do
-          it "should be catched when it means that the target is not found" do
+        context 'when an the exception is raised' do
+          it 'should be catched when it means that the target is not found' do
             allow(@target).to receive(:id).and_return(-1)
-            post :create, like_hash.merge(:format => :json)
+            post :create, like_hash.merge(format: :json)
             expect(response.code).to eq('422')
           end
 
-          it "should not be catched when it is unexpected" do
-            @target = alice.post :status_message, :text => "AWESOME", :to => @alices_aspect.id
-            @target = alice.comment!(@target, "hey") if class_const == Comment
-            allow(alice).to receive(:like!).and_raise("something")
+          it 'should not be catched when it is unexpected' do
+            @target = alice.post :status_message, text: 'AWESOME', to: @alices_aspect.id
+            @target = alice.comment!(@target, 'hey') if class_const == Comment
+            allow(alice).to receive(:like!).and_raise('something')
             allow(@controller).to receive(:current_user).and_return(alice)
-            expect { post :create, like_hash.merge(:format => :json) }.to raise_error("something")
+            expect { post :create, like_hash.merge(format: :json) }.to raise_error('something')
           end
         end
       end
 
       describe '#index' do
         before do
-          @message = alice.post(:status_message, :text => "hey", :to => @alices_aspect.id)
-          @message = alice.comment!(@message, "hey") if class_const == Comment
+          @message = alice.post(:status_message, text: 'hey', to: @alices_aspect.id)
+          @message = alice.comment!(@message, 'hey') if class_const == Comment
         end
 
-        it 'generates a jasmine fixture', :fixture => true do
+        it 'generates a jasmine fixture', fixture: true do
           get :index, id_field => @message.id
 
           save_fixture(response.body, "ajax_likes_on_#{class_const.to_s.underscore}")
@@ -104,7 +104,7 @@ describe LikesController, :type => :controller do
 
         it 'returns a 404 for a post not visible to the user' do
           sign_in eve
-          expect{get :index, id_field => @message.id}.to raise_error(ActiveRecord::RecordNotFound)
+          expect { get :index, id_field => @message.id }.to raise_error(ActiveRecord::RecordNotFound)
         end
 
         it 'returns an array of likes for a post' do
@@ -121,8 +121,8 @@ describe LikesController, :type => :controller do
 
       describe '#destroy' do
         before do
-          @message = bob.post(:status_message, :text => "hey", :to => @alices_aspect.id)
-          @message = bob.comment!(@message, "hey") if class_const == Comment
+          @message = bob.post(:status_message, text: 'hey', to: @alices_aspect.id)
+          @message = bob.comment!(@message, 'hey') if class_const == Comment
           @like = alice.like!(@message)
         end
 
@@ -138,12 +138,11 @@ describe LikesController, :type => :controller do
           like2 = eve.like!(@message)
 
           like_count = Like.count
-          expect {
+          expect do
             delete :destroy, :format => :json, id_field => like2.target_id, :id => like2.id
-          }.to raise_error(ActiveRecord::RecordNotFound)
+          end.to raise_error(ActiveRecord::RecordNotFound)
 
           expect(Like.count).to eq(like_count)
-
         end
       end
     end

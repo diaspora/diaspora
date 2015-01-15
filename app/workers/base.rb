@@ -9,11 +9,11 @@ module Workers
                     retry:  (rt = AppConfig.environment.sidekiq.retry.get) && rt.to_i
 
     # In the long term we need to eliminate the cause of these
-    def suppress_annoying_errors(&block)
+    def suppress_annoying_errors(&_block)
       yield
     rescue Diaspora::ContactRequiredUnlessRequest,
            Diaspora::RelayableObjectWithoutParent,
-            # Friendica seems to provoke these
+           # Friendica seems to provoke these
            Diaspora::AuthorXMLAuthorMismatch => e
       Rails.logger.info("error on receive: #{e.class}")
     rescue ActiveRecord::RecordInvalid => e

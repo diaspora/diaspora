@@ -11,17 +11,16 @@ class Post < ActiveRecord::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
-
-  has_many :participations, :dependent => :delete_all, :as => :target
+  has_many :participations, dependent: :delete_all, as: :target
 
   attr_accessor :user_like
 
   xml_attr :provider_display_name
 
-  has_many :mentions, :dependent => :destroy
+  has_many :mentions, dependent: :destroy
 
-  has_many :reshares, :class_name => "Reshare", :foreign_key => :root_guid, :primary_key => :guid
-  has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
+  has_many :reshares, class_name: 'Reshare', foreign_key: :root_guid, primary_key: :guid
+  has_many :resharers, class_name: 'Person', through: :reshares, source: :author
 
   belongs_to :o_embed_cache
   belongs_to :open_graph_cache
@@ -29,38 +28,37 @@ class Post < ActiveRecord::Base
   validates_uniqueness_of :id
 
   after_create do
-    self.touch(:interacted_at)
+    touch(:interacted_at)
   end
 
-  #scopes
+  # scopes
   scope :includes_for_a_stream, -> {
     includes(:o_embed_cache,
              :open_graph_cache,
-             {:author => :profile},
-             :mentions => {:person => :profile}
-    ) #note should include root and photos, but i think those are both on status_message
+             { author: :profile },
+             mentions: { person: :profile }
+    ) # note should include root and photos, but i think those are both on status_message
   }
-
 
   scope :commented_by, ->(person)  {
     select('DISTINCT posts.*')
       .joins(:comments)
-      .where(:comments => {:author_id => person.id})
+      .where(comments: { author_id: person.id })
   }
 
   scope :liked_by, ->(person) {
-    joins(:likes).where(:likes => {:author_id => person.id})
+    joins(:likes).where(likes: { author_id: person.id })
   }
 
   def self.newer(post)
-    where("posts.created_at > ?", post.created_at).reorder('posts.created_at ASC').first
+    where('posts.created_at > ?', post.created_at).reorder('posts.created_at ASC').first
   end
 
   def self.older(post)
-    where("posts.created_at < ?", post.created_at).reorder('posts.created_at DESC').first
+    where('posts.created_at < ?', post.created_at).reorder('posts.created_at DESC').first
   end
 
-  def self.visible_from_author(author, current_user=nil)
+  def self.visible_from_author(author, current_user = nil)
     if current_user.present?
       current_user.posts_from(author)
     else
@@ -73,12 +71,21 @@ class Post < ActiveRecord::Base
   end
 
   def root; end
-  def raw_message; ""; end
-  def mentioned_people; []; end
-  def photos; []; end
 
-  #prevents error when trying to access @post.address in a post different than Reshare and StatusMessage types;
-  #check PostPresenter
+  def raw_message
+    ''
+  end
+
+  def mentioned_people
+    []
+  end
+
+  def photos
+    []
+  end
+
+  # prevents error when trying to access @post.address in a post different than Reshare and StatusMessage types;
+  # check PostPresenter
   def address
   end
 
@@ -86,11 +93,11 @@ class Post < ActiveRecord::Base
   end
 
   def self.excluding_blocks(user)
-    people = user.blocks.map{|b| b.person_id}
+    people = user.blocks.map(&:person_id)
     scope = all
 
     if people.any?
-      scope = scope.where("posts.author_id NOT IN (?)", people)
+      scope = scope.where('posts.author_id NOT IN (?)', people)
     end
 
     scope
@@ -99,7 +106,7 @@ class Post < ActiveRecord::Base
   def self.excluding_hidden_shareables(user)
     scope = all
     if user.has_hidden_shareables_of_type?
-      scope = scope.where('posts.id NOT IN (?)', user.hidden_shareables["#{self.base_class}"])
+      scope = scope.where('posts.id NOT IN (?)', user.hidden_shareables["#{base_class}"])
     end
     scope
   end
@@ -108,9 +115,9 @@ class Post < ActiveRecord::Base
     excluding_blocks(user).excluding_hidden_shareables(user)
   end
 
-  def self.for_a_stream(max_time, order, user=nil)
-    scope = self.for_visible_shareable_sql(max_time, order).
-      includes_for_a_stream
+  def self.for_a_stream(max_time, order, user = nil)
+    scope = for_visible_shareable_sql(max_time, order)
+            .includes_for_a_stream
 
     scope = scope.excluding_hidden_content(user) if user.present?
 
@@ -119,18 +126,18 @@ class Post < ActiveRecord::Base
 
   def reshare_for(user)
     return unless user
-    reshares.where(:author_id => user.person.id).first
+    reshares.where(author_id: user.person.id).first
   end
 
   def like_for(user)
     return unless user
-    likes.where(:author_id => user.person.id).first
+    likes.where(author_id: user.person.id).first
   end
 
   #############
 
   def self.diaspora_initialize(params)
-    new_post = self.new params.to_hash.stringify_keys.slice(*self.column_names)
+    new_post = new params.to_hash.stringify_keys.slice(*column_names)
     new_post.author = params[:author]
     new_post.public = params[:public] if params[:public]
     new_post.pending = params[:pending] if params[:pending]
@@ -152,20 +159,20 @@ class Post < ActiveRecord::Base
   end
 
   def nsfw
-    self.author.profile.nsfw?
+    author.profile.nsfw?
   end
 
-  def self.find_by_guid_or_id_with_user(id, user=nil)
+  def self.find_by_guid_or_id_with_user(id, user = nil)
     key = id.to_s.length <= 8 ? :id : :guid
     post = if user
-             user.find_visible_shareable_by_id(Post, id, :key => key)
+             user.find_visible_shareable_by_id(Post, id, key: key)
            else
-             Post.where(key => id).includes(:author, :comments => :author).first
+             Post.where(key => id).includes(:author, comments: :author).first
            end
 
     # is that a private post?
-    raise(Diaspora::NonPublic) unless user || post.try(:public?)
+    fail(Diaspora::NonPublic) unless user || post.try(:public?)
 
-    post || raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}"))
+    post || fail(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}"))
   end
 end

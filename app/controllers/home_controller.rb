@@ -14,12 +14,12 @@ class HomeController < ApplicationController
       else
         redirect_to user_session_path
       end
-    elsif partial_dir.join("_show.html.haml").exist? ||
-          partial_dir.join("_show.html.erb").exist?
+    elsif partial_dir.join('_show.html.haml').exist? ||
+          partial_dir.join('_show.html.erb').exist?
       render :show
     else
       @css_framework = :bootstrap # Hack, port site to one framework
-      render file: Rails.root.join("public", "default.html"),
+      render file: Rails.root.join('public', 'default.html'),
              layout: 'application'
     end
   end

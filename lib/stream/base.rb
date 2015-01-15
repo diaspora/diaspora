@@ -1,17 +1,17 @@
 class Stream::Base
-  TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare']
+  TYPES_OF_POST_IN_STREAM = %w(StatusMessage Reshare)
 
   attr_accessor :max_time, :order, :user, :publisher
 
-  def initialize(user, opts={})
+  def initialize(user, opts = {})
     self.user = user
     self.max_time = opts[:max_time]
     self.order = opts[:order]
     self.publisher = Publisher.new(self.user, publisher_opts)
   end
 
-  #requied to implement said stream
-  def link(opts={})
+  # requied to implement said stream
+  def link(_opts = {})
     'change me in lib/base_stream.rb!'
   end
 
@@ -21,7 +21,7 @@ class Stream::Base
     post_is_from_contact?(post)
   end
 
-  def post_from_group(post)
+  def post_from_group(_post)
     []
   end
 
@@ -37,16 +37,16 @@ class Stream::Base
 
   # @return [Array<Post>]
   def stream_posts
-    self.posts.for_a_stream(max_time, order, self.user).tap do |posts|
-      like_posts_for_stream!(posts) #some sql person could probably do this with joins.
+    posts.for_a_stream(max_time, order, user).tap do |posts|
+      like_posts_for_stream!(posts) # some sql person could probably do this with joins.
     end
   end
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
   def people
-    people_ids = self.stream_posts.map{|x| x.author_id}
-    Person.where(:id => people_ids).
-      includes(:profile)
+    people_ids = stream_posts.map(&:author_id)
+    Person.where(id: people_ids)
+      .includes(:profile)
   end
 
   # @return [String] def contacts_title 'change me in lib/base_stream.rb!'
@@ -64,11 +64,9 @@ class Stream::Base
     true
   end
 
-  #NOTE: MBS bad bad methods the fact we need these means our views are foobared. please kill them and make them
-  #private methods on the streams that need them
-  def aspects
-    user.aspects
-  end
+  # NOTE: MBS bad bad methods the fact we need these means our views are foobared. please kill them and make them
+  # private methods on the streams that need them
+  delegate :aspects, to: :user
 
   # @return [Aspect] The first aspect in #aspects
   def aspect
@@ -76,7 +74,7 @@ class Stream::Base
   end
 
   def aspect_ids
-    aspects.map{|x| x.id}
+    aspects.map(&:id)
   end
 
   def max_time=(time_string)
@@ -90,11 +88,12 @@ class Stream::Base
   end
 
   protected
+
   # @return [void]
   def like_posts_for_stream!(posts)
     return posts unless @user
 
-    likes = Like.where(:author_id => @user.person_id, :target_id => posts.map(&:id), :target_type => "Post")
+    likes = Like.where(author_id: @user.person_id, target_id: posts.map(&:id), target_type: 'Post')
 
     like_hash = likes.inject({}) do |hash, like|
       hash[like.target_id] = like
@@ -115,14 +114,14 @@ class Stream::Base
   #
   # @return [Array<Contact>]
   def contacts_in_stream
-    @contacts_in_stream ||= Contact.where(:user_id => user.id, :person_id => people.map(&:id)).load
+    @contacts_in_stream ||= Contact.where(user_id: user.id, person_id: people.map(&:id)).load
   end
 
   # @param post [Post]
   # @return [Boolean]
   def post_is_from_contact?(post)
     @can_comment_cache ||= {}
-    @can_comment_cache[post.id] ||= contacts_in_stream.find{|contact| contact.person_id == post.author.id}.present?
+    @can_comment_cache[post.id] ||= contacts_in_stream.find { |contact| contact.person_id == post.author.id }.present?
     @can_comment_cache[post.id] ||= (user.person_id == post.author_id)
     @can_comment_cache[post.id]
   end

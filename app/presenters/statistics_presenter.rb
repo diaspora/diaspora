@@ -1,9 +1,8 @@
 class StatisticsPresenter
-
-  def as_json(options={})
+  def as_json(_options = {})
     result = {
       'name' => AppConfig.settings.pod_name,
-      'network' => "Diaspora",
+      'network' => 'Diaspora',
       'version' => AppConfig.version_string,
       'registrations_open' => AppConfig.settings.enable_registrations,
       'services' => []
@@ -14,13 +13,13 @@ class StatisticsPresenter
       result['active_users_monthly'] = User.monthly_actives.count
     end
     if AppConfig.privacy.statistics.post_counts?
-      result['local_posts'] = self.local_posts
+      result['local_posts'] = local_posts
     end
     if AppConfig.privacy.statistics.comment_counts?
-      result['local_comments'] = self.local_comments
+      result['local_comments'] = local_comments
     end
-    result["services"] = Configuration::KNOWN_SERVICES.select {|service| AppConfig["services.#{service}.enable"]}.map(&:to_s)
-    Configuration::KNOWN_SERVICES.each do |service, options|
+    result['services'] = Configuration::KNOWN_SERVICES.select { |service| AppConfig["services.#{service}.enable"] }.map(&:to_s)
+    Configuration::KNOWN_SERVICES.each do |service, _options|
       result[service.to_s] = AppConfig["services.#{service}.enable"]
     end
 
@@ -28,11 +27,10 @@ class StatisticsPresenter
   end
 
   def local_posts
-    Post.where(:type => "StatusMessage").joins(:author).where("owner_id IS NOT null").count
+    Post.where(type: 'StatusMessage').joins(:author).where('owner_id IS NOT null').count
   end
 
   def local_comments
-    Comment.joins(:author).where("owner_id IS NOT null").count
+    Comment.joins(:author).where('owner_id IS NOT null').count
   end
-
 end

@@ -1,9 +1,9 @@
 class CreatePostReports < ActiveRecord::Migration
   def change
     create_table :post_reports do |t|
-      t.integer :post_id, :null => false
+      t.integer :post_id, null: false
       t.string :user_id
-      t.boolean :reviewed, :default => false
+      t.boolean :reviewed, default: false
       t.text :text
 
       t.timestamps

@@ -1,5 +1,4 @@
 class Stream::Multi < Stream::Base
-
   # @return [String] URL
   def link(opts)
     Rails.application.routes.url_helpers.stream_path(opts)
@@ -19,7 +18,7 @@ class Stream::Multi < Stream::Base
     @posts ||= ::EvilQuery::MultiStream.new(user, order, max_time, include_community_spotlight?).make_relation!
   end
 
-  #emits an enum of the groups which the post appeared
+  # emits an enum of the groups which the post appeared
   # :spotlight, :aspects, :tags, :mentioned
   def post_from_group(post)
     streams_included.collect do |source|
@@ -28,9 +27,10 @@ class Stream::Multi < Stream::Base
   end
 
   private
+
   def publisher_opts
     if welcome?
-      {:open => true, :prefill => publisher_prefill, :public => true}
+      { open: true, prefill: publisher_prefill, public: true }
     else
       super
     end
@@ -40,14 +40,14 @@ class Stream::Multi < Stream::Base
   #
   # @return [String]
   def publisher_prefill
-    prefill = I18n.t("shared.publisher.new_user_prefill.hello", :new_user_tag => I18n.t('shared.publisher.new_user_prefill.newhere'))
-    if self.user.followed_tags.size > 0
-      tag_string = self.user.followed_tags.map{|t| "##{t.name}"}.to_sentence
-      prefill << I18n.t("shared.publisher.new_user_prefill.i_like", :tags => tag_string)
+    prefill = I18n.t('shared.publisher.new_user_prefill.hello', new_user_tag: I18n.t('shared.publisher.new_user_prefill.newhere'))
+    if user.followed_tags.size > 0
+      tag_string = user.followed_tags.map { |t| "##{t.name}" }.to_sentence
+      prefill << I18n.t('shared.publisher.new_user_prefill.i_like', tags: tag_string)
     end
 
-    if inviter = self.user.invited_by.try(:person)
-      prefill << I18n.t("shared.publisher.new_user_prefill.invited_by")
+    if inviter = user.invited_by.try(:person)
+      prefill << I18n.t('shared.publisher.new_user_prefill.invited_by')
       prefill << "@{#{inviter.name} ; #{inviter.diaspora_handle}}!"
     end
 
@@ -56,7 +56,7 @@ class Stream::Multi < Stream::Base
 
   # @return [Boolean]
   def welcome?
-    self.user.getting_started
+    user.getting_started
   end
 
   # @return [Array<Symbol>]
@@ -70,8 +70,8 @@ class Stream::Multi < Stream::Base
 
   # @return [Symbol]
   def is_in?(sym, post)
-    if self.send("#{sym.to_s}_post_ids").find{|x| (x == post.id) || (x.to_s == post.id.to_s)}
-      "#{sym.to_s}_stream".to_sym
+    if send("#{sym}_post_ids").find { |x| (x == post.id) || (x.to_s == post.id.to_s) }
+      "#{sym}_stream".to_sym
     end
   end
 

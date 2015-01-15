@@ -1,8 +1,8 @@
 class OpenGraphCache < ActiveRecord::Base
-  validates :title, :presence => true
-  validates :ob_type, :presence => true
-  validates :image, :presence => true
-  validates :url, :presence => true
+  validates :title, presence: true
+  validates :ob_type, presence: true
+  validates :image, presence: true
+  validates :url, presence: true
 
   has_many :posts
 
@@ -30,7 +30,7 @@ class OpenGraphCache < ActiveRecord::Base
   end
 
   def fetch_and_save_opengraph_data!
-    object = OpenGraphReader.fetch!(self.url)
+    object = OpenGraphReader.fetch!(url)
 
     return unless object
 
@@ -40,7 +40,7 @@ class OpenGraphCache < ActiveRecord::Base
     self.url = object.og.url
     self.description = object.og.description
 
-    self.save
+    save
   rescue OpenGraphReader::NoOpenGraphDataError
   end
 end

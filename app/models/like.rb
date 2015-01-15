@@ -9,16 +9,16 @@ class Like < Federated::Relayable
     end
 
     def relayable_options
-      {:target => @target, :positive => true}
+      { target: @target, positive: true }
     end
   end
 
-  after_commit :on => :create do
-    self.parent.update_likes_counter
+  after_commit on: :create do
+    parent.update_likes_counter
   end
 
   after_destroy do
-    self.parent.update_likes_counter
+    parent.update_likes_counter
   end
 
   xml_attr :positive
@@ -33,8 +33,8 @@ class Like < Federated::Relayable
   end
 
   def notification_type(user, person)
-    #TODO(dan) need to have a notification for likes on comments, until then, return nil
-    return nil if self.target_type == "Comment"
-    Notifications::Liked if self.target.author == user.person && user.person != person
+    # TODO(dan) need to have a notification for likes on comments, until then, return nil
+    return nil if target_type == 'Comment'
+    Notifications::Liked if target.author == user.person && user.person != person
   end
 end

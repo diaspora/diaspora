@@ -14,21 +14,22 @@ class Publisher
   end
 
   def open?
-    self.open
+    open
   end
 
   def public?
-    self.public
+    public
   end
 
   def explain?
-    self.explain
+    explain
   end
 
   private
+
   def formatted_message
-    if self.prefill.present?
-      sm = StatusMessage.new(:text => self.prefill)
+    if prefill.present?
+      sm = StatusMessage.new(text: prefill)
       Diaspora::Mentionable.format(sm.raw_message, sm.mentioned_people, plain_text: true)
     end
   end

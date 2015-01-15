@@ -2,7 +2,7 @@ class Notifications::Mentioned < Notification
   def mail_job
     Workers::Mail::Mentioned
   end
-  
+
   def popup_translation_key
     'notifications.mentioned'
   end
@@ -12,6 +12,6 @@ class Notifications::Mentioned < Notification
   end
 
   def linked_object
-    Mention.find(self.target_id).post
+    Mention.find(target_id).post
   end
 end

@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def changelog_url
-    url = "https://github.com/diaspora/diaspora/blob/master/Changelog.md"
+    url = 'https://github.com/diaspora/diaspora/blob/master/Changelog.md'
     url.sub!('/master/', "/#{AppConfig.git_revision}/") if AppConfig.git_revision.present?
     url
   end
@@ -21,12 +21,12 @@ module ApplicationHelper
     AppConfig.settings.source_url.presence || "#{root_path.chomp('/')}/source.tar.gz"
   end
 
-  def timeago(time, options={})
-    timeago_tag(time, options.merge(:class => 'timeago', :title => time.iso8601, :force => true)) if time
+  def timeago(time, options = {})
+    timeago_tag(time, options.merge(class: 'timeago', title: time.iso8601, force: true)) if time
   end
 
-  def bookmarklet_url( height = 400, width = 620)
-    "javascript:(function(){f='#{AppConfig.pod_uri.to_s}bookmarklet?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=yes,toolbar=no,width=#{width},height=#{height}'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
+  def bookmarklet_url(height = 400, width = 620)
+    "javascript:(function(){f='#{AppConfig.pod_uri}bookmarklet?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=yes,toolbar=no,width=#{width},height=#{height}'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
   end
 
   def contacts_link
@@ -42,7 +42,7 @@ module ApplicationHelper
   end
 
   def popover_with_close_html(without_close_html)
-    without_close_html + link_to(content_tag(:div, nil, :class => 'icons-deletelabel'), "#", :class => 'close')
+    without_close_html + link_to(content_tag(:div, nil, class: 'icons-deletelabel'), '#', class: 'close')
   end
 
   # Require jQuery from CDN if possible, falling back to vendored copy, and require
@@ -51,14 +51,14 @@ module ApplicationHelper
     buf = []
     if AppConfig.privacy.jquery_cdn?
       version = Jquery::Rails::JQUERY_VERSION
-      buf << [ javascript_include_tag("//code.jquery.com/jquery-#{version}.min.js") ]
-      buf << [ javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag("jquery")}'));") ]
+      buf << [javascript_include_tag("//code.jquery.com/jquery-#{version}.min.js")]
+      buf << [javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag('jquery')}'));")]
     else
-      buf << [ javascript_include_tag('jquery') ]
+      buf << [javascript_include_tag('jquery')]
     end
-    buf << [ javascript_include_tag('jquery_ujs') ]
-    buf << [ javascript_tag("jQuery.ajaxSetup({'cache': false});") ]
-    buf << [ javascript_tag("$.fx.off = true;") ] if Rails.env.test?
+    buf << [javascript_include_tag('jquery_ujs')]
+    buf << [javascript_tag("jQuery.ajaxSetup({'cache': false});")]
+    buf << [javascript_tag('$.fx.off = true;')] if Rails.env.test?
     buf.join("\n").html_safe
   end
 end

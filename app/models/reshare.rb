@@ -3,11 +3,10 @@
 #   the COPYRIGHT file.
 
 class Reshare < Post
-
-  belongs_to :root, :class_name => 'Post', :foreign_key => :root_guid, :primary_key => :guid
+  belongs_to :root, class_name: 'Post', foreign_key: :root_guid, primary_key: :guid
   validate :root_must_be_public
-  validates_presence_of :root, :on => :create
-  validates_uniqueness_of :root_guid, :scope => :author_id
+  validates_presence_of :root, on: :create
+  validates_uniqueness_of :root_guid, scope: :author_id
   delegate :author, to: :root, prefix: true
 
   xml_attr :root_diaspora_id
@@ -17,16 +16,16 @@ class Reshare < Post
     self.public = true
   end
 
-  after_commit :on => :create do
-    self.root.update_reshares_counter
+  after_commit on: :create do
+    root.update_reshares_counter
   end
 
   after_destroy do
-    self.root.update_reshares_counter if self.root.present?
+    root.update_reshares_counter if root.present?
   end
 
   def root_diaspora_id
-    self.root.author.diaspora_handle
+    root.author.diaspora_handle
   end
 
   delegate :o_embed_cache, :open_graph_cache,
@@ -50,7 +49,7 @@ class Reshare < Post
   end
 
   def receive(recipient, sender)
-    local_reshare = Reshare.where(:guid => self.guid).first
+    local_reshare = Reshare.where(guid: guid).first
     if local_reshare && local_reshare.root.author_id == recipient.person.id
       return unless recipient.has_contact_for?(sender)
     end
@@ -58,10 +57,10 @@ class Reshare < Post
   end
 
   def comment_email_subject
-    I18n.t('reshares.comment_email_subject', :resharer => author.name, :author => root.author_name)
+    I18n.t('reshares.comment_email_subject', resharer: author.name, author: root.author_name)
   end
 
-  def notification_type(user, person)
+  def notification_type(user, _person)
     Notifications::Reshared if root.try(:author) == user.person
   end
 
@@ -78,15 +77,15 @@ class Reshare < Post
       self.root = Diaspora::Fetcher::Single.find_or_fetch_from_remote root_guid, @root_diaspora_id do |fetched_post, author|
         # why do we check this?
         if fetched_post.diaspora_handle != author.diaspora_handle
-          raise Diaspora::PostNotFetchable, "Diaspora ID (#{fetched_post.diaspora_handle}) in the root does not match the Diaspora ID (#{author.diaspora_handle}) specified in the reshare!"
+          fail Diaspora::PostNotFetchable, "Diaspora ID (#{fetched_post.diaspora_handle}) in the root does not match the Diaspora ID (#{author.diaspora_handle}) specified in the reshare!"
         end
       end
     end
   end
 
   def root_must_be_public
-    if self.root && !self.root.public
-      errors[:base] << "Only posts which are public may be reshared."
+    if root && !root.public
+      errors[:base] << 'Only posts which are public may be reshared.'
       return false
     end
   end

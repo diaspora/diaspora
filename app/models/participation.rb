@@ -1,11 +1,11 @@
 class Participation < Federated::Relayable
   class Generator < Federated::Generator
     def self.federated_class
-     Participation
+      Participation
     end
 
     def relayable_options
-      {:target => @target}
+      { target: @target }
     end
   end
 

@@ -4,14 +4,14 @@
 
 require 'spec_helper'
 
-def with_carrierwave_processing(&block)
+def with_carrierwave_processing(&_block)
   UnprocessedImage.enable_processing = true
   val = yield
   UnprocessedImage.enable_processing = false
   val
 end
 
-describe Photo, :type => :model do
+describe Photo, type: :model do
   before do
     @user = alice
     @aspect = @user.aspects.first
@@ -20,9 +20,9 @@ describe Photo, :type => :model do
     @fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
-    @photo  = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
-    @photo2 = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
-    @saved_photo = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
+    @photo  = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
+    @photo2 = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
+    @saved_photo = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
     @saved_photo.save
   end
 
@@ -46,7 +46,7 @@ describe Photo, :type => :model do
     before do
       @image = File.open(@fixture_name)
       @photo = Photo.diaspora_initialize(
-                :author => @user.person, :user_file => @image)
+                author: @user.person, user_file: @image)
     end
 
     it 'sets the persons diaspora handle' do
@@ -59,26 +59,26 @@ describe Photo, :type => :model do
       allow(Photo).to receive(:new).and_return(photo_double)
 
       Photo.diaspora_initialize(
-        :author => @user.person, :user_file => @image)
+        author: @user.person, user_file: @image)
     end
 
-    context "with user file" do
+    context 'with user file' do
       it 'builds the photo without saving' do
         expect(@photo.created_at.nil?).to be true
         expect(@photo.unprocessed_image.read.nil?).to be false
       end
     end
 
-    context "with a url" do
+    context 'with a url' do
       it 'saves the photo' do
-        url = "https://service.com/user/profile_image"
+        url = 'https://service.com/user/profile_image'
 
         photo_double = double.as_null_object
         expect(photo_double).to receive(:remote_unprocessed_image_url=).with(url)
         allow(Photo).to receive(:new).and_return(photo_double)
 
         Photo.diaspora_initialize(
-                :author => @user.person, :image_url => url)
+                author: @user.person, image_url: url)
       end
     end
   end
@@ -87,15 +87,15 @@ describe Photo, :type => :model do
     before do
       image = File.open(@fixture_name)
       @photo = Photo.diaspora_initialize(
-                :author => @user.person, :user_file => image)
+                author: @user.person, user_file: image)
       @photo.processed_image.store!(@photo.unprocessed_image)
       @photo.save!
     end
     it 'sets a remote url' do
       @photo.update_remote_path
 
-      expect(@photo.remote_photo_path).to include("http")
-      expect(@photo.remote_photo_name).to include(".png")
+      expect(@photo.remote_photo_path).to include('http')
+      expect(@photo.remote_photo_name).to include('.png')
     end
   end
 
@@ -116,7 +116,7 @@ describe Photo, :type => :model do
       end
     end
     it 'should have text' do
-      @photo.text= "cool story, bro"
+      @photo.text = 'cool story, bro'
       expect(@photo.save).to be true
     end
 
@@ -131,7 +131,7 @@ describe Photo, :type => :model do
 
     it 'should not use the imported filename as the url' do
       expect(@photo.url).not_to include @fixture_filename
-      expect(@photo.url(:thumb_medium)).not_to include ("/" + @fixture_filename)
+      expect(@photo.url(:thumb_medium)).not_to include ('/' + @fixture_filename)
     end
 
     it 'should save the image dimensions' do
@@ -147,13 +147,12 @@ describe Photo, :type => :model do
         @photo.unprocessed_image.store! file
       }.to raise_error CarrierWave::IntegrityError, 'You are not allowed to upload "xml" files, allowed types: jpg, jpeg, png, gif'
     end
-
   end
 
   describe 'serialization' do
     before do
       @saved_photo = with_carrierwave_processing do
-         @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
+        @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
       end
       @xml = @saved_photo.to_xml.to_s
     end
@@ -180,9 +179,9 @@ describe Photo, :type => :model do
     end
 
     it 'should set the remote_photo on marshalling' do
-      #security hax
+      # security hax
       user2 = FactoryGirl.create(:user)
-      aspect2 = user2.aspects.create(:name => "foobars")
+      aspect2 = user2.aspects.create(name: 'foobars')
       connect_users(@user, @aspect, user2, aspect2)
 
       url = @saved_photo.url
@@ -191,19 +190,19 @@ describe Photo, :type => :model do
       xml = @saved_photo.to_diaspora_xml
 
       @saved_photo.destroy
-      zord = Postzord::Receiver::Private.new(user2, :person => @photo.author)
+      zord = Postzord::Receiver::Private.new(user2, person: @photo.author)
       zord.parse_and_receive(xml)
 
-      new_photo = Photo.where(:guid => @saved_photo.guid).first
+      new_photo = Photo.where(guid: @saved_photo.guid).first
       expect(new_photo.url.nil?).to be false
       expect(new_photo.url.include?(url)).to be true
       expect(new_photo.url(:thumb_medium).include?(thumb_url)).to be true
     end
   end
 
-  context "commenting" do
-    it "accepts comments if there is no parent status message" do
-      expect{ @user.comment!(@photo, "big willy style") }.to change(@photo.comments, :count).by(1)
+  context 'commenting' do
+    it 'accepts comments if there is no parent status message' do
+      expect { @user.comment!(@photo, 'big willy style') }.to change(@photo.comments, :count).by(1)
     end
   end
 
@@ -214,9 +213,9 @@ describe Photo, :type => :model do
     end
   end
 
-  context "deletion" do
+  context 'deletion' do
     before do
-      @status_message = @user.build_post(:status_message, :text => "", :to => @aspect.id)
+      @status_message = @user.build_post(:status_message, text: '', to: @aspect.id)
       @status_message.photos << @photo2
       @status_message.save
       @status_message.reload
@@ -235,7 +234,7 @@ describe Photo, :type => :model do
     end
 
     it 'will not delete parent status message if message had other content' do
-      @status_message.text = "Some text"
+      @status_message.text = 'Some text'
       @status_message.save
       @status_message.reload
 

@@ -10,22 +10,21 @@ class StatusMessage < Post
   acts_as_taggable_on :tags
   extract_tags_from :raw_message
 
-  validates_length_of :text, :maximum => 65535, :message => proc {|p, v| I18n.t('status_messages.too_long', :count => 65535, :current_length => v[:value].length)}
+  validates_length_of :text, maximum: 65_535, message: proc { |_p, v| I18n.t('status_messages.too_long', count: 65_535, current_length: v[:value].length) }
 
   # don't allow creation of empty status messages
   validate :presence_of_content, on: :create, if: proc { |sm| sm.author.local? }
 
   xml_name :status_message
   xml_attr :raw_message
-  xml_attr :photos, :as => [Photo]
-  xml_attr :location, :as => Location
-  xml_attr :poll, :as => Poll
+  xml_attr :photos, as: [Photo]
+  xml_attr :location, as: Location
+  xml_attr :poll, as: Poll
 
-  has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
+  has_many :photos, dependent: :destroy, foreign_key: :status_message_guid, primary_key: :guid
 
   has_one :location
   has_one :poll, autosave: true
-
 
   # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
   # therefore, we put the validation in a before_destory callback instead of a validation
@@ -36,26 +35,26 @@ class StatusMessage < Post
 
   before_create :filter_mentions
   after_create :create_mentions
-  after_commit :queue_gather_oembed_data, :on => :create, :if => :contains_oembed_url_in_text?
-  after_commit :queue_gather_open_graph_data, :on => :create, :if => :contains_open_graph_url_in_text?
+  after_commit :queue_gather_oembed_data, on: :create, if: :contains_oembed_url_in_text?
+  after_commit :queue_gather_open_graph_data, on: :create, if: :contains_open_graph_url_in_text?
 
-  #scopes
+  # scopes
   scope :where_person_is_mentioned, ->(person) {
-    joins(:mentions).where(:mentions => {:person_id => person.id})
+    joins(:mentions).where(mentions: { person_id: person.id })
   }
 
   def self.guids_for_author(person)
-    Post.connection.select_values(Post.where(:author_id => person.id).select('posts.guid').to_sql)
+    Post.connection.select_values(Post.where(author_id: person.id).select('posts.guid').to_sql)
   end
 
   def self.user_tag_stream(user, tag_ids)
-    owned_or_visible_by_user(user).
-      tag_stream(tag_ids)
+    owned_or_visible_by_user(user)
+      .tag_stream(tag_ids)
   end
 
   def self.public_tag_stream(tag_ids)
-    all_public.
-      tag_stream(tag_ids)
+    all_public
+      .tag_stream(tag_ids)
   end
 
   def raw_message
@@ -68,11 +67,11 @@ class StatusMessage < Post
 
   def attach_photos_by_ids(photo_ids)
     return [] unless photo_ids.present?
-    self.photos << Photo.where(:id => photo_ids, :author_id => self.author_id)
+    photos << Photo.where(id: photo_ids, author_id: author_id)
   end
 
   def nsfw
-    self.raw_message.match(/#nsfw/i) || super
+    raw_message.match(/#nsfw/i) || super
   end
 
   def message
@@ -81,24 +80,24 @@ class StatusMessage < Post
 
   def mentioned_people
     if self.persisted?
-      create_mentions if self.mentions.empty?
-      self.mentions.includes(:person => :profile).map{ |mention| mention.person }
+      create_mentions if mentions.empty?
+      mentions.includes(person: :profile).map(&:person)
     else
-      Diaspora::Mentionable.people_from_string(self.raw_message)
+      Diaspora::Mentionable.people_from_string(raw_message)
     end
   end
 
   ## TODO ----
   # don't put presentation logic in the model!
   def mentioned_people_names
-    self.mentioned_people.map(&:name).join(', ')
+    mentioned_people.map(&:name).join(', ')
   end
   ## ---- ----
 
   def create_mentions
-    ppl = Diaspora::Mentionable.people_from_string(self.raw_message)
+    ppl = Diaspora::Mentionable.people_from_string(raw_message)
     ppl.each do |person|
-      self.mentions.find_or_create_by(person_id: person.id)
+      mentions.find_or_create_by(person_id: person.id)
     end
   end
 
@@ -107,23 +106,26 @@ class StatusMessage < Post
   end
 
   def notify_person(person)
-    self.mentions.where(:person_id => person.id).first.try(:notify_recipient)
+    mentions.where(person_id: person.id).first.try(:notify_recipient)
   end
 
   def after_dispatch(sender)
-    self.update_and_dispatch_attached_photos(sender)
+    update_and_dispatch_attached_photos(sender)
   end
 
   def update_and_dispatch_attached_photos(sender)
-    if self.photos.any?
-      Photo.where(status_message_guid: guid).update_all(:public => self.public)
-      self.photos.each do |photo|
+    if photos.any?
+
+      Photo.where(status_message_guid: guid).update_all(public: public
+
+)
+      photos.each do |photo|
         if photo.pending
-          sender.add_to_streams(photo, self.aspects)
+          sender.add_to_streams(photo, aspects)
           sender.dispatch_post(photo)
         end
       end
-      Photo.where(status_message_guid: guid).update_all(:pending => false)
+      Photo.where(status_message_guid: guid).update_all(pending: false)
     end
   end
 
@@ -136,25 +138,25 @@ class StatusMessage < Post
   end
 
   def text_and_photos_blank?
-    self.raw_message.blank? && self.photos.blank?
+    raw_message.blank? && photos.blank?
   end
 
   def queue_gather_oembed_data
-    Workers::GatherOEmbedData.perform_async(self.id, self.oembed_url)
+    Workers::GatherOEmbedData.perform_async(id, oembed_url)
   end
 
   def queue_gather_open_graph_data
-    Workers::GatherOpenGraphData.perform_async(self.id, self.open_graph_url)
+    Workers::GatherOpenGraphData.perform_async(id, open_graph_url)
   end
 
   def contains_oembed_url_in_text?
-    urls = self.message.urls
-    self.oembed_url = urls.find{ |url| !TRUSTED_OEMBED_PROVIDERS.find(url).nil? }
+    urls = message.urls
+    self.oembed_url = urls.find { |url| !TRUSTED_OEMBED_PROVIDERS.find(url).nil? }
   end
 
   def contains_open_graph_url_in_text?
     return nil if self.contains_oembed_url_in_text?
-    self.open_graph_url = self.message.urls[0]
+    self.open_graph_url = message.urls[0]
   end
 
   def address
@@ -162,28 +164,30 @@ class StatusMessage < Post
   end
 
   protected
+
   def presence_of_content
     if text_and_photos_blank?
-      errors[:base] << "Cannot create a StatusMessage without content"
+      errors[:base] << 'Cannot create a StatusMessage without content'
     end
   end
 
   def absence_of_content
     unless text_and_photos_blank?
-      errors[:base] << "Cannot destory a StatusMessage with text and/or photos present"
+      errors[:base] << 'Cannot destory a StatusMessage with text and/or photos present'
     end
   end
 
   def filter_mentions
-    return if self.public? || self.aspects.empty?
+    return if self.public? || aspects.empty?
 
-    author_usr = self.author.try(:owner)
-    aspect_ids = self.aspects.map(&:id)
+    author_usr = author.try(:owner)
+    aspect_ids = aspects.map(&:id)
 
-    self.raw_message = Diaspora::Mentionable.filter_for_aspects(self.raw_message, author_usr, *aspect_ids)
+    self.raw_message = Diaspora::Mentionable.filter_for_aspects(raw_message, author_usr, *aspect_ids)
   end
 
   private
+
   def self.tag_stream(tag_ids)
     joins(:taggings).where('taggings.tag_id IN (?)', tag_ids)
   end
@@ -193,4 +197,3 @@ class StatusMessage < Post
     self.photos = photos.select(&:valid?)
   end
 end
-

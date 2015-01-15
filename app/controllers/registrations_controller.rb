@@ -5,7 +5,7 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :check_registrations_open_or_valid_invite!, :check_valid_invite!
 
-  layout ->(c) { request.format == :mobile ? "application" : "with_header" }, :only => [:new]
+  layout ->(_c) { request.format == :mobile ? 'application' : 'with_header' }, only: [:new]
   before_action -> { @css_framework = :bootstrap }, only: [:new, :create]
 
   def create
@@ -20,9 +20,9 @@ class RegistrationsController < Devise::RegistrationsController
     else
       @user.errors.delete(:person)
 
-      flash[:error] = @user.errors.full_messages.join(" - ")
+      flash[:error] = @user.errors.full_messages.join(' - ')
       Rails.logger.info("event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'")
-      render :action => 'new', :layout => 'with_header'
+      render action: 'new', layout: 'with_header'
     end
   end
 
@@ -33,7 +33,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def check_valid_invite!
-    return true if AppConfig.settings.enable_registrations? #this sucks
+    return true if AppConfig.settings.enable_registrations? # this sucks
     return true if invite && invite.can_be_used?
     flash[:error] = t('registrations.invalid_invite')
     redirect_to new_user_session_path

@@ -6,7 +6,7 @@ class UnprocessedImage < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   def store_dir
-    "uploads/images"
+    'uploads/images'
   end
 
   def extension_white_list
@@ -30,7 +30,7 @@ class UnprocessedImage < CarrierWave::Uploader::Base
   version :thumb_medium
   version :thumb_large
   version :scaled_full do
-    process :get_version_dimensions 
+    process :get_version_dimensions
   end
 
   def get_version_dimensions

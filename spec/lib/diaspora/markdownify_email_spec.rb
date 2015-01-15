@@ -7,22 +7,22 @@ describe Diaspora::Markdownify::Email do
     end
 
     it 'should autolink a hashtag' do
-      markdownified = @html.preprocess("#tag")
-      expect(markdownified).to eq("[#tag](http://localhost:9887/tags/tag)")
+      markdownified = @html.preprocess('#tag')
+      expect(markdownified).to eq('[#tag](http://localhost:9887/tags/tag)')
     end
 
     it 'should autolink multiple hashtags' do
-      markdownified = @html.preprocess("There are #two #Tags")
-      expect(markdownified).to eq("There are [#two](http://localhost:9887/tags/two) [#Tags](http://localhost:9887/tags/tags)")
+      markdownified = @html.preprocess('There are #two #Tags')
+      expect(markdownified).to eq('There are [#two](http://localhost:9887/tags/two) [#Tags](http://localhost:9887/tags/tags)')
     end
 
     it 'should not autolink headers' do
-      markdownified = @html.preprocess("# header")
-      expect(markdownified).to eq("# header")
+      markdownified = @html.preprocess('# header')
+      expect(markdownified).to eq('# header')
     end
   end
 
-  describe "Markdown rendering" do
+  describe 'Markdown rendering' do
     before do
       @markdown = Redcarpet::Markdown.new(Diaspora::Markdownify::Email)
       @sample_text = "# Header\n\n#messages containing #hashtags should render properly"

@@ -11,7 +11,7 @@ gem 'actionpack-page_caching'
 
 # Appserver
 
-gem 'unicorn', '4.8.3', :require => false
+gem 'unicorn', '4.8.3', require: false
 
 # API and JSON
 
@@ -26,7 +26,7 @@ gem 'devise-token_authenticatable', '~> 0.3.0'
 
 # Captcha
 
-gem 'simple_captcha2', '0.3.2', :require => 'simple_captcha'
+gem 'simple_captcha2', '0.3.2', require: 'simple_captcha'
 
 # Background processing
 
@@ -47,7 +47,7 @@ gem 'configurate', '0.2.0'
 
 # Cross-origin resource sharing
 
-gem 'rack-cors', '0.2.9', :require => 'rack/cors'
+gem 'rack-cors', '0.2.9', require: 'rack/cors'
 
 # CSS
 
@@ -125,7 +125,6 @@ gem 'roxml',             '3.1.6'
 gem 'ruby-oembed',       '0.8.11'
 gem 'open_graph_reader', '0.4.0'
 
-
 # Services
 
 gem 'omniauth',          '1.2.2'
@@ -133,7 +132,7 @@ gem 'omniauth-facebook', '1.6.0'
 gem 'omniauth-tumblr',   '1.1'
 gem 'omniauth-twitter',  '1.0.1'
 gem 'twitter',           '4.8.1'
-gem 'omniauth-wordpress','0.2.1'
+gem 'omniauth-wordpress', '0.2.1'
 
 # XMPP chat dependencies
 gem 'diaspora-vines',             '~> 0.1.25'
@@ -145,7 +144,7 @@ gem 'acts-as-taggable-on', '3.4.2'
 
 # URIs and HTTP
 
-gem 'addressable',        '2.3.6', :require => 'addressable/uri'
+gem 'addressable',        '2.3.6', require: 'addressable/uri'
 gem 'faraday',            '0.9.0'
 gem 'faraday_middleware', '0.9.1'
 gem 'faraday-cookie_jar', '0.0.6'
@@ -181,7 +180,6 @@ gem 'active_model_serializers'
 # gem 'therubyracer', :platform => :ruby
 
 group :production do # we don't install these on travis to speed up test runs
-
   # Administration
 
   gem 'rails_admin', '0.6.5'
@@ -189,7 +187,7 @@ group :production do # we don't install these on travis to speed up test runs
   # Analytics
 
   gem 'rack-google-analytics', '1.2.0'
-  gem 'rack-piwik',            '0.3.0',  :require => 'rack/piwik'
+  gem 'rack-piwik',            '0.3.0',  require: 'rack/piwik'
 
   # Click-jacking protection
 
@@ -201,21 +199,22 @@ group :production do # we don't install these on travis to speed up test runs
 
   # Redirects
 
-  gem 'rack-rewrite', '1.5.0', :require => false
-  gem 'rack-ssl',     '1.4.1', :require => 'rack/ssl'
+  gem 'rack-rewrite', '1.5.0', require: false
+  gem 'rack-ssl',     '1.4.1', require: 'rack/ssl'
 
   # Third party asset hosting
 
-  gem 'asset_sync', '1.1.0', :require => false
+  gem 'asset_sync', '1.1.0', require: false
 end
 
 group :development do
   # Automatic test runs
   gem 'guard-cucumber', '1.5.1'
   gem 'guard-rspec',    '4.3.1'
-  gem 'guard',          '2.10.0', :require => false
-  gem 'rb-fsevent',     '0.9.4', :require => false
-  gem 'rb-inotify',     '0.9.5', :require => false
+  gem 'guard',          '2.10.0', require: false
+  gem 'rb-fsevent',     '0.9.4', require: false
+  gem 'rb-inotify',     '0.9.5', require: false
+  gem 'rubocop',        '0.28.0', require: false
 
   # Preloading environment
 
@@ -234,7 +233,7 @@ group :test do
 
   gem 'fixture_builder',   '0.3.6'
   gem 'fuubar',            '2.0.0'
-  gem 'rspec-instafail',   '0.2.5', :require => false
+  gem 'rspec-instafail',   '0.2.5', require: false
   gem 'test_after_commit', '0.4.0'
 
   # Cucumber (integration tests)
@@ -247,16 +246,15 @@ group :test do
 
   gem 'factory_girl_rails', '4.5.0'
   gem 'timecop',            '0.7.1'
-  gem 'webmock',            '1.20.4', :require => false
+  gem 'webmock',            '1.20.4', require: false
 end
-
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
   gem 'rspec-rails',     '3.1.0'
 
   # Cucumber (integration tests)
-  gem 'cucumber-rails',     '1.4.2', :require => false
+  gem 'cucumber-rails',     '1.4.2', require: false
 
   # Jasmine (client side application tests (JS))
   gem 'jasmine',              '2.1.0'

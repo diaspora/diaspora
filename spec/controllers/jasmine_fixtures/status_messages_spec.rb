@@ -4,16 +4,15 @@
 
 require 'spec_helper'
 
-describe StatusMessagesController, :type => :controller do
+describe StatusMessagesController, type: :controller do
   describe '#bookmarklet' do
     before do
       sign_in :user, bob
     end
 
-    it "generates a jasmine fixture", :fixture => true do
+    it 'generates a jasmine fixture', fixture: true do
       get :bookmarklet
-      save_fixture(html_for("body"), "bookmarklet")
+      save_fixture(html_for('body'), 'bookmarklet')
     end
-
   end
 end

@@ -33,7 +33,7 @@ STR
 
       it 'should work correct when message is escaped html' do
         raw_msg = @status_msg.raw_message
-        fmt_msg = Diaspora::Mentionable.format(CGI::escapeHTML(raw_msg), @people)
+        fmt_msg = Diaspora::Mentionable.format(CGI.escapeHTML(raw_msg), @people)
 
         @people.each do |person|
           expect(fmt_msg).to include person_link(person, class: 'mention hovercardable')
@@ -48,7 +48,7 @@ STR
         fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people)
 
         expect(fmt_msg).not_to include(p.first_name)
-        expect(fmt_msg).to include("&gt;", "&lt;", "&#39;") # ">", "<", "'"
+        expect(fmt_msg).to include('&gt;', '&lt;', '&#39;') # ">", "<", "'"
       end
     end
 
@@ -59,7 +59,7 @@ STR
         @people.each do |person|
           expect(fmt_msg).to include person.first_name
         end
-        expect(fmt_msg).not_to include "<a", "</a>", "hovercardable"
+        expect(fmt_msg).not_to include '<a', '</a>', 'hovercardable'
       end
     end
 
@@ -77,12 +77,12 @@ STR
 
     describe 'returns an empty array if nobody was found' do
       it 'gets a post without mentions' do
-        ppl = Diaspora::Mentionable.people_from_string("post w/o mentions")
+        ppl = Diaspora::Mentionable.people_from_string('post w/o mentions')
         expect(ppl).to be_empty
       end
 
       it 'gets a post with invalid handles' do
-        ppl = Diaspora::Mentionable.people_from_string("@{a; xxx@xxx.xx} @{b; yyy@yyyy.yyy}")
+        ppl = Diaspora::Mentionable.people_from_string('@{a; xxx@xxx.xx} @{b; yyy@yyyy.yyy}')
         expect(ppl).to be_empty
       end
     end
@@ -90,9 +90,9 @@ STR
 
   describe '#filter_for_aspects' do
     before do
-      @user_A = FactoryGirl.create(:user_with_aspect, :username => "user_a")
-      @user_B = FactoryGirl.create(:user, :username => "user_b")
-      @user_C = FactoryGirl.create(:user, :username => "user_c")
+      @user_A = FactoryGirl.create(:user_with_aspect, username: 'user_a')
+      @user_B = FactoryGirl.create(:user, username: 'user_b')
+      @user_C = FactoryGirl.create(:user, username: 'user_c')
 
       @user_A.aspects.create!(name: 'second')
 
@@ -113,7 +113,7 @@ STR
 
       expect(txt).to include(@user_C.person.name)
       expect(txt).to include(local_or_remote_person_path(@user_C.person))
-      expect(txt).not_to include("href")
+      expect(txt).not_to include('href')
       expect(txt).not_to include(@mention_C)
     end
 
@@ -121,12 +121,12 @@ STR
       aspect_id = @user_A.aspects.where(name: 'generic').first.id
       txt = Diaspora::Mentionable.filter_for_aspects(@test_txt_B, @user_A, aspect_id)
 
-      expect(txt).to include("user B")
+      expect(txt).to include('user B')
       expect(txt).to include(@mention_B)
     end
 
     it 'recognizes "all" as keyword for aspects' do
-      txt = Diaspora::Mentionable.filter_for_aspects(@test_txt_BC, @user_A, "all")
+      txt = Diaspora::Mentionable.filter_for_aspects(@test_txt_BC, @user_A, 'all')
 
       expect(txt).to include(@mention_B)
       expect(txt).to include(@mention_C)

@@ -11,8 +11,9 @@ class SpecDoc
     escaped = string.gsub("'", "\\'")
     @html.xpath("//*[contains(text(), '#{escaped}')]").any?
   end
+
   def has_no_content?(string)
-    ! has_content?(string)
+    !has_content?(string)
   end
 
   def has_link?(text)

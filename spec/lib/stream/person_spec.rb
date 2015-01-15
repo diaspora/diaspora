@@ -3,18 +3,18 @@ require Rails.root.join('spec', 'shared_behaviors', 'stream')
 
 describe Stream::Person do
   before do
-    @stream = Stream::Person.new(alice, bob.person, :max_time => Time.now, :order => 'updated_at')
+    @stream = Stream::Person.new(alice, bob.person, max_time: Time.now, order: 'updated_at')
   end
 
   describe 'shared behaviors' do
     it_should_behave_like 'it is a stream'
   end
 
-  it "returns the most recent posts" do
+  it 'returns the most recent posts' do
     skip # this randomly fails on postgres
     posts = []
     fetched_posts = []
-    
+
     aspect = bob.aspects.first.id
     Timecop.scale(600) do
       16.times do |n|
@@ -30,5 +30,4 @@ describe Stream::Person do
 
     expect(fetched_posts).to eq(posts)
   end
-
 end

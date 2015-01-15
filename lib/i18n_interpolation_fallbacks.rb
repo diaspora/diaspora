@@ -3,7 +3,7 @@ module I18n
     module InterpolationFallbacks
       def translate(locale, key, options = {})
         default = extract_non_symbol_default!(options) if options[:default]
-        options.merge!(:default => default) if default
+        options.merge!(default: default) if default
 
         original_exception = nil
 
@@ -17,7 +17,7 @@ module I18n
         end
 
         return super(locale, nil, options) if default
-        raise original_exception
+        fail original_exception
       end
     end
   end

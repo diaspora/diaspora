@@ -7,12 +7,12 @@ class BasePresenter
       super *args
     end
 
-    def as_collection(collection, method=:as_json, *args)
-      collection.map{|object| self.new(object, *args).send(method) }
+    def as_collection(collection, method = :as_json, *args)
+      collection.map { |object| new(object, *args).send(method) }
     end
   end
 
-  def initialize(presentable, curr_user=nil)
+  def initialize(presentable, curr_user = nil)
     @presentable = presentable
     @current_user = curr_user
   end
@@ -22,7 +22,7 @@ class BasePresenter
   end
 
   class NilPresenter
-    def method_missing(method, *args)
+    def method_missing(_method, *_args)
       nil
     end
   end

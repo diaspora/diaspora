@@ -4,58 +4,58 @@
 
 require 'spec_helper'
 
-describe "i18n interpolation fallbacks" do
-  describe "when string does not require interpolation arguments" do
-    it "works normally" do
+describe 'i18n interpolation fallbacks' do
+  describe 'when string does not require interpolation arguments' do
+    it 'works normally' do
       expect(I18n.t('user.invalid',
-             :resource_name => "user",
-             :scope => "devise.failure",
-             :default => [:invalid, "invalid"])).to eq("Invalid username or password.")
+                    resource_name: 'user',
+                    scope: 'devise.failure',
+                    default: [:invalid, 'invalid'])).to eq('Invalid username or password.')
     end
   end
-  describe "when string requires interpolation arguments" do
-    context "current locale has no fallbacks" do
+  describe 'when string requires interpolation arguments' do
+    context 'current locale has no fallbacks' do
       # ago: "%{time} ago" (in en.yml)
-      it "returns the translation when all arguments are provided" do
-        expect(I18n.t('ago', :time => "2 months")).to eq("2 months ago")
+      it 'returns the translation when all arguments are provided' do
+        expect(I18n.t('ago', time: '2 months')).to eq('2 months ago')
       end
-      it "returns the translation without substitution when all arguments are omitted" do
-        expect(I18n.t('ago')).to eq("%{time} ago")
+      it 'returns the translation without substitution when all arguments are omitted' do
+        expect(I18n.t('ago')).to eq('%{time} ago')
       end
-      it "raises a MissingInterpolationArgument when arguments are wrong" do
-        expect { I18n.t('ago', :not_time => "2 months") }.to raise_exception(I18n::MissingInterpolationArgument)
+      it 'raises a MissingInterpolationArgument when arguments are wrong' do
+        expect { I18n.t('ago', not_time: '2 months') }.to raise_exception(I18n::MissingInterpolationArgument)
       end
     end
-    context "current locale falls back to English" do
+    context 'current locale falls back to English' do
       before do
         @old_locale = I18n.locale
         I18n.locale = 'it'
-        I18n.backend.store_translations('it', {"nonexistant_key" => "%{random_key} here is some Italian"})
+        I18n.backend.store_translations('it', 'nonexistant_key' => '%{random_key} here is some Italian')
       end
       after do
         I18n.locale = @old_locale
       end
-      describe "when all arguments are provided" do
+      describe 'when all arguments are provided' do
         it "returns the locale's translation" do
-          expect(I18n.t('nonexistant_key', :random_key => "Hi Alex,")).to eq("Hi Alex, here is some Italian")
+          expect(I18n.t('nonexistant_key', random_key: 'Hi Alex,')).to eq('Hi Alex, here is some Italian')
         end
       end
-      describe "when no arguments are provided" do
+      describe 'when no arguments are provided' do
         it "returns the locale's translation without substitution" do
-          expect(I18n.t('nonexistant_key')).to eq("%{random_key} here is some Italian")
+          expect(I18n.t('nonexistant_key')).to eq('%{random_key} here is some Italian')
         end
       end
-      describe "when arguments are wrong" do
-        describe "when the English translation works" do
-          it "falls back to English" do
-            I18n.backend.store_translations('en', {"nonexistant_key" => "Working English translation"})
-            expect(I18n.t('nonexistant_key', :hey => "what")).to eq("Working English translation")
+      describe 'when arguments are wrong' do
+        describe 'when the English translation works' do
+          it 'falls back to English' do
+            I18n.backend.store_translations('en', 'nonexistant_key' => 'Working English translation')
+            expect(I18n.t('nonexistant_key', hey: 'what')).to eq('Working English translation')
           end
         end
-        describe "when the English translation does not work" do
-          it "raises a MissingInterpolationArgument" do
-            I18n.backend.store_translations('en', {"nonexistant_key" => "%{random_key} also required, so this will fail"})
-            expect { I18n.t('nonexistant_key', :hey => "what") }.to raise_exception(I18n::MissingInterpolationArgument)
+        describe 'when the English translation does not work' do
+          it 'raises a MissingInterpolationArgument' do
+            I18n.backend.store_translations('en', 'nonexistant_key' => '%{random_key} also required, so this will fail')
+            expect { I18n.t('nonexistant_key', hey: 'what') }.to raise_exception(I18n::MissingInterpolationArgument)
           end
         end
       end

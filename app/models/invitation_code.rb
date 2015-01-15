@@ -6,27 +6,27 @@ class InvitationCode < ActiveRecord::Base
   before_create :generate_token, :set_default_invite_count
 
   delegate :name, to: :user, prefix: true
-  
+
   def to_param
-    token 
+    token
   end
 
   def can_be_used?
-    self.count > 0
+    count > 0
   end
 
   def add_invites!
-    self.update_attributes(:count => self.count+100)
+    update_attributes(count: count + 100)
   end
 
   def use!
-    self.update_attributes(:count => self.count-1)
+    update_attributes(count: count - 1)
   end
 
   def generate_token
     begin
       self.token = SecureRandom.hex(6)
-    end while InvitationCode.exists?(:token => self[:token])
+    end while InvitationCode.exists?(token: self[:token])
   end
 
   def self.default_inviter_or(user)

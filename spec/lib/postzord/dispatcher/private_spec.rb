@@ -5,7 +5,6 @@
 require 'spec_helper'
 
 describe Postzord::Dispatcher::Private do
-
   describe '#salmon' do
   end
 

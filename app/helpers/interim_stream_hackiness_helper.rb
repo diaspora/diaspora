@@ -25,7 +25,7 @@ module InterimStreamHackinessHelper
     if params[:prefill].present?
       params[:prefill]
     elsif defined?(@stream)
-      @stream.publisher.prefill 
+      @stream.publisher.prefill
     else
       nil
     end
@@ -35,7 +35,7 @@ module InterimStreamHackinessHelper
     if defined?(@stream) && params[:controller] == 'multis'
       @stream.post_from_group(post)
     else
-     []
+      []
     end
   end
 

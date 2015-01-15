@@ -15,14 +15,14 @@ class Photo < ActiveRecord::Base
     t.add :created_at
     t.add :author
     t.add lambda { |photo|
-      { :small => photo.url(:thumb_small),
-        :medium => photo.url(:thumb_medium),
-        :large => photo.url(:scaled_full) }
-    }, :as => :sizes
+      { small: photo.url(:thumb_small),
+        medium: photo.url(:thumb_medium),
+        large: photo.url(:scaled_full) }
+    }, as: :sizes
     t.add lambda { |photo|
-      { :height => photo.height,
-        :width => photo.width }
-    }, :as => :dimensions
+      { height: photo.height,
+        width: photo.width }
+    }, as: :dimensions
   end
 
   mount_uploader :processed_image, ProcessedImage
@@ -37,7 +37,7 @@ class Photo < ActiveRecord::Base
   xml_attr :height
   xml_attr :width
 
-  belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
+  belongs_to :status_message, foreign_key: :status_message_guid, primary_key: :guid
   validates_associated :status_message
   delegate :author_name, to: :status_message, prefix: true
 
@@ -46,34 +46,33 @@ class Photo < ActiveRecord::Base
   before_destroy :ensure_user_picture
   after_destroy :clear_empty_status_message
 
-  after_commit :on => :create do
-    queue_processing_job if self.author.local?
-
+  after_commit on: :create do
+    queue_processing_job if author.local?
   end
 
   scope :on_statuses, ->(post_guids) {
-    where(:status_message_guid => post_guids)
+    where(status_message_guid: post_guids)
   }
 
   def clear_empty_status_message
-    if self.status_message && self.status_message.text_and_photos_blank?
-      self.status_message.destroy
+    if status_message && status_message.text_and_photos_blank?
+      status_message.destroy
     else
       true
     end
   end
 
   def ownership_of_status_message
-    message = StatusMessage.find_by_guid(self.status_message_guid)
-    if self.status_message_guid && message
-      self.diaspora_handle == message.diaspora_handle
+    message = StatusMessage.find_by_guid(status_message_guid)
+    if status_message_guid && message
+      diaspora_handle == message.diaspora_handle
     else
       true
     end
   end
 
   def self.diaspora_initialize(params = {})
-    photo = self.new params.to_hash.slice(:text, :pending)
+    photo = new params.to_hash.slice(:text, :pending)
     photo.author = params[:author]
     photo.public = params[:public] if params[:public]
     photo.pending = params[:pending] if params[:pending]
@@ -100,10 +99,10 @@ class Photo < ActiveRecord::Base
   end
 
   def update_remote_path
-    unless self.unprocessed_image.url.match(/^https?:\/\//)
-      remote_path = "#{AppConfig.pod_uri.to_s.chomp("/")}#{self.unprocessed_image.url}"
+    unless unprocessed_image.url.match(/^https?:\/\//)
+      remote_path = "#{AppConfig.pod_uri.to_s.chomp('/')}#{unprocessed_image.url}"
     else
-      remote_path = self.unprocessed_image.url
+      remote_path = unprocessed_image.url
     end
 
     name_start = remote_path.rindex '/'
@@ -128,15 +127,15 @@ class Photo < ActiveRecord::Base
   end
 
   def ensure_user_picture
-    profiles = Profile.where(:image_url => url(:thumb_large))
-    profiles.each { |profile|
+    profiles = Profile.where(image_url: url(:thumb_large))
+    profiles.each do |profile|
       profile.image_url = nil
       profile.save
-    }
+    end
   end
 
   def queue_processing_job
-    Workers::ProcessPhoto.perform_async(self.id)
+    Workers::ProcessPhoto.perform_async(id)
   end
 
   def mutable?

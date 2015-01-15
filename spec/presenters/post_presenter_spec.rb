@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PostPresenter do
   before do
-    @sm = FactoryGirl.create(:status_message, :public => true)
+    @sm = FactoryGirl.create(:status_message, public: true)
     @sm_with_poll = FactoryGirl.create(:status_message_with_poll, public: true)
     @presenter = PostPresenter.new(@sm, bob)
     @unauthenticated_presenter = PostPresenter.new(@sm)
@@ -48,25 +48,25 @@ describe PostPresenter do
     it 'does not raise if the absolute_root does not exists' do
       first_reshare = FactoryGirl.create :reshare
       first_reshare.root = nil
-      reshare = FactoryGirl.create :reshare, :root => first_reshare
+      reshare = FactoryGirl.create :reshare, root: first_reshare
 
-      expect {
+      expect do
         PostPresenter.new(reshare).root
-      }.to_not raise_error
+      end.to_not raise_error
     end
 
     it 'does not raise if the root does not exists' do
-      reshare = FactoryGirl.create:reshare
+      reshare = FactoryGirl.create :reshare
       reshare.root = nil
-      expect {
+      expect do
         PostPresenter.new(reshare).root
-      }.to_not raise_error
+      end.to_not raise_error
     end
   end
 
   describe '#title' do
     context 'with posts with text' do
-      it "delegates to message.title" do
+      it 'delegates to message.title' do
         message = double(present?: true)
         expect(message).to receive(:title)
         @presenter.post = double(message: message)

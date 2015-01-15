@@ -3,30 +3,30 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require Rails.root.join("spec", "shared_behaviors", "relayable")
+require Rails.root.join('spec', 'shared_behaviors', 'relayable')
 
 describe RelayableRetraction do
   before do
     @local_luke, @local_leia, @remote_raphael = set_up_friends
-    @remote_parent = FactoryGirl.build(:status_message, :author => @remote_raphael)
-    @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
+    @remote_parent = FactoryGirl.build(:status_message, author: @remote_raphael)
+    @local_parent = @local_luke.post :status_message, text: 'hi', to: @local_luke.aspects.first
   end
 
-  context "when retracting a comment" do
+  context 'when retracting a comment' do
     before do
-      @comment= @local_luke.comment!(@local_parent, "yo")
-      @retraction= @local_luke.retract(@comment)
+      @comment = @local_luke.comment!(@local_parent, 'yo')
+      @retraction = @local_luke.retract(@comment)
     end
 
-    describe "#parent" do
-      it "delegates to to target" do
+    describe '#parent' do
+      it 'delegates to to target' do
         expect(@retraction.target).to receive(:parent)
         @retraction.parent
       end
     end
 
-    describe "#parent_author" do
-      it "delegates to target" do
+    describe '#parent_author' do
+      it 'delegates to target' do
         expect(@retraction.target).to receive(:parent_author)
         @retraction.parent_author
       end
@@ -34,7 +34,7 @@ describe RelayableRetraction do
 
     describe '#subscribers' do
       it 'delegates it to target' do
-        arg = double()
+        arg = double
         expect(@retraction.target).to receive(:subscribers).with(arg)
         @retraction.subscribers(arg)
       end
@@ -43,8 +43,8 @@ describe RelayableRetraction do
 
   describe '#receive' do
     it 'discards a retraction with a nil target' do
-      @comment= @local_luke.comment!(@local_parent, "yo")
-      @retraction= @local_luke.retract(@comment)
+      @comment = @local_luke.comment!(@local_parent, 'yo')
+      @retraction = @local_luke.retract(@comment)
 
       @retraction.instance_variable_set(:@target, nil)
       @retraction.target_guid = '135245'
@@ -54,7 +54,7 @@ describe RelayableRetraction do
 
     context 'from the downstream author' do
       before do
-        @comment = @local_leia.comment!(@local_parent, "yo")
+        @comment = @local_leia.comment!(@local_parent, 'yo')
         @retraction = @local_leia.retract(@comment)
         @recipient = @local_luke
       end
@@ -67,7 +67,7 @@ describe RelayableRetraction do
       end
 
       it 'dispatches' do
-        zord = double()
+        zord = double
         expect(zord).to receive(:post)
         expect(Postzord::Dispatcher).to receive(:build).with(@local_luke, @retraction).and_return zord
         @retraction.receive(@recipient, @comment.author)
@@ -81,7 +81,7 @@ describe RelayableRetraction do
 
     context 'from the upstream owner' do
       before do
-        @comment = @local_luke.comment!(@remote_parent, "Yeah, it was great")
+        @comment = @local_luke.comment!(@remote_parent, 'Yeah, it was great')
         @retraction = described_class.allocate
         @retraction.sender = @remote_raphael
         @retraction.target = @comment
@@ -101,16 +101,16 @@ describe RelayableRetraction do
 
       it 'performs through postzord' do
         xml = Salmon::Slap.create_by_user_and_activity(@local_luke, @retraction.to_diaspora_xml).xml_for(nil)
-        expect {
+        expect do
           Postzord::Receiver::Public.new(xml).perform!
-        }.to change(Comment, :count).by(-1)
+        end.to change(Comment, :count).by(-1)
       end
     end
   end
 
   describe 'xml' do
     before do
-      @comment = @local_leia.comment!(@local_parent, "yo")
+      @comment = @local_leia.comment!(@local_parent, 'yo')
       @retraction = described_class.build(@local_leia, @comment)
       @retraction.parent_author_signature = 'PARENTSIGNATURE'
       @retraction.target_author_signature = 'TARGETSIGNATURE'

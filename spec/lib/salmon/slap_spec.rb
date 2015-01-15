@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Salmon::Slap do
   before do
-    @post = alice.post(:status_message, :text => "hi", :to => alice.aspects.create(:name => "abcd").id)
+    @post = alice.post(:status_message, text: 'hi', to: alice.aspects.create(name: 'abcd').id)
     @created_salmon = Salmon::Slap.create_by_user_and_activity(alice, @post.to_diaspora_xml)
   end
 
@@ -14,7 +14,6 @@ describe Salmon::Slap do
     it 'has no parsed_data' do
       expect(@created_salmon.parsed_data).to be nil
     end
-
   end
 
   it 'works' do
@@ -31,7 +30,7 @@ describe Salmon::Slap do
     end
   end
 
-  describe "#process_header" do
+  describe '#process_header' do
     it 'sets the author id' do
       slap = Salmon::Slap.new
       slap.process_header(Nokogiri::XML(@created_salmon.plaintext_header))
@@ -40,8 +39,8 @@ describe Salmon::Slap do
   end
 
   describe '#author' do
-    let(:xml)   {@created_salmon.xml_for(eve.person)}
-    let(:parsed_salmon) { Salmon::Slap.from_xml(xml, alice)}
+    let(:xml)   { @created_salmon.xml_for(eve.person) }
+    let(:parsed_salmon) { Salmon::Slap.from_xml(xml, alice) }
 
     it 'should reference a local author' do
       expect(parsed_salmon.author).to eq(alice.person)
@@ -49,15 +48,15 @@ describe Salmon::Slap do
 
     it 'should fail if no author is found' do
       parsed_salmon.author_id = 'tom@tom.joindiaspora.com'
-      expect {
+      expect do
         parsed_salmon.author.public_key
-      }.to raise_error "did you remember to async webfinger?"
+      end.to raise_error 'did you remember to async webfinger?'
     end
   end
 
   context 'marshaling' do
-    let(:xml)   {@created_salmon.xml_for(eve.person)}
-    let(:parsed_salmon) { Salmon::Slap.from_xml(xml)}
+    let(:xml)   { @created_salmon.xml_for(eve.person) }
+    let(:parsed_salmon) { Salmon::Slap.from_xml(xml) }
 
     it 'should parse out the authors diaspora_handle' do
       expect(parsed_salmon.author_id).to eq(alice.person.diaspora_handle)
@@ -76,35 +75,32 @@ describe Salmon::Slap do
     end
   end
 
-  describe "#xml_for" do
+  describe '#xml_for' do
     before do
       @xml = @created_salmon.xml_for(eve.person)
     end
-    
-    it "has diaspora as the root" do
-      doc = Nokogiri::XML(@xml)
-      expect(doc.root.name).to eq("diaspora")
-    end
-    
-    it "it has the descrypted header" do
-      doc = Nokogiri::XML(@xml)
-      expect(doc.search("header")).not_to be_blank
-    end
-    
-    context "header" do
 
-      it "it has author_id node " do
+    it 'has diaspora as the root' do
+      doc = Nokogiri::XML(@xml)
+      expect(doc.root.name).to eq('diaspora')
+    end
+
+    it 'it has the descrypted header' do
+      doc = Nokogiri::XML(@xml)
+      expect(doc.search('header')).not_to be_blank
+    end
+
+    context 'header' do
+      it 'it has author_id node ' do
         doc = Nokogiri::XML(@xml)
-        search = doc.search("header").search("author_id")
+        search = doc.search('header').search('author_id')
         expect(search.map(&:text)).to eq([alice.diaspora_handle])
       end
-
     end
 
-    it "it has the magic envelope " do
+    it 'it has the magic envelope ' do
       doc = Nokogiri::XML(@xml)
-      expect(doc.find("/me:env")).not_to be_blank
+      expect(doc.find('/me:env')).not_to be_blank
     end
   end
 end
-

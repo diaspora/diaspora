@@ -15,15 +15,15 @@ oembed_provider_list = [
   OEmbed::Providers::Flickr
 ]
 
-OEmbed::Providers::Youtube.endpoint += "?scheme=https"
+OEmbed::Providers::Youtube.endpoint += '?scheme=https'
 
-oembed_providers = YAML.load_file(Rails.root.join("config", "oembed_providers.yml"))
+oembed_providers = YAML.load_file(Rails.root.join('config', 'oembed_providers.yml'))
 
-oembed_providers.each do |provider_name, provider|
-  oembed_provider = OEmbed::Provider.new(provider["endpoint"])
-  provider["urls"].each do |provider_url|
+oembed_providers.each do |_provider_name, provider|
+  oembed_provider = OEmbed::Provider.new(provider['endpoint'])
+  provider['urls'].each do |provider_url|
     oembed_provider << provider_url
-  end if provider["urls"]
+  end if provider['urls']
   oembed_provider_list << oembed_provider
 end
 

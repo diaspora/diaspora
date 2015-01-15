@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PollAnswer, :type => :model do
+describe PollAnswer, type: :model do
   before do
     @status = FactoryGirl.create(:status_message_with_poll)
     @user = alice
@@ -9,13 +9,12 @@ describe PollAnswer, :type => :model do
 
   describe 'counter cache' do
     it 'increments the counter cache on the answer' do
-      expect {
+      expect do
         alice.participate_in_poll!(@status, @answer)
-      }.to change{
+      end.to change{
         @answer.reload.vote_count
       }.by(1)
     end
-
   end
 
   describe 'validation' do
@@ -30,5 +29,4 @@ describe PollAnswer, :type => :model do
       expect(answer.errors).to have_key(:answer)
     end
   end
-
 end

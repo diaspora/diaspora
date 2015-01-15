@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 class Postzord::Receiver
   require 'postzord/receiver/private'
   require 'postzord/receiver/public'
@@ -19,4 +18,3 @@ class Postzord::Receiver
     end
   end
 end
-

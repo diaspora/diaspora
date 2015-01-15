@@ -8,6 +8,7 @@ module Diaspora
       end
 
       private
+
       def tags(text)
         text.scan(TAG_REGEX).map { |match| match[0] }
       end
@@ -16,7 +17,7 @@ module Diaspora
         return text unless text.match(TAG_REGEX)
         tags(text).each do |tag|
           text.gsub!(/##{tag}/) do |tag|
-            opts = {:name => ActsAsTaggableOn::Tag.normalize(tag)}.merge(Rails.application.config.action_mailer.default_url_options)
+            opts = { name: ActsAsTaggableOn::Tag.normalize(tag) }.merge(Rails.application.config.action_mailer.default_url_options)
             "[#{tag}](#{tag_url(opts)})"
           end
         end
