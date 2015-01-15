@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe ApplicationController, :type => :controller do
+describe ApplicationController, type: :controller do
   controller do
     def index
       head :ok
@@ -20,7 +20,7 @@ describe ApplicationController, :type => :controller do
       get :index
       expect(response.headers['X-Diaspora-Version']).to include AppConfig.version.number.get
     end
-    
+
     context 'with git info' do
       before do
         allow(AppConfig).to receive(:git_available?).and_return(true)
@@ -52,21 +52,21 @@ describe ApplicationController, :type => :controller do
     end
 
     it "doesn't mess up other formats, like json" do
-      get :index, :format => 'json'
+      get :index, format: 'json'
       expect(request.format.json?).to be true
     end
 
     it "doesn't mess up other formats, like xml, even with :mobile session" do
       session[:mobile_view] = true
-      get :index, :format => 'xml'
+      get :index, format: 'xml'
       expect(request.format.xml?).to be true
     end
   end
 
   describe '#tags' do
     before do
-      @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
-      TagFollowing.create!(:tag => @tag, :user => alice)
+      @tag = ActsAsTaggableOn::Tag.create!(name: 'partytimeexcellent')
+      TagFollowing.create!(tag: @tag, user: alice)
     end
 
     it 'queries current_users tag if there are tag_followings' do
@@ -80,21 +80,21 @@ describe ApplicationController, :type => :controller do
     end
   end
 
-  describe "#after_sign_in_path_for" do
+  describe '#after_sign_in_path_for' do
     context 'getting started true on user' do
       before do
         alice.update_attribute(:getting_started, true)
       end
 
-      it "redirects to getting started if the user has getting started set to true" do
+      it 'redirects to getting started if the user has getting started set to true' do
         expect(@controller.send(:after_sign_in_path_for, alice)).to eq(getting_started_path)
       end
     end
   end
 
-  describe "#after_sign_out_path_for" do
-    it "can handle a nil HTTP_USER_AGENT" do
-      @request.headers["HTTP_USER_AGENT"] = nil
+  describe '#after_sign_out_path_for' do
+    it 'can handle a nil HTTP_USER_AGENT' do
+      @request.headers['HTTP_USER_AGENT'] = nil
       expect(@controller.send(:after_sign_out_path_for, alice)).to eq(new_user_session_path)
     end
   end

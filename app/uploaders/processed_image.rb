@@ -6,7 +6,7 @@ class ProcessedImage < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   def store_dir
-    "uploads/images"
+    'uploads/images'
   end
 
   def extension_white_list
@@ -18,19 +18,19 @@ class ProcessedImage < CarrierWave::Uploader::Base
   end
 
   version :thumb_small do
-    process :resize_to_fill => [50,50]
+    process resize_to_fill: [50, 50]
     process :strip
   end
   version :thumb_medium do
-    process :resize_to_limit => [100,100]
+    process resize_to_limit: [100, 100]
     process :strip
   end
   version :thumb_large do
-    process :resize_to_limit => [300,300]
+    process resize_to_limit: [300, 300]
     process :strip
   end
   version :scaled_full do
-    process :resize_to_limit => [700,nil]
+    process resize_to_limit: [700, nil]
     process :strip
   end
 
@@ -41,5 +41,4 @@ class ProcessedImage < CarrierWave::Uploader::Base
       img
     end
   end
-
 end

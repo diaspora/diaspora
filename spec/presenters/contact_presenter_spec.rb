@@ -22,5 +22,4 @@ describe ContactPresenter do
       expect(@presenter.full_hash_with_person).to be_present
     end
   end
-
 end

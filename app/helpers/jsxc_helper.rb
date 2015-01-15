@@ -8,6 +8,6 @@ module JsxcHelper
     unless AppConfig.chat.server.bosh.proxy?
       return "http://#{host}:#{port}#{bind}"
     end
-    return "#{scheme}://#{host}#{bind}"
+    "#{scheme}://#{host}#{bind}"
   end
 end

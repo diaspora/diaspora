@@ -1,7 +1,7 @@
 class User
   include Rails.application.routes.url_helpers
   def default_url_options
-    {:host => AppConfig.pod_uri.host}
+    { host: AppConfig.pod_uri.host }
   end
 
   alias_method :share_with_original, :share_with
@@ -14,7 +14,7 @@ class User
 
   def post(class_name, opts = {})
     inlined_jobs do
-      aspects = self.aspects_from_ids(opts[:to])
+      aspects = aspects_from_ids(opts[:to])
 
       p = build_post(class_name, opts)
       p.aspects = aspects
@@ -22,8 +22,8 @@ class User
         self.aspects.reload
 
         add_to_streams(p, aspects)
-        dispatch_opts = {:url => post_url(p), :to => opts[:to]}
-        dispatch_opts.merge!(:additional_subscribers => p.root.author) if class_name == :reshare
+        dispatch_opts = { url: post_url(p), to: opts[:to] }
+        dispatch_opts.merge!(additional_subscribers: p.root.author) if class_name == :reshare
         dispatch_post(p, dispatch_opts)
       end
       unless opts[:created_at]

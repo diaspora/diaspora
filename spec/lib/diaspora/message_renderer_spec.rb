@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Diaspora::MessageRenderer do
-  def message text, opts={}
+  def message(text, opts = {})
     Diaspora::MessageRenderer.new(text, opts)
   end
 
@@ -17,18 +17,18 @@ describe Diaspora::MessageRenderer do
     context 'when :length is not passed in parameters' do
       context 'with a Markdown header of less than 200 characters on first line' do
         it 'returns atx style header' do
-          expect(message("## My title\n Post content...").title).to eq "My title"
-          expect(message("## My title ##\n Post content...").title).to eq "My title"
+          expect(message("## My title\n Post content...").title).to eq 'My title'
+          expect(message("## My title ##\n Post content...").title).to eq 'My title'
         end
 
         it 'returns setext style header' do
-          expect(message("My title \n======\n Post content...").title).to eq "My title"
+          expect(message("My title \n======\n Post content...").title).to eq 'My title'
         end
       end
 
       context 'without a Markdown header of less than 200 characters on first line ' do
         it 'truncates posts to the 20 first characters' do
-          expect(message("Very, very, very long post").title).to eq "Very, very, very ..."
+          expect(message('Very, very, very long post').title).to eq 'Very, very, very ...'
         end
       end
     end
@@ -42,7 +42,7 @@ describe Diaspora::MessageRenderer do
     end
 
     it 'is html_safe' do
-      expect(message("hey guys").html).to be_html_safe
+      expect(message('hey guys').html).to be_html_safe
     end
 
     it 'should leave HTML entities intact' do
@@ -86,9 +86,9 @@ describe Diaspora::MessageRenderer do
     end
   end
 
-  describe "#markdownified" do
-    describe "not doing something dumb" do
-      it "strips out script tags" do
+  describe '#markdownified' do
+    describe 'not doing something dumb' do
+      it 'strips out script tags' do
         expect(
           message("<script>alert('XSS is evil')</script>").markdownified
         ).to eq "<p>alert(&#39;XSS is evil&#39;)</p>\n"
@@ -107,34 +107,34 @@ describe Diaspora::MessageRenderer do
 
     it 'autolinks standard url links' do
       expect(
-        message("http://joindiaspora.com/"
+        message('http://joindiaspora.com/'
       ).markdownified).to include 'href="http://joindiaspora.com/"'
     end
 
     context 'when formatting status messages' do
-      it "should leave tags intact" do
+      it 'should leave tags intact' do
         expect(
-          message("I love #markdown").markdownified
+          message('I love #markdown').markdownified
         ).to match %r{<a class="tag" href="/tags/markdown">#markdown</a>}
       end
 
       it 'should leave multi-underscore tags intact' do
         expect(
-          message("Here is a #multi_word tag").markdownified
-        ).to match  %r{Here is a <a class="tag" href="/tags/multi_word">#multi_word</a> tag}
+          message('Here is a #multi_word tag').markdownified
+        ).to match %r{Here is a <a class="tag" href="/tags/multi_word">#multi_word</a> tag}
 
         expect(
-          message("Here is a #multi_word_tag yo").markdownified
+          message('Here is a #multi_word_tag yo').markdownified
         ).to match %r{Here is a <a class="tag" href="/tags/multi_word_tag">#multi_word_tag</a> yo}
       end
 
-      it "should leave mentions intact" do
+      it 'should leave mentions intact' do
         expect(
           message("Hey @{Bob; #{bob.diaspora_handle}}!", mentioned_people: [bob.person]).markdownified
         ).to match(/hovercard/)
       end
 
-      it "should leave mentions intact for real diaspora handles" do
+      it 'should leave mentions intact for real diaspora handles' do
         new_person = FactoryGirl.create(:person, diaspora_handle: 'maxwell@joindiaspora.com')
         expect(
           message(
@@ -147,11 +147,13 @@ describe Diaspora::MessageRenderer do
       it 'should process text with both a hashtag and a link' do
         expect(
           message("Test #tag?\nhttps://joindiaspora.com\n").markdownified
-        ).to eq %{<p>Test <a class="tag" href="/tags/tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" rel="nofollow" target="_blank">https://joindiaspora.com</a></p>\n}
+        ).to eq %(<p>Test <a class="tag" href="/tags/tag">#tag</a>?<br>
+<a href="https://joindiaspora.com" rel="nofollow" target="_blank">https://joindiaspora.com</a></p>
+)
       end
 
       it 'should process text with a header' do
-        expect(message("# I love markdown").markdownified).to match "I love markdown"
+        expect(message('# I love markdown').markdownified).to match 'I love markdown'
       end
 
       it 'should leave HTML entities intact' do
@@ -161,27 +163,27 @@ describe Diaspora::MessageRenderer do
     end
   end
 
-  describe "#plain_text_without_markdown" do
+  describe '#plain_text_without_markdown' do
     it 'does not remove markdown in links' do
-      text = "some text and here comes http://exampe.org/foo_bar_baz a link"
+      text = 'some text and here comes http://exampe.org/foo_bar_baz a link'
       expect(message(text).plain_text_without_markdown).to eq text
     end
 
     it 'does not destroy hashtag that starts a line' do
-      text = "#hashtag message"
+      text = '#hashtag message'
       expect(message(text).plain_text_without_markdown).to eq text
     end
   end
 
-  describe "#urls" do
-    it "extracts the urls from the raw message" do
-      text = "[Perdu](http://perdu.com/) and [DuckDuckGo](https://duckduckgo.com/) can help you"
-      expect(message(text).urls).to eql ["http://perdu.com/", "https://duckduckgo.com/"]
+  describe '#urls' do
+    it 'extracts the urls from the raw message' do
+      text = '[Perdu](http://perdu.com/) and [DuckDuckGo](https://duckduckgo.com/) can help you'
+      expect(message(text).urls).to eql ['http://perdu.com/', 'https://duckduckgo.com/']
     end
 
-    it "extracts urls from continous markdown correctly" do
-      text = "[![Image](https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt)](https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C)"
-      expect(message(text).urls).to eq ["https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt", "https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C"]
+    it 'extracts urls from continous markdown correctly' do
+      text = '[![Image](https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt)](https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C)'
+      expect(message(text).urls).to eq ['https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt', 'https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C']
     end
   end
 end

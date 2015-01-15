@@ -4,7 +4,6 @@
 
 module Salmon
   class EncryptedSlap < Slap
-
     # Construct an encrypted header
     # @return [String] Header XML
     def header(person)
@@ -16,7 +15,7 @@ XML
     end
 
     def plaintext_header
-      header =<<HEADER
+      header = <<HEADER
 <decrypted_header>
     <iv>#{iv}</iv>
     <aes_key>#{aes_key}</aes_key>
@@ -27,14 +26,12 @@ HEADER
 
     # @return [String, Boolean] False if RSAError; XML if no error
     def xml_for(person)
-      begin
-       super 
-      rescue OpenSSL::PKey::RSAError => e
-        Rails.logger.info("event => :invalid_rsa_key, :identifier => #{person.diaspora_handle}")
-        false
-      end
+      super
+     rescue OpenSSL::PKey::RSAError => e
+       Rails.logger.info("event => :invalid_rsa_key, :identifier => #{person.diaspora_handle}")
+       false
     end
-    
+
     # Takes in a doc of the header and sets the author id
     # returns an empty hash
     # @return [Hash]
@@ -43,12 +40,12 @@ HEADER
       self.aes_key     = doc.search('aes_key').text
       self.iv          = doc.search('iv').text
     end
-    
+
     # Decrypts an encrypted magic sig envelope
     # @param key_hash [Hash] Contains 'key' (aes) and 'iv' values
     # @param user [User]
     def parse_data(user)
-      user.aes_decrypt(super, {'key' => self.aes_key, 'iv' => self.iv})
+      user.aes_decrypt(super, 'key' => aes_key, 'iv' => iv)
     end
 
     # Decrypts and parses out the salmon header

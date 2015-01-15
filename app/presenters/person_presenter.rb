@@ -8,31 +8,31 @@ class PersonPresenter < BasePresenter
   end
 
   def full_hash
-    base_hash.merge({
+    base_hash.merge(
       relationship: relationship,
       block: is_blocked? ? BlockPresenter.new(current_user_person_block).base_hash : false,
       contact: (!own_profile? && has_contact?) ? { id: current_user_person_contact.id } : false,
       is_own_profile: own_profile?
-    })
+    )
   end
 
   def full_hash_with_avatar
-    full_hash.merge({avatar: AvatarPresenter.new(profile).base_hash})
+    full_hash.merge(avatar: AvatarPresenter.new(profile).base_hash)
   end
 
   def full_hash_with_profile
-    full_hash.merge({profile: ProfilePresenter.new(profile).full_hash})
+    full_hash.merge(profile: ProfilePresenter.new(profile).full_hash)
   end
 
-  def as_json(options={})
+  def as_json(_options = {})
     attrs = full_hash_with_avatar
 
     if own_profile? || person_is_following_current_user
-      attrs.merge!({
-                      :location => @presentable.location,
-                      :birthday => @presentable.formatted_birthday,
-                      :bio => @presentable.bio
-                  })
+      attrs.merge!(
+                      location: @presentable.location,
+                      birthday: @presentable.formatted_birthday,
+                      bio: @presentable.bio
+                  )
     end
 
     attrs

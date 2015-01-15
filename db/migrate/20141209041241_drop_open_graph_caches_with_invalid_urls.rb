@@ -4,6 +4,6 @@ class DropOpenGraphCachesWithInvalidUrls < ActiveRecord::Migration
   end
 
   def down
-    raise ActiveRecord::IrreversibleMigration 
+    fail ActiveRecord::IrreversibleMigration
   end
 end

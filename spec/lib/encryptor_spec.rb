@@ -12,7 +12,7 @@ describe 'user encryption' do
 
   describe 'encryption' do
     it 'should encrypt a string' do
-      string = "Secretsauce"
+      string = 'Secretsauce'
       ciphertext = @user.person.encrypt string
       expect(ciphertext.include?(string)).to be false
       expect(@user.decrypt(ciphertext)).to eq(string)

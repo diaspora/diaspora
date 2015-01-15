@@ -3,17 +3,17 @@
 #   the COPYRIGHT file.
 
 class Stream::Mention < Stream::Base
-  def link(opts={})
+  def link(opts = {})
     Rails.application.routes.url_helpers.mentions_path(opts)
   end
 
   def title
-    I18n.translate("streams.mentions.title")
+    I18n.translate('streams.mentions.title')
   end
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
-    @posts ||= StatusMessage.where_person_is_mentioned(self.user.person)
+    @posts ||= StatusMessage.where_person_is_mentioned(user.person)
   end
 
   def contacts_title

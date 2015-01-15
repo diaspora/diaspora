@@ -1,6 +1,6 @@
-$:.unshift(ENV['JASMINE_GEM_PATH']) if ENV['JASMINE_GEM_PATH'] # for gem testing purposes
+$LOAD_PATH.unshift(ENV['JASMINE_GEM_PATH']) if ENV['JASMINE_GEM_PATH'] # for gem testing purposes
 
-ENV["JASMINE_BROWSER"] = "firefox"
+ENV['JASMINE_BROWSER'] = 'firefox'
 
 require 'rubygems'
 require 'json'
@@ -13,7 +13,7 @@ spec_builder = Jasmine::SpecBuilder.new(jasmine_config)
 should_stop = false
 
 RSpec.configuration.after(:suite) do
-    spec_builder.stop if should_stop
+  spec_builder.stop if should_stop
 end
 
 spec_builder.start

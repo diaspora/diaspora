@@ -34,5 +34,4 @@ module Diaspora
   # or the remote end doesn't support post fetching
   class PostNotFetchable < StandardError
   end
-
 end

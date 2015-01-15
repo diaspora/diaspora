@@ -9,46 +9,46 @@ class PostPresenter
   end
 
   def self.collection_json(collection, current_user)
-    collection.map {|post| PostPresenter.new(post, current_user)}
+    collection.map { |post| PostPresenter.new(post, current_user) }
   end
 
-  def as_json(options={})
+  def as_json(_options = {})
     text = if @post.message
-      @post.message.plain_text_for_json
-    else
-      @post.raw_message
+             @post.message.plain_text_for_json
+           else
+             @post.raw_message
     end
     {
-        :id => @post.id,
-        :guid => @post.guid,
-        :text => text,
-        :public => @post.public,
-        :created_at => @post.created_at,
-        :interacted_at => @post.interacted_at,
-        :provider_display_name => @post.provider_display_name,
-        :post_type => @post.post_type,
-        :image_url => @post.image_url,
-        :object_url => @post.object_url,
-        :favorite => @post.favorite,
-        :nsfw => @post.nsfw,
-        :author => @post.author.as_api_response(:backbone),
-        :o_embed_cache => @post.o_embed_cache.try(:as_api_response, :backbone),
-        :open_graph_cache => @post.open_graph_cache.try(:as_api_response, :backbone),
-        :mentioned_people => @post.mentioned_people.as_api_response(:backbone),
-        :photos => @post.photos.map {|p| p.as_api_response(:backbone)},
-        :root => root,
-        :title => title,
-        :address => @post.address,
-        :poll => @post.poll(),
-        :already_participated_in_poll => already_participated_in_poll,
+      id: @post.id,
+      guid: @post.guid,
+      text: text,
+      public: @post.public,
+      created_at: @post.created_at,
+      interacted_at: @post.interacted_at,
+      provider_display_name: @post.provider_display_name,
+      post_type: @post.post_type,
+      image_url: @post.image_url,
+      object_url: @post.object_url,
+      favorite: @post.favorite,
+      nsfw: @post.nsfw,
+      author: @post.author.as_api_response(:backbone),
+      o_embed_cache: @post.o_embed_cache.try(:as_api_response, :backbone),
+      open_graph_cache: @post.open_graph_cache.try(:as_api_response, :backbone),
+      mentioned_people: @post.mentioned_people.as_api_response(:backbone),
+      photos: @post.photos.map { |p| p.as_api_response(:backbone) },
+      root: root,
+      title: title,
+      address: @post.address,
+      poll: @post.poll,
+      already_participated_in_poll: already_participated_in_poll,
 
-        :interactions => {
-            :likes => [user_like].compact,
-            :reshares => [user_reshare].compact,
-            :comments_count => @post.comments_count,
-            :likes_count => @post.likes_count,
-            :reshares_count => @post.reshares_count,
-        }
+      interactions: {
+        likes: [user_like].compact,
+        reshares: [user_reshare].compact,
+        comments_count: @post.comments_count,
+        likes_count: @post.likes_count,
+        reshares_count: @post.reshares_count
+      }
     }
   end
 
@@ -85,7 +85,6 @@ class PostPresenter
       @post.poll.already_participated?(current_user)
     end
   end
-
 end
 
 class PostInteractionPresenter
@@ -94,17 +93,17 @@ class PostInteractionPresenter
     @current_user = current_user
   end
 
-  def as_json(options={})
+  def as_json(_options = {})
     {
-        :likes => as_api(@post.likes),
-        :reshares => PostPresenter.collection_json(@post.reshares, @current_user),
-        :comments => CommentPresenter.as_collection(@post.comments.order('created_at ASC')),
-        :participations => as_api(@post.participations)
+      likes: as_api(@post.likes),
+      reshares: PostPresenter.collection_json(@post.reshares, @current_user),
+      comments: CommentPresenter.as_collection(@post.comments.order('created_at ASC')),
+      participations: as_api(@post.participations)
     }
   end
 
   def as_api(collection)
-    collection.includes(:author => :profile).map do |element|
+    collection.includes(author: :profile).map do |element|
       element.as_api_response(:backbone)
     end
   end

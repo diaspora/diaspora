@@ -4,34 +4,34 @@
 
 require 'spec_helper'
 
-describe Profile, :type => :model do
+describe Profile, type: :model do
   describe 'validation' do
-    describe "of first_name" do
-      it "strips leading and trailing whitespace" do
-        profile = FactoryGirl.build(:profile, :first_name => "     Shelly    ")
+    describe 'of first_name' do
+      it 'strips leading and trailing whitespace' do
+        profile = FactoryGirl.build(:profile, first_name: '     Shelly    ')
         expect(profile).to be_valid
-        expect(profile.first_name).to eq("Shelly")
+        expect(profile.first_name).to eq('Shelly')
       end
 
-      it "can be 32 characters long" do
-        profile = FactoryGirl.build(:profile, :first_name => "Hexagoooooooooooooooooooooooooon")
+      it 'can be 32 characters long' do
+        profile = FactoryGirl.build(:profile, first_name: 'Hexagoooooooooooooooooooooooooon')
         expect(profile).to be_valid
       end
 
-      it "cannot be 33 characters" do
-        profile = FactoryGirl.build(:profile, :first_name => "Hexagooooooooooooooooooooooooooon")
+      it 'cannot be 33 characters' do
+        profile = FactoryGirl.build(:profile, first_name: 'Hexagooooooooooooooooooooooooooon')
         expect(profile).not_to be_valid
       end
 
       it 'cannot have ;' do
-        profile = FactoryGirl.build(:profile, :first_name => "Hex;agon")
+        profile = FactoryGirl.build(:profile, first_name: 'Hex;agon')
         expect(profile).not_to be_valid
       end
     end
 
     describe 'from_omniauth_hash' do
       before do
-        @from_omniauth = {'first_name' => 'bob', 'last_name' => 'jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'http://cats.com/gif.gif'}
+        @from_omniauth = { 'first_name' => 'bob', 'last_name' => 'jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'http://cats.com/gif.gif' }
       end
 
       it 'outputs a hash that can update a diaspora profile' do
@@ -40,13 +40,13 @@ describe Profile, :type => :model do
       end
 
       it 'does not overwrite any exsisting profile fields' do
-        profile = Profile.new(:first_name => 'maxwell')
+        profile = Profile.new(first_name: 'maxwell')
         expect(profile.from_omniauth_hash(@from_omniauth)['first_name']).to eq('maxwell')
       end
 
       it 'sets full name to first name' do
-        @from_omniauth = {'name' => 'bob jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'http://cats.com/gif.gif'}
-        
+        @from_omniauth = { 'name' => 'bob jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'http://cats.com/gif.gif' }
+
         profile = Profile.new
         expect(profile.from_omniauth_hash(@from_omniauth)['first_name']).to eq('bob jones')
       end
@@ -55,58 +55,58 @@ describe Profile, :type => :model do
     describe '#contruct_full_name' do
       it 'generates a full name given only first name' do
         profile = FactoryGirl.build(:person).profile
-        profile.first_name = "casimiro"
+        profile.first_name = 'casimiro'
         profile.last_name = nil
 
-        expect(profile.full_name).not_to eq("casimiro")
+        expect(profile.full_name).not_to eq('casimiro')
         profile.save
-        expect(profile.full_name).to eq("casimiro")
+        expect(profile.full_name).to eq('casimiro')
       end
 
       it 'generates a full name given only last name' do
         profile = FactoryGirl.build(:person).profile
         profile.first_name = nil
-        profile.last_name = "grippi"
+        profile.last_name = 'grippi'
 
-        expect(profile.full_name).not_to eq("grippi")
+        expect(profile.full_name).not_to eq('grippi')
         profile.save
-        expect(profile.full_name).to eq("grippi")
+        expect(profile.full_name).to eq('grippi')
       end
 
       it 'generates a full name given first and last names' do
         profile = FactoryGirl.build(:person).profile
-        profile.first_name = "casimiro"
-        profile.last_name = "grippi"
+        profile.first_name = 'casimiro'
+        profile.last_name = 'grippi'
 
-        expect(profile.full_name).not_to eq("casimiro grippi")
+        expect(profile.full_name).not_to eq('casimiro grippi')
         profile.save
-        expect(profile.full_name).to eq("casimiro grippi")
+        expect(profile.full_name).to eq('casimiro grippi')
       end
     end
 
-    describe "of last_name" do
-      it "strips leading and trailing whitespace" do
-        profile = FactoryGirl.build(:profile, :last_name => "     Ohba    ")
+    describe 'of last_name' do
+      it 'strips leading and trailing whitespace' do
+        profile = FactoryGirl.build(:profile, last_name: '     Ohba    ')
         expect(profile).to be_valid
-        expect(profile.last_name).to eq("Ohba")
+        expect(profile.last_name).to eq('Ohba')
       end
 
-      it "can be 32 characters long" do
-        profile = FactoryGirl.build(:profile, :last_name => "Hexagoooooooooooooooooooooooooon")
+      it 'can be 32 characters long' do
+        profile = FactoryGirl.build(:profile, last_name: 'Hexagoooooooooooooooooooooooooon')
         expect(profile).to be_valid
       end
 
-      it "cannot be 33 characters" do
-        profile = FactoryGirl.build(:profile, :last_name => "Hexagooooooooooooooooooooooooooon")
+      it 'cannot be 33 characters' do
+        profile = FactoryGirl.build(:profile, last_name: 'Hexagooooooooooooooooooooooooooon')
         expect(profile).not_to be_valid
       end
 
       it 'cannot have ;' do
-        profile = FactoryGirl.build(:profile, :last_name => "Hex;agon")
+        profile = FactoryGirl.build(:profile, last_name: 'Hex;agon')
         expect(profile).not_to be_valid
       end
       it 'disallows ; with a newline in the string' do
-        profile = FactoryGirl.build(:profile, :last_name => "H\nex;agon")
+        profile = FactoryGirl.build(:profile, last_name: "H\nex;agon")
         expect(profile).not_to be_valid
       end
     end
@@ -115,22 +115,22 @@ describe Profile, :type => :model do
   describe '#image_url=' do
     before do
       @profile = FactoryGirl.build(:profile)
-      @profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
-      @pod_url = AppConfig.pod_uri.to_s.chomp("/")
+      @profile.image_url = 'http://tom.joindiaspora.com/images/user/tom.jpg'
+      @pod_url = AppConfig.pod_uri.to_s.chomp('/')
     end
 
     it 'ignores an empty string' do
-      expect {@profile.image_url = ""}.not_to change(@profile, :image_url)
+      expect { @profile.image_url = '' }.not_to change(@profile, :image_url)
     end
 
     it 'makes relative urls absolute' do
-      @profile.image_url = "/relative/url"
+      @profile.image_url = '/relative/url'
       expect(@profile.image_url).to eq("#{@pod_url}/relative/url")
     end
 
     it "doesn't change absolute urls" do
-      @profile.image_url = "http://not/a/relative/url"
-      expect(@profile.image_url).to eq("http://not/a/relative/url")
+      @profile.image_url = 'http://not/a/relative/url'
+      expect(@profile.image_url).to eq('http://not/a/relative/url')
     end
   end
 
@@ -145,13 +145,13 @@ describe Profile, :type => :model do
       expect(new_profile.tag_string).to include('#rafi')
     end
   end
-  
+
   describe 'serialization' do
-    let(:person) {FactoryGirl.build(:person,:diaspora_handle => "foobar" )}
+    let(:person) { FactoryGirl.build(:person, diaspora_handle: 'foobar') }
 
     it 'should include persons diaspora handle' do
       xml = person.profile.to_diaspora_xml
-      expect(xml).to include "foobar"
+      expect(xml).to include 'foobar'
     end
 
     it 'includes tags' do
@@ -159,14 +159,14 @@ describe Profile, :type => :model do
       person.profile.build_tags
       person.profile.save
       xml = person.profile.to_diaspora_xml
-      expect(xml).to include "#one"
+      expect(xml).to include '#one'
     end
-    
+
     it 'includes location' do
       person.profile.location = 'Dark Side, Moon'
       person.profile.save
       xml = person.profile.to_diaspora_xml
-      expect(xml).to include "Dark Side, Moon"
+      expect(xml).to include 'Dark Side, Moon'
     end
   end
 
@@ -181,7 +181,7 @@ describe Profile, :type => :model do
     end
 
     it 'falls back to the large thumbnail if the small thumbnail is nil' do
-      #Backwards compatibility
+      # Backwards compatibility
       @profile[:image_url] = 'large'
       @profile[:image_url_small] = nil
       @profile[:image_url_medium] = nil
@@ -192,7 +192,7 @@ describe Profile, :type => :model do
 
   describe '#subscribers' do
     it 'returns all non-pending contacts for a user' do
-      expect(bob.profile.subscribers(bob).map{|s| s.id}).to match_array([alice.person, eve.person].map{|s| s.id})
+      expect(bob.profile.subscribers(bob).map(&:id)).to match_array([alice.person, eve.person].map(&:id))
     end
   end
 
@@ -209,13 +209,13 @@ describe Profile, :type => :model do
 
     it 'unsets the birthday' do
       profile.birthday = Date.new(2000, 1, 1)
-      profile.date = { 'year' => '', 'month' => '', 'day' => ''}
+      profile.date = { 'year' => '', 'month' => '', 'day' => '' }
       expect(profile.birthday).to eq(nil)
     end
 
     it 'does not change with blank  month and day values' do
       profile.birthday = Date.new(2000, 1, 1)
-      profile.date = { 'year' => '2001', 'month' => '', 'day' => ''}
+      profile.date = { 'year' => '2001', 'month' => '', 'day' => '' }
       expect(profile.birthday.year).to eq(2000)
       expect(profile.birthday.month).to eq(1)
       expect(profile.birthday.day).to eq(1)
@@ -223,7 +223,7 @@ describe Profile, :type => :model do
 
     it 'does not accept blank initial values' do
       profile.birthday = nil
-      profile.date = { 'year' => '2001', 'month' => '', 'day' => ''}
+      profile.date = { 'year' => '2001', 'month' => '', 'day' => '' }
       expect(profile.birthday).to eq(nil)
     end
 
@@ -271,7 +271,7 @@ describe Profile, :type => :model do
     end
 
     it 'returns a formatted date' do
-      expect(@profile.formatted_birthday).to eq("January  1, 2000")
+      expect(@profile.formatted_birthday).to eq('January  1, 2000')
     end
 
     it 'removes nil year birthdays' do
@@ -284,33 +284,31 @@ describe Profile, :type => :model do
       @profile.date = {}
       expect(@profile.formatted_birthday).to eq(nil)
     end
-
   end
 
   describe '#receive' do
     it 'updates the profile in place' do
       local_luke, local_leia, remote_raphael = set_up_friends
       new_profile = FactoryGirl.build :profile
-      expect{
+      expect do
         new_profile.receive(local_leia, remote_raphael)
-      }.not_to change(Profile, :count)
+      end.not_to change(Profile, :count)
       expect(remote_raphael.last_name).to eq(new_profile.last_name)
     end
-
   end
 
-  describe "#tombstone!" do
+  describe '#tombstone!' do
     before do
       @profile = bob.person.profile
     end
-    it "clears the profile fields" do
+    it 'clears the profile fields' do
       attributes = @profile.send(:clearable_fields)
 
       @profile.tombstone!
       @profile.reload
-      attributes.each{ |attr|
+      attributes.each do |attr|
         expect(@profile[attr.to_sym]).to be_blank
-      }
+      end
     end
 
     it 'removes all the tags from the profile' do
@@ -319,23 +317,11 @@ describe Profile, :type => :model do
     end
   end
 
-  describe "#clearable_fields" do
+  describe '#clearable_fields' do
     it 'returns the current profile fields' do
       profile = FactoryGirl.build :profile
-      expect(profile.send(:clearable_fields).sort).to eq( 
-      ["diaspora_handle",
-      "first_name",
-      "last_name",
-      "image_url",
-      "image_url_small",
-      "image_url_medium",
-      "birthday",
-      "gender",
-      "bio",
-      "searchable",
-      "nsfw",
-      "location",
-      "full_name"].sort
+      expect(profile.send(:clearable_fields).sort).to eq(
+      %w(diaspora_handle first_name last_name image_url image_url_small image_url_medium birthday gender bio searchable nsfw location full_name).sort
       )
     end
   end

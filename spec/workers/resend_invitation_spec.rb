@@ -7,7 +7,7 @@ require 'spec_helper'
 describe Workers::ResendInvitation do
   describe '#perfom' do
     it 'should call .resend on the object' do
-      invite = FactoryGirl.build(:invitation, :service => 'email', :identifier => 'foo@bar.com')
+      invite = FactoryGirl.build(:invitation, service: 'email', identifier: 'foo@bar.com')
 
       allow(Invitation).to receive(:find).and_return(invite)
       expect(invite).to receive(:resend)

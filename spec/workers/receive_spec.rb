@@ -15,7 +15,7 @@ describe Workers::Receive do
   end
 
   it 'calls receive' do
-    zord_double = double()
+    zord_double = double
     expect(zord_double).to receive(:parse_and_receive).with(@xml)
     expect(Postzord::Receiver::Private).to receive(:new).with(@user, anything).and_return(zord_double)
     Workers::Receive.new.perform(@user.id, @xml, @person.id)

@@ -193,10 +193,10 @@ describe "attack vectors", :type => :request do
                               ret.diaspora_handle = alice.person.diaspora_handle
                               ret.type = original_message.class.to_s
                             end
-                          end
+                         end
        expect{
         receive_post(bogus_retraction, :from => alice, :by => bob)
-      }.to_not raise_error
+       }.to_not raise_error
     end
 
     it 'should not receive retractions where the retractor and the salmon author do not match' do
@@ -256,7 +256,7 @@ describe "attack vectors", :type => :request do
 
       expect{
         receive_post(new_message, :from => alice, :by => bob)
-       }.to_not change(original_message, :text)
+      }.to_not change(original_message, :text)
     end
   end
 end

@@ -25,10 +25,9 @@ if Rails.env.production?
     # config.audit_with :paper_trail, User
 
     # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
-    config.main_app_name = ['Diaspora', 'Admin']
+    config.main_app_name = %w(Diaspora Admin)
     # or for a dynamic name:
     # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
-
 
     #  ==> Global show view settings
     # Display empty fields in show views
@@ -40,41 +39,41 @@ if Rails.env.production?
 
     #  ==> Included models
     # Add all excluded models here:
-    #config.excluded_models = []
+    # config.excluded_models = []
 
     # Add models here if you want to go 'whitelist mode':
-    config.included_models = %w[
-        AccountDeletion
-        Aspect
-        AspectMembership
-        Block
-        Comment
-        Contact
-        Conversation
-        Invitation
-        InvitationCode
-        Like
-        Location
-        Mention
-        Message
-        OEmbedCache
-        OpenGraphCache
-        Person
-        Photo
-        Profile
-        Pod
-        Poll
-        PollAnswer
-        Post
-        Profile
-        Report
-        Reshare
-        Role
-        Service
-        StatusMessage
-        User
-        UserPreference
-    ]
+    config.included_models = %w(
+      AccountDeletion
+      Aspect
+      AspectMembership
+      Block
+      Comment
+      Contact
+      Conversation
+      Invitation
+      InvitationCode
+      Like
+      Location
+      Mention
+      Message
+      OEmbedCache
+      OpenGraphCache
+      Person
+      Photo
+      Profile
+      Pod
+      Poll
+      PollAnswer
+      Post
+      Profile
+      Report
+      Reshare
+      Role
+      Service
+      StatusMessage
+      User
+      UserPreference
+    )
 
     # Application wide tried label methods for models' instances
     # config.label_methods << :description # Default is [:name, :title]

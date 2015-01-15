@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe TagsController, :type => :request do
+describe TagsController, type: :request do
   describe 'will_paginate people on the tag page' do
     let(:people) { (1..2).map { FactoryGirl.create(:person) } }
-    let(:tag)    { "diaspora" }
+    let(:tag)    { 'diaspora' }
 
     before do
       allow_any_instance_of(Stream::Tag).to receive_messages(people_per_page: 1)

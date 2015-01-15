@@ -11,11 +11,12 @@ module Diaspora
       model.instance_eval do
         before_create :build_tags
 
-        def extract_tags_from sym
+        def extract_tags_from(sym)
           self.field_with_tags = sym
         end
+
         def field_with_tags_setter
-          "#{self.field_with_tags}=".to_sym
+          "#{field_with_tags}=".to_sym
         end
       end
     end
@@ -25,27 +26,27 @@ module Diaspora
     end
 
     def tag_strings
-      (send(self.class.field_with_tags) || "")
+      (send(self.class.field_with_tags) || '')
         .scan(/(?:^|\s)#([#{ActsAsTaggableOn::Tag.tag_text_regexp}]+|<3)/u)
         .map(&:first)
         .uniq(&:downcase)
     end
 
-    def self.format_tags(text, opts={})
+    def self.format_tags(text, opts = {})
       return text if opts[:plain_text]
 
       text = ERB::Util.h(text) unless opts[:no_escape]
-      regex =/(^|\s|>)#([#{ActsAsTaggableOn::Tag.tag_text_regexp}]+|&lt;3)/u
+      regex = /(^|\s|>)#([#{ActsAsTaggableOn::Tag.tag_text_regexp}]+|&lt;3)/u
 
-      text.to_str.gsub(regex) { |matched_string|
-        pre, url_bit, clickable = $1, $2, "##{$2}"
-        if $2 == '&lt;3'
+      text.to_str.gsub(regex) do |_matched_string|
+        pre, url_bit, clickable = Regexp.last_match[1], Regexp.last_match[2], "##{Regexp.last_match[2]}"
+        if Regexp.last_match[2] == '&lt;3'
           # Special case for love, because the world needs more love.
           url_bit = '<3'
         end
 
-        %{#{pre}<a class="tag" href="/tags/#{url_bit}">#{clickable}</a>}
-      }.html_safe
+        %(#{pre}<a class="tag" href="/tags/#{url_bit}">#{clickable}</a>)
+      end.html_safe
     end
   end
 end

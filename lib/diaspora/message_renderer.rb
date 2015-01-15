@@ -8,7 +8,7 @@ module Diaspora
       class << self
         private :new
 
-        def process message, options, &block
+        def process(message, options, &block)
           return '' if message.blank? # Optimize for empty message
           processor = new message, options
           processor.instance_exec(&block)
@@ -18,7 +18,7 @@ module Diaspora
 
       attr_reader :message, :options
 
-      def initialize message, options
+      def initialize(message, options)
         @message = message
         @options = options
       end
@@ -29,7 +29,7 @@ module Diaspora
 
       def append_and_truncate
         if options[:truncate]
-          @message = message.truncate options[:truncate]-options[:append].to_s.size
+          @message = message.truncate options[:truncate] - options[:append].to_s.size
         end
 
         message << options[:append].to_s
@@ -93,28 +93,28 @@ module Diaspora
       end
     end
 
-    DEFAULTS = {mentioned_people: [],
-                link_all_mentions: false,
-                disable_hovercards: false,
-                truncate: false,
-                append: nil,
-                append_after_truncate: nil,
-                squish: false,
-                escape: true,
-                escape_tags: false,
-                markdown_options: {
-                  autolink: true,
-                  fenced_code_blocks:  true,
-                  space_after_headers: true,
-                  strikethrough: true,
-                  tables: true,
-                  no_intra_emphasis: true,
-                },
-                markdown_render_options: {
-                  filter_html: true,
-                  hard_wrap: true,
-                  safe_links_only: true
-                }}.freeze
+    DEFAULTS = { mentioned_people: [],
+                 link_all_mentions: false,
+                 disable_hovercards: false,
+                 truncate: false,
+                 append: nil,
+                 append_after_truncate: nil,
+                 squish: false,
+                 escape: true,
+                 escape_tags: false,
+                 markdown_options: {
+                   autolink: true,
+                   fenced_code_blocks:  true,
+                   space_after_headers: true,
+                   strikethrough: true,
+                   tables: true,
+                   no_intra_emphasis: true
+                 },
+                 markdown_render_options: {
+                   filter_html: true,
+                   hard_wrap: true,
+                   safe_links_only: true
+                 } }.freeze
 
     delegate :empty?, :blank?, :present?, to: :raw
 
@@ -145,51 +145,51 @@ module Diaspora
     #   to Redcarpet
     # @option opts [Hash] :markdown_render_options Override default options
     #   passed to the Redcarpet renderer
-    def initialize raw_message, opts={}
+    def initialize(raw_message, opts = {})
       @raw_message = raw_message
       @options = DEFAULTS.deep_merge opts
     end
 
     # @param [Hash] opts Override global output options, see {#initialize}
-    def plain_text opts={}
-      process(opts) {
+    def plain_text(opts = {})
+      process(opts) do
         make_mentions_plain_text
         squish
         append_and_truncate
-      }
+      end
     end
 
     # @param [Hash] opts Override global output options, see {#initialize}
-    def plain_text_without_markdown opts={}
-      process(opts) {
+    def plain_text_without_markdown(opts = {})
+      process(opts) do
         make_mentions_plain_text
         strip_markdown
         squish
         append_and_truncate
-      }
+      end
     end
 
     # @param [Hash] opts Override global output options, see {#initialize}
-    def plain_text_for_json opts={}
-      process(opts) {
+    def plain_text_for_json(opts = {})
+      process(opts) do
         camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
-      }
+      end
     end
 
     # @param [Hash] opts Override global output options, see {#initialize}
-    def html opts={}
-      process(opts) {
+    def html(opts = {})
+      process(opts) do
         escape
         render_mentions
         render_tags
         squish
         append_and_truncate
-      }.html_safe
+      end.html_safe
     end
 
     # @param [Hash] opts Override global output options, see {#initialize}
-    def markdownified opts={}
-      process(opts) {
+    def markdownified(opts = {})
+      process(opts) do
         process_newlines
         camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
         markdownify
@@ -197,7 +197,7 @@ module Diaspora
         render_tags
         squish
         append_and_truncate
-      }.html_safe
+      end.html_safe
     end
 
     # Get a short summary of the message
@@ -205,13 +205,13 @@ module Diaspora
     # @option opts [Integer] :length (20 | first heading) Truncate the title to
     #   this length. If not given defaults to 20 and to not truncate
     #   if a heading is found.
-    def title opts={}
+    def title(opts = {})
       # Setext-style header
       heading = if /\A(?<setext_content>.{1,200})\n(?:={1,200}|-{1,200})(?:\r?\n|$)/ =~ @raw_message.lstrip
-        setext_content
-      # Atx-style header
-      elsif /\A\#{1,6}\s+(?<atx_content>.{1,200}?)(?:\s+#+)?(?:\r?\n|$)/ =~ @raw_message.lstrip
-        atx_content
+                  setext_content
+                # Atx-style header
+                elsif /\A\#{1,6}\s+(?<atx_content>.{1,200}?)(?:\s+#+)?(?:\r?\n|$)/ =~ @raw_message.lstrip
+                  atx_content
       end
 
       heading &&= heading.strip
@@ -241,7 +241,7 @@ module Diaspora
 
     private
 
-    def process opts, &block
+    def process(opts, &block)
       Processor.process(@raw_message, @options.deep_merge(opts), &block)
     end
   end

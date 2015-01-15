@@ -7,12 +7,12 @@ describe Diaspora::Markdownify::HTML do
     end
 
     it 'should make all of the links open in a new tab' do
-      markdownified = @html.autolink("http://joindiaspora.com", nil)
+      markdownified = @html.autolink('http://joindiaspora.com', nil)
       doc = Nokogiri.parse(markdownified)
 
-      link = doc.css("a")
+      link = doc.css('a')
 
-      expect(link.attr("target").value).to eq("_blank")
+      expect(link.attr('target').value).to eq('_blank')
     end
   end
 end

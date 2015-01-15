@@ -1,6 +1,5 @@
 
 class AvatarPresenter < BasePresenter
-
   DEFAULT_IMAGE = ActionController::Base.helpers.image_path('user/default.png')
 
   def base_hash

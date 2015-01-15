@@ -3,7 +3,7 @@ class Notifier < ActionMailer::Base
   helper :notifier
   helper :people
 
-  def self.admin(string, recipients, opts = {}, subject=nil)
+  def self.admin(string, recipients, opts = {}, subject = nil)
     mails = []
     recipients.each do |rec|
       mail = single_admin(string, rec, opts.dup, subject)
@@ -12,23 +12,23 @@ class Notifier < ActionMailer::Base
     mails
   end
 
-  def single_admin(string, recipient, opts={}, subject=nil)
+  def single_admin(string, recipient, opts = {}, subject = nil)
     @receiver = recipient
     @string = string.html_safe
 
     if attach = opts.delete(:attachments)
-      attach.each{ |f|
+      attach.each do |f|
         attachments[f[:name]] = f[:file]
-      }
+      end
     end
 
     unless subject
       subject = I18n.t('notifier.single_admin.subject')
     end
 
-    default_opts = {:to => @receiver.email,
-         :from => AppConfig.mail.sender_address,
-         :subject => subject, :host => AppConfig.pod_uri.host}
+    default_opts = { to: @receiver.email,
+                     from: AppConfig.mail.sender_address,
+                     subject: subject, host: AppConfig.pod_uri.host }
     default_opts.merge!(opts)
 
     mail(default_opts) do |format|
@@ -44,13 +44,13 @@ class Notifier < ActionMailer::Base
     @invitation_code = invitation_code
 
     I18n.with_locale(locale) do
-      mail_opts = {:to => email, :from => AppConfig.mail.sender_address,
-                 :subject => I18n.t('notifier.invited_you', :name => @inviter.name),
-                 :host => AppConfig.pod_uri.host}
+      mail_opts = { to: email, from: AppConfig.mail.sender_address,
+                    subject: I18n.t('notifier.invited_you', name: @inviter.name),
+                    host: AppConfig.pod_uri.host }
 
       mail(mail_opts) do |format|
-        format.text { render :layout => nil }
-        format.html { render :layout => nil }
+        format.text { render layout: nil }
+        format.html { render layout: nil }
       end
     end
   end
@@ -88,6 +88,7 @@ class Notifier < ActionMailer::Base
   end
 
   private
+
   def send_notification(type, *args)
     @notification = NotificationMailers.const_get(type.to_s.camelize).new(*args)
 

@@ -1,20 +1,20 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
-  layout ->(c) { request.format == :mobile ? "application" : "with_header" }
+  layout ->(_c) { request.format == :mobile ? 'application' : 'with_header' }
   use_bootstrap_for :index, :show, :new
 
   respond_to :html, :mobile, :json, :js
 
   def index
     @conversations = current_user.conversations.paginate(
-      :page => params[:page], :per_page => 15)
+      page: params[:page], per_page: 15)
 
     @visibilities = current_user.conversation_visibilities.paginate(
-      :page => params[:page], :per_page => 15)
+      page: params[:page], per_page: 15)
 
     @conversation = Conversation.joins(:conversation_visibilities).where(
-      :conversation_visibilities => {:person_id => current_user.person_id, :conversation_id => params[:conversation_id]}).first
+      conversation_visibilities: { person_id: current_user.person_id, conversation_id: params[:conversation_id] }).first
 
     @unread_counts = {}
     @visibilities.each { |v| @unread_counts[v.conversation_id] = v.unread }
@@ -25,13 +25,13 @@ class ConversationsController < ApplicationController
     @conversations.each { |c| @authors[c.id] = c.last_author }
 
     @ordered_participants = {}
-    @conversations.each { |c| @ordered_participants[c.id] = (c.messages.map{|m| m.author}.reverse + c.participants).uniq }
+    @conversations.each { |c| @ordered_participants[c.id] = (c.messages.map(&:author).reverse + c.participants).uniq }
 
     gon.contacts = contacts_data
 
     respond_with do |format|
       format.html
-      format.json { render :json => @conversations, :status => 200 }
+      format.json { render json: @conversations, status: 200 }
     end
   end
 
@@ -68,15 +68,15 @@ class ConversationsController < ApplicationController
     if @conversation = current_user.conversations.where(id: params[:id]).first
 
       @first_unread_message_id = @conversation.first_unread_message(current_user).try(:id)
-      if @visibility = ConversationVisibility.where(:conversation_id => params[:id], :person_id => current_user.person.id).first
+      if @visibility = ConversationVisibility.where(conversation_id: params[:id], person_id: current_user.person.id).first
         @visibility.unread = 0
         @visibility.save
       end
 
       respond_to do |format|
-        format.html { redirect_to conversations_path(:conversation_id => @conversation.id) }
+        format.html { redirect_to conversations_path(conversation_id: @conversation.id) }
         format.js
-        format.json { render :json => @conversation, :status => 200 }
+        format.json { render json: @conversation, status: 200 }
       end
     else
       redirect_to conversations_path
@@ -90,17 +90,17 @@ class ConversationsController < ApplicationController
     end
 
     @contacts_json = contacts_data.to_json
-    @contact_ids = ""
+    @contact_ids = ''
 
     if params[:contact_id]
       @contact_ids = current_user.contacts.find(params[:contact_id]).id
     elsif params[:aspect_id]
-      @contact_ids = current_user.aspects.find(params[:aspect_id]).contacts.map{|c| c.id}.join(',')
+      @contact_ids = current_user.aspects.find(params[:aspect_id]).contacts.map(&:id).join(',')
     end
     if session[:mobile_view] == true && request.format.html?
-      render :layout => true
+      render layout: true
     else
-      render :layout => false
+      render layout: false
     end
   end
 
@@ -109,8 +109,8 @@ class ConversationsController < ApplicationController
   def contacts_data
     current_user.contacts.sharing.joins(person: :profile)
       .pluck(*%w(contacts.id profiles.first_name profiles.last_name people.diaspora_handle))
-      .map {|contact_id, *name_attrs|
-        {value: contact_id, name: ERB::Util.h(Person.name_from_attrs(*name_attrs)) }
-      }
+      .map do|contact_id, *name_attrs|
+        { value: contact_id, name: ERB::Util.h(Person.name_from_attrs(*name_attrs)) }
+      end
   end
 end

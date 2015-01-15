@@ -3,12 +3,12 @@
 #   the COPYRIGHT file.
 
 class Stream::Comments < Stream::Base
-  def link(opts={})
+  def link(opts = {})
     Rails.application.routes.url_helpers.comment_stream_path(opts)
   end
 
   def title
-    I18n.translate("streams.comment_stream.title")
+    I18n.translate('streams.comment_stream.title')
   end
 
   # @return [ActiveRecord::Association<Post>] AR association of posts

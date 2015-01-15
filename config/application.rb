@@ -13,8 +13,8 @@ module Diaspora
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths      += %W{#{config.root}/app}
-    config.autoload_once_paths += %W{#{config.root}/lib}
+    config.autoload_paths      += %W(#{config.root}/app)
+    config.autoload_once_paths += %W(#{config.root}/lib)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -32,7 +32,7 @@ module Diaspora
     # config.i18n.default_locale = :de
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    config.encoding = 'utf-8'
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
@@ -49,7 +49,7 @@ module Diaspora
     config.assets.initialize_on_precompile = false
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    config.assets.precompile += %w{
+    config.assets.precompile += %w(
       aspect-contacts.js
       contact-list.js
       home.js
@@ -79,7 +79,7 @@ module Diaspora
       mobile/mobile.css
       new-templates.css
       rtl.css
-    }
+    )
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
@@ -87,7 +87,7 @@ module Diaspora
     # Configure generators values. Many other options are available, be sure to check the documentation.
     config.generators do |g|
       g.template_engine :haml
-      g.test_framework  :rspec
+      g.test_framework :rspec
     end
   end
 end

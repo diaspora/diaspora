@@ -3,8 +3,7 @@
 #   the COPYRIGHT file.
 
 class InvitationsController < ApplicationController
-
-  before_action :authenticate_user!, :only => [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def new
     @invite_code = current_user.invitation_code
@@ -41,7 +40,7 @@ class InvitationsController < ApplicationController
       end
 
     if @invitation_code.present?
-      render 'notifier/invite', :layout => false
+      render 'notifier/invite', layout: false
     else
       flash[:error] = t('invitations.check_token.not_found')
 
@@ -66,11 +65,11 @@ class InvitationsController < ApplicationController
     if emails.empty?
       flash[:error] = t('invitations.create.empty')
     elsif invalid_emails.empty?
-      flash[:notice] =  t('invitations.create.sent', :emails => valid_emails.join(', '))
+      flash[:notice] =  t('invitations.create.sent', emails: valid_emails.join(', '))
     elsif valid_emails.empty?
       flash[:error] = t('invitations.create.rejected') +  invalid_emails.join(', ')
     else
-      flash[:error] = t('invitations.create.sent', :emails => valid_emails.join(', '))
+      flash[:error] = t('invitations.create.sent', emails: valid_emails.join(', '))
       flash[:error] << '. '
       flash[:error] << t('invitations.create.rejected') +  invalid_emails.join(', ')
     end
@@ -87,16 +86,17 @@ class InvitationsController < ApplicationController
   end
 
   private
+
   def valid_email?(email)
     User.email_regexp.match(email).present?
   end
 
   def html_safe_string_from_session_array(key)
-    return "" unless session[key].present?
-    return "" unless session[key].respond_to?(:join)
+    return '' unless session[key].present?
+    return '' unless session[key].respond_to?(:join)
     value = session[key].join(', ').html_safe
     session[key] = nil
-    return value
+    value
   end
 
   def inviter_params

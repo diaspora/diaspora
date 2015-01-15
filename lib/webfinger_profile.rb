@@ -10,7 +10,7 @@ class WebfingerProfile
 
   def valid_diaspora_profile?
     !(@webfinger_profile.nil? || @account.nil? || @links.nil? || @hcard.nil? ||
-        @guid.nil? || @public_key.nil? || @seed_location.nil? )
+        @guid.nil? || @public_key.nil? || @seed_location.nil?)
   end
 
   private
@@ -20,25 +20,25 @@ class WebfingerProfile
     doc.remove_namespaces!
 
     account_string = doc.css('Subject').text.gsub('acct:', '').strip
-    
-    raise "account in profile(#{account_string}) and account requested (#{@account}) do not match" if account_string != @account
+
+    fail "account in profile(#{account_string}) and account requested (#{@account}) do not match" if account_string != @account
 
     doc.css('Link').each do |l|
       rel = text_of_attribute(l, 'rel')
       href = text_of_attribute(l, 'href')
       @links[rel] = href
       case rel
-        when "http://microformats.org/profile/hcard"
+        when 'http://microformats.org/profile/hcard'
           @hcard = href
-        when "http://joindiaspora.com/guid"
+        when 'http://joindiaspora.com/guid'
           @guid = href
-        when "http://joindiaspora.com/seed_location"
+        when 'http://joindiaspora.com/seed_location'
           @seed_location = href
       end
     end
 
     begin
-      pubkey = text_of_attribute( doc.at('Link[rel=diaspora-public-key]'), 'href')
+      pubkey = text_of_attribute(doc.at('Link[rel=diaspora-public-key]'), 'href')
       @public_key = Base64.decode64 pubkey
     rescue => e
       Rails.logger.info("event => :invalid_profile, :identifier => #{@account}")

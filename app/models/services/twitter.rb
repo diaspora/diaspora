@@ -6,23 +6,23 @@ class Services::Twitter < Service
   LINK_PATTERN = %r{https?://\S+}
 
   def provider
-    "twitter"
+    'twitter'
   end
 
-  def post post, url=''
-    Rails.logger.debug "event=post_to_service type=twitter sender_id=#{self.user_id}"
+  def post(post, _url = '')
+    Rails.logger.debug "event=post_to_service type=twitter sender_id=#{user_id}"
     tweet = attempt_post post
     post.tweet_id = tweet.id
     post.save
   end
 
   def profile_photo_url
-    client.user(nickname).profile_image_url_https "original"
+    client.user(nickname).profile_image_url_https 'original'
   end
 
-  def delete_post post
+  def delete_post(post)
     if post.present? && post.tweet_id.present?
-      Rails.logger.debug "event=delete_from_service type=twitter sender_id=#{self.user_id}"
+      Rails.logger.debug "event=delete_from_service type=twitter sender_id=#{user_id}"
       delete_from_twitter post.tweet_id
     end
   end
@@ -31,30 +31,30 @@ class Services::Twitter < Service
 
   def client
     @client ||= Twitter::Client.new(
-      oauth_token: self.access_token,
-      oauth_token_secret: self.access_secret
+      oauth_token: access_token,
+      oauth_token_secret: access_secret
     )
   end
 
-  def attempt_post post, retry_count=0
+  def attempt_post(post, retry_count = 0)
     message = build_twitter_post post, retry_count
     client.update message
   rescue Twitter::Error::Forbidden => e
-    if ! e.message.include? 'is over 140' || retry_count == 20
+    if !e.message.include? 'is over 140' || retry_count == 20
       raise e
     else
-      attempt_post post, retry_count+1
+      attempt_post post, retry_count + 1
     end
   end
 
-  def build_twitter_post post, retry_count=0
+  def build_twitter_post(post, retry_count = 0)
     max_characters = MAX_CHARACTERS - retry_count
 
     post_text = post.message.plain_text_without_markdown
     truncate_and_add_post_link post, post_text, max_characters
   end
 
-  def truncate_and_add_post_link post, post_text, max_characters
+  def truncate_and_add_post_link(post, post_text, max_characters)
     return post_text unless needs_link? post, post_text, max_characters
 
     post_url = short_post_url(
@@ -69,14 +69,14 @@ class Services::Twitter < Service
     "#{truncated_text} #{post_url}"
   end
 
-  def needs_link? post, post_text, max_characters
+  def needs_link?(post, post_text, max_characters)
     adjust_length_for_urls(post_text) > max_characters || post.photos.any?
   end
 
-  def adjust_length_for_urls post_text
+  def adjust_length_for_urls(post_text)
     real_length = post_text.length
 
-    URI.extract(post_text, ['http','https']) do |url|
+    URI.extract(post_text, %w(http https)) do |url|
       # add or subtract from real length - urls for tweets are always
       # shortened to SHORTENED_URL_LENGTH
       if url.length >= SHORTENED_URL_LENGTH
@@ -89,7 +89,7 @@ class Services::Twitter < Service
     real_length
   end
 
-  def restore_truncated_url truncated_text, post_text, max_characters
+  def restore_truncated_url(truncated_text, post_text, max_characters)
     return truncated_text if truncated_text !~ /#{LINK_PATTERN}\Z/
 
     url = post_text.match(LINK_PATTERN, truncated_text.rindex('http'))[0]
@@ -101,7 +101,7 @@ class Services::Twitter < Service
     "#{truncated_text} #{url} ..."
   end
 
-  def delete_from_twitter service_post_id
+  def delete_from_twitter(service_post_id)
     client.status_destroy service_post_id
   end
 end

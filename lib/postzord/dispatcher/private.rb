@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class Postzord::Dispatcher::Private < Postzord::Dispatcher
-
   # @param user [User]
   # @param activity [String]
   # @return [Salmon::EncryptedSlap]

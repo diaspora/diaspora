@@ -12,6 +12,6 @@ class Notifications::Reshared < Notification
   end
 
   def linked_object
-    self.target
+    target
   end
 end

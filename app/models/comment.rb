@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class Comment < ActiveRecord::Base
-
   include Diaspora::Federated::Base
 
   include Diaspora::Guid
@@ -19,48 +18,46 @@ class Comment < ActiveRecord::Base
   xml_attr :text
   xml_attr :diaspora_handle
 
-  belongs_to :commentable, :touch => true, :polymorphic => true
+  belongs_to :commentable, touch: true, polymorphic: true
   alias_attribute :post, :commentable
-  belongs_to :author, :class_name => 'Person'
+  belongs_to :author, class_name: 'Person'
 
   delegate :name, to: :author, prefix: true
   delegate :comment_email_subject, to: :parent
   delegate :author_name, to: :parent, prefix: true
 
-  validates :text, :presence => true, :length => {:maximum => 65535}
-  validates :parent, :presence => true #should be in relayable (pending on fixing Message)
+  validates :text, presence: true, length: { maximum: 65_535 }
+  validates :parent, presence: true # should be in relayable (pending on fixing Message)
 
-  scope :including_author, -> { includes(:author => :profile) }
+  scope :including_author, -> { includes(author: :profile) }
   scope :for_a_stream,  -> { including_author.merge(order('created_at ASC')) }
 
   before_save do
-    self.text.strip! unless self.text.nil?
+    text.strip! unless text.nil?
   end
 
   after_save do
-    self.post.touch
+    post.touch
   end
 
-  after_commit :on => :create do
-    self.parent.update_comments_counter
+  after_commit on: :create do
+    parent.update_comments_counter
   end
 
   after_destroy do
-    self.parent.update_comments_counter
+    parent.update_comments_counter
   end
 
-  def diaspora_handle
-    self.author.diaspora_handle
-  end
+  delegate :diaspora_handle, to: :author
 
-  def diaspora_handle= nh
+  def diaspora_handle=(nh)
     self.author = Webfinger.new(nh).fetch
   end
 
-  def notification_type(user, person)
-    if self.post.author == user.person
+  def notification_type(user, _person)
+    if post.author == user.person
       return Notifications::CommentOnPost
-    elsif self.post.comments.where(:author_id => user.person.id) != [] && self.author_id != user.person.id
+    elsif post.comments.where(author_id: user.person.id) != [] && author_id != user.person.id
       return Notifications::AlsoCommented
     else
       return false
@@ -72,10 +69,10 @@ class Comment < ActiveRecord::Base
   end
 
   def parent
-    self.post
+    post
   end
 
-  def parent= parent
+  def parent=(parent)
     self.post = parent
   end
 
@@ -83,8 +80,8 @@ class Comment < ActiveRecord::Base
     @message ||= Diaspora::MessageRenderer.new text
   end
 
-  def text= text
-     self[:text] = text.to_s.strip #to_s if for nil, for whatever reason
+  def text=(text)
+    self[:text] = text.to_s.strip # to_s if for nil, for whatever reason
   end
 
   class Generator < Federated::Generator
@@ -98,7 +95,7 @@ class Comment < ActiveRecord::Base
     end
 
     def relayable_options
-      {:post => @target, :text => @text}
+      { post: @target, text: @text }
     end
   end
 end

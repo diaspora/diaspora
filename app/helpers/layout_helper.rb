@@ -14,7 +14,7 @@ module LayoutHelper
     @show_title = show_title
   end
 
-  def page_title(text=nil)
+  def page_title(text = nil)
     return text unless text.blank?
     pod_name
   end
@@ -31,14 +31,14 @@ module LayoutHelper
   end
 
   def current_user_atom_tag
-    return #temp hax
+    return # temp hax
 
     return unless @person.present?
-    content_tag(:link, '', :rel => 'alternate', :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => t('.public_feed', :name => @person.name))
+    content_tag(:link, '', rel: 'alternate', href: "#{@person.public_url}.atom", type: 'application/atom+xml', title: t('.public_feed', name: @person.name))
   end
 
   def translation_missing_warnings
-    return if Rails.env == "production"
+    return if Rails.env == 'production'
 
     content_tag(:style) do
       <<-CSS
@@ -47,11 +47,11 @@ module LayoutHelper
     end
   end
 
-  def include_base_css_framework(use_bootstrap=false)
+  def include_base_css_framework(use_bootstrap = false)
     if use_bootstrap || @aspect == :getting_started
       stylesheet_link_tag('bootstrap-complete')
     else
-      stylesheet_link_tag 'blueprint', :media => 'screen'
+      stylesheet_link_tag 'blueprint', media: 'screen'
     end
   end
 
@@ -72,8 +72,8 @@ module LayoutHelper
 
   def flash_messages
     flash.map do |name, msg|
-      content_tag(:div, :id => "flash_#{name}") do
-        content_tag(:div, msg, :class => 'message')
+      content_tag(:div, id: "flash_#{name}") do
+        content_tag(:div, msg, class: 'message')
       end
     end.join(' ').html_safe
   end

@@ -13,9 +13,9 @@ class ProfilePresenter < BasePresenter
   end
 
   def full_hash
-    base_hash.merge({
-      avatar: AvatarPresenter.new(@presentable).base_hash,
-    })
+    base_hash.merge(
+      avatar: AvatarPresenter.new(@presentable).base_hash
+    )
   end
 
   def formatted_birthday

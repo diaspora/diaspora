@@ -1,5 +1,5 @@
 class Maintenance < ActionMailer::Base
-  default :from => AppConfig.mail.sender_address
+  default from: AppConfig.mail.sender_address
 
   def account_removal_warning(user)
     @user = user
@@ -7,7 +7,7 @@ class Maintenance < ActionMailer::Base
     @pod_url = AppConfig.environment.url
     @after_days = AppConfig.settings.maintenance.remove_old_users.after_days.to_s
     @remove_after = @user.remove_after
-    mail(:to => @user.email, :subject => I18n.t('notifier.remove_old_user.subject')) do |format|
+    mail(to: @user.email, subject: I18n.t('notifier.remove_old_user.subject')) do |format|
       format.text
       format.html
     end

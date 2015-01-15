@@ -4,14 +4,13 @@
 
 require 'spec_helper'
 
-shared_examples_for "it is relayable" do
-
+shared_examples_for 'it is relayable' do
   describe 'interacted_at' do
     it 'sets the interacted at of the parent to the created at of the relayable post' do
       Timecop.freeze Time.now do
         relayable = build_object
         relayable.save
-        if relayable.parent.respond_to?(:interacted_at) #I'm sorry.
+        if relayable.parent.respond_to?(:interacted_at) # I'm sorry.
           expect(relayable.parent.interacted_at.to_i).to eq(relayable.created_at.to_i)
         end
       end
@@ -22,33 +21,33 @@ shared_examples_for "it is relayable" do
     describe 'on :author_id' do
       context "the author is on the parent object author's ignore list when object is created" do
         before do
-          bob.blocks.create(:person => alice.person)
+          bob.blocks.create(person: alice.person)
           @relayable = build_object
         end
 
-        it "is invalid" do
+        it 'is invalid' do
           expect(@relayable).not_to be_valid
           expect(@relayable.errors[:author_id].size).to eq(1)
         end
 
-        it "sends a retraction for the object" do
+        it 'sends a retraction for the object' do
           skip 'need to figure out how to test this'
           expect(RelayableRetraction).to receive(:build)
           expect(Postzord::Dispatcher).to receive(:build)
           @relayable.valid?
         end
 
-        it "works if the object has no parent" do # This can happen if we get a comment for a post that's been deleted
+        it 'works if the object has no parent' do # This can happen if we get a comment for a post that's been deleted
           @relayable.parent = nil
           expect { @relayable.valid? }.to_not raise_exception
         end
       end
 
       context "the author is added to the parent object author's ignore list later" do
-        it "is valid" do
+        it 'is valid' do
           relayable = build_object
           relayable.save!
-          bob.blocks.create(:person => alice.person)
+          bob.blocks.create(person: alice.person)
           expect(relayable).to be_valid
         end
       end
@@ -85,14 +84,14 @@ shared_examples_for "it is relayable" do
   context 'propagation' do
     describe '#receive' do
       it 'does not overwrite a object that is already in the db' do
-        expect {
+        expect do
           @dup_object_by_parent_author.receive(@local_leia, @local_luke.person)
-        }.to_not change { @dup_object_by_parent_author.class.count }
+        end.to_not change { @dup_object_by_parent_author.class.count }
       end
 
       it 'does not process if post_creator_signature is invalid' do
         @object_by_parent_author.delete # remove object from db so we set a creator sig
-        @dup_object_by_parent_author.parent_author_signature = "dsfadsfdsa"
+        @dup_object_by_parent_author.parent_author_signature = 'dsfadsfdsa'
         expect(@dup_object_by_parent_author.receive(@local_leia, @local_luke.person)).to eq(nil)
       end
 
@@ -127,4 +126,3 @@ shared_examples_for "it is relayable" do
     end
   end
 end
-

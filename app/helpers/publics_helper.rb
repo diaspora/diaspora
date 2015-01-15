@@ -4,8 +4,8 @@
 
 module PublicsHelper
   def subscribe(opts = {})
-    subscriber = Subscriber.first(:url => opts[:callback], :topic => opts[:topic])
-    subscriber ||= Subscriber.new(:url => opts[:callback], :topic => opts[:topic])
+    subscriber = Subscriber.first(url: opts[:callback], topic: opts[:topic])
+    subscriber ||= Subscriber.new(url: opts[:callback], topic: opts[:topic])
 
     if subscriber.save
       if opts[:verify] == 'sync'
@@ -17,5 +17,4 @@ module PublicsHelper
       400
     end
   end
-
 end

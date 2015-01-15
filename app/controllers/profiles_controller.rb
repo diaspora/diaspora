@@ -3,13 +3,13 @@
 #   the COPYRIGHT file.
 
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!, :except => ['show']
+  before_action :authenticate_user!, except: ['show']
   before_action -> { @css_framework = :bootstrap }, only: [:show, :edit]
- 
-  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }, only: [:show, :edit]
 
-  respond_to :html, :except => [:show]
-  respond_to :js, :only => :update
+  layout ->(_c) { request.format == :mobile ? 'application' : 'with_header_with_footer' }, only: [:show, :edit]
+
+  respond_to :html, except: [:show]
+  respond_to :js, only: :update
 
   # this is terrible because we're actually serving up the associated person here;
   # however, this is the effect that we want for now
@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
     @person = Person.find_by_guid!(params[:id])
 
     respond_to do |format|
-      format.json { render :json => PersonPresenter.new(@person, current_user) }
+      format.json { render json: PersonPresenter.new(@person, current_user) }
     end
   end
 
@@ -28,24 +28,24 @@ class ProfilesController < ApplicationController
 
     @tags = @profile.tags
     @tags_array = []
-    @tags.each do |obj| 
-      @tags_array << { :name => ("#"+obj.name),
-        :value => ("#"+obj.name)}
-      end
+    @tags.each do |obj|
+      @tags_array << { name: ('#' + obj.name),
+                       value: ('#' + obj.name) }
+    end
   end
 
   def update
     # upload and set new profile photo
     @profile_attrs = profile_params
-    
+
     munge_tag_string
 
-    #checkbox tags wtf
+    # checkbox tags wtf
     @profile_attrs[:searchable] ||= false
     @profile_attrs[:nsfw] ||= false
 
     if params[:photo_id]
-      @profile_attrs[:photo] = Photo.where(:author_id => current_user.person_id, :id => params[:photo_id]).first
+      @profile_attrs[:photo] = Photo.where(author_id: current_user.person_id, id: params[:photo_id]).first
     end
 
     if current_user.update_profile(@profile_attrs)
@@ -55,15 +55,15 @@ class ProfilesController < ApplicationController
     end
 
     respond_to do |format|
-      format.js { render :nothing => true, :status => 200 }
-      format.any {
+      format.js { render nothing: true, status: 200 }
+      format.any do
         flash[:notice] = I18n.t 'profiles.update.updated'
         if current_user.getting_started?
           redirect_to getting_started_path
         else
           redirect_to edit_profile_path
         end
-      }
+      end
     end
   end
 
@@ -71,18 +71,18 @@ class ProfilesController < ApplicationController
 
   def munge_tag_string
     unless @profile_attrs[:tag_string].nil? || @profile_attrs[:tag_string] == I18n.t('profiles.edit.your_tags_placeholder')
-      @profile_attrs[:tag_string].split( " " ).each do |extra_tag|
+      @profile_attrs[:tag_string].split(' ').each do |extra_tag|
         extra_tag.strip!
-        unless extra_tag == ""
-          extra_tag = "##{extra_tag}" unless extra_tag.start_with?( "#" )
+        unless extra_tag == ''
+          extra_tag = "##{extra_tag}" unless extra_tag.start_with?('#')
           params[:tags] += " #{extra_tag}"
         end
       end
     end
-    @profile_attrs[:tag_string] = (params[:tags]) ? params[:tags].gsub(',',' ') : ""
+    @profile_attrs[:tag_string] = (params[:tags]) ? params[:tags].gsub(',', ' ') : ''
   end
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :gender, :bio, :location, :searchable, :tag_string, :nsfw, :date => [:year, :month, :day]) || {}
+    params.require(:profile).permit(:first_name, :last_name, :gender, :bio, :location, :searchable, :tag_string, :nsfw, date: [:year, :month, :day]) || {}
   end
 end

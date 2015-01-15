@@ -9,40 +9,36 @@ class Message < ActiveRecord::Base
   xml_reader :diaspora_handle
   xml_reader :conversation_guid
 
-  belongs_to :author, :class_name => 'Person'
-  belongs_to :conversation, :touch => true
+  belongs_to :author, class_name: 'Person'
+  belongs_to :conversation, touch: true
 
   delegate :name, to: :author, prefix: true
 
-  validates :text, :presence => true
+  validates :text, presence: true
   validate :participant_of_parent_conversation
 
   after_create do  # don't use 'after_commit' here since there is a call to 'save!'
-                   # inside, which would cause an infinite recursion
-    #sign comment as commenter
-    self.author_signature = self.sign_with_key(self.author.owner.encryption_key) if self.author.owner
+    # inside, which would cause an infinite recursion
+    # sign comment as commenter
+    self.author_signature = sign_with_key(author.owner.encryption_key) if author.owner
 
-    if self.author.owns?(self.parent)
-      #sign comment as post owner
-      self.parent_author_signature = self.sign_with_key(self.parent.author.owner.encryption_key) if self.parent.author.owner
+    if author.owns?(parent)
+      # sign comment as post owner
+      self.parent_author_signature = sign_with_key(parent.author.owner.encryption_key) if parent.author.owner
     end
     self.save!
     self
   end
 
-  def diaspora_handle
-    self.author.diaspora_handle
-  end
+  delegate :diaspora_handle, to: :author
 
-  def diaspora_handle= nh
+  def diaspora_handle=(nh)
     self.author = Webfinger.new(nh).fetch
   end
 
-  def conversation_guid
-    self.conversation.guid
-  end
+  delegate :guid, to: :conversation, prefix: true
 
-  def conversation_guid= guid
+  def conversation_guid=(guid)
     if cnv = Conversation.find_by_guid(guid)
       self.conversation_id = cnv.id
     end
@@ -53,15 +49,15 @@ class Message < ActiveRecord::Base
   end
 
   def parent
-    self.conversation
+    conversation
   end
 
-  def parent= parent
+  def parent=(parent)
     self.conversation = parent
   end
 
   def increase_unread(user)
-    if vis = ConversationVisibility.where(:conversation_id => self.conversation_id, :person_id => user.person.id).first
+    if vis = ConversationVisibility.where(conversation_id: conversation_id, person_id: user.person.id).first
       vis.unread += 1
       vis.save
     end
@@ -76,9 +72,10 @@ class Message < ActiveRecord::Base
   end
 
   private
+
   def participant_of_parent_conversation
-    if self.parent && !self.parent.participants.include?(self.author)
-      errors[:base] << "Author is not participating in the conversation"
+    if parent && !parent.participants.include?(author)
+      errors[:base] << 'Author is not participating in the conversation'
     else
       true
     end

@@ -66,7 +66,7 @@ Diaspora::Application.configure do
   config.active_support.deprecation = :notify
 
   # For nginx:
-   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
 
   if AppConfig.environment.assets.host.present?
     config.action_controller.asset_host = AppConfig.environment.assets.host.get

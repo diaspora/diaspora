@@ -4,14 +4,13 @@
 #
 require 'spec_helper'
 
-describe AspectMembership, :type => :model do
-
+describe AspectMembership, type: :model do
   describe '#before_destroy' do
     before do
-      @aspect = alice.aspects.create(:name => "two")
+      @aspect = alice.aspects.create(name: 'two')
       @contact = alice.contact_for(bob.person)
 
-      @am = alice.aspects.where(:name => "generic").first.aspect_memberships.first
+      @am = alice.aspects.where(name: 'generic').first.aspect_memberships.first
       allow(@am).to receive(:user).and_return(alice)
     end
 
@@ -25,8 +24,7 @@ describe AspectMembership, :type => :model do
       expect(alice).not_to receive(:disconnect)
 
       alice.add_contact_to_aspect(@contact, @aspect)
-      @am.destroy     
+      @am.destroy
     end
   end
-
 end

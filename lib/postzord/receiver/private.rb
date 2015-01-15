@@ -3,27 +3,26 @@
 #   the COPYRIGHT file.
 
 class Postzord::Receiver::Private < Postzord::Receiver
-
-  def initialize(user, opts={})
+  def initialize(user, opts = {})
     @user = user
     @user_person = @user.person
     @salmon_xml = opts[:salmon_xml]
 
-    @sender = opts[:person] || Webfinger.new(self.salmon.author_id).fetch
+    @sender = opts[:person] || Webfinger.new(salmon.author_id).fetch
     @author = @sender
 
     @object = opts[:object]
   end
 
   def receive!
-    if @sender && self.salmon.verified_for_key?(@sender.public_key)
+    if @sender && salmon.verified_for_key?(@sender.public_key)
       parse_and_receive(salmon.parsed_data)
     else
       FEDERATION_LOGGER.info("event=receive status=abort recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id} reason='not_verified for key'")
       false
     end
   rescue => e
-    #this sucks
+    # this sucks
     FEDERATION_LOGGER.error("Failure to receive #{@object.class} from sender:#{@sender.id} for user:#{@user.id}: #{e.message}\n#{@object.inspect}")
     raise e
   end
@@ -34,13 +33,13 @@ class Postzord::Receiver::Private < Postzord::Receiver
 
     FEDERATION_LOGGER.info("user:#{@user.id} starting private receive from person:#{@sender.guid}")
 
-    if self.validate_object
+    if validate_object
       set_author!
       receive_object
       FEDERATION_LOGGER.info("object received: [#{@object.class}#{@object.respond_to?(:text) ? ":'#{@object.text}'" : ''}]")
     else
       FEDERATION_LOGGER.error("failed to receive object from #{@object.author}: #{@object.inspect}")
-      raise "not a valid object:#{@object.inspect}"
+      fail "not a valid object:#{@object.inspect}"
     end
   end
 
@@ -53,24 +52,25 @@ class Postzord::Receiver::Private < Postzord::Receiver
   end
 
   protected
+
   def salmon
     @salmon ||= Salmon::EncryptedSlap.from_xml(@salmon_xml, @user)
   end
 
   def validate_object
-    raise Diaspora::ContactRequiredUnlessRequest if contact_required_unless_request
-    raise Diaspora::RelayableObjectWithoutParent if relayable_without_parent?
+    fail Diaspora::ContactRequiredUnlessRequest if contact_required_unless_request
+    fail Diaspora::RelayableObjectWithoutParent if relayable_without_parent?
 
     assign_sender_handle_if_request
 
-    raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
+    fail Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
 
     @object
   end
 
   def xml_author
     if @object.respond_to?(:relayable?)
-      #if A and B are friends, and A sends B a comment from C, we delegate the validation to the owner of the post being commented on
+      # if A and B are friends, and A sends B a comment from C, we delegate the validation to the owner of the post being commented on
       xml_author = @user.owns?(@object.parent) ? @object.diaspora_handle : @object.parent_author.diaspora_handle
       @author = Webfinger.new(@object.diaspora_handle).fetch if @object.author
     else
@@ -78,7 +78,6 @@ class Postzord::Receiver::Private < Postzord::Receiver
     end
     xml_author
   end
-
 
   def set_author!
     return unless @author
@@ -88,7 +87,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
 
   private
 
-  #validations
+  # validations
   def relayable_without_parent?
     if @object.respond_to?(:relayable?) && @object.parent.nil?
       FEDERATION_LOGGER.error("event=receive status=abort reason='received a comment but no corresponding post' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{@object.class})")
@@ -104,7 +103,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
   end
 
   def assign_sender_handle_if_request
-    #special casey
+    # special casey
     if @object.is_a?(Request)
       @object.sender_handle = @sender.diaspora_handle
     end

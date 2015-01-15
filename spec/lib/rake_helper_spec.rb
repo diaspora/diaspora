@@ -23,4 +23,3 @@ describe RakeHelpers do
     end
   end
 end
-

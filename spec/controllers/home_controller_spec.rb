@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe HomeController, :type => :controller do
+describe HomeController, type: :controller do
   describe '#show' do
     it 'does not redirect' do
       sign_out :user
@@ -18,7 +18,7 @@ describe HomeController, :type => :controller do
       end
 
       it 'points to the stream if a user has contacts' do
-        get :show, :home => true
+        get :show, home: true
         expect(response).to redirect_to(stream_path)
       end
     end

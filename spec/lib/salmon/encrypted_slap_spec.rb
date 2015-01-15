@@ -6,13 +6,13 @@ require 'spec_helper'
 
 describe Salmon::EncryptedSlap do
   before do
-    @post = alice.post(:status_message, :text => "hi", :to => alice.aspects.create(:name => "abcd").id)
+    @post = alice.post(:status_message, text: 'hi', to: alice.aspects.create(name: 'abcd').id)
     @created_salmon = Salmon::EncryptedSlap.create_by_user_and_activity(alice, @post.to_diaspora_xml)
   end
 
   describe '#create' do
     it 'makes the data in the signature encrypted with that key' do
-      key_hash = {'key' => @created_salmon.aes_key, 'iv' => @created_salmon.iv}
+      key_hash = { 'key' => @created_salmon.aes_key, 'iv' => @created_salmon.iv }
       decoded_string = Salmon::EncryptedSlap.decode64url(@created_salmon.magic_sig.data)
       expect(alice.aes_decrypt(decoded_string, key_hash)).to eq(@post.to_diaspora_xml)
     end
@@ -23,7 +23,7 @@ describe Salmon::EncryptedSlap do
     end
   end
 
-  describe "#process_header" do
+  describe '#process_header' do
     before do
       @new_slap = Salmon::EncryptedSlap.new
       @new_slap.process_header(Nokogiri::XML(@created_salmon.plaintext_header))
@@ -43,8 +43,8 @@ describe Salmon::EncryptedSlap do
   end
 
   context 'marshalling' do
-    let(:xml)   {@created_salmon.xml_for(eve.person)}
-    let(:parsed_salmon) { Salmon::EncryptedSlap.from_xml(xml, alice)}
+    let(:xml)   { @created_salmon.xml_for(eve.person) }
+    let(:parsed_salmon) { Salmon::EncryptedSlap.from_xml(xml, alice) }
 
     it 'should parse out the aes key' do
       expect(parsed_salmon.aes_key).to eq(@created_salmon.aes_key)
@@ -66,10 +66,10 @@ describe Salmon::EncryptedSlap do
 
     it 'has a encrypted header field' do
       doc = Nokogiri::XML(@xml)
-      expect(doc.find("encrypted_header")).not_to be_blank
+      expect(doc.find('encrypted_header')).not_to be_blank
     end
-    
-    context "encrypted header" do
+
+    context 'encrypted header' do
       before do
         doc = Nokogiri::XML(@xml)
         decrypted_header = eve.decrypt(doc.search('encrypted_header').text)
@@ -90,4 +90,3 @@ describe Salmon::EncryptedSlap do
     end
   end
 end
-

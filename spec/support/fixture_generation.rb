@@ -1,8 +1,8 @@
 module JasmineFixtureGeneration
   # Saves the markup to a fixture file using the given name
-  def save_fixture(markup, name, fixture_path=nil )
+  def save_fixture(markup, name, fixture_path = nil)
     fixture_path = Rails.root.join('tmp', 'js_dom_fixtures') unless fixture_path
-    Dir.mkdir(fixture_path) unless File.exists?(fixture_path)
+    Dir.mkdir(fixture_path) unless File.exist?(fixture_path)
 
     fixture_file = fixture_path.join("#{name}.fixture.html")
     File.open(fixture_file, 'w') do |file|
@@ -18,7 +18,7 @@ module JasmineFixtureGeneration
     remove_third_party_scripts(doc)
     content = doc.css(selector).first.to_s
 
-    return convert_body_tag_to_div(content)
+    convert_body_tag_to_div(content)
   end
 
   # Remove scripts such as Google Analytics to avoid running them
@@ -36,11 +36,10 @@ module JasmineFixtureGeneration
   # Here we convert the body tag to a div so that we can load it into
   # the document running js specs without embedding a <body> within a <body>.
   def convert_body_tag_to_div(markup)
-    return markup.gsub("<body", '<div').gsub("</body>", "</div>")
+    markup.gsub('<body', '<div').gsub('</body>', '</div>')
   end
 end
 
 RSpec::Rails::ControllerExampleGroup.class_eval do
   include JasmineFixtureGeneration
 end
-

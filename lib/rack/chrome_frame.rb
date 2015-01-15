@@ -4,21 +4,19 @@
 
 module Rack
   class ChromeFrame
-
-    def initialize(app, options={})
+    def initialize(app, options = {})
       @app = app
       @options = options
     end
 
     def call(env)
-
       if env['HTTP_USER_AGENT'] =~ /MSIE/
         if env['HTTP_USER_AGENT'] =~ /chromeframe/
           status, headers, response = @app.call(env)
           new_body = insert_tag(build_response_body(response))
           new_headers = recalculate_body_length(headers, new_body)
           return [status, new_headers, [new_body]]
-        elsif @options[:minimum].nil? or ie_version(env['HTTP_USER_AGENT']) < @options[:minimum]
+        elsif @options[:minimum].nil? || ie_version(env['HTTP_USER_AGENT']) < @options[:minimum]
           html = <<-HTML
             <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
             <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -33,14 +31,14 @@ module Rack
               </body>
             </html>
           HTML
-          return [200, {'Content-Type' =>  'text/html', 'Content-Length' => html.size.to_s}, Rack::Response.new([html])]
+          return [200, { 'Content-Type' =>  'text/html', 'Content-Length' => html.size.to_s }, Rack::Response.new([html])]
         end
       end
       @app.call(env)
     end
 
     def build_response_body(response)
-      response_body = ""
+      response_body = ''
       response.each { |part| response_body += part }
 
       # see: http://johnbintz.github.com/blog/2012/03/05/closing-given-body-in-rack-middleware/
@@ -51,7 +49,7 @@ module Rack
 
     def recalculate_body_length(headers, body)
       new_headers = headers
-      new_headers["Content-Length"] = body.length.to_s
+      new_headers['Content-Length'] = body.length.to_s
       new_headers
     end
 
@@ -60,7 +58,7 @@ module Rack
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
       HEAD
 
-      body.gsub!(/<head(.*)>/, "<head\\1>\n" + head )
+      body.gsub!(/<head(.*)>/, "<head\\1>\n" + head)
       body
     end
 

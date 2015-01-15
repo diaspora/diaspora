@@ -32,7 +32,7 @@ shared_examples_for 'it is a stream' do
     end
 
     it 'should always have an order (default created_at)' do
-      @stream.order=nil
+      @stream.order = nil
       expect(@stream.order).not_to be_nil
     end
 

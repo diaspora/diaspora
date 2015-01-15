@@ -4,33 +4,33 @@
 
 require 'spec_helper'
 
-describe PasswordsController, :type => :controller do
+describe PasswordsController, type: :controller do
   include Devise::TestHelpers
 
   before do
-    @request.env["devise.mapping"] = Devise.mappings[:user]
+    @request.env['devise.mapping'] = Devise.mappings[:user]
   end
 
-  describe "#create" do
-    context "when there is no such user" do
-      it "succeeds" do
-        post :create, "user" => {"email" => "foo@example.com"}
+  describe '#create' do
+    context 'when there is no such user' do
+      it 'succeeds' do
+        post :create, 'user' => { 'email' => 'foo@example.com' }
         expect(response).to be_success
       end
 
       it "doesn't send email" do
         expect(Workers::ResetPassword).not_to receive(:perform_async)
-        post :create, "user" => {"email" => "foo@example.com"}
+        post :create, 'user' => { 'email' => 'foo@example.com' }
       end
     end
-    context "when there is a user with that email" do
-      it "redirects to the login page" do
-        post :create, "user" => {"email" => alice.email}
+    context 'when there is a user with that email' do
+      it 'redirects to the login page' do
+        post :create, 'user' => { 'email' => alice.email }
         expect(response).to redirect_to(new_user_session_path)
       end
-      it "sends email (enqueued to Sidekiq)" do
+      it 'sends email (enqueued to Sidekiq)' do
         expect(Workers::ResetPassword).to receive(:perform_async).with(alice.id)
-        post :create, "user" => {"email" => alice.email}
+        post :create, 'user' => { 'email' => alice.email }
       end
     end
   end

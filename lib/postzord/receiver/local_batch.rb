@@ -3,14 +3,12 @@
 #   the COPYRIGHT file.
 
 class Postzord::Receiver::LocalBatch < Postzord::Receiver
-
   attr_reader :object, :recipient_user_ids, :users
 
   def initialize(object, recipient_user_ids)
     @object = object
     @recipient_user_ids = recipient_user_ids
-    @users = User.where(:id => @recipient_user_ids)
-
+    @users = User.where(id: @recipient_user_ids)
   end
 
   def receive!
@@ -43,19 +41,17 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
   # @note performs a bulk insert into mySQL
   # @return [void]
   def create_share_visibilities
-    contacts_ids = Contact.connection.select_values(Contact.where(:user_id => @recipient_user_ids, :person_id => @object.author_id).select("id").to_sql)
+    contacts_ids = Contact.connection.select_values(Contact.where(user_id: @recipient_user_ids, person_id: @object.author_id).select('id').to_sql)
     ShareVisibility.batch_import(contacts_ids, object)
   end
 
   # Notify any mentioned users within the @object's text
   # @return [void]
   def notify_mentioned_users
-    @object.mentions.each do |mention|
-      mention.notify_recipient
-    end
+    @object.mentions.each(&:notify_recipient)
   end
 
-  #NOTE(these methods should be in their own module, included in this class)
+  # NOTE(these methods should be in their own module, included in this class)
   # Notify users of the new object
   # return [void]
   def notify_users

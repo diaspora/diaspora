@@ -1,10 +1,12 @@
 class FakeHydra
-  def queue(*args); end
+  def queue(*_args); end
+
   def run;   end
 end
 
 class FakeHydraRequest
-  def initialize(*args);  end
+  def initialize(*_args);  end
+
   def on_complete;  end
 end
 
@@ -14,6 +16,7 @@ def disable_typhoeus
     Workers::HttpMulti.const_set('Request', FakeHydraRequest)
   end
 end
+
 def enable_typhoeus
   silence_warnings do
     Workers::HttpMulti.const_set('Hydra', Typhoeus::Hydra)

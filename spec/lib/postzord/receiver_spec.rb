@@ -9,7 +9,7 @@ describe Postzord::Receiver do
     @receiver = Postzord::Receiver.new
   end
 
-  describe "#perform!" do
+  describe '#perform!' do
     before do
       allow(@receiver).to receive(:receive!).and_return(true)
     end
@@ -20,4 +20,3 @@ describe Postzord::Receiver do
     end
   end
 end
-

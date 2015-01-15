@@ -3,16 +3,14 @@
 #   the COPYRIGHT file.
 require 'spec_helper'
 
-describe GettingStartedHelper, :type => :helper do
+describe GettingStartedHelper, type: :helper do
   before do
     @current_user = alice
   end
 
-  def current_user
-    @current_user
-  end
+  attr_reader :current_user
 
-  describe "#has_completed_getting_started?" do
+  describe '#has_completed_getting_started?' do
     it 'returns true if the current user has completed getting started' do
       @current_user.getting_started = false
       @current_user.save

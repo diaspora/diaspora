@@ -6,10 +6,10 @@
 require 'spec_helper'
 
 describe String do
-  let(:english) { "Hello World" }
-  let(:chinese) { "你好世界" }
-  let(:arabic) { "مرحبا العالم" }
-  let(:hebrew) { "שלום העולם" }
+  let(:english) { 'Hello World' }
+  let(:chinese) { '你好世界' }
+  let(:arabic) { 'مرحبا العالم' }
+  let(:hebrew) { 'שלום העולם' }
   let(:english_chinese) { "#{english} #{chinese}" }
   let(:english_arabic) { "#{english} #{chinese}" }
   let(:english_hebrew) { "#{english} #{chinese}" }
@@ -23,8 +23,7 @@ describe String do
   let(:hebrew_chinese) { "#{hebrew} #{chinese}" }
   let(:hebrew_arabic) { "#{hebrew} #{arabic}" }
 
-
-  describe "#stats_with_rtl_char?" do
+  describe '#stats_with_rtl_char?' do
     it 'returns true or false correctly' do
       expect(english.starts_with_rtl_char?).to be false
       expect(chinese.starts_with_rtl_char?).to be false
@@ -40,14 +39,14 @@ describe String do
       expect(hebrew_english.starts_with_rtl_char?).to be true
       expect(arabic_chinese.starts_with_rtl_char?).to be true
     end
-    
+
     it 'ignores whitespaces' do
       expect(" \n \r \t".starts_with_rtl_char?).to be false
       expect(" #{arabic} ".starts_with_rtl_char?).to be true
     end
   end
 
-  describe "#is_rtl?" do
+  describe '#is_rtl?' do
     it 'returns true or false correctly' do
       expect(english.is_rtl?).to be false
       expect(chinese.is_rtl?).to be false

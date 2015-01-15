@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class AccountDeleter
-
   # Things that are not removed from the database:
   # - Comments
   # - Likes
@@ -18,21 +17,21 @@ class AccountDeleter
   attr_accessor :person, :user
 
   def initialize(diaspora_handle)
-    self.person = Person.where(:diaspora_handle => diaspora_handle).first
-    self.user = self.person.owner
+    self.person = Person.where(diaspora_handle: diaspora_handle).first
+    self.user = person.owner
   end
 
   def perform!
     ActiveRecord::Base.transaction do
-      #person
+      # person
       delete_standard_person_associations
       remove_conversation_visibilities
       remove_share_visibilities_on_persons_posts
       delete_contacts_of_me
       tombstone_person_and_profile
 
-      if self.user
-        #user deletion methods
+      if user
+        # user deletion methods
         remove_share_visibilities_on_contacts_posts
         delete_standard_user_associations
         disassociate_invitations
@@ -44,7 +43,7 @@ class AccountDeleter
     end
   end
 
-  #user deletions
+  # user deletions
   def normal_ar_user_associates_to_delete
     [:tag_followings, :invitations_to_me, :services, :aspects, :user_preferences, :notifications, :blocks]
   end
@@ -59,20 +58,18 @@ class AccountDeleter
 
   def delete_standard_user_associations
     normal_ar_user_associates_to_delete.each do |asso|
-      self.user.send(asso).each{|model| model.destroy }
+      user.send(asso).each(&:destroy)
     end
   end
 
   def delete_standard_person_associations
     normal_ar_person_associates_to_delete.each do |asso|
-      self.person.send(asso).destroy_all
+      person.send(asso).destroy_all
     end
   end
 
   def disassociate_invitations
-    user.invitations_from_me.each do |inv|
-      inv.convert_to_admin!
-    end
+    user.invitations_from_me.each(&:convert_to_admin!)
   end
 
   def disconnect_contacts
@@ -90,20 +87,20 @@ class AccountDeleter
   end
 
   def remove_conversation_visibilities
-    ConversationVisibility.where(:person_id => person.id).destroy_all
+    ConversationVisibility.where(person_id: person.id).destroy_all
   end
 
   def tombstone_person_and_profile
-    self.person.lock_access!
-    self.person.clear_profile!
+    person.lock_access!
+    person.clear_profile!
   end
 
   def tombstone_user
-    self.user.clear_account!
+    user.clear_account!
   end
 
   def delete_contacts_of_me
-    Contact.all_contacts_of_person(self.person).destroy_all
+    Contact.all_contacts_of_person(person).destroy_all
   end
 
   def normal_ar_person_associates_to_delete
@@ -115,6 +112,6 @@ class AccountDeleter
   end
 
   def mark_account_deletion_complete
-    AccountDeletion.where(:diaspora_handle => self.person.diaspora_handle).where(:person_id => self.person.id).update_all(["completed_at = ?", Time.now])
+    AccountDeletion.where(diaspora_handle: person.diaspora_handle).where(person_id: person.id).update_all(['completed_at = ?', Time.now])
   end
 end

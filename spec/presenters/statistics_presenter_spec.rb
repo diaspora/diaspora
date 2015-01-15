@@ -20,17 +20,17 @@ describe StatisticsPresenter do
     end
 
     it 'provides generic pod data in json' do
-      expect(@presenter.as_json).to eq({
-        "name" => AppConfig.settings.pod_name,
-        "network" => "Diaspora",
-        "version" => AppConfig.version_string,
-        "registrations_open" => AppConfig.settings.enable_registrations,
-        "services"=> ["facebook",],
-        "facebook" => true,
-        "tumblr" => false,
-        "twitter" => false,
-        "wordpress" => false,
-      })
+      expect(@presenter.as_json).to eq(
+        'name' => AppConfig.settings.pod_name,
+        'network' => 'Diaspora',
+        'version' => AppConfig.version_string,
+        'registrations_open' => AppConfig.settings.enable_registrations,
+        'services' => ['facebook'],
+        'facebook' => true,
+        'tumblr' => false,
+        'twitter' => false,
+        'wordpress' => false
+      )
     end
 
     context 'when services are enabled' do
@@ -39,30 +39,30 @@ describe StatisticsPresenter do
         AppConfig.privacy.statistics.post_counts = true
         AppConfig.privacy.statistics.comment_counts = true
         AppConfig.services = {
-          "facebook" => {"enable" => true},
-          "twitter" => {"enable" => true},
-          "wordpress" => {"enable" => false},
-          "tumblr" => {"enable" => false}
+          'facebook' => { 'enable' => true },
+          'twitter' => { 'enable' => true },
+          'wordpress' => { 'enable' => false },
+          'tumblr' => { 'enable' => false }
         }
       end
 
       it 'provides generic pod data and counts in json' do
-        expect(@presenter.as_json).to eq({
-          "name" => AppConfig.settings.pod_name,
-          "network" => "Diaspora",
-          "version" => AppConfig.version_string,
-          "registrations_open" => AppConfig.settings.enable_registrations,
-          "total_users" => User.count,
-          "active_users_halfyear" => User.halfyear_actives.count,
-          "active_users_monthly" => User.monthly_actives.count,
-          "local_posts" => @presenter.local_posts,
-          "local_comments" => @presenter.local_comments,
-          "services" => ["twitter","facebook"],
-          "facebook" => true,
-          "twitter" => true,
-          "tumblr" => false,
-          "wordpress" => false
-        })
+        expect(@presenter.as_json).to eq(
+          'name' => AppConfig.settings.pod_name,
+          'network' => 'Diaspora',
+          'version' => AppConfig.version_string,
+          'registrations_open' => AppConfig.settings.enable_registrations,
+          'total_users' => User.count,
+          'active_users_halfyear' => User.halfyear_actives.count,
+          'active_users_monthly' => User.monthly_actives.count,
+          'local_posts' => @presenter.local_posts,
+          'local_comments' => @presenter.local_comments,
+          'services' => %w(twitter facebook),
+          'facebook' => true,
+          'twitter' => true,
+          'tumblr' => false,
+          'wordpress' => false
+        )
       end
     end
   end

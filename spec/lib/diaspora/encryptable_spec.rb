@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe Diaspora::Encryptable do
   before do
-    @comment = FactoryGirl.create(:comment, :author => bob.person)
+    @comment = FactoryGirl.create(:comment, author: bob.person)
   end
   describe '#sign_with_key' do
     it 'signs the object with RSA256 signature' do
@@ -22,7 +22,7 @@ describe Diaspora::Encryptable do
     end
 
     it 'does not verify the fallback after rollout window' do
-      sig = Base64.strict_encode64(bob.encryption_key.sign( "SHA", @comment.signable_string )) 
+      sig = Base64.strict_encode64(bob.encryption_key.sign('SHA', @comment.signable_string))
       expect(@comment.verify_signature(sig, bob.person)).to be false
     end
   end

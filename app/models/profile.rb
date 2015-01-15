@@ -11,7 +11,7 @@ class Profile < ActiveRecord::Base
   attr_accessor :tag_string
   acts_as_taggable_on :tags
   extract_tags_from :tag_string
-  validates :tag_list, :length => { :maximum => 5 }
+  validates :tag_list, length: { maximum: 5 }
 
   xml_attr :diaspora_handle
   xml_attr :first_name
@@ -30,40 +30,40 @@ class Profile < ActiveRecord::Base
   before_save :strip_names
   after_validation :strip_names
 
-  validates :first_name, :length => { :maximum => 32 }
-  validates :last_name, :length => { :maximum => 32 }
+  validates :first_name, length: { maximum: 32 }
+  validates :last_name, length: { maximum: 32 }
 
-  validates_format_of :first_name, :with => /\A[^;]+\z/, :allow_blank => true
-  validates_format_of :last_name, :with => /\A[^;]+\z/, :allow_blank => true
+  validates_format_of :first_name, with: /\A[^;]+\z/, allow_blank: true
+  validates_format_of :last_name, with: /\A[^;]+\z/, allow_blank: true
   validate :max_tags
   validate :valid_birthday
 
   belongs_to :person
   before_validation do
-    self.tag_string = self.tag_string.split[0..4].join(' ')
+    self.tag_string = tag_string.split[0..4].join(' ')
   end
 
   before_save do
-    self.build_tags
-    self.construct_full_name
+    build_tags
+    construct_full_name
   end
 
   def subscribers(user)
-    Person.joins(:contacts).where(:contacts => {:user_id => user.id})
+    Person.joins(:contacts).where(contacts: { user_id: user.id })
   end
 
   def receive(user, person)
     person.reload # make sure to have old profile referenced
     Rails.logger.info("event=receive payload_type=profile sender=#{person} to=#{user}")
-    profiles_attr = self.attributes.merge('tag_string' => self.tag_string).slice('diaspora_handle', 'first_name', 'last_name', 'image_url', 'image_url_small', 'image_url_medium', 'birthday', 'gender', 'bio', 'location', 'searchable', 'nsfw', 'tag_string')
+    profiles_attr = attributes.merge('tag_string' => tag_string).slice('diaspora_handle', 'first_name', 'last_name', 'image_url', 'image_url_small', 'image_url_medium', 'birthday', 'gender', 'bio', 'location', 'searchable', 'nsfw', 'tag_string')
     person.profile.update_attributes(profiles_attr)
 
     person.profile
   end
 
   def diaspora_handle
-    #get the parent diaspora handle, unless we want to access a profile without a person
-    (self.person) ? self.person.diaspora_handle : self[:diaspora_handle]
+    # get the parent diaspora handle, unless we want to access a profile without a person
+    (person) ? person.diaspora_handle : self[:diaspora_handle]
   end
 
   def image_url(size = :thumb_large)
@@ -87,18 +87,18 @@ class Profile < ActiveRecord::Base
   end
 
   def from_omniauth_hash(omniauth_user_hash)
-    mappings = {"description" => "bio",
-               'image' => 'image_url',
-               'name' => 'first_name',
-               'location' =>  'location',
+    mappings = { 'description' => 'bio',
+                 'image' => 'image_url',
+                 'name' => 'first_name',
+                 'location' =>  'location'
                 }
 
-    update_hash = Hash[ omniauth_user_hash.map {|k, v| [mappings[k], v] } ]
+    update_hash = Hash[omniauth_user_hash.map { |k, v| [mappings[k], v] }]
 
-    self.attributes.merge(update_hash){|key, old, new| old.blank? ? new : old}
+    attributes.merge(update_hash) { |_key, old, new| old.blank? ? new : old }
   end
 
-  def image_url= url
+  def image_url=(url)
     return image_url if url == ''
     if url.nil? || url.match(/^https?:\/\//)
       super(url)
@@ -107,7 +107,7 @@ class Profile < ActiveRecord::Base
     end
   end
 
-  def image_url_small= url
+  def image_url_small=(url)
     return image_url if url == ''
     if url.nil? || url.match(/^https?:\/\//)
       super(url)
@@ -116,7 +116,7 @@ class Profile < ActiveRecord::Base
     end
   end
 
-  def image_url_medium= url
+  def image_url_medium=(url)
     return image_url if url == ''
     if url.nil? || url.match(/^https?:\/\//)
       super(url)
@@ -125,15 +125,15 @@ class Profile < ActiveRecord::Base
     end
   end
 
-  def date= params
-    if ['month', 'day'].all? { |key| params[key].present?  }
+  def date=(params)
+    if %w(month day).all? { |key| params[key].present?  }
       params['year'] = '1000' if params['year'].blank?
       if Date.valid_civil?(params['year'].to_i, params['month'].to_i, params['day'].to_i)
         self.birthday = Date.new(params['year'].to_i, params['month'].to_i, params['day'].to_i)
       else
         @invalid_birthday_date = true
       end
-    elsif [ 'year', 'month', 'day'].all? { |key| params[key].blank? }
+    elsif %w(year month day).all? { |key| params[key].blank? }
       self.birthday = nil
     end
   end
@@ -155,34 +155,35 @@ class Profile < ActiveRecord::Base
       @tag_string
     else
       tags = self.tags.pluck(:name)
-      tags.inject(""){|string, tag| string << "##{tag} " }
+      tags.inject('') { |string, tag| string << "##{tag} " }
     end
   end
 
   # Constructs a full name by joining #first_name and #last_name
   # @return [String] A full name
   def construct_full_name
-    self.full_name = [self.first_name, self.last_name].join(' ').downcase.strip
-    self.full_name
+    self.full_name = [first_name, last_name].join(' ').downcase.strip
+    full_name
   end
 
   def tombstone!
-    self.taggings.delete_all
+    taggings.delete_all
     clearable_fields.each do |field|
       self[field] = nil
     end
     self[:searchable] = false
-    self.save
+    save
   end
 
   protected
+
   def strip_names
-    self.first_name.strip! if self.first_name
-    self.last_name.strip! if self.last_name
+    first_name.strip! if first_name
+    last_name.strip! if last_name
   end
 
   def max_tags
-    if self.tag_string.count('#') > 5
+    if tag_string.count('#') > 5
       errors[:base] << 'Profile cannot have more than five tags'
     end
   end
@@ -195,11 +196,12 @@ class Profile < ActiveRecord::Base
   end
 
   private
+
   def clearable_fields
-    self.attributes.keys - ["id", "created_at", "updated_at", "person_id"]
+    attributes.keys - %w(id created_at updated_at person_id)
   end
 
-  def absolutify_local_url url
-    "#{AppConfig.pod_uri.to_s.chomp("/")}#{url}"
+  def absolutify_local_url(url)
+    "#{AppConfig.pod_uri.to_s.chomp('/')}#{url}"
   end
 end

@@ -6,22 +6,22 @@ class OEmbedPresenter
     @opts = opts
   end
 
-  def to_json(opts={})
+  def to_json(opts = {})
     as_json(opts).to_json
   end
 
-  def as_json(opts={})
+  def as_json(_opts = {})
     {
-      :provider_name => "Diaspora",
-      :provider_url => AppConfig.pod_uri.to_s,
-      :type => 'rich',
-      :version => '1.0',
-      :title => post_title,
-      :author_name => post_author,
-      :author_url => post_author_url,
-      :width => @opts.fetch(:maxwidth, 516),
-      :height => @opts.fetch(:maxheight, 320),
-      :html => iframe_html
+      provider_name: 'Diaspora',
+      provider_url: AppConfig.pod_uri.to_s,
+      type: 'rich',
+      version: '1.0',
+      title: post_title,
+      author_name: post_author,
+      author_url: post_author_url,
+      width: @opts.fetch(:maxwidth, 516),
+      height: @opts.fetch(:maxheight, 320),
+      html: iframe_html
     }
   end
 
@@ -38,10 +38,10 @@ class OEmbedPresenter
   end
 
   def post_author_url
-   Rails.application.routes.url_helpers.person_url(@post.author, :host => AppConfig.pod_uri.host)
+    Rails.application.routes.url_helpers.person_url(@post.author, host: AppConfig.pod_uri.host)
   end
 
   def iframe_html
-    post_iframe_url(@post.id, :height => @opts[:maxheight], :width => @opts[:maxwidth])
+    post_iframe_url(@post.id, height: @opts[:maxheight], width: @opts[:maxwidth])
   end
 end

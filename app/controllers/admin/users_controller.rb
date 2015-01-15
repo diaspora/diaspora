@@ -1,6 +1,5 @@
 module Admin
   class UsersController < AdminController
-
     def close_account
       u = User.find(close_account_params)
       u.close_account!

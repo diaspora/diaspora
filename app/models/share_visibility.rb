@@ -35,7 +35,7 @@ class ShareVisibility < ActiveRecord::Base
     else
        new_share_visibilities_data = contact_ids.map do |contact_id|
         [contact_id, share.id, share.class.base_class.to_s]
-      end
+                                     end
       ShareVisibility.import([:contact_id, :shareable_id, :shareable_type], new_share_visibilities_data)
     end
   end

@@ -25,8 +25,7 @@ module MentioningSpecHelpers
   end
 end
 
-
-describe 'mentioning', :type => :request do
+describe 'mentioning', type: :request do
   include MentioningSpecHelpers
 
   before do
@@ -44,7 +43,7 @@ describe 'mentioning', :type => :request do
 
     status_msg = nil
     expect do
-      status_msg = @user1.post(:status_message, {text: text_mentioning(@user3), to: default_aspect})
+      status_msg = @user1.post(:status_message, text: text_mentioning(@user3), to: default_aspect)
     end.to change(Post, :count).by(1)
 
     expect(status_msg).not_to be_nil
@@ -52,7 +51,6 @@ describe 'mentioning', :type => :request do
     expect(status_msg.text).to include(@user3.name)
 
     expect(notifications_about_mentioning(@user3)).to be_empty
-    expect(stream_for(@user3).map { |item| item.id }).not_to include(status_msg.id)
+    expect(stream_for(@user3).map(&:id)).not_to include(status_msg.id)
   end
-
 end

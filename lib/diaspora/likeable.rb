@@ -13,8 +13,8 @@ module Diaspora
 
     # @return [Integer]
     def update_likes_counter
-      self.class.where(id: self.id).
-        update_all(likes_count: self.likes.count)
+      self.class.where(id: id)
+        .update_all(likes_count: likes.count)
     end
   end
 end

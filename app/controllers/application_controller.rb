@@ -4,7 +4,7 @@
 
 class ApplicationController < ActionController::Base
   has_mobile_fu
-  protect_from_forgery :except => :receive
+  protect_from_forgery except: :receive
 
   before_action :ensure_http_referer_is_set
   before_action :set_locale
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   before_action :gon_set_current_user
   before_action :gon_set_preloads
 
-  inflection_method :grammatical_gender => :gender
+  inflection_method grammatical_gender: :gender
 
   helper_method :all_aspects,
                 :all_contacts_count,
@@ -24,12 +24,12 @@ class ApplicationController < ActionController::Base
                 :tags,
                 :open_publisher
 
-  layout ->(c) { request.format == :mobile ? "application" : "centered_with_header_with_footer" }
+  layout ->(_c) { request.format == :mobile ? 'application' : 'centered_with_header_with_footer' }
 
   private
 
   def default_serializer_options
-    {root: false}
+    { root: false }
   end
 
   def ensure_http_referer_is_set
@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   end
 
   # Overwriting the sign_out redirect path method
-  def after_sign_out_path_for(resource_or_scope)
+  def after_sign_out_path_for(_resource_or_scope)
     # mobile_fu's is_mobile_device? wasn't working here for some reason...
     # it may have been just because of the test env.
     if request.env['HTTP_USER_AGENT'].try(:match, /mobile/i)
@@ -92,17 +92,17 @@ class ApplicationController < ActionController::Base
 
   def redirect_unless_admin
     unless current_user.admin?
-      redirect_to stream_url, :notice => 'you need to be an admin to do that'
+      redirect_to stream_url, notice: 'you need to be an admin to do that'
       return
     end
   end
 
   def set_grammatical_gender
-    if (user_signed_in? && I18n.inflector.inflected_locale?)
+    if user_signed_in? && I18n.inflector.inflected_locale?
       gender = current_user.gender.to_s.tr('!()[]"\'`*=|/\#.,-:', '').downcase
       unless gender.empty?
         i_langs = I18n.inflector.inflected_locales(:gender)
-        i_langs.delete  I18n.locale
+        i_langs.delete I18n.locale
         i_langs.unshift I18n.locale
         i_langs.each do |lang|
           token = I18n.inflector.true_token(gender, :gender, lang)
@@ -130,7 +130,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     stored_location_for(:user) || current_user_redirect_path
   end
 
@@ -146,7 +146,7 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
     a_ids = session[:a_ids] || []
     user = UserPresenter.new(current_user, a_ids)
-    gon.push({:user => user})
+    gon.push(user: user)
   end
 
   def gon_set_preloads
@@ -154,10 +154,10 @@ class ApplicationController < ActionController::Base
     gon.preloads = {}
   end
 
-  def self.use_bootstrap_for *routes
-    before_filter -> {
+  def self.use_bootstrap_for(*routes)
+    before_action -> do
       @css_framework = :bootstrap
       gon.bootstrap = true
-    }, only: routes.flatten
+    end, only: routes.flatten
   end
 end

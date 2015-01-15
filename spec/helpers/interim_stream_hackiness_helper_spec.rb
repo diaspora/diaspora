@@ -1,18 +1,18 @@
 require 'spec_helper'
 
-describe InterimStreamHackinessHelper, :type => :helper do
+describe InterimStreamHackinessHelper, type: :helper do
   describe 'commenting_disabled?' do
     include Devise::TestHelpers
     before do
       sign_in alice
-      def user_signed_in? 
+      def user_signed_in?
         true
       end
     end
 
     it 'returns true if no user is signed in' do
-      def user_signed_in? 
-        false 
+      def user_signed_in?
+        false
       end
       expect(commenting_disabled?(double)).to eq(true)
     end
@@ -21,7 +21,7 @@ describe InterimStreamHackinessHelper, :type => :helper do
       @commenting_disabled = true
       expect(commenting_disabled?(double)).to eq(true)
       @commenting_disabled = false
-      expect(commenting_disabled?(double)).to eq(false) 
+      expect(commenting_disabled?(double)).to eq(false)
     end
 
     it 'returns @stream.can_comment? if @stream is set' do
