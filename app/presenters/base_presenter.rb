@@ -4,7 +4,7 @@ class BasePresenter
   class << self
     def new(*args)
       return NilPresenter.new if args[0].nil?
-      super *args
+      super(*args)
     end
 
     def as_collection(collection, method = :as_json, *args)
