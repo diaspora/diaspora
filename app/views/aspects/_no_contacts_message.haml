@@ -7,5 +7,6 @@
   %br
   %br
   = t('.try_adding_some_more_contacts')
-  != t('.or_spotlight', :link => link_to(t(".community_spotlight") , community_spotlight_path))
+  - if AppConfig.settings.community_spotlight.enable?
+    != t('.or_spotlight', :link => link_to(t(".community_spotlight") , community_spotlight_path))
 

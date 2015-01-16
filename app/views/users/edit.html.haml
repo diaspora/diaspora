@@ -85,9 +85,10 @@
 
             = f.fields_for :stream_preferences do |type|
               #stream_prefs
-                = f.label :show_community_spotlight_in_stream, :class => "checkbox" do
-                  = f.check_box :show_community_spotlight_in_stream
-                  = t('.show_community_spotlight')
+                - if AppConfig.settings.community_spotlight.enable?
+                  = f.label :show_community_spotlight_in_stream, :class => "checkbox" do
+                    = f.check_box :show_community_spotlight_in_stream
+                    = t('.show_community_spotlight')
 
               .small-horizontal-spacer
                 = f.label :getting_started, :class => "checkbox" do
