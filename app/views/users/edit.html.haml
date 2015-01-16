@@ -180,8 +180,20 @@
         #account_data.span6
           %h3 
             = t('.export_data')
-          .small-horizontal-spacer          
-          = link_to t('.download_profile'), export_user_path(format: :json), :class => "button"
+          - if current_user.exporting
+            .small-horizontal-spacer
+              .export-in-progress= t('.export_in_progress')
+          - elsif current_user.export.present?
+            .small-horizontal-spacer
+              = link_to t('.download_export'), download_profile_user_path, class: "button"
+            .small-horizontal-spacer
+              = t('.last_exported_at', timestamp: current_user.exported_at)
+            .small-horizontal-spacer
+              = link_to t('.request_export_update'), export_profile_user_path
+          - else
+            .small-horizontal-spacer
+              = link_to t('.request_export'), export_profile_user_path, :class => "button"
+
           .small-horizontal-spacer
           = link_to t('.download_photos'), "#", :class => "button", :id => "photo-export-button", :title => t('.photo_export_unavailable')
 

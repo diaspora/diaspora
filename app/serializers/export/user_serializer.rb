@@ -11,6 +11,12 @@ module Export
     has_one    :profile,  serializer:      Export::ProfileSerializer
     has_many   :aspects,  each_serializer: Export::AspectSerializer
     has_many   :contacts, each_serializer: Export::ContactSerializer
+    has_many   :posts,    each_serializer: Export::PostSerializer
+    has_many   :comments, each_serializer: Export::CommentSerializer
+
+    def comments
+      object.person.comments
+    end
 
   end
 end

@@ -996,6 +996,33 @@ describe User, :type => :model do
     end
   end
 
+  describe "queue_export" do
+    it "queues up a job to perform the export" do
+      user = FactoryGirl.create :user
+      expect(Workers::ExportUser).to receive(:perform_async).with(user.id)
+      user.queue_export
+      expect(user.exporting).to be_truthy
+    end
+  end
+
+  describe "perform_export!" do
+    it "saves a json export to the user" do
+      user = FactoryGirl.create :user, exporting: true
+      user.perform_export!
+      expect(user.export).to be_present
+      expect(user.exported_at).to be_present
+      expect(user.exporting).to be_falsey
+      expect(user.export.filename).to match /.json/
+      expect(ActiveSupport::Gzip.decompress(user.export.file.read)).to include user.username
+    end
+
+    it "compresses the result" do
+      user = FactoryGirl.create :user, exporting: true
+      expect(ActiveSupport::Gzip).to receive :compress
+      user.perform_export!
+    end
+  end
+
   describe "sign up" do
     before do
       params = {:username => "ohai",

@@ -781,6 +781,27 @@ en:
           The diaspora* email robot!
 
           [1]: %{url}
+    export_email:
+      subject: "Your personal data is ready for download, %{username}"
+      body: |-
+        Hello %{username}
+
+        Your data has been processed and is ready for download by following [this link][%{url}].
+
+        Cheers,
+
+        The diaspora* email robot!
+    export_failure_email:
+      subject: "We're sorry, there was an issue with your data, %{username}"
+      body: |-
+        Hello %{username}
+
+        We''ve encountered an issue while processing your personal data for download.
+        Please try again!
+
+        Cheers,
+
+        The diaspora* email robot!
     accept_invite: "Accept Your diaspora* invite!"
     invited_you: "%{name} invited you to diaspora*"
     invite:
@@ -1254,7 +1275,11 @@ en:
       current_password: "Current password"
       current_password_expl: "the one you sign in with..."
       character_minimum_expl: "must be at least six characters"
-      download_profile: "download my profile"
+      export_in_progress: 'We are currently processing your data. Please check back in a few moments.'
+      last_exported_at: '(Last updated at %{timestamp})'
+      request_export: 'request my profile data'
+      download_export: 'download my profile'
+      request_export_update: 'refresh my profile data'
       download_photos: "download my photos"
       your_handle: "Your diaspora* ID"
       your_email: "Your email"

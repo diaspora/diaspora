@@ -11,10 +11,21 @@ describe UsersController, :type => :controller do
     allow(@controller).to receive(:current_user).and_return(@user)
   end
 
-  describe '#export' do
-    it 'can return a json file' do
-      get :export, format: :json
-      expect(response.header["Content-Type"]).to include "application/json"
+  describe '#export_profile' do
+    it 'queues an export job' do
+      expect(@user).to receive :queue_export
+      get :export_profile
+      expect(request.flash[:notice]).to eql(I18n.t('users.edit.export_in_progress'))
+      expect(response).to redirect_to(edit_user_path)
+    end
+  end
+
+  describe "#download_profile" do
+    it "downloads a user's export file" do
+      @user.perform_export!
+      get :download_profile
+      parsed = JSON.parse(ActiveSupport::Gzip.decompress(response.body))
+      expect(parsed['user']['username']).to eq @user.username
     end
   end
 

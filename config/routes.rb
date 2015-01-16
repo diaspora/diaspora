@@ -101,7 +101,8 @@ Diaspora::Application.routes.draw do
 
   resource :user, :only => [:edit, :update, :destroy], :shallow => true do
     get :getting_started_completed
-    get :export, format: :json
+    get :export_profile
+    get :download_profile
     get :export_photos
   end
 

@@ -1,0 +1,1 @@
+<%= t('notifier.export_email.body', url: @user.export.url, username: @user.username) %>
