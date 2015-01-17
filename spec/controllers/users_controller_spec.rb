@@ -112,9 +112,9 @@ describe UsersController, :type => :controller do
       }.not_to change(@user, :diaspora_handle)
     end
 
-    it 'redirects to the user edit page' do
+    it 'renders the user edit page' do
       put :update, @params
-      expect(response).to redirect_to edit_user_path
+      expect(response).to render_template('edit')
     end
 
     it 'responds with a 204 on a js request' do
@@ -122,17 +122,21 @@ describe UsersController, :type => :controller do
       expect(response.status).to eq(204)
     end
 
-    context 'password updates' do
-      before do
-        @password_params = {:current_password => 'bluepin7',
-                            :password => "foobaz",
-                            :password_confirmation => "foobaz"}
+    describe 'password updates' do
+      let(:password_params) do
+        {:current_password => 'bluepin7',
+         :password => "foobaz",
+         :password_confirmation => "foobaz"}
+      end
+
+      let(:params) do
+        {id: @user.id, user: password_params, change_password: 'Change Password'}
       end
 
       it "uses devise's update with password" do
-        expect(@user).to receive(:update_with_password).with(hash_including(@password_params))
+        expect(@user).to receive(:update_with_password).with(hash_including(password_params))
         allow(@controller).to receive(:current_user).and_return(@user)
-        put :update, :id => @user.id, :user => @password_params
+        put :update, params
       end
     end
 

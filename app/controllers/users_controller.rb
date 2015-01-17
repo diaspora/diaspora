@@ -4,17 +4,16 @@
 
 class UsersController < ApplicationController
   before_action :authenticate_user!, :except => [:new, :create, :public, :user_photo]
-  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }, only: [:privacy_settings, :edit]
+
+  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" },
+    only: [:privacy_settings, :edit, :update]
 
   respond_to :html
 
   def edit
     @aspect = :user_edit
-    @user   = current_user
-    @email_prefs = Hash.new(true)
-    @user.user_preferences.each do |pref|
-      @email_prefs[pref.email_type] = false
-    end
+    @user = current_user
+    set_email_preferences
   end
 
   def privacy_settings
@@ -26,16 +25,13 @@ class UsersController < ApplicationController
     @user = current_user
 
     if u = user_params
-      u.delete(:password) if u[:password].blank?
-      u.delete(:password_confirmation) if u[:password].blank? and u[:password_confirmation].blank?
-      u.delete(:language) if u[:language].blank?
 
       # change email notifications
       if u[:email_preferences]
         @user.update_user_preferences(u[:email_preferences])
         flash[:notice] = I18n.t 'users.update.email_notifications_changed'
       # change password
-      elsif u[:current_password] && u[:password] && u[:password_confirmation]
+      elsif params[:change_password]
         if @user.update_with_password(u)
           password_changed = true
           flash[:notice] = I18n.t 'users.update.password_changed'
@@ -79,10 +75,17 @@ class UsersController < ApplicationController
         end
       end
     end
+    set_email_preferences
 
     respond_to do |format|
       format.js   { render :nothing => true, :status => 204 }
-      format.all  { redirect_to password_changed ? new_user_session_path : edit_user_path }
+      format.all  do
+        if password_changed
+          redirect_to new_user_session_path
+        else
+          render :edit
+        end
+      end
     end
   end
 
@@ -205,5 +208,13 @@ class UsersController < ApplicationController
         :reshared
       ]
     )
+  end
+
+  def set_email_preferences
+    @email_prefs = Hash.new(true)
+
+    @user.user_preferences.each do |pref|
+      @email_prefs[pref.email_type] = false
+    end
   end
 end
