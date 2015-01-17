@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 20150209230946) do
     t.integer  "user_id",          limit: 4,                   null: false
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.boolean  "contacts_visible", limit: 1,   default: true,  null: false
+    t.boolean  "contacts_visible",             default: true,  null: false
     t.integer  "order_id",         limit: 4
-    t.boolean  "chat_enabled",     limit: 1,   default: false
+    t.boolean  "chat_enabled",                 default: false
   end
 
   add_index "aspects", ["user_id", "contacts_visible"], name: "index_aspects_on_user_id_and_contacts_visible", using: :btree
@@ -108,8 +108,8 @@ ActiveRecord::Schema.define(version: 20150209230946) do
     t.integer  "person_id",  limit: 4,                 null: false
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
-    t.boolean  "sharing",    limit: 1, default: false, null: false
-    t.boolean  "receiving",  limit: 1, default: false, null: false
+    t.boolean  "sharing",              default: false, null: false
+    t.boolean  "receiving",            default: false, null: false
   end
 
   add_index "contacts", ["person_id"], name: "index_contacts_on_person_id", using: :btree
@@ -154,7 +154,7 @@ ActiveRecord::Schema.define(version: 20150209230946) do
     t.datetime "updated_at",                                 null: false
     t.string   "service",      limit: 255
     t.string   "identifier",   limit: 255
-    t.boolean  "admin",        limit: 1,     default: false
+    t.boolean  "admin",                      default: false
     t.string   "language",     limit: 255,   default: "en"
   end
 
@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 20150209230946) do
   add_index "invitations", ["sender_id"], name: "index_invitations_on_sender_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
-    t.boolean  "positive",                limit: 1,     default: true
+    t.boolean  "positive",                              default: true
     t.integer  "target_id",               limit: 4
     t.integer  "author_id",               limit: 4
     t.string   "guid",                    limit: 255
@@ -226,7 +226,7 @@ ActiveRecord::Schema.define(version: 20150209230946) do
     t.string   "target_type",  limit: 255
     t.integer  "target_id",    limit: 4
     t.integer  "recipient_id", limit: 4,                  null: false
-    t.boolean  "unread",       limit: 1,   default: true, null: false
+    t.boolean  "unread",                   default: true, null: false
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.string   "type",         limit: 255
@@ -273,7 +273,7 @@ ActiveRecord::Schema.define(version: 20150209230946) do
     t.integer  "owner_id",              limit: 4
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
-    t.boolean  "closed_account",        limit: 1,     default: false
+    t.boolean  "closed_account",                      default: false
     t.integer  "fetch_status",          limit: 4,     default: 0
   end
 
@@ -284,10 +284,10 @@ ActiveRecord::Schema.define(version: 20150209230946) do
   create_table "photos", force: :cascade do |t|
     t.integer  "tmp_old_id",          limit: 4
     t.integer  "author_id",           limit: 4,                     null: false
-    t.boolean  "public",              limit: 1,     default: false, null: false
+    t.boolean  "public",                            default: false, null: false
     t.string   "diaspora_handle",     limit: 255
     t.string   "guid",                limit: 255,                   null: false
-    t.boolean  "pending",             limit: 1,     default: false, null: false
+    t.boolean  "pending",                           default: false, null: false
     t.text     "text",                limit: 65535
     t.text     "remote_photo_path",   limit: 65535
     t.string   "remote_photo_name",   limit: 255
@@ -306,7 +306,7 @@ ActiveRecord::Schema.define(version: 20150209230946) do
 
   create_table "pods", force: :cascade do |t|
     t.string   "host",       limit: 255
-    t.boolean  "ssl",        limit: 1
+    t.boolean  "ssl"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -336,7 +336,7 @@ ActiveRecord::Schema.define(version: 20150209230946) do
   create_table "polls", force: :cascade do |t|
     t.string   "question",          limit: 255, null: false
     t.integer  "status_message_id", limit: 4,   null: false
-    t.boolean  "status",            limit: 1
+    t.boolean  "status"
     t.string   "guid",              limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -346,10 +346,10 @@ ActiveRecord::Schema.define(version: 20150209230946) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "author_id",             limit: 4,                     null: false
-    t.boolean  "public",                limit: 1,     default: false, null: false
+    t.boolean  "public",                              default: false, null: false
     t.string   "diaspora_handle",       limit: 255
     t.string   "guid",                  limit: 255,                   null: false
-    t.boolean  "pending",               limit: 1,     default: false, null: false
+    t.boolean  "pending",                             default: false, null: false
     t.string   "type",                  limit: 40,                    null: false
     t.text     "text",                  limit: 65535
     t.text     "remote_photo_path",     limit: 65535
@@ -374,7 +374,7 @@ ActiveRecord::Schema.define(version: 20150209230946) do
     t.integer  "reshares_count",        limit: 4,     default: 0
     t.datetime "interacted_at"
     t.string   "frame_name",            limit: 255
-    t.boolean  "favorite",              limit: 1,     default: false
+    t.boolean  "favorite",                            default: false
     t.string   "facebook_id",           limit: 255
     t.string   "tweet_id",              limit: 255
     t.integer  "open_graph_cache_id",   limit: 4
@@ -401,13 +401,13 @@ ActiveRecord::Schema.define(version: 20150209230946) do
     t.date     "birthday"
     t.string   "gender",           limit: 255
     t.text     "bio",              limit: 65535
-    t.boolean  "searchable",       limit: 1,     default: true,  null: false
+    t.boolean  "searchable",                     default: true,  null: false
     t.integer  "person_id",        limit: 4,                     null: false
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
     t.string   "location",         limit: 255
     t.string   "full_name",        limit: 70
-    t.boolean  "nsfw",             limit: 1,     default: false
+    t.boolean  "nsfw",                           default: false
   end
 
   add_index "profiles", ["full_name", "searchable"], name: "index_profiles_on_full_name_and_searchable", using: :btree
@@ -430,7 +430,7 @@ ActiveRecord::Schema.define(version: 20150209230946) do
   create_table "reports", force: :cascade do |t|
     t.integer  "item_id",    limit: 4,                     null: false
     t.string   "item_type",  limit: 255,                   null: false
-    t.boolean  "reviewed",   limit: 1,     default: false
+    t.boolean  "reviewed",                 default: false
     t.text     "text",       limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -464,7 +464,7 @@ ActiveRecord::Schema.define(version: 20150209230946) do
     t.integer  "shareable_id",   limit: 4,                   null: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.boolean  "hidden",         limit: 1,  default: false,  null: false
+    t.boolean  "hidden",                    default: false,  null: false
     t.integer  "contact_id",     limit: 4,                   null: false
     t.string   "shareable_type", limit: 60, default: "Post", null: false
   end
@@ -526,8 +526,8 @@ ActiveRecord::Schema.define(version: 20150209230946) do
   create_table "users", force: :cascade do |t|
     t.string   "username",                           limit: 255
     t.text     "serialized_private_key",             limit: 65535
-    t.boolean  "getting_started",                    limit: 1,     default: true,  null: false
-    t.boolean  "disable_mail",                       limit: 1,     default: false, null: false
+    t.boolean  "getting_started",                                  default: true,  null: false
+    t.boolean  "disable_mail",                                     default: false, null: false
     t.string   "language",                           limit: 255
     t.string   "email",                              limit: 255,   default: "",    null: false
     t.string   "encrypted_password",                 limit: 255,   default: "",    null: false
@@ -551,17 +551,19 @@ ActiveRecord::Schema.define(version: 20150209230946) do
     t.string   "unconfirmed_email",                  limit: 255
     t.string   "confirm_email_token",                limit: 30
     t.datetime "locked_at"
-    t.boolean  "show_community_spotlight_in_stream", limit: 1,     default: true,  null: false
-    t.boolean  "auto_follow_back",                   limit: 1,     default: false
+    t.boolean  "show_community_spotlight_in_stream",               default: true,  null: false
+    t.boolean  "auto_follow_back",                                 default: false
     t.integer  "auto_follow_back_aspect_id",         limit: 4
     t.text     "hidden_shareables",                  limit: 65535
     t.datetime "reset_password_sent_at"
     t.datetime "last_seen"
     t.datetime "remove_after"
-    t.string   "export"
+    t.string   "export",                             limit: 255
     t.datetime "exported_at"
-    t.boolean  "exporting",                                      default: false
-    t.boolean  "strip_exif",                                     default: true
+    t.boolean  "exporting",                                        default: false
+    t.boolean  "strip_exif",                                       default: true
+  end
+
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", length: {"email"=>191}, using: :btree
   add_index "users", ["invitation_service", "invitation_identifier"], name: "index_users_on_invitation_service_and_invitation_identifier", unique: true, length: {"invitation_service"=>64, "invitation_identifier"=>nil}, using: :btree

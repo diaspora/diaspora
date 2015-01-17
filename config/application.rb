@@ -3,6 +3,22 @@ require_relative 'boot'
 require 'rails/all'
 Bundler.require(:default, Rails.env)
 
+# Do not dump the limit of boolean fields on MySQL,
+# since that generates a db/schema.rb that's incompatible
+# with PostgreSQL
+require 'active_record/connection_adapters/abstract_mysql_adapter'
+module ActiveRecord
+  module ConnectionAdapters
+    class Mysql2Adapter < AbstractMysqlAdapter
+      def prepare_column_options(column, *_)
+        super.tap {|spec|
+          spec.delete(:limit) if column.type == :boolean
+        }
+      end
+    end
+  end
+end
+
 # Load asset_sync early
 require_relative 'asset_sync'
 
