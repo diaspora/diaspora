@@ -165,11 +165,12 @@ $(document).ready(function(){
         url: link.attr('href'),
         success: function(data){
           parent.append(data);
-          link.addClass('active');
           scrollToOffset(parent, commentsContainer());
           commentsContainer().find('time.timeago').timeago();
         }
       });
+
+      link.addClass('active');
     }
   });
 
