@@ -23,13 +23,13 @@ describe("app.views.Poll", function(){
 
   describe("vote", function(){
     it("checks the ajax call for voting", function(){
-      jasmine.Ajax.install();
+      spyOn($, "ajax");
       var answer = this.view.poll.poll_answers[0];
       var poll = this.view.poll;
 
       this.view.vote(answer.id);
 
-      var obj = JSON.parse(jasmine.Ajax.requests.mostRecent().params);
+      var obj = JSON.parse($.ajax.mostRecentCall.args[0].data);
       expect(obj.poll_id).toBe(poll.poll_id);
       expect(obj.poll_answer_id).toBe(answer.id);
     })
@@ -41,6 +41,23 @@ describe("app.views.Poll", function(){
       this.view.poll.question = question;
       this.view.render();
       expect(this.view.$('.poll_head strong').text()).toBe(question);
+    });
+  });
+
+  describe('reshared post', function(){
+    beforeEach(function(){
+      this.view.model.set('post_type', 'Reshare');
+      this.view.model.set('root', {id: 1});
+      this.view.render();
+    });
+
+    it('hide vote form', function(){
+      expect(this.view.$('form').length).toBe(0);
+    });
+
+    it("show a.root_post_link", function(){
+      var id = this.view.model.get('root').id;
+      expect(this.view.$('a.root_post_link').attr('href')).toBe('/posts/'+id);
     });
   });
 

@@ -145,6 +145,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Replace Pagedown with markdown-it [#5526](https://github.com/diaspora/diaspora/pull/5526)
 * Do not truncate notification emails anymore [#4342](https://github.com/diaspora/diaspora/issues/4342)
 * Allows users to export their data in gzipped JSON format from their user settings page [#5499](https://github.com/diaspora/diaspora/pull/5499)
+* Show polls in view only on reshared posts [#4888](https://github.com/diaspora/diaspora/issues/4888)
 
 # 0.4.1.2
 
