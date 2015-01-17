@@ -61,7 +61,7 @@ module Diaspora
       mailchimp.js
       main.js
       jsxc.js
-      mobile.js
+      mobile/mobile.js
       profile.js
       people.js
       profile.js

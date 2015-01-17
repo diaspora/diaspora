@@ -4,7 +4,7 @@
 //= require main
 //= require home
 //= require inbox
-//= require mobile
+//= require mobile/mobile
 //= require profile
 //= require contact-list
 //= require sinon

@@ -116,6 +116,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Replace %{third_party_tools} by the appropriate hyperlink in tags FAQ [#5509](https://github.com/diaspora/diaspora/pull/5509)
 * Repair downloading the profile image from Facebook [#5493](https://github.com/diaspora/diaspora/pull/5493)
 * Fix localization of post and comment timestamps on mobile [#5482](https://github.com/diaspora/diaspora/issues/5482)
+* Fix mobile JS loading to quieten errors. Fixes also service buttons on mobile bookmarklet.
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
