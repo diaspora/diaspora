@@ -48,3 +48,4 @@
 //= require bootstrap-dropdown
 //= require bootstrap-modal
 //= require osmlocator
+//= require twemoji/twemoji

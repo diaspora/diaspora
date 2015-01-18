@@ -82,6 +82,9 @@ app.models.Post.Interactions = Backbone.Model.extend({
 
   comment : function (text) {
     var self = this;
+    console.log(text);
+    text = twemoji.parse(text, {base: "/assets/twemoji/" });
+    console.log(text);
 
     this.comments.make(text).fail(function () {
       flash = new Diaspora.Widgets.FlashMessages;

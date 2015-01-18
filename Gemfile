@@ -58,7 +58,7 @@ gem 'autoprefixer-rails', '4.0.2.1'
 
 # Database
 
-ENV['DB'] ||= 'mysql'
+ENV['DB'] ||= 'postgres'
 
 gem 'mysql2', '0.3.17' if ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg',     '0.17.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
@@ -96,6 +96,7 @@ gem 'rails-assets-markdown-it-sanitizer',               '0.2.0'
 gem 'rails-assets-markdown-it--markdown-it-for-inline', '0.1.0'
 gem 'rails-assets-markdown-it-sub',                     '0.1.0'
 gem 'rails-assets-markdown-it-sup',                     '0.1.0'
+gem 'rails-assets-twemoji',                             '1.1.1'
 
 # jQuery plugins
 
