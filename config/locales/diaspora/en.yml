@@ -636,7 +636,7 @@ en:
     application:
       powered_by: "POWERED BY diaspora*"
       whats_new: "what's new?"
-      toggle: "toggle mobile"
+      toggle: "Toggle Mobile"
       public_feed: "Public diaspora* feed for %{name}"
       your_aspects: "your aspects"
       back_to_top: "Back to top"
