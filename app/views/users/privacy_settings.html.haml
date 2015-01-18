@@ -19,6 +19,26 @@
     .span3
     .span5
       %h3
+        = t('.title')
+        
+      = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
+        = f.error_messages
+
+        = f.fields_for :stream_preferences do |type|
+          #stream_prefs
+          = f.label :strip_exif, :class => "checkbox" do
+            = f.check_box :strip_exif
+            = t('.strip_exif')
+
+          .small-horizontal-spacer
+          = f.submit t('.change'), :class => 'btn'
+
+      %hr
+      
+  .row-fluid
+    .span3
+    .span5
+      %h3
         = t('.ignored_users')
       
       - if @blocks.length.zero?

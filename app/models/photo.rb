@@ -81,10 +81,13 @@ class Photo < ActiveRecord::Base
 
     photo.random_string = SecureRandom.hex(10)
 
+    if photo.author.local?
+      photo.unprocessed_image.strip_exif = photo.author.owner.strip_exif
+    end
+
     if params[:user_file]
       image_file = params.delete(:user_file)
       photo.unprocessed_image.store! image_file
-
     elsif params[:image_url]
       photo.remote_unprocessed_image_url = params[:image_url]
       photo.unprocessed_image.store!

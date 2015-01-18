@@ -1316,8 +1316,10 @@ en:
     privacy_settings:
       title: "Privacy Settings"
       ignored_users: "Ignored Users"
+      strip_exif: "Strip metadata such as location, author, and camera model from uploaded images (recommended)"
       stop_ignoring: "Stop ignoring"
       no_user_ignored_message: "You are currently ignoring no other user"
+      change: "Change"
 
     destroy:
       success: "Your account has been locked. It may take 20 minutes for us to finish closing your account. Thank you for trying diaspora*."

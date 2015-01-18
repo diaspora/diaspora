@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227120907) do
+ActiveRecord::Schema.define(version: 20141230214830) do
 
   create_table "account_deletions", force: true do |t|
     t.string   "diaspora_handle"
@@ -558,6 +558,7 @@ ActiveRecord::Schema.define(version: 20141227120907) do
     t.datetime "reset_password_sent_at"
     t.datetime "last_seen"
     t.datetime "remove_after"
+    t.boolean  "strip_exif",                                     default: true
     t.string   "export"
     t.datetime "exported_at"
     t.boolean  "exporting",                                      default: false

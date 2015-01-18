@@ -8,7 +8,7 @@ FixtureBuilder.configure do |fbuilder|
   # now declare objects
   fbuilder.factory do
     # Users
-    alice = FactoryGirl.create(:user_with_aspect, :username => "alice")
+    alice = FactoryGirl.create(:user_with_aspect, :username => "alice", :strip_exif => false)
     alices_aspect = alice.aspects.where(:name => "generic").first
 
     eve   = FactoryGirl.create(:user_with_aspect, :username => "eve")
