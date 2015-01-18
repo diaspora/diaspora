@@ -15,7 +15,7 @@
 
       url = // rebuild the url
         (!addr.scheme ? '' : addr.scheme +
-        ( (addr.scheme.toLowerCase()=="mailto") ? ':' : '://')) +
+        ( (addr.scheme.toLowerCase()=="mailto" || addr.scheme.toLowerCase()=="xmpp") ? ':' : '://')) +
         (!addr.user ? '' : addr.user +
         (!addr.pass ? '' : ':'+addr.pass) + '@') +
         punycode.toASCII(addr.host) +
