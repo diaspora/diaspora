@@ -32,6 +32,7 @@
 //= require markdown-it-sanitizer
 //= require markdown-it-sub
 //= require markdown-it-sup
+//= require markdown-it-emoji
 //= require punycode
 //= require parse_url
 //= require clear-form
