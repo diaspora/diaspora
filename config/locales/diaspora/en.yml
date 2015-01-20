@@ -782,19 +782,19 @@ en:
 
           [1]: %{url}
     export_email:
-      subject: "Your personal data is ready for download, %{username}"
+      subject: "Your personal data is ready for download, %{name}"
       body: |-
-        Hello %{username}
+        Hello %{name},
 
-        Your data has been processed and is ready for download by following [this link][%{url}].
+        Your data has been processed and is ready for download by following [this link](%{url}).
 
         Cheers,
 
         The diaspora* email robot!
     export_failure_email:
-      subject: "We're sorry, there was an issue with your data, %{username}"
+      subject: "We're sorry, there was an issue with your data, %{name}"
       body: |-
-        Hello %{username}
+        Hello %{name}
 
         We''ve encountered an issue while processing your personal data for download.
         Please try again!
