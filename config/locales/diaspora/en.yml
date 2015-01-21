@@ -502,7 +502,7 @@ en:
       who_sees_profile_q: "Who sees my private profile?"
       who_sees_profile_a: "Any logged-in user that you are sharing with (meaning, you have added them to one of your aspects). However, people following you, but whom you do not follow, will see only your public information."
       whats_in_profile_q: "What's in my private profile?"
-      whats_in_profile_a: "Biography, location, gender, and birthday. It's the stuff in the bottom section of the edit profile page. All this information is optional – it's up to you whether you fill it in. Logged-in users who you have added to your aspects are the only people who can see your private profile. They will also see the private posts that made to the aspect(s) they are in, mixed in with your public posts, when they visit your profile page."
+      whats_in_profile_a: "Biography, location, gender, and birthday. It's the stuff in the bottom section of the 'Edit profile' page. All this information is optional – it's up to you whether you fill it in. Logged-in users who you have added to your aspects are the only people who can see your private profile. They will also see the private posts that made to the aspect(s) they are in, mixed in with your public posts, when they visit your profile page."
       who_sees_updates_q: "Who sees updates to my private profile?"
       who_sees_updates_a: "Anyone in your aspects sees changes to your private profile. "
     public_posts:
@@ -522,7 +522,7 @@ en:
       who_sees_profile_q: "Who sees my public profile?"
       who_sees_profile_a: "Any logged-in diaspora* user, as well as the wider internet, can see it. Each profile has a direct URL, so it may be linked to directly from outside sites. It may be indexed by search engines."
       whats_in_profile_q: "What's in my public profile"
-      whats_in_profile_a: "Your name, the five tags you chose to describe yourself, and your photo. It's the stuff in the top section of the edit profile page. You can make this profile information as identifiable or anonymous as you like. Your profile page also shows any public posts you have made."
+      whats_in_profile_a: "Your name, the five tags you chose to describe yourself, and your photo. It's the stuff in the top section of the 'Edit profile' page. You can make this profile information as identifiable or anonymous as you like. Your profile page also shows any public posts you have made."
       who_sees_updates_q: "Who sees updates to my public profile?"
       who_sees_updates_a: "Anyone can see changes if they visit your profile page."
       what_do_tags_do_q: "What do the tags on my public profile do?"
