@@ -10,11 +10,11 @@ en:
   profile: "Profile"
   account: "Account"
   privacy: "Privacy"
-  privacy_policy: "Privacy Policy"
-  terms_and_conditions: "Terms and Conditions"
+  privacy_policy: "Privacy policy"
+  terms_and_conditions: "Terms and conditions"
   _services: "Services"
   _applications: "Applications"
-  _photos: "photos"
+  _photos: "Photos"
   _help: "Help"
   ok: "OK"
   cancel: "Cancel"
@@ -22,7 +22,7 @@ en:
   hide: "Hide"
   ignore: "Ignore"
   undo: "Undo?"
-  or: "or"
+  or: "Or"
   ago: "%{time} ago"
   username: "Username"
   email: "Email"
@@ -39,14 +39,14 @@ en:
   find_people: "Find people or #tags"
   _home: "Home"
   more: "More"
-  next: "next"
-  previous: "previous"
+  next: "Next"
+  previous: "Previous"
   _comments: "Comments"
-  all_aspects: "All Aspects"
-  no_results: "No Results Found"
+  all_aspects: "All aspects"
+  no_results: "No results found"
   _contacts: "Contacts"
   welcome: "Welcome!"
-  _terms: "terms"
+  _terms: "Terms"
 
   #for reference translation, the real activerecord english transations are actually
   #in en-US, en-GB, and en-AU yml files
@@ -88,7 +88,7 @@ en:
               already_participated: "You've already participated in this poll!"
   error_messages:
     helper:
-      invalid_fields: "Invalid Fields"
+      invalid_fields: "Invalid fields"
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
     post_not_public: "The post you are trying to view is not public!"
     post_not_public_or_not_exist: "The post you are trying to view is not public, or does not exist!"
@@ -97,25 +97,25 @@ en:
   admins:
     admin_bar:
       pages: "Pages"
-      user_search: "User Search"
-      weekly_user_stats: "Weekly User Stats"
-      pod_stats: "Pod Stats"
+      user_search: "User search"
+      weekly_user_stats: "Weekly user stats"
+      pod_stats: "Pod stats"
       report: "Reports"
       correlations: "Correlations"
       sidekiq_monitor: "Sidekiq monitor"
     correlations:
-      correlations_count: "Correlations with Sign In Count:"
+      correlations_count: "Correlations with sign in count:"
     user_search:
       you_currently:
-        zero: "you currently have no invites left %{link}"
-        one: "you currently have one invite left %{link}"
-        other: "you currently have %{count} invites left %{link}"
-      view_profile: "view profile"
-      add_invites: "add invites"
-      close_account: "close account"
+        zero: "You currently have no invites left %{link}"
+        one: "You currently have one invite left %{link}"
+        other: "You currently have %{count} invites left %{link}"
+      view_profile: "View profile"
+      add_invites: "Add invites"
+      close_account: "Close account"
       are_you_sure: "Are you sure you want to close this account?"
       account_closing_scheduled: "The account of %{name} is scheduled to be closed. It will be processed in a few moments..."
-      email_to: "Email to Invite"
+      email_to: "Email to invite"
       under_13: "Show users that are under 13 (COPPA)"
       users:
         zero: "%{count} users found"
@@ -126,12 +126,12 @@ en:
       guid: 'GUID'
       email: 'Email'
       diaspora_handle: 'Diaspora handle'
-      last_seen: 'last seen'
-      account_closed: 'account closed'
+      last_seen: 'Last seen'
+      account_closed: 'Account closed'
       nsfw: '#nsfw'
-      unknown: 'unknown'
-      'yes': 'yes'
-      'no': 'no'
+      unknown: 'Unknown'
+      'yes': 'Yes'
+      'no': 'No'
     weekly_user_stats:
       current_server: "Current server date is %{date}"
       amount_of:
@@ -140,11 +140,11 @@ en:
         other: "Number of new users this week: %{count}"
     stats:
       week: "Week"
-      2weeks: "2 Week"
+      2weeks: "2 week"
       month: "Month"
       daily: "Daily"
-      usage_statistic: "Usage Statistics"
-      go: "go"
+      usage_statistic: "Usage statistics"
+      go: "Go"
       display_results: "Displaying results from the <b>%{segment}</b> segment"
       posts:
         zero: "%{count} posts"
@@ -163,46 +163,46 @@ en:
         one: "%{count} user"
         other: "%{count} users"
       current_segment: "The current segment is averaging <b>%{post_yest}</b> posts per user, from <b>%{post_day}</b>"
-      50_most: "50 Most Popular Tags"
-      tag_name: "Tag Name: <b>%{name_tag}</b> Count: <b>%{count_tag}</b>"
+      50_most: "50 most popular tags"
+      tag_name: "Tag name: <b>%{name_tag}</b> Count: <b>%{count_tag}</b>"
   application:
     helper:
-      unknown_person: "unknown person"
+      unknown_person: "Unknown person"
       video_title:
-        unknown: "Unknown Video Title"
+        unknown: "Unknown video title"
   aspects:
-    zero: "no aspects"
+    zero: "No aspects"
     one: "1 aspect"
     other: "%{count} aspects"
     contacts_visible: "Contacts in this aspect will be able to see each other."
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     edit:
-      grant_contacts_chat_privilege: "grant contacts in aspect chat privilege?"
-      make_aspect_list_visible: "make contacts in this aspect visible to each other?"
+      grant_contacts_chat_privilege: "Grant contacts in aspect chat privilege?"
+      make_aspect_list_visible: "Make contacts in this aspect visible to each other?"
       remove_aspect: "Delete this aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       add_existing: "Add an existing contact"
       set_visibility: "Set visibility"
       manage: "Manage"
       done: "Done"
-      rename: "rename"
+      rename: "Rename"
       aspect_list_is_visible: "Contacts in this aspect are able to see each other."
       aspect_list_is_not_visible: "Contacts in this aspect are not able to see each other."
       aspect_chat_is_enabled: "Contacts in this aspect are able to chat with you."
       aspect_chat_is_not_enabled: "Contacts in this aspect are not able to chat with you."
-      update: "update"
-      updating: "updating"
+      update: "Update"
+      updating: "Updating"
     aspect_contacts:
-      done_editing: "done editing"
+      done_editing: "Done editing"
     show:
-      edit_aspect: "edit aspect"
+      edit_aspect: "Edit aspect"
     no_posts_message:
       start_talking: "Nobody has said anything yet!"
     no_contacts_message:
       you_should_add_some_more_contacts: "You should add some more contacts!"
       try_adding_some_more_contacts: "You can search or invite more contacts."
       or_spotlight:  "Or you can share with %{link}"
-      community_spotlight: "community spotlight"
+      community_spotlight: "Community spotlight"
     aspect_listings:
       select_all: "Select all"
       deselect_all: "Deselect all"
@@ -226,14 +226,14 @@ en:
       success: "Your aspect, %{name}, has been successfully edited."
       failure: "Your aspect, %{name}, had too long name to be saved."
     move_contact:
-      failure: "didn't work %{inspect}"
+      failure: "Didn't work %{inspect}"
       success: "Person moved to new aspect"
       error: "Error moving contact: %{inspect}"
     add_to_aspect:
       failure: "Failed to add contact to aspect."
       success: "Successfully added contact to aspect."
     helper:
-      remove: "remove"
+      remove: "Remove"
       aspect_not_empty: "Aspect not empty"
       are_you_sure: "Are you sure you want to delete this aspect?"
     seed:
@@ -249,19 +249,19 @@ en:
       unfollow_tag: "Stop following #%{tag}"
       handle_explanation: "This is your diaspora* ID. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
-      post_a_message: "post a message >>"
+      post_a_message: "Post a message >>"
       people_sharing_with_you: "People sharing with you"
 
       welcome_to_diaspora: "Welcome to diaspora*, %{name}!"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
 
       new_here:
-        title: "Welcome New Users"
+        title: "Welcome new users"
         follow: "Follow %{link} and welcome new users to diaspora*!"
         learn_more: "Learn more"
 
       help:
-        need_help: "Need Help?"
+        need_help: "Need help?"
         here_to_help: "The diaspora* community is here!"
         do_you: "Do you:"
         have_a_question: "... have a %{link}?"
@@ -270,23 +270,23 @@ en:
         tag_bug: "bug"
         feature_suggestion: "... have a %{link} suggestion?"
         tag_feature: "feature"
-        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: Help for your first steps."
+        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: help for your first steps."
         tutorial_link_text: "Tutorials"
         email_feedback: "%{link} your feedback, if you prefer"
         email_link: "Email"
-        any_problem: "Any Problem?"
+        any_problem: "Any problem?"
         contact_podmin: "Contact the administrator of your pod!"
-        mail_podmin: "Podmin E-Mail"
+        mail_podmin: "Podmin email"
       diaspora_id:
         heading: "diaspora* ID"
         content_1: "Your diaspora* ID is:"
         content_2: "Give it to anyone and they'll be able to find you on diaspora*."
       services:
-        heading: "Connect Services"
+        heading: "Connect services"
         content: "You can connect the following services to diaspora*:"
 
     aspect_stream:
-      stay_updated: "Stay Updated"
+      stay_updated: "Stay updated"
       stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
       make_something: "Make something"
 
@@ -303,7 +303,7 @@ en:
     explanation: "Post to diaspora* from anywhere by bookmarking this link => %{link}."
 
   comments:
-    zero: "no comments"
+    zero: "No comments"
     one: "1 comment"
     other: "%{count} comments"
     new_comment:
@@ -311,12 +311,12 @@ en:
       commenting: "Commenting..."
 
   reactions:
-    zero: "0 reactions"
+    zero: "No reactions"
     one: "1 reaction"
     other: "%{count} reactions"
 
   contacts:
-    zero: "contacts"
+    zero: "No contacts"
     one: "1 contact"
     other: "%{count} contacts"
     create:
@@ -324,45 +324,45 @@ en:
     sharing:
       people_sharing: "People sharing with you:"
     index:
-      add_to_aspect: "add contacts to %{name}"
+      add_to_aspect: "Add contacts to %{name}"
       start_a_conversation: "Start a conversation"
       add_a_new_aspect: "Add a new aspect"
       title: "Contacts"
-      your_contacts: "Your Contacts"
+      your_contacts: "Your contacts"
       no_contacts: "Looks like you need to add some contacts!"
       no_contacts_message: "Check out %{community_spotlight}"
       no_contacts_message_with_aspect: "Check out %{community_spotlight} or %{add_to_aspect_link}"
-      add_to_aspect_link: "add contacts to %{name}"
-      community_spotlight: "Community Spotlight"
-      my_contacts: "My Contacts"
-      all_contacts: "All Contacts"
+      add_to_aspect_link: "Add contacts to %{name}"
+      community_spotlight: "Community spotlight"
+      my_contacts: "My contacts"
+      all_contacts: "All contacts"
       only_sharing_with_me: "Only sharing with me"
       add_contact: "Add contact"
       remove_contact: "Remove contact"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
-      user_search: "User Search"
+      user_search: "User search"
     spotlight:
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Community spotlight"
       suggest_member: "Suggest a member"
 
   conversations:
     index:
       conversations_inbox: "Conversations – Inbox"
       new_conversation: "New conversation"
-      no_conversation_selected: "no conversation selected"
-      create_a_new_conversation: "start a new conversation"
-      no_messages: "no messages"
+      no_conversation_selected: "No conversation selected"
+      create_a_new_conversation: "Start a new conversation"
+      no_messages: "No messages"
       inbox: "Inbox"
     conversation:
       participants: "Participants"
     show:
-      reply: "reply"
+      reply: "Reply"
       replying: "Replying..."
-      hide: "hide and mute conversation"
-      delete: "delete conversation"
+      hide: "Hide and mute conversation"
+      delete: "Delete conversation"
     new:
-      to: "to"
-      subject: "subject"
+      to: "To"
+      subject: "Subject"
       send: "Send"
       sending: "Sending..."
       abandon_changes: "Abandon changes?"
@@ -388,25 +388,25 @@ en:
 
   help:
     title_header: "Help"
-    tutorials: "tutorials"
-    tutorial: "tutorial"
+    tutorials: "Tutorials"
+    tutorial: "Tutorial"
     irc: "IRC"
-    wiki: "wiki"
+    wiki: "Wiki"
     markdown: "Markdown"
-    here: "here"
-    foundation_website: "diaspora foundation website"
-    third_party_tools: "third party tools"
+    here: "Here"
+    foundation_website: "diaspora* foundation website"
+    third_party_tools: "Third party tools"
     getting_started_tutorial: "'Getting started' tutorial series"
     getting_help:
       title: "Getting help"
       getting_started_q: "Help! I need some basic help to get me started!"
       getting_started_a: "You're in luck. Try the %{tutorial_series} on our project site. It will take you step-by-step through the registration process and teach you all the basic things you need to know about using diaspora*."
       get_support_q: "What if my question is not answered in this FAQ? Where else can I get support?"
-      get_support_a_website: "visit our %{link}"
-      get_support_a_tutorials: "check out our %{tutorials}"
-      get_support_a_wiki: "search the %{link}"
-      get_support_a_irc: "join us on %{irc} (Live chat)"
-      get_support_a_hashtag: "ask in a public post on diaspora* using the %{question} hashtag"
+      get_support_a_website: "Visit our %{link}"
+      get_support_a_tutorials: "Check out our %{tutorials}"
+      get_support_a_wiki: "Search the %{link}"
+      get_support_a_irc: "Join us on %{irc} (Live chat)"
+      get_support_a_hashtag: "Ask in a public post on diaspora* using the %{question} hashtag"
     account_and_data_management:
       title: "Account and data management"
       move_pods_q: "How do I move my seed (account) from one pod to another?"
@@ -566,10 +566,10 @@ en:
     keyboard_shortcuts:
       keyboard_shortcuts_q: "What keyboard shortcuts are available?"
       keyboard_shortcuts_a1: "In the stream view you can use the following keyboard shortcuts:"
-      keyboard_shortcuts_li1: "j - jump to the next post"
-      keyboard_shortcuts_li2: "k - jump to the previous post"
-      keyboard_shortcuts_li3: "c - comment on the current post"
-      keyboard_shortcuts_li4: "l - like the current post"
+      keyboard_shortcuts_li1: "j - Jump to the next post"
+      keyboard_shortcuts_li2: "k - Jump to the previous post"
+      keyboard_shortcuts_li3: "c - Comment on the current post"
+      keyboard_shortcuts_li4: "l - Like the current post"
       title: "Keyboard shortcuts"
     miscellaneous:
       title: "Miscellaneous"
@@ -627,33 +627,33 @@ en:
       settings: "Settings"
       help: "Help"
       logout: "Log out"
-      blog: "blog"
-      login: "log in"
-      code: "code"
-      admin: "admin"
+      blog: "Blog"
+      login: "Log in"
+      code: "Code"
+      admin: "Admin"
       view_all: "View all"
       recent_notifications: "Recent notifications"
     application:
-      powered_by: "POWERED BY diaspora*"
-      whats_new: "what's new?"
-      toggle: "toggle mobile"
+      powered_by: "Powered by diaspora*"
+      whats_new: "What's new?"
+      toggle: "Toggle mobile"
       public_feed: "Public diaspora* feed for %{name}"
-      your_aspects: "your aspects"
+      your_aspects: "Your aspects"
       back_to_top: "Back to top"
-      source_package: "download the source code package"
+      source_package: "Download the source code package"
 
   likes:
     likes:
       people_like_this:
-        zero: "no likes"
+        zero: "No likes"
         one: "%{count} like"
         other: "%{count} likes"
       people_like_this_comment:
-        zero: "no likes"
+        zero: "No likes"
         one: "%{count} like"
         other: "%{count} likes"
       people_dislike_this:
-        zero: "no dislikes"
+        zero: "No dislikes"
         one: "%{count} dislike"
         other: "%{count} dislikes"
 
@@ -709,8 +709,8 @@ en:
       mark_all_shown_as_read: "Mark all shown as read"
       mark_read: "Mark read"
       mark_unread: "Mark unread"
-      show_all: "show all"
-      show_unread: "show unread"
+      show_all: "Show all"
+      show_unread: "Show unread"
       all_notifications: "All Notifications"
       also_commented: "Also commented"
       comment_on_post: "Comment on post"
@@ -734,7 +734,7 @@ en:
     a_private_message: "There's a new private message in diaspora* for you to check out."
     a_limited_post_comment: "There's a new comment on a limited post in diaspora* for you to check out."
     email_sent_by_diaspora: "This email was sent by %{pod_name}. If you'd like to stop getting emails like this,"
-    click_here: "click here"
+    click_here: "Click here"
     hello: "Hello %{name}!"
     thanks: "Thanks,"
     to_change_your_notification_settings: "to change your notification settings"
@@ -802,7 +802,7 @@ en:
         Cheers,
 
         The diaspora* email robot!
-    accept_invite: "Accept Your diaspora* invite!"
+    accept_invite: "Accept your diaspora* invite!"
     invited_you: "%{name} invited you to diaspora*"
     invite:
       message: |-
@@ -837,14 +837,14 @@ en:
 
         The diaspora* email robot!
   people:
-    zero: "no people"
+    zero: "No people"
     one: "1 person"
     other: "%{count} people"
     person:
       pending_request: "Pending request"
       already_connected: "Already connected"
       thats_you: "That's you!"
-      add_contact: "add contact"
+      add_contact: "Add contact"
     index:
       results_for: "Users matching %{search_term}"
       no_results: "Hey! You need to search for something."
@@ -852,7 +852,7 @@ en:
       search_handle: "Use their diaspora* ID (username@pod.tld) to be sure to find your friends."
       send_invite: "Still nothing? Send an invite!"
       no_one_found: "...and no one was found."
-      searching: "searching, please be patient..."
+      searching: "Searching, please be patient..."
       looking_for: "Looking for posts tagged %{tag_link}?"
     webfinger:
       fail: "Sorry, we couldn't find %{handle}."
@@ -863,56 +863,56 @@ en:
       to_accept_or_ignore: "to accept or ignore it."
       does_not_exist: "Person does not exist!"
       not_connected: "You are not sharing with this person"
-      recent_posts: "Recent Posts"
-      recent_public_posts: "Recent Public Posts"
+      recent_posts: "Recent posts"
+      recent_public_posts: "Recent public posts"
       see_all: "See all"
-      start_sharing: "start sharing"
+      start_sharing: "Start sharing"
       message: "Message"
       mention: "Mention"
       ignoring: "You are ignoring all posts from %{name}."
       closed_account: "This account has been closed."
     sub_header:
-      you_have_no_tags: "you have no tags!"
-      add_some: "add some"
-      edit: "edit"
+      you_have_no_tags: "You have no tags!"
+      add_some: "Add some"
+      edit: "Edit"
     profile_sidebar:
-      remove_contact: "remove contact"
+      remove_contact: "Remove contact"
       edit_my_profile: "Edit my profile"
       bio: "Bio"
       location: "Location"
       gender: "Gender"
       born: "Birthday"
       photos: "Photos"
-      in_aspects: "in aspects"
+      in_aspects: "In aspects"
       remove_from: "Remove %{name} from %{aspect}?"
     helper:
       results_for: " results for %{params}"
       is_sharing: "%{name} is sharing with you"
       is_not_sharing: "%{name} is not sharing with you"
     aspect_list:
-      edit_membership: "edit aspect membership"
+      edit_membership: "Edit aspect membership"
     add_contact_small:
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "Add contact from tag"
     add_contact:
-      invited_by: "you were invited by"
+      invited_by: "You were invited by"
 
   photos:
     show:
-      delete_photo: "Delete Photo"
-      make_profile_photo: "make profile photo"
-      update_photo: "Update Photo"
-      edit: "edit"
+      delete_photo: "Delete photo"
+      make_profile_photo: "Make profile photo"
+      update_photo: "Update photo"
+      edit: "Edit"
       edit_delete_photo: "Edit photo description / delete photo"
-      collection_permalink: "collection permalink"
+      collection_permalink: "Collection permalink"
       show_original_post: "Show original post"
     edit:
       editing: "Editing"
     photo:
-      view_all: "view all of %{name}'s photos"
+      view_all: "View all of %{name}'s photos"
     new:
-      new_photo: "New Photo"
-      back_to_list: "Back to List"
-      post_it: "post it!"
+      new_photo: "New photo"
+      back_to_list: "Back to list"
+      post_it: "Post it!"
     create:
       runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
       integrity_error: "Photo upload failed.  Are you sure that was an image?"
@@ -928,7 +928,7 @@ en:
       empty: "{file} is empty, please select files again without it."
     new_profile_photo:
       upload: "Upload a new profile photo!"
-      or_select_one_existing: "or select one from your already existing %{photos}"
+      or_select_one_existing: "Or select one from your already existing %{photos}"
     comment_email_subject: "%{name}'s photo"
 
   posts:
@@ -936,7 +936,7 @@ en:
       title: "A post from %{name}"
     show:
       destroy: "Delete"
-      permalink: "permalink"
+      permalink: "Permalink"
       not_found: "Sorry, we couldn't find that post."
       photos_by:
         zero: "No photos by %{author}"
@@ -945,7 +945,7 @@ en:
       reshare_by: "Reshare by %{author}"
 
   report:
-    title: "Reports Overview"
+    title: "Reports overview"
     post_label: "<b>Post</b>: %{title}"
     comment_label: "<b>Comment</b>:<br>%{data}"
     reported_label: "<b>Reported by</b> %{person}"
@@ -976,7 +976,7 @@ en:
       your_birthday: "Your birthday"
       your_tags: "Describe yourself in 5 words"
 
-      your_tags_placeholder: "like #movies #kittens #travel #teacher #newyork"
+      your_tags_placeholder: "Like #movies #kittens #travel #teacher #newyork"
 
       your_bio: "Your bio"
       your_location: "Your location"
@@ -996,7 +996,7 @@ en:
       create_my_account: "Create my account!"
 
       join_the_movement: "Join the movement!"
-      sign_up_message: "Social Networking with a ♥"
+      sign_up_message: "Social networking with a ♥"
 
       enter_email: "Enter an email"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
@@ -1004,11 +1004,11 @@ en:
       enter_password_again: "Enter the same password as before"
       hey_make: "HEY,<br/>MAKE<br/>SOMETHING."
       diaspora: "<3 diaspora*"
-      sign_up: "SIGN UP"
-      email: "EMAIL"
-      username: "USERNAME"
-      password: "PASSWORD"
-      password_confirmation: "PASSWORD CONFIRMATION"
+      sign_up: "Sign up"
+      email: "Email"
+      username: "Username"
+      password: "Password"
+      password_confirmation: "Password confirmation"
       continue: "Continue"
       submitting: "Submitting..."
       terms: "By creating an account you accept the %{terms_link}."
@@ -1017,8 +1017,8 @@ en:
       success: "You've joined diaspora*!"
     edit:
       edit: "Edit %{name}"
-      leave_blank: "(leave blank if you don't want to change it)"
-      password_to_confirm: "(we need your current password to confirm your changes)"
+      leave_blank: "(Leave blank if you don't want to change it)"
+      password_to_confirm: "(We need your current password to confirm your changes)"
       unhappy: "Unhappy?"
       update: "Update"
       cancel_my_account: "Cancel my account"
@@ -1037,15 +1037,15 @@ en:
       sending: "Sending"
       sent: "You've asked to share with %{name}.  They should see it next time they log in to diaspora*."
     new_request_to_person:
-      sent: "sent!"
+      sent: "Sent!"
     helper:
       new_requests:
-        zero: "no new requests"
-        one: "new request!"
+        zero: "No new requests"
+        one: "New request!"
         other: "%{count} new requests!"
   reshares:
     reshare:
-      reshared_via: "reshared via"
+      reshared_via: "Reshared via"
       reshare_original: "Reshare original"
       reshare:
         zero: "Reshare"
@@ -1059,13 +1059,13 @@ en:
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
   services:
     index:
-      logged_in_as: "logged in as"
-      disconnect: "disconnect"
-      really_disconnect: "disconnect %{service}?"
+      logged_in_as: "Logged in as"
+      disconnect: "Disconnect"
+      really_disconnect: "Disconnect %{service}?"
       connect_to_twitter: "Connect to Twitter"
       connect_to_facebook: "Connect to Facebook"
       connect_to_tumblr: "Connect to Tumblr"
-      connect_to_wordpress: "Connect to Wordpress"
+      connect_to_wordpress: "Connect to WordPress"
       edit_services: "Edit services"
       no_services: 'You have not connected any services yet.'
       services_explanation: 'Connecting to services gives you the ability to publish your posts to them as you write them in diaspora*.'
@@ -1077,17 +1077,17 @@ en:
     destroy:
       success: "Successfully deleted authentication."
     failure:
-      error: "there was an error connecting that service"
+      error: "There was an error connecting that service"
     inviter:
       join_me_on_diaspora: "Join me on diaspora*"
       click_link_to_accept_invitation: "Follow this link to accept your invitation"
     finder:
       fetching_contacts: "diaspora* is populating your %{service} friends, please check back in a few minutes."
-      service_friends: "%{service} Friends"
+      service_friends: "%{service} friends"
       no_friends: "No Facebook friends found."
     remote_friend:
-      resend: "resend"
-      invite: "invite"
+      resend: "Resend"
+      invite: "Invite"
       not_on_diaspora: "Not yet on diaspora*"
 
   blocks:
@@ -1111,15 +1111,15 @@ en:
       share: "Share"
       preview: "Preview"
       post_a_message_to: "Post a message to %{aspect}"
-      make_public: "make public"
-      all: "all"
+      make_public: "Make public"
+      all: "All"
       upload_photos: "Upload photos"
       get_location: "Get your location"
       remove_location: "Remove location"
-      all_contacts: "all contacts"
-      share_with: "share with"
+      all_contacts: "All contacts"
+      share_with: "Share with"
       whats_on_your_mind: "What's on your mind?"
-      publishing_to: "publishing to: "
+      publishing_to: "Publishing to: "
       discard_post: "Discard post"
       new_user_prefill:
         newhere: "NewHere"
@@ -1152,13 +1152,13 @@ en:
     reshare:
       reshare: "Reshare"
     public_explain:
-      control_your_audience: "Control your Audience"
+      control_your_audience: "Control your audience"
       new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
       visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
       title: "Set up connected services"
       share: "Share"
       outside: "Public messages will be available for others outside of diaspora* to see."
-      logged_in: "logged in to %{service}"
+      logged_in: "Logged in to %{service}"
       manage: "Manage connected services"
       atom_feed: "Atom feed"
     notification:
@@ -1168,9 +1168,9 @@ en:
     stream_element:
       viewable_to_anyone: "This post is viewable to anyone on the web"
       connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: 'commenting currently unavailable'
-      via: "via %{link}"
-      via_mobile: "via mobile"
+      currently_unavailable: 'Commenting currently unavailable'
+      via: "Via %{link}"
+      via_mobile: "Via mobile"
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       hide_and_mute: "Hide and mute post"
@@ -1179,10 +1179,10 @@ en:
       dislike: "Dislike"
       shared_with: "Shared with: %{aspect_names}"
       nsfw: "This post has been flagged as NSFW by its author. %{link}"
-      show: "show"
+      show: "Show"
     footer:
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "Logged in as %{name}"
+      your_aspects: "Your aspects"
   status_messages:
     new:
       mentioning: "Mentioning: %{person}"
@@ -1211,7 +1211,7 @@ en:
         other: "%{count} people tagged with %{tag}"
       follow: "Follow #%{tag}"
       following: "Following #%{tag}"
-      stop_following: "Stop Following #%{tag}"
+      stop_following: "Stop following #%{tag}"
       none: "The empty tag does not exist!"
   tag_followings:
     create:
@@ -1223,25 +1223,25 @@ en:
       failure: "Failed to stop following #%{name}. Maybe you already stopped following it?"
 
   streams:
-    community_spotlight_stream: "Community Spotlight"
+    community_spotlight_stream: "Community spotlight"
     aspects_stream: "Aspects"
     mentioned_stream: "@Mentions"
-    followed_tags_stream: "#Followed Tags"
+    followed_tags_stream: "#Followed tags"
 
     mentions:
       title: "@Mentions"
       contacts_title: "People who mentioned you"
 
     comment_stream:
-      title: "Commented Posts"
+      title: "Commented posts"
       contacts_title: "People whose posts you commented on"
 
     like_stream:
-      title: "Like Stream"
+      title: "Like stream"
       contacts_title: "People whose posts you like"
 
     followed_tag:
-      title: "#Followed Tags"
+      title: "#Followed tags"
       contacts_title: "People who dig these tags"
       add_a_tag: "Add a tag"
       follow: "Follow"
@@ -1251,18 +1251,18 @@ en:
       contacts_title: "People who dig this tag"
 
     public:
-      title: "Public Activity"
-      contacts_title: "Recent Posters"
+      title: "Public activity"
+      contacts_title: "Recent posters"
 
     multi:
       title: "Stream"
-      contacts_title: "People in your Stream"
+      contacts_title: "People in your stream"
 
     aspects:
-      title: "My Aspects"
+      title: "My aspects"
 
     activity:
-      title: "My Activity"
+      title: "My activity"
   users:
     edit:
       export_data: "Export data"
@@ -1273,31 +1273,31 @@ en:
       change_email: "Change email"
       new_password: "New password"
       current_password: "Current password"
-      current_password_expl: "the one you sign in with..."
-      character_minimum_expl: "must be at least six characters"
+      current_password_expl: "The one you sign in with..."
+      character_minimum_expl: "Must be at least six characters"
       export_in_progress: 'We are currently processing your data. Please check back in a few moments.'
       last_exported_at: '(Last updated at %{timestamp})'
-      request_export: 'request my profile data'
-      download_export: 'download my profile'
-      request_export_update: 'refresh my profile data'
-      download_photos: "download my photos"
+      request_export: 'Request my profile data'
+      download_export: 'Download my profile'
+      request_export_update: 'Refresh my profile data'
+      download_photos: "Download my photos"
       your_handle: "Your diaspora* ID"
       your_email: "Your email"
       edit_account: "Edit account"
       receive_email_notifications: "Receive email notifications when:"
-      started_sharing: "someone starts sharing with you"
-      someone_reported: "someone sent a report"
-      mentioned: "you are mentioned in a post"
-      liked: "someone likes your post"
-      reshared: "someone reshares your post"
-      comment_on_post: "someone comments on your post"
-      also_commented: "someone comments on a post you've commented on"
-      private_message: "you receive a private message"
+      started_sharing: "Someone starts sharing with you"
+      someone_reported: "Someone sent a report"
+      mentioned: "You are mentioned in a post"
+      liked: "Someone likes your post"
+      reshared: "Someone reshares your post"
+      comment_on_post: "Someone comments on your post"
+      also_commented: "Someone comments on a post you've commented on"
+      private_message: "You receive a private message"
       change: "Change"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."
       stream_preferences: "Stream preferences"
-      show_community_spotlight: "Show Community Spotlight in stream"
-      show_getting_started: 'Show Getting Started hints'
+      show_community_spotlight: "Show community spotlight in stream"
+      show_getting_started: 'Show getting started hints'
       getting_started: 'New user preferences'
       following: "Sharing settings"
       auto_follow_back: "Automatically share with users who start sharing with you"
@@ -1311,11 +1311,11 @@ en:
         locked_out: "You will get signed out and locked out of your account until it has been deleted."
         lock_username: "Your username will be locked. You will not be able create a new account on this pod with the same ID."
         no_turning_back: "There is no turning back! If you're really sure, enter your password below."
-        if_you_want_this: "If you really want this to happen, type in your password below and click 'Close Account'"
+        if_you_want_this: "If you really want this to happen, type in your password below and click 'Close account'"
 
     privacy_settings:
-      title: "Privacy Settings"
-      ignored_users: "Ignored Users"
+      title: "Privacy settings"
+      ignored_users: "Ignored users"
       strip_exif: "Strip metadata such as location, author, and camera model from uploaded images (recommended)"
       stop_ignoring: "Stop ignoring"
       no_user_ignored_message: "You are currently ignoring no other user"
@@ -1333,7 +1333,7 @@ en:
 
       who_are_you: "Who are you?"
       connect_to_facebook: "We can speed things up a bit by %{link} to diaspora*. This will pull your name and photo, and enable cross-posting."
-      connect_to_facebook_link: "hooking up your Facebook account"
+      connect_to_facebook_link: "Hooking up your Facebook account"
 
       what_are_you_in_to: "What are you into?"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on diaspora*."
@@ -1363,14 +1363,14 @@ en:
       email_not_confirmed: "Email could not be activated. Wrong link?"
 
   will_paginate:
-    previous_label: "&laquo; previous"
-    next_label: "next &raquo;"
+    previous_label: "&laquo; Previous"
+    next_label: "Next &raquo;"
 
   webfinger:
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
-    hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
-    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
+    fetch_failed: "Failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "There was a problem fetching the hcard for %{account}"
+    xrd_fetch_failed: "There was an error getting the xrd from account %{account}"
+    not_enabled: "Webfinger does not seem to be enabled for %{account}'s host"
     no_person_constructed: "No person could be constructed from this hcard."
 
   simple_captcha:
