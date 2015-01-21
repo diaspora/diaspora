@@ -22,7 +22,7 @@ en:
   hide: "Hide"
   ignore: "Ignore"
   undo: "Undo?"
-  or: "Or"
+  or: "or"
   ago: "%{time} ago"
   username: "Username"
   email: "Email"
