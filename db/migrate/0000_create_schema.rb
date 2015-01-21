@@ -24,8 +24,8 @@ class CreateSchema < ActiveRecord::Migration
   end
 
   add_index "aspect_visibilities", ["aspect_id"], :name => "index_aspect_visibilities_on_aspect_id"
-  add_index "aspect_visibilities", ["shareable_id", "shareable_type", "aspect_id"], :name => "shareable_and_aspect_id"
-  add_index "aspect_visibilities", ["shareable_id", "shareable_type"], :name => "index_aspect_visibilities_on_shareable_id_and_shareable_type"
+  add_index 'aspect_visibilities', ["shareable_id", "shareable_type", "aspect_id"], :name => 'shareable_and_aspect_id', length: {"shareable_type"=>189}, :using => :btree
+  add_index 'aspect_visibilities', ["shareable_id", "shareable_type"], :name => 'index_aspect_visibilities_on_shareable_id_and_shareable_type', length: {"shareable_type"=>190}, :using => :btree
 
   create_table "aspects", :force => true do |t|
     t.string   "name",                               :null => false
@@ -59,7 +59,7 @@ class CreateSchema < ActiveRecord::Migration
 
   add_index "comments", ["author_id"], :name => "index_comments_on_person_id"
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
-  add_index "comments", ["guid"], :name => "index_comments_on_guid", :unique => true
+  add_index 'comments', ["guid"], :name => 'index_comments_on_guid', length: {"guid"=>191}, :using => :btree, :unique => true
 
   create_table "contacts", :force => true do |t|
     t.integer  "user_id",                       :null => false
@@ -133,7 +133,7 @@ class CreateSchema < ActiveRecord::Migration
   end
 
   add_index "likes", ["author_id"], :name => "likes_author_id_fk"
-  add_index "likes", ["guid"], :name => "index_likes_on_guid", :unique => true
+  add_index 'likes', ["guid"], :name => 'index_likes_on_guid', length: {"guid"=>191}, :using => :btree, :unique => true
   add_index "likes", ["target_id", "author_id", "target_type"], :name => "index_likes_on_target_id_and_author_id_and_target_type", :unique => true
   add_index "likes", ["target_id"], :name => "index_likes_on_post_id"
 
@@ -192,14 +192,14 @@ class CreateSchema < ActiveRecord::Migration
 
   add_index "notifications", ["recipient_id"], :name => "index_notifications_on_recipient_id"
   add_index "notifications", ["target_id"], :name => "index_notifications_on_target_id"
-  add_index "notifications", ["target_type", "target_id"], :name => "index_notifications_on_target_type_and_target_id"
+  add_index 'notifications', ["target_type", "target_id"], name: 'index_notifications_on_target_type_and_target_id', length: {"target_type"=>190}, using: :btree
 
   create_table "o_embed_caches", :force => true do |t|
     t.string "url",  :limit => 1024, :null => false
     t.text   "data",                 :null => false
   end
 
-  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=> 191}, using: :btree
 
   create_table "participations", :force => true do |t|
     t.string   "guid"
@@ -212,7 +212,7 @@ class CreateSchema < ActiveRecord::Migration
     t.datetime "updated_at",                            :null => false
   end
 
-  add_index "participations", ["guid"], :name => "index_participations_on_guid"
+  add_index 'participations', ["guid"], :name => 'index_participations_on_guid', length: {"guid"=>191}, :using => :btree
   add_index "participations", ["target_id", "target_type", "author_id"], :name => "index_participations_on_target_id_and_target_type_and_author_id"
 
   create_table "people", :force => true do |t|
@@ -227,8 +227,8 @@ class CreateSchema < ActiveRecord::Migration
     t.integer  "fetch_status",          :default => 0
   end
 
-  add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
-  add_index "people", ["guid"], :name => "index_people_on_guid", :unique => true
+  add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true, :length => {"diaspora_handle" => 191}
+  add_index 'people', ["guid"], :name => 'index_people_on_guid', length: {"guid"=>191}, :using => :btree, :unique => true
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
 
   create_table "photos", :force => true do |t|
@@ -252,7 +252,7 @@ class CreateSchema < ActiveRecord::Migration
     t.integer  "width"
   end
 
-  add_index "photos", ["status_message_guid"], :name => "index_photos_on_status_message_guid"
+  add_index 'photos', ["status_message_guid"], :name => 'index_photos_on_status_message_guid', length: {"status_message_guid"=>191}, :using => :btree
 
   create_table "pods", :force => true do |t|
     t.string   "host"
@@ -294,13 +294,13 @@ class CreateSchema < ActiveRecord::Migration
     t.boolean  "favorite",                            :default => false
   end
 
-  add_index "posts", ["author_id", "root_guid"], :name => "index_posts_on_author_id_and_root_guid", :unique => true
+  add_index 'posts', ["author_id", "root_guid"], :name => 'index_posts_on_author_id_and_root_guid', length: {"root_guid"=>30}, :using => :btree, :unique => true
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"
-  add_index "posts", ["guid"], :name => "index_posts_on_guid", :unique => true
+  add_index 'posts', ["guid"], :name => 'index_posts_on_guid', length: {"guid"=>191}, :using => :btree, :unique => true
   add_index "posts", ["id", "type", "created_at"], :name => "index_posts_on_id_and_type_and_created_at"
-  add_index "posts", ["root_guid"], :name => "index_posts_on_root_guid"
-  add_index "posts", ["status_message_guid", "pending"], :name => "index_posts_on_status_message_guid_and_pending"
-  add_index "posts", ["status_message_guid"], :name => "index_posts_on_status_message_guid"
+  add_index 'posts', ["root_guid"], :name => 'index_posts_on_root_guid', length: {"root_guid"=>30}
+  add_index 'posts', ["status_message_guid", "pending"], :name => 'index_posts_on_status_message_guid_and_pending', length: {"status_message_guid"=>190}, :using => :btree
+  add_index 'posts', ["status_message_guid"], :name => 'index_posts_on_status_message_guid', length: {"status_message_guid"=>191}, :using => :btree
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
 
   create_table "profiles", :force => true do |t|
@@ -337,7 +337,7 @@ class CreateSchema < ActiveRecord::Migration
     t.datetime "updated_at",              :null => false
   end
 
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories", :length => {"table" => 188}
 
   create_table "roles", :force => true do |t|
     t.integer  "person_id"
@@ -357,7 +357,7 @@ class CreateSchema < ActiveRecord::Migration
     t.datetime "updated_at",                   :null => false
   end
 
-  add_index "services", ["type", "uid"], :name => "index_services_on_type_and_uid"
+  add_index 'services', ["type", "uid"], :name => 'index_services_on_type_and_uid', length: {"type"=>64, "uid"=>127}, :using => :btree
   add_index "services", ["user_id"], :name => "index_services_on_user_id"
 
   create_table "share_visibilities", :force => true do |t|
@@ -397,14 +397,14 @@ class CreateSchema < ActiveRecord::Migration
 
   add_index "taggings", ["created_at"], :name => "index_taggings_on_created_at"
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index 'taggings', ["taggable_id", "taggable_type", "context"], :name => 'index_taggings_on_taggable_id_and_taggable_type_and_context', length: {"taggable_type"=>95, "context"=>95}, :using => :btree
   add_index "taggings", ["taggable_id", "taggable_type", "tag_id"], :name => "index_taggings_uniquely", :unique => true
 
   create_table "tags", :force => true do |t|
     t.string "name"
   end
 
-  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true, :length => {"name" => 191}
 
   create_table "user_preferences", :force => true do |t|
     t.string   "email_type"
@@ -449,10 +449,10 @@ class CreateSchema < ActiveRecord::Migration
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
-  add_index "users", ["email"], :name => "index_users_on_email"
-  add_index "users", ["invitation_service", "invitation_identifier"], :name => "index_users_on_invitation_service_and_invitation_identifier", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email", length: {"email" => "191"}
+  add_index 'users', ["invitation_service", "invitation_identifier"], :name => 'index_users_on_invitation_service_and_invitation_identifier', length: {"invitation_service"=>64, "invitation_identifier"=>127}, :using => :btree, :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
-  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
+  add_index 'users', ["username"], :name => 'index_users_on_username', length: {"username"=>191}, :using => :btree, :unique => true
 
   add_foreign_key "aspect_memberships", "aspects", name: "aspect_memberships_aspect_id_fk", dependent: :delete
   add_foreign_key "aspect_memberships", "contacts", name: "aspect_memberships_contact_id_fk", dependent: :delete

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230214830) do
+ActiveRecord::Schema.define(version: 20150106050733) do
 
   create_table "account_deletions", force: true do |t|
     t.string   "diaspora_handle"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20141230214830) do
   end
 
   add_index "aspect_visibilities", ["aspect_id"], name: "index_aspect_visibilities_on_aspect_id", using: :btree
-  add_index "aspect_visibilities", ["shareable_id", "shareable_type", "aspect_id"], name: "shareable_and_aspect_id", using: :btree
-  add_index "aspect_visibilities", ["shareable_id", "shareable_type"], name: "index_aspect_visibilities_on_shareable_id_and_shareable_type", using: :btree
+  add_index "aspect_visibilities", ["shareable_id", "shareable_type", "aspect_id"], name: "shareable_and_aspect_id", length: {"shareable_id"=>nil, "shareable_type"=>189, "aspect_id"=>nil}, using: :btree
+  add_index "aspect_visibilities", ["shareable_id", "shareable_type"], name: "index_aspect_visibilities_on_shareable_id_and_shareable_type", length: {"shareable_id"=>nil, "shareable_type"=>190}, using: :btree
 
   create_table "aspects", force: true do |t|
     t.string   "name",                             null: false
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20141230214830) do
     t.string  "subscription", limit: 128, null: false
   end
 
-  add_index "chat_contacts", ["user_id", "jid"], name: "index_chat_contacts_on_user_id_and_jid", unique: true, using: :btree
+  add_index "chat_contacts", ["user_id", "jid"], name: "index_chat_contacts_on_user_id_and_jid", unique: true, length: {"user_id"=>nil, "jid"=>190}, using: :btree
 
   create_table "chat_fragments", force: true do |t|
     t.integer "user_id",               null: false
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20141230214830) do
 
   add_index "comments", ["author_id"], name: "index_comments_on_person_id", using: :btree
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
-  add_index "comments", ["guid"], name: "index_comments_on_guid", unique: true, using: :btree
+  add_index "comments", ["guid"], name: "index_comments_on_guid", unique: true, length: {"guid"=>191}, using: :btree
 
   create_table "contacts", force: true do |t|
     t.integer  "user_id",                    null: false
@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(version: 20141230214830) do
   end
 
   add_index "likes", ["author_id"], name: "likes_author_id_fk", using: :btree
-  add_index "likes", ["guid"], name: "index_likes_on_guid", unique: true, using: :btree
+  add_index "likes", ["guid"], name: "index_likes_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "likes", ["target_id", "author_id", "target_type"], name: "index_likes_on_target_id_and_author_id_and_target_type", unique: true, using: :btree
   add_index "likes", ["target_id"], name: "index_likes_on_post_id", using: :btree
 
@@ -234,14 +234,14 @@ ActiveRecord::Schema.define(version: 20141230214830) do
 
   add_index "notifications", ["recipient_id"], name: "index_notifications_on_recipient_id", using: :btree
   add_index "notifications", ["target_id"], name: "index_notifications_on_target_id", using: :btree
-  add_index "notifications", ["target_type", "target_id"], name: "index_notifications_on_target_type_and_target_id", using: :btree
+  add_index "notifications", ["target_type", "target_id"], name: "index_notifications_on_target_type_and_target_id", length: {"target_type"=>190, "target_id"=>nil}, using: :btree
 
   create_table "o_embed_caches", force: true do |t|
     t.string "url",  limit: 1024, null: false
     t.text   "data",              null: false
   end
 
-  add_index "o_embed_caches", ["url"], name: "index_o_embed_caches_on_url", length: {"url"=>255}, using: :btree
+  add_index "o_embed_caches", ["url"], name: "index_o_embed_caches_on_url", length: {"url"=>191}, using: :btree
 
   create_table "open_graph_caches", force: true do |t|
     t.string "title"
@@ -262,7 +262,7 @@ ActiveRecord::Schema.define(version: 20141230214830) do
     t.datetime "updated_at",                         null: false
   end
 
-  add_index "participations", ["guid"], name: "index_participations_on_guid", using: :btree
+  add_index "participations", ["guid"], name: "index_participations_on_guid", length: {"guid"=>191}, using: :btree
   add_index "participations", ["target_id", "target_type", "author_id"], name: "index_participations_on_target_id_and_target_type_and_author_id", using: :btree
 
   create_table "people", force: true do |t|
@@ -277,8 +277,8 @@ ActiveRecord::Schema.define(version: 20141230214830) do
     t.integer  "fetch_status",          default: 0
   end
 
-  add_index "people", ["diaspora_handle"], name: "index_people_on_diaspora_handle", unique: true, using: :btree
-  add_index "people", ["guid"], name: "index_people_on_guid", unique: true, using: :btree
+  add_index "people", ["diaspora_handle"], name: "index_people_on_diaspora_handle", unique: true, length: {"diaspora_handle"=>191}, using: :btree
+  add_index "people", ["guid"], name: "index_people_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "people", ["owner_id"], name: "index_people_on_owner_id", unique: true, using: :btree
 
   create_table "photos", force: true do |t|
@@ -302,7 +302,7 @@ ActiveRecord::Schema.define(version: 20141230214830) do
     t.integer  "width"
   end
 
-  add_index "photos", ["status_message_guid"], name: "index_photos_on_status_message_guid", using: :btree
+  add_index "photos", ["status_message_guid"], name: "index_photos_on_status_message_guid", length: {"status_message_guid"=>191}, using: :btree
 
   create_table "pods", force: true do |t|
     t.string   "host"
@@ -381,14 +381,14 @@ ActiveRecord::Schema.define(version: 20141230214830) do
     t.text     "tumblr_ids"
   end
 
-  add_index "posts", ["author_id", "root_guid"], name: "index_posts_on_author_id_and_root_guid", unique: true, using: :btree
+  add_index "posts", ["author_id", "root_guid"], name: "index_posts_on_author_id_and_root_guid", unique: true, length: {"author_id"=>nil, "root_guid"=>190}, using: :btree
   add_index "posts", ["author_id"], name: "index_posts_on_person_id", using: :btree
-  add_index "posts", ["guid"], name: "index_posts_on_guid", unique: true, using: :btree
+  add_index "posts", ["guid"], name: "index_posts_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "posts", ["id", "type", "created_at"], name: "index_posts_on_id_and_type_and_created_at", using: :btree
-  add_index "posts", ["root_guid"], name: "index_posts_on_root_guid", using: :btree
-  add_index "posts", ["status_message_guid", "pending"], name: "index_posts_on_status_message_guid_and_pending", using: :btree
-  add_index "posts", ["status_message_guid"], name: "index_posts_on_status_message_guid", using: :btree
-  add_index "posts", ["tweet_id"], name: "index_posts_on_tweet_id", using: :btree
+  add_index "posts", ["root_guid"], name: "index_posts_on_root_guid", length: {"root_guid"=>191}, using: :btree
+  add_index "posts", ["status_message_guid", "pending"], name: "index_posts_on_status_message_guid_and_pending", length: {"status_message_guid"=>190, "pending"=>nil}, using: :btree
+  add_index "posts", ["status_message_guid"], name: "index_posts_on_status_message_guid", length: {"status_message_guid"=>191}, using: :btree
+  add_index "posts", ["tweet_id"], name: "index_posts_on_tweet_id", length: {"tweet_id"=>191}, using: :btree
   add_index "posts", ["type", "pending", "id"], name: "index_posts_on_type_and_pending_and_id", using: :btree
 
   create_table "profiles", force: true do |t|
@@ -425,7 +425,7 @@ ActiveRecord::Schema.define(version: 20141230214830) do
     t.datetime "updated_at",           null: false
   end
 
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", length: {"item"=>nil, "table"=>188, "month"=>nil, "year"=>nil}, using: :btree
 
   create_table "reports", force: true do |t|
     t.integer  "item_id",                    null: false
@@ -457,7 +457,7 @@ ActiveRecord::Schema.define(version: 20141230214830) do
     t.datetime "updated_at",                null: false
   end
 
-  add_index "services", ["type", "uid"], name: "index_services_on_type_and_uid", using: :btree
+  add_index "services", ["type", "uid"], name: "index_services_on_type_and_uid", length: {"type"=>64, "uid"=>nil}, using: :btree
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
 
   create_table "share_visibilities", force: true do |t|
@@ -506,7 +506,7 @@ ActiveRecord::Schema.define(version: 20141230214830) do
 
   add_index "taggings", ["created_at"], name: "index_taggings_on_created_at", using: :btree
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", length: {"taggable_id"=>nil, "taggable_type"=>95, "context"=>95}, using: :btree
   add_index "taggings", ["taggable_id", "taggable_type", "tag_id"], name: "index_taggings_uniquely", unique: true, using: :btree
 
   create_table "tags", force: true do |t|
@@ -514,7 +514,7 @@ ActiveRecord::Schema.define(version: 20141230214830) do
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, length: {"name"=>191}, using: :btree
 
   create_table "user_preferences", force: true do |t|
     t.string   "email_type"
@@ -558,17 +558,17 @@ ActiveRecord::Schema.define(version: 20141230214830) do
     t.datetime "reset_password_sent_at"
     t.datetime "last_seen"
     t.datetime "remove_after"
-    t.boolean  "strip_exif",                                     default: true
     t.string   "export"
     t.datetime "exported_at"
     t.boolean  "exporting",                                      default: false
+    t.boolean  "strip_exif",                                     default: true
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["invitation_service", "invitation_identifier"], name: "index_users_on_invitation_service_and_invitation_identifier", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", length: {"email"=>191}, using: :btree
+  add_index "users", ["invitation_service", "invitation_identifier"], name: "index_users_on_invitation_service_and_invitation_identifier", unique: true, length: {"invitation_service"=>64, "invitation_identifier"=>nil}, using: :btree
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", using: :btree
-  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, length: {"username"=>191}, using: :btree
 
   add_foreign_key "aspect_memberships", "aspects", name: "aspect_memberships_aspect_id_fk", dependent: :delete
   add_foreign_key "aspect_memberships", "contacts", name: "aspect_memberships_contact_id_fk", dependent: :delete
