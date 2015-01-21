@@ -405,7 +405,7 @@ en:
       get_support_a_website: "Visit our %{link}"
       get_support_a_tutorials: "Check out our %{tutorials}"
       get_support_a_wiki: "Search the %{link}"
-      get_support_a_irc: "Join us on %{irc} (Live chat)"
+      get_support_a_irc: "Join us on %{irc} (live chat)"
       get_support_a_hashtag: "Ask in a public post on diaspora* using the %{question} hashtag"
     account_and_data_management:
       title: "Account and data management"
