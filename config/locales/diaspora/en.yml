@@ -442,7 +442,7 @@ en:
       person_multiple_aspects_q: "Can I add a person to multiple aspects?"
       person_multiple_aspects_a: "Yes. Go to your contacts page and click on 'My contacts'. For each contact you can use the menu on the right to add them to (or remove them from) as many aspects as you want. Or you can add them to a new aspect (or remove them from an aspect) by clicking the aspect selector button on their profile page. Or you can even just move the pointer over their name where you see it in the stream, and a 'hover-card' will appear. You can change the aspects they are in right there."
       delete_aspect_q: "How do I delete an aspect?"
-      delete_aspect_a: "In your list of aspects on the left side of the main page, point your mouse at the aspect you want to delete. Click the little 'Edit' pencil that appears on the right. Click the delete button in the box that appears."
+      delete_aspect_a: "In your list of aspects on the left side of the main page, point your mouse at the aspect you want to delete. Click the little 'Edit' pencil that appears on the right. Click the 'Delete this aspect' button in the box that appears."
     mentions:
       title: "Mentions"
       what_is_a_mention_q: "What is a \"mention\"?"
