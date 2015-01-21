@@ -928,7 +928,7 @@ en:
       empty: "{file} is empty, please select files again without it."
     new_profile_photo:
       upload: "Upload a new profile photo!"
-      or_select_one_existing: "Or select one from your already existing %{photos}"
+      or_select_one_existing: "or select one from your already existing %{photos}"
     comment_email_subject: "%{name}'s photo"
 
   posts:
