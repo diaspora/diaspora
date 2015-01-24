@@ -3,7 +3,7 @@
   @include button-gradient($creation-blue);
   color: #fff;
   border: 1px solid darken($button-border-color,20%);
-
+  text-shadow: none;
   &:hover {
     background: $creation-blue;
     border: 1px solid darken($button-border-color,35%);

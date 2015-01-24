@@ -14,7 +14,7 @@ class InvitationsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        render params[:blueprint] ? 'invitations/new_blueprint' : 'invitations/new', layout: false
+        render 'invitations/new', layout: false
       end
     end
   end
