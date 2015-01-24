@@ -47,6 +47,7 @@ en:
   _contacts: "Contacts"
   welcome: "Welcome!"
   _terms: "terms"
+  _statistics: "Statistics"
 
   #for reference translation, the real activerecord english transations are actually
   #in en-US, en-GB, and en-AU yml files
@@ -1380,3 +1381,19 @@ en:
       default: "The secret code did not match with the image"
       user: "The secret image and code were different"
       failed: "Human verification failed"
+
+  statistics:
+    name: "Name"
+    network: "Network"
+    services: "Services"
+    total_users: "Total users"
+    active_users_halfyear: "Active users half year"
+    active_users_monthly: "Active users monthly"
+    local_posts: "Local posts"
+    local_comments: "Local comments"
+    version: "Version"
+    registrations: "Registrations"
+    enabled: "Available"
+    disabled: "Not available"
+    open: "Open"
+    closed: "Closed"

@@ -152,6 +152,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Allows users to export their data in gzipped JSON format from their user settings page [#5499](https://github.com/diaspora/diaspora/pull/5499)
 * Strip EXIF data from newly uploaded images [#5510](https://github.com/diaspora/diaspora/pull/5510)
 * Hide user setting if the community spotlight is not enabled on the pod [#5562](https://github.com/diaspora/diaspora/pull/5562)
+* Add HTML view for pod statistics [#5464](https://github.com/diaspora/diaspora/pull/5464)
 
 # 0.4.1.2
 
