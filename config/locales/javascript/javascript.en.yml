@@ -11,7 +11,7 @@ en:
     ignore: "Ignore"
     report:
       prompt: "Please enter a reason:"
-      prompt_default: "offensive content"
+      prompt_default: "Offensive content"
       name: "Report"
       status:
         created: "The report was successfully created"
@@ -22,7 +22,7 @@ en:
     and: "and"
     comma: ","
     edit: "Edit"
-    no_results: "No Results Found"
+    no_results: "No results found"
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
@@ -50,9 +50,9 @@ en:
       error_remove: "Couldn't remove <%= name %> from the aspect :("
       search_no_results: "No contacts found"
 
-    my_activity: "My Activity"
+    my_activity: "My activity"
     my_stream: "Stream"
-    my_aspects: "My Aspects"
+    my_aspects: "My aspects"
 
     videos:
       watch: "Watch this video on <%= provider %>"
@@ -60,8 +60,8 @@ en:
     search_for: "Search for <%= name %>"
     publisher:
       at_least_one_aspect: "You must publish to at least one aspect"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Limited - Your post will only be seen by people you are sharing with"
+      public: "Public - Your post will be visible to everyone and found by search engines"
       near_from: "Posted from: <%= location %>"
       option: "Answer"
       add_option: "Add an answer"
@@ -85,13 +85,13 @@ en:
         zero: "Select aspects"
         one: "In <%= count %> aspect"
         other: "In <%= count %> aspects"
-    show_more: "show more"
+    show_more: "Show more"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"
     failed_to_remove: "Failed to remove the entry!"
     comments:
-      show: "show all comments"
-      hide: "hide comments"
+      show: "Show all comments"
+      hide: "Hide comments"
       no_comments: "There are no comments yet."
     reshares:
       duplicate: "That good, huh?  You've already reshared that post!"
@@ -126,9 +126,9 @@ en:
         is_sharing: "<%= name %> is sharing with you"
         is_not_sharing: "<%= name %> is not sharing with you"
     profile:
-      edit: "edit"
-      add_some: "add some"
-      you_have_no_tags: "you have no tags!"
+      edit: "Edit"
+      add_some: "Add some"
+      you_have_no_tags: "You have no tags!"
       ignoring: "You are ignoring all posts from <%= name %>."
       bio: "Bio"
       location: "Location"
@@ -177,7 +177,7 @@ en:
         other: "Show <%= count %> more comments"
 
       followed_tag:
-        title: "#Followed Tags"
+        title: "#Followed tags"
         contacts_title: "People who dig these tags"
         add_a_tag: "Add a tag"
         follow: "Follow"
@@ -185,7 +185,7 @@ en:
       tags:
         follow: "Follow #<%= tag %>"
         following: "Following #<%= tag %>"
-        stop_following: "Stop Following #<%= tag %>"
+        stop_following: "Stop following #<%= tag %>"
 
     header:
       home: "Home"
@@ -201,10 +201,10 @@ en:
 
       search: "Search"
 
-      recent_notifications: "Recent Notifications"
+      recent_notifications: "Recent notifications"
       mark_all_as_read: "Mark all as read"
       view_all: "View all"
-      close: "close"
+      close: "Close"
 
     viewer:
       stop_following_post: "Stop following post"
@@ -214,7 +214,7 @@ en:
       reshare: "Reshare"
       reshared: "Reshared"
       comment: "Comment"
-      home: "HOME"
+      home: "Home"
 
     poll:
       vote: "Vote"
