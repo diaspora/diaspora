@@ -15,6 +15,12 @@ require 'capybara/session'
 # Ensure we know the appservers port
 Capybara.server_port = 9887
 
+# Use a version of Firefox defined by environment variable, if set
+Capybara.register_driver :selenium do |app|
+  require 'selenium/webdriver'
+  Selenium::WebDriver::Firefox::Binary.path = ENV['FIREFOX_BINARY_PATH'] || Selenium::WebDriver::Firefox::Binary.path
+  Capybara::Selenium::Driver.new(app, :browser => :firefox)
+end
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
