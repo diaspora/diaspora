@@ -95,15 +95,22 @@ app.views.StreamPost = app.views.Post.extend({
     if(evt) { evt.preventDefault(); }
     if(!confirm(Diaspora.I18n.t('confirm_dialog'))) { return }
 
+    var self = this;
     $.ajax({
       url : "/share_visibilities/42",
       type : "PUT",
       data : {
         post_id : this.model.id
       }
-    })
-
-    this.remove();
+    }).done(function() {
+        self.remove();
+      })
+      .fail(function() {
+        Diaspora.page.flashMessages.render({
+          success: false,
+          notice: Diaspora.I18n.t('hide_post_failed')
+        });
+      });
   },
 
   focusCommentTextarea: function(evt){

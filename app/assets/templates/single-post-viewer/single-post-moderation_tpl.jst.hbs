@@ -1,0 +1,19 @@
+<div>
+  {{#if loggedIn}}
+    {{#if authorIsCurrentUser}}
+      <a href="#" class="remove_post" title="{{t "delete"}}">
+        <i class="entypo gray cross"></i>
+      </a>
+    {{else}}
+      <a href="#" data-type="post" class="post_report" title="{{t "report.name"}}">
+        <i class="entypo gray">&#x21;</i>
+      </a>
+      <a href="#" data-type="post" class="block_user" title="{{t "ignore"}}">
+        <i class="entypo gray">&#128683;</i>
+      </a>
+      <a href="#" data-type="post" class="hide_post" title="{{t "stream.hide"}}">
+        <i class="entypo gray cross"></i>
+      </a>
+    {{/if}}
+  {{/if}}
+</div>
