@@ -10,7 +10,8 @@ class StatisticsController < ApplicationController
     @statistics = StatisticsPresenter.new
     respond_to do |format|
       format.json { render json: @statistics }
-      format.any(:html, :mobile) { render 'statistics/statistics.html.haml' }
+      format.mobile { render layout: 'application' }
+      format.html { render layout: 'with_header_with_footer' }
     end
   end
 end
