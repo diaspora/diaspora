@@ -55,11 +55,11 @@ class StatisticsPresenter
   end
 
   def monthly_users
-    @monthly_users ||= User.halfyear_actives.count
+    @monthly_users ||= User.monthly_actives.count
   end
 
   def halfyear_users
-    @halfyear_users ||= User.monthly_actives.count
+    @halfyear_users ||= User.halfyear_actives.count
   end
 
   def post_counts
