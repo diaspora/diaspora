@@ -39,7 +39,7 @@
             .controls
               = f.submit t('devise.sessions.new.sign_in'), :class => 'btn primary'
               - if display_registration_link?
-                = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name), :class => 'btn primary', :style => "float: right;"
+                = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name), :class => 'primary', :style => "float: right;"
 
   %footer
     - if display_password_reset_link?
