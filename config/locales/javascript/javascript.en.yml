@@ -80,6 +80,9 @@ en:
       add_to_aspect: "Add contact"
       select_aspects: "Select aspects"
       all_aspects: "All aspects"
+      updating: "updating..."
+      mobile_row_checked: "<%= name %> (remove)"
+      mobile_row_unchecked: "<%= name %> (add)"
       stopped_sharing_with: "You have stopped sharing with <%= name %>."
       started_sharing_with: "You have started sharing with <%= name %>!"
       error: "Couldn’t start sharing with <%= name %>.  Are you ignoring them?"
@@ -90,6 +93,7 @@ en:
         other: "In <%= count %> aspects"
     show_more: "Show more"
     failed_to_like: "Failed to like!"
+    failed_to_reshare: "Failed to reshare!"
     failed_to_post_message: "Failed to post message!"
     failed_to_remove: "Failed to remove the entry!"
     comments:

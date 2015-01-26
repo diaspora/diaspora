@@ -33,3 +33,9 @@ end
 When /^I open the drawer$/ do
   find('#menu_badge').click
 end
+
+Then /^the aspect dropdown within "([^"]*)" should be labeled "([^"]*)"/ do |selector, label|
+  within(selector) do
+    current_scope.should have_css("option.list_cover", :text => label)
+  end
+end

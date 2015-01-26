@@ -293,9 +293,9 @@ en:
 
   aspect_memberships:
     destroy:
-      success: "Successfully removed person from aspect"
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect."
+      failure: "Failed to remove person from aspect."
+      no_membership: "Could not find the selected person in that aspect."
 
   bookmarklet:
     heading: "Bookmarklet"
@@ -839,7 +839,7 @@ en:
         Sign in here: %{login_url}. If you’ve forgotten your sign-in details, you can ask for a reminder on that page.
         
         Hoping to see you again,
-
+        
         The diaspora* email robot!
   people:
     zero: "No people"
@@ -1106,6 +1106,8 @@ en:
   shared:
     aspect_dropdown:
       add_to_aspect: "Add contact"
+      mobile_row_checked: "%{name} (remove)"
+      mobile_row_unchecked: "%{name} (add)"
       toggle:
         zero: "Add contact"
         one: "In %{count} aspect"

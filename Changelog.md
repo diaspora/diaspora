@@ -163,6 +163,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Add HTML view for pod statistics [#5464](https://github.com/diaspora/diaspora/pull/5464)
 * Added/Moved hide, block user, report and delete button in SPV [#5547](https://github.com/diaspora/diaspora/pull/5547)
 * Added keyboard shortcuts r(reshare), m(expand Post), o(open first link in post) [#5602](https://github.com/diaspora/diaspora/pull/5602)
+* Added dropdown to add/remove people from/to aspects in mobile view [#5594](https://github.com/diaspora/diaspora/pull/5594)
 * Dynamically compute minimum and maximum valid year for birthday field [#5639](https://github.com/diaspora/diaspora/pull/5639)
 * Show hovercard on mentions [#5652](https://github.com/diaspora/diaspora/pull/5652)
 * Make help sections linkable [#5667](https://github.com/diaspora/diaspora/pull/5667)
