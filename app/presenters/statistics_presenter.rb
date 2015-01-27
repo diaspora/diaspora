@@ -31,7 +31,7 @@ class StatisticsPresenter
   end
 
   def open_registrations?
-    AppConfig.settings.enable_registrations
+    AppConfig.settings.enable_registrations?
   end
 
   def user_counts

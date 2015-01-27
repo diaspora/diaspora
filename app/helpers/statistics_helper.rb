@@ -11,6 +11,14 @@ module StatisticsHelper
     end
   end
 
+  def registrations_status_class statistics
+    if statistics.open_registrations?
+      "serv-enabled"
+    else
+      "serv-disabled"
+    end
+  end
+
   def service_status service, available_services
     if available_services.include? service.to_s
       I18n.t('statistics.enabled')
