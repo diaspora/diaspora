@@ -41,9 +41,19 @@
         margin-left: 8px;
         margin-right: 8px;
       }
+      .post-context {
+        font-size: 12px;
+
+        #single-post-moderation {
+          margin-left: 5px;
+
+          > div.info {
+            display: inline-block;
+          }
+        }
+      }
       .post-time a {
         color: $text-grey;
-        display: block;
         font-size: 12px;
       }
       .avatar {
