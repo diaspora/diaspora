@@ -24,7 +24,7 @@ describe StatisticsPresenter do
         "name" => AppConfig.settings.pod_name,
         "network" => "Diaspora",
         "version" => AppConfig.version_string,
-        "registrations_open" => AppConfig.settings.enable_registrations,
+        "registrations_open" => AppConfig.settings.enable_registrations?,
         "services"=> ["facebook",],
         "facebook" => true,
         "tumblr" => false,
@@ -51,7 +51,7 @@ describe StatisticsPresenter do
           "name" => AppConfig.settings.pod_name,
           "network" => "Diaspora",
           "version" => AppConfig.version_string,
-          "registrations_open" => AppConfig.settings.enable_registrations,
+          "registrations_open" => AppConfig.settings.enable_registrations?,
           "total_users" => User.count,
           "active_users_halfyear" => User.halfyear_actives.count,
           "active_users_monthly" => User.monthly_actives.count,
@@ -63,6 +63,15 @@ describe StatisticsPresenter do
           "tumblr" => false,
           "wordpress" => false
         })
+      end
+    end
+    context 'when registrations are closed' do
+      before do
+        AppConfig.settings.enable_registrations = false
+      end
+
+      it 'should mark open_registrations to be false' do
+        expect(@presenter.open_registrations?).to be false
       end
     end
   end

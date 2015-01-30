@@ -7,7 +7,7 @@
     = t('_statistics')
   = render 'statistics/statistic', name: t('statistics.name'), value: @statistics.name, activated: "serv-enabled"
   = render 'statistics/statistic', name: t('statistics.version'), value: @statistics.version, activated: "serv-enabled"
-  = render 'statistics/statistic', name: t('statistics.registrations'), value: registrations_status(@statistics), activated: "serv-enabled"
+  = render 'statistics/statistic', name: t('statistics.registrations'), value: registrations_status(@statistics), activated: registrations_status_class(@statistics)
   - if @statistics.expose_user_counts?
     = render 'statistics/statistic', name: t('statistics.total_users'), value: @statistics.total_users, activated: "serv-enabled"
     = render 'statistics/statistic', name: t('statistics.active_users_halfyear'), value: @statistics.halfyear_users, activated: "serv-enabled"
