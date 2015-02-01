@@ -122,6 +122,6 @@ Feature: following and being followed
     And I add the person to my "Unicorns" aspect
 
     When I go to "bob@bob.bob"'s page
-    Then I should see "All Aspects"
+    Then I should see "All aspects"
     Then I should see a "#mention_button" within "#profile_buttons"
     Then I should see a "#message_button" within "#profile_buttons"

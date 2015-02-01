@@ -35,7 +35,7 @@ Feature: Unfollowing
 
     And I remove the first person from the aspect
 
-    When I follow "My Contacts"
+    When I follow "My contacts"
     Then I should have 0 contacts in "Besties"
 
     When I sign out

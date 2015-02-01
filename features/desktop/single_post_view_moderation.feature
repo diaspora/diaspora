@@ -50,7 +50,7 @@
     And I click to report the post
     And I confirm the alert
     
-    And I should see a flash message containing "The report was successfully created"
+    And I should see a flash message containing "The report has successfully been created"
     
   Scenario: delete own post
     Given I expand the publisher

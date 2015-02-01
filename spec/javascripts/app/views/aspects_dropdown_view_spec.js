@@ -4,7 +4,7 @@ describe("app.views.AspectsDropdown", function(){
     Diaspora.I18n.reset({
       'aspect_dropdown': {
         'select_aspects': "Select aspects",
-        'all_aspects': "All Aspects",
+        'all_aspects': "All aspects",
         'toggle': {
           'zero': "Select aspects",
           'one': "In <%= count %> aspect",
