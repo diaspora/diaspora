@@ -92,6 +92,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Port contacts page to backbone [#5473](https://github.com/diaspora/diaspora/pull/5473)
 * Replace CSS vendor prefixes automatically [#5532](https://github.com/diaspora/diaspora/pull/5532)
 * Use sentence case consistently throughout UI [#5588](https://github.com/diaspora/diaspora/pull/5588)
+* Hide sign up button when registrations are disabled [#5612](https://github.com/diaspora/diaspora/pull/5612)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
