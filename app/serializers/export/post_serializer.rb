@@ -9,6 +9,7 @@ module Export
                :image_width,
                :likes_count,
                :comments_count,
-               :reshares_count
+               :reshares_count,
+               :created_at
   end
 end
