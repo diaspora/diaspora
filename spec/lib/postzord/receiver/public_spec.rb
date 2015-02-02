@@ -7,7 +7,7 @@ require 'spec_helper'
 describe Postzord::Receiver::Public do
   before do
     @post = FactoryGirl.build(:status_message, :author => alice.person, :public => true)
-    @created_salmon = Salmon::Slap.create_by_user_and_activity(alice, @post.to_diaspora_xml)
+    @created_salmon = Adapters::Salmon::Slap.create_by_user_and_activity(alice, @post.to_diaspora_xml)
     @xml = @created_salmon.xml_for(nil)
   end
 
@@ -18,7 +18,7 @@ describe Postzord::Receiver::Public do
       comment = bob.build_comment(:text => 'yo', :post => sm)
       comment.save
       #bob signs his comment, and then sends it up
-      xml = Salmon::Slap.create_by_user_and_activity(bob, comment.to_diaspora_xml).xml_for(nil)
+      xml = Adapters::Salmon::Slap.create_by_user_and_activity(bob, comment.to_diaspora_xml).xml_for(nil)
       bob.destroy
       comment.destroy
       expect{
@@ -94,7 +94,7 @@ describe Postzord::Receiver::Public do
     before do
       @comment = bob.build_comment(:text => 'yo', :post => FactoryGirl.create(:status_message))
       @comment.save
-      created_salmon = Salmon::Slap.create_by_user_and_activity(alice, @comment.to_diaspora_xml)
+      created_salmon = Adapters::Salmon::Slap.create_by_user_and_activity(alice, @comment.to_diaspora_xml)
       xml = created_salmon.xml_for(nil)
       @comment.delete
       @receiver = Postzord::Receiver::Public.new(xml)

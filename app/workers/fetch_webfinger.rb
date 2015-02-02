@@ -7,7 +7,7 @@ module Workers
     sidekiq_options queue: :socket_webfinger
 
     def perform(account)
-      person = Webfinger.new(account).fetch
+      person = Adapters::Webfinger.new(account).fetch
 
       # also, schedule to fetch a few public posts from that person
       Workers::FetchPublicPosts.perform_async(person.diaspora_handle) unless person.nil?

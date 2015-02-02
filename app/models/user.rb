@@ -263,7 +263,7 @@ class User < ActiveRecord::Base
   end
 
   def salmon(post)
-    Salmon::EncryptedSlap.create_by_user_and_activity(self, post.to_diaspora_xml)
+    Adapters::Salmon::EncryptedSlap.create_by_user_and_activity(self, post.to_diaspora_xml)
   end
 
   # Check whether the user has liked a post.
@@ -415,7 +415,7 @@ class User < ActiveRecord::Base
     aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
 
     if AppConfig.settings.autofollow_on_join?
-      default_account = Webfinger.new(AppConfig.settings.autofollow_on_join_user).fetch
+      default_account = Adapters::Webfinger.new(AppConfig.settings.autofollow_on_join_user).fetch
       self.share_with(default_account, aq) if default_account
     end
     aq
@@ -513,7 +513,7 @@ class User < ActiveRecord::Base
       self.save
     end
   end
-  
+
   def after_database_authentication
     # remove any possible remove_after timestamp flag set by maintenance.remove_old_users
     unless self.remove_after.nil?

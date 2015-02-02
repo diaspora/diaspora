@@ -57,7 +57,7 @@ describe PublicsController, :type => :controller do
       xml2 = post1.to_diaspora_xml
       user2 = FactoryGirl.create(:user)
 
-      salmon_factory = Salmon::EncryptedSlap.create_by_user_and_activity(@user, xml2)
+      salmon_factory = Adapters::Salmon::EncryptedSlap.create_by_user_and_activity(@user, xml2)
       enc_xml = salmon_factory.xml_for(user2.person)
 
       expect(Workers::ReceiveEncryptedSalmon).to receive(:perform_async).with(@user.id, enc_xml).once

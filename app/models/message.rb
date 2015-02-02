@@ -35,7 +35,7 @@ class Message < ActiveRecord::Base
   end
 
   def diaspora_handle= nh
-    self.author = Webfinger.new(nh).fetch
+    self.author = Adapters::Webfinger.new(nh).fetch
   end
 
   def conversation_guid

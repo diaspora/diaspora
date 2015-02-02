@@ -4,28 +4,28 @@
 
 require 'spec_helper'
 
-describe Webfinger do
+describe Adapters::Webfinger do
   let(:host_meta_xrd) { File.open(Rails.root.join('spec', 'fixtures', 'host-meta.fixture.html')).read }
   let(:webfinger_xrd) { File.open(Rails.root.join('spec', 'fixtures', 'webfinger.fixture.html')).read }
   let(:hcard_xml) { File.open(Rails.root.join('spec', 'fixtures', 'hcard.fixture.html')).read }
   let(:account){'foo@bar.com'}
   let(:account_in_fixtures){"alice@localhost:9887"}
-  let(:finger){Webfinger.new(account)}
+  let(:finger){Adapters::Webfinger.new(account)}
   let(:host_meta_url){"http://#{AppConfig.pod_uri.authority}/webfinger?q="}
 
   describe '#intialize' do
     it 'sets account ' do
-      n = Webfinger.new("mbs348@gmail.com")
+      n = Adapters::Webfinger.new("mbs348@gmail.com")
       expect(n.account).not_to be nil
     end
 
     it "downcases account and strips whitespace, and gsub 'acct:'" do
-      n = Webfinger.new("acct:BIGBOY@Example.Org ")
+      n = Adapters::Webfinger.new("acct:BIGBOY@Example.Org ")
       expect(n.account).to eq('bigboy@example.org')
     end
 
     it 'should set ssl as the default' do
-      foo = Webfinger.new(account)
+      foo = Adapters::Webfinger.new(account)
       expect(foo.ssl).to be true
     end
   end
@@ -33,13 +33,13 @@ describe Webfinger do
   describe '.in_background' do
     it 'enqueues a Workers::FetchWebfinger job' do
       expect(Workers::FetchWebfinger).to receive(:perform_async).with(account)
-      Webfinger.in_background(account)
+      Adapters::Webfinger.in_background(account)
     end
   end
 
   describe '#fetch' do
     it 'works' do
-      finger = Webfinger.new(account_in_fixtures)
+      finger = Adapters::Webfinger.new(account_in_fixtures)
       allow(finger).to receive(:host_meta_xrd).and_return(host_meta_xrd)
       allow(finger).to receive(:hcard_xrd).and_return(hcard_xml)
       allow(finger).to receive(:webfinger_profile_xrd).and_return(webfinger_xrd)
@@ -150,28 +150,20 @@ describe Webfinger do
   describe '#hcard' do
     it 'calls HCard.build' do
       allow(finger).to receive(:hcard_xrd).and_return(hcard_xml)
-      expect(HCard).to receive(:build).with(hcard_xml).and_return true
+      expect(Adapters::HCard).to receive(:build).with(hcard_xml).and_return true
       expect(finger.hcard).not_to be_nil
-    end
-  end
-
-  describe '#webfinger_profile' do
-    it 'constructs a new WebfingerProfile object' do
-      allow(finger).to receive(:webfinger_profile_xrd).and_return(webfinger_xrd)
-      expect(WebfingerProfile).to receive(:new).with(account, webfinger_xrd)
-      finger.webfinger_profile
     end
   end
 
   describe '#webfinger_profile_url' do
     it 'returns the llrd link for a valid host meta' do
       allow(finger).to receive(:host_meta_xrd).and_return(host_meta_xrd)
-      expect(finger.webfinger_profile_url).not_to be_nil
+      expect(finger.webfinger_profile.profile_url).not_to be_nil
     end
 
     it 'returns nil if no link is found' do
       allow(finger).to receive(:host_meta_xrd).and_return(nil)
-      expect(finger.webfinger_profile_url).to be_nil
+      expect(finger.webfinger_profile.profile_url).to be_nil
     end
   end
 

@@ -17,8 +17,8 @@ describe Workers::HttpMulti do
 
     @hydra = Typhoeus::Hydra.new
     allow(Typhoeus::Hydra).to receive(:new).and_return(@hydra)
-    @salmon = Salmon::EncryptedSlap.create_by_user_and_activity bob, Base64.decode64(@post_xml)
-    allow(Salmon::EncryptedSlap).to receive(:create_by_user_and_activity).and_return @salmon
+    @salmon = Adapters::Salmon::EncryptedSlap.create_by_user_and_activity bob, Base64.decode64(@post_xml)
+    allow(Adapters::Salmon::EncryptedSlap).to receive(:create_by_user_and_activity).and_return @salmon
     @body = "encrypted things"
     allow(@salmon).to receive(:xml_for).and_return @body
 

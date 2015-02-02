@@ -12,7 +12,7 @@ class Postzord::Dispatcher
   # @param user [User] User dispatching the object in question
   # @param object [Object] The object to be sent to other Diaspora installations
   # @opt additional_subscribers [Array<Person>] Additional subscribers
-  def initialize(user, object, opts={})
+  def initialize(user, object, opts = {})
     @sender = user
     @object = object
     @xml = @object.to_diaspora_xml
@@ -60,13 +60,13 @@ class Postzord::Dispatcher
 
   # @return [Object]
   def post
-    self.deliver_to_services(@opts[:url], @opts[:services] || [])
-    self.post_to_subscribers if @subscribers.present?
-    self.process_after_dispatch_hooks
+    deliver_to_services(@opts[:url], @opts[:services] || [])
+    post_to_subscribers if @subscribers.present?
+    process_after_dispatch_hooks
     @object
   end
 
-  
+
 
   protected
 
@@ -77,15 +77,15 @@ class Postzord::Dispatcher
   end
 
   def post_to_subscribers
-    remote_people, local_people = @subscribers.partition{ |person| person.owner_id.nil? }
+    remote_people, local_people = @subscribers.partition { |person| person.owner_id.nil? }
 
     if @object.respond_to?(:relayable?) && @sender.owns?(@object.parent)
-      self.notify_local_users(local_people)
+      notify_local_users(local_people)
     else
-      self.deliver_to_local(local_people)
+      deliver_to_local(local_people)
     end
 
-    self.deliver_to_remote(remote_people)
+    deliver_to_remote(remote_people)
   end
 
   # @return [Array<Person>] Recipients of the object, minus any additional subscribers
@@ -97,7 +97,7 @@ class Postzord::Dispatcher
   # @return [ActiveRecord::Association<User>, Array]
   def fetch_local_users(people)
     return [] if people.blank?
-    user_ids = people.map{|x| x.owner_id }
+    user_ids = people.map(&:owner_id)
     User.where(:id => user_ids)
   end
 
@@ -114,7 +114,7 @@ class Postzord::Dispatcher
     Workers::HttpMulti.perform_async(
       @sender.id,
       Base64.strict_encode64(@object.to_diaspora_xml),
-      remote_people.map{|p| p.id},
+      remote_people.map(&:id),
       self.class.to_s
     )
   end
@@ -134,7 +134,7 @@ class Postzord::Dispatcher
 
   # @param people [Array<Person>] Recipients of the post
   def batch_deliver_to_local(people)
-    ids = people.map{ |p| p.owner_id }
+    ids = people.map(&:owner_id)
     Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, ids)
     Rails.logger.info("event=push route=local sender=#{@sender.diaspora_handle} recipients=#{ids.join(',')} payload_type=#{@object.class}")
   end

@@ -44,7 +44,7 @@ class PeopleController < ApplicationController
         if diaspora_id?(search_query)
           @people =  Person.where(:diaspora_handle => search_query.downcase)
           if @people.empty?
-            Webfinger.in_background(search_query)
+            Adapters::Webfinger.in_background(search_query)
             @background_query = search_query.downcase
           end
         end
@@ -136,7 +136,7 @@ class PeopleController < ApplicationController
 
   def retrieve_remote
     if params[:diaspora_handle]
-      Webfinger.in_background(params[:diaspora_handle], :single_aspect_form => true)
+      Adapters::Webfinger.in_background(params[:diaspora_handle], :single_aspect_form => true)
       render :nothing => true
     else
       render :nothing => true, :status => 422

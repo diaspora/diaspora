@@ -69,6 +69,7 @@ require fixture_builder_file
 RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
   config.mock_with :rspec
+  config.fail_fast = true
 
   config.render_views
   config.use_transactional_fixtures = true

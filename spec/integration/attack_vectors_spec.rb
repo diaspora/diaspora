@@ -15,7 +15,7 @@ end
 
 def receive_public(post, opts)
   sender = opts.fetch(:from)
-  salmon_xml = Salmon::Slap.create_by_user_and_activity(sender, post.to_diaspora_xml).xml_for(nil)
+  salmon_xml = Adapters::Salmon::Slap.create_by_user_and_activity(sender, post.to_diaspora_xml).xml_for(nil)
   post.destroy
   zord = Postzord::Receiver::Public.new(salmon_xml)
   zord.perform!

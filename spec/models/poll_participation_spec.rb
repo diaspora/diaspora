@@ -2,7 +2,7 @@ require 'spec_helper'
 require Rails.root.join("spec", "shared_behaviors", "relayable")
 
 describe PollParticipation, :type => :model do
-  
+
   before do
     @alices_aspect = alice.aspects.first
     @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
@@ -97,7 +97,7 @@ describe PollParticipation, :type => :model do
       allow_any_instance_of(PollParticipation).to receive(:save!).and_return(true)
       allow_any_instance_of(Person).to receive(:local?).and_return(false)
       expect{
-        salmon = Salmon::Slap.create_by_user_and_activity(alice, @poll_participation_alice.to_diaspora_xml).xml_for(@poll_participant)
+        salmon = Adapters::Salmon::Slap.create_by_user_and_activity(alice, @poll_participation_alice.to_diaspora_xml).xml_for(@poll_participant)
         Postzord::Receiver::Public.new(salmon).save_object
       }.to_not raise_error
     end

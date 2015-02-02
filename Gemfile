@@ -18,6 +18,10 @@ gem 'unicorn', '4.8.3', :require => false
 gem 'acts_as_api', '0.4.2'
 gem 'json',        '1.8.1'
 
+# Federation protocol
+
+gem 'diaspora-federation', path: '../diaspora-federation'
+
 # Authentication
 
 gem 'devise', '3.4.1'

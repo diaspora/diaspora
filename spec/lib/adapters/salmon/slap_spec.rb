@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Salmon::Slap do
+describe Adapters::Salmon::Slap do
   before do
     @post = alice.post(:status_message, :text => "hi", :to => alice.aspects.create(:name => "abcd").id)
-    @created_salmon = Salmon::Slap.create_by_user_and_activity(alice, @post.to_diaspora_xml)
+    @created_salmon = Adapters::Salmon::Slap.create_by_user_and_activity(alice, @post.to_diaspora_xml)
   end
 
   describe '#create' do
@@ -19,21 +19,21 @@ describe Salmon::Slap do
 
   it 'works' do
     salmon_string = @created_salmon.xml_for(nil)
-    salmon = Salmon::Slap.from_xml(salmon_string)
+    salmon = Adapters::Salmon::Slap.from_xml(salmon_string)
     expect(salmon.author).to eq(alice.person)
     expect(salmon.parsed_data).to eq(@post.to_diaspora_xml)
   end
 
   describe '#from_xml' do
     it 'procsses the header' do
-      expect_any_instance_of(Salmon::Slap).to receive(:process_header)
-      Salmon::Slap.from_xml(@created_salmon.xml_for(eve.person))
+      expect_any_instance_of(Adapters::Salmon::Slap).to receive(:process_header)
+      Adapters::Salmon::Slap.from_xml(@created_salmon.xml_for(eve.person))
     end
   end
 
   describe "#process_header" do
     it 'sets the author id' do
-      slap = Salmon::Slap.new
+      slap = Adapters::Salmon::Slap.new
       slap.process_header(Nokogiri::XML(@created_salmon.plaintext_header))
       expect(slap.author_id).to eq(alice.diaspora_handle)
     end
@@ -41,7 +41,7 @@ describe Salmon::Slap do
 
   describe '#author' do
     let(:xml)   {@created_salmon.xml_for(eve.person)}
-    let(:parsed_salmon) { Salmon::Slap.from_xml(xml, alice)}
+    let(:parsed_salmon) { Adapters::Salmon::Slap.from_xml(xml, alice)}
 
     it 'should reference a local author' do
       expect(parsed_salmon.author).to eq(alice.person)
@@ -57,7 +57,7 @@ describe Salmon::Slap do
 
   context 'marshaling' do
     let(:xml)   {@created_salmon.xml_for(eve.person)}
-    let(:parsed_salmon) { Salmon::Slap.from_xml(xml)}
+    let(:parsed_salmon) { Adapters::Salmon::Slap.from_xml(xml)}
 
     it 'should parse out the authors diaspora_handle' do
       expect(parsed_salmon.author_id).to eq(alice.person.diaspora_handle)

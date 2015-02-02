@@ -260,9 +260,9 @@ class Person < ActiveRecord::Base
     new_person.diaspora_handle = profile.account
     new_person.url = profile.seed_location
 
-    #hcard_profile = HCard.find profile.hcard.first[:href]
+    #hcard_profile = Adapters::HCard.find profile.hcard.first[:href]
     Rails.logger.info("event=webfinger_marshal valid=#{new_person.valid?} target=#{new_person.diaspora_handle}")
-    new_person.url = hcard[:url]
+    new_person.url = hcard.url
     new_person.assign_new_profile_from_hcard(hcard)
     new_person.save!
     new_person.profile.save!
@@ -270,12 +270,12 @@ class Person < ActiveRecord::Base
   end
 
   def assign_new_profile_from_hcard(hcard)
-    self.profile = Profile.new(:first_name => hcard[:given_name],
-                              :last_name  => hcard[:family_name],
-                              :image_url  => hcard[:photo],
-                              :image_url_medium  => hcard[:photo_medium],
-                              :image_url_small  => hcard[:photo_small],
-                              :searchable => hcard[:searchable])
+    self.profile = Profile.new(:first_name => hcard.first_name,
+                              :last_name  => hcard.last_name,
+                              :image_url  => hcard.photo_full_url,
+                              :image_url_medium  => hcard.photo_medium_url,
+                              :image_url_small  => hcard.photo_small_url,
+                              :searchable => hcard.searchable)
   end
 
   def remote?
@@ -349,7 +349,7 @@ class Person < ActiveRecord::Base
   private
 
   def fix_profile
-    Webfinger.new(self.diaspora_handle).fetch
+    Adapters::Webfinger.new(self.diaspora_handle).fetch
     self.reload
   end
 end

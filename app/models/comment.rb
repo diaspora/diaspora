@@ -54,7 +54,7 @@ class Comment < ActiveRecord::Base
   end
 
   def diaspora_handle= nh
-    self.author = Webfinger.new(nh).fetch
+    self.author = Adapters::Webfinger.new(nh).fetch
   end
 
   def notification_type(user, person)

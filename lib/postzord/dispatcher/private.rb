@@ -8,7 +8,7 @@ class Postzord::Dispatcher::Private < Postzord::Dispatcher
   # @param activity [String]
   # @return [Salmon::EncryptedSlap]
   def self.salmon(user, activity)
-    Salmon::EncryptedSlap.create_by_user_and_activity(user, activity)
+    Adapters::Salmon::EncryptedSlap.create_by_user_and_activity(user, activity)
   end
 
   # @param person [Person]

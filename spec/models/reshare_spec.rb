@@ -192,7 +192,7 @@ describe Reshare, :type => :model do
 
           wf_prof_double = double
           expect(wf_prof_double).to receive(:fetch).and_return(@original_author)
-          expect(Webfinger).to receive(:new).and_return(wf_prof_double)
+          expect(Adapters::Webfinger).to receive(:new).and_return(wf_prof_double)
 
           allow(@response).to receive(:body).and_return(@root_object.to_diaspora_xml)
 
@@ -252,7 +252,7 @@ describe Reshare, :type => :model do
 
             wf_prof_double = double
             expect(wf_prof_double).to receive(:fetch).and_return(different_person)
-            expect(Webfinger).to receive(:new).and_return(wf_prof_double)
+            expect(Adapters::Webfinger).to receive(:new).and_return(wf_prof_double)
 
             allow(different_person).to receive(:url).and_return(@original_author.url)
 

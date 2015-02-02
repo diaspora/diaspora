@@ -1,3 +1,10 @@
+PATH
+  remote: ../diaspora-federation
+  specs:
+    diaspora-federation (0.0.1pre)
+      nokogiri (~> 1.6.0)
+      valid (~> 0.3.1)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -598,6 +605,7 @@ GEM
       raindrops (~> 0.7)
     uuid (2.3.7)
       macaddr (~> 1.0)
+    valid (0.3.1)
     warden (1.2.3)
       rack (>= 1.0)
     webmock (1.20.4)
@@ -634,6 +642,7 @@ DEPENDENCIES
   devise (= 3.4.1)
   devise-token_authenticatable (~> 0.3.0)
   devise_lastseenable (= 0.0.4)
+  diaspora-federation!
   diaspora-vines (~> 0.1.25)
   entypo-rails (= 2.2.2)
   factory_girl_rails (= 4.5.0)

@@ -903,7 +903,7 @@ describe User, :type => :model do
 
           wf_double = double
           expect(wf_double).to receive(:fetch)
-          expect(Webfinger).to receive(:new).with('one').and_return(wf_double)
+          expect(Adapters::Webfinger).to receive(:new).with('one').and_return(wf_double)
 
           user.seed_aspects
         end
@@ -913,7 +913,7 @@ describe User, :type => :model do
         it "should not start sharing with the diasporahq account" do
           AppConfig.settings.autofollow_on_join = false
 
-          expect(Webfinger).not_to receive(:new)
+          expect(Adapters::Webfinger).not_to receive(:new)
 
           user.seed_aspects
         end
@@ -1052,27 +1052,27 @@ describe User, :type => :model do
       @user.sign_up
     end
   end
-  
+
   describe "maintenance" do
     before do
       @user = bob
       AppConfig.settings.maintenance.remove_old_users.enable = true
     end
-    
+
     it "#flags user for removal" do
       remove_at = Time.now+5.days
       @user.flag_for_removal(remove_at)
       expect(@user.remove_after).to eq(remove_at)
     end
   end
-  
+
   describe "#auth database auth maintenance" do
     before do
       @user = bob
       @user.remove_after = Time.now
       @user.save
     end
-    
+
     it "remove_after is cleared" do
       @user.after_database_authentication
       expect(@user.remove_after).to eq(nil)

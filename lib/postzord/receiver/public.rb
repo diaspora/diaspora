@@ -7,8 +7,8 @@ class Postzord::Receiver::Public < Postzord::Receiver
   attr_accessor :salmon, :author
 
   def initialize(xml)
-    @salmon = Salmon::Slap.from_xml(xml)
-    @author = Webfinger.new(@salmon.author_id).fetch
+    @salmon = Adapters::Salmon::Slap.from_xml(xml)
+    @author = Adapters::Webfinger.new(@salmon.author_id).fetch
 
     FEDERATION_LOGGER.info("Receiving public object from person:#{@author.id}")
   end
