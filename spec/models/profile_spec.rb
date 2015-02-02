@@ -112,6 +112,18 @@ describe Profile, :type => :model do
     end
   end
 
+  describe "of location" do
+    it "can be 255 characters long" do
+      profile = FactoryGirl.build(:profile, :location => "a"*255)
+      expect(profile).to be_valid
+    end
+   
+    it "cannot be 256 characters" do
+      profile = FactoryGirl.build(:profile, :location => "a"*256)
+      expect(profile).not_to be_valid
+    end
+  end
+
   describe '#image_url=' do
     before do
       @profile = FactoryGirl.build(:profile)
