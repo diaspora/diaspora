@@ -93,6 +93,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Replace CSS vendor prefixes automatically [#5532](https://github.com/diaspora/diaspora/pull/5532)
 * Use sentence case consistently throughout UI [#5588](https://github.com/diaspora/diaspora/pull/5588)
 * Hide sign up button when registrations are disabled [#5612](https://github.com/diaspora/diaspora/pull/5612)
+* Standardize capitalization throughout the UI [#5588](https://github.com/diaspora/diaspora/pull/5588)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
@@ -124,6 +125,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Repair downloading the profile image from Facebook [#5493](https://github.com/diaspora/diaspora/pull/5493)
 * Fix localization of post and comment timestamps on mobile [#5482](https://github.com/diaspora/diaspora/issues/5482)
 * Fix mobile JS loading to quieten errors. Fixes also service buttons on mobile bookmarklet.
+* Don't error out when adding a too long location to the profile [#5614](https://github.com/diaspora/diaspora/pull/5614)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
