@@ -58,7 +58,9 @@
           {{/if}}
           <div class='status-message-location' />
         </div>
-        <div id='single-post-moderation' />
+        {{#unless root}}
+          <div id='single-post-moderation' />
+        {{/unless}}
       </div>
     </div>
     {{#unless root}}
@@ -79,11 +81,14 @@
             {{name}}
           {{/linkToAuthor}}
         </span>
-        <span class="post-time">
-          <a href="/posts/{{id}}">
-            <time datetime="{{created_at}}" title="{{localTime created_at}}" />
-          </a>
-        </span>
+        <div class="post-context">
+          <span class="post-time">
+            <a href="/posts/{{id}}">
+              <time datetime="{{created_at}}" title="{{localTime created_at}}" />
+            </a>
+          </span>
+          <span id='single-post-moderation' />
+        </div>
       </div>
       <div id='single-post-actions' class='span4' />
     </div>
