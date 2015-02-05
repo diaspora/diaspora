@@ -33,8 +33,9 @@ series and run our comprehensive test suite against it.
 The default for including jQuery from a CDN has changed. If you want to continue to include it from a CDN, please explicitly set the `jquery_cdn` setting to `true` in diaspora.yml.
 
 ## Change in database.yml
-For MySQL databases, replace `charset: utf8` with `encoding: utf8mb4` in the file `config/database.yml`. This is enables full UTF8 support (4bytes characters), including standard emoji characters. See `database.yml.example` for reference.
-Also, do not forget to remove `collation: utf8_bin`. It will choose a compatible one automatically.
+For MySQL databases, replace `charset: utf8` with `encoding: utf8mb4m` and  change `collation` from `utf8_bin` to `utf8mb4_bin` in the file `config/database.yml`.
+This is enables full UTF8 support (4bytes characters), including standard emoji characters.
+See `database.yml.example` for reference.
 Please make sure to stop Diaspora prior running this migration!
 
 ## Experimental chat feature
