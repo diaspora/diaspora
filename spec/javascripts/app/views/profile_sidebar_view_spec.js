@@ -21,7 +21,6 @@ describe("app.views.ProfileSidebar", function() {
 
   context("#presenter", function() {
     it("contains necessary elements", function() {
-      console.log(this.view.presenter());
       expect(this.view.presenter()).toEqual(jasmine.objectContaining({
         relationship: 'mutual',
         show_profile_info: true,

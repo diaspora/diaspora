@@ -41,38 +41,5 @@ $(document).ready(function(){
       return false;
     }
   });
-
-  $('#conversation_inbox .stream').infinitescroll({
-    navSelector  : ".pagination",
-                 // selector for the paged navigation (it will be hidden)
-    nextSelector : ".pagination a.next_page",
-                 // selector for the NEXT link (to page 2)
-    itemSelector : "#conversation_inbox .conversation",
-                 // selector for all items you'll retrieve
-    localMode: true,
-    debug: false,
-    donetext: "no more.",
-    loadingText: "",
-    loadingImg: ImagePaths.get('ajax-loader.gif')
-  }, function(){
-    $('.conversation-wrapper', '.stream').bind('mousedown', function(){
-      bindIt($(this));
-    });
-  });
-
-  // kill scroll binding
-  $(window).unbind('.infscr');
-
-  // hook up the manual click guy.
-  $('a.next_page').click(function(){
-    $(document).trigger('retrieve.infscr');
-    return false;
-  });
-
-  // remove the paginator when we're done.
-  $(document).ajaxError(function(e,xhr,opt){
-    if (xhr.status == 404) { $('a.next_page').remove(); }
-  });
 });
 // @license-end
-

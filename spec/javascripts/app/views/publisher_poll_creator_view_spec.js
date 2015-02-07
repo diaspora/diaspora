@@ -14,17 +14,19 @@ describe('app.views.PublisherPollCreator', function(){
   });
   describe('#addAnswerInput', function(){
     it('should add new answer input', function(){
-      this.view.addAnswerInput();
       expect(this.view.$(this.input_selector).length).toBe(2);
+      this.view.addAnswerInput();
+      expect(this.view.$(this.input_selector).length).toBe(3);
     });
     it('should change input count', function(){
       this.view.addAnswerInput();
-      expect(this.view.inputCount).toBe(2); 
+      expect(this.view.inputCount).toBe(3);
     });
   });
   describe('#removeAnswerInput', function(){
     it('remove answer input', function(){
-      var input = this.view.$('input:first');
+      var input = this.view.$(this.input_selector).first();
+      expect(this.view.$(this.input_selector).length).toBe(2);
       this.view.removeAnswerInput(input);
       expect(this.view.$(this.input_selector).length).toBe(1);
     });
@@ -40,7 +42,7 @@ describe('app.views.PublisherPollCreator', function(){
     var remove_btn = '.poll-answer .remove-answer';
     it('show remove button when answer input is greater 1', function(){
       this.view.addAnswerInput();
-      expect(this.view.$(remove_btn).hasClass('active')).toBe(true);
+      expect(this.view.$(remove_btn).hasClass('active')).toBeFalsy;
     });
     it('hide remove button when is only one answer input', function(){
       var input = this.view.$(this.input_selector);
@@ -48,14 +50,14 @@ describe('app.views.PublisherPollCreator', function(){
       this.view.addAnswerInput();
       this.view.removeAnswerInput(input);
 
-      expect(this.view.$(remove_btn).hasClass('active')).toBe(false);
+      expect(this.view.$(remove_btn).hasClass('active')).toBeFalsy;
     });
   });
   describe('#validateInput', function(){
     it('should invalid blank value', function(){
       var input = this.view.$('input');
       input.val('  ');
-      expect(this.view.validateInput(input)).toBe(false);
-    }):
+      expect(this.view.validateInput(input)).toBeFalsy;
+    });
   });
 });

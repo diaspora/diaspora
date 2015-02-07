@@ -46,15 +46,6 @@ describe StatusMessagesController, :type => :controller do
       get :new
       expect(response).to redirect_to(stream_path)
     end
-
-    it 'generates a jasmine fixture', :fixture => true do
-      contact = alice.contact_for(bob.person)
-      aspect = alice.aspects.create(:name => 'people')
-      contact.aspects << aspect
-      contact.save
-      get :new, :person_id => bob.person.id, :layout => true
-      save_fixture(html_for("body"), "status_message_new")
-    end
   end
 
   describe '#create' do
