@@ -282,7 +282,6 @@ da:
     few: "%{count} kontaktpersoner"
     index:
       add_a_new_aspect: "Tilføj nyt aspekt"
-      add_contact: "Tilføj kontakt"
       add_to_aspect: "Tilføj kontaktpersoner til %{name}"
       add_to_aspect_link: "tilføj kontakter til %{name}"
       all_contacts: "Alle kontakter"
@@ -293,10 +292,9 @@ da:
       no_contacts_message: "Se %{community_spotlight}"
       no_contacts_message_with_aspect: "Se %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Deler kun med mig"
-      remove_contact: "Fjern kontakt"
+      remove_person_from_aspect: "Fjern %{person_name} fra \"%{aspect_name}\""
       start_a_conversation: "Start en samtale"
       title: "Kontakter"
-      user_search: "Søg efter brugere"
       your_contacts: "Dine kontakter"
     many: "%{count} kontakter"
     one: "Én kontaktperson"
@@ -341,7 +339,7 @@ da:
     new_conversation:
       fail: "Ugyldig meddelelse"
     show:
-      delete: "slet og bloker samtalen"
+      delete: "slet samtalen"
       reply: "Svar"
       replying: "Svarer..."
   date:
@@ -1172,7 +1170,8 @@ da:
       no_message_to_display: "Ingen beskeder at vise."
     new:
       mentioning: "Nævnt: %{person}"
-    too_long: "Lav venligst en statusopdatering på under %{count} tegn. Lige nu er der %{current_length} tegn."
+    too_long:
+      other: "Lav venligst en statusopdatering på under %{count} tegn. Lige nu er der %{current_length} tegn."
   stream_helper:
     hide_comments: "Skjul alle kommentarer"
     show_comments:
@@ -1259,12 +1258,12 @@ da:
       close_account:
         dont_go: "Hey, gå ikke!"
         if_you_want_this: "Hvis du virkelig ønsker dette, indtast da dit kodeord og klik på 'Luk konto'"
-        lock_username: "Dette vil låse dit brugernavn til hvis du beslutter at oprettes igen."
-        locked_out: "Du vil blive logget ud og låst ude af din konto."
-        make_diaspora_better: "Vi ønsker din hjælp til at forbedre Diaspora*, du kan hjælpe os i stedet for at forlade os. Hvis du ønsker at forlade os, så vil vi gerne have at du ved hvad der så sker."
+        lock_username: "Dit brugernavn vil blive låst. Du vil ikke kunne åbne en ny konto på denne pod med det samme ID."
+        locked_out: "Du vil blive logget ud og derefter låst ude af din konto indtil den er blevet slettet."
+        make_diaspora_better: "Vi vlle ønske du blev og hjalp os med at gøre Diaspora* til et bedre sted. Hvis du virkelig ønsker at forlade os, foregår det på denne måde:"
         mr_wiggles: "Hr. Wiggles bliver ked af det når du forlader os"
-        no_turning_back: "Nu er der ingen vej tilbage."
-        what_we_delete: "Vi sletter alle dine indlæg og profildata så hurtigt som overhovedet muligt. Dine kommentarer vil forblive, men være forbundet til dit Diaspora*-ID og ikke dit navn."
+        no_turning_back: "Du kan ikke fortryde dette! Hvis du er helt sikker, indtast dit kodeord herunder."
+        what_we_delete: "Vi sletter alle dine indlæg og profildata så hurtigt som overhovedet muligt. Dine kommentarer til andre folks indlæg vil forblive, men vil vise dit Diaspora*-ID og ikke dit navn."
       close_account_text: "Luk konto"
       comment_on_post: "... nogen har kommenteret dit indlæg."
       current_password: "Nuværende adgangskode"

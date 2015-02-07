@@ -78,7 +78,8 @@ zh-CN:
       users:
         other: "找到 %{count} 个用户"
         zero: "找到 %{count} 个用户"
-      you_currently: "您目前还可以邀请 %{user_invitation} 次 %{link}"
+      you_currently:
+        other: "您目前还可以邀请 %{user_invitation} 次 %{link}"
     weekly_user_stats:
       amount_of:
         other: "本周新用户数目：%{count}"
@@ -246,6 +247,7 @@ zh-CN:
       no_contacts_message: "来看看 %{community_spotlight}"
       no_contacts_message_with_aspect: "来看看 %{community_spotlight} 或者 %{add_to_aspect_link}"
       only_sharing_with_me: "和我分享内容的人"
+      remove_person_from_aspect: "将 %{person_name} 从 %{aspect_name} 中移除"
       start_a_conversation: "开始对话"
       title: "好友"
       your_contacts: "您的好友"
@@ -307,6 +309,7 @@ zh-CN:
     create:
       already_contacts: "您已经将其加为好友了"
       already_sent: "您已经邀请过这个人了。"
+      empty: "请至少填写一个邮箱"
       no_more: "您暂无邀请函。"
       own_address: "您不能发送邀请给自己。"
       rejected: "下列电子信箱有问题: "
@@ -617,6 +620,7 @@ zh-CN:
       hey_make: "嘿，<br/>做点<br/>什么吧！"
       join_the_movement: "参加此行动"
       password: "密码"
+      password_confirmation: "密保信息"
       sign_up: "注册"
       sign_up_message: "有 <3 的社交网络"
       username: "用户名"
@@ -768,7 +772,9 @@ zh-CN:
       no_message_to_display: "暂无信息可显示。"
     new:
       mentioning: "提及发布中: %{person}"
-    too_long: "{\"other\"=>\"请确保您的状态信息不超过 %{count} 个字符\", \"zero\"=>\"请确保您的状态信息不超过 %{count} 个字符\"}"
+    too_long:
+      other: "请确保您的状态信息不超过 %{count} 个字符"
+      zero: "请确保您的状态信息不超过 %{count} 个字符"
   stream_helper:
     hide_comments: "隐藏评论"
     show_comments:

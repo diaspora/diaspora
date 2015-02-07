@@ -282,7 +282,6 @@ en_valspeak:
     few: "%{count} BFFs"
     index:
       add_a_new_aspect: "add a new aspect!"
-      add_contact: "Add BFF <3"
       add_to_aspect: "add BFFs 2 %{name}"
       add_to_aspect_link: "add BFFs 2 %{name}"
       all_contacts: "All BFFs!!"
@@ -293,10 +292,8 @@ en_valspeak:
       no_contacts_message: "OMG! u should like... check out %{community_spotlight}"
       no_contacts_message_with_aspect: "OMG! u should like totally check out %{community_spotlight} or like... %{add_to_aspect_link}"
       only_sharing_with_me: "only sharin wit me"
-      remove_contact: "Trash BFF :("
       start_a_conversation: "start a like... convo"
       title: "BFFs"
-      user_search: "Ppl stalk"
       your_contacts: "ur BFFs"
     many: "%{count} BFFs"
     one: "1 BFF"
@@ -1130,7 +1127,8 @@ en_valspeak:
       no_message_to_display: "No txt 2 display :("
     new:
       mentioning: "Mentionin: %{person}"
-    too_long: "Plz make ur status txt smaller than %{count} key presses. Right nao its like... %{current_length} key presses"
+    too_long:
+      other: "Plz make ur status txt smaller than %{count} key presses. Right nao its like... %{current_length} key presses"
   stream_helper:
     hide_comments: "Cover up... like... all commentz"
     show_comments:

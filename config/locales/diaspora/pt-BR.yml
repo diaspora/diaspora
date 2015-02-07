@@ -282,7 +282,6 @@ pt-BR:
     few: "%{count} contatos"
     index:
       add_a_new_aspect: "Adicione um novo aspecto"
-      add_contact: "Adicionar contato"
       add_to_aspect: "Adicionar contatos para %{name}"
       add_to_aspect_link: "adicionar contatos para %{name}"
       all_contacts: "Todos os Contatos"
@@ -293,10 +292,9 @@ pt-BR:
       no_contacts_message: "Veja %{community_spotlight}"
       no_contacts_message_with_aspect: "Veja %{community_spotlight} ou %{add_to_aspect_link}"
       only_sharing_with_me: "Só compartilhando comigo"
-      remove_contact: "Remover contato"
+      remove_person_from_aspect: "Remover %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Iniciar uma conversa"
       title: "Contatos"
-      user_search: "Busca de Usuário"
       your_contacts: "Seus Contatos"
     many: "%{count} contatos"
     one: "1 contato"
@@ -1160,7 +1158,8 @@ pt-BR:
       no_message_to_display: "Nenhuma mensagem para mostrar."
     new:
       mentioning: "Mencionando: %{person}"
-    too_long: "Por favor, faça com que suas mensagens de status sejam menores que %{count} caracteres. Neste momento elas estão com %{current_length} caracteres."
+    too_long:
+      other: "Por favor, faça com que suas mensagens de status sejam menores que %{count} caracteres. Neste momento elas estão com %{current_length} caracteres."
   stream_helper:
     hide_comments: "Ocultar todos os comentários"
     show_comments:

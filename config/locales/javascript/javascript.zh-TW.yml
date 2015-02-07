@@ -23,6 +23,10 @@ zh-TW:
       deselect_all: "全不選"
       no_aspects: "沒選任何一個面向"
       select_all: "全選"
+    bookmarklet:
+      post_something: "貼到 diaspora*"
+      post_submit: "傳送貼文中..."
+      post_success: "貼好了！彈出視窗關閉中..."
     comma: "，"
     comments:
       hide: "隱藏意見"
@@ -45,6 +49,7 @@ zh-TW:
       admin: "管理"
       close: "關閉"
       contacts: "連絡人"
+      conversations: "交談"
       help: "說明"
       home: "我家"
       log_out: "登出"
@@ -56,6 +61,7 @@ zh-TW:
       settings: "設定"
       view_all: "看全部"
     ignore: "忽視"
+    ignore_failed: "沒辦法忽視這個使用者"
     ignore_user: "要忽視這個使用者嗎？"
     infinite_scroll:
       no_more: "沒有貼文了。"
@@ -63,6 +69,9 @@ zh-TW:
     my_activity: "我的活動"
     my_aspects: "我的面向"
     my_stream: "流水帳"
+    notifications:
+      mark_read: "標示為看過了"
+      mark_unread: "標示為沒看過"
     people:
       not_found: "找不到任何人..."
     photo_uploader:
@@ -72,11 +81,28 @@ zh-TW:
       invalid_ext: "檔案 {file} 的副檔名不合格。僅接受 {extensions}。"
       looking_good: "天啊，你看起來真帥！"
       size_error: "檔案 {file} 太大了，上限是{sizeLimit}。"
+    poll:
+      close_result: "隱藏結果"
+      count:
+        other: "到目前有 <%=count%> 張票"
+      result: "結果"
+      show_result: "顯示結果"
+      vote: "投票"
     publisher:
+      add_option: "增加答案"
       at_least_one_aspect: "發表時請至少選擇一個面向"
       limited: "有限 - 只有你想分享的人才看得到你的貼文"
       near_from: "貼文地點：<%= location %>"
+      option: "答案"
       public: "公開 - 所有人都能看到你的貼文，包括搜尋引擎"
+      question: "問題"
+    report:
+      name: "回報"
+      prompt: "請輸入回報的理由:"
+      prompt_default: "內容有攻擊性"
+      status:
+        created: "成功產生回報了"
+        exists: "已經有這筆回報了"
     reshares:
       duplicate: "很棒對吧？你已經轉貼過該篇貼文了！"
       post: "要轉貼 <%= name %> 的貼文嗎？"
@@ -115,6 +141,7 @@ zh-TW:
         stop_following: "停止追蹤 #<%= tag %>"
       unfollow: "取消追蹤"
       unlike: "收回讚"
+      via: "經由<%= provider %>"
     tags:
       wasnt_that_interesting: "OK，我想 #<%= tagName %> 大概沒那麼有趣..."
     timeago:

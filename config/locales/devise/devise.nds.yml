@@ -21,6 +21,13 @@ nds:
       updated: "Dien Passwoort is erfolgriek set worrn. Du bist nu anmellt."
     mailer:
       hello: "Hallo %{email}!"
+      inviter:
+        has_invited_you: "%{name}"
+      reset_password_instructions:
+        change: "Mien Passwoort ännern"
+      unlock_instructions:
+        subject: "Anwisungen ton Entsparrn"
+        unlock: "Mien Konto entsparrn"
       welcome: "Willkomen %{email}!"
     passwords:
       edit:
@@ -50,6 +57,9 @@ nds:
       links:
         sign_in: "Anmellen"
         sign_up: "Registreren"
+    unlocks:
+      new:
+        resend_unlock: "Anwisungen ton Entsparrn noch mol schicken"
   errors:
     messages:
       already_confirmed: "wöör schon bestätigt"

@@ -122,13 +122,15 @@ is:
         tag_feature: "#feature"
         tag_question: "#question"
       new_here:
+        follow: "Fylgstu með %{link} og bjóddu nýja notendur velkomna á Diaspora*!"
         learn_more: "Vita meira"
+        title: "Bjóða Nýja Notendur Velkomna"
       no_contacts: "Engir tengiliðir"
       no_tags: "+ finna merki til að fylgjast með"
       people_sharing_with_you: "Fólk sem deilir með þér:"
       post_a_message: "skrifa skilaboð >>"
       services:
-        heading: "Tengja tjónustur"
+        heading: "Tengja Þjónustur"
       unfollow_tag: "Hætta að fylgjast með #%{tag}"
       welcome_to_diaspora: "Velkomin í Diaspora* %{name}!"
     many: "%{count} ásýndir"
@@ -279,6 +281,7 @@ is:
       if_they_accept_info: "ef þau þiggja boðið, verður þeim bætt við þá ásýnd sem þú bauðst þeim á."
       invite_someone_to_join: "Bjóddu einhverjum að tengjast Díaspora*!"
       language: "Tungumál"
+      paste_link: "Deildu þessum tengil með vinum þínum til þess að bjóða þeim á diaspora*, eða sendu þeim tengilinn beint í gegnum tölvupóst."
       personal_message: "Persónuleg skilaboð"
       resend: "Endursenda"
       send_an_invitation: "Sendu boðsmiða"
@@ -681,7 +684,13 @@ is:
       failure: "Ekki tókst að eyða færslu"
     helper:
       no_message_to_display: "Engin skilaboð að sýna!"
-    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
+    too_long:
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper:
     hide_comments: "fela athugasemdir"
     show_comments:

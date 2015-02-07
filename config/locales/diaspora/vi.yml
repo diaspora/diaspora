@@ -43,16 +43,21 @@ vi:
               taken: "đã được thực hiện."
   admins:
     admin_bar:
+      correlations: "Tương quan"
       pages: "Trang"
       user_search: "Tìm người dùng"
       weekly_user_stats: "Thống kê người dùng hàng tuần"
+    correlations:
+      correlations_count: "Tương quan với số lần đăng nhập"
     stats:
       2weeks: "2 tuần"
       50_most: "50 thẻ phổ biến nhất"
       comments:
         other: "%{count} bình luận"
         zero: "Không có bình luận"
+      current_segment: "Segment hiện tại có trung bình <b>%{post_yest}</b> bài đăng trên người dùng, từ ngày <b>%{post_day}</b>"
       daily: "Hàng ngày"
+      display_results: "Hiển thị các kết quả từ segment <b>%{segment}</b>"
       go: "đi"
       month: "Tháng"
       posts:
@@ -61,6 +66,7 @@ vi:
       shares:
         other: "%{count} lượt chia sẻ"
         zero: "Không có ai chia sẻ"
+      tag_name: "Tên thẻ: <b>%{name_tag}</b> Số lượng: <b>%{count_tag}</b>"
       usage_statistic: "Thống kê mức sử dụng"
       users:
         other: "%{count} người dùng"
@@ -72,7 +78,8 @@ vi:
       users:
         other: "Tìm thấy %{count} người dùng"
         zero: "Không tìm thấy ai"
-      you_currently: "hiện bạn còn lại %{user_invitation} thư mời %{link}"
+      you_currently:
+        other: "hiện bạn còn lại %{user_invitation} thư mời %{link}"
     weekly_user_stats:
       amount_of:
         other: "số người dùng mới của tuần này: %{count}"
@@ -150,6 +157,7 @@ vi:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
+        tutorial_link_text: "Hướng dẫn"
       introduce_yourself: "Đây là luồng của bạn. Hãy tự giới thiệu mình ở đây."
       keep_diaspora_running: "Đóng góp hàng tháng để giúp phát triển Diaspora nhanh hơn!"
       keep_pod_running: "Đóng góp hàng tháng để giúp %{pod} chạy nhanh và duy trì các phí khác!"
@@ -240,6 +248,7 @@ vi:
       no_contacts_message: "Kiểm tra %{community_spotlight}"
       no_contacts_message_with_aspect: "Kiểm tra %{community_spotlight} hoặc %{add_to_aspect_link}"
       only_sharing_with_me: "Chỉ chia sẻ với tôi"
+      remove_person_from_aspect: "Loại bỏ %{person_name} khỏi \"%{aspect_name}\""
       start_a_conversation: "Bắt đầu một cuộc trò chuyện"
       title: "Liên lạc"
       your_contacts: "Liên lạc của bạn"
@@ -250,6 +259,7 @@ vi:
       people_sharing: "Người đang chia sẻ với bạn:"
     spotlight:
       community_spotlight: "Nổi bật từ cộng đồng"
+      suggest_member: "Gợi ý một thành viên"
     two: "%{count} liên lạc"
     zero: "contacts"
   conversations:
@@ -299,8 +309,12 @@ vi:
   fill_me_out: "Điền đầy đủ"
   find_people: "Tìm người hoặc #tags"
   help:
+    getting_started_tutorial: "Loạt bài hướng dẫn cho người mới"
+    here: "tại đây"
     irc: "IRC"
     markdown: "Markdown"
+    tutorial: "hướng dẫn"
+    tutorials: "hướng dẫn"
     wiki: "wiki"
   hide: "Ẩn"
   invitation_codes:
@@ -495,6 +509,7 @@ vi:
       add_contact_from_tag: "thêm liên lạc từ thẻ"
     few: "%{count} người"
     helper:
+      is_not_sharing: "%{name} hiện không chia sẻ với bạn"
       is_sharing: "%{name} đang chia sẻ với bạn"
       results_for: " kết quả cho %{params}"
     index:
@@ -638,6 +653,7 @@ vi:
       enter_password: "Nhập mật khẩu (ít nhất sáu kí tự)"
       enter_password_again: "Nhập lại mật khẩu"
       enter_username: "Tên người dùng (chỉ gồm chữ cái, số và dấu gạch dưới _)"
+      hey_make: "NÀY,HÃY <br/>TẠO<br/>GÌ ĐÓ ĐI."
       join_the_movement: "Tham gia chuyển đổi!"
       password: "MẬT KHẨU"
       password_confirmation: "XÁC NHẬN MẬT KHẨU"
@@ -757,9 +773,8 @@ vi:
       get_location: "Lấy thông tin vị trí"
       make_public: "công khai hoá"
       new_user_prefill:
-        hello: |-
-            Xin chào mọi người,
-            %{new_user_tag}.
+        hello: "Xin chào mọi người,\n\
+            %{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "Cám ơn vì lời mời, "
         newhere: "NewHere"
@@ -797,7 +812,9 @@ vi:
       no_message_to_display: "Không có tin nhắn."
     new:
       mentioning: "Đang nhắc đến: %{person}"
-    too_long: "{\"other\"=>\"trạng thái của bạn phải có ít hơn %{count} kí tự\", \"zero\"=>\"trạng thái của bạn phải có ít hơn %{count} kí tự\"}"
+    too_long:
+      other: "trạng thái của bạn phải có ít hơn %{count} kí tự"
+      zero: "trạng thái của bạn phải có ít hơn %{count} kí tự"
   stream_helper:
     hide_comments: "Ẩn tất cả bình luận"
     show_comments:
@@ -879,6 +896,7 @@ vi:
         lock_username: "Tên đăng nhập của bạn sẽ bị khoá nếu bạn quyết định đăng kí lại."
         locked_out: "Bạn sẽ bị đăng xuất và khoá tài khoản."
         make_diaspora_better: "Chúng tôi muốn bạn cùng phát triển Diaspora tốt hơn, vì vậy bạn nên giúp đỡ thay vì rời đi. Nếu bạn không muốn ở lại, chúng tôi muốn biết chuyện gì sẽ xảy ra tiếp theo."
+        mr_wiggles: "Ông Wiggles sẽ buồn khi thấy bạn bỏ đi"
         no_turning_back: "Hiện tại chưa có ai quay lại."
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       close_account_text: "Đóng tài khoản"
@@ -908,6 +926,7 @@ vi:
     getting_started:
       awesome_take_me_to_diaspora: "Tuyệt vời! Đưa tối đến Diaspora*"
       community_welcome: "Cộng đồng Diaspora hân hạnh được chào đón bạn!"
+      connect_to_facebook_link: "Liên kết với tài khoản Facebook của bạn"
       hashtag_explanation: "Thẻ cho phép bạn trò chuyện và theo dõi những gì bạn quan tâm. Chúng cũng giúp bạn tìm bạn mới trên Diaspora."
       hashtag_suggestions: "Thử theo dõi các thẻ như #art, #movies, #gif, v.v..."
       saved: "Đã lưu!"

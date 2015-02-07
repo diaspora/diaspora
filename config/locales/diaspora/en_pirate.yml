@@ -638,7 +638,13 @@ en_pirate:
       no_message_to_display: "No message t' display."
     new:
       mentioning: "Mentionin': %{person}"
-    too_long: "{\"few\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"many\"=>\"Ye scallywag,make yer status messages less than %{count} characters\", \"one\"=>\"Ye scallywag, make yer status messages less than %{count} character\", \"other\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"two\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"zero\"=>\"Ye scallywag,make yer status messages less than %{count} characters\"}"
+    too_long:
+      few: "Ye scallywag, make yer status messages less than %{count} characters"
+      many: "Ye scallywag,make yer status messages less than %{count} characters"
+      one: "Ye scallywag, make yer status messages less than %{count} character"
+      other: "Ye scallywag, make yer status messages less than %{count} characters"
+      two: "Ye scallywag, make yer status messages less than %{count} characters"
+      zero: "Ye scallywag,make yer status messages less than %{count} characters"
   stream_helper:
     hide_comments: "Hide all comm'nts"
     show_comments:

@@ -65,6 +65,7 @@ ru:
       settings: "Настройки"
       view_all: "Посмотреть всё"
     ignore: "Блокировать"
+    ignore_failed: "Невозможно игнорировать этого пользователя"
     ignore_user: "Игнорировать этого пользователя?"
     infinite_scroll:
       no_more: "Больше записей нет."
@@ -76,11 +77,7 @@ ru:
       mark_read: "Пометить как прочитанное"
       mark_unread: "Пометить как непрочитанное"
     people:
-      edit_my_profile: "Редактировать профиль"
-      mention: "Упоминание"
-      message: "Сообщение"
       not_found: "никого не найдено..."
-      stop_ignoring: "Отменить игнорирование"
     photo_uploader:
       completed: "<%= file %> готово"
       empty: "{file} пуст, выберите пожалуйста файл повторно."
@@ -99,15 +96,6 @@ ru:
       result: "Результаты"
       show_result: "Показать результаты"
       vote: "Голосовать"
-    profile:
-      born: "День рождения"
-      contacts: "Контакты"
-      edit: "Редактировать"
-      gender: "Пол"
-      ignoring: "Вы игнорируете все записи пользователя  <%= name %>."
-      location: "Местоположение"
-      photos: "Фотографии"
-      you_have_no_tags: "у вас нет меток!"
     publisher:
       add_option: "Добавить вариант"
       at_least_one_aspect: "Вам надо создать как минимум один аспект"
@@ -191,7 +179,6 @@ ru:
       wordSeparator: " "
       year: "около года"
       years: "%d лет"
-    unblock_failed: "Разблокировка пользователя не удалась"
     videos:
       unknown: "Неизвестный тип видео"
       watch: "Смотреть этот ролик на <%= provider %>"

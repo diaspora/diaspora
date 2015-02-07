@@ -86,7 +86,8 @@ hy:
         one: "%{count} օգտատեր գտնվեց"
         other: "%{count} օգտատեր գտնվեց"
         zero: "%{count} օգտատեր գտնվեց"
-      you_currently: "ներկա պահին դու ունես %{user_invitation} հրավեր ուղարկելու հնարավորություն. %{link}"
+      you_currently:
+        other: "ներկա պահին դու ունես %{user_invitation} հրավեր ուղարկելու հնարավորություն. %{link}"
     weekly_user_stats:
       amount_of:
         one: "այս շաբաթվա նոր օգտատերերի քանակը՝ %{count}"
@@ -261,6 +262,7 @@ hy:
       no_contacts_message: "Ստուգել %{community_spotlight}"
       no_contacts_message_with_aspect: "Աչքի անցկացրու %{community_spotlight}ը կամ %{add_to_aspect_link}"
       only_sharing_with_me: "Միայն ինձ հետ կիսվողները"
+      remove_person_from_aspect: "Հեռացնել %{person_name}-ին %{aspect_name}-ից"
       start_a_conversation: "Խոսակցություն սկսել"
       title: "Կոնտակտներ"
       your_contacts: "Քո կոնտակտները"
@@ -872,7 +874,10 @@ hy:
       no_message_to_display: "Նամկներ չկան ցույց տալու համար"
     new:
       mentioning: "Հիշատակելով %{person}-ին"
-    too_long: "{\"one\"=>\"պակասեցրու գրառումդ %{count} նիշով \", \"other\"=>\"պակասեցրու գրառումդ %{count} նիշով\", \"zero\"=>\"պակասեցրու գրառումդ %{count} նիշով\"}"
+    too_long:
+      one: "պակասեցրու գրառումդ %{count} նիշով "
+      other: "պակասեցրու գրառումդ %{count} նիշով"
+      zero: "պակասեցրու գրառումդ %{count} նիշով"
   stream_helper:
     hide_comments: "Թաքցնել բոլոր մեկնաբանությունները"
     show_comments:

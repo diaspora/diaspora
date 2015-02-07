@@ -279,9 +279,9 @@ hu:
       no_contacts_message: "Tekintsd meg %{community_spotlight} álló népszerű tagokat"
       no_contacts_message_with_aspect: "Tekintsd meg %{community_spotlight} álló népszerű közösségi tagokat vagy lehetőségedben áll még %{add_to_aspect_link}"
       only_sharing_with_me: "Követők"
+      remove_person_from_aspect: "%{person_name} eltávolítása a(z) \"%{aspect_name}\" csoportból."
       start_a_conversation: "Beszélgetés indítása"
       title: "Ismerősök"
-      user_search: "Felhasználó keresése"
       your_contacts: "Ismerőseid"
     many: "%{count} ismerős"
     one: "1 ismerős"
@@ -326,7 +326,7 @@ hu:
     new_conversation:
       fail: "Érvénytelen üzenet"
     show:
-      delete: "beszélgetés törlése és blokkolása"
+      delete: "beszélgetés törlése"
       reply: "válasz"
       replying: "Válaszolás..."
   date:
@@ -887,7 +887,7 @@ hu:
     comment_label: "<b>Hozzászólás</b>:<br>%{data}"
     confirm_deletion: "Biztosan törölni akarod ezt az elemet?"
     delete_link: "Elem törlése"
-    not_found: "<u>A bejegyzés/hozzászólás nem található, valószínűleg törölte a felhasználó.</u>"
+    not_found: "<u>A bejegyzés/hozzászólás nem található. Valószínűleg törölte a felhasználó.</u>"
     post_label: "<b>Bejegyzés</b>: %{title}"
     reason_label: "Indok: %{text}"
     reported_label: "<b>Jelentette:</b> %{person}"
@@ -1080,7 +1080,8 @@ hu:
       no_message_to_display: "Nincs üzenet."
     new:
       mentioning: "Megemlít: %{person}"
-    too_long: "Rövidíts. Az állapotfrissítésed nem lehet hosszabb %{count} leütésnél. Jelenleg %{current_length} karakterből áll"
+    too_long:
+      other: "Rövidíts. Az állapotfrissítésed nem lehet hosszabb %{count} leütésnél. Jelenleg %{current_length} karakterből áll"
   stream_helper:
     hide_comments: "hozzászólások elrejtése"
     show_comments:
@@ -1117,7 +1118,7 @@ hu:
       contacts_title: "Személyek a Hírfolyamodban"
       title: "Hírfolyam"
     public:
-      contacts_title: "Friss poszterek"
+      contacts_title: "Legújabb szerzők"
       title: "Nyilvános tevékenység"
     tags:
       contacts_title: "Emberek, akik ezeket a címkéket követik"
@@ -1152,7 +1153,7 @@ hu:
       email_not_confirmed: "Email cím aktiválása sikertelen. Rossz a link?"
     destroy:
       no_password: "Add meg a jelszavad, hogy megszüntesd a fiókod."
-      success: "A fiókod le van zárva. Húsz percbe is beletelhet, mire befejezzük a fiókod törlését. Köszönjük, hogy kipróbáltad a diaspora* közösségi oldalt."
+      success: "A fiókodat lezártuk. Húsz percbe is beletelhet, mire befejezzük a fiókod törlését. Köszönjük, hogy kipróbáltad a diaspora* közösségi oldalt."
       wrong_password: "A megadott jelszó nem felel meg."
     edit:
       also_commented: "más is hozzászólt az ismerősöd bejegyzéséhez?"
@@ -1165,13 +1166,13 @@ hu:
       character_minimum_expl: "legalább hat karakter legyen"
       close_account:
         dont_go: "Hé, kérlek ne menj!"
-        if_you_want_this: "Ha tényleg ezt akarod, írd be a jelszavad és kattints a \"Fiók törlése\" gombra."
-        lock_username: "Le tudod védeni a felhasználóneved, ha esetleg mégis úgy döntenél, hogy újra feliratkozol."
-        locked_out: "Ki fogunk léptetni és kizárunk a fiókodból."
-        make_diaspora_better: "Azt szeretnénk, ha segítenél, hogy jobbá tehessük a diaspora*-t. A távozásod helyett ezért szívesebben vennénk, ha közreműködnél. Ám ha el akarod hagyni az oldalt, kérlek olvasd el mi fog következni."
+        if_you_want_this: "Ha tényleg ezt akarod, írd be a jelszavad a lenti mezőbe és kattints a \"Fiók törlése\" gombra."
+        lock_username: "A felhasználóneved foglalt marad. Nem lesz lehetőséged ezen a kiszolgálón új fiókot létrehozni ugyanezzel a névvel."
+        locked_out: "Ki fogunk léptetni és kizárunk a fiókodból, amíg végleg el nem távolítjuk."
+        make_diaspora_better: "Azt szeretnénk, ha segítenél, hogy jobbá tehessük a diaspora*-t. A távozásod helyett ezért szívesebben vennénk, ha közreműködnél. Ám ha úgy döntesz, hogy elhagyod az oldalt, a következő fog történni:"
         mr_wiggles: "Vuk szomorú lesz, ha távozni lát."
-        no_turning_back: "Nincs visszaút."
-        what_we_delete: "Töröljük az összes bejegyzésedet és adatodat amint tudjuk. A hozzászólásaid megmaradnak, de a neved helyett csak a diaspora* azonosítód lesz látható mellettük."
+        no_turning_back: "Nincs visszaút! Ha teljesen biztos vagy benne, add meg a jelszavadat a lenti mezőben."
+        what_we_delete: "Töröljük az összes bejegyzésedet és adatodat amint tudjuk. A mások bejegyzéseihez írt hozzászólásaid megmaradnak, de a neved helyett csak a diaspora* azonosítód lesz látható mellettük."
       close_account_text: "Fiók törlése"
       comment_on_post: "valaki hozzászólt egy bejegyzésedhez?"
       current_password: "Jelenlegi jelszó"

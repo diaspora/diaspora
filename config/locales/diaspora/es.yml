@@ -40,7 +40,7 @@ es:
         reshare:
           attributes:
             root_guid:
-              taken: "Que bien, ¿eh? Has compartido esa publicación."
+              taken: "Es buena, ¿eh? ¡Ya habías compartido esa publicación!"
         user:
           attributes:
             email:
@@ -282,7 +282,6 @@ es:
     few: "%{count} contactos"
     index:
       add_a_new_aspect: "Añade un nuevo aspecto"
-      add_contact: "Añadir contacto"
       add_to_aspect: "Añadir contactos a %{name}"
       add_to_aspect_link: "añade contactos a %{name}"
       all_contacts: "Todos los contactos"
@@ -293,10 +292,9 @@ es:
       no_contacts_message: "Echa un vistazo a la %{community_spotlight}"
       no_contacts_message_with_aspect: "Echa un vistazo a la %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Solo compartiendo conmigo"
-      remove_contact: "Eliminar contacto"
+      remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Inicia una conversación"
       title: "Contactos"
-      user_search: "Buscar usuarios"
       your_contacts: "Tus Contactos"
     many: "%{count} contactos"
     one: "1 contacto"
@@ -338,7 +336,7 @@ es:
     new_conversation:
       fail: "Mensaje no válido"
     show:
-      delete: "Eliminar y bloquear conversación"
+      delete: "borrar conversación"
       reply: "responder"
       replying: "Respondiendo..."
   date:
@@ -423,7 +421,7 @@ es:
       mention_in_comment_a: "No, de momento no."
       mention_in_comment_q: "¿Puedo mencionar a alguien en un comentario?"
       see_mentions_a: "Sí, haz click en \"menciones\" en la columna izquierda en tu pagina principal."
-      see_mentions_q: "Hay alguna forma de ver los posts en los cuales he sido mencionado?"
+      see_mentions_q: "¿Hay alguna forma de ver las publicaciones en las cuales he sido mencionado?"
       title: "Menciones"
       what_is_a_mention_a: "Una mención es un enlace a el perfil de una persona que aparece en una publicación. Cuando alguien es mencionado, recibirá una notificación que llama su atención a la publicación."
       what_is_a_mention_q: "¿Qué es una \"mención\"?"
@@ -438,7 +436,7 @@ es:
       subscribe_feed_q: "¿Puedo suscribirme a las publicaciones públicas de alguien usando un lector de feeds?"
       title: "Miscelánea"
     pods:
-      find_people_a: "Invita a tus amigos usando el link de e-mail en la barra lateral. Sigue los #tags para descubrir a otros amigos que compartan tus intereses, y agrega aquellos que postean cosas que te interesen en algún aspecto. Dí que eres #nuevoaquí o #newhere en un post público."
+      find_people_a: "Invita a tus amigos usando el enlace de e-mail en la barra lateral. Sigue los #tags para descubrir a otros amigos que compartan tus intereses, y agrega aquellos que publican cosas que te interesen en algún aspecto. Dí que eres #nuevoaquí o #newhere en un post público."
       find_people_q: "Me acabo de unir a una vaina, ¿Cómo puedo encontrar a gente con la que compartir?"
       title: "Vainas (Servidores)"
       use_search_box_a: "Si conoces su ID de diaspora* completo (ej. nombreusuario@nombrevaina.org) puedes encontrales al buscar desde ahí. Si estas en su mismo pod, puedes buscarle por su nombre de usuario. Una alternativa es buscar por su nombre de perfil (el nombre que ves en la pantalla). Si una búsqueda no funciona a la primera, inténtalo denuevo."
@@ -446,11 +444,11 @@ es:
       what_is_a_pod_a: "Una vaina es un servidor ejecutanto el software diaspora* y conectado a la red diaspora*. \"Vaina\" es una metafora refiriendose a las vainas (pod en ingles) en las plantas que contienen semillas, en la forma en que un servidor contiene un número de cuentas de usuario. Hay muchos pods diferentes. Puedes agregar amigos de otros pods y comunicarte con ellos. (Puedes pensar en las vainas de diaspora* como un proveedor de e-mail: hay vainas publicas, privadas, y con algún esfuerzo puedes incluso ejecutar la tuya)."
       what_is_a_pod_q: "¿Qué es una vaina?"
     posts_and_posting:
-      char_limit_services_a: "En esos casos tu publicación es limitada al menor conteo de caracteres (140 en el caso de Twitter; 1000 en el caso de Tumblr), y el número de caracteres que tienes restantes para usar es mostrado cuando el icono del servicio esta resaltado. Puedes aún así postear para esos servicios si tu publicación sobrepasa el límite, pero el texto sera truncado para aquellos."
+      char_limit_services_a: "En esos casos tu publicación está limitada al menor número de caracteres (140 en el caso de Twitter; 1000 en el caso de Tumblr), y el número de caracteres que tienes restantes para usar es mostrado cuando el icono del servicio esta resaltado. Puedes aún así publicar para esos servicios si tu publicación sobrepasa el límite, pero el texto sera truncado para aquellos."
       char_limit_services_q: "¿Cual es el límite de caracteres para publicaciones compartidas a traves de un servicio con un conteo menor de caracteres?"
       character_limit_a: "65.535 caracteres. !Que vienen a ser 65.395 caracteres más de los que permite Twitter! ;)"
       character_limit_q: "¿Cuál es el límites de caracteres en una publicación?"
-      embed_multimedia_a: "Puedes usualmente copiar la URL (ej. http://www.youtube.com/watch?v=nnnnnnnnnnn ) en tu post y el video o audio sera incrustado automáticamente. Algunos sitios que son soportados son YouTube, Vimeo, SoundCloud, Flickr y unos cuantos mas. Diaspora* usa oEmbed para esa funcionalidad. Estamos soportando nuevos sitios todo el tiempo. Recuerda siempre incluir links simples, completos, no acortados; sin operadores despues de la URL de base; y dale un poco de tiempo antes de refrescar la pagina despues de postear para ver la previsualización."
+      embed_multimedia_a: "Puedes usualmente copiar la URL (ej. http://www.youtube.com/watch?v=nnnnnnnnnnn ) en tu publicación y el vídeo o audio sera incrustado automáticamente. Algunos sitios que son soportados son YouTube, Vimeo, SoundCloud, Flickr y unos cuantos más. Diaspora* usa oEmbed para esa funcionalidad. Estamos soportando nuevos sitios todo el tiempo. Recuerda siempre incluir enlaces simples, completos, no acortados; sin operadores después de la URL de base; y dale un poco de tiempo antes de refrescar la pagina después de publicar para ver la previsualización."
       embed_multimedia_q: "¿Como incrusto un video, audio, o otro contenido multimedia en una publicación?"
       format_text_a: "Al usar un sistema simplificado llamado %{markdown}. Puedes encontrar la sintaxis completa de marcado %{here}. El boton de previsualización es realmente útil aquí, ya que puedes ver como tu mensage se verá antes de que lo compartas."
       format_text_q: "¿Cómo puedo formatear el texto en mis publicaciones (negrita, italica, etc.)?"
@@ -469,17 +467,17 @@ es:
       stream_full_of_posts_li1: "Publicaciones de personas con las cuales compartes, que vienen en dos tipos: publicaciones publicas y publicaciones limitadas compartidas con un aspecto en el cual te encuentras. Para remover estas publicaciones de tu flujo, simplemente deja de compartir con la persona."
       stream_full_of_posts_li2: "Publicaciones públicas conteniendo una de las etiquetas (tags) que sigues. Para remover estas publicaciones, deja de seguir la etiqueta."
       stream_full_of_posts_li3: "Publicaciones hechas por las personas pertenecientes a la Comunidad Creativa. Estas publicaciones desaparecerán de tu entrada al desactivar la opción \"¿Mostrar Comunidad Creativa en la entrada?\" en la pestaña \"Cuenta\" de tus \"Ajustes\"."
-      stream_full_of_posts_q: "¿Por que mi flujo esta lleno de publicaciónes de personas que no conosco y con las cuales no comparto?"
+      stream_full_of_posts_q: "¿Por qué mi flujo esta lleno de publicaciones de personas que no conozco y con las cuales no comparto?"
       title: "Sobre publicaciones y publicar"
     private_posts:
       can_comment_a: "Solo los usuarios conectados a diaspora* que hayas alojado en ese aspecto podrán comentar o poner me gusta en tu publicación privada."
       can_comment_q: "¿Quién puede comentar o poner me gusta en mi publicación privada?"
-      can_reshare_a: "Nadie. Las publicaciones privadas no son compartibles. Usuarios conectados a diaspora* con acceso a ese aspecto, en cualquier caso, pueden potencialmente copiarlas y pegarlas."
+      can_reshare_a: "Nadie. Las publicaciones privadas no se pueden compartir. Los usuarios conectados a diaspora* con acceso a ese aspecto, como mucho, pueden copiarlas y pegarlas."
       can_reshare_q: "¿Quién puede compartir mi publicación privada?"
-      see_comment_a: "Solo la gente con la cual esa publicación fue compartida (las personas que estan en los aspectos seleccionadas por el publicador original) puede ver esos \"me gusta\" y comentarios. "
+      see_comment_a: "Sólo la gente con la que se ha compartido esa publicación (las personas que están en los aspectos seleccionadas por el usuario que publicó la entrada) puede ver esos \"me gusta\" y comentarios. "
       see_comment_q: "¿Cuando comento en, o hago \"me gusta\", a una publicación privada, quién puede verlo?"
       title: "Publicaciones privadas"
-      who_sees_post_a: "Solo los conectados a diaspora* que hayas alojado en ese aspecto podrán ver tu publicación privada."
+      who_sees_post_a: "Sólo los conectados a diaspora* que hayas alojado en ese aspecto podrán ver tu publicación privada."
       who_sees_post_q: "¿Cuando publico un mensage a un aspecto (ej., una publicación privada), quién puede verla?"
     private_profiles:
       title: "Perfil privado"
@@ -631,9 +629,9 @@ es:
   no_results: "No hay resultados"
   notifications:
     also_commented:
-      one: "%{actors} comentario en %{post_link} de %{post_author}."
-      other: "%{actors} también han comentado %{post_link} de %{post_author}."
-      zero: "%{actors} comentarios en  %{post_link} de %{post_author}."
+      one: "%{actors} también ha comentado la publicación %{post_link} de %{post_author}."
+      other: "%{actors} también han comentado la publicación %{post_link} de %{post_author}."
+      zero: "%{actors} comentarios en la publicación %{post_link} de %{post_author}."
     also_commented_deleted:
       one: "%{actors} ha comentado una publicación eliminada."
       other: "%{actors} han comentado una publicación eliminada."
@@ -1130,7 +1128,8 @@ es:
       no_message_to_display: "No hay mensajes que mostrar."
     new:
       mentioning: "Menciones: %{person}"
-    too_long: "Por favor, pon un mensaje de estado menor de %{count} caracteres. Actualmente ocupa %{current_length} caracteres."
+    too_long:
+      other: "Por favor, pon un mensaje de estado menor de %{count} caracteres. Actualmente ocupa %{current_length} caracteres."
   stream_helper:
     hide_comments: "Ocultar comentarios"
     show_comments:
@@ -1200,7 +1199,7 @@ es:
       email_not_confirmed: "El correo no pudo ser activado. ¿Enlace erróneo?"
     destroy:
       no_password: "Por favor, introduce tu contraseña actual para cerrar tu cuenta."
-      success: "Tu cuenta ha sido bloqueda.  Llevará unos 20 minutos cerrarla y destruirla.  Gracias por probar Diaspora."
+      success: "Tu cuenta ha sido bloqueda. Llevará unos 20 minutos terminar de cerrar tu cuenta. Gracias por probar Diaspora."
       wrong_password: "La contraseña introducida no coincide con la contraseña actual."
     edit:
       also_commented: "alguien comenta en una publicación que has comentado"
@@ -1213,13 +1212,13 @@ es:
       character_minimum_expl: "mínimo seis caracteres"
       close_account:
         dont_go: "¡Eh, no te vayas!"
-        if_you_want_this: "Si realmente quieres eliminarla, teclea tu contraseña debajo y haz clic en 'Eliminar Cuenta'"
-        lock_username: "Esto bloquerá tu nombre de usuario si decides volver a registrarte."
-        locked_out: "Saldrás y eliminarás tu cuenta."
-        make_diaspora_better: "Queremos que nos ayudes a hacer Diaspora * mejor, por lo que podrías ayudarnos en lugar de dejarnos. Si quieres irte, queremos que sepas lo que sucede a continuación."
+        if_you_want_this: "Si de verdad quieres hacerlo, teclea tu contraseña debajo y haz click en 'Eliminar Cuenta'"
+        lock_username: "Se bloqueará tu nombre de usuario. No podrás crear una nueva cuenta en este pod con el mismo ID."
+        locked_out: "Serás desconectado y tu cuenta bloqueada hasta que se haya borrado."
+        make_diaspora_better: "Nos gustaría que te quedaras con nosotros y nos ayudaras a hacer de diaspora* un sitio mejor en lugar de dejarnos.. Si quieres irte, queremos que sepas lo que sucede a continuación:"
         mr_wiggles: "El Tío la Vara estará triste si te vas"
-        no_turning_back: "Actualmente, no hay vuelta atrás."
-        what_we_delete: "Eliminaremos todas tus publicaciones y datos del perfil, tan pronto como sea humanamente posible. Tus comentarios seguirán en línea, pero asociados a tu dirección Diaspora* en lugar de a tu nombre."
+        no_turning_back: "No hay vuelta atrás!. Si estás totalmente seguro, entra tu contraseña a continuación."
+        what_we_delete: "Eliminaremos todas tus publicaciones y datos del perfil, tan pronto como sea posible. Tus comentarios seguirán en línea, pero asociados a tu dirección Diaspora* en lugar de a tu nombre."
       close_account_text: "Eliminar cuenta"
       comment_on_post: "...alguien comentó en tu publicación"
       current_password: "Contraseña actual"

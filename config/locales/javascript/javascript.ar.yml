@@ -27,8 +27,8 @@ ar:
     comments:
       hide: "أخفِ التعليقات"
       show: "إعرض جميع التعليقات"
-    confirm_dialog: "هل أنت متأكد؟"
-    delete: "حذف"
+    confirm_dialog: "أمتأكّد؟"
+    delete: "احذف"
     failed_to_like: "فشل في [أعجبني]"
     failed_to_post_message: "فشل في نشر رسالة!"
     getting_started:

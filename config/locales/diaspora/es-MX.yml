@@ -86,7 +86,8 @@ es-MX:
         one: "Un usuario encontrado"
         other: "%{count} usuarios encontrados"
         zero: "Ningún usuario encontrado"
-      you_currently: "Actuamente tienes %{user_invitation} invitaciones para enviar %{link}"
+      you_currently:
+        other: "Actuamente tienes %{user_invitation} invitaciones para enviar %{link}"
     weekly_user_stats:
       amount_of:
         one: "cantidad de usuarios nuevos esta semana: %{count}"
@@ -262,6 +263,7 @@ es-MX:
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"
       no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Compartiendo solo conmigo"
+      remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Inicia una conversación"
       title: "Contactos"
       your_contacts: "Tus contactos"
@@ -1015,7 +1017,10 @@ es-MX:
       no_message_to_display: "No hay mensaje que mostrar."
     new:
       mentioning: "Mencionar a: %{person}"
-    too_long: "{\"one\"=>\"por favor, haz que tu mensaje de estado tenga un carácter menos\", \"other\"=>\"por favor, haz que tu mensaje de estado tenga %{count} caracteres menos\", \"zero\"=>\"por favor, haz que tu mensaje de estado tenga %{count} caracteres menos\"}"
+    too_long:
+      one: "por favor, haz que tu mensaje de estado tenga un carácter menos"
+      other: "por favor, haz que tu mensaje de estado tenga %{count} caracteres menos"
+      zero: "por favor, haz que tu mensaje de estado tenga %{count} caracteres menos"
   stream_helper:
     hide_comments: "Ocultar todos los comentarios"
     show_comments:

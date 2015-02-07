@@ -30,13 +30,6 @@ ia:
       no_comments: "Il non ha ancora commentos."
       show: "revelar tote le commentos"
     confirm_dialog: "Es tu secur?"
-    contacts:
-      add_contact: "Adder contacto"
-      aspect_list_is_not_visible: "Le contactos in iste aspecto non pote vider le un le altere."
-      aspect_list_is_visible: "Le contactos in iste aspecto pote vider le un le altere."
-      error_add: "Non poteva adder <%= name %> al aspecto."
-      error_remove: "Non poteva remover <%= name %> del aspecto."
-      remove_contact: "Remover contacto"
     conversation:
       participants: "Participantes"
     delete: "Deler"
@@ -73,19 +66,11 @@ ia:
     my_activity: "Mi activitate"
     my_aspects: "Mi aspectos"
     my_stream: "Fluxo"
-    no_results: "Nulle resultato trovate"
     notifications:
       mark_read: "Marcar como legite"
       mark_unread: "Marcar como non legite"
     people:
-      edit_my_profile: "Modificar mi profilo"
-      helper:
-        is_not_sharing: "<%= name %> non divide cosas con te"
-        is_sharing: "<%= name %> divide cosas con te"
-      mention: "Mention"
-      message: "Message"
       not_found: "e nemo ha essite trovate..."
-      stop_ignoring: "Cessar de ignorar"
     photo_uploader:
       completed: "<%= file %> complete"
       empty: "{file} es vacue. Per favor re-selige le files sin iste."
@@ -101,17 +86,6 @@ ia:
       result: "Resultato"
       show_result: "Monstrar resultato"
       vote: "Votar"
-    profile:
-      add_some: "adder alcunes"
-      bio: "Bio"
-      born: "Data de nascentia"
-      contacts: "Contactos"
-      edit: "modificar"
-      gender: "Sexo"
-      ignoring: "Tu ignora tote le entratas de <%= name %>."
-      location: "Loco"
-      photos: "Photos"
-      you_have_no_tags: "tu non ha etiquettas!"
     publisher:
       add_option: "Adder un responsa"
       at_least_one_aspect: "Le publication debe esser includite in al minus un aspecto"
@@ -176,7 +150,6 @@ ia:
       wordSeparator: " "
       year: "circa un anno"
       years: "%d annos"
-    unblock_failed: "Le action de disblocar iste usator ha fallite"
     videos:
       unknown: "Typo de video incognite"
       watch: "Spectar iste video sur <%= provider %>"

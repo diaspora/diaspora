@@ -12,7 +12,7 @@ fi:
   _home: "Etusivu"
   _photos: "kuvat"
   _services: "Ulkoiset palvelut"
-  _terms: "Ehdot"
+  _terms: "ehdot"
   account: "Käyttäjätili"
   activerecord:
     errors:
@@ -139,8 +139,8 @@ fi:
       success: "Henkilö poistettiin näkymästä onnistuneesti"
   aspects:
     add_to_aspect:
-      failure: "Henkilön lisäys näkymään epäonnistui."
-      success: "Henkilön lisäys näkymään onnistui."
+      failure: "Henkilön lisääminen näkymään epäonnistui."
+      success: "Henkilön lisääminen näkymään onnistui."
     aspect_contacts:
       done_editing: "muokkaus valmis"
     aspect_listings:
@@ -152,8 +152,8 @@ fi:
       make_something: "Julkaise jotain"
       stay_updated: "Pysy ajan tasalla"
       stay_updated_explanation: "Sinun päävirrassasi näkyvät kaikki henkilösi, seuraamasi tagit ja eräiden yhteisön luovien jäsenten julkaisut."
-    contacts_not_visible: "Henkilöt tässä näkymässä eivät voi nähdä toisiaan."
-    contacts_visible: "Henkilöt tässä näkymässä voivat nähdä toisensa."
+    contacts_not_visible: "Tämän näkymän henkilöt eivät voi nähdä toisiaan."
+    contacts_visible: "Tämän näkymän henkilöt voivat nähdä toisensa."
     create:
       failure: "Näkymän luominen epäonnistui."
       success: "Uusi näkymäsi, %{name}, on luotu"
@@ -162,8 +162,8 @@ fi:
       success: "%{name} poistettiin onnistuneesti."
     edit:
       add_existing: "Lisää olemassa oleva henkilö"
-      aspect_list_is_not_visible: "Henkilöt tässä näkymässä eivät voi nähdä toisiaan."
-      aspect_list_is_visible: "Henkilöt tässä näkymässä voivat nähdä toisensa."
+      aspect_list_is_not_visible: "Tämän näkymän henkilöt eivät voi nähdä toisiaan."
+      aspect_list_is_visible: "Tämän näkymän henkilöt voivat nähdä toisensa."
       confirm_remove_aspect: "Oletko varma, että haluat poistaa tämän näkymän?"
       done: "Valmis"
       make_aspect_list_visible: "salli näkymän henkilöiden nähdä toisensa?"
@@ -211,7 +211,7 @@ fi:
         title: "Tervehdi uusia käyttäjiä"
       no_contacts: "Ei henkilöitä"
       no_tags: "+ Etsi tageja seurattaviksi"
-      people_sharing_with_you: "Ihmiset jotka jakavat kanssasi"
+      people_sharing_with_you: "Ihmiset, jotka jakavat kanssasi"
       post_a_message: "lähetä viesti >>"
       services:
         content: "Voit yhdistää Diasporaan seuraavat palvelut:"
@@ -282,7 +282,6 @@ fi:
     few: "%{count} henkilöä"
     index:
       add_a_new_aspect: "Lisää näkymä"
-      add_contact: "Lisää henkilö"
       add_to_aspect: "lisää henkilöitä näkymään %{name}"
       add_to_aspect_link: "lisää henkilöitä näkymään %{name}"
       all_contacts: "Kaikki henkilöt"
@@ -293,16 +292,15 @@ fi:
       no_contacts_message: "Käy katsomassa %{community_spotlight}"
       no_contacts_message_with_aspect: "Käy katsomassa %{community_spotlight} tai %{add_to_aspect_link}"
       only_sharing_with_me: "Jakaa vain kanssani"
-      remove_contact: "Poista kontakti"
+      remove_person_from_aspect: "Poista %{person_name} näkymästä: \"%{aspect_name}\""
       start_a_conversation: "Aloita keskustelu"
       title: "Henkilöt"
-      user_search: "Käyttäjähaku"
       your_contacts: "Kontaktisi"
     many: "%{count} henkilöä"
     one: "1 henkilö"
     other: "%{count} henkilöä"
     sharing:
-      people_sharing: "Ihmiset jotka jakavat kanssasi:"
+      people_sharing: "Ihmiset, jotka jakavat kanssasi:"
     spotlight:
       community_spotlight: "Yhteisön valokeila"
       suggest_member: "Ehdota jäsentä"
@@ -341,7 +339,7 @@ fi:
     new_conversation:
       fail: "virheellinen viesti"
     show:
-      delete: "poista ja estä tämä keskustelu"
+      delete: "poista tämä keskustelu"
       reply: "vastaa"
       replying: "Vastataan..."
   date:
@@ -357,7 +355,7 @@ fi:
       invalid_fields: "Vialliset arvot"
     login_try_again: "<a href='%{login_link}'>Kirjaudu sisään</a> ja yritä uudelleen."
     post_not_public: "Julkaisu, jota yrität lukea, ei ole julkinen!"
-    post_not_public_or_not_exist: "Julkaisu jota yrität katsella ei ole julkinen tai sitä ei ole olemassa!"
+    post_not_public_or_not_exist: "Julkaisu, jota yrität katsella, ei ole julkinen tai sitä ei ole olemassa!"
   fill_me_out: "Täytä tiedot"
   find_people: "Etsi ihmisiä tai #tageja"
   help:
@@ -442,7 +440,7 @@ fi:
       title: "Sekalaiset"
     pods:
       find_people_a: "Kutsu ystäviäsi käyttämällä sivupalkissa olevaa sähköpostilinkkiä. Seuraa #Tageja löytääksesi muita, jotka jakavat kiinnostuksen kohteesi ja lisätäksesi sinua kiinnostavia julkaisuja tehneet henkilöt omaan näkymääsi. Huuda olevasi #newhere julkisessa julkaisussa."
-      find_people_q: "Liityin juuri podiin. Kuinka löydän ihmisiä joiden kanssa haluan alkaa jakamaan?"
+      find_people_q: "Liityin juuri podiin. Kuinka löydän ihmisiä, joiden kanssa haluan alkaa jakaa?"
       title: "Podit"
       use_search_box_a: "Jos tiedät heidän diaspora* ID:nsä (esim. käyttäjänimi@podinimi.org), voit löytää heidät etsimällä sitä. Jos olet samassa podissa voit etsiä pelkän käyttäjänimen perusteella. Vaihtoehtoisesti voit etsiä profiilinimen perusteella (nimi, jonka näet näytöllä). Jos haku ei onnistu ensimmäisellä kerralla, yritä uudestaan."
       use_search_box_q: "Kuinka käytän etsi -kenttää löytääkseni jonkun henkilön?"
@@ -462,7 +460,7 @@ fi:
       image_text: "kuvateksti"
       image_url: "kuvan url"
       insert_images_a: "Klikkaa pientä kamerakuvaketta lisätäksesi kuvan julkaisuun. Klikkaa kamerakuvaketta uudelleen lisätäksesi muita kuvia, tai voit valita useita kuvia ladataksesi ne samalla kertaa."
-      insert_images_comments_a1: "Seuraava Markdown koodi"
+      insert_images_comments_a1: "Seuraava Markdown-koodi"
       insert_images_comments_a2: "voidaan käyttää kuvien lisäämiseksi Internetistä kommenttehin ja julkaisuihin."
       insert_images_comments_q: "Voinko lisätä kuvia kommentteihini?"
       insert_images_q: "Kuinka lisään kuvia julkaisuihini?"
@@ -470,7 +468,7 @@ fi:
       size_of_images_q: "Voinko muokata kuvien kokoa julkaisuissani tai kommenteissani?"
       stream_full_of_posts_a1: "Virtasi rakentuu kolmenlaisista julkaisuista:"
       stream_full_of_posts_li1: "Julkaisuista henkilöiltä joiden kanssa jaat. Näitä on kahdenlaisia: julkiset julkaisut ja rajoitetut julkaisut, jotka on jaettu näkymään johon kuulut. Nämä julkaisut poistuvat yksinkertaisesti lopettamalla jakaminen kyseisen henkilön kanssa."
-      stream_full_of_posts_li2: "Julkiset julkaisut, jotka sisältävät tagin jota seuraat. Nämä poistuvat, kun lakkaat seuraamasta kyseistä tagia."
+      stream_full_of_posts_li2: "Julkiset julkaisut, jotka sisältävät tagin, jota seuraat. Nämä poistuvat, kun lakkaat seuraamasta kyseistä tagia."
       stream_full_of_posts_li3: "Julkiset julkaisut Yhteisön Valokeilassa luetelluilta henkilöiltä. Nämä voi estää näkymästä poistamalla valinnan kohdasta \"Näytetäänkö Yhteisön valokeila virrassa?\" käyttäjätilisi asetuksissa."
       stream_full_of_posts_q: "Miksi minun virtani on täynnä julkaisuja henkilöiltä joita en tunne ja joiden kanssa en jaa?"
       title: "Julkaisut ja lähettäminen"
@@ -523,17 +521,17 @@ fi:
     sharing:
       add_to_aspect_a1: "Sanotaan vaikka, että Amy lisää Benin johonkin näkymään, mutta Ben ei ole (vielä) lisännyt Amya mihinkään näkymään:"
       add_to_aspect_a2: "Tämä tunnetaan nimellä epäsymmetrinen jakaminen. Jos ja kun Ben myös lisää Amyn johonkin näkymään tämä muuttuu yhtäläiseksi jakamiseksi, jolloin Amyn ja Benin julkiset julkaiset ja asiaankuuluvat yksityiset julkaisut alkavat näkyä molempien virrassa jne. "
-      add_to_aspect_li1: "Ben saa ilmoituksen, että Amy on \"alkanut jakamaan\" Benin kanssa."
-      add_to_aspect_li2: "Amy alkaa saamaan Benin julkiset julkaisut omaan näkymäänsä."
+      add_to_aspect_li1: "Ben saa ilmoituksen, että Amy on \"alkanut jakaa\" Benin kanssa."
+      add_to_aspect_li2: "Amy alkaa saada Benin julkiset julkaisut omaan näkymäänsä."
       add_to_aspect_li3: "Amy ei näe Benin yksityisiä julkaisuja."
       add_to_aspect_li4: "Ben ei näe Amyn julkisia tai yksityisiä julkaisuja omassa virrassaan."
       add_to_aspect_li5: "Mutta jos Ben menee Amyn profiilisivulle, hän voi sitten nähdä Amyn yksityiset julkaisut joihin Amy on hänet lisännyt (kuten myös julkiset julkaisut jotka ovat kenen tahansa nähtävillä siellä)."
       add_to_aspect_li6: "Ben voi nähdä Amyn yksityisen profiilin, (bio, sijainti, sukupuoli, syntymäpäivä)"
       add_to_aspect_li7: "Amy näkyy Benin yhteystietosivulla \"Jakaa vain kanssani\" -kohdassa."
       add_to_aspect_q: "Mitä tapahtuu, kun lisään jonkun johonkin näkymistäni? Tai jos joku lisää minut johonkin omista näkymistään?"
-      list_not_sharing_a: "Ei, mutta voit nähdä jakaako joku kanssasi vierailemalla heidän profiilisivullaan. Jos he jakavat, palkki heidän profiilikuvansa alla on vihreä; jos eivät, palkki on harmaa. Sinun tulisi kuitenkin saada ilmoitus, jos joku alkaa jakamaan kanssasi."
+      list_not_sharing_a: "Ei, mutta voit nähdä jakaako joku kanssasi vierailemalla heidän profiilisivullaan. Jos he jakavat, palkki heidän profiilikuvansa alla on vihreä; jos eivät, palkki on harmaa. Sinun tulisi kuitenkin saada ilmoitus, jos joku alkaa jakaa kanssasi."
       list_not_sharing_q: "Onko olemassa luetteloa henkilöistä, jotka olen lisännyt johonkin näkymääni mutta jotka eivät ole lisänneet minun mihinkään omaan näkymäänsä?"
-      only_sharing_a: "Nämä ovat henkilöitä, jotka ovat lisänneet sinut johonkin näkymäänsä, mutta jotka eivät (vielä) ole yhdessäkään sinun näkymässäsi. Toisin sanoen he jakavat kanssasi mutta sinä et jaa heidän kanssaa (epäsymmetrinen jakaminen). Jos lisäät heidät johonkin näkymääsi he alkavat sen jälkeen näkymään kyseisessä näkymässä eivätkä enää \"Jakaa vain kanssasi\". Katso ylempää."
+      only_sharing_a: "Nämä ovat henkilöitä, jotka ovat lisänneet sinut johonkin näkymäänsä, mutta jotka eivät (vielä) ole yhdessäkään sinun näkymässäsi. Toisin sanoen he jakavat kanssasi mutta sinä et jaa heidän kanssaa (epäsymmetrinen jakaminen). Jos lisäät heidät johonkin näkymääsi he alkavat sen jälkeen näkyä kyseisessä näkymässä eivätkä enää \"Jakaa vain kanssasi\". Katso ylempää."
       only_sharing_q: "Keitä ovat henkilöt jotka on lueteltu \"Jakaa vain kanssani\" -listassa yhteystietosivullani?"
       see_old_posts_a: "Ei. He näkevät vain kyseiseen näkymään julkaisemasi uudet julkaisut. He (ja jokainen muu) voivat nähdä vanhemmat julkiset julkaisusi profiilisivullasi, ja he voivat nähdä ne myös virrassaan."
       see_old_posts_q: "Jos lisään jonkun johonkin omaan näkymääni, voivatko he nähdä vanhemmat julkaisut jotka olen julkaissut kyseiseen näkymään?"
@@ -685,11 +683,8 @@ fi:
       other: "%{actors} on tykännyt poistamastasi julkaisusta."
       zero: "%{actors} tykkäsi poistamastasi julkaisusta."
     mentioned:
-      few: "%{actors} ovat maininneet sinut %{post_link}ssä."
-      many: "%{actors} ovat maininneet sinut %{post_link}ssä."
       one: "%{actors} on maininnut sinut julkaisussa %{post_link}."
       other: "%{actors} ovat maininneet sinut julkaisussa %{post_link}."
-      two: "%{actors} ovat maininneet sinut %{post_link}ssä."
       zero: "%{actors} on maininnut sinut julkaisussa %{post_link}."
     mentioned_deleted:
       one: "%{actors} mainitsi sinut poistetussa julkaisussa."
@@ -1145,7 +1140,8 @@ fi:
       no_message_to_display: "Ei näytettäviä viestejä."
     new:
       mentioning: "Mainitse: %{person}"
-    too_long: "{\"one\"=>\"tilapäivityksen merkkimäärä voi olla enimmillään %{count}\", \"other\"=>\"tilapäivityksen merkkimäärä voi olla enimmillään %{count}\", \"zero\"=>\"tilapäivityksen merkkimäärä voi olla enimmillään %{count}\"}"
+    too_long:
+      other: "Sinun täytyy lyhentää tilapäivitystäsi, sillä se voi sisältää enimmillään %{count} merkkiä. Tällä hetkellä päivityksessäsi on %{current_length} merkkiä."
   stream_helper:
     hide_comments: "Piilota kaikki kommentit"
     show_comments:
@@ -1162,7 +1158,7 @@ fi:
       title: "Näkymäsi"
     aspects_stream: "Näkymät"
     comment_stream:
-      contacts_title: "Ihmiset, joiden julkaisuaja olet kommentoinut"
+      contacts_title: "Ihmiset, joiden julkaisuja olet kommentoinut"
       title: "Kommentoimasi julkaisut"
     community_spotlight_stream: "Yhteisön valokeila"
     followed_tag:
@@ -1221,9 +1217,9 @@ fi:
       success: "Tilisi on lukittu. Meiltä voi mennä 20 minuuttia tilisi sulkemiseen. Kiitos, kun kokeilit Diasporaa."
       wrong_password: "Syötetty salasana ei vastannut nykyistä salasanaasi."
     edit:
-      also_commented: "...joku kommentoi julkaisua jota olet myös itse kommentoinut"
+      also_commented: "joku kommentoi julkaisua, jota olet itse kommentoinut"
       auto_follow_aspect: "Näkymä automaattisesti seurattaville käyttäjille:"
-      auto_follow_back: "Ryhdy jakamaan automaattisesti niiden henkilöiden kanssa, jotka alkavat jakamaan sinun kanssasi"
+      auto_follow_back: "Ryhdy jakamaan automaattisesti niiden henkilöiden kanssa, jotka alkavat jakaa sinun kanssasi"
       change: "Vaihda"
       change_email: "Vaihda sähköpostiosoite"
       change_language: "Vaihda kieli"
@@ -1231,15 +1227,15 @@ fi:
       character_minimum_expl: "täytyy olla vähintään kuusi merkkiä"
       close_account:
         dont_go: "Hei, älä lähde!"
-        if_you_want_this: "Jos todella haluat tätä, kirjoita salasanasi alle ja napsauta 'Sulje käyttäjätili'"
-        lock_username: "Tämä lukitsee käyttäjänimesi, jos päätät kirjautua uudelleen."
-        locked_out: "Kirjaudut ulos ja käyttäjätilisi lukitaan."
-        make_diaspora_better: "Haluamme sinun auttavan Diasporan parantamisessa, joten voit lähtemisen sijaan auttaa meitä. Jos haluat lähteä, haluamme sinun tietävän, mitä tapahtuu seuraavaksi."
+        if_you_want_this: "Jos todella haluat tämän tapahtuvan, kirjoita salasanasi alle ja napsauta 'Sulje käyttäjätili'"
+        lock_username: "Käyttäjänimesi lukitaan. Et pysty luomaan uutta tiliä tälle podille samalla ID:llä."
+        locked_out: "Sinut kirjataan ulos ja käyttäjätilisi lukitaan, kunnes tilisi on poistettu."
+        make_diaspora_better: "Näkisimme mielelläme sinun jäävän ja auttavan Diasporan parantamisessa lähtemisen sijaan. Jos kuitenkin haluat varmasti lähteä, käyttäjätilillesi suoritetaan seuraavat toimenpiteet:"
         mr_wiggles: "Herra Töpö on surullinen, kun lähdet"
-        no_turning_back: "Tällä hetkellä tästä ei ole paluuta."
-        what_we_delete: "Poistamme kaikki julkaisusi ja profiilisi tiedot niin pian kuin se on inhimillisesti mahdollista. Kommenttisi jäävät paikoilleen, mutta ne yhdistetään Diaspora-tunnukseesi nimesi sijasta."
+        no_turning_back: "Tästä ei ole paluuta! Jos olet aivan varma, syötä salasanasi alle."
+        what_we_delete: "Poistamme kaikki julkaisusi ja profiilisi tiedot niin pian kuin se on mahdollista. Kommenttisi jäävät paikoilleen, mutta ne yhdistetään nimesi sijasta Diaspora-tunnukseesi."
       close_account_text: "Sulje käyttäjätili"
-      comment_on_post: "...joku kommentoi julkaisuasi"
+      comment_on_post: "joku kommentoi julkaisuasi"
       current_password: "Nykyinen salasana"
       current_password_expl: "se, jolla kirjaudut sisään..."
       download_photos: "Lataa kaikki kuvat"
@@ -1250,16 +1246,16 @@ fi:
       following: "Jakamisen asetukset"
       getting_started: "Uudet käyttäjäasetukset"
       liked: "joku tykkää julkaisustasi"
-      mentioned: "...sinut mainitaan julkaisussa"
+      mentioned: "sinut mainitaan julkaisussa"
       new_password: "Uusi salasana"
       photo_export_unavailable: "Kuvien vienti ei tällä hetkellä mahdollista"
-      private_message: "...saat yksityisviestin"
+      private_message: "saat yksityisviestin"
       receive_email_notifications: "Vastaanota sähköposti-ilmoituksia, kun:"
-      reshared: "...joku jakaa julkaisusi uudelleen"
+      reshared: "joku jakaa julkaisusi uudelleen"
       show_community_spotlight: "Näytä Yhteisön Valokeila virrassa"
       show_getting_started: "Ota aloitusohjeet uudelleen käyttöön"
       someone_reported: "joku lähetti ilmoituksen"
-      started_sharing: "...aloittaa jakamaan kanssasi"
+      started_sharing: "joku alkaa jakaa kanssasi"
       stream_preferences: "Virran asetukset"
       your_email: "Sähköpostiosoitteesi"
       your_handle: "Diaspora-tunnuksesi"
@@ -1276,7 +1272,7 @@ fi:
       who_are_you: "Kuka olet?"
     privacy_settings:
       ignored_users: "Sivuutetut käyttäjät"
-      stop_ignoring: "Lakkaa sivuuttamasta"
+      stop_ignoring: "Lopeta sivuuttaminen"
       title: "Yksityisyysasetukset"
     public:
       does_not_exist: "Käyttäjää %{username} ei ole olemassa!"

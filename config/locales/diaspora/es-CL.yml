@@ -86,7 +86,8 @@ es-CL:
         one: "%{count} usuario encontrado"
         other: "%{count} usuarios encontrados"
         zero: "Ningún usuario encontrado"
-      you_currently: "Actualmente tienes %{user_invitation} invitaciones %{link}"
+      you_currently:
+        other: "Actualmente tienes %{user_invitation} invitaciones %{link}"
     weekly_user_stats:
       amount_of:
         one: "Número de usuarios esta semana: %{count} usuario"
@@ -260,6 +261,7 @@ es-CL:
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"
       no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Solo compartiendo conmigo"
+      remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Comenzar una conversación"
       title: "Contactos"
       your_contacts: "Tus Contactos"
@@ -1013,7 +1015,13 @@ es-CL:
       no_message_to_display: "No hay mensaje que mostrar."
     new:
       mentioning: "Mencionar a: %{person}"
-    too_long: "{\"few\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\", \"many\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\", \"one\"=>\"Tu mensaje de estado debe tener menos de %{count} caracter\", \"other\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\", \"two\"=>\"tu mensaje de estado tiene que tener menos de %{count} caracteres\", \"zero\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\"}"
+    too_long:
+      few: "Tu mensaje de estado debe tener menos de %{count} caracteres"
+      many: "Tu mensaje de estado debe tener menos de %{count} caracteres"
+      one: "Tu mensaje de estado debe tener menos de %{count} caracter"
+      other: "Tu mensaje de estado debe tener menos de %{count} caracteres"
+      two: "tu mensaje de estado tiene que tener menos de %{count} caracteres"
+      zero: "Tu mensaje de estado debe tener menos de %{count} caracteres"
   stream_helper:
     hide_comments: "ocultar todos los comentarios"
     show_comments:

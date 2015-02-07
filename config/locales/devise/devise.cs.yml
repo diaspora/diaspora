@@ -49,9 +49,13 @@ cs:
     passwords:
       edit:
         change_password: "Změnit heslo"
+        confirm_password: "Potvrďte heslo"
+        new_password: "Nové heslo"
       new:
+        email: "E-mailová adresa"
         forgot_password: "Zapomněli jste heslo?"
         no_account: "Neexistuje žádný účet s touto emailovou adresou. Pokud čekáte na pozvání, budeme je vydávat, co nejdříve to bude možné"
+        reset_password: "Znovunastavit heslo"
         send_password_instructions: "Zaslat instrukce k nastavení nového hesla."
       send_instructions: "Běhěm několika minut obdržíte email s instrukcemi ke změně hesla."
       updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni"

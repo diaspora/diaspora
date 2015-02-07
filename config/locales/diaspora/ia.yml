@@ -177,7 +177,7 @@ ia:
         here_to_help: "Le communitate de diaspora* es a tu disposition!"
         mail_podmin: "E-mail del \"podmin\""
         need_help: "Require adjuta?"
-        tag_bug: "defecto"
+        tag_bug: "bug"
         tag_feature: "functionalitate"
         tag_question: "question"
         tutorial_link_text: "Tutoriales"
@@ -262,7 +262,6 @@ ia:
     few: "%{count} contactos"
     index:
       add_a_new_aspect: "Adder un nove aspecto"
-      add_contact: "Adder contacto"
       add_to_aspect: "adder contactos a %{name}"
       add_to_aspect_link: "adder contactos a %{name}"
       all_contacts: "Tote le contactos"
@@ -273,10 +272,9 @@ ia:
       no_contacts_message: "Visita %{community_spotlight}"
       no_contacts_message_with_aspect: "Visita %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Solmente qui divide cosas con me"
-      remove_contact: "Remover contacto"
+      remove_person_from_aspect: "Remover %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Initiar un conversation"
       title: "Contactos"
-      user_search: "Recerca de usatores"
       your_contacts: "Tu contactos"
     many: "%{count} contactos"
     one: "1 contacto"
@@ -1047,7 +1045,8 @@ ia:
       no_message_to_display: "Nulle message a presentar."
     new:
       mentioning: "Mentiona: %{person}"
-    too_long: "Per favor, non scribe plus de %{count} characteres in tu message de stato. In iste momento illo ha %{current_length} characteres."
+    too_long:
+      other: "Per favor, non scribe plus de %{count} characteres in tu message de stato. In iste momento illo ha %{current_length} characteres."
   stream_helper:
     hide_comments: "Celar tote le commentos"
   streams:

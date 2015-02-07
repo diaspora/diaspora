@@ -25,6 +25,10 @@ cs:
       deselect_all: "Odznačit vše"
       no_aspects: "Nebyl vybrán žádný aspekt"
       select_all: "Vybrat vše"
+    bookmarklet:
+      post_something: "Dát příspěvek na diaspora*"
+      post_submit: "Odesílám příspěvek ..."
+      post_success: "Odesláno. Uzavírám vyskakovací okno..."
     comma: ","
     comments:
       hide: "skrýt komentáře"
@@ -37,6 +41,7 @@ cs:
     edit: "Upravit"
     failed_to_like: "Oblíbení se nezdařilo!"
     failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
+    failed_to_remove: "Odstranění záznamu selhalo!"
     getting_started:
       alright_ill_wait: "Dobrá, počkám."
       hey: "Ahoj, <%= name %>!"
@@ -46,6 +51,7 @@ cs:
       admin: "Administrace"
       close: "zavřít"
       contacts: "Kontakty"
+      conversations: "Konverzace"
       help: "Nápověda"
       home: "Domů"
       log_out: "Odhlásit se"
@@ -57,6 +63,7 @@ cs:
       settings: "Nastavení"
       view_all: "Zobrazit vše"
     ignore: "Ignorovat"
+    ignore_failed: "Tohoto uživatele se nedaří ignorovat"
     ignore_user: "Ignorovat tohoto uživatele?"
     infinite_scroll:
       no_more: "Žádné další příspěvky."
@@ -64,19 +71,42 @@ cs:
     my_activity: "Moje aktivita"
     my_aspects: "Moje aspekty"
     my_stream: "Proud"
+    notifications:
+      mark_read: "Označit jako přečtené"
+      mark_unread: "Označit jako nepřečtené"
     people:
       not_found: "… a nikdo nebyl nalezen."
     photo_uploader:
       completed: "<%= file %> dokončen"
       empty: "{file} je prázdný, prosím vyberte soubory znovu bez něho."
+      error: "Při nahrávání souboru <%= file %> nastal problém"
       invalid_ext: "{file} má chybnou příponu. Jsou povoleny pouze {extensions}."
       looking_good: "Tedy, vypadáte úžasně!"
       size_error: "{file} je přiliš veliký, maximální velikost je {sizeLimit}."
+    poll:
+      close_result: "Skrýt výsledky"
+      count:
+        few: "zatím <%=count%> hlasy"
+        one: "zatím 1 hlas"
+        other: "zatím <%=count%> hlasů"
+      result: "Výsledek"
+      show_result: "Ukázat výsledky"
+      vote: "Hlasovat"
     publisher:
+      add_option: "Přidejte odpověď"
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
       limited: "Omezený — váš příspěvek bude přístupný pouze lidem, se kterými sdílíte"
       near_from: "Odesláno z: <%= location %>"
+      option: "Odpověď"
       public: "Veřejný — váš příspěvek si bude moci přečíst kdokoliv a může být nalezen vyhledávači"
+      question: "Otázka"
+    report:
+      name: "Nahlášení"
+      prompt: "Prosím, zadejte důvod:"
+      prompt_default: "urážlivý obsah"
+      status:
+        created: "Zpráva byla úspěšně založena"
+        exists: "Zpráva již existuje"
     reshares:
       duplicate: "Tento příspěvek už sdílíte!"
       post: "Sdílet příspěvek uživatele <%= name %>?"
@@ -121,6 +151,7 @@ cs:
         stop_following: "Přestat sledovat #<%= tag %>"
       unfollow: "Přestat sledovat"
       unlike: "To se mi nelíbí"
+      via: "skrze <%= provider %>"
     tags:
       wasnt_that_interesting: "Dobře, předpokládám, že #<%= tagName %> nebyl zase tak zajímavý…"
     timeago:
@@ -137,6 +168,7 @@ cs:
       seconds: "méně než minutou"
       suffixAgo: ""
       suffixFromNow: ""
+      wordSeparator: " "
       year: "1 rokem"
       years: "%d roky"
     videos:
@@ -145,6 +177,7 @@ cs:
     viewer:
       comment: "Komentovat"
       follow_post: "Sledovat příspěvek"
+      home: "Domů"
       like: "To se mi líbí"
       reshare: "Sdílet"
       reshared: "Sdíleno"

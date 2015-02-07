@@ -33,7 +33,7 @@ sv:
       inviter:
         accept_at: "via %{url}. Du accepterar genom att klicka på länken nedan."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} har bjudit in dig att gå med i Diaspora"
+        have_invited_you: "%{names} har bjudit in dig att gå med i Diaspora*"
       reset_password_instructions:
         change: "Ändra mitt lösenord"
         ignore: "Om det inte är du som vill byta lösenord så kan du ignorera det här mailet."

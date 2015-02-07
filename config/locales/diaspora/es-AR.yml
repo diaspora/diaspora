@@ -113,7 +113,8 @@ es-AR:
         other: "%{count} usuarios encontrados"
         zero: "%{count} usuarios encontrados"
       view_profile: "Ver perfil"
-      you_currently: "Actualmente te quedan %{user_invitation} invitaciones para enviar %{link}"
+      you_currently:
+        other: "Actualmente te quedan %{user_invitation} invitaciones para enviar %{link}"
     weekly_user_stats:
       amount_of:
         one: "Cantidad de nuevos usuarios esta semana: %{count}"
@@ -279,7 +280,6 @@ es-AR:
     few: "%{count} contactos"
     index:
       add_a_new_aspect: "Añadir un nuevo aspecto"
-      add_contact: "Agregar contacto"
       add_to_aspect: "añade contactos a %{name}"
       add_to_aspect_link: "Agregar contactos a %{name}"
       all_contacts: "Todos los Contactos"
@@ -290,10 +290,9 @@ es-AR:
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"
       no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Compartiendo solo conmigo"
-      remove_contact: "Eliminar contacto"
+      remove_person_from_aspect: "Quitar a %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Empezar una conversación"
       title: "Contactos"
-      user_search: "Búsqueda de usuarios"
       your_contacts: "Tus contactos"
     many: "%{count} contactos"
     one: "1 contacto"
@@ -972,7 +971,7 @@ es-AR:
     comment_label: "<b>Comentario</b>:<br>%{data}"
     confirm_deletion: "¿Está seguro de borrar el item?"
     delete_link: "Borrar item"
-    not_found: "<u>La publicación/comentario no se ha encontrado. ¡Al parecer ha sido borrada por el usuario!</u>"
+    not_found: "<u>No se ha encontrado la publicación/comentario. ¡Al parecer ha sido borrada por el usuario!</u>"
     post_label: "<b>Publicación</b>: %{title}"
     reason_label: "Motivo: %{text}"
     reported_label: "<b>Reportada por</b> %{person}"
@@ -1157,7 +1156,8 @@ es-AR:
       no_message_to_display: "No hay mensajes que mostrar."
     new:
       mentioning: "Mencionar a: %{person}"
-    too_long: "Por favor haz que tu mensaje de estado tenga menos de %{count} caracteres. En este momento el máximo permitido es de %{current_length} caracteres."
+    too_long:
+      other: "Por favor haz que tu mensaje de estado tenga menos de %{count} caracteres. En este momento el máximo permitido es de %{current_length} caracteres."
   stream_helper:
     hide_comments: "Ocultar comentarios"
     show_comments:
@@ -1230,7 +1230,7 @@ es-AR:
       email_not_confirmed: "El E-Mail no pudo ser activado. Link equivocado?"
     destroy:
       no_password: "Por favor, introduce tu contraseña actual para cerrar y destruir tu cuenta."
-      success: "Tu cuenta ha sido bloqueada.  Nos puede tomar unos 20 minutos cerrar tu cuenta definitivamente.  Te agradecemos por probar diaspora*."
+      success: "Tu cuenta ha sido bloqueada. Nos puede tomar unos 20 minutos cerrar tu cuenta definitivamente. Te agradecemos por probar diaspora*."
       wrong_password: "La contraseña ingresada no coincide con tu contraseña actual."
     edit:
       also_commented: "...alguien también comenta en una publicación en la que comentaste?"
@@ -1243,13 +1243,13 @@ es-AR:
       character_minimum_expl: "debe tener al menos seis caracteres"
       close_account:
         dont_go: "Hey, por favor no te vayas!"
-        if_you_want_this: "Si realmente es lo que deseas, ingresa tu contraseña debajo y pulsa «Eliminar cuenta»."
-        lock_username: "Esto bloquerá tu nombre de usuario si decides volver a registrarte."
-        locked_out: "Saldrás y eliminarás tu cuenta."
-        make_diaspora_better: "Queremos que nos ayudes a mejorar diaspora*, así que deberías ayudarnos en vez de marcharte. Si en verdad quieres irte, queremos que sepas lo que sucede después."
+        if_you_want_this: "Si realmente es lo que deseás, ingresá tu contraseña debajo y pulsá «Eliminar cuenta»."
+        lock_username: "Tu nombre de usuario se ha bloqueado. No será posible crear una nueva cuenta con el mismo ID en este pod."
+        locked_out: "Se cerrará tu sesión y serás bloquedo hasta que tu cuenta sea eliminada."
+        make_diaspora_better: "Nos encantaría que te quedes y que nos ayudes a mejorar diaspora*. Si en verdad querés irte, primero quisiera que sepas lo que va a suceder a continuación:"
         mr_wiggles: "El gatito estará triste por verte partir."
-        no_turning_back: "Actualmente, no hay vuelta atrás."
-        what_we_delete: "Eliminaremos todas tus publicaciones y datos de perfil tan pronto como sea humanamente posible. Tus comentarios seguirán en línea, pero asociados a tu dirección de diaspora*."
+        no_turning_back: "No hay vuelta atrás. Si estás seguro ingresá su constraseña."
+        what_we_delete: "Eliminaremos todas tus publicaciones y datos de perfil tan pronto como sea posible. Tus comentarios seguirán en línea, pero asociados a tu ID de Diaspora* en lugar de tu nombre."
       close_account_text: "Cerrar cuenta"
       comment_on_post: "...comentan en una publicación tuya?"
       current_password: "Contraseña actual"

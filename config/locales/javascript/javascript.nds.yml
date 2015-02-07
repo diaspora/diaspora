@@ -8,6 +8,7 @@ nds:
   javascripts:
     and: "un"
     aspect_dropdown:
+      add_to_aspect: "Kontakt sluten"
       all_aspects: "Alle Aspekte"
       toggle:
         one: "In een Aspekt"
@@ -27,15 +28,10 @@ nds:
       hide: "Kommentore versteken"
       no_comments: "Dat gift noch keene Kommentore."
       show: "Alle Kommentore anzeigen"
-    contacts:
-      add_contact: "Kontakt sluten"
-      aspect_list_is_not_visible: "Kontakte in dissen Aspekt künnt sick nich gegensiedich seihn."
-      aspect_list_is_visible: "Kontakte in dissen Aspekt künnt sick gegensiedich seihn."
-      error_add: "Kunn <%= name %> nich ton Aspekt dortodoon :("
-      error_remove: "Kunn <%= name %> nich ut den Aspekt wegmoken :("
-      remove_contact: "Kontakt wegmoken"
+    confirm_dialog: "Bist du seker?"
     conversation:
       participants: "Bedeeligte"
+    delete: "Löschen"
     edit: "Ännern"
     failed_to_remove: "Kunn denn Indrag nich wegmoken!"
     getting_started:
@@ -52,12 +48,14 @@ nds:
       profile: "Profil"
       search: "Söken"
       settings: "Instellungen"
+    ignore: "Ignoreren"
     ignore_failed: "Kunn dissen Bruker nich ignoreren"
     ignore_user: "Dissen Bruker ignoreren?"
     infinite_scroll:
+      no_more: "Keene Bidräg mehr."
       no_more_contacts: "Keene annern Kontakte."
     my_aspects: "Miene Aspekte"
-    no_results: "Keene Resultate funnen"
+    my_stream: "Stream"
     notifications:
       mark_read: "As lesen markeren"
       mark_unread: "As unlesen markeren"
@@ -87,6 +85,7 @@ nds:
     show_more: "mehr anzeigen"
     stream:
       comment: "Kommentor"
+      follow: "Folgen"
       hide: "Versteken"
       hide_nsfw_posts: "#nsfw-Bidräg versteken"
       likes:
@@ -105,12 +104,19 @@ nds:
         zero: "Keen mol wiederseggt"
       show_nsfw_post: "Bidrag anzeigen"
       show_nsfw_posts: "Alle anzeigen"
+      unfollow: "Nich mehr folgen"
       via: "öber <%= provider %>"
     timeago:
+      day: "een Dag"
+      days: "%d Doog"
+      minutes: "%d Minuten"
+      months: "%d Monate"
       prefixAgo: ""
       prefixFromNow: ""
+      seconds: "weniger as eene Minute"
       suffixAgo: ""
       suffixFromNow: ""
       wordSeparator: " "
+      years: "%d Johre"
     viewer:
       home: "STARTSIET"
