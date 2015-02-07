@@ -1300,12 +1300,9 @@ en:
       download_export: "Download my profile"
       request_export: "Request my profile data"
       request_export_update: "Refresh my profile data"
-      download_xml: "Download my data (XML)"
-      download_photos: "Download my photos"
       export_data: "Export data"
       export_in_progress: "We are currently processing your data. Please check back in a few moments."
       last_exported_at: "(Last updated at %{timestamp})"
-      photo_export_unavailable: "Photo exporting currently unavailable"
 
       close_account:
         dont_go: "Hey, please don’t go!"

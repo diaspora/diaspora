@@ -58,12 +58,6 @@ var View = {
       $(this).siblings("#tag_following_submit").removeClass('hidden');
     });
 
-    /* photo exporting in the works */
-    $("#photo-export-button").bind("click", function(evt){
-      evt.preventDefault();
-      alert($(this).attr('title'));
-    });
-
     $(document.body).click(this.dropdowns.removeFocus);
 
     $('a[rel*=facebox]').facebox();
