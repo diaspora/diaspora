@@ -15,6 +15,9 @@ var List = {
       });
 
     streamEl.html(string);
+    $('.aspect_membership_dropdown').each(function(){
+      new app.views.AspectMembership({el: this});
+    });
   },
 
   startSearchDelay: function (theSearch) {
