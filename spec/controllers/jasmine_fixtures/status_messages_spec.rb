@@ -16,4 +16,19 @@ describe StatusMessagesController, :type => :controller do
     end
 
   end
+
+  describe '#new' do
+    before do
+      sign_in :user, alice
+    end
+
+    it 'generates a jasmine fixture', :fixture => true do
+      contact = alice.contact_for(bob.person)
+      aspect = alice.aspects.create(:name => 'people')
+      contact.aspects << aspect
+      contact.save
+      get :new, :person_id => bob.person.id
+      save_fixture(html_for("body"), "status_message_new")
+    end
+  end
 end
