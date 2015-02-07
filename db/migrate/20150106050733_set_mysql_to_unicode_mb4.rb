@@ -5,23 +5,32 @@ class SetMysqlToUnicodeMb4 < ActiveRecord::Migration
   def self.up
     # shorten indexes regardless of the RDBMS provider - for consitency
     shorten_indexes
-    change_encoding('utf8mb4') if AppConfig.mysql?
+    change_encoding('utf8mb4', 'utf8mb4_bin') if AppConfig.mysql?
   end
 
   def self.down
-    change_encoding('utf8') if AppConfig.mysql?
+    change_encoding('utf8', 'utf8_bin') if AppConfig.mysql?
   end
 
-  def change_encoding(encoding)
-    execute "ALTER DATABASE `#{ActiveRecord::Base.connection.current_database}` CHARACTER SET #{encoding};"
+  def check_config(encoding, collation)
+    connection_config = ActiveRecord::Base.connection_config
+    raise "Database encoding is not #{encoding}!"   if connection_config[:encoding] != encoding
+    raise "Database collation is not #{collation}!" if connection_config[:collation] != collation
+  end
+
+  def change_encoding(encoding, collation)
+    # Make sure the podmin changed the database.yml file
+    check_config(encoding, collation)
+
+    execute "ALTER DATABASE `#{ActiveRecord::Base.connection.current_database}` CHARACTER SET #{encoding} COLLATE #{collation};"
 
     tables.each do |table|
-      execute "ALTER TABLE `#{table}` CHARACTER SET = #{encoding}"
+      execute "ALTER TABLE `#{table}` CHARACTER SET = #{encoding} COLLATE #{collation}"
     end
 
     character_columns.each do |table, columns|
       columns.each do |column|
-        execute "ALTER TABLE `#{table}` CHANGE `#{column.name}` `#{column.name}` #{column.sql_type} CHARACTER SET #{encoding} #{column.null ? 'NULL' : 'NOT NULL'} #{"DEFAULT '#{column.default}'" if column.has_default?};"
+        execute "ALTER TABLE `#{table}` CHANGE `#{column.name}` `#{column.name}` #{column.sql_type} CHARACTER SET #{encoding} COLLATE #{collation} #{column.null ? 'NULL' : 'NOT NULL'} #{"DEFAULT '#{column.default}'" if column.has_default?};"
       end
     end
   end
