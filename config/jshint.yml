@@ -9,14 +9,14 @@ options:
   # enforcing options
   bitwise:    false
   camelcase:  false
-  curly:      false
+  curly:      true
   eqeqeq:     true
   forin:      true
   freeze:     true
   immed:      true
   indent:     2
   latedef:    true
-  newcap:     false
+  newcap:     true
   noarg:      true
   noempty:    true
   nonbsp:     true
@@ -32,15 +32,15 @@ options:
   devel:      true
   eqnull:     true
   evil:       false
-  expr:       true
+  expr:       false
   jasmine:    true
   jquery:     true
   lastsemic:  true
-  laxbreak:   true
-  laxcomma:   true
+  laxbreak:   false
+  laxcomma:   false
   loopfunc:   false
   scripturl:  false
-  sub:        true
+  sub:        false
   supernew:   true
 
   globals:
