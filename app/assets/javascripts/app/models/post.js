@@ -22,7 +22,8 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
   },
 
   reshare : function(){
-    return this._reshare = this._reshare || new app.models.Reshare({root_guid : this.get("guid")});
+    this._reshare = this._reshare || new app.models.Reshare({root_guid : this.get("guid")});
+    return this._reshare;
   },
 
   reshareAuthor : function(){

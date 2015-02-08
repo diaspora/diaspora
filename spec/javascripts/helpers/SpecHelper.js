@@ -90,12 +90,14 @@ window.stubView = function stubView(text){
 };
 
 window.loginAs = function loginAs(attrs){
-  return app.currentUser = app.user(factory.userAttrs(attrs));
+  app.currentUser = app.user(factory.userAttrs(attrs));
+  return app.currentUser;
 };
 
 window.logout = function logout(){
   this.app._user = undefined;
-  return app.currentUser = new app.models.User();
+  app.currentUser = new app.models.User();
+  return app.currentUser;
 };
 
 window.hipsterIpsumFourParagraphs = "Mcsweeney's mumblecore irony fugiat, ex iphone brunch helvetica eiusmod retro" +

@@ -27,19 +27,19 @@ options:
 
   # relaxing options
   asi:        false
-  boss:       true
+  boss:       false
   browser:    true
   devel:      true
   eqnull:     true
-  evil:       true
+  evil:       false
   expr:       true
   jasmine:    true
   jquery:     true
   lastsemic:  true
   laxbreak:   true
   laxcomma:   true
-  loopfunc:   true
-  scripturl:  true
+  loopfunc:   false
+  scripturl:  false
   sub:        true
   supernew:   true
 
