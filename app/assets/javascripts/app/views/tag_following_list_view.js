@@ -62,7 +62,6 @@ app.views.TagFollowingList = app.views.Base.extend({
 
   createTagFollowing: function(evt) {
     if(evt){ evt.preventDefault(); }
-    var name = this.$(".tag_input").val();
 
     this.collection.create({"name":this.$(".tag_input").val()});
     this.$(".tag_input").val("");
@@ -80,4 +79,3 @@ app.views.TagFollowingList = app.views.Base.extend({
   },
 });
 // @license-end
-

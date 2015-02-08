@@ -20,7 +20,7 @@ Diaspora.I18n = {
   updateLocale: function(locale, data) {
     locale.data = $.extend(locale.data, data);
 
-    rule = this._resolve(locale, ['pluralization_rule']);
+    var rule = this._resolve(locale, ['pluralization_rule']);
     if (rule !== "") {
       eval("locale.pluralizationKey = "+rule);
     }

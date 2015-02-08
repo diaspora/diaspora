@@ -73,7 +73,7 @@ app.views.CommentStream = app.views.Base.extend({
     }).render().el);
   },
 
-  commentTextareaFocused: function(evt){
+  commentTextareaFocused: function(){
     this.$("form").removeClass('hidden').addClass("open");
   },
 
@@ -83,8 +83,7 @@ app.views.CommentStream = app.views.Base.extend({
 
   expandComments: function(evt){
     if(evt){ evt.preventDefault(); }
-
-    self = this;
+    var self = this;
 
     this.model.comments.fetch({
       success : function(resp){

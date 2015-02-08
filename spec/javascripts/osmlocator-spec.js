@@ -1,9 +1,9 @@
 describe("Locator", function(){
   navigator.geolocation = {};
   navigator.geolocation.getCurrentPosition = function(myCallback){
-    lat = 1;
-    lon = 2;
-    position = { coords: { latitude: lat, longitude: lon} };
+    var lat = 1;
+    var lon = 2;
+    var position = { coords: { latitude: lat, longitude: lon} };
     return myCallback(position);
   };
 

@@ -85,10 +85,10 @@
       });
       self.dropdownNotifications.find("time.timeago").timeago();
 
-      self.dropdownNotifications.find('.unread').each(function(index) {
+      self.dropdownNotifications.find('.unread').each(function() {
         Diaspora.page.header.notifications.setUpUnread( $(this) );
       });
-      self.dropdownNotifications.find('.read').each(function(index) {
+      self.dropdownNotifications.find('.read').each(function() {
         Diaspora.page.header.notifications.setUpRead( $(this) );
       });
       $('.notifications').perfectScrollbar('destroy');
@@ -97,7 +97,7 @@
       isLoading = false;
       $('.notifications').removeClass("loading");
       //Infinite Scrolling
-      $('.notifications').scroll(function(e) {
+      $('.notifications').scroll(function() {
         var bottom = $('.notifications').prop('scrollHeight') - $('.notifications').height();
         var currentPosition = $('.notifications').scrollTop();
         isLoading = ($('.loading').length == 1);
@@ -113,4 +113,3 @@
   Diaspora.Widgets.NotificationsDropdown = NotificationDropdown;
 })();
 // @license-end
-

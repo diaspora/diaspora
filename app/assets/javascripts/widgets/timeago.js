@@ -6,8 +6,6 @@
  */
 (function() {
   Diaspora.Widgets.TimeAgo = function() {
-    var self = this;
-
     this.subscribe("widget/ready", function() {
       if(Diaspora.I18n.language !== "en") {
         $.timeago.settings.lang = Diaspora.I18n.language;

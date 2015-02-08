@@ -1,4 +1,4 @@
-factory = {
+var factory = {
   id : {
     current : 0,
     next : function(){
@@ -149,12 +149,12 @@ factory = {
   },
 
   post :  function(overrides) {
-    defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
+    var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
     return new app.models.Post(_.extend(defaultAttrs, overrides));
   },
 
   postWithPoll :  function(overrides) {
-    defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
+    var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
     defaultAttrs = _.extend(defaultAttrs,  {"already_participated_in_poll" : false});
     defaultAttrs = _.extend(defaultAttrs,  {"poll" : factory.poll()});
     return new app.models.Post(_.extend(defaultAttrs, overrides));
@@ -165,7 +165,7 @@ factory = {
     return new app.models.StatusMessage(_.extend(factory.postAttrs(), overrides));
   },
 
-  poll: function(overrides){
+  poll: function(){
     return {
       "question" : "This is an awesome question",
       "created_at" : "2012-01-03T19:53:13Z",

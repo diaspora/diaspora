@@ -44,7 +44,7 @@ describe("app.views.CommentStream", function(){
       });
 
       it("fires an AJAX request", function() {
-        params = JSON.parse(this.request.params);
+        var params = JSON.parse(this.request.params);
         // TODO: use this, once jasmine-ajax is updated to latest version
         //params = this.request.data();
 

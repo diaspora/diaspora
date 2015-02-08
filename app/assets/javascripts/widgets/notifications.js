@@ -29,7 +29,7 @@
           type: "GET",
           dataType:'json',
           success: function(){
-            self.notificationMenu.find('.unread').each(function(index) {
+            self.notificationMenu.find('.unread').each(function() {
               self.setUpRead( $(this) );
             });
             self.resetCount();
@@ -83,7 +83,7 @@
     this.clickSuccess = function( data ) {
       var itemID = data["guid"];
       var isUnread = data["unread"];
-      self.notificationMenu.find('.read,.unread').each(function(index) {
+      self.notificationMenu.find('.read,.unread').each(function() {
         if ( $(this).data("guid") == itemID ) {
           if ( isUnread ) {
             self.notificationMenu.find('a#mark_all_read_link').removeClass('disabled');
@@ -128,7 +128,7 @@
         self.badge.removeClass("hidden");
       }
     };
-    this.resetCount = function(change) {
+    this.resetCount = function() {
       self.count = 0;
       this.changeNotificationCount(0);
     };

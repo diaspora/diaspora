@@ -40,8 +40,8 @@ describe("app.views.Notifications", function(){
     });
 
     it('changes the "all notifications" count', function() {
-      badge = $('ul.nav > li:eq(0) .badge');
-      count = parseInt(badge.text());
+      var badge = $('ul.nav > li:eq(0) .badge');
+      var count = parseInt(badge.text());
 
       this.view.updateView(this.guid, this.type, true);
       expect(parseInt(badge.text())).toBe(count + 1);
@@ -51,8 +51,8 @@ describe("app.views.Notifications", function(){
     });
 
     it('changes the notification type count', function() {
-      badge = $('ul.nav > li[data-type=' + this.type + '] .badge');
-      count = parseInt(badge.text());
+      var badge = $('ul.nav > li[data-type=' + this.type + '] .badge');
+      var count = parseInt(badge.text());
 
       this.view.updateView(this.guid, this.type, true);
       expect(parseInt(badge.text())).toBe(count + 1);

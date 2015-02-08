@@ -5,7 +5,7 @@ function createUploader(){
 
    var aspectIds = gon.preloads.aspect_ids;
 
-   var uploader = new qq.FileUploaderBasic({
+   new qq.FileUploaderBasic({
        element: document.getElementById('file-upload-publisher'),
        params: {'photo' : {'pending' : 'true', 'aspect_ids' : aspectIds},},
        allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'tiff'],
@@ -25,7 +25,7 @@ function createUploader(){
           emptyError: Diaspora.I18n.t("photo_uploader.new_photo.empty")
        },
 
-       onSubmit: function(id, fileName){
+       onSubmit: function(){
         $('#file-upload-publisher').addClass("loading");
         $('#publisher_textarea_wrapper').addClass("with_attachments");
         $('#photodropzone').append(
@@ -53,8 +53,7 @@ function createUploader(){
             "<div class='circle'></div>");
         ////
 
-        var publisher = $('#publisher'),
-            textarea = publisher.find('textarea');
+        var publisher = $('#publisher');
 
         publisher.find("input[type='submit']").removeAttr('disabled');
 
@@ -76,7 +75,7 @@ function createUploader(){
         });
        },
 
-       onAllComplete: function(completed_files){
+       onAllComplete: function(){
        }
 
    });

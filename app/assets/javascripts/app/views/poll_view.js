@@ -8,7 +8,7 @@ app.views.Poll = app.views.Base.extend({
     "click .toggle_result" : "toggleResult"
   },
 
-  initialize: function(options) {
+  initialize: function() {
     this.model.bind('change', this.render, this);
   },
 

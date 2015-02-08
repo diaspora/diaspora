@@ -72,7 +72,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
 
   unlike : function() {
     var self = this;
-    this.userLike().destroy({success : function(model, resp) {
+    this.userLike().destroy({success : function() {
       self.trigger('change');
       self.set({"likes_count" : self.get("likes_count") - 1});
     }});
@@ -84,7 +84,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
     var self = this;
 
     this.comments.make(text).fail(function () {
-      flash = new Diaspora.Widgets.FlashMessages();
+      var flash = new Diaspora.Widgets.FlashMessages();
       flash.render({
         success: false,
         notice: Diaspora.I18n.t("failed_to_post_message")
@@ -104,13 +104,13 @@ app.models.Post.Interactions = Backbone.Model.extend({
       , flash = new Diaspora.Widgets.FlashMessages();
 
     reshare.save({}, {
-      success : function(resp){
+      success : function(){
         flash.render({
           success: true,
           notice: Diaspora.I18n.t("reshares.successful")
         });
       },
-      error: function(resp){
+      error: function(){
         flash.render({
           success: false,
           notice: Diaspora.I18n.t("reshares.duplicate")

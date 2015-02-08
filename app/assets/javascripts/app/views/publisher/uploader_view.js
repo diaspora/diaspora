@@ -47,7 +47,7 @@ app.views.PublisherUploader = Backbone.View.extend({
       .width(progress + '%');
   },
 
-  submitHandler: function(id, fileName) {
+  submitHandler: function() {
     this.$el.addClass('loading');
     this._addPhotoPlaceholder();
   },

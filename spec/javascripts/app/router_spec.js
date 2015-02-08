@@ -6,7 +6,7 @@ describe('app.Router', function () {
 
     it('decodes name before passing it into TagFollowingAction', function () {
       var followed_tags = spyOn(app.router, 'followed_tags').and.callThrough();
-      var tag_following_action = spyOn(app.views, 'TagFollowingAction').and.callFake(function(data) {
+      var tag_following_action = spyOn(app.views, 'TagFollowingAction').and.callFake(function() {
         return {render: function() { return {el: ""}}};
       });
 
@@ -17,7 +17,7 @@ describe('app.Router', function () {
 
     it('navigates to the downcase version of the corresponding tag', function () {
       var followed_tags = spyOn(app.router, 'followed_tags').and.callThrough();
-      var tag_following_action = spyOn(app.views, 'TagFollowingAction').and.callFake(function(data) {
+      var tag_following_action = spyOn(app.views, 'TagFollowingAction').and.callFake(function() {
         return {render: function() { return {el: ""}}};
       });
 
@@ -63,7 +63,7 @@ describe('app.Router', function () {
 
   describe("bookmarklet", function() {
     it('routes to bookmarklet even if params have linefeeds', function()  {
-      router = new app.Router();
+      var router = new app.Router();
       var route = jasmine.createSpy('bookmarklet route');
       router.on('route:bookmarklet', route);
       router.navigate("/bookmarklet?\n\nfeefwefwewef\n", {trigger: true});

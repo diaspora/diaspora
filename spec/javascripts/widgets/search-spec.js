@@ -5,7 +5,7 @@ describe("Diaspora.Widgets.Search", function() {
 
             var search = Diaspora.BaseWidget.instantiate("Search", $("#jasmine_content > #searchForm"));
             var person = {"name": "</script><script>alert('xss');</script"};
-            result = search.parse([$.extend({}, person)]);
+            var result = search.parse([$.extend({}, person)]);
             expect(result[0].data.name).not.toEqual(person.name);
         });
     });

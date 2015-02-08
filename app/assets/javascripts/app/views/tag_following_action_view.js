@@ -35,7 +35,7 @@ app.views.TagFollowingAction = app.views.Base.extend({
     return !this.model.isNew();
   },
 
-  getTagFollowing : function(tagFollowing) {
+  getTagFollowing : function() {
     this.model = app.tagFollowings.where({"name":this.tagText})[0] ||
         new app.models.TagFollowing({"name":this.tagText});
     this.model.bind("change", this.render, this);

@@ -45,13 +45,13 @@ var View = {
       });
     };
 
-    $(document).on('ajax:success', 'form[data-remote]', function (e) {
+    $(document).on('ajax:success', 'form[data-remote]', function () {
       $(this).clearForm();
       $(this).focusout();
     });
 
     /* tag following */
-    $("#new_tag_following .tag_input").bind('focus', function(evt){
+    $("#new_tag_following .tag_input").bind('focus', function(){
       $(this).siblings("#tag_following_submit").removeClass('hidden');
     });
 
@@ -62,7 +62,7 @@ var View = {
       Diaspora.page.directionDetector.updateBinds();
     });
 
-    $("a.new_aspect").click(function(e){
+    $("a.new_aspect").click(function(){
       $("input#aspect_name").focus();
     });
 

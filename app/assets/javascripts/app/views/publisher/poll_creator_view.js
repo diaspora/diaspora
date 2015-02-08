@@ -66,8 +66,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
     this.$('input').val('');
   },
 
-  validate: function(evt){
-    var input = $(evt.target);
+  validate: function(){
     this.validatePoll();
     this.trigger('change');
   },

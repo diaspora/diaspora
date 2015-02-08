@@ -4,7 +4,7 @@ var realXMLHttpRequest = window.XMLHttpRequest;
 
 // matches flash messages with success/error and contained text
 var flashMatcher = function(flash, id, text) {
-  textContained = true;
+  var textContained = true;
   if( text ) {
     textContained = (flash.text().indexOf(text) !== -1);
   }
@@ -14,10 +14,13 @@ var flashMatcher = function(flash, id, text) {
           textContained;
 };
 
+// information for jshint
+/* exported context */
 var context = describe;
+
 var spec = {};
 var customMatchers = {
-  toBeSuccessFlashMessage: function(util) {
+  toBeSuccessFlashMessage: function() {
     return {
       compare: function(actual, expected) {
         var result = {};
@@ -26,7 +29,7 @@ var customMatchers = {
       }
     };
   },
-  toBeErrorFlashMessage: function(util) {
+  toBeErrorFlashMessage: function() {
     return {
       compare: function(actual, expected) {
         var result = {};

@@ -12,7 +12,7 @@ app.views.Header = app.views.Base.extend({
     "focusout #q": "toggleSearchActive"
   },
 
-  initialize : function(options) {
+  initialize : function() {
     $(document.body).click($.proxy(this.hideDropdown, this));
     return this;
   },

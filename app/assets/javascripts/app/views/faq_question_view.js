@@ -28,8 +28,8 @@ app.views.FaqQuestionView = app.views.Base.extend({
   },
 
   toggled: function(e) {
-    el = $(e.target);
-    parent = el.parents('.question');
+    var el = $(e.target);
+    var parent = el.parents('.question');
 
     parent.children('.answer').toggle();
     parent.toggleClass('opened').toggleClass('collapsed');

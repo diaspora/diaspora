@@ -417,7 +417,7 @@ describe("app.views.Publisher", function() {
     describe('#avoidEnter', function(){
       it("Avoid submitting the form when pressing enter", function(){
         // simulates the event object
-        evt = {};
+        var evt = {};
         evt.keyCode = 13;
 
         // should return false in order to avoid the form submition
@@ -443,7 +443,7 @@ describe("app.views.Publisher", function() {
 
     it('initializes the file uploader plugin', function() {
       spyOn(qq, 'FileUploaderBasic');
-      var publisher = new app.views.Publisher();
+      new app.views.Publisher();
 
       expect(qq.FileUploaderBasic).toHaveBeenCalled();
     });

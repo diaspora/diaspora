@@ -2,7 +2,7 @@
 
 app.views.Base = Backbone.View.extend({
 
-  initialize : function(options) {
+  initialize : function() {
     this.setupRenderEvents();
   },
 
@@ -76,8 +76,6 @@ app.views.Base = Backbone.View.extend({
   },
 
   setFormAttrs : function(){
-    this.model.set(_.inject(this.formAttrs, _.bind(setValueFromField, this), {}));
-
     function setValueFromField(memo, attribute, selector){
       if(attribute.slice("-2") === "[]") {
         memo[attribute.slice(0, attribute.length - 2)] = _.pluck(this.$el.find(selector).serializeArray(), "value");
@@ -86,6 +84,8 @@ app.views.Base = Backbone.View.extend({
       }
       return memo;
     }
+
+    this.model.set(_.inject(this.formAttrs, _.bind(setValueFromField, this), {}));
   },
 
   report: function(evt) {
@@ -104,13 +104,13 @@ app.views.Base = Backbone.View.extend({
 
     var report = new app.models.Report();
     report.save(data, {
-      success: function(model, response) {
+      success: function() {
         Diaspora.page.flashMessages.render({
           success: true,
           notice: Diaspora.I18n.t('report.status.created')
         });
       },
-      error: function(model, response) {
+      error: function() {
         Diaspora.page.flashMessages.render({
           success: false,
           notice: Diaspora.I18n.t('report.status.exists')
@@ -142,7 +142,7 @@ app.views.Base = Backbone.View.extend({
   },
 
   avatars: {
-    fallback: function(evt) {
+    fallback: function() {
       $(this).attr("src", ImagePaths.get("user/default.png"));
     },
     selector: "img.avatar"

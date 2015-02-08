@@ -210,7 +210,7 @@ app.views.Publisher = Backbone.View.extend({
         // standalone means single-shot posting (until further notice)
         if( self.standalone ) self.setEnabled(false);
       },
-      error: function(model, resp, options) {
+      error: function(model, resp) {
         if( app.publisher ) app.publisher.trigger('publisher:error');
         self.setInputEnabled(true);
         Diaspora.page.flashMessages.render({ 'success':false, 'notice':resp.responseText });
@@ -271,9 +271,10 @@ app.views.Publisher = Backbone.View.extend({
       );
     });
 
-    var mentioned_people = [];
-    var regexp = new RegExp("@{\(\[\^\;\]\+\); \(\[\^\}\]\+\)}", "g");
-    while(user=regexp.exec(serializedForm["status_message[text]"])){
+    var mentioned_people = [],
+        regexp = new RegExp("@{\(\[\^\;\]\+\); \(\[\^\}\]\+\)}", "g"),
+        user;
+    while( (user = regexp.exec(serializedForm["status_message[text]"])) ){
       // user[1]: name, user[2]: handle
       var mentioned_user = Mentions.contacts.filter(function(item) { return item.handle == user[2];})[0];
       if(mentioned_user){

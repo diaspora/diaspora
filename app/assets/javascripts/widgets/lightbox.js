@@ -27,7 +27,7 @@ jQuery.fn.center = (function() {
       imageSelector: 'img.stream-photo'
     };
 
-    this.subscribe("widget/ready", function(evt) {
+    this.subscribe("widget/ready", function() {
       $.extend(self, {
         lightbox: $("#lightbox"),
         navigation: $("#lightbox-navigation"),

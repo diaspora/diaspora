@@ -8,8 +8,6 @@ app.views.SinglePostModeration = app.views.Feedback.extend({
   },
 
   presenter: function() {
-    var interactions = this.model.interactions;
-
     return _.extend(this.defaultPresenter(), {
       authorIsCurrentUser : this.authorIsCurrentUser(),
     });

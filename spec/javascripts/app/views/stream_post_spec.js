@@ -10,7 +10,7 @@ describe("app.views.StreamPost", function(){
 
   describe("events", function(){
     var _PostViewClass,
-        author_id;
+        authorId;
 
     beforeEach(function(){
       _PostViewClass = this.PostViewClass;
@@ -20,7 +20,7 @@ describe("app.views.StreamPost", function(){
     describe("remove posts for blocked person", function(){
       it("setup remove:author:posts:#{id} to #remove", function(){
         spyOn(_PostViewClass.prototype, 'remove');
-        view = new _PostViewClass({model : this.statusMessage});
+        new _PostViewClass({model : this.statusMessage});
         app.events.trigger('person:block:'+authorId);
         expect(_PostViewClass.prototype.remove).toHaveBeenCalled();
       });

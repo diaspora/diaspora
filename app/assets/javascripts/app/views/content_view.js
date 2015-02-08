@@ -95,9 +95,9 @@ app.views.OEmbed = app.views.Base.extend({
   },
 
   presenter:function () {
-    o_embed_cache = this.model.get("o_embed_cache");
+    var o_embed_cache = this.model.get("o_embed_cache");
     if(o_embed_cache) {
-      typemodel = { rich: false, photo: false, video: false, link: false };
+      var typemodel = { rich: false, photo: false, video: false, link: false };
       typemodel[o_embed_cache.data.type] = true;
       o_embed_cache.data.types = typemodel;
     }

@@ -129,7 +129,7 @@ app.views.Hovercard = app.views.Base.extend({
     $.get(href, function(response) {
       self.dropdown_container.html(response);
     });
-    var aspect_membership = new app.views.AspectMembership({el: self.dropdown_container});
+    new app.views.AspectMembership({el: self.dropdown_container});
   },
 
   _positionHovercard: function() {

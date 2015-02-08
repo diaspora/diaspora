@@ -4,6 +4,7 @@
  */
 
 describe("List", function() {
+  /* global List */
   describe("runDelayedSearch", function() {
     beforeEach( function(){
       spec.loadFixture('empty_people_search');

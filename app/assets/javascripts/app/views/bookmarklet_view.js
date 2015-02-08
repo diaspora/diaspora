@@ -30,18 +30,18 @@ app.views.Bookmarklet = Backbone.View.extend({
     return contents;
   },
 
-  _postSubmit: function(evt) {
+  _postSubmit: function() {
     this.$('h4').text(Diaspora.I18n.t('bookmarklet.post_submit'));
   },
 
-  _postSuccess: function(evt) {
+  _postSuccess: function() {
     this.$('h4').text(Diaspora.I18n.t('bookmarklet.post_success'));
     app.publisher.close();
     this.$("#publisher").addClass("hidden");
     _.delay(window.close, 2000);
   },
 
-  _postError: function(evt) {
+  _postError: function() {
     this.$('h4').text(Diaspora.I18n.t('bookmarklet.post_something'));
   }
 });

@@ -26,8 +26,8 @@ app.views.HelpSectionView = app.views.StaticContentView.extend({
   },
 
   toggled: function(e) {
-    el = $(e.target);
-    parent = el.parents('.question');
+    var el = $(e.target);
+    var parent = el.parents('.question');
 
     parent.children('.answer.hideable').toggle();
     parent.toggleClass('opened').toggleClass('collapsed');

@@ -15,22 +15,26 @@ options:
   freeze:     true
   immed:      true
   indent:     2
-  latedef:    nofunc
+  latedef:    true
   newcap:     false
   noarg:      true
   noempty:    true
   nonbsp:     true
   nonew:      false
   notypeof:   true
-  undef:      false
-  unused:     false
+  undef:      true
+  unused:     true
 
   # relaxing options
   asi:        false
   boss:       true
+  browser:    true
+  devel:      true
   eqnull:     true
   evil:       true
   expr:       true
+  jasmine:    true
+  jquery:     true
   lastsemic:  true
   laxbreak:   true
   laxcomma:   true
@@ -40,5 +44,29 @@ options:
   supernew:   true
 
   globals:
-    jQuery:   true
-    "$":      true
+    "_":                       true
+    "Backbone":                true
+    "gon":                     true
+    "Handlebars":              true
+    "HandlebarsTemplates":     true
+    "ImagePaths":              true
+    "jsxc":                    true
+    "MBP":                     true
+    "Routes":                  true
+    "OSM":                     true
+    "parse_url":               true
+    "punycode":                true
+    "qq":                      true
+
+    "loginAs":                 true
+    "logout":                  true
+    "spec":                    true
+    "context":                 true
+    "factory":                 true
+    "stubView":                true
+    "exports":                 true
+
+    "app":                     true
+    "Diaspora":                true
+    "Mentions":                true
+    "PosixBracketExpressions": true

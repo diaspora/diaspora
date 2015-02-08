@@ -42,7 +42,7 @@
   };
 
   Diaspora.BaseWidget = {
-    instantiate: function(Widget, element) {
+    instantiate: function(Widget) {
       // Mobile version loads only some widgets
       if (typeof Diaspora.Widgets[Widget] === 'undefined') return;
 
