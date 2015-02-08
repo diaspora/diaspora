@@ -46,6 +46,10 @@ app.views.Base = Backbone.View.extend({
     this.$el
       .html(this.template(presenter))
       .attr("data-template", _.last(this.templateName.split("/")));
+
+    // add avatar fallback if it can't be loaded
+    this.$el.find(this.avatars.selector).error(this.avatars.fallback);
+
     this.postRenderTemplate();
   },
 
@@ -136,6 +140,13 @@ app.views.Base = Backbone.View.extend({
         });
     }
   },
+
+  avatars: {
+    fallback: function(evt) {
+      $(this).attr("src", ImagePaths.get("user/default.png"));
+    },
+    selector: "img.avatar"
+  }
 });
 
 app.views.StaticContentView = app.views.Base.extend({

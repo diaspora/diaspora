@@ -26,9 +26,6 @@ var View = {
       .on('click', this.dropdowns.selector, this.dropdowns.click)
       .on('keypress', this.dropdowns.selector, this.dropdowns.click);
 
-    /* Avatars */
-    $(this.avatars.selector).error(this.avatars.fallback);
-
     /* Clear forms after successful submit, this is some legacy dan hanson stuff, do we still want it? */
     $.fn.clearForm = function() {
       return this.each(function() {
@@ -107,13 +104,6 @@ var View = {
     },
     selector: ".dropdown > .toggle",
     parentSelector: ".dropdown > .wrapper"
-  },
-
-  avatars: {
-    fallback: function(evt) {
-      $(this).attr("src", ImagePaths.get("user/default.png"));
-    },
-    selector: "img.avatar"
   }
 };
 
