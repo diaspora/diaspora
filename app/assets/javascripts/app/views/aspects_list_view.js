@@ -68,6 +68,5 @@ app.views.AspectsList = app.views.Base.extend({
   hideAspectsList: function() {
     this.$el.empty();
   },
-})
+});
 // @license-end
-

@@ -29,9 +29,8 @@ app.views.TagFollowing = app.views.Base.extend({
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
       tag : this.model
-    })
+    });
   }
   
 });
 // @license-end
-

@@ -52,7 +52,7 @@ app.views.Help = app.views.StaticContentView.extend({
       title_tags: Diaspora.I18n.t( 'tags.title' ),
       title_keyboard_shortcuts: Diaspora.I18n.t( 'keyboard_shortcuts.title' ),
       title_miscellaneous: Diaspora.I18n.t( 'miscellaneous.title' ),
-    }
+    };
 
     return this;
   },
@@ -173,4 +173,3 @@ app.views.Help = app.views.StaticContentView.extend({
   },
 });
 // @license-end
-

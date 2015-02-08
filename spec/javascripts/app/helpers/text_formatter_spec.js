@@ -3,7 +3,7 @@ describe("app.helpers.textFormatter", function(){
   beforeEach(function(){
     this.statusMessage = factory.post();
     this.formatter = app.helpers.textFormatter;
-  })
+  });
 
   // Some basic specs. For more detailed specs see
   // https://github.com/svbergerem/markdown-it-hashtag/tree/master/test
@@ -34,25 +34,25 @@ describe("app.helpers.textFormatter", function(){
         name : "Alice Smith",
         diaspora_id : "alice@example.com",
         id : "555"
-      })
+      });
 
       this.bob = factory.author({
         name : "Bob Grimm",
         diaspora_id : "bob@example.com",
         id : "666"
-      })
+      });
 
-      this.statusMessage.set({text: "hey there @{Alice Smith; alice@example.com} and @{Bob Grimm; bob@example.com}"})
-      this.statusMessage.set({mentioned_people : [this.alice, this.bob]})
-    })
+      this.statusMessage.set({text: "hey there @{Alice Smith; alice@example.com} and @{Bob Grimm; bob@example.com}"});
+      this.statusMessage.set({mentioned_people : [this.alice, this.bob]});
+    });
 
     it("matches mentions", function(){
-      var formattedText = this.formatter(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"))
+      var formattedText = this.formatter(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"));
       var wrapper = $("<div>").html(formattedText);
 
       _.each([this.alice, this.bob], function(person) {
-        expect(wrapper.find("a[href='/people/" + person.guid + "']").text()).toContain(person.name)
-      })
+        expect(wrapper.find("a[href='/people/" + person.guid + "']").text()).toContain(person.name);
+      });
     });
 
     it("returns mentions for on posts that haven't been saved yet (framer posts)", function(){
@@ -61,18 +61,18 @@ describe("app.helpers.textFormatter", function(){
         handle : "bob@example.com",
         url : 'googlebot.com',
         id : "666"
-      })
+      });
 
-      this.statusMessage.set({'mentioned_people' : [freshBob] })
+      this.statusMessage.set({'mentioned_people' : [freshBob] });
 
-      var formattedText = this.formatter(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"))
+      var formattedText = this.formatter(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"));
       var wrapper = $("<div>").html(formattedText);
-      expect(wrapper.find("a[href='googlebot.com']").text()).toContain(freshBob.name)
-    })
+      expect(wrapper.find("a[href='googlebot.com']").text()).toContain(freshBob.name);
+    });
 
     it('returns the name of the mention if the mention does not exist in the array', function(){
-      var text = "hey there @{Chris Smith; chris@example.com}"
-      var formattedText = this.formatter(text, [])
+      var text = "hey there @{Chris Smith; chris@example.com}";
+      var formattedText = this.formatter(text, []);
       expect(formattedText.match(/<a/)).toBeNull();
       expect(formattedText).toContain('Chris Smith');
     });
@@ -100,7 +100,7 @@ describe("app.helpers.textFormatter", function(){
         var linkElement = wrapper.find("a[href*='" + link + "']");
         expect(linkElement.text()).toContain(link);
         expect(linkElement.attr("target")).toContain("_blank");
-      })
+      });
     });
 
     context("symbol conversion", function() {
@@ -200,7 +200,7 @@ describe("app.helpers.textFormatter", function(){
 
     context("misc breakage and/or other issues with weird urls", function(){
       it("doesn't crash Firefox", function() {
-        var content = "antifaschistisch-feministische ://"
+        var content = "antifaschistisch-feministische ://";
         var parsed = this.formatter(content);
         expect(parsed).toContain(content);
       });
@@ -221,7 +221,7 @@ describe("app.helpers.textFormatter", function(){
 
       context("percent-encoded input url", function() {
         beforeEach(function() {
-          this.input = "http://www.soilandhealth.org/01aglibrary/010175.tree%20crops.pdf"  // #4507
+          this.input = "http://www.soilandhealth.org/01aglibrary/010175.tree%20crops.pdf";  // #4507
           this.correctHref = 'href="'+this.input+'"';
         });
 
@@ -266,4 +266,4 @@ describe("app.helpers.textFormatter", function(){
       }
     });
   });
-})
+});

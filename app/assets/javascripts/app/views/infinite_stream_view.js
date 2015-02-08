@@ -58,7 +58,7 @@ app.views.InfScroll = app.views.Base.extend({
   },
 
   renderTemplate : function(){
-    this.renderInitialPosts()
+    this.renderInitialPosts();
   },
 
   renderInitialPosts : function(){
@@ -66,7 +66,7 @@ app.views.InfScroll = app.views.Base.extend({
     var els = document.createDocumentFragment();
     this.stream.items.each(_.bind(function(post){
       els.appendChild(this.createPostView(post).render().el);
-    }, this))
+    }, this));
     this.$el.html(els);
   },
 
@@ -78,7 +78,7 @@ app.views.InfScroll = app.views.Base.extend({
   },
 
   showLoader: function(){
-    $("#paginate .loader").removeClass("hidden")
+    $("#paginate .loader").removeClass("hidden");
   },
 
   finishedAdding: function() {
@@ -108,4 +108,3 @@ app.views.InfScroll = app.views.Base.extend({
   }
 });
 // @license-end
-

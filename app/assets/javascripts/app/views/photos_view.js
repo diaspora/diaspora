@@ -8,8 +8,8 @@ app.views.Photos = app.views.InfScroll.extend({
     // viable for extraction
     this.stream.fetch();
 
-    this.setupLightbox()
-    this.setupInfiniteScroll()
+    this.setupLightbox();
+    this.setupInfiniteScroll();
   },
 
   postClass : app.views.Photo,
@@ -24,4 +24,3 @@ app.views.Photos = app.views.InfScroll.extend({
   }
 });
 // @license-end
-

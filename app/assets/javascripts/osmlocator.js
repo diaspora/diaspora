@@ -20,8 +20,6 @@ OSM.Locator = function(){
 
   return {
     getAddress: geolocalize
-  }
-
-}
+  };
+};
 // @license-end
-

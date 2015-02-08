@@ -2,5 +2,5 @@
 
 app.collections.AspectMemberships = Backbone.Collection.extend({
   model: app.models.AspectMembership
-})
+});
 // @license-end

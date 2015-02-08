@@ -11,8 +11,8 @@ app.pages.SinglePostViewer = app.views.Base.extend({
   initialize : function(options) {
     this.model = new app.models.Post({ id : options.id });
     this.model.preloadOrFetch().done(_.bind(this.initViews, this));
-    this.model.interactions.fetch() //async, yo, might want to throttle this later.
-    this.setupLightbox()
+    this.model.interactions.fetch(); //async, yo, might want to throttle this later.
+    this.setupLightbox();
   },
 
   setupLightbox : function(){
@@ -41,4 +41,3 @@ app.pages.SinglePostViewer = app.views.Base.extend({
 
 });
 // @license-end
-

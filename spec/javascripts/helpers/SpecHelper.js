@@ -69,7 +69,7 @@ afterEach(function() {
   jasmine.clock().uninstall();
   jasmine.Ajax.uninstall();
 
-  $("#jasmine_content").empty()
+  $("#jasmine_content").empty();
   expect(spec.loadFixtureCount).toBeLessThan(2);
   spec.loadFixtureCount = 0;
 });
@@ -79,21 +79,21 @@ window.stubView = function stubView(text){
   var stubClass = Backbone.View.extend({
     render : function(){
       $(this.el).html(text);
-      return this
+      return this;
     }
-  })
+  });
 
   return new stubClass();
-}
+};
 
 window.loginAs = function loginAs(attrs){
-  return app.currentUser = app.user(factory.userAttrs(attrs))
-}
+  return app.currentUser = app.user(factory.userAttrs(attrs));
+};
 
 window.logout = function logout(){
-  this.app._user = undefined
-  return app.currentUser = new app.models.User()
-}
+  this.app._user = undefined;
+  return app.currentUser = new app.models.User();
+};
 
 window.hipsterIpsumFourParagraphs = "Mcsweeney's mumblecore irony fugiat, ex iphone brunch helvetica eiusmod retro" +
   " sustainable mlkshk. Pop-up gentrify velit readymade ad exercitation 3 wolf moon. Vinyl aute laboris artisan irony, " +
@@ -120,7 +120,7 @@ window.hipsterIpsumFourParagraphs = "Mcsweeney's mumblecore irony fugiat, ex iph
   "mlkshk assumenda. Typewriter terry richardson pork belly, cupidatat tempor craft beer tofu sunt qui gentrify eiusmod " +
   "id. Letterpress pitchfork wayfarers, eu sunt lomo helvetica pickled dreamcatcher bicycle rights. Aliqua banksy " +
   "cliche, sapiente anim chambray williamsburg vinyl cardigan. Pork belly mcsweeney's anim aliqua. DIY vice portland " +
-  "thundercats est vegan etsy, gastropub helvetica aliqua. Artisan jean shorts american apparel duis esse trust fund."
+  "thundercats est vegan etsy, gastropub helvetica aliqua. Artisan jean shorts american apparel duis esse trust fund.";
 
 spec.clearLiveEventBindings = function() {
   var events = jQuery.data(document, "events");

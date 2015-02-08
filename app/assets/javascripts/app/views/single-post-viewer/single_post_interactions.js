@@ -10,11 +10,11 @@ app.views.SinglePostInteractions = app.views.Base.extend({
 
   initialize : function() {
     this.model.interactions.on('change', this.render, this);
-    this.commentStreamView = new app.views.SinglePostCommentStream({model: this.model})
+    this.commentStreamView = new app.views.SinglePostCommentStream({model: this.model});
   },
 
   presenter : function(){
-    var interactions = this.model.interactions
+    var interactions = this.model.interactions;
     return {
       likes : interactions.likes.toJSON(),
       comments : interactions.comments.toJSON(),
@@ -22,8 +22,7 @@ app.views.SinglePostInteractions = app.views.Base.extend({
       commentsCount : interactions.commentsCount(),
       likesCount : interactions.likesCount(),
       resharesCount : interactions.resharesCount(),
-    }
+    };
   },
 });
 // @license-end
-

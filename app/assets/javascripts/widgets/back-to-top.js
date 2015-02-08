@@ -27,11 +27,10 @@
         (self.body.scrollTop() > 1000) ?
           'addClass' :
           'removeClass'
-      ]('visible')
+      ]('visible');
     };
   };
 
   Diaspora.Widgets.BackToTop = BackToTop;
 })();
 // @license-end
-

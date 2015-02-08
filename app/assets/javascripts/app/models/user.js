@@ -12,11 +12,11 @@ app.models.User = Backbone.Model.extend({
   },
 
   expProfileUrl : function(){
-    return "/people/" + app.currentUser.get("guid") + "?ex=true"
+    return "/people/" + app.currentUser.get("guid") + "?ex=true";
   },
 
   isServiceConfigured : function(providerName) {
-    return _.include(this.get("configured_services"), providerName)
+    return _.include(this.get("configured_services"), providerName);
   },
 
   isAuthorOf: function(model) {

@@ -21,8 +21,7 @@ app.views.Aspect = app.views.Base.extend({
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
       aspect : this.model
-    })
+    });
   }
 });
 // @license-end
-

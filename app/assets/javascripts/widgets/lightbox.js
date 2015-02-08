@@ -154,7 +154,7 @@ jQuery.fn.center = (function() {
     this.scrollToThumbnail = function(imageThumb) {
       self.navigation.animate({scrollLeft: (self.navigation.scrollLeft()
          + imageThumb.offset().left +35 - (self.window.width() / 2))}, 200, 'swing');
-    }
+    };
 
     this.selectImage = function(imageThumb) {
       $(".selected", self.imageset).removeClass("selected");

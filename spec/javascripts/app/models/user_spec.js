@@ -1,6 +1,6 @@
 describe("app.models.User", function(){
   beforeEach(function(){
-    this.user = new app.models.User({})
+    this.user = new app.models.User({});
   });
 
   describe("authenticated", function(){
@@ -9,17 +9,16 @@ describe("app.models.User", function(){
     });
 
     it('should be true if ID is set', function(){
-      this.user.set({id : 1})
+      this.user.set({id : 1});
       expect(this.user.authenticated()).toBeTruthy();
     });
   });
 
   describe("isServiceConnected", function(){
     it("checks to see if the sent provider name is a configured service", function(){
-      this.user.set({configured_services : ["facebook"]})
-      expect(this.user.isServiceConfigured("facebook")).toBeTruthy()
-      expect(this.user.isServiceConfigured("tumblr")).toBeFalsy()
+      this.user.set({configured_services : ["facebook"]});
+      expect(this.user.isServiceConfigured("facebook")).toBeTruthy();
+      expect(this.user.isServiceConfigured("tumblr")).toBeFalsy();
     });
   });
 });
-

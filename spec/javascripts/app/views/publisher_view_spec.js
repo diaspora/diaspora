@@ -55,7 +55,7 @@ describe("app.views.Publisher", function() {
       it("removes the 'active' class from the publisher element", function(){
         this.view.close($.Event());
         expect($(this.view.el)).toHaveClass("closed");
-      })
+      });
 
       it("resets the element's height", function() {
         $(this.view.el).find("#status_message_fake_text").height(100);
@@ -70,14 +70,14 @@ describe("app.views.Publisher", function() {
 
         this.view.clear($.Event());
         expect(this.view.close).toHaveBeenCalled();
-      })
+      });
 
       it("calls removePostPreview", function(){
         spyOn(this.view, "removePostPreview");
 
         this.view.clear($.Event());
         expect(this.view.removePostPreview).toHaveBeenCalled();
-      })
+      });
 
       it("clears all textareas", function(){
         _.each(this.view.$("textarea"), function(element){
@@ -90,27 +90,27 @@ describe("app.views.Publisher", function() {
         _.each(this.view.$("textarea"), function(element){
           expect($(element).val()).toBe("");
         });
-      })
+      });
 
       it("removes all photos from the dropzone area", function(){
         var self = this;
         _.times(3, function(){
-          self.view.el_photozone.append($("<li>"))
+          self.view.el_photozone.append($("<li>"));
         });
 
         expect(this.view.el_photozone.html()).not.toBe("");
         this.view.clear($.Event());
         expect(this.view.el_photozone.html()).toBe("");
-      })
+      });
 
       it("removes all photo values appended by the photo uploader", function(){
-        $(this.view.el).prepend("<input name='photos[]' value='3'/>")
+        $(this.view.el).prepend("<input name='photos[]' value='3'/>");
         var photoValuesInput = this.view.$("input[name='photos[]']");
 
-        photoValuesInput.val("3")
+        photoValuesInput.val("3");
         this.view.clear($.Event());
         expect(this.view.$("input[name='photos[]']").length).toBe(0);
-      })
+      });
 
       it("destroy location if exists", function(){
         setFixtures('<div id="location"></div>');
@@ -119,7 +119,7 @@ describe("app.views.Publisher", function() {
         expect($("#location").length).toBe(1);
         this.view.clear($.Event());
         expect($("#location").length).toBe(0);
-      })
+      });
     });
 
     describe("createStatusMessage", function(){
@@ -127,7 +127,7 @@ describe("app.views.Publisher", function() {
         spyOn(this.view, "handleTextchange");
         this.view.createStatusMessage($.Event());
         expect(this.view.handleTextchange).toHaveBeenCalled();
-      })
+      });
     });
 
     describe('#setText', function() {
@@ -165,7 +165,7 @@ describe("app.views.Publisher", function() {
     describe("publishing a post with keyboard", function(){
       it("should submit the form when ctrl+enter is pressed", function(){
         this.view.render();
-        var form = this.view.$("form")
+        var form = this.view.$("form");
         var submitCallback = jasmine.createSpy().and.returnValue(false);
         form.submit(submitCallback);
 
@@ -175,7 +175,7 @@ describe("app.views.Publisher", function() {
 
         expect(submitCallback).toHaveBeenCalled();
         expect($(this.view.el)).not.toHaveClass("closed");
-      })
+      });
     });
 
     describe("_beforeUnload", function(){
@@ -202,7 +202,7 @@ describe("app.views.Publisher", function() {
         expect(this.view._beforeUnload(e)).toBe(undefined);
         expect(e.returnValue).toBe(undefined);
       });
-    })
+    });
   });
 
   context("services", function(){
@@ -401,7 +401,7 @@ describe("app.views.Publisher", function() {
 
         // validates there is one location created
         expect($("#location").length).toBe(1);
-      })
+      });
     });
 
     describe('#destroyLocation', function(){
@@ -411,7 +411,7 @@ describe("app.views.Publisher", function() {
         this.view.destroyLocation();
 
         expect($("#location").length).toBe(0);
-      })
+      });
     });
 
     describe('#avoidEnter', function(){
@@ -422,7 +422,7 @@ describe("app.views.Publisher", function() {
 
         // should return false in order to avoid the form submition
         expect(this.view.avoidEnter(evt)).toBeFalsy();
-      })
+      });
     });
   });
 
@@ -503,7 +503,7 @@ describe("app.views.Publisher", function() {
 
         it('shows it in text form', function() {
           var info = this.view.view_uploader.el_info;
-          expect(info.text()).toBe(Diaspora.I18n.t('photo_uploader.completed', {file: 'test.jpg'}))
+          expect(info.text()).toBe(Diaspora.I18n.t('photo_uploader.completed', {file: 'test.jpg'}));
         });
 
         it('adds a hidden input to the publisher', function() {
@@ -541,7 +541,7 @@ describe("app.views.Publisher", function() {
 
         it('shows error message', function() {
           var info = this.view.view_uploader.el_info;
-          expect(info.text()).toBe(Diaspora.I18n.t('photo_uploader.error', {file: 'test.jpg'}))
+          expect(info.text()).toBe(Diaspora.I18n.t('photo_uploader.error', {file: 'test.jpg'}));
         });
       });
     });

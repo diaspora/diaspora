@@ -113,7 +113,7 @@ app.Router = Backbone.Router.extend({
       var followedTagsAction = new app.views.TagFollowingAction(
             {tagText: decodeURIComponent(name).toLowerCase()}
           );
-      $("#author_info").prepend(followedTagsAction.render().el)
+      $("#author_info").prepend(followedTagsAction.render().el);
       app.tags = new app.views.Tags({tagName: name});
     }
     this._hideInactiveStreamLists();
@@ -151,7 +151,7 @@ app.Router = Backbone.Router.extend({
   },
 
   bookmarklet: function() {
-    var contents = (window.gon) ? gon.preloads.bookmarklet : {}
+    var contents = (window.gon) ? gon.preloads.bookmarklet : {};
     app.bookmarklet = new app.views.Bookmarklet(
       _.extend({}, {el: $('#bookmarklet')}, contents)
     ).render();
@@ -164,4 +164,3 @@ app.Router = Backbone.Router.extend({
   }
 });
 // @license-end
-

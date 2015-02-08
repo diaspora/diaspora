@@ -71,11 +71,11 @@ app.views.Publisher = Backbone.View.extend({
     // textchange event won't be called in Backbone...
     this.el_input.bind('textchange', $.noop);
 
-    var _this = this
+    var _this = this;
     $('body').on('click', function(event){
       // if the click event is happened outside the publisher view, then try to close the box
       if( _this.el && $(event.target).closest('#publisher').attr('id') != _this.el.id){
-          _this.tryClose()
+          _this.tryClose();
         }
     });
 
@@ -406,7 +406,7 @@ app.views.Publisher = Backbone.View.extend({
   tryClose : function(){
     // if it is not submittable, close it.
     if( !this._submittable() ){
-      this.close()
+      this.close();
     }
   },
 
@@ -509,4 +509,3 @@ $.fn.serializeObject = function()
   return o;
 };
 // @license-end
-

@@ -127,7 +127,7 @@ app.views.PublisherUploader = Backbone.View.extend({
   // remove an already uploaded photo
   _removePhoto: function(evt) {
     var self  = this;
-    var photo = $(evt.target).parents('.publisher_photo')
+    var photo = $(evt.target).parents('.publisher_photo');
     var img   = photo.find('img');
 
     photo.addClass('dim');
@@ -154,4 +154,3 @@ app.views.PublisherUploader = Backbone.View.extend({
 
 });
 // @license-end
-

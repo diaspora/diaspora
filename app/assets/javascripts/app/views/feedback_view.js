@@ -18,11 +18,11 @@ app.views.Feedback = app.views.Base.extend({
 
   initialize : function() {
     this.model.interactions.on('change', this.render, this);
-    this.initViews && this.initViews() // I don't know why this was failing with $.noop... :(
+    this.initViews && this.initViews(); // I don't know why this was failing with $.noop... :(
   },
 
   presenter : function() {
-    var interactions = this.model.interactions
+    var interactions = this.model.interactions;
 
     return _.extend(this.defaultPresenter(),{
       commentsCount : interactions.commentsCount(),
@@ -31,7 +31,7 @@ app.views.Feedback = app.views.Base.extend({
       userCanReshare : interactions.userCanReshare(),
       userLike : interactions.userLike(),
       userReshare : interactions.userReshare()
-    })
+    });
   },
 
   toggleLike: function(evt) {
@@ -85,4 +85,3 @@ app.views.Feedback = app.views.Base.extend({
   },
 });
 // @license-end
-

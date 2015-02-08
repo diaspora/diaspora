@@ -4,7 +4,7 @@
 //= require ../collections/photos
 app.models.Stream = Backbone.Collection.extend({
   initialize : function(models, options){
-    var collectionClass = app.collections.Posts
+    var collectionClass = app.collections.Posts;
     if( options ) {
       options.collection && (collectionClass = options.collection);
       options.basePath && (this.streamPath = options.basePath);
@@ -14,11 +14,11 @@ app.models.Stream = Backbone.Collection.extend({
 
   collectionOptions :function(){
       var order = this.sortOrder();
-      return { comparator : function(item) { return -item[order](); } }
+      return { comparator : function(item) { return -item[order](); } };
   },
 
   url : function(){
-    return _.any(this.items.models) ? this.timeFilteredPath() : this.basePath()
+    return _.any(this.items.models) ? this.timeFilteredPath() : this.basePath();
   },
 
   _fetchOpts: function(opts) {
@@ -57,11 +57,11 @@ app.models.Stream = Backbone.Collection.extend({
 
   maxTime: function(){
     var lastPost = _.last(this.items.models);
-    return lastPost[this.sortOrder()]()
+    return lastPost[this.sortOrder()]();
   },
 
   sortOrder : function() {
-    return this.basePath().match(/activity/) ? "interactedAt" : "createdAt"
+    return this.basePath().match(/activity/) ? "interactedAt" : "createdAt";
   },
 
   /* This function is for adding a large number of posts one by one.
@@ -71,7 +71,7 @@ app.models.Stream = Backbone.Collection.extend({
    * stream for the changes to take effect in the infinite stream view
    */
   add : function(models){
-    this.items.add(models)
+    this.items.add(models);
   },
 
   /* This function is for adding a single post. It immediately triggers
@@ -84,14 +84,13 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   preloadOrFetch : function(){ //hai, plz test me THNX
-    return $.when(app.hasPreload("stream") ? this.preload() : this.fetch())
+    return $.when(app.hasPreload("stream") ? this.preload() : this.fetch());
   },
 
   preload : function(){
-    this.items.reset(app.parsePreload("stream"))
-    this.deferred = $.when(true)
-    this.trigger("fetched")
+    this.items.reset(app.parsePreload("stream"));
+    this.deferred = $.when(true);
+    this.trigger("fetched");
   }
 });
 // @license-end
-

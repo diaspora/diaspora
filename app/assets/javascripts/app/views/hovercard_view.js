@@ -29,7 +29,7 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   postRenderTemplate: function() {
-    this.$el.appendTo($('body'))
+    this.$el.appendTo($('body'));
   },
 
   deactivate: function() {
@@ -143,4 +143,3 @@ app.views.Hovercard = app.views.Base.extend({
   }
 });
 // @license-end
-

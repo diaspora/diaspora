@@ -63,7 +63,7 @@ var View = {
     });
 
     $("a.new_aspect").click(function(e){
-      $("input#aspect_name").focus()
+      $("input#aspect_name").focus();
     });
 
     /* facebox 'done' buttons */
@@ -111,4 +111,3 @@ $(function() {
   View.initialize();
 });
 // @license-end
-

@@ -1,7 +1,7 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 Handlebars.registerHelper('t', function(scope, values) {
-  return Diaspora.I18n.t(scope, values.hash)
+  return Diaspora.I18n.t(scope, values.hash);
 });
 
 Handlebars.registerHelper('txtDirClass', function(str) {
@@ -29,7 +29,7 @@ Handlebars.registerHelper('linkToAuthor', function(context, block) {
       html += block.fn(context);
       html += "</a>";
 
-  return html
+  return html;
 });
 
 Handlebars.registerHelper('linkToPerson', function(context, block) {
@@ -38,7 +38,7 @@ Handlebars.registerHelper('linkToPerson', function(context, block) {
       html += block.fn(context);
       html += "</a>";
 
-  return html
+  return html;
 });
 
 // relationship indicator for profile page
@@ -132,4 +132,3 @@ Handlebars.registerHelper('aspectMembershipIndicator', function(contact,in_aspec
   return html;
 });
 // @license-end
-

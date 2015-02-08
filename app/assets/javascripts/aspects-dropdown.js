@@ -34,7 +34,7 @@ var AspectsDropdown = {
         Diaspora.page.flashMessages.render({success: true, notice: message});
       }
     } else {
-      replacement = Diaspora.I18n.t('aspect_dropdown.toggle', { count: number.toString()})
+      replacement = Diaspora.I18n.t('aspect_dropdown.toggle', { count: number.toString()});
     }
 
     // if we are in the publisher, we add the visibility icon
@@ -75,6 +75,4 @@ var AspectsDropdown = {
     });
   }
 };
-
 // @license-end
-
