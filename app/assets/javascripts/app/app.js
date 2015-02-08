@@ -47,6 +47,7 @@ var app = {
     this.setupUser();
     this.setupHeader();
     this.setupBackboneLinks();
+    this.setupAspectsList();
     this.setupGlobalViews();
     this.setupDisabledLinks();
   },
@@ -126,6 +127,10 @@ var app = {
       event.preventDefault();
     });
   },
+
+  setupAspectsList: function() {
+    app.aspects = new app.collections.Aspects(app.currentUser.get('aspects'));
+  }
 };
 
 $(function() {

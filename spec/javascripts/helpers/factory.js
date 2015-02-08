@@ -58,6 +58,7 @@ factory = {
       "created_at" : "2012-01-03T19:53:13Z",
       "interacted_at" : '2012-01-03T19:53:13Z',
       "public" : false,
+      "aspect_ids" : [1],
       "guid" : this.guid(),
       "image_url" : null,
       "o_embed_cache" : null,

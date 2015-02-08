@@ -23,6 +23,7 @@ class PostPresenter
         :guid => @post.guid,
         :text => text,
         :public => @post.public,
+        :aspect_ids => (@post.public ? [] : @post.aspect_ids),
         :created_at => @post.created_at,
         :interacted_at => @post.interacted_at,
         :provider_display_name => @post.provider_display_name,

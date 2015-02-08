@@ -309,6 +309,7 @@ app.views.Publisher = Backbone.View.extend({
       "id" : 0,
       "text" : serializedForm["status_message[text]"],
       "public" : serializedForm["aspect_ids[]"]=="public",
+      "aspect_ids" : serializedForm["aspect_ids[]"],
       "created_at" : date,
       "interacted_at" : date,
       "post_type" : "StatusMessage",
