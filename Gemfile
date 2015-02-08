@@ -217,6 +217,9 @@ group :development do
   gem 'rb-fsevent',     '0.9.4', :require => false
   gem 'rb-inotify',     '0.9.5', :require => false
 
+  # Linters
+  gem 'jshint', '1.3.1'
+
   # Preloading environment
 
   gem 'spring', '1.2.0'
@@ -261,5 +264,5 @@ group :development, :test do
   # Jasmine (client side application tests (JS))
   gem 'jasmine',              '2.1.0'
   gem 'jasmine-jquery-rails', '2.0.3'
-  gem 'sinon-rails',	      '1.10.3'
+  gem 'sinon-rails',          '1.10.3'
 end

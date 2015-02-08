@@ -9,8 +9,8 @@ describe("app.views.StreamPost", function(){
   })
 
   describe("events", function(){
-    var _PostViewClass = undefined;
-    var author_id = undefined;
+    var _PostViewClass,
+        author_id;
 
     beforeEach(function(){
       _PostViewClass = this.PostViewClass;

@@ -43,7 +43,7 @@ app.views.TagFollowingList = app.views.Base.extend({
     this.$("input").bind('keydown', function(evt){
       if(evt.keyCode == 13 || evt.keyCode == 9 || evt.keyCode == 32){
         evt.preventDefault();
-        if( $('li.as-result-item.active').length == 0 ){
+        if( $('li.as-result-item.active').length === 0 ){
           $('li.as-result-item').first().click();
         }
       }

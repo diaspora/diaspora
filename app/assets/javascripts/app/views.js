@@ -132,7 +132,7 @@ app.views.Base = Backbone.View.extend({
         })
         .fail(function() {
           self.$el.removeClass('deleting');
-          var flash = new Diaspora.Widgets.FlashMessages;
+          var flash = new Diaspora.Widgets.FlashMessages();
           flash.render({
             success: false,
             notice: Diaspora.I18n.t('failed_to_remove')

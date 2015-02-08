@@ -53,10 +53,10 @@ app.views.Publisher = Backbone.View.extend({
     $(window).on('beforeunload', _.bind(this._beforeUnload, this));
 
     // sync textarea content
-    if( this.el_hiddenInput.val() == "" ) {
+    if( this.el_hiddenInput.val() === "" ) {
       this.el_hiddenInput.val( this.el_input.val() );
     }
-    if( this.el_input.val() == "" ) {
+    if( this.el_input.val() === "" ) {
       this.el_input.val( this.el_hiddenInput.val() );
     }
 
@@ -222,7 +222,7 @@ app.views.Publisher = Backbone.View.extend({
 
   // creates the location
   showLocation: function(){
-    if($('#location').length == 0){
+    if($('#location').length === 0){
       $('#location_container').append('<div id="location"></div>');
       this.el_wrapper.addClass('with_location');
       this.view_locator = new app.views.Location();
@@ -257,7 +257,7 @@ app.views.Publisher = Backbone.View.extend({
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
 
-    var photos = new Array();
+    var photos = [];
     $('li.publisher_photo img').each(function(){
       var file = $(this).attr('src').substring("/uploads/images/".length);
       photos.push(
@@ -271,7 +271,7 @@ app.views.Publisher = Backbone.View.extend({
       );
     });
 
-    var mentioned_people = new Array();
+    var mentioned_people = [];
     var regexp = new RegExp("@{\(\[\^\;\]\+\); \(\[\^\}\]\+\)}", "g");
     while(user=regexp.exec(serializedForm["status_message[text]"])){
       // user[1]: name, user[2]: handle
@@ -289,7 +289,7 @@ app.views.Publisher = Backbone.View.extend({
 
     var date = (new Date()).toISOString();
 
-    var poll = undefined;
+    var poll;
     var poll_question = serializedForm["poll_question"];
     var poll_answers_arry = _.flatten([serializedForm["poll_answers[]"]]);
     var poll_answers = _.map(poll_answers_arry, function(answer){

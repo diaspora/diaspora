@@ -1,0 +1,44 @@
+files: ['**/*.js']
+
+exclude_paths: [
+  'vendor/assets/javascripts',
+  'lib/assets/javascripts'
+]
+
+options:
+  # enforcing options
+  bitwise:    false
+  camelcase:  false
+  curly:      false
+  eqeqeq:     false
+  forin:      true
+  freeze:     true
+  immed:      true
+  indent:     2
+  latedef:    nofunc
+  newcap:     false
+  noarg:      true
+  noempty:    true
+  nonbsp:     true
+  nonew:      false
+  notypeof:   true
+  undef:      false
+  unused:     false
+
+  # relaxing options
+  asi:        true
+  boss:       true
+  eqnull:     true
+  evil:       true
+  expr:       true
+  lastsemic:  true
+  laxbreak:   true
+  laxcomma:   true
+  loopfunc:   true
+  scripturl:  true
+  sub:        true
+  supernew:   true
+
+  globals:
+    jQuery:   true
+    "$":      true

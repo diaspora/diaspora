@@ -356,7 +356,7 @@ describe("app.views.Publisher", function() {
         this.view.view_aspect_selector.toggleAspect(evt);
         expect($('input[name="aspect_ids[]"][value="42"]').length).toBe(1);
 
-        var evt = $.Event("click", { target: $('.aspect_dropdown li.aspect_selector:last') });
+        evt = $.Event("click", { target: $('.aspect_dropdown li.aspect_selector:last') });
         this.view.view_aspect_selector.toggleAspect(evt);
         expect($('input[name="aspect_ids[]"][value="42"]').length).toBe(0);
       });

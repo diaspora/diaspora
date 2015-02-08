@@ -42,7 +42,7 @@ app.models.Stream = Backbone.Collection.extend({
     this.trigger("fetched", this);
     // all loaded?
     var respItems = this.items.parse(resp);
-    if(respItems && (respItems.author || respItems.length == 0)) {
+    if(respItems && (respItems.author || respItems.length === 0)) {
       this.trigger("allItemsLoaded", this);
     }
   },

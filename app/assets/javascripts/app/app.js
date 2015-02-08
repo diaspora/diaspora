@@ -70,7 +70,7 @@ var app = {
   },
 
   setupDummyPreloads: function() {
-    if (window.gon == undefined) {
+    if (window.gon === undefined) {
       window.gon = {preloads:{}};
     }
   },

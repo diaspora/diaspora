@@ -10,16 +10,17 @@ var AspectsDropdown = {
         selectedAspects = dropdown.children(".selected").length,
         allAspects = dropdown.children().length,
         replacement,
+        message,
         isInPublisher = dropdown.closest('#publisher').length;
 
-    if (number == 0) {
+    if (number === 0) {
       button.removeClass(inAspectClass);
       if (isInPublisher) {
         replacement = Diaspora.I18n.t("aspect_dropdown.select_aspects");
       } else {
         replacement = Diaspora.I18n.t("aspect_dropdown.add_to_aspect");
         /* flash message prompt */
-        var message = Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", {name: dropdown.data('person-short-name')});
+        message = Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", {name: dropdown.data('person-short-name')});
         Diaspora.page.flashMessages.render({success: true, notice: message});
       }
     } else if (selectedAspects == allAspects) {
@@ -29,7 +30,7 @@ var AspectsDropdown = {
       replacement = dropdown.find(".selected").first().text();
       /* flash message prompt */
       if (!isInPublisher) {
-        var message = Diaspora.I18n.t("aspect_dropdown.started_sharing_with", {name: dropdown.data('person-short-name')});
+        message = Diaspora.I18n.t("aspect_dropdown.started_sharing_with", {name: dropdown.data('person-short-name')});
         Diaspora.page.flashMessages.render({success: true, notice: message});
       }
     } else {

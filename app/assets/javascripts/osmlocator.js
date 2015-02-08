@@ -16,7 +16,7 @@ OSM.Locator = function(){
 
   function errorGettingPosition(err) {
     $("#location").remove();
-  };
+  }
 
   return {
     getAddress: geolocalize

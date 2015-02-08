@@ -35,7 +35,7 @@ function createUploader(){
           );
        },
 
-       onComplete: function(id, fileName, responseJSON) {
+       onComplete: function(_id, fileName, responseJSON) {
         $('#fileInfo-publisher').text(Diaspora.I18n.t("photo_uploader.completed", {'file': fileName}));
         var id = responseJSON.data.photo.id,
             url = responseJSON.data.photo.unprocessed_image.url,
@@ -67,7 +67,7 @@ function createUploader(){
                   success: function() {
                             photo.fadeOut(400, function(){
                               photo.remove();
-                              if ( $('.publisher_photo').length == 0){
+                              if ( $('.publisher_photo').length === 0){
                                 $('#publisher_textarea_wrapper').removeClass("with_attachments");
                               }
                             });

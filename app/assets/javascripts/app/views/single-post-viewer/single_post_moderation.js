@@ -35,7 +35,7 @@ app.views.SinglePostModeration = app.views.Feedback.extend({
           document.location.href = "/stream";
         })
         .fail(function() {
-          var flash = new Diaspora.Widgets.FlashMessages;
+          var flash = new Diaspora.Widgets.FlashMessages();
           flash.render({
             success: false,
             notice: Diaspora.I18n.t('failed_to_remove')

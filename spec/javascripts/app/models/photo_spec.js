@@ -16,7 +16,7 @@ describe("app.models.Photo", function() {
   
   describe("createdAt", function() {
     it("returns the photo's created_at as an integer", function() {
-      var date = new Date;
+      var date = new Date();
       this.photo.set({ created_at: +date * 1000 });
 
       expect(typeof this.photo.createdAt()).toEqual("number");

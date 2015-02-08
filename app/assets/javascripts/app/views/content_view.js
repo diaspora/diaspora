@@ -17,7 +17,7 @@ app.views.Content = app.views.Base.extend({
 
   largePhoto : function() {
     var photos = this.model.get("photos")
-    if(!photos || photos.length == 0) { return }
+    if(!photos || photos.length === 0) { return }
     return photos[0]
   },
 
@@ -49,10 +49,10 @@ app.views.Content = app.views.Base.extend({
       , oembed = elem.find(".oembed")
       , opengraph = elem.find(".opengraph")
       , addHeight = 0;
-    if($.trim(oembed.html()) != "") {
+    if($.trim(oembed.html()) !== "") {
       addHeight += oembed.height();
     }
-    if($.trim(opengraph.html()) != "") {
+    if($.trim(opengraph.html()) !== "") {
       addHeight += opengraph.height();
     }
 

@@ -178,18 +178,6 @@ factory = {
     }
   },
 
-  comment: function(overrides) {
-    var defaultAttrs = {
-      id:     this.id.next(),
-      guid:   this.guid(),
-      text:   "This is an awesome comment!",
-      author: this.author(),
-      created_at: "2012-01-03T19:53:13Z"
-    };
-
-    return new app.models.Comment(_.extend(defaultAttrs, overrides))
-  },
-
   aspectAttrs: function(overrides) {
     var names = ['Work','School','Family','Friends','Just following','People','Interesting'];
     var defaultAttrs = {

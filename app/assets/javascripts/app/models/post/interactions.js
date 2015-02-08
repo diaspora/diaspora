@@ -84,7 +84,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
     var self = this;
 
     this.comments.make(text).fail(function () {
-      flash = new Diaspora.Widgets.FlashMessages;
+      flash = new Diaspora.Widgets.FlashMessages();
       flash.render({
         success: false,
         notice: Diaspora.I18n.t("failed_to_post_message")
@@ -101,7 +101,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
   reshare : function(){
     var interactions = this
       , reshare = this.post.reshare()
-      , flash = new Diaspora.Widgets.FlashMessages;
+      , flash = new Diaspora.Widgets.FlashMessages();
 
     reshare.save({}, {
       success : function(resp){

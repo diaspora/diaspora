@@ -138,7 +138,7 @@ describe("app.views.Feedback", function(){
 
     it("reshares the model", function(){
       spyOn(window, "confirm").and.returnValue(true);
-      spyOn(this.view.model.reshare(), "save").and.returnValue(new $.Deferred)
+      spyOn(this.view.model.reshare(), "save").and.returnValue(new $.Deferred())
       this.view.$("a.reshare").first().click();
       expect(this.view.model.reshare().save).toHaveBeenCalled();
     })

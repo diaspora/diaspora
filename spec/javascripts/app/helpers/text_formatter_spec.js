@@ -73,7 +73,7 @@ describe("app.helpers.textFormatter", function(){
     it('returns the name of the mention if the mention does not exist in the array', function(){
       var text = "hey there @{Chris Smith; chris@example.com}"
       var formattedText = this.formatter(text, [])
-      expect(formattedText.match(/\<a/)).toBeNull();
+      expect(formattedText.match(/<a/)).toBeNull();
       expect(formattedText).toContain('Chris Smith');
     });
   });
@@ -134,6 +134,7 @@ describe("app.helpers.textFormatter", function(){
 
     context("non-ascii url", function() {
       beforeEach(function() {
+        /* jshint -W100 */
         this.evilUrls = [
           "http://www.bürgerentscheid-krankenhäuser.de", // example from issue #2665
           "http://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
@@ -143,6 +144,7 @@ describe("app.helpers.textFormatter", function(){
           "http://de.wikipedia.org/wiki/Liste_der_Abkürzungen_(Netzjargon)", // #3645
           "http://wiki.com/?query=Kr%E4fte", // #4874
         ];
+        /* jshint +W100 */
         this.asciiUrls = [
           "http://www.xn--brgerentscheid-krankenhuser-xkc78d.de",
           "http://xn--bndnis-fr-krankenhuser-i5b27cha.de/wp-content/uploads/2011/11/cropped-logohp.jpg",

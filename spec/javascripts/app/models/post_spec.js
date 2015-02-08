@@ -29,7 +29,7 @@ describe("app.models.Post", function() {
 
   describe("createdAt", function() {
     it("returns the post's created_at as an integer", function() {
-      var date = new Date;
+      var date = new Date();
       this.post.set({ created_at: +date * 1000 });
 
       expect(typeof this.post.createdAt()).toEqual("number");

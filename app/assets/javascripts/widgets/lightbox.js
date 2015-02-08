@@ -94,7 +94,7 @@ jQuery.fn.center = (function() {
 
     this.nextImage = function(thumb){
       var next = thumb.next();
-      if (next.length == 0) {
+      if (next.length === 0) {
         next = self.imageset.find("img").first();
       }
       return(next);
@@ -102,7 +102,7 @@ jQuery.fn.center = (function() {
 
     this.prevImage = function(thumb){
       var prev = thumb.prev();
-      if (prev.length == 0) {
+      if (prev.length === 0) {
         prev = self.imageset.find("img").last();
       }
       return(prev);
@@ -132,7 +132,7 @@ jQuery.fn.center = (function() {
 
         if(image.attr("data-full-photo") == imageUrl) {
           imageThumb = thumb;
-        };
+        }
 
         self.imageset.append(thumb);
       });

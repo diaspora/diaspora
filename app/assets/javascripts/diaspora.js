@@ -21,14 +21,18 @@
           var eventNames = eventName.split(" ");
 
           for(eventName in eventNames) {
-            this.eventsContainer.trigger(eventNames[eventName], args);
+            if(eventNames.hasOwnProperty(eventName)) {
+              this.eventsContainer.trigger(eventNames[eventName], args);
+            }
           }
         },
         subscribe: function(eventName, callback, context) {
           var eventNames = eventName.split(" ");
 
           for(eventName in eventNames) {
-            this.eventsContainer.bind(eventNames[eventName], $.proxy(callback, context));
+            if(eventNames.hasOwnProperty(eventName)) {
+              this.eventsContainer.bind(eventNames[eventName], $.proxy(callback, context));
+            }
           }
         }
       });

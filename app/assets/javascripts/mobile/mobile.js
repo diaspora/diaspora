@@ -247,8 +247,8 @@ $(document).ready(function(){
         container.show();
 
       } else {
-        var container = $("<div class='comments_container not_all_present'></div>"),
-            comments = $("<ul class='comments'></ul>");
+        var comments = $("<ul class='comments'></ul>");
+        container = $("<div class='comments_container not_all_present'></div>");
 
         comments.html(data);
         container.append(comments);

@@ -2,6 +2,42 @@
 
 var realXMLHttpRequest = window.XMLHttpRequest;
 
+// matches flash messages with success/error and contained text
+var flashMatcher = function(flash, id, text) {
+  textContained = true;
+  if( text ) {
+    textContained = (flash.text().indexOf(text) !== -1);
+  }
+
+  return flash.is(id) &&
+          flash.hasClass('expose') &&
+          textContained;
+};
+
+var context = describe;
+var spec = {};
+var customMatchers = {
+  toBeSuccessFlashMessage: function(util) {
+    return {
+      compare: function(actual, expected) {
+        var result = {};
+        result.pass = flashMatcher(actual, '#flash_notice', expected);
+        return result;
+      }
+    };
+  },
+  toBeErrorFlashMessage: function(util) {
+    return {
+      compare: function(actual, expected) {
+        var result = {};
+        result.pass = flashMatcher(actual, '#flash_error', expected);
+        return result;
+      }
+    };
+  }
+};
+
+
 beforeEach(function() {
   $('#jasmine_content').html(spec.readFixture("underscore_templates"));
 
@@ -39,41 +75,6 @@ afterEach(function() {
 });
 
 
-// matches flash messages with success/error and contained text
-var flashMatcher = function(flash, id, text) {
-  textContained = true;
-  if( text ) {
-    textContained = (flash.text().indexOf(text) !== -1);
-  }
-
-  return flash.is(id) &&
-          flash.hasClass('expose') &&
-          textContained;
-};
-
-var context = describe;
-var spec = {};
-var customMatchers = {
-  toBeSuccessFlashMessage: function(util) {
-    return {
-      compare: function(actual, expected) {
-        var result = {};
-        result.pass = flashMatcher(actual, '#flash_notice', expected);
-        return result;
-      }
-    };
-  },
-  toBeErrorFlashMessage: function(util) {
-    return {
-      compare: function(actual, expected) {
-        var result = {};
-        result.pass = flashMatcher(actual, '#flash_error', expected);
-        return result;
-      }
-    };
-  }
-};
-
 window.stubView = function stubView(text){
   var stubClass = Backbone.View.extend({
     render : function(){
@@ -82,7 +83,7 @@ window.stubView = function stubView(text){
     }
   })
 
-  return new stubClass
+  return new stubClass();
 }
 
 window.loginAs = function loginAs(attrs){
@@ -123,8 +124,10 @@ window.hipsterIpsumFourParagraphs = "Mcsweeney's mumblecore irony fugiat, ex iph
 
 spec.clearLiveEventBindings = function() {
   var events = jQuery.data(document, "events");
-  for (prop in events) {
-    delete events[prop];
+  for (var prop in events) {
+    if(events.hasOwnProperty(prop)) {
+      delete events[prop];
+    }
   }
 };
 
