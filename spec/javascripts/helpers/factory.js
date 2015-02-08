@@ -1,13 +1,13 @@
-factory = {
+var factory = {
   id : {
     current : 0,
     next : function(){
-      return factory.id.current += 1
+      return factory.id.current += 1;
     }
   },
 
   guid : function(){
-    return 'omGUID' + this.id.next()
+    return 'omGUID' + this.id.next();
   },
 
   like : function(overrides){
@@ -16,9 +16,9 @@ factory = {
       "author" : this.author(),
       "guid" : this.guid(),
       "id" : this.id.next()
-    }
+    };
 
-    return _.extend(defaultAttrs, overrides)
+    return _.extend(defaultAttrs, overrides);
   },
 
   comment : function(overrides) {
@@ -28,17 +28,17 @@ factory = {
       "guid" : this.guid(),
       "id" : this.id.next(),
       "text" : "This is a comment!"
-    }
+    };
 
-    return new app.models.Comment(_.extend(defaultAttrs, overrides))
+    return new app.models.Comment(_.extend(defaultAttrs, overrides));
   },
 
   user : function(overrides) {
-    return new app.models.User(factory.userAttrs(overrides))
+    return new app.models.User(factory.userAttrs(overrides));
   },
 
   userAttrs : function(overrides){
-    var id = this.id.next()
+    var id = this.id.next();
     var defaultAttrs = {
       "name":"Awesome User" + id,
       "id": id,
@@ -47,9 +47,9 @@ factory = {
         "large":"http://localhost:3000/images/user/uma.jpg",
         "medium":"http://localhost:3000/images/user/uma.jpg",
         "small":"http://localhost:3000/images/user/uma.jpg"}
-    }
+    };
 
-    return _.extend(defaultAttrs, overrides)
+    return _.extend(defaultAttrs, overrides);
   },
 
   postAttrs : function(){
@@ -76,7 +76,7 @@ factory = {
         "likes" : [],
         "reshares" : []
       }
-    }
+    };
   },
 
   profileAttrs: function(overrides) {
@@ -145,16 +145,16 @@ factory = {
           medium: "http://localhost:3000/uploads/images/thumb_medium_d85410bd19db1016894c.jpg",
           small: "http://localhost:3000/uploads/images/thumb_small_d85410bd19db1016894c.jpg"
         }
-    }, overrides)
+    }, overrides);
   },
 
   post :  function(overrides) {
-    defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()})
-    return new app.models.Post(_.extend(defaultAttrs, overrides))
+    var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
+    return new app.models.Post(_.extend(defaultAttrs, overrides));
   },
 
   postWithPoll :  function(overrides) {
-    defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
+    var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
     defaultAttrs = _.extend(defaultAttrs,  {"already_participated_in_poll" : false});
     defaultAttrs = _.extend(defaultAttrs,  {"poll" : factory.poll()});
     return new app.models.Post(_.extend(defaultAttrs, overrides));
@@ -162,10 +162,10 @@ factory = {
 
   statusMessage : function(overrides){
     //intentionally doesn't have an author to mirror creation process, maybe we should change the creation process
-    return new app.models.StatusMessage(_.extend(factory.postAttrs(), overrides))
+    return new app.models.StatusMessage(_.extend(factory.postAttrs(), overrides));
   },
 
-  poll: function(overrides){
+  poll: function(){
     return {
       "question" : "This is an awesome question",
       "created_at" : "2012-01-03T19:53:13Z",
@@ -175,19 +175,7 @@ factory = {
       "guid" : this.guid(),
       "poll_id": this.id.next(),
       "participation_count" : 10
-    }
-  },
-
-  comment: function(overrides) {
-    var defaultAttrs = {
-      id:     this.id.next(),
-      guid:   this.guid(),
-      text:   "This is an awesome comment!",
-      author: this.author(),
-      created_at: "2012-01-03T19:53:13Z"
     };
-
-    return new app.models.Comment(_.extend(defaultAttrs, overrides))
   },
 
   aspectAttrs: function(overrides) {
@@ -212,6 +200,6 @@ factory = {
     window.gon = { preloads: {} };
     _.extend(window.gon.preloads, defaults, overrides);
   }
-}
+};
 
 factory.author = factory.userAttrs;

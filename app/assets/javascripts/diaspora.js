@@ -21,14 +21,18 @@
           var eventNames = eventName.split(" ");
 
           for(eventName in eventNames) {
-            this.eventsContainer.trigger(eventNames[eventName], args);
+            if(eventNames.hasOwnProperty(eventName)) {
+              this.eventsContainer.trigger(eventNames[eventName], args);
+            }
           }
         },
         subscribe: function(eventName, callback, context) {
           var eventNames = eventName.split(" ");
 
           for(eventName in eventNames) {
-            this.eventsContainer.bind(eventNames[eventName], $.proxy(callback, context));
+            if(eventNames.hasOwnProperty(eventName)) {
+              this.eventsContainer.bind(eventNames[eventName], $.proxy(callback, context));
+            }
           }
         }
       });
@@ -38,7 +42,7 @@
   };
 
   Diaspora.BaseWidget = {
-    instantiate: function(Widget, element) {
+    instantiate: function(Widget) {
       // Mobile version loads only some widgets
       if (typeof Diaspora.Widgets[Widget] === 'undefined') return;
 
@@ -85,18 +89,16 @@
 
     if(!$.mobile)//why does this need this?
       $.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
-    Diaspora.page.publish("page/ready", [$(document.body)])
+    Diaspora.page.publish("page/ready", [$(document.body)]);
   };
 
   // temp hack to check if backbone is enabled for the page
   Diaspora.backboneEnabled = function(){
     return window.app && window.app.stream !== undefined;
-  }
+  };
 
   window.Diaspora = Diaspora;
 })();
 
-
 $(Diaspora.instantiatePage);
 // @license-end
-

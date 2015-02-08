@@ -1,16 +1,16 @@
 describe("app.models.Post.Interactions", function(){
   beforeEach(function(){
     this.interactions = factory.post().interactions;
-    this.author = factory.author({guid: "loggedInAsARockstar"})
-    loginAs({guid: "loggedInAsARockstar"})
+    this.author = factory.author({guid: "loggedInAsARockstar"});
+    loginAs({guid: "loggedInAsARockstar"});
 
-    this.userLike = new app.models.Like({author : this.author})
+    this.userLike = new app.models.Like({author : this.author});
   });
 
   describe("toggleLike", function(){
     it("calls unliked when the user_like exists", function(){
       spyOn(this.interactions, "unlike").and.returnValue(true);
-      this.interactions.likes.add(this.userLike)
+      this.interactions.likes.add(this.userLike);
       this.interactions.toggleLike();
 
       expect(this.interactions.unlike).toHaveBeenCalled();
@@ -34,7 +34,7 @@ describe("app.models.Post.Interactions", function(){
 
   describe("unlike", function(){
     it("calls destroy on the likes collection", function(){
-      this.interactions.likes.add(this.userLike)
+      this.interactions.likes.add(this.userLike);
       this.interactions.unlike();
 
       expect(this.interactions.likes.length).toEqual(0);

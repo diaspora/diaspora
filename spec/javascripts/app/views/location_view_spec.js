@@ -12,6 +12,6 @@ describe("app.views.Location", function(){
       expect($("#location_address")).toBeTruthy();
       expect($("#location_coords")).toBeTruthy();
       expect($("#hide_location")).toBeTruthy();
-    })
+    });
   });
 });

@@ -12,7 +12,7 @@ app.views.Help = app.views.StaticContentView.extend({
     "click .faq-link-keyboard-shortcuts" : "keyboardShortcuts",
   },
 
-  initialize : function(options) {
+  initialize : function() {
     this.GETTING_HELP_SUBS = {
       getting_started_a: { tutorial_series: this.linkHtml("http://diasporafoundation.org/getting_started/sign_up", Diaspora.I18n.t( 'getting_started_tutorial' )) },
       get_support_a_website: { link: this.linkHtml("https://diasporafoundation.org/", Diaspora.I18n.t( 'foundation_website' ))},
@@ -52,7 +52,7 @@ app.views.Help = app.views.StaticContentView.extend({
       title_tags: Diaspora.I18n.t( 'tags.title' ),
       title_keyboard_shortcuts: Diaspora.I18n.t( 'keyboard_shortcuts.title' ),
       title_miscellaneous: Diaspora.I18n.t( 'miscellaneous.title' ),
-    }
+    };
 
     return this;
   },
@@ -124,8 +124,8 @@ app.views.Help = app.views.StaticContentView.extend({
 
   renderStaticSection: function(section, template, subs) {
     this.clearItems();
-    data = $.extend(Diaspora.I18n.resolve(section), { className: section });
-    help_section = new app.views.HelpSectionView({
+    var data = $.extend(Diaspora.I18n.resolve(section), { className: section });
+    var help_section = new app.views.HelpSectionView({
       template: template,
       data: data,
       subs: subs
@@ -173,4 +173,3 @@ app.views.Help = app.views.StaticContentView.extend({
   },
 });
 // @license-end
-

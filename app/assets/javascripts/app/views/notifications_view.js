@@ -12,8 +12,8 @@ app.views.Notifications = Backbone.View.extend({
   },
 
   toggleUnread: function(evt) {
-    note = $(evt.target).closest(".stream_element");
-    unread = note.hasClass("unread");
+    var note = $(evt.target).closest(".stream_element");
+    var unread = note.hasClass("unread");
 
     if (unread) {
       this.setRead(note.data("guid"));
@@ -44,17 +44,17 @@ app.views.Notifications = Backbone.View.extend({
   },
 
   clickSuccess: function(data) {
-    type = $('.stream_element[data-guid=' + data["guid"] + ']').data('type');
+    var type = $('.stream_element[data-guid=' + data["guid"] + ']').data('type');
     this.updateView(data["guid"], type, data["unread"]);
   },
 
   updateView: function(guid, type, unread) {
-    change = unread ? 1 : -1;
-    all_notes = $('ul.nav > li:eq(0) .badge');
-    type_notes = $('ul.nav > li[data-type=' + type + '] .badge');
-    header_badge = $('#notification_badge .badge_count');
+    var change = unread ? 1 : -1,
+        all_notes = $('ul.nav > li:eq(0) .badge'),
+        type_notes = $('ul.nav > li[data-type=' + type + '] .badge'),
+        header_badge = $('#notification_badge .badge_count'),
+        note = $('.stream_element[data-guid=' + guid + ']');
 
-    note = $('.stream_element[data-guid=' + guid + ']');
     if(unread) {
       note.removeClass("read").addClass("unread");
       $(".unread-toggle .entypo", note)
@@ -93,4 +93,3 @@ app.views.Notifications = Backbone.View.extend({
   }
 });
 // @license-end
-

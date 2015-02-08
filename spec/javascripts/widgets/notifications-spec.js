@@ -80,7 +80,7 @@ describe("Diaspora.Widgets.Notifications", function() {
     it("calls Notifications.changeNotificationCount", function() {
       notifications.decrementCount();
       expect(notifications.changeNotificationCount).toHaveBeenCalled();
-    })
+    });
   });
 
   describe("incrementCount", function() {

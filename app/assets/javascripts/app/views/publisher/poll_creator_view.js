@@ -66,8 +66,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
     this.$('input').val('');
   },
 
-  validate: function(evt){
-    var input = $(evt.target);
+  validate: function(){
     this.validatePoll();
     this.trigger('change');
   },
@@ -98,7 +97,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
       // Validate the input unless it is the last one, or there are only the
       // question field and two options
       if( i !== inputs.length - 1 || inputs.length <= 3) {
-        if(_this.validateInput($(input)) == false) pollValid = false;
+        if(_this.validateInput($(input)) === false) pollValid = false;
       }      
     });
 

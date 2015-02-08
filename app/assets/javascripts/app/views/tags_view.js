@@ -2,9 +2,8 @@
 
 app.views.Tags = Backbone.View.extend({
 
-  initialize: function(opts) {
+  initialize: function() {
     app.publisher.setText("#"+ this.tagName + " ");
   }
 });
 // @license-end
-

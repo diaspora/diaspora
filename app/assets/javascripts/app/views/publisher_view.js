@@ -53,10 +53,10 @@ app.views.Publisher = Backbone.View.extend({
     $(window).on('beforeunload', _.bind(this._beforeUnload, this));
 
     // sync textarea content
-    if( this.el_hiddenInput.val() == "" ) {
+    if( this.el_hiddenInput.val() === "" ) {
       this.el_hiddenInput.val( this.el_input.val() );
     }
-    if( this.el_input.val() == "" ) {
+    if( this.el_input.val() === "" ) {
       this.el_input.val( this.el_hiddenInput.val() );
     }
 
@@ -71,11 +71,11 @@ app.views.Publisher = Backbone.View.extend({
     // textchange event won't be called in Backbone...
     this.el_input.bind('textchange', $.noop);
 
-    var _this = this
+    var _this = this;
     $('body').on('click', function(event){
       // if the click event is happened outside the publisher view, then try to close the box
-      if( _this.el && $(event.target).closest('#publisher').attr('id') != _this.el.id){
-          _this.tryClose()
+      if( _this.el && $(event.target).closest('#publisher').attr('id') !== _this.el.id){
+          _this.tryClose();
         }
     });
 
@@ -210,7 +210,7 @@ app.views.Publisher = Backbone.View.extend({
         // standalone means single-shot posting (until further notice)
         if( self.standalone ) self.setEnabled(false);
       },
-      error: function(model, resp, options) {
+      error: function(model, resp) {
         if( app.publisher ) app.publisher.trigger('publisher:error');
         self.setInputEnabled(true);
         Diaspora.page.flashMessages.render({ 'success':false, 'notice':resp.responseText });
@@ -222,7 +222,7 @@ app.views.Publisher = Backbone.View.extend({
 
   // creates the location
   showLocation: function(){
-    if($('#location').length == 0){
+    if($('#location').length === 0){
       $('#location_container').append('<div id="location"></div>');
       this.el_wrapper.addClass('with_location');
       this.view_locator = new app.views.Location();
@@ -245,7 +245,7 @@ app.views.Publisher = Backbone.View.extend({
 
   // avoid submitting form when pressing Enter key
   avoidEnter: function(evt){
-    if(evt.keyCode == 13)
+    if(evt.keyCode === 13)
       return false;
   },
 
@@ -257,7 +257,7 @@ app.views.Publisher = Backbone.View.extend({
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
 
-    var photos = new Array();
+    var photos = [];
     $('li.publisher_photo img').each(function(){
       var file = $(this).attr('src').substring("/uploads/images/".length);
       photos.push(
@@ -271,11 +271,19 @@ app.views.Publisher = Backbone.View.extend({
       );
     });
 
-    var mentioned_people = new Array();
-    var regexp = new RegExp("@{\(\[\^\;\]\+\); \(\[\^\}\]\+\)}", "g");
-    while(user=regexp.exec(serializedForm["status_message[text]"])){
+    var mentioned_people = [],
+        regexp = new RegExp("@{\(\[\^\;\]\+\); \(\[\^\}\]\+\)}", "g"),
+        user;
+
+    var getMentionedUser = function(handle) {
+      return Mentions.contacts.filter(function(user) {
+        return user.handle === handle;
+      })[0];
+    };
+
+    while( (user = regexp.exec(serializedForm["status_message[text]"])) ){
       // user[1]: name, user[2]: handle
-      var mentioned_user = Mentions.contacts.filter(function(item) { return item.handle == user[2];})[0];
+      var mentioned_user = getMentionedUser(user[2]);
       if(mentioned_user){
         mentioned_people.push({
           "id":mentioned_user["id"],
@@ -289,7 +297,7 @@ app.views.Publisher = Backbone.View.extend({
 
     var date = (new Date()).toISOString();
 
-    var poll = undefined;
+    var poll;
     var poll_question = serializedForm["poll_question"];
     var poll_answers_arry = _.flatten([serializedForm["poll_answers[]"]]);
     var poll_answers = _.map(poll_answers_arry, function(answer){
@@ -308,7 +316,7 @@ app.views.Publisher = Backbone.View.extend({
     var previewMessage = {
       "id" : 0,
       "text" : serializedForm["status_message[text]"],
-      "public" : serializedForm["aspect_ids[]"]=="public",
+      "public" : serializedForm["aspect_ids[]"] === "public",
       "created_at" : date,
       "interacted_at" : date,
       "post_type" : "StatusMessage",
@@ -349,7 +357,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   keyDown : function(evt) {
-    if( evt.keyCode == 13 && evt.ctrlKey ) {
+    if( evt.keyCode === 13 && evt.ctrlKey ) {
       this.$("form").submit();
       this.open();
       return false;
@@ -406,7 +414,7 @@ app.views.Publisher = Backbone.View.extend({
   tryClose : function(){
     // if it is not submittable, close it.
     if( !this._submittable() ){
-      this.close()
+      this.close();
     }
   },
 
@@ -483,7 +491,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   _beforeUnload: function(e) {
-    if(this._submittable() && this.el_input.val() != this.prefillText){
+    if(this._submittable() && this.el_input.val() !== this.prefillText){
       var confirmationMessage = Diaspora.I18n.t("confirm_unload");
       (e || window.event).returnValue = confirmationMessage;       //Gecko + IE
       return confirmationMessage;                                  //Webkit, Safari, Chrome, etc.
@@ -509,4 +517,3 @@ $.fn.serializeObject = function()
   return o;
 };
 // @license-end
-

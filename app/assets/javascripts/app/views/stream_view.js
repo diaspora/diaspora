@@ -5,17 +5,17 @@
 app.views.Stream = app.views.InfScroll.extend(_.extend(
   app.views.StreamShortcuts, {
   	
-  initialize: function(options) {
-    this.stream = this.model
-    this.collection = this.stream.items
+  initialize: function() {
+    this.stream = this.model;
+    this.collection = this.stream.items;
 
-    this.postViews = []
+    this.postViews = [];
 
-    this.setupNSFW()
-    this.setupLightbox()
-    this.setupInfiniteScroll()
-    this.setupShortcuts()
-    this.markNavSelected()
+    this.setupNSFW();
+    this.setupLightbox();
+    this.setupInfiniteScroll();
+    this.setupShortcuts();
+    this.markNavSelected();
   },
 
   postClass : app.views.StreamPost,
@@ -26,11 +26,10 @@ app.views.Stream = app.views.InfScroll.extend(_.extend(
   },
 
   setupNSFW : function(){
-    app.currentUser.bind("nsfwChanged", reRenderPostViews, this)
-
     function reRenderPostViews() {
-      _.map(this.postViews, function(view){ view.render() })
+      _.map(this.postViews, function(view){ view.render() });
     }
+    app.currentUser.bind("nsfwChanged", reRenderPostViews, this);
   },
 
   markNavSelected : function() {
@@ -41,4 +40,3 @@ app.views.Stream = app.views.InfScroll.extend(_.extend(
   }
 }));
 // @license-end
-

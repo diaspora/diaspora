@@ -27,7 +27,7 @@ jQuery.fn.center = (function() {
       imageSelector: 'img.stream-photo'
     };
 
-    this.subscribe("widget/ready", function(evt) {
+    this.subscribe("widget/ready", function() {
       $.extend(self, {
         lightbox: $("#lightbox"),
         navigation: $("#lightbox-navigation"),
@@ -94,7 +94,7 @@ jQuery.fn.center = (function() {
 
     this.nextImage = function(thumb){
       var next = thumb.next();
-      if (next.length == 0) {
+      if (next.length === 0) {
         next = self.imageset.find("img").first();
       }
       return(next);
@@ -102,7 +102,7 @@ jQuery.fn.center = (function() {
 
     this.prevImage = function(thumb){
       var prev = thumb.prev();
-      if (prev.length == 0) {
+      if (prev.length === 0) {
         prev = self.imageset.find("img").last();
       }
       return(prev);
@@ -130,9 +130,9 @@ jQuery.fn.center = (function() {
           "data-full-photo": image.attr("data-full-photo")
         });
 
-        if(image.attr("data-full-photo") == imageUrl) {
+        if(image.attr("data-full-photo") === imageUrl) {
           imageThumb = thumb;
-        };
+        }
 
         self.imageset.append(thumb);
       });
@@ -154,7 +154,7 @@ jQuery.fn.center = (function() {
     this.scrollToThumbnail = function(imageThumb) {
       self.navigation.animate({scrollLeft: (self.navigation.scrollLeft()
          + imageThumb.offset().left +35 - (self.window.width() / 2))}, 200, 'swing');
-    }
+    };
 
     this.selectImage = function(imageThumb) {
       $(".selected", self.imageset).removeClass("selected");

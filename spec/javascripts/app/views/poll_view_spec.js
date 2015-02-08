@@ -10,7 +10,7 @@ describe("app.views.Poll", function(){
       var percentage = (this.view.poll.poll_answers[0].vote_count / this.view.poll.participation_count)*100;
       expect(this.view.$('.poll_progress_bar:first').css('width')).toBe(percentage+"%");
       expect(this.view.$(".percentage:first").text()).toBe(percentage + "%");
-    })
+    });
   });
 
   describe("toggleResult", function(){
@@ -18,7 +18,7 @@ describe("app.views.Poll", function(){
       expect(this.view.$('.poll_progress_bar_wrapper:first').css('display')).toBe("none");
       this.view.toggleResult(null);
       expect(this.view.$('.poll_progress_bar_wrapper:first').css('display')).toBe("block");
-    })
+    });
   });
 
   describe("vote", function(){
@@ -32,7 +32,7 @@ describe("app.views.Poll", function(){
       var obj = JSON.parse(jasmine.Ajax.requests.mostRecent().params);
       expect(obj.poll_id).toBe(poll.poll_id);
       expect(obj.poll_answer_id).toBe(answer.id);
-    })
+    });
   });
 
   describe("render", function() {

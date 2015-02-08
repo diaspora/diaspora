@@ -7,7 +7,7 @@ app.models.Contact = Backbone.Model.extend({
   },
 
   inAspect : function(id) {
-    return this.aspect_memberships.any(function(membership){ return membership.get('aspect').id == id; });
+    return this.aspect_memberships.any(function(membership){ return membership.get('aspect').id === id; });
   }
 });
 // @license-end

@@ -9,6 +9,7 @@
 // Provides the ability to specify the visibility of posted content as public
 // or limited to selected aspects
 app.views.PublisherAspectSelectorBlueprint  = Backbone.View.extend({
+  /* global AspectsDropdown */
 
   events: {
     "click .dropdown_list > li": "toggleAspect"
@@ -21,7 +22,6 @@ app.views.PublisherAspectSelectorBlueprint  = Backbone.View.extend({
   // event handler for aspect selection
   toggleAspect: function(evt) {
     var el = $(evt.target);
-    var btn = el.parent('.dropdown').find('.button');
 
     // visually toggle the aspect selection
     if( el.is('.radio') ) {

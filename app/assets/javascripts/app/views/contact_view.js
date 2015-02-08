@@ -21,7 +21,7 @@ app.views.Contact = app.views.Base.extend({
   postRenderTemplate: function() {
     var self = this;
     var dropdownEl = this.$('.aspect_membership_dropdown.placeholder');
-    if( dropdownEl.length == 0 ) {
+    if( dropdownEl.length === 0 ) {
       return;
     }
 
@@ -44,10 +44,10 @@ app.views.Contact = app.views.Base.extend({
       'person_id': this.model.get('person_id'),
       'aspect_id': app.aspect.get('id')
     },{
-      success: function(model,response){
+      success: function(){
         self.render();
       },
-      error: function(model,response){
+      error: function(){
         var msg = Diaspora.I18n.t('contacts.error_add', { 'name': self.model.get('person').name });
         Diaspora.page.flashMessages.render({ 'success':false, 'notice':msg });
       }
@@ -57,12 +57,12 @@ app.views.Contact = app.views.Base.extend({
   removeContactFromAspect: function(){
     var self = this;
     this.model.aspect_memberships
-      .find(function(membership){ return membership.get('aspect').id == app.aspect.id; })
+      .find(function(membership){ return membership.get('aspect').id === app.aspect.id; })
       .destroy({
-        success: function(model,response){
+        success: function(){
           self.render();
         },
-        error: function(model,response){
+        error: function(){
           var msg = Diaspora.I18n.t('contacts.error_remove', { 'name': self.model.get('person').name });
           Diaspora.page.flashMessages.render({ 'success':false, 'notice':msg });
         }

@@ -15,17 +15,17 @@ describe("app.views.CommentStream", function(){
 
   describe("postRenderTemplate", function(){
     it("applies infield labels", function(){
-      spyOn($.fn, "placeholder")
-      this.view.postRenderTemplate()
-      expect($.fn.placeholder).toHaveBeenCalled()
-      expect($.fn.placeholder.calls.mostRecent().object.selector).toBe("textarea")
+      spyOn($.fn, "placeholder");
+      this.view.postRenderTemplate();
+      expect($.fn.placeholder).toHaveBeenCalled();
+      expect($.fn.placeholder.calls.mostRecent().object.selector).toBe("textarea");
     });
 
     it("autoResizes the new comment textarea", function(){
-      spyOn($.fn, "autoResize")
-      this.view.postRenderTemplate()
-      expect($.fn.autoResize).toHaveBeenCalled()
-      expect($.fn.autoResize.calls.mostRecent().object.selector).toBe("textarea")
+      spyOn($.fn, "autoResize");
+      this.view.postRenderTemplate();
+      expect($.fn.autoResize).toHaveBeenCalled();
+      expect($.fn.autoResize.calls.mostRecent().object.selector).toBe("textarea");
     });
   });
 
@@ -44,7 +44,7 @@ describe("app.views.CommentStream", function(){
       });
 
       it("fires an AJAX request", function() {
-        params = JSON.parse(this.request.params);
+        var params = JSON.parse(this.request.params);
         // TODO: use this, once jasmine-ajax is updated to latest version
         //params = this.request.data();
 
@@ -108,7 +108,7 @@ describe("app.views.CommentStream", function(){
 
     it("should not submit the form when enter key is pressed", function(){
       this.view.render();
-      var form = this.view.$("form")
+      var form = this.view.$("form");
       form.submit(submitCallback);
 
       var e = $.Event("keydown", { keyCode: 13 });

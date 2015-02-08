@@ -32,12 +32,11 @@ app.views.SinglePostContent = app.views.Base.extend({
       authorIsCurrentUser :app.currentUser.isAuthorOf(this.model),
       showPost : this.showPost(),
       text : app.helpers.textFormatter(this.model.get("text"), this.model.get("mentioned_people"))
-    })
+    });
   },
 
   showPost : function() {
-    return (app.currentUser.get("showNsfw")) || !this.model.get("nsfw")
+    return (app.currentUser.get("showNsfw")) || !this.model.get("nsfw");
   }
 });
 // @license-end
-

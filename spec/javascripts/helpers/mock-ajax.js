@@ -33,7 +33,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 (function() {
   function extend(destination, source) {
     for (var property in source) {
-      destination[property] = source[property];
+      if(source.hasOwnProperty(property)) {
+        destination[property] = source[property];
+      }
     }
     return destination;
   }
@@ -128,7 +130,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       onload: function() {
       },
 
-      onreadystatechange: function(isTimeout) {
+      onreadystatechange: function() {
       },
 
       status: null,
@@ -225,7 +227,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     };
 
     this.filter = function(url_to_match) {
-      if (requests.length == 0) return [];
+      if (requests.length === 0) return [];
       var matching_requests = [];
 
       for (var i = 0; i < requests.length; i++) {
@@ -236,7 +238,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             url_to_match(requests[i])) {
             matching_requests.push(requests[i]);
         } else {
-          if (requests[i].url == url_to_match) {
+          if (requests[i].url === url_to_match) {
             matching_requests.push(requests[i]);
           }
         }

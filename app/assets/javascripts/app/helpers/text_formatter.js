@@ -6,7 +6,7 @@
 
     var punycodeURL = function(url){
       try {
-        while(url.indexOf("%") !== -1 && url != decodeURI(url)) url = decodeURI(url);
+        while(url.indexOf("%") !== -1 && url !== decodeURI(url)) url = decodeURI(url);
       }
       catch(e){}
 
@@ -15,7 +15,7 @@
 
       url = // rebuild the url
         (!addr.scheme ? '' : addr.scheme +
-        ( (addr.scheme.toLowerCase()=="mailto" || addr.scheme.toLowerCase()=="xmpp") ? ':' : '://')) +
+        ( (addr.scheme.toLowerCase() === "mailto" || addr.scheme.toLowerCase() === "xmpp") ? ':' : '://')) +
         (!addr.user ? '' : addr.user +
         (!addr.pass ? '' : ':'+addr.pass) + '@') +
         punycode.toASCII(addr.host) +

@@ -1,6 +1,6 @@
 (function() {
   app.helpers.truncate = function(passedString, length) {
-    if (passedString == null || passedString == undefined) {
+    if (passedString === null || passedString === undefined) {
       return passedString;
     }
 

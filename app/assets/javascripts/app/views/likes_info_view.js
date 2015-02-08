@@ -19,13 +19,12 @@ app.views.LikesInfo = app.views.Base.extend({
       likes : this.model.interactions.likes.toJSON(),
       likesCount : this.model.interactions.likesCount(),
       likes_fetched : this.model.interactions.get("fetched"),
-    })
+    });
   },
 
   showAvatars : function(evt){
     if(evt) { evt.preventDefault() }
-    this.model.interactions.fetch()
+    this.model.interactions.fetch();
   }
 });
 // @license-end
-

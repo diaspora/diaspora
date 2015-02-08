@@ -29,7 +29,7 @@ app.views.AspectsList = app.views.Base.extend({
   },
 
   toggleAll: function(evt) {
-    if (evt) { evt.preventDefault(); };
+    if (evt) { evt.preventDefault(); }
 
     if (this.collection.allSelected()) {
       this.collection.deselectAll();
@@ -68,6 +68,5 @@ app.views.AspectsList = app.views.Base.extend({
   hideAspectsList: function() {
     this.$el.empty();
   },
-})
+});
 // @license-end
-

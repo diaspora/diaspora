@@ -14,7 +14,6 @@
 
       return timestamp || 0;
     }
-  }
+  };
 })();
 // @license-end
-

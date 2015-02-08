@@ -75,7 +75,7 @@ app.Router = Backbone.Router.extend({
 
   //below here is oldness
 
-  stream : function(page) {
+  stream : function() {
     app.stream = new app.models.Stream();
     app.stream.fetch();
     app.page = new app.views.Stream({model : app.stream});
@@ -113,7 +113,7 @@ app.Router = Backbone.Router.extend({
       var followedTagsAction = new app.views.TagFollowingAction(
             {tagText: decodeURIComponent(name).toLowerCase()}
           );
-      $("#author_info").prepend(followedTagsAction.render().el)
+      $("#author_info").prepend(followedTagsAction.render().el);
       app.tags = new app.views.Tags({tagName: name});
     }
     this._hideInactiveStreamLists();
@@ -143,15 +143,15 @@ app.Router = Backbone.Router.extend({
   },
 
   _hideInactiveStreamLists: function() {
-    if(this.aspects_list && Backbone.history.fragment != "aspects")
+    if(this.aspects_list && Backbone.history.fragment !== "aspects")
       this.aspects_list.hideAspectsList();
 
-    if(this.followedTagsView && Backbone.history.fragment != "followed_tags")
+    if(this.followedTagsView && Backbone.history.fragment !== "followed_tags")
       this.followedTagsView.hideFollowedTags();
   },
 
   bookmarklet: function() {
-    var contents = (window.gon) ? gon.preloads.bookmarklet : {}
+    var contents = (window.gon) ? gon.preloads.bookmarklet : {};
     app.bookmarklet = new app.views.Bookmarklet(
       _.extend({}, {el: $('#bookmarklet')}, contents)
     ).render();
@@ -164,4 +164,3 @@ app.Router = Backbone.Router.extend({
   }
 });
 // @license-end
-

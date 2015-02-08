@@ -3,7 +3,7 @@
 app.models.StreamAspects = app.models.Stream.extend({
 
   url : function(){
-    return _.any(this.items.models) ? this.timeFilteredPath() : this.basePath()
+    return _.any(this.items.models) ? this.timeFilteredPath() : this.basePath();
   },
 
   initialize : function(models, options){

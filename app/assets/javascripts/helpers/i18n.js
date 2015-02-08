@@ -6,7 +6,7 @@ Diaspora.I18n = {
     pluralizationKey: function(n) { return this.fallback.pluralizationKey(n); },
     data: {},
     fallback: {
-      pluralizationKey: function(n) { return n == 1 ? "one" : "other"; },
+      pluralizationKey: function(n) { return n === 1 ? "one" : "other"; },
       data: {}
     }
   },
@@ -20,9 +20,12 @@ Diaspora.I18n = {
   updateLocale: function(locale, data) {
     locale.data = $.extend(locale.data, data);
 
-    rule = this._resolve(locale, ['pluralization_rule']);
+    var rule = this._resolve(locale, ['pluralization_rule']);
     if (rule !== "") {
+      /* jshint evil:true */
+      // TODO change this to `locale.pluralizationKey = rule`?
       eval("locale.pluralizationKey = "+rule);
+      /* jshint evil:false */
     }
   },
 
@@ -37,7 +40,7 @@ Diaspora.I18n = {
   _resolve: function(locale, items) {
     var translatedMessage, nextNamespace, originalItems = items.slice();
 
-    while(nextNamespace = items.shift()) {
+    while( (nextNamespace = items.shift()) ) {
       translatedMessage = (translatedMessage)
         ? translatedMessage[nextNamespace]
         : locale.data[nextNamespace];

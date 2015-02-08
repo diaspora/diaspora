@@ -55,7 +55,7 @@ describe("app.views.Stream", function() {
       });
 
       it("fetches moar when the user is at the bottom of the page", function() {
-        expect(this.view.model.fetch).toHaveBeenCalled()
+        expect(this.view.model.fetch).toHaveBeenCalled();
       });
     });
 

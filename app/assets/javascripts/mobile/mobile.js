@@ -81,7 +81,7 @@ $(document).ready(function(){
           dataType: 'json',
           type: 'DELETE',
           beforeSend: showLoader(link),
-          complete: function(data){
+          complete: function(){
             removeLoader(link);
             link.attr("href", href.replace(/\/\d+$/, ''));
 
@@ -110,10 +110,10 @@ $(document).ready(function(){
             dataType: 'json',
             type: 'POST',
             beforeSend: showLoader(link),
-            success: function(data){
+            success: function(){
               removeLoader(link);
             },
-            error: function(data){
+            error: function(){
               removeLoader(link);
               alert("Failed to reshare!");
             }
@@ -128,7 +128,7 @@ $(document).ready(function(){
     evt.preventDefault();
     var link = $(this),
         parent = link.closest(".bottom_bar").first(),
-        commentsContainer = function(){ return parent.find(".comment_container").first(); }
+        commentsContainer = function(){ return parent.find(".comment_container").first(); },
         existingCommentsContainer = commentsContainer();
 
     if( link.hasClass('active') ) {
@@ -200,7 +200,7 @@ $(document).ready(function(){
         context: link,
         success: function(data){
           var textarea = function(target) { return target.closest(".stream_element").find('textarea.comment_box').first()[0] };
-          link.removeClass('loading')
+          link.removeClass('loading');
 
           if(!link.hasClass("add_comment_bottom_link")){
             link.removeClass('inactive');
@@ -217,9 +217,9 @@ $(document).ready(function(){
 
   $(".stream").delegate("a.cancel_new_comment", "tap click", function(evt){
     evt.preventDefault();
-    var link = $(this);
+    var link = $(this),
         form = link.closest("form"),
-        commentActionLink = link.closest(".bottom_bar").find("a.comment_action").first();
+        commentActionLink = link.closest(".bottom_bar").find("a.comment_action").first(),
         container = link.closest('.bottom_bar').find('.add_comment_bottom_link_container');
 
     if(container.length > 0 ){
@@ -237,7 +237,7 @@ $(document).ready(function(){
     $.post(form.attr('action')+"?format=mobile", form.serialize(), function(data){
       var bottomBar = form.closest('.bottom_bar').first(),
           container = bottomBar.find('.add_comment_bottom_link_container'),
-          commentActionLink = bottomBar.find("a.comment_action").first();
+          commentActionLink = bottomBar.find("a.comment_action").first(),
           reactionLink = bottomBar.find(".show_comments").first(),
           commentCount = bottomBar.find(".comment_count");
 
@@ -247,13 +247,13 @@ $(document).ready(function(){
         container.show();
 
       } else {
-        var container = $("<div class='comments_container not_all_present'></div>"),
-            comments = $("<ul class='comments'></ul>");
+        var comments = $("<ul class='comments'></ul>");
+        container = $("<div class='comments_container not_all_present'></div>");
 
         comments.html(data);
         container.append(comments);
         form.remove();
-        container.appendTo(bottomBar)
+        container.appendTo(bottomBar);
       }
 
       reactionLink.text(reactionLink.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
@@ -264,7 +264,7 @@ $(document).ready(function(){
   });
 
 
-  $(".service_icon").bind("tap click", function(evt) {
+  $(".service_icon").bind("tap click", function() {
     var service = $(this).toggleClass("dim"),
       selectedServices = $("#new_status_message .service_icon:not(.dim)"),
       provider = service.attr("id"),
@@ -302,6 +302,4 @@ $(document).ready(function(){
   });
 
 });
-
 // @license-end
-

@@ -5,7 +5,7 @@ function createUploader(){
 
    var aspectIds = gon.preloads.aspect_ids;
 
-   var uploader = new qq.FileUploaderBasic({
+   new qq.FileUploaderBasic({
        element: document.getElementById('file-upload-publisher'),
        params: {'photo' : {'pending' : 'true', 'aspect_ids' : aspectIds},},
        allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'tiff'],
@@ -25,7 +25,7 @@ function createUploader(){
           emptyError: Diaspora.I18n.t("photo_uploader.new_photo.empty")
        },
 
-       onSubmit: function(id, fileName){
+       onSubmit: function(){
         $('#file-upload-publisher').addClass("loading");
         $('#publisher_textarea_wrapper').addClass("with_attachments");
         $('#photodropzone').append(
@@ -35,7 +35,7 @@ function createUploader(){
           );
        },
 
-       onComplete: function(id, fileName, responseJSON) {
+       onComplete: function(_id, fileName, responseJSON) {
         $('#fileInfo-publisher').text(Diaspora.I18n.t("photo_uploader.completed", {'file': fileName}));
         var id = responseJSON.data.photo.id,
             url = responseJSON.data.photo.unprocessed_image.url,
@@ -53,8 +53,7 @@ function createUploader(){
             "<div class='circle'></div>");
         ////
 
-        var publisher = $('#publisher'),
-            textarea = publisher.find('textarea');
+        var publisher = $('#publisher');
 
         publisher.find("input[type='submit']").removeAttr('disabled');
 
@@ -67,7 +66,7 @@ function createUploader(){
                   success: function() {
                             photo.fadeOut(400, function(){
                               photo.remove();
-                              if ( $('.publisher_photo').length == 0){
+                              if ( $('.publisher_photo').length === 0){
                                 $('#publisher_textarea_wrapper').removeClass("with_attachments");
                               }
                             });
@@ -76,7 +75,7 @@ function createUploader(){
         });
        },
 
-       onAllComplete: function(completed_files){
+       onAllComplete: function(){
        }
 
    });

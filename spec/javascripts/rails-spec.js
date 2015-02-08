@@ -23,10 +23,10 @@ describe("rails", function() {
     it('should not clear normal hidden fields', function(){
       $('#form').trigger('ajax:success');
       expect($('#standard_hidden').val()).toEqual("keep this value");
-    })
+    });
     it('should clear hidden fields marked clear_on_submit', function(){
       $('#form').trigger('ajax:success');
       expect($('#clearable_hidden').val()).toEqual("");
-    })
+    });
   });
 });

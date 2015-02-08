@@ -8,8 +8,6 @@ app.views.SinglePostModeration = app.views.Feedback.extend({
   },
 
   presenter: function() {
-    var interactions = this.model.interactions;
-
     return _.extend(this.defaultPresenter(), {
       authorIsCurrentUser : this.authorIsCurrentUser(),
     });
@@ -21,7 +19,7 @@ app.views.SinglePostModeration = app.views.Feedback.extend({
   },
 
   authorIsCurrentUser: function() {
-    return app.currentUser.authenticated() && this.model.get("author").id == app.user().id;
+    return app.currentUser.authenticated() && this.model.get("author").id === app.user().id;
   },
 
   destroyModel: function(evt) {
@@ -35,7 +33,7 @@ app.views.SinglePostModeration = app.views.Feedback.extend({
           document.location.href = "/stream";
         })
         .fail(function() {
-          var flash = new Diaspora.Widgets.FlashMessages;
+          var flash = new Diaspora.Widgets.FlashMessages();
           flash.render({
             success: false,
             notice: Diaspora.I18n.t('failed_to_remove')

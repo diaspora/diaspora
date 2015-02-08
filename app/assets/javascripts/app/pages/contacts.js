@@ -60,7 +60,7 @@ app.pages.Contacts = Backbone.View.extend({
     $(".header > #aspect_name_form").show();
   },
 
-  updateAspectName: function(evt,data,status,xhr){
+  updateAspectName: function(evt,data){
     $(".header #aspect_name").text(data['name']);
     $("#aspect_nav [data-aspect-id='"+data['id']+"'] .name").text(data['name']);
     $(".header > #aspect_name_form").hide();

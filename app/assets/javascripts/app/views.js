@@ -2,12 +2,12 @@
 
 app.views.Base = Backbone.View.extend({
 
-  initialize : function(options) {
+  initialize : function() {
     this.setupRenderEvents();
   },
 
   presenter : function(){
-    return this.defaultPresenter()
+    return this.defaultPresenter();
   },
 
   setupRenderEvents : function(){
@@ -18,7 +18,7 @@ app.views.Base = Backbone.View.extend({
   },
 
   defaultPresenter : function(){
-    var modelJson = this.model && this.model.attributes ? _.clone(this.model.attributes) : {}
+    var modelJson = this.model && this.model.attributes ? _.clone(this.model.attributes) : {};
 
     return _.extend(modelJson, {
       current_user : app.currentUser.attributes,
@@ -27,19 +27,19 @@ app.views.Base = Backbone.View.extend({
   },
 
   render : function() {
-    this.renderTemplate()
-    this.renderSubviews()
-    this.renderPluginWidgets()
-    this.removeTooltips()
+    this.renderTemplate();
+    this.renderSubviews();
+    this.renderPluginWidgets();
+    this.removeTooltips();
 
-    return this
+    return this;
   },
 
   renderTemplate : function(){
-    var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter
-    this.template = HandlebarsTemplates[this.templateName+"_tpl"]
+    var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter;
+    this.template = HandlebarsTemplates[this.templateName+"_tpl"];
     if(!this.template) {
-      console.log(this.templateName ? ("no template for " + this.templateName) : "no templateName specified")
+      console.log(this.templateName ? ("no template for " + this.templateName) : "no templateName specified");
       return;
     }
 
@@ -58,12 +58,12 @@ app.views.Base = Backbone.View.extend({
   renderSubviews : function(){
     var self = this;
     _.each(this.subviews, function(property, selector){
-      var view = _.isFunction(self[property]) ? self[property]() : self[property]
+      var view = _.isFunction(self[property]) ? self[property]() : self[property];
       if(view) {
-        self.$(selector).html(view.render().el)
+        self.$(selector).html(view.render().el);
         view.delegateEvents();
       }
-    })
+    });
   },
 
   renderPluginWidgets : function() {
@@ -76,16 +76,16 @@ app.views.Base = Backbone.View.extend({
   },
 
   setFormAttrs : function(){
-    this.model.set(_.inject(this.formAttrs, _.bind(setValueFromField, this), {}))
-
     function setValueFromField(memo, attribute, selector){
       if(attribute.slice("-2") === "[]") {
-        memo[attribute.slice(0, attribute.length - 2)] = _.pluck(this.$el.find(selector).serializeArray(), "value")
+        memo[attribute.slice(0, attribute.length - 2)] = _.pluck(this.$el.find(selector).serializeArray(), "value");
       } else {
         memo[attribute] = this.$el.find(selector).val() || this.$el.find(selector).text();
       }
-      return memo
+      return memo;
     }
+
+    this.model.set(_.inject(this.formAttrs, _.bind(setValueFromField, this), {}));
   },
 
   report: function(evt) {
@@ -104,13 +104,13 @@ app.views.Base = Backbone.View.extend({
 
     var report = new app.models.Report();
     report.save(data, {
-      success: function(model, response) {
+      success: function() {
         Diaspora.page.flashMessages.render({
           success: true,
           notice: Diaspora.I18n.t('report.status.created')
         });
       },
-      error: function(model, response) {
+      error: function() {
         Diaspora.page.flashMessages.render({
           success: false,
           notice: Diaspora.I18n.t('report.status.exists')
@@ -132,7 +132,7 @@ app.views.Base = Backbone.View.extend({
         })
         .fail(function() {
           self.$el.removeClass('deleting');
-          var flash = new Diaspora.Widgets.FlashMessages;
+          var flash = new Diaspora.Widgets.FlashMessages();
           flash.render({
             success: false,
             notice: Diaspora.I18n.t('failed_to_remove')
@@ -142,7 +142,7 @@ app.views.Base = Backbone.View.extend({
   },
 
   avatars: {
-    fallback: function(evt) {
+    fallback: function() {
       $(this).attr("src", ImagePaths.get("user/default.png"));
     },
     selector: "img.avatar"
@@ -163,4 +163,3 @@ app.views.StaticContentView = app.views.Base.extend({
   },
 });
 // @license-end
-

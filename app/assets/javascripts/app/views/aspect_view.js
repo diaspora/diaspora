@@ -12,7 +12,7 @@ app.views.Aspect = app.views.Base.extend({
   },
 
   toggleAspect: function(evt) {
-    if (evt) { evt.preventDefault(); };
+    if (evt) { evt.preventDefault(); }
     this.model.toggleSelected();
 
     app.router.aspects_stream();
@@ -21,8 +21,7 @@ app.views.Aspect = app.views.Base.extend({
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
       aspect : this.model
-    })
+    });
   }
 });
 // @license-end
-

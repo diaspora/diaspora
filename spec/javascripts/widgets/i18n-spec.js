@@ -88,7 +88,7 @@ describe("Diaspora.I18n", function() {
   describe("::reset", function(){
     it("clears the current locale", function() {
       Diaspora.I18n.load(locale, "en", locale);
-      Diaspora.I18n.reset()
+      Diaspora.I18n.reset();
       expect(Diaspora.I18n.locale.data).toEqual({});
     });
 

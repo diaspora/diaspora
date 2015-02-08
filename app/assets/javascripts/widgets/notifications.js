@@ -29,7 +29,7 @@
           type: "GET",
           dataType:'json',
           success: function(){
-            self.notificationMenu.find('.unread').each(function(index) {
+            self.notificationMenu.find('.unread').each(function() {
               self.setUpRead( $(this) );
             });
             self.resetCount();
@@ -41,7 +41,7 @@
     });
     this.setUpNotificationPage = function( page ) {
       self.notificationPage = page;
-    }
+    };
     this.unreadClick = function() {
       $.ajax({
         url: "/notifications/" + $(this).closest(".stream_element,.notification_element").data("guid"),
@@ -68,7 +68,7 @@
         .removeAttr('data-original-title')
         .attr('title', Diaspora.I18n.t('notifications.mark_read'))
         .tooltip();
-    }
+    };
     this.setUpRead = function( an_obj ) {
       an_obj.removeClass("unread").addClass( "read" );
       an_obj.find('.unread-toggle')
@@ -79,17 +79,17 @@
         .removeAttr('data-original-title')
         .attr('title', Diaspora.I18n.t('notifications.mark_unread'))
         .tooltip();
-    }
+    };
     this.clickSuccess = function( data ) {
-      var itemID = data["guid"]
-      var isUnread = data["unread"]
-      self.notificationMenu.find('.read,.unread').each(function(index) {
-        if ( $(this).data("guid") == itemID ) {
+      var itemID = data["guid"];
+      var isUnread = data["unread"];
+      self.notificationMenu.find('.read,.unread').each(function() {
+        if ( $(this).data("guid") === itemID ) {
           if ( isUnread ) {
-            self.notificationMenu.find('a#mark_all_read_link').removeClass('disabled')
-            self.setUpUnread( $(this) )
+            self.notificationMenu.find('a#mark_all_read_link').removeClass('disabled');
+            self.setUpUnread( $(this) );
           } else {
-            self.setUpRead( $(this) )
+            self.setUpRead( $(this) );
           }
         }
       });
@@ -118,7 +118,7 @@
     };
 
     this.changeNotificationCount = function(change) {
-      self.count = Math.max( self.count + change, 0 )
+      self.count = Math.max( self.count + change, 0 );
       self.badge.text(self.count);
 
       if(self.count === 0) {
@@ -128,7 +128,7 @@
         self.badge.removeClass("hidden");
       }
     };
-    this.resetCount = function(change) {
+    this.resetCount = function() {
       self.count = 0;
       this.changeNotificationCount(0);
     };
@@ -145,4 +145,3 @@
   Diaspora.Widgets.Notifications = Notifications;
 })();
 // @license-end
-

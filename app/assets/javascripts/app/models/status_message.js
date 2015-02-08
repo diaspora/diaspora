@@ -17,7 +17,7 @@ app.models.StatusMessage = app.models.Post.extend({
       photos : this.photos && this.photos.pluck("id"),
       services : this.get("services"),
       poll : this.get("poll")
-    }
+    };
   }
 });
 // @license-end

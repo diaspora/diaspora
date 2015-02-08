@@ -16,8 +16,8 @@ app.collections.Comments = Backbone.Collection.extend({
     var deferred = comment.save({}, {
       url: '/posts/'+this.post.id+'/comments',
       success: function() {
-        comment.set({author: app.currentUser.toJSON(), parent: self.post })
-        self.add(comment)
+        comment.set({author: app.currentUser.toJSON(), parent: self.post });
+        self.add(comment);
       }
     });
 
@@ -25,4 +25,3 @@ app.collections.Comments = Backbone.Collection.extend({
   }
 });
 // @license-end
-

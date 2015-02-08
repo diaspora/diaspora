@@ -75,7 +75,7 @@ app.views.AspectMembershipBlueprint = Backbone.View.extend({
 
     // the user didn't have this person in any aspects before, congratulate them
     // on their newly found friendship ;)
-    if( this.dropdown.find('li.selected').length == 0 ) {
+    if( this.dropdown.find('li.selected').length === 0 ) {
       var msg = Diaspora.I18n.t('aspect_dropdown.started_sharing_with', { 'name': this._name() });
       Diaspora.page.flashMessages.render({ 'success':true, 'notice':msg });
     }
@@ -121,7 +121,7 @@ app.views.AspectMembershipBlueprint = Backbone.View.extend({
 
     // we just removed the last aspect, inform the user with a flash message
     // that he is no longer sharing with that person
-    if( this.dropdown.find('li.selected').length == 0 ) {
+    if( this.dropdown.find('li.selected').length === 0 ) {
       var msg = Diaspora.I18n.t('aspect_dropdown.stopped_sharing_with', { 'name': this._name() });
       Diaspora.page.flashMessages.render({ 'success':true, 'notice':msg });
     }
@@ -143,7 +143,7 @@ app.views.AspectMembershipBlueprint = Backbone.View.extend({
     var aspects_cnt = this.dropdown.find('li.selected').length;
     var txt;
 
-    if( aspects_cnt == 0 ) {
+    if( aspects_cnt === 0 ) {
       btn.removeClass('in_aspects');
       txt = Diaspora.I18n.t('aspect_dropdown.toggle.zero');
     } else {
@@ -157,11 +157,11 @@ app.views.AspectMembershipBlueprint = Backbone.View.extend({
   _pluralSummaryTxt: function(cnt) {
     var all_aspects_cnt = this.dropdown.find('li').length;
 
-    if( cnt == 1 ) {
+    if( cnt === 1 ) {
       return this.dropdown.find('li.selected').first().text();
     }
 
-    if( cnt == all_aspects_cnt ) {
+    if( cnt === all_aspects_cnt ) {
       return Diaspora.I18n.t('aspect_dropdown.all_aspects');
     }
 

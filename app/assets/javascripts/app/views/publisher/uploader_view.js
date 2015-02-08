@@ -47,7 +47,7 @@ app.views.PublisherUploader = Backbone.View.extend({
       .width(progress + '%');
   },
 
-  submitHandler: function(id, fileName) {
+  submitHandler: function() {
     this.$el.addClass('loading');
     this._addPhotoPlaceholder();
   },
@@ -66,7 +66,7 @@ app.views.PublisherUploader = Backbone.View.extend({
     );
   },
 
-  uploadCompleteHandler: function(id, fileName, response) {
+  uploadCompleteHandler: function(_id, fileName, response) {
     if (response.success){
       this.el_info.text(Diaspora.I18n.t('photo_uploader.completed', {file: fileName})).fadeTo(2000, 0);
 
@@ -110,7 +110,7 @@ app.views.PublisherUploader = Backbone.View.extend({
       .find('div.progress').remove();
 
     // no more placeholders? enable buttons
-    if( publisher.el_photozone.find('li.loading').length == 0 ) {
+    if( publisher.el_photozone.find('li.loading').length === 0 ) {
       this.$el.removeClass('loading');
       publisher.setButtonsEnabled(true);
     }
@@ -127,7 +127,7 @@ app.views.PublisherUploader = Backbone.View.extend({
   // remove an already uploaded photo
   _removePhoto: function(evt) {
     var self  = this;
-    var photo = $(evt.target).parents('.publisher_photo')
+    var photo = $(evt.target).parents('.publisher_photo');
     var img   = photo.find('img');
 
     photo.addClass('dim');
@@ -139,7 +139,7 @@ app.views.PublisherUploader = Backbone.View.extend({
         $.when(photo.fadeOut(400)).then(function(){
           photo.remove();
 
-          if( self.publisher.$('.publisher_photo').length == 0 ) {
+          if( self.publisher.$('.publisher_photo').length === 0 ) {
             // no more photos left...
             self.publisher.el_wrapper.removeClass('with_attachments');
           }
@@ -154,4 +154,3 @@ app.views.PublisherUploader = Backbone.View.extend({
 
 });
 // @license-end
-

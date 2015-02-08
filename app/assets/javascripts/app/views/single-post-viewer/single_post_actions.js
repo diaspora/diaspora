@@ -10,14 +10,14 @@ app.views.SinglePostActions = app.views.Feedback.extend({
   },
 
   presenter: function() {
-    var interactions = this.model.interactions
+    var interactions = this.model.interactions;
 
     return _.extend(this.defaultPresenter(), {
       authorIsNotCurrentUser : this.authorIsNotCurrentUser(),
       userCanReshare : interactions.userCanReshare(),
       userLike : interactions.userLike(),
       userReshare : interactions.userReshare()
-    })
+    });
   },
 
   renderPluginWidgets : function() {
@@ -32,9 +32,7 @@ app.views.SinglePostActions = app.views.Feedback.extend({
   },
 
   authorIsNotCurrentUser: function() {
-    return app.currentUser.authenticated() && this.model.get("author").id != app.user().id
+    return app.currentUser.authenticated() && this.model.get("author").id !== app.user().id;
   }
-
 });
 // @license-end
-

@@ -29,7 +29,7 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   postRenderTemplate: function() {
-    this.$el.appendTo($('body'))
+    this.$el.appendTo($('body'));
   },
 
   deactivate: function() {
@@ -41,7 +41,7 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   _mouseenterHandler: function(event) {
-    if( this.active == false ||
+    if( this.active === false ||
         $.contains(this.el, event.target) ) { return false; }
 
     var el = $(event.target);
@@ -49,7 +49,7 @@ app.views.Hovercard = app.views.Base.extend({
       el = el.parents('a');
     }
 
-    if( el.attr('href').indexOf('/people') == -1 ) {
+    if( el.attr('href').indexOf('/people') === -1 ) {
       // can't fetch data from that URL, aborting
       return false;
     }
@@ -60,7 +60,7 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   _mouseleaveHandler: function(event) {
-    if( this.active == false ||
+    if( this.active === false ||
         $.contains(this.el, event.relatedTarget) ) { return false; }
 
     this.show_me = false;
@@ -95,7 +95,7 @@ app.views.Hovercard = app.views.Base.extend({
 
     var self = this;
     $.get(href, function(person){
-      if( !person || person.length == 0 ) {
+      if( !person || person.length === 0 ) {
         throw new Error("received data is not a person object");
       }
 
@@ -123,13 +123,13 @@ app.views.Hovercard = app.views.Base.extend({
     // TODO render me client side!!!
     var href = this.href();
     href += "/aspect_membership_button";
-    if(gon.bootstrap == true){
+    if(gon.bootstrap === true){
       href += "?bootstrap=true";
     }
     $.get(href, function(response) {
       self.dropdown_container.html(response);
     });
-    var aspect_membership = new app.views.AspectMembership({el: self.dropdown_container});
+    new app.views.AspectMembership({el: self.dropdown_container});
   },
 
   _positionHovercard: function() {
@@ -143,4 +143,3 @@ app.views.Hovercard = app.views.Base.extend({
   }
 });
 // @license-end
-

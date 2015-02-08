@@ -13,27 +13,27 @@ app.views.Comment = app.views.Content.extend({
   },
 
   initialize : function(options){
-    this.templateName = options.templateName || this.templateName
-    this.model.on("change", this.render, this)
+    this.templateName = options.templateName || this.templateName;
+    this.model.on("change", this.render, this);
   },
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
       canRemove: this.canRemove(),
       text : app.helpers.textFormatter(this.model.get("text"))
-    })
+    });
   },
 
   ownComment : function() {
-    return app.currentUser.authenticated() && this.model.get("author").diaspora_id == app.currentUser.get("diaspora_id")
+    return app.currentUser.authenticated() && this.model.get("author").diaspora_id === app.currentUser.get("diaspora_id");
   },
 
   postOwner : function() {
-    return  app.currentUser.authenticated() && this.model.get("parent").author.diaspora_id == app.currentUser.get("diaspora_id")
+    return  app.currentUser.authenticated() && this.model.get("parent").author.diaspora_id === app.currentUser.get("diaspora_id");
   },
 
   canRemove : function() {
-    return app.currentUser.authenticated() && (this.ownComment() || this.postOwner())
+    return app.currentUser.authenticated() && (this.ownComment() || this.postOwner());
   }
 });
 
@@ -42,4 +42,3 @@ app.views.ExpandedComment = app.views.Comment.extend({
   }
 });
 // @license-end
-

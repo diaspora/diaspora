@@ -54,7 +54,7 @@ app.views.StreamPost = app.views.Post.extend({
     var normalizedClass = this.model.get("post_type").replace(/::/, "__")
       , postClass = app.views[normalizedClass] || app.views.StatusMessage;
 
-    return new postClass({ model : this.model })
+    return new postClass({ model : this.model });
   },
 
   postLocationStreamView : function(){
@@ -63,7 +63,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   removeNsfwShield: function(evt){
     if(evt){ evt.preventDefault(); }
-    this.model.set({nsfw : false})
+    this.model.set({nsfw : false});
     this.render();
   },
 
@@ -88,7 +88,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   remove : function() {
     $(this.el).slideUp(400, _.bind(function(){this.$el.remove()}, this));
-    return this
+    return this;
   },
 
   hidePost : function(evt) {
@@ -121,6 +121,5 @@ app.views.StreamPost = app.views.Post.extend({
     return this;
   }
 
-})
+});
 // @license-end
-

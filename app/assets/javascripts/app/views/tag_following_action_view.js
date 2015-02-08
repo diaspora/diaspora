@@ -20,7 +20,7 @@ app.views.TagFollowingAction = app.views.Base.extend({
     return _.extend(this.defaultPresenter(), {
       tag_is_followed : this.tag_is_followed(),
       followString : this.followString()
-    })
+    });
   },
 
   followString : function() {
@@ -35,7 +35,7 @@ app.views.TagFollowingAction = app.views.Base.extend({
     return !this.model.isNew();
   },
 
-  getTagFollowing : function(tagFollowing) {
+  getTagFollowing : function() {
     this.model = app.tagFollowings.where({"name":this.tagText})[0] ||
         new app.models.TagFollowing({"name":this.tagText});
     this.model.bind("change", this.render, this);
@@ -63,4 +63,3 @@ app.views.TagFollowingAction = app.views.Base.extend({
   }
 });
 // @license-end
-
