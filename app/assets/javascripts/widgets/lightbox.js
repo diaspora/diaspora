@@ -130,7 +130,7 @@ jQuery.fn.center = (function() {
           "data-full-photo": image.attr("data-full-photo")
         });
 
-        if(image.attr("data-full-photo") == imageUrl) {
+        if(image.attr("data-full-photo") === imageUrl) {
           imageThumb = thumb;
         }
 

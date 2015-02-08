@@ -35,7 +35,7 @@ app.views.PublisherAspectSelector  = app.views.AspectsDropdown.extend({
     
     // update the globe or lock icon
     var icon = this.$('#visibility-icon');
-    if (target.find('.text').text().trim() == Diaspora.I18n.t('stream.public')) {
+    if (target.find('.text').text().trim() === Diaspora.I18n.t('stream.public')) {
       icon.removeClass('lock');
       icon.addClass('globe');
     } else {

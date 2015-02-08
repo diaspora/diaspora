@@ -32,7 +32,7 @@ app.views.SinglePostActions = app.views.Feedback.extend({
   },
 
   authorIsNotCurrentUser: function() {
-    return app.currentUser.authenticated() && this.model.get("author").id != app.user().id;
+    return app.currentUser.authenticated() && this.model.get("author").id !== app.user().id;
   }
 });
 // @license-end

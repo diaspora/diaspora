@@ -65,7 +65,7 @@ app.views.PublisherGettingStarted = Backbone.View.extend({
       var close = $(popup).find('.close');
 
       close.click(function() {
-        if( $('.popover').length==1 ) {
+        if( $('.popover').length === 1 ) {
           $.get('/getting_started_completed', {success: function() {
             $("#welcome-to-diaspora, #welcome-to-diaspora~br").remove();
           }});

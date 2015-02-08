@@ -74,7 +74,7 @@ app.views.Publisher = Backbone.View.extend({
     var _this = this;
     $('body').on('click', function(event){
       // if the click event is happened outside the publisher view, then try to close the box
-      if( _this.el && $(event.target).closest('#publisher').attr('id') != _this.el.id){
+      if( _this.el && $(event.target).closest('#publisher').attr('id') !== _this.el.id){
           _this.tryClose();
         }
     });
@@ -245,7 +245,7 @@ app.views.Publisher = Backbone.View.extend({
 
   // avoid submitting form when pressing Enter key
   avoidEnter: function(evt){
-    if(evt.keyCode == 13)
+    if(evt.keyCode === 13)
       return false;
   },
 
@@ -276,7 +276,7 @@ app.views.Publisher = Backbone.View.extend({
         user;
     while( (user = regexp.exec(serializedForm["status_message[text]"])) ){
       // user[1]: name, user[2]: handle
-      var mentioned_user = Mentions.contacts.filter(function(item) { return item.handle == user[2];})[0];
+      var mentioned_user = Mentions.contacts.filter(function(item) { return item.handle === user[2];})[0];
       if(mentioned_user){
         mentioned_people.push({
           "id":mentioned_user["id"],
@@ -309,7 +309,7 @@ app.views.Publisher = Backbone.View.extend({
     var previewMessage = {
       "id" : 0,
       "text" : serializedForm["status_message[text]"],
-      "public" : serializedForm["aspect_ids[]"]=="public",
+      "public" : serializedForm["aspect_ids[]"] === "public",
       "created_at" : date,
       "interacted_at" : date,
       "post_type" : "StatusMessage",
@@ -350,7 +350,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   keyDown : function(evt) {
-    if( evt.keyCode == 13 && evt.ctrlKey ) {
+    if( evt.keyCode === 13 && evt.ctrlKey ) {
       this.$("form").submit();
       this.open();
       return false;
@@ -484,7 +484,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   _beforeUnload: function(e) {
-    if(this._submittable() && this.el_input.val() != this.prefillText){
+    if(this._submittable() && this.el_input.val() !== this.prefillText){
       var confirmationMessage = Diaspora.I18n.t("confirm_unload");
       (e || window.event).returnValue = confirmationMessage;       //Gecko + IE
       return confirmationMessage;                                  //Webkit, Safari, Chrome, etc.

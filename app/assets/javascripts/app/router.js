@@ -143,10 +143,10 @@ app.Router = Backbone.Router.extend({
   },
 
   _hideInactiveStreamLists: function() {
-    if(this.aspects_list && Backbone.history.fragment != "aspects")
+    if(this.aspects_list && Backbone.history.fragment !== "aspects")
       this.aspects_list.hideAspectsList();
 
-    if(this.followedTagsView && Backbone.history.fragment != "followed_tags")
+    if(this.followedTagsView && Backbone.history.fragment !== "followed_tags")
       this.followedTagsView.hideFollowedTags();
   },
 

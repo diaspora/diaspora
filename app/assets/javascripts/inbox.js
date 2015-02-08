@@ -24,7 +24,7 @@ $(document).ready(function(){
       cBadge.html().replace(/\d+/, function(num){
         num = parseInt(num);
         cBadge.html(parseInt(num)-1);
-        if(num == 1) {
+        if(num === 1) {
           cBadge.addClass("hidden");
         }
       });

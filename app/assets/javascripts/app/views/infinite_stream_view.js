@@ -34,7 +34,7 @@ app.views.InfScroll = app.views.Base.extend({
 
   createPostView : function(post){
     var postView = new this.postClass({ model: post, stream: this.stream });
-    if (this.collection.at(0).id == post.id) {
+    if (this.collection.at(0).id === post.id) {
       // post is first in collection - insert view at top of the list
       this.postViews.unshift(postView);
     } else {
@@ -46,7 +46,7 @@ app.views.InfScroll = app.views.Base.extend({
   // called for every item inserted in this.collection
   addPostView : function(post) {
     var el = this.createPostView(post).render().el;
-    if (this.collection.at(0).id == post.id) {
+    if (this.collection.at(0).id === post.id) {
         this.prependedPosts.insertBefore(el, this.prependedPosts.firstChild);
     } else {
         this.appendedPosts.appendChild(el);

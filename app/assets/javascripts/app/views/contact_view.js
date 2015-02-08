@@ -57,7 +57,7 @@ app.views.Contact = app.views.Base.extend({
   removeContactFromAspect: function(){
     var self = this;
     this.model.aspect_memberships
-      .find(function(membership){ return membership.get('aspect').id == app.aspect.id; })
+      .find(function(membership){ return membership.get('aspect').id === app.aspect.id; })
       .destroy({
         success: function(){
           self.render();

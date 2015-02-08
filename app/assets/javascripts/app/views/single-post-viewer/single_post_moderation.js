@@ -19,7 +19,7 @@ app.views.SinglePostModeration = app.views.Feedback.extend({
   },
 
   authorIsCurrentUser: function() {
-    return app.currentUser.authenticated() && this.model.get("author").id == app.user().id;
+    return app.currentUser.authenticated() && this.model.get("author").id === app.user().id;
   },
 
   destroyModel: function(evt) {

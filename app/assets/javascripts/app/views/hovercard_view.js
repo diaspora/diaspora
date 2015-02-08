@@ -49,7 +49,7 @@ app.views.Hovercard = app.views.Base.extend({
       el = el.parents('a');
     }
 
-    if( el.attr('href').indexOf('/people') == -1 ) {
+    if( el.attr('href').indexOf('/people') === -1 ) {
       // can't fetch data from that URL, aborting
       return false;
     }

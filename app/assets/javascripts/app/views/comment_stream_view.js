@@ -57,7 +57,7 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   keyDownOnCommentBox: function(evt) {
-    if(evt.keyCode == 13 && evt.ctrlKey) {
+    if(evt.keyCode === 13 && evt.ctrlKey) {
       this.$("form").submit();
       return false;
     }

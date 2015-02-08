@@ -84,7 +84,7 @@
       var itemID = data["guid"];
       var isUnread = data["unread"];
       self.notificationMenu.find('.read,.unread').each(function() {
-        if ( $(this).data("guid") == itemID ) {
+        if ( $(this).data("guid") === itemID ) {
           if ( isUnread ) {
             self.notificationMenu.find('a#mark_all_read_link').removeClass('disabled');
             self.setUpUnread( $(this) );

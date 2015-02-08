@@ -38,7 +38,7 @@ var View = {
           $(this).attr('checked', false);
         } else if ($(this).is('select')) {
           this.selectedIndex = -1;
-        } else if ($(this).attr('name') == 'photos[]') {
+        } else if ($(this).attr('name') === 'photos[]') {
           $(this).val('');
         }
         $(this).blur();

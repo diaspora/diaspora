@@ -100,7 +100,7 @@
       $('.notifications').scroll(function() {
         var bottom = $('.notifications').prop('scrollHeight') - $('.notifications').height();
         var currentPosition = $('.notifications').scrollTop();
-        isLoading = ($('.loading').length == 1);
+        isLoading = ($('.loading').length === 1);
         if (currentPosition + 50 >= bottom && notificationsLoaded <= self.notifications.length && !isLoading) {
             $('.notifications').addClass("loading");
             ++currentPage;

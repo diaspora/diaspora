@@ -238,7 +238,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             url_to_match(requests[i])) {
             matching_requests.push(requests[i]);
         } else {
-          if (requests[i].url == url_to_match) {
+          if (requests[i].url === url_to_match) {
             matching_requests.push(requests[i]);
           }
         }

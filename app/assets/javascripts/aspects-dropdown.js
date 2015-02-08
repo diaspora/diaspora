@@ -23,9 +23,9 @@ var AspectsDropdown = {
         message = Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", {name: dropdown.data('person-short-name')});
         Diaspora.page.flashMessages.render({success: true, notice: message});
       }
-    } else if (selectedAspects == allAspects) {
+    } else if (selectedAspects === allAspects) {
       replacement = Diaspora.I18n.t('aspect_dropdown.all_aspects');
-    } else if (number == 1) {
+    } else if (number === 1) {
       button.addClass(inAspectClass);
       replacement = dropdown.find(".selected").first().text();
       /* flash message prompt */
@@ -40,7 +40,7 @@ var AspectsDropdown = {
     // if we are in the publisher, we add the visibility icon
     if (isInPublisher) {
       var icon = $('#visibility-icon');      
-      if (replacement.trim() == Diaspora.I18n.t('stream.public')) {
+      if (replacement.trim() === Diaspora.I18n.t('stream.public')) {
         icon.removeClass('lock');
         icon.addClass('globe');
       } else {

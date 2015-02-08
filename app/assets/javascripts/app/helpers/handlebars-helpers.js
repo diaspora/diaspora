@@ -61,7 +61,7 @@ Handlebars.registerHelper('sharingMessage', function(person) {
 // allow hovercards for users that are not the current user.
 // returns the html class name used to trigger hovercards.
 Handlebars.registerHelper('hovercardable', function(person) {
-  if( app.currentUser.get('guid') != person.guid ) {
+  if( app.currentUser.get('guid') !== person.guid ) {
     return 'hovercardable';
   }
   return '';
@@ -104,7 +104,7 @@ Handlebars.registerHelper('fmtText', function(text) {
 
 Handlebars.registerHelper('isCurrentPage', function(path_helper, id, options){
   var currentPage = "/"+Backbone.history.fragment;
-  if (currentPage == Handlebars.helpers.urlTo(path_helper, id, options.data)) {
+  if (currentPage === Handlebars.helpers.urlTo(path_helper, id, options.data)) {
     return options.fn(this);
   } else {
     return options.inverse(this);
@@ -121,7 +121,7 @@ Handlebars.registerHelper('aspectMembershipIndicator', function(contact,in_aspec
   if(!app.aspect || !app.aspect.get('id')) return '<div class="aspect_membership_dropdown placeholder"></div>';
 
   var html = '<i class="entypo ';
-  if( in_aspect == 'in_aspect' ) {
+  if( in_aspect === 'in_aspect' ) {
     html += 'circled-cross contact_remove-from-aspect" ';
     html += 'title="' + Diaspora.I18n.t('contacts.remove_contact') + '" ';
   } else {

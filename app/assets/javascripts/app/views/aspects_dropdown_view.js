@@ -37,7 +37,7 @@ app.views.AspectsDropdown = app.views.Base.extend({
       buttonText = Diaspora.I18n.t("aspect_dropdown.select_aspects");
     } else {
       button.removeClass('btn-default').addClass(inAspectClass);
-      if (selectedAspects == 1) {
+      if (selectedAspects === 1) {
         buttonText = this.$(".dropdown-menu > li.selected .text").first().text();
       } else {
         buttonText = Diaspora.I18n.t("aspect_dropdown.toggle", { count: selectedAspects.toString() });

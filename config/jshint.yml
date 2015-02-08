@@ -10,7 +10,7 @@ options:
   bitwise:    false
   camelcase:  false
   curly:      false
-  eqeqeq:     false
+  eqeqeq:     true
   forin:      true
   freeze:     true
   immed:      true

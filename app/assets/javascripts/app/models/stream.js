@@ -35,7 +35,7 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   isFetching : function() {
-    return (this.deferred && this.deferred.state() == "pending");
+    return (this.deferred && this.deferred.state() === "pending");
   },
 
   triggerFetchedEvents : function(resp){

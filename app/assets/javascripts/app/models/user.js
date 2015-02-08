@@ -20,7 +20,7 @@ app.models.User = Backbone.Model.extend({
   },
 
   isAuthorOf: function(model) {
-    return this.authenticated() && model.get("author").id == this.id;
+    return this.authenticated() && model.get("author").id === this.id;
   }
 });
 // @license-end

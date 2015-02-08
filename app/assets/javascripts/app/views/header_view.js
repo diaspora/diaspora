@@ -40,7 +40,7 @@ app.views.Header = app.views.Base.extend({
   toggleSearchActive: function(ev) {
     // jQuery produces two events for focus/blur (for bubbling)
     // don't rely on which event arrives first, by allowing for both variants
-    var is_active = (_.indexOf(['focus','focusin'], ev.type) != -1);
+    var is_active = (_.indexOf(['focus','focusin'], ev.type) !== -1);
     $(ev.target).toggleClass('active', is_active);
     return false;
   }

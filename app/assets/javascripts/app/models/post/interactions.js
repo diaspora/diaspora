@@ -44,12 +44,12 @@ app.models.Post.Interactions = Backbone.Model.extend({
   },
 
   userLike : function(){
-    return this.likes.select(function(like){ return like.get("author").guid == app.currentUser.get("guid")})[0];
+    return this.likes.select(function(like){ return like.get("author").guid === app.currentUser.get("guid")})[0];
   },
 
   userReshare : function(){
     return this.reshares.select(function(reshare){
-      return reshare.get("author") &&  reshare.get("author").guid == app.currentUser.get("guid")})[0];
+      return reshare.get("author") &&  reshare.get("author").guid === app.currentUser.get("guid")})[0];
   },
 
   toggleLike : function() {
@@ -126,11 +126,11 @@ app.models.Post.Interactions = Backbone.Model.extend({
   },
 
   userCanReshare : function(){
-    var isReshare = this.post.get("post_type") == "Reshare"
+    var isReshare = this.post.get("post_type") === "Reshare"
       , rootExists = (isReshare ? this.post.get("root") : true)
       , publicPost = this.post.get("public")
-      , userIsNotAuthor = this.post.get("author").diaspora_id != app.currentUser.get("diaspora_id")
-      , userIsNotRootAuthor = rootExists && (isReshare ? this.post.get("root").author.diaspora_id != app.currentUser.get("diaspora_id") : true)
+      , userIsNotAuthor = this.post.get("author").diaspora_id !== app.currentUser.get("diaspora_id")
+      , userIsNotRootAuthor = rootExists && (isReshare ? this.post.get("root").author.diaspora_id !== app.currentUser.get("diaspora_id") : true)
       , notReshared = !this.userReshare();
 
     return publicPost && app.currentUser.authenticated() && userIsNotAuthor && userIsNotRootAuthor && notReshared;

@@ -6,7 +6,7 @@ Diaspora.I18n = {
     pluralizationKey: function(n) { return this.fallback.pluralizationKey(n); },
     data: {},
     fallback: {
-      pluralizationKey: function(n) { return n == 1 ? "one" : "other"; },
+      pluralizationKey: function(n) { return n === 1 ? "one" : "other"; },
       data: {}
     }
   },

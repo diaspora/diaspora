@@ -14,7 +14,7 @@ describe("app.views.Help", function(){
     });
 
     it('should initially show getting help section', function(){
-      expect(this.view.$el.find('#faq').children().first().data('template') == 'faq_getting_help').toBeTruthy();
+      expect(this.view.$el.find('#faq').children().first().data('template')).toBe('faq_getting_help');
     });
 
     it('should show account and data management section', function(){
@@ -39,7 +39,7 @@ describe("app.views.Help", function(){
 
     it('should show posts and posting section', function(){
       this.view.$el.find('a[data-section=posts_and_posting]').trigger('click');
-      expect(this.view.$el.find('#faq').children().first().data('template') == 'faq_posts_and_posting').toBeTruthy();
+      expect(this.view.$el.find('#faq').children().first().data('template')).toBe('faq_posts_and_posting');
     });
 
     it('should show private posts section', function(){
@@ -69,17 +69,17 @@ describe("app.views.Help", function(){
 
     it('should show sharing section', function(){
       this.view.$el.find('a[data-section=sharing]').trigger('click');
-      expect(this.view.$el.find('#faq').children().first().data('template') == 'faq_sharing').toBeTruthy();
+      expect(this.view.$el.find('#faq').children().first().data('template')).toBe('faq_sharing');
     });
 
     it('should show tags section', function(){
       this.view.$el.find('a[data-section=tags]').trigger('click');
-      expect(this.view.$el.find('#faq').children().first().data('template') == 'faq_tags').toBeTruthy();
+      expect(this.view.$el.find('#faq').children().first().data('template')).toBe('faq_tags');
     });
 
     it('should show keyboard shortcuts section', function(){
       this.view.$el.find('a[data-section=keyboard_shortcuts]').trigger('click');
-      expect(this.view.$el.find('#faq').children().first().data('template') == 'faq_keyboard_shortcuts').toBeTruthy();
+      expect(this.view.$el.find('#faq').children().first().data('template')).toBe('faq_keyboard_shortcuts');
     });
 
     it('should show miscellaneous section', function(){

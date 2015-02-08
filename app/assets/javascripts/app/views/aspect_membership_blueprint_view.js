@@ -157,11 +157,11 @@ app.views.AspectMembershipBlueprint = Backbone.View.extend({
   _pluralSummaryTxt: function(cnt) {
     var all_aspects_cnt = this.dropdown.find('li').length;
 
-    if( cnt == 1 ) {
+    if( cnt === 1 ) {
       return this.dropdown.find('li.selected').first().text();
     }
 
-    if( cnt == all_aspects_cnt ) {
+    if( cnt === all_aspects_cnt ) {
       return Diaspora.I18n.t('aspect_dropdown.all_aspects');
     }
 
