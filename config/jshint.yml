@@ -16,12 +16,14 @@ options:
   immed:      true
   indent:     2
   latedef:    true
+  maxlen:     false
   newcap:     true
   noarg:      true
   noempty:    true
   nonbsp:     true
   nonew:      false
   notypeof:   true
+  quotmark:   false
   undef:      true
   unused:     true
 
