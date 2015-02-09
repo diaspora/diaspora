@@ -962,6 +962,18 @@ describe User, :type => :model do
           expect(@user.send(attr.to_sym)).to be_blank
         end
       end
+
+      it 'disables mail' do
+        @user.disable_mail = false
+        @user.clear_account!
+        expect(@user.reload.disable_mail).to be true
+      end
+
+      it 'sets getting_started and show_community_spotlight_in_stream fields to false' do
+        @user.clear_account!
+        expect(@user.reload.getting_started).to be false
+        expect(@user.reload.show_community_spotlight_in_stream).to be false
+      end
     end
 
     describe "#clearable_attributes" do
