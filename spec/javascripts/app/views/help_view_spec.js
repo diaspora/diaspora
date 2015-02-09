@@ -86,5 +86,39 @@ describe("app.views.Help", function(){
       this.view.$el.find('a[data-section=miscellaneous]').trigger('click');
       expect(this.view.$el.find('#faq').children().first().hasClass('faq_question_miscellaneous')).toBeTruthy();
     });
+
+    it('should not find any topic', function(){
+      expect(this.view.findTopic('you_shall_not_pass')).toBeNull();
+    });
+
+    it('should find the miscellaneous topic', function(){
+      var topic = this.view.$el.find('a[data-section=miscellaneous]');
+      expect(this.view.findTopic('miscellaneous').html()).toBe(topic.html());
+    });
+
+    it('should find the keyboard_shortcuts topic', function(){
+      var topic = this.view.$el.find('a[data-section=keyboard_shortcuts]');
+      expect(this.view.findTopic('keyboard_shortcuts').html()).toBe(topic.html());
+    });
+
+    it('should find the miscellaneous topic', function(){
+      var topic = this.view.$el.find('a[data-section=tags]');
+      expect(this.view.findTopic('tags').html()).toBe(topic.html());
+    });
+
+    it('should rewrite route to help/tags', function(){
+      this.view.$el.find('a[data-section=tags]').trigger('click');
+      expect(window.location.href.toString().endsWith("help/tags")).toBeTruthy();
+    });
+
+    it('should rewrite route to help/keyboard_shortcuts', function(){
+      this.view.$el.find('a[data-section=keyboard_shortcuts]').trigger('click');
+      expect(window.location.href.toString().endsWith("help/keyboard_shortcuts")).toBeTruthy();
+    });
+
+    it('should rewrite route to help/sharing', function(){
+      this.view.$el.find('a[data-section=sharing]').trigger('click');
+      expect(window.location.href.toString().endsWith("help/sharing")).toBeTruthy();
+    });
   });
 });
