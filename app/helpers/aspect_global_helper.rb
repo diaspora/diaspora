@@ -21,7 +21,7 @@ module AspectGlobalHelper
       when "large"
         " btn-large"
       else
-        rase ArgumentError, "unknown size #{size}"
+        raise ArgumentError, "unknown size #{size}"
       end
 
     if bootstrap? || force_bootstrap
