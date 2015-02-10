@@ -32,20 +32,36 @@ describe Conversation, :type => :model do
     end
   end
 
-  describe '#first_unread_message' do  
+  describe '#first_unread_message' do
     before do
       @cnv = Conversation.create(@create_hash)
       @message = Message.create(:author => @user2.person, :created_at => Time.now + 100, :text => "last", :conversation_id => @cnv.id)
-      @message.increase_unread(@user1) 
+      @message.increase_unread(@user1)
     end
-    
+
     it 'returns the first unread message if there are unread messages in a conversation' do
       @cnv.first_unread_message(@user1) == @message
-    end  
+    end
 
     it 'returns nil if there are no unread messages in a conversation' do
       @cnv.conversation_visibilities.where(:person_id => @user1.person.id).first.tap { |cv| cv.unread = 0 }.save
       expect(@cnv.first_unread_message(@user1)).to be_nil
+    end
+  end
+
+  describe '#set_read' do
+    before do
+      @cnv = Conversation.create(@create_hash)
+      Message.create(:author => @user2.person, :created_at => Time.now + 100, :text => "first", :conversation_id => @cnv.id)
+             .increase_unread(@user1)
+      Message.create(:author => @user2.person, :created_at => Time.now + 200, :text => "last", :conversation_id => @cnv.id)
+             .increase_unread(@user1)
+    end
+
+    it 'sets the unread counter to 0' do
+      expect(@cnv.conversation_visibilities.where(:person_id => @user1.person.id).first.unread).to eq(2)
+      @cnv.set_read(@user1)
+      expect(@cnv.conversation_visibilities.where(:person_id => @user1.person.id).first.unread).to eq(0)
     end
   end
 
@@ -118,7 +134,7 @@ describe Conversation, :type => :model do
         :messages_attributes => [ {:author => peter.person, :text => 'hey'} ]
       }
     end
-    
+
     it 'with invalid recipient' do
       conversation = Conversation.create(@invalid_hash)
       expect(conversation).to be_invalid

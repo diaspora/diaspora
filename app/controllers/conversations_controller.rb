@@ -21,6 +21,10 @@ class ConversationsController < ApplicationController
 
     @first_unread_message_id = @conversation.try(:first_unread_message, current_user).try(:id)
 
+    if @conversation
+      @conversation.set_read(current_user)
+    end
+
     @authors = {}
     @conversations.each { |c| @authors[c.id] = c.last_author }
 
@@ -65,21 +69,21 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    if @conversation = current_user.conversations.where(id: params[:id]).first
-
-      @first_unread_message_id = @conversation.first_unread_message(current_user).try(:id)
-      if @visibility = ConversationVisibility.where(:conversation_id => params[:id], :person_id => current_user.person.id).first
-        @visibility.unread = 0
-        @visibility.save
+    respond_to do |format|
+      format.html do
+        redirect_to conversations_path(:conversation_id => params[:id])
+        return
       end
 
-      respond_to do |format|
-        format.html { redirect_to conversations_path(:conversation_id => @conversation.id) }
+      if @conversation = current_user.conversations.where(id: params[:id]).first
+        @first_unread_message_id = @conversation.first_unread_message(current_user).try(:id)
+        @conversation.set_read(current_user)
+
         format.js
         format.json { render :json => @conversation, :status => 200 }
+      else
+        redirect_to conversations_path
       end
-    else
-      redirect_to conversations_path
     end
   end
 

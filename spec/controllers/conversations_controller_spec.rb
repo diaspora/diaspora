@@ -86,6 +86,12 @@ describe ConversationsController, :type => :controller do
       get :index
       expect(assigns[:conversations].count).to eq(3)
     end
+
+    it 'does not let you access conversations where you are not a recipient' do
+      sign_in :user, eve
+      get :index, :conversation_id => @conversations.first.id
+      expect(assigns[:conversation]).to be_nil
+    end
   end
 
   describe '#create' do
@@ -291,14 +297,6 @@ describe ConversationsController, :type => :controller do
     it 'redirects to index' do
       get :show, :id => @conversation.id
       expect(response).to redirect_to(conversations_path(:conversation_id => @conversation.id))
-      expect(assigns[:conversation]).to eq(@conversation)
-    end
-
-    it 'does not let you access conversations where you are not a recipient' do
-      sign_in :user, eve
-
-      get :show, :id => @conversation.id
-      expect(response.code).to redirect_to conversations_path
     end
   end
 end

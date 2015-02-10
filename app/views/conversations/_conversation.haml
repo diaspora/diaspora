@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 .conversation-wrapper{ :"data-conversation-path" => conversation_path(conversation) }
-  .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
+  .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => conversation_class(conversation, unread_counts[conversation.id].to_i, selected_conversation_id)}
     .media
       .img
         - other_participants = ordered_participants[conversation.id] - [current_user.person]
