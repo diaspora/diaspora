@@ -33,12 +33,14 @@ describe("app.helpers.textFormatter", function(){
       this.alice = factory.author({
         name : "Alice Smith",
         diaspora_id : "alice@example.com",
+        guid: "555",
         id : "555"
       });
 
       this.bob = factory.author({
         name : "Bob Grimm",
         diaspora_id : "bob@example.com",
+        guid: "666",
         id : "666"
       });
 
@@ -70,11 +72,19 @@ describe("app.helpers.textFormatter", function(){
       expect(wrapper.find("a[href='googlebot.com']").text()).toContain(freshBob.name);
     });
 
-    it('returns the name of the mention if the mention does not exist in the array', function(){
+    it("returns the name of the mention if the mention does not exist in the array", function(){
       var text = "hey there @{Chris Smith; chris@example.com}";
       var formattedText = this.formatter(text, []);
       expect(formattedText.match(/<a/)).toBeNull();
       expect(formattedText).toContain('Chris Smith');
+    });
+
+    it("makes mentions hovercardable unless the current user has been mentioned", function() {
+      app.currentUser.get = jasmine.createSpy().and.returnValue(this.alice.guid);
+      var formattedText = this.formatter(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"));
+      var wrapper = $("<div>").html(formattedText);
+      expect(wrapper.find("a[href='/people/" + this.alice.guid + "']")).not.toHaveClass('hovercardable');
+      expect(wrapper.find("a[href='/people/" + this.bob.guid + "']")).toHaveClass('hovercardable');
     });
   });
 
