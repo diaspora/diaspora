@@ -291,12 +291,12 @@ GEM
     ice_cube (0.11.1)
     inflecto (0.0.2)
     ipaddress (0.8.0)
-    jasmine (2.1.0)
-      jasmine-core (~> 2.1.0)
+    jasmine (2.2.0)
+      jasmine-core (~> 2.2)
       phantomjs
       rack (>= 1.2.1)
       rake
-    jasmine-core (2.1.2)
+    jasmine-core (2.2.0)
     jasmine-jquery-rails (2.0.3)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
@@ -385,7 +385,7 @@ GEM
       nokogiri
       rbvmomi
     orm_adapter (0.5.0)
-    phantomjs (1.9.7.1)
+    phantomjs (1.9.8.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -481,7 +481,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
-    rake (10.3.2)
+    rake (10.4.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -662,7 +662,7 @@ DEPENDENCIES
   handlebars_assets (= 0.18.0)
   http_accept_language (= 2.0.2)
   i18n-inflector-rails (= 1.0.7)
-  jasmine (= 2.1.0)
+  jasmine (= 2.2.0)
   jasmine-jquery-rails (= 2.0.3)
   jquery-rails (= 3.1.2)
   js-routes (= 0.9.9)
