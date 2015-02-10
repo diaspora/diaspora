@@ -1,0 +1,3 @@
+StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
