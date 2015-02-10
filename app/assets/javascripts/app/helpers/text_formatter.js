@@ -59,14 +59,16 @@
     });
 
     var mentionPlugin = window.markdownitDiasporaMention;
-    md.use(mentionPlugin, mentions);
-
     var subPlugin = window.markdownitSub;
-    md.use(subPlugin);
     var supPlugin = window.markdownitSup;
-    md.use(supPlugin);
     var sanitizerPlugin = window.markdownitSanitizer;
-    md.use(sanitizerPlugin);
+    var emojiPlugin = window.markdownitEmoji;
+
+    md.use(mentionPlugin, mentions)
+      .use(sanitizerPlugin)
+      .use(supPlugin)
+      .use(subPlugin)
+      .use(emojiPlugin);
 
     // TODO this is a temporary fix
     // remove it as soon as markdown-it fixes its autolinking feature
@@ -75,6 +77,11 @@
 
     // Bootstrap table markup
     md.renderer.rules.table_open = function () { return '<table class="table table-striped">\n'; };
+
+    // use twemoji library for emojis
+    md.renderer.rules.emoji = function (token, idx) {
+      return twemoji.parse (token[idx].to, { base: '/assets/twemoji/' });
+    };
 
     return md.render(text);
   };

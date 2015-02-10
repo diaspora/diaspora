@@ -96,6 +96,8 @@ gem 'rails-assets-markdown-it-sanitizer',               '0.2.0'
 gem 'rails-assets-markdown-it--markdown-it-for-inline', '0.1.0'
 gem 'rails-assets-markdown-it-sub',                     '0.1.0'
 gem 'rails-assets-markdown-it-sup',                     '0.1.0'
+gem 'rails-assets-markdown-it-emoji',                   '0.1.3'
+gem 'rails-assets-twemoji',                             '1.2.0'
 
 # jQuery plugins
 
