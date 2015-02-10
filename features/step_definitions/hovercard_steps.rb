@@ -1,5 +1,5 @@
 When(/^I activate the first hovercard$/) do
-  first('.hovercardable').hover
+  page.execute_script("$('.hovercardable').first().trigger('mouseenter');")
 end
 
 Then(/^I should see a hovercard$/) do
