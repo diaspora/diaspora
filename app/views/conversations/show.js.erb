@@ -10,19 +10,8 @@ $(".stream_element", "#conversation_inbox").removeClass('selected');
 $(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").addClass('selected');
 $(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").find(".unread_message_count").remove()
 
-$('time.timeago').each(function(i,e) {
-  var jqe = $(e);
-  jqe.attr('data-original-title', new Date(jqe.attr('datetime')).toLocaleString());
-});
+app.helpers.timeago($(document));
 
 if ($('#first_unread') > 0) {
   $("html").scrollTop($('#first_unread').offset().top-50);
 }
-
-$(".timeago").tooltip();
-$("time.timeago").timeago();
-
-$('time.timeago').each(function(i,e) {
-  var jqe = $(e);
-  jqe.attr('title', '');
-});

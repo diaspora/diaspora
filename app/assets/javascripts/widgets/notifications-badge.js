@@ -83,7 +83,8 @@
             self.dropdownNotifications.append(notification.note_html);
         });
       });
-      self.dropdownNotifications.find("time.timeago").timeago();
+
+      app.helpers.timeago(self.dropdownNotifications);
 
       self.dropdownNotifications.find('.unread').each(function() {
         Diaspora.page.header.notifications.setUpUnread( $(this) );

@@ -42,17 +42,23 @@
                 = t('.mark_all_shown_as_read')
               -else
                 = t('.mark_all_as_read')
-      - @group_days.each do |day, notes|
-        .day_group.row-fluid
-          .date.span2
-            .day= the_day(day.split(' '))
-            .month= the_month(day.split(' '))
+      - if @group_days.length > 0
+        - @group_days.each do |day, notes|
+          .day_group.row-fluid
+            .date.span2
+              .day= the_day(day.split(' '))
+              .month= the_month(day.split(' '))
 
-          .notifications_for_day.span10
-            - notes.each do |note|
-              = render :partial => 'notifications/notification', :locals => { :note => note }
+            .notifications_for_day.span10
+              - notes.each do |note|
+                = render :partial => 'notifications/notification', :locals => { :note => note }
 
-      = will_paginate @notifications, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+        = will_paginate @notifications, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+
+      - else
+        .no_notifications.well
+          %h4
+            = t('.no_notifications')
 
 :javascript
   $(document).ready(function(){

@@ -9,6 +9,7 @@ app.views.Notifications = Backbone.View.extend({
   initialize: function() {
     Diaspora.page.header.notifications.setUpNotificationPage(this);
     $(".unread-toggle .entypo").tooltip();
+    app.helpers.timeago($(document));
   },
 
   toggleUnread: function(evt) {
