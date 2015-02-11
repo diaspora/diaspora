@@ -59,7 +59,11 @@
     });
 
     var mentionPlugin = window.markdownitDiasporaMention;
-    md.use(mentionPlugin, mentions);
+    md.use(mentionPlugin, {
+      mentions: mentions,
+      allowHovercards: true,
+      currentUserId: app.currentUser.get('guid')
+    });
 
     var subPlugin = window.markdownitSub;
     md.use(subPlugin);
