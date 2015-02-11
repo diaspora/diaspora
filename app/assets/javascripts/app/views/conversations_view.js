@@ -6,18 +6,44 @@ app.views.Conversations = Backbone.View.extend({
 
   events: {
     "mouseenter .stream_element.conversation" : "showParticipants",
-    "mouseleave .stream_element.conversation" : "hideParticipants"
+    "mouseleave .stream_element.conversation" : "hideParticipants",
+    "conversation:loaded" : "setupConversation"
   },
 
   initialize: function() {
-    $("#people_stream.contacts .header .entypo").tooltip({ 'placement': 'bottom'});
-    // TODO doesn't work anymore
-    if ($('#first_unread').length > 0) {
-      $("html").scrollTop($('#first_unread').offset().top-50);
+    if($('#conversation_new:visible').length > 0) {
+      new app.views.ConversationsForm({contacts: gon.contacts});
     }
+    this.setupConversation();
+  },
 
-    new app.views.ConversationsForm({contacts: gon.contacts});
+  setupConversation: function() {
     app.helpers.timeago($(this.el));
+
+    var conv = $('.conversation-wrapper .stream_element.selected'),
+        cBadge = $('#conversations_badge .badge_count');
+
+    if(conv.hasClass('unread') ){
+      var unreadCount = parseInt(conv.find('.unread_message_count').text(), 10);
+
+      if(cBadge.text() !== '') {
+        cBadge.text().replace(/\d+/, function(num){
+          num = parseInt(num, 10) - unreadCount;
+          if(num > 0) {
+            cBadge.text(num);
+          } else {
+            cBadge.text(0).addClass('hidden');
+          }
+        });
+      }
+      conv.removeClass('unread');
+      conv.find('.unread_message_count').remove();
+
+      var pos = $('#first_unread').offset().top - 50;
+      $("html").animate({scrollTop:pos});
+    } else {
+      $("html").animate({scrollTop:0});
+    }
   },
 
   hideParticipants: function(e){

@@ -51,6 +51,13 @@ class Conversation < ActiveRecord::Base
     end
   end
 
+  def set_read(user)
+    if visibility = self.conversation_visibilities.where(:person_id => user.person.id).first
+      visibility.unread = 0
+      visibility.save
+    end
+  end
+
   def public?
     false
   end

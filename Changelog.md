@@ -127,6 +127,8 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Fix localization of post and comment timestamps on mobile [#5482](https://github.com/diaspora/diaspora/issues/5482)
 * Fix mobile JS loading to quieten errors. Fixes also service buttons on mobile bookmarklet.
 * Don't error out when adding a too long location to the profile [#5614](https://github.com/diaspora/diaspora/pull/5614)
+* Correctly decrease unread count for conversations [#5646](https://github.com/diaspora/diaspora/pull/5646)
+* Fix automatic scroll for conversations [#5646](https://github.com/diaspora/diaspora/pull/5646)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)

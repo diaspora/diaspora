@@ -17,7 +17,7 @@
         #conversation_inbox
           .stream.conversations
             - if @conversations.count > 0
-              = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors, :ordered_participants => @ordered_participants, :unread_counts => @unread_counts}
+              = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors, :ordered_participants => @ordered_participants, :unread_counts => @unread_counts, :selected_conversation_id => @conversation.try(:id)}
             - else
               #no_conversations
                 = t('.no_messages')
