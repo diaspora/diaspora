@@ -99,31 +99,26 @@ class Profile < ActiveRecord::Base
     self.attributes.merge(update_hash){|key, old, new| old.blank? ? new : old}
   end
 
-  def image_url= url
-    return image_url if url == ''
-    if url.nil? || url.match(/^https?:\/\//)
-      super(url)
-    else
-      super(absolutify_local_url(url))
+  def _set_image_url (att, url)
+    if not url.blank?
+      path = url[/(https?:\/\/(.(?!\/))*.)?(.*)/, 3]
+      if not path.match(/^\//)
+        path += '/'
+      end
+      self[att] = path
     end
+  end
+
+  def image_url= url
+    _set_image_url(:image_url, url)
   end
 
   def image_url_small= url
-    return image_url if url == ''
-    if url.nil? || url.match(/^https?:\/\//)
-      super(url)
-    else
-      super(absolutify_local_url(url))
-    end
+    _set_image_url(:image_url_small, url)
   end
 
   def image_url_medium= url
-    return image_url if url == ''
-    if url.nil? || url.match(/^https?:\/\//)
-      super(url)
-    else
-      super(absolutify_local_url(url))
-    end
+    _set_image_url(:image_url_medium, url)
   end
 
   def date= params
