@@ -184,13 +184,21 @@ class PeopleController < ApplicationController
   private
 
   def find_person
-    @person = Person.find_from_guid_or_username({
-      id: params[:id] || params[:person_id],
-      username: params[:username]
-    })
+    username = params[:username]
+    @person = if diaspora_id?(username)
+        Person.where({
+          diaspora_handle: username.downcase
+        }).first
+      else
+        Person.find_from_guid_or_username({
+          id: params[:id] || params[:person_id],
+          username: username
+        })
+      end
 
     # view this profile on the home pod, if you don't want to sign in...
     authenticate_user! if remote_profile_with_no_user_session?
+    raise ActiveRecord::RecordNotFound if @person.nil?
     raise Diaspora::AccountClosed if @person.closed_account?
   end
 
