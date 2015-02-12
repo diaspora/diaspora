@@ -46,7 +46,7 @@ describe Profile, :type => :model do
 
       it 'sets full name to first name' do
         @from_omniauth = {'name' => 'bob jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'http://cats.com/gif.gif'}
-        
+
         profile = Profile.new
         expect(profile.from_omniauth_hash(@from_omniauth)['first_name']).to eq('bob jones')
       end
@@ -117,7 +117,7 @@ describe Profile, :type => :model do
       profile = FactoryGirl.build(:profile, :location => "a"*255)
       expect(profile).to be_valid
     end
-   
+
     it "cannot be 256 characters" do
       profile = FactoryGirl.build(:profile, :location => "a"*256)
       expect(profile).not_to be_valid
@@ -135,14 +135,19 @@ describe Profile, :type => :model do
       expect {@profile.image_url = ""}.not_to change(@profile, :image_url)
     end
 
-    it 'makes relative urls absolute' do
-      @profile.image_url = "/relative/url"
-      expect(@profile.image_url).to eq("#{@pod_url}/relative/url")
+    it 'makes absolute urls relative' do
+      @profile.image_url = "https://host/bar/relative/url"
+      expect(@profile.image_url).to eq("/bar/relative/url")
     end
 
-    it "doesn't change absolute urls" do
-      @profile.image_url = "http://not/a/relative/url"
-      expect(@profile.image_url).to eq("http://not/a/relative/url")
+    it 'adds a leading "/" to a relative path if there is node' do
+      @profile.image_url = "foo/bar/baz"
+      expect(@profile.image_url).to eq("/foo/bar/baz")
+    end
+
+    it "doesn't change rel urls that start with a /" do
+      @profile.image_url = "/foo/bar/baz/relative/url"
+      expect(@profile.image_url).to eq("/foo/bar/baz/relative/url")
     end
   end
 
@@ -157,7 +162,7 @@ describe Profile, :type => :model do
       expect(new_profile.tag_string).to include('#rafi')
     end
   end
-  
+
   describe 'serialization' do
     let(:person) {FactoryGirl.build(:person,:diaspora_handle => "foobar" )}
 
@@ -173,7 +178,7 @@ describe Profile, :type => :model do
       xml = person.profile.to_diaspora_xml
       expect(xml).to include "#one"
     end
-    
+
     it 'includes location' do
       person.profile.location = 'Dark Side, Moon'
       person.profile.save
@@ -334,7 +339,7 @@ describe Profile, :type => :model do
   describe "#clearable_fields" do
     it 'returns the current profile fields' do
       profile = FactoryGirl.build :profile
-      expect(profile.send(:clearable_fields).sort).to eq( 
+      expect(profile.send(:clearable_fields).sort).to eq(
       ["diaspora_handle",
       "first_name",
       "last_name",
