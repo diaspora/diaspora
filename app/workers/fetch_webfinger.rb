@@ -4,7 +4,7 @@
 
 module Workers
   class FetchWebfinger < Base
-    sidekiq_options queue: :socket_webfinger
+    sidekiq_options queue: :socket_webfinger, retry: false
 
     def perform(account)
       person = Webfinger.new(account).fetch
