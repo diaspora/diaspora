@@ -9,7 +9,8 @@ app.views.Help = app.views.StaticContentView.extend({
     "click .faq-link-sharing" : "sharing",
     "click .faq-link-posts-and-posting" : "postsAndPosting",
     "click .faq-link-tags": "tags",
-    "click .faq-link-keyboard-shortcuts" : "keyboardShortcuts"
+    "click .faq-link-keyboard-shortcuts" : "keyboardShortcuts",
+    "click .faq-link-chat" :  "chat"
   },
 
   initialize : function() {
@@ -35,6 +36,13 @@ app.views.Help = app.views.StaticContentView.extend({
       }
     };
 
+    this.CHAT_SUBS = {
+      add_contact_roster_a: {
+        toggle_privilege: this.getChatIcons(),
+        contacts_page: this.linkHtml(Routes.contacts_path(), Diaspora.I18n.t('chat.contacts_page'))
+      }
+    };
+
     this.data = {
       title_header: Diaspora.I18n.t( 'title_header' ),
       title_getting_help: Diaspora.I18n.t( 'getting_help.title' ),
@@ -51,7 +59,9 @@ app.views.Help = app.views.StaticContentView.extend({
       title_sharing: Diaspora.I18n.t( 'sharing.title' ),
       title_tags: Diaspora.I18n.t( 'tags.title' ),
       title_keyboard_shortcuts: Diaspora.I18n.t( 'keyboard_shortcuts.title' ),
-      title_miscellaneous: Diaspora.I18n.t( 'miscellaneous.title' )
+      title_miscellaneous: Diaspora.I18n.t( 'miscellaneous.title' ),
+      title_chat: Diaspora.I18n.t( 'chat.title' ),
+      chat_enabled: this.chatEnabled()
     };
 
     return this;
@@ -143,7 +153,7 @@ app.views.Help = app.views.StaticContentView.extend({
   /**
    * Returns The section title whose data-section property equals the given query
    * Returns null if nothing found
-   * @param dataValue Value for the data-section to find
+   * @param data Value for the data-section to find
    * @returns {jQuery}
    */
   findSection: function(data){
@@ -187,8 +197,27 @@ app.views.Help = app.views.StaticContentView.extend({
     e.preventDefault();
   },
 
+  chat: function(e){
+    this.renderStaticSection("chat", "faq_chat", this.CHAT_SUBS);
+    this.menuClicked(e);
+
+    e.preventDefault();
+  },
+
   linkHtml: function(url, text) {
     return "<a href=\"" + url + "\" target=\"_blank\">" + text + "</a>";
+  },
+
+  chatEnabled: function(){
+    return gon.chatEnabled;
+  },
+
+  getChatIcons: function(){
+    return '<div class="help-chat-icons">' +
+           '  <i class="entypo lock-open"></i>' +
+           '  <i class="entypo chat"></i>' +
+           '  <i class="entypo trash"></i>' +
+           '</div>';
   }
 });
 // @license-end
