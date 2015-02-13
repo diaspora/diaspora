@@ -175,8 +175,8 @@ Diaspora::Application.routes.draw do
       get :tag_index
     end
   end
-  get '/u/:username' => 'people#show', :as => 'user_profile'
-  get '/u/:username/profile_photo' => 'users#user_photo'
+  get '/u/:username' => 'people#show', :as => 'user_profile', :constraints => { :username => /[^\/]+/ }
+  get '/u/:username/profile_photo' => 'users#user_photo', :constraints => { :username => /[^\/]+/ }
 
 
   # Federation
