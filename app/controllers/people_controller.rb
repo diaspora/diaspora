@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class PeopleController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :stream, :last_post]
+  before_action :authenticate_user!, except: [:show, :stream]
   before_action :find_person, only: [:show, :stream, :hovercard]
 
   layout ->(c){ request.format == :mobile ? "application" : "with_header_with_footer" }
@@ -126,12 +126,6 @@ class PeopleController < ApplicationController
         render :json => HovercardPresenter.new(@person)
       end
     end
-  end
-
-  def last_post
-    @person = Person.find_from_guid_or_username(params)
-    last_post = Post.visible_from_author(@person, current_user).order('posts.created_at DESC').first
-    redirect_to post_path(last_post)
   end
 
   def retrieve_remote
