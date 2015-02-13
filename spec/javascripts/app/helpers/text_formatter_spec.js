@@ -111,6 +111,15 @@ describe("app.helpers.textFormatter", function(){
         expect(linkElement.text()).toContain(link);
         expect(linkElement.attr("target")).toContain("_blank");
       });
+
+      expect(this.formatter('<http://google.com>')).toContain('<a href');
+      expect(this.formatter('<http://google.com>')).toContain('_blank');
+    });
+
+    it("respects code blocks", function() {
+      var content = '`<unknown tag>`';
+      var wrapper = $('<div>').html(this.formatter(content));
+      expect(wrapper.find('code').text()).toEqual('<unknown tag>');
     });
 
     context("symbol conversion", function() {
