@@ -32,39 +32,25 @@
   }
 
   form {
-    .form-control:last-of-type {
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
+    max-width: 400px;
+
+    .captcha_img {
+      position: absolute;
+      left: 10px;
+      width: 120px;
+      top: 169px;
     }
 
-    .captcha {
-      border: 1px solid $border-grey;
-      border-top: 0px;
+    #user_captcha {
+      font-size: 16px;
+      height: 40px;
+      padding: 10px 10px 10px 130px;
+      line-height: 20px;
+      box-sizing: border-box;
+      width: 100%;
+      border-bottom: 1px solid $border-grey;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
-
-      .captcha_img {
-        float: left;
-        margin-top: 3px;
-      }
-
-      #user_captcha {
-        float: right;
-        width: 69%;
-        border: 0px;
-        border-radius: 0px;
-        border-bottom-right-radius: 5px;
-        border-left: 1px solid $border-grey;
-
-        &:focus {
-          border: solid 1px $border-dark-grey;
-          /* Sorry about this dirty hack, the only way I found to correctly display the grey border */
-          position: relative;
-          top: -1px;
-          margin-right: -1px;
-          margin-bottom: -2px;
-        }
-      }
     }
 
     #terms > a {

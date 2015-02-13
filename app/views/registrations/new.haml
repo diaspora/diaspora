@@ -8,7 +8,7 @@
           %h3#diaspora-hearts
             = t('.diaspora')
         .span5
-          .pull-right
+          .text-center
             %h2#pod-name
               = AppConfig.settings.pod_name
             = form_for(resource, url: registration_path(resource_name), html: {class: "form-horizontal block-form", autocomplete: "off"}) do |f|
@@ -34,9 +34,7 @@
                 = f.password_field :password_confirmation, class: "input-block-level form-control", placeholder: t('.password_confirmation'), title: t('registrations.new.enter_password_again'), required: true, pattern: "......+"
 
                 - if AppConfig.settings.captcha.enable?
-                  .captcha
-                    = show_simple_captcha(object: 'user', code_type: 'numeric')
-                    %div{style: "clear:both;"}
+                  = show_simple_captcha :object => 'user', :code_type => 'numeric'
 
                 = invite_hidden_tag(invite)
 

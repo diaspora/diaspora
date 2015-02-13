@@ -1,19 +1,19 @@
 input,
+input[type=email],
+input[type=text],
+input[type=password],
 textarea { /* Bootstrap reset */
   &,
   &:active,
   &:invalid,
-  &:invalid:required, {
-    border-color: $border-grey;
-    box-shadow: none;
-  }
-
+  &:invalid:required,
   &:focus,
   &:active:focus,
   &:invalid:focus,
   &:invalid:required:focus {
-    border-color: $border-dark-grey;
+    border-color: $border-grey;
     box-shadow: none;
+    color : $text-dark-grey;
   }
 }
 
@@ -78,19 +78,6 @@ form.block-form {
       }
     }
 
-    .form-control:focus {
-      &,
-      &:invalid,
-      &:invalid:required {
-        border-color: $border-dark-grey;
-        border-bottom-width: 1px;
-      }
-      /* remove the border of the element under the one with the focus */
-      & + label + .entypo + .form-control {
-        border-top-width: 0px;
-      }
-    }
-
     .entypo {
       position: absolute;
       top: 10px;
@@ -113,7 +100,7 @@ form.block-form {
       top: 130px;
     }
 
-    input:-moz-placeholder { text-transform: uppercase; }
+    input::-moz-placeholder { text-transform: uppercase; }
     input::-webkit-input-placeholder { text-transform: uppercase; }
     input:-ms-input-placeholder { text-transform: uppercase; }
   }
