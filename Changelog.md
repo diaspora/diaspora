@@ -165,6 +165,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Added keyboard shortcuts r(reshare), m(expand Post), o(open first link in post) [#5602](https://github.com/diaspora/diaspora/pull/5602)
 * Dynamically compute minimum and maximum valid year for birthday field [#5639](https://github.com/diaspora/diaspora/pull/5639)
 * Show hovercard on mentions [#5652](https://github.com/diaspora/diaspora/pull/5652)
+* Make help sections linkable [#5667](https://github.com/diaspora/diaspora/pull/5667)
 
 # 0.4.1.2
 

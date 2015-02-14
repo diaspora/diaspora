@@ -87,4 +87,51 @@ describe("app.views.Help", function(){
       expect(this.view.$el.find('#faq').children().first().hasClass('faq_question_miscellaneous')).toBeTruthy();
     });
   });
+
+  describe("findSection", function() {
+    beforeEach(function() {
+      this.view.render();
+    });
+
+    it('should return null for an unknown section', function() {
+      expect(this.view.findSection('you_shall_not_pass')).toBeNull();
+    });
+
+    it('should return the correct section link for existing sections', function() {
+      var sections = [
+        'account_and_data_management',
+        'aspects',
+        'pods',
+        'keyboard_shortcuts',
+        'tags',
+        'miscellaneous'
+      ];
+
+      var self = this;
+      _.each(sections, function(section) {
+        var el = self.view.$el.find('a[data-section=' + section + ']');
+        expect(self.view.findSection(section).html()).toBe(el.html());
+      });
+    });
+  });
+
+  describe("menuClicked", function() {
+    beforeEach(function() {
+      this.view.render();
+    });
+
+    it('should rewrite the location', function(){
+      var sections = [
+        'account_and_data_management',
+        'miscellaneous'
+      ];
+      spyOn(app.router, 'navigate');
+
+      var self = this;
+      _.each(sections, function(section) {
+        self.view.$el.find('a[data-section=' + section + ']').trigger('click');
+        expect(app.router.navigate).toHaveBeenCalledWith('help/' + section);
+      });
+    });
+  });
 });
