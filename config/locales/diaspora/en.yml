@@ -1282,6 +1282,7 @@ en:
       current_password_expl: "the one you sign in with..."
       character_minimum_expl: "must be at least six characters"
       change_language: "Change language"
+      close_account_text: "Close account"
       stream_preferences: "Stream preferences"
       show_community_spotlight: "Show “community spotlight” in stream"
       show_getting_started: "Show “getting started” hints"
