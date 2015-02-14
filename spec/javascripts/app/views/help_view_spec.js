@@ -86,39 +86,52 @@ describe("app.views.Help", function(){
       this.view.$el.find('a[data-section=miscellaneous]').trigger('click');
       expect(this.view.$el.find('#faq').children().first().hasClass('faq_question_miscellaneous')).toBeTruthy();
     });
+  });
 
-    it('should not find any topic', function(){
-      expect(this.view.findTopic('you_shall_not_pass')).toBeNull();
+  describe("findSection", function() {
+    beforeEach(function() {
+      this.view.render();
     });
 
-    it('should find the miscellaneous topic', function(){
-      var topic = this.view.$el.find('a[data-section=miscellaneous]');
-      expect(this.view.findTopic('miscellaneous').html()).toBe(topic.html());
+    it('should return null for an unknown section', function() {
+      expect(this.view.findSection('you_shall_not_pass')).toBeNull();
     });
 
-    it('should find the keyboard_shortcuts topic', function(){
-      var topic = this.view.$el.find('a[data-section=keyboard_shortcuts]');
-      expect(this.view.findTopic('keyboard_shortcuts').html()).toBe(topic.html());
+    it('should return the correct section link for existing sections', function() {
+      var sections = [
+        'account_and_data_management',
+        'aspects',
+        'pods',
+        'keyboard_shortcuts',
+        'tags',
+        'miscellaneous'
+      ];
+
+      var self = this;
+      _.each(sections, function(section) {
+        var el = self.view.$el.find('a[data-section=' + section + ']');
+        expect(self.view.findSection(section).html()).toBe(el.html());
+      });
+    });
+  });
+
+  describe("menuClicked", function() {
+    beforeEach(function() {
+      this.view.render();
     });
 
-    it('should find the miscellaneous topic', function(){
-      var topic = this.view.$el.find('a[data-section=tags]');
-      expect(this.view.findTopic('tags').html()).toBe(topic.html());
-    });
+    it('should rewrite the location', function(){
+      var sections = [
+        'account_and_data_management',
+        'miscellaneous'
+      ];
+      spyOn(app.router, 'navigate');
 
-    it('should rewrite route to help/tags', function(){
-      this.view.$el.find('a[data-section=tags]').trigger('click');
-      expect(window.location.href.toString().endsWith("help/tags")).toBeTruthy();
-    });
-
-    it('should rewrite route to help/keyboard_shortcuts', function(){
-      this.view.$el.find('a[data-section=keyboard_shortcuts]').trigger('click');
-      expect(window.location.href.toString().endsWith("help/keyboard_shortcuts")).toBeTruthy();
-    });
-
-    it('should rewrite route to help/sharing', function(){
-      this.view.$el.find('a[data-section=sharing]').trigger('click');
-      expect(window.location.href.toString().endsWith("help/sharing")).toBeTruthy();
+      var self = this;
+      _.each(sections, function(section) {
+        self.view.$el.find('a[data-section=' + section + ']').trigger('click');
+        expect(app.router.navigate).toHaveBeenCalledWith('help/' + section);
+      });
     });
   });
 });

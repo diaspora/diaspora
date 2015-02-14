@@ -57,17 +57,17 @@ app.views.Help = app.views.StaticContentView.extend({
     return this;
   },
 
-  render: function(topic){
-    var section = app.views.Base.prototype.render.apply(this, arguments);
+  render: function(section){
+    var html = app.views.Base.prototype.render.apply(this, arguments);
 
     // After render actions
     this.resetMenu(true);
     this.renderStaticSection("getting_help", "faq_getting_help", this.GETTING_HELP_SUBS);
 
-    var elTarget = this.findTopic(topic);
-    if(elTarget != null){ $(elTarget).click(); }
+    var elTarget = this.findSection(section);
+    if(elTarget !== null){ $(elTarget).click(); }
 
-    return section;
+    return html;
   },
 
   showItems: function(el) {
@@ -146,9 +146,9 @@ app.views.Help = app.views.StaticContentView.extend({
    * @param dataValue Value for the data-section to find
    * @returns {jQuery}
    */
-  findTopic: function(dataValue){
-    var res = this.$('a[data-section=' + dataValue + ']');
-    if(res.length == 0){ return null; }
+  findSection: function(data){
+    var res = this.$('a[data-section=' + data + ']');
+    if(res.length === 0){ return null; }
     return res;
   },
 
