@@ -108,6 +108,9 @@
             self.getMoreNotifications();
         }
       });
+
+      // add avatar fallback if it can't be loaded
+      self.dropdownNotifications.find(app.views.Base.prototype.avatars.selector).error(app.views.Base.prototype.avatars.fallback);
     };
   };
 
