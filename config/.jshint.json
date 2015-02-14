@@ -58,6 +58,7 @@
     "factory",
     "stubView",
     "exports",
+    "spyOn",
 
     "app",
     "Diaspora",
