@@ -95,6 +95,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Use sentence case consistently throughout UI [#5588](https://github.com/diaspora/diaspora/pull/5588)
 * Hide sign up button when registrations are disabled [#5612](https://github.com/diaspora/diaspora/pull/5612)
 * Standardize capitalization throughout the UI [#5588](https://github.com/diaspora/diaspora/pull/5588)
+* Display photos on the profile page as thumbnails [#5521](https://github.com/diaspora/diaspora/pull/5521)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)

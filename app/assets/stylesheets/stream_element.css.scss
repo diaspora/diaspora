@@ -1,8 +1,5 @@
 #main_stream .stream_element,
 #main_stream > div > .photo {
-  border-bottom: 1px solid $border-grey;
-  padding: 10px;
-
   & > .media {
     margin: 0px;
   }
@@ -12,7 +9,42 @@
   }
 }
 
+#main_stream > div > .photo {
+  & > .media {
+    overflow: visible;
+    > .bd {
+      position: relative;
+      overflow: inherit;
+      > .controls {
+        position: absolute;
+        right: 6px;
+        top: 1px;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        line-height: 15px;
+      }
+    }
+    &:hover > .bd > .controls { background: #fff; }
+  }
+  .thumbnail {
+    height: 200px;
+    padding: 10px;
+    margin: 0 5px 10px;
+    text-align: center;
+    line-height: 200px;
+    border: 1px solid $border-grey;
+    background: #fefefe;
+    box-shadow: 3px 3px 2px #eee;
+    img {
+      &.big_photo { max-height: 200px; }
+    }
+  }
+}
+
 #main_stream .stream_element {
+  border-bottom: 1px solid $border-grey;
+  padding: 10px;
   & > .media {
     & > .img > .avatar.small {
       height: 50px;
