@@ -10,4 +10,3 @@ When(/^I delete a photo$/) do
   find('.photo.loaded .thumbnail', :match => :first).hover
   find('.delete', :match => :first).click
 end
-
