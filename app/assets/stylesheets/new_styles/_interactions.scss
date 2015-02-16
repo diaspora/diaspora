@@ -2,9 +2,16 @@
   .controls {
     z-index: 6;
     float: right;
-    .comment_report {
+    .post_report, .comment_report {
       display: inline-block;
       .icons-report {
+        height: 14px;
+        width: 14px;
+      }
+    }
+    .block_user {
+      display: inline-block;
+      .icons-ignoreuser {
         height: 14px;
         width: 14px;
       }
