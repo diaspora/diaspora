@@ -15,11 +15,26 @@
       margin-bottom: 10px;
     }
 
+    .year_container { margin-top: 75px; }
+    .header + .year_container { margin-top: 50px; }
+    .year {
+      background-color: $white;
+      color: $light-grey;
+      font-size: 20px;
+      line-height: 20px;
+      margin-bottom: -20px;
+      text-align: center;
+    }
+
+    .year_container + .day_group {
+      border-top: 1px solid $border-grey;
+      padding-top: 10px;
+    }
+
     .day_group {
       margin-bottom: 10px;
       padding-bottom: 10px;
       border-bottom: 1px dashed $border-grey;
-      &:last-child { border-bottom: none; }
       .date {
         text-align: center;
         color: $light-grey;
