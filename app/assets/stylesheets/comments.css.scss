@@ -36,7 +36,13 @@
     }
     padding-left: 12px;
     width: 95%;
+    display: none;
   }
-  .comment_box { width: 95%; }
-  .comment_box:focus, .comment_box:valid { min-height: 100px; }
+  .comment_box {
+    width: 95%;
+    height: 30px;
+  }
+  .comment_box:focus, .comment_box:valid {
+    & + .submit_button { display: block; }
+  }
 }
