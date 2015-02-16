@@ -169,6 +169,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Show hovercard on mentions [#5652](https://github.com/diaspora/diaspora/pull/5652)
 * Make help sections linkable [#5667](https://github.com/diaspora/diaspora/pull/5667)
 * Add invitation link to contacts page [#5655](https://github.com/diaspora/diaspora/pull/5655)
+* Add year to notifications page [#5676](https://github.com/diaspora/diaspora/pull/5676)
 
 # 0.4.1.2
 

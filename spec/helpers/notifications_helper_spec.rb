@@ -93,4 +93,23 @@ describe NotificationsHelper, :type => :helper do
       end
     end
   end
+
+  describe '#display_year?' do
+    it 'returns false if year is nil and the date includes the current year' do
+      expect(display_year?(nil,Date.current.strftime('%Y-%m-%d'))).to be_falsey
+    end
+
+    it 'returns true if year is nil and the date does not include the current year' do
+      expect(display_year?(nil,'1900-12-31')).to be_truthy
+    end
+
+    it 'returns false if the date includes the given year' do
+      expect(display_year?(2015,'2015-12-31')).to be_falsey
+    end
+
+    it 'returns true if the date does not include the given year' do
+      expect(display_year?(2015,'2014-12-31')).to be_truthy
+      expect(display_year?(2015,'2016-12-31')).to be_truthy
+    end
+  end
 end
