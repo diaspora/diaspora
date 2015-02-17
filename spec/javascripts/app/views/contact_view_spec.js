@@ -50,7 +50,7 @@ describe("app.views.Contact", function(){
     it('adds a aspect_membership to the contact', function() {
       expect(this.model.aspect_memberships.length).toBe(1);
       $('.contact_add-to-aspect',this.contact).trigger('click');
-      jasmine.Ajax.requests.mostRecent().response({
+      jasmine.Ajax.requests.mostRecent().respondWith({
         status: 200, // success
         responseText: this.response
       });
@@ -60,7 +60,7 @@ describe("app.views.Contact", function(){
     it('calls render', function() {
       spyOn(this.view, 'render');
       $('.contact_add-to-aspect',this.contact).trigger('click');
-      jasmine.Ajax.requests.mostRecent().response({
+      jasmine.Ajax.requests.mostRecent().respondWith({
         status: 200, // success
         responseText: this.response
       });
@@ -70,7 +70,7 @@ describe("app.views.Contact", function(){
 
     it('displays a flash message on errors', function(){
       $('.contact_add-to-aspect',this.contact).trigger('click');
-      jasmine.Ajax.requests.mostRecent().response({
+      jasmine.Ajax.requests.mostRecent().respondWith({
         status: 400, // fail
       });
       expect($('[id^="flash"]')).toBeErrorFlashMessage(
@@ -102,7 +102,7 @@ describe("app.views.Contact", function(){
     it('removes the aspect_membership from the contact', function() {
       expect(this.model.aspect_memberships.length).toBe(1);
       $('.contact_remove-from-aspect',this.contact).trigger('click');
-      jasmine.Ajax.requests.mostRecent().response({
+      jasmine.Ajax.requests.mostRecent().respondWith({
         status: 200, // success
         responseText: this.response
       });
@@ -112,7 +112,7 @@ describe("app.views.Contact", function(){
     it('calls render', function() {
       spyOn(this.view, 'render');
       $('.contact_remove-from-aspect',this.contact).trigger('click');
-      jasmine.Ajax.requests.mostRecent().response({
+      jasmine.Ajax.requests.mostRecent().respondWith({
         status: 200, // success
         responseText: this.response,
       });
@@ -121,7 +121,7 @@ describe("app.views.Contact", function(){
 
     it('displays a flash message on errors', function(){
       $('.contact_remove-from-aspect',this.contact).trigger('click');
-      jasmine.Ajax.requests.mostRecent().response({
+      jasmine.Ajax.requests.mostRecent().respondWith({
         status: 400, // fail
       });
       expect($('[id^="flash"]')).toBeErrorFlashMessage(

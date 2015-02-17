@@ -26,7 +26,7 @@ describe("app.views.AspectMembershipBlueprint", function(){
 
     it('marks the aspect as selected', function() {
       this.newAspect.trigger('click');
-      jasmine.Ajax.requests.mostRecent().response(resp_success);
+      jasmine.Ajax.requests.mostRecent().respondWith(resp_success);
 
       expect(this.newAspect.attr('class')).toContain('selected');
     });
@@ -34,7 +34,7 @@ describe("app.views.AspectMembershipBlueprint", function(){
     it('displays flash message when added to first aspect', function() {
       spec.content().find('li').removeClass('selected');
       this.newAspect.trigger('click');
-      jasmine.Ajax.requests.mostRecent().response(resp_success);
+      jasmine.Ajax.requests.mostRecent().respondWith(resp_success);
 
       expect($('[id^="flash"]')).toBeSuccessFlashMessage(
         Diaspora.I18n.t('aspect_dropdown.started_sharing_with', {name: this.person_name})
@@ -43,7 +43,7 @@ describe("app.views.AspectMembershipBlueprint", function(){
 
     it('displays an error when it fails', function() {
       this.newAspect.trigger('click');
-      jasmine.Ajax.requests.mostRecent().response(resp_fail);
+      jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
       expect($('[id^="flash"]')).toBeErrorFlashMessage(
         Diaspora.I18n.t('aspect_dropdown.error', {name: this.person_name})
@@ -59,7 +59,7 @@ describe("app.views.AspectMembershipBlueprint", function(){
 
     it('marks the aspect as unselected', function(){
       this.oldAspect.trigger('click');
-      jasmine.Ajax.requests.mostRecent().response(resp_success);
+      jasmine.Ajax.requests.mostRecent().respondWith(resp_success);
 
       expect(this.oldAspect.attr('class')).not.toContain('selected');
     });
@@ -67,7 +67,7 @@ describe("app.views.AspectMembershipBlueprint", function(){
     it('displays a flash message when removed from last aspect', function() {
       spec.content().find('li.selected:last').removeClass('selected');
       this.oldAspect.trigger('click');
-      jasmine.Ajax.requests.mostRecent().response(resp_success);
+      jasmine.Ajax.requests.mostRecent().respondWith(resp_success);
 
       expect($('[id^="flash"]')).toBeSuccessFlashMessage(
         Diaspora.I18n.t('aspect_dropdown.stopped_sharing_with', {name: this.person_name})
@@ -76,7 +76,7 @@ describe("app.views.AspectMembershipBlueprint", function(){
 
     it('displays an error when it fails', function() {
       this.oldAspect.trigger('click');
-      jasmine.Ajax.requests.mostRecent().response(resp_fail);
+      jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
       expect($('[id^="flash"]')).toBeErrorFlashMessage(
         Diaspora.I18n.t('aspect_dropdown.error_remove', {name: this.person_name})

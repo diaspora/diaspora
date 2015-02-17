@@ -99,7 +99,6 @@ describe PhotosController, :type => :controller do
       get :index, :person_id => alice.person.guid.to_s
 
       expect(response.headers['Content-Type']).to match 'application/json.*'
-      save_fixture(response.body, "photos_json")
     end
 
     it 'displays by date of creation' do

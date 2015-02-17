@@ -8,3 +8,4 @@
 //= require profile
 //= require contact-list
 //= require sinon
+//= require jasmine-ajax
