@@ -131,6 +131,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Correctly decrease unread count for conversations [#5646](https://github.com/diaspora/diaspora/pull/5646)
 * Fix automatic scroll for conversations [#5646](https://github.com/diaspora/diaspora/pull/5646)
 * Fix missing translation on privacy settings page [#5671](https://github.com/diaspora/diaspora/pull/5671)
+* Fix code overflow for the mobile website [#5675](https://github.com/diaspora/diaspora/pull/5675)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
