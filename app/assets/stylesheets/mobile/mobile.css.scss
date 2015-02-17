@@ -12,6 +12,11 @@ a {
   text-decoration: none;
 }
 
+code {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
 body {
   background: {
     image: image-url('texture/hatched-light.jpg');
