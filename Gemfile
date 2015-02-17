@@ -262,7 +262,8 @@ group :development, :test do
   gem 'cucumber-rails',     '1.4.2', :require => false
 
   # Jasmine (client side application tests (JS))
-  gem 'jasmine',              '2.2.0'
-  gem 'jasmine-jquery-rails', '2.0.3'
-  gem 'sinon-rails',          '1.10.3'
+  gem 'jasmine',                   '2.2.0'
+  gem 'jasmine-jquery-rails',      '2.0.3'
+  gem 'rails-assets-jasmine-ajax', '3.0.0'
+  gem 'sinon-rails',               '1.10.3'
 end

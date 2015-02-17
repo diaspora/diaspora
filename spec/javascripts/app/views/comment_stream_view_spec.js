@@ -44,21 +44,19 @@ describe("app.views.CommentStream", function(){
       });
 
       it("fires an AJAX request", function() {
-        var params = JSON.parse(this.request.params);
-        // TODO: use this, once jasmine-ajax is updated to latest version
-        //params = this.request.data();
+        var params = this.request.data();
 
         expect(params.text).toEqual("a new comment");
       });
 
       it("adds the comment to the view", function() {
-        this.request.response({status: 200, responseText: '[]'});
+        this.request.respondWith({status: 200, responseText: '[]'});
         expect(this.view.$(".comment-content p").text()).toEqual("a new comment");
       });
 
       it("doesn't add the comment to the view, when the request fails", function(){
         Diaspora.I18n.load({failed_to_post_message: "posting failed!"});
-        this.request.response({status: 500});
+        this.request.respondWith({status: 500});
 
         expect(this.view.$(".comment-content p").text()).not.toEqual("a new comment");
         expect($('*[id^="flash"]')).toBeErrorFlashMessage("posting failed!");
@@ -93,7 +91,7 @@ describe("app.views.CommentStream", function(){
       this.view.$("textarea").val("great post!");
       this.view.expandComments();
 
-      jasmine.Ajax.requests.mostRecent().response({ comments : [] });
+      jasmine.Ajax.requests.mostRecent().respondWith({ comments : [] });
 
       expect(this.view.$("textarea").val()).toEqual("great post!");
     });

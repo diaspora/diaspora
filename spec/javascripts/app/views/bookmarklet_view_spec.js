@@ -54,7 +54,7 @@ describe('app.views.Bookmarklet', function() {
     init_bookmarklet(test_data);
     spec.content().find('form').submit();
 
-    jasmine.Ajax.requests.mostRecent().response({
+    jasmine.Ajax.requests.mostRecent().respondWith({
       status: 200,  // success!
       responseText: "{}"
     });
