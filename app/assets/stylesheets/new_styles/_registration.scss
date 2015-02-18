@@ -1,48 +1,53 @@
 #registration {
-  position:absolute;
-  min-width: 100%;
-  min-height: 100%;
-  background-color : #afc652;
-  color: #fff;
+  & > .container-fluid {
+   margin-top: 5%;
+  }
 
   #create-something-text {
-    font-family : Roboto-Light;
     font-size : 100px;
     line-height : 100px;
-    white-space : nowrap;
   }
 
   #diaspora-hearts {
-    font-family : Roboto-Light;
-    font-size : 24px;
+    font-size : 30px;
     margin-top : 0.2em;
     margin-bottom : 1em;
     white-space : nowrap;
   }
 
-  #sign-up-text {
-    font-family : Roboto-Bold;
-    color : #7f9448;
-    margin-bottom : 0.5em;
+  #pod-name {
+    text-align: center;
+    margin: 12px;
+    font-size : 35px;
   }
 
-  #collage {
-    width : 344px;
-    height : auto;
-    max-width : 95%;
+  #create-something-text,
+  #diaspora-hearts {
+    font-family : Roboto-Light;
   }
 
   form {
-    .control-label,
-    .controls {
-      margin-left : auto;
-      width : auto;
+    max-width: 400px;
+
+    .captcha_img {
+      position: absolute;
+      left: 10px;
+      width: 120px;
+      top: 169px;
     }
 
-    .controls {
-      float : right;
+    #user_captcha {
+      font-size: 16px;
+      height: 40px;
+      padding: 10px 10px 10px 130px;
+      line-height: 20px;
+      box-sizing: border-box;
+      width: 100%;
+      border-bottom: 1px solid $border-grey;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
-    
+
     #terms > a {
       color: inherit;
       text-decoration: underline;

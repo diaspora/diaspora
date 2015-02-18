@@ -829,17 +829,17 @@ en:
       subject: "Your diaspora* account has been flagged for removal due to inactivity"
       body: |-
         Hello,
-        
+
         It looks as though you no longer want your account at %{pod_url}, as you haven’t used it for %{after_days} days. To ensure our active users get the best performance from this diaspora* pod, we’d like to remove unwanted accounts from our database.
-        
+
         We’d love you to stay part of diaspora*’s community, and you’re welcome to keep your account live if you want to.
-        
+
         If you want to keep your account live, all you need to do is to sign in to your account before %{remove_after}. When you sign in, take a moment to have a look around diaspora*. It has changed a lot since you last looked in, and we think you’ll like the improvements we’ve made. Follow some #tags to find content you love.
-        
+
         Sign in here: %{login_url}. If you’ve forgotten your sign-in details, you can ask for a reminder on that page.
-        
+
         Hoping to see you again,
-        
+
         The diaspora* email robot!
   people:
     zero: "No people"
@@ -1009,12 +1009,11 @@ en:
       enter_password_again: "Enter the same password as before"
       hey_make: "HEY,<br/>MAKE<br/>SOMETHING."
       diaspora: "<3 diaspora*"
-      sign_up: "SIGN UP"
-      email: "EMAIL"
-      username: "USERNAME"
-      password: "PASSWORD"
-      password_confirmation: "PASSWORD CONFIRMATION"
-      continue: "Continue"
+      sign_up: "Sign up"
+      email: "Email"
+      username: "Username"
+      password: "Password"
+      password_confirmation: "Password confirmation"
       submitting: "Submitting..."
       terms: "By creating an account you accept the %{terms_link}."
       terms_link: "terms of service"

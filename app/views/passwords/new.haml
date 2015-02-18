@@ -1,22 +1,24 @@
 - content_for :page_title do
-  = "#{AppConfig.settings.pod_name} / #{t('devise.passwords.new.forgot_password')}"
+  = "#{AppConfig.settings.pod_name} - #{t('devise.passwords.new.forgot_password')}"
 
 #forgot_password
-  %h1{id: "huge-text"}= AppConfig.settings.pod_name
+  .container-fluid
+    .text-center
+      .branding-asterisk
+      %h1
+        = AppConfig.settings.pod_name
 
-  = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {:class => "form-horizontal block-form"}, :autocomplete => 'off') do |f|
-    %legend
-      %i=  t('devise.passwords.new.no_account') unless devise_error_messages!.empty?
-    %fieldset
-      .control-group
-        %label{class: "control-label", for: "user_email", style: "width: 40%; text-align: center; padding: 10px 0; overflow: hidden"}
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: "form-horizontal block-form"}, autocomplete: 'off') do |f|
+      - if !devise_error_messages!.empty?
+        %legend
+          %i
+            = t('devise.passwords.new.no_account') # this is an error message and should not be displayed as a legend
+      %fieldset
+        %label{for: "user_email"}
           = t('devise.passwords.new.email')
-        .controls
-          = f.text_field :email, :required => true, :autocapitalize => "off", :placeholder => "••••••••", :autocorrect => "off", :autofocus => true, :style => "width: 60%;"
-    = f.submit t('devise.passwords.new.send_password_instructions'), :class => "new-btn"
+        %i.entypo.mail
+        = f.text_field :email, class: "input-block-level form-control", required: true, autocapitalize: "off", placeholder: t('devise.passwords.new.email'), autocorrect: "off", autofocus: true
+      = f.submit t('devise.passwords.new.send_password_instructions'), class: "btn btn-block"
 
-    %br/
-    %br/
-    %br/
-    = link_to t('devise.shared.links.sign_in'), new_session_path(resource_name)
-
+    .text-center
+      = link_to t('devise.shared.links.sign_in'), new_session_path(resource_name)

@@ -96,6 +96,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Hide sign up button when registrations are disabled [#5612](https://github.com/diaspora/diaspora/pull/5612)
 * Standardize capitalization throughout the UI [#5588](https://github.com/diaspora/diaspora/pull/5588)
 * Display photos on the profile page as thumbnails [#5521](https://github.com/diaspora/diaspora/pull/5521)
+* Unify not connected pages (sign in, sign up, forgot password) [#5391](https://github.com/diaspora/diaspora/pull/5391)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
@@ -1252,4 +1253,3 @@ The single-post view will also be revamped/reverted, but that didn't make it int
 
 
 ## Cleanup in maintenance scripts and automated build environment
-
