@@ -25,7 +25,7 @@ module Diaspora
     end
 
     def tag_strings
-      (send(self.class.field_with_tags) || "")
+      MessageRenderer::Processor.normalize(send(self.class.field_with_tags) || "")
         .scan(/(?:^|\s)#([#{ActsAsTaggableOn::Tag.tag_text_regexp}]+|<3)/u)
         .map(&:first)
         .uniq(&:downcase)
