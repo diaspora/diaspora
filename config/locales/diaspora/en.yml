@@ -115,7 +115,12 @@ en:
       add_invites: "Add invites"
       close_account: "Close account"
       are_you_sure: "Are you sure you want to close this account?"
+      are_you_sure_lock_account: "Are you sure you want to lock this account?"
+      are_you_sure_unlock_account: "Are you sure you want to unlock this account?"
       account_closing_scheduled: "The account of %{name} is scheduled to be closed. It will be processed in a few moments..."
+      account_locking_scheduled: "The account of %{name} is scheduled to be locked. It will be processed in a few moments..."
+      account_unlocking_scheduled: "The account of %{name} is scheduled to be unlocked. It will be processed in a few moments..."
+      email_to: "Email to Invite"
       email_to: "Email to invite"
       under_13: "Show users that are under 13 (COPPA)"
       users:
