@@ -29,7 +29,10 @@
   }
 
   .stream_element, .comment, .photo, .stream_element:hover .comment {
-    .controls > a { opacity: 0; }
+    .controls > a {
+      @include transition(opacity);
+      opacity: 0;
+    }
 
     &:hover .controls {
       & > a { opacity: 0.3; }
