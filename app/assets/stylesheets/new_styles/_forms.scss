@@ -100,16 +100,7 @@ form.block-form {
       top: 130px;
     }
 
-    input::-moz-placeholder { text-transform: uppercase; }
-    input::-webkit-input-placeholder { text-transform: uppercase; }
-    input:-ms-input-placeholder { text-transform: uppercase; }
-  }
-
-  input[type=submit] {
-    text-align: center;
-    display: block;
-    width: 100%;
-    padding: 8px 0;
+    ::placeholder { text-transform: uppercase; }
   }
 }
 

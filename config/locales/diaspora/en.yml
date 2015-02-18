@@ -839,7 +839,7 @@ en:
         Sign in here: %{login_url}. If you’ve forgotten your sign-in details, you can ask for a reminder on that page.
 
         Hoping to see you again,
-        
+
         The diaspora* email robot!
   people:
     zero: "No people"
@@ -1009,11 +1009,11 @@ en:
       enter_password_again: "Enter the same password as before"
       hey_make: "HEY,<br/>MAKE<br/>SOMETHING."
       diaspora: "<3 diaspora*"
-      sign_up: "SIGN UP"
-      email: "EMAIL"
-      username: "USERNAME"
-      password: "PASSWORD"
-      password_confirmation: "PASSWORD CONFIRMATION"
+      sign_up: "Sign up"
+      email: "Email"
+      username: "Username"
+      password: "Password"
+      password_confirmation: "Password confirmation"
       submitting: "Submitting..."
       terms: "By creating an account you accept the %{terms_link}."
       terms_link: "terms of service"
