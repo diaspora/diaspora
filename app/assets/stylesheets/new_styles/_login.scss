@@ -1,47 +1,36 @@
+#login,
 #forgot_password,
 #reset_password {
-  position : absolute;
-  top : 0;
-  left : 0;
-  padding-top : 200px;
-  min-width : 100%;
-
-  //color : #fff;
-  text-align : center;
-
-  label {
-    text-transform: uppercase;
-  }
-
-  input[type=text],
-  input[type=password] {
-    width : 120px;
-  }
-
-  #huge-text {
-    font-family : Roboto-Light;
-    font-size : 200px;
-    color : #ddd;
-    text-shadow : 0 1px 0 #fff;
-  }
-
-  #forgot_password_link {
-    margin : 40px;
-    color : $text-grey;
-    clear : all;
-  }
-}
-
-#login {
   padding-top: 20px;
+  
   .branding-asterisk {
     margin: auto;
     width: 154px;
     height: 154px;
-  }
-  .form-signin {
     margin-bottom: 30px;
+  }
+  
+  .span4.offset4 {
+    margin-bottom: 30px;
+  }
+  
+  label {
+    text-transform: uppercase;
+    text-align: right;
+    padding: 10px 0;
+    overflow: hidden;
+  }
+  
+  #new_user {
+    display: block;
+    margin: auto;
+    width: 400px;
+    margin-bottom: 30px;
+  }
+} 
 
+#login {
+  .form-signin {
     .form-control {
       font-size: 16px;
       height: auto;
@@ -74,8 +63,29 @@
       margin-bottom: -23px;
       border-radius: 0 0 5px 5px;
     }
-    #forgot_password_link {
-      margin-top: 20px;
-    }
+  }
+}
+
+#forgot_password {
+  label {
+    width: 40%;
+  }
+    
+  input[type=password] {
+    width: 60%;
+  }
+}
+
+#reset_password {
+  label {
+    width: 45%;
+  }
+   
+  input[type=password] {
+    width: 55%;
+  }
+  
+  #new_user {
+    width: 500px;
   }
 }
