@@ -80,6 +80,23 @@ app.models.Post.Interactions = Backbone.Model.extend({
     app.instrument("track", "Unlike");
   },
 
+  like : function() {
+    var self = this;
+
+    this.likes.create({}, {success : function(){
+      self.trigger("change");
+      self.set({"likes_count" : self.get("likes_count") + 1});
+    }, error : function(){
+      var flash = new Diaspora.Widgets.FlashMessages();
+      flash.render({
+        success: false,
+        notice: Diaspora.I18n.t("failed_to_like")
+      });
+    }});
+
+    app.instrument("track", "Like");
+  },
+
   comment : function (text) {
     var self = this;
 
