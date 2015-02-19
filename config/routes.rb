@@ -143,6 +143,8 @@ Diaspora::Application.routes.draw do
 
   namespace :admin do
     post 'users/:id/close_account' => 'users#close_account', :as => 'close_account'
+    post 'users/:id/lock_account' => 'users#lock_account', :as => 'lock_account'
+    post 'users/:id/unlock_account' => 'users#unlock_account', :as => 'unlock_account'
   end
 
   resource :profile, :only => [:edit, :update]

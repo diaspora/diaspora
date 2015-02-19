@@ -480,6 +480,10 @@ class User < ActiveRecord::Base
     AccountDeletion.create(:person => self.person)
   end
 
+  def closed_account?
+    self.person.closed_account
+  end
+
   def clear_account!
     clearable_fields.each do |field|
       self[field] = nil
