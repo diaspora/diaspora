@@ -44,12 +44,16 @@ app.models.Post.Interactions = Backbone.Model.extend({
   },
 
   userLike : function(){
-    return this.likes.select(function(like){ return like.get("author").guid === app.currentUser.get("guid")})[0];
+    return this.likes.select(function(like){
+      if(like.get("author") !== undefined) {
+        return like.get("author").guid === app.currentUser.get("guid")
+      }
+    })[0];
   },
 
   userReshare : function(){
     return this.reshares.select(function(reshare){
-      return reshare.get("author") &&  reshare.get("author").guid === app.currentUser.get("guid")})[0];
+      return reshare.get("author") && reshare.get("author").guid === app.currentUser.get("guid")})[0];
   },
 
   toggleLike : function() {
@@ -58,26 +62,6 @@ app.models.Post.Interactions = Backbone.Model.extend({
     } else {
       this.like();
     }
-  },
-
-  like : function() {
-    var self = this;
-    this.likes.create({}, {success : function(){
-      self.trigger("change");
-      self.set({"likes_count" : self.get("likes_count") + 1});
-    }});
-
-    app.instrument("track", "Like");
-  },
-
-  unlike : function() {
-    var self = this;
-    this.userLike().destroy({success : function() {
-      self.trigger('change');
-      self.set({"likes_count" : self.get("likes_count") - 1});
-    }});
-
-    app.instrument("track", "Unlike");
   },
 
   like : function() {
@@ -95,6 +79,16 @@ app.models.Post.Interactions = Backbone.Model.extend({
     }});
 
     app.instrument("track", "Like");
+  },
+
+  unlike : function() {
+    var self = this;
+    this.userLike().destroy({success : function() {
+      self.trigger('change');
+      self.set({"likes_count" : self.get("likes_count") - 1});
+    }});
+
+    app.instrument("track", "Unlike");
   },
 
   comment : function (text) {
