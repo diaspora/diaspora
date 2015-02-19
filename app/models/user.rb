@@ -314,6 +314,40 @@ class User < ActiveRecord::Base
     ActiveSupport::Gzip.compress Diaspora::Exporter.new(self).execute
   end
 
+  ######### Photos export ##################
+  mount_uploader :exported_photos_file, ExportedPhotos
+
+  def queue_export_photos
+    update exporting_photos: true
+    Workers::ExportPhotos.perform_async(id)
+  end
+
+  def perform_export_photos!
+    temp_zip = Tempfile.new([username, '_photos.zip'])
+    begin
+      Zip::ZipOutputStream.open(temp_zip.path) do |zos|
+        photos.each do |photo|
+          begin
+            photo_data = photo.unprocessed_image.file.read
+            zos.put_next_entry(photo.remote_photo_name)
+            zos.print(photo_data)
+          rescue Errno::ENOENT
+            logger.info "Export photos error: #{photo.unprocessed_image.file.path} not found"
+          end
+        end
+      end
+    ensure
+      temp_zip.close
+    end
+
+    begin
+      update exported_photos_file: temp_zip, exported_photos_at: Time.zone.now if temp_zip.present?
+    ensure
+      restore_attributes if invalid? || temp_zip.present?
+      update exporting_photos: false
+    end
+  end
+  
   ######### Mailer #######################
   def mail(job, *args)
     pref = job.to_s.gsub('Workers::Mail::', '').underscore
@@ -534,6 +568,8 @@ class User < ActiveRecord::Base
                             "created_at", "updated_at", "locked_at",
                             "serialized_private_key", "getting_started",
                             "disable_mail", "show_community_spotlight_in_stream",
-                            "strip_exif", "email", "remove_after", "export", "exporting", "exported_at"]
+                            "strip_exif", "email", "remove_after",
+                            "export", "exporting", "exported_at",
+                            "exported_photos_file", "exporting_photos", "exported_photos_at"]
   end
 end
