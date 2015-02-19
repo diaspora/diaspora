@@ -1,8 +1,8 @@
 .header
   - if @aspect
     #aspect_controls.pull-right
-      - if @contacts_size > 0 && @contacts_size < 20
-        = start_a_conversation_link(@aspect, @contacts_size)
+      - if @aspect.contacts.size > 0 && @aspect.contacts.size < 20
+        = start_a_conversation_link(@aspect, @aspect.contacts.size)
 
       = link_to aspect_toggle_contact_visibility_path(@aspect), id: "contacts_visibility_toggle", class: "contacts_button", method: :put, remote: true do
         -if @aspect.contacts_visible?
