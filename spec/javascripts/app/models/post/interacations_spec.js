@@ -40,4 +40,10 @@ describe("app.models.Post.Interactions", function(){
       expect(this.interactions.likes.length).toEqual(0);
     });
   });
+
+  // describe("userLike", function(){
+  //   it("returns nil if author is undefined", function(){
+  //     not sure how to test it...
+  //   })
+  // });
 });
