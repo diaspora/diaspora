@@ -20,7 +20,7 @@ class Conversation < ActiveRecord::Base
   def max_participants
     errors.add(:max_participants, "too many participants") if participants.count > 20
   end
-  
+
   def local_recipients
     recipients.each do |recipient|
       if recipient.local?
@@ -86,7 +86,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def receive(user, person)
-    cnv = Conversation.find_or_create_by!(self.attributes)
+    cnv = Conversation.create_with(self.attributes).find_or_create_by!(guid: guid)
 
     self.participants.each do |participant|
       ConversationVisibility.find_or_create_by(conversation_id: cnv.id, person_id: participant.id)
