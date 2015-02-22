@@ -1,5 +1,5 @@
 {
-  "bitwise":    false,
+  "bitwise":    true,
   "camelcase":  false,
   "curly":      true,
   "eqeqeq":     true,
@@ -14,7 +14,6 @@
   "noempty":    true,
   "nonbsp":     true,
   "nonew":      false,
-  "notypeof":   true,
   "quotmark":   false,
   "undef":      true,
   "unused":     true,
@@ -32,6 +31,7 @@
   "laxbreak":   false,
   "laxcomma":   false,
   "loopfunc":   false,
+  "notypeof":   false,
   "scripturl":  false,
   "sub":        false,
   "supernew":   true,
