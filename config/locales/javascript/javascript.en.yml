@@ -92,8 +92,9 @@ en:
         one: "In <%= count %> aspect"
         other: "In <%= count %> aspects"
     show_more: "Show more"
-    failed_to_like: "Failed to like!"
+    failed_to_like: "Failed to like... Perhaps the author is ignoring you?"
     failed_to_reshare: "Failed to reshare!"
+    failed_to_comment: "Failed to comment... Perhaps the author is ignoring you?"
     failed_to_post_message: "Failed to post message!"
     failed_to_remove: "Failed to remove the entry!"
     comments:

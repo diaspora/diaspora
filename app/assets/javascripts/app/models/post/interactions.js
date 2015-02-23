@@ -44,12 +44,16 @@ app.models.Post.Interactions = Backbone.Model.extend({
   },
 
   userLike : function(){
-    return this.likes.select(function(like){ return like.get("author").guid === app.currentUser.get("guid")})[0];
+    return this.likes.select(function(like){
+      if(like.get("author") !== undefined) {
+        return like.get("author").guid === app.currentUser.get("guid")
+      }
+    })[0];
   },
 
   userReshare : function(){
     return this.reshares.select(function(reshare){
-      return reshare.get("author") &&  reshare.get("author").guid === app.currentUser.get("guid")})[0];
+      return reshare.get("author") && reshare.get("author").guid === app.currentUser.get("guid")})[0];
   },
 
   toggleLike : function() {
@@ -62,9 +66,16 @@ app.models.Post.Interactions = Backbone.Model.extend({
 
   like : function() {
     var self = this;
+
     this.likes.create({}, {success : function(){
       self.trigger("change");
       self.set({"likes_count" : self.get("likes_count") + 1});
+    }, error : function(){
+      var flash = new Diaspora.Widgets.FlashMessages();
+      flash.render({
+        success: false,
+        notice: Diaspora.I18n.t("failed_to_like")
+      });
     }});
 
     app.instrument("track", "Like");
@@ -87,7 +98,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
       var flash = new Diaspora.Widgets.FlashMessages();
       flash.render({
         success: false,
-        notice: Diaspora.I18n.t("failed_to_post_message")
+        notice: Diaspora.I18n.t("failed_to_comment")
       });
     }).done(function() {
       self.trigger('change'); //updates after sync
