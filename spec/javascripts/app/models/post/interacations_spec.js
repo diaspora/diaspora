@@ -40,4 +40,30 @@ describe("app.models.Post.Interactions", function(){
       expect(this.interactions.likes.length).toEqual(0);
     });
   });
+
+  describe("reshare", function() {
+    var ajax_success = { status: 200, responseText: [] };
+
+    beforeEach(function(){
+      this.reshare = this.interactions.post.reshare();
+    });
+
+    it("triggers a change on the model", function() {
+      spyOn(this.interactions, "trigger");
+
+      this.interactions.reshare();
+      jasmine.Ajax.requests.mostRecent().respondWith(ajax_success);
+
+      expect(this.interactions.trigger).toHaveBeenCalledWith("change");
+    });
+
+    it("adds the reshare to the stream", function() {
+      app.stream = { addNow: $.noop };
+      spyOn(app.stream, "addNow");
+      this.interactions.reshare();
+      jasmine.Ajax.requests.mostRecent().respondWith(ajax_success);
+
+      expect(app.stream.addNow).toHaveBeenCalledWith(this.reshare);
+    });
+  });
 });
