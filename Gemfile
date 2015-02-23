@@ -89,10 +89,10 @@ gem 'rails-assets-jquery',                              '1.11.1' # Should be kep
 gem 'js_image_paths',                                   '0.0.1'
 gem 'js-routes',                                        '0.9.9'
 gem 'rails-assets-punycode',                            '1.3.2'
-gem 'rails-assets-markdown-it',                         '3.0.5'
+gem 'rails-assets-markdown-it',                         '3.0.6'
 gem 'rails-assets-markdown-it-hashtag',                 '0.2.3'
 gem 'rails-assets-markdown-it-diaspora-mention',        '0.2.0'
-gem 'rails-assets-markdown-it-sanitizer',               '0.2.0'
+gem 'rails-assets-markdown-it-sanitizer',               '0.2.1'
 gem 'rails-assets-markdown-it--markdown-it-for-inline', '0.1.0'
 gem 'rails-assets-markdown-it-sub',                     '0.1.0'
 gem 'rails-assets-markdown-it-sup',                     '0.1.0'
@@ -262,7 +262,8 @@ group :development, :test do
   gem 'cucumber-rails',     '1.4.2', :require => false
 
   # Jasmine (client side application tests (JS))
-  gem 'jasmine',              '2.2.0'
-  gem 'jasmine-jquery-rails', '2.0.3'
-  gem 'sinon-rails',          '1.10.3'
+  gem 'jasmine',                   '2.2.0'
+  gem 'jasmine-jquery-rails',      '2.0.3'
+  gem 'rails-assets-jasmine-ajax', '3.0.0'
+  gem 'sinon-rails',               '1.10.3'
 end

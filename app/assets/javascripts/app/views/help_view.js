@@ -9,7 +9,7 @@ app.views.Help = app.views.StaticContentView.extend({
     "click .faq-link-sharing" : "sharing",
     "click .faq-link-posts-and-posting" : "postsAndPosting",
     "click .faq-link-tags": "tags",
-    "click .faq-link-keyboard-shortcuts" : "keyboardShortcuts",
+    "click .faq-link-keyboard-shortcuts" : "keyboardShortcuts"
   },
 
   initialize : function() {
@@ -19,19 +19,19 @@ app.views.Help = app.views.StaticContentView.extend({
       get_support_a_tutorials: { tutorials: this.linkHtml("https://diasporafoundation.org/tutorials", Diaspora.I18n.t( 'tutorials' ))},
       get_support_a_wiki: { link: this.linkHtml("https://wiki.diasporafoundation.org/Special:Search", Diaspora.I18n.t( 'wiki' ))},
       get_support_a_irc: { irc: this.linkHtml("https://wiki.diasporafoundation.org/How_We_Communicate#IRC", Diaspora.I18n.t( 'irc' ))},
-      get_support_a_hashtag: { question: this.linkHtml("/tags/question", "#question")},
+      get_support_a_hashtag: { question: this.linkHtml("/tags/question", "#question")}
 	};
 
     this.POSTS_AND_POSTING_SUBS = {
       format_text_a: {
         markdown: this.linkHtml("http://diasporafoundation.org/formatting", Diaspora.I18n.t( 'markdown' )),
-        here: this.linkHtml("http://daringfireball.net/projects/markdown/syntax", Diaspora.I18n.t( 'here' )),
+        here: this.linkHtml("http://daringfireball.net/projects/markdown/syntax", Diaspora.I18n.t( 'here' ))
       }
     };
 
     this.TAGS_SUBS = {
       filter_tags_a: {
-        third_party_tools: this.linkHtml("https://wiki.diasporafoundation.org/Tools_to_use_with_Diaspora", Diaspora.I18n.t( 'third_party_tools' )),
+        third_party_tools: this.linkHtml("https://wiki.diasporafoundation.org/Tools_to_use_with_Diaspora", Diaspora.I18n.t( 'third_party_tools' ))
       }
     };
 
@@ -51,20 +51,23 @@ app.views.Help = app.views.StaticContentView.extend({
       title_sharing: Diaspora.I18n.t( 'sharing.title' ),
       title_tags: Diaspora.I18n.t( 'tags.title' ),
       title_keyboard_shortcuts: Diaspora.I18n.t( 'keyboard_shortcuts.title' ),
-      title_miscellaneous: Diaspora.I18n.t( 'miscellaneous.title' ),
+      title_miscellaneous: Diaspora.I18n.t( 'miscellaneous.title' )
     };
 
     return this;
   },
 
-  render: function(){
-    var section = app.views.Base.prototype.render.apply(this, arguments);
+  render: function(section){
+    var html = app.views.Base.prototype.render.apply(this, arguments);
 
     // After render actions
     this.resetMenu(true);
     this.renderStaticSection("getting_help", "faq_getting_help", this.GETTING_HELP_SUBS);
 
-    return section;
+    var elTarget = this.findSection(section);
+    if(elTarget !== null){ $(elTarget).click(); }
+
+    return html;
   },
 
   showItems: function(el) {
@@ -107,8 +110,12 @@ app.views.Help = app.views.StaticContentView.extend({
 
   menuClicked: function(e) {
     this.resetMenu();
+
     $(e.target).hide();
     $(e.target).next().show();
+
+    var data = $(e.target).data('section');
+    app.router.navigate('help/' + data);
   },
 
   clearItems: function() {
@@ -131,6 +138,18 @@ app.views.Help = app.views.StaticContentView.extend({
       subs: subs
     });
     this.$('#faq').append(help_section.render().el);
+  },
+
+  /**
+   * Returns The section title whose data-section property equals the given query
+   * Returns null if nothing found
+   * @param dataValue Value for the data-section to find
+   * @returns {jQuery}
+   */
+  findSection: function(data){
+    var res = this.$('a[data-section=' + data + ']');
+    if(res.length === 0){ return null; }
+    return res;
   },
 
   gettingHelp: function(e) {
@@ -170,6 +189,6 @@ app.views.Help = app.views.StaticContentView.extend({
 
   linkHtml: function(url, text) {
     return "<a href=\"" + url + "\" target=\"_blank\">" + text + "</a>";
-  },
+  }
 });
 // @license-end

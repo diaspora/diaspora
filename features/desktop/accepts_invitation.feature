@@ -4,7 +4,7 @@ Feature: invitation acceptance
       Given I have been invited by an admin
       And I am on my acceptance form page
       And I fill in the new user form
-      And I press "Continue"
+      And I press "Sign up"
       Then I should be on the getting started page
       And I should see "Well, hello there!"
       And I fill in the following:
@@ -19,7 +19,7 @@ Feature: invitation acceptance
       Given I have been invited by bob
       And I am on my acceptance form page
       And I fill in the new user form
-      And I press "Continue"
+      And I press "Sign up"
       Then I should be on the getting started page
       And I should see "Well, hello there!"
       And I fill in the following:

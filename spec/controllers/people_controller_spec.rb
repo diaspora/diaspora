@@ -179,6 +179,16 @@ describe PeopleController, :type => :controller do
       expect(assigns(:person)).to eq(@user.person)
     end
 
+    it "404s if no person is found via diaspora handle" do
+      get :show, :username => 'delicious@pod.net'
+      expect(response.code).to eq("404")
+    end
+
+    it 'finds a person via diaspora handle' do
+      get :show, username: @user.diaspora_handle
+      expect(assigns(:person)).to eq(@user.person)
+    end
+
     it 'redirects home for closed account' do
       @person = FactoryGirl.create(:person, :closed_account => true)
       get :show, :id => @person.to_param

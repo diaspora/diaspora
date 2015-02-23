@@ -5,6 +5,7 @@
  *   the COPYRIGHT file.
  */
 //= require jquery.charcount
+//= require js-routes
 //= require mbp-modernizr-custom
 //= require mbp-respond.min
 //= require mbp-helper
@@ -16,6 +17,7 @@
 //= require helpers/i18n
 //= require widgets/timeago
 //= require mobile/mobile_file_uploader
+//= require mobile/profile_aspects
 
 $(document).ready(function(){
 
@@ -115,7 +117,7 @@ $(document).ready(function(){
             },
             error: function(){
               removeLoader(link);
-              alert("Failed to reshare!");
+              alert(Diaspora.I18n.t('failed_to_reshare'));
             }
           });
         }
@@ -300,6 +302,5 @@ $(document).ready(function(){
     evt.preventDefault();
     $("#new_status_message").submit();
   });
-
 });
 // @license-end

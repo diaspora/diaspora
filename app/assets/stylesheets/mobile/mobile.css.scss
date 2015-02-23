@@ -12,6 +12,11 @@ a {
   text-decoration: none;
 }
 
+code {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
 body {
   background: {
     image: image-url('texture/hatched-light.jpg');
@@ -1166,3 +1171,14 @@ select#aspect_ids_ {
   }
 }
 
+// Styles for mobile profile of other users
+.user_aspects {
+  width: auto !important;
+  float: right;
+  margin: 0 10px 0 0;
+  padding: 3px;
+
+  &.has_connection {
+    background-color: $light-green;
+  }
+}

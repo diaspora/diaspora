@@ -19,4 +19,21 @@ describe Admin::UsersController, :type => :controller do
     end
   end
 
+  describe '#lock_account' do
+    it 'it locks the given account' do
+      other_user = FactoryGirl.create :user
+      other_user.lock_access!
+      expect(other_user.reload.access_locked?).to be_truthy
+    end
+  end
+
+  describe '#unlock_account' do
+    it 'it unlocks the given account' do
+      other_user = FactoryGirl.create :user
+      other_user.lock_access!
+      other_user.unlock_access!
+      expect(other_user.reload.access_locked?).to be_falsey
+    end
+  end
+
 end

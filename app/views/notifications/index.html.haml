@@ -43,11 +43,17 @@
               -else
                 = t('.mark_all_as_read')
       - if @group_days.length > 0
-        - @group_days.each do |day, notes|
+        - year = nil
+        - @group_days.each do |date, notes|
+          - if display_year?(year, date)
+            - year = the_year(date)
+            .row-fluid.year_container
+              .span4.offset4.year= year
+
           .day_group.row-fluid
             .date.span2
-              .day= the_day(day.split(' '))
-              .month= the_month(day.split(' '))
+              .day= the_day(date)
+              .month= the_month(date)
 
             .notifications_for_day.span10
               - notes.each do |note|

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106050733) do
+ActiveRecord::Schema.define(version: 20150209230946) do
 
   create_table "account_deletions", force: true do |t|
     t.string   "diaspora_handle"

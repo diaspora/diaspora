@@ -139,6 +139,7 @@ shared_examples_for "it is taggable" do
         '#-initialhyphen'        => '-initialhyphen',
         '#-initialhyphen tag'    => '-initialhyphen',
         '#-initial-hyphen'       => '-initial-hyphen',
+        "\u202a#\u200eUSA\u202c" => 'USA'
       }
 
       expected.each do |text,hashtag|

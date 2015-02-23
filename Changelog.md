@@ -95,6 +95,8 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Use sentence case consistently throughout UI [#5588](https://github.com/diaspora/diaspora/pull/5588)
 * Hide sign up button when registrations are disabled [#5612](https://github.com/diaspora/diaspora/pull/5612)
 * Standardize capitalization throughout the UI [#5588](https://github.com/diaspora/diaspora/pull/5588)
+* Display photos on the profile page as thumbnails [#5521](https://github.com/diaspora/diaspora/pull/5521)
+* Unify not connected pages (sign in, sign up, forgot password) [#5391](https://github.com/diaspora/diaspora/pull/5391)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
@@ -129,6 +131,10 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Don't error out when adding a too long location to the profile [#5614](https://github.com/diaspora/diaspora/pull/5614)
 * Correctly decrease unread count for conversations [#5646](https://github.com/diaspora/diaspora/pull/5646)
 * Fix automatic scroll for conversations [#5646](https://github.com/diaspora/diaspora/pull/5646)
+* Fix missing translation on privacy settings page [#5671](https://github.com/diaspora/diaspora/pull/5671)
+* Fix code overflow for the mobile website [#5675](https://github.com/diaspora/diaspora/pull/5675)
+* Strip Unicode format characters prior post processing [#5680](https://github.com/diaspora/diaspora/pull/5680)
+* Disable email notifications for closed user accounts [#5640](https://github.com/diaspora/diaspora/pull/5640)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
@@ -162,8 +168,14 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Add HTML view for pod statistics [#5464](https://github.com/diaspora/diaspora/pull/5464)
 * Added/Moved hide, block user, report and delete button in SPV [#5547](https://github.com/diaspora/diaspora/pull/5547)
 * Added keyboard shortcuts r(reshare), m(expand Post), o(open first link in post) [#5602](https://github.com/diaspora/diaspora/pull/5602)
+* Added dropdown to add/remove people from/to aspects in mobile view [#5594](https://github.com/diaspora/diaspora/pull/5594)
 * Dynamically compute minimum and maximum valid year for birthday field [#5639](https://github.com/diaspora/diaspora/pull/5639)
 * Show hovercard on mentions [#5652](https://github.com/diaspora/diaspora/pull/5652)
+* Make help sections linkable [#5667](https://github.com/diaspora/diaspora/pull/5667)
+* Add invitation link to contacts page [#5655](https://github.com/diaspora/diaspora/pull/5655)
+* Add year to notifications page [#5676](https://github.com/diaspora/diaspora/pull/5676)
+* Give admins the ability to lock & unlock accounts [#5643](https://github.com/diaspora/diaspora/pull/5643)
+* Add reshares to the stream view immediately [#5699](https://github.com/diaspora/diaspora/pull/5699)
 
 # 0.4.1.2
 
@@ -1244,4 +1256,3 @@ The single-post view will also be revamped/reverted, but that didn't make it int
 
 
 ## Cleanup in maintenance scripts and automated build environment
-

@@ -115,7 +115,12 @@ en:
       add_invites: "Add invites"
       close_account: "Close account"
       are_you_sure: "Are you sure you want to close this account?"
+      are_you_sure_lock_account: "Are you sure you want to lock this account?"
+      are_you_sure_unlock_account: "Are you sure you want to unlock this account?"
       account_closing_scheduled: "The account of %{name} is scheduled to be closed. It will be processed in a few moments..."
+      account_locking_scheduled: "The account of %{name} is scheduled to be locked. It will be processed in a few moments..."
+      account_unlocking_scheduled: "The account of %{name} is scheduled to be unlocked. It will be processed in a few moments..."
+      email_to: "Email to Invite"
       email_to: "Email to invite"
       under_13: "Show users that are under 13 (COPPA)"
       users:
@@ -293,9 +298,9 @@ en:
 
   aspect_memberships:
     destroy:
-      success: "Successfully removed person from aspect"
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect."
+      failure: "Failed to remove person from aspect."
+      no_membership: "Could not find the selected person in that aspect."
 
   bookmarklet:
     heading: "Bookmarklet"
@@ -829,15 +834,15 @@ en:
       subject: "Your diaspora* account has been flagged for removal due to inactivity"
       body: |-
         Hello,
-        
+
         It looks as though you no longer want your account at %{pod_url}, as you haven’t used it for %{after_days} days. To ensure our active users get the best performance from this diaspora* pod, we’d like to remove unwanted accounts from our database.
-        
+
         We’d love you to stay part of diaspora*’s community, and you’re welcome to keep your account live if you want to.
-        
+
         If you want to keep your account live, all you need to do is to sign in to your account before %{remove_after}. When you sign in, take a moment to have a look around diaspora*. It has changed a lot since you last looked in, and we think you’ll like the improvements we’ve made. Follow some #tags to find content you love.
-        
+
         Sign in here: %{login_url}. If you’ve forgotten your sign-in details, you can ask for a reminder on that page.
-        
+
         Hoping to see you again,
 
         The diaspora* email robot!
@@ -1009,12 +1014,11 @@ en:
       enter_password_again: "Enter the same password as before"
       hey_make: "HEY,<br/>MAKE<br/>SOMETHING."
       diaspora: "<3 diaspora*"
-      sign_up: "SIGN UP"
-      email: "EMAIL"
-      username: "USERNAME"
-      password: "PASSWORD"
-      password_confirmation: "PASSWORD CONFIRMATION"
-      continue: "Continue"
+      sign_up: "Sign up"
+      email: "Email"
+      username: "Username"
+      password: "Password"
+      password_confirmation: "Password confirmation"
       submitting: "Submitting..."
       terms: "By creating an account you accept the %{terms_link}."
       terms_link: "terms of service"
@@ -1106,6 +1110,8 @@ en:
   shared:
     aspect_dropdown:
       add_to_aspect: "Add contact"
+      mobile_row_checked: "%{name} (remove)"
+      mobile_row_unchecked: "%{name} (add)"
       toggle:
         zero: "Add contact"
         one: "In %{count} aspect"
@@ -1286,6 +1292,7 @@ en:
       current_password_expl: "the one you sign in with..."
       character_minimum_expl: "must be at least six characters"
       change_language: "Change language"
+      close_account_text: "Close account"
       stream_preferences: "Stream preferences"
       show_community_spotlight: "Show “community spotlight” in stream"
       show_getting_started: "Show “getting started” hints"

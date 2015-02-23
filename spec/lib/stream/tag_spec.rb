@@ -32,13 +32,6 @@ describe Stream::Tag do
      stranger_post = stranger.post(:status_message, :text => "#what", :public => true, :to => 'all')
      expect(@stream.posts).to eq([stranger_post])
    end
-
-    it 'displays a post with a comment containing the tag search' do
-      skip "this code is way too slow. need to re-implement in a way that doesn't suck"
-      other_post = bob.post(:status_message, :text => "sup y'all", :to => 'all')
-      FactoryGirl.create(:comment, :text => "#what", :post => other_post)
-      expect(@stream.posts).to eq([other_post])
-    end
   end
 
   context 'without a user' do

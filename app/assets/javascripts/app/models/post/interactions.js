@@ -103,23 +103,21 @@ app.models.Post.Interactions = Backbone.Model.extend({
       , reshare = this.post.reshare()
       , flash = new Diaspora.Widgets.FlashMessages();
 
-    reshare.save({}, {
-      success : function(){
+    reshare.save()
+      .done(function(){
         flash.render({
           success: true,
           notice: Diaspora.I18n.t("reshares.successful")
         });
-      },
-      error: function(){
+        interactions.reshares.add(reshare);
+        if (app.stream) {app.stream.addNow(reshare)}
+        interactions.trigger("change");
+      })
+      .fail(function(){
         flash.render({
           success: false,
           notice: Diaspora.I18n.t("reshares.duplicate")
         });
-      }
-    }).done(function(){
-        interactions.reshares.add(reshare);
-      }).done(function(){
-        interactions.trigger("change");
       });
 
     app.instrument("track", "Reshare");

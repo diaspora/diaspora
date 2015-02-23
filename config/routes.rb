@@ -143,6 +143,8 @@ Diaspora::Application.routes.draw do
 
   namespace :admin do
     post 'users/:id/close_account' => 'users#close_account', :as => 'close_account'
+    post 'users/:id/lock_account' => 'users#lock_account', :as => 'lock_account'
+    post 'users/:id/unlock_account' => 'users#unlock_account', :as => 'unlock_account'
   end
 
   resource :profile, :only => [:edit, :update]
@@ -175,8 +177,8 @@ Diaspora::Application.routes.draw do
       get :tag_index
     end
   end
-  get '/u/:username' => 'people#show', :as => 'user_profile'
-  get '/u/:username/profile_photo' => 'users#user_photo'
+  get '/u/:username' => 'people#show', :as => 'user_profile', :constraints => { :username => /[^\/]+/ }
+  get '/u/:username/profile_photo' => 'users#user_photo', :constraints => { :username => /[^\/]+/ }
 
 
   # Federation
@@ -223,6 +225,7 @@ Diaspora::Application.routes.draw do
 
   # Help
   get 'help' => 'help#faq', :as => 'help'
+  get 'help/:topic' => 'help#faq'
 
   #Protocol Url
   get 'protocol' => redirect("http://wiki.diasporafoundation.org/Federation_Protocol_Overview")

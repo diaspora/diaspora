@@ -2,6 +2,8 @@
 
 app.Router = Backbone.Router.extend({
   routes: {
+    "help/:section": "help",
+    "help/": "help",
     "help": "help",
     "contacts": "contacts",
     "conversations": "conversations",
@@ -36,10 +38,10 @@ app.Router = Backbone.Router.extend({
     this.route(/^bookmarklet(?:\?(.*))?/, "bookmarklet");
   },
 
-  help: function() {
+  help: function(section) {
     app.help = new app.views.Help();
     $("#help").prepend(app.help.el);
-    app.help.render();
+    app.help.render(section);
   },
 
   contacts: function() {

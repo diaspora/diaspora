@@ -480,15 +480,19 @@ class User < ActiveRecord::Base
     AccountDeletion.create(:person => self.person)
   end
 
+  def closed_account?
+    self.person.closed_account
+  end
+
   def clear_account!
     clearable_fields.each do |field|
       self[field] = nil
     end
     [:getting_started,
-     :disable_mail,
      :show_community_spotlight_in_stream].each do |field|
       self[field] = false
     end
+    self[:disable_mail] = true
     self[:strip_exif] = true
     self[:email] = "deletedaccount_#{self[:id]}@example.org"
 

@@ -10,6 +10,8 @@
         = @person.name
       %span.description
         = @person.diaspora_handle
+      - if user_signed_in? && @person != current_user.person
+        = render 'aspect_memberships/aspect_membership_dropdown'
       .clear
     .bottom_bar
       - if !@person.tag_string.blank? && user_signed_in?

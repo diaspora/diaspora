@@ -31,16 +31,16 @@
             = t('.strip_exif')
 
           .small-horizontal-spacer
-          = f.submit t('.change'), :class => 'btn'
+          = f.submit t('users.edit.change'), :class => 'btn'
 
       %hr
-      
+
   .row-fluid
     .span3
     .span5
       %h3
         = t('.ignored_users')
-      
+
       - if @blocks.length.zero?
         = t('.no_user_ignored_message')
 

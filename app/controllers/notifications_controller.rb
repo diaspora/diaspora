@@ -44,7 +44,7 @@ class NotificationsController < ApplicationController
     @notifications.each do |n|
       n.note_html = render_to_string( :partial => 'notify_popup_item', :locals => { :n => n } )
     end
-    @group_days = @notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
+    @group_days = @notifications.group_by{|note| note.created_at.strftime('%Y-%m-%d')}
 
     @unread_notification_count = current_user.unread_notifications.count
 

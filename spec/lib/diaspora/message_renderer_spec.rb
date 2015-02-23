@@ -50,6 +50,12 @@ describe Diaspora::MessageRenderer do
       expect(message(entities).html).to eq entities
     end
 
+    it 'normalizes' do
+      expect(
+        message("\u202a#\u200eUSA\u202c").markdownified
+      ).to eq %(<p><a class="tag" href="/tags/USA">#USA</a></p>\n)
+    end
+
     context 'with mentions' do
       it 'makes hovercard links for mentioned people' do
         expect(
@@ -107,8 +113,14 @@ describe Diaspora::MessageRenderer do
 
     it 'autolinks standard url links' do
       expect(
-        message("http://joindiaspora.com/"
-      ).markdownified).to include 'href="http://joindiaspora.com/"'
+        message("http://joindiaspora.com/").markdownified
+      ).to include 'href="http://joindiaspora.com/"'
+    end
+
+    it 'normalizes' do
+      expect(
+        message("\u202a#\u200eUSA\u202c").markdownified
+      ).to eq %(<p><a class="tag" href="/tags/USA">#USA</a></p>\n)
     end
 
     context 'when formatting status messages' do
@@ -182,6 +194,14 @@ describe Diaspora::MessageRenderer do
     it "extracts urls from continous markdown correctly" do
       text = "[![Image](https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt)](https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C)"
       expect(message(text).urls).to eq ["https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt", "https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C"]
+    end
+  end
+
+  describe "#plain_text_for_json" do
+    it 'normalizes' do
+      expect(
+        message("\u202a#\u200eUSA\u202c").plain_text_for_json
+      ).to eq '#USA'
     end
   end
 end
