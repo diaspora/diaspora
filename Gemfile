@@ -136,8 +136,8 @@ gem 'twitter',           '4.8.1'
 gem 'omniauth-wordpress','0.2.1'
 
 # XMPP chat dependencies
-gem 'diaspora-vines',             '~> 0.1.25'
-gem 'rails-assets-diaspora_jsxc', '~> 0.0.9'
+gem 'diaspora-vines',             '~> 0.1.27'
+gem 'rails-assets-diaspora_jsxc', '~> 0.0.12'
 
 # Tags
 
