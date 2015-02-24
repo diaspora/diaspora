@@ -28,7 +28,7 @@ $(document).ready(function() {
             username: jid.replace(/@.*?$/g, ''),
             domain: jid.replace(/^.*?@/g, ''),
             jid: jid,
-            password: data['token'],
+            password: data.token,
             resource: 'diaspora-jsxc',
             overwrite: true,
             onlogin: true
