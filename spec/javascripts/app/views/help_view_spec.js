@@ -134,4 +134,30 @@ describe("app.views.Help", function(){
       });
     });
   });
+
+  describe("chat section", function(){
+    describe("chat enabled", function(){
+      beforeEach(function(){
+        gon.chatEnabled = true;
+        this.view = new app.views.Help();
+        this.view.render();
+      });
+
+      it('should display the chat', function(){
+        expect(this.view.$el.find('a[data-section=chat]').length).toBe(1);
+      });
+    });
+
+    describe("chat disabled", function(){
+      beforeEach(function(){
+        gon.chatEnabled = false;
+        this.view = new app.views.Help();
+        this.view.render();
+      });
+
+      it('should not display the chat', function () {
+        expect(this.view.$el.find('a[data-section=chat]').length).toBe(0);
+      });
+    });
+  });
 });

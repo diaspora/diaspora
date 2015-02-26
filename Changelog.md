@@ -176,6 +176,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Add year to notifications page [#5676](https://github.com/diaspora/diaspora/pull/5676)
 * Give admins the ability to lock & unlock accounts [#5643](https://github.com/diaspora/diaspora/pull/5643)
 * Add reshares to the stream view immediately [#5699](https://github.com/diaspora/diaspora/pull/5699)
+* Start help section for the chat [#5665](https://github.com/diaspora/diaspora/pull/5665)
 
 # 0.4.1.2
 
