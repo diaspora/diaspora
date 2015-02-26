@@ -5,8 +5,6 @@ app.views.Conversations = Backbone.View.extend({
   el: "#conversations_container",
 
   events: {
-    "mouseenter .stream_element.conversation" : "showParticipants",
-    "mouseleave .stream_element.conversation" : "hideParticipants",
     "conversation:loaded" : "setupConversation"
   },
 
@@ -45,14 +43,6 @@ app.views.Conversations = Backbone.View.extend({
     } else {
       $("html").animate({scrollTop:0});
     }
-  },
-
-  hideParticipants: function(e){
-    $(e.currentTarget).find('.participants').slideUp('300');
-  },
-
-  showParticipants: function(e){
-    $(e.currentTarget).find('.participants').slideDown('300');
   }
 });
 // @license-end

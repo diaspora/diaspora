@@ -81,19 +81,23 @@
     }
 
     .participants {
-      display: none;
       float: left;
       clear: both;
       margin-top: 5px;
       padding-top: 5px;
-      height: 25px;
+      height: 0;
       width: 100%;
       overflow: hidden;
       border-top: 1px dotted $border-grey;
+      transition: height ease 300ms;
       .avatar {
         margin: 0 5px 0 0;
         height: 25px;
         width: 25px;
+      }
+
+      .conversation & {
+        height: 25px;
       }
     }
 
