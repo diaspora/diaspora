@@ -52,7 +52,7 @@ describe StatisticsPresenter do
           "network" => "Diaspora",
           "version" => AppConfig.version_string,
           "registrations_open" => AppConfig.settings.enable_registrations?,
-          "total_users" => User.total_users.count,
+          "total_users" => User.active.count,
           "active_users_halfyear" => User.halfyear_actives.count,
           "active_users_monthly" => User.monthly_actives.count,
           "local_posts" => @presenter.local_posts,

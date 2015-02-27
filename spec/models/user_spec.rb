@@ -1064,43 +1064,45 @@ describe User, :type => :model do
       @user.sign_up
     end
   end
-  
+
   describe "maintenance" do
     before do
       @user = bob
       AppConfig.settings.maintenance.remove_old_users.enable = true
     end
-    
+
     it "#flags user for removal" do
       remove_at = Time.now+5.days
       @user.flag_for_removal(remove_at)
       expect(@user.remove_after).to eq(remove_at)
     end
   end
-  
+
   describe "#auth database auth maintenance" do
     before do
       @user = bob
       @user.remove_after = Time.now
       @user.save
     end
-    
+
     it "remove_after is cleared" do
       @user.after_database_authentication
       expect(@user.remove_after).to eq(nil)
     end
+  end
 
-  describe "total_users" do
+  describe "active" do
     before do
-      @user1 = FactoryGirl.build(:user, :username => nil)
-      @user1.save(:validate => false)
-      @user2 = FactoryGirl.create(:user)
-      @user2.person.closed_account = true
-      @user2.save
+      invited_user = FactoryGirl.build(:user, username: nil)
+      invited_user.save(validate: false)
+
+      closed_account = FactoryGirl.create(:user)
+      closed_account.person.closed_account = true
+      closed_account.save
     end
 
     it "returns total_users excluding closed accounts & users without usernames" do
-      expect(User.total_users.count).to eq 5     #5 users from fixtures
+      expect(User.active.count).to eq 6     # 6 users from fixtures
     end
   end
 end

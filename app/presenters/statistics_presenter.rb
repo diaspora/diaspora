@@ -48,10 +48,7 @@ class StatisticsPresenter
   end
 
   def total_users
-    @total_users ||= User.joins(:person)
-                         .where(people: {closed_account: false})
-                         .where.not(username: nil)
-                         .count
+    @total_users ||= User.active.count
   end
 
   def monthly_users
