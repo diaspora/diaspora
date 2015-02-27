@@ -117,16 +117,18 @@ app.views.StreamPost = app.views.Post.extend({
   },
 
   createParticipation: function (evt) {
+    if(evt) { evt.preventDefault(); }
     that = this;
-    $.post("/posts/" + this.model.get("id") + "/participation", {}, function () {
+    $.post(Routes.post_participation_path(this.model.get("id")), {}, function () {
       that.model.set({participation: true});
       that.render();
     });
   },
 
   destroyParticipation: function (evt) {
+    if(evt) { evt.preventDefault(); }
     that = this;
-    $.post("/posts/" + this.model.get("id") + "/participation", { _method: "delete" }, function () {
+    $.post(Routes.post_participation_path(this.model.get("id")), { _method: "delete" }, function () {
       that.model.set({participation: false});
       that.render();
     });

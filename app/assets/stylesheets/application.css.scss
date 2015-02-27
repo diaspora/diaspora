@@ -281,20 +281,18 @@ ul.as-selections {
   }
   .create_participation {
     display: inline-block;
-    .icons-create-participation {
+    .icons-create_participation {
       height: 14px;
       width: 14px;
-      background: image-url("icons/create_participation.png") center;
     }
   }
   .destroy_participation {
     display: inline-block;
-    .icons-destroy-participation {
+    .icons-destroy_participation {
       height: 14px;
       width: 14px;
-      background: image-url("icons/destroy_participation.png") center;
     }
-  }  
+  }
   .delete {
     display: inline-block;
     .icons-deletelabel {
