@@ -216,7 +216,7 @@ Then /^the notification dropdown scrollbar should be visible$/ do
 end
 
 Then /^there should be (\d+) notifications loaded$/ do |n|
-  result = page.evaluate_script("$('.notification_element').length")
+  result = page.evaluate_script("$('.media.stream_element').length")
   result.should == n.to_i
 end
 

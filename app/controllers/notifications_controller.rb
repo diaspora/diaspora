@@ -40,8 +40,8 @@ class NotificationsController < ApplicationController
 
       pager.replace(result)
     end
-    @notifications.each do |n|
-      n.note_html = render_to_string( :partial => 'notify_popup_item', :locals => { :n => n } )
+    @notifications.each do |note|
+      note.note_html = render_to_string( :partial => 'notification.html', :locals => { :note => note } )
     end
     @group_days = @notifications.group_by{|note| note.created_at.strftime('%Y-%m-%d')}
 

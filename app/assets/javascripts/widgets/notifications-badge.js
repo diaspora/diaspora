@@ -5,7 +5,6 @@
     var self = this;
     var currentPage = 2;
     var notificationsLoaded = 10;
-    var isLoading = false;
 
     this.subscribe("widget/ready",function(evt, badge, dropdown) {
       $.extend(self, {
@@ -48,23 +47,31 @@
       self.ajaxLoader.show();
       self.badge.addClass("active");
       self.dropdown.css("display", "block");
-      $('.notifications').addClass("loading");
+      self.dropdownNotifications.addClass("loading");
       self.getNotifications();
-      
+
     };
 
     this.hideDropdown = function() {
       self.badge.removeClass("active");
       self.dropdown.css("display", "none");
-      $('.notifications').perfectScrollbar('destroy');
+      self.dropdownNotifications.perfectScrollbar('destroy');
     };
 
-    this.getMoreNotifications = function() {
-      $.getJSON("/notifications?per_page=5&page="+currentPage, function(notifications) {
+    this.getMoreNotifications = function(page) {
+      $.getJSON("/notifications?per_page=5&page=" + page, function(notifications) {
         for(var i = 0; i < notifications.length; ++i)
           self.notifications.push(notifications[i]);
         notificationsLoaded += 5;
         self.renderNotifications();
+      });
+    };
+
+    this.hideAjaxLoader = function(){
+      self.ajaxLoader.find('img').fadeTo(200, 0, function(){
+        self.ajaxLoader.hide(300, function(){
+          self.ajaxLoader.find('img').css('opacity', 1);
+        });
       });
     };
 
@@ -76,36 +83,31 @@
     };
 
     this.renderNotifications = function() {
-      self.dropdownNotifications.empty();
+      this.dropdownNotifications.find('.media.stream_element').remove();
       $.each(self.notifications, function(index, notifications) {
         $.each(notifications, function(index, notification) {
-          if($.inArray(notification, notifications) === -1)
-            self.dropdownNotifications.append(notification.note_html);
+          if($.inArray(notification, notifications) === -1){
+            var node = self.dropdownNotifications.append(notification.note_html);
+            $(node).find(".unread-toggle .entypo").tooltip('destroy').tooltip();
+          }
         });
       });
 
+      self.hideAjaxLoader();
+
       app.helpers.timeago(self.dropdownNotifications);
 
-      self.dropdownNotifications.find('.unread').each(function() {
-        Diaspora.page.header.notifications.setUpUnread( $(this) );
-      });
-      self.dropdownNotifications.find('.read').each(function() {
-        Diaspora.page.header.notifications.setUpRead( $(this) );
-      });
-      $('.notifications').perfectScrollbar('destroy');
-      $('.notifications').perfectScrollbar();
-      self.ajaxLoader.hide();
-      isLoading = false;
-      $('.notifications').removeClass("loading");
+      self.dropdownNotifications.perfectScrollbar('destroy').perfectScrollbar();
+      var isLoading = false;
+      self.dropdownNotifications.removeClass("loading");
       //Infinite Scrolling
-      $('.notifications').scroll(function() {
-        var bottom = $('.notifications').prop('scrollHeight') - $('.notifications').height();
-        var currentPosition = $('.notifications').scrollTop();
+      self.dropdownNotifications.scroll(function() {
+        var bottom = self.dropdownNotifications.prop('scrollHeight') - self.dropdownNotifications.height();
+        var currentPosition = self.dropdownNotifications.scrollTop();
         isLoading = ($('.loading').length === 1);
         if (currentPosition + 50 >= bottom && notificationsLoaded <= self.notifications.length && !isLoading) {
-            $('.notifications').addClass("loading");
-            ++currentPage;
-            self.getMoreNotifications();
+            self.dropdownNotifications.addClass("loading");
+            self.getMoreNotifications(++currentPage);
         }
       });
     };

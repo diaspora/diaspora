@@ -17,9 +17,11 @@ app.views.Header = app.views.Base.extend({
     return this;
   },
 
-  menuElement : function() {
-    return this.$("ul.dropdown");
+  postRenderTemplate: function(){
+    new app.views.Notifications({ el: '#notification_dropdown' });
   },
+
+  menuElement : function() { return this.$("ul.dropdown"); },
 
   toggleDropdown : function(evt) {
     if(evt){ evt.preventDefault(); }

@@ -72,5 +72,35 @@ describe("app.views.Notifications", function(){
       expect(this.readN.hasClass('unread')).toBeFalsy();
       expect(this.readN.find('.unread-toggle .entypo').data('original-title')).toBe(Diaspora.I18n.t('notifications.mark_unread'));
     });
+
+    context("with a header", function() {
+      beforeEach(function() {
+        loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}, notifications_count : 2});
+        this.header = new app.views.Header();
+        $("header").prepend(this.header.el);
+        this.header.render();
+      });
+
+      it("changes the header notifications count", function() {
+        var badge = $("#notification_badge .badge_count");
+        var count = parseInt(badge.text(), 10);
+
+        this.view.updateView(this.guid, this.type, true);
+        expect(parseInt(badge.text(), 10)).toBe(count + 1);
+
+        this.view.updateView(this.guid, this.type, false);
+        expect(parseInt(badge.text(), 10)).toBe(count);
+      });
+
+      context("markAllRead", function() {
+        it("calls setRead for each unread notification", function(){
+          spyOn(this.view, "setRead");
+          this.view.markAllRead();
+          expect(this.view.setRead).toHaveBeenCalledWith(this.view.$('.stream_element.unread').eq(0).data('guid'));
+          this.view.markAllRead();
+          expect(this.view.setRead).toHaveBeenCalledWith(this.view.$('.stream_element.unread').eq(1).data('guid'));
+          });
+        });
+    });
   });
 });
