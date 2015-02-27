@@ -20,6 +20,7 @@ app.views.Help = app.views.StaticContentView.extend({
       get_support_a_tutorials: { tutorials: this.linkHtml("https://diasporafoundation.org/tutorials", Diaspora.I18n.t( 'tutorials' ))},
       get_support_a_wiki: { link: this.linkHtml("https://wiki.diasporafoundation.org/Special:Search", Diaspora.I18n.t( 'wiki' ))},
       get_support_a_irc: { irc: this.linkHtml("https://wiki.diasporafoundation.org/How_We_Communicate#IRC", Diaspora.I18n.t( 'irc' ))},
+      get_support_a_faq: { faq: this.linkHtml("https://wiki.diasporafoundation.org/FAQ_for_users", Diaspora.I18n.t( 'faq' ))},
       get_support_a_hashtag: { question: this.linkHtml("/tags/question", "#question")}
 	};
 
