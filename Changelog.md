@@ -135,6 +135,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Fix code overflow for the mobile website [#5675](https://github.com/diaspora/diaspora/pull/5675)
 * Strip Unicode format characters prior post processing [#5680](https://github.com/diaspora/diaspora/pull/5680)
 * Disable email notifications for closed user accounts [#5640](https://github.com/diaspora/diaspora/pull/5640)
+* Total user statistic no longer includes closed accounts [#5041](https://github.com/diaspora/diaspora/pull/5041)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)

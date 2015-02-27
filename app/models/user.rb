@@ -526,6 +526,11 @@ class User < ActiveRecord::Base
     end
   end
 
+
+  def self.total_users
+    User.joins(:person).where(:people => {:closed_account => false}).where.not(:username => nil)
+  end
+
   private
   def clearable_fields
     self.attributes.keys - ["id", "username", "encrypted_password",

@@ -1089,5 +1089,18 @@ describe User, :type => :model do
       @user.after_database_authentication
       expect(@user.remove_after).to eq(nil)
     end
+
+  describe "total_users" do
+    before do
+      @user1 = FactoryGirl.build(:user, :username => nil)
+      @user1.save(:validate => false)
+      @user2 = FactoryGirl.create(:user)
+      @user2.person.closed_account = true
+      @user2.save
+    end
+
+    it "returns total_users excluding closed accounts & users without usernames" do
+      expect(User.total_users.count).to eq 5     #5 users from fixtures
+    end
   end
 end
