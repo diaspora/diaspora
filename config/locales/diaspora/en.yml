@@ -398,6 +398,7 @@ en:
     tutorial: "tutorial"
     irc: "IRC"
     wiki: "wiki"
+    faq: "FAQ"
     markdown: "Markdown"
     here: "Here"
     foundation_website: "diaspora* foundation website"
@@ -412,6 +413,7 @@ en:
       get_support_a_tutorials: "Check out our %{tutorials}"
       get_support_a_wiki: "Search the %{link}"
       get_support_a_irc: "Join us on %{irc} (live chat)"
+      get_support_a_faq: "Read our %{faq} page on wiki"
       get_support_a_hashtag: "Ask in a public post on diaspora* using the %{question} hashtag"
     account_and_data_management:
       title: "Account and data management"
@@ -585,6 +587,7 @@ en:
       keyboard_shortcuts_li5: "r - Reshare the current post"
       keyboard_shortcuts_li6: "m - Expand the current post"
       keyboard_shortcuts_li7: "o - Open the first link in the current post"
+      keyboard_shortcuts_li8: "ctrl + enter - Send the message you are writing"
     miscellaneous:
       title: "Miscellaneous"
       back_to_top_q: "Is there a quick way to go back to the top of a page after I scroll down?"
