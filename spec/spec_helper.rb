@@ -95,4 +95,9 @@ RSpec.configure do |config|
   config.after(:each) do
     AppConfig.reset_dynamic!
   end
+
+  # Reset test mails
+  config.after(:each) do
+    ActionMailer::Base.deliveries.clear
+  end
 end

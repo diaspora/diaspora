@@ -18,7 +18,7 @@ describe Workers::Mail::PrivateMessage do
       message = cnv.messages.first
 
       mail_double = double()
-      expect(mail_double).to receive(:deliver)
+      expect(mail_double).to receive(:deliver_now)
       expect(Notifier).to receive(:mentioned).with(user2.id, user1.person.id, message.id).and_return(mail_double)
 
       Workers::Mail::Mentioned.new.perform(user2.id, user1.person.id, message.id)

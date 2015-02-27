@@ -4,7 +4,7 @@ module Workers
       sidekiq_options queue: :mail
       
       def perform(recipient_id, sender_id, reshare_id)
-        Notifier.reshared(recipient_id, sender_id, reshare_id).deliver
+        Notifier.reshared(recipient_id, sender_id, reshare_id).deliver_now
       end
     end
   end

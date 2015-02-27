@@ -40,9 +40,12 @@ class ConversationsController < ApplicationController
   end
 
   def create
+    contact_ids = params[:contact_ids]
+
     # Can't split nil
-    if params[:contact_ids]
-      person_ids = current_user.contacts.where(id: params[:contact_ids].split(',')).pluck(:person_id)
+    if contact_ids
+      contact_ids = contact_ids.split(',') if contact_ids.is_a? String
+      person_ids = current_user.contacts.where(id: contact_ids).pluck(:person_id)
     end
 
     opts = params.require(:conversation).permit(:subject)

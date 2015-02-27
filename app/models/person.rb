@@ -201,12 +201,12 @@ class Person < ActiveRecord::Base
 
   def url
     begin
-      uri = URI.parse(@attributes['url'])
+      uri = URI.parse(self[:url])
       url = "#{uri.scheme}://#{uri.host}"
       url += ":#{uri.port}" unless ["80", "443"].include?(uri.port.to_s)
       url += "/"
     rescue => e
-      url = @attributes['url']
+      url = self[:url]
     end
     url
   end

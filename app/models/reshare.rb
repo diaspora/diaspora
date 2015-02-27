@@ -18,7 +18,7 @@ class Reshare < Post
   end
 
   after_commit :on => :create do
-    self.root.update_reshares_counter
+    self.root.update_reshares_counter if self.root.present?
   end
 
   after_destroy do

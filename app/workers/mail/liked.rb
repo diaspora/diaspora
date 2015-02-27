@@ -4,7 +4,7 @@ module Workers
       sidekiq_options queue: :mail
       
       def perform(recipient_id, sender_id, like_id)
-        Notifier.liked(recipient_id, sender_id, like_id).deliver
+        Notifier.liked(recipient_id, sender_id, like_id).deliver_now
       end
     end
   end

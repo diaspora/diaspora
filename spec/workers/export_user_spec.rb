@@ -12,15 +12,15 @@ describe Workers::ExportUser do
   end
 
   it 'sends a success message when the export is successful' do
-    alice.stub(:export).and_return(OpenStruct.new)
-    expect(ExportMailer).to receive(:export_complete_for).with(alice)
+    allow(alice).to receive(:export).and_return(OpenStruct.new)
+    expect(ExportMailer).to receive(:export_complete_for).with(alice).and_call_original
     Workers::ExportUser.new.perform(alice.id)
   end
 
   it 'sends a failure message when the export fails' do
-    alice.stub(:export).and_return(nil)
+    allow(alice).to receive(:export).and_return(nil)
     expect(alice).to receive(:perform_export!).and_return(false)
-    expect(ExportMailer).to receive(:export_failure_for).with(alice)
+    expect(ExportMailer).to receive(:export_failure_for).with(alice).and_call_original
     Workers::ExportUser.new.perform(alice.id)
   end
 end
