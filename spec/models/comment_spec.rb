@@ -12,9 +12,15 @@ describe Comment, :type => :model do
   end
 
   describe 'comment#notification_type' do
+    let (:comment) { alice.comment!(@status, "why so formal?") }
+
     it "returns 'comment_on_post' if the comment is on a post you own" do
-      comment = alice.comment!(@status, "why so formal?")
       expect(comment.notification_type(bob, alice.person)).to eq(Notifications::CommentOnPost)
+    end
+
+    it "returns 'also_commented' if the comment is on a post you participate to" do
+      eve.participate! @status
+      expect(comment.notification_type(eve, alice.person)).to eq(Notifications::AlsoCommented)
     end
 
     it 'returns false if the comment is not on a post you own and no one "also_commented"' do

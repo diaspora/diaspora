@@ -41,13 +41,14 @@ class PostPresenter
         :address => @post.address,
         :poll => @post.poll(),
         :already_participated_in_poll => already_participated_in_poll,
+        :participation => participate?,
 
         :interactions => {
             :likes => [user_like].compact,
             :reshares => [user_reshare].compact,
             :comments_count => @post.comments_count,
             :likes_count => @post.likes_count,
-            :reshares_count => @post.reshares_count,
+            :reshares_count => @post.reshares_count
         }
     }
   end
@@ -84,6 +85,10 @@ class PostPresenter
     if @post.poll && user_signed_in?
       @post.poll.already_participated?(current_user)
     end
+  end
+
+  def participate?
+    user_signed_in? && @current_user.participations.where(:target_id => @post).exists?
   end
 
 end

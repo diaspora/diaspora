@@ -177,6 +177,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Give admins the ability to lock & unlock accounts [#5643](https://github.com/diaspora/diaspora/pull/5643)
 * Add reshares to the stream view immediately [#5699](https://github.com/diaspora/diaspora/pull/5699)
 * Start help section for the chat [#5665](https://github.com/diaspora/diaspora/pull/5665)
+* Expose participation controls in the stream view [#5511](https://github.com/diaspora/diaspora/pull/5511)
 
 # 0.4.1.2
 

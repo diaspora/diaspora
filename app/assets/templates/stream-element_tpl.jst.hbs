@@ -16,6 +16,15 @@
           <a href="#" rel="nofollow" class="block_user" title="{{t "ignore"}}">
             <div class="icons-ignoreuser control_icon"></div>
           </a>
+          {{#if participation}}
+            <a href="#" rel="nofollow" class="destroy_participation" title="{{t "stream.disable_post_notifications"}}">
+              <div class="icons-destroy_participation control_icon"></div>
+            </a>
+          {{else}}
+            <a href="#" rel="nofollow" class="create_participation" title="{{t "stream.enable_post_notifications"}}">
+              <div class="icons-create_participation control_icon"></div>
+            </a>
+          {{/if}}
           <a href="#" rel="nofollow" class="delete hide_post" title="{{t "stream.hide"}}">
             <div class="icons-deletelabel delete control_icon"/>
           </a>
@@ -26,7 +35,7 @@
         {{/unless}}
       </div>
     {{/if}}
-    
+
     <div>
       {{#with author}}
         <a href="/people/{{guid}}" class="author {{{hovercardable this}}}">{{name}}</a>

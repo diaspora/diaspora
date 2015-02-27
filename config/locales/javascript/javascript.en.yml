@@ -166,6 +166,8 @@ en:
       hide_nsfw_posts: "Hide #nsfw posts"
       follow: "Follow"
       unfollow: "Unfollow"
+      enable_post_notifications: "Enable notifications for this post"
+      disable_post_notifications: "Disable notifications for this post"
       via: "via <%= provider %>"
 
       likes:
