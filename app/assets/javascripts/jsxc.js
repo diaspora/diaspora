@@ -8,7 +8,6 @@ $(document).ready(function() {
         var jid = app.currentUser.get('diaspora_id');
         jsxc.init({
           root: '/assets/diaspora_jsxc',
-          checkFlash: false,
           logoutElement: $('.user-menu-item [data-method=delete]'),
           rosterAppend: 'body',
           otr: {
@@ -24,22 +23,15 @@ $(document).ready(function() {
           displayRosterMinimized: function() {
             return true;
           },
-          loginForm: {
-            form: '#jsxc_loginForm'
-          },
-          loadSettings: function() {
-            return {
-              xmpp: {
-                url: $('script#jsxc').data('endpoint'),
-                username: jid.replace(/@.*?$/g, ''),
-                domain: jid.replace(/^.*?@/g, ''),
-                jid: jid,
-                password: data['token'],
-                resource: 'diaspora-jsxc',
-                overwrite: true,
-                onlogin: true
-              }
-            };
+          xmpp: {
+            url: $('script#jsxc').data('endpoint'),
+            username: jid.replace(/@.*?$/g, ''),
+            domain: jid.replace(/^.*?@/g, ''),
+            jid: jid,
+            password: data.token,
+            resource: 'diaspora-jsxc',
+            overwrite: true,
+            onlogin: true
           }
         });
       } else {
