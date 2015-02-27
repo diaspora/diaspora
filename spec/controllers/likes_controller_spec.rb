@@ -74,9 +74,14 @@ describe LikesController, :type => :controller do
         end
 
         context "when an the exception is raised" do
+          before do
+            @target = alice.post :status_message, :text => "AWESOME", :to => @alices_aspect.id
+            @target = alice.comment!(@target, "hey") if class_const == Comment
+          end
+
           it "should be catched when it means that the target is not found" do
-            allow(@target).to receive(:id).and_return(-1)
-            post :create, like_hash.merge(:format => :json)
+            params = like_hash.merge(format: :json, id_field => -1)
+            post :create, params
             expect(response.code).to eq('422')
           end
 
