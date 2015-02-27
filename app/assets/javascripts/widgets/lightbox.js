@@ -115,7 +115,7 @@ jQuery.fn.center = (function() {
         imageUrl = selectedImage.attr("data-full-photo"),
         images = selectedImage.parents(self.options.imageParent).find(self.options.imageSelector),
         imageThumb;
-
+      
       if( $.browser.msie ) {
         /* No fancy schmancy lightbox for IE, because it doesn't work in IE */
         window.open(imageUrl);
@@ -159,7 +159,10 @@ jQuery.fn.center = (function() {
     this.selectImage = function(imageThumb) {
       $(".selected", self.imageset).removeClass("selected");
       imageThumb.addClass("selected");
-      self.image.attr("src", imageThumb.attr("data-full-photo"));
+      
+      bigimagesource = imageThumb.attr("data-full-photo");
+      bigimagesource = bigimagesource.replace("scaled_full_", "");			// We want the original version of the image file, so remove "scaled_full_" from filename
+      self.image.attr("src", bigimagesource);
 
       self.scrollToThumbnail(imageThumb);
 

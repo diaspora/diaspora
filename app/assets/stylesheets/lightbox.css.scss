@@ -31,11 +31,18 @@
     display: block;
     margin-bottom: 120px;
     background: white;
+    max-width:100%;
   }
 
   #lightbox-content{
     text-align: left;
     display: inline-block;
+    margin-left:auto;
+    margin-right:auto;
+    max-width:100%;
+    padding-left:20px;
+    padding-right:20px;
+    box-sizing:border-box;
   }
 
   #lightbox-links{
@@ -93,7 +100,7 @@
   left: 0;
   bottom: 0;
   text-align: center;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.8);
   padding: 5px 0;
   white-space: nowrap;
   overflow: hidden;
