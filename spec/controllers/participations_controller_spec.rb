@@ -65,7 +65,7 @@ describe ParticipationsController, :type => :controller do
       it 'should remove participation' do
         delete :destroy, post_id: post.id
         expect(alice.participations.where(:target_id => post.id)).not_to exist
-        expect(response.code).to eq('204')
+        expect(response.code).to eq('200')
       end
     end
 
