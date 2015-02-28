@@ -308,7 +308,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    haml (4.0.5)
+    haml (4.0.6)
       tilt
     handlebars_assets (0.18)
       execjs (>= 1.2.9)
@@ -709,7 +709,7 @@ DEPENDENCIES
   guard (= 2.12.4)
   guard-cucumber (= 1.5.3)
   guard-rspec (= 4.5.0)
-  haml (= 4.0.5)
+  haml (= 4.0.6)
   handlebars_assets (= 0.18.0)
   http_accept_language (= 2.0.2)
   i18n-inflector-rails (= 1.0.7)

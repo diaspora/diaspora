@@ -160,7 +160,7 @@ gem 'typhoeus',           '0.6.9'
 # Views
 
 gem 'gon',                     '5.2.3'
-gem 'haml',                    '4.0.5'
+gem 'haml',                    '4.0.6'
 gem 'mobile-fu',               '1.3.1'
 gem 'will_paginate',           '3.0.7'
 gem 'rails-timeago',           '2.11.0'
