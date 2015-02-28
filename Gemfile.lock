@@ -62,8 +62,9 @@ GEM
       activemodel
       fog (>= 1.8.0)
       unf
-    autoprefixer-rails (4.0.2.1)
+    autoprefixer-rails (5.1.7)
       execjs
+      json
     backbone-on-rails (1.1.2.0)
       actionmailer
       actionpack
@@ -684,7 +685,7 @@ DEPENDENCIES
   acts_as_api (= 0.4.2)
   addressable (= 2.3.7)
   asset_sync (= 1.1.0)
-  autoprefixer-rails (= 4.0.2.1)
+  autoprefixer-rails (= 5.1.7)
   backbone-on-rails (= 1.1.2)
   bootstrap-sass (= 2.3.2.2)
   capybara (= 2.4.4)
