@@ -35,6 +35,11 @@ spec/fixtures/*.fixture.*
 coverage/
 xml_locales/
 
+# Sprites
+app/assets/images/branding-*.png
+app/assets/images/icons-*.png
+app/assets/images/social_media_logos-*.png
+
 #Documentation
 .yardoc/
 doc/
