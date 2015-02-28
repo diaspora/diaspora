@@ -109,7 +109,7 @@ gem 'rails-assets-perfect-scrollbar',       '0.5.7'
 
 # Localization
 
-gem 'http_accept_language', '2.0.2'
+gem 'http_accept_language', '2.0.5'
 gem 'i18n-inflector-rails', '1.0.7'
 gem 'rails-i18n',           '4.0.3'
 
