@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
   specs:
-    CFPropertyList (2.2.8)
+    CFPropertyList (2.3.0)
     actionmailer (4.2.0)
       actionpack (= 4.2.0)
       actionview (= 4.2.0)
@@ -171,7 +171,7 @@ GEM
     ethon (0.7.1)
       ffi (>= 1.3.0)
     eventmachine (1.0.7)
-    excon (0.41.0)
+    excon (0.44.3)
     execjs (2.2.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -191,32 +191,48 @@ GEM
     fixture_builder (0.3.6)
       activerecord (>= 2)
       activesupport (>= 2)
-    fog (1.25.0)
+    fog (1.28.0)
+      fog-atmos
+      fog-aws (~> 0.0)
       fog-brightbox (~> 0.4)
-      fog-core (~> 1.25)
+      fog-core (~> 1.27, >= 1.27.3)
+      fog-ecloud
       fog-json
       fog-profitbricks
       fog-radosgw (>= 0.0.2)
+      fog-riakcs
       fog-sakuracloud (>= 0.0.4)
+      fog-serverlove
       fog-softlayer
+      fog-storm_on_demand
       fog-terremark
       fog-vmfusion
       fog-voxel
       fog-xml (~> 0.1.1)
       ipaddress (~> 0.5)
       nokogiri (~> 1.5, >= 1.5.11)
-      opennebula
-    fog-brightbox (0.6.1)
+    fog-atmos (0.1.0)
+      fog-core
+      fog-xml
+    fog-aws (0.1.1)
+      fog-core (~> 1.27)
+      fog-json (~> 1.0)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
+    fog-brightbox (0.7.1)
       fog-core (~> 1.22)
       fog-json
-      inflecto
-    fog-core (1.25.0)
+      inflecto (~> 0.0.2)
+    fog-core (1.29.0)
       builder
       excon (~> 0.38)
       formatador (~> 0.2)
       mime-types
       net-scp (~> 1.1)
       net-ssh (>= 2.1.3)
+    fog-ecloud (0.0.2)
+      fog-core
+      fog-xml
     fog-json (1.0.0)
       multi_json (~> 1.0)
     fog-profitbricks (0.0.1)
@@ -227,19 +243,29 @@ GEM
       fog-core (>= 1.21.0)
       fog-json
       fog-xml (>= 0.0.1)
-    fog-sakuracloud (0.1.1)
+    fog-riakcs (0.1.0)
       fog-core
       fog-json
-    fog-softlayer (0.3.24)
+      fog-xml
+    fog-sakuracloud (1.0.0)
       fog-core
       fog-json
-    fog-terremark (0.0.3)
+    fog-serverlove (0.1.1)
+      fog-core
+      fog-json
+    fog-softlayer (0.4.1)
+      fog-core
+      fog-json
+    fog-storm_on_demand (0.1.0)
+      fog-core
+      fog-json
+    fog-terremark (0.0.4)
       fog-core
       fog-xml
     fog-vmfusion (0.0.1)
       fission
       fog-core
-    fog-voxel (0.0.1)
+    fog-voxel (0.0.2)
       fog-core
       fog-xml
     fog-xml (0.1.1)
@@ -345,7 +371,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_magick (4.0.1)
-    mini_portile (0.6.1)
+    mini_portile (0.6.2)
     minitest (5.5.1)
     mobile-fu (1.3.1)
       rack-mobile-detect
@@ -358,7 +384,7 @@ GEM
     nested_form (0.3.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (2.9.1)
+    net-ssh (2.9.2)
     nokogiri (1.6.4.1)
       mini_portile (~> 0.6.0)
     oauth (0.4.7)
@@ -391,10 +417,6 @@ GEM
     open_graph_reader (0.4.0)
       faraday (~> 0.9.0)
       nokogiri (~> 1.6)
-    opennebula (4.10.1)
-      json
-      nokogiri
-      rbvmomi
     orm_adapter (0.5.0)
     phantomjs (1.9.8.0)
     pry (0.10.1)
@@ -508,10 +530,6 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rbvmomi (1.8.2)
-      builder
-      nokogiri (>= 1.4.1)
-      trollop
     redcarpet (3.2.0)
     redis (3.1.0)
     redis-namespace (1.5.1)
@@ -607,7 +625,6 @@ GEM
     timecop (0.7.1)
     timers (4.0.1)
       hitimes
-    trollop (2.0)
     twitter (4.8.1)
       faraday (~> 0.8, < 0.10)
       multi_json (~> 1.0)
@@ -673,7 +690,7 @@ DEPENDENCIES
   faraday-cookie_jar (= 0.0.6)
   faraday_middleware (= 0.9.1)
   fixture_builder (= 0.3.6)
-  fog (= 1.25.0)
+  fog (= 1.28.0)
   foreman (= 0.62)
   fuubar (= 2.0.0)
   gon (= 5.2.3)
