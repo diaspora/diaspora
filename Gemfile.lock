@@ -369,7 +369,7 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.9.2)
+    kgio (2.9.3)
     libv8 (3.16.14.7)
     listen (2.8.5)
       celluloid (>= 0.15.2)
