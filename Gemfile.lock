@@ -165,7 +165,7 @@ GEM
       http_parser.rb (~> 0.6)
       nokogiri (~> 1.6)
     diff-lcs (1.2.5)
-    domain_name (0.5.22)
+    domain_name (0.5.23)
       unf (>= 0.0.5, < 1.0.0)
     eco (1.0.0)
       coffee-script
