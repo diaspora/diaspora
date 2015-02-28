@@ -147,7 +147,7 @@ gem 'rails-assets-diaspora_jsxc', '~> 0.0.12'
 
 # Tags
 
-gem 'acts-as-taggable-on', '3.4.2'
+gem 'acts-as-taggable-on', '3.4.4'
 
 # URIs and HTTP
 

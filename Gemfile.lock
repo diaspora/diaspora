@@ -50,7 +50,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    acts-as-taggable-on (3.4.2)
+    acts-as-taggable-on (3.4.4)
       activerecord (>= 3.2, < 5)
     acts_as_api (0.4.2)
       activemodel (>= 3.0.0)
@@ -650,7 +650,7 @@ DEPENDENCIES
   actionpack-page_caching
   active_model_serializers (= 0.9.3)
   activerecord-import (= 0.7.0)
-  acts-as-taggable-on (= 3.4.2)
+  acts-as-taggable-on (= 3.4.4)
   acts_as_api (= 0.4.2)
   addressable (= 2.3.6)
   asset_sync (= 1.1.0)
