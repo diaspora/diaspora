@@ -120,7 +120,7 @@ gem 'messagebus_ruby_api', '1.0.3'
 
 # Parsing
 
-gem 'nokogiri',          '1.6.4.1'
+gem 'nokogiri',          '1.6.6.2'
 gem 'redcarpet',         '3.2.0'
 gem 'twitter-text',      '1.10.0'
 gem 'roxml',             '3.1.6'
