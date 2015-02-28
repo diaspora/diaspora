@@ -42,7 +42,7 @@ gem 'sidetiq', '0.6.3'
 
 # Compression
 
-gem 'uglifier', '2.5.3'
+gem 'uglifier', '2.7.1'
 
 # Configuration
 
