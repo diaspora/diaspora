@@ -587,7 +587,7 @@ GEM
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
     ruby-oembed (0.8.12)
-    ruby-progressbar (1.7.0)
+    ruby-progressbar (1.7.1)
     rubyzip (1.1.7)
     safe_yaml (1.0.4)
     sass (3.4.13)
