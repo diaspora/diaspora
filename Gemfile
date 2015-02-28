@@ -124,7 +124,7 @@ gem 'nokogiri',          '1.6.6.2'
 gem 'redcarpet',         '3.2.2'
 gem 'twitter-text',      '1.10.0'
 gem 'roxml',             '3.1.6'
-gem 'ruby-oembed',       '0.8.11'
+gem 'ruby-oembed',       '0.8.12'
 gem 'open_graph_reader', '0.4.0'
 
 
