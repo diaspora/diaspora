@@ -10,7 +10,7 @@ gem 'actionpack-action_caching'
 gem 'actionpack-page_caching'
 
 # responders (class level)
-gem 'responders', '2.0.2'
+gem 'responders', '2.1.0'
 
 # Appserver
 
