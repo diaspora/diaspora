@@ -26,9 +26,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    active_model_serializers (0.9.0)
+    active_model_serializers (0.9.3)
       activemodel (>= 3.2)
-      builder (~> 3.1)
     activejob (4.2.0)
       activesupport (= 4.2.0)
       globalid (>= 0.3.0)
@@ -347,7 +346,7 @@ GEM
     mime-types (2.4.3)
     mini_magick (4.0.1)
     mini_portile (0.6.1)
-    minitest (5.5.0)
+    minitest (5.5.1)
     mobile-fu (1.3.1)
       rack-mobile-detect
       rails
@@ -649,7 +648,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack-action_caching
   actionpack-page_caching
-  active_model_serializers
+  active_model_serializers (= 0.9.3)
   activerecord-import (= 0.7.0)
   acts-as-taggable-on (= 3.4.2)
   acts_as_api (= 0.4.2)

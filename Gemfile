@@ -137,6 +137,10 @@ gem 'omniauth-twitter',  '1.0.1'
 gem 'twitter',           '4.8.1'
 gem 'omniauth-wordpress','0.2.1'
 
+# Serializers
+
+gem 'active_model_serializers', '0.9.3'
+
 # XMPP chat dependencies
 gem 'diaspora-vines',             '~> 0.1.27'
 gem 'rails-assets-diaspora_jsxc', '~> 0.0.12'
@@ -171,9 +175,6 @@ gem 'zip-zip'
 # https://github.com/gitlabhq/gitlabhq/pull/3852
 # https://github.com/discourse/discourse/pull/238
 gem 'minitest'
-
-# Serializers
-gem 'active_model_serializers'
 
 # Windows and OSX have an execjs compatible runtime built-in, Linux users should
 # install Node.js or use 'therubyracer'.
