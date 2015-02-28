@@ -105,7 +105,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    columnize (0.8.9)
+    columnize (0.9.0)
     compass (0.12.7)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -434,7 +434,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (2.0.0)
+    pry-byebug (3.0.1)
       byebug (~> 3.4)
       pry (~> 0.10)
     pry-debundle (0.8)
