@@ -50,7 +50,7 @@ gem 'configurate', '0.2.0'
 
 # Cross-origin resource sharing
 
-gem 'rack-cors', '0.2.9', :require => 'rack/cors'
+gem 'rack-cors', '0.3.1', :require => 'rack/cors'
 
 # CSS
 
