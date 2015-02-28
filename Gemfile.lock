@@ -452,7 +452,7 @@ GEM
       rack (~> 1.1)
     rack-protection (1.5.3)
       rack
-    rack-rewrite (1.5.0)
+    rack-rewrite (1.5.1)
     rack-ssl (1.4.1)
       rack
     rack-test (0.6.3)
@@ -740,7 +740,7 @@ DEPENDENCIES
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
   rack-protection (= 1.5.3)
-  rack-rewrite (= 1.5.0)
+  rack-rewrite (= 1.5.1)
   rack-ssl (= 1.4.1)
   rails (= 4.2.0)
   rails-assets-diaspora_jsxc (~> 0.0.12)
