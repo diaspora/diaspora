@@ -450,7 +450,7 @@ GEM
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
       rack (~> 1.1)
-    rack-protection (1.5.2)
+    rack-protection (1.5.3)
       rack
     rack-rewrite (1.5.0)
     rack-ssl (1.4.1)
@@ -739,7 +739,7 @@ DEPENDENCIES
   rack-cors (= 0.3.1)
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
-  rack-protection (= 1.5.2)
+  rack-protection (= 1.5.3)
   rack-rewrite (= 1.5.0)
   rack-ssl (= 1.4.1)
   rails (= 4.2.0)

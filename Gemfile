@@ -196,7 +196,7 @@ group :production do # we don't install these on travis to speed up test runs
 
   # Click-jacking protection
 
-  gem 'rack-protection', '1.5.2'
+  gem 'rack-protection', '1.5.3'
 
   # Process management
 
