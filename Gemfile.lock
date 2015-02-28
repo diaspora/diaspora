@@ -74,7 +74,7 @@ GEM
       ejs
       jquery-rails
       railties
-    bcrypt (3.1.9)
+    bcrypt (3.1.10)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     builder (3.2.2)
