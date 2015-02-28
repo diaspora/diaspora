@@ -29,7 +29,7 @@ app.views.StreamPost = app.views.Post.extend({
     "click .destroy_participation": "destroyParticipation"
   },
 
-  tooltipSelector : ".timeago, .post_scope, .block_user, .delete, .create_participation, .destroy_participation",
+  tooltipSelector : ".timeago, .post_scope, .post_report, .block_user, .delete, .create_participation, .destroy_participation",
 
   initialize : function(){
     var personId = this.model.get('author').id;
