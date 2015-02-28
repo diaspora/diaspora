@@ -484,7 +484,8 @@ GEM
       rails-assets-jquery (>= 1.3.2)
     rails-assets-jquery-fullscreen (1.1.4)
     rails-assets-jquery-idletimer (1.0.1)
-    rails-assets-jquery-placeholder (2.0.8)
+    rails-assets-jquery-placeholder (2.1.1)
+      rails-assets-jquery (>= 1.6)
     rails-assets-jquery-textchange (0.2.3)
       rails-assets-jquery
     rails-assets-jquery-ui (1.10.4)
@@ -748,7 +749,7 @@ DEPENDENCIES
   rails-assets-jeresig--jquery.hotkeys (= 0.2.0)
   rails-assets-jquery (= 1.11.1)
   rails-assets-jquery-idletimer (= 1.0.1)
-  rails-assets-jquery-placeholder (= 2.0.8)
+  rails-assets-jquery-placeholder (= 2.1.1)
   rails-assets-jquery-textchange (= 0.2.3)
   rails-assets-markdown-it (= 3.0.6)
   rails-assets-markdown-it--markdown-it-for-inline (= 0.1.0)
