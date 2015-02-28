@@ -1,11 +1,11 @@
-@import 'bootstrap';
-@import 'bootstrap-responsive';
+@import "bootstrap";
+@import "bootstrap-responsive";
 @import "colors";
-@import "_mixins.css.scss";
-@import 'vendor/autoSuggest';
-@import '_flash_messages.scss';
+@import "_mixins";
+@import "vendor/autoSuggest";
+@import "_flash_messages";
 
-@import 'header';
+@import "header";
 
 a {
   color: #2489ce;
