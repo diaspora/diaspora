@@ -252,7 +252,7 @@ group :test do
   # General helpers
 
   gem 'factory_girl_rails', '4.5.0'
-  gem 'timecop',            '0.7.1'
+  gem 'timecop',            '0.7.3'
   gem 'webmock',            '1.20.4', :require => false
 end
 
