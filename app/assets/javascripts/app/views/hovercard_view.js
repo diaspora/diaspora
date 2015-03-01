@@ -16,7 +16,7 @@ app.views.Hovercard = app.views.Base.extend({
       .on('mouseleave', '.hovercardable', _.bind(this._mouseleaveHandler, this));
 
     this.show_me = false;
-    this.parent = null;  // current 'hovercarable' element that caused HC to appear
+    this.parent = null;  // current 'hovercardable' element that caused HC to appear
 
     // cache some element references
     this.avatar = this.$('.avatar');
@@ -61,7 +61,10 @@ app.views.Hovercard = app.views.Base.extend({
 
   _mouseleaveHandler: function(event) {
     if( this.active === false ||
-        $.contains(this.el, event.relatedTarget) ) { return false; }
+      $.contains(this.el, event.relatedTarget) ) { return false; }
+
+    if( this.mouseIsOverElement(this.parent, event) ||
+      this.mouseIsOverElement(this.$el, event) ) { return false; }
 
     this.show_me = false;
     if( this.$el.is(':visible') ) {
@@ -137,6 +140,14 @@ app.views.Hovercard = app.views.Base.extend({
       top: p_pos.top + p_height - 25,
       left: p_pos.left
     });
-  }
+  },
+  
+  mouseIsOverElement: function(element, event) {
+    var el_pos = element.offset();
+    return event.pageX >= el_pos.left && 
+      event.pageX <= el_pos.left + element.width() &&
+      event.pageY >= el_pos.top && 
+      event.pageY <= el_pos.top + element.height();
+  },
 });
 // @license-end
