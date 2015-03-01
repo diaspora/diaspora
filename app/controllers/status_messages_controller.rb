@@ -7,8 +7,6 @@ class StatusMessagesController < ApplicationController
 
   before_action :remove_getting_started, :only => [:create]
 
-  use_bootstrap_for :bookmarklet
-
   respond_to :html,
              :mobile,
              :json

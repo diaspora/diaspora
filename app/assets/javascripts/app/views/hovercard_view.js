@@ -123,9 +123,6 @@ app.views.Hovercard = app.views.Base.extend({
     // TODO render me client side!!!
     var href = this.href();
     href += "/aspect_membership_button";
-    if(gon.bootstrap === true){
-      href += "?bootstrap=true";
-    }
     $.get(href, function(response) {
       self.dropdown_container.html(response);
     });

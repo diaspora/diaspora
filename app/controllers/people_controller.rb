@@ -7,7 +7,6 @@ class PeopleController < ApplicationController
   before_action :find_person, only: [:show, :stream, :hovercard]
 
   layout ->(c){ request.format == :mobile ? "application" : "with_header_with_footer" }
-  use_bootstrap_for :index, :show, :contacts, :refresh_search
 
   respond_to :html, :except => [:tag_index]
   respond_to :json, :only => [:index, :show]
@@ -169,10 +168,9 @@ class PeopleController < ApplicationController
 
     @contact = current_user.contact_for(@person) || Contact.new
     @aspect = :profile if params[:create]  # let aspect dropdown create new aspects
-    bootstrap = params[:bootstrap] || false
     size = params[:size] || "small"
 
-    render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left', :bootstrap => bootstrap, :size => size}
+    render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left', :size => size}
   end
 
   private

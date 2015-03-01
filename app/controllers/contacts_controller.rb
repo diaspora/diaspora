@@ -6,7 +6,6 @@ class ContactsController < ApplicationController
   before_action :authenticate_user!
 
   layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }
-  use_bootstrap_for :index, :spotlight
 
   def index
     respond_to do |format|

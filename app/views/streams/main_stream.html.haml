@@ -40,7 +40,7 @@
           = render 'aspects/aspect_listings', :stream => @stream
         %li
           = render 'tags/followed_tags_listings'
-    
+
     .span6
       #aspect_stream_container.stream_container
         = render 'aspects/aspect_stream', :stream => @stream
@@ -56,4 +56,3 @@
 
       %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
         &#8679;
-

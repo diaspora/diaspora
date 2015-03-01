@@ -21,11 +21,8 @@
     = chartbeat_head_block
     = include_mixpanel
 
-    = include_base_css_framework(@css_framework)
-    - if @css_framework == :bootstrap && !@include_application_css
-      = stylesheet_link_tag :default, 'new-templates', :media => 'all'
-    - else
-      = stylesheet_link_tag 'application', 'default'
+    = include_base_css_framework
+    = stylesheet_link_tag :default, 'application', :media => 'all'
 
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'

@@ -1,7 +1,5 @@
 class AdminsController < Admin::AdminController
 
-  use_bootstrap_for :user_search, :weekly_user_stats, :stats, :correlations
-
   def user_search
     if params[:admins_controller_user_search]
       search_params = params.require(:admins_controller_user_search)

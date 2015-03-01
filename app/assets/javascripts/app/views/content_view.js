@@ -113,7 +113,7 @@ app.views.OEmbed = app.views.Base.extend({
       clickedThumb = $(evt.target);
     } else {
       clickedThumb = $(evt.target).parent(".thumb");
-    }    
+    }
     var insertHTML = $(app.helpers.oEmbed.html(this.model.get("o_embed_cache")));
     var paramSeparator = ( /\?/.test(insertHTML.attr("src")) ) ? "&" : "?";
     insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1&wmode=opaque");

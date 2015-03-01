@@ -2,8 +2,6 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   layout ->(c) { request.format == :mobile ? "application" : "with_header" }
-  use_bootstrap_for :index, :show, :new
-
   respond_to :html, :mobile, :json, :js
 
   def index

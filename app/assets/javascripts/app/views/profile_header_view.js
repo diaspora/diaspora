@@ -49,7 +49,6 @@ app.views.ProfileHeader = app.views.Base.extend({
 
     // TODO render me client side!!!
     var href = this.model.url() + '/aspect_membership_button?create=true&size=normal';
-    if( gon.bootstrap ) href += '&bootstrap=true';
 
     $.get(href, function(resp) {
       dropdownEl.html(resp);

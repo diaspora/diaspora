@@ -27,7 +27,6 @@ app.views.Contact = app.views.Base.extend({
 
     // TODO render me client side!!!
     var href = this.model.person.url() + '/aspect_membership_button?size=small';
-    if( gon.bootstrap ) href += '&bootstrap=true';
 
     $.get(href, function(resp) {
       dropdownEl.html(resp);
