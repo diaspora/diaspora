@@ -1282,6 +1282,10 @@ en:
 
     activity:
       title: "My activity"
+    liked:
+      title: "Likes"
+    commented:
+      title: "Comments"
   users:
     edit:
       edit_account: "Edit account"
@@ -1332,7 +1336,7 @@ en:
 
     privacy_settings:
       title: "Privacy settings"
-      strip_exif: "Strip metadata such as location, author, and camera model from uploaded images (recommended)"
+      strip_exif: "Strip metadata such as location, author, and camera model from uploaded images (recommended)" 
       ignored_users: "Ignored users"
       stop_ignoring: "stop ignoring"
       no_user_ignored_message: "You are not currently ignoring any other user"

@@ -35,6 +35,10 @@
       = link_to t("streams.multi.title"), stream_path, :rel => 'backbone', :class => 'hoverable'
     %li{:data => {:stream => 'activity'}}
       = link_to t("streams.activity.title"), activity_stream_path, :rel => 'backbone', :class => 'hoverable'
+    %li{:data => {:stream => 'commented'}}
+      = link_to t("streams.commented.title"), commented_stream_path, :rel => 'backbone', :class => 'hoverable'
+    %li{:data => {:stream => 'liked'}}
+      = link_to t("streams.liked.title"), liked_stream_path, :rel => 'backbone', :class => 'hoverable'    
     %li{:data => {:stream => 'mentions'}}
       = link_to t('streams.mentions.title'), mentioned_stream_path, :rel => 'backbone', :class => 'hoverable'
     %li.all_aspects
