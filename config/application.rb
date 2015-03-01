@@ -85,7 +85,6 @@ module Diaspora
       templates.js
       validation.js
 
-      blueprint.css
       bootstrap.css
       bootstrap-complete.css
       bootstrap-responsive.css
@@ -93,7 +92,6 @@ module Diaspora
       error_pages.css
       admin.css
       mobile/mobile.css
-      new-templates.css
       rtl.css
     }
 

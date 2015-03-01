@@ -45,7 +45,7 @@ module PublishingCukeHelpers
   end
 
   def publisher_submittable?
-    submit_btn = find("#publisher input[type=submit]")
+    submit_btn = find("#publisher button#submit")
     !submit_btn[:disabled]
   end
 

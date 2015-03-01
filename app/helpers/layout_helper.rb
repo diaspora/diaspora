@@ -47,12 +47,8 @@ module LayoutHelper
     end
   end
 
-  def include_base_css_framework(use_bootstrap=false)
-    if use_bootstrap || @aspect == :getting_started
-      stylesheet_link_tag('bootstrap-complete')
-    else
-      stylesheet_link_tag 'blueprint', :media => 'screen'
-    end
+  def include_base_css_framework
+    stylesheet_link_tag('bootstrap-complete')
   end
 
   def old_browser_js_support
@@ -76,9 +72,5 @@ module LayoutHelper
         content_tag(:div, msg, :class => 'message')
       end
     end.join(' ').html_safe
-  end
-
-  def bootstrap?
-    @css_framework == :bootstrap
   end
 end

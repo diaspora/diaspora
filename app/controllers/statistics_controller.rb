@@ -4,7 +4,6 @@
 
 class StatisticsController < ApplicationController
   respond_to :html, :json
-  use_bootstrap_for :statistics
 
   def statistics
     @statistics = StatisticsPresenter.new

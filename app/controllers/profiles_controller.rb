@@ -4,8 +4,6 @@
 
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, :except => ['show']
-  before_action -> { @css_framework = :bootstrap }, only: [:show, :edit]
- 
   layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }, only: [:show, :edit]
 
   respond_to :html, :except => [:show]
@@ -28,7 +26,7 @@ class ProfilesController < ApplicationController
 
     @tags = @profile.tags
     @tags_array = []
-    @tags.each do |obj| 
+    @tags.each do |obj|
       @tags_array << { :name => ("#"+obj.name),
         :value => ("#"+obj.name)}
       end
@@ -37,7 +35,7 @@ class ProfilesController < ApplicationController
   def update
     # upload and set new profile photo
     @profile_attrs = profile_params
-    
+
     munge_tag_string
 
     #checkbox tags wtf

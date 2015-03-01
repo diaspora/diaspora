@@ -7,7 +7,6 @@
 
 //= require ./publisher/services_view
 //= require ./publisher/aspect_selector_view
-//= require ./publisher/aspect_selector_blueprint_view
 //= require ./publisher/getting_started_view
 //= require ./publisher/uploader_view
 //= require jquery-textchange
@@ -97,6 +96,7 @@ app.views.Publisher = Backbone.View.extend({
     });
 
     this.initSubviews();
+    this.checkSubmitAvailability();
     return this;
   },
 
@@ -114,14 +114,9 @@ app.views.Publisher = Backbone.View.extend({
       form: form
     });
 
-    this.view_aspect_selector_blueprint = new app.views.PublisherAspectSelectorBlueprint({
-      el: this.$('.public_toggle > .dropdown'),
-      form: form
-    });
-
     this.view_getting_started = new app.views.PublisherGettingStarted({
       el_first_msg:  this.el_input,
-      el_visibility: this.$('.public_toggle > .dropdown'),
+      el_visibility: this.$('.public_toggle .aspect_dropdown > .dropdown-toggle'),
       el_stream:     $('#gs-shim')
     });
 
@@ -136,13 +131,11 @@ app.views.Publisher = Backbone.View.extend({
     });
     this.view_poll_creator.on('change', this.checkSubmitAvailability, this);
     this.view_poll_creator.render();
-
   },
 
   // set the selected aspects in the dropdown by their ids
   setSelectedAspects: function(ids) {
     this.view_aspect_selector.updateAspectsSelector(ids);
-    this.view_aspect_selector_blueprint.updateAspectsSelector(ids);
   },
 
   // inject content into the publisher textarea
@@ -461,15 +454,23 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   setButtonsEnabled: function(bool) {
-    bool = !bool;
-    this.el_submit.prop({disabled: bool});
-    this.el_preview.prop({disabled: bool});
+    if (bool) {
+      this.el_submit.removeProp('disabled');
+      this.el_preview.removeProp('disabled');
+    } else {
+      this.el_submit.prop('disabled', true);
+      this.el_preview.prop('disabled', true);
+    }
   },
 
   setInputEnabled: function(bool) {
-    bool = !bool;
-    this.el_input.prop({disabled: bool});
-    this.el_hiddenInput.prop({disabled: bool});
+    if (bool) {
+      this.el_input.removeProp('disabled');
+      this.el_hiddenInput.removeProp('disabled');
+    } else {
+      this.el_input.prop('disabled', true);
+      this.el_hiddenInput.prop('disabled', true);
+    }
   },
 
   // determine submit availability

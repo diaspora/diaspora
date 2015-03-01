@@ -108,9 +108,19 @@ app.views.OEmbed = app.views.Base.extend({
 
   showOembedContent : function (evt) {
     if( $(evt.target).is('a') ) return;
+    var clickedThumb = false;
+    if ($(evt.target).hasClass(".thumb")) {
+      clickedThumb = $(evt.target);
+    } else {
+      clickedThumb = $(evt.target).parent(".thumb");
+    }
     var insertHTML = $(app.helpers.oEmbed.html(this.model.get("o_embed_cache")));
     var paramSeparator = ( /\?/.test(insertHTML.attr("src")) ) ? "&" : "?";
     insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1&wmode=opaque");
+    if (clickedThumb) {
+      insertHTML.attr("width", clickedThumb.width());
+      insertHTML.attr("height", clickedThumb.height());
+    }
     this.$el.html(insertHTML);
   }
 });

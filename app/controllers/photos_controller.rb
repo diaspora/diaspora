@@ -6,7 +6,6 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!, :except => :show
 
   layout ->(c){ request.format == :mobile ? "application" : "with_header_with_footer" }
-  use_bootstrap_for :index
   respond_to :html, :json
 
   def show

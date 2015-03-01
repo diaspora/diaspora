@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 module AspectGlobalHelper
-  def aspect_membership_dropdown(contact, person, hang, aspect=nil, force_bootstrap=false, size="small")
+  def aspect_membership_dropdown(contact, person, hang, aspect=nil, size="small")
     aspect_membership_ids = {}
 
     selected_aspects = all_aspects.select{|aspect| contact.in_aspect?(aspect)}
@@ -24,22 +24,13 @@ module AspectGlobalHelper
         raise ArgumentError, "unknown size #{size}"
       end
 
-    if bootstrap? || force_bootstrap
-      render "aspect_memberships/aspect_membership_dropdown",
-        :selected_aspects => selected_aspects,
-        :aspect_membership_ids => aspect_membership_ids,
-        :person => person,
-        :hang => hang,
-        :dropdown_class => "aspect_membership",
-        :button_class => button_class
-    else
-      render "aspect_memberships/aspect_membership_dropdown_blueprint",
-        :selected_aspects => selected_aspects,
-        :aspect_membership_ids => aspect_membership_ids,
-        :person => person,
-        :hang => hang,
-        :dropdown_class => "aspect_membership"
-    end
+    render "aspect_memberships/aspect_membership_dropdown",
+      :selected_aspects => selected_aspects,
+      :aspect_membership_ids => aspect_membership_ids,
+      :person => person,
+      :hang => hang,
+      :dropdown_class => "aspect_membership",
+      :button_class => button_class
   end
 
   def aspect_dropdown_list_item(aspect, am_id=nil)

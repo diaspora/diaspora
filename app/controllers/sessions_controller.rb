@@ -5,7 +5,6 @@
 class SessionsController < Devise::SessionsController
 
   layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }, :only => [:new]
-  use_bootstrap_for :new
 
   after_filter :reset_authentication_token, :only => [:create]
   before_filter :reset_authentication_token, :only => [:destroy]

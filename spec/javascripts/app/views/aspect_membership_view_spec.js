@@ -4,7 +4,7 @@ describe("app.views.AspectMembership", function(){
 
   beforeEach(function() {
     // mock a dummy aspect dropdown
-    spec.loadFixture("aspect_membership_dropdown_bootstrap");
+    spec.loadFixture("aspect_membership_dropdown");
     this.view = new app.views.AspectMembership({el: $('.aspect_membership_dropdown')});
     this.person_id = $('.dropdown-menu').data('person_id');
     this.person_name = $('.dropdown-menu').data('person-short-name');
