@@ -23,12 +23,6 @@ When /^I check the first option$/ do
   first(".poll_form input").click
 end
 
-When(/^I press the element "(.*?)"$/) do |selector|
-  page.should have_css(selector)
-  find(selector).click
-end
-
-
 When(/^I fill in values for the first two options$/) do
   all(".poll-answer input").each_with_index do |answer, i|
     answer.set "answer option #{i}"

@@ -75,7 +75,7 @@ Feature: preview posts in the stream
       Given I expand the publisher
       When I fill in the following:
           | status_message_fake_text    | I am eating yogurt    |
-      And I press the element "#poll_creator"
+      And I click on selector "#poll_creator"
       When I fill in the following:
           | status_message_fake_text    | I am eating yogurt |
           | poll_question               | What kind of yogurt do you like? |

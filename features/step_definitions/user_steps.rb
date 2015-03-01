@@ -126,6 +126,10 @@ When /^I post a status with the text "([^\"]*)"$/ do |text|
   @me.post(:status_message, :text => text, :public => true, :to => 'all')
 end
 
+When /^I post a limited status with the text "([^\"]*)"$/ do |text|
+  @me.post(:status_message, :text => text, :public => false, :to => @me.aspect_ids)
+end
+
 And /^I follow the "([^\"]*)" link from the last sent email$/ do |link_text|
   email_text = Devise.mailer.deliveries.first.body.to_s
   email_text = Devise.mailer.deliveries.first.html_part.body.raw_source if email_text.blank?

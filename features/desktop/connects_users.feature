@@ -10,16 +10,10 @@ Feature: following and being followed
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     And I add the person to my "Besties" aspect
-
-    When I am on the home page
-    And I expand the publisher
-    And I fill in the following:
-        | status_message_fake_text    | I am following you    |
-    And I press "Share"
-    Then I should see "I am following you" within "#main_stream"
     And I sign out
 
   Scenario: seeing a follower's posts on their profile page, but not in your stream
+    Given "bob@bob.bob" has a non public post with text "I am following you"
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
     Then I should see "I am following you"
@@ -28,16 +22,7 @@ Feature: following and being followed
     Then I should not see "I am following you"
 
   Scenario: seeing public posts of someone you follow
-    Given I sign in as "alice@alice.alice"
-    And I am on the home page
-    And I expand the publisher
-    And I fill in the following:
-        | status_message_fake_text    | I am ALICE    |
-    And I press the first ".toggle" within "#publisher"
-    And I press the first ".public" within "#publisher"
-    And I press "Share"
-    Then I should see "I am ALICE" within "#main_stream"
-    And I sign out
+    Given "alice@alice.alice" has a public post with text "I am ALICE"
 
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page

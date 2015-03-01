@@ -2,27 +2,25 @@
   .controls {
     z-index: 6;
     float: right;
-    .post_report, .comment_report {
+
+    .block_user,
+    .comment_report,
+    .create_participation,
+    .delete,
+    .destroy_participation,
+    .post_report {
       display: inline-block;
+
+      .icons-create_participation,
+      .icons-deletelabel,
+      .icons-destroy_participation,
+      .icons-ignoreuser,
       .icons-report {
         height: 14px;
         width: 14px;
       }
     }
-    .block_user {
-      display: inline-block;
-      .icons-ignoreuser {
-        height: 14px;
-        width: 14px;
-      }
-    }
-    .delete {
-      display: inline-block;
-      .icons-deletelabel {
-        height: 14px;
-        width: 14px;
-      }
-    }
+
     & > a:hover {
       text-decoration: none;
     }

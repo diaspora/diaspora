@@ -1,6 +1,5 @@
 #profile_container {
   .profile_header {
-    border-bottom: 1px solid $border-grey;
     margin-bottom: 20px;
     border-left: 1px solid #dddddd;
     padding-left: 10px;
@@ -54,6 +53,7 @@
 
     #profile_horizontal_bar {
       border-top: 1px dashed $border-grey;
+      border-bottom: 1px solid $border-grey;
       min-height: 50px;
       margin-top: 10px;
       #profile_buttons {

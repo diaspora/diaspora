@@ -22,7 +22,7 @@ Feature: posting from the main page
       Given ".markdownIndications" is hidden
       And ".options_and_submit" is hidden
       When I expand the publisher
-      Then I should see "You can use Markdown to format your post" within "#publisher-images"
+      Then I should see "You can use Markdown to format your post" within ".markdownIndications"
       Then I should see "All aspects" within ".options_and_submit"
       Then I should see "Preview" within ".options_and_submit"
 

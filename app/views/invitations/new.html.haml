@@ -1,9 +1,11 @@
-#paste_link_wrapper
-  #paste_link
-    = t('.paste_link')
-    %span#codes_left
-      = '(' + t('.codes_left', :count => @invite_code.count) + ')'
-  = invite_link(@invite_code)
+#paste_link
+  = t('.paste_link')
+  %span#codes_left
+    = '(' + t('.codes_left', :count => @invite_code.count) + ')'
+.form-horizontal
+  .control-group
+    .controls
+      = invite_link(@invite_code)
 
 #email_invitation
   = form_tag new_user_invitation_path, :class => 'form-horizontal' do
