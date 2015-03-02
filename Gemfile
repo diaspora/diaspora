@@ -246,7 +246,7 @@ group :test do
   # Cucumber (integration tests)
 
   gem 'capybara',           '2.4.4'
-  gem 'database_cleaner',   '1.4.0'
+  gem 'database_rewinder',  '0.5.1'
   gem 'selenium-webdriver', '2.45.0'
 
   # General helpers
