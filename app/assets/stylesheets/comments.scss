@@ -42,7 +42,8 @@
     width: 95%;
     height: 30px;
   }
-  .comment_box:focus, .comment_box:valid {
+  textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
+    border-color: $border-dark-grey;
     & + .submit_button { display: block; }
   }
 }
