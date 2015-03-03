@@ -97,7 +97,6 @@ app.views.Publisher = Backbone.View.extend({
 
     this.initSubviews();
     this.checkSubmitAvailability();
-
     return this;
   },
 
@@ -421,9 +420,6 @@ app.views.Publisher = Backbone.View.extend({
 
     // fetch contacts for mentioning
     Mentions.fetchContacts();
-
-    this.setAspectsDropdownWidth();
-
     return this;
   },
 
@@ -475,19 +471,6 @@ app.views.Publisher = Backbone.View.extend({
       this.el_input.prop('disabled', true);
       this.el_hiddenInput.prop('disabled', true);
     }
-  },
-
-  setAspectsDropdownWidth: function(){
-      var dropdownMenu = $('.aspect_dropdown .dropdown-menu');
-      var dropdownBtn = $('.aspect_dropdown button.dropdown-toggle');
-
-      var dropdownWidth = dropdownMenu.width();
-      var buttonWidth = dropdownBtn.width();
-      var correctWidth = Math.max(dropdownWidth, buttonWidth);
-
-      $('.aspect_dropdown').css('width', correctWidth + 2);
-      dropdownBtn.css('width', correctWidth + 2);
-      dropdownMenu.css('width', correctWidth);
   },
 
   // determine submit availability

@@ -229,32 +229,9 @@
   }
 
   .aspect_dropdown {
-
     .radio {
-      min-height: 0;
-      padding-left: 0;
-    }
-
-    button.dropdown-toggle {
-
-      #visibility-icon {
-        padding-left: 10px;
-        float: left;
-      }
-
-      .text{ padding-right: 10px; }
-    }
-    ul.dropdown-menu {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      border-top: none;
-      margin-top: 0;
-      left: 0;
-    }
-
-    &.open > button.dropdown-toggle {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+      min-height: 0px;
+      padding-left: 0px;
     }
   }
 }
