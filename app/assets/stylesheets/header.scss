@@ -43,6 +43,11 @@ body > header {
       background: none;
       color: $highlight-white;
     }
+    &:focus {
+        color: $black;
+        outline: thin dotted;
+        text-decoration: none;
+    }
   }
 
   &.landing {
