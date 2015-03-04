@@ -69,21 +69,35 @@ a { color : $link-blue  }
 
 #back-to-top {
   display: block;
-  color: white;
+  height: 50px;
+  width: 50px;
+  color: $white;
   position: fixed;
   z-index: 49;
   right: 20px;
   bottom: 20px;
   opacity: 0;
   font-size: 2.9em;
-  padding: 0 12px 0 12px;
-  border-radius: 10px;
-  background-color: #aaa;
+  border-radius: 4px;
+  background-color: $border-dark-grey;
   &:hover { opacity: 0.85 !important; }
   &.visible { opacity: 0.5; }
   line-height: 1.5;
 }
 
+#back-to-top::before {
+  border-style: solid;
+  border-width: 0.25em 0.25em 0 0;
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transform: rotate(-45deg);
+  margin: 0 10px 0 10px;
+  color: $white;
+  vertical-align: middle;
+}
 /* general purpose classes */
 
 .small-horizontal-spacer {
