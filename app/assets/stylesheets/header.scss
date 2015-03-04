@@ -45,7 +45,7 @@ body > header {
     }
     &:focus {
         color: $highlight-white;
-        outline: thin dotted #CCC;
+        outline: thin dotted $border-dark-grey;
         text-decoration: none;
     }
   }
