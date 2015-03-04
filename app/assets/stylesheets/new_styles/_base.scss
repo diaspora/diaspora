@@ -14,6 +14,14 @@ body {
   }
 }
 
+/* Overflow */
+h1, h2, h3, h4, h5, h6,
+p,
+blockquote,
+code,
+pre { word-wrap: break-word; }
+a.tag { word-break: break-all; }
+
 /* new link color */
 $link-blue : rgb(42,156,235);
 a { color : $link-blue  }
