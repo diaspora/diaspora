@@ -44,8 +44,8 @@ body > header {
       color: $highlight-white;
     }
     &:focus {
-        color: $black;
-        outline: thin dotted;
+        color: $highlight-white;
+        outline: thin dotted #CCC;
         text-decoration: none;
     }
   }
