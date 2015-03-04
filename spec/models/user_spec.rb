@@ -1035,6 +1035,41 @@ describe User, :type => :model do
     end
   end
 
+  describe "queue_export_photos" do
+    it "queues up a job to perform the export photos" do
+      user = FactoryGirl.create :user
+      expect(Workers::ExportPhotos).to receive(:perform_async).with(user.id)
+      user.queue_export_photos
+      expect(user.exporting_photos).to be_truthy
+    end
+  end
+
+  describe "perform_export_photos!" do
+    before do
+      @user = alice
+      filename  = 'button.png'
+      image = File.join(File.dirname(__FILE__), '..', 'fixtures', filename)
+      @saved_image = @user.build_post(:photo, :user_file => File.open(image), :to => alice.aspects.first.id)
+      @saved_image.save!
+    end
+
+    it "saves a zip export to the user" do
+      @user.perform_export_photos!
+      expect(@user.exported_photos_file).to be_present
+      expect(@user.exported_photos_at).to be_present
+      expect(@user.exporting_photos).to be_falsey
+      expect(@user.exported_photos_file.filename).to match /.zip/
+      expect(Zip::ZipFile.open(@user.exported_photos_file.path).entries.count).to eq(1)
+    end
+
+    it "does not add empty entries when photo not found" do
+      File.unlink @user.photos.first.unprocessed_image.path
+      @user.perform_export_photos!
+      expect(@user.exported_photos_file.filename).to match /.zip/
+      expect(Zip::ZipFile.open(@user.exported_photos_file.path).entries.count).to eq(0)
+    end
+  end
+
   describe "sign up" do
     before do
       params = {:username => "ohai",

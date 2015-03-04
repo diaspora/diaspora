@@ -817,7 +817,28 @@ en:
         We’ve encountered an issue while processing your personal data for download.
         Please try again!
 
+        Sorry,
+
+        The diaspora* email robot!
+    export_photos_email:
+      subject: "Your photos are ready for download, %{name}"
+      body: |-
+        Hello %{name},
+
+        Your photos have been processed and are ready for download by following [this link](%{url}).
+
         Cheers,
+
+        The diaspora* email robot!
+    export_photos_failure_email:
+      subject: "There was an issue with your photos, %{name}"
+      body: |-
+        Hello %{name}
+
+        We’ve encountered an issue while processing your photos for download.
+        Please try again!
+
+        Sorry,
 
         The diaspora* email robot!
     accept_invite: "Accept your diaspora* invite!"
@@ -1319,6 +1340,11 @@ en:
       export_data: "Export data"
       export_in_progress: "We are currently processing your data. Please check back in a few moments."
       last_exported_at: "(Last updated at %{timestamp})"
+      download_export_photos: "Download my photos"
+      request_export_photos: "Request my photos"
+      request_export_photos_update: "Refresh my photos"
+      download_photos: "Download my photos"
+      export_photos_in_progress: "We are currently processing your photos. Please check back in a few moments."
 
       close_account:
         dont_go: "Hey, please don’t go!"

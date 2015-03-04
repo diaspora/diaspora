@@ -104,6 +104,7 @@ Diaspora::Application.routes.draw do
     get :export_profile
     get :download_profile
     get :export_photos
+    get :download_photos
   end
 
   controller :users do

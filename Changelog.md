@@ -182,6 +182,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Add reshares to the stream view immediately [#5699](https://github.com/diaspora/diaspora/pull/5699)
 * Update and improve help section [#5665](https://github.com/diaspora/diaspora/pull/5665), [#5706](https://github.com/diaspora/diaspora/pull/5706)
 * Expose participation controls in the stream view [#5511](https://github.com/diaspora/diaspora/pull/5511)
+* Reimplement photo export [#5685](https://github.com/diaspora/diaspora/pull/5685)
 
 # 0.4.1.2
 

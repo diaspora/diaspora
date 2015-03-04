@@ -30,9 +30,19 @@ describe UsersController, :type => :controller do
   end
 
   describe '#export_photos' do
-    it 'returns a tar file'  do
+    it 'queues an export photos job' do
+      expect(@user).to receive :queue_export_photos
       get :export_photos
-      expect(response.header["Content-Type"]).to include "application/octet-stream"
+      expect(request.flash[:notice]).to eql(I18n.t('users.edit.export_photos_in_progress'))
+      expect(response).to redirect_to(edit_user_path)
+    end
+  end
+  
+  describe '#download_photos' do
+    it "redirects to user's photos zip file"  do
+      @user.perform_export_photos!
+      get :download_photos
+      expect(response).to redirect_to(@user.exported_photos_file.url)
     end
   end
 
