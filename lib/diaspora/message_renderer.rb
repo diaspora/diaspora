@@ -225,7 +225,7 @@ module Diaspora
         atx_content
       end
 
-      heading &&= heading.strip
+      heading &&= self.class.new(heading).plain_text_without_markdown
 
       if heading && opts[:length]
         heading.truncate opts[:length]

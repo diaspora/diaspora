@@ -9,7 +9,7 @@ describe Diaspora::MessageRenderer do
     context 'when :length is passed in parameters' do
       it 'returns string of size less or equal to :length' do
         string_size = 12
-        title = message("## My title\n Post content...").title(length: string_size)
+        title = message("## This is a really, really, really long title\n Post content").title(length: string_size)
         expect(title.size).to be <= string_size
       end
     end
@@ -23,6 +23,10 @@ describe Diaspora::MessageRenderer do
 
         it 'returns setext style header' do
           expect(message("My title \n======\n Post content...").title).to eq "My title"
+        end
+
+        it 'returns header without markdown' do
+          expect(message("## **[My title](http://diasporafoundation.org)**\n Post content...").title).to eq "My title (http://diasporafoundation.org)"
         end
       end
 
