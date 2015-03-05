@@ -328,9 +328,14 @@ class User < ActiveRecord::Base
       Zip::ZipOutputStream.open(temp_zip.path) do |zos|
         photos.each do |photo|
           begin
-            photo_data = photo.unprocessed_image.file.read
-            zos.put_next_entry(photo.remote_photo_name)
-            zos.print(photo_data)
+            photo_file = photo.unprocessed_image.file
+            if photo_file
+              photo_data = photo_file.read
+              zos.put_next_entry(photo.remote_photo_name)
+              zos.print(photo_data)
+            else
+              logger.info "Export photos error: No file for #{photo.remote_photo_name} not found"
+            end
           rescue Errno::ENOENT
             logger.info "Export photos error: #{photo.unprocessed_image.file.path} not found"
           end
@@ -347,7 +352,7 @@ class User < ActiveRecord::Base
       update exporting_photos: false
     end
   end
-  
+
   ######### Mailer #######################
   def mail(job, *args)
     pref = job.to_s.gsub('Workers::Mail::', '').underscore
