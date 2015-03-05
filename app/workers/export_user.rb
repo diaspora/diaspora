@@ -5,7 +5,7 @@
 
 module Workers
   class ExportUser < Base
-    sidekiq_options queue: :export_user
+    sidekiq_options queue: :export
 
     def perform(user_id)
       @user = User.find(user_id)
