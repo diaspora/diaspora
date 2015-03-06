@@ -78,7 +78,7 @@
       }
 
       .mentions-input-box .mentions {
-        line-height: 20px !important;
+        line-height: $line-height !important;
       }
 
       &.with_attachments .row-fluid#photodropzone_container {

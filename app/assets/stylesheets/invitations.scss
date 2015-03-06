@@ -7,7 +7,7 @@
 #invitationsModal {
   .modal-header, .modal-body {
     color: $text;
-    font-size: 14px;
+    font-size: $font-size-text;
     text-align: initial;
   }
   #paste_link { font-weight: 700; }
