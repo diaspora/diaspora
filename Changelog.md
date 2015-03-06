@@ -139,6 +139,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Total user statistic no longer includes closed accounts [#5041](https://github.com/diaspora/diaspora/pull/5041)
 * Don't add a space when rendering a mention [#5711](https://github.com/diaspora/diaspora/pull/5711)
 * Fix flickering hovercards [#5714](https://github.com/diaspora/diaspora/pull/5714)
+* Improved stripping markdown in post titles [#5730](https://github.com/diaspora/diaspora/pull/5730)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
