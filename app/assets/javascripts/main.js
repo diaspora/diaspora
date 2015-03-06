@@ -25,7 +25,6 @@
 //= require handlebars.runtime
 //= require posix-bracket-expressions
 //= require markdown-it
-//= require markdown-it-diaspora-linkify
 //= require markdown-it-diaspora-mention
 //= require markdown-it-for-inline
 //= require markdown-it-hashtag

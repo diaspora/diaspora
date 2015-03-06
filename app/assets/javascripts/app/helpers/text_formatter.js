@@ -72,10 +72,8 @@
     var sanitizerPlugin = window.markdownitSanitizer;
     md.use(sanitizerPlugin);
 
-    // TODO this is a temporary fix
-    // remove it as soon as markdown-it fixes its autolinking feature
-    var linkifyPlugin = window.markdownitDiasporaLinkify;
-    md.use(linkifyPlugin);
+    // xmpp: should behave like mailto:
+    md.linkify.add('xmpp:','mailto:');
 
     // Bootstrap table markup
     md.renderer.rules.table_open = function () { return '<table class="table table-striped">\n'; };

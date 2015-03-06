@@ -91,7 +91,7 @@ gem 'rails-assets-jquery',                              '1.11.1' # Should be kep
 gem 'js_image_paths',                                   '0.0.2'
 gem 'js-routes',                                        '1.0.0'
 gem 'rails-assets-punycode',                            '1.3.2'
-gem 'rails-assets-markdown-it',                         '3.0.7'
+gem 'rails-assets-markdown-it',                         '3.1.0'
 gem 'rails-assets-markdown-it-hashtag',                 '0.2.3'
 gem 'rails-assets-markdown-it-diaspora-mention',        '0.2.1'
 gem 'rails-assets-markdown-it-sanitizer',               '0.2.2'
