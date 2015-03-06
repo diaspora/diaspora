@@ -17,7 +17,7 @@
         .post_scope { margin-right: 5px; }
         .status-message-location {
           padding-top: 2px;
-          line-height: 14px;
+          line-height: $font-size-text;
         }
       }
       .avatar.medium {
@@ -106,7 +106,7 @@
         }
       }
       a.post_report > i {
-        font-size: 14px;
+        font-size: $font-size-text;
       }
       i.cross {
         font-size: 20px;
@@ -162,24 +162,10 @@
   margin-left: 0;
   padding-left: 15px;
 
-  .comments .comment {
-    border-top: none;
-    border-bottom: solid 1px #cccccc;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin: 10px;
-    p {
-      margin: 0 0 1em 0;
-      word-wrap: break-word;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-    .avatar {
-      height: 35px;
-      width: 35px;
-    }
+  .comment.media .img {
+    margin-left: 5px;
   }
+
   .no_comments {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -189,9 +175,6 @@
     margin-bottom: 30px;
   }
 
-  .new_comment_form_wrapper {
-    border-bottom: none;
-  }
   a {
     color: $blue;
   }

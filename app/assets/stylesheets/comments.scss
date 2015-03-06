@@ -8,14 +8,14 @@
     }
     .media { margin-top: 10px; }
   }
-  .comments > .comment {
+  .comments > .comment, .comment.new_comment_form_wrapper {
     .avatar {
+      margin-top: 5px;
       height: 30px;
       width: 30px;
     }
     margin: 0;
     border-top: 1px dotted $border-grey;
-    &.no-border { border: none; }
     padding: 10px 0;
     .comment-content p:last-of-type { margin-bottom: 0; }
 

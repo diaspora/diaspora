@@ -38,7 +38,7 @@
         margin-bottom: 20px;
         .tag {
           background-color: transparent;
-          font-size: 14px;
+          font-size: $font-size-text;
         }
         .tag:not(.entypo) {
           font-weight: 700;

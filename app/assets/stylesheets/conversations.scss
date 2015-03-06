@@ -101,7 +101,7 @@
     .img { line-height: 15px; }
 
     .subject {
-      font-size: 14px;
+      font-size: $font-size-text;
       > * {
         overflow: hidden;
         white-space: nowrap;

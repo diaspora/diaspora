@@ -46,9 +46,12 @@
   border-bottom: 1px solid $border-grey;
   padding: 10px;
   & > .media {
-    & > .img > .avatar.small {
-      height: 50px;
-      width: 50px;
+    & > .img > .avatar {
+      margin-top: 5px;
+      &.small {
+        height: 50px;
+        width: 50px;
+      }
     }
     .author {
       font-weight: bold;
@@ -122,6 +125,7 @@
     margin-top: 3px;
 
     & > .media .avatar {
+      margin-top: 5px;
       height: 30px;
       width: 30px;
     }
