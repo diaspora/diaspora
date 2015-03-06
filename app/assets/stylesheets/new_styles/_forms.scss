@@ -103,27 +103,3 @@ form.block-form {
     ::placeholder { text-transform: uppercase; }
   }
 }
-
-/* buttons to be extracted? */
-.new-btn {
-  @include transition(box-shadow);
-  @include linear-gradient(#fff, rgb(233,233,233));
-
-  box-shadow: 0 1px 2px rgba(0,0,0,0);
-  background-color : rgb(233,233,233);
-  color : $text-grey;
-  border-radius: 5px;
-  border : 1px solid $border-dark-grey;
-
-  //font-family : Roboto-Bold;
-  font-size : 14px;
-  text-shadow : 0 1px 2px #eee;
-
-  &:hover {
-    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  }
-
-  &:active {
-    box-shadow : inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.7);
-  }
-}
