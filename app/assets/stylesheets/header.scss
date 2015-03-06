@@ -39,9 +39,13 @@ body > header {
     color: #CCC;
     color: rgb(147,147,147);
 
-    &:hover {
+    &:hover, &:focus {
       background: none;
       color: $highlight-white;
+    }
+    &:focus {
+      outline: thin dotted $border-dark-grey;
+      text-decoration: none;
     }
   }
 
