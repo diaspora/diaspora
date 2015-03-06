@@ -158,7 +158,6 @@ describe("app.helpers.textFormatter", function(){
           "http://www.bürgerentscheid-krankenhäuser.de", // example from issue #2665
           "http://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
           "http://موقع.وزارة-الاتصالات.مصر/", // example from #3082
-          "http:///scholar.google.com/citations?view_op=top_venues",
           "http://lyricstranslate.com/en/someone-you-നിന്നെ-പോലൊരാള്‍.html", // example from #3063,
           "http://de.wikipedia.org/wiki/Liste_der_Abkürzungen_(Netzjargon)", // #3645
           "http://wiki.com/?query=Kr%E4fte", // #4874
@@ -168,7 +167,6 @@ describe("app.helpers.textFormatter", function(){
           "http://www.xn--brgerentscheid-krankenhuser-xkc78d.de",
           "http://xn--bndnis-fr-krankenhuser-i5b27cha.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
           "http://xn--4gbrim.xn----ymcbaaajlc6dj7bxne2c.xn--wgbh1c/",
-          "http:///scholar.google.com/citations?view_op=top_venues",
           "http://lyricstranslate.com/en/someone-you-%E0%B4%A8%E0%B4%BF%E0%B4%A8%E0%B5%8D%E0%B4%A8%E0%B5%86-%E0%B4%AA%E0%B5%8B%E0%B4%B2%E0%B5%8A%E0%B4%B0%E0%B4%BE%E0%B4%B3%E0%B5%8D%E2%80%8D.html",
           "http://de.wikipedia.org/wiki/Liste_der_Abk%C3%BCrzungen_(Netzjargon)",
           "http://wiki.com/?query=Kr%E4fte",
