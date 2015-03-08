@@ -143,7 +143,7 @@ gem 'active_model_serializers', '0.9.3'
 
 # XMPP chat dependencies
 gem 'diaspora-vines',             '~> 0.1.27'
-gem 'rails-assets-diaspora_jsxc', '~> 0.0.12'
+gem 'rails-assets-diaspora_jsxc', '~> 0.1.1'
 
 # Tags
 
