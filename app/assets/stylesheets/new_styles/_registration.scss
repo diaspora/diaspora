@@ -1,29 +1,25 @@
 #registration {
-  & > .container-fluid {
-   margin-top: 5%;
+  .ball {
+    height: 633px;
+    max-width: 100%;
+    background: url("branding/ball.png") no-repeat;
+    background-size: contain;
   }
 
-  #create-something-text {
-    font-size : 100px;
-    line-height : 100px;
-  }
+  .v-center {
+    display: table;
+    height: 633px;
 
-  #diaspora-hearts {
-    font-size : 30px;
-    margin-top : 0.2em;
-    margin-bottom : 1em;
-    white-space : nowrap;
-  }
+    .content {
+      display: table-cell;
+      vertical-align: middle;
 
-  #pod-name {
-    text-align: center;
-    margin: 12px;
-    font-size : 35px;
-  }
-
-  #create-something-text,
-  #diaspora-hearts {
-    font-family : Roboto-Light;
+      #pod-name {
+        text-align: center;
+        margin: 12px;
+        font-size : 35px;
+      }
+    }
   }
 
   form {

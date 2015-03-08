@@ -3,12 +3,9 @@
     .row-fluid
       .span10.offset1
         .span7.hidden-phone
-          %h1#create-something-text
-            = t('.hey_make').html_safe
-          %h3#diaspora-hearts
-            = t('.diaspora')
-        .span5
-          .text-center
+          %h1.ball
+        .span5.v-center
+          .content.text-center
             %h2#pod-name
               = AppConfig.settings.pod_name
 
