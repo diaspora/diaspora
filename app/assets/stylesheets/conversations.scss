@@ -17,7 +17,7 @@
       word-wrap: break-word;
       &:last-child { margin-bottom: 0; }
     }
-    .new_message { border-bottom: none; }
+    &.new_message { border-bottom: none; }
     .timestamp { font-size: 11px; }
   }
 
