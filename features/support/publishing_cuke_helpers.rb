@@ -88,15 +88,21 @@ module PublishingCukeHelpers
     find(".stream_element", text: text)
   end
 
-  def like_post(post_text)
-    within_post(post_text) do
-      click_link 'Like'
-    end
-  end
-
   def within_post(post_text)
     within find_post_by_text(post_text) do
       yield
+    end
+  end
+
+  def like_stream_post(post_text)
+    within_post(post_text) do
+      find(:css, 'a.like').click
+    end
+  end
+
+  def like_show_page_post
+    within("#single-post-actions") do
+      find(:css, 'a.like').click
     end
   end
 

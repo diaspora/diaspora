@@ -13,3 +13,8 @@ end
 And /^I click to delete the post/ do
   find('.remove_post').click
 end
+
+And /^I click to (?:like|unlike) the post/ do
+  like_show_page_post
+end
+
