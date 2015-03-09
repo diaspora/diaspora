@@ -116,6 +116,11 @@ describe("app.helpers.textFormatter", function(){
       expect(this.formatter('<http://google.com>')).toContain('_blank');
     });
 
+    it("adds a missing http://", function() {
+      expect(this.formatter('[test](www.google.com)')).toContain('href="http://www.google.com"');
+      expect(this.formatter('[test](http://www.google.com)')).toContain('href="http://www.google.com"');
+    });
+
     it("respects code blocks", function() {
       var content = '`<unknown tag>`';
       var wrapper = $('<div>').html(this.formatter(content));
