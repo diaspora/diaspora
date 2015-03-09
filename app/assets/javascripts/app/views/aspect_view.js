@@ -8,7 +8,7 @@ app.views.Aspect = app.views.Base.extend({
   className: 'hoverable',
 
   events: {
-    'click .icons-check_yes_ok+a': 'toggleAspect'
+    'click .entypo.check+a': 'toggleAspect'
   },
 
   toggleAspect: function(evt) {

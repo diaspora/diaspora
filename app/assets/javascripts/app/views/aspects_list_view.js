@@ -58,9 +58,9 @@ app.views.AspectsList = app.views.Base.extend({
     this.collection.each(function(aspect) {
       var element = this.$("li[data-aspect_id="+aspect.get('id')+"]");
       if (aspect.get('selected')) {
-        element.find('.icons-check_yes_ok').addClass('selected');
+        element.find('.entypo.check').addClass('selected');
       } else {
-        element.find('.icons-check_yes_ok').removeClass('selected');
+        element.find('.entypo.check').removeClass('selected');
       }
     });
   },
