@@ -24,7 +24,7 @@ describe("app.views.AspectsList", function(){
     });
 
     it('should show all the aspects', function(){
-      var aspect_selectors = this.view.$('.icons-check_yes_ok + a.selectable');
+      var aspect_selectors = this.view.$('.entypo.check + a.selectable');
       expect(aspect_selectors.length).toBe(3);
       expect(aspect_selectors[0].text).toMatch('Work');
       expect(aspect_selectors[1].text).toMatch('Friends');

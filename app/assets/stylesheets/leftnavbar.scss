@@ -41,15 +41,34 @@
     text-overflow: ellipsis;
   }
 
-  .action {
-    width: 12px;
-    height: 12px;
-    display: none;
-    float: right;
-    margin: 3px;
+  #aspects_list, #tags_list {
+    .hoverable > .action {
+      visibility: hidden;
+      float: right;
+      margin: 0 3px;
+    }
+
+    .hoverable:hover  > .action {
+      visibility: visible;
+    }
   }
 
-  .hoverable:hover  > .action {
-    display: block;
+  #aspects_list {
+    .entypo.check {
+      float: left;
+      visibility: hidden;
+      &.selected { visibility: visible; }
+    }
+
+    .selected + a {
+      color: #333333;
+    }
+  }
+
+  #tags_list {
+    .delete_tag_following {
+      font-size: 20px;
+      line-height: 15px;
+    }
   }
 }
