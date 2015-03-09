@@ -264,6 +264,17 @@ describe("app.views.Publisher", function() {
       expect(this.view.$('input[name="services[]"][value="'+prov1+'"]').length).toBe(0);
       expect(this.view.$('input[name="services[]"][value="'+prov2+'"]').length).toBe(1);
     });
+
+    describe("#clear", function() {
+      it("resets the char counter", function() {
+        this.view.$(".service_icon").first().trigger("click");
+        expect(parseInt(this.view.$(".counter").text(), 10)).toBeGreaterThan(0);
+        this.view.$(".counter").text("0");
+        expect(parseInt(this.view.$(".counter").text(), 10)).not.toBeGreaterThan(0);
+        this.view.clear($.Event());
+        expect(parseInt(this.view.$(".counter").text(), 10)).toBeGreaterThan(0);
+      });
+    });
   });
 
   context("aspect selection", function(){
