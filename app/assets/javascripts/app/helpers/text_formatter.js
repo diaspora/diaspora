@@ -42,6 +42,7 @@
     });
 
     md.use(inlinePlugin, 'link_new_window_and_punycode', 'link_open', function (tokens, idx) {
+      tokens[idx].href = tokens[idx].href.replace(/^www\./, "http://www.");
       tokens[idx].href = punycodeURL(tokens[idx].href);
       tokens[idx].target = "_blank";
     });
