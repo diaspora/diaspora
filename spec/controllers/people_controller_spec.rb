@@ -218,6 +218,18 @@ describe PeopleController, :type => :controller do
       expect(assigns(:photos)).to include public_photo
     end
 
+    it "displays the correct number of photos" do
+      16.times do |i|
+        eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
+      end
+      get :show, :id => eve.person.to_param
+      expect(response.body).to include '"photos":{"count":16}'
+
+      eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
+      get :show, :id => eve.person.to_param
+      expect(response.body).to include '"photos":{"count":16}' # eve is not sharing with alice
+    end
+
     context "when the person is the current user" do
       it "succeeds" do
         get :show, :id => @user.person.to_param
@@ -472,6 +484,18 @@ describe PeopleController, :type => :controller do
       get :contacts, :person_id => 'foo'
       expect(flash[:error]).to be_present
       expect(response).to redirect_to people_path
+    end
+
+    it "displays the correct number of photos" do
+      16.times do |i|
+        eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
+      end
+      get :contacts, :person_id => eve.person.to_param
+      expect(response.body).to include '"photos":{"count":16}'
+
+      eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
+      get :contacts, :person_id => eve.person.to_param
+      expect(response.body).to include '"photos":{"count":16}' # eve is not sharing with alice
     end
   end
 
