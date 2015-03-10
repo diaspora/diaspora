@@ -29,7 +29,7 @@ class PhotosController < ApplicationController
         format.all do
           gon.preloads[:person] = PersonPresenter.new(@person, current_user).full_hash_with_profile
           gon.preloads[:photos] = {
-            count: @posts.count(:all),
+            count: current_user.photos_from(@person, limit: :all).count(:all)
           }
           gon.preloads[:contacts] = {
             count: Contact.contact_contacts_for(current_user, @person).count(:all),

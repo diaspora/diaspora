@@ -86,7 +86,7 @@ class PeopleController < ApplicationController
         end
         gon.preloads[:person] = @person_json
         gon.preloads[:photos] = {
-          count: photos_from(@person).count(:all),
+          count: photos_from(@person, :all).count(:all)
         }
         gon.preloads[:contacts] = {
           count: Contact.contact_contacts_for(current_user, @person).count(:all),
@@ -144,7 +144,7 @@ class PeopleController < ApplicationController
       @contacts_of_contact = Contact.contact_contacts_for(current_user, @person)
       gon.preloads[:person] = PersonPresenter.new(@person, current_user).full_hash_with_profile
       gon.preloads[:photos] = {
-        count: photos_from(@person).count(:all),
+        count: photos_from(@person, :all).count(:all)
       }
       gon.preloads[:contacts] = {
         count: @contacts_of_contact.count(:all),
@@ -220,9 +220,9 @@ class PeopleController < ApplicationController
     @person.try(:remote?) && !user_signed_in?
   end
 
-  def photos_from(person)
+  def photos_from(person, limit)
     @photos ||= if user_signed_in?
-      current_user.photos_from(person)
+      current_user.photos_from(person, limit: limit)
     else
       Photo.where(author_id: person.id, public: true)
     end.order('created_at desc')
