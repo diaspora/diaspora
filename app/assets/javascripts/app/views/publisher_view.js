@@ -361,6 +361,8 @@ app.views.Publisher = Backbone.View.extend({
     // clear text(s)
     this.el_input.val('');
     this.el_hiddenInput.val('');
+    this.el_input.trigger('keyup')
+                 .trigger('keydown');
 
     // remove mentions
     this.el_input.mentionsInput('reset');
