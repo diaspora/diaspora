@@ -20,16 +20,14 @@
     {{/if}}
     </div>
 
-    {{#with author}}
-      <a href="/people/{{guid}}" class="author author-name {{hovercardable this}}">
-        {{name}}
-      </a>
-    {{/with}}
+    {{#linkToAuthor author}}
+      {{name}}
+    {{/linkToAuthor}}
 
     <div class="collapsible comment-content">
       {{{text}}}
     </div>
-    
+
     <div class="info">
       <a href="/posts/{{parent.id}}#{{guid}}" class="permalink_comment">
         <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"/>

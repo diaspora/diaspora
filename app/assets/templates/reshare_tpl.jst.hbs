@@ -6,14 +6,16 @@
 
       {{#with root}}
         <a href="/people/{{author.guid}}" class="img {{{hovercardable this}}}">
-          <img src="{{author.avatar.small}}" class="avatar" />
+          {{{personImage author 'small'}}}
         </a>
       {{/with}}
 
       {{#with root}}
         <div class="bd">
           <div>
-            <a href="/people/{{author.guid}}" class="author {{{hovercardable author}}}">{{author.name}}</a>
+            {{#linkToAuthor author}}
+              {{name}}
+            {{/linkToAuthor}}
 
             <span class="details grey">
               -

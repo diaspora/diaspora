@@ -16,6 +16,6 @@ end
 
 When (/^I hover "([^"]*)" within "([^"]*)"$/) do |name, selector|
   with_scope(selector) do
-    find(".author", text: name).hover
+    find(".author-name", text: name).hover
   end
 end

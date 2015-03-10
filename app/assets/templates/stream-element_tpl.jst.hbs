@@ -37,9 +37,9 @@
     {{/if}}
 
     <div>
-      {{#with author}}
-        <a href="/people/{{guid}}" class="author {{{hovercardable this}}}">{{name}}</a>
-      {{/with}}
+      {{#linkToAuthor author}}
+        {{name}}
+      {{/linkToAuthor}}
 
       <span class="details grey">
         -
