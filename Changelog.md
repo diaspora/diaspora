@@ -141,6 +141,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Fix flickering hovercards [#5714](https://github.com/diaspora/diaspora/pull/5714)
 * Improved stripping markdown in post titles [#5730](https://github.com/diaspora/diaspora/pull/5730)
 * Remove border from reply form for conversations [#5744](https://github.com/diaspora/diaspora/pull/5744)
+* Fix overflow for headings, blockquotes and other elements [#5731](https://github.com/diaspora/diaspora/pull/5731)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
