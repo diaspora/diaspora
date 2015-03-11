@@ -1,8 +1,8 @@
 .well
   = t('.invited_by')
   .media
-    .float-right
+    .pull-right
       = aspect_membership_dropdown(contact, inviter, false)
-    = person_image_link(inviter, :class => 'img')
+    = person_image_link(inviter, :size => :thumb_small, :class => 'img')
     .bd
       = person_link(inviter)
