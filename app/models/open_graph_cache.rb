@@ -41,6 +41,6 @@ class OpenGraphCache < ActiveRecord::Base
     self.description = object.og.description
 
     self.save
-  rescue OpenGraphReader::NoOpenGraphDataError
+  rescue OpenGraphReader::NoOpenGraphDataError, OpenGraphReader::InvalidObjectError
   end
 end
