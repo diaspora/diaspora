@@ -1,10 +1,4 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
-
-/*   Copyright (c) 2010-2011, Diaspora Inc.  This file is
- *   licensed under the Affero General Public License version 3 or later.  See
- *   the COPYRIGHT file.
- */
-//= require mailchimp/jquery.form
 var View = {
   initialize: function() {
     /* Buttons */
@@ -25,25 +19,6 @@ var View = {
     $(document)
       .on('click', this.dropdowns.selector, this.dropdowns.click)
       .on('keypress', this.dropdowns.selector, this.dropdowns.click);
-
-    /* Clear forms after successful submit, this is some legacy dan hanson stuff, do we still want it? */
-    $.fn.clearForm = function() {
-      return this.each(function() {
-        if ($(this).is('form') && !$(this).hasClass('form_do_not_clear')) {
-          return $(':input', this).clearForm();
-        }
-        if ($(this).hasClass('clear_on_submit') || $(this).is(':text') || $(this).is(':password') || $(this).is('textarea')) {
-          $(this).val('');
-        } else if ($(this).is(':checkbox') || $(this).is(':radio')) {
-          $(this).attr('checked', false);
-        } else if ($(this).is('select')) {
-          this.selectedIndex = -1;
-        } else if ($(this).attr('name') === 'photos[]') {
-          $(this).val('');
-        }
-        $(this).blur();
-      });
-    };
 
     $(document).on('ajax:success', 'form[data-remote]', function () {
       $(this).clearForm();
