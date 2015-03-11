@@ -985,6 +985,10 @@ select#user_language, #user_auto_follow_back_aspect_id, #aspect_ids_ {
   color: inherit;
   background-color: $background-grey;
   border-radius: 10px;
+  .img .avatar {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .search-mobile {

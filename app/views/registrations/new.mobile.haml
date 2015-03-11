@@ -34,15 +34,17 @@
               = f.label :password, t('password').upcase
               .controls
                 = f.password_field :password, :placeholder => "••••••••"
- 
+
             .control-group
               = f.label :password_confirmation, t('password_confirmation').upcase
               .controls
                 = f.password_field :password_confirmation, :placeholder => "••••••••"
-                
+
             - if AppConfig.settings.captcha.enable?
               = show_simple_captcha(:object => 'user', :code_type => 'numeric')
-            
+
+            = invite_hidden_tag(invite)
+
             - if AppConfig.settings.terms.enable?
               = t('registrations.new.terms', terms_link: link_to(t('registrations.new.terms_link'), terms_path, target: "_blank")).html_safe
 
