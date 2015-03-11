@@ -155,6 +155,7 @@ body > header {
       }
 
       .ajax_loader {
+        border-bottom: 1px solid $border-grey;
         text-align: center;
         padding: 15px;
       }
@@ -162,28 +163,22 @@ body > header {
         overflow: hidden;
         position: relative;
         max-height: 325px;
-      }
 
-      .notification_element {
-        border-bottom: 1px solid $border-grey;
-        padding: 5px;
-        min-height: 35px;
-        line-height: 18px;
+        .media.stream_element {
+          border-bottom: 1px solid $border-grey;
+          padding: 5px;
+          min-height: 35px;
+          line-height: 18px;
+          margin: 0;
 
-        > .avatar {
-          height: 35px;
-          width: 35px;
-          float: left;
-        }
+          img.avatar {
+            width: 35px;
+            height: 35px;
+          }
 
-        .notification_message {
-          margin-left: 40px;
-          .tooltip { position: fixed; }
-        }
+          .pull-right > .aspect_membership_dropdown { display: none; }
+          .unread-toggle { margin: 10px; }
 
-        .unread-toggle {
-          padding: 9px 9px;
-          position: relative;
           .entypo {
             cursor: pointer;
             color: lighten($black,75%);
@@ -193,14 +188,15 @@ body > header {
           .tooltip {
             position: fixed;
           }
-        }
 
-        &.unread {
-          background-color: $background-grey;
-          color: $black;
-          .unread-toggle {
-            .entypo { color: $black; }
+          &.unread {
+            background-color: $background-grey;
+            color: $black;
+            .unread-toggle {
+              .entypo { color: $black; }
+            }
           }
+
         }
       }
 
@@ -328,7 +324,7 @@ body > header {
       text-decoration: none;
     }
 
-    &:focus { :outline: none; }
+    &:focus { outline: none; }
   }
 
   .user-menu-more-indicator {
