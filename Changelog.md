@@ -99,6 +99,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Unify not connected pages (sign in, sign up, forgot password) [#5391](https://github.com/diaspora/diaspora/pull/5391)
 * Port remaining stream pages to Bootstrap [#5715](https://github.com/diaspora/diaspora/pull/5715)
 * Partial Backbone port of the notification dropdown [#5707](https://github.com/diaspora/diaspora/pull/5707)
+* Add rounded corners for avatars [#5733](https://github.com/diaspora/diaspora/pull/5733)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)

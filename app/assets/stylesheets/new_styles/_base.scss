@@ -31,6 +31,8 @@ a { color : $link-blue  }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
 
 .avatar {
+  border-radius: 4px;
+
   &.micro {
     height: 20px;
     width: 20px;
@@ -39,6 +41,12 @@ a { color : $link-blue  }
   &.small {
     height: 35px;
     width: 35px;
+  }
+
+  &.medium {
+    height: auto;
+    width: auto;
+    max-width: 75px;
   }
 }
 
