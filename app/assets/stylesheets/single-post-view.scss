@@ -44,7 +44,7 @@
         #single-post-moderation {
           margin-left: 5px;
 
-          > div.info {
+          > div.control-icons {
             display: inline-block;
           }
         }
@@ -89,24 +89,6 @@
         &:hover {
           text-decoration: none;
         }
-      }
-    }
-    #single-post-moderation {
-      a:hover {
-        text-decoration: none;
-      }
-      i {
-        padding-right: 5px;
-        vertical-align: top;
-        &:hover {
-          color: #424242;
-        }
-      }
-      a.post_report > i {
-        font-size: $font-size-text;
-      }
-      i.cross {
-        font-size: 20px;
       }
     }
   }

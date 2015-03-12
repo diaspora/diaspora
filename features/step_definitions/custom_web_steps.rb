@@ -89,7 +89,7 @@ end
 
 When /^I prepare the deletion of the first post$/ do
   within(find('.stream .stream_element')) do
-    ctrl = find('.controls')
+    ctrl = find('.control-icons')
     ctrl.hover
     ctrl.find('.remove_post').click
   end
@@ -102,7 +102,7 @@ end
 
 When /^I click to delete the first comment$/ do
   within("div.comment", match: :first) do
-    find(".controls").hover
+    find(".control-icons").hover
     find(".comment_delete", visible: false).click # TODO: hax to check what's failing on Travis
   end
 end
