@@ -54,20 +54,20 @@ describe("app.views.Header", function() {
     });
   });
 
-  describe("#toggleDropdown", function() {
+  describe("#toggleUserDropdown", function() {
     it("adds the class 'active'", function() {
       expect(this.view.$(".dropdown")).not.toHaveClass("active");
-      this.view.toggleDropdown($.Event());
+      this.view.toggleUserDropdown($.Event());
       expect(this.view.$(".dropdown")).toHaveClass("active");
     });
   });
 
-  describe("#hideDropdown", function() {
+  describe("#hideUserDropdown", function() {
     it("removes the class 'active' if the user clicks anywhere that isn't the menu element", function() {
-      this.view.toggleDropdown($.Event());
+      this.view.toggleUserDropdown($.Event());
       expect(this.view.$(".dropdown")).toHaveClass("active");
 
-      this.view.hideDropdown($.Event());
+      this.view.hideUserDropdown($.Event());
       expect(this.view.$(".dropdown")).not.toHaveClass("active");
     });
   });

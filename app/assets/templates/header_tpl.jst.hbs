@@ -22,7 +22,7 @@
   <div id="nav_badges">
     <div class="badge badge-inverse" id="notification_badge">
       <div class="icons-notifications_grey" >
-        <a href="/notifications" title="{{t "header.notifications"}}" class="badge_link" >
+        <a id="notifications-badge" href="/notifications" title="{{t "header.notifications"}}" class="badge_link" >
           <div class="badge_count {{#unless current_user.notifications_count}} hidden {{/unless}}">
             {{current_user.notifications_count}}
           </div>
