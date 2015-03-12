@@ -87,11 +87,18 @@ describe NotificationsController, :type => :controller do
 
         expect(Nokogiri(response.body).css('.aspect_membership')).to be_empty
       end
+
       it "should provide a contacts menu for start sharing notifications" do
         eve.share_with(alice.person, eve.aspects.first)
         get :index, "per_page" => 5
 
         expect(Nokogiri(response.body).css('.aspect_membership')).not_to be_empty
+      end
+
+      it 'succeeds on mobile' do
+        eve.share_with(alice.person, eve.aspects.first)
+        get :index, :format => :mobile
+        expect(response).to be_success
       end
     end
 
