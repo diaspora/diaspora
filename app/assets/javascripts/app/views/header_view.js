@@ -2,17 +2,17 @@
 
 app.views.Header = app.views.Base.extend({
 
-  templateName : "header",
+  templateName: "header",
 
-  className : "dark-header",
+  className: "dark-header",
 
-  events :{
-    "click ul.dropdown li:first-child" : "toggleUserDropdown",
+  events: {
+    "click ul.dropdown li:first-child": "toggleUserDropdown",
     "focusin #q": "toggleSearchActive",
     "focusout #q": "toggleSearchActive"
   },
 
-  initialize : function(){
+  initialize: function(){
     $(document.body).click($.proxy(this.hideUserDropdown, this));
 
     return this;
@@ -21,11 +21,12 @@ app.views.Header = app.views.Base.extend({
   postRenderTemplate: function(){
     new app.views.Notifications({ el: '#notification_dropdown' });
     new app.views.NotificationsBadge({ el: '#notification_badge' });
+    new app.views.SearchBar({ el: '#search_people_form' });
   },
 
-  menuElement : function(){ return this.$("ul.dropdown"); },
+  menuElement: function(){ return this.$("ul.dropdown"); },
 
-  toggleUserDropdown : function(evt){
+  toggleUserDropdown: function(evt){
     if(evt){ evt.preventDefault(); }
 
     this.menuElement().toggleClass("active");
@@ -35,7 +36,7 @@ app.views.Header = app.views.Base.extend({
     }
   },
 
-  hideUserDropdown : function(evt){
+  hideUserDropdown: function(evt){
     if(this.menuElement().hasClass("active") && !$(evt.target).parents("#user_menu").length){
       this.menuElement().removeClass("active");
     }

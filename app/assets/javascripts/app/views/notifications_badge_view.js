@@ -8,12 +8,12 @@ app.views.NotificationsBadge = app.views.Base.extend({
   initialize: function(){
     $(document.body).click($.proxy(this.hideNotifDropdown, this));
 
-      this.currentPage = 2;
-      this.notificationsLoaded = 10;
-      this.badge = this.$el;
-      this.dropdown = $('#notification_dropdown');
-      this.dropdownNotifications = this.dropdown.find(".notifications");
-      this.ajaxLoader = this.dropdown.find(".ajax_loader");
+    this.currentPage = 2;
+    this.notificationsLoaded = 10;
+    this.badge = this.$el;
+    this.dropdown = $('#notification_dropdown');
+    this.dropdownNotifications = this.dropdown.find(".notifications");
+    this.ajaxLoader = this.dropdown.find(".ajax_loader");
   },
 
   toggleNotifDropdown: function(evt){
