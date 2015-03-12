@@ -19,6 +19,7 @@ app.views.Conversations = Backbone.View.extend({
 
   setupConversation: function() {
     app.helpers.timeago($(this.el));
+    $('.control-icons a').tooltip({placement: 'bottom'});
 
     var conv = $('.conversation-wrapper .stream_element.selected'),
         cBadge = $('#conversations_badge .badge_count');

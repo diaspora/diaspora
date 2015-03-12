@@ -1,6 +1,8 @@
 app.views.SinglePostModeration = app.views.Feedback.extend({
   templateName: "single-post-viewer/single-post-moderation",
 
+  className: 'control-icons',
+
   events: function() {
     return _.defaults({
       "click .remove_post": "destroyModel",

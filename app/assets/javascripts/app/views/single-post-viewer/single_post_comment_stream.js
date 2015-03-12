@@ -1,12 +1,12 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.SinglePostCommentStream = app.views.CommentStream.extend({
-  tooltipSelector: "time, .controls a",
+  tooltipSelector: "time, .control-icons a",
 
   initialize: function(){
     $(window).on('hashchange',this.highlightPermalinkComment);
   },
- 
+
   highlightPermalinkComment: function() {
     if(document.location.hash){
       var element = $(document.location.hash);

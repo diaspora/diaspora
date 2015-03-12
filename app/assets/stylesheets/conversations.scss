@@ -127,15 +127,10 @@
     padding: 5px;
     line-height: 0px;
 
-    a.close_conversation {
+    .hide_conversation, .delete_conversation {
       display: block;
-      margin-top: 10px;
-      float: right;
-
-      .icons-deletelabel {
-        height: 14px;
-        width: 14px;
-      }
+      margin-top: 25px;
+      margin-left: 10px;
     }
 
     .avatar {
