@@ -53,12 +53,12 @@
         width: 50px;
       }
     }
-    .author {
+    .author-name {
       font-weight: bold;
       margin-bottom: 4px;
       unicode-bidi: bidi-override;
     }
-    a.author { color: $blue; }
+    a.author-name { color: $blue; }
     .feedback {
       margin-top: 5px;
       font-size: 11px;
