@@ -5,16 +5,23 @@
 @import "colors";
 @import 'sizes';
 @import 'mixins';
-@import 'new_styles/new_mixins';
 
 /* core */
+@import 'media-box';
+@import 'autocomplete';
+@import 'entypo-fonts';
+@import 'entypo';
+@import 'mentions';
 @import 'flash_messages';
 @import 'sprites';
-
+@import 'hovercard';
 @import 'new_styles/base';
 @import 'new_styles/buttons';
 @import 'new_styles/interactions';
 @import 'new_styles/spinner';
+@import 'lightbox';
+@import 'vendor/fileuploader';
+@import 'vendor/autoSuggest';
 
 /* font overrides */
 @import 'new_styles/typography';
@@ -40,6 +47,7 @@
 
 /* conversations */
 @import 'conversations';
+@import 'vendor/facebox';
 @import 'facebox';
 
 /* publisher */
@@ -69,6 +77,7 @@
 @import 'stream';
 @import 'stream_element';
 @import 'comments';
+@import 'diaspora_jsxc';
 @import 'chat';
 
 /* right bar */
@@ -82,4 +91,4 @@
 @import 'new_styles/code';
 
 /* statistics */
-@import 'new_styles/statistics'
+@import 'new_styles/statistics';
