@@ -35,4 +35,14 @@ h1.tag {
       }
     }
   }
+  .span7 {
+    .tag-following-action {
+      max-width: 100%;
+      input[type="submit"] {
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+      }    
+    }
+  }
 }

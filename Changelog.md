@@ -145,6 +145,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Fix overflow for headings, blockquotes and other elements [#5731](https://github.com/diaspora/diaspora/pull/5731)
 * Correct photo count on profile page [#5751](https://github.com/diaspora/diaspora/pull/5751)
 * Fix mobile sign up from an invitation [#5754](https://github.com/diaspora/diaspora/pull/5754)
+* Set max-width for tag following button on tag page [#5752](https://github.com/diaspora/diaspora/pull/5752)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
