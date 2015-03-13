@@ -22,7 +22,7 @@
     = include_mixpanel
 
     = include_base_css_framework
-    = stylesheet_link_tag :default, 'application', :media => 'all'
+    = stylesheet_link_tag 'application', :media => 'all'
 
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'

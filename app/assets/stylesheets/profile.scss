@@ -29,7 +29,7 @@
         cursor: default;
         font-size: 20px;
         &.circle {
-          color: $light-grey;
+          color: $text-grey;
           &:before { content: '\26aa'; }
         }
         &.entypo.check { color: darken($green,20%); }
