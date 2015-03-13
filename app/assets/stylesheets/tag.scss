@@ -39,7 +39,7 @@ h1.tag {
     .tag-following-action {
       max-width: 100%;
       input[type="submit"] {
-        overflow-x: hidden;
+        overflow: hidden;
         text-overflow: ellipsis;
         max-width: 100%;
       }    
