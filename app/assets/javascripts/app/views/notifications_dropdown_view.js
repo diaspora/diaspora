@@ -1,33 +1,35 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
-app.views.NotificationsBadge = app.views.Base.extend({
+app.views.NotificationDropdown = app.views.Base.extend({
   events:{
-    "click #notifications-badge": "toggleNotifDropdown"
+    "click #notifications-badge": "toggleDropdown"
   },
 
   initialize: function(){
-    $(document.body).click($.proxy(this.hideNotifDropdown, this));
+    $(document.body).click($.proxy(this.hideDropdown, this));
 
-    this.currentPage = 2;
-    this.notificationsLoaded = 10;
+    this.notifications = [];
+    this.perPage = 5;
+    this.hasMoreNotifs = true;
     this.badge = this.$el;
     this.dropdown = $('#notification_dropdown');
     this.dropdownNotifications = this.dropdown.find(".notifications");
     this.ajaxLoader = this.dropdown.find(".ajax_loader");
   },
 
-  toggleNotifDropdown: function(evt){
+  toggleDropdown: function(evt){
     evt.preventDefault();
     evt.stopPropagation();
-    if(this.notifDropdownShowing()){ this.hideNotifDropdown(evt); }
-    else{ this.showNotifDropdown(); }
+    if(this.dropdownShowing()){ this.hideDropdown(evt); }
+    else{ this.showDropdown(); }
   },
 
-  notifDropdownShowing: function(){
+  dropdownShowing: function(){
     return this.dropdown.css("display") === "block";
   },
 
-  showNotifDropdown: function(){
+  showDropdown: function(){
+    this.resetParams();
     this.ajaxLoader.show();
     this.badge.addClass("active");
     this.dropdown.css("display", "block");
@@ -35,31 +37,47 @@ app.views.NotificationsBadge = app.views.Base.extend({
     this.getNotifications();
   },
 
-  hideNotifDropdown: function(evt){
+  hideDropdown: function(evt){
     var inDropdown = $(evt.target).parents().is(this.dropdown);
     var inHovercard = $.contains(app.hovercard.el, evt.target);
-    if(!inDropdown && !inHovercard && this.notifDropdownShowing()){
+    if(!inDropdown && !inHovercard && this.dropdownShowing()){
       this.badge.removeClass("active");
       this.dropdown.css("display", "none");
       this.dropdownNotifications.perfectScrollbar('destroy');
     }
   },
 
-  notifDropdownScroll: function(){
-    var bottom = this.dropdownNotifications.prop('scrollHeight') - this.dropdownNotifications.height();
-    var currentPosition = this.dropdownNotifications.scrollTop();
+  dropdownScroll: function(){
     var isLoading = ($('.loading').length === 1);
-    if (currentPosition + 50 >= bottom && this.notificationsLoaded <= this.notifications.length && !isLoading){
-      this.dropdownNotifications.addClass("loading");
-      this.getMoreNotifications(++this.currentPage);
+    if (this.isBottom() && this.hasMoreNotifs && !isLoading){
+      this.dropdownNotifications.addClass('loading');
+      this.getNotifications();
     }
   },
 
-  getMoreNotifications: function(page){
+  getParams: function(){
+    if(this.notifications.length === 0){ return{ per_page: 10, page: 1 }; }
+    else{ return{ per_page: this.perPage, page: this.nextPage }; }
+  },
+
+  resetParams: function(){
+    this.notifications.length = 0;
+    this.hasMoreNotifs = true;
+    delete this.nextPage;
+  },
+
+  isBottom: function(){
+    var bottom = this.dropdownNotifications.prop('scrollHeight') - this.dropdownNotifications.height();
+    var currentPosition = this.dropdownNotifications.scrollTop();
+    return currentPosition + 50 >= bottom;
+  },
+
+  getNotifications: function(){
     var self = this;
-    $.getJSON(Routes.notifications_path({ per_page:5, page: page }), function(notifications){
-      for(var i = 0; i < notifications.length; ++i){ self.notifications.push(notifications[i]); }
-      self.notificationsLoaded += 5;
+    $.getJSON(Routes.notifications_path(this.getParams()), function(notifications){
+      $.each(notifications, function(){ self.notifications.push(this); });
+      self.hasMoreNotifs = notifications.length >= self.perPage;
+      self.nextPage = self.nextPage++ || 3;
       self.renderNotifications();
     });
   },
@@ -70,14 +88,6 @@ app.views.NotificationsBadge = app.views.Base.extend({
       self.ajaxLoader.hide(300, function(){
         self.ajaxLoader.find('img').css('opacity', 1);
       });
-    });
-  },
-
-  getNotifications: function(){
-    var self = this;
-    $.getJSON(Routes.notifications_path({ per_page: self.notificationsLoaded }), function(notifications){
-      self.notifications = notifications;
-      self.renderNotifications();
     });
   },
 
@@ -100,7 +110,7 @@ app.views.NotificationsBadge = app.views.Base.extend({
     this.dropdownNotifications.perfectScrollbar('destroy').perfectScrollbar();
     this.dropdownNotifications.removeClass('loading');
     this.dropdownNotifications.scroll(function(){
-      self.notifDropdownScroll();
+      self.dropdownScroll();
     });
   }
 });
