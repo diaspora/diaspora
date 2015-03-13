@@ -1309,6 +1309,7 @@ en:
       change: "Change"
       your_handle: "Your diaspora* ID"
       your_email: "Your email"
+      your_email_private: "Your email will never be seen by other users"
       change_email: "Change email"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."
       change_password: "Change password"

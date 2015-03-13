@@ -41,4 +41,5 @@
               - if AppConfig.settings.terms.enable?
                 %p#terms.text-center
                   = t('.terms', terms_link: link_to(t('.terms_link'), terms_path, target: "_blank")).html_safe
+              %small= t('users.edit.your_email_private')
               = f.submit t('.sign_up'), class: "btn btn-block btn-large", data: {disable_with: t('.submitting')}
