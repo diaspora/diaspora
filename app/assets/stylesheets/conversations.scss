@@ -39,6 +39,12 @@
     &:hover, &.unread:hover, &.selected:hover {
       background-color: lighten($blue,5%);
       cursor: pointer;
+      .participants {
+        height: 25px;
+        margin-top: 5px;
+        padding-top: 5px;
+        border-color: rgba($border-grey, 1)
+      }
     }
     &.unread { background-color: darken($background-white, 5%); }
     &.selected { background-color: $blue; }
@@ -83,21 +89,15 @@
     .participants {
       float: left;
       clear: both;
-      margin-top: 5px;
-      padding-top: 5px;
       height: 0;
       width: 100%;
       overflow: hidden;
-      border-top: 1px dotted $border-grey;
+      border-top: 1px dotted rgba($border-grey, 0);
       transition: height ease 300ms;
       .avatar {
         margin: 0 5px 0 0;
         height: 25px;
         width: 25px;
-      }
-
-      .conversation & {
-        height: 25px;
       }
     }
 

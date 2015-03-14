@@ -101,6 +101,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Partial Backbone port of the notification dropdown [#5707](https://github.com/diaspora/diaspora/pull/5707)
 * Add rounded corners for avatars [#5733](https://github.com/diaspora/diaspora/pull/5733)
 * Move registration form to a partial [#5764](https://github.com/diaspora/diaspora/pull/5764)
+* Rewrite slide effect in conversations as css transition for better performance
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)

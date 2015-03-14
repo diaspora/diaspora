@@ -1,24 +1,5 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 $(document).ready(function(){
-
-  if ($('#first_unread').length > 0) {
-    $("html").scrollTop($('#first_unread').offset().top-45);
-  }
-
-  $('time.timeago').each(function(i,e) {
-    var jqe = $(e);
-    jqe.attr('data-original-title', new Date(jqe.attr('datetime')).toLocaleString());
-    jqe.attr('title', '');
-  });
-
-  $('.timeago').tooltip();
-  $('.timeago').timeago();
-
-  $('time.timeago').each(function(i,e) {
-    var jqe = $(e);
-    jqe.attr('title', '');
-  });
-
   $(document).on('click', '.conversation-wrapper', function(){
     var conversation_path = $(this).data('conversation-path');
     $.getScript(conversation_path, function() {
