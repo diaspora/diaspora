@@ -102,6 +102,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Add rounded corners for avatars [#5733](https://github.com/diaspora/diaspora/pull/5733)
 * Move registration form to a partial [#5764](https://github.com/diaspora/diaspora/pull/5764)
 * Add tests for liking and unliking posts [#5741](https://github.com/diaspora/diaspora/pull/5741)
+* Rewrite slide effect in conversations as css transition for better performance [#5776](https://github.com/diaspora/diaspora/pull/5776)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
