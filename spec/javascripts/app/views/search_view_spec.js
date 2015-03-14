@@ -1,7 +1,7 @@
-describe("app.views.SearchBar", function() {
+describe("app.views.Search", function() {
   beforeEach(function(){
     spec.content().html('<form action="#" id="search_people_form"></form>');
-    this.view = new app.views.SearchBar({ el: '#search_people_form' });
+    this.view = new app.views.Search({ el: '#search_people_form' });
   });
   describe("parse", function() {
     it("escapes a persons name", function() {

@@ -21,7 +21,7 @@ app.views.Header = app.views.Base.extend({
   postRenderTemplate: function(){
     new app.views.Notifications({ el: '#notification_dropdown' });
     new app.views.NotificationDropdown({ el: '#notification_badge' });
-    new app.views.SearchBar({ el: '#search_people_form' });
+    new app.views.Search({ el: '#header-search-form' });
   },
 
   menuElement: function(){ return this.$("ul.dropdown"); },

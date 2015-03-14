@@ -13,8 +13,8 @@ app.views.NotificationDropdown = app.views.Base.extend({
     this.hasMoreNotifs = true;
     this.badge = this.$el;
     this.dropdown = $('#notification_dropdown');
-    this.dropdownNotifications = this.dropdown.find(".notifications");
-    this.ajaxLoader = this.dropdown.find(".ajax_loader");
+    this.dropdownNotifications = this.dropdown.find('.notifications');
+    this.ajaxLoader = this.dropdown.find('.ajax_loader');
   },
 
   toggleDropdown: function(evt){
@@ -25,15 +25,15 @@ app.views.NotificationDropdown = app.views.Base.extend({
   },
 
   dropdownShowing: function(){
-    return this.dropdown.css("display") === "block";
+    return this.dropdown.css('display') === 'block';
   },
 
   showDropdown: function(){
     this.resetParams();
     this.ajaxLoader.show();
-    this.badge.addClass("active");
-    this.dropdown.css("display", "block");
-    this.dropdownNotifications.addClass("loading");
+    this.badge.addClass('active');
+    this.dropdown.css('display', 'block');
+    this.dropdownNotifications.addClass('loading');
     this.getNotifications();
   },
 
@@ -41,8 +41,8 @@ app.views.NotificationDropdown = app.views.Base.extend({
     var inDropdown = $(evt.target).parents().is(this.dropdown);
     var inHovercard = $.contains(app.hovercard.el, evt.target);
     if(!inDropdown && !inHovercard && this.dropdownShowing()){
-      this.badge.removeClass("active");
-      this.dropdown.css("display", "none");
+      this.badge.removeClass('active');
+      this.dropdown.css('display', 'none');
       this.dropdownNotifications.perfectScrollbar('destroy');
     }
   },
@@ -77,7 +77,8 @@ app.views.NotificationDropdown = app.views.Base.extend({
     $.getJSON(Routes.notifications_path(this.getParams()), function(notifications){
       $.each(notifications, function(){ self.notifications.push(this); });
       self.hasMoreNotifs = notifications.length >= self.perPage;
-      self.nextPage = self.nextPage++ || 3;
+      if(self.nextPage){ self.nextPage++; }
+      else { self.nextPage = 3; }
       self.renderNotifications();
     });
   },
