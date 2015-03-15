@@ -104,7 +104,6 @@
 
       &.with_location .row-fluid#location_container {
         height: 30px;
-        #hide_location { display: none !important; }
         border-top: 1px dashed $border-grey;
         input[type='text'] {
           margin-bottom: 0;

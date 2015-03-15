@@ -5,8 +5,6 @@
 - content_for :page_title do
   = t('.edit_account')
 
-.bootstrap_header_padding
-
 .container
   .row-fluid
     .span12
@@ -41,7 +39,7 @@
 
       .row-fluid
         .span12
-          %h3 
+          %h3
             = t('.change_password')
           = form_for @user, :url => user_path, :html => { :method => :put } do |f|
             - if (@user.errors.keys & [:password, :password_confirmation, :current_password]).present?
@@ -65,7 +63,7 @@
 
       .row-fluid
         .span-12
-          %h3 
+          %h3
             = t('.change_language')
           = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
             .form-inline
@@ -100,7 +98,7 @@
 
       .row-fluid
         .span-12
-      
+
           %h3#auto-follow-back-preferences
             = t('.following')
           = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
@@ -119,7 +117,7 @@
 
       .row-fluid
         .span-12
-          %h3 
+          %h3
             = t('.receive_email_notifications')
           = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
             = f.fields_for :email_preferences do |type|
@@ -140,40 +138,40 @@
                   = type.check_box :mentioned, {:checked =>  @email_prefs['mentioned']}, false, true
                   = t('.mentioned')
                 .small-horizontal-spacer
-                
+
                 = type.label :liked, :class => "checkbox" do
                   = type.check_box :liked, {:checked =>  @email_prefs['liked']}, false, true
                   = t('.liked')
                 .small-horizontal-spacer
-                
+
                 = type.label :reshared, :class => "checkbox" do
                   = type.check_box :reshared, {:checked =>  @email_prefs['reshared']}, false, true
                   = t('.reshared')
                 .small-horizontal-spacer
-                
+
                 = type.label :comment_on_post, :class => "checkbox" do
                   = type.check_box :comment_on_post, {:checked =>  @email_prefs['comment_on_post']}, false, true
                   = t('.comment_on_post')
                 .small-horizontal-spacer
-                
+
                 = type.label :also_commented, :class => "checkbox" do
                   = type.check_box :also_commented, {:checked =>  @email_prefs['also_commented']}, false, true
                   = t('.also_commented')
                 .small-horizontal-spacer
-                
+
                 = type.label :private_message, :class => "checkbox" do
                   = type.check_box :private_message, {:checked =>  @email_prefs['private_message']}, false, true
                   = t('.private_message')
 
             .small-horizontal-spacer
-            
+
             = f.submit t('.change'), :class => "btn", :id => "change_email_preferences"
 
       %hr
 
       .row-fluid
         #account_data.span6
-          %h3 
+          %h3
             = t('.export_data')
           - if current_user.exporting
             .export-in-progress= t('.export_in_progress')
@@ -184,7 +182,7 @@
             = link_to t('.request_export_update'), export_profile_user_path, class: "btn"
           - else
             = link_to t('.request_export'), export_profile_user_path, :class => "btn"
-              
+
           - if current_user.exporting_photos
             .small-horizontal-spacer
             .export-in-progress= t('.export_photos_in_progress')
