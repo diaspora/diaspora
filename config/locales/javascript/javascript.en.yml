@@ -227,6 +227,8 @@ en:
 
     poll:
       vote: "Vote"
+      go_to_original_post: "You can participate in this poll on the <%= original_post_link %>."
+      original_post: "original post"
       result: "Result"
       count:
         one: "1 vote so far"

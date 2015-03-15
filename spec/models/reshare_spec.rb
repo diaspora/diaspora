@@ -63,6 +63,17 @@ describe Reshare, :type => :model do
     end
   end
 
+  describe '#poll' do
+    before do
+      @root_post = FactoryGirl.create(:status_message_with_poll, public: true)
+      @reshare = FactoryGirl.create(:reshare, root: @root_post)
+    end
+
+    it 'contains root poll' do
+      expect(@reshare.poll).to eq @root_post.poll
+    end
+  end
+
   describe '#notification_type' do
     before do
       sm = FactoryGirl.build(:status_message, :author => alice.person, :public => true)
