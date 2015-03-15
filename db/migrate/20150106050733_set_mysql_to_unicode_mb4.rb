@@ -37,12 +37,12 @@ class SetMysqlToUnicodeMb4 < ActiveRecord::Migration
 
   def character_columns
     # build a hash with all the columns that contain characters
-    @character_columns ||= tables.map {|table|
+    @character_columns ||= Hash[tables.map {|table|
       col = columns(table)
         .select {|column| column.type == :string || column.type == :text }
       next if col.empty?
       [table, col]
-    }.compact.to_h
+    }.compact]
   end
 
   def shorten_indexes
