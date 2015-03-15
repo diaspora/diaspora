@@ -91,6 +91,9 @@ class SetMysqlToUnicodeMb4 < ActiveRecord::Migration
     remove_index 'posts', :name => 'index_posts_on_root_guid'
     add_index 'posts', ["root_guid"], :name => 'index_posts_on_root_guid', length: {"root_guid"=>191}
 
+    remove_index 'posts', :name => 'index_posts_on_tweet_id'
+    add_index 'posts', ['tweet_id'], :name => 'index_posts_on_tweet_id', length: {"tweet_id"=>191}, :using => :btree
+
     remove_index 'rails_admin_histories', :name => 'index_rails_admin_histories'
     add_index 'rails_admin_histories', ["item", "table", "month", "year"], :name => 'index_rails_admin_histories', length: {"table"=>188}, :using => :btree
 
