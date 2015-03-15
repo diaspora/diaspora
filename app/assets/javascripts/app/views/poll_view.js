@@ -14,11 +14,14 @@ app.views.Poll = app.views.Base.extend({
 
   presenter: function(){
     var defaultPresenter = this.defaultPresenter();
-    var show_form = defaultPresenter.loggedIn && 
-                    !this.model.attributes.already_participated_in_poll;
+    var isResharePost = (this.model.get('post_type') == 'Reshare');
+    var show_form = defaultPresenter.loggedIn &&
+                    !isResharePost &&
+                    !this.model.get('already_participated_in_poll');
 
     return _.extend(defaultPresenter, {
-      show_form: show_form 
+      show_form: show_form,
+      is_reshare_post: isResharePost
     });
   },
 
@@ -97,7 +100,7 @@ app.views.Poll = app.views.Base.extend({
     var pollParticipation = new app.models.PollParticipation({
       poll_answer_id: answer_id,
       poll_id: this.poll.poll_id,
-      post_id: this.poll.post_id, 
+      post_id: this.poll.post_id,
     });
     var _this = this;
 

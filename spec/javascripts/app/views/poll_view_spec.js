@@ -44,6 +44,23 @@ describe("app.views.Poll", function(){
     });
   });
 
+  describe('reshared post', function(){
+    beforeEach(function(){
+      this.view.model.set('post_type', 'Reshare');
+      this.view.model.set('root', {id: 1});
+      this.view.render();
+    });
+
+    it('hide vote form', function(){
+      expect(this.view.$('form').length).toBe(0);
+    });
+
+    it("show a.root_post_link", function(){
+      var id = this.view.model.get('root').id;
+      expect(this.view.$('a.root_post_link').attr('href')).toBe('/posts/'+id);
+    });
+  });
+
   describe("vote form", function(){
     it('show vote form when user is logged in and not voted before', function(){
       expect(this.view.$('form').length).toBe(1);
