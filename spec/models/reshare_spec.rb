@@ -70,7 +70,7 @@ describe Reshare, :type => :model do
     end
 
     it 'contains root poll' do
-      @reshare.poll == @root_post.poll
+      expect(@reshare.poll).to eq @root_post.poll
     end
   end
 

@@ -14,14 +14,18 @@ app.views.Poll = app.views.Base.extend({
 
   presenter: function(){
     var defaultPresenter = this.defaultPresenter();
-    var isResharePost = (this.model.get('post_type') == 'Reshare');
-    var show_form = defaultPresenter.loggedIn &&
-                    !isResharePost &&
-                    !this.model.get('already_participated_in_poll');
+    var isReshare = (this.model.get('post_type') === 'Reshare');
+    var showForm = defaultPresenter.loggedIn &&
+                   !isReshare &&
+                   !this.model.get('already_participated_in_poll');
+    var originalPostLink = isReshare && this.model.get('root') ?
+      '<a href="/posts/' + this.model.get('root').id + '" class="root_post_link">' + Diaspora.I18n.t('poll.original_post') + '</a>' :
+      '';
 
     return _.extend(defaultPresenter, {
-      show_form: show_form,
-      is_reshare_post: isResharePost
+      show_form: showForm,
+      is_reshare: isReshare,
+      original_post_link: originalPostLink
     });
   },
 

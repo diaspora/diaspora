@@ -38,9 +38,9 @@
         {{/poll.poll_answers}}
       {{/if}}
 
-      {{#if is_reshare_post }}
+      {{#if is_reshare }}
         <div class="poll_footer">
-          <a class="root_post_link" href="/posts/{{root.id}}">{{t "poll.vote_original_post" }}</a>
+          {{{t "poll.go_to_original_post" original_post_link=original_post_link}}}
         </div>
       {{/if}}
 
