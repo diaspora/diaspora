@@ -2,44 +2,47 @@
 
 app.views.Header = app.views.Base.extend({
 
-  templateName : "header",
+  templateName: "header",
 
-  className : "dark-header",
+  className: "dark-header",
 
-  events : {
-    "click ul.dropdown li:first-child" : "toggleDropdown",
+  events: {
+    "click ul.dropdown li:first-child": "toggleUserDropdown",
     "focusin #q": "toggleSearchActive",
     "focusout #q": "toggleSearchActive"
   },
 
-  initialize : function() {
-    $(document.body).click($.proxy(this.hideDropdown, this));
+  initialize: function(){
+    $(document.body).click($.proxy(this.hideUserDropdown, this));
+
     return this;
   },
 
   postRenderTemplate: function(){
     new app.views.Notifications({ el: '#notification_dropdown' });
+    new app.views.NotificationDropdown({ el: '#notification_badge' });
+    new app.views.Search({ el: '#header-search-form' });
   },
 
-  menuElement : function() { return this.$("ul.dropdown"); },
+  menuElement: function(){ return this.$("ul.dropdown"); },
 
-  toggleDropdown : function(evt) {
+  toggleUserDropdown: function(evt){
     if(evt){ evt.preventDefault(); }
 
     this.menuElement().toggleClass("active");
 
-    if($.browser.msie) {
+    if($.browser.msie){
       this.$("header").toggleClass('ie-user-menu-active');
     }
   },
 
-  hideDropdown : function(evt) {
-    if(this.menuElement().hasClass("active") && !$(evt.target).parents("#user_menu").length) {
+  hideUserDropdown: function(evt){
+    if(this.menuElement().hasClass("active") && !$(evt.target).parents("#user_menu").length){
       this.menuElement().removeClass("active");
     }
   },
 
-  toggleSearchActive: function(ev) {
+  toggleSearchActive: function(ev){
     // jQuery produces two events for focus/blur (for bubbling)
     // don't rely on which event arrives first, by allowing for both variants
     var is_active = (_.indexOf(['focus','focusin'], ev.type) !== -1);
@@ -48,4 +51,3 @@ app.views.Header = app.views.Base.extend({
   }
 });
 // @license-end
-
