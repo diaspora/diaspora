@@ -272,6 +272,11 @@ describe Profile, :type => :model do
       @object.save
       expect(@object.tags.count).to eq(5)
     end
+    it 'should require tag name not be more than 255 characters long' do
+      @object.tag_string = "##{'a' * (255+1)}"
+      @object.save
+      expect(@object).not_to be_valid
+    end
     it_should_behave_like 'it is taggable'
   end
 

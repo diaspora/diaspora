@@ -93,7 +93,8 @@ class StatusMessagesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to :back }
         format.mobile { redirect_to stream_path }
-        format.json { render :text => @status_message.errors.messages[:text].to_sentence, :status => 403 }
+        #there are some errors, so we report the first one to the user
+        format.json { render :text => @status_message.errors.messages.values.first.to_sentence, :status => 403 }
       end
     end
   end

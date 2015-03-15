@@ -70,6 +70,14 @@ describe StatusMessage, :type => :model do
       expect(guids).to eq([sm1.guid])
     end
   end
+  
+  describe '.before_validation' do
+    it 'calls build_tags' do
+      status = FactoryGirl.build(:status_message)
+      expect(status).to receive(:build_tags)
+      status.save
+    end
+  end
 
   describe '.before_create' do
     it 'calls build_tags' do
@@ -254,6 +262,12 @@ STR
       tag_array = msg_lc.tags
       expect(msg_uc.tags).to match_array(tag_array)
       expect(msg_cp.tags).to match_array(tag_array)
+    end
+
+    it 'should require tag name not be more than 255 characters long' do
+      message = "##{'a' * (255+1)}"
+      status_message = FactoryGirl.build(:status_message, :text => message)
+      expect(status_message).not_to be_valid
     end
   end
 
