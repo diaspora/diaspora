@@ -7,9 +7,20 @@ module Diaspora
     def self.included(model)
       model.class_eval do
         cattr_accessor :field_with_tags
+
+        # validate tag's name maximum length [tag's name should be less than or equal to 255 chars]
+        validate :tag_name_max_length, on: :create
+
+        # tag's name is limited to 255 charchters according to ActsAsTaggableOn gem, so we check the length of the name for each tag
+        def tag_name_max_length
+          self.tag_list.each do |tag|
+            errors[:tags] << I18n.t('tags.name_too_long', :count => 255, :current_length => tag.length) if tag.length > 255
+          end
+        end
+        protected :tag_name_max_length
       end
       model.instance_eval do
-        before_create :build_tags
+        before_validation :build_tags # build tags before validation fixs the too long tag name issue #5737
 
         def extract_tags_from sym
           self.field_with_tags = sym

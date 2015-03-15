@@ -42,6 +42,7 @@ class Profile < ActiveRecord::Base
   belongs_to :person
   before_validation do
     self.tag_string = self.tag_string.split[0..4].join(' ')
+    self.build_tags
   end
 
   before_save do

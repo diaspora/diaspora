@@ -1253,6 +1253,8 @@ en:
       following: "Following #%{tag}"
       stop_following: "Stop following #%{tag}"
       none: "The empty tag does not exist!"
+    name_too_long: "Please make your tag name fewer than %{count} characters. Right now it is %{current_length} characters"
+    
   tag_followings:
     create:
       success: "Hooray!  You’re now following #%{name}."
