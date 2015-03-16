@@ -3,6 +3,7 @@ java_script:
   config_file: config/.jshint.json
   ignore_file: config/.jshint_ignore
 ruby:
-  enabled: false
+  enabled: true
+  config_file: .rubocop.yml
 scss:
   enabled: false

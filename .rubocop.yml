@@ -1,0 +1,130 @@
+AllCops:
+  RunRailsCops: true
+
+# Commonly used screens these days easily fit more than 80 characters.
+Metrics/LineLength:
+  Max: 120
+
+# Too short methods lead to extraction of single-use methods, which can make
+# the code easier to read (by naming things), but can also clutter the class
+Metrics/MethodLength: 
+  Max: 20
+
+# The guiding principle of classes is SRP, SRP can't be accurately measured by LoC
+Metrics/ClassLength:
+  Max: 1500
+
+# No space makes the method definition shorter and differentiates
+# from a regular assignment.
+Style/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+# Single quotes being faster is hardly measurable and only affects parse time.
+# Enforcing double quotes reduces the times where you need to change them
+# when introducing an interpolation. Use single quotes only if their semantics
+# are needed.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# We do not need to support Ruby 1.9, so this is good to use.
+Style/SymbolArray:
+  Enabled: true
+
+# Most readable form.
+Style/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+# Mixing the styles looks just silly.
+# REVIEW: Enable once https://github.com/bbatsov/rubocop/commit/760ce1ed2cf10beda5e163f934c03a6fb6daa38e
+#   is released.
+#Style/HashSyntax:
+#  EnforcedStyle: ruby19_no_mixed_keys
+
+# has_key? and has_value? are far more readable than key? and value?
+Style/DeprecatedHashMethods:
+  Enabled: false
+
+# String#% is by far the least verbose and only object oriented variant.
+Style/FormatString:
+  EnforcedStyle: percent
+
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    # inject seems more common in the community.
+    reduce: "inject"
+
+
+# Either allow this style or don't. Marking it as safe with parenthesis
+# is silly. Let's try to live without them for now.
+Style/ParenthesesAroundCondition:
+  AllowSafeAssignment: false
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: false
+
+# A specialized exception class will take one or more arguments and construct the message from it.
+# So both variants make sense. 
+Style/RaiseArgs:
+  Enabled: false
+
+# Fail is an alias of raise. Avoid aliases, it's more cognitive load for no gain.
+# The argument that fail should be used to abort the program is wrong too,
+# there's Kernel#abort for that.
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+# Suppressing exceptions can be perfectly fine, and be it to avoid to
+# explicitly type nil into the rescue since that's what you want to return,
+# or suppressing LoadError for optional dependencies
+Lint/HandleExceptions:
+  Enabled: false
+
+Style/SpaceInsideBlockBraces:
+  # The space here provides no real gain in readability while consuming
+  # horizontal space that could be used for a better parameter name.
+  # Also {| differentiates better from a hash than { | does.
+  SpaceBeforeBlockParameters: false
+
+# No trailing space differentiates better from the block:
+# foo} means hash, foo } means block.
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+# { ... } for multi-line blocks is okay, follow Weirichs rule instead:
+# https://web.archive.org/web/20140221124509/http://onestepback.org/index.cgi/Tech/Ruby/BraceVsDoEnd.rdoc
+Style/Blocks:
+  Enabled: false
+
+# do / end blocks should be used for side effects,
+# methods that run a block for side effects and have
+# a useful return value are rare, assign the return
+# value to a local variable for those cases.
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+# Enforcing the names of variables? To single letter ones? Just no.
+Style/SingleLineBlockParams:
+  Enabled: false
+
+# Shadowing outer local variables with block parameters is often useful
+# to not reinvent a new name for the same thing, it highlights the relation
+# between the outer variable and the parameter. The cases where it's actually
+# confusing are rare, and usually bad for other reasons already, for example
+# because the method is too long.
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+
+# Check with yard instead.
+Style/Documentation:
+  Enabled: false 
+
+# This is just silly. Calling the argument `other` in all cases makes no sense.
+Style/OpMethod:
+  Enabled: false 
+
+# There are valid cases, for example debugging Cucumber steps,
+# also they'll fail CI anyway
+Lint/Debugger:
+  Enabled: false
+
