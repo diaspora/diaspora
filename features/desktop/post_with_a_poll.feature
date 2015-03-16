@@ -6,8 +6,7 @@ Feature: posting with a poll
         | username   |
         | bob        |
       And I sign in as "bob@bob.bob"
-      And I am on the home page
-      
+
     Scenario: expanding the publisher
       Given "#poll_creator_container" is hidden
       When I expand the publisher
@@ -24,7 +23,7 @@ Feature: posting with a poll
       When I expand the publisher
       And I click on selector "#poll_creator"
       And I fill in values for the first two options
-      And I lose focus 
+      And I lose focus
       Then I should see 3 options
 
     Scenario: delete an option
@@ -32,7 +31,7 @@ Feature: posting with a poll
       When I expand the publisher
       And I click on selector "#poll_creator"
       And I fill in values for the first two options
-      And I lose focus 
+      And I lose focus
       And I delete the last option
       Then I should see 2 option
       And I should not see a remove icon

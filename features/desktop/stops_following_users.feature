@@ -15,27 +15,20 @@ Feature: Unfollowing
 
   Scenario: stop following someone while on their profile page
     When I am on "alice@alice.alice"'s page
-
     And I remove the person from my "Besties" aspect
-    And I am on the home page
-
+    And I go to the home page
     Then I should have 0 contacts in "Besties"
 
-    Then I sign out
-    When I sign in as "alice@alice.alice"
+    When I sign out
+    And I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
-
     Then I should not see "is sharing with you."
 
   Scenario: stop following someone while on the contacts page
-    When I go to the home page
-    And I go to the contacts page
-
+    When I go to the contacts page
     And I follow "Besties"
-
     And I remove the first person from the aspect
-
-    When I follow "My contacts"
+    And I follow "My contacts"
     Then I should have 0 contacts in "Besties"
 
     When I sign out

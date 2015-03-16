@@ -18,7 +18,7 @@ Feature: following and being followed
     And I am on "bob@bob.bob"'s page
     Then I should see "I am following you"
 
-    And I am on the home page
+    When I go to the home page
     Then I should not see "I am following you"
 
   Scenario: seeing public posts of someone you follow
@@ -28,7 +28,7 @@ Feature: following and being followed
     And I am on "alice@alice.alice"'s page
     Then I should see "I am ALICE"
 
-    When I am on the home page
+    When I go to the home page
     Then I should see "I am ALICE"
 
   Scenario: I follow a malicious user
@@ -47,24 +47,17 @@ Feature: following and being followed
   Scenario: seeing non-public posts of someone you follow who also follows you
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
-
     And I add the person to my "Besties" aspect
     And I add the person to my "Unicorns" aspect
-
-    When I go to the home page
-
+    And I go to the home page
     Then I should have 1 contact in "Unicorns"
-    Then I should have 1 contact in "Besties"
+    And I should have 1 contact in "Besties"
 
-    When I am on the home page
-    And I click the publisher and post "I am following you back"
-    Then I sign out
-
-    When I sign in as "bob@bob.bob"
+    When I click the publisher and post "I am following you back"
+    And I sign out
+    And I sign in as "bob@bob.bob"
     Then I should have 1 contacts in "Besties"
-
-    When I am on the home page
-    Then I should see "I am following you back"
+    And I should see "I am following you back"
 
   Scenario: adding someone who follows you while creating a new aspect
     When I sign in as "alice@alice.alice"

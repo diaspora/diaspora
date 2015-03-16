@@ -50,4 +50,4 @@ Feature: Change password
     Given I am on forgot password page
     When I fill out forgot password form with "notanemail"
     And I submit forgot password form
-    Then I should see "No account with this email exists"   
+    Then I should see "No account with this email exists"

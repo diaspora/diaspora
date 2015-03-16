@@ -94,7 +94,7 @@ Feature: Notifications
     And I sign out
     When I sign in as "alice@alice.alice"
     And I follow "Notifications" in the header
-    And I active the first hovercard after loading the notifications page 
+    And I active the first hovercard after loading the notifications page
     When I press the aspect dropdown
     Then the aspect dropdown should be visible
 

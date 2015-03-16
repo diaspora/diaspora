@@ -65,8 +65,6 @@ Feature: User manages contacts
   Scenario: clicking on the contacts link in the header with zero contacts directs a user to the featured users page
     Given I am signed in
     And I have 0 contacts
-    And I am on the home page
-
     And I click on my name in the header
     When I follow "Contacts"
     Then I should see "Community spotlight" within ".span9"
@@ -74,8 +72,6 @@ Feature: User manages contacts
   Scenario: clicking on the contacts link in the header with contacts does not send a user to the featured users page
     Given I am signed in
     And I have 2 contacts
-    And I am on the home page
-
     And I click on my name in the header
     When I follow "Contacts"
     Then I should not see "Community spotlight" within ".span9"
