@@ -58,11 +58,13 @@ app.views.Search = app.views.Base.extend({
   },
 
   selectItemCallback: function(evt, data, formatted){
+    var self = this.context;
+
     if(data.search === true){
-      window.location = this.searchFormAction + '?' + this.searchInputName + '=' + data.name;
+      window.location = self.searchFormAction + '?' + self.searchInputName + '=' + data.name;
     }
     else{ // The actual result
-      this.options.element.val(formatted);
+      self.options.element.val(formatted);
       window.location = data.url ? data.url : '/tags/' + data.name.substring(1);
     }
   }
