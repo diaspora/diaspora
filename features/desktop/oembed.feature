@@ -9,8 +9,7 @@ Feature: oembed
       | username    | email             |
       | Alice Smith | alice@alice.alice |
     And I have several oEmbed data in cache
-    When I sign in as "alice@alice.alice"
-    And I am on the home page
+    And I sign in as "alice@alice.alice"
 
   Scenario: Post a secure video link
     Given I expand the publisher

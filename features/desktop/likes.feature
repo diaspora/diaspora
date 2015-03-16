@@ -14,12 +14,9 @@ Feature: Liking posts
     And I sign in as "alice@alice.alice"
 
   Scenario: Liking and unliking a post from the stream
-    When I am on the home page
-    Then I should see "Bob"
-    And I should see "I like unicorns"
     When I like the post "I like unicorns" in the stream
     Then I should see a ".likes" within "#main_stream .stream_element"
-    
+
     When I unlike the post "I like unicorns" in the stream
     Then I should not see a ".likes" within "#main_stream .stream_element"
 
@@ -27,14 +24,12 @@ Feature: Liking posts
     When I open the show page of the "I like unicorns" post
     And I click to like the post
     Then I should see a ".count" within "#single-post-interactions"
-    
+
     When I click to unlike the post
     Then I should not see a ".count" within "#single-post-interactions"
 
   Scenario: Someone likes my post
-    When I am on the home page
-    And I like the post "I like unicorns" in the stream
+    When I like the post "I like unicorns" in the stream
     And I sign out
     And I sign in as "bob@bob.bob"
-    And I am on the home page
     Then I should see a ".likes" within "#main_stream .stream_element"

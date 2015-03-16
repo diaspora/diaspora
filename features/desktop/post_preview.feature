@@ -11,7 +11,6 @@ Feature: preview posts in the stream
         | Alice Smith  | alice@alice.alice |
       And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
       When I sign in as "bob@bob.bob"
-      And I am on the home page
       Then I should not see any posts in my stream
 
     Scenario: preview and post a text-only message

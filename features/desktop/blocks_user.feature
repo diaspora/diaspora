@@ -9,12 +9,10 @@ Feature: Blocking a user from the stream
     And Alice has a post mentioning Bob
     And I sign in as "bob@bob.bob"
 
-
   Scenario: Blocking a user
-    When I am on the home page
     When I click on the first block button
     And I confirm the alert
-    And I am on the home page
+    And I go to the home page
     Then I should not see any posts in my stream
 
   Scenario: Blocking a user from the profile page

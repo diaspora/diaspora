@@ -9,14 +9,14 @@ Feature: posting from the main page
         | username   |
         | bob        |
         | alice      |
-      And I sign in as "bob@bob.bob"
       And a user with username "bob" is connected with "alice"
-      Given I have following aspects:
+      And I sign in as "bob@bob.bob"
+      And I have following aspects:
         | PostingTo            |
         | NotPostingThingsHere |
       And I have user with username "alice" in an aspect called "PostingTo"
       And I have user with username "alice" in an aspect called "NotPostingThingsHere"
-      And I am on the home page
+      And I go to the home page
 
     Scenario: expanding the publisher
       Given ".markdownIndications" is hidden
