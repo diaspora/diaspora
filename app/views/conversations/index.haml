@@ -21,7 +21,7 @@
             - else
               #no_conversations
                 = t('.no_messages')
-            = will_paginate @conversations, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+            = will_paginate @conversations, :previous_label => '&laquo;', :next_label => '&raquo;', :inner_window => 1, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
 
     .span8
       - if @conversation
