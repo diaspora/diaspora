@@ -1,6 +1,7 @@
 describe("app.views.Feedback", function(){
   beforeEach(function(){
-   loginAs({id : -1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    this.userAttrs = _.extend(factory.userAttrs(), {guid : -1});
+    loginAs(this.userAttrs);
 
     Diaspora.I18n.load({stream : {
       'like' : "Like",
@@ -55,19 +56,18 @@ describe("app.views.Feedback", function(){
         });
 
         it("the like action should be 'Like'", function(){
-          expect(this.link().text()).toContain(Diaspora.I18n.t('stream.like'));
+          expect(this.link().text()).toContain(Diaspora.I18n.t("stream.like"));
         });
 
         it("allows for unliking a just-liked post", function(){
-          // callback stuff.... we should fix this
-
-          // expect(this.link().text()).toContain(Diaspora.I18n.t('stream.like'))
-
-          // this.link().click();
-          // expect(this.link().text()).toContain(Diaspora.I18n.t('stream.unlike'))
-
-          // this.link().click();
-          // expect(this.link().text()).toContain(Diaspora.I18n.t('stream.like'))
+          var responseText = JSON.stringify({"author": this.userAttrs});
+          var ajax_success = { status: 201, responseText: responseText };
+          expect(this.link().text()).toContain(Diaspora.I18n.t("stream.like"));
+          this.link().click();
+          jasmine.Ajax.requests.mostRecent().respondWith(ajax_success);
+          expect(this.link().text()).toContain(Diaspora.I18n.t("stream.unlike"));
+          this.link().click();
+          expect(this.link().text()).toContain(Diaspora.I18n.t("stream.like"));
         });
       });
     });
