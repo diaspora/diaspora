@@ -153,6 +153,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Set max-width for tag following button on tag page [#5752](https://github.com/diaspora/diaspora/pull/5752)
 * Display error messages for failed password change [#5580](https://github.com/diaspora/diaspora/pull/5580)
 * Display correct error message for too long tags [#5783](https://github.com/diaspora/diaspora/pull/5783)
+* Fix displaying reshares in the stream on mobile [#5790](https://github.com/diaspora/diaspora/pull/5790)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
