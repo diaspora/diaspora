@@ -16,24 +16,24 @@ describe("app.views.Photos", function() {
     }, this);
   });
 
-//  describe("initialize", function() {
-//    it("binds an infinite scroll listener", function() {
-//      spyOn($.fn, "scroll");
-//      new app.views.Stream({model : this.stream});
-//      expect($.fn.scroll).toHaveBeenCalled();
-//    });
-//  });
-//
-//  describe("#render", function() {
-//    beforeEach(function() {
-//      this.photo = this.stream.items.models[0];
-//      this.photoElement = $(this.view.$("#" + this.photo.get("guid")));
-//    });
-//
-//    context("when rendering a photo message", function() {
-//      it("shows the photo in the content area", function() {
-//        expect(this.photoElement.length).toBeGreaterThan(0); //markdown'ed
-//      });
-//    });
-//  });
+  describe("initialize", function() {
+    it("binds an infinite scroll listener", function() {
+      spyOn($.fn, "scroll");
+      new app.views.Stream({model : this.stream});
+      expect($.fn.scroll).toHaveBeenCalled();
+    });
+  });
+
+  describe("#render", function() {
+    beforeEach(function() {
+      this.photo = this.stream.items.models[0];
+      this.photoElement = $(this.view.$("#" + this.photo.get("guid")));
+    });
+
+    context("when rendering a photo message", function() {
+      it("shows the photo in the content area", function() {
+        expect(this.photoElement.length).toBeGreaterThan(0);
+      });
+    });
+  });
 });
