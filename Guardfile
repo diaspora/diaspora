@@ -37,3 +37,9 @@ guard :rubocop, all_on_start: false, keep_failed: false do
   watch(/(?:app|config|db|lib|features|spec)\/.+\.rb$/)
   watch(/(config.ru|Gemfile|Guardfile|Rakefile)$/)
 end
+
+guard :jshintrb do
+  watch(/^app\/assets\/javascripts\/.+\.js$/)
+  watch(/^lib\/assets\/javascripts\/.+\.js$/)
+  watch(/^spec\/javascripts\/.+\.js$/)
+end
