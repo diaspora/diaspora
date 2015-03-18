@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
                 :tags,
                 :open_publisher
 
-  layout ->(c) { request.format == :mobile ? "application" : "centered_with_header_with_footer" }
+  layout proc { request.format == :mobile ? "application" : "with_header_with_footer" }
 
   private
 

@@ -120,7 +120,6 @@ Diaspora::Application.routes.draw do
   get 'users/edit' => redirect('/user/edit')
 
   devise_for :users, :controllers => {:registrations => "registrations",
-                                      :passwords     => "passwords",
                                       :sessions      => "sessions"}
 
   #legacy routes to support old invite routes

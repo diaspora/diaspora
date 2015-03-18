@@ -5,8 +5,6 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
-  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }
-
   def update
     note = Notification.where(:recipient_id => current_user.id, :id => params[:id]).first
     if note

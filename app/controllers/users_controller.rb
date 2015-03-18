@@ -4,10 +4,6 @@
 
 class UsersController < ApplicationController
   before_action :authenticate_user!, :except => [:new, :create, :public, :user_photo]
-
-  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" },
-    only: [:privacy_settings, :edit, :update]
-
   respond_to :html
 
   def edit
@@ -127,10 +123,7 @@ class UsersController < ApplicationController
     @person   = @user.person
     @profile  = @user.profile
 
-    respond_to do |format|
-    format.mobile { render "users/getting_started" }
-    format.all { render "users/getting_started", layout: "with_header_with_footer" }
-    end
+    render "users/getting_started"
   end
 
   def getting_started_completed
@@ -159,7 +152,7 @@ class UsersController < ApplicationController
   def download_photos
     redirect_to current_user.exported_photos_file.url
   end
-  
+
   def user_photo
     username = params[:username].split('@')[0]
     user = User.find_by_username(username)

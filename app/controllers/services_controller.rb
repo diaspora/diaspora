@@ -9,8 +9,6 @@ class ServicesController < ApplicationController
   before_action :authenticate_user!
   before_action :abort_if_already_authorized, :abort_if_read_only_access, :only => :create
 
-  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }, only: [:index]
-
   respond_to :html
   respond_to :json, :only => :inviter
 

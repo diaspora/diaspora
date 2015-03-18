@@ -6,8 +6,6 @@ class PeopleController < ApplicationController
   before_action :authenticate_user!, except: [:show, :stream]
   before_action :find_person, only: [:show, :stream, :hovercard]
 
-  layout ->(c){ request.format == :mobile ? "application" : "with_header_with_footer" }
-
   respond_to :html, :except => [:tag_index]
   respond_to :json, :only => [:index, :show]
   respond_to :js, :only => [:tag_index]

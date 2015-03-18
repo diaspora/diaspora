@@ -4,7 +4,6 @@
 
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, :except => ['show']
-  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }, only: [:show, :edit]
 
   respond_to :html, :except => [:show]
   respond_to :js, :only => :update
