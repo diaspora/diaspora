@@ -13,9 +13,12 @@
           - if current_user.getting_started?
             = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",
               'data-title' => popover_with_close_html( '1. ' + t('shared.public_explain.share') ),
-              'data-content' => t('shared.public_explain.new_user_welcome_message')
+              'data-content' => t('shared.public_explain.new_user_welcome_message'),
+              'data-provide' => 'markdown'
           - else
-            = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}..."
+            = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1,
+            :placeholder => "#{t('contacts.index.start_a_conversation')}...",
+            'data-provide' => 'markdown'
           = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
 
           .row-fluid#photodropzone_container
