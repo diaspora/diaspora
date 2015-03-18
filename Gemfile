@@ -98,6 +98,7 @@ gem "rails-assets-markdown-it-sanitizer",               "0.2.2"
 gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.0"
 gem "rails-assets-markdown-it-sub",                     "0.1.0"
 gem "rails-assets-markdown-it-sup",                     "0.1.0"
+gem "rails-assets-bootstrap-markdown",                  "~> 1"
 
 # jQuery plugins
 

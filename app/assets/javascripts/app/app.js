@@ -15,6 +15,7 @@
 //= require_tree ./views
 
 //= require perfect-scrollbar
+//= require bootstrap-markdown
 
 var app = {
   collections: {},
