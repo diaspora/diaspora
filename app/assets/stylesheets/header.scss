@@ -20,6 +20,8 @@ body > header {
   top: 0;
   left: 0;
 
+  .header-bold *{font-weight: bold; }
+
   .diaspora_header_logo {
     float: left;
     height: $head_height;
@@ -71,10 +73,10 @@ body > header {
       margin: 0;
       padding: 0;
 
-      #caret{
+      .caret{
         margin: 0;
-        padding: 0;
-        color: $font_color;
+        border-top: 4px solid $font_color;
+        vertical-align: middle;
       }
 
       #user-id{
@@ -130,30 +132,29 @@ body > header {
   }
 
   // Rules for the navigation buttons on the left of the header
-  div.navbar-header > div {
-    ul#user-nav {
-      #notification-badge {
-        padding: 0;
-      }
 
-      > li > a, button {
-        margin: 0;
-        padding: 9px 15px;
-        text-shadow: 0 0 0;
-        color: $font_color;
-        text-align: center;
-
-        .entypo {
-          color: $font_color;
-          &.bell{ font-size: 16px; }
-          &.mail{ font-size: 18px; }
-        }
-      }
-
-      .header-badge,
-      .header-badge > div,
-      .header-badge > div > button{ width: 45px; }
+  ul#user-nav {
+    #notification-badge {
+      padding: 0;
     }
+
+    > li > a, button {
+      margin: 0;
+      padding: 9px 15px;
+      text-shadow: 0 0 0;
+      color: $font_color;
+      text-align: center;
+
+      .entypo {
+        color: $font_color;
+        &.bell{ font-size: 16px; }
+        &.mail{ font-size: 18px; }
+      }
+    }
+
+    .header-badge,
+    .header-badge > div,
+    .header-badge > div > button{ width: 45px; }
   }
 
   // Rules for the notitifications dropdown
@@ -273,15 +274,9 @@ body > header {
     margin: 0;
 
     form {
-      position: absolute;
-      height: $head_height - $mrgn_cntr_item;
       padding: 0 6px;
-      margin: 0;
-      right: 0;
 
       input {
-        box-shadow: 0 1px 1px #444;
-        border-radius: 4px;
         @include transition(width);
         background-color: #444;
         border: 1px solid #222;
@@ -291,14 +286,13 @@ body > header {
         height: $mrgn_cntr_height;
         width: 100px;
 
-        &:hover { background-color: #555; }
-
-        &.active { background-color: $highlight-white; }
+        &:hover, &.active { background-color: #555; }
 
         &:focus {
           outline: none;
+          box-shadow: none;
           background-color: white;
-          width: 150px;
+          width: 200px;
         }
       }
     }

@@ -6,6 +6,8 @@ app.views.NotificationDropdown = app.views.Base.extend({
   },
 
   initialize: function(){
+    $(document.body).click($.proxy(this.hideDropdown, this));
+
     this.notifications = [];
     this.perPage = 5;
     this.hasMoreNotifs = true;
@@ -13,8 +15,6 @@ app.views.NotificationDropdown = app.views.Base.extend({
     this.dropdown = this.$('#notifications-dropdown');
     this.dropdownNotifications = this.dropdown.find('#notifications-list');
     this.ajaxLoader = this.dropdown.find('.ajax-loader');
-
-    this.dropdown.on('click', function(evt){ evt.stopPropagation(); });
   },
 
   toggleDropdown: function(evt){
@@ -34,6 +34,21 @@ app.views.NotificationDropdown = app.views.Base.extend({
   },
 
   hideDropdown: function(evt){
+    var inHovercard = $.contains(app.hovercard.el, evt.target);
+    var inDropdown = $(evt.target).parents().is(this.dropdown);
+    if((inDropdown || inHovercard) && this.dropdownShowing()){
+      // All BS events are stopped by evt.stopPropagation()
+      // If the target is the aspect dropdown of an hovercard,
+      // we must handle itby hand.
+      evt.stopPropagation();
+      if(inHovercard){
+        var hvrCardDropdown = $(evt.target).parent();
+        if(hvrCardDropdown.hasClass('open')){ hvrCardDropdown.removeClass('open'); }
+        else{ hvrCardDropdown.addClass('open'); }
+      }
+      return;
+    }
+
     this.dropdownNotifications.perfectScrollbar('destroy');
   },
 

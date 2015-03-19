@@ -1,17 +1,16 @@
 <nav class="navbar navbar-default row-fluid" role="navigation">
   <div class="container-fluid offset1 span10">
-
     <div class="navbar-header">
-      <a href="/stream">
+      <a href="/stream" class="navbar-brand">
         <div alt="Logo_small" class="diaspora_header_logo branding-header-logo"></div>
       </a>
-    <div>
+    </div>
 
     <ul id="user-nav" class="nav navbar-nav">
-      <li>
+      <li class="header-bold">
           <a href="/stream">{{t "my_stream"}}</a>
       </li>
-      <li>
+      <li class="header-bold">
           <a href="/activity">{{t "my_activity"}}</a>
       </li>
 
@@ -56,7 +55,7 @@
         <img class="user-menu-avatar" alt="{{current_user.name}}"
           src="{{current_user.avatar.small}}" title="{{current_user.name}}"/>
         <span id="user-id" class="hidden-phone">{{current_user.name}}</span>
-        <span id="caret">▼</span>
+        <span class="caret"></span>
       </button>
       <ul class="dropdown-menu pull-right" role="menu">
         <!--
@@ -76,10 +75,10 @@
       </ul>
     </div>
 
-    <div id="global_search" class="hidden-tablet hidden-desktop">
+    <div id="global_search" class="form-group">
       <form id="header-search-form" accept-charset="UTF-8" action="/search" class="search_form" method="get">
         <input name="utf8" type="hidden" value="✓">
-        <input id="q" name="q" placeholder="{{t "header.search"}}" results="5" type="search" autocomplete="off" class="ac_input">
+        <input id="q" class="ac_input form-control" name="q" placeholder="{{t "header.search"}}" results="5" type="search" autocomplete="off">
       </form>
     </div>
 
