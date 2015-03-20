@@ -2,14 +2,15 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-ENV["RAILS_ENV"] ||= 'test'
-require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
-require Rails.root.join('spec', 'helper_methods')
-require Rails.root.join('spec', 'spec-doc')
-require 'rspec/rails'
-require 'webmock/rspec'
-require 'factory_girl'
-require 'sidekiq/testing'
+ENV["RAILS_ENV"] ||= "test"
+require File.join(File.dirname(__FILE__), "..", "config", "environment")
+require Rails.root.join("spec", "helper_methods")
+require Rails.root.join("spec", "spec-doc")
+require "rspec/rails"
+require "webmock/rspec"
+require "factory_girl"
+require "sidekiq/testing"
+require "shoulda/matchers"
 
 include HelperMethods
 
@@ -25,39 +26,39 @@ def set_up_friends
 end
 
 def alice
-  @alice ||= User.where(:username => 'alice').first
+  @alice ||= User.find_by(username: "alice")
 end
 
 def bob
-  @bob ||= User.where(:username => 'bob').first
+  @bob ||= User.find_by(username: "bob")
 end
 
 def eve
-  @eve ||= User.where(:username => 'eve').first
+  @eve ||= User.find_by(username: "eve")
 end
 
 def local_luke
-  @local_luke ||= User.where(:username => 'luke').first
+  @local_luke ||= User.find_by(username: "luke")
 end
 
 def local_leia
-  @local_leia ||= User.where(:username => 'leia').first
+  @local_leia ||= User.find_by(username: "leia")
 end
 
 def remote_raphael
-  @remote_raphael ||= Person.where(:diaspora_handle => 'raphael@remote.net').first
+  @remote_raphael ||= Person.find_by(diaspora_handle: "raphael@remote.net")
 end
 
 def peter
-  @peter ||= User.where(:username => 'peter').first
+  @peter ||= User.find_by(username: "peter")
 end
 
 def photo_fixture_name
-  @photo_fixture_name = File.join(File.dirname(__FILE__), 'fixtures', 'button.png')
+  @photo_fixture_name = File.join(File.dirname(__FILE__), "fixtures", "button.png")
 end
 
 # Force fixture rebuild
-FileUtils.rm_f(Rails.root.join('tmp', 'fixture_builder.yml'))
+FileUtils.rm_f(Rails.root.join("tmp", "fixture_builder.yml"))
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
@@ -100,4 +101,6 @@ RSpec.configure do |config|
   config.after(:each) do
     ActionMailer::Base.deliveries.clear
   end
+
+  config.include FactoryGirl::Syntax::Methods
 end
