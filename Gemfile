@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 source "https://rails-assets.org"
 
-gem "rails", "4.2.0"
+gem "rails", "4.2.1"
 
 # Legacy Rails features, remove me!
 
