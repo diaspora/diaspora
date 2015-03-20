@@ -4,7 +4,7 @@
 %hr
 - if AppConfig.settings.community_spotlight.enable?
   .text-center.spotlight
-    = link_to t('contacts.spotlight.community_spotlight'), community_spotlight_path, :class => "element_selector"
+    = link_to t('contacts.spotlight.community_spotlight'), community_spotlight_path, :class => "btn btn-link"
 .text-center
   .btn.btn-link{ 'data-toggle' => 'modal', 'data-target' => '#invitationsModal'}
     = t('invitations.new.invite_someone_to_join')
