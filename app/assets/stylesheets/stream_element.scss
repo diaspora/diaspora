@@ -140,7 +140,12 @@
     p:last-of-type {
       margin: 0;
     }
-
+    ul, ol {
+      margin-top:0.8em;
+      margin-bottom:0.8em;
+      &:first-child { margin-top: 0; }
+      &:nth-last-child(4){ margin-bottom: 0; }
+    }
     .expander {
       position: absolute;
       bottom: 0;
