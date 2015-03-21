@@ -11,9 +11,9 @@ module StreamHelper
     elsif controller.instance_of?(PostsController)
       public_stream_path(:max_time => time_for_scroll(@stream))
     elsif controller.instance_of?(StreamsController)
-      if current_page?(:stream)
+      if diaspora_current_page?(:stream)
         stream_path(:max_time => time_for_scroll(@stream))
-      elsif current_page?(:aspects_stream)
+      elsif diaspora_current_page?(:aspects_stream)
         aspects_stream_path(:max_time => time_for_scroll(@stream), :a_ids => session[:a_ids])
       else
         activity_stream_path(:max_time => time_for_scroll(@stream))

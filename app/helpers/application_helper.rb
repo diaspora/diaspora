@@ -61,4 +61,42 @@ module ApplicationHelper
     buf << [ javascript_tag("$.fx.off = true;") ] if Rails.env.test?
     buf.join("\n").html_safe
   end
+
+  # TODO: Revisit after Rails decision about https://github.com/rails/rails/pull/19378
+  #
+  # Replicates rails's [current_page?] method, so it respects the format appended to the url
+  # We should remove this method when [rails] update it.
+  #
+  # Let's say we're in the <tt>http://www.diaspora-pod-example.com/aspects.mobile</tt>
+  # diaspora_current_page?(:aspects)
+  # => true
+  #
+  def diaspora_current_page?(options)
+    unless request
+      raise "You cannot use helpers that need to determine the current " \
+             "page unless your view context provides a Request object " \
+             "in a #request method"
+    end
+
+    return false unless request.get? || request.head?
+
+    url_string = URI.parser.unescape(url_for(options)).force_encoding(Encoding::BINARY)
+
+    # We ignore any extra parameters in the request_uri if the
+    # submitted url doesn't have any either. This lets the function
+    # work with things like ?order=asc
+    request_uri = url_string.index("?") ? request.fullpath : request.path
+    request_uri = URI.parser.unescape(request_uri).force_encoding(Encoding::BINARY)
+
+    unless options.is_a?(Hash) && options[:format]
+      regexp = Regexp.new(request_uri.index("?") ? /[.].*(?=\?)/ : /[.].*$/)
+      request_uri.sub!(regexp, "")
+    end
+
+    if url_string =~ /^\w+:\/\//
+      url_string == "#{request.protocol}#{request.host_with_port}#{request_uri}"
+    else
+      url_string == request_uri
+    end
+  end
 end
