@@ -11,7 +11,7 @@
       = @post.likes.size
 
   %ul.comments
-    = render partial: "comments/comment", collection: @post.comments, locals: {post: @post}
+    = render partial: "comments/comment", collection: @post.comments.for_a_stream, locals: {post: @post}
 
     %li.comment.add_comment_bottom_link_container
       = link_to "#", class: "show_comments bottom_collapse active" do
