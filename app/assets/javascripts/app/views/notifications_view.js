@@ -68,7 +68,7 @@ app.views.Notifications = Backbone.View.extend({
 
     [all_notes, type_notes, header_badge].forEach(function(element){
       element.text(function(i, text){
-        return parseInt(text) + change });
+        return Math.max(parseInt(text) + change, 0) });
     });
 
     [all_notes, type_notes].forEach(function(badge) {
