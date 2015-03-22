@@ -97,38 +97,10 @@
     margin-left: 20px;
     padding-top: 20px;
     width: auto;
-    p {
-      margin: 0 0 1em 0;
-    }
+
+    .oembed { width: 95%; }
     .photo_attachments {
-      padding-bottom: 10px;
-      text-align: center;
-      img {
-        &.big_stream_photo {
-          display: block;
-          max-width: 90%;
-        }
-        &.thumb_small {
-          display: inline;
-          max-width: 50px;
-          max-height: 50px;
-        }
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 5px;
-      }
-    }
-    .oembed {
-      background: image-url("ajax-loader2.gif") no-repeat center center;
-      float: left;
-      width: 95%;
-      .thumb {
-        @include video-overlay;
-      }
-      iframe, .thumb img {
-        width: 100%;
-        min-height: 60%;
-      }
+      img.big_stream_photo { max-width: 90%; }
     }
   }
 }
