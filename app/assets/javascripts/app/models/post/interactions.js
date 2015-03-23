@@ -104,7 +104,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
       , flash = new Diaspora.Widgets.FlashMessages();
 
     reshare.save()
-      .done(function(){
+      .done(function(reshare) {
         flash.render({
           success: true,
           notice: Diaspora.I18n.t("reshares.successful")

@@ -4,15 +4,15 @@ describe 'locale files' do
   describe "cldr/plurals.rb" do
     AVAILABLE_LANGUAGE_CODES.each do |locale|
       describe "#{locale} plural rules" do
-        it "defines the keys" do
+        it "defines the keys for #{locale}" do
           I18n.with_locale locale do
             expect {
               I18n.t 'i18n.plural.keys'
             }.to_not raise_error
           end
         end
-        
-        it "defines a valid pluralization function" do
+
+        it "defines a valid pluralization function for #{locale}" do
           I18n.with_locale locale do
             expect {
               rule = I18n.t 'i18n.plural.rule', resolve: false
@@ -20,8 +20,8 @@ describe 'locale files' do
             }.to_not raise_error
           end
         end
-        
-        it "defines a valid javascript pluralization function" do
+
+        it "defines a valid javascript pluralization function for #{locale}" do
           I18n.with_locale locale do
             expect {
               ExecJS.eval I18n.t('i18n.plural.js_rule')
@@ -31,7 +31,7 @@ describe 'locale files' do
       end
     end
   end
-  
+
   AVAILABLE_LANGUAGE_CODES.each do |locale|
     ["diaspora/#{locale}.yml",
      "devise/devise.#{locale}.yml",
