@@ -76,30 +76,6 @@
         margin-right: 5px;
       }
     }
-    .youtube-player, .vimeo-player {
-      border: none;
-      height: 304px;
-      width: 410px;
-    }
-    .photo_attachments {
-      margin-top: 7px;
-      padding-bottom: 10px;
-      text-align: center;
-      img {
-        &.big_stream_photo {
-          display: block;
-          max-width: 90%;
-        }
-        &.thumb_small {
-          display: inline;
-          max-width: 50px;
-          max-height: 50px;
-        }
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 5px;
-      }
-    }
     .stream_photo {
       float: left;
       margin-top: 6px;
@@ -134,18 +110,6 @@
     overflow: hidden;
     position: relative;
 
-    p {
-      margin: 0 0 0.8em;
-    }
-    p:last-of-type {
-      margin: 0;
-    }
-    ul, ol {
-      margin-top:0.8em;
-      margin-bottom:0.8em;
-      &:first-child { margin-top: 0; }
-      &:nth-last-child(4){ margin-bottom: 0; }
-    }
     .expander {
       position: absolute;
       bottom: 0;
@@ -162,20 +126,6 @@
       border-radius: 0 0 3px 3px;
       @include linear-gradient(rgba(255,255,255,0) , #EEE, 0%, 95%);
       background-color: transparent;
-    }
-
-    .oembed {
-      background: image-url('ajax-loader2.gif') no-repeat center center;
-      float: left;
-      width: 100%;
-
-      .thumb {
-        @include video-overlay();
-      }
-
-      iframe, .thumb img {
-        width: 100%;
-      }
     }
   }
 
