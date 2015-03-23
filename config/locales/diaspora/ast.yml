@@ -86,7 +86,6 @@ ast:
       rename: "renomar"
       update: "anovar"
       updating: "anovando"
-    few: "%{count} aspeutos"
     helper:
       are_you_sure: "¿Tas seguru de que quies desaniciar esti aspeutu?"
       aspect_not_empty: "L'aspeutu nun ta baleru"
@@ -123,7 +122,6 @@ ast:
         heading: "Coneutar servicios"
       unfollow_tag: "Dexar de siguir #%{tag}"
       welcome_to_diaspora: "¡Afáyati en diaspora*, %{name}!"
-    many: "%{count} aspeutos"
     move_contact:
       error: "Error al mover el contautu: %{inspect}"
       failure: "%{inspect} nun funcionó"
@@ -152,7 +150,6 @@ ast:
       view_all_contacts: "Ver tolos contautos"
     show:
       edit_aspect: "editar aspeutu"
-    two: "%{count} aspeutos"
     update:
       failure: "El to aspeutu, %{name}, tenía un nome llargu enforma pa poder guardalu."
       success: "Editóse correutamente'l to aspeutu, %{name}."
@@ -165,23 +162,17 @@ ast:
     post_success: "¡Publicao! Zarrando."
   cancel: "Encaboxar"
   comments:
-    few: "%{count} comentarios"
-    many: "%{count} comentarios"
     new_comment:
       comment: "Comentariu"
       commenting: "Comentando..."
     one: "1 comentariu"
     other: "%{count} comentarios"
-    two: "%{count} comentarios"
     zero: "nun hai comentarios"
   contacts:
     create:
       failure: "Nun pudo crease'l contautu"
-    few: "%{count} contautos"
-    many: "%{count} contautos"
     one: "1 contautu"
     other: "%{count} contautos"
-    two: "%{count} contautos"
     zero: "contautos"
   delete: "Desaniciar"
   email: "Corréu electrónicu"

@@ -135,7 +135,6 @@ eo:
       rename: "alinomigi"
       update: "ĝisdatigi"
       updating: "ĝisdatigado"
-    few: "%{count} aspektoj"
     helper:
       are_you_sure: "Ĉu vi certas, ke vi volas forviŝi tiun ĉi aspekton?"
       aspect_not_empty: "Aspekto ne malplenas"
@@ -177,7 +176,6 @@ eo:
         heading: "Konekti Servojn"
       unfollow_tag: "Ne plu abonas #%{tag}."
       welcome_to_diaspora: "Bonvenon al Diaspora, %{name}!"
-    many: "%{count} aspektoj"
     move_contact:
       error: "Ne povis movi kontakton: %{inspect}"
       failure: "Eraro: %{inspect}"
@@ -206,7 +204,6 @@ eo:
       view_all_contacts: "Vidi ĉiujn kontaktojn"
     show:
       edit_aspect: "redakti aspekton"
-    two: "%{count} aspektoj"
     update:
       failure: "Via aspekto, %{name}, havis tro longan nomon por konserviĝi."
       success: "Via aspekto, %{name}, sukcese redaktiĝis."
@@ -226,19 +223,15 @@ eo:
     post_success: "Afiŝita! Fermanta!"
   cancel: "Nuligi"
   comments:
-    few: "%{count} komentoj"
-    many: "%{count} komentoj"
     new_comment:
       comment: "Komenti"
       commenting: "Komentanta..."
     one: "1 komento"
     other: "%{count} komentoj"
-    two: "%{count} komentoj"
     zero: "neniuj komentoj"
   contacts:
     create:
       failure: "Ne povis krei kontakton"
-    few: "%{count} kontaktoj"
     index:
       add_a_new_aspect: "Aldoni novan aspekton"
       add_to_aspect: "aldoni kontaktojn al %{name}"
@@ -251,11 +244,9 @@ eo:
       no_contacts_message: "Esploru %{community_spotlight}"
       no_contacts_message_with_aspect: "Esploru %{community_spotlight} aŭ %{add_to_aspect_link}"
       only_sharing_with_me: "Nur koniganta al mi"
-      remove_person_from_aspect: "Forigi %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Komenci interparoladon"
       title: "Kontaktoj"
       your_contacts: "Viaj kontaktoj"
-    many: "%{count} kontaktoj"
     one: "1 kontakto"
     other: "%{count} kontaktoj"
     sharing:
@@ -263,7 +254,6 @@ eo:
     spotlight:
       community_spotlight: "Komunuma ĉeflumo"
       suggest_member: "Sugesti membron"
-    two: "%{count} kontaktoj"
     zero: "kontaktoj"
   conversations:
     conversation:
@@ -271,8 +261,6 @@ eo:
     create:
       fail: "Malĝusta mesaĝo"
       sent: "Mesaĝo sendiĝis."
-    destroy:
-      success: "Konversacio sukcese forviŝiĝis."
     helper:
       new_messages:
         one: "1 nova mesaĝo"
@@ -533,7 +521,6 @@ eo:
       add_contact_from_tag: "aldoni kontakton de etikedo"
     aspect_list:
       edit_membership: "redakti membraron de aspekto"
-    few: "%{count} personoj"
     helper:
       is_not_sharing: "%{name} ne kunhavigas kun vi"
       is_sharing: "%{name} nun kunhavigas kun vi"
@@ -544,7 +531,6 @@ eo:
       no_results: "Hej! Vi devas serĉi ion."
       results_for: "serĉrezultoj por"
       searching: "serĉanta, bv. pacienci..."
-    many: "%{count} personoj"
     one: "1 persono"
     other: "%{count} personoj"
     person:
@@ -581,7 +567,6 @@ eo:
       add_some: "aldoni iujn"
       edit: "redakti"
       you_have_no_tags: "vi ne havas etikedojn!"
-    two: "%{count} homoj"
     webfinger:
       fail: "Ni bedaŭras, sed ni ne povis trovi je %{handle}."
     zero: "neniuj personoj"
@@ -676,7 +661,6 @@ eo:
       update: "Ĝisdatigi"
     invalid_invite: "La invitoligilo, kiun vi donis, ne plu validas!"
     new:
-      continue: "Daŭrigi"
       create_my_account: "Krei mian konton!"
       diaspora: "<3 DIASPORA*"
       email: "Retpoŝtadreso"
@@ -853,10 +837,7 @@ eo:
       no_message_to_display: "Neniu afiŝo montrenda."
     new:
       mentioning: "Mencianta: %{person}"
-    too_long:
-      one: "bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj"
-      other: "bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj"
-      zero: "bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj"
+    too_long: "{\"one\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\", \"other\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\", \"zero\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\"}"
   stream_helper:
     hide_comments: "kaŝi ĉiujn komentojn"
     show_comments:
@@ -897,7 +878,6 @@ eo:
       title: "publika aktiveco"
     tags:
       contacts_title: "Homoj, al kiuj tiuj ĉi etikedoj plaĉas"
-      tag_prefill_text: "La afero pri %{tag_name} estas... "
       title: "Afiŝoj etikeditaj: %{tags}"
   tag_followings:
     create:
@@ -911,10 +891,7 @@ eo:
     show:
       follow: "Aboni al #%{tag}"
       following: "Abonita al #%{tag}"
-      nobody_talking: "Ankoraŭ neniu parolas pri %{tag}."
       none: "Malplena etikedo ne ekzistas!"
-      people_tagged_with: "Personoj etikediĝis kun %{tag}"
-      posts_tagged_with: "Afiŝoj etikeditaj per #%{tag}"
       stop_following: "Malaboni de #%{tag}"
   terms_and_conditions: "Reguloj kaj kondiĉoj"
   undo: "Ĉu malfari?"
@@ -950,7 +927,6 @@ eo:
       current_password: "Nuna pasvorto"
       current_password_expl: "tiu per kiu vi ensalutis..."
       download_photos: "elŝuti miajn bildojn"
-      download_xml: "elŝuti mian XML-n"
       edit_account: "Redakti konton"
       email_awaiting_confirmation: "Ni sendis al vi aktivigan ligilon ĉe %{unconfirmed_email}.  Ĝis kiam vi klakos tiun ĉi ligilon kaj aktivigos la novan repoŝtadreson, ni uzados vian ĝisnunan retpoŝtadreson %{email}."
       export_data: "Eksporti datumojn"
@@ -959,7 +935,6 @@ eo:
       liked: "...iu ŝatis vian afiŝon?"
       mentioned: "...vi estas menciita en afiŝo?"
       new_password: "Nova pasvorto"
-      photo_export_unavailable: "bildeksporto aktuale ne eblas"
       private_message: "...vi ricevas malpublikan mesaĝon?"
       receive_email_notifications: "Ĉu ricevi retpoŝtajn sciigojn, kiam..."
       reshared: "... iu rekonigis vian afiŝon?"

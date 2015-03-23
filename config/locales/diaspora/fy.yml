@@ -51,16 +51,13 @@ fy:
   contacts:
     create:
       failure: "Koe gjin kontakt oanmeitsje"
-    few: "%{count} kontakten"
     index:
       add_to_aspect_link: "kontakten tafoegje oan %{name}"
       all_contacts: "Alle Kontakten"
       title: "Kontakten"
       your_contacts: "Dyn Kontakten"
-    many: "%{count} kontakten"
     one: "1 kontakt"
     other: "%{count} kontakten"
-    two: "%{count} kontakten"
     zero: "kontakten"
   conversations:
     create:
@@ -131,9 +128,7 @@ fy:
   password: "Wachtwurd"
   password_confirmation: "Wachtwurd konfirmaasje"
   people:
-    few: "%{count} minsken"
     one: "1 persoan"
-    two: "%{count} minsken"
     zero: "gjin minsken"
   previous: "foarrige"
   privacy: "Privacy"

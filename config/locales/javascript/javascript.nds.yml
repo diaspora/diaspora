@@ -29,6 +29,13 @@ nds:
       no_comments: "Dat gift noch keene Kommentore."
       show: "Alle Kommentore anzeigen"
     confirm_dialog: "Bist du seker?"
+    contacts:
+      add_contact: "Kontakt sluten"
+      aspect_list_is_not_visible: "Kontakte in dissen Aspekt künnt sick nich gegensiedich seihn."
+      aspect_list_is_visible: "Kontakte in dissen Aspekt künnt sick gegensiedich seihn."
+      error_add: "Kunn <%= name %> nich ton Aspekt dortodoon :("
+      error_remove: "Kunn <%= name %> nich ut den Aspekt wegmoken :("
+      remove_contact: "Kontakt wegmoken"
     conversation:
       participants: "Bedeeligte"
     delete: "Löschen"
@@ -49,18 +56,22 @@ nds:
       search: "Söken"
       settings: "Instellungen"
     ignore: "Ignoreren"
-    ignore_failed: "Kunn dissen Bruker nich ignoreren"
-    ignore_user: "Dissen Bruker ignoreren?"
+    ignore_failed: "Kunn dissen Benutter nich ignoreren"
+    ignore_user: "Dissen Benutter ignoreren?"
     infinite_scroll:
       no_more: "Keene Bidräg mehr."
       no_more_contacts: "Keene annern Kontakte."
     my_aspects: "Miene Aspekte"
     my_stream: "Stream"
+    no_results: "Keene Resultate funnen"
     notifications:
       mark_read: "As lesen markeren"
       mark_unread: "As unlesen markeren"
     people:
+      edit_my_profile: "Mien Profil ännern"
+      message: "Naricht"
       not_found: "un keener is funnen worrn..."
+      stop_ignoring: "Nich mehr ignoreren"
     photo_uploader:
       error: "Dat geev een Problem bin hoochladen von de Datei <%= file %>"
       looking_good: "OMG, du sühst toll ut!"
@@ -72,6 +83,14 @@ nds:
       result: "Resultat"
       show_result: "Resultat zeigen"
       vote: "Afstimmen"
+    profile:
+      born: "Geburtsdag"
+      contacts: "Kontakte"
+      edit: "ännern"
+      gender: "Geschlecht"
+      ignoring: "Du ignoreerst alle Bidräg von <%= name %>."
+      photos: "Biller"
+      posts: "Bidräg"
     publisher:
       add_option: "Do eene Antwort dorto"
       near_from: "Verfat von: <%= location %>"

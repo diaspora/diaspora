@@ -12,6 +12,7 @@ ia:
   _home: "Initio"
   _photos: "photos"
   _services: "Servicios"
+  _statistics: "Statisticas"
   _terms: "terminos"
   account: "Conto"
   activerecord:
@@ -87,8 +88,12 @@ ia:
       : si
     user_search:
       account_closing_scheduled: "Le conto de %{name} es planate a esser claudite. Illo essera processate in alcun momentos…"
+      account_locking_scheduled: "Le conto de %{name} es planate a esser blocate. Illo essera processate in alcun momentos…"
+      account_unlocking_scheduled: "Le conto de %{name} es planate a esser disblocate. Illo essera processate in alcun momentos…"
       add_invites: "adder invitationes"
       are_you_sure: "Es tu secur de voler clauder iste conto?"
+      are_you_sure_lock_account: "Es tu secur de voler blocar iste conto?"
+      are_you_sure_unlock_account: "Es tu secur de voler disblocar iste conto?"
       close_account: "clauder conto"
       email_to: "Adresse de e-mail a invitar"
       under_13: "Monstrar usatores con minus de 13 annos (COPPA)"
@@ -153,7 +158,6 @@ ia:
       set_visibility: "Definir visibilitate"
       update: "actualisar"
       updating: "actualisation in curso"
-    few: "%{count} aspectos"
     helper:
       are_you_sure: "Es tu secur de voler deler iste aspecto?"
       aspect_not_empty: "Aspecto non vacue"
@@ -198,7 +202,6 @@ ia:
         heading: "Connecter servicios"
       unfollow_tag: "Cessar de sequer #%{tag}"
       welcome_to_diaspora: "Benvenite a diaspora*, %{name}!"
-    many: "%{count} aspectos"
     move_contact:
       error: "Error durante le displaciamento del contacto: %{inspect}"
       failure: "non functionava %{inspect}"
@@ -227,7 +230,6 @@ ia:
       view_all_contacts: "Vider tote le contactos"
     show:
       edit_aspect: "modificar aspecto"
-    two: "%{count} aspectos"
     update:
       failure: "Tu aspecto, %{name}, ha un nomine troppo longe e non pote esser salveguardate."
       success: "Tu aspecto, %{name}, ha essite modificate con successo."
@@ -247,21 +249,18 @@ ia:
     post_success: "Invio succedite! Claude…"
   cancel: "Cancellar"
   comments:
-    few: "%{count} commentos"
-    many: "%{count} commentos"
     new_comment:
       comment: "Commentar"
       commenting: "Commenta…"
     one: "1 commento"
     other: "%{count} commentos"
-    two: "%{count} commentos"
     zero: "nulle commento"
   contacts:
     create:
       failure: "Creation de contacto fallite"
-    few: "%{count} contactos"
     index:
       add_a_new_aspect: "Adder un nove aspecto"
+      add_contact: "Adder contacto"
       add_to_aspect: "adder contactos a %{name}"
       add_to_aspect_link: "adder contactos a %{name}"
       all_contacts: "Tote le contactos"
@@ -272,11 +271,11 @@ ia:
       no_contacts_message: "Visita %{community_spotlight}"
       no_contacts_message_with_aspect: "Visita %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Solmente qui divide cosas con me"
-      remove_person_from_aspect: "Remover %{person_name} de \"%{aspect_name}\""
+      remove_contact: "Remover contacto"
       start_a_conversation: "Initiar un conversation"
       title: "Contactos"
+      user_search: "Recerca de usatores"
       your_contacts: "Tu contactos"
-    many: "%{count} contactos"
     one: "1 contacto"
     other: "%{count} contactos"
     sharing:
@@ -284,7 +283,6 @@ ia:
     spotlight:
       community_spotlight: "Usatores in evidentia"
       suggest_member: "Suggerer un membro"
-    two: "%{count} contactos"
     zero: "contactos"
   conversations:
     conversation:
@@ -294,7 +292,8 @@ ia:
       no_contact: "Tu debe adder le contacto primo."
       sent: "Message inviate"
     destroy:
-      success: "Conversation removite con successo"
+      delete_success: "Le conversation ha essite delite"
+      hide_success: "Le conversation ha essite celate"
     index:
       conversations_inbox: "Conversationes – Cassa de entrata"
       create_a_new_conversation: "initiar un nove conversation"
@@ -312,6 +311,7 @@ ia:
       fail: "Message non valide"
     show:
       delete: "deler e blocar conversation"
+      hide: "celar e silentiar conversation"
       reply: "responder"
       replying: "Responde…"
   date:
@@ -367,8 +367,15 @@ ia:
       what_is_an_aspect_q: "Que es un aspecto?"
       who_sees_post_a: "Si tu scribe un entrata limitate, illo essera visibile solmente al personas que tu ha mittite in ille aspecto (o in ille aspectos, si tu lo ha inviate a plure aspectos). Tu contactos que non es in le aspecto non potera vider le entrata si tu non lo ha rendite public. Solmente le entratas public es visibile a personas que tu non ha includite in un de tu aspectos."
       who_sees_post_q: "Quando io invia qualcosa a un aspecto, qui lo videra?"
+    chat:
+      add_contact_roster_a: "Primo tu debe activar le chat pro un del aspectos in le quales iste persona es presente. Pro facer isto, va al %{contacts_page}, selige le aspecto que tu vole e clicca sur le icone de chat pro activar le chat pro ille aspecto. %{toggle_privilege} Alternativemente, tu pote crear un aspecto special nominate 'Chat' e adder a ille aspecto le personas con qui tu vole chattar. Un vice que tu ha facite isto, aperi le interfacie de chat e selige le persona con qui tu vole chattar."
+      add_contact_roster_q: "Como pote io parlar in directo a qualcuno in diaspora*?"
+      contacts_page: "pagina de contactos"
+      title: "Chat"
+    faq: "FAQ"
     foundation_website: "le sito web del fundation diaspora"
     getting_help:
+      get_support_a_faq: "Lege nostre pagina de %{faq} sur le wiki"
       get_support_a_hashtag: "pone le question in un entrata public de diaspora* adjungente le etiquetta %{question}"
       get_support_a_irc: "veni a nos in %{irc} (conversation in directo)"
       get_support_a_tutorials: "lege nostre %{tutorials}"
@@ -387,6 +394,10 @@ ia:
       keyboard_shortcuts_li2: "k - saltar al previe entrata"
       keyboard_shortcuts_li3: "c - commentar le entrata actual"
       keyboard_shortcuts_li4: "l - appreciar le entrata actual"
+      keyboard_shortcuts_li5: "r - Repeter iste entrata"
+      keyboard_shortcuts_li6: "m - Displicar iste entrata"
+      keyboard_shortcuts_li7: "o - Aperir le prime ligamine in iste entrata"
+      keyboard_shortcuts_li8: "ctrl + enter - Inviar le message que tu ha scribite"
       keyboard_shortcuts_q: "Qual claves accelerator es disponibile?"
       title: "Claves accelerator"
     markdown: "Markdown"
@@ -637,7 +648,9 @@ ia:
       other: "%{actors} ha comenciate a divider cosas con te."
       zero: "%{actors} ha comenciate a divider cosas con te."
   notifier:
+    a_limited_post_comment: "Il ha un nove commento pro te sur un entrata limitate in diaspora*."
     a_post_you_shared: "un entrata."
+    a_private_message: "Il ha un nove message private pro te in diaspora*."
     accept_invite: "Accepta tu invitation a diaspora*!"
     click_here: "clicca hic"
     comment_on_post:
@@ -646,6 +659,48 @@ ia:
       click_link: "Pro activar tu nove adresse de e-mail %{unconfirmed_email}, per favor seque iste ligamine:"
       subject: "Per favor activa tu nove adresse de e-mail %{unconfirmed_email}"
     email_sent_by_diaspora: "Iste message ha essite inviate per %{pod_name}. Si tu non vole reciper altere e-mail como iste,"
+    export_email:
+      body: |-
+          Hallo %{name},
+
+          Le tue datos personal ha essite processate e preparate pro discargamento. Pro discargar, seque [iste ligamine](%{url}).
+
+          Amicalmente,
+
+          Le robot messagero de diaspora*!
+      subject: "Datos personal de %{name} preste pro discargamento"
+    export_failure_email:
+      body: |-
+          Hallo %{name},
+
+          Regrettabilemente, un problema ha occurrite durante le preparation de tu datos personal pro discargamento.
+          Per favor, essaya lo de novo!
+
+          Amicalmente,
+
+          Le robot messagero de diaspora*!
+      subject: "Problema con datos personal de %{name}"
+    export_photos_email:
+      body: |-
+          Hallo %{name},
+
+          Le tractamento de tu photos ha terminate e tu pote ora [discargar los per medio de iste ligamine](%{url}).
+
+          Amicalmente,
+
+          Le robot messagero de diaspora*!      
+      subject: "Photos de %{name} preste pro discargar"
+    export_photos_failure_email:
+      body: |-
+          Hallo %{name},
+
+          Un problema ha occurrite durante le tractamento de tu photos pro discargamento.
+          Per favor, essaya lo de novo!
+
+          Con regret,
+
+          Le robot messagero de diaspora*!       
+      subject: "Problema con photos de %{name}"
     hello: "Salute %{name}!"
     invite:
       message: |-
@@ -672,6 +727,22 @@ ia:
       subject: "%{name} te ha mentionate in diaspora*"
     private_message:
       reply_to_or_view: "Responde o lege iste conversation >"
+    remove_old_user:
+      body: |-
+          Salute,
+
+          A causa de inactivitate in tu conto de diaspora* a %{pod_url}, nos regretta de informar te que le systema ha marcate iste conto pro elimination. Isto occurre automaticamente post un periodo de inactivitate de plus de %{after_days} dies.
+
+          Tu pote evitar le perdita de iste conto per aperir session ante le %{remove_after}, in le qual caso le elimination essera automaticamente cancellate.
+
+          Isto es pro assecurar que nostre usatores active pote efficacemente utilisar le ressources de iste servitor de diaspora*. Gratias pro tu comprension.
+
+          Si tu vole retener tu conto, aperi session hic: %{login_url}
+
+          Sperante de vider te de novo,
+
+          Le robot de e-mail de diaspora*
+      subject: "Tu conto de diaspora* ha essite marcate pro elimination a causa de inactivitate"
     report_email:
       body: |-
           Salute,
@@ -716,7 +787,6 @@ ia:
       add_contact_from_tag: "adder contacto ab etiquetta"
     aspect_list:
       edit_membership: "modificar membrato del aspecto"
-    few: "%{count} personas"
     helper:
       is_not_sharing: "%{name} non divide cosas con te"
       is_sharing: "%{name} is sharing with you"
@@ -730,7 +800,6 @@ ia:
       search_handle: "Usa lor ID de diaspora* (p.ex. nominedeusator@pod.tld) pro cercar tu amicos."
       searching: "recerca in curso, un momento per favor..."
       send_invite: "Ancora nihil? Invia un invitation!"
-    many: "%{count} personas"
     one: "1 persona"
     other: "%{count} personas"
     person:
@@ -767,7 +836,6 @@ ia:
       add_some: "adder alcunes"
       edit: "modificar"
       you_have_no_tags: "tu non ha etiquettas!"
-    two: "%{count} personas"
     webfinger:
       fail: "%{handle} non ha essite trovate."
     zero: "nemo"
@@ -854,7 +922,6 @@ ia:
       update: "Actualisar"
     invalid_invite: "Le ligamine de invitation que tu ha fornite non plus es valide."
     new:
-      continue: "Continuar"
       create_my_account: "Crear mi conto!"
       diaspora: "<3 diaspora*"
       email: "E-MAIL"
@@ -1036,6 +1103,21 @@ ia:
       failed: "Verification human fallite"
       user: "Le imagine secrete e le codice differe"
     placeholder: "Scribe le valor del imagine"
+  statistics:
+    active_users_halfyear: "Usatores active per medie anno"
+    active_users_monthly: "Usatores active per mense"
+    closed: "Claudite"
+    disabled: "Non disponibile"
+    enabled: "Disponibile"
+    local_comments: "Commentos local"
+    local_posts: "Entratas local"
+    name: "Nomine"
+    network: "Rete"
+    open: "Aperte"
+    registrations: "Registrationes"
+    services: "Servicios"
+    total_users: "Total de usatores"
+    version: "Version"
   status_messages:
     create:
       success: "Ha essite mentionate: %{names}"
@@ -1045,8 +1127,7 @@ ia:
       no_message_to_display: "Nulle message a presentar."
     new:
       mentioning: "Mentiona: %{person}"
-    too_long:
-      other: "Per favor, non scribe plus de %{count} characteres in tu message de stato. In iste momento illo ha %{current_length} characteres."
+    too_long: "Per favor, non scribe plus de %{count} characteres in tu message de stato. In iste momento illo ha %{current_length} characteres."
   stream_helper:
     hide_comments: "Celar tote le commentos"
   streams:
@@ -1080,7 +1161,6 @@ ia:
       title: "Activitate public"
     tags:
       contacts_title: "Personas qui se interessa in iste etiquetta"
-      tag_prefill_text: "Le facto sur %{tag_name} es... "
       title: "Messages con etiquettas: %{tags}"
   tag_followings:
     create:
@@ -1091,17 +1171,11 @@ ia:
       failure: "Impossibile cessar de sequer #%{name}. Esque tu ha jam cessate de sequer lo?"
       success: "Guai! Tu non plus seque #%{name}."
   tags:
+    name_too_long: "Per favor, non scribe plus de %{count} characteres in le nomine del etiquetta. In iste momento illo ha %{current_length} characteres."
     show:
       follow: "Sequer #%{tag}"
-      followed_by_people:
-        one: "sequite per un persona"
-        other: "sequite per %{count} personas"
-        zero: "sequite per necuno"
       following: "Sequente #%{tag}"
-      nobody_talking: "Nemo parla ancora de \"%{tag}\"."
       none: "Le etiquetta vacue non existe!"
-      people_tagged_with: "Personas con etiquetta %{tag}"
-      posts_tagged_with: "Messages con etiquetta #%{tag}"
       stop_following: "Non plus sequer #%{tag}"
   terms_and_conditions: "Terminos e conditiones"
   undo: "Disfacer?"
@@ -1136,19 +1210,26 @@ ia:
       comment_on_post: "un persona commenta un entrata tue"
       current_password: "Contrasigno actual"
       current_password_expl: "illo con que tu aperi session..."
+      download_export: "Discargar mi profilo"
+      download_export_photos: "Discargar mi photos"
       download_photos: "discargar mi photos"
-      download_xml: "discargar mi XML"
       edit_account: "Modificar conto"
       email_awaiting_confirmation: "Nos te ha inviate un ligamine de activation al adresse %{unconfirmed_email}. Usque al momento que tu seque iste ligamine pro activar le nove adresse, nos va continuar a usar tu adresse original %{email}."
       export_data: "Exportar datos"
+      export_in_progress: "Le datos personal tue es actualmente sub preparation. Per favor, reveni in alcun momentos."
+      export_photos_in_progress: "Le tractamento de tu photos non ha ancora terminate. Per favor, essaya lo de novo in qualque momentos."
       following: "Configuration de divider"
       getting_started: "Preferentias de nove usator"
+      last_exported_at: "(Ultime actualisation: %{timestamp})"
       liked: "un persona apprecia un entrata tue"
       mentioned: "un persona te mentiona in un entrata sue"
       new_password: "Contrasigno nove"
-      photo_export_unavailable: "Le exportation de photos non es actualmente disponibile"
       private_message: "tu recipe un message private"
       receive_email_notifications: "Reciper notificationes per e-mail quando:"
+      request_export: "Requestar le datos de mi profilo"
+      request_export_photos: "Requestar mi photos"
+      request_export_photos_update: "Refrescar mi photos"
+      request_export_update: "Refrescar le datos de mi profilo"
       reshared: "un persona repete un entrata tue"
       show_community_spotlight: "Monstrar \"Usatores in evidentia\" in fluxo"
       show_getting_started: "Monstrar le avisos \"Como initiar\""
@@ -1171,6 +1252,7 @@ ia:
     privacy_settings:
       ignored_users: "Usatores ignorate"
       stop_ignoring: "Cessar de ignorar"
+      strip_exif: "Remover le metadatos, p.ex. localitate, autor, modello de camera, de imagines incargate (recommendate)"
       title: "Configuration de confidentialitate"
     public:
       does_not_exist: "Le usator %{username} non existe!"

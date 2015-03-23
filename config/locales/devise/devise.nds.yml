@@ -50,7 +50,7 @@ nds:
         password: "Passwoort"
         remember_me: "Erinner di an mi"
         sign_in: "Anmellen"
-        username: "Brukernaam"
+        username: "Benutternaam"
       signed_in: "Erfolgriek anmellt."
       signed_out: "Erfolgriek afmellt."
     shared:

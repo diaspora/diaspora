@@ -79,7 +79,6 @@ lv:
       rename: "pārsaukt"
       update: "atjaunot"
       updating: "atjauno"
-    few: "%{count} grupas"
     helper:
       are_you_sure: "Vai jūs tiešām vēlaties dzēst šo grupu?"
       aspect_not_empty: "Grupa nav tukša"
@@ -113,7 +112,6 @@ lv:
         heading: "Pieslēgt servisus"
       unfollow_tag: "Vairs nerādīt %{tag}"
       welcome_to_diaspora: "Laipni lūgti diaspora*, %{name}!"
-    many: "%{count} grupas"
     move_contact:
       error: "Kļūda pārvietojot kontaktu: %{inspect}"
       success: "Persona ir pārvietota jaunā grupā"
@@ -138,7 +136,6 @@ lv:
       view_all_contacts: "Skatīt visus kontaktus"
     show:
       edit_aspect: "labot grupu"
-    two: "%{count} grupas"
     update:
       failure: "Grupas %{name} nosaukums ir pārāk garš, lai to saglabātu."
       success: "Grupa %{name} tika veiksmīgi labota."
@@ -146,34 +143,26 @@ lv:
   back: "Atpakaļ"
   cancel: "Atcelt"
   comments:
-    few: "%{count} komentāri"
-    many: "%{count} komentāri"
     new_comment:
       comment: "Komentēt"
       commenting: "Komentē..."
     one: "1 komentārs"
     other: "%{count} komentāri"
-    two: "%{count} komentāri"
     zero: "nav komentāru"
   contacts:
     create:
       failure: "Neizdevās izveidot kontaktu"
-    few: "%{count} kontakti"
     index:
       add_a_new_aspect: "Pievienot jaunai grupai"
       start_a_conversation: "Sākt sarunu"
       title: "Kontakti"
       your_contacts: "Tavi kontakti"
-    many: "%{count} kontakti"
     one: "1 kontakts"
     other: "%{count} kontakti"
-    two: "%{count} kontakti"
     zero: "kontakti"
   conversations:
     create:
       sent: "Ziņa aizsūtīta"
-    destroy:
-      success: "Saruna tika veiksmīgi dzēsta"
     helper:
       new_messages:
         one: "1 jauna ziņa"

@@ -12,6 +12,8 @@ cs:
       all_aspects: "Všechny aspekty"
       error: "Nelze zahájit sdílení s <%= name %>.  Neignorujete je?"
       error_remove: "Nepodařilo se odstranit <%= name %> z aspektu :("
+      mobile_row_checked: "<%= name %> (odstranit)"
+      mobile_row_unchecked: "<%= name %> (přidat)"
       select_aspects: "Vybrat aspekty"
       started_sharing_with: "Začali jste sdílet s <%= name %>!"
       stopped_sharing_with: "Přestali jste sdílet s <%= name %>."
@@ -20,6 +22,7 @@ cs:
         one: "V <%= count %> aspektu"
         other: "V <%= count %> aspektech"
         zero: "V <%= count %> aspektech"
+      updating: "aktualizuji..."
     aspect_navigation:
       add_an_aspect: "+ Přidat aspekt"
       deselect_all: "Odznačit vše"
@@ -35,6 +38,15 @@ cs:
       no_comments: "Zatím nejsou žádné komentáře."
       show: "zobrazit všechny komentáře"
     confirm_dialog: "Jste si jisti?"
+    confirm_unload: "Prosím potvrďte, že chcete tuto stránku opustit - data, která jste vložil/a nebudou uložena."
+    contacts:
+      add_contact: "Přidej kontakt"
+      aspect_list_is_not_visible: "Kontakty v tomto aspektu se nemohou vzájemně vidět."
+      aspect_list_is_visible: "Kontakty v tomto aspektu se vzájemně vidí."
+      error_add: "Nelze přidat <%= name %> do tohoto aspektu :("
+      error_remove: "Nelze odebrat <%= name %> z tohoto aspektu :("
+      remove_contact: "Odstraň kontakt"
+      search_no_results: "Nenalezeny žádné kontakty"
     conversation:
       participants: "Účastníci"
     delete: "Odstranit"
@@ -42,6 +54,7 @@ cs:
     failed_to_like: "Oblíbení se nezdařilo!"
     failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
     failed_to_remove: "Odstranění záznamu selhalo!"
+    failed_to_reshare: "Znovusdílení selhalo"
     getting_started:
       alright_ill_wait: "Dobrá, počkám."
       hey: "Ahoj, <%= name %>!"
@@ -62,6 +75,8 @@ cs:
       search: "Hledat"
       settings: "Nastavení"
       view_all: "Zobrazit vše"
+    hide_post: "Skrýt tento příspěvek"
+    hide_post_failed: "Není možné tento příspěvek skrýt"
     ignore: "Ignorovat"
     ignore_failed: "Tohoto uživatele se nedaří ignorovat"
     ignore_user: "Ignorovat tohoto uživatele?"
@@ -71,11 +86,19 @@ cs:
     my_activity: "Moje aktivita"
     my_aspects: "Moje aspekty"
     my_stream: "Proud"
+    no_results: "Žádné výsledky nebyly nalezeny"
     notifications:
       mark_read: "Označit jako přečtené"
       mark_unread: "Označit jako nepřečtené"
     people:
+      edit_my_profile: "Upravte svůj profil"
+      helper:
+        is_not_sharing: "<%= name %> s Vámi nesdílí."
+        is_sharing: "<%= name %> s Vámi sdílí."
+      mention: "Zmínka"
+      message: "Zpráva"
       not_found: "… a nikdo nebyl nalezen."
+      stop_ignoring: "Přestaň ignorovat"
     photo_uploader:
       completed: "<%= file %> dokončen"
       empty: "{file} je prázdný, prosím vyberte soubory znovu bez něho."
@@ -89,9 +112,23 @@ cs:
         few: "zatím <%=count%> hlasy"
         one: "zatím 1 hlas"
         other: "zatím <%=count%> hlasů"
+      go_to_original_post: "Tohoto výzkumu se můžete účastnit zde\" <%= original_post_link %>"
+      original_post: "původní příspěvek"
       result: "Výsledek"
       show_result: "Ukázat výsledky"
       vote: "Hlasovat"
+    profile:
+      add_some: "přidat něco"
+      bio: "Něco o vás"
+      born: "Narozeniny"
+      contacts: "Kontakty"
+      edit: "upravit"
+      gender: "Pohlaví"
+      ignoring: "Ignorujete všechny příspěvky od <%= name %>."
+      location: "Pozice"
+      photos: "Fotky"
+      posts: "Příspěvky"
+      you_have_no_tags: "Nemáte žádné štítky"
     publisher:
       add_option: "Přidejte odpověď"
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
@@ -100,6 +137,7 @@ cs:
       option: "Odpověď"
       public: "Veřejný — váš příspěvek si bude moci přečíst kdokoliv a může být nalezen vyhledávači"
       question: "Otázka"
+    remove_post: "Odstranit tento příspěvek?"
     report:
       name: "Nahlášení"
       prompt: "Prosím, zadejte důvod:"
@@ -115,6 +153,8 @@ cs:
     show_more: "zobrazit více"
     stream:
       comment: "Okomentovat"
+      disable_post_notifications: "Zakázat upozornění pro tento příspěvek"
+      enable_post_notifications: "Povolit upozornění pro tento příspěvek"
       follow: "Sledovat"
       followed_tag:
         add_a_tag: "Přidat štítek"
@@ -171,6 +211,7 @@ cs:
       wordSeparator: " "
       year: "1 rokem"
       years: "%d roky"
+    unblock_failed: "Odblokování tohoto uživatele selhalo"
     videos:
       unknown: "Neznámý typ videa"
       watch: "Podívejte se na tohle video na <%= provider %>"

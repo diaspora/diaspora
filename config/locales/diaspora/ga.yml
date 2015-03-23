@@ -42,7 +42,6 @@ ga:
       rename: "athainmnigh"
       update: "uasdátaigh"
       updating: "nuashonrú"
-    few: "%{count} gnéithe"
     helper:
       remove: "bain"
     index:
@@ -55,7 +54,6 @@ ga:
         tag_feature: "gné"
       new_here:
         learn_more: "Breis eolais"
-    many: "%{count} gnéithe"
     new:
       create: "Cruthaigh"
     one: "gné amháin"
@@ -64,24 +62,20 @@ ga:
       family: "Gaolmhara"
       friends: "Cháirde"
       work: "Obair"
-    two: "%{count} gnéithe"
     zero: "gan ghnéithe"
   back: "Ar ais"
   cancel: "Cealaigh"
   contacts:
-    few: "%{count} teagmhálacha"
     index:
       all_contacts: "Gach Teagmhálacha"
       community_spotlight: "Spotsolas Pobail"
       my_contacts: "Mo Theagmhálacha"
       title: "Teagmhálacha"
       your_contacts: "Do Theagmhálacha"
-    many: "%{count} teagmhálacha"
     one: "Teagmháil amháin"
     other: "%{count} teagmhálacha"
     spotlight:
       community_spotlight: "Spotsolas Pobail"
-    two: "%{count} teagmhálacha"
     zero: "teagmhálacha"
   conversations:
     index:
@@ -143,8 +137,6 @@ ga:
   password: "Pasfhocal"
   password_confirmation: "Deimhniú pásfhocal"
   people:
-    few: "%{count} daoine"
-    many: "%{count} daoine"
     one: "duine amháin"
     other: "%{count} daoine"
     person:
@@ -155,7 +147,6 @@ ga:
       location: "Suíomh"
     show:
       message: "Teachtaireacht"
-    two: "%{count} daoine"
     zero: "gan duine"
   photos:
     destroy:

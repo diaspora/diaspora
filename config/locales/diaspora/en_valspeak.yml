@@ -173,7 +173,6 @@ en_valspeak:
       set_visibility: "Set look at prefs"
       update: "make like... newer..."
       updating: "makin like... newer..."
-    few: "%{count} aspectz"
     helper:
       are_you_sure: "R u sure u wanna trash this aspect? Like, RLLY sure? Totally SURE?"
       aspect_not_empty: "Umm, the aspect is like... not empty..."
@@ -218,7 +217,6 @@ en_valspeak:
         heading: "connect like... other stuff.."
       unfollow_tag: "Stop creepin on ppl who like... post stuff usin %{tag}"
       welcome_to_diaspora: "OMG HEY! Like, welcome to diaspora*, %{name}. its pretty bitchin' n has electrolytes(;"
-    many: "%{count} aspectz"
     move_contact:
       error: "Like, there was drama when movin BFF: %{inspect}"
       failure: "like... didn't work.. %{inspect}"
@@ -247,7 +245,6 @@ en_valspeak:
       view_all_contacts: "View all BFFs <3"
     show:
       edit_aspect: "like... edit aspect"
-    two: "%{count} aspectz"
     update:
       failure: "Ur group, %{name}, had like... a rlly long name.. so yeah... it wasnt saved... sry :\\"
       success: "Ur aspect, %{name}, has like... not flipped out. So ur good!(:"
@@ -267,21 +264,18 @@ en_valspeak:
     post_success: "its like posted nao... byez! <3"
   cancel: "Nvm"
   comments:
-    few: "OMG! u got like %{count} commentz!!!"
-    many: "OMG! u got like %{count} commentz!!!"
     new_comment:
       comment: "say somethin"
       commenting: "sayin somethin"
     one: "OMG! u got a comment!!!"
     other: "OMG! u got like %{count} commentz!!!"
-    two: "OMG! u got like %{count} commentz!!!"
     zero: "like... no commentz :("
   contacts:
     create:
       failure: "there was like... drama when makin a BFF"
-    few: "%{count} BFFs"
     index:
       add_a_new_aspect: "add a new aspect!"
+      add_contact: "Add BFF <3"
       add_to_aspect: "add BFFs 2 %{name}"
       add_to_aspect_link: "add BFFs 2 %{name}"
       all_contacts: "All BFFs!!"
@@ -292,10 +286,11 @@ en_valspeak:
       no_contacts_message: "OMG! u should like... check out %{community_spotlight}"
       no_contacts_message_with_aspect: "OMG! u should like totally check out %{community_spotlight} or like... %{add_to_aspect_link}"
       only_sharing_with_me: "only sharin wit me"
+      remove_contact: "Trash BFF :("
       start_a_conversation: "start a like... convo"
       title: "BFFs"
+      user_search: "Ppl stalk"
       your_contacts: "ur BFFs"
-    many: "%{count} BFFs"
     one: "1 BFF"
     other: "%{count} BFFs"
     sharing:
@@ -303,7 +298,6 @@ en_valspeak:
     spotlight:
       community_spotlight: "d* celebz!! <3"
       suggest_member: "Suggest a membah!!(:"
-    two: "%{count} BFFs"
     zero: "BFFs"
   conversations:
     conversation:
@@ -312,8 +306,6 @@ en_valspeak:
       fail: "bad txt"
       no_contact: "Umm HELLO, u need 2 like, add them first! Duh!"
       sent: "txt sent"
-    destroy:
-      success: "there was like... no drama when removin message! tubular!!"
     helper:
       new_messages:
         one: "1 new txts! ZOMG!!!"
@@ -777,7 +769,6 @@ en_valspeak:
       add_contact_from_tag: "add BFF frum tag"
     aspect_list:
       edit_membership: "like.. edit aspect membership n junk"
-    few: "%{count} ppl"
     helper:
       is_not_sharing: "%{name} is not sharin wit u :("
       is_sharing: "%{name} is sharin wit u!!"
@@ -791,7 +782,6 @@ en_valspeak:
       search_handle: "use their d* ID (usahname@pod.tld) to b for sure 2 find ur BFFs."
       searching: "im lookin, brb... <3"
       send_invite: "still nothin? :( send an invite!!! :DDD"
-    many: "%{count} ppl"
     one: "1 personz"
     other: "%{count} ppl"
     person:
@@ -828,7 +818,6 @@ en_valspeak:
       add_some: "like... add sum"
       edit: "edit!"
       you_have_no_tags: "Umm, u like have no tagz! Duh!"
-    two: "%{count} ppl"
     webfinger:
       fail: "sry, we cant find %{handle}"
     zero: "no ppl"
@@ -923,7 +912,6 @@ en_valspeak:
       update: "Like... update"
     invalid_invite: "OMG, dude, ur invite link is like... SOOOO old... like... gross. so like, sry but its no longer valid. Kthxbye<3"
     new:
-      continue: "Continuah!"
       create_my_account: "Make ur account!!! :DD"
       diaspora: "<33 diaspora*"
       email: "EMAIL<3"
@@ -1127,8 +1115,7 @@ en_valspeak:
       no_message_to_display: "No txt 2 display :("
     new:
       mentioning: "Mentionin: %{person}"
-    too_long:
-      other: "Plz make ur status txt smaller than %{count} key presses. Right nao its like... %{current_length} key presses"
+    too_long: "Plz make ur status txt smaller than %{count} key presses. Right nao its like... %{current_length} key presses"
   stream_helper:
     hide_comments: "Cover up... like... all commentz"
     show_comments:
@@ -1166,7 +1153,6 @@ en_valspeak:
       title: "Stuff every1 can like... c"
     tags:
       contacts_title: "Ppl who <3 this tag"
-      tag_prefill_text: "Umm, so the thing bout %{tag_name} is... "
       title: "Posties tagged: %{tags}"
   tag_followings:
     create:
@@ -1179,15 +1165,8 @@ en_valspeak:
   tags:
     show:
       follow: "Follow like... #%{tag}"
-      followed_by_people:
-        one: "followed by one person!! ZOMG!"
-        other: "ZOMG! this is like, followed by %{count} ppl!!!"
-        zero: "no1 is followin u :("
       following: "Followin #%{tag}"
-      nobody_talking: "No1 is like... talkin bout %{tag} yet :\\"
       none: "Umm, so the like... empty tag doesnt like... exist :\\"
-      people_tagged_with: "Ppl tagged wit %{tag}"
-      posts_tagged_with: "Posties tagged wit #%{tag}"
       stop_following: "Stop like... followin #%{tag}"
   terms_and_conditions: "wat ur like... allowed to do and stuff"
   undo: "do u wanna like.. undo?"
@@ -1223,7 +1202,6 @@ en_valspeak:
       current_password: "Current passwerd :3"
       current_password_expl: "the 1 u like sign in wit... OMG"
       download_photos: "dl mah picz"
-      download_xml: "dl my stuff"
       edit_account: "Edit ur account <3"
       email_awaiting_confirmation: "So we like... sent u a link 2 like activate %{unconfirmed_email}. Until u like... follow this link && activate this new addy, we will continue 2 like.. use ur original addy %{email}. Kay?"
       export_data: "dl data!!!"
@@ -1232,7 +1210,6 @@ en_valspeak:
       liked: "some1 likes ur postie"
       mentioned: "u r mentioned in a postie"
       new_password: "New passwerd(;"
-      photo_export_unavailable: "Pic downloadin not available... sry bout that :\\"
       private_message: "u receive a sext :o"
       receive_email_notifications: "Receive email noties when like:"
       reshared: "some1 reshares ur postie"

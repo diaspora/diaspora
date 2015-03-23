@@ -12,6 +12,7 @@ pl:
   _home: "Główna"
   _photos: "zdjęcia"
   _services: "Usługi"
+  _statistics: "Statystyki"
   _terms: "warunki"
   account: "Konto"
   activerecord:
@@ -176,10 +177,13 @@ pl:
       success: "%{name} został usunięty."
     edit:
       add_existing: "Dodaj istniejący kontakt"
+      aspect_chat_is_enabled: "Kontakty w tym aspekcie mogą z tobą czatować."
+      aspect_chat_is_not_enabled: "Kontakty w tym aspekcie nie mogą z tobą czatować."
       aspect_list_is_not_visible: "Kontakty z tego aspektu nie widzą się nawzajem."
       aspect_list_is_visible: "Kontakty z tego aspektu mogą zobaczyć się nawzajem."
       confirm_remove_aspect: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"
       done: "Zrobione"
+      grant_contacts_chat_privilege: "przyznać kontaktom z aspektu prawa do czatu?"
       make_aspect_list_visible: "ustawić kontakty w tym aspekcie jako widoczne dla wszystkich?"
       manage: "Zarządzaj"
       remove_aspect: "Usuń ten aspekt"
@@ -187,7 +191,6 @@ pl:
       set_visibility: "Ustaw widoczność"
       update: "aktualizuj"
       updating: "aktualizowanie"
-    few: "Aspekty: %{count}"
     helper:
       are_you_sure: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"
       aspect_not_empty: "Aspekt nie jest pusty"
@@ -232,7 +235,6 @@ pl:
         heading: "Podłącz usługi"
       unfollow_tag: "Przestań obserwować #%{tag}"
       welcome_to_diaspora: "Witaj w Diasporze, %{name}!"
-    many: "Aspekty: %{count}"
     move_contact:
       error: "Błąd przy przenoszeniu kontaktu: %{inspect}"
       failure: "nie zadziałało %{inspect}"
@@ -261,7 +263,6 @@ pl:
       view_all_contacts: "Wyświetl wszystkie kontakty"
     show:
       edit_aspect: "edycja aspektu"
-    two: "Aspekty: %{count}"
     update:
       failure: "Aspekt %{name} nie mógł zostać zapisany z powodu zbyt długiej nazwy."
       success: "Edycja aspektu %{name} powiodła się."
@@ -281,21 +282,18 @@ pl:
     post_success: "Wpis został opublikowany! Okno zostanie zamknięte!"
   cancel: "Anuluj"
   comments:
-    few: "Komentarze: %{count}"
-    many: "Komentarze: %{count}"
     new_comment:
       comment: "Skomentuj"
       commenting: "Dodawanie komentarza..."
     one: "1 komentarz"
     other: "Komentarze: %{count}"
-    two: "Komentarze: %{count}"
     zero: "brak komentarzy"
   contacts:
     create:
       failure: "Nie udało się utworzyć kontaktu"
-    few: "%{count} kontakty"
     index:
       add_a_new_aspect: "Dodaj aspekt"
+      add_contact: "Dodaj kontakt"
       add_to_aspect: "dodaj kontakty do %{name}"
       add_to_aspect_link: "dodaj kontakty do %{name}"
       all_contacts: "Wszystkie kontakty"
@@ -306,11 +304,11 @@ pl:
       no_contacts_message: "Sprawdź kto jest %{community_spotlight}"
       no_contacts_message_with_aspect: "Sprawdź kto jest w %{community_spotlight} lub %{add_to_aspect_link}"
       only_sharing_with_me: "Udostępniający tylko mnie"
-      remove_person_from_aspect: "Usuń %{person_name} z aspektu \"%{aspect_name}\""
+      remove_contact: "Usuń kontakt"
       start_a_conversation: "Rozpocznij rozmowę"
       title: "Kontakty"
+      user_search: "Wyszukiwanie użytkowników"
       your_contacts: "Twoje kontakty"
-    many: "%{count} kontaktów"
     one: "1 kontakt"
     other: "%{count} kontaktów"
     sharing:
@@ -318,7 +316,6 @@ pl:
     spotlight:
       community_spotlight: "W centrum uwagi społeczności"
       suggest_member: "Zasugeruj członka"
-    two: "%{count} kontakty"
     zero: "kontakty"
   conversations:
     conversation:
@@ -328,7 +325,8 @@ pl:
       no_contact: "Hej! Najpierw należy dodać kontakt!"
       sent: "Wiadomość została wysłana"
     destroy:
-      success: "Pomyślnie usunięto rozmowę"
+      delete_success: "Rozmowa usunięta"
+      hide_success: "Rozmowa ukryta"
     helper:
       new_messages:
         few: "%{count} nowe wiadomości"
@@ -353,6 +351,7 @@ pl:
       fail: "Nieprawidłowa wiadomość"
     show:
       delete: "usuń rozmowę"
+      hide: "ukryj i wycisz rozmowę"
       reply: "odpowiedz"
       replying: "Odpowiadanie..."
   date:
@@ -428,6 +427,9 @@ pl:
       keyboard_shortcuts_li2: "k - przejdź do poprzedniego wpisu"
       keyboard_shortcuts_li3: "c - skomentuj bieżacy wpis"
       keyboard_shortcuts_li4: "l - polub bieżący wpis"
+      keyboard_shortcuts_li5: "r - Przekaż dalej bieżący wpis"
+      keyboard_shortcuts_li6: "m - Rozwiń bieżący wpis"
+      keyboard_shortcuts_li7: "o - Otwórz pierwszy link w bieżącym wpisie"
       keyboard_shortcuts_q: "Jakie skróty klawiszowe są dostępne?"
       title: "Skróty klawiszowe"
     markdown: "Markdown"
@@ -749,7 +751,9 @@ pl:
       other: "%{actors} zaczęli/ły Ci udostępniać."
       zero: "%{actors} zaczęli Ci udostępniać."
   notifier:
+    a_limited_post_comment: "Pojawił się nowy komentarz w ograniczonym wpisie na diasporze*. Zapoznaj się z nim."
     a_post_you_shared: "wpis."
+    a_private_message: "Masz nową wiadomość w diaspora*"
     accept_invite: "Zaakceptuj zaproszenie do diaspory*!"
     click_here: "kliknij tutaj"
     comment_on_post:
@@ -758,6 +762,27 @@ pl:
       click_link: "Aby aktywować nowy adres e-mail %{unconfirmed_email}, kliknij to łącze:"
       subject: "Aktywuj nowy adres e-mail %{unconfirmed_email}"
     email_sent_by_diaspora: "Ta wiadomość została wysłana przez %{pod_name}. Jeśli nie chcesz otrzymywać takich wiadomości,"
+    export_email:
+      body: |-
+          Dzień dobry %{name},
+
+          Twoje dane zostały przetworzone i są już gotowe do pobrania przez przejście pod [ten link](%{url}).
+
+          Trzymaj się!
+
+          Automat e-mailowy diaspory*.
+      subject: "Twoje prywatne dane są gotowe do pobrania, %{name}"
+    export_failure_email:
+      body: |-
+          Cześć %{name},
+
+          Napotkaliśmy na problem podczas przetwarzania Twoich prywatnych danych do pobrania.
+          Spróbuj ponownie!
+
+          Na razie!
+
+          Automat e-mailowy diaspory*.
+      subject: "Przykro nam, %{name}, ale wystąpił problem z Twoimi danymi"
     hello: "Cześć %{name}!"
     invite:
       message: |-
@@ -784,6 +809,22 @@ pl:
       subject: "%{name} wspomniał o Tobie na diasporze*"
     private_message:
       reply_to_or_view: "Odpowiedz lub wyświetl wątek >"
+    remove_old_user:
+      body: |-
+          Witaj,
+
+          Wygląda na to, że nie zależy Ci już na koncie na %{pod_url}, skoro nie używałeś go przez %{after_days} dni. Aby upewnić się co do jak najlepszej wydajności tego poda diaspory*, chcielibyśmy usunąć porzucone konta z naszej bazy danych.
+
+          Bardzo chcemy, abyś pozostał częścią społeczności diaspory*. Zatrzymaj to konto, jeśli tylko chcesz.
+
+          Jeśli chcesz, aby Twoje konto nie zostało usunięte, wystarczy, że zalogujesz się na nie przed %{remove_after}. Po zalogowaniu poświęć kilka chwil, aby rozejrzeć się po diasporze*. Zmieniła się bardzo, odkąd ostatnio się logowałeś. Mamy nadzieję, że przypadną Ci do gustu ulepszenia, jakie wprowadziliśmy. Obserwuj różne #tagi, żeby odkryć treści, które polubisz.
+
+          Zaloguj się tu: %{login_url}. Jeśli zapomniałeś danych do logowania, możesz na tej stronie poprosić o przypomnienie ich.
+
+          Do zobaczenia, mam nadzieję.
+
+          Automat e-mailowy diaspory*!
+      subject: "Twoje konto zostało przeznaczone do usunięcia z powodu braku aktywności."
     report_email:
       body: |-
           Witaj!
@@ -826,7 +867,6 @@ pl:
       add_contact_from_tag: "Dodaj znajomego ze znacznika"
     aspect_list:
       edit_membership: "edycja przynależności do aspektów"
-    few: "Osoby: %{count}"
     helper:
       is_not_sharing: "%{name} Ci nie udostępnia."
       is_sharing: "%{name} udostępnia Ci."
@@ -840,7 +880,6 @@ pl:
       search_handle: "Użyj identyfikatora diaspory* (użytkownik@pod.example.com) aby mieć pewność, że znajdziesz swoich znajomych."
       searching: "wyszukiwanie, proszę czekać..."
       send_invite: "Wciąż nic nowego? Wyślij zaproszenie!"
-    many: "Osoby: %{count}"
     one: "1 osoba"
     other: "Osoby: %{count}"
     person:
@@ -877,7 +916,6 @@ pl:
       add_some: "dodaj"
       edit: "edycja"
       you_have_no_tags: "nie masz znaczników!"
-    two: "Osoby: %{count}"
     webfinger:
       fail: "Nie odnaleziono %{handle}."
     zero: "nie ma nikogo"
@@ -976,7 +1014,6 @@ pl:
       update: "Aktualizacja"
     invalid_invite: "Podane łącze do zaproszenia jest nieważne!"
     new:
-      continue: "Kontynuuj"
       create_my_account: "Utwórz konto!"
       diaspora: "<3 diaspora*"
       email: "E-MAIL"
@@ -1186,10 +1223,11 @@ pl:
       no_message_to_display: "Brak wiadomości do wyświetlenia."
     new:
       mentioning: "Wspominasz o: %{person}"
-    too_long:
-      other: "Skróć swoją wiadomość statusową poniżej %{count} znaków. Obecnie jej długość to %{current_length} znaków."
+    too_long: "Skróć swoją wiadomość statusową poniżej %{count} znaków. Obecnie jej długość to %{current_length} znaków."
   stream_helper:
     hide_comments: "Ukryj wszystkie komentarze"
+    no_more_posts: "Dotarłeś do końca strumienia."
+    no_posts_yet: "Nie ma jeszcze żadnych wpisów."
     show_comments:
       few: "Wyświetl %{count} komentarze więcej"
       many: "Wyświetl %{count} komentarzy więcej"
@@ -1227,7 +1265,6 @@ pl:
       title: "Działalność publiczna"
     tags:
       contacts_title: "Osoby, które wykopały ten znacznik"
-      tag_prefill_text: "Jeśli chodzi o %{tag_name}, to... "
       title: "Oznaczone wpisy: %{tags}"
   tag_followings:
     create:
@@ -1238,20 +1275,18 @@ pl:
       failure: "Nie udało się zatrzymać obserwowania: #% {name}. Może już tego nie obserwujesz?"
       success: "Nie obserwujesz już: #%{name}"
   tags:
+    name_too_long: "Proszę skróć nazwę taga do mniej niż %{count} znaków. Obecnie zawiera %{current_length} znaków."
     show:
       follow: "Obserwuj #%{tag}"
-      followed_by_people:
-        few: "obserwowane przez %{count} osoby"
-        many: "obserwowane przez %{count} osób"
-        one: "obserwowane przez jedną osobę"
-        other: "obserwowane przez %{count} osób."
-        zero: "nie obserwowane przez nikogo"
       following: "Obserwowanie #%{tag}"
-      nobody_talking: "Nikt jeszcze nie rozmawia o %{tag}."
       none: "Pusty znacznik nie istnieje!"
-      people_tagged_with: "Osoby oznaczone jako #%{tag}"
-      posts_tagged_with: "Wpisy oznaczone jako #%{tag}"
       stop_following: "Przestań obserwować #%{tag}"
+      tagged_people:
+        few: "%{count} osoby otagowane %{tag}"
+        many: "%{count} osób otagowanych %{tag}"
+        one: "1 osoba otagowana %{tag}"
+        other: "%{count} osób otagowanych %{tag}"
+        zero: "Nikogo otagowanego %{tag}"
   terms_and_conditions: "Regulamin"
   undo: "Cofnąć?"
   username: "Nazwa użytkownika"
@@ -1285,8 +1320,8 @@ pl:
       comment_on_post: "...ktoś dodał komentarz do mojego wpisu"
       current_password: "Bieżące hasło"
       current_password_expl: "to, którego używasz do logowania"
+      download_export: "Pobierz mój profil"
       download_photos: "pobierz moje zdjęcia"
-      download_xml: "pobierz mój xml"
       edit_account: "Edycja konta"
       email_awaiting_confirmation: "Łącze aktywacyjne zostało wysłane na adres \"%{unconfirmed_email}\". Do momentu kliknięcia łącza i aktywacji nowego adresu, nadal będziemy korzystać z obecnego \"%{email}\"."
       export_data: "Eksport danych"
@@ -1295,9 +1330,9 @@ pl:
       liked: "...ktoś polubił mój wpis"
       mentioned: "...ktoś wspomniał mnie we wpisie"
       new_password: "Nowe hasło"
-      photo_export_unavailable: "Eksportowanie zdjęć jest aktualnie niedostępne"
       private_message: "...otrzymam prywatną wiadomość"
       receive_email_notifications: "Wysyłaj powiadomienia e-mail jeśli..."
+      request_export: "Poproś o dane mojego profilu"
       reshared: "...ktoś przekazał dalej mój wpis"
       show_community_spotlight: "Wyświetlić wyróżnionych użytkowników w Strumieniu?"
       show_getting_started: "Ponownie włącz - Pierwsze kroki"
@@ -1319,6 +1354,7 @@ pl:
       who_are_you: "Kim jesteś?"
     privacy_settings:
       ignored_users: "Ignorowani użytkownicy"
+      no_user_ignored_message: "Nie ignorujesz żadnego użytkownika"
       stop_ignoring: "Przestań ignorować"
       title: "Ustawienia prywatności"
     public:

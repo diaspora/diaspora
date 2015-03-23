@@ -141,10 +141,13 @@ el:
       success: "Ο/Η %{name} αφαιρέθηκε επιτυχώς."
     edit:
       add_existing: "Πρόσθεσε μια υπάρχουσα επαφή"
+      aspect_chat_is_enabled: "Οι επαφές σε αυτήν την πτυχή μπορούν να συνομιλήσουν μαζί σου."
+      aspect_chat_is_not_enabled: "Οι επαφές σε αυτήν την πτυχή δεν μπορούν να συνομιλήσουν μαζί σου."
       aspect_list_is_not_visible: "η λίστα σου είναι κρυφή στους άλλους στην πτυχή"
       aspect_list_is_visible: "η λίστα σου είναι ορατή στους άλλους στην πτυχή"
       confirm_remove_aspect: "Θέλεις σίγουρα να διαγράψεις αυτή την πτυχή;"
       done: "Ολοκληρώθηκε"
+      grant_contacts_chat_privilege: "Θες να δώσεις δικαίωμα συνομιλίας στις επαφές αυτής της πτυχής;"
       make_aspect_list_visible: "θέλεις οι επαφές αυτής της πτυχής να είναι ορατές μεταξύ τους;"
       manage: "Διαχείριση"
       remove_aspect: "Διαγραφή αυτής της πτυχής"
@@ -152,7 +155,6 @@ el:
       set_visibility: "Ορισμός ορατότητας"
       update: "ενημέρωση"
       updating: "ενημέρωση"
-    few: "%{count} πτυχές"
     helper:
       are_you_sure: "Θέλεις σίγουρα να διαγράψεις αυτή την πτυχή;"
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
@@ -197,7 +199,6 @@ el:
         heading: "Σύνδεσε Υπηρεσίες"
       unfollow_tag: "Σταμάτα να ακολουθείς την ετικέτα #%{tag}"
       welcome_to_diaspora: "Καλωσήρθες στο diaspora*, %{name}!"
-    many: "%{count} πτυχές"
     move_contact:
       error: "Σφάλμα μεταφοράς επαφής: %{inspect}"
       failure: "δεν λειτούργησε %{inspect}"
@@ -226,7 +227,6 @@ el:
       view_all_contacts: "Προβολή όλων των επαφών"
     show:
       edit_aspect: "επεξεργασία πτυχής"
-    two: "%{count} πτυχές"
     update:
       failure: "Η πτυχή σου, %{name}, έχει πολύ μεγάλο όνομα για να αποθηκευτεί."
       success: "Έγινε επιτυχώς η επεξεργασία της πτυχής σου, %{name}."
@@ -246,19 +246,15 @@ el:
     post_success: "Αναρτήθηκε! Κλείνει!"
   cancel: "Ακύρωση"
   comments:
-    few: "%{count} σχόλια"
-    many: "%{count} σχόλια"
     new_comment:
       comment: "Σχολίασε"
       commenting: "Σχολιάζει..."
     one: "1 σχόλιο"
     other: "%{count} σχόλια"
-    two: "%{count} σχόλια"
     zero: "κανένα σχόλιο"
   contacts:
     create:
       failure: "Αποτυχία δημιουργίας επαφής"
-    few: "%{count} επαφές"
     index:
       add_a_new_aspect: "Πρόσθεσε μια νέα πτυχή"
       add_to_aspect: "Πρόσθεσε επαφές στο %{name}"
@@ -271,11 +267,9 @@ el:
       no_contacts_message: "Δες και %{community_spotlight}"
       no_contacts_message_with_aspect: "Δες και %{community_spotlight} ή %{add_to_aspect_link}"
       only_sharing_with_me: "Μοιράζονται μόνο με εμένα"
-      remove_person_from_aspect: "Μετακίνηση του χρήστη %{person_name} από την πτυχή \"%{aspect_name}\""
       start_a_conversation: "Ξεκίνα μια συζήτηση"
       title: "Επαφές"
       your_contacts: "Οι Επαφές σου"
-    many: "%{count} επαφές"
     one: "1 επαφή"
     other: "%{count} επαφές"
     sharing:
@@ -283,7 +277,6 @@ el:
     spotlight:
       community_spotlight: "Δημοσιεύσεις Κοινότητας"
       suggest_member: "Πρότεινε ένα μέλος"
-    two: "%{count} επαφές"
     zero: "επαφές"
   conversations:
     conversation:
@@ -292,8 +285,6 @@ el:
       fail: "Μη έγκυρο μήνυμα"
       no_contact: "Πρέπει πρώτα να προσθέσεις μια επαφή!"
       sent: "Μήνυμα εστάλη"
-    destroy:
-      success: "Η συζήτηση αφαιρέθηκε επιτυχώς"
     helper:
       new_messages:
         few: "%{count} νέα μηνύματα"
@@ -351,7 +342,6 @@ el:
       rename_aspect_q: "Μπορώ να μετονομάσω μια πτυχή;"
       title: "Πτυχές"
       what_is_an_aspect_q: "Τι είναι πτυχή;"
-    foundation_website: ""
     getting_help:
       get_support_a_hashtag: "ρώτησε σε μια δημόσια δημοσίευση στο diaspora* χρησιμοποιώντας την ετικέτα της ερώτησης ( %{question} )"
       get_support_a_irc: "βρες μας στο %{irc} (ζωντανή συζήτηση)"
@@ -595,7 +585,6 @@ el:
       add_contact_from_tag: "προσθήκη επαφής από ετικέτα"
     aspect_list:
       edit_membership: "επεξεργασία ιδιοτήτων πτυχής"
-    few: "%{count} άτομα"
     helper:
       is_not_sharing: "Ο/Η %{name} δεν διαμοιράζεται μαζί σου"
       is_sharing: "Ο/Η %{name} διαμοιράζεται μαζί σου"
@@ -606,7 +595,6 @@ el:
       no_results: "Επ! Χρειάζεται να ψάξεις για κάτι."
       results_for: "αποτελέσματα αναζήτησης για"
       searching: "αναζήτηση, παρακαλώ περίμενε..."
-    many: "%{count} άτομα"
     one: "1 άτομο"
     other: "%{count} άτομα"
     person:
@@ -643,7 +631,6 @@ el:
       add_some: "πρόσθεσε κάποιες"
       edit: "επεξεργασία"
       you_have_no_tags: "δεν έχετε ετικέτες!"
-    two: "%{count} άτομα"
     webfinger:
       fail: "Λυπούμαστε, δεν ήταν δυνατή η εύρεση του %{handle}."
     zero: "κανένα άτομο"
@@ -738,7 +725,6 @@ el:
       update: "Ενημέρωση"
     invalid_invite: "Ο σύνδεσμος που έδωσες δεν είναι πια έγκυρος!"
     new:
-      continue: "Συνέχεια"
       create_my_account: "Δημιουργία λογαριασμού!"
       diaspora: "<3 diaspora*"
       email: "EMAIL"
@@ -919,10 +905,11 @@ el:
       no_message_to_display: "Κανένα μήνυμα"
     new:
       mentioning: "Αναφορά σε: %{person}"
-    too_long:
-      other: "Παρακαλώ μετέτρεψε το μήνυμα κατάστασης σου σε λιγότερους από %{count} χαρακτήρες. Τώρα είναι %{current_length} χαρακτήρες."
+    too_long: "Παρακαλώ μετέτρεψε το μήνυμα κατάστασης σου σε λιγότερους από %{count} χαρακτήρες. Τώρα είναι %{current_length} χαρακτήρες."
   stream_helper:
     hide_comments: "Απόκρυψη όλων των σχολίων"
+    no_more_posts: "Έχεις φτάσει το τέλος της ροής."
+    no_posts_yet: "Δεν υπάρχουν αναρτήσεις ακόμα."
     show_comments:
       few: "Εμφάνιση %{count} ακόμα σχολίων"
       many: "Εμφάνιση %{count} ακόμα σχολίων"
@@ -961,7 +948,6 @@ el:
       title: "Δημόσια Δραστηριότητα"
     tags:
       contacts_title: "Άτομα που τους αρέσει αυτή η ετικέτα"
-      tag_prefill_text: "Αυτό που σκέφτομαι για %{tag_name} είναι... "
       title: "Ανάρτησες με ετικέτες: %{tags}"
   tag_followings:
     create:
@@ -974,15 +960,8 @@ el:
   tags:
     show:
       follow: "Ακολούθησε την ετικέτα #%{tag}"
-      followed_by_people:
-        one: "την ακολουθεί 1 άνθρωπος"
-        other: "την ακολουθούν %{count} άνθρωποι"
-        zero: "δεν την ακολουθεί κανείς"
       following: "Ακολουθείς την ετικέτα #%{tag}"
-      nobody_talking: "Κανένας δεν μιλάει ακόμα για την ετικέτα %{tag}."
       none: "Η κενή ετικέτα δεν υπάρχει!"
-      people_tagged_with: "Άτομα με την ετικέτα %{tag}"
-      posts_tagged_with: "Αναρτήσεις με την ετικέτα #%{tag}"
       stop_following: "Σταμάτησες να ακολουθείς την ετικέτα #%{tag}"
   terms_and_conditions: "Όροι και Προϋποθέσεις"
   undo: "Αναίρεση;"
@@ -1018,7 +997,6 @@ el:
       current_password: "Τρέχον κωδικός πρόσβασης"
       current_password_expl: "αυτόν που συνδέθηκες..."
       download_photos: "κατέβασμα των φωτογραφιών μου"
-      download_xml: "κατέβασμα του xml μου"
       edit_account: "Επεξεργασία λογαριασμού"
       email_awaiting_confirmation: "Σου στείλαμε έναν σύνδεσμο ενεργοποίησης στο %{unconfirmed_email}. Μέχρι να ακολουθήσεις αυτόν τον σύνδεσμο και να ενεργοποιήσεις τη νέα διεύθυνση, θα συνεχίσουμε να χρησιμοποιούμε την αρχική %{email}."
       export_data: "Εξαγωγή δεδομένων"
@@ -1027,7 +1005,6 @@ el:
       liked: "...σε κάποιον αρέσει η δημοσίευση σας;"
       mentioned: "...επισημανθήκατε σε μία φωτογραφία;"
       new_password: "Νέος κωδικός πρόσβασης"
-      photo_export_unavailable: "Η εξαγωγή φωτογραφίας αυτή τη στιγμή δεν είναι διαθέσιμη"
       private_message: "...μόλις λάβατε μία προσωπική ειδοποίηση;"
       receive_email_notifications: "Να λαμβάνω ειδοποιήσεις στο email μου όταν:"
       reshared: "...κάποιος κοινοποίησε τη δημοσίευση σας;"

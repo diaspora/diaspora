@@ -87,7 +87,6 @@ en_pirate:
       rename: "rename"
       update: "update"
       updating: "updatin'"
-    few: "%{count} crews"
     helper:
       are_you_sure: "Are ye sure ye want t' scuttle this crew?"
       aspect_not_empty: "Crew not empty"
@@ -124,7 +123,6 @@ en_pirate:
         heading: "Connect ye services"
       unfollow_tag: "Stop followin' #%{tag}"
       welcome_to_diaspora: "Welcome to diaspora*, %{name}. Ye old seadog!"
-    many: "%{count} crews"
     move_contact:
       error: "Problem moving mate: %{inspect} matey!"
       failure: "didn't work %{inspect} ye scallywag!"
@@ -153,7 +151,6 @@ en_pirate:
       view_all_contacts: "View all mateys"
     show:
       edit_aspect: "edit crew"
-    two: "%{count} crews"
     update:
       failure: "Yer crew, %{name}, had too many words, YARGH!"
       success: "Yer crew, %{name}. has been edited matey!"
@@ -172,19 +169,15 @@ en_pirate:
     post_success: "Sent! Closing!"
   cancel: "Nevermind"
   comments:
-    few: "%{count} comments mate"
-    many: "%{count} comments mate!"
     new_comment:
       comment: "Comm'nt"
       commenting: "Commentin'"
     one: "1 comment mate"
     other: "%{count} comments mate"
-    two: "%{count} comments mate"
     zero: "no comments mate"
   contacts:
     create:
       failure: "Failed 't create contact"
-    few: "%{count} mateys"
     index:
       add_a_new_aspect: "Add a new crew"
       add_to_aspect: "Add more mateys to %{name}"
@@ -197,19 +190,15 @@ en_pirate:
       start_a_conversation: "Send a letter"
       title: "Mateys"
       your_contacts: "Yer Mateys"
-    many: "%{count} mateys"
     one: "1 matey"
     other: "%{count} mateys"
     sharing:
       people_sharing: "Buccaneers sharin' with ye:"
-    two: "%{count} mateys"
     zero: "mates"
   conversations:
     create:
       fail: "Problem with letter, YARGH!"
       sent: "Letter sent"
-    destroy:
-      success: "Letter successfully ripped up"
     helper:
       new_messages:
         one: "1 new letter"
@@ -431,7 +420,6 @@ en_pirate:
   people:
     add_contact_small:
       add_contact_from_tag: "add matey from tag"
-    few: "%{count} people"
     helper:
       results_for: " results fer %{params}"
     index:
@@ -439,7 +427,6 @@ en_pirate:
       no_one_found: "...and no landblubbers were found."
       no_results: "Ahoy! Ye need 't search fer somethin'."
       results_for: "Scallywags matchin' %{search_term}"
-    many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
     person:
@@ -464,7 +451,6 @@ en_pirate:
       to_accept_or_ignore: "'t accept or deny it."
     sub_header:
       you_have_no_tags: "ye have no tags!"
-    two: "%{count} people"
     webfinger:
       fail: "Sorry mate, we couldnt spot %{handle}."
     zero: "no people"
@@ -638,13 +624,7 @@ en_pirate:
       no_message_to_display: "No message t' display."
     new:
       mentioning: "Mentionin': %{person}"
-    too_long:
-      few: "Ye scallywag, make yer status messages less than %{count} characters"
-      many: "Ye scallywag,make yer status messages less than %{count} characters"
-      one: "Ye scallywag, make yer status messages less than %{count} character"
-      other: "Ye scallywag, make yer status messages less than %{count} characters"
-      two: "Ye scallywag, make yer status messages less than %{count} characters"
-      zero: "Ye scallywag,make yer status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"many\"=>\"Ye scallywag,make yer status messages less than %{count} characters\", \"one\"=>\"Ye scallywag, make yer status messages less than %{count} character\", \"other\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"two\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"zero\"=>\"Ye scallywag,make yer status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "Hide all comm'nts"
     show_comments:
@@ -677,8 +657,6 @@ en_pirate:
   tags:
     show:
       following: "Followin' #%{tag}"
-      nobody_talking: "Nobody be talkin' about %{tag} yet."
-      posts_tagged_with: "Posts tagged with #%{tag}"
       stop_following: "Stop Followin' #%{tag}"
   terms_and_conditions: "Terms 'n conditions"
   undo: "Undo?"
@@ -692,7 +670,6 @@ en_pirate:
         mr_wiggles: "Mr Wiggles will be sad t' see ye go mate."
         what_we_delete: "We scuttle all of yer posts, profile data, as soon as humanly possible. Yer comments will hang around, but be associated with yer Diaspora Handle."
       download_photos: "download ye portraits"
-      download_xml: "download ye booty"
       show_community_spotlight: "Show Community Spotlight in sea"
       stream_preferences: "Sea settin's"
       your_email: "Yer email"

@@ -81,7 +81,6 @@ fa:
       rename: "تغییر نام"
       update: "بروزرسانی"
       updating: "در حال بروزرسانی"
-    few: "‎%{count}‎ منظر"
     helper:
       are_you_sure: "مطمئن هستید که می‌خواهید این منظر را حذف کنید؟"
       aspect_not_empty: "منظر خالی نیست"
@@ -118,7 +117,6 @@ fa:
         heading: "اتصال سرویس‌ها"
       unfollow_tag: "لغو دنبال کردن #‎%{tag}‎"
       welcome_to_diaspora: "%{name}، به دیاسپورا خوش آمدی!"
-    many: "‎%{count}‎ منظر"
     move_contact:
       error: "خطا در فرستادن مخاطب: ‎%{inspect}‎"
       failure: "‎%{inspect}‎ کار نکرد."
@@ -147,7 +145,6 @@ fa:
       view_all_contacts: "مشاهده همه مخاطبین"
     show:
       edit_aspect: "ویرایش منظر"
-    two: "‎%{count}‎ منظر"
     update:
       failure: "منظر ‎%{name}‎، نامش برای ذخیره سازی طولانی هست."
       success: "منظر ‎%{name}‎، با موفقیت ویرایش شد."

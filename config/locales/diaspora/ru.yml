@@ -175,10 +175,13 @@ ru:
       success: "%{name} успешно удалён."
     edit:
       add_existing: "Добавить существующий контакт"
+      aspect_chat_is_enabled: "Контакты из этого аспекта могут общаться с вами."
+      aspect_chat_is_not_enabled: "Контакты из этого аспекта не могут общаться с вами."
       aspect_list_is_not_visible: "Контакты в этом аспекте не могут видеть друг друга"
       aspect_list_is_visible: "Контакты в этом аспекте могут видеть друг друга"
       confirm_remove_aspect: "Вы уверены, что хотите удалить этот аспект?"
       done: "Готово"
+      grant_contacts_chat_privilege: "предоставить контактам в аспекте возможность общаться?"
       make_aspect_list_visible: "сделать контакты в этом аспекте видимыми друг другу?"
       manage: "Управлять"
       remove_aspect: "Удалить этот аспект"
@@ -186,7 +189,6 @@ ru:
       set_visibility: "Установить видимость"
       update: "Обновить"
       updating: "обновление"
-    few: "%{count} аспекта"
     helper:
       are_you_sure: "Вы уверены в том, что хотите удалить этот аспект?"
       aspect_not_empty: "Аспект не пуст"
@@ -231,7 +233,6 @@ ru:
         heading: "Подключенные сервисы"
       unfollow_tag: "Не следить за меткой #%{tag}"
       welcome_to_diaspora: "Добро пожаловать в Диаспору, %{name}!"
-    many: "%{count} аспектов"
     move_contact:
       error: "Ошибка при перемещении контакта: %{inspect}"
       failure: "не работает %{inspect}"
@@ -260,7 +261,6 @@ ru:
       view_all_contacts: "Все контакты"
     show:
       edit_aspect: "редактировать аспект"
-    two: "%{count} аспекта"
     update:
       failure: "Ваш аспект, %{name}, имеет слишком длинное имя для сохранения."
       success: "Ваш аспект %{name} успешно отредактирован."
@@ -280,21 +280,18 @@ ru:
     post_success: "Опубликовано! Закрытие!"
   cancel: "Отменить"
   comments:
-    few: "%{count} комментария"
-    many: "%{count} комментариев"
     new_comment:
       comment: "Комментировать"
       commenting: "Комментирование..."
     one: "1 комментарий"
     other: "%{count} комментариев"
-    two: "%{count} комментария"
     zero: "нет комментариев"
   contacts:
     create:
       failure: "Не удалось создать контакт"
-    few: "%{count} контакта"
     index:
       add_a_new_aspect: "Новый аспект"
+      add_contact: "Добавить контакт"
       add_to_aspect: "добавить контакты в %{name}"
       add_to_aspect_link: "добавить контакты в аспект %{name}"
       all_contacts: "Все контакты"
@@ -305,11 +302,11 @@ ru:
       no_contacts_message: "Загляните на страницу %{community_spotlight}"
       no_contacts_message_with_aspect: "Вы можете проверить страницу %{community_spotlight} или %{add_to_aspect_link}"
       only_sharing_with_me: "Только добавившие меня"
-      remove_person_from_aspect: "Удалить %{person_name} из \"%{aspect_name}\""
+      remove_contact: "Удалить контакт"
       start_a_conversation: "Начать беседу"
       title: "Контакты"
+      user_search: "Поиск пользователей"
       your_contacts: "Ваши контакты"
-    many: "%{count} контактов"
     one: "1 контакт"
     other: "%{count} контактов"
     sharing:
@@ -317,7 +314,6 @@ ru:
     spotlight:
       community_spotlight: "Рекомендованные пользователи"
       suggest_member: "Предложить пользователя"
-    two: "%{count} контакта"
     zero: "Контакты"
   conversations:
     conversation:
@@ -326,8 +322,6 @@ ru:
       fail: "Неверное сообщение"
       no_contact: "Эй, вам нужно сначала добавить контакт!"
       sent: "Сообщение отправлено"
-    destroy:
-      success: "Разговор успешно удалён"
     helper:
       new_messages:
         few: "%{count} новых сообщения"
@@ -788,6 +782,21 @@ ru:
       subject: "%{name} упомянул вас в Диаспоре*"
     private_message:
       reply_to_or_view: "Ответить или посмотреть эту беседу >"
+    remove_old_user:
+      body: |-
+          Привет,
+
+          Всвязи с неактивностью вашей учётной записи diaspora* на  %{pod_url}, мы вынуждеы сообщить вам, что система отметила вашу учётную запись к автоматизированному удалению. Это происходит автоматически по прошествию периода неактивности более %{after_days} дней.
+
+          Вы можете избежать потери учётной записи, зайдя в нее до %{remove_after}, в случае чего удаление будет автоматически отменено.
+
+          Эта техническая операция выполняется с целью убедиться в том, что активные пользователи получают большую часть ресурсов данной инстанции diaspora* . Благодарим за понимание.
+
+          Если вы хотите сохранить ваш аккаунт, пожалуйста, войдите в него здесь: %{login_url}
+
+          В надежде увидеть вас снова,
+          Почтовый робот diaspora*!
+      subject: "Ваша учётная запись помечена на удаление по причине неактивности"
     report_email:
       body: |-
           Здравствуйте,
@@ -831,7 +840,6 @@ ru:
       add_contact_from_tag: "добавить контакт из метки"
     aspect_list:
       edit_membership: "редактировать пользователей в аспекте"
-    few: "%{count} пользователя"
     helper:
       is_not_sharing: "%{name} не добавил вас"
       is_sharing: "%{name} делится с вами"
@@ -845,7 +853,6 @@ ru:
       search_handle: "Используйте идентификаторы Диаспоры (имя@домен.зона) чтобы найти ваших друзей."
       searching: "идёт поиск: пожалуйста, подождите..."
       send_invite: "Всё ещё пусто? Пригласите кого-нибудь!"
-    many: "%{count} пользователей"
     one: "1 пользователь"
     other: "%{count} пользователей"
     person:
@@ -882,7 +889,6 @@ ru:
       add_some: "добавить"
       edit: "редактировать"
       you_have_no_tags: "у вас нет меток!"
-    two: "%{count} пользователя"
     webfinger:
       fail: "К сожалению, мы не смогли найти %{handle}."
     zero: "0 пользователей"
@@ -981,7 +987,6 @@ ru:
       update: "Обновить"
     invalid_invite: "Это приглашение уже недействительно!"
     new:
-      continue: "Продолжить"
       create_my_account: "Создать аккаунт"
       diaspora: "<3 Диаспора*"
       email: "ПОЧТА"
@@ -1191,14 +1196,11 @@ ru:
       no_message_to_display: "Новых сообщений нет."
     new:
       mentioning: "Упоминание: %{person}"
-    too_long:
-      few: "сократите, пожалуйста, ваше сообщение до %{count} символов"
-      many: "сократите, пожалуйста, ваше сообщение до %{count} символов"
-      one: "сократите, пожалуйста, ваше сообщение до %{count} символа"
-      other: "сократите, пожалуйста, ваше сообщение до %{count} символов"
-      zero: "сократите, пожалуйста, ваше сообщение до %{count} символов"
+    too_long: "{\"few\"=>\"сократите, пожалуйста, ваше сообщение до %{count} символов\", \"many\"=>\"сократите, пожалуйста, ваше сообщение до %{count} символов\", \"one\"=>\"сократите, пожалуйста, ваше сообщение до %{count} символа\", \"other\"=>\"сократите, пожалуйста, ваше сообщение до %{count} символов\", \"zero\"=>\"сократите, пожалуйста, ваше сообщение до %{count} символов\"}"
   stream_helper:
     hide_comments: "Скрыть все комментарии"
+    no_more_posts: "Вы достигли конца потока."
+    no_posts_yet: "Ещё нет ни одной записи."
     show_comments:
       few: "Показать еще %{count} комментария"
       many: "Показать еще %{count} комментариев"
@@ -1236,7 +1238,6 @@ ru:
       title: "Публичная активность"
     tags:
       contacts_title: "Интересуются этими метками"
-      tag_prefill_text: "По поводу метки %{tag_name}... "
       title: "Записи, отмеченные: %{tags}"
   tag_followings:
     create:
@@ -1249,17 +1250,8 @@ ru:
   tags:
     show:
       follow: "Следить за #%{tag}"
-      followed_by_people:
-        few: "Отслеживают: %{count}"
-        many: "Отслеживают: %{count}"
-        one: "Отслеживают: %{count}"
-        other: "Отслеживают: %{count}"
-        zero: "Никто не отслеживает"
       following: "Вы следите за меткой #%{tag}"
-      nobody_talking: "Никто пока не говорил о %{tag}."
       none: "Пустая метка не существует!"
-      people_tagged_with: "Люди с меткой %{tag}"
-      posts_tagged_with: "Записи с меткой #%{tag}"
       stop_following: "Не следить за #%{tag}"
   terms_and_conditions: "Условия оказания услуг"
   undo: "Отменить?"
@@ -1295,7 +1287,6 @@ ru:
       current_password: "Текущий пароль"
       current_password_expl: "используемый для входа..."
       download_photos: "Скачать мои фотографии"
-      download_xml: "Скачать мою информацию в xml"
       edit_account: "Изменить аккаунт"
       email_awaiting_confirmation: "Мы послали ссылку для активации на %{unconfirmed_email}. Пока вы не пройдете по ней и не активируете новый адрес, мы будем использовать ваш прежний ящик %{email}."
       export_data: "Экспорт информации"
@@ -1304,7 +1295,6 @@ ru:
       liked: "кому-то понравилась ваша запись"
       mentioned: "вы были упомянуты в записи"
       new_password: "Новый пароль"
-      photo_export_unavailable: "Экспорт фотографий сейчас недоступен"
       private_message: "вы получили личное сообщение"
       receive_email_notifications: "Получать уведомление по электронной почте, если:"
       reshared: "кто-то поделился вашей записью"
@@ -1328,6 +1318,7 @@ ru:
       who_are_you: "Кто вы?"
     privacy_settings:
       ignored_users: "Заблокированные пользователи"
+      no_user_ignored_message: "На данный момент вы никого не игнорируете"
       stop_ignoring: "Отменить блокирование"
       title: "Настройки приватности"
     public:

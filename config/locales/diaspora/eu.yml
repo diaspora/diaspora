@@ -139,7 +139,6 @@ eu:
       rename: "berrizendatu"
       update: "eguneratu"
       updating: "eguneratzen"
-    few: "%{count} arlo"
     helper:
       are_you_sure: "Ziur al zaude arlo hau ezabatu nahi duzunaz?"
       aspect_not_empty: "Arlo ez hutsa"
@@ -179,7 +178,6 @@ eu:
         heading: "Zerbitzuak Lotu"
       unfollow_tag: "#%{tag} jarraitzeari utzi"
       welcome_to_diaspora: "Ongietorri Diasporara, %{name}!"
-    many: "%{count} arlo"
     move_contact:
       error: "Huts laguna mugitzean: %{inspect}"
       failure: "huts egin du %{inspect}"
@@ -208,7 +206,6 @@ eu:
       view_all_contacts: "Adiskide guztiak ikusi"
     show:
       edit_aspect: "arloa aldatu"
-    two: "%{count} arlo"
     update:
       failure: "Zure arloak, %{name}(e)k, izen luzeegia du."
       success: "Zure arloa, %{name}, eraldatua izan da."
@@ -228,19 +225,15 @@ eu:
     post_success: "Bidalia! Irteten!"
   cancel: "Ezeztatu"
   comments:
-    few: "%{count} iruzkin"
-    many: "%{count} iruzkin"
     new_comment:
       comment: "Iruzkindu"
       commenting: "Iruzkintzen..."
     one: "iruzkin 1"
     other: "%{count} iruzkin"
-    two: "%{count} iruzkin"
     zero: "iruzkinik ez"
   contacts:
     create:
       failure: "Akatsa lagun berria sortzean"
-    few: "%{count} lagun"
     index:
       add_a_new_aspect: "Arlo berria gehitu"
       add_to_aspect: "Adiskideak gehitu %{name}(e)n"
@@ -253,25 +246,20 @@ eu:
       no_contacts_message: "Ikus ezazu %{community_spotlight}"
       no_contacts_message_with_aspect: "Ikus ezazu %{community_spotlight} edo %{add_to_aspect_link}"
       only_sharing_with_me: "Bakarrik nirekin harremanetan"
-      remove_person_from_aspect: "Ezabatu %{person_name} \"%{aspect_name}\"(e)tik"
       start_a_conversation: "Elkarrizketa bat hasi"
       title: "Adiskideak"
       your_contacts: "Zure Adiskideak"
-    many: "%{count} lagun"
     one: "lagun 1"
     other: "%{count} lagun"
     sharing:
       people_sharing: "Zurekin harremanetan daudenak:"
     spotlight:
       community_spotlight: "Komunitateko Nabarmenena"
-    two: "%{count} contacts"
     zero: "lagunak"
   conversations:
     create:
       fail: "Mezu baliogabea"
       sent: "Mezua arrakastaz bidali da"
-    destroy:
-      success: "Elkarrizketa arrakastaz ezabatua"
     helper:
       new_messages:
         few: "%{count} mezu pribatu berri"
@@ -548,7 +536,6 @@ eu:
       add_contact_from_tag: "gehitu laguna etiketatik abiatuta"
     aspect_list:
       edit_membership: "aldatu arloaren bazkidetza"
-    few: "%{count} pertsona"
     helper:
       results_for: " %{params}(r)entzat emaitzak"
     index:
@@ -557,7 +544,6 @@ eu:
       no_results: "Aizu! Zerbait bilatu behar duzu."
       results_for: "bilaketa emaitzak hontarako:"
       searching: "bilatzen, mesedez itxaron pixka bat..."
-    many: "%{count} pertsona"
     one: "pertsona 1"
     other: "%{count} pertsona"
     person:
@@ -593,7 +579,6 @@ eu:
       add_some: "gehitu batzuk"
       edit: "aldatu"
       you_have_no_tags: "etiketarik ez duzu!"
-    two: "%{count} pertsona"
     webfinger:
       fail: "%{handle} ezin izan dugu aurkitu."
     zero: "jenderik ez"
@@ -691,7 +676,6 @@ eu:
       update: "Eguneratu"
     invalid_invite: "Eman duzun gonbidapen esteka ez da jada baliagarria!"
     new:
-      continue: "Jarraitu"
       create_my_account: "Nire kontua sortu!"
       diaspora: "<3 Diaspora*"
       email: "EMAILA"
@@ -862,13 +846,7 @@ eu:
       no_message_to_display: "Erakusteko mezurik ez."
     new:
       mentioning: "Aipatzen: %{person}"
-    too_long:
-      few: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
-      many: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
-      one: "mesedez, egin itzazu zure mezuak karaktere %{count} baino motzagoak"
-      other: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
-      two: "mesedez egin itzazu zure mezuak %{count} laraktere baino motzagoak"
-      zero: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
+    too_long: "{\"few\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\", \"many\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\", \"one\"=>\"mesedez, egin itzazu zure mezuak karaktere %{count} baino motzagoak\", \"other\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\", \"two\"=>\"mesedez egin itzazu zure mezuak %{count} laraktere baino motzagoak\", \"zero\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\"}"
   stream_helper:
     hide_comments: "Iruzkin guztiak ezkutatu"
     show_comments:
@@ -909,7 +887,6 @@ eu:
       title: "Ekintza Publikoak"
     tags:
       contacts_title: "Etiketa hau jarraitzen duen jendea"
-      tag_prefill_text: "%{tag_name} buruzkoa zera da..."
       title: "Mezu etiketatuak: %{tags}"
   tag_followings:
     create:
@@ -923,10 +900,7 @@ eu:
     show:
       follow: "Jarraitu #%{tag}"
       following: "#%{tag} jarraitzen"
-      nobody_talking: "Inor ez du %{tag}(r)i buruz hitz egin oraindik."
       none: "Etiketa hutsik ez dago!"
-      people_tagged_with: "%{tag} etiketadun jendea"
-      posts_tagged_with: "#%{tag} etiketadun mezuak"
       stop_following: "Ez Jarraitu #%{tag}"
   terms_and_conditions: "Termino eta Baldintzak"
   undo: "Desegin?"
@@ -962,7 +936,6 @@ eu:
       current_password: "Pasahitz zaharra"
       current_password_expl: "sartzen zarenarekin..."
       download_photos: "nire argazkiak jaitsi"
-      download_xml: "nire xml jaitsi"
       edit_account: "Kontua aldatu"
       email_awaiting_confirmation: "Aktibaketa esteka bat bidali dizugu %{unconfirmed_email}(e)ra. Esteka hau jarraitzen duzun arte, zure jatorrizko e-postak, %{email}, jarraituko du erabilpenean."
       export_data: "Datuak esportatu"
@@ -971,7 +944,6 @@ eu:
       liked: "...norbaitek zure mezu bat gustuko duenean?"
       mentioned: "...mezu batean aipatzen zaituztenean?"
       new_password: "Pasahitz berria"
-      photo_export_unavailable: "Argazkien esportazioa tenporalki desgaitua"
       private_message: "...mezu pribatu bat jasotzen duzunean?"
       receive_email_notifications: "E-posta jakinarazpenak jaso nahi dituzu..."
       reshared: "...norbaitek zure mezu bat birpartekatzen duenean?"

@@ -132,7 +132,6 @@ vi:
       rename: "đổi tên"
       update: "cập nhật"
       updating: "đang cập nhật"
-    few: "%{count} mối quan hệ"
     helper:
       are_you_sure: "Bạn có chắc là muốn xoá mối quan hệ này không?"
       aspect_not_empty: "Mối quan hệ không rỗng"
@@ -174,7 +173,6 @@ vi:
         heading: "Kết nối dịch vụ"
       unfollow_tag: "Ngừng theo dõi #%{tag}"
       welcome_to_diaspora: "Chào mừng đến với Diaspora, %{name}!"
-    many: "%{count} mối quan hệ"
     move_contact:
       error: "Lỗi khi dời liên lạc: %{inspect}"
       failure: "%{inspect} không làm việc"
@@ -203,7 +201,6 @@ vi:
       view_all_contacts: "Xem tất cả liên lạc"
     show:
       edit_aspect: "cập nhật mối quan hệ"
-    two: "%{count} mối quan hệ"
     update:
       failure: "Mối quan hệ %{name} có tên quá dài, không thể lưu."
       success: "Mối quan hệ %{name} đã được chỉnh sửa."
@@ -223,19 +220,15 @@ vi:
     post_success: "Đã đăng bài! Đang đóng!"
   cancel: "Hủy bỏ"
   comments:
-    few: "%{count} bình luận"
-    many: "%{count} bình luận"
     new_comment:
       comment: "Bình luận"
       commenting: "Đang gửi bình luận..."
     one: "1 bình luận"
     other: "%{count} bình luận"
-    two: "%{count} bình luận"
     zero: "không có bình luận"
   contacts:
     create:
       failure: "Tạo liên lạc mới thất bại"
-    few: "%{count} liên lạc"
     index:
       add_a_new_aspect: "Thêm mối quan hệ mới"
       add_to_aspect: "thêm liên lạc vào %{name}"
@@ -248,11 +241,9 @@ vi:
       no_contacts_message: "Kiểm tra %{community_spotlight}"
       no_contacts_message_with_aspect: "Kiểm tra %{community_spotlight} hoặc %{add_to_aspect_link}"
       only_sharing_with_me: "Chỉ chia sẻ với tôi"
-      remove_person_from_aspect: "Loại bỏ %{person_name} khỏi \"%{aspect_name}\""
       start_a_conversation: "Bắt đầu một cuộc trò chuyện"
       title: "Liên lạc"
       your_contacts: "Liên lạc của bạn"
-    many: "%{count} liên lạc"
     one: "1 liên lạc"
     other: "%{count} liên lạc"
     sharing:
@@ -260,7 +251,6 @@ vi:
     spotlight:
       community_spotlight: "Nổi bật từ cộng đồng"
       suggest_member: "Gợi ý một thành viên"
-    two: "%{count} liên lạc"
     zero: "contacts"
   conversations:
     conversation:
@@ -269,8 +259,6 @@ vi:
       fail: "Tin nhắn không hợp lệ"
       no_contact: "Bạn cần phải thêm liên lạc trước đã!"
       sent: "Đã gửi tin nhắn"
-    destroy:
-      success: "Đã loại bỏ cuộc hội thoại"
     helper:
       new_messages:
         few: "%{count} tin nhắn mới"
@@ -507,7 +495,6 @@ vi:
       invited_by: "bạn được mời bởi"
     add_contact_small:
       add_contact_from_tag: "thêm liên lạc từ thẻ"
-    few: "%{count} người"
     helper:
       is_not_sharing: "%{name} hiện không chia sẻ với bạn"
       is_sharing: "%{name} đang chia sẻ với bạn"
@@ -518,7 +505,6 @@ vi:
       no_results: "Bạn cần tìm gì đó."
       results_for: "kết quả tìm kiếm cho"
       searching: "đang tìm, vui lòng chờ..."
-    many: "%{count} người"
     one: "1 người"
     other: "%{count} người"
     person:
@@ -555,7 +541,6 @@ vi:
       add_some: "thêm"
       edit: "sửa"
       you_have_no_tags: "bạn không có thẻ nào!"
-    two: "%{count} người"
     webfinger:
       fail: "Xin lỗi, chúng tôi không thể tìm %{handle}."
     zero: "không có ai"
@@ -645,7 +630,6 @@ vi:
       update: "Cập nhật"
     invalid_invite: "Liên kết mời bạn cung cấp không còn hợp lệ!"
     new:
-      continue: "Tiếp tục"
       create_my_account: "Tạo tài khoản"
       diaspora: "<3 Diaspora*"
       email: "THƯ ĐIỆN TỬ"
@@ -812,9 +796,7 @@ vi:
       no_message_to_display: "Không có tin nhắn."
     new:
       mentioning: "Đang nhắc đến: %{person}"
-    too_long:
-      other: "trạng thái của bạn phải có ít hơn %{count} kí tự"
-      zero: "trạng thái của bạn phải có ít hơn %{count} kí tự"
+    too_long: "{\"other\"=>\"trạng thái của bạn phải có ít hơn %{count} kí tự\", \"zero\"=>\"trạng thái của bạn phải có ít hơn %{count} kí tự\"}"
   stream_helper:
     hide_comments: "Ẩn tất cả bình luận"
     show_comments:
@@ -851,7 +833,6 @@ vi:
       title: "Hoạt động công khai"
     tags:
       contacts_title: "People who dig these tags"
-      tag_prefill_text: "Chia sẻ gì đó trên thẻ %{tag_name}... "
       title: "Những bài đăng được gán thẻ: #%{tags}"
   tag_followings:
     create:
@@ -865,10 +846,7 @@ vi:
     show:
       follow: "Theo dõi #%{tag}"
       following: "Đang theo dõi #%{tag}"
-      nobody_talking: "Không có ai đang nói về %{tag}."
       none: "Thẻ rỗng không tồn tại!"
-      people_tagged_with: "Những người được gán thẻ %{tag}"
-      posts_tagged_with: "Những bài đăng được gán thẻ #%{tag}"
       stop_following: "Dừng theo dõi #%{tag}"
   terms_and_conditions: "Điều khoản và điều kiện"
   undo: "Hoàn lại?"
@@ -904,7 +882,6 @@ vi:
       current_password: "Mật khẩu hiện tại"
       current_password_expl: "bạn dùng để đăng nhập..."
       download_photos: "ảnh chụp của tôi"
-      download_xml: "định dạng xml"
       edit_account: "Chỉnh sửa tài khoản"
       email_awaiting_confirmation: "Chúng tôi đã gửi đường dẫn kích hoạt đến %{unconfirmed_email}. Chúng tôi vẫn dùng địa chỉ gốc của bạn %{email} cho đến khi bạn xác nhận địa chỉ mới."
       export_data: "Xuất dữ liệu"
@@ -913,7 +890,6 @@ vi:
       liked: "...có người thích bài đăng của tôi?"
       mentioned: "...tôi được nhắc đến trong một bài đăng?"
       new_password: "Mật khẩu mới"
-      photo_export_unavailable: "Chức năng xuất ảnh hiện chưa hoạt động"
       private_message: "...nhận được tin nhắn?"
       receive_email_notifications: "Nhận thư điện tử thông báo khi..."
       reshared: "...có người chia sẻ lại bài đăng của tôi?"

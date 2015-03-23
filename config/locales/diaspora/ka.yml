@@ -91,7 +91,6 @@ ka:
       rename: "გადარქმევა"
       update: "განახლება"
       updating: "ნახლდება"
-    few: "%{count} aspects"
     helper:
       are_you_sure: "დარწმუნებული ხართ რომ ამ ასპექტის წაშლა გსურთ?"
       aspect_not_empty: "ასპექტი არ არის ცარიელი"
@@ -128,7 +127,6 @@ ka:
         content: "დიასპორაში შეგიძლია დაუკავშირდე შემდეგ სერვისებს:"
         heading: "სერვისებთან დაკავშირება"
       unfollow_tag: "შეწყვიტე გაყოლა #%{tag}"
-    many: "%{count} ასპექტი"
     move_contact:
       error: "კონტაქტის გადაყვანისას დაფიქსირდა შეცდომა: %{inspect}"
       failure: "არ მუშაობს %{inspect}"
@@ -157,7 +155,6 @@ ka:
       view_all_contacts: "ყველა კონტაქტის ნახვა"
     show:
       edit_aspect: "ასპექტის რედაქტირება"
-    two: "%{count} ასპექტი"
     update:
       failure: "თქვენს ასპექტს, %{name}, აქვს ძალიან დიდი სახელი და არ შეიძლება მისი შენახვა"
       success: "თქვენი ასპექტი, %{name}, წარმატებით დარედაქტირდა."
@@ -173,18 +170,14 @@ ka:
     post_success: "გამოქვეყნდა! იხურება!"
   cancel: "გაუქმება"
   comments:
-    few: "%{count} კომენტარი"
-    many: "%{count} კომენტარი"
     new_comment:
       comment: "კომენტარი"
     one: "1 კომენტარი"
     other: "%{count} კომენტარი"
-    two: "%{count} კომენტარი"
     zero: "კომენტარები არ არის"
   contacts:
     create:
       failure: "კომენატარის შექმნა ვერ მოხერხდა"
-    few: "%{count} კონტაქტი"
     index:
       add_a_new_aspect: "დაამატე ახალი ასპექტი"
       add_to_aspect: "%{name} დაამატე კონტაქტებში"
@@ -196,25 +189,20 @@ ka:
       no_contacts_message: "ნახე %{community_spotlight}"
       no_contacts_message_with_aspect: "ნახე %{community_spotlight} ან %{add_to_aspect_link}"
       only_sharing_with_me: "აზიარებს მხოლოდ ჩემთან"
-      remove_person_from_aspect: "ამოშლა %{person_name} \"%{aspect_name}\"-დან"
       start_a_conversation: "დაიწყე საუბარი"
       title: "კონტაქტები"
       your_contacts: "შენი კონტაქტები"
-    many: "%{count} კონტაქტი"
     one: "1 კონტაქტი"
     other: "%{count} კონტაქტი"
     sharing:
       people_sharing: "ხალხი, რომელიც აზიარებს შენთან:"
     spotlight:
       community_spotlight: "Community Spotlight"
-    two: "%{count} კონტაქტი"
     zero: "კონტაქტები"
   conversations:
     create:
       fail: "არასწორი წერილი"
       sent: "წერილი გაგზავნილია"
-    destroy:
-      success: "დიალოგი წარმატებით წაიშალა"
     helper:
       new_messages:
         few: "%{count} new messages"
@@ -456,7 +444,6 @@ ka:
       add_contact_from_tag: "დაამატე კონტაქტი თაგიდან"
     aspect_list:
       edit_membership: "edit aspect membership"
-    few: "%{count} ადამიანს"
     helper:
       results_for: " რეზულტატი %{params}-სთვის"
     index:
@@ -464,7 +451,6 @@ ka:
       no_one_found: "...და ვერავინ ვერ მოიძებნა."
       no_results: "რამე უნდა მოძებნო!"
       results_for: "მოძებნე რეზულტატები"
-    many: "%{count} ადამიანს"
     one: "1 პერსონა"
     other: "%{count} ადამიანს"
     person:
@@ -500,7 +486,6 @@ ka:
       add_some: "დაამატე"
       edit: "რედაქტირება"
       you_have_no_tags: "შენ არ გაქვს თაგები!"
-    two: "%{count}"
     webfinger:
       fail: "ბოდიში, ვერ ვიპოვეთ %{handle}."
     zero: "არ არის ხალხი"
@@ -753,13 +738,7 @@ ka:
       no_message_to_display: "არ არის მესიჯები."
     new:
       mentioning: "Mentioning: %{person}"
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "დამალე ყველა კომენატარი"
     show_comments:

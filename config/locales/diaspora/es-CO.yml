@@ -87,7 +87,6 @@ es-CO:
       rename: "renombrar"
       update: "actualizar"
       updating: "actualizando"
-    few: "%{count} aspectos"
     helper:
       are_you_sure: "¿Estás seguro que quieres eliminar este aspecto?"
       aspect_not_empty: "El aspecto no está vacío"
@@ -124,7 +123,6 @@ es-CO:
         heading: "Conectar Servicios"
       unfollow_tag: "Dejar de seguir #%{tag}"
       welcome_to_diaspora: "¡Bienvenido/a a Diaspora, %{name}!"
-    many: "%{count} aspectos"
     move_contact:
       error: "Error moviendo el contacto: %{inspect}"
       failure: "%{inspect} no funcionó"
@@ -153,7 +151,6 @@ es-CO:
       view_all_contacts: "Ver todos los contactos"
     show:
       edit_aspect: "editar aspecto"
-    two: "%{count} aspectos"
     update:
       failure: "Tu aspecto, %{name}, tenía un nombre muy largo para ser guardado."
       success: "Tu aspecto, %{name}, fue editado exitosamente."
@@ -166,19 +163,15 @@ es-CO:
     post_success: "¡Publicado! ¡Cerrando!"
   cancel: "Cancelar"
   comments:
-    few: "%{count} comentarios"
-    many: "%{count} comentarios"
     new_comment:
       comment: "Comenta"
       commenting: "Comentando…"
     one: "1 comentario"
     other: "%{count} comentarios"
-    two: "%{count} comentarios"
     zero: "no hay comentarios"
   contacts:
     create:
       failure: "No se pudo crear el contacto"
-    few: "%{count} contactos"
     index:
       add_a_new_aspect: "Añade un nuevo aspecto"
       add_to_aspect: "Añade contactos a %{name}"
@@ -191,25 +184,20 @@ es-CO:
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"
       no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Compartiendo solo conmigo"
-      remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Inicia una conversación"
       title: "Contactos"
       your_contacts: "Tus Contactos"
-    many: "%{count} contactos"
     one: "1 contacto"
     other: "%{count} contactos"
     sharing:
       people_sharing: "Personas que comparten contigo:"
     spotlight:
       community_spotlight: "Comunidad Creativa"
-    two: "%{count} contactos"
     zero: "contactos"
   conversations:
     create:
       fail: "Mensaje inválido"
       sent: "Mensaje enviado"
-    destroy:
-      success: "Conversación eliminada exitosamente"
     helper:
       new_messages:
         one: "%{count} mensaje nuevo"
@@ -374,7 +362,6 @@ es-CO:
       add_contact_from_tag: "añadir contacto desde una etiqueta"
     aspect_list:
       edit_membership: "editar miembros del aspecto"
-    few: "%{count} personas"
     helper:
       results_for: " resultados para %{params}"
     index:
@@ -382,7 +369,6 @@ es-CO:
       no_one_found: "…no se encontró a nadie."
       no_results: "¡Oye! Necesitas buscar algo."
       results_for: "buscar resultados para"
-    many: "%{count} personas"
     one: "1 persona"
     other: "%{count} personas"
     person:
@@ -418,7 +404,6 @@ es-CO:
       add_some: "agregar algunas"
       edit: "editar"
       you_have_no_tags: "¡no tienes etiquetas!"
-    two: "%{count} personas"
     webfinger:
       fail: "Perdón, no pudimos encontrar %{handle}."
     zero: "Sin personas"

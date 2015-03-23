@@ -92,6 +92,7 @@ ta:
     no_posts_message:
       start_talking: "யாரும் எதுவும் கூறவில்லை!"
     one: "ஒரு அம்சம்"
+    other: "%{count} அம்சங்கள்"
     seed:
       acquaintances: "அறிமுகமானவர்கள்"
       family: "குடும்பம்"
@@ -99,7 +100,6 @@ ta:
       work: "வேலை"
     show:
       edit_aspect: "அம்சத்தை திருத்த"
-    two: "%{count} அம்சங்கள்"
     zero: "இல்லாத அம்சங்கள்"
   back: "பின்"
   cancel: "ரத்துசெய்"
@@ -110,6 +110,7 @@ ta:
       correct_the_following_errors_and_try_again: "கொடுக்கப்பட்டுள்ள பிழைகளை சரிசெய்து மீண்டும் முயற்சிக்கவும்."
       invalid_fields: "தவறான புலங்கள்"
   fill_me_out: "என்னை நிரப்பு"
+  find_people: "நபர்களை/குறிச்சொற்களை கண்டுபிடி"
   hide: "மறை"
   limited: "வரம்புக்குட்பட்ட"
   more: "மேலும்"

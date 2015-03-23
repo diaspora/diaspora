@@ -12,6 +12,7 @@ nl:
   _home: "Home"
   _photos: "foto's"
   _services: "Diensten"
+  _statistics: "Statistieken"
   _terms: "voorwaarden"
   account: "Account"
   activerecord:
@@ -103,8 +104,12 @@ nl:
       : ja
     user_search:
       account_closing_scheduled: "Het account van %{name} is ingepland om te worden beëindigd. Dit zal over enkele momenten worden verwerkt..."
+      account_locking_scheduled: "Het account van %{name} staat ingepland voor blokkeren. De opdracht wordt zo meteen verwerkt..."
+      account_unlocking_scheduled: "Het account van %{name} staat ingepland voor deblokkeren. De opdracht wordt zo meteen verwerkt..."
       add_invites: "voeg uitnodigingen toe"
       are_you_sure: "Weet je zeker dat je dit account wilt beëindigen?"
+      are_you_sure_lock_account: "Weet je zeker dat je dit account wilt blokkeren?"
+      are_you_sure_unlock_account: "Weet je zeker dat je dit account wilt deblokkeren?"
       close_account: "afsluiten account"
       email_to: "E-mail om uit te nodigen"
       under_13: "Toon gebruikers onder de 13 (COPPA)"
@@ -162,10 +167,13 @@ nl:
       success: "%{name} is met succes verwijderd."
     edit:
       add_existing: "Voeg een bestaand contact toe"
+      aspect_chat_is_enabled: "Contacten binnen dit aspect kunnen met jou chatten."
+      aspect_chat_is_not_enabled: "Contacten binnen dit aspect kunnen niet met jou chatten."
       aspect_list_is_not_visible: "Contacten in dit aspect kunnen elkaar niet zien:"
       aspect_list_is_visible: "contactlijst van aspect is zichtbaar voor anderen in aspect"
       confirm_remove_aspect: "Weet je zeker dat je dit aspect wilt verwijderen?"
       done: "Klaar"
+      grant_contacts_chat_privilege: "contacten in aspect chat autorisatie verlenen?"
       make_aspect_list_visible: "maak contacten in dit aspect zichtbaar voor elkaar?"
       manage: "Beheren"
       remove_aspect: "Verwijder dit aspect"
@@ -173,7 +181,6 @@ nl:
       set_visibility: "Instellen zichtbaarheid"
       update: "Bijwerken"
       updating: "aan het bijwerken"
-    few: "%{count} aspecten"
     helper:
       are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
       aspect_not_empty: "Aspect niet leeg"
@@ -218,7 +225,6 @@ nl:
         heading: "Verbind diensten"
       unfollow_tag: "Stop met volgen van #%{tag}"
       welcome_to_diaspora: "Welkom bij diaspora*, %{name}!"
-    many: "%{count} aspecten"
     move_contact:
       error: "Probleem bij het verplaatsen van contact: %{inspect}"
       failure: "werkte niet %{inspect}"
@@ -247,7 +253,6 @@ nl:
       view_all_contacts: "Bekijk alle contacten"
     show:
       edit_aspect: "bewerk aspect"
-    two: "%{count} aspecten"
     update:
       failure: "De naam van je aspect, %{name}, is te lang om op te slaan."
       success: "Je aspect, %{name}, is succesvol aangepast."
@@ -267,21 +272,18 @@ nl:
     post_success: "Gepost!"
   cancel: "Annuleren"
   comments:
-    few: "%{count} reacties"
-    many: "%{count} reacties"
     new_comment:
       comment: "Reactie"
       commenting: "Reageren..."
     one: "1 reactie"
     other: "%{count} reacties"
-    two: "%{count} reacties"
     zero: "geen reacties"
   contacts:
     create:
       failure: "Verbinding maken mislukt"
-    few: "%{count} contacten"
     index:
       add_a_new_aspect: "Voeg een aspect toe"
+      add_contact: "Toevoegen contactpersoon"
       add_to_aspect: "voeg contacten toe aan %{name}"
       add_to_aspect_link: "contacten toevoegen aan %{name}"
       all_contacts: "Alle Contacten"
@@ -292,11 +294,11 @@ nl:
       no_contacts_message: "Bekijk %{community_spotlight} eens"
       no_contacts_message_with_aspect: "Bekijk %{community_spotlight} eens, of %{add_to_aspect_link}"
       only_sharing_with_me: "Delen alleen met mij"
-      remove_person_from_aspect: "Verwijder %{person_name} uit \"%{aspect_name}\""
+      remove_contact: "Verwijderen contactpersoon"
       start_a_conversation: "Plaats een bericht"
       title: "Contacten"
+      user_search: "Zoek gebruiker"
       your_contacts: "Jouw Contacten"
-    many: "%{count} contacten"
     one: "1 contact"
     other: "%{count} contacten"
     sharing:
@@ -304,7 +306,6 @@ nl:
     spotlight:
       community_spotlight: "Community aanrader"
       suggest_member: "Suggereer een lid"
-    two: "%{count} contacten"
     zero: "contacten"
   conversations:
     conversation:
@@ -314,7 +315,8 @@ nl:
       no_contact: "Hallo, je moet wel eerst een contactpersoon toevoegen!"
       sent: "Privébericht verzonden"
     destroy:
-      success: "Privégesprek succesvol verwijderd"
+      delete_success: "De conversatie is verwijderd"
+      hide_success: "De conversatie is verborgen"
     helper:
       new_messages:
         one: "1 nieuw bericht"
@@ -337,6 +339,7 @@ nl:
       fail: "Ongeldig bericht"
     show:
       delete: "verwijder gesprek"
+      hide: "verberg en onderdruk gesprekken"
       reply: "beantwoord"
       replying: "Beantwoorden..."
   date:
@@ -392,8 +395,17 @@ nl:
       what_is_an_aspect_q: "Wat is een aspect?"
       who_sees_post_a: "Als je een 'beperkt' bericht plaatst, is het alleen zichtbaar voor de mensen die je in dat aspect (of die aspecten als je meer aspecten hebt gekozen) hebt gestopt. Contactpersonen die niet in het betreffende aspect zitten, zullen het bericht niet kunnen zien, tenzij je het een openbaar bericht maakt. Alleen openbare berichten zijn ook zichtbaar voor mensen die niet in je aspect(en) zitten."
       who_sees_post_q: "Als ik een bericht plaats voor een aspect, wie ziet dat dan?"
+    chat:
+      add_contact_roster_a: |-
+          Eerst moet je de chatmogeljikheid inschakelen voor een van de aspecten waar die persoon in zit. Ga naar de %{contacts_page}, selecteer het aspect en klik op het chat pictogram om chat voor het aspect mogelijk te maken.
+          %{toggle_privilege} Je kunt, als je dat wilt, een speciaal aspect genaamd 'Chat' maken en daar personen met wie je wilt chatten aan toevoegen. Als je dat hebt gedaan, open de chat interface en selecteer de persoon met wie je wilt chatten.
+      add_contact_roster_q: "Hoe kan ik met iemand binnen diaspora* chatten?"
+      contacts_page: "contactpersonenpagina"
+      title: "Chat"
+    faq: "FAQ"
     foundation_website: "diaspora foundation website"
     getting_help:
+      get_support_a_faq: "Lees onze %{faq} pagina op wiki"
       get_support_a_hashtag: "zet de vraag in een openbaar bericht op diaspora* met de %{question} hashtag"
       get_support_a_irc: "doe mee op %{irc} (live chat)"
       get_support_a_tutorials: "bekijk onze %{tutorials}"
@@ -412,6 +424,10 @@ nl:
       keyboard_shortcuts_li2: "k - ga naar het vorige bericht"
       keyboard_shortcuts_li3: "c - reageer op het huidige bericht"
       keyboard_shortcuts_li4: "l - vind het huidige bericht leuk"
+      keyboard_shortcuts_li5: "r - Het huidige bericht doorgeven"
+      keyboard_shortcuts_li6: "m - het huidige bericht uitbreiden"
+      keyboard_shortcuts_li7: "o - De eerste link in het huidige bericht openen"
+      keyboard_shortcuts_li8: "ctrl + enter - Verstuur het bericht dat je schreef"
       keyboard_shortcuts_q: "Welke sneltoetsen kunnen worden gebruikt?"
       title: "Sneltoetsen"
     markdown: "Opmaak"
@@ -643,9 +659,9 @@ nl:
   no_results: "Geen resultaten gevonden"
   notifications:
     also_commented:
-      one: "%{actors} heeft ook op %{post_author} zijn %{post_link} gereageerd."
-      other: "%{actors} hebben ook op %{post_author} zijn %{post_link} gereageerd."
-      zero: "%{actors} heeft ook op %{post_author} zijn %{post_link} gereageerd."
+      one: "%{actors} heeft ook op %{post_author}'s %{post_link} gereageerd."
+      other: "%{actors} hebben ook op %{post_author}'s %{post_link} gereageerd."
+      zero: "%{actors} heeft ook op %{post_author}'s %{post_link} gereageerd."
     also_commented_deleted:
       few: "%{actors} hebben gereageerd op een verwijderd bericht."
       many: "%{actors} heeft gereageerd op een verwijderde post."
@@ -683,6 +699,7 @@ nl:
       mark_read: "Markeren als gelezen"
       mark_unread: "Markeer ongelezen"
       mentioned: "Vermeld"
+      no_notifications: "Je hebt nog geen meldingen."
       notifications: "Notificaties"
       reshared: "Doorgegeven"
       show_all: "toon alles"
@@ -728,7 +745,9 @@ nl:
       other: "%{actors} delen nu met jou."
       zero: "%{actors} delen nu met jou."
   notifier:
+    a_limited_post_comment: "Er is een nieuwe reactie op een besloten bericht in diaspora* dat je even moet beoordelen."
     a_post_you_shared: "een bericht."
+    a_private_message: "Er is een nieuw privébericht voor jou in diaspora*."
     accept_invite: "Accepteer jouw diaspora* uitnodiging!"
     click_here: "klik hier"
     comment_on_post:
@@ -737,6 +756,48 @@ nl:
       click_link: "Om je nieuwe e-mailadres te activeren %{unconfirmed_email}, klik op deze link:"
       subject: "Activeer je nieuwe e-mailadres alstublieft %{unconfirmed_email}"
     email_sent_by_diaspora: "Deze mail is gestuurd door %{pod_name}.  Als je dit soort e-mail's niet meer wilt ontvangen,"
+    export_email:
+      body: |-
+          Hallo %{name},
+
+          Je gegevens zijn verwerkt en staan klaar. Je kunt ze downloaden door het volgen van [deze link](%{url}).
+
+          Groetjes,
+
+          De diaspora* e-mailrobot!      
+      subject: "Je persoonlijke gegevens staan klaar voor downloaden, %{name}"
+    export_failure_email:
+      body: |-
+          Hallo %{name}
+
+          we constateerden een probleempje bij het verwerken van de persoonlijke gegevens die je wilt downloaden.
+          Probeer het opnieuw!
+
+          Groetjes,,
+
+          De diaspora* e-mailrobot!       
+      subject: "Onze excuses, er was een probleempje met je gegevens, %{name}"
+    export_photos_email:
+      body: |-
+          Hallo, %{name}
+
+          Je foto's zijn verwerkt en staan klaar voor downloaden via [deze link] (%{url})
+
+          Groeten,
+
+          De diaspora* e-mailrobot!
+      subject: "Je foto's staan klaar voor downloaden, %{name}"
+    export_photos_failure_email:
+      body: |-
+          Hallo %{name}
+
+          er trad een fout op bij het klaarzetten van je foto's voor downloaden.
+          Probeer het opnieuw!
+
+          Sorry,
+
+          De diaspora* e-mailrobot!
+      subject: "Er was een probleempje met je fofo's, %{name}"
     hello: "Hoi %{name}!"
     invite:
       message: |-
@@ -762,6 +823,22 @@ nl:
       subject: "%{name} heeft jou vermeld op diaspora*"
     private_message:
       reply_to_or_view: "Reageer op of bekijk dit privégesprek >"
+    remove_old_user:
+      body: |-
+          Hallo,
+
+          het lijkt erop dat je je account op %{pod_url} niet meer nodig hebt, omdat je het meer dan %{after_days} dagen niet hebt gebruikt. Om onze actieve gebruikers goede prestaties van de server te geven, willen we ongebruikte accounts verwijderen uit de database.
+
+          We zouden je graag als lid van deze diaspora* gemeenschap willen behouden, dus je kunt je account wel houden als je dat wilt.
+
+          Als je je account wilt aanhouden, log dan in vóór %{remove_after}. En kijk daarna gerust even rond in diaspora*. Er is veel veranderd sinds je hier de laatste keer bent geweest en we denken dat je de verbeteringen wel leuk vindt. Volg wat #hashtags om voor jou relevante content te vinden.
+
+          Log  hier in: %{login_url}. Als je je inloggegevens kwijt bent, vraag ze dan op vanaf die pagina.
+
+          Hopelijk tot ziens,
+
+          De diaspora* e-mailrobot!
+      subject: "Je diaspora* account is gemarkeerd voor verwijdering wegens inactiviteit"
     report_email:
       body: |-
           Hallo,
@@ -804,7 +881,6 @@ nl:
       add_contact_from_tag: "contact toevoegen van tag"
     aspect_list:
       edit_membership: "bewerk aspect lidmaatschap"
-    few: "%{count} personen"
     helper:
       is_not_sharing: "%{name} deelt niet met jou"
       is_sharing: "%{name} deelt met jou"
@@ -818,7 +894,6 @@ nl:
       search_handle: "Gebruik hun diaspora* ID (gebruikersnaam@pod.tld) om je vrienden te vinden."
       searching: "zoeken, even geduld..."
       send_invite: "Nog steeds niets? Stuur een uitnodiging!"
-    many: "%{count} mensen"
     one: "1 persoon"
     other: "%{count} mensen"
     person:
@@ -855,7 +930,6 @@ nl:
       add_some: "voeg wat toe"
       edit: "bewerk"
       you_have_no_tags: "je hebt geen tags!"
-    two: "%{count} mensen"
     webfinger:
       fail: "Sorry, we konden %{handle} niet vinden."
     zero: "niemand"
@@ -956,7 +1030,6 @@ nl:
       update: "Bijwerken"
     invalid_invite: "De uitnodigingslink die je gebruikt is niet langer geldig!"
     new:
-      continue: "Ga door"
       create_my_account: "Maak mijn account aan!"
       diaspora: "<3 diaspora*"
       email: "E-MAIL"
@@ -1072,6 +1145,8 @@ nl:
       your_diaspora_username_is: "Jouw diaspora* gebruikersnaam is: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Voeg contact toe"
+      mobile_row_checked: "%{name} (verwijderen)"
+      mobile_row_unchecked: "%{name} (toevoegen)"
       toggle:
         few: "In %{count} aspecten"
         many: "In %{count} aspecten"
@@ -1157,6 +1232,21 @@ nl:
       failed: "Menselijke verificatie mislukt"
       user: "De geheime afbeelding en de ingevoerde code zijn verschillend"
     placeholder: "Geef de waarde van de afbeelding op"
+  statistics:
+    active_users_halfyear: "Actief laatste half jaar"
+    active_users_monthly: "Actieve per maand"
+    closed: "Besloten"
+    disabled: "Niet beschikbaar"
+    enabled: "Beschikbaar"
+    local_comments: "Lokale reacties"
+    local_posts: "Lokale berichten"
+    name: "Naam"
+    network: "Netwerk"
+    open: "Open"
+    registrations: "Registraties"
+    services: "Services"
+    total_users: "Aantal gebruikers"
+    version: "Versie"
   status_messages:
     create:
       success: "Succesvol genoemd: %{names}"
@@ -1166,10 +1256,11 @@ nl:
       no_message_to_display: "Geen bericht om te weergeven."
     new:
       mentioning: "Noem: %{person}"
-    too_long:
-      other: "Zorg ervoor dat je statusbericht korter is dan %{count} tekens. Nu is het %{current_length} tekens lang"
+    too_long: "Zorg ervoor dat je statusbericht korter is dan %{count} tekens. Nu is het %{current_length} tekens lang"
   stream_helper:
     hide_comments: "Verberg alle reacties"
+    no_more_posts: "Je bent aan het eind van je stream beland."
+    no_posts_yet: "Er zijn nog geen berichten."
     show_comments:
       few: "Toon nog %{count} andere reacties."
       many: "Toon nog %{count} andere reacties."
@@ -1208,7 +1299,6 @@ nl:
       title: "Publieke activiteit"
     tags:
       contacts_title: "Mensen die deze tag cool vinden"
-      tag_prefill_text: "Over %{tag_name} gesproken, ... "
       title: "Posts getagged: %{tags}"
   tag_followings:
     create:
@@ -1219,18 +1309,16 @@ nl:
       failure: "Het is niet gelukt om te stoppen met het volgen van #%{name}. Misschien ben je al succesvol gestopt met volgen?"
       success: "Jammer! Je bent gestopt met het volgen van #%{name}."
   tags:
+    name_too_long: "Zorg ervoor dat je tagnaam korter is dan %{count} tekens. Nu is dat %{current_length} tekens."
     show:
       follow: "Volg #%{tag}"
-      followed_by_people:
-        one: "gevolgd één persoon"
-        other: "gevolgd door %{count} personen"
-        zero: "gevolgd door niemand"
       following: "Volgt #%{tag}"
-      nobody_talking: "Nog niemand heeft het over %{tag}."
       none: "Deze lege tag bestaat niet!"
-      people_tagged_with: "Personen gemerkt met %{tag}"
-      posts_tagged_with: "Berichten gemerkt met #%{tag}"
       stop_following: "Stop met volgen van #%{tag}"
+      tagged_people:
+        one: "1 persoon heeft getagged met %{tag}"
+        other: "%{count} personen hebben getagged met %{tag}"
+        zero: "Niemand heeft getagged met %{tag}"
   terms_and_conditions: "Algemene voorwaarden"
   undo: "Ongedaan maken?"
   username: "Gebruikersnaam"
@@ -1264,19 +1352,26 @@ nl:
       comment_on_post: "iemand op jouw bericht reageert"
       current_password: "Huidig wachtwoord"
       current_password_expl: "het wachtwoord waar je mee inlogt..."
+      download_export: "Download mijn profiel"
+      download_export_photos: "Download mijn foto's"
       download_photos: "download mijn foto's"
-      download_xml: "download mijn xml"
       edit_account: "Bewerk account"
       email_awaiting_confirmation: "We hebben een activatielink verzonden naar %{unconfirmed_email}. Totdat je het adres geactiveerd hebt zullen we je originele adress blijven gebruiken %{email}."
       export_data: "Exporteer data"
+      export_in_progress: "We zijn bezig je aanvraag te verwerken. Controleer het opnieuw over een paar ogenblikken."
+      export_photos_in_progress: "We verwerken nu je foto's. Kom zometeen terug."
       following: "Volgvoorkeuren"
       getting_started: "Nieuwe gebruikersvoorkeuren"
+      last_exported_at: "(Laatst bijgewerkt op %{timestamp})"
       liked: "iemand je bericht leuk vindt"
       mentioned: "je genoemd wordt in een bericht"
       new_password: "Nieuw wachtwoord"
-      photo_export_unavailable: "Foto's exporteren is op dit moment niet beschikbaar"
       private_message: "je een privébericht ontvangt"
       receive_email_notifications: "Ontvang e-mail notificaties wanneer:"
+      request_export: "Aanvragen van mijn profielgegevens"
+      request_export_photos: "Vraag mijn foto's op"
+      request_export_photos_update: "Ververs mijn foto's"
+      request_export_update: "Ververs mijn profielgegevens"
       reshared: "iemand jouw bericht doorgeeft"
       show_community_spotlight: "Laat Community Spotlight zien in Stream"
       show_getting_started: "Laat beginnerstips zien"
@@ -1298,7 +1393,9 @@ nl:
       who_are_you: "Wie ben je?"
     privacy_settings:
       ignored_users: "Genegeerde Gebruikers"
+      no_user_ignored_message: "Je negeert momenteel geen andere gebruiker"
       stop_ignoring: "Stop negeren"
+      strip_exif: "Verwijder metadata van de geüploade afbeeldingen, zoals locatie, auteur en cameratype (aanbevolen)"
       title: "Privacy Instellingen"
     public:
       does_not_exist: "Gebruiker %{username} bestaat niet!"

@@ -78,17 +78,13 @@ gd:
   back: "Air ais"
   cancel: "Sgùir"
   comments:
-    few: "%{count} beachdan"
-    many: "%{count} beachdan"
     new_comment:
       comment: "Thoir beachd air"
       commenting: "a' toirt beachd air..."
     one: "1 bheachd"
     other: "%{count} beachdan"
-    two: "%{count} bheachd"
     zero: "Gun bheachd"
   contacts:
-    few: "%{count} càirdean"
     index:
       all_contacts: "Càirdean gu lèir"
       my_contacts: "Mo Chàirdean"
@@ -96,10 +92,8 @@ gd:
       no_contacts_message_with_aspect: "Thoir sùil air %{community_spotlight} no %{add_to_aspect_link}"
       title: "Càirdean"
       your_contacts: "Do Chàirdean"
-    many: "%{count} càirdean"
     one: "1 chàraid"
     other: "%{count} càirdean"
-    two: "%{count} chàraid"
     zero: "càirdean"
   conversations:
     create:

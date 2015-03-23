@@ -79,7 +79,6 @@ es-BO:
       rename: "Cambiar nombre"
       update: "actualizar"
       updating: "actualizando"
-    few: "%{count} aspectos"
     helper:
       are_you_sure: "¿Estás seguro de querer borrar este aspecto?"
       aspect_not_empty: "El aspecto no está vacío"
@@ -93,7 +92,6 @@ es-BO:
       post_a_message: "publica un mensaje >>"
       unfollow_tag: "Dejar de seguir #%{tag}"
       welcome_to_diaspora: "Bienvenido a Diaspora, %{name}!"
-    many: "%{count} aspectos"
     move_contact:
       error: "Error moviendo contacto: %{inspect}"
       success: "La persona fue movida al nuevo aspecto"
@@ -121,7 +119,6 @@ es-BO:
       view_all_contacts: "Ver todos los contactos"
     show:
       edit_aspect: "editar aspecto"
-    two: "%{count} aspectos"
     update:
       failure: "Tu aspecto, %{name}, tiene un nombre muy largo para ser guardado."
       success: "Tu aspecto %{name}, ha sido editado con éxito."

@@ -10,6 +10,7 @@ hy:
       add_to_aspect: "Ավելացնել"
       all_aspects: "Բոլոր խմբերը"
       error: "Չի ստացվում կիսվել <%= name %>-ի հետ։ Արհամարհու՞մ ես նրանց։"
+      error_remove: "Չստացվեց ջնջել <%= name %>֊ին քո խմբերից ։Չ"
       select_aspects: "Ընտրել խմբերը"
       started_sharing_with: "Սկսեցիր կիսվել <%= name %>-ի հետ։"
       stopped_sharing_with: "Դու այլևս չես կիսվում <%= name %>-ի հետ։"
@@ -18,6 +19,7 @@ hy:
         other: "<%= count %> խմբերում"
         zero: "Ընտրել խմբերը"
     aspect_navigation:
+      add_an_aspect: "+ Խումբ ավելացնել"
       deselect_all: "Ապանշել ամբողջը"
       no_aspects: "Ոչ մի խումբ ընտրված չէ"
       select_all: "Նշել ամբողջը"
@@ -25,7 +27,11 @@ hy:
       hide: "թաքցնել մեկնաբանությունները"
       show: "ցույց տալ բոլոր մեկնաբանությունները"
     confirm_dialog: "Համոզվա՞ծ ես"
+    confirm_unload: "Հաստատիր, որ ուզում ես լքել այս էջը․ քո մուտքագրած տվյալները չեն պահպանվի։"
+    contacts:
+      add_contact: "Ընկեր ավելացնել"
     delete: "Ջնջել"
+    edit: "Փոփոխել"
     failed_to_like: "Չհաջողվեց հավանել"
     failed_to_post_message: "Չհաջողվեց գրառում կատարել"
     getting_started:
@@ -46,16 +52,31 @@ hy:
       search: "Որոնում"
       settings: "Կարգավորումներ"
       view_all: "Ցույցադրել ամբողջը"
+    hide_post: "Թաքցնե՞լ այս գրառումը։"
     ignore: "Արհամարհել"
     ignore_user: "Արհամարհե՞լ այս օգտատիրոջը։"
     infinite_scroll:
       no_more: "Գրառումներ էլ չկան։"
+      no_more_contacts: "Էլ ընկերներ չկան։"
     my_activity: "Իմ գործունեությունը"
+    my_aspects: "Իմ խմբերը"
     my_stream: "Լրահոս"
+    notifications:
+      mark_unread: "Նշել որպես չընթերցված"
     people:
       not_found: "և ոչ ոք չգտնվեց..."
     photo_uploader:
+      completed: "<%= file %> ավարտված է"
+      invalid_ext: "{file}֊ը անհամապատասխան ընդլայնման է։ Միայն {extensions} են թույլատրվում։"
       looking_good: "Օ՜, աստվածներ, հիանալի տեսք ունես։"
+      size_error: "{file}-ը չափից դուրս մեծ է, առավելագույն չափն է՝ {sizeLimit}։"
+    poll:
+      result: "Արդյունքները"
+      vote: "Քվեարկել"
+    profile:
+      contacts: "Ընկերներ"
+      photos: "Նկարներ"
+      posts: "Գրառումներ"
     publisher:
       at_least_one_aspect: "Գրառումդ պետք է տեսանելի լինի առնվազն մեկ խմբի։"
       limited: "Սահմանափակ. սա նշանակում է, որ գրառումդ տեսանելի է լինելու միայն այն մարդկանց, ում հետ կիսվում ես։"

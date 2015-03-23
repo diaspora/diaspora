@@ -85,8 +85,6 @@ wo:
   or: "walla"
   password: "Baatujàll"
   people:
-    few: "%{count}i nit"
-    many: "%{count}i nit"
     one: "1 nit"
     other: "%{count}i nit"
     person:
@@ -99,7 +97,6 @@ wo:
       see_all: "Gisal ñëpp"
     sub_header:
       edit: "soppil"
-    two: "%{count}i nit"
   photos:
     comment_email_subject: "Nataalu %{name}"
     edit:

@@ -69,7 +69,6 @@ io:
       rename: "ri-nomizez"
       update: "aktualigez"
       updating: "aktualigas"
-    few: "%{count} aspekti"
     index:
       donate: "Donacar"
       help:
@@ -79,7 +78,6 @@ io:
       new_here:
         learn_more: "Lektez pluse"
         title: "Bonvenez Nova Uzanti"
-    many: "%{count} aspekti"
     new:
       create: "Kreez"
       name: "Nomo (nur videbla da tu)"
@@ -100,7 +98,6 @@ io:
       view_all_contacts: "Regardez omna konocati"
     show:
       edit_aspect: "redaktez aspekto"
-    two: "%{count} aspekti"
   back: "Retro-irar"
   cancel: "Anular"
   contacts:
@@ -159,7 +156,6 @@ io:
   public: "Publika"
   registrations:
     new:
-      continue: "Durar"
       password: "PASOVORTO"
   search: "Serchar"
   services:

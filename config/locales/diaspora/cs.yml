@@ -12,6 +12,7 @@ cs:
   _home: "Domů"
   _photos: "fotky"
   _services: "Služby"
+  _statistics: "Statistiky"
   _terms: "pojmy"
   account: "Účet"
   activerecord:
@@ -71,7 +72,7 @@ cs:
         zero: "žádný komentář"
       current_segment: "Současný segment má v průměru <b>%{post_yest}</b> příspěvků na uživatele, od <b>%{post_day}</b>"
       daily: "Denní"
-      display_results: "Zobrazují se výsedky z segmentu <b>%{segment}</b>"
+      display_results: "Zobrazují se výsledky ze segmentu <b>%{segment}</b>"
       go: "přejít"
       month: "Měsíční"
       posts:
@@ -107,8 +108,12 @@ cs:
       : ano
     user_search:
       account_closing_scheduled: "Účet uživatele %{name} bude uzavřen. Prosím, vyčkejte."
+      account_locking_scheduled: "Účet uživatele %{name} bude uzamknut. Prosím, vyčkejte."
+      account_unlocking_scheduled: "Účet uživatele %{name} bude odemknut. Prosím, vyčkejte."
       add_invites: "přidat pozvánky"
       are_you_sure: "Jste si jist/á, že tento účet chcete zrušit ?"
+      are_you_sure_lock_account: "Určitě chcete uzamknout tento účet ?"
+      are_you_sure_unlock_account: "Určitě chcete odemknout teto účet ?"
       close_account: "zrušit účet"
       email_to: "E-mailová adresa, kterou chcete pozvat"
       under_13: "Zobrazit uživatele mladší 13 let (COPPA)"
@@ -169,10 +174,13 @@ cs:
       success: "%{name} byl úspěšně odebrán."
     edit:
       add_existing: "Přidat existující kontakt"
+      aspect_chat_is_enabled: "Kontakty v tomto aspektu s Vámi mohou chatovat."
+      aspect_chat_is_not_enabled: "Kontakty v tomto aspektu s Vámi nemohou chatovat."
       aspect_list_is_not_visible: "seznam kontaktů je skryt ostatním v aspektu"
       aspect_list_is_visible: "seznam kontaktů je viditelný pro ostatní v aspektu"
       confirm_remove_aspect: "Opravdu chcete odstranit tento aspekt?"
       done: "Hotovo"
+      grant_contacts_chat_privilege: "dát kontaktům v tomto aspektu právo chatovat ?"
       make_aspect_list_visible: "umožnit kontaktům v tomto aspektu se vzájemně vidět?"
       manage: "Správa kontaktů"
       remove_aspect: "Odstranit tento aspekt"
@@ -180,7 +188,6 @@ cs:
       set_visibility: "Nastavit viditelnost"
       update: "aktualizovat"
       updating: "aktualizace"
-    few: "%{count} aspekty"
     helper:
       are_you_sure: "Opravdu chcete odstranit tento aspekt?"
       aspect_not_empty: "Aspekt není prázdný"
@@ -225,7 +232,6 @@ cs:
         heading: "Připojit služby"
       unfollow_tag: "Přestat odebírat #%{tag}"
       welcome_to_diaspora: "Vítejte na Diaspoře, %{name}!"
-    many: "%{count} aspektů"
     move_contact:
       error: "Chyba při přesunu kontaktu: %{inspect}"
       failure: "%{inspect} nefunguje"
@@ -254,7 +260,6 @@ cs:
       view_all_contacts: "Zobrazit všechny kontakty"
     show:
       edit_aspect: "upravit aspekt"
-    two: "%{count} aspekty"
     update:
       failure: "Váš aspekt %{name} má příliš dlouhý název na to, aby mohl být uložen."
       success: "Váš aspekt %{name} byl úspěšně upraven."
@@ -274,21 +279,18 @@ cs:
     post_success: "Odesláno! Zavírám!"
   cancel: "Zrušit"
   comments:
-    few: "%{count} komentáře"
-    many: "%{count} komentářů"
     new_comment:
       comment: "komentář"
       commenting: "Komentování..."
     one: "1 komentář"
     other: "%{count} komentářů"
-    two: "%{count} komentáře"
     zero: "žádné komentáře"
   contacts:
     create:
       failure: "Nepodařilo se vytvořit kontakt"
-    few: "%{count} kontaktů"
     index:
       add_a_new_aspect: "Přidat nový aspekt"
+      add_contact: "Přidej kontakt"
       add_to_aspect: "Přidat kontakty do %{name}"
       add_to_aspect_link: "přidat kontakty do %{name}"
       all_contacts: "Všechny kontakty"
@@ -299,11 +301,11 @@ cs:
       no_contacts_message: "Shlédněte %{community_spotlight}"
       no_contacts_message_with_aspect: "Shlédněte %{community_spotlight} nebo %{add_to_aspect_link}"
       only_sharing_with_me: "Pouze sdílejí se mnou"
-      remove_person_from_aspect: "Odstranit %{person_name} z \"%{aspect_name}\""
+      remove_contact: "Odstraň kontakt"
       start_a_conversation: "Zahájit konverzaci"
       title: "Kontakty"
+      user_search: "Hledat uživatele"
       your_contacts: "Vaše kontakty"
-    many: "%{count} kontaktů"
     one: "1 kontakt"
     other: "%{count} kontaktů"
     sharing:
@@ -311,7 +313,6 @@ cs:
     spotlight:
       community_spotlight: "Aktuality z komunity"
       suggest_member: "Navrhněte člena"
-    two: "%{count} kontakty"
     zero: "žádné kontakty"
   conversations:
     conversation:
@@ -321,7 +322,8 @@ cs:
       no_contact: "Hej, musíte nejdřív kontakt přidat!"
       sent: "Zpráva byla odeslána"
     destroy:
-      success: "Konverzace úspěšně odstraněna"
+      delete_success: "Konverzace byla úspěšně smazána"
+      hide_success: "Konverzace byla úspěšně skryta"
     helper:
       new_messages:
         few: "%{count} nové zprávy"
@@ -347,6 +349,7 @@ cs:
       fail: "Neplatná zpráva"
     show:
       delete: "smazat a blokovat konverzaci"
+      hide: "skrýt a ztlumit konverzaci"
       reply: "odpověď"
       replying: "Odpovídám…"
   date:
@@ -402,8 +405,17 @@ cs:
       what_is_an_aspect_q: "Co je to aspekt?"
       who_sees_post_a: "Pokud vytvoříte omezený příspěvek, bude viditelný jen lidem, které máte v tomto aspektu (nebo aspektech, pokud je určen několika aspektům). Vaše kontakty, které nejsou v tomto aspektu, příspěvek neuvidí, pokud jste ho neudělal(a) veřejným. Vždy jen veřejné příspěvky budou viditelné těm, které jste nezařadil(a) do vašich aspektů."
       who_sees_post_q: "Když posílám do určitého aspektu, kdo to vidí?"
+    chat:
+      add_contact_roster_a: |-
+          V první řadě musíte povolit chat s jedním z aspektů, kterého je daný uživatel členem. Za tímto účelem půjdete do %{contacts_page}, vyberete aspekt a kliknete na ikonku chatu.
+          %{toggle_privilege} Můžete, pokud chcete, vytvořit speciální aspekt, který nazvete 'Chat' а uživatele, se kterými chcete moci chatovat přidáte do tohoto aspektu. Poté co toto uděláte, můžete otevřít uživatelské rozhraní chatu a vybrat osobu, se kterou chcete chatovat.
+      add_contact_roster_q: "Jak mohu s někým chatovat na diaspora* ?"
+      contacts_page: "Stránka kontaktů"
+      title: "Chat"
+    faq: "Často kladené otázky"
     foundation_website: "webové stránky diaspora foundation"
     getting_help:
+      get_support_a_faq: "Čtete naši %{faq} stránku na wiki"
       get_support_a_hashtag: "zeptej se ve veřejném příspěvku na diaspoře* použitím hashtagu %{question}"
       get_support_a_irc: "přidej se k nám na %{irc} (chat naživo)"
       get_support_a_tutorials: "Koukněte na naše %{tutorials}"
@@ -422,6 +434,10 @@ cs:
       keyboard_shortcuts_li2: "k - přejděte na předchozí příspěvek"
       keyboard_shortcuts_li3: "c - komentujte aktuální příspěvek"
       keyboard_shortcuts_li4: "l - lajkovat aktuální příspěvek"
+      keyboard_shortcuts_li5: "r - znovu zveřejnit současný příspěvek"
+      keyboard_shortcuts_li6: "m - rozšířit současný příspěvek"
+      keyboard_shortcuts_li7: "o - otevřít první odkaz v současném příspěvku"
+      keyboard_shortcuts_li8: "ctrl + enter - pošle zprábu, kterou píšete"
       keyboard_shortcuts_q: "Jaké klávesové zkratky jsou k dispozici ?"
       title: "Klávesové zkratky"
     markdown: "Markdown"
@@ -679,6 +695,7 @@ cs:
       mark_read: "Označit jako přečtené"
       mark_unread: "Označit jako nepřečtené"
       mentioned: "Zmíněno"
+      no_notifications: "Zatím nemáte žádná upozornění."
       notifications: "Oznámení"
       reshared: "Znovusdílené"
       show_all: "Zobrazit vše"
@@ -726,7 +743,9 @@ cs:
       other: "%{actors} s vámi začali sdílet."
       zero: "%{actors} s vámi začali sdílet."
   notifier:
+    a_limited_post_comment: "Na soukromém příspěvku v diaspora* je k přečtení nový komentář."
     a_post_you_shared: "příspěvek."
+    a_private_message: "Máte v diaspora* novou soukromou zprávu."
     accept_invite: "Přijměte vaši pozvánku do Diaspory*!"
     click_here: "klikněte zde"
     comment_on_post:
@@ -735,6 +754,44 @@ cs:
       click_link: "K aktivaci vaší nové e-mailové adresy %{unconfirmed_email} použijte prosím tento odkaz:"
       subject: "Prosím aktivujte si svou novou e-mailovou adresu %{unconfirmed_email}"
     email_sent_by_diaspora: "Tento e-mail odeslal pod %{pod_name}. Pokud si nepřejete nadále dostávat takovéto e-maily,"
+    export_email:
+      body: |-
+          Dobrý den, %{name}.
+
+          Vaše data byla zpracována a jsou připravena ke stažení na [tomto odkazu](%{url}).
+
+          S pozdravem,
+          e-mailový robot disaspora*
+      subject: "%{name}, Vaše osobní data jsou připravena ke stažení"
+    export_failure_email:
+      body: |-
+          Dobrý den, %{name},
+
+          Při přípravě Vašich osobních dat ke stažení jsme narazili na problémy.
+          Prosím, zkuste to znovu.
+
+          S pozdravem,
+          e-mailový robot disaspora*
+      subject: "Je nám líto, %{name}, ale je nějaký problém s Vašimi daty."
+    export_photos_email:
+      body: |-
+          Dobrý den, %{name},
+
+          Vaše fotky byly zpracovány a jsou k dispozici ke stažení na následujícím [odkazu](%{url})
+
+          S pozdravem,
+          e-mailový robot diaspora*
+      subject: "%{name}, Vaše fotky jsou připraveny ke stažení."
+    export_photos_failure_email:
+      body: |-
+          Dobrý den, %{name},
+
+          došlo k problému s přípravou Vašich fotek ke stažení.
+          Zkuste to, prosím, znovu.
+
+          Omlouvám se,
+          e-mailový robot diaspora*
+      subject: "%{name}, s Vašimi fotografiemi nastal nějaký problém."
     hello: "Vítej, %{name}!"
     invite:
       message: |-
@@ -761,6 +818,23 @@ cs:
       subject: "%{name} vás zmínil(a) na Diaspoře*"
     private_message:
       reply_to_or_view: "Zobrazit konverzaci nebo na ni odpovědět »"
+    remove_old_user:
+      body: |-
+          Dobrý den,
+
+          zdá se, že již nechcete mít účet na %{pod_url}, protože jste jej nepoužil/a posledních %{after_days} dní. Abychom mohli zajistit maximální výkon tohoto diaspora* podu našim aktivním uživatelům, odstraňujeme nechtěné účty z naší databáze.
+
+          Budeme rádi, pokud zůstanete členem diaspora* komunity a ponecháte si Váš účet, pokud o něj stojíte.
+
+          Jediné, co pro jeho zachování musíte udělat, je přihlásit se na něj před %{remove_after}. Až se přihlásíte, doufáme že budete mít čas se po diaspora* trochu poohlédnout. Od doby Vaší poslední návštěvy se toho hodně změnilo a myslíme si, že se Vám naše vylepšení budou líbit. Začněte odebírat nějaké #štítky, tak snadno najdete obsah, který Vás zajímá.
+
+          Přihlaste se zde: %{login_url}. Pokud jste zapoměl/a své přihlašovací údaje, můžete na této stránce požádat o připomenutí.
+
+          Doufáme, že Vás na dispora* znovu uvidíme,
+
+          Váš,
+          diaspora* email robot
+      subject: "Váš diaspora* účet byl navržen k odstranění, protože na něm nejste aktivní."
     report_email:
       body: |-
           Dobrý den,
@@ -805,7 +879,6 @@ cs:
       add_contact_from_tag: "přidat kontakt ze štítku"
     aspect_list:
       edit_membership: "upravit člena aspektu"
-    few: "%{count} lidi"
     helper:
       is_not_sharing: "%{name} s vámi nesdílí"
       is_sharing: "%{name} s vámi sdílí"
@@ -819,7 +892,6 @@ cs:
       search_handle: "Vaše přátelé nejlépe najdete podle jejich diaspora* ID (uzivatel@pod.cz)."
       searching: "vyhledávám, prosím čekejte…"
       send_invite: "Stále nic ? Pošlete pozvánku !"
-    many: "%{count} lidí"
     one: "1 člověk"
     other: "%{count} lidí"
     person:
@@ -856,7 +928,6 @@ cs:
       add_some: "přidat nějaké"
       edit: "upravit"
       you_have_no_tags: "nemáte žádný štítek!"
-    two: "%{count} lidi"
     webfinger:
       fail: "Omlouváme se, ale %{handle} nebyl nalezen."
     zero: "nikdo"
@@ -953,7 +1024,6 @@ cs:
       update: "Aktualizovat"
     invalid_invite: "Odkaz na pozvánku, který jste poskytli, již neplatí!"
     new:
-      continue: "Pokračovat"
       create_my_account: "Vytvořte mi účet!"
       diaspora: "<3 diasporu*"
       email: "EMAIL"
@@ -1068,6 +1138,8 @@ cs:
       your_diaspora_username_is: "Vaše uživatelské jméno na Diaspoře: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Přidat do aspektu"
+      mobile_row_checked: "%{name} (odstranit)"
+      mobile_row_unchecked: "%{name} (přidat)"
       toggle:
         few: "Ve %{count} aspektech"
         one: "V jednom aspektu"
@@ -1151,6 +1223,21 @@ cs:
       failed: "Nelze ověřit, zda jste člověk."
       user: "Tajný obrázek je odlišný od kódu"
     placeholder: "Zadejte hodnotu na obrázku"
+  statistics:
+    active_users_halfyear: "Aktivních uživatelů za půl roku"
+    active_users_monthly: "Aktivních uživatelů měsíčně"
+    closed: "Uzavřený"
+    disabled: "Nedostupný"
+    enabled: "Dostupný"
+    local_comments: "Místní komentáře"
+    local_posts: "Místní příspěvky"
+    name: "Jméno"
+    network: "Síť"
+    open: "Otevřený"
+    registrations: "Registrace"
+    services: "Služby"
+    total_users: "Celkový počet uživatelů"
+    version: "Verze"
   status_messages:
     create:
       success: "Úspěšně zmíněno: %{names}"
@@ -1160,13 +1247,11 @@ cs:
       no_message_to_display: "Žádná zpráva k zobrazení."
     new:
       mentioning: "Zmínka: %{person}"
-    too_long:
-      few: "prosím zkraťte svou zprávu na méně než %{count} znaky"
-      one: "prosím zkraťte svou zprávu na méně než %{count} znak"
-      other: "prosím zkraťte svou zprávu na méně než %{count} znaků"
-      zero: "prosím zkraťte svou zprávu na méně než %{count} znaků"
+    too_long: "{\"few\"=>\"prosím zkraťte svou zprávu na méně než %{count} znaky\", \"one\"=>\"prosím zkraťte svou zprávu na méně než %{count} znak\", \"other\"=>\"prosím zkraťte svou zprávu na méně než %{count} znaků\", \"zero\"=>\"prosím zkraťte svou zprávu na méně než %{count} znaků\"}"
   stream_helper:
     hide_comments: "Skrýt všechny komentáře"
+    no_more_posts: "Dosáhl/a jste konce proudu."
+    no_posts_yet: "Zatím zde nejsou žádné příspěvky."
     show_comments:
       few: "Zobrazit %{count} dalších komentářů"
       one: "Zobrazit jeden další komentář"
@@ -1203,7 +1288,6 @@ cs:
       title: "Veřejná aktivita"
     tags:
       contacts_title: "Lidé, kteří navěšují tento štítek"
-      tag_prefill_text: "%{tag_name} je o… "
       title: "Příspěvky označené: %{tags}"
   tag_followings:
     create:
@@ -1214,19 +1298,17 @@ cs:
       failure: "Nepodařilo se ukončit odebírání #%{name}. Možná jste jej již přestali odebírát?"
       success: "Jak chcete! Štítek #%{name} již neodebíráte."
   tags:
+    name_too_long: "Ujistěte se, že název tagu má méně než %{count} znaků. Teď jich má %{current_length}."
     show:
       follow: "Odebírat #%{tag}"
-      followed_by_people:
-        few: "odebírají %{count} lidé"
-        one: "odebírá jeden člověk"
-        other: "odebírá %{count} lidí"
-        zero: "neodebírá nikdo"
       following: "Odebíráte #%{tag}"
-      nobody_talking: "Nikdo dosud nemluví o %{tag}."
       none: "Prázdný štítek neexistuje!"
-      people_tagged_with: "Lidé označení %{tag}"
-      posts_tagged_with: "Příspěvky označené #%{tag}"
       stop_following: "Přestat odebírat #%{tag}"
+      tagged_people:
+        few: "%{count} osoby jsou označeny štítkem %{tag} "
+        one: "1 osoba je označena štítkem %{tag}."
+        other: "%{count} osob je označeno štítkem %{tag}"
+        zero: "Nikdo není označen štítkem %{tag}"
   terms_and_conditions: "Podmínky používání"
   undo: "Vrátit zpět?"
   username: "Uživatelské jméno"
@@ -1260,19 +1342,26 @@ cs:
       comment_on_post: "…někdo komentoval váš příspěvek?"
       current_password: "Současné heslo"
       current_password_expl: "to, s kterým se přihlašuješ..."
+      download_export: "Stáhnout můj profil"
+      download_export_photos: "Stáhnout moje fotky"
       download_photos: "stáhnout moje fotky"
-      download_xml: "stáhnout moje xml"
       edit_account: "Upravit účet"
       email_awaiting_confirmation: "Na adresu %{unconfirmed_email} byl zaslán aktivační odkaz. Dokud tento odkaz neotevřete a svou novou adresu neaktivujete, budeme vás kontaktovat na vaší staré adrese %{email}."
       export_data: "Exportovat data"
+      export_in_progress: "Momentálně zpracováváme Vaše data. Dejte nám chvilku."
+      export_photos_in_progress: "Momentálně zpracováváme Vaše fotky. Zkuste to prosím za chvilku."
       following: "Nastavení sledování"
       getting_started: "Předvolby nového uživatele"
+      last_exported_at: "(Naposledy aktualizováno v %{timestamp})"
       liked: "…někomu se zalíbí váš příspěvek?"
       mentioned: "…někdo vás zmíní v příspěvku?"
       new_password: "Nové heslo"
-      photo_export_unavailable: "Exportování fotek zatím nedostupné"
       private_message: "…obdržíte soukromou zprávu?"
       receive_email_notifications: "Přijímat oznámení e-mailem, když…"
+      request_export: "Vyžádat si má profilová data"
+      request_export_photos: "Vyžádat si moje fotky"
+      request_export_photos_update: "Obnovit moje fotky"
+      request_export_update: "Obnovit má profilová data"
       reshared: "…někdo sdílí váš příspěvek?"
       show_community_spotlight: "Zobrazovat Aktuality z komunity v Proudu?"
       show_getting_started: "Znovu spustit Tutoriály pro nováčky"
@@ -1294,7 +1383,9 @@ cs:
       who_are_you: "Kdo jste?"
     privacy_settings:
       ignored_users: "Ignorovaní uživatelé"
+      no_user_ignored_message: "Momentálně neignorujete žádné uživatele"
       stop_ignoring: "Přestat ignorovat"
+      strip_exif: "Odstranit metadata typu lokace, autor a model fotoaparátu z nahrávaných obrázků (doporučeno)"
       title: "Nastavení soukromí"
     public:
       does_not_exist: "Uživatel %{username} neexistuje!"

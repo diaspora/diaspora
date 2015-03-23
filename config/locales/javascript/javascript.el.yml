@@ -30,6 +30,9 @@ el:
       no_comments: "Δεν υπάρχουν ακόμη σχόλια."
       show: "προβολή όλων των σχολίων"
     confirm_dialog: "Είστε σίγουροι;"
+    contacts:
+      add_contact: "Προσθήκη επαφής"
+      remove_contact: "Διαγραφή επαφής"
     conversation:
       participants: "Συμμετέχοντες"
     delete: "Διαγραφή"
@@ -63,7 +66,9 @@ el:
     my_activity: "Η δραστηριότητα μου"
     my_aspects: "Οι Πτυχές μου"
     my_stream: "Ροή"
+    no_results: "Δεν βρέθηκαν αποτελέσματα"
     people:
+      edit_my_profile: "Επεξεργασία του προφίλ μου"
       not_found: "και κανείς δεν βρέθηκε..."
     photo_uploader:
       completed: "<%= file %> ολοκληρώθηκε"
@@ -74,6 +79,14 @@ el:
     poll:
       close_result: "Απόκρυψη αποτελεσμάτων"
       result: "Αποτέλεσμα"
+    profile:
+      bio: "Βιογραφικό"
+      born: "Ημερομηνία Γέννησης"
+      contacts: "Επαφές"
+      edit: "επεξεργασία"
+      gender: "Φύλο"
+      location: "Τοποθεσία"
+      photos: "Φωτογραφίες"
     publisher:
       add_option: "Πρόσθεσε μια απάντηση"
       at_least_one_aspect: "Πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"

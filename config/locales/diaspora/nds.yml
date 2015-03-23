@@ -39,7 +39,7 @@ nds:
             person:
               invalid: "is ungüllig."
             username:
-              invalid: "is ungüllig. Wi erlauven nur Bookstaven, Nummern und Ünnerstreeke."
+              invalid: "is ungüllig. Wi erlauvt nur Bookstaven, Nummern und Ünnerstreeke."
               taken: "is schon vergeven."
   admins:
     admin_bar:
@@ -71,9 +71,9 @@ nds:
         zero: "Noch nich deelt."
       usage_statistic: "Nutzungsstatistiken"
       users:
-        one: "Een Bruker"
-        other: "%{count} Bruker"
-        zero: "Keene Bruker"
+        one: "Een Benutter"
+        other: "%{count} Benutter"
+        zero: "Keene Benutter"
       week: "Week"
     user_entry:
       guid: "GUID"
@@ -87,11 +87,11 @@ nds:
       add_invites: "Inladungen dortodoon"
       close_account: "Konto sluten"
       email_to: "E-Mail-Adress ton Inladen"
-      under_13: "Zeig Brukers ünner 13 (COPPA)"
+      under_13: "Zeig Benutters ünner 13 (COPPA)"
       users:
-        one: "Een Bruker funnen"
-        other: "%{count} Bruker funnen"
-        zero: "Keen Bruker funnen"
+        one: "Een Benutter funnen"
+        other: "%{count} Benutter funnen"
+        zero: "Keen Benutter funnen"
       view_profile: "Profil ankieken"
       you_currently:
         one: "Du hest noch eene Inladung öber %{link}"
@@ -99,18 +99,18 @@ nds:
         zero: "Du hest graad keene Inladungen mehr öber %{link}"
     weekly_user_stats:
       amount_of:
-        one: "Antohl von nee’e Bruker in disse Week: Een"
-        other: "Antohl von nee’e Bruker in disse Week: %{count}"
-        zero: "Antohl von nee’e Bruker in disse Week: keene"
+        one: "Antohl von nee’e Benutter in disse Week: Een"
+        other: "Antohl von nee’e Benutter in disse Week: %{count}"
+        zero: "Antohl von nee’e Benutter in disse Week: keene"
       current_server: "Dat Serverdatum is graad %{date}"
   ago: "%{time} her"
   all_aspects: "All Aspekte"
   application:
     helper:
-      unknown_person: "unbekannte Person"
+      unknown_person: "Unbekannte Person"
       video_title:
         unknown: "Unbekannte Videotitel"
-  are_you_sure: "Bist du seker?"
+  are_you_sure: "Bist du sicher?"
   are_you_sure_delete_account: "Bist du di seker, dat du dien Konto tomoken wist? Dat kanns du nich rückgängig moken!"
   aspect_memberships:
     destroy:
@@ -148,14 +148,13 @@ nds:
       done: "Ferdig"
       make_aspect_list_visible: "Kontakte in dissen Aspekt to sick sülbst sichtbor moken?"
       remove_aspect: "Dissen Aspekt löschen"
-      rename: "ümnömen"
-      update: "opfrischen"
-      updating: "frisch op"
-    few: "een poor Aspekte"
+      rename: "Ümnömen"
+      update: "Opfrischen"
+      updating: "Opfrischen"
     helper:
-      are_you_sure: "Bist du seker, dat du dissen Aspekt löschen wist?"
+      are_you_sure: "Bist du sicher, dat du dissen Aspekt löschen wist?"
       aspect_not_empty: "Aspekt nich leer"
-      remove: "wegmaken"
+      remove: "Wegmaken"
     index:
       diaspora_id:
         content_1: "Diene diaspora*-ID is:"
@@ -180,22 +179,21 @@ nds:
         tutorials_and_wiki: "%{faq}, %{tutorial} un %{wiki}: Hülp för diene eersten Schritte"
       introduce_yourself: "Dit is dien Stream.  Leg los un stell di vör."
       new_here:
-        follow: "Folg %{link} un begrööt nee’e Brukers op diaspora*!"
+        follow: "Folg %{link} un begrööt nee’e Benutters op diaspora*!"
         learn_more: "Mehr rutkriegen"
-        title: "Begrööt nee’e Brukers"
+        title: "Begrööt nee’e Benutters"
       no_contacts: "Keene Kontakte"
       no_tags: "+ Een Tag ton Folgen finnen"
       people_sharing_with_you: "Lüü de mit di deelt"
-      post_a_message: "verfat een Bidrag >>"
+      post_a_message: "Verfat een Bidrag >>"
       services:
         content: "Du kanns disse Deenste mit diaspora* verbinnen:"
-        heading: "Verbunnene Deenste"
+        heading: "Verbinn Deenste"
       unfollow_tag: "Ophören, #%{tag} to folgen"
       welcome_to_diaspora: "Willkomen to diaspora*, %{name}!"
-    many: "veele Aspekte"
     move_contact:
       error: "Fehler bin verschuben von den Kontakt: %{inspect}"
-      failure: "hett nich fungscheneert %{inspect}"
+      failure: "Hett nich fungscheneert %{inspect}"
       success: "Person in nee’en Aspekt verschoben"
     new:
       create: "Anleggen"
@@ -212,18 +210,17 @@ nds:
       acquaintances: "Bekannte"
       family: "Familie"
       friends: "Frünnen"
-      work: "Arbeid"
+      work: "Arbeit"
     selected_contacts:
       manage_your_aspects: "Verwalt diene Aspekte."
       no_contacts: "Du hest hier noch keene Kontakte."
       view_all_contacts: "Alle Kontakte ankieken"
     show:
       edit_aspect: "Aspekt bearbeiden"
-    two: "twee Aspekte"
     update:
       failure: "De Naam von dien Aspekt, %{name}, wöör to lang ton Spiekern."
       success: "Dien Aspekt, %{name}, is erfolgriek ännert worrn."
-    zero: "keene Aspekte"
+    zero: "Keene Aspekte"
   back: "Trüch"
   blocks:
     create:
@@ -239,23 +236,20 @@ nds:
     post_success: "Verfat! Mok to!"
   cancel: "afbreken"
   comments:
-    few: "een poor Kommentore"
-    many: "veele mögt dissen Kommentor"
     new_comment:
       comment: "Kommenteren"
       commenting: "Kommentere..."
     one: "een Kommentor"
     other: "%{count} Kommentore"
-    two: "twee Kommentore"
-    zero: "keene Kommentore"
+    zero: "Keene Kommentore"
   contacts:
     create:
       failure: "Kunn keen Kontakt sluten"
-    few: "een poor Kontakte"
     index:
       add_a_new_aspect: "Do een nee’en Kontakt dorto"
+      add_contact: "Kontakt sluten"
       add_to_aspect: "Kontakte to %{name} dortodoon"
-      add_to_aspect_link: "do Kontakte to %{name} dorto"
+      add_to_aspect_link: "Do Kontakte to %{name} dorto"
       all_contacts: "Alle Kontakte"
       many_people_are_you_sure: "Bist du seker dat du een privaten Snack mit mehr as %{suggested_limit} Lüü anfangen wist? Een Bidrag an dissen Aspekt to verfaten is villicht eene betere Lösung."
       my_contacts: "Miene Kontakte"
@@ -266,15 +260,13 @@ nds:
       start_a_conversation: "Fang een Snack an"
       title: "Kontakte"
       your_contacts: "Diene Kontakte"
-    many: "veele Kontakte"
     one: "een Kontakt"
     other: "%{count} Kontakte"
     sharing:
       people_sharing: "Lüü, de mit di deelt:"
     spotlight:
       suggest_member: "Slag wen vör"
-    two: "twee Kontakte"
-    zero: "keene Kontakte"
+    zero: "Keene Kontakte"
   conversations:
     conversation:
       participants: "Bedeeligte"
@@ -282,8 +274,6 @@ nds:
       fail: "Ungüllige Naricht"
       no_contact: "He, du muss erst Kontakt sluten!"
       sent: "Naricht afschickt"
-    destroy:
-      success: "Snack erfolgriek wegmakt"
     helper:
       new_messages:
         one: "Eene nee’e Naricht"
@@ -292,18 +282,18 @@ nds:
     index:
       inbox: "Ingang"
       no_conversation_selected: "Keen Snack utwählt"
-      no_messages: "keene Narichten"
+      no_messages: "Keene Narichten"
     new:
       abandon_changes: "Ännerungen wegsmieten?"
       send: "Schicken"
-      sending: "Send..."
+      sending: "Schicken..."
       subject: "Saak"
-      to: "an"
+      to: "An"
     new_conversation:
       fail: "Ungüllige Naricht"
     show:
-      delete: "Snack löschen und blocken"
-      reply: "antwoorden"
+      delete: "Snack löschen"
+      reply: "Antwoorden"
       replying: "antwoord..."
   delete: "Löschen"
   email: "E-Mail"
@@ -392,7 +382,7 @@ nds:
   invitation_codes:
     excited: "%{name} is hen un weg, di hier to seihn."
   invitations:
-    a_facebook_user: "Een Facebook-Bruker"
+    a_facebook_user: "Een Facebook-Benutter"
     check_token:
       not_found: "Inladungstoken nich funnen"
     create:
@@ -429,7 +419,7 @@ nds:
   layouts:
     application:
       back_to_top: "Trüch no boben"
-      powered_by: "ANDREVEN VON diaspora*"
+      powered_by: "Andreven von diaspora*"
       public_feed: "Opentliche diaspora*-Feed för %{name}"
       source_package: "lad dat Quellcodepaket rünner"
       toggle: "Mobile Ansicht ümschalten"
@@ -462,7 +452,7 @@ nds:
         zero: "Keener mag dissen Kommentor"
   limited: "Inschränkt"
   more: "Mehr"
-  next: "neegste"
+  next: "Neegste"
   no_results: "Keene Resultate funnen"
   notifications:
     also_commented:
@@ -585,7 +575,6 @@ nds:
       add_contact_from_tag: "Kontakt öber een Hashtag sluten"
     aspect_list:
       edit_membership: "Aspekttogehörigkeit ännern"
-    few: "een poor Lüü"
     helper:
       is_not_sharing: "%{name} deelt nich mit di"
       is_sharing: "%{name} deelt mit di"
@@ -594,9 +583,8 @@ nds:
       looking_for: "Sökst du no Bidräg, de mit %{tag_link} taggt sind?"
       no_one_found: "...un nix is funnen worrn."
       no_results: "He! Du muss no wat söken."
-      results_for: "%{search_term} entsprekende Bruker"
+      results_for: "%{search_term} entsprekende Benutter"
       searching: "sök, bidde wees geduldig..."
-    many: "veele Lüü"
     one: "eene Person"
     other: "%{count} Lüü"
     person:
@@ -633,7 +621,6 @@ nds:
       add_some: "do een poor dorto"
       edit: "ännern"
       you_have_no_tags: "du hest keene Tags!"
-    two: "twee Lüü"
     webfinger:
       fail: "Deit mi leed, wi kunnen %{handle} nich finnen."
     zero: "keene Lüü"
@@ -683,7 +670,7 @@ nds:
         other: "%{count} Biller von %{author}"
         zero: "Keene Biller von %{author}"
       reshare_by: "Wiederseggt von %{author}"
-  previous: "vörherige"
+  previous: "Vörherige"
   privacy: "Privatsphäre"
   privacy_policy: "Datenschutz"
   profile: "Profil"
@@ -711,7 +698,7 @@ nds:
   reactions:
     one: "Eene Reaktion"
     other: "%{count} Reaktionen"
-    zero: "keene Reaktionen"
+    zero: "Keene Reaktionen"
   registrations:
     closed: "Registrerungen sind op dissen diaspora*-Pod sloten."
     create:
@@ -725,21 +712,20 @@ nds:
       update: "Ännern"
     invalid_invite: "Dien Inladungslink is nich mehr güllig!"
     new:
-      continue: "Wiedermoken"
       create_my_account: "Legg mien Konto an!"
       diaspora: "<3 diaspora*"
       email: "E-MAIL-ADRESS"
       enter_email: "Geev een E-Mail-Adress in"
       enter_password: "Geev een Passwoort in (minnens söss Teken)"
       enter_password_again: "Geev dat glieke Passwoort wie vörher in"
-      enter_username: "Sök di een Brukernaam ut (nur Bookstaven, Nummern un Ünnerstreeke)"
+      enter_username: "Sök di een Benutternaam ut (nur Bookstaven, Nummern un Ünnerstreeke)"
       hey_make: "HE,<br/>MOK<br/>WAT."
       join_the_movement: "Mok bi de Bewegung mit!"
       password: "PASSWOORT"
       password_confirmation: "PASSWOORTBESTÄTIGUNG"
       sign_up: "REGISTREREN"
       sign_up_message: "Soziales Nettwarken mit een ♥"
-      username: "BRUKERNAAM"
+      username: "BENUTTERNAAM"
   report:
     comment_label: "<b>Kommentor</b>:<br>%{data}"
     delete_link: "Indrag löschen"
@@ -817,9 +803,9 @@ nds:
       add_new_contact: "Een nee’en Kontakt sluten"
       create_request: "Anhand von de diaspora*-ID finnen"
       diaspora_handle: "diaspora@pod.org"
-      enter_a_diaspora_username: "Geev een diaspora*-Brukernaam in:"
+      enter_a_diaspora_username: "Geev een diaspora*-Benutternaam in:"
       know_email: "Du kennst jümmer E-Mail-Adress? Du schust jüm inladen"
-      your_diaspora_username_is: "Dien diaspora*-Brukernaam is: %{diaspora_handle}"
+      your_diaspora_username_is: "Dien diaspora*-Benutternaam is: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Kontakt sluten"
       toggle:
@@ -894,10 +880,11 @@ nds:
       no_message_to_display: "Keene Narichten ton anzeigen."
     new:
       mentioning: "Erwähn: %{person}"
-    too_long:
-      other: "Bidde mok dien Bidrag kötter as %{count} Teken. In Moment is he %{current_length} Teken lang"
+    too_long: "Bidde mok dien Bidrag kötter as %{count} Teken. In Moment is he %{current_length} Teken lang"
   stream_helper:
     hide_comments: "Verstek alle Kommentare"
+    no_more_posts: "Du bist an't Enn von'n Stream ankommen."
+    no_posts_yet: "Dat gift noch keen Bidräg."
     show_comments:
       one: "Zeig een annern Kommentor"
       other: "Zeig %{count} annere Kommentore"
@@ -929,7 +916,6 @@ nds:
       contacts_title: "Letzte Verfater"
       title: "Opentliches Rumröören"
     tags:
-      tag_prefill_text: "Dat Interessante an %{tag_name} is... "
       title: "Bidräg tagged mit: %{tags}"
   tag_followings:
     create:
@@ -942,19 +928,12 @@ nds:
   tags:
     show:
       follow: "Folg #%{tag}"
-      followed_by_people:
-        one: "von eene Person folgt"
-        other: "von %{count} Lüü folgt"
-        zero: "von keenen folgt"
       following: "Du folgst #%{tag}"
-      nobody_talking: "Noch keener snackt öber %{tag}."
       none: "Den leeren Tag gift dat nich!"
-      people_tagged_with: "Mit %{tag} markeerte Lüü"
-      posts_tagged_with: "Mit #%{tag} taggte Bidräg"
       stop_following: "#%{tag} nich mehr folgen"
   terms_and_conditions: "Allgemeene Geschäftsregeln"
   undo: "Rückgängig moken?"
-  username: "Brukernaam"
+  username: "Benutternaam"
   users:
     confirm_email:
       email_confirmed: "E-Mail-Adress %{email} in gang set"
@@ -966,7 +945,7 @@ nds:
     edit:
       also_commented: "wen een Bidrag kommenteert, den du ok kommenteert hest"
       auto_follow_aspect: "Aspekt för automatisch slotene Kontakte:"
-      auto_follow_back: "Automatisch mit Bruker deelen, de anfangt, mit mi to deelen"
+      auto_follow_back: "Automatisch mit Benutter deelen, de anfangt, mit mi to deelen"
       change: "Ännern"
       change_email: "E-Mail-Adress ännern"
       change_language: "Sprook ännern"
@@ -978,7 +957,7 @@ nds:
         lock_username: "Dien Brukernaam ward sparrt. Du warst op dissen Pod keen nee'es Konto mit de sülbe ID anleggen künnen."
         locked_out: "Du warst afmellt warden un ut dien Konto utsparrt warn, bit dat löscht worn is."
         make_diaspora_better: "Wi deen dat good finnen, wenn du bliffst un uns hülpst, diaspora* beter to moken, statt wegtogohn. Wenn du aber wirklich weggohn wist, ward dat hier as neegstes passeern:"
-        mr_wiggles: "Herr Wiggles warrd trurig ween, di gahn to seihn."
+        mr_wiggles: "Herrn Wiggles warrd trurig ween, di gahn to seihn."
         no_turning_back: "Dat gift keen Trüch! Wenn du di wirklich seker bist, geev ünnen dien Passwoort in."
         what_we_delete: "Wi warrd all diene Bidräg un Profildaten so schnell, as dat man geiht, löschen. Diene Kommentare op de Bidräg von annere Lüü ward immer noch to seen ween, aber se ward mit diene diaspora*-ID statt mit dien Naam verknüppt."
       close_account_text: "Konto sluten"
@@ -986,16 +965,14 @@ nds:
       current_password: "Jetziges Passwoort"
       current_password_expl: "dat, mit dat du di anmellst..."
       download_photos: "miene Biller rünnerladen"
-      download_xml: "Mien XML rünnerladen"
       edit_account: "Konto ännern"
       email_awaiting_confirmation: "Wie hebbt di een Link ton In-Gang-Setten an %{unconfirmed_email} schickt. Bit du dissen Link folgst und diene nee’e E-Mail-Adress in gang sets, warrd wi wieder diene ole Adress %{email} bruken."
       export_data: "Daten exporteren"
       following: "Deelen-Instellungen"
-      getting_started: "Instellungen för nee’e Bruker"
+      getting_started: "Instellungen för nee’e Benutter"
       liked: "wen dien Bidrag mag"
       mentioned: "du in een Bidrag erwähnt warrst"
       new_password: "Nee’es Passwoort"
-      photo_export_unavailable: "Biller Exporteren geiht graad nich"
       private_message: "du eene private Naricht kriegst"
       receive_email_notifications: "E-Mail-Benarichtigungen kriegen wenn:"
       reshared: "wen dien Bidrag wiederseggt"
@@ -1015,6 +992,7 @@ nds:
       who_are_you: "Wer bist du?"
     privacy_settings:
       ignored_users: "Ignorerte Bruker"
+      no_user_ignored_message: "Du ignoreerst graad keene annern Bruker"
       stop_ignoring: "Nich mehr ignoreren"
       title: "Privatsphäre-Instellungen"
     public:

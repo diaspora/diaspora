@@ -78,7 +78,6 @@ be:
       rename: "перайменаваць"
       update: "абнавіць"
       updating: "абнаўляю ..."
-    few: "%{count} катыгорыі"
     helper:
       are_you_sure: "Сапраўды выдаліць гэты аспект?"
       aspect_not_empty: "Аспект не пусты."
@@ -103,7 +102,6 @@ be:
       post_a_message: "напісаць паведамленне >>"
       unfollow_tag: "больш не сачыць за #%{tag}"
       welcome_to_diaspora: "Вітаем ў Diaspora, %{name}!"
-    many: "%{count} катыгорыі"
     move_contact:
       error: "Памылка пры пераносе кантакта: %{inspect}"
       failure: "не магчыма %{inspect}"
@@ -131,7 +129,6 @@ be:
       view_all_contacts: "паказаць ўсе кантакты"
     show:
       edit_aspect: "змяніць катыгорыі"
-    two: "%{count} катыгорыі"
     update:
       failure: "не магчыма захаваць катыгорыю %{name}, занадта дліная назва."
       success: "катыгорыя %{name} была паспяхова выдалена"
@@ -139,10 +136,7 @@ be:
   back: "назад"
   cancel: "адмяніць"
   comments:
-    few: "%{count} каментароў"
-    many: "%{count} каментароў"
     one: "1 каментар"
-    two: "%{count} каментары"
     zero: "каментароў няма"
   contacts:
     index:

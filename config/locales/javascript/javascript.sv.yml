@@ -12,6 +12,8 @@ sv:
       all_aspects: "Alla aspekter"
       error: "Det går inte att börja dela med <%= name %>. Ignorerar du dem?"
       error_remove: "Kunde ej ta bort <%= name %> från aspekten :("
+      mobile_row_checked: "<%= name %> (ta bort)"
+      mobile_row_unchecked: "<%= name %> (lägg till)"
       select_aspects: "Välj aspekter"
       started_sharing_with: "Du har börjat dela med <%= name %>!"
       stopped_sharing_with: "Du har slutat dela med <%= name %>."
@@ -22,6 +24,7 @@ sv:
         other: "I <%= count %> aspekter"
         two: "I <%= count %> aspekter"
         zero: "Välj aspekter"
+      updating: "uppdaterar..."
     aspect_navigation:
       add_an_aspect: "+ Lägg till en aspekt"
       deselect_all: "Visa ingen"
@@ -37,6 +40,15 @@ sv:
       no_comments: "Inga kommentarer finns ännu."
       show: "visa alla kommentarer"
     confirm_dialog: "Är du säker?"
+    confirm_unload: "Bekräfta att du vill gå från sidan. Du har osparad information här."
+    contacts:
+      add_contact: "Lägg till kontakt"
+      aspect_list_is_not_visible: "Aspektens kontakter kan inte se vilka andra som tillhör aspekten."
+      aspect_list_is_visible: "Aspektens kontakter kan se varandra."
+      error_add: "Kunde inte lägga till <%= name %> till aspekten. :-("
+      error_remove: "Kunde inte ta bort <%= name %> från aspekten. :-("
+      remove_contact: "Ta bort kontakt"
+      search_no_results: "Inga kontakter hittade"
     conversation:
       participants: "Deltagare"
     delete: "Radera"
@@ -44,6 +56,7 @@ sv:
     failed_to_like: "Misslyckades med att gilla!"
     failed_to_post_message: "Misslyckades att posta meddelande!"
     failed_to_remove: "Misslyckades med att borttaga inlägget!"
+    failed_to_reshare: "Kunde inte dela vidare!"
     getting_started:
       alright_ill_wait: "Okej, jag väntar."
       hey: "Hej, <%= name %>!"
@@ -64,6 +77,8 @@ sv:
       search: "Sök"
       settings: "Inställningar"
       view_all: "Visa alla"
+    hide_post: "Vill du dölja inlägget?"
+    hide_post_failed: "Misslyckades med att dölja inlägget"
     ignore: "Ignorera"
     ignore_failed: "Lyckades inte ignorera denna användare"
     ignore_user: "Vill du ignorera den här användaren?"
@@ -73,11 +88,19 @@ sv:
     my_activity: "Min aktivitet"
     my_aspects: "Mina aspekter"
     my_stream: "Ström"
+    no_results: "Inga sökresultat"
     notifications:
       mark_read: "Lästmärk"
       mark_unread: "Olästmarkera"
     people:
+      edit_my_profile: "Ändra min profil"
+      helper:
+        is_not_sharing: "<%= name %> delar inte sina uppdateringar med dig."
+        is_sharing: "<%= name %> delar med sig till dig"
+      mention: "Nämn"
+      message: "Meddelande"
       not_found: "och ingen hittades..."
+      stop_ignoring: "Sluta ignorera"
     photo_uploader:
       completed: "<%= file %> klar"
       empty: "{file} är tom, var vänlig och välj filer igen utan den."
@@ -90,9 +113,23 @@ sv:
       count:
         one: "<%=count%> röst lagd"
         other: "<%=count%> röster lagda"
+      go_to_original_post: "Du kan rösta på <%= original_post_link %>"
+      original_post: "ursprungligt inlägg"
       result: "Resultat"
       show_result: "Visa resultat"
       vote: "Rösta"
+    profile:
+      add_some: "lägg till"
+      bio: "Biografi"
+      born: "Födelsedag"
+      contacts: "Kontakter"
+      edit: "ändra"
+      gender: "Kön"
+      ignoring: "Du ignorerar alla inlägg från <%= name %>."
+      location: "Plats"
+      photos: "Foton"
+      posts: "Inlägg"
+      you_have_no_tags: "du har inga taggar!"
     publisher:
       add_option: "Lägg till alternativ"
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
@@ -101,6 +138,7 @@ sv:
       option: "Alternativ"
       public: "Publikt - ditt inlägg visas för alla och i söktjänster"
       question: "Fråga"
+    remove_post: "Vi du ta bort detta inlägg?"
     report:
       name: "Anmälan"
       prompt: "Var god ange orsak:"
@@ -116,6 +154,8 @@ sv:
     show_more: "visa mer"
     stream:
       comment: "Kommentera"
+      disable_post_notifications: "Inaktivera notifikationer för detta inlägg"
+      enable_post_notifications: "Tillåt notifikationer för detta inlägg"
       follow: "Följ"
       followed_tag:
         add_a_tag: "Lägg till en tagg"
@@ -169,6 +209,7 @@ sv:
       wordSeparator: " "
       year: "ungefär ett år"
       years: "%d år"
+    unblock_failed: "Misslyckades med att häva blockeringen"
     videos:
       unknown: "Okänd videotyp"
       watch: "Se den här videon på <%= provider %>"
