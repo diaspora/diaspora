@@ -653,7 +653,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    systemu (2.6.4)
+    systemu (2.6.5)
     test_after_commit (0.4.1)
       activerecord (>= 3.2)
     thor (0.19.1)
