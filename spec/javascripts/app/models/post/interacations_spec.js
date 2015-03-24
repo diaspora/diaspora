@@ -42,7 +42,7 @@ describe("app.models.Post.Interactions", function(){
   });
 
   describe("reshare", function() {
-    var ajax_success = { status: 200, responseText: [] };
+    var ajax_success = { status: 200, responseText: '{"id": 1}' };
 
     beforeEach(function(){
       this.reshare = this.interactions.post.reshare();
@@ -63,7 +63,7 @@ describe("app.models.Post.Interactions", function(){
       this.interactions.reshare();
       jasmine.Ajax.requests.mostRecent().respondWith(ajax_success);
 
-      expect(app.stream.addNow).toHaveBeenCalledWith(this.reshare);
+      expect(app.stream.addNow).toHaveBeenCalledWith({id: 1});
     });
   });
 });
