@@ -13,7 +13,9 @@ require 'capybara/session'
 #require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links with onclick javascript handlers without using @culerity or @javascript
 
 # Ensure we know the appservers port
-Capybara.server_port = 9887
+Capybara.server_port = AppConfig.pod_uri.port
+Rails.application.routes.default_url_options[:host] = AppConfig.pod_uri.host
+Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
 
 # Use a version of Firefox defined by environment variable, if set
 Capybara.register_driver :selenium do |app|
