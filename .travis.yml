@@ -21,6 +21,7 @@ branches:
     - 'master'
     - 'develop'
 
+before_install: gem install bundler
 bundler_args: "--without development production heroku --jobs 3 --retry 3"
 
 script: "./script/ci/build.sh"
