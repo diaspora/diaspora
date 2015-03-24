@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-source "https://rails-assets.org"
 
 gem "rails", "4.2.1"
 
@@ -87,25 +86,29 @@ gem "entypo-rails", "2.2.2"
 gem "backbone-on-rails",                                "1.1.2"
 gem "handlebars_assets",                                "0.20.1"
 gem "jquery-rails",                                     "3.1.2"
-gem "rails-assets-jquery",                              "1.11.1" # Should be kept in sync with jquery-rails
 gem "js_image_paths",                                   "0.0.2"
 gem "js-routes",                                        "1.0.0"
-gem "rails-assets-punycode",                            "1.3.2"
-gem "rails-assets-markdown-it",                         "3.1.0"
-gem "rails-assets-markdown-it-hashtag",                 "0.2.3"
-gem "rails-assets-markdown-it-diaspora-mention",        "0.2.1"
-gem "rails-assets-markdown-it-sanitizer",               "0.2.2"
-gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.0"
-gem "rails-assets-markdown-it-sub",                     "0.1.0"
-gem "rails-assets-markdown-it-sup",                     "0.1.0"
 
-# jQuery plugins
+source "https://rails-assets.org" do
+  gem "rails-assets-jquery",                              "1.11.1" # Should be kept in sync with jquery-rails
 
-gem "rails-assets-jeresig--jquery.hotkeys", "0.2.0"
-gem "rails-assets-jquery-idletimer",        "1.0.1"
-gem "rails-assets-jquery-placeholder",      "2.1.1"
-gem "rails-assets-jquery-textchange",       "0.2.3"
-gem "rails-assets-perfect-scrollbar",       "0.5.9"
+  gem "rails-assets-punycode",                            "1.3.2"
+  gem "rails-assets-markdown-it",                         "3.1.0"
+  gem "rails-assets-markdown-it-hashtag",                 "0.2.3"
+  gem "rails-assets-markdown-it-diaspora-mention",        "0.2.1"
+  gem "rails-assets-markdown-it-sanitizer",               "0.2.2"
+  gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.0"
+  gem "rails-assets-markdown-it-sub",                     "0.1.0"
+  gem "rails-assets-markdown-it-sup",                     "0.1.0"
+
+  # jQuery plugins
+
+  gem "rails-assets-jeresig--jquery.hotkeys", "0.2.0"
+  gem "rails-assets-jquery-idletimer",        "1.0.1"
+  gem "rails-assets-jquery-placeholder",      "2.1.1"
+  gem "rails-assets-jquery-textchange",       "0.2.3"
+  gem "rails-assets-perfect-scrollbar",       "0.5.9"
+end
 
 # Localization
 
@@ -142,7 +145,7 @@ gem "active_model_serializers", "0.9.3"
 
 # XMPP chat dependencies
 gem "diaspora-vines",             "~> 0.1.27"
-gem "rails-assets-diaspora_jsxc", "~> 0.1.1"
+gem "rails-assets-diaspora_jsxc", "~> 0.1.1", source: "https://rails-assets.org"
 
 # Tags
 
@@ -268,6 +271,6 @@ group :development, :test do
   # Jasmine (client side application tests (JS))
   gem "jasmine",                   "2.2.0"
   gem "jasmine-jquery-rails",      "2.0.3"
-  gem "rails-assets-jasmine-ajax", "3.0.0"
+  gem "rails-assets-jasmine-ajax", "3.0.0", source: "https://rails-assets.org"
   gem "sinon-rails",               "1.10.3"
 end
