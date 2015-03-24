@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
   specs:
-    CFPropertyList (2.3.0)
+    CFPropertyList (2.3.1)
     actionmailer (4.2.1)
       actionpack (= 4.2.1)
       actionview (= 4.2.1)
@@ -246,7 +246,7 @@ GEM
       fog-xml
     fog-json (1.0.0)
       multi_json (~> 1.0)
-    fog-profitbricks (0.0.1)
+    fog-profitbricks (0.0.2)
       fog-core
       fog-xml
       nokogiri
