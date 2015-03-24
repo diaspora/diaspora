@@ -601,7 +601,7 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
     ruby-oembed (0.8.12)
-    ruby-progressbar (1.7.1)
+    ruby-progressbar (1.7.4)
     rubyzip (1.1.7)
     safe_yaml (1.0.4)
     sass (3.4.13)
