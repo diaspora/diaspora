@@ -188,7 +188,7 @@ gem "minitest"
 group :production do # we don"t install these on travis to speed up test runs
   # Administration
 
-  gem "rails_admin", "0.6.6"
+  gem "rails_admin", "0.6.7"
 
   # Analytics
 
