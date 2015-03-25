@@ -311,10 +311,8 @@ body > header {
       margin: 0;
 
       a {
-        margin: 0;
         color: $blue;
-        margin-top: $mrgn_cntr_item;
-        margin-right: $mrgn_cntr_item;
+        margin: $mrgn_cntr_item $mrgn_cntr_item 0 0;
         height: $mrgn_cntr_height;
         padding: 0 2 * $mrgn_cntr_item;
         text-shadow: unset;
@@ -324,6 +322,7 @@ body > header {
           box-shadow: 0 1px 1px #666;
           background-color: #000;
           border-top: 1px solid #000;
+          line-height: 24px;
 
           &:hover { background-color: #222; }
         }
