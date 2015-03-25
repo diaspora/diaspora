@@ -32,8 +32,8 @@ gem "simple_captcha2", "0.3.4", require: "simple_captcha"
 
 # Background processing
 
-gem "sidekiq", "3.3.2"
-gem "sinatra", "1.4.5"
+gem "sidekiq", "3.3.3"
+gem "sinatra", "1.4.6"
 
 # Scheduled processing
 
@@ -56,7 +56,7 @@ gem "rack-cors", "0.3.1", require: "rack/cors"
 gem "bootstrap-sass", "2.3.2.2"
 gem "compass-rails",  "2.0.4"
 gem "sass-rails",     "5.0.1"
-gem "autoprefixer-rails", "5.1.7"
+gem "autoprefixer-rails", "5.1.7.1"
 
 # Database
 
@@ -71,7 +71,7 @@ gem "activerecord-import", "0.7.0"
 
 gem "carrierwave", "0.10.0"
 gem "fog",         "1.28.0"
-gem "mini_magick", "4.1.0"
+gem "mini_magick", "4.2.0"
 gem "remotipart",  "1.2.1"
 
 # GUID generation
@@ -149,7 +149,7 @@ gem "rails-assets-diaspora_jsxc", "~> 0.1.1", source: "https://rails-assets.org"
 
 # Tags
 
-gem "acts-as-taggable-on", "3.4.4"
+gem "acts-as-taggable-on", "3.5.0"
 
 # URIs and HTTP
 
@@ -188,7 +188,7 @@ gem "minitest"
 group :production do # we don"t install these on travis to speed up test runs
   # Administration
 
-  gem "rails_admin", "0.6.6"
+  gem "rails_admin", "0.6.7"
 
   # Analytics
 
@@ -215,11 +215,11 @@ end
 
 group :development do
   # Automatic test runs
-  gem "guard-cucumber", "1.5.3"
+  gem "guard-cucumber", "1.5.4"
   gem "guard-jshintrb", "1.1.1"
   gem "guard-rspec",    "4.5.0"
   gem "guard-rubocop",  "1.2.0"
-  gem "guard",          "2.12.4", require: false
+  gem "guard",          "2.12.5", require: false
   gem "rb-fsevent",     "0.9.4", require: false
   gem "rb-inotify",     "0.9.5", require: false
 
@@ -245,7 +245,7 @@ group :test do
   gem "fixture_builder",   "0.3.6"
   gem "fuubar",            "2.0.0"
   gem "rspec-instafail",   "0.2.6", require: false
-  gem "test_after_commit", "0.4.0"
+  gem "test_after_commit", "0.4.1"
 
   # Cucumber (integration tests)
 
@@ -263,7 +263,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails",     "3.1.0"
+  gem "rspec-rails",     "3.2.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails",     "1.4.2", require: false
@@ -271,6 +271,6 @@ group :development, :test do
   # Jasmine (client side application tests (JS))
   gem "jasmine",                   "2.2.0"
   gem "jasmine-jquery-rails",      "2.0.3"
-  gem "rails-assets-jasmine-ajax", "3.0.0", source: "https://rails-assets.org"
+  gem "rails-assets-jasmine-ajax", "3.1.0", source: "https://rails-assets.org"
   gem "sinon-rails",               "1.10.3"
 end
