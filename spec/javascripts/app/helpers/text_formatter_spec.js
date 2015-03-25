@@ -119,6 +119,7 @@ describe("app.helpers.textFormatter", function(){
     it("adds a missing http://", function() {
       expect(this.formatter('[test](www.google.com)')).toContain('href="http://www.google.com"');
       expect(this.formatter('[test](http://www.google.com)')).toContain('href="http://www.google.com"');
+      expect(this.formatter('www.google.com')).toContain('href="http://www.google.com"');
     });
 
     it("respects code blocks", function() {
@@ -181,6 +182,13 @@ describe("app.helpers.textFormatter", function(){
       it("correctly encodes to punycode", function() {
         _.each(this.evilUrls, function(url, num) {
           var text = this.formatter(url);
+          expect(text).toContain(this.asciiUrls[num]);
+        }, this);
+      });
+
+      it("correctly encodes image src to punycode", function() {
+        _.each(this.evilUrls, function(url, num) {
+          var text = this.formatter("![](" + url + ")");
           expect(text).toContain(this.asciiUrls[num]);
         }, this);
       });
@@ -249,12 +257,6 @@ describe("app.helpers.textFormatter", function(){
 
         it("doesn't get double-encoded", function(){
           var parsed = this.formatter(this.input);
-          expect(parsed).toContain(this.correctHref);
-        });
-
-        it("gets correctly decoded, even when multiply encoded", function() {
-          var uglyUrl = encodeURI(encodeURI(encodeURI(this.input)));
-          var parsed = this.formatter(uglyUrl);
           expect(parsed).toContain(this.correctHref);
         });
       });
