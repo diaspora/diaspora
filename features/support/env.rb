@@ -47,14 +47,8 @@ Capybara.default_wait_time = 15
 # of your scenarios, as this makes it hard to discover errors in your application.
 ActionController::Base.allow_rescue = false
 
-Cucumber::Rails::Database.autorun_database_cleaner = false
+Cucumber::Rails::Database.autorun_database_cleaner = true
 Cucumber::Rails::World.use_transactional_fixtures = false
-
-DatabaseRewinder.clean_all
-
-After do
-  DatabaseRewinder.clean
-end
 
 require File.join(File.dirname(__FILE__), "integration_sessions_controller")
 require File.join(File.dirname(__FILE__), "poor_mans_webmock")
