@@ -4,28 +4,6 @@
   app.helpers.textFormatter = function(text, mentions) {
     mentions = mentions ? mentions : [];
 
-    var punycodeURL = function(url){
-      try {
-        while(url.indexOf("%") !== -1 && url !== decodeURI(url)) url = decodeURI(url);
-      }
-      catch(e){}
-
-      var addr = parse_url(url);
-      if( !addr.host ) addr.host = ""; // must not be 'undefined'
-
-      url = // rebuild the url
-        (!addr.scheme ? '' : addr.scheme +
-        ( (addr.scheme.toLowerCase() === "mailto" || addr.scheme.toLowerCase() === "xmpp") ? ':' : '://')) +
-        (!addr.user ? '' : addr.user +
-        (!addr.pass ? '' : ':'+addr.pass) + '@') +
-        punycode.toASCII(addr.host) +
-        (!addr.port ? '' : ':' + addr.port) +
-        (!addr.path ? '' : encodeURI(addr.path) ) +
-        (!addr.query ? '' : '?' + encodeURI(addr.query) ) +
-        (!addr.fragment ? '' : '#' + encodeURI(addr.fragment) );
-      return url;
-    };
-
     var md = window.markdownit({
       breaks:      true,
       html:        true,
@@ -41,14 +19,13 @@
                                                .replace(/<3/g,  "♥");
     });
 
-    md.use(inlinePlugin, 'link_new_window_and_punycode', 'link_open', function (tokens, idx) {
-      tokens[idx].href = tokens[idx].href.replace(/^www\./, "http://www.");
-      tokens[idx].href = punycodeURL(tokens[idx].href);
-      tokens[idx].target = "_blank";
-    });
-
-    md.use(inlinePlugin, 'image_punycode', 'image', function (tokens, idx) {
-      tokens[idx].src = punycodeURL(tokens[idx].src);
+    md.use(inlinePlugin, 'link_new_window_and_missing_http', 'link_open', function (tokens, idx) {
+      tokens[idx].attrs.forEach(function(attribute, index, array) {
+        if( attribute[0] === 'href' ) {
+          array[index][1] = attribute[1].replace(/^www\./, "http://www.");
+        }
+      });
+      tokens[idx].attrPush([ 'target', "_blank" ]);
     });
 
     var hashtagPlugin = window.markdownitHashtag;
