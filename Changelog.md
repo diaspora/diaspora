@@ -203,6 +203,7 @@ diaspora.yml file**. The existing settings from 0.4.x and before will not work a
 * Reimplement photo export [#5685](https://github.com/diaspora/diaspora/pull/5685)
 * Add participation controls in the single post view [#5722](https://github.com/diaspora/diaspora/pull/5722)
 * Display polls on reshares [#5782](https://github.com/diaspora/diaspora/pull/5782)
+* Remove footer from stream pages [#5816](https://github.com/diaspora/diaspora/pull/5816)
 
 # 0.4.1.2
 

@@ -8,6 +8,8 @@ class TagsController < ApplicationController
 
   helper_method :tag_followed?
 
+  layout proc { request.format == :mobile ? "application" : "with_header" }, only: :show
+
   respond_to :html, :only => [:show]
   respond_to :json, :only => [:index, :show]
 
