@@ -847,6 +847,22 @@ form#new_user.new_user input.btn {
   text-shadow: 1px 1px 20px rgb(126, 240, 77);
 }
 
+#conversation_inbox {
+  .pagination {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    ul > li > a {
+      padding: 4px 8px;
+    }
+
+    .disabled a{
+      background: $background-grey;
+    }
+  }
+}
+
 input#user_password, #user_username, #user_password_confirmation, #user_email {
   height: 30px;
 }

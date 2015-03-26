@@ -180,6 +180,21 @@
     a:hover {
       text-decoration: none;
     }
+    .pagination {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+
+      .disabled a {
+        background: $background-grey;
+      }
+    }
+  }
+}
+
+@media (max-width: 1354px) {
+  #left_pane #conversation_inbox .pagination ul > li > a {
+    padding: 4px 7px;
   }
 }
 
