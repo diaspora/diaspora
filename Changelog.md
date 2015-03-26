@@ -61,6 +61,9 @@ Podmins can now set the currency for donations, and use an unhosted button if th
 a hosted one. Note: you need to **copy the new settings from diaspora.yml.example to your
 diaspora.yml file**. The existing settings from 0.4.x and before will not work any more.
 
+## Custom splash page changes
+diaspora* no longer adds a `div.container` to wrap custom splash pages. This adds the ability for podmins to write home pages using Bootstrap's fluid design. Podmins who added a custom splash page in `app/views/home/_show.{html,mobile}.haml` need to wrap the contents into a `div.container` to keep the old design.
+
 ## Refactor
 * Redesign contacts page [#5153](https://github.com/diaspora/diaspora/pull/5153)
 * Improve profile page design on mobile [#5084](https://github.com/diaspora/diaspora/pull/5084)
