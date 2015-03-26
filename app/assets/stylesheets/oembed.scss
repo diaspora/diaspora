@@ -1,7 +1,7 @@
 .oembed {
   background: image-url("ajax-loader2.gif") no-repeat center center;
-  margin: 10px auto;
   width: 100%;
+  .thumb, iframe { margin: 10px auto; }
   .thumb {
     @include video-overlay;
   }
