@@ -6,6 +6,8 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!, :except => :show
   respond_to :html, :json
 
+  layout proc { request.format == :mobile ? "application" : "with_header" }, only: :index
+
   def show
     @photo = if user_signed_in?
       current_user.photos_from(Person.find_by_guid(params[:person_id])).where(id: params[:id]).first
