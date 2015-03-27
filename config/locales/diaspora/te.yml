@@ -102,8 +102,6 @@ te:
     add_to_aspect:
       failure: "పరిచయాన్ని కోణానికి జతచేయుటలో విఫలమైంది."
       success: "పరిచయం కోణానికి విజయవంతంగా జోడించబడింది."
-    aspect_contacts:
-      done_editing: "సవరణ పూర్తయింది"
     aspect_listings:
       add_an_aspect: "+ కొత్త కోణాన్ని చేర్చండి"
       deselect_all: "ఎంపిక మొత్తం రద్దుచేయి"
@@ -122,20 +120,14 @@ te:
       failure: "%{name} ఖాళీగా లేదు అందువల్ల తీయలేకపోయాము"
       success: "%{name} విజయవంతంగా తొలగించబడినది"
     edit:
-      add_existing: "ఇప్పటికే ఉన్న పరిచయాన్ని జతచేయి"
       aspect_list_is_not_visible: "ఈ కోణంలోని పరిచయాలు ఒకరికొకరు చూడలేరు."
       aspect_list_is_visible: "ఈ కోణంలోని పరిచయాలు ఒకరికొకరు చూడగలరు."
       confirm_remove_aspect: "మీరు నిజంగానే ఈ కోణాన్ని తొలగించాలని అనుకుంటున్నారా?"
-      done: "పూర్తయ్యింది"
       make_aspect_list_visible: "ఈ కోణంలో ఉన్న పరిచయాలు ఒకరికొకరు కనిపిచ్చేలా చెయ్యాలా?"
       remove_aspect: "ఈ కోణాన్ని తొలగించు"
       rename: "పేరుమార్చు"
       update: "నవీకరించు"
       updating: "నవీకరిస్తున్నాము"
-    helper:
-      are_you_sure: "ఈ కోణాన్ని ఖచ్ఛితంగా తొలగించాలా?"
-      aspect_not_empty: "కోణం ఖాళీగాలేదు"
-      remove: "తీసివేయి"
     index:
       diaspora_id:
         content_1: "మీ డయాస్పోరా* గుర్తింపు:"
@@ -174,10 +166,6 @@ te:
         heading: "సేవలకు అనుసంధానం కండి"
       unfollow_tag: "%{tag}ని అనుసరించడం మానేయి"
       welcome_to_diaspora: "%{name}, డయాస్పొరా*కు స్వాగతం!"
-    move_contact:
-      error: "కోణాన్ని తరలించేటప్పుడు పొరపాటు జరిగింది: %{inspect}"
-      failure: "%{inspect} పని చేయలేదు"
-      success: "వ్యక్తి కొత్త కోణానికి తరలివెళ్ళారు"
     new:
       create: "సృష్టించు"
       name: "పేరు (మీకు మాత్రమే కనిపిస్తుంది)"
@@ -195,13 +183,6 @@ te:
       family: "కుటుంబం"
       friends: "స్నేహితులు"
       work: "సహోద్యోగులు"
-    selected_contacts:
-      manage_your_aspects: "మీ కోణాల్ని నిర్వహించండి."
-      no_contacts: "మీకు ఇక్కడ ఇంకా పరిచయాలు లేరు."
-      view_all_community_spotlight: "మొత్తం సంఘపు స్పాట్​లైట్ చూడండి"
-      view_all_contacts: "అన్ని పరిచయాలను వీక్షించండి"
-    show:
-      edit_aspect: "కోణాన్ని మార్చు"
     update:
       failure: "మీకోణం, %{name}, భద్రపరుచుటకు చాలా పెద్ద పేరు ఇచ్చారు."
       success: "మీకోణం, %{name}, విజయవంతంగా సవరించబడింది."
@@ -233,14 +214,12 @@ te:
     index:
       add_a_new_aspect: "ఒక కొత్త కోణాన్ని జతచేయి"
       add_to_aspect: "%{name}కి పరిచయాలను జతచేయి"
-      add_to_aspect_link: "%{name}కు పరిచయాలను జతచేయి"
       all_contacts: "అన్ని పరిచయాలు"
       community_spotlight: "సంఘపు స్పాట్​లైట్"
       many_people_are_you_sure: "మీరు ఖచ్ఛితంగా %{suggested_limit} పరిచయాలతో కంటే ఎక్కువ పరిచయాలతో రహస్య సంభాషణం ప్రారంభించాలనుకుంటున్నారా? వారిని సంప్రదించడానికి ఈ కోణానికి టపా వేయడం ఉత్తమ మార్గం."
       my_contacts: "నా పరిచయాలు"
       no_contacts: "మీరు ఇంకా ఎవర్నీ పరిచయాలలో చేర్చుకున్నట్లు లేరు!"
       no_contacts_message: "%{community_spotlight}ని సందర్శించండి"
-      no_contacts_message_with_aspect: "%{add_to_aspect_link} లేక %{community_spotlight}ని సందర్శించండి"
       only_sharing_with_me: "నాతో మాత్రమే పంచుకునే వారు"
       start_a_conversation: "సంభాషణను ప్రారంభించండి"
       title: "పరిచయాలు"
@@ -670,13 +649,11 @@ te:
     invalid_invite: "మీరు ఇచ్చిన ఆహ్వానపు లంకె చెల్లుబాటులో లేదు!"
     new:
       create_my_account: "నా ఖాతాను సృష్టించు!"
-      diaspora: "<3 డయాస్పోరా*"
       email: "ఈమెయిల్"
       enter_email: "ఒక ఈమెయిలును ప్రవేశపెట్టండి"
       enter_password: "సంకేతపదాన్ని ఇవ్వండి (కనీసం ఆరు అక్షరాలు)"
       enter_password_again: "అదే సంకేతపదాన్ని మళ్ళీ ఇవ్వండి"
       enter_username: "ఒక వాడుకరిపేరును ఎంచుకోండి (అక్షరాలు, సంఖ్యలు, మరియు క్రిందిగీతలు మాత్రమే స్వీకరించబడును)"
-      hey_make: "హేయ్, <br/>ఏమైనా<br/>చెయ్యండి."
       join_the_movement: "ఈ ఉద్యమంలో చేరండి!"
       password: "సంకేతపదం"
       password_confirmation: "సంకేతపదం నిర్ధారణ"

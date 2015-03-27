@@ -34,9 +34,6 @@ cy:
       confirm_remove_aspect: "A ydych yn siŵr eich bod am ddileu yr agwedd hon?"
       make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Dileu yr agwedd hwn"
-    helper:
-      are_you_sure: "A ydych yn siŵr eich bod am ddileu yr agwedd hon?"
-      aspect_not_empty: "Agwedd nid ar wag"
     index:
       diaspora_id:
         heading: "ID Diaspora"
@@ -51,8 +48,6 @@ cy:
         tag_question: "#question"
       no_contacts: "Dim cysylltiadau"
       no_tags: "No tags"
-    move_contact:
-      success: "Unigolyn wedi symud i agwedd newydd"
     new:
       name: "Name"
     no_contacts_message:
@@ -62,8 +57,6 @@ cy:
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
     one: "1 aspect"
     other: "%{count} agweddau"
-    selected_contacts:
-      view_all_contacts: "Gweld cysylltiadau i gŷd"
     update:
       success: "Eich aspect, %{name},  wedi bod yn golygu yn llwyddiannus."
     zero: "dim agweddau"

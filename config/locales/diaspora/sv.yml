@@ -146,8 +146,6 @@ sv:
     add_to_aspect:
       failure: "Personen kunde inte läggas till på aspekten."
       success: "Personen lades till i aspekten."
-    aspect_contacts:
-      done_editing: "Klar med redigering"
     aspect_listings:
       add_an_aspect: "+ Lägg till en aspekt"
       deselect_all: "Avmarkera alla"
@@ -166,25 +164,18 @@ sv:
       failure: "%{name} är inte tom och kan därför inte tas bort"
       success: "%{name} togs bort."
     edit:
-      add_existing: "Lägg till en befintlig kontakt"
       aspect_chat_is_enabled: "Kontakterna i denna aspekt har tillåtelse chatta med dig."
       aspect_chat_is_not_enabled: "Kontakter i denna aspekt har inte privilegier för att chatta med dig."
       aspect_list_is_not_visible: "Aspektens kontakter kan inte se vilka som hör till aspekten."
       aspect_list_is_visible: "Kontakter i denna aspekt är synliga för varandra."
       confirm_remove_aspect: "Är du säker på att du vill ta bort aspekten?"
-      done: "Klar"
       grant_contacts_chat_privilege: "vill du ge kontakter i aspekten chatprivilegier?"
       make_aspect_list_visible: "Ska kontakterna i denna aspekt vara synliga för varandra?"
-      manage: "Hantera"
       remove_aspect: "Ta bort den här aspekten"
       rename: "Byt namn"
       set_visibility: "Ange synlighetsgrad"
       update: "Uppdatera"
       updating: "Uppdaterar"
-    helper:
-      are_you_sure: "Är du säker på att du vill ta bort den här aspekten?"
-      aspect_not_empty: "Aspekten är inte tom"
-      remove: "Ta bort"
     index:
       diaspora_id:
         content_1: "Ditt Diaspora*-id är:"
@@ -225,10 +216,6 @@ sv:
         heading: "Ihopkopplade tjänster"
       unfollow_tag: "Sluta följa #%{tag}"
       welcome_to_diaspora: "Välkommen till Diaspora*, %{name}!"
-    move_contact:
-      error: "Kunde inte flytta kontakt: %{inspect}"
-      failure: "Fungerade inte %{inspect}"
-      success: "Personen flyttades till den nya aspekten"
     new:
       create: "Skapa"
       name: "Namn (endast synligt för dig)"
@@ -246,13 +233,6 @@ sv:
       family: "Familj"
       friends: "Vänner"
       work: "Arbete"
-    selected_contacts:
-      manage_your_aspects: "Hantera dina aspekter."
-      no_contacts: "Du har ännu inga kontakter här."
-      view_all_community_spotlight: "Se allt i gemenskapens rampljus"
-      view_all_contacts: "Se alla kontakter"
-    show:
-      edit_aspect: "Redigera aspekt"
     update:
       failure: "Det namn du valde för din aspekt, %{name}, var för långt för att kunna sparas."
       success: "Din aspekt %{name} har nu ändrats."
@@ -285,14 +265,12 @@ sv:
       add_a_new_aspect: "Lägg till en ny aspekt"
       add_contact: "Lägg till kontakt"
       add_to_aspect: "Lägg kontakter i %{name}"
-      add_to_aspect_link: "Lägg kontakter i %{name}"
       all_contacts: "Alla kontakter"
       community_spotlight: "Gemenskapens rampljus"
       many_people_are_you_sure: "Är du säker på att du vill starta en privat konversation med mer än %{suggested_limit} kontakter? Ett bättre sätt kan vara att posta inlägget i denna aspekt."
       my_contacts: "Mina kontakter"
       no_contacts: "Det verkar som om att du skulle behöva några fler kontakter!"
       no_contacts_message: "Kolla in %{community_spotlight}"
-      no_contacts_message_with_aspect: "Kolla in %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Delar enbart med mig"
       remove_contact: "Ta bort kontakt"
       start_a_conversation: "Inled en konversation"
@@ -1006,13 +984,11 @@ sv:
     invalid_invite: "Den angivna inbjudningslänken gäller inte längre."
     new:
       create_my_account: "Skapa mitt konto!"
-      diaspora: "<3 Diaspora*"
       email: "E-POST"
       enter_email: "Ange en e-postadress"
       enter_password: "Skriv in ett lösenord, åtminstone sex tecken långt"
       enter_password_again: "Skriv in samma lösenord som tidigare"
       enter_username: "Välj ett användarnamn (endast bokstäver, nummer och understreck)"
-      hey_make: "HALLÅ,<br/>SKAPA<br/>NÅGONTING."
       join_the_movement: "Gå med i rörelsen!"
       password: "LÖSENORD"
       password_confirmation: "LÖSENORDSBEKRÄFTELSE"

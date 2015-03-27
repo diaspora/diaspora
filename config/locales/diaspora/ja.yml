@@ -66,8 +66,6 @@ ja:
     add_to_aspect:
       failure: "連絡先をアスペクトに追加するのに失敗しました。"
       success: "連絡先をアスペクトに追加するのに成功しました。"
-    aspect_contacts:
-      done_editing: "編集完了"
     aspect_listings:
       add_an_aspect: "アスペクトを追加する"
       deselect_all: "すべて選択解除"
@@ -85,20 +83,14 @@ ja:
       failure: "%{name}に連絡先が残っているので削除できません。"
       success: "%{name}さんを除外するのに成功しました。"
     edit:
-      add_existing: "既存の連絡先を追加する"
       aspect_list_is_not_visible: "このアスペクトのメンバー一覧はメンバーへ公開されていません"
       aspect_list_is_visible: "このアスペクトのメンバー一覧はメンバーに公開されています"
       confirm_remove_aspect: "このアスペクトを本当に削除していいですか。"
-      done: "完了"
       make_aspect_list_visible: "アスペクトのメンバー一覧を公開しますか。"
       remove_aspect: "このアスペクトを削除する"
       rename: "名前の変更"
       update: "更新"
       updating: "更新中"
-    helper:
-      are_you_sure: "本当にこのアスペクトを削除しますか。"
-      aspect_not_empty: "アスペクトは空ではありません。"
-      remove: "削除"
     index:
       diaspora_id:
         content_1: "あなたのダイアスポラIDは:"
@@ -132,10 +124,6 @@ ja:
         heading: "外部サービス連携"
       unfollow_tag: "#%{tag} のフォローを中止する"
       welcome_to_diaspora: "%{name}さん、ダイアスポラへようこそ！"
-    move_contact:
-      error: "連絡先の移動にエラーが発生しました： %{inspect}"
-      failure: "連絡先を移動させるのに失敗しました：%{inspect}"
-      success: "連絡先を新しいアスペクトに移動させました。"
     new:
       create: "新規作成"
       name: "Name"
@@ -153,13 +141,6 @@ ja:
       family: "家族"
       friends: "友達"
       work: "仕事"
-    selected_contacts:
-      manage_your_aspects: "アスペクトを管理する"
-      no_contacts: "ここにはまだ連絡先がありません。"
-      view_all_community_spotlight: "すべてのコミュニティスポットライトを見る"
-      view_all_contacts: "すべての連絡先を見る"
-    show:
-      edit_aspect: "アスペクトを編集する"
     update:
       failure: "アスペクト名「%{name}」は長すぎて保存できませんでした。"
       success: "アスペクト「%{name}」の編集に成功しました。"
@@ -189,14 +170,12 @@ ja:
     index:
       add_a_new_aspect: "新しいアスペクトを追加する"
       add_to_aspect: "Add contacts to %{name}"
-      add_to_aspect_link: "%{name}さんを連絡先に追加する"
       all_contacts: "すべての連絡先"
       community_spotlight: "コミュニティスポットライト"
       many_people_are_you_sure: "本当に%{suggested_limit}以上の連絡先と非公開の会話を開始しますか? このアスペクトに投稿する方が、彼らと連絡を取るより良い方法かもしれません。"
       my_contacts: "私の連絡先"
       no_contacts: "No contacts."
       no_contacts_message: "%{community_spotlight}をチェックアウトする"
-      no_contacts_message_with_aspect: "%{community_spotlight}または%{add_to_aspect_link}をチェックアウトする"
       only_sharing_with_me: "自分だけに共有する"
       start_a_conversation: "会話を開始する"
       title: "連絡先"

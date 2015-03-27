@@ -58,8 +58,6 @@ en_1337:
     add_to_aspect:
       failure: "F41L3D 2 4DD N00B!"
       success: "N00B 4DD3D"
-    aspect_contacts:
-      done_editing: "D0N3 3D171NG!"
     aspect_listings:
       add_an_aspect: "+ 4DD 4N 45P3C7"
       edit_aspect: "3D17 %{name}"
@@ -73,20 +71,14 @@ en_1337:
       failure: "%{name} N07 3MP7Y -> F41L!"
       success: "%{name} G07 5UCC35FULLY PWND!"
     edit:
-      add_existing: "4DD 4 KN0WN N00B"
       aspect_list_is_not_visible: "45P3C7 L157 15 H1DD3N 2 07H3R5 1N 45P3C7!"
       aspect_list_is_visible: "45P3C7 L157 15 V151BL3 2 07H3R5 1N 45P3C7!"
       confirm_remove_aspect: "5UR3?"
-      done: "K"
       make_aspect_list_visible: "M4K3 N00B5 V151BL3 2 34CH 07H3R?"
       remove_aspect: "D3L373 7H15 45P3C7!"
       rename: "R3N4M3"
       update: "UPD473"
       updating: "UPD471NG..."
-    helper:
-      are_you_sure: "5UR3?"
-      aspect_not_empty: "45P3C7 N07 3MP7Y!"
-      remove: "R3M0V3"
     index:
       diaspora_id:
         content_1: "Y0UR D* 1D 15:"
@@ -113,10 +105,6 @@ en_1337:
         content: "U C4N C0NN3C7 7H3 F0LL0W1NG 53RV1C35 2 D*:"
         heading: "C0NN3C7 53RV1C35"
       unfollow_tag: "570P F0LL0W1NG #%{tag}"
-    move_contact:
-      error: "3RR0R M0V1NG N00B: %{inspect}"
-      failure: "PWND %{inspect}"
-      success: "N00B M0V3D 2 N3W 45P3C7!"
     new:
       create: "CR3473"
       name: "N4M3 (JU57 F0R U)"
@@ -132,12 +120,6 @@ en_1337:
       family: "RL"
       friends: "N00B5"
       work: "RL-N00B5"
-    selected_contacts:
-      manage_your_aspects: "M4N4G3 Y0UR 45P3C75!"
-      no_contacts: "U D0N7 H4V3 4NY N00B5 H3R3!"
-      view_all_contacts: "V13W 4LL N00B5!"
-    show:
-      edit_aspect: "3D17 45P3C7"
     update:
       failure: "45P3C7 %{name} H4D 2 L0NG N4M3 -> F41L!"
       success: "45P3C7 %{name} H45 B33N 5UCC35FULLY 3D173D!"
@@ -162,7 +144,6 @@ en_1337:
     index:
       add_a_new_aspect: "4DD 4 N3W 45P3C7!"
       add_to_aspect: "4DD N00B5 2: %{name}"
-      add_to_aspect_link: "++no0bz >> %{name}"
       all_contacts: "4LL N00B5"
       many_people_are_you_sure: "R34LLY W4NN4 5P4M %{suggested_limit} N00B5? 5P4MM1NG 7H31R 45P3C7 M4Y B3 M0R3 1N73LL1G3N7!"
       my_contacts: "Y0UR N00B5"

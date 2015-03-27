@@ -122,8 +122,6 @@ he:
     add_to_aspect:
       failure: "אירע כשל בהוספת איש הקשר להיבט."
       success: "איש הקשר נוסף בהצלחה להיבט."
-    aspect_contacts:
-      done_editing: "סיום עריכה"
     aspect_listings:
       add_an_aspect: "+ הוספת היבט"
       deselect_all: "ביטול בחירה"
@@ -142,22 +140,15 @@ he:
       failure: "%{name} אינו ריק ולא ניתן להסירו"
       success: "%{name} הוסר בהצלחה."
     edit:
-      add_existing: "הוספת איש קשר קיים"
       aspect_list_is_not_visible: "אנשי הקשר בהיבט זה אינם יכולים לראות זה את זה."
       aspect_list_is_visible: "אנשי הקשר בהיבט זה יכולים לראות זה את זה."
       confirm_remove_aspect: "האם אתם בטוחים שברצונכם למחוק היבט זה?"
-      done: "בוצע"
       make_aspect_list_visible: "לאפשר לאנשי הקשר בהיבט זה לראות זה את זה?"
-      manage: "ניהול"
       remove_aspect: "מחיקת היבט זה"
       rename: "שינוי שם"
       set_visibility: "קביעת נראות"
       update: "עדכון"
       updating: "בעדכון"
-    helper:
-      are_you_sure: "האם אכן ברצונך למחוק היבט זה?"
-      aspect_not_empty: "ההיבט אינו ריק"
-      remove: "הסרה"
     index:
       diaspora_id:
         content_1: "המזהה שלך בדיאספורה* הוא:"
@@ -198,10 +189,6 @@ he:
         heading: "קישור שירותים"
       unfollow_tag: "הפסקת עקיבה אחרי #%{tag}"
       welcome_to_diaspora: "ברוך בואך לדיאספורה*, %{name}!"
-    move_contact:
-      error: "שגיאה בהעברת איש הקשר: %{inspect}"
-      failure: "אירע כשל - %{inspect}"
-      success: "איש הקשר הועבר להיבט חדש"
     new:
       create: "יצירה"
       name: "שם (מופיע בפניך בלבד)"
@@ -219,13 +206,6 @@ he:
       family: "משפחה"
       friends: "חברים"
       work: "עבודה"
-    selected_contacts:
-      manage_your_aspects: "ניהול ההיבטים שלך."
-      no_contacts: "אין לך עדיין אנשי קשר כאן."
-      view_all_community_spotlight: "הצגת כל הפרסומים החשובים בקהילה"
-      view_all_contacts: "הצגת כל אנשי הקשר"
-    show:
-      edit_aspect: "עריכת היבט"
     update:
       failure: "ההיבט שלך, %{name}, לא נשמר מכיוון שהשם שלו היה ארוך מדי."
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
@@ -257,14 +237,12 @@ he:
     index:
       add_a_new_aspect: "הוספת היבט חדש"
       add_to_aspect: "הוספת אנשי קשר ל-%{name}"
-      add_to_aspect_link: "הוספת אנשי קשר ל-%{name}"
       all_contacts: "כל אנשי הקשר"
       community_spotlight: "פרסומים חשובים בקהילה"
       many_people_are_you_sure: "האם אכן ברצונך לפתוח בשיחה פרטית עם למעלה מ־%{suggested_limit} אנשי קשר? פרסום הודעה להיבט זה עשוי להיות דרך טובה יותר ליצירת קשר אתם."
       my_contacts: "אנשי הקשר שלי"
       no_contacts: "נראה שכדאי לך להוסיף עוד קצת אנשי קשר!"
       no_contacts_message: "כדאי לבדוק %{community_spotlight}"
-      no_contacts_message_with_aspect: "כדאי לבדוק %{community_spotlight} או %{add_to_aspect_link}"
       only_sharing_with_me: "רק אלו המשתפים אתי"
       start_a_conversation: "התחלת שיחה"
       title: "אנשי קשר"
@@ -710,13 +688,11 @@ he:
     invalid_invite: "הקישור להזמנה שסיפקת אינו תקף יותר!"
     new:
       create_my_account: "יצירת החשבון שלי"
-      diaspora: "<3 דיאספורה*"
       email: דוא"ל
       enter_email: "נא להזין כתובת דוא״ל"
       enter_password: "הזינו סיסמה (שישה תווים לפחות)"
       enter_password_again: "יש להזין את אותה הסיסמה כמקודם"
       enter_username: "נא לבחור שם משתמש (אותיות, מספרים וקווים תחתונים בלבד)"
-      hey_make: "שלום,<br/>בואו<br/>לשנות."
       join_the_movement: "צרפו אותי!"
       password: "סיסמה"
       password_confirmation: "אימות סיסמה"

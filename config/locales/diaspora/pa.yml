@@ -29,8 +29,6 @@ pa:
     edit:
       make_aspect_list_visible: "make aspect list visible to others in aspect"
       rename: "ਨਾਂ-ਬਦਲੋ"
-    helper:
-      remove: "ਹਟਾਓ"
     index:
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
       help:

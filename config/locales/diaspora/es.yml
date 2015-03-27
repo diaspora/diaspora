@@ -145,8 +145,6 @@ es:
     add_to_aspect:
       failure: "Error añadiendo el contacto al aspecto."
       success: "Contacto añadido con éxito al aspecto."
-    aspect_contacts:
-      done_editing: "editado"
     aspect_listings:
       add_an_aspect: "+ Añade un aspecto"
       deselect_all: "Desmarcar todos"
@@ -165,25 +163,18 @@ es:
       failure: "El aspecto %{name} no está vacío y no pudo ser borrado."
       success: "%{name} fue eliminado con éxito."
     edit:
-      add_existing: "Añade un contacto existente"
       aspect_chat_is_enabled: "Los contactos de este grupo pueden chatear contigo."
       aspect_chat_is_not_enabled: "Los contactos de este grupo no pueden chatear contigo."
       aspect_list_is_not_visible: "Los contactos en este aspecto no son capaces de verse entre sí."
       aspect_list_is_visible: "Los contactos en este aspecto son capaces de verse entre sí."
       confirm_remove_aspect: "¿Seguro que quieres eliminar este aspecto?"
-      done: "Listo"
       grant_contacts_chat_privilege: "¿conceder privilegio a los contactos de este aspecto para poder chatear?"
       make_aspect_list_visible: "Permitir que estos contactos puedan ver quien más hay en este aspecto."
-      manage: "Gestionar"
       remove_aspect: "Eliminar este aspecto"
       rename: "Renombrar"
       set_visibility: "Configurar Visibilidad"
       update: "Actualizar"
       updating: "Actualizando"
-    helper:
-      are_you_sure: "¿Seguro que quieres eliminar este aspecto?"
-      aspect_not_empty: "El aspecto no está vacío"
-      remove: "Eliminar"
     index:
       diaspora_id:
         content_1: "Tu ID de Diaspora* es:"
@@ -224,10 +215,6 @@ es:
         heading: "Conectar servicios"
       unfollow_tag: "Dejar de seguir a #%{tag}"
       welcome_to_diaspora: "¡Bienvenido a Diaspora*, %{name}!"
-    move_contact:
-      error: "Error moviendo el contacto: %{inspect}"
-      failure: "%{inspect} no funcionó"
-      success: "El contacto fue movido al nuevo aspecto"
     new:
       create: "Crear"
       name: "Nombre (sólo tu lo puedes ver)"
@@ -245,13 +232,6 @@ es:
       family: "Familia"
       friends: "Contactos"
       work: "Trabajo"
-    selected_contacts:
-      manage_your_aspects: "Gestiona tus aspectos."
-      no_contacts: "Todavía no tienes ningún contacto aquí."
-      view_all_community_spotlight: "Ver \"Comunidad Creativa\""
-      view_all_contacts: "Ver todos los contactos"
-    show:
-      edit_aspect: "editar aspecto"
     update:
       failure: "Tu aspecto, %{name}, tenía un nombre muy largo para guardarlo."
       success: "Tu aspecto, %{name}, fue editado con éxito."
@@ -284,14 +264,12 @@ es:
       add_a_new_aspect: "Añade un nuevo aspecto"
       add_contact: "Añadir contacto"
       add_to_aspect: "Añadir contactos a %{name}"
-      add_to_aspect_link: "añade contactos a %{name}"
       all_contacts: "Todos los contactos"
       community_spotlight: "Comunidad Creativa"
       many_people_are_you_sure: "¿Estás seguro que quieres comenzar una conversación privada con más de %{suggested_limit} contactos? Publicar en sus aspectos podría ser mejor para contactar con ellos."
       my_contacts: "Mis contactos"
       no_contacts: "¡Parece que necesitas añadir algunos contactos!"
       no_contacts_message: "Echa un vistazo a la %{community_spotlight}"
-      no_contacts_message_with_aspect: "Echa un vistazo a la %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Solo compartiendo conmigo"
       remove_contact: "Eliminar contacto"
       start_a_conversation: "Inicia una conversación"
@@ -996,13 +974,11 @@ es:
     invalid_invite: "¡El enlace de la invitación ya no es válido!"
     new:
       create_my_account: "¡Crear mi cuenta!"
-      diaspora: "<3 diaspora*"
       email: "Correo electrónico"
       enter_email: "Escribe un correo"
       enter_password: "Escribe una contraseña (seis caracteres como mínimo)"
       enter_password_again: "Escribe la misma contraseña como antes"
       enter_username: "Elige un nombre de usuario (letras, números o guiones bajos)"
-      hey_make: "EH,<br/>HAZ<br/>ALGO."
       join_the_movement: "¡Únete al movimiento!"
       password: "Contraseña"
       password_confirmation: "Confirmación de contraseña"

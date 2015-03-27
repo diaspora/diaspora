@@ -58,8 +58,6 @@ ms:
     add_to_aspect:
       failure: "Gagal untuk menambah kenalan kepada aspek."
       success: "Berjaya menambah kenalan kepada aspek."
-    aspect_contacts:
-      done_editing: "selesai mengedit"
     aspect_listings:
       add_an_aspect: "+ Tambah sebuah aspek"
       deselect_all: "Nyahpilih semua"
@@ -77,20 +75,14 @@ ms:
       failure: "%{name} tidak kosong dan tidak boleh dikeluarkan."
       success: "%{name} telah berjaya dikeluarkan."
     edit:
-      add_existing: "Tambah kenalan yang sedia ada"
       aspect_list_is_not_visible: "Kenalan dalam aspek ini tidak dapat melihat satu sama lain."
       aspect_list_is_visible: "Kenalan dalam aspek ini dapat melihat satu sama lain."
       confirm_remove_aspect: "Adakah anda pasti anda mahu memadam aspek ini?"
-      done: "Selesai"
       make_aspect_list_visible: "Buat kenalan dalam aspek ini dapat dilihat antara satu sama lain?"
       remove_aspect: "Padam aspek ini"
       rename: "namakan semula"
       update: "kemas kini"
       updating: "mengemas kini"
-    helper:
-      are_you_sure: "Adakah anda pasti anda mahu memadam aspek ini?"
-      aspect_not_empty: "Aspek tidak kosong"
-      remove: "buang"
     index:
       diaspora_id:
         content_1: "ID Diaspora anda adalah:"
@@ -123,10 +115,6 @@ ms:
         heading: "Khidmat Perhubungan"
       unfollow_tag: "berhenti mengikut #%{tag}"
       welcome_to_diaspora: "Selamat datang ke Diaspora, %{name}!"
-    move_contact:
-      error: "Ralat memindah kenalan: %{inspect}"
-      failure: "tidak berfungsi %{inspect}"
-      success: "Orang berpindah kepada aspek baru"
     new:
       create: "Cipta"
       name: "Nama (hanya boleh dilihat oleh anda)"
@@ -144,13 +132,6 @@ ms:
       family: "Famili"
       friends: "Rakan"
       work: "Kerja"
-    selected_contacts:
-      manage_your_aspects: "Urus aspek anda."
-      no_contacts: "Anda belum ada kenalan sini lagi."
-      view_all_community_spotlight: "Lihat semua perhatian masyarakat"
-      view_all_contacts: "Lihat semua kenalan"
-    show:
-      edit_aspect: "edit aspek"
     update:
       failure: "Aspek anda, %{name}, mempunyai nama terlalu panjang untuk disimpan."
       success: "Aspek anda, %{name}, telah berjaya diedit."

@@ -117,8 +117,6 @@ tr:
     add_to_aspect:
       failure: "Yöne kişi ekleme başarısız."
       success: "Kişi başarıyla yöne eklendi."
-    aspect_contacts:
-      done_editing: "düzenleme sonlandırıldı"
     aspect_listings:
       add_an_aspect: "+ Yeni yön ekle"
       deselect_all: "Tümünü kaldır"
@@ -137,20 +135,14 @@ tr:
       failure: "%{name} boş değil, silinemedi."
       success: "%{name} başarıyla silindi."
     edit:
-      add_existing: "Mevcut bir bağlantı ekle"
       aspect_list_is_not_visible: "yön listesi yöndeki diğer kişilere gösterilmiyor"
       aspect_list_is_visible: "yön listesi yöndeki diğer kişilere gösteriliyor"
       confirm_remove_aspect: "Bu yönü silmek istediğinden emin misin?"
-      done: "Bitti"
       make_aspect_list_visible: "Bu yöndeki kişilerin birbirlerini görmesine izin verilsin mi?"
       remove_aspect: "Yönü sil"
       rename: "yeniden adlandır"
       update: "güncelle"
       updating: "güncelleniyor"
-    helper:
-      are_you_sure: "Bu yönü silmek istediğinden emin misin?"
-      aspect_not_empty: "Yön boş değil"
-      remove: "sil"
     index:
       diaspora_id:
         content_1: "Diaspora ID'niz:"
@@ -191,10 +183,6 @@ tr:
         heading: "Servisleri ilişkilendir"
       unfollow_tag: "#%{tag}'i takip etmeyi bırak"
       welcome_to_diaspora: "Diaspora'ya Hoş Geldin, %{name}!"
-    move_contact:
-      error: "Kişi taşıma problemi: %{inspect}"
-      failure: "hata oluştu %{inspect}"
-      success: "Kişi yeni yöne taşındı"
     new:
       create: "Oluştur:"
       name: "İsim (sadece siz görebilirsiniz)"
@@ -212,13 +200,6 @@ tr:
       family: "Aile"
       friends: "Arkadaşlar"
       work: "İş"
-    selected_contacts:
-      manage_your_aspects: "Yönleri düzenle."
-      no_contacts: "Henüz biriyle iletişim yok."
-      view_all_community_spotlight: "Tüm topluluk spotlight bakın"
-      view_all_contacts: "Tüm kişileri görüntüle"
-    show:
-      edit_aspect: "yön düzenle"
     update:
       failure: "%{name} yönünün ismi çok uzundu ve kaydedilmedi."
       success: "Yönünüz, %{name}, başarıyla düzeltildi."
@@ -250,14 +231,12 @@ tr:
     index:
       add_a_new_aspect: "Yeni yön ekle"
       add_to_aspect: "%{name} unsuruna kişi ekle"
-      add_to_aspect_link: "kişileri %{name} yönüne ekle"
       all_contacts: "Tüm Kişiler"
       community_spotlight: "Topluluk Haberleri"
       many_people_are_you_sure: "%{suggested_limit} sayısından yüksek kişiyle özel görüşme başlatmak istediğinden emin misin? Bu yöne gönderi yapmak onlarla iletişime geçmek için daha iyi bir yol olabilir."
       my_contacts: "Kişilerim"
       no_contacts: "Birkaç kişi eklemen gerekir gibi görünüyor!"
       no_contacts_message: "%{community_spotlight}'ni ziyaret et"
-      no_contacts_message_with_aspect: "%{community_spotlight}'ni ziyaret et ya da %{add_to_aspect_link}"
       only_sharing_with_me: "Benimle paylaşım yapan"
       start_a_conversation: "Bir iletişim başlatın"
       title: "Kişiler"
@@ -793,13 +772,11 @@ tr:
     invalid_invite: "Gönderdiğiniz davetiye bağlantısı artık geçerli değil!"
     new:
       create_my_account: "Hesabımı oluştur!"
-      diaspora: "<3 Diaspora*"
       email: "E-POSTA"
       enter_email: "Bir e-posta girin"
       enter_password: "Bir parola girin"
       enter_password_again: "Daha önce olduğu gibi aynı parolayı girin."
       enter_username: "Bir kullanıcı adı seçin (sadece harfler, rakamlar ve alt çizgi)"
-      hey_make: "HEY,<br/>BİR ŞEY<br/>YAP."
       join_the_movement: "Harekete katılın!"
       password: "PAROLA"
       password_confirmation: "PAROLA ONAYI"

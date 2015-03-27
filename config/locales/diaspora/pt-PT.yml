@@ -114,8 +114,6 @@ pt-PT:
     add_to_aspect:
       failure: "Não foi possível adicionar o contacto ao grupo."
       success: "Contacto adicionado ao grupo com sucesso."
-    aspect_contacts:
-      done_editing: "finalizar edição"
     aspect_listings:
       add_an_aspect: "+ Adicionar um grupo"
       deselect_all: "Desmarcar todos"
@@ -134,20 +132,14 @@ pt-PT:
       failure: "%{name} não se encontra vazio e não pôde ser removido."
       success: "%{name} foi removido(a) com sucesso."
     edit:
-      add_existing: "Adicionar um contacto existente"
       aspect_list_is_not_visible: "Os contactos neste grupo não podem ver-se uns aos outros."
       aspect_list_is_visible: "Os contactos neste grupo podem ver-se uns aos outros."
       confirm_remove_aspect: "Tem a certeza que deseja apagar este grupo?"
-      done: "Concluído"
       make_aspect_list_visible: "tornar visíveis uns aos outros nos contactos deste grupo?"
       remove_aspect: "Apagar este grupo"
       rename: "renomear"
       update: "atualizar"
       updating: "a atualizar"
-    helper:
-      are_you_sure: "Tem a certeza que deseja apagar este grupo?"
-      aspect_not_empty: "Grupo não vazio"
-      remove: "remover"
     index:
       diaspora_id:
         content_1: "A sua identificação diaspora* é:"
@@ -188,10 +180,6 @@ pt-PT:
         heading: "Conetar Serviços"
       unfollow_tag: "Deixar de seguir #%{tag}"
       welcome_to_diaspora: "Bem-vindo ao diaspora*, %{name}!"
-    move_contact:
-      error: "Erro ao mover o contacto: %{inspect}"
-      failure: "não funcionou %{inspect}"
-      success: "Pessoa movida para o novo grupo"
     new:
       create: "Criar"
       name: "Nome (apenas visível para si)"
@@ -209,13 +197,6 @@ pt-PT:
       family: "Família"
       friends: "Amigos"
       work: "Trabalho"
-    selected_contacts:
-      manage_your_aspects: "Gerir os seus grupos."
-      no_contacts: "Ainda não tem quaisquer contactos aqui."
-      view_all_community_spotlight: "Ver todos os destaques da comunidade"
-      view_all_contacts: "Ver todos os contactos"
-    show:
-      edit_aspect: "editar grupo"
     update:
       failure: "O seu grupo, %{name}, tinha um nome grande demais para ser guardado."
       success: "O seu grupo, %{name}, foi editado com sucesso."
@@ -247,14 +228,12 @@ pt-PT:
     index:
       add_a_new_aspect: "Adicionar um novo grupo"
       add_to_aspect: "Adicionar contactos a %{name}"
-      add_to_aspect_link: "adicionar contactos a %{name}"
       all_contacts: "Todos os contactos"
       community_spotlight: "Destaques da comunidade"
       many_people_are_you_sure: "Tem a certeza de que deseja começar um conversa privada com mais de %{suggested_limit} contactos? Publicar para este grupo pode ser uma forma melhor de os contactar."
       my_contacts: "Os meus contactos"
       no_contacts: "Parece que precisa de adicionar alguns contactos."
       no_contacts_message: "Verifique %{community_spotlight}"
-      no_contacts_message_with_aspect: "Verifique %{community_spotlight} ou %{add_to_aspect_link}"
       only_sharing_with_me: "Apenas a partilhar comigo"
       start_a_conversation: "Iniciar uma conversa"
       title: "Contactos"
@@ -815,13 +794,11 @@ pt-PT:
     invalid_invite: "A hiperligação de convite fornecida já não é válida!"
     new:
       create_my_account: "Criar a minha conta!"
-      diaspora: "<3 diaspora*"
       email: "EMAIL"
       enter_email: "Introduza um endereço de email"
       enter_password: "Insira uma senha (mínimo de 6 carateres)"
       enter_password_again: "Introduza de novo a mesma palavra-passe"
       enter_username: "Escolha um nome de utilizador (apenas letras, números e sublinhado (_))"
-      hey_make: "OLÁ,<br/>EFETUE<br/>ALGO."
       join_the_movement: "Junte-se ao movimento!"
       password: "PALAVRA-PASSE"
       password_confirmation: "CONFIRMAÇÃO DA SENHA"

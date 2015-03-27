@@ -121,8 +121,6 @@ sk:
     add_to_aspect:
       failure: "Nepodarilo sa pridať kontakt do kategórie."
       success: "Kontakt bol úspešne pridaný do kategórie."
-    aspect_contacts:
-      done_editing: "Úpravy dokončené"
     aspect_listings:
       add_an_aspect: "+ Pridať kategóriu"
       deselect_all: "Odznačiť všetky"
@@ -141,22 +139,15 @@ sk:
       failure: "Kategória %{name} nie je prázdna,  a tak sa nedá odstrániť."
       success: "Použ. %{name} bol úspešne odstránený."
     edit:
-      add_existing: "Pridať existujúci kontakt"
       aspect_list_is_not_visible: "Ľudia v tejto kategórii sa nevida"
       aspect_list_is_visible: "Kontakty v tejto kategórii sú navzájom viditeľné"
       confirm_remove_aspect: "Si si istý(á), že chceš zmazať túto kategóriu?"
-      done: "Hotovo"
       make_aspect_list_visible: "Povoliť, aby sa kontakty v tejto kategórii navzájom videli?"
-      manage: "Spravovať"
       remove_aspect: "Zmazať túto kategóriu"
       rename: "Premenovať"
       set_visibility: "Nastaviť viditeľnosť"
       update: "Aktualizovať"
       updating: "Aktualizuje sa"
-    helper:
-      are_you_sure: "Si si istý (-á), že chceš zmazať túto kategóriu?"
-      aspect_not_empty: "Kategória nie je prázdna"
-      remove: "Odstrániť"
     index:
       diaspora_id:
         content_1: "Tvoje ID na diasporu* je:"
@@ -197,10 +188,6 @@ sk:
         heading: "Pripojiť sa k službám"
       unfollow_tag: "Prestať sledovať #%{tag}"
       welcome_to_diaspora: "Vitaj na diaspore*, %{name}!"
-    move_contact:
-      error: "Chyba pri presúvaní kontaktu: %{inspect}"
-      failure: "nefungoval(a) %{inspect}"
-      success: "Kontakt bol presunutý do novej kategórie"
     new:
       create: "Vytvoriť"
       name: "Meno (uvidíš ho iba ty)"
@@ -218,13 +205,6 @@ sk:
       family: "Rodina"
       friends: "Kamaráti"
       work: "Práca"
-    selected_contacts:
-      manage_your_aspects: "Uprav si kategórie."
-      no_contacts: "Nemáš tu ešte žiadne kontakty."
-      view_all_community_spotlight: "Zobraziť všetky aktuality z komunity"
-      view_all_contacts: "Zobraziť všetky kontakty"
-    show:
-      edit_aspect: "Upraviť kategóriu"
     update:
       failure: "Tvoja kategória %{name} má príliš dlhý názov."
       success: "Úspešne si upravil(a) kategóriu %{name}."
@@ -256,14 +236,12 @@ sk:
     index:
       add_a_new_aspect: "Pridať novú kategóriu"
       add_to_aspect: "Pridať kontakty do kategórie %{name}"
-      add_to_aspect_link: "pridať kontakt do %{name}"
       all_contacts: "Všetky kontakty"
       community_spotlight: "Aktuality z komunity"
       many_people_are_you_sure: "Určite chceš začať súkromný rozhovor s viac ako %{suggested_limit} ľuďmi? Poslať príspevok do tejto kategórie môže byť lepší spôsob, ako sa s nimi spojiť."
       my_contacts: "Moje kontakty"
       no_contacts: "Zdá sa, že potrebuješ pridať pár kontaktov!"
       no_contacts_message: "Pozri si %{community_spotlight}"
-      no_contacts_message_with_aspect: "Pozri si %{community_spotlight} alebo %{add_to_aspect_link}"
       only_sharing_with_me: "Ľudia, ktorí majú v kontaktoch iba mňa"
       start_a_conversation: "Začať rozhovor"
       title: "Kontakty"
@@ -781,13 +759,11 @@ sk:
     invalid_invite: "Odkaz na pozvánku, ktorý si zadal(a), už nie je platný!"
     new:
       create_my_account: "Založ si účet!"
-      diaspora: "<3 diaspora*"
       email: "E-MAIL"
       enter_email: "Zadaj e-mail"
       enter_password: "Zadaj heslo (minimálne šesť znakov)"
       enter_password_again: "Zadaj rovnaké heslo ako predtým"
       enter_username: "Zadaj používateľské meno (iba písmená, číslice  a podčiarkovníky)"
-      hey_make: "HEJ,<br/>UROB<br/>NIEČO."
       join_the_movement: "Pripoj sa k hnutiu!"
       password: "HESLO"
       password_confirmation: "POTVRDENIE HESLA"

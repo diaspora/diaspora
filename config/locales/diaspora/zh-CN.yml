@@ -103,8 +103,6 @@ zh-CN:
     add_to_aspect:
       failure: "将好友添加到分组失败。"
       success: "将好友添加到分组成功。"
-    aspect_contacts:
-      done_editing: "编辑完成"
     aspect_listings:
       add_an_aspect: "+ 新增分组"
       deselect_all: "清空选择"
@@ -123,20 +121,14 @@ zh-CN:
       failure: "无法删除 %{name} ，它不是空的。"
       success: "删除 %{name} 成功。"
     edit:
-      add_existing: "添加好友"
       aspect_list_is_not_visible: "分组中的好友不能看见此分组的好友列表"
       aspect_list_is_visible: "分组中的好友能够看见此分组的好友列表"
       confirm_remove_aspect: "您确定要删除这个分组？"
-      done: "完成"
       make_aspect_list_visible: "是否让其他人可以看见此分组的好友列表？"
       remove_aspect: "删除这个分组"
       rename: "重命名"
       update: "更新"
       updating: "更新中"
-    helper:
-      are_you_sure: "您确定要删除这个分组？"
-      aspect_not_empty: "此分组不是空的"
-      remove: "删除"
     index:
       diaspora_id:
         content_1: "您的 Diaspora 通行证是："
@@ -172,10 +164,6 @@ zh-CN:
         heading: "连接服务"
       unfollow_tag: "取消关注 #%{tag}"
       welcome_to_diaspora: "%{name}，欢迎加入 Diaspora!"
-    move_contact:
-      error: "好友移动错误：%{inspect}"
-      failure: "%{inspect} 失败"
-      success: "好友成功添加到新分组"
     new:
       create: "创建"
       name: "名字"
@@ -193,13 +181,6 @@ zh-CN:
       family: "家人"
       friends: "朋友"
       work: "同事"
-    selected_contacts:
-      manage_your_aspects: "管理您的分组"
-      no_contacts: "您没有选择任何联系人。"
-      view_all_community_spotlight: "查看所有热点"
-      view_all_contacts: "查看所有好友"
-    show:
-      edit_aspect: "编辑分组"
     update:
       failure: "分组 %{name} 名称太长了，不能保存"
       success: "分组 %{name} 编辑成功。"
@@ -231,14 +212,12 @@ zh-CN:
     index:
       add_a_new_aspect: "加入新分组"
       add_to_aspect: "将好友添加到 %{name}"
-      add_to_aspect_link: "添加好友至 %{name}"
       all_contacts: "所有好友"
       community_spotlight: "社区热点"
       many_people_are_you_sure: "您确定要和 %{suggested_limit} 个好友对话？发布内容可能是更好的方式。"
       my_contacts: "我的好友"
       no_contacts: "尚未添加好友"
       no_contacts_message: "来看看 %{community_spotlight}"
-      no_contacts_message_with_aspect: "来看看 %{community_spotlight} 或者 %{add_to_aspect_link}"
       only_sharing_with_me: "和我分享内容的人"
       start_a_conversation: "开始对话"
       title: "好友"
@@ -595,13 +574,11 @@ zh-CN:
     invalid_invite: "您提供的邀请链接已失效"
     new:
       create_my_account: "创建我的帐号"
-      diaspora: "爱你的 Diaspora*"
       email: "电子邮箱"
       enter_email: "输入电子邮箱"
       enter_password: "输入密码（至少6个字符）"
       enter_password_again: "再输入一遍密码"
       enter_username: "输入用户名(名称只能包含字母，数字和下划线“_”)"
-      hey_make: "嘿，<br/>做点<br/>什么吧！"
       join_the_movement: "参加此行动"
       password: "密码"
       password_confirmation: "密保信息"

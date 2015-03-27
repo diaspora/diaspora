@@ -70,9 +70,6 @@ fil:
       confirm_remove_aspect: "Are you sure you want to delete this crew?"
       make_aspect_list_visible: "make crew list visible?"
       remove_aspect: "Fire this crew"
-    helper:
-      are_you_sure: "Are you sure you want to delete this crew?"
-      aspect_not_empty: "Crew not empty"
     index:
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       help:

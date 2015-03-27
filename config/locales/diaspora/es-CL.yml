@@ -112,8 +112,6 @@ es-CL:
     add_to_aspect:
       failure: "Error al agregar el contacto a este aspecto."
       success: "Contacto agregado correctamente al aspecto."
-    aspect_contacts:
-      done_editing: "Aceptar"
     aspect_listings:
       add_an_aspect: "+ Añadir un aspecto"
       deselect_all: "Desmarcar todo"
@@ -132,20 +130,14 @@ es-CL:
       failure: "El aspecto %{name} no esta vacío y no se puede eliminar."
       success: "%{name} fue correctamente eliminado."
     edit:
-      add_existing: "Agregar un contacto existente"
       aspect_list_is_not_visible: "Lista de contactos oculta para los demás en el Aspecto"
       aspect_list_is_visible: "Lista de contactos visible para los demás en el Aspecto"
       confirm_remove_aspect: "¿Estás seguro que quieres eliminar este aspecto?"
-      done: "Listo"
       make_aspect_list_visible: "hacer visible el aspecto?"
       remove_aspect: "Eliminar este aspecto"
       rename: "renombrar"
       update: "Actualizar"
       updating: "actualizando"
-    helper:
-      are_you_sure: "¿Estás seguro que quieres eliminar este aspecto?"
-      aspect_not_empty: "El aspecto no está vacío"
-      remove: "eliminar"
     index:
       diaspora_id:
         content_1: "Tu ID de Diaspora es:"
@@ -186,10 +178,6 @@ es-CL:
         heading: "Servicios que puedes enlazar"
       unfollow_tag: "Dejar de seguir #%{tag}"
       welcome_to_diaspora: "Bienvenido a Diaspora, %{name}!"
-    move_contact:
-      error: "Error al mover el contacto: %{inspect}"
-      failure: "no funcionó %{inspect}"
-      success: "Persona movida al nuevo aspecto"
     new:
       create: "Crear"
       name: "Nombre(solo visible para ti)"
@@ -207,13 +195,6 @@ es-CL:
       family: "Familia"
       friends: "Amigos"
       work: "Trabajo"
-    selected_contacts:
-      manage_your_aspects: "Organiza tus aspectos."
-      no_contacts: "Todavía no tienes ningún contacto aquí."
-      view_all_community_spotlight: "Ver todos los focos de atención de la comunidad"
-      view_all_contacts: "Ver todos los contactos"
-    show:
-      edit_aspect: "editar aspecto"
     update:
       failure: "Tu aspecto, %{name}, tenía el nombre muy largo para ser guardado."
       success: "Tu aspecto, %{name}, ha sido correctamente editado."
@@ -245,14 +226,12 @@ es-CL:
     index:
       add_a_new_aspect: "Agregar un nuevo aspecto"
       add_to_aspect: "Añadir contactos a %{name}"
-      add_to_aspect_link: "añadir contactos a %{name}"
       all_contacts: "Todos los Contactos"
       community_spotlight: "Comunidad Creativa"
       many_people_are_you_sure: "Estas seguro que quieres iniciar una conversación privada con más de %{suggested_limit} contactos? Postear algo en este aspecto quizás sea una mejor manera de contactarte con ellos."
       my_contacts: "Mis Contactos"
       no_contacts: "Parece que necesitas agregar algunos contactos!"
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"
-      no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Solo compartiendo conmigo"
       start_a_conversation: "Comenzar una conversación"
       title: "Contactos"
@@ -822,13 +801,11 @@ es-CL:
     invalid_invite: "¡El enlace de invitación ya no es válido!"
     new:
       create_my_account: "¡Crear mi cuenta!"
-      diaspora: "<3 diaspora*"
       email: "Correo Electrónico"
       enter_email: "Ingresa un email"
       enter_password: "Ingresar contraseña"
       enter_password_again: "Ingresa la misma contraseña anterior"
       enter_username: "Escoge un nick (solo letras, números, y guión bajo)"
-      hey_make: "OYE,<br/>HAZ<br/>ALGO."
       join_the_movement: "Unete al movimiento!"
       password: "Contraseña"
       password_confirmation: "Confirme Contraseña"

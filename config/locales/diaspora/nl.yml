@@ -146,8 +146,6 @@ nl:
     add_to_aspect:
       failure: "Contact toevoegen aan aspect is mislukt."
       success: "Contact is met succes toegevoegd aan aspect."
-    aspect_contacts:
-      done_editing: "klaar met bewerken"
     aspect_listings:
       add_an_aspect: "+ Voeg aspect toe"
       deselect_all: "Deselecteer alles"
@@ -166,25 +164,18 @@ nl:
       failure: "%{name} is niet leeg en kan niet verwijderd worden."
       success: "%{name} is met succes verwijderd."
     edit:
-      add_existing: "Voeg een bestaand contact toe"
       aspect_chat_is_enabled: "Contacten binnen dit aspect kunnen met jou chatten."
       aspect_chat_is_not_enabled: "Contacten binnen dit aspect kunnen niet met jou chatten."
       aspect_list_is_not_visible: "Contacten in dit aspect kunnen elkaar niet zien:"
       aspect_list_is_visible: "contactlijst van aspect is zichtbaar voor anderen in aspect"
       confirm_remove_aspect: "Weet je zeker dat je dit aspect wilt verwijderen?"
-      done: "Klaar"
       grant_contacts_chat_privilege: "contacten in aspect chat autorisatie verlenen?"
       make_aspect_list_visible: "maak contacten in dit aspect zichtbaar voor elkaar?"
-      manage: "Beheren"
       remove_aspect: "Verwijder dit aspect"
       rename: "hernoem"
       set_visibility: "Instellen zichtbaarheid"
       update: "Bijwerken"
       updating: "aan het bijwerken"
-    helper:
-      are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
-      aspect_not_empty: "Aspect niet leeg"
-      remove: "verwijderen"
     index:
       diaspora_id:
         content_1: "Jouw diaspora* ID is:"
@@ -225,10 +216,6 @@ nl:
         heading: "Verbind diensten"
       unfollow_tag: "Stop met volgen van #%{tag}"
       welcome_to_diaspora: "Welkom bij diaspora*, %{name}!"
-    move_contact:
-      error: "Probleem bij het verplaatsen van contact: %{inspect}"
-      failure: "werkte niet %{inspect}"
-      success: "Persoon naar nieuw aspect verplaatst"
     new:
       create: "Aanmaken"
       name: "Naam (alleen zichtbaar voor jou)"
@@ -246,13 +233,6 @@ nl:
       family: "Familie"
       friends: "Vrienden"
       work: "Werk"
-    selected_contacts:
-      manage_your_aspects: "Beheer je aspecten."
-      no_contacts: "Je hebt hier momenteel nog geen contacten."
-      view_all_community_spotlight: "Zie alle community spotlights"
-      view_all_contacts: "Bekijk alle contacten"
-    show:
-      edit_aspect: "bewerk aspect"
     update:
       failure: "De naam van je aspect, %{name}, is te lang om op te slaan."
       success: "Je aspect, %{name}, is succesvol aangepast."
@@ -285,14 +265,12 @@ nl:
       add_a_new_aspect: "Voeg een aspect toe"
       add_contact: "Toevoegen contactpersoon"
       add_to_aspect: "voeg contacten toe aan %{name}"
-      add_to_aspect_link: "contacten toevoegen aan %{name}"
       all_contacts: "Alle Contacten"
       community_spotlight: "Community aanrader"
       many_people_are_you_sure: "Weet je zeker dat je een privégesprek wil starten met meer dan %{suggested_limit} contacten? Een bericht plaatsen in dit aspect is waarschijnlijk een betere manier om met hen te communiceren."
       my_contacts: "Mijn Contacten"
       no_contacts: "Voeg wat contacten toe!"
       no_contacts_message: "Bekijk %{community_spotlight} eens"
-      no_contacts_message_with_aspect: "Bekijk %{community_spotlight} eens, of %{add_to_aspect_link}"
       only_sharing_with_me: "Delen alleen met mij"
       remove_contact: "Verwijderen contactpersoon"
       start_a_conversation: "Plaats een bericht"
@@ -1031,13 +1009,11 @@ nl:
     invalid_invite: "De uitnodigingslink die je gebruikt is niet langer geldig!"
     new:
       create_my_account: "Maak mijn account aan!"
-      diaspora: "<3 diaspora*"
       email: "E-MAIL"
       enter_email: "Vul een e-mailadres in"
       enter_password: "Vul een wachtwoord in (zes karakters minimaal)"
       enter_password_again: "Vul hetzelfde wachtwoord nogmaals in"
       enter_username: "Kies een gebruikersnaam (alleen letters, nummers, en underscores)"
-      hey_make: "HEEY,<br/>MAAK<br/>IETS"
       join_the_movement: "Sluit je aan!"
       password: "WACHTWOORD"
       password_confirmation: "Wachtwoordbevestiging"

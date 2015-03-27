@@ -54,8 +54,6 @@ bg:
     add_to_aspect:
       failure: "Контактът не бе добавен към аспекта."
       success: "Контактът е добавен към аспекта."
-    aspect_contacts:
-      done_editing: "готово"
     aspect_listings:
       add_an_aspect: "+ Създаване на аспект"
       deselect_all: "Никой"
@@ -73,20 +71,14 @@ bg:
       failure: "%{name} не е празен, затова не може да бъде изтрит."
       success: "%{name} бе изтрит."
     edit:
-      add_existing: "Добавяне на съществуващ контакт"
       aspect_list_is_not_visible: "списъкът на аспекта не е видим за останалите в аспекта"
       aspect_list_is_visible: "списъкът на аспекта е видим за останалите в аспекта"
       confirm_remove_aspect: "Наистина ли желаете аспектът да бъде премахнат?"
-      done: "Готово"
       make_aspect_list_visible: "нека контактите в аспекта се виждат един друг"
       remove_aspect: "Изтриване на аспекта"
       rename: "преименуване"
       update: "обнови"
       updating: "обновяване"
-    helper:
-      are_you_sure: "Наистина ли желаете аспектът да бъде изтрит?"
-      aspect_not_empty: "Аспектът не е празен"
-      remove: "премахване"
     index:
       diaspora_id:
         content_1: "Вашият адрес в Diaspora е:"
@@ -119,9 +111,6 @@ bg:
         heading: "Свързване към услуги"
       unfollow_tag: "Прекратяване следенето на #%{tag}"
       welcome_to_diaspora: "Добре дошли в Diaspora, %{name}!"
-    move_contact:
-      error: "Грешка при преместване на контакт: %{inspect}"
-      success: "Лицето е преместено в нов аспект"
     new:
       create: "Създаване"
       name: "Име (видимо е само за вас)"
@@ -139,13 +128,6 @@ bg:
       family: "Семейство"
       friends: "Приятели"
       work: "Работа"
-    selected_contacts:
-      manage_your_aspects: "Управление на аспектите."
-      no_contacts: "Все още нямате контакти тук."
-      view_all_community_spotlight: "Вижте всички отличени потребители"
-      view_all_contacts: "Показване на всички контакти"
-    show:
-      edit_aspect: "редактиране на аспекта"
     update:
       failure: "Аспектът \"%{name}\" има твърде дълго име. Не може да бъде запаметен."
       success: "Аспектът \"%{name}\" е успешно редактиран."
@@ -181,7 +163,6 @@ bg:
       my_contacts: "Моите контакти"
       no_contacts: "Изглежда трябва да добавите контакти!"
       no_contacts_message: "Проверете %{community_spotlight}"
-      no_contacts_message_with_aspect: "Проверете %{community_spotlight} или %{add_to_aspect_link}"
       only_sharing_with_me: "Само споделящите с мен"
       start_a_conversation: "Начало на разговор"
       title: "Контакти"

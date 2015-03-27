@@ -58,8 +58,6 @@ lt:
     add_to_aspect:
       failure: "Nepavyko priskirti kontakto kategorijai."
       success: "Kontaktas sėkmingai priskirtas kategorijai."
-    aspect_contacts:
-      done_editing: "Pakeista"
     aspect_listings:
       add_an_aspect: "Pridėti kategoriją"
       deselect_all: "Nepasirinkti nieko"
@@ -77,20 +75,14 @@ lt:
       failure: "%{name} negali būti pašalintas, nes nėra tuščias."
       success: "%{name} sėkmingai pašalintas."
     edit:
-      add_existing: "Pridėti egzistuojantį kontaktą"
       aspect_list_is_not_visible: "Kategorijų sąrašo nemato kiti esantys šioje kategorijoje"
       aspect_list_is_visible: "Kategorijų sąrašas matomas kietiems esantiems šioje kategorijoje"
       confirm_remove_aspect: "Ar tikrai norite ištrinti šią kategoriją?"
-      done: "Atlikta"
       make_aspect_list_visible: "Ar leisti šios kategorijos kontaktams matyti vienas kitą?"
       remove_aspect: "Ištrinti kategoriją"
       rename: "Pervardinti"
       update: "Atnaujinti"
       updating: "Atnaujinama..."
-    helper:
-      are_you_sure: "Ar tikrai norite ištrinti šią kategoriją?"
-      aspect_not_empty: "Kategorijoje nėra kontaktų"
-      remove: "šalinti"
     index:
       diaspora_id:
         content_1: "Jūsų unikalus Diaspora ID:"
@@ -123,10 +115,6 @@ lt:
         heading: "Prijungti paslaugas"
       unfollow_tag: "Sustabdyti sekimą #%{tag}"
       welcome_to_diaspora: "Sveiki atvykę į tinklapį Diaspora, %{name}!"
-    move_contact:
-      error: "Klaida perkeliant kontaktą: %{inspect}"
-      failure: "Nepavyko %{inspect}"
-      success: "Kontaktas perkeltas į kitą kategoriją"
     new:
       create: "Sukurti"
       name: "Vardas (matomas tik Jums)"
@@ -144,13 +132,6 @@ lt:
       family: "Šeima"
       friends: "Draugai"
       work: "Darbas"
-    selected_contacts:
-      manage_your_aspects: "Tvarkyti savo kategorijas."
-      no_contacts: "Kol kas neturite nei vieno kontakto."
-      view_all_community_spotlight: "Matyti viską kas yra bendruomenės dėmesio centre"
-      view_all_contacts: "Rodyti visus kontaktus"
-    show:
-      edit_aspect: "Keisti kategoriją"
     update:
       failure: "Kategorijos %{name} pavadinimas yra per ilgas."
       success: "Kategorija %{name} sėkmingai pakeista."
@@ -175,14 +156,12 @@ lt:
     index:
       add_a_new_aspect: "Sukurti kategoriją"
       add_to_aspect: "Pridėti kontaktus į kategoriją %{name}"
-      add_to_aspect_link: "Pridėti kontaktus į kategoriją %{name}"
       all_contacts: "Visi kontaktai"
       community_spotlight: "Bendruomenės dėmesio centre"
       many_people_are_you_sure: "Ar tikrai norite pradėti privatų pokalbį su daugiau nei %{suggested_limit} kontaktų? Paskelbti įrašą šioje kategorijoje gali būti geresnis būdas."
       my_contacts: "Mano kontaktai"
       no_contacts: "Pridėkite daugiau kontaktų!"
       no_contacts_message: "Peržiūrėti %{community_spotlight}"
-      no_contacts_message_with_aspect: "Peržiūrėti %{community_spotlight} arba %{add_to_aspect_link}"
       only_sharing_with_me: "Tik tie, kurie su manimi dalijasi"
       start_a_conversation: "Pradėti pokalbį"
       title: "Kontaktai"

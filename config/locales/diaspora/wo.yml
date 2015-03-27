@@ -18,8 +18,6 @@ wo:
   aspects:
     aspect_listings:
       edit_aspect: "Soppil %{name}"
-    edit:
-      done: "Raaf na"
     index:
       diaspora_id:
         content_1: "Sa Limu Diaspora mooy:"
@@ -51,7 +49,6 @@ wo:
   contacts:
     index:
       no_contacts_message: "Xoolal %{community_spotlight}"
-      no_contacts_message_with_aspect: "Xoolal %{community_spotlight} walla %{add_to_aspect_link}"
   conversations:
     new:
       to: "ci"
@@ -130,7 +127,6 @@ wo:
       edit: "Soppi %{name}"
       unhappy: "Kontaanul?"
     new:
-      diaspora: "<3 Diaspora*"
       email: "EMAIL"
       enter_email: "Duggal email"
       password: "BAATUJÀLL"

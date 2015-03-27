@@ -53,8 +53,6 @@ lv:
     add_to_aspect:
       failure: "Nesanāca pievienot kontaktu grupai."
       success: "Kontakts veiksmīgi pievienots grupai."
-    aspect_contacts:
-      done_editing: "pabeigt labošanu"
     aspect_listings:
       add_an_aspect: "+ Pievienot grupu"
       deselect_all: "Atlasīt neko"
@@ -69,20 +67,14 @@ lv:
       failure: "%{name} nav tukša un to nevar noņemt."
       success: "%{name} tika veiksmīgi noņemta."
     edit:
-      add_existing: "Pievienot esošu kontaktu"
       aspect_list_is_not_visible: "Kontakti šajā grupā neredz viens otru."
       aspect_list_is_visible: "Kontakti šajā grupā var redzēt viens otru."
       confirm_remove_aspect: "Vai jūs tiešām vēlaties dzēst šo grupu?"
-      done: "Gatavs"
       make_aspect_list_visible: "ļaut kontaktiem šajā grupā viens otru redzēt?"
       remove_aspect: "Dzēst šo grupu"
       rename: "pārsaukt"
       update: "atjaunot"
       updating: "atjauno"
-    helper:
-      are_you_sure: "Vai jūs tiešām vēlaties dzēst šo grupu?"
-      aspect_not_empty: "Grupa nav tukša"
-      remove: "noņemt"
     index:
       diaspora_id:
         content_1: "Tavs diaspora* ID:"
@@ -112,9 +104,6 @@ lv:
         heading: "Pieslēgt servisus"
       unfollow_tag: "Vairs nerādīt %{tag}"
       welcome_to_diaspora: "Laipni lūgti diaspora*, %{name}!"
-    move_contact:
-      error: "Kļūda pārvietojot kontaktu: %{inspect}"
-      success: "Persona ir pārvietota jaunā grupā"
     new:
       create: "Izveidot"
       name: "Nosaukums (redzams tikai tev)"
@@ -130,12 +119,6 @@ lv:
       family: "Ģimene"
       friends: "Draugi"
       work: "Darbs"
-    selected_contacts:
-      manage_your_aspects: "Pārvaldīt grupas."
-      no_contacts: "Tev vēl nav neviena kontakta."
-      view_all_contacts: "Skatīt visus kontaktus"
-    show:
-      edit_aspect: "labot grupu"
     update:
       failure: "Grupas %{name} nosaukums ir pārāk garš, lai to saglabātu."
       success: "Grupa %{name} tika veiksmīgi labota."

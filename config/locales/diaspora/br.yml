@@ -94,8 +94,6 @@ br:
     add_to_aspect:
       failure: "N'eus ket bet gallet ouzhpennañ an darempred d'ar strollad"
       success: "Ouzhpennet eo bet an darempred d'ar strollad ervat"
-    aspect_contacts:
-      done_editing: "graet ar cheñchamantoù"
     aspect_listings:
       add_an_aspect: "+ Ouzhpennañ ur strollad"
       deselect_all: "Diziuzañ pep tra"
@@ -114,21 +112,14 @@ br:
       failure: "%{name} n'eo ket goullo ha ne c'hall ket bezañ diverket"
       success: "Diverket eo bet %{name} ervat."
     edit:
-      add_existing: "Ouzhpennañ un darempred zo anezhañ c'hoazh"
       aspect_list_is_not_visible: "N'hall ket darempredoù ar strollad-mañ en em welet"
       aspect_list_is_visible: "Gallout a ra darempredoù ar strollad-mañ en em welet"
       confirm_remove_aspect: "Ha sur oc'h e fell deoc'h diverkañ ar strollad-mañ ?"
-      done: "Graet"
       make_aspect_list_visible: "lakaat an holl darempredoù er strollad-mañ d'en em welet ?"
-      manage: "Merañ"
       remove_aspect: "Diverkañ ar strollad-mañ"
       rename: "cheñch an anv"
       update: "hizivaat"
       updating: "oc'h hizivaat"
-    helper:
-      are_you_sure: "Ha sur oc'h e fell deoc'h diverkañ ar strollad-mañ ?"
-      aspect_not_empty: "N'eo ket goullo ar strollad-mañ"
-      remove: "lemel kuit"
     index:
       diaspora_id:
         content_1: "Setu ho kod anaout evit Diaspora:"
@@ -165,10 +156,6 @@ br:
         heading: "Servijoù kevreañ"
       unfollow_tag: "Paouez a heuliañ #%{tag}"
       welcome_to_diaspora: "Donemat deoc'h e Diaspora, %{name} !"
-    move_contact:
-      error: "Ur fazi zo bet en ur zilec'hiañ an darempred: %{inspect}"
-      failure: "Ne'z a ket en-dro %{inspect}"
-      success: "Den bet kaset d'ur strollad all"
     new:
       create: "Krouiñ"
       name: "Anv (gwelet ganeoc'h hepken)"
@@ -186,13 +173,6 @@ br:
       family: "Familh"
       friends: "Mignoned"
       work: "Labour"
-    selected_contacts:
-      manage_your_aspects: "Merañ ho strolladoù"
-      no_contacts: "N'hoc'h eus darempred ebet amañ evit poent."
-      view_all_community_spotlight: "Gwellout holl nevezentioù ar c'hevrad"
-      view_all_contacts: "Gwelet an holl zarempredoù"
-    show:
-      edit_aspect: "aozañ ar strollad"
     update:
       failure: "Re hir eo anv ho strollad, %{name}, evit gallout bezañ enrollet"
       success: "Kemmet eo bet ho strollad, %{name}, ervat."
@@ -222,14 +202,12 @@ br:
     index:
       add_a_new_aspect: "Ouzhpennañ ur strollad nevez"
       add_to_aspect: "Ouzhpennañ darempredoù da %{name}"
-      add_to_aspect_link: "ouzhpennañ darempredoù da %{name}"
       all_contacts: "An holl zarempredoù"
       community_spotlight: "Nevezenti ar rouedad"
       many_people_are_you_sure: "Sur oc'h kregiñ ur gaozeadenn prevez gant muioc'h evit %{suggested_limit} darempred ? Kas masajoù dre ar strollad-se  a rankfe bezañ un doare gwelloc'h o kontaktiñ."
       my_contacts: "Ma darempredoù"
       no_contacts: "Evit doare hoc'h eus ezhomm da ouzhpennañ un nebeud darempredoù"
       no_contacts_message: "Klaskit %{community_spotlight}"
-      no_contacts_message_with_aspect: "Klaskit %{community_spotlight} pe %{add_to_aspect_link}"
       only_sharing_with_me: "O rannañ keleier ganin hepken"
       start_a_conversation: "Boulc'hañ ur gaoz"
       title: "Darempredoù"
@@ -670,13 +648,11 @@ br:
     invalid_invite: "Al liamm pedadenn roet ganeoc'h n'eo ket mat ken"
     new:
       create_my_account: "Krouiñ ma c'hont !"
-      diaspora: "<3 diaspora*"
       email: "POSTEL"
       enter_email: "Skrivit ur postel"
       enter_password: "Merkit ur ger-tremen (c'hwec'h arouezenn da nebeutañ)"
       enter_password_again: "Skrivit an hevelep ger-tremen hag a-raok"
       enter_username: "Dibabit un anv-implijer (lizherennoù, niverennoù hag isvarrennoù nemetken)"
-      hey_make: "AC'HANTA,<br/>GRIT<br/>UN DRA BENNAK."
       join_the_movement: "Kemerit perzh !"
       password: "GER-TREMEN"
       password_confirmation: "KADARNAAT AR GER-TREMEN"

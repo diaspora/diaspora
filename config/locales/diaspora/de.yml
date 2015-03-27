@@ -146,8 +146,6 @@ de:
     add_to_aspect:
       failure: "Fehler beim Hinzufügen des Kontakts zum Aspekt."
       success: "Kontakt erfolgreich zum Aspekt hinzugefügt."
-    aspect_contacts:
-      done_editing: "Änderungen abgeschlossen"
     aspect_listings:
       add_an_aspect: "+ Aspekt hinzufügen"
       deselect_all: "Auswahl aufheben"
@@ -166,25 +164,18 @@ de:
       failure: "%{name} ist nicht leer und konnte nicht entfernt werden."
       success: "%{name} wurde erfolgreich entfernt."
     edit:
-      add_existing: "Einen bereits bestehenden Kontakt hinzufügen"
       aspect_chat_is_enabled: "Kontakte in diesem Aspekt können mit dir chatten."
       aspect_chat_is_not_enabled: "Kontakte in diesem Aspekt können nicht mit dir chatten."
       aspect_list_is_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
       aspect_list_is_visible: "Kontakte in diesem Aspekt können einander sehen."
       confirm_remove_aspect: "Bist du dir sicher, dass du diesen Aspekt löschen möchtest?"
-      done: "Fertig"
       grant_contacts_chat_privilege: "Kontakten im Aspekt das Chatrecht gewähren?"
       make_aspect_list_visible: "Kontakte aus diesem Aspekt öffentlich machen?"
-      manage: "Verwalten"
       remove_aspect: "Diesen Aspekt löschen"
       rename: "Umbenennen"
       set_visibility: "Sichtbarkeit festlegen"
       update: "Ändern"
       updating: "Ändere…"
-    helper:
-      are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
-      aspect_not_empty: "Aspekt ist nicht leer"
-      remove: "Entfernen"
     index:
       diaspora_id:
         content_1: "Deine diaspora* ID ist:"
@@ -225,10 +216,6 @@ de:
         heading: "Verbinde Dienste"
       unfollow_tag: "#%{tag} nicht mehr folgen"
       welcome_to_diaspora: "Willkommen bei diaspora*, %{name}!"
-    move_contact:
-      error: "Fehler beim Verschieben des Kontakts: %{inspect}"
-      failure: "hat nicht funktioniert: %{inspect}"
-      success: "Person in neuen Aspekt verschoben"
     new:
       create: "Erstellen"
       name: "Name (nur für dich sichtbar)"
@@ -246,13 +233,6 @@ de:
       family: "Familie"
       friends: "Freunde"
       work: "Arbeit"
-    selected_contacts:
-      manage_your_aspects: "Verwalte deine Aspekte."
-      no_contacts: "Du hast hier noch keine Kontakte."
-      view_all_community_spotlight: "Schaukasten der gesamten Gemeinschaft"
-      view_all_contacts: "Zeige alle Kontakte"
-    show:
-      edit_aspect: "Aspekt bearbeiten"
     update:
       failure: "%{name} ist ein zu langer Name, um gespeichert zu werden."
       success: "Aspekt %{name} erfolgreich bearbeitet."
@@ -285,14 +265,12 @@ de:
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
       add_contact: "Kontakt hinzufügen"
       add_to_aspect: "Füge Kontakte zu %{name} hinzu"
-      add_to_aspect_link: "füge Kontakte zu »%{name}« hinzu"
       all_contacts: "Alle Kontakte"
       community_spotlight: "Gemeinschafts-Focus"
       many_people_are_you_sure: "Bist du dir sicher, dass du eine private Unterhaltung mit mehr als %{suggested_limit} Kontakten beginnen möchtest? Einen Beitrag in diesen Aspekt zu schreiben könnte ein besserer Weg sein, um sie zu kontaktieren."
       my_contacts: "Meine Kontakte"
       no_contacts: "Sieht so aus, als müsstest du einige Kontakte hinzufügen!"
       no_contacts_message: "Guck’ in den %{community_spotlight}"
-      no_contacts_message_with_aspect: "Guck’ in den %{community_spotlight} oder %{add_to_aspect_link}"
       only_sharing_with_me: "Nur mit dir Teilende"
       remove_contact: "Kontakt entfernen"
       start_a_conversation: "Beginne eine Unterhaltung"
@@ -1042,22 +1020,20 @@ de:
     invalid_invite: "Der von dir erstellte Einladungs-Link ist nicht mehr gültig!"
     new:
       create_my_account: "Konto erstellen!"
-      diaspora: "<3 diaspora*"
-      email: "EMAIL"
+      email: "E-Mail"
       enter_email: "Gib eine E-Mail-Adresse an"
       enter_password: "Gib ein Kennwort ein (mindestens sechs Zeichen)"
       enter_password_again: "Gib das gleiche Kennwort wie zuvor ein"
       enter_username: "Wähle einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
-      hey_make: "HEY,<br/>MACHE<br/>ETWAS."
       join_the_movement: "Tritt der Bewegung bei!"
-      password: "PASSWORT"
-      password_confirmation: "PASSWORT BESTÄTIGEN"
-      sign_up: "REGISTRIEREN"
+      password: "Passwort"
+      password_confirmation: "Passwort bestätigen"
+      sign_up: "Registrieren"
       sign_up_message: "Soziales Netzwerken mit ♥"
       submitting: "Absenden…"
       terms: "Indem du ein Konto erstellst, akzeptierst du die %{terms_link}."
       terms_link: "Nutzungsbedingungen"
-      username: "BENUTZERNAME"
+      username: "Benutzername"
   report:
     comment_label: "<b>Kommentar</b>:<br>%{data}"
     confirm_deletion: "Bist du dir sicher, dass du das Objekt löschen willst?"

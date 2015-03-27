@@ -58,8 +58,6 @@ sr:
     add_to_aspect:
       failure: "Неуспешно додавање особе у поглед."
       success: "Особа успешно додата у поглед."
-    aspect_contacts:
-      done_editing: "Готово уређивање"
     aspect_listings:
       add_an_aspect: "+ Додај поглед"
       deselect_all: "Не означи ни један"
@@ -76,20 +74,14 @@ sr:
       failure: "%{name} није празан и не може се уклонити."
       success: "Поглед %{name} је успешно уклоњен."
     edit:
-      add_existing: "Додај постојећи контакт"
       aspect_list_is_not_visible: "списак погледа је невидљив осталима у погледу"
       aspect_list_is_visible: "списак погледа је видљив осталима у погледу"
       confirm_remove_aspect: "Јесте ли сигурни да желите да обришете овај поглед?"
-      done: "Готово"
       make_aspect_list_visible: "Учини контакте у овом погледу видљиве једне другима?"
       remove_aspect: "Обриши овај поглед"
       rename: "Преименуј"
       update: "Ажурирај"
       updating: "ажурирање"
-    helper:
-      are_you_sure: "Да ли сигурно желиш да обришеш овај поглед?"
-      aspect_not_empty: "Поглед није празан"
-      remove: "уклони"
     index:
       diaspora_id:
         content_1: "Твој Дијаспора ИД је:"
@@ -122,10 +114,6 @@ sr:
         heading: "Повежи сајтове"
       unfollow_tag: "Не прати више #%{tag}"
       welcome_to_diaspora: "Добродошли на Дијаспору, %{name}!"
-    move_contact:
-      error: "Грешка приликом премештања особе: %{inspect}"
-      failure: "није успело: %{inspect}"
-      success: "Особа премештена у нови поглед."
     new:
       create: "Направи"
       name: "Име (видљиво само теби)"
@@ -143,13 +131,6 @@ sr:
       family: "Породица"
       friends: "Пријатељи"
       work: "Посао"
-    selected_contacts:
-      manage_your_aspects: "Уреди своје погледе."
-      no_contacts: "Још немаш контаката."
-      view_all_community_spotlight: "Погледај целу заједницу"
-      view_all_contacts: "Види све контакте"
-    show:
-      edit_aspect: "Измени поглед"
     update:
       failure: "Твој поглед, %{name}, има предугачак назив да би се сачувао."
       success: "Твој поглед, %{name}, је успешно измењен."
@@ -169,7 +150,6 @@ sr:
     create:
       failure: "Неуспело креирање контакта"
     index:
-      add_to_aspect_link: "додај контакт аспекту %{name}"
       all_contacts: "Сви контакти"
       community_spotlight: "Погледи заједнице"
       my_contacts: "Моји контакти"

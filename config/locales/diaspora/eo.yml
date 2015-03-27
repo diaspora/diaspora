@@ -105,8 +105,6 @@ eo:
     add_to_aspect:
       failure: "Ne povis aldoni kontakton al aspekto."
       success: "Sukcese aldonis kontakton al aspekto."
-    aspect_contacts:
-      done_editing: "redaktado finita"
     aspect_listings:
       add_an_aspect: "+ Aldoni aspekton"
       deselect_all: "Malelekti ĉion"
@@ -125,20 +123,14 @@ eo:
       failure: "%{name} ne malplenas kaj do ne povis esti forigita."
       success: "%{name} estis sukcese forigita."
     edit:
-      add_existing: "Aldoni ekzistantan kontakton"
       aspect_list_is_not_visible: "la aspekto-listo estas kaŝita al la aliaj en ĉi tiu aspekto"
       aspect_list_is_visible: "la aspekto-listo estas montrata al la aliaj en ĉi tiu aspekto"
       confirm_remove_aspect: "Ĉu vi certe volas forigi ĉi tiun aspekton?"
-      done: "Farita"
       make_aspect_list_visible: "Ĉu kontaktoj en ĉi tiu aspekto povu vidi unu la alian?"
       remove_aspect: "Forigi ĉi tiun aspekton"
       rename: "alinomigi"
       update: "ĝisdatigi"
       updating: "ĝisdatigado"
-    helper:
-      are_you_sure: "Ĉu vi certas, ke vi volas forviŝi tiun ĉi aspekton?"
-      aspect_not_empty: "Aspekto ne malplenas"
-      remove: "forigi"
     index:
       diaspora_id:
         content_1: "Via DIASPORA* uzantnomo estas:"
@@ -176,10 +168,6 @@ eo:
         heading: "Konekti Servojn"
       unfollow_tag: "Ne plu abonas #%{tag}."
       welcome_to_diaspora: "Bonvenon al Diaspora, %{name}!"
-    move_contact:
-      error: "Ne povis movi kontakton: %{inspect}"
-      failure: "Eraro: %{inspect}"
-      success: "Kontakto moviĝis al nova aspekto"
     new:
       create: "Krei"
       name: "Nomo (nur videblas de vi)"
@@ -197,13 +185,6 @@ eo:
       family: "Familio"
       friends: "Amikoj"
       work: "Laboro"
-    selected_contacts:
-      manage_your_aspects: "Redakti viajn aspektojn."
-      no_contacts: "Vi ne jam havas iujn ajn kontaktojn ĉi tie."
-      view_all_community_spotlight: "Vidi ĉiun komunuman ĉeflumon"
-      view_all_contacts: "Vidi ĉiujn kontaktojn"
-    show:
-      edit_aspect: "redakti aspekton"
     update:
       failure: "Via aspekto, %{name}, havis tro longan nomon por konserviĝi."
       success: "Via aspekto, %{name}, sukcese redaktiĝis."
@@ -235,14 +216,12 @@ eo:
     index:
       add_a_new_aspect: "Aldoni novan aspekton"
       add_to_aspect: "aldoni kontaktojn al %{name}"
-      add_to_aspect_link: "aldoni kontaktojn al %{name}"
       all_contacts: "Ĉiuj kontaktoj"
       community_spotlight: "En la ĉeflumo de la komunumo"
       many_people_are_you_sure: "Ĉu vi certas, ke vi volas mesaĝi al pli ol {suggested_limit} homoj? Afiŝi al tiu ĉi aspekto eble estas pli bona metodo kontakti ilin."
       my_contacts: "Miaj kontaktoj"
       no_contacts: "Ŝajne necesas, ke vi aldonos iujn kontaktojn!"
       no_contacts_message: "Esploru %{community_spotlight}"
-      no_contacts_message_with_aspect: "Esploru %{community_spotlight} aŭ %{add_to_aspect_link}"
       only_sharing_with_me: "Nur koniganta al mi"
       start_a_conversation: "Komenci interparoladon"
       title: "Kontaktoj"
@@ -662,13 +641,11 @@ eo:
     invalid_invite: "La invitoligilo, kiun vi donis, ne plu validas!"
     new:
       create_my_account: "Krei mian konton!"
-      diaspora: "<3 DIASPORA*"
       email: "Retpoŝtadreso"
       enter_email: "Enskribu retpoŝtadreson"
       enter_password: "Enskribu kodvorton (almenaŭ 6 signoj)"
       enter_password_again: "Enskribu la saman pasvorton, kiel antaŭe"
       enter_username: "Elektu uzantnomon (nur literojn, nombrojn, kaj substrekojn)"
-      hey_make: "HEJ, <br/>FARU<br/>ION."
       join_the_movement: "Aniĝu je la movado!"
       password: "Pasvorto"
       password_confirmation: "KONFIRMADO DE PASVORTO"

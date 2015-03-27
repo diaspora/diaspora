@@ -32,8 +32,6 @@ art-nvi:
   aspects:
     destroy:
       success: "%{name}l 'ìlmaku fìtsengeta."
-    edit:
-      done: "Hasey"
     index:
       diaspora_id:
         content_1: "Ngeyä Diaspora Tstxo lu:"

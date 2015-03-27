@@ -10,7 +10,7 @@ pl:
   _contacts: "Kontakty"
   _help: "Pomoc"
   _home: "Główna"
-  _photos: "zdjęcia"
+  _photos: "Zdjęcia"
   _services: "Usługi"
   _statistics: "Statystyki"
   _terms: "warunki"
@@ -112,8 +112,12 @@ pl:
       : tak
     user_search:
       account_closing_scheduled: "Konto należące do %{name} jest przewidziane do zamknięcia. Zostanie to wykonane w przecigu kilku chwil..."
+      account_locking_scheduled: "Konto użytkownika %{name} oznaczone do zablokowania. Zostanie przetworzone za kilka chwil..."
+      account_unlocking_scheduled: "Konto użytkownika %{name} oznaczone do odblokowania. Zostanie przetworzone za kilka chwil..."
       add_invites: "dodaj zaproszenia"
       are_you_sure: "Czy na pewno chcesz zamknąć to konto?"
+      are_you_sure_lock_account: "Na pewno zablokować to konto?"
+      are_you_sure_unlock_account: "Na pewno odblokować to konto?"
       close_account: "zamknij konto"
       email_to: "Zaproś przez e-mail"
       under_13: "Wyświetl użytkowników młodszych niż 13 lat."
@@ -142,9 +146,9 @@ pl:
   all_aspects: "Wszystkie aspekty"
   application:
     helper:
-      unknown_person: "nieznana osoba"
+      unknown_person: "Nieznana osoba"
       video_title:
-        unknown: "Wideo bez nazwy"
+        unknown: "Film bez tytułu"
   are_you_sure: "Czy na pewno?"
   are_you_sure_delete_account: "Czy na pewno chcesz zamknąć swoje konto? Tego nie można cofnąć!"
   aspect_memberships:
@@ -156,8 +160,6 @@ pl:
     add_to_aspect:
       failure: "Nie udało się dodać kontaktu do aspektu."
       success: "Dodano kontakt to aspektu."
-    aspect_contacts:
-      done_editing: "zakończono edycję"
     aspect_listings:
       add_an_aspect: "+ Dodaj aspekt"
       deselect_all: "Odznacz wszystkie"
@@ -176,25 +178,18 @@ pl:
       failure: "%{name} nie jest pusty i nie może być usunięty."
       success: "%{name} został usunięty."
     edit:
-      add_existing: "Dodaj istniejący kontakt"
       aspect_chat_is_enabled: "Kontakty w tym aspekcie mogą z tobą czatować."
       aspect_chat_is_not_enabled: "Kontakty w tym aspekcie nie mogą z tobą czatować."
       aspect_list_is_not_visible: "Kontakty z tego aspektu nie widzą się nawzajem."
       aspect_list_is_visible: "Kontakty z tego aspektu mogą zobaczyć się nawzajem."
       confirm_remove_aspect: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"
-      done: "Zrobione"
       grant_contacts_chat_privilege: "przyznać kontaktom z aspektu prawa do czatu?"
-      make_aspect_list_visible: "ustawić kontakty w tym aspekcie jako widoczne dla wszystkich?"
-      manage: "Zarządzaj"
+      make_aspect_list_visible: "Sprawić aby kontakty w tym aspekcie widziały się wzajemnie?"
       remove_aspect: "Usuń ten aspekt"
-      rename: "zmień nazwę"
+      rename: "Zmień nazwę"
       set_visibility: "Ustaw widoczność"
-      update: "aktualizuj"
-      updating: "aktualizowanie"
-    helper:
-      are_you_sure: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"
-      aspect_not_empty: "Aspekt nie jest pusty"
-      remove: "usuń"
+      update: "Aktualizuj"
+      updating: "Aktualizowanie"
     index:
       diaspora_id:
         content_1: "Twój identyfikator w sieci Diaspora* to:"
@@ -235,10 +230,6 @@ pl:
         heading: "Podłącz usługi"
       unfollow_tag: "Przestań obserwować #%{tag}"
       welcome_to_diaspora: "Witaj w Diasporze, %{name}!"
-    move_contact:
-      error: "Błąd przy przenoszeniu kontaktu: %{inspect}"
-      failure: "nie zadziałało %{inspect}"
-      success: "Osoba została przeniesiona do nowego aspektu"
     new:
       create: "Stwórz"
       name: "Nazwa (widoczna tylko dla Ciebie)"
@@ -256,17 +247,10 @@ pl:
       family: "Rodzina"
       friends: "Znajomi"
       work: "Praca"
-    selected_contacts:
-      manage_your_aspects: "Zarządzanie aspektami."
-      no_contacts: "Nie masz żadnych kontaktów."
-      view_all_community_spotlight: "Wyświetl wszystkich w centrum uwagi"
-      view_all_contacts: "Wyświetl wszystkie kontakty"
-    show:
-      edit_aspect: "edycja aspektu"
     update:
       failure: "Aspekt %{name} nie mógł zostać zapisany z powodu zbyt długiej nazwy."
       success: "Edycja aspektu %{name} powiodła się."
-    zero: "brak aspektów"
+    zero: "Brak aspektów"
   back: "Powrót"
   blocks:
     create:
@@ -295,14 +279,12 @@ pl:
       add_a_new_aspect: "Dodaj aspekt"
       add_contact: "Dodaj kontakt"
       add_to_aspect: "dodaj kontakty do %{name}"
-      add_to_aspect_link: "dodaj kontakty do %{name}"
       all_contacts: "Wszystkie kontakty"
       community_spotlight: "W centrum uwagi"
       many_people_are_you_sure: "Czy na pewno chcesz rozpocząć prywatną rozmowę z więcej niż %{suggested_limit} osobami? Możesz po prostu opublikować swoją wiadomość w tej grupie. "
       my_contacts: "Moje kontakty"
       no_contacts: "Wygląda na to, że musisz dodać kilka kontaktów!"
       no_contacts_message: "Sprawdź kto jest %{community_spotlight}"
-      no_contacts_message_with_aspect: "Sprawdź kto jest w %{community_spotlight} lub %{add_to_aspect_link}"
       only_sharing_with_me: "Udostępniający tylko mnie"
       remove_contact: "Usuń kontakt"
       start_a_conversation: "Rozpocznij rozmowę"
@@ -407,8 +389,15 @@ pl:
       what_is_an_aspect_q: "Czym jest aspekt?"
       who_sees_post_a: "Jeśli zamieszczasz wpis o ograniczonej widoczności, będzie on widoczny tylko dla ludzi którzy znajdują się w danym aspekcie (lub aspektach, jeśli post jest ograniczony do wielu aspektów). Kontakty które należą do innych aspektów nie będą miały jak zobaczyć wpisu, chyba że uczynisz go publicznym. Tylko publiczne posty będą widoczne dla kogokolwiek spoza Twoich aspektów."
       who_sees_post_q: "Kiedy udostępniam w aspekcie, kto widzi mój wpis?"
+    chat:
+      add_contact_roster_a: "Najpierw musisz włączyć czat dla aspektu w którym osoba się znajduje. Aby to zrobić, idź do %{contacts_page}, wybierz aspekt który chcesz zmienić i kliknij na ikonę czatu dla aspektu. %{toggle_privilege} Możesz, jeżeli wolisz, utworzyć specjalny aspekt nazwany \"Czat\" i dodać do niego wszystkie osoby z którymi chcesz czatować. Gdy już to zrobisz, możesz otworzyć interfejs czatu i wybrać osoby z którymi chcesz czatować."
+      add_contact_roster_q: "Jak mogę czatować z kimś na diasporze*?"
+      contacts_page: "strony kontaktów"
+      title: "Czat"
+    faq: "często zadawane pytania"
     foundation_website: "strona fundacji diaspora"
     getting_help:
+      get_support_a_faq: "Przeczytaj stronę %{faq} na wiki"
       get_support_a_hashtag: "zapytaj o diasporę* w publicznym wpisie używając tagu %{question}"
       get_support_a_irc: "dołącz do nas na %{irc} w rozmowie na żywo"
       get_support_a_tutorials: "sprawdć nasze %{tutorials}"
@@ -651,7 +640,7 @@ pl:
         zero: "nikt nie lubi"
   limited: "Ograniczone"
   more: "Więcej"
-  next: "następny"
+  next: "Następny"
   no_results: "Niczego nie znaleziono"
   notifications:
     also_commented:
@@ -696,6 +685,7 @@ pl:
       mark_read: "Oznacz jako przeczytane"
       mark_unread: "Oznacz jako nieprzeczytane"
       mentioned: "Wspomnieli o tobie"
+      no_notifications: "Nie masz jeszcze powiadomień"
       notifications: "Powiadomienia"
       reshared: "Przekazali dalej"
       show_all: "pokaż wszystkie"
@@ -967,7 +957,7 @@ pl:
         other: "%{count} zdjęcia od %{author}"
         zero: "Brak zdjęć od %{author}"
       reshare_by: "Przekazane dalej przez %{author}"
-  previous: "poprzedni"
+  previous: "Poprzedni"
   privacy: "Prywatność"
   privacy_policy: "Polityka prywatności"
   profile: "Profil"
@@ -1015,13 +1005,11 @@ pl:
     invalid_invite: "Podane łącze do zaproszenia jest nieważne!"
     new:
       create_my_account: "Utwórz konto!"
-      diaspora: "<3 diaspora*"
       email: "E-MAIL"
       enter_email: "Wpisz adres e-mail"
       enter_password: "Podaj hasło (maks. 6 znaków)"
       enter_password_again: "Wprowadź ponownie to samo hasło"
       enter_username: "Wybierz nazwę użytkownika (możliwe litery, cyfry i podkreślniki)"
-      hey_make: "HEJ ,<br/>ZRÓB<br/>COŚ."
       join_the_movement: "Dołącz do ruchu!"
       password: "HASŁO"
       password_confirmation: "POTWIERDZENIE HASŁA"
@@ -1130,6 +1118,8 @@ pl:
       your_diaspora_username_is: "Twój nazwa użytkownika na diasporze* to: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Dodaj kontakt"
+      mobile_row_checked: "%{name} (usuń)"
+      mobile_row_unchecked: "%{name} (dodaj)"
       toggle:
         few: "W %{count} aspektach"
         many: "W %{count} aspektach"
@@ -1214,6 +1204,21 @@ pl:
       failed: "Nieprawidłowo przepisany obrazek"
       user: "Tajny obrazek i kod są różne"
     placeholder: "Wpisz tekst z obrazka"
+  statistics:
+    active_users_halfyear: "Aktywni użytkownicy w półroczu"
+    active_users_monthly: "Aktywni użytkownicy miesięcznie"
+    closed: "Zamknięte"
+    disabled: "Nie dostępne"
+    enabled: "Dostępne"
+    local_comments: "Lokalne komentarze"
+    local_posts: "Lokalne wpisy"
+    name: "Nazwa"
+    network: "Sieć"
+    open: "Otwarte"
+    registrations: "Rejestracje"
+    services: "Usługi"
+    total_users: "W sumie użytkowników"
+    version: "Wersja"
   status_messages:
     create:
       success: "Pomyślnie wspomniano o: %{names}"
@@ -1325,14 +1330,17 @@ pl:
       edit_account: "Edycja konta"
       email_awaiting_confirmation: "Łącze aktywacyjne zostało wysłane na adres \"%{unconfirmed_email}\". Do momentu kliknięcia łącza i aktywacji nowego adresu, nadal będziemy korzystać z obecnego \"%{email}\"."
       export_data: "Eksport danych"
+      export_in_progress: "Przetwarzamy twoje dane. Sprawdź ponownie za kilka minut."
       following: "Ustawienia udostępniania"
       getting_started: "Ustawienia nowego użytkownika"
+      last_exported_at: "(ostatnio aktualizowano o %{timestamp})"
       liked: "...ktoś polubił mój wpis"
       mentioned: "...ktoś wspomniał mnie we wpisie"
       new_password: "Nowe hasło"
       private_message: "...otrzymam prywatną wiadomość"
       receive_email_notifications: "Wysyłaj powiadomienia e-mail jeśli..."
       request_export: "Poproś o dane mojego profilu"
+      request_export_update: "Odśwież dane mojego profilu"
       reshared: "...ktoś przekazał dalej mój wpis"
       show_community_spotlight: "Wyświetlić wyróżnionych użytkowników w Strumieniu?"
       show_getting_started: "Ponownie włącz - Pierwsze kroki"
@@ -1356,6 +1364,7 @@ pl:
       ignored_users: "Ignorowani użytkownicy"
       no_user_ignored_message: "Nie ignorujesz żadnego użytkownika"
       stop_ignoring: "Przestań ignorować"
+      strip_exif: "Usuń metadane takie jak lokalizacja, autor i model aparatu z wgrywanych zdjęć (rekomendowane)"
       title: "Ustawienia prywatności"
     public:
       does_not_exist: "Użytkownik %{username} nie istnieje!"

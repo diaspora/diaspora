@@ -141,8 +141,6 @@ nb:
     add_to_aspect:
       failure: "Kunne ikke legge kontakt til aspektet."
       success: "Kontakt lagt til aspekt."
-    aspect_contacts:
-      done_editing: "fullfør"
     aspect_listings:
       add_an_aspect: "+ Lag et nytt aspekt"
       deselect_all: "Fjern alle valg"
@@ -161,22 +159,15 @@ nb:
       failure: "%{Name} er ikke tom, og kunne ikke fjernes."
       success: "%{name} har blitt fjerna."
     edit:
-      add_existing: "Legg til en eksisterende kontakt"
       aspect_list_is_not_visible: "Kontakter i dette aspektet kan ikke se hverandre."
       aspect_list_is_visible: "Kontakter i dette aspektet er i stand til å se hverandre."
       confirm_remove_aspect: "Er du sikker på at du vil slette dette aspektet?"
-      done: "Ferdig"
       make_aspect_list_visible: "gjør aspektlisten synlig?"
-      manage: "Administrer"
       remove_aspect: "Slett dette aspektet"
       rename: "endre navn"
       set_visibility: "Sett synlighet"
       update: "oppdater"
       updating: "oppdaterer"
-    helper:
-      are_you_sure: "Er du sikker på at du vil slette dette aspektet?"
-      aspect_not_empty: "Aspektet er ikke tomt"
-      remove: "fjern"
     index:
       diaspora_id:
         content_1: "diaspora* ID'en din er:"
@@ -217,10 +208,6 @@ nb:
         heading: "Koble til tjenester"
       unfollow_tag: "Slutt å følge #%{tag}"
       welcome_to_diaspora: "Velkommen til Diaspora, %{name}!"
-    move_contact:
-      error: "Feil ved flytting av kontakt: %{inspect}"
-      failure: "fungerte ikke % {inspisere}"
-      success: "Person flyttet til nytt aspekt"
     new:
       create: "Opprett"
       name: "Navn (bare synlig for deg)"
@@ -238,13 +225,6 @@ nb:
       family: "Familie"
       friends: "Venner"
       work: "Jobb"
-    selected_contacts:
-      manage_your_aspects: "Håndter aspektene dine."
-      no_contacts: "Du har ingen kontakter her enda."
-      view_all_community_spotlight: "Se alle community spotlight"
-      view_all_contacts: "Vis alle kontakter"
-    show:
-      edit_aspect: "endre aspekt"
     update:
       failure: "Aspektet ditt, %{name}, har for langt navn."
       success: "Aspektet ditt, %{name}, har blitt endra."
@@ -276,14 +256,12 @@ nb:
     index:
       add_a_new_aspect: "Legg til nytt aspekt"
       add_to_aspect: "Legg kontakter til %{name}"
-      add_to_aspect_link: "Legg kontakter til %{name}"
       all_contacts: "Alle Kontakter"
       community_spotlight: "Fremhevet av Fellesskapet"
       many_people_are_you_sure: "Er du sikker på at du vil starte en privat samtale med flere enn %{suggested_limit} kontakter? Det kan være bedre å poste dette som et innlegg til dette aspektet. "
       my_contacts: "Mine Kontakter"
       no_contacts: "Ingen kontakter."
       no_contacts_message: "Sjekk ut %{community_spotlight}"
-      no_contacts_message_with_aspect: "Sjekk ut %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Deler bare med meg "
       start_a_conversation: "Start en samtale"
       title: "Kontakter"
@@ -948,13 +926,11 @@ nb:
     invalid_invite: "Invitasjonslenken som du anga er ikke gyldig lenger!"
     new:
       create_my_account: "Opprett min konto!"
-      diaspora: "<3 diaspora*"
       email: "E-POST"
       enter_email: "Skriv en e-post"
       enter_password: "Skriv inn et passord"
       enter_password_again: "Skriv inn samme passord som før"
       enter_username: "Velg et brukernavn (kun bokstaver, nummer og understreker)"
-      hey_make: "HALLO,<br/>LAG<br/>ET ELLER ANNET."
       join_the_movement: "Bli med i nettverket!"
       password: "PASSORD"
       password_confirmation: "PASSORDBEKREFTELSE"

@@ -68,8 +68,6 @@ is:
     add_to_aspect:
       failure: "Ekki tókst að bæta tengilið við ásýnd."
       success: "Það heppnaðist að bæta tengilið við ásýnd."
-    aspect_contacts:
-      done_editing: "búið að breyta"
     aspect_listings:
       add_an_aspect: "+ Bæta við ásýnd"
       deselect_all: "Velja ekkert"
@@ -86,22 +84,15 @@ is:
       failure: "%{name} er ekki tóm og því ekki hægt að fjarlægja hana."
       success: "það heppnaðist að fjarlægja %{name}."
     edit:
-      add_existing: "Bæta við tengilið sem er þegar til"
       aspect_list_is_not_visible: "Tengiliðir í þessari ásýnd geta ekki séð hvern annan."
       aspect_list_is_visible: "Tengiliðir í þessari ásýnd geta séð hvern annan."
       confirm_remove_aspect: "Ertu viss um að þú viljir eyða þessari ásýnd?"
-      done: "Búið"
       make_aspect_list_visible: "gera þáttökulista ásýndar sýnilegan öðrum?"
-      manage: "Stjórna"
       remove_aspect: "Eyða þessari ásýnd"
       rename: "breyta nafni"
       set_visibility: "Stilla sýnileika"
       update: "uppfæra"
       updating: "uppfæri"
-    helper:
-      are_you_sure: "Ertu viss um að þú viljir eyða þessari ásýnd?"
-      aspect_not_empty: "Ásýnd er ekki tóm"
-      remove: "fjarlægja"
     index:
       diaspora_id:
         content_1: "Diaspora*-auðkennið þitt er:"
@@ -132,10 +123,6 @@ is:
         heading: "Tengja Þjónustur"
       unfollow_tag: "Hætta að fylgjast með #%{tag}"
       welcome_to_diaspora: "Velkomin í Diaspora* %{name}!"
-    move_contact:
-      error: "Villa við að breyta tengiliði: %{inspect}"
-      failure: "virkaði ekki %{inspect}"
-      success: "Aðili fluttur í nýja ásýnd"
     new:
       create: "Búa til"
       name: "Nafn (sýnilegt þér einum)"
@@ -153,13 +140,6 @@ is:
       family: "Fjölskylda"
       friends: "Vinir"
       work: "Vinna"
-    selected_contacts:
-      manage_your_aspects: "Sýsla með ásýndir."
-      no_contacts: "Þú ert ekki enn með neina tengiliði hér."
-      view_all_community_spotlight: "Sjá allt sem efst er á baugi í samfélaginu"
-      view_all_contacts: "Sjá alla tengiliði"
-    show:
-      edit_aspect: "breyta ásýndum"
     update:
       failure: "Ásýnd þín, %{name}, hefur of langt nafn til að hægt sé að vista hana."
       success: "Ásýnd þinni, %{name}, hefur verið breytt."
@@ -183,7 +163,6 @@ is:
       failure: "Ekki tókst að mynda tengsl"
     index:
       add_to_aspect: "Add contacts to %{name}"
-      add_to_aspect_link: "bæta tengiliðum við %{name}"
       all_contacts: "Allir tengiliðir"
       community_spotlight: "Efst á baugi í samfélaginu"
       my_contacts: "Tengiliðirnir mínir"

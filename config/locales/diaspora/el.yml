@@ -120,8 +120,6 @@ el:
     add_to_aspect:
       failure: "Αποτυχία προσθήκης επαφής στην πτυχή."
       success: "Επιτυχής προσθήκη επαφής στην πτυχή."
-    aspect_contacts:
-      done_editing: "ολοκλήρωση επεξεργασίας"
     aspect_listings:
       add_an_aspect: "+ Προσθέστε μια πτυχή"
       deselect_all: "Αποεπιλογή όλων"
@@ -140,25 +138,18 @@ el:
       failure: "Το %{name} δεν είναι άδειο και δεν μπορεί να αφαιρεθεί."
       success: "Ο/Η %{name} αφαιρέθηκε επιτυχώς."
     edit:
-      add_existing: "Πρόσθεσε μια υπάρχουσα επαφή"
       aspect_chat_is_enabled: "Οι επαφές σε αυτήν την πτυχή μπορούν να συνομιλήσουν μαζί σου."
       aspect_chat_is_not_enabled: "Οι επαφές σε αυτήν την πτυχή δεν μπορούν να συνομιλήσουν μαζί σου."
       aspect_list_is_not_visible: "η λίστα σου είναι κρυφή στους άλλους στην πτυχή"
       aspect_list_is_visible: "η λίστα σου είναι ορατή στους άλλους στην πτυχή"
       confirm_remove_aspect: "Θέλεις σίγουρα να διαγράψεις αυτή την πτυχή;"
-      done: "Ολοκληρώθηκε"
       grant_contacts_chat_privilege: "Θες να δώσεις δικαίωμα συνομιλίας στις επαφές αυτής της πτυχής;"
       make_aspect_list_visible: "θέλεις οι επαφές αυτής της πτυχής να είναι ορατές μεταξύ τους;"
-      manage: "Διαχείριση"
       remove_aspect: "Διαγραφή αυτής της πτυχής"
       rename: "μετονομασία"
       set_visibility: "Ορισμός ορατότητας"
       update: "ενημέρωση"
       updating: "ενημέρωση"
-    helper:
-      are_you_sure: "Θέλεις σίγουρα να διαγράψεις αυτή την πτυχή;"
-      aspect_not_empty: "Η πτυχή δεν είναι άδεια"
-      remove: "αφαίρεση"
     index:
       diaspora_id:
         content_1: "Το diaspora* αναγνωριστικό σου (ID) είναι:"
@@ -199,10 +190,6 @@ el:
         heading: "Σύνδεσε Υπηρεσίες"
       unfollow_tag: "Σταμάτα να ακολουθείς την ετικέτα #%{tag}"
       welcome_to_diaspora: "Καλωσήρθες στο diaspora*, %{name}!"
-    move_contact:
-      error: "Σφάλμα μεταφοράς επαφής: %{inspect}"
-      failure: "δεν λειτούργησε %{inspect}"
-      success: "Το άτομο μετακινήθηκε σε νέα πτυχή"
     new:
       create: "Δημιουργία"
       name: "Όνομα (εμφανίζετε μόνο σε σένα)"
@@ -220,13 +207,6 @@ el:
       family: "Οικογένεια"
       friends: "Φίλοι"
       work: "Εργασία"
-    selected_contacts:
-      manage_your_aspects: "Διαχείριση των πτυχών."
-      no_contacts: "Δεν έχεις ακόμα κάποια επαφή εδώ."
-      view_all_community_spotlight: "Εμφάνιση όλων των δημοσιεύσεων κοινότητας"
-      view_all_contacts: "Προβολή όλων των επαφών"
-    show:
-      edit_aspect: "επεξεργασία πτυχής"
     update:
       failure: "Η πτυχή σου, %{name}, έχει πολύ μεγάλο όνομα για να αποθηκευτεί."
       success: "Έγινε επιτυχώς η επεξεργασία της πτυχής σου, %{name}."
@@ -258,14 +238,12 @@ el:
     index:
       add_a_new_aspect: "Πρόσθεσε μια νέα πτυχή"
       add_to_aspect: "Πρόσθεσε επαφές στο %{name}"
-      add_to_aspect_link: "Πρόσθεσε επαφές στο %{name}"
       all_contacts: "Όλες οι Επαφές"
       community_spotlight: "Αναρτήσεις κοινότητας"
       many_people_are_you_sure: "Σίγουρα θέλεις να ξεκινήσεις μια ιδιωτική συνομιλία με περισσότερες από %{suggested_limit} επαφές; Η δημοσίευση σε αυτή την πτυχή ίσως είναι ένας καλύτερος τρόπος για να επικοινωνήσεις μαζί τους."
       my_contacts: "Οι Επαφές μου"
       no_contacts: "Φαίνεται πως χρειάζεται να προσθέσεις μερικές επαφές!"
       no_contacts_message: "Δες και %{community_spotlight}"
-      no_contacts_message_with_aspect: "Δες και %{community_spotlight} ή %{add_to_aspect_link}"
       only_sharing_with_me: "Μοιράζονται μόνο με εμένα"
       start_a_conversation: "Ξεκίνα μια συζήτηση"
       title: "Επαφές"
@@ -726,13 +704,11 @@ el:
     invalid_invite: "Ο σύνδεσμος που έδωσες δεν είναι πια έγκυρος!"
     new:
       create_my_account: "Δημιουργία λογαριασμού!"
-      diaspora: "<3 diaspora*"
       email: "EMAIL"
       enter_email: "Επέλεξε μια διεύθυνση email"
       enter_password: "Επέλεξε έναν κωδικό"
       enter_password_again: "Επανέλαβε τον κωδικό"
       enter_username: "Επέλεξε ένα όνομα χρήστη (μόνο γράμματα, νούμερα και κάτω-παύλα)"
-      hey_make: "ΕΙ,<br>ΚΑΝΕ<br>ΚΑΤΙ."
       join_the_movement: "Γίνε μέλος του κινήματος!"
       password: "ΚΩΔΙΚΟΣ"
       password_confirmation: "ΕΠΑΛΗΘΕΥΣΗ ΚΩΔΙΚΟΥ"

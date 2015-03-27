@@ -158,8 +158,6 @@ uk:
     add_to_aspect:
       failure: "Не вдалося додати друга в аспект."
       success: "Друг доданий в аспект."
-    aspect_contacts:
-      done_editing: "редагування завершено"
     aspect_listings:
       add_an_aspect: "+ Додати аспект"
       deselect_all: "Вимкнути всі"
@@ -178,25 +176,18 @@ uk:
       failure: "%{name} не порожній і не може бути вилучений."
       success: "%{name} успішно видалений."
     edit:
-      add_existing: "Додати наявний контакт"
       aspect_chat_is_enabled: "Контакти з цього аспекту можуть спілкуватися з вами."
       aspect_chat_is_not_enabled: "Контакти з цього аспекту не можуть спілкуватися з вами."
       aspect_list_is_not_visible: "Контакти, з цього аспекту, не можуть бачити один одного."
       aspect_list_is_visible: "Контакти, із цього аспекту, можуть бачити один одного."
       confirm_remove_aspect: "Ви впевнені, що хочете вилучити цей аспект?"
-      done: "Виконано"
       grant_contacts_chat_privilege: "надати контактам в аспекті можливість спілкуватися?"
       make_aspect_list_visible: "зробити контакти в цьому аспекті видимими один одному?"
-      manage: "Управляти"
       remove_aspect: "Видалити цей аспект"
       rename: "перейменувати"
       set_visibility: "Встановити видимість"
       update: "Оновити"
       updating: "оновлення"
-    helper:
-      are_you_sure: "Ви впевнені в тому, що хочете вилучити цей аспект?"
-      aspect_not_empty: "Аспект не порожній"
-      remove: "вилучити"
     index:
       diaspora_id:
         content_1: "Ваш ідентифікатор в Діаспорі*:"
@@ -237,10 +228,6 @@ uk:
         heading: "Підключення служб"
       unfollow_tag: "Не стежити за міткою #%{tag}"
       welcome_to_diaspora: "Ласкаво просимо до Діаспори*, %{name}!"
-    move_contact:
-      error: "Помилка при переміщенні контакту : %{inspect}"
-      failure: "не працювало%{inspect}"
-      success: "Контакт переміщено в новий аспект"
     new:
       create: "Створити"
       name: "Ім'я (видно тільки вам)"
@@ -258,13 +245,6 @@ uk:
       family: "Сім'я"
       friends: "Друзі"
       work: "Робота"
-    selected_contacts:
-      manage_your_aspects: "Керування аспектами."
-      no_contacts: "У вас, поки що, немає жодного контакту."
-      view_all_community_spotlight: "Подивитися усіх рекомендованих"
-      view_all_contacts: "Усі контакти"
-    show:
-      edit_aspect: "редагувати аспект"
     update:
       failure: "Ваш аспект %{name} має занадто довге ім'я для збереження."
       success: "Ваш аспект %{name} успішно відредагований."
@@ -297,14 +277,12 @@ uk:
       add_a_new_aspect: "Новий аспект"
       add_contact: "Додати контакт"
       add_to_aspect: "додати контакти до %{name}"
-      add_to_aspect_link: "додати контакти до аспекту %{name}"
       all_contacts: "Усі контакти"
       community_spotlight: "У центрі уваги"
       many_people_are_you_sure: "Ви упевнені, що хочете почати приватну бесіду з кількістю контактів, більшою за %{suggested_limit}? Можливо, краще просто написати повідомлення в цей аспект."
       my_contacts: "Мої контакти"
       no_contacts: "Схоже, вам потрібно додати декілька контактів!"
       no_contacts_message: "Зазирніть до %{community_spotlight}"
-      no_contacts_message_with_aspect: "Зазирніть до %{community_spotlight}%{community_spotlight} або %{add_to_aspect_link}"
       only_sharing_with_me: "Що тільки додали мене"
       remove_contact: "Видалити контакт"
       start_a_conversation: "Почати бесіду"
@@ -1013,13 +991,11 @@ uk:
     invalid_invite: "Це запрошення вже недійсне!"
     new:
       create_my_account: "Створити мій аккаунт!"
-      diaspora: "<3 Діаспора*"
       email: "Пошта"
       enter_email: "Введіть email"
       enter_password: "Введіть пароль (щонайменьше шість символів)"
       enter_password_again: "Повторіть пароль"
       enter_username: "Виберіть ім'я користувача (дозволені тільки латинські букви, цифри і підкреслення)"
-      hey_make: "Привіт,<br/>створіть<br/>що-небудь"
       join_the_movement: "Приєднуйтеся до руху!"
       password: "Пароль"
       password_confirmation: "ПІДТВЕРДЖЕННЯ ПАРОЛЯ"

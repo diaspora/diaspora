@@ -112,8 +112,6 @@ ml:
     add_to_aspect:
       failure: "സമ്പര്‍ക്കം പരിചയത്തിലേക്ക് കൂട്ടിചേര്‍ക്കുന്നതില്‍ പരാജയപ്പെട്ടു."
       success: "വിജയകരമായി സമ്പര്‍ക്കം പരിചയത്തിലേക്ക് കൂട്ടിചേര്‍ത്തു."
-    aspect_contacts:
-      done_editing: "മാറ്റം വരുത്തി കഴിഞ്ഞു"
     aspect_listings:
       add_an_aspect: "+ഒരു പരിചയം ചേർക്കുക"
       deselect_all: "ഒന്നും തിരഞ്ഞെടുക്കാതിരിക്കുക"
@@ -132,20 +130,14 @@ ml:
       failure: "%{name} ശുന്യമല്ലാത്തതിനാല്‍ നീക്കാനാകുന്നില്ല."
       success: "%{name} വിജയകരമായി നീക്കം ചെയ്തിരിക്കുന്നു."
     edit:
-      add_existing: "നിലവിലുള്ള സമ്പര്‍ക്കം ചേര്‍കുക"
       aspect_list_is_not_visible: "പരിചയത്തിന്റെ പട്ടിക പരിചയത്തിലുള്ള മറ്റൂള്ളവരില്‍നിന്നും മറച്ചുവച്ചിരിക്കുന്നു"
       aspect_list_is_visible: "പരിചയപട്ടിക പരിചയത്തിലുള്ളവര്‍ക്ക് ദൃശ്യമാണ്."
       confirm_remove_aspect: "താങ്കള്‍ക്ക് ഈ പരിചയം നീക്കണമെന്ന് ഉറപ്പാണോ?"
-      done: "ചെയ്തു"
       make_aspect_list_visible: "പരിചയം ദൃശ്യമാക്കുക"
       remove_aspect: "ഈ പരിചയം നീക്കം ചെയ്യുക"
       rename: "പേര് മാറ്റുക"
       update: "പുതുക്കുക"
       updating: "പുതുക്കുന്നു"
-    helper:
-      are_you_sure: "നിങ്ങള്‍ ഈ പരിചയം നീക്കം ചെയ്യുവാന്‍ ആഗ്രഹിക്കുന്നു, നിങ്ങള്‍ക്ക് തീര്‍ച്ചയാണോ?"
-      aspect_not_empty: "പരിചയം ശൂന്യമല്ല "
-      remove: "നീക്കം ചെയ്യു"
     index:
       diaspora_id:
         content_1: "നിങ്ങളുടെ ഡയാസ്പുറ ഐഡി:"
@@ -186,10 +178,6 @@ ml:
         heading: "സേവനങ്ങൾ ബന്ധിപ്പിക്കുക"
       unfollow_tag: "#%{tag} പിന്തുടരുന്നത് നിർത്തുക"
       welcome_to_diaspora: "ഡയാസ്പുറയിലേക്ക് സ്വഗതം, %{name}!"
-    move_contact:
-      error: "സമ്പര്‍ക്കം മാറ്റാന്‍ സാധിക്കുന്നില്ല : %{inspect}"
-      failure: "ശരിയായില്ല. %{inspect}"
-      success: "വ്യക്തിയെ പുതിയ പരിചയത്തിലേക്ക് മാറ്റിയിരിക്കുന്നു"
     new:
       create: "സൃഷ്ടിക്കൂ"
       name: "പേരു്"
@@ -207,13 +195,6 @@ ml:
       family: "കുടുംബം"
       friends: "കൂട്ടുകാര്‍"
       work: "ജോലി"
-    selected_contacts:
-      manage_your_aspects: "താങ്കളുടെ പരിചയങ്ങളെ ക്രമീകരിക്കുക"
-      no_contacts: "നിങ്ങൾക്കിതുവരെ സമ്പർക്കങ്ങളൊന്നുമില്ല"
-      view_all_community_spotlight: "സാമൂഹിക പ്രാധാന്യം എല്ലാം കാണുക"
-      view_all_contacts: "എല്ലാ സമ്പർക്കങ്ങളും കാണുക"
-    show:
-      edit_aspect: "പരിചയം ചിട്ടപെടുത്തുക"
     update:
       failure: "താങ്കള്‍ നല്കിയ %{name} എന്ന പരിചയത്തിന്റെ പേര് അനുവദിനീയമായതിലും വലുതാണ്."
       success: "നിങ്ങളുടെ പരിചയം, %{name}, വിജയകരമായി ചിട്ടപ്പെടുത്തി."
@@ -245,14 +226,12 @@ ml:
     index:
       add_a_new_aspect: "പുതിയ പരിചയം ചേര്‍ക്കൂ"
       add_to_aspect: "സമ്പര്‍ക്കങ്ങള്‍ %{name} പരിചയത്തിലേക്ക് ചേര്‍ക്കുക"
-      add_to_aspect_link: "സമ്പര്‍ക്കങ്ങള്‍ %{name} പരിചയത്തിലേക്ക് ചേര്‍ക്കുക"
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
       community_spotlight: "സാമൂഹിക പ്രാധാന്യം"
       many_people_are_you_sure: "%{suggested_limit}നെക്കാള്‍ കൂടുതല്‍ സമ്പര്‍ക്കങ്ങളുമായി ഒരു സ്വകാര്യസംഭാഷണം തുടങ്ങണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ. ഈ പരിചയത്തിലേക്ക് കുറിപ്പ് ചേര്‍ക്കുന്നതായിരിക്കും അവരെ ബന്ധപ്പെടാനുള്ള കൂടുതല്‍ നല്ല മാര്‍ഗ്ഗം."
       my_contacts: "എന്റെ സമ്പര്‍ക്കങ്ങള്‍"
       no_contacts: "കണ്ടിട്ട് താങ്കള്‍ പുതിയ ചില സമ്പര്‍ക്കങ്ങള്‍ ചേര്‍ക്കേണ്ടതുണ്ട് എന്ന് തോന്നുന്നു!"
       no_contacts_message: "%{community_spotlight} കണ്ടുനോക്കു"
-      no_contacts_message_with_aspect: "%{community_spotlight} കണ്ടുനോക്കു അല്ലെങ്കില്‍ %{add_to_aspect_link}"
       only_sharing_with_me: "നിങ്ങളുമായി മാത്രം പങ്ക് വച്ചത്"
       start_a_conversation: "സംഭാഷണം ആരംഭിക്കൂ"
       title: "സമ്പര്‍ക്കങ്ങള്‍"
@@ -795,13 +774,11 @@ ml:
     invalid_invite: "താങ്കൾ നൽകിയ ക്ഷണക്കത്ത് സാധുവല്ല!"
     new:
       create_my_account: "എന്റെ അക്കൌണ്ട് സൃഷ്ടിക്കൂ!"
-      diaspora: "<3 ഡയസ്പോറ*"
       email: "ഈമെയിൽ"
       enter_email: "Enter an email"
       enter_password: "അടയാളവാക്ക് നല്‍കുക (ആറ് അക്ഷരമെങ്കിലും)"
       enter_password_again: "അടയാളവാക്ക് വീണ്ടും നല്‍കുക"
       enter_username: "ഉപഭാക്തൃ നാമം തിരഞ്ഞെടുക്കുക (അക്ഷരങ്ങളും സംഖ്യകളും അണ്ടര്‍ സ്കോറും മാത്രം)"
-      hey_make: "നമസ്കാരം, എന്തെങ്കിലും <br/>ഉണ്ടാക്കുക<br/>"
       join_the_movement: "Join the movement!"
       password: "രഹസ്യവാക്ക്"
       password_confirmation: "രഹസ്യവാക്ക് ഉറപ്പാക്കൽ"

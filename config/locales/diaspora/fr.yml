@@ -144,8 +144,6 @@ fr:
     add_to_aspect:
       failure: "L’ajout du contact à l'aspect a échoué."
       success: "Le contact a été ajouté à l'aspect."
-    aspect_contacts:
-      done_editing: "Modification terminée"
     aspect_listings:
       add_an_aspect: "+ Ajouter un aspect"
       deselect_all: "Tout désélectionner"
@@ -164,25 +162,18 @@ fr:
       failure: "%{name} n'est pas vide et n'a pas pu être supprimé."
       success: "%{name} a été supprimé."
     edit:
-      add_existing: "Ajouter un contact existant"
       aspect_chat_is_enabled: "Les contacts de cet aspect peuvent chatter avec vous."
       aspect_chat_is_not_enabled: "Les contacts de cet aspect ne peuvent pas chatter avec vous."
       aspect_list_is_not_visible: "Les contacts dans cet aspect ne peuvent pas se voir entre eux."
       aspect_list_is_visible: "Les contacts dans cet aspect peuvent se voir entre eux."
       confirm_remove_aspect: "Voulez-vous vraiment supprimer cet aspect ?"
-      done: "Terminé"
       grant_contacts_chat_privilege: "permettre aux contacts de cet aspect de chatter avec vous ?"
       make_aspect_list_visible: "Permettre aux contacts de cet aspect de se voir entre eux ?"
-      manage: "Gérer"
       remove_aspect: "Supprimer cet aspect"
       rename: "Renommer"
       set_visibility: "Régler la visibilité"
       update: "Mettre à jour"
       updating: "En cours de mise à jour"
-    helper:
-      are_you_sure: "Voulez-vous vraiment supprimer cet aspect ?"
-      aspect_not_empty: "L'aspect n’est pas vide"
-      remove: "Supprimer"
     index:
       diaspora_id:
         content_1: "Votre identifiant diaspora* est :"
@@ -223,10 +214,6 @@ fr:
         heading: "Services connectés"
       unfollow_tag: "Ne plus suivre #%{tag}"
       welcome_to_diaspora: "Bienvenue sur diaspora*, %{name} !"
-    move_contact:
-      error: "Erreur lors du déplacement du contact : %{inspect}"
-      failure: "N'a pas fonctionné %{inspect}"
-      success: "Personne déplacée vers le nouvel aspect"
     new:
       create: "Créer"
       name: "Nom (uniquement visible par vous)"
@@ -244,13 +231,6 @@ fr:
       family: "Famille"
       friends: "Amis"
       work: "Travail"
-    selected_contacts:
-      manage_your_aspects: "Gérer vos aspects."
-      no_contacts: "Vous n'avez encore aucun contact."
-      view_all_community_spotlight: "Voir toutes les actualités de la communauté"
-      view_all_contacts: "Afficher tous les contacts"
-    show:
-      edit_aspect: "Modifier l'aspect"
     update:
       failure: "Votre aspect %{name} a un nom trop long."
       success: "Votre aspect %{name} a été modifié."
@@ -283,14 +263,12 @@ fr:
       add_a_new_aspect: "Ajouter un nouvel aspect"
       add_contact: "Ajouter ce contact"
       add_to_aspect: "Ajouter les contacts à %{name}"
-      add_to_aspect_link: "Ajoutez les contacts à %{name}"
       all_contacts: "Tous les contacts"
       community_spotlight: "Actualité de la communauté"
       many_people_are_you_sure: "Voulez-vous vraiment commencer une conversation privée avec plus de %{suggested_limit} contacts ? Poster un message dans à cet aspect peut être un meilleur moyen de les contacter."
       my_contacts: "Mes Contacts"
       no_contacts: "On dirait que vous avez besoin d'ajouter quelques contacts !"
       no_contacts_message: "Consultez %{community_spotlight}"
-      no_contacts_message_with_aspect: "Consultez %{community_spotlight} ou %{add_to_aspect_link}"
       only_sharing_with_me: "Partage uniquement avec moi"
       remove_contact: "Retirer ce contact"
       start_a_conversation: "Démarrer une conversation"
@@ -1012,13 +990,11 @@ fr:
     invalid_invite: "Le lien d'invitation que vous avez fourni n'est plus valide !"
     new:
       create_my_account: "Créer mon compte !"
-      diaspora: "<3 diaspora*"
       email: "COURRIEL"
       enter_email: "Saisissez une adresse de courrier électronique"
       enter_password: "Saisissez un mot de passe (d'au moins six caractères)"
       enter_password_again: "Saisissez à nouveau le même mot de passe"
       enter_username: "Choisissez un nom d'utilisateur (uniquement des lettres, chiffres et caractères de soulignement)"
-      hey_make: "HÉ !<br/>FAITES<br/>QUELQUE CHOSE."
       join_the_movement: "Rejoignez le mouvement !"
       password: "MOT DE PASSE"
       password_confirmation: "CONFIRMATION DU MOT DE PASSE"

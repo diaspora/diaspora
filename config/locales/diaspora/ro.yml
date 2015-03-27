@@ -58,8 +58,6 @@ ro:
     add_to_aspect:
       failure: "Nu s-a reuşit adăuga contactul la aspect."
       success: "Contactul a fost adăugat cu succes la aspect."
-    aspect_contacts:
-      done_editing: "terminat de editat"
     aspect_listings:
       add_an_aspect: "+ Adaugă un aspect"
       deselect_all: "Deselectează tot"
@@ -77,19 +75,13 @@ ro:
       failure: "%{name} nu este gol şi nu poate fi şters."
       success: "%{name} a fost eliminat cu succes."
     edit:
-      add_existing: "Adaugă o persoană de contact existentă"
       aspect_list_is_not_visible: "lista de aspecte nu este vizibila persoanelor adaugate"
       aspect_list_is_visible: "lista de aspecte este vizibila persoanelor adaugate"
       confirm_remove_aspect: "Eşti sigur că doreşti să ştergi acest aspect?"
-      done: "Gata"
       remove_aspect: "Şterge acest aspect"
       rename: "redenumeşte"
       update: "actualizare"
       updating: "actualizare"
-    helper:
-      are_you_sure: "Eşti sigur că doreşti să ştergi acest aspect?"
-      aspect_not_empty: "Aspectul nu este gol"
-      remove: "şterge"
     index:
       diaspora_id:
         content_1: "ID-ul tău pe diaspora* este:"
@@ -121,10 +113,6 @@ ro:
         heading: "Conectează servciii"
       unfollow_tag: "Nu mai urma #%{tag}"
       welcome_to_diaspora: "%{name}, bine ai venit in comunitatea Diaspora!"
-    move_contact:
-      error: "Eroare la mutarea contactului: %{inspect}"
-      failure: "nu a mers %{inspect}"
-      success: "S-a mutat persoana la noul aspect"
     new:
       create: "Crează"
       name: "Nume (vizibil doar pentru tine)"
@@ -142,13 +130,6 @@ ro:
       family: "Familie"
       friends: "Prieteni"
       work: "Lucru"
-    selected_contacts:
-      manage_your_aspects: "Gestionează aspectele tale personale"
-      no_contacts: "Nu aveți incă nici o persoană de contact."
-      view_all_community_spotlight: "Vizualizează toate reflectoarele comunității"
-      view_all_contacts: "Vezi toate contactele"
-    show:
-      edit_aspect: "Editează aspect"
     update:
       failure: "Apectul tău, %{name}, are numele prea lung ca să fie salvat"
       success: "Aspectul, %{name}, a fost editat cu succes."
@@ -172,7 +153,6 @@ ro:
     index:
       add_a_new_aspect: "Adaugă un aspect nou"
       add_to_aspect: "adaugă contacte la %{name}"
-      add_to_aspect_link: "Adaugă contacte la %{name}"
       all_contacts: "Toate contactele"
       community_spotlight: "reflectorul comunității"
       my_contacts: "Contactele mele"

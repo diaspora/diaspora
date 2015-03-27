@@ -146,8 +146,6 @@ da:
     add_to_aspect:
       failure: "Kunne ikke tilføje kontakten til aspektet."
       success: "Kontakt blev tilføjet aspektet."
-    aspect_contacts:
-      done_editing: "Afslut redigering"
     aspect_listings:
       add_an_aspect: "+ Tilføj et aspekt"
       deselect_all: "Fravælg alle"
@@ -166,25 +164,18 @@ da:
       failure: "%{name} er ikke tom, og kan derfor ikke slettes."
       success: "%{name} fjernet."
     edit:
-      add_existing: "Tilføj en eksisterende kontakt "
       aspect_chat_is_enabled: "Kontakter i dette aspekt kan chatte med dig."
       aspect_chat_is_not_enabled: "Kontakter i dette aspekt kan ikke chatte med dig."
       aspect_list_is_not_visible: "kontakter i dette aspekt er ikke i stand til at se hinanden."
       aspect_list_is_visible: "kontakter i dette aspekt er synlige for hinanden."
       confirm_remove_aspect: "Er du sikker på du vil slette dette aspekt?"
-      done: "Gennemført"
       grant_contacts_chat_privilege: "Giv kontakter i dette aspekt chat-privilegier?"
       make_aspect_list_visible: "Gør kontakter i dette aspekt synlige for hinanden?"
-      manage: "Administrer"
       remove_aspect: "Slet dette aspekt"
       rename: "Omdøb"
       set_visibility: "Indstil synlighed"
       update: "Opdater"
       updating: "Opdaterer"
-    helper:
-      are_you_sure: "Er du sikker på at du vil fjerne dette aspekt?"
-      aspect_not_empty: "Aspektet er ikke tomt"
-      remove: "Fjern"
     index:
       diaspora_id:
         content_1: "Dit Diaspora-ID er:"
@@ -225,10 +216,6 @@ da:
         heading: "Tilslut tjenester"
       unfollow_tag: "Hold op med at følge #%{tag}"
       welcome_to_diaspora: "Velkommen til Diaspora %{name}!"
-    move_contact:
-      error: "Kunne ikke flytte kontaktperson: %{inspect}"
-      failure: "Virkede ikke %{inspect}"
-      success: "Person flyttet til nyt aspekt"
     new:
       create: "Opret"
       name: "Navn (kun synligt for dig)"
@@ -246,13 +233,6 @@ da:
       family: "Familie"
       friends: "Venner"
       work: "Arbejde"
-    selected_contacts:
-      manage_your_aspects: "Administrér dine aspekter."
-      no_contacts: "Du har ingen kontakter her endnu."
-      view_all_community_spotlight: "Se alle Community Spotlight"
-      view_all_contacts: "Vis alle kontakter"
-    show:
-      edit_aspect: "Redigér aspekt"
     update:
       failure: "Dit aspekt, %{name}, var for langt til at blive gemt."
       success: "Dit aspekt, %{name}, er nu blevet redigeret."
@@ -285,14 +265,12 @@ da:
       add_a_new_aspect: "Tilføj nyt aspekt"
       add_contact: "Tilføj kontakt"
       add_to_aspect: "Tilføj kontakter til %{name}"
-      add_to_aspect_link: "Tilføj kontakter til %{name}"
       all_contacts: "Alle kontakter"
       community_spotlight: "Community Spotlight"
       many_people_are_you_sure: "Er du sikker på du vil starte en privat samtale med mere end %{suggested_limit} kontakter? Et indlæg til dette aspekt kan være en bedre måde at kontakte dem på."
       my_contacts: "Mine kontakter"
       no_contacts: "Det ser ud til at du har brug for til at tilføje nogle kontaktpersoner!"
       no_contacts_message: "Se %{community_spotlight}"
-      no_contacts_message_with_aspect: "Se %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Deler kun med mig"
       remove_contact: "Fjern kontakt"
       start_a_conversation: "Start en samtale"
@@ -1027,13 +1005,11 @@ da:
     invalid_invite: "Det invitations link som du anvendte er ikke længere gyldigt!"
     new:
       create_my_account: "Opret min konto!"
-      diaspora: "<3 diaspora*"
       email: "E-mail"
       enter_email: "Indtast e-mail"
       enter_password: "Indtast en adgangskode (mindst seks tegn)"
       enter_password_again: "Indtast den samme adgangskode som før"
       enter_username: "Vælg et brugernavn (kun bogstaver, tal og understreg)"
-      hey_make: "HEY,<br/>GØR<br/>NOGET."
       join_the_movement: "Deltag i bevægelsen!"
       password: "Adgangskode"
       password_confirmation: "Bekræftelse af adgangskoden"

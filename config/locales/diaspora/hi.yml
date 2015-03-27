@@ -11,8 +11,6 @@ hi:
     helper:
       unknown_person: "अजनबी"
   aspects:
-    edit:
-      add_existing: "मौजूदा संपर्क जोड़ें"
     index:
       help:
         tag_question: "प्रश्न"

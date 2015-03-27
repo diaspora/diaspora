@@ -58,8 +58,6 @@ id:
     add_to_aspect:
       failure: "Failed to add friend to aspect."
       success: "Successfully added friend to aspect."
-    aspect_contacts:
-      done_editing: "Selesai"
     aspect_listings:
       add_an_aspect: "+ Tambah satu aspek"
       deselect_all: "Batalkan semua pilihan"
@@ -77,20 +75,14 @@ id:
       failure: "%{name} tidak terisi dan tidak dapat dihapus."
       success: "%{name} berhasil dihapus."
     edit:
-      add_existing: "Tambah kontak yang sudah ada"
       aspect_list_is_not_visible: "Kontak di dalam aspek ini tidak dapat saling melihat"
       aspect_list_is_visible: "Kontak di dalam aspek ini dapat saling melihat."
       confirm_remove_aspect: "Anda yakin ingin menghapus aspek ini?"
-      done: "Selesai"
       make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Hapus aspek ini"
       rename: "Ganti nama"
       update: "Perbarui"
       updating: "Memperbarui"
-    helper:
-      are_you_sure: "apakah anda yakin untuk menghapus aspek ini?"
-      aspect_not_empty: "Aspek tidak kosong"
-      remove: "hapus"
     index:
       diaspora_id:
         content_1: "ID diaspora* anda:"
@@ -123,10 +115,6 @@ id:
         heading: "Sambungkan Layanan"
       unfollow_tag: "Berhenti mengikuti #%{tag}"
       welcome_to_diaspora: "Selamat datang di diaspora*, %{name}"
-    move_contact:
-      error: "Galat memindahkan kontak : %{inspect}"
-      failure: "tidak bekerja %{inspect}"
-      success: "Orang tersebut dipindahkan ke Aspek baru"
     new:
       create: "Buat"
       name: "Name"
@@ -144,13 +132,6 @@ id:
       family: "Keluarga"
       friends: "Teman"
       work: "Kerja"
-    selected_contacts:
-      manage_your_aspects: "Kelola aspek anda."
-      no_contacts: "Anda belum memiliki kontak di sini."
-      view_all_community_spotlight: "Lihat semua sorotan komunitas"
-      view_all_contacts: "Lihat semua kontak"
-    show:
-      edit_aspect: "Ubah aspek"
     update:
       failure: "Nama aspek anda, %{name}, terlalu panjang untuk disimpan."
       success: "Aspek anda, %{name}, telah berhasil diubah."
@@ -175,14 +156,12 @@ id:
     index:
       add_a_new_aspect: "Tambahkan aspek baru"
       add_to_aspect: "Add contacts to %{name}"
-      add_to_aspect_link: "tambahkan kontak dengan %{name}"
       all_contacts: "Semua Kontak"
       community_spotlight: "Sorotan komunitas"
       many_people_are_you_sure: "Apakah kamu mau memulai perbincangan pribadi lebih dari %{suggested_limit} kontak? Mengirim ke Aspek ini mungkin cara yang lebih baik untuk menghubungi mereka."
       my_contacts: "Kontakku"
       no_contacts: "No contacts."
       no_contacts_message: "Lihat juga %{community_spotlight}"
-      no_contacts_message_with_aspect: "Lihat %{community_spotlight} atau %{add_to_aspect_link}"
       only_sharing_with_me: "Hanya berbagi dengan saya"
       start_a_conversation: "Mulai pembicaraan"
       title: "Kontak"

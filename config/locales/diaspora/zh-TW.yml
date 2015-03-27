@@ -136,8 +136,6 @@ zh-TW:
     add_to_aspect:
       failure: "將聯絡人加入至面向失敗。"
       success: "將聯絡人加入至面向成功。"
-    aspect_contacts:
-      done_editing: "編輯完成"
     aspect_listings:
       add_an_aspect: "+ 新增面向"
       deselect_all: "全不選"
@@ -156,25 +154,18 @@ zh-TW:
       failure: "無法刪除%{name}，因為它不是空的。"
       success: "成功刪除%{name}了。"
     edit:
-      add_existing: "加入既有聯絡人"
       aspect_chat_is_enabled: "面向中的聯絡人可以和你聊天。"
       aspect_chat_is_not_enabled: "面向中的聯絡人不能和你聊天。"
       aspect_list_is_not_visible: "在這個面向中的連絡人沒辦法看見哪些人在同一個面向中"
       aspect_list_is_visible: "在這個面向中的連絡人可以互相看見他們在同一個面向中"
       confirm_remove_aspect: "確定要刪除這個話題嗎？"
-      done: "完成"
       grant_contacts_chat_privilege: "要把聊天的權限給面向中的聯絡人嗎？"
       make_aspect_list_visible: "讓此話題中的聯絡人彼此可見嗎？"
-      manage: "管理"
       remove_aspect: "刪除這個話題"
       rename: "改名"
       set_visibility: "設定可見範圍"
       update: "更新"
       updating: "更新中"
-    helper:
-      are_you_sure: "你確定要刪除這個面向嗎？"
-      aspect_not_empty: "面向不是空的"
-      remove: "刪除"
     index:
       diaspora_id:
         content_1: "你的 Diaspora 帳號是："
@@ -215,10 +206,6 @@ zh-TW:
         heading: "連結服務"
       unfollow_tag: "停止追蹤 #%{tag}"
       welcome_to_diaspora: "%{name}，歡迎來到 diaspora*！"
-    move_contact:
-      error: "聯絡人移動錯誤：%{inspect}"
-      failure: "因%{inspect}而沒有作用"
-      success: "聯絡人移至新的面向了"
     new:
       create: "建立"
       name: "名字(只有你自己看得到)"
@@ -236,13 +223,6 @@ zh-TW:
       family: "家人"
       friends: "朋友"
       work: "工作"
-    selected_contacts:
-      manage_your_aspects: "管理你的面向。"
-      no_contacts: "你在這裡還沒有任何聯絡人。"
-      view_all_community_spotlight: "看所有的社群焦點"
-      view_all_contacts: "檢視所有聯絡人"
-    show:
-      edit_aspect: "編輯面向"
     update:
       failure: "你的面向%{name}名稱太長了無法儲存。"
       success: "你的面向%{name}已經編輯完成了。"
@@ -275,14 +255,12 @@ zh-TW:
       add_a_new_aspect: "加入新面向"
       add_contact: "加聯絡人"
       add_to_aspect: "加聯絡人到%{name}"
-      add_to_aspect_link: "加聯絡人到%{name}"
       all_contacts: "所有聯絡人"
       community_spotlight: "社群焦點"
       many_people_are_you_sure: "你確定要進行跟%{suggested_limit}個聯絡人的私人對話？貼文到該面向可能是跟他們聯絡比較好的方式。"
       my_contacts: "我的聯絡人"
       no_contacts: "你好像應該要多加點聯絡人！"
       no_contacts_message: "來看看 %{community_spotlight}"
-      no_contacts_message_with_aspect: "來看看 %{community_spotlight} 或是 %{add_to_aspect_link}"
       only_sharing_with_me: "和我分享的人"
       remove_contact: "刪聯絡人"
       start_a_conversation: "開始對話"
@@ -810,13 +788,11 @@ zh-TW:
     invalid_invite: "你提供的邀請連結已經失效了！"
     new:
       create_my_account: "開我的帳號！"
-      diaspora: "<3 diaspora*"
       email: "電子信箱"
       enter_email: "輸入電子信箱"
       enter_password: "輸入密碼(至少六個字)"
       enter_password_again: "輸入與前面相同的密碼"
       enter_username: "選個使用者名稱(名稱只能包含拉丁字母，數字，以及底線字元)"
-      hey_make: "嗨，來<br/>做<br/>點什麼吧。"
       join_the_movement: "參與這個運動！"
       password: "密碼"
       password_confirmation: "密碼確認"

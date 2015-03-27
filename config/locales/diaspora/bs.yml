@@ -124,8 +124,6 @@ bs:
     add_to_aspect:
       failure: "Neuspješno dodavanje kontakta u aspekt."
       success: "Uspješno dodavanje kontakta u aspekt."
-    aspect_contacts:
-      done_editing: "gotovo uređivanje"
     aspect_listings:
       add_an_aspect: "+ Dodaj jedan aspekt"
       deselect_all: "Odznači sve"
@@ -144,20 +142,14 @@ bs:
       failure: "%{name} nije prazno i ne može biti uklonjeno."
       success: "%{name} je uspješno uklonjeno."
     edit:
-      add_existing: "Dodaj jedan postojeći kontakt"
       aspect_list_is_not_visible: "lista aspekata je sakrivena od drugih u aspektu"
       aspect_list_is_visible: "lista aspekata je vidljiva od drugih u aspektu"
       confirm_remove_aspect: "Jeste li sigurni da želite izbrisati ovaj aspekt?"
-      done: "Gotovo"
       make_aspect_list_visible: "učini kontakte u ovom aspektu vidljive jedan drugome?"
       remove_aspect: "Izbriši ovaj aspekt"
       rename: "preimenuj"
       update: "ažuriraj"
       updating: "ažuriram"
-    helper:
-      are_you_sure: "Jeste li sigurni da želite izbrisati ovaj aspekt?"
-      aspect_not_empty: "Aspekti nisu prazni"
-      remove: "ukloni"
     index:
       diaspora_id:
         content_1: "Vaš Diaspora ID je:"
@@ -198,10 +190,6 @@ bs:
         heading: "Servisi Povezivanja"
       unfollow_tag: "Prestani slijediti #%{tag}"
       welcome_to_diaspora: "Dobrodošli na Diasporu, %{name}!"
-    move_contact:
-      error: "Greška pomjeranja kontakta: %{inspect}"
-      failure: "nije uspjelo %{inspect}"
-      success: "Osoba pomjerena u novi aspekt"
     new:
       create: "Kreiraj"
       name: "Ime (vidljivo samo vama)"
@@ -219,13 +207,6 @@ bs:
       family: "Porodica"
       friends: "Prijatelji"
       work: "Posao"
-    selected_contacts:
-      manage_your_aspects: "Upravljaj svoje aspekte."
-      no_contacts: "Još uvijek nemate nikakvih kontakata."
-      view_all_community_spotlight: "Pogledaj sve što je u centru pažnje"
-      view_all_contacts: "Pogledaj sve kontakte"
-    show:
-      edit_aspect: "uredi aspekt"
     update:
       failure: "Vaš aspekt, %{name}, ima predugo ime da bi se snimilo."
       success: "Vaš aspekt, %{name}, je uspješno uređen."
@@ -257,14 +238,12 @@ bs:
     index:
       add_a_new_aspect: "Dodaj novi aspekt"
       add_to_aspect: "dodaj kontakte za %{name}"
-      add_to_aspect_link: "dodaj kontakte za %{name}"
       all_contacts: "Svi Kontakti"
       community_spotlight: "U Centru Pažnje"
       many_people_are_you_sure: "Jeste li sigurni da želite pokrenuti privatni razgovor sa više od %{suggested_limit} kontakata? Objavljivanje na ovaj aspekt je možda bolji način da ih kontaktirate."
       my_contacts: "Moji Kontakti"
       no_contacts: "Izgleda kao morate dodati neke kontakte!"
       no_contacts_message: "Probajte %{community_spotlight}"
-      no_contacts_message_with_aspect: "Probajte %{community_spotlight} ili %{add_to_aspect_link}"
       only_sharing_with_me: "Samo dijele sa mnom"
       start_a_conversation: "Započni razgovor"
       title: "Kontakti"
@@ -748,13 +727,11 @@ bs:
     invalid_invite: "Veza pozivnice koji ste obezbijedili više nije važeća!"
     new:
       create_my_account: "Kreiraj moj račun!"
-      diaspora: "<3 diaspora*"
       email: "EMAIL"
       enter_email: "Unesite email"
       enter_password: "Unesite šifru (šest karaktera minimalno)"
       enter_password_again: "Unesite istu šifru kao i maloprije"
       enter_username: "Izaberite korisničko ime (samo slova, brojevi i podcrte)"
-      hey_make: "HEJ, <br/>UČINI<br/>NEŠTO."
       join_the_movement: "Pridružite se pokretu!"
       password: "ŠIFRA"
       password_confirmation: "POTVRDA ŠIFRE"

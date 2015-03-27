@@ -153,8 +153,6 @@ cs:
     add_to_aspect:
       failure: "Přidání kontaktu do aspektu selhalo."
       success: "Kontakt byl úspěšně přidán do aspektu."
-    aspect_contacts:
-      done_editing: "ukončit úpravy"
     aspect_listings:
       add_an_aspect: "+ Přidat aspekt"
       deselect_all: "Zrušit výběr"
@@ -173,25 +171,18 @@ cs:
       failure: "%{name} není prázdný a nemůže být odstraněn."
       success: "%{name} byl úspěšně odebrán."
     edit:
-      add_existing: "Přidat existující kontakt"
       aspect_chat_is_enabled: "Kontakty v tomto aspektu s Vámi mohou chatovat."
       aspect_chat_is_not_enabled: "Kontakty v tomto aspektu s Vámi nemohou chatovat."
       aspect_list_is_not_visible: "seznam kontaktů je skryt ostatním v aspektu"
       aspect_list_is_visible: "seznam kontaktů je viditelný pro ostatní v aspektu"
       confirm_remove_aspect: "Opravdu chcete odstranit tento aspekt?"
-      done: "Hotovo"
       grant_contacts_chat_privilege: "dát kontaktům v tomto aspektu právo chatovat ?"
       make_aspect_list_visible: "umožnit kontaktům v tomto aspektu se vzájemně vidět?"
-      manage: "Správa kontaktů"
       remove_aspect: "Odstranit tento aspekt"
       rename: "přejmenovat"
       set_visibility: "Nastavit viditelnost"
       update: "aktualizovat"
       updating: "aktualizace"
-    helper:
-      are_you_sure: "Opravdu chcete odstranit tento aspekt?"
-      aspect_not_empty: "Aspekt není prázdný"
-      remove: "odebrat"
     index:
       diaspora_id:
         content_1: "Vaše Diaspora ID je:"
@@ -232,10 +223,6 @@ cs:
         heading: "Připojit služby"
       unfollow_tag: "Přestat odebírat #%{tag}"
       welcome_to_diaspora: "Vítejte na Diaspoře, %{name}!"
-    move_contact:
-      error: "Chyba při přesunu kontaktu: %{inspect}"
-      failure: "%{inspect} nefunguje"
-      success: "Kontakt přesunut do nového aspektu"
     new:
       create: "Vytvořit"
       name: "Název"
@@ -253,13 +240,6 @@ cs:
       family: "Rodina"
       friends: "Přátelé"
       work: "Práce"
-    selected_contacts:
-      manage_your_aspects: "Spravovat vaše aspekty."
-      no_contacts: "Nemáte zde dosud žádné kontakty."
-      view_all_community_spotlight: "Zobrazit všechny aktuality z komunity"
-      view_all_contacts: "Zobrazit všechny kontakty"
-    show:
-      edit_aspect: "upravit aspekt"
     update:
       failure: "Váš aspekt %{name} má příliš dlouhý název na to, aby mohl být uložen."
       success: "Váš aspekt %{name} byl úspěšně upraven."
@@ -292,14 +272,12 @@ cs:
       add_a_new_aspect: "Přidat nový aspekt"
       add_contact: "Přidej kontakt"
       add_to_aspect: "Přidat kontakty do %{name}"
-      add_to_aspect_link: "přidat kontakty do %{name}"
       all_contacts: "Všechny kontakty"
       community_spotlight: "Aktuality z komunity"
       many_people_are_you_sure: "Jste si jisti, že chcete začít soukromý rozhovor s více než %{suggested_limit} kontakty? Posílání zpráv do tohoto aspektu může být lepší způsob, jak s nimi spojit."
       my_contacts: "Moje kontakty"
       no_contacts: "Zdá se, že si potřebujete přidat nějaké kontakty."
       no_contacts_message: "Shlédněte %{community_spotlight}"
-      no_contacts_message_with_aspect: "Shlédněte %{community_spotlight} nebo %{add_to_aspect_link}"
       only_sharing_with_me: "Pouze sdílejí se mnou"
       remove_contact: "Odstraň kontakt"
       start_a_conversation: "Zahájit konverzaci"
@@ -1025,13 +1003,11 @@ cs:
     invalid_invite: "Odkaz na pozvánku, který jste poskytli, již neplatí!"
     new:
       create_my_account: "Vytvořte mi účet!"
-      diaspora: "<3 diasporu*"
       email: "EMAIL"
       enter_email: "Zadejte e-mail"
       enter_password: "Zadejte heslo (alespoň 6 znaků)"
       enter_password_again: "Zadejte stejné heslo jako předtím"
       enter_username: "Vyberte si uživatelské jméno (pouze písmena, číslice a podtržítka)"
-      hey_make: "HEJ,<br/>VYTVOŘ<br/>NĚCO."
       join_the_movement: "Připojte se k nám!"
       password: "HESLO"
       password_confirmation: "POTVRZENÍ HESLA"

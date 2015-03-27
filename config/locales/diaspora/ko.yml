@@ -107,8 +107,6 @@ ko:
     add_to_aspect:
       failure: "컨택을 애스펙에 추가하는데 실패했습니다."
       success: "컨택을 애스펙에 성공적으로 추가했습니다."
-    aspect_contacts:
-      done_editing: "고치기 완료"
     aspect_listings:
       add_an_aspect: "+ 애스펙 추가"
       deselect_all: "선택 해제"
@@ -127,21 +125,14 @@ ko:
       failure: "%{name} 애스펙이 비어있지 않아 지울 수 없습니다."
       success: "%{name} 애스펙을 성공적으로 지웠습니다."
     edit:
-      add_existing: "있는 컨택 추가"
       aspect_list_is_not_visible: "애스펙의 다른 사람들에게 애스펙 목록을 숨깁니다."
       aspect_list_is_visible: "애스펙의 다른 사람들에게 애스펙 목록을 보입니다."
       confirm_remove_aspect: "이 애스펙을 지우려는게 확실합니까?"
-      done: "완료"
       make_aspect_list_visible: "이 애스펙의 컨택이 서로 볼 수 있게 할까요?"
-      manage: "관리"
       remove_aspect: "이 애스펙 지우기"
       rename: "이름 바꾸기"
       update: "갱신"
       updating: "갱신중"
-    helper:
-      are_you_sure: "이 애스펙을 지우려는게 확실합니까?"
-      aspect_not_empty: "애스펙이 비어있지 않습니다"
-      remove: "지우기"
     index:
       diaspora_id:
         content_1: "내 디아스포라 아이디:"
@@ -181,10 +172,6 @@ ko:
         heading: "서비스를 연결하세요"
       unfollow_tag: "#%{tag} 태그 팔로우 멈추기"
       welcome_to_diaspora: "%{name}님, 디아스포라에 오신걸 환영합니다!"
-    move_contact:
-      error: "컨택 옮기기 오류: %{inspect}"
-      failure: "%{inspect} 작동 안 함"
-      success: "사람이새 애스펙으로 옮겨졌습니다"
     new:
       create: "만들기"
       name: "이름(나만 볼 수 있습니다)"
@@ -202,13 +189,6 @@ ko:
       family: "가족"
       friends: "친구"
       work: "직장"
-    selected_contacts:
-      manage_your_aspects: "내 애스펙 관리하기."
-      no_contacts: "아직 여기에 아무 컨택도 없습니다."
-      view_all_community_spotlight: "커뮤니티 스포트라이트 모두 보기"
-      view_all_contacts: "모든 컨택 보기"
-    show:
-      edit_aspect: "애스펙 고치기"
     update:
       failure: "%{name} 애스펙은 이름이 너무 길어 저장할 수 없습니다."
       success: "%{name} 애스펙을 성공적으로 고쳤습니다."
@@ -239,14 +219,12 @@ ko:
     index:
       add_a_new_aspect: "새 애스펙 추가"
       add_to_aspect: "%{name} 애스펙에 컨택 추가"
-      add_to_aspect_link: "%{name} 애스펙으로 추가하세요"
       all_contacts: "모든 컨택"
       community_spotlight: "커뮤니티 스포트라이트"
       many_people_are_you_sure: "컨택 %{suggested_limit}명보다 많은 사람들에게 쪽지를 보내려 하십니까? 해당 애스펙에 게시물을 공유하길 권합니다."
       my_contacts: "내 컨택"
       no_contacts: "컨택을 좀 추가하는게 어때요?"
       no_contacts_message: "%{community_spotlight}를 확인하세요"
-      no_contacts_message_with_aspect: "%{community_spotlight}를 확인하거나 %{add_to_aspect_link}"
       only_sharing_with_me: "나와만 공유하고 있는 사람들"
       start_a_conversation: "대화를 시작하세요"
       title: "컨택"
@@ -689,13 +667,11 @@ ko:
     invalid_invite: "내가 제공한 초대 링크가 더 이상 유효하지 않습니다!"
     new:
       create_my_account: "내 계정 만들기!"
-      diaspora: "♥ 디아스포라*"
       email: "이메일"
       enter_email: "이메일 주소를 입력하세요"
       enter_password: "암호를 입력하세요 (최소 여섯 자)"
       enter_password_again: "암호를 다시 입력하세요"
       enter_username: "사용자 이름을 고르세요 (로마자, 아라비아 숫자, 밑줄 문자_ 만)"
-      hey_make: "자,<br/>뭔가<br/>만들어보세요."
       join_the_movement: "합류하세요!"
       password: "암호"
       password_confirmation: "암호 확인"

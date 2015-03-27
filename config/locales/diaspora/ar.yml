@@ -83,8 +83,6 @@ ar:
     add_to_aspect:
       failure: "فشل في إضافة صديق إلى الفئة"
       success: "إضافة صديق إلى الفئة بنجاح"
-    aspect_contacts:
-      done_editing: "اتمام التغييرات"
     aspect_listings:
       add_an_aspect: "+ أضف فئة جديدة"
       deselect_all: "الغاء اختيار الكل"
@@ -102,20 +100,14 @@ ar:
       failure: "%{name} ليس خاليا ولا يمكن حذفه"
       success: ".بنجاح %{name} تم إزالة"
     edit:
-      add_existing: "إضافة عضو موجود مسبقا"
       aspect_list_is_not_visible: "قائمة الفئة مخفية عن الأعضاء الأخرين في الفئة"
       aspect_list_is_visible: "قائمة الفئة مرئية للأعضاء الآخرين في الفئة"
       confirm_remove_aspect: "تأكيد حذف هذه الفئة؟"
-      done: "تم بنجاح"
       make_aspect_list_visible: "فئة مرئية"
       remove_aspect: "حذف هذه الفئة"
       rename: "إعادة تسمية"
       update: "تحديث"
       updating: "جارى التحديث"
-    helper:
-      are_you_sure: "تأكيد حذف هذه الفئة؟"
-      aspect_not_empty: "الفئة ليست فارغة"
-      remove: "حذف"
     index:
       diaspora_id:
         content_1: "معرف دياسبرا الخاص بك هو:"
@@ -149,10 +141,6 @@ ar:
         heading: "صل حسابك بالخدمات"
       unfollow_tag: "أَوقِف متابعة #%{tag}"
       welcome_to_diaspora: "مرحبا بك في دياسبرا , %{name} !"
-    move_contact:
-      error: "خطأ خلال تحريك عضو: %{inspect}"
-      failure: "لم يعمل %{inspect}"
-      success: "تم تحريك عضو إلى الفئة الجديدة"
     new:
       create: "أنشئ"
       name: "إسم"
@@ -170,13 +158,6 @@ ar:
       family: "العائلة"
       friends: "الأصدقاء"
       work: "العمل"
-    selected_contacts:
-      manage_your_aspects: "أَدِر فئاتك."
-      no_contacts: "لا تملك أية جهات اتصال هنا بعد."
-      view_all_community_spotlight: "شاهد كل أضواء المجتمع"
-      view_all_contacts: "عرض كل جهات الاتصال"
-    show:
-      edit_aspect: "تحرير الفئة"
     update:
       failure: "فئتك, %{name}, اسمها طويل ولا يمكن حفظها."
       success: ".بنجاح %{name} تم تعديل"
@@ -207,14 +188,12 @@ ar:
     index:
       add_a_new_aspect: "أضف فئة جديدة"
       add_to_aspect: "Add contacts to %{name}"
-      add_to_aspect_link: "أضف جهات الاتصال إلى %{name}"
       all_contacts: "كل جهات الاتصال"
       community_spotlight: "ضوء المجتمع"
       many_people_are_you_sure: "هل أنت متأكد من بدأ هذه المحادثة الخاصة مع أكثر من %{suggested_limit} جهات اتصال? من الأفضل إرسال مشاركة لهذه الفئة لتتصل بهم."
       my_contacts: "جهات الاتصال الخاصة بي"
       no_contacts: "لا توجد جهات اتصال."
       no_contacts_message: "انظر في  {community_spotlight}%"
-      no_contacts_message_with_aspect: "انظر في %{community_spotlight} او %{add_to_aspect_link}"
       only_sharing_with_me: "فقط يتشاركون معي"
       start_a_conversation: "ابدأ محادثة"
       title: "جهات الاتصال"

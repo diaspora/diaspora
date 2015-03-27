@@ -112,8 +112,6 @@ nn:
     add_to_aspect:
       failure: "Klarte ikkje å leggja kontakten til aspektet."
       success: "La kontakten til aspektet."
-    aspect_contacts:
-      done_editing: "endringar er ferdige"
     aspect_listings:
       add_an_aspect: "+ Legg til eit aspekt"
       deselect_all: "Vel vekk alle"
@@ -132,20 +130,14 @@ nn:
       failure: "%{name} må vera tom for å kunna slettast."
       success: "%{name} vart fjerna."
     edit:
-      add_existing: "Legg til ein kontakt som finst frå før av"
       aspect_list_is_not_visible: "aspektet er gøymt frå andre i aspektet"
       aspect_list_is_visible: "aspektlista er synleg for andre i aspektet"
       confirm_remove_aspect: "Er du sikker på at du vil sletta aspektet?"
-      done: "Utført"
       make_aspect_list_visible: "skal kontaktane i dette aspektet kunna sjå kvarandre?"
       remove_aspect: "Slett dette aspektet"
       rename: "gje nytt namn"
       update: "oppdatering"
       updating: "oppdaterer"
-    helper:
-      are_you_sure: "Er du trygg på at du vil sletta dette aspektet?"
-      aspect_not_empty: "Aspektet er ikkje tomt"
-      remove: "fjern"
     index:
       diaspora_id:
         content_1: "Diaspora-ID-en din er:"
@@ -185,10 +177,6 @@ nn:
         heading: "Kopla tenester"
       unfollow_tag: "Slutt å følgja #%{tag}"
       welcome_to_diaspora: "Velkomen til Diaspora, %{name}!"
-    move_contact:
-      error: "Klarte ikkje å flytta kontakten: %{inspect}"
-      failure: "verka ikkje %{inspect}"
-      success: "Personen vart flytta til eit nytt aspekt"
     new:
       create: "Lag"
       name: "Namn (berre du kan sjå det)"
@@ -206,13 +194,6 @@ nn:
       family: "Familie"
       friends: "Vener"
       work: "Arbeid"
-    selected_contacts:
-      manage_your_aspects: "Handsam aspekta dine."
-      no_contacts: "Du har ingen kontaktar her enno."
-      view_all_community_spotlight: "Sjå alle kreative medlemer"
-      view_all_contacts: "Syn alle kontaktane"
-    show:
-      edit_aspect: "endra aspektet"
     update:
       failure: "Aspektet ditt, %{name}, hadde eit for langt namn til å bli lagra."
       success: "Aspektet ditt, %{name}, er vorte endra."
@@ -244,14 +225,12 @@ nn:
     index:
       add_a_new_aspect: "Legg til eit nytt aspekt"
       add_to_aspect: "legg kontaktar til %{name}"
-      add_to_aspect_link: "legg kontaktar til i %{name}"
       all_contacts: "Alle kontaktane"
       community_spotlight: "Kreative medlemer"
       many_people_are_you_sure: "Er du sikker på at du vil starte ein privat samtale med meir enn %{suggested_limit} kontaktar? Å dele dette i eit aspekt kan vere ein betre måte å kontakte dei på."
       my_contacts: "Kontaktane mine"
       no_contacts: "Du må leggja til nokre kontaktar."
       no_contacts_message: "Ta ein titt på %{community_spotlight}"
-      no_contacts_message_with_aspect: "Ta ein titt på %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Deler berre med meg"
       start_a_conversation: "Start ein samtale"
       title: "Kontaktar"
@@ -673,13 +652,11 @@ nn:
     invalid_invite: "Invitasjonslenkja du nytta er ikkje lengjer gyldig!"
     new:
       create_my_account: "Lag kontoen min."
-      diaspora: "♥ Diaspora*"
       email: "E-POST"
       enter_email: "Skriv ei e-postadresse"
       enter_password: "Skriv eit passord (minst seks teikn)"
       enter_password_again: "Skriv passordet éin gong til"
       enter_username: "Vel eit brukarnamn (berre bokstavar, tal og understrekingsteikn)"
-      hey_make: "HEI,<br/>LAG<br/>NOKO."
       join_the_movement: "Vert med i rørsla!"
       password: "PASSORD"
       password_confirmation: "Passordstadfesting"

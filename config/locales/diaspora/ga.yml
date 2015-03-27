@@ -33,17 +33,12 @@ ga:
   are_you_sure: "An bhfuil tú cinnte?"
   are_you_sure_delete_account: "An bhfuil tú cinnte go dteastaíonn uait do chuntas a dhúnadh? Ní féidir é seo a chealaigh!"
   aspects:
-    aspect_contacts:
-      done_editing: "eagarthóireacht déanta"
     aspect_listings:
       edit_aspect: "%{name} a chur in eagar"
     edit:
-      done: "Déanta"
       rename: "athainmnigh"
       update: "uasdátaigh"
       updating: "nuashonrú"
-    helper:
-      remove: "bain"
     index:
       diaspora_id:
         heading: "ID Diaspora"

@@ -58,8 +58,6 @@ en_pirate:
     add_to_aspect:
       failure: "Failed to add contact to crew."
       success: "Successfully added contact to crew."
-    aspect_contacts:
-      done_editing: "done editin' cap'n!"
     aspect_listings:
       add_an_aspect: "+ Add a crew"
       deselect_all: "Unchoose all"
@@ -77,20 +75,14 @@ en_pirate:
       failure: "%{name} not be empty and could not be removed YARGH!"
       success: "%{name} was removed successfully mate."
     edit:
-      add_existing: "Enlist this mate into ye crew"
       aspect_list_is_not_visible: "Yer crew list is hidden to others in crew"
       aspect_list_is_visible: "Yer crew list is visible to others in crew"
       confirm_remove_aspect: "Are ye sure ye wants t' scuttle this crew?"
-      done: "Done, matey"
       make_aspect_list_visible: "make crew list visible?"
       remove_aspect: "Fire this crew"
       rename: "rename"
       update: "update"
       updating: "updatin'"
-    helper:
-      are_you_sure: "Are ye sure ye want t' scuttle this crew?"
-      aspect_not_empty: "Crew not empty"
-      remove: "scuttle"
     index:
       diaspora_id:
         content_1: "Ye ship name be:"
@@ -123,10 +115,6 @@ en_pirate:
         heading: "Connect ye services"
       unfollow_tag: "Stop followin' #%{tag}"
       welcome_to_diaspora: "Welcome to diaspora*, %{name}. Ye old seadog!"
-    move_contact:
-      error: "Problem moving mate: %{inspect} matey!"
-      failure: "didn't work %{inspect} ye scallywag!"
-      success: "Matey moved to new crew!"
     new:
       create: "Forge"
       name: "Name"
@@ -144,13 +132,6 @@ en_pirate:
       family: "Kin"
       friends: "Mateys"
       work: "Shipmates"
-    selected_contacts:
-      manage_your_aspects: "Manage ye crew."
-      no_contacts: "Ye don't have any mates here yet!"
-      view_all_community_spotlight: "See all crew spotlight"
-      view_all_contacts: "View all mateys"
-    show:
-      edit_aspect: "edit crew"
     update:
       failure: "Yer crew, %{name}, had too many words, YARGH!"
       success: "Yer crew, %{name}. has been edited matey!"
@@ -181,7 +162,6 @@ en_pirate:
     index:
       add_a_new_aspect: "Add a new crew"
       add_to_aspect: "Add more mateys to %{name}"
-      add_to_aspect_link: "add mates to %{name}"
       all_contacts: "All yer mateys"
       many_people_are_you_sure: "Are ye sure ye want to start a private letter with more than %{suggested_limit} mateys? Posting to this crew may be a better way to talk to them."
       my_contacts: "Me Mateys"

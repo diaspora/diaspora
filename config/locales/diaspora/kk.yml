@@ -17,7 +17,6 @@ kk:
     aspect_listings:
       select_all: "Барлықты таңдап ал"
     edit:
-      done: "Аяқталды"
       rename: "Атын өзгерту"
       update: "жаңала"
       updating: "жаңала"

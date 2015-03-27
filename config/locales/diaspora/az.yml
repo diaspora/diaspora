@@ -54,15 +54,10 @@ az:
       failure: ""
       success: ""
     edit:
-      add_existing: ""
       aspect_list_is_not_visible: ""
       aspect_list_is_visible: ""
       confirm_remove_aspect: ""
-      done: ""
       remove_aspect: ""
-    helper:
-      are_you_sure: ""
-      aspect_not_empty: ""
     index:
       diaspora_id:
         content_1: ""
@@ -90,9 +85,6 @@ az:
         content: ""
       unfollow_tag: ""
       welcome_to_diaspora: ""
-    move_contact:
-      error: ""
-      success: ""
     new:
       create: ""
       name: ""
@@ -109,10 +101,6 @@ az:
       family: ""
       friends: ""
       work: ""
-    selected_contacts:
-      manage_your_aspects: ""
-      view_all_community_spotlight: ""
-      view_all_contacts: ""
     update:
       failure: ""
       success: ""

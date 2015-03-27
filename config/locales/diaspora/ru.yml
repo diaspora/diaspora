@@ -154,8 +154,6 @@ ru:
     add_to_aspect:
       failure: "Не удалось добавить друга в аспект."
       success: "Друг добавлен в аспект."
-    aspect_contacts:
-      done_editing: "редактирование завершено"
     aspect_listings:
       add_an_aspect: "+ Добавить аспект"
       deselect_all: "Отменить выбор"
@@ -174,25 +172,18 @@ ru:
       failure: "%{name} не пуст и не может быть удалён."
       success: "%{name} успешно удалён."
     edit:
-      add_existing: "Добавить существующий контакт"
       aspect_chat_is_enabled: "Контакты из этого аспекта могут общаться с вами."
       aspect_chat_is_not_enabled: "Контакты из этого аспекта не могут общаться с вами."
       aspect_list_is_not_visible: "Контакты в этом аспекте не могут видеть друг друга"
       aspect_list_is_visible: "Контакты в этом аспекте могут видеть друг друга"
       confirm_remove_aspect: "Вы уверены, что хотите удалить этот аспект?"
-      done: "Готово"
       grant_contacts_chat_privilege: "предоставить контактам в аспекте возможность общаться?"
       make_aspect_list_visible: "сделать контакты в этом аспекте видимыми друг другу?"
-      manage: "Управлять"
       remove_aspect: "Удалить этот аспект"
       rename: "переименовать"
       set_visibility: "Установить видимость"
       update: "Обновить"
       updating: "обновление"
-    helper:
-      are_you_sure: "Вы уверены в том, что хотите удалить этот аспект?"
-      aspect_not_empty: "Аспект не пуст"
-      remove: "удалить"
     index:
       diaspora_id:
         content_1: "Ваш идентификатор в Диаспоре:"
@@ -233,10 +224,6 @@ ru:
         heading: "Подключенные сервисы"
       unfollow_tag: "Не следить за меткой #%{tag}"
       welcome_to_diaspora: "Добро пожаловать в Диаспору, %{name}!"
-    move_contact:
-      error: "Ошибка при перемещении контакта: %{inspect}"
-      failure: "не работает %{inspect}"
-      success: "Контакт перемещён в новый аспект"
     new:
       create: "Создать"
       name: "Имя (видно только вам)"
@@ -254,13 +241,6 @@ ru:
       family: "Семья"
       friends: "Друзья"
       work: "Работа"
-    selected_contacts:
-      manage_your_aspects: "Управление аспектами."
-      no_contacts: "Здесь пока нет ни одного контакта."
-      view_all_community_spotlight: "Посмотреть всех рекомендуемых"
-      view_all_contacts: "Все контакты"
-    show:
-      edit_aspect: "редактировать аспект"
     update:
       failure: "Ваш аспект, %{name}, имеет слишком длинное имя для сохранения."
       success: "Ваш аспект %{name} успешно отредактирован."
@@ -293,14 +273,12 @@ ru:
       add_a_new_aspect: "Новый аспект"
       add_contact: "Добавить контакт"
       add_to_aspect: "добавить контакты в %{name}"
-      add_to_aspect_link: "добавить контакты в аспект %{name}"
       all_contacts: "Все контакты"
       community_spotlight: "Рекомендованные пользователи"
       many_people_are_you_sure: "Вы уверены, что хотите начать приватную беседу с числом контактов более %{suggested_limit}? Возможно, лучше просто сделать запись для этого аспекта."
       my_contacts: "Мои контакты"
       no_contacts: "Похоже, вам надо добавить несколько контактов!"
       no_contacts_message: "Загляните на страницу %{community_spotlight}"
-      no_contacts_message_with_aspect: "Вы можете проверить страницу %{community_spotlight} или %{add_to_aspect_link}"
       only_sharing_with_me: "Только добавившие меня"
       remove_contact: "Удалить контакт"
       start_a_conversation: "Начать беседу"
@@ -988,13 +966,11 @@ ru:
     invalid_invite: "Это приглашение уже недействительно!"
     new:
       create_my_account: "Создать аккаунт"
-      diaspora: "<3 Диаспора*"
       email: "ПОЧТА"
       enter_email: "Введите E-mail"
       enter_password: "Введите пароль (не меньше шести символов)"
       enter_password_again: "Повторите пароль"
       enter_username: "Выберите имя пользователя (только латинские буквы, цифры и подчеркивание)"
-      hey_make: "ПРИВЕТ,<br/>СОЗДАЙТЕ<br/>ЧТО-НИБУДЬ."
       join_the_movement: "Присоединяйтесь к движению!"
       password: "ПАРОЛЬ"
       password_confirmation: "ПОДТВЕРЖДЕНИЕ ПАРОЛЯ"

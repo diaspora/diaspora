@@ -7,7 +7,7 @@
 fi:
   _applications: "Sovellukset"
   _comments: "Kommentit"
-  _contacts: "Henkilöt"
+  _contacts: "Kontaktit"
   _help: "Apua"
   _home: "Etusivu"
   _photos: "Kuvat"
@@ -104,8 +104,8 @@ fi:
       : Kyllä
     user_search:
       account_closing_scheduled: "Käyttäjätili %{name} on ajastettu suljettavaksi. Suoritus tapahtuu muutaman hetken kuluttua..."
-      account_locking_scheduled: "Käyttäjätili %{name} on ajastettu lukittavaksi. Suoritus tapahtuu muutaman hetken kuluttua..."
-      account_unlocking_scheduled: "Käyttäjätilin %{name} lukitus on ajastettu poistettavaksi. Suoritus tapahtuu muutaman hetken kuluttua..."
+      account_locking_scheduled: "Käyttäjätili %{name} on ajastettu lukittavaksi. Tapahtuma käsitellään hetken kuluttua..."
+      account_unlocking_scheduled: "Käyttäjätilin %{name} lukitus on ajastettu poistettavaksi. Tapahtuma käsitellään hetken kuluttua..."
       add_invites: "lisää kutsuja"
       are_you_sure: "Haluatko varmasti sulkea tämä käyttäjätilin?"
       are_you_sure_lock_account: "Haluatko varmasti lukita tämän tilin?"
@@ -144,10 +144,8 @@ fi:
       success: "Henkilö poistettiin näkymästä onnistuneesti."
   aspects:
     add_to_aspect:
-      failure: "Henkilön lisääminen näkymään epäonnistui."
-      success: "Henkilön lisääminen näkymään onnistui."
-    aspect_contacts:
-      done_editing: "Muokkaus valmis"
+      failure: "Kontaktin lisääminen näkymään epäonnistui."
+      success: "Kontaktin lisääminen näkymään onnistui."
     aspect_listings:
       add_an_aspect: "+ Lisää näkymä"
       deselect_all: "Poista valinnat"
@@ -156,9 +154,9 @@ fi:
     aspect_stream:
       make_something: "Julkaise jotain"
       stay_updated: "Pysy ajan tasalla"
-      stay_updated_explanation: "Sinun päävirrassasi näkyvät kaikki henkilösi, seuraamasi tagit ja eräiden yhteisön luovien jäsenten julkaisut."
-    contacts_not_visible: "Tämän näkymän henkilöt eivät voi nähdä toisiaan."
-    contacts_visible: "Tämän näkymän henkilöt voivat nähdä toisensa."
+      stay_updated_explanation: "Näet päävirrassasi kaikki kontaktiesi ja eräiden yhteisön luovien jäsenten lähettämät sekä seuraamillasi tageillä merkityt julkaisut."
+    contacts_not_visible: "Tämän näkymän kontaktit eivät voi nähdä toisiaan."
+    contacts_visible: "Tämän näkymän kontaktit voivat nähdä toisensa."
     create:
       failure: "Näkymän luominen epäonnistui."
       success: "Uusi näkymäsi, %{name}, on luotu"
@@ -166,25 +164,18 @@ fi:
       failure: "%{name} ei ole tyhjä, eikä sitä voitu poistaa."
       success: "%{name} poistettiin onnistuneesti."
     edit:
-      add_existing: "Lisää olemassa oleva henkilö"
-      aspect_chat_is_enabled: "Tämän näkymän henkilöt eivät voi lähettää sinulle pikaviestejä."
-      aspect_chat_is_not_enabled: "Tämän näkymän henkilöt eivät voi lähettää sinulle pikaviestejä."
-      aspect_list_is_not_visible: "Tämän näkymän henkilöt eivät voi nähdä toisiaan."
-      aspect_list_is_visible: "Tämän näkymän henkilöt voivat nähdä toisensa."
+      aspect_chat_is_enabled: "Tämän näkymän kontaktit voivat lähettää sinulle pikaviestejä."
+      aspect_chat_is_not_enabled: "Tämän näkymän kontaktit eivät voi lähettää sinulle pikaviestejä."
+      aspect_list_is_not_visible: "Tämän näkymän kontaktit eivät voi nähdä toisiaan."
+      aspect_list_is_visible: "Tämän näkymän kontaktit voivat nähdä toisensa."
       confirm_remove_aspect: "Oletko varma, että haluat poistaa tämän näkymän?"
-      done: "Valmis"
-      grant_contacts_chat_privilege: "Salli näkymän henkilöiden lähettää pikaviestejä?"
-      make_aspect_list_visible: "Salli näkymän henkilöiden nähdä toisensa?"
-      manage: "Hallitse"
+      grant_contacts_chat_privilege: "Salli näkymän kontaktien lähettää pikaviestejä?"
+      make_aspect_list_visible: "Salli tämän näkymän kontaktien nähdä toisensa?"
       remove_aspect: "Poista näkymä"
       rename: "Nimeä uudelleen"
       set_visibility: "Aseta näkyvyys"
       update: "Päivitä"
       updating: "Päivittää"
-    helper:
-      are_you_sure: "Haluatko varmasti poistaa tämän näkymän?"
-      aspect_not_empty: "Näkymä ei ole tyhjä"
-      remove: "Poista"
     index:
       diaspora_id:
         content_1: "Diaspora-ID:si on:"
@@ -216,7 +207,7 @@ fi:
         follow: "Seuraa tagia %{link} ja toivota uudet käyttäjät tervetulleiksi Diasporaan!"
         learn_more: "Lue lisää"
         title: "Tervehdi uusia käyttäjiä"
-      no_contacts: "Ei henkilöitä"
+      no_contacts: "Ei kontakteja"
       no_tags: "+ Etsi tageja seurattaviksi"
       people_sharing_with_you: "Henkiöt, jotka jakavat kanssasi"
       post_a_message: "Lähetä viesti >>"
@@ -225,18 +216,14 @@ fi:
         heading: "Yhdistä palveluihin"
       unfollow_tag: "Lopeta tagin #%{tag} seuraaminen"
       welcome_to_diaspora: "Tervetuloa Diasporaan, %{name}!"
-    move_contact:
-      error: "Virhe siirrettäessä henkilöä: %{inspect}"
-      failure: "ei toiminut %{inspect}"
-      success: "Henkilö siirretty uuteen näkymään"
     new:
       create: "Luo"
       name: "Nimi (näkyy vain sinulle)"
     no_contacts_message:
       community_spotlight: "Yhteisön valokeila"
       or_spotlight: "Voit myös jakaa %{link}n kanssa"
-      try_adding_some_more_contacts: "Voit etsiä (ylhäällä) tai kutsua (oikealla) lisää henkilöitä."
-      you_should_add_some_more_contacts: "Sinun pitäisi lisätä henkilöitä!"
+      try_adding_some_more_contacts: "Voit etsiä tai kutsua lisää kontakteja."
+      you_should_add_some_more_contacts: "Sinun pitäisi lisätä kontakteja!"
     no_posts_message:
       start_talking: "Kukaan ei ole vielä sanonut mitään!"
     one: "1 näkymä"
@@ -246,13 +233,6 @@ fi:
       family: "Perhe"
       friends: "Ystävät"
       work: "Työ"
-    selected_contacts:
-      manage_your_aspects: "Hallitse näkymiäsi."
-      no_contacts: "Sinulla ei vielä ole henkilöitä täällä."
-      view_all_community_spotlight: "Näytä kaikki yhteisön valokeilaan kuuluvat käyttäjät"
-      view_all_contacts: "Näytä kaikki henkilöt"
-    show:
-      edit_aspect: "Muokkaa näkymää"
     update:
       failure: "Antamasi näkymän nimi, %{name}, oli liian pitkä tallennettavaksi."
       success: "Näkymäsi, %{name}, muokkaus onnistui."
@@ -280,33 +260,31 @@ fi:
     zero: "Ei kommentteja"
   contacts:
     create:
-      failure: "Henkilön lisääminen epäonnistui"
+      failure: "Kontaktin luominen epäonnistui"
     index:
       add_a_new_aspect: "Lisää näkymä"
-      add_contact: "Lisää henkilö"
-      add_to_aspect: "lisää henkilöitä näkymään %{name}"
-      add_to_aspect_link: "lisää henkilöitä näkymään %{name}"
-      all_contacts: "Kaikki henkilöt"
+      add_contact: "Lisää kontakti"
+      add_to_aspect: "Lisää kontakteja näkymään %{name}"
+      all_contacts: "Kaikki kontaktit"
       community_spotlight: "Yhteisön valokeila"
       many_people_are_you_sure: "Oletko varma, että haluat aloittaa yksityiskeskustelun useamman kuin %{suggested_limit} kontaktin kanssa? Julkaisun lähettäminen tähän näkymään voisi olla parempi tapa olla yhteydessä heihin."
-      my_contacts: "Henkilöt"
+      my_contacts: "Kontaktini"
       no_contacts: "Sinun pitäisi näköjään lisätä kontakteja!"
       no_contacts_message: "Käy katsomassa %{community_spotlight}"
-      no_contacts_message_with_aspect: "Käy katsomassa %{community_spotlight} tai %{add_to_aspect_link}"
       only_sharing_with_me: "Jakaa vain kanssani"
       remove_contact: "Poista kontakti"
       start_a_conversation: "Aloita keskustelu"
-      title: "Henkilöt"
+      title: "Kontaktit"
       user_search: "Käyttäjähaku"
       your_contacts: "Kontaktisi"
-    one: "1 henkilö"
-    other: "%{count} henkilöä"
+    one: "1 kontakti"
+    other: "%{count} kontaktia"
     sharing:
       people_sharing: "Henkilöt, jotka jakavat kanssasi:"
     spotlight:
       community_spotlight: "Yhteisön valokeila"
       suggest_member: "Ehdota jäsentä"
-    zero: "ei henkilöitä"
+    zero: "Ei kontakteja"
   conversations:
     conversation:
       participants: "Osallistujat"
@@ -367,7 +345,7 @@ fi:
       close_account_q: "Kuinka poistan käyttäjätilini?"
       data_other_podmins_a: "Kun aloitat jakamaan jonkun toisessa podissa olevan kanssa kaikki julkaisut mitä jaat ja kopio profiilistasi tallennetaan (välimuistiin) heidän podiinsa jolloin kyseisen podin tietokannan ylläpitäjällä on pääsy noihin tietoihin. Kun poistat julkaisun tai profiilitietoa se poistetaan omasta ja kaikista muista podeista mihin se oli tallennettuna."
       data_other_podmins_q: "Voivatko muiden podien ylläpitäjät nähdä tietojani?"
-      data_visible_to_podmin_a: "Podien välinen tietoliikenne on aina salattua (käyttäen SSL:ää ja diasporan* omaa liikenteen salausta), mutta tiedot podeissa ovat salaamattomia. Jos podisi tietokannan ylläpitäjä niin tahtoo (yleensä henkilö, joka ajaa podia) hänellä on pääsy profiilitietoihisi ja kaikkeen mitä julkaiset (kuten on asianlaita suurimmassa osassa verkkosivustoja jotka tallentavat käyttäjien tietoa). Oman podisi ajaminen antaa enemmän yksityisyyttä, koska silloin sinä voit itse hallita pääsyä tietokantaan."
+      data_visible_to_podmin_a: "Podien välinen tietoliikenne on aina salattua (käyttäen SSL:ää ja diasporan* omaa liikenteen salausta), mutta tiedot podeissa ovat salaamattomia. Jos podisi tietokannan ylläpitäjä (yleensä henkilö, joka ylläpitää podia) niin tahtoo hänellä on pääsy profiilitietoihisi ja kaikkeen, mitä julkaiset (kuten on asianlaita suurimmassa osassa verkkosivustoja, jotka tallentavat käyttäjien tietoa). Oman podisi ylläpitäminen tarjoaa enemmän yksityisyyttä, koska silloin sinä voit itse hallita pääsyä tietokantaan."
       data_visible_to_podmin_q: "Kuinka paljon tiedoistani podin ylläpitäjä voi nähdä?"
       download_data_a: "Kyllä. Käyttäjätilisi asetus-sivun alaosassa on kaksi painiketta joita voit käyttää tietojesi lataamiseen."
       download_data_q: "Voinko ladata itselleni kopion kaikesta käyttäjätilini sisältämästä tiedosta?"
@@ -378,12 +356,12 @@ fi:
       change_aspect_of_post_a: "Et, mutta voit aina tehdä uuden julkaisun samalla sisällöllä ja julkaista sen eri näkymään."
       change_aspect_of_post_q: "Voinko muuttaa näkymiä julkaisun julkaisemisen jälkeen?"
       contacts_know_aspect_a: "Ei. He eivät voi nähdä näkymän nimeä missään olosuhteissa."
-      contacts_know_aspect_q: "Tietävätkö henkilöt mihin näkymiin heidät sijoitan?"
-      contacts_visible_a: "Jos rastitat tämän kohdan niin henkilöt tässä näkymässä voivat nähdä keitä muita näkymään kuuluu, profiilisivultasi kuvasi alta. On parasta valita tämä vaihtoehto vain, jos kaikki henkilöt tässä näkymässä tuntevat toisensa muutenkin. Näkymän nimi ei kuitenkaan ole nähtävissä vaikka tämä asetus olisi valittu."
-      contacts_visible_q: "Mitä tarkoittaa \"määritä henkilöt tässä näkymässä toisilleen näkyviksi\"?"
+      contacts_know_aspect_q: "Tietävätkö kontaktit, mihin näkymiin heidät sijoitan?"
+      contacts_visible_a: "Jos rastitat tämän kohdan, tässä näkymässä olevat kontaktit voivat nähdä, keitä muita näkymään kuuluu profiilisivultasi kuvasi alta. On parasta valita tämä vaihtoehto vain, jos kaikki tässä näkymässä olevat kontaktit tuntevat toisensa muutenkin. Näkymän nimi ei kuitenkaan ole nähtävissä, vaikka tämä asetus olisi valittu."
+      contacts_visible_q: "Mitä tarkoittaa asetus \"Salli tämän näkymän kontaktien nähdä toisensa\"?"
       delete_aspect_a: "Näkymälistassasi etusivun vasemmalla puolen, osoita hiirellä näymää, jonka tahdot poistaa. Klikkaa pientä 'muokkaus'-kynää, joka ilmestyy oikealle. Klikkaa poista painiketta ilmestyvästä laatikosta."
       delete_aspect_q: "Miten poistan näkymän?"
-      person_multiple_aspects_a: "Kyllä. Mene henkilöt sivullesi ja klikkaa henkilöt. Jokaista henkilöä kohden voit käyttää oikealla olevaa valikkoa lisätäksesi (tai poistaaksesi) heidät niin moneen näkymään, kuin haluat. Tai voit lisätä heidät uuteen näkymään (tai poistaa näkymästä) klikkaamalla näkymän valitsinpainiketta heidän profiilisivullaan. Tai voit siirtää hiiren kohdistimen henkilön nimen päälle, jos näet sen virrassa, jolloin hänen \"leiju-korttinsa\" ilmestyy. Voit muuttaa henkilön näkymiä suoraan siitä."
+      person_multiple_aspects_a: "Kyllä. Mene kontaktisivullesi ja klikkaa \"Kontaktini\". Oikealla olevasta valikosta voit lisätä (tai poistaa) jokaisen kontaktin niin moneen näkymään kuin haluat. Voit myös lisätä kontakteja uuteen näkymään (tai poistaa näkymästä) klikkaamalla näkymän valitsinpainiketta heidän profiilisivullaan. Voit myös siirtää hiiren kohdistimen kontaktin nimen päälle, kun näet sen virrassa, jolloin hänen \"leiju-korttinsa\" ilmestyy. Voit vaihtaa kontaktin näkymiä suoraan siitä."
       person_multiple_aspects_q: "Voinko lisätä henkilön useampaan näkymään?"
       post_multiple_aspects_a: "Kyllä. Kun olet luomassa julkaisua, käytä näkymän valintapainiketta poistaaksesi tai lisätäksesi näkymiä. Julkaisusi tulee näkymään kaikissa näkymissä, jotka valitset. Voit valita julkaisullesi halutut kohdenäkymät myös sivupalkista. Valitsemasi näkymät ovat automaattisesti valittuina, kun ryhdyt luomaan seuraavaa julkaisua."
       post_multiple_aspects_q: "Voinko tehdä julkaisun useisiin näkymiin samalla kertaa?"
@@ -420,7 +398,7 @@ fi:
       keyboard_shortcuts_li4: "I - Tykkää nykyisestä julkaisusta"
       keyboard_shortcuts_li5: "r - Jaa tämä julkaisu uudelleen"
       keyboard_shortcuts_li6: "m - Laajenna tämä julkaisu"
-      keyboard_shortcuts_li7: "o - Avaa ensimmäinen linkki tässä julkaisussa"
+      keyboard_shortcuts_li7: "o - Avaa tämän julkaisun ensimmäinen linkki"
       keyboard_shortcuts_q: "MItä näppäinoikoteitä on käytettävissä?"
       title: "Näppäinoikotiet"
     markdown: "Markdown"
@@ -432,7 +410,7 @@ fi:
       see_mentions_a: "Kyllä, klikkaa \"Maininnat\" aloitussivun vasemmassa sarakkeessa."
       see_mentions_q: "Onko minun mahdollista nähdä julkaisut joissa minut on mainittu?"
       title: "Maininnat"
-      what_is_a_mention_a: "Maininta on julkaisussa näkyvä linkki henkilön profiilisivulle. Kun joku on mainittu he saavat maininnasta ilmoituksen, jotta he voivat kiinnittää huomiota julkaisuun."
+      what_is_a_mention_a: "Maininta on julkaisussa näkyvä linkki henkilön profiilisivulle. Mainittu henkilö saa maininnasta ilmoituksen, jotta huomaa julkaisuun."
       what_is_a_mention_q: "Mikä on \"maininta\"?"
     miscellaneous:
       back_to_top_a: "Kyllä. Kun olet vierittänyt sivua alas, klikkaa harmaata nuolta joka on selainikkunassa sivun oikeassa yläkulmassa."
@@ -449,7 +427,7 @@ fi:
       find_people_q: "Liityin juuri podiin. Kuinka löydän ihmisiä, joiden kanssa haluan alkaa jakaa?"
       title: "Podit"
       use_search_box_a: "Jos tiedät heidän diaspora* ID:nsä (esim. käyttäjänimi@podinimi.org), voit löytää heidät etsimällä sitä. Jos olet samassa podissa voit etsiä pelkän käyttäjänimen perusteella. Vaihtoehtoisesti voit etsiä profiilinimen perusteella (nimi, jonka näet näytöllä). Jos haku ei onnistu ensimmäisellä kerralla, yritä uudestaan."
-      use_search_box_q: "Kuinka käytän etsi -kenttää löytääkseni jonkun henkilön?"
+      use_search_box_q: "Kuinka käytän Etsi-kenttää löytääkseni jonkun henkilön?"
       what_is_a_pod_a: "Podi on palvelin, jossa ajetaan diaspora* ohjelmaa ja joka on yhteydessä diaspora* verkkoon. \"Podi\" on vertaus joidenkin kasvien palkoihin joiden sisällä on siemeniä, vastaavasti palvelimen sisältäessä useita käyttäjätiliejä. On olemassa useita erilaisia podeja. Voit lisätä ystäväi muista podeista ja viestiä heidän kanssaan. (Voi ajatella diaspora* podin olevan kuten sähköpostipalvelu: on olemassa julkisia podeja, yksityisiä podeja ja jonkin verran vaivaa näkemällä voit ajaa myös omaa podiasi)"
       what_is_a_pod_q: "Mikä on podi?"
     posts_and_posting:
@@ -461,7 +439,7 @@ fi:
       embed_multimedia_q: "Kuinka upotan videota, ääntä tai muuta multimediasisältöä julkaisuihini?"
       format_text_a: "Käyttämällä yksinkertaista menetelmää nimeltä %{markdown}. Täydellinen Markdown syntaksi löytyy %{here}. Esikatselupainike on tässä yhteydessä todella hyödyllinen sillä voit tarkistaa miltä julkaisusi näyttää, ennen kuin jaat sen."
       format_text_q: "Kuinka voin muotoilla julkaisuni tekstiä (lihavointi, kursiivi jne.)?"
-      hide_posts_a: "Jos osoitat hiirelläsi julkaisusi yläosaa X ilmestyy oikealle. Klikkaa sitä piilottaaksesi julkaisun ja estääksesi siihen liittyvät ilmoitukset. Voit edelleen nähdä piilotetun julkaisun, jos vierailet julkaisun tehneen henkilön profiilisivulla."
+      hide_posts_a: "Jos osoitat hiirelläsi julkaisusi yläosaa, ilmestyy oikealle X. Klikkaa sitä piilottaaksesi julkaisun ja estääksesi siihen liittyvät ilmoitukset. Voit edelleen nähdä piilotetun julkaisun, jos vierailet julkaisun tehneen henkilön profiilisivulla."
       hide_posts_q: "Kuinka piilotan julkaisun? / Kuinka estän saamasta ilmoituksia julkaisusta johon olen kommentoinut?"
       image_text: "kuvateksti"
       image_url: "kuvan url"
@@ -476,7 +454,7 @@ fi:
       stream_full_of_posts_li1: "Julkaisuista henkilöiltä joiden kanssa jaat. Näitä on kahdenlaisia: julkiset julkaisut ja rajoitetut julkaisut, jotka on jaettu näkymään johon kuulut. Nämä julkaisut poistuvat yksinkertaisesti lopettamalla jakaminen kyseisen henkilön kanssa."
       stream_full_of_posts_li2: "Julkiset julkaisut, jotka sisältävät tagin, jota seuraat. Nämä poistuvat, kun lakkaat seuraamasta kyseistä tagia."
       stream_full_of_posts_li3: "Julkiset julkaisut Yhteisön Valokeilassa luetelluilta henkilöiltä. Nämä voi estää näkymästä poistamalla valinnan kohdasta \"Näytetäänkö Yhteisön valokeila virrassa?\" käyttäjätilisi asetuksissa."
-      stream_full_of_posts_q: "Miksi minun virtani on täynnä julkaisuja henkilöiltä joita en tunne ja joiden kanssa en jaa?"
+      stream_full_of_posts_q: "Miksi minun virtani on täynnä julkaisuja henkilöiltä, joita en tunne ja joiden kanssa en jaa?"
       title: "Julkaisut ja lähettäminen"
     private_posts:
       can_comment_a: "Vain kirjautuneet diaspora* käyttäjät, jotka olet sijoittanut kyseiseen näkymään, voivat tykätä tai kommentoida yksityistä julkaisuasi."
@@ -499,7 +477,7 @@ fi:
     public_posts:
       can_comment_reshare_like_a: "Kuka tahansa kirjautunut Diaspora* käyttäjä voi kommentoida, uudelleenjakaa tai tykätä julkista julkaisuasi."
       can_comment_reshare_like_q: "Kuka voi kommentoida, uudelleenjakaa tai tykätä julkista julkaisuani?"
-      deselect_aspect_posting_a: "Valinnan poistaminen näkymästä ei vaikuta julkiseen julkaisuun. Se näkyy silti kaikkien henkilöidesi virrassa. Tehdäksesi julkaisun näkyväksi vain tietylle näkymälle sinun täytyy valita halutut näkymät julkaisun alta."
+      deselect_aspect_posting_a: "Valinnan poistaminen näkymästä ei vaikuta julkiseen julkaisuun. Se näkyy silti kaikkien kontaktiesi virrassa. Tehdäksesi julkaisun näkyväksi vain tietylle näkymälle sinun täytyy valita halutut näkymät julkaisun alta."
       deselect_aspect_posting_q: "Mitä tapahtuu jos poistan valinnan yhdestä tai useammasta näkymästä tehdessäni julkista julkaisua?"
       find_public_post_a: "Julkiset julkaisusi näkyvät jokaisen sinua seuraavan virrassa. Jos merkitsit julkisen julkaisusi joillakin tai jollakin #tagilla, jokainen joka seuraa kyseistä tagia näkee julkaisusi omassa virrassaan. Jokaisella julkisella julkaisulla on myös oma URL jonka jokainen voi nähdä, jopa silloin kun he eivät ole kirjautuneet sisään - tällöin julkisiin julkaisuihin voidaan linkittää suoraan Twitteristä, blogista jne. Myös hakukoneet voivat indeksoida julkiset julkaisut."
       find_public_post_q: "Kuinka toiset henkilöt voivat löytää julkisen julkaisuni?"
@@ -538,7 +516,7 @@ fi:
       list_not_sharing_a: "Ei, mutta voit nähdä jakaako joku kanssasi vierailemalla heidän profiilisivullaan. Jos he jakavat, palkki heidän profiilikuvansa alla on vihreä; jos eivät, palkki on harmaa. Sinun tulisi kuitenkin saada ilmoitus, jos joku alkaa jakaa kanssasi."
       list_not_sharing_q: "Onko olemassa luetteloa henkilöistä, jotka olen lisännyt johonkin näkymääni mutta jotka eivät ole lisänneet minun mihinkään omaan näkymäänsä?"
       only_sharing_a: "Nämä ovat henkilöitä, jotka ovat lisänneet sinut johonkin näkymäänsä, mutta jotka eivät (vielä) ole yhdessäkään sinun näkymässäsi. Toisin sanoen he jakavat kanssasi mutta sinä et jaa heidän kanssaa (epäsymmetrinen jakaminen). Jos lisäät heidät johonkin näkymääsi he alkavat sen jälkeen näkyä kyseisessä näkymässä eivätkä enää \"Jakaa vain kanssasi\". Katso ylempää."
-      only_sharing_q: "Keitä ovat henkilöt jotka on lueteltu \"Jakaa vain kanssani\" -listassa yhteystietosivullani?"
+      only_sharing_q: "Keitä ovat henkilöt, jotka on lueteltu \"Jakaa vain kanssani\" -listassa yhteystietosivullani?"
       see_old_posts_a: "Ei. He näkevät vain kyseiseen näkymään julkaisemasi uudet julkaisut. He (ja jokainen muu) voivat nähdä vanhemmat julkiset julkaisusi profiilisivullasi, ja he voivat nähdä ne myös virrassaan."
       see_old_posts_q: "Jos lisään jonkun johonkin omaan näkymääni, voivatko he nähdä vanhemmat julkaisut jotka olen julkaissut kyseiseen näkymään?"
       title: "Jakaminen"
@@ -832,9 +810,9 @@ fi:
     add_contact:
       invited_by: "sinut kutsui"
     add_contact_small:
-      add_contact_from_tag: "lisää henkilö tagista"
+      add_contact_from_tag: "Lisää kontakti tagista"
     aspect_list:
-      edit_membership: "muokkaa näkymän jäsenyyttä."
+      edit_membership: "Muokkaa näkymän jäsenyyttä"
     helper:
       is_not_sharing: "%{name} ei jaa kanssasi"
       is_sharing: "%{name} jakaa kanssasi"
@@ -851,7 +829,7 @@ fi:
     one: "1 henkilö"
     other: "%{count} henkilöä"
     person:
-      add_contact: "lisää kontakti"
+      add_contact: "Lisää kontakti"
       already_connected: "Yhteys jo olemassa"
       pending_request: "Jonossa oleva pyyntö"
       thats_you: "Se olet sinä!"
@@ -863,7 +841,7 @@ fi:
       in_aspects: "Näkymissä"
       location: "Sijainti"
       photos: "Kuvat"
-      remove_contact: "poista kontakti"
+      remove_contact: "Poista kontakti"
       remove_from: "Poista %{name} näkymästä %{aspect}?"
     show:
       closed_account: "Tämä käyttäjätili on suljettu."
@@ -886,9 +864,9 @@ fi:
       you_have_no_tags: "Sinulla ei ole tageja!"
     webfinger:
       fail: "Valitettavasti tunnusta %{handle} ei löytynyt."
-    zero: "ei henkilöitä"
+    zero: "Ei henkilöitä"
   photos:
-    comment_email_subject: "kuva käyttäjältä %{name}"
+    comment_email_subject: "Kuva käyttäjältä %{name}"
     create:
       integrity_error: "Kuvan lataus epäonnistui. Oletko varma, että se oli kuva?"
       runtime_error: "Kuvan lataus epäonnistui. Onhan turvavyösi kiinni?"
@@ -911,7 +889,7 @@ fi:
     photo:
       view_all: "Näytä kaikki käyttäjän %{name} kuvat"
     show:
-      collection_permalink: "tallenna pysyvä linkki"
+      collection_permalink: "Tallenna pysyvä linkki"
       delete_photo: "Poista kuva"
       edit: "Muokkaa"
       edit_delete_photo: "Muokkaa kuvan kuvausta / poista kuva"
@@ -979,13 +957,11 @@ fi:
     invalid_invite: "Antamasi kutsulinkki ei ole enää voimassa!"
     new:
       create_my_account: "Luo käyttäjätili!"
-      diaspora: "<3 diaspora*"
       email: "Sähköposti"
       enter_email: "Syötä sähköpostiosoite"
       enter_password: "Syötä salasana (vähintään kuusi merkkiä)"
       enter_password_again: "Syötä sama salasana kuin edellä"
       enter_username: "Valitse käyttäjänimi (vain kirjaimet, numerot ja alaviivat sallittuja)"
-      hey_make: "HEI,<br/>JULKAISE<br/>JOTAIN."
       join_the_movement: "Liity joukkoon!"
       password: "Salasana"
       password_confirmation: "Salasana uudestaan"
@@ -1024,8 +1000,8 @@ fi:
         other: "%{count} uutta pyyntöä!"
         zero: "Ei uusia pyyntöjä"
     manage_aspect_contacts:
-      existing: "Olemassa olevat henkilöt"
-      manage_within: "Muokkaa henkilöitä näkymässä"
+      existing: "Olemassa olevat kontaktit"
+      manage_within: "Muokkaa kontakteja näkymässä"
     new_request_to_person:
       sent: "Lähetetty!"
   reshares:
@@ -1089,17 +1065,17 @@ fi:
       know_email: "Tiedätkö heidän sähköpostiosoitteitansa? Kutsu heidät!"
       your_diaspora_username_is: "Diaspora-käyttäjätunnuksesi on: %{diaspora_handle}"
     aspect_dropdown:
-      add_to_aspect: "Lisää henkilö"
+      add_to_aspect: "Lisää kontakti"
       mobile_row_checked: "%{name} (poista)"
       mobile_row_unchecked: "%{name} (lisää)"
       toggle:
         one: "%{count} näkymässä"
         other: "%{count} näkymässä"
-        zero: "Lisää henkilö"
+        zero: "Lisää kontakti"
     contact_list:
-      all_contacts: "Kaikki henkilöt"
+      all_contacts: "Kaikki kontaktit"
     footer:
-      logged_in_as: "kirjauduttu sisään käyttäjällä %{name}"
+      logged_in_as: "Kirjauduttu sisään käyttäjänä %{name}"
       your_aspects: "Näkymäsi"
     invitations:
       by_email: "Sähköpostilla"
@@ -1124,8 +1100,8 @@ fi:
       title: "Yhdistä ulkoisia palveluita"
       visibility_dropdown: "Muuta tästä pudotusvalikosta julkaisusi näkyvyyttä. (Suosittelemme, että teet tästä ensimmäisestä julkaisustasi julkisen.)"
     publisher:
-      all: "kaikki"
-      all_contacts: "kaikki henkilöt"
+      all: "Kaikki"
+      all_contacts: "Kaikki kontaktit"
       discard_post: "Hylkää julkaisu"
       formatWithMarkdown: "Voit käyttää %{markdown_link}-merkintäkieltä muotoillaksesi julkaisuasi"
       get_location: "Nouda sijaintisi"
@@ -1134,7 +1110,7 @@ fi:
         hello: "Hei kaikki, olen #%{new_user_tag}. "
         i_like: "Kiinnostukseni kohteita ovat %{tags}."
         invited_by: "Kiitos kutsusta, "
-        newhere: "UusiTäällä"
+        newhere: "uusitäällä"
       poll:
         add_a_poll: "Lisää kysely"
         add_poll_answer: "Lisää vastausvaihtoehto"
@@ -1154,7 +1130,7 @@ fi:
       reshare: "Jaa uudelleen"
     stream_element:
       connect_to_comment: "Yhdistä tähän käyttäjään kommentoidaksesi hänen julkaisuaan"
-      currently_unavailable: "kommentointi ei tällä hetkellä ole mahdollista"
+      currently_unavailable: "Kommentointi ei ole tällä hetkellä mahdollista"
       dislike: "En tykkää"
       hide_and_mute: "Piilota ja vaimenna julkaisu"
       ignore_user: "Sivuuta %{name}"
@@ -1273,7 +1249,7 @@ fi:
     edit:
       also_commented: "joku kommentoi julkaisua, jota olet itse kommentoinut"
       auto_follow_aspect: "Näkymä automaattisesti seurattaville käyttäjille:"
-      auto_follow_back: "Ryhdy jakamaan automaattisesti niiden henkilöiden kanssa, jotka alkavat jakaa sinun kanssasi"
+      auto_follow_back: "Ryhdy jakamaan automaattisesti niiden käyttäjien kanssa, jotka alkavat jakaa sinun kanssasi"
       change: "Vaihda"
       change_email: "Vaihda sähköpostiosoite"
       change_language: "Vaihda kieli"
@@ -1298,8 +1274,8 @@ fi:
       edit_account: "Muokkaa käyttäjätiliä"
       email_awaiting_confirmation: "Olemme lähettäneet sinulle aktivointilinkin osoitteeseen %{unconfirmed_email}. Jatkamme alkuperäisen osoitteesi %{email} käyttämistä siihen saakka, kunnes aktivoit uuden osoitteesi kyseisen linkin kautta."
       export_data: "Vie tietoja"
-      export_in_progress: "Profiilidataasi käsitellään parhaillaan. Kokeile uudestaan muutaman hetken kuluttua."
-      export_photos_in_progress: "Kuvatiedosotojasi käsitellään parhaillaan. Tarkista tilanne uudelleen muutaman hetken kuluttua."
+      export_in_progress: "Profiilidataasi käsitellään parhaillaan. Tarkista käsittelyn tila hetken kuluttua uudelleen."
+      export_photos_in_progress: "Kuvatiedostojasi käsitellään parhaillaan. Tarkista tilanne uudelleen hetken kuluttua."
       following: "Jakamisen asetukset"
       getting_started: "Uudet käyttäjäasetukset"
       last_exported_at: "(Viimeksi päivitetty %{timestamp})"
@@ -1309,6 +1285,7 @@ fi:
       private_message: "saat yksityisviestin"
       receive_email_notifications: "Vastaanota sähköposti-ilmoituksia, kun:"
       request_export: "Pyydä profiilidataani"
+      request_export_photos_update: "Päivitä kuvani"
       request_export_update: "Päivitä profiilidatani"
       reshared: "joku jakaa julkaisusi uudelleen"
       show_community_spotlight: "Näytä \"yhteisön valokeila\" virrassa"
@@ -1352,7 +1329,7 @@ fi:
   webfinger:
     fetch_failed: "webfinger-profiilin %{profile_url} haku epäonnistui"
     hcard_fetch_failed: "tapahtui virhe haettaessa hcard:ia tilille %{account}"
-    no_person_constructed: "Yhtäkään henkilöä ei pystytty kokoamaan tältä hcard:ilta."
+    no_person_constructed: "Yhtäkään henkilöä ei pystytty kokoamaan tältä hcardilta."
     not_enabled: "webfinger-palvelua ei ilmeisesti ole aktivoitu tilin, %{account}, isännälle"
     xrd_fetch_failed: "tapahtui virhe haettaessa xrd:tä käyttäjätilille %{account}"
   welcome: "Tervetuloa!"

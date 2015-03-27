@@ -128,8 +128,6 @@ hu:
     add_to_aspect:
       failure: "A kapcsolatot nem sikerült felvenni a csoportba."
       success: "A kapcsolat hozzáadva a csoporthoz."
-    aspect_contacts:
-      done_editing: "szerkesztés kész"
     aspect_listings:
       add_an_aspect: "+ Új csoport"
       deselect_all: "Kijelölések törlése"
@@ -148,25 +146,18 @@ hu:
       failure: "%{name} nem üres, így nem lehet törölni."
       success: "%{name} csoport sikeresen törölve."
     edit:
-      add_existing: "Létező kapcsolat hozzáadása"
       aspect_chat_is_enabled: "A csoport tagjai beszélgethetnek veled."
       aspect_chat_is_not_enabled: "A csoport tagjai nem beszélgethetnek veled."
       aspect_list_is_not_visible: "csoportlista rejtett a csoporttagok számára"
       aspect_list_is_visible: "csoportlista látható a csoporttagok számára"
       confirm_remove_aspect: "Biztos, hogy törölni akarod a csoportot?"
-      done: "Kész"
       grant_contacts_chat_privilege: "feljogosítod a csoport tagjait, hogy beszélgethessenek veled?"
       make_aspect_list_visible: "a csoporttagok láthatják egymást"
-      manage: "Szerkesztés"
       remove_aspect: "Csoport törlése"
       rename: "átnevezés"
       set_visibility: "Láthatóság beállítása"
       update: "frissítés"
       updating: "frissítés"
-    helper:
-      are_you_sure: "Biztos, hogy törlöd a csoportot?"
-      aspect_not_empty: "A csoport nem üres"
-      remove: "eltávolítás"
     index:
       diaspora_id:
         content_1: "A te diaspora* azonosítód:"
@@ -207,10 +198,6 @@ hu:
         heading: "Összekapcsolt szolgáltatások"
       unfollow_tag: "Követés leállítása #%{tag}"
       welcome_to_diaspora: "Üdv a diaspora* közösségi oldalon, %{name}!"
-    move_contact:
-      error: "Hiba a kapcsolat mozgatásakor: %{inspect}"
-      failure: "nem működött: %{inspect}"
-      success: "Más csoportba tett téged."
     new:
       create: "Létrehoz"
       name: "Név"
@@ -228,13 +215,6 @@ hu:
       family: "Család"
       friends: "Barátok"
       work: "Munka"
-    selected_contacts:
-      manage_your_aspects: "Csoportok kezelése"
-      no_contacts: "Itt még nincs ismerősöd."
-      view_all_community_spotlight: "Minden figyelem középpontjában lévő tartalom"
-      view_all_contacts: "Összes kapcsolat"
-    show:
-      edit_aspect: "csoport szerkesztése"
     update:
       failure: "A %{name} nevű csoportodnak túl hosszú a neve."
       success: "%{name} csoport szerkesztve."
@@ -267,14 +247,12 @@ hu:
       add_a_new_aspect: "Új csoport"
       add_contact: "Ismerős hozzáadása"
       add_to_aspect: "Kapcsolatok hozzáadása %{name}"
-      add_to_aspect_link: "ismerősök hozzáadása: %{name}"
       all_contacts: "Összes ismerős"
       community_spotlight: "A figyelem középpontjában"
       many_people_are_you_sure: "Biztos, hogy magánbeszélgetést akarsz kezdeményezni több mint %{suggested_limit} személlyel? Talán jobb lenne, ha bejegyzést írnál ennek a csoportnak."
       my_contacts: "Kapcsolataim"
       no_contacts: "Nincs ismerősöd."
       no_contacts_message: "Tekintsd meg %{community_spotlight} álló népszerű tagokat"
-      no_contacts_message_with_aspect: "Tekintsd meg %{community_spotlight} álló népszerű közösségi tagokat vagy lehetőségedben áll még %{add_to_aspect_link}"
       only_sharing_with_me: "Követők"
       remove_contact: "Ismerős eltávolítása"
       start_a_conversation: "Beszélgetés indítása"
@@ -879,13 +857,11 @@ hu:
     invalid_invite: "Ez a meghívó többé nem érvényes!"
     new:
       create_my_account: "Fiók létrehozása!"
-      diaspora: "Diaspora*"
       email: "E-MAIL"
       enter_email: "Írd be az e-mail címed"
       enter_password: "Adj meg egy jelszót (legalább hat karakterből álljon)"
       enter_password_again: "Ugyanazt a jelszót írd amit az előbb"
       enter_username: "Válassz egy felhasználónevet (csak angol betű, szám és aláhúzás megengedett)"
-      hey_make: "GYERÜNK,<br/>KEZDJ<br/>BELE!"
       join_the_movement: "Csatlakozz!"
       password: "JELSZÓ"
       password_confirmation: "JELSZÓ MEGERŐSÍTÉS"

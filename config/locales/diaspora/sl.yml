@@ -122,8 +122,6 @@ sl:
     add_to_aspect:
       failure: "Dodajanje stika v vidik ni uspelo."
       success: "Dodajanje stika v vidik je uspelo."
-    aspect_contacts:
-      done_editing: "zaključi urejanje"
     aspect_listings:
       add_an_aspect: "+ Dodaj vidik"
       deselect_all: "Odstrani izbiro"
@@ -142,20 +140,14 @@ sl:
       failure: "%{name} ni prazen in ga ni mogoče odstraniti."
       success: "%{name} je uspešno odstranjen."
     edit:
-      add_existing: "Dodaj obstoječi stik"
       aspect_list_is_not_visible: "seznam vidikov ni viden ostalim stikom v tem vidiku"
       aspect_list_is_visible: "seznam vidikov je viden ostalim stikom v tem vidiku"
       confirm_remove_aspect: "Ali ste prepričani, da bi radi izbrisali ta vidik?"
-      done: "Končano"
       make_aspect_list_visible: "naj bodo stiki v tem vidiku vidni med sabo?"
       remove_aspect: "Izbriši ta vidik"
       rename: "preimenuj"
       update: "posodobi"
       updating: "posodabljanje"
-    helper:
-      are_you_sure: "Ste prepričani, da želite izbrisati ta vidik?"
-      aspect_not_empty: "Vidik ni prazen"
-      remove: "odstrani"
     index:
       diaspora_id:
         content_1: "Vaš Diaspora ID je:"
@@ -194,10 +186,6 @@ sl:
         heading: "Povežite storitve"
       unfollow_tag: "Nehaj slediti #%{tag}"
       welcome_to_diaspora: "Dobrodošli v Diaspori, %{name}!"
-    move_contact:
-      error: "Prestavljanje stika neuspešno: %{inspect}"
-      failure: "ni uspelo %{inspect}"
-      success: "Oseba je prestavljena v nov vidik"
     new:
       create: "Ustvari"
       name: "Ime (vidno samo vam)"
@@ -215,13 +203,6 @@ sl:
       family: "Družina"
       friends: "Prijatelji"
       work: "Služba"
-    selected_contacts:
-      manage_your_aspects: "Urejanje pogledov."
-      no_contacts: "Zaenkrat ste še brez stikov."
-      view_all_community_spotlight: "Poglej vsa središča pozornosti skupnosti"
-      view_all_contacts: "Poglej vse stike"
-    show:
-      edit_aspect: "uredi vidik"
     update:
       failure: "Vidik %{name} ima predolgo ime, zato ga ni mogoče shraniti."
       success: "Vaš vidik %{name} je bil uspešno posodobljen."
@@ -253,14 +234,12 @@ sl:
     index:
       add_a_new_aspect: "Dodaj nov vidik"
       add_to_aspect: "Dodaj stik k %{name}"
-      add_to_aspect_link: "dodaj stike k %{name}"
       all_contacts: "Vsi stiki"
       community_spotlight: "Središče pozornosti skupnosti"
       many_people_are_you_sure: "Ste prepričani, da želite začeti zasebni pogovor z več kot %{suggested_limit} stiki? Morda bi bilo bolje, da bi sporočilo objavili v tem vidiku."
       my_contacts: "Moji stiki"
       no_contacts: "Izgleda, da morate dodati kakšen stik!"
       no_contacts_message: "Preveri %{community_spotlight}"
-      no_contacts_message_with_aspect: "Preveri %{community_spotlight} ali %{add_to_aspect_link}"
       only_sharing_with_me: "Delijo samo z mano"
       start_a_conversation: "Začni pogovor"
       title: "Stiki"
@@ -687,13 +666,11 @@ sl:
     invalid_invite: "Povezava na povabilo, ki ste jo uporabili ni več veljavna!"
     new:
       create_my_account: "Ustvari moj račun!"
-      diaspora: "<3 Diaspora*"
       email: "E-POŠTA"
       enter_email: "Vpišite e-naslov"
       enter_password: "Vpišite geslo (najmanj šest znakov)"
       enter_password_again: "Ponovno vpišite isto geslo"
       enter_username: "Izberite uporabniško ime (samo črke, številke in podčrtaji)"
-      hey_make: "HEJ,<br/>NAREDI<br/>NEKAJ."
       join_the_movement: "Pridružite se gibanju!"
       password: "GESLO"
       password_confirmation: "POTRDITEV GESLA"

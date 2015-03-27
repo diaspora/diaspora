@@ -141,8 +141,6 @@ en_valspeak:
     add_to_aspect:
       failure: "there was like... a problem addin bff to aspect."
       success: "OMG! Movin them like, totally WORKED! <333"
-    aspect_contacts:
-      done_editing: "done like... changin stuff"
     aspect_listings:
       add_an_aspect: "+ Addn aspect"
       deselect_all: "unhighlight everythin"
@@ -161,22 +159,15 @@ en_valspeak:
       failure: "%{name} is like... not gone n so it like... cant b removed... sry bout tht :\\"
       success: "%{name} is nao like... gone n stuff."
     edit:
-      add_existing: "Add some1 that is like... already in ur aspectz"
       aspect_list_is_not_visible: "Ppl in this aspect r like.. not able 2 c each other."
       aspect_list_is_visible: "Ppl in this aspect r like.. able 2 c each other."
       confirm_remove_aspect: "R u sure u want 2 like... remove this aspect?"
-      done: "K"
       make_aspect_list_visible: "make ppl in this group like... able 2 see each other?"
-      manage: "Manage<3"
       remove_aspect: "Git rid of this aspect"
       rename: "bag this name.."
       set_visibility: "Set look at prefs"
       update: "make like... newer..."
       updating: "makin like... newer..."
-    helper:
-      are_you_sure: "R u sure u wanna trash this aspect? Like, RLLY sure? Totally SURE?"
-      aspect_not_empty: "Umm, the aspect is like... not empty..."
-      remove: "delete thing.."
     index:
       diaspora_id:
         content_1: "ur diaspora* id is:"
@@ -217,10 +208,6 @@ en_valspeak:
         heading: "connect like... other stuff.."
       unfollow_tag: "Stop creepin on ppl who like... post stuff usin %{tag}"
       welcome_to_diaspora: "OMG HEY! Like, welcome to diaspora*, %{name}. its pretty bitchin' n has electrolytes(;"
-    move_contact:
-      error: "Like, there was drama when movin BFF: %{inspect}"
-      failure: "like... didn't work.. %{inspect}"
-      success: "BFF moved to new aspect"
     new:
       create: "Make like.. a new aspect"
       name: "Name (only like... u can c it)"
@@ -238,13 +225,6 @@ en_valspeak:
       family: "Fam"
       friends: "BFFs"
       work: "Work bffs"
-    selected_contacts:
-      manage_your_aspects: "manage ur aspectz"
-      no_contacts: "u dont have ne ppl here yet"
-      view_all_community_spotlight: "C all the d* celebz"
-      view_all_contacts: "View all BFFs <3"
-    show:
-      edit_aspect: "like... edit aspect"
     update:
       failure: "Ur group, %{name}, had like... a rlly long name.. so yeah... it wasnt saved... sry :\\"
       success: "Ur aspect, %{name}, has like... not flipped out. So ur good!(:"
@@ -277,14 +257,12 @@ en_valspeak:
       add_a_new_aspect: "add a new aspect!"
       add_contact: "Add BFF <3"
       add_to_aspect: "add BFFs 2 %{name}"
-      add_to_aspect_link: "add BFFs 2 %{name}"
       all_contacts: "All BFFs!!"
       community_spotlight: "d* celebz <33"
       many_people_are_you_sure: "R u like totally sure u want 2 like... start a privy convo with moar than %{suggested_limit} ppl? postin 2 this group may b a like... better way 2 talk 2 them.. yeah..."
       my_contacts: "My BFFs!!! <333"
       no_contacts: "u like... need 2 add sum ppl"
       no_contacts_message: "OMG! u should like... check out %{community_spotlight}"
-      no_contacts_message_with_aspect: "OMG! u should like totally check out %{community_spotlight} or like... %{add_to_aspect_link}"
       only_sharing_with_me: "only sharin wit me"
       remove_contact: "Trash BFF :("
       start_a_conversation: "start a like... convo"
@@ -913,13 +891,11 @@ en_valspeak:
     invalid_invite: "OMG, dude, ur invite link is like... SOOOO old... like... gross. so like, sry but its no longer valid. Kthxbye<3"
     new:
       create_my_account: "Make ur account!!! :DD"
-      diaspora: "<33 diaspora*"
       email: "EMAIL<3"
       enter_email: "Enter like... an email"
       enter_password: "Enter a like... secret code thats like... moar than 6 keys n junk"
       enter_password_again: "enter what u liek... entered b4"
       enter_username: "So like.. pick a name that ppl will like... call u by.. n sry but u can only like.. use letters numbers n these things \"_\" but like.. witout the up n down lines n junk..."
-      hey_make: "OHAI,<br/>LIKE<br/>MAKE<br/>SOMETHING.<br/>YOLO!"
       join_the_movement: "Join the awesomeness!!!"
       password: "PASSWERD<3"
       password_confirmation: "PASSWERD CONFIRMATION!!"

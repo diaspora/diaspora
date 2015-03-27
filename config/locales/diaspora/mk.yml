@@ -54,15 +54,10 @@ mk:
     destroy:
       success: "%{name} е отстранет успешно."
     edit:
-      add_existing: "Додади постоечки контакт"
-      done: "Завршено"
       make_aspect_list_visible: "make aspect list visible?"
       rename: "реименувај"
       update: "ажурирај"
       updating: "ажурирање"
-    helper:
-      aspect_not_empty: "Аспектот не е празен"
-      remove: "одстрани"
     index:
       donate: "Донирај"
       handle_explanation: "Ова е вашето diaspora корисничко име. Исто како е-маил адреса, можете да го давате на луѓе за да се сврзат со вас."
@@ -78,10 +73,6 @@ mk:
         learn_more: "Научи повеќе"
       no_contacts: "Нема контакти"
       no_tags: "No tags"
-    move_contact:
-      error: "Грешка при преместувањето на контактот: %{inspect}"
-      failure: "не проработи %{inspect}"
-      success: "Личноста е преместена во нов аспект"
     new:
       create: "Направи"
       name: "Name"
@@ -95,11 +86,6 @@ mk:
       family: "Фамилија"
       friends: "Пријатели"
       work: "Работа"
-    selected_contacts:
-      no_contacts: "Тука сеуште немате контакти."
-      view_all_contacts: "Сите контакти"
-    show:
-      edit_aspect: "уреди аспект"
     update:
       success: "Вашиот аспект, %{name}, беше успешно уреден."
     zero: "no aspects"

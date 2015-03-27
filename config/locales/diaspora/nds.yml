@@ -121,8 +121,6 @@ nds:
     add_to_aspect:
       failure: "Kunn Kontakt nich ton Aspekt dortodoon."
       success: "Kontakt erfolgriek ton Aspekt dortodaan."
-    aspect_contacts:
-      done_editing: "Bearbeiden ferdig"
     aspect_listings:
       add_an_aspect: "+ Een Aspekt dortodoon"
       deselect_all: "All afwählen"
@@ -141,20 +139,14 @@ nds:
       failure: "%{name} is nich leer un kunn nich wegmakt warrn."
       success: "%{name} is erfolgriek wegmakt worrn."
     edit:
-      add_existing: "Wen dortodoon, mit den du schon Kontakt hest"
       aspect_list_is_not_visible: "Kontakte in dissen Aspekt künnt sick nich gegensiedich seihn."
       aspect_list_is_visible: "Kontakte in dissen Aspekt künnt sick gegensiedich seihn."
       confirm_remove_aspect: "Bist du seker, dat du dissen Aspekt löschen wist?"
-      done: "Ferdig"
       make_aspect_list_visible: "Kontakte in dissen Aspekt to sick sülbst sichtbor moken?"
       remove_aspect: "Dissen Aspekt löschen"
       rename: "Ümnömen"
       update: "Opfrischen"
       updating: "Opfrischen"
-    helper:
-      are_you_sure: "Bist du sicher, dat du dissen Aspekt löschen wist?"
-      aspect_not_empty: "Aspekt nich leer"
-      remove: "Wegmaken"
     index:
       diaspora_id:
         content_1: "Diene diaspora*-ID is:"
@@ -191,10 +183,6 @@ nds:
         heading: "Verbinn Deenste"
       unfollow_tag: "Ophören, #%{tag} to folgen"
       welcome_to_diaspora: "Willkomen to diaspora*, %{name}!"
-    move_contact:
-      error: "Fehler bin verschuben von den Kontakt: %{inspect}"
-      failure: "Hett nich fungscheneert %{inspect}"
-      success: "Person in nee’en Aspekt verschoben"
     new:
       create: "Anleggen"
       name: "Naam (nur för di sichtbor)"
@@ -211,12 +199,6 @@ nds:
       family: "Familie"
       friends: "Frünnen"
       work: "Arbeit"
-    selected_contacts:
-      manage_your_aspects: "Verwalt diene Aspekte."
-      no_contacts: "Du hest hier noch keene Kontakte."
-      view_all_contacts: "Alle Kontakte ankieken"
-    show:
-      edit_aspect: "Aspekt bearbeiden"
     update:
       failure: "De Naam von dien Aspekt, %{name}, wöör to lang ton Spiekern."
       success: "Dien Aspekt, %{name}, is erfolgriek ännert worrn."
@@ -249,13 +231,11 @@ nds:
       add_a_new_aspect: "Do een nee’en Kontakt dorto"
       add_contact: "Kontakt sluten"
       add_to_aspect: "Kontakte to %{name} dortodoon"
-      add_to_aspect_link: "Do Kontakte to %{name} dorto"
       all_contacts: "Alle Kontakte"
       many_people_are_you_sure: "Bist du seker dat du een privaten Snack mit mehr as %{suggested_limit} Lüü anfangen wist? Een Bidrag an dissen Aspekt to verfaten is villicht eene betere Lösung."
       my_contacts: "Miene Kontakte"
       no_contacts: "Süht so ut, as op du een poor mehr Kontakte sluten muss!"
       no_contacts_message: "Bekiek doch mal dat %{community_spotlight}"
-      no_contacts_message_with_aspect: "Bekiek doch mal dat %{community_spotlight} or %{add_to_aspect_link}"
       only_sharing_with_me: "Nur mit di deelende"
       start_a_conversation: "Fang een Snack an"
       title: "Kontakte"
@@ -713,13 +693,11 @@ nds:
     invalid_invite: "Dien Inladungslink is nich mehr güllig!"
     new:
       create_my_account: "Legg mien Konto an!"
-      diaspora: "<3 diaspora*"
       email: "E-MAIL-ADRESS"
       enter_email: "Geev een E-Mail-Adress in"
       enter_password: "Geev een Passwoort in (minnens söss Teken)"
       enter_password_again: "Geev dat glieke Passwoort wie vörher in"
       enter_username: "Sök di een Benutternaam ut (nur Bookstaven, Nummern un Ünnerstreeke)"
-      hey_make: "HE,<br/>MOK<br/>WAT."
       join_the_movement: "Mok bi de Bewegung mit!"
       password: "PASSWOORT"
       password_confirmation: "PASSWOORTBESTÄTIGUNG"

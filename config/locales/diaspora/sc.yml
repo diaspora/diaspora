@@ -53,11 +53,9 @@ sc:
     contacts_not_visible: "Sos cuntatos de custa cara non s'ant a pòdere bìdere intre issos."
     contacts_visible: "Sos cuntatos de custa cara s'ant a pòdere bìdere intre issos."
     edit:
-      add_existing: "Annanghe unu cuntatu esistente"
       aspect_list_is_not_visible: "Sos cuntatos de custa cara non si podent bìdere intre issos."
       aspect_list_is_visible: "Sos cuntatos de custa cara si podent bìdere intre issos."
       confirm_remove_aspect: "Seguru ses de bòlere burrare custa cara?"
-      done: "Fatu"
       make_aspect_list_visible: "Boles chi sos cuntatos de custa cara s'ant a pòdere bìdere intre issos?"
       remove_aspect: "Burra custa cara"
       rename: "Càmbia nùmene"

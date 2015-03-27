@@ -47,11 +47,8 @@ gd:
       edit_aspect: "Deasaich %{name}"
       select_all: "Tagh na h-uile"
     edit:
-      done: "Deiseil"
       update: "ùraich"
       updating: "ag ùrachadh"
-    helper:
-      remove: "dubh às"
     index:
       diaspora_id:
         content_1: "'S e seo an ID diaspora* agad:"
@@ -89,7 +86,6 @@ gd:
       all_contacts: "Càirdean gu lèir"
       my_contacts: "Mo Chàirdean"
       no_contacts_message: "Thoir sùil air %{community_spotlight}"
-      no_contacts_message_with_aspect: "Thoir sùil air %{community_spotlight} no %{add_to_aspect_link}"
       title: "Càirdean"
       your_contacts: "Do Chàirdean"
     one: "1 chàraid"
