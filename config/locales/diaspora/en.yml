@@ -187,10 +187,7 @@ en:
       make_aspect_list_visible: "Make contacts in this aspect visible to each other?"
       remove_aspect: "Delete this aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
-      add_existing: "Add an existing contact"
       set_visibility: "Set visibility"
-      manage: "Manage"
-      done: "Done"
       rename: "Rename"
       aspect_list_is_visible: "Contacts in this aspect are able to see each other."
       aspect_list_is_not_visible: "Contacts in this aspect are not able to see each other."
@@ -198,10 +195,6 @@ en:
       aspect_chat_is_not_enabled: "Contacts in this aspect are not able to chat with you."
       update: "Update"
       updating: "Updating"
-    aspect_contacts:
-      done_editing: "Finished editing"
-    show:
-      edit_aspect: "Edit aspect"
     no_posts_message:
       start_talking: "Nobody has said anything yet!"
     no_contacts_message:
@@ -214,11 +207,6 @@ en:
       deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
       add_an_aspect: "+ Add an aspect"
-    selected_contacts:
-      view_all_community_spotlight: "See all community spotlight"
-      view_all_contacts: "View all contacts"
-      no_contacts: "You don’t have any contacts here yet."
-      manage_your_aspects: "Manage your aspects."
     new:
       name: "Name (only visible to you)"
       create: "Create"
@@ -231,17 +219,9 @@ en:
     update:
       success: "Your aspect, %{name}, has been successfully edited."
       failure: "Your aspect, %{name}, had too long name to be saved."
-    move_contact:
-      failure: "Didn’t work %{inspect}"
-      success: "Person moved to new aspect"
-      error: "Error moving contact: %{inspect}"
     add_to_aspect:
       failure: "Failed to add contact to aspect."
       success: "Successfully added contact to aspect."
-    helper:
-      remove: "Remove"
-      aspect_not_empty: "Aspect not empty"
-      are_you_sure: "Are you sure you want to delete this aspect?"
     seed:
       family: "Family"
       work: "Work"
@@ -337,16 +317,15 @@ en:
       your_contacts: "Your contacts"
       no_contacts: "Looks like you need to add some contacts!"
       no_contacts_message: "Check out %{community_spotlight}"
-      no_contacts_message_with_aspect: "Check out %{community_spotlight} or %{add_to_aspect_link}"
-      add_to_aspect_link: "Add contacts to %{name}"
       community_spotlight: "Community spotlight"
+      no_contacts_in_aspect: "You don't have any contacts in this aspect yet. Below is a list of your existing contacts which you can add to this aspect."
       my_contacts: "My contacts"
       all_contacts: "All contacts"
       only_sharing_with_me: "Only sharing with me"
       add_contact: "Add contact"
       remove_contact: "Remove contact"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
-      user_search: "User search"
+      user_search: "Contact search"
     spotlight:
       community_spotlight: "Community spotlight"
       suggest_member: "Suggest a member"

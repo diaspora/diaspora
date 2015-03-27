@@ -11,6 +11,9 @@
         = render 'contacts/header'
 
         - if @contacts_size > 0
+          - if @aspect && @aspect.contacts.length == 0
+            .well
+              = t('.no_contacts_in_aspect')
           #contact_stream
             -# JS
 
