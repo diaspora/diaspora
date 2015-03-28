@@ -6,8 +6,6 @@ class PeopleController < ApplicationController
   before_action :authenticate_user!, except: [:show, :stream]
   before_action :find_person, only: [:show, :stream, :hovercard]
 
-  layout proc { request.format == :mobile ? "application" : "with_header" }, only: %i( show contacts )
-
   respond_to :html, :except => [:tag_index]
   respond_to :json, :only => [:index, :show]
   respond_to :js, :only => [:tag_index]
@@ -91,7 +89,7 @@ class PeopleController < ApplicationController
         gon.preloads[:contacts] = {
           count: Contact.contact_contacts_for(current_user, @person).count(:all),
         }
-        respond_with @person
+        respond_with @person, layout: "with_header"
       end
 
       format.mobile do
@@ -151,7 +149,7 @@ class PeopleController < ApplicationController
       }
       @contacts_of_contact = @contacts_of_contact.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
       @hashes = hashes_for_people @contacts_of_contact, @aspects
-      respond_with @person
+      respond_with @person, layout: "with_header"
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'
       redirect_to people_path

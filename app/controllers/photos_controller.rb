@@ -6,8 +6,6 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!, :except => :show
   respond_to :html, :json
 
-  layout proc { request.format == :mobile ? "application" : "with_header" }, only: :index
-
   def show
     @photo = if user_signed_in?
       current_user.photos_from(Person.find_by_guid(params[:person_id])).where(id: params[:id]).first
@@ -34,7 +32,7 @@ class PhotosController < ApplicationController
           gon.preloads[:contacts] = {
             count: Contact.contact_contacts_for(current_user, @person).count(:all),
           }
-          render 'people/show'
+          render "people/show", layout: "with_header"
         end
         format.json{ render_for_api :backbone, :json => @posts, :root => :photos }
       end
