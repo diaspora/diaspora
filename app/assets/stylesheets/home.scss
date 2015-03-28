@@ -1,0 +1,84 @@
+body {
+  margin-top: 50px;
+  background-color: white;
+  background-image : none;
+}
+
+li {
+  list-style: none;
+}
+
+footer h3 {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+footer {
+  margin-bottom: 12px;
+  padding: 42px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  width: auto
+}
+
+#header {
+  /* Hack to hide the header */
+  box-shadow:none;
+  border:none;
+  background:none;
+
+  left: 0px;
+  padding: 15px 0px;
+}
+
+#header img {
+  margin-left: 15px;
+}
+
+#login-link {
+  float: right;
+  margin-right: 15px;
+}
+
+#steps {
+  text-align: center;
+}
+
+#banner {
+  border-bottom : 1px solid #ccc;
+  border-top : 1px solid #eee;
+  padding : 30px;
+  margin-top: 20px;
+  text-align: center;
+
+  box-shadow : 0 9px 15px -10px rgba(0,0,0,0.7);
+}
+
+#links {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#links .section {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: top;
+  width: 24%;
+  max-width: 24%;
+}
+
+#change-page {
+  color: #999;
+  text-align: center;
+  font-style: italic;
+}
+
+.helpful {
+  cursor: help;
+}
+
+.row {
+  margin-bottom: 60px;
+}

@@ -88,6 +88,7 @@ module Diaspora
       admin.css
       mobile/mobile.css
       rtl.css
+      home.css
     }
 
     # Version of your assets, change this if you want to expire all your assets
