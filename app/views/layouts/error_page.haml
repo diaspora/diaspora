@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title= page_title yield(:page_title)
+
+    %link{rel: "shortcut icon", href: image_path("favicon.png")}
+    %link{rel: "apple-touch-icon", href: image_path("apple-touch-icon.png")}
+
+    = stylesheet_link_tag :error_pages, media: "all"
+
+    = yield(:head)
+
+  %body{id: "error_#{@code}"}
+    = yield
