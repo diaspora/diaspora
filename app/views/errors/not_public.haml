@@ -3,12 +3,11 @@
 -# the COPYRIGHT file.
 
 - content_for :head do
-  = stylesheet_link_tag :error_pages, :media => 'all'
+  = stylesheet_link_tag "/404.css", :media => 'all'
 
-  #big-number.transparent
-    404
-
-  #content
-    = t('error_messages.post_not_public_or_not_exist')
-    %br
-    = t('error_messages.login_try_again', :login_link => new_user_session_path).html_safe
+#big-number.transparent
+  404
+%p
+  = t('error_messages.post_not_public_or_not_exist')
+%p
+  = t('error_messages.login_try_again', :login_link => new_user_session_path).html_safe

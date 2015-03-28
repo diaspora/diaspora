@@ -24,6 +24,8 @@ body {
 	text-shadow: 0 1px 0 #fff;
 	color: #666;
 	background: url("peeping-tom.png") no-repeat bottom;
+	font-size: medium;
+	line-height: normal;
 }
 
 #big-number {
