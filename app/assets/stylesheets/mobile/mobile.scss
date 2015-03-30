@@ -1204,3 +1204,8 @@ select#aspect_ids_ {
     background-color: $light-green;
   }
 }
+
+/* --- Tag page --- */
+#app #main h1 {
+  word-wrap: break-word;
+}
