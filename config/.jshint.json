@@ -1,6 +1,6 @@
 {
   "bitwise":    true,
-  "camelcase":  false,
+  "camelcase":  true,
   "curly":      true,
   "eqeqeq":     true,
   "forin":      true,
@@ -8,13 +8,13 @@
   "immed":      true,
   "indent":     2,
   "latedef":    true,
-  "maxlen":     false,
+  "maxlen":     120,
   "newcap":     true,
   "noarg":      true,
   "noempty":    true,
   "nonbsp":     true,
   "nonew":      false,
-  "quotmark":   false,
+  "quotmark":   "double",
   "undef":      true,
   "unused":     true,
 
