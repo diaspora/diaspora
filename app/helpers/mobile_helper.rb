@@ -26,7 +26,7 @@ module MobileHelper
   end
 
   def mobile_comment_icon(post)
-    link_to '', new_post_comment_path(post), :class => "image_link comment_action inactive"
+    link_to '', post_comments_path(post, :format => "mobile"), :class => "image_link comment_action inactive"
   end
 
   def reactions_link(post)

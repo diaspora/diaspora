@@ -125,55 +125,75 @@ $(document).ready(function(){
     }
   });
 
-  /* Show comments */
-  $("a.show_comments", ".stream").bind("tap click", function(evt){
-    evt.preventDefault();
-    var link = $(this),
+  var showComments = function(element, show_form) {
+    var link = $(element),
         parent = link.closest(".bottom_bar").first(),
+        activeElements = parent.find('.comment_action, .show_comments'),
         commentsContainer = function(){ return parent.find(".comment_container").first(); },
         existingCommentsContainer = commentsContainer();
 
-    if( link.hasClass('active') ) {
-      existingCommentsContainer.hide();
-      if(!link.hasClass('bottom_collapse')){
-        link.removeClass('active');
+    var initializeReactionsView = function() {
+      // Update 'reactions' link and 'pen' button to reflect the current state
+      activeElements.removeClass('inactive').addClass('active');
+
+      // Show or hide the new comment form depending on 'show_form' param
+      var newCommentForm = commentsContainer().find('.new_comment')
+          addCommentLink = commentsContainer().find('.add_comment_bottom_link')
+          ;
+      if (show_form) {
+        newCommentForm.show();
+        addCommentLink.hide();
+        // Scroll to the comment list or to the form
+        scrollToOffset(parent, commentsContainer())
       } else {
-        parent.find(".show_comments").first().removeClass('active');
+        newCommentForm.hide();
+        addCommentLink.show();
+        scrollToCommentsList(parent)
       }
+
+      commentsContainer().find('time.timeago').timeago();
+    };
+
+    // Hides reactions/comments
+    if (activeElements.hasClass('active')) {
+      existingCommentsContainer.hide();
+      activeElements.removeClass('active').addClass('inactive');
 
       $('html,body').scrollTop(parent.offset().top - parent.closest(".stream_element").height() - 8);
 
-    } else if( existingCommentsContainer.length > 0) {
-
-      if(!existingCommentsContainer.hasClass('noComments')) {
+    // Show reactions/comments if it already exists
+    } else if (existingCommentsContainer.length > 0) {
+      // If there wasn't any comments then try to refresh the list from server
+      if (existingCommentsContainer.hasClass('noComments')) {
         $.ajax({
           url: link.attr('href'),
           success: function(data){
             parent.append($(data).find('.comments_container').html());
-            link.addClass('active');
             existingCommentsContainer.show();
-            scrollToCommentsList(parent);
-            commentsContainer().find('time.timeago').timeago();
+            initializeReactionsView();
           }
         });
       } else {
         existingCommentsContainer.show();
-        existingCommentsContainer.find('time.timeago').timeago();
+        initializeReactionsView();
       }
 
-      link.addClass('active');
-
+    // Fetch reactions from server
     } else {
       $.ajax({
         url: link.attr('href'),
         success: function(data){
           parent.append(data);
-          link.addClass('active');
-          scrollToCommentsList(parent);
-          commentsContainer().find('time.timeago').timeago();
+          initializeReactionsView();
         }
       });
     }
+  };
+
+  /* Show comments */
+  $("a.show_comments", ".stream").bind("tap click", function(evt){
+    evt.preventDefault();
+    showComments(this);
   });
 
   var scrollToCommentsList = function(container, speed) {
@@ -193,35 +213,30 @@ $(document).ready(function(){
     }
   };
 
+  $(".stream").delegate("a.add_comment_bottom_link", "tap click", function(evt) {
+    evt.preventDefault();
+
+    var link = $(this),
+        parent = link.closest(".bottom_bar").first(),
+        commentsContainer = function(){ return parent.find(".comment_container").first(); };
+
+      // Show or hide the new comment form depending on 'show_form' param
+      var newCommentForm = commentsContainer().find('.new_comment')
+          addCommentLink = commentsContainer().find('.add_comment_bottom_link')
+
+      if (addCommentLink.is(":visible")) {
+        newCommentForm.show();
+        addCommentLink.hide();
+      } else {
+        newCommentForm.hide();
+        addCommentLink.show();
+      }
+      
+  });
+
   $(".stream").delegate("a.comment_action", "tap click", function(evt){
     evt.preventDefault();
-    var link = $(this);
-
-    if(link.hasClass('inactive')) {
-      var parent = link.closest(".bottom_bar").first(),
-          container = link.closest('.bottom_bar').find('.add_comment_bottom_link_container').first();
-
-      $.ajax({
-        url: link.attr('href'),
-        beforeSend: function(){
-          link.addClass('loading');
-        },
-        context: link,
-        success: function(data){
-          var textarea = function(target) { return target.closest(".stream_element").find('textarea.comment_box').first()[0] };
-          link.removeClass('loading');
-
-          if(!link.hasClass("add_comment_bottom_link")){
-            link.removeClass('inactive');
-          }
-
-          container.hide();
-          parent.append(data);
-
-          MBP.autogrow(textarea($(this)));
-        }
-      });
-    }
+    showComments(this, true);
   });
 
   $(".stream").delegate("a.cancel_new_comment", "tap click", function(evt){
@@ -241,7 +256,8 @@ $(document).ready(function(){
 
   $(document).on("submit", ".new_comment", function(evt){
     evt.preventDefault();
-    var form = $(this);
+    var form = $(this),
+      text = $(form).find('.btn.primary').val();
 
     $.post(form.attr('action')+"?format=mobile", form.serialize(), function(data){
       var bottomBar = form.closest('.bottom_bar').first(),
@@ -250,9 +266,11 @@ $(document).ready(function(){
           reactionLink = bottomBar.find(".show_comments").first(),
           commentCount = bottomBar.find(".comment_count");
 
-      if(container.length > 0) {
+      if (container.length > 0) {
         container.before(data);
-        form.remove();
+        $(form).hide().trigger('reset');
+        $(form).find('.btn.primary').removeAttr('disabled').val(text);
+        container.find('.add_comment_bottom_link').show();
         container.show();
 
       } else {
@@ -261,10 +279,14 @@ $(document).ready(function(){
 
         comments.html(data);
         container.append(comments);
-        form.remove();
+        $(form).hide().trigger('reset');
+        $(form).find('.btn.primary').removeAttr('disabled').val(text);
+        container.find('.add_comment_bottom_link').show();
         container.appendTo(bottomBar);
       }
 
+      // TODO handle the case of no reactions so far. ie,
+      // "No reactions" is not replaced by "1 reaction" upon submit
       reactionLink.text(reactionLink.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
       commentCount.text(commentCount.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
       commentActionLink.addClass("inactive");
