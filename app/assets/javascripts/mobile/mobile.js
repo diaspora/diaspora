@@ -137,18 +137,17 @@ $(document).ready(function(){
       activeElements.removeClass('inactive').addClass('active');
 
       // Show or hide the new comment form depending on 'show_form' param
-      var newCommentForm = commentsContainer().find('.new_comment')
-          addCommentLink = commentsContainer().find('.add_comment_bottom_link')
-          ;
+      var newCommentForm = commentsContainer().find('.new_comment'),
+          addCommentLink = commentsContainer().find('.add_comment_bottom_link');
       if (show_form) {
         newCommentForm.show();
         addCommentLink.hide();
         // Scroll to the comment list or to the form
-        scrollToOffset(parent, commentsContainer())
+        scrollToOffset(parent, commentsContainer());
       } else {
         newCommentForm.hide();
         addCommentLink.show();
-        scrollToCommentsList(parent)
+        scrollToCommentsList(parent);
       }
 
       commentsContainer().find('time.timeago').timeago();
@@ -221,8 +220,8 @@ $(document).ready(function(){
         commentsContainer = function(){ return parent.find(".comment_container").first(); };
 
       // Show or hide the new comment form depending on 'show_form' param
-      var newCommentForm = commentsContainer().find('.new_comment')
-          addCommentLink = commentsContainer().find('.add_comment_bottom_link')
+      var newCommentForm = commentsContainer().find('.new_comment'),
+          addCommentLink = commentsContainer().find('.add_comment_bottom_link');
 
       if (addCommentLink.is(":visible")) {
         newCommentForm.show();
