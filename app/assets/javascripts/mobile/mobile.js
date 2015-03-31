@@ -152,7 +152,7 @@ $(document).ready(function(){
             parent.append($(data).find('.comments_container').html());
             link.addClass('active');
             existingCommentsContainer.show();
-            scrollToOffset(parent, commentsContainer());
+            scrollToCommentsList(parent);
             commentsContainer().find('time.timeago').timeago();
           }
         });
@@ -169,12 +169,19 @@ $(document).ready(function(){
         success: function(data){
           parent.append(data);
           link.addClass('active');
-          scrollToOffset(parent, commentsContainer());
+          scrollToCommentsList(parent);
           commentsContainer().find('time.timeago').timeago();
         }
       });
     }
   });
+
+  var scrollToCommentsList = function(container, speed) {
+    var speed = speed || 1000;
+      $('html,body').animate({
+        scrollTop: container.offset().top
+      }, speed);
+  };
 
   var scrollToOffset = function(parent, commentsContainer){
     var commentCount = commentsContainer.find("li.comment").length;
