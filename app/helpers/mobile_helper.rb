@@ -12,21 +12,21 @@ module MobileHelper
         reshare = Reshare.where(:author_id => current_user.person_id,
                                 :root_guid => absolute_root.guid).first
         klass = reshare.present? ? "active" : "inactive"
-        link_to '', reshares_path(:root_guid => absolute_root.guid), :title => t('reshares.reshare.reshare_confirmation', :author => absolute_root.author_name), :class => "image_link reshare_action #{klass}"
+        link_to "", reshares_path(:root_guid => absolute_root.guid), :title => t('reshares.reshare.reshare_confirmation', :author => absolute_root.author_name), :class => "image_link reshare_action #{klass}"
       end
     end
   end
 
   def mobile_like_icon(post)
     if current_user && current_user.liked?(post)
-      link_to '', post_like_path(post.id, current_user.like_for(post).id), :class => "image_link like_action active"
+      link_to "", post_like_path(post.id, current_user.like_for(post).id), :class => "image_link like_action active"
     else
-      link_to '', post_likes_path(post.id), :class => "image_link like_action inactive"
+      link_to "", post_likes_path(post.id), :class => "image_link like_action inactive"
     end
   end
 
   def mobile_comment_icon(post)
-    link_to '', post_comments_path(post, :format => "mobile"), :class => "image_link comment_action inactive"
+    link_to "", post_comments_path(post, :format => "mobile"), :class => "image_link comment_action inactive"
   end
 
   def reactions_link(post)
