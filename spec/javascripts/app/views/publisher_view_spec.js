@@ -4,7 +4,7 @@
  */
 
 describe("app.views.Publisher", function() {
-  describe("standalone", function() {
+  context("standalone", function() {
     beforeEach(function() {
       // TODO should be jasmine helper
       loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
@@ -21,6 +21,16 @@ describe("app.views.Publisher", function() {
 
     it("hides the post preview button in standalone mode", function() {
       expect(this.view.$('.post_preview_button').is(':visible')).toBeFalsy();
+    });
+
+    describe("createStatusMessage", function(){
+      it("doesn't add the status message to the stream", function() {
+        app.stream = { addNow: $.noop };
+        spyOn(app.stream, "addNow");
+        this.view.createStatusMessage($.Event());
+        jasmine.Ajax.requests.mostRecent().respondWith({ status: 200, responseText: "{\"id\": 1}" });
+        expect(app.stream.addNow).not.toHaveBeenCalled();
+      });
     });
   });
 
@@ -127,6 +137,14 @@ describe("app.views.Publisher", function() {
         spyOn(this.view, "handleTextchange");
         this.view.createStatusMessage($.Event());
         expect(this.view.handleTextchange).toHaveBeenCalled();
+      });
+
+      it("adds the status message to the stream", function() {
+        app.stream = { addNow: $.noop };
+        spyOn(app.stream, "addNow");
+        this.view.createStatusMessage($.Event());
+        jasmine.Ajax.requests.mostRecent().respondWith({ status: 200, responseText: "{\"id\": 1}" });
+        expect(app.stream.addNow).toHaveBeenCalled();
       });
     });
 
