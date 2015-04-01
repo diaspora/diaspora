@@ -1,4 +1,6 @@
 #conversations_container {
+  .stream_container { border-left: none; }
+
   .stream_element {
     border-bottom: 1px solid $border-grey;
     &:first-child { border-top: none; }
