@@ -61,7 +61,7 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   sortOrder : function() {
-    return this.basePath().match(/activity/) ? "interactedAt" : "createdAt";
+    return /activity/.test(this.basePath()) ? "interactedAt" : "createdAt";
   },
 
   /* This function is for adding a large number of posts one by one.

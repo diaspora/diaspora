@@ -10,7 +10,7 @@ $(document).ready(function(){
   });
 
   $(window).bind("popstate", function(){
-    if (location.href.match(/conversations\/\d+/) !== null) {
+    if (/conversations\/\d+/.test(location.href)) {
       $.getScript(location.href, function() {
         Diaspora.page.directionDetector.updateBinds();
       });
