@@ -1,4 +1,4 @@
-# Head
+# 0.5.0.0
 
 ## Major Sidekiq update
 This release includes a major upgrade of the background processing system Sidekiq. To upgrade cleanly:
