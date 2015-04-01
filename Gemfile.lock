@@ -152,10 +152,7 @@ GEM
       devise (~> 3.4.0)
     devise_lastseenable (0.0.4)
       devise
-      devise
       rails (>= 3.0.4)
-      rails (>= 3.0.4)
-      warden
       warden
     diaspora-vines (0.1.27)
       activerecord (~> 4.1)
