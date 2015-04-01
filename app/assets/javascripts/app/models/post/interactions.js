@@ -110,7 +110,9 @@ app.models.Post.Interactions = Backbone.Model.extend({
           notice: Diaspora.I18n.t("reshares.successful")
         });
         interactions.reshares.add(reshare);
-        if (app.stream) {app.stream.addNow(reshare)}
+        if (app.stream && /^\/(?:stream|activity|aspects)/.test(app.stream.basePath())) {
+          app.stream.addNow(reshare);
+        }
         interactions.trigger("change");
       })
       .fail(function(){

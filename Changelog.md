@@ -161,6 +161,7 @@ diaspora* no longer adds a `div.container` to wrap custom splash pages. This add
 * Fix displaying reshares in the stream on mobile [#5790](https://github.com/diaspora/diaspora/pull/5790)
 * Remove bottom margin from lists that are the last element of a post. [#5721](https://github.com/diaspora/diaspora/pull/5721)
 * Fix pagination design on conversations page [#5791](https://github.com/diaspora/diaspora/pull/5791)
+* Prevent inserting posts into the wrong stream [#5838](https://github.com/diaspora/diaspora/pull/5838)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
