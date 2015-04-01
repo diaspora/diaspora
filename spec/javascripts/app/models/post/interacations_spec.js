@@ -42,7 +42,7 @@ describe("app.models.Post.Interactions", function(){
   });
 
   describe("reshare", function() {
-    var ajax_success = { status: 200, responseText: '{"id": 1}' };
+    var ajaxSuccess = { status: 200, responseText: "{\"id\": 1}" };
 
     beforeEach(function(){
       this.reshare = this.interactions.post.reshare();
@@ -52,18 +52,34 @@ describe("app.models.Post.Interactions", function(){
       spyOn(this.interactions, "trigger");
 
       this.interactions.reshare();
-      jasmine.Ajax.requests.mostRecent().respondWith(ajax_success);
+      jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
 
       expect(this.interactions.trigger).toHaveBeenCalledWith("change");
     });
 
-    it("adds the reshare to the stream", function() {
+    it("adds the reshare to the default, activity and aspects stream", function() {
       app.stream = { addNow: $.noop };
       spyOn(app.stream, "addNow");
-      this.interactions.reshare();
-      jasmine.Ajax.requests.mostRecent().respondWith(ajax_success);
+      var self = this;
+      ["/stream", "/activity", "/aspects"].forEach(function(path) {
+        app.stream.basePath = function() { return path; };
+        self.interactions.reshare();
+        jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
 
-      expect(app.stream.addNow).toHaveBeenCalledWith({id: 1});
+        expect(app.stream.addNow).toHaveBeenCalledWith({id: 1});
+      });
+    });
+
+    it("doesn't add the reshare to any other stream", function() {
+      app.stream = { addNow: $.noop };
+      spyOn(app.stream, "addNow");
+      var self = this;
+      ["/followed_tags", "/mentions/", "/tag/diaspora", "/people/guid/stream"].forEach(function(path) {
+        app.stream.basePath = function() { return path; };
+        self.interactions.reshare();
+        jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
+        expect(app.stream.addNow).not.toHaveBeenCalled();
+      });
     });
   });
 });

@@ -195,7 +195,9 @@ app.views.Publisher = Backbone.View.extend({
           self.view_poll_creator.trigger('publisher:sync');
         }
 
-        if(app.stream) app.stream.addNow(statusMessage.toJSON());
+        if(app.stream && !self.standalone){
+          app.stream.addNow(statusMessage.toJSON());
+        }
 
         // clear state
         self.clear();
