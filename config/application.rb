@@ -102,5 +102,12 @@ module Diaspora
 
     # Will be default with Rails 5
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Setup action mailer early
+    config.action_mailer.default_url_options = {
+      protocol: AppConfig.pod_uri.scheme,
+      host:     AppConfig.pod_uri.authority
+    }
+    config.action_mailer.asset_host = AppConfig.pod_uri.to_s
   end
 end
