@@ -7,8 +7,8 @@
     -if AppConfig.settings.paypal_donations.paypal_unhosted_button_encrypted.present?
       %input{name: "encrypted", type: "hidden", value: AppConfig.settings.paypal_donations.paypal_unhosted_button_encrypted}
     %input{name: "currency_code", type: "hidden", value: AppConfig.settings.paypal_donations.currency}
-    %input{name: "submit", type: "submit", value: t('aspects.index.donate')}
-    
+    %input{name: "submit", type: "submit", value: t("aspects.index.donate"), class: "btn btn-default"}
+
 - if AppConfig.bitcoin_donation_address
   Bitcoin:
   %input{type: "text", id: "bitcoin_address", value: AppConfig.bitcoin_donation_address, readonly: true}

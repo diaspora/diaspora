@@ -25,18 +25,18 @@
           %div.controls
             = f.label :under13 do
               = f.check_box :under13
-              = t('.under_13')
-            = submit_tag t('admins.stats.go')
+              = t(".under_13")
+            = submit_tag t("admins.stats.go"), class: "btn btn-primary"
 
     %div.more_invites.span3
-      %h3= t('shared.invitations.invites')
+      %h3= t("shared.invitations.invites")
 
-      != t('.you_currently', :count => current_user.invitation_code.count, :link => link_to(t(".add_invites"), add_invites_path(current_user.invitation_code)))
+      != t(".you_currently", count: current_user.invitation_code.count, link: link_to(t(".add_invites"), add_invites_path(current_user.invitation_code)))
 
-      = form_tag 'admin_inviter', method: :get do
-        = t('.email_to')
-        = text_field_tag 'identifier'
-        = submit_tag t('services.remote_friend.invite')
+      = form_tag "admin_inviter", method: :get do
+        = t(".email_to")
+        = text_field_tag "identifier"
+        = submit_tag t("services.remote_friend.invite"), class: "btn btn-default"
 
   %div.row
     %div.span12
