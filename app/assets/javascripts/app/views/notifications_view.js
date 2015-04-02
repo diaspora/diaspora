@@ -41,7 +41,8 @@ app.views.Notifications = Backbone.View.extend({
     this.updateView(data["guid"], type, data["unread"]);
   },
 
-  markAllRead: function(){
+  markAllRead: function(evt){
+    if(evt) { evt.preventDefault(); }
     var self = this;
     this.getAllUnread().each(function(i, el){
       self.setRead($(el).data("guid"));
