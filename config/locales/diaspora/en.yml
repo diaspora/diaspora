@@ -215,7 +215,8 @@ en:
       failure: "Aspect creation failed."
     destroy:
       success: "%{name} was successfully removed."
-      failure: "%{name} is not empty and could not be removed."
+      success_auto_follow_back: "%{name} was successfully removed. You used this aspect to automatically follow back users. Check your user settings to select a new auto follow back aspect."
+      failure: "%{name} could not be removed."
     update:
       success: "Your aspect, %{name}, has been successfully edited."
       failure: "Your aspect, %{name}, had too long name to be saved."
