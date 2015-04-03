@@ -128,3 +128,7 @@ Style/OpMethod:
 Lint/Debugger:
   Enabled: false
 
+
+# Reset some HoundCI changes back to Rubocop defaults
+Style/DotPosition:
+  EnforcedStyle: leading
