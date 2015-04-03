@@ -234,35 +234,54 @@ $(document).ready(function(){
 
   $(document).on("submit", ".new_comment", function(evt){
     evt.preventDefault();
-    var form = $(this);
+    var form = $(this),
+        button = form.closest('input'),
+        buttonText = button.attr('value');
 
-    $.post(form.attr('action')+"?format=mobile", form.serialize(), function(data){
-      var bottomBar = form.closest('.bottom_bar').first(),
-          container = bottomBar.find('.add_comment_bottom_link_container'),
-          commentActionLink = bottomBar.find("a.comment_action").first(),
-          reactionLink = bottomBar.find(".show_comments").first(),
-          commentCount = bottomBar.find(".comment_count");
+    $.ajax({
+      url: form.attr('action') + "?format=mobile",
+      type: "POST",
+      data: form.serialize(),
+      success: function (data) {
+        var bottomBar = form.closest('.bottom_bar').first(),
+            container = bottomBar.find('.add_comment_bottom_link_container'),
+            commentActionLink = bottomBar.find("a.comment_action").first(),
+            reactionLink = bottomBar.find(".show_comments").first(),
+            commentCount = bottomBar.find(".comment_count");
 
-      if(container.length > 0) {
-        container.before(data);
-        form.remove();
-        container.show();
+        if (container.length > 0) {
+          container.before(data);
+          form.remove();
+          container.show();
 
-      } else {
-        var comments = $("<ul class='comments'></ul>");
-        container = $("<div class='comments_container not_all_present'></div>");
+        }
+        else {
+          var comments = $("<ul class='comments'></ul>");
+          container = $("<div class='comments_container not_all_present'></div>");
 
-        comments.html(data);
-        container.append(comments);
-        form.remove();
-        container.appendTo(bottomBar);
+          comments.html(data);
+          container.append(comments);
+          form.remove();
+          container.appendTo(bottomBar);
+        }
+
+        reactionLink.text(reactionLink.text().replace(/(\d+)/, function (match) {
+          return parseInt(match) + 1;
+        }));
+        commentCount.text(commentCount.text().replace(/(\d+)/, function (match) {
+          return parseInt(match) + 1;
+        }));
+          commentActionLink.addClass("inactive");
+        bottomBar.find('time.timeago').timeago();
+      },
+      dataType: 'html',
+      timeout: 1,
+      error: function(){
+        button.removeAttr('disabled');
+        button.text = buttonText;
+        /* Grumf.... >.< */
       }
-
-      reactionLink.text(reactionLink.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
-      commentCount.text(commentCount.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
-      commentActionLink.addClass("inactive");
-      bottomBar.find('time.timeago').timeago();
-    }, 'html');
+    });
   });
 
 
