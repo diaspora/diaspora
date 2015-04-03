@@ -7,6 +7,7 @@
 * Fix only sharing flag for contacts that are receiving [#5848](https://github.com/diaspora/diaspora/pull/5848)
 
 ## Features
+* Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
 
 # 0.5.0.0
 

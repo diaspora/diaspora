@@ -318,6 +318,26 @@ describe Notifier, :type => :mailer do
     end
   end
 
+  context "limited comments" do
+    let(:commented_limited_post) {
+      bob.post(:status_message, to: :all, public: false,
+        text: "### Limited headline \r\n It's **really** sunny outside today")
+    }
+    let(:limited_comment) { eve.comment!(commented_limited_post, "Totally is") }
+
+    describe ".comment_on_limited_post" do
+      let(:limited_comment_mail) { Notifier.comment_on_post(bob.id, person.id, limited_comment.id).deliver_now }
+
+      it "SUBJECT: does not show limited message" do
+        expect(limited_comment_mail.subject).not_to include("Limited headline")
+      end
+
+      it "BODY: does not show limited message" do
+        expect(limited_comment_mail.body.encoded).not_to include("Limited headline")
+      end
+    end
+  end
+
   describe 'hashtags' do
     it 'escapes hashtags' do
       mails = Notifier.admin("#Welcome to bureaucracy!", [bob])
