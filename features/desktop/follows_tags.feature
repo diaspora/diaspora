@@ -35,7 +35,7 @@ Feature: posting
     Then I should see "#boss from the #boss tag page" within "body"
 
   Scenario: can stop following a tag from the tag page
-    When I press "Stop following #boss"
+    When I press "follow-action-btn"
     And I go to the followed tags stream page
     Then I should not see "#boss" within "#tags_list"
 

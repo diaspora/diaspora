@@ -60,8 +60,8 @@ module UserCukeHelpers
 
   # go to user menu, expand it, and click logout
   def manual_logout
-    find("#user_menu li:first-child a").click
-    find("#user_menu li:last-child a").click
+    find("#user-menu button.dropdown-toggle").click
+    find("#user-menu li:last-child a").click
   end
 
   def fill_in_new_user_form

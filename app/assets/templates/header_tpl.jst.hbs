@@ -1,109 +1,98 @@
-<div class="container" style="position:relative;">
-
-  <a href="/stream">
-    <div alt="Logo_small" class="diaspora_header_logo branding-header-logo">
-    </div>
-  </a>
-
-  <span class="header-nav">
-    <span>
-        <a href="/stream">
-          {{t "my_stream"}}
-        </a>
-    </span>
-
-    <span>
-        <a href="/activity">
-          {{t "my_activity"}}
-        </a>
-     </span>
-  </span>
-
-  <div id="nav_badges">
-    <div class="badge badge-inverse" id="notification_badge">
-      <div class="icons-notifications_grey" >
-        <a id="notifications-badge" href="/notifications" title="{{t "header.notifications"}}" class="badge_link" >
-          <div class="badge_count {{#unless current_user.notifications_count}} hidden {{/unless}}">
-            {{current_user.notifications_count}}
-          </div>
-        </a>
-      </div>
+<nav class="navbar navbar-inverse navbar-static-top row-fluid" role="navigation">
+  <div class="container-fluid offset1 span10">
+    <div class="navbar-header">
+      <a href="/stream" class="navbar-brand">
+        <div alt="Logo_small" class="diaspora_header_logo branding-header-logo"></div>
+      </a>
     </div>
 
-    <div class="badge badge-inverse" id="conversations_badge">
-     <div class="icons-mail_grey" >
-        <a href="/conversations" title="{{t "header.conversations"}}" class="badge_link" >
+    <ul id="user-nav" class="nav navbar-nav">
+      <li class="header-bold">
+          <a href="/stream">{{t "my_stream"}}</a>
+      </li>
+      <li class="header-bold">
+          <a href="/activity">{{t "my_activity"}}</a>
+      </li>
+
+      <li class="header-badge">
+        <div id="notification-badge" class="dropdown header-dropdown">
+          <button id="notifications-button" class="dropdown-toggle" type="button" data-toggle="dropdown">
+            <i class="entypo bell"></i>
+            <div class="badge_count {{#unless current_user.notifications_count}} hidden {{/unless}}">
+              {{current_user.notifications_count}}
+            </div>
+          </button>
+          <ul id="notifications-dropdown" class="dropdown-menu" role="menu">
+            <li id="title-item" role="presentation">
+              <h4>{{t "header.recent_notifications"}}</h4>
+              <a id="mark_all_read_link" href="#" class="{{#unless current_user.notifications_count}}disabled{{/unless}}">
+                {{t "header.mark_all_as_read"}}
+              </a>
+            </li>
+            <li class="ajax-loader" role="presentation">
+              <img alt="Ajax-loader" src="{{imageUrl "ajax-loader.gif"}}">
+            </li>
+            <li id="notifications-list"></li>
+            <li role="presentation">
+              <a href="/notifications" id="view_all_notifications">{{t "header.view_all"}}</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li id="conversations-badge" class="header-badge">
+        <a href="/conversations" title="{{t "header.conversations"}}">
+          <i class="entypo mail"></i>
           <div class="badge_count {{#unless current_user.unread_messages_count}} hidden {{/unless}}">
             {{current_user.unread_messages_count}}
           </div>
         </a>
-      </div>
+      </li>
+    </ul>
+
+    <div id="user-menu" class="dropdown header-dropdown">
+      <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+        <img class="user-menu-avatar avatar" alt="{{current_user.name}}"
+          src="{{current_user.avatar.small}}" title="{{current_user.name}}"/>
+        <span id="user-id" class="hidden-phone">{{current_user.name}}</span>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu pull-right" role="menu">
+        <!--
+          !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+          !  Class class="dropdown-menu pull-right" will have to be !
+          !  replaced by "dropdown-menu-right with bootstrap 3 !    !
+          !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        -->
+        <li role="presentation"><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
+        <li role="presentation"><a href="/contacts">{{t "header.contacts"}}</a></li>
+        <li role="presentation"><a href="/user/edit">{{t "header.settings"}}</a></li>
+        <li role="presentation"><a href="/help">{{t "header.help"}}</a></li>
+        {{#if current_user.admin}}
+        <li role="presentation"><a href="/admins/user_search">{{t "header.admin"}}</a></li>
+        {{/if}}
+        <li role="presentation"><a href="/users/sign_out" data-method="delete">{{t "header.log_out"}}</a></li>
+      </ul>
     </div>
 
+    <div id="global_search" class="form-group">
+      <form id="header-search-form" accept-charset="UTF-8" action="/search" class="search_form" method="get">
+        <input name="utf8" type="hidden" value="✓">
+        <input id="q" class="ac_input form-control" name="q" placeholder="{{t "header.search"}}" results="5" type="search" autocomplete="off">
+      </form>
+    </div>
 
-      <div id="notification_dropdown">
-        <div class="header">
-          <div class="pull-right">
-            <a href="#" id="mark_all_read_link" class="{{#unless current_user.notifications_count}}disabled{{/unless}}">
-              {{t "header.mark_all_as_read"}}
-            </a>
-          </div>
-
-          <h4>
-            {{t "header.recent_notifications"}}
-          </h4>
+    <div id="lightbox">
+      <div id="lightbox-content">
+        <a href="#" id="lightbox-close-link">[x] {{t "header.close"}}</a>
+        <img id="lightbox-image">
+        <div id="lightbox-navigation">
+          <div id="lightbox-scrollleft">«</div>
+          <div id="lightbox-imageset"></div>
+          <div id="lightbox-scrollright">»</div>
         </div>
-
-        <div class="notifications">
-          <div class="ajax_loader">
-            <img alt="Ajax-loader" src="{{imageUrl "ajax-loader.gif"}}">
-          </div>
-        </div>
-        <div class="view_all">
-          <a href="/notifications" id="view_all_notifications">
-            {{t "header.view_all"}}
-          </a>
-        </div>
-      </div>
-  </div>
-
-  <ul class="dropdown" id="user_menu">
-    <li class="user-menu-trigger">
-      <div class="user-menu-more-indicator">
-        ▼
-      </div>
-      {{{personImage current_user 'small' 'avatar user-menu-avatar'}}}
-      <a class="user-name" href="#">{{current_user.name}}</a>
-    </li>
-    <li class="user-menu-item"><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
-    <li class="user-menu-item"><a href="/contacts">{{t "header.contacts"}}</a></li>
-    <li class="user-menu-item"><a href="/user/edit">{{t "header.settings"}}</a></li>
-    <li class="user-menu-item"><a href="/help">{{t "header.help"}}</a></li>
-    {{#if current_user.admin}}
-      <li class="user-menu-item"><a href="/admins/user_search">{{t "header.admin"}}</a></li>
-    {{/if}}
-    <li class="user-menu-item"><a href="/users/sign_out" data-method="delete">{{t "header.log_out"}}</a></li>
-  </ul>
-
-
-  <div id="global_search">
-    <form id="header-search-form" accept-charset="UTF-8" action="/search" class="search_form" method="get">
-      <input name="utf8" type="hidden" value="✓">
-      <input id="q" name="q" placeholder="{{t "header.search"}}" results="5" type="search" autocomplete="off" class="ac_input">
-    </form>
-  </div>
-
-  <div id="lightbox">
-    <div id="lightbox-content">
-      <a href="#" id="lightbox-close-link">[x] {{t "header.close"}}</a>
-      <img id="lightbox-image">
-      <div id="lightbox-navigation">
-        <div id="lightbox-scrollleft">«</div>
-        <div id="lightbox-imageset"></div>
-        <div id="lightbox-scrollright">»</div>
       </div>
     </div>
+    <div id="lightbox-backdrop"></div>
   </div>
-  <div id="lightbox-backdrop"></div>
-
-</div>
+</nav>

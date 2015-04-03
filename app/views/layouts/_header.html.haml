@@ -7,10 +7,14 @@
     .container{style: "position:relative;"}
       = link_to content_tag(:div, nil, class: 'diaspora_header_logo branding-header-logo'), root_path
 
-      %ul#landing_nav
-        - if AppConfig.settings.enable_registrations? && !current_page?(controller: '/registrations', action: :new)
-          %li= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'login'
-        %li= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: 'login'
+      %nav.navbar
+        %div.container-fluid
+          %ul#landing_nav.nav.navbar-nav.navbar-right.pull-right
+            -# .pull-right class will be useless and to be removed with BS3
+            - if AppConfig.settings.enable_registrations? && !current_page?(controller: '/registrations', action: :new)
+              %li= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'login'
+            %li= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: 'login'
+      #lightbox
       #lightbox
         #lightbox-content
           %a#lightbox-close-link(href='#')

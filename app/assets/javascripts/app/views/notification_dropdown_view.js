@@ -2,7 +2,7 @@
 
 app.views.NotificationDropdown = app.views.Base.extend({
   events:{
-    "click #notifications-badge": "toggleDropdown"
+    'click #notifications-button': 'toggleDropdown'
   },
 
   initialize: function(){
@@ -12,39 +12,44 @@ app.views.NotificationDropdown = app.views.Base.extend({
     this.perPage = 5;
     this.hasMoreNotifs = true;
     this.badge = this.$el;
-    this.dropdown = $('#notification_dropdown');
-    this.dropdownNotifications = this.dropdown.find('.notifications');
-    this.ajaxLoader = this.dropdown.find('.ajax_loader');
+    this.dropdown = this.$('#notifications-dropdown');
+    this.dropdownNotifications = this.dropdown.find('#notifications-list');
+    this.ajaxLoader = this.dropdown.find('.ajax-loader');
   },
 
   toggleDropdown: function(evt){
-    evt.preventDefault();
-    evt.stopPropagation();
     if(this.dropdownShowing()){ this.hideDropdown(evt); }
     else{ this.showDropdown(); }
   },
 
   dropdownShowing: function(){
-    return this.dropdown.css('display') === 'block';
+    return this.badge.hasClass('open');
   },
 
   showDropdown: function(){
     this.resetParams();
     this.ajaxLoader.show();
-    this.badge.addClass('active');
-    this.dropdown.css('display', 'block');
     this.dropdownNotifications.addClass('loading');
     this.getNotifications();
   },
 
   hideDropdown: function(evt){
-    var inDropdown = $(evt.target).parents().is(this.dropdown);
     var inHovercard = $.contains(app.hovercard.el, evt.target);
-    if(!inDropdown && !inHovercard && this.dropdownShowing()){
-      this.badge.removeClass('active');
-      this.dropdown.css('display', 'none');
-      this.dropdownNotifications.perfectScrollbar('destroy');
+    var inDropdown = $(evt.target).parents().is(this.dropdown);
+    if((inDropdown || inHovercard) && this.dropdownShowing()){
+      // All BS events are stopped by evt.stopPropagation()
+      // If the target is the aspect dropdown of an hovercard,
+      // we must handle itby hand.
+      evt.stopPropagation();
+      if(inHovercard){
+        var hvrCardDropdown = $(evt.target).parent();
+        if(hvrCardDropdown.hasClass('open')){ hvrCardDropdown.removeClass('open'); }
+        else{ hvrCardDropdown.addClass('open'); }
+      }
+      return;
     }
+
+    this.dropdownNotifications.perfectScrollbar('destroy');
   },
 
   dropdownScroll: function(){
@@ -85,8 +90,8 @@ app.views.NotificationDropdown = app.views.Base.extend({
 
   hideAjaxLoader: function(){
     var self = this;
-    this.ajaxLoader.find('img').fadeTo(200, 0, function(){
-      self.ajaxLoader.hide(300, function(){
+    this.ajaxLoader.find('img').fadeTo(150, 0, function(){
+      self.ajaxLoader.hide(200, function(){
         self.ajaxLoader.find('img').css('opacity', 1);
       });
     });

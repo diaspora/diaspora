@@ -58,7 +58,7 @@ When /^I should see one less invite$/ do
 end
 
 When /^I click on my name$/ do
-  click_link("#{@me.first_name} #{@me.last_name}")
+  click_button("#{@me.first_name} #{@me.last_name}")
 end
 
 Given /^I have an aspect called "([^\"]*)"$/ do |aspect_name|

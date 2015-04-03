@@ -4,7 +4,7 @@ describe('app.views.NotificationDropdown', function() {
     this.header = new app.views.Header();
     $("header").prepend(this.header.el);
     this.header.render();
-    this.view = new app.views.NotificationDropdown({el: '#notification_badge'});
+    this.view = new app.views.NotificationDropdown({el: '#notification-badge'});
   });
 
   context('showDropdown', function(){
@@ -12,10 +12,6 @@ describe('app.views.NotificationDropdown', function() {
       spyOn(this.view, 'resetParams');
       this.view.showDropdown();
       expect(this.view.resetParams).toHaveBeenCalled();
-    });
-    it('Changes CSS', function(){
-      this.view.showDropdown();
-      expect($('#notification_dropdown').css('display')).toBe('block');
     });
     it('Calls getNotifications()', function(){
       spyOn(this.view, 'getNotifications');
