@@ -112,6 +112,54 @@ describe AspectsController, :type => :controller do
     end
   end
 
+  describe "#destroy" do
+    before do
+      @alices_aspect_1 = alice.aspects.create(name: "Contacts")
+    end
+
+    context "with no auto follow back aspect" do
+      it "destoys the aspect" do
+        expect(alice.aspects.to_a).to include @alices_aspect_1
+        post :destroy, id: @alices_aspect_1.id
+        expect(alice.reload.aspects.to_a).not_to include @alices_aspect_1
+      end
+
+      it "renders a flash message on success" do
+        post :destroy, id: @alices_aspect_1.id
+        expect(flash[:notice]).to eq(I18n.t("aspects.destroy.success", name: @alices_aspect_1.name))
+        expect(flash[:error]).to be_blank
+      end
+    end
+
+    context "with the aspect set as auto follow back" do
+      before do
+        alice.auto_follow_back = true
+        alice.auto_follow_back_aspect = @alices_aspect_1
+        alice.save
+      end
+
+      it "destoys the aspect" do
+        expect(alice.aspects.to_a).to include @alices_aspect_1
+        post :destroy, id: @alices_aspect_1.id
+        expect(alice.reload.aspects.to_a).not_to include @alices_aspect_1
+      end
+
+      it "disables auto follow back" do
+        expect(alice.auto_follow_back).to be(true)
+        expect(alice.auto_follow_back_aspect).to eq(@alices_aspect_1)
+        post :destroy, id: @alices_aspect_1.id
+        expect(alice.auto_follow_back).to be(false)
+        expect(alice.auto_follow_back_aspect).to eq(nil)
+      end
+
+      it "renders a flash message telling you to set a new auto follow back aspect" do
+        post :destroy, id: @alices_aspect_1.id
+        expect(flash[:notice]).to eq(I18n.t("aspects.destroy.success_auto_follow_back", name: @alices_aspect_1.name))
+        expect(flash[:error]).to be_blank
+      end
+    end
+  end
+
   describe "#toggle_contact_visibility" do
     it 'sets contacts visible' do
       @alices_aspect_1.contacts_visible = false

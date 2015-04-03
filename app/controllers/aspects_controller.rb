@@ -44,14 +44,20 @@ class AspectsController < ApplicationController
   end
 
   def destroy
-    @aspect = current_user.aspects.where(:id => params[:id]).first
+    @aspect = current_user.aspects.where(id: params[:id]).first
 
     begin
+      if current_user.auto_follow_back && @aspect.id == current_user.auto_follow_back_aspect.id
+        current_user.update(auto_follow_back: false, auto_follow_back_aspect: nil)
+        flash[:notice] = I18n.t "aspects.destroy.success_auto_follow_back", name: @aspect.name
+      else
+        flash[:notice] = I18n.t "aspects.destroy.success", name: @aspect.name
+      end
       @aspect.destroy
-      flash[:notice] = I18n.t 'aspects.destroy.success', :name => @aspect.name
     rescue ActiveRecord::StatementInvalid => e
-      flash[:error] = I18n.t 'aspects.destroy.failure', :name => @aspect.name
+      flash[:error] = I18n.t "aspects.destroy.failure", name: @aspect.name
     end
+
     if request.referer.include?('contacts')
       redirect_to contacts_path
     else

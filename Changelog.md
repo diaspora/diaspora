@@ -1,3 +1,12 @@
+# Head
+
+## Refactor
+
+## Bug fixes
+* Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
+
+## Features
+
 # 0.5.0.0
 
 ## Major Sidekiq update
