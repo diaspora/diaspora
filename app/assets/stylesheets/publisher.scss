@@ -1,6 +1,9 @@
 #publisher {
   z-index: 1;
   color: $text-grey;
+  margin: 0;
+
+  & * { font-size: 13px; }
 
   &.closed {
     #button_container,
@@ -20,19 +23,17 @@
   form {
     margin: 0;
     #fileInfo { display: none !important; }
-    #hide_publisher {
-      margin-top: 10px;
-    }
 
     #publisher_spinner {
       text-align: center;
     }
 
     .options_and_submit {
+      padding: 10px 0 ;
       #publisher_service_icons {
-        .btn-link { text-decoration: none; }
+        .btn-link{ text-decoration: none; }
         .btn-link.question_mark .entypo { color: $text-grey; }
-        .btn-link.question_mark:hover .entypo { color: $black; }
+        .btn-link.question_mark:hover.entypo { color: $black; }
         .btn-link.service_icon {
           padding-left: 5px;
           padding-right: 5px;
@@ -69,7 +70,7 @@
         min-height: 70px;
       }
 
-      .help-block {
+      .markdownIndications{
         font-size: 13px;
         line-height: 30px;
         padding-left: 10px;
@@ -82,11 +83,11 @@
         line-height: $line-height !important;
       }
 
-      &.with_attachments .row-fluid#photodropzone_container {
+      &.with_attachments #photodropzone_container {
         border-top: 1px dashed $border-grey;
       }
 
-      .row-fluid#poll_creator_container {
+      #poll_creator_container {
         display: none;
         border-top: 1px dashed $border-grey;
         padding:4px 6px 4px 6px;
@@ -102,7 +103,7 @@
         }
       }
 
-      &.with_location .row-fluid#location_container {
+      &.with_location #location_container {
         height: 30px;
         border-top: 1px dashed $border-grey;
         input[type='text'] {
@@ -110,7 +111,7 @@
           color: $text-grey;
         }
       }
-      &.active .row-fluid#button_container {
+      &.active #button_container {
         border-top: 1px solid $border-grey;
       }
 

@@ -8,16 +8,16 @@
   - else
     = t('.whatup', :pod => @pod_url)
 
-.container-fluid#tags_show
-  .row-fluid
-    .span3.offset1
+.container#tags_show
+  .row
+    .col-md-3.offset1
       %h4
         = t('.tagged_people', :count => @stream.tagged_people_count, :tag => @stream.display_tag_name)
 
       .side_stream.stream
         = render :partial => 'people/index', :locals => {:people => @stream.tagged_people}
 
-    .span7
+    .col-md-7
       .stream_container
         #author_info
           %h2

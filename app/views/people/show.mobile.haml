@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.span12
+.col-md-12
   #author_info
     = person_image_tag @person, :thumb_medium
     .content
@@ -17,7 +17,7 @@
       - if !@person.tag_string.blank? && user_signed_in?
         = Diaspora::Taggable.format_tags(@person.tag_string)
 
-.span12.profile_stream
+.col-md-12.profile_stream
   - if @stream.stream_posts.length > 0
     - if @post_type == :photos
       = render 'photos/index', :photos => @stream.stream_posts

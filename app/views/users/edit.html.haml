@@ -6,29 +6,29 @@
   = t('.edit_account')
 
 .container
-  .row-fluid
-    .span12
+  .row
+    .col-md-12
       #section_header
         %h2
           = t('settings')
         = render 'shared/settings_nav'
 
-  .row-fluid
-    .span3
-    .span6
-      .row-fluid
-        .span6
+  .row
+    .col-md-3
+    .col-md-6
+      .row
+        .col-md-6
           %h3
             = t('.your_handle')
           %p
             %b= current_user.diaspora_handle
-        .span6
+        .col-md-6
           %h3
             = t('.your_email')
           = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
             = f.error_messages
             .form-inline
-              = f.text_field :email, :value => @user.unconfirmed_email || @user.email, :class => "span7"
+              = f.text_field :email, :value => @user.unconfirmed_email || @user.email, :class => "col-md-7"
               = f.submit t('.change_email'), :class => "btn"
           .small-horizontal-spacer
           - if @user.unconfirmed_email.present?
@@ -37,8 +37,8 @@
 
       %hr
 
-      .row-fluid
-        .span12
+      .row
+        .col-md-12
           %h3
             = t('.change_password')
           = form_for @user, :url => user_path, :html => { :method => :put } do |f|
@@ -61,7 +61,7 @@
 
       %hr
 
-      .row-fluid
+      .row
         .span-12
           %h3
             = t('.change_language')
@@ -72,7 +72,7 @@
 
       %hr
 
-      .row-fluid
+      .row
         .span-12
 
           %h3#stream-preferences
@@ -96,7 +96,7 @@
 
       %hr
 
-      .row-fluid
+      .row
         .span-12
 
           %h3#auto-follow-back-preferences
@@ -115,7 +115,7 @@
 
       %hr
 
-      .row-fluid
+      .row
         .span-12
           %h3
             = t('.receive_email_notifications')
@@ -169,8 +169,8 @@
 
       %hr
 
-      .row-fluid
-        #account_data.span6
+      .row
+        #account_data.col-md-6
           %h3
             = t('.export_data')
           - if current_user.exporting
@@ -196,7 +196,7 @@
             .small-horizontal-spacer
             = link_to t('.request_export_photos'), export_photos_user_path, :class => "btn"
 
-        .span6
+        .col-md-6
           %h3
             = t('.close_account_text')
           =link_to t('.close_account_text'), '#close_account_pane', :rel => 'facebox', :class => "btn btn-danger", :id => "close_account"
@@ -207,14 +207,14 @@
                 = t('.close_account.dont_go')
               %p
                 = t('.close_account.make_diaspora_better')
-              .row-fluid
-                .span6
+              .row
+                .col-md-6
                   = image_tag 'sadcat.jpg'
                   .small-horizontal-spacer
                   %small
                     %b
                       = t('.close_account.mr_wiggles')
-                .span6
+                .col-md-6
                   %ul
                     %li
                       = t('.close_account.what_we_delete')
@@ -235,4 +235,4 @@
                     %p
                       = f.submit t('.close_account_text'), :class => "btn btn-danger", :id => "close_account_confirm", :data => { :confirm => t('are_you_sure_delete_account') }
 
-    .span3
+    .col-md-3

@@ -1,6 +1,6 @@
-<div id='head' class='row-fluid'>
-  <div class='row-fluid'>
-    <div id='post-info' class='span8'>
+<div id='head' class='row'>
+  <div class='row'>
+    <div id='post-info' class='col-md-8'>
       <div class="img pull-left">
         {{#if root}}
           {{#linkToAuthor root.author}}
@@ -64,12 +64,12 @@
       </div>
     </div>
     {{#unless root}}
-      <div id='single-post-actions' class='span4' />
+      <div id='single-post-actions' class='col-md-4' />
     {{/unless}}
   </div>
   {{#if root}}
-    <div class='row-fluid reshare'>
-      <div class='span8' id='reshare-info'>
+    <div class='row reshare'>
+      <div class='col-md-8' id='reshare-info'>
         <i class='entypo retweet small pull-left'></i>
         <div class="img pull-left">
           {{#linkToAuthor author}}
@@ -90,11 +90,11 @@
           <span id='single-post-moderation' />
         </div>
       </div>
-      <div id='single-post-actions' class='span4' />
+      <div id='single-post-actions' class='col-md-4' />
     </div>
   {{/if}}
 </div>
-<div id='body' class='row-fluid'>
-  <div id='real-post-content' class='post-content span12'>
+<div id='body' class='row'>
+  <div id='real-post-content' class='post-content col-md-12'>
   </div>
 </div>

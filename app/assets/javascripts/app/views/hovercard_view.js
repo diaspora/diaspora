@@ -141,12 +141,12 @@ app.views.Hovercard = app.views.Base.extend({
       left: p_pos.left
     });
   },
-  
+
   mouseIsOverElement: function(element, event) {
     var el_pos = element.offset();
-    return event.pageX >= el_pos.left && 
+    return event.pageX >= el_pos.left &&
       event.pageX <= el_pos.left + element.width() &&
-      event.pageY >= el_pos.top && 
+      event.pageY >= el_pos.top &&
       event.pageY <= el_pos.top + element.height();
   },
 });

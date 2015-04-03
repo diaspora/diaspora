@@ -24,27 +24,27 @@
     autocompleteInput.focus();
   });
 
-.span6#new_conversation_pane
-  .span5#facebox_header
+.col-md-6#new_conversation_pane
+  .col-md-5#facebox_header
     %h3
       = t('conversations.index.new_conversation')
 
   = form_for Conversation.new, html: {class: "new_conversation form_do_not_clear"}, remote: true do |conversation|
 
-    .span1
+    .col-md-1
       %h4
         = t('.to')
-    .span4
+    .col-md-4
       = text_field_tag "contact_autocomplete"
     .clearfix
     %br
-    .span1
+    .col-md-1
       %h4
         = t('.subject')
-    .span4
+    .col-md-4
       = conversation.text_field :subject
     %br
-    .span4.offset1
+    .col-md-4.offset1
       = text_area_tag "conversation[text]", '', :rows => 5
     .clearfix
     .bottom_submit_section
