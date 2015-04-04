@@ -497,6 +497,11 @@ describe PeopleController, :type => :controller do
       get :contacts, :person_id => eve.person.to_param
       expect(response.body).to include '"photos":{"count":16}' # eve is not sharing with alice
     end
+
+    it "returns a 406 for json format" do
+      get :contacts, person_id: "foo", format: :json
+      expect(response.code).to eq("406")
+    end
   end
 
   describe '#diaspora_id?' do
