@@ -1,6 +1,6 @@
 describe("app.views.Aspect", function(){
   beforeEach(function(){
-    this.aspect = factory.aspect({selected:true});
+    this.aspect = factory.aspectSelection({selected:true});
     this.view = new app.views.Aspect({ model: this.aspect });
   });
 

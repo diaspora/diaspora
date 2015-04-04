@@ -192,6 +192,10 @@ var factory = {
     return new app.models.Aspect(this.aspectAttrs(overrides));
   },
 
+  aspectSelection: function(overrides) {
+    return new app.models.AspectSelection(this.aspectAttrs(overrides));
+  },
+
   preloads: function(overrides) {
     var defaults = {
       aspect_ids: []

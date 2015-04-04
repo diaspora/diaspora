@@ -13,12 +13,20 @@ app.views.AspectMembership = app.views.AspectsDropdown.extend({
 
   events: {
     "click ul.aspect_membership.dropdown-menu > li.aspect_selector": "_clickHandler",
-    "keypress ul.aspect_membership.dropdown-menu > li.aspect_selector": "_clickHandler"
+    "keypress ul.aspect_membership.dropdown-menu > li.aspect_selector": "_clickHandler",
+    "click ul.aspect_membership.dropdown-menu > li.newItem": "showModal"
   },
 
   initialize: function() {
     this.list_item = null;
     this.dropdown  = null;
+    if (this.$(".newAspectContainer").length > 0) {
+      this.aspectCreateView = new app.views.AspectCreate({
+        el:       this.$(".newAspectContainer"),
+        personId: this.$("ul.dropdown-menu").data("person_id")
+      });
+      this.aspectCreateView.render();
+    }
   },
 
   // decide what to do when clicked
@@ -140,6 +148,9 @@ app.views.AspectMembership = app.views.AspectsDropdown.extend({
     this._toggleCheckbox(target);
     this._updateButton('green');
   },
+
+  showModal: function() {
+    this.$("#newAspectModal").modal("show");
+  }
 });
 // @license-end
-

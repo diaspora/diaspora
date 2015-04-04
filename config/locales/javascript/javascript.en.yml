@@ -5,8 +5,10 @@
 
 en:
   javascripts:
+    cancel: "Cancel"
     confirm_dialog: "Are you sure?"
     confirm_unload: "Please confirm that you want to leave this page. Data you have entered won’t be saved."
+    create: "Create"
     delete: "Delete"
     ignore: "Ignore"
     report:
@@ -26,6 +28,15 @@ en:
     comma: ","
     edit: "Edit"
     no_results: "No results found"
+
+    aspects:
+      make_aspect_list_visible: "Make contacts in this aspect visible to each other?"
+      name: "Name"
+      create:
+        add_a_new_aspect: "Add a new aspect"
+        success: "Your new aspect <%= name %> was created"
+        failure: "Aspect creation failed."
+
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
