@@ -20,4 +20,32 @@ describe Participation, :type => :model do
 
     it_should_behave_like 'it is relayable'
   end
+
+  describe "#unparticipate" do
+    before do
+      @status = bob.post(:status_message, text: "hello", to: bob.aspects.first.id)
+      @like = alice.like!(@status)
+    end
+
+    it "retract participation" do
+      @like.author.participations.first.unparticipate!
+      participations = Participation.where(target_id: @like.target_id, author_id: @like.author_id)
+      expect(participations.count).to eq(0)
+    end
+
+    it "retract one of multiple participations" do
+      comment = alice.comment!(@status, "bro")
+      comment.author.participations.first.unparticipate!
+      participations = Participation.where(target_id: @like.target_id, author_id: @like.author_id)
+      expect(participations.count).to eq(1)
+      expect(participations.first.count).to eq(1)
+    end
+
+    it "retract all of multiple participations" do
+      alice.comment!(@status, "bro")
+      alice.participations.first.unparticipate!
+      alice.participations.first.unparticipate!
+      expect(Participation.where(target_id: @like.target_id, author_id: @like.author_id).count).to eq(0)
+    end
+  end
 end

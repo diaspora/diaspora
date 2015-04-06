@@ -12,7 +12,6 @@ class Like < Federated::Relayable
       {:target => @target, :positive => true}
     end
   end
-  has_one :participation, :dependent => :destroy, :foreign_key => :target_id, :primary_key => :target_id
 
   after_commit :on => :create do
     self.parent.update_likes_counter
@@ -20,6 +19,8 @@ class Like < Federated::Relayable
 
   after_destroy do
     self.parent.update_likes_counter
+    participation = author.participations.where(target_id: target.id).first
+    participation.unparticipate! if participation.present?
   end
 
   xml_attr :positive
