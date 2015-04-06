@@ -62,7 +62,7 @@ a hosted one. Note: you need to **copy the new settings from diaspora.yml.exampl
 diaspora.yml file**. The existing settings from 0.4.x and before will not work any more.
 
 ## Custom splash page changes
-diaspora* no longer adds a `div.container` to wrap custom splash pages. This adds the ability for podmins to write home pages using Bootstrap's fluid design. Podmins who added a custom splash page in `app/views/home/_show.{html,mobile}.haml` need to wrap the contents into a `div.container` to keep the old design.
+diaspora* no longer adds a `div.container` to wrap custom splash pages. This adds the ability for podmins to write home pages using Bootstrap's fluid design. Podmins who added a custom splash page in `app/views/home/_show.{html,mobile}.haml` need to wrap the contents into a `div.container` to keep the old design. You will find updated examples [in our wiki](https://wiki.diasporafoundation.org/Custom_splash_page).
 
 ## Refactor
 * Redesign contacts page [#5153](https://github.com/diaspora/diaspora/pull/5153)
