@@ -135,24 +135,30 @@ class PeopleController < ApplicationController
   end
 
   def contacts
-    @person = Person.find_by_guid(params[:person_id])
+    respond_to do |format|
+      format.json { render nothing: true, status: 406 }
 
-    if @person
-      @contact = current_user.contact_for(@person)
-      @contacts_of_contact = Contact.contact_contacts_for(current_user, @person)
-      gon.preloads[:person] = PersonPresenter.new(@person, current_user).full_hash_with_profile
-      gon.preloads[:photos] = {
-        count: photos_from(@person, :all).count(:all)
-      }
-      gon.preloads[:contacts] = {
-        count: @contacts_of_contact.count(:all),
-      }
-      @contacts_of_contact = @contacts_of_contact.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
-      @hashes = hashes_for_people @contacts_of_contact, @aspects
-      respond_with @person, layout: "with_header"
-    else
-      flash[:error] = I18n.t 'people.show.does_not_exist'
-      redirect_to people_path
+      format.any do
+        @person = Person.find_by_guid(params[:person_id])
+
+        if @person
+          @contact = current_user.contact_for(@person)
+          @contacts_of_contact = Contact.contact_contacts_for(current_user, @person)
+          gon.preloads[:person] = PersonPresenter.new(@person, current_user).full_hash_with_profile
+          gon.preloads[:photos] = {
+            count: photos_from(@person, :all).count(:all)
+          }
+          gon.preloads[:contacts] = {
+            count: @contacts_of_contact.count(:all),
+          }
+          @contacts_of_contact = @contacts_of_contact.paginate(page: params[:page], per_page: (params[:limit] || 15))
+          @hashes = hashes_for_people @contacts_of_contact, @aspects
+          respond_with @person, layout: "with_header"
+        else
+          flash[:error] = I18n.t "people.show.does_not_exist"
+          redirect_to people_path
+        end
+      end
     end
   end
 
