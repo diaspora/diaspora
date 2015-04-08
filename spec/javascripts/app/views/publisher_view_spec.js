@@ -16,11 +16,15 @@ describe("app.views.Publisher", function() {
     });
 
     it("hides the close button in standalone mode", function() {
-      expect(this.view.$('#hide_publisher').is(':visible')).toBeFalsy();
+      expect(this.view.$("#hide_publisher").is(":visible")).toBeFalsy();
     });
 
     it("hides the post preview button in standalone mode", function() {
-      expect(this.view.$('.post_preview_button').is(':visible')).toBeFalsy();
+      expect(this.view.$(".post_preview_button").is(":visible")).toBeFalsy();
+    });
+
+    it("hides the manage services link in standalone mode", function() {
+      expect(this.view.$(".question_mark").is(":visible")).toBeFalsy();
     });
 
     describe("createStatusMessage", function(){

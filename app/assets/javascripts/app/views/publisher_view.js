@@ -59,11 +59,13 @@ app.views.Publisher = Backbone.View.extend({
       this.el_input.val( this.el_hiddenInput.val() );
     }
 
-    // hide close and preview buttons, in case publisher is standalone
+    // hide close and preview buttons and manage services link
+    // in case publisher is standalone
     // (e.g. bookmarklet, mentions popup)
     if( this.standalone ) {
-      this.$('#hide_publisher').hide();
+      this.$("#hide_publisher").hide();
       this.el_preview.hide();
+      this.$(".question_mark").hide();
     }
 
     // this has to be here, otherwise for some reason the callback for the
