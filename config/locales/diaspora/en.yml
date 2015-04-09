@@ -1074,16 +1074,19 @@ en:
       failure: "There was an error resharing this post."
     comment_email_subject: "%{resharer}’s reshare of %{author}’s post"
   services:
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
     index:
-      logged_in_as: "Logged in as"
+      connect: "Connect"
       disconnect: "Disconnect"
+      logged_in_as: "Logged in as %{nickname}."
+      no_services_available: "There are no services on this pod available."
+      not_logged_in: "Currently not logged in."
       really_disconnect: "Disconnect %{service}?"
-      connect_to_twitter: "Connect to Twitter"
-      connect_to_facebook: "Connect to Facebook"
-      connect_to_tumblr: "Connect to Tumblr"
-      connect_to_wordpress: "Connect to WordPress"
       edit_services: "Edit services"
-      no_services: "You have not connected any services yet."
       services_explanation: "Connecting to services gives you the ability to publish your posts to them as you write them in diaspora*."
     create:
       success: "Authentication successful."
