@@ -12,6 +12,12 @@
 //= require jquery.autoSuggest.custom
 //= require fileuploader-custom
 //= require rails-timeago
+//= require underscore
+//= require diaspora
+//= require helpers/i18n
+//= require widgets/timeago
+//= require mobile/mobile_file_uploader
+//= require mobile/profile_aspects
 //= require hammer.js
 
 $(document).ready(function(){
