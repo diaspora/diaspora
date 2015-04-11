@@ -1,3 +1,7 @@
+# 0.4.1.3
+
+* Update Redcarped, fixes [OSVDB-120415](http://osvdb.org/show/osvdb/120415).
+
 # 0.4.1.2
 
 * Update Rails, fixes [CVE-2014-7818](https://groups.google.com/forum/#!topic/rubyonrails-security/dCp7duBiQgo).
