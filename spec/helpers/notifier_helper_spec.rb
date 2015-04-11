@@ -14,7 +14,7 @@ describe NotifierHelper do
       # post for markdown test
       @markdown_post = FactoryGirl.create(:status_message)
       @markdown_post.text = "[link](http://diasporafoundation.org) **bold text** *other text*"
-      @striped_markdown_post = "link bold text other text"
+      @striped_markdown_post = "link (http://diasporafoundation.org) bold text other text"
     end
 
     it 'truncates in the post' do
@@ -37,7 +37,7 @@ describe NotifierHelper do
       # comment for markdown test
       @markdown_comment = FactoryGirl.create(:comment)
       @markdown_comment.text = "[link](http://diasporafoundation.org) **bold text** *other text*"
-      @striped_markdown_comment = "link bold text other text"
+      @striped_markdown_comment = "link (http://diasporafoundation.org) bold text other text"
     end
 
     it 'truncates in the comment' do
