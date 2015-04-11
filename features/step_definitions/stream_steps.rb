@@ -2,6 +2,10 @@ When /^I (?:like|unlike) the post "([^"]*)" in the stream$/ do |post_text|
   like_stream_post(post_text)
 end
 
+Then /^I should see an image in the publisher$/ do
+  photo_in_publisher.should be_present
+end
+
 Then /^"([^"]*)" should be post (\d+)$/ do |post_text, position|
   stream_element_numbers_content(position).should have_content(post_text)
 end

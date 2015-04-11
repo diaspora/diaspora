@@ -6,6 +6,7 @@
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
 * Fix only sharing flag for contacts that are receiving [#5848](https://github.com/diaspora/diaspora/pull/5848)
 * Return 406 when requesting a JSON representation of people/:guid/contacts [#5849](https://github.com/diaspora/diaspora/pull/5849)
+* Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)

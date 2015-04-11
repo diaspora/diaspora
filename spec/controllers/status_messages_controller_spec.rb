@@ -158,6 +158,13 @@ describe StatusMessagesController, :type => :controller do
 #      response.body.should include('Status message requires a message or at least one photo')
 #    end
 
+    it "has one participation" do
+      post :create, status_message_hash
+      new_message = StatusMessage.find_by_text(status_message_hash[:status_message][:text])
+      expect(new_message.participations.count).to eq(1)
+      expect(new_message.participations.first.count).to eq(1)
+    end
+
     context 'with photos' do
       before do
         @photo1 = alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name), :to => @aspect1.id)

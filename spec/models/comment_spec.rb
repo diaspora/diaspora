@@ -11,6 +11,23 @@ describe Comment, :type => :model do
     @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
   end
 
+  describe "#destroy" do
+    before do
+      @comment = alice.comment!(@status, "why so formal?")
+    end
+
+    it "should delete a participation" do
+      expect { @comment.destroy }.to change { Participation.count }.by(-1)
+    end
+
+    it "should decrease count participation" do
+      alice.comment!(@status, "Are you there?")
+      @comment.destroy
+      participations = Participation.where(target_id: @comment.commentable_id, author_id: @comment.author_id)
+      expect(participations.first.count).to eq(1)
+    end
+  end
+
   describe 'comment#notification_type' do
     let (:comment) { alice.comment!(@status, "why so formal?") }
 
@@ -59,6 +76,12 @@ describe Comment, :type => :model do
       expect {
         alice.comment!(@status, 'hello')
       }.to change { Comment.count }.by(1)
+    end
+
+    it "should create a participation" do
+      comment = bob.comment!(@status, "sup dog")
+      participations = Participation.where(target_id: comment.commentable_id, author_id: comment.author_id)
+      expect(participations.count).to eq(1)
     end
   end
 
