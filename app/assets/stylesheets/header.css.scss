@@ -23,9 +23,10 @@ body > header {
 
   .diaspora_header_logo {
     float: left;
-    margin-top: -6px;
-    height: 38px;
-    width: 65px;
+    margin-top: 3px;
+    font-weight: bold;
+    color: #eee;
+    padding-right: 10px;
   }
 
   .ie-user-menu-active { height: 150px; }
@@ -329,6 +330,7 @@ body > header {
     left: 8px;
     top: 8px;
     display: block;
+    border-radius: 50%;
   }
 
   .header-nav {
@@ -347,9 +349,6 @@ body > header {
     > span {
       height: 100%;
       display: inline-block;
-      margin-left: -4px;
-      border-left: 1px solid #333;
-      border-right: 1px solid #333;
 
       &:last-child {
         margin-left: -5px;

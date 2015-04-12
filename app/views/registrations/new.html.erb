@@ -2,11 +2,7 @@
   <div class="container">
 
     <div class="row">
-      <div class="span4" id="image-container">
-        <%= image_tag('signupimages@librenet_1.jpg', :id => "collage") %>
-      </div>
-
-      <div class="span8">
+      <div class="span6">
         <h1 id="create-something-text">
           <%= t('.hey_make').html_safe %>
         </h1>
@@ -15,6 +11,12 @@
           <%= t('.diaspora') %>
         </h3>
 
+        <h3 id="diaspora-about">
+          <%= t('.about') %>
+        </h3>
+      </div>
+
+      <div class="span6">
         <h4 id="sign-up-text">
           <%= t('.sign_up') %>
         </h4>
