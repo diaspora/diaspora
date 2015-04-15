@@ -163,6 +163,7 @@ diaspora* no longer adds a `div.container` to wrap custom splash pages. This add
 * Fix pagination design on conversations page [#5791](https://github.com/diaspora/diaspora/pull/5791)
 * Prevent inserting posts into the wrong stream [#5838](https://github.com/diaspora/diaspora/pull/5838)
 * Update help section [#5857](https://github.com/diaspora/diaspora/pull/5857)
+* Fix asset precompilation check in script/server [#5863](https://github.com/diaspora/diaspora/pull/5863)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
