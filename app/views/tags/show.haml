@@ -8,9 +8,9 @@
   - else
     = t('.whatup', :pod => @pod_url)
 
-.container#tags_show
+.container-fluid#tags_show
   .row
-    .col-md-3.offset1
+    .col-md-3.col-md-offset-1
       %h4
         = t('.tagged_people', :count => @stream.tagged_people_count, :tag => @stream.display_tag_name)
 

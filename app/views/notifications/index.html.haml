@@ -1,32 +1,30 @@
-.container#notifications_container
+.container-fluid#notifications_container
   .row
     .col-md-3
       %h3
         = t('.notifications')
-      %ul.nav.nav-tabs.nav-stacked
-        %li{ :class => ('active' unless params[:type] && @grouped_unread_notification_counts.has_key?(params[:type])) }
-          %a{ :href => '/notifications' + (params[:show] == 'unread' ? '?show=unread' : '') }
-            %span.pull-right.badge{:class => (@unread_notification_count > 0 ? 'badge-important' : 'badge-default')}
-              = @unread_notification_count
-            = t('.all_notifications')
+      %ul.list-group
+        %a.list-group-item{ :class => ('active' unless params[:type] && @grouped_unread_notification_counts.has_key?(params[:type])), :href => '/notifications' + (params[:show] == 'unread' ? '?show=unread' : '') }
+          %span.pull-right.badge{:class => (@unread_notification_count > 0 ? 'badge-important' : 'badge-default')}
+            = @unread_notification_count
+          = t('.all_notifications')
         - @grouped_unread_notification_counts.each do |key, count|
-          %li{ :class => ('active' if params[:type] == key), :data => { :type => key } }
-            %a{ :href => '/notifications?type=' + key + (params[:show] == 'unread' ? '&show=unread' : '') }
-              %span.pull-right.badge{ :class => (count > 0 ? 'badge-important' :'badge-default') }
-                = count
-              - case key
-                - when 'also_commented', 'comment_on_post'
-                  %i.entypo.comment
-                - when 'liked'
-                  %i.entypo.heart
-                - when 'mentioned'
-                  %span.mentionIcon
-                    @
-                - when 'reshared'
-                  %i.entypo.retweet
-                - when 'started_sharing'
-                  %i.entypo.add-user
-              = t('.'+key)
+          %a.list-group-item{ :class => ('active' if params[:type] == key), :data => { :type => key }, :href => '/notifications?type=' + key + (params[:show] == 'unread' ? '&show=unread' : '') }
+            %span.pull-right.badge{ :class => (count > 0 ? 'badge-important' :'badge-default') }
+              = count
+            - case key
+              - when 'also_commented', 'comment_on_post'
+                %i.entypo.comment
+              - when 'liked'
+                %i.entypo.heart
+              - when 'mentioned'
+                %span.mentionIcon
+                  @
+              - when 'reshared'
+                %i.entypo.retweet
+              - when 'started_sharing'
+                %i.entypo.add-user
+            = t('.'+key)
 
     .col-md-9.stream.notifications
       .row.header
@@ -37,7 +35,7 @@
                 = t('.show_all')
               %a.btn.btn-default{ :class => ('active' if params[:show] == 'unread'), :href => '/notifications?show=unread' + (params[:type] ? '&type=' + params[:type] : '') }
                 = t('.show_unread')
-            %a.btn.btn-default{:href => read_all_notifications_path(:type => params[:type] ), :class => ('disabled' unless @unread_notification_count > 0)}
+            %a.btn.btn-default.btn-group{:href => read_all_notifications_path(:type => params[:type] ), :class => ('disabled' unless @unread_notification_count > 0)}
               -if params[:type]
                 = t('.mark_all_shown_as_read')
               -else

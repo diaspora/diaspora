@@ -16,13 +16,13 @@
     %span.caret
   %ul.dropdown-menu.pull-right{ :unSelectable => 'on' }
 
-    %li.public.radio{"data-aspect_id" => "public", :class => ("selected" if publisher_public)}
+    %li.public{"data-aspect_id" => "public", :class => ("selected" if publisher_public)}
       %a
         %span.status_indicator
           %i.icon-ok
         %span.text
           = t('public')
-    %li.all_aspects.radio{"data-aspect_id" => "all_aspects", :class => ("selected" if (!publisher_public && all_aspects_selected?(selected_aspects)))}
+    %li.all_aspects{"data-aspect_id" => "all_aspects", :class => ("selected" if (!publisher_public && all_aspects_selected?(selected_aspects)))}
       %a
         %span.status_indicator
           %i.icon-ok

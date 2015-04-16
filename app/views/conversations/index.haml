@@ -4,7 +4,7 @@
 - content_for :page_title do
   = t('.conversations_inbox')
 
-.container#conversations_container
+.container-fluid#conversations_container
   .row
     .col-md-4
       #left_pane
@@ -31,8 +31,8 @@
       - else
         .stream_container.hidden
           #conversation_show
-        #conversation_new.row
+        #conversation_new
           %h3.text-center
             = t('conversations.index.new_conversation')
-          .col-md-10.offset
+          .col-md-10.col-md-offset-1
             = render 'conversations/new'

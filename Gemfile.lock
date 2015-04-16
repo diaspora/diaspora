@@ -97,17 +97,17 @@ GEM
       mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    childprocess (0.5.5)
+    childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.3.4)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
-    coffee-script (2.3.0)
+    coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.1)
+    coffee-script-source (1.9.1.1)
     columnize (0.9.0)
     compass (1.0.3)
       chunky_png (~> 1.2)
@@ -126,7 +126,7 @@ GEM
       sass-rails (<= 5.0.1)
       sprockets (< 2.13)
     configurate (0.2.0)
-    connection_pool (2.1.3)
+    connection_pool (2.2.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     cucumber (1.3.19)
@@ -166,7 +166,7 @@ GEM
       http_parser.rb (~> 0.6)
       nokogiri (~> 1.6)
     diff-lcs (1.2.5)
-    domain_name (0.5.23)
+    domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
     eco (1.0.0)
       coffee-script
@@ -183,8 +183,8 @@ GEM
     ethon (0.7.3)
       ffi (>= 1.3.0)
     eventmachine (1.0.7)
-    excon (0.45.1)
-    execjs (2.4.0)
+    excon (0.45.2)
+    execjs (2.5.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.5.0)
@@ -226,7 +226,7 @@ GEM
     fog-atmos (0.1.0)
       fog-core
       fog-xml
-    fog-aws (0.1.1)
+    fog-aws (0.1.2)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
@@ -242,16 +242,17 @@ GEM
       mime-types
       net-scp (~> 1.1)
       net-ssh (>= 2.1.3)
-    fog-ecloud (0.0.2)
+    fog-ecloud (0.1.1)
       fog-core
       fog-xml
-    fog-json (1.0.0)
+    fog-json (1.0.1)
+      fog-core (~> 1.0)
       multi_json (~> 1.0)
     fog-profitbricks (0.0.2)
       fog-core
       fog-xml
       nokogiri
-    fog-radosgw (0.0.3)
+    fog-radosgw (0.0.4)
       fog-core (>= 1.21.0)
       fog-json
       fog-xml (>= 0.0.1)
@@ -259,28 +260,28 @@ GEM
       fog-core
       fog-json
       fog-xml
-    fog-sakuracloud (1.0.0)
+    fog-sakuracloud (1.0.1)
       fog-core
       fog-json
-    fog-serverlove (0.1.1)
+    fog-serverlove (0.1.2)
       fog-core
       fog-json
-    fog-softlayer (0.4.1)
+    fog-softlayer (0.4.5)
       fog-core
       fog-json
-    fog-storm_on_demand (0.1.0)
+    fog-storm_on_demand (0.1.1)
       fog-core
       fog-json
-    fog-terremark (0.0.4)
+    fog-terremark (0.1.0)
       fog-core
       fog-xml
-    fog-vmfusion (0.0.1)
+    fog-vmfusion (0.1.0)
       fission
       fog-core
-    fog-voxel (0.0.2)
+    fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-xml (0.1.1)
+    fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
     font-awesome-rails (4.3.0.0)
@@ -293,7 +294,7 @@ GEM
       ruby-progressbar (~> 1.4)
     gherkin (2.12.2)
       multi_json (~> 1.3)
-    globalid (0.3.3)
+    globalid (0.3.5)
       activesupport (>= 4.1.0)
     gon (5.2.3)
       actionpack (>= 2.3.0)
@@ -394,7 +395,7 @@ GEM
     mime-types (2.4.3)
     mini_magick (4.2.0)
     mini_portile (0.6.2)
-    minitest (5.5.1)
+    minitest (5.6.0)
     mobile-fu (1.3.1)
       rack-mobile-detect
       rails
@@ -444,7 +445,7 @@ GEM
       faraday (~> 0.9.0)
       nokogiri (~> 1.6)
     orm_adapter (0.5.0)
-    parser (2.2.0.3)
+    parser (2.2.2.0)
       ast (>= 1.1, < 3.0)
     phantomjs (1.9.8.0)
     powerpack (0.1.0)
@@ -575,9 +576,9 @@ GEM
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
       rspec-mocks (~> 3.2.0)
-    rspec-core (3.2.2)
+    rspec-core (3.2.3)
       rspec-support (~> 3.2.0)
-    rspec-expectations (3.2.0)
+    rspec-expectations (3.2.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
     rspec-instafail (0.2.6)
