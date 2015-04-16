@@ -25,8 +25,3 @@ before_install: gem install bundler
 bundler_args: "--without development production heroku --jobs 3 --retry 3"
 
 script: "./script/ci/build.sh"
-
-notifications:
-  irc:
-    channels:
-      - "irc.freenode.org:6667#diaspora-dev"
