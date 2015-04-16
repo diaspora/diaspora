@@ -20,7 +20,7 @@ app.views.Notifications = Backbone.View.extend({
     else { this.setUnread(note.data("guid")); }
   },
 
-  getAllUnread: function(){ return $('.media.stream_element.unread'); },
+  getAllUnread: function(){ return $(".media.stream_element.unread"); },
 
   setRead: function(guid) { this.setUnreadStatus(guid, false); },
 
@@ -37,7 +37,7 @@ app.views.Notifications = Backbone.View.extend({
   },
 
   clickSuccess: function(data) {
-    var type = $('.stream_element[data-guid=' + data["guid"] + ']').data('type');
+    var type = $(".stream_element[data-guid=" + data["guid"] + "]").data("type");
     this.updateView(data["guid"], type, data["unread"]);
   },
 
@@ -51,43 +51,43 @@ app.views.Notifications = Backbone.View.extend({
 
   updateView: function(guid, type, unread) {
     var change = unread ? 1 : -1,
-        all_notes = $('ul.nav > li:eq(0) .badge'),
-        type_notes = $('ul.nav > li[data-type=' + type + '] .badge'),
-        header_badge = $('#notification_badge .badge_count'),
-        note = $('.stream_element[data-guid=' + guid + ']'),
-        markAllReadLink = $('a#mark_all_read_link'),
-        translationKey = unread ? 'notifications.mark_read' : 'notifications.mark_unread';
+        allNotes = $("ul.list-group > a:eq(0) .badge"),
+        typeNotes = $("ul.list-group > a[data-type=" + type + "] .badge"),
+        headerBadge = $("#notification_badge .badge_count"),
+        note = $(".stream_element[data-guid=" + guid + "]"),
+        markAllReadLink = $("a#mark_all_read_link"),
+        translationKey = unread ? "notifications.mark_read" : "notifications.mark_unread";
 
     if(unread){ note.removeClass("read").addClass("unread"); }
     else { note.removeClass("unread").addClass("read"); }
 
     $(".unread-toggle .entypo", note)
-        .tooltip('destroy')
+        .tooltip("destroy")
         .removeAttr("data-original-title")
-        .attr('title',Diaspora.I18n.t(translationKey))
+        .attr("title",Diaspora.I18n.t(translationKey))
         .tooltip();
 
-    [all_notes, type_notes, header_badge].forEach(function(element){
+    [allNotes, typeNotes, headerBadge].forEach(function(element){
       element.text(function(i, text){
         return parseInt(text) + change });
     });
 
-    [all_notes, type_notes].forEach(function(badge) {
+    [allNotes, typeNotes].forEach(function(badge) {
       if(badge.text() > 0) {
-        badge.addClass('badge-important').removeClass('badge-default');
+        badge.addClass("badge-important").removeClass("badge-default");
       }
       else {
-        badge.removeClass('badge-important').addClass('badge-default');
+        badge.removeClass("badge-important").addClass("badge-default");
       }
     });
 
-    if(header_badge.text() > 0){
-      header_badge.removeClass('hidden');
-      markAllReadLink.removeClass('disabled');
+    if(headerBadge.text() > 0){
+      headerBadge.removeClass("hidden");
+      markAllReadLink.removeClass("disabled");
     }
     else{
-      header_badge.addClass('hidden');
-      markAllReadLink.addClass('disabled');
+      headerBadge.addClass("hidden");
+      markAllReadLink.addClass("disabled");
     }
   }
 });

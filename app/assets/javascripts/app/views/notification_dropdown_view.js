@@ -86,7 +86,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
   hideAjaxLoader: function(){
     var self = this;
     this.ajaxLoader.find('img').fadeTo(200, 0, function(){
-      self.ajaxLoader.hide(300, function(){
+      self.ajaxLoader.hide(200, function(){
         self.ajaxLoader.find('img').css('opacity', 1);
       });
     });

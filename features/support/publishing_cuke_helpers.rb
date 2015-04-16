@@ -26,10 +26,10 @@ module PublishingCukeHelpers
   end
 
   def submit_publisher
-    txt = find('#publisher #status_message_fake_text').value
-    find('#publisher .creation').click
+    txt = find("#publisher #status_message_fake_text").value
+    find("#publisher .btn-primary").click
     # wait for the content to appear
-    expect(find('#main_stream')).to have_content(txt)
+    expect(find("#main_stream")).to have_content(txt)
   end
 
   def click_and_post(text)

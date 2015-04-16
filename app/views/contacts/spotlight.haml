@@ -2,12 +2,12 @@
   = t('contacts.spotlight.community_spotlight')
 
 
-.container-fluid#contacts_container
-  .row-fluid
-    .span3
+.container#contacts_container
+  .row
+    .col-md-3
       = render 'contacts/sidebar'
 
-    .span9
+    .col-md-9
       #people_stream.stream.contacts
         .header
           - if AppConfig.settings.community_spotlight.suggest_email.present?

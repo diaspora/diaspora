@@ -2,11 +2,11 @@
   = t('.title')
 
 .container-fluid#contacts_container
-  .row-fluid
-    .span3
+  .row
+    .col-md-3
       = render 'contacts/sidebar'
 
-    .span9
+    .col-md-9
       #people_stream.stream.contacts
         = render 'contacts/header'
 
@@ -25,7 +25,7 @@
               != t('.no_contacts_message',
                    :community_spotlight => link_to(t('.community_spotlight'), community_spotlight_path))
             %p
-              .btn.btn-link{ 'data-toggle' => 'modal', 'data-target' => '#invitationsModal'}
+              .btn.btn-link{ 'data-toggle' => 'modal' }
                 = t('invitations.new.invite_someone_to_join')
 
 -if @aspect

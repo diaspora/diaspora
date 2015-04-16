@@ -13,8 +13,7 @@ app.views.AspectMembership = app.views.AspectsDropdown.extend({
 
   events: {
     "click ul.aspect_membership.dropdown-menu > li.aspect_selector": "_clickHandler",
-    "keypress ul.aspect_membership.dropdown-menu > li.aspect_selector": "_clickHandler",
-    "click ul.aspect_membership.dropdown-menu > li.newItem": "showModal"
+    "keypress ul.aspect_membership.dropdown-menu > li.aspect_selector": "_clickHandler"
   },
 
   initialize: function() {
@@ -147,10 +146,6 @@ app.views.AspectMembership = app.views.AspectsDropdown.extend({
   updateSummary: function(target) {
     this._toggleCheckbox(target);
     this._updateButton('green');
-  },
-
-  showModal: function() {
-    this.$("#newAspectModal").modal("show");
   }
 });
 // @license-end

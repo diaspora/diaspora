@@ -13,7 +13,7 @@
       debug: false,
       donetext: Diaspora.I18n.t("infinite_scroll.no_more"),
       loadingText: "",
-      loadingImg: ImagePaths.get("ajax-loader.gif"),
+      loadingImg: ImagePaths.get("ajax-loader2.gif"),
       navSelector: "#pagination",
       nextSelector: ".paginate",
       itemSelector: ".stream_element",
