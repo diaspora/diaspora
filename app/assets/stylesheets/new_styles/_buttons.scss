@@ -1,6 +1,6 @@
 .btn.creation {
   $button-border-color: #aaa;
-  @include button-gradient($creation-blue);
+  background: $dark-blue;
   color: #fff;
   border: 1px solid darken($button-border-color,20%);
   text-shadow: none;
@@ -15,12 +15,12 @@
 
 .btn.green {
   $button-border-color: #aaa;
-  @include button-gradient($green);
+  background: $green;
   color: $grey;
   border: 1px solid darken($button-border-color,20%);
 
   &:hover {
-    background: $green;
+    background: $light-green;
     border: 1px solid darken($button-border-color,35%);
   }
 }

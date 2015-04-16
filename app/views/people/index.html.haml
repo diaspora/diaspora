@@ -8,12 +8,12 @@
 - content_for :head do
   = javascript_include_tag 'contact-list'
 
-.container-fluid#people_search
-  .row-fluid
+.container#people_search
+  .row
     .page-header
       = search_header
-  .row-fluid
-    .span8
+  .row
+    .col-md-8
       #people_stream.stream
         - if @hashes.empty?
           - if @background_query.present?
@@ -39,7 +39,7 @@
         %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
           &#8679;
 
-    .span4
+    .col-md-4
       - if AppConfig.settings.invitations.open?
         %h4
           = t('.couldnt_find_them')

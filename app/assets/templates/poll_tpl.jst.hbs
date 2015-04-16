@@ -1,12 +1,12 @@
 {{#if poll}}
   <div class="poll_form">
-    <div class="row-fluid poll_head">
+    <div class="row poll_head">
       <strong>{{poll.question}}</strong>
       <div class="poll_statistic pull-right">
         {{t "poll.count" count=poll.participation_count}}
       </div>
     </div>
-    <div class="row-fluid poll_content">
+    <div class="row poll_content">
       {{#if show_form}}
         <form action="/posts/{{poll.post_id}}/poll_participations" method="POST">
           {{#poll.poll_answers}}

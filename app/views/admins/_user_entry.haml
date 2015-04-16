@@ -29,9 +29,9 @@
             %li= link_to t('admins.user_search.lock_account'), admin_lock_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure_lock_account') }, class: 'btn btn-danger btn-mini'
           - else
             %li= link_to t('admins.user_search.unlock_account'), admin_unlock_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure_unlock_account') }, class: 'btn btn-danger btn-mini'
-	  
+
     %div.row
-      %div.span5
+      %div.col-md-5
         %dl.dl-horizontal
           %dt= t('username')
           %dd= user.username

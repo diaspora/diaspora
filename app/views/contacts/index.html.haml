@@ -2,11 +2,11 @@
   = t('.title')
 
 .container-fluid#contacts_container
-  .row-fluid
-    .span3
+  .row
+    .col-md-3
       = render 'contacts/sidebar'
 
-    .span9
+    .col-md-9
       #people_stream.stream.contacts
         = render 'contacts/header'
 
