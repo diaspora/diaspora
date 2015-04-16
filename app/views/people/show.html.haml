@@ -12,12 +12,12 @@
   = @person.name
 
 .container-fluid#profile_container
-  .row-fluid
-    .span3
+  .row
+    .col-md-3
       #profile
         -# here be JS
 
-    .span9
+    .col-md-9
       .profile_header
         -# more JS
 
@@ -32,19 +32,19 @@
         #paginate
           %span.loader.hidden
 
-      %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
+      %a{id:"back-to-top", title:"#{t('layouts.application.back_to_top')}", href:"#"}
         &#8679;
 
 -if user_signed_in? && @person
   #new_status_message_pane
     = render 'shared/modal',
-      :path => new_status_message_path(:person_id => @person.id),
-      :title => t('status_messages.new.mentioning', :person => @person.name),
-      :id => 'mentionModal'
+      path: new_status_message_path(:person_id => @person.id),
+      title: t('status_messages.new.mentioning', person: @person.name),
+      id: 'mentionModal'
 
   -if @contact
     #new_conversation_pane
       = render 'shared/modal',
-        :path => new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name, :modal => true),
-        :title => t('conversations.index.new_conversation'),
-        :id => 'conversationModal'
+        path: new_conversation_path(:contact_id => @contact.id, name: @contact.person.name, modal: true),
+        title: t('conversations.index.new_conversation'),
+        id: 'conversationModal'

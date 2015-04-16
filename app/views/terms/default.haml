@@ -12,25 +12,25 @@
 
 / These terms of service and privacy policy documents have been forked
 / from the App.Net ToS repository (https://github.com/appdotnet/terms-of-service).
-/ The terms of use and privacy policy are available to you under the 
+/ The terms of use and privacy policy are available to you under the
 / CC BY-SA 3.0 Creative Commons license.
 / If you modify or copy this file, please do not remove this license text.
 
-%div{:class => "container-fluid", :style => "margin-top: 50px;"}
-  %div{:class => "row-fluid"}
-    %div{:class => "span3"}
+%div{class: "container", style: "margin-top: 50px;"}
+  %div{class: "row"}
+    %div{class: "col-md-3"}
       %h3
         Terms of Service
       %h4
-        %a{:href => "/terms#privacy"}
+        %a{href: "/terms#privacy"}
           Privacy Policy
-    %div{:class => "span9", :style => "margin-top: 20px;"}
+    %div{class: "col-md-9", style: "margin-top: 20px;"}
       %p
         Last Updated: 17th August, 2014
 
       %hr
 
-      %a{:name => "terms"}
+      %a{name: "terms"}
       %h1
         #{AppConfig.settings.pod_name} - Terms of Service
 
@@ -44,7 +44,7 @@
         If you access or use the Service, it means you agree to be bound by all of the terms below. So, before you use the Service, please read all of the terms. If you don't agree to all of the terms below, please do not use the Service.
         - if AppConfig.admins.podmin_email?
           Also, if a term does not make sense to you, please let us know by e-mailing <a href="mailto:#{AppConfig.admins.podmin_email}">#{AppConfig.admins.podmin_email}</a>.
-          
+
       %h2
         Changes to these Terms
 
@@ -202,13 +202,13 @@
 
         %p
           Questions or comments about the Service may be directed to us at the email address <a href="mailto:#{AppConfig.admins.podmin_email}">#{AppConfig.admins.podmin_email}</a>.
-      %a{:name => "privacy"}
+      %a{name: "privacy"}
 
       %hr
 
       %h1
         #{AppConfig.settings.pod_name} - Privacy Policy
-        
+
       %p
         Our privacy policy applies to information we collect when you use or access our website located at #{AppConfig.environment.url} and social networking services, or just interact with us. We may change this privacy policy from time to time. Whenever we make changes to this privacy policy, the changes are effective six (6) weeks after we post the revised privacy policy to our website (as indicated by revising the date at the top of our privacy policy). We encourage you to review our privacy policy whenever you access our services to stay informed about our information practices and the ways you can help protect your privacy.
 

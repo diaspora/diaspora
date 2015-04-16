@@ -40,12 +40,20 @@ body > div.container {
       height: 50px;
     }
 
-    .actions li {
-      margin-top: .3em;
-    }
+    .actions{ width: 150px; }
+
+    .pull-right .label{ display: inline-block; }
+  }
+}
+
+/** Invites panel **/
+.more_invites{
+  #add-invites-section{
+    line-height: 34px;
+    margin-bottom: 15px;
   }
 }
 
 /** reported posts **/
 
-@import 'report'
+@import 'report';

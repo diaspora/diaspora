@@ -4,12 +4,12 @@
 
 %h2= "#{t('.editing')} #{@photo.processed_image}"
 
-%div{:id => @photo.id}
+%div{id: @photo.id}
   #show_photo
     = image_tag @photo.url(:scaled_full)
 
   = form_for @photo do |photo|
     = photo.label :text
-    = photo.text_field :text, :value => @photo.text
+    = photo.text_field :text, value: @photo.text
     = photo.submit
 

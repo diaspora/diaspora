@@ -6,17 +6,17 @@
   = t('.edit_services')
 
 .container
-  .row-fluid
-    .span12
+  .row
+    .col-md-12
       #section_header
         %h2
           = t('settings')
         = render 'shared/settings_nav'
 
-  .row-fluid
-    .span7
+  .row{ :style=>"margin-top: 20px;" }
+    .col-md-7
       = render 'add_remove_services'
 
-    .span5
+    .col-md-5
       %p
         = t('.services_explanation')

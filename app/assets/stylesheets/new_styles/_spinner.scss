@@ -17,15 +17,11 @@
   clear: both;
 }
 
-.loaded {
-  animation: fade-in 0.16s linear;
-}
-
 .loader {
-  mask-image: image-url('static-loader.png');
+  mask-image: image-url('ajax-loader2.gif');
   animation: spin 1s infinite ease-in-out, fade-in 0.2s ease-in;
 
-  background-image : image-url("static-loader.png");
+  background-image : image-url("ajax-loader2.gif");
 
   display: inline-block;
   width : 14px;

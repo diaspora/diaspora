@@ -22,10 +22,10 @@
     height: 10px !important;
 
     .bar {
-      background-image: none;
-      background-color: $border-dark-grey;
+      background: $border-dark-grey none;
       color: $text-dark-grey;
       text-align: left;
+      height: 100%;
     }
   }
   .submit[disabled] {

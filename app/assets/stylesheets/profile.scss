@@ -128,3 +128,11 @@
 
   .stream_container > .pagination { text-align: center; }
 }
+
+#email-form{
+  padding: 0;
+  .form-group{
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

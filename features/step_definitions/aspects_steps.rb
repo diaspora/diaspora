@@ -92,7 +92,7 @@ When /^I drag "([^"]*)" (up|down) (\d+) pixels?$/ do |aspect_name, direction, di
   distance = distance.to_i * -1 if direction == "up"
   page.execute_script %{
     function drag() {
-      $("li.aspect:contains('#{aspect_name}')")
+      $("a.aspect:contains('#{aspect_name}')")
         .simulate("drag-n-drop", { dy: #{distance}, interpolation: { stepWidth: 10, stepDelay: 5 } });
     }
     function loadScripts() {
@@ -130,5 +130,5 @@ Then /^the aspect dropdown should be visible$/ do
 end
 
 Then /^I should see "([^"]*)" as (\d+). aspect$/ do |aspect_name, position|
-  expect(find("#aspect_nav li:nth-child(#{position.to_i + 2})")).to have_text aspect_name
+  expect(find("#aspect_nav a:nth-child(#{position.to_i + 2})")).to have_text aspect_name
 end

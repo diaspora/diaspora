@@ -3,6 +3,11 @@
 app.views.ProfileHeader = app.views.Base.extend({
   templateName: 'profile_header',
 
+  events: {
+    "click #mention_button": "showMentionModal",
+    "click #message_button": "showMessageModal"
+  },
+
   initialize: function(opts) {
     app.events.on('aspect:create', this.postRenderTemplate, this);
     this.photos = _.has(opts, 'photos') ? opts.photos : null;
@@ -38,6 +43,14 @@ app.views.ProfileHeader = app.views.Base.extend({
 
   _shouldShowContacts: function() {
     return (this.contacts && this.contacts.count > 0);
+  },
+
+  showMentionModal: function(){
+    app.helpers.showModal("#mentionModal");
+  },
+
+  showMessageModal: function(){
+    app.helpers.showModal("#conversationModal");
   },
 
   postRenderTemplate: function() {

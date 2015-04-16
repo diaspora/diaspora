@@ -34,7 +34,7 @@
       - if name == :users
         - name = t('.users', :count => model[:yesterday])
 
-      .span3
+      .col-md-3
         %h2{:style => 'font-weight:bold;'}
           = name.to_s
         %h4
@@ -43,12 +43,12 @@
             = "(#{model[:change]}%)"
 
   %div.row
-    %div.span12
+    %div.col-md-12
       %p.alert.alert-info.text-center
         != t('.current_segment', :post_yest => @posts[:yesterday]/@user_count.to_f, :post_day => @posts[:day_before]/@user_count.to_f)
 
   %div.row
-    %div.span12
+    %div.col-md-12
       %h3= t('.50_most')
       %ul
       - @popular_tags.each do |name,count|

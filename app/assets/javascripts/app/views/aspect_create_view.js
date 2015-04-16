@@ -4,7 +4,7 @@ app.views.AspectCreate = app.views.Base.extend({
   templateName: "aspect_create_modal",
 
   events: {
-    "click .btn.creation": "createAspect"
+    "click .btn.btn-primary": "createAspect"
   },
 
   initialize: function(opts) {
