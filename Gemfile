@@ -117,9 +117,6 @@ gem 'zip-zip'
 # https://github.com/discourse/discourse/pull/238
 gem 'minitest', '4.7.5'
 
-# Newrelic support
-gem 'newrelic_rpm'
-
 ### GROUPS ####
 
 group :assets do
@@ -179,6 +176,9 @@ group :production do # we don't install these on travis to speed up test runs
 
   gem 'asset_sync', '1.0.0', :require => false
 end
+
+# Newrelic support
+gem 'newrelic_rpm'
 
 group :development do
   # Automatic test runs
