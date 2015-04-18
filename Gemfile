@@ -117,6 +117,9 @@ gem 'zip-zip'
 # https://github.com/discourse/discourse/pull/238
 gem 'minitest', '4.7.5'
 
+# Newrelic support
+gem 'newrelic_rpm'
+
 ### GROUPS ####
 
 group :assets do

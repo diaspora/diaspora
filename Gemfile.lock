@@ -260,6 +260,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
+    newrelic_rpm (3.11.2.286)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oauth (0.4.7)
@@ -514,6 +515,7 @@ DEPENDENCIES
   minitest (= 4.7.5)
   mobile-fu (= 1.2.2)
   mysql2 (= 0.3.16)
+  newrelic_rpm
   nokogiri (= 1.6.1)
   omniauth (= 1.2.1)
   omniauth-facebook (= 1.6.0)
