@@ -122,6 +122,7 @@ diaspora* no longer adds a `div.container` to wrap custom splash pages. This add
 * Various cleanups and improvements in the frontend code [#5781](https://github.com/diaspora/diaspora/pull/5781) [#5769](https://github.com/diaspora/diaspora/pull/5769) [#5763](https://github.com/diaspora/diaspora/pull/5763) [#5762](https://github.com/diaspora/diaspora/pull/5762) [#5758](https://github.com/diaspora/diaspora/pull/5758) [#5755](https://github.com/diaspora/diaspora/pull/5755) [#5747](https://github.com/diaspora/diaspora/pull/5747) [#5734](https://github.com/diaspora/diaspora/pull/5734) [#5786](https://github.com/diaspora/diaspora/pull/5786) [#5768](https://github.com/diaspora/diaspora/pull/5798)
 * Add specs and validations to the role model [#5792](https://github.com/diaspora/diaspora/pull/5792)
 * Replace 'Make something' text by diaspora ball logo on registration page [#5743](https://github.com/diaspora/diaspora/pull/5743)
+* Update in-app Help section to cover new features and UI changes [#5859](https://github.com/diaspora/diaspora/pull/5859)
 
 ## Bug fixes
 * orca cannot see 'Add Contact' button [#5158](https://github.com/diaspora/diaspora/pull/5158)
