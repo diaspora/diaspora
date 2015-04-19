@@ -25,7 +25,12 @@ class SetMysqlToUnicodeMb4 < ActiveRecord::Migration
     execute "ALTER DATABASE `#{ActiveRecord::Base.connection.current_database}` CHARACTER SET #{encoding} COLLATE #{collation};"
 
     tables.each do |table|
-      execute "ALTER TABLE `#{table}` CONVERT TO CHARACTER SET #{encoding} COLLATE #{collation}"
+
+      modify_text_columns = columns(table).select {|column| column.type == :text }.map {|column|
+        "MODIFY `#{column.name}` TEXT #{'NOT' unless column.null } NULL#{" DEFAULT '#{column.default}'" if column.has_default?}"
+      }.join(", ")
+
+      execute "ALTER TABLE `#{table}` CONVERT TO CHARACTER SET #{encoding} COLLATE #{collation}#{", #{modify_text_columns}" unless modify_text_columns.empty?};"
     end
   end
 
