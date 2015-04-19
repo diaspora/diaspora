@@ -175,7 +175,7 @@ diaspora* no longer adds a `div.container` to wrap custom splash pages. This add
 * Remove bottom margin from lists that are the last element of a post. [#5721](https://github.com/diaspora/diaspora/pull/5721)
 * Fix pagination design on conversations page [#5791](https://github.com/diaspora/diaspora/pull/5791)
 * Prevent inserting posts into the wrong stream [#5838](https://github.com/diaspora/diaspora/pull/5838)
-* Update help section [#5857](https://github.com/diaspora/diaspora/pull/5857)
+* Update help section [#5857](https://github.com/diaspora/diaspora/pull/5857) [#5859](https://github.com/diaspora/diaspora/pull/5859)
 * Fix asset precompilation check in script/server [#5863](https://github.com/diaspora/diaspora/pull/5863)
 
 ## Features
