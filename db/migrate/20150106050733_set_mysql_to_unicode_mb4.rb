@@ -25,24 +25,13 @@ class SetMysqlToUnicodeMb4 < ActiveRecord::Migration
     execute "ALTER DATABASE `#{ActiveRecord::Base.connection.current_database}` CHARACTER SET #{encoding} COLLATE #{collation};"
 
     tables.each do |table|
-      execute "ALTER TABLE `#{table}` CHARACTER SET = #{encoding} COLLATE #{collation}"
-    end
 
-    character_columns.each do |table, columns|
-      columns.each do |column|
-        execute "ALTER TABLE `#{table}` CHANGE `#{column.name}` `#{column.name}` #{column.sql_type} CHARACTER SET #{encoding} COLLATE #{collation} #{column.null ? 'NULL' : 'NOT NULL'} #{"DEFAULT '#{column.default}'" if column.has_default?};"
-      end
-    end
-  end
+      modify_text_columns = columns(table).select {|column| column.type == :text }.map {|column|
+        "MODIFY `#{column.name}` TEXT #{'NOT' unless column.null } NULL#{" DEFAULT '#{column.default}'" if column.has_default?}"
+      }.join(", ")
 
-  def character_columns
-    # build a hash with all the columns that contain characters
-    @character_columns ||= Hash[tables.map {|table|
-      col = columns(table)
-        .select {|column| column.type == :string || column.type == :text }
-      next if col.empty?
-      [table, col]
-    }.compact]
+      execute "ALTER TABLE `#{table}` CONVERT TO CHARACTER SET #{encoding} COLLATE #{collation}#{", #{modify_text_columns}" unless modify_text_columns.empty?};"
+    end
   end
 
   def shorten_indexes
