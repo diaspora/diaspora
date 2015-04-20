@@ -66,8 +66,8 @@ Feature: following and being followed
     And I press the first ".aspect_membership_dropdown .dropdown-toggle"
     And I press the first "a" within ".add_aspect"
 
-    And I fill in "Name" with "Super People" in the modal window
-    And I press "Create" in the modal window
+    And I fill in "aspect_name" with "Super People" in the aspect creation modal
+    And I click on selector ".btn.creation" in the aspect creation modal
 
     When I go to the home page
     Then I should have 1 contact in "Super People"

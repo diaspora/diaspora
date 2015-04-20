@@ -82,6 +82,12 @@ When /^I press the aspect dropdown$/ do
   click_aspect_dropdown
 end
 
+When /^(.*) in the aspect creation modal$/ do |action|
+  within("#newAspectModal") do
+    step action
+  end
+end
+
 And /^I toggle the aspect "([^"]*)"$/ do |name|
   toggle_aspect(name)
 end

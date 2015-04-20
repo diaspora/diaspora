@@ -30,18 +30,3 @@
     }
   }
 }
-
-#new_aspect {
-  .checkbox {
-    margin: 0px;
-  }
-
-  label[for="aspect_contacts_visible"],
-  label[for="aspect_chat_enabled"] {
-    display: inline;
-  }
-
-  .bottom_submit_section {
-    padding-top: 20px;
-  }
-}

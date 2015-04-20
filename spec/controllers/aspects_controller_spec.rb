@@ -16,25 +16,6 @@ describe AspectsController, :type => :controller do
     request.env["HTTP_REFERER"] = 'http://' + request.host
   end
 
-
-  describe "#new" do
-    it "renders a remote form if remote is true" do
-      get :new, "remote" => "true"
-      expect(response).to be_success
-      expect(response.body).to match(/#{Regexp.escape('data-remote="true"')}/)
-    end
-    it "renders a non-remote form if remote is false" do
-      get :new, "remote" => "false"
-      expect(response).to be_success
-      expect(response.body).not_to match(/#{Regexp.escape('data-remote="true"')}/)
-    end
-    it "renders a non-remote form if remote is missing" do
-      get :new
-      expect(response).to be_success
-      expect(response.body).not_to match(/#{Regexp.escape('data-remote="true"')}/)
-    end
-  end
-
   describe "#show" do
     it "succeeds" do
       get :show, 'id' => @alices_aspect_1.id.to_s
@@ -50,30 +31,32 @@ describe AspectsController, :type => :controller do
     context "with valid params" do
       it "creates an aspect" do
         expect(alice.aspects.count).to eq(2)
-        post :create, "aspect" => {"name" => "new aspect"}
+        post :create, aspect: {name: "new aspect"}
         expect(alice.reload.aspects.count).to eq(3)
       end
-      it "redirects to the aspect's contact page" do
-        post :create, "aspect" => {"name" => "new aspect"}
-        expect(response).to redirect_to(contacts_path(:a_id => Aspect.find_by_name("new aspect").id))
+
+      it "returns the created aspect as json" do
+        post :create, aspect: {name: "new aspect"}
+        expect(JSON.parse(response.body)["id"]).to eq Aspect.find_by_name("new aspect").id
+        expect(JSON.parse(response.body)["name"]).to eq "new aspect"
       end
 
       context "with person_id param" do
         it "creates a contact if one does not already exist" do
           expect {
-            post :create, :format => 'js', :aspect => {:name => "new", :person_id => eve.person.id}
+            post :create, format: "js", person_id: eve.person.id, aspect: {name: "new"}
           }.to change {
             alice.contacts.count
           }.by(1)
         end
 
         it "adds a new contact to the new aspect" do
-          post :create, :format => 'js', :aspect => {:name => "new", :person_id => eve.person.id}
+          post :create, format: "js", person_id: eve.person.id, aspect: {name: "new"}
           expect(alice.aspects.find_by_name("new").contacts.count).to eq(1)
         end
 
         it "adds an existing contact to the new aspect" do
-          post :create, :format => 'js', :aspect => {:name => "new", :person_id => bob.person.id}
+          post :create, format: "js", person_id: bob.person.id, aspect: {name: "new"}
           expect(alice.aspects.find_by_name("new").contacts.count).to eq(1)
         end
       end
@@ -82,12 +65,13 @@ describe AspectsController, :type => :controller do
     context "with invalid params" do
       it "does not create an aspect" do
         expect(alice.aspects.count).to eq(2)
-        post :create, "aspect" => {"name" => ""}
+        post :create, aspect: {name: ""}
         expect(alice.reload.aspects.count).to eq(2)
       end
-      it "goes back to the page you came from" do
-        post :create, "aspect" => {"name" => ""}
-        expect(response).to redirect_to(:back)
+
+      it "responds with 422" do
+        post :create, aspect: {name: ""}
+        expect(response.status).to eq(422)
       end
     end
   end

@@ -21,8 +21,11 @@
             = aspect
 
     %li.new_aspect
-      %a{:href => new_aspect_path, :rel => "facebox"}
-        = t('aspects.aspect_listings.add_an_aspect')
+      %a{ "data-toggle" => "modal", "data-target" => "#newAspectModal", href: "#"}
+        = t("aspects.aspect_listings.add_an_aspect")
+
+      #newAspectContainer
+        -# JS
 
     %li.only_sharing{:class => ("active" if params["set"] == "only_sharing")}
       %a{:href => contacts_path(:set => "only_sharing")}
