@@ -30,13 +30,15 @@
 
     .options_and_submit {
       #publisher_service_icons {
-        .btn-link { text-decoration: none; }
-        .btn-link.question_mark .entypo { color: $text-grey; }
-        .btn-link.question_mark:hover .entypo { color: $black; }
-        .btn-link.service_icon {
+        margin-right: 10px;
+        .btn-link {
           padding-left: 5px;
           padding-right: 5px;
+          text-decoration: none;
         }
+        .btn-link.question_mark { margin-left: 5px; }
+        .btn-link.question_mark .entypo { color: $text-grey; }
+        .btn-link.question_mark:hover .entypo { color: $black; }
         .dim { opacity: 0.3; }
         .social_media_logos-wordpress-16x16 {
           display: inline-block;
