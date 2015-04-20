@@ -39,6 +39,23 @@
         height: 30px;
         width: 100%;
       }
+
+      & > #right_service_icons {
+        text-align: center;
+        padding: 10px {
+          bottom: 0;
+        };
+        .social_media_logos-facebook-24x24,
+        .social_media_logos-twitter-24x24,
+        .social_media_logos-tumblr-24x24,
+        .social_media_logos-wordpress-24x24 {
+          height: 24px;
+          width: 24px;
+        }
+        a {
+          display: inline-block;
+        }
+      }
     }
   }
 }
