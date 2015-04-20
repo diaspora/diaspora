@@ -22,15 +22,15 @@
           %fieldset
             %legend
               = image_tag('branding/header-logo2x.png', :height => 40, :width => 40)
-              = t('devise.sessions.new.login').upcase
-          
+              = t('devise.sessions.new.login')
+
             .control-group
-              = f.label :username, t('username').upcase
+              = f.label :username, t('username')
               .controls
                 = f.text_field :username, :autofocus => true
 
             .control-group
-              = f.label :password , t('password').upcase
+              = f.label :password , t('password')
               .controls
                 = f.password_field :password
 
@@ -39,7 +39,7 @@
             .controls
               = f.submit t('devise.sessions.new.sign_in'), :class => 'btn primary'
               - if display_registration_link?
-                = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name), :class => 'btn primary', :style => "float: right;"
+                = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name), :class => 'btn btn-link', :style => "float: right;"
 
   %footer
     - if display_password_reset_link?
