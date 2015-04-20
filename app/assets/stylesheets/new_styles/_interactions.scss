@@ -7,7 +7,7 @@
       color: $text-grey;
       font-size: $font-size-text;
       line-height: $line-height;
-      vertical-align: top;
+      vertical-align: middle;
       &:hover { color: $text; }
       &.cross { font-size: $line-height; }
     }
