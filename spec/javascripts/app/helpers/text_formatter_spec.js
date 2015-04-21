@@ -98,6 +98,7 @@ describe("app.helpers.textFormatter", function(){
         "http://japan.co.jp",
         "http://www.mygreat-example-website.de",
         "http://www.jenseitsderfenster.de",  // from issue #3468
+        "mumble://mumble.coding4.coffee",
         "xmpp:podmin@pod.tld",
         "mailto:podmin@pod.tld"
       ];
