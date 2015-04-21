@@ -9,6 +9,7 @@
 * Return 406 when requesting a JSON representation of people/:guid/contacts [#5849](https://github.com/diaspora/diaspora/pull/5849)
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
 * Hide manage services link in the publisher on certain pages [#5854](https://github.com/diaspora/diaspora/pull/5854)
+* Fix notification mails for limited posts [#5877](https://github.com/diaspora/diaspora/pull/5877)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
