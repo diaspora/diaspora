@@ -52,6 +52,7 @@
 
     // xmpp: should behave like mailto:
     md.linkify.add('xmpp:','mailto:');
+    md.linkify.set({ fuzzyLink: false });
 
     // Bootstrap table markup
     md.renderer.rules.table_open = function () { return '<table class="table table-striped">\n'; };
