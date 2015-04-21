@@ -164,7 +164,7 @@ diaspora* no longer adds a `div.container` to wrap custom splash pages. This add
 * Disable email notifications for closed user accounts [#5640](https://github.com/diaspora/diaspora/pull/5640)
 * Total user statistic no longer includes closed accounts [#5041](https://github.com/diaspora/diaspora/pull/5041)
 * Don't add a space when rendering a mention [#5711](https://github.com/diaspora/diaspora/pull/5711)
-* Fix flickering hovercards [#5714](https://github.com/diaspora/diaspora/pull/5714)
+* Fix flickering hovercards [#5714](https://github.com/diaspora/diaspora/pull/5714) [#5876](https://github.com/diaspora/diaspora/pull/5876)
 * Improved stripping markdown in post titles [#5730](https://github.com/diaspora/diaspora/pull/5730)
 * Remove border from reply form for conversations [#5744](https://github.com/diaspora/diaspora/pull/5744)
 * Fix overflow for headings, blockquotes and other elements [#5731](https://github.com/diaspora/diaspora/pull/5731)

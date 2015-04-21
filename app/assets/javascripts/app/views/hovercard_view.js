@@ -15,7 +15,7 @@ app.views.Hovercard = app.views.Base.extend({
       .on('mouseenter', '.hovercardable', _.bind(this._mouseenterHandler, this))
       .on('mouseleave', '.hovercardable', _.bind(this._mouseleaveHandler, this));
 
-    this.show_me = false;
+    this.showMe = false;
     this.parent = null;  // current 'hovercardable' element that caused HC to appear
 
     // cache some element references
@@ -54,19 +54,19 @@ app.views.Hovercard = app.views.Base.extend({
       return false;
     }
 
-    this.show_me = true;
+    this.showMe = true;
     this.showHovercardOn(el);
     return false;
   },
 
   _mouseleaveHandler: function(event) {
+    this.showMe = false;
     if( this.active === false ||
       $.contains(this.el, event.relatedTarget) ) { return false; }
 
     if( this.mouseIsOverElement(this.parent, event) ||
       this.mouseIsOverElement(this.$el, event) ) { return false; }
 
-    this.show_me = false;
     if( this.$el.is(':visible') ) {
       this.$el.fadeOut('fast');
     } else {
@@ -81,7 +81,7 @@ app.views.Hovercard = app.views.Base.extend({
     var el = $(element);
     var hc = this.$el;
 
-    if( !this.show_me ) {
+    if( !this.showMe ) {
       // mouse has left element
       return;
     }
@@ -103,6 +103,10 @@ app.views.Hovercard = app.views.Base.extend({
       }
 
       self._populateHovercardWith(person);
+      if( !self.showMe ) {
+        // mouse has left element
+        return;
+      }
       self.$el.fadeIn('fast');
     });
   },
@@ -141,13 +145,13 @@ app.views.Hovercard = app.views.Base.extend({
       left: p_pos.left
     });
   },
-  
+
   mouseIsOverElement: function(element, event) {
-    var el_pos = element.offset();
-    return event.pageX >= el_pos.left && 
-      event.pageX <= el_pos.left + element.width() &&
-      event.pageY >= el_pos.top && 
-      event.pageY <= el_pos.top + element.height();
+    var elPos = element.offset();
+    return event.pageX >= elPos.left &&
+      event.pageX <= elPos.left + element.width() &&
+      event.pageY >= elPos.top &&
+      event.pageY <= elPos.top + element.height();
   },
 });
 // @license-end
