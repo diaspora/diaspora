@@ -180,6 +180,7 @@ diaspora* no longer adds a `div.container` to wrap custom splash pages. This add
 * Update help section [#5857](https://github.com/diaspora/diaspora/pull/5857) [#5859](https://github.com/diaspora/diaspora/pull/5859)
 * Fix asset precompilation check in script/server [#5863](https://github.com/diaspora/diaspora/pull/5863)
 * Convert MySQL databases to utf8mb4 [#5530](https://github.com/diaspora/diaspora/pull/5530) [#5624](https://github.com/diaspora/diaspora/pull/5624) [#5865](https://github.com/diaspora/diaspora/pull/5865)
+* Don't upcase labels on mobile sign up/sign in [#5872](https://github.com/diaspora/diaspora/pull/5872)
 
 ## Features
 * Don't pull jQuery from a CDN by default [#5105](https://github.com/diaspora/diaspora/pull/5105)
