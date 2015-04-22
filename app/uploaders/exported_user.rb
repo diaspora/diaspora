@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class ExportedUser < CarrierWave::Uploader::Base
+class ExportedUser < SecureUploader
 
   def store_dir
     "uploads/users"
@@ -13,7 +13,7 @@ class ExportedUser < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{model.username}_diaspora_data.json.gz"
+    "#{model.username}_diaspora_data_#{secure_token}.json.gz"
   end
 
 end

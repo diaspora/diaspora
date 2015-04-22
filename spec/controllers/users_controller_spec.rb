@@ -14,7 +14,7 @@ describe UsersController, :type => :controller do
   describe '#export_profile' do
     it 'queues an export job' do
       expect(@user).to receive :queue_export
-      get :export_profile
+      post :export_profile
       expect(request.flash[:notice]).to eql(I18n.t('users.edit.export_in_progress'))
       expect(response).to redirect_to(edit_user_path)
     end
@@ -24,20 +24,19 @@ describe UsersController, :type => :controller do
     it "downloads a user's export file" do
       @user.perform_export!
       get :download_profile
-      parsed = JSON.parse(ActiveSupport::Gzip.decompress(response.body))
-      expect(parsed['user']['username']).to eq @user.username
+      expect(response).to redirect_to(@user.export.url)
     end
   end
 
   describe '#export_photos' do
     it 'queues an export photos job' do
       expect(@user).to receive :queue_export_photos
-      get :export_photos
+      post :export_photos
       expect(request.flash[:notice]).to eql(I18n.t('users.edit.export_photos_in_progress'))
       expect(response).to redirect_to(edit_user_path)
     end
   end
-  
+
   describe '#download_photos' do
     it "redirects to user's photos zip file"  do
       @user.perform_export_photos!
@@ -74,7 +73,7 @@ describe UsersController, :type => :controller do
       get :public, :username => @user.username, :format => :atom
       expect(response.body).to include('a href')
     end
-    
+
     it 'includes reshares in the atom feed' do
       reshare = FactoryGirl.create(:reshare, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
