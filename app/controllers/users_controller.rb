@@ -140,7 +140,7 @@ class UsersController < ApplicationController
   end
 
   def download_profile
-    send_data File.open(current_user.export.path).read, type: :json, filename: current_user.export.filename
+    redirect_to current_user.export.url
   end
 
   def export_photos

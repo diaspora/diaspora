@@ -24,8 +24,7 @@ describe UsersController, :type => :controller do
     it "downloads a user's export file" do
       @user.perform_export!
       get :download_profile
-      parsed = JSON.parse(ActiveSupport::Gzip.decompress(response.body))
-      expect(parsed['user']['username']).to eq @user.username
+      expect(response).to redirect_to(@user.export.url)
     end
   end
 
@@ -37,7 +36,7 @@ describe UsersController, :type => :controller do
       expect(response).to redirect_to(edit_user_path)
     end
   end
-  
+
   describe '#download_photos' do
     it "redirects to user's photos zip file"  do
       @user.perform_export_photos!
@@ -74,7 +73,7 @@ describe UsersController, :type => :controller do
       get :public, :username => @user.username, :format => :atom
       expect(response.body).to include('a href')
     end
-    
+
     it 'includes reshares in the atom feed' do
       reshare = FactoryGirl.create(:reshare, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
