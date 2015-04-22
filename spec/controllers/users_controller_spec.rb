@@ -14,7 +14,7 @@ describe UsersController, :type => :controller do
   describe '#export_profile' do
     it 'queues an export job' do
       expect(@user).to receive :queue_export
-      get :export_profile
+      post :export_profile
       expect(request.flash[:notice]).to eql(I18n.t('users.edit.export_in_progress'))
       expect(response).to redirect_to(edit_user_path)
     end
@@ -31,7 +31,7 @@ describe UsersController, :type => :controller do
   describe '#export_photos' do
     it 'queues an export photos job' do
       expect(@user).to receive :queue_export_photos
-      get :export_photos
+      post :export_photos
       expect(request.flash[:notice]).to eql(I18n.t('users.edit.export_photos_in_progress'))
       expect(response).to redirect_to(edit_user_path)
     end
