@@ -15,6 +15,8 @@
 //= require_tree ./views
 
 //= require perfect-scrollbar
+//= require nprogress
+//= require nprogress-ajax
 
 var app = {
   collections: {},
