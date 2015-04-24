@@ -239,7 +239,9 @@ module Diaspora
     # Extracts all the urls from the raw message and return them in the form of a string
     # Different URLs are seperated with a space
     def urls
-      @urls ||= Twitter::Extractor.extract_urls(plain_text_without_markdown)
+      @urls ||= Twitter::Extractor.extract_urls(plain_text_without_markdown).map {|url|
+        Addressable::URI.parse(url).normalize.to_s
+      }
     end
 
     def raw

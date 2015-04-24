@@ -199,6 +199,21 @@ describe Diaspora::MessageRenderer do
       text = "[![Image](https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt)](https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C)"
       expect(message(text).urls).to eq ["https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt", "https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C"]
     end
+
+    it "encodes extracted urls" do
+      url = "http://www.example.com/url/with/umlauts/ä/index.html"
+      expect(message(url).urls).to eq ["http://www.example.com/url/with/umlauts/%C3%A4/index.html"]
+    end
+
+    it "not double encodes an already encoded url" do
+      encoded_url = "http://www.example.com/url/with/umlauts/%C3%A4/index.html"
+      expect(message(encoded_url).urls).to eq [encoded_url]
+    end
+
+    it "parses IDN correctly" do
+      url = "http://www.hören.at/"
+      expect(message(url).urls).to eq ["http://www.xn--hren-5qa.at/"]
+    end
   end
 
   describe "#plain_text_for_json" do
