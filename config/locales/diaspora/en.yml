@@ -759,10 +759,12 @@ en:
     mentioned:
         subject: "%{name} has mentioned you on diaspora*"
         mentioned: "mentioned you in a post:"
+        limited_post: "You were mentioned in a limited post."
     private_message:
         reply_to_or_view: "Reply to or view this conversation >"
     liked:
         liked: "%{name} liked your post"
+        limited_post: "%{name} liked your limited post"
         view_post: "View post >"
     reshared:
         reshared: "%{name} reshared your post"

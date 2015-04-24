@@ -105,6 +105,32 @@ describe Notifier, :type => :mailer do
     end
   end
 
+  describe ".mentioned limited" do
+    before do
+      @user = alice
+      @post = FactoryGirl.create(:status_message, public: false)
+      @mention = Mention.create(person: @user.person, post: @post)
+
+      @mail = Notifier.mentioned(@user.id, @post.author.id, @mention.id)
+    end
+
+    it "TO: goes to the right person" do
+      expect(@mail.to).to eq([@user.email])
+    end
+
+    it "SUBJECT: has the name of person mentioning in the subject" do
+      expect(@mail.subject).to include(@post.author.name)
+    end
+
+    it "has the post text not in the body" do
+      expect(@mail.body.encoded).not_to include(@post.text)
+    end
+
+    it "should not include translation fallback" do
+      expect(@mail.body.encoded).not_to include(I18n.translate "notifier.a_post_you_shared")
+    end
+  end
+
   describe ".liked" do
     before do
       @post = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
@@ -131,7 +157,31 @@ describe Notifier, :type => :mailer do
     it 'can handle a reshare' do
       reshare = FactoryGirl.create(:reshare)
       like = reshare.likes.create!(:author => bob.person)
-      mail = Notifier.liked(alice.id, like.author.id, like.id)
+      Notifier.liked(alice.id, like.author.id, like.id)
+    end
+  end
+
+  describe ".liked limited" do
+    before do
+      @post = FactoryGirl.create(:status_message, author: alice.person, public: false)
+      @like = @post.likes.create!(author: bob.person)
+      @mail = Notifier.liked(alice.id, @like.author.id, @like.id)
+    end
+
+    it "TO: goes to the right person" do
+      expect(@mail.to).to eq([alice.email])
+    end
+
+    it "BODY: not contains the original post" do
+      expect(@mail.body.encoded).not_to include(@post.message.plain_text)
+    end
+
+    it "BODY: contains the name of person liking" do
+      expect(@mail.body.encoded).to include(@like.author.name)
+    end
+
+    it "should not include translation fallback" do
+      expect(@mail.body.encoded).not_to include(I18n.translate "notifier.a_post_you_shared")
     end
   end
 

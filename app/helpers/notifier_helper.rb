@@ -4,9 +4,7 @@ module NotifierHelper
   # @param opts [Hash] Optional hash.  Accepts :length parameters.
   # @return [String] The formatted post.
   def post_message(post, opts={})
-    if !post.public?
-      I18n.translate 'notifier.a_private_message'
-    elsif post.respond_to? :message
+    if post.respond_to? :message
       post.message.plain_text_without_markdown
     else
       I18n.translate 'notifier.a_post_you_shared'
