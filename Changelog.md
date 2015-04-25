@@ -11,6 +11,7 @@
 * Hide manage services link in the publisher on certain pages [#5854](https://github.com/diaspora/diaspora/pull/5854)
 * Fix notification mails for limited posts [#5877](https://github.com/diaspora/diaspora/pull/5877)
 * Fix medium and small avatar URLs when using Camo [#5883](https://github.com/diaspora/diaspora/pull/5883)
+* Improve output of script/server [#5885](https://github.com/diaspora/diaspora/pull/5885)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)

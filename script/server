@@ -120,7 +120,7 @@ then
 fi
 
 # Check if assets are precompiled
-if [ "$RAILS_ENV" = "production" -a -z "$(find public/assets -maxdepth 1 -name 'home-*.css' -print -quit)" ]
+if [ "$RAILS_ENV" = "production" -a -z "$(find public/assets -maxdepth 1 -name 'home-*.css' -print -quit 2>/dev/null)" ]
 then
   fatal "You're running in production mode without having assets
 precompiled. Now and after each update before you restart the
@@ -159,7 +159,7 @@ diaspora.yml.example
 fi
 
 # Start Diaspora
-echo -n "Starting Diaspora in $RAILS_ENV mode on port $port "
+printf "Starting Diaspora in $RAILS_ENV mode on port $port "
 if [ "$embed_sidekiq_worker" = "true" ]
 then
   echo "with a Sidekiq worker embedded into Unicorn."
