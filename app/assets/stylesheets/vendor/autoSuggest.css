@@ -13,7 +13,7 @@ ul.as-selections {
 }
 
 ul.as-selections.loading {
-  background: url('<%= image_path("ajax-loader.gif") %>')  right center no-repeat;
+  background: asset_path("ajax-loader.gif")  right center no-repeat;
 }
 
 ul.as-selections li {
