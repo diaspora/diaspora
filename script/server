@@ -61,6 +61,37 @@ then
   fatal "config/diaspora.yml is missing! Copy over config/diaspora.yml.example to config/diaspora.yml and edit it properly!"
 fi
 
+command -v git > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  # Check if git merge is in progress
+  if [ -f .git/MERGE_MODE ]; then
+    fatal "A git merge is in progress!"
+  fi
+
+  # Check if detached head state
+  git_branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
+  if [ -z "$git_branch_name" ];
+  then
+    warning "You are in detached HEAD state!"
+  fi
+fi
+
+# Do RVM checks if RVM is being used
+command -v rvm > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  rvm_gemset="$(rvm current | cut -d"@" -f2)"
+  project_gemset="$(cat .ruby-gemset | tr -d " \t\n\r")"
+  if [ "$rvm_gemset" != "$project_gemset" ]; then
+    warning "Project gemset is $project_gemset but you are using $rvm_gemset"
+  fi
+fi
+
+# Check if bundle is complete
+if ! bundle check > /dev/null
+then
+  fatal "Your bundle is not up to date, run the command \"bundle install\""
+fi
+
 # Setup environment
 if [ -z "$RAILS_ENV" ]
 then
@@ -106,8 +137,8 @@ if [ -w "public" -a ! -e  "public/source.tar.gz" ]
 then
   if command -v git > /dev/null 2>&1 && git rev-parse --is-inside-work-tree > /dev/null 2>&1
   then
-    branch=$(git branch | awk '/^[*]/ {print $2}')
-    tar czf public/source.tar.gz  $(git ls-tree -r $branch | awk '{print $4}')
+    commit_sha=$(git rev-parse HEAD)
+    tar czf public/source.tar.gz  $(git ls-tree -r $commit_sha | awk '{print $4}')
   else
     fatal "Can't generate public/source.tar.gz for you.
 Please tar up a copy of your Diaspora installation and place it there."
