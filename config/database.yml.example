@@ -19,9 +19,7 @@ postgres: &postgres
 # Comment the the mysql line and uncomment the postgres line
 # if you want to use postgres
 common: &common
-  # Choose one of the following
-  <<: *mysql
-  #<<: *postgres
+  <<: <%= ENV["DB"] == "postgres" ? "*postgres" : "*mysql" %>
 
   # Should match environment.sidekiq.concurrency
   #pool: 25
