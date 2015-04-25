@@ -262,7 +262,10 @@ $(document).ready(function(){
       commentCount.text(commentCount.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
       commentActionLink.addClass("inactive");
       bottomBar.find('time.timeago').timeago();
-    }, 'html');
+    }, 'html').fail(function(){
+      var submitButton = form.find("input[type=submit]");
+      submitButton.removeAttr("disabled").val(submitButton.data("ujs:enableWith"));
+    });
   });
 
 
