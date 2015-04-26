@@ -43,7 +43,6 @@
 //= require_tree ./widgets
 //= require view
 //= require aspects-dropdown
-//= require aspects-sorting
 //= require mentions
 //= require bootstrap-tooltip
 //= require bootstrap-popover

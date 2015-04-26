@@ -20,9 +20,7 @@ class UsersController < ApplicationController
     password_changed = false
     @user = current_user
 
-    if aspect_order = params[:aspect_order]
-      @user.reorder_aspects(aspect_order)
-    elsif u = user_params
+    if u = user_params
 
       # change email notifications
       if u[:email_preferences]

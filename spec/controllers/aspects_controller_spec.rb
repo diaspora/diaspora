@@ -96,6 +96,19 @@ describe AspectsController, :type => :controller do
     end
   end
 
+  describe "update_order" do
+    it "updates the aspect order" do
+      @alices_aspect_1.update_attributes(order_id: 10)
+      @alices_aspect_2.update_attributes(order_id: 20)
+      ordered_aspect_ids = [@alices_aspect_2.id, @alices_aspect_1.id]
+
+      put(:update_order, ordered_aspect_ids: ordered_aspect_ids)
+
+      expect(Aspect.find(@alices_aspect_1.id).order_id).to eq(1)
+      expect(Aspect.find(@alices_aspect_2.id).order_id).to eq(0)
+    end
+  end
+
   describe "#destroy" do
     before do
       @alices_aspect_1 = alice.aspects.create(name: "Contacts")

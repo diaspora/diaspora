@@ -121,23 +121,6 @@ describe UsersController, :type => :controller do
       expect(response.status).to eq(204)
     end
 
-    describe 'aspect_order' do
-      it 'updates the aspect order' do
-        aspect_order = []
-        @user.aspects.each do |aspect|
-          aspect.update_attributes({ :order_id => nil })
-          aspect_order.push(aspect.id)
-        end
-
-        put(:update, :id => @user.id, :aspect_order => aspect_order)
-
-        @user.reload
-        @user.aspects.each do |aspect|
-          expect(aspect.order_id).not_to eq(nil)
-        end
-      end
-    end
-
     describe 'password updates' do
       let(:password_params) do
         {:current_password => 'bluepin7',
