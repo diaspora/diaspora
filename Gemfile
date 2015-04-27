@@ -253,6 +253,11 @@ group :test do
   gem "database_cleaner" ,  "1.4.1"
   gem "selenium-webdriver", "2.45.0"
 
+  source "https://rails-assets.org" do
+    gem "rails-assets-jquery-simulate",     "1.0.1"
+    gem "rails-assets-jquery-simulate-ext", "1.3.0"
+  end
+
   # General helpers
 
   gem "factory_girl_rails", "4.5.0"

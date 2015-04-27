@@ -63,10 +63,12 @@ Diaspora::Application.routes.draw do
   get "commented" => "streams#commented", :as => "commented_stream"
   get "aspects" => "streams#aspects", :as => "aspects_stream"
 
-  put "aspects/order" => "aspects#update_order"
   resources :aspects do
     put :toggle_contact_visibility
     put :toggle_chat_privilege
+    collection do
+      put "order" => :update_order
+    end
   end
 
   get 'bookmarklet' => 'status_messages#bookmarklet'

@@ -20,6 +20,10 @@ class Aspect < ActiveRecord::Base
     name.strip!
   end
 
+  before_create do
+    self.order_id ||= Aspect.where(user_id: user_id).maximum(:order_id || 0).to_i + 1
+  end
+
   def to_s
     name
   end
