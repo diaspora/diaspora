@@ -851,7 +851,10 @@ en:
 
         The diaspora* email robot!
 
+        P.S.: Just in case you don't know (yet) what diaspora* is, [here][2] is the answer!
+
         [1]: %{invite_url}
+        [2]: %{diasporafoundation_url}
     remove_old_user:
       subject: "Your diaspora* account has been flagged for removal due to inactivity"
       body: |-
