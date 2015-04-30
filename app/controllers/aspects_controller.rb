@@ -64,6 +64,13 @@ class AspectsController < ApplicationController
     render :json => { :id => @aspect.id, :name => @aspect.name }
   end
 
+  def update_order
+    params[:ordered_aspect_ids].each_with_index do |id, i|
+      current_user.aspects.find(id).update_attributes(order_id: i)
+    end
+    render nothing: true
+  end
+
   def toggle_chat_privilege
     @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
 

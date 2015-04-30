@@ -20,6 +20,10 @@
 //= require jquery-idletimer/dist/idle-timer
 //= require jquery.infinitescroll-custom
 //= require jquery.autocomplete-custom
+//= require jquery-ui/core
+//= require jquery-ui/widget
+//= require jquery-ui/mouse
+//= require jquery-ui/sortable
 //= require keycodes
 //= require fileuploader-custom
 //= require handlebars.runtime

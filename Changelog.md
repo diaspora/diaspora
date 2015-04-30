@@ -18,6 +18,7 @@
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
 * More and better environment checks in script/server [#5891](https://github.com/diaspora/diaspora/pull/5891)
+* Enable aspect sorting again [#5559](https://github.com/diaspora/diaspora/pull/5559)
 
 # 0.5.0.0
 

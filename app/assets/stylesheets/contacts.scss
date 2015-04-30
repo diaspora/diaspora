@@ -64,6 +64,7 @@
 #aspect_nav {
   li.aspect > a { padding-left: 30px; }
   li.new_aspect > a { padding-left: 30px; }
+  li.aspect.ui-sortable-handle.ui-sortable-helper { background: #FFF; }
 }
 
 #no_contacts {
