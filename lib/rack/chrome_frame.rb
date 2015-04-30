@@ -65,7 +65,7 @@ module Rack
     end
 
     def ie_version(ua_string)
-      ua_string.match(/MSIE (\S+)/)[1].to_f
+      ua_string.match(/MSIE ?(\S+)/)[1].to_f
     end
   end
 end
