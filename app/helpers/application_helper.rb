@@ -26,7 +26,24 @@ module ApplicationHelper
   end
 
   def bookmarklet_url( height = 400, width = 620)
-    "javascript:(function(){f='#{AppConfig.pod_uri.to_s}bookmarklet?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=yes,toolbar=no,width=#{width},height=#{height}'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
+    "javascript:(function(){" \
+    "t=(window.getSelection?window.getSelection():" \
+    "document.getSelection?document.getSelection():" \
+    "document.selection.createRange().text);" \
+    "f='#{AppConfig.pod_uri.to_s}bookmarklet" \
+    "?content='+encodeURIComponent('##%20'+document.title+" \
+    "(t!=''?('\n>%20'+t):'')" \
+    "+'\n\n'+window.location.href)" \
+    "+'&v=1&';" \
+    "a=function(){" \
+    "if(!window.open(f+'noui=1&jump=doclose'," \
+    "'diasporav1'," \
+    "'location=yes,links=no,scrollbars=yes,toolbar=no,width=#{width},height=#{height}'))" \
+    "location.href=f+'jump=yes'};" \
+    "if(/Firefox/.test(navigator.userAgent)){" \
+    "setTimeout(a,0)" \
+    "}else{a()}" \
+    "})()"
   end
 
   def contacts_link
