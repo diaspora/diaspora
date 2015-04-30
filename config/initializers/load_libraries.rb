@@ -9,9 +9,6 @@ require 'erb'
 require 'redcarpet/render_strip'
 require 'typhoeus'
 
-# Presenters
-require 'post_presenter'
-
 # Our libs
 require 'diaspora'
 require 'direction_detector'
