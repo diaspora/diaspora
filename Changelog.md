@@ -3,6 +3,7 @@
 ## Refactor
 * Use Bootstrap modal for new aspect pane [#5850](https://github.com/diaspora/diaspora/pull/5850)
 * Use asset helper instead of .css.erb [#5886](https://github.com/diaspora/diaspora/pull/5886)
+* Dropped db/seeds.rb [#5896](https://github.com/diaspora/diaspora/pull/5896)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)

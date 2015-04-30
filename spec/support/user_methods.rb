@@ -17,7 +17,12 @@ class User
         self.aspects.reload
 
         add_to_streams(p, aspects)
-        dispatch_opts = {url: Rails.application.routes.url_helpers.post_url(p), to: opts[:to]}
+        dispatch_opts = {
+          url: Rails.application.routes.url_helpers.post_url(
+            p,
+            host: AppConfig.pod_uri.to_s
+          ),
+          to:  opts[:to]}
         dispatch_opts.merge!(:additional_subscribers => p.root.author) if class_name == :reshare
         dispatch_post(p, dispatch_opts)
       end
