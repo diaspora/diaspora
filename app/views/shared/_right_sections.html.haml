@@ -66,7 +66,7 @@
       %i.entypo.bookmark
       = t('bookmarklet.heading')
   .content
-    != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.post_something'), bookmarklet_url))
+    != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.post_something'), bookmarklet_code))
 
 - if AppConfig.settings.paypal_donations.enable? || AppConfig.bitcoin_donation_address
   .section
