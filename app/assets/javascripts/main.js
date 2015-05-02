@@ -15,7 +15,7 @@
 //= require facebox
 //= require browser_detection
 //= require jquery.events.input
-//= require jquery.elastic
+//= require jakobmattsson-jquery-elastic
 //= require jquery.mentionsInput
 //= require jquery-idletimer/dist/idle-timer
 //= require jquery.infinitescroll-custom
