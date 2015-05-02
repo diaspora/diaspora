@@ -8,7 +8,8 @@
       breaks:      true,
       html:        true,
       linkify:     true,
-      typographer: true
+      typographer: true,
+      langPrefix:  ""
     });
 
     var inlinePlugin = window.markdownitForInline;
@@ -49,6 +50,23 @@
     md.use(supPlugin);
     var sanitizerPlugin = window.markdownitSanitizer;
     md.use(sanitizerPlugin);
+
+    var hljs = window.hljs;
+    md.set({
+      highlight: function(str, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+          try {
+            return hljs.highlight(lang, str).value;
+          } catch (__) {}
+        }
+
+        try {
+          return hljs.highlightAuto(str).value;
+        } catch (__) {}
+
+        return "";
+      }
+    });
 
     // xmpp: should behave like mailto:
     md.linkify.add("xmpp:","mailto:");
