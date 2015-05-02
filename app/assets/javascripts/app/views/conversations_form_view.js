@@ -2,11 +2,15 @@
 
 app.views.ConversationsForm = Backbone.View.extend({
 
+  events: {
+    "keydown textarea#conversation_text" : "keyDown",
+  },
+
   initialize: function(opts) {
-    this.contacts = _.has(opts, 'contacts') ? opts.contacts : null;
+    this.contacts = _.has(opts, "contacts") ? opts.contacts : null;
     this.prefill = [];
-    if (_.has(opts, 'prefillName') && _.has(opts, 'prefillValue')) {
-      this.prefill = [{name : opts.prefillName, 
+    if (_.has(opts, "prefillName") && _.has(opts, "prefillValue")) {
+      this.prefill = [{name : opts.prefillName,
                        value : opts.prefillValue}];
     }
     this.autocompleteInput = $("#contact_autocomplete");
@@ -22,9 +26,15 @@ app.views.ConversationsForm = Backbone.View.extend({
       minChars: 1,
       keyDelay: 0,
       startText: '',
-      emptyText: Diaspora.I18n.t('no_results'),
-      preFill: this.prefill 
+      emptyText: Diaspora.I18n.t("no_results"),
+      preFill: this.prefill
     }).focus();
+  },
+
+  keyDown : function(evt) {
+    if( evt.keyCode === 13 && evt.ctrlKey ) {
+      $(evt.target).parents("form").submit();
+    }
   }
 });
 // @license-end
