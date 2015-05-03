@@ -11,10 +11,9 @@ describe User::SocialActions, :type => :model do
       expect(alice.comment!(@status, "unicorn_mountain").text).to eq("unicorn_mountain")
     end
 
-    it "creates a participation" do
+    it "creates a partcipation" do
       expect{ alice.comment!(@status, "bro") }.to change(Participation, :count).by(1)
       expect(alice.participations.last.target).to eq(@status)
-      expect(alice.participations.last.count).to eq(1)
     end
 
     it "creates the comment" do
@@ -29,7 +28,7 @@ describe User::SocialActions, :type => :model do
   end
 
   describe 'User#like!' do
-    it "creates a participation" do
+    it "creates a partcipation" do
       expect{ alice.like!(@status) }.to change(Participation, :count).by(1)
       expect(alice.participations.last.target).to eq(@status)
     end
@@ -52,7 +51,7 @@ describe User::SocialActions, :type => :model do
       @status = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
     end
 
-    it "creates a participation" do
+    it "creates a partcipation" do
       expect{ alice.like!(@status) }.to change(Participation, :count).by(1)
     end
 
@@ -109,20 +108,6 @@ describe User::SocialActions, :type => :model do
 
     it "sets the poll answer id" do
       expect(alice.participate_in_poll!(@status, @answer).poll_answer).to eq(@answer)
-    end
-  end
-
-  describe "many actions" do
-    it "two coments" do
-      alice.comment!(@status, "bro...")
-      alice.comment!(@status, "...ther")
-      expect(alice.participations.last.count).to eq(2)
-    end
-
-    it "like and comment" do
-      alice.comment!(@status, "bro...")
-      alice.like!(@status)
-      expect(alice.participations.last.count).to eq(2)
     end
   end
 end
