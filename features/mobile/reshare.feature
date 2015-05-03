@@ -1,4 +1,4 @@
-@javascript
+@javascript @mobile
 Feature: resharing from the mobile
   In order to make Diaspora more viral
   As a mobile user
@@ -16,7 +16,6 @@ Feature: resharing from the mobile
     And I sign in as "alice@alice.alice"
 
   Scenario: Resharing a post from a single post page
-    When I toggle the mobile view
     And I click on selector "a.image_link.reshare_action.inactive"
     And I confirm the alert
     Then I should see a "a.image_link.reshare_action.active"
@@ -26,7 +25,6 @@ Feature: resharing from the mobile
   Scenario: Resharing a post from a single post page that is reshared
     Given the post with text "reshare this!" is reshared by "eve@eve.eve"
     And a user with email "alice@alice.alice" is connected with "eve@eve.eve"
-    When I toggle the mobile view
     And I click on the first selector "a.image_link.reshare_action.inactive"
     And I confirm the alert
     Then I should see a "a.image_link.reshare_action.active"
@@ -36,11 +34,12 @@ Feature: resharing from the mobile
   Scenario: Delete original reshared post
     Given "alice@alice.alice" has a public post with text "Don't reshare this!"
     And the post with text "Don't reshare this!" is reshared by "bob@bob.bob"
+    When I toggle the mobile view
     And I am on "alice@alice.alice"'s page
-    When I click to delete the first post
+    And I click to delete the first post
     And I log out
-    And I sign in as "bob@bob.bob"
     And I toggle the mobile view
+    And I sign in as "bob@bob.bob"
     Then I should see "Original post deleted by author" within ".reshare"
     And I log out
     And I sign in as "eve@eve.eve" on the mobile website

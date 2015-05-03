@@ -1,4 +1,4 @@
-@javascript
+@javascript @mobile
 Feature: viewing photos on the mobile main page
   In order to navigate Diaspora*
   As a mobile user
@@ -6,9 +6,7 @@ Feature: viewing photos on the mobile main page
 
   Background:
     Given a user with username "bob"
-
-    When I toggle the mobile view
-    And I sign in as "bob@bob.bob" on the mobile website
+    When I sign in as "bob@bob.bob" on the mobile website
     And I click on selector "#compose_badge"
 
   Scenario: view full size image

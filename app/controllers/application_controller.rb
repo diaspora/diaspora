@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 class ApplicationController < ActionController::Base
+  before_action :force_tablet_html
   has_mobile_fu
   protect_from_forgery :except => :receive
 
@@ -38,9 +39,7 @@ class ApplicationController < ActionController::Base
 
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
-    # mobile_fu's is_mobile_device? wasn't working here for some reason...
-    # it may have been just because of the test env.
-    if request.env['HTTP_USER_AGENT'].try(:match, /mobile/i)
+    if is_mobile_device?
       root_path
     else
       new_user_session_path
@@ -124,10 +123,11 @@ class ApplicationController < ActionController::Base
   def mobile_switch
     if session[:mobile_view] == true && request.format.html?
       request.format = :mobile
-    elsif request.format.tablet?
-      # we currently don't have any special tablet views...
-      request.format = :html
     end
+  end
+
+  def force_tablet_html
+    session[:tablet_view] = false
   end
 
   def after_sign_in_path_for(resource)
