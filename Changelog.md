@@ -17,6 +17,7 @@
 * Fix CSS for bold links [#5887](https://github.com/diaspora/diaspora/pull/5887)
 * Correctly handle IE8 in the chrome frame middleware [#5878](https://github.com/diaspora/diaspora/pull/5878)
 * Fix code reloading for PostPresenter [#5888](https://github.com/diaspora/diaspora/pull/5888)
+* Fix closing account from mobile view [#5913](https://github.com/diaspora/diaspora/pull/5913)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
