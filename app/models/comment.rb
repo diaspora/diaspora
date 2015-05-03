@@ -47,6 +47,8 @@ class Comment < ActiveRecord::Base
 
   after_destroy do
     self.parent.update_comments_counter
+    participation = author.participations.where(target_id: post.id).first
+    participation.unparticipate! if participation.present?
   end
 
   def diaspora_handle

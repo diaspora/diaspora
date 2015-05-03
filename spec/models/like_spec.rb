@@ -14,6 +14,23 @@ describe Like, :type => :model do
     expect(FactoryGirl.build(:like)).to be_valid
   end
 
+  describe "#destroy" do
+    before do
+      @like = alice.like!(@status)
+    end
+
+    it "should delete a participation" do
+      expect { @like.destroy }.to change { Participation.count }.by(-1)
+    end
+
+    it "should decrease count participation" do
+      alice.comment!(@status, "Are you there?")
+      @like.destroy
+      participations = Participation.where(target_id: @like.target_id, author_id: @like.author_id)
+      expect(participations.first.count).to eq(1)
+    end
+  end
+
   describe '#notification_type' do
     before do
       @like = alice.like!(@status)

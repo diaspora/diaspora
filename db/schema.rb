@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403212139) do
+ActiveRecord::Schema.define(version: 20150404193023) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -254,12 +254,13 @@ ActiveRecord::Schema.define(version: 20150403212139) do
   create_table "participations", force: :cascade do |t|
     t.string   "guid",                    limit: 255
     t.integer  "target_id",               limit: 4
-    t.string   "target_type",             limit: 60,    null: false
+    t.string   "target_type",             limit: 60,                null: false
     t.integer  "author_id",               limit: 4
     t.text     "author_signature",        limit: 65535
     t.text     "parent_author_signature", limit: 65535
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.integer  "count",                   limit: 4,     default: 1, null: false
   end
 
   add_index "participations", ["guid"], name: "index_participations_on_guid", length: {"guid"=>191}, using: :btree

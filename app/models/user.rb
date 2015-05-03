@@ -377,10 +377,10 @@ class User < ActiveRecord::Base
       retraction = Retraction.for(target)
     end
 
-   if target.is_a?(Post)
-     opts[:additional_subscribers] = target.resharers
-     opts[:services] = self.services
-   end
+    if target.is_a?(Post)
+      opts[:additional_subscribers] = target.resharers
+      opts[:services] = services
+    end
 
     mailman = Postzord::Dispatcher.build(self, retraction, opts)
     mailman.post
