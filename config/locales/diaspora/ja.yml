@@ -172,7 +172,6 @@ ja:
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "すべての連絡先"
       community_spotlight: "コミュニティスポットライト"
-      many_people_are_you_sure: "本当に%{suggested_limit}以上の連絡先と非公開の会話を開始しますか? このアスペクトに投稿する方が、彼らと連絡を取るより良い方法かもしれません。"
       my_contacts: "私の連絡先"
       no_contacts: "No contacts."
       no_contacts_message: "%{community_spotlight}をチェックアウトする"

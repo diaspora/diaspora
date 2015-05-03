@@ -158,7 +158,6 @@ id:
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Semua Kontak"
       community_spotlight: "Sorotan komunitas"
-      many_people_are_you_sure: "Apakah kamu mau memulai perbincangan pribadi lebih dari %{suggested_limit} kontak? Mengirim ke Aspek ini mungkin cara yang lebih baik untuk menghubungi mereka."
       my_contacts: "Kontakku"
       no_contacts: "No contacts."
       no_contacts_message: "Lihat juga %{community_spotlight}"

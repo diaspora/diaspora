@@ -221,7 +221,6 @@ ko:
       add_to_aspect: "%{name} 애스펙에 컨택 추가"
       all_contacts: "모든 컨택"
       community_spotlight: "커뮤니티 스포트라이트"
-      many_people_are_you_sure: "컨택 %{suggested_limit}명보다 많은 사람들에게 쪽지를 보내려 하십니까? 해당 애스펙에 게시물을 공유하길 권합니다."
       my_contacts: "내 컨택"
       no_contacts: "컨택을 좀 추가하는게 어때요?"
       no_contacts_message: "%{community_spotlight}를 확인하세요"

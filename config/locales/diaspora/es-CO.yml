@@ -158,7 +158,6 @@ es-CO:
       add_to_aspect: "Añade contactos a %{name}"
       all_contacts: "Todos los Contactos"
       community_spotlight: "Comunidad Creativa"
-      many_people_are_you_sure: "¿Estás seguro de que quieres iniciar una conversación privada con más de %{suggested_limit} contactos? Publicar en este aspecto puede ser una mejor manera de contactar con ellos."
       my_contacts: "Mis Contactos"
       no_contacts: "¡Parece que necesitas añadir algunos contactos!"
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"

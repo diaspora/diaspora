@@ -233,7 +233,6 @@ tr:
       add_to_aspect: "%{name} unsuruna kişi ekle"
       all_contacts: "Tüm Kişiler"
       community_spotlight: "Topluluk Haberleri"
-      many_people_are_you_sure: "%{suggested_limit} sayısından yüksek kişiyle özel görüşme başlatmak istediğinden emin misin? Bu yöne gönderi yapmak onlarla iletişime geçmek için daha iyi bir yol olabilir."
       my_contacts: "Kişilerim"
       no_contacts: "Birkaç kişi eklemen gerekir gibi görünüyor!"
       no_contacts_message: "%{community_spotlight}'ni ziyaret et"

@@ -244,7 +244,6 @@ ia:
       add_to_aspect: "adder contactos a %{name}"
       all_contacts: "Tote le contactos"
       community_spotlight: "Usatores in evidentia"
-      many_people_are_you_sure: "Es tu secur de voler initiar un conversation private con plus de %{suggested_limit} contactos? Publicar un message in iste aspecto pote esser un melior maniera de contactar les."
       my_contacts: "Mi contactos"
       no_contacts: "Il pare que tu debe adder alcun contactos!"
       no_contacts_message: "Visita %{community_spotlight}"

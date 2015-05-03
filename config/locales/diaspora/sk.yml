@@ -238,7 +238,6 @@ sk:
       add_to_aspect: "Pridať kontakty do kategórie %{name}"
       all_contacts: "Všetky kontakty"
       community_spotlight: "Aktuality z komunity"
-      many_people_are_you_sure: "Určite chceš začať súkromný rozhovor s viac ako %{suggested_limit} ľuďmi? Poslať príspevok do tejto kategórie môže byť lepší spôsob, ako sa s nimi spojiť."
       my_contacts: "Moje kontakty"
       no_contacts: "Zdá sa, že potrebuješ pridať pár kontaktov!"
       no_contacts_message: "Pozri si %{community_spotlight}"

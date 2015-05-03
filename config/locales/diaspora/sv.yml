@@ -21,7 +21,7 @@ sv:
         contact:
           attributes:
             person_id:
-              taken: "måste vara unikt bland den här användarens kontakter."
+              taken: "måste vara unik bland den här användarens kontakter."
         person:
           attributes:
             diaspora_handle:
@@ -72,7 +72,7 @@ sv:
       current_segment: "Medelantalet inlägg per användare för segmentet <b>%{post_day}</b> är <b>%{post_yest}</b>"
       daily: "Dagligen"
       display_results: "Visar resultat från segmentet <b>%{segment}</b>"
-      go: "gå"
+      go: "Kör"
       month: "Månad"
       posts:
         one: "Ett inlägg"
@@ -179,12 +179,12 @@ sv:
     index:
       diaspora_id:
         content_1: "Ditt Diaspora*-id är:"
-        content_2: "Med hjälp av det kan alla hitta dig på Diaspora*."
+        content_2: "Med hjälp av det, kan alla hitta dig på Diaspora*."
         heading: "Diaspora*-id"
       donate: "Donera"
       handle_explanation: "Detta är ditt Diaspora*-id. Det är det här du ska ge till dina vänner, om du vill att de ska lägga till dig på Diaspora*."
       help:
-        any_problem: "Några problem?"
+        any_problem: "Har du problem?"
         contact_podmin: "Kontakta din pods administratör."
         do_you: "Har du:"
         email_feedback: "%{link}a din respons, om du föredrar det"
@@ -193,7 +193,7 @@ sv:
         find_a_bug: "... hittat en %{link}?"
         have_a_question: "... en %{link}?"
         here_to_help: "Diasporagemenskapen finns här!"
-        mail_podmin: "Podadministratörs e-post"
+        mail_podmin: "Podadministratörens e-post"
         need_help: "Behöver du hjälp?"
         tag_bug: "bugg"
         tag_feature: "förslag"
@@ -267,9 +267,9 @@ sv:
       add_to_aspect: "Lägg kontakter i %{name}"
       all_contacts: "Alla kontakter"
       community_spotlight: "Gemenskapens rampljus"
-      many_people_are_you_sure: "Är du säker på att du vill starta en privat konversation med mer än %{suggested_limit} kontakter? Ett bättre sätt kan vara att posta inlägget i denna aspekt."
       my_contacts: "Mina kontakter"
       no_contacts: "Det verkar som om att du skulle behöva några fler kontakter!"
+      no_contacts_in_aspect: "Den här aspekten är för närvarande tom. Nedanför kan du se en lista med dina kontakter som du kan lägga till."
       no_contacts_message: "Kolla in %{community_spotlight}"
       only_sharing_with_me: "Delar enbart med mig"
       remove_contact: "Ta bort kontakt"
@@ -338,13 +338,13 @@ sv:
   find_people: "Hitta personer eller #taggar"
   help:
     account_and_data_management:
-      close_account_a: "Längst ner på sidan Inställningar finns knappen \"Stäng Kontot\"."
+      close_account_a: "Längst ner på sidan för inställningar finns knappen \"Stäng kontot\"."
       close_account_q: "Hur tar jag bort mitt frö (konto)?"
       data_other_podmins_a: "När du delar med dig med till någon på en annan pod, kommer alla inlägg du delar med till dem samt en kopia av din profil att sparas tillfälligt på deras pod. Då kan också dess podadministratör komma åt din data. När du tar bort ett inlägg eller tar bort hela din profil, försvinner den också från dem podar där den tidigare sparats."
       data_other_podmins_q: "Kan adminstratörer av andra pods se min information?"
-      data_visible_to_podmin_a: "Kommunikationen mellan podar är alltid krypterad (både med SSL och Diasporas egna krypteringssystem), men informationen i varje pod är inte krypterad. Podarnas administratörer kan därför komma åt all din profildata och alla dina inlägg (precis som med de flesta andra webbplatser). Om du vill vara mer säker kan du administrera din egen pod, eftersom du då kontrollerar åtkomsten till databasen."
+      data_visible_to_podmin_a: "Kommunikationen mellan podar är alltid krypterad, både med SSL och Diasporas egna krypteringssystem. Informationen i varje pod är dock inte krypterad. Podarnas administratörer kan komma åt all din profildata och alla dina inlägg. (Precis administratörer för andra webbplatser kommer åt datan de hanterar.) Om du vill vara mer säker kan du administrera din egen pod, eftersom du då kontrollerar åtkomsten till databasen."
       data_visible_to_podmin_q: "Hur mycket av min personliga information kan min pod-administratör se?"
-      download_data_a: "Ja. Längst ned på sidan Konto-fliken i Inställnings-menyn finns det två knappar för att ladda ner din data."
+      download_data_a: "Ja. Längst ned på kontofliken, i inställningsmenyn, finns två knappar för att ladda ner din data."
       download_data_q: "Kan jag ladda ner en kopia av all data på mitt frö (konto)?"
       move_pods_a: "I framtiden kommer du att kunna exportera ditt frö från en pod och importera det till en annan. Just nu är detta dock inte möjligt. Du kan däremot skapa ett nytt konto och lägga till dina kontakter på ett nytt frö och sedan be dem att lägga till dig på nytt."
       move_pods_q: "Hur flyttar jag mitt frö (konto) från en pod till en annan?"
@@ -362,10 +362,10 @@ sv:
       person_multiple_aspects_q: "Kan jag lägga till en person i flera olika aspekter?"
       post_multiple_aspects_a: "Ja. När du gör ett inlägg, använd aspektväljarknappen för att välja eller ta bort aspekter. Ditt inlägg kommer att bli synligt för alla aspekter som du valt. I sidopanelen kan du också välja vilka aspekter du vill skicka inlägg till. När du gör inlägget kommer aspekterna du valt i panelen att automatiskt vara valda när du börjar göra ditt inlägg."
       post_multiple_aspects_q: "Kan jag göra inlägg till flera aspekter på en gång?"
-      remove_notification_a: "Nej."
+      remove_notification_a: "Nej. De får inte någon notifikation  om att du lägger till dem i fler än en aspekt, även om du redan delar med dig åt dem."
       remove_notification_q: "Kommer mina kontakter få en notifiering om jag tar bort dem från aspekter?"
-      rename_aspect_a: "Ja. I din aspektlista till vänster på huvudsidan kan du döpa om en aspekt genom att föra muspekaren över aspektens namn, trycka på pennan som dyker upp och välj där att döpa om aspekten."
-      rename_aspect_q: "Kan jag döpa om en aspekt?"
+      rename_aspect_a: "I din aspektlista, till vänster på huvudsidan, kan du döpa om en aspekt genom att föra muspekaren över aspektens namn, trycka på den penna som dyker upp och där välj att döpa om aspekten."
+      rename_aspect_q: "Hur döper jag om en aspekt?"
       restrict_posts_i_see_a: "Ja. Välj \"Mina aspekter\" i sidolisten och markera eller avmarkera aspekter i listen genom att klicka på dem. Bara inlägg från personer i de valda aspekterna kommer synas i ditt flöde."
       restrict_posts_i_see_q: "Kan jag begränsa dem inlägg jag ser till särskilda aspekter?"
       title: "Aspekter"
@@ -453,6 +453,14 @@ sv:
       insert_images_comments_a2: "används för att lägga till bilder från en webbplats till både kommentarer och inlägg."
       insert_images_comments_q: "Kan jag lägga till bilder i kommentarer?"
       insert_images_q: "Hur lägger jag in bilder till mitt inlägg?"
+      post_location_a: "Tryck på knappnålsikonen bredvid kameran där du laddar upp bilder. Det här kommer att lägga till din plats från OpenStreetMap.org. Du själv kan ändra platsen, för att bara ange staden du befinner dig i och inte den exakta adressen."
+      post_location_q: "Hur anknyter jag min plats till ett inlägg?"
+      post_notification_a: "Du finner en bjällerikon bredvid X:et i inlägget övre, högra hörn. Tryck på den för att slå på eller av notifikationer om det inlägget."
+      post_notification_q: "Hur skulle jag göra för att ändra mina notifikationsinställningar för ett inlägg?"
+      post_poll_a: "Tryck på grafikonen för att skapa en omröstning. Skriv in din fråga och åtminstone två alternativ. Glöm inte att göra inlägget publikt om du vill att alla ska kunna delta."
+      post_poll_q: "Hur lägger jag till en omröstning till mitt inlägg?"
+      post_report_a: "Tryck på varningstriangeln i inläggets övre, högra hörn för att anmäla det till din podadminstratör. Ange sedan, noggrant, varför du valt att anmäla inlägget."
+      post_report_q: "Hur meddelar jag om kränkande inlägg?"
       size_of_images_a: "Nej. Bildernas storlek justeras automatiskt för att passa strömmen."
       size_of_images_q: "Kan jag själv anpassa bildstorleken i inlägg och kommentarer?"
       stream_full_of_posts_a1: "Din ström består av tre typer av inlägg:"
@@ -517,6 +525,7 @@ sv:
       add_to_aspect_li5: "Skulle Bengt besöka Annas profilsida skulle han se de privata inläggen hon har gjort till den aspekt hon har lagt honom i. Givetvis ser Bengt också Annas publika inlägg på hennes profilsida."
       add_to_aspect_li6: "Bengt kommer att kunna se Annas publika profil med biografi, position, kön och födelsedag."
       add_to_aspect_li7: "Anna kommer synas under \"Delar enbart med mig\" på Bengts kontaktsida."
+      add_to_aspect_li8: "Amalia kommer också kunna @nämna Benjamin i ett inlägg."
       add_to_aspect_q: "Vad händer när jag lägger till en person i en aspekt och när någon lägger till mig till en av deras aspekter?"
       list_not_sharing_a: "Nej. Du kan däremot besöka personers profilsidor för att se om de delar med sig till dig. Om de gör det, kommer listen under deras profilbild att vara grön; annars vore den grå. Du borde få en notifiering varje gång börjar dela med sig till dig."
       list_not_sharing_q: "Finns det någon lista med personer vilka jag har lagt till aspekter, men som inte har mig i någon av deras?"
@@ -524,6 +533,8 @@ sv:
       only_sharing_q: "Vilka personer syns i \"Delar enbart med mig\" på min kontaktsida?"
       see_old_posts_a: "Nej. De kommer bara att kunna se de nya inläggen du gör. De kan givetvis se dina gamla offentliga inlägg, precis som alla andra."
       see_old_posts_q: "Kan personer jag lägg till i mina aspekter se de äldre inläggen jag gjort till aspekten?"
+      sharing_notification_a: "Du borde få en notifikation varje gång någon delar med sig åt dig."
+      sharing_notification_q: "Hur kan jag se om någon delar med sig av innehåll åt mig?"
       title: "Delning av inlägg"
     tags:
       filter_tags_a: "Det är inte ännu inte möjligt att utföra i Diaspora*. Men något %{third_party_tools} kan finnas som stödjer denna funktion."
@@ -537,7 +548,7 @@ sv:
       title: "Taggar"
       what_are_tags_for_a: "Taggarna är ett sätt att kategorisera inlägg efter ämne. Genom att söka på en särskild tag kommer alla inlägg med den taggen att visas, både de publika och de privata till dig. På så vis kan man hitta inlägg som intresserar en."
       what_are_tags_for_q: "Vad är taggarna till för?"
-    third_party_tools: "tredjepartsverktyg"
+    third_party_tools: "Tredjepartsverktyg"
     title_header: "Hjälp"
     tutorial: "Nybörjar-guide"
     tutorials: "nybörjar-guider"
@@ -584,10 +595,10 @@ sv:
   layouts:
     application:
       back_to_top: "Åter till början"
-      powered_by: "Drivs av Diaspora*"
+      powered_by: "Drivs med Diaspora*"
       public_feed: "Offentligt Diaspora*-flöde för %{name}"
-      source_package: "ladda ned källkodspaketet"
-      toggle: "Slå om mobilanpassning"
+      source_package: "Ladda ned källkodspaketet"
+      toggle: "Slå om mobiltelefonanpassning"
       whats_new: "Vad är nytt?"
       your_aspects: "Dina aspekter"
     header:
@@ -610,7 +621,7 @@ sv:
       people_like_this:
         one: "En person gillar det här"
         other: "%{count} personer gillar det här"
-        zero: "Iinga personer gillar det här"
+        zero: "Inga personer gillar det här"
       people_like_this_comment:
         one: "En gillar"
         other: "%{count} gillar"
@@ -883,7 +894,7 @@ sv:
       start_sharing: "Börja dela"
       to_accept_or_ignore: "för att acceptera eller ignorera det."
     sub_header:
-      add_some: "Lägg till"
+      add_some: "Lägg till några"
       edit: "Redigera"
       you_have_no_tags: "Du har inga taggar!"
     webfinger:
@@ -944,7 +955,7 @@ sv:
   profile: "Profil"
   profiles:
     edit:
-      allow_search: "Tillåter andra att söka efter dig inom Diaspora*"
+      allow_search: "Tillåt andra att söka efter dig inom Diaspora*"
       edit_profile: "Redigera profil"
       first_name: "Förnamn"
       last_name: "Efternamn"
@@ -984,20 +995,20 @@ sv:
     invalid_invite: "Den angivna inbjudningslänken gäller inte längre."
     new:
       create_my_account: "Skapa mitt konto!"
-      email: "E-POST"
+      email: "E-post"
       enter_email: "Ange en e-postadress"
       enter_password: "Skriv in ett lösenord, åtminstone sex tecken långt"
       enter_password_again: "Skriv in samma lösenord som tidigare"
       enter_username: "Välj ett användarnamn (endast bokstäver, nummer och understreck)"
       join_the_movement: "Gå med i rörelsen!"
-      password: "LÖSENORD"
-      password_confirmation: "LÖSENORDSBEKRÄFTELSE"
-      sign_up: "REGISTRERA"
+      password: "Lösenord"
+      password_confirmation: "Lösenordsbekräftelse"
+      sign_up: "Registrera"
       sign_up_message: "Socialt nätverkande med ♥"
       submitting: "Sänder..."
       terms: "Skapar du ett konto, accepterar du våra %{terms_link}."
       terms_link: "användarvillkor"
-      username: "ANVÄNDARNAMN"
+      username: "Användarnamn"
   report:
     comment_label: "<b>Kommentar</b>:<br>%{data}"
     confirm_deletion: "Vill de radera objektet?"
@@ -1032,7 +1043,7 @@ sv:
     new_request_to_person:
       sent: "Skickat!"
   reshares:
-    comment_email_subject: "Den delning av %{author}s inlägg som %{resharer} har gjort"
+    comment_email_subject: "%{resharer} har delat vidare ett inlägg av %{author}"
     create:
       failure: "Ett fel uppstod när inlägget skulle spridas vidare."
     reshare:
@@ -1252,7 +1263,7 @@ sv:
     create:
       failure: "Misslyckades med att följa #%{name}. Du kanske redan gör det."
       none: "Du kan inte följa en tom tagg!"
-      success: "Hurra! Du följer nu #%{name}."
+      success: "Hurra!  Du följer nu #%{name}."
     destroy:
       failure: "Misslyckades att sluta följa #%{name}. Du kanske redan slutat följa det."
       success: "Sådär! Du följer inte längre #%{name}."
@@ -1290,11 +1301,11 @@ sv:
       close_account:
         dont_go: "Snälla, lämna oss inte!"
         if_you_want_this: "Är du säker på din sak, skriv ditt lösenord nedan och tryck på \"Stäng kontot\""
-        lock_username: "Ditt användarnamn kommer att låsas för att inte kunna användas igen."
+        lock_username: "Ditt användarnamn kommer att låsas för att inte kunna användas på denna pod igen."
         locked_out: "Du kommer att loggas ut och låsas från ditt konto tills det har blivit borttaget."
         make_diaspora_better: "Det vore fint om du istället för att lämna diaspora* ville hjälpa oss att utveckla och göra det bättre. Men om du nu verkligen bestämt dig kommer följande hända:"
         mr_wiggles: "Herr Wiggles kommer att bli ledsen"
-        no_turning_back: "Nu finns ingen återvändo."
+        no_turning_back: "Nu finns ingen återvändo. Om du är säker på din sak, ange ditt lösenord nedanför."
         what_we_delete: "Vi kommer att radera dina inlägg och profil så snart det bara går. Dina kommentarer kommer finnas kvar, men associerade med ditt Diaspora*-id istället för ditt namn."
       close_account_text: "Stäng kontot"
       comment_on_post: "någon kommenterar dina inlägg"
@@ -1302,7 +1313,7 @@ sv:
       current_password_expl: "den som du loggar in med..."
       download_export: "Ladda ned min profil"
       download_export_photos: "Ladda ned mina bilder"
-      download_photos: "Ladda ner mina foton"
+      download_photos: "Ladda ned mina foton"
       edit_account: "Ändra konto"
       email_awaiting_confirmation: "Vi har skickat dig en länk till %{unconfirmed_email} för aktivering. Innan du har aktiverat din nya adress, kommer vi fortsätta att använda %{email}."
       export_data: "Exportera data"
@@ -1332,8 +1343,8 @@ sv:
       awesome_take_me_to_diaspora: "Häftigt! Ta mig till Diaspora*"
       community_welcome: "Vi i Diaspora*-gemenskapen är glada att ha dig här!"
       connect_to_facebook: "Vi kan skynda på processen genom %{link} till Diaspora. Det kommer att hämta ditt namn, din bild och tillåta korsinlägg."
-      connect_to_facebook_link: "länkar ihop ditt Facebook-konto"
-      hashtag_explanation: "Hashtaggar gör det möjligt att diskutera och följa dina intressen. Det är också ett bra sätt att lära känna nya människor på Diaspora*."
+      connect_to_facebook_link: "Länka ihop ditt Facebook-konto"
+      hashtag_explanation: "Taggar gör det möjligt att diskutera och följa dina intressen. Det är också ett bra sätt att lära känna nya människor på Diaspora*."
       hashtag_suggestions: "Testa att följa taggar såsom #konst, #film, #gif, etc."
       saved: "Sparat!"
       well_hello_there: "Hej på dig!"
@@ -1342,7 +1353,7 @@ sv:
     privacy_settings:
       ignored_users: "Ignorerade användare"
       no_user_ignored_message: "Du har inga ignorerade kontakter."
-      stop_ignoring: "Sluta ignorera"
+      stop_ignoring: "sluta ignorera"
       strip_exif: "Rensa bort metadata, såsom plats, upphovsman och kameramodell från de uppladdade bilderna (rekommenderat)"
       title: "Sekretessinställningar"
     public:
@@ -1364,7 +1375,7 @@ sv:
     hcard_fetch_failed: "Kunde inte hämta hcard för %{account}"
     no_person_constructed: "Kunde inte skapa en person från detta hcard."
     not_enabled: "Webfinger verkar inte vara aktiverat på %{account}s server"
-    xrd_fetch_failed: "kunde inte hämta xrd-fil från kontot %{account}"
+    xrd_fetch_failed: "Kunde inte hämta xrd-fil från kontot %{account}"
   welcome: "Välkommen!"
   will_paginate:
     next_label: "nästa »"

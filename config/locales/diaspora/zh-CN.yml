@@ -214,7 +214,6 @@ zh-CN:
       add_to_aspect: "将好友添加到 %{name}"
       all_contacts: "所有好友"
       community_spotlight: "社区热点"
-      many_people_are_you_sure: "您确定要和 %{suggested_limit} 个好友对话？发布内容可能是更好的方式。"
       my_contacts: "我的好友"
       no_contacts: "尚未添加好友"
       no_contacts_message: "来看看 %{community_spotlight}"

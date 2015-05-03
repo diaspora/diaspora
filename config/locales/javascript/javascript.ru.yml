@@ -12,6 +12,8 @@ ru:
       all_aspects: "Все аспекты"
       error: "Невозможно добавить пользователя <%= name %>.  Возможно, вы его заблокировали?"
       error_remove: "Невозможно удалить <%= name %> из аспекта :("
+      mobile_row_checked: "<%= name %> (переместить)"
+      mobile_row_unchecked: "<%= name %> (добавить)"
       select_aspects: "Выбрать аспекты"
       started_sharing_with: "Вы добавили <%= name %>!"
       stopped_sharing_with: "Вы удалили <%= name %>."
@@ -22,6 +24,7 @@ ru:
         other: "В <%= count %> аспектах"
         two: "В <%= count %> аспектах"
         zero: "Выбрать аспекты"
+      updating: "обновление..."
     aspect_navigation:
       add_an_aspect: "+ Добавить аспект"
       deselect_all: "Снять выделение"
@@ -45,6 +48,7 @@ ru:
       error_add: "Невозможно добавить <%= name %> в аспект :("
       error_remove: "Невозможно удалить <%= name %> из аспекта :("
       remove_contact: "Удалить контакт"
+      search_no_results: "Контакты не найдены"
     conversation:
       participants: "Участники"
     delete: "Удалить"
@@ -52,6 +56,7 @@ ru:
     failed_to_like: "Не удалось!"
     failed_to_post_message: "Не удалось отправить сообщение!"
     failed_to_remove: "Удаление не завершено!"
+    failed_to_reshare: "Не удалось поделиться!"
     getting_started:
       alright_ill_wait: "Хорошо, я подожду."
       hey: "Привет, <%= name %>!"
@@ -72,6 +77,8 @@ ru:
       search: "Поиск"
       settings: "Настройки"
       view_all: "Посмотреть всё"
+    hide_post: "Скрыть эту запись?"
+    hide_post_failed: "Невозможно скрыть запись"
     ignore: "Блокировать"
     ignore_failed: "Невозможно игнорировать этого пользователя"
     ignore_user: "Игнорировать этого пользователя?"
@@ -109,13 +116,15 @@ ru:
         one: "<%=count%> человек проголосовал"
         other: "<%=count%> людей проголосовало"
         zero: "Никто ещё не проголосовал"
+      go_to_original_post: "Вы можете принять участие в этом опросе, перейдя к <%= original_post_link %>"
+      original_post: "оригиналу записи"
       result: "Результаты"
       show_result: "Показать результаты"
       vote: "Голосовать"
     profile:
       add_some: "добавить"
       bio: "О себе"
-      born: "День рождения"
+      born: "Дата рождения"
       contacts: "Контакты"
       edit: "Редактировать"
       gender: "Пол"
@@ -132,6 +141,7 @@ ru:
       option: "Вариант <%= nr %>"
       public: "Публичная - ваша запись будет видна всем, включая поисковые системы"
       question: "Вопрос"
+    remove_post: "Переместить запись?"
     report:
       name: "Пожаловаться"
       prompt: "Пожалуйста, укажите причину:"
@@ -140,13 +150,15 @@ ru:
         created: "Донос успешно отправлен"
         exists: "Донос уже отправлен"
     reshares:
-      duplicate: "Настолько здорово, да? Вы уже поделились этой записью!"
+      duplicate: "Здорово, да? Вы уже поделились этой записью!"
       post: "Поделиться записью пользователя <%= name %>?"
       successful: "Вы успешно поделились записью!"
     search_for: "Искать <%= name %>"
     show_more: "показать больше"
     stream:
       comment: "Комментировать"
+      disable_post_notifications: "Отключить уведомления на эту запись"
+      enable_post_notifications: "Включить уведомления на эту запись"
       follow: "Следить"
       followed_tag:
         add_a_tag: "Добавить метку"

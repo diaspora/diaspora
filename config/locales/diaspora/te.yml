@@ -216,7 +216,6 @@ te:
       add_to_aspect: "%{name}కి పరిచయాలను జతచేయి"
       all_contacts: "అన్ని పరిచయాలు"
       community_spotlight: "సంఘపు స్పాట్​లైట్"
-      many_people_are_you_sure: "మీరు ఖచ్ఛితంగా %{suggested_limit} పరిచయాలతో కంటే ఎక్కువ పరిచయాలతో రహస్య సంభాషణం ప్రారంభించాలనుకుంటున్నారా? వారిని సంప్రదించడానికి ఈ కోణానికి టపా వేయడం ఉత్తమ మార్గం."
       my_contacts: "నా పరిచయాలు"
       no_contacts: "మీరు ఇంకా ఎవర్నీ పరిచయాలలో చేర్చుకున్నట్లు లేరు!"
       no_contacts_message: "%{community_spotlight}ని సందర్శించండి"

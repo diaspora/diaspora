@@ -208,6 +208,15 @@ ro:
   fill_me_out: "Umple-mă"
   find_people: "Find people"
   help:
+    posts_and_posting:
+      post_location_a: "În editor faceți clic pe pictograma PIN de lângă cameră. Acest lucru va introduce locația de OpenStreetMap. Puteți edita locația dvs. - dacă doriți puteți să introduceți doar orașul în loc de adresa specifică."
+      post_location_q: "Cum adaug locația mea la un post?"
+      post_notification_a: "Veți găsi o pictogramă clopoțel, lângă X in dreapta sus a unui post. Faceți clic pentru a activa sau dezactiva notificările pentru acest post."
+      post_notification_q: "Cum pot primi notificări sau opri obtinerea notificări, despre un post?"
+      post_poll_a: "Faceți clic pe pictograma grafic pentru a genera un sondaj. Tastați o întrebare și cel puțin două răspunsuri. Nu uitați să faceți postările dumneavoastră publice dacă vreți ca toată lumea să fie în măsură să participe la sondajul postat."
+      post_poll_q: "Cum adaug un sondaj la mesaj?"
+      post_report_a: "Faceți clic pe pictograma de alertă , triunghi, in dreapta sus a postului să o raporteze admin-ului. Introduceți un motiv pentru raportarea acestui post în caseta de dialog."
+      post_report_q: "Cum pot raporta un mesaj ofensator?"
     wiki: "Wiki"
   hide: "Ascunde"
   invitations:

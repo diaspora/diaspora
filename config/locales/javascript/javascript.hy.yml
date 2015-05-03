@@ -53,7 +53,7 @@ hy:
     failed_to_like: "Չհաջողվեց հավանել"
     failed_to_post_message: "Չհաջողվեց գրառում կատարել"
     failed_to_remove: "Չստացվեց ջնջել մուտքագրածը։"
-    failed_to_reshare: "Չստացվեց տարածել ։Չ"
+    failed_to_reshare: "Չստացվեց տարածել"
     getting_started:
       alright_ill_wait: "Լավ, ես կսպասեմ։"
       hey: "Հե՜յ, <%= name %>։"
@@ -90,7 +90,7 @@ hy:
       mark_read: "Նշել որպես նայած"
       mark_unread: "Նշել որպես չընթերցված"
     people:
-      edit_my_profile: "Խմբագրել իմ անձնական էջը"
+      edit_my_profile: "Խմբագրել իմ էջը"
       helper:
         is_not_sharing: "<%= name %>ը քո հետ չի կիսվում"
         is_sharing: "ո՜ւռա, <%= name %>ը կիսվում է քո հետ"

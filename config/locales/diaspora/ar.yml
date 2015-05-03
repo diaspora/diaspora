@@ -190,7 +190,6 @@ ar:
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "كل جهات الاتصال"
       community_spotlight: "ضوء المجتمع"
-      many_people_are_you_sure: "هل أنت متأكد من بدأ هذه المحادثة الخاصة مع أكثر من %{suggested_limit} جهات اتصال? من الأفضل إرسال مشاركة لهذه الفئة لتتصل بهم."
       my_contacts: "جهات الاتصال الخاصة بي"
       no_contacts: "لا توجد جهات اتصال."
       no_contacts_message: "انظر في  {community_spotlight}%"
