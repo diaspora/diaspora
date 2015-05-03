@@ -1,3 +1,12 @@
+# 0.6.0.0
+
+## Refactor
+
+## Bug fixes
+* Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
+
+## Features
+
 # 0.5.1.0
 
 ## Refactor
@@ -10,7 +19,6 @@
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
 * Fix only sharing flag for contacts that are receiving [#5848](https://github.com/diaspora/diaspora/pull/5848)
 * Return 406 when requesting a JSON representation of people/:guid/contacts [#5849](https://github.com/diaspora/diaspora/pull/5849)
-* Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
 * Hide manage services link in the publisher on certain pages [#5854](https://github.com/diaspora/diaspora/pull/5854)
 * Fix notification mails for limited posts [#5877](https://github.com/diaspora/diaspora/pull/5877)
 * Fix medium and small avatar URLs when using Camo [#5883](https://github.com/diaspora/diaspora/pull/5883)
