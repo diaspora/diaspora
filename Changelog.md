@@ -1,5 +1,10 @@
 # 0.6.0.0
 
+## Supported Ruby versions
+
+This release recommends using Ruby 2.2, while retaining Ruby 2.1 as an officially supported version.
+Ruby 2.0 is no longer officially supported.
+
 ## Refactor
 
 ## Bug fixes
