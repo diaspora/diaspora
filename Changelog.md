@@ -1,4 +1,4 @@
-# Head
+# 0.5.1.0
 
 ## Refactor
 * Use Bootstrap modal for new aspect pane [#5850](https://github.com/diaspora/diaspora/pull/5850)
