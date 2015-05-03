@@ -1,9 +1,6 @@
-@javascript
+@javascript @mobile
 Feature: Invitations
 
-  Background:
-    Given I toggle the mobile view
-  
   Scenario: Accepting an invitation
     When I visit alice's invitation code url
     When I fill in the new user form

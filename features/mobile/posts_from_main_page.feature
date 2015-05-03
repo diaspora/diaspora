@@ -1,4 +1,4 @@
-@javascript
+@javascript @mobile
 Feature: posting from the mobile main page
     In order to navigate Diaspora*
     As a mobile user
@@ -9,7 +9,6 @@ Feature: posting from the mobile main page
         | username   |
         | bob        |
         | alice      |
-      And I toggle the mobile view
       And I am on the home page
       And I sign in as "bob@bob.bob" on the mobile website
       And a user with username "bob" is connected with "alice"
@@ -24,7 +23,7 @@ Feature: posting from the mobile main page
       And I append "I am eating yogurt" to the mobile publisher
       And I select "Unicorns" from "aspect_ids_"
       And I press "Share"
-      When I visit the mobile stream page
+      When I go to the stream page
       Then I should see "I am eating yogurt"
       When I click on selector "a.remove"
       And I confirm the alert
@@ -36,11 +35,11 @@ Feature: posting from the mobile main page
       Then I should see an uploaded image within the photo drop zone
       And I should see "button.png completed"
       When I press "Share"
-      When I visit the mobile stream page
+      When I go to the stream page
       Then I should see a "img" within ".stream_element div.photo_attachments"
       When I log out
       And I sign in as "alice@alice.alice" on the mobile website
-      When I visit the mobile stream page
+      When I go to the stream page
       Then I should see a "img" within ".stream_element div.photo_attachments"
 
     Scenario: back out of posting a photo-only post

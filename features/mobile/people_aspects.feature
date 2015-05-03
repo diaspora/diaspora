@@ -1,4 +1,4 @@
-@javascript
+@javascript @mobile
 Feature: adding and removing people from aspects
     In order to add people to my contacts
     As a mobile user
@@ -9,7 +9,6 @@ Feature: adding and removing people from aspects
         | username   |
         | bob        |
         | alice      |
-      And I toggle the mobile view
       And I sign in as "bob@bob.bob" on the mobile website
 
     Scenario: verify different states of the cover button

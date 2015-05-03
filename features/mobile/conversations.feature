@@ -1,4 +1,4 @@
-@javascript
+@javascript @mobile
 Feature: private conversations mobile
     In order to be talkative
     As a mobile user
@@ -8,7 +8,6 @@ Feature: private conversations mobile
     Given a user with username "bob"
     And a user named "Alice Awesome" with email "alice@alice.alice"
     And a user with username "bob" is connected with "alice_awesome"
-    When I toggle the mobile view
     And I sign in as "bob@bob.bob" on the mobile website
 
   Scenario: send and delete a mobile message
