@@ -267,9 +267,9 @@ es-AR:
       add_to_aspect: "Agregar contactos a %{name}"
       all_contacts: "Todos los contactos"
       community_spotlight: "Comunidad Creativa"
-      many_people_are_you_sure: "Estás seguro que querés comenzar una conversación privada con más de  %{suggested_limit} contactos? Publicando en este aspecto puede ser una mejor manera de contactarlos."
       my_contacts: "Mis contactos"
       no_contacts: "¡Parece que necesitás agregar algunos contactos!"
+      no_contacts_in_aspect: "Aún no tienes contactos en este aspecto. Debajo hay una lista de tus contactos existentes que puedes agregar a este aspecto."
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"
       only_sharing_with_me: "Compartiendo solo conmigo"
       remove_contact: "Eliminar contacto"
@@ -1276,6 +1276,7 @@ es-AR:
       failure: "No has podido dejar de seguir a: #%{name}. Tal vez ya lo hiciste..."
       success: "¡Epa! Dejaste de seguir a #%{name}."
   tags:
+    name_too_long: "Por favor haz que el nombre de la etiqueta tenga menos de %{count} caracteres. En este momento el máximo permitido es de %{current_length} caracteres."
     show:
       follow: "Seguir #%{tag}"
       following: "Siguiendo #%{tag}"

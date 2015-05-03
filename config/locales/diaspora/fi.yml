@@ -267,7 +267,6 @@ fi:
       add_to_aspect: "Lisää kontakteja näkymään %{name}"
       all_contacts: "Kaikki kontaktit"
       community_spotlight: "Yhteisön valokeila"
-      many_people_are_you_sure: "Oletko varma, että haluat aloittaa yksityiskeskustelun useamman kuin %{suggested_limit} kontaktin kanssa? Julkaisun lähettäminen tähän näkymään voisi olla parempi tapa olla yhteydessä heihin."
       my_contacts: "Kontaktini"
       no_contacts: "Sinun pitäisi näköjään lisätä kontakteja!"
       no_contacts_message: "Käy katsomassa %{community_spotlight}"

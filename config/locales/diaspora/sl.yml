@@ -8,6 +8,7 @@ sl:
   _applications: "Aplikacije"
   _comments: "Komentarji"
   _contacts: "Stiki"
+  _help: "Pomoč"
   _home: "Domov"
   _photos: "slike"
   _services: "Storitve"
@@ -45,6 +46,7 @@ sl:
       correlations: "Korelacije"
       pages: "Strani"
       pod_stats: "Statistika Poda"
+      sidekiq_monitor: "Sidekiq zaslon"
       user_search: "Iskanje uporabnikov"
       weekly_user_stats: "Tedenska statistika uporabnikov"
     correlations:
@@ -170,6 +172,7 @@ sl:
         tag_bug: "bug"
         tag_feature: "feature"
         tag_question: "question"
+        tutorials_and_wiki: "%{faq}, %{tutorial} in %{wiki}: pomoč pri začetnih težavah."
       introduce_yourself: "To je vaš tok. Vskočite in predstavite se."
       keep_diaspora_running: "Z mesečnim prispevkom pohitrite razvoj Diaspore!"
       keep_pod_running: "Pomagajte, da bo %{pod} deloval hitro in plačajte strežnikom kavico z mesečnim prispevkom!"
@@ -236,7 +239,6 @@ sl:
       add_to_aspect: "Dodaj stik k %{name}"
       all_contacts: "Vsi stiki"
       community_spotlight: "Središče pozornosti skupnosti"
-      many_people_are_you_sure: "Ste prepričani, da želite začeti zasebni pogovor z več kot %{suggested_limit} stiki? Morda bi bilo bolje, da bi sporočilo objavili v tem vidiku."
       my_contacts: "Moji stiki"
       no_contacts: "Izgleda, da morate dodati kakšen stik!"
       no_contacts_message: "Preveri %{community_spotlight}"
@@ -257,6 +259,7 @@ sl:
       participants: "Udeleženci"
     create:
       fail: "Neveljavno sporočilo"
+      no_contact: "Hej, najprej moraš dodati stike!"
       sent: "Sporočilo poslano"
     helper:
       new_messages:

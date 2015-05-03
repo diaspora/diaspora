@@ -113,6 +113,8 @@ de:
       count:
         one: "Bisher eine Stimme"
         other: "Bisher <%=count%> Stimmen"
+      go_to_original_post: "Du kannst an dieser Umfrage im <%= original_post_link %> teilnehmen."
+      original_post: "Originalbeitrag"
       result: "Ergebnis"
       show_result: "Ergebnis anzeigen"
       vote: "Abstimmen"

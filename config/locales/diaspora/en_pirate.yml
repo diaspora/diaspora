@@ -163,7 +163,6 @@ en_pirate:
       add_a_new_aspect: "Add a new crew"
       add_to_aspect: "Add more mateys to %{name}"
       all_contacts: "All yer mateys"
-      many_people_are_you_sure: "Are ye sure ye want to start a private letter with more than %{suggested_limit} mateys? Posting to this crew may be a better way to talk to them."
       my_contacts: "Me Mateys"
       no_contacts: "No Mateys."
       only_sharing_with_me: "Mateys only sharin' with me"

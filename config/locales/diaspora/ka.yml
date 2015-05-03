@@ -163,7 +163,6 @@ ka:
       add_a_new_aspect: "დაამატე ახალი ასპექტი"
       add_to_aspect: "%{name} დაამატე კონტაქტებში"
       all_contacts: "ყველა კონტაქტი"
-      many_people_are_you_sure: "დარწმუნებული ხართ რომ გინდათ პირადი საუბრის დაწყება %{suggested_limit} კონტაქტთან? ამ ასპექტში დაპოსტვა უფრო კარგი საშუალებაა მათთან დასაკავშირებლად."
       my_contacts: "ჩემი კონტაქტები"
       no_contacts: "მგონი კიდევ რამოდენიმე კონტაქტის დამატება გჭირდება"
       no_contacts_message: "ნახე %{community_spotlight}"

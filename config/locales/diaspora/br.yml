@@ -204,7 +204,6 @@ br:
       add_to_aspect: "Ouzhpennañ darempredoù da %{name}"
       all_contacts: "An holl zarempredoù"
       community_spotlight: "Nevezenti ar rouedad"
-      many_people_are_you_sure: "Sur oc'h kregiñ ur gaozeadenn prevez gant muioc'h evit %{suggested_limit} darempred ? Kas masajoù dre ar strollad-se  a rankfe bezañ un doare gwelloc'h o kontaktiñ."
       my_contacts: "Ma darempredoù"
       no_contacts: "Evit doare hoc'h eus ezhomm da ouzhpennañ un nebeud darempredoù"
       no_contacts_message: "Klaskit %{community_spotlight}"

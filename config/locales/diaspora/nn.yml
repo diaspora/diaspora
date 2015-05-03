@@ -227,7 +227,6 @@ nn:
       add_to_aspect: "legg kontaktar til %{name}"
       all_contacts: "Alle kontaktane"
       community_spotlight: "Kreative medlemer"
-      many_people_are_you_sure: "Er du sikker på at du vil starte ein privat samtale med meir enn %{suggested_limit} kontaktar? Å dele dette i eit aspekt kan vere ein betre måte å kontakte dei på."
       my_contacts: "Kontaktane mine"
       no_contacts: "Du må leggja til nokre kontaktar."
       no_contacts_message: "Ta ein titt på %{community_spotlight}"

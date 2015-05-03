@@ -158,7 +158,6 @@ lt:
       add_to_aspect: "Pridėti kontaktus į kategoriją %{name}"
       all_contacts: "Visi kontaktai"
       community_spotlight: "Bendruomenės dėmesio centre"
-      many_people_are_you_sure: "Ar tikrai norite pradėti privatų pokalbį su daugiau nei %{suggested_limit} kontaktų? Paskelbti įrašą šioje kategorijoje gali būti geresnis būdas."
       my_contacts: "Mano kontaktai"
       no_contacts: "Pridėkite daugiau kontaktų!"
       no_contacts_message: "Peržiūrėti %{community_spotlight}"

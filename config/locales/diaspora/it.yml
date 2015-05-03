@@ -236,7 +236,6 @@ it:
       add_to_aspect: "aggiungi i contatti a %{name}"
       all_contacts: "Tutti i contatti"
       community_spotlight: "In evidenza nella comunità"
-      many_people_are_you_sure: "Stai inviando un messaggio privato a più di %{suggested_limit} contatti. Vuoi farlo davvero? Forse potrebbe essere più opportuno pubblicarlo su un aspetto!"
       my_contacts: "I miei contatti"
       no_contacts: "Probabilmente devi aggiungere qualche contatto!"
       no_contacts_message: "Scopri gli utenti %{community_spotlight}"

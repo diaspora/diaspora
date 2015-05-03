@@ -215,7 +215,6 @@ vi:
       add_to_aspect: "thêm liên lạc vào %{name}"
       all_contacts: "Tất cả liên lạc"
       community_spotlight: "Nổi bật từ cộng đồng"
-      many_people_are_you_sure: "Bạn có chắc là muốn trò chuyện với hơn %{suggested_limit} người khác? Posting to this aspect may be a better way to contact them."
       my_contacts: "Liên lạc của tôi"
       no_contacts: "Có vẻ như bạn cần thêm vài liên lạc!"
       no_contacts_message: "Kiểm tra %{community_spotlight}"

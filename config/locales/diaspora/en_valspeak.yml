@@ -259,7 +259,6 @@ en_valspeak:
       add_to_aspect: "add BFFs 2 %{name}"
       all_contacts: "All BFFs!!"
       community_spotlight: "d* celebz <33"
-      many_people_are_you_sure: "R u like totally sure u want 2 like... start a privy convo with moar than %{suggested_limit} ppl? postin 2 this group may b a like... better way 2 talk 2 them.. yeah..."
       my_contacts: "My BFFs!!! <333"
       no_contacts: "u like... need 2 add sum ppl"
       no_contacts_message: "OMG! u should like... check out %{community_spotlight}"

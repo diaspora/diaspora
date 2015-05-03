@@ -258,7 +258,6 @@ nb:
       add_to_aspect: "Legg kontakter til %{name}"
       all_contacts: "Alle Kontakter"
       community_spotlight: "Fremhevet av Fellesskapet"
-      many_people_are_you_sure: "Er du sikker på at du vil starte en privat samtale med flere enn %{suggested_limit} kontakter? Det kan være bedre å poste dette som et innlegg til dette aspektet. "
       my_contacts: "Mine Kontakter"
       no_contacts: "Ingen kontakter."
       no_contacts_message: "Sjekk ut %{community_spotlight}"

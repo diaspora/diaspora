@@ -114,9 +114,9 @@ nds:
   are_you_sure_delete_account: "Bist du di seker, dat du dien Konto tomoken wist? Dat kanns du nich rückgängig moken!"
   aspect_memberships:
     destroy:
-      failure: "Kunn Person nich ut den Aspekt wegmaken"
-      no_membership: "Kunn de utwählte Person nich in den Aspekt finnen"
-      success: "Person erfolgriek ut den Aspekt wegmakt"
+      failure: "Kunn Person nich ut’n Aspekt rutdaun."
+      no_membership: "Kunn de utwählte Person nich in den Aspekt finnen."
+      success: "Person erfolgriek ut’n Aspekt rutdoon."
   aspects:
     add_to_aspect:
       failure: "Kunn Kontakt nich ton Aspekt dortodoon."
@@ -232,7 +232,6 @@ nds:
       add_contact: "Kontakt sluten"
       add_to_aspect: "Kontakte to %{name} dortodoon"
       all_contacts: "Alle Kontakte"
-      many_people_are_you_sure: "Bist du seker dat du een privaten Snack mit mehr as %{suggested_limit} Lüü anfangen wist? Een Bidrag an dissen Aspekt to verfaten is villicht eene betere Lösung."
       my_contacts: "Miene Kontakte"
       no_contacts: "Süht so ut, as op du een poor mehr Kontakte sluten muss!"
       no_contacts_message: "Bekiek doch mal dat %{community_spotlight}"
@@ -420,15 +419,15 @@ nds:
     likes:
       people_dislike_this:
         one: "Eener mag dat nich"
-        other: "%{count} mögt dat nich"
+        other: "%{count} Lü mögt dat nich"
         zero: "Keener mag dat nich"
       people_like_this:
         one: "Eener mag dat"
-        other: "%{count} Lüü mögt dat"
+        other: "%{count} Lü mögt dat"
         zero: "Keener mag dat"
       people_like_this_comment:
         one: "Eener mag dissen Kommentor"
-        other: "%{count} Lüü mögt dissen Kommentor"
+        other: "%{count} Lü mögt dissen Kommentor"
         zero: "Keener mag dissen Kommentor"
   limited: "Inschränkt"
   more: "Mehr"

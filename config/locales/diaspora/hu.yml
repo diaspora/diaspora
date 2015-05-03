@@ -249,7 +249,6 @@ hu:
       add_to_aspect: "Kapcsolatok hozzáadása %{name}"
       all_contacts: "Összes ismerős"
       community_spotlight: "A figyelem középpontjában"
-      many_people_are_you_sure: "Biztos, hogy magánbeszélgetést akarsz kezdeményezni több mint %{suggested_limit} személlyel? Talán jobb lenne, ha bejegyzést írnál ennek a csoportnak."
       my_contacts: "Kapcsolataim"
       no_contacts: "Nincs ismerősöd."
       no_contacts_message: "Tekintsd meg %{community_spotlight} álló népszerű tagokat"

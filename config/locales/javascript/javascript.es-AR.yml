@@ -110,6 +110,7 @@ es-AR:
       count:
         one: "<%=count%> voto hasta ahora"
         other: "<%=count%> votos hasta ahora"
+      go_to_original_post: "Puedes participar de esta encuesta en <%= original_post_link %>"
       original_post: "publicación original"
       result: "Resultados"
       show_result: "Mostrar resultados"

@@ -240,7 +240,6 @@ bs:
       add_to_aspect: "dodaj kontakte za %{name}"
       all_contacts: "Svi Kontakti"
       community_spotlight: "U Centru Pažnje"
-      many_people_are_you_sure: "Jeste li sigurni da želite pokrenuti privatni razgovor sa više od %{suggested_limit} kontakata? Objavljivanje na ovaj aspekt je možda bolji način da ih kontaktirate."
       my_contacts: "Moji Kontakti"
       no_contacts: "Izgleda kao morate dodati neke kontakte!"
       no_contacts_message: "Probajte %{community_spotlight}"

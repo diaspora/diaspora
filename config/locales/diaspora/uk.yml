@@ -279,7 +279,6 @@ uk:
       add_to_aspect: "додати контакти до %{name}"
       all_contacts: "Усі контакти"
       community_spotlight: "У центрі уваги"
-      many_people_are_you_sure: "Ви упевнені, що хочете почати приватну бесіду з кількістю контактів, більшою за %{suggested_limit}? Можливо, краще просто написати повідомлення в цей аспект."
       my_contacts: "Мої контакти"
       no_contacts: "Схоже, вам потрібно додати декілька контактів!"
       no_contacts_message: "Зазирніть до %{community_spotlight}"

@@ -218,7 +218,6 @@ eo:
       add_to_aspect: "aldoni kontaktojn al %{name}"
       all_contacts: "Ĉiuj kontaktoj"
       community_spotlight: "En la ĉeflumo de la komunumo"
-      many_people_are_you_sure: "Ĉu vi certas, ke vi volas mesaĝi al pli ol {suggested_limit} homoj? Afiŝi al tiu ĉi aspekto eble estas pli bona metodo kontakti ilin."
       my_contacts: "Miaj kontaktoj"
       no_contacts: "Ŝajne necesas, ke vi aldonos iujn kontaktojn!"
       no_contacts_message: "Esploru %{community_spotlight}"
