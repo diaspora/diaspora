@@ -1,0 +1,47 @@
+.aspect_dropdown {
+
+  li {
+    .status_indicator {
+      width: 19px;
+      height: 14px;
+      display: inline-block;
+    }
+    .icon-ok, .icon-refresh {
+      padding-right: 5px;
+      display: none;
+    }
+    &.selected {
+      .icon-ok { display: inline-block;}
+      .icon-refresh { display: none;}
+    }
+    &.loading {
+      .icon-refresh { display: inline-block;}
+      .icon-ok { display: none;}
+    }
+    a {
+      .text {
+        color: #333333;
+      }
+      &:hover {
+        background: $background-grey;
+      }
+      cursor: pointer;
+      padding-left: 10px;
+    }
+  }
+}
+
+#new_aspect {
+  .checkbox {
+    margin: 0px;
+  }
+
+  label[for="aspect_contacts_visible"],
+  label[for="aspect_chat_enabled"] {
+    display: inline;
+  }
+
+  .bottom_submit_section {
+    padding-top: 20px;
+  }
+}

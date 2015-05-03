@@ -86,7 +86,8 @@ es-CL:
         one: "%{count} usuario encontrado"
         other: "%{count} usuarios encontrados"
         zero: "Ningún usuario encontrado"
-      you_currently: "Actualmente tienes %{user_invitation} invitaciones %{link}"
+      you_currently:
+        other: "Actualmente tienes %{user_invitation} invitaciones %{link}"
     weekly_user_stats:
       amount_of:
         one: "Número de usuarios esta semana: %{count} usuario"
@@ -111,8 +112,6 @@ es-CL:
     add_to_aspect:
       failure: "Error al agregar el contacto a este aspecto."
       success: "Contacto agregado correctamente al aspecto."
-    aspect_contacts:
-      done_editing: "Aceptar"
     aspect_listings:
       add_an_aspect: "+ Añadir un aspecto"
       deselect_all: "Desmarcar todo"
@@ -131,21 +130,14 @@ es-CL:
       failure: "El aspecto %{name} no esta vacío y no se puede eliminar."
       success: "%{name} fue correctamente eliminado."
     edit:
-      add_existing: "Agregar un contacto existente"
       aspect_list_is_not_visible: "Lista de contactos oculta para los demás en el Aspecto"
       aspect_list_is_visible: "Lista de contactos visible para los demás en el Aspecto"
       confirm_remove_aspect: "¿Estás seguro que quieres eliminar este aspecto?"
-      done: "Listo"
       make_aspect_list_visible: "hacer visible el aspecto?"
       remove_aspect: "Eliminar este aspecto"
       rename: "renombrar"
       update: "Actualizar"
       updating: "actualizando"
-    few: "%{count} aspectos"
-    helper:
-      are_you_sure: "¿Estás seguro que quieres eliminar este aspecto?"
-      aspect_not_empty: "El aspecto no está vacío"
-      remove: "eliminar"
     index:
       diaspora_id:
         content_1: "Tu ID de Diaspora es:"
@@ -186,11 +178,6 @@ es-CL:
         heading: "Servicios que puedes enlazar"
       unfollow_tag: "Dejar de seguir #%{tag}"
       welcome_to_diaspora: "Bienvenido a Diaspora, %{name}!"
-    many: "%{count} aspectos"
-    move_contact:
-      error: "Error al mover el contacto: %{inspect}"
-      failure: "no funcionó %{inspect}"
-      success: "Persona movida al nuevo aspecto"
     new:
       create: "Crear"
       name: "Nombre(solo visible para ti)"
@@ -208,14 +195,6 @@ es-CL:
       family: "Familia"
       friends: "Amigos"
       work: "Trabajo"
-    selected_contacts:
-      manage_your_aspects: "Organiza tus aspectos."
-      no_contacts: "Todavía no tienes ningún contacto aquí."
-      view_all_community_spotlight: "Ver todos los focos de atención de la comunidad"
-      view_all_contacts: "Ver todos los contactos"
-    show:
-      edit_aspect: "editar aspecto"
-    two: "%{count} aspectos"
     update:
       failure: "Tu aspecto, %{name}, tenía el nombre muy largo para ser guardado."
       success: "Tu aspecto, %{name}, ha sido correctamente editado."
@@ -235,36 +214,27 @@ es-CL:
     post_success: "Posteado! Cerrando!"
   cancel: "Cancelar"
   comments:
-    few: "%{count} comentarios"
-    many: "%{count} comentarios"
     new_comment:
       comment: "Comentar"
       commenting: "Comentando..."
     one: "1 comentario"
     other: "%{count} comentarios"
-    two: "%{count} comentarios"
     zero: "no hay comentarios"
   contacts:
     create:
       failure: "Error al crear contacto"
-    few: "%{count} contactos"
     index:
       add_a_new_aspect: "Agregar un nuevo aspecto"
       add_to_aspect: "Añadir contactos a %{name}"
-      add_to_aspect_link: "añadir contactos a %{name}"
       all_contacts: "Todos los Contactos"
       community_spotlight: "Comunidad Creativa"
-      many_people_are_you_sure: "Estas seguro que quieres iniciar una conversación privada con más de %{suggested_limit} contactos? Postear algo en este aspecto quizás sea una mejor manera de contactarte con ellos."
       my_contacts: "Mis Contactos"
       no_contacts: "Parece que necesitas agregar algunos contactos!"
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"
-      no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Solo compartiendo conmigo"
-      remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Comenzar una conversación"
       title: "Contactos"
       your_contacts: "Tus Contactos"
-    many: "%{count} contactos"
     one: "1 contacto"
     other: "%{count} contactos"
     sharing:
@@ -272,7 +242,6 @@ es-CL:
     spotlight:
       community_spotlight: "Comunidad Creativa"
       suggest_member: "Sugiere un usuario"
-    two: "%{count} contactos"
     zero: "contactos"
   conversations:
     conversation:
@@ -281,8 +250,6 @@ es-CL:
       fail: "Mensaje invalido"
       no_contact: "¡Tranquilo, primero tienes que añadir el contacto!"
       sent: "Mensaje enviado"
-    destroy:
-      success: "Conversación eliminada exitosamente"
     helper:
       new_messages:
         few: "%{count} nuevos mensajes"
@@ -689,7 +656,6 @@ es-CL:
       add_contact_from_tag: "agrega un contacto desde una etiqueta"
     aspect_list:
       edit_membership: "Editar el Aspecto donde está el contacto"
-    few: "%{count} personas"
     helper:
       is_not_sharing: "%{name} no está compartiendo contigo"
       is_sharing: "%{name} está compartiendo contigo"
@@ -700,7 +666,6 @@ es-CL:
       no_results: "¡Oye! Tienes que buscar algo."
       results_for: "resultados de búsqueda para"
       searching: "Buscando, por favor sé paciente..."
-    many: "%{count} personas"
     one: "1 persona"
     other: "%{count} personas"
     person:
@@ -737,7 +702,6 @@ es-CL:
       add_some: "Agrega algunos"
       edit: "editar"
       you_have_no_tags: "No tienes ningún tag!"
-    two: "%{count} personas"
     webfinger:
       fail: "Lo siento, no pudimos encontrar %{handle}."
     zero: "ninguna persona"
@@ -835,15 +799,12 @@ es-CL:
       update: "Actualizar"
     invalid_invite: "¡El enlace de invitación ya no es válido!"
     new:
-      continue: "Continuar"
       create_my_account: "¡Crear mi cuenta!"
-      diaspora: "<3 diaspora*"
       email: "Correo Electrónico"
       enter_email: "Ingresa un email"
       enter_password: "Ingresar contraseña"
       enter_password_again: "Ingresa la misma contraseña anterior"
       enter_username: "Escoge un nick (solo letras, números, y guión bajo)"
-      hey_make: "OYE,<br/>HAZ<br/>ALGO."
       join_the_movement: "Unete al movimiento!"
       password: "Contraseña"
       password_confirmation: "Confirme Contraseña"
@@ -1014,13 +975,7 @@ es-CL:
       no_message_to_display: "No hay mensaje que mostrar."
     new:
       mentioning: "Mencionar a: %{person}"
-    too_long:
-      few: "Tu mensaje de estado debe tener menos de %{count} caracteres"
-      many: "Tu mensaje de estado debe tener menos de %{count} caracteres"
-      one: "Tu mensaje de estado debe tener menos de %{count} caracter"
-      other: "Tu mensaje de estado debe tener menos de %{count} caracteres"
-      two: "tu mensaje de estado tiene que tener menos de %{count} caracteres"
-      zero: "Tu mensaje de estado debe tener menos de %{count} caracteres"
+    too_long: "{\"few\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\", \"many\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\", \"one\"=>\"Tu mensaje de estado debe tener menos de %{count} caracter\", \"other\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\", \"two\"=>\"tu mensaje de estado tiene que tener menos de %{count} caracteres\", \"zero\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\"}"
   stream_helper:
     hide_comments: "ocultar todos los comentarios"
     show_comments:
@@ -1061,7 +1016,6 @@ es-CL:
       title: "Actividad publica"
     tags:
       contacts_title: "Gente que usa este tag"
-      tag_prefill_text: "La cosa sobre %{tag_name} es... "
       title: "Posts con el tag: %{tags}"
   tag_followings:
     create:
@@ -1075,10 +1029,7 @@ es-CL:
     show:
       follow: "Seguir a #%{tag}"
       following: "Siguiendo a #%{tag}"
-      nobody_talking: "Todavía nadie habla de %{tag}."
       none: "¡La etiqueta vacía no existe!"
-      people_tagged_with: "Personas etiquetadas en %{tag}"
-      posts_tagged_with: "Posts etiquetados con #%{tag}"
       stop_following: "Dejar de seguir a #%{tag}"
   terms_and_conditions: "Términos y Condiciones"
   undo: "Deshacer?"
@@ -1114,7 +1065,6 @@ es-CL:
       current_password: "Contraseña actual"
       current_password_expl: "con la que inicias sesión…"
       download_photos: "descargar mis fotos"
-      download_xml: "descargar mi xml"
       edit_account: "Editar cuenta"
       email_awaiting_confirmation: "Te enviamos un link de activación a %{unconfirmed_email}. Hasta que sigas ese link y actives la nueva dirección, nosotros seguiremos usando tu dirección original %{email}."
       export_data: "Exportar Datos"
@@ -1123,7 +1073,6 @@ es-CL:
       liked: "...a alguien le gusta tu post?"
       mentioned: "...te mencionan en un post?"
       new_password: "Nueva Contraseña"
-      photo_export_unavailable: "Exportar fotos actualmente inaccesible"
       private_message: "...recibes un mensaje privado?"
       receive_email_notifications: "Recibir notificaciones por correo electrónico cuando..."
       reshared: "...alguien comparte tu post?"

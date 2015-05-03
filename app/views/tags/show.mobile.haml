@@ -7,9 +7,5 @@
 
 #main_stream.stream
   = render 'shared/stream', :posts => @stream.stream_posts
-  -if @stream.stream_posts.length > 0
-    #pagination
-      %a.more-link.paginate{:href => next_page_path}
-        %h1
-          = t("more")
+  = render 'shared/stream_more_button'
 

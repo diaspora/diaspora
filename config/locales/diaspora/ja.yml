@@ -66,8 +66,6 @@ ja:
     add_to_aspect:
       failure: "連絡先をアスペクトに追加するのに失敗しました。"
       success: "連絡先をアスペクトに追加するのに成功しました。"
-    aspect_contacts:
-      done_editing: "編集完了"
     aspect_listings:
       add_an_aspect: "アスペクトを追加する"
       deselect_all: "すべて選択解除"
@@ -85,21 +83,14 @@ ja:
       failure: "%{name}に連絡先が残っているので削除できません。"
       success: "%{name}さんを除外するのに成功しました。"
     edit:
-      add_existing: "既存の連絡先を追加する"
       aspect_list_is_not_visible: "このアスペクトのメンバー一覧はメンバーへ公開されていません"
       aspect_list_is_visible: "このアスペクトのメンバー一覧はメンバーに公開されています"
       confirm_remove_aspect: "このアスペクトを本当に削除していいですか。"
-      done: "完了"
       make_aspect_list_visible: "アスペクトのメンバー一覧を公開しますか。"
       remove_aspect: "このアスペクトを削除する"
       rename: "名前の変更"
       update: "更新"
       updating: "更新中"
-    few: "アスペクト%{count}集"
-    helper:
-      are_you_sure: "本当にこのアスペクトを削除しますか。"
-      aspect_not_empty: "アスペクトは空ではありません。"
-      remove: "削除"
     index:
       diaspora_id:
         content_1: "あなたのダイアスポラIDは:"
@@ -118,6 +109,7 @@ ja:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
+        tutorial_link_text: "チュートリアル"
       introduce_yourself: "これがあなたのストリームです。  飛び込んで自己紹介をしてみましょう。"
       new_here:
         follow: "%{link}をフォローしてダイアスポラ*の新しいユーザーを歓迎しましょう!"
@@ -132,11 +124,6 @@ ja:
         heading: "外部サービス連携"
       unfollow_tag: "#%{tag} のフォローを中止する"
       welcome_to_diaspora: "%{name}さん、ダイアスポラへようこそ！"
-    many: "アスペクト%{count}集"
-    move_contact:
-      error: "連絡先の移動にエラーが発生しました： %{inspect}"
-      failure: "連絡先を移動させるのに失敗しました：%{inspect}"
-      success: "連絡先を新しいアスペクトに移動させました。"
     new:
       create: "新規作成"
       name: "Name"
@@ -154,14 +141,6 @@ ja:
       family: "家族"
       friends: "友達"
       work: "仕事"
-    selected_contacts:
-      manage_your_aspects: "アスペクトを管理する"
-      no_contacts: "ここにはまだ連絡先がありません。"
-      view_all_community_spotlight: "すべてのコミュニティスポットライトを見る"
-      view_all_contacts: "すべての連絡先を見る"
-    show:
-      edit_aspect: "アスペクトを編集する"
-    two: "%{count} aspects"
     update:
       failure: "アスペクト名「%{name}」は長すぎて保存できませんでした。"
       success: "アスペクト「%{name}」の編集に成功しました。"
@@ -179,50 +158,38 @@ ja:
     post_success: "投稿完了！ウィンドウを閉じます。"
   cancel: "取り消す"
   comments:
-    few: "コメント%{count}件"
-    many: "コメント%{count}件"
     new_comment:
       comment: "コメント"
       commenting: "コメント投稿中…"
     one: "コメント1件"
     other: "コメント%{count}件"
-    two: "コメント%{count}件"
     zero: "コメントがありません"
   contacts:
     create:
       failure: "連絡先の作成に失敗しました。"
-    few: "連絡先%{count}件"
     index:
       add_a_new_aspect: "新しいアスペクトを追加する"
       add_to_aspect: "Add contacts to %{name}"
-      add_to_aspect_link: "%{name}さんを連絡先に追加する"
       all_contacts: "すべての連絡先"
       community_spotlight: "コミュニティスポットライト"
-      many_people_are_you_sure: "本当に%{suggested_limit}以上の連絡先と非公開の会話を開始しますか? このアスペクトに投稿する方が、彼らと連絡を取るより良い方法かもしれません。"
       my_contacts: "私の連絡先"
       no_contacts: "No contacts."
       no_contacts_message: "%{community_spotlight}をチェックアウトする"
-      no_contacts_message_with_aspect: "%{community_spotlight}または%{add_to_aspect_link}をチェックアウトする"
       only_sharing_with_me: "自分だけに共有する"
-      remove_person_from_aspect: "%{person_name}さんを%{aspect_name}から削除する"
       start_a_conversation: "会話を開始する"
       title: "連絡先"
       your_contacts: "あなたの連絡先"
-    many: "連絡先%{count}件"
     one: "連絡先1件"
     other: "連絡先%{count}件"
     sharing:
       people_sharing: "あなたに共有している人たち:"
     spotlight:
       community_spotlight: "コミュニティスポットライト"
-    two: "連絡先%{count}件"
     zero: "連絡先無し"
   conversations:
     create:
       fail: "無効なメッセージです。"
       sent: "メッセージを送信しました"
-    destroy:
-      success: "会話を削除するのに成功しました。"
     helper:
       new_messages:
         few: "新着メッセージ%{count}通"
@@ -262,6 +229,11 @@ ja:
     post_not_public: "閲覧しようとした投稿は公開されていません!"
   fill_me_out: "記入して"
   find_people: "Find people"
+  help:
+    irc: "IRC"
+    markdown: "マークダウン"
+    tutorial: "チュートリアル"
+    wiki: "wiki"
   hide: "隠す"
   invitations:
     a_facebook_user: "Facebookユーザー"
@@ -480,7 +452,6 @@ ja:
       add_contact_from_tag: "タグより連絡先を追加する"
     aspect_list:
       edit_membership: "アスペクト所属を編集する"
-    few: "%{count}人の連絡先"
     helper:
       is_sharing: "%{name}さんがあなたに共有しています"
       results_for: "%{params}の検索結果"
@@ -490,7 +461,6 @@ ja:
       no_results: "何かを検索しないといけません。"
       results_for: "検索結果："
       searching: "検索中です。もうしばらくお待ちください..."
-    many: "%{count}人の連絡先"
     one: "1人の連絡先"
     other: "%{count}人の連絡先"
     person:
@@ -525,7 +495,6 @@ ja:
     sub_header:
       edit: "編集"
       you_have_no_tags: "タグがありません"
-    two: "%{count} people"
     webfinger:
       fail: "%{handle}が見つかりませんでした。"
     zero: "連絡先無し"
@@ -622,7 +591,6 @@ ja:
       unhappy: "何かご不満ですか。"
       update: "更新"
     new:
-      continue: "続ける"
       create_my_account: "Create my account"
       email: "メール"
       enter_email: "メールアドレスを入力してください。"
@@ -743,6 +711,7 @@ ja:
       all: "すべて"
       all_contacts: "全ての連絡先"
       discard_post: "投稿を破棄する"
+      get_location: "位置情報を取得する"
       make_public: "公開にする"
       new_user_prefill:
         hello: "こんにちはみなさん。私は%{new_user_tag}です。 "
@@ -762,6 +731,7 @@ ja:
       hide_and_mute: "Hide and Mute"
       ignore_user: "%{name}さんを無視する"
       like: "これ好き！"
+      show: "表示"
       unlike: "これ好き！を取り消す"
       via: "via %{link}"
       viewable_to_anyone: "この投稿はウェブ上の誰からでも見ることができます。"
@@ -774,13 +744,7 @@ ja:
       no_message_to_display: "表示するメッセージがありません。"
     new:
       mentioning: "%{person}さんのメンション"
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "コメントを非表示にする"
     show_comments:
@@ -818,10 +782,7 @@ ja:
     show:
       follow: "#%{tag}をフォローする"
       following: "#%{tag}をフォロー中"
-      nobody_talking: "%{tag}についての投稿はまだありません。"
       none: "空のタグは存在しません！"
-      people_tagged_with: "%{tag}とタグ付けられている人々"
-      posts_tagged_with: "#%{tag}とタグ付けられている投稿"
       stop_following: "#%{tag}のフォローを中止する"
   terms_and_conditions: "利用規約"
   undo: "元に戻す"
@@ -831,7 +792,9 @@ ja:
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy:
+      no_password: "アカウントの使用を停止するためにパスワードを入力してください。"
       success: "アカウントはロックされました。  アカウントを削除するには20分程度かかります。  ダイアスポラをお試しいただきありがとうございます。"
+      wrong_password: "パスワードが一致しません。"
     edit:
       also_commented: "他の人も連絡先の投稿にコメントしたとき"
       auto_follow_back: "Automatically follow back if a someone follows you"
@@ -841,12 +804,12 @@ ja:
       change_password: "パスワード変更"
       character_minimum_expl: "少なくとも6字以上でなければいけません。"
       close_account:
+        lock_username: "ユーザー名はロックされます。このポッド上で、同じIDのアカウントを作ることはできません。"
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       close_account_text: "アカウントを削除する"
       comment_on_post: "自分の投稿にコメントがあったとき"
       current_password: "現在のパスワード"
       download_photos: "写真をダウンロードする"
-      download_xml: "XMLをダウンロードする"
       edit_account: "アカウント編集"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "データ出力"

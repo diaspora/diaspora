@@ -1,0 +1,64 @@
+- content_for(:head) do
+  = stylesheet_link_tag :home, media: "all"
+
+#page.container
+  %header#header
+    %a#login-link.btn{href: "login"} Log In
+    = image_tag "branding/logo.png"
+
+  #banner.row
+    %h1 Welcome, friend.
+    %h3 You're about to change the Internet. Let's get you set up, shall we?
+
+  #steps.row
+    .span4
+      %h2
+        Configure your
+        %abbr.helpful{title: "A Diaspora installation"} pod
+      = image_tag "icons/cog.png"
+
+      %p
+      Look at
+      %code.helpful{title: "General pod configuration (location to upload photos, SSL certs, etc.)"}
+        config/diaspora.yml.example
+      and
+      %code.helpful{title: "MySQL username/password"}
+        config/database.yml.example
+      for help.
+
+    .span4
+      %h2 Try it out
+      = image_tag "icons/smiley_laughing.png"
+
+      %p
+        Start by
+        = link_to "creating an account", new_user_registration_path
+
+    .span4
+      %h2 Make a contribution!
+      = image_tag "icons/pen_write.png"
+
+      %p
+        Make Diaspora even better! Fork the project on
+        = link_to "Github", "http://github.com/diaspora/diaspora"
+        make some changes, and submit a pull request.
+
+  %footer
+    %h3 Useful Resources
+    %ul#links
+      %ul.section
+        %li= link_to "Codebase", "http://github.com/diaspora/diaspora", title: "Git repository"
+        %li= link_to "Documentation", "http://wiki.diasporafoundation.org", title: "Wiki on github"
+      %ul.section
+        %li= link_to "IRC - General", "http://webchat.freenode.net/?channels=diaspora", title: "#diaspora"
+        %li= link_to "IRC - Development", "http://webchat.freenode.net/?channels=diaspora-dev", title: "#diaspora-dev"
+      %ul.section
+        %li= link_to "Discussion - General", "http://groups.google.com/group/diaspora-discuss", title: "General discussion mailing list"
+        %li= link_to "Discussion - Development", "http://groups.google.com/group/diaspora-dev", title: "Dev mailing list"
+      %ul.section
+        %li= link_to "Find & Report bugs", "https://github.com/diaspora/diaspora/issues", title: "Bug tracker"
+        %li= link_to "Learn more about Ruby On Rails!", "http://guides.rubyonrails.org/"
+
+  #change-page
+    This page can be changed to a custom landing page by creating
+    %code app/views/home/_show.html.haml

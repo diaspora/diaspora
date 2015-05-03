@@ -102,8 +102,6 @@ te:
     add_to_aspect:
       failure: "పరిచయాన్ని కోణానికి జతచేయుటలో విఫలమైంది."
       success: "పరిచయం కోణానికి విజయవంతంగా జోడించబడింది."
-    aspect_contacts:
-      done_editing: "సవరణ పూర్తయింది"
     aspect_listings:
       add_an_aspect: "+ కొత్త కోణాన్ని చేర్చండి"
       deselect_all: "ఎంపిక మొత్తం రద్దుచేయి"
@@ -122,21 +120,14 @@ te:
       failure: "%{name} ఖాళీగా లేదు అందువల్ల తీయలేకపోయాము"
       success: "%{name} విజయవంతంగా తొలగించబడినది"
     edit:
-      add_existing: "ఇప్పటికే ఉన్న పరిచయాన్ని జతచేయి"
       aspect_list_is_not_visible: "ఈ కోణంలోని పరిచయాలు ఒకరికొకరు చూడలేరు."
       aspect_list_is_visible: "ఈ కోణంలోని పరిచయాలు ఒకరికొకరు చూడగలరు."
       confirm_remove_aspect: "మీరు నిజంగానే ఈ కోణాన్ని తొలగించాలని అనుకుంటున్నారా?"
-      done: "పూర్తయ్యింది"
       make_aspect_list_visible: "ఈ కోణంలో ఉన్న పరిచయాలు ఒకరికొకరు కనిపిచ్చేలా చెయ్యాలా?"
       remove_aspect: "ఈ కోణాన్ని తొలగించు"
       rename: "పేరుమార్చు"
       update: "నవీకరించు"
       updating: "నవీకరిస్తున్నాము"
-    few: "%{count} కోణాలు"
-    helper:
-      are_you_sure: "ఈ కోణాన్ని ఖచ్ఛితంగా తొలగించాలా?"
-      aspect_not_empty: "కోణం ఖాళీగాలేదు"
-      remove: "తీసివేయి"
     index:
       diaspora_id:
         content_1: "మీ డయాస్పోరా* గుర్తింపు:"
@@ -175,11 +166,6 @@ te:
         heading: "సేవలకు అనుసంధానం కండి"
       unfollow_tag: "%{tag}ని అనుసరించడం మానేయి"
       welcome_to_diaspora: "%{name}, డయాస్పొరా*కు స్వాగతం!"
-    many: "%{count} కోణాలు"
-    move_contact:
-      error: "కోణాన్ని తరలించేటప్పుడు పొరపాటు జరిగింది: %{inspect}"
-      failure: "%{inspect} పని చేయలేదు"
-      success: "వ్యక్తి కొత్త కోణానికి తరలివెళ్ళారు"
     new:
       create: "సృష్టించు"
       name: "పేరు (మీకు మాత్రమే కనిపిస్తుంది)"
@@ -197,14 +183,6 @@ te:
       family: "కుటుంబం"
       friends: "స్నేహితులు"
       work: "సహోద్యోగులు"
-    selected_contacts:
-      manage_your_aspects: "మీ కోణాల్ని నిర్వహించండి."
-      no_contacts: "మీకు ఇక్కడ ఇంకా పరిచయాలు లేరు."
-      view_all_community_spotlight: "మొత్తం సంఘపు స్పాట్​లైట్ చూడండి"
-      view_all_contacts: "అన్ని పరిచయాలను వీక్షించండి"
-    show:
-      edit_aspect: "కోణాన్ని మార్చు"
-    two: "%{count} కోణాలు"
     update:
       failure: "మీకోణం, %{name}, భద్రపరుచుటకు చాలా పెద్ద పేరు ఇచ్చారు."
       success: "మీకోణం, %{name}, విజయవంతంగా సవరించబడింది."
@@ -224,36 +202,27 @@ te:
     post_success: "టపా వేయబడింది! మూసివేస్తున్నాం!"
   cancel: "రద్దుచేయి"
   comments:
-    few: "%{count} వ్యాఖ్యలు"
-    many: "%{count} వ్యాఖ్యలు"
     new_comment:
       comment: "వ్యాఖ్య"
       commenting: "వ్యాఖ్యానిస్తున్నాము..."
     one: "1 వ్యాఖ్య"
     other: "%{count} వ్యాఖ్యలు"
-    two: "%{count} వ్యాఖ్యలు"
     zero: "వ్యాక్యలేమీ లేవు"
   contacts:
     create:
       failure: "పరిచయాన్ని సృష్టించుటలో విఫలమైంది"
-    few: "%{count} పరిచయాలు"
     index:
       add_a_new_aspect: "ఒక కొత్త కోణాన్ని జతచేయి"
       add_to_aspect: "%{name}కి పరిచయాలను జతచేయి"
-      add_to_aspect_link: "%{name}కు పరిచయాలను జతచేయి"
       all_contacts: "అన్ని పరిచయాలు"
       community_spotlight: "సంఘపు స్పాట్​లైట్"
-      many_people_are_you_sure: "మీరు ఖచ్ఛితంగా %{suggested_limit} పరిచయాలతో కంటే ఎక్కువ పరిచయాలతో రహస్య సంభాషణం ప్రారంభించాలనుకుంటున్నారా? వారిని సంప్రదించడానికి ఈ కోణానికి టపా వేయడం ఉత్తమ మార్గం."
       my_contacts: "నా పరిచయాలు"
       no_contacts: "మీరు ఇంకా ఎవర్నీ పరిచయాలలో చేర్చుకున్నట్లు లేరు!"
       no_contacts_message: "%{community_spotlight}ని సందర్శించండి"
-      no_contacts_message_with_aspect: "%{add_to_aspect_link} లేక %{community_spotlight}ని సందర్శించండి"
       only_sharing_with_me: "నాతో మాత్రమే పంచుకునే వారు"
-      remove_person_from_aspect: "\"%{aspect_name}\" నుంచి %{person_name}ని తొలగించు"
       start_a_conversation: "సంభాషణను ప్రారంభించండి"
       title: "పరిచయాలు"
       your_contacts: "మీ పరిచయాలు"
-    many: "%{count} పరిచయాలు"
     one: "1 పరిచయం"
     other: "%{count} పరిచయాలు"
     sharing:
@@ -261,7 +230,6 @@ te:
     spotlight:
       community_spotlight: "సంఘపు స్పాట్​లైట్"
       suggest_member: "ఒక సభ్యున్ని సూచించండి"
-    two: "%{count} పరిచయాలు"
     zero: "పరిచయాలు"
   conversations:
     conversation:
@@ -270,8 +238,6 @@ te:
       fail: "చెల్లని సందేశం"
       no_contact: "ఓయ్, ముందుగా మీరు పరిచయాన్ని జతచేసుకోవాలి!"
       sent: "సందేశం పంపబడింది"
-    destroy:
-      success: "సంభాషణ విజయవంతంగా తీసివేయబడింది"
     helper:
       new_messages:
         few: "%{count} కొత్త సందేశాలు"
@@ -545,7 +511,6 @@ te:
       add_contact_from_tag: "కొస ద్వారా పరిచయాన్ని జతచేయి"
     aspect_list:
       edit_membership: "కోణం సభ్యత్వం సవరించు"
-    few: "%{count} people"
     helper:
       is_not_sharing: "%{name} మీతో పంచుకోవడం లేదు"
       is_sharing: "%{name} మీతో పంచుకుంటున్నారు"
@@ -556,7 +521,6 @@ te:
       no_results: "ఓయ్! మీరు వేరే పేరుతో వెతకాల్సివుంది."
       results_for: "%{search_term}తో సరిపోలిన వాడుకరులు"
       searching: "వెతుకుతున్నాం, దయచేసి ఓపిక వహించండి…"
-    many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
     person:
@@ -592,7 +556,6 @@ te:
       add_some: "మరికొన్ని చేర్చండి"
       edit: "సవరించు"
       you_have_no_tags: "మీరు ఏ కొసలను వాడలేదు"
-    two: "%{count} people"
     webfinger:
       fail: "క్షమించండి, మేము %{handle}ను కనుగొనలేకపోయాం"
     zero: "ఎవరూ లేరు"
@@ -684,15 +647,12 @@ te:
       update: "నవీకరించుకోండి"
     invalid_invite: "మీరు ఇచ్చిన ఆహ్వానపు లంకె చెల్లుబాటులో లేదు!"
     new:
-      continue: "కొనసాగు"
       create_my_account: "నా ఖాతాను సృష్టించు!"
-      diaspora: "<3 డయాస్పోరా*"
       email: "ఈమెయిల్"
       enter_email: "ఒక ఈమెయిలును ప్రవేశపెట్టండి"
       enter_password: "సంకేతపదాన్ని ఇవ్వండి (కనీసం ఆరు అక్షరాలు)"
       enter_password_again: "అదే సంకేతపదాన్ని మళ్ళీ ఇవ్వండి"
       enter_username: "ఒక వాడుకరిపేరును ఎంచుకోండి (అక్షరాలు, సంఖ్యలు, మరియు క్రిందిగీతలు మాత్రమే స్వీకరించబడును)"
-      hey_make: "హేయ్, <br/>ఏమైనా<br/>చెయ్యండి."
       join_the_movement: "ఈ ఉద్యమంలో చేరండి!"
       password: "సంకేతపదం"
       password_confirmation: "సంకేతపదం నిర్ధారణ"
@@ -849,10 +809,7 @@ te:
       no_message_to_display: "చూపించడానికి ఏ సందేశాలు లేవు."
     new:
       mentioning: "పేర్కోలు: %{person}"
-    too_long:
-      one: "దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి"
-      other: "దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి"
-      zero: "దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి"
+    too_long: "{\"one\"=>\"దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి\", \"other\"=>\"దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి\", \"zero\"=>\"దయచేసి మీ స్థితి సందేశాలలో అక్షరాల సంఖ్య %{count} కంటే తక్కువ ఉండేటట్లు చూసుకోండి\"}"
   stream_helper:
     hide_comments: "అన్ని వ్యాఖ్యలను దాచు"
     show_comments:
@@ -899,15 +856,8 @@ te:
   tags:
     show:
       follow: "#%{tag}ను అనుసరించు"
-      followed_by_people:
-        one: "ఒకరిచే అనుసరించబడుతున్నారు"
-        other: "%{count} వ్యక్తులచే అనుసరించబడుతున్నారు"
-        zero: "ఎవరిచేత అనుసరించబడుటలేదు"
       following: "#%{tag}ను అనుసరిస్తున్నారు"
-      nobody_talking: "%{tag} గురించి ఇంకా ఎవరూ మాట్లాడుకోవడం లేదు."
       none: "ఖాళీ కొస చెల్లదు!"
-      people_tagged_with: "%{tag} తో కొసవేయబడిన వ్యక్తులు"
-      posts_tagged_with: "#%{tag} తో కొసవేయబడిన టపాలు"
       stop_following: "#%{tag}ను అనుసరించడం మానివేయి"
   terms_and_conditions: "నియమాలు మరియు నిబంధనలు"
   undo: "రద్దుచేయాలా?"
@@ -938,7 +888,6 @@ te:
       comment_on_post: "ఎవరో మీ టపాపై వ్యాఖ్యానించారు"
       current_password: "ప్రస్తుత సంకేతపదం"
       download_photos: "నా ఛాయాచిత్రాలను దింపుము"
-      download_xml: "నా xml దింపు"
       edit_account: "ఖాతాను సవరించు"
       email_awaiting_confirmation: "మేము మీకొక క్రియాశీలించు లంకెను %{unconfirmed_email} కు పంపాము. మీరు ఈ లంకెను అనుసరించి కొత్త చిరునామాను క్రియాశీలించేంతవరకూ, మీ అసలు చిరునామా %{email} ను వాడతాము."
       export_data: "దత్తాంశాన్ని ఎగుమతించు"
@@ -947,7 +896,6 @@ te:
       liked: "ఎవరో మీ టపాను మెచ్చుకున్నారు"
       mentioned: "మీరు టపాలో ప్రస్తావించబడ్డారు"
       new_password: "కొత్త సంకేతపదం"
-      photo_export_unavailable: "ఛాయాచిత్ర ఎగుమతి ప్రస్తుతం అందుబాటులో లేదు"
       private_message: "మీకు రహస్య సందేశం వచ్చింది"
       receive_email_notifications: "ఈమెయిలు గమనింపులను ఎప్పుడు అందుకుంటారు:"
       reshared: "ఎవరో మీ టపాను మరలా పంచుకున్నారు"

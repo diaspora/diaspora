@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 app.views.Content = app.views.Base.extend({
   events: {
     "click .expander": "expandPost"
@@ -5,7 +7,7 @@ app.views.Content = app.views.Base.extend({
 
   presenter : function(){
     return _.extend(this.defaultPresenter(), {
-      text : app.helpers.textFormatter(this.model.get("text"), this.model),
+      text : app.helpers.textFormatter(this.model.get("text"), this.model.get("mentioned_people")),
       largePhoto : this.largePhoto(),
       smallPhotos : this.smallPhotos(),
       location: this.location()
@@ -14,13 +16,13 @@ app.views.Content = app.views.Base.extend({
 
 
   largePhoto : function() {
-    var photos = this.model.get("photos")
-    if(!photos || photos.length == 0) { return }
-    return photos[0]
+    var photos = this.model.get("photos");
+    if(!photos || photos.length === 0) { return }
+    return photos[0];
   },
 
   smallPhotos : function() {
-    var photos = this.model.get("photos")
+    var photos = this.model.get("photos");
     if(!photos || photos.length < 2) { return }
     photos.splice(0, 1); // remove first photo as it is already shown as largePhoto
     return photos;
@@ -47,10 +49,10 @@ app.views.Content = app.views.Base.extend({
       , oembed = elem.find(".oembed")
       , opengraph = elem.find(".opengraph")
       , addHeight = 0;
-    if($.trim(oembed.html()) != "") {
+    if($.trim(oembed.html()) !== "") {
       addHeight += oembed.height();
     }
-    if($.trim(opengraph.html()) != "") {
+    if($.trim(opengraph.html()) !== "") {
       addHeight += opengraph.height();
     }
 
@@ -69,7 +71,7 @@ app.views.Content = app.views.Base.extend({
   },
 
   postRenderTemplate : function(){
-    _.defer(_.bind(this.collapseOversized, this))
+    _.defer(_.bind(this.collapseOversized, this));
   }
 });
 
@@ -93,26 +95,55 @@ app.views.OEmbed = app.views.Base.extend({
   },
 
   presenter:function () {
-    o_embed_cache = this.model.get("o_embed_cache")
+    var o_embed_cache = this.model.get("o_embed_cache");
     if(o_embed_cache) {
-      typemodel = { rich: false, photo: false, video: false, link: false }
-      typemodel[o_embed_cache.data.type] = true
-      o_embed_cache.data.types = typemodel
+      var typemodel = { rich: false, photo: false, video: false, link: false };
+      typemodel[o_embed_cache.data.type] = true;
+      o_embed_cache.data.types = typemodel;
     }
     return _.extend(this.defaultPresenter(), {
       o_embed_html : app.helpers.oEmbed.html(o_embed_cache)
-    })
+    });
   },
 
   showOembedContent : function (evt) {
     if( $(evt.target).is('a') ) return;
+    var clickedThumb = false;
+    if ($(evt.target).hasClass(".thumb")) {
+      clickedThumb = $(evt.target);
+    } else {
+      clickedThumb = $(evt.target).parent(".thumb");
+    }
     var insertHTML = $(app.helpers.oEmbed.html(this.model.get("o_embed_cache")));
     var paramSeparator = ( /\?/.test(insertHTML.attr("src")) ) ? "&" : "?";
     insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1&wmode=opaque");
+    if (clickedThumb) {
+      insertHTML.attr("width", clickedThumb.width());
+      insertHTML.attr("height", clickedThumb.height());
+    }
     this.$el.html(insertHTML);
   }
 });
 
 app.views.OpenGraph = app.views.Base.extend({
-  templateName : "opengraph"
+  templateName : "opengraph",
+
+  initialize: function() {
+    this.truncateDescription();
+  },
+
+  truncateDescription: function() {
+    // truncate opengraph description to 250 for stream view
+    if(this.model.has('open_graph_cache')) {
+      var ogdesc = this.model.get('open_graph_cache');
+      ogdesc.description = app.helpers.truncate(ogdesc.description, 250);
+    }
+  }
 });
+
+app.views.SPVOpenGraph = app.views.OpenGraph.extend({
+  truncateDescription: function () {
+    // override with nothing
+  }
+});
+// @license-end

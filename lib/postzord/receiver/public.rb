@@ -26,15 +26,15 @@ class Postzord::Receiver::Public < Postzord::Receiver
     return false unless save_object
 
     FEDERATION_LOGGER.info("received a #{@object.inspect}")
-    if @object.respond_to?(:relayable?)
-      receive_relayable
-    elsif @object.is_a?(AccountDeletion)
-      #nothing
-    elsif @object.is_a?(SignedRetraction) # feels like a hack
+    if @object.is_a?(SignedRetraction) # feels like a hack
       self.recipient_user_ids.each do |user_id|
         user = User.where(id: user_id).first
         @object.perform user if user
       end
+    elsif @object.respond_to?(:relayable?)
+      receive_relayable
+    elsif @object.is_a?(AccountDeletion)
+      #nothing
     else
       Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, self.recipient_user_ids)
       true
@@ -57,6 +57,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def save_object
     @object = Diaspora::Parser::from_xml(@salmon.parsed_data)
     raise "Object is not public" if object_can_be_public_and_it_is_not?
+    raise Diaspora::RelayableObjectWithoutParent if object_must_have_parent_and_does_not?
     raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
     @object.save! if @object && @object.respond_to?(:save!)
     @object
@@ -64,7 +65,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   # @return [Array<Integer>] User ids
   def recipient_user_ids
-    User.all_sharing_with_person(@author).select('users.id').map!{ |u| u.id }
+    User.all_sharing_with_person(@author).pluck('users.id')
   end
 
   def xml_author
@@ -87,5 +88,13 @@ class Postzord::Receiver::Public < Postzord::Receiver
   # @return [Boolean]
   def object_can_be_public_and_it_is_not?
     @object.respond_to?(:public) && !@object.public?
+  end
+
+  def object_must_have_parent_and_does_not?
+    if @object.respond_to?(:relayable?) # comment, like
+      @object.parent.nil?
+    else
+      false
+    end
   end
 end

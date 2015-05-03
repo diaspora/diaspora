@@ -1,49 +1,36 @@
--#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3 or later.  See
--#   the COPYRIGHT file.
-
 - content_for :page_title do
   = t('.title')
 
-- content_for :head do
-  = javascript_include_tag :people
+.container-fluid#contacts_container
+  .row-fluid
+    .span3
+      = render 'contacts/sidebar'
 
-.row
-  .span12
-    #section_header
-      %h3
-        = t('.title')
+    .span9
+      #people_stream.stream.contacts
+        = render 'contacts/header'
 
-.row
-  = render 'shared/contact_sidebar'
+        - if @contacts_size > 0
+          - if @aspect && @aspect.contacts.length == 0
+            .well
+              = t('.no_contacts_in_aspect')
+          #contact_stream
+            -# JS
 
-  .span9
-    #people_stream.stream.contacts
-      - if @aspect
-        #aspect_controls
-          - if @contacts_size > 0 && @contacts_size < 20
-            = start_a_conversation_link(@aspect, @contacts_size)
-          = link_to edit_aspect_path(@aspect), rel: "facebox", class: "btn" do
-            = t('aspects.edit.manage')
-            %span.modify_aspect
-          = aspect_visibility_link(@aspect)
-          = link_to @aspect, method: "delete", data: { confirm: t('aspects.edit.confirm_remove_aspect') }, class: 'btn delete' do
-            = t('delete')
-            %span.icons-monotone_close_exit_delete
-
-      - if @contacts_size > 0
-        = render @contacts
-
-        = will_paginate @contacts
-      - else
-        .no_contacts
-          %h3
-            = t('.no_contacts')
-          %p
-            - if @aspect
-              != t('.no_contacts_message_with_aspect',
-                  :community_spotlight => link_to(t('.community_spotlight'), community_spotlight_path),
-                  :add_to_aspect_link => link_to(t('.add_to_aspect_link', :name => @aspect.name), edit_aspect_path(@aspect), :rel => "facebox"))
-            - else
+        - else
+          .no_contacts
+            %h3
+              = t('.no_contacts')
+            %p
               != t('.no_contacts_message',
                    :community_spotlight => link_to(t('.community_spotlight'), community_spotlight_path))
+            %p
+              .btn.btn-link{ 'data-toggle' => 'modal', 'data-target' => '#invitationsModal'}
+                = t('invitations.new.invite_someone_to_join')
+
+-if @aspect
+  #new_conversation_pane
+    = render 'shared/modal',
+        :path => new_conversation_path(:aspect_id => @aspect.id, :name => @aspect.name, :modal => true),
+        :title => t('conversations.index.new_conversation'),
+        :id => 'conversationModal'

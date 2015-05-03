@@ -128,8 +128,6 @@ hu:
     add_to_aspect:
       failure: "A kapcsolatot nem sikerült felvenni a csoportba."
       success: "A kapcsolat hozzáadva a csoporthoz."
-    aspect_contacts:
-      done_editing: "szerkesztés kész"
     aspect_listings:
       add_an_aspect: "+ Új csoport"
       deselect_all: "Kijelölések törlése"
@@ -148,23 +146,18 @@ hu:
       failure: "%{name} nem üres, így nem lehet törölni."
       success: "%{name} csoport sikeresen törölve."
     edit:
-      add_existing: "Létező kapcsolat hozzáadása"
+      aspect_chat_is_enabled: "A csoport tagjai beszélgethetnek veled."
+      aspect_chat_is_not_enabled: "A csoport tagjai nem beszélgethetnek veled."
       aspect_list_is_not_visible: "csoportlista rejtett a csoporttagok számára"
       aspect_list_is_visible: "csoportlista látható a csoporttagok számára"
       confirm_remove_aspect: "Biztos, hogy törölni akarod a csoportot?"
-      done: "Kész"
+      grant_contacts_chat_privilege: "feljogosítod a csoport tagjait, hogy beszélgethessenek veled?"
       make_aspect_list_visible: "a csoporttagok láthatják egymást"
-      manage: "Szerkesztés"
       remove_aspect: "Csoport törlése"
       rename: "átnevezés"
       set_visibility: "Láthatóság beállítása"
       update: "frissítés"
       updating: "frissítés"
-    few: "%{count} csoport"
-    helper:
-      are_you_sure: "Biztos, hogy törlöd a csoportot?"
-      aspect_not_empty: "A csoport nem üres"
-      remove: "eltávolítás"
     index:
       diaspora_id:
         content_1: "A te diaspora* azonosítód:"
@@ -205,11 +198,6 @@ hu:
         heading: "Összekapcsolt szolgáltatások"
       unfollow_tag: "Követés leállítása #%{tag}"
       welcome_to_diaspora: "Üdv a diaspora* közösségi oldalon, %{name}!"
-    many: "%{count} csoport"
-    move_contact:
-      error: "Hiba a kapcsolat mozgatásakor: %{inspect}"
-      failure: "nem működött: %{inspect}"
-      success: "Más csoportba tett téged."
     new:
       create: "Létrehoz"
       name: "Név"
@@ -227,14 +215,6 @@ hu:
       family: "Család"
       friends: "Barátok"
       work: "Munka"
-    selected_contacts:
-      manage_your_aspects: "Csoportok kezelése"
-      no_contacts: "Itt még nincs ismerősöd."
-      view_all_community_spotlight: "Minden figyelem középpontjában lévő tartalom"
-      view_all_contacts: "Összes kapcsolat"
-    show:
-      edit_aspect: "csoport szerkesztése"
-    two: "%{count} csoport"
     update:
       failure: "A %{name} nevű csoportodnak túl hosszú a neve."
       success: "%{name} csoport szerkesztve."
@@ -254,36 +234,30 @@ hu:
     post_success: "Elküldve! Bezárás!"
   cancel: "Mégsem"
   comments:
-    few: "%{count} hozzászólás"
-    many: "%{count} hozzászólás"
     new_comment:
       comment: "Hozzászólás"
       commenting: "Hozzászólok.."
     one: "1 hozzászólás"
     other: "%{count} hozzászólás"
-    two: "%{count} hozzászólás"
     zero: "nincs hozzászólás"
   contacts:
     create:
       failure: "Kapcsolat létrehozása sikertelen"
-    few: "%{count} ismerős"
     index:
       add_a_new_aspect: "Új csoport"
+      add_contact: "Ismerős hozzáadása"
       add_to_aspect: "Kapcsolatok hozzáadása %{name}"
-      add_to_aspect_link: "ismerősök hozzáadása: %{name}"
       all_contacts: "Összes ismerős"
       community_spotlight: "A figyelem középpontjában"
-      many_people_are_you_sure: "Biztos, hogy magánbeszélgetést akarsz kezdeményezni több mint %{suggested_limit} személlyel? Talán jobb lenne, ha bejegyzést írnál ennek a csoportnak."
       my_contacts: "Kapcsolataim"
       no_contacts: "Nincs ismerősöd."
       no_contacts_message: "Tekintsd meg %{community_spotlight} álló népszerű tagokat"
-      no_contacts_message_with_aspect: "Tekintsd meg %{community_spotlight} álló népszerű közösségi tagokat vagy lehetőségedben áll még %{add_to_aspect_link}"
       only_sharing_with_me: "Követők"
-      remove_person_from_aspect: "%{person_name} eltávolítása a(z) \"%{aspect_name}\" csoportból."
+      remove_contact: "Ismerős eltávolítása"
       start_a_conversation: "Beszélgetés indítása"
       title: "Ismerősök"
+      user_search: "Felhasználó keresése"
       your_contacts: "Ismerőseid"
-    many: "%{count} ismerős"
     one: "1 ismerős"
     other: "%{count} ismerős"
     sharing:
@@ -291,7 +265,6 @@ hu:
     spotlight:
       community_spotlight: "A figyelem középpontjában"
       suggest_member: "Javasolj egy tagot"
-    two: "%{count} ismerős"
     zero: "nincs ismerős"
   conversations:
     conversation:
@@ -300,8 +273,6 @@ hu:
       fail: "Érvénytelen üzenet"
       no_contact: "Hé, először kapcsolatot kell hozzáadnod!"
       sent: "Üzenet elküldve"
-    destroy:
-      success: "Üzenetváltás sikeresen eltávolítva"
     helper:
       new_messages:
         few: "%{count} új üzenet"
@@ -326,7 +297,7 @@ hu:
     new_conversation:
       fail: "Érvénytelen üzenet"
     show:
-      delete: "beszélgetés törlése és blokkolása"
+      delete: "beszélgetés törlése"
       reply: "válasz"
       replying: "Válaszolás..."
   date:
@@ -649,6 +620,26 @@ hu:
       click_link: "Ahhoz, hogy aktiváld az új email címedet (%{unconfirmed_email}), kattints erre a linkre:"
       subject: "Kérlek aktiváld az új email címedet: %{unconfirmed_email}"
     email_sent_by_diaspora: "Ezt az emailt a %{pod_name} küldte. Ha nem szeretnél ilyen leveleket kapni,"
+    export_photos_email:
+      body: |-
+          Szia %{name},
+
+          A képeidet feldolgoztuk és immár letölthetőek a következő címen: %{url}.
+
+          Üdv,
+
+          A diaspora* üzenetküldő automatája.
+      subject: "A képeid letölthetőek, %{name}"
+    export_photos_failure_email:
+      body: |-
+          Szia %{name},
+
+          Hiba lépett fel a képeid letöltéshez való előkészítése során. Kérlek próbáld meg újra!
+
+          Elnézésedet kérjük,
+
+          A diaspora* üzenetküldő automatája.
+      subject: "Gond adódott a képeiddel kapcsolatban, %{name}"
     hello: "Szia %{name}!"
     invite:
       message: |-
@@ -719,7 +710,6 @@ hu:
       add_contact_from_tag: "ismerős hozzáadása címkéből"
     aspect_list:
       edit_membership: "csoport tagság szerkesztése"
-    few: "%{count} személy"
     helper:
       is_not_sharing: "%{name} nem oszt meg veled tartalmakat"
       is_sharing: "%{name} megoszt veled"
@@ -733,7 +723,6 @@ hu:
       search_handle: "Hogy biztosan megtaláld a barátaidat, használd a diaspora azonosítójukat (felhasználónév@pod.tld)."
       searching: "keresés folyamatban, légy türelmes..."
       send_invite: "Még mindig semmi? Küldj meghívót!"
-    many: "%{count} személy"
     one: "1 személy"
     other: "%{count} személy"
     person:
@@ -770,7 +759,6 @@ hu:
       add_some: "adj hozzá néhányat"
       edit: "szerkesztés"
       you_have_no_tags: "nincs címkéd!"
-    two: "%{count} ember"
     webfinger:
       fail: "Sajnáljuk, de nem találjuk őt: %{handle}."
     zero: "senki"
@@ -867,15 +855,12 @@ hu:
       update: "Frissítés"
     invalid_invite: "Ez a meghívó többé nem érvényes!"
     new:
-      continue: "tovább"
       create_my_account: "Fiók létrehozása!"
-      diaspora: "Diaspora*"
       email: "E-MAIL"
       enter_email: "Írd be az e-mail címed"
       enter_password: "Adj meg egy jelszót (legalább hat karakterből álljon)"
       enter_password_again: "Ugyanazt a jelszót írd amit az előbb"
       enter_username: "Válassz egy felhasználónevet (csak angol betű, szám és aláhúzás megengedett)"
-      hey_make: "GYERÜNK,<br/>KEZDJ<br/>BELE!"
       join_the_movement: "Csatlakozz!"
       password: "JELSZÓ"
       password_confirmation: "JELSZÓ MEGERŐSÍTÉS"
@@ -887,7 +872,7 @@ hu:
     comment_label: "<b>Hozzászólás</b>:<br>%{data}"
     confirm_deletion: "Biztosan törölni akarod ezt az elemet?"
     delete_link: "Elem törlése"
-    not_found: "<u>A bejegyzés/hozzászólás nem található, valószínűleg törölte a felhasználó.</u>"
+    not_found: "<u>A bejegyzés/hozzászólás nem található. Valószínűleg törölte a felhasználó.</u>"
     post_label: "<b>Bejegyzés</b>: %{title}"
     reason_label: "Indok: %{text}"
     reported_label: "<b>Jelentette:</b> %{person}"
@@ -1080,11 +1065,11 @@ hu:
       no_message_to_display: "Nincs üzenet."
     new:
       mentioning: "Megemlít: %{person}"
-    too_long:
-      other: "Rövidíts. Az állapotfrissítésed hossza nem lehet több %{count} leütésnél"
-      zero: "Rövidíts. Az állapotfrissítésed hossza nem lehet több %{count} leütésnél"
+    too_long: "Rövidíts. Az állapotfrissítésed nem lehet hosszabb %{count} leütésnél. Jelenleg %{current_length} karakterből áll"
   stream_helper:
     hide_comments: "hozzászólások elrejtése"
+    no_more_posts: "Elérted a hírfolyam végét."
+    no_posts_yet: "Még nincsenek bejegyzések."
     show_comments:
       few: "Még %{count} hozzászólás megtekintése"
       many: "Még %{count} hozzászólás megtekintése"
@@ -1119,11 +1104,10 @@ hu:
       contacts_title: "Személyek a Hírfolyamodban"
       title: "Hírfolyam"
     public:
-      contacts_title: "Friss poszterek"
+      contacts_title: "Legújabb szerzők"
       title: "Nyilvános tevékenység"
     tags:
       contacts_title: "Emberek, akik ezeket a címkéket követik"
-      tag_prefill_text: "%{tag_name} témával kapcsolatban csak annyit, hogy... "
       title: "Bejegyzés megjelölve: %{tags}"
   tag_followings:
     create:
@@ -1136,14 +1120,8 @@ hu:
   tags:
     show:
       follow: "Címke követése"
-      followed_by_people:
-        other: "%{count} ember követi"
-        zero: "senki sem követi"
       following: "#%{tag} követve"
-      nobody_talking: "Senki nem beszélt még erről: %{tag}."
       none: "Az üres címke nem létezik!"
-      people_tagged_with: "Személy felcímkézve: %{tag}"
-      posts_tagged_with: "Bejegyzések felcímkézve: #%{tag}"
       stop_following: "Címke-követés leállítása #%{tag}"
   terms_and_conditions: "Felhasználási feltételek"
   undo: "Visszavonod?"
@@ -1154,7 +1132,7 @@ hu:
       email_not_confirmed: "Email cím aktiválása sikertelen. Rossz a link?"
     destroy:
       no_password: "Add meg a jelszavad, hogy megszüntesd a fiókod."
-      success: "A fiókod le van zárva. Húsz percbe is beletelhet, mire befejezzük a fiókod törlését. Köszönjük, hogy kipróbáltad a diaspora* közösségi oldalt."
+      success: "A fiókodat lezártuk. Húsz percbe is beletelhet, mire befejezzük a fiókod törlését. Köszönjük, hogy kipróbáltad a diaspora* közösségi oldalt."
       wrong_password: "A megadott jelszó nem felel meg."
     edit:
       also_commented: "más is hozzászólt az ismerősöd bejegyzéséhez?"
@@ -1167,30 +1145,31 @@ hu:
       character_minimum_expl: "legalább hat karakter legyen"
       close_account:
         dont_go: "Hé, kérlek ne menj!"
-        if_you_want_this: "Ha tényleg ezt akarod, írd be a jelszavad és kattints a \"Fiók törlése\" gombra."
-        lock_username: "Le tudod védeni a felhasználóneved, ha esetleg mégis úgy döntenél, hogy újra feliratkozol."
-        locked_out: "Ki fogunk léptetni és kizárunk a fiókodból."
-        make_diaspora_better: "Azt szeretnénk, ha segítenél, hogy jobbá tehessük a diaspora*-t. A távozásod helyett ezért szívesebben vennénk, ha közreműködnél. Ám ha el akarod hagyni az oldalt, kérlek olvasd el mi fog következni."
+        if_you_want_this: "Ha tényleg ezt akarod, írd be a jelszavad a lenti mezőbe és kattints a \"Fiók törlése\" gombra."
+        lock_username: "A felhasználóneved foglalt marad. Nem lesz lehetőséged ezen a kiszolgálón új fiókot létrehozni ugyanezzel a névvel."
+        locked_out: "Ki fogunk léptetni és kizárunk a fiókodból, amíg végleg el nem távolítjuk."
+        make_diaspora_better: "Azt szeretnénk, ha segítenél, hogy jobbá tehessük a diaspora*-t. A távozásod helyett ezért szívesebben vennénk, ha közreműködnél. Ám ha úgy döntesz, hogy elhagyod az oldalt, a következő fog történni:"
         mr_wiggles: "Vuk szomorú lesz, ha távozni lát."
-        no_turning_back: "Nincs visszaút."
-        what_we_delete: "Töröljük az összes bejegyzésedet és adatodat amint tudjuk. A hozzászólásaid megmaradnak, de a neved helyett csak a diaspora* azonosítód lesz látható mellettük."
+        no_turning_back: "Nincs visszaút! Ha teljesen biztos vagy benne, add meg a jelszavadat a lenti mezőben."
+        what_we_delete: "Töröljük az összes bejegyzésedet és adatodat amint tudjuk. A mások bejegyzéseihez írt hozzászólásaid megmaradnak, de a neved helyett csak a diaspora* azonosítód lesz látható mellettük."
       close_account_text: "Fiók törlése"
       comment_on_post: "valaki hozzászólt egy bejegyzésedhez?"
       current_password: "Jelenlegi jelszó"
       current_password_expl: "amelyikkel bejelentkezel..."
+      download_export_photos: "Képeim letöltése"
       download_photos: "Képeim letöltése"
-      download_xml: "Saját XML letöltése"
       edit_account: "Fiók szerkesztése"
       email_awaiting_confirmation: "Aktivációs link elküldve ide: %{unconfirmed_email}. Amíg nem erősíted meg az új címed, addig a régit használjuk: %{email}."
       export_data: "Adatok kivitele"
+      export_photos_in_progress: "Jelenleg folyamatban van a képeid feldolgozása. Kérlek nézz vissza később."
       following: "Követési beállítások"
       getting_started: "Új felhasználó beállításai"
       liked: "valakinek tetszik a bejegyzésed?"
       mentioned: "megemlítettek téged egy bejegyzésben?"
       new_password: "Új jelszó"
-      photo_export_unavailable: "Fényképek kivitele jelenleg nem lehetséges"
       private_message: "személyes üzenetet kaptál?"
       receive_email_notifications: "Szeretnél értesítést kapni levélben, ha:"
+      request_export_photos_update: "Képeim frissítése"
       reshared: "valaki újraosztotta a bejegyzésedet?"
       show_community_spotlight: "A \"figyelem középpontjában\" szereplő tartalmak megjelenítése a hírfolyamban"
       show_getting_started: "\"Kezdő lépések\" újra engedélyezése"
@@ -1212,6 +1191,7 @@ hu:
       who_are_you: "Ki is vagy?"
     privacy_settings:
       ignored_users: "Mellőzött felhasználók"
+      no_user_ignored_message: "Jelenleg nem mellőzöl más felhasználót"
       stop_ignoring: "Mellőzés feloldása"
       title: "Adatvédelmi beállítások"
     public:

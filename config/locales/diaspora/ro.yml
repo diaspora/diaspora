@@ -58,8 +58,6 @@ ro:
     add_to_aspect:
       failure: "Nu s-a reuşit adăuga contactul la aspect."
       success: "Contactul a fost adăugat cu succes la aspect."
-    aspect_contacts:
-      done_editing: "terminat de editat"
     aspect_listings:
       add_an_aspect: "+ Adaugă un aspect"
       deselect_all: "Deselectează tot"
@@ -77,20 +75,13 @@ ro:
       failure: "%{name} nu este gol şi nu poate fi şters."
       success: "%{name} a fost eliminat cu succes."
     edit:
-      add_existing: "Adaugă o persoană de contact existentă"
       aspect_list_is_not_visible: "lista de aspecte nu este vizibila persoanelor adaugate"
       aspect_list_is_visible: "lista de aspecte este vizibila persoanelor adaugate"
       confirm_remove_aspect: "Eşti sigur că doreşti să ştergi acest aspect?"
-      done: "Gata"
       remove_aspect: "Şterge acest aspect"
       rename: "redenumeşte"
       update: "actualizare"
       updating: "actualizare"
-    few: "%{count} aspecte"
-    helper:
-      are_you_sure: "Eşti sigur că doreşti să ştergi acest aspect?"
-      aspect_not_empty: "Aspectul nu este gol"
-      remove: "şterge"
     index:
       diaspora_id:
         content_1: "ID-ul tău pe diaspora* este:"
@@ -122,11 +113,6 @@ ro:
         heading: "Conectează servciii"
       unfollow_tag: "Nu mai urma #%{tag}"
       welcome_to_diaspora: "%{name}, bine ai venit in comunitatea Diaspora!"
-    many: "%{count} aspecte"
-    move_contact:
-      error: "Eroare la mutarea contactului: %{inspect}"
-      failure: "nu a mers %{inspect}"
-      success: "S-a mutat persoana la noul aspect"
     new:
       create: "Crează"
       name: "Nume (vizibil doar pentru tine)"
@@ -144,14 +130,6 @@ ro:
       family: "Familie"
       friends: "Prieteni"
       work: "Lucru"
-    selected_contacts:
-      manage_your_aspects: "Gestionează aspectele tale personale"
-      no_contacts: "Nu aveți incă nici o persoană de contact."
-      view_all_community_spotlight: "Vizualizează toate reflectoarele comunității"
-      view_all_contacts: "Vezi toate contactele"
-    show:
-      edit_aspect: "Editează aspect"
-    two: "%{count} aspecte"
     update:
       failure: "Apectul tău, %{name}, are numele prea lung ca să fie salvat"
       success: "Aspectul, %{name}, a fost editat cu succes."
@@ -163,23 +141,18 @@ ro:
     post_success: "Publicat! Inchidere!"
   cancel: "Anulează"
   comments:
-    few: "%{count} comentarii"
-    many: "%{count} comentarii"
     new_comment:
       comment: "Comentariu"
       commenting: "Comentând..."
     one: "1 comentariu"
     other: "%{count} comentarii"
-    two: "%{count} comentarii"
     zero: "nici un comentariu"
   contacts:
     create:
       failure: "Eşuare la crearea contactului"
-    few: "%{count} contacte"
     index:
       add_a_new_aspect: "Adaugă un aspect nou"
       add_to_aspect: "adaugă contacte la %{name}"
-      add_to_aspect_link: "Adaugă contacte la %{name}"
       all_contacts: "Toate contactele"
       community_spotlight: "reflectorul comunității"
       my_contacts: "Contactele mele"
@@ -189,7 +162,6 @@ ro:
       start_a_conversation: "Începe o conversație."
       title: "Contacte"
       your_contacts: "Contactele Tale"
-    many: "%{count} contacte"
     one: "1 contact"
     other: "%{count} contacte"
     sharing:
@@ -197,13 +169,11 @@ ro:
     spotlight:
       community_spotlight: "reflectorul comunității"
       suggest_member: "Propune un membru"
-    two: "%{count} contacte"
     zero: "contacte"
   conversations:
     create:
+      fail: "Mesajul nu este valid"
       sent: "Mesaj trimis"
-    destroy:
-      success: "Conversaţia a fost ştearsă cu succes"
     helper:
       new_messages:
         few: "%{count} mesaje noi"
@@ -238,6 +208,15 @@ ro:
   fill_me_out: "Umple-mă"
   find_people: "Find people"
   help:
+    posts_and_posting:
+      post_location_a: "În editor faceți clic pe pictograma PIN de lângă cameră. Acest lucru va introduce locația de OpenStreetMap. Puteți edita locația dvs. - dacă doriți puteți să introduceți doar orașul în loc de adresa specifică."
+      post_location_q: "Cum adaug locația mea la un post?"
+      post_notification_a: "Veți găsi o pictogramă clopoțel, lângă X in dreapta sus a unui post. Faceți clic pentru a activa sau dezactiva notificările pentru acest post."
+      post_notification_q: "Cum pot primi notificări sau opri obtinerea notificări, despre un post?"
+      post_poll_a: "Faceți clic pe pictograma grafic pentru a genera un sondaj. Tastați o întrebare și cel puțin două răspunsuri. Nu uitați să faceți postările dumneavoastră publice dacă vreți ca toată lumea să fie în măsură să participe la sondajul postat."
+      post_poll_q: "Cum adaug un sondaj la mesaj?"
+      post_report_a: "Faceți clic pe pictograma de alertă , triunghi, in dreapta sus a postului să o raporteze admin-ului. Introduceți un motiv pentru raportarea acestui post în caseta de dialog."
+      post_report_q: "Cum pot raporta un mesaj ofensator?"
     wiki: "Wiki"
   hide: "Ascunde"
   invitations:
@@ -344,6 +323,7 @@ ro:
         other: "şi celelalte %{count} persoane"
         zero: "şi nimeni altul"
       mark_all_as_read: "Marchează-le pe toate ca citite"
+      no_notifications: "Deocamdată nu ai notificări."
       notifications: "Notificări"
     liked:
       few: "%{actors} has just liked your %{post_link}."
@@ -436,7 +416,6 @@ ro:
       invited_by: "ai fost invitat(ă) de către"
     aspect_list:
       edit_membership: "editaţi apartenenţa la aspect"
-    few: "%{count} persoane"
     helper:
       results_for: "rezultate pentru %{params}"
     index:
@@ -444,7 +423,6 @@ ro:
       no_one_found: "... dar nimeni nu a fost găsit."
       no_results: "Hey! Trebuie sa cauţi ceva."
       results_for: "caută rezultate pentru"
-    many: "%{count} persoane"
     one: "1 persoană"
     other: "%{count} persoane"
     person:
@@ -472,12 +450,12 @@ ro:
       recent_public_posts: "Ultimele Publicaţii Publice"
       return_to_aspects: "Intoarcere către pagina de aspecte"
       see_all: "Vezi tot"
+      start_sharing: "Începe să comunici"
       to_accept_or_ignore: "pentru a accepta sau ignora."
     sub_header:
       add_some: "Adaugă pe cineva"
       edit: "editare"
       you_have_no_tags: "nu ai nici un marcaj!"
-    two: "%{count} persoane"
     webfinger:
       fail: "Ne pare rău, nu am putut găsi %{handle}."
     zero: "nimeni"
@@ -530,7 +508,7 @@ ro:
       reshare_by: "Partajat de către %{author}"
   previous: "anterioare"
   privacy: "Confidențialitate"
-  privacy_policy: "Politica de Confidenţialitate"
+  privacy_policy: "Politica de confidenţialitate"
   profile: "Profil"
   profiles:
     edit:
@@ -627,6 +605,7 @@ ro:
       really_disconnect: "desconectează %{service}?"
     inviter:
       click_link_to_accept_invitation: "Click pe acest link pentru a accepta invitaţia"
+      join_me_on_diaspora: "Alătură-mi-te pe Diaspora*"
     remote_friend:
       invite: "invită"
       not_on_diaspora: "Deocamdată nu este pe diaspora*"
@@ -638,6 +617,8 @@ ro:
       create_request: "Find by Diaspora handle"
       enter_a_diaspora_username: "Introduceţi numele de utilizator Diaspora :"
       your_diaspora_username_is: "Numele tău de utilizator Diaspora este: %{diaspora_handle}"
+    aspect_dropdown:
+      add_to_aspect: "Adaugă la contacte"
     contact_list:
       all_contacts: "Toate contactele"
     footer:
@@ -668,6 +649,7 @@ ro:
       new_user_prefill:
         hello: "Salutare tuturor, sunt #%{new_user_tag}. "
         invited_by: "Mulţumesc pentru invitaţie, "
+        newhere: "nouvenit"
       post_a_message_to: "Postati un mesaj catre %{aspect}"
       posting: "Publicare..."
       share: "Distribuie"
@@ -677,6 +659,7 @@ ro:
     stream_element:
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignoră utilizatorul %{name}"
       like: "I like this"
       show: "arată"
       unlike: "Nu ȋmi place"
@@ -687,13 +670,7 @@ ro:
       failure: "Nu sa putut şterge postul"
     helper:
       no_message_to_display: "Nici un mesaj nou."
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "ascunde comentariile"
     show_comments:
@@ -708,6 +685,7 @@ ro:
       title: "Activitatea proprie"
     aspects:
       title: "Your Aspects"
+    aspects_stream: "Aspecte"
     followed_tag:
       add_a_tag: "Adaugă un tag"
       follow: "Urmează"
@@ -731,11 +709,13 @@ ro:
     show:
       follow: "Urmeaza #%{tag}"
       following: "Urmarind #%{tag}"
-      nobody_talking: "Nu se povesteste nimic despre %{tag} inca."
-      people_tagged_with: "Persoane marcate cu %{tag}"
-      posts_tagged_with: "Publicatii marcate cu #%{tag}"
       stop_following: "Nu mai urmari #%{tag}"
-  terms_and_conditions: "Termeni și Condiții de utilizare:"
+      tagged_people:
+        few: "%{count} persoane etichetate cu %{tag}"
+        one: "O persoană etichetată cu %{tag}"
+        other: "%{count} persoane etichetate cu %{tag}"
+        zero: "Nimeni etichetat cu %{tag}"
+  terms_and_conditions: "Termeni și condiții de utilizare"
   undo: "refacem?"
   username: "Nume de utilizator"
   users:
@@ -757,7 +737,6 @@ ro:
       comment_on_post: "...cineva comenteaza pe o publicatie proprie?"
       current_password: "Parola curentă"
       download_photos: "descarcă fotografiile mele"
-      download_xml: "descarcă datele mele (xml)"
       edit_account: "Editează cont"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Exportare de date"

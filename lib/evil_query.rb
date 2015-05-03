@@ -6,7 +6,7 @@ module EvilQuery
     end
 
     def id_sql(relation, id_column)
-      relation.select(id_column).to_sql
+      @class.connection.unprepared_statement { relation.select(id_column).to_sql }
     end
   end
 

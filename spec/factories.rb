@@ -113,6 +113,11 @@ FactoryGirl.define do
     end
   end
 
+  factory(:location) do
+    lat 1
+    lng 2
+  end
+
   factory(:poll) do
     sequence(:question) { |n| "What do you think about #{n} ninjas?" }
     after(:build) do |p|

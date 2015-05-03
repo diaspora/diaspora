@@ -58,8 +58,6 @@ id:
     add_to_aspect:
       failure: "Failed to add friend to aspect."
       success: "Successfully added friend to aspect."
-    aspect_contacts:
-      done_editing: "Selesai"
     aspect_listings:
       add_an_aspect: "+ Tambah satu aspek"
       deselect_all: "Batalkan semua pilihan"
@@ -77,21 +75,14 @@ id:
       failure: "%{name} tidak terisi dan tidak dapat dihapus."
       success: "%{name} berhasil dihapus."
     edit:
-      add_existing: "Tambah kontak yang sudah ada"
       aspect_list_is_not_visible: "Kontak di dalam aspek ini tidak dapat saling melihat"
       aspect_list_is_visible: "Kontak di dalam aspek ini dapat saling melihat."
       confirm_remove_aspect: "Anda yakin ingin menghapus aspek ini?"
-      done: "Selesai"
       make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Hapus aspek ini"
       rename: "Ganti nama"
       update: "Perbarui"
       updating: "Memperbarui"
-    few: "%{count} aspek"
-    helper:
-      are_you_sure: "apakah anda yakin untuk menghapus aspek ini?"
-      aspect_not_empty: "Aspek tidak kosong"
-      remove: "hapus"
     index:
       diaspora_id:
         content_1: "ID diaspora* anda:"
@@ -124,11 +115,6 @@ id:
         heading: "Sambungkan Layanan"
       unfollow_tag: "Berhenti mengikuti #%{tag}"
       welcome_to_diaspora: "Selamat datang di diaspora*, %{name}"
-    many: "%{count} aspek"
-    move_contact:
-      error: "Galat memindahkan kontak : %{inspect}"
-      failure: "tidak bekerja %{inspect}"
-      success: "Orang tersebut dipindahkan ke Aspek baru"
     new:
       create: "Buat"
       name: "Name"
@@ -146,14 +132,6 @@ id:
       family: "Keluarga"
       friends: "Teman"
       work: "Kerja"
-    selected_contacts:
-      manage_your_aspects: "Kelola aspek anda."
-      no_contacts: "Anda belum memiliki kontak di sini."
-      view_all_community_spotlight: "Lihat semua sorotan komunitas"
-      view_all_contacts: "Lihat semua kontak"
-    show:
-      edit_aspect: "Ubah aspek"
-    two: "%{count} aspek"
     update:
       failure: "Nama aspek anda, %{name}, terlalu panjang untuk disimpan."
       success: "Aspek anda, %{name}, telah berhasil diubah."
@@ -166,50 +144,38 @@ id:
     post_success: "Terkirim! Menutup!"
   cancel: "Batal"
   comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
     new_comment:
       comment: "Komentar"
       commenting: "Mengomentari"
     one: "1 komentar"
     other: "%{count} komentar"
-    two: "%{count} komentar"
     zero: "tak ada komentar"
   contacts:
     create:
       failure: "gagal membuat kontak"
-    few: "%{count} contacts"
     index:
       add_a_new_aspect: "Tambahkan aspek baru"
       add_to_aspect: "Add contacts to %{name}"
-      add_to_aspect_link: "tambahkan kontak dengan %{name}"
       all_contacts: "Semua Kontak"
       community_spotlight: "Sorotan komunitas"
-      many_people_are_you_sure: "Apakah kamu mau memulai perbincangan pribadi lebih dari %{suggested_limit} kontak? Mengirim ke Aspek ini mungkin cara yang lebih baik untuk menghubungi mereka."
       my_contacts: "Kontakku"
       no_contacts: "No contacts."
       no_contacts_message: "Lihat juga %{community_spotlight}"
-      no_contacts_message_with_aspect: "Lihat %{community_spotlight} atau %{add_to_aspect_link}"
       only_sharing_with_me: "Hanya berbagi dengan saya"
-      remove_person_from_aspect: "Hapus %{aspect_name} dari \"%{person_name}\""
       start_a_conversation: "Mulai pembicaraan"
       title: "Kontak"
       your_contacts: "Kontakmu"
-    many: "%{count} kontak"
     one: "1 kontak"
     other: "%{count} kontak"
     sharing:
       people_sharing: "Orang-orang yang berbagi dengan anda"
     spotlight:
       community_spotlight: "Sorotan Komunitas"
-    two: "%{count} kontak"
     zero: "kontak"
   conversations:
     create:
       fail: "Pesan tak valid"
       sent: "Pesan terkirim"
-    destroy:
-      success: "Pembicaraan berhasil dihapus"
     helper:
       new_messages:
         few: "%{count} new messages"
@@ -454,7 +420,6 @@ id:
       add_contact_from_tag: "tambah kontak dari tag"
     aspect_list:
       edit_membership: "sunting keanggotaan Aspek"
-    few: "%{count} people"
     helper:
       results_for: " hasil untuk %{params}"
     index:
@@ -462,7 +427,6 @@ id:
       no_one_found: "...dan tak menemukan siapapun."
       no_results: "Hei! Kamu harus cari sesuatu."
       results_for: "hasil pencarian untuk"
-    many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
     person:
@@ -498,7 +462,6 @@ id:
       add_some: "tambah beberapa"
       edit: "sunting"
       you_have_no_tags: "kamu tak punya tag!"
-    two: "%{count} people"
     webfinger:
       fail: "Maaf, kita tak dapat mencari %{handle}"
     zero: "no people"
@@ -636,13 +599,7 @@ id:
   status_messages:
     helper:
       no_message_to_display: "Tidak ada pesan yang dapat ditampilkan."
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "hide comments"
     show_comments:
@@ -681,7 +638,6 @@ id:
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       download_photos: "Unduh foto-fotoku"
-      download_xml: "Unduh xmlku"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       new_password: "New Password"
       receive_email_notifications: "Receive email notificaions?"

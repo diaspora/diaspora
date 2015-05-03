@@ -86,7 +86,8 @@ nn:
         one: "ein brukar funne"
         other: "%{count} brukarar funne"
         zero: "ingen brukarar funne"
-      you_currently: "du har %{user_invitation} igjen %{link}"
+      you_currently:
+        other: "du har %{user_invitation} igjen %{link}"
     weekly_user_stats:
       amount_of:
         one: "Mengd nye brukarar denne veka: %{count}"
@@ -111,8 +112,6 @@ nn:
     add_to_aspect:
       failure: "Klarte ikkje å leggja kontakten til aspektet."
       success: "La kontakten til aspektet."
-    aspect_contacts:
-      done_editing: "endringar er ferdige"
     aspect_listings:
       add_an_aspect: "+ Legg til eit aspekt"
       deselect_all: "Vel vekk alle"
@@ -131,21 +130,14 @@ nn:
       failure: "%{name} må vera tom for å kunna slettast."
       success: "%{name} vart fjerna."
     edit:
-      add_existing: "Legg til ein kontakt som finst frå før av"
       aspect_list_is_not_visible: "aspektet er gøymt frå andre i aspektet"
       aspect_list_is_visible: "aspektlista er synleg for andre i aspektet"
       confirm_remove_aspect: "Er du sikker på at du vil sletta aspektet?"
-      done: "Utført"
       make_aspect_list_visible: "skal kontaktane i dette aspektet kunna sjå kvarandre?"
       remove_aspect: "Slett dette aspektet"
       rename: "gje nytt namn"
       update: "oppdatering"
       updating: "oppdaterer"
-    few: "%{count} aspekt"
-    helper:
-      are_you_sure: "Er du trygg på at du vil sletta dette aspektet?"
-      aspect_not_empty: "Aspektet er ikkje tomt"
-      remove: "fjern"
     index:
       diaspora_id:
         content_1: "Diaspora-ID-en din er:"
@@ -185,11 +177,6 @@ nn:
         heading: "Kopla tenester"
       unfollow_tag: "Slutt å følgja #%{tag}"
       welcome_to_diaspora: "Velkomen til Diaspora, %{name}!"
-    many: "%{count} aspekt"
-    move_contact:
-      error: "Klarte ikkje å flytta kontakten: %{inspect}"
-      failure: "verka ikkje %{inspect}"
-      success: "Personen vart flytta til eit nytt aspekt"
     new:
       create: "Lag"
       name: "Namn (berre du kan sjå det)"
@@ -207,14 +194,6 @@ nn:
       family: "Familie"
       friends: "Vener"
       work: "Arbeid"
-    selected_contacts:
-      manage_your_aspects: "Handsam aspekta dine."
-      no_contacts: "Du har ingen kontaktar her enno."
-      view_all_community_spotlight: "Sjå alle kreative medlemer"
-      view_all_contacts: "Syn alle kontaktane"
-    show:
-      edit_aspect: "endra aspektet"
-    two: "%{count} aspekt"
     update:
       failure: "Aspektet ditt, %{name}, hadde eit for langt namn til å bli lagra."
       success: "Aspektet ditt, %{name}, er vorte endra."
@@ -234,36 +213,27 @@ nn:
     post_success: "Sendt. Lukkar."
   cancel: "Avbryt"
   comments:
-    few: "%{count} kommentarar"
-    many: "%{count} kommentarar"
     new_comment:
       comment: "Kommenter"
       commenting: "Kommenterer …"
     one: "1 kommentar"
     other: "%{count} kommentarar"
-    two: "%{count} kommentarar"
     zero: "ingen kommentarar"
   contacts:
     create:
       failure: "Klarte ikkje å laga kontakten"
-    few: "%{count} kontaktar"
     index:
       add_a_new_aspect: "Legg til eit nytt aspekt"
       add_to_aspect: "legg kontaktar til %{name}"
-      add_to_aspect_link: "legg kontaktar til i %{name}"
       all_contacts: "Alle kontaktane"
       community_spotlight: "Kreative medlemer"
-      many_people_are_you_sure: "Er du sikker på at du vil starte ein privat samtale med meir enn %{suggested_limit} kontaktar? Å dele dette i eit aspekt kan vere ein betre måte å kontakte dei på."
       my_contacts: "Kontaktane mine"
       no_contacts: "Du må leggja til nokre kontaktar."
       no_contacts_message: "Ta ein titt på %{community_spotlight}"
-      no_contacts_message_with_aspect: "Ta ein titt på %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Deler berre med meg"
-      remove_person_from_aspect: "Fjerna %{person_name} frå \"%{aspect_name}\""
       start_a_conversation: "Start ein samtale"
       title: "Kontaktar"
       your_contacts: "Kontaktane dine"
-    many: "%{count} kontaktar"
     one: "1 kontakt"
     other: "%{count} kontaktar"
     sharing:
@@ -271,7 +241,6 @@ nn:
     spotlight:
       community_spotlight: "Kreative medlemer"
       suggest_member: "Foreslå eit medlem"
-    two: "%{count} kontaktar"
     zero: "kontaktar"
   conversations:
     conversation:
@@ -280,8 +249,6 @@ nn:
       fail: "Ugyldig melding"
       no_contact: "Hei, du må leggje til kontakten først!"
       sent: "Meldinga er sendt"
-    destroy:
-      success: "Samtalen blei fjerna"
     helper:
       new_messages:
         few: "%{count} nye meldingar"
@@ -546,7 +513,6 @@ nn:
       add_contact_from_tag: "legg til kontakt frå etiketten"
     aspect_list:
       edit_membership: "endra aspektmedlemskap"
-    few: "%{count} personar"
     helper:
       is_not_sharing: "%{name} delar ikkje med deg"
       is_sharing: "%{name} delar med deg"
@@ -557,7 +523,6 @@ nn:
       no_results: "Du må søkja etter noko."
       results_for: "søkjeresultat for"
       searching: "me leiter, ver ven og vent litt..."
-    many: "%{count} personar"
     one: "1 person"
     other: "%{count} personar"
     person:
@@ -594,7 +559,6 @@ nn:
       add_some: "legg til noko"
       edit: "endra"
       you_have_no_tags: "du har ingen etikettar."
-    two: "%{count} personar"
     webfinger:
       fail: "Vi fann dessverre ikkje %{handle}."
     zero: "ingen personar"
@@ -686,15 +650,12 @@ nn:
       update: "Oppdater"
     invalid_invite: "Invitasjonslenkja du nytta er ikkje lengjer gyldig!"
     new:
-      continue: "Vidare"
       create_my_account: "Lag kontoen min."
-      diaspora: "♥ Diaspora*"
       email: "E-POST"
       enter_email: "Skriv ei e-postadresse"
       enter_password: "Skriv eit passord (minst seks teikn)"
       enter_password_again: "Skriv passordet éin gong til"
       enter_username: "Vel eit brukarnamn (berre bokstavar, tal og understrekingsteikn)"
-      hey_make: "HEI,<br/>LAG<br/>NOKO."
       join_the_movement: "Vert med i rørsla!"
       password: "PASSORD"
       password_confirmation: "Passordstadfesting"
@@ -860,13 +821,7 @@ nn:
       no_message_to_display: "Ingen innlegg kan synast."
     new:
       mentioning: "Nemner: %{person}"
-    too_long:
-      few: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
-      many: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
-      one: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
-      other: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
-      two: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
-      zero: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
+    too_long: "{\"few\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"many\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"one\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"other\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"two\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"zero\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\"}"
   stream_helper:
     hide_comments: "Gøym alle kommentarane"
     show_comments:
@@ -904,7 +859,6 @@ nn:
       title: "Offentleg aktivitet"
     tags:
       contacts_title: "Personar som elskar denne etiketten"
-      tag_prefill_text: "Greia med %{tag_name} er... "
       title: "Innlegg merka med: %{tags}"
   tag_followings:
     create:
@@ -918,10 +872,7 @@ nn:
     show:
       follow: "Følg #%{tag}"
       following: "Følgjer #%{tag}"
-      nobody_talking: "Det er enno ingen som taler om %{tag}."
       none: "Det finnast ikkje tomme tags!"
-      people_tagged_with: "Personar som er merka med %{tag}"
-      posts_tagged_with: "Meldingar som er merka med #%{tag}"
       stop_following: "Følg ikkje #%{tag} lenger"
   terms_and_conditions: "Vilkår og retningslinjer"
   undo: "Gjera om?"
@@ -957,7 +908,6 @@ nn:
       current_password: "Gjeldande passord"
       current_password_expl: "det du loggar på med..."
       download_photos: "Last ned bileta mine"
-      download_xml: "Last ned xml-en min"
       edit_account: "Endra kontoen"
       email_awaiting_confirmation: "Vi har sendt ei aktiveringslenkje til %{unconfirmed_email}. Vi vil halda fram med å senda til originaladressa di, %{email}, fram til du følgjer lenkja og tek i bruk den nye."
       export_data: "Eksporter data"
@@ -966,7 +916,6 @@ nn:
       liked: "… nokon liker innlegget ditt?"
       mentioned: "… du er nemnt i eit innlegg?"
       new_password: "Nytt passord"
-      photo_export_unavailable: "For tida er det ikkje mogleg å eksportera bilete"
       private_message: "… du mottek ei privat melding?"
       receive_email_notifications: "Få e-postvarsel når …"
       reshared: "… nokon deler innlegget ditt vidare?"

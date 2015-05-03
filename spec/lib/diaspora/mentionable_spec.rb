@@ -27,7 +27,7 @@ STR
         fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people)
 
         @people.each do |person|
-          fmt_msg.should include person_link(person, class: 'mention hovercardable')
+          expect(fmt_msg).to include person_link(person, class: 'mention hovercardable')
         end
       end
 
@@ -36,7 +36,7 @@ STR
         fmt_msg = Diaspora::Mentionable.format(CGI::escapeHTML(raw_msg), @people)
 
         @people.each do |person|
-          fmt_msg.should include person_link(person, class: 'mention hovercardable')
+          expect(fmt_msg).to include person_link(person, class: 'mention hovercardable')
         end
       end
 
@@ -47,8 +47,8 @@ STR
 
         fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people)
 
-        fmt_msg.should_not include(p.first_name)
-        fmt_msg.should include("&gt;", "&lt;", "&#x27;") # ">", "<", "'"
+        expect(fmt_msg).not_to include(p.first_name)
+        expect(fmt_msg).to include("&gt;", "&lt;", "&#39;") # ">", "<", "'"
       end
     end
 
@@ -57,33 +57,33 @@ STR
         fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people, plain_text: true)
 
         @people.each do |person|
-          fmt_msg.should include person.first_name
+          expect(fmt_msg).to include person.first_name
         end
-        fmt_msg.should_not include "<a", "</a>", "hovercardable"
+        expect(fmt_msg).not_to include "<a", "</a>", "hovercardable"
       end
     end
 
     it 'leaves the name of people that cannot be found' do
       fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, [])
-      fmt_msg.should eql @test_txt_plain
+      expect(fmt_msg).to eql @test_txt_plain
     end
   end
 
   describe '#people_from_string' do
     it 'extracts the mentioned people from the text' do
       ppl = Diaspora::Mentionable.people_from_string(@test_txt)
-      ppl.should include(*@people)
+      expect(ppl).to include(*@people)
     end
 
     describe 'returns an empty array if nobody was found' do
       it 'gets a post without mentions' do
         ppl = Diaspora::Mentionable.people_from_string("post w/o mentions")
-        ppl.should be_empty
+        expect(ppl).to be_empty
       end
 
       it 'gets a post with invalid handles' do
         ppl = Diaspora::Mentionable.people_from_string("@{a; xxx@xxx.xx} @{b; yyy@yyyy.yyy}")
-        ppl.should be_empty
+        expect(ppl).to be_empty
       end
     end
   end
@@ -111,25 +111,25 @@ STR
       aspect_id = @user_A.aspects.where(name: 'generic').first.id
       txt = Diaspora::Mentionable.filter_for_aspects(@test_txt_C, @user_A, aspect_id)
 
-      txt.should include(@user_C.person.name)
-      txt.should include(local_or_remote_person_path(@user_C.person))
-      txt.should_not include("href")
-      txt.should_not include(@mention_C)
+      expect(txt).to include(@user_C.person.name)
+      expect(txt).to include(local_or_remote_person_path(@user_C.person))
+      expect(txt).not_to include("href")
+      expect(txt).not_to include(@mention_C)
     end
 
     it 'leaves mention, if contact is in a given aspect' do
       aspect_id = @user_A.aspects.where(name: 'generic').first.id
       txt = Diaspora::Mentionable.filter_for_aspects(@test_txt_B, @user_A, aspect_id)
 
-      txt.should include("user B")
-      txt.should include(@mention_B)
+      expect(txt).to include("user B")
+      expect(txt).to include(@mention_B)
     end
 
     it 'recognizes "all" as keyword for aspects' do
       txt = Diaspora::Mentionable.filter_for_aspects(@test_txt_BC, @user_A, "all")
 
-      txt.should include(@mention_B)
-      txt.should include(@mention_C)
+      expect(txt).to include(@mention_B)
+      expect(txt).to include(@mention_C)
     end
   end
 end

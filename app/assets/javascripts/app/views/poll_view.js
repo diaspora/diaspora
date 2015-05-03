@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 app.views.Poll = app.views.Base.extend({
   templateName: "poll",
 
@@ -6,17 +8,24 @@ app.views.Poll = app.views.Base.extend({
     "click .toggle_result" : "toggleResult"
   },
 
-  initialize: function(options) {
+  initialize: function() {
     this.model.bind('change', this.render, this);
   },
 
   presenter: function(){
     var defaultPresenter = this.defaultPresenter();
-    var show_form = defaultPresenter.loggedIn && 
-                    !this.model.attributes.already_participated_in_poll;
+    var isReshare = (this.model.get('post_type') === 'Reshare');
+    var showForm = defaultPresenter.loggedIn &&
+                   !isReshare &&
+                   !this.model.get('already_participated_in_poll');
+    var originalPostLink = isReshare && this.model.get('root') ?
+      '<a href="/posts/' + this.model.get('root').id + '" class="root_post_link">' + Diaspora.I18n.t('poll.original_post') + '</a>' :
+      '';
 
     return _.extend(defaultPresenter, {
-      show_form: show_form 
+      show_form: showForm,
+      is_reshare: isReshare,
+      original_post_link: originalPostLink
     });
   },
 
@@ -95,7 +104,7 @@ app.views.Poll = app.views.Base.extend({
     var pollParticipation = new app.models.PollParticipation({
       poll_answer_id: answer_id,
       poll_id: this.poll.poll_id,
-      post_id: this.poll.post_id, 
+      post_id: this.poll.post_id,
     });
     var _this = this;
 
@@ -107,3 +116,5 @@ app.views.Poll = app.views.Base.extend({
   }
 
 });
+// @license-end
+

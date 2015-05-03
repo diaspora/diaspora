@@ -5,87 +5,23 @@
 module Diaspora
 
   class Exporter
-    def initialize(strategy)
-      self.class.send(:include, strategy)
+
+    SERIALIZED_VERSION = '1.0'
+
+    def initialize(user)
+      @user = user
     end
-  end
 
-  module Exporters
-    module XML
-      def execute(user)
-        builder = Nokogiri::XML::Builder.new do |xml|
-          user_person_id = user.person_id
-          xml.export {
-            xml.user {
-              xml.username user.username
-              xml.serialized_private_key user.serialized_private_key
-
-              xml.parent << user.person.to_xml
-            }
-
-
-
-            xml.aspects {
-              user.aspects.each do |aspect|
-                xml.aspect {
-                  xml.name aspect.name
-
-#                  xml.person_ids {
-                    #aspect.person_ids.each do |id|
-                      #xml.person_id id
-                    #end
-                  #}
-
-                  xml.post_ids {
-                    aspect.posts.find_all_by_author_id(user_person_id).each do |post|
-                      xml.post_id post.id
-                    end
-                  }
-                }
-              end
-            }
-
-            xml.contacts {
-              user.contacts.each do |contact|
-              xml.contact {
-                xml.user_id contact.user_id
-                xml.person_id contact.person_id
-                xml.person_guid contact.person_guid
-
-                xml.aspects {
-                  contact.aspects.each do |aspect|
-                    xml.aspect {
-                      xml.name aspect.name
-                    }
-                  end
-                }
-              }
-              end
-            }
-
-            xml.posts {
-              user.visible_shareables(Post).find_all_by_author_id(user_person_id).each do |post|
-                #post.comments.each do |comment|
-                #  post_doc << comment.to_xml
-                #end
-
-                xml.parent << post.to_xml
-              end
-            }
-
-            xml.people {
-              user.contacts.each do |contact|
-                person = contact.person
-                xml.parent << person.to_xml
-
-              end
-            }
-          }
-        end
-
-        builder.to_xml.to_s
-      end
+    def execute
+      @export ||= JSON.generate serialized_user.merge(version: SERIALIZED_VERSION)
     end
+
+    private
+
+    def serialized_user
+      @serialized_user ||= Export::UserSerializer.new(@user).as_json
+    end
+
   end
 
 end

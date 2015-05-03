@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 app.pages.SinglePostViewer = app.views.Base.extend({
   templateName: "single-post-viewer",
 
@@ -9,8 +11,8 @@ app.pages.SinglePostViewer = app.views.Base.extend({
   initialize : function(options) {
     this.model = new app.models.Post({ id : options.id });
     this.model.preloadOrFetch().done(_.bind(this.initViews, this));
-    this.model.interactions.fetch() //async, yo, might want to throttle this later.
-    this.setupLightbox()
+    this.model.interactions.fetch(); //async, yo, might want to throttle this later.
+    this.setupLightbox();
   },
 
   setupLightbox : function(){
@@ -31,10 +33,11 @@ app.pages.SinglePostViewer = app.views.Base.extend({
   postRenderTemplate : function() {
     if(this.model.get("title")){
       // formats title to html...
-      var html_title = app.helpers.textFormatter(this.model.get("title"), this.model);
+      var html_title = app.helpers.textFormatter(this.model.get("title"), this.model.get("mentioned_people"));
       //... and converts html to plain text
       document.title = $('<div>').html(html_title).text();
     }
   },
 
 });
+// @license-end

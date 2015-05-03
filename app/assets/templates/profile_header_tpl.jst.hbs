@@ -1,0 +1,104 @@
+{{#if loggedIn}}
+  <div class="pull-right">
+    {{#if is_own_profile}}
+      {{!-- can't block myself, so don't check it here --}}
+      <a href="{{urlTo 'edit_profile'}}" id="edit_profile" class="btn btn-primary creation">{{t 'people.edit_my_profile'}}</a>
+    {{else}} {{#if is_blocked}}
+      <a href="#" id="unblock_user_button" class="btn btn-danger">{{t 'people.stop_ignoring'}}</a>
+    {{else}}
+      <div class="placeholder aspect_membership_dropdown"></div>
+    {{/if}}{{/if}}
+  </div>
+{{/if}}
+
+<div id="author_info">
+  <h2>
+    <span id="name">{{name}}</span>
+    <span id="diaspora_handle">{{diaspora_id}}</span>
+    {{#if show_profile_btns}}
+      {{{sharingMessage this}}}
+    {{/if}}
+  </h2>
+
+  {{#if loggedIn}}
+    {{#if has_tags}}
+      <div class="description">
+        <i class="entypo tag"></i>
+        {{fmtTags profile.tags}}
+      </div>
+    {{else}}
+      {{#if is_own_profile}}
+        <div class="description">
+          <i>{{t 'profile.you_have_no_tags'}}</i>
+          <span class="add_tags">
+            <a href="{{urlTo 'edit_profile'}}">{{t 'profile.add_some'}}</a>
+          </span>
+        </div>
+      {{/if}}
+    {{/if}}
+  {{/if}}
+</div>
+
+{{#if loggedIn}}
+  <div id="profile_horizontal_bar">
+    {{#if show_profile_btns}}
+      <div id="profile_buttons" class="pull-right">
+        {{#if is_receiving}}
+          {{!-- create status message with mention --}}
+          <span class="profile_button">
+            <span id="mention_button" class="profile-header-icon" title="{{t 'people.mention'}}" data-placement="bottom" data-toggle="modal" data-target="#mentionModal">@</span>
+          </span>
+        {{/if}}
+
+        {{#if is_mutual}}
+          {{!-- create private conversation with person --}}
+          <span class="profile_button">
+            <i id="message_button" class="entypo profile-header-icon mail" title="{{t 'people.message'}}" data-placement="bottom" data-toggle="modal" data-target="#conversationModal"></i>
+          </span>
+        {{/if}}
+
+        {{#unless is_blocked}}
+          {{!-- ignore the person --}}
+          <a href="#" class="profile_button" rel="nofollow">
+            <i id="block_user_button" class="entypo profile-header-icon block block_user" title="{{t 'ignore'}}" data-placement="bottom"></i>
+          </a>
+        {{/unless}}
+      </div>
+    {{/if}}
+
+    <ul id="profile_nav">
+      <li {{#isCurrentProfilePage guid diaspora_id}} class="active" {{/isCurrentProfilePage}}>
+        <a href="{{urlTo 'person' guid}}" id="posts_link">
+          <i class="entypo docs"></i>
+          {{t 'profile.posts'}}
+        </a>
+      </li>
+      {{#if show_photos}}
+        <li {{#isCurrentPage 'person_photos' guid}} class="active" {{/isCurrentPage}}>
+          <a href="{{urlTo 'person_photos' guid}}" id="photos_link">
+            <i class="entypo picture"></i>
+            {{t 'profile.photos'}}
+            <div class="badge badge-default">{{photos.count}}</div>
+          </a>
+        </li>
+      {{/if}}
+      {{#if show_contacts}}
+        <li {{#isCurrentPage 'person_contacts' guid}} class="active" {{/isCurrentPage}}>
+          {{#if is_own_profile}}
+            <a href="{{urlTo 'contacts'}}" id="contacts_link">
+              <i class="entypo users"></i>
+              {{t 'profile.contacts'}}
+              <div class="badge badge-default">{{contacts.count}}</div>
+            </a>
+          {{else}}
+            <a href="{{urlTo 'person_contacts' guid}}" id="contacts_link">
+              <i class="entypo users"></i>
+              {{t 'profile.contacts'}}
+              <div class="badge badge-default">{{contacts.count}}</div>
+            </a>
+          {{/if}}
+        </li>
+      {{/if}}
+    </div>
+  </div>
+{{/if}}

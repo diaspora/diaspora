@@ -1,13 +1,13 @@
-factory = {
+var factory = {
   id : {
     current : 0,
     next : function(){
-      return factory.id.current += 1
+      return factory.id.current += 1;
     }
   },
 
   guid : function(){
-    return 'omGUID' + this.id.next()
+    return 'omGUID' + this.id.next();
   },
 
   like : function(overrides){
@@ -16,9 +16,9 @@ factory = {
       "author" : this.author(),
       "guid" : this.guid(),
       "id" : this.id.next()
-    }
+    };
 
-    return _.extend(defaultAttrs, overrides)
+    return _.extend(defaultAttrs, overrides);
   },
 
   comment : function(overrides) {
@@ -28,17 +28,17 @@ factory = {
       "guid" : this.guid(),
       "id" : this.id.next(),
       "text" : "This is a comment!"
-    }
-    
-    return new app.models.Comment(_.extend(defaultAttrs, overrides))
+    };
+
+    return new app.models.Comment(_.extend(defaultAttrs, overrides));
   },
 
   user : function(overrides) {
-    return new app.models.User(factory.userAttrs(overrides))
+    return new app.models.User(factory.userAttrs(overrides));
   },
 
   userAttrs : function(overrides){
-    var id = this.id.next()
+    var id = this.id.next();
     var defaultAttrs = {
       "name":"Awesome User" + id,
       "id": id,
@@ -47,9 +47,9 @@ factory = {
         "large":"http://localhost:3000/images/user/uma.jpg",
         "medium":"http://localhost:3000/images/user/uma.jpg",
         "small":"http://localhost:3000/images/user/uma.jpg"}
-    }
+    };
 
-    return _.extend(defaultAttrs, overrides)
+    return _.extend(defaultAttrs, overrides);
   },
 
   postAttrs : function(){
@@ -76,11 +76,11 @@ factory = {
         "likes" : [],
         "reshares" : []
       }
-    }
+    };
   },
 
-  profile : function(overrides) {
-    var id = overrides && overrides.id || factory.id.next()
+  profileAttrs: function(overrides) {
+    var id = (overrides && overrides.id) ? overrides.id : factory.id.next();
     var defaults = {
       "bio": "I am a cat lover and I love to run",
       "birthday": "2012-04-17",
@@ -99,9 +99,38 @@ factory = {
       "person_id": "person" + id,
       "searchable": true,
       "updated_at": "2012-04-17T23:48:36Z"
-    }
+    };
+    return _.extend({}, defaults, overrides);
+  },
 
-    return new app.models.Profile(_.extend(defaults, overrides))
+  profile : function(overrides) {
+    return new app.models.Profile(factory.profileAttrs(overrides));
+  },
+
+  personAttrs: function(overrides) {
+    var id = (overrides && overrides.id) ? overrides.id : factory.id.next();
+    var defaults = {
+      "id": id,
+      "guid": factory.guid(),
+      "name": "Bob Grimm",
+      "diaspora_id": "bob@localhost:3000",
+      "relationship": "sharing",
+      "is_own_profile": false
+    };
+    return _.extend({}, defaults, overrides);
+  },
+
+  person: function(overrides) {
+    return new app.models.Person(factory.personAttrs(overrides));
+  },
+
+  personWithProfile: function(overrides) {
+    var profile_overrides = _.clone(overrides.profile);
+    delete overrides.profile;
+    var defaults = {
+      profile: factory.profileAttrs(profile_overrides)
+    };
+    return factory.person(_.extend({}, defaults, overrides));
   },
 
   photoAttrs : function(overrides){
@@ -116,16 +145,16 @@ factory = {
           medium: "http://localhost:3000/uploads/images/thumb_medium_d85410bd19db1016894c.jpg",
           small: "http://localhost:3000/uploads/images/thumb_small_d85410bd19db1016894c.jpg"
         }
-    }, overrides)
+    }, overrides);
   },
 
   post :  function(overrides) {
-    defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()})
-    return new app.models.Post(_.extend(defaultAttrs, overrides))
+    var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
+    return new app.models.Post(_.extend(defaultAttrs, overrides));
   },
 
   postWithPoll :  function(overrides) {
-    defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
+    var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
     defaultAttrs = _.extend(defaultAttrs,  {"already_participated_in_poll" : false});
     defaultAttrs = _.extend(defaultAttrs,  {"poll" : factory.poll()});
     return new app.models.Post(_.extend(defaultAttrs, overrides));
@@ -133,10 +162,10 @@ factory = {
 
   statusMessage : function(overrides){
     //intentionally doesn't have an author to mirror creation process, maybe we should change the creation process
-    return new app.models.StatusMessage(_.extend(factory.postAttrs(), overrides))
+    return new app.models.StatusMessage(_.extend(factory.postAttrs(), overrides));
   },
 
-  poll: function(overrides){
+  poll: function(){
     return {
       "question" : "This is an awesome question",
       "created_at" : "2012-01-03T19:53:13Z",
@@ -146,20 +175,31 @@ factory = {
       "guid" : this.guid(),
       "poll_id": this.id.next(),
       "participation_count" : 10
-    }
+    };
   },
 
-  comment: function(overrides) {
+  aspectAttrs: function(overrides) {
+    var names = ['Work','School','Family','Friends','Just following','People','Interesting'];
     var defaultAttrs = {
-      "text" : "This is an awesome comment!",
-      "created_at" : "2012-01-03T19:53:13Z",
-      "author" : this.author(),
-      "guid" : this.guid(),
-      "id": this.id.next()
-    }
+      name: names[Math.floor(Math.random()*names.length)]+' '+Math.floor(Math.random()*100),
+      selected: false
+    };
 
-    return new app.models.Comment(_.extend(defaultAttrs, overrides))
+    return _.extend({}, defaultAttrs, overrides);
+  },
+
+  aspect: function(overrides) {
+    return new app.models.Aspect(this.aspectAttrs(overrides));
+  },
+
+  preloads: function(overrides) {
+    var defaults = {
+      aspect_ids: []
+    };
+
+    window.gon = { preloads: {} };
+    _.extend(window.gon.preloads, defaults, overrides);
   }
-}
+};
 
-factory.author = factory.userAttrs
+factory.author = factory.userAttrs;

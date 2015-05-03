@@ -86,7 +86,8 @@ ml:
         one: "%{count} ഉപയോക്താവിനെ കണ്ടെത്തി"
         other: "%{count} ഉപയോക്താക്കളെ കണ്ടെത്തി"
         zero: "ഒരു ഉപയോക്താവിനെ പോലും കണ്ടെത്തിയില്ല"
-      you_currently: "താങ്കൾക്ക് നിലവിൽ %{user_invitation} ക്ഷണങ്ങൾ ഉണ്ട് %{link}"
+      you_currently:
+        other: "താങ്കൾക്ക് നിലവിൽ %{user_invitation} ക്ഷണങ്ങൾ ഉണ്ട് %{link}"
     weekly_user_stats:
       amount_of:
         one: "ഈ ആഴ്ചയിലെ പുതിയ ഉപയോക്താക്കളുടെ എണ്ണം : %{count}"
@@ -111,8 +112,6 @@ ml:
     add_to_aspect:
       failure: "സമ്പര്‍ക്കം പരിചയത്തിലേക്ക് കൂട്ടിചേര്‍ക്കുന്നതില്‍ പരാജയപ്പെട്ടു."
       success: "വിജയകരമായി സമ്പര്‍ക്കം പരിചയത്തിലേക്ക് കൂട്ടിചേര്‍ത്തു."
-    aspect_contacts:
-      done_editing: "മാറ്റം വരുത്തി കഴിഞ്ഞു"
     aspect_listings:
       add_an_aspect: "+ഒരു പരിചയം ചേർക്കുക"
       deselect_all: "ഒന്നും തിരഞ്ഞെടുക്കാതിരിക്കുക"
@@ -131,21 +130,14 @@ ml:
       failure: "%{name} ശുന്യമല്ലാത്തതിനാല്‍ നീക്കാനാകുന്നില്ല."
       success: "%{name} വിജയകരമായി നീക്കം ചെയ്തിരിക്കുന്നു."
     edit:
-      add_existing: "നിലവിലുള്ള സമ്പര്‍ക്കം ചേര്‍കുക"
       aspect_list_is_not_visible: "പരിചയത്തിന്റെ പട്ടിക പരിചയത്തിലുള്ള മറ്റൂള്ളവരില്‍നിന്നും മറച്ചുവച്ചിരിക്കുന്നു"
       aspect_list_is_visible: "പരിചയപട്ടിക പരിചയത്തിലുള്ളവര്‍ക്ക് ദൃശ്യമാണ്."
       confirm_remove_aspect: "താങ്കള്‍ക്ക് ഈ പരിചയം നീക്കണമെന്ന് ഉറപ്പാണോ?"
-      done: "ചെയ്തു"
       make_aspect_list_visible: "പരിചയം ദൃശ്യമാക്കുക"
       remove_aspect: "ഈ പരിചയം നീക്കം ചെയ്യുക"
       rename: "പേര് മാറ്റുക"
       update: "പുതുക്കുക"
       updating: "പുതുക്കുന്നു"
-    few: "%{count} പരിചയങ്ങള്‍"
-    helper:
-      are_you_sure: "നിങ്ങള്‍ ഈ പരിചയം നീക്കം ചെയ്യുവാന്‍ ആഗ്രഹിക്കുന്നു, നിങ്ങള്‍ക്ക് തീര്‍ച്ചയാണോ?"
-      aspect_not_empty: "പരിചയം ശൂന്യമല്ല "
-      remove: "നീക്കം ചെയ്യു"
     index:
       diaspora_id:
         content_1: "നിങ്ങളുടെ ഡയാസ്പുറ ഐഡി:"
@@ -186,11 +178,6 @@ ml:
         heading: "സേവനങ്ങൾ ബന്ധിപ്പിക്കുക"
       unfollow_tag: "#%{tag} പിന്തുടരുന്നത് നിർത്തുക"
       welcome_to_diaspora: "ഡയാസ്പുറയിലേക്ക് സ്വഗതം, %{name}!"
-    many: "%{count} പരിചയങ്ങള്‍"
-    move_contact:
-      error: "സമ്പര്‍ക്കം മാറ്റാന്‍ സാധിക്കുന്നില്ല : %{inspect}"
-      failure: "ശരിയായില്ല. %{inspect}"
-      success: "വ്യക്തിയെ പുതിയ പരിചയത്തിലേക്ക് മാറ്റിയിരിക്കുന്നു"
     new:
       create: "സൃഷ്ടിക്കൂ"
       name: "പേരു്"
@@ -208,14 +195,6 @@ ml:
       family: "കുടുംബം"
       friends: "കൂട്ടുകാര്‍"
       work: "ജോലി"
-    selected_contacts:
-      manage_your_aspects: "താങ്കളുടെ പരിചയങ്ങളെ ക്രമീകരിക്കുക"
-      no_contacts: "നിങ്ങൾക്കിതുവരെ സമ്പർക്കങ്ങളൊന്നുമില്ല"
-      view_all_community_spotlight: "സാമൂഹിക പ്രാധാന്യം എല്ലാം കാണുക"
-      view_all_contacts: "എല്ലാ സമ്പർക്കങ്ങളും കാണുക"
-    show:
-      edit_aspect: "പരിചയം ചിട്ടപെടുത്തുക"
-    two: "%{count} പരിചയങ്ങള്‍"
     update:
       failure: "താങ്കള്‍ നല്കിയ %{name} എന്ന പരിചയത്തിന്റെ പേര് അനുവദിനീയമായതിലും വലുതാണ്."
       success: "നിങ്ങളുടെ പരിചയം, %{name}, വിജയകരമായി ചിട്ടപ്പെടുത്തി."
@@ -235,36 +214,27 @@ ml:
     post_success: "കുറിപ്പിട്ടു! അടയ്ക്കുന്നു!"
   cancel: "റദ്ദാക്കുക"
   comments:
-    few: "%{count} അഭിപ്രായങ്ങള്‍"
-    many: "%{count} അഭിപ്രായങ്ങള്‍"
     new_comment:
       comment: "അഭിപ്രായം"
       commenting: "അഭിപ്രായം രേഖപ്പെടുത്തുന്നു..."
     one: "1 അഭിപ്രായം"
     other: "%{count} അഭിപ്രായങ്ങള്‍"
-    two: "%{count} comments"
     zero: "അഭിപ്രായങ്ങളൊന്നുമില്ല."
   contacts:
     create:
       failure: "സമ്പര്‍ക്കം ഉണ്ടാക്കാനാകുന്നില്ല"
-    few: "%{count} സമ്പര്‍ക്കങ്ങള്‍"
     index:
       add_a_new_aspect: "പുതിയ പരിചയം ചേര്‍ക്കൂ"
       add_to_aspect: "സമ്പര്‍ക്കങ്ങള്‍ %{name} പരിചയത്തിലേക്ക് ചേര്‍ക്കുക"
-      add_to_aspect_link: "സമ്പര്‍ക്കങ്ങള്‍ %{name} പരിചയത്തിലേക്ക് ചേര്‍ക്കുക"
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
       community_spotlight: "സാമൂഹിക പ്രാധാന്യം"
-      many_people_are_you_sure: "%{suggested_limit}നെക്കാള്‍ കൂടുതല്‍ സമ്പര്‍ക്കങ്ങളുമായി ഒരു സ്വകാര്യസംഭാഷണം തുടങ്ങണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ. ഈ പരിചയത്തിലേക്ക് കുറിപ്പ് ചേര്‍ക്കുന്നതായിരിക്കും അവരെ ബന്ധപ്പെടാനുള്ള കൂടുതല്‍ നല്ല മാര്‍ഗ്ഗം."
       my_contacts: "എന്റെ സമ്പര്‍ക്കങ്ങള്‍"
       no_contacts: "കണ്ടിട്ട് താങ്കള്‍ പുതിയ ചില സമ്പര്‍ക്കങ്ങള്‍ ചേര്‍ക്കേണ്ടതുണ്ട് എന്ന് തോന്നുന്നു!"
       no_contacts_message: "%{community_spotlight} കണ്ടുനോക്കു"
-      no_contacts_message_with_aspect: "%{community_spotlight} കണ്ടുനോക്കു അല്ലെങ്കില്‍ %{add_to_aspect_link}"
       only_sharing_with_me: "നിങ്ങളുമായി മാത്രം പങ്ക് വച്ചത്"
-      remove_person_from_aspect: "\"%{aspect_name}\" - ഇല്‍നിന്ന് %{person_name} ഒഴിവാക്കുക"
       start_a_conversation: "സംഭാഷണം ആരംഭിക്കൂ"
       title: "സമ്പര്‍ക്കങ്ങള്‍"
       your_contacts: "നിങ്ങളുടെ സമ്പര്‍ക്കങ്ങള്‍"
-    many: "%{count} സമ്പര്‍ക്കങ്ങള്‍"
     one: "ഒരു സമ്പര്‍ക്കം"
     other: "%{count} മറ്റു സമ്പര്‍ക്കങ്ങള്‍"
     sharing:
@@ -272,7 +242,6 @@ ml:
     spotlight:
       community_spotlight: "സാമൂഹിക പ്രാധാന്യം"
       suggest_member: "ഒരു ഉപയോക്ത്താവിനെ നിർദ്ദേശിക്കുക"
-    two: "%{count} സമ്പര്‍ക്കങ്ങള്‍"
     zero: "സമ്പര്‍ക്കമൊന്നുമില്ല"
   conversations:
     conversation:
@@ -281,8 +250,6 @@ ml:
       fail: "സാധുവല്ലാത്ത സന്ദേശം"
       no_contact: "നമസ്കാരം, താങ്കൾ ആദ്യം ഒരു ബന്ധം ചേർക്കണം!"
       sent: "സന്ദേശം അയച്ചു."
-    destroy:
-      success: "സംഭാഷണം വിജയകരമായി നീക്കം ചെയ്തിരിക്കുന്നു."
     helper:
       new_messages:
         few: "%{count} പുതിയ സന്ദേശങ്ങള്‍"
@@ -668,7 +635,6 @@ ml:
       add_contact_from_tag: "ടാഗില്‍ നിന്ന് സമ്പര്‍ക്കം ചേര്‍ക്കുക"
     aspect_list:
       edit_membership: "പരിചയത്തിലെ അംഗത്വം തിരുത്തു"
-    few: "%{count} ആളുകള്‍"
     helper:
       is_not_sharing: "%{name} നിങ്ങളുമായി പങ്കുവെയ്ക്കുന്നില്ല."
       is_sharing: "%{name} നിങ്ങളുമായി പങ്കുവെയ്ക്കുന്നു."
@@ -679,7 +645,6 @@ ml:
       no_results: "താങ്കള്‍ എന്തിനെങ്കിലും വേണ്ടി തിരയേണ്ടതുണ്ട്."
       results_for: "വിവരങ്ങള്‍ക്കായി തെരയുക"
       searching: "തിരഞ്ഞുകൊണ്ടിരിക്കുന്നു, ദയവായി കാത്തിരിക്കുക..."
-    many: "%{count} ആളുകള്‍"
     one: "ഒരാള്‍"
     other: "%{count} ആളുകള്‍"
     person:
@@ -716,7 +681,6 @@ ml:
       add_some: "എന്തെങ്കിലും ചേർക്കൂ"
       edit: "തിരുത്തുക"
       you_have_no_tags: "താങ്കള്‍ക്ക് ഒരു ടാഗ് പോലുമില്ല!"
-    two: "%{count} ആളുകള്‍"
     webfinger:
       fail: "ക്ഷമിക്കണം, ഞങ്ങള്‍ക്ക് %{handle} കണ്ടെത്താനായില്ല.."
     zero: "ആളുകളില്ല"
@@ -808,15 +772,12 @@ ml:
       update: "പുതുക്കു"
     invalid_invite: "താങ്കൾ നൽകിയ ക്ഷണക്കത്ത് സാധുവല്ല!"
     new:
-      continue: "തുടരുക"
       create_my_account: "എന്റെ അക്കൌണ്ട് സൃഷ്ടിക്കൂ!"
-      diaspora: "<3 ഡയസ്പോറ*"
       email: "ഈമെയിൽ"
       enter_email: "Enter an email"
       enter_password: "അടയാളവാക്ക് നല്‍കുക (ആറ് അക്ഷരമെങ്കിലും)"
       enter_password_again: "അടയാളവാക്ക് വീണ്ടും നല്‍കുക"
       enter_username: "ഉപഭാക്തൃ നാമം തിരഞ്ഞെടുക്കുക (അക്ഷരങ്ങളും സംഖ്യകളും അണ്ടര്‍ സ്കോറും മാത്രം)"
-      hey_make: "നമസ്കാരം, എന്തെങ്കിലും <br/>ഉണ്ടാക്കുക<br/>"
       join_the_movement: "Join the movement!"
       password: "രഹസ്യവാക്ക്"
       password_confirmation: "രഹസ്യവാക്ക് ഉറപ്പാക്കൽ"
@@ -984,13 +945,7 @@ ml:
       no_message_to_display: "സന്ദേശമൊന്നും കാണിക്കാനില്ല."
     new:
       mentioning: "സൂചിപ്പിക്കുന്നു: %{person}"
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "Hide all comments"
     show_comments:
@@ -1031,7 +986,6 @@ ml:
       title: "Public Activity"
     tags:
       contacts_title: "People who dig this tag"
-      tag_prefill_text: "The thing about %{tag_name} is... "
       title: "Posts tagged: %{tags}"
   tag_followings:
     create:
@@ -1045,10 +999,7 @@ ml:
     show:
       follow: "Follow #%{tag}"
       following: "Following #%{tag}"
-      nobody_talking: "നിലവില്‍ ആരും %{tag}-നെ കുറിച്ച് സംസാരിക്കുന്നില്ല."
       none: "The empty tag does not exist!"
-      people_tagged_with: "%{tag} ചേര്‍ത്തിട്ടുള്ള ആളുകള്‍"
-      posts_tagged_with: "#%{tag} ചേര്‍ത്തിട്ടുള്ള കുറിപ്പുകള്‍"
       stop_following: "Stop Following #%{tag}"
   terms_and_conditions: "വ്യവസ്ഥകളും നിബന്ധനകളും"
   undo: "പൂര്‍വരൂപത്തിലാക്കണോ?"
@@ -1084,7 +1035,6 @@ ml:
       current_password: "ഇപ്പോഴത്തെ അടയാളവാക്ക്"
       current_password_expl: "താങ്കൾ സൈൻ ഇൻ ചെയ്യുന്ന ആ ഒരെണ്ണം."
       download_photos: "എന്റെ ചിത്രങ്ങള്‍ ഇറക്കു"
-      download_xml: "എന്റെ എക്സ് എം എല്‍ ഇറക്കു"
       edit_account: "അക്കൌണ്ട് തിരുത്തു"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "വിവരങ്ങള്‍ ഇറക്കുമതി ചെയ്യു"
@@ -1093,7 +1043,6 @@ ml:
       liked: "...someone likes your post?"
       mentioned: "...ഒരു കുറിപ്പില്‍ ആരെങ്കിലും സൂചിപ്പിക്കുമ്പോള്‍?"
       new_password: "പുതിയ അടയാളവാക്ക്"
-      photo_export_unavailable: "ഫോട്ടോ ഇറക്കുമതി നിലവിൽ ലഭ്യമല്ല"
       private_message: "...ഒരു സ്വകാര്യ സന്ദേശം കിട്ടുമ്പോള്‍?"
       receive_email_notifications: "ഇമെയില്‍ അറിയിപ്പുകള്‍ വേണോ?"
       reshared: "...someone reshares your post?"

@@ -96,7 +96,8 @@ bs:
         one: "%{count} korisnik pronađen"
         other: "%{count} korisnika pronađeno"
         zero: "%{count} korisnika pronađeno"
-      you_currently: "trenutno imate %{user_invitation} pozivnice preostale %{link}"
+      you_currently:
+        other: "trenutno imate %{user_invitation} pozivnice preostale %{link}"
     weekly_user_stats:
       amount_of:
         few: "količina novih korisnika ove sedmice: %{count}"
@@ -123,8 +124,6 @@ bs:
     add_to_aspect:
       failure: "Neuspješno dodavanje kontakta u aspekt."
       success: "Uspješno dodavanje kontakta u aspekt."
-    aspect_contacts:
-      done_editing: "gotovo uređivanje"
     aspect_listings:
       add_an_aspect: "+ Dodaj jedan aspekt"
       deselect_all: "Odznači sve"
@@ -143,21 +142,14 @@ bs:
       failure: "%{name} nije prazno i ne može biti uklonjeno."
       success: "%{name} je uspješno uklonjeno."
     edit:
-      add_existing: "Dodaj jedan postojeći kontakt"
       aspect_list_is_not_visible: "lista aspekata je sakrivena od drugih u aspektu"
       aspect_list_is_visible: "lista aspekata je vidljiva od drugih u aspektu"
       confirm_remove_aspect: "Jeste li sigurni da želite izbrisati ovaj aspekt?"
-      done: "Gotovo"
       make_aspect_list_visible: "učini kontakte u ovom aspektu vidljive jedan drugome?"
       remove_aspect: "Izbriši ovaj aspekt"
       rename: "preimenuj"
       update: "ažuriraj"
       updating: "ažuriram"
-    few: "%{count} aspekata"
-    helper:
-      are_you_sure: "Jeste li sigurni da želite izbrisati ovaj aspekt?"
-      aspect_not_empty: "Aspekti nisu prazni"
-      remove: "ukloni"
     index:
       diaspora_id:
         content_1: "Vaš Diaspora ID je:"
@@ -198,11 +190,6 @@ bs:
         heading: "Servisi Povezivanja"
       unfollow_tag: "Prestani slijediti #%{tag}"
       welcome_to_diaspora: "Dobrodošli na Diasporu, %{name}!"
-    many: "%{count} aspekata"
-    move_contact:
-      error: "Greška pomjeranja kontakta: %{inspect}"
-      failure: "nije uspjelo %{inspect}"
-      success: "Osoba pomjerena u novi aspekt"
     new:
       create: "Kreiraj"
       name: "Ime (vidljivo samo vama)"
@@ -220,14 +207,6 @@ bs:
       family: "Porodica"
       friends: "Prijatelji"
       work: "Posao"
-    selected_contacts:
-      manage_your_aspects: "Upravljaj svoje aspekte."
-      no_contacts: "Još uvijek nemate nikakvih kontakata."
-      view_all_community_spotlight: "Pogledaj sve što je u centru pažnje"
-      view_all_contacts: "Pogledaj sve kontakte"
-    show:
-      edit_aspect: "uredi aspekt"
-    two: "%{count} aspekta"
     update:
       failure: "Vaš aspekt, %{name}, ima predugo ime da bi se snimilo."
       success: "Vaš aspekt, %{name}, je uspješno uređen."
@@ -247,36 +226,27 @@ bs:
     post_success: "Objavljeno! Zatvaram!"
   cancel: "Otkaži"
   comments:
-    few: "%{count} komentara"
-    many: "%{count} komentara"
     new_comment:
       comment: "Komentar"
       commenting: "Komentarišem..."
     one: "1 komentar"
     other: "%{count} komentari"
-    two: "%{count} komentara"
     zero: "nema komentara"
   contacts:
     create:
       failure: "Neuspješno kreiranje kontakta"
-    few: "%{count} kontakata"
     index:
       add_a_new_aspect: "Dodaj novi aspekt"
       add_to_aspect: "dodaj kontakte za %{name}"
-      add_to_aspect_link: "dodaj kontakte za %{name}"
       all_contacts: "Svi Kontakti"
       community_spotlight: "U Centru Pažnje"
-      many_people_are_you_sure: "Jeste li sigurni da želite pokrenuti privatni razgovor sa više od %{suggested_limit} kontakata? Objavljivanje na ovaj aspekt je možda bolji način da ih kontaktirate."
       my_contacts: "Moji Kontakti"
       no_contacts: "Izgleda kao morate dodati neke kontakte!"
       no_contacts_message: "Probajte %{community_spotlight}"
-      no_contacts_message_with_aspect: "Probajte %{community_spotlight} ili %{add_to_aspect_link}"
       only_sharing_with_me: "Samo dijele sa mnom"
-      remove_person_from_aspect: "Ukloni %{person_name} iz \"%{aspect_name}\""
       start_a_conversation: "Započni razgovor"
       title: "Kontakti"
       your_contacts: "Vaši Kontakti"
-    many: "%{count} kontakata"
     one: "1 kontakt"
     other: "%{count} kontakti"
     sharing:
@@ -284,7 +254,6 @@ bs:
     spotlight:
       community_spotlight: "U Centru Pažnje"
       suggest_member: "Preporuči člana"
-    two: "%{count} kontakta"
     zero: "kontakti"
   conversations:
     conversation:
@@ -293,8 +262,6 @@ bs:
       fail: "Nevažeća poruka"
       no_contact: "Hej, morate prvo dodati kontakt!"
       sent: "Poruka poslata"
-    destroy:
-      success: "Razgovor uspješno uklonjen"
     helper:
       new_messages:
         few: "%{count} novih poruka"
@@ -617,7 +584,6 @@ bs:
       add_contact_from_tag: "dodaj kontakt sa oznake"
     aspect_list:
       edit_membership: "uredi članstvo aspekta"
-    few: "%{count} ljudi"
     helper:
       is_not_sharing: "%{name} ne dijeli s vama"
       is_sharing: "%{name} dijeli s vama"
@@ -628,7 +594,6 @@ bs:
       no_results: "Hej! Trebate tražiti nešto."
       results_for: "rezultati pretrage za"
       searching: "pretraživanje, molimo budite strpljivi"
-    many: "%{count} ljudi"
     one: "1 osoba"
     other: "%{count} ljudi"
     person:
@@ -665,7 +630,6 @@ bs:
       add_some: "dodajte neke"
       edit: "uredi"
       you_have_no_tags: "nemate oznaka!"
-    two: "%{count} ljudi"
     webfinger:
       fail: "Izvinite, nisamo mogli pronaći %{handle}."
     zero: "nema ljudi"
@@ -761,15 +725,12 @@ bs:
       update: "Ažuriraj"
     invalid_invite: "Veza pozivnice koji ste obezbijedili više nije važeća!"
     new:
-      continue: "Nastavi"
       create_my_account: "Kreiraj moj račun!"
-      diaspora: "<3 diaspora*"
       email: "EMAIL"
       enter_email: "Unesite email"
       enter_password: "Unesite šifru (šest karaktera minimalno)"
       enter_password_again: "Unesite istu šifru kao i maloprije"
       enter_username: "Izaberite korisničko ime (samo slova, brojevi i podcrte)"
-      hey_make: "HEJ, <br/>UČINI<br/>NEŠTO."
       join_the_movement: "Pridružite se pokretu!"
       password: "ŠIFRA"
       password_confirmation: "POTVRDA ŠIFRE"
@@ -937,12 +898,7 @@ bs:
       no_message_to_display: "Nema poruka za prikaz."
     new:
       mentioning: "Spominje %{person}"
-    too_long:
-      few: "molimo da vaše poruke statusa sadrže manje nego %{count} karaktera"
-      many: "molimo da vaše poruke statusa sadrže manje nego %{count} karaktera"
-      one: "molimo da vaše poruke statusa sadrže manje nego %{count} karakter"
-      other: "molimo da vaše poruke statusa sadrže manje nego %{count} karaktera"
-      zero: "molimo da vaše poruke statusa sadrže manje nego %{count} karaktera"
+    too_long: "{\"few\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\", \"many\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\", \"one\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karakter\", \"other\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\", \"zero\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\"}"
   stream_helper:
     hide_comments: "Sakrij sve komentare"
     show_comments:
@@ -982,7 +938,6 @@ bs:
       title: "Javna Aktivnost"
     tags:
       contacts_title: "Ljudi kojima se ova oznaka sviđa"
-      tag_prefill_text: "Stvar oko %{tag_name} je... "
       title: "Objave označene: %{tags}"
   tag_followings:
     create:
@@ -996,10 +951,7 @@ bs:
     show:
       follow: "Prati #%{tag}"
       following: "Pratim #%{tag}"
-      nobody_talking: "Niko još ne razgovara o %{tag}"
       none: "Prazna oznaka ne postoji!"
-      people_tagged_with: "Ljudi označeni sa %{tag}"
-      posts_tagged_with: "Objave označene sa #%{tag}"
       stop_following: "Zaustavi Praćenje #%{tag}"
   terms_and_conditions: "Uvjeti i Stanja"
   undo: "Poništi?"
@@ -1035,7 +987,6 @@ bs:
       current_password: "Trenutna šifra"
       current_password_expl: "ona s kojom se prijavljujete..."
       download_photos: "preuzmi moje fotografije"
-      download_xml: "preuzmi moj xml"
       edit_account: "Uredi račun"
       email_awaiting_confirmation: "Poslali smo aktivacijsku vezu na %{unconfirmed_email}. Dok ne budete pratili ovu objavu i aktivirali novu adresu, nastavit ćemo koristiti vašu originalnu adresu %{email}."
       export_data: "Izvezi Podatke"
@@ -1044,7 +995,6 @@ bs:
       liked: "...se nekome sviđa vaša objava?"
       mentioned: "...vas neko spomene u objavi?"
       new_password: "Nova šifra"
-      photo_export_unavailable: "Izvoz fotografija trenutno nedostupan."
       private_message: "...primite privatnu poruku?"
       receive_email_notifications: "Primite email obavijesti kada..."
       reshared: "...neko ponovo dijeli vašu objavu?"

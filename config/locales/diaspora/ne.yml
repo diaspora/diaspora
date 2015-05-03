@@ -13,8 +13,6 @@ ne:
     helper:
       unknown_person: "अपरिचित व्यक्ति"
   aspects:
-    helper:
-      remove: "हटाउनुहोस्"
     index:
       help:
         tag_question: "प्रश्न"

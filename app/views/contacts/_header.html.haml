@@ -1,0 +1,42 @@
+.header
+  - if @aspect
+    #aspect_controls.pull-right
+      - if @aspect.contacts.size > 0 && @aspect.contacts.size < 20
+        = start_a_conversation_link(@aspect, @aspect.contacts.size)
+
+      = link_to aspect_toggle_contact_visibility_path(@aspect), id: "contacts_visibility_toggle", class: "contacts_button", method: :put, remote: true do
+        -if @aspect.contacts_visible?
+          %i.entypo.lock-open.contacts-header-icon{:title => t('aspects.edit.aspect_list_is_visible')}
+        -else
+          %i.entypo.lock.contacts-header-icon{:title => t('aspects.edit.aspect_list_is_not_visible')}
+
+      -if AppConfig.chat.enabled?
+        = link_to aspect_toggle_chat_privilege_path(@aspect), id: "chat_privilege_toggle", class: "contacts_button", method: :put, remote: true do
+          -if @aspect.chat_enabled?
+            %i.entypo.chat.enabled.contacts-header-icon{:title => t('aspects.edit.aspect_chat_is_enabled')}
+          -else
+            %i.entypo.chat.contacts-header-icon{:title => t('aspects.edit.aspect_chat_is_not_enabled')}
+
+      = link_to @aspect, method: "delete", data: { confirm: t('aspects.edit.confirm_remove_aspect') }, class: 'delete contacts_button', id: 'delete_aspect' do
+        %i.entypo.trash.contacts-header-icon{:title => t('delete')}
+    .pull-right
+      = search_field_tag :contact_search, "", id: "contact_list_search", class: "search-query",  placeholder: t('contacts.index.user_search')
+    %h3
+      %span#aspect_name
+        = @aspect.name
+      %span#change_aspect_name.contacts_button
+        %i.entypo.pencil.contacts-header-icon{:title => t('aspects.edit.rename')}
+    #aspect_name_form
+      = form_for @aspect, :remote => true do |aspect|
+        = aspect.text_field :name, :maxlength => 20
+        = aspect.submit t('aspects.edit.update'), 'data-disable-with' => t('aspects.edit.updating'), :class => "btn"
+
+  - else
+    %h3
+      - case params["set"]
+        - when "only_sharing"
+          = t('contacts.index.only_sharing_with_me')
+        - when "all"
+          = t('contacts.index.all_contacts')
+        - else
+          = t('contacts.index.my_contacts')

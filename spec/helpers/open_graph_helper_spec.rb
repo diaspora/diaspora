@@ -1,6 +1,21 @@
 require 'spec_helper'
 
-describe OpenGraphHelper do
+describe OpenGraphHelper, :type => :helper do
+  describe 'og_page_post_tags' do
+    it 'handles a reshare of a deleted post' do
+      reshare = FactoryGirl.build(:reshare, root: nil, id: 123)
+
+      expect {
+        helper.og_page_post_tags(reshare)
+      }.to_not raise_error
+    end
+
+    it 'handles a normal post' do
+      post = FactoryGirl.create(:status_message)
+      expect(helper.og_page_post_tags(post)).to include helper.og_url(post_url(post))
+    end
+  end
+
   describe 'og_html' do
     scenarios = {
       "article" => {
@@ -21,10 +36,10 @@ describe OpenGraphHelper do
 
         formatted = og_html(cache)
 
-        formatted.should =~ /#{data['url']}/
-        formatted.should =~ /#{data['title']}/
-        formatted.should =~ /#{data['image']}/
-        formatted.should =~ /#{data['description']}/
+        expect(formatted).to match(/#{data['url']}/)
+        expect(formatted).to match(/#{data['title']}/)
+        expect(formatted).to match(/#{data['image']}/)
+        expect(formatted).to match(/#{data['description']}/)
       end
     end
   end

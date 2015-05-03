@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 app.views.PublisherPollCreator = app.views.Base.extend({
   templateName: "poll_creator",
   
@@ -64,22 +66,20 @@ app.views.PublisherPollCreator = app.views.Base.extend({
     this.$('input').val('');
   },
 
-  validate: function(evt){
-    var input = $(evt.target);
+  validate: function(){
     this.validatePoll();
     this.trigger('change');
   },
 
   validateInput: function(input){
-    var wrapper = input.parents('.control-group');
     var isValid = this.isValidInput(input);
 
     if(isValid){
-      wrapper.removeClass('error');
+      input.removeClass('error');
       return true;
     }
     else {
-      wrapper.addClass('error');
+      input.addClass('error');
       return false;
     }
   },
@@ -97,10 +97,12 @@ app.views.PublisherPollCreator = app.views.Base.extend({
       // Validate the input unless it is the last one, or there are only the
       // question field and two options
       if( i !== inputs.length - 1 || inputs.length <= 3) {
-        if(_this.validateInput($(input)) == false) pollValid = false;
+        if(_this.validateInput($(input)) === false) pollValid = false;
       }      
     });
 
     return pollValid;
   }
 });
+// @license-end
+

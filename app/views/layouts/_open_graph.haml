@@ -1,0 +1,5 @@
+- if @post.present?
+  %link{:rel => 'alternate', :type => "application/json+oembed", :href => "#{oembed_url(:url => post_url(@post))}"}
+  = og_page_post_tags(@post)
+- else
+  = og_general_tags

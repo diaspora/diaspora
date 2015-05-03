@@ -12,6 +12,8 @@ de:
       all_aspects: "Alle Aspekte"
       error: "Teilen mit <%= name %> nicht möglich. Ignorierst du sie/ihn?"
       error_remove: "Konnte <%= name %> nicht aus dem Aspekt entfernen :("
+      mobile_row_checked: "<%= name %> (entfernen)"
+      mobile_row_unchecked: "<%= name %> (hinzufügen)"
       select_aspects: "Wähle Aspekte aus"
       started_sharing_with: "Du hast angefangen, mit <%= name %> zu teilen!"
       stopped_sharing_with: "Du hast aufgehört, mit <%= name %> zu teilen!"
@@ -22,6 +24,7 @@ de:
         other: "In <%= count %> Aspekten"
         two: "In <%= count %> Aspekten"
         zero: "Aspekt auswählen"
+      updating: "aktualisiere..."
     aspect_navigation:
       add_an_aspect: "+ Aspekt hinzufügen"
       deselect_all: "Auswahl aufheben"
@@ -37,6 +40,15 @@ de:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
+    confirm_unload: "Bitte bestätige dass du diese Seite verlassen willst - Daten welche du eingegeben hast würden nicht gespeichert werden."
+    contacts:
+      add_contact: "Kontakt hinzufügen"
+      aspect_list_is_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
+      aspect_list_is_visible: "Kontakte in diesem Aspekt können einander sehen"
+      error_add: "Konnte <%= name %> nicht zum Aspekt hinzufügen :("
+      error_remove: "Konnte <%= name %> nicht aus dem Aspekt entfernen :("
+      remove_contact: "Kontakt entfernen"
+      search_no_results: "Keine Kontakte gefunden"
     conversation:
       participants: "Teilnehmer"
     delete: "Löschen"
@@ -44,6 +56,7 @@ de:
     failed_to_like: "Gefällt mir fehlgeschlagen!"
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     failed_to_remove: "Fehler beim Entfernen des Beitrags!"
+    failed_to_reshare: "Fehler beim Weitersagen!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
       hey: "Hey, <%= name %>!"
@@ -64,6 +77,8 @@ de:
       search: "Suchen"
       settings: "Einstellungen"
       view_all: "Alle anzeigen"
+    hide_post: "Diesen Beitrag ausblenden?"
+    hide_post_failed: "Ausblenden des Beitrags nicht möglich"
     ignore: "Ignorieren"
     ignore_failed: "Konnte Benutzer nicht ignorieren"
     ignore_user: "Benutzer ignorieren?"
@@ -73,11 +88,19 @@ de:
     my_activity: "Meine Aktivitäten"
     my_aspects: "Meine Aspekte"
     my_stream: "Stream"
+    no_results: "Keine Treffer"
     notifications:
       mark_read: "Als gelesen markieren"
       mark_unread: "Als ungelesen markieren"
     people:
+      edit_my_profile: "Mein Profil bearbeiten"
+      helper:
+        is_not_sharing: "<%= name %> teilt nicht mit dir"
+        is_sharing: "<%= name %> teilt mit dir"
+      mention: "Erwähnen"
+      message: "Nachricht"
       not_found: "und niemand wurde gefunden..."
+      stop_ignoring: "Nicht mehr ignorieren"
     photo_uploader:
       completed: "<%= file %> hochgeladen"
       empty: "Die Datei {file} ist leer. Bitte treffe eine erneute Auswahl ohne diese Datei."
@@ -89,21 +112,36 @@ de:
       close_result: "Ergebnis ausblenden"
       count:
         one: "Bisher eine Stimme"
-        other: "Bisher <%=count%> Stimmen."
+        other: "Bisher <%=count%> Stimmen"
+      go_to_original_post: "Du kannst an dieser Umfrage im <%= original_post_link %> teilnehmen."
+      original_post: "Originalbeitrag"
       result: "Ergebnis"
       show_result: "Ergebnis anzeigen"
       vote: "Abstimmen"
+    profile:
+      add_some: "Füge neue hinzu"
+      bio: "Bio"
+      born: "Geburtstag"
+      contacts: "Kontakte"
+      edit: "bearbeite"
+      gender: "Geschlecht"
+      ignoring: "Du ignorierst sämtliche Beiträge von <%= name %>."
+      location: "Ort"
+      photos: "Fotos"
+      posts: "Beiträge"
+      you_have_no_tags: "Du hast keine Tags!"
     publisher:
       add_option: "Antwortmöglichkeit hinzufügen"
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
       near_from: "Gesendet aus <%= location %>"
-      option: "Antwort <%= nr %>"
+      option: "Antwort"
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
       question: "Frage"
+    remove_post: "Diesen Beitrag löschen?"
     report:
       name: "Meldung"
-      prompt: "Bitte gebe einen Grund an:"
+      prompt: "Bitte gib einen Grund an:"
       prompt_default: "anstößiger Inhalt"
       status:
         created: "Die Meldung wurde erfolgreich erstellt"
@@ -116,6 +154,8 @@ de:
     show_more: "Mehr zeigen"
     stream:
       comment: "Kommentar"
+      disable_post_notifications: "Benachrichtigungen für diesen Beitrag deaktivieren"
+      enable_post_notifications: "Benachrichtigungen für diesen Beitrag aktivieren"
       follow: "Folgen"
       followed_tag:
         add_a_tag: "Tag hinzufügen"
@@ -123,7 +163,7 @@ de:
         follow: "Folgen"
         title: "#Tags, denen du folgst"
       hide: "Ausblenden"
-      hide_nsfw_posts: "#nsfw-Posts verstecken"
+      hide_nsfw_posts: "#nsfw-Beiträge verstecken"
       like: "Gefällt mir"
       likes:
         few: "<%= count %> Personen gefällt das"
@@ -175,6 +215,7 @@ de:
       wordSeparator: " "
       year: "etwa einem Jahr"
       years: "%d Jahren"
+    unblock_failed: "Den Benutzer zu entblocken ist fehlgeschlagen."
     videos:
       unknown: "Unbekanntes Videoformat"
       watch: "Dieses Video auf <%= provider %> ansehen"

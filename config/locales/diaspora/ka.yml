@@ -62,8 +62,6 @@ ka:
     add_to_aspect:
       failure: "კონტაქტის ასპექტში დამატება ჩაიშალა."
       success: "კონტაქტი წარმატებით დაემატა ასპექტში."
-    aspect_contacts:
-      done_editing: "რედაქტირების დასრულება"
     aspect_listings:
       add_an_aspect: "+ ასპექტის დამატება"
       deselect_all: "ყველა მონიშვნის მოხსნა"
@@ -81,21 +79,14 @@ ka:
       failure: "%{name} ცარიელი არ არის და მას ვერ წაშლით."
       success: "%{name} წარმატებით წაიშალა."
     edit:
-      add_existing: "არსებული კონტაქტის დამატება"
       aspect_list_is_not_visible: "ასპექტის სია დამალულია ამ ასპექტში მყოფთათვის."
       aspect_list_is_visible: "ასპექტის სია ხილულია ამ ასპექტში მყოფთათვის"
       confirm_remove_aspect: "დარწმუნებული ხართ რომ ამ ასპექტის წაშლა გსურთ?"
-      done: "დასრულება"
       make_aspect_list_visible: "გახდნენ ამ ასპექტში არსებული კონტაქტები ერთმანეთისთვის ხილულნი?"
       remove_aspect: "ამ ასპექტის წაშლა"
       rename: "გადარქმევა"
       update: "განახლება"
       updating: "ნახლდება"
-    few: "%{count} aspects"
-    helper:
-      are_you_sure: "დარწმუნებული ხართ რომ ამ ასპექტის წაშლა გსურთ?"
-      aspect_not_empty: "ასპექტი არ არის ცარიელი"
-      remove: "წაშლა"
     index:
       diaspora_id:
         content_1: "თქვენი Diaspora-ს ID არის:"
@@ -128,11 +119,6 @@ ka:
         content: "დიასპორაში შეგიძლია დაუკავშირდე შემდეგ სერვისებს:"
         heading: "სერვისებთან დაკავშირება"
       unfollow_tag: "შეწყვიტე გაყოლა #%{tag}"
-    many: "%{count} ასპექტი"
-    move_contact:
-      error: "კონტაქტის გადაყვანისას დაფიქსირდა შეცდომა: %{inspect}"
-      failure: "არ მუშაობს %{inspect}"
-      success: "პერსონა გადაყვანილია ახალ ასპექტში"
     new:
       create: "შექმნა"
       name: "სახელი (ხედავთ მხოლოდ თქვენ)"
@@ -150,14 +136,6 @@ ka:
       family: "ოჯახი"
       friends: "მეგობრები"
       work: "სამსახური"
-    selected_contacts:
-      manage_your_aspects: "თქვენი ასპექტების მართვა."
-      no_contacts: "თქვენ ჯერ არცერთი კონტაქტი არ გყავთ."
-      view_all_community_spotlight: "ყველა რეკომენდაციის ნახვა"
-      view_all_contacts: "ყველა კონტაქტის ნახვა"
-    show:
-      edit_aspect: "ასპექტის რედაქტირება"
-    two: "%{count} ასპექტი"
     update:
       failure: "თქვენს ასპექტს, %{name}, აქვს ძალიან დიდი სახელი და არ შეიძლება მისი შენახვა"
       success: "თქვენი ასპექტი, %{name}, წარმატებით დარედაქტირდა."
@@ -173,48 +151,36 @@ ka:
     post_success: "გამოქვეყნდა! იხურება!"
   cancel: "გაუქმება"
   comments:
-    few: "%{count} კომენტარი"
-    many: "%{count} კომენტარი"
     new_comment:
       comment: "კომენტარი"
     one: "1 კომენტარი"
     other: "%{count} კომენტარი"
-    two: "%{count} კომენტარი"
     zero: "კომენტარები არ არის"
   contacts:
     create:
       failure: "კომენატარის შექმნა ვერ მოხერხდა"
-    few: "%{count} კონტაქტი"
     index:
       add_a_new_aspect: "დაამატე ახალი ასპექტი"
       add_to_aspect: "%{name} დაამატე კონტაქტებში"
-      add_to_aspect_link: "დაამატე კონტაქტებში %{name}"
       all_contacts: "ყველა კონტაქტი"
-      many_people_are_you_sure: "დარწმუნებული ხართ რომ გინდათ პირადი საუბრის დაწყება %{suggested_limit} კონტაქტთან? ამ ასპექტში დაპოსტვა უფრო კარგი საშუალებაა მათთან დასაკავშირებლად."
       my_contacts: "ჩემი კონტაქტები"
       no_contacts: "მგონი კიდევ რამოდენიმე კონტაქტის დამატება გჭირდება"
       no_contacts_message: "ნახე %{community_spotlight}"
-      no_contacts_message_with_aspect: "ნახე %{community_spotlight} ან %{add_to_aspect_link}"
       only_sharing_with_me: "აზიარებს მხოლოდ ჩემთან"
-      remove_person_from_aspect: "ამოშლა %{person_name} \"%{aspect_name}\"-დან"
       start_a_conversation: "დაიწყე საუბარი"
       title: "კონტაქტები"
       your_contacts: "შენი კონტაქტები"
-    many: "%{count} კონტაქტი"
     one: "1 კონტაქტი"
     other: "%{count} კონტაქტი"
     sharing:
       people_sharing: "ხალხი, რომელიც აზიარებს შენთან:"
     spotlight:
       community_spotlight: "Community Spotlight"
-    two: "%{count} კონტაქტი"
     zero: "კონტაქტები"
   conversations:
     create:
       fail: "არასწორი წერილი"
       sent: "წერილი გაგზავნილია"
-    destroy:
-      success: "დიალოგი წარმატებით წაიშალა"
     helper:
       new_messages:
         few: "%{count} new messages"
@@ -456,7 +422,6 @@ ka:
       add_contact_from_tag: "დაამატე კონტაქტი თაგიდან"
     aspect_list:
       edit_membership: "edit aspect membership"
-    few: "%{count} ადამიანს"
     helper:
       results_for: " რეზულტატი %{params}-სთვის"
     index:
@@ -464,7 +429,6 @@ ka:
       no_one_found: "...და ვერავინ ვერ მოიძებნა."
       no_results: "რამე უნდა მოძებნო!"
       results_for: "მოძებნე რეზულტატები"
-    many: "%{count} ადამიანს"
     one: "1 პერსონა"
     other: "%{count} ადამიანს"
     person:
@@ -500,7 +464,6 @@ ka:
       add_some: "დაამატე"
       edit: "რედაქტირება"
       you_have_no_tags: "შენ არ გაქვს თაგები!"
-    two: "%{count}"
     webfinger:
       fail: "ბოდიში, ვერ ვიპოვეთ %{handle}."
     zero: "არ არის ხალხი"
@@ -753,13 +716,7 @@ ka:
       no_message_to_display: "არ არის მესიჯები."
     new:
       mentioning: "Mentioning: %{person}"
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "დამალე ყველა კომენატარი"
     show_comments:

@@ -6,16 +6,16 @@
 - if AppConfig.settings.invitations.open?
   .section
     .title
-      .icons-plus
       %h5.title-header
+        %i.entypo.plus
         = t('shared.invitations.invite_your_friends')
     .content
-      = render "shared/invitations_blueprint"
+      = render "shared/invitations"
 
 .section
   .title
-    .icons-heart
     %h5.title-header
+      %i.entypo.users
       = t('aspects.index.new_here.title')
   .content
     != t('aspects.index.new_here.follow', link: link_to("#"+t('shared.publisher.new_user_prefill.newhere'), tag_path(name: t('shared.publisher.new_user_prefill.newhere'))))
@@ -24,8 +24,8 @@
 
 .section
   .title
-    .icons-question
     %h5.title-header
+      %i.entypo.circled-help
       = t('aspects.index.help.need_help')
   .content
     %p
@@ -48,8 +48,8 @@
 - unless AppConfig.configured_services.blank? || all_services_connected?
   .section
     .title
-      .icons-monotone_wrench_settings
       %h5.title-header
+        %i.entypo.cog
         = t('aspects.index.services.heading')
     .content
       %div
@@ -62,17 +62,17 @@
 
 .section
   .title
-    .icons-bookmark
     %h5.title-header
+      %i.entypo.bookmark
       = t('bookmarklet.heading')
   .content
-    != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.post_something'), magic_bookmarklet_link))
+    != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.post_something'), bookmarklet_url))
 
-- if AppConfig.settings.paypal_hosted_button_id.present? || AppConfig.bitcoin_donation_address
+- if AppConfig.settings.paypal_donations.enable? || AppConfig.bitcoin_donation_address
   .section
     .title
-      .icons-coffee
       %h5.title-header
+        %i.entypo.heart
         = t('aspects.index.donate')
     .content
       %p
@@ -82,8 +82,8 @@
 - if AppConfig.admins.podmin_email.present?
   .section
     .title
-      .icons-mail
       %h5.title-header
+        %i.entypo.mail
         = t('aspects.index.help.any_problem')
     .content
       %p
@@ -93,6 +93,7 @@
 
 .section
   .title
-  %ul.content
-    = render "shared/links"
+  .content
+    %ul
+      = render "shared/links"
 

@@ -11,22 +11,22 @@ describe WebfingerProfile do
     
     describe '#valid_diaspora_profile?' do
       it 'should check all of the required fields' do
-        manual_nil_check(profile).should == profile.valid_diaspora_profile?
+        expect(manual_nil_check(profile)).to eq(profile.valid_diaspora_profile?)
       end
     end
 
     describe '#set_fields' do
       it 'should check to make sure it has a the right webfinger profile' do
-        proc{ WebfingerProfile.new("nottom@tom.joindiaspora.com", webfinger_profile)}.should raise_error 
+        expect{ WebfingerProfile.new("nottom@tom.joindiaspora.com", webfinger_profile)}.to raise_error 
       end
 
       it 'should handle a non-diaspora profile without blowing up' do
-        proc{ WebfingerProfile.new("evan@status.net", not_diaspora_webfinger)}.should_not raise_error 
+        expect{ WebfingerProfile.new("evan@status.net", not_diaspora_webfinger)}.not_to raise_error 
       end
       
       [:links, :hcard, :guid, :seed_location, :public_key].each do |field|
         it 'should sets the #{field} field' do
-          profile.send(field).should be_present
+          expect(profile.send(field)).to be_present
         end
       end
     end

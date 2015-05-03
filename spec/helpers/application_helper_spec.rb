@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe ApplicationHelper do
+describe ApplicationHelper, :type => :helper do
   before do
     @user = alice
     @person = FactoryGirl.create(:person)
@@ -19,18 +19,17 @@ describe ApplicationHelper do
 
     it 'links to community spotlight' do
       @current_user = FactoryGirl.create(:user)
-      contacts_link.should == community_spotlight_path
+      expect(contacts_link).to eq(community_spotlight_path)
     end
 
     it 'links to contacts#index' do
       @current_user = alice
-      contacts_link.should == contacts_path
+      expect(contacts_link).to eq(contacts_path)
     end
   end
 
   describe "#all_services_connected?" do
     before do
-      @old_configured_services = AppConfig.configured_services
       AppConfig.configured_services = [1, 2, 3]
 
       def current_user
@@ -40,17 +39,17 @@ describe ApplicationHelper do
     end
 
     after do
-      AppConfig.configured_services = @old_configured_services
+      AppConfig.configured_services = nil
     end
 
     it 'returns true if all networks are connected' do
       3.times { |t| @current_user.services << FactoryGirl.build(:service) }
-      all_services_connected?.should be_true
+      expect(all_services_connected?).to be true
     end
 
     it 'returns false if not all networks are connected' do
       @current_user.services.delete_all
-      all_services_connected?.should be_false
+      expect(all_services_connected?).to be false
     end
   end
 
@@ -61,11 +60,11 @@ describe ApplicationHelper do
       end
 
       it 'inclues jquery.js from jquery cdn' do
-        jquery_include_tag.should match(/jquery\.com/)
+        expect(jquery_include_tag).to match(/jquery\.com/)
       end
 
       it 'falls back to asset pipeline on cdn failure' do
-        jquery_include_tag.should match(/document\.write/)
+        expect(jquery_include_tag).to match(/document\.write/)
       end
     end
 
@@ -75,57 +74,49 @@ describe ApplicationHelper do
       end
 
       it 'includes jquery.js from asset pipeline' do
-        jquery_include_tag.should match(/jquery\.js/)
-        jquery_include_tag.should_not match(/jquery\.com/)
+        expect(jquery_include_tag).to match(/jquery\.js/)
+        expect(jquery_include_tag).not_to match(/jquery\.com/)
       end
     end
 
     it 'inclues jquery_ujs.js' do
-      jquery_include_tag.should match(/jquery_ujs\.js/)
+      expect(jquery_include_tag).to match(/jquery_ujs\.js/)
     end
 
     it "disables ajax caching" do
-      jquery_include_tag.should match(/jQuery\.ajaxSetup/)
+      expect(jquery_include_tag).to match(/jQuery\.ajaxSetup/)
     end
   end
 
   describe '#changelog_url' do
     it 'defaults to master branch changleog' do
-      old_revision = AppConfig.git_revision
       AppConfig.git_revision = nil
-      changelog_url.should == 'https://github.com/diaspora/diaspora/blob/master/Changelog.md'
-      AppConfig.git_revision = old_revision
+      expect(changelog_url).to eq('https://github.com/diaspora/diaspora/blob/master/Changelog.md')
     end
 
     it 'displays the changelog for the current git revision if set' do
-      old_revision = AppConfig.git_revision
       AppConfig.git_revision = '123'
-      changelog_url.should == 'https://github.com/diaspora/diaspora/blob/123/Changelog.md'
-      AppConfig.git_revision = old_revision
+      expect(changelog_url).to eq('https://github.com/diaspora/diaspora/blob/123/Changelog.md')
     end
 
   end
 
   describe '#pod_name' do
     it 'defaults to Diaspora*' do
-      pod_name.should  match /DIASPORA/i
+      expect(pod_name).to  match /DIASPORA/i
     end
 
     it 'displays the supplied pod_name if it is set' do
-      old_name = AppConfig.settings.pod_name.get
       AppConfig.settings.pod_name = "Catspora"
-      pod_name.should match "Catspora"
-      AppConfig.settings.pod_name = old_name
+      # require 'pry'; binding.pry
+      expect(pod_name).to match "Catspora"
     end
   end
 
   describe '#pod_version' do
-
     it 'displays the supplied pod_version if it is set' do
-      old_version = AppConfig.version.number.get
       AppConfig.version.number = "0.0.1.0"
-      pod_version.should match "0.0.1.0"
-      AppConfig.version.number = old_version
+      expect(pod_version).to match "0.0.1.0"
     end
   end
 end

@@ -1,12 +1,8 @@
-branches:
-  only:
-    - 'master'
-    - 'develop'
-
 language: ruby
+
 rvm:
-  - 2.0.0
-  - 1.9.3
+  - 2.1
+  - 2.0
 
 env:
   - DB=postgres BUILD_TYPE=other
@@ -14,12 +10,21 @@ env:
   - DB=postgres BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=cucumber
 
+sudo: false
+cache:
+  bundler: true
+  directories:
+    - app/assets/images
 
-bundler_args: "--without development production heroku"
+branches:
+  only:
+    - 'master'
+    - 'develop'
+
+before_install: gem install bundler
+bundler_args: "--without development production heroku --jobs 3 --retry 3"
+
 script: "./script/ci/build.sh"
-
-addons:
-  firefox: "26.0"
 
 notifications:
   irc:

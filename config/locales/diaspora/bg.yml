@@ -54,8 +54,6 @@ bg:
     add_to_aspect:
       failure: "Контактът не бе добавен към аспекта."
       success: "Контактът е добавен към аспекта."
-    aspect_contacts:
-      done_editing: "готово"
     aspect_listings:
       add_an_aspect: "+ Създаване на аспект"
       deselect_all: "Никой"
@@ -73,21 +71,14 @@ bg:
       failure: "%{name} не е празен, затова не може да бъде изтрит."
       success: "%{name} бе изтрит."
     edit:
-      add_existing: "Добавяне на съществуващ контакт"
       aspect_list_is_not_visible: "списъкът на аспекта не е видим за останалите в аспекта"
       aspect_list_is_visible: "списъкът на аспекта е видим за останалите в аспекта"
       confirm_remove_aspect: "Наистина ли желаете аспектът да бъде премахнат?"
-      done: "Готово"
       make_aspect_list_visible: "нека контактите в аспекта се виждат един друг"
       remove_aspect: "Изтриване на аспекта"
       rename: "преименуване"
       update: "обнови"
       updating: "обновяване"
-    few: "%{count} аспекта"
-    helper:
-      are_you_sure: "Наистина ли желаете аспектът да бъде изтрит?"
-      aspect_not_empty: "Аспектът не е празен"
-      remove: "премахване"
     index:
       diaspora_id:
         content_1: "Вашият адрес в Diaspora е:"
@@ -120,10 +111,6 @@ bg:
         heading: "Свързване към услуги"
       unfollow_tag: "Прекратяване следенето на #%{tag}"
       welcome_to_diaspora: "Добре дошли в Diaspora, %{name}!"
-    many: "%{count} аспекта"
-    move_contact:
-      error: "Грешка при преместване на контакт: %{inspect}"
-      success: "Лицето е преместено в нов аспект"
     new:
       create: "Създаване"
       name: "Име (видимо е само за вас)"
@@ -141,14 +128,6 @@ bg:
       family: "Семейство"
       friends: "Приятели"
       work: "Работа"
-    selected_contacts:
-      manage_your_aspects: "Управление на аспектите."
-      no_contacts: "Все още нямате контакти тук."
-      view_all_community_spotlight: "Вижте всички отличени потребители"
-      view_all_contacts: "Показване на всички контакти"
-    show:
-      edit_aspect: "редактиране на аспекта"
-    two: "%{count} аспекта"
     update:
       failure: "Аспектът \"%{name}\" има твърде дълго име. Не може да бъде запаметен."
       success: "Аспектът \"%{name}\" е успешно редактиран."
@@ -167,48 +146,37 @@ bg:
     post_success: "Публикувано!"
   cancel: "Отказ"
   comments:
-    few: "%{count} коментара"
-    many: "%{count} коментара"
     new_comment:
       comment: "Коментар"
       commenting: "Коментиране..."
     one: "1 коментар"
     other: "%{count} коментара"
-    two: "%{count} коментара"
     zero: "няма коментари"
   contacts:
     create:
       failure: "Контактът не бе създаден"
-    few: "%{count} контакта"
     index:
       add_a_new_aspect: "Създаване на аспект"
       add_to_aspect: "добавете някой от контактите си към \"%{name}\""
       all_contacts: "Всички контакти"
-      many_people_are_you_sure: "Наистина ли желаете да започнете частен разговор с повече от %{suggested_limit} контакта? Публикация в аспекта е по-подходящ начин за свързване с толкова хора."
       my_contacts: "Моите контакти"
       no_contacts: "Изглежда трябва да добавите контакти!"
       no_contacts_message: "Проверете %{community_spotlight}"
-      no_contacts_message_with_aspect: "Проверете %{community_spotlight} или %{add_to_aspect_link}"
       only_sharing_with_me: "Само споделящите с мен"
-      remove_person_from_aspect: "Премахване на %{person_name} от \"%{aspect_name}\""
       start_a_conversation: "Начало на разговор"
       title: "Контакти"
       your_contacts: "Вашите контакти"
-    many: "%{count} контакта"
     one: "1 контакт"
     other: "%{count} контакта"
     sharing:
       people_sharing: "Хора споделящи с вас:"
     spotlight:
       community_spotlight: "В центъра на вниманието"
-    two: "%{count} контакта"
     zero: "контакти"
   conversations:
     create:
       fail: "Невалидно съобщение"
       sent: "Съобщението е изпратено"
-    destroy:
-      success: "Разговорът е премахнат успешно"
     helper:
       new_messages:
         few: "%{count} нови съобщения"
@@ -424,7 +392,6 @@ bg:
       add_contact_from_tag: "добавяне на контакт от марка"
     aspect_list:
       edit_membership: "принадлежност към аспекти"
-    few: "%{count} човека"
     helper:
       results_for: " резултата за %{params}"
     index:
@@ -432,7 +399,6 @@ bg:
       no_one_found: "...и никой не е намерен."
       no_results: "Хей! Въведете нещо за търсене."
       results_for: "резултат от търсенето за"
-    many: "%{count} човека"
     one: "1 човек"
     other: "%{count} човека"
     person:
@@ -466,7 +432,6 @@ bg:
       add_some: "добавете няколко"
       edit: "редактиране"
       you_have_no_tags: "не сте добавили марки към профила си!"
-    two: "%{count} човека"
     webfinger:
       fail: "За съжаление %{handle} не може да бъде намерен."
     zero: "0 човека"
@@ -718,13 +683,7 @@ bg:
       no_message_to_display: "Няма съобщение за изобразяване."
     new:
       mentioning: "Споменаване на %{person}"
-    too_long:
-      few: ", моля съкратете съобщението си до %{count} знака"
-      many: ", моля съкратете съобщението си до %{count} знака"
-      one: ", моля съкратете съобщението си до %{count} знака"
-      other: ", моля съкратете съобщението си до %{count} знака"
-      two: ", моля съкратете съобщението си до %{count} знака"
-      zero: ", моля съкратете съобщението си до %{count} знака"
+    too_long: "{\"few\"=>\", моля съкратете съобщението си до %{count} знака\", \"many\"=>\", моля съкратете съобщението си до %{count} знака\", \"one\"=>\", моля съкратете съобщението си до %{count} знака\", \"other\"=>\", моля съкратете съобщението си до %{count} знака\", \"two\"=>\", моля съкратете съобщението си до %{count} знака\", \"zero\"=>\", моля съкратете съобщението си до %{count} знака\"}"
   stream_helper:
     hide_comments: "Скриване на коментарите"
     show_comments:
@@ -763,7 +722,6 @@ bg:
       title: "Публична активност"
     tags:
       contacts_title: "Хора, които харесват марката"
-      tag_prefill_text: "Мисля, че %{tag_name}..."
       title: "Публикации маркирани с \"%{tags}\""
   tag_followings:
     create:
@@ -777,10 +735,7 @@ bg:
     show:
       follow: "Следете #%{tag}"
       following: "Следите #%{tag}"
-      nobody_talking: "Никой не е говорил за %{tag}."
       none: "Не съществува празна марка!"
-      people_tagged_with: "Хора маркирани с %{tag}"
-      posts_tagged_with: "Публикации с марка #%{tag}"
       stop_following: "Прекратяване следването на #%{tag}"
   terms_and_conditions: "Общи условия и правила"
   undo: "Отмяна?"
@@ -812,7 +767,6 @@ bg:
       comment_on_post: "...някой коментира Ваша публикация?"
       current_password: "Текуща парола"
       download_photos: "снимките ви"
-      download_xml: "данните ви (XML формат)"
       edit_account: "Настройки на акаунта"
       email_awaiting_confirmation: "Изпратена е връзка за активиране до %{unconfirmed_email}. Докато не я активирате ще бъде ползвана старата ел. поща (%{email})."
       export_data: "Сваляне на..."
@@ -820,7 +774,6 @@ bg:
       liked: "...някой хареса Ваша публикация?"
       mentioned: "...бъдете споменат в публикация?"
       new_password: "Нова парола"
-      photo_export_unavailable: "За момента свалянето на снимки не е възможно"
       private_message: "...получите лично съобщение?"
       receive_email_notifications: "Получаване на известие по ел. поща когато..."
       reshared: "...някой сподели Ваша публикация?"

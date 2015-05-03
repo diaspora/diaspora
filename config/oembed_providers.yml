@@ -3,9 +3,10 @@
 # note that 'endpoint' is the only information
 # in OEmbed that we can trust. anything else may be spoofed!
 daily_motion:
-  endpoint: "http://www.dailymotion.com/services/oembed"
+  endpoint: "https://www.dailymotion.com/services/oembed"
   urls:
     - http://www.dailymotion.com/video/*
+    - https://www.dailymotion.com/video/*
 
 twitter:
   endpoint: "https://api.twitter.com/1/statuses/oembed.json"
@@ -17,3 +18,4 @@ mixcloud:
   endpoint: "http://www.mixcloud.com/oembed/"
   urls:
     - http://www.mixcloud.com/*/*
+    - https://www.mixcloud.com/*/*

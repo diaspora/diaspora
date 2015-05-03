@@ -12,6 +12,8 @@ de_formal:
       all_aspects: "Alle Aspekte"
       error: "Couldn't start sharing with <%= name %>. Are you ignoring them?"
       error_remove: "Konnte <%= name %> nicht vom Aspekt entfernen :("
+      mobile_row_checked: "<%= name %> (entfernen)"
+      mobile_row_unchecked: "<%= name %> (hinzufügen)"
       select_aspects: "Wählen Sie Aspekte aus"
       started_sharing_with: "Sie haben angefangen, mit <%= name %> zu teilen!"
       stopped_sharing_with: "Sie haben aufgehört, mit <%= name %> zu teilen!"
@@ -19,6 +21,7 @@ de_formal:
         one: "In einem Aspekt"
         other: "In <%= count %> Aspekten"
         zero: "Aspekt auswählen"
+      updating: "aktualisiere..."
     aspect_navigation:
       add_an_aspect: "+ Aspekt hinzufügen"
       deselect_all: "Auswahl aufheben"
@@ -34,6 +37,15 @@ de_formal:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Sind Sie sich sicher?"
+    confirm_unload: "Bitte bestätigen Sie, dass Sie diese Seite verlassen möchten - die von Ihnen eingegebenen Daten werden nicht gespeichert werden."
+    contacts:
+      add_contact: "Kontakt hinzufügen"
+      aspect_list_is_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
+      aspect_list_is_visible: "Kontakte in diesem Aspekt können einander sehen"
+      error_add: "Konnte <%= name %> nicht zum Aspekt hinzufügen :("
+      error_remove: "Konnte <%= name %> nicht aus dem Aspekt entfernen :("
+      remove_contact: "Kontakt entfernen"
+      search_no_results: "Keine Kontakte gefunden"
     conversation:
       participants: "Teilnehmer"
     delete: "Löschen"
@@ -41,6 +53,7 @@ de_formal:
     failed_to_like: "Gefällt mir fehlgeschlagen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     failed_to_remove: "Fehler beim Entfernen des Beitrags!"
+    failed_to_reshare: "Fehler beim Weitersagen!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
       hey: "Hey, <%= name %>!"
@@ -61,7 +74,10 @@ de_formal:
       search: "Find people or #tags"
       settings: "Einstellungen"
       view_all: "Alle ansehen"
+    hide_post: "Diesen Beitrag ausblenden?"
+    hide_post_failed: "Konnte den Beitrag nicht ausblenden"
     ignore: "Ignorieren"
+    ignore_failed: "Konnte Benutzer nicht ignorieren"
     ignore_user: "Benutzer ignorieren?"
     infinite_scroll:
       no_more: "Keine weiteren Beiträge."
@@ -69,16 +85,24 @@ de_formal:
     my_activity: "Meine Aktivitäten"
     my_aspects: "Ihre Aspekte"
     my_stream: "Stream"
+    no_results: "Keine Treffer"
     notifications:
       mark_read: "Als gelesen markieren"
       mark_unread: "Als ungelesen markieren"
     people:
+      edit_my_profile: "Mein Profil bearbeiten"
+      helper:
+        is_not_sharing: "<%= name %> teilt nicht mit Ihnen"
+        is_sharing: "<%= name %> teilt mit Ihnen"
+      mention: "Erwähnen"
+      message: "Nachricht"
       not_found: "niemand wurde gefunden..."
+      stop_ignoring: "Ignorieren beenden"
     photo_uploader:
       completed: "<%= file %> hochgeladen"
-      empty: "{file} ist leer, bitte wählen Sie erneut Dateien aus."
+      empty: "{file} ist leer, bitte wählen Sie erneut Dateien ohne diese aus."
       error: "Es ist ein Fehler aufgetreten, während <%= file %> hochgeladen wurde"
-      invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
+      invalid_ext: "{file} hat eine ungültige Erweiterung. Nur {extensions} sind erlaubt."
       looking_good: "OMG, Sie sehen toll aus!"
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
     poll:
@@ -86,17 +110,32 @@ de_formal:
       count:
         one: "Bisher eine Stimme"
         other: "Bisher <%=count%> Stimmen."
+      go_to_original_post: "Sie können an dieser Umfrage im <%= original_post_link %> teilnehmen."
+      original_post: "Originalbeitrag"
       result: "Ergebnis"
       show_result: "Ergebnis anzeigen"
       vote: "Abstimmen"
+    profile:
+      add_some: "Füge neue hinzu"
+      bio: "Beschreibung"
+      born: "Geburtstag"
+      contacts: "Kontakte"
+      edit: "bearbeiten"
+      gender: "Geschlecht"
+      ignoring: "Sie ignorieren sämtliche Beiträge von <%= name %>."
+      location: "Ort"
+      photos: "Fotos"
+      posts: "Beiträge"
+      you_have_no_tags: "Sie haben keine Tags!"
     publisher:
-      add_option: "Option hinzufügen"
+      add_option: "Antwortmöglichkeit hinzufügen"
       at_least_one_aspect: "Sie müssen zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - Ihr Beitrag wird nur Leuten sichtbar sein, mit denen Sie teilen"
       near_from: "In der Nähe von <%= location %>"
-      option: "Option <%= nr %>"
+      option: "Antwort"
       public: "Öffentlich - Ihr Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
       question: "Frage"
+    remove_post: "Diesen Beitrag löschen?"
     report:
       name: "Meldung"
       prompt: "Bitte geben Sie einen Grund an:"
@@ -112,6 +151,8 @@ de_formal:
     show_more: "Mehr zeigen"
     stream:
       comment: "Kommentieren"
+      disable_post_notifications: "Benachrichtigungen für diesen Beitrag deaktivieren"
+      enable_post_notifications: "Benachrichtigungen für diesen Beitrag aktivieren"
       follow: "Folgen"
       followed_tag:
         add_a_tag: "Einen Tag hinzufügen"
@@ -165,6 +206,7 @@ de_formal:
       wordSeparator: " "
       year: "etwa einem Jahr"
       years: "%d Jahren"
+    unblock_failed: "Den Benutzer zu entblocken ist fehlgeschlagen."
     videos:
       unknown: "Unbekanntes Videoformat"
       watch: "Dieses Video auf <%= provider %> ansehen"

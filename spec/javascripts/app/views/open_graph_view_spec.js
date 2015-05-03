@@ -12,7 +12,7 @@ describe("app.views.OpenGraph", function() {
       "open_graph_cache": open_graph_cache
     });
 
-    this.view = new app.views.OpenGraph({model : this.statusMessage})
+    this.view = new app.views.OpenGraph({model : this.statusMessage});
   });
 
   describe("rendering", function(){

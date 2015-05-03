@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Post do
+describe Post, :type => :model do
   before do
     @user = alice
     @aspect = @user.aspects.create(:name => "winners")
@@ -21,29 +21,29 @@ describe Post do
       end
 
       it 'returns post from your contacts' do
-        StatusMessage.owned_or_visible_by_user(@you).should include(@post_from_contact)
+        expect(StatusMessage.owned_or_visible_by_user(@you)).to include(@post_from_contact)
       end
 
       it 'returns your posts' do
-        StatusMessage.owned_or_visible_by_user(@you).should include(@your_post)
+        expect(StatusMessage.owned_or_visible_by_user(@you)).to include(@your_post)
       end
 
       it 'returns public posts' do
-        StatusMessage.owned_or_visible_by_user(@you).should include(@public_post)
+        expect(StatusMessage.owned_or_visible_by_user(@you)).to include(@public_post)
       end
 
       it 'returns public post from your contact' do
         sm = FactoryGirl.create(:status_message, :author => eve.person, :public => true)
 
-        StatusMessage.owned_or_visible_by_user(@you).should include(sm)
+        expect(StatusMessage.owned_or_visible_by_user(@you)).to include(sm)
       end
 
       it 'does not return non contacts, non-public post' do
-        StatusMessage.owned_or_visible_by_user(@you).should_not include(@post_from_stranger)
+        expect(StatusMessage.owned_or_visible_by_user(@you)).not_to include(@post_from_stranger)
       end
 
       it 'should return the three visible posts' do
-        StatusMessage.owned_or_visible_by_user(@you).count.should == 3
+        expect(StatusMessage.owned_or_visible_by_user(@you).count(:all)).to eq(3)
       end
     end
 
@@ -51,17 +51,17 @@ describe Post do
     describe '.for_a_stream' do
       it 'calls #for_visible_shareable_sql' do
         time, order = double, double
-        Post.should_receive(:for_visible_shareable_sql).with(time, order).and_return(Post)
+        expect(Post).to receive(:for_visible_shareable_sql).with(time, order).and_return(Post)
         Post.for_a_stream(time, order)
       end
 
       it 'calls includes_for_a_stream' do
-        Post.should_receive(:includes_for_a_stream)
+        expect(Post).to receive(:includes_for_a_stream)
         Post.for_a_stream(double, double)
       end
 
       it 'calls excluding_blocks if a user is present' do
-        Post.should_receive(:excluding_blocks).with(alice).and_return(Post)
+        expect(Post).to receive(:excluding_blocks).with(alice).and_return(Post)
         Post.for_a_stream(double, double, alice)
       end
     end
@@ -75,15 +75,15 @@ describe Post do
       end
 
       it 'does not included blocked users posts' do
-        Post.excluding_blocks(bob).should_not include(@post)
+        expect(Post.excluding_blocks(bob)).not_to include(@post)
       end
 
       it 'includes not blocked users posts' do
-        Post.excluding_blocks(bob).should include(@other_post)
+        expect(Post.excluding_blocks(bob)).to include(@other_post)
       end
 
       it 'returns posts if you dont have any blocks' do
-        Post.excluding_blocks(alice).count.should == 2
+        expect(Post.excluding_blocks(alice).count).to eq(2)
       end
     end
 
@@ -94,17 +94,17 @@ describe Post do
         bob.toggle_hidden_shareable(@post)
       end
       it 'excludes posts the user has hidden' do
-        Post.excluding_hidden_shareables(bob).should_not include(@post)
+        expect(Post.excluding_hidden_shareables(bob)).not_to include(@post)
       end
       it 'includes posts the user has not hidden' do
-        Post.excluding_hidden_shareables(bob).should include(@other_post)
+        expect(Post.excluding_hidden_shareables(bob)).to include(@other_post)
       end
     end
 
     describe '.excluding_hidden_content' do
       it 'calls excluding_blocks and excluding_hidden_shareables' do
-        Post.should_receive(:excluding_blocks).and_return(Post)
-        Post.should_receive(:excluding_hidden_shareables)
+        expect(Post).to receive(:excluding_blocks).and_return(Post)
+        expect(Post).to receive(:excluding_hidden_shareables)
         Post.excluding_hidden_content(bob)
       end
     end
@@ -127,8 +127,8 @@ describe Post do
       describe '.by_max_time' do
 
         it 'returns the posts ordered and limited by unix time' do
-          Post.for_a_stream(Time.now + 1, "created_at").should == @posts
-          Post.for_a_stream(Time.now + 1, "updated_at").should == @posts.reverse
+          expect(Post.for_a_stream(Time.now + 1, "created_at")).to eq(@posts)
+          expect(Post.for_a_stream(Time.now + 1, "updated_at")).to eq(@posts.reverse)
         end
       end
 
@@ -136,15 +136,15 @@ describe Post do
       describe '.for_visible_shareable_sql' do
         it 'calls max_time' do
           time = Time.now + 1
-          Post.should_receive(:by_max_time).with(time, 'created_at').and_return(Post)
+          expect(Post).to receive(:by_max_time).with(time, 'created_at').and_return(Post)
           Post.for_visible_shareable_sql(time, 'created_at')
         end
 
         it 'defaults to 15 posts' do
           chain = double.as_null_object
 
-          Post.stub(:by_max_time).and_return(chain)
-          chain.should_receive(:limit).with(15).and_return(Post)
+          allow(Post).to receive(:by_max_time).and_return(chain)
+          expect(chain).to receive(:limit).with(15).and_return(Post)
           Post.for_visible_shareable_sql(Time.now + 1, "created_at")
         end
 
@@ -153,15 +153,15 @@ describe Post do
       # @posts[0] is the newest, @posts[5] is the oldest
       describe ".newer" do
         it 'returns the next post in the array' do
-          @posts[3].created_at.should < @posts[2].created_at #post 2 is newer
-          Post.newer(@posts[3]).created_at.to_s.should == @posts[2].created_at.to_s #its the newer post, not the newest
+          expect(@posts[3].created_at).to be < @posts[2].created_at #post 2 is newer
+          expect(Post.newer(@posts[3]).created_at.to_s).to eq(@posts[2].created_at.to_s) #its the newer post, not the newest
         end
       end
 
       describe ".older" do
         it 'returns the previous post in the array' do
-          Post.older(@posts[3]).created_at.to_s.should == @posts[4].created_at.to_s #its the older post, not the oldest
-          @posts[3].created_at.should > @posts[4].created_at #post 4 is older
+          expect(Post.older(@posts[3]).created_at.to_s).to eq(@posts[4].created_at.to_s) #its the older post, not the oldest
+          expect(@posts[3].created_at).to be > @posts[4].created_at #post 4 is older
         end
       end
     end
@@ -170,14 +170,14 @@ describe Post do
   describe 'validations' do
     it 'validates uniqueness of guid and does not throw a db error' do
       message = FactoryGirl.create(:status_message)
-      FactoryGirl.build(:status_message, :guid => message.guid).should_not be_valid
+      expect(FactoryGirl.build(:status_message, :guid => message.guid)).not_to be_valid
     end
   end
 
   describe 'post_type' do
     it 'returns the class constant' do
       status_message = FactoryGirl.create(:status_message)
-      status_message.post_type.should == "StatusMessage"
+      expect(status_message.post_type).to eq("StatusMessage")
     end
   end
 
@@ -186,8 +186,8 @@ describe Post do
       post = FactoryGirl.create(:status_message, :author => @user.person)
       @user.comment!(post, "hey")
       post.destroy
-      Post.where(:id => post.id).empty?.should == true
-      Comment.where(:text => "hey").empty?.should == true
+      expect(Post.where(:id => post.id).empty?).to eq(true)
+      expect(Comment.where(:text => "hey").empty?).to eq(true)
     end
   end
 
@@ -196,22 +196,22 @@ describe Post do
       post = @user.post :status_message, :text => "hello", :to => @aspect.id
       xml = post.to_diaspora_xml
 
-      xml.include?("person_id").should be false
-      xml.include?(@user.person.diaspora_handle).should be true
+      expect(xml.include?("person_id")).to be false
+      expect(xml.include?(@user.person.diaspora_handle)).to be true
     end
   end
 
   describe '.diaspora_initialize' do
     it 'takes provider_display_name' do
       sm = FactoryGirl.create(:status_message, :provider_display_name => 'mobile')
-      StatusMessage.diaspora_initialize(sm.attributes.merge(:author => bob.person)).provider_display_name.should == 'mobile'
+      expect(StatusMessage.diaspora_initialize(sm.attributes.merge(:author => bob.person)).provider_display_name).to eq('mobile')
     end
   end
 
   describe '#mutable?' do
     it 'should be false by default' do
       post = @user.post :status_message, :text => "hello", :to => @aspect.id
-      post.mutable?.should == false
+      expect(post.mutable?).to eq(false)
     end
   end
 
@@ -219,13 +219,13 @@ describe Post do
     it 'returns the people contained in the aspects the post appears in' do
       post = @user.post :status_message, :text => "hello", :to => @aspect.id
 
-      post.subscribers(@user).should == []
+      expect(post.subscribers(@user)).to eq([])
     end
 
     it 'returns all a users contacts if the post is public' do
       post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true
 
-      post.subscribers(@user).to_set.should == @user.contact_people.to_set
+      expect(post.subscribers(@user).to_set).to eq(@user.contact_people.to_set)
     end
   end
 
@@ -237,17 +237,17 @@ describe Post do
     it 'does not update updated_at' do
       old_time = Time.zone.now - 10000
       Post.where(:id => @post.id).update_all(:updated_at => old_time)
-      @post.reload.updated_at.to_i.should == old_time.to_i
+      expect(@post.reload.updated_at.to_i).to eq(old_time.to_i)
       @post.update_likes_counter
-      @post.reload.updated_at.to_i.should == old_time.to_i
+      expect(@post.reload.updated_at.to_i).to eq(old_time.to_i)
     end
   end
 
   describe "#receive" do
     it 'returns false if the post does not verify' do
       @post = FactoryGirl.create(:status_message, :author => bob.person)
-      @post.should_receive(:verify_persisted_shareable).and_return(false)
-      @post.receive(bob, eve.person).should == false
+      expect(@post).to receive(:verify_persisted_shareable).and_return(false)
+      expect(@post.receive(bob, eve.person)).to eq(false)
     end
   end
 
@@ -255,42 +255,42 @@ describe Post do
     before do
       @post = FactoryGirl.create(:status_message, :author => bob.person)
       @known_post = Post.new
-      bob.stub(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
+      allow(bob).to receive(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
     end
 
     context "user knows about the post" do
       before do
-        bob.stub(:find_visible_shareable_by_id).and_return(@known_post)
+        allow(bob).to receive(:find_visible_shareable_by_id).and_return(@known_post)
       end
 
       it 'updates attributes only if mutable' do
-        @known_post.stub(:mutable?).and_return(true)
-        @known_post.should_receive(:update_attributes)
-        @post.send(:receive_persisted, bob, eve.person, @known_post).should == true
+        allow(@known_post).to receive(:mutable?).and_return(true)
+        expect(@known_post).to receive(:update_attributes)
+        expect(@post.send(:receive_persisted, bob, eve.person, @known_post)).to eq(true)
       end
 
       it 'returns false if trying to update a non-mutable object' do
-        @known_post.stub(:mutable?).and_return(false)
-        @known_post.should_not_receive(:update_attributes)
-        @post.send(:receive_persisted, bob, eve.person, @known_post).should == false
+        allow(@known_post).to receive(:mutable?).and_return(false)
+        expect(@known_post).not_to receive(:update_attributes)
+        expect(@post.send(:receive_persisted, bob, eve.person, @known_post)).to eq(false)
       end
     end
 
     context "the user does not know about the post" do
       before do
-        bob.stub(:find_visible_shareable_by_id).and_return(nil)
-        bob.stub(:notify_if_mentioned).and_return(true)
+        allow(bob).to receive(:find_visible_shareable_by_id).and_return(nil)
+        allow(bob).to receive(:notify_if_mentioned).and_return(true)
       end
 
       it "receives the post from the contact of the author" do
-        @post.send(:receive_persisted, bob, eve.person, @known_post).should == true
+        expect(@post.send(:receive_persisted, bob, eve.person, @known_post)).to eq(true)
       end
 
       it 'notifies the user if they are mentioned' do
-        bob.stub(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
-        bob.should_receive(:notify_if_mentioned).and_return(true)
+        allow(bob).to receive(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
+        expect(bob).to receive(:notify_if_mentioned).and_return(true)
 
-        @post.send(:receive_persisted, bob, eve.person, @known_post).should == true
+        expect(@post.send(:receive_persisted, bob, eve.person, @known_post)).to eq(true)
       end
     end
   end
@@ -299,25 +299,25 @@ describe Post do
     context "the user does not know about the post" do
       before do
         @post = FactoryGirl.create(:status_message, :author => bob.person)
-        bob.stub(:find_visible_shareable_by_id).and_return(nil)
-        bob.stub(:notify_if_mentioned).and_return(true)
+        allow(bob).to receive(:find_visible_shareable_by_id).and_return(nil)
+        allow(bob).to receive(:notify_if_mentioned).and_return(true)
       end
 
       it "it receives the post from the contact of the author" do
-        bob.should_receive(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
-        @post.send(:receive_non_persisted, bob, eve.person).should == true
+        expect(bob).to receive(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
+        expect(@post.send(:receive_non_persisted, bob, eve.person)).to eq(true)
       end
 
       it 'notifies the user if they are mentioned' do
-        bob.stub(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
-        bob.should_receive(:notify_if_mentioned).and_return(true)
+        allow(bob).to receive(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
+        expect(bob).to receive(:notify_if_mentioned).and_return(true)
 
-        @post.send(:receive_non_persisted, bob, eve.person).should == true
+        expect(@post.send(:receive_non_persisted, bob, eve.person)).to eq(true)
       end
 
       it 'returns false if the post does not save' do
-        @post.stub(:save).and_return(false)
-        @post.send(:receive_non_persisted, bob, eve.person).should == false
+        allow(@post).to receive(:save).and_return(false)
+        expect(@post.send(:receive_non_persisted, bob, eve.person)).to eq(false)
       end
     end
   end
@@ -325,40 +325,40 @@ describe Post do
   describe '#reshares_count' do
     before :each do
       @post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true
-      @post.reshares.size.should == 0
+      expect(@post.reshares.size).to eq(0)
     end
 
     describe 'when post has not been reshared' do
       it 'returns zero' do
-        @post.reshares_count.should == 0
+        expect(@post.reshares_count).to eq(0)
       end
     end
 
     describe 'when post has been reshared exactly 1 time' do
       before :each do
-        @post.reshares.size.should == 0
+        expect(@post.reshares.size).to eq(0)
         @reshare = FactoryGirl.create(:reshare, :root => @post)
         @post.reload
-        @post.reshares.size.should == 1
+        expect(@post.reshares.size).to eq(1)
       end
 
       it 'returns 1' do
-        @post.reshares_count.should == 1
+        expect(@post.reshares_count).to eq(1)
       end
     end
 
     describe 'when post has been reshared more than once' do
       before :each do
-        @post.reshares.size.should == 0
+        expect(@post.reshares.size).to eq(0)
         FactoryGirl.create(:reshare, :root => @post)
         FactoryGirl.create(:reshare, :root => @post)
         FactoryGirl.create(:reshare, :root => @post)
         @post.reload
-        @post.reshares.size.should == 3
+        expect(@post.reshares.size).to eq(3)
       end
 
       it 'returns the number of reshares' do
-        @post.reshares_count.should == 3
+        expect(@post.reshares_count).to eq(3)
       end
     end
   end
@@ -366,25 +366,25 @@ describe Post do
   describe "#after_create" do
     it "sets #interacted_at" do
       post = FactoryGirl.create(:status_message)
-      post.interacted_at.should_not be_blank
+      expect(post.interacted_at).not_to be_blank
     end
   end
 
   describe "#find_by_guid_or_id_with_user" do
     it "succeeds with an id" do
       post = FactoryGirl.create :status_message, public: true
-      Post.find_by_guid_or_id_with_user(post.id).should == post
+      expect(Post.find_by_guid_or_id_with_user(post.id)).to eq(post)
     end
 
     it "succeeds with an guid" do
       post = FactoryGirl.create :status_message, public: true
-      Post.find_by_guid_or_id_with_user(post.guid).should == post
+      expect(Post.find_by_guid_or_id_with_user(post.guid)).to eq(post)
     end
 
     it "looks up on the passed user object if it's non-nil" do
       post = FactoryGirl.create :status_message
       user = double
-      user.should_receive(:find_visible_shareable_by_id).with(Post, post.id, key: :id).and_return(post)
+      expect(user).to receive(:find_visible_shareable_by_id).with(Post, post.id, key: :id).and_return(post)
       Post.find_by_guid_or_id_with_user post.id, user
     end
 
@@ -396,7 +396,7 @@ describe Post do
     end
 
     it "raises Diaspora::NonPublic for a non-existing id without a user" do
-      Post.stub where: double(includes: double(first: nil))
+      allow(Post).to receive_messages where: double(includes: double(first: nil))
       expect {
         Post.find_by_guid_or_id_with_user 123
       }.to raise_error Diaspora::NonPublic

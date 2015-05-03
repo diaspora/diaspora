@@ -8,17 +8,17 @@ describe Stream::Base do
 
   describe '#contacts_link' do
     it 'should default to your contacts page' do
-      @stream.contacts_link.should =~ /contacts/
+      expect(@stream.contacts_link).to match(/contacts/)
     end
   end
 
   describe '#stream_posts' do
     it "should returns the posts.for_a_stream" do
       posts = double
-      @stream.stub(:posts).and_return(posts)
-      @stream.stub(:like_posts_for_stream!)
+      allow(@stream).to receive(:posts).and_return(posts)
+      allow(@stream).to receive(:like_posts_for_stream!)
 
-      posts.should_receive(:for_a_stream).with(anything, anything, alice).and_return(posts)
+      expect(posts).to receive(:for_a_stream).with(anything, anything, alice).and_return(posts)
       @stream.stream_posts
     end
 
@@ -30,7 +30,7 @@ describe Stream::Base do
       end
 
       it "marks the posts as liked" do
-        @stream.stream_posts.first.user_like.id.should == @like.id
+        expect(@stream.stream_posts.first.user_like.id).to eq(@like.id)
       end
     end
   end
@@ -38,39 +38,39 @@ describe Stream::Base do
   describe '.can_comment?' do
     before do
       @person = FactoryGirl.create(:person)
-      @stream.stub(:people).and_return([bob.person, eve.person, @person])
+      allow(@stream).to receive(:people).and_return([bob.person, eve.person, @person])
     end
 
     it 'allows me to comment on my local contacts post' do
       post = FactoryGirl.create(:status_message, :author => bob.person)
-      @stream.can_comment?(post).should be_true
+      expect(@stream.can_comment?(post)).to be true
     end
 
     it 'allows me to comment on my own post' do
       post = FactoryGirl.create(:status_message, :author => alice.person)
-      @stream.can_comment?(post).should be_true
+      expect(@stream.can_comment?(post)).to be true
     end
 
     it 'allows me to comment on any local public post' do
       post = FactoryGirl.create(:status_message, :author => eve.person)
-      @stream.can_comment?(post).should be_true
+      expect(@stream.can_comment?(post)).to be true
     end
 
     it 'allows me to comment on a remote contacts post' do
       Contact.create!(:user => @stream.user, :person => @person)
       post = FactoryGirl.create(:status_message, :author => @person)
-      @stream.can_comment?(post).should be_true
+      expect(@stream.can_comment?(post)).to be true
     end
 
     it 'returns false if person is remote and not a contact' do
       post = FactoryGirl.create(:status_message, :author => @person)
-      @stream.can_comment?(post).should be_false
+      expect(@stream.can_comment?(post)).to be false
     end
   end
 
   describe '#people' do
     it 'excludes blocked people' do
-      @stream.should_receive(:stream_posts).and_return(double.as_null_object)
+      expect(@stream).to receive(:stream_posts).and_return(double.as_null_object)
       @stream.people
     end
   end

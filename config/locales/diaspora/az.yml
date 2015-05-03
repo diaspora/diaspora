@@ -1,0 +1,153 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+az:
+  _applications: "Applikasiya"
+  _comments: ""
+  _contacts: ""
+  _home: ""
+  _photos: "Şəkil"
+  _services: "Servis"
+  account: "Akkaunt"
+  activerecord:
+    errors:
+      models:
+        person:
+          attributes:
+            diaspora_handle:
+              taken: ""
+        request:
+          attributes:
+            from_id:
+              taken: ""
+        user:
+          attributes:
+            email:
+              taken: ""
+            person:
+              invalid: ""
+            username:
+              invalid: ""
+              taken: ""
+  ago: "%{time}%{time}"
+  are_you_sure: ""
+  aspects:
+    add_to_aspect:
+      failure: ""
+      success: ""
+    aspect_listings:
+      add_an_aspect: ""
+      deselect_all: ""
+      edit_aspect: ""
+      select_all: ""
+    aspect_stream:
+      stay_updated_explanation: ""
+    contacts_not_visible: ""
+    contacts_visible: ""
+    create:
+      failure: ""
+      success: ""
+    destroy:
+      failure: ""
+      success: ""
+    edit:
+      aspect_list_is_not_visible: ""
+      aspect_list_is_visible: ""
+      confirm_remove_aspect: ""
+      remove_aspect: ""
+    index:
+      diaspora_id:
+        content_1: ""
+        heading: ""
+      donate: ""
+      handle_explanation: ""
+      help:
+        do_you: ""
+        email_feedback: ""
+        feature_suggestion: ""
+        find_a_bug: ""
+        have_a_question: ""
+        here_to_help: ""
+        tag_bug: ""
+        tag_feature: ""
+        tag_question: ""
+      introduce_yourself: ""
+      new_here:
+        follow: ""
+        learn_more: ""
+      no_contacts: ""
+      no_tags: ""
+      people_sharing_with_you: ""
+      services:
+        content: ""
+      unfollow_tag: ""
+      welcome_to_diaspora: ""
+    new:
+      create: ""
+      name: ""
+    no_contacts_message:
+      or_spotlight: ""
+      try_adding_some_more_contacts: ""
+      you_should_add_some_more_contacts: ""
+    no_posts_message:
+      start_talking: ""
+    one: ""
+    other: ""
+    seed:
+      acquaintances: ""
+      family: ""
+      friends: ""
+      work: ""
+    update:
+      failure: ""
+      success: ""
+  back: ""
+  bookmarklet:
+    explanation: ""
+    heading: "ьфпр"
+    post_something: ""
+    post_success: "лPostedClosing"
+  cancel: "Dala"
+  comments:
+    new_comment:
+      comment: ""
+      commenting: ""
+    one: ""
+    other: ""
+  contacts:
+    create:
+      failure: ""
+    index:
+      start_a_conversation: ""
+    one: ""
+    other: ""
+    sharing:
+      people_sharing: ""
+  delete: "Poz"
+  email: ""
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: ""
+  fill_me_out: ""
+  find_people: ""
+  hide: "Öldür"
+  limited: ""
+  more: ""
+  nsfw: ""
+  ok: "OK"
+  or: "və"
+  password: ""
+  password_confirmation: ""
+  privacy: "Gaga"
+  privacy_policy: "gAG"
+  profile: "Profil"
+  public: ""
+  search: ""
+  settings: "Set"
+  terms_and_conditions: "Terms and Conditions"
+  undo: "Undo?"
+  username: ""
+  welcome: ""

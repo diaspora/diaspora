@@ -68,8 +68,6 @@ is:
     add_to_aspect:
       failure: "Ekki tókst að bæta tengilið við ásýnd."
       success: "Það heppnaðist að bæta tengilið við ásýnd."
-    aspect_contacts:
-      done_editing: "búið að breyta"
     aspect_listings:
       add_an_aspect: "+ Bæta við ásýnd"
       deselect_all: "Velja ekkert"
@@ -86,23 +84,15 @@ is:
       failure: "%{name} er ekki tóm og því ekki hægt að fjarlægja hana."
       success: "það heppnaðist að fjarlægja %{name}."
     edit:
-      add_existing: "Bæta við tengilið sem er þegar til"
       aspect_list_is_not_visible: "Tengiliðir í þessari ásýnd geta ekki séð hvern annan."
       aspect_list_is_visible: "Tengiliðir í þessari ásýnd geta séð hvern annan."
       confirm_remove_aspect: "Ertu viss um að þú viljir eyða þessari ásýnd?"
-      done: "Búið"
       make_aspect_list_visible: "gera þáttökulista ásýndar sýnilegan öðrum?"
-      manage: "Stjórna"
       remove_aspect: "Eyða þessari ásýnd"
       rename: "breyta nafni"
       set_visibility: "Stilla sýnileika"
       update: "uppfæra"
       updating: "uppfæri"
-    few: "%{count} ásýndir"
-    helper:
-      are_you_sure: "Ertu viss um að þú viljir eyða þessari ásýnd?"
-      aspect_not_empty: "Ásýnd er ekki tóm"
-      remove: "fjarlægja"
     index:
       diaspora_id:
         content_1: "Diaspora*-auðkennið þitt er:"
@@ -122,20 +112,17 @@ is:
         tag_feature: "#feature"
         tag_question: "#question"
       new_here:
+        follow: "Fylgstu með %{link} og bjóddu nýja notendur velkomna á Diaspora*!"
         learn_more: "Vita meira"
+        title: "Bjóða Nýja Notendur Velkomna"
       no_contacts: "Engir tengiliðir"
       no_tags: "+ finna merki til að fylgjast með"
       people_sharing_with_you: "Fólk sem deilir með þér:"
       post_a_message: "skrifa skilaboð >>"
       services:
-        heading: "Tengja tjónustur"
+        heading: "Tengja Þjónustur"
       unfollow_tag: "Hætta að fylgjast með #%{tag}"
       welcome_to_diaspora: "Velkomin í Diaspora* %{name}!"
-    many: "%{count} ásýndir"
-    move_contact:
-      error: "Villa við að breyta tengiliði: %{inspect}"
-      failure: "virkaði ekki %{inspect}"
-      success: "Aðili fluttur í nýja ásýnd"
     new:
       create: "Búa til"
       name: "Nafn (sýnilegt þér einum)"
@@ -153,14 +140,6 @@ is:
       family: "Fjölskylda"
       friends: "Vinir"
       work: "Vinna"
-    selected_contacts:
-      manage_your_aspects: "Sýsla með ásýndir."
-      no_contacts: "Þú ert ekki enn með neina tengiliði hér."
-      view_all_community_spotlight: "Sjá allt sem efst er á baugi í samfélaginu"
-      view_all_contacts: "Sjá alla tengiliði"
-    show:
-      edit_aspect: "breyta ásýndum"
-    two: "%{count} ásýndir"
     update:
       failure: "Ásýnd þín, %{name}, hefur of langt nafn til að hægt sé að vista hana."
       success: "Ásýnd þinni, %{name}, hefur verið breytt."
@@ -173,22 +152,17 @@ is:
     post_success: "Sent! Loka!"
   cancel: "Hætta við"
   comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
     new_comment:
       comment: "Athugasemd"
       commenting: "Athugasemd gerð..."
     one: "1 comment"
     other: "%{count} comments"
-    two: "%{count} comments"
     zero: "no comments"
   contacts:
     create:
       failure: "Ekki tókst að mynda tengsl"
-    few: "%{count} tengsl"
     index:
       add_to_aspect: "Add contacts to %{name}"
-      add_to_aspect_link: "bæta tengiliðum við %{name}"
       all_contacts: "Allir tengiliðir"
       community_spotlight: "Efst á baugi í samfélaginu"
       my_contacts: "Tengiliðirnir mínir"
@@ -196,21 +170,17 @@ is:
       start_a_conversation: "Hefja umræðu"
       title: "Tengiliðir"
       your_contacts: "Þínir tegiliðir"
-    many: "%{count} tengiliðir"
     one: "1 tengiliður"
     other: "%{count} tengiliðir"
     sharing:
       people_sharing: "Fólk sem deilir með þér:"
     spotlight:
       community_spotlight: "Efst á baugi í samfélaginu"
-    two: "%{count} tengiliðir"
     zero: "tengiliðir"
   conversations:
     create:
       fail: "Ógild skilaboð"
       sent: "Skilaboð send"
-    destroy:
-      success: "Umræða hefur verið fjarlægð"
     helper:
       new_messages:
         one: "1 ný skilaboð"
@@ -279,6 +249,7 @@ is:
       if_they_accept_info: "ef þau þiggja boðið, verður þeim bætt við þá ásýnd sem þú bauðst þeim á."
       invite_someone_to_join: "Bjóddu einhverjum að tengjast Díaspora*!"
       language: "Tungumál"
+      paste_link: "Deildu þessum tengil með vinum þínum til þess að bjóða þeim á diaspora*, eða sendu þeim tengilinn beint í gegnum tölvupóst."
       personal_message: "Persónuleg skilaboð"
       resend: "Endursenda"
       send_an_invitation: "Sendu boðsmiða"
@@ -450,14 +421,12 @@ is:
       invited_by: "þér var boðið af"
     aspect_list:
       edit_membership: "breyta aðild að ásýnd"
-    few: "%{count} people"
     helper:
       results_for: " niðurstöður fyrir %{params}"
     index:
       no_one_found: "...og enginn fannst."
       no_results: "Hey! Þú þarft að leita að einhverju."
       results_for: "Notendur sem samsvara %{search_term}"
-    many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
     person:
@@ -484,7 +453,6 @@ is:
       to_accept_or_ignore: "að samþykkja eða hunsa það."
     sub_header:
       edit: "breyta"
-    two: "%{count} people"
     webfinger:
       fail: "Því miður, %{handle} fannst ekki."
     zero: "no people"
@@ -569,7 +537,6 @@ is:
       unhappy: "Óhamingjusamur?"
       update: "Uppfæra"
     new:
-      continue: "Halda áfram"
       create_my_account: "Create my account"
       email: "NETFANG"
       enter_email: "Gefðu upp netfang"
@@ -681,13 +648,7 @@ is:
       failure: "Ekki tókst að eyða færslu"
     helper:
       no_message_to_display: "Engin skilaboð að sýna!"
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "fela athugasemdir"
     show_comments:

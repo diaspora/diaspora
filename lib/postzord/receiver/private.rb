@@ -16,18 +16,16 @@ class Postzord::Receiver::Private < Postzord::Receiver
   end
 
   def receive!
-    begin 
-      if @sender && self.salmon.verified_for_key?(@sender.public_key)
-        parse_and_receive(salmon.parsed_data)
-      else
-        FEDERATION_LOGGER.info("event=receive status=abort recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id} reason='not_verified for key'")
-        false
-      end
-    rescue => e
-      #this sucks
-      FEDERATION_LOGGER.error("Failure to receive #{@object.class} from sender:#{@sender.id} for user:#{@user.id}: #{e.message}\n#{@object.inspect}")
-      raise e
+    if @sender && self.salmon.verified_for_key?(@sender.public_key)
+      parse_and_receive(salmon.parsed_data)
+    else
+      FEDERATION_LOGGER.info("event=receive status=abort recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id} reason='not_verified for key'")
+      false
     end
+  rescue => e
+    #this sucks
+    FEDERATION_LOGGER.error("Failure to receive #{@object.class} from sender:#{@sender.id} for user:#{@user.id}: #{e.message}\n#{@object.inspect}")
+    raise e
   end
 
   def parse_and_receive(xml)
@@ -101,7 +99,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
   def contact_required_unless_request
     unless @object.is_a?(Request) || @user.contact_for(@sender)
       FEDERATION_LOGGER.error("event=receive status=abort reason='sender not connected to recipient' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
-      return true 
+      return true
     end
   end
 

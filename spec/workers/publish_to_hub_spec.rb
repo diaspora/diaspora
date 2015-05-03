@@ -10,8 +10,8 @@ describe Workers::PublishToHub do
       url = "http://publiczone.com/"
       m = double()
 
-      m.should_receive(:publish).with(url+'.atom')
-      Pubsubhubbub.should_receive(:new).with(AppConfig.environment.pubsub_server).and_return(m)
+      expect(m).to receive(:publish).with(url+'.atom')
+      expect(Pubsubhubbub).to receive(:new).with(AppConfig.environment.pubsub_server).and_return(m)
       Workers::PublishToHub.new.perform(url)
     end
   end

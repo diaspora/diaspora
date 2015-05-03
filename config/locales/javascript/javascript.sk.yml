@@ -99,7 +99,7 @@ sk:
       question: "Otázka"
     report:
       name: "Správa"
-      prompt: "Prosím uveďte dôvod:"
+      prompt: "Prosím, uveďte dôvod:"
       prompt_default: "urážajúci obsah"
       status:
         created: "Úspešne si vytvoril(a) správu"

@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 app.views.StreamFaces = app.views.Base.extend({
 
   templateName : "stream-faces",
@@ -7,12 +9,12 @@ app.views.StreamFaces = app.views.Base.extend({
   tooltipSelector : ".avatar",
 
   initialize : function(){
-    this.updatePeople()
-    app.stream.items.bind("add", this.updatePeople, this)
+    this.updatePeople();
+    app.stream.items.bind("add", this.updatePeople, this);
   },
 
   presenter : function() {
-    return {people : this.people}
+    return {people : this.people};
   },
 
   updatePeople : function(){
@@ -27,3 +29,4 @@ app.views.StreamFaces = app.views.Base.extend({
     this.render();
   }
 });
+// @license-end

@@ -5,7 +5,7 @@ describe Workers::Receive do
     @user = alice
     @person = FactoryGirl.create(:person)
     @xml = '<xml></xml>'
-    User.stub(:find){ |id|
+    allow(User).to receive(:find){ |id|
       if id == @user.id
         @user
       else
@@ -16,8 +16,8 @@ describe Workers::Receive do
 
   it 'calls receive' do
     zord_double = double()
-    zord_double.should_receive(:parse_and_receive).with(@xml)
-    Postzord::Receiver::Private.should_receive(:new).with(@user, anything).and_return(zord_double)
+    expect(zord_double).to receive(:parse_and_receive).with(@xml)
+    expect(Postzord::Receiver::Private).to receive(:new).with(@user, anything).and_return(zord_double)
     Workers::Receive.new.perform(@user.id, @xml, @person.id)
   end
 end

@@ -4,18 +4,18 @@
 
 require 'spec_helper'
 
-describe User do
+describe User, :type => :model do
   context "relations" do
     context "#conversations" do
       it "doesn't find anything when there is nothing to find" do
         u = FactoryGirl.create(:user)
-        u.conversations.should be_empty
+        expect(u.conversations).to be_empty
       end
 
       it "finds the users conversations" do
         c = FactoryGirl.create(:conversation, { author: alice.person })
 
-        alice.conversations.should include c
+        expect(alice.conversations).to include c
       end
 
       it "doesn't find other users conversations" do
@@ -23,23 +23,23 @@ describe User do
         c2 = FactoryGirl.create(:conversation)
         c_own = FactoryGirl.create(:conversation, { author: alice.person })
 
-        alice.conversations.should include c_own
-        alice.conversations.should_not include c1
-        alice.conversations.should_not include c2
+        expect(alice.conversations).to include c_own
+        expect(alice.conversations).not_to include c1
+        expect(alice.conversations).not_to include c2
       end
     end
   end
 
   describe "private key" do
     it 'has a key' do
-      alice.encryption_key.should_not be nil
+      expect(alice.encryption_key).not_to be nil
     end
 
     it 'marshalls the key to and from the db correctly' do
       user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password')
 
       user.save!
-      user.serialized_private_key.should be_present
+      expect(user.serialized_private_key).to be_present
 
       expect{
         user.reload.encryption_key
@@ -52,14 +52,14 @@ describe User do
       user = FactoryGirl.build(:user)
       user.last_seen = Time.now - 1.month
       user.save
-      User.yearly_actives.should include user
+      expect(User.yearly_actives).to include user
     end
 
     it 'returns list which does not include users seen within last year' do
       user = FactoryGirl.build(:user)
       user.last_seen = Time.now - 2.year
       user.save
-      User.yearly_actives.should_not include user
+      expect(User.yearly_actives).not_to include user
     end
   end
 
@@ -68,14 +68,14 @@ describe User do
       user = FactoryGirl.build(:user)
       user.last_seen = Time.now - 1.day
       user.save
-      User.monthly_actives.should include user
+      expect(User.monthly_actives).to include user
     end
 
      it 'returns list which does not include users seen within last month' do
       user = FactoryGirl.build(:user)
       user.last_seen = Time.now - 2.month
       user.save
-      User.monthly_actives.should_not include user
+      expect(User.monthly_actives).not_to include user
     end
   end
 
@@ -84,14 +84,14 @@ describe User do
       user = FactoryGirl.build(:user)
       user.last_seen = Time.now - 1.hour
       user.save
-      User.daily_actives.should include(user)
+      expect(User.daily_actives).to include(user)
     end
 
     it 'returns list which does not include users seen within last day' do
       user = FactoryGirl.build(:user)
       user.last_seen = Time.now - 2.day
       user.save
-      User.daily_actives.should_not include(user)
+      expect(User.daily_actives).not_to include(user)
     end
   end
 
@@ -100,14 +100,14 @@ describe User do
       user = FactoryGirl.build(:user)
       user.last_seen = Time.now - 4.month
       user.save
-      User.halfyear_actives.should include user
+      expect(User.halfyear_actives).to include user
     end
 
      it 'returns list which does not include users seen within the last half a year' do
       user = FactoryGirl.build(:user)
       user.last_seen = Time.now - 7.month
       user.save
-      User.halfyear_actives.should_not include user
+      expect(User.halfyear_actives).not_to include user
     end
   end
 
@@ -115,12 +115,12 @@ describe User do
     describe '#save_person!' do
       it 'saves the corresponding user if it has changed' do
         alice.person.url = "http://stuff.com"
-        Person.any_instance.should_receive(:save)
+        expect_any_instance_of(Person).to receive(:save)
         alice.save
       end
 
       it 'does not save the corresponding user if it has not changed' do
-        Person.any_instance.should_not_receive(:save)
+        expect_any_instance_of(Person).not_to receive(:save)
         alice.save
       end
     end
@@ -134,13 +134,13 @@ describe User do
     end
 
     it 'is a hash' do
-      alice.hidden_shareables.should == {}
+      expect(alice.hidden_shareables).to eq({})
     end
 
     describe '#add_hidden_shareable' do
       it 'adds the share id to an array which is keyed by the objects class' do
         alice.add_hidden_shareable(@sm_class, @sm_id)
-        alice.hidden_shareables['Post'].should == [@sm_id]
+        expect(alice.hidden_shareables['Post']).to eq([@sm_id])
       end
 
       it 'handles having multiple posts' do
@@ -148,7 +148,7 @@ describe User do
         alice.add_hidden_shareable(@sm_class, @sm_id)
         alice.add_hidden_shareable(sm2.class.base_class.to_s, sm2.id.to_s)
 
-        alice.hidden_shareables['Post'].should =~ [@sm_id, sm2.id.to_s]
+        expect(alice.hidden_shareables['Post']).to match_array([@sm_id, sm2.id.to_s])
       end
 
       it 'handles having multiple shareable types' do
@@ -156,7 +156,7 @@ describe User do
         alice.add_hidden_shareable(photo.class.base_class.to_s, photo.id.to_s)
         alice.add_hidden_shareable(@sm_class, @sm_id)
 
-        alice.hidden_shareables['Photo'].should == [photo.id.to_s]
+        expect(alice.hidden_shareables['Photo']).to eq([photo.id.to_s])
       end
     end
 
@@ -164,20 +164,20 @@ describe User do
       it 'removes the id from the hash if it is there'  do
         alice.add_hidden_shareable(@sm_class, @sm_id)
         alice.remove_hidden_shareable(@sm_class, @sm_id)
-        alice.hidden_shareables['Post'].should == []
+        expect(alice.hidden_shareables['Post']).to eq([])
       end
     end
 
     describe 'toggle_hidden_shareable' do
       it 'calls add_hidden_shareable if the key does not exist, and returns true' do
-        alice.should_receive(:add_hidden_shareable).with(@sm_class, @sm_id)
-        alice.toggle_hidden_shareable(@sm).should be_true
+        expect(alice).to receive(:add_hidden_shareable).with(@sm_class, @sm_id)
+        expect(alice.toggle_hidden_shareable(@sm)).to be true
       end
 
       it 'calls remove_hidden_shareable if the key exists' do
-        alice.should_receive(:remove_hidden_shareable).with(@sm_class, @sm_id)
+        expect(alice).to receive(:remove_hidden_shareable).with(@sm_class, @sm_id)
         alice.add_hidden_shareable(@sm_class, @sm_id)
-        alice.toggle_hidden_shareable(@sm).should be_false
+        expect(alice.toggle_hidden_shareable(@sm)).to be false
       end
     end
 
@@ -185,12 +185,12 @@ describe User do
       it 'returns true if the shareable is hidden' do
         post = FactoryGirl.create(:status_message)
         bob.toggle_hidden_shareable(post)
-        bob.is_shareable_hidden?(post).should be_true
+        expect(bob.is_shareable_hidden?(post)).to be true
       end
 
       it 'returns false if the shareable is not present' do
         post = FactoryGirl.create(:status_message)
-        bob.is_shareable_hidden?(post).should be_false
+        expect(bob.is_shareable_hidden?(post)).to be false
       end
     end
   end
@@ -198,9 +198,9 @@ describe User do
 
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
-      lambda {
+      expect {
         new_user = FactoryGirl.create(:user, :id => alice.id)
-      }.should raise_error ActiveRecord::StatementInvalid
+      }.to raise_error ActiveRecord::StatementInvalid
     end
 
     it 'does not overwrite old users with create' do
@@ -217,8 +217,8 @@ describe User do
           params[:id] = alice.id
       new_user = User.build(params)
       new_user.save
-      new_user.persisted?.should be_true
-      new_user.id.should_not == alice.id
+      expect(new_user.persisted?).to be true
+      expect(new_user.id).not_to eq(alice.id)
     end
   end
 
@@ -226,81 +226,81 @@ describe User do
     describe "of associated person" do
       it "fails if person is not valid" do
         user = alice
-        user.should be_valid
+        expect(user).to be_valid
 
         user.person.serialized_public_key = nil
-        user.person.should_not be_valid
-        user.should_not be_valid
+        expect(user.person).not_to be_valid
+        expect(user).not_to be_valid
 
-        user.errors.full_messages.count.should == 1
-        user.errors.full_messages.first.should =~ /Person is invalid/i
+        expect(user.errors.full_messages.count).to eq(1)
+        expect(user.errors.full_messages.first).to match(/Person is invalid/i)
       end
     end
 
     describe "of username" do
       it "requires presence" do
         alice.username = nil
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
 
       it "requires uniqueness" do
         alice.username = eve.username
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
 
       it 'requires uniqueness also amount Person objects with diaspora handle' do
         p = FactoryGirl.create(:person, :diaspora_handle => "jimmy#{User.diaspora_id_host}")
         alice.username = 'jimmy'
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
 
       end
 
       it "downcases username" do
         user = FactoryGirl.build(:user, :username => "WeIrDcAsE")
-        user.should be_valid
-        user.username.should == "weirdcase"
+        expect(user).to be_valid
+        expect(user.username).to eq("weirdcase")
       end
 
       it "fails if the requested username is only different in case from an existing username" do
         alice.username = eve.username.upcase
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
 
       it "strips leading and trailing whitespace" do
         user = FactoryGirl.build(:user, :username => "      janie   ")
-        user.should be_valid
-        user.username.should == "janie"
+        expect(user).to be_valid
+        expect(user.username).to eq("janie")
       end
 
       it "fails if there's whitespace in the middle" do
         alice.username = "bobby tables"
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
 
       it 'can not contain non url safe characters' do
         alice.username = "kittens;"
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
 
       it 'should not contain periods' do
         alice.username = "kittens."
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
 
       it "can be 32 characters long" do
         alice.username = "hexagoooooooooooooooooooooooooon"
-        alice.should be_valid
+        expect(alice).to be_valid
       end
 
       it "cannot be 33 characters" do
         alice.username =  "hexagooooooooooooooooooooooooooon"
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
 
       it "cannot be one of the blacklist names" do
         ['hostmaster', 'postmaster', 'root', 'webmaster'].each do |username|
           alice.username =  username
-          alice.should_not be_valid
+          expect(alice).not_to be_valid
         end
       end
     end
@@ -308,37 +308,37 @@ describe User do
     describe "of email" do
       it "requires email address" do
         alice.email = nil
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
 
       it "requires a unique email address" do
         alice.email = eve.email
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
 
       it "requires a valid email address" do
         alice.email = "somebody@anywhere"
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
     end
 
     describe "of unconfirmed_email" do
       it "unconfirmed_email address can be nil/blank" do
         alice.unconfirmed_email = nil
-        alice.should be_valid
+        expect(alice).to be_valid
         alice.unconfirmed_email = ""
-        alice.should be_valid
+        expect(alice).to be_valid
       end
 
       it "does NOT require a unique unconfirmed_email address" do
         eve.update_attribute :unconfirmed_email, "new@email.com"
         alice.unconfirmed_email = "new@email.com"
-        alice.should be_valid
+        expect(alice).to be_valid
       end
 
       it "requires a valid unconfirmed_email address" do
         alice.unconfirmed_email = "somebody@anywhere"
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
     end
 
@@ -349,19 +349,19 @@ describe User do
 
       it "requires availability" do
         alice.language = 'some invalid language'
-        alice.should_not be_valid
+        expect(alice).not_to be_valid
       end
 
       it "should save with current language if blank" do
         I18n.locale = :fr
         user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password')
-        user.language.should == 'fr'
+        expect(user.language).to eq('fr')
       end
 
       it "should save with language what is set" do
         I18n.locale = :fr
         user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password', :language => 'de')
-        user.language.should == 'de'
+        expect(user.language).to eq('de')
       end
     end
   end
@@ -384,17 +384,17 @@ describe User do
       end
 
       it "does not save" do
-        @user.persisted?.should be_false
-        @user.person.persisted?.should be_false
-        User.find_by_username("ohai").should be_nil
+        expect(@user.persisted?).to be false
+        expect(@user.person.persisted?).to be false
+        expect(User.find_by_username("ohai")).to be_nil
       end
 
       it 'saves successfully' do
-        @user.should be_valid
-        @user.save.should be_true
-        @user.persisted?.should be_true
-        @user.person.persisted?.should be_true
-        User.find_by_username("ohai").should == @user
+        expect(@user).to be_valid
+        expect(@user.save).to be true
+        expect(@user.persisted?).to be true
+        expect(@user.person.persisted?).to be true
+        expect(User.find_by_username("ohai")).to eq(@user)
       end
     end
 
@@ -409,19 +409,19 @@ describe User do
       end
 
       it "raises no error" do
-        lambda { User.build(@invalid_params) }.should_not raise_error
+        expect { User.build(@invalid_params) }.not_to raise_error
       end
 
       it "does not save" do
-        User.build(@invalid_params).save.should be_false
+        expect(User.build(@invalid_params).save).to be false
       end
 
       it 'does not save a person' do
-        lambda { User.build(@invalid_params) }.should_not change(Person, :count)
+        expect { User.build(@invalid_params) }.not_to change(Person, :count)
       end
 
       it 'does not generate a key' do
-        User.should_receive(:generate_key).exactly(0).times
+        expect(User).to receive(:generate_key).exactly(0).times
         User.build(@invalid_params)
       end
     end
@@ -443,7 +443,7 @@ describe User do
       end
 
       it "does not assign it to the person" do
-        User.build(@invalid_params).person.id.should_not == person.id
+        expect(User.build(@invalid_params).person.id).not_to eq(person.id)
       end
     end
   end
@@ -453,7 +453,7 @@ describe User do
       inv = InvitationCode.create(:user => bob)
       user = FactoryGirl.build(:user)
       user.process_invite_acceptence(inv)
-      user.invited_by_id.should == bob.id
+      expect(user.invited_by_id).to eq(bob.id)
     end
   end
 
@@ -474,27 +474,27 @@ describe User do
       expect {
         alice.update_user_preferences({'mentioned' => false})
       }.to change(alice.user_preferences, :count).by(@pref_count-1)
-      alice.reload.disable_mail.should be_false
+      expect(alice.reload.disable_mail).to be false
     end
   end
 
   describe ".find_for_database_authentication" do
     it 'finds a user' do
-      User.find_for_database_authentication(:username => alice.username).should == alice
+      expect(User.find_for_database_authentication(:username => alice.username)).to eq(alice)
     end
 
     it 'finds a user by email' do
-      User.find_for_database_authentication(:username => alice.email).should == alice
+      expect(User.find_for_database_authentication(:username => alice.email)).to eq(alice)
     end
 
     it "does not preserve case" do
-      User.find_for_database_authentication(:username => alice.username.upcase).should == alice
+      expect(User.find_for_database_authentication(:username => alice.username.upcase)).to eq(alice)
     end
 
     it 'errors out when passed a non-hash' do
-      lambda {
+      expect {
         User.find_for_database_authentication(alice.username)
-      }.should raise_error
+      }.to raise_error
     end
   end
 
@@ -509,26 +509,26 @@ describe User do
     it 'dispatches the profile when tags are set' do
       @params = {:tag_string => '#what #hey'}
       mailman = Postzord::Dispatcher.build(alice, Profile.new)
-      Postzord::Dispatcher.should_receive(:build).and_return(mailman)
-      alice.update_profile(@params).should be_true
+      expect(Postzord::Dispatcher).to receive(:build).and_return(mailman)
+      expect(alice.update_profile(@params)).to be true
     end
 
     it 'sends a profile to their contacts' do
       mailman = Postzord::Dispatcher.build(alice, Profile.new)
-      Postzord::Dispatcher.should_receive(:build).and_return(mailman)
-      alice.update_profile(@params).should be_true
+      expect(Postzord::Dispatcher).to receive(:build).and_return(mailman)
+      expect(alice.update_profile(@params)).to be true
     end
 
     it 'updates names' do
-      alice.update_profile(@params).should be_true
-      alice.reload.profile.first_name.should == 'bob'
+      expect(alice.update_profile(@params)).to be true
+      expect(alice.reload.profile.first_name).to eq('bob')
     end
 
     it 'updates image_url' do
       params = {:image_url => "http://clown.com"}
 
-      alice.update_profile(params).should be_true
-      alice.reload.profile.image_url.should == "http://clown.com"
+      expect(alice.update_profile(params)).to be true
+      expect(alice.reload.profile.image_url).to eq("http://clown.com")
     end
 
     context 'passing in a photo' do
@@ -542,20 +542,20 @@ describe User do
       end
 
       it 'updates image_url' do
-        alice.update_profile(@params).should be_true
+        expect(alice.update_profile(@params)).to be true
         alice.reload
 
-        alice.profile.image_url.should =~ Regexp.new(@photo.url(:thumb_large))
-        alice.profile.image_url_medium.should =~ Regexp.new(@photo.url(:thumb_medium))
-        alice.profile.image_url_small.should =~ Regexp.new(@photo.url(:thumb_small))
+        expect(alice.profile.image_url).to match(Regexp.new(@photo.url(:thumb_large)))
+        expect(alice.profile.image_url_medium).to match(Regexp.new(@photo.url(:thumb_medium)))
+        expect(alice.profile.image_url_small).to match(Regexp.new(@photo.url(:thumb_small)))
       end
 
       it 'unpends the photo' do
         @photo.pending = true
         @photo.save!
         @photo.reload
-        alice.update_profile(@params).should be true
-        @photo.reload.pending.should be_false
+        expect(alice.update_profile(@params)).to be true
+        expect(@photo.reload.pending).to be false
       end
     end
   end
@@ -563,7 +563,7 @@ describe User do
   describe '#update_post' do
     it 'should dispatch post' do
       photo = alice.build_post(:photo, :user_file => uploaded_photo, :text => "hello", :to => alice.aspects.first.id)
-      alice.should_receive(:dispatch_post).with(photo)
+      expect(alice).to receive(:dispatch_post).with(photo)
       alice.update_post(photo, :text => 'hellp')
     end
   end
@@ -574,23 +574,23 @@ describe User do
     end
 
     it 'notifies the user if the incoming post mentions them' do
-      @post.should_receive(:mentions?).with(alice.person).and_return(true)
-      @post.should_receive(:notify_person).with(alice.person)
+      expect(@post).to receive(:mentions?).with(alice.person).and_return(true)
+      expect(@post).to receive(:notify_person).with(alice.person)
 
       alice.notify_if_mentioned(@post)
     end
 
     it 'does not notify the user if the incoming post does not mention them' do
-      @post.should_receive(:mentions?).with(alice.person).and_return(false)
-      @post.should_not_receive(:notify_person)
+      expect(@post).to receive(:mentions?).with(alice.person).and_return(false)
+      expect(@post).not_to receive(:notify_person)
 
       alice.notify_if_mentioned(@post)
     end
 
     it 'does not notify the user if the post author is not a contact' do
       @post = FactoryGirl.build(:status_message, :author => eve.person)
-      @post.stub(:mentions?).and_return(true)
-      @post.should_not_receive(:notify_person)
+      allow(@post).to receive(:mentions?).and_return(true)
+      expect(@post).not_to receive(:notify_person)
 
       alice.notify_if_mentioned(@post)
     end
@@ -600,23 +600,23 @@ describe User do
     describe '#destroy' do
       it 'removes invitations from the user' do
         FactoryGirl.create(:invitation, :sender => alice)
-        lambda {
+        expect {
           alice.destroy
-        }.should change {alice.invitations_from_me(true).count }.by(-1)
+        }.to change {alice.invitations_from_me(true).count }.by(-1)
       end
 
       it 'removes invitations to the user' do
         Invitation.new(:sender => eve, :recipient => alice, :identifier => alice.email, :aspect => eve.aspects.first).save(:validate => false)
-        lambda {
+        expect {
           alice.destroy
-        }.should change {alice.invitations_to_me(true).count }.by(-1)
+        }.to change {alice.invitations_to_me(true).count }.by(-1)
       end
 
       it 'removes all service connections' do
         Services::Facebook.create(:access_token => 'what', :user_id => alice.id)
-        lambda {
+        expect {
           alice.destroy
-        }.should change {
+        }.to change {
           alice.services.count
         }.by(-1)
       end
@@ -628,13 +628,13 @@ describe User do
       alice.disable_mail = false
       alice.save
 
-      Workers::Mail::StartedSharing.should_receive(:perform_async).with(alice.id, 'contactrequestid').once
+      expect(Workers::Mail::StartedSharing).to receive(:perform_async).with(alice.id, 'contactrequestid').once
       alice.mail(Workers::Mail::StartedSharing, alice.id, 'contactrequestid')
     end
 
     it 'does not enqueue a mail job if the correct corresponding job has a preference entry' do
       alice.user_preferences.create(:email_type => 'started_sharing')
-      Workers::Mail::StartedSharing.should_not_receive(:perform_async)
+      expect(Workers::Mail::StartedSharing).not_to receive(:perform_async)
       alice.mail(Workers::Mail::StartedSharing, alice.id, 'contactrequestid')
     end
 
@@ -642,7 +642,7 @@ describe User do
        alice.disable_mail = true
        alice.save
        alice.reload
-       Workers::Mail::StartedSharing.should_not_receive(:perform_async)
+       expect(Workers::Mail::StartedSharing).not_to receive(:perform_async)
       alice.mail(Workers::Mail::StartedSharing, alice.id, 'contactrequestid')
     end
   end
@@ -656,13 +656,13 @@ describe User do
 
     describe "#add_contact_to_aspect" do
       it 'adds the contact to the aspect' do
-        lambda {
+        expect {
           alice.add_contact_to_aspect(@contact, @new_aspect)
-        }.should change(@new_aspect.contacts, :count).by(1)
+        }.to change(@new_aspect.contacts, :count).by(1)
       end
 
       it 'returns true if they are already in the aspect' do
-        alice.add_contact_to_aspect(@contact, @original_aspect).should be_true
+        expect(alice.add_contact_to_aspect(@contact, @original_aspect)).to be true
       end
     end
   end
@@ -679,23 +679,23 @@ describe User do
 
     describe '#like_for' do
       it 'returns the correct like' do
-        alice.like_for(@message).should == @like
-        bob.like_for(@message).should == @like2
+        expect(alice.like_for(@message)).to eq(@like)
+        expect(bob.like_for(@message)).to eq(@like2)
       end
 
       it "returns nil if there's no like" do
-        alice.like_for(@message2).should be_nil
+        expect(alice.like_for(@message2)).to be_nil
       end
     end
 
     describe '#liked?' do
       it "returns true if there's a like" do
-        alice.liked?(@message).should be_true
-        bob.liked?(@message).should be_true
+        expect(alice.liked?(@message)).to be true
+        expect(bob.liked?(@message)).to be true
       end
 
       it "returns false if there's no like" do
-        alice.liked?(@message2).should be_false
+        expect(alice.liked?(@message2)).to be false
       end
     end
   end
@@ -705,47 +705,47 @@ describe User do
 
     describe "#unconfirmed_email" do
       it "is nil by default" do
-        user.unconfirmed_email.should eql(nil)
+        expect(user.unconfirmed_email).to eql(nil)
       end
 
       it "forces blank to nil" do
         user.unconfirmed_email = ""
         user.save!
-        user.unconfirmed_email.should eql(nil)
+        expect(user.unconfirmed_email).to eql(nil)
       end
 
       it "is ignored if it equals email" do
         user.unconfirmed_email = user.email
         user.save!
-        user.unconfirmed_email.should eql(nil)
+        expect(user.unconfirmed_email).to eql(nil)
       end
 
       it "allows change to valid new email" do
         user.unconfirmed_email = "alice@newmail.com"
         user.save!
-        user.unconfirmed_email.should eql("alice@newmail.com")
+        expect(user.unconfirmed_email).to eql("alice@newmail.com")
       end
     end
 
     describe "#confirm_email_token" do
       it "is nil by default" do
-        user.confirm_email_token.should eql(nil)
+        expect(user.confirm_email_token).to eql(nil)
       end
 
       it "is autofilled when unconfirmed_email is set to new email" do
         user.unconfirmed_email = "alice@newmail.com"
         user.save!
-        user.confirm_email_token.should_not be_blank
-        user.confirm_email_token.size.should eql(30)
+        expect(user.confirm_email_token).not_to be_blank
+        expect(user.confirm_email_token.size).to eql(30)
       end
 
       it "is set back to nil when unconfirmed_email is empty" do
         user.unconfirmed_email = "alice@newmail.com"
         user.save!
-        user.confirm_email_token.should_not be_blank
+        expect(user.confirm_email_token).not_to be_blank
         user.unconfirmed_email = nil
         user.save!
-        user.confirm_email_token.should eql(nil)
+        expect(user.confirm_email_token).to eql(nil)
       end
 
       it "generates new token on every new unconfirmed_email" do
@@ -754,21 +754,21 @@ describe User do
         first_token = user.confirm_email_token
         user.unconfirmed_email = "alice@andanotherone.com"
         user.save!
-        user.confirm_email_token.should_not eql(first_token)
-        user.confirm_email_token.size.should eql(30)
+        expect(user.confirm_email_token).not_to eql(first_token)
+        expect(user.confirm_email_token.size).to eql(30)
       end
     end
 
     describe '#mail_confirm_email' do
       it 'enqueues a mail job on user with unconfirmed email' do
         user.update_attribute(:unconfirmed_email, "alice@newmail.com")
-        Workers::Mail::ConfirmEmail.should_receive(:perform_async).with(alice.id).once
-        alice.mail_confirm_email.should eql(true)
+        expect(Workers::Mail::ConfirmEmail).to receive(:perform_async).with(alice.id).once
+        expect(alice.mail_confirm_email).to eql(true)
       end
 
       it 'enqueues NO mail job on user without unconfirmed email' do
-        Workers::Mail::ConfirmEmail.should_not_receive(:perform_async).with(alice.id)
-        alice.mail_confirm_email.should eql(false)
+        expect(Workers::Mail::ConfirmEmail).not_to receive(:perform_async).with(alice.id)
+        expect(alice.mail_confirm_email).to eql(false)
       end
     end
 
@@ -779,54 +779,54 @@ describe User do
         end
 
         it 'confirms email and set the unconfirmed_email to email on valid token' do
-          user.confirm_email(user.confirm_email_token).should eql(true)
-          user.email.should eql("alice@newmail.com")
-          user.unconfirmed_email.should eql(nil)
-          user.confirm_email_token.should eql(nil)
+          expect(user.confirm_email(user.confirm_email_token)).to eql(true)
+          expect(user.email).to eql("alice@newmail.com")
+          expect(user.unconfirmed_email).to eql(nil)
+          expect(user.confirm_email_token).to eql(nil)
         end
 
         it 'returns false and does not change anything on wrong token' do
-          user.confirm_email(user.confirm_email_token.reverse).should eql(false)
-          user.email.should_not eql("alice@newmail.com")
-          user.unconfirmed_email.should_not eql(nil)
-          user.confirm_email_token.should_not eql(nil)
+          expect(user.confirm_email(user.confirm_email_token.reverse)).to eql(false)
+          expect(user.email).not_to eql("alice@newmail.com")
+          expect(user.unconfirmed_email).not_to eql(nil)
+          expect(user.confirm_email_token).not_to eql(nil)
         end
 
         it 'returns false and does not change anything on blank token' do
-          user.confirm_email("").should eql(false)
-          user.email.should_not eql("alice@newmail.com")
-          user.unconfirmed_email.should_not eql(nil)
-          user.confirm_email_token.should_not eql(nil)
+          expect(user.confirm_email("")).to eql(false)
+          expect(user.email).not_to eql("alice@newmail.com")
+          expect(user.unconfirmed_email).not_to eql(nil)
+          expect(user.confirm_email_token).not_to eql(nil)
         end
 
         it 'returns false and does not change anything on blank token' do
-          user.confirm_email(nil).should eql(false)
-          user.email.should_not eql("alice@newmail.com")
-          user.unconfirmed_email.should_not eql(nil)
-          user.confirm_email_token.should_not eql(nil)
+          expect(user.confirm_email(nil)).to eql(false)
+          expect(user.email).not_to eql("alice@newmail.com")
+          expect(user.unconfirmed_email).not_to eql(nil)
+          expect(user.confirm_email_token).not_to eql(nil)
         end
       end
 
       context 'on user without unconfirmed email' do
         it 'returns false and does not change anything on any token' do
-          user.confirm_email("12345"*6).should eql(false)
-          user.email.should_not eql("alice@newmail.com")
-          user.unconfirmed_email.should eql(nil)
-          user.confirm_email_token.should eql(nil)
+          expect(user.confirm_email("12345"*6)).to eql(false)
+          expect(user.email).not_to eql("alice@newmail.com")
+          expect(user.unconfirmed_email).to eql(nil)
+          expect(user.confirm_email_token).to eql(nil)
         end
 
         it 'returns false and does not change anything on blank token' do
-          user.confirm_email("").should eql(false)
-          user.email.should_not eql("alice@newmail.com")
-          user.unconfirmed_email.should eql(nil)
-          user.confirm_email_token.should eql(nil)
+          expect(user.confirm_email("")).to eql(false)
+          expect(user.email).not_to eql("alice@newmail.com")
+          expect(user.unconfirmed_email).to eql(nil)
+          expect(user.confirm_email_token).to eql(nil)
         end
 
         it 'returns false and does not change anything on blank token' do
-          user.confirm_email(nil).should eql(false)
-          user.email.should_not eql("alice@newmail.com")
-          user.unconfirmed_email.should eql(nil)
-          user.confirm_email_token.should eql(nil)
+          expect(user.confirm_email(nil)).to eql(false)
+          expect(user.email).not_to eql("alice@newmail.com")
+          expect(user.unconfirmed_email).to eql(nil)
+          expect(user.confirm_email_token).to eql(nil)
         end
       end
     end
@@ -841,14 +841,14 @@ describe User do
 
     context "posts" do
       before do
-        SignedRetraction.stub(:build).and_return(@retraction)
-        @retraction.stub(:perform)
+        allow(SignedRetraction).to receive(:build).and_return(@retraction)
+        allow(@retraction).to receive(:perform)
       end
 
       it 'sends a retraction' do
         dispatcher = double
-        Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, anything()).and_return(dispatcher)
-        dispatcher.should_receive(:post)
+        expect(Postzord::Dispatcher).to receive(:build).with(bob, @retraction, anything()).and_return(dispatcher)
+        expect(dispatcher).to receive(:post)
 
         bob.retract(@post)
       end
@@ -859,8 +859,8 @@ describe User do
         @post.reshares << reshare
 
         dispatcher = double
-        Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, {:additional_subscribers => [person], :services => anything}).and_return(dispatcher)
-        dispatcher.should_receive(:post)
+        expect(Postzord::Dispatcher).to receive(:build).with(bob, @retraction, {:additional_subscribers => [person], :services => anything}).and_return(dispatcher)
+        expect(dispatcher).to receive(:post)
 
         bob.retract(@post)
       end
@@ -870,7 +870,7 @@ describe User do
   describe "#send_reset_password_instructions" do
     it "queues up a job to send the reset password instructions" do
       user = FactoryGirl.create :user
-      Workers::ResetPassword.should_receive(:perform_async).with(user.id)
+      expect(Workers::ResetPassword).to receive(:perform_async).with(user.id)
       user.send_reset_password_instructions
     end
   end
@@ -886,7 +886,7 @@ describe User do
       [I18n.t('aspects.seed.family'), I18n.t('aspects.seed.friends'),
        I18n.t('aspects.seed.work'), I18n.t('aspects.seed.acquaintances')].each do |aspect_name|
         it "creates an aspect named #{aspect_name} for the user" do
-          user.aspects.find_by_name(aspect_name).should_not be_nil
+          expect(user.aspects.find_by_name(aspect_name)).not_to be_nil
         end
       end
     end
@@ -896,24 +896,14 @@ describe User do
         FactoryGirl.create(:user)
       }
 
-      before(:each) do
-        @old_autofollow_value = AppConfig.settings.autofollow_on_join?
-        @old_autofollow_user = AppConfig.settings.autofollow_on_join_user
-      end
-
-      after(:each) do
-        AppConfig.settings.autofollow_on_join = @old_followhq_value
-        AppConfig.settings.autofollow_on_join_user = @old_autofollow_user
-      end
-
       context "with autofollow sharing enabled" do
         it "should start sharing with autofollow account" do
           AppConfig.settings.autofollow_on_join = true
           AppConfig.settings.autofollow_on_join_user = 'one'
 
           wf_double = double
-          wf_double.should_receive(:fetch)
-          Webfinger.should_receive(:new).with('one').and_return(wf_double)
+          expect(wf_double).to receive(:fetch)
+          expect(Webfinger).to receive(:new).with('one').and_return(wf_double)
 
           user.seed_aspects
         end
@@ -923,7 +913,7 @@ describe User do
         it "should not start sharing with the diasporahq account" do
           AppConfig.settings.autofollow_on_join = false
 
-          Webfinger.should_not_receive(:new)
+          expect(Webfinger).not_to receive(:new)
 
           user.seed_aspects
         end
@@ -939,7 +929,7 @@ describe User do
     describe "#close_account!" do
       it 'locks the user out' do
         @user.close_account!
-        @user.reload.access_locked?.should be_true
+        expect(@user.reload.access_locked?).to be true
       end
 
       it 'creates an account deletion' do
@@ -949,7 +939,7 @@ describe User do
       end
 
       it 'calls person#lock_access!' do
-        @user.person.should_receive(:lock_access!)
+        expect(@user.person).to receive(:lock_access!)
         @user.close_account!
       end
     end
@@ -957,7 +947,7 @@ describe User do
     describe "#clear_account!" do
       it 'resets the password to a random string' do
         random_pass = "12345678909876543210"
-        SecureRandom.should_receive(:hex).and_return(random_pass)
+        expect(SecureRandom).to receive(:hex).and_return(random_pass)
         @user.clear_account!
         @user.valid_password?(random_pass)
       end
@@ -969,15 +959,27 @@ describe User do
 
         @user.reload
         attributes.each do |attr|
-          @user.send(attr.to_sym).should be_blank
+          expect(@user.send(attr.to_sym)).to be_blank
         end
+      end
+
+      it 'disables mail' do
+        @user.disable_mail = false
+        @user.clear_account!
+        expect(@user.reload.disable_mail).to be true
+      end
+
+      it 'sets getting_started and show_community_spotlight_in_stream fields to false' do
+        @user.clear_account!
+        expect(@user.reload.getting_started).to be false
+        expect(@user.reload.show_community_spotlight_in_stream).to be false
       end
     end
 
     describe "#clearable_attributes" do
       it 'returns the clearable fields' do
         user = FactoryGirl.create :user
-        user.send(:clearable_fields).sort.should == %w{
+        expect(user.send(:clearable_fields).sort).to eq(%w{
           language
           invitation_token
           invitation_sent_at
@@ -1001,11 +1003,73 @@ describe User do
           unconfirmed_email
           confirm_email_token
           last_seen
-        }.sort
+        }.sort)
       end
     end
   end
-  
+
+  describe "queue_export" do
+    it "queues up a job to perform the export" do
+      user = FactoryGirl.create :user
+      expect(Workers::ExportUser).to receive(:perform_async).with(user.id)
+      user.queue_export
+      expect(user.exporting).to be_truthy
+    end
+  end
+
+  describe "perform_export!" do
+    it "saves a json export to the user" do
+      user = FactoryGirl.create :user, exporting: true
+      user.perform_export!
+      expect(user.export).to be_present
+      expect(user.exported_at).to be_present
+      expect(user.exporting).to be_falsey
+      expect(user.export.filename).to match /.json/
+      expect(ActiveSupport::Gzip.decompress(user.export.file.read)).to include user.username
+    end
+
+    it "compresses the result" do
+      user = FactoryGirl.create :user, exporting: true
+      expect(ActiveSupport::Gzip).to receive :compress
+      user.perform_export!
+    end
+  end
+
+  describe "queue_export_photos" do
+    it "queues up a job to perform the export photos" do
+      user = FactoryGirl.create :user
+      expect(Workers::ExportPhotos).to receive(:perform_async).with(user.id)
+      user.queue_export_photos
+      expect(user.exporting_photos).to be_truthy
+    end
+  end
+
+  describe "perform_export_photos!" do
+    before do
+      @user = alice
+      filename  = 'button.png'
+      image = File.join(File.dirname(__FILE__), '..', 'fixtures', filename)
+      @saved_image = @user.build_post(:photo, :user_file => File.open(image), :to => alice.aspects.first.id)
+      @saved_image.save!
+    end
+
+    it "saves a zip export to the user" do
+      @user.perform_export_photos!
+      expect(@user.exported_photos_file).to be_present
+      expect(@user.exported_photos_at).to be_present
+      expect(@user.exporting_photos).to be_falsey
+      expect(@user.exported_photos_file.filename).to match /.zip/
+      expect(Zip::ZipFile.open(@user.exported_photos_file.path).entries.count).to eq(1)
+    end
+
+    it "does not add empty entries when photo not found" do
+      File.unlink @user.photos.first.unprocessed_image.path
+      @user.perform_export_photos!
+      expect(@user.exported_photos_file.filename).to match /.zip/
+      expect(Zip::ZipFile.open(@user.exported_photos_file.path).entries.count).to eq(0)
+    end
+  end
+
   describe "sign up" do
     before do
       params = {:username => "ohai",
@@ -1013,7 +1077,7 @@ describe User do
                 :password => "password",
                 :password_confirmation => "password",
                 :captcha => "12345",
-                
+
                 :person =>
                   {:profile =>
                     {:first_name => "O",
@@ -1025,14 +1089,55 @@ describe User do
 
     it "saves with captcha off" do
       AppConfig.settings.captcha.enable = false
-      @user.should_receive(:save).and_return(true)
+      expect(@user).to receive(:save).and_return(true)
       @user.sign_up
     end
 
     it "saves with captcha on" do
       AppConfig.settings.captcha.enable = true
-      @user.should_receive(:save_with_captcha).and_return(true)
+      expect(@user).to receive(:save_with_captcha).and_return(true)
       @user.sign_up
+    end
+  end
+
+  describe "maintenance" do
+    before do
+      @user = bob
+      AppConfig.settings.maintenance.remove_old_users.enable = true
+    end
+
+    it "#flags user for removal" do
+      remove_at = Time.now+5.days
+      @user.flag_for_removal(remove_at)
+      expect(@user.remove_after).to eq(remove_at)
+    end
+  end
+
+  describe "#auth database auth maintenance" do
+    before do
+      @user = bob
+      @user.remove_after = Time.now
+      @user.save
+    end
+
+    it "remove_after is cleared" do
+      @user.after_database_authentication
+      expect(@user.remove_after).to eq(nil)
+    end
+  end
+
+  describe "active" do
+    before do
+      invited_user = FactoryGirl.build(:user, username: nil)
+      invited_user.save(validate: false)
+
+      closed_account = FactoryGirl.create(:user)
+      closed_account.person.closed_account = true
+      closed_account.save
+    end
+
+    it "returns total_users excluding closed accounts & users without usernames" do
+      expect(User.active.count).to eq 6     # 6 users from fixtures
     end
   end
 end

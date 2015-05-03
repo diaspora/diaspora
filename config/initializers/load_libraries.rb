@@ -3,7 +3,6 @@ require 'cgi'
 require 'uri'
 
 # Not auto required gems
-require 'active_support/base64'
 require 'builder/xchar'
 require 'carrierwave/orm/activerecord'
 require 'erb'
@@ -14,7 +13,6 @@ require 'typhoeus'
 require 'post_presenter'
 
 # Our libs
-require 'collect_user_photos'
 require 'diaspora'
 require 'direction_detector'
 require 'email_inviter'

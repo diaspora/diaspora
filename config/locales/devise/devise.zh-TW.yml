@@ -33,11 +33,11 @@ zh-TW:
       inviter:
         accept_at: "於 %{url}，你可以透過以下連結來接受。"
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} 邀請你加入 Diaspora"
+        have_invited_you: "%{names} 邀請你加入 diaspora* "
       reset_password_instructions:
         change: "更改密碼"
         ignore: "如果你沒有要求過，請不用管這封信。"
-        someone_requested: "有人要求要改變你的密碼，如果是你自己的話，請按以下連結來做。"
+        someone_requested: "如果你要求重設密碼，請點下方連結來重設密碼。"
         subject: "密碼重設步驟"
         wont_change: "在按了以上連結，並且設定新的密碼後，你的密碼才會改變。"
       unlock_instructions:
@@ -49,9 +49,13 @@ zh-TW:
     passwords:
       edit:
         change_password: "更改密碼"
+        confirm_password: "確認密碼"
+        new_password: "新密碼"
       new:
+        email: "電子信箱"
         forgot_password: "忘記密碼了嗎？"
         no_account: "沒有和這個電子信箱關聯的帳號"
+        reset_password: "重設密碼"
         send_password_instructions: "傳送密碼重設的步驟給我"
       send_instructions: "幾分鐘之內，你會收到一封說明如何重設密碼的信件。"
       updated: "密碼更改成功，你已經登入了。"

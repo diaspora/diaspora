@@ -19,7 +19,7 @@ describe Diaspora::Fetcher::Public do
 
     stub_request(:get, /remote-testpod.net\/people\/.*/)
       .with(headers: {
-            'Accept'=>'application/json', 
+            'Accept'=>'application/json',
             'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
             'User-Agent'=>'diaspora-fetcher'
       }).to_return(:body => @fixture)
@@ -36,16 +36,16 @@ describe Diaspora::Fetcher::Public do
 
     it "sets the operation status on the person" do
       @person.reload
-      @person.fetch_status.should_not eql(Diaspora::Fetcher::Public::Status_Initial)
-      @person.fetch_status.should eql(Diaspora::Fetcher::Public::Status_Fetched)
+      expect(@person.fetch_status).not_to eql(Diaspora::Fetcher::Public::Status_Initial)
+      expect(@person.fetch_status).to eql(Diaspora::Fetcher::Public::Status_Fetched)
     end
 
     it "sets the @data variable to the parsed JSON data" do
       data = @fetcher.instance_eval {
         @data
       }
-      data.should_not be_nil
-      data.size.should eql JSON.parse(@fixture).size
+      expect(data).not_to be_nil
+      expect(data.size).to eql JSON.parse(@fixture).size
     end
   end
 
@@ -66,7 +66,7 @@ describe Diaspora::Fetcher::Public do
         process_posts
       }
       after_count = Post.count
-      after_count.should eql(before_count + 10)
+      expect(after_count).to eql(before_count + 10)
     end
 
     it 'sets the operation status on the person' do
@@ -75,8 +75,8 @@ describe Diaspora::Fetcher::Public do
       }
 
       @person.reload
-      @person.fetch_status.should_not eql(Diaspora::Fetcher::Public::Status_Initial)
-      @person.fetch_status.should eql(Diaspora::Fetcher::Public::Status_Processed)
+      expect(@person.fetch_status).not_to eql(Diaspora::Fetcher::Public::Status_Initial)
+      expect(@person.fetch_status).to eql(Diaspora::Fetcher::Public::Status_Processed)
     end
 
     context 'created post' do
@@ -100,14 +100,14 @@ describe Diaspora::Fetcher::Public do
           date = ActiveSupport::TimeZone.new('UTC').parse(post['created_at']).to_i
 
           entry = StatusMessage.find_by_guid(post['guid'])
-          entry.created_at.to_i.should eql(date)
+          expect(entry.created_at.to_i).to eql(date)
         end
       end
 
       it 'copied the text correctly' do
         @data.each do |post|
           entry = StatusMessage.find_by_guid(post['guid'])
-          entry.raw_message.should eql(post['text'])
+          expect(entry.raw_message).to eql(post['text'])
         end
       end
 
@@ -116,7 +116,7 @@ describe Diaspora::Fetcher::Public do
           date = @now.to_i
 
           entry = StatusMessage.find_by_guid(post['guid'])
-          entry.interacted_at.to_i.should eql(date)
+          expect(entry.interacted_at.to_i).to eql(date)
         end
       end
     end
@@ -127,46 +127,46 @@ describe Diaspora::Fetcher::Public do
 
     describe '#qualifies_for_fetching?' do
       it "raises an error if the person doesn't exist" do
-        lambda {
+        expect {
           public_fetcher.instance_eval {
             @person = Person.by_account_identifier "someone@unknown.com"
             qualifies_for_fetching?
           }
-        }.should raise_error ActiveRecord::RecordNotFound
+        }.to raise_error ActiveRecord::RecordNotFound
       end
 
       it 'returns false if the person is unfetchable' do
-        public_fetcher.instance_eval {
+        expect(public_fetcher.instance_eval {
           @person = FactoryGirl.create(:person, {:fetch_status => Diaspora::Fetcher::Public::Status_Unfetchable})
           qualifies_for_fetching?
-        }.should be_false
+        }).to be false
       end
 
       it 'returns false and sets the person unfetchable for a local account' do
         user = FactoryGirl.create(:user)
-        public_fetcher.instance_eval {
+        expect(public_fetcher.instance_eval {
           @person = user.person
           qualifies_for_fetching?
-        }.should be_false
-        user.person.fetch_status.should eql Diaspora::Fetcher::Public::Status_Unfetchable
+        }).to be false
+        expect(user.person.fetch_status).to eql Diaspora::Fetcher::Public::Status_Unfetchable
       end
 
       it 'returns false if the person is processing already (or has been processed)' do
         person = FactoryGirl.create(:person)
         person.fetch_status = Diaspora::Fetcher::Public::Status_Fetched
         person.save
-        public_fetcher.instance_eval {
+        expect(public_fetcher.instance_eval {
           @person = person
           qualifies_for_fetching?
-        }.should be_false
+        }).to be false
       end
 
       it "returns true, if the user is remote and hasn't been fetched" do
         person = FactoryGirl.create(:person, {:diaspora_handle => 'neo@theone.net'})
-        public_fetcher.instance_eval {
+        expect(public_fetcher.instance_eval {
           @person = person
           qualifies_for_fetching?
-        }.should be_true
+        }).to be true
       end
     end
 
@@ -177,35 +177,35 @@ describe Diaspora::Fetcher::Public do
           @person = person
           set_fetch_status Diaspora::Fetcher::Public::Status_Unfetchable
         }
-        @person.fetch_status.should eql Diaspora::Fetcher::Public::Status_Unfetchable
+        expect(@person.fetch_status).to eql Diaspora::Fetcher::Public::Status_Unfetchable
 
         public_fetcher.instance_eval {
           set_fetch_status Diaspora::Fetcher::Public::Status_Initial
         }
-        @person.fetch_status.should eql Diaspora::Fetcher::Public::Status_Initial
+        expect(@person.fetch_status).to eql Diaspora::Fetcher::Public::Status_Initial
       end
     end
 
     describe '#validate' do
       it "calls all validation helper methods" do
-        public_fetcher.should_receive(:check_existing).and_return(true)
-        public_fetcher.should_receive(:check_author).and_return(true)
-        public_fetcher.should_receive(:check_public).and_return(true)
-        public_fetcher.should_receive(:check_type).and_return(true)
+        expect(public_fetcher).to receive(:check_existing).and_return(true)
+        expect(public_fetcher).to receive(:check_author).and_return(true)
+        expect(public_fetcher).to receive(:check_public).and_return(true)
+        expect(public_fetcher).to receive(:check_type).and_return(true)
 
-        public_fetcher.instance_eval { validate({}) }.should be_true
+        expect(public_fetcher.instance_eval { validate({}) }).to be true
       end
     end
 
     describe '#check_existing' do
       it 'returns false if a post with the same guid exists' do
         post = {'guid' => FactoryGirl.create(:status_message).guid}
-        public_fetcher.instance_eval { check_existing post }.should be_false
+        expect(public_fetcher.instance_eval { check_existing post }).to be false
       end
 
       it 'returns true if the guid cannot be found' do
         post = {'guid' => SecureRandom.hex(8)}
-        public_fetcher.instance_eval { check_existing post }.should be_true
+        expect(public_fetcher.instance_eval { check_existing post }).to be true
       end
     end
 
@@ -219,36 +219,36 @@ describe Diaspora::Fetcher::Public do
 
       it "returns false if the person doesn't match" do
         post = { 'author' => { 'guid' => SecureRandom.hex(8) } }
-        public_fetcher.instance_eval { check_author post }.should be_false
+        expect(public_fetcher.instance_eval { check_author post }).to be false
       end
 
       it "returns true if the persons match" do
         post = { 'author' => { 'guid' => some_person.guid } }
-        public_fetcher.instance_eval { check_author post }.should be_true
+        expect(public_fetcher.instance_eval { check_author post }).to be true
       end
     end
 
     describe '#check_public' do
       it "returns false if the post is not public" do
         post = {'public' => false}
-        public_fetcher.instance_eval { check_public post }.should be_false
+        expect(public_fetcher.instance_eval { check_public post }).to be false
       end
 
       it "returns true if the post is public" do
         post = {'public' => true}
-        public_fetcher.instance_eval { check_public post }.should be_true
+        expect(public_fetcher.instance_eval { check_public post }).to be true
       end
     end
 
     describe '#check_type' do
       it "returns false if the type is anything other that 'StatusMessage'" do
         post = {'post_type'=>'Reshare'}
-        public_fetcher.instance_eval { check_type post }.should be_false
+        expect(public_fetcher.instance_eval { check_type post }).to be false
       end
 
       it "returns true if the type is 'StatusMessage'" do
         post = {'post_type'=>'StatusMessage'}
-        public_fetcher.instance_eval { check_type post }.should be_true
+        expect(public_fetcher.instance_eval { check_type post }).to be true
       end
     end
   end

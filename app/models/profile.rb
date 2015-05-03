@@ -32,6 +32,7 @@ class Profile < ActiveRecord::Base
 
   validates :first_name, :length => { :maximum => 32 }
   validates :last_name, :length => { :maximum => 32 }
+  validates :location, :length => { :maximum =>255 }
 
   validates_format_of :first_name, :with => /\A[^;]+\z/, :allow_blank => true
   validates_format_of :last_name, :with => /\A[^;]+\z/, :allow_blank => true
@@ -41,6 +42,7 @@ class Profile < ActiveRecord::Base
   belongs_to :person
   before_validation do
     self.tag_string = self.tag_string.split[0..4].join(' ')
+    self.build_tags
   end
 
   before_save do
@@ -53,6 +55,7 @@ class Profile < ActiveRecord::Base
   end
 
   def receive(user, person)
+    person.reload # make sure to have old profile referenced
     Rails.logger.info("event=receive payload_type=profile sender=#{person} to=#{user}")
     profiles_attr = self.attributes.merge('tag_string' => self.tag_string).slice('diaspora_handle', 'first_name', 'last_name', 'image_url', 'image_url_small', 'image_url_medium', 'birthday', 'gender', 'bio', 'location', 'searchable', 'nsfw', 'tag_string')
     person.profile.update_attributes(profiles_attr)
@@ -73,7 +76,16 @@ class Profile < ActiveRecord::Base
              else
                self[:image_url]
              end
-    result || '/assets/user/default.png'
+
+    unless result
+      ActionController::Base.helpers.image_path('user/default.png')
+    else
+      if AppConfig.privacy.camo.proxy_remote_pod_images?
+        Diaspora::Camo.image_url(result)
+      else
+        result
+      end
+    end
   end
 
   def from_omniauth_hash(omniauth_user_hash)
@@ -144,8 +156,8 @@ class Profile < ActiveRecord::Base
     if @tag_string
       @tag_string
     else
-      rows = connection.select_rows( self.tags.scoped.to_sql )
-      rows.inject(""){|string, row| string << "##{row[1]} " }
+      tags = self.tags.pluck(:name)
+      tags.inject(""){|string, tag| string << "##{tag} " }
     end
   end
 
@@ -186,7 +198,7 @@ class Profile < ActiveRecord::Base
 
   private
   def clearable_fields
-    self.attributes.keys - Profile.protected_attributes.to_a - ["created_at", "updated_at", "person_id"]
+    self.attributes.keys - ["id", "created_at", "updated_at", "person_id"]
   end
 
   def absolutify_local_url url

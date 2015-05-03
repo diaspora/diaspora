@@ -76,8 +76,8 @@ module Diaspora; module Fetcher; class Public
       FEDERATION_LOGGER.info "fetching public posts for #{@person.diaspora_handle}"
 
       resp = Faraday.get("#{@person.url}people/#{@person.guid}") do |req|
-        req.headers[:accept] = 'application/json'
-        req.headers[:user_agent] = 'diaspora-fetcher'
+        req.headers['Accept'] = 'application/json'
+        req.headers['User-Agent'] = 'diaspora-fetcher'
       end
 
       FEDERATION_LOGGER.debug resp.body.to_s[0..250]
@@ -111,7 +111,7 @@ module Diaspora; module Fetcher; class Public
           :created_at => ActiveSupport::TimeZone.new('UTC').parse(post['created_at']).to_datetime,
           :interacted_at => ActiveSupport::TimeZone.new('UTC').parse(post['interacted_at']).to_datetime,
           :frame_name => post['frame_name']
-        }, :without_protection => true)
+        })
         entry.save
 
         # re-enable everything we disabled before

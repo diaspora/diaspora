@@ -1,0 +1,1 @@
+<%= t('notifier.export_photos_failure_email.body', name: @user.first_name) %>

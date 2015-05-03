@@ -13,7 +13,7 @@ describe("Diaspora.Widgets.Lightbox", function() {
       imageClass: 'stream-photo'
     };
 
-    classes = _.extend(defaults, opts);
+    var classes = _.extend(defaults, opts);
     
     var output = $('<div/>').addClass(classes.imageParent);
     _.each(photos, function(photo){
@@ -48,7 +48,7 @@ describe("Diaspora.Widgets.Lightbox", function() {
   });
   
   context("opens the lightbox correctly", function() {
-    var lightbox, page, photoElement;
+    var lightbox, photoElement;
     
     beforeEach(function() {
       $("#jasmine_content").append(createDummyMarkup());
@@ -67,7 +67,7 @@ describe("Diaspora.Widgets.Lightbox", function() {
   });
 
   context("opens lightbox for differently named elements", function(){
-    var lightbox, page, photoElement;
+    var lightbox, photoElement;
 
     beforeEach(function() {
       $("#jasmine_content").append(createDummyMarkup({

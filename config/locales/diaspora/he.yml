@@ -122,8 +122,6 @@ he:
     add_to_aspect:
       failure: "אירע כשל בהוספת איש הקשר להיבט."
       success: "איש הקשר נוסף בהצלחה להיבט."
-    aspect_contacts:
-      done_editing: "סיום עריכה"
     aspect_listings:
       add_an_aspect: "+ הוספת היבט"
       deselect_all: "ביטול בחירה"
@@ -142,23 +140,15 @@ he:
       failure: "%{name} אינו ריק ולא ניתן להסירו"
       success: "%{name} הוסר בהצלחה."
     edit:
-      add_existing: "הוספת איש קשר קיים"
       aspect_list_is_not_visible: "אנשי הקשר בהיבט זה אינם יכולים לראות זה את זה."
       aspect_list_is_visible: "אנשי הקשר בהיבט זה יכולים לראות זה את זה."
       confirm_remove_aspect: "האם אתם בטוחים שברצונכם למחוק היבט זה?"
-      done: "בוצע"
       make_aspect_list_visible: "לאפשר לאנשי הקשר בהיבט זה לראות זה את זה?"
-      manage: "ניהול"
       remove_aspect: "מחיקת היבט זה"
       rename: "שינוי שם"
       set_visibility: "קביעת נראות"
       update: "עדכון"
       updating: "בעדכון"
-    few: "%{count} היבטים"
-    helper:
-      are_you_sure: "האם אכן ברצונך למחוק היבט זה?"
-      aspect_not_empty: "ההיבט אינו ריק"
-      remove: "הסרה"
     index:
       diaspora_id:
         content_1: "המזהה שלך בדיאספורה* הוא:"
@@ -199,11 +189,6 @@ he:
         heading: "קישור שירותים"
       unfollow_tag: "הפסקת עקיבה אחרי #%{tag}"
       welcome_to_diaspora: "ברוך בואך לדיאספורה*, %{name}!"
-    many: "%{count} היבטים"
-    move_contact:
-      error: "שגיאה בהעברת איש הקשר: %{inspect}"
-      failure: "אירע כשל - %{inspect}"
-      success: "איש הקשר הועבר להיבט חדש"
     new:
       create: "יצירה"
       name: "שם (מופיע בפניך בלבד)"
@@ -221,14 +206,6 @@ he:
       family: "משפחה"
       friends: "חברים"
       work: "עבודה"
-    selected_contacts:
-      manage_your_aspects: "ניהול ההיבטים שלך."
-      no_contacts: "אין לך עדיין אנשי קשר כאן."
-      view_all_community_spotlight: "הצגת כל הפרסומים החשובים בקהילה"
-      view_all_contacts: "הצגת כל אנשי הקשר"
-    show:
-      edit_aspect: "עריכת היבט"
-    two: "%{count} היבטים"
     update:
       failure: "ההיבט שלך, %{name}, לא נשמר מכיוון שהשם שלו היה ארוך מדי."
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
@@ -248,36 +225,27 @@ he:
     post_success: "פורסם! נסגר!"
   cancel: "ביטול"
   comments:
-    few: "%{count} תגובות"
-    many: "%{count} תגובות"
     new_comment:
       comment: "תגובה"
       commenting: "התגובה נשלחת..."
     one: "תגובה אחת"
     other: "%{count} תגובות"
-    two: "%{count} תגובות"
     zero: "אין תגובות"
   contacts:
     create:
       failure: "אירע כשל ביצירת איש קשר"
-    few: "%{count} אנשי קשר"
     index:
       add_a_new_aspect: "הוספת היבט חדש"
       add_to_aspect: "הוספת אנשי קשר ל-%{name}"
-      add_to_aspect_link: "הוספת אנשי קשר ל-%{name}"
       all_contacts: "כל אנשי הקשר"
       community_spotlight: "פרסומים חשובים בקהילה"
-      many_people_are_you_sure: "האם אכן ברצונך לפתוח בשיחה פרטית עם למעלה מ־%{suggested_limit} אנשי קשר? פרסום הודעה להיבט זה עשוי להיות דרך טובה יותר ליצירת קשר אתם."
       my_contacts: "אנשי הקשר שלי"
       no_contacts: "נראה שכדאי לך להוסיף עוד קצת אנשי קשר!"
       no_contacts_message: "כדאי לבדוק %{community_spotlight}"
-      no_contacts_message_with_aspect: "כדאי לבדוק %{community_spotlight} או %{add_to_aspect_link}"
       only_sharing_with_me: "רק אלו המשתפים אתי"
-      remove_person_from_aspect: "הסרת %{person_name} מההיבט \"%{aspect_name}\""
       start_a_conversation: "התחלת שיחה"
       title: "אנשי קשר"
       your_contacts: "אנשי הקשר שלך"
-    many: "%{count} אנשי קשר"
     one: "איש קשר אחד"
     other: "%{count} אנשי קשר"
     sharing:
@@ -285,7 +253,6 @@ he:
     spotlight:
       community_spotlight: "פרסומים חשובים בקהילה"
       suggest_member: "המלצה על חבר"
-    two: "%{count} אנשי קשר"
     zero: "אנשי קשר"
   conversations:
     conversation:
@@ -294,8 +261,6 @@ he:
       fail: "הודעה שגויה"
       no_contact: "הי, יש להוסיף את איש הקשר קודם!"
       sent: "ההודעה נשלחה"
-    destroy:
-      success: "השיחה הוסרה בהצלחה"
     helper:
       new_messages:
         few: "%{count} הודעות חדשות"
@@ -365,6 +330,10 @@ he:
     getting_started_tutorial: "סדרת מדריכים למתחילים"
     here: "כאן"
     irc: "IRC"
+    mentions:
+      mention_in_comment_a: "לא, לא כרגע."
+      mention_in_comment_q: "האם אני יכול להזכיר מישהו בהערה?"
+      see_mentions_q: "האם יש דרך לראות פוסטים שבהם אני מוזכר?"
     third_party_tools: "כלים צד שלישי"
     tutorial: "מדריך"
     tutorials: "מדריכים"
@@ -574,7 +543,6 @@ he:
       add_contact_from_tag: "הוספת איש קשר מתגית"
     aspect_list:
       edit_membership: "עריכת חברות בהיבט"
-    few: "%{count} אנשים"
     helper:
       is_not_sharing: "%{name} לא משתף/ת איתך"
       is_sharing: "%{name} משתף/ת איתך"
@@ -588,7 +556,6 @@ he:
       search_handle: "השתמשו במזהה דיאספורה* (username@pod.tld) כדי להיות בטוחים שתמצאו את חבריכם."
       searching: "החיפוש מתבצע, נא להמתין בסבלנות..."
       send_invite: "עדיין לא מצאתם? שלחו הזמנה!"
-    many: "%{count} אנשים"
     one: "אדם אחד"
     other: "%{count} אנשים"
     person:
@@ -625,7 +592,6 @@ he:
       add_some: "הוספת כמה"
       edit: "עריכה"
       you_have_no_tags: "אין לך תגיות כלל!"
-    two: "%{count} אנשים"
     webfinger:
       fail: "מצטערים, לא ניתן למצוא את %{handle}."
     zero: "אין אנשים"
@@ -720,15 +686,12 @@ he:
       update: "עדכון"
     invalid_invite: "הקישור להזמנה שסיפקת אינו תקף יותר!"
     new:
-      continue: "המשך"
       create_my_account: "יצירת החשבון שלי"
-      diaspora: "<3 דיאספורה*"
       email: דוא"ל
       enter_email: "נא להזין כתובת דוא״ל"
       enter_password: "הזינו סיסמה (שישה תווים לפחות)"
       enter_password_again: "יש להזין את אותה הסיסמה כמקודם"
       enter_username: "נא לבחור שם משתמש (אותיות, מספרים וקווים תחתונים בלבד)"
-      hey_make: "שלום,<br/>בואו<br/>לשנות."
       join_the_movement: "צרפו אותי!"
       password: "סיסמה"
       password_confirmation: "אימות סיסמה"
@@ -912,10 +875,7 @@ he:
       no_message_to_display: "אין הודעה להצגה."
     new:
       mentioning: "אזכור: %{person}"
-    too_long:
-      one: "נא לקצר את הודעות הסטטוס שלך לפחות מתו אחד"
-      other: "נא לקצר את הודעות הסטטוס שלך לפחות מ-%{count} תווים"
-      zero: "נא לקצר את הודעות הסטטוס שלך לפחות מ-%{count} תווים"
+    too_long: "{\"one\"=>\"נא לקצר את הודעות הסטטוס שלך לפחות מתו אחד\", \"other\"=>\"נא לקצר את הודעות הסטטוס שלך לפחות מ-%{count} תווים\", \"zero\"=>\"נא לקצר את הודעות הסטטוס שלך לפחות מ-%{count} תווים\"}"
   stream_helper:
     hide_comments: "הסתרת כל התגובות"
     show_comments:
@@ -953,7 +913,6 @@ he:
       title: "פעילות ציבורית"
     tags:
       contacts_title: "אנשים ששותפים לתגית הזו"
-      tag_prefill_text: "העניין ב-%{tag_name} הוא... "
       title: "הודעות שתויגו: %{tags}"
   tag_followings:
     create:
@@ -966,15 +925,8 @@ he:
   tags:
     show:
       follow: "עקיבה אחר #%{tag}"
-      followed_by_people:
-        one: "נעקבת על ידי מישהו אחד"
-        other: "נקעבת על ידי %{count} אנשים"
-        zero: "לא נעקב על ידי איש"
       following: "במעקב אחר #%{tag}"
-      nobody_talking: "אף אחד עדיין לא פרסם על %{tag}."
       none: "התגית הריקה לא קיימת!"
-      people_tagged_with: "אנשים המתויגים כ-%{tag}"
-      posts_tagged_with: "הודעות המתויגות עם #%{tag}"
       stop_following: "הפסקת עקיבה אחר #%{tag}"
   terms_and_conditions: "תנאי שימוש"
   undo: "האם לבטל?"
@@ -1012,7 +964,6 @@ he:
       current_password: "סיסמה נוכחית"
       current_password_expl: "זאת המשמשת לכניסה..."
       download_photos: "הורדת התמונות שלי"
-      download_xml: "הורדת ה-xml שלי"
       edit_account: "עריכת חשבון"
       email_awaiting_confirmation: "שלחנו קישור הפעלה לכתובת %{unconfirmed_email}. עד שתעקבו אחר קישור זה ותפעילו את הכתובת החדשה, אנו נמשיך להשתמש בכתובת המקורית: %{email}."
       export_data: "יצוא המידע שלך"
@@ -1021,7 +972,6 @@ he:
       liked: "...מישהו אהב הודעה שלך?"
       mentioned: "...מישהו הזכיר אותך בהודעה?"
       new_password: "סיסמה חדשה"
-      photo_export_unavailable: "לא ניתן לייצא תמונות כרגע"
       private_message: "...קיבלת הודעה פרטית?"
       receive_email_notifications: "ברצונך לקבל התראות בדוא״ל כאשר..."
       reshared: "...מישהו משתף מחדש הודעה שלך?"

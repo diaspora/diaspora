@@ -8,6 +8,7 @@ sl:
   _applications: "Aplikacije"
   _comments: "Komentarji"
   _contacts: "Stiki"
+  _help: "Pomoč"
   _home: "Domov"
   _photos: "slike"
   _services: "Storitve"
@@ -45,6 +46,7 @@ sl:
       correlations: "Korelacije"
       pages: "Strani"
       pod_stats: "Statistika Poda"
+      sidekiq_monitor: "Sidekiq zaslon"
       user_search: "Iskanje uporabnikov"
       weekly_user_stats: "Tedenska statistika uporabnikov"
     correlations:
@@ -87,13 +89,15 @@ sl:
     user_search:
       add_invites: "dodaj vabila"
       email_to: "Povabila na e-poštni naslov"
+      under_13: "Prikaži uporabnike mlajše od 13 let (COPPA)"
       users:
         few: "%{count} najdeni uporabniki"
         one: "%{count} najden uporabnik"
         other: "%{count} najdenih uporabnikov"
         two: "%{count} najdena uporabnika"
         zero: "%{count} najdenih uporabnikov"
-      you_currently: "trenutno imate na razpolago še %{user_invitation} povabil %{link}"
+      you_currently:
+        other: "trenutno imate na razpolago še %{user_invitation} povabil %{link}"
     weekly_user_stats:
       amount_of:
         few: "Število novih uporabnikov ta teden: %{count}"
@@ -120,8 +124,6 @@ sl:
     add_to_aspect:
       failure: "Dodajanje stika v vidik ni uspelo."
       success: "Dodajanje stika v vidik je uspelo."
-    aspect_contacts:
-      done_editing: "zaključi urejanje"
     aspect_listings:
       add_an_aspect: "+ Dodaj vidik"
       deselect_all: "Odstrani izbiro"
@@ -140,21 +142,14 @@ sl:
       failure: "%{name} ni prazen in ga ni mogoče odstraniti."
       success: "%{name} je uspešno odstranjen."
     edit:
-      add_existing: "Dodaj obstoječi stik"
       aspect_list_is_not_visible: "seznam vidikov ni viden ostalim stikom v tem vidiku"
       aspect_list_is_visible: "seznam vidikov je viden ostalim stikom v tem vidiku"
       confirm_remove_aspect: "Ali ste prepričani, da bi radi izbrisali ta vidik?"
-      done: "Končano"
       make_aspect_list_visible: "naj bodo stiki v tem vidiku vidni med sabo?"
       remove_aspect: "Izbriši ta vidik"
       rename: "preimenuj"
       update: "posodobi"
       updating: "posodabljanje"
-    few: "%{count} vidiki"
-    helper:
-      are_you_sure: "Ste prepričani, da želite izbrisati ta vidik?"
-      aspect_not_empty: "Vidik ni prazen"
-      remove: "odstrani"
     index:
       diaspora_id:
         content_1: "Vaš Diaspora ID je:"
@@ -177,6 +172,7 @@ sl:
         tag_bug: "bug"
         tag_feature: "feature"
         tag_question: "question"
+        tutorials_and_wiki: "%{faq}, %{tutorial} in %{wiki}: pomoč pri začetnih težavah."
       introduce_yourself: "To je vaš tok. Vskočite in predstavite se."
       keep_diaspora_running: "Z mesečnim prispevkom pohitrite razvoj Diaspore!"
       keep_pod_running: "Pomagajte, da bo %{pod} deloval hitro in plačajte strežnikom kavico z mesečnim prispevkom!"
@@ -193,11 +189,6 @@ sl:
         heading: "Povežite storitve"
       unfollow_tag: "Nehaj slediti #%{tag}"
       welcome_to_diaspora: "Dobrodošli v Diaspori, %{name}!"
-    many: "%{count} vidikov"
-    move_contact:
-      error: "Prestavljanje stika neuspešno: %{inspect}"
-      failure: "ni uspelo %{inspect}"
-      success: "Oseba je prestavljena v nov vidik"
     new:
       create: "Ustvari"
       name: "Ime (vidno samo vam)"
@@ -215,14 +206,6 @@ sl:
       family: "Družina"
       friends: "Prijatelji"
       work: "Služba"
-    selected_contacts:
-      manage_your_aspects: "Urejanje pogledov."
-      no_contacts: "Zaenkrat ste še brez stikov."
-      view_all_community_spotlight: "Poglej vsa središča pozornosti skupnosti"
-      view_all_contacts: "Poglej vse stike"
-    show:
-      edit_aspect: "uredi vidik"
-    two: "%{count} vidika"
     update:
       failure: "Vidik %{name} ima predolgo ime, zato ga ni mogoče shraniti."
       success: "Vaš vidik %{name} je bil uspešno posodobljen."
@@ -242,36 +225,27 @@ sl:
     post_success: "Objavljeno! Zapiram!"
   cancel: "Prekliči"
   comments:
-    few: "%{count} mnenja"
-    many: "%{count} mnenj"
     new_comment:
       comment: "Napiši mnenje"
       commenting: "Pisanje mnenja ..."
     one: "1 mnenje"
     other: "%{count} mnenj"
-    two: "%{count} mnenji"
     zero: "nobenega mnenja"
   contacts:
     create:
       failure: "Ustvarjanje stika ni bilo mogoče"
-    few: "%{count} stiki"
     index:
       add_a_new_aspect: "Dodaj nov vidik"
       add_to_aspect: "Dodaj stik k %{name}"
-      add_to_aspect_link: "dodaj stike k %{name}"
       all_contacts: "Vsi stiki"
       community_spotlight: "Središče pozornosti skupnosti"
-      many_people_are_you_sure: "Ste prepričani, da želite začeti zasebni pogovor z več kot %{suggested_limit} stiki? Morda bi bilo bolje, da bi sporočilo objavili v tem vidiku."
       my_contacts: "Moji stiki"
       no_contacts: "Izgleda, da morate dodati kakšen stik!"
       no_contacts_message: "Preveri %{community_spotlight}"
-      no_contacts_message_with_aspect: "Preveri %{community_spotlight} ali %{add_to_aspect_link}"
       only_sharing_with_me: "Delijo samo z mano"
-      remove_person_from_aspect: "Odstrani %{person_name} iz \"%{aspect_name}\""
       start_a_conversation: "Začni pogovor"
       title: "Stiki"
       your_contacts: "Vaši stiki"
-    many: "%{count} stikov"
     one: "1 stik"
     other: "%{count} stikov"
     sharing:
@@ -279,14 +253,14 @@ sl:
     spotlight:
       community_spotlight: "Središče pozornosti skupnosti"
       suggest_member: "Predlagaj člana"
-    two: "%{count} stika"
     zero: "stiki"
   conversations:
+    conversation:
+      participants: "Udeleženci"
     create:
       fail: "Neveljavno sporočilo"
+      no_contact: "Hej, najprej moraš dodati stike!"
       sent: "Sporočilo poslano"
-    destroy:
-      success: "Pogovor uspešno odstranjen"
     helper:
       new_messages:
         few: "%{count} nova sporočila"
@@ -361,6 +335,7 @@ sl:
       resend: "Ponovno pošlji"
       send_an_invitation: "Pošlji eno povabilo"
       send_invitation: "Pošlji povabilo"
+      sending_invitation: "Pošiljanje povabila..."
       to: "Za"
   layouts:
     application:
@@ -552,8 +527,9 @@ sl:
       add_contact_from_tag: "dodaj osebo iz oznake"
     aspect_list:
       edit_membership: "urejanje članstva vidikov"
-    few: "%{count} osebe"
     helper:
+      is_not_sharing: "%{name} ne deli s teboj"
+      is_sharing: "%{name} deli s teboj"
       results_for: "zadetkov za %{params}"
     index:
       looking_for: "Iščete morda objave z oznako %{tag_link}?"
@@ -561,7 +537,6 @@ sl:
       no_results: "Hej! Za iskanje je potrebno vpisati nekaj."
       results_for: "rezultati iskanja za"
       searching: "iskanje poteka, bodite potrpežljivi ..."
-    many: "%{count} oseb"
     one: "1 oseba"
     other: "%{count} oseb"
     person:
@@ -576,6 +551,7 @@ sl:
       gender: "spol"
       in_aspects: "v vidikih"
       location: "kraj"
+      photos: "Fotografije"
       remove_contact: "odstrani stik"
       remove_from: "Naj odstranim %{name} iz %{aspect}?"
     show:
@@ -597,7 +573,6 @@ sl:
       add_some: "dodaj nekaj"
       edit: "uredi"
       you_have_no_tags: "nimate nobene oznake!"
-    two: "%{count} osebi"
     webfinger:
       fail: "Žal ni bilo mogoče najti %{handle}."
     zero: "ni oseb"
@@ -693,15 +668,12 @@ sl:
       update: "Posodobi"
     invalid_invite: "Povezava na povabilo, ki ste jo uporabili ni več veljavna!"
     new:
-      continue: "Nadaljuj"
       create_my_account: "Ustvari moj račun!"
-      diaspora: "<3 Diaspora*"
       email: "E-POŠTA"
       enter_email: "Vpišite e-naslov"
       enter_password: "Vpišite geslo (najmanj šest znakov)"
       enter_password_again: "Ponovno vpišite isto geslo"
       enter_username: "Izberite uporabniško ime (samo črke, številke in podčrtaji)"
-      hey_make: "HEJ,<br/>NAREDI<br/>NEKAJ."
       join_the_movement: "Pridružite se gibanju!"
       password: "GESLO"
       password_confirmation: "POTRDITEV GESLA"
@@ -828,6 +800,7 @@ sl:
       all: "vsi"
       all_contacts: "vsi stiki"
       discard_post: "Zavrzi objavo"
+      get_location: "Pridobi svojo lokacijo"
       make_public: "objavi kot javno"
       new_user_prefill:
         hello: "Zdravo vsem. Jaz sem #%{new_user_tag}. "
@@ -836,6 +809,7 @@ sl:
         newhere: "NovTukaj"
       post_a_message_to: "Objavi sporočilo v %{aspect}"
       posting: "Objavljanje ..."
+      preview: "Predogled"
       publishing_to: "objavljanje na: "
       share: "Objavi"
       share_with: "deli z"
@@ -867,12 +841,7 @@ sl:
       no_message_to_display: "Ni sporočil."
     new:
       mentioning: "Omembe: %{person}"
-    too_long:
-      few: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znake"
-      one: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znak"
-      other: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov"
-      two: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znaka"
-      zero: "vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov"
+    too_long: "{\"few\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znake\", \"one\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znak\", \"other\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov\", \"two\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znaka\", \"zero\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov\"}"
   stream_helper:
     hide_comments: "Skrij vsa mnenja"
     show_comments:
@@ -912,7 +881,6 @@ sl:
       title: "Javna aktivnost"
     tags:
       contacts_title: "Ljudje, ki so izbrskali to oznako"
-      tag_prefill_text: "Zadeva o %{tag_name} je ... "
       title: "Objave označene z: %{tags}"
   tag_followings:
     create:
@@ -926,10 +894,7 @@ sl:
     show:
       follow: "Sledite #%{tag}"
       following: "Sledenje #%{tag}"
-      nobody_talking: "Nihče še ni govoril o %{tag}."
       none: "Prazna oznaka ne obstaja!"
-      people_tagged_with: "Ljudje, označeni z %{tag}"
-      posts_tagged_with: "Objave označene z #%{tag}"
       stop_following: "Prenehaj slediti #%{tag}"
   terms_and_conditions: "Pravila in pogoji"
   undo: "Razveljavi?"
@@ -965,7 +930,6 @@ sl:
       current_password: "Trenutno geslo"
       current_password_expl: "tisto s katerim ste se prijavili ..."
       download_photos: "prenesi moje slike"
-      download_xml: "prenesi v xml"
       edit_account: "Uredi uporabniški račun"
       email_awaiting_confirmation: "Poslali smo vam povezavo za aktiviranje na %{unconfirmed_email}. Dokler ne sledite tej povezavi in ​​aktivirate nov naslov, bomo še naprej uporabljati vaš stari naslov %{email}."
       export_data: "Izvozi podatke"
@@ -974,7 +938,6 @@ sl:
       liked: "... je nekomu všeč vaša objava?"
       mentioned: "... ste omenjeni v objavi?"
       new_password: "Novo geslo"
-      photo_export_unavailable: "Izvoz slik trenutno ni na voljo"
       private_message: "... prejmete zasebno sporočilo?"
       receive_email_notifications: "Želite prejemati obvestila po e-pošti, ko ..."
       reshared: "... nekdo deli vašo objavo?"

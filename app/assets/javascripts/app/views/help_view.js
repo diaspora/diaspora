@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 app.views.Help = app.views.StaticContentView.extend({
   templateName : "help",
 
@@ -6,23 +8,39 @@ app.views.Help = app.views.StaticContentView.extend({
     "click .faq-link-getting-help" : "gettingHelp",
     "click .faq-link-sharing" : "sharing",
     "click .faq-link-posts-and-posting" : "postsAndPosting",
+    "click .faq-link-tags": "tags",
     "click .faq-link-keyboard-shortcuts" : "keyboardShortcuts",
+    "click .faq-link-chat" :  "chat"
   },
 
-  initialize : function(options) {
+  initialize : function() {
     this.GETTING_HELP_SUBS = {
       getting_started_a: { tutorial_series: this.linkHtml("http://diasporafoundation.org/getting_started/sign_up", Diaspora.I18n.t( 'getting_started_tutorial' )) },
       get_support_a_website: { link: this.linkHtml("https://diasporafoundation.org/", Diaspora.I18n.t( 'foundation_website' ))},
       get_support_a_tutorials: { tutorials: this.linkHtml("https://diasporafoundation.org/tutorials", Diaspora.I18n.t( 'tutorials' ))},
       get_support_a_wiki: { link: this.linkHtml("https://wiki.diasporafoundation.org/Special:Search", Diaspora.I18n.t( 'wiki' ))},
       get_support_a_irc: { irc: this.linkHtml("https://wiki.diasporafoundation.org/How_We_Communicate#IRC", Diaspora.I18n.t( 'irc' ))},
-      get_support_a_hashtag: { question: this.linkHtml("/tags/question", "#question")},
+      get_support_a_faq: { faq: this.linkHtml("https://wiki.diasporafoundation.org/FAQ_for_users", Diaspora.I18n.t( 'faq' ))},
+      get_support_a_hashtag: { question: this.linkHtml("/tags/question", "#question")}
 	};
 
     this.POSTS_AND_POSTING_SUBS = {
       format_text_a: {
         markdown: this.linkHtml("http://diasporafoundation.org/formatting", Diaspora.I18n.t( 'markdown' )),
-        here: this.linkHtml("http://daringfireball.net/projects/markdown/syntax", Diaspora.I18n.t( 'here' )),
+        here: this.linkHtml("http://daringfireball.net/projects/markdown/syntax", Diaspora.I18n.t( 'here' ))
+      }
+    };
+
+    this.TAGS_SUBS = {
+      filter_tags_a: {
+        third_party_tools: this.linkHtml("https://wiki.diasporafoundation.org/Tools_to_use_with_Diaspora", Diaspora.I18n.t( 'third_party_tools' ))
+      }
+    };
+
+    this.CHAT_SUBS = {
+      add_contact_roster_a: {
+        toggle_privilege: this.getChatIcons(),
+        contacts_page: this.linkHtml(Routes.contacts_path(), Diaspora.I18n.t('chat.contacts_page'))
       }
     };
 
@@ -43,19 +61,24 @@ app.views.Help = app.views.StaticContentView.extend({
       title_tags: Diaspora.I18n.t( 'tags.title' ),
       title_keyboard_shortcuts: Diaspora.I18n.t( 'keyboard_shortcuts.title' ),
       title_miscellaneous: Diaspora.I18n.t( 'miscellaneous.title' ),
-    }
+      title_chat: Diaspora.I18n.t( 'chat.title' ),
+      chat_enabled: this.chatEnabled()
+    };
 
     return this;
   },
 
-  render: function(){
-    var section = app.views.Base.prototype.render.apply(this, arguments);
+  render: function(section){
+    var html = app.views.Base.prototype.render.apply(this, arguments);
 
     // After render actions
     this.resetMenu(true);
     this.renderStaticSection("getting_help", "faq_getting_help", this.GETTING_HELP_SUBS);
 
-    return section;
+    var elTarget = this.findSection(section);
+    if(elTarget !== null){ $(elTarget).click(); }
+
+    return html;
   },
 
   showItems: function(el) {
@@ -98,8 +121,12 @@ app.views.Help = app.views.StaticContentView.extend({
 
   menuClicked: function(e) {
     this.resetMenu();
+
     $(e.target).hide();
     $(e.target).next().show();
+
+    var data = $(e.target).data('section');
+    app.router.navigate('help/' + data);
   },
 
   clearItems: function() {
@@ -115,13 +142,25 @@ app.views.Help = app.views.StaticContentView.extend({
 
   renderStaticSection: function(section, template, subs) {
     this.clearItems();
-    data = $.extend(Diaspora.I18n.resolve(section), { className: section });
-    help_section = new app.views.HelpSectionView({
+    var data = $.extend(Diaspora.I18n.resolve(section), { className: section });
+    var help_section = new app.views.HelpSectionView({
       template: template,
       data: data,
       subs: subs
     });
     this.$('#faq').append(help_section.render().el);
+  },
+
+  /**
+   * Returns The section title whose data-section property equals the given query
+   * Returns null if nothing found
+   * @param data Value for the data-section to find
+   * @returns {jQuery}
+   */
+  findSection: function(data){
+    var res = this.$('a[data-section=' + data + ']');
+    if(res.length === 0){ return null; }
+    return res;
   },
 
   gettingHelp: function(e) {
@@ -145,8 +184,22 @@ app.views.Help = app.views.StaticContentView.extend({
     e.preventDefault();
   },
 
+  tags: function(e) {
+    this.renderStaticSection("tags", "faq_tags", this.TAGS_SUBS);
+    this.menuClicked(e);
+
+    e.preventDefault();
+  },
+
   keyboardShortcuts: function(e) {
     this.renderStaticSection("keyboard_shortcuts", "faq_keyboard_shortcuts", {});
+    this.menuClicked(e);
+
+    e.preventDefault();
+  },
+
+  chat: function(e){
+    this.renderStaticSection("chat", "faq_chat", this.CHAT_SUBS);
     this.menuClicked(e);
 
     e.preventDefault();
@@ -155,4 +208,17 @@ app.views.Help = app.views.StaticContentView.extend({
   linkHtml: function(url, text) {
     return "<a href=\"" + url + "\" target=\"_blank\">" + text + "</a>";
   },
+
+  chatEnabled: function(){
+    return gon.chatEnabled;
+  },
+
+  getChatIcons: function(){
+    return '<div class="help-chat-icons">' +
+           '  <i class="entypo lock-open"></i>' +
+           '  <i class="entypo chat"></i>' +
+           '  <i class="entypo trash"></i>' +
+           '</div>';
+  }
 });
+// @license-end

@@ -22,7 +22,7 @@
   <div id="nav_badges">
     <div class="badge badge-inverse" id="notification_badge">
       <div class="icons-notifications_grey" >
-        <a href="/notifications" title="{{t "header.notifications"}}" class="badge_link" >
+        <a id="notifications-badge" href="/notifications" title="{{t "header.notifications"}}" class="badge_link" >
           <div class="badge_count {{#unless current_user.notifications_count}} hidden {{/unless}}">
             {{current_user.notifications_count}}
           </div>
@@ -72,7 +72,7 @@
       <div class="user-menu-more-indicator">
         ▼
       </div>
-      <img alt="{{current_user.name}}" class="user-menu-avatar" src="{{current_user.avatar.small}}" title="{{current_user.name}}" />
+      {{{personImage current_user 'small' 'avatar user-menu-avatar'}}}
       <a class="user-name" href="#">{{current_user.name}}</a>
     </li>
     <li class="user-menu-item"><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
@@ -87,7 +87,7 @@
 
 
   <div id="global_search">
-    <form accept-charset="UTF-8" action="/search" class="search_form" method="get">
+    <form id="header-search-form" accept-charset="UTF-8" action="/search" class="search_form" method="get">
       <input name="utf8" type="hidden" value="✓">
       <input id="q" name="q" placeholder="{{t "header.search"}}" results="5" type="search" autocomplete="off" class="ac_input">
     </form>

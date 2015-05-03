@@ -1,0 +1,149 @@
+#single-post-container {
+  padding-top: 20px;
+}
+
+#single-post-content {
+  border-right: solid 1px #cccccc;
+  padding-right: 12px;
+  #head {
+    padding-bottom: 10px;
+    border-bottom: 1px solid $border-grey;
+    #post-info {
+      .author{ color: $grey; }
+      .info {
+        color: lighten($text-grey,10%);
+        font-size: 12px;
+        .post-time a { color: $text-grey; }
+        .post_scope { margin-right: 5px; }
+        .status-message-location {
+          padding-top: 2px;
+          line-height: $font-size-text;
+        }
+      }
+      .bd {
+        padding-left: 10px;
+      }
+    }
+    .row-fluid.reshare {
+      border-top: 1px solid lighten($border-grey,5%);
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    #reshare-info {
+      line-height: 15px;
+      i.retweet {
+        color: $text-dark-grey;
+        font-size: 28px;
+        line-height: 30px;
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      .post-context {
+        font-size: 12px;
+
+        #single-post-moderation {
+          margin-left: 5px;
+
+          > div.control-icons {
+            display: inline-block;
+          }
+        }
+      }
+      .post-time a {
+        color: $text-grey;
+        font-size: 12px;
+      }
+      .avatar {
+        height: 30px;
+        width: 30px;
+      }
+      .img { margin-right: 10px; }
+    }
+    #single-post-actions {
+      padding-right: 5px;
+      i {
+        font-size: 28px;
+        line-height: 30px;
+      }
+      i.comment:hover {
+        color: #424242;
+      }
+      .post_report i.gray:hover {
+        color: $red;
+      }
+      i.heart.gray:hover {
+        color: $red;
+      }
+      i.heart.red:hover {
+        color: #f55f5a;
+      }
+      i.retweet:hover {
+        color: #3f8fba;
+      }
+      time {
+        float: right;
+        margin-left: 3px;
+      }
+      a {
+        margin: 0 0 0 6px;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  #body {
+    margin-left: 20px;
+    padding-top: 20px;
+    width: auto;
+
+    .oembed { width: 95%; }
+    .photo_attachments {
+      img.big_stream_photo { max-width: 90%; }
+    }
+  }
+}
+
+#single-post-interactions {
+  border-left: 1px solid #cccccc;
+  position: relative;
+  left: -1px;
+  margin-left: 0;
+  padding-left: 15px;
+
+  .comment.media .img {
+    margin-left: 5px;
+  }
+
+  .no_comments {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: $background-grey;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 30px;
+  }
+
+  a {
+    color: $blue;
+  }
+  .count {
+    i {
+      display: inline-block;
+      text-align: center;
+      width: 25px;
+      vertical-align: middle;
+    }
+    span {
+      margin-left: -3px;
+      width: 30px;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+  #reshares, #likes, #comments-meta {
+    margin-left: 7px;
+    margin-bottom: 8px;
+  }
+}

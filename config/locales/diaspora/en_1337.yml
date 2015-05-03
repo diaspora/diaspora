@@ -58,8 +58,6 @@ en_1337:
     add_to_aspect:
       failure: "F41L3D 2 4DD N00B!"
       success: "N00B 4DD3D"
-    aspect_contacts:
-      done_editing: "D0N3 3D171NG!"
     aspect_listings:
       add_an_aspect: "+ 4DD 4N 45P3C7"
       edit_aspect: "3D17 %{name}"
@@ -73,21 +71,14 @@ en_1337:
       failure: "%{name} N07 3MP7Y -> F41L!"
       success: "%{name} G07 5UCC35FULLY PWND!"
     edit:
-      add_existing: "4DD 4 KN0WN N00B"
       aspect_list_is_not_visible: "45P3C7 L157 15 H1DD3N 2 07H3R5 1N 45P3C7!"
       aspect_list_is_visible: "45P3C7 L157 15 V151BL3 2 07H3R5 1N 45P3C7!"
       confirm_remove_aspect: "5UR3?"
-      done: "K"
       make_aspect_list_visible: "M4K3 N00B5 V151BL3 2 34CH 07H3R?"
       remove_aspect: "D3L373 7H15 45P3C7!"
       rename: "R3N4M3"
       update: "UPD473"
       updating: "UPD471NG..."
-    few: "%{count} 45P3C75"
-    helper:
-      are_you_sure: "5UR3?"
-      aspect_not_empty: "45P3C7 N07 3MP7Y!"
-      remove: "R3M0V3"
     index:
       diaspora_id:
         content_1: "Y0UR D* 1D 15:"
@@ -114,11 +105,6 @@ en_1337:
         content: "U C4N C0NN3C7 7H3 F0LL0W1NG 53RV1C35 2 D*:"
         heading: "C0NN3C7 53RV1C35"
       unfollow_tag: "570P F0LL0W1NG #%{tag}"
-    many: "%{count} 45P3C75"
-    move_contact:
-      error: "3RR0R M0V1NG N00B: %{inspect}"
-      failure: "PWND %{inspect}"
-      success: "N00B M0V3D 2 N3W 45P3C7!"
     new:
       create: "CR3473"
       name: "N4M3 (JU57 F0R U)"
@@ -134,13 +120,6 @@ en_1337:
       family: "RL"
       friends: "N00B5"
       work: "RL-N00B5"
-    selected_contacts:
-      manage_your_aspects: "M4N4G3 Y0UR 45P3C75!"
-      no_contacts: "U D0N7 H4V3 4NY N00B5 H3R3!"
-      view_all_contacts: "V13W 4LL N00B5!"
-    show:
-      edit_aspect: "3D17 45P3C7"
-    two: "%{count} 45P3C75"
     update:
       failure: "45P3C7 %{name} H4D 2 L0NG N4M3 -> F41L!"
       success: "45P3C7 %{name} H45 B33N 5UCC35FULLY 3D173D!"
@@ -153,45 +132,34 @@ en_1337:
     post_success: "5P4MM3D! CL051NG!"
   cancel: "c4nc3l"
   comments:
-    few: "%{count} 5P4M5"
-    many: "%{count} 5P4M5"
     new_comment:
       comment: "5P4M"
       commenting: "5P4MM1NG..."
     one: "1 5P4M"
     other: "%{count} 5P4M5"
-    two: "%{count} 5P4M5"
     zero: "N0 5P4M5"
   contacts:
     create:
       failure: "F41L3D 2 CR3473 C0N74C7!"
-    few: "%{count} N00B5"
     index:
       add_a_new_aspect: "4DD 4 N3W 45P3C7!"
       add_to_aspect: "4DD N00B5 2: %{name}"
-      add_to_aspect_link: "++no0bz >> %{name}"
       all_contacts: "4LL N00B5"
-      many_people_are_you_sure: "R34LLY W4NN4 5P4M %{suggested_limit} N00B5? 5P4MM1NG 7H31R 45P3C7 M4Y B3 M0R3 1N73LL1G3N7!"
       my_contacts: "Y0UR N00B5"
       no_contacts: "L00K5 L1K3 U N33D 70 PWN M0R3 N00B5!"
       only_sharing_with_me: "0NLY 5H4R1NG W17H U"
-      remove_person_from_aspect: "R3M0V3 %{person_name} FR0M \"%{aspect_name}\""
       start_a_conversation: "574R7 4 N3W C0NV3R54710N!"
       title: "N00B5"
       your_contacts: "Y0UR N00B5"
-    many: "%{count} N00B5"
     one: "1 N00B"
     other: "%{count} N00B5"
     sharing:
       people_sharing: "N00B5 5H4R1NG W17H U:"
-    two: "%{count} N00B5"
     zero: "N00B5"
   conversations:
     create:
       fail: "1NV4L1D M3554G3!"
       sent: "M3554G3 53N7!"
-    destroy:
-      success: "C0NV3R54710N PWND!"
     helper:
       new_messages:
         few: "%{count} N3W M3554G35"
@@ -429,14 +397,12 @@ en_1337:
       add_contact_from_tag: "4DD N00B FR0M 74G"
     aspect_list:
       edit_membership: "3D17 45P3C7 M3MB3R5H1P"
-    few: "%{count} N00B5"
     helper:
       results_for: " R35UL75 F0R %{params}"
     index:
       no_one_found: "...4ND N0 0N3 W45 F0UND!"
       no_results: "H3Y! U N33D 2 534RCH F0R 50M37H1NG!"
       results_for: "534RCH R35UL75 F0R"
-    many: "%{count} N00B5"
     one: "1 N00B"
     other: "%{count} N00B5"
     person:
@@ -470,7 +436,6 @@ en_1337:
       add_some: "4DD 50M3"
       edit: "3D17"
       you_have_no_tags: "U H4V3 N0 74G5!"
-    two: "%{count} N00B5"
     webfinger:
       fail: "%{handle} != 3X1571NG"
     zero: "N0 N00B5"
@@ -710,13 +675,7 @@ en_1337:
       no_message_to_display: "N0 5P4M 2 D15PL4Y!"
     new:
       mentioning: "M3N710N1NG: %{person}"
-    too_long:
-      few: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
-      many: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
-      one: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R\""
-      other: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
-      two: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
-      zero: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+    too_long: "{\"few\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"many\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"one\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R\\\"\", \"other\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"two\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"zero\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\"}"
   stream_helper:
     hide_comments: "H1D3 4LL 5P4M5!"
     show_comments:
@@ -746,9 +705,6 @@ en_1337:
     show:
       follow: "F0LL0W #%{tag}"
       following: "F0LL0W1NG #%{tag}"
-      nobody_talking: "N0B0DY 5P4MM3D 4B0U7 %{tag} Y37!"
-      people_tagged_with: "N00B5 74GG3D W17H %{tag}"
-      posts_tagged_with: "5P4M 74GG3D W17H #%{tag}"
       stop_following: "570P F0LL0W1NG #%{tag}"
   terms_and_conditions: "T&C"
   undo: "Ctrl+Z?"
@@ -769,7 +725,6 @@ en_1337:
       comment_on_post: "...50M30N3 5P4M5 Y0UR 5P4M?"
       current_password: "CURR3N7 *****"
       download_photos: "D0WNL04D MY PR0N"
-      download_xml: "D0WNL04D MY XML"
       edit_account: "H4CK Y0UR 4CC0UN7"
       email_awaiting_confirmation: "4C71V4510N L1NK 53N7 2 %{unconfirmed_email}. UN71L U F0LL0W 7H3 L1NK W3 W1LL C0N71NU3 2 U53 Y0UR 0R1G1N4L M41L %{email}."
       export_data: "3XP0R7 D474"

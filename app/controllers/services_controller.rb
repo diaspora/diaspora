@@ -1,16 +1,13 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See 
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 class ServicesController < ApplicationController
   # We need to take a raw POST from an omniauth provider with no authenticity token.
   # See https://github.com/intridea/omniauth/issues/203
   # See also http://www.communityguides.eu/articles/16
-  skip_before_filter :verify_authenticity_token, :only => :create
-  before_filter :authenticate_user!
-  before_filter :abort_if_already_authorized, :abort_if_read_only_access, :only => :create
-  before_filter -> { @css_framework = :bootstrap }, only: [:index]
-
-  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }, only: [:index]
+  skip_before_action :verify_authenticity_token, :only => :create
+  before_action :authenticate_user!
+  before_action :abort_if_already_authorized, :abort_if_read_only_access, :only => :create
 
   respond_to :html
   respond_to :json, :only => :inviter
@@ -19,13 +16,13 @@ class ServicesController < ApplicationController
     @services = current_user.services
   end
 
-  def create 
+  def create
     service = Service.initialize_from_omniauth( omniauth_hash )
-    
-    if current_user.services << service
-      current_user.update_profile_with_omniauth( service.info )
 
-      fetch_photo(service) if no_profile_image?
+    if current_user.services << service
+      no_profile_image_before_update = no_profile_image?
+      current_user.update_profile_with_omniauth(service.info)
+      fetch_photo(service) if no_profile_image_before_update
 
       flash[:notice] = I18n.t 'services.create.success'
     else
@@ -66,9 +63,9 @@ class ServicesController < ApplicationController
   end
 
   def redirect_to_origin
-    if origin 
+    if origin
       redirect_to origin
-    else 
+    else
       render(text: "<script>window.close()</script>")
     end
   end
@@ -85,7 +82,7 @@ class ServicesController < ApplicationController
     request.env['omniauth.origin']
   end
 
-  def omniauth_hash 
+  def omniauth_hash
     request.env['omniauth.auth']
   end
 

@@ -32,8 +32,6 @@ art-nvi:
   aspects:
     destroy:
       success: "%{name}l 'ìlmaku fìtsengeta."
-    edit:
-      done: "Hasey"
     index:
       diaspora_id:
         content_1: "Ngeyä Diaspora Tstxo lu:"
@@ -66,11 +64,8 @@ art-nvi:
   back: "ne'ìm"
   cancel: "Ftang"
   comments:
-    few: "%{count} aysäplltxevi"
-    many: "%{count} aysäplltxevi"
     one: "1 säplltxevi"
     other: "%{count} aysäplltxevi"
-    two: "%{count} mesäplltxevi"
     zero: "Kea aysäplltxevi"
   contacts:
     index:
@@ -176,7 +171,6 @@ art-nvi:
       edit: "Latem %{name}it"
       unhappy: "Nga lu keftxo srak?"
     new:
-      continue: "Salew"
       sign_up_message: "Tsenge eylanìri tsnì zamunge ♥"
   requests:
     create:

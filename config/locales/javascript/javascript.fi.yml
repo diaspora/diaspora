@@ -12,6 +12,8 @@ fi:
       all_aspects: "Kaikki näkymät"
       error: "Ei voitu aloittaa jakamaan käyttäjän <%= name %> kanssa. Oletko sivuuttanut hänet?"
       error_remove: "Käyttäjää <%= name %> ei voitu poistaa näkymästä :("
+      mobile_row_checked: "<%= name %> (poista)"
+      mobile_row_unchecked: "<%= name %> (lisää)"
       select_aspects: "Valitse näkymät"
       started_sharing_with: "Olet alkanut jakaa käyttäjän <%= name %> kanssa!"
       stopped_sharing_with: "Olet lopettanut jakamisen käyttäjän <%= name %> kanssa."
@@ -22,6 +24,7 @@ fi:
         other: "<%= count %> näkymässä"
         two: "<%= count %> näkymässä"
         zero: "Valitse näkymät"
+      updating: "päivittää..."
     aspect_navigation:
       add_an_aspect: "+ Lisää näkymä"
       deselect_all: "Poista valinnat"
@@ -33,10 +36,19 @@ fi:
       post_success: "Julkaistu! Suljetaan ponnahdusikkuna"
     comma: ","
     comments:
-      hide: "piilota kommentit"
+      hide: "Piilota kommentit"
       no_comments: "Kommentteja ei vielä ole."
-      show: "näytä kaikki kommentit"
+      show: "Näytä kaikki kommentit"
     confirm_dialog: "Oletko varma?"
+    confirm_unload: "Vahvista, että haluat poistua tältä sivulta. Syöttämiäsi tietoja ei tallenneta."
+    contacts:
+      add_contact: "Lisää kontakti"
+      aspect_list_is_not_visible: "Tämän näkymän kontaktit eivät voi nähdä toisiaan."
+      aspect_list_is_visible: "Tämän näkymän kontaktit voivat nähdä toisensa."
+      error_add: "Henkilön <%= name %> lisääminen näkymään ei onnistunut :("
+      error_remove: "Käyttäjää <%= name %> ei voitu poistaa näkymästä :("
+      remove_contact: "Poista kontakti"
+      search_no_results: "Kontakteja ei löytynyt"
     conversation:
       participants: "Osallistujat"
     delete: "Poista"
@@ -44,6 +56,7 @@ fi:
     failed_to_like: "Tykkääminen epäonnistui!"
     failed_to_post_message: "Viestin lähetys epäonnistui!"
     failed_to_remove: "Lisäyksen poistaminen epäonnistui!"
+    failed_to_reshare: "Uudelleen jakaminen epäonnistui!"
     getting_started:
       alright_ill_wait: "Okei, minä odotan."
       hey: "Hei <%= name %>!"
@@ -52,7 +65,7 @@ fi:
     header:
       admin: "Ylläpitäjä"
       close: "sulje"
-      contacts: "Henkilöt"
+      contacts: "Kontaktit"
       conversations: "Keskustelut"
       help: "Apua"
       home: "Koti"
@@ -64,7 +77,10 @@ fi:
       search: "Etsi"
       settings: "Asetukset"
       view_all: "Näytä kaikki"
+    hide_post: "Piilota tämä julkaisu?"
+    hide_post_failed: "Tätä julkaisua ei voitu piilottaa"
     ignore: "Sivuuta"
+    ignore_failed: "Tämän käyttäjän sivuuttaminen ei onnistu"
     ignore_user: "Sivuuta tämä käyttäjä?"
     infinite_scroll:
       no_more: "Ei enempää viestejä."
@@ -72,16 +88,24 @@ fi:
     my_activity: "Oma toimintani"
     my_aspects: "Omat näkymäni"
     my_stream: "Virta"
+    no_results: "Ei tuloksia"
     notifications:
       mark_read: "Merkitse luetuksi"
       mark_unread: "Merkitse lukemattomaksi"
     people:
+      edit_my_profile: "Muokkaa profiiliani"
+      helper:
+        is_not_sharing: "<%= name %> ei jaa kanssasi"
+        is_sharing: "<%= name %> jakaa kanssasi"
+      mention: "Mainitse"
+      message: "Viesti"
       not_found: "...ketään ei löytynyt."
+      stop_ignoring: "Lopeta sivuuttaminen"
     photo_uploader:
       completed: "<%= file %> suoritettu"
       empty: "Tiedosto {file} on tyhjä, valitse tiedostot uudelleen ilman kyseistä tiedostoa."
       error: "On tapahtunut virhe lähetettäessä tiedostoa <%= file %>"
-      invalid_ext: "Tiedostolla {file} on epäkelpo tiedostopääte. Vain {extensions} päätteet ovat sallittuja."
+      invalid_ext: "Tiedostolla {file} on epäkelpo tiedostopääte. Vain päätteet {extensions} ovat sallittuja."
       looking_good: "OMG, näytät upealta!"
       size_error: "Tiedosto {file} on liian iso, suurin sallittu tiedostokoko on {sizeLimit}"
     poll:
@@ -92,14 +116,27 @@ fi:
       result: "Tulos"
       show_result: "Näytä tulokset"
       vote: "Äänestä"
+    profile:
+      add_some: "Lisää niitä"
+      bio: "Elämäkerta"
+      born: "Syntymäpäivä"
+      contacts: "Kontaktit"
+      edit: "Muokkaa"
+      gender: "Sukupuoli"
+      ignoring: "Sivuutat nyt kaikki julkaisut, jotka <%= name %> lähettää."
+      location: "Sijainti"
+      photos: "Kuvat"
+      posts: "Julkaisut"
+      you_have_no_tags: "Sinulla ei ole tageja!"
     publisher:
-      add_option: "Lisää vastausvaihtoehto"
+      add_option: "Lisää vastaus"
       at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
       limited: "Rajoitettu - julkaisusi näkyy vain ihmisille, joiden kanssa jaat"
       near_from: "Lähetetty sijainnista: <%= location %>"
-      option: "Vastaus <%= nr %>"
+      option: "Vastaus"
       public: "Julkinen - julkaisusi näkyvät kaikille mukaan lukien hakukoneet ja niiden tulokset"
       question: "Kysymys"
+    remove_post: "Poista tämä julkaisu?"
     report:
       name: "Tee ilmoitus"
       prompt: "Ole hyvä, kirjoita syy:"
@@ -112,9 +149,11 @@ fi:
       post: "Jaa käyttäjän <%= name %> julkaisu?"
       successful: "Julkaisu jaettiin onnistuneesti!"
     search_for: "Etsi nimellä <%= name %>"
-    show_more: "näytä lisää"
+    show_more: "Näytä lisää"
     stream:
       comment: "Kommentoi"
+      disable_post_notifications: "Poista ilmoitukset käytöstä tästä julkaisusta"
+      enable_post_notifications: "Ota ilmoitukset käyttöön tälle julkaisulle"
       follow: "Seuraa"
       followed_tag:
         add_a_tag: "Lisää tagi"
@@ -154,7 +193,7 @@ fi:
       tags:
         follow: "Seuraa #<%= tag %>"
         following: "Seurataan tagia #<%= tag %>"
-        stop_following: "Lopeta seuraamasta tagia #<%= tag %>"
+        stop_following: "Lopeta tagin #<%= tag %> seuraaminen"
       unfollow: "Lopeta seuraaminen"
       unlike: "Peru tykkäys"
       via: "<%= provider %> kautta"
@@ -177,6 +216,7 @@ fi:
       wordSeparator: " "
       year: "noin vuosi"
       years: "%d vuotta"
+    unblock_failed: "Tämän käyttäjän torjumisen peruminen on epäonnistunut"
     videos:
       unknown: "Tuntematon videomuoto"
       watch: "Katso video palvelussa <%= provider %>"

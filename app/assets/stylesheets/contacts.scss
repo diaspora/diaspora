@@ -1,0 +1,72 @@
+#contacts_container {
+  #people_stream.contacts {
+    .header {
+      border-bottom: 1px solid $border-grey;
+      margin-top: 10px;
+      min-height: 53px;
+      #change_aspect_name { cursor: pointer; }
+      #aspect_name_form {
+        display: none;
+        form { margin: 0px; }
+        input {
+          margin-bottom: 0px;
+          margin-top: 10px;
+        }
+        .btn { margin-top: 10px; }
+      }
+      #contact_list_search {
+        margin: 6px 30px 0 0;
+        width: 150px;
+        &:focus { width: 250px; }
+      }
+      #aspect_controls > .contacts_button {
+        cursor: pointer;
+        text-decoration: none;
+        margin-right: 25px;
+      }
+      #chat_privilege_toggle > .enabled {
+        color: #000;
+      }
+      .entypo.contacts-header-icon {
+        font-size: 24.5px;
+        line-height: 40px;
+        color: lighten($black,75%);
+        &:hover { color: $black; }
+      }
+      #suggest_member.btn { margin-top: 8px; }
+    }
+
+    .stream_element {
+      .contact_remove-from-aspect, .contact_add-to-aspect {
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 20px;
+        line-height: 50px;
+        margin: 10px;
+        color: lighten($black,75%);
+        &:hover { color: $black; }
+      }
+      &.in_aspect {
+        border-left: 3px solid $green;
+        background-color: lighten($green,35%);
+      }
+      &:not(.in_aspect) { border-left: 3px solid $white; }
+    }
+
+    .no_contacts {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .well { margin: 20px 0 10px; }
+  }
+}
+
+#aspect_nav {
+  li.aspect > a { padding-left: 30px; }
+  li.new_aspect > a { padding-left: 30px; }
+}
+
+#no_contacts {
+  margin-top: 20px;
+  text-align: center;
+}

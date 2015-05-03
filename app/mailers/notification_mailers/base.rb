@@ -23,7 +23,7 @@ module NotificationMailers
     end
 
     def name_and_address(name, email)
-      address = Mail::Address.new email
+      address = Mail::Address.new Addressable::IDNA.to_ascii(email)
       address.display_name = name
       address.format
     end

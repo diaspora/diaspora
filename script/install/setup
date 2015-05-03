@@ -168,7 +168,7 @@ diaspora_setup() {
   prepare_gem_bundle
 
   log_inf "creating the default database specified in config/database.yml. please wait..."
-  run_or_error "bundle exec rake db:schema:load_if_ruby --trace"
+  run_or_error "bin/rake db:schema:load_if_ruby --trace"
   printf "\n"
 
   printf "$GOODBYE_MSG"

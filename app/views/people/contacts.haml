@@ -1,21 +1,41 @@
--#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3 or later.  See
--#   the COPYRIGHT file.
-
-
+-# TODO this should happen in the js app
 - content_for :head do
-  = javascript_include_tag :people
+  - if user_signed_in? && @person != current_user.person
+    :javascript
+      Mentions.options.prefillMention = Mentions._contactToMention(#{j @person.to_json});
 
 - content_for :page_title do
   = @person.name
 
-.span-6
-  = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
+.container-fluid#profile_container
+  .row-fluid
+    .span3
+      #profile
+        -# here be JS
 
-.span-18.last
-  = render 'people/sub_header', :person => @person, :contact => @contact
+    .span9
+      .profile_header
+        -# more JS
 
-  #people_stream.stream
-    - @hashes.each do |hash|
-      = render :partial => 'people/person', :locals => hash
-  = will_paginate @contacts_of_contact
+      .stream_container
+        #people_stream.stream
+          - @hashes.each do |hash|
+            = render :partial => 'people/person', :locals => hash
+        = will_paginate @contacts_of_contact, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+
+      %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
+        &#8679;
+
+-if user_signed_in? && @person
+  #new_status_message_pane
+    = render 'shared/modal',
+      :path => new_status_message_path(:person_id => @person.id),
+      :title => t('status_messages.new.mentioning', :person => @person.name),
+      :id => 'mentionModal'
+
+  -if @contact
+    #new_conversation_pane
+      = render 'shared/modal',
+        :path => new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name, :modal => true),
+        :title => t('conversations.index.new_conversation'),
+        :id => 'conversationModal'

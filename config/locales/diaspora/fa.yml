@@ -53,8 +53,6 @@ fa:
     add_to_aspect:
       failure: "خطا در اضافه کردن مخاطب به منظر"
       success: "مخاطب با موفقیت به منظر اضافه شد."
-    aspect_contacts:
-      done_editing: "اتمام ویرایش"
     aspect_listings:
       add_an_aspect: "+اضافه کردن منظر"
       deselect_all: "لغو انتخاب همه"
@@ -71,21 +69,14 @@ fa:
       failure: "‎%{name}‎ خالی نیست و نمی‌توانید حذفش کنید."
       success: "‎%{name}‎ با موفقیت حذف شد."
     edit:
-      add_existing: "اضافه کردن یک مخاطب موجود"
       aspect_list_is_not_visible: "لیست منظر برای افراد دیگر در این منظر مخفی است"
       aspect_list_is_visible: "لیست منظر برای افراد دیگر در این منظر قابل مشاهده است"
       confirm_remove_aspect: "مطمئن هستید می‌خواهید این منظر را حذف کنید؟"
-      done: "تمام"
       make_aspect_list_visible: "مخاطبینی که در این منظر هستند برای یکدیگر قابل مشاهده باشند؟"
       remove_aspect: "حذف این منظر"
       rename: "تغییر نام"
       update: "بروزرسانی"
       updating: "در حال بروزرسانی"
-    few: "‎%{count}‎ منظر"
-    helper:
-      are_you_sure: "مطمئن هستید که می‌خواهید این منظر را حذف کنید؟"
-      aspect_not_empty: "منظر خالی نیست"
-      remove: "حذف"
     index:
       diaspora_id:
         content_1: "آدرس شناسایی دیاسپورای شما:"
@@ -118,11 +109,6 @@ fa:
         heading: "اتصال سرویس‌ها"
       unfollow_tag: "لغو دنبال کردن #‎%{tag}‎"
       welcome_to_diaspora: "%{name}، به دیاسپورا خوش آمدی!"
-    many: "‎%{count}‎ منظر"
-    move_contact:
-      error: "خطا در فرستادن مخاطب: ‎%{inspect}‎"
-      failure: "‎%{inspect}‎ کار نکرد."
-      success: "شخص به منظر جدید فرستاده شد."
     new:
       create: "ساختن"
       name: "نام (فقط برای شما قابل مشاهده است)"
@@ -140,14 +126,6 @@ fa:
       family: "خانواده"
       friends: "دوستان"
       work: "کار"
-    selected_contacts:
-      manage_your_aspects: "مدیریت منظرهای شما"
-      no_contacts: "هنوز هیچ مخاطبی ندارد."
-      view_all_community_spotlight: "مشاهده تمامی کانون‌های توجه جامعه"
-      view_all_contacts: "مشاهده همه مخاطبین"
-    show:
-      edit_aspect: "ویرایش منظر"
-    two: "‎%{count}‎ منظر"
     update:
       failure: "منظر ‎%{name}‎، نامش برای ذخیره سازی طولانی هست."
       success: "منظر ‎%{name}‎، با موفقیت ویرایش شد."

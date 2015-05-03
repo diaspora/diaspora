@@ -58,8 +58,6 @@ lt:
     add_to_aspect:
       failure: "Nepavyko priskirti kontakto kategorijai."
       success: "Kontaktas sėkmingai priskirtas kategorijai."
-    aspect_contacts:
-      done_editing: "Pakeista"
     aspect_listings:
       add_an_aspect: "Pridėti kategoriją"
       deselect_all: "Nepasirinkti nieko"
@@ -77,21 +75,14 @@ lt:
       failure: "%{name} negali būti pašalintas, nes nėra tuščias."
       success: "%{name} sėkmingai pašalintas."
     edit:
-      add_existing: "Pridėti egzistuojantį kontaktą"
       aspect_list_is_not_visible: "Kategorijų sąrašo nemato kiti esantys šioje kategorijoje"
       aspect_list_is_visible: "Kategorijų sąrašas matomas kietiems esantiems šioje kategorijoje"
       confirm_remove_aspect: "Ar tikrai norite ištrinti šią kategoriją?"
-      done: "Atlikta"
       make_aspect_list_visible: "Ar leisti šios kategorijos kontaktams matyti vienas kitą?"
       remove_aspect: "Ištrinti kategoriją"
       rename: "Pervardinti"
       update: "Atnaujinti"
       updating: "Atnaujinama..."
-    few: "%{count} kategorijų"
-    helper:
-      are_you_sure: "Ar tikrai norite ištrinti šią kategoriją?"
-      aspect_not_empty: "Kategorijoje nėra kontaktų"
-      remove: "šalinti"
     index:
       diaspora_id:
         content_1: "Jūsų unikalus Diaspora ID:"
@@ -124,11 +115,6 @@ lt:
         heading: "Prijungti paslaugas"
       unfollow_tag: "Sustabdyti sekimą #%{tag}"
       welcome_to_diaspora: "Sveiki atvykę į tinklapį Diaspora, %{name}!"
-    many: "%{count} kategorijų"
-    move_contact:
-      error: "Klaida perkeliant kontaktą: %{inspect}"
-      failure: "Nepavyko %{inspect}"
-      success: "Kontaktas perkeltas į kitą kategoriją"
     new:
       create: "Sukurti"
       name: "Vardas (matomas tik Jums)"
@@ -146,14 +132,6 @@ lt:
       family: "Šeima"
       friends: "Draugai"
       work: "Darbas"
-    selected_contacts:
-      manage_your_aspects: "Tvarkyti savo kategorijas."
-      no_contacts: "Kol kas neturite nei vieno kontakto."
-      view_all_community_spotlight: "Matyti viską kas yra bendruomenės dėmesio centre"
-      view_all_contacts: "Rodyti visus kontaktus"
-    show:
-      edit_aspect: "Keisti kategoriją"
-    two: "%{count} kategorijos"
     update:
       failure: "Kategorijos %{name} pavadinimas yra per ilgas."
       success: "Kategorija %{name} sėkmingai pakeista."
@@ -166,50 +144,38 @@ lt:
     post_success: "Įrašas išsiųstas!"
   cancel: "Atšaukti"
   comments:
-    few: "%{count} komentarų"
-    many: "%{count} komentarų"
     new_comment:
       comment: "Komentuoti"
       commenting: "Siunčiamas komentaras..."
     one: "1 komentaras"
     other: "%{count} komentarų"
-    two: "%{count} komentarai"
     zero: "Komentarų nėra"
   contacts:
     create:
       failure: "Nepavyko sukurti kontakto"
-    few: "%{count} kontaktų"
     index:
       add_a_new_aspect: "Sukurti kategoriją"
       add_to_aspect: "Pridėti kontaktus į kategoriją %{name}"
-      add_to_aspect_link: "Pridėti kontaktus į kategoriją %{name}"
       all_contacts: "Visi kontaktai"
       community_spotlight: "Bendruomenės dėmesio centre"
-      many_people_are_you_sure: "Ar tikrai norite pradėti privatų pokalbį su daugiau nei %{suggested_limit} kontaktų? Paskelbti įrašą šioje kategorijoje gali būti geresnis būdas."
       my_contacts: "Mano kontaktai"
       no_contacts: "Pridėkite daugiau kontaktų!"
       no_contacts_message: "Peržiūrėti %{community_spotlight}"
-      no_contacts_message_with_aspect: "Peržiūrėti %{community_spotlight} arba %{add_to_aspect_link}"
       only_sharing_with_me: "Tik tie, kurie su manimi dalijasi"
-      remove_person_from_aspect: "Ištrinti %{person_name} iš kategorijos \"%{aspect_name}\""
       start_a_conversation: "Pradėti pokalbį"
       title: "Kontaktai"
       your_contacts: "Jūsų kontaktai"
-    many: "%{count} kontaktų"
     one: "1 kontaktas"
     other: "%{count} kontaktų"
     sharing:
       people_sharing: "Žmonės dalijasi su jumis:"
     spotlight:
       community_spotlight: "Bendruomenės dėmesio centre"
-    two: "%{count} kontaktai"
     zero: "kontaktai"
   conversations:
     create:
       fail: "Netinkamas pranešimas"
       sent: "Pranešimas išsiųstas"
-    destroy:
-      success: "Pokalbis sėkmingai ištrintas"
     helper:
       new_messages:
         few: "%{count} nauji pranešimai"
@@ -225,7 +191,6 @@ lt:
       send: "Siųsti"
       sending: "Siunčiama..."
       subject: "Tema"
-      to: ""
     show:
       delete: "Ištrinti ir užblokuoti pokalbį"
       reply: "Atrašyti"
@@ -417,14 +382,12 @@ lt:
   password: "Slaptažodis"
   password_confirmation: "Slaptažodžio patvirtinimas"
   people:
-    few: "%{count} people"
     helper:
       results_for: " \"%{params}\" rezultatai"
     index:
       no_one_found: "... ir nieko nepavyko rasti."
       no_results: "Labas! Nieko nerasta."
       results_for: "ieškoti rezultatų pagal"
-    many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
     person:
@@ -446,7 +409,6 @@ lt:
       not_connected: "You are not connected with this person"
       return_to_aspects: "Grįžti į aspektų puslapį"
       to_accept_or_ignore: "priimti arba ignoruoti."
-    two: "%{count} people"
     zero: "no people"
   photos:
     destroy:
@@ -602,11 +564,7 @@ lt:
   status_messages:
     helper:
       no_message_to_display: "Žinučių nėra."
-    too_long:
-      few: "Sutrumpinkite savo statuso pranešimą %{count} ženklais"
-      one: "Sutrumpinkite savo statuso pranešimą %{count} ženklu"
-      other: "Sutrumpinkite savo statuso pranešimą %{count} ženklų"
-      zero: "Sutrumpinkite savo statuso pranešimą %{count} ženklų"
+    too_long: "{\"few\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklais\", \"one\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklu\", \"other\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklų\", \"zero\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklų\"}"
   stream_helper:
     hide_comments: "Slėpti visus komentarus"
     show_comments:
@@ -643,7 +601,6 @@ lt:
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       download_photos: "atsisiųsti mano nuotraukas"
-      download_xml: "atsisiųsti mano duomenis xml formatu"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Eksportuoti duomenis"
       new_password: "Naujas slaptažodis"

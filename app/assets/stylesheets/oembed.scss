@@ -1,0 +1,12 @@
+.oembed {
+  background: image-url("ajax-loader2.gif") no-repeat center center;
+  width: 100%;
+  .thumb, iframe { margin: 10px auto; }
+  .thumb {
+    @include video-overlay;
+  }
+  iframe, .thumb img {
+    width: 100%;
+    min-height: 60%;
+  }
+}

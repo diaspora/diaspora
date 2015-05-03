@@ -27,7 +27,7 @@ module User::Querying
     opts[:klass] = klass
     opts[:by_members_of] ||= self.aspect_ids
 
-    post_ids = klass.connection.select_values(visible_shareable_sql(klass, opts)).map { |id| id.to_i }
+    post_ids = klass.connection.select_values(visible_shareable_sql(klass, opts)).map(&:to_i)
     post_ids += klass.connection.select_values("#{construct_public_followings_sql(opts).to_sql} LIMIT #{opts[:limit]}").map {|id| id.to_i }
   end
 
@@ -69,7 +69,7 @@ module User::Querying
 
   def construct_public_followings_sql(opts)
     Rails.logger.debug("[EVIL-QUERY] user.construct_public_followings_sql")
-    
+
     # For PostgreSQL and MySQL/MariaDB we use a different query
     # see issue: https://github.com/diaspora/diaspora/issues/5014
     if AppConfig.postgres?
@@ -88,9 +88,9 @@ module User::Querying
   end
 
   def construct_shareable_from_self_query(opts)
-    conditions = {:pending => false }
+    conditions = {:pending => false, :author_id => self.person_id }
     conditions[:type] = opts[:type] if opts.has_key?(:type)
-    query = self.person.send(opts[:klass].to_s.tableize).where(conditions)
+    query = opts[:klass].where(conditions)
 
     if opts[:by_members_of]
       query = query.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
@@ -102,6 +102,11 @@ module User::Querying
   def contact_for(person)
     return nil unless person
     contact_for_person_id(person.id)
+  end
+
+  def block_for(person)
+    return nil unless person
+    self.blocks.where(person_id: person.id).first
   end
 
   def aspects_with_shareable(base_class_name_or_class, shareable_id)
@@ -160,6 +165,9 @@ module User::Querying
     }
     defaults[:type] = Stream::Base::TYPES_OF_POST_IN_STREAM if klass == Post
     opts = defaults.merge(opts)
+    if opts[:limit] == :all
+      opts.delete(:limit)
+    end
 
     opts[:order_field] = opts[:order].split.first.to_sym
     opts[:order_with_table] = klass.table_name + '.' + opts[:order]

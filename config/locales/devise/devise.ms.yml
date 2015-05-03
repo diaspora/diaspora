@@ -16,6 +16,7 @@ ms:
       invalid: "Tidak sah nama pengguna atau kata laluan."
       invalid_token: "Token pengesahan tidak sah."
       locked: "Akaun anda dikunci."
+      not_found_in_database: "Emel atau kata laluan tidak sah."
       timeout: "Sesi anda luput, sila mendaftar masuk sekali lagi untuk meneruskan."
       unauthenticated: "Anda perlu log masuk atau mendaftar sebelum meneruskan."
       unconfirmed: "Anda perlu log masuk atau mendaftar sebelum meneruskan."
@@ -28,6 +29,7 @@ ms:
         confirm: "Sahkan akaun saya"
         subject: "pengesahan tunjuk-cara"
         you_can_confirm: "Anda boleh mengesahkan akaun anda melalui link di bawah:"
+      hello: "Hello %{email}!"
       inviter:
         accept_at: "pada% {url}, anda boleh menerimanya melalui link di bawah."
         have_invited_you: "%{names} telah menjemput anda untuk menyertai Diaspora"
@@ -46,9 +48,13 @@ ms:
     passwords:
       edit:
         change_password: "Tukar kata laluan saya"
+        confirm_password: "Sahkan kata laluan"
+        new_password: "Kata laluan baru"
       new:
+        email: "Alamat emel"
         forgot_password: "Lupa kata laluan anda?"
         no_account: "Tiada akaun dengan e-mel ini wujud. Jika anda sedang menunggu untuk jemputan, kami memusing mereka secepat mungkin"
+        reset_password: "Tetapkan semula kata laluan"
         send_password_instructions: "Hantar saya arahan menetap semula kata laluan"
       send_instructions: "Anda akan menerima e-mel dengan arahan mengenai cara untuk menetapkan semula kata laluan anda dalam beberapa minit."
       updated: "Kata laluan anda telah berubah dengan jayanya. Anda kini ditandatangani."

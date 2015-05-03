@@ -161,15 +161,32 @@
   #account_data.span-5.append-2
     %h4
       = t('.export_data')
-    = link_to t('.download_xml'), export_user_path, :class => "btn"
+    - if current_user.exporting
+      .export-in-progress= t('.export_in_progress')
+    - elsif current_user.export.present?
+      = link_to t('.download_export'), download_profile_user_path, class: "btn btn-success"
+      %h6
+        = t('.last_exported_at', timestamp: current_user.exported_at)
+      = link_to t('.request_export_update'), export_profile_user_path, class: "btn"
+    - else
+      = link_to t('.request_export'), export_profile_user_path, :class => "btn"
     %br
     %br
-    = link_to t('.download_photos'), "#", :class => "btn", :id => "photo-export-button", :title => t('.photo_export_unavailable')
+    - if current_user.exporting_photos
+      .export-in-progress= t('.export_photos_in_progress')
+    - elsif current_user.exported_photos_file.present?
+      = link_to t('.download_export_photos'), download_photos_user_path, class: "btn btn-success"
+      %h6
+        = t('.last_exported_at', timestamp: current_user.exported_photos_at)
+      = link_to t('.request_export_photos_update'), export_photos_user_path, class: "btn"
+    - else
+      = link_to t('.request_export_photos'), export_photos_user_path, :class => "btn"
 
+  %hr
   .span-5.last
     %h4
       = t('.close_account_text')
-    =link_to t('.close_account_text'), '#close_account_pane', :rel => 'facebox', :class => "btn", :id => "close_account"
+    =link_to t('.close_account_text'), '#close_account_pane', :rel => 'facebox', :class => "btn btn-danger", :id => "close_account"
 
     .hidden#close_account_pane{:rel => 'facebox'}
       #inner_account_delete
@@ -204,3 +221,4 @@
               = f.password_field :current_password, :id => :close_account_password
             %p
               = f.submit t('.close_account_text'), :id => "close_account_confirm", :data => { :confirm => t('are_you_sure_delete_account') }
+  %br

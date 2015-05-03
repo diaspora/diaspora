@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 app.views.StreamPost = app.views.Post.extend({
   templateName: "stream-element",
   className : "stream_element loaded",
@@ -21,10 +23,13 @@ app.views.StreamPost = app.views.Post.extend({
     "click .remove_post": "destroyModel",
     "click .hide_post": "hidePost",
     "click .post_report": "report",
-    "click .block_user": "blockUser"
+    "click .block_user": "blockUser",
+
+    "click .create_participation": "createParticipation",
+    "click .destroy_participation": "destroyParticipation"
   },
 
-  tooltipSelector : ".timeago, .post_scope, .block_user, .delete",
+  tooltipSelector : ".timeago, .post_scope, .post_report, .block_user, .delete, .create_participation, .destroy_participation",
 
   initialize : function(){
     var personId = this.model.get('author').id;
@@ -52,7 +57,7 @@ app.views.StreamPost = app.views.Post.extend({
     var normalizedClass = this.model.get("post_type").replace(/::/, "__")
       , postClass = app.views[normalizedClass] || app.views.StatusMessage;
 
-    return new postClass({ model : this.model })
+    return new postClass({ model : this.model });
   },
 
   postLocationStreamView : function(){
@@ -61,7 +66,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   removeNsfwShield: function(evt){
     if(evt){ evt.preventDefault(); }
-    this.model.set({nsfw : false})
+    this.model.set({nsfw : false});
     this.render();
   },
 
@@ -86,22 +91,47 @@ app.views.StreamPost = app.views.Post.extend({
 
   remove : function() {
     $(this.el).slideUp(400, _.bind(function(){this.$el.remove()}, this));
-    return this
+    return this;
   },
 
   hidePost : function(evt) {
     if(evt) { evt.preventDefault(); }
     if(!confirm(Diaspora.I18n.t('confirm_dialog'))) { return }
 
+    var self = this;
     $.ajax({
       url : "/share_visibilities/42",
       type : "PUT",
       data : {
         post_id : this.model.id
       }
-    })
+    }).done(function() {
+        self.remove();
+      })
+      .fail(function() {
+        Diaspora.page.flashMessages.render({
+          success: false,
+          notice: Diaspora.I18n.t('hide_post_failed')
+        });
+      });
+  },
 
-    this.remove();
+  createParticipation: function (evt) {
+    if(evt) { evt.preventDefault(); }
+    that = this;
+    $.post(Routes.post_participation_path(this.model.get("id")), {}, function () {
+      that.model.set({participation: true});
+      that.render();
+    });
+  },
+
+  destroyParticipation: function (evt) {
+    if(evt) { evt.preventDefault(); }
+    that = this;
+    $.post(Routes.post_participation_path(this.model.get("id")), { _method: "delete" }, function () {
+      that.model.set({participation: false});
+      that.render();
+    });
   },
 
   focusCommentTextarea: function(evt){
@@ -112,4 +142,5 @@ app.views.StreamPost = app.views.Post.extend({
     return this;
   }
 
-})
+});
+// @license-end

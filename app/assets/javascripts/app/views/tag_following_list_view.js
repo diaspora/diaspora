@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 //= require jquery.autoSuggest.custom
 app.views.TagFollowingList = app.views.Base.extend({
 
@@ -39,9 +41,9 @@ app.views.TagFollowingList = app.views.Base.extend({
     });
 
     this.$("input").bind('keydown', function(evt){
-      if(evt.keyCode == 13 || evt.keyCode == 9 || evt.keyCode == 32){
+      if(evt.keyCode === 13 || evt.keyCode === 9 || evt.keyCode === 32){
         evt.preventDefault();
-        if( $('li.as-result-item.active').length == 0 ){
+        if( $('li.as-result-item.active').length === 0 ){
           $('li.as-result-item').first().click();
         }
       }
@@ -60,7 +62,6 @@ app.views.TagFollowingList = app.views.Base.extend({
 
   createTagFollowing: function(evt) {
     if(evt){ evt.preventDefault(); }
-    var name = this.$(".tag_input").val();
 
     this.collection.create({"name":this.$(".tag_input").val()});
     this.$(".tag_input").val("");
@@ -77,3 +78,4 @@ app.views.TagFollowingList = app.views.Base.extend({
     this.$el.empty();
   },
 });
+// @license-end

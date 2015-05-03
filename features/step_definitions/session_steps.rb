@@ -21,6 +21,13 @@ When /^I (?:sign|log) in as "([^"]*)"$/ do |email|
   confirm_login
 end
 
+When /^I (?:sign|log) in as "([^"]*)" on the mobile website$/ do |email|
+  @me = User.find_by_email(email)
+  @me.password ||= 'password'
+  automatic_login
+  confirm_login_mobile
+end
+
 When /^I (?:sign|log) in with password "([^"]*)"$/ do |password|
   @me.password = password
   automatic_login

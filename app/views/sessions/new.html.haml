@@ -1,40 +1,42 @@
 - content_for :page_title do
-  = AppConfig.settings.pod_name + " / " + t('devise.sessions.new.sign_in')
+  = AppConfig.settings.pod_name + " - " + t('devise.sessions.new.sign_in')
 
 .container-fluid#login
-  .row-fluid
-    .span12.text-center
-      .branding-asterisk
-      %h1
-        = AppConfig.settings.pod_name
+  .text-center
+    .branding-asterisk
+    %h1
+      = AppConfig.settings.pod_name
 
-  .row-fluid
-    .span4.offset4
-      = form_for resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-signin'}, :autocomplete => 'off' do |f|
-        %fieldset
-          = f.text_field :username, 
-                         :placeholder => t('registrations.new.username'), 
-                         :class => 'input-block-level form-control', 
-                         :required => true, 
-                         :pattern => '[A-Za-z0-9_.@\-]+', 
-                         :autocapitalize => 'off', 
-                         :autocorrect => 'off', 
-                         :autofocus => true
-          %i.entypo.user
+  = form_for resource, as: resource_name, url: session_path(resource_name), html: {class: 'block-form'}, autocomplete: 'off' do |f|
+    %fieldset
+      %label{for: "user_username"}
+        = t('registrations.new.username')
+      %i.entypo.user
+      = f.text_field :username,
+                     placeholder: t('registrations.new.username'),
+                     class: 'input-block-level form-control',
+                     required: true,
+                     pattern: '[A-Za-z0-9_.@\-]+',
+                     autocapitalize: 'none',
+                     autocorrect: 'off',
+                     autofocus: true
 
-          = f.password_field :password, 
-                             :placeholder => t('registrations.new.password'), 
-                             :class => 'input-block-level form-control',
-                             :required => true
-          %i.entypo.lock
+      %label{for: "user_password"}
+        = t('registrations.new.password')
+      %i.entypo.lock
+      = f.password_field :password,
+                         placeholder: t('registrations.new.password'),
+                         class: 'input-block-level form-control',
+                         required: true,
+                         autocapitalize: 'none',
+                         autocorrect: 'off'
 
-        = f.hidden_field :remember_me, :value => 1
-        = f.submit t('devise.sessions.new.sign_in'), :class => 'btn btn-large btn-block green'
+    = f.hidden_field :remember_me, value: 1
+    = f.submit t('devise.sessions.new.sign_in'), class: 'btn btn-large btn-block'
 
-      - if display_password_reset_link?
-        .text-center
-          = link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name), :id => "forgot_password_link"
-
-      - if display_registration_link?
-        .text-center
-          = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
+  .text-center
+    - if display_password_reset_link?
+      = link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name), id: "forgot_password_link"
+      %br
+    - if display_registration_link?
+      = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)

@@ -18,30 +18,38 @@ describe Rack::ChromeFrame do
   context "non-IE browser" do
     let(:ua_string) { "another browser chromeframe" }
 
-    its(:body) { should_not =~ /chrome=1/ }
-    its(:body) { should_not =~ /Diaspora doesn't support your version of Internet Explorer/ }
+    it "shouldn't complain about the browser" do
+      expect(subject.body).not_to match(/chrome=1/)
+      expect(subject.body).not_to match(/Diaspora doesn't support your version of Internet Explorer/)
+    end
   end
 
   context "IE8 without chromeframe" do
     let(:ua_string) { "MSIE 8" }
-    
-    its(:body) { should_not =~ /chrome=1/ }
-    its(:body) { should_not =~ /Diaspora doesn't support your version of Internet Explorer/ }
+
+    it "shouldn't complain about the browser" do
+      expect(subject.body).not_to match(/chrome=1/)
+      expect(subject.body).not_to match(/Diaspora doesn't support your version of Internet Explorer/)
+    end
   end
 
   context "IE7 without chromeframe" do
     let(:ua_string) { "MSIE 7" }
-    
-    its(:body) { should_not =~ /chrome=1/ }
-    its(:body) { should =~ /Diaspora doesn't support your version of Internet Explorer/ }
-    specify {@response.headers["Content-Length"].should == @response.body.length.to_s}
+
+    it "shouldn't complain about the browser" do
+      expect(subject.body).not_to match(/chrome=1/)
+      expect(subject.body).to match(/Diaspora doesn't support your version of Internet Explorer/)
+    end
+    specify {expect(@response.headers["Content-Length"]).to eq(@response.body.length.to_s)}
   end
 
   context "any IE with chromeframe" do
     let(:ua_string) { "MSIE number chromeframe" }
-    
-    its(:body) { should =~ /chrome=1/ }
-    its(:body) { should_not =~ /Diaspora doesn't support your version of Internet Explorer/ }
-    specify {@response.headers["Content-Length"].should == @response.body.length.to_s}
+
+    it "shouldn't complain about the browser" do
+      expect(subject.body).to match(/chrome=1/)
+      expect(subject.body).not_to match(/Diaspora doesn't support your version of Internet Explorer/)
+    end
+    specify {expect(@response.headers["Content-Length"]).to eq(@response.body.length.to_s)}
   end
 end

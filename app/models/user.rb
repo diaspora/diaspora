@@ -10,13 +10,14 @@ class User < ActiveRecord::Base
 
   apply_simple_captcha :message => I18n.t('simple_captcha.message.failed'), :add_to_base => true
 
-  scope :logged_in_since, lambda { |time| where('last_seen > ?', time) }
-  scope :monthly_actives, lambda { |time = Time.now| logged_in_since(time - 1.month) }
-  scope :daily_actives, lambda { |time = Time.now| logged_in_since(time - 1.day) }
-  scope :yearly_actives, lambda { |time = Time.now| logged_in_since(time - 1.year) }
-  scope :halfyear_actives, lambda { |time = Time.now| logged_in_since(time - 6.month) }
+  scope :logged_in_since, ->(time) { where('last_seen > ?', time) }
+  scope :monthly_actives, ->(time = Time.now) { logged_in_since(time - 1.month) }
+  scope :daily_actives, ->(time = Time.now) { logged_in_since(time - 1.day) }
+  scope :yearly_actives, ->(time = Time.now) { logged_in_since(time - 1.year) }
+  scope :halfyear_actives, ->(time = Time.now) { logged_in_since(time - 6.month) }
+  scope :active, -> { joins(:person).where(people: {closed_account: false}).where.not(username: nil) }
 
-  devise :database_authenticatable, :registerable,
+  devise :token_authenticatable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :lastseenable, :lock_strategy => :none, :unlock_strategy => :none
 
@@ -37,6 +38,8 @@ class User < ActiveRecord::Base
   serialize :hidden_shareables, Hash
 
   has_one :person, :foreign_key => :owner_id
+  has_one :profile, through: :person
+
   delegate :guid, :public_key, :posts, :photos, :owns?, :image_url,
            :diaspora_handle, :name, :public_url, :profile, :url,
            :first_name, :last_name, :gender, :participations, to: :person
@@ -44,7 +47,7 @@ class User < ActiveRecord::Base
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
-  has_many :aspects, :order => 'order_id ASC'
+  has_many :aspects, -> { order('order_id ASC') }
 
   belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'
   belongs_to :invited_by, :class_name => 'User'
@@ -59,13 +62,13 @@ class User < ActiveRecord::Base
   has_many :user_preferences
 
   has_many :tag_followings
-  has_many :followed_tags, :through => :tag_followings, :source => :tag, :order => 'tags.name'
+  has_many :followed_tags, -> { order('tags.name') }, :through => :tag_followings, :source => :tag
 
   has_many :blocks
   has_many :ignored_people, :through => :blocks, :source => :person
 
-  has_many :conversation_visibilities, through: :person, order: 'updated_at DESC'
-  has_many :conversations, through: :conversation_visibilities, order: 'updated_at DESC'
+  has_many :conversation_visibilities, -> { order 'updated_at DESC' }, through: :person
+  has_many :conversations, -> { order 'updated_at DESC' }, through: :conversation_visibilities
 
   has_many :notifications, :foreign_key => :recipient_id
 
@@ -83,7 +86,7 @@ class User < ActiveRecord::Base
   end
 
   def unread_message_count
-    ConversationVisibility.sum(:unread, :conditions => "person_id = #{self.person.id}")
+    ConversationVisibility.where(person_id: self.person_id).sum(:unread)
   end
 
   #@deprecated
@@ -102,7 +105,7 @@ class User < ActiveRecord::Base
 
 
   def invitation_code
-    InvitationCode.find_or_create_by_user_id(self.id)
+    InvitationCode.find_or_create_by(user_id: self.id)
   end
 
   def hidden_shareables
@@ -163,14 +166,14 @@ class User < ActiveRecord::Base
 
   def update_user_preferences(pref_hash)
     if self.disable_mail
-      UserPreference::VALID_EMAIL_TYPES.each{|x| self.user_preferences.find_or_create_by_email_type(x)}
+      UserPreference::VALID_EMAIL_TYPES.each{|x| self.user_preferences.find_or_create_by(email_type: x)}
       self.disable_mail = false
       self.save
     end
 
     pref_hash.keys.each do |key|
       if pref_hash[key] == 'true'
-        self.user_preferences.find_or_create_by_email_type(key)
+        self.user_preferences.find_or_create_by(email_type: key)
       else
         block = self.user_preferences.where(:email_type => key).first
         if block
@@ -256,7 +259,7 @@ class User < ActiveRecord::Base
     if aspect_ids == "all" || aspect_ids == :all
       self.aspects
     else
-      aspects.where(:id => aspect_ids)
+      aspects.where(:id => aspect_ids).to_a
     end
   end
 
@@ -286,6 +289,67 @@ class User < ActiveRecord::Base
       return target.likes.detect{ |like| like.author_id == self.person.id }
     else
       return Like.where(:author_id => self.person.id, :target_type => target.class.base_class.to_s, :target_id => target.id).first
+    end
+  end
+
+  ######### Data export ##################
+  mount_uploader :export, ExportedUser
+
+  def queue_export
+    update exporting: true
+    Workers::ExportUser.perform_async(id)
+  end
+
+  def perform_export!
+    export = Tempfile.new([username, '.json.gz'], encoding: 'ascii-8bit')
+    export.write(compressed_export) && export.close
+    if export.present?
+      update exporting: false, export: export, exported_at: Time.zone.now
+    else
+      update exporting: false
+    end
+  end
+
+  def compressed_export
+    ActiveSupport::Gzip.compress Diaspora::Exporter.new(self).execute
+  end
+
+  ######### Photos export ##################
+  mount_uploader :exported_photos_file, ExportedPhotos
+
+  def queue_export_photos
+    update exporting_photos: true
+    Workers::ExportPhotos.perform_async(id)
+  end
+
+  def perform_export_photos!
+    temp_zip = Tempfile.new([username, '_photos.zip'])
+    begin
+      Zip::ZipOutputStream.open(temp_zip.path) do |zos|
+        photos.each do |photo|
+          begin
+            photo_file = photo.unprocessed_image.file
+            if photo_file
+              photo_data = photo_file.read
+              zos.put_next_entry(photo.remote_photo_name)
+              zos.print(photo_data)
+            else
+              logger.info "Export photos error: No file for #{photo.remote_photo_name} not found"
+            end
+          rescue Errno::ENOENT
+            logger.info "Export photos error: #{photo.unprocessed_image.file.path} not found"
+          end
+        end
+      end
+    ensure
+      temp_zip.close
+    end
+
+    begin
+      update exported_photos_file: temp_zip, exported_photos_at: Time.zone.now if temp_zip.present?
+    ensure
+      restore_attributes if invalid? || temp_zip.present?
+      update exporting_photos: false
     end
   end
 
@@ -355,7 +419,7 @@ class User < ActiveRecord::Base
 
   ###Helpers############
   def self.build(opts = {})
-    u = User.new(opts.except(:person))
+    u = User.new(opts.except(:person, :id))
     u.setup(opts)
     u
   end
@@ -369,7 +433,7 @@ class User < ActiveRecord::Base
     errors = self.errors
     errors.delete :person
     return if errors.size > 0
-    self.set_person(Person.new(opts[:person] || {} ))
+    self.set_person(Person.new((opts[:person] || {}).except(:id)))
     self.generate_keys
     self
   end
@@ -456,15 +520,20 @@ class User < ActiveRecord::Base
     AccountDeletion.create(:person => self.person)
   end
 
+  def closed_account?
+    self.person.closed_account
+  end
+
   def clear_account!
     clearable_fields.each do |field|
       self[field] = nil
     end
     [:getting_started,
-     :disable_mail,
      :show_community_spotlight_in_stream].each do |field|
       self[field] = false
     end
+    self[:disable_mail] = true
+    self[:strip_exif] = true
     self[:email] = "deletedaccount_#{self[:id]}@example.org"
 
     random_password = SecureRandom.hex(20)
@@ -480,13 +549,32 @@ class User < ActiveRecord::Base
       save
     end
   end
-  
+
+  def flag_for_removal(remove_after)
+    # flag inactive user for future removal
+    if AppConfig.settings.maintenance.remove_old_users.enable?
+      self.remove_after = remove_after
+      self.save
+    end
+  end
+
+  def after_database_authentication
+    # remove any possible remove_after timestamp flag set by maintenance.remove_old_users
+    unless self.remove_after.nil?
+      self.remove_after = nil
+      self.save
+    end
+  end
+
   private
+
   def clearable_fields
     self.attributes.keys - ["id", "username", "encrypted_password",
                             "created_at", "updated_at", "locked_at",
                             "serialized_private_key", "getting_started",
                             "disable_mail", "show_community_spotlight_in_stream",
-                            "email"]
+                            "strip_exif", "email", "remove_after",
+                            "export", "exporting", "exported_at",
+                            "exported_photos_file", "exporting_photos", "exported_photos_at"]
   end
 end

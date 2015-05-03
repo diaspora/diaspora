@@ -2,12 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :head do
-  = jquery_include_tag
-  = javascript_include_tag :main
-  = load_javascript_locales
-  = include_gon
-
 = form_for StatusMessage.new, {:data => {:ajax => false}} do |status|
   = status.hidden_field :provider_display_name, :value => 'mobile'
   = status.text_area :text, :placeholder => t('shared.publisher.whats_on_your_mind'), :rows => 4, :autofocus => "autofocus"

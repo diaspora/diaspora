@@ -2,24 +2,24 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.stream_element{:data=>{:guid=>post.id}}
+.stream_element{data: {guid: post.id}}
   - if post.respond_to?(:nsfw) && post.nsfw
     .shield_wrapper
       .shield
         %strong #NSFW 
         | 
-        = link_to t('javascripts.stream.show_nsfw_post'), '#'
+        = link_to t("javascripts.stream.show_nsfw_post"), "#"
   
   - if post.is_a?(Reshare)
-    = render 'reshares/reshare', :reshare => post, :post => post.absolute_root
+    = render "reshares/reshare", reshare: post, post: post.absolute_root
 
-  = render 'shared/photo_area', :post => post
+  = render "shared/photo_area", post: post
 
   .content
-    = render 'shared/post_info', :post => post
+    = render "shared/post_info", post: post
 
     - if post.is_a?(StatusMessage)
-      = render 'status_messages/status_message', :post => post, :photos => post.photos
+      = render "status_messages/status_message", post: post, photos: post.photos
 
   .bottom_bar
     .floater
@@ -30,22 +30,5 @@
     != reactions_link(post)
 
     - if defined?(expanded_info) && expanded_info
-      .comment_container
-        .post_stats
-          - if post.public?
-            %span.comment_count
-              = post.reshares.size
-
-          %span.comment_count
-            = post.comments.size
-
-          %span.like_count
-            = post.likes.size
-
-        %ul.comments
-          = render :partial => 'comments/comment', :collection => post.comments.order('created_at ASC')
-
-          %li.comment.add_comment_bottom_link_container
-            - if user_signed_in? 
-              = link_to t('comments.new_comment.comment'), new_post_comment_path(post), :class => 'add_comment_bottom_link btn comment_action inactive'
+      = render partial: "shared/post_stats", locals: {post: @post}
 

@@ -4,7 +4,7 @@
 
 class SignedRetraction
   include Diaspora::Federated::Base
-  
+
   include Diaspora::Encryptable
 
   xml_name :signed_retraction
@@ -78,7 +78,7 @@ class SignedRetraction
       onward_retraction.sender = receiving_user.person
       Postzord::Dispatcher.build(receiving_user, onward_retraction).post
     end
-    if target
+    if target && !target.destroyed?
       self.target.destroy
     end
     Rails.logger.info("event=retraction status =complete target_type=#{self.target_type} guid =#{self.target_guid}")

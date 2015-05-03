@@ -39,7 +39,7 @@ def expect_error(partial_message, &block)# DOES NOT REQUIRE ERROR!!
   begin
     yield
   rescue => e
-    e.message.should match partial_message
+    expect(e.message).to match partial_message
 
   ensure
     raise "no error occured where expected" unless e.present?
@@ -53,7 +53,7 @@ def bogus_retraction(&block)
 end
 
 def user_should_not_see_guid(user, guid)
- user.reload.visible_shareables(Post).where(:guid => guid).should be_blank
+ expect(user.reload.visible_shareables(Post).where(:guid => guid)).to be_blank
 end
     #returns the message
 def legit_post_from_user1_to_user2(user1, user2)
@@ -62,7 +62,7 @@ def legit_post_from_user1_to_user2(user1, user2)
   original_message
 end
 
-describe "attack vectors" do
+describe "attack vectors", :type => :request do
 
   let(:eves_aspect) { eve.aspects.find_by_name("generic") }
   let(:alices_aspect) { alice.aspects.find_by_name("generic") }
@@ -212,7 +212,7 @@ describe "attack vectors" do
         expect {
           receive_post(retraction, :from => alice, :by => bob)
         }.to raise_error Diaspora::AuthorXMLAuthorMismatch
-      }.to_not change(bob.visible_shareables(Post), :count)
+      }.to_not change { bob.visible_shareables(Post).count(:all) }
 
     end
 

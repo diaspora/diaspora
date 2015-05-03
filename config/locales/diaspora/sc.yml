@@ -1,0 +1,110 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+sc:
+  _applications: "Aplicos"
+  _comments: "Cummentos"
+  _contacts: "Cuntatos"
+  _home: "Printzipale"
+  _photos: "Fotos"
+  _services: "Servìtzios"
+  account: "Contu"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "depet èssere ùnicu intre sos cuntatos de custu impitadore"
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "est giai istadu pigadu."
+        request:
+          attributes:
+            from_id:
+              taken: "est una còpia de un'àtera rechesta giai esistente."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Bellu a beru, eh?  Ma as giai cumpartzidu cussu post!"
+        user:
+          attributes:
+            email:
+              taken: "est giai istada impreada."
+            person:
+              invalid: "no est bàlidu."
+            username:
+              invalid: "no est bàlidu. Est possìbile impreare petzi lìteras, nùmeros, e underscores."
+              taken: "est giai istadu pigadu."
+  ago: "%{time} fàghet"
+  all_aspects: "Totu sos aspetos"
+  application:
+    helper:
+      unknown_person: "Pessone disconnota"
+      video_title:
+        unknown: "Tìtulu vìdeo disconnotu"
+  are_you_sure: "Seguru ses?"
+  are_you_sure_delete_account: "Seguru ses de bòlere serrare su contu tuo? Custu non podet èssere annuddadu!"
+  aspects:
+    contacts_not_visible: "Sos cuntatos de custa cara non s'ant a pòdere bìdere intre issos."
+    contacts_visible: "Sos cuntatos de custa cara s'ant a pòdere bìdere intre issos."
+    edit:
+      aspect_list_is_not_visible: "Sos cuntatos de custa cara non si podent bìdere intre issos."
+      aspect_list_is_visible: "Sos cuntatos de custa cara si podent bìdere intre issos."
+      confirm_remove_aspect: "Seguru ses de bòlere burrare custa cara?"
+      make_aspect_list_visible: "Boles chi sos cuntatos de custa cara s'ant a pòdere bìdere intre issos?"
+      remove_aspect: "Burra custa cara"
+      rename: "Càmbia nùmene"
+      update: "Agiorna"
+      updating: "Agiornande"
+    one: "1 cara"
+    other: "%{count} caras"
+    zero: "Peruna cara"
+  back: "In dae segus"
+  cancel: "Annudda"
+  delete: "Burra"
+  email: "P. eletr. (e-mail)"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Currege custos errore e torra a proare."
+      invalid_fields: "Campos non bàlidos"
+  fill_me_out: "Iscrie inoghe"
+  find_people: "Agata pessonas o #etichetas"
+  hide: "Cua"
+  limited: "Limitadu"
+  more: "Àteru"
+  next: "Imbeniente"
+  no_results: "Perunu resurtadu agatadu"
+  notifier:
+    export_photos_email:
+      body: |-
+          Salude, %{name},
+
+          Sas fotos tuas sunt istadas elaboradas e sunt prontas pro èssere iscarrigadas sighinde [custu ligòngiu](%{url}).
+
+          Saludos,
+          Su robot de sa posta eletrònica de diaspora*!
+  nsfw: "NSFW (no est adatu pro unu logu de traballu)"
+  ok: "OK"
+  or: "o"
+  password: "Crae (password)"
+  password_confirmation: "Cunfirma sa crae (password)"
+  previous: "Antepostu"
+  privacy: "Privadesa"
+  privacy_policy: "Normativa pro sa privadesa"
+  profile: "Perfilu"
+  public: "Pùblicu"
+  search: "Chirca"
+  settings: "Impostaduras"
+  terms_and_conditions: "Tèrmines e cunditziones"
+  undo: "Annuddare?"
+  username: "Nùmene impitadore"
+  users:
+    edit:
+      download_export_photos: "Iscàrriga sas fotos meas"
+      export_photos_in_progress: "Semus elaborande sas fotos tuas. Pro piaghere torra a compidare intre pagu."
+  welcome: "Benènnidu!"

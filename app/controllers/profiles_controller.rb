@@ -3,10 +3,7 @@
 #   the COPYRIGHT file.
 
 class ProfilesController < ApplicationController
-  before_filter :authenticate_user!, :except => ['show']
-  before_filter -> { @css_framework = :bootstrap }, only: [:show, :edit]
- 
-  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }, only: [:show, :edit]
+  before_action :authenticate_user!, :except => ['show']
 
   respond_to :html, :except => [:show]
   respond_to :js, :only => :update
@@ -28,7 +25,7 @@ class ProfilesController < ApplicationController
 
     @tags = @profile.tags
     @tags_array = []
-    @tags.each do |obj| 
+    @tags.each do |obj|
       @tags_array << { :name => ("#"+obj.name),
         :value => ("#"+obj.name)}
       end
@@ -37,7 +34,7 @@ class ProfilesController < ApplicationController
   def update
     # upload and set new profile photo
     @profile_attrs = profile_params
-    
+
     munge_tag_string
 
     #checkbox tags wtf
@@ -57,7 +54,6 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       format.js { render :nothing => true, :status => 200 }
       format.any {
-        flash[:notice] = I18n.t 'profiles.update.updated'
         if current_user.getting_started?
           redirect_to getting_started_path
         else

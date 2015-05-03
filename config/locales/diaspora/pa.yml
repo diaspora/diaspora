@@ -29,9 +29,6 @@ pa:
     edit:
       make_aspect_list_visible: "make aspect list visible to others in aspect"
       rename: "ਨਾਂ-ਬਦਲੋ"
-    few: "%{count} aspects"
-    helper:
-      remove: "ਹਟਾਓ"
     index:
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
       help:
@@ -41,7 +38,6 @@ pa:
         tag_question: "#question"
       no_contacts: "ਕੋਈ ਸੰਪਰਕ ਨਹੀਂ"
       no_tags: "No tags"
-    many: "%{count} aspects"
     new:
       name: "Name"
     no_contacts_message:
@@ -53,7 +49,6 @@ pa:
     seed:
       family: "ਪਰਿਵਾਰ"
       work: "ਕੰਮ"
-    two: "%{count} aspects"
     zero: "no aspects"
   back: "ਪਿੱਛੇ"
   bookmarklet:
@@ -61,13 +56,10 @@ pa:
     heading: "Diaspora Bookmarklet"
   cancel: "ਰੱਦ ਕਰੋ"
   comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
     new_comment:
       comment: "ਟਿੱਪਣੀ"
       commenting: "ਟਿੱਪਣੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
   contacts:
-    few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
@@ -233,10 +225,8 @@ pa:
   password: "ਪਾਸਵਰਡ"
   password_confirmation: "ਪਾਸਵਰਡ ਪੁਸ਼ਟੀ"
   people:
-    few: "%{count} people"
     helper:
       results_for: "%{params} ਲਈ ਨਤੀਜੇ"
-    many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
     person:
@@ -353,13 +343,7 @@ pa:
   status_messages:
     helper:
       no_message_to_display: "ਵੇਖਾਉਣ ਲਈ ਕੋਈ ਸੁਨੇਹਾ ਨਹੀਂ ਹੈ।"
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "ਟਿੱਪਣੀਆਂ ਓਹਲੇ ਕਰੋ"
     show_comments:

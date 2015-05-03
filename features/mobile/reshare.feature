@@ -21,7 +21,7 @@ Feature: resharing from the mobile
     And I confirm the alert
     Then I should see a "a.image_link.reshare_action.active"
     When I go to the stream page
-    Then I should see "reshared via" within ".reshare_via"
+    Then I should see "Reshared via" within ".reshare_via"
 
   Scenario: Resharing a post from a single post page that is reshared
     Given the post with text "reshare this!" is reshared by "eve@eve.eve"
@@ -31,7 +31,7 @@ Feature: resharing from the mobile
     And I confirm the alert
     Then I should see a "a.image_link.reshare_action.active"
     When I go to the stream page
-    Then I should see "reshared via" within ".reshare_via"
+    Then I should see "Reshared via" within ".reshare_via"
 
   Scenario: Delete original reshared post
     Given "alice@alice.alice" has a public post with text "Don't reshare this!"
@@ -41,8 +41,8 @@ Feature: resharing from the mobile
     And I log out
     And I sign in as "bob@bob.bob"
     And I toggle the mobile view
-    Then I should see "Original post deleted by author." within ".reshare"
+    Then I should see "Original post deleted by author" within ".reshare"
     And I log out
-    And I sign in as "eve@eve.eve"
+    And I sign in as "eve@eve.eve" on the mobile website
     And I toggle the mobile view
-    Then I should see "Original post deleted by author." within ".reshare"
+    Then I should see "Original post deleted by author" within ".reshare"

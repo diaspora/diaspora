@@ -82,7 +82,8 @@ ko:
       users:
         other: "%{count}명의 사용자를 찾았습니다"
         zero: "%{count}명의 사용자를 찾았습니다"
-      you_currently: "현재 %{user_invitation} 초대가 남았습니다 %{link}"
+      you_currently:
+        other: "현재 %{user_invitation} 초대가 남았습니다 %{link}"
     weekly_user_stats:
       amount_of:
         other: "이번 주 새 사용자 수: %{count}"
@@ -106,8 +107,6 @@ ko:
     add_to_aspect:
       failure: "컨택을 애스펙에 추가하는데 실패했습니다."
       success: "컨택을 애스펙에 성공적으로 추가했습니다."
-    aspect_contacts:
-      done_editing: "고치기 완료"
     aspect_listings:
       add_an_aspect: "+ 애스펙 추가"
       deselect_all: "선택 해제"
@@ -126,22 +125,14 @@ ko:
       failure: "%{name} 애스펙이 비어있지 않아 지울 수 없습니다."
       success: "%{name} 애스펙을 성공적으로 지웠습니다."
     edit:
-      add_existing: "있는 컨택 추가"
       aspect_list_is_not_visible: "애스펙의 다른 사람들에게 애스펙 목록을 숨깁니다."
       aspect_list_is_visible: "애스펙의 다른 사람들에게 애스펙 목록을 보입니다."
       confirm_remove_aspect: "이 애스펙을 지우려는게 확실합니까?"
-      done: "완료"
       make_aspect_list_visible: "이 애스펙의 컨택이 서로 볼 수 있게 할까요?"
-      manage: "관리"
       remove_aspect: "이 애스펙 지우기"
       rename: "이름 바꾸기"
       update: "갱신"
       updating: "갱신중"
-    few: "애스펙 %{count}개"
-    helper:
-      are_you_sure: "이 애스펙을 지우려는게 확실합니까?"
-      aspect_not_empty: "애스펙이 비어있지 않습니다"
-      remove: "지우기"
     index:
       diaspora_id:
         content_1: "내 디아스포라 아이디:"
@@ -181,11 +172,6 @@ ko:
         heading: "서비스를 연결하세요"
       unfollow_tag: "#%{tag} 태그 팔로우 멈추기"
       welcome_to_diaspora: "%{name}님, 디아스포라에 오신걸 환영합니다!"
-    many: "애스펙 %{count}개"
-    move_contact:
-      error: "컨택 옮기기 오류: %{inspect}"
-      failure: "%{inspect} 작동 안 함"
-      success: "사람이새 애스펙으로 옮겨졌습니다"
     new:
       create: "만들기"
       name: "이름(나만 볼 수 있습니다)"
@@ -203,14 +189,6 @@ ko:
       family: "가족"
       friends: "친구"
       work: "직장"
-    selected_contacts:
-      manage_your_aspects: "내 애스펙 관리하기."
-      no_contacts: "아직 여기에 아무 컨택도 없습니다."
-      view_all_community_spotlight: "커뮤니티 스포트라이트 모두 보기"
-      view_all_contacts: "모든 컨택 보기"
-    show:
-      edit_aspect: "애스펙 고치기"
-    two: "애스펙 %{count}개"
     update:
       failure: "%{name} 애스펙은 이름이 너무 길어 저장할 수 없습니다."
       success: "%{name} 애스펙을 성공적으로 고쳤습니다."
@@ -229,36 +207,27 @@ ko:
     post_success: "올렸습니다! 닫힙니다!"
   cancel: "취소"
   comments:
-    few: "댓글 %{count}개"
-    many: "댓글 %{count}개"
     new_comment:
       comment: "댓글 달기"
       commenting: "댓글 다는 중···"
     one: "댓글 한 개"
     other: "댓글 %{count}개"
-    two: "댓글 %{count}개"
     zero: "댓글 없음"
   contacts:
     create:
       failure: "컨택을 만들 수 없습니다"
-    few: "컨택 %{count}명"
     index:
       add_a_new_aspect: "새 애스펙 추가"
       add_to_aspect: "%{name} 애스펙에 컨택 추가"
-      add_to_aspect_link: "%{name} 애스펙으로 추가하세요"
       all_contacts: "모든 컨택"
       community_spotlight: "커뮤니티 스포트라이트"
-      many_people_are_you_sure: "컨택 %{suggested_limit}명보다 많은 사람들에게 쪽지를 보내려 하십니까? 해당 애스펙에 게시물을 공유하길 권합니다."
       my_contacts: "내 컨택"
       no_contacts: "컨택을 좀 추가하는게 어때요?"
       no_contacts_message: "%{community_spotlight}를 확인하세요"
-      no_contacts_message_with_aspect: "%{community_spotlight}를 확인하거나 %{add_to_aspect_link}"
       only_sharing_with_me: "나와만 공유하고 있는 사람들"
-      remove_person_from_aspect: "\"%{aspect_name} 애스펙에서 %{person_name}님 지우기"
       start_a_conversation: "대화를 시작하세요"
       title: "컨택"
       your_contacts: "내 컨택"
-    many: "컨택 %{count}명"
     one: "컨택 한 명"
     other: "컨택 %{count}명"
     sharing:
@@ -266,7 +235,6 @@ ko:
     spotlight:
       community_spotlight: "커뮤니티 스포트라이트"
       suggest_member: "회원 제안"
-    two: "컨택 %{count}명"
     zero: "컨택"
   conversations:
     conversation:
@@ -275,8 +243,6 @@ ko:
       fail: "유효하지 않은 쪽지"
       no_contact: "컨택부터 추가하세요!"
       sent: "쪽지를 보냈습니다"
-    destroy:
-      success: "대화를 성공적으로 지웠습니다"
     helper:
       new_messages:
         few: "새 쪽지 %{count}개"
@@ -344,6 +310,7 @@ ko:
       title: "공유"
     tags:
       title: "태그"
+    tutorial: "따라하기"
     tutorials: "간단 설명서"
     wiki: "위키"
   hide: "숨기기"
@@ -557,7 +524,6 @@ ko:
       add_contact_from_tag: "태그에서 컨택 추가"
     aspect_list:
       edit_membership: "속한 애스펙 고치기"
-    few: "%{count}명"
     helper:
       results_for: "%{params} 결과"
     index:
@@ -566,7 +532,6 @@ ko:
       no_results: "검색 결과가 없습니다"
       results_for: "검색 결과:"
       searching: "검색중입니다, 잠시만 기다려주십시오···"
-    many: "%{count}명"
     one: "한 명"
     other: "%{count}명"
     person:
@@ -603,7 +568,6 @@ ko:
       add_some: "추가하기"
       edit: "고치기"
       you_have_no_tags: "태그가 없습니다!"
-    two: "%{count}명"
     webfinger:
       fail: "%{handle} 핸들을 찾을 수 없습니다."
     zero: "없음"
@@ -701,15 +665,12 @@ ko:
       update: "갱신하기"
     invalid_invite: "내가 제공한 초대 링크가 더 이상 유효하지 않습니다!"
     new:
-      continue: "계속"
       create_my_account: "내 계정 만들기!"
-      diaspora: "♥ 디아스포라*"
       email: "이메일"
       enter_email: "이메일 주소를 입력하세요"
       enter_password: "암호를 입력하세요 (최소 여섯 자)"
       enter_password_again: "암호를 다시 입력하세요"
       enter_username: "사용자 이름을 고르세요 (로마자, 아라비아 숫자, 밑줄 문자_ 만)"
-      hey_make: "자,<br/>뭔가<br/>만들어보세요."
       join_the_movement: "합류하세요!"
       password: "암호"
       password_confirmation: "암호 확인"
@@ -885,9 +846,7 @@ ko:
       no_message_to_display: "표시할 게시물이 없습니다."
     new:
       mentioning: "%{person}님을 멘션합니다"
-    too_long:
-      other: "상태 메시지를 %{count}자보다 적게 줄여주세요"
-      zero: "상태 메시지를 %{count}자보다 적게 줄여주세요"
+    too_long: "{\"other\"=>\"상태 메시지를 %{count}자보다 적게 줄여주세요\", \"zero\"=>\"상태 메시지를 %{count}자보다 적게 줄여주세요\"}"
   stream_helper:
     hide_comments: "모든 댓글 숨기기"
     show_comments:
@@ -928,7 +887,6 @@ ko:
       title: "공개 활동"
     tags:
       contacts_title: "이 태그를 파고있는 사람들"
-      tag_prefill_text: "%{tag_name} 태그를 달고 공유하세요!"
       title: "태그: %{tags}"
   tag_followings:
     create:
@@ -942,10 +900,7 @@ ko:
     show:
       follow: "#%{tag} 태그 팔로우하기"
       following: "#%{tag} 태그 팔로우중"
-      nobody_talking: "아직 %{tag} 태그가 달린 게시물이 없습니다."
       none: "빈 태그는 존재하지 않습니다!"
-      people_tagged_with: "%{tag} 태그가 달린 사람들"
-      posts_tagged_with: "#%{tag} 태그가 달린 게시물"
       stop_following: "#%{tag} 태그 팔로우 멈추기"
   terms_and_conditions: "이용약관"
   undo: "돌이키겠습니까?"
@@ -981,7 +936,6 @@ ko:
       current_password: "원래 암호"
       current_password_expl: "로그인할 때 썼던 암호"
       download_photos: "내 사진 다운로드"
-      download_xml: "내 xml 다운로드"
       edit_account: "계정 고치기"
       email_awaiting_confirmation: "%{unconfirmed_email} 로 활성화 링크를 보냈습니다. 이 링크를 따라 새 주소를 활성화하기 전까지는 원래 이메일 주소 %{email} 를 사용합니다."
       export_data: "자료 뽑아내기"
@@ -990,7 +944,6 @@ ko:
       liked: "누군가가 내 게시물을 좋아할 때"
       mentioned: "내가 멘션되었을 때"
       new_password: "새 암호"
-      photo_export_unavailable: "지금은 사진을 뽑아낼 수 없습니다"
       private_message: "쪽지를 받았을 때"
       receive_email_notifications: "이럴 때 이메일 알림을 받겠습니다"
       reshared: "누군가 내 게시물을 재공유할 때"

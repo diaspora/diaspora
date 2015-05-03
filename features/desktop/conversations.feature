@@ -7,8 +7,8 @@ Feature: private conversations
   Background:
     Given a user named "Robert Grimm" with email "bob@bob.bob"
     And a user named "Alice Awesome" with email "alice@alice.alice"
-    When I sign in as "bob@bob.bob"
     And a user with username "robert_grimm" is connected with "alice_awesome"
+    When I sign in as "bob@bob.bob"
 
   Scenario: send a message
     Given I send a message with subject "Greetings" and text "hello, alice!" to "Alice Awesome"
@@ -20,5 +20,7 @@ Feature: private conversations
     And "Alice Awesome" should be part of active conversation
     And I should see "hello, alice!" within ".stream_container"
     When I sign in as "alice@alice.alice"
-    And I reply with "hey, how you doing?"
+    Then I should have 1 unread private message
+    And I should have 1 email delivery
+    When I reply with "hey, how you doing?"
     Then I should see "hey, how you doing?" within ".stream_container"

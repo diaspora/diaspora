@@ -1,0 +1,24 @@
+- content_for :page_title do
+  = "#{AppConfig.settings.pod_name} - #{t('devise.passwords.new.forgot_password')}"
+
+#forgot_password
+  .container-fluid
+    .text-center
+      .branding-asterisk
+      %h1
+        = AppConfig.settings.pod_name
+
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: "form-horizontal block-form"}, autocomplete: 'off') do |f|
+      - if !devise_error_messages!.empty?
+        %legend
+          %i
+            = t('devise.passwords.new.no_account') # this is an error message and should not be displayed as a legend
+      %fieldset
+        %label{for: "user_email"}
+          = t('devise.passwords.new.email')
+        %i.entypo.mail
+        = f.text_field :email, class: "input-block-level form-control", required: true, autocapitalize: "off", placeholder: t('devise.passwords.new.email'), autocorrect: "off", autofocus: true
+      = f.submit t('devise.passwords.new.send_password_instructions'), class: "btn btn-block"
+
+    .text-center
+      = link_to t('devise.shared.links.sign_in'), new_session_path(resource_name)

@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 /*   Copyright (c) 2010-2012, Diaspora Inc.  This file is
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
@@ -21,21 +23,24 @@ app.views.PublisherGettingStarted = Backbone.View.extend({
       offset: 30,
       id: 'first_message_explain',
       placement: 'right',
-      html: true
+      html: true,
+      container: 'body'
     }, 600);
     this._addPopover(this.el_visibility, {
       trigger: 'manual',
       offset: 10,
       id: 'message_visibility_explain',
       placement: 'bottom',
-      html: true
+      html: true,
+      container: 'body'
     }, 1000);
     this._addPopover(this.el_stream, {
       trigger: 'manual',
       offset: -5,
       id: 'stream_explain',
       placement: 'left',
-      html: true
+      html: true,
+      container: 'body'
     }, 1400);
 
     // hide some popovers when a post is created
@@ -60,8 +65,10 @@ app.views.PublisherGettingStarted = Backbone.View.extend({
       var close = $(popup).find('.close');
 
       close.click(function() {
-        if( $('.popover').length==1 ) {
-          $.get('/getting_started_completed');
+        if( $('.popover').length === 1 ) {
+          $.get('/getting_started_completed', {success: function() {
+            $("#welcome-to-diaspora, #welcome-to-diaspora~br").remove();
+          }});
         }
         el.popover('hide');
         return false;
@@ -69,3 +76,5 @@ app.views.PublisherGettingStarted = Backbone.View.extend({
     }, timeout);
   }
 });
+// @license-end
+

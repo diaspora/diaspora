@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Notifications::PrivateMessage do
+describe Notifications::PrivateMessage, :type => :model do
     before do
       @user1 = alice
       @user2 = bob
@@ -22,9 +22,9 @@ describe Notifications::PrivateMessage do
 
     describe '#make_notifiaction' do
       it 'does not save the notification' do
-        lambda{
+        expect{
           Notification.notify(@user2, @msg, @user1.person)
-        }.should_not change(Notification, :count)
+        }.not_to change(Notification, :count)
       end
 
       it 'does email the user' do
@@ -33,11 +33,11 @@ describe Notifications::PrivateMessage do
           :recipient_id => @user2.id}
 
         n = Notifications::PrivateMessage.new(opts)
-        Notifications::PrivateMessage.stub(:make_notification).and_return(n)
+        allow(Notifications::PrivateMessage).to receive(:make_notification).and_return(n)
         Notification.notify(@user2, @msg, @user1.person)
-        n.stub(:recipient).and_return @user2
+        allow(n).to receive(:recipient).and_return @user2
 
-        @user2.should_receive(:mail)
+        expect(@user2).to receive(:mail)
         n.email_the_user(@msg, @user1.person)
       end
       
@@ -49,8 +49,8 @@ describe Notifications::PrivateMessage do
         message.save
         n = Notifications::PrivateMessage.make_notification(@user2, message, @user1.person, Notifications::PrivateMessage)
         
-        ConversationVisibility.where(:conversation_id => message.reload.conversation.id,
-            :person_id => @user2.person.id).first.unread.should == 1
+        expect(ConversationVisibility.where(:conversation_id => message.reload.conversation.id,
+            :person_id => @user2.person.id).first.unread).to eq(1)
       end
       
       it 'increases user unread count - author user 2' do
@@ -61,8 +61,8 @@ describe Notifications::PrivateMessage do
         message.save
         n = Notifications::PrivateMessage.make_notification(@user1, message, @user2.person, Notifications::PrivateMessage)
         
-        ConversationVisibility.where(:conversation_id => message.reload.conversation.id,
-            :person_id => @user1.person.id).first.unread.should == 1
+        expect(ConversationVisibility.where(:conversation_id => message.reload.conversation.id,
+            :person_id => @user1.person.id).first.unread).to eq(1)
       end
       
     end

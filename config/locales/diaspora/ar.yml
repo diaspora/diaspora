@@ -7,26 +7,27 @@
 ar:
   _applications: "التطبيقات"
   _comments: "تعليقات"
-  _contacts: "جهات الاتصال"
+  _contacts: "المتراسلون"
   _home: "الرئيسية"
   _photos: "صور"
   _services: "الخدمات"
-  account: "الحساب الشخصي"
+  _statistics: "إحصائيّات"
+  account: "الحساب"
   activerecord:
     errors:
       models:
         contact:
           attributes:
             person_id:
-              taken: "يجب أن يكون فريدًا من بين جهات اتصال هذا العضو"
+              taken: "يجب أن يكون فريدًا في متراسلي هذا العضو."
         person:
           attributes:
             diaspora_handle:
-              taken: "غير متاح"
+              taken: "مأخوذ بالفعل."
         request:
           attributes:
             from_id:
-              taken: "نسخة مكررة من طلب موجود مسبقًا."
+              taken: "مكرّر لطلب موجود مسبقًا."
         reshare:
           attributes:
             root_guid:
@@ -34,12 +35,12 @@ ar:
         user:
           attributes:
             email:
-              taken: "حُجِزَ بالفعل."
+              taken: "مأخوذ بالفعل."
             person:
               invalid: "غير صالح."
             username:
-              invalid: "غير صالح، يـسمح بالحروف، الأرقام وخطوط التأكيد (-_) فقط"
-              taken: "حُجِزَ بالفعل."
+              invalid: "غير صالح. نسمح فقط بالأحرف، والأرقام والشرطات السفلية."
+              taken: "مأخوذ بالفعل."
   admins:
     admin_bar:
       pages: "صفحات"
@@ -48,17 +49,31 @@ ar:
     stats:
       2weeks: "أسبوعين"
       daily: "يومياً"
+      display_results: "يعرض النّتائج من الجزء <b>%{segment}</b>"
       month: "شهر"
+      usage_statistic: "إحصائيّات الاستخدام"
       week: "أسبوع"
+    user_search:
+      are_you_sure_lock_account: "أمتأكّد من قفل هذا الحساب؟"
+      are_you_sure_unlock_account: "أمتأكّد من إزالة قفل هذا الحساب؟"
+    weekly_user_stats:
+      amount_of:
+        few: "عدد المستخدمين الجدد لهذا الأسبوع: ‎%{count}‎"
+        many: "عدد المستخدمين الجدد لهذا الأسبوع: ‎%{count}‎"
+        one: "عدد المستخدمين الجدد لهذا الأسبوع: واحد"
+        other: "عدد المستخدمين الجدد لهذا الأسبوع: ‎%{count}‎"
+        two: "عدد المستخدمين الجدد لهذا الأسبوع: اثنان"
+        zero: "عدد المستخدمين الجدد لهذا الأسبوع: صفر"
+      current_server: "تاريخ الخادوم الحاليّ هو ‎%{date}‎"
   ago: "منذ %{time}"
   all_aspects: "كل الفئات"
   application:
     helper:
       unknown_person: "شخص مجهول"
       video_title:
-        unknown: "فيديو غير مُعَنْوَن"
-  are_you_sure: "أواثقٌ أنت؟"
-  are_you_sure_delete_account: "هل تريد حقا إغلاق حسابك؟ عند إغلاق حسابك تحذف كل معلوماتك ولا يمكن استرجاعهاا!"
+        unknown: "عنوان فيديو مجهول"
+  are_you_sure: "أمتأكّد؟"
+  are_you_sure_delete_account: "أمتأكّد من حذف حسابك؟ هذا إجراء لا عودة فيه!"
   aspect_memberships:
     destroy:
       failure: "فشل في حذف عضو من الفئة"
@@ -68,8 +83,6 @@ ar:
     add_to_aspect:
       failure: "فشل في إضافة صديق إلى الفئة"
       success: "إضافة صديق إلى الفئة بنجاح"
-    aspect_contacts:
-      done_editing: "اتمام التغييرات"
     aspect_listings:
       add_an_aspect: "+ أضف فئة جديدة"
       deselect_all: "الغاء اختيار الكل"
@@ -87,21 +100,14 @@ ar:
       failure: "%{name} ليس خاليا ولا يمكن حذفه"
       success: ".بنجاح %{name} تم إزالة"
     edit:
-      add_existing: "إضافة عضو موجود مسبقا"
       aspect_list_is_not_visible: "قائمة الفئة مخفية عن الأعضاء الأخرين في الفئة"
       aspect_list_is_visible: "قائمة الفئة مرئية للأعضاء الآخرين في الفئة"
       confirm_remove_aspect: "تأكيد حذف هذه الفئة؟"
-      done: "تم بنجاح"
       make_aspect_list_visible: "فئة مرئية"
       remove_aspect: "حذف هذه الفئة"
       rename: "إعادة تسمية"
       update: "تحديث"
       updating: "جارى التحديث"
-    few: "%{count} فئة"
-    helper:
-      are_you_sure: "تأكيد حذف هذه الفئة؟"
-      aspect_not_empty: "الفئة ليست فارغة"
-      remove: "حذف"
     index:
       diaspora_id:
         content_1: "معرف دياسبرا الخاص بك هو:"
@@ -135,11 +141,6 @@ ar:
         heading: "صل حسابك بالخدمات"
       unfollow_tag: "أَوقِف متابعة #%{tag}"
       welcome_to_diaspora: "مرحبا بك في دياسبرا , %{name} !"
-    many: "%{count} فئات"
-    move_contact:
-      error: "خطأ خلال تحريك عضو: %{inspect}"
-      failure: "لم يعمل %{inspect}"
-      success: "تم تحريك عضو إلى الفئة الجديدة"
     new:
       create: "أنشئ"
       name: "إسم"
@@ -157,19 +158,11 @@ ar:
       family: "العائلة"
       friends: "الأصدقاء"
       work: "العمل"
-    selected_contacts:
-      manage_your_aspects: "أَدِر فئاتك."
-      no_contacts: "لا تملك أية جهات اتصال هنا بعد."
-      view_all_community_spotlight: "شاهد كل أضواء المجتمع"
-      view_all_contacts: "عرض كل جهات الاتصال"
-    show:
-      edit_aspect: "تحرير الفئة"
-    two: "%{count} فئتان"
     update:
       failure: "فئتك, %{name}, اسمها طويل ولا يمكن حفظها."
       success: ".بنجاح %{name} تم تعديل"
     zero: "لا فئات"
-  back: "عودة"
+  back: "ارجع"
   blocks:
     create:
       failure: "لم استطع تجاهل هذا المستخدم. evasion#"
@@ -181,52 +174,40 @@ ar:
     heading: "زر المفضلة"
     post_something: "انشر شيئا على دياسبرا"
     post_success: "تم النشر, إغلاق!"
-  cancel: "إلغاء"
+  cancel: "ألغِ"
   comments:
-    few: "%{count} تعليقات"
-    many: "%{count} تعليقًا"
     new_comment:
       comment: "علِّق"
       commenting: "جارى التعليق..."
     one: "تعليقٌ واحد"
     other: "%{count} تعليق"
-    two: "%{count} تعليقان"
     zero: "لا تعليقات"
   contacts:
     create:
       failure: "فشل في إنشاء الإتصال"
-    few: "%{count} أعضاء"
     index:
       add_a_new_aspect: "أضف فئة جديدة"
       add_to_aspect: "Add contacts to %{name}"
-      add_to_aspect_link: "أضف جهات الاتصال إلى %{name}"
       all_contacts: "كل جهات الاتصال"
       community_spotlight: "ضوء المجتمع"
-      many_people_are_you_sure: "هل أنت متأكد من بدأ هذه المحادثة الخاصة مع أكثر من %{suggested_limit} جهات اتصال? من الأفضل إرسال مشاركة لهذه الفئة لتتصل بهم."
       my_contacts: "جهات الاتصال الخاصة بي"
       no_contacts: "لا توجد جهات اتصال."
       no_contacts_message: "انظر في  {community_spotlight}%"
-      no_contacts_message_with_aspect: "انظر في %{community_spotlight} او %{add_to_aspect_link}"
       only_sharing_with_me: "فقط يتشاركون معي"
-      remove_person_from_aspect: "احذف %{person_name} من \"%{aspect_name}\""
       start_a_conversation: "ابدأ محادثة"
       title: "جهات الاتصال"
       your_contacts: "جهات الاتصال"
-    many: "%{count} أعضاء"
     one: "1 عضو"
     other: "%{count} أعضاء"
     sharing:
       people_sharing: "أعضاء يتشاركون معك:"
     spotlight:
       community_spotlight: "ضوء المجتمع"
-    two: "%{count} عضوان"
     zero: "جهات الاتصال"
   conversations:
     create:
       fail: "رسالة غير صالحة"
       sent: "أُرْسِلَت الرسالة"
-    destroy:
-      success: "حُذِفَت المحادثة بنجاح"
     helper:
       new_messages:
         few: "%{count} رسائل جديدة"
@@ -254,15 +235,23 @@ ar:
       birthday: "%d %B"
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
-  delete: "احذِف"
-  email: "بريد إلكتروني"
+  delete: "احذف"
+  email: "البريد الإلكترونيّ"
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "صَحِّح الأخطاء التالية ثم أعد المحاولة."
-      invalid_fields: "حقولٌ غير صالحة"
-  fill_me_out: "إملأني"
-  find_people: "ابحث عن الأصدقاء أو #الوسوم"
-  hide: "آَخْفِ"
+      correct_the_following_errors_and_try_again: "صحّح الأخطاء الآتية وحاول مجدّدًا."
+      invalid_fields: "حقول غير صالحة"
+    login_try_again: "فضلًا <a href='%{login_link}'>لِج</a> وجرّب مجدّدًا."
+  fill_me_out: "املأني"
+  find_people: "اعثر على أشخاص أو #وسوم"
+  help:
+    keyboard_shortcuts:
+      keyboard_shortcuts_li5: "r - أعد مشاركة التدوينة الحاليّة"
+      keyboard_shortcuts_li6: "m - وسّع التدوينة الحاليّة"
+      keyboard_shortcuts_li7: "o - افتح أوّل وصلة في التدوينة الحاليّة"
+    posts_and_posting:
+      character_limit_a: "65535 محرفًا. هذا أكبر بِـ 65395 محرفًا الذي تحصل عليها في تويتر! ؛)"
+  hide: "أخفِ"
   invitations:
     a_facebook_user: "مستخدم فايسبوك"
     check_token:
@@ -294,6 +283,7 @@ ar:
       back_to_top: "الذهاب إلى الاعلى"
       powered_by: "بدعم DIASPORA*"
       public_feed: "ملقم دياسبرا العام لـ %{name}"
+      source_package: "نزّل حزمة الشِّفرة المصدريّة"
       toggle: "حَوِّل لموقع الهواتف المحمولة"
       whats_new: "ما الجديد؟"
       your_aspects: "فئاتك"
@@ -333,7 +323,7 @@ ar:
   limited: "محدود"
   more: "أكثر"
   next: "التالي"
-  no_results: "لا توجد نتائج"
+  no_results: "لم يُعثر على نتائج"
   notifications:
     also_commented:
       few: "%{actors} علق أيضا على %{post_link} %{post_author}."
@@ -375,6 +365,7 @@ ar:
         zero: "و لا أحد"
       mark_all_as_read: "وضع الجميع كمقروء"
       mark_unread: "غير مقروء"
+      no_notifications: "ليس هناك أيّ إخطار بعد."
       notifications: "تنبيهات"
     liked:
       few: "%{actors} أعجبوا لتوهم بـ %{post_link}."
@@ -442,6 +433,27 @@ ar:
       click_link: "لتفعيل عنوان بريدك الإلكتروني الجديد %{unconfirmed_email}, من فضلك إتبع هذا الرابط:"
       subject: "من فضلك، فَعِّل عنوان بريدك الإلكتروني الجديد %{unconfirmed_email}"
     email_sent_by_diaspora: "أُرسِلَت هذه الرسالة بواسطة ديسبورا.  إذا أردت إيقاف مثل هذه الرسالة، "
+    export_email:
+      body: |-
+          مرحبًا ‎%{name}‎،
+
+          بياناتك قد عولجت وجاهزة للتنزيل باتباع [هذه الوصلة](‎%{url}‎).
+
+          مع أطيب التحيّات،
+
+          آلة دياسبورا للبريد الإلكترونيّ!
+      subject: "بياناتك الشخصيّة جاهزة للتنزيل يا ‎%{name}‎"
+    export_failure_email:
+      body: |-
+          مرحبًا ‎%{name}‎
+
+          واجهتنا مشكلة أثناء معالجة بياناتك الشخصيّة لتنزيلها.
+          فضلًا حاول مجدّدًا!
+
+          مع أطيب التحيّات،
+
+          آلة دياسبورا للبريد الإلكترونيّ!
+      subject: "آسفون، حدثت مشكلة مع بياناتك يا ‎%{name}‎"
     hello: "مرحبا %{name}!"
     invite:
       message: |-
@@ -475,7 +487,7 @@ ar:
   ok: "حسنًا"
   or: "أو"
   password: "كلمة المرور"
-  password_confirmation: "تأكيد كلمة المرور"
+  password_confirmation: "أكّد كلمة المرور"
   people:
     add_contact:
       invited_by: "تمت دعوتك بواسطة"
@@ -483,16 +495,14 @@ ar:
       add_contact_from_tag: "إضافة مراسل من tag"
     aspect_list:
       edit_membership: "تعديل العضويات بالفئات"
-    few: "%{count} أعضاء"
     helper:
       results_for: " نتائج من أجل %{params}"
     index:
-      looking_for: "تبحث عن مشاركات مَوسومة بـ %{tag_link} ؟"
+      looking_for: "تبحث عن مشاركات موسومة بـ %{tag_link}؟"
       no_one_found: "...ولم يعثر على أحد"
       no_results: "يجب تحديد شيء للبحث عنه"
       results_for: "نتائج البحث عن"
       searching: "جارى البحث، كن صبوراً من فضلك..."
-    many: "%{count} أعضاء"
     one: "1شخص"
     other: "%{count} عضو"
     person:
@@ -513,7 +523,7 @@ ar:
       closed_account: "لقد تم إغلاق هذا الحساب."
       does_not_exist: "هذا العضو غير موجود"
       has_not_shared_with_you_yet: "%{name} لمْ يشارك أي مشاركة معك بعد"
-      ignoring: "أنت تتجاهل جميع المشاركات من %{name}"
+      ignoring: "أنت تتجاهل جميع المشاركات من %{name}."
       incoming_request: "%{name} يريد المشاركة معك"
       mention: "إشارة"
       message: "رسالة"
@@ -528,7 +538,6 @@ ar:
       add_some: "أضف بعض"
       edit: "عدِّل"
       you_have_no_tags: "لا تتوفر على وسوم"
-    two: "%{count} عضوان"
     webfinger:
       fail: "للأسف، لم نجد %{handle}."
     zero: "لا أحد"
@@ -584,7 +593,7 @@ ar:
   previous: "السابق"
   privacy: "الخصوصية"
   privacy_policy: "سياسة الخصوصية"
-  profile: "الملف الشخصى"
+  profile: "الملف الشخصي"
   profiles:
     edit:
       allow_search: "اسمَح للجميع بالبحث عنك من خلال دياسبرا"
@@ -633,6 +642,7 @@ ar:
       enter_username: "اختر معرف (فقط حروف, أرقام, و الإشارات الخطية)"
       join_the_movement: "إنضم للرّكب"
       password: "كلمة السر"
+      sign_up: "سجّل"
       sign_up_message: "Social Networking with a <3"
       username: "إسم المستخدم"
   requests:
@@ -673,7 +683,7 @@ ar:
       reshare_original: "أعد نشر المشاركة الأصلية"
       reshared_via: "أعيد مشاركتها عبر"
       show_original: "اعرض الأصلية"
-  search: "بحث"
+  search: "ابحث"
   services:
     create:
       failure: "فشل التوثيق"
@@ -705,6 +715,7 @@ ar:
   share_visibilites:
     update:
       post_hidden_and_muted: "مشاركة %{name} تم إخفائها والتنبيهات أوقِفت"
+      see_it_on_their_profile: "إن أردت مشاهدة تحديثات هذه المشاركة، زُر صفحة ملفّ ‎%{name}‎ الشخصيّ."
   shared:
     add_contact:
       add_new_contact: "أضف متصل جديد"
@@ -736,6 +747,7 @@ ar:
       invite_your_friends: "ادعُ أصدقاءك"
       invites: "دعوات"
       invites_closed: "الدعوات غير متاحة على هذه المنصة حاليا"
+      share_this: "شارك هذه الوصلة عبر البريد الإلكترونيّ، أو المدوّنات أو الشّبكات الاجتماعيّة!"
     notification:
       new: "%{type} جديد من %{from}"
     public_explain:
@@ -754,7 +766,7 @@ ar:
       discard_post: "تجاهل المشاركة"
       make_public: "انشرها للجميع"
       new_user_prefill:
-        hello: "فلينتبه الجمبع انا #%{new_user_tag}. "
+        hello: "مرحبًا جميعًا، أنا #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "شكراً على الدعوة، "
         newhere: "جديد هنا"
@@ -781,6 +793,11 @@ ar:
       via: "بواسطة %{link}"
       via_mobile: "عبر المحمول"
       viewable_to_anyone: "يستطيع أي شخص على الشبكة رؤية هذه المشاركة."
+  statistics:
+    name: "الاسم"
+    network: "الشبكة"
+    services: "الخدمات"
+    total_users: "مجموع المستخدمين"
   status_messages:
     create:
       success: "ذَكَرْتَ بنجاح: %{names}"
@@ -790,13 +807,7 @@ ar:
       no_message_to_display: "ﻻ توجد رسائل لعرضها."
     new:
       mentioning: "ذكر %{person}"
-    too_long:
-      few: "المرجو ان تكون رسالتك أقل من %{count} حرف"
-      many: "المرجو ان تكون رسالتك أقل من %{count} حرف"
-      one: "المرجو ان تكون رسالتك أقل من %{count} حروف"
-      other: "المرجو ان تكون رسالتك أقل من %{count} حروف"
-      two: "المرجو ان تكون رسالتك أقل من %{count} حرف"
-      zero: "المرجو ان تكون رسالتك أقل من %{count} حروف"
+    too_long: "{\"few\"=>\"المرجو ان تكون رسالتك أقل من %{count} حرف\", \"many\"=>\"المرجو ان تكون رسالتك أقل من %{count} حرف\", \"one\"=>\"المرجو ان تكون رسالتك أقل من %{count} حروف\", \"other\"=>\"المرجو ان تكون رسالتك أقل من %{count} حروف\", \"two\"=>\"المرجو ان تكون رسالتك أقل من %{count} حرف\", \"zero\"=>\"المرجو ان تكون رسالتك أقل من %{count} حروف\"}"
   stream_helper:
     hide_comments: "أخْفِ كل التعليقات"
     show_comments:
@@ -847,14 +858,11 @@ ar:
     show:
       follow: "تابع #%{tag}"
       following: "أنت تتابع #%{tag}"
-      nobody_talking: "لم يتحدث أحدٌ عن %{tag} بعد"
       none: "الوسم الفارغ غير موجود!"
-      people_tagged_with: "أشخاص موسومون بـ %{tag}"
-      posts_tagged_with: "مشاركات موسومة بـ #%{tag}"
       stop_following: "أوقف متابعة #%{tag}"
   terms_and_conditions: "الشروط والأحكام"
-  undo: "أَأَتَرَاجَع؟"
-  username: "إسم المستخدم"
+  undo: "أأتراجع؟"
+  username: "اسم المستخدم"
   users:
     confirm_email:
       email_confirmed: "فُعِّل البريد الإلكتروني %{email} بنجاح"
@@ -875,18 +883,21 @@ ar:
       close_account_text: "أغلق الحساب"
       comment_on_post: "...علق أحدهم على مشاركتك"
       current_password: "كلمة المرور الحالية"
+      download_export: "نزّل ملفي الشخصيّ"
       download_photos: "تحميل صوري"
-      download_xml: "تحميل xml خاصتي"
       edit_account: "تعديل الحساب"
       email_awaiting_confirmation: "لقد أرسلنا إليك رابط تفعيل إلى %{unconfirmed_email}. وحتى تتبع هذا الرابط وتفعل العنوان الجديد، سنستمر في استخدام بريدك الأساسي %{email}."
       export_data: "تصدير البيانات"
+      export_in_progress: "نعالج بياناتك حاليًّا. فضلًا راجعنا بعد بضع لحظات."
       following: "إعدادات المتابعة"
+      last_exported_at: "(آخر تحديث كان في ‎%{timestamp}‎)"
       liked: "...أعجب أحدهم بمشاركتك"
       mentioned: "...تم ذكرك فى رسالة؟"
       new_password: "كلمة مرور جديدة"
-      photo_export_unavailable: "رفع الصور حاليا غير متاح"
       private_message: "...وصلتك رسالة خاصة؟"
       receive_email_notifications: "استقبال تنبيهات عبر البريد الإلكتروني؟"
+      request_export: "اطلب بيانات ملفي الشخصيّ"
+      request_export_update: "أنعش بيانات ملفي الشخصيّ"
       reshared: "...أعاد أحدهم نشر مشاركتك؟"
       started_sharing: "...بدأ أحدهم المشاركة معك؟"
       stream_preferences: "تفضيلات ساحة المشاركة"

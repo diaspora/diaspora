@@ -9,11 +9,7 @@
 #facebox .popup{
   position:relative;
   border:1px solid #999;
-  -webkit-border-radius:2px;
-  -moz-border-radius:2px;
   border-radius:2px;
-  -webkit-box-shadow:0 0 10px rgba(0,0,0,0.8), 0 2px 200px rgba(255,255,255,0.2);
-  -moz-box-shadow:0 0 10px rgba(0,0,0,0.8), 0 2px 200px rgba(255,255,255,0.2);;
   box-shadow:0 0 10px rgba(0,0,0,0.8), 0 2px 200px rgba(255,255,255,0.2);;
 }
 
@@ -22,8 +18,6 @@
   width: 370px;
   padding: 20px;
   background: #fff;
-  -webkit-border-radius:2px;
-  -moz-border-radius:2px;
   border-radius:2px;
 }
 

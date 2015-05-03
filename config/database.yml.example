@@ -5,8 +5,8 @@ mysql: &mysql
   username: "root"
   password: ""
 #  socket: /tmp/mysql.sock
-  charset: utf8
-  collation: utf8_bin
+  encoding: utf8mb4
+  collation: utf8mb4_bin
 
 postgres: &postgres
   adapter: postgresql
@@ -25,7 +25,7 @@ common: &common
 
   # Should match environment.sidekiq.concurrency
   #pool: 25
-  
+
 ##################################################
 #### CONFIGURE ABOVE #############################
 ##################################################

@@ -14,7 +14,7 @@ module PeopleHelper
       end
     end
   end
-  
+
   def birthday_format(bday)
     if bday.year == 1000
       I18n.l bday, :format => I18n.t('date.formats.birthday')
@@ -75,32 +75,6 @@ module PeopleHelper
       return Rails.application.routes.url_helpers.person_url(person, opts)
     else
       return Rails.application.routes.url_helpers.person_path(person, opts)
-    end
-  end
-
-  def sharing_message(person, contact)
-    if contact.sharing?
-      content_tag(:div, :class => 'sharing_message_container', :title => I18n.t('people.helper.is_sharing', :name => person.name)) do
-        content_tag(:div, nil, :class => 'icons-check_yes_ok', :id => 'sharing_message')
-      end
-    else
-      content_tag(:div, :class => 'sharing_message_container', :title => I18n.t('people.helper.is_not_sharing', :name => person.name)) do
-        content_tag(:div, nil, :class => 'icons-circle', :id => 'sharing_message')
-      end
-    end
-  end
-
-  def profile_buttons_class(contact, block)
-    if block.present?
-      'blocked'
-    elsif contact.mutual?
-      'mutual'
-    elsif contact.sharing?
-      'only_sharing'
-    elsif contact.receiving?
-      'receiving'
-    else
-      'not_sharing'
     end
   end
 end

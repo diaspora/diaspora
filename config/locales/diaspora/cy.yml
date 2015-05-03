@@ -34,10 +34,6 @@ cy:
       confirm_remove_aspect: "A ydych yn siŵr eich bod am ddileu yr agwedd hon?"
       make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Dileu yr agwedd hwn"
-    few: "%{count} agweddau"
-    helper:
-      are_you_sure: "A ydych yn siŵr eich bod am ddileu yr agwedd hon?"
-      aspect_not_empty: "Agwedd nid ar wag"
     index:
       diaspora_id:
         heading: "ID Diaspora"
@@ -52,9 +48,6 @@ cy:
         tag_question: "#question"
       no_contacts: "Dim cysylltiadau"
       no_tags: "No tags"
-    many: "%{count} agweddau"
-    move_contact:
-      success: "Unigolyn wedi symud i agwedd newydd"
     new:
       name: "Name"
     no_contacts_message:
@@ -64,9 +57,6 @@ cy:
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
     one: "1 aspect"
     other: "%{count} agweddau"
-    selected_contacts:
-      view_all_contacts: "Gweld cysylltiadau i gŷd"
-    two: "%{count} agweddau"
     update:
       success: "Eich aspect, %{name},  wedi bod yn golygu yn llwyddiannus."
     zero: "dim agweddau"
@@ -79,25 +69,19 @@ cy:
     heading: "Diaspora Bookmarklet"
   cancel: "Diddymu"
   comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
     new_comment:
       comment: "Sylw"
   contacts:
-    few: "%{count} contacts"
     index:
       add_a_new_aspect: "Ychwanegwch agwedd newydd"
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Cysylltiadau i gŷd"
       my_contacts: "Fy nghysylltiadau"
       no_contacts: "No contacts."
-      remove_person_from_aspect: "Tynnu %{person_name} oddi ar \"%{aspect_name}\""
       title: "Cysylltiadau"
       your_contacts: "Eich Cysylltiadau chi"
-    many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
-    two: "%{count} contacts"
     zero: "no contacts"
   conversations:
     create:
@@ -278,8 +262,6 @@ cy:
   password: "Cyfrinair"
   password_confirmation: "Cadarnhad Cyfrinair"
   people:
-    few: "%{count} pobl"
-    many: "%{count} pobl"
     one: "1 unigolyn"
     other: "%{count} pobl"
     person:
@@ -300,7 +282,6 @@ cy:
       start_sharing: "dechrau rhannu"
     sub_header:
       edit: "golygu"
-    two: "%{count} people"
     zero: "no people"
   photos:
     comment_email_subject: "ffoto %{name}"
@@ -445,13 +426,7 @@ cy:
   status_messages:
     helper:
       no_message_to_display: "Dim neges i arddangos."
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "hide comments"
     show_comments:
@@ -483,9 +458,6 @@ cy:
     destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
-  tags:
-    show:
-      nobody_talking: "Does neb yn siarad am %{tag} eto."
   username: "Enw Defnyddiwr"
   users:
     confirm_email:
@@ -498,7 +470,6 @@ cy:
       change_password: "Newid cyfrinair"
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      download_xml: "llwytho i lawr fy xml"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Data Allforio"
       new_password: "Cyfrinair newydd "

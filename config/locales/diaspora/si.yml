@@ -38,8 +38,6 @@ si:
         unknown: "නාඳුනන වීඩියෝ මාතෘකාවකි"
   are_you_sure: "ඔබට විශ්වාසද ?"
   aspects:
-    aspect_contacts:
-      done_editing: "සංස්කරණය හරි"
     aspect_listings:
       add_an_aspect: "+ අංගයන් එක් කරන්න"
       deselect_all: "සියල්ල නොසලකා හරින්න"
@@ -52,15 +50,10 @@ si:
       failure: "%{name} හිස්ව නොපවතී සහ ඉවත් කිරීමට නොහැක."
       success: "%{name} සාර්ථකව ඉවත් කරන ලදී."
     edit:
-      done: "හරි"
       remove_aspect: "මෙම අංගය මකාදමන්න"
       rename: "නැවත නම් කරන්න"
       update: "යාවත්කාල කරන්න"
       updating: "යාවත්කාල වෙමින් පවතී"
-    few: "අංගයන් %{count}"
-    helper:
-      aspect_not_empty: "අංගය හිස්ව නැත"
-      remove: "ඉවත්කරන්න"
     index:
       diaspora_id:
         content_1: "මෙය ඔබගේ ඩයස්පෝරා ID එකයි:"
@@ -79,9 +72,6 @@ si:
         content: "ඔබට පහත සේවාවන් Diaspora සමග සම්බන්ධ කරන්න පුළුවන්:"
         heading: "සේවාවන් සම්බන්ධ කරන්න"
       welcome_to_diaspora: "ඩයස්පොරා වෙතින් ආයුබොවන්, %{name}!"
-    many: "අංගයන් %{count}"
-    move_contact:
-      success: "පුද්ගලයා නව අංගයට මාරු කරන ලදී"
     new:
       create: "සාදන්න"
       name: "නම (ඔබට පමණක් පෙනෙන)"
@@ -91,12 +81,6 @@ si:
       family: "පවුල"
       friends: "යහළුවන්"
       work: "රැකියාව"
-    selected_contacts:
-      manage_your_aspects: "ඔබගේ අංගයන් කලමනාකරණය කරන්න"
-      view_all_contacts: "සියලු පෙන්වන්න"
-    show:
-      edit_aspect: "අංගය සංස්කරණය කරන්න"
-    two: "අංගයන් %{count}"
     update:
       failure: "ඔබගේ අංගය, %{name}, හි නම save කිරීමට දිග වැඩියි."
       success: "ඔබගේ අංගය, %{name}, සාර්ථකව නැවත සකසන ලදී."
@@ -118,8 +102,6 @@ si:
     create:
       fail: "පණිවිඩයක් වලංගු නැත"
       sent: "පණිවිඩය යැව්වා"
-    destroy:
-      success: "සංවාදය සාර්ථකව ඉවත් කරන ලදී"
     index:
       no_conversation_selected: "කිසිම සංවාදයක් තෝරාගෙන නැහැ"
       no_messages: "පණිවිඩ නැත"
@@ -190,11 +172,9 @@ si:
   or: "හෝ"
   password: "මුර පදය"
   people:
-    few: "පුද්ගලයින් %{count}"
     index:
       no_results: "හලෝ! ඔයාට මොකක් හරි සෙවීමට අවශ්‍යද ?"
       results_for: "සෙවුම් ප්‍රතිඵල සඳහා"
-    many: "පුද්ගලයින් %{count}"
     one: "එක පුද්ගලයෙක්"
     other: "පුද්ගලයින් %{count}"
     person:
@@ -203,7 +183,6 @@ si:
       born: "උපන්දිනය"
       gender: "ලිංගභේදය"
       location: "ස්ථානය"
-    two: "පුද්ගලයින් %{count}"
     zero: "පුද්ගලයින් නැත"
   photos:
     destroy:
@@ -306,7 +285,6 @@ si:
         dont_go: "හලෝ, කරුණාකර යන්න එපා!"
       current_password: "දැනට පවතින මුරපදය"
       download_photos: "මගේ පින්තූර භාගත කරන්න"
-      download_xml: "මගේ xml එක භාගත කරන්න"
       getting_started: "නව පරිශීලකගේ අභිරුචියන්"
       new_password: "නව මුරපදය"
       your_email: "ඔබගේ email"

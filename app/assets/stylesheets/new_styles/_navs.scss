@@ -1,0 +1,15 @@
+.nav.nav-tabs{
+  li > a {
+    color: $text-dark-grey;
+    .entypo, .mentionIcon {
+      color: $text-dark-grey;
+      margin-right: 5px;
+    }
+    .mentionIcon { font-weight: 700; }
+  }
+  li.active > a {
+    background-color: $background-grey;
+    color: $black;
+    .entypo, .mentionIcon { color: $black; }
+  }
+}

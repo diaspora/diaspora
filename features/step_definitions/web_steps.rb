@@ -157,14 +157,14 @@ end
 Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should be checked$/ do |label, selector|
   with_scope(selector) do
     field_checked = find_field(label)['checked']
-    field_checked.should be_true
+    field_checked.should eq('true')
   end
 end
 
 Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |label, selector|
   with_scope(selector) do
     field_checked = find_field(label)['checked']
-    field_checked.should be_false
+    field_checked.should be_falsey
   end
 end
 

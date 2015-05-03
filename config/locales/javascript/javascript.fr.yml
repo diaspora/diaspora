@@ -12,20 +12,20 @@ fr:
       all_aspects: "Tous les aspects"
       error: "Impossible de partager avec <%= name %>. Ignorez-vous cette personne ?"
       error_remove: "Ne peut pas supprimer <%= name %> de l'aspect :("
+      mobile_row_checked: "<%= name %> (retirer)"
+      mobile_row_unchecked: "<%= name %> (ajouter)"
       select_aspects: "Choisir les aspects"
       started_sharing_with: "Vous avez commencé à partager avec <%= name %> !"
       stopped_sharing_with: "Vous avez arrêté de partager avec <%= name %>."
       toggle:
-        few: "Dans <%= count %> aspects"
-        many: "Dans <%= count %> aspects"
         one: "Dans <%= count %> aspect"
         other: "Dans <%= count %> aspects"
-        two: "Dans <%= count %> aspects"
         zero: "Sélectionnez les aspects"
+      updating: "Mise à jour..."
     aspect_navigation:
       add_an_aspect: "+ Ajouter un aspect"
       deselect_all: "Désélectionner tout"
-      no_aspects: "Aucun aspect sélectionné"
+      no_aspects: "Aucun aspect sélectionnée"
       select_all: "Sélectionner tout"
     bookmarklet:
       post_something: "Publier sur diaspora*"
@@ -37,6 +37,15 @@ fr:
       no_comments: "Il n'y a pas encore de commentaires."
       show: "Afficher tous les commentaires"
     confirm_dialog: "Êtes-vous certain-e ?"
+    confirm_unload: "Merci de confirmer que vous voulez quitter cette page — les données saisies ne seront pas sauvegardées."
+    contacts:
+      add_contact: "Ajouter ce contact"
+      aspect_list_is_not_visible: "Les contacts de cette facette ne peuvent pas se voir entre eux."
+      aspect_list_is_visible: "Les contacts de cette facette peuvent se voir entre eux."
+      error_add: "Impossible d'ajouter <%= name %> à cette facette :("
+      error_remove: "Impossible de retirer <%= name %> de cette facette :("
+      remove_contact: "Retirer ce contact"
+      search_no_results: "Aucun contact trouvé"
     conversation:
       participants: "Participants"
     delete: "Effacer"
@@ -44,6 +53,7 @@ fr:
     failed_to_like: "Impossible d'aimer !"
     failed_to_post_message: "Impossible de partager le message !"
     failed_to_remove: "L'entrée n'a pu être supprimée"
+    failed_to_reshare: "Échec du repartage"
     getting_started:
       alright_ill_wait: "Bon, je vais attendre."
       hey: "Hey, <%= name %> !"
@@ -64,6 +74,8 @@ fr:
       search: "Trouver des personnes ou #tags"
       settings: "Paramètres"
       view_all: "Tout afficher"
+    hide_post: "Masquer ce message ?"
+    hide_post_failed: "Impossible de masquer ce message"
     ignore: "Ignorer"
     ignore_failed: "Impossible d'ignorer cet utilisateur"
     ignore_user: "Ignorer cet utilisateur ?"
@@ -71,13 +83,21 @@ fr:
       no_more: "Pas d'autres messages."
       no_more_contacts: "Pas d'autres contacts."
     my_activity: "Mon activité"
-    my_aspects: "Mes Aspects"
+    my_aspects: "Mes aspects"
     my_stream: "Flux"
+    no_results: "Aucun résultat"
     notifications:
       mark_read: "Marquer comme lu"
       mark_unread: "Marquer comme non lu"
     people:
+      edit_my_profile: "Modifier mon profil"
+      helper:
+        is_not_sharing: "<%= name %> ne partage pas avec vous"
+        is_sharing: "<%= name %> partage avec vous"
+      mention: "Mentionner"
+      message: "Message"
       not_found: "Et personne n'a été trouvé ..."
+      stop_ignoring: "Ne plus ignorer"
     photo_uploader:
       completed: "<%= file %> complété"
       empty: "{file} est vide, merci de sélectionner d'autres fichiers."
@@ -90,9 +110,23 @@ fr:
       count:
         one: "<%=count%> vote pour le moment"
         other: "<%=count%> votes pour le moment"
+      go_to_original_post: "Vous pouvez participer à ce sondage sur le <%= original_post_link %>."
+      original_post: "message initial"
       result: "Résultat"
       show_result: "Afficher les résultats"
       vote: "Vote"
+    profile:
+      add_some: "ajouter"
+      bio: "Biographie"
+      born: "Anniversaire"
+      contacts: "Contacts"
+      edit: "modifier"
+      gender: "Genre"
+      ignoring: "Vous ignorez tous les messages de <%= name %>."
+      location: "Localisation"
+      photos: "Photos"
+      posts: "Messages"
+      you_have_no_tags: "vous n'avez pas de tag !"
     publisher:
       add_option: "Ajouter un choix"
       at_least_one_aspect: "Vous devez créer au moins un aspect"
@@ -101,13 +135,14 @@ fr:
       option: "Choix"
       public: "Public - votre message sera visible de tous et trouvé par les moteurs de recherche"
       question: "Question"
+    remove_post: "Supprimer ce message ?"
     report:
-      name: "Rapport"
+      name: "Signaler"
       prompt: "Merci de saisir un motif :"
       prompt_default: "Contenu offensant"
       status:
-        created: "Le rapport a été crée avec succès."
-        exists: "Le rapport existe déjà"
+        created: "Le signalement a été crée avec succès."
+        exists: "Le signalement existe déjà"
     reshares:
       duplicate: "C'est si bien que ça ? Vous avez déjà repartagé ce message !"
       post: "Repartager le message de <%= name %> ?"
@@ -116,6 +151,8 @@ fr:
     show_more: "Voir plus"
     stream:
       comment: "Commenter"
+      disable_post_notifications: "Désactiver les notifications pour ce message"
+      enable_post_notifications: "Activer les notifications pour ce message"
       follow: "Suivre"
       followed_tag:
         add_a_tag: "Ajouter un tag"
@@ -153,7 +190,7 @@ fr:
         follow: "Suivre #<%= tag %>"
         following: "Suivant #<%= tag %>"
         stop_following: "Arrêter de suivre #<%= tag %>"
-      unfollow: "Ne pas suivre"
+      unfollow: "Ne plus suivre"
       unlike: "Je n'aime plus"
       via: "via <%= provider %>"
     tags:
@@ -175,6 +212,7 @@ fr:
       wordSeparator: " "
       year: "un an"
       years: "%d ans"
+    unblock_failed: "Impossible de débloquer cet utilisateur"
     videos:
       unknown: "Type de vidéo inconnu"
       watch: "Voir cette vidéo sur <%= provider %>"

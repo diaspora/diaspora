@@ -1,0 +1,130 @@
+#profile_container {
+  .profile_header {
+    margin-bottom: 20px;
+    border-left: 1px solid #dddddd;
+    padding-left: 10px;
+    padding-top: 20px;
+    margin-left: -10px;
+    margin-top: -20px;
+
+    #edit_profile, #unblock_user_button, .aspect_dropdown {
+      margin-top: 5px;
+      margin-right: 10px;
+    }
+
+    #author_info {
+      h2 {
+        line-height: 35px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+      }
+      #name {
+        font-weight: 700;
+      }
+      #diaspora_handle {
+        color: $text-grey;
+        font-size: 20px;
+      }
+      #sharing_message {
+        cursor: default;
+        font-size: 20px;
+        &.circle {
+          color: $text-grey;
+          &:before { content: '\26aa'; }
+        }
+        &.entypo.check { color: darken($green,20%); }
+      }
+      .description {
+        margin-bottom: 20px;
+        .tag {
+          background-color: transparent;
+          font-size: $font-size-text;
+        }
+        .tag:not(.entypo) {
+          font-weight: 700;
+        }
+        .entypo.tag {
+          margin: 0 5px;
+          font-weight: normal;
+          &:hover {text-decoration: none;}
+        }
+      }
+    }
+
+    #profile_horizontal_bar {
+      border-top: 1px dashed $border-grey;
+      border-bottom: 1px solid $border-grey;
+      min-height: 50px;
+      margin-top: 10px;
+      #profile_buttons {
+        padding: 10px 0;
+        > .profile_button {
+          text-decoration: none;
+          cursor: pointer;
+          margin-right: 25px;
+          .entypo.profile-header-icon, .profile-header-icon {
+            font-size: 24.5px;
+            line-height: 30px;
+            color: lighten($black,75%);
+            &:hover { color: $black; }
+          }
+          #mention_button { font-weight: 700; }
+        }
+      }
+
+      ul#profile_nav {
+        list-style: none;
+        margin: 0;
+        > li {
+          display: inline-block;
+          &.active {
+            border-bottom: 3px solid $creation-blue;
+            a {
+              color: $black;
+              .entypo { color: $black; }
+            }
+          }
+          a {
+            padding: 10px 15px;
+            font-size: 16px;
+            line-height: 46px;
+            color: lighten($black,50%);
+            .entypo {
+              color: lighten($black,50%);
+              margin-right: 2px;
+            }
+            &:hover {
+              color: $black;
+              .entypo { color: $black; }
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #profile {
+    padding: 10px 20px;
+    #profile_photo {
+      margin-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed $border-grey;
+      text-align: center;
+    }
+
+    ul#profile_information {
+      margin: 0;
+      list-style: none;
+      overflow-x: hidden;
+      word-wrap: break-word;
+      > li {
+          margin-bottom: 2em;
+        h4 { font-weight: bold; }
+        }
+    }
+
+  }
+
+  .stream_container > .pagination { text-align: center; }
+}

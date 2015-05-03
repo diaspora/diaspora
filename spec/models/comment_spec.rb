@@ -5,21 +5,27 @@
 require 'spec_helper'
 require Rails.root.join("spec", "shared_behaviors", "relayable")
 
-describe Comment do
+describe Comment, :type => :model do
   before do
     @alices_aspect = alice.aspects.first
     @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
   end
 
   describe 'comment#notification_type' do
+    let (:comment) { alice.comment!(@status, "why so formal?") }
+
     it "returns 'comment_on_post' if the comment is on a post you own" do
-      comment = alice.comment!(@status, "why so formal?")
-      comment.notification_type(bob, alice.person).should == Notifications::CommentOnPost
+      expect(comment.notification_type(bob, alice.person)).to eq(Notifications::CommentOnPost)
+    end
+
+    it "returns 'also_commented' if the comment is on a post you participate to" do
+      eve.participate! @status
+      expect(comment.notification_type(eve, alice.person)).to eq(Notifications::AlsoCommented)
     end
 
     it 'returns false if the comment is not on a post you own and no one "also_commented"' do
       comment = alice.comment!(@status, "I simply felt like issuing a greeting.  Do step off.")
-      comment.notification_type(eve, alice.person).should be_false
+      expect(comment.notification_type(eve, alice.person)).to be false
     end
 
     context "also commented" do
@@ -29,11 +35,11 @@ describe Comment do
       end
 
       it 'does not return also commented if the user commented' do
-        @comment.notification_type(eve, alice.person).should == false
+        expect(@comment.notification_type(eve, alice.person)).to eq(false)
       end
 
       it "returns 'also_commented' if another person commented on a post you commented on" do
-        @comment.notification_type(alice, alice.person).should == Notifications::AlsoCommented
+        expect(@comment.notification_type(alice, alice.person)).to eq(Notifications::AlsoCommented)
       end
     end
   end
@@ -41,26 +47,26 @@ describe Comment do
   describe 'User#comment' do
     it "should be able to comment on one's own status" do
       alice.comment!(@status, "Yeah, it was great")
-      @status.reload.comments.first.text.should == "Yeah, it was great"
+      expect(@status.reload.comments.first.text).to eq("Yeah, it was great")
     end
 
     it "should be able to comment on a contact's status" do
       bob.comment!(@status, "sup dog")
-      @status.reload.comments.first.text.should == "sup dog"
+      expect(@status.reload.comments.first.text).to eq("sup dog")
     end
 
     it 'does not multi-post a comment' do
-      lambda {
+      expect {
         alice.comment!(@status, 'hello')
-      }.should change { Comment.count }.by(1)
+      }.to change { Comment.count }.by(1)
     end
   end
 
   describe 'counter cache' do
     it 'increments the counter cache on its post' do
-      lambda {
+      expect {
         alice.comment!(@status, "oh yeah")
-      }.should change{
+      }.to change{
         @status.reload.comments_count
       }.by(1)
     end
@@ -77,11 +83,11 @@ describe Comment do
     end
 
     it 'serializes the sender handle' do
-      @xml.include?(@commenter.diaspora_handle).should be_true
+      expect(@xml.include?(@commenter.diaspora_handle)).to be true
     end
 
     it 'serializes the post_guid' do
-      @xml.should include(@post.guid)
+      expect(@xml).to include(@post.guid)
     end
 
     describe 'marshalling' do
@@ -90,11 +96,18 @@ describe Comment do
       end
 
       it 'marshals the author' do
-        @marshalled_comment.author.should == @commenter.person
+        expect(@marshalled_comment.author).to eq(@commenter.person)
       end
 
       it 'marshals the post' do
-        @marshalled_comment.post.should == @post
+        expect(@marshalled_comment.post).to eq(@post)
+      end
+
+      it 'tries to fetch a missing parent' do
+        guid = @post.guid
+        @post.destroy
+        expect_any_instance_of(Comment).to receive(:fetch_parent).with(guid).and_return(nil)
+        Comment.from_xml(@xml)
       end
     end
   end

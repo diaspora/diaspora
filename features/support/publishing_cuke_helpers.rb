@@ -8,7 +8,16 @@ module PublishingCukeHelpers
     elem.native.send_keys(' ' + txt)
 
     # make sure the other text field got the new contents
-    find('#status_message_text', visible: false).value.should include(txt)
+    expect(find("#status_message_text", visible: false)).to have_value txt
+  end
+
+  def upload_file_with_publisher(path)
+    page.execute_script(%q{$("input[name='file']").css("opacity", '1');})
+    with_scope("#publisher_textarea_wrapper") do
+      attach_file("file", Rails.root.join(path).to_s)
+      # wait for the image to be ready
+      page.assert_selector(".publisher_photo.loading", count: 0)
+    end
   end
 
   def make_post(text)
@@ -19,7 +28,8 @@ module PublishingCukeHelpers
   def submit_publisher
     txt = find('#publisher #status_message_fake_text').value
     find('#publisher .creation').click
-    page.should have_content(txt) unless page.has_css?('.nsfw-shield')
+    # wait for the content to appear
+    expect(find('#main_stream')).to have_content(txt)
   end
 
   def click_and_post(text)
@@ -35,26 +45,26 @@ module PublishingCukeHelpers
   end
 
   def publisher_submittable?
-    submit_btn = find("#publisher input[type=submit]")
+    submit_btn = find("#publisher button#submit")
     !submit_btn[:disabled]
   end
 
   def expand_first_post
     within(".stream_element", match: :first) do
       find(".expander").click
-      has_css?(".expander").should be_false
+      expect(page).to have_no_css(".expander")
     end
   end
 
   def first_post_collapsed?
-    find(".stream_element .collapsible", match: :first).should have_css(".expander")
-    page.should have_css(".stream_element .collapsible.collapsed", match: :first)
+    expect(find(".stream_element .collapsible", match: :first)).to have_css(".expander")
+    expect(page).to have_css(".stream_element .collapsible.collapsed", match: :first)
   end
 
   def first_post_expanded?
-    page.should have_no_css(".stream_element .expander", match: :first)
-    page.should have_no_css(".stream_element .collapsible.collapsed", match: :first)
-    page.should have_css(".stream_element .collapsible.opened", match: :first)
+    expect(page).to have_no_css(".stream_element .expander", match: :first)
+    expect(page).to have_no_css(".stream_element .collapsible.collapsed", match: :first)
+    expect(page).to have_css(".stream_element .collapsible.opened", match: :first)
   end
 
   def first_post_text
@@ -74,18 +84,25 @@ module PublishingCukeHelpers
   end
 
   def find_post_by_text(text)
+    expect(page).to have_text(text)
     find(".stream_element", text: text)
-  end
-
-  def like_post(post_text)
-    within_post(post_text) do
-      click_link 'Like'
-    end
   end
 
   def within_post(post_text)
     within find_post_by_text(post_text) do
       yield
+    end
+  end
+
+  def like_stream_post(post_text)
+    within_post(post_text) do
+      find(:css, 'a.like').click
+    end
+  end
+
+  def like_show_page_post
+    within("#single-post-actions") do
+      find(:css, 'a.like').click
     end
   end
 
@@ -118,7 +135,7 @@ module PublishingCukeHelpers
 
   def assert_nsfw(text)
     post = find_post_by_text(text)
-    post.find(".nsfw-shield").should be_present
+    expect(post.find(".nsfw-shield")).to be_present
   end
 end
 

@@ -78,7 +78,8 @@ zh-CN:
       users:
         other: "找到 %{count} 个用户"
         zero: "找到 %{count} 个用户"
-      you_currently: "您目前还可以邀请 %{user_invitation} 次 %{link}"
+      you_currently:
+        other: "您目前还可以邀请 %{user_invitation} 次 %{link}"
     weekly_user_stats:
       amount_of:
         other: "本周新用户数目：%{count}"
@@ -102,8 +103,6 @@ zh-CN:
     add_to_aspect:
       failure: "将好友添加到分组失败。"
       success: "将好友添加到分组成功。"
-    aspect_contacts:
-      done_editing: "编辑完成"
     aspect_listings:
       add_an_aspect: "+ 新增分组"
       deselect_all: "清空选择"
@@ -122,21 +121,14 @@ zh-CN:
       failure: "无法删除 %{name} ，它不是空的。"
       success: "删除 %{name} 成功。"
     edit:
-      add_existing: "添加好友"
       aspect_list_is_not_visible: "分组中的好友不能看见此分组的好友列表"
       aspect_list_is_visible: "分组中的好友能够看见此分组的好友列表"
       confirm_remove_aspect: "您确定要删除这个分组？"
-      done: "完成"
       make_aspect_list_visible: "是否让其他人可以看见此分组的好友列表？"
       remove_aspect: "删除这个分组"
       rename: "重命名"
       update: "更新"
       updating: "更新中"
-    few: "%{count} 个分组"
-    helper:
-      are_you_sure: "您确定要删除这个分组？"
-      aspect_not_empty: "此分组不是空的"
-      remove: "删除"
     index:
       diaspora_id:
         content_1: "您的 Diaspora 通行证是："
@@ -172,11 +164,6 @@ zh-CN:
         heading: "连接服务"
       unfollow_tag: "取消关注 #%{tag}"
       welcome_to_diaspora: "%{name}，欢迎加入 Diaspora!"
-    many: "%{count} 个分组"
-    move_contact:
-      error: "好友移动错误：%{inspect}"
-      failure: "%{inspect} 失败"
-      success: "好友成功添加到新分组"
     new:
       create: "创建"
       name: "名字"
@@ -194,14 +181,6 @@ zh-CN:
       family: "家人"
       friends: "朋友"
       work: "同事"
-    selected_contacts:
-      manage_your_aspects: "管理您的分组"
-      no_contacts: "您没有选择任何联系人。"
-      view_all_community_spotlight: "查看所有热点"
-      view_all_contacts: "查看所有好友"
-    show:
-      edit_aspect: "编辑分组"
-    two: "%{count} 个分组"
     update:
       failure: "分组 %{name} 名称太长了，不能保存"
       success: "分组 %{name} 编辑成功。"
@@ -221,50 +200,38 @@ zh-CN:
     post_success: "发布完成！关闭中。"
   cancel: "取消"
   comments:
-    few: "%{count} 条回复"
-    many: "%{count} 条回复"
     new_comment:
       comment: "回复"
       commenting: "回复中……"
     one: "1条回复"
     other: "%{count} 条回复"
-    two: "%{count} 条回复"
     zero: "暂无回复"
   contacts:
     create:
       failure: "添加好友失败"
-    few: "%{count} 个好友"
     index:
       add_a_new_aspect: "加入新分组"
       add_to_aspect: "将好友添加到 %{name}"
-      add_to_aspect_link: "添加好友至 %{name}"
       all_contacts: "所有好友"
       community_spotlight: "社区热点"
-      many_people_are_you_sure: "您确定要和 %{suggested_limit} 个好友对话？发布内容可能是更好的方式。"
       my_contacts: "我的好友"
       no_contacts: "尚未添加好友"
       no_contacts_message: "来看看 %{community_spotlight}"
-      no_contacts_message_with_aspect: "来看看 %{community_spotlight} 或者 %{add_to_aspect_link}"
       only_sharing_with_me: "和我分享内容的人"
-      remove_person_from_aspect: "将 %{person_name} 从 %{aspect_name} 中移除"
       start_a_conversation: "开始对话"
       title: "好友"
       your_contacts: "您的好友"
-    many: "%{count} 个好友"
     one: "1 个好友"
     other: "%{count} 个好友"
     sharing:
       people_sharing: "与您分享的人："
     spotlight:
       community_spotlight: "社区热点"
-    two: "%{count} 个好友"
     zero: "尚未添加好友"
   conversations:
     create:
       fail: "无效的信息"
       sent: "消息发送成功"
-    destroy:
-      success: "消息移除成功"
     helper:
       new_messages:
         other: "%{count} 条新消息"
@@ -308,6 +275,7 @@ zh-CN:
     create:
       already_contacts: "您已经将其加为好友了"
       already_sent: "您已经邀请过这个人了。"
+      empty: "请至少填写一个邮箱"
       no_more: "您暂无邀请函。"
       own_address: "您不能发送邀请给自己。"
       rejected: "下列电子信箱有问题: "
@@ -472,7 +440,6 @@ zh-CN:
       add_contact_from_tag: "通过标签添加好友"
     aspect_list:
       edit_membership: "编辑所属分组"
-    few: "%{count} 个好友"
     helper:
       results_for: " %{params} 的搜索结果"
     index:
@@ -481,7 +448,6 @@ zh-CN:
       no_results: "嘿！ 搜索必须要有目标呀。"
       results_for: "搜索结果："
       searching: "搜索中，请稍候…"
-    many: "%{count} 个好友"
     one: "1 个好友"
     other: "%{count} 个好友"
     person:
@@ -517,7 +483,6 @@ zh-CN:
       add_some: "加入一些"
       edit: "编辑"
       you_have_no_tags: "您没有任何标签！"
-    two: "%{count} 个好友"
     webfinger:
       fail: "抱歉，找不到 %{handle}。"
     zero: "暂无好友"
@@ -607,17 +572,15 @@ zh-CN:
       update: "更新"
     invalid_invite: "您提供的邀请链接已失效"
     new:
-      continue: "继续"
       create_my_account: "创建我的帐号"
-      diaspora: "爱你的 Diaspora*"
       email: "电子邮箱"
       enter_email: "输入电子邮箱"
       enter_password: "输入密码（至少6个字符）"
       enter_password_again: "再输入一遍密码"
       enter_username: "输入用户名(名称只能包含字母，数字和下划线“_”)"
-      hey_make: "嘿，<br/>做点<br/>什么吧！"
       join_the_movement: "参加此行动"
       password: "密码"
+      password_confirmation: "密保信息"
       sign_up: "注册"
       sign_up_message: "有 <3 的社交网络"
       username: "用户名"
@@ -769,9 +732,7 @@ zh-CN:
       no_message_to_display: "暂无信息可显示。"
     new:
       mentioning: "提及发布中: %{person}"
-    too_long:
-      other: "请确保您的状态信息不超过 %{count} 个字符"
-      zero: "请确保您的状态信息不超过 %{count} 个字符"
+    too_long: "{\"other\"=>\"请确保您的状态信息不超过 %{count} 个字符\", \"zero\"=>\"请确保您的状态信息不超过 %{count} 个字符\"}"
   stream_helper:
     hide_comments: "隐藏评论"
     show_comments:
@@ -808,7 +769,6 @@ zh-CN:
       title: "公开活动"
     tags:
       contacts_title: "这个标签的粉丝"
-      tag_prefill_text: "关于 %{tag_name} 的事情是… "
       title: "有以下标签的内容：%{tags}"
   tag_followings:
     create:
@@ -822,10 +782,7 @@ zh-CN:
     show:
       follow: "关注 #%{tag}"
       following: "正在关注 #%{tag}"
-      nobody_talking: "还没有人在讨论 %{tag}。"
       none: "不存在空白标签！"
-      people_tagged_with: "标记为 %{tag} 的人"
-      posts_tagged_with: "标记为 #%{tag} 的内容"
       stop_following: "停止关注 #%{tag}"
   terms_and_conditions: "服务条款与细则"
   undo: "撤消？"
@@ -861,7 +818,6 @@ zh-CN:
       current_password: "当前密码"
       current_password_expl: "登入的那个…"
       download_photos: "下载我的照片"
-      download_xml: "下载我的 xml"
       edit_account: "编辑帐号"
       email_awaiting_confirmation: "我们将向 %{unconfirmed_email} 发送一个确认邮件。在确认之前，我们将沿用 %{email} 这个联系方式。"
       export_data: "资料导出"
@@ -870,7 +826,6 @@ zh-CN:
       liked: "…当有人赞您发布的内容？"
       mentioned: "…当贴文中提到您时？"
       new_password: "新密码"
-      photo_export_unavailable: "相片目前无法导出"
       private_message: "…当收到私人信息时？"
       receive_email_notifications: "是否要在以下情况收到电子邮件通知……"
       reshared: "…有人转发您的内容时？"

@@ -55,12 +55,27 @@ module NotificationsHelper
     object_link(note, notification_people_link(note))
   end
 
-  def the_day(i18n)
-    i18n[0].match(/\d/) ? i18n[0].gsub('.', '') : i18n[1].gsub('.', '')
+  def the_day(date)
+    date.split('-')[2].to_i
   end
 
-  def the_month(i18n)
-    i18n[0].match(/\d/) ? i18n[1] : i18n[0]
+  def the_month(date)
+    I18n.l(Date.strptime(date, '%Y-%m-%d'), :format => '%B')
+  end
+
+  def the_year(date)
+    date.split('-')[0].to_i
+  end
+
+  def locale_date(date)
+    I18n.l(Date.strptime(date, '%Y-%m-%d'), :format => I18n.t('date.formats.fullmonth_day'))
+  end
+
+  def display_year?(year, date)
+    unless year
+      Date.current.year != the_year(date)
+    else
+      year != the_year(date)
+    end
   end
 end
-

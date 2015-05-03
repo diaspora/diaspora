@@ -37,6 +37,11 @@ hu:
       no_comments: "Még nincs hozzászólás."
       show: "összes hozzászólás"
     confirm_dialog: "Biztos vagy benne?"
+    contacts:
+      add_contact: "Ismerős hozzáadása"
+      aspect_list_is_not_visible: "A csoport tagjai nem láthatják egymást."
+      aspect_list_is_visible: "A csoport tagjai láthatják egymást."
+      remove_contact: "Ismerős eltávolítása"
     conversation:
       participants: "Résztvevők"
     delete: "Töröl"
@@ -73,11 +78,16 @@ hu:
     my_activity: "Tevékenységeim"
     my_aspects: "Csoportjaim"
     my_stream: "Hírfolyam"
+    no_results: "Nincs találat"
     notifications:
       mark_read: "Olvasottnak jelöl"
       mark_unread: "Olvasatlannak jelöl"
     people:
+      edit_my_profile: "Adatlapom szerkesztése"
+      mention: "Említés"
+      message: "Üzenet"
       not_found: "és nem találni senkit..."
+      stop_ignoring: "Mellőzés megszüntetése"
     photo_uploader:
       completed: "<%= file %> feltöltve"
       empty: "{file} üres, kérlek válassz képeket újra, mellőzve a jelenlegit."
@@ -92,6 +102,18 @@ hu:
       result: "Eredmény"
       show_result: "Eredmény mutatása"
       vote: "Szavazás"
+    profile:
+      add_some: "adj meg néhányat"
+      bio: "személyes"
+      born: "születésnap"
+      contacts: "ismerősök"
+      edit: "szerkesztés"
+      gender: "nem"
+      ignoring: "<%= name %> minden hozzászólását mellőzöd"
+      location: "lakóhely"
+      photos: "képek"
+      posts: "bejegyzések"
+      you_have_no_tags: "nincsenek címkéid!"
     publisher:
       add_option: "Válasz hozzáadása"
       at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"

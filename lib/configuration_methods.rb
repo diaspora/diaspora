@@ -1,4 +1,6 @@
 module Configuration
+  KNOWN_SERVICES = [:twitter, :tumblr, :facebook, :wordpress].freeze
+
   module Methods
     def pod_uri
       return @pod_uri unless @pod_uri.nil?
@@ -24,7 +26,7 @@ module Configuration
       return @configured_services unless @configured_services.nil?
 
       @configured_services = []
-      [:twitter, :tumblr, :facebook, :wordpress].each do |service|
+      KNOWN_SERVICES.each do |service|
         @configured_services << service if services.send(service).enable?
       end
 
@@ -44,10 +46,10 @@ module Configuration
           File.dirname(__FILE__)
         )
         unless File.exist? token_file
-          `bundle exec rake generate:secret_token`
+          `DISABLE_SPRING=1 bin/rake generate:secret_token`
         end
         require token_file
-        Rails.application.config.secret_token
+        Diaspora::Application.config.secret_key_base
       end
     end
 
@@ -117,8 +119,11 @@ module Configuration
     end
 
     def postgres?
-      defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) &&
-      ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+      ActiveRecord::Base.connection.adapter_name == "PostgreSQL"
+    end
+
+    def mysql?
+      ActiveRecord::Base.connection.adapter_name == "Mysql2"
     end
 
     def bitcoin_donation_address

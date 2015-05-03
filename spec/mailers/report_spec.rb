@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Report do
+describe Report, :type => :mailer do
   describe '#make_notification' do
     before do
       @remote = FactoryGirl.create(:person, :diaspora_handle => "remote@remote.net")
@@ -14,18 +14,18 @@ describe Report do
     
     it "should deliver successfully" do
       expect {
-        ReportMailer.new_report('post', 666)
+        ReportMailer.new_report('post', 666).deliver_now
       }.to_not raise_error
     end
     
     it "should be added to the delivery queue" do
       expect {
-        ReportMailer.new_report('post', 666)
+        ReportMailer.new_report('post', 666).deliver_now
       }.to change(ActionMailer::Base.deliveries, :size).by(1)
     end
 
     it "should include correct recipient" do
-      ReportMailer.new_report('post', 666)
+      ReportMailer.new_report('post', 666).deliver_now
       expect(ActionMailer::Base.deliveries[0].to[0]).to include(@user.email)
     end
   end

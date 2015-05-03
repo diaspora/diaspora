@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 /*   Copyright (c) 2010-2012, Diaspora Inc.  This file is
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
@@ -5,10 +7,9 @@
 
 //= require ./publisher/services_view
 //= require ./publisher/aspect_selector_view
-//= require ./publisher/aspect_selector_blueprint_view
 //= require ./publisher/getting_started_view
 //= require ./publisher/uploader_view
-//= require jquery.textchange
+//= require jquery-textchange
 
 app.views.Publisher = Backbone.View.extend({
 
@@ -46,9 +47,16 @@ app.views.Publisher = Backbone.View.extend({
     // init autoresize plugin
     this.el_input.autoResize({ 'extraSpace' : 10, 'maxHeight' : Infinity });
 
+    // if there is data in the publisher we ask for a confirmation
+    // before the user is able to leave the page
+    $(window).on('beforeunload', _.bind(this._beforeUnload, this));
+
     // sync textarea content
-    if( this.el_hiddenInput.val() == "" ) {
+    if( this.el_hiddenInput.val() === "" ) {
       this.el_hiddenInput.val( this.el_input.val() );
+    }
+    if( this.el_input.val() === "" ) {
+      this.el_input.val( this.el_hiddenInput.val() );
     }
 
     // hide close and preview buttons, in case publisher is standalone
@@ -62,11 +70,11 @@ app.views.Publisher = Backbone.View.extend({
     // textchange event won't be called in Backbone...
     this.el_input.bind('textchange', $.noop);
 
-    var _this = this
+    var _this = this;
     $('body').on('click', function(event){
       // if the click event is happened outside the publisher view, then try to close the box
-      if( _this.el && $(event.target).closest('#publisher').attr('id') != _this.el.id){
-          _this.tryClose()
+      if( _this.el && $(event.target).closest('#publisher').attr('id') !== _this.el.id){
+          _this.tryClose();
         }
     });
 
@@ -75,19 +83,20 @@ app.views.Publisher = Backbone.View.extend({
       this.close();
       this.showSpinner(true);
     });
-    
+
     // open publisher on post error
     this.on('publisher:error', function() {
       this.open();
       this.showSpinner(false);
     });
 
-    // resetting the poll view 
+    // resetting the poll view
     this.on('publisher:sync', function() {
       this.view_poll_creator.render();
     });
 
     this.initSubviews();
+    this.checkSubmitAvailability();
     return this;
   },
 
@@ -105,14 +114,9 @@ app.views.Publisher = Backbone.View.extend({
       form: form
     });
 
-    this.view_aspect_selector_blueprint = new app.views.PublisherAspectSelectorBlueprint({
-      el: this.$('.public_toggle > .dropdown'),
-      form: form
-    });
-
     this.view_getting_started = new app.views.PublisherGettingStarted({
       el_first_msg:  this.el_input,
-      el_visibility: this.$('.public_toggle > .dropdown'),
+      el_visibility: this.$('.public_toggle .aspect_dropdown > .dropdown-toggle'),
       el_stream:     $('#gs-shim')
     });
 
@@ -123,23 +127,22 @@ app.views.Publisher = Backbone.View.extend({
     this.view_uploader.on('change', this.checkSubmitAvailability, this);
 
     this.view_poll_creator = new app.views.PublisherPollCreator({
-      el: this.$('#publisher-poll-creator')
+      el: this.$('#poll_creator_container')
     });
     this.view_poll_creator.on('change', this.checkSubmitAvailability, this);
     this.view_poll_creator.render();
-
   },
 
   // set the selected aspects in the dropdown by their ids
   setSelectedAspects: function(ids) {
     this.view_aspect_selector.updateAspectsSelector(ids);
-    this.view_aspect_selector_blueprint.updateAspectsSelector(ids);
   },
 
   // inject content into the publisher textarea
   setText: function(txt) {
     this.el_input.val(txt);
     this.el_hiddenInput.val(txt);
+    this.prefillText = txt;
 
     this.el_input.trigger('input');
     this.handleTextchange();
@@ -157,7 +160,7 @@ app.views.Publisher = Backbone.View.extend({
     if(evt){ evt.preventDefault(); }
 
     // Auto-adding a poll answer always leaves an empty box when the user starts
-    // typing in the last box. We'll delete the last one to avoid submitting an 
+    // typing in the last box. We'll delete the last one to avoid submitting an
     // empty poll answer and failing validation.
     this.view_poll_creator.removeLastAnswer();
 
@@ -192,7 +195,9 @@ app.views.Publisher = Backbone.View.extend({
           self.view_poll_creator.trigger('publisher:sync');
         }
 
-        if(app.stream) app.stream.addNow(statusMessage.toJSON());
+        if(app.stream && !self.standalone){
+          app.stream.addNow(statusMessage.toJSON());
+        }
 
         // clear state
         self.clear();
@@ -200,10 +205,10 @@ app.views.Publisher = Backbone.View.extend({
         // standalone means single-shot posting (until further notice)
         if( self.standalone ) self.setEnabled(false);
       },
-      error: function() {
+      error: function(model, resp) {
         if( app.publisher ) app.publisher.trigger('publisher:error');
         self.setInputEnabled(true);
-        Diaspora.page.flashMessages.render({ 'success':false, 'notice':Diaspora.I18n.t('failed_to_post_message') });
+        Diaspora.page.flashMessages.render({ 'success':false, 'notice':resp.responseText });
         self.setButtonsEnabled(true);
         self.setInputEnabled(true);
       }
@@ -212,7 +217,7 @@ app.views.Publisher = Backbone.View.extend({
 
   // creates the location
   showLocation: function(){
-    if($('#location').length == 0){
+    if($('#location').length === 0){
       $('#location_container').append('<div id="location"></div>');
       this.el_wrapper.addClass('with_location');
       this.view_locator = new app.views.Location();
@@ -235,7 +240,7 @@ app.views.Publisher = Backbone.View.extend({
 
   // avoid submitting form when pressing Enter key
   avoidEnter: function(evt){
-    if(evt.keyCode == 13)
+    if(evt.keyCode === 13)
       return false;
   },
 
@@ -247,7 +252,7 @@ app.views.Publisher = Backbone.View.extend({
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
 
-    var photos = new Array();
+    var photos = [];
     $('li.publisher_photo img').each(function(){
       var file = $(this).attr('src').substring("/uploads/images/".length);
       photos.push(
@@ -261,11 +266,19 @@ app.views.Publisher = Backbone.View.extend({
       );
     });
 
-    var mentioned_people = new Array();
-    var regexp = new RegExp("@{\(\[\^\;\]\+\); \(\[\^\}\]\+\)}", "g");
-    while(user=regexp.exec(serializedForm["status_message[text]"])){
+    var mentioned_people = [],
+        regexp = new RegExp("@{\(\[\^\;\]\+\); \(\[\^\}\]\+\)}", "g"),
+        user;
+
+    var getMentionedUser = function(handle) {
+      return Mentions.contacts.filter(function(user) {
+        return user.handle === handle;
+      })[0];
+    };
+
+    while( (user = regexp.exec(serializedForm["status_message[text]"])) ){
       // user[1]: name, user[2]: handle
-      var mentioned_user = Mentions.contacts.filter(function(item) { return item.handle == user[2];})[0];
+      var mentioned_user = getMentionedUser(user[2]);
       if(mentioned_user){
         mentioned_people.push({
           "id":mentioned_user["id"],
@@ -279,7 +292,7 @@ app.views.Publisher = Backbone.View.extend({
 
     var date = (new Date()).toISOString();
 
-    var poll = undefined;
+    var poll;
     var poll_question = serializedForm["poll_question"];
     var poll_answers_arry = _.flatten([serializedForm["poll_answers[]"]]);
     var poll_answers = _.map(poll_answers_arry, function(answer){
@@ -298,7 +311,7 @@ app.views.Publisher = Backbone.View.extend({
     var previewMessage = {
       "id" : 0,
       "text" : serializedForm["status_message[text]"],
-      "public" : serializedForm["aspect_ids[]"]=="public",
+      "public" : serializedForm["aspect_ids[]"] === "public",
       "created_at" : date,
       "interacted_at" : date,
       "post_type" : "StatusMessage",
@@ -339,7 +352,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   keyDown : function(evt) {
-    if( evt.keyCode == 13 && evt.ctrlKey ) {
+    if( evt.keyCode === 13 && evt.ctrlKey ) {
       this.$("form").submit();
       this.open();
       return false;
@@ -350,6 +363,8 @@ app.views.Publisher = Backbone.View.extend({
     // clear text(s)
     this.el_input.val('');
     this.el_hiddenInput.val('');
+    this.el_input.trigger('keyup')
+                 .trigger('keydown');
 
     // remove mentions
     this.el_input.mentionsInput('reset');
@@ -376,7 +391,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // enable input
     this.setInputEnabled(true);
-    
+
     // enable buttons
     this.setButtonsEnabled(true);
 
@@ -396,7 +411,7 @@ app.views.Publisher = Backbone.View.extend({
   tryClose : function(){
     // if it is not submittable, close it.
     if( !this._submittable() ){
-      this.close()
+      this.close();
     }
   },
 
@@ -426,7 +441,7 @@ app.views.Publisher = Backbone.View.extend({
     else
       this.$('#publisher_spinner').addClass('hidden');
   },
-  
+
   checkSubmitAvailability: function() {
     if( this._submittable() ) {
       this.setButtonsEnabled(true);
@@ -443,15 +458,23 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   setButtonsEnabled: function(bool) {
-    bool = !bool;
-    this.el_submit.prop({disabled: bool});
-    this.el_preview.prop({disabled: bool});
+    if (bool) {
+      this.el_submit.removeProp('disabled');
+      this.el_preview.removeProp('disabled');
+    } else {
+      this.el_submit.prop('disabled', true);
+      this.el_preview.prop('disabled', true);
+    }
   },
 
   setInputEnabled: function(bool) {
-    bool = !bool;
-    this.el_input.prop({disabled: bool});
-    this.el_hiddenInput.prop({disabled: bool});
+    if (bool) {
+      this.el_input.removeProp('disabled');
+      this.el_hiddenInput.removeProp('disabled');
+    } else {
+      this.el_input.prop('disabled', true);
+      this.el_hiddenInput.prop('disabled', true);
+    }
   },
 
   // determine submit availability
@@ -470,8 +493,15 @@ app.views.Publisher = Backbone.View.extend({
     this.el_input.mentionsInput("val", function(value){
       self.el_hiddenInput.val(value);
     });
-  }
+  },
 
+  _beforeUnload: function(e) {
+    if(this._submittable() && this.el_input.val() !== this.prefillText){
+      var confirmationMessage = Diaspora.I18n.t("confirm_unload");
+      (e || window.event).returnValue = confirmationMessage;       //Gecko + IE
+      return confirmationMessage;                                  //Webkit, Safari, Chrome, etc.
+    }
+  }
 });
 
 // jQuery helper for serializing a <form> into JSON
@@ -491,3 +521,4 @@ $.fn.serializeObject = function()
   });
   return o;
 };
+// @license-end

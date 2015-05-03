@@ -27,4 +27,4 @@
         %i
           = t('.no_messages')
 
-  = will_paginate @conversations, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+  = will_paginate @conversations, :previous_label => '&laquo;', :next_label => '&raquo;', :inner_window => 1, :outer_window => 0, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer

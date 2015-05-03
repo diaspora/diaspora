@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 // Abstract Infinite Scroll View Super Class
 //  Requires:
 //    a stream model, assigned to this.stream
@@ -32,7 +34,7 @@ app.views.InfScroll = app.views.Base.extend({
 
   createPostView : function(post){
     var postView = new this.postClass({ model: post, stream: this.stream });
-    if (this.collection.at(0).id == post.id) {
+    if (this.collection.at(0).id === post.id) {
       // post is first in collection - insert view at top of the list
       this.postViews.unshift(postView);
     } else {
@@ -44,7 +46,7 @@ app.views.InfScroll = app.views.Base.extend({
   // called for every item inserted in this.collection
   addPostView : function(post) {
     var el = this.createPostView(post).render().el;
-    if (this.collection.at(0).id == post.id) {
+    if (this.collection.at(0).id === post.id) {
         this.prependedPosts.insertBefore(el, this.prependedPosts.firstChild);
     } else {
         this.appendedPosts.appendChild(el);
@@ -56,7 +58,7 @@ app.views.InfScroll = app.views.Base.extend({
   },
 
   renderTemplate : function(){
-    this.renderInitialPosts()
+    this.renderInitialPosts();
   },
 
   renderInitialPosts : function(){
@@ -64,7 +66,7 @@ app.views.InfScroll = app.views.Base.extend({
     var els = document.createDocumentFragment();
     this.stream.items.each(_.bind(function(post){
       els.appendChild(this.createPostView(post).render().el);
-    }, this))
+    }, this));
     this.$el.html(els);
   },
 
@@ -76,7 +78,7 @@ app.views.InfScroll = app.views.Base.extend({
   },
 
   showLoader: function(){
-    $("#paginate .loader").removeClass("hidden")
+    $("#paginate .loader").removeClass("hidden");
   },
 
   finishedAdding: function() {
@@ -105,3 +107,4 @@ app.views.InfScroll = app.views.Base.extend({
     }
   }
 });
+// @license-end

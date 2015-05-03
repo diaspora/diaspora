@@ -1,0 +1,11 @@
+.markdown-content {
+  p { margin: 0 0 0.8em; }
+  p:last-child { margin-bottom: 0; }
+
+  ul, ol {
+    margin-top:0.8em;
+    margin-bottom:0.8em;
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+  }
+}

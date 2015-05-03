@@ -1,0 +1,33 @@
+= form_for(resource, url: registration_path(resource_name), html: {class: "form-horizontal block-form", autocomplete: "off"}) do |f|
+
+  %fieldset
+    %label
+      = f.label :user_email, t('registrations.new.email'), class: 'control-label'
+    %i.entypo.mail
+    = f.email_field :email, class: "input-block-level form-control", placeholder: t('registrations.new.email'), title: t('registrations.new.enter_email'), required: true
+
+    %label.control-label{for: "user_username"}
+      = t('registrations.new.username')
+    %i.entypo.user
+    = f.text_field :username, class: "input-block-level form-control", placeholder: t('registrations.new.username'), title: t('registrations.new.enter_username'), required: true, pattern: "[A-Za-z0-9_]+"
+
+    %label.control-label{for: "user_password"}
+      = t('registrations.new.password')
+    %i.entypo.lock
+    = f.password_field :password, class: "input-block-level form-control", placeholder: t('registrations.new.password'), title: t('registrations.new.enter_password'), required: true, pattern: "......+"
+
+    %label.control-label{for: "user_password_confirmation"}
+      = t('registrations.new.password_confirmation')
+    %i.entypo.lock
+    = f.password_field :password_confirmation, class: "input-block-level form-control", placeholder: t('registrations.new.password_confirmation'), title: t('registrations.new.enter_password_again'), required: true, pattern: "......+"
+
+    - if AppConfig.settings.captcha.enable?
+      = show_simple_captcha :object => 'user', :code_type => 'numeric'
+
+    = invite_hidden_tag(invite)
+
+  - if AppConfig.settings.terms.enable?
+    %p#terms.text-center
+      = t('registrations.new.terms', terms_link: link_to(t('registrations.new.terms_link'), terms_path, target: "_blank")).html_safe
+
+  = f.submit t('registrations.new.sign_up'), class: "btn btn-block btn-large", data: {disable_with: t('registrations.new.submitting')}

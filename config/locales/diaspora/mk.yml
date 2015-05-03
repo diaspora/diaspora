@@ -54,16 +54,10 @@ mk:
     destroy:
       success: "%{name} е отстранет успешно."
     edit:
-      add_existing: "Додади постоечки контакт"
-      done: "Завршено"
       make_aspect_list_visible: "make aspect list visible?"
       rename: "реименувај"
       update: "ажурирај"
       updating: "ажурирање"
-    few: "%{count} aspects"
-    helper:
-      aspect_not_empty: "Аспектот не е празен"
-      remove: "одстрани"
     index:
       donate: "Донирај"
       handle_explanation: "Ова е вашето diaspora корисничко име. Исто како е-маил адреса, можете да го давате на луѓе за да се сврзат со вас."
@@ -79,11 +73,6 @@ mk:
         learn_more: "Научи повеќе"
       no_contacts: "Нема контакти"
       no_tags: "No tags"
-    many: "%{count} aspects"
-    move_contact:
-      error: "Грешка при преместувањето на контактот: %{inspect}"
-      failure: "не проработи %{inspect}"
-      success: "Личноста е преместена во нов аспект"
     new:
       create: "Направи"
       name: "Name"
@@ -97,12 +86,6 @@ mk:
       family: "Фамилија"
       friends: "Пријатели"
       work: "Работа"
-    selected_contacts:
-      no_contacts: "Тука сеуште немате контакти."
-      view_all_contacts: "Сите контакти"
-    show:
-      edit_aspect: "уреди аспект"
-    two: "%{count} aspects"
     update:
       success: "Вашиот аспект, %{name}, беше успешно уреден."
     zero: "no aspects"
@@ -112,19 +95,15 @@ mk:
     heading: "Diaspora Bookmarklet"
   cancel: "Откажи"
   comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
     new_comment:
       comment: "Коментар"
       commenting: "Коментирање..."
     one: "1 коментар"
     other: "%{count} коментари"
-    two: "%{count} коментари"
     zero: "нема коментари"
   contacts:
     create:
       failure: "Неуспешно креирање на контакт"
-    few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Сите контакти"
@@ -134,17 +113,13 @@ mk:
       start_a_conversation: "Започни разговор"
       title: "Контакти"
       your_contacts: "Ваши контакти"
-    many: "%{count} контакти"
     one: "1 контакт"
     sharing:
       people_sharing: "Луѓе што споделуваат со тебе:"
-    two: "%{count} контакти"
   conversations:
     create:
       fail: "Невалидна порака"
       sent: "Пораката е пратена"
-    destroy:
-      success: "Разговорот е успешно избришан"
     helper:
       new_messages:
         few: "%{count} new messages"
@@ -348,12 +323,10 @@ mk:
   password: "Лозинка"
   password_confirmation: "Потврда на лозинка"
   people:
-    few: "%{count} people"
     helper:
       results_for: " резултати за %{params}"
     index:
       results_for: "резултати од пребарување за"
-    many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
     person:
@@ -373,7 +346,6 @@ mk:
       does_not_exist: "Личноста не постои!"
       incoming_request: "You have an incoming request from this person."
       not_connected: "You are not connected with this person"
-    two: "%{count} people"
     zero: "no people"
   photos:
     destroy:
@@ -531,13 +503,7 @@ mk:
   status_messages:
     helper:
       no_message_to_display: "Нема пораки за прикажување."
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     hide_comments: "hide comments"
     show_comments:
@@ -576,7 +542,6 @@ mk:
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       download_photos: "симни ги моите слики"
-      download_xml: "симни го мојот xml"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Изнеси податоци"
       new_password: "Нова лозинка"

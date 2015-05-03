@@ -12,6 +12,8 @@ if( app.aspectMemberships ) {
   app.aspectMemberships.dropdown = dropdown;
   app.aspectMemberships.updateSummary();
 
-  $.facebox.close();
   $('#profile .dropdown').toggleClass("active");
 }
+
+$.facebox.close();
+app.events.trigger('aspect:create', "<%= escape_javascript(@aspect.id) =>");

@@ -12,6 +12,8 @@ da:
       all_aspects: "Alle aspekter"
       error: "Kunne ikke begynde at dele med <%= name %>.  Ignorerer du vedkommende?"
       error_remove: "Kunne ikke fjerne <%= name %> fra aspektet. :("
+      mobile_row_checked: "<%= name %> (fjern)"
+      mobile_row_unchecked: "<%= name %> (tilføj)"
       select_aspects: "Vælg aspekter"
       started_sharing_with: "Du er begyndt at dele med <%= name %>!"
       stopped_sharing_with: "Du deler ikke længere med <%= name %>."
@@ -22,14 +24,15 @@ da:
         other: "I <%= count %> aspekter"
         two: "I <%= count %> aspekter"
         zero: "Vælg aspekter"
+      updating: "opdaterer ..."
     aspect_navigation:
       add_an_aspect: "+ Tilføj et aspekt"
       deselect_all: "Fravælg alle"
       no_aspects: "Ingen valgte aspekter"
       select_all: "Vælg alle"
     bookmarklet:
-      post_something: "Slå op på diaspora*"
-      post_submit: "Indsender indlæg"
+      post_something: "Lav et indlæg på Diaspora"
+      post_submit: "Indsender indlæg ..."
       post_success: "Det er indsendt! lukker popup vinduet ..."
     comma: ","
     comments:
@@ -37,6 +40,15 @@ da:
       no_comments: "Der er endnu ingen kommentarer."
       show: "Vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
+    confirm_unload: "Bekræft venligst at du ønsker at forlade denne side - data, du har indtastet, vil ikke blive gemt."
+    contacts:
+      add_contact: "Tilføj kontakt"
+      aspect_list_is_not_visible: "Kontakter i dette aspekt kan ikke se hinanden"
+      aspect_list_is_visible: "Kontakter i dette aspekt kan se hinanden"
+      error_add: "Kunne ikke tilføje <%= name %> til aspektet :("
+      error_remove: "Kunne ikke fjerne <%= name %> fra aspektet :("
+      remove_contact: "Fjern kontakt"
+      search_no_results: "Ingen kontakter fundet"
     conversation:
       participants: "Deltagere"
     delete: "Slet"
@@ -44,14 +56,15 @@ da:
     failed_to_like: "Kunne ikke synes om!"
     failed_to_post_message: "Kunne ikke indsende besked!"
     failed_to_remove: "Det lykkedes ikke at fjerne indlægget!"
+    failed_to_reshare: "Kunne ikke dele indlægget!"
     getting_started:
       alright_ill_wait: "Okay, jeg venter."
       hey: "Hej <%= name %>!"
-      no_tags: "Du har ikke fulgt nogen tags! Vil du fortsætte alligevel?"
+      no_tags: "Du har ikke fulgt nogen tags!  Vil du fortsætte alligevel?"
       preparing_your_stream: "Forbereder din personlige strøm..."
     header:
       admin: "Admin"
-      close: "luk"
+      close: "Luk"
       contacts: "Kontakter"
       conversations: "Samtaler"
       help: "Hjælp"
@@ -60,10 +73,12 @@ da:
       mark_all_as_read: "Marker alle som læst"
       notifications: "Meddelelser"
       profile: "Profil"
-      recent_notifications: "Seneste Meddelelser"
+      recent_notifications: "Seneste notifikationer"
       search: "Søg"
       settings: "Indstillinger"
       view_all: "Se alle"
+    hide_post: "Skjul dette indlæg?"
+    hide_post_failed: "Kan ikke skjule indlæg"
     ignore: "Ignorer"
     ignore_failed: "Kan ikke ignorere denne bruger"
     ignore_user: "Ignorer denne bruger?"
@@ -73,11 +88,19 @@ da:
     my_activity: "Min aktivitet"
     my_aspects: "Mine aspekter"
     my_stream: "Strøm"
+    no_results: "Ingen resultater fundet"
     notifications:
       mark_read: "Marker som læst"
       mark_unread: "Marker som ulæst"
     people:
-      not_found: "og ingen blev fundet ..."
+      edit_my_profile: "Rediger min profil"
+      helper:
+        is_not_sharing: "<%= name %> deler ikke med dig"
+        is_sharing: "<%= name %> deler med dig"
+      mention: "Nævn"
+      message: "Besked"
+      not_found: "Og ingen blev fundet ..."
+      stop_ignoring: "Hold op med at ignorere"
     photo_uploader:
       completed: "<%= file %> fuldført."
       empty: "{file} er tom. Vælg venligst filer igen uden den."
@@ -90,9 +113,23 @@ da:
       count:
         one: "<%=count%> stemme, indtil nu"
         other: "<%=count%> stemmer, indtil nu"
+      go_to_original_post: "Du kan deltage i denne afstemning på <%= original_post_link %>."
+      original_post: "det oprindelige indlæg"
       result: "Resultat"
       show_result: "Vis resultat"
       vote: "Stem"
+    profile:
+      add_some: "Tilføj nogen"
+      bio: "Biografi"
+      born: "Fødselsdag"
+      contacts: "Kontakter"
+      edit: "Rediger"
+      gender: "Køn"
+      ignoring: "Du ignorerer alle indlæg fra <%= name %>"
+      location: "Sted"
+      photos: "Fotos"
+      posts: "Indlæg"
+      you_have_no_tags: "Du har ingen tags!"
     publisher:
       add_option: "Tilføj et svar"
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
@@ -101,10 +138,11 @@ da:
       option: "Svar"
       public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
       question: "Spørgsmål"
+    remove_post: "Fjern dette indlæg?"
     report:
       name: "Anmeld"
       prompt: "Vær venlig at give en grund:"
-      prompt_default: "stødende indhold"
+      prompt_default: "f.eks. stødende indhold"
       status:
         created: "Der blev lavet en rapport"
         exists: "Der eksisterer allerede en rapport"
@@ -116,6 +154,8 @@ da:
     show_more: "Vis mere"
     stream:
       comment: "Kommentér"
+      disable_post_notifications: "Slå notifikationer fra for dette indlæg"
+      enable_post_notifications: "Slå notifikationer til for dette indlæg"
       follow: "Følg"
       followed_tag:
         add_a_tag: "Tilføj et tag"
@@ -140,7 +180,7 @@ da:
         other: "Vis <%= count %> ekstra kommentarer"
         two: "Vis <%= count %> ekstra kommentarer"
         zero: "Vis <%= count %> ekstra kommentarer"
-      original_post_deleted: "Oprindeligt indlæg er slettet af forfatteren."
+      original_post_deleted: "Oprindeligt indlæg er slettet af forfatteren"
       public: "Offentlig"
       reshare: "Videredel"
       reshares:
@@ -160,7 +200,7 @@ da:
       unlike: "Synes ikke om"
       via: "via <%= provider %>"
     tags:
-      wasnt_that_interesting: "OK, jeg formoder #<%= tagName %> ikke var så spændende igen..."
+      wasnt_that_interesting: "OK, #<%= tagName %> var ikke var så spændende alligevel ..."
     timeago:
       day: "en dag"
       days: "%d dage"
@@ -178,13 +218,14 @@ da:
       wordSeparator: " "
       year: "ca. et år"
       years: "%d år"
+    unblock_failed: "Det lykkedes ikke at afblokere denne bruger"
     videos:
       unknown: "Ukendt videotype"
       watch: "Se denne video på <%= provider %>"
     viewer:
       comment: "Kommentér"
       follow_post: "Følg indlæg"
-      home: "HJEM"
+      home: "Hjem"
       like: "Synes om"
       reshare: "Videredel"
       reshared: "Videredelt"

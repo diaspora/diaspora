@@ -1,0 +1,37 @@
+
+<div id="profile_photo" class="profile_photo">
+  {{#linkToPerson this}}
+    {{{personImage this "large"}}}
+  {{/linkToPerson}}
+</div>
+
+{{#if show_profile_info}}
+  <ul id="profile_information">
+    {{#with profile}}
+      {{#if bio}}
+        <li>
+          <h4>{{t 'profile.bio'}}</h4>
+          <div class="{{txtDirClass bio}}">{{fmtText bio}}</div>
+        </li>
+      {{/if}}
+      {{#if location}}
+        <li>
+          <h4>{{t 'profile.location'}}</h4>
+          <div class="{{txtDirClass location}}">{{fmtText location}}</div>
+        </li>
+      {{/if}}
+      {{#if gender}}
+        <li>
+          <h4>{{t 'profile.gender'}}</h4>
+          {{gender}}
+        </li>
+      {{/if}}
+      {{#if birthday}}
+        <li>
+          <h4>{{t 'profile.born'}}</h4>
+          {{birthday}}
+        </li>
+      {{/if}}
+    {{/with}}
+  </ul>
+{{/if}}

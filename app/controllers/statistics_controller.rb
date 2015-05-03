@@ -3,13 +3,13 @@
 #   the COPYRIGHT file.
 
 class StatisticsController < ApplicationController
+  respond_to :html, :json
 
-  respond_to :json
-  
   def statistics
+    @statistics = StatisticsPresenter.new
     respond_to do |format|
-      format.json { render :json => StatisticsPresenter.new }
+      format.json { render json: @statistics }
+      format.all
     end
   end
-  
 end

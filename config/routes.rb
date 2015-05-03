@@ -3,8 +3,10 @@
 #   the COPYRIGHT file.
 
 require 'sidekiq/web'
+require 'sidetiq/web'
 
 Diaspora::Application.routes.draw do
+
   resources :report, :except => [:edit, :new]
 
   if Rails.env.production?
@@ -34,7 +36,7 @@ Diaspora::Application.routes.draw do
     resources :poll_participations, :only => [:create]
 
     resources :likes, :only => [:create, :destroy, :index ]
-    resources :participations, :only => [:create, :destroy, :index]
+    resource :participation, :only => [:create, :destroy]
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
 
@@ -49,8 +51,8 @@ Diaspora::Application.routes.draw do
   end
 
   # Streams
-  get "participate" => "streams#activity", :as => "activity_stream" # legacy
-  get "explore" => "streams#multi", :as => "stream"                 # legacy
+  get "participate" => "streams#activity" # legacy
+  get "explore" => "streams#multi"        # legacy
 
   get "activity" => "streams#activity", :as => "activity_stream"
   get "stream" => "streams#multi", :as => "stream"
@@ -63,6 +65,7 @@ Diaspora::Application.routes.draw do
 
   resources :aspects do
     put :toggle_contact_visibility
+    put :toggle_chat_privilege
   end
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
@@ -84,7 +87,7 @@ Diaspora::Application.routes.draw do
       get :read_all
     end
   end
-  
+
 
   resources :tags, :only => [:index]
 
@@ -98,38 +101,39 @@ Diaspora::Application.routes.draw do
 
   resource :user, :only => [:edit, :update, :destroy], :shallow => true do
     get :getting_started_completed
-    get :export
-    get :export_photos
+    post :export_profile
+    get :download_profile
+    post :export_photos
+    get :download_photos
   end
 
   controller :users do
     get 'public/:username'          => :public,           :as => 'users_public'
-    match 'getting_started'         => :getting_started,  :as => 'getting_started'
-    match 'privacy'                 => :privacy_settings, :as => 'privacy_settings'
+    get 'getting_started'           => :getting_started,  :as => 'getting_started'
+    get 'privacy'                   => :privacy_settings, :as => 'privacy_settings'
     get 'getting_started_completed' => :getting_started_completed
     get 'confirm_email/:token'      => :confirm_email,    :as => 'confirm_email'
   end
 
   # This is a hack to overide a route created by devise.
   # I couldn't find anything in devise to skip that route, see Bug #961
-  match 'users/edit' => redirect('/user/edit')
+  get 'users/edit' => redirect('/user/edit')
 
   devise_for :users, :controllers => {:registrations => "registrations",
-                                      :passwords     => "passwords",
                                       :sessions      => "sessions"}
 
   #legacy routes to support old invite routes
   get 'users/invitation/accept' => 'invitations#edit'
   get 'invitations/email' => 'invitations#email', :as => 'invite_email'
   get 'users/invitations' => 'invitations#new', :as => 'new_user_invitation'
-  post 'users/invitations' => 'invitations#create', :as => 'new_user_invitation'
+  post 'users/invitations' => 'invitations#create', :as => 'user_invitation'
 
   get 'login' => redirect('/users/sign_in')
 
   # Admin backend routes
 
   scope 'admins', :controller => :admins do
-    match :user_search
+    match :user_search, via: [:get, :post]
     get   :admin_inviter
     get   :weekly_user_stats
     get   :correlations
@@ -139,6 +143,8 @@ Diaspora::Application.routes.draw do
 
   namespace :admin do
     post 'users/:id/close_account' => 'users#close_account', :as => 'close_account'
+    post 'users/:id/lock_account' => 'users#lock_account', :as => 'lock_account'
+    post 'users/:id/unlock_account' => 'users#unlock_account', :as => 'unlock_account'
   end
 
   resource :profile, :only => [:edit, :update]
@@ -146,7 +152,6 @@ Diaspora::Application.routes.draw do
 
 
   resources :contacts,           :except => [:update, :create] do
-    get :sharing, :on => :collection
   end
   resources :aspect_memberships, :only  => [:destroy, :create]
   resources :share_visibilities,  :only => [:update]
@@ -160,6 +165,7 @@ Diaspora::Application.routes.draw do
     resources :photos
     get :contacts
     get "aspect_membership_button" => :aspect_membership_dropdown, :as => "aspect_membership_button"
+    get :stream
     get :hovercard
 
     member do
@@ -171,8 +177,8 @@ Diaspora::Application.routes.draw do
       get :tag_index
     end
   end
-  get '/u/:username' => 'people#show', :as => 'user_profile'
-  get '/u/:username/profile_photo' => 'users#user_photo'
+  get '/u/:username' => 'people#show', :as => 'user_profile', :constraints => { :username => /[^\/]+/ }
+  get '/u/:username/profile_photo' => 'users#user_photo', :constraints => { :username => /[^\/]+/ }
 
 
   # Federation
@@ -193,8 +199,8 @@ Diaspora::Application.routes.draw do
   resources :services, :only => [:index, :destroy]
   controller :services do
     scope "/auth", :as => "auth" do
-      match ':provider/callback' => :create
-      match :failure
+      get ':provider/callback' => :create
+      get :failure
     end
   end
 
@@ -207,6 +213,9 @@ Diaspora::Application.routes.draw do
       get "/users/:username" => 'users#show', :as => 'user'
       get "/tags/:name" => 'tags#show', :as => 'tag'
     end
+    namespace :v1 do
+      resources :tokens, :only => [:create, :destroy]
+    end
   end
 
   get 'community_spotlight' => "contacts#spotlight", :as => 'community_spotlight'
@@ -214,15 +223,16 @@ Diaspora::Application.routes.draw do
 
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
 
-  # help
+  # Help
   get 'help' => 'help#faq', :as => 'help'
+  get 'help/:topic' => 'help#faq'
 
   #Protocol Url
   get 'protocol' => redirect("http://wiki.diasporafoundation.org/Federation_Protocol_Overview")
 
   #Statistics
   get :statistics, controller: :statistics
-  
+
   # Terms
   if AppConfig.settings.terms.enable?
     get 'terms' => 'terms#index'

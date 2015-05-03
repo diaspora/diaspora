@@ -4,7 +4,7 @@ describe ServicePresenter do
   describe '#as_json' do
     it 'includes the provider name of the json' do
       presenter = ServicePresenter.new(double(:provider => "fakebook"))
-      presenter.as_json[:provider].should == 'fakebook'
+      expect(presenter.as_json[:provider]).to eq('fakebook')
     end
   end
 end

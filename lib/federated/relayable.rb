@@ -38,5 +38,9 @@ module Federated
     def parent= parent
       self.target = parent
     end
+
+    def fetch_parent guid
+      Diaspora::Fetcher::Single.find_or_fetch_from_remote guid, diaspora_handle
+    end
   end
 end

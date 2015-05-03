@@ -9,21 +9,21 @@ Feature: posting from the main page
         | username   |
         | bob        |
         | alice      |
-      And I sign in as "bob@bob.bob"
       And a user with username "bob" is connected with "alice"
-      Given I have following aspects:
+      And I sign in as "bob@bob.bob"
+      And I have following aspects:
         | PostingTo            |
         | NotPostingThingsHere |
       And I have user with username "alice" in an aspect called "PostingTo"
       And I have user with username "alice" in an aspect called "NotPostingThingsHere"
-      And I am on the home page
+      And I go to the home page
 
     Scenario: expanding the publisher
       Given ".markdownIndications" is hidden
       And ".options_and_submit" is hidden
       When I expand the publisher
-      Then I should see "You can use Markdown to format your post" within "#publisher-images"
-      Then I should see "All Aspects" within ".options_and_submit"
+      Then I should see "You can use Markdown to format your post" within ".markdownIndications"
+      Then I should see "All aspects" within ".options_and_submit"
       Then I should see "Preview" within ".options_and_submit"
 
     Scenario: post a text-only message to all aspects
@@ -42,10 +42,12 @@ Feature: posting from the main page
       Given I expand the publisher
       When I write the status message "The World needs more Cats."
       And I submit the publisher
-
-      And I go to the aspects page
       Then "The World needs more Cats." should be post 1
-      Then "The World needs more Cats." should be post 2
+      And "The World needs more Cats." should be post 2
+
+      When I go to the aspects page
+      Then "The World needs more Cats." should be post 1
+      And "The World needs more Cats." should be post 2
 
     Scenario: posting a message appends it to the top of the stream
       When I click the publisher and post "sup dog"
@@ -60,16 +62,18 @@ Feature: posting from the main page
       And I submit the publisher
 
       When I am on the aspects page
+      And I select all aspects
       And I select only "PostingTo" aspect
       Then I should see "I am eating a yogurt"
 
       When I am on the aspects page
+      And I select all aspects
       And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt"
 
     Scenario: post a photo with text
       Given I expand the publisher
-      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+      And I attach "spec/fixtures/button.png" to the publisher
       When I write the status message "Look at this dog"
       And I submit the publisher
       And I go to the aspects page
@@ -83,10 +87,11 @@ Feature: posting from the main page
 
     Scenario: post a photo without text
       Given I expand the publisher
-      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+      And I attach "spec/fixtures/button.png" to the publisher
       Then I should see an uploaded image within the photo drop zone
       When I press "Share"
-      And I go to the aspects page
+      Then I should see a "img" within ".stream_element div.photo_attachments"
+      When I go to the aspects page
       Then I should see a "img" within ".stream_element div.photo_attachments"
       When I log out
       And I sign in as "alice@alice.alice"
@@ -95,12 +100,8 @@ Feature: posting from the main page
 
     Scenario: back out of posting a photo-only post
       Given I expand the publisher
-      And I have turned off jQuery effects
-      When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
-      And I confirm the alert
-      Then I should not see an uploaded image within the photo drop zone
-      When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
-      And I click to delete the first uploaded photo
+      And I attach "spec/fixtures/button.png" to the publisher
+      When I click to delete the first uploaded photo
       Then I should not see an uploaded image within the photo drop zone
       And I should not be able to submit the publisher
 
@@ -108,20 +109,22 @@ Feature: posting from the main page
       Given I expand the publisher
       And I have turned off jQuery effects
       When I write the status message "I am eating a yogurt"
-      And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+      And I attach "spec/fixtures/button.png" to the publisher
       And I click to delete the first uploaded photo
       Then I should not see an uploaded image within the photo drop zone
       And the publisher should be expanded
+      And I close the publisher
 
     Scenario: back out of uploading a picture when another has been attached
       Given I expand the publisher
       And I have turned off jQuery effects
       When I write the status message "I am eating a yogurt"
-      And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
-      And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+      And I attach "spec/fixtures/button.png" to the publisher
+      And I attach "spec/fixtures/button.png" to the publisher
       And I click to delete the first uploaded photo
       Then I should see an uploaded image within the photo drop zone
       And the publisher should be expanded
+      And I close the publisher
 
     @wip
     Scenario: hide a contact's post
@@ -162,6 +165,7 @@ Feature: posting from the main page
       And I select only "PostingTo" aspect
       Then I should see "I am eating a yogurt"
       When I am on the aspects page
+      And I select all aspects
       And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt"
 
@@ -182,10 +186,12 @@ Feature: posting from the main page
       And I select only "PostingTo" aspect
       Then I should see "I am eating a yogurt" and "And cornflakes also"
       When I am on the aspects page
+      And I select all aspects
       And I select only "Besties" aspect
       Then I should not see "I am eating a yogurt"
       Then I should see "And cornflakes also"
       When I am on the aspects page
+      And I select all aspects
       And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt" and "And cornflakes also"
 

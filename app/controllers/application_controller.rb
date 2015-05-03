@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
   has_mobile_fu
   protect_from_forgery :except => :receive
 
-  before_filter :ensure_http_referer_is_set
-  before_filter :set_locale
-  before_filter :set_diaspora_header
-  before_filter :set_grammatical_gender
-  before_filter :mobile_switch
-  before_filter :gon_set_current_user
-  before_filter :gon_set_preloads
+  before_action :ensure_http_referer_is_set
+  before_action :set_locale
+  before_action :set_diaspora_header
+  before_action :set_grammatical_gender
+  before_action :mobile_switch
+  before_action :gon_set_current_user
+  before_action :gon_set_preloads
 
   inflection_method :grammatical_gender => :gender
 
@@ -24,9 +24,13 @@ class ApplicationController < ActionController::Base
                 :tags,
                 :open_publisher
 
-  layout ->(c) { request.format == :mobile ? "application" : "centered_with_header_with_footer" }
+  layout proc { request.format == :mobile ? "application" : "with_header_with_footer" }
 
   private
+
+  def default_serializer_options
+    {root: false}
+  end
 
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/'
@@ -36,7 +40,7 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
     # mobile_fu's is_mobile_device? wasn't working here for some reason...
     # it may have been just because of the test env.
-    if request.env['HTTP_USER_AGENT'].match(/mobile/i)
+    if request.env['HTTP_USER_AGENT'].try(:match, /mobile/i)
       root_path
     else
       new_user_session_path
@@ -80,8 +84,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       I18n.locale = current_user.language
     else
-      locale = request.preferred_language_from AVAILABLE_LANGUAGE_CODES
-      locale ||= request.compatible_language_from AVAILABLE_LANGUAGE_CODES
+      locale = http_accept_language.language_region_compatible_from AVAILABLE_LANGUAGE_CODES
       locale ||= DEFAULT_LANGUAGE
       I18n.locale = locale
     end
@@ -149,12 +152,5 @@ class ApplicationController < ActionController::Base
   def gon_set_preloads
     return unless gon.preloads.nil?
     gon.preloads = {}
-  end
-
-  def self.use_bootstrap_for *routes
-    before_filter -> {
-      @css_framework = :bootstrap
-      gon.bootstrap = true
-    }, only: routes.flatten
   end
 end
