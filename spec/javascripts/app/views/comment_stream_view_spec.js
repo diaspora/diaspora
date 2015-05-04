@@ -110,7 +110,7 @@ describe("app.views.CommentStream", function(){
       form.submit(submitCallback);
 
       var e = $.Event("keydown", { keyCode: 13 });
-      e.shiftKey = false;
+      e.ctrlKey = false;
       this.view.keyDownOnCommentBox(e);
 
       expect(submitCallback).not.toHaveBeenCalled();
