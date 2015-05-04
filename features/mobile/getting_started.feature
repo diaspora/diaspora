@@ -1,9 +1,8 @@
-@javascript
+@javascript @mobile
 Feature: editing the getting started in the mobile view
 
   Background:
-    Given I toggle the mobile view
-    And I am on the login page
+    Given I am on the login page
     When I follow "Sign up"
     And I fill in the new user form
     And I submit the form

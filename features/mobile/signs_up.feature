@@ -1,12 +1,11 @@
-@javascript
+@javascript @mobile
 Feature: New user registration
   In order to use Diaspora*
   As a mobile user
   I want to register an account
 
   Background:
-    Given I toggle the mobile view
-    And I am on the login page
+    Given I am on the login page
     And I follow "Sign up"
 
   Scenario: user signs up and goes to getting started

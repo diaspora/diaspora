@@ -1,8 +1,7 @@
-@javascript
+@javascript @mobile
 Feature: editing the profile in the mobile view
   Scenario: editing profile fields
     Given I am signed in
-    And I toggle the mobile view
     And I go to the edit profile page
 
     When I fill in the following:

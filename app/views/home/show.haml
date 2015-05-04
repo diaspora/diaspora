@@ -3,4 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-=render :partial => 'home/show' rescue  "put something in app/views/home/_show.html"
+- content_for :page_title do
+  = pod_name
+
+= render partial: "home/show"

@@ -20,6 +20,7 @@ Ruby 2.0 is no longer officially supported.
 * Use asset helper instead of .css.erb [#5886](https://github.com/diaspora/diaspora/pull/5886)
 * Dropped db/seeds.rb [#5896](https://github.com/diaspora/diaspora/pull/5896)
 * Drop broken install scripts [#5907](https://github.com/diaspora/diaspora/pull/5907)
+* Improve invoking mobile site in the testsuite [#5915](https://github.com/diaspora/diaspora/pull/5915)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
@@ -33,6 +34,7 @@ Ruby 2.0 is no longer officially supported.
 * Correctly handle IE8 in the chrome frame middleware [#5878](https://github.com/diaspora/diaspora/pull/5878)
 * Fix code reloading for PostPresenter [#5888](https://github.com/diaspora/diaspora/pull/5888)
 * Fix closing account from mobile view [#5913](https://github.com/diaspora/diaspora/pull/5913)
+* Allow using common custom template for desktop & mobile landing page [#5915](https://github.com/diaspora/diaspora/pull/5915)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)

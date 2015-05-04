@@ -1,4 +1,4 @@
-@javascript
+@javascript @mobile
 Feature: reactions mobile post
   In order to navigate Diaspora*
   As a mobile user
@@ -11,7 +11,6 @@ Feature: reactions mobile post
       | Alice Smith | alice@alice.alice |
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     When "alice@alice.alice" has posted a status message with a photo
-    And I toggle the mobile view
     And I sign in as "bob@bob.bob" on the mobile website
 
   Scenario: like on a mobile post
