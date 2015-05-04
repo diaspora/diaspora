@@ -1,11 +1,3 @@
-#custom_logger.rb
-
-class ActiveSupport::BufferedLogger
-  def formatter=(formatter)
-    @log.formatter = formatter
-  end
-end
-
 class Formatter
   COLORS = {
     'FG' => {
@@ -104,14 +96,11 @@ class Formatter
 
 end
 
-class FederationLogger < ActiveSupport::BufferedLogger
-end
-
 if Rails.env.match(/integration/)
   puts "using federation logger"
   logfile = File.open(Rails.root.join("log", "federation_logger.log"), 'a')  #create log file
   logfile.sync = true  #automatically flushes data to file
-  FEDERATION_LOGGER = FederationLogger.new(logfile)  #constant accessible anywhere
+  FEDERATION_LOGGER = Logger.new(logfile)  #constant accessible anywhere
   FEDERATION_LOGGER.formatter = Formatter.new
 else
   FEDERATION_LOGGER = Rails.logger
