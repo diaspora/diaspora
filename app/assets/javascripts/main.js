@@ -35,6 +35,7 @@
 //= require markdown-it-sanitizer
 //= require markdown-it-sub
 //= require markdown-it-sup
+//= require highlightjs
 //= require clear-form
 //= require app/app
 //= require diaspora
