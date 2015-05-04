@@ -685,7 +685,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
-    unicorn (4.8.3)
+    unicorn (4.9.0)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
@@ -827,7 +827,7 @@ DEPENDENCIES
   twitter-text (= 1.12.0)
   typhoeus (= 0.7.1)
   uglifier (= 2.7.1)
-  unicorn (= 4.8.3)
+  unicorn (= 4.9.0)
   uuid (= 2.3.7)
   webmock (= 1.20.4)
   will_paginate (= 3.0.7)
