@@ -461,7 +461,7 @@ GEM
     pry-debundle (0.8)
       pry
     rack (1.6.0)
-    rack-cors (0.3.1)
+    rack-cors (0.4.0)
     rack-google-analytics (1.2.0)
       actionpack
       activesupport
@@ -771,7 +771,7 @@ DEPENDENCIES
   pry
   pry-byebug
   pry-debundle
-  rack-cors (= 0.3.1)
+  rack-cors (= 0.4.0)
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
   rack-protection (= 1.5.3)
