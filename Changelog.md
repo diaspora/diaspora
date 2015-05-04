@@ -40,6 +40,7 @@ Ruby 2.0 is no longer officially supported.
 * Enable aspect sorting again [#5559](https://github.com/diaspora/diaspora/pull/5559)
 * Submit messages in conversations with Ctrl+Enter [#5910](https://github.com/diaspora/diaspora/pull/5910)
 * Support syntax highlighting for fenced code blocks [#5908](https://github.com/diaspora/diaspora/pull/5908)
+* Added link to diasporafoundation.org to invitation email [#5893](https://github.com/diaspora/diaspora/pull/5893)
 
 # 0.5.0.0
 
