@@ -87,12 +87,12 @@
       = f.submit t('.change'), :class => 'button'
 
   %hr
-  
+
   %h4#auto-follow-back-preferences
     = t('.following')
   = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
     = f.error_messages
-  
+
     %p.checkbox_select
       = f.label :auto_follow_back, t('.auto_follow_back')
       = f.check_box :auto_follow_back
@@ -117,7 +117,7 @@
           %p.checkbox_select
             = type.label :someone_reported, t('.someone_reported')
             = type.check_box :someone_reported, {:checked =>  @email_prefs['someone_reported']}, false, true
-      
+
           %br
         %p.checkbox_select
           = type.label :started_sharing, t('.started_sharing')
@@ -128,27 +128,27 @@
           = type.label :mentioned, t('.mentioned')
           = type.check_box :mentioned, {:checked => @email_prefs['mentioned']}, false, true
         %br
-        
+
         %p.checkbox_select
           = type.label :liked, t('.liked')
           = type.check_box :liked, {:checked =>  @email_prefs['liked']}, false, true
         %br
-        
+
         %p.checkbox_select
           = type.label :reshared, t('.reshared')
           = type.check_box :reshared, {:checked =>  @email_prefs['reshared']}, false, true
         %br
-        
+
         %p.checkbox_select
           = type.label :comment_on_post, t('.comment_on_post')
           = type.check_box :comment_on_post, {:checked =>  @email_prefs['comment_on_post']}, false, true
         %br
-        
+
         %p.checkbox_select
           = type.label :also_commented, t('.also_commented')
           = type.check_box :also_commented, {:checked =>  @email_prefs['also_commented']}, false, true
         %br
-        
+
         %p.checkbox_select
           = type.label :private_message, t('.private_message')
           = type.check_box :private_message, {:checked =>  @email_prefs['private_message']}, false, true
@@ -186,39 +186,11 @@
   .span-5.last
     %h4
       = t('.close_account_text')
-    =link_to t('.close_account_text'), '#close_account_pane', :rel => 'facebox', :class => "btn btn-danger", :id => "close_account"
+    = form_for "user", url: user_path, html: { method: :delete } do |f|
+      = f.error_messages
 
-    .hidden#close_account_pane{:rel => 'facebox'}
-      #inner_account_delete
-        %h1
-          = t('.close_account.dont_go')
-        %p
-          = t('.close_account.make_diaspora_better')
-        .span-10
-          = image_tag 'http://itstrulyrandom.com/wp-content/uploads/2008/03/sadcat.jpg'
-          %br
-          %small
-            %b
-              = t('.close_account.mr_wiggles')
-        .span-10.last
-          %ul
-            %li
-              = t('.close_account.what_we_delete')
-            %li
-              = t('.close_account.locked_out')
-            %li
-              = t('.close_account.lock_username')
-          %p
-            %b
-              = t('.close_account.no_turning_back')
-              
-
-          = form_for 'user', :url => user_path, :html => { :method => :delete } do |f|
-            = f.error_messages
-
-            %p
-              = f.label :close_account_password, t('.current_password'), :for => :close_account_password
-              = f.password_field :current_password, :id => :close_account_password
-            %p
-              = f.submit t('.close_account_text'), :id => "close_account_confirm", :data => { :confirm => t('are_you_sure_delete_account') }
-  %br
+      %p
+        = f.label :close_account_password, t("users.edit.current_password"), for: :close_account_password
+        = f.password_field :current_password, id: :close_account_password
+      %p
+        = f.submit t('users.edit.close_account_text'), class: "btn btn-danger", id: "close_account_confirm", data: { confirm: t("are_you_sure_delete_account") }
