@@ -696,7 +696,7 @@ GEM
     webmock (1.21.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
-    websocket (1.2.1)
+    websocket (1.2.2)
     will_paginate (3.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
