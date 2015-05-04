@@ -73,7 +73,7 @@ GEM
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     builder (3.2.2)
-    byebug (4.0.3)
+    byebug (4.0.5)
       columnize (= 0.9.0)
     capybara (2.4.4)
       mime-types (>= 1.16)
