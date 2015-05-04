@@ -88,6 +88,26 @@ describe("app.helpers.textFormatter", function(){
     });
   });
 
+  context("highlight", function(){
+    it("works with javascript code", function(){
+      var code = "```js\nfunction test() { return; } //test\n```";
+      expect(this.formatter(code)).toContain("<span class=\"hljs-function\">");
+      expect(this.formatter(code)).toContain("<span class=\"hljs-comment\">");
+    });
+
+    it("works with markdown", function(){
+      var code = "```markdown\n# header\n**strong**\n```";
+      expect(this.formatter(code)).toContain("<span class=\"hljs-header\">");
+      expect(this.formatter(code)).toContain("<span class=\"hljs-strong\">");
+    });
+
+    it("works with ruby code", function(){
+      var code = "```ruby\n# comment\nmodule test\nend\n```";
+      expect(this.formatter(code)).toContain("<span class=\"hljs-comment\">");
+      expect(this.formatter(code)).toContain("<span class=\"hljs-class\">");
+    });
+  });
+
   context("markdown", function(){
     it("autolinks", function(){
       var links = [
