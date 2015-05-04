@@ -81,7 +81,7 @@ GEM
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     builder (3.2.2)
-    byebug (4.0.3)
+    byebug (4.0.5)
       columnize (= 0.9.0)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -96,14 +96,14 @@ GEM
       mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    childprocess (0.5.5)
+    childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.3.4)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
-    coffee-script (2.3.0)
+    coffee-script (2.4.1)
       coffee-script-source
       execjs
     coffee-script-source (1.9.1)
@@ -152,7 +152,10 @@ GEM
       devise (~> 3.4.0)
     devise_lastseenable (0.0.4)
       devise
+      devise
       rails (>= 3.0.4)
+      rails (>= 3.0.4)
+      warden
       warden
     diaspora-vines (0.1.27)
       activerecord (~> 4.1)
@@ -179,8 +182,8 @@ GEM
     ethon (0.7.3)
       ffi (>= 1.3.0)
     eventmachine (1.0.7)
-    excon (0.44.4)
-    execjs (2.4.0)
+    excon (0.45.1)
+    execjs (2.5.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.5.0)
@@ -222,7 +225,7 @@ GEM
     fog-atmos (0.1.0)
       fog-core
       fog-xml
-    fog-aws (0.1.1)
+    fog-aws (0.1.2)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
@@ -231,23 +234,24 @@ GEM
       fog-core (~> 1.22)
       fog-json
       inflecto (~> 0.0.2)
-    fog-core (1.29.0)
+    fog-core (1.30.0)
       builder
-      excon (~> 0.38)
+      excon (~> 0.45)
       formatador (~> 0.2)
       mime-types
       net-scp (~> 1.1)
       net-ssh (>= 2.1.3)
-    fog-ecloud (0.0.2)
+    fog-ecloud (0.1.1)
       fog-core
       fog-xml
-    fog-json (1.0.0)
+    fog-json (1.0.1)
+      fog-core (~> 1.0)
       multi_json (~> 1.0)
     fog-profitbricks (0.0.2)
       fog-core
       fog-xml
       nokogiri
-    fog-radosgw (0.0.3)
+    fog-radosgw (0.0.4)
       fog-core (>= 1.21.0)
       fog-json
       fog-xml (>= 0.0.1)
@@ -255,28 +259,28 @@ GEM
       fog-core
       fog-json
       fog-xml
-    fog-sakuracloud (1.0.0)
+    fog-sakuracloud (1.0.1)
       fog-core
       fog-json
-    fog-serverlove (0.1.1)
+    fog-serverlove (0.1.2)
       fog-core
       fog-json
-    fog-softlayer (0.4.1)
+    fog-softlayer (0.4.3)
       fog-core
       fog-json
-    fog-storm_on_demand (0.1.0)
+    fog-storm_on_demand (0.1.1)
       fog-core
       fog-json
-    fog-terremark (0.0.4)
+    fog-terremark (0.1.0)
       fog-core
       fog-xml
-    fog-vmfusion (0.0.1)
+    fog-vmfusion (0.1.0)
       fission
       fog-core
-    fog-voxel (0.0.2)
+    fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-xml (0.1.1)
+    fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
     font-awesome-rails (4.3.0.0)
@@ -289,7 +293,7 @@ GEM
       ruby-progressbar (~> 1.4)
     gherkin (2.12.2)
       multi_json (~> 1.3)
-    globalid (0.3.3)
+    globalid (0.3.5)
       activesupport (>= 4.1.0)
     gon (5.2.3)
       actionpack (>= 2.3.0)
@@ -327,7 +331,7 @@ GEM
       multi_json (~> 1.0)
       sprockets (~> 2.0)
       tilt (~> 1.2)
-    hashie (3.4.0)
+    hashie (3.4.1)
     hike (1.2.3)
     hiredis (0.5.2)
     hitimes (1.2.2)
@@ -372,8 +376,8 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.9.3)
-    listen (2.9.0)
-      celluloid (>= 0.15.2)
+    listen (2.10.0)
+      celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     loofah (2.0.1)
@@ -488,6 +492,7 @@ GEM
       rails-assets-jquery-fullscreen (~> 1.1.4)
       rails-assets-jquery-ui (~> 1.10.4)
       rails-assets-jquery.slimscroll (~> 1.3.3)
+    rails-assets-hammer.js (2.0.4)
     rails-assets-jasmine (2.2.1)
     rails-assets-jasmine-ajax (3.1.0)
       rails-assets-jasmine (~> 2.0)
@@ -561,7 +566,7 @@ GEM
       ffi (>= 0.5.0)
     redcarpet (3.2.3)
     redis (3.2.1)
-    redis-namespace (1.5.1)
+    redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
     remotipart (1.2.1)
     request_store (1.1.0)
@@ -574,9 +579,9 @@ GEM
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
       rspec-mocks (~> 3.2.0)
-    rspec-core (3.2.2)
+    rspec-core (3.2.3)
       rspec-support (~> 3.2.0)
-    rspec-expectations (3.2.0)
+    rspec-expectations (3.2.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
     rspec-instafail (0.2.6)
@@ -630,7 +635,7 @@ GEM
       sidekiq (>= 3.0.0)
     simple_captcha2 (0.3.4)
       rails (>= 4.1)
-    simple_oauth (0.2.0)
+    simple_oauth (0.3.1)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -771,6 +776,7 @@ DEPENDENCIES
   rack-ssl (= 1.4.1)
   rails (= 4.2.1)
   rails-assets-diaspora_jsxc (~> 0.1.1)!
+  rails-assets-hammer.js (= 2.0.4)!
   rails-assets-jasmine-ajax (= 3.1.0)!
   rails-assets-jeresig--jquery.hotkeys (= 0.2.0)!
   rails-assets-jquery (= 1.11.1)!

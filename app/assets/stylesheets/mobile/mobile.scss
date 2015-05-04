@@ -27,16 +27,17 @@ body {
   padding: 0px;
 }
 
+html, body, #app {
+    height: 100%;
+    width: 100%;
+}
+
 h3 {
   margin-top: 0px;
 }
 
 .clear {
   clear: both;
-}
-
-#app > * {
-  transition: all 0.25s ease;
 }
 
 #main {
@@ -318,7 +319,6 @@ h3 {
 
   img {
     border-radius: 4px;
-
     height: 70px;
     width: 70px;
     margin: 10px;

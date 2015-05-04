@@ -50,6 +50,7 @@
     "parse_url",
     "punycode",
     "qq",
+    "Hammer",
 
     "loginAs",
     "logout",

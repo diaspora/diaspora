@@ -18,6 +18,7 @@
 //= require widgets/timeago
 //= require mobile/mobile_file_uploader
 //= require mobile/profile_aspects
+//= require hammer.js
 
 $(document).ready(function(){
 
@@ -37,8 +38,16 @@ $(document).ready(function(){
 
   /* Drawer menu */
   $('#menu_badge').bind("tap click", function(evt){
-    evt.preventDefault();
     $("#app").toggleClass('draw');
+  });
+
+  var drawerSlide = new Hammer(document.getElementById('app'));
+  drawerSlide.on('swipeleft', function() {
+    $("#app").addClass('draw');
+  });
+
+  drawerSlide.on('swiperight', function() {
+    $("#app").removeClass('draw');
   });
 
   /* Show / hide aspects in the drawer */

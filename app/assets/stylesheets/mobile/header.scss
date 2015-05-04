@@ -4,7 +4,6 @@ header {
   position: fixed;
   height: 45px;
   top: 0px;
-  z-index: 10;
   background: image-url('header-bg-long.jpg') rgb(40,35,35);
   box-shadow: 0 1px 2px #333;
   border-bottom: 1px solid #222;
@@ -58,7 +57,7 @@ header {
 #drawer {
   position: fixed;
   top: 0;
-  bottom: 0;
+  height: 100%;
   width: 100%;
   left: 100%;
   background-color: #444;
@@ -163,6 +162,16 @@ header {
 }
 
 /* This class is added when the user open the drawer */
-#app.draw > * {
-          transform: translateX(-80%);
+.draw {
+    #drawer, #main_nav {
+        transition: transform 0.3s ease;
+        transform: translateX(-80%);
+    }
 }
+
+#drawer, #main_nav {
+    z-index: 10;
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+}
+
