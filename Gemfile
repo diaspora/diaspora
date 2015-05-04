@@ -85,13 +85,13 @@ gem "entypo-rails", "2.2.2"
 
 gem "backbone-on-rails",                                "1.1.2"
 gem "handlebars_assets",                                "0.20.1"
-gem "jquery-rails",                                     "3.1.2"
+gem "jquery-rails",                                     "4.0.3"
 gem "jquery-ui-rails",                                  "5.0.3"
 gem "js_image_paths",                                   "0.0.2"
 gem "js-routes",                                        "1.0.0"
 
 source "https://rails-assets.org" do
-  gem "rails-assets-jquery",                              "1.11.1" # Should be kept in sync with jquery-rails
+  gem "rails-assets-jquery",                              "1.11.2" # Should be kept in sync with jquery-rails
 
   gem "rails-assets-markdown-it",                         "4.2.0"
   gem "rails-assets-markdown-it-hashtag",                 "0.3.0"
