@@ -38,6 +38,7 @@ Ruby 2.0 is no longer officially supported.
 * More and better environment checks in script/server [#5891](https://github.com/diaspora/diaspora/pull/5891)
 * Enable aspect sorting again [#5559](https://github.com/diaspora/diaspora/pull/5559)
 * Submit messages in conversations with Ctrl+Enter [#5910](https://github.com/diaspora/diaspora/pull/5910)
+* Support syntax highlighting for fenced code blocks [#5908](https://github.com/diaspora/diaspora/pull/5908)
 
 # 0.5.0.0
 
