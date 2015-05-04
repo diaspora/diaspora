@@ -36,10 +36,8 @@ Style/AlignHash:
   EnforcedColonStyle: table
 
 # Mixing the styles looks just silly.
-# REVIEW: Enable once https://github.com/bbatsov/rubocop/commit/760ce1ed2cf10beda5e163f934c03a6fb6daa38e
-#   is released.
-#Style/HashSyntax:
-#  EnforcedStyle: ruby19_no_mixed_keys
+Style/HashSyntax:
+ EnforcedStyle: ruby19_no_mixed_keys
 
 # has_key? and has_value? are far more readable than key? and value?
 Style/DeprecatedHashMethods:
@@ -93,7 +91,7 @@ Style/SpaceInsideHashLiteralBraces:
 
 # { ... } for multi-line blocks is okay, follow Weirichs rule instead:
 # https://web.archive.org/web/20140221124509/http://onestepback.org/index.cgi/Tech/Ruby/BraceVsDoEnd.rdoc
-Style/Blocks:
+Style/BlockDelimiters:
   Enabled: false
 
 # do / end blocks should be used for side effects,
