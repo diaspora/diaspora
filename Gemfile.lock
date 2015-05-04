@@ -56,7 +56,7 @@ GEM
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
-    addressable (2.3.7)
+    addressable (2.3.8)
     arel (6.0.0)
     asset_sync (1.1.0)
       activemodel
@@ -709,7 +709,7 @@ DEPENDENCIES
   activerecord-import (= 0.7.0)
   acts-as-taggable-on (= 3.5.0)
   acts_as_api (= 0.4.2)
-  addressable (= 2.3.7)
+  addressable (= 2.3.8)
   asset_sync (= 1.1.0)
   autoprefixer-rails (= 5.1.7.1)
   backbone-on-rails (= 1.1.2)
