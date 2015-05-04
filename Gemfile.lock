@@ -673,7 +673,7 @@ GEM
       faraday (~> 0.8, < 0.10)
       multi_json (~> 1.0)
       simple_oauth (~> 0.2)
-    twitter-text (1.11.0)
+    twitter-text (1.12.0)
       unf (~> 0.1.0)
     typhoeus (0.7.1)
       ethon (>= 0.7.1)
@@ -684,7 +684,7 @@ GEM
       json (>= 1.8.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.6)
+    unf_ext (0.0.7.1)
     unicorn (4.8.3)
       kgio (~> 2.6)
       rack
@@ -824,7 +824,7 @@ DEPENDENCIES
   test_after_commit (= 0.4.1)
   timecop (= 0.7.3)
   twitter (= 4.8.1)
-  twitter-text (= 1.11.0)
+  twitter-text (= 1.12.0)
   typhoeus (= 0.7.1)
   uglifier (= 2.7.1)
   unicorn (= 4.8.3)
