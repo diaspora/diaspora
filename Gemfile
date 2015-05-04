@@ -83,7 +83,7 @@ gem "entypo-rails", "2.2.2"
 
 # JavaScript
 
-gem "backbone-on-rails",                                "1.1.2"
+gem "backbone-on-rails",                                "1.1.2.1"
 gem "handlebars_assets",                                "0.20.1"
 gem "jquery-rails",                                     "4.0.3"
 gem "jquery-ui-rails",                                  "5.0.3"
