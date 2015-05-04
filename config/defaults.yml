@@ -7,6 +7,7 @@ defaults:
     number: "0.5.99.0" # Do not touch unless doing a release, do not backport the version number that's in master but keep develop to always say "head"
   heroku: false
   environment:
+    log: 'log/server.log'
     url: "http://localhost:3000/"
     certificate_authorities:
     redis:
@@ -179,6 +180,7 @@ defaults:
 
 development:
   environment:
+    log: '' # log to stdout
     assets:
       serve: true
     single_process_mode: true
@@ -192,6 +194,7 @@ production:
   i_am_a_dummy: # Remove if you add an actual override
 test:
   environment:
+    log: '' # log to stdout
     url: 'http://localhost:9887/'
     single_process_mode: true
     require_ssl: false
