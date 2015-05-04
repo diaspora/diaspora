@@ -1,7 +1,7 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.Bookmarklet = Backbone.View.extend({
-  separator: ' - ',
+  separator: "\n\n",
 
   initialize: function(opts) {
     // init a standalone publisher
@@ -25,8 +25,12 @@ app.views.Bookmarklet = Backbone.View.extend({
     var p = this.param_contents;
     if( p.content ) return p.content;
 
-    var contents = p.title + this.separator + p.url;
-    if( p.notes ) contents += this.separator + p.notes;
+    var contents = "### " + p.title + this.separator;
+    if( p.notes ) {
+      var notes = p.notes.toString().replace(/(?:\r\n|\r|\n)/g, "\n> ");
+      contents += "> " + notes + this.separator;
+    }
+    contents += p.url;
     return contents;
   },
 

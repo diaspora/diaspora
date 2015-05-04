@@ -6,6 +6,7 @@ This release recommends using Ruby 2.2, while retaining Ruby 2.1 as an officiall
 Ruby 2.0 is no longer officially supported.
 
 ## Refactor
+* Improve bookmarklet [#5904](https://github.com/diaspora/diaspora/pull/5904)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
