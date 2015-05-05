@@ -754,8 +754,10 @@ en:
         sharing: "has started sharing with you!"
         view_profile: "View %{name}’s profile"
     comment_on_post:
-        limited_subject: "There's a new comment on a post you commented"
+        limited_subject: "There's a new comment on one of your posts"
         reply: "Reply or view %{name}’s post >"
+    also_commented:
+        limited_subject: "There's a new comment on a post you commented"
     mentioned:
         subject: "%{name} has mentioned you on diaspora*"
         mentioned: "mentioned you in a post:"
