@@ -35,6 +35,7 @@ Ruby 2.0 is no longer officially supported.
 * Fix code reloading for PostPresenter [#5888](https://github.com/diaspora/diaspora/pull/5888)
 * Fix closing account from mobile view [#5913](https://github.com/diaspora/diaspora/pull/5913)
 * Allow using common custom template for desktop & mobile landing page [#5915](https://github.com/diaspora/diaspora/pull/5915)
+* Use correct branding in Atom feed [#5929](https://github.com/diaspora/diaspora/pull/5929)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
