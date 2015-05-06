@@ -31,6 +31,10 @@
 * Added link to diasporafoundation.org to invitation email [#5893](https://github.com/diaspora/diaspora/pull/5893)
 * Gracefully handle missing `og:url`s [#5926](https://github.com/diaspora/diaspora/pull/5926)
 
+# 0.5.0.1
+
+Use the correct setting for captcha length instead of defaulting to 1 always.
+
 # 0.5.0.0
 
 ## Major Sidekiq update
