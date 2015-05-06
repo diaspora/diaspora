@@ -1,3 +1,7 @@
+# 0.5.0.1
+
+Use the correct setting for captcha length instead of defaulting to 1 always.
+
 # 0.5.0.0
 
 ## Major Sidekiq update
