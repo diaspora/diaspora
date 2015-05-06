@@ -21,6 +21,7 @@
 * Fix closing account from mobile view [#5913](https://github.com/diaspora/diaspora/pull/5913)
 * Allow using common custom template for desktop & mobile landing page [#5915](https://github.com/diaspora/diaspora/pull/5915)
 * Use correct branding in Atom feed [#5929](https://github.com/diaspora/diaspora/pull/5929)
+* Update the configurate gem to avoid issues by missed missing settings keys [#5934](https://github.com/diaspora/diaspora/pull/5934)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)

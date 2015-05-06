@@ -101,6 +101,7 @@ defaults:
       paypal_hosted_button_id:
       paypal_unhosted_button_encrypted:
     bitcoin_address:
+    bitcoin_wallet_id: # DEPRECATED: Remove with 0.6
     community_spotlight:
       enable: false
       suggest_email:
@@ -176,6 +177,8 @@ defaults:
   admins:
     account:
     podmin_email:
+  # List valid environment variables
+  redistogo_url:
 
 development:
   environment:
