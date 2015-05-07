@@ -460,7 +460,7 @@ GEM
       pry (~> 0.10)
     pry-debundle (0.8)
       pry
-    rack (1.6.0)
+    rack (1.6.1)
     rack-cors (0.4.0)
     rack-google-analytics (1.2.0)
       actionpack
