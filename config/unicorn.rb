@@ -18,15 +18,15 @@ timeout AppConfig.server.unicorn_timeout.to_i
 #listen '/var/run/diaspora/diaspora.sock', :backlog => 2048
 
 
-stderr_path AppConfig.server.stderr_log.get if AppConfig.server.stderr_log.present?
-stdout_path AppConfig.server.stdout_log.get if AppConfig.server.stdout_log.present?
+stderr_path AppConfig.server.stderr_log.get if AppConfig.server.stderr_log?
+stdout_path AppConfig.server.stdout_log.get if AppConfig.server.stdout_log?
 
 before_fork do |server, worker|
   # If using preload_app, enable this line
   ActiveRecord::Base.connection.disconnect!
 
   # disconnect redis if in use
-  unless AppConfig.single_process_mode?
+  unless AppConfig.environment.single_process_mode?
     Sidekiq.redis {|redis| redis.client.disconnect }
   end
 
