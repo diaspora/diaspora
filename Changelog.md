@@ -46,6 +46,7 @@ Ruby 2.0 is no longer officially supported.
 * Support syntax highlighting for fenced code blocks [#5908](https://github.com/diaspora/diaspora/pull/5908)
 * Added link to diasporafoundation.org to invitation email [#5893](https://github.com/diaspora/diaspora/pull/5893)
 * Gracefully handle missing `og:url`s [#5926](https://github.com/diaspora/diaspora/pull/5926)
+* Remove private post content from "also commented" mails [#5931](https://github.com/diaspora/diaspora/pull/5931)
 
 # 0.5.0.1
 
