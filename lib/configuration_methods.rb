@@ -114,7 +114,7 @@ module Configuration
 
     def sidekiq_log
       path = Pathname.new environment.sidekiq.log.get
-      path = Rails.root.join(path) unless pathname.absolute?
+      path = Rails.root.join(path) unless path.absolute?
       path.to_s
     end
 
