@@ -23,7 +23,6 @@ describe("app.views.Poll", function(){
 
   describe("vote", function(){
     it("checks the ajax call for voting", function(){
-      jasmine.Ajax.install();
       var answer = this.view.poll.poll_answers[0];
       var poll = this.view.poll;
 

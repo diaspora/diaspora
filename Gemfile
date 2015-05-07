@@ -278,6 +278,6 @@ group :development, :test do
   # Jasmine (client side application tests (JS))
   gem "jasmine",                   "2.2.0"
   gem "jasmine-jquery-rails",      "2.0.3"
-  gem "rails-assets-jasmine-ajax", "3.1.0", source: "https://rails-assets.org"
+  gem "rails-assets-jasmine-ajax", "3.1.1", source: "https://rails-assets.org"
   gem "sinon-rails",               "1.10.3"
 end
