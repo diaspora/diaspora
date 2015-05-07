@@ -498,9 +498,9 @@ GEM
     rails-assets-highlightjs (8.5.0)
     rails-assets-jakobmattsson--jquery-elastic (1.6.11)
       rails-assets-jquery (>= 1.2.6)
-    rails-assets-jasmine (2.3.0)
-    rails-assets-jasmine-ajax (3.1.0)
-      rails-assets-jasmine (~> 2.0)
+    rails-assets-jasmine (2.3.1)
+    rails-assets-jasmine-ajax (3.1.1)
+      rails-assets-jasmine (~> 2)
     rails-assets-jeresig--jquery.hotkeys (0.2.0)
       rails-assets-jquery (>= 1.4.2)
     rails-assets-jquery (1.11.2)
@@ -781,7 +781,7 @@ DEPENDENCIES
   rails-assets-diaspora_jsxc (~> 0.1.1)!
   rails-assets-highlightjs (= 8.5.0)!
   rails-assets-jakobmattsson--jquery-elastic (= 1.6.11)!
-  rails-assets-jasmine-ajax (= 3.1.0)!
+  rails-assets-jasmine-ajax (= 3.1.1)!
   rails-assets-jeresig--jquery.hotkeys (= 0.2.0)!
   rails-assets-jquery (= 1.11.2)!
   rails-assets-jquery-idletimer (= 1.0.1)!
