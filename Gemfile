@@ -45,7 +45,7 @@ gem "uglifier", "2.7.1"
 
 # Configuration
 
-gem "configurate", "0.2.0"
+gem "configurate", "0.3.1"
 
 # Cross-origin resource sharing
 
