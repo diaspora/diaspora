@@ -206,6 +206,8 @@ en:
         follow: "Follow #<%= tag %>"
         following: "Following #<%= tag %>"
         stop_following: "Stop following #<%= tag %>"
+        follow_error: "Couldn’t follow <%= name %> :("
+        stop_following_error: "Couldn’t stop following <%= name %> :("
 
     header:
       home: "Home"
