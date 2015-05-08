@@ -18,6 +18,7 @@
 //= require widgets/timeago
 //= require mobile/mobile_file_uploader
 //= require mobile/profile_aspects
+//= require mobile/tag_following
 
 $(document).ready(function(){
 
