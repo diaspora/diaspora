@@ -74,7 +74,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
 
   getNotifications: function(){
     var self = this;
-    $.getJSON(Routes.notifications_path(this.getParams()), function(notifications){
+    $.getJSON(Routes.notifications(this.getParams()), function(notifications){
       $.each(notifications, function(){ self.notifications.push(this); });
       self.hasMoreNotifs = notifications.length >= self.perPage;
       if(self.nextPage){ self.nextPage++; }

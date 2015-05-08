@@ -119,7 +119,7 @@ app.views.StreamPost = app.views.Post.extend({
   createParticipation: function (evt) {
     if(evt) { evt.preventDefault(); }
     that = this;
-    $.post(Routes.post_participation_path(this.model.get("id")), {}, function () {
+    $.post(Routes.postParticipation(this.model.get("id")), {}, function () {
       that.model.set({participation: true});
       that.render();
     });
@@ -128,7 +128,7 @@ app.views.StreamPost = app.views.Post.extend({
   destroyParticipation: function (evt) {
     if(evt) { evt.preventDefault(); }
     that = this;
-    $.post(Routes.post_participation_path(this.model.get("id")), { _method: "delete" }, function () {
+    $.post(Routes.postParticipation(this.model.get("id")), { _method: "delete" }, function () {
       that.model.set({participation: false});
       that.render();
     });

@@ -49,7 +49,7 @@ app.views.SinglePostModeration = app.views.Feedback.extend({
   createParticipation: function (evt) {
     if(evt) { evt.preventDefault(); }
     var self = this;
-    $.post(Routes.post_participation_path(this.model.get("id")), {}, function () {
+    $.post(Routes.postParticipation(this.model.get("id")), {}, function () {
       self.model.set({participation: true});
       self.render();
     });
@@ -58,7 +58,7 @@ app.views.SinglePostModeration = app.views.Feedback.extend({
   destroyParticipation: function (evt) {
     if(evt) { evt.preventDefault(); }
     var self = this;
-    $.post(Routes.post_participation_path(this.model.get("id")), { _method: "delete" }, function () {
+    $.post(Routes.postParticipation(this.model.get("id")), { _method: "delete" }, function () {
       self.model.set({participation: false});
       self.render();
     });

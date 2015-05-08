@@ -83,7 +83,7 @@ app.pages.Contacts = Backbone.View.extend({
       update: function() {
         $("#aspect_nav .ui-sortable").removeClass("synced");
         var data = JSON.stringify({ ordered_aspect_ids: $(this).sortable("toArray", { attribute: "data-aspect-id" }) });
-        $.ajax(Routes.order_aspects_path(),
+        $.ajax(Routes.orderAspects(),
           { type: "put", dataType: "text", contentType: "application/json", data: data })
           .done(function() { $("#aspect_nav .ui-sortable").addClass("synced"); });
       },

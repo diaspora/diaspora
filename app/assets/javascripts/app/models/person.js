@@ -2,7 +2,7 @@
 
 app.models.Person = Backbone.Model.extend({
   url: function() {
-    return Routes.person_path(this.get('guid'));
+    return Routes.person(this.get("guid"));
   },
 
   initialize: function() {
