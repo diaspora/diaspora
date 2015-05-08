@@ -40,7 +40,7 @@ app.views.Help = app.views.StaticContentView.extend({
     this.CHAT_SUBS = {
       add_contact_roster_a: {
         toggle_privilege: this.getChatIcons(),
-        contacts_page: this.linkHtml(Routes.contacts_path(), Diaspora.I18n.t('chat.contacts_page'))
+        contacts_page: this.linkHtml(Routes.contacts(), Diaspora.I18n.t("chat.contacts_page"))
       }
     };
 

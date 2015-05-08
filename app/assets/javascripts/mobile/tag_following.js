@@ -6,7 +6,7 @@ $(document).ready(function(){
 
     if(button.hasClass("btn-success")){
       $.ajax({
-        url: Routes.tag_followings_path(),
+        url: Routes.tagFollowings(),
         data: JSON.stringify({"name": tagName}),
         type: "POST",
         dataType: "json",
@@ -26,7 +26,7 @@ $(document).ready(function(){
       var tagFollowing = _.findWhere(gon.preloads.tagFollowings,{name: tagName});
       if(!tagFollowing) { return; }
       $.ajax({
-        url: Routes.tag_following_path(tagFollowing.id),
+        url: Routes.tagFollowing(tagFollowing.id),
         dataType: "json",
         type: "DELETE",
         headers: {
