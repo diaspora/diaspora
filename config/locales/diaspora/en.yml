@@ -1262,6 +1262,9 @@ en:
     destroy:
       success: "Alas! You aren’t following #%{name} any more."
       failure: "Failed to stop following #%{name}. Maybe you already stopped following it?"
+    manage:
+      title: "Manage followed tags"
+      no_tags: "You aren't following any tags."
 
   streams:
     community_spotlight_stream: "Community spotlight"

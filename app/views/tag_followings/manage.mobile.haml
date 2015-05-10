@@ -1,0 +1,18 @@
+%h3= t("tag_followings.manage.title")
+
+-if current_user.followed_tags.length == 0
+  .well
+    %h4
+      = t("tag_followings.manage.no_tags")
+
+-else
+  .well.hidden
+    %h4
+      = t("tag_followings.manage.no_tags")
+  %ul.followed_tags
+    - current_user.followed_tags.each do |tag|
+      %li
+        .pull-right.btn.btn-link.only-delete.tag_following_action{data: {name: tag}}
+          &times;
+        .tag_name
+          = "##{tag}"
