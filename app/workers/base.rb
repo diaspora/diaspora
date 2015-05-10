@@ -21,7 +21,10 @@ module Workers
       Rails.logger.info("error on receive: #{e.class}")
     rescue ActiveRecord::RecordInvalid => e
       Rails.logger.info("failed to save received object: #{e.record.errors.full_messages}")
-      raise e unless e.message.match(/already been taken/)
+      raise e unless %w(
+        "already been taken"
+        "is ignored by the post author"
+      ).any? {|reason| e.message.include? reason }
     rescue ActiveRecord::RecordNotUnique => e
       Rails.logger.info("failed to save received object: #{e.message}")
       raise e unless %w(
