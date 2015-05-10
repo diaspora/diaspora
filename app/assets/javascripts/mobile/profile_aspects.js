@@ -27,14 +27,14 @@ $(document).ready(function(){
 
     if(selected.hasClass('selected')) {
       // remove from aspect
-      var membership_id = selected.data('membership_id');
+      var membershipId = selected.data("membership_id");
 
       $.ajax({
-        url: Routes.aspect_membership_path(membership_id),
-        type: 'DELETE',
-        dataType: 'json',
+        url: Routes.aspectMembership(membershipId),
+        type: "DELETE",
+        dataType: "json",
         headers: {
-          'Accept': "application/json, text/javascript, */*; q=0.01"
+          "Accept": "application/json, text/javascript, */*; q=0.01"
         }
       }).done(function() {
         selected.text("– " + Diaspora.I18n.t('aspect_dropdown.mobile_row_unchecked', {name: selected.data('name')}));
@@ -50,7 +50,7 @@ $(document).ready(function(){
       var person_id = $el.data('person-id');
 
       $.ajax({
-        url: Routes.aspect_memberships_path(),
+        url: Routes.aspectMemberships(),
         data: JSON.stringify({
           "person_id": person_id,
           "aspect_id": parseInt(selected.val(), 10)

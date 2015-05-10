@@ -76,11 +76,11 @@ app.pages.Profile = app.views.Base.extend({
     }
 
     // a collection is set, this means we want to view photos
-    var route = this.streamCollection ? 'person_photos_path' : 'person_stream_path';
+    var route = this.streamCollection ? "personPhotos" : "personStream";
     var view = this.streamViewClass ? this.streamViewClass : app.views.Stream;
 
     app.stream = new app.models.Stream(null, {
-      basePath: Routes[route](app.page.model.get('guid')),
+      basePath: Routes[route](app.page.model.get("guid")),
       collection: this.streamCollection
     });
     app.stream.fetch();

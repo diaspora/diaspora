@@ -2,7 +2,7 @@
   <div class="pull-right">
     {{#if is_own_profile}}
       {{!-- can't block myself, so don't check it here --}}
-      <a href="{{urlTo 'edit_profile'}}" id="edit_profile" class="btn btn-primary creation">{{t 'people.edit_my_profile'}}</a>
+      <a href="{{urlTo 'editProfile'}}" id="edit_profile" class="btn btn-primary creation">{{t 'people.edit_my_profile'}}</a>
     {{else}} {{#if is_blocked}}
       <a href="#" id="unblock_user_button" class="btn btn-danger">{{t 'people.stop_ignoring'}}</a>
     {{else}}
@@ -31,7 +31,7 @@
         <div class="description">
           <i>{{t 'profile.you_have_no_tags'}}</i>
           <span class="add_tags">
-            <a href="{{urlTo 'edit_profile'}}">{{t 'profile.add_some'}}</a>
+            <a href="{{urlTo 'editProfile'}}">{{t 'profile.add_some'}}</a>
           </span>
         </div>
       {{/if}}
@@ -74,8 +74,8 @@
         </a>
       </li>
       {{#if show_photos}}
-        <li {{#isCurrentPage 'person_photos' guid}} class="active" {{/isCurrentPage}}>
-          <a href="{{urlTo 'person_photos' guid}}" id="photos_link">
+        <li {{#isCurrentPage 'personPhotos' guid}} class="active" {{/isCurrentPage}}>
+          <a href="{{urlTo 'personPhotos' guid}}" id="photos_link">
             <i class="entypo picture"></i>
             {{t 'profile.photos'}}
             <div class="badge badge-default">{{photos.count}}</div>
@@ -83,7 +83,7 @@
         </li>
       {{/if}}
       {{#if show_contacts}}
-        <li {{#isCurrentPage 'person_contacts' guid}} class="active" {{/isCurrentPage}}>
+        <li {{#isCurrentPage 'personContacts' guid}} class="active" {{/isCurrentPage}}>
           {{#if is_own_profile}}
             <a href="{{urlTo 'contacts'}}" id="contacts_link">
               <i class="entypo users"></i>
@@ -91,7 +91,7 @@
               <div class="badge badge-default">{{contacts.count}}</div>
             </a>
           {{else}}
-            <a href="{{urlTo 'person_contacts' guid}}" id="contacts_link">
+            <a href="{{urlTo 'personContacts' guid}}" id="contacts_link">
               <i class="entypo users"></i>
               {{t 'profile.contacts'}}
               <div class="badge badge-default">{{contacts.count}}</div>

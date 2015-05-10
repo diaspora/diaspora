@@ -12,13 +12,13 @@ Handlebars.registerHelper('imageUrl', function(path){
   return ImagePaths.get(path);
 });
 
-Handlebars.registerHelper('urlTo', function(path_helper, id, data){
+Handlebars.registerHelper("urlTo", function(pathHelper, id, data){
   if( !data ) {
     // only one argument given to helper, mangle parameters
     data = id;
-    return Routes[path_helper+'_path'](data.hash);
+    return Routes[pathHelper](data.hash);
   }
-  return Routes[path_helper+'_path'](id, data.hash);
+  return Routes[pathHelper](id, data.hash);
 });
 
 Handlebars.registerHelper('linkToAuthor', function(context, block) {
@@ -89,32 +89,32 @@ Handlebars.registerHelper('localTime', function(timestamp) {
   return new Date(timestamp).toLocaleString();
 });
 
-Handlebars.registerHelper('fmtTags', function(tags) {
+Handlebars.registerHelper("fmtTags", function(tags) {
   var links = _.map(tags, function(tag) {
-    return '<a class="tag" href="' + Routes.tag_path(tag) + '">' +
-           '  #' + tag +
-           '</a>';
-  }).join(' ');
+    return "<a class=\"tag\" href=\"" + Routes.tag(tag) + "\">" +
+           "  #" + tag +
+           "</a>";
+  }).join(" ");
   return new Handlebars.SafeString(links);
 });
 
-Handlebars.registerHelper('fmtText', function(text) {
+Handlebars.registerHelper("fmtText", function(text) {
   return new Handlebars.SafeString(app.helpers.textFormatter(text));
 });
 
-Handlebars.registerHelper('isCurrentPage', function(path_helper, id, options){
+Handlebars.registerHelper("isCurrentPage", function(pathHelper, id, options){
   var currentPage = "/"+Backbone.history.fragment;
-  if (currentPage === Handlebars.helpers.urlTo(path_helper, id, options.data)) {
+  if (currentPage === Handlebars.helpers.urlTo(pathHelper, id, options.data)) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
 });
 
-Handlebars.registerHelper('isCurrentProfilePage', function(id, diaspora_handle, options){
-  var username = diaspora_handle.split("@")[0];
-  return Handlebars.helpers.isCurrentPage('person', id, options) ||
-         Handlebars.helpers.isCurrentPage('user_profile', username, options);
+Handlebars.registerHelper("isCurrentProfilePage", function(id, diasporaHandle, options){
+  var username = diasporaHandle.split("@")[0];
+  return Handlebars.helpers.isCurrentPage("person", id, options) ||
+         Handlebars.helpers.isCurrentPage("userProfile", username, options);
 });
 
 Handlebars.registerHelper('aspectMembershipIndicator', function(contact,in_aspect) {

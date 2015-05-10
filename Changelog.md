@@ -49,6 +49,7 @@ Ruby 2.0 is no longer officially supported.
 * Added link to diasporafoundation.org to invitation email [#5893](https://github.com/diaspora/diaspora/pull/5893)
 * Gracefully handle missing `og:url`s [#5926](https://github.com/diaspora/diaspora/pull/5926)
 * Remove private post content from "also commented" mails [#5931](https://github.com/diaspora/diaspora/pull/5931)
+* Add a button to follow/unfollow tags to the mobile interface [#5941](https://github.com/diaspora/diaspora/pull/5941)
 
 # 0.5.0.1
 
