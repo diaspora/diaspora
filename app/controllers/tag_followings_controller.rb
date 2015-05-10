@@ -7,6 +7,7 @@ class TagFollowingsController < ApplicationController
   before_action :authenticate_user!
 
   respond_to :json
+  respond_to :html, only: [:manage]
 
   # POST /tag_followings
   # POST /tag_followings.xml
@@ -47,5 +48,10 @@ class TagFollowingsController < ApplicationController
     respond_to do |format|
       format.json{ render(:json => tags.to_json, :status => 200) }
     end
+  end
+
+  def manage
+    redirect_to followed_tags_stream_path unless request.format == :mobile
+    gon.preloads[:tagFollowings] = tags
   end
 end

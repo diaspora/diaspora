@@ -94,7 +94,11 @@ Diaspora::Application.routes.draw do
 
   resources :tags, :only => [:index]
 
-  resources "tag_followings", :only => [:create, :destroy, :index]
+  resources "tag_followings", only: %i(create destroy index) do
+    collection do
+      get :manage
+    end
+  end
 
   get 'tags/:name' => 'tags#show', :as => 'tag'
 
