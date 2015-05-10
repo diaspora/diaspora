@@ -23,7 +23,7 @@ module Workers
       Rails.logger.info("failed to save received object: #{e.record.errors.full_messages}")
       raise e unless e.message.match(/already been taken/)
     rescue ActiveRecord::RecordNotUnique => e
-      Rails.logger.info("failed to save received object: #{e.record.errors.full_messages}")
+      Rails.logger.info("failed to save received object: #{e.message}")
       raise e unless %w(
         index_comments_on_guid
         index_likes_on_guid
