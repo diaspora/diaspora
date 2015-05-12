@@ -120,7 +120,6 @@ en:
       account_closing_scheduled: "The account of %{name} is scheduled to be closed. It will be processed in a few moments..."
       account_locking_scheduled: "The account of %{name} is scheduled to be locked. It will be processed in a few moments..."
       account_unlocking_scheduled: "The account of %{name} is scheduled to be unlocked. It will be processed in a few moments..."
-      email_to: "Email to Invite"
       email_to: "Email to invite"
       under_13: "Show users that are under 13 (COPPA)"
       users:
@@ -718,7 +717,7 @@ en:
       mark_unread: "Mark unread"
       show_all: "Show all"
       show_unread: "Show unread"
-      all_notifications: "All Notifications"
+      all_notifications: "All notifications"
       also_commented: "Also commented"
       comment_on_post: "Comment on post"
       liked: "Liked"
