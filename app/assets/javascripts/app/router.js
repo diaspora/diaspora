@@ -7,6 +7,8 @@ app.Router = Backbone.Router.extend({
     "help": "help",
     "contacts": "contacts",
     "conversations": "conversations",
+    "user/edit": "settings",
+    "users/sign_up": "registration",
 
     //new hotness
     "posts/:id": "singlePost",
@@ -58,6 +60,14 @@ app.Router = Backbone.Router.extend({
 
   conversations: function() {
     app.conversations = new app.views.Conversations();
+  },
+
+  registration: function() {
+    app.page = new app.pages.Registration();
+  },
+
+  settings: function() {
+    app.page = new app.pages.Settings();
   },
 
   singlePost : function(id) {

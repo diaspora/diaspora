@@ -2,9 +2,15 @@
 
   %fieldset
     %label
-      = f.label :user_email, t('registrations.new.email'), class: 'control-label'
+      = f.label :user_email, t("registrations.new.email"), class: "control-label"
     %i.entypo.mail
-    = f.email_field :email, class: "input-block-level form-control", placeholder: t('registrations.new.email'), title: t('registrations.new.enter_email'), required: true
+    = f.email_field :email,
+      autofocus: true,
+      class: "input-block-level form-control",
+      data: {content: t("users.edit.your_email_private")},
+      placeholder: t("registrations.new.email"),
+      required: true,
+      title: t("registrations.new.enter_email")
 
     %label.control-label{for: "user_username"}
       = t('registrations.new.username')

@@ -25,7 +25,8 @@
         .span6
           %h3
             = t('.your_email')
-          %small= t('.your_email_private')
+            %i.entypo.lock.gray.settings_visibilty{title: t("users.edit.your_email_private")}
+
           = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
             = f.error_messages
             .form-inline
