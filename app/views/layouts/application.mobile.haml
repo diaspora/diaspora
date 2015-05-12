@@ -98,6 +98,9 @@
                   - current_user.followed_tags.each do |tag|
                     %li
                       = tag_link(tag)
+                  - if current_user.followed_tags.length > 0
+                    %li.manage_followed_tags
+                      = link_to t("tag_followings.manage.title"), manage_tag_followings_path
               %li
                 = link_to user_profile_path(current_user.username) do
                   = t('layouts.header.profile')
