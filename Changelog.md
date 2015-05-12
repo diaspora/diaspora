@@ -39,6 +39,7 @@ Ruby 2.0 is no longer officially supported.
 * Use correct branding in Atom feed [#5929](https://github.com/diaspora/diaspora/pull/5929)
 * Update the configurate gem to avoid issues by missed missing settings keys [#5934](https://github.com/diaspora/diaspora/pull/5934)
 * ContactPresenter#full_hash_with_person did not contain relationship information [#5936](https://github.com/diaspora/diaspora/pull/5936)
+* Fix inactive user removal not respecting configuration for daily limits [#5953](https://github.com/diaspora/diaspora/pull/5953)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
