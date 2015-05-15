@@ -92,42 +92,49 @@ describe Request do
                                   :into => eve.aspects.first).receive(alice, eve.person)
       expect(alice.contact_for(eve.person)).to be_sharing
     end
-    
+
     it 'shares back if auto_following is enabled' do
       alice.auto_follow_back = true
       alice.auto_follow_back_aspect = alice.aspects.first
       alice.save
-      
+
       described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
                                           :into => eve.aspects.first).receive(alice, eve.person)
-      
+
       expect(eve.contact_for( alice.person )).to be_sharing
     end
-    
+
     it 'shares not back if auto_following is not enabled' do
       alice.auto_follow_back = false
       alice.auto_follow_back_aspect = alice.aspects.first
       alice.save
-      
+
       described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
                                   :into => eve.aspects.first).receive(alice, eve.person)
-      
+
       expect(eve.contact_for(alice.person)).to be_nil
     end
-    
+
     it 'shares not back if already sharing' do
       alice.auto_follow_back = true
       alice.auto_follow_back_aspect = alice.aspects.first
       alice.save
-      
+
       contact = FactoryGirl.build:contact, :user => alice, :person => eve.person,
                                   :receiving => true, :sharing => false
       contact.save
-      
+
       expect(alice).not_to receive(:share_with)
-      
+
       described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
                                   :into => eve.aspects.first).receive(alice, eve.person)
+    end
+
+    it "queue a job to fetch public posts" do
+      expect(Diaspora::Fetcher::Public).to receive(:queue_for).exactly(1).times
+
+      described_class.diaspora_initialize(from: eve.person, to: alice.person,
+                                          into: eve.aspects.first).receive(alice, eve.person)
     end
   end
 

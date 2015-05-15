@@ -25,6 +25,24 @@ describe Diaspora::Fetcher::Public do
       }).to_return(:body => @fixture)
   end
 
+  describe "#queue_for" do
+    it "queues a new job" do
+      @person.fetch_status = Diaspora::Fetcher::Public::Status_Initial
+
+      expect(Workers::FetchPublicPosts).to receive(:perform_async).with(@person.diaspora_handle)
+
+      Diaspora::Fetcher::Public.queue_for(@person)
+    end
+
+    it "queues no job if the status is not initial" do
+      @person.fetch_status = Diaspora::Fetcher::Public::Status_Done
+
+      expect(Workers::FetchPublicPosts).not_to receive(:perform_async).with(@person.diaspora_handle)
+
+      Diaspora::Fetcher::Public.queue_for(@person)
+    end
+  end
+
   describe "#retrieve_posts" do
     before do
       person = @person

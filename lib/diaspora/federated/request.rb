@@ -81,6 +81,9 @@ class Request
 
     user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back && !contact.receiving
 
+    # also, schedule to fetch a few public posts from that person
+    Diaspora::Fetcher::Public.queue_for(person)
+
     self
   end
 
