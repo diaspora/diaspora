@@ -26,6 +26,7 @@
 * ContactPresenter#full_hash_with_person did not contain relationship information [#5936](https://github.com/diaspora/diaspora/pull/5936)
 * Fix inactive user removal not respecting configuration for daily limits [#5953](https://github.com/diaspora/diaspora/pull/5953)
 * Fix missing localization of inactive user removal warning emails [#5950](https://github.com/diaspora/diaspora/issues/5950)
+* Fix fetching for public post while Webfingering [#5958](https://github.com/diaspora/diaspora/pull/5958)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)

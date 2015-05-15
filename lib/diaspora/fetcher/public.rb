@@ -75,7 +75,7 @@ module Diaspora; module Fetcher; class Public
 
       FEDERATION_LOGGER.info "fetching public posts for #{@person.diaspora_handle}"
 
-      resp = Faraday.get("#{@person.url}people/#{@person.guid}") do |req|
+      resp = Faraday.get("#{@person.url}people/#{@person.guid}/stream") do |req|
         req.headers['Accept'] = 'application/json'
         req.headers['User-Agent'] = 'diaspora-fetcher'
       end
