@@ -27,7 +27,7 @@
             .control-group
               = f.label :username, t('username')
               .controls
-                = f.text_field :username, :autofocus => true
+                = f.text_field :username, :autofocus => true, :autocapitalize => 'none', :autocorrect => 'off'
 
             .control-group
               = f.label :password , t('password')
