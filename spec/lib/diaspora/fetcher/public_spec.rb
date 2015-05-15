@@ -17,7 +17,7 @@ describe Diaspora::Fetcher::Public do
                                 :url => "https://remote-testpod.net",
                                 :diaspora_handle => "testuser@remote-testpod.net"})
 
-    stub_request(:get, /remote-testpod.net\/people\/.*/)
+    stub_request(:get, /remote-testpod.net\/people\/.*\/stream/)
       .with(headers: {
             'Accept'=>'application/json',
             'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
