@@ -53,6 +53,7 @@ Ruby 2.0 is no longer officially supported.
 * Remove private post content from "also commented" mails [#5931](https://github.com/diaspora/diaspora/pull/5931)
 * Add a button to follow/unfollow tags to the mobile interface [#5941](https://github.com/diaspora/diaspora/pull/5941)
 * Add a "Manage followed tags" page to mass unfollow tags in the mobile interface [#5945](https://github.com/diaspora/diaspora/pull/5945)
+* Add popover/tooltip about email visibility to registration/settings page [#5956](https://github.com/diaspora/diaspora/pull/5956)
 
 # 0.5.0.1
 
