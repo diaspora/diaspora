@@ -42,6 +42,7 @@ Ruby 2.0 is no longer officially supported.
 * Fix inactive user removal not respecting configuration for daily limits [#5953](https://github.com/diaspora/diaspora/pull/5953)
 * Fix missing localization of inactive user removal warning emails [#5950](https://github.com/diaspora/diaspora/issues/5950)
 * Fix fetching for public post while Webfingering [#5958](https://github.com/diaspora/diaspora/pull/5958)
+* Handle empty searchable in HCard gracefully [#5962](https://github.com/diaspora/diaspora/pull/5962)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
