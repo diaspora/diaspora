@@ -4,6 +4,7 @@ describe Workers::QueueUsersForRemoval do
   describe 'remove_old_users is active' do
     before do
       AppConfig.settings.maintenance.remove_old_users.enable = true
+      AppConfig.settings.maintenance.remove_old_users.limit_removals_to_per_day = 1
       ActionMailer::Base.deliveries = nil
       Timecop.freeze
     end
@@ -49,6 +50,13 @@ describe Workers::QueueUsersForRemoval do
       user.reload
       expect(user.remove_after).to eq(removal_date)
       expect(ActionMailer::Base.deliveries.count).to eq(0)
+    end
+
+    it '#does not queue more warnings than has been configured as limit' do
+      FactoryGirl.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 1)
+      FactoryGirl.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 1)
+      Workers::QueueUsersForRemoval.new.perform
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
     
     after do
