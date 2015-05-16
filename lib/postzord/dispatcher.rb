@@ -66,8 +66,6 @@ class Postzord::Dispatcher
     @object
   end
 
-  
-
   protected
 
   # @return [Object]
@@ -170,14 +168,7 @@ class Postzord::Dispatcher
   def notify_users(users)
     return unless users.present? && @object.respond_to?(:persisted?)
 
-    #temp hax
-    unless object_is_related_to_diaspora_hq?
-      Workers::NotifyLocalUsers.perform_async(users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
-    end
-  end
-
-  def object_is_related_to_diaspora_hq?
-    (@object.author.diaspora_handle == 'diasporahq@joindiaspora.com' || (@object.respond_to?(:relayable?) && @object.parent.author.diaspora_handle == 'diasporahq@joindiaspora.com'))
+    Workers::NotifyLocalUsers.perform_async(users.map(&:id), @object.class.to_s, @object.id, @object.author.id)
   end
 end
 
