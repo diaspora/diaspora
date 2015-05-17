@@ -20,6 +20,19 @@ describe Reshare, :type => :model do
     expect(FactoryGirl.create(:reshare, :public => false).public).to be true
   end
 
+  describe "#root_diaspora_id" do
+    it "should return the root diaspora id" do
+      reshare = FactoryGirl.create(:reshare, root: FactoryGirl.build(:status_message, author: bob.person, public: true))
+      expect(reshare.root_diaspora_id).to eq(bob.person.diaspora_handle)
+    end
+
+    it "should be nil if no root found" do
+      reshare = FactoryGirl.create(:reshare, root: FactoryGirl.build(:status_message, author: bob.person, public: true))
+      reshare.root = nil
+      expect(reshare.root_diaspora_id).to be_nil
+    end
+  end
+
   describe "#receive" do
     let(:receive_reshare) { @reshare.receive(@root.author.owner, @reshare.author) }
 

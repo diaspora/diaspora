@@ -26,7 +26,7 @@ class Reshare < Post
   end
 
   def root_diaspora_id
-    self.root.author.diaspora_handle
+    root.try(:author).try(:diaspora_handle)
   end
 
   delegate :o_embed_cache, :open_graph_cache,
