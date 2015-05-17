@@ -725,6 +725,12 @@ describe User, :type => :model do
         user.save!
         expect(user.unconfirmed_email).to eql("alice@newmail.com")
       end
+
+      it "downcases the unconfirmed email" do
+        user.unconfirmed_email = "AlIce@nEwmaiL.Com"
+        user.save!
+        expect(user.unconfirmed_email).to eql("alice@newmail.com")
+      end
     end
 
     describe "#confirm_email_token" do
@@ -759,16 +765,16 @@ describe User, :type => :model do
       end
     end
 
-    describe '#mail_confirm_email' do
-      it 'enqueues a mail job on user with unconfirmed email' do
+    describe "#send_confirm_email" do
+      it "enqueues a mail job on user with unconfirmed email" do
         user.update_attribute(:unconfirmed_email, "alice@newmail.com")
         expect(Workers::Mail::ConfirmEmail).to receive(:perform_async).with(alice.id).once
-        expect(alice.mail_confirm_email).to eql(true)
+        alice.send_confirm_email
       end
 
-      it 'enqueues NO mail job on user without unconfirmed email' do
+      it "enqueues NO mail job on user without unconfirmed email" do
         expect(Workers::Mail::ConfirmEmail).not_to receive(:perform_async).with(alice.id)
-        expect(alice.mail_confirm_email).to eql(false)
+        alice.send_confirm_email
       end
     end
 
