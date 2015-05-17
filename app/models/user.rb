@@ -361,10 +361,9 @@ class User < ActiveRecord::Base
     end
   end
 
-  def mail_confirm_email
-    return false if unconfirmed_email.blank?
+  def send_confirm_email
+    return if unconfirmed_email.blank?
     Workers::Mail::ConfirmEmail.perform_async(id)
-    true
   end
 
   ######### Posts and Such ###############
