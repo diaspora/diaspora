@@ -140,8 +140,13 @@ configuration: ## Section
 
   ## Settings affecting how ./script/server behaves.
   server: ## Section
+    ## Where the appserver should listen to (default=0.0.0.0:3000)
+    #listen: '127.0.0.1:3000'
+    #listen: 'unix:tmp/diaspora.sock'
+    #listen: 'unix:/run/diaspora/diaspora.sock'
 
-    ## The port on which the appserver should listen (default=3000).
+    ## The port on which the appserver should listen (default=none).
+    ## Note: this setting is deprecated, use listen instead.
     #port: 3000
 
     ## Rails environment (default='development').
@@ -407,14 +412,14 @@ configuration: ## Section
     ## **or** an encrypted key for an unhosted button.
     paypal_donations: ## Section
       #enable: false
-    
+
       ## Currency used (USD, EUR...)
       #currency: USD
-    
+
       ## hosted Paypal button id
       #paypal_hosted_button_id: "change_me"
       ## OR encrypted key of unhosted button
-      #paypal_unhosted_button_encrypted: "-----BEGIN PKCS7-----" 
+      #paypal_unhosted_button_encrypted: "-----BEGIN PKCS7-----"
 
     ## Bitcoin donations
     ## You can provide a bitcoin address here to allow your users to provide

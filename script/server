@@ -119,17 +119,28 @@ then
   export DB
 fi
 
+if [ -z "$PORT" -a -n "$port" ]
+then
+  warning "Setting port via configuration is deprecated, set listen instead. See the updated config/diaspora.yml.example."
+  PORT="$port"
+fi
+
 args="$@"
 for arg in $(echo $args | awk '{ for (i = 1; i <= NF; i++) print $i}')
 do
-  [ "$prev_arg" = '-p' ] && port="$arg"
+  [ "$prev_arg" = '-p' ] && PORT="$arg"
   prev_arg="$arg"
 done
 
-services=$(chk_service $port )
-if [ -n "$services" ]
+if [ -n "$PORT" ]
 then
-  fatal "Port $port is already in use.\n\t$services"
+  export PORT
+
+  services=$(chk_service $PORT)
+  if [ -n "$services" ]
+  then
+    fatal "Port $port is already in use.\n\t$services"
+  fi
 fi
 
 # Force AGPL
@@ -186,11 +197,15 @@ think about editing your proxy configuration as described in:
 diaspora.yml.example
 *****************************************************************
 "
-  fi
 fi
 
 # Start Diaspora
-printf "Starting Diaspora in $RAILS_ENV mode on port $port "
+printf "Starting Diaspora in $RAILS_ENV mode "
+if [ -n "$PORT" ]
+then
+  printf "on port $PORT "
+  port_option="-p $PORT"
+fi
 if [ "$embed_sidekiq_worker" = "true" ]
 then
   echo "with a Sidekiq worker embedded into Unicorn."
@@ -204,4 +219,4 @@ else
 fi
 echo ""
 
-exec bin/bundle exec foreman start -m "xmpp=$vines,web=1,sidekiq=$workers" -p $port
+exec bin/bundle exec foreman start -m "xmpp=$vines,web=1,sidekiq=$workers" $port_option
