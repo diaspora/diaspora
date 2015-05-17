@@ -172,7 +172,7 @@ describe Photo, :type => :model do
       expect(image.exif.length).to eq(0)
     end
   end
-  
+
   describe 'non-image files' do
     it 'should not store' do
       file = File.open(@fail_fixture_name)
@@ -213,7 +213,6 @@ describe Photo, :type => :model do
     end
 
     it 'should set the remote_photo on marshalling' do
-      #security hax
       user2 = FactoryGirl.create(:user)
       aspect2 = user2.aspects.create(:name => "foobars")
       connect_users(@user, @aspect, user2, aspect2)
