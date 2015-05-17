@@ -130,7 +130,7 @@ gem "redcarpet",         "3.2.3"
 gem "twitter-text",      "1.12.0"
 gem "roxml",             "3.1.6"
 gem "ruby-oembed",       "0.8.14"
-gem "open_graph_reader", "0.6.0"
+gem "open_graph_reader", "0.6.1"
 
 # Services
 

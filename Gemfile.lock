@@ -443,7 +443,7 @@ GEM
       omniauth-oauth (~> 1.0)
     omniauth-wordpress (0.2.1)
       omniauth-oauth2 (~> 1.1.0)
-    open_graph_reader (0.6.0)
+    open_graph_reader (0.6.1)
       faraday (~> 0.9.0)
       nokogiri (~> 1.6)
     orm_adapter (0.5.0)
@@ -767,7 +767,7 @@ DEPENDENCIES
   omniauth-tumblr (= 1.1)
   omniauth-twitter (= 1.0.1)
   omniauth-wordpress (= 0.2.1)
-  open_graph_reader (= 0.6.0)
+  open_graph_reader (= 0.6.1)
   pry
   pry-byebug
   pry-debundle
