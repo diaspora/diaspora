@@ -182,13 +182,9 @@ https://github.com/diaspora/diaspora/issues/4202 for details
 "
 fi
 
-vines=0
-if [ "$chat" = "true" ] && [ "$chat_server" = "true" ]
+if [ "$chat" = "true" -a "$chat_server" = "true" -a  "$chat_bosh_proxy" = "false" ]
 then
-  vines=1
-  if [ "$chat_bosh_proxy" = "false" ]
-  then
-    warning "
+  warning "
 *****************************************************************
 You enabled the chat feature but haven't configured BOSH! That
 could lead to mixed-content problems with the http clients. Please
@@ -204,7 +200,6 @@ printf "Starting Diaspora in $RAILS_ENV mode "
 if [ -n "$PORT" ]
 then
   printf "on port $PORT "
-  port_option="-p $PORT"
 fi
 if [ "$embed_sidekiq_worker" = "true" ]
 then
@@ -219,4 +214,4 @@ else
 fi
 echo ""
 
-exec bin/bundle exec foreman start -m "xmpp=$vines,web=1,sidekiq=$workers" $port_option
+exec bin/bundle exec loader_eye -st -c config/eye.rb
