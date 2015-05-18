@@ -61,14 +61,6 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
   preloadOrFetch : function(){
     var action = app.hasPreload("post") ? this.set(app.parsePreload("post")) : this.fetch();
     return $.when(action);
-  },
-
-  hasPhotos : function(){
-    return this.get("photos") && this.get("photos").length > 0;
-  },
-
-  hasText : function(){
-    return $.trim(this.get("text")) !== "";
   }
 }));
 // @license-end
