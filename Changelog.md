@@ -22,6 +22,7 @@ Ruby 2.0 is no longer officially supported.
 * Drop broken install scripts [#5907](https://github.com/diaspora/diaspora/pull/5907)
 * Improve invoking mobile site in the testsuite [#5915](https://github.com/diaspora/diaspora/pull/5915)
 * Do not retry a couple of unrecoverable job failures [#5938](https://github.com/diaspora/diaspora/pull/5938) [#5942](https://github.com/diaspora/diaspora/pull/5943)
+* Remove some old temporary workarounds [#5964](https://github.com/diaspora/diaspora/pull/5964)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)

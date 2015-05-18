@@ -103,7 +103,7 @@ end
 When /^I click to delete the first comment$/ do
   within("div.comment", match: :first) do
     find(".control-icons").hover
-    find(".comment_delete", visible: false).click # TODO: hax to check what's failing on Travis
+    find(".comment_delete").click
   end
 end
 

@@ -10,10 +10,6 @@ module Workers
 
       object = object_klass.constantize.find_by_id(object_id)
 
-      #hax
-      return if (object.author.diaspora_handle == 'diasporahq@joindiaspora.com' || (object.respond_to?(:relayable?) && object.parent.author.diaspora_handle == 'diasporahq@joindiaspora.com'))
-      #end hax
-
       users = User.where(:id => user_ids)
       person = Person.find_by_id(person_id)
 
