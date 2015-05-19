@@ -52,14 +52,6 @@ class Post < ActiveRecord::Base
     joins(:likes).where(:likes => {:author_id => person.id})
   }
 
-  def self.newer(post)
-    where("posts.created_at > ?", post.created_at).reorder('posts.created_at ASC').first
-  end
-
-  def self.older(post)
-    where("posts.created_at < ?", post.created_at).reorder('posts.created_at DESC').first
-  end
-
   def self.visible_from_author(author, current_user=nil)
     if current_user.present?
       current_user.posts_from(author)
