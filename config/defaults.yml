@@ -32,7 +32,8 @@ defaults:
       host:
     pubsub_server: 'https://pubsubhubbub.appspot.com/'
   server:
-    port: 3000
+    port:
+    listen: '0.0.0.0:3000'
     rails_environment: 'development'
     stderr_log:
     stdout_log:

@@ -24,6 +24,7 @@ Ruby 2.0 is no longer officially supported.
 * Do not retry a couple of unrecoverable job failures [#5938](https://github.com/diaspora/diaspora/pull/5938) [#5942](https://github.com/diaspora/diaspora/pull/5943)
 * Remove some old temporary workarounds [#5964](https://github.com/diaspora/diaspora/pull/5964)
 * Remove unused `hasPhotos` and `hasText` functions [#5969](https://github.com/diaspora/diaspora/pull/5969)
+* Replace foreman with eye [#5966](https://github.com/diaspora/diaspora/pull/5966)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
