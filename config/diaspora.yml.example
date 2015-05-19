@@ -140,10 +140,10 @@ configuration: ## Section
 
   ## Settings affecting how ./script/server behaves.
   server: ## Section
-    ## Where the appserver should listen to (default=0.0.0.0:3000)
-    #listen: '127.0.0.1:3000'
+    ## Where the appserver should listen to (default=unix:tmp/diaspora.sock)
     #listen: 'unix:tmp/diaspora.sock'
     #listen: 'unix:/run/diaspora/diaspora.sock'
+    #listen: '127.0.0.1:3000'
 
     ## Rails environment (default='development').
     ## The environment in which the server should be started by default.
