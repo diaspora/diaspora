@@ -145,10 +145,6 @@ configuration: ## Section
     #listen: 'unix:tmp/diaspora.sock'
     #listen: 'unix:/run/diaspora/diaspora.sock'
 
-    ## The port on which the appserver should listen (default=none).
-    ## Note: this setting is deprecated, use listen instead.
-    #port: 3000
-
     ## Rails environment (default='development').
     ## The environment in which the server should be started by default.
     ## Change this to 'production' if you wish to run a production environment.

@@ -103,7 +103,6 @@ fi
 
 os=$(uname -s)
 vars=$(bin/bundle exec ruby ./script/get_config.rb \
-  port=server.port \
   single_process_mode=environment.single_process_mode? \
   embed_sidekiq_worker=server.embed_sidekiq_worker \
   workers=server.sidekiq_workers \
@@ -117,12 +116,6 @@ eval "$vars"
 if [ -n "$DB" ]
 then
   export DB
-fi
-
-if [ -z "$PORT" -a -n "$port" ]
-then
-  warning "Setting port via configuration is deprecated, set listen instead. See the updated config/diaspora.yml.example."
-  PORT="$port"
 fi
 
 args="$@"
@@ -139,7 +132,7 @@ then
   services=$(chk_service $PORT)
   if [ -n "$services" ]
   then
-    fatal "Port $port is already in use.\n\t$services"
+    fatal "Port $PORT is already in use.\n\t$services"
   fi
 fi
 
