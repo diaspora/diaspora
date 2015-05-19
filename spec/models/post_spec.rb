@@ -149,21 +149,6 @@ describe Post, :type => :model do
         end
 
       end
-
-      # @posts[0] is the newest, @posts[5] is the oldest
-      describe ".newer" do
-        it 'returns the next post in the array' do
-          expect(@posts[3].created_at).to be < @posts[2].created_at #post 2 is newer
-          expect(Post.newer(@posts[3]).created_at.to_s).to eq(@posts[2].created_at.to_s) #its the newer post, not the newest
-        end
-      end
-
-      describe ".older" do
-        it 'returns the previous post in the array' do
-          expect(Post.older(@posts[3]).created_at.to_s).to eq(@posts[4].created_at.to_s) #its the older post, not the oldest
-          expect(@posts[3].created_at).to be > @posts[4].created_at #post 4 is older
-        end
-      end
     end
   end
 
