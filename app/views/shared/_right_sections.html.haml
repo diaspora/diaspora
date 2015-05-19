@@ -57,8 +57,9 @@
 
       #right_service_icons
         - AppConfig.configured_services.each do |service|
-          - unless current_user.services.any?{|x| x.provider == service}
-            = link_to(content_tag(:div, nil, :class => "social_media_logos-#{service.to_s.downcase}-24x24", :title => service.to_s.titleize), "/auth/#{service}")
+          - if AppConfig.show_service?(service, current_user)
+            - unless current_user.services.any?{|x| x.provider == service}
+              = link_to(content_tag(:div, nil, :class => "social_media_logos-#{service.to_s.downcase}-24x24", :title => service.to_s.titleize), "/auth/#{service}")
 
 .section
   .title

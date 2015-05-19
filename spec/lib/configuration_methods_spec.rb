@@ -8,40 +8,40 @@ describe Configuration::Methods do
       extend Configuration::Methods
     end
   end
-  
+
   describe "#pod_uri" do
     before do
       @settings.environment.url = nil
       @settings.instance_variable_set(:@pod_uri, nil)
     end
-    
+
     it "properly parses the pod url" do
       @settings.environment.url = "http://example.org/"
       expect(@settings.pod_uri.scheme).to eq("http")
       expect(@settings.pod_uri.host).to eq("example.org")
     end
-    
+
      it "adds a trailing slash if there isn't one" do
       @settings.environment.url = "http://example.org"
       expect(@settings.pod_uri.to_s).to eq("http://example.org/")
     end
-    
+
     it "does not add an extra trailing slash" do
       @settings.environment.url = "http://example.org/"
       expect(@settings.pod_uri.to_s).to eq("http://example.org/")
     end
-    
+
     it "adds http:// on the front if it's missing" do
       @settings.environment.url = "example.org/"
       expect(@settings.pod_uri.to_s).to eq("http://example.org/")
     end
-    
+
     it "does not add a prefix if there already is https:// on the front" do
       @settings.environment.url = "https://example.org/"
       expect(@settings.pod_uri.to_s).to eq("https://example.org/")
     end
   end
-  
+
   describe "#bare_pod_uri" do
     it 'is #pod_uri.authority stripping www.' do
       pod_uri = double
@@ -50,7 +50,7 @@ describe Configuration::Methods do
       expect(@settings.bare_pod_uri).to eq('example.org')
     end
   end
-  
+
   describe "#configured_services" do
     it "includes the enabled services only" do
       services = double
@@ -69,7 +69,40 @@ describe Configuration::Methods do
       expect(@settings.configured_services).not_to include :wordpress
     end
   end
-  
+
+  describe "#show_service" do
+    before do
+      AppConfig.services.twitter.authorized = true
+      AppConfig.services.twitter.enable = true
+      AppConfig.services.facebook.authorized = true
+      AppConfig.services.facebook.enable = true
+      AppConfig.services.wordpress.authorized = false
+      AppConfig.services.wordpress.enable = true
+      AppConfig.services.tumblr.authorized = "alice"
+      AppConfig.services.tumblr.enable = true
+    end
+
+    it "shows service with no authorized key" do
+      expect(AppConfig.show_service?("twitter", bob)).to be_truthy
+    end
+
+    it "shows service with authorized key true" do
+      expect(AppConfig.show_service?("facebook", bob)).to be_truthy
+    end
+
+    it "doesn't show service with authorized key false" do
+      expect(AppConfig.show_service?("wordpress", bob)).to be_falsey
+    end
+
+    it "doesn't show service with authorized key not equal to username" do
+      expect(AppConfig.show_service?("tumblr", bob)).to be_falsey
+    end
+
+    it "shows service with authorized key equal to username" do
+      expect(AppConfig.show_service?("tumblr", alice)).to be_truthy
+    end
+  end
+
   describe "#version_string" do
     before do
       @version = double
@@ -83,61 +116,61 @@ describe Configuration::Methods do
     it "includes the version" do
       expect(@settings.version_string).to include @version.number
     end
-    
+
     context "with git available" do
       before do
         allow(@settings).to receive(:git_available?).and_return(true)
         allow(@settings).to receive(:git_revision).and_return("1234567890")
       end
-      
+
       it "includes the 'patchlevel'" do
         expect(@settings.version_string).to include "-p#{@settings.git_revision[0..7]}"
         expect(@settings.version_string).not_to include @settings.git_revision[0..8]
       end
     end
   end
-  
+
   describe "#get_redis_options" do
     context "with REDISTOGO_URL set" do
       before do
         ENV["REDISTOGO_URL"] = "redis://myserver"
       end
-      
+
       it "uses that" do
         expect(@settings.get_redis_options[:url]).to match "myserver"
       end
     end
-    
+
     context "with REDIS_URL set" do
       before do
         ENV["REDISTOGO_URL"] = nil
         ENV["REDIS_URL"] = "redis://yourserver"
       end
-      
+
       it "uses that" do
         expect(@settings.get_redis_options[:url]).to match "yourserver"
       end
     end
-    
+
     context "with redis set" do
       before do
         ENV["REDISTOGO_URL"] = nil
         ENV["REDIS_URL"] = nil
         @settings.environment.redis = "redis://ourserver"
       end
-      
+
       it "uses that" do
         expect(@settings.get_redis_options[:url]).to match "ourserver"
       end
     end
-    
+
     context "with a unix socket set" do
       before do
         ENV["REDISTOGO_URL"] = nil
         ENV["REDIS_URL"] = nil
         @settings.environment.redis = "unix:///tmp/redis.sock"
       end
-      
+
       it "uses that" do
         expect(@settings.get_redis_options[:url]).to match "/tmp/redis.sock"
       end
