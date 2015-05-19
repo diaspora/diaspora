@@ -98,7 +98,7 @@ class StatisticsPresenter
   def all_services_helper
     result = {}
     Configuration::KNOWN_SERVICES.each {|service, options|
-      result[service.to_s] = AppConfig["services.#{service}.enable"]
+      result[service.to_s] = AppConfig.show_service?(service, nil)
     }
     result
   end
@@ -109,13 +109,13 @@ class StatisticsPresenter
 
   def available_services
     Configuration::KNOWN_SERVICES.select {|service|
-      AppConfig["services.#{service}.enable"]
+      AppConfig.show_service?(service, nil)
     }.map(&:to_s)
   end
 
   def legacy_services
     Configuration::KNOWN_SERVICES.each_with_object({}) {|service, result|
-      result[service.to_s] = AppConfig["services.#{service}.enable"]
+      result[service.to_s] = AppConfig.show_service?(service, nil)
     }
   end
 
