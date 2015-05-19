@@ -10,7 +10,8 @@ app.views.Content = app.views.Base.extend({
       text : app.helpers.textFormatter(this.model.get("text"), this.model.get("mentioned_people")),
       largePhoto : this.largePhoto(),
       smallPhotos : this.smallPhotos(),
-      location: this.location()
+      location: this.location(),
+      isReshare : this.model.get("post_type") === "Reshare"
     });
   },
 

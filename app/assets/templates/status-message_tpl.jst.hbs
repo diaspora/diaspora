@@ -16,7 +16,15 @@
 
 <div class="collapsible">
   <div class="markdown-content">
-    {{{text}}}
+    {{#if text}}
+      {{{text}}}
+    {{else if isReshare}}
+      <div class="reshare">
+        <p>
+          {{t "stream.original_post_deleted"}}
+        </p>
+      </div>
+    {{/if}}
   </div>
   <div class="oembed"></div>
   <div class="opengraph"></div>

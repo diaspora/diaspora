@@ -10,4 +10,19 @@ describe("app.views.Content", function(){
       expect(this.view.smallPhotos().length).toEqual(1);
     });
   });
+
+  describe("presenter", function(){
+    beforeEach(function(){
+      this.post.set({text : ""}); // for textFormatter
+    });
+
+    it("provides isReshare", function(){
+      expect(this.view.presenter().isReshare).toBeFalsy();
+    });
+
+    it("provides isReshare and be true when the post is a reshare", function(){
+      this.post.set({post_type : "Reshare"});
+      expect(this.view.presenter().isReshare).toBeTruthy();
+    });
+  });
 });

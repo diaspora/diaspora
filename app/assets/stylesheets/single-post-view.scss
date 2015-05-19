@@ -98,6 +98,11 @@
     padding-top: 20px;
     width: auto;
 
+    #real-post-content div.reshare {
+      border-left: 2px solid #DDD;
+      padding-left: 10px;
+    }
+
     .oembed { width: 95%; }
     .photo_attachments {
       img.big_stream_photo { max-width: 90%; }

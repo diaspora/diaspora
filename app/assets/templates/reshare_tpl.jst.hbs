@@ -1,16 +1,11 @@
 <div class="reshare">
-
-  {{#if root}}
-
-    <div class="media">
-
+  <div class="media">
+    {{#if root}}
       {{#with root}}
         <a href="/people/{{author.guid}}" class="img {{{hovercardable this}}}">
           {{{personImage author 'small'}}}
         </a>
-      {{/with}}
 
-      {{#with root}}
         <div class="bd">
           <div>
             {{#linkToAuthor author}}
@@ -33,14 +28,10 @@
 
         {{> status-message}}
       </div>
-
-    </div>
-
-  {{else}}
-
-    <p>
-      {{t "stream.original_post_deleted"}}
-    </p>
-  {{/if}}
-
+    {{else}}
+      <p>
+        {{t "stream.original_post_deleted"}}
+      </p>
+    {{/if}}
+  </div>
 </div>
