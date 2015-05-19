@@ -47,6 +47,7 @@ Ruby 2.0 is no longer officially supported.
 * Fix fetching for public post while Webfingering [#5958](https://github.com/diaspora/diaspora/pull/5958)
 * Handle empty searchable in HCard gracefully [#5962](https://github.com/diaspora/diaspora/pull/5962)
 * Fix a freeze in new post parsing [#5965](https://github.com/diaspora/diaspora/pull/5965)
+* Add case insensitive unconfirmed email addresses as authentication key [#5967](https://github.com/diaspora/diaspora/pull/5967)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
