@@ -169,6 +169,10 @@ gem "mobile-fu",               "1.3.1"
 gem "will_paginate",           "3.0.7"
 gem "rails-timeago",           "2.11.0"
 
+# Logging
+
+gem "logging-rails", "0.5.0", require: "logging/rails"
+
 # Workarounds
 # https://github.com/rubyzip/rubyzip#important-note
 gem "zip-zip"

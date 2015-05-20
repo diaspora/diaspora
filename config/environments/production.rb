@@ -37,6 +37,12 @@ Diaspora::Application.configure do
   # Log level
   config.log_level = :info
 
+  # Set the logging destination(s)
+  config.log_to = %w[file]
+
+  # Show the logging configuration on STDOUT
+  config.show_log_configuration = false
+
   # Prepend all log lines with the following tags
   # config.log_tags = [ :subdomain, :uuid ]
 
@@ -66,7 +72,7 @@ Diaspora::Application.configure do
   config.active_support.deprecation = :notify
 
   # For nginx:
-   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+  config.action_dispatch.x_sendfile_header = "X-Accel-Redirect"
 
   if AppConfig.environment.assets.host.present?
     config.action_controller.asset_host = AppConfig.environment.assets.host.get
