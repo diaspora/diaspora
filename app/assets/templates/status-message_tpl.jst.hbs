@@ -18,12 +18,16 @@
   <div class="markdown-content">
     {{#if text}}
       {{{text}}}
-    {{else if isReshare}}
-      <div class="reshare">
-        <p>
-          {{t "stream.original_post_deleted"}}
-        </p>
-      </div>
+    {{else}}
+      {{#unless largePhoto}}
+        {{#if isReshare}}
+          <div class="reshare">
+            <p>
+              {{t "stream.original_post_deleted"}}
+            </p>
+          </div>
+        {{/if}}
+      {{/unless}}
     {{/if}}
   </div>
   <div class="oembed"></div>
