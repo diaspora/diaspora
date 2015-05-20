@@ -26,6 +26,8 @@ before_fork do |_server, _worker|
 end
 
 after_fork do |_server, _worker|
+  Logging.reopen # reopen logfiles to obtain a new file descriptor
+
   ActiveRecord::Base.establish_connection # preloading app in master, so reconnect to DB
 
   # We don't generate uuids in the frontend, but let's be on the safe side
