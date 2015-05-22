@@ -27,6 +27,7 @@ Ruby 2.0 is no longer officially supported.
 * Replace foreman with eye [#5966](https://github.com/diaspora/diaspora/pull/5966)
 * Improved handling of reshares with deleted roots [#5968](https://github.com/diaspora/diaspora/pull/5968)
 * Remove two unused methods [#5970](https://github.com/diaspora/diaspora/pull/5970)
+* Refactored the Logger to add basic logrotating and more useful timestamps [#5975](https://github.com/diaspora/diaspora/pull/5975)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)

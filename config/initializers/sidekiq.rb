@@ -27,6 +27,8 @@ Sidekiq.configure_server do |config|
 
   # Make sure each Sidekiq process has its own sequence of UUIDs
   UUID.generator.next_sequence
+
+  Sidekiq.logger = Logging.logger[Sidekiq]
 end
 
 Sidekiq.configure_client do |config|
