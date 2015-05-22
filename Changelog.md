@@ -52,6 +52,7 @@ Ruby 2.0 is no longer officially supported.
 * Handle empty searchable in HCard gracefully [#5962](https://github.com/diaspora/diaspora/pull/5962)
 * Fix a freeze in new post parsing [#5965](https://github.com/diaspora/diaspora/pull/5965)
 * Add case insensitive unconfirmed email addresses as authentication key [#5967](https://github.com/diaspora/diaspora/pull/5967)
+* Fix liking on single post views when accessed via GUID [#5978](https://github.com/diaspora/diaspora/pull/5978)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
