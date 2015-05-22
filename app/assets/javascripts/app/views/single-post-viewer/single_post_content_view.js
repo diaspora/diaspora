@@ -12,6 +12,7 @@ app.views.SinglePostContent = app.views.Base.extend({
     ".opengraph" : "openGraphView",
     ".status-message-location" : "postLocationStreamView",
     '.poll': 'pollView',
+    ".event" : "eventView"
   },
 
   initialize : function() {
@@ -21,6 +22,7 @@ app.views.SinglePostContent = app.views.Base.extend({
     this.openGraphView = new app.views.SPVOpenGraph({model : this.model});
     this.postContentView = new app.views.ExpandedStatusMessage({model: this.model});
     this.pollView = new app.views.Poll({ model: this.model });
+    this.eventView = new app.views.Event({model : this.model});
   },
 
   postLocationStreamView : function(){

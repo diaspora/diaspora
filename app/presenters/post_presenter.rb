@@ -42,6 +42,7 @@ class PostPresenter
         :poll => @post.poll(),
         :already_participated_in_poll => already_participated_in_poll,
         :participation => participate?,
+        :event => @post.event(),
 
         :interactions => {
             :likes => [user_like].compact,

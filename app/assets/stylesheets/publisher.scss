@@ -88,11 +88,15 @@
         border-top: 1px dashed $border-grey;
       }
 
-      .row-fluid#poll_creator_container {
+      .row-fluid#poll_creator_container,
+      .row-fluid#event_creator_container {
         display: none;
         border-top: 1px dashed $border-grey;
-        padding:4px 6px 4px 6px;
+        padding: 6px 6px 6px 6px;
         box-sizing: border-box;
+      }
+
+      .row-fluid#poll_creator_container {
         .remove-answer.entypo.cross {
           display: none;
           color: lighten($black,75%);
@@ -184,6 +188,7 @@
         #file-upload,
         #locator,
         #poll_creator,
+        #event_creator,
         #hide_location {
           text-decoration: none !important;
           font-size: 16px;

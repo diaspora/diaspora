@@ -1,0 +1,13 @@
+.event-block {
+  border: 1px solid $border-grey;
+  margin: 10px 0px;
+
+  .event-heading {
+    background-color: $background-grey;
+    padding: 0px 6px;
+  }
+
+  .event-body {
+    padding: 7px;
+  }
+}

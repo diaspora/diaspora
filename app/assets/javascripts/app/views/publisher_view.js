@@ -25,6 +25,7 @@ app.views.Publisher = Backbone.View.extend({
     "textchange #status_message_fake_text": "handleTextchange",
     "click #locator" : "showLocation",
     "click #poll_creator" : "togglePollCreator",
+    "click #event_creator" : "toggleEventCreator",
     "click #hide_location" : "destroyLocation",
     "keypress #location_address" : "avoidEnter"
   },
@@ -92,9 +93,10 @@ app.views.Publisher = Backbone.View.extend({
       this.showSpinner(false);
     });
 
-    // resetting the poll view
+    // resetting the poll/event view
     this.on('publisher:sync', function() {
       this.view_poll_creator.render();
+      this.view_event_creator.render();
     });
 
     this.initSubviews();
@@ -131,8 +133,13 @@ app.views.Publisher = Backbone.View.extend({
     this.view_poll_creator = new app.views.PublisherPollCreator({
       el: this.$('#poll_creator_container')
     });
+    this.view_event_creator = new app.views.PublisherEventCreator({
+      el: this.$('#event_creator_container')
+    });
     this.view_poll_creator.on('change', this.checkSubmitAvailability, this);
     this.view_poll_creator.render();
+    this.view_event_creator.on('change', this.checkSubmitAvailability, this);
+    this.view_event_creator.render();
   },
 
   // set the selected aspects in the dropdown by their ids
@@ -187,7 +194,10 @@ app.views.Publisher = Backbone.View.extend({
       "location_address" : $("#location_address").val(),
       "location_coords" : serializedForm["location[coords]"],
       "poll_question" : serializedForm["poll_question"],
-      "poll_answers" : serializedForm["poll_answers[]"]
+      "poll_answers" : serializedForm["poll_answers[]"],
+      "event_name" : serializedForm["event_name"],
+      "event_date" : serializedForm["event_date"],
+      "event_location" : serializedForm["event_location"]
     }, {
       url : "/status_messages",
       success : function() {
@@ -195,6 +205,7 @@ app.views.Publisher = Backbone.View.extend({
           app.publisher.$el.trigger('ajax:success');
           app.publisher.trigger('publisher:sync');
           self.view_poll_creator.trigger('publisher:sync');
+          self.view_event_creator.trigger('publisher:sync');
         }
 
         if(app.stream && !self.standalone){
@@ -237,6 +248,11 @@ app.views.Publisher = Backbone.View.extend({
 
   togglePollCreator: function(){
     this.view_poll_creator.$el.toggle();
+    this.el_input.focus();
+  },
+
+  toggleEventCreator: function() {
+    this.view_event_creator.$el.toggle();
     this.el_input.focus();
   },
 
@@ -310,6 +326,19 @@ app.views.Publisher = Backbone.View.extend({
       };
     }
 
+    var event;
+    var event_name = serializedForm["event_name"];
+    var event_date = serializedForm["event_date"];
+    var event_location = serializedForm["event_location"];
+
+    if(event_name && event_date && event_location) {
+      event = {
+        "event_name": event_name,
+        "event_date": event_date,
+        "event_location": event_location
+      }
+    }
+
     var previewMessage = {
       "id" : 0,
       "text" : serializedForm["status_message[text]"],
@@ -325,6 +354,7 @@ app.views.Publisher = Backbone.View.extend({
       "address" : $("#location_address").val(),
       "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0},
       'poll': poll,
+      "event": event
     };
     if(app.stream) {
       this.removePostPreview();
@@ -434,6 +464,7 @@ app.views.Publisher = Backbone.View.extend({
     this.el_wrapper.removeClass("active");
     this.el_input.css('height', '');
     this.view_poll_creator.$el.hide();
+    this.view_event_creator.$el.hide();
     return this;
   },
 
@@ -483,9 +514,10 @@ app.views.Publisher = Backbone.View.extend({
   _submittable: function() {
     var onlyWhitespaces = ($.trim(this.el_input.val()) === ''),
         isPhotoAttached = (this.el_photozone.children().length > 0),
-        isValidPoll = this.view_poll_creator.validatePoll();
+        isValidPoll = this.view_poll_creator.validatePoll(),
+        isValidEvent = this.view_event_creator.validateEvent();
 
-    return (!onlyWhitespaces || isPhotoAttached) && isValidPoll && !this.disabled;
+    return (!onlyWhitespaces || isPhotoAttached) && isValidPoll && isValidEvent && !this.disabled;
   },
 
   handleTextchange: function() {

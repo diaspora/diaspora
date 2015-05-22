@@ -80,6 +80,9 @@ en:
       option: "Answer"
       add_option: "Add an answer"
       question: "Question"
+      set_event_name: "Name of the event"
+      set_event_date: "Date and time of the event"
+      set_event_location: "Location of the event"
     bookmarklet:
       post_something: "Post to diaspora*"
       post_submit: "Submitting post..."

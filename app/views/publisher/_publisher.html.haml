@@ -24,8 +24,12 @@
             = hidden_field :location, :coords
           .row-fluid#poll_creator_container
             -# handlebars template
+          .row-fluid#event_creator_container
+            -# handlebars template
           .row-fluid#button_container
             #publisher-images.pull-right
+              #event_creator.btn.btn-link{:title => t('shared.publisher.event.create_an_event')}
+                %i.entypo.calendar
               #poll_creator.btn.btn-link{:title => t('shared.publisher.poll.add_a_poll')}
                 %i.entypo.bar-graph
               #file-upload.btn.btn-link{:title => t('shared.publisher.upload_photos')}

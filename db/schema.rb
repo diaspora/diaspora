@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404193023) do
+ActiveRecord::Schema.define(version: 20150514012133) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -136,6 +136,31 @@ ActiveRecord::Schema.define(version: 20150404193023) do
   end
 
   add_index "conversations", ["author_id"], name: "conversations_author_id_fk", using: :btree
+
+  create_table "event_participations", force: :cascade do |t|
+    t.integer  "event_id",                limit: 4,     null: false
+    t.integer  "author_id",               limit: 4,     null: false
+    t.integer  "intention",               limit: 4,     null: false
+    t.string   "guid",                    limit: 255
+    t.text     "author_signature",        limit: 65535
+    t.text     "parent_author_signature", limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_participations", ["event_id"], name: "index_event_participations_on_event_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name",              limit: 255, null: false
+    t.integer  "status_message_id", limit: 4,   null: false
+    t.string   "location",          limit: 255
+    t.datetime "date"
+    t.string   "guid",              limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["status_message_id"], name: "index_events_on_status_message_id", using: :btree
 
   create_table "invitation_codes", force: :cascade do |t|
     t.string   "token",      limit: 255

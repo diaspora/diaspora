@@ -62,7 +62,9 @@ class StatusMessagesController < ApplicationController
         @status_message.poll.poll_answers.build(:answer => poll_answer)
       end
     end
-
+    if params[:event_name].present?
+      @status_message.build_event(:name => params[:event_name], :location => params[:event_location], :date => params[:event_date])
+    end
 
     @status_message.attach_photos_by_ids(params[:photos])
 

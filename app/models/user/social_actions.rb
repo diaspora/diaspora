@@ -18,6 +18,11 @@ module User::SocialActions
     PollParticipation::Generator.new(self, target, answer).create!(opts)
   end
 
+  def participate_in_event!(target, intention, opts={})
+    update_or_create_participation!(target)
+    EventParticipation::Generator.new(self, target, intention).create!(opts)
+  end
+
   def reshare!(target, opts={})
     update_or_create_participation!(target)
     reshare = build_post(:reshare, :root_guid => target.guid)

@@ -16,7 +16,8 @@ app.models.StatusMessage = app.models.Post.extend({
       aspect_ids : this.get("aspect_ids"),
       photos : this.photos && this.photos.pluck("id"),
       services : this.get("services"),
-      poll : this.get("poll")
+      poll : this.get("poll"),
+      event : this.get("event")
     };
   }
 });
