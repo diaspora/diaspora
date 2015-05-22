@@ -8,8 +8,8 @@ app.pages.SinglePostViewer = app.views.Base.extend({
     '#single-post-interactions' : 'singlePostInteractionsView'
   },
 
-  initialize : function(options) {
-    this.model = new app.models.Post({ id : options.id });
+  initialize : function() {
+    this.model = new app.models.Post({ id : gon.post.id });
     this.model.preloadOrFetch().done(_.bind(this.initViews, this));
     this.model.interactions.fetch(); //async, yo, might want to throttle this later.
     this.setupLightbox();
