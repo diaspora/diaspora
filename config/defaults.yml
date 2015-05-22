@@ -32,7 +32,6 @@ defaults:
       host:
     pubsub_server: 'https://pubsubhubbub.appspot.com/'
   server:
-    port:
     listen: '0.0.0.0:3000'
     rails_environment: 'development'
     stderr_log:
@@ -193,7 +192,7 @@ development:
     autofollow_on_join: false
     autofollow_on_join_user: ''
 production:
-  i_am_a_dummy: # Remove if you add an actual override
+  listen: 'unix:tmp/diaspora.sock'
 test:
   environment:
     url: 'http://localhost:9887/'
