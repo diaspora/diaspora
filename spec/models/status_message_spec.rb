@@ -70,7 +70,7 @@ describe StatusMessage, :type => :model do
       expect(guids).to eq([sm1.guid])
     end
   end
-  
+
   describe '.before_validation' do
     it 'calls build_tags' do
       status = FactoryGirl.build(:status_message)
@@ -441,6 +441,14 @@ STR
         expect(sm.contains_open_graph_url_in_text?).to be_nil
         expect(sm.open_graph_url).to be_nil
       end
+    end
+  end
+
+  describe "validation" do
+    it "should not be valid if the author is missing" do
+      sm = FactoryGirl.build(:status_message, text: @message_text)
+      sm.author = nil
+      expect(sm).not_to be_valid
     end
   end
 end
