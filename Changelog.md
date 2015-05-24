@@ -15,6 +15,7 @@
 * Refactored the Logger to add basic logrotating and more useful timestamps [#5975](https://github.com/diaspora/diaspora/pull/5975)
 * Gracefully handle mailer failures if a like is already deleted again [#5983](https://github.com/diaspora/diaspora/pull/5983)
 * Ensure posts have an author [#5986](https://github.com/diaspora/diaspora/pull/5986)
+* Improve the logging messages of Sidekiq messages [#5988](https://github.com/diaspora/diaspora/pull/5988)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
