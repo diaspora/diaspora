@@ -13,7 +13,7 @@ class StatusMessage < Post
   validates_length_of :text, :maximum => 65535, :message => proc {|p, v| I18n.t('status_messages.too_long', :count => 65535, :current_length => v[:value].length)}
 
   # don't allow creation of empty status messages
-  validate :presence_of_content, on: :create, if: proc { |sm| sm.author.local? }
+  validate :presence_of_content, on: :create, if: proc {|sm| sm.author && sm.author.local? }
 
   xml_name :status_message
   xml_attr :raw_message
