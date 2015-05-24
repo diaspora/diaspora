@@ -29,6 +29,7 @@ Ruby 2.0 is no longer officially supported.
 * Improved handling of reshares with deleted roots [#5968](https://github.com/diaspora/diaspora/pull/5968)
 * Remove two unused methods [#5970](https://github.com/diaspora/diaspora/pull/5970)
 * Refactored the Logger to add basic logrotating and more useful timestamps [#5975](https://github.com/diaspora/diaspora/pull/5975)
+* Gracefully handle mailer failures if a like is already deleted again [#5983](https://github.com/diaspora/diaspora/pull/5983)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
@@ -53,6 +54,7 @@ Ruby 2.0 is no longer officially supported.
 * Fix a freeze in new post parsing [#5965](https://github.com/diaspora/diaspora/pull/5965)
 * Add case insensitive unconfirmed email addresses as authentication key [#5967](https://github.com/diaspora/diaspora/pull/5967)
 * Fix liking on single post views when accessed via GUID [#5978](https://github.com/diaspora/diaspora/pull/5978)
+* Gracefully handle mailer failures when a like is already deleted again [#5983](https://github.com/diaspora/diaspora/pull/5983)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
