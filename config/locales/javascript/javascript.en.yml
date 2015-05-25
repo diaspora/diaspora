@@ -252,3 +252,9 @@ en:
         other: "<%=count%> votes so far"
       show_result: "Show result"
       close_result: "Hide result"
+
+    event:
+      will_you_participate: "Going?"
+      will_participate: "Yes!"
+      maybe_participate: "Maybe..."
+      will_not_participate: "No."

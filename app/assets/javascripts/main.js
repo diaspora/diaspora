@@ -49,4 +49,6 @@
 //= require bootstrap-popover
 //= require bootstrap-dropdown
 //= require bootstrap-modal
+//= require bootstrap-timepicker
+//= require bootstrap-datepicker
 //= require osmlocator

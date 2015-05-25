@@ -92,11 +92,14 @@
       .row-fluid#event_creator_container {
         display: none;
         border-top: 1px dashed $border-grey;
-        padding: 6px 6px 6px 6px;
         box-sizing: border-box;
+        h4 {
+          margin-top: 0px;
+        }
       }
 
       .row-fluid#poll_creator_container {
+        padding: 6px;
         .remove-answer.entypo.cross {
           display: none;
           color: lighten($black,75%);
@@ -105,6 +108,13 @@
           line-height: 30px;
           font-size: 18px;
           cursor: pointer;
+        }
+      }
+
+      .row-fluid#event_creator_container {
+        padding: 16px;
+        input[type='text'] {
+          margin-bottom: 0;
         }
       }
 

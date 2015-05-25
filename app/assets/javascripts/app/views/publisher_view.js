@@ -96,7 +96,7 @@ app.views.Publisher = Backbone.View.extend({
     // resetting the poll/event view
     this.on('publisher:sync', function() {
       this.view_poll_creator.render();
-      this.view_event_creator.render();
+      this.viewEventCreator.render();
     });
 
     this.initSubviews();
@@ -184,6 +184,8 @@ app.views.Publisher = Backbone.View.extend({
     var statusMessage = new app.models.Post();
     if( app.publisher ) app.publisher.trigger('publisher:add');
 
+    var datestring = serializedForm["event_date"] + serializedForm["event_time"];
+
     statusMessage.save({
       "status_message" : {
         "text" : serializedForm["status_message[text]"]
@@ -195,9 +197,11 @@ app.views.Publisher = Backbone.View.extend({
       "location_coords" : serializedForm["location[coords]"],
       "poll_question" : serializedForm["poll_question"],
       "poll_answers" : serializedForm["poll_answers[]"],
-      "event_name" : serializedForm["event_name"],
-      "event_date" : serializedForm["event_date"],
-      "event_location" : serializedForm["event_location"]
+      "event" : {
+        "name" : serializedForm["event_name"],
+        "date" : datestring,
+        "location" : serializedForm["event_location"]
+      }
     }, {
       url : "/status_messages",
       success : function() {
@@ -329,12 +333,14 @@ app.views.Publisher = Backbone.View.extend({
     var event;
     var event_name = serializedForm["event_name"];
     var event_date = serializedForm["event_date"];
+    var event_time = serializedForm["event_time"];
     var event_location = serializedForm["event_location"];
 
     if(event_name && event_date && event_location) {
       event = {
         "event_name": event_name,
         "event_date": event_date,
+        "event_time": event_time,
         "event_location": event_location
       }
     }

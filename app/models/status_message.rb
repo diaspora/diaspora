@@ -26,7 +26,7 @@ class StatusMessage < Post
 
   has_one :location
   has_one :poll, autosave: true
-  has_one :event, autosave: true
+  has_one :event, autosave: true, dependent: :destroy
 
 
   # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present

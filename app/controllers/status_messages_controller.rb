@@ -62,8 +62,8 @@ class StatusMessagesController < ApplicationController
         @status_message.poll.poll_answers.build(:answer => poll_answer)
       end
     end
-    if params[:event_name].present?
-      @status_message.build_event(:name => params[:event_name], :location => params[:event_location], :date => params[:event_date])
+    if params[:event].present? && params[:event][:name].present?
+      @status_message.build_event(event_params)
     end
 
     @status_message.attach_photos_by_ids(params[:photos])
@@ -102,6 +102,10 @@ class StatusMessagesController < ApplicationController
   end
 
   private
+
+  def event_params
+    params.require(:event).permit(:name, :location, :date)
+  end
 
   def destination_aspect_ids
     if params[:status_message][:public] || params[:status_message][:aspect_ids].first == "all_aspects"
