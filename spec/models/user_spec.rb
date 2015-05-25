@@ -1009,6 +1009,7 @@ describe User, :type => :model do
           unconfirmed_email
           confirm_email_token
           last_seen
+          color_theme
         }.sort)
       end
     end

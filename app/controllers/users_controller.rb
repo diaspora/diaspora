@@ -69,6 +69,12 @@ class UsersController < ApplicationController
         else
           flash[:error] = I18n.t 'users.update.follow_settings_not_changed'
         end
+      elsif u[:color_theme]
+        if @user.update_attributes(u)
+          flash[:notice] = I18n.t "users.update.color_theme_changed"
+        else
+          flash[:error] = I18n.t "users.update.color_theme_not_changed"
+        end
       end
     end
     set_email_preferences
@@ -181,6 +187,7 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation,
       :language,
+      :color_theme,
       :disable_mail,
       :invitation_service,
       :invitation_identifier,

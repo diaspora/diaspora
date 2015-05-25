@@ -1323,6 +1323,7 @@ en:
       current_password_expl: "the one you sign in with..."
       character_minimum_expl: "must be at least six characters"
       change_language: "Change language"
+      change_color_theme: "Change color theme"
       close_account_text: "Close account"
       stream_preferences: "Stream preferences"
       show_community_spotlight: "Show “community spotlight” in stream"
@@ -1401,6 +1402,8 @@ en:
       unconfirmed_email_not_changed: "Email change failed"
       follow_settings_changed: "Follow settings changed"
       follow_settings_not_changed: "Follow settings change failed."
+      color_theme_changed: "Color theme successfully changed."
+      color_theme_not_changed: "An error occurred while changing the color theme."
     public:
       does_not_exist: "User %{username} does not exist!"
     confirm_email:
