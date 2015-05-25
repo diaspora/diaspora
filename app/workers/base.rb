@@ -8,10 +8,6 @@ module Workers
     sidekiq_options backtrace: (bt = AppConfig.environment.sidekiq.backtrace.get) && bt.to_i,
                     retry:  (rt = AppConfig.environment.sidekiq.retry.get) && rt.to_i
 
-    def logger
-      @logger ||= ::Logging::Logger[self]
-    end
-
     # In the long term we need to eliminate the cause of these
     def suppress_annoying_errors(&block)
       yield
@@ -39,6 +35,12 @@ module Workers
         "duplicate key in table 'likes'"
         "duplicate key in table 'posts'"
       ).any? {|index| e.message.include? index }
+    end
+
+    private
+
+    def logger
+      @logger ||= ::Logging::Logger[self]
     end
   end
 end
