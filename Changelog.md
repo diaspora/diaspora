@@ -16,6 +16,7 @@
 * Gracefully handle mailer failures if a like is already deleted again [#5983](https://github.com/diaspora/diaspora/pull/5983)
 * Ensure posts have an author [#5986](https://github.com/diaspora/diaspora/pull/5986)
 * Improve the logging messages of Sidekiq messages [#5988](https://github.com/diaspora/diaspora/pull/5988)
+* Improve the logging of Eyes output [#5989](https://github.com/diaspora/diaspora/pull/5989)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
