@@ -145,18 +145,22 @@ defaults:
       app_id:
       secret:
       open_graph_namespace: 'joindiaspora'
+      authorized: false
     twitter:
       enable: false
       key:
       secret:
+      authorized: true
     tumblr:
       enable: false
       key:
       secret:
+      authorized: true
     wordpress:
       enable: false
       key:
       secret:
+      authorized: true
   mail:
     enable: false
     sender_address: 'no-reply@example.org'
@@ -210,6 +214,7 @@ test:
       enable: true
       app_id: 'fake'
       secret: 'sdoigjosdfijg'
+      authorized: true
   mail:
     enable: true
 integration1:

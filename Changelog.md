@@ -55,7 +55,6 @@ Ruby 2.0 is no longer officially supported.
 * Fix a freeze in new post parsing [#5965](https://github.com/diaspora/diaspora/pull/5965)
 * Add case insensitive unconfirmed email addresses as authentication key [#5967](https://github.com/diaspora/diaspora/pull/5967)
 * Fix liking on single post views when accessed via GUID [#5978](https://github.com/diaspora/diaspora/pull/5978)
-* Gracefully handle mailer failures when a like is already deleted again [#5983](https://github.com/diaspora/diaspora/pull/5983)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
@@ -70,6 +69,7 @@ Ruby 2.0 is no longer officially supported.
 * Add a "Manage followed tags" page to mass unfollow tags in the mobile interface [#5945](https://github.com/diaspora/diaspora/pull/5945)
 * Add popover/tooltip about email visibility to registration/settings page [#5956](https://github.com/diaspora/diaspora/pull/5956)
 * Fetch person posts on sharing request [#5960](https://github.com/diaspora/diaspora/pull/5960)
+* Introduce 'authorized' configuration option for services [#5985](https://github.com/diaspora/diaspora/pull/5985)
 
 # 0.5.0.1
 
