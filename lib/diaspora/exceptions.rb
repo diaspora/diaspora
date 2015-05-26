@@ -35,4 +35,7 @@ module Diaspora
   class PostNotFetchable < StandardError
   end
 
+  # Error while parsing an received message and got nil
+  class XMLNotParseable < StandardError
+  end
 end

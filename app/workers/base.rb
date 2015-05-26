@@ -17,7 +17,8 @@ module Workers
            Diaspora::AuthorXMLAuthorMismatch,
            # We received a private object to our public endpoint, again something
            # Friendica seems to provoke
-           Diaspora::NonPublic => e
+           Diaspora::NonPublic,
+           Diaspora::XMLNotParseable => e
       Rails.logger.info("error on receive: #{e.class}")
     rescue ActiveRecord::RecordInvalid => e
       Rails.logger.info("failed to save received object: #{e.record.errors.full_messages}")

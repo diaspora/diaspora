@@ -55,11 +55,12 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   # @return [Object]
   def save_object
-    @object = Diaspora::Parser::from_xml(@salmon.parsed_data)
+    @object = Diaspora::Parser.from_xml(@salmon.parsed_data)
+    raise Diaspora::XMLNotParseable if @object.nil?
     raise Diaspora::NonPublic if object_can_be_public_and_it_is_not?
     raise Diaspora::RelayableObjectWithoutParent if object_must_have_parent_and_does_not?
     raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
-    @object.save! if @object && @object.respond_to?(:save!)
+    @object.save! if @object.respond_to?(:save!)
     @object
   end
 
@@ -71,7 +72,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def xml_author
     if @object.respond_to?(:relayable?)
       #this is public, so it would only be owners sending us other people comments etc
-       @object.parent_author.local? ? @object.diaspora_handle : @object.parent_diaspora_handle
+      @object.parent_author.local? ? @object.diaspora_handle : @object.parent_diaspora_handle
     else
       @object.diaspora_handle
     end

@@ -118,4 +118,15 @@ describe Postzord::Receiver::Public do
       @receiver.receive_relayable
     end
   end
+
+  describe "#save_object" do
+    before do
+      @receiver = Postzord::Receiver::Public.new(@xml)
+    end
+
+    it "should raise a Diaspora::XMLNotParseable when the parsed object is nil" do
+      expect(Diaspora::Parser).to receive(:from_xml).and_return(nil)
+      expect { @receiver.save_object }.to raise_error(Diaspora::XMLNotParseable)
+    end
+  end
 end
