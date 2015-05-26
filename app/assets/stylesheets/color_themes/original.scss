@@ -1,5 +1,7 @@
+@import "mixins";
+
+$main-color: #282828;
+
 body > header {
-  background: rgb(30,30,30);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.9),
-              0 25px 30px -25px rgba(255,255,255,0.4) inset;
+  @include header-gradient($main-color);
 }

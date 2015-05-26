@@ -1,9 +1,9 @@
 @import "mixins";
 
-$main-color: #00CC00;
-$main-color-light-dark: darken($main-color, 10%);
-$main-color-dark: darken($main-color, 36%);
-$link-color: darken($main-color, 8%);
+$main-color: #1034A6;
+$main-color-light-dark: darken($main-color, 5%);
+$main-color-dark: darken($main-color, 18%);
+$link-color: darken($main-color, 5%);
 
 body {
   header {
@@ -61,7 +61,7 @@ body {
   }
 
   #publisher_textarea_wrapper > #button_container > .help-block > a {
-    color: lighten($link-color, 42%);
+    color: lighten($link-color, 38%);
   }
 
   .btn.creation {

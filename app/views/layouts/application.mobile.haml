@@ -46,6 +46,8 @@
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'
 
+    = stylesheet_link_tag current_color_theme, :media => "all"
+
     = yield(:head)
 
     = include_gon(:camel_case => true)

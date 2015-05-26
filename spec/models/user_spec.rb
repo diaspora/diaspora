@@ -364,6 +364,13 @@ describe User, :type => :model do
         expect(user.language).to eq('de')
       end
     end
+
+    describe "of color_theme" do
+      it "requires availability" do
+        alice.color_theme = "some invalid theme"
+        expect(alice).not_to be_valid
+      end
+    end
   end
 
 
