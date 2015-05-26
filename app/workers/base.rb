@@ -25,16 +25,6 @@ module Workers
         "already been taken"
         "is ignored by the post author"
       ).any? {|reason| e.message.include? reason }
-    rescue ActiveRecord::RecordNotUnique => e
-      Rails.logger.info("failed to save received object: #{e.message}")
-      raise e unless %w(
-        index_comments_on_guid
-        index_likes_on_guid
-        index_posts_on_guid
-        "duplicate key in table 'comments'"
-        "duplicate key in table 'likes'"
-        "duplicate key in table 'posts'"
-      ).any? {|index| e.message.include? index }
     end
 
     private
