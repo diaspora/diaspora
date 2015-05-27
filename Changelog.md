@@ -33,6 +33,7 @@ Ruby 2.0 is no longer officially supported.
 * Ensure posts have an author [#5986](https://github.com/diaspora/diaspora/pull/5986)
 * Improve the logging messages of Sidekiq messages [#5988](https://github.com/diaspora/diaspora/pull/5988)
 * Improve the logging of Eyes output [#5989](https://github.com/diaspora/diaspora/pull/5989)
+* Gracefully handle XML parse errors within federation [#5991](https://github.com/diaspora/diaspora/pull/5991)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
