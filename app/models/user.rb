@@ -325,7 +325,7 @@ class User < ActiveRecord::Base
   def perform_export_photos!
     temp_zip = Tempfile.new([username, '_photos.zip'])
     begin
-      Zip::ZipOutputStream.open(temp_zip.path) do |zos|
+      Zip::OutputStream.open(temp_zip.path) do |zos|
         photos.each do |photo|
           begin
             photo_file = photo.unprocessed_image.file

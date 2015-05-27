@@ -173,9 +173,9 @@ gem "rails-timeago",           "2.11.0"
 
 gem "logging-rails", "0.5.0", require: "logging/rails"
 
-# Workarounds
-# https://github.com/rubyzip/rubyzip#important-note
-gem "zip-zip"
+# # Workarounds
+# # https://github.com/rubyzip/rubyzip#important-note
+gem "rubyzip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
