@@ -538,7 +538,7 @@ GEM
     rails-assets-markdown-it--markdown-it-for-inline (0.1.1)
     rails-assets-markdown-it (4.2.1)
     rails-assets-markdown-it-diaspora-mention (0.3.0)
-    rails-assets-markdown-it-hashtag (0.3.0)
+    rails-assets-markdown-it-hashtag (0.3.1)
     rails-assets-markdown-it-sanitizer (0.3.1)
     rails-assets-markdown-it-sub (1.0.0)
     rails-assets-markdown-it-sup (1.0.0)
@@ -812,7 +812,7 @@ DEPENDENCIES
   rails-assets-markdown-it (= 4.2.1)!
   rails-assets-markdown-it--markdown-it-for-inline (= 0.1.1)!
   rails-assets-markdown-it-diaspora-mention (= 0.3.0)!
-  rails-assets-markdown-it-hashtag (= 0.3.0)!
+  rails-assets-markdown-it-hashtag (= 0.3.1)!
   rails-assets-markdown-it-sanitizer (= 0.3.1)!
   rails-assets-markdown-it-sub (= 1.0.0)!
   rails-assets-markdown-it-sup (= 1.0.0)!
