@@ -31,6 +31,10 @@ defaults:
       upload: false
       host:
     pubsub_server: 'https://pubsubhubbub.appspot.com/'
+    logging:
+      logrotate:
+        enable: true
+        days: 7
   server:
     port:
     listen: '0.0.0.0:3000'

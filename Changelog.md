@@ -56,6 +56,7 @@
 * Add popover/tooltip about email visibility to registration/settings page [#5956](https://github.com/diaspora/diaspora/pull/5956)
 * Fetch person posts on sharing request [#5960](https://github.com/diaspora/diaspora/pull/5960)
 * Introduce 'authorized' configuration option for services [#5985](https://github.com/diaspora/diaspora/pull/5985)
+* Added configuration options for log rotating [#5994](https://github.com/diaspora/diaspora/pull/5994)
 
 # 0.5.0.1
 

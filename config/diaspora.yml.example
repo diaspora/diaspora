@@ -138,6 +138,17 @@ configuration: ## Section
     ## You probably don't want to uncomment or change this.
     #pubsub_server: 'https://pubsubhubbub.appspot.com/'
 
+    ## Logger configuration
+    logging: ## Section
+
+      logrotate: ## Section
+
+        ## Roll the application log on a daily basis (default=true).
+        #enable: true
+
+        ## The number of days to keep (default=7)
+        #days: 7
+
   ## Settings affecting how ./script/server behaves.
   server: ## Section
     ## Where the appserver should listen to (default=0.0.0.0:3000)
