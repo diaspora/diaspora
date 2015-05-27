@@ -94,7 +94,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "1.11.2" # Should be kept in sync with jquery-rails
 
   gem "rails-assets-markdown-it",                         "4.2.1"
-  gem "rails-assets-markdown-it-hashtag",                 "0.3.0"
+  gem "rails-assets-markdown-it-hashtag",                 "0.3.1"
   gem "rails-assets-markdown-it-diaspora-mention",        "0.3.0"
   gem "rails-assets-markdown-it-sanitizer",               "0.3.1"
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
