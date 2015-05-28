@@ -20,11 +20,13 @@ class StatusMessage < Post
   xml_attr :photos, :as => [Photo]
   xml_attr :location, :as => Location
   xml_attr :poll, :as => Poll
+  xml_attr :event, :as => Event
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
   has_one :location
   has_one :poll, autosave: true
+  has_one :event, autosave: true, dependent: :destroy
 
 
   # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present

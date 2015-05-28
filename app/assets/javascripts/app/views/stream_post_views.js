@@ -12,6 +12,7 @@ app.views.StreamPost = app.views.Post.extend({
     ".oembed" : "oEmbedView",
     ".opengraph" : "openGraphView",
     ".poll" : "pollView",
+    ".event" : "eventView",
     ".status-message-location" : "postLocationStreamView"
   },
 
@@ -41,6 +42,7 @@ app.views.StreamPost = app.views.Post.extend({
     this.oEmbedView = new app.views.OEmbed({model : this.model});
     this.openGraphView = new app.views.OpenGraph({model : this.model});
     this.pollView = new app.views.Poll({model : this.model});
+    this.eventView = new app.views.Event({model : this.model});
   },
 
 

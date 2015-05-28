@@ -88,11 +88,18 @@
         border-top: 1px dashed $border-grey;
       }
 
-      .row-fluid#poll_creator_container {
+      .row-fluid#poll_creator_container,
+      .row-fluid#event_creator_container {
         display: none;
         border-top: 1px dashed $border-grey;
-        padding:4px 6px 4px 6px;
         box-sizing: border-box;
+        h4 {
+          margin-top: 0px;
+        }
+      }
+
+      .row-fluid#poll_creator_container {
+        padding: 6px;
         .remove-answer.entypo.cross {
           display: none;
           color: lighten($black,75%);
@@ -101,6 +108,13 @@
           line-height: 30px;
           font-size: 18px;
           cursor: pointer;
+        }
+      }
+
+      .row-fluid#event_creator_container {
+        padding: 16px;
+        input[type='text'] {
+          margin-bottom: 0;
         }
       }
 
@@ -184,6 +198,7 @@
         #file-upload,
         #locator,
         #poll_creator,
+        #event_creator,
         #hide_location {
           text-decoration: none !important;
           font-size: 16px;

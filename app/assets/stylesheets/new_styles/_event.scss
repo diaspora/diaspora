@@ -1,0 +1,35 @@
+.event-block {
+  border: 1px solid $border-grey;
+  margin: 10px 0px;
+  padding: 0px;
+  .event-header {
+    background-color: $background-grey;
+    .dropdown {
+      padding: 8px;
+    }
+    h5 {
+      margin: 0px;
+      padding: 12px 8px;
+    }
+  }
+  .event-details {
+    p {
+       margin: 0px;
+       padding: 8px 12px;
+       .entypo {
+         margin-right: 10px;
+       }
+    }
+  }
+  .declared-yes {
+    background: $green
+  }
+
+  .declared-maybe {
+    background: $orange
+  }
+
+  .declared-no {
+    background: $red
+  }
+}

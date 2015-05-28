@@ -87,6 +87,10 @@ en:
           attributes:
             poll:
               already_participated: "You’ve already participated in this poll!"
+        event_participation:
+          attributes:
+            poll:
+              already_participated: "You can't participate two times in an event!"
   error_messages:
     helper:
       invalid_fields: "Invalid fields"
@@ -1170,6 +1174,8 @@ en:
         add_a_poll: "Add a poll"
         question: "Question"
         option: "Option 1"
+      event:
+        create_an_event: "Create an event"
     add_contact:
       enter_a_diaspora_username: "Enter a diaspora* username:"
       your_diaspora_username_is: "Your diaspora* username is: %{diaspora_handle}"

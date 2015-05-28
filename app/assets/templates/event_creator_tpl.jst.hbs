@@ -1,0 +1,15 @@
+<h4>New event</h4>
+<div class="event-name control-group">
+  <input class="input-block-level" placeholder="{{t 'publisher.set_event_name'}}" type="text" name="event_name">
+</div>
+<div class="event-date control-group input-append date" data-date-format="dd-mm-yyyy">
+  <input type="text" name="event_date" data-provide="datepicker">
+  <span class="add-on"><i class="icon-calendar"></i></span>
+</div>
+<div class="event-time control-group input-append bootstrap-timepicker">
+  <input id="timepicker" class="input-block-level" type="text" name="event_time" data-minute-step="1" data-default-time="false">
+  <span class="add-on"><i class="icon-time"></i></span>
+</div>
+<div class="event-location control-group">
+  <input class="input-block-level" placeholder="{{t 'publisher.set_event_location'}}" type="text" name="event_location">
+</div>

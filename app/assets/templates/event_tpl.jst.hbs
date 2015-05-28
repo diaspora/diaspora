@@ -1,0 +1,27 @@
+{{#if event}}
+  <div class="event-block container-fluid">
+    <div class="event-header row-fluid">
+      <div class="span8">
+        <h5><strong>{{event.event_name}}</strong></h5>
+      </div>
+      <div class="span4">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle pull-right" type="button" data-toggle="dropdown" aria-expanded="false">
+            {{t "event.will_you_participate"}} 
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu pull-right" role="menu">
+            <li class="participation-intention"><a>{{t "event.will_participate"}}</a></li>
+            <li class="participation-intention"><a>{{t "event.maybe_participate"}}</a></li>
+            <li class="participation-intention"><a>{{t "event.will_not_participate"}}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="event-details row-fluid">
+      <p><i class="entypo calendar"></i>{{event.event_date}}</p>
+      <p><i class="entypo clock"></i>{{event.event_time}}</p>
+      <p><i class="entypo location"></i>{{event.event_location}}</p>
+    </div>
+  </div>
+{{/if}}
