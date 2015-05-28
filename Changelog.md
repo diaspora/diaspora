@@ -18,6 +18,7 @@
 * Improve the logging messages of Sidekiq messages [#5988](https://github.com/diaspora/diaspora/pull/5988)
 * Improve the logging of Eyes output [#5989](https://github.com/diaspora/diaspora/pull/5989)
 * Gracefully handle XML parse errors within federation [#5991](https://github.com/diaspora/diaspora/pull/5991)
+* Remove zip-zip workaround gem [#6001](https://github.com/diaspora/diaspora/pull/6001)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)

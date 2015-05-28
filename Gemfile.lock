@@ -828,7 +828,7 @@ DEPENDENCIES
   rspec-rails (= 3.2.1)
   rubocop (= 0.31.0)
   ruby-oembed (= 0.8.14)
-  rubyzip
+  rubyzip (= 1.1.7)
   sass-rails (= 5.0.1)
   selenium-webdriver (= 2.45.0)
   shoulda-matchers (= 2.8.0)
