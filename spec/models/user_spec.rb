@@ -1065,14 +1065,14 @@ describe User, :type => :model do
       expect(@user.exported_photos_at).to be_present
       expect(@user.exporting_photos).to be_falsey
       expect(@user.exported_photos_file.filename).to match /.zip/
-      expect(Zip::ZipFile.open(@user.exported_photos_file.path).entries.count).to eq(1)
+      expect(Zip::File.open(@user.exported_photos_file.path).entries.count).to eq(1)
     end
 
     it "does not add empty entries when photo not found" do
       File.unlink @user.photos.first.unprocessed_image.path
       @user.perform_export_photos!
       expect(@user.exported_photos_file.filename).to match /.zip/
-      expect(Zip::ZipFile.open(@user.exported_photos_file.path).entries.count).to eq(0)
+      expect(Zip::File.open(@user.exported_photos_file.path).entries.count).to eq(0)
     end
   end
 
