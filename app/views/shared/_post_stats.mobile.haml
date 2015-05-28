@@ -18,4 +18,5 @@
         = image_tag "icons/arrow_up_small.png"
         
       - if user_signed_in? 
-        = link_to t("comments.new_comment.comment"), new_post_comment_path(@post), class: "add_comment_bottom_link btn comment_action inactive"
+        = link_to t("comments.new_comment.comment"), new_post_comment_path(@post), class: "hide add_comment_bottom_link btn inactive"
+        = render partial: "comments/new_comment", :format => "mobile", locals: {post_id: @post.id}
