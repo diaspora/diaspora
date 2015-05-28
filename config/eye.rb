@@ -7,7 +7,7 @@ end
 
 Eye.application("diaspora") do
   working_dir Rails.root.to_s
-  env "DB" => ENV["DB"], "RAILS_ENV" => rails_env
+  env "RAILS_ENV" => rails_env
   stdout "log/eye_processes_stdout.log" unless rails_env == "development"
   stderr "log/eye_processes_stderr.log"
 

@@ -1,5 +1,19 @@
 # 0.6.0.0
 
+## The DB environment variable is gone
+
+With Bundler 1.10 supporting optional groups, we removed the DB environment variable. When updating to this release, please update
+bundler and select the database support you want:
+
+```sh
+gem install bundler
+bundle install --with mysql # For MySQL and MariaDB
+bundle install --with postgresql # For PostgreSQL
+```
+
+For production setups we now additionally recommend adding the `--deployment` flag.
+If you set the DB environment variable anywhere, that's no longer necessary.
+
 ## Supported Ruby versions
 
 This release recommends using Ruby 2.2, while retaining Ruby 2.1 as an officially supported version.

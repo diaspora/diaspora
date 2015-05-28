@@ -463,6 +463,7 @@ GEM
     orm_adapter (0.5.0)
     parser (2.2.2.2)
       ast (>= 1.1, < 3.0)
+    pg (0.18.1)
     phantomjs (1.9.8.0)
     powerpack (0.1.1)
     pry (0.10.1)
@@ -785,6 +786,7 @@ DEPENDENCIES
   omniauth-twitter (= 1.0.1)
   omniauth-wordpress (= 0.2.1)
   open_graph_reader (= 0.6.1)
+  pg (= 0.18.1)
   pry
   pry-byebug
   pry-debundle
@@ -850,3 +852,6 @@ DEPENDENCIES
   uuid (= 2.3.7)
   webmock (= 1.21.0)
   will_paginate (= 3.0.7)
+
+BUNDLED WITH
+   1.10.0

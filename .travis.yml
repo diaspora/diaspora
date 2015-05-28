@@ -5,9 +5,9 @@ rvm:
   - 2.1
 
 env:
-  - DB=postgres BUILD_TYPE=other
+  - DB=postgresql BUILD_TYPE=other
   - DB=mysql BUILD_TYPE=other
-  - DB=postgres BUILD_TYPE=cucumber
+  - DB=postgresql BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=cucumber
 
 sudo: false
@@ -23,7 +23,7 @@ branches:
     - 'develop'
 
 before_install: gem install bundler
-bundler_args: "--without development production heroku --jobs 3 --retry 3"
+bundler_args: "--deployment --without development production --with mysql postgresql --jobs 3 --retry 3"
 
 script: "./script/ci/build.sh"
 
