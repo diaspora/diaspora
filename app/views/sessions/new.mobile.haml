@@ -21,7 +21,7 @@
         = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
           %fieldset
             %legend
-              = image_tag('branding/header-logo2x.png', :height => 40, :width => 40)
+              = image_tag("branding/logos/header-logo2x.png", height: 40, width: 40)
               = t('devise.sessions.new.login')
 
             .control-group

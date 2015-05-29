@@ -15,7 +15,7 @@
 
     %li.comment.add_comment_bottom_link_container
       = link_to "#", class: "show_comments bottom_collapse active" do
-        = image_tag "icons/arrow_up_small.png"
-        
-      - if user_signed_in? 
+        = image_tag "mobile/arrow_up_small.png"
+
+      - if user_signed_in?
         = link_to t("comments.new_comment.comment"), new_post_comment_path(@post), class: "add_comment_bottom_link btn comment_action inactive"

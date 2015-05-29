@@ -4,7 +4,7 @@
 
 .conversation_participants
   .right
-    = link_to(image_tag('deletelabel.png'), conversation_visibility_path(conversation), :method => 'delete', :data => { :confirm => "#{t('.delete')}?" }, :class => "remove")
+    = link_to(image_tag("mobile/deletelabel.png"), conversation_visibility_path(conversation), method: :delete, data: { confirm: "#{t('.delete')}?" }, class: "remove")
 
   %h3{ :class => direction_for(conversation.subject) }
     = conversation.subject
