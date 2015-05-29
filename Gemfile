@@ -112,6 +112,8 @@ source "https://rails-assets.org" do
   gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
 end
 
+gem "facebox-rails", "0.2.0"
+
 # Localization
 
 gem "http_accept_language", "2.0.5"
