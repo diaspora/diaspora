@@ -12,7 +12,7 @@
 //= require jquery.charcount
 //= require jquery-placeholder
 //= require rails-timeago
-//= require facebox
+//= require jquery.facebox
 //= require browser_detection
 //= require jquery.events.input
 //= require jakobmattsson-jquery-elastic
