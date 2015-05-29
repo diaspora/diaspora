@@ -182,6 +182,9 @@ GEM
       sigar (~> 0.7.2)
       state_machine
       thor
+    facebox-rails (0.2.0)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.5.0)
@@ -746,6 +749,7 @@ DEPENDENCIES
   diaspora-vines (~> 0.1.27)
   entypo-rails (= 2.2.3)
   eye (= 0.7.pre)
+  facebox-rails (= 0.2.0)
   factory_girl_rails (= 4.5.0)
   faraday (= 0.9.1)
   faraday-cookie_jar (= 0.0.6)
