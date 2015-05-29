@@ -54,21 +54,21 @@
           #nav_badges
             -# Notifications
             = link_to notifications_path, class: "badge", id: "notification_badge" do
-              = image_tag('icons/notifications_white.png')
+              = image_tag("mobile/notifications_white.png")
               - if current_user.unread_notifications.size > 0
                 %span.badge_count{id: "notification"}
                   = current_user.unread_notifications.size
             -# Conversations
             = link_to conversations_path, class: "badge", id: "conversations_badge" do
-              = image_tag('icons/mail_white.png', id: 'conversation_icon')
+              = image_tag("mobile/mail_white.png", id: "conversation_icon")
               - if current_user.unread_message_count > 0
                 %span.badge_count{id: "conversation"}
                   = current_user.unread_message_count
             -# Publisher
-            = link_to(image_tag('icons/compose_mobile.png'), new_status_message_path, class: "badge", id: "compose_badge")
+            = link_to(image_tag("mobile/compose_mobile.png"), new_status_message_path, class: "badge", id: "compose_badge")
             -# Menu
-            = link_to(image_tag('icons/menu.png'), "#", id: "menu_badge", class: "badge")
-          = link_to(image_tag('icons/asterisk_white_mobile.png'), stream_path, id: 'header_title')
+            = link_to(image_tag("mobile/menu.png"), "#", id: "menu_badge", class: "badge")
+          = link_to(image_tag("mobile/asterisk_white_mobile.png"), stream_path, id: "header_title")
 
       - if user_signed_in?
         #drawer

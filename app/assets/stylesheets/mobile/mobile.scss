@@ -20,7 +20,7 @@ code {
 
 body {
   background: {
-    image: image-url('texture/hatched-light.jpg');
+    image: image-url("mobile/hatched-light.jpg");
     position: fixed;
     /* scale background image down for iOS retina display */
     size: 200px;
@@ -398,7 +398,7 @@ h3 {
         right: 14px;
       }
       background: {
-        image: image-url("icons/arrow_down_small.png");
+        image: image-url("mobile/arrow_down_small.png");
         position: center right;
         repeat: no-repeat;
       }
@@ -486,23 +486,23 @@ h3 {
 }
 
 .reshare_action {
-  background-image: image-url("icons/reshare_mobile.png");
+  background-image: image-url("mobile/reshare_mobile.png");
   &.active {
-    background-image: image-url("icons/reshare_mobile_active.png");
+    background-image: image-url("mobile/reshare_mobile_active.png");
   }
 }
 
 .like_action {
-  background-image: image-url("icons/heart_mobile_grey.png");
+  background-image: image-url("mobile/heart_mobile_grey.png");
   &.active {
-    background-image: image-url("icons/heart_mobile_red.png");
+    background-image: image-url("mobile/heart_mobile_red.png");
   }
 }
 
 .comment_action.image_link {
-  background-image: image-url("icons/pencil_mobile_grey_active.png");
+  background-image: image-url("mobile/pencil_mobile_grey_active.png");
   &.inactive {
-    background-image: image-url("icons/pencil_mobile_grey.png");
+    background-image: image-url("mobile/pencil_mobile_grey.png");
   }
 }
 

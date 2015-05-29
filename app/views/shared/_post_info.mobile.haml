@@ -8,7 +8,7 @@
 
   .remove_post
     - if user_signed_in? && post.author == current_user.person
-      = link_to(image_tag('deletelabel.png'), post_path(post), :method => :delete, :data => { :confirm => "#{t('are_you_sure')}" }, :class => "remove")
+      = link_to(image_tag("mobile/deletelabel.png"), post_path(post), method: :delete, data: { confirm: "#{t('are_you_sure')}" }, class: "remove")
 
   .info
     %span

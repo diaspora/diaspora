@@ -52,7 +52,6 @@ module OpenGraphHelper
   def og_page_post_tags(post)
     tags = og_common_tags
 
-    
     if post.message
       tags.concat [
         *tags,
@@ -63,7 +62,7 @@ module OpenGraphHelper
         og_description(post.message.plain_text_without_markdown truncate: 1000)
       ]
     end
-    
+
     tags.join("\n").html_safe
   end
 
@@ -96,10 +95,10 @@ module OpenGraphHelper
 
   # This method compensates for hosting assets off of s3
   def default_image_url
-    if image_path('asterisk.png').include?("http")
-      image_path('asterisk.png')
+    if image_path("branding/logos/asterisk.png").include?("http")
+      image_path("branding/logos/asterisk.png")
     else
-      "#{root_url.chop}#{image_path('asterisk.png')}"
+      "#{root_url.chop}#{image_path('branding/logos/asterisk.png')}"
     end
   end
 end
