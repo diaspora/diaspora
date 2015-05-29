@@ -35,6 +35,7 @@ Ruby 2.0 is no longer officially supported.
 * Improve the logging of Eyes output [#5989](https://github.com/diaspora/diaspora/pull/5989)
 * Gracefully handle XML parse errors within federation [#5991](https://github.com/diaspora/diaspora/pull/5991)
 * Remove zip-zip workaround gem [#6001](https://github.com/diaspora/diaspora/pull/6001)
+* Cleanup and reorganize image assets [#6004](https://github.com/diaspora/diaspora/pull/6004)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)

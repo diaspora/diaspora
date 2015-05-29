@@ -22,14 +22,14 @@
       - current_user.aspects.each do |aspect|
         %option{:value => aspect.id}
           = "· #{aspect.name}"
-    
+
     .clear
     #publisher_textarea_wrapper
       %ul#photodropzone
     #fileInfo-publisher
 
     #file-upload-publisher{:title => t('shared.publisher.upload_photos'), :class => 'btn'}
-      = image_tag 'icons/camera.png', alt: t('shared.publisher.upload_photos').titleize
+      = image_tag "mobile/camera.png", alt: t("shared.publisher.upload_photos").titleize
     #publisher_mobile
       = submit_tag t('shared.publisher.share'), :class => 'btn primary', :id => "submit_new_message"
 
