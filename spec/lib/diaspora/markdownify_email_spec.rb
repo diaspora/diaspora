@@ -12,8 +12,8 @@ describe Diaspora::Markdownify::Email do
     end
 
     it 'should autolink multiple hashtags' do
-      markdownified = @html.preprocess("There are #two #Tags")
-      expect(markdownified).to eq("There are [#two](http://localhost:9887/tags/two) [#Tags](http://localhost:9887/tags/tags)")
+      markdownified = @html.preprocess("oh #l #loL")
+      expect(markdownified).to eq("oh [#l](http://localhost:9887/tags/l) [#loL](http://localhost:9887/tags/lol)")
     end
 
     it 'should not autolink headers' do
