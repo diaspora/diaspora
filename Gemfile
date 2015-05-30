@@ -60,10 +60,12 @@ gem "autoprefixer-rails", "5.1.11"
 
 # Database
 
-ENV["DB"] ||= "mysql"
-
-gem "mysql2", "0.3.18" if ENV["DB"] == "all" || ENV["DB"] == "mysql"
-gem "pg",     "0.18.1" if ENV["DB"] == "all" || ENV["DB"] == "postgres"
+group :mysql, optional: true do
+  gem "mysql2", "0.3.18"
+end
+group :postgresql, optional: true do
+  gem "pg",     "0.18.1"
+end
 
 gem "activerecord-import", "0.7.0"
 

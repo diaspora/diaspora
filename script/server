@@ -113,11 +113,6 @@ vars=$(bin/bundle exec ruby ./script/get_config.rb \
 on_failure "Couldn't parse config/diaspora.yml!"
 eval "$vars"
 
-if [ -n "$DB" ]
-then
-  export DB
-fi
-
 args="$@"
 for arg in $(echo $args | awk '{ for (i = 1; i <= NF; i++) print $i}')
 do
