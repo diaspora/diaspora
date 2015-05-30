@@ -26,12 +26,14 @@ FactoryGirl.define do
     image_url_small "http://example.com/image_small.jpg"
   end
 
-  factory :person do
-    sequence(:diaspora_handle) { |n| "bob-person-#{n}#{r_str}@example.net" }
+  factory(:person, aliases: %i(author)) do
+    sequence(:diaspora_handle) {|n| "bob-person-#{n}#{r_str}@example.net" }
     url AppConfig.pod_uri.to_s
     serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
     after(:build) do |person|
-      person.profile = FactoryGirl.build(:profile, :person => person) unless person.profile.first_name.present?
+      unless person.profile.first_name.present?
+        person.profile = FactoryGirl.build(:profile, person: person)
+      end
     end
     after(:create) do |person|
       person.profile.save
@@ -84,32 +86,50 @@ FactoryGirl.define do
     user
   end
 
-  factory(:status_message) do
-    sequence(:text) { |n| "jimmy's #{n} whales" }
-    association :author, :factory => :person
+  factory(:status_message, aliases: %i(status_message_without_participation)) do
+    sequence(:text) {|n| "jimmy's #{n} whales" }
+    author
     after(:build) do |sm|
       sm.diaspora_handle = sm.author.diaspora_handle
     end
-  end
 
-  factory(:status_message_with_poll, :parent => :status_message) do
-    after(:build) do |sm|
-      FactoryGirl.create(:poll, :status_message => sm)
+    factory(:status_message_with_poll) do
+      after(:build) do |sm|
+        FactoryGirl.create(:poll, status_message: sm)
+      end
     end
-  end
 
-  factory(:status_message_with_photo, :parent => :status_message) do
-    sequence(:text) { |n| "There are #{n} ninjas in this photo." }
-    after(:build) do |sm|
-      FactoryGirl.create(:photo, :author => sm.author, :status_message => sm, :pending => false, :public => sm.public)
+    factory(:status_message_with_photo) do
+      sequence(:text) {|n| "There are #{n} ninjas in this photo." }
+      after(:build) do |sm|
+        FactoryGirl.create(
+          :photo,
+          author:         sm.author,
+          status_message: sm,
+          pending:        false,
+          public:         sm.public
+        )
+      end
     end
-  end
 
-  factory(:status_message_in_aspect, parent: :status_message) do
-    self.public false
-    after :build do |sm|
-      sm.author = FactoryGirl.create(:user_with_aspect).person
-      sm.aspects << sm.author.owner.aspects.first
+    factory(:status_message_in_aspect) do
+      public false
+      after(:build) do |sm|
+        sm.author = FactoryGirl.create(:user_with_aspect).person
+        sm.aspects << sm.author.owner.aspects.first
+      end
+    end
+
+    factory(:status_message_with_participations) do
+      transient do
+        participants []
+      end
+      after(:build) do |sm, ev|
+        ev.participants.each do |participant|
+          person = participant.is_a?(User) ? participant.person : participant
+          sm.participations.build(author: person)
+        end
+      end
     end
   end
 

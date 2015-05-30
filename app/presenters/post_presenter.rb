@@ -92,28 +92,3 @@ class PostPresenter
   end
 
 end
-
-class PostInteractionPresenter
-  def initialize(post, current_user)
-    @post = post
-    @current_user = current_user
-  end
-
-  def as_json(options={})
-    {
-        likes:          as_api(@post.likes),
-        reshares:       PostPresenter.collection_json(@post.reshares, @current_user),
-        comments:       CommentPresenter.as_collection(@post.comments.order("created_at ASC")),
-        participations: as_api(@post.participations),
-        comments_count: @post.comments_count,
-        likes_count:    @post.likes_count,
-        reshares_count: @post.reshares_count
-    }
-  end
-
-  def as_api(collection)
-    collection.includes(:author => :profile).map do |element|
-      element.as_api_response(:backbone)
-    end
-  end
-end
