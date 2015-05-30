@@ -46,6 +46,7 @@
 * Add case insensitive unconfirmed email addresses as authentication key [#5967](https://github.com/diaspora/diaspora/pull/5967)
 * Fix liking on single post views when accessed via GUID [#5978](https://github.com/diaspora/diaspora/pull/5978)
 * Only return the current_users participation for post interactions [#6007](https://github.com/diaspora/diaspora/pull/6007)
+* Fix tag rendering in emails [#6009](https://github.com/diaspora/diaspora/pull/6009)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)

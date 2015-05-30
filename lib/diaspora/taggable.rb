@@ -58,5 +58,14 @@ module Diaspora
         %{#{pre}<a class="tag" href="/tags/#{url_bit}">#{clickable}</a>}
       }.html_safe
     end
+
+    def self.format_tags_for_mail(text)
+      regex = /(?<=^|\s|>)#([#{ActsAsTaggableOn::Tag.tag_text_regexp}]+|<3)/u
+      text.gsub(regex) do |tag|
+        opts = {name: ActsAsTaggableOn::Tag.normalize(tag)}
+               .merge(Rails.application.config.action_mailer.default_url_options)
+        "[#{tag}](#{Rails.application.routes.url_helpers.tag_url(opts)})"
+      end
+    end
   end
 end
