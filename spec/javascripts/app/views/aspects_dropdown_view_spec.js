@@ -16,7 +16,7 @@ describe("app.views.AspectsDropdown", function(){
   context('_toggleCheckbox', function() {
     beforeEach(function() {
       this.view.$('li.selected').removeClass('selected');
-      this.view.$('li.all_aspects.radio').addClass('selected');
+      this.view.$('li.all_aspects').addClass('selected');
     });
 
     it('deselects all radio buttons', function() {
@@ -45,21 +45,21 @@ describe("app.views.AspectsDropdown", function(){
     });
 
     it('deselects all checkboxes', function() {
-      this.view._toggleRadio(this.view.$('li.all_aspects.radio'));
+      this.view._toggleRadio(this.view.$('li.all_aspects'));
       expect(this.view.$('li.aspect_selector:eq(0)').hasClass('selected')).toBeFalsy();
       expect(this.view.$('li.aspect_selector:eq(1)').hasClass('selected')).toBeFalsy();
     });
 
     it('toggles the clicked radio buttons', function() {
-      this.view._toggleRadio(this.view.$('li.all_aspects.radio'));
-      expect(this.view.$('li.all_aspects.radio').hasClass('selected')).toBeTruthy();
-      expect(this.view.$('li.public.radio').hasClass('selected')).toBeFalsy();
-      this.view._toggleRadio(this.view.$('li.public.radio'));
-      expect(this.view.$('li.all_aspects.radio').hasClass('selected')).toBeFalsy();
-      expect(this.view.$('li.public.radio').hasClass('selected')).toBeTruthy();
-      this.view._toggleRadio(this.view.$('li.all_aspects.radio'));
-      expect(this.view.$('li.all_aspects.radio').hasClass('selected')).toBeTruthy();
-      expect(this.view.$('li.public.radio').hasClass('selected')).toBeFalsy();
+      this.view._toggleRadio(this.view.$('li.all_aspects'));
+      expect(this.view.$('li.all_aspects').hasClass('selected')).toBeTruthy();
+      expect(this.view.$('li.public').hasClass('selected')).toBeFalsy();
+      this.view._toggleRadio(this.view.$('li.public'));
+      expect(this.view.$('li.all_aspects').hasClass('selected')).toBeFalsy();
+      expect(this.view.$('li.public').hasClass('selected')).toBeTruthy();
+      this.view._toggleRadio(this.view.$('li.all_aspects'));
+      expect(this.view.$('li.all_aspects').hasClass('selected')).toBeTruthy();
+      expect(this.view.$('li.public').hasClass('selected')).toBeFalsy();
     });
   });
 
@@ -72,8 +72,8 @@ describe("app.views.AspectsDropdown", function(){
     it('select aspects in the dropdown by a given list of ids', function() {
       this.ids = [this.view.$('li.aspect_selector:eq(1)').data('aspect_id'),'public'];
       this.view._selectAspects(this.ids);
-      expect(this.view.$('li.all_aspects.radio').hasClass('selected')).toBeFalsy();
-      expect(this.view.$('li.public.radio').hasClass('selected')).toBeTruthy();
+      expect(this.view.$('li.all_aspects').hasClass('selected')).toBeFalsy();
+      expect(this.view.$('li.public').hasClass('selected')).toBeTruthy();
       expect(this.view.$('li.aspect_selector:eq(0)').hasClass('selected')).toBeFalsy();
       expect(this.view.$('li.aspect_selector:eq(1)').hasClass('selected')).toBeTruthy();
     });
@@ -90,7 +90,7 @@ describe("app.views.AspectsDropdown", function(){
     });
 
     it('shows the name of the selected radio button', function() {
-      this.view.$('li.all_aspects.radio').addClass('selected');
+      this.view.$('li.all_aspects').addClass('selected');
       this.view._updateButton('inAspectClass');
       expect(this.view.$('.btn.dropdown-toggle > .text').text()).toContain(Diaspora.I18n.t('aspect_dropdown.all_aspects'));
     });

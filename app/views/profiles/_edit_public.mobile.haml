@@ -36,10 +36,10 @@
 
 .stream
   - flash.each do |name, msg|
-    %div{:id => "flash_#{name}", :class => "expose"}
+    %div{id: "flash_#{name}", class: "expose"}
       .message= msg
     .stream
-      %p{:class => "conversation_#{name}"}= msg
+      %p{class: "conversation_#{name}"}= msg
 
 %h4
   = t('profiles.edit.your_public_profile')
@@ -48,24 +48,25 @@
 
 %h4
   = t('profiles.edit.your_name')
-= label_tag 'profile[first_name]', t('profiles.edit.first_name')
-= text_field_tag 'profile[first_name]', profile.first_name
-
-= label_tag 'profile[first_name]', t('profiles.edit.last_name')
-= text_field_tag 'profile[last_name]', profile.last_name
-
+.row
+  .col-md-6
+    = label_tag 'profile[first_name]', t('profiles.edit.first_name')
+    = text_field_tag 'profile[first_name]', profile.first_name, class: 'col-md-12 form-control'
+  .col-md-6
+    = label_tag 'profile[last_name]', t('profiles.edit.last_name')
+    = text_field_tag 'profile[last_name]', profile.last_name, class: 'col-md-12 form-control'
 %br
 
 %h4
   = t('profiles.edit.your_tags')
 
-= text_field_tag 'profile[tag_string]', "", :placeholder => t('profiles.edit.your_tags_placeholder')
+= text_field_tag 'profile[tag_string]', "", placeholder: t('profiles.edit.your_tags_placeholder'), class: "form-control"
 
 %br
 
 %h4
   = t('profiles.edit.your_photo')
 
-= render 'photos/new_profile_photo', :aspect => aspect, :person => person
+= render 'photos/new_profile_photo', aspect: aspect, person: person
 
 %br

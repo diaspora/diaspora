@@ -1,26 +1,27 @@
-.btn.creation {
+.btn.btn-primary {
   $button-border-color: #aaa;
-  @include button-gradient($creation-blue);
+  background: $dark-blue;
   color: #fff;
-  border: 1px solid darken($button-border-color,20%);
+  border: 1px solid darken($button-border-color, 20%);
   text-shadow: none;
-  &:hover {
-    background: $creation-blue;
+  &:hover, &:active {
+    background: lighten($dark-blue, 10%);
     border: 1px solid darken($button-border-color,35%);
   }
 }
-.btn-group.open > .btn.creation {
+.btn-group.open > .btn.btn-primary {
   background: $creation-blue;
+  &:hover, &:active { background: lighten($dark-blue, 10%); }
 }
 
 .btn.green {
   $button-border-color: #aaa;
-  @include button-gradient($green);
+  background: $green;
   color: $grey;
-  border: 1px solid darken($button-border-color,20%);
+  border: 1px solid darken($button-border-color, 20% );
 
   &:hover {
-    background: $green;
+    background: $light-green;
     border: 1px solid darken($button-border-color,35%);
   }
 }

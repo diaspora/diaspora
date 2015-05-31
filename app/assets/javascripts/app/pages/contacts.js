@@ -78,8 +78,8 @@ app.pages.Contacts = Backbone.View.extend({
   },
 
   setupAspectSorting: function() {
-    $("#aspect_nav .nav").sortable({
-      items: "li.aspect[data-aspect-id]",
+    $("#aspect_nav .list-group").sortable({
+      items: "a.aspect[data-aspect-id]",
       update: function() {
         $("#aspect_nav .ui-sortable").removeClass("synced");
         var data = JSON.stringify({ ordered_aspect_ids: $(this).sortable("toArray", { attribute: "data-aspect-id" }) });
