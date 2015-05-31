@@ -30,9 +30,10 @@ describe Diaspora::MessageRenderer do
         end
       end
 
-      context 'without a Markdown header of less than 200 characters on first line ' do
-        it 'truncates posts to the 20 first characters' do
-          expect(message("Very, very, very long post").title).to eq "Very, very, very ..."
+      context "without a Markdown header of less than 200 characters on first line" do
+        it "truncates posts to the 70 first characters" do
+          text = "Chillwave heirloom small batch semiotics, brunch cliche yr gluten-free whatever bitters selfies."
+          expect(message(text).title).to eq "Chillwave heirloom small batch semiotics, brunch cliche yr gluten-f..."
         end
       end
     end

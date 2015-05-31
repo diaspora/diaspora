@@ -24,6 +24,7 @@
 * Improve styling of horizontal ruler in posts [#6016](https://github.com/diaspora/diaspora/pull/6016)
 * Increase post titles length to 50 and use configured pod name as title in the atom feed [#6020](https://github.com/diaspora/diaspora/pull/6020)
 * Remove deprecated Facebook permissions [#6019](https://github.com/diaspora/diaspora/pull/6019)
+* Make used post title lengths more consistent [#6022](https://github.com/diaspora/diaspora/pull/6022)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)

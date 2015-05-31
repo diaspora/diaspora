@@ -128,7 +128,7 @@ class StatusMessage < Post
   end
 
   def comment_email_subject
-    message.title length: 70
+    message.title
   end
 
   def first_photo_url(*args)
