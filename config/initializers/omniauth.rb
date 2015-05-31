@@ -17,8 +17,8 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   
   if AppConfig.services.facebook.enable?
     provider :facebook, AppConfig.services.facebook.app_id, AppConfig.services.facebook.secret, {
-      display: 'popup',
-      scope: 'publish_actions,publish_stream,offline_access',
+      display:        "popup",
+      scope:          "public_profile,publish_actions",
       client_options: {
         ssl: {
           ca_file: AppConfig.environment.certificate_authorities
