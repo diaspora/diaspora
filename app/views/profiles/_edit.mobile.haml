@@ -65,15 +65,8 @@
     = label_tag 'profile[nsfw]', class: "checkbox-inline" do
       = check_box_tag 'profile[nsfw]', true, profile.nsfw?
       = t('profiles.edit.nsfw_check')
-
-  %br
-
-  = t('profiles.edit.nsfw_explanation2')
-
-  %br
+  %p
+    = t('profiles.edit.nsfw_explanation2')
 
   .submit_block
     =yield(:submit_block)
-
-  %br
-  %br

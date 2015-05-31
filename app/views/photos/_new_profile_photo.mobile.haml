@@ -42,8 +42,9 @@
 
 #profile_photo_upload
   = owner_image_tag(:thumb_medium)
+.clearfix
 
-  #file-upload.btn.btn-default
+  #file-upload.btn.btn-primary.pull-right
     =t('.upload')
 
   = image_tag('mobile-spinner.gif', class: 'hidden', style: "z-index:-1", id: 'file-upload-spinner')
