@@ -110,7 +110,10 @@
     overflow: hidden;
     position: relative;
     .markdown-content hr {
-      border-bottom: 1px solid $border-grey;
+      width: 85%;
+      margin: 0.8em auto 0.8em auto;
+      border-top: 1px solid $border-grey;
+      border-bottom: 0px;
     }
     .expander {
       position: absolute;
