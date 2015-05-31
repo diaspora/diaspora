@@ -51,6 +51,7 @@ Ruby 2.0 is no longer officially supported.
 * Remove zip-zip workaround gem [#6001](https://github.com/diaspora/diaspora/pull/6001)
 * Cleanup and reorganize image assets [#6004](https://github.com/diaspora/diaspora/pull/6004)
 * Replace vendored assets for facebox by gem [#6005](https://github.com/diaspora/diaspora/pull/6005)
+* Improve styling of horizontal ruler in posts [#6016](https://github.com/diaspora/diaspora/pull/6016)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
