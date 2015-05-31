@@ -854,3 +854,6 @@ DEPENDENCIES
   uuid (= 2.3.7)
   webmock (= 1.21.0)
   will_paginate (= 3.0.7)
+
+BUNDLED WITH
+   1.10.2
