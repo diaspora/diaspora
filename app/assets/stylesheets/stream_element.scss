@@ -109,7 +109,9 @@
   .collapsible {
     overflow: hidden;
     position: relative;
-
+    .markdown-content hr {
+      border-bottom: 1px solid $border-grey;
+    }
     .expander {
       position: absolute;
       bottom: 0;
