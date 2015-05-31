@@ -11,11 +11,15 @@
 	margin-bottom: 0;
 }
 
-#profile_photo_upload .avatar {
-  height: auto;
-  width: auto;
-  max-width: 200px;
-  margin-bottom: 10px;
+#profile_photo_upload {
+  text-align: center;
+
+  .avatar {
+    height: auto;
+    width: auto;
+    max-width: 200px;
+    margin-bottom: 20px;
+  }
 }
 
 .settings_visibilty { margin-left: 10px; }

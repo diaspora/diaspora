@@ -834,6 +834,7 @@ form p.checkbox_select {
   margin-top: 5px;
   min-height: 100px;
   position: relative;
+  margin-bottom: 20px;
 
   img {
     border-radius: 5px;
@@ -841,8 +842,8 @@ form p.checkbox_select {
 
     position: absolute;
     left: 0;
-    height: 100px;
-    width: 100px;
+    height: auto;
+    width: auto;
 
     &.avatar {
       @include transition(opacity, 0.5s);
@@ -901,6 +902,8 @@ form#update_profile_form {
   select {
     padding: 3px;
   }
+
+  .submit_block{ margin-bottom: 20px; }
 }
 
 select#user_language, #user_auto_follow_back_aspect_id, #aspect_ids_ {
