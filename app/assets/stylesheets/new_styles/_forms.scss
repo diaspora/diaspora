@@ -86,11 +86,10 @@ form.block-form {
       text-align: center;
       color: $text-grey;
       font-size: 20px;
-    }
-
-    .entypo.mail {
-      top: 7px;
-      font-size: 19px;
+      &.mail {
+        font-size: 19px;
+        top: 7px;
+      }
     }
 
     .entypo:nth-of-type(2) {
