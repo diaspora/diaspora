@@ -633,15 +633,21 @@ select {
 
 }
 
-.conversation_participants img.avatar{
+.conversation_participants img.avatar {
   height:35px;
   width:35px;
   margin: 5px 0 5px 2px;
 }
 
-.conversations img.avatar{
-  margin: 10px;
-  float: left;
+.conversations {
+  img.avatar {
+    margin: 10px;
+    float: left;
+  }
+  .no-messages {
+    text-align: center;
+    margin-top: 40px;
+  }
 }
 
 .unread_message_count {
