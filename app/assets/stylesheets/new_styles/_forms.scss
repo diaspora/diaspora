@@ -80,24 +80,29 @@ form.block-form {
 
     .entypo {
       position: absolute;
-      top: 7px;
-      left: 14px;
+      top: 10px;
+      left: 10px;
       width: 20px;
       text-align: center;
       color: $text-grey;
+      font-size: 20px;
+    }
+
+    .entypo.mail {
+      top: 7px;
       font-size: 19px;
     }
 
     .entypo:nth-of-type(2) {
-      top: 50px;
+      top: 47px;
     }
 
     .entypo:nth-of-type(3) {
-      top: 90px;
+      top: 87px;
     }
 
     .entypo:nth-of-type(4) {
-      top: 130px;
+      top: 127px;
     }
 
     ::placeholder { text-transform: uppercase; }
