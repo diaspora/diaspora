@@ -3,7 +3,7 @@
   %div.pull-left
     - if user.person
       %span.media-object
-        = person_image_tag(user.person)
+        = person_image_tag(user.person, size: :thumb_small)
 
   %div.media-body.row
     %div.pull-right
