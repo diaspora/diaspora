@@ -158,11 +158,12 @@ header {
 
   ul {
     list-style: none;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
   }
 }
 
 /* This class is added when the user open the drawer */
 #app.draw > * {
-          transform: translateX(-80%);
+          transform: translateX(-450px);
 }

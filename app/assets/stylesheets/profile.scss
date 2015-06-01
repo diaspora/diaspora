@@ -136,3 +136,13 @@
     margin-right: 0;
   }
 }
+
+#birth-date{
+  text-align: center;
+  select{
+    width: 32%;
+    display: inline;
+    &:first-of-type{ float: left; }
+    &:last-of-type{ float: right; }
+  }
+}
