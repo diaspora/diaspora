@@ -890,7 +890,9 @@ form p.checkbox_select {
   font-size: 1em;
 
   ul {
-    margin: 0 0 0 15px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
   }
 
   li {

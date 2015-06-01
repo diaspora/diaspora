@@ -5,17 +5,11 @@
 - content_for :page_title do
   = t('.title')
 
-.container
-  .row
-    .col-md-12
-      #section_header
-        %h2
-          = t('privacy')
-        = render 'shared/settings_nav'
+.container-fluid
+  = render 'shared/settings_nav'
 
-  .row
-    .col-md-3
-    .col-md-5
+  .container-fluid
+    .col-lg-8.col-lg-offset-2
       %h3
         = t('.title')
 
@@ -33,10 +27,7 @@
             = f.submit t('users.edit.change'), class: 'btn btn-primary pull-right'
 
       %hr
-
-  .row
-    .col-md-3
-    .col-md-5
+      .small-horizontal-spacer
       %h3
         = t('.ignored_users')
 
@@ -49,4 +40,3 @@
         = link_to t('.stop_ignoring'), block_path(block),
           method: :delete
         %br
-    .col-md-3
