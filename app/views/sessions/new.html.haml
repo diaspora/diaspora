@@ -1,7 +1,7 @@
 - content_for :page_title do
   = AppConfig.settings.pod_name + " - " + t('devise.sessions.new.sign_in')
 
-.container-fluid#login
+.container#login
   .text-center
     .logos-asterisk
     %h1
@@ -32,7 +32,7 @@
                          autocorrect: 'off'
 
     = f.hidden_field :remember_me, value: 1
-    = f.submit t('devise.sessions.new.sign_in'), class: 'btn btn-large btn-block'
+    = f.submit t('devise.sessions.new.sign_in'), class: 'btn btn-large btn-block btn-default'
 
   .text-center
     - if display_password_reset_link?

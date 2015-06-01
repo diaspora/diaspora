@@ -28,7 +28,7 @@
     = f.password_field :password_confirmation, class: "input-block-level form-control", placeholder: t('registrations.new.password_confirmation'), title: t('registrations.new.enter_password_again'), required: true, pattern: "......+"
 
     - if AppConfig.settings.captcha.enable?
-      = show_simple_captcha :object => 'user', :code_type => 'numeric'
+      = show_simple_captcha object: 'user', :code_type => 'numeric', input_html: {class: "form-control"}
 
     = invite_hidden_tag(invite)
 
@@ -36,4 +36,4 @@
     %p#terms.text-center
       = t('registrations.new.terms', terms_link: link_to(t('registrations.new.terms_link'), terms_path, target: "_blank")).html_safe
 
-  = f.submit t('registrations.new.sign_up'), class: "btn btn-block btn-large", data: {disable_with: t('registrations.new.submitting')}
+  = f.submit t('registrations.new.sign_up'), class: "btn btn-block btn-large btn-default", data: {disable_with: t('registrations.new.submitting')}

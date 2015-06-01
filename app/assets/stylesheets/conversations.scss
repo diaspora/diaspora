@@ -18,7 +18,15 @@
       margin: 0 0 1em 0;
       &:last-child { margin-bottom: 0; }
     }
-    &.new_message { border-bottom: none; }
+    &.new_message {
+      border-bottom: none;
+
+      #new_message #message_text{
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+      }
+    }
     .timestamp { font-size: 11px; }
   }
 
@@ -191,6 +199,10 @@
         background: $background-grey;
       }
     }
+    div.pagination{
+      text-align: center;
+      width: 100%;
+    }
   }
 }
 
@@ -202,6 +214,12 @@
 
 #conversation_new {
   label { font-weight: bold; }
+
+  #new_conversation #conversation_text{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
 }
 
 #no_conversations,
@@ -226,3 +244,4 @@
   input#contact_ids { box-shadow: none; }
   label { font-weight: bold; }
 }
+

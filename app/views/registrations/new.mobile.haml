@@ -8,13 +8,13 @@
 .registrations
 .stream
   - flash.each do |name, msg|
-    %p{:class => "registrations_#{name}"}= msg
+    %p{class: "registrations_#{name}"}= msg
     #flash_alert.expose
-      %div{:class => "message", :id => "session"}= msg
+      %div{class: "message", id: "session"}= msg
 
   #login_form
     .login-container
-      = form_for(resource, :as => resource_name, :html => {:class => 'new_user_form'}, :url => registration_path(resource_name)) do |f|
+      = form_for(resource, as: resource_name, html: {class: 'new_user_form'}, url: registration_path(resource_name)) do |f|
         %fieldset
           %legend
             = image_tag("branding/logos/header-logo2x.png", height: 40, width: 40)
@@ -23,25 +23,25 @@
           .control-group
             = f.label :username, t('username')
             .controls
-              = f.text_field :username, :placeholder => "jedi_guy"
+              = f.text_field :username, placeholder: "jedi_guy"
 
             .control-group
               = f.label :email, t('email')
               .controls
-                = f.text_field :email, :placeholder => "luke@hoth.net"
+                = f.text_field :email, placeholder: "luke@hoth.net"
 
             .control-group
               = f.label :password, t('password')
               .controls
-                = f.password_field :password, :placeholder => "••••••••"
+                = f.password_field :password, placeholder: "••••••••"
 
             .control-group
               = f.label :password_confirmation, t('password_confirmation')
               .controls
-                = f.password_field :password_confirmation, :placeholder => "••••••••"
+                = f.password_field :password_confirmation, placeholder: "••••••••"
 
             - if AppConfig.settings.captcha.enable?
-              = show_simple_captcha(:object => 'user', :code_type => 'numeric')
+              = show_simple_captcha(object: 'user', :code_type => 'numeric')
 
             = invite_hidden_tag(invite)
 
@@ -49,8 +49,8 @@
               = t('registrations.new.terms', terms_link: link_to(t('registrations.new.terms_link'), terms_path, target: "_blank")).html_safe
 
             .controls
-              = f.submit t('registrations.new.create_my_account'), :class => 'btn primary', :disable_with => t('registrations.new.submitting')
-              = link_to t('devise.sessions.new.sign_in'), new_user_session_path(), :class => 'btn btn-link', :style => "float: right;"
+              = f.submit t('registrations.new.create_my_account'), class: 'btn btn-primary', :disable_with => t('registrations.new.submitting')
+              = link_to t('devise.sessions.new.sign_in'), new_user_session_path(), class: 'btn btn-link', style: "float: right;"
 
 %footer
   = link_to t('layouts.application.toggle'), toggle_mobile_path

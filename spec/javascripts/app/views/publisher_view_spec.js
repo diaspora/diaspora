@@ -305,61 +305,37 @@ describe("app.views.Publisher", function() {
       spec.loadFixture("status_message_new");
       Diaspora.I18n.load({ stream: { public: 'Public' }});
 
+      this.view_aspect_selector = new app.views.PublisherAspectSelector({
+        el: $('.public_toggle .aspect_dropdown'),
+        form: $('.content_creation form')
+      });
+
       this.view = new app.views.Publisher();
       this.view.open();
-
-      this.radio_els = this.view.$('#publisher .aspect_dropdown li.radio');
-      this.check_els = this.view.$('#publisher .aspect_dropdown li.aspect_selector');
-      this.visibility_icon = this.view.$('#visibility-icon');
     });
 
     it("initializes with 'all_aspects'", function(){
-      expect($('.aspect_dropdown li.public')).not.toHaveClass('selected');
-      expect($('.aspect_dropdown li.all_aspects')).toHaveClass('selected');
-      expect($('.aspect_dropdown li.aspect_selector')).not.toHaveClass('selected');
-
       expect($('#publisher #visibility-icon')).not.toHaveClass('globe');
       expect($('#publisher #visibility-icon')).toHaveClass('lock');
     });
 
-    it("toggles the selected entry visually", function(){
-      // click on the first aspect
-      var evt = $.Event("click", { target: $('.aspect_dropdown li.aspect_selector:first') });
-      this.view.view_aspect_selector.toggleAspect(evt);
-      // public and "all aspects" are deselected
-      expect($('.aspect_dropdown li.public')).not.toHaveClass('selected');
-      expect($('.aspect_dropdown li.all_aspects')).not.toHaveClass('selected');
-      // the first aspect is selected
-      expect($('.aspect_dropdown li.aspect_selector:first')).toHaveClass('selected');
-      // the last aspect is not selected
-      expect($('.aspect_dropdown li.aspect_selector:last')).not.toHaveClass('selected');
-      // visibility icon is set to the lock icon
-      expect($('#publisher #visibility-icon')).not.toHaveClass('globe');
-      expect($('#publisher #visibility-icon')).toHaveClass('lock');
+    describe("toggles the selected entry visually", function(){
+      it("click on the first aspect", function(){
+        this.view.$('.aspect_dropdown li.aspect_selector:first').click();
+        expect($('#publisher #visibility-icon')).not.toHaveClass('globe');
+        expect($('#publisher #visibility-icon')).toHaveClass('lock');
+      });
 
-      // click on public
-      evt = $.Event("click", { target: $('.aspect_dropdown li.public') });
-      this.view.view_aspect_selector.toggleAspect(evt);
-      // public is selected, "all aspects" is deselected
-      expect($('.aspect_dropdown li.public').hasClass('selected')).toBeTruthy();
-      expect($('.aspect_dropdown li.all_aspects').hasClass('selected')).toBeFalsy();
-      // the aspects are deselected
-      expect($('.aspect_dropdown li.aspect_selector').hasClass('selected')).toBeFalsy();
-      // visibility icon is set to the globe icon
-      expect($('#publisher #visibility-icon').hasClass('globe')).toBeTruthy();
-      expect($('#publisher #visibility-icon').hasClass('lock')).toBeFalsy();
+      it("click on public", function(){
+        this.view.$('.aspect_dropdown li.public').click();
+        expect($('#publisher #visibility-icon')).toHaveClass('globe');
+        expect($('#publisher #visibility-icon')).not.toHaveClass('lock');
+      });
 
-      // click on "all aspects"
-      evt = $.Event("click", { target: $('.aspect_dropdown li.all_aspects') });
-      this.view.view_aspect_selector.toggleAspect(evt);
-      // public is deselected, "all aspects" is selected
-      expect($('.aspect_dropdown li.public').hasClass('selected')).toBeFalsy();
-      expect($('.aspect_dropdown li.all_aspects').hasClass('selected')).toBeTruthy();
-      // the aspects are deselected
-      expect($('.aspect_dropdown li.aspect_selector').hasClass('selected')).toBeFalsy();
-      // visibility icon is set to the lock icon
-      expect($('#publisher #visibility-icon').hasClass('globe')).toBeFalsy();
-      expect($('#publisher #visibility-icon').hasClass('lock')).toBeTruthy();
+      it("click on 'all aspects'", function(){
+        expect($('#publisher #visibility-icon')).not.toHaveClass('globe');
+        expect($('#publisher #visibility-icon')).toHaveClass('lock');
+      });
     });
 
     describe("hidden form elements", function(){

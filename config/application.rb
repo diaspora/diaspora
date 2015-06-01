@@ -81,9 +81,7 @@ module Diaspora
       templates.js
       validation.js
 
-      bootstrap.css
       bootstrap-complete.css
-      bootstrap-responsive.css
       error_pages.css
       admin.css
       mobile/mobile.css

@@ -324,7 +324,7 @@ app.views.Publisher = Backbone.View.extend({
       "title" : serializedForm["status_message[text]"],
       "address" : $("#location_address").val(),
       "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0},
-      'poll': poll,
+      'poll': poll
     };
     if(app.stream) {
       this.removePostPreview();

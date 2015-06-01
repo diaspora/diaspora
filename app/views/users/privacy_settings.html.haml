@@ -5,37 +5,29 @@
 - content_for :page_title do
   = t('.title')
 
-.container
-  .row-fluid
-    .span12
-      #section_header
-        %h2
-          = t('privacy')
-        = render 'shared/settings_nav'
+.container-fluid
+  = render 'shared/settings_nav'
 
-  .row-fluid
-    .span3
-    .span5
+  .container-fluid
+    .col-lg-8.col-lg-offset-2
       %h3
         = t('.title')
 
-      = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
+      = form_for current_user, url: user_path, html: { method: :put } do |f|
         = f.error_messages
 
         = f.fields_for :stream_preferences do |type|
           #stream_prefs
-          = f.label :strip_exif, :class => "checkbox" do
+          = f.label :strip_exif, class: "checkbox" do
             = f.check_box :strip_exif
             = t('.strip_exif')
 
           .small-horizontal-spacer
-          = f.submit t('users.edit.change'), :class => 'btn'
+          .clearfix
+            = f.submit t('users.edit.change'), class: 'btn btn-primary pull-right'
 
       %hr
-
-  .row-fluid
-    .span3
-    .span5
+      .small-horizontal-spacer
       %h3
         = t('.ignored_users')
 
@@ -46,6 +38,5 @@
         = block.person_name
         \-
         = link_to t('.stop_ignoring'), block_path(block),
-          :method => :delete
+          method: :delete
         %br
-    .span3
