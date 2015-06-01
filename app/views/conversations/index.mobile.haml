@@ -20,7 +20,7 @@
       = render partial: 'conversations/conversation', collection: @conversations,
           locals: { authors: @authors,  unread_counts: @unread_counts }
     - else
-      %div{:class => 'no-messages'}
+      %div{ class: 'no-messages' }
         %i
           = t('.no_messages')
 
