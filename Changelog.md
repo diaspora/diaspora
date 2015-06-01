@@ -80,6 +80,7 @@ Ruby 2.0 is no longer officially supported.
 * Only return the current_users participation for post interactions [#6007](https://github.com/diaspora/diaspora/pull/6007)
 * Fix tag rendering in emails [#6009](https://github.com/diaspora/diaspora/pull/6009)
 * Fix the logo in emails [#6013](https://github.com/diaspora/diaspora/pull/6013)
+* Disable autocorrect for username on mobile sign in [#6028](https://github.com/diaspora/diaspora/pull/6028)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
