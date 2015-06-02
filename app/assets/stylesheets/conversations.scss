@@ -144,11 +144,12 @@
 
     .hide_conversation, .delete_conversation {
       display: block;
-      margin-top: 25px;
+      margin-top: 15px;
       margin-left: 10px;
     }
 
     .avatar {
+      display: inline;
       height: 30px;
       width: 30px;
     }
@@ -224,10 +225,11 @@
 
 #no_conversations,
 #no_conversation_text {
+  color: $gray-light;
+  font-size: $font-size-h4;
   font-weight: bold;
-  color: #ccc;
+  padding: 50px 0;
   text-align: center;
-  margin-top: 100px;
 }
 
 #no_conversation_text {
