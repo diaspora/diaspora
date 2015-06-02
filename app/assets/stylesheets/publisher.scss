@@ -3,8 +3,6 @@
   color: $text-grey;
   margin: 0;
 
-  & * { font-size: 13px; }
-
   &.closed {
     #button_container,
     #location_container,
@@ -33,7 +31,11 @@
       padding: 10px 0 ;
       #publisher_service_icons {
         .btn-link{ text-decoration: none; }
-        .btn-link.question_mark .entypo { color: $text-grey; }
+        .btn-link.question_mark .entypo {
+          color: $text-grey;
+          font-size: 16px;
+          line-height: $line-height-computed;
+        }
         .btn-link.question_mark:hover.entypo { color: $black; }
         .btn-link.service_icon {
           padding-left: 5px;
@@ -72,7 +74,6 @@
       }
 
       .markdownIndications {
-        font-size: 13px;
         line-height: 30px;
         padding-left: 10px;
         margin-bottom: 0;
@@ -81,7 +82,7 @@
       }
 
       .mentions-input-box .mentions {
-        line-height: $line-height !important;
+        line-height: $line-height-base !important;
       }
 
       &.with_attachments #photodropzone_container {
@@ -187,6 +188,7 @@
         #hide_location {
           text-decoration: none !important;
           font-size: 16px;
+          line-height: $line-height-computed;
           padding: 4px 5px;
           i {
             color: $text-grey;
@@ -216,7 +218,6 @@
         position: absolute;
         right: 100px;
         bottom: -31px;
-        font-size: 13px;
       }
       &.with_location .counter {
         bottom: -62px;

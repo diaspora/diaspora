@@ -61,7 +61,7 @@
                 - for service in current_user.services
                   = service_button(service)
               %a.btn.btn-group.btn-link{ href: "#question_mark_pane", class: 'question_mark', rel: 'facebox', title: t('shared.public_explain.manage') }
-                %i.entypo.small.cog
+                %i.entypo.cog
 
             = render partial: "publisher/aspect_dropdown", locals: { :selected_aspects => selected_aspects }
 
