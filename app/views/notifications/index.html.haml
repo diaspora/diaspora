@@ -3,14 +3,14 @@
     .col-md-3
       %h3
         = t('.notifications')
-      %ul.list-group
+      .list-group
         %a.list-group-item{class: ('active' unless params[:type] && @grouped_unread_notification_counts.has_key?(params[:type])), href: '/notifications' + (params[:show] == 'unread' ? '?show=unread' : '') }
-          %span.pull-right.badge{class: (@unread_notification_count > 0 ? 'badge-important' : 'badge-default')}
+          %span.pull-right.badge{class: ("hidden" unless @unread_notification_count > 0)}
             = @unread_notification_count
           = t('.all_notifications')
         - @grouped_unread_notification_counts.each do |key, count|
           %a.list-group-item{class: ('active' if params[:type] == key), data: { type: key }, href: '/notifications?type=' + key + (params[:show] == 'unread' ? '&show=unread' : '') }
-            %span.pull-right.badge{class: (count > 0 ? 'badge-important' :'badge-default') }
+            %span.pull-right.badge{class: ("hidden" unless count > 0)}
               = count
             - case key
               - when 'also_commented', 'comment_on_post'

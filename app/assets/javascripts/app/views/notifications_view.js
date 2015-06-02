@@ -74,10 +74,10 @@ app.views.Notifications = Backbone.View.extend({
 
     [allNotes, typeNotes].forEach(function(badge) {
       if(badge.text() > 0) {
-        badge.addClass("badge-important").removeClass("badge-default");
+        badge.removeClass("hidden");
       }
       else {
-        badge.removeClass("badge-important").addClass("badge-default");
+        badge.addClass("hidden");
       }
     });
 
