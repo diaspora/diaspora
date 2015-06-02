@@ -109,6 +109,10 @@ describe Comment, :type => :model do
       expect(@xml.include?(@commenter.diaspora_handle)).to be true
     end
 
+    it 'serializes the created_at timestamp' do
+      @xml.include?(@comment.remote_created).should be_true
+    end
+
     it 'serializes the post_guid' do
       expect(@xml).to include(@post.guid)
     end
@@ -120,6 +124,10 @@ describe Comment, :type => :model do
 
       it 'marshals the author' do
         expect(@marshalled_comment.author).to eq(@commenter.person)
+      end
+
+      it 'marshals the created_at' do
+        @marshalled_comment.created_at.to_s.should == @comment.created_at.to_s
       end
 
       it 'marshals the post' do

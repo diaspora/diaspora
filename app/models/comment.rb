@@ -19,6 +19,9 @@ class Comment < ActiveRecord::Base
   xml_attr :text
   xml_attr :diaspora_handle
 
+  #Don't name it remote_create_at, otherwise it won't work due to some mysterious reasons
+  xml_attr :remote_created
+
   belongs_to :commentable, :touch => true, :polymorphic => true
   alias_attribute :post, :commentable
   belongs_to :author, :class_name => 'Person'
@@ -57,6 +60,14 @@ class Comment < ActiveRecord::Base
 
   def diaspora_handle= nh
     self.author = Webfinger.new(nh).fetch
+  end
+
+  def remote_created
+    Time.zone.parse(self.created_at.to_s).to_i.to_s unless(self.created_at.nil?)
+  end
+
+  def remote_created= date
+    self.created_at = Time.at(date.to_i).utc.to_datetime unless date.blank?
   end
 
   def notification_type(user, person)

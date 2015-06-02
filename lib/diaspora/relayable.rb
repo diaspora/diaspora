@@ -44,6 +44,10 @@ module Diaspora
       true
     end
 
+    def set_created_at
+      self.created_at = Time.now
+    end
+
     # @return [String]
     def parent_guid
       return nil unless parent.present?

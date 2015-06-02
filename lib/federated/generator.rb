@@ -8,6 +8,7 @@ module Federated
     def create!(options={})
       relayable = build(options)
       if relayable.save!
+
         FEDERATION_LOGGER.info("user:#{@user.id} dispatching #{relayable.class}:#{relayable.guid}")
         Postzord::Dispatcher.defer_build_and_post(@user, relayable)
         relayable
@@ -18,6 +19,7 @@ module Federated
       options.merge!(relayable_options)
       relayable = self.class.federated_class.new(options.merge(:author_id => @user.person.id))
       relayable.set_guid
+      relayable.set_created_at
       relayable.initialize_signatures
       relayable
     end
