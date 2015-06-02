@@ -4,9 +4,9 @@
 
 .stream_element{:data=>{:guid=>message.id}, :id => ('first_unread' if @first_unread_message_id == message.id)}
   .media
-    .col-xs-1
-      = person_image_link(message.author, :size => :thumb_small)
-    .col-xs-11
+    .media-left
+      = person_image_link(message.author, size: :thumb_small, class: "media-object")
+    .media-body
       = person_link(message.author, :class => 'author from')
       = timeago(message.created_at)
 
