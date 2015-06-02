@@ -24,7 +24,7 @@
     / For Nokia devices
     %link{rel: "shortcut icon", href: image_path("apple-touch-icon.png")}
     / For desktop
-    %link{rel:  'shortcut icon', href:  image_path("favicon.png")} }
+    %link{rel:  'shortcut icon', href:  image_path("favicon.png")}
 
     / iOS mobile web app indicator
     / NOTE(we will enable these once we don't have to rely on back/forward buttons anymore)
@@ -106,7 +106,7 @@
               %li
                 = link_to user_profile_path(current_user.username) do
                   = t('layouts.header.profile')
-                  = person_image_tag(current_user)
+                  = person_image_tag(current_user, size: :thumb_small)
               %li
                 = link_to t('_contacts'), contacts_path
               %li
