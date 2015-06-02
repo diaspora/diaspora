@@ -46,7 +46,7 @@ describe Profile, :type => :model do
 
       it 'sets full name to first name' do
         @from_omniauth = {'name' => 'bob jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'http://cats.com/gif.gif'}
-        
+
         profile = Profile.new
         expect(profile.from_omniauth_hash(@from_omniauth)['first_name']).to eq('bob jones')
       end
@@ -117,32 +117,47 @@ describe Profile, :type => :model do
       profile = FactoryGirl.build(:profile, :location => "a"*255)
       expect(profile).to be_valid
     end
-   
+
     it "cannot be 256 characters" do
       profile = FactoryGirl.build(:profile, :location => "a"*256)
       expect(profile).not_to be_valid
     end
   end
 
-  describe '#image_url=' do
-    before do
-      @profile = FactoryGirl.build(:profile)
-      @profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
-      @pod_url = AppConfig.pod_uri.to_s.chomp("/")
-    end
+  describe "image_url setters" do
+    %i(image_url image_url_small image_url_medium).each do |method|
+      describe "##{method}=" do
+        before do
+          @profile = FactoryGirl.build(:profile)
+          @profile.public_send("#{method}=", "http://tom.joindiaspora.com/images/user/tom.jpg")
+          @pod_url = AppConfig.pod_uri.to_s.chomp("/")
+        end
 
-    it 'ignores an empty string' do
-      expect {@profile.image_url = ""}.not_to change(@profile, :image_url)
-    end
+        it "saves nil when setting nil" do
+          @profile.public_send("#{method}=", nil)
+          expect(@profile[method]).to be_nil
+        end
 
-    it 'makes relative urls absolute' do
-      @profile.image_url = "/relative/url"
-      expect(@profile.image_url).to eq("#{@pod_url}/relative/url")
-    end
+        it "saves nil when setting an empty string" do
+          @profile.public_send("#{method}=", "")
+          expect(@profile[method]).to be_nil
+        end
 
-    it "doesn't change absolute urls" do
-      @profile.image_url = "http://not/a/relative/url"
-      expect(@profile.image_url).to eq("http://not/a/relative/url")
+        it "makes relative urls absolute" do
+          @profile.public_send("#{method}=", "/relative/url")
+          expect(@profile.public_send(method)).to eq("#{@pod_url}/relative/url")
+        end
+
+        it "doesn't change absolute urls" do
+          @profile.public_send("#{method}=", "http://not/a/relative/url")
+          expect(@profile.public_send(method)).to eq("http://not/a/relative/url")
+        end
+
+        it "saves the default-url as nil" do
+          @profile.public_send("#{method}=", "/assets/user/default.png")
+          expect(@profile[method]).to be_nil
+        end
+      end
     end
   end
 
@@ -157,7 +172,7 @@ describe Profile, :type => :model do
       expect(new_profile.tag_string).to include('#rafi')
     end
   end
-  
+
   describe 'serialization' do
     let(:person) {FactoryGirl.build(:person,:diaspora_handle => "foobar" )}
 
@@ -173,7 +188,7 @@ describe Profile, :type => :model do
       xml = person.profile.to_diaspora_xml
       expect(xml).to include "#one"
     end
-    
+
     it 'includes location' do
       person.profile.location = 'Dark Side, Moon'
       person.profile.save
@@ -339,7 +354,7 @@ describe Profile, :type => :model do
   describe "#clearable_fields" do
     it 'returns the current profile fields' do
       profile = FactoryGirl.build :profile
-      expect(profile.send(:clearable_fields).sort).to eq( 
+      expect(profile.send(:clearable_fields).sort).to eq(
       ["diaspora_handle",
       "first_name",
       "last_name",
