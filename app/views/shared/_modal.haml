@@ -9,7 +9,7 @@
       .modal-header
         %button.close{type: 'button', 'data-dismiss' => 'modal', 'aria-hidden' => 'true' }
           &times;
-        %h3{ id: "#{id}Label"}
+        %h3.modal-title{ id: "#{id}Label"}
           = title
       .modal-body
         = image_tag('ajax-loader2.gif', id: "modalWaiter", class: "img-responsive center-block")
