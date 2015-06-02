@@ -51,6 +51,8 @@ Ruby 2.0 is no longer officially supported.
 * Remove zip-zip workaround gem [#6001](https://github.com/diaspora/diaspora/pull/6001)
 * Cleanup and reorganize image assets [#6004](https://github.com/diaspora/diaspora/pull/6004)
 * Replace vendored assets for facebox by gem [#6005](https://github.com/diaspora/diaspora/pull/6005)
+* Improve styling of horizontal ruler in posts [#6016](https://github.com/diaspora/diaspora/pull/6016)
+* Increase post titles length to 50 and use configured pod name as title in the atom feed [#6020](https://github.com/diaspora/diaspora/pull/6020)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
@@ -78,6 +80,7 @@ Ruby 2.0 is no longer officially supported.
 * Only return the current_users participation for post interactions [#6007](https://github.com/diaspora/diaspora/pull/6007)
 * Fix tag rendering in emails [#6009](https://github.com/diaspora/diaspora/pull/6009)
 * Fix the logo in emails [#6013](https://github.com/diaspora/diaspora/pull/6013)
+* Disable autocorrect for username on mobile sign in [#6028](https://github.com/diaspora/diaspora/pull/6028)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
