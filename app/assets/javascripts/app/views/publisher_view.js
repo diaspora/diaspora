@@ -202,7 +202,9 @@ app.views.Publisher = Backbone.View.extend({
         if( self.standalone ) self.setEnabled(false);
       },
       error: function(model, resp) {
-        if( app.publisher ) app.publisher.trigger("publisher:error");
+        if( app.publisher ) {
+          app.publisher.trigger("publisher:error");
+        }
         self.setInputEnabled(true);
         Diaspora.page.flashMessages.render({ "success":false, "notice":resp.responseText });
         self.setButtonsEnabled(true);
@@ -289,17 +291,19 @@ app.views.Publisher = Backbone.View.extend({
     var date = (new Date()).toISOString();
 
     var poll;
-    var poll_question = serializedForm["poll_question"];
-    var poll_answers_arry = _.flatten([serializedForm["poll_answers[]"]]);
-    var poll_answers = _.map(poll_answers_arry, function(answer){
-      if(answer) return { "answer" : answer };
+    var pollQuestion = serializedForm["poll_question"];
+    var pollAnswersArray = _.flatten([serializedForm["poll_answers[]"]]);
+    var pollAnswers = _.map(pollAnswersArray, function(answer){
+      if (answer) {
+        return { "answer" : answer };
+      }
     });
-    poll_answers = _.without(poll_answers, undefined);
+      pollAnswers = _.without(pollAnswers, undefined);
 
-    if(poll_question && poll_answers.length) {
+    if(pollQuestion && pollAnswers.length) {
       poll = {
-        "question": poll_question,
-        "poll_answers" : poll_answers,
+        "question": pollQuestion,
+        "poll_answers" : pollAnswers,
         "participation_count": "0"
       };
     }
