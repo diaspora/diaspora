@@ -9,9 +9,6 @@ env:
   - DB=mysql BUILD_TYPE=other
   - DB=postgresql BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=cucumber
-  
-addons:
-    firefox: "37.0"
 
 sudo: false
 cache:
