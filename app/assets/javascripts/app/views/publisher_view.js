@@ -291,7 +291,7 @@ app.views.Publisher = Backbone.View.extend({
     var date = (new Date()).toISOString();
 
     var poll;
-    var pollQuestion = serializedForm["poll_question"];
+    var pollQuestion = serializedForm.poll_question;
     var pollAnswersArray = _.flatten([serializedForm["poll_answers[]"]]);
     var pollAnswers = _.map(pollAnswersArray, function(answer){
       if (answer) {
