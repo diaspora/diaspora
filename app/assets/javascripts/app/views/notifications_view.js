@@ -15,9 +15,9 @@ app.views.Notifications = Backbone.View.extend({
   toggleUnread: function(evt) {
     var note = $(evt.target).closest(".stream_element");
     var unread = note.hasClass("unread");
-
-    if (unread){ this.setRead(note.data("guid")); }
-    else { this.setUnread(note.data("guid")); }
+    var guid = note.data.guid;
+    if (unread){ this.setRead(guid); }
+    else { this.setUnread(guid); }
   },
 
   getAllUnread: function(){ return $(".media.stream_element.unread"); },
@@ -37,8 +37,9 @@ app.views.Notifications = Backbone.View.extend({
   },
 
   clickSuccess: function(data) {
-    var type = $(".stream_element[data-guid=" + data["guid"] + "]").data("type");
-    this.updateView(data["guid"], type, data["unread"]);
+    var guid = data.guid;
+    var type = $(".stream_element[data-guid=" + guid + "]").data("type");
+    this.updateView(guid, type, data.unread);
   },
 
   markAllRead: function(evt){
