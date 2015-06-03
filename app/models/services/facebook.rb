@@ -9,7 +9,7 @@ class Services::Facebook < Service
   end
 
   def post(post, url='')
-    Rails.logger.debug("event=post_to_service type=facebook sender_id=#{self.user_id}")
+    logger.debug "event=post_to_service type=facebook sender_id=#{user_id} post=#{post.guid}"
     response = post_to_facebook("https://graph.facebook.com/me/feed", create_post_params(post).to_param)
     response = JSON.parse response.body
     post.facebook_id = response["id"]
@@ -39,7 +39,7 @@ class Services::Facebook < Service
 
   def delete_post(post)
     if post.present? && post.facebook_id.present?
-      Rails.logger.debug("event=delete_from_service type=facebook sender_id=#{self.user_id}")
+      logger.debug "event=delete_from_service type=facebook sender_id=#{user_id} post=#{post.guid}"
       delete_from_facebook("https://graph.facebook.com/#{post.facebook_id}/", {:access_token => self.access_token})
     end
   end

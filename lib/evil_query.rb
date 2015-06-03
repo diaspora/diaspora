@@ -1,5 +1,7 @@
 module EvilQuery
   class Base
+    include Diaspora::Logging
+
     def fetch_ids!(relation, id_column)
       #the relation should be ordered and limited by here
       @class.connection.select_values(id_sql(relation, id_column))
@@ -51,24 +53,24 @@ module EvilQuery
     end
 
     def make_relation!
-      Rails.logger.debug("[EVIL-QUERY] make_relation!")
+      logger.debug("[EVIL-QUERY] make_relation!")
       post_ids = aspects_post_ids! + ids!(followed_tags_posts!) + ids!(mentioned_posts)
       post_ids += ids!(community_spotlight_posts!) if @include_spotlight
       Post.where(:id => post_ids)
     end
 
     def aspects_post_ids!
-      Rails.logger.debug("[EVIL-QUERY] aspect_post_ids!")
+      logger.debug("[EVIL-QUERY] aspect_post_ids!")
       @user.visible_shareable_ids(Post, :limit => 15, :order => "#{@order} DESC", :max_time => @max_time, :all_aspects? => true, :by_members_of => @user.aspect_ids)
     end
 
     def followed_tags_posts!
-      Rails.logger.debug("[EVIL-QUERY] followed_tags_posts!")
+      logger.debug("[EVIL-QUERY] followed_tags_posts!")
       StatusMessage.public_tag_stream(@user.followed_tag_ids)
     end
 
     def mentioned_posts
-      Rails.logger.debug("[EVIL-QUERY] mentioned_posts")
+      logger.debug("[EVIL-QUERY] mentioned_posts")
       StatusMessage.where_person_is_mentioned(@user.person)
     end
 

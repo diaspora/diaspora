@@ -40,21 +40,24 @@ class Retraction
   end
 
   def perform receiving_user
-    Rails.logger.debug "Performing retraction for #{post_guid}"
+    logger.debug "Performing retraction for #{post_guid}"
 
     self.target.destroy if self.target
-    Rails.logger.info("event=retraction status=complete type=#{self.type} guid=#{self.post_guid}")
+    logger.info "event=retraction status=complete type=#{type} guid=#{post_guid}"
   end
 
   def receive(user, person)
     if self.type == 'Person'
       unless self.person.guid.to_s == self.post_guid.to_s
-        Rails.logger.info("event=receive status=abort reason='sender is not the person he is trying to retract' recipient=#{self.diaspora_handle} sender=#{self.person.diaspora_handle} payload_type=#{self.class} retraction_type=person")
+        logger.warn "event=receive status=abort reason='sender is not the person he is trying to retract' " \
+                    "recipient=#{diaspora_handle} sender=#{self.person.diaspora_handle} " \
+                    "payload_type=#{self.class} retraction_type=person"
         return
       end
       user.disconnected_by(self.target)
     elsif self.target.nil? || self.target.author != self.person
-      Rails.logger.info("event=retraction status=abort reason='no post found authored by retractor' sender=#{person.diaspora_handle} post_guid=#{post_guid}")
+      logger.warn "event=retraction status=abort reason='no post found authored by retractor' " \
+                  "sender=#{person.diaspora_handle} post_guid=#{post_guid}"
     else
       self.perform(user)
     end
