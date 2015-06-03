@@ -31,7 +31,7 @@ module Workers
         if retry_count < MAX_RETRIES
           Workers::HttpMulti.perform_in(1.hour, user_id, encoded_object_xml, hydra.people_to_retry, dispatcher_class_as_string, retry_count + 1)
         else
-          Rails.logger.info("event=http_multi_abandon sender_id=#{user_id} failed_recipient_ids='[#{person_ids.join(', ')}] '")
+          logger.info "event=http_multi_abandon sender_id=#{user_id} failed_recipient_ids='[#{person_ids.join(', ')}]'"
         end
       end
     end

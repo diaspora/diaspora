@@ -1,5 +1,7 @@
 module NotificationMailers
   class Base
+    include Diaspora::Logging
+
     attr_accessor :recipient, :sender
 
     delegate :unconfirmed_email, :confirm_email_token,
@@ -52,10 +54,6 @@ module NotificationMailers
       log_string << " sender_handle=#{@sender.diaspora_handle}" if sender_id.present?
 
       logger.info(log_string)
-    end
-
-    def logger
-      @logger ||= ::Logging::Logger[self]
     end
   end
 end
