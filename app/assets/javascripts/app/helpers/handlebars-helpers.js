@@ -75,9 +75,9 @@ Handlebars.registerHelper('personImage', function(person, size, imageClass) {
   size = ( !_.isString(size) ) ? "small" : size;
   imageClass = ( !_.isString(imageClass) ) ? size : imageClass;
 
-  return _.template("<img src=\"<%= src %>\" class=\"<%= img_class %>\" title=\"<%= title %>\" alt=\"<%= title %>\" />")({
+  return _.template("<img src=\"<%= src %>\" class=\"<%= imageClass %>\" title=\"<%= title %>\" alt=\"<%= title %>\" />")({
     src: avatar[size],
-    img_class: imageClass + " avatar img-responsive center-block",
+    imageClass: imageClass + " avatar img-responsive center-block",
     title: _.escape(name)
   });
 });
