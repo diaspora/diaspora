@@ -30,6 +30,14 @@
       });
     });
 
+- if mobile
+  .stream
+  - flash.each do |name, msg|
+    %div{:id => "flash_#{name}", :class => "expose"}
+      .message= msg
+    .stream
+      %p{:class => "conversation_#{name}"}= msg
+
 %h3= t('profiles.edit.your_public_profile')
 
 = error_messages_for profile

@@ -75,8 +75,10 @@ header {
 
       form {
         position: absolute;
-        left: 15px;
+        left: 0;
         right: 22%;
+        padding: 0 15px;
+        width: 450px;
 
         input {
           box-shadow: 0 1px 1px #444;
