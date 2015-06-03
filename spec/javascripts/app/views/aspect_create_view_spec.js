@@ -86,7 +86,7 @@ describe("app.views.AspectCreate", function() {
         });
 
         it("should hide the modal", function() {
-          this.view.$('.modal').removeClass('fade');
+          this.view.$(".modal").removeClass("fade");
           this.view.$(".modal").modal("toggle");
           expect(this.view.$(".modal")).toHaveClass("in");
           this.view.createAspect();
@@ -109,7 +109,7 @@ describe("app.views.AspectCreate", function() {
         });
 
         it("should hide the modal", function() {
-          this.view.$('.modal').removeClass('fade');
+          this.view.$(".modal").removeClass("fade");
           this.view.$(".modal").modal("show");
           expect(this.view.$(".modal")).toHaveClass("in");
           this.view.createAspect();
