@@ -25,7 +25,7 @@
 
 #birth-date.form-inline
   = select_date profile.birthday, { prompt: true, default: true, order: t('date.order'),
-      :start_year => upper_limit_date_of_birth, :end_year => lower_limit_date_of_birth, prefix: 'profile[date]' },
+      start_year: upper_limit_date_of_birth, end_year: lower_limit_date_of_birth, prefix: 'profile[date]' },
       { class: 'form-control'}
 
 .small-horizontal-spacer
