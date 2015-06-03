@@ -9,7 +9,9 @@
 
         = invited_by_message
 
-        %h2
+        .small-horizontal-spacer
+
+        %h3
           = t(".who_are_you")
 
         - if AppConfig.configured_services.include? :facebook
@@ -18,13 +20,15 @@
 
         = form_tag profile_path, method: :put, remote: true, id: 'edit_profile' do
           %fieldset
-            = label_tag 'profile[first_name]', t('profiles.edit.your_name')
-            = text_field_tag 'profile[first_name]', current_user.first_name, class: "form-control"
-            = image_tag 'ajax-loader2.gif', id: "gs-name-form-spinner", class: "hidden"
-            = label_tag :your_photo, t('profiles.edit.your_photo')
-            = render 'photos/new_profile_photo', aspect: :getting_started, person: current_user.person
+            .form-group
+              = label_tag 'profile[first_name]', t('profiles.edit.your_name')
+              = text_field_tag 'profile[first_name]', current_user.first_name, class: "form-control"
+            .form-group
+              = image_tag 'ajax-loader2.gif', id: "gs-name-form-spinner", class: "hidden"
+              = label_tag :your_photo, t('profiles.edit.your_photo')
+              = render 'photos/new_profile_photo', aspect: :getting_started, person: current_user.person
 
-        %h2
+        %h3
           = t('.what_are_you_in_to')
 
         %p
@@ -35,6 +39,5 @@
             = label_tag 'follow_tags', t('.hashtag_suggestions')
             #tags_list
               = text_field_tag 'follow_tags', nil, class: "nostrap form-control"
-
-        .awesome
-          = link_to "#{t('.awesome_take_me_to_diaspora')} »", stream_path, id: "awesome_button", class: "btn"
+        .text-center
+          = link_to "#{t('.awesome_take_me_to_diaspora')} >>", stream_path, id: "awesome_button", class: "btn btn-default btn-lg btn-primary"
