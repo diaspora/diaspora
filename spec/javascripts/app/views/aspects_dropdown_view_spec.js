@@ -15,8 +15,8 @@ describe("app.views.AspectsDropdown", function(){
 
   context('_toggleCheckbox', function() {
     beforeEach(function() {
-      this.view.$('li.selected').removeClass('selected');
-      this.view.$('li.all_aspects').addClass('selected');
+      this.view.$("li.selected").removeClass("selected");
+      this.view.$("li.all_aspects").addClass("selected");
     });
 
     it('deselects all radio buttons', function() {
@@ -90,9 +90,9 @@ describe("app.views.AspectsDropdown", function(){
     });
 
     it('shows the name of the selected radio button', function() {
-      this.view.$('li.all_aspects').addClass('selected');
-      this.view._updateButton('inAspectClass');
-      expect(this.view.$('.btn.dropdown-toggle > .text').text()).toContain(Diaspora.I18n.t('aspect_dropdown.all_aspects'));
+      this.view.$("li.all_aspects").addClass("selected");
+      this.view._updateButton("inAspectClass");
+      expect(this.view.$(".btn.dropdown-toggle > .text").text()).toContain(Diaspora.I18n.t("aspect_dropdown.all_aspects"));
     });
 
     it('shows the name of the selected aspect ( == 1 )', function() {
