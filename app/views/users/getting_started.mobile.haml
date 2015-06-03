@@ -63,7 +63,7 @@
         %span.saved{class: "hidden"}
           = image_tag "mobile/check_yes_ok.png"
           = t(".saved")
-
+        .clearfix.visible-xs-block
         = label_tag :your_photo, t('profiles.edit.your_photo'), class: "bootstrapped"
         = render 'photos/new_profile_photo', aspect: :getting_started, person: current_user.person
 
