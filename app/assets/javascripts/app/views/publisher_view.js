@@ -169,7 +169,9 @@ app.views.Publisher = Backbone.View.extend({
 
     // lulz this code should be killed.
     var statusMessage = new app.models.Post();
-    if( app.publisher ) app.publisher.trigger("publisher:add");
+    if( app.publisher ) {
+      app.publisher.trigger("publisher:add");
+    }
 
     statusMessage.save({
       "status_message" : {
@@ -345,7 +347,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   removePostPreview : function() {
-    if(app.stream && this.recentPreview){
+    if(app.stream && this.recentPreview) {
         app.stream.items.remove(this.recentPreview);
         delete this.recentPreview;
     }
@@ -436,10 +438,12 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   showSpinner: function(bool) {
-    if (bool)
+    if (bool) {
       this.$("#publisher_spinner").removeClass("hidden");
-    else
+    }
+    else {
       this.$("#publisher_spinner").addClass("hidden");
+    }
   },
 
   checkSubmitAvailability: function() {
