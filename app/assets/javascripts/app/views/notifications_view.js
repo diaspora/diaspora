@@ -51,8 +51,8 @@ app.views.Notifications = Backbone.View.extend({
 
   updateView: function(guid, type, unread) {
     var change = unread ? 1 : -1,
-        allNotes = $("ul.list-group > a:eq(0) .badge"),
-        typeNotes = $("ul.list-group > a[data-type=" + type + "] .badge"),
+        allNotes = $(".list-group > a:eq(0) .badge"),
+        typeNotes = $(".list-group > a[data-type=" + type + "] .badge"),
         headerBadge = $("#notification_badge .badge_count"),
         note = $(".stream_element[data-guid=" + guid + "]"),
         markAllReadLink = $("a#mark_all_read_link"),
