@@ -61,10 +61,7 @@ Handlebars.registerHelper('sharingMessage', function(person) {
 // allow hovercards for users that are not the current user.
 // returns the html class name used to trigger hovercards.
 Handlebars.registerHelper('hovercardable', function(person) {
-  if( app.currentUser.get('guid') !== person.guid ) {
-    return 'hovercardable';
-  }
-  return '';
+  return app.currentUser.get('guid') === person.guid ? '' : 'hovercardable';
 });
 
 Handlebars.registerHelper('personImage', function(person, size, imageClass) {
@@ -78,7 +75,7 @@ Handlebars.registerHelper('personImage', function(person, size, imageClass) {
   size = ( !_.isString(size) ) ? "small" : size;
   imageClass = ( !_.isString(imageClass) ) ? size : imageClass;
 
-  return _.template('<img src="<%= src %>" class="<%= img_class %>" title="<%= title %>" alt="<%= title %>" />')({
+  return _.template("<img src=\"<%= src %>\" class=\"<%= img_class %>\" title=\"<%= title %>\" alt=\"<%= title %>\" />")({
     src: avatar[size],
     img_class: imageClass + " avatar img-responsive center-block",
     title: _.escape(name)
