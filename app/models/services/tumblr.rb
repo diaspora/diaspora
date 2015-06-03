@@ -43,7 +43,7 @@ class Services::Tumblr < Service
 
   def delete_post(post)
     if post.present? && post.tumblr_ids.present?
-      Rails.logger.debug("event=delete_from_service type=tumblr sender_id=#{self.user_id}")
+      logger.debug "event=delete_from_service type=tumblr sender_id=#{user_id} post=#{post.guid}"
       tumblr_posts = JSON.parse(post.tumblr_ids)
       tumblr_posts.each do |blog_name,post_id|
         delete_from_tumblr(blog_name, post_id)

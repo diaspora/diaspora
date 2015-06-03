@@ -71,7 +71,8 @@ module Diaspora
 
       # Check to make sure the signature of the comment or like comes from the person claiming to author it
       unless comment_or_like.parent_author == user.person || comment_or_like.verify_parent_author_signature
-        Rails.logger.info("event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} sender=#{self.parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{self.parent.id}")
+        logger.warn "event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} "\
+                    "sender=#{parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{parent.id}"
         return
       end
 

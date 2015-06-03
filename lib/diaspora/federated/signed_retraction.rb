@@ -72,7 +72,7 @@ class SignedRetraction
   end
 
   def perform receiving_user
-    Rails.logger.debug "Performing retraction for #{target_guid}"
+    logger.debug "Performing retraction for #{target_guid}"
     if reshare = Reshare.where(:author_id => receiving_user.person.id, :root_guid => target_guid).first
       onward_retraction = self.dup
       onward_retraction.sender = receiving_user.person
@@ -81,18 +81,20 @@ class SignedRetraction
     if target && !target.destroyed?
       self.target.destroy
     end
-    Rails.logger.info("event=retraction status =complete target_type=#{self.target_type} guid =#{self.target_guid}")
+    logger.info "event=retraction status=complete target_type=#{target_type} guid=#{target_guid}"
   end
 
   def receive(recipient, sender)
     if self.target.nil?
-      Rails.logger.info("event=retraction status=abort reason='no post found' sender=#{sender.diaspora_handle} target_guid=#{target_guid}")
+      logger.warn "event=retraction status=abort reason='no post found' sender=#{sender.diaspora_handle} " \
+                  "target_guid=#{target_guid}"
       return
     elsif self.target_author_signature_valid?
       #this is a retraction from the upstream owner
       self.perform(recipient)
     else
-      Rails.logger.info("event=receive status=abort reason='object signature not valid' recipient=#{recipient.diaspora_handle} sender=#{self.sender_handle} payload_type=#{self.class}")
+      logger.warn "event=receive status=abort reason='object signature not valid' " \
+                  "recipient=#{recipient.diaspora_handle} sender=#{sender_handle} payload_type=#{self.class}"
       return
     end
     self

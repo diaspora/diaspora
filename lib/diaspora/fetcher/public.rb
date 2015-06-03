@@ -159,7 +159,9 @@ module Diaspora; module Fetcher; class Public
       guid = post['author']['guid']
       equal = (guid == @person.guid)
 
-      logger.warn "the author (#{guid}) does not match the person currently being processed (#{@person.guid})" unless equal
+      unless equal
+        logger.warn "the author (#{guid}) does not match the person currently being processed (#{@person.guid})"
+      end
 
       equal
     end

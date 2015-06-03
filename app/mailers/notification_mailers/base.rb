@@ -53,7 +53,7 @@ module NotificationMailers
                    " recipient_handle=#{@recipient.diaspora_handle}"
       log_string << " sender_handle=#{@sender.diaspora_handle}" if sender_id.present?
 
-      logger.info(log_string)
+      logger.info log_string
     end
   end
 end

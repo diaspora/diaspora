@@ -16,7 +16,7 @@ class Postzord::Receiver
 
   def author_does_not_match_xml_author?
     if (@author.diaspora_handle != xml_author)
-      logger.info "event=receive status=abort reason='author in xml does not match retrieved person' " \
+      logger.warn "event=receive status=abort reason='author in xml does not match retrieved person' " \
                   "payload_type=#{@object.class} sender=#{@author.diaspora_handle}"
       return true
     end
