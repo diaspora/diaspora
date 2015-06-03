@@ -20,10 +20,10 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   # @return [void]
   def receive!
-    return false unless verified_signature?
+    return unless verified_signature?
     # return false unless account_deletion_is_from_author
 
-    return false unless save_object
+    return unless save_object
 
     logger.info "received a #{@object.inspect}"
     if @object.is_a?(SignedRetraction) # feels like a hack
@@ -37,11 +37,10 @@ class Postzord::Receiver::Public < Postzord::Receiver
       #nothing
     else
       Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, self.recipient_user_ids)
-      true
     end
   end
 
-  # @return [Object]
+  # @return [void]
   def receive_relayable
     if @object.parent_author.local?
       # receive relayable object only for the owner of the parent object
@@ -50,7 +49,6 @@ class Postzord::Receiver::Public < Postzord::Receiver
     # notify everyone who can see the parent object
     receiver = Postzord::Receiver::LocalBatch.new(@object, self.recipient_user_ids)
     receiver.notify_users
-    @object
   end
 
   # @return [Object]

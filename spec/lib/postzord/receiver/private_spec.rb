@@ -43,22 +43,17 @@ describe Postzord::Receiver::Private do
       @salmon = @zord.instance_variable_get(:@salmon)
     end
 
-    context 'returns false' do
-      it 'if the salmon author does not exist' do
+    context "does not parse and receive" do
+      it "if the salmon author does not exist" do
         @zord.instance_variable_set(:@sender, nil)
-        expect(@zord.receive!).to eq(false)
-      end
-
-      it 'if the author does not match the signature' do
-        @zord.instance_variable_set(:@sender, FactoryGirl.create(:person))
-        expect(@zord.receive!).to eq(false)
-      end
-    end
-
-    context 'returns the sent object' do
-      it 'returns the received object on success' do
+        expect(@zord).not_to receive(:parse_and_receive)
         @zord.receive!
-        expect(@zord.instance_variable_get(:@object)).to respond_to(:to_diaspora_xml)
+      end
+
+      it "if the author does not match the signature" do
+        @zord.instance_variable_set(:@sender, FactoryGirl.create(:person))
+        expect(@zord).not_to receive(:parse_and_receive)
+        @zord.receive!
       end
     end
 
