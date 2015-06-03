@@ -153,32 +153,32 @@ describe("app.views.Publisher", function() {
     });
 
     describe('#setText', function() {
-      it('sets the content text', function() {
-        this.view.setText('FOO bar');
+      it("sets the content text", function() {
+        this.view.setText("FOO bar");
 
-        expect(this.view.inputEl.val()).toEqual('FOO bar');
-        expect(this.view.hiddenInputEl.val()).toEqual('FOO bar');
+        expect(this.view.inputEl.val()).toEqual("FOO bar");
+        expect(this.view.hiddenInputEl.val()).toEqual("FOO bar");
       });
     });
 
     describe('#setEnabled', function() {
-      it('disables the publisher', function() {
+      it("disables the publisher", function() {
         expect(this.view.disabled).toBeFalsy();
         this.view.setEnabled(false);
 
         expect(this.view.disabled).toBeTruthy();
-        expect(this.view.inputEl.prop('disabled')).toBeTruthy();
-        expect(this.view.hiddenInputEl.prop('disabled')).toBeTruthy();
+        expect(this.view.inputEl.prop("disabled")).toBeTruthy();
+        expect(this.view.hiddenInputEl.prop("disabled")).toBeTruthy();
       });
 
       it("disables submitting", function() {
-        this.view.setText('TESTING');
-        expect(this.view.submitEl.prop('disabled')).toBeFalsy();
-        expect(this.view.previewEl.prop('disabled')).toBeFalsy();
+        this.view.setText("TESTING");
+        expect(this.view.submitEl.prop("disabled")).toBeFalsy();
+        expect(this.view.previewEl.prop("disabled")).toBeFalsy();
 
         this.view.setEnabled(false);
-        expect(this.view.submitEl.prop('disabled')).toBeTruthy();
-        expect(this.view.previewEl.prop('disabled')).toBeTruthy();
+        expect(this.view.submitEl.prop("disabled")).toBeTruthy();
+        expect(this.view.previewEl.prop("disabled")).toBeTruthy();
       });
     });
 
@@ -485,13 +485,13 @@ describe("app.views.Publisher", function() {
         });
 
         it('adds a placeholder', function() {
-          expect(this.view.wrapperEl.attr('class')).toContain('with_attachments');
-          expect(this.view.photozoneEl.find('li').length).toBe(1);
+          expect(this.view.wrapperEl.attr("class")).toContain("with_attachments");
+          expect(this.view.photozoneEl.find("li").length).toBe(1);
         });
 
         it('disables the publisher buttons', function() {
-          expect(this.view.submitEl.prop('disabled')).toBeTruthy();
-          expect(this.view.previewEl.prop('disabled')).toBeTruthy();
+          expect(this.view.submitEl.prop("disabled")).toBeTruthy();
+          expect(this.view.previewEl.prop("disabled")).toBeTruthy();
         });
       });
 
@@ -519,7 +519,7 @@ describe("app.views.Publisher", function() {
         });
 
         it('replaces the placeholder', function() {
-          var li  = this.view.photozoneEl.find('li');
+          var li  = this.view.photozoneEl.find("li");
           var img = li.find('img');
 
           expect(li.attr('class')).not.toContain('loading');
@@ -528,8 +528,8 @@ describe("app.views.Publisher", function() {
         });
 
         it('re-enables the buttons', function() {
-          expect(this.view.submitEl.prop('disabled')).toBeFalsy();
-          expect(this.view.previewEl.prop('disabled')).toBeFalsy();
+          expect(this.view.submitEl.prop("disabled")).toBeFalsy();
+          expect(this.view.previewEl.prop("disabled")).toBeFalsy();
         });
       });
 
@@ -556,21 +556,21 @@ describe("app.views.Publisher", function() {
     context('photo removal', function() {
       beforeEach(function() {
         this.view = new app.views.Publisher();
-        this.view.wrapperEl.addClass('with_attachments');
+        this.view.wrapperEl.addClass("with_attachments");
         this.view.photozoneEl.html(
-          '<li class="publisher_photo">.'+
-          '  <img data-id="444" />'+
-          '  <div class="x">X</div>'+
-          '  <div class="circle"></div>'+
-          '</li>'
+          "<li class=\"publisher_photo\">."+
+          "  <img data-id=\"444\" />"+
+          "  <div class=\"x\">X</div>"+
+          "  <div class=\"circle\"></div>"+
+          "</li>"
         );
 
         spyOn(jQuery, 'ajax').and.callFake(function(opts) { opts.success(); });
-        this.view.photozoneEl.find('.x').click();
+        this.view.photozoneEl.find(".x").click();
       });
 
       it('removes the element', function() {
-        var photo = this.view.photozoneEl.find('li.publisher_photo');
+        var photo = this.view.photozoneEl.find("li.publisher_photo");
         expect(photo.length).toBe(0);
       });
 
@@ -579,7 +579,7 @@ describe("app.views.Publisher", function() {
       });
 
       it('removes class on wrapper element', function() {
-        expect(this.view.wrapperEl.attr('class')).not.toContain('with_attachments');
+        expect(this.view.wrapperEl.attr("class")).not.toContain("with_attachments");
       });
     });
   });
