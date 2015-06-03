@@ -33,16 +33,16 @@ app.views.PublisherUploader = Backbone.View.extend({
 
     });
 
-    this.el_info = $('<div id="fileInfo" />');
-    this.publisher.el_wrapper.before(this.el_info);
+    this.info = $('<div id="fileInfo" />');
+    this.publisher.wrapperEl.before(this.info);
 
-    this.publisher.el_photozone.on('click', '.x', _.bind(this._removePhoto, this));
+    this.publisher.photozoneEl.on('click', '.x', _.bind(this._removePhoto, this));
   },
 
   progressHandler: function(id, fileName, loaded, total) {
     var progress = Math.round(loaded / total * 100);
-    this.el_info.text(fileName + ' ' + progress + '%').fadeTo(200, 1);
-    this.publisher.el_photozone
+    this.info.text(fileName + ' ' + progress + '%').fadeTo(200, 1);
+    this.publisher.photozoneEl
       .find('li.loading').first().find('.bar')
       .width(progress + '%');
   },
@@ -57,8 +57,8 @@ app.views.PublisherUploader = Backbone.View.extend({
     var publisher = this.publisher;
     publisher.setButtonsEnabled(false);
 
-    publisher.el_wrapper.addClass('with_attachments');
-    publisher.el_photozone.append(
+    publisher.wrapperEl.addClass('with_attachments');
+    publisher.photozoneEl.append(
       '<li class="publisher_photo loading" style="position:relative;">' +
       '  <div class="progress progress-striped active"><div class="bar"></div></div>' +
       '  <img src="'+Handlebars.helpers.imageUrl('ajax-loader2.gif')+'" class="ajax-loader" alt="" />'+
@@ -68,7 +68,7 @@ app.views.PublisherUploader = Backbone.View.extend({
 
   uploadCompleteHandler: function(_id, fileName, response) {
     if (response.success){
-      this.el_info.text(Diaspora.I18n.t('photo_uploader.completed', {file: fileName})).fadeTo(2000, 0);
+      this.info.text(Diaspora.I18n.t('photo_uploader.completed', {file: fileName})).fadeTo(2000, 0);
 
       var id  = response.data.photo.id,
           url = response.data.photo.unprocessed_image.url;
@@ -78,10 +78,10 @@ app.views.PublisherUploader = Backbone.View.extend({
     } else {
       this._cancelPhotoUpload();
       this.trigger('change');
-      this.el_info.text(Diaspora.I18n.t('photo_uploader.error', {file: fileName}));
-      this.publisher.el_wrapper.find('#photodropzone_container').first().after(
-        '<div id="upload_error">' + 
-        Diaspora.I18n.t('photo_uploader.error', {file: fileName}) + 
+      this.info.text(Diaspora.I18n.t('photo_uploader.error', {file: fileName}));
+      this.publisher.wrapperEl.find('#photodropzone_container').first().after(
+        '<div id="upload_error">' +
+        Diaspora.I18n.t('photo_uploader.error', {file: fileName}) +
         '</div>'
       );
     }
@@ -98,7 +98,7 @@ app.views.PublisherUploader = Backbone.View.extend({
     );
 
     // replace placeholder
-    var placeholder = publisher.el_photozone.find('li.loading').first();
+    var placeholder = publisher.photozoneEl.find('li.loading').first();
     placeholder
       .removeClass('loading')
       .prepend(
@@ -110,7 +110,7 @@ app.views.PublisherUploader = Backbone.View.extend({
       .find('div.progress').remove();
 
     // no more placeholders? enable buttons
-    if( publisher.el_photozone.find('li.loading').length === 0 ) {
+    if( publisher.photozoneEl.find('li.loading').length === 0 ) {
       this.$el.removeClass('loading');
       publisher.setButtonsEnabled(true);
     }
@@ -118,7 +118,7 @@ app.views.PublisherUploader = Backbone.View.extend({
 
   _cancelPhotoUpload: function() {
     var publisher = this.publisher;
-    var placeholder = publisher.el_photozone.find('li.loading').first();
+    var placeholder = publisher.photozoneEl.find('li.loading').first();
     placeholder
       .removeClass('loading')
       .find('img').remove();
@@ -141,7 +141,7 @@ app.views.PublisherUploader = Backbone.View.extend({
 
           if( self.publisher.$('.publisher_photo').length === 0 ) {
             // no more photos left...
-            self.publisher.el_wrapper.removeClass('with_attachments');
+            self.publisher.wrapperEl.removeClass('with_attachments');
           }
 
           self.trigger('change');
