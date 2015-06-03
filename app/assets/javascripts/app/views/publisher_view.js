@@ -34,22 +34,22 @@ app.views.Publisher = Backbone.View.extend({
     this.disabled   = false;
 
     // init shortcut references to the various elements
-    this.inputEl = this.$('#status_message_fake_text');
-    this.hiddenInputEl = this.$('#status_message_text');
-    this.wrapperEl = this.$('#publisher_textarea_wrapper');
-    this.submitEl = this.$('input[type=submit], button#submit');
-    this.previewEl = this.$('button.post_preview_button');
-    this.photozoneEl = this.$('#photodropzone');
+    this.inputEl = this.$("#status_message_fake_text");
+    this.hiddenInputEl = this.$("#status_message_text");
+    this.wrapperEl = this.$("#publisher_textarea_wrapper");
+    this.submitEl = this.$("input[type=submit], button#submit");
+    this.previewEl = this.$("button.post_preview_button");
+    this.photozoneEl = this.$("#photodropzone");
 
     // init mentions plugin
     Mentions.initialize(this.inputEl);
 
     // init autoresize plugin
-    this.inputEl.autoResize({ 'extraSpace' : 10, 'maxHeight' : Infinity });
+    this.inputEl.autoResize({ "extraSpace" : 10, "maxHeight" : Infinity });
 
     // if there is data in the publisher we ask for a confirmation
     // before the user is able to leave the page
-    $(window).on('beforeunload', _.bind(this._beforeUnload, this));
+    $(window).on("beforeunload", _.bind(this._beforeUnload, this));
 
     // sync textarea content
     if( this.hiddenInputEl.val() === "" ) {
@@ -70,30 +70,30 @@ app.views.Publisher = Backbone.View.extend({
 
     // this has to be here, otherwise for some reason the callback for the
     // textchange event won't be called in Backbone...
-    this.inputEl.bind('textchange', $.noop);
+    this.inputEl.bind("textchange", $.noop);
 
     var _this = this;
-    $('body').on('click', function(event){
+    $("body").on("click", function(event){
       // if the click event is happened outside the publisher view, then try to close the box
-      if( _this.el && $(event.target).closest('#publisher').attr('id') !== _this.el.id){
+      if( _this.el && $(event.target).closest("#publisher").attr("id") !== _this.el.id){
           _this.tryClose();
         }
     });
 
     // close publisher on post
-    this.on('publisher:add', function() {
+    this.on("publisher:add", function() {
       this.close();
       this.showSpinner(true);
     });
 
     // open publisher on post error
-    this.on('publisher:error', function() {
+    this.on("publisher:error", function() {
       this.open();
       this.showSpinner(false);
     });
 
     // resetting the poll view
-    this.on('publisher:sync', function() {
+    this.on("publisher:sync", function() {
       this.viewPollCreator.render();
     });
 
@@ -103,29 +103,29 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   initSubviews: function() {
-    var form = this.$('.content_creation form');
+    var form = this.$(".content_creation form");
 
     this.viewAspectSelector = new app.views.PublisherAspectSelector({
-      el: this.$('.public_toggle .aspect_dropdown'),
+      el: this.$(".public_toggle .aspect_dropdown"),
       form: form
     });
 
     this.viewGettingStarted = new app.views.PublisherGettingStarted({
       firstMessageEl:  this.inputEl,
-      visibilityEl: this.$('.public_toggle .aspect_dropdown > .dropdown-toggle'),
-      streamEl:     $('#gs-shim')
+      visibilityEl: this.$(".public_toggle .aspect_dropdown > .dropdown-toggle"),
+      streamEl:     $("#gs-shim")
     });
 
     this.viewUploader = new app.views.PublisherUploader({
-      el: this.$('#file-upload'),
+      el: this.$("#file-upload"),
       publisher: this
     });
-    this.viewUploader.on('change', this.checkSubmitAvailability, this);
+    this.viewUploader.on("change", this.checkSubmitAvailability, this);
 
     this.viewPollCreator = new app.views.PublisherPollCreator({
-      el: this.$('#poll_creator_container')
+      el: this.$("#poll_creator_container")
     });
-    this.viewPollCreator.on('change', this.checkSubmitAvailability, this);
+    this.viewPollCreator.on("change", this.checkSubmitAvailability, this);
     this.viewPollCreator.render();
   },
 
@@ -140,7 +140,7 @@ app.views.Publisher = Backbone.View.extend({
     this.hiddenInputEl.val(txt);
     this.prefillText = txt;
 
-    this.inputEl.trigger('input');
+    this.inputEl.trigger("input");
     this.handleTextchange();
   },
 
@@ -169,7 +169,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // lulz this code should be killed.
     var statusMessage = new app.models.Post();
-    if( app.publisher ) app.publisher.trigger('publisher:add');
+    if( app.publisher ) app.publisher.trigger("publisher:add");
 
     statusMessage.save({
       "status_message" : {
@@ -186,9 +186,9 @@ app.views.Publisher = Backbone.View.extend({
       url : "/status_messages",
       success : function() {
         if( app.publisher ) {
-          app.publisher.$el.trigger('ajax:success');
-          app.publisher.trigger('publisher:sync');
-          self.viewPollCreator.trigger('publisher:sync');
+          app.publisher.$el.trigger("ajax:success");
+          app.publisher.trigger("publisher:sync");
+          self.viewPollCreator.trigger("publisher:sync");
         }
 
         if(app.stream && !self.standalone){
@@ -202,9 +202,9 @@ app.views.Publisher = Backbone.View.extend({
         if( self.standalone ) self.setEnabled(false);
       },
       error: function(model, resp) {
-        if( app.publisher ) app.publisher.trigger('publisher:error');
+        if( app.publisher ) app.publisher.trigger("publisher:error");
         self.setInputEnabled(true);
-        Diaspora.page.flashMessages.render({ 'success':false, 'notice':resp.responseText });
+        Diaspora.page.flashMessages.render({ "success":false, "notice":resp.responseText });
         self.setButtonsEnabled(true);
         self.setInputEnabled(true);
       }
@@ -213,9 +213,9 @@ app.views.Publisher = Backbone.View.extend({
 
   // creates the location
   showLocation: function(){
-    if($('#location').length === 0){
-      $('#location_container').append('<div id="location"></div>');
-      this.wrapperEl.addClass('with_location');
+    if($("#location").length === 0){
+      $("#location_container").append("<div id=\"location\"></div>");
+      this.wrapperEl.addClass("with_location");
       this.view_locator = new app.views.Location();
     }
   },
@@ -224,7 +224,7 @@ app.views.Publisher = Backbone.View.extend({
   destroyLocation: function(){
     if(this.view_locator){
       this.view_locator.remove();
-      this.wrapperEl.removeClass('with_location');
+      this.wrapperEl.removeClass("with_location");
       delete this.view_locator;
     }
   },
@@ -249,8 +249,8 @@ app.views.Publisher = Backbone.View.extend({
     var serializedForm = $(evt.target).closest("form").serializeObject();
 
     var photos = [];
-    $('li.publisher_photo img').each(function(){
-      var file = $(this).attr('src').substring("/uploads/images/".length);
+    $("li.publisher_photo img").each(function(){
+      var file = $(this).attr("src").substring("/uploads/images/".length);
       photos.push(
         {
           "sizes":{
@@ -292,15 +292,15 @@ app.views.Publisher = Backbone.View.extend({
     var poll_question = serializedForm["poll_question"];
     var poll_answers_arry = _.flatten([serializedForm["poll_answers[]"]]);
     var poll_answers = _.map(poll_answers_arry, function(answer){
-      if(answer) return { 'answer' : answer };
+      if(answer) return { "answer" : answer };
     });
     poll_answers = _.without(poll_answers, undefined);
 
     if(poll_question && poll_answers.length) {
       poll = {
-        'question': poll_question,
-        'poll_answers' : poll_answers,
-        'participation_count': '0'
+        "question": poll_question,
+        "poll_answers" : poll_answers,
+        "participation_count": "0"
       };
     }
 
@@ -318,26 +318,26 @@ app.views.Publisher = Backbone.View.extend({
       "title" : serializedForm["status_message[text]"],
       "address" : $("#location_address").val(),
       "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0},
-      'poll': poll
+      "poll": poll
     };
     if(app.stream) {
       this.removePostPreview();
       app.stream.addNow(previewMessage);
       this.recentPreview=previewMessage;
-      this.modifyPostPreview($('.stream_element:first',$('.stream_container')));
+      this.modifyPostPreview($(".stream_element:first",$(".stream_container")));
     }
   },
 
   modifyPostPreview : function(post) {
-    post.addClass('post_preview');
-    $('.collapsible',post).removeClass('collapsed').addClass('opened');
-    $('a.delete.remove_post',post).hide();
-    $('a.like, a.focus_comment_textarea',post).removeAttr("href");
-    $('a.like',post).addClass("like_preview");
-    $('a.like',post).removeClass("like");
-    $('a.focus_comment_textarea',post).addClass("focus_comment_textarea_preview");
-    $('a.focus_comment_textarea',post).removeClass("focus_comment_textarea");
-    $('a',$('span.details.grey',post)).removeAttr("href");
+    post.addClass("post_preview");
+    $(".collapsible",post).removeClass("collapsed").addClass("opened");
+    $("a.delete.remove_post",post).hide();
+    $("a.like, a.focus_comment_textarea",post).removeAttr("href");
+    $("a.like",post).addClass("like_preview");
+    $("a.like",post).removeClass("like");
+    $("a.focus_comment_textarea",post).addClass("focus_comment_textarea_preview");
+    $("a.focus_comment_textarea",post).removeClass("focus_comment_textarea");
+    $("a",$("span.details.grey",post)).removeAttr("href");
   },
 
   removePostPreview : function() {
@@ -357,21 +357,21 @@ app.views.Publisher = Backbone.View.extend({
 
   clear : function() {
     // clear text(s)
-    this.inputEl.val('');
-    this.hiddenInputEl.val('');
-    this.inputEl.trigger('keyup')
-                 .trigger('keydown');
+    this.inputEl.val("");
+    this.hiddenInputEl.val("");
+    this.inputEl.trigger("keyup")
+                 .trigger("keydown");
 
     // remove mentions
-    this.inputEl.mentionsInput('reset');
+    this.inputEl.mentionsInput("reset");
 
     // remove photos
-    this.photozoneEl.find('li').remove();
+    this.photozoneEl.find("li").remove();
     this.$("input[name='photos[]']").remove();
     this.wrapperEl.removeClass("with_attachments");
 
     // empty upload-photo
-    this.$('#fileInfo').empty();
+    this.$("#fileInfo").empty();
 
     // close publishing area (CSS)
     this.close();
@@ -398,8 +398,8 @@ app.views.Publisher = Backbone.View.extend({
     this.viewPollCreator.clearInputs();
 
     // force textchange plugin to update lastValue
-    this.inputEl.data('lastValue', '');
-    this.hiddenInputEl.data('lastValue', '');
+    this.inputEl.data("lastValue", "");
+    this.hiddenInputEl.data("lastValue", "");
 
     return this;
   },
@@ -415,8 +415,8 @@ app.views.Publisher = Backbone.View.extend({
     if( this.disabled ) return;
 
     // visually 'open' the publisher
-    this.$el.removeClass('closed');
-    this.wrapperEl.addClass('active');
+    this.$el.removeClass("closed");
+    this.wrapperEl.addClass("active");
 
     // fetch contacts for mentioning
     Mentions.fetchContacts();
@@ -426,16 +426,16 @@ app.views.Publisher = Backbone.View.extend({
   close : function() {
     $(this.el).addClass("closed");
     this.wrapperEl.removeClass("active");
-    this.inputEl.css('height', '');
+    this.inputEl.css("height", "");
     this.viewPollCreator.$el.hide();
     return this;
   },
 
   showSpinner: function(bool) {
     if (bool)
-      this.$('#publisher_spinner').removeClass('hidden');
+      this.$("#publisher_spinner").removeClass("hidden");
     else
-      this.$('#publisher_spinner').addClass('hidden');
+      this.$("#publisher_spinner").addClass("hidden");
   },
 
   checkSubmitAvailability: function() {
@@ -455,27 +455,27 @@ app.views.Publisher = Backbone.View.extend({
 
   setButtonsEnabled: function(bool) {
     if (bool) {
-      this.submitEl.removeProp('disabled');
-      this.previewEl.removeProp('disabled');
+      this.submitEl.removeProp("disabled");
+      this.previewEl.removeProp("disabled");
     } else {
-      this.submitEl.prop('disabled', true);
-      this.previewEl.prop('disabled', true);
+      this.submitEl.prop("disabled", true);
+      this.previewEl.prop("disabled", true);
     }
   },
 
   setInputEnabled: function(bool) {
     if (bool) {
-      this.inputEl.removeProp('disabled');
-      this.hiddenInputEl.removeProp('disabled');
+      this.inputEl.removeProp("disabled");
+      this.hiddenInputEl.removeProp("disabled");
     } else {
-      this.inputEl.prop('disabled', true);
-      this.hiddenInputEl.prop('disabled', true);
+      this.inputEl.prop("disabled", true);
+      this.hiddenInputEl.prop("disabled", true);
     }
   },
 
   // determine submit availability
   _submittable: function() {
-    var onlyWhitespaces = ($.trim(this.inputEl.val()) === ''),
+    var onlyWhitespaces = ($.trim(this.inputEl.val()) === ""),
         isPhotoAttached = (this.photozoneEl.children().length > 0),
         isValidPoll = this.viewPollCreator.validatePoll();
 
@@ -510,9 +510,9 @@ $.fn.serializeObject = function()
       if (!o[this.name].push) {
         o[this.name] = [o[this.name]];
       }
-      o[this.name].push(this.value || '');
+      o[this.name].push(this.value || "");
     } else {
-      o[this.name] = this.value || '';
+      o[this.name] = this.value || "";
     }
   });
   return o;
