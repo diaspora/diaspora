@@ -134,11 +134,11 @@
 
   &.highlighted {
     padding-left: 8px;
-    border-left: 3px solid $creation-blue;
+    border-left: 3px solid $brand-primary;
   }
 
   &.post_preview {
-    background-color: lighten($creation-blue,45%);
-    border: 1px solid $creation-blue;
+    background-color: lighten($brand-primary,45%);
+    border: 1px solid $brand-primary;
   }
 }
