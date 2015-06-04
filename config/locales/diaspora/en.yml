@@ -114,6 +114,8 @@ en:
       view_profile: "View profile"
       add_invites: "Add invites"
       close_account: "Close account"
+      lock_account: "Lock account"
+      unlock_account: "Unlock account"
       are_you_sure: "Are you sure you want to close this account?"
       are_you_sure_lock_account: "Are you sure you want to lock this account?"
       are_you_sure_unlock_account: "Are you sure you want to unlock this account?"
