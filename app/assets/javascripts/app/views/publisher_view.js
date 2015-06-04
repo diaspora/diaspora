@@ -306,7 +306,7 @@ app.views.Publisher = Backbone.View.extend({
         return { "answer" : answer };
       }
     });
-      pollAnswers = _.without(pollAnswers, undefined);
+    pollAnswers = _.without(pollAnswers, undefined);
 
     if(pollQuestion && pollAnswers.length) {
       poll = {
