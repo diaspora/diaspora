@@ -63,19 +63,19 @@ describe("app.views.AspectsDropdown", function(){
     });
   });
 
-  context('_selectAspects', function(){
+  context("_selectAspects", function(){
     beforeEach(function() {
-      this.view.$('li.selected').removeClass('selected');
-      this.view.$('li.aspect_selector:eq(0)').addClass('selected');
+      this.view.$("li.selected").removeClass("selected");
+      this.view.$("li.aspect_selector:eq(0)").addClass("selected");
     });
 
-    it('select aspects in the dropdown by a given list of ids', function() {
-      this.ids = [this.view.$('li.aspect_selector:eq(1)').data('aspect_id'),'public'];
+    it("select aspects in the dropdown by a given list of ids", function() {
+      this.ids = [this.view.$("li.aspect_selector:eq(1)").data("aspect_id"),"public"];
       this.view._selectAspects(this.ids);
-      expect(this.view.$('li.all_aspects').hasClass('selected')).toBeFalsy();
-      expect(this.view.$('li.public').hasClass('selected')).toBeTruthy();
-      expect(this.view.$('li.aspect_selector:eq(0)').hasClass('selected')).toBeFalsy();
-      expect(this.view.$('li.aspect_selector:eq(1)').hasClass('selected')).toBeTruthy();
+      expect(this.view.$("li.all_aspects").hasClass("selected")).toBeFalsy();
+      expect(this.view.$("li.public").hasClass("selected")).toBeTruthy();
+      expect(this.view.$("li.aspect_selector:eq(0)").hasClass("selected")).toBeFalsy();
+      expect(this.view.$("li.aspect_selector:eq(1)").hasClass("selected")).toBeTruthy();
     });
   });
 
