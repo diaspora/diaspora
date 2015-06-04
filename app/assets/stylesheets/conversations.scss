@@ -27,7 +27,7 @@
         min-width: 100%;
       }
     }
-    .timestamp { font-size: 11px; }
+    .timestamp { font-size: $font-size-small; }
   }
 
   .stream_element.conversation {

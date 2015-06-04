@@ -2,8 +2,6 @@
 @import 'bootstrap-variables'; // our overwrites
 @import 'bootstrap/variables'; // the original bootstrap ones
 
-@import 'bootstrap-fix';
-
 @import 'perfect-scrollbar';
 
 @import "colors";
@@ -32,6 +30,9 @@
 @import 'new_styles/login';
 @import 'new_styles/registration';
 @import 'new_styles/forms';
+
+/* terms */
+@import 'terms';
 
 /* profile and settings pages */
 @import 'new_styles/settings';

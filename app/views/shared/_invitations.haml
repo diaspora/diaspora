@@ -1,7 +1,7 @@
 = t('.share_this')
 = invite_link(current_user.invitation_code)
-#invitations-button.btn.btn-link{ 'data-toggle' => 'modal', style: "padding-left: 0;"}
-  = t('.by_email')
+#invitations-button.btn.btn-link{ "data-toggle" => "modal"}
+  = t(".by_email")
 
 = render 'shared/modal',
     path: new_user_invitation_path,
