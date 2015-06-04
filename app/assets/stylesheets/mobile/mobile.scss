@@ -9,12 +9,6 @@
 @import "header";
 @import "mobile/tags";
 
-.col-xs-1{
-  width: 50px;
-  padding-right: 0;
-}
-.col-xs-11{ width: calc(100% - 50px); }
-
 a {
   color: #2489ce;
   text-decoration: none;
@@ -44,7 +38,7 @@ h3 {  margin-top: 0; }
 }
 
 .stream_element,
-.comments{
+.comments {
   overflow: auto;
   position: relative;
   text-align: left;
@@ -161,6 +155,8 @@ h3 {  margin-top: 0; }
 .stream_element .bd {
   padding-top: 10px;
 }
+
+.stream_element .media { padding: 0; }
 
 .photo_attachments {
   position: relative;
@@ -602,14 +598,14 @@ select {
   overflow: hidden;
 }
 
-.stream_element{ padding: 0; }
+.stream_element { padding: 0; }
 
 .notifications {
   list-style: none;
   margin: 0;
   clear: right;
 
-  &, & ul{ padding: 0; }
+  &, & ul { padding: 0; }
 }
 
 .notifications_for_day {
@@ -755,7 +751,7 @@ form#new_user.new_user input.btn {
   }
 }
 
-.media{ padding: 12px 0 }
+.media { padding: 12px 0 }
 
 .conversation_error {
   color: #DF0101;
@@ -857,7 +853,7 @@ form p.checkbox_select {
   }
 }
 
-#birth-date{
+#birth-date {
   text-align: center;
   select{
     width: 32%;
@@ -917,7 +913,7 @@ form#update_profile_form {
     padding: 3px;
   }
 
-  .submit_block{ margin-bottom: 20px; }
+  .submit_block { margin-bottom: 20px; }
 }
 
 select#user_language, #user_auto_follow_back_aspect_id, #aspect_ids_ {
@@ -1093,7 +1089,7 @@ select#aspect_ids_ {
 }
 
 .remove_post { opacity: 0.5;  }
-.remove_comment{ opacity: 0.5; }
+.remove_comment { opacity: 0.5; }
 
 .center {
   text-align: center;
@@ -1133,14 +1129,14 @@ select#aspect_ids_ {
   word-wrap: break-word;
 }
 
-#email_prefs{
+#email_prefs {
   .checkbox{
     margin: 15px 0;
   }
 }
-.small-horizontal-spacer{ margin: 15px 0; }
+.small-horizontal-spacer { margin: 15px 0; }
 
-.form-control, .form-control:active, .form-control:focus{ box-shadow: none; }
-.form-control:active, .form-control:focus{ border-color: #999999; }
+.form-control, .form-control:active, .form-control:focus { box-shadow: none; }
+.form-control:active, .form-control:focus { border-color: #999999; }
 
 .tag_following_action { margin: 5px 0 10px 0; }
