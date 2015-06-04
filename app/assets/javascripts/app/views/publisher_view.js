@@ -105,6 +105,12 @@ app.views.Publisher = Backbone.View.extend({
   initSubviews: function() {
     var form = this.$(".content_creation form");
 
+    this.view_services = new app.views.PublisherServices({
+      el:    this.$('#publisher_service_icons'),
+      input: this.el_input,
+      form:  form
+    });
+
     this.viewAspectSelector = new app.views.PublisherAspectSelector({
       el: this.$(".public_toggle .aspect_dropdown"),
       form: form
