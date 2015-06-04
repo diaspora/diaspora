@@ -473,7 +473,7 @@ describe("app.views.Publisher", function() {
         it('shows progress in percent', function() {
           this.uploader.onProgress(null, 'test.jpg', 20, 100);
 
-          var info = this.view.viewUploader.infoEl;
+          var info = this.view.viewUploader.info;
           expect(info.text()).toContain('test.jpg');
           expect(info.text()).toContain('20%');
         });
@@ -509,7 +509,7 @@ describe("app.views.Publisher", function() {
         });
 
         it('shows it in text form', function() {
-          var info = this.view.viewUploader.infoEl;
+          var info = this.view.viewUploader.info;
           expect(info.text()).toBe(Diaspora.I18n.t('photo_uploader.completed', {file: 'test.jpg'}));
         });
 
@@ -547,7 +547,7 @@ describe("app.views.Publisher", function() {
         });
 
         it('shows error message', function() {
-          var info = this.view.viewUploader.infoEl;
+          var info = this.view.viewUploader.info;
           expect(info.text()).toBe(Diaspora.I18n.t('photo_uploader.error', {file: 'test.jpg'}));
         });
       });

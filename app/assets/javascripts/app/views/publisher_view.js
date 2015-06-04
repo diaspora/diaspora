@@ -106,8 +106,8 @@ app.views.Publisher = Backbone.View.extend({
     var form = this.$(".content_creation form");
 
     this.view_services = new app.views.PublisherServices({
-      el:    this.$('#publisher_service_icons'),
-      input: this.el_input,
+      el:    this.$("#publisher_service_icons"),
+      input: this.inputEl,
       form:  form
     });
 
