@@ -14,8 +14,8 @@ describe("app.views.TagFollowingAction", function(){
 
     it("should have the extra classes if the tag is followed", function(){
       spyOn(this.view, "tag_is_followed").and.returnValue(true);
-      expect(this.view.render().$('input').hasClass("followed")).toBe(true);
-      expect(this.view.render().$('input').hasClass("green")).toBe(true);
+      expect(this.view.render().$("input").hasClass("followed")).toBe(true);
+      expect(this.view.render().$("input").hasClass("btn-success")).toBe(true);
     });
   });
 
