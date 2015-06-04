@@ -66,6 +66,11 @@ Lint/AssignmentInCondition:
 Style/RaiseArgs:
   Enabled: false
 
+# Indenting the chained dots beneath each other is not supported by this cop,
+# see https://github.com/bbatsov/rubocop/issues/1633
+Style/MultilineOperationIndentation:
+  Enabled: false
+
 # Fail is an alias of raise. Avoid aliases, it's more cognitive load for no gain.
 # The argument that fail should be used to abort the program is wrong too,
 # there's Kernel#abort for that.
