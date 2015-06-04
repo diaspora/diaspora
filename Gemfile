@@ -252,7 +252,7 @@ end
 group :test do
   # RSpec (unit tests, some integration tests)
 
-  gem "fixture_builder",   "0.3.6"
+  gem "fixture_builder",   "0.4.1"
   gem "fuubar",            "2.0.0"
   gem "rspec-instafail",   "0.2.6", require: false
   gem "test_after_commit", "0.4.1"
