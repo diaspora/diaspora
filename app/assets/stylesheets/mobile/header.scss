@@ -1,5 +1,8 @@
 /* This file contains the CSS code corresponding to the header and the drawer (including the menu) of the mobile version */
 
+$drawer-width: 400px;
+$drawer-width-offset: $drawer-width + 50px;
+
 header {
   position: fixed;
   height: 45px;
@@ -60,7 +63,11 @@ header {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: $drawer-width;
+  @media (max-width: $drawer-width-offset) {
+    width: 100%;
+    .avatar{ display: none; }
+  }
   left: 100%;
   background-color: #444;
   box-shadow: none;
@@ -72,13 +79,15 @@ header {
 
     #global_search {
       position: relative;
+      @media (max-width: $drawer-width-offset) { width: 80%; }
 
       form {
         position: absolute;
         left: 0;
         right: 22%;
         padding: 0 15px;
-        width: 450px;
+        width: 100%;
+
 
         input {
           box-shadow: 0 1px 1px #444;
@@ -167,5 +176,6 @@ header {
 
 /* This class is added when the user open the drawer */
 #app.draw > * {
-  transform: translateX(-80%);
+  transform: translateX(-$drawer-width);
+  @media (max-width: $drawer-width-offset) { transform: translateX(-80%); }
 }
