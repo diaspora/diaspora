@@ -5,19 +5,19 @@
 
     i.entypo {
       color: $text-grey;
-      font-size: $font-size-text;
-      line-height: $line-height;
+      font-size: $font-size-base;
+      line-height: $line-height-base;
       vertical-align: middle;
       &:hover { color: $text; }
-      &.cross { font-size: $line-height; }
+      &.cross { font-size: $line-height-base; }
     }
 
     &.hide_conversation i {
-      font-size: $line-height*1.5;
+      font-size: $line-height-computed*1.5;
     }
 
     &.delete_conversation i {
-      font-size: $font-size-text*1.5;
+      font-size: $font-size-base*1.5;
     }
 
     &.destroy_participation i {

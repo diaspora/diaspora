@@ -1,7 +1,7 @@
 #hello-there {
   .avatar {
-    width: 50px;
-    height: 50px;
+    width: 200px;
+    height: 200px;
   }
 
   .well .media{
@@ -10,10 +10,6 @@
 
   .awesome {
     text-align: center;
-
-    .btn.creation {
-      text-shadow: none;
-    }
   }
 
   .hero-unit {
@@ -25,15 +21,12 @@
     margin-top: 80px;
   }
 
-  p, form {
-    margin-left: 30px;
-  }
-
   ul.as-selections {
     width: 100%;
-
     li.as-original {
+      width: 100%;
       input {
+        height: 32px;
         margin-bottom: 15px;
       }
     }

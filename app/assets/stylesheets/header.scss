@@ -9,7 +9,7 @@ body > header {
   z-index: 1001;
   padding: 6px 0;
   color: #CCC;
-  height: 26px;
+  height: 39px;
   position: fixed;
   width: 100%;
   min-width: 620px;
@@ -149,7 +149,7 @@ body > header {
         }
 
         a {
-          font-size: 11px;
+          font-size: $font-size-small;
           font-weight: bold;
         }
       }
@@ -174,6 +174,10 @@ body > header {
           img.avatar {
             width: 35px;
             height: 35px;
+          }
+
+          .media-body {
+            word-break: break-all;
           }
 
           .pull-right > .aspect_membership_dropdown { display: none; }

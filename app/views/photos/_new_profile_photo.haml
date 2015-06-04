@@ -45,7 +45,7 @@
           var oldPhoto = $('#photo_id');
           if(oldPhoto.length == 0) {
             $('#update_profile_form').prepend("<input type='hidden' value='" + id + "' id='photo_id' name='photo_id'/>");
-          }else{
+          } else {
             oldPhoto.val(id);
           }
 
@@ -59,11 +59,11 @@
 
 #profile_photo_upload
   = owner_image_tag(:thumb_large)
-
+  .small-horizontal-spacer
   .clearfix
-
-  #file-upload.btn
-    =t('.upload')
+    .text-center
+      #file-upload.btn.btn-primary
+        =t('.upload')
 
   = image_tag('mobile-spinner.gif', :class => 'hidden', :style => "z-index:-1", :id => 'file-upload-spinner')
 

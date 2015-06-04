@@ -23,6 +23,8 @@
     %link{rel: "apple-touch-icon", href: image_path("apple-touch-icon.png")}
     / For Nokia devices
     %link{rel: "shortcut icon", href: image_path("apple-touch-icon.png")}
+    / For desktop
+    %link{rel:  'shortcut icon', href:  image_path("favicon.png")}
 
     / iOS mobile web app indicator
     / NOTE(we will enable these once we don't have to rely on back/forward buttons anymore)
@@ -77,7 +79,7 @@
               = form_tag('/search', method: 'get', class: 'search_form', "accept-charset" => "UTF-8") do
                 %div
                   = hidden_field_tag "utf8", "✓"
-                  = search_field_tag "q", nil, id: "q", placeholder: t("search"), results: "5", autocomplete: "off", class: "ac_input"
+                  = search_field_tag "q", nil, id: "q", placeholder: t("search"), results: "5", autocomplete: "off", class: "ac_input form-control"
           %nav
             %ul
               %li
@@ -104,7 +106,7 @@
               %li
                 = link_to user_profile_path(current_user.username) do
                   = t('layouts.header.profile')
-                  = person_image_tag(current_user)
+                  = person_image_tag(current_user, size: :thumb_small)
               %li
                 = link_to t('_contacts'), contacts_path
               %li

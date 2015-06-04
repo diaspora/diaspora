@@ -32,13 +32,13 @@
           color: $text-grey;
           &:before { content: '\26aa'; }
         }
-        &.entypo.check { color: darken($green,20%); }
+        &.entypo.check { color: darken($brand-success,20%); }
       }
       .description {
         margin-bottom: 20px;
         .tag {
           background-color: transparent;
-          font-size: $font-size-text;
+          font-size: $font-size-base;
         }
         .tag:not(.entypo) {
           font-weight: 700;
@@ -78,7 +78,7 @@
         > li {
           display: inline-block;
           &.active {
-            border-bottom: 3px solid $creation-blue;
+            border-bottom: 3px solid $brand-primary;
             a {
               color: $black;
               .entypo { color: $black; }
@@ -127,4 +127,22 @@
   }
 
   .stream_container > .pagination { text-align: center; }
+}
+
+#email-form{
+  padding: 0;
+  .form-group{
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+#birth-date{
+  text-align: center;
+  select{
+    width: 32%;
+    display: inline;
+    &:first-of-type{ float: left; }
+    &:last-of-type{ float: right; }
+  }
 }

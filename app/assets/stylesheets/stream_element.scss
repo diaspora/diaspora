@@ -27,7 +27,6 @@
     &:hover > .bd > .control-icons { background: #fff; }
   }
   .thumbnail {
-    height: 200px;
     padding: 10px;
     margin: 0 5px 10px;
     text-align: center;
@@ -60,8 +59,8 @@
     a.author-name { color: $blue; }
     .feedback {
       margin-top: 5px;
-      font-size: 11px;
-      line-height: 11px;
+      font-size: $font-size-small;
+      line-height: $font-size-small;
     }
     .likes {
       margin-top: 10px;
@@ -81,7 +80,7 @@
       margin-top: 6px;
     }
     .status-message-location .near-from {
-      font-size: 11px;
+      font-size: $font-size-small;
       color: $text-grey;
     }
     .grey { color: $text-grey; }
@@ -135,11 +134,11 @@
 
   &.highlighted {
     padding-left: 8px;
-    border-left: 3px solid $creation-blue;
+    border-left: 3px solid $brand-primary;
   }
 
   &.post_preview {
-    background-color: lighten($creation-blue,45%);
-    border: 1px solid $creation-blue;
+    background-color: lighten($brand-primary,45%);
+    border: 1px solid $brand-primary;
   }
 }

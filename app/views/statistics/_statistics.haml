@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.row-fluid
+.row
   %h1
     = t('_statistics')
   = render 'statistics/statistic', name: t('statistics.name'), value: @statistics.name, activated: "serv-enabled"
@@ -16,7 +16,7 @@
     = render 'statistics/statistic', name: t('statistics.local_posts'), value: @statistics.local_posts, activated: "serv-enabled"
   - if @statistics.expose_comment_counts?
     = render 'statistics/statistic', name: t('statistics.local_comments'), value: @statistics.local_comments, activated: "serv-enabled"
-.row-fluid
+.row
   %h1
     = t('statistics.services')
   - Configuration::KNOWN_SERVICES.each do |service|

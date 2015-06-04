@@ -48,11 +48,11 @@ app.Router = Backbone.Router.extend({
 
   contacts: function() {
     app.aspect = new app.models.Aspect(gon.preloads.aspect);
-    app.contacts = new app.collections.Contacts(app.parsePreload('contacts'));
+    app.contacts = new app.collections.Contacts(app.parsePreload("contacts"));
 
     var stream = new app.views.ContactStream({
       collection: app.contacts,
-      el: $('.stream.contacts #contact_stream'),
+      el: $(".stream.contacts #contact_stream"),
     });
 
     app.page = new app.pages.Contacts({stream: stream});
@@ -80,7 +80,7 @@ app.Router = Backbone.Router.extend({
     app.page.render();
 
     if( !$.contains(document, app.page.el) ) {
-      // view element isn't already attached to the DOM, insert it
+      // view element isn"t already attached to the DOM, insert it
       $("#container").empty().append(app.page.el);
     }
   },
@@ -96,7 +96,7 @@ app.Router = Backbone.Router.extend({
     var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
 
     $("#main_stream").html(app.page.render().el);
-    $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
+    $("#selected_aspect_contacts .content").html(streamFacesView.render().el);
     this._hideInactiveStreamLists();
   },
 
@@ -104,7 +104,7 @@ app.Router = Backbone.Router.extend({
     this.renderPage(function() {
       return new app.pages.Profile({
         person_id: guid,
-        el: $('body > .container-fluid'),
+        el: $("body > #profile_container"),
         streamCollection: app.collections.Photos,
         streamView: app.views.Photos
       });
@@ -132,14 +132,14 @@ app.Router = Backbone.Router.extend({
   },
 
   aspects : function(){
-    app.aspects = new app.collections.Aspects(app.currentUser.get('aspects'));
+    app.aspects = new app.collections.Aspects(app.currentUser.get("aspects"));
     this.aspects_list =  new app.views.AspectsList({ collection: app.aspects });
     this.aspects_list.render();
     this.aspects_stream();
   },
 
   aspects_stream : function(){
-    var ids = app.aspects.selectedAspects('id');
+    var ids = app.aspects.selectedAspects("id");
     app.stream = new app.models.StreamAspects([], { aspects_ids: ids });
     app.stream.fetch();
 
@@ -150,7 +150,7 @@ app.Router = Backbone.Router.extend({
     var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
 
     $("#main_stream").html(app.page.render().el);
-    $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
+    $("#selected_aspect_contacts .content").html(streamFacesView.render().el);
     this._hideInactiveStreamLists();
   },
 
@@ -165,13 +165,13 @@ app.Router = Backbone.Router.extend({
   bookmarklet: function() {
     var contents = (window.gon) ? gon.preloads.bookmarklet : {};
     app.bookmarklet = new app.views.Bookmarklet(
-      _.extend({}, {el: $('#bookmarklet')}, contents)
+      _.extend({}, {el: $("#bookmarklet")}, contents)
     ).render();
   },
 
   profile: function() {
     this.renderPage(function() { return new app.pages.Profile({
-      el: $('body > .container-fluid')
+      el: $("body > #profile_container")
     }); });
   }
 });

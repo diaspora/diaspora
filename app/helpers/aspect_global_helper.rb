@@ -12,7 +12,7 @@ module AspectGlobalHelper
       aspect_membership_ids[a.id] = record.id
     end
 
-    button_class = selected_aspects.size>0 ? "green" : "btn-default"
+    button_class = selected_aspects.size > 0 ? "btn-success" : "btn-default"
     button_class << case size
       when "small"
         " btn-small"

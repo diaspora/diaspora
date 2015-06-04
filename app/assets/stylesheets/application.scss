@@ -1,9 +1,10 @@
-@import 'bootstrap-fix';
+/* variables */
+@import 'bootstrap-variables'; // our overwrites
+@import 'bootstrap/variables'; // the original bootstrap ones
 
 @import 'perfect-scrollbar';
 
 @import "colors";
-@import 'sizes';
 @import 'mixins';
 
 /* core */
@@ -16,7 +17,6 @@
 @import 'sprites';
 @import 'hovercard';
 @import 'new_styles/base';
-@import 'new_styles/buttons';
 @import 'new_styles/interactions';
 @import 'new_styles/spinner';
 @import 'lightbox';
@@ -31,8 +31,8 @@
 @import 'new_styles/registration';
 @import 'new_styles/forms';
 
-/* navs */
-@import 'new_styles/navs';
+/* terms */
+@import 'terms';
 
 /* profile and settings pages */
 @import 'new_styles/settings';

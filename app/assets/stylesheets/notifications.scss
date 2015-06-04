@@ -1,17 +1,8 @@
 #notifications_container {
-  .nav.nav-tabs{
-    li > a {
-      .badge.badge-default { display: none; }
-    }
-  }
-
   .stream {
     .header {
       border-bottom: 1px solid $border-grey;
-      .btn-toolbar, h4 {
-        margin-bottom: 10px;
-        line-height: 40px;
-      }
+      .btn-toolbar { margin: 11px 0; }
       margin-bottom: 10px;
     }
 
@@ -58,7 +49,6 @@
     .stream_element.media {
       padding: 10px;
       margin: 0px;
-      font-size: 13px;
       line-height: 18px;
       border-bottom: 1px solid $border-grey;
       &:last-child { border: none !important; }
@@ -97,5 +87,10 @@
     .pagination { text-align: center; }
 
     .no_notifications { text-align: center; }
+  }
+
+  .list-group .list-group-item {
+    .entypo, .mentionIcon { margin-right: 5px; }
+    .mentionIcon { font-weight: bold; }
   }
 }

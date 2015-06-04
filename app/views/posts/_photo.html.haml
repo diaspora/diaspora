@@ -6,7 +6,7 @@
   = javascript_include_tag :photos
 
 #author_info
-  = person_image_link(post.author)
+  = person_image_link(post.author, :size => :thumb_small)
   .from
     %h2
       = post.author_name

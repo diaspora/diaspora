@@ -2,7 +2,7 @@
   = "#{AppConfig.settings.pod_name} - #{t('devise.passwords.edit.change_password')}"
 
 #reset_password
-  .container-fluid
+  .container
     .text-center
       .logos-asterisk
       %h1
@@ -11,7 +11,7 @@
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: "form-horizontal block-form", method: :put }, autocomplete: 'off') do |f|
       = f.error_messages
 
-      %fieldset
+      %fieldset.form
         %label{for: "user_password"}
           = t('devise.passwords.edit.new_password')
         %i.entypo.lock
@@ -25,7 +25,7 @@
         = f.password_field :password_confirmation, class: "input-block-level form-control", required: true, placeholder: t('devise.passwords.edit.confirm_password'), autocapitalize: "none", autocorrect: "off"
 
       = hidden_field(:user, :remember_me, value: 1)
-      = f.submit t('devise.passwords.edit.change_password'), class: "btn btn-block"
+      = f.submit t('devise.passwords.edit.change_password'), class: "btn btn-block btn-default"
 
     .text-center
       = link_to t('devise.shared.links.sign_in'), new_session_path(resource_name)

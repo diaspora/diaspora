@@ -3,18 +3,17 @@
 -#   the COPYRIGHT file.
 
 !!!
-%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
-  %head{:prefix => og_prefix}
+%html{lang:  I18n.locale.to_s, dir:  (rtl?) ? 'rtl' : 'ltr'}
+  %head{prefix:  og_prefix}
     %title
       = page_title yield(:page_title)
 
-    %meta{:charset => 'utf-8'}/
-    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    %meta{:name => "description", :content => "diaspora*"}/
-    %meta{:name => "author", :content => "Diaspora, Inc."}/
+    %meta{charset:  'utf-8'}/
+    %meta{"http-equiv" => "Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{name:  "description", content:  "diaspora*"}/
+    %meta{name:  "author", content:  "Diaspora, Inc."}/
 
-    %link{:rel => 'shortcut icon', :href => "#{image_path('favicon.png')}" }
-    %link{:rel => 'apple-touch-icon', :href => "#{image_path('apple-touch-icon.png')}"}
+    %link{rel:  'shortcut icon', href:  "#{image_path('favicon.png')}" }
 
     = render 'layouts/open_graph'
 
@@ -22,10 +21,10 @@
     = include_mixpanel
 
     = include_base_css_framework
-    = stylesheet_link_tag 'application', :media => 'all'
+    = stylesheet_link_tag 'application', media:  'all'
 
     - if rtl?
-      = stylesheet_link_tag :rtl, :media => 'all'
+      = stylesheet_link_tag :rtl, media:  'all'
 
     = old_browser_js_support
     <!--[if IE]>
@@ -45,9 +44,9 @@
     = csrf_meta_tag
 
 
-    = include_gon(:camel_case => true)
+    = include_gon(camel_case:  true)
 
-  %body{ :class => "page-#{controller_name} action-#{action_name}" }
+  %body{ class:  "page-#{controller_name} action-#{action_name}" }
     = flash_messages
 
     = yield :before_content

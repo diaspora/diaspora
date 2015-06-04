@@ -4,37 +4,39 @@
         if( app.publisher ) app.publisher.triggerGettingStarted();
       });
 
-.row-fluid#publisher{:class => ((aspect == :profile || publisher_open) ? "mention_popup" : "closed")}
+#publisher.row{class: ((aspect == :profile || publisher_open) ? "mention_popup" : "closed")}
   .content_creation
     = form_for(StatusMessage.new) do |status|
       = status.error_messages
       %params
         #publisher_textarea_wrapper
           - if current_user.getting_started?
-            = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",
+            = status.text_area :fake_text, rows: 2, value: h(publisher_formatted_text), tabindex: 1, placeholder: "#{t('contacts.index.start_a_conversation')}...",
               'data-title' => popover_with_close_html( '1. ' + t('shared.public_explain.share') ),
-              'data-content' => t('shared.public_explain.new_user_welcome_message')
+              'data-content' => t('shared.public_explain.new_user_welcome_message'),
+              'class' => 'form-control'
           - else
-            = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}..."
-          = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
+            = status.text_area :fake_text, rows: 2, value: h(publisher_formatted_text), tabindex: 1, placeholder: "#{t('contacts.index.start_a_conversation')}...",
+              'class' => 'form-control'
+          = status.hidden_field :text, value: h(publisher_hidden_text), class: 'clear_on_submit'
 
-          .row-fluid#photodropzone_container
+          #photodropzone_container.container-fluid
             %ul#photodropzone
-          .row-fluid#location_container
+          #location_container.form-group{ style: "padding: 4px 6px;"}
             = hidden_field :location, :coords
-          .row-fluid#poll_creator_container
+          #poll_creator_container
             -# handlebars template
-          .row-fluid#button_container
+          #button_container
             #publisher-images.pull-right
-              #poll_creator.btn.btn-link{:title => t('shared.publisher.poll.add_a_poll')}
+              #poll_creator.btn.btn-link{title: t('shared.publisher.poll.add_a_poll')}
                 %i.entypo.bar-graph
-              #file-upload.btn.btn-link{:title => t('shared.publisher.upload_photos')}
+              #file-upload.btn.btn-link{title: t('shared.publisher.upload_photos')}
                 %i.entypo.camera.publisher_image
-              #locator.btn.btn-link{:title => t('shared.publisher.get_location')}
+              #locator.btn.btn-link{title: t('shared.publisher.get_location')}
                 %i.entypo.location.publisher_image
-              #hide_location.btn.btn-link{:title => t('shared.publisher.remove_location')}
+              #hide_location.btn.btn-link{title: t('shared.publisher.remove_location')}
                 %i.entypo.cross.publisher_image
-            %span.help-block.markdownIndications
+            %span.markdownIndications
               != t('shared.publisher.formatWithMarkdown', markdown_link: link_to(t('help.markdown'), 'https://diasporafoundation.org/formatting', target: :blank))
 
       - if publisher_public
@@ -45,36 +47,36 @@
         - for aspect_id in aspect_ids
           = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
-      .row-fluid#publisher_spinner{:class => 'hidden'}
-        = image_tag 'ajax-loader.gif'
-      .row-fluid.options_and_submit
+      #publisher_spinner{class: 'hidden'}
+        = image_tag 'ajax-loader2.gif'
+      .options_and_submit.col-sm-12
         .public_toggle
-          .btn.btn-default.pull-left#hide_publisher{:title => t('shared.publisher.discard_post')}
+          .btn.btn-default.pull-left#hide_publisher{title: t('shared.publisher.discard_post')}
             %span.text
               =t('cancel')
 
           .btn-toolbar.pull-right
-            %span#publisher_service_icons
+            %span#publisher_service_icons.btn-group
               - if current_user.services
                 - for service in current_user.services
                   = service_button(service)
-              %a.btn.btn-link{ :href => "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage') }
-                %i.entypo.small.cog
+              %a.btn.btn-link{ href: "#question_mark_pane", class: 'question_mark', rel: 'facebox', title: t('shared.public_explain.manage') }
+                %i.entypo.cog
 
-            = render :partial => "publisher/aspect_dropdown", :locals => { :selected_aspects => selected_aspects }
+            = render partial: "publisher/aspect_dropdown", locals: { :selected_aspects => selected_aspects }
 
-            %button{:class => 'btn btn-default post_preview_button'}
+            %button.btn.btn-default.btn-group.post_preview_button
               %span.text
                 = t('shared.publisher.preview')
 
-            %button#submit.btn.btn-primary.creation{:tabindex => 2}
+            %button#submit.btn.btn-group.btn-primary
               %span.text
                 = t('shared.publisher.share')
 
           .facebox_content
             #question_mark_pane
               = render 'shared/public_explain'
-    = link_to '', contacts_path(:aspect_ids => aspect_ids), :class => 'selected_contacts_link hidden'
+    = link_to '', contacts_path(:aspect_ids => aspect_ids), class: 'selected_contacts_link hidden'
 
 
     #publisher_photo_upload

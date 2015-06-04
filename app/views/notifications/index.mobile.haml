@@ -1,24 +1,27 @@
-%h3
-  = t('.notifications')
+.col-md-12
+  %h3
+    = t('.notifications')
 
-.right
-  -if params[:type]
-    = link_to t('.mark_all_shown_as_read'), read_all_notifications_path(:type => params[:type] ), :class => 'btn'
-  -else
-    = link_to t('.mark_all_as_read'), read_all_notifications_path, :class => 'btn'
-%ul.notifications
-  - @group_days.each do |date, notes|
-    %li
-      .notification_day_header
-        %span.label
-          = locale_date(date)
-      %ul.notifications_for_day
-        - notes.each do |note|
-          .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : 'read'}"}
-            .content.from
-              =person_image_link(note.actors.last)
-              = notification_message_for(note)
-              .time_notif
-                = timeago(note.created_at)
+  .right
+    -if params[:type]
+      = link_to t('.mark_all_shown_as_read'), read_all_notifications_path(type: params[:type] ), class: 'btn btn-default'
+    -else
+      = link_to t('.mark_all_as_read'), read_all_notifications_path, class: 'btn btn-default'
+  %ul.notifications
+    - @group_days.each do |date, notes|
+      %li
+        .notification_day_header
+          %span.label.label-default
+            = locale_date(date)
+        %ul.notifications_for_day
+          - notes.each do |note|
+            .stream_element{:data=>{guid: note.id}, class: "#{note.unread ? 'unread' : 'read'}"}
+              .content.from.media
+                .media-left
+                  = person_image_link(note.actors.last,  size: :thumb_small, class: "media-object")
+                .media-body
+                  = notification_message_for(note)
+                  .time_notif
+                    = timeago(note.created_at)
 
-  = will_paginate @notifications, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+    = will_paginate @notifications, renderer: WillPaginate::ActionView::BootstrapLinkRenderer

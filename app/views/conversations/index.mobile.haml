@@ -3,13 +3,13 @@
 -#   the COPYRIGHT file.
 
 .right
-  = link_to t('.new_conversation'), new_conversation_path, :class => 'btn'
+  = link_to t('.new_conversation'), new_conversation_path, class: 'btn btn-default'
 
 - flash.each do |name, msg|
-  %div{:id => "flash_#{name}", :class => "expose"}
+  %div{ id: "flash_#{name}",  class: "expose" }
     .message= msg
   .stream
-    %p{:class => "conversation_#{name}"}= msg
+    %p{ class: "conversation_#{name}" }= msg
 
 %h3
   = t('.inbox')
@@ -17,14 +17,12 @@
 #conversation_inbox
   .stream.conversations
     - if @conversations.count > 0
-      = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors, :unread_counts => @unread_counts}
+      = render partial: 'conversations/conversation', collection: @conversations,
+          locals: { authors: @authors,  unread_counts: @unread_counts }
     - else
-      %br
-      %br
-      %br
-      %br
-      %div{:style => 'text-align:center;'}
+      .no-messages
         %i
           = t('.no_messages')
 
-  = will_paginate @conversations, :previous_label => '&laquo;', :next_label => '&raquo;', :inner_window => 1, :outer_window => 0, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+  = will_paginate @conversations, previous_label: '&laquo;', next_label: '&raquo;', inner_window: 1, outer_window: 0,
+      renderer: WillPaginate::ActionView::BootstrapLinkRenderer

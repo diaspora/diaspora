@@ -37,6 +37,7 @@ var View = {
       Diaspora.page.directionDetector.updateBinds();
     });
 
+
     $("a.new_aspect").click(function(){
       $("input#aspect_name").focus();
     });

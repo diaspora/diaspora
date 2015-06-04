@@ -69,12 +69,12 @@
     bottom: 0px;
     left: 0px;
     top: 0px;
-    padding: 4px 6px;
+    padding: $padding-base-vertical $padding-base-horizontal;
   }
 
   .mentions {
     color: white;
-    font-size: 14px;
+    font-size: $font-size-base;
     font-family: Arial, Helvetica, sans-serif;
     line-height: normal;
     overflow: hidden;

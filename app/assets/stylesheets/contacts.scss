@@ -47,8 +47,8 @@
         &:hover { color: $black; }
       }
       &.in_aspect {
-        border-left: 3px solid $green;
-        background-color: lighten($green,35%);
+        border-left: 3px solid $brand-success;
+        background-color: lighten($brand-success,35%);
       }
       &:not(.in_aspect) { border-left: 3px solid $white; }
     }

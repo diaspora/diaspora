@@ -40,7 +40,7 @@ describe("app.views.Notifications", function(){
     });
 
     it('changes the "all notifications" count', function() {
-      var badge = $('ul.nav > li:eq(0) .badge');
+      var badge = $(".list-group > a:eq(0) .badge");
       var count = parseInt(badge.text());
 
       this.view.updateView(this.guid, this.type, true);
@@ -51,7 +51,7 @@ describe("app.views.Notifications", function(){
     });
 
     it('changes the notification type count', function() {
-      var badge = $('ul.nav > li[data-type=' + this.type + '] .badge');
+      var badge = $(".list-group > a[data-type=" + this.type + "] .badge");
       var count = parseInt(badge.text());
 
       this.view.updateView(this.guid, this.type, true);

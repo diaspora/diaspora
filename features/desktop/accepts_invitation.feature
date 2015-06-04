@@ -31,13 +31,13 @@ Feature: invitation acceptance
       And I close the publisher
       And I log out
       And I sign in as "bob@bob.bob"
-      And I click on selector ".btn-link[data-target='#invitationsModal']"
+      And I click on selector "#invitations-button"
       Then I should see one less invite
 
     Scenario: sends an invitation
       Given a user with email "bob@bob.bob"
       When I sign in as "bob@bob.bob"
-      And I click on selector ".btn-link[data-target='#invitationsModal']"
+      And I click on selector "#invitations-button"
       And I fill in the following:
         | email_inviter_emails         | alex@example.com    |
       And I press "Send an invitation"

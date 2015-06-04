@@ -15,28 +15,23 @@ header {
 
   #header_title {
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 100%;
     padding: 7px;
   }
 
   #nav_badges {
     float: right;
-    margin: 7px 0px;
+    margin: 7px 0;
     display: inline-block;
 
     .badge {
       display: inline;
-      margin: 0px 4px;
+      margin: 0 4px;
       padding: 10px 6px;
       font-weight: bold;
       font-size: smaller;
       background-color: transparent;
-
-      img {
-        height: 30px;
-        width: 30px;
-      }
     }
 
     .badge_count {
@@ -53,6 +48,12 @@ header {
       height: 18px;
     }
   }
+  #nav_badges, #header_title{
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }
 }
 
 #drawer {
@@ -62,7 +63,7 @@ header {
   width: 100%;
   left: 100%;
   background-color: #444;
-  box-shadow: -2px 0px 2px 1px #333;
+  box-shadow: none;
 
   header {
     position: static;
@@ -74,22 +75,23 @@ header {
 
       form {
         position: absolute;
-        left: 5px;
+        left: 0;
         right: 22%;
+        padding: 0 15px;
+        width: 450px;
 
         input {
           box-shadow: 0 1px 1px #444;
           border-radius: 15px;
           width: 100%;
-          margin-top: 7px;
+          margin-top: 5px;
           background-color: #444;
           border: 1px solid #222;
           font-size: 13px;
-          padding: 4px;
+          padding: 6px;
           color: black;
 
           &.active {
-            background-color: $highlight-white;
             background-color: rgba(160,160,160,0.6);
           }
 
@@ -158,11 +160,12 @@ header {
 
   ul {
     list-style: none;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
   }
 }
 
 /* This class is added when the user open the drawer */
 #app.draw > * {
-          transform: translateX(-80%);
+  transform: translateX(-80%);
 }

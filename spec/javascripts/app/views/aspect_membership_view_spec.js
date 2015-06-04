@@ -100,7 +100,7 @@ describe("app.views.AspectMembership", function(){
       spyOn(this.view, "_updateButton");
       this.view.updateSummary(this.Aspect);
 
-      expect(this.view._updateButton).toHaveBeenCalledWith('green');
+      expect(this.view._updateButton).toHaveBeenCalledWith("btn-success");
     });
   });
 });

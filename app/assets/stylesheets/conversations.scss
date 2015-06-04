@@ -18,8 +18,16 @@
       margin: 0 0 1em 0;
       &:last-child { margin-bottom: 0; }
     }
-    &.new_message { border-bottom: none; }
-    .timestamp { font-size: 11px; }
+    &.new_message {
+      border-bottom: none;
+
+      #new_message #message_text{
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+      }
+    }
+    .timestamp { font-size: $font-size-small; }
   }
 
   .stream_element.conversation {
@@ -107,7 +115,7 @@
     .img { line-height: 15px; }
 
     .subject {
-      font-size: $font-size-text;
+      font-size: $font-size-base;
       > * {
         overflow: hidden;
         white-space: nowrap;
@@ -136,11 +144,12 @@
 
     .hide_conversation, .delete_conversation {
       display: block;
-      margin-top: 25px;
+      margin-top: 15px;
       margin-left: 10px;
     }
 
     .avatar {
+      display: inline;
       height: 30px;
       width: 30px;
     }
@@ -191,6 +200,10 @@
         background: $background-grey;
       }
     }
+    div.pagination{
+      text-align: center;
+      width: 100%;
+    }
   }
 }
 
@@ -202,14 +215,21 @@
 
 #conversation_new {
   label { font-weight: bold; }
+
+  #new_conversation #conversation_text{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
 }
 
 #no_conversations,
 #no_conversation_text {
+  color: $gray-light;
+  font-size: $font-size-h4;
   font-weight: bold;
-  color: #ccc;
+  padding: 50px 0;
   text-align: center;
-  margin-top: 100px;
 }
 
 #no_conversation_text {
@@ -226,3 +246,4 @@
   input#contact_ids { box-shadow: none; }
   label { font-weight: bold; }
 }
+

@@ -1,0 +1,14 @@
+.stream
+  = render partial: "message", collection: conversation.messages
+
+  .stream_element.new_message
+    .media
+      .media-left
+        = owner_image_tag(:thumb_small)
+      .media-body
+        = form_for [conversation, Message.new], html: {class: "control-group"} do |message|
+          = message.text_area :text, rows: 5, tabindex: 1, class: "form-control form-group"
+          = message.submit t("conversations.show.reply").capitalize,
+                            "data-disable-with" => t("conversations.show.replying"),
+                            class: "btn btn-primary pull-right", tabindex: 2
+          .clearfix

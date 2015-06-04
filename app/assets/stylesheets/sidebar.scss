@@ -13,7 +13,7 @@
       h5 {
         color: $text-dark-grey;
         font-weight: bold;
-        font-size: 13px;
+        font-size: $font-size-base;
         margin: 0;
         &.title-header { margin-left: 5px; }
       }
@@ -21,7 +21,7 @@
 
     .content {
       color: $text-grey;
-      font-size: 11px;
+      font-size: $font-size-small;
       line-height: 18px;
       padding: 5px;
 
@@ -33,9 +33,14 @@
         li { list-style: none; }
       }
 
+      .btn-link {
+        font-size: $font-size-small;
+        padding-left: 0;
+      }
+
       & > #invite_code {
         box-sizing: border-box;
-        font-size: 11px;
+        font-size: $font-size-small;
         height: 30px;
         width: 100%;
       }
@@ -56,6 +61,7 @@
           display: inline-block;
         }
       }
+      .stream-faces img{ display: inline-flex; }
     }
   }
 }

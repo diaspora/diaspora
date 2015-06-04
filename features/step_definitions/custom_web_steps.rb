@@ -102,8 +102,7 @@ end
 
 When /^I click to delete the first comment$/ do
   within("div.comment", match: :first) do
-    find(".control-icons").hover
-    find(".comment_delete").click
+    find(".comment_delete", visible: false).click
   end
 end
 
@@ -243,8 +242,12 @@ And "I wait for the popovers to appear" do
 end
 
 And /^I click close on all the popovers$/ do
+  page.execute_script("$('.popover .close')[0].click();")
+  expect(page).to have_selector(".popover", count: 2)
+  page.execute_script("$('.popover .close')[0].click();")
+  expect(page).to have_selector(".popover", count: 1)
   page.execute_script("$('.popover .close').click();")
-  page.should_not have_selector(".popover .close")
+  expect(page).to_not have_selector(".popover .close")
 end
 
 Then /^I should see a flash message indicating success$/ do

@@ -4,47 +4,47 @@
 
 - content_for :head do
   - if AppConfig.chat.enabled?
-    = javascript_include_tag :jsxc, :id => 'jsxc',
-      :data => { :endpoint => get_bosh_endpoint }
+    = javascript_include_tag :jsxc, id: 'jsxc',
+      data: { endpoint: get_bosh_endpoint }
 
 - if current_user.getting_started?
   #welcome-to-diaspora
-    .container-fluid
-      .row-fluid
-        .span8.offset1
+    .container
+      .row
+        .col-md-8.offset1
           %h1
-            = t('aspects.index.welcome_to_diaspora', :name => current_user.first_name)
+            = t('aspects.index.welcome_to_diaspora', name: current_user.first_name)
           %h3
             = t('aspects.index.introduce_yourself')
-        .span2
+        .col-md-2
           .pull-right
-            = link_to '&times;'.html_safe, getting_started_completed_path, :id => "gs-skip-x", :class => "close"
+            = link_to '&times;'.html_safe, getting_started_completed_path, id: "gs-skip-x", class: "close"
 
-.container-fluid
-  .row-fluid
-    .offset1.span2#leftNavBar
+%div.container-fluid
+  .row
+    .col-md-offset-1.col-md-2#leftNavBar
       #home_user_badge
         = owner_image_link
         %h4
           = link_to current_user.first_name, local_or_remote_person_path(current_user.person)
 
       %ul#stream_selection
-        %li.hoverable{:data => {:stream => 'stream'}}
-          = link_to t("streams.multi.title"), stream_path, :rel => 'backbone'
-        %li.hoverable{:data => {:stream => 'activity'}}
-          = link_to t("streams.activity.title"), activity_stream_path, :rel => 'backbone'
-        %li.hoverable{:data => {:stream => 'mentions'}}
-          = link_to t('streams.mentions.title'), mentioned_stream_path, :rel => 'backbone'
+        %li.hoverable{data: {stream: 'stream'}}
+          = link_to t("streams.multi.title"), stream_path, rel: 'backbone'
+        %li.hoverable{data: {stream: 'activity'}}
+          = link_to t("streams.activity.title"), activity_stream_path, rel: 'backbone'
+        %li.hoverable{data: {stream: 'mentions'}}
+          = link_to t('streams.mentions.title'), mentioned_stream_path, rel: 'backbone'
         %li.all_aspects
-          = render 'aspects/aspect_listings', :stream => @stream
+          = render 'aspects/aspect_listings', stream: @stream
         %li
           = render 'tags/followed_tags_listings'
 
-    .span6
+    .col-md-6
       #aspect_stream_container.stream_container
-        = render 'aspects/aspect_stream', :stream => @stream
+        = render 'aspects/aspect_stream', stream: @stream
 
-    .span2.rightBar
+    .col-md-2.rightBar
       #selected_aspect_contacts.section
         .title.no_icon
           %h5.stream_title
@@ -53,5 +53,5 @@
 
       = render 'shared/right_sections'
 
-      %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
+      %a{id:"back-to-top", title:"#{t('layouts.application.back_to_top')}", href:"#"}
         &#8679;

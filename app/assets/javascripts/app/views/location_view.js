@@ -10,18 +10,24 @@ app.views.Location = Backbone.View.extend({
   },
 
   render: function(){
-    $(this.el).append('<img alt="ajax-loader" src="'+ImagePaths.get('ajax-loader.gif')+'">');
+    $("<img/>", { alt: "ajax-loader", src:  ImagePaths.get("ajax-loader2.gif") }).appendTo(this.el);
   },
 
   getLocation: function(){
-    var element = this.el;
+    var element = this.el ;
 
     var locator = new OSM.Locator();
     locator.getAddress(function(address, latlng){
-      $(element).html('<input id="location_address" type="text" class="input-block-level" value="' + address + '"/>');
-      $('#location_coords').val(latlng.latitude + "," + latlng.longitude);
+      $(element).empty();
+      $("<input/>",
+        { id: "location_address",
+          value: address,
+          type: "text",
+          class: "input-block-level form-control"
+        }).appendTo($(element));
+
+      $("#location_coords").val(latlng.latitude + "," + latlng.longitude);
     });
-  },
+  }
 });
 // @license-end
-
