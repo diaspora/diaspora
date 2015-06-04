@@ -1,5 +1,7 @@
 module Federated
   class Generator
+    include Diaspora::Logging
+
     def initialize(user, target)
       @user = user
       @target = target
@@ -8,7 +10,7 @@ module Federated
     def create!(options={})
       relayable = build(options)
       if relayable.save!
-        FEDERATION_LOGGER.info("user:#{@user.id} dispatching #{relayable.class}:#{relayable.guid}")
+        logger.info "user:#{@user.id} dispatching #{relayable.class}:#{relayable.guid}"
         Postzord::Dispatcher.defer_build_and_post(@user, relayable)
         relayable
       end

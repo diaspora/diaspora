@@ -39,7 +39,7 @@ class PublicsController < ApplicationController
       return
     end
 
-    FEDERATION_LOGGER.info("webfinger profile request for :#{@person.id}")
+    logger.info "webfinger profile request for: #{@person.id}"
     render 'webfinger', :content_type => 'application/xrd+xml'
   end
 
@@ -48,7 +48,7 @@ class PublicsController < ApplicationController
   end
 
   def receive_public
-    FEDERATION_LOGGER.info("recieved a public message")
+    logger.info "received a public message"
     Workers::ReceiveUnencryptedSalmon.perform_async(CGI::unescape(params[:xml]))
     render :nothing => true, :status => :ok
   end
@@ -57,14 +57,14 @@ class PublicsController < ApplicationController
     person = Person.find_by_guid(params[:guid])
 
     if person.nil? || person.owner_id.nil?
-      Rails.logger.error("Received post for nonexistent person #{params[:guid]}")
+      logger.error "Received post for nonexistent person #{params[:guid]}"
       render :nothing => true, :status => 404
       return
     end
 
     @user = person.owner
 
-    FEDERATION_LOGGER.info("recieved a private message for user:#{@user.id}")
+    logger.info "received a private message for user: #{@user.id}"
     Workers::ReceiveEncryptedSalmon.perform_async(@user.id, CGI::unescape(params[:xml]))
 
     render :nothing => true, :status => 202

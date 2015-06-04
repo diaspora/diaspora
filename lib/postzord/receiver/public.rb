@@ -10,7 +10,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
     @salmon = Salmon::Slap.from_xml(xml)
     @author = Webfinger.new(@salmon.author_id).fetch
 
-    FEDERATION_LOGGER.info("Receiving public object from person:#{@author.id}")
+    logger.info "Receiving public object from person:#{@author.id}"
   end
 
   # @return [Boolean]
@@ -25,7 +25,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
     return false unless save_object
 
-    FEDERATION_LOGGER.info("received a #{@object.inspect}")
+    logger.info "received a #{@object.inspect}"
     if @object.is_a?(SignedRetraction) # feels like a hack
       self.recipient_user_ids.each do |user_id|
         user = User.where(id: user_id).first

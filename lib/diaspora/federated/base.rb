@@ -11,7 +11,9 @@
 
 module Diaspora
   module Federated
-    module Base 
+    module Base
+      include Diaspora::Logging
+
       def self.included(model)
         model.instance_eval do
           include ROXML

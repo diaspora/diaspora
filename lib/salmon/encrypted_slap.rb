@@ -4,6 +4,7 @@
 
 module Salmon
   class EncryptedSlap < Slap
+    include Diaspora::Logging
 
     # Construct an encrypted header
     # @return [String] Header XML
@@ -28,13 +29,13 @@ HEADER
     # @return [String, Boolean] False if RSAError; XML if no error
     def xml_for(person)
       begin
-       super 
+        super
       rescue OpenSSL::PKey::RSAError => e
-        Rails.logger.info("event => :invalid_rsa_key, :identifier => #{person.diaspora_handle}")
+        logger.error "event=invalid_rsa_key identifier=#{person.diaspora_handle}"
         false
       end
     end
-    
+
     # Takes in a doc of the header and sets the author id
     # returns an empty hash
     # @return [Hash]
@@ -43,7 +44,7 @@ HEADER
       self.aes_key     = doc.search('aes_key').text
       self.iv          = doc.search('iv').text
     end
-    
+
     # Decrypts an encrypted magic sig envelope
     # @param key_hash [Hash] Contains 'key' (aes) and 'iv' values
     # @param user [User]
