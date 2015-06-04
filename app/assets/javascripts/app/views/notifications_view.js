@@ -15,7 +15,7 @@ app.views.Notifications = Backbone.View.extend({
   toggleUnread: function(evt) {
     var note = $(evt.target).closest(".stream_element");
     var unread = note.hasClass("unread");
-    var guid = note.data.guid;
+    var guid = note.data("guid");
     if (unread){ this.setRead(guid); }
     else { this.setUnread(guid); }
   },

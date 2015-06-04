@@ -94,7 +94,7 @@ app.views.PublisherUploader = Backbone.View.extend({
 
     // add form input element
     publisher.$(".content_creation form").append(
-      "<input type=\"hidden\", value=\"\"+id+\"\" name=\"photos[]\" />"
+      "<input type=\"hidden\", value=\""+id+"\" name=\"photos[]\" />"
     );
 
     // replace placeholder
