@@ -200,7 +200,8 @@ development:
     autofollow_on_join: false
     autofollow_on_join_user: ''
 production:
-  listen: 'unix:tmp/diaspora.sock'
+  server:
+    listen: 'unix:tmp/diaspora.sock'
 test:
   environment:
     url: 'http://localhost:9887/'
