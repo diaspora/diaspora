@@ -11,14 +11,14 @@
 app.views.PublisherGettingStarted = Backbone.View.extend({
 
   initialize: function(opts) {
-    this.el_first_msg = opts.el_first_msg;
-    this.el_visibility = opts.el_visibility;
-    this.el_stream = opts.el_stream;
+    this.firstMessage = opts.firstMessageEl;
+    this.visibility = opts.visibilityEl;
+    this.stream = opts.streamEl;
   },
 
   // initiate all the popover message boxes
   show: function() {
-    this._addPopover(this.el_first_msg, {
+    this._addPopover(this.firstMessage, {
       trigger: "manual",
       offset: 30,
       id: "first_message_explain",
@@ -26,7 +26,7 @@ app.views.PublisherGettingStarted = Backbone.View.extend({
       html: true,
       container: "body"
     }, 600);
-    this._addPopover(this.el_visibility, {
+    this._addPopover(this.visibility, {
       trigger: "manual",
       offset: 10,
       id: "message_visibility_explain",
@@ -34,7 +34,7 @@ app.views.PublisherGettingStarted = Backbone.View.extend({
       html: true,
       container: "body"
     }, 1000);
-    this._addPopover(this.el_stream, {
+    this._addPopover(this.stream, {
       trigger: "manual",
       offset: -5,
       id: "stream_explain",
@@ -45,8 +45,8 @@ app.views.PublisherGettingStarted = Backbone.View.extend({
 
     // hide some popovers when a post is created
     this.$("#submit").click(function() {
-      this.el_visibility.popover("hide");
-      this.el_first_msg.popover("hide");
+      this.visibility.popover("hide");
+      this.firstMessage.popover("hide");
     });
   },
 

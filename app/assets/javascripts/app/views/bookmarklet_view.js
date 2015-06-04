@@ -7,9 +7,9 @@ app.views.Bookmarklet = Backbone.View.extend({
     // init a standalone publisher
     app.publisher = new app.views.Publisher({standalone: true});
 
-    app.publisher.on('publisher:add', this._postSubmit, this);
-    app.publisher.on('publisher:sync', this._postSuccess, this);
-    app.publisher.on('publisher:error', this._postError, this);
+    app.publisher.on("publisher:add", this._postSubmit, this);
+    app.publisher.on("publisher:sync", this._postSuccess, this);
+    app.publisher.on("publisher:error", this._postError, this);
 
     this.param_contents = opts;
   },
@@ -35,18 +35,18 @@ app.views.Bookmarklet = Backbone.View.extend({
   },
 
   _postSubmit: function() {
-    this.$('h4').text(Diaspora.I18n.t('bookmarklet.post_submit'));
+    this.$("h4").text(Diaspora.I18n.t("bookmarklet.post_submit"));
   },
 
   _postSuccess: function() {
-    this.$('h4').text(Diaspora.I18n.t('bookmarklet.post_success'));
+    this.$("h4").text(Diaspora.I18n.t("bookmarklet.post_success"));
     app.publisher.close();
     this.$("#publisher").addClass("hidden");
     _.delay(window.close, 2000);
   },
 
   _postError: function() {
-    this.$('h4').text(Diaspora.I18n.t('bookmarklet.post_something'));
+    this.$("h4").text(Diaspora.I18n.t("bookmarklet.post_something"));
   }
 });
 // @license-end
