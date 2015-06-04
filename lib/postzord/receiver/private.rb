@@ -19,36 +19,33 @@ class Postzord::Receiver::Private < Postzord::Receiver
     if @sender && self.salmon.verified_for_key?(@sender.public_key)
       parse_and_receive(salmon.parsed_data)
     else
-      FEDERATION_LOGGER.info("event=receive status=abort recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id} reason='not_verified for key'")
+      logger.error "event=receive status=abort reason='not_verified for key' " \
+                   "recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id}"
       false
     end
   rescue => e
-    #this sucks
-    FEDERATION_LOGGER.error("Failure to receive #{@object.class} from sender:#{@sender.id} for user:#{@user.id}: #{e.message}\n#{@object.inspect}")
+    logger.error "failed to receive #{@object.class} from sender:#{@sender.id} for user:#{@user.id}: #{e.message}\n" \
+                 "#{@object.inspect}"
     raise e
   end
 
   def parse_and_receive(xml)
     @object ||= Diaspora::Parser.from_xml(xml)
-    return  if @object.nil?
+    return if @object.nil?
 
-    FEDERATION_LOGGER.info("user:#{@user.id} starting private receive from person:#{@sender.guid}")
+    logger.info "user:#{@user.id} starting private receive from person:#{@sender.guid}"
 
-    if self.validate_object
-      set_author!
-      receive_object
-      FEDERATION_LOGGER.info("object received: [#{@object.class}#{@object.respond_to?(:text) ? ":'#{@object.text}'" : ''}]")
-    else
-      FEDERATION_LOGGER.error("failed to receive object from #{@object.author}: #{@object.inspect}")
-      raise "not a valid object:#{@object.inspect}"
-    end
+    validate_object
+    set_author!
+    receive_object
   end
 
   # @return [Object]
   def receive_object
     obj = @object.receive(@user, @author)
     Notification.notify(@user, obj, @author) if obj.respond_to?(:notification_type)
-    FEDERATION_LOGGER.info("user:#{@user.id} successfully received private post from person #{@sender.guid}: #{@object.inspect}")
+    logger.info "user:#{@user.id} successfully received #{@object.class} from person #{@sender.guid}: " \
+                "#{@object.inspect}"
     obj
   end
 
@@ -91,14 +88,16 @@ class Postzord::Receiver::Private < Postzord::Receiver
   #validations
   def relayable_without_parent?
     if @object.respond_to?(:relayable?) && @object.parent.nil?
-      FEDERATION_LOGGER.error("event=receive status=abort reason='received a comment but no corresponding post' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{@object.class})")
+      logger.error "event=receive status=abort reason='no corresponding post' type=#{@object.class} " \
+                   "recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}"
       return true
     end
   end
 
   def contact_required_unless_request
     unless @object.is_a?(Request) || @user.contact_for(@sender)
-      FEDERATION_LOGGER.error("event=receive status=abort reason='sender not connected to recipient' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
+      logger.error "event=receive status=abort reason='sender not connected to recipient' type=#{@object.class} " \
+                   "recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}"
       return true
     end
   end

@@ -2,6 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 module Diaspora; module Fetcher; class Public
+  include Diaspora::Logging
 
   # various states that can be assigned to a person to describe where
   # in the process of fetching their public posts we're currently at
@@ -60,14 +61,14 @@ module Diaspora; module Fetcher; class Public
       begin
         retrieve_posts
       rescue => e
-        FEDERATION_LOGGER.error "unable to retrieve public posts for #{@person.diaspora_handle}"
+        logger.error "unable to retrieve public posts for #{@person.diaspora_handle}"
         raise e
       end
 
       begin
         process_posts
       rescue => e
-        FEDERATION_LOGGER.error "unable to process public posts for #{@person.diaspora_handle}"
+        logger.error "unable to process public posts for #{@person.diaspora_handle}"
         raise e
       end
     end
@@ -77,14 +78,14 @@ module Diaspora; module Fetcher; class Public
     def retrieve_posts
       set_fetch_status Public::Status_Running
 
-      FEDERATION_LOGGER.info "fetching public posts for #{@person.diaspora_handle}"
+      logger.info "fetching public posts for #{@person.diaspora_handle}"
 
       resp = Faraday.get("#{@person.url}people/#{@person.guid}/stream") do |req|
         req.headers['Accept'] = 'application/json'
         req.headers['User-Agent'] = 'diaspora-fetcher'
       end
 
-      FEDERATION_LOGGER.debug resp.body.to_s[0..250]
+      logger.debug "fetched response: #{resp.body.to_s[0..250]}"
 
       @data = JSON.parse resp.body
       set_fetch_status Public::Status_Fetched
@@ -97,9 +98,9 @@ module Diaspora; module Fetcher; class Public
       @data.each do |post|
         next unless validate(post)
 
-        FEDERATION_LOGGER.info "saving fetched post (#{post['guid']}) to database"
+        logger.info "saving fetched post (#{post['guid']}) to database"
 
-        FEDERATION_LOGGER.debug post.to_s[0..250]
+        logger.debug "post: #{post.to_s[0..250]}"
 
         # disable some stuff we don't want for bulk inserts
         StatusMessage.skip_callback :create, :set_guid
@@ -147,7 +148,7 @@ module Diaspora; module Fetcher; class Public
     def check_existing post
       new_post = (Post.find_by_guid(post['guid']).blank?)
 
-      FEDERATION_LOGGER.warn "a post with that guid (#{post['guid']}) already exists" unless new_post
+      logger.warn "a post with that guid (#{post['guid']}) already exists" unless new_post
 
       new_post
     end
@@ -158,7 +159,9 @@ module Diaspora; module Fetcher; class Public
       guid = post['author']['guid']
       equal = (guid == @person.guid)
 
-      FEDERATION_LOGGER.warn "the author (#{guid}) does not match the person currently being processed (#{@person.guid})" unless equal
+      unless equal
+        logger.warn "the author (#{guid}) does not match the person currently being processed (#{@person.guid})"
+      end
 
       equal
     end
@@ -167,7 +170,7 @@ module Diaspora; module Fetcher; class Public
     def check_public post
       ispublic = (post['public'] == true)
 
-      FEDERATION_LOGGER.warn "the post (#{post['guid']}) is not public, this is not intended..." unless ispublic
+      logger.warn "the post (#{post['guid']}) is not public, this is not intended..." unless ispublic
 
       ispublic
     end
@@ -176,7 +179,7 @@ module Diaspora; module Fetcher; class Public
     def check_type post
       type_ok = (post['post_type'] == "StatusMessage")
 
-      FEDERATION_LOGGER.warn "the post (#{post['guid']}) has a type, which cannot be handled (#{post['post_type']})" unless type_ok
+      logger.warn "the post (#{post['guid']}) has a type, which cannot be handled (#{post['post_type']})" unless type_ok
 
       type_ok
     end

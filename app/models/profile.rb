@@ -56,7 +56,7 @@ class Profile < ActiveRecord::Base
 
   def receive(user, person)
     person.reload # make sure to have old profile referenced
-    Rails.logger.info("event=receive payload_type=profile sender=#{person} to=#{user}")
+    logger.info "event=receive payload_type=profile sender=#{person.diaspora_handle} to=#{user.diaspora_handle}"
     profiles_attr = self.attributes.merge('tag_string' => self.tag_string).slice('diaspora_handle', 'first_name', 'last_name', 'image_url', 'image_url_small', 'image_url_medium', 'birthday', 'gender', 'bio', 'location', 'searchable', 'nsfw', 'tag_string')
     person.profile.update_attributes(profiles_attr)
 
@@ -68,7 +68,7 @@ class Profile < ActiveRecord::Base
     (self.person) ? self.person.diaspora_handle : self[:diaspora_handle]
   end
 
-  def image_url(size = :thumb_large)
+  def image_url(size=:thumb_large)
     result = if size == :thumb_medium && self[:image_url_medium]
                self[:image_url_medium]
              elsif size == :thumb_small && self[:image_url_small]
@@ -77,14 +77,14 @@ class Profile < ActiveRecord::Base
                self[:image_url]
              end
 
-    unless result
-      ActionController::Base.helpers.image_path('user/default.png')
-    else
+    if result
       if AppConfig.privacy.camo.proxy_remote_pod_images?
         Diaspora::Camo.image_url(result)
       else
         result
       end
+    else
+      ActionController::Base.helpers.image_path("user/default.png")
     end
   end
 
@@ -100,31 +100,16 @@ class Profile < ActiveRecord::Base
     self.attributes.merge(update_hash){|key, old, new| old.blank? ? new : old}
   end
 
-  def image_url= url
-    return image_url if url == ''
-    if url.nil? || url.match(/^https?:\/\//)
-      super(url)
-    else
-      super(absolutify_local_url(url))
-    end
+  def image_url=(url)
+    super(build_image_url(url))
   end
 
-  def image_url_small= url
-    return image_url if url == ''
-    if url.nil? || url.match(/^https?:\/\//)
-      super(url)
-    else
-      super(absolutify_local_url(url))
-    end
+  def image_url_small=(url)
+    super(build_image_url(url))
   end
 
-  def image_url_medium= url
-    return image_url if url == ''
-    if url.nil? || url.match(/^https?:\/\//)
-      super(url)
-    else
-      super(absolutify_local_url(url))
-    end
+  def image_url_medium=(url)
+    super(build_image_url(url))
   end
 
   def date= params
@@ -201,7 +186,9 @@ class Profile < ActiveRecord::Base
     self.attributes.keys - ["id", "created_at", "updated_at", "person_id"]
   end
 
-  def absolutify_local_url url
-    "#{AppConfig.pod_uri.to_s.chomp("/")}#{url}"
+  def build_image_url(url)
+    return nil if url.blank? || url.match(/user\/default/)
+    return url if url.match(/^https?:\/\//)
+    "#{AppConfig.pod_uri.to_s.chomp('/')}#{url}"
   end
 end

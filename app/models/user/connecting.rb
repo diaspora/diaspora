@@ -53,7 +53,7 @@ module User::Connecting
 
   def disconnect(bad_contact, opts={})
     person = bad_contact.person
-    Rails.logger.info("event=disconnect user=#{diaspora_handle} target=#{person.diaspora_handle}")
+    logger.info "event=disconnect user=#{diaspora_handle} target=#{person.diaspora_handle}"
     retraction = Retraction.for(self)
     retraction.subscribers = [person]#HAX
     Postzord::Dispatcher.build(self, retraction).post
@@ -63,7 +63,7 @@ module User::Connecting
   end
 
   def disconnected_by(person)
-    Rails.logger.info("event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}")
+    logger.info "event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}"
     if contact = self.contact_for(person)
       remove_contact(contact, :retracted => true)
     end

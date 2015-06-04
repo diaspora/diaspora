@@ -8,6 +8,8 @@ module Workers
     sidekiq_options backtrace: (bt = AppConfig.environment.sidekiq.backtrace.get) && bt.to_i,
                     retry:  (rt = AppConfig.environment.sidekiq.retry.get) && rt.to_i
 
+    include Diaspora::Logging
+
     # In the long term we need to eliminate the cause of these
     def suppress_annoying_errors(&block)
       yield
@@ -19,19 +21,13 @@ module Workers
            # Friendica seems to provoke
            Diaspora::NonPublic,
            Diaspora::XMLNotParseable => e
-      Rails.logger.info("error on receive: #{e.class}")
+      logger.warn "error on receive: #{e.class}"
     rescue ActiveRecord::RecordInvalid => e
-      Rails.logger.info("failed to save received object: #{e.record.errors.full_messages}")
+      logger.warn "failed to save received object: #{e.record.errors.full_messages}"
       raise e unless %w(
         "already been taken"
         "is ignored by the post author"
       ).any? {|reason| e.message.include? reason }
-    end
-
-    private
-
-    def logger
-      @logger ||= ::Logging::Logger[self]
     end
   end
 end

@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 class Webfinger
+  include Diaspora::Logging
+
   attr_accessor :host_meta_xrd, :webfinger_profile_xrd,
                 :webfinger_profile, :hcard, :hcard_xrd, :person,
                 :account, :ssl
@@ -28,7 +30,7 @@ class Webfinger
   end
 
   def get(url)
-    Rails.logger.info("Getting: #{url} for #{account}")
+    logger.info "Getting: #{url} for #{account}"
     begin
       res = Faraday.get(url)
       unless res.success?
@@ -36,10 +38,10 @@ class Webfinger
       end
       res.body
     rescue OpenSSL::SSL::SSLError => e
-      Rails.logger.info "Failed to fetch #{url}: SSL setup invalid"
+      logger.error "Failed to fetch #{url}: SSL setup invalid"
       raise e
     rescue => e
-      Rails.logger.info("Failed to fetch: #{url} for #{account}; #{e.message}")
+      logger.error "Failed to fetch: #{url} for #{account}; #{e.message}"
       raise e
     end
   end
@@ -53,13 +55,13 @@ class Webfinger
   end
 
   def create_or_update_person_from_webfinger_profile!
-    FEDERATION_LOGGER.info("webfingering #{account}, it is not known or needs updating")
+    logger.info "webfingering #{account}, it is not known or needs updating"
     if person #update my profile please
       person.assign_new_profile_from_hcard(self.hcard)
     else
       person = make_person_from_webfinger
     end
-    FEDERATION_LOGGER.info("successfully webfingered #{@account}") if person
+    logger.info "successfully webfingered #{@account}" if person
     person
   end
 
@@ -98,7 +100,7 @@ class Webfinger
 
   def webfinger_profile_xrd
     @webfinger_profile_xrd ||= get(webfinger_profile_url)
-    FEDERATION_LOGGER.warn "#{@account} doesn't exists anymore" if @webfinger_profile_xrd == false
+    logger.warn "#{@account} doesn't exists anymore" if @webfinger_profile_xrd == false
     @webfinger_profile_xrd
   end
 
