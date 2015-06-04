@@ -10,7 +10,7 @@ app.views.Location = Backbone.View.extend({
   },
 
   render: function(){
-    $("<img/>", { alt: 'ajax-loader', src:  ImagePaths.get('ajax-loader2.gif') }).appendTo(this.el);
+    $("<img/>", { alt: "ajax-loader", src:  ImagePaths.get("ajax-loader2.gif") }).appendTo(this.el);
   },
 
   getLocation: function(){
@@ -19,8 +19,12 @@ app.views.Location = Backbone.View.extend({
     var locator = new OSM.Locator();
     locator.getAddress(function(address, latlng){
       $(element).empty();
-      $("<input/>", { id: "location_address", value: address,
-            type: "text", class: "input-block-level form-control"}).appendTo($(element));
+      $("<input/>",
+        { id: "location_address",
+          value: address,
+          type: "text",
+          class: "input-block-level form-control"
+        }).appendTo($(element));
 
       $("#location_coords").val(latlng.latitude + "," + latlng.longitude);
     });

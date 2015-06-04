@@ -79,33 +79,41 @@ describe("app.views.AspectsDropdown", function(){
     });
   });
 
-  context('_updateButton', function() {
+  context("_updateButton", function() {
     beforeEach(function() {
-      this.view.$('li.selected').removeClass('selected');
+      this.view.$("li.selected").removeClass("selected");
     });
 
-    it('shows "Select aspects" when nothing is selected', function() {
-      this.view._updateButton('inAspectClass');
-      expect(this.view.$('.btn.dropdown-toggle > .text').text()).toContain(Diaspora.I18n.t('aspect_dropdown.select_aspects'));
+    it("shows 'Select aspects' when nothing is selected", function() {
+      this.view._updateButton("inAspectClass");
+      expect(this.view.$(".btn.dropdown-toggle > .text").text()).toContain(
+        Diaspora.I18n.t("aspect_dropdown.select_aspects")
+      );
     });
 
-    it('shows the name of the selected radio button', function() {
+    it("shows the name of the selected radio button", function() {
       this.view.$("li.all_aspects").addClass("selected");
       this.view._updateButton("inAspectClass");
-      expect(this.view.$(".btn.dropdown-toggle > .text").text()).toContain(Diaspora.I18n.t("aspect_dropdown.all_aspects"));
+      expect(this.view.$(".btn.dropdown-toggle > .text").text()).toContain(
+        Diaspora.I18n.t("aspect_dropdown.all_aspects")
+      );
     });
 
-    it('shows the name of the selected aspect ( == 1 )', function() {
-      this.view.$('li.aspect_selector:eq(1)').addClass('selected');
-      this.view._updateButton('inAspectClass');
-      expect(this.view.$('.btn.dropdown-toggle > .text').text()).toContain(this.view.$('li.aspect_selector:eq(1) .text').text());
+    it("shows the name of the selected aspect ( == 1 )", function() {
+      this.view.$("li.aspect_selector:eq(1)").addClass("selected");
+      this.view._updateButton("inAspectClass");
+      expect(this.view.$(".btn.dropdown-toggle > .text").text()).toContain(
+        this.view.$("li.aspect_selector:eq(1) .text").text()
+      );
     });
 
-    it('shows the number of selected aspects ( > 1)', function() {
-      this.view.$('li.aspect_selector:eq(0)').addClass('selected');
-      this.view.$('li.aspect_selector:eq(1)').addClass('selected');
-      this.view._updateButton('inAspectClass');
-      expect(this.view.$('.btn.dropdown-toggle > .text').text()).toContain(Diaspora.I18n.t('aspect_dropdown.toggle', { 'count':2 }));
+    it("shows the number of selected aspects ( > 1)", function() {
+      this.view.$("li.aspect_selector:eq(0)").addClass("selected");
+      this.view.$("li.aspect_selector:eq(1)").addClass("selected");
+      this.view._updateButton("inAspectClass");
+      expect(this.view.$(".btn.dropdown-toggle > .text").text()).toContain(
+        Diaspora.I18n.t("aspect_dropdown.toggle", { count: 2 })
+      );
     });
   });
 });
