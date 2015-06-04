@@ -16,10 +16,10 @@
         %ul.notifications_for_day
           - notes.each do |note|
             .stream_element{:data=>{guid: note.id}, class: "#{note.unread ? 'unread' : 'read'}"}
-              .content.from
-                .col-xs-1
-                  = person_image_link(note.actors.last,  size: :thumb_small)
-                .col-xs-11
+              .content.from.media
+                .media-left
+                  = person_image_link(note.actors.last,  size: :thumb_small, class: "media-object")
+                .media-body
                   = notification_message_for(note)
                   .time_notif
                     = timeago(note.created_at)

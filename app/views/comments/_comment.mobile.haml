@@ -4,20 +4,20 @@
 
 %li.comment{data:{guid:comment.id}, class: ("hidden" if(defined? hidden))}
   .content
-    .col-xs-1
-      = person_image_link(comment.author, size: :thumb_small)
-    .col-xs-11
-      .from.pull-left
-        = person_link(comment.author)
-        .info
-          %span
-            = timeago(comment.created_at ? comment.created_at : Time.now)
-      .remove_comment
-        .pull-right
-          - if user_signed_in? && comment.author == current_user.person
-            = link_to(raw("<i class='entypo trash'></i>"), comment_path(comment), method: :delete,
-                        data: { confirm: "#{t('are_you_sure')}" }, class: "remove")
-    .clearfix
+    .media
+      .media-left
+        = person_image_link(comment.author, size: :thumb_small, class: "media-object")
+      .media-body
+        .from.pull-left
+          = person_link(comment.author)
+          .info
+            %span
+              = timeago(comment.created_at ? comment.created_at : Time.now)
+        .remove_comment
+          .pull-right
+            - if user_signed_in? && comment.author == current_user.person
+              = link_to(raw("<i class='entypo trash'></i>"), comment_path(comment), method: :delete,
+                          data: { confirm: "#{t('are_you_sure')}" }, class: "remove")
 
     %div{class: direction_for(comment.text)}
       = comment.message.markdownified
