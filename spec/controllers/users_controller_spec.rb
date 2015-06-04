@@ -157,7 +157,7 @@ describe UsersController, :type => :controller do
         old_color_theme = "original"
         @user.color_theme = old_color_theme
         @user.save
-        put(:update, :id => @user.id, :user => { :color_theme => "dark_green"})
+        put(:update, id: @user.id, user: {color_theme: "dark_green"})
         @user.reload
         expect(@user.color_theme).not_to eq(old_color_theme)
       end
