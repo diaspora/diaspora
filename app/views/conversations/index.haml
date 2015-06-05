@@ -10,18 +10,19 @@
       #left_pane
         #left_pane_header
           %h3
-            .pull-right{ :class => ("hidden" unless @conversation)}
-              = link_to t('.new_conversation'), conversations_path, :class => 'btn btn-default'
+            .pull-right{ class: ("hidden" unless @visibilities)}
+              = link_to t('.new_conversation'), conversations_path, class: 'btn btn-default'
             = t('.inbox')
 
         #conversation_inbox
           .stream.conversations
-            - if @conversations.count > 0
-              = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors, :ordered_participants => @ordered_participants, :unread_counts => @unread_counts, :selected_conversation_id => @conversation.try(:id)}
+            - if @visibilities.count > 0
+              = render partial: "conversations/conversation", collection: @visibilities, as: :visibility, locals: {authors: @authors, ordered_participants: @ordered_participants, unread_counts: @unread_counts, selected_conversation_id: @conversation.try(:id)}
             - else
               #no_conversations
                 = t('.no_messages')
-            = will_paginate @visibilities, :previous_label => "&laquo;", :next_label => "&raquo;", :inner_window => 1, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+            = will_paginate @visibilities, previous_label: "&laquo;", next_label: "&raquo;",inner_window: 1,
+                renderer: WillPaginate::ActionView::BootstrapLinkRenderer
 
     .span8
       - if @conversation

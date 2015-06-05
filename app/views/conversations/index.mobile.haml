@@ -16,8 +16,8 @@
 
 #conversation_inbox
   .stream.conversations
-    - if @conversations.count > 0
-      = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors, :unread_counts => @unread_counts}
+    - if @visibilities.count > 0
+      = render partial: "conversations/conversation", collection: @visibilities, as: :visibility, locals: {authors: @authors, unread_counts: @unread_counts}
     - else
       %br
       %br
@@ -27,4 +27,5 @@
         %i
           = t('.no_messages')
 
-  = will_paginate @conversations, :previous_label => '&laquo;', :next_label => '&raquo;', :inner_window => 1, :outer_window => 0, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+  = will_paginate @visibilities, previous_label: "&laquo;", next_label: "&raquo;", inner_window: 1, outer_window: 0,
+      renderer: WillPaginate::ActionView::BootstrapLinkRenderer

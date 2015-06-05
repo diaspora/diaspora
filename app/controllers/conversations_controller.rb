@@ -23,23 +23,11 @@ class ConversationsController < ApplicationController
       end
     end
 
-    @conversations = []
-    @unread_counts = {}
-    @authors = {}
-    @ordered_participants = {}
-    @visibilities.each {|v|
-      @unread_counts[v.conversation_id] = v.unread
-      c = v.conversation
-      @conversations << c
-      @authors[c.id] = c.last_author
-      @ordered_participants[c.id] = (c.messages.map(&:author).reverse + c.participants).uniq
-    }
-
     gon.contacts = contacts_data
 
     respond_with do |format|
       format.html
-      format.json { render json: @conversations, status: 200 }
+      format.json { render json: @visibilities.map(&:conversation), status: 200 }
     end
   end
 

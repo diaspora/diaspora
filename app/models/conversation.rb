@@ -72,9 +72,13 @@ class Conversation < ActiveRecord::Base
   end
 
   def last_author
-    return unless @last_author.present? || self.messages.size > 0
-    @last_author_id ||= self.messages.pluck(:author_id).last
+    return unless @last_author.present? || messages.size > 0
+    @last_author_id ||= messages.pluck(:author_id).last
     @last_author ||= Person.includes(:profile).where(id: @last_author_id).first
+  end
+
+  def ordered_participants
+    @ordered_participants ||= (messages.map(&:author).reverse + participants).uniq
   end
 
   def subject
