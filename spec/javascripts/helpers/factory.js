@@ -44,9 +44,9 @@ var factory = {
       "id": id,
       "diaspora_id": "bob@bob.com",
       "avatar":{
-        "large":"http://localhost:3000/images/user/uma.jpg",
-        "medium":"http://localhost:3000/images/user/uma.jpg",
-        "small":"http://localhost:3000/images/user/uma.jpg"}
+        "large":"http://localhost:3000/assets/user/uma.jpg",
+        "medium":"http://localhost:3000/assets/user/uma.jpg",
+        "small":"http://localhost:3000/assets/user/uma.jpg"}
     };
 
     return _.extend(defaultAttrs, overrides);
