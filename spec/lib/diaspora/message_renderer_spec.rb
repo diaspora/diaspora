@@ -1,7 +1,12 @@
 require 'spec_helper'
 
 describe Diaspora::MessageRenderer do
-  def message text, opts={}
+  MESSAGE_NORMALIZTIONS = {
+    "\u202a#\u200eUSA\u202c" => "#USA",
+    "ള്‍"                     => "ള്‍"
+  }
+
+  def message(text, opts={})
     Diaspora::MessageRenderer.new(text, opts)
   end
 
@@ -122,10 +127,10 @@ describe Diaspora::MessageRenderer do
       ).to include 'href="http://joindiaspora.com/"'
     end
 
-    it 'normalizes' do
-      expect(
-        message("\u202a#\u200eUSA\u202c").markdownified
-      ).to eq %(<p><a class="tag" href="/tags/USA">#USA</a></p>\n)
+    it "normalizes" do
+      MESSAGE_NORMALIZTIONS.each do |input, output|
+        expect(message(input).plain_text_for_json).to eq output
+      end
     end
 
     context 'when formatting status messages' do
@@ -218,10 +223,10 @@ describe Diaspora::MessageRenderer do
   end
 
   describe "#plain_text_for_json" do
-    it 'normalizes' do
-      expect(
-        message("\u202a#\u200eUSA\u202c").plain_text_for_json
-      ).to eq '#USA'
+    it "normalizes" do
+      MESSAGE_NORMALIZTIONS.each do |input, output|
+        expect(message(input).plain_text_for_json).to eq output
+      end
     end
   end
 end
