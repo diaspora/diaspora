@@ -16,7 +16,7 @@ module Diaspora
         end
 
         def normalize message
-          message.delete("\u202a-\u202e\u200b-\u200f")
+          message.gsub(/[\u202a\u202b]#[\u200e\u200f\u202d\u202e](\S+)\u202c/u, "#\\1")
         end
       end
 
