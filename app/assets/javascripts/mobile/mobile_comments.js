@@ -6,7 +6,7 @@
 
 $(document).ready(function() {
 
-  $(".stream").on("tap click", "a.back_to_stream_element_top", function(evt) {
+  $(".stream").on("tap click", "a.back_to_stream_element_top", function() {
     var bottomBar = $(this).closest(".bottom_bar").first();
     var streamElement = bottomBar.parent();
     $("html, body").animate({
@@ -16,60 +16,86 @@ $(document).ready(function() {
 
   $(".stream").on("tap click", "a.show_comments", function(evt){
     evt.preventDefault();
-    var toggleReactionsLink = $(this),
-        bottomBar = toggleReactionsLink.closest(".bottom_bar").first(),
-        commentActionLink = bottomBar.find("a.comment_action"),
-        commentsContainer = function() { return bottomBar.find(".comment_container").first(); },
-        existingCommentsContainer = commentsContainer();
-    if (toggleReactionsLink.hasClass("active")) {
-      existingCommentsContainer.hide();
-      toggleReactionsLink.removeClass("active");
-    } else if (existingCommentsContainer.length > 0) {
-      existingCommentsContainer.show();
-      showCommentBox(commentActionLink);
-      toggleReactionsLink.addClass('active');
-      commentsContainer().find("time.timeago").timeago();
-    } else {
-      $.ajax({
-        url: toggleReactionsLink.attr('href'),
-        success: function(data) {
-          $(data).insertAfter(bottomBar.children(".show_comments").first());
-          showCommentBox(commentActionLink);
-          toggleReactionsLink.addClass("active");
-          commentsContainer().find("time.timeago").timeago();
-        }
-      });
-    }
+    toggleComments($(this));
   });
 
+  function toggleComments(toggleReactionsLink) {
+    if (toggleReactionsLink.hasClass("active")) {
+      hideComments(toggleReactionsLink);
+    } else {
+      showComments(toggleReactionsLink);
+    }
+  }
+  function hideComments(toggleReactionsLink) {
+    var bottomBar = toggleReactionsLink.closest(".bottom_bar").first(),
+        commentsContainer = commentsContainerLazy(bottomBar),
+        existingCommentsContainer = commentsContainer();
+    existingCommentsContainer.hide();
+    toggleReactionsLink.removeClass("active");
+  }
+  function showComments(toggleReactionsLink) {
+    var bottomBar = toggleReactionsLink.closest(".bottom_bar").first(),
+        commentsContainer = commentsContainerLazy(bottomBar),
+        existingCommentsContainer = commentsContainer(),
+        commentActionLink = bottomBar.find("a.comment_action");
+    if (existingCommentsContainer.length > 0) {
+      showLoadedComments(toggleReactionsLink, existingCommentsContainer, commentActionLink);
+    } else {
+      showUnloadedComments(toggleReactionsLink, bottomBar, commentActionLink);
+    }
+  }
+  function showLoadedComments(toggleReactionsLink, existingCommentsContainer, commentActionLink) {
+    existingCommentsContainer.show();
+    showCommentBox(commentActionLink);
+    toggleReactionsLink.addClass("active");
+    existingCommentsContainer.find("time.timeago").timeago();
+  }
+  function showUnloadedComments(toggleReactionsLink, bottomBar, commentActionLink) {
+    var commentsContainer = commentsContainerLazy(bottomBar);
+    $.ajax({
+      url: toggleReactionsLink.attr("href"),
+      success: function (data) {
+        $(data).insertAfter(bottomBar.children(".show_comments").first());
+        showCommentBox(commentActionLink);
+        toggleReactionsLink.addClass("active");
+        commentsContainer().find("time.timeago").timeago();
+      }
+    });
+  }
+  function commentsContainerLazy(bottomBar) {
+    return function() {
+      return bottomBar.find(".comment_container").first();
+    };
+  }
+
+  $(".stream").on("tap click", "a.comment_action", function(evt) {
+    evt.preventDefault();
+    showCommentBox(this);
+    var bottomBar = $(this).closest(".bottom_bar").first();
+    var commentContainer = bottomBar.find(".comment_container").first();
+    scrollToOffset(commentContainer);
+  });
   var scrollToOffset = function(commentsContainer){
     var commentCount = commentsContainer.find("li.comment").length;
     if ( commentCount > 3 ) {
       var lastComment = commentsContainer.find("li:nth-child("+(commentCount-3)+")");
-      $('html,body').animate({
+      $("html,body").animate({
         scrollTop: lastComment.offset().top
       }, 1000);
     }
   };
 
-  $(".stream").on("tap click", "a.comment_action", function(evt){
-    evt.preventDefault();
-    showCommentBox(this);
-    var bottomBar = $(this).closest(".bottom_bar").first();
-    scrollToOffset(bottomBar.find(".comment_container").first());
-  });
-
   function showCommentBox(link){
-    var link = $(link);
-    if(link.hasClass("inactive")) {
+    var commentActionLink = $(link);
+    if(commentActionLink.hasClass("inactive")) {
       $.ajax({
-        url: link.attr("href"),
+        url: commentActionLink.attr("href"),
         beforeSend: function(){
-          link.addClass("loading");
+          commentActionLink.addClass("loading");
         },
-        context: link,
+        context: commentActionLink,
         success: function(data){
-          appendCommentBox.call(this, link, data);
+          appendCommentBox.call(this, commentActionLink, data);
         }
       });
     }
@@ -82,21 +108,14 @@ $(document).ready(function() {
     bottomBar.append(data);
     var textArea = bottomBar.find("textarea.comment_box").first()[0];
     MBP.autogrow(textArea);
-    scrollToFirstComment(bottomBar);
-  }
-
-  function scrollToFirstComment(bottomBar) {
-    $("html, body").animate({
-      scrollTop: bottomBar.offset().top - 54
-    }, 500);
   }
 
   $(".stream").on("submit", ".new_comment", function(evt) {
     evt.preventDefault();
     var form = $(this);
-    $.post(form.attr('action')+"?format=mobile", form.serialize(), function(data) {
+    $.post(form.attr("action")+"?format=mobile", form.serialize(), function(data) {
       updateStream(form, data);
-    }, 'html');
+    }, "html");
   });
 
   function updateStream(form, data) {
@@ -104,7 +123,7 @@ $(document).ready(function() {
     addNewComments(bottomBar, data);
     updateCommentCount(bottomBar);
     updateReactionCount(bottomBar);
-    handleNewCommentBox(form, bottomBar);
+    handleCommentShowing(form, bottomBar);
     bottomBar.find("time.timeago").timeago();
   }
 
@@ -129,16 +148,12 @@ $(document).ready(function() {
     }));
   }
 
-  function handleNewCommentBox(form, bottomBar) {
-    form.parent().remove();
+  function handleCommentShowing(form, bottomBar) {
+    var formContainer = form.parent();
+    formContainer.remove();
     var commentActionLink = bottomBar.find("a.comment_action").first();
     commentActionLink.addClass("inactive");
-    showCommentBoxIfApplicable(bottomBar, commentActionLink);
-  }
-  function showCommentBoxIfApplicable(bottomBar, commentActionLink) {
     var toggleReactionsLink = bottomBar.find(".show_comments").first();
-    if (toggleReactionsLink.hasClass("active")) {
-      showCommentBox(commentActionLink);
-    }
+    showComments(toggleReactionsLink);
   }
 });
