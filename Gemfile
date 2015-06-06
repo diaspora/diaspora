@@ -245,6 +245,9 @@ group :development do
   gem "pry"
   gem "pry-debundle"
   gem "pry-byebug"
+
+  # test coverage
+  gem "simplecov", "0.10.0", require: false
 end
 
 group :test do
