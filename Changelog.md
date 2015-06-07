@@ -56,6 +56,7 @@
 * Disable autocorrect for username on mobile sign in [#6028](https://github.com/diaspora/diaspora/pull/6028)
 * Fix broken default avatars in the database [#6014](https://github.com/diaspora/diaspora/pull/6014)
 * Only strip text direction codepoints around hashtags [#6067](https://github.com/diaspora/diaspora/issues/6067)
+* Fix selected week on admin weekly stats page [#6079](https://github.com/diaspora/diaspora/pull/6079)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
