@@ -229,18 +229,33 @@ describe Post, :type => :model do
   end
 
   describe "#receive" do
-    it 'returns false if the post does not verify' do
-      @post = FactoryGirl.create(:status_message, :author => bob.person)
-      expect(@post).to receive(:verify_persisted_shareable).and_return(false)
-      expect(@post.receive(bob, eve.person)).to eq(false)
+    it "does not receive if the post does not verify" do
+      @post = FactoryGirl.create(:status_message, author: bob.person)
+      @known_post = FactoryGirl.create(:status_message, author: eve.person)
+      allow(@post).to receive(:persisted_shareable).and_return(@known_post)
+      expect(@post).not_to receive(:receive_persisted)
+      @post.receive(bob, eve.person)
+    end
+
+    it "receives an update if the post is known" do
+      @post = FactoryGirl.create(:status_message, author: bob.person)
+      expect(@post).to receive(:receive_persisted)
+      @post.receive(bob, eve.person)
+    end
+
+    it "receives a new post if the post is unknown" do
+      @post = FactoryGirl.create(:status_message, author: bob.person)
+      allow(@post).to receive(:persisted_shareable).and_return(nil)
+      expect(@post).to receive(:receive_non_persisted)
+      @post.receive(bob, eve.person)
     end
   end
 
   describe "#receive_persisted" do
     before do
-      @post = FactoryGirl.create(:status_message, :author => bob.person)
+      @post = FactoryGirl.create(:status_message, author: bob.person)
       @known_post = Post.new
-      allow(bob).to receive(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
+      allow(bob).to receive(:contact_for).with(eve.person).and_return(double(receive_shareable: true))
     end
 
     context "user knows about the post" do
@@ -248,16 +263,16 @@ describe Post, :type => :model do
         allow(bob).to receive(:find_visible_shareable_by_id).and_return(@known_post)
       end
 
-      it 'updates attributes only if mutable' do
+      it "updates attributes only if mutable" do
         allow(@known_post).to receive(:mutable?).and_return(true)
         expect(@known_post).to receive(:update_attributes)
         expect(@post.send(:receive_persisted, bob, eve.person, @known_post)).to eq(true)
       end
 
-      it 'returns false if trying to update a non-mutable object' do
+      it "does not update attributes if trying to update a non-mutable object" do
         allow(@known_post).to receive(:mutable?).and_return(false)
         expect(@known_post).not_to receive(:update_attributes)
-        expect(@post.send(:receive_persisted, bob, eve.person, @known_post)).to eq(false)
+        @post.send(:receive_persisted, bob, eve.person, @known_post)
       end
     end
 
@@ -271,8 +286,8 @@ describe Post, :type => :model do
         expect(@post.send(:receive_persisted, bob, eve.person, @known_post)).to eq(true)
       end
 
-      it 'notifies the user if they are mentioned' do
-        allow(bob).to receive(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
+      it "notifies the user if they are mentioned" do
+        allow(bob).to receive(:contact_for).with(eve.person).and_return(double(receive_shareable: true))
         expect(bob).to receive(:notify_if_mentioned).and_return(true)
 
         expect(@post.send(:receive_persisted, bob, eve.person, @known_post)).to eq(true)
@@ -280,29 +295,43 @@ describe Post, :type => :model do
     end
   end
 
-  describe '#receive_non_persisted' do
+  describe "#receive_non_persisted" do
     context "the user does not know about the post" do
       before do
-        @post = FactoryGirl.create(:status_message, :author => bob.person)
+        @post = FactoryGirl.create(:status_message, author: bob.person)
         allow(bob).to receive(:find_visible_shareable_by_id).and_return(nil)
         allow(bob).to receive(:notify_if_mentioned).and_return(true)
       end
 
       it "it receives the post from the contact of the author" do
-        expect(bob).to receive(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
+        expect(bob).to receive(:contact_for).with(eve.person).and_return(double(receive_shareable: true))
         expect(@post.send(:receive_non_persisted, bob, eve.person)).to eq(true)
       end
 
-      it 'notifies the user if they are mentioned' do
-        allow(bob).to receive(:contact_for).with(eve.person).and_return(double(:receive_shareable => true))
+      it "notifies the user if they are mentioned" do
+        allow(bob).to receive(:contact_for).with(eve.person).and_return(double(receive_shareable: true))
         expect(bob).to receive(:notify_if_mentioned).and_return(true)
 
         expect(@post.send(:receive_non_persisted, bob, eve.person)).to eq(true)
       end
 
-      it 'returns false if the post does not save' do
+      it "does not create shareable visibility if the post does not save" do
         allow(@post).to receive(:save).and_return(false)
-        expect(@post.send(:receive_non_persisted, bob, eve.person)).to eq(false)
+        expect(@post).not_to receive(:receive_shareable_visibility)
+        @post.send(:receive_non_persisted, bob, eve.person)
+      end
+
+      it "retries if saving fails with RecordNotUnique error" do
+        allow(@post).to receive(:save).and_raise(ActiveRecord::RecordNotUnique.new("Duplicate entry ..."))
+        expect(bob).to receive(:contact_for).with(eve.person).and_return(double(receive_shareable: true))
+        expect(@post.send(:receive_non_persisted, bob, eve.person)).to eq(true)
+      end
+
+      it "retries if saving fails with RecordNotUnique error and raise again if no persisted shareable found" do
+        allow(@post).to receive(:save).and_raise(ActiveRecord::RecordNotUnique.new("Duplicate entry ..."))
+        allow(@post).to receive(:persisted_shareable).and_return(nil)
+        expect(bob).not_to receive(:contact_for).with(eve.person)
+        expect { @post.send(:receive_non_persisted, bob, eve.person) }.to raise_error(ActiveRecord::RecordNotUnique)
       end
     end
   end

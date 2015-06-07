@@ -59,6 +59,7 @@ Ruby 2.0 is no longer officially supported.
 * Remove deprecated Facebook permissions [#6019](https://github.com/diaspora/diaspora/pull/6019)
 * Make used post title lengths more consistent [#6022](https://github.com/diaspora/diaspora/pull/6022)
 * Improved logging source [#6041](https://github.com/diaspora/diaspora/pull/6041)
+* Gracefully handle duplicate entry while receiving share-visibility in parallel [#6068](https://github.com/diaspora/diaspora/pull/6068)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)

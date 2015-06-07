@@ -45,9 +45,10 @@ describe Postzord::Receiver::Public do
       @receiver.perform!
     end
 
-    it 'returns false if signature is not verified' do
+    it "does not save the object if signature is not verified" do
       expect(@receiver).to receive(:verified_signature?).and_return(false)
-      expect(@receiver.perform!).to be false
+      expect(@receiver).not_to receive(:save_object)
+      @receiver.perform!
     end
 
     context 'if signature is valid' do
