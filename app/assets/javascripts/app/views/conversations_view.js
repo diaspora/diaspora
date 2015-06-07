@@ -24,7 +24,7 @@ app.views.Conversations = Backbone.View.extend({
     $(".control-icons a").tooltip({placement: "bottom"});
 
     var conv = $(".conversation-wrapper .stream_element.selected"),
-        cBadge = $("#conversations_badge .badge_count");
+        cBadge = $("#conversations-link .badge");
 
     if(conv.hasClass("unread") ){
       var unreadCount = parseInt(conv.find(".unread_message_count").text(), 10);

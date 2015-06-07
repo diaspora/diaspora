@@ -73,4 +73,5 @@ include HelperMethods
 
 Before do
   Devise.mailer.deliveries = []
+  page.driver.browser.manage.window.resize_to(1024, 500)
 end

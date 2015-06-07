@@ -5,7 +5,7 @@ body {
 }
 
 body {
-  margin-top: 40px;
+  margin-top: 50px;
   padding : none;
 
   &.lock {
@@ -88,5 +88,5 @@ a.tag { word-break: break-all; }
 @media (max-width: 767px) {
   body {
     padding : 0;
- }
+  }
 }

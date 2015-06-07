@@ -1,7 +1,7 @@
-/* flash message animations - header height is about 40px */
+/* flash message animations - header height is about 50px */
 @keyframes expose {
         0%   { top : -100px; }
-        15%  { top : 34px; }
-        85%  { top : 34px; }
+        15%  { top : 44px; }
+        85%  { top : 44px; }
         100% { top : -100px; }
 }

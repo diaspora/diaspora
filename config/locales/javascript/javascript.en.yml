@@ -218,6 +218,7 @@ en:
       help: "Help"
       admin: "Admin"
       log_out: "Log out"
+      toggle_navigation: "Toggle navigation"
 
       notifications: "Notifications"
       conversations: "Conversations"
