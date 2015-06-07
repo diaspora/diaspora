@@ -32,6 +32,15 @@ describe Conversation, :type => :model do
     end
   end
 
+  describe "#ordered_participants" do
+    it "returns the ordered participants" do
+      cnv = Conversation.create(@create_hash)
+      Message.create(author: @user2.person, created_at: Time.now + 100, text: "last", conversation_id: cnv.id)
+      expect(cnv.ordered_participants.first).to eq(@user2.person)
+      expect(cnv.ordered_participants.last).to eq(@user1.person)
+    end
+  end
+
   describe '#first_unread_message' do
     before do
       @cnv = Conversation.create(@create_hash)

@@ -58,38 +58,48 @@ describe ConversationsController, :type => :controller do
     end
   end
 
-  describe '#index' do
+  describe "#index" do
     before do
       hash = {
-        :author => alice.person,
-        :participant_ids => [alice.contacts.first.person.id, alice.person.id],
-        :subject => 'not spam',
-        :messages_attributes => [ {:author => alice.person, :text => 'cool stuff'} ]
+        author:              alice.person,
+        participant_ids:     [alice.contacts.first.person.id, alice.person.id],
+        subject:             "not spam",
+        messages_attributes: [{author: alice.person, text: "cool stuff"}]
       }
       @conversations = Array.new(3) { Conversation.create(hash) }
+      @visibilities = @conversations.map {|conversation|
+        conversation.conversation_visibilities.find {|visibility| visibility.person == alice.person }
+      }
     end
 
-    it 'succeeds' do
+    it "succeeds" do
       get :index
       expect(response).to be_success
-      expect(assigns[:conversations]).to match_array(@conversations)
+      expect(assigns[:visibilities]).to match_array(@visibilities)
     end
 
-    it 'succeeds with json' do
-      get :index, :format => :json
+    it "succeeds with json" do
+      get :index, format: :json
       expect(response).to be_success
       json = JSON.parse(response.body)
-      expect(json.first['conversation']).to be_present
+      expect(json.first["conversation"]).to be_present
     end
 
-    it 'retrieves all conversations for a user' do
+    it "retrieves all conversations for a user" do
       get :index
-      expect(assigns[:conversations].count).to eq(3)
+      expect(assigns[:visibilities].count).to eq(3)
     end
 
-    it 'does not let you access conversations where you are not a recipient' do
+    it "retrieves a conversation" do
+      get :index, conversation_id: @conversations.first.id
+      expect(response).to be_success
+      expect(assigns[:visibilities]).to match_array(@visibilities)
+      expect(assigns[:conversation]).to eq(@conversations.first)
+    end
+
+    it "does not let you access conversations where you are not a recipient" do
       sign_in :user, eve
-      get :index, :conversation_id => @conversations.first.id
+      get :index, conversation_id: @conversations.first.id
       expect(assigns[:conversation]).to be_nil
     end
   end
