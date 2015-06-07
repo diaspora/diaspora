@@ -1,0 +1,8 @@
+/* Main color(s) */
+$main-color: #585858;
+
+/* Shades */
+$main-color-dark: darken($main-color, 15%);
+
+/* Variables */
+$header-background-color: $main-color-dark;

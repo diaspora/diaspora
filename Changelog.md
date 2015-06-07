@@ -29,6 +29,7 @@ Ruby 2.0 is no longer officially supported.
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
 
 ## Features
+* Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
 
 # 0.5.1.0
 

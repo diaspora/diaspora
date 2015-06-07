@@ -61,6 +61,14 @@
 
       %hr
 
+      %h3= t(".change_color_theme")
+      = form_for "user", url: user_path, html: {method: :put} do |f|
+        .form-inline.clearfix
+          = f.select :color_theme, available_color_themes, {}, {class: "form-control form-group"}
+          = f.submit t(".change_color_theme"), class: "btn btn-primary pull-right"
+
+      %hr
+
       %h3#stream-preferences
         = t('.stream_preferences')
       = form_for current_user, url: user_path, html: { method: :put } do |f|

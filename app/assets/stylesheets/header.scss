@@ -4,8 +4,8 @@
 }
 
 body > header {
+  @include header-gradient($header-background-color);
   box-shadow: 0 1px 3px rgba(0,0,0,0.9);
-  background: image-url('header-bg.png') rgb(40,35,35);
   z-index: 1001;
   padding: 6px 0;
   color: #CCC;
@@ -15,7 +15,7 @@ body > header {
   min-width: 620px;
   top: 0;
   left: 0;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid darken($header-background-color, 8%);
 
   > div > div.container {
     height: 26px;

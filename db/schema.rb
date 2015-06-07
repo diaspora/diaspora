@@ -566,6 +566,7 @@ ActiveRecord::Schema.define(version: 20150531005120) do
     t.string   "exported_photos_file",               limit: 255
     t.datetime "exported_photos_at"
     t.boolean  "exporting_photos",                                 default: false
+    t.string   "color_theme",                        limit: 255
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

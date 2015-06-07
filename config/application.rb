@@ -81,12 +81,12 @@ module Diaspora
       templates.js
       validation.js
 
-      bootstrap-complete.css
       error_pages.css
       admin.css
-      mobile/mobile.css
       rtl.css
       home.css
+      color_themes/*/desktop.css
+      color_themes/*/mobile.css
     }
 
     # Version of your assets, change this if you want to expire all your assets

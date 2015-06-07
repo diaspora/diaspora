@@ -27,9 +27,7 @@ src_files:
 #   - stylesheets/*.css
 #
 stylesheets:
-  - assets/bootstrap.css
-  - assets/default.css
-  - assets/application.css
+  - assets/color_themes/original/desktop.css
 
 # helpers
 #

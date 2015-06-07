@@ -152,6 +152,17 @@ describe UsersController, :type => :controller do
       end
     end
 
+    describe "color_theme" do
+      it "allow the user to change his color theme" do
+        old_color_theme = "original"
+        @user.color_theme = old_color_theme
+        @user.save
+        put(:update, id: @user.id, user: {color_theme: "dark_green"})
+        @user.reload
+        expect(@user.color_theme).not_to eq(old_color_theme)
+      end
+    end
+
     describe 'email' do
       it 'disallow the user to change his new (unconfirmed) mail when it is the same as the old' do
         @user.email = "my@newemail.com"

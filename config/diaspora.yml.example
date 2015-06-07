@@ -533,6 +533,13 @@ configuration: ## Section
     ## If not set your pod will provide a downloadable archive.
     #source_url: 'https://example.org/username/diaspora'
 
+    ## Default color theme
+    ## You can change which color theme is displayed when a user is not signed in
+    ## or has not selected any color theme from the available ones. You simply have
+    ## to enter the name of the theme's folder in "app/assets/stylesheets/color_themes/".
+    ## ("original" for the theme in "app/assets/stylesheets/color_themes/original/", for
+    ## example).
+    #default_color_theme: "original"
   ## Posting from Diaspora to external services (all are disabled by default).
   services: ## Section
 

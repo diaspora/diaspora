@@ -1,0 +1,17 @@
+/* Main color(s) */
+$main-color: #1034A6;
+
+/* Shades */
+$main-color-essence: fade-out($main-color, 0.8);
+$main-color-light: lighten($main-color, 10%);
+$main-color-dark: darken($main-color, 15%);
+
+/* Bootstrap Variables */
+$btn-primary-bg: $main-color;
+$link-color: $main-color;
+
+/* Custom Variables */
+$header-background-color: $main-color-dark;
+$header-search-color: lighten($header-background-color, 15%);
+
+@import "color_themes/color_theme_override"
