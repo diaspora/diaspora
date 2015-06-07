@@ -44,6 +44,16 @@ module Diaspora
           end
         end
 
+        # @return [void]
+        def receive_public
+          local_shareable = persisted_shareable
+          if local_shareable
+            update_existing_sharable(local_shareable) if verify_persisted_shareable(local_shareable)
+          else
+            save!
+          end
+        end
+
         # The list of people that should receive this Shareable.
         #
         # @param [User] user The context, or dispatching user.

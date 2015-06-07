@@ -336,6 +336,22 @@ describe Post, :type => :model do
     end
   end
 
+  describe "#receive_public" do
+    it "saves the post if the post is unknown" do
+      @post = FactoryGirl.create(:status_message, author: bob.person)
+      allow(@post).to receive(:persisted_shareable).and_return(nil)
+      expect(@post).to receive(:save!)
+      @post.receive_public
+    end
+
+    it "does not update the post because not mutable" do
+      @post = FactoryGirl.create(:status_message, author: bob.person)
+      expect(@post).to receive(:update_existing_sharable).and_call_original
+      expect(@post).not_to receive(:update_attributes)
+      @post.receive_public
+    end
+  end
+
   describe '#reshares_count' do
     before :each do
       @post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true

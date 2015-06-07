@@ -28,6 +28,7 @@
 * Improved logging source [#6041](https://github.com/diaspora/diaspora/pull/6041)
 * Gracefully handle duplicate entry while receiving share-visibility in parallel [#6068](https://github.com/diaspora/diaspora/pull/6068)
 * Update twitter gem to get rid of deprecation warnings [#6083](https://github.com/diaspora/diaspora/pull/6083)
+* Refactor photos federation to get rid of some hacks [#6082](https://github.com/diaspora/diaspora/pull/6082)
 
 ## Bug fixes
 * Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
@@ -60,6 +61,7 @@
 * Only strip text direction codepoints around hashtags [#6067](https://github.com/diaspora/diaspora/issues/6067)
 * Fix selected week on admin weekly stats page [#6079](https://github.com/diaspora/diaspora/pull/6079)
 * Fix that some unread conversations may be hidden [#6060](https://github.com/diaspora/diaspora/pull/6060)
+* Fix photo links in the mobile interface [#6082](https://github.com/diaspora/diaspora/pull/6082)
 
 ## Features
 * Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
