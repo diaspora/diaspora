@@ -116,6 +116,7 @@ class StatusMessage < Post
 
   def update_and_dispatch_attached_photos(sender)
     if self.photos.any?
+      logger.info "dispatch photos for StatusMessage:#{guid}"
       Photo.where(status_message_guid: guid).update_all(:public => self.public)
       self.photos.each do |photo|
         if photo.pending
