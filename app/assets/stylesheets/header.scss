@@ -156,8 +156,8 @@ body > header {
 
       .ajax_loader {
         border-bottom: 1px solid $border-grey;
-        text-align: center;
         padding: 15px;
+        img { height: 21px; }
       }
       .notifications{
         overflow: hidden;
