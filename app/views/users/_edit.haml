@@ -17,7 +17,10 @@
           %p
             %b= current_user.diaspora_handle
         .col-md-6
-          %h3= t('.your_email')
+          %h3
+            = t(".your_email")
+            %i.entypo.lock.gray.settings_visibility{title: t("users.edit.your_email_private")}
+
 
           = form_for 'user', url: user_path, html: { method: :put, class: "form-horizontal col-md-12" , id: "email-form"} do |f|
             = f.error_messages
