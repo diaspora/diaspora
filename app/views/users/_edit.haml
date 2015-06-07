@@ -47,8 +47,7 @@
           %div.col-sm-6
             = f.password_field :password_confirmation, placeholder: t('.character_minimum_expl'), class: "form-control"
 
-        .submit_block
-          = link_to t('cancel'), edit_user_path, class: "btn btn-default"
+        .clearfix
           = f.submit t('.change_password'), class: "btn btn-primary pull-right", name: 'change_password'
 
       %hr
