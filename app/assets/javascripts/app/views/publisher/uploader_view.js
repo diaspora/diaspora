@@ -43,7 +43,7 @@ app.views.PublisherUploader = Backbone.View.extend({
     var progress = Math.round(loaded / total * 100);
     this.info.text(fileName + " " + progress + "%").fadeTo(200, 1);
     this.publisher.photozoneEl
-      .find("li.loading").first().find(".bar")
+      .find("li.loading").first().find(".progress-bar")
       .width(progress + "%");
   },
 
@@ -60,7 +60,9 @@ app.views.PublisherUploader = Backbone.View.extend({
     publisher.wrapperEl.addClass("with_attachments");
     publisher.photozoneEl.append(
       "<li class=\"publisher_photo loading\" style=\"position:relative;\">" +
-      "  <div class=\"progress progress-striped active\"><div class=\"bar\"></div></div>" +
+      "  <div class=\"progress\">" +
+      "    <div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\"></div>"+
+      "  </div>" +
       "  <img src=\"\"+Handlebars.helpers.imageUrl(\"ajax-loader2.gif\")+\"\" class=\"ajax-loader\" alt=\"\" />"+
       "</li>"
     );
