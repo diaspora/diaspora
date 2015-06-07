@@ -8,9 +8,9 @@ header {
   height: 45px;
   top: 0px;
   z-index: 10;
-  background: image-url('header-bg-long.jpg') rgb(40,35,35);
+  @include header-gradient($header-background-color);
   box-shadow: 0 1px 2px #333;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid darken($header-background-color, 8%);
 }
 
 #main_nav {

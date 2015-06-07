@@ -22,7 +22,7 @@ $default-border-radius: 3px;
 }
 
 @mixin header-gradient($color) {
-  @include linear-gradient(lighten($color, 8%), darken($color, 0%), 0%, 80%);
+  @include linear-gradient(lighten($color, 2%), darken($color, 2%), 0%, 80%);
 }
 
 @mixin linear-gradient($from, $to, $start:0%, $end:100%){

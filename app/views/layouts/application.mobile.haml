@@ -37,7 +37,7 @@
 
     / Stylesheets
 
-    = stylesheet_link_tag 'mobile/mobile', :format => 'all'
+    = include_color_theme "mobile"
     = yield(:custom_css)
 
 
@@ -45,8 +45,6 @@
 
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'
-
-    = stylesheet_link_tag current_color_theme, media: "all"
 
     = yield(:head)
 

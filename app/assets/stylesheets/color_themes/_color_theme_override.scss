@@ -1,0 +1,77 @@
+/* Raw CSS */
+body {
+  header {
+    .container {
+      #nav_badges > #notification_dropdown {
+        a#mark_all_read_link, .stream_element a {
+          color: $link-color;
+        }
+
+        div.view_all {
+          background-color: $main-color;
+        }
+      }
+
+      #global_search > form > input.ac_input {
+        background-color: $header-search-color;
+        border-color: $main-color-dark;
+
+        &:hover {
+          background-color: lighten($header-search-color, 2%);
+        }
+
+        &:focus {
+          background-color: white;
+        }
+      }
+
+      ul#user_menu.active {
+        box-shadow: 0 1px 3px $main-color-dark;
+        background-color: $main-color-dark;
+
+        li {
+          border-color: darken($main-color-dark, 5%);
+
+          &.user-menu-item a:hover {
+            background-color: lighten($main-color-dark, 15%);
+          }
+        }
+      }
+    }
+  }
+
+  a,
+  a.tag,
+  .btn-link,
+  #main_stream .stream_element > .media a.author-name,
+  #hovercard h4 a,
+  .stream_element .from a.self {
+    color: $link-color;
+
+    &:hover, &:focus {
+      color: darken($link-color, 10%);
+    }
+  }
+
+  #publisher_textarea_wrapper > #button_container > span.markdownIndications > a {
+    color: fade-out($link-color, 0.4);
+  }
+
+
+  #main_stream .stream_element {
+    &.post_preview {
+      background-color: $main-color-essence;
+      border-color: darken($main-color-essence, 5%);
+    }
+  }
+
+  #leftNavBar .hoverable:hover { background-color: $main-color-essence }
+
+  .poll_form .progress .bar { background-color: $main-color-dark }
+
+  #profile_container .profile_header #profile_horizontal_bar ul#profile_nav > li.active {
+    border-bottom-color: $main-color;
+  }
+
+  .badge { background-color: $main-color }
+}

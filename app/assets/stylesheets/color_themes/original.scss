@@ -1,7 +1,0 @@
-@import "mixins";
-
-$main-color: #282828;
-
-body > header {
-  @include header-gradient($main-color);
-}

@@ -45,8 +45,8 @@ module LayoutHelper
     end
   end
 
-  def include_base_css_framework
-    stylesheet_link_tag('bootstrap-complete')
+  def include_color_theme(view="desktop")
+    stylesheet_link_tag "#{current_color_theme}/#{view}", media: "all"
   end
 
   def old_browser_js_support
