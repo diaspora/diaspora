@@ -61,7 +61,11 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   # @return [void]
   def receive_object
-    @object.save! if @object.respond_to?(:save!)
+    if @object.respond_to?(:receive_public)
+      @object.receive_public
+    elsif @object.respond_to?(:save!)
+      @object.save!
+    end
   end
 
   # @return [Array<Integer>] User ids
