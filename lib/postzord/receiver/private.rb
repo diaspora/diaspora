@@ -21,7 +21,6 @@ class Postzord::Receiver::Private < Postzord::Receiver
     else
       logger.error "event=receive status=abort reason='not_verified for key' " \
                    "recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id}"
-      false
     end
   rescue => e
     logger.error "failed to receive #{@object.class} from sender:#{@sender.id} for user:#{@user.id}: #{e.message}\n" \
@@ -40,13 +39,12 @@ class Postzord::Receiver::Private < Postzord::Receiver
     receive_object
   end
 
-  # @return [Object]
+  # @return [void]
   def receive_object
     obj = @object.receive(@user, @author)
     Notification.notify(@user, obj, @author) if obj.respond_to?(:notification_type)
     logger.info "user:#{@user.id} successfully received #{@object.class} from person #{@sender.guid}: " \
                 "#{@object.inspect}"
-    obj
   end
 
   protected

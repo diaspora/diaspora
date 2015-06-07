@@ -26,17 +26,15 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
     notify_users
 
     logger.info "receiving local batch completed for #{@object.inspect}"
-    true
   end
 
   # NOTE(copied over from receiver public)
-  # @return [Object]
+  # @return [void]
   def receive_relayable
     if @object.parent_author.local?
       # receive relayable object only for the owner of the parent object
       @object.receive(@object.parent_author.owner)
     end
-    @object
   end
 
   # Batch import post visibilities for the recipients of the given @object
