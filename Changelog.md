@@ -31,6 +31,8 @@ Ruby 2.0 is no longer officially supported.
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
 
+# 0.5.2.0
+
 # 0.5.1.0
 
 ## Configuration changes
