@@ -33,6 +33,9 @@ Ruby 2.0 is no longer officially supported.
 
 # 0.5.2.0
 
+# Refactor
+* Update perfect-scrollbar [#6085](https://github.com/diaspora/diaspora/pull/6085)
+
 # 0.5.1.0
 
 ## Configuration changes
