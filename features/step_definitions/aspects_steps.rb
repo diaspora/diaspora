@@ -88,23 +88,13 @@ When /^(.*) in the aspect creation modal$/ do |action|
   end
 end
 
-When /^I drag "([^"]*)" (up|down) (\d+) pixels?$/ do |aspect_name, direction, distance|
-  distance = distance.to_i * -1 if direction == "up"
-  page.execute_script %{
-    function drag() {
-      $("a.aspect:contains('#{aspect_name}')")
-        .simulate("drag-n-drop", { dy: #{distance}, interpolation: { stepWidth: 10, stepDelay: 5 } });
-    }
-    function loadScripts() {
-      $.getScript("/assets/jquery-simulate/jquery.simulate.js", function(){
-        $.getScript("/assets/jquery-simulate-ext/src/jquery.simulate.ext.js", function(){
-          $.getScript("/assets/jquery-simulate-ext/src/jquery.simulate.drag-n-drop.js", drag);
-        });
-      });
-    }
-    if (!$.simulate) { loadScripts(); } else { drag(); }
-  }
-  expect(find("#aspect_nav")).to have_css ".synced"
+When /^I drag "([^"]*)" (up|down)$/ do |aspect_name, direction|
+  aspect_id = @me.aspects.where(name: aspect_name).first.id
+  aspect = find(:xpath, "//div[@id='aspect_nav']/ul/a[@data-aspect-id='#{aspect_id}']")
+  target = direction == "up" ? aspect.all(:xpath, "./preceding-sibling::a").last :
+                               aspect.all(:xpath, "./following-sibling::a").first
+  aspect.drag_to(target)
+  expect(page).to have_no_css "#aspect_nav .ui-sortable.syncing"
 end
 
 And /^I toggle the aspect "([^"]*)"$/ do |name|

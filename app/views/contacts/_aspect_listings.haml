@@ -1,5 +1,5 @@
 #aspect_nav
-  %ul.list-group.synced.ui-sortable
+  %ul.list-group.ui-sortable
     %a.list-group-item.ui-sortable-handle.all_contacts{class: ("active" if params["set"] == "all"), href: contacts_path(set: "all")}
       = t('contacts.index.all_contacts')
       .badge.badge-default.pull-right

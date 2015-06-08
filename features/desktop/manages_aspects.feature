@@ -81,7 +81,7 @@ Feature: User manages contacts
     And I have an aspect called "People"
     And I have an aspect called "Cat People"
     When I am on the contacts page
-    And I drag "Cat People" up 40 pixels
+    And I drag "Cat People" up
     And I go to the contacts page
     Then I should see "Cat People" as 2. aspect
     And I should see "People" as 3. aspect
