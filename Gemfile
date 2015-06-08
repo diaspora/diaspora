@@ -22,9 +22,9 @@ gem "json",        "1.8.2"
 
 # Authentication
 
-gem "devise", "3.4.1"
+gem "devise", "3.5.1"
 gem "devise_lastseenable", "0.0.4"
-gem "devise-token_authenticatable", "~> 0.3.0"
+gem "devise-token_authenticatable", "~> 0.4.0"
 
 # Captcha
 
