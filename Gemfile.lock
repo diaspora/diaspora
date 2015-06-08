@@ -523,7 +523,7 @@ GEM
     rails-assets-highlightjs (8.5.0)
     rails-assets-jakobmattsson--jquery-elastic (1.6.11)
       rails-assets-jquery (>= 1.2.6)
-    rails-assets-jasmine (2.3.1)
+    rails-assets-jasmine (2.3.4)
     rails-assets-jasmine-ajax (3.1.1)
       rails-assets-jasmine (~> 2)
     rails-assets-jeresig--jquery.hotkeys (0.2.0)
