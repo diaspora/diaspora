@@ -298,8 +298,6 @@ pa:
   search: "ਖੋਜ"
   services:
     index:
-      connect_to_facebook: "ਫੇਸਬੁੱਕ ਨਾਲ ਕੁਨੈਕਟ ਕਰੋ"
-      connect_to_twitter: "ਟਵਿੱਟਰ ਨਾਲ ਕੁਨੈਕਟ ਕਰੋ"
       disconnect: "ਕੁਨੈਕਸ਼ਨ ਖਤਮ ਕਰੋ"
       edit_services: "ਸਰਵਿਸ ਸੋਧ"
       logged_in_as: "ਇੰਝ ਲਾਗ ਕਰੋ"

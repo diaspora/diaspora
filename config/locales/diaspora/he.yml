@@ -750,14 +750,9 @@ he:
       no_friends: "לא נמצאו חברי פייסבוק."
       service_friends: "חברים ב־%{service}"
     index:
-      connect_to_facebook: "התחברות לפייסבוק"
-      connect_to_tumblr: "התחברות ל־Tumblr"
-      connect_to_twitter: "התחברות לטוויטר"
-      connect_to_wordpress: "התחברות לוורדפרס"
       disconnect: "התנתקות"
       edit_services: "עריכת שירותים"
       logged_in_as: "התחברת בשם"
-      no_services: "לא קישרת אף שירות עדיין."
       really_disconnect: "האם לנתק את %{service}?"
       services_explanation: "התחברות לשירותים נוספים מאפשרת לך לפרסם הודעות הנכתבות בדיאספורה* גם בשירותים אלו."
     inviter:

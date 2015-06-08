@@ -967,14 +967,9 @@ en_valspeak:
       no_friends: "No FB friendz found. :\\"
       service_friends: "Ur like... %{service} BFFs"
     index:
-      connect_to_facebook: "Connect to FB!!!"
-      connect_to_tumblr: "Connect to Tumblar!!!"
-      connect_to_twitter: "Connect to Twittar!!!"
-      connect_to_wordpress: "Connect 2 WP!"
       disconnect: "like disconnect"
       edit_services: "Edit servies!!!"
       logged_in_as: "ur like... checkin in as"
-      no_services: "U have not like... connected ne stuff yet."
       really_disconnect: "drop %{service}?"
       services_explanation: "Connectin 2 servies gives u like... the ability 2 post ur posties 2 them as u write them in d*! :p"
     inviter:

@@ -583,9 +583,6 @@ is:
     failure:
       error: "villa kom upp við að tengjast þeirri þjónustu"
     index:
-      connect_to_facebook: "Tengja við facebook"
-      connect_to_twitter: "Tengja við twitter"
-      connect_to_wordpress: "Tengja Wordpress"
       disconnect: "aftengja"
       edit_services: "Breyta þjónustum"
       logged_in_as: "innskráning þín sem "

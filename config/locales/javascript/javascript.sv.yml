@@ -30,10 +30,18 @@ sv:
       deselect_all: "Visa ingen"
       no_aspects: "Ingen aspekt är vald"
       select_all: "Visa alla"
+    aspects:
+      create:
+        add_a_new_aspect: "Lägg till en ny aspekt"
+        failure: "Aspekten gick inte att skapas."
+        success: "Aspekten <%= name %> är nu skapad."
+      make_aspect_list_visible: "Ska kontakterna i denna aspekt vara synliga för varandra?"
+      name: "Namn"
     bookmarklet:
       post_something: "Dela på Diaspora*"
       post_submit: "Skickar inlägg..."
       post_success: "Sänt! Stänger popupfönster..."
+    cancel: "Avbryt"
     comma: ","
     comments:
       hide: "dölj kommentarer"
@@ -51,6 +59,7 @@ sv:
       search_no_results: "Inga kontakter hittade"
     conversation:
       participants: "Deltagare"
+    create: "Skapa"
     delete: "Radera"
     edit: "Ändra"
     failed_to_like: "Misslyckades med att gilla!"

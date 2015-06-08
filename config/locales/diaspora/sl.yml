@@ -733,13 +733,9 @@ sl:
       no_friends: "Noben prijatelj s Facebook-a ni bil najden."
       service_friends: "%{service} Prijatelji"
     index:
-      connect_to_facebook: "Poveži se s Facebook-om"
-      connect_to_tumblr: "Poveži se Tumblr-jem"
-      connect_to_twitter: "Poveži se s Twitter-jem"
       disconnect: "prekini povezavo"
       edit_services: "Uredi storitve"
       logged_in_as: "prijavljeni ste kot"
-      no_services: "Niste še povezani z nobeno storitvijo."
       really_disconnect: "prekinitev povezavo s storitvijo %{service}?"
     inviter:
       click_link_to_accept_invitation: "Kliknite na povezavo za potrditev vašega povabila"

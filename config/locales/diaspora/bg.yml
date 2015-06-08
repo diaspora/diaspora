@@ -581,13 +581,9 @@ bg:
       no_friends: "Няма намерени приятели от Facebook."
       service_friends: "Приятели от %{service}"
     index:
-      connect_to_facebook: "Свързване с facebook"
-      connect_to_tumblr: "Свързване с tumblr"
-      connect_to_twitter: "Свързване с twitter"
       disconnect: "изключване"
       edit_services: "Настройки на услугите"
       logged_in_as: "вписани сте като"
-      no_services: "Все още не сте свързали нито една услуга."
       really_disconnect: "Наистина ли желаете свързаността с %{service} да бъде изключена?"
     inviter:
       click_link_to_accept_invitation: "Кликнете върху връзката, за да приемете поканата"

@@ -718,13 +718,9 @@ eu:
       no_friends: "Ez dira Facebookeko lagunak aurkitu."
       service_friends: "%{service}(e)ko Lagunak"
     index:
-      connect_to_facebook: "Facebookera lotu"
-      connect_to_tumblr: "Tumblrera lotu"
-      connect_to_twitter: "Twitterera lotu"
       disconnect: "irten"
       edit_services: "Aldatu zerbitzuak"
       logged_in_as: "Lotuta duzun kontua honakoa da:"
-      no_services: "Oraindik ez duzu zerbitzurik lotu."
       really_disconnect: "irten %{service}(e)tik?"
     inviter:
       click_link_to_accept_invitation: "Jarraitu esteka hau zure gonbidapena onartzeko"

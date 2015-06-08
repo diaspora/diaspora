@@ -713,13 +713,9 @@ nn:
       no_friends: "Fann ingen Facebook-vener."
       service_friends: "%{service}-vener"
     index:
-      connect_to_facebook: "Kopla til Facebook"
-      connect_to_tumblr: "Kopla til Tumblr"
-      connect_to_twitter: "Kopla til Twitter"
       disconnect: "kopla frå"
       edit_services: "Endra tenester"
       logged_in_as: "pålogga som"
-      no_services: "Du har ikkje kopla deg til noka teneste enno."
       really_disconnect: "kopla frå %{service}?"
     inviter:
       click_link_to_accept_invitation: "Godta invitasjonen ved å klikka på denne lenkja"

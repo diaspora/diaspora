@@ -31,6 +31,7 @@ de_formal:
       post_something: "Erstellen Sie einen Beitrag in diaspora*"
       post_submit: "Beitrag einreichen..."
       post_success: "Gepostet! Popup-Fenster wird geschlossen..."
+    cancel: "Abbrechen"
     comma: ","
     comments:
       hide: "Kommentare verbergen"
@@ -48,6 +49,7 @@ de_formal:
       search_no_results: "Keine Kontakte gefunden"
     conversation:
       participants: "Teilnehmer"
+    create: "Erstellen"
     delete: "Löschen"
     edit: "Bearbeiten"
     failed_to_like: "Gefällt mir fehlgeschlagen."

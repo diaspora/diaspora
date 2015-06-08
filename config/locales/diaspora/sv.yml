@@ -163,6 +163,7 @@ sv:
     destroy:
       failure: "%{name} är inte tom och kan därför inte tas bort"
       success: "%{name} togs bort."
+      success_auto_follow_back: "%{name} togs bort. Du använde denna aspekt för att automatiskt följa dem som följde dig. Välj en annan aspekt för dessa bland dina inställningar."
     edit:
       aspect_chat_is_enabled: "Kontakterna i denna aspekt har tillåtelse chatta med dig."
       aspect_chat_is_not_enabled: "Kontakter i denna aspekt har inte privilegier för att chatta med dig."
@@ -715,6 +716,7 @@ sv:
     accept_invite: "Acceptera din Diaspora*-inbjudan!"
     click_here: "Klicka här"
     comment_on_post:
+      limited_subject: "En ny kommentar finns i ett inlägg du har kommenterat."
       reply: "Svara eller se %{name}s inlägg >"
     confirm_email:
       click_link: "För att aktivera din nya e-postadress %{unconfirmed_email}, klicka här:"
@@ -782,8 +784,10 @@ sv:
     invited_you: "%{name} har bjudt in dig till Diaspora*."
     liked:
       liked: "%{name} gillar ditt inlägg "
+      limited_post: "%{name} gillade ditt begränsade inlägg."
       view_post: "Se inlägg >"
     mentioned:
+      limited_post: "Du nämndes i ett begränsat inlägg."
       mentioned: "nämnde dig i ett inlägg:"
       subject: "%{name} har nämnt dig på Diaspora*"
     private_message:
@@ -1072,19 +1076,22 @@ sv:
       no_friends: "Hittade inga vänner från Facebook."
       service_friends: "%{service}-vänner"
     index:
-      connect_to_facebook: "Anslut till Facebook"
-      connect_to_tumblr: "Anslut till Tumblr"
-      connect_to_twitter: "Anslut till Twitter"
-      connect_to_wordpress: "Koppla ihop med Wordpress"
+      connect: "Anslut"
       disconnect: "Koppla från"
       edit_services: "Ändra tjänster"
       logged_in_as: "Inloggad som"
-      no_services: "Du har inte kopplat ihop några tjänster."
+      no_services_available: "Det finns inga tjänster tillgängliga på denna pod."
+      not_logged_in: "För nuvarande inte inloggad."
       really_disconnect: "Vill du koppla från %{service}?"
       services_explanation: "Genom att ansluta till andra tjänster, möjliggör det dig att skicka dina inlägg till dem samtidigt som på Diaspora*."
     inviter:
       click_link_to_accept_invitation: "Följ länken för att acceptera din inbjudan"
       join_me_on_diaspora: "Gå med mig på Diaspora*"
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "Wordpress"
     remote_friend:
       invite: "Bjud in"
       not_on_diaspora: "Ännu inte på Diaspora*"

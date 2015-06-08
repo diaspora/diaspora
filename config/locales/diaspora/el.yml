@@ -769,14 +769,9 @@ el:
       no_friends: "Δεν βρέθηκαν φίλοι στο Facebook. "
       service_friends: "%{service} Φίλοι"
     index:
-      connect_to_facebook: "Σύνδεση με Facebook"
-      connect_to_tumblr: "Σύνδεση με το Tumblr"
-      connect_to_twitter: "Σύνδεση με Twitter"
-      connect_to_wordpress: "Σύνδεση με Wordpress"
       disconnect: "αποσύνδεση"
       edit_services: "Επεξεργασία υπηρεσιών"
       logged_in_as: "συνδεδεμένος ως"
-      no_services: "Δεν έχεις συνδέσει κάποια υπηρεσία ακόμα."
       really_disconnect: "αποσύνδεση %{service};"
       services_explanation: "Η σύνδεση των υπηρεσιών σας δίνει τη δυνατότητα να κοινοποιούνται οι δημοσιεύσεις σας σε κάθε υπηρεσία, καθώς τις γράφεται στο Diaspora."
     inviter:

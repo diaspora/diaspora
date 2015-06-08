@@ -704,13 +704,9 @@ eo:
       no_friends: "Neniuj Facebook amikoj trovitaj."
       service_friends: "%{service} Amikoj"
     index:
-      connect_to_facebook: "Ligi al Facebook"
-      connect_to_tumblr: "Ligi al Tumblr"
-      connect_to_twitter: "Ligi al Twitter"
       disconnect: "malkonekti"
       edit_services: "Redakti servojn"
       logged_in_as: "ensalutinta kiel"
-      no_services: "Vi ankoraŭ ne konektis iujn ajn servojn."
       really_disconnect: "ĉu vi volas malkonekti %{service}?"
     inviter:
       click_link_to_accept_invitation: "Sekvu tiun ligilon por akcepti vian inviton"

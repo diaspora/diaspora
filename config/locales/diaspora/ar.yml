@@ -426,6 +426,8 @@ ar:
       zero: "%{actors} بدأ المشاركة معك."
   notifier:
     a_post_you_shared: "مشاركة."
+    also_commented:
+      limited_subject: "هناك تعليق جديد على تدوينة كتبتها"
     click_here: "اضغط هنا"
     comment_on_post:
       reply: "رُد أو اعرض مشاركة %{name} >"
@@ -696,13 +698,9 @@ ar:
       no_friends: "لم يُعثَر على أصدقاء فايسبوك."
       service_friends: "%{service} الأصدقاء"
     index:
-      connect_to_facebook: "إتصل بـ فيسبوك"
-      connect_to_tumblr: "صل حسابك بـ تمبللر"
-      connect_to_twitter: "إتصل بتويتر"
       disconnect: "قطع الإتصال"
       edit_services: "تعديل الخدمات"
       logged_in_as: "متصل بحساب"
-      no_services: "غير متصل بأي خدمة بعد."
       really_disconnect: "قطع إتصال %{service}?"
     inviter:
       click_link_to_accept_invitation: "إتبع هذا الرابط لقبول دعوتك"

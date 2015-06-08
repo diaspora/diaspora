@@ -968,14 +968,9 @@ ia:
       no_friends: "Nulle amico de Facebook trovate."
       service_friends: "Amicos de %{service}"
     index:
-      connect_to_facebook: "Connecter a Facebook"
-      connect_to_tumblr: "Connecter a Tumblr"
-      connect_to_twitter: "Connecter a Twitter"
-      connect_to_wordpress: "Connecter a WordPress"
       disconnect: "disconnecter"
       edit_services: "Modificar servicios"
       logged_in_as: "identificate como"
-      no_services: "Tu non ha ancora connectite alcun servicio."
       really_disconnect: "disconnecter %{service}?"
       services_explanation: "Le connexion a servicios da le possibilitate de publicar tu messages anque in illos si tu los scribe in diaspora*."
     inviter:

@@ -754,14 +754,9 @@ nds:
       no_friends: "Keene Facebook-Frünnen funnen."
       service_friends: "%{service}-Frünnen"
     index:
-      connect_to_facebook: "Mit Facebook verbinnen"
-      connect_to_tumblr: "Mit Tumblr verbinnen"
-      connect_to_twitter: "Mit Twitter verbinnen"
-      connect_to_wordpress: "Mit Wordpress verbinnen"
       disconnect: "Verbinnung trennen"
       edit_services: "Deenste ännern"
       logged_in_as: "anmellt as"
-      no_services: "Du hest noch keene Deenste verbunnen."
       really_disconnect: "Verbinnung to %{service} trennen?"
     inviter:
       click_link_to_accept_invitation: "Folg dissen Link, üm diene Inladung to akzepteren"

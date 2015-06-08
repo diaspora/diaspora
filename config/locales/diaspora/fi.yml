@@ -1033,14 +1033,9 @@ fi:
       no_friends: "Facebook-kavereita ei löytynyt."
       service_friends: "%{service}-kaverit"
     index:
-      connect_to_facebook: "Yhdistä Facebookiin"
-      connect_to_tumblr: "Yhdistä Tumblriin"
-      connect_to_twitter: "Yhdistä Twitteriin"
-      connect_to_wordpress: "Yhdistä WordPressiin"
       disconnect: "Katkaise yhteys"
       edit_services: "Muokkaa palveluita"
       logged_in_as: "Kirjauduttu käyttäjänä"
-      no_services: "Et ole vielä yhdistänyt palveluita."
       really_disconnect: "Katkaistaanko yhteys palveluun %{service}?"
       services_explanation: "Palveluihin yhdistäminen antaa sinulle mahdollisuuden julkaista Diasporaan lähettämäsi julkaisut myös niissä."
     inviter:

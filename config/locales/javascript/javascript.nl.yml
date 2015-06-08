@@ -30,10 +30,18 @@ nl:
       deselect_all: "Alles deselecteren"
       no_aspects: "Geen aspecten geselecteerd"
       select_all: "Alles selecteren"
+    aspects:
+      create:
+        add_a_new_aspect: "Nieuw aspect toevoegen"
+        failure: "Creëren aspect mislukt."
+        success: "Je nieuwe aspect <%= name %> is gecreëerd"
+      make_aspect_list_visible: "Contacten in dit aspect zichtbaar maken voor elkaar?"
+      name: "Naam"
     bookmarklet:
       post_something: "Plaatsen op diaspora*"
       post_submit: "Bericht aanmelden..."
       post_success: "Geplaatst! Sluit nu pop-up venster..."
+    cancel: "Annuleren"
     comma: ","
     comments:
       hide: "Verberg reacties"
@@ -51,6 +59,7 @@ nl:
       search_no_results: "geen contactpersonen gevonden"
     conversation:
       participants: "Deelnemers"
+    create: "Creëren"
     delete: "Verwijder"
     edit: "Bewerken"
     failed_to_like: "Leuk vinden mislukt!"
@@ -185,8 +194,11 @@ nl:
       show_nsfw_posts: "Toon alles"
       tags:
         follow: "Volg #<%= tag %>"
+        follow_error: "Kon <%= tag %> niet volgen :("
         following: "Volgend #<%= tag %>"
         stop_following: "Stop met volgen #<%= tag %>"
+        stop_following_confirm: "Stoppen met volgen van <%= tag %>?"
+        stop_following_error: "Kon niet stoppen met volgen van <%= tag %> :("
       unfollow: "Niet meer volgen"
       unlike: "Loslaten"
       via: "via <%= provider %>"
