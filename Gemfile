@@ -77,7 +77,7 @@ gem "mini_magick", "4.2.7"
 gem "remotipart",  "1.2.1"
 
 # GUID generation
-gem "uuid", "2.3.7"
+gem "uuid", "2.3.8"
 
 # Icons
 

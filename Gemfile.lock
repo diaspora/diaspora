@@ -727,7 +727,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    uuid (2.3.7)
+    uuid (2.3.8)
       macaddr (~> 1.0)
     warden (1.2.3)
       rack (>= 1.0)
@@ -870,7 +870,7 @@ DEPENDENCIES
   typhoeus (= 0.7.1)
   uglifier (= 2.7.1)
   unicorn (= 4.9.0)
-  uuid (= 2.3.7)
+  uuid (= 2.3.8)
   webmock (= 1.21.0)
   will_paginate (= 3.0.7)
 
