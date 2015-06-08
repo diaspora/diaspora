@@ -535,9 +535,6 @@ GEM
     rails-assets-jquery-idletimer (1.0.1)
     rails-assets-jquery-placeholder (2.1.1)
       rails-assets-jquery (>= 1.6)
-    rails-assets-jquery-simulate (1.0.1)
-    rails-assets-jquery-simulate-ext (1.3.0)
-      rails-assets-jquery (>= 1.7.0)
     rails-assets-jquery-textchange (0.2.3)
       rails-assets-jquery
     rails-assets-jquery-ui (1.10.4)
@@ -826,8 +823,6 @@ DEPENDENCIES
   rails-assets-jquery (= 1.11.2)!
   rails-assets-jquery-idletimer (= 1.0.1)!
   rails-assets-jquery-placeholder (= 2.1.1)!
-  rails-assets-jquery-simulate (= 1.0.1)!
-  rails-assets-jquery-simulate-ext (= 1.3.0)!
   rails-assets-jquery-textchange (= 0.2.3)!
   rails-assets-markdown-it (= 4.2.2)!
   rails-assets-markdown-it--markdown-it-for-inline (= 0.1.1)!
