@@ -542,7 +542,7 @@ GEM
       rails-assets-jquery
     rails-assets-jquery-ui (1.10.4)
       rails-assets-jquery (>= 1.6)
-    rails-assets-jquery.slimscroll (1.3.3)
+    rails-assets-jquery.slimscroll (1.3.6)
       rails-assets-jquery (>= 1.7)
     rails-assets-markdown-it--markdown-it-for-inline (0.1.1)
     rails-assets-markdown-it (4.2.2)
